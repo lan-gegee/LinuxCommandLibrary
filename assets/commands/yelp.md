@@ -1,30 +1,30 @@
 # TAGLINE
 
-GNOME desktop help browser
+GNOME 桌面帮助浏览器
 
 # TLDR
 
-**Open help browser**
+**打开帮助浏览器**
 
 ```yelp```
 
-**Open specific help document**
+**打开特定帮助文档**
 
 ```yelp [help:gnome-terminal]```
 
-**Open man page**
+**打开 man 手册页**
 
 ```yelp [man:ls]```
 
-**Open info page**
+**打开 info 页面**
 
 ```yelp [info:bash]```
 
-**Open local file**
+**打开本地文件**
 
 ```yelp [file:///usr/share/doc/package/manual.html]```
 
-**Open Mallard documentation**
+**打开 Mallard 文档**
 
 ```yelp [ghelp:gedit]```
 
@@ -35,38 +35,38 @@ GNOME desktop help browser
 # PARAMETERS
 
 **--help**
-> Display help options.
+> 显示帮助选项。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # URI SCHEMES
 
-**help:**: GNOME help documentation.
+**help:**：GNOME 帮助文档。
 
-**ghelp:**: Legacy GNOME help (DocBook).
+**ghelp:**：旧式 GNOME 帮助（DocBook）。
 
-**man:**: System manual pages.
+**man:**：系统手册页。
 
-**info:**: GNU info pages.
+**info:**：GNU info 页面。
 
-**file://**: Local HTML files.
+**file://**：本地 HTML 文件。
 
 # DESCRIPTION
 
-**yelp** is the GNOME help browser, providing a unified interface for viewing various documentation formats. It supports Mallard, DocBook, man pages, info pages, and HTML documentation.
+**yelp** 是 GNOME 的帮助浏览器，为查看各种文档格式提供统一界面。它支持 Mallard、DocBook、man 手册页、info 页面和 HTML 文档。
 
-The application integrates with GNOME applications; pressing F1 in most GNOME apps launches yelp with the relevant help. It features interactive search, bookmarks, and navigation history.
+该应用与 GNOME 应用集成；在大多数 GNOME 应用中按 F1 会启动 yelp 并打开相关帮助。它具有交互式搜索、书签和导航历史功能。
 
-Yelp uses XSLT to render XML documentation as HTML. The freedesktop.org help system specification ensures consistent help access across GNOME applications.
+Yelp 使用 XSLT 将 XML 文档渲染为 HTML。freedesktop.org 的帮助系统规范确保了各 GNOME 应用间一致的帮助访问体验。
 
 # CAVEATS
 
-GNOME-centric; other desktops may have different help systems. Some documentation requires specific packages installed. Search indexes may need rebuilding after updates.
+以 GNOME 为中心；其他桌面可能使用不同的帮助系统。某些文档需要安装特定的软件包。更新后搜索索引可能需要重建。
 
 # HISTORY
 
-**yelp** was created as the standard help browser for GNOME. The name was suggested by Daniel Lundin. It has evolved alongside GNOME, supporting the transition from DocBook to Mallard as the primary documentation format.
+**yelp** 是作为 GNOME 的标准帮助浏览器而创建的。名字由 Daniel Lundin 建议。它与 GNOME 一同演进，支持了主要文档格式从 DocBook 向 Mallard 的过渡。
 
 # INSTALL
 

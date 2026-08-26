@@ -1,26 +1,26 @@
 # TAGLINE
 
-Cinnamon desktop text editor
+Cinnamon 桌面文本编辑器
 
 # TLDR
 
-**Start** editor
+**启动**编辑器
 
 ```xed```
 
-**Open** files
+**打开**文件
 
 ```xed [path/to/file1 path/to/file2 ...]```
 
-Open with **encoding**
+以指定**编码**打开
 
 ```xed --encoding [WINDOWS-1252] [path/to/file]```
 
-List **encodings**
+列出**编码**
 
 ```xed --list-encodings```
 
-Go to **line** number
+跳转到指定**行号**
 
 ```xed +[10] [path/to/file]```
 
@@ -31,29 +31,29 @@ Go to **line** number
 # PARAMETERS
 
 **--encoding** _ENCODING_
-> Open files using specific character encoding
+> 使用指定的字符编码打开文件
 
 **--list-encodings**
-> Print all supported encodings
+> 打印所有支持的编码
 
 **+**_LINE_
-> Go to specified line number
+> 跳转到指定行号
 
 **--new-window**
-> Open in new window
+> 在新窗口中打开
 
 **--new-document**
-> Open new document
+> 打开新文档
 
 # DESCRIPTION
 
-**xed** is the default text editor for the Cinnamon desktop environment. It is based on gedit and provides syntax highlighting, tabs, spell checking, and plugin support.
+**xed** 是 Cinnamon 桌面环境的默认文本编辑器。它基于 gedit，提供语法高亮、标签页、拼写检查和插件支持。
 
-The editor supports multiple character encodings and can convert between them.
+该编辑器支持多种字符编码，并可在它们之间转换。
 
 # CAVEATS
 
-Designed for Cinnamon desktop. May require GTK libraries on other environments. Plugins require Python.
+为 Cinnamon 桌面设计。在其他环境下可能需要 GTK 库。插件需要 Python。
 
 # INSTALL
 

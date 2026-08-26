@@ -1,42 +1,42 @@
 # TAGLINE
 
-Non-interactive network file downloader
+非交互式网络文件下载器
 
 # TLDR
 
-**Download a file**
+**下载文件**
 
 ```wget [https://example.com/file]```
 
-**Download with custom output name**
+**以自定义输出文件名下载**
 
 ```wget -O [filename] [url]```
 
-**Download to specific directory**
+**下载到指定目录**
 
 ```wget -P [directory] [url]```
 
-**Continue a partial download**
+**继续未完成的下载**
 
 ```wget -c [url]```
 
-**Download in background**
+**在后台下载**
 
 ```wget -b [url]```
 
-**Download recursively** (mirror a website)
+**递归下载**（镜像网站）
 
 ```wget -r [url]```
 
-**Download with authentication**
+**带身份验证下载**
 
 ```wget --user=[username] --password=[password] [url]```
 
-**Limit download speed**
+**限制下载速度**
 
 ```wget --limit-rate=[200k] [url]```
 
-**Download from a list of URLs**
+**从 URL 列表下载**
 
 ```wget -i [urls.txt]```
 
@@ -47,72 +47,72 @@ Non-interactive network file downloader
 # PARAMETERS
 
 **-O** _file_
-> Write to specified file
+> 写入指定文件
 
 **-P** _prefix_
-> Save to specified directory
+> 保存到指定目录
 
 **-c**, **--continue**
-> Resume partial download
+> 继续未完成的下载
 
 **-b**, **--background**
-> Go to background after starting
+> 启动后转入后台
 
 **-q**, **--quiet**
-> Quiet mode (no output)
+> 安静模式（无输出）
 
 **-r**, **--recursive**
-> Recursive download
+> 递归下载
 
 **-l** _depth_, **--level**=_depth_
-> Maximum recursion depth (0 = infinite)
+> 最大递归深度（0 = 无限）
 
 **-k**, **--convert-links**
-> Convert links for local viewing
+> 转换链接以便本地查看
 
 **-p**, **--page-requisites**
-> Download all page requirements (images, CSS, etc.)
+> 下载页面所需的全部资源（图片、CSS 等）
 
 **-m**, **--mirror**
-> Mirror mode (-r -N -l inf --no-remove-listing)
+> 镜像模式（-r -N -l inf --no-remove-listing）
 
 **-i** _file_, **--input-file**=_file_
-> Read URLs from file
+> 从文件读取 URL
 
 **--limit-rate**=_rate_
-> Limit download speed
+> 限制下载速度
 
 **--user**=_user_, **--password**=_pass_
-> HTTP/FTP authentication
+> HTTP/FTP 身份验证
 
 **-U** _agent_, **--user-agent**=_agent_
-> Set User-Agent header
+> 设置 User-Agent 请求头
 
 **--no-check-certificate**
-> Don't validate SSL certificates
+> 不验证 SSL 证书
 
 **--header**=_string_
-> Send additional HTTP header
+> 发送额外的 HTTP 请求头
 
 # DESCRIPTION
 
-**wget** is a non-interactive network downloader supporting HTTP, HTTPS, and FTP. It can download files, follow links, and mirror entire websites while handling interruptions and retrying failed transfers.
+**wget** 是一款非交互式网络下载器，支持 HTTP、HTTPS 和 FTP。它可以下载文件、跟随链接、镜像整个网站，并能处理中断和重试失败的传输。
 
-For simple downloads, wget automatically names the output file from the URL. Use **-O** to specify a different name or **-O -** to output to stdout.
+对于简单下载，wget 会自动根据 URL 命名输出文件。使用 **-O** 指定其他名称，或使用 **-O -** 输出到标准输出。
 
-Recursive downloading with **-r** follows links and downloads connected pages. Combine with **-l** to limit depth, **-k** to convert links for offline browsing, and **-p** to get page resources.
+配合 **-r** 的递归下载会跟随链接并下载关联页面。可结合 **-l** 限制深度、**-k** 转换链接便于离线浏览，以及 **-p** 获取页面资源。
 
-Wget handles redirects, cookies, and authentication automatically. It's scriptable and works well for automated downloads and cron jobs.
+Wget 自动处理重定向、cookie 和身份验证。它适合脚本化，非常适合自动化下载和 cron 任务。
 
 # CAVEATS
 
-Recursive downloading can consume significant bandwidth and storage. Always use **-l** to limit depth when mirroring, and respect robots.txt (wget does by default).
+递归下载可能消耗大量带宽和存储空间。镜像时务必用 **-l** 限制深度，并遵守 robots.txt（wget 默认遵守）。
 
-**--no-check-certificate** bypasses SSL verification—use only when necessary and understand the security implications.
+**--no-check-certificate** 会绕过 SSL 验证——仅在必要时使用，并了解其安全影响。
 
-Some sites block wget by User-Agent. Use **-U** to set a browser-like User-Agent string if needed.
+某些网站会根据 User-Agent 阻止 wget。必要时可用 **-U** 设置类浏览器的 User-Agent 字符串。
 
-For complex downloads with multiple retries and bandwidth control, consider creating a **.wgetrc** configuration file.
+对于需要多次重试和带宽控制的复杂下载，可以考虑创建 **.wgetrc** 配置文件。
 
 # INSTALL
 

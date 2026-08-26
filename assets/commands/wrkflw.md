@@ -1,18 +1,18 @@
 # TAGLINE
 
-Validate and run GitHub Actions workflows locally
+在本地验证并运行 GitHub Actions 工作流
 
 # TLDR
 
-**Launch** the interactive TUI
+**启动**交互式 TUI
 
 ```wrkflw```
 
-**Validate** workflows in the repo
+**验证**仓库中的工作流
 
 ```wrkflw validate```
 
-**Run** a workflow locally
+在本地**运行**工作流
 
 ```wrkflw run [workflow.yml]```
 
@@ -22,23 +22,23 @@ Validate and run GitHub Actions workflows locally
 
 # DESCRIPTION
 
-**wrkflw** validates and executes GitHub Actions workflows on your machine using Docker, Podman, or secure emulation. It offers a TUI for browsing workflows, execution logs, DAGs, triggers, and secrets—useful before pushing CI changes.
+**wrkflw** 使用 Docker、Podman 或安全模拟在你的机器上验证并执行 GitHub Actions 工作流。它提供 TUI 用于浏览工作流、执行日志、DAG、触发器和密钥——在推送 CI 改动之前非常有用。
 
 # PARAMETERS
 
 **validate**
 
-> Structural/syntax checks on workflow files.
+> 对工作流文件进行结构/语法检查。
 
 **run** *workflow*
 
-> Execute locally with container or emulation backend.
+> 使用容器或模拟后端在本地执行。
 
-Default TUI mode lists workflows and past runs. See **wrkflw --help** for watch mode and backend flags.
+默认 TUI 模式会列出工作流和历史运行记录。监视模式与后端标志参见 **wrkflw --help**。
 
 # CAVEATS
 
-Not every GitHub-hosted capability is reproducible offline (actions marketplace, OIDC, service networking). Docker socket access has security implications. Secrets handling must stay local.
+并非所有 GitHub 托管的能力都能离线复现（actions 市场、OIDC、服务网络）。访问 Docker socket 存在安全隐患。密钥的处理必须保持在本地。
 
 # INSTALL
 

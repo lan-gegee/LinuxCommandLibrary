@@ -1,30 +1,30 @@
 # TAGLINE
 
-Batch rename files using zsh patterns
+使用 zsh 模式批量重命名文件
 
 # TLDR
 
-**Rename files lowercase to uppercase**
+**将文件名从小写改为大写**
 
 ```zmv '(*)' '${(U)1}'```
 
-**Add prefix to all files**
+**为所有文件添加前缀**
 
 ```zmv '(*)' 'prefix_$1'```
 
-**Change file extension**
+**更改文件扩展名**
 
 ```zmv '(*).txt' '$1.md'```
 
-**Rename with sequential numbers**
+**以连续编号重命名**
 
 ```zmv -n '*.jpg' 'photo_$((++n)).jpg'```
 
-**Dry run (show what would happen)**
+**试运行（显示将会发生什么）**
 
 ```zmv -n '(*)' 'new_$1'```
 
-**Move files to subdirectory**
+**将文件移动到子目录**
 
 ```zmv '(*.txt)' 'subdir/$1'```
 
@@ -35,61 +35,61 @@ Batch rename files using zsh patterns
 # PARAMETERS
 
 **-n**
-> Dry run, show what would be done
+> 试运行，显示将要执行的操作
 
 **-f**
-> Force overwrite without prompting
+> 强制覆盖，不做提示
 
 **-i**
-> Interactive, prompt before overwriting
+> 交互式，覆盖前提示
 
 **-q**
-> Quiet, don't report errors
+> 安静模式，不报告错误
 
 **-Q**
-> Force bare glob qualifiers on pattern
+> 强制在模式上使用裸 glob 限定符
 
 **-s**
-> Symbolic link instead of move
+> 创建符号链接而不是移动
 
 **-v**
-> Verbose, print each command
+> 详细输出，打印每条命令
 
 **-w**
-> Pick out wildcard parts of pattern
+> 从模式中提取通配符部分
 
 **-W**
-> Same as -w but with pattern replacement
+> 与 -w 相同，但进行模式替换
 
 **-C**
-> Copy instead of move
+> 复制而不是移动
 
 **-L**
-> Hard link instead of move
+> 创建硬链接而不是移动
 
 **-M**
-> Move (default)
+> 移动（默认）
 
 **-p** _program_
-> Use specified program instead of mv
+> 使用指定程序代替 mv
 
 # DESCRIPTION
 
-**zmv** is a Zsh builtin for batch renaming files using pattern matching and replacement. It's more powerful than basic mv for complex renaming operations.
+**zmv** 是一个 Zsh 内建函数，利用模式匹配和替换来批量重命名文件。对于复杂的重命名操作，它比基础的 mv 更强大。
 
-The source pattern uses Zsh extended globbing. Parenthesized groups are captured and available as **$1**, **$2**, etc. in the destination pattern. Zsh parameter expansion modifiers can transform captured text.
+源模式使用 Zsh 扩展 glob。圆括号分组会被捕获，并可在目标模式中以 **$1**、**$2** 等形式引用。Zsh 的参数展开修饰符可以对捕获的文本做变换。
 
-Common modifiers: **${(U)1}** uppercase, **${(L)1}** lowercase, **${(C)1}** capitalize, **${1:t}** tail (basename), **${1:h}** head (directory).
+常用修饰符：**${(U)1}** 转大写、**${(L)1}** 转小写、**${(C)1}** 首字母大写、**${1:t}** 取尾部（基本文件名）、**${1:h}** 取头部（目录）。
 
-zmv must be loaded first: **autoload -U zmv**
+zmv 必须先加载：**autoload -U zmv**
 
 # CAVEATS
 
-zmv is Zsh-specific. It won't work in bash or other shells.
+zmv 是 Zsh 特有的。它在 bash 或其他 shell 中无法工作。
 
-Always use **-n** (dry run) first to verify the operation before executing.
+执行前务必先用 **-n**（试运行）验证操作。
 
-Patterns use Zsh globbing, which differs from regular expressions. Enable extended_glob (**setopt extended_glob**) for full pattern support.
+模式使用 Zsh globbing，与正则表达式不同。启用 extended_glob（**setopt extended_glob**）可获得完整的模式支持。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Configure X server preferences
+配置 X server 偏好设置
 
 # TLDR
 
-**Disable** screensaver
+**禁用**屏保
 
 ```xset s off```
 
-**Disable** bell sound
+**关闭**铃声
 
 ```xset b off```
 
-Set screensaver **timeout**
+设置屏保**超时**
 
 ```xset s 3600 3600```
 
-**Disable** DPMS
+**禁用** DPMS
 
 ```xset -dpms```
 
-**Enable** DPMS
+**启用** DPMS
 
 ```xset +dpms```
 
-**Query** current settings
+**查询**当前设置
 
 ```xset q```
 
-Set **keyboard repeat** rate
+设置**键盘重复速率**
 
 ```xset r rate 200 30```
 
-Set **LED** state
+设置 **LED** 状态
 
 ```xset led 3```
 
@@ -42,74 +42,74 @@ Set **LED** state
 
 # DESCRIPTION
 
-**xset** is a user preference utility for X. It allows setting various user preference options for the X server, including keyboard, mouse, screen saver, and DPMS (Energy Star) settings.
+**xset** 是 X 的用户偏好设置工具。它可以为 X server 设置各种用户偏好选项，包括键盘、鼠标、屏保和 DPMS（Energy Star）设置。
 
 # PARAMETERS
 
 **s [timeout [cycle]]**
-> Set screen saver timeout and cycle time in seconds
+> 以秒为单位设置屏保超时和轮换时间
 
 **s on|off|default**
-> Enable, disable, or reset screen saver
+> 启用、禁用或重置屏保
 
 **s blank|noblank**
-> Set screen saver to blank or pattern mode
+> 将屏保设为变黑模式或图案模式
 
 **s expose|noexpose**
-> Allow/disallow screen exposure events
+> 允许/禁止屏幕暴露事件
 
 **-dpms**
-> Disable DPMS (Display Power Management Signaling)
+> 禁用 DPMS（Display Power Management Signaling）
 
 **+dpms**
-> Enable DPMS
+> 启用 DPMS
 
 **dpms standby suspend off**
-> Set DPMS timeouts in seconds
+> 以秒为单位设置 DPMS 超时
 
 **dpms force on|standby|suspend|off**
-> Force DPMS state immediately
+> 立即强制进入指定 DPMS 状态
 
 **b [volume [pitch [duration]]]**
-> Set bell parameters
+> 设置铃声参数
 
 **b on|off**
-> Enable or disable bell
+> 启用或禁用铃声
 
 **r [keycode] on|off**
-> Enable or disable auto-repeat for keys
+> 启用或禁用按键自动重复
 
 **r rate [delay [rate]]**
-> Set keyboard repeat delay (ms) and rate (per second)
+> 设置键盘重复延迟（毫秒）和速率（每秒次数）
 
 **led [on|off]**
-> Set all LEDs on or off
+> 打开或关闭所有 LED
 
 **led N**
-> Turn LED N on
+> 打开第 N 个 LED
 
 **-led N**
-> Turn LED N off
+> 关闭第 N 个 LED
 
 **fp= path,...**
-> Set font path
+> 设置字体路径
 
 **fp default**
-> Reset font path to default
+> 将字体路径重置为默认值
 
 **q**
-> Query current settings
+> 查询当前设置
 
 **-display display**
-> Specify X display
+> 指定 X display
 
 # CAVEATS
 
-Settings are temporary and reset when X restarts. For persistent settings, add xset commands to ~/.xprofile or session startup scripts. DPMS settings may be overridden by desktop environment power management.
+设置是临时的，X 重启后会重置。若要持久化设置，可将 xset 命令加入 ~/.xprofile 或会话启动脚本。DPMS 设置可能被桌面环境的电源管理覆盖。
 
 # HISTORY
 
-**xset** is part of the core X.Org utilities, providing command-line access to X server preferences that were historically set through X resources or window manager configurations.
+**xset** 是 X.Org 核心工具集的一部分，为历史上通过 X 资源或窗口管理器配置设置的 X server 偏好提供命令行访问方式。
 
 # INSTALL
 

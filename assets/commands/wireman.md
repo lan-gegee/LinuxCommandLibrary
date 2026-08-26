@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI gRPC client for the terminal
+面向终端的 TUI gRPC 客户端
 
 # TLDR
 
-**Launch the gRPC client**
+**启动 gRPC 客户端**
 
 ```wireman```
 
-**Activate server reflection** (inside the UI, on the selection tab)
+**启用服务器反射**（在 UI 内的选择选项卡上）
 
 ```Ctrl+r```
 
@@ -18,36 +18,36 @@ TUI gRPC client for the terminal
 
 # DESCRIPTION
 
-**WireMan** is a terminal-based gRPC client written in Rust. It reads .proto files from a configuration file and provides a TUI for sending requests, browsing services and methods, and viewing responses.
+**WireMan** 是一个用 Rust 编写的基于终端的 gRPC 客户端。它从配置文件读取 .proto 文件，并提供 TUI 用于发送请求、浏览服务和方法以及查看响应。
 
-The client supports server reflection, server-side streaming, header and metadata management, environment-based token loading via shell scripts, and exporting requests as **grpcurl** commands. Request history is persisted between sessions.
+该客户端支持服务器反射、服务器端流、头部和元数据管理、通过 shell 脚本按环境加载令牌，以及将请求导出为 **grpcurl** 命令。请求历史会在会话之间持久保存。
 
 # CONFIGURATION
 
 **~/.config/wireman/wireman.toml**
-> Main configuration file specifying proto file paths, addresses, default headers, and history settings.
+> 主配置文件，指定 proto 文件路径、地址、默认头部和历史设置。
 
 # KEY BINDINGS
 
 **Tab**
-> Switch between selection, request, response, and headers tabs.
+> 在选择、请求、响应和头部各选项卡之间切换。
 
 **Ctrl+r**
-> Activate server reflection mode (on the selection tab).
+> 启用服务器反射模式（在选择选项卡上）。
 
 **Enter**
-> Send the request or confirm a selection.
+> 发送请求或确认选择。
 
 **?**
-> Show in-app help.
+> 显示应用内帮助。
 
 # CAVEATS
 
-Requires a configuration file pointing to local .proto files or a server with reflection enabled. Some advanced gRPC features (e.g. client-side streaming) may have limited UI support.
+需要一个指向本地 .proto 文件或启用了反射的服务器的配置文件。某些高级 gRPC 功能（如客户端流）的 UI 支持可能有限。
 
 # HISTORY
 
-**wireman** was created by **preiter93** and is written in Rust. It targets developers who prefer a keyboard-driven terminal workflow over GUI tools like Postman or BloomRPC.
+**wireman** 由 **preiter93** 创建，使用 Rust 编写。它面向偏好键盘驱动的终端工作流而非 Postman 或 BloomRPC 等 GUI 工具的开发者。
 
 # INSTALL
 

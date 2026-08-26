@@ -1,38 +1,38 @@
 # TAGLINE
 
-Lightweight YAML and JSON processor
+轻量级 YAML 与 JSON 处理器
 
 # TLDR
 
-**Read a value** from a YAML file
+从 YAML 文件**读取值**
 
 ```yq '.[key]' [file.yaml]```
 
-**Read a nested value**
+**读取嵌套值**
 
 ```yq '.[parent].[child]' [file.yaml]```
 
-**Convert YAML to JSON**
+**将 YAML 转换为 JSON**
 
 ```yq -o=json [file.yaml]```
 
-**Convert JSON to YAML**
+**将 JSON 转换为 YAML**
 
 ```yq -p=json [file.json]```
 
-**Edit a file in place**
+**原地编辑文件**
 
 ```yq -i '.[key] = "value"' [file.yaml]```
 
-**Merge multiple YAML files**
+**合并多个 YAML 文件**
 
 ```yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' [file1.yaml] [file2.yaml]```
 
-**Select items from an array**
+**从数组中选择元素**
 
 ```yq '.items[] | select(.name == "foo")' [file.yaml]```
 
-**Count array elements**
+**统计数组元素个数**
 
 ```yq '.items | length' [file.yaml]```
 
@@ -43,62 +43,62 @@ Lightweight YAML and JSON processor
 # PARAMETERS
 
 **-i**, **--inplace**
-> Edit files in place.
+> 原地编辑文件。
 
 **-p**, **--input-format** _format_
-> Input format: yaml, json, xml, props, csv, tsv, toml.
+> 输入格式：yaml、json、xml、props、csv、tsv、toml。
 
 **-o**, **--output-format** _format_
-> Output format: yaml, json, xml, props, csv, tsv.
+> 输出格式：yaml、json、xml、props、csv、tsv。
 
 **-I**, **--indent** _n_
-> Set indentation level (default 2).
+> 设置缩进级别（默认 2）。
 
 **-C**, **--colors**
-> Force colored output.
+> 强制彩色输出。
 
 **-M**, **--no-colors**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-N**, **--no-doc**
-> Don't print document separators.
+> 不打印文档分隔符。
 
 **-e**, **--exit-status**
-> Set exit status based on expression result.
+> 根据表达式结果设置退出状态。
 
 **--from-file** _file_
-> Load expression from a file.
+> 从文件加载表达式。
 
 **-n**, **--null-input**
-> Don't read input; useful for creating new documents.
+> 不读取输入；适合创建新文档。
 
 **-s**, **--split-exp** _expression_
-> Split output into multiple files.
+> 将输出拆分为多个文件。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**yq** is a lightweight command-line YAML, JSON, XML, CSV, TOML, and properties processor. It uses jq-like syntax for querying and manipulating structured data, making it easy to extract values, modify documents, and convert between formats.
+**yq** 是一款轻量级的命令行 YAML、JSON、XML、CSV、TOML 和 properties 处理器。它使用类似 jq 的语法查询和操作结构化数据，方便提取值、修改文档以及在不同格式间转换。
 
-The tool supports reading from files or stdin, and can output to stdout or edit files in place. Expressions follow a path-based syntax similar to jq, allowing complex queries and transformations.
+该工具支持从文件或标准输入读取，可输出到标准输出或原地编辑文件。表达式遵循与 jq 类似的基于路径的语法，支持复杂的查询和转换。
 
-Two implementations exist: **mikefarah/yq** (Go-based, standalone binary) and **kislyuk/yq** (Python wrapper around jq). The Go version is more commonly installed via package managers.
+存在两种实现：**mikefarah/yq**（基于 Go 的独立二进制文件）和 **kislyuk/yq**（jq 的 Python 封装）。包管理器安装的通常是 Go 版本。
 
 # CAVEATS
 
-The two yq implementations have different syntax and capabilities. The Go version (mikefarah/yq) uses its own expression language, while the Python version (kislyuk/yq) uses jq syntax directly. Check which version is installed with **yq --version**.
+两个 yq 实现的语法和能力不同。Go 版本（mikefarah/yq）使用自己的表达式语言，而 Python 版本（kislyuk/yq）直接使用 jq 语法。可用 **yq --version** 检查安装的是哪个版本。
 
 # HISTORY
 
-The Python yq wrapper was created by **Andrey Kislyuk** and released in **2017** as a thin jq wrapper for YAML. The Go-based yq was created by **Mike Farah** around the same time as a standalone tool. The Go version has become more popular due to being a single binary with no dependencies and supporting multiple formats beyond YAML.
+Python 版 yq 封装由 **Andrey Kislyuk** 创建，于 **2017 年**发布，是针对 YAML 的轻量 jq 封装。基于 Go 的 yq 由 **Mike Farah** 在同一时期创建，是一款独立工具。由于 Go 版本是零依赖的单个二进制文件，且支持 YAML 以外的多种格式，因此更受欢迎。
 
 # INSTALL
 

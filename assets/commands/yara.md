@@ -1,38 +1,38 @@
 # TAGLINE
 
-Pattern matching for malware detection
+用于恶意软件检测的模式匹配工具
 
 # TLDR
 
-**Scan file with rules**
+**用规则扫描文件**
 
 ```yara [rules.yar] [file]```
 
-**Scan directory recursively**
+**递归扫描目录**
 
 ```yara -r [rules.yar] [directory]```
 
-**Scan process**
+**扫描进程**
 
 ```yara [rules.yar] [pid]```
 
-**Show matching strings**
+**显示匹配的字符串**
 
 ```yara -s [rules.yar] [file]```
 
-**Show metadata**
+**显示元数据**
 
 ```yara -m [rules.yar] [file]```
 
-**Multiple rule files**
+**多个规则文件**
 
 ```yara [rules1.yar] [rules2.yar] [file]```
 
-**Scan with timeout**
+**限时扫描**
 
 ```yara -a [30] [rules.yar] [file]```
 
-**Count matches**
+**统计匹配数**
 
 ```yara -c [rules.yar] [file]```
 
@@ -43,62 +43,62 @@ Pattern matching for malware detection
 # PARAMETERS
 
 **-r**
-> Recursive directory scan.
+> 递归扫描目录。
 
 **-s**
-> Show matching strings.
+> 显示匹配的字符串。
 
 **-m**
-> Show metadata.
+> 显示元数据。
 
 **-c**
-> Count matches only.
+> 仅统计匹配数。
 
 **-a** _SECONDS_
-> Timeout per file.
+> 每个文件的超时时间。
 
 **-n**
-> Negate (show non-matches).
+> 取反（显示不匹配的项）。
 
 **-g**
-> Show tags.
+> 显示标签。
 
 **-e**
-> Show namespace.
+> 显示命名空间。
 
 **-w**
-> Disable warnings.
+> 禁用警告。
 
 **-f**
-> Fast matching mode.
+> 快速匹配模式。
 
 **-p** _N_
-> Parallel threads.
+> 并行线程数。
 
 **-d** _VAR=VAL_
-> Define external variable.
+> 定义外部变量。
 
 # DESCRIPTION
 
-**yara** matches patterns against files or processes. It's the primary tool for malware classification and detection.
+**yara** 将模式与文件或进程进行匹配。它是恶意软件分类与检测的主要工具。
 
-Rules define patterns using strings, regular expressions, and conditions. They describe characteristics of malware families or suspicious behavior.
+规则通过字符串、正则表达式和条件定义模式，描述恶意软件家族的特征或可疑行为。
 
-String matching finds literal text, hex bytes, or regex patterns. Conditions combine matches with logic for precise detection.
+字符串匹配可以查找字面文本、十六进制字节或正则表达式模式。条件将匹配结果用逻辑组合起来，实现精确检测。
 
-Process scanning examines memory of running programs. This detects malware that may not be present on disk.
+进程扫描会检查正在运行的程序的内存。这可以检测出可能不存在于磁盘上的恶意软件。
 
-Metadata in rules provides context: author, description, severity, and references. This aids incident response.
+规则中的元数据提供上下文信息：作者、描述、严重性和参考资料，有助于事件响应。
 
-External variables enable parameterized rules. Thresholds and settings can be adjusted without modifying rules.
+外部变量使规则可以参数化。无需修改规则即可调整阈值和设置。
 
 # CAVEATS
 
-Rules require expertise to write well. False positives need tuning. Memory-resident malware harder to detect. Regular rule updates needed.
+编写高质量的规则需要专业知识。误报需要调优。内存驻留型恶意软件更难检测。需要定期更新规则。
 
 # HISTORY
 
-**YARA** was created by **Victor M. Alvarez** at **VirusTotal** around **2007**. It became the standard for malware classification, used by antivirus vendors, incident responders, and researchers.
+**YARA** 由 **Victor M. Alvarez** 在 **VirusTotal** 于 **2007 年**前后创建。它已成为恶意软件分类的标准工具，被杀毒厂商、事件响应人员和安全研究人员广泛使用。
 
 # INSTALL
 

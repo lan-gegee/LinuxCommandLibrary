@@ -1,22 +1,22 @@
 # TAGLINE
 
-Modify X11 key and pointer mappings
+修改 X11 按键和指针映射
 
 # TLDR
 
-**Swap** left-click and right-click on the pointer
+**交换**指针的左键和右键
 
 ```xmodmap -e 'pointer = 3 2 1'```
 
-**Reassign** a key on the keyboard to another key
+将键盘上的某个按键**重新分配**为另一个键
 
 ```xmodmap -e 'keycode [keycode] = [keyname]'```
 
-**Disable** a key on the keyboard
+**禁用**键盘上的某个按键
 
 ```xmodmap -e 'keycode [keycode] ='```
 
-**Execute** all expressions in a file
+**执行**文件中的所有表达式
 
 ```xmodmap [path/to/file]```
 
@@ -27,35 +27,35 @@ Modify X11 key and pointer mappings
 # PARAMETERS
 
 **-e _expression_**
-> Execute the given expression
+> 执行给定的表达式
 
 **-pm**
-> Print current modifier map
+> 打印当前修饰键映射
 
 **-pk**
-> Print current keymap table
+> 打印当前键盘映射表
 
 **-pp**
-> Print current pointer map
+> 打印当前指针映射
 
 **-grammar**
-> Print expression grammar
+> 打印表达式语法
 
 **-verbose**
-> Verbose output
+> 详细输出
 
 **-n**
-> Show what would be done without applying
+> 只显示将要执行的操作而不应用
 
 # DESCRIPTION
 
-**xmodmap** modifies keymaps and pointer button mappings in X Window System. It can remap keys, swap modifier keys, and change mouse button behavior.
+**xmodmap** 修改 X Window System 中的键盘映射和指针按钮映射。它可以重映射按键、交换修饰键以及更改鼠标按钮行为。
 
-Common uses include swapping Caps Lock and Control, remapping special keys, or configuring multi-button mice. Changes are stored in memory and persist until the X session ends.
+常见用途包括交换 Caps Lock 和 Control、重新映射特殊按键，或配置多按钮鼠标。更改保存在内存中，直到 X 会话结束。
 
 # CAVEATS
 
-Changes are not persistent across X server restarts. For permanent changes, add xmodmap commands to **~/.xinitrc** or **~/.xprofile**. Use **xev** to find keycodes. Modern systems may prefer **setxkbmap** for keyboard configuration.
+更改不会在 X server 重启后保留。要永久生效，请将 xmodmap 命令添加到 **~/.xinitrc** 或 **~/.xprofile**。可使用 **xev** 查找键码。现代系统配置键盘时可能更推荐使用 **setxkbmap**。
 
 # INSTALL
 

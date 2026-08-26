@@ -1,14 +1,14 @@
 # TAGLINE
 
-Initialize new Zapier integration project
+初始化新的 Zapier 集成项目
 
 # TLDR
 
-**Initialize new integration**
+**初始化新集成**
 
 ```zapier init [path]```
 
-**Initialize with template**
+**使用模板初始化**
 
 ```zapier init [path] --template [minimal]```
 
@@ -19,13 +19,12 @@ Initialize new Zapier integration project
 # PARAMETERS
 
 **--template** _name_
-> Use specific template.
+> 使用指定的模板。
 
 # DESCRIPTION
 
-**zapier init** creates a new Zapier integration project. Scaffolds project structure with boilerplate code. Starting point for developing Zapier integrations with CLI.
+**zapier init** 创建新的 Zapier 集成项目，用样板代码搭建项目结构。是用 CLI 开发 Zapier 集成的起点。
 
 # SEE ALSO
 
 [zapier](/man/zapier)(1), [zapier-scaffold](/man/zapier-scaffold)(1)
-

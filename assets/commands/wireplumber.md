@@ -1,26 +1,26 @@
 # TAGLINE
 
-Session and policy manager for PipeWire
+PipeWire 的会话与策略管理器
 
 # TLDR
 
-**Enable** with systemd
+用 systemd **启用**
 
 ```systemctl --user --now enable wireplumber```
 
-**Run** manually
+手动**运行**
 
 ```wireplumber```
 
-Use custom **config** file
+使用自定义**配置**文件
 
 ```wireplumber --config-file [path/to/file]```
 
-Display **help**
+显示**帮助**
 
 ```wireplumber --help```
 
-Display **version**
+显示**版本**
 
 ```wireplumber --version```
 
@@ -31,32 +31,32 @@ Display **version**
 # PARAMETERS
 
 **-c**, **--config-file** _FILE_
-> Use the specified main configuration file instead of `wireplumber.conf`.
+> 使用指定的主配置文件而不是 `wireplumber.conf`。
 
 **-n**, **--name** _NAME_
-> Use a custom daemon name (useful for running multiple instances).
+> 使用自定义守护进程名称（便于运行多个实例）。
 
 **-d**, **--debug** _LEVEL_
-> Set log level (e.g. `D` for debug, `I` for info, `W` for warnings, `E` for errors) or a GLib-style domain:level spec.
+> 设置日志级别（如 `D` 表示调试、`I` 表示信息、`W` 表示警告、`E` 表示错误），或使用 GLib 风格的 域:级别 规格。
 
 **-v**, **--verbose**
-> Increase log verbosity (equivalent to `--debug=D`).
+> 提高日志详细程度（等价于 `--debug=D`）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**wireplumber** is a modular session/policy manager for PipeWire. It handles device routing, audio policy decisions, and session management for the PipeWire multimedia framework.
+**wireplumber** 是 PipeWire 的模块化会话/策略管理器。它为 PipeWire 多媒体框架处理设备路由、音频策略决策和会话管理。
 
-The tool provides a GObject-based high-level library that wraps PipeWire's API for easier integration.
+该工具提供基于 GObject 的高层库，封装了 PipeWire 的 API 以便更轻松地集成。
 
 # CAVEATS
 
-Requires PipeWire to be running. Usually managed by systemd on modern systems. Configuration is Lua-based.
+需要 PipeWire 正在运行。在现代系统上通常由 systemd 管理。配置基于 Lua。
 
 # INSTALL
 

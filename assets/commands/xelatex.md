@@ -1,34 +1,34 @@
 # TAGLINE
 
-Unicode-aware LaTeX to PDF compiler
+支持 Unicode 的 LaTeX 到 PDF 编译器
 
 # TLDR
 
-**Compile a LaTeX document to PDF**
+**将 LaTeX 文档编译为 PDF**
 
 ```xelatex [document.tex]```
 
-**Compile with shell escape enabled**
+**启用 shell escape 进行编译**
 
 ```xelatex -shell-escape [document.tex]```
 
-**Compile to a specified output directory**
+**编译到指定的输出目录**
 
 ```xelatex -output-directory=[build/] [document.tex]```
 
-**Run in non-stop mode, skipping errors**
+**以 non-stop 模式运行，跳过错误**
 
 ```xelatex -interaction=nonstopmode [document.tex]```
 
-**Compile with a custom job name**
+**使用自定义作业名编译**
 
 ```xelatex -jobname=[output] [document.tex]```
 
-**Compile with SyncTeX for editor integration**
+**启用 SyncTeX 编译以便与编辑器集成**
 
 ```xelatex -synctex=1 [document.tex]```
 
-**Generate XDV output instead of PDF**
+**生成 XDV 输出而不是 PDF**
 
 ```xelatex -no-pdf [document.tex]```
 
@@ -39,59 +39,59 @@ Unicode-aware LaTeX to PDF compiler
 # PARAMETERS
 
 **-output-directory** _DIR_
-> Write output files to the specified directory.
+> 将输出文件写入指定目录。
 
 **-jobname** _NAME_
-> Set the output file base name.
+> 设置输出文件的基本名。
 
 **-interaction** _MODE_
-> Set interaction mode: batchmode, nonstopmode, scrollmode, errorstopmode.
+> 设置交互模式：batchmode、nonstopmode、scrollmode、errorstopmode。
 
 **-shell-escape**
-> Enable \\write18 shell command execution.
+> 启用 \\write18 shell 命令执行。
 
 **-no-shell-escape**
-> Disable shell command execution (default).
+> 禁用 shell 命令执行（默认）。
 
 **-synctex** _N_
-> Generate SyncTeX data for editor synchronization.
+> 生成用于编辑器同步的 SyncTeX 数据。
 
 **-halt-on-error**
-> Stop processing at the first error.
+> 在第一个错误处停止处理。
 
 **-file-line-error**
-> Show file name and line number in error messages.
+> 在错误消息中显示文件名和行号。
 
 **-no-pdf**
-> Generate XDV (XeTeX DeVice-independent) output rather than PDF.
+> 生成 XDV（XeTeX DeVice-independent）输出而不是 PDF。
 
 **-output-driver** _CMD_
-> Use CMD as the XDV-to-PDF driver instead of the default xdvipdfmx.
+> 使用 CMD 作为 XDV 转 PDF 的驱动程序，代替默认的 xdvipdfmx。
 
 **-8bit**
-> Make all characters printable by default.
+> 使所有字符默认可打印。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**xelatex** compiles LaTeX documents using the XeTeX engine, producing PDF output. It provides native Unicode (UTF-8) support and can use any system-installed OpenType or TrueType fonts directly via the **fontspec** package.
+**xelatex** 使用 XeTeX 引擎编译 LaTeX 文档并生成 PDF 输出。它原生支持 Unicode（UTF-8），可以通过 **fontspec** 宏包直接使用系统安装的任意 OpenType 或 TrueType 字体。
 
-Unlike pdfLaTeX, xelatex handles non-Latin scripts and complex typography without special encoding packages. Documents can include characters from any writing system directly. Internally, xelatex first produces an XDV (XeTeX DeVice-independent) file, then converts it to PDF using xdvipdfmx.
+与 pdfLaTeX 不同，xelatex 无需特殊的编码宏包即可处理非拉丁文字和复杂排版。文档可以直接包含来自任何书写系统的字符。在内部，xelatex 先生成 XDV（XeTeX DeVice-independent）文件，然后用 xdvipdfmx 将其转换为 PDF。
 
-Multiple compilation passes may be needed for cross-references, bibliographies, and indices. Build systems like **latexmk** automate this process.
+交叉引用、参考文献和索引可能需要多次编译。**latexmk** 等构建系统可以自动化这一过程。
 
 # CAVEATS
 
-Some packages designed for pdfLaTeX may be incompatible. Compilation is slightly slower than pdfLaTeX due to the two-stage XDV-to-PDF conversion. Microtype support is more limited than in pdfLaTeX or LuaLaTeX. Part of the TeX Live distribution.
+某些为 pdfLaTeX 设计的宏包可能不兼容。由于需要两阶段的 XDV 转 PDF 过程，编译比 pdfLaTeX 稍慢。对 Microtype 的支持不如 pdfLaTeX 或 LuaLaTeX 完善。属于 TeX Live 发行版的一部分。
 
 # HISTORY
 
-**XeTeX** was created by Jonathan Kew, initially for Mac OS X in **2004**. It was ported to Linux in **2006** and included in TeX Live **2007**. XeTeX brought modern font technology and Unicode support to TeX, making it practical for multilingual and professionally typeset documents.
+**XeTeX** 由 Jonathan Kew 创建，最初于 **2004 年**面向 Mac OS X。它于 **2006 年**被移植到 Linux，并被收入 TeX Live **2007**。XeTeX 为 TeX 带来了现代字体技术和 Unicode 支持，使其适用于多语言和专业排版文档。
 
 # INSTALL
 

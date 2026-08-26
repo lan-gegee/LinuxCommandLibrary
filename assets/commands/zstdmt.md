@@ -1,22 +1,22 @@
 # TAGLINE
 
-Multithreaded zstd compression
+多线程 zstd 压缩
 
 # TLDR
 
-**Compress with multithreading**
+**多线程压缩**
 
 ```zstdmt [file]```
 
-**Compress with specific threads**
+**指定线程数压缩**
 
 ```zstdmt -T[4] [file]```
 
-**Decompress multithreaded**
+**多线程解压**
 
 ```zstdmt -d [file.zst]```
 
-**Maximum compression**
+**最大压缩**
 
 ```zstdmt -19 [file]```
 
@@ -27,51 +27,51 @@ Multithreaded zstd compression
 # PARAMETERS
 
 **-T** _n_
-> Number of threads (0 = auto).
+> 线程数（0 = 自动）。
 
 **-d**
-> Decompress.
+> 解压。
 
 **-1** to **-19**
-> Compression level.
+> 压缩级别。
 
 **--ultra**
-> Enable ultra mode (levels 20-22).
+> 启用极限模式（级别 20-22）。
 
 **-k**, **--keep**
-> Keep source files (don't delete after compression).
+> 保留源文件（压缩后不删除）。
 
 **-c**, **--stdout**
-> Write to standard output.
+> 写入标准输出。
 
 **-o** _FILE_
-> Write output to FILE.
+> 将输出写入 FILE。
 
 **-f**, **--force**
-> Overwrite output without prompting.
+> 不提示直接覆盖输出。
 
 **--rm**
-> Remove source files after successful operation.
+> 操作成功后删除源文件。
 
 **-r**
-> Operate recursively on directories.
+> 递归处理目录。
 
 **--long**[=_WINDOWLOG_]
-> Enable long-range matching mode for improved compression ratio.
+> 启用长距离匹配模式以提升压缩比。
 
 **-B** _SIZE_
-> Set job size (each thread processes blocks of this size).
+> 设置任务块大小（每个线程处理该大小的数据块）。
 
 **--rsyncable**
-> Produce rsync-friendly compressed output.
+> 生成对 rsync 友好的压缩输出。
 
 # DESCRIPTION
 
-**zstdmt** is the multithreaded variant of the zstd compression utility. It automatically uses all available CPU cores for compression, equivalent to running **zstd -T0**, providing significantly faster throughput on multi-core systems.
+**zstdmt** 是 zstd 压缩工具的多线程变体。它会自动调用所有可用的 CPU 核心进行压缩，等同于运行 **zstd -T0**，在多核系统上吞吐量显著更高。
 
-The compressed output is fully compatible with standard zstd files and can be decompressed by any zstd-compatible tool. All standard zstd options for compression levels, decompression, and file handling are supported.
+其压缩输出与标准 zstd 文件完全兼容，任何支持 zstd 的工具都能解压。压缩级别、解压和文件处理等所有标准 zstd 选项均受支持。
 
-The number of threads can be set with the **ZSTD_NBTHREADS** environment variable. When **-T0** is used, the number of detected physical CPU cores is used, capped at 256 on 64-bit systems.
+线程数可通过 **ZSTD_NBTHREADS** 环境变量设置。使用 **-T0** 时采用检测到的物理 CPU 核心数，在 64 位系统上以 256 为上限。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ The number of threads can be set with the **ZSTD_NBTHREADS** environment variabl
 # SEE ALSO
 
 [zstd](/man/zstd)(1), [zstdcat](/man/zstdcat)(1), [unzstd](/man/unzstd)(1)
-

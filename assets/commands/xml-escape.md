@@ -1,14 +1,14 @@
 # TAGLINE
 
-Escape special XML characters
+转义 XML 特殊字符
 
 # TLDR
 
-**Escape XML special characters**
+**转义 XML 特殊字符**
 
 ```xml escape [text]```
 
-**Escape from stdin**
+**从 stdin 转义**
 
 ```echo "[<text>]" | xml escape```
 
@@ -19,11 +19,11 @@ Escape special XML characters
 # PARAMETERS
 
 _text_
-> Text to escape.
+> 要转义的文本。
 
 # DESCRIPTION
 
-**xml escape** escapes special XML characters. Part of xmlstarlet toolkit. Converts <, >, &, ', " to their XML entity equivalents for safe inclusion in XML documents.
+**xml escape** 转义 XML 特殊字符。属于 xmlstarlet 工具集。将 <、>、&、'、" 转换为对应的 XML 实体，以便安全地嵌入 XML 文档。
 
 # INSTALL
 
@@ -44,4 +44,3 @@ _text_
 # SEE ALSO
 
 [xml-unescape](/man/xml-unescape)(1), [xml-format](/man/xml-format)(1)
-

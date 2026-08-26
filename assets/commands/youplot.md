@@ -1,18 +1,18 @@
 # TAGLINE
 
-Draw plots on the terminal from command-line data
+根据命令行数据在终端上绘制图表
 
 # TLDR
 
-**Draw a bar chart from TSV data**
+从 TSV 数据**绘制条形图**
 
 ```cat [data.tsv] | uplot bar```
 
-**Draw a line plot from CSV**
+从 CSV **绘制折线图**
 
 ```cat [data.csv] | uplot line -d,```
 
-**Plot a histogram**
+**绘制直方图**
 
 ```seq 100 | awk '{print rand()}' | uplot hist```
 
@@ -22,11 +22,11 @@ Draw plots on the terminal from command-line data
 
 # DESCRIPTION
 
-**YouPlot** is a CLI tool that renders bar charts, line plots, scatter plots, histograms, and boxplots directly in the terminal using Unicode characters. It reads tab-separated or custom-delimited data from stdin, making it ideal for piping output from other commands.
+**YouPlot** 是一个命令行工具，使用 Unicode 字符直接在终端中渲染条形图、折线图、散点图、直方图和箱线图。它从标准输入读取制表符分隔或自定义分隔符的数据，非常适合管道接收其他命令的输出。
 
 # HISTORY
 
-**YouPlot** was created by **kojix2** (Red Data Tools) and is written in **Ruby**.
+**YouPlot** 由 **kojix2**（Red Data Tools）创建，以 **Ruby** 编写。
 
 # INSTALL
 

@@ -1,40 +1,40 @@
 # TAGLINE
 
-Red Hat package manager
+Red Hat 软件包管理器
 
 # TLDR
 
-On modern distros (RHEL 8+, Fedora 22+), **yum** is a symlink to **dnf**.
+在现代发行版（RHEL 8+、Fedora 22+）上，**yum** 是指向 **dnf** 的符号链接。
 
-**Install** a package
+**安装**软件包
 
 ```sudo yum install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```sudo yum remove [package]```
 
-**Update** all packages
+**更新**所有软件包
 
 ```sudo yum update```
 
-**Update** a specific package
+**更新**指定软件包
 
 ```sudo yum update [package]```
 
-**Search** for a package by name
+按名称**搜索**软件包
 
 ```yum search [keyword]```
 
-**List installed** packages
+**列出已安装的**软件包
 
 ```yum list installed```
 
-**Show info** about a package
+**显示**软件包信息
 
 ```yum info [package]```
 
-**Clean** cached data
+**清理**缓存数据
 
 ```yum clean all```
 
@@ -45,59 +45,59 @@ On modern distros (RHEL 8+, Fedora 22+), **yum** is a symlink to **dnf**.
 # PARAMETERS
 
 **install** _package_
-> Install one or more packages.
+> 安装一个或多个软件包。
 
 **remove** _package_
-> Remove a package.
+> 移除软件包。
 
 **update** [_package_]
-> Update all packages, or a specific package if given.
+> 更新所有软件包，若给定包名则只更新该包。
 
 **search** _keyword_
-> Search package names and descriptions.
+> 搜索软件包名称和描述。
 
 **info** _package_
-> Display detailed information about a package.
+> 显示软件包的详细信息。
 
 **list** [_installed_|_available_|_updates_]
-> List packages. Use **installed** for installed, **available** for repo packages, **updates** for available updates.
+> 列出软件包。**installed** 为已安装，**available** 为仓库中的软件包，**updates** 为可用更新。
 
 **clean** [_all_|_packages_|_metadata_]
-> Clean cached data.
+> 清理缓存数据。
 
 **provides** _file_
-> Find which package provides a given file.
+> 查找提供某个文件的软件包。
 
 **groupinstall** _group_
-> Install a package group.
+> 安装软件包组。
 
 **repolist** [_all_|_enabled_|_disabled_]
-> List configured repositories.
+> 列出已配置的软件仓库。
 
 **history**
-> View transaction history.
+> 查看事务历史。
 
 **-y**
-> Assume yes to all prompts.
+> 对所有提示自动回答 yes。
 
 **--enablerepo=**_repo_
-> Temporarily enable a specific repository.
+> 临时启用特定软件仓库。
 
 **--disablerepo=**_repo_
-> Temporarily disable a specific repository.
+> 临时禁用特定软件仓库。
 
 **--nogpgcheck**
-> Skip GPG signature checking.
+> 跳过 GPG 签名检查。
 
 # DESCRIPTION
 
-**yum** (Yellowdog Updater Modified) is the traditional package manager for Red Hat-based Linux distributions. On modern systems (RHEL 8+, Fedora 22+), **yum** is a symlink to **dnf**, which provides the same functionality with improved performance.
+**yum**（Yellowdog Updater Modified）是 Red Hat 系 Linux 发行版传统的软件包管理器。在现代系统上（RHEL 8+、Fedora 22+），**yum** 是指向 **dnf** 的符号链接，dnf 以更好的性能提供相同的功能。
 
-On older systems like CentOS 7, yum is the native package manager handling package installation, updates, and removal from configured repositories.
+在 CentOS 7 等较旧的系统上，yum 是原生软件包管理器，负责从已配置的软件仓库进行软件包的安装、更新和移除。
 
 # CAVEATS
 
-On modern systems, yum is an alias for dnf. Behavior may differ slightly between legacy yum and dnf. Use **dnf** directly on newer systems.
+在现代系统上，yum 是 dnf 的别名。旧版 yum 与 dnf 的行为可能略有差异。较新的系统请直接使用 **dnf**。
 
 # SEE ALSO
 

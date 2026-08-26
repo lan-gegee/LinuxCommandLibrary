@@ -1,30 +1,30 @@
 # TAGLINE
 
-Graphical desktop cow message display
+在桌面上以图形方式显示奶牛消息
 
 # TLDR
 
-Display cow with **message**
+显示带**消息**的奶牛
 
 ```xcowsay "[hello, world]"```
 
-Display with **pipe** input
+通过**管道**输入显示
 
 ```ls | xcowsay```
 
-Display at **position**
+在指定**位置**显示
 
 ```xcowsay --at [X],[Y]```
 
-Change cow **size**
+改变奶牛**大小**
 
 ```xcowsay --cow-size [small|med|large]```
 
-Display **thought** bubble
+显示**思想**气泡
 
 ```xcowsay --think```
 
-Use custom **image**
+使用自定义**图片**
 
 ```xcowsay --image [path/to/file]```
 
@@ -35,29 +35,29 @@ Use custom **image**
 # PARAMETERS
 
 **--at** _X,Y_
-> Display at specified coordinates
+> 在指定的坐标处显示
 
 **--cow-size** _SIZE_
-> Cow size: small, med, or large
+> 奶牛大小：small、med 或 large
 
 **--think**
-> Use thought bubble instead of speech
+> 使用思想气泡而不是对话气泡
 
 **--image** _FILE_
-> Use custom image instead of cow
+> 使用自定义图片代替奶牛
 
 **--time** _SECONDS_
-> Display duration
+> 显示时长
 
 # DESCRIPTION
 
-**xcowsay** displays a cute cow with a message on the Linux desktop. Similar to cowsay but with a graphical display. The cow disappears after a timeout or when clicked.
+**xcowsay** 在 Linux 桌面上显示一只带有消息的可爱奶牛。与 cowsay 类似，但采用图形化显示。奶牛会在超时后或被点击时消失。
 
-Messages can be provided as arguments or piped from other commands.
+消息可以作为参数提供，也可以从其他命令管道传入。
 
 # CAVEATS
 
-X11 only. Display time depends on message length unless specified. Custom images must be PNG format.
+仅支持 X11。除非另行指定，显示时长取决于消息长度。自定义图片必须为 PNG 格式。
 
 # INSTALL
 

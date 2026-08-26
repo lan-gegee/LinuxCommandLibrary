@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactive X11 font selector
+交互式 X11 字体选择器
 
 # TLDR
 
-**Launch font selector**
+**启动字体选择器**
 
 ```xfontsel```
 
-**Start with font pattern filter**
+**以字体模式过滤器启动**
 
 ```xfontsel -pattern "[*medium*]"```
 
-**Print selected font to stdout on quit**
+**退出时将所选字体打印到 stdout**
 
 ```xfontsel -print```
 
-**Display custom sample text**
+**显示自定义示例文本**
 
 ```xfontsel -sample "[The quick brown fox]"```
 
-**Show scaled fonts**
+**显示缩放字体**
 
 ```xfontsel -scaled```
 
@@ -31,44 +31,44 @@ Interactive X11 font selector
 # PARAMETERS
 
 **-pattern** _fontname_
-> Filter fonts matching pattern.
+> 过滤匹配模式的字体。
 
 **-print**
-> Print selected font name to stdout on quit.
+> 退出时将所选字体名称打印到 stdout。
 
 **-sample** _text_
-> Custom sample text for preview.
+> 用于预览的自定义示例文本。
 
 **-sample16** _text_
-> Sample text for 16-bit fonts.
+> 16 位字体的示例文本。
 
 **-sampleUCS** _text_
-> Sample text for UCS fonts.
+> UCS 字体的示例文本。
 
 **-scaled**
-> Include scaled fonts in selection.
+> 在选择中包含缩放字体。
 
 **-noscaled**
-> Exclude scaled fonts from selection.
+> 从选择中排除缩放字体。
 
 **-display** _name_
-> X display to use.
+> 要使用的 X 显示器。
 
 # DESCRIPTION
 
-**xfontsel** provides an interactive GUI for browsing and selecting X11 core fonts using XLFD (X Logical Font Description) names. It displays dropdown menus for each component of the 14-part XLFD font name.
+**xfontsel** 提供一个交互式图形界面，用于使用 XLFD（X Logical Font Description，X 逻辑字体描述）名称浏览和选择 X11 核心字体。它为 14 段 XLFD 字体名称的每个组成部分显示下拉菜单。
 
-Clicking on a field name shows available options filtered by previous selections. The asterisk (*) acts as a wildcard. A preview of the selected font is displayed, and the full XLFD name can be copied to the clipboard.
+点击某个字段名会显示按先前选择过滤后的可用选项。星号（*）充当通配符。界面会显示所选字体的预览，完整的 XLFD 名称可以复制到剪贴板。
 
-The selected font name becomes the PRIMARY text selection and PRIMARY_FONT selection, allowing paste into terminal emulators and other applications.
+所选字体名称会成为 PRIMARY 文本选择和 PRIMARY_FONT 选择，从而可以粘贴到终端模拟器和其他应用程序中。
 
 # CAVEATS
 
-Only shows X11 core fonts (XLFD), not modern fontconfig/FreeType fonts. Limited usefulness on modern systems using Xft fonts. Legacy tool superseded by graphical font selectors.
+仅显示 X11 核心字体（XLFD），不支持现代的 fontconfig/FreeType 字体。在使用 Xft 字体的现代系统上用途有限。属于已被图形化字体选择器取代的老旧工具。
 
 # HISTORY
 
-**xfontsel** was created by Ralph R. Swick at Digital Equipment Corporation/MIT Project Athena. It was essential when XLFD fonts were the primary font system on X11. Modern systems primarily use fontconfig and Xft, making xfontsel mainly useful for legacy applications.
+**xfontsel** 由 Ralph R. Swick 在 Digital Equipment Corporation/MIT Project Athena 创建。在 XLFD 字体是 X11 主要字体系统的年代，它是必备工具。现代系统主要使用 fontconfig 和 Xft，因此 xfontsel 主要用于老旧应用。
 
 # INSTALL
 

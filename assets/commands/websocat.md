@@ -1,38 +1,38 @@
 # TAGLINE
 
-WebSocket client and server for the terminal
+终端下的 WebSocket 客户端和服务器
 
 # TLDR
 
-**Connect to a WebSocket server**
+**连接到 WebSocket 服务器**
 
 ```websocat ws://[example.com]/socket```
 
-**Connect with secure WebSocket**
+**使用安全 WebSocket 连接**
 
 ```websocat wss://[example.com]/socket```
 
-**Create a WebSocket server**
+**创建 WebSocket 服务器**
 
 ```websocat -s [8080]```
 
-**Pipe stdin to WebSocket**
+**将 stdin 通过管道发送到 WebSocket**
 
 ```echo "hello" | websocat ws://[example.com]/socket```
 
-**Connect with custom headers**
+**使用自定义请求头连接**
 
 ```websocat -H "Authorization: Bearer [token]" wss://[example.com]/socket```
 
-**Binary mode** for raw data
+传输原始数据的**二进制模式**
 
 ```websocat -b ws://[example.com]/socket```
 
-**One message per line** mode
+**每行一条消息**模式
 
 ```websocat -n ws://[example.com]/socket```
 
-**Forward TCP to WebSocket**
+**将 TCP 转发到 WebSocket**
 
 ```websocat --binary tcp-l:127.0.0.1:[8080] ws://[example.com]/socket```
 
@@ -43,95 +43,95 @@ WebSocket client and server for the terminal
 # PARAMETERS
 
 **-s**, **--server**
-> Simple WebSocket server mode on specified port.
+> 在指定端口上运行简单的 WebSocket 服务器模式。
 
 **-b**, **--binary**
-> Send and receive binary frames instead of text.
+> 发送和接收二进制帧而不是文本。
 
 **-n**, **--no-close**
-> Don't send close frame, disconnect abruptly.
+> 不发送关闭帧，直接断开连接。
 
 **-1**, **--one-message**
-> Send one message and exit.
+> 发送一条消息后退出。
 
 **-u**, **--unidirectional**
-> Only copy from address1 to address2.
+> 只从 address1 复制到 address2。
 
 **-U**, **--unidirectional-reverse**
-> Only copy from address2 to address1.
+> 只从 address2 复制到 address1。
 
 **-H** _header_
-> Add custom HTTP header.
+> 添加自定义 HTTP 请求头。
 
 **-E**, **--exit-on-eof**
-> Exit when stdin reaches EOF.
+> 当 stdin 到达 EOF 时退出。
 
 **-t**, **--text**
-> Force text frame mode.
+> 强制文本帧模式。
 
 **--ping-interval** _secs_
-> Send WebSocket pings at interval.
+> 按间隔发送 WebSocket ping。
 
 **--ping-timeout** _secs_
-> Close connection if pong not received.
+> 未收到 pong 时关闭连接。
 
 **-k**, **--insecure**
-> Accept invalid TLS certificates.
+> 接受无效的 TLS 证书。
 
 **--origin** _url_
-> Set Origin header.
+> 设置 Origin 请求头。
 
 **-q**, **--quiet**
-> Suppress informational messages.
+> 不显示提示性消息。
 
 **-v**, **--verbose**
-> Increase verbosity level.
+> 提高输出详细程度。
 
 # ADDRESS TYPES
 
 **ws://** / **wss://**
-> WebSocket client connection.
+> WebSocket 客户端连接。
 
 **tcp:** / **tcp-l:**
-> TCP client/listener.
+> TCP 客户端/监听器。
 
 **unix:** / **unix-l:**
-> Unix socket client/listener.
+> Unix 套接字客户端/监听器。
 
 **exec:**
-> Execute program and connect to its stdio.
+> 执行程序并连接到其标准输入输出。
 
 **sh-c:**
-> Execute shell command.
+> 执行 shell 命令。
 
 **stdio:**
-> Standard input/output.
+> 标准输入/输出。
 
 **mirror:**
-> Echo back received messages.
+> 将收到的消息原样回显。
 
 **autoreconnect:**
-> Wrapper for automatic reconnection.
+> 自动重连的包装器。
 
 # DESCRIPTION
 
-**websocat** is a command-line WebSocket client and server, similar to netcat but for WebSocket connections. It enables bidirectional communication between various endpoints including WebSocket, TCP, Unix sockets, and stdio.
+**websocat** 是一款命令行 WebSocket 客户端和服务器，类似于 netcat，但面向 WebSocket 连接。它支持在各种端点之间进行双向通信，包括 WebSocket、TCP、Unix 套接字和 stdio。
 
-Basic usage connects stdin/stdout to a WebSocket URL. Input lines become WebSocket messages; received messages print to stdout. Use **-b** for binary data or **-n** for line-based text.
+基本用法是将 stdin/stdout 连接到一个 WebSocket URL。输入的行会成为 WebSocket 消息；收到的消息打印到 stdout。二进制数据请使用 **-b**，基于行的文本请使用 **-n**。
 
-The server mode (**-s**) creates a simple WebSocket server useful for testing. For production, combine address specifiers like **tcp-l:** with **ws://** for protocol conversion.
+服务器模式（**-s**）创建一个适合测试的简单 WebSocket 服务器。生产环境中，可以将地址说明符组合起来，比如将 **tcp-l:** 与 **ws://** 结合进行协议转换。
 
-Address chaining enables complex setups like WebSocket tunnels, TCP-over-WebSocket, and command execution. The **autoreconnect:** wrapper handles connection drops automatically.
+地址链可以实现复杂的配置，如 WebSocket 隧道、TCP-over-WebSocket 以及命令执行。**autoreconnect:** 包装器可自动处理连接中断。
 
-websocat supports both secure (wss://) and insecure (ws://) connections, custom headers for authentication, and ping/pong for connection keepalive.
+websocat 同时支持安全（wss://）和不安全（ws://）连接、用于身份验证的自定义请求头，以及保持连接存活的 ping/pong。
 
 # CAVEATS
 
-Large messages may require increased buffer sizes. Some features require specific address type combinations. The --insecure flag should not be used in production. Complex address specifiers have steep learning curve.
+大消息可能需要增大缓冲区。某些功能需要特定的地址类型组合。不要在生产环境中使用 --insecure 选项。复杂的地址说明符学习曲线较陡。
 
 # HISTORY
 
-websocat was created by **Vitaly Shukela** (vi) and first released around **2017**. Written in Rust, it was designed as a Swiss Army knife for WebSocket operations. The tool has become popular for debugging WebSocket services, creating tunnels, and testing real-time applications. It continues active development with features for various networking scenarios.
+websocat 由 **Vitaly Shukela**（vi）创建，首次发布于 **2017 年**前后。它使用 Rust 编写，被设计为 WebSocket 操作的瑞士军刀。该工具在调试 WebSocket 服务、创建隧道和测试实时应用方面广受欢迎。目前仍在活跃开发中，不断添加适用于各种网络场景的功能。
 
 # INSTALL
 

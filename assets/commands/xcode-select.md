@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage macOS developer tool directories
+管理 macOS 开发者工具目录
 
 # TLDR
 
-**Install command line developer tools**
+**安装命令行开发者工具**
 
 ```xcode-select --install```
 
-**Print the current developer directory path**
+**打印当前开发者目录路径**
 
 ```xcode-select -p```
 
-**Switch to a different Xcode installation**
+**切换到另一个 Xcode 安装**
 
 ```sudo xcode-select -s [/Applications/Xcode.app]```
 
-**Switch to command line tools only**
+**切换到仅命令行工具**
 
 ```sudo xcode-select -s [/Library/Developer/CommandLineTools]```
 
-**Reset to default developer directory**
+**重置为默认开发者目录**
 
 ```sudo xcode-select -r```
 
-**Show version information**
+**显示版本信息**
 
 ```xcode-select --version```
 
@@ -35,38 +35,38 @@ Manage macOS developer tool directories
 # PARAMETERS
 
 **--install**
-> Install the command line developer tools (opens installer dialog)
+> 安装命令行开发者工具（会打开安装对话框）
 
 **-p**, **--print-path**
-> Print path to the currently selected developer directory
+> 打印当前所选开发者目录的路径
 
 **-s** _path_, **--switch** _path_
-> Set the active developer directory to the specified path (requires sudo)
+> 将活动开发者目录设置为指定路径（需要 sudo）
 
 **-r**, **--reset**
-> Reset to default developer directory search (requires sudo)
+> 重置为默认的开发者目录搜索（需要 sudo）
 
 **-v**, **--version**
-> Print xcode-select version
+> 打印 xcode-select 版本
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**xcode-select** manages the active developer directory on macOS, controlling which Xcode or Command Line Tools installation is used by build tools like xcrun, xcodebuild, clang, and make.
+**xcode-select** 管理 macOS 上的活动开发者目录，控制 xcrun、xcodebuild、clang 和 make 等构建工具使用哪个 Xcode 或 Command Line Tools 安装。
 
-The command line tools package includes compilers (clang, gcc), build tools (make, cmake), version control (git, svn), and the macOS SDK. When multiple Xcode versions are installed, xcode-select switches between them.
+命令行工具包包含编译器（clang、gcc）、构建工具（make、cmake）、版本控制（git、svn）以及 macOS SDK。当安装了多个 Xcode 版本时，xcode-select 可以在它们之间切换。
 
-The tools are installed to /Library/Developer/CommandLineTools when using **--install** without full Xcode, or within /Applications/Xcode.app when using the full IDE.
+使用 **--install** 而不安装完整 Xcode 时，工具被安装到 /Library/Developer/CommandLineTools；使用完整 IDE 时，工具位于 /Applications/Xcode.app 内。
 
 # CAVEATS
 
-The **--switch** and **--reset** options require superuser privileges and affect all users on the system. After macOS updates, command line tools may need reinstallation. The **--install** command requires GUI interaction.
+**--switch** 和 **--reset** 选项需要超级用户权限，并会影响系统上的所有用户。macOS 更新后，命令行工具可能需要重新安装。**--install** 命令需要 GUI 交互。
 
 # HISTORY
 
-xcode-select has been part of macOS developer tools since Xcode 3. Apple separated Command Line Tools from Xcode proper around **2012**, allowing development without the full IDE download.
+xcode-select 自 Xcode 3 起就是 macOS 开发者工具的一部分。Apple 大约在 **2012 年**将 Command Line Tools 从完整的 Xcode 中分离出来，使开发者无需下载完整 IDE 即可进行开发。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Open files with preferred application
+用首选应用程序打开文件
 
 # TLDR
 
-Open **current directory** in file explorer
+在文件管理器中打开**当前目录**
 
 ```xdg-open .```
 
-Open a **URL** in default browser
+在默认浏览器中打开 **URL**
 
 ```xdg-open https://example.com```
 
-Open an **image** in default viewer
+在默认查看器中打开**图像**
 
 ```xdg-open path/to/image.png```
 
-Open a **PDF** in default viewer
+在默认查看器中打开 **PDF**
 
 ```xdg-open path/to/document.pdf```
 
-Open a **video** in default player
+在默认播放器中打开**视频**
 
 ```xdg-open path/to/video.mp4```
 
@@ -30,33 +30,33 @@ Open a **video** in default player
 
 # DESCRIPTION
 
-**xdg-open** opens a file or URL in the user's preferred application. It is part of the xdg-utils package and works across different desktop environments by detecting which one is running and using the appropriate method.
+**xdg-open** 用用户的首选应用程序打开文件或 URL。它是 xdg-utils 软件包的一部分，通过检测当前运行的桌面环境并使用相应的方法，从而在不同桌面环境之间通用。
 
 # PARAMETERS
 
 **--help**
-> Display help message
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # SUPPORTED DESKTOP ENVIRONMENTS
 
-xdg-open detects and uses the appropriate method for:
-- GNOME (gio open or gnome-open)
-- KDE (kde-open or kfmclient)
-- Xfce (exo-open)
-- MATE (mate-open)
-- Enlightenment (enlightenment_open)
-- Generic fallback (mimeopen)
+xdg-open 会检测并使用以下桌面环境的适当方法：
+- GNOME（gio open 或 gnome-open）
+- KDE（kde-open 或 kfmclient）
+- Xfce（exo-open）
+- MATE（mate-open）
+- Enlightenment（enlightenment_open）
+- 通用回退方案（mimeopen）
 
 # CAVEATS
 
-The file or URL is opened asynchronously; xdg-open returns immediately. The application chosen depends on the desktop's MIME type associations. On systems without a desktop environment, it may fall back to text-based alternatives.
+文件或 URL 是异步打开的；xdg-open 会立即返回。所选应用程序取决于桌面的 MIME 类型关联。在没有桌面环境的系统上，它可能回退到基于文本的替代方案。
 
 # HISTORY
 
-**xdg-open** is part of **xdg-utils**, a set of scripts for desktop integration developed by the freedesktop.org project to provide consistent behavior across different Linux desktop environments.
+**xdg-open** 是 **xdg-utils** 的一部分，后者是由 freedesktop.org 项目开发的一组桌面集成脚本，旨在为不同的 Linux 桌面环境提供一致的行为。
 
 # INSTALL
 

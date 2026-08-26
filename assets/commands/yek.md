@@ -1,42 +1,42 @@
 # TAGLINE
 
-Serialize code repositories for LLM consumption
+将代码仓库序列化以供 LLM 使用
 
 # TLDR
 
-**Serialize current directory** for LLM consumption
+**序列化当前目录**以供 LLM 使用
 
 ```yek```
 
-**Serialize specific directories**
+**序列化特定目录**
 
 ```yek [src/] [tests/]```
 
-**Serialize with token limit**
+**按 token 数上限序列化**
 
 ```yek --tokens [128k]```
 
-**Serialize with size limit**
+**按字节大小上限序列化**
 
 ```yek --max-size [10MB]```
 
-**Pipe output** to clipboard
+将输出**管道传输**到剪贴板
 
 ```yek | pbcopy```
 
-**Include line numbers** in output
+在输出中**包含行号**
 
 ```yek --line-numbers```
 
-**Include directory tree** header
+**包含目录树**头信息
 
 ```yek --tree-header```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```yek --json```
 
-**Use glob patterns**
+**使用 glob 模式**
 
 ```yek "[src/**/*.ts]"```
 
@@ -47,64 +47,64 @@ Serialize code repositories for LLM consumption
 # PARAMETERS
 
 **--tokens** _count_
-> Use token counting mode instead of byte mode (e.g., 128k, 100)
+> 使用 token 计数模式代替字节模式（例如 128k、100）
 
 **--max-size** _size_
-> Limit output by byte size (e.g., 10MB, 128K); default: 10MB
+> 按字节大小限制输出（例如 10MB、128K）；默认：10MB
 
 **--json**
-> Output results in JSON format
+> 以 JSON 格式输出结果
 
 **--output-dir** _path_
-> Directory for output files; uses temp directory if not specified
+> 输出文件所在目录；未指定时使用临时目录
 
 **--output-name** _name_
-> Filename written to current directory
+> 写入当前目录的文件名
 
 **--output-template** _template_
-> Custom format using FILE_PATH and FILE_CONTENT placeholders
+> 使用 FILE_PATH 和 FILE_CONTENT 占位符的自定义格式
 
 **--ignore-patterns** _patterns_
-> Additional patterns to ignore (extends .gitignore)
+> 额外要忽略的模式（在 .gitignore 基础上扩展）
 
 **--unignore-patterns** _patterns_
-> Override built-in ignore rules
+> 覆盖内置的忽略规则
 
 **--line-numbers**
-> Include line numbers in output
+> 在输出中包含行号
 
 **-t**, **--tree-header**
-> Include directory tree at the start of output
+> 在输出开头包含目录树
 
 **--tree-only**
-> Show only directory structure without file contents
+> 仅显示目录结构，不显示文件内容
 
 **--no-config**
-> Skip loading configuration files
+> 跳过加载配置文件
 
 **--config-file** _path_
-> Use specific configuration file
+> 使用指定的配置文件
 
 **--debug**
-> Enable debug logging
+> 启用调试日志
 
 # DESCRIPTION
 
-**yek** (Farsi for "one") is a fast Rust-based CLI tool that serializes code repositories into text optimized for LLM (Large Language Model) consumption. It combines files into a single output with intelligent ordering and automatic filtering.
+**yek**（波斯语意为"一"）是一款基于 Rust 的快速 CLI 工具，可将代码仓库序列化为针对 LLM（大语言模型）优化的文本。它将多个文件合并为单一输出，并进行智能排序和自动过滤。
 
-The tool respects **.gitignore** rules, uses Git history to prioritize important files, and automatically skips binary and large files. Output can be split into chunks based on token count or byte size.
+该工具遵循 **.gitignore** 规则，利用 Git 历史来提高重要文件的优先级，并自动跳过二进制文件和大文件。输出可以按 token 数或字节大小分块。
 
-When output is piped, yek automatically streams content instead of writing to files. This enables workflows like **yek | pbcopy** to quickly copy a codebase to clipboard for pasting into an LLM chat.
+当输出被管道传输时，yek 会自动改为流式输出内容而不是写文件。这样可以实现 **yek | pbcopy** 之类的工作流，快速将代码库复制到剪贴板以便粘贴到 LLM 对话中。
 
-Configuration can be stored in **yek.toml** or **yek.yaml** files for project-specific settings.
+配置可以存储在 **yek.toml** 或 **yek.yaml** 文件中以进行项目级设置。
 
 # CAVEATS
 
-Token counting is approximate and may vary from actual LLM tokenization. Very large repositories may need chunking with **--tokens** or **--max-size**. Glob patterns must be quoted to prevent shell expansion.
+token 计数是近似值，可能与实际的 LLM 分词有所不同。非常大的仓库可能需要用 **--tokens** 或 **--max-size** 进行分块。glob 模式必须加引号以防止 shell 展开。
 
 # HISTORY
 
-**yek** was created by **Mohsen Azimi** as a high-performance tool for preparing code for LLM analysis. Written in **Rust**, it achieved significant speed improvements over similar tools—benchmarks show it running 230× faster than alternatives like Repomix. The name means "one" in Farsi (یک), reflecting its purpose of combining files into one output.
+**yek** 由 **Mohsen Azimi** 创建，是一款为 LLM 分析准备代码的高性能工具。它用 **Rust** 编写，相比同类工具有显著的性能提升——基准测试显示其运行速度比 Repomix 等替代品快 230 倍。名字在波斯语（یک）中意为"一"，反映了它将多个文件合并为一个输出的用途。
 
 # INSTALL
 

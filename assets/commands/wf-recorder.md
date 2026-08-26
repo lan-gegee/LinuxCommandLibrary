@@ -1,38 +1,38 @@
 # TAGLINE
 
-Screen recording for Wayland compositors
+面向 Wayland 合成器的录屏工具
 
 # TLDR
 
-**Record** to MP4 file
+**录制**为 MP4 文件
 
 ```wf-recorder -f [output.mp4]```
 
-Record with **audio**
+带**音频**录制
 
 ```wf-recorder -a -f [path/to/file_with_audio.webm]```
 
-Record **region** selected with slurp
+录制用 slurp 选择的**区域**
 
 ```wf-recorder -g "$(slurp)"```
 
-Record specific **output** (monitor)
+录制指定的**输出**（显示器）
 
 ```wf-recorder -o [DP-1] -f [output.mp4]```
 
-Record using a specific **codec**
+使用指定的**编解码器**录制
 
 ```wf-recorder -c h264_vaapi -f [output.mp4]```
 
-Record with custom **framerate**
+以自定义**帧率**录制
 
 ```wf-recorder -r [30] -f [output.mp4]```
 
-Record with **constant framerate** (disable damage optimization)
+以**恒定帧率**录制（禁用 damage 优化）
 
 ```wf-recorder -D -f [output.mp4]```
 
-Record and **overwrite** existing file
+录制并**覆盖**已有文件
 
 ```wf-recorder -y -f [output.mp4]```
 
@@ -43,64 +43,64 @@ Record and **overwrite** existing file
 # PARAMETERS
 
 **-f, --file** _PATH_
-> Output file path
+> 输出文件路径
 
 **-a, --audio**
-> Include audio in recording
+> 在录制中包含音频
 
 **-g, --geometry** _WxH+X+Y_
-> Record specified region
+> 录制指定区域
 
 **-c** _CODEC_
-> Video codec to use (e.g., h264_vaapi, libx264)
+> 要使用的视频编解码器（如 h264_vaapi、libx264）
 
 **-C** _CODEC_
-> Audio codec to use
+> 要使用的音频编解码器
 
 **-o**, **--output** _NAME_
-> Record specific Wayland output (monitor)
+> 录制指定的 Wayland 输出（显示器）
 
 **-r**, **--framerate** _FPS_
-> Set recording framerate
+> 设置录制帧率
 
 **-d**, **--device** _PATH_
-> DRM device for hardware encoding
+> 用于硬件编码的 DRM 设备
 
 **-p** _KEY=VALUE_
-> Pass codec-specific parameters (e.g., -p crf=20)
+> 传递编解码器专属参数（如 -p crf=20）
 
 **-F** _FILTER_
-> FFmpeg filter string (e.g., scale=1280:720)
+> FFmpeg 过滤器字符串（如 scale=1280:720）
 
 **-b** _N_
-> Maximum number of B-Frames to use
+> 使用的 B 帧最大数量
 
 **-B**, **--buffrate** _FPS_
-> Predicted framerate for the encoder (preserves VFR, fixes FPS limits with some encoders like svt-av1)
+> 编码器的预估帧率（保留 VFR，修复某些编码器如 svt-av1 的 FPS 上限问题）
 
 **-D**, **--no-damage**
-> Disable damage optimization; record every frame even without screen updates (produces constant framerate)
+> 禁用 damage 优化；即使屏幕无变化也记录每一帧（产生恒定帧率）
 
 **-y**
-> Force overwrite the output file without prompting
+> 强制覆盖输出文件而不提示
 
 **-h**
-> Print help information
+> 打印帮助信息
 
 **-v**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**wf-recorder** is a screen recording tool for Wayland compositors that use the wlroots library (e.g., Sway, Hyprland). It captures the screen to video files with optional audio, supporting various output formats and codecs via FFmpeg. The default output file is **recording.mp4** in the current directory.
+**wf-recorder** 是一款面向使用 wlroots 库的 Wayland 合成器（如 Sway、Hyprland）的录屏工具。它将屏幕捕获为视频文件，可选包含音频，并通过 FFmpeg 支持多种输出格式和编解码器。默认输出文件是当前目录下的 **recording.mp4**。
 
-Stop recording with Ctrl+C or by sending SIGINT. Region selection can be done interactively with **slurp**. Hardware-accelerated encoding is supported through VAAPI codecs.
+使用 Ctrl+C 或发送 SIGINT 停止录制。可以用 **slurp** 交互式地选择区域。通过 VAAPI 编解码器支持硬件加速编码。
 
-By default, wf-recorder only requests new frames when the screen updates, producing a variable framerate output. Use **-D** to record continuously at a constant framerate instead.
+默认情况下，wf-recorder 只在屏幕更新时请求新帧，产生可变帧率的输出。改用 **-D** 可以恒定帧率连续录制。
 
 # CAVEATS
 
-Wayland only; requires a wlroots-based compositor with wlr-screencopy support. Audio recording requires PipeWire or PulseAudio. Some compositors may require specific configuration for screen capture. The output format is determined by the file extension given to **-f**; unrecognized extensions will cause the command to fail.
+仅限 Wayland；需要支持 wlr-screencopy 的基于 wlroots 的合成器。录音需要 PipeWire 或 PulseAudio。某些合成器可能需要特定配置才能进行屏幕捕获。输出格式由传给 **-f** 的文件扩展名决定；无法识别的扩展名会导致命令失败。
 
 # INSTALL
 

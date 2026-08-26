@@ -1,22 +1,22 @@
 # TAGLINE
 
-List element structure of an XML document
+列出 XML 文档的元素结构
 
 # TLDR
 
-**List all elements** in the document
+**列出文档中的所有元素**
 
 ```xml el [file.xml]```
 
-**Show elements with attributes**
+**显示元素及其属性**
 
 ```xml el -a [file.xml]```
 
-**Show elements with attributes and values**
+**显示元素及其属性和值**
 
 ```xml el -v [file.xml]```
 
-**Show unique element paths**
+**显示唯一的元素路径**
 
 ```xml el -u [file.xml]```
 
@@ -27,22 +27,22 @@ List element structure of an XML document
 # PARAMETERS
 
 _FILE_
-> XML input file (use - for stdin).
+> 输入的 XML 文件（用 - 表示 stdin）。
 
 **-a**
-> Show attributes of each element.
+> 显示每个元素的属性。
 
 **-v**
-> Show attributes and values.
+> 显示属性和值。
 
 **-u**
-> Show only unique element paths.
+> 仅显示唯一的元素路径。
 
 # DESCRIPTION
 
-**xml el** (also accepted as **xml elements** / **xml list**) prints the element structure of an XML document as XPath-like paths, one per line. It is part of the **xmlstarlet** toolkit.
+**xml el**（也接受 **xml elements** / **xml list**）以类似 XPath 的路径形式打印 XML 文档的元素结构，每行一条。它是 **xmlstarlet** 工具集的一部分。
 
-Useful for quickly exploring unfamiliar XML files, producing summaries of element hierarchies, or generating templates for **xml sel** queries.
+可用于快速探索不熟悉的 XML 文件、生成元素层级摘要，或为 **xml sel** 查询构造模板。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Useful for quickly exploring unfamiliar XML files, producing summaries of elemen
 # SEE ALSO
 
 [xml-elements](/man/xml-elements)(1), [xml-select](/man/xml-select)(1), [xmlstarlet](/man/xmlstarlet)(1)
-

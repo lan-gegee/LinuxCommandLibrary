@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert XML to various output formats
+将 XML 转换为多种输出格式
 
 # TLDR
 
-**Convert to HTML**
+**转换为 HTML**
 
 ```xmlto html [document.xml]```
 
-**Convert to PDF**
+**转换为 PDF**
 
 ```xmlto pdf [document.xml]```
 
-**Convert to man page**
+**转换为 man page**
 
 ```xmlto man [document.xml]```
 
-**Output directory**
+**指定输出目录**
 
 ```xmlto -o [output/] html [document.xml]```
 
-**With stylesheet**
+**使用样式表**
 
 ```xmlto -x [custom.xsl] html [document.xml]```
 
@@ -31,35 +31,35 @@ Convert XML to various output formats
 # PARAMETERS
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **-x** _XSL_
-> Custom stylesheet.
+> 自定义样式表。
 
 **-v**
-> Verbose.
+> 详细模式。
 
 **--skip-validation**
-> Skip DTD validation.
+> 跳过 DTD 校验。
 
 _format_
-> Output format.
+> 输出格式。
 
 # DESCRIPTION
 
-**xmlto** is a frontend tool for converting XML documents to various output formats using XSL stylesheets. It supports generating HTML, PDF, man pages, plain text, and other formats from XML source files, with particular strength in processing DocBook documentation.
+**xmlto** 是一个前端工具，使用 XSL 样式表将 XML 文档转换为多种输出格式。它支持从 XML 源文件生成 HTML、PDF、man 页面、纯文本等格式，尤其擅长处理 DocBook 文档。
 
-The tool acts as a wrapper around XSLT processors and formatting backends, handling the details of stylesheet selection and tool invocation. Custom stylesheets can be provided with the **-x** option to override the default conversion behavior and tailor the output to specific requirements.
+该工具充当 XSLT 处理器和排版后端的包装器，负责处理样式表选择和工具调用等细节。可以通过 **-x** 选项提供自定义样式表，覆盖默认转换行为，使输出符合特定需求。
 
-xmlto is commonly used in software documentation workflows where source documentation is maintained in DocBook XML format and needs to be published in multiple output formats for different audiences.
+xmlto 常用于软件文档工作流：源文档以 DocBook XML 格式维护，需要发布成面向不同读者的多种输出格式。
 
 # CAVEATS
 
-Requires DocBook XSL stylesheets and an XSLT processor (xsltproc) to be installed. PDF output additionally requires a formatting backend like FOP or dblatex. Primarily designed for DocBook XML; other XML vocabularies need custom stylesheets.
+需要安装 DocBook XSL 样式表和 XSLT 处理器（xsltproc）。PDF 输出还需要 FOP 或 dblatex 之类的排版后端。主要为 DocBook XML 设计；其他 XML 词表需要自定义样式表。
 
 # HISTORY
 
-**xmlto** was created for converting XML documents, particularly DocBook, to various output formats.
+**xmlto** 的创建目的是将 XML 文档（尤其是 DocBook）转换为多种输出格式。
 
 # INSTALL
 

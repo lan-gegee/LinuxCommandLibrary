@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage ZoneMinder surveillance daemons
+管理 ZoneMinder 监控守护进程
 
 # TLDR
 
-**Start the ZoneMinder system**
+**启动 ZoneMinder 系统**
 
 ```sudo zmpkg.pl start```
 
-**Stop the ZoneMinder system**
+**停止 ZoneMinder 系统**
 
 ```sudo zmpkg.pl stop```
 
-**Check system status**
+**检查系统状态**
 
 ```zmpkg.pl status```
 
-**Start a specific daemon**
+**启动特定守护进程**
 
 ```sudo zmdc.pl start [zmc] -m [monitor_id]```
 
-**Check daemon status**
+**检查守护进程状态**
 
 ```zmdc.pl status```
 
-**Query monitor status**
+**查询监视器状态**
 
 ```zmu -m [monitor_id] -q```
 
@@ -38,28 +38,28 @@ Manage ZoneMinder surveillance daemons
 
 # DESCRIPTION
 
-**ZoneMinder** is a video camera security and surveillance system. The **zm** family of commands manages the ZoneMinder daemons and services.
+**ZoneMinder** 是一套视频摄像头安防与监控系统。**zm** 命令家族负责管理 ZoneMinder 的守护进程与服务。
 
-Key components:
-- **zmpkg.pl** - Package control (start/stop entire system)
-- **zmdc.pl** - Daemon control (manage individual daemons)
-- **zmu** - Monitor utility (query monitor status)
-- **zmwatch.pl** - Watchdog daemon
-- **zmaudit.pl** - Database audit tool
+主要组件：
+- **zmpkg.pl** - 包控制（启动/停止整个系统）
+- **zmdc.pl** - 守护进程控制（管理单个守护进程）
+- **zmu** - 监视器工具（查询监视器状态）
+- **zmwatch.pl** - 看门狗守护进程
+- **zmaudit.pl** - 数据库审计工具
 
-ZoneMinder consists of multiple daemons: capture daemons for each camera, analysis daemons for motion detection, and support services for web interface and event processing.
+ZoneMinder 由多个守护进程组成：每个摄像头对应一个采集守护进程，用于移动侦测的分析守护进程，以及为 Web 界面和事件处理提供支持的服务。
 
-The primary interface is web-based, with these commands providing backend management and troubleshooting capabilities.
+主界面基于 Web，这些命令则提供后端管理与故障排查能力。
 
 # CAVEATS
 
-ZoneMinder requires a database (MySQL/MariaDB) and web server to function. Command-line tools manage daemons but configuration is done via the web interface.
+ZoneMinder 需要数据库（MySQL/MariaDB）和 Web 服务器才能运行。命令行工具用于管理守护进程，但配置要通过 Web 界面完成。
 
-Camera configuration, zone setup, and event management are handled through the web UI, not command line.
+摄像头配置、区域设置和事件管理都在 Web UI 中处理，而不是命令行。
 
-Daemon management typically requires root privileges.
+守护进程管理通常需要 root 权限。
 
-Resource usage scales with the number of cameras and analysis complexity.
+资源占用随摄像头数量和分析复杂度而增长。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Lock X display with screensaver
+用屏幕保护程序锁定 X 显示器
 
 # TLDR
 
-**Lock screen immediately**
+**立即锁定屏幕**
 
 ```xlock```
 
-**Lock with specific mode**
+**以指定模式锁定**
 
 ```xlock -mode [blank]```
 
-**Lock with message**
+**锁定并显示消息**
 
 ```xlock -message "[Away from desk]"```
 
-**Lock without password (demo mode)**
+**无需密码锁定（演示模式）**
 
 ```xlock -nolock```
 
-**Lock with specific timeout**
+**以指定超时时间锁定**
 
 ```xlock -timeout [30]```
 
-**List available modes**
+**列出可用模式**
 
 ```xlock -help```
 
@@ -35,44 +35,44 @@ Lock X display with screensaver
 # PARAMETERS
 
 **-mode** _name_
-> Display mode (blank, life, maze, etc.).
+> 显示模式（blank、life、maze 等）。
 
 **-message** _text_
-> Message to display on lock screen.
+> 锁屏上显示的消息。
 
 **-nolock**
-> Demo mode; no password required.
+> 演示模式；无需密码。
 
 **-timeout** _seconds_
-> Password timeout in seconds.
+> 密码输入超时时间（秒）。
 
 **-echokeys**
-> Echo characters when typing password.
+> 输入密码时回显字符。
 
 **-usefirst**
-> Use first character of password prompt.
+> 使用密码提示时输入的首个字符。
 
 **-allowaccess**
-> Allow X clients while locked.
+> 锁定期间允许 X 客户端访问。
 
 **-remote**
-> Allow remote locking.
+> 允许远程锁定。
 
 # DESCRIPTION
 
-**xlock** locks the X display until the user enters their password. While locked, the screen displays a configurable animation or pattern, and new X server connections are refused.
+**xlock** 会锁定 X 显示器，直到用户输入密码。锁定期间屏幕显示可配置的动画或图案，并且拒绝新的 X server 连接。
 
-Multiple display modes provide visual effects during lock. The blank mode simply blacks out the screen, while others show animations like life simulation, mazes, or geometric patterns.
+多种显示模式可在锁定期间提供视觉效果。blank 模式只是让屏幕变黑，其他模式则显示生命模拟、迷宫或几何图案等动画。
 
-The tool blanks the screen, hides the mouse cursor, and requires the user's system password to unlock. All keyboard and mouse input is captured until authentication succeeds.
+该工具会将屏幕变黑、隐藏鼠标光标，并要求用户输入系统密码才能解锁。在身份验证成功之前，所有键盘和鼠标输入都会被捕获。
 
 # CAVEATS
 
-X11 screen lockers have fundamental security limitations. Consider xsecurelock for higher security needs. Settings like -allowaccess reduce security. May not prevent all bypass methods on X11.
+X11 屏幕锁定器存在根本性的安全局限。有更高安全需求时可考虑 xsecurelock。-allowaccess 之类的设置会降低安全性。可能无法阻止 X11 上的所有绕过手段。
 
 # HISTORY
 
-**xlock** has been part of X11 utilities since the early days of the X Window System. While functional, modern alternatives like xsecurelock address various security concerns inherent to X11's architecture that traditional screen lockers cannot fully mitigate.
+**xlock** 自 X Window System 早期起就是 X11 工具的一部分。虽然它仍然可用，但 xsecurelock 等现代替代品解决了 X11 架构固有的各种安全问题，这些问题是传统屏幕锁定器无法完全消除的。
 
 # SEE ALSO
 

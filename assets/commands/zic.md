@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compile timezone data files
+编译时区数据文件
 
 # TLDR
 
-**Compile timezone data** to default directory
+**编译时区数据**到默认目录
 
 ```zic [path/to/tzdata_file]```
 
-**Compile to a specific** output directory
+**编译到指定**输出目录
 
 ```zic -d [path/to/output_directory] [path/to/tzdata_file]```
 
-**Compile with leap second** information
+**编译时包含闰秒**信息
 
 ```zic -L [path/to/leapseconds] [path/to/tzdata_file]```
 
-**Set local timezone** link
+**设置本地时区**链接
 
 ```sudo zic -l [America/New_York]```
 
-**Compile with verbose** warnings
+**编译时输出详细**警告
 
 ```zic -v [path/to/tzdata_file]```
 
-**Read timezone data from stdin**
+**从标准输入读取时区数据**
 
 ```zic -d [path/to/output_directory] -```
 
@@ -35,44 +35,44 @@ Compile timezone data files
 # PARAMETERS
 
 **-d** _DIRECTORY_
-> Output directory for compiled TZif files (default: system timezone directory).
+> 编译后的 TZif 文件的输出目录（默认：系统时区目录）。
 
 **-l** _timezone_
-> Use the given timezone as the local time, creating a localtime link.
+> 使用给定时区作为本地时间，并创建 localtime 链接。
 
 **-p** _timezone_
-> Use timezone's rules for POSIX-style TZ strings that lack transition rules.
+> 对缺少转换规则的 POSIX 风格 TZ 字符串使用该时区的规则。
 
 **-L** _leapsecondfile_
-> Read leap second information from the specified file.
+> 从指定文件读取闰秒信息。
 
 **-v**
-> Report warnings about the input data, including years outside the representable range.
+> 报告关于输入数据的警告，包括超出可表示范围的年份。
 
 **-b** _(slim|fat)_
-> Output backward-compatibility data. "fat" generates extra entries for older software. "slim" keeps files small (default).
+> 输出向后兼容数据。"fat" 为旧软件生成额外条目。"slim" 保持文件精简（默认）。
 
 **-r** _@lo/@hi_
-> Limit output to timestamps in the given range.
+> 将输出限制在给定范围内的时间戳。
 
 **-D**
-> Do not create ancestor directories of output files.
+> 不创建输出文件的各级父目录。
 
 **-m** _mode_
-> Set file permissions on created TZif files.
+> 设置创建的 TZif 文件的文件权限。
 
 **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**zic** is the timezone compiler. It reads text files describing timezone rules (zone names, UTC offsets, daylight saving transitions) and produces binary TZif (Time Zone Information Format) files used by the C library's localtime() and related functions.
+**zic** 是时区编译器。它读取描述时区规则（时区名称、UTC 偏移量、夏令时转换）的文本文件，生成 C 库的 localtime() 及相关函数所使用的二进制 TZif（Time Zone Information Format）文件。
 
-Input files use a specific format with Rule, Zone, and Link lines that define timezone transitions. The compiled binary files are typically installed in /usr/share/zoneinfo/. The zic compiler is normally run as part of the tzdata package installation.
+输入文件采用特定格式，通过 Rule、Zone 和 Link 行定义时区转换。编译出的二进制文件通常安装在 /usr/share/zoneinfo/ 中。zic 编译器通常作为 tzdata 软件包安装的一部分运行。
 
 # CAVEATS
 
-Requires properly formatted timezone source files. Typically run as root when writing to system directories. Incorrect data can break time handling system-wide. The **-y** option for year type commands is obsolete and no longer supported in modern versions.
+需要格式正确的时区源文件。写入系统目录时通常需要 root 权限。错误的数据可能破坏整个系统的时间处理。用于 year 类型命令的 **-y** 选项已过时，现代版本不再支持。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Zsh line editor builtin
+Zsh 行编辑器内建命令
 
 # TLDR
 
-**Define** a new widget from a shell function
+**通过 shell 函数定义新 widget**
 
 ```zle -N [widget_name] [function_name]```
 
-**List** all user-defined widgets
+**列出所有用户定义的 widget**
 
 ```zle -l```
 
-**List** all widgets including builtins
+**列出所有 widget（含内建）**
 
 ```zle -la```
 
-**List** widgets as recreatable zle commands
+**以可重建的 zle 命令形式列出 widget**
 
 ```zle -lL```
 
-**Delete** a user-defined widget
+**删除用户定义的 widget**
 
 ```zle -D [widget_name]```
 
-**Create** a widget alias
+**创建 widget 别名**
 
 ```zle -A [old_widget] [new_widget]```
 
-**Invoke** a widget from within a shell function
+**在 shell 函数中调用 widget**
 
 ```zle [widget_name]```
 
-**Display** a message below the command line
+**在命令行下方显示消息**
 
 ```zle -M "[message]"```
 
@@ -51,67 +51,67 @@ Zsh line editor builtin
 # PARAMETERS
 
 **-N** _widget_ [_function_]
-> Define a new user-defined widget backed by a shell function. If function is omitted, defaults to the widget name
+> 定义一个由 shell 函数支撑的新用户自定义 widget。若省略 function，则默认使用 widget 名称
 
 **-C** _widget_ _completion-widget_ _function_
-> Create a user-defined completion widget inheriting behavior from an existing builtin completion widget
+> 创建一个继承既有内建补全 widget 行为的用户自定义补全 widget
 
 **-l** [**-L** | **-a**]
-> List user-defined widgets. **-L**: format as zle commands. **-a**: include builtins
+> 列出用户自定义的 widget。**-L**：格式化为 zle 命令。**-a**：包含内建 widget
 
 **-D** _widget ..._
-> Delete named user-defined widgets
+> 删除指定的用户自定义 widget
 
 **-A** _old-widget_ _new-widget_
-> Create an alias; both names refer to the same widget
+> 创建别名；两个名称指向同一个 widget
 
 **-R** [**-c**] [_display-string_] [_string ..._]
-> Redisplay the command line. Optional display-string appears in status line. **-c** clears completion lists
+> 重新显示命令行。可选的 display-string 显示在状态行中。**-c** 清除补全列表
 
 **-M** _string_
-> Display a message string below the command line that persists after the widget returns
+> 在命令行下方显示一条消息，且在 widget 返回后仍然保留
 
 **-U** _string_
-> Push characters onto ZLE's input stack for processing after the current widget finishes
+> 将字符推入 ZLE 的输入栈，在当前 widget 结束后进行处理
 
 **-K** _keymap_
-> Select the named keymap for subsequent keystrokes
+> 为后续按键选择指定的键映射
 
 **-F** [**-Lw**] [_fd_ [_handler_]]
-> Install or remove a handler for a file descriptor. **-w**: handler is a widget. **-L**: list handlers
+> 为文件描述符安装或移除处理器。**-w**：处理器是 widget。**-L**：列出处理器
 
 **-I**
-> Invalidate the current display before external output
+> 在外部输出之前使当前显示失效
 
 **-f** _flag ..._
-> Set flags on the current widget: **yank**, **yankbefore**, **kill**, **vichange**, **nolast**
+> 为当前 widget 设置标志：**yank**、**yankbefore**、**kill**、**vichange**、**nolast**
 
 # DESCRIPTION
 
-**zle** is a builtin command of **zsh** that controls the Zsh Line Editor, the interactive command-line editing subsystem. It manages widgets (named editing actions), keymaps, display control, and the edit buffer. When called with no arguments, it returns zero if ZLE is currently active. Full documentation is in the **zshzle(1)** man page.
+**zle** 是 **zsh** 的一个内建命令，用于控制 Zsh Line Editor（Zsh 行编辑器），即交互式命令行编辑子系统。它管理 widget（命名的编辑动作）、键映射、显示控制和编辑缓冲区。不带参数调用时，如果 ZLE 当前处于活动状态则返回零。完整文档见 **zshzle(1)** man page。
 
-ZLE activates automatically in interactive zsh sessions. It operates in **multiline mode** (default) or **single-line mode** (when the **SINGLE_LINE_ZLE** option is set). Special parameters like **BUFFER**, **CURSOR**, **LBUFFER**, and **RBUFFER** allow widget functions to manipulate the edit buffer directly.
+ZLE 在交互式 zsh 会话中自动启用。它工作于**多行模式**（默认）或**单行模式**（设置了 **SINGLE_LINE_ZLE** 选项时）。诸如 **BUFFER**、**CURSOR**、**LBUFFER** 和 **RBUFFER** 之类的特殊参数允许 widget 函数直接操作编辑缓冲区。
 
 # KEYMAPS
 
-ZLE provides eight built-in keymaps:
+ZLE 提供八个内建键映射：
 
-**emacs** -- Emacs-style editing
-**viins** -- Vi insert mode
-**vicmd** -- Vi command mode
-**viopp** -- Vi operator-pending mode
-**visual** -- Vi visual selection mode
-**isearch** -- Incremental search mode
-**command** -- Command name reading mode
-**.safe** -- Immutable fallback keymap
+**emacs** -- Emacs 风格编辑
+**viins** -- Vi 插入模式
+**vicmd** -- Vi 命令模式
+**viopp** -- Vi 操作符等待模式
+**visual** -- Vi 可视选择模式
+**isearch** -- 增量搜索模式
+**command** -- 命令名读取模式
+**.safe** -- 不可变的后备键映射
 
-The **main** keymap links to either **emacs** or **viins** depending on the **EDITOR** environment variable, or can be set with **bindkey -e** (emacs) or **bindkey -v** (vi).
+**main** 键映射根据 **EDITOR** 环境变量链接到 **emacs** 或 **viins**，也可以通过 **bindkey -e**（emacs）或 **bindkey -v**（vi）设置。
 
 # CONFIGURATION
 
-ZLE is configured primarily through **.zshrc** using **bindkey** commands and **zle -N** widget definitions. The **KEYTIMEOUT** parameter (default 40, in hundredths of a second) controls how long ZLE waits for multi-character key sequences. Hook widgets like **zle-line-init**, **zle-line-finish**, and **zle-keymap-select** run automatically at specific events.
+ZLE 主要通过 **.zshrc** 中的 **bindkey** 命令和 **zle -N** widget 定义进行配置。**KEYTIMEOUT** 参数（默认 40，单位为百分之一秒）控制 ZLE 等待多字符按键序列的时长。诸如 **zle-line-init**、**zle-line-finish** 和 **zle-keymap-select** 这类钩子 widget 会在特定事件发生时自动运行。
 
-Example custom widget that prepends sudo:
+在命令前添加 sudo 的自定义 widget 示例：
 
 ```
 prepend-sudo() {
@@ -124,25 +124,25 @@ bindkey '^s' prepend-sudo
 
 # SPECIAL PARAMETERS
 
-When a user-defined widget function runs, these read/write parameters are available:
+当用户自定义的 widget 函数运行时，可以使用以下可读写参数：
 
-**BUFFER** -- The entire edit buffer contents
-**CURSOR** -- Cursor position (index into BUFFER)
-**LBUFFER** -- Buffer contents left of the cursor
-**RBUFFER** -- Buffer contents right of the cursor
-**WIDGET** -- Name of the widget being executed
-**LASTWIDGET** -- Name of the last widget executed
-**KEYS** -- Keys typed to invoke this widget
-**NUMERIC** -- Numeric prefix argument, if any
-**KEYMAP** -- Currently selected keymap
+**BUFFER** -- 整个编辑缓冲区的内容
+**CURSOR** -- 光标位置（BUFFER 中的索引）
+**LBUFFER** -- 光标左侧的缓冲区内容
+**RBUFFER** -- 光标右侧的缓冲区内容
+**WIDGET** -- 正在执行的 widget 名称
+**LASTWIDGET** -- 上一次执行的 widget 名称
+**KEYS** -- 触发此 widget 时按下的按键
+**NUMERIC** -- 数字前缀参数（如有）
+**KEYMAP** -- 当前选定的键映射
 
 # CAVEATS
 
-**zle** is only available inside **zsh** and is not a POSIX command or available in bash. Widgets can only be invoked when ZLE is active in interactive mode. Widget shell functions run with stdin redirected to **/dev/null**. Built-in widgets have a dot-prefixed variant (e.g., **.end-of-line**) that remains accessible even when the widget is overridden.
+**zle** 仅在 **zsh** 中可用，既不是 POSIX 命令，bash 中也没有。widget 只有在交互模式下 ZLE 处于活动状态时才能被调用。widget 的 shell 函数运行时其 stdin 被重定向到 **/dev/null**。内建 widget 有带点前缀的变体（例如 **.end-of-line**），即使该 widget 被覆盖，这些变体仍可访问。
 
 # HISTORY
 
-ZLE is a fundamental component of zsh, the Z Shell, originally written by **Paul Falstad** in **1990** at Princeton University. It provides zsh with sophisticated line editing modeled after both Emacs and vi editing modes but is zsh's own independent implementation with a widget-based architecture, distinct from GNU Readline used by bash.
+ZLE 是 zsh（Z Shell）的基础组件。zsh 由 **Paul Falstad** 于 **1990 年**在普林斯顿大学编写。ZLE 为 zsh 提供了仿照 Emacs 和 vi 编辑模式的精细行编辑功能，但它是 zsh 自己的独立实现，采用基于 widget 的架构，与 bash 使用的 GNU Readline 不同。
 
 # SEE ALSO
 

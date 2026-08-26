@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage X server access control
+管理 X server 访问控制
 
 # TLDR
 
-**Display** the current access control list
+**显示**当前访问控制列表
 
 ```xhost```
 
-**Allow** a specific host to connect
+**允许**特定主机连接
 
 ```xhost +[hostname]```
 
-**Deny** a specific host from connecting
+**拒绝**特定主机连接
 
 ```xhost -[hostname]```
 
-**Allow** all hosts to connect (disable access control - insecure)
+**允许**所有主机连接（禁用访问控制——不安全）
 
 ```xhost +```
 
-**Deny** all hosts except those explicitly allowed
+**拒绝**所有未明确允许的主机
 
 ```xhost -```
 
-**Remove** a specific user or address using family prefix
+使用 family 前缀**移除**特定用户或地址
 
 ```xhost -[family:name]```
 
@@ -35,39 +35,39 @@ Manage X server access control
 # PARAMETERS
 
 **+_hostname_**
-> Add host to access list
+> 将主机添加到访问列表
 
 **-_hostname_**
-> Remove host from access list
+> 从访问列表中移除主机
 
 **+**
-> Disable access control (allow all)
+> 禁用访问控制（允许全部）
 
 **-**
-> Enable access control (restrict to list)
+> 启用访问控制（仅限列表内）
 
 **+si:localuser:_user_**
-> Allow local user
+> 允许本地用户
 
 **-si:localuser:_user_**
-> Deny local user
+> 拒绝本地用户
 
 **+inet:_hostname_**
-> Allow by IP family
+> 按 IP 族允许
 
 # DESCRIPTION
 
-**xhost** manages the X server access control list. It controls which hosts and users can connect to the X display server.
+**xhost** 管理 X server 的访问控制列表。它控制哪些主机和用户可以连接到 X 显示服务器。
 
-Family prefixes include: **inet** (IPv4), **inet6** (IPv6), **si** (server interpreted), **localuser** (local user), and **local** (local connections).
+family 前缀包括：**inet**（IPv4）、**inet6**（IPv6）、**si**（server interpreted，由服务器解释）、**localuser**（本地用户）和 **local**（本地连接）。
 
 # CAVEATS
 
-Using **xhost +** is a security risk as it allows any host to connect. For secure remote X access, use SSH X forwarding instead. Access changes are not persistent across X server restarts.
+使用 **xhost +** 存在安全风险，因为它允许任何主机连接。如需安全的远程 X 访问，请改用 SSH X 转发。访问控制的更改不会在 X server 重启后保留。
 
 # HISTORY
 
-**xhost** is one of the original X Window System utilities, providing basic access control since the early days of X11.
+**xhost** 是最早的 X Window System 工具之一，自 X11 早期就提供基本的访问控制功能。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Next-generation Zabbix monitoring agent
+新一代 Zabbix 监控代理
 
 # TLDR
 
-**Start agent in foreground**
+**在前台启动代理**
 
 ```zabbix_agent2 -f```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```zabbix_agent2 -c [/etc/zabbix/zabbix_agent2.conf]```
 
-**Test a specific item key**
+**测试指定的监控项键**
 
 ```zabbix_agent2 -t [system.cpu.load]```
 
-**Print all supported items**
+**打印所有支持的监控项**
 
 ```zabbix_agent2 -p```
 
-**Validate configuration file**
+**校验配置文件**
 
 ```zabbix_agent2 -T```
 
-**Change log level at runtime**
+**运行时更改日志级别**
 
 ```zabbix_agent2 -R [log_level_increase]```
 
-**Reload user parameters at runtime**
+**运行时重新加载用户参数**
 
 ```zabbix_agent2 -R userparameter_reload```
 
@@ -39,32 +39,32 @@ Next-generation Zabbix monitoring agent
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Use alternate configuration file instead of the default one.
+> 使用替代的配置文件而非默认配置。
 
 **-f**
-> Run in foreground.
+> 在前台运行。
 
 **-p**, **--print**
-> Print known items and exit.
+> 打印已知的监控项并退出。
 
 **-t** _item-key_
-> Test a single item key and exit.
+> 测试单个监控项键并退出。
 
 **-T**, **--test-config**
-> Validate configuration file and exit.
+> 校验配置文件并退出。
 
 **-R**, **--runtime-control** _option_
-> Perform administrative functions. Options: log_level_increase, log_level_decrease, userparameter_reload, metrics, version, help.
+> 执行管理功能。选项：log_level_increase、log_level_decrease、userparameter_reload、metrics、version、help。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # DESCRIPTION
 
-**zabbix_agent2** is the next-generation Zabbix monitoring agent written in Go. Collects system metrics and sends them to Zabbix server. Supports plugins and concurrent checks.
+**zabbix_agent2** 是以 Go 编写的新一代 Zabbix 监控代理。它收集系统指标并发送到 Zabbix 服务器，支持插件和并发检查。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Next-generation Zabbix monitoring agent
 # SEE ALSO
 
 [zabbix_agentd](/man/zabbix_agentd)(1), [zabbix_get](/man/zabbix_get)(1), [zabbix_proxy](/man/zabbix_proxy)(1), [zabbix_server](/man/zabbix_server)(1)
-

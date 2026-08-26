@@ -1,10 +1,10 @@
 # TAGLINE
 
-Classic terminal snake game
+经典终端贪吃蛇游戏
 
 # TLDR
 
-**Start the worm game**
+**启动 worm 游戏**
 
 ```worm```
 
@@ -14,11 +14,11 @@ Classic terminal snake game
 
 # IN-GAME CONTROLS
 
-**Arrow keys** or **h j k l**
-> Move the worm (left, down, up, right)
+**方向键**或 **h j k l**
+> 移动蠕虫（左、下、上、右）
 
 **q**
-> Quit the game
+> 退出游戏
 
 # PREVIEW
 
@@ -32,19 +32,19 @@ Classic terminal snake game
 
 # DESCRIPTION
 
-**worm** is a classic terminal-based snake game from the BSD games collection. The player controls a growing worm that moves around the screen, eating numbers to grow longer and score points.
+**worm** 是来自 BSD games 集合的经典终端贪吃蛇游戏。玩家控制一条不断变长的蠕虫在屏幕上移动，吃掉数字来变长并获得分数。
 
-Numbers appear randomly on screen, and the worm grows by the value of each number eaten. The goal is to eat as many numbers as possible without crashing into the walls or the worm's own body. Speed increases as the worm grows longer, making the game progressively more challenging.
+数字随机出现在屏幕上，蠕虫会按所吃数字的值增长。目标是吃到尽可能多的数字，同时不撞到墙壁或蠕虫自己的身体。随着蠕虫变长，速度会加快，游戏难度也逐渐提升。
 
-The game displays in a simple ASCII terminal interface, making it playable on any text terminal. It is the original inspiration for the popular "Snake" game found on Nokia mobile phones.
+游戏以简单的 ASCII 终端界面显示，可以在任何文本终端上玩。它正是诺基亚手机上流行的 "Snake" 游戏的最初灵感来源。
 
 # CAVEATS
 
-Requires the **bsdgames** package to be installed. Terminal must support cursor positioning. Game speed may vary depending on terminal emulator performance.
+需要安装 **bsdgames** 软件包。终端必须支持光标定位。游戏速度可能因终端模拟器的性能而有所不同。
 
 # HISTORY
 
-Worm is part of the **BSD games** collection, a set of classic text-based games originally distributed with BSD Unix systems in the 1970s and 1980s. These games were created during the early days of Unix when terminals were text-only, and they became a staple of Unix culture. The snake/worm game concept later became famous through Nokia's implementation on mobile phones in the late 1990s.
+Worm 是 **BSD games** 集合的一部分，这是一组经典文本游戏，最初随 BSD Unix 系统于 20 世纪七八十年代分发。这些游戏诞生于终端只有文本的 Unix 早期，后来成为 Unix 文化的标志性内容。贪吃蛇/蠕虫游戏的概念后来因诺基亚在 20 世纪 90 年代末手机上的实现而广为人知。
 
 # INSTALL
 

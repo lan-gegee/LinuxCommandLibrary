@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove Void Linux packages
+移除 Void Linux 软件包
 
 # TLDR
 
-**Remove** a package
+**移除**一个软件包
 
 ```xbps-remove [package]```
 
-**Remove** a package and its dependencies
+**移除**软件包及其依赖
 
 ```xbps-remove -R [package]```
 
-**Remove** orphan packages
+**移除**孤立软件包
 
 ```xbps-remove -o```
 
-**Remove** obsolete packages from the cache
+**从缓存中移除**过时的软件包
 
 ```xbps-remove -O```
 
@@ -27,35 +27,35 @@ Remove Void Linux packages
 # PARAMETERS
 
 **-R, --recursive**
-> Remove package and its dependencies
+> 移除软件包及其依赖
 
 **-o, --remove-orphans**
-> Remove orphaned packages (unused dependencies)
+> 移除孤立软件包（不再使用的依赖）
 
 **-O, --clean-cache**
-> Remove obsolete packages from cache
+> 从缓存中移除过时的软件包
 
 **-y, --yes**
-> Assume yes to all questions
+> 对所有提问自动回答 yes
 
 **-n, --dry-run**
-> Show what would be done
+> 显示将要执行的操作
 
 **-f, --force**
-> Force removal
+> 强制移除
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 # DESCRIPTION
 
-**xbps-remove** removes packages from a Void Linux system. It can remove individual packages, recursively remove packages with their dependencies, and clean up orphaned packages.
+**xbps-remove** 从 Void Linux 系统中移除软件包。它可以移除单个软件包、递归移除软件包及其依赖，以及清理孤立软件包。
 
-The **-o** option is useful for removing packages that were installed as dependencies but are no longer needed by any installed package.
+**-o** 选项适用于移除那些作为依赖安装、但已不再被任何已安装软件包需要的软件包。
 
 # CAVEATS
 
-Requires root privileges. Be careful with **-R** as it may remove packages you want to keep. Running **-o** regularly helps keep the system clean. Part of the XBPS package management system for Void Linux.
+需要 root 权限。使用 **-R** 时要小心，因为它可能会移除你想保留的软件包。定期运行 **-o** 有助于保持系统整洁。属于 Void Linux 的 XBPS 包管理系统的一部分。
 
 # INSTALL
 

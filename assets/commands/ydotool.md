@@ -1,22 +1,22 @@
 # TAGLINE
 
-Simulate input on X11 and Wayland
+在 X11 和 Wayland 上模拟输入
 
 # TLDR
 
-Start **daemon**
+启动**守护进程**
 
 ```ydotoold```
 
-**Left click**
+**左键点击**
 
 ```ydotool click 0xC0```
 
-**Right click**
+**右键点击**
 
 ```ydotool click 0xC1```
 
-Press **Alt+F4**
+按下 **Alt+F4**
 
 ```ydotool key 56:1 62:1 62:0 56:0```
 
@@ -27,26 +27,26 @@ Press **Alt+F4**
 # PARAMETERS
 
 **click** _CODE_
-> Simulate mouse click (0xC0=left, 0xC1=right, 0xC2=middle)
+> 模拟鼠标点击（0xC0=左键，0xC1=右键，0xC2=中键）
 
 **key** _KEYCODE:STATE..._
-> Simulate key press/release (1=press, 0=release)
+> 模拟按键按下/释放（1=按下，0=释放）
 
 **type** _TEXT_
-> Type text string
+> 输入文本字符串
 
 **mousemove** _X_ _Y_
-> Move mouse to position
+> 将鼠标移动到指定位置
 
 # DESCRIPTION
 
-**ydotool** simulates keyboard and mouse input on Linux. Unlike xdotool, it works on both X11 and Wayland by using the kernel uinput module.
+**ydotool** 在 Linux 上模拟键盘和鼠标输入。与 xdotool 不同，它通过内核的 uinput 模块工作，因此在 X11 和 Wayland 上都能使用。
 
-Requires the ydotoold daemon to be running.
+需要 ydotoold 守护进程正在运行。
 
 # CAVEATS
 
-Requires ydotoold daemon running. Needs access to /dev/uinput. Key codes are hardware scancodes, not X11 keysyms.
+需要 ydotoold 守护进程正在运行。需要访问 /dev/uinput。键码是硬件扫描码，而非 X11 keysym。
 
 # INSTALL
 

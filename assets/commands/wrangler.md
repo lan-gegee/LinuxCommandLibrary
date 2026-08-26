@@ -1,38 +1,38 @@
 # TAGLINE
 
-Cloudflare Workers CLI tool
+Cloudflare Workers CLI 工具
 
 # TLDR
 
-**Create a new Worker project**
+**创建新的 Worker 项目**
 
 ```wrangler init [project-name]```
 
-**Start local development server**
+**启动本地开发服务器**
 
 ```wrangler dev```
 
-**Deploy Worker to Cloudflare**
+**将 Worker 部署到 Cloudflare**
 
 ```wrangler deploy```
 
-**Login to Cloudflare account**
+**登录 Cloudflare 账户**
 
 ```wrangler login```
 
-**List KV namespaces**
+**列出 KV 命名空间**
 
 ```wrangler kv namespace list```
 
-**Create a KV namespace**
+**创建 KV 命名空间**
 
 ```wrangler kv namespace create [namespace-name]```
 
-**Tail Worker logs** in real-time
+实时**追踪 Worker 日志**
 
 ```wrangler tail [worker-name]```
 
-**Generate types** from configuration
+从配置**生成类型定义**
 
 ```wrangler types```
 
@@ -43,68 +43,68 @@ Cloudflare Workers CLI tool
 # PARAMETERS
 
 **init** [_name_]
-> Create a new Worker project with optional name.
+> 创建新的 Worker 项目，名称可选。
 
 **dev**
-> Start a local development server with hot reloading.
+> 启动支持热重载的本地开发服务器。
 
 **deploy**
-> Deploy Worker to Cloudflare's global network.
+> 将 Worker 部署到 Cloudflare 全球网络。
 
 **publish**
-> Alias for deploy (deprecated).
+> deploy 的别名（已废弃）。
 
 **login**
-> Authenticate with Cloudflare account via browser.
+> 通过浏览器向 Cloudflare 账户进行身份验证。
 
 **logout**
-> Revoke local authentication.
+> 撤销本地身份验证。
 
 **whoami**
-> Display currently logged-in user information.
+> 显示当前登录用户的信息。
 
 **tail** [_worker_]
-> Stream real-time logs from a deployed Worker.
+> 流式查看已部署 Worker 的实时日志。
 
 **kv namespace** _action_
-> Manage Workers KV namespaces (list, create, delete).
+> 管理 Workers KV 命名空间（list、create、delete）。
 
 **kv key** _action_
-> Manage KV key-value pairs (put, get, delete, list).
+> 管理 KV 键值对（put、get、delete、list）。
 
 **r2 bucket** _action_
-> Manage R2 storage buckets.
+> 管理 R2 存储桶。
 
 **d1** _action_
-> Manage D1 databases.
+> 管理 D1 数据库。
 
 **secret put** _name_
-> Create or update an encrypted secret.
+> 创建或更新加密的密钥。
 
 **types**
-> Generate TypeScript types from wrangler.toml configuration.
+> 根据 wrangler.toml 配置生成 TypeScript 类型。
 
 **--config** _file_
-> Specify configuration file path.
+> 指定配置文件路径。
 
 **--env** _environment_
-> Target a specific environment.
+> 以指定环境为目标。
 
 # DESCRIPTION
 
-**Wrangler** is the command-line interface for Cloudflare's Developer Platform, used to create, develop, test, and deploy Cloudflare Workers and manage related services like KV storage, R2 object storage, D1 databases, and Queues.
+**Wrangler** 是 Cloudflare 开发者平台的命令行界面，用于创建、开发、测试和部署 Cloudflare Workers，并管理 KV 存储、R2 对象存储、D1 数据库和 Queues 等相关服务。
 
-The tool provides a local development server that emulates the Cloudflare Workers runtime, enabling rapid iteration without deploying to production. It handles bundling JavaScript and TypeScript code, managing secrets, and configuring bindings to other Cloudflare services.
+该工具提供一个模拟 Cloudflare Workers 运行时的本地开发服务器，无需部署到生产环境即可快速迭代。它负责打包 JavaScript 和 TypeScript 代码、管理密钥以及配置到其他 Cloudflare 服务的绑定。
 
-Configuration is managed through wrangler.toml (or wrangler.json) in the project root, defining the Worker's name, entry point, compatibility settings, and service bindings. Wrangler supports multiple environments for staging and production deployments.
+配置通过项目根目录下的 wrangler.toml（或 wrangler.json）管理，定义 Worker 的名称、入口文件、兼容性设置和服务绑定。Wrangler 支持多环境，便于预发布与生产部署。
 
 # CAVEATS
 
-Requires Node.js 18 or higher. Local development environment may have subtle differences from production Cloudflare edge runtime. Some features require a Cloudflare account with appropriate plan level. Rate limits apply to API operations.
+需要 Node.js 18 或更高版本。本地开发环境可能与生产环境的 Cloudflare 边缘运行时存在细微差异。某些功能需要相应套餐级别的 Cloudflare 账户。API 操作受速率限制约束。
 
 # HISTORY
 
-**Wrangler** was originally developed by **Cloudflare** in **2019** to support the Workers serverless platform. Version 1 was written in Rust, while **Wrangler 2** (released **2022**) was rewritten in TypeScript for better integration with the JavaScript ecosystem. The tool is part of the open-source workers-sdk repository and continues active development with frequent releases.
+**Wrangler** 最初由 **Cloudflare** 于 **2019 年**开发，用于支持 Workers 无服务器平台。版本 1 使用 Rust 编写，而 **Wrangler 2**（于 **2022 年**发布）改用 TypeScript 重写，以便更好地融入 JavaScript 生态。该工具是开源 workers-sdk 仓库的一部分，目前仍在活跃开发并频繁发布新版本。
 
 # INSTALL
 

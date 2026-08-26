@@ -1,34 +1,34 @@
 # TAGLINE
 
-Show how a command name would be interpreted
+显示命令名会被如何解释
 
 # TLDR
 
-**Show how a name is resolved** (path, alias, or type)
+**显示名称如何解析**（路径、别名或类型）
 
 ```whence [command]```
 
-**Verbose description** (like type or command -V)
+**详细的描述信息**（类似 type 或 command -V）
 
 ```whence -v [command]```
 
-**csh-style output** with function bodies (zsh; same as which)
+带函数体的 **csh 风格输出**（zsh；与 which 相同）
 
 ```whence -c [command]```
 
-**Word type only**: alias, builtin, command, function, hashed, reserved, or none (zsh)
+**只输出单词类型**：alias、builtin、command、function、hashed、reserved 或 none（zsh）
 
 ```whence -w [command]```
 
-**All matches** along PATH (and other interpretations)
+沿 PATH 的**所有匹配项**（及其他解释方式）
 
 ```whence -a [command]```
 
-**Force PATH search** even if name is an alias, function, or builtin
+即使 name 是别名、函数或内建命令也**强制搜索 PATH**
 
 ```whence -p [command]```
 
-**Show all occurrences in csh format** (zsh; same as where)
+**以 csh 格式显示所有出现位置**（zsh；与 where 相同）
 
 ```whence -ca [command]```
 
@@ -41,60 +41,61 @@ Show how a command name would be interpreted
 # PARAMETERS
 
 **-v**
-> Produce a more verbose report
+> 输出更详细的报告
 
 **-a**
-> Report all interpretations / search the entire command path (not only the first match)
+> 报告所有解释 / 搜索整个命令路径（而不只是第一个匹配）
 
 **-p**
-> Do a PATH search even if name is an alias, reserved word, function, or builtin
+> 即使 name 是别名、保留字、函数或内建命令，也执行 PATH 搜索
 
 **-f**
-> Skip the search for shell functions (ksh). In zsh, with **-c**, display the contents of a shell function
+> 跳过 shell 函数的搜索（ksh）。在 zsh 中配合 **-c** 使用时，显示 shell 函数的内容
 
-**-c** (zsh)
-> Print results in a csh-like format (takes precedence over **-v**). Equivalent to the zsh **which** builtin when used alone
+**-c**（zsh）
+> 以类似 csh 的格式打印结果（优先于 **-v**）。单独使用时等同于 zsh 的 **which** 内建命令
 
-**-w** (zsh)
-> Print `name: word` where word is one of: alias, builtin, command, function, hashed, reserved, or none
+**-w**（zsh）
+> 打印 `name: word`，其中 word 为：alias、builtin、command、function、hashed、reserved 或 none
 
-**-m** (zsh)
-> Treat arguments as patterns and display matching commands (quote pattern characters)
+**-m**（zsh）
+> 将参数视为模式并显示匹配的命令（模式字符需加引号）
 
-**-s** (zsh)
-> If a pathname contains symlinks, also print the symlink-free pathname
+**-s**（zsh）
+> 如果路径名包含符号链接，同时打印去除符号链接后的路径名
 
-**-S** (zsh)
-> Like **-s**, but print intermediate symlink resolution steps
+**-S**（zsh）
+> 类似 **-s**，但会打印符号链接解析的中间步骤
 
-**-x** _num_ (zsh)
-> Expand tabs when outputting shell functions with **-c** (same idea as **functions -x**)
+**-x** _num_（zsh）
+> 用 **-c** 输出 shell 函数时展开制表符（思路同 **functions -x**）
 
 # DESCRIPTION
 
-**whence** is a shell builtin in **ksh** and **zsh** that reports how each _name_ would be interpreted if used as a command. Unlike the external **which** utility, it understands shell aliases, functions, builtins, reserved words, and hashed commands, not only executables on PATH.
+**whence** 是 **ksh** 和 **zsh** 中的 shell 内建命令，报告每个 _name_ 作为命令使用时会被如何解释。与外部的 **which** 工具不同，它理解 shell 别名、函数、内建命令、保留字和哈希过的命令，而不仅仅是 PATH 上的可执行文件。
 
-With no options, **whence** typically prints the resolved path for external commands or an indication of the alias or other shell object. **-v** adds a descriptive message similar to **type** or **command -V**. **-p** forces a filesystem PATH search when a name is shadowed by a shell construct.
+不带选项时，**whence** 通常为外部命令打印解析出的路径，或指示别名等其他 shell 对象。**-v** 会附加描述性消息，类似 **type** 或 **command -V**。**-p** 在名称被 shell 结构遮蔽时强制进行文件系统 PATH 搜索。
 
-In **zsh**, **whence** is the underlying implementation for several related builtins:
+在 **zsh** 中，**whence** 是多个相关内建命令的底层实现：
 
-- **which** is equivalent to **whence -c**
-- **where** is equivalent to **whence -ca**
-- **type** is equivalent to **whence -v**
+- **which** 等价于 **whence -c**
+- **where** 等价于 **whence -ca**
+- **type** 等价于 **whence -v**
 
-**ksh** provides a smaller option set (**-a**, **-f**, **-p**, **-v**). **bash** and POSIX shells do not provide **whence**; use **type**, **command -v**, or **command -V** there instead.
+**ksh** 提供的选项集较小（**-a**、**-f**、**-p**、**-v**）。**bash** 和 POSIX shell 不提供 **whence**；在这些 shell 中请改用 **type**、**command -v** 或 **command -V**。
 
 # EXIT STATUS
 
 **0**
-> Name was found (recognized as a command form the shell understands)
+> 名称已找到（被识别为 shell 能理解的命令形式）
 
-**non-zero**
-> Name was not recognized. In zsh, a not-found message for **-v**, **-c**, or **-w** is written to standard output (not standard error), which differs from some other shells
+**非零**
+> 名称未被识别。在 zsh 中，针对 **-v**、**-c** 或 **-w** 的未找到消息会写入标准输出（而非标准错误），这与其他某些 shell 不同
 
 # EXAMPLES
 
-**Resolve commands in zsh**
+**在 zsh 中解析命令**
+
 ```
 $ whence ls
 /bin/ls
@@ -109,22 +110,23 @@ $ whence -w for
 for: reserved
 ```
 
-**Find every match on PATH (zsh)**
+**查找 PATH 上的所有匹配（zsh）**
+
 ```
 $ whence -a python3
 ```
 
 # CAVEATS
 
-**whence** is not a standalone program and is not available in bash or plain sh. Scripts that need portability should prefer **command -v** (POSIX) or **type**.
+**whence** 不是独立程序，在 bash 或普通 sh 中不可用。需要可移植性的脚本应优先使用 **command -v**（POSIX）或 **type**。
 
-Pattern matching with **-m** (zsh) only applies to the final path component of a command name; pass the basename, not a full path with `/`.
+**-m**（zsh）的模式匹配只作用于命令名的最后一段路径；请传入基名，而不是带 `/` 的完整路径。
 
-Option letters and output formats differ between ksh and zsh. Features such as **-c**, **-w**, **-m**, **-s**, and **-S** are zsh extensions.
+选项字母和输出格式在 ksh 与 zsh 之间有所差异。**-c**、**-w**、**-m**、**-s** 和 **-S** 等特性是 zsh 的扩展。
 
 # HISTORY
 
-**whence** originates in the KornShell (**ksh**) as the shell's command-lookup reporter. **zsh** adopted it and built a richer interface on top, with **which**, **where**, and **type** implemented as variants of **whence**. It is not specified by POSIX.
+**whence** 起源于 KornShell（**ksh**），是该 shell 的命令查询报告器。**zsh** 采用它并在其上构建了更丰富的接口，将 **which**、**where** 和 **type** 实现为 **whence** 的变体。POSIX 未对其作规定。
 
 # SEE ALSO
 

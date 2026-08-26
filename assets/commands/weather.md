@@ -1,18 +1,18 @@
 # TAGLINE
 
-Command-line weather forecasts
+命令行天气预报
 
 # TLDR
 
-**Current weather** for a location
+**当前位置**的当前天气
 
 ```weather [city]```
 
-**Use geolocation** / default location
+**使用地理定位** / 默认位置
 
 ```weather```
 
-**JSON output** (if supported)
+**JSON 输出**（如果支持）
 
 ```weather -j [city]```
 
@@ -22,27 +22,27 @@ Command-line weather forecasts
 
 # DESCRIPTION
 
-**weather** (also published historically as **darksky-weather** from genuinetools) prints concise weather conditions and forecasts in the terminal. Location can be a city name or coordinates depending on version and backend API configuration.
+**weather**（历史上也曾以 genuinetools 的 **darksky-weather** 名称发布）在终端中打印简洁的天气状况和预报。位置可以是城市名称或坐标，具体取决于版本和后端 API 配置。
 
-Many builds require an API key from a weather data provider (originally Dark Sky; forks may use OpenWeatherMap or others). Check **weather --help** and environment variables documented by your package.
+许多构建版本需要天气数据提供商的 API 密钥（最初是 Dark Sky；分支可能使用 OpenWeatherMap 或其他提供商）。请查看 **weather --help** 和你的软件包所记载的环境变量。
 
 # PARAMETERS
 
 *location*
 
-> City or query string for the forecast.
+> 用于预报的城市或查询字符串。
 
 **-j** / **--json**
 
-> Machine-readable output when available.
+> 可用时输出机器可读的格式。
 
 **-h**, **--help**
 
-> Options for units, days ahead, and icons.
+> 包含单位、预报天数和图标等选项。
 
 # CAVEATS
 
-Upstream weather APIs change frequently; keys, quotas, and endpoints may break older binaries. Prefer a maintained package for your distribution. Not related to GNOME Weather GUI.
+上游天气 API 变动频繁；密钥、配额和端点的变更可能使旧版本失效。建议使用发行版维护的软件包。与 GNOME Weather 图形界面无关。
 
 # INSTALL
 

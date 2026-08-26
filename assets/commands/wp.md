@@ -1,38 +1,38 @@
 # TAGLINE
 
-WordPress command-line management tool
+WordPress 命令行管理工具
 
 # TLDR
 
-**Show WordPress info**
+**显示 WordPress 信息**
 
 ```wp --info```
 
-**Update WordPress core**
+**更新 WordPress 核心**
 
 ```wp core update```
 
-**Install plugin**
+**安装插件**
 
 ```wp plugin install [plugin-name]```
 
-**Activate plugin**
+**激活插件**
 
 ```wp plugin activate [plugin-name]```
 
-**Install theme**
+**安装主题**
 
 ```wp theme install [theme-name]```
 
-**Create user**
+**创建用户**
 
 ```wp user create [username] [email@example.com] --role=[editor]```
 
-**Search/replace in database**
+**在数据库中搜索替换**
 
 ```wp search-replace [old-url] [new-url]```
 
-**Export database**
+**导出数据库**
 
 ```wp db export [backup.sql]```
 
@@ -43,66 +43,66 @@ WordPress command-line management tool
 # PARAMETERS
 
 **core**
-> WordPress core installation and updates.
+> WordPress 核心的安装与更新。
 
 **plugin**
-> Plugin management (install, activate, deactivate, update, delete).
+> 插件管理（install、activate、deactivate、update、delete）。
 
 **theme**
-> Theme management (install, activate, update, delete).
+> 主题管理（install、activate、update、delete）。
 
 **user**
-> User management (create, list, update, delete).
+> 用户管理（create、list、update、delete）。
 
 **db**
-> Database operations (export, import, query, optimize, repair).
+> 数据库操作（export、import、query、optimize、repair）。
 
 **search-replace** _old_ _new_
-> Search and replace strings in the database.
+> 在数据库中搜索并替换字符串。
 
 **cache**
-> Object cache commands (flush, type).
+> 对象缓存命令（flush、type）。
 
 **config**
-> Configuration file management (create, get, set).
+> 配置文件管理（create、get、set）。
 
 **post**
-> Post management (create, list, update, delete).
+> 文章管理（create、list、update、delete）。
 
 **media**
-> Media attachment management (import, regenerate).
+> 媒体附件管理（import、regenerate）。
 
 **--path=**_DIR_
-> Path to WordPress installation.
+> WordPress 安装路径。
 
 **--url=**_URL_
-> Target site URL (for multisite).
+> 目标站点 URL（用于多站点）。
 
 **--skip-plugins**
-> Skip loading all plugins.
+> 跳过加载所有插件。
 
 **--skip-themes**
-> Skip loading all themes.
+> 跳过加载所有主题。
 
 **--user=**_USER_
-> Run command as a specific user.
+> 以特定用户身份运行命令。
 
 **--allow-root**
-> Allow running as root (not recommended).
+> 允许以 root 身份运行（不建议）。
 
 # DESCRIPTION
 
-**wp** (WP-CLI) is the official command-line interface for WordPress administration. It provides complete control over WordPress installations from the terminal, including core updates, plugin and theme management, user administration, and database operations.
+**wp**（WP-CLI）是 WordPress 官方的命令行管理界面。它让你可以在终端中完全控制 WordPress 站点，包括核心更新、插件和主题管理、用户管理以及数据库操作。
 
-Common workflows include installing and activating plugins, creating users with specific roles, exporting and importing databases, and performing search-replace operations across the database for tasks like domain migration. The tool can also manage posts, pages, comments, and virtually every aspect of a WordPress site without needing a web browser.
+常见工作流包括安装并激活插件、创建具有特定角色的用户、导出导入数据库，以及在数据库中执行搜索替换（例如域名迁移）。该工具还能管理文章、页面、评论乃至 WordPress 站点的几乎所有方面，全程无需浏览器。
 
 # CAVEATS
 
-Requires an existing WordPress installation and PHP CLI. Some operations need direct database access. Running as root is discouraged unless **--allow-root** is specified. For multisite, use **--url** to target a specific site.
+需要已存在的 WordPress 安装和 PHP CLI。某些操作需要直接访问数据库。除非指定 **--allow-root**，否则不建议以 root 身份运行。多站点环境下，请使用 **--url** 指定目标站点。
 
 # HISTORY
 
-**WP-CLI** was initiated by **Andreas Creten** in **2011** and later maintained by **Daniel Bachhuber**. It became the official command-line tool for WordPress, endorsed by the WordPress project. The tool is actively maintained by the open-source community.
+**WP-CLI** 由 **Andreas Creten** 于 **2011 年**发起，后来由 **Daniel Bachhuber** 维护。它成为 WordPress 项目认可的官方命令行工具。该项目由开源社区积极维护。
 
 # SEE ALSO
 

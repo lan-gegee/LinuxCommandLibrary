@@ -1,30 +1,30 @@
 # TAGLINE
 
-Partial differential file downloader over HTTP
+基于 HTTP 的部分差分文件下载工具
 
 # TLDR
 
-**Download a file using a .zsync URL**
+**通过 .zsync URL 下载文件**
 
 ```zsync [http://example.com/path/to/file.zsync]```
 
-**Use a local file as seed for differential download**
+**用本地文件作为种子进行差分下载**
 
 ```zsync -i [path/to/existing_file] [http://example.com/path/to/file.zsync]```
 
-**Save downloaded file with a specific name**
+**以指定名称保存下载的文件**
 
 ```zsync -o [path/to/output_file] [http://example.com/path/to/file.zsync]```
 
-**Save the .zsync file locally for future conditional requests**
+**把 .zsync 文件保存到本地，便于日后条件请求**
 
 ```zsync -k [path/to/saved.zsync] [http://example.com/path/to/file.zsync]```
 
-**Download in quiet mode without progress bar**
+**安静模式下载，不显示进度条**
 
 ```zsync -q [http://example.com/path/to/file.zsync]```
 
-**Authenticate with a server**
+**向服务器进行身份验证**
 
 ```zsync -A [hostname]=[user]:[password] [http://hostname/path/to/file.zsync]```
 
@@ -35,38 +35,38 @@ Partial differential file downloader over HTTP
 # PARAMETERS
 
 **-i** _FILE_
-> Use local file as seed for differential download. Can be specified multiple times.
+> 使用本地文件作为差分下载的种子。可以多次指定。
 
 **-o** _FILE_
-> Save downloaded file with specified name instead of the default
+> 以指定名称保存下载的文件，而非默认名称
 
 **-k** _FILE_
-> Save the downloaded .zsync file with the given filename. If the file already exists, makes a conditional request to only download if the server's copy is newer.
+> 以给定的文件名保存下载的 .zsync 文件。若文件已存在，则发起条件请求，只在服务器上的副本较新时才下载。
 
 **-q**
-> Quiet mode, suppress progress bar, download rate, and ETA display
+> 安静模式，隐藏进度条、下载速率和预计剩余时间显示
 
 **-s**
-> Deprecated synonym for -q
+> -q 的已弃用同义词
 
 **-u** _URL_
-> Specify referring URL. Required when using a local .zsync file that contains relative URLs.
+> 指定引用 URL。使用包含相对 URL 的本地 .zsync 文件时必须提供。
 
 **-A** _hostname=username:password_
-> Provide authentication credentials for the given hostname. Can be used multiple times for different servers.
+> 为指定主机名提供认证凭据。可对不同的服务器多次使用。
 
 **-V**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**zsync** is a partial/differential file downloader. It downloads only the changed parts of files using .zsync control files, similar to rsync but over HTTP.
+**zsync** 是一个部分/差分文件下载器。它借助 .zsync 控制文件只下载文件中发生变化的部分，类似 rsync，但运行在 HTTP 之上。
 
-Useful for updating large files like ISO images when only small parts have changed.
+适用于更新 ISO 镜像这类大文件：当只有一小部分内容变化时，无需完整重新下载。
 
 # CAVEATS
 
-Requires a .zsync control file generated on the server side. The server must support HTTP range requests. HTTPS support depends on the build.
+需要服务器端预先生成 .zsync 控制文件。服务器必须支持 HTTP 范围请求。是否支持 HTTPS 取决于具体构建版本。
 
 # INSTALL
 

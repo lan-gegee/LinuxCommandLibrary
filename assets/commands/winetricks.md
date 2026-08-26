@@ -1,18 +1,18 @@
 # TAGLINE
 
-Install Windows runtime libraries for Wine
+为 Wine 安装 Windows 运行库
 
 # TLDR
 
-Start a **graphical setup** at the default Wine location
+在默认 Wine 位置启动**图形化安装**
 
 ```winetricks```
 
-Specify a **custom Wine directory**
+指定**自定义 Wine 目录**
 
 ```WINEPREFIX=[path/to/wine_directory] winetricks```
 
-Install a Windows **DLL or component**
+安装 Windows **DLL 或组件**
 
 ```winetricks [package]```
 
@@ -23,48 +23,48 @@ Install a Windows **DLL or component**
 # PARAMETERS
 
 _verb_
-> Package, font, or setting to install/configure
+> 要安装/配置的软件包、字体或设置
 
 **--gui**
-> Start graphical interface
+> 启动图形界面
 
 **--force**
-> Force installation even if already installed
+> 即使已安装也强制安装
 
 **--unattended**
-> Don't show prompts during installation
+> 安装过程中不显示提示
 
 **--no-isolate**
-> Don't install in isolated environment
+> 不在隔离环境中安装
 
 **--verify**
-> Verify installation after completion
+> 完成后验证安装
 
 **list**
-> List available verbs
+> 列出可用的 verb
 
 **list-download**
-> List packages that can be downloaded
+> 列出可下载的软件包
 
 **apps** / **benchmarks** / **dlls** / **fonts** / **games** / **settings**
-> List verbs in specific category
+> 列出特定类别中的 verb
 
 **WINEPREFIX=**_path_
-> Environment variable to specify Wine prefix
+> 指定 Wine 前缀的环境变量
 
 # DESCRIPTION
 
-**winetricks** is a helper script to download and install various redistributable runtime libraries and settings needed to run Windows programs under Wine. It automates the installation of components like DirectX, Visual C++ runtimes, fonts, and .NET Framework.
+**winetricks** 是一个辅助脚本，用于下载和安装在 Wine 下运行 Windows 程序所需的各种可再发行运行库和设置。它可以自动安装 DirectX、Visual C++ 运行库、字体和 .NET Framework 等组件。
 
-The tool provides both a graphical interface and command-line operation. It can install multiple components at once and handles dependencies automatically. Each installation can be done in a specific Wine prefix.
+该工具既提供图形界面，也支持命令行操作。它可以一次安装多个组件并自动处理依赖关系。每次安装都可以在指定的 Wine 前缀中进行。
 
 # CAVEATS
 
-Some components require accepting license agreements even in unattended mode. Downloaded files are cached in ~/.cache/winetricks. Some verbs require an internet connection to download components from Microsoft or other sources.
+某些组件即使在无人值守模式下也需要接受许可协议。下载的文件缓存在 ~/.cache/winetricks 中。某些 verb 需要联网才能从 Microsoft 或其他来源下载组件。
 
 # HISTORY
 
-Created by **Dan Kegel** and released in **2007** as a shell script to automate common Wine setup tasks. Became an essential companion tool for Wine users, reducing the complexity of configuring Windows applications. Now maintained by the Wine community.
+由 **Dan Kegel** 创建，于 **2007 年**作为一个 shell 脚本发布，用于自动化常见的 Wine 配置任务。它已成为 Wine 用户必不可少的配套工具，降低了配置 Windows 应用程序的复杂度。现由 Wine 社区维护。
 
 # INSTALL
 

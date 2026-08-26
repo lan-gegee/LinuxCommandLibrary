@@ -1,22 +1,22 @@
 # TAGLINE
 
-Configure YubiKey device settings
+配置 YubiKey 设备设置
 
 # TLDR
 
-**Show device info**
+**显示设备信息**
 
 ```ykman config info```
 
-**Set lock code**
+**设置锁码**
 
 ```ykman config set-lock-code```
 
-**Enable USB interface**
+**启用 USB 接口应用**
 
 ```ykman config usb --enable [OTP]```
 
-**Disable NFC interface**
+**禁用 NFC 接口应用**
 
 ```ykman config nfc --disable [FIDO2]```
 
@@ -27,38 +27,38 @@ Configure YubiKey device settings
 # PARAMETERS
 
 **info**
-> Show configuration.
+> 显示配置。
 
 **set-lock-code**
-> Set or change lock code.
+> 设置或更改锁码。
 
 **usb** [_options_]
-> Configure enabled applications over USB (OTP, FIDO2, U2F, OATH, PIV, OPENPGP, HSMAUTH).
+> 配置通过 USB 启用的应用（OTP、FIDO2、U2F、OATH、PIV、OPENPGP、HSMAUTH）。
 
 **nfc** [_options_]
-> Configure enabled applications over NFC.
+> 配置通过 NFC 启用的应用。
 
 **--enable** _APP_
-> Enable the named application for the selected transport.
+> 为所选传输方式启用指定应用。
 
 **--disable** _APP_
-> Disable the named application for the selected transport.
+> 为所选传输方式禁用指定应用。
 
 **--enable-all**
-> Enable all supported applications for the transport.
+> 为该传输方式启用所有支持的应用。
 
 **--disable-all**
-> Disable all applications for the transport.
+> 为该传输方式禁用所有应用。
 
 **--lock-code** _HEX_
-> Provide the current lock code when changing protected settings.
+> 更改受保护设置时提供当前锁码。
 
 **-f**, **--force**
-> Apply changes without confirmation.
+> 不经确认直接应用更改。
 
 # DESCRIPTION
 
-**ykman config** manages YubiKey device configuration. Enable or disable applications and interfaces. Set lock codes for configuration protection.
+**ykman config** 管理 YubiKey 设备配置。可以启用或禁用应用和接口，并设置锁码以保护配置。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ Configure YubiKey device settings
 # SEE ALSO
 
 [ykman](/man/ykman)(1), [ykman-fido](/man/ykman-fido)(1)
-

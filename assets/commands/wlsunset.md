@@ -1,22 +1,22 @@
 # TAGLINE
 
-Wayland screen color temperature adjuster
+Wayland 屏幕色温调节器
 
 # TLDR
 
-**Start with location**
+**根据位置启动**
 
 ```wlsunset -l [51.5] -L [-0.1]```
 
-**Manual temperature**
+**手动设置色温**
 
 ```wlsunset -t [4000] -T [6500]```
 
-**Set gamma**
+**设置 gamma 值**
 
 ```wlsunset -g [0.9]```
 
-**Specify output**
+**指定输出设备**
 
 ```wlsunset -o [DP-1]```
 
@@ -27,36 +27,36 @@ Wayland screen color temperature adjuster
 # PARAMETERS
 
 **-l** _LAT_
-> Latitude.
+> 纬度。
 
 **-L** _LON_
-> Longitude.
+> 经度。
 
 **-t** _TEMP_
-> Night temperature.
+> 夜间色温。
 
 **-T** _TEMP_
-> Day temperature.
+> 白天色温。
 
 **-g** _GAMMA_
-> Gamma value.
+> gamma 值。
 
 **-o** _OUTPUT_
-> Specific output.
+> 指定输出设备。
 
 # DESCRIPTION
 
-**wlsunset** is a day/night screen color temperature daemon for Wayland compositors built on wlroots. It automatically adjusts display color temperature based on the time of day, shifting to warmer tones in the evening to reduce blue light exposure.
+**wlsunset** 是面向基于 wlroots 的 Wayland 合成器的昼夜屏幕色温守护进程。它根据一天中的时间自动调整显示器色温，在傍晚切换为较暖的色调，以减少蓝光照射。
 
-Sunrise and sunset times are calculated from the provided geographic coordinates, creating a smooth transition between configurable day and night color temperatures. The gamma value can also be adjusted for additional display tuning. The tool runs as a background daemon and is the Wayland-native equivalent of redshift or f.lux.
+日出和日落时间根据提供的地理坐标计算，在可配置的白天与夜间色温之间平滑过渡。还可以调整 gamma 值对显示做进一步微调。该工具以后台守护进程方式运行，是 redshift 或 f.lux 的 Wayland 原生等价物。
 
 # CAVEATS
 
-Wayland only. wlroots required. Location needed for auto.
+仅支持 Wayland。需要 wlroots。自动模式需要位置信息。
 
 # HISTORY
 
-**wlsunset** was created as a Wayland-native alternative to redshift for adjusting screen color temperature.
+**wlsunset** 作为 redshift 的 Wayland 原生替代方案而创建，用于调节屏幕色温。
 
 # INSTALL
 

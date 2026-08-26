@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast and friendly HTTP client
+快速友好的 HTTP 客户端
 
 # TLDR
 
-**Make GET request**
+**发送 GET 请求**
 
 ```xh [https://api.example.com/users]```
 
-**Make POST with JSON data**
+**发送带 JSON 数据的 POST 请求**
 
 ```xh POST [https://api.example.com/users] name=John email=john@example.com```
 
-**Make POST with raw JSON**
+**发送带原始 JSON 的 POST 请求**
 
 ```xh POST [https://api.example.com/users] < [data.json]```
 
-**Set custom headers**
+**设置自定义请求头**
 
 ```xh [https://api.example.com] Authorization:"Bearer [token]"```
 
-**Download file**
+**下载文件**
 
 ```xh --download [https://example.com/file.zip]```
 
-**Show only response body**
+**仅显示响应体**
 
 ```xh -b [https://api.example.com/users]```
 
-**Show only headers**
+**仅显示响应头**
 
 ```xh -h [https://api.example.com/users]```
 
-**Follow redirects**
+**跟随重定向**
 
 ```xh --follow [https://example.com/redirect]```
 
@@ -43,77 +43,77 @@ Fast and friendly HTTP client
 # PARAMETERS
 
 **(method)**
-> HTTP method: GET, POST, PUT, PATCH, DELETE, HEAD.
+> HTTP 方法：GET、POST、PUT、PATCH、DELETE、HEAD。
 
 **-b**, **--body**
-> Show only response body.
+> 仅显示响应体。
 
 **-h**, **--headers**
-> Show only response headers.
+> 仅显示响应头。
 
 **-d**, **--download**
-> Download file.
+> 下载文件。
 
 **-c**, **--continue**
-> Resume download.
+> 续传下载。
 
 **-o** _FILE_, **--output** _FILE_
-> Save response to file.
+> 将响应保存到文件。
 
 **-f**, **--form**
-> Send form data.
+> 发送表单数据。
 
 **-j**, **--json**
-> Send JSON data (default for POST).
+> 发送 JSON 数据（POST 的默认方式）。
 
 **-F**, **--follow**
-> Follow redirects.
+> 跟随重定向。
 
 **--offline**
-> Build request without sending.
+> 构造请求但不发送。
 
 **-p** _WHAT_, **--print** _WHAT_
-> What to print: H(request headers), B(request body), h(response headers), b(response body).
+> 指定要打印的内容：H（请求头）、B（请求体）、h（响应头）、b（响应体）。
 
 **-v**, **--verbose**
-> Show request and response.
+> 显示请求和响应。
 
 **--timeout** _SECS_
-> Request timeout.
+> 请求超时时间。
 
 **-A** _TYPE_, **--auth-type** _TYPE_
-> Auth type: basic, bearer, digest.
+> 身份验证类型：basic、bearer、digest。
 
 **-a** _USER:PASS_, **--auth** _USER:PASS_
-> Authentication credentials.
+> 身份验证凭据。
 
 **--proxy** _PROTO:URL_
-> Proxy URL.
+> 代理 URL。
 
 **-I**, **--ignore-stdin**
-> Ignore stdin data.
+> 忽略 stdin 数据。
 
 # DESCRIPTION
 
-**xh** is a friendly HTTP client, designed as a faster Rust reimplementation of HTTPie. It formats output with syntax highlighting and provides intuitive syntax for requests.
+**xh** 是一个友好的 HTTP 客户端，设计上是 HTTPie 更快的 Rust 重实现。它以语法高亮格式化输出，并提供直观的请求语法。
 
-Request items use special syntax: key=value for JSON/form data, key:=value for raw JSON values, key:value for headers. This enables building requests without complex quoting.
+请求项使用特殊语法：key=value 表示 JSON/表单数据，key:=value 表示原始 JSON 值，key:value 表示请求头。这使得构造请求无需复杂的引号处理。
 
-Output is formatted and colored by default: JSON is pretty-printed, headers are highlighted. The -b flag outputs raw body for piping to other tools.
+输出默认经过格式化并着色：JSON 会美化打印，请求头会高亮显示。-b 标志输出原始响应体，便于管道传给其他工具。
 
-Authentication supports basic, bearer token, and digest. Session support persists cookies and auth across requests.
+身份验证支持 basic、bearer 令牌和 digest。会话支持可在多个请求间持久保存 Cookie 和身份验证信息。
 
-Download mode saves response bodies to files, with resume support for interrupted transfers. Progress is shown during download.
+下载模式会将响应体保存到文件，支持中断后续传。下载过程中会显示进度。
 
-The offline mode builds and displays requests without sending, useful for debugging or generating curl commands.
+离线模式会构造并显示请求但不发送，适用于调试或生成 curl 命令。
 
 # CAVEATS
 
-Some HTTPie features not yet implemented. Output formatting adds overhead for large responses. Session handling differs from HTTPie. Some terminal color schemes may need adjustment.
+部分 HTTPie 功能尚未实现。对大型响应来说输出格式化会带来额外开销。会话处理与 HTTPie 不同。某些终端配色方案可能需要调整。
 
 # HISTORY
 
-**xh** was created by **ducaale** around **2020** as a Rust reimplementation of HTTPie. The name "xh" is HTTPie's h reversed. Written for performance and portability, it provides near-identical syntax while being significantly faster and shipping as a single binary.
+**xh** 由 **ducaale** 于 **2020** 年前后创建，是 HTTPie 的 Rust 重实现。"xh" 这个名字是 HTTPie 中 h 的反转。它以性能和可移植性为目标编写，语法几乎完全一致，同时速度显著更快，并以单一二进制文件发布。
 
 # INSTALL
 

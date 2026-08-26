@@ -1,38 +1,38 @@
 # TAGLINE
 
-Configure X11 display outputs
+配置 X11 显示输出
 
 # TLDR
 
-**Query** current display configuration
+**查询**当前显示配置
 
 ```xrandr -q```
 
-**Auto-configure** displays
+**自动配置**显示器
 
 ```xrandr --auto```
 
-Set **resolution and refresh rate**
+设置**分辨率和刷新率**
 
 ```xrandr --output DP1 --mode 1920x1080 -r 60```
 
-Position display **relative** to another
+将显示器置于另一显示器**相对位置**
 
 ```xrandr --output HDMI2 --mode 1280x1024 --right-of DP1```
 
-**Disable** an output
+**禁用**某个输出
 
 ```xrandr --output VGA1 --off```
 
-Set **brightness**
+设置**亮度**
 
 ```xrandr --output LVDS1 --brightness 0.5```
 
-**Rotate** display
+**旋转**显示
 
 ```xrandr --output HDMI1 --rotate left```
 
-**Mirror** displays
+**镜像**多个显示器
 
 ```xrandr --output HDMI1 --same-as LVDS1```
 
@@ -42,74 +42,74 @@ Set **brightness**
 
 # DESCRIPTION
 
-**xrandr** is used to set the size, orientation, and reflection of the outputs for an X screen. It can also set the screen size, add/remove modes, and change display properties dynamically without restarting X.
+**xrandr** 用于设置 X screen 各输出的尺寸、方向和镜像。它还可以动态调整屏幕大小、添加/删除显示模式以及更改显示属性，无需重启 X。
 
 # PARAMETERS
 
 **-q, --query**
-> Display current screen configuration
+> 显示当前屏幕配置
 
 **--output OUTPUT**
-> Select output to configure
+> 选择要配置的输出
 
 **--mode MODE**
-> Set resolution mode (WIDTHxHEIGHT)
+> 设置分辨率模式（WIDTHxHEIGHT）
 
 **-r, --rate RATE**
-> Set refresh rate in Hz
+> 设置刷新率（Hz）
 
 **--pos XxY**
-> Set position of output
+> 设置输出的位置
 
 **--left-of OUTPUT**
-> Position left of specified output
+> 置于指定输出的左侧
 
 **--right-of OUTPUT**
-> Position right of specified output
+> 置于指定输出的右侧
 
 **--above OUTPUT**
-> Position above specified output
+> 置于指定输出上方
 
 **--below OUTPUT**
-> Position below specified output
+> 置于指定输出下方
 
 **--same-as OUTPUT**
-> Mirror specified output
+> 镜像指定输出
 
 **--rotate ROTATION**
-> Rotate output (normal, left, right, inverted)
+> 旋转输出（normal、left、right、inverted）
 
 **--reflect REFLECTION**
-> Reflect output (x, y, xy, normal)
+> 镜像翻转输出（x、y、xy、normal）
 
 **--brightness LEVEL**
-> Set brightness (0.0 to 1.0)
+> 设置亮度（0.0 到 1.0）
 
 **--gamma R:G:B**
-> Set gamma correction
+> 设置伽马校正
 
 **--off**
-> Disable output
+> 禁用输出
 
 **--auto**
-> Enable output with preferred mode
+> 以首选模式启用输出
 
 **--primary**
-> Set as primary output
+> 设为主输出
 
 **-d, --display DISPLAY**
-> Specify X display to use
+> 指定要使用的 X display
 
 **--dpi DPI**
-> Set DPI for the screen
+> 为屏幕设置 DPI
 
 # CAVEATS
 
-Changes are temporary and reset on X restart. For persistent settings, add xrandr commands to ~/.xprofile or use display manager settings. Some modes may not work with all hardware.
+更改是临时的，重启 X 后会重置。若要持久化设置，可将 xrandr 命令加入 ~/.xprofile 或使用显示管理器的设置。某些模式可能不适用于所有硬件。
 
 # HISTORY
 
-**xrandr** is part of the X.Org project, implementing the RandR (Resize and Rotate) extension for dynamic display configuration without X server restart.
+**xrandr** 是 X.Org 项目的一部分，实现了 RandR（Resize and Rotate）扩展，可在不重启 X server 的情况下动态配置显示。
 
 # INSTALL
 

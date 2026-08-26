@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal system monitor with historical data
+带历史数据的终端系统监控器
 
 # TLDR
 
-**Start zenith**
+**启动 zenith**
 
 ```zenith```
 
-**Refresh at custom interval**
+**以自定义间隔刷新**
 
 ```zenith --refresh-rate [500]```
 
-**Start with specific database**
+**以指定数据库启动**
 
 ```zenith --db [/path/to/zenith.db]```
 
-**Disable GPU monitoring**
+**禁用 GPU 监控**
 
 ```zenith --disable-gpu```
 
-**Use specific graphics mode**
+**使用指定的图形模式**
 
 ```zenith --graphics-mode [plain]```
 
@@ -31,95 +31,95 @@ Terminal system monitor with historical data
 # PARAMETERS
 
 **-d**, **--db** _path_
-> History database path.
+> 历史数据库路径。
 
 **-r**, **--refresh-rate** _ms_
-> Refresh rate in milliseconds (default: 2000).
+> 刷新率（毫秒）（默认：2000）。
 
 **--disable-gpu**
-> Disable GPU monitoring.
+> 禁用 GPU 监控。
 
 **--disable-history**
-> Disable history collection.
+> 禁用历史数据收集。
 
 **--graphics-mode** _mode_
-> Graphics mode: unicode (default), plain.
+> 图形模式：unicode（默认）、plain。
 
 **-p**, **--process** _mode_
-> Process display: cpu, mem, top.
+> 进程显示方式：cpu、mem、top。
 
 **--cpu-height** _rows_
-> CPU chart height.
+> CPU 图表高度。
 
 **--net-height** _rows_
-> Network chart height.
+> 网络图表高度。
 
 **--disk-height** _rows_
-> Disk chart height.
+> 磁盘图表高度。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # KEYBOARD COMMANDS
 
 **q**
-> Quit.
+> 退出。
 
 **Tab**
-> Switch focus between sections.
+> 在各区块之间切换焦点。
 
-**Up**/**Down** or **j**/**k**
-> Navigate process list.
+**Up**/**Down** 或 **j**/**k**
+> 浏览进程列表。
 
 **/**
-> Filter processes.
+> 过滤进程。
 
 **+**/**-**
-> Zoom charts.
+> 缩放图表。
 
 **g**/**G**
-> Go to top/bottom of process list.
+> 跳到进程列表顶部/底部。
 
 **e**
-> Expand/collapse disk section.
+> 展开/折叠磁盘区块。
 
 **p**
-> Pause updates.
+> 暂停更新。
 
 **c**
-> Toggle CPU view modes.
+> 切换 CPU 视图模式。
 
 **m**
-> Toggle memory view modes.
+> 切换内存视图模式。
 
 **dd**
-> Send SIGTERM to selected process.
+> 向选中的进程发送 SIGTERM。
 
 **dk**
-> Send SIGKILL to selected process.
+> 向选中的进程发送 SIGKILL。
 
 # DESCRIPTION
 
-**zenith** is a terminal system monitor focusing on historical data visualization. It stores metrics in SQLite for reviewing past system state.
+**zenith** 是一款专注于历史数据可视化的终端系统监控器。它将指标存储在 SQLite 中，便于回顾过去的系统状态。
 
-The interface displays CPU, memory, network, disk, and GPU metrics with sparkline charts. Process list shows current system activity with sorting and filtering.
+界面以迷你图形式显示 CPU、内存、网络、磁盘和 GPU 指标。进程列表展示当前系统活动，支持排序和过滤。
 
-Historical data stored in the SQLite database allows viewing past system behavior. Navigate time with zoom controls. Default location is **~/.zenith.db**.
+存储在 SQLite 数据库中的历史数据可用于查看过去的系统行为。通过缩放控件在时间轴上浏览。默认位置为 **~/.zenith.db**。
 
-GPU monitoring supports NVIDIA (nvidia-smi) and AMD (amdgpu). Enable at compile time or check build features. Use **--disable-gpu** if unavailable.
+GPU 监控支持 NVIDIA（nvidia-smi）和 AMD（amdgpu）。需在编译时启用或检查构建特性。不可用时请使用 **--disable-gpu**。
 
-The refresh rate controls how often metrics update. Lower values provide smoother animation but higher CPU usage.
+刷新率控制指标更新的频率。数值越低动画越流畅，但 CPU 占用越高。
 
 # CAVEATS
 
-GPU support depends on drivers and hardware. Database can grow over time. Some metrics may be platform-specific. Unicode graphics require compatible terminal.
+GPU 支持取决于驱动和硬件。数据库会随时间增长。部分指标可能是平台特定的。Unicode 图形需要兼容的终端。
 
 # HISTORY
 
-zenith was created by **Benjamin Vaisvil** and first released around **2019**. Written in Rust, it was designed to combine real-time monitoring with historical analysis. The project distinguishes itself from other monitors by storing and visualizing historical metrics.
+zenith 由 **Benjamin Vaisvil** 创建，首次发布于 **2019 年**前后。它使用 Rust 编写，旨在将实时监控与历史分析相结合。该项目通过存储并可视化历史指标与其他监控工具形成差异。
 
 # INSTALL
 

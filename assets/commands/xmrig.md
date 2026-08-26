@@ -1,38 +1,38 @@
 # TAGLINE
 
-Cryptocurrency mining software
+加密货币挖矿软件
 
 # TLDR
 
-**Mine to a pool** with wallet address
+使用钱包地址**挖矿到矿池**
 
 ```xmrig -o [pool.example.com:3333] -u [wallet_address]```
 
-**Mine using config file**
+**使用配置文件挖矿**
 
 ```xmrig --config [config.json]```
 
-**Run benchmark**
+**运行基准测试**
 
 ```xmrig --bench [1M]```
 
-**Mine with specific CPU threads**
+**以指定 CPU 线程数挖矿**
 
 ```xmrig -o [pool:port] -u [wallet] -t [4]```
 
-**Run in background**
+**在后台运行**
 
 ```xmrig -o [pool:port] -u [wallet] -B```
 
-**Enable CUDA** (NVIDIA GPU)
+**启用 CUDA**（NVIDIA GPU）
 
 ```xmrig -o [pool:port] -u [wallet] --cuda```
 
-**Enable OpenCL** (AMD GPU)
+**启用 OpenCL**（AMD GPU）
 
 ```xmrig -o [pool:port] -u [wallet] --opencl```
 
-**Dry run** to test configuration
+**试运行（dry run）**测试配置
 
 ```xmrig --config [config.json] --dry-run```
 
@@ -45,74 +45,74 @@ Cryptocurrency mining software
 # PARAMETERS
 
 **-o** _URL_, **--url** _URL_
-> Mining pool URL (host:port)
+> 矿池 URL（host:port）
 
 **-u** _WALLET_, **--user** _WALLET_
-> Wallet address or username
+> 钱包地址或用户名
 
 **-p** _PASS_, **--pass** _PASS_
-> Password for pool
+> 矿池密码
 
 **-t** _NUM_, **--threads** _NUM_
-> Number of CPU threads
+> CPU 线程数量
 
 **-c** _FILE_, **--config** _FILE_
-> JSON configuration file
+> JSON 配置文件
 
 **-B**, **--background**
-> Run in background (daemon mode)
+> 在后台运行（守护进程模式）
 
 **--cuda**
-> Enable CUDA backend (NVIDIA)
+> 启用 CUDA 后端（NVIDIA）
 
 **--opencl**
-> Enable OpenCL backend (AMD)
+> 启用 OpenCL 后端（AMD）
 
 **--no-cpu**
-> Disable CPU mining
+> 禁用 CPU 挖矿
 
 **--cuda-devices** _LIST_
-> Comma-separated CUDA device indices
+> 以逗号分隔的 CUDA 设备索引
 
 **--opencl-devices** _LIST_
-> Comma-separated OpenCL device indices
+> 以逗号分隔的 OpenCL 设备索引
 
 **--donate-level** _N_
-> Donation percentage (default: 1%)
+> 捐赠百分比（默认：1%）
 
 **--randomx-1gb-pages**
-> Use 1GB hugepages (Linux, requires setup)
+> 使用 1 GB 大页（Linux，需要预先设置）
 
 **--bench** _N_
-> Run benchmark (1M to 10M hashes)
+> 运行基准测试（1M 到 10M 次哈希）
 
 **--stress**
-> Continuous stress test mode
+> 持续压力测试模式
 
 **--dry-run**
-> Test configuration without mining
+> 测试配置而不实际挖矿
 
 **-V**, **--version**
-> Show version
+> 显示版本
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 # DESCRIPTION
 
-**xmrig** is a high-performance cryptocurrency miner supporting RandomX (Monero), KawPow (Ravencoin), CryptoNight, and GhostRider algorithms. It supports CPU and GPU mining on Windows, Linux, macOS, and FreeBSD.
+**xmrig** 是一个高性能加密货币挖矿软件，支持 RandomX（Monero）、KawPow（Ravencoin）、CryptoNight 和 GhostRider 算法。它支持在 Windows、Linux、macOS 和 FreeBSD 上进行 CPU 和 GPU 挖矿。
 
-Configuration is preferably done via JSON config file, which supports features not available via command line like multiple pools and mining profiles. The miner automatically selects optimal settings based on hardware detection.
+配置最好通过 JSON 配置文件完成，它支持命令行无法实现的特性，例如多个矿池和挖矿方案（mining profile）。挖矿程序会根据硬件检测自动选择最优设置。
 
-For RandomX mining on Linux, enabling hugepages significantly improves performance. The miner includes a 1% default donation to developers, which can be adjusted via configuration.
+在 Linux 上进行 RandomX 挖矿时，启用大页内存可以显著提升性能。该挖矿程序默认包含 1% 的开发者捐赠，可通过配置调整。
 
 # CAVEATS
 
-Cryptocurrency mining consumes significant electricity and generates heat. Profitability depends on hardware, electricity costs, and cryptocurrency prices. Some cloud providers and ISPs prohibit mining. Running at full capacity may reduce hardware lifespan. Ensure adequate cooling for sustained operation.
+加密货币挖矿耗电量大并产生热量。收益取决于硬件、电费和加密货币价格。一些云服务商和 ISP 禁止挖矿。满负荷运行可能缩短硬件寿命。持续运行请确保散热充足。
 
 # HISTORY
 
-XMRig was created as an open-source Monero miner, originally focusing on CPU mining with the CryptoNight algorithm. When Monero switched to the RandomX algorithm in **2019**, XMRig was updated to support it. The project expanded to include GPU support via CUDA and OpenCL backends. XMRig became one of the most widely used miners due to its performance, cross-platform support, and active development.
+XMRig 作为一个开源 Monero 挖矿软件而创建，最初专注于使用 CryptoNight 算法的 CPU 挖矿。当 Monero 于 **2019** 年切换到 RandomX 算法时，XMRig 也随之更新以提供支持。该项目随后通过 CUDA 和 OpenCL 后端扩展了 GPU 支持。凭借其性能、跨平台支持和活跃的开发，XMRig 成为使用最广泛的挖矿软件之一。
 
 # INSTALL
 

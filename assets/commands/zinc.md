@@ -1,22 +1,22 @@
 # TAGLINE
 
-Lightweight full-text search engine
+轻量级全文搜索引擎
 
 # TLDR
 
-**Start Zinc server with initial admin credentials**
+**以初始管理员凭据启动 Zinc 服务器**
 
 ```ZINC_FIRST_ADMIN_USER=[admin] ZINC_FIRST_ADMIN_PASSWORD=[password] zinc```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```ZINC_SERVER_PORT=[4080] zinc```
 
-**Start with custom data directory**
+**以自定义数据目录启动**
 
 ```ZINC_DATA_PATH=[/var/lib/zinc] zinc```
 
-**Ingest data via API**
+**通过 API 写入数据**
 
 ```curl -u [admin:password] -X POST http://localhost:4080/api/[index]/_doc -d '{"field": "value"}'```
 
@@ -26,68 +26,68 @@ Lightweight full-text search engine
 
 # PARAMETERS
 
-Note: ZincSearch (now OpenObserve) is primarily configured via environment variables rather than command-line flags.
+注意：ZincSearch（现 OpenObserve）主要通过环境变量而非命令行标志进行配置。
 
 # ENVIRONMENT
 
 **ZINC_FIRST_ADMIN_USER**
-> Initial admin username (required on first run)
+> 初始管理员用户名（首次运行时必填）
 
 **ZINC_FIRST_ADMIN_PASSWORD**
-> Initial admin password (required on first run)
+> 初始管理员密码（首次运行时必填）
 
 **ZINC_DATA_PATH**
-> Data storage directory (default: ./data)
+> 数据存储目录（默认：./data）
 
 **ZINC_SERVER_ADDRESS**
-> Server bind address (default: 0.0.0.0)
+> 服务器绑定地址（默认：0.0.0.0）
 
 **ZINC_SERVER_PORT**
-> Server port (default: 4080)
+> 服务器端口（默认：4080）
 
 **ZINC_MAX_RESULTS**
-> Maximum search results returned (default: 100)
+> 返回的最大搜索结果数（默认：100）
 
 **ZINC_BATCH_SIZE**
-> Internal batch size for bulk indexing (default: 1024)
+> 批量索引时的内部批次大小（默认：1024）
 
 **ZINC_SHARD_NUM**
-> Number of shards for improved performance (default: 3)
+> 用于提升性能的分片数量（默认：3）
 
 **ZINC_ICE_COMPRESSOR**
-> Compression algorithm: snappy, s2, zstd (default: zstd)
+> 压缩算法：snappy、s2、zstd（默认：zstd）
 
 **ZINC_WAL_SYNC_INTERVAL**
-> Write-ahead log sync frequency (default: 1s)
+> 预写日志同步频率（默认：1s）
 
 **ZINC_TELEMETRY**
-> Anonymous usage data (default: true)
+> 匿名使用数据（默认：true）
 
 **ZINC_PROMETHEUS_ENABLE**
-> Enable Prometheus metrics endpoint (default: false)
+> 启用 Prometheus 指标端点（默认：false）
 
 **GIN_MODE**
-> Set to "release" for production mode
+> 设为 "release" 以进入生产模式
 
 # DESCRIPTION
 
-**ZincSearch** (formerly Zinc) is a lightweight, full-text search engine designed as an alternative to Elasticsearch. It provides log search and analytics with significantly lower resource requirements.
+**ZincSearch**（原名 Zinc）是一款轻量级全文搜索引擎，定位为 Elasticsearch 的替代方案。它提供日志搜索和分析功能，而资源需求显著更低。
 
-ZincSearch features a web UI for management, REST API compatible with Elasticsearch's search syntax, and supports various data ingestion methods including bulk insert and fluentd/fluent-bit integration.
+ZincSearch 具有用于管理的 Web UI、兼容 Elasticsearch 搜索语法的 REST API，并支持多种数据写入方式，包括批量插入和 fluentd/fluent-bit 集成。
 
-The search engine is written in Go and uses Bluge as its indexing library. It runs as a single binary with embedded storage, requiring no external dependencies.
+该搜索引擎用 Go 编写，使用 Bluge 作为索引库。它以单个二进制文件配合内嵌存储运行，无需外部依赖。
 
-Common use cases include log aggregation, application search, and replacing Elasticsearch in resource-constrained environments. The project has since evolved into **OpenObserve**.
+常见用例包括日志聚合、应用内搜索，以及在资源受限环境中替代 Elasticsearch。该项目后来演进为 **OpenObserve**。
 
 # CAVEATS
 
-Zinc is not a drop-in Elasticsearch replacement. While it supports similar query syntax, not all Elasticsearch features are implemented.
+Zinc 不是 Elasticsearch 的即插即用替代品。虽然支持类似的查询语法，但并非所有 Elasticsearch 功能都已实现。
 
-For high-availability deployments, additional architecture (load balancers, replication) must be implemented manually.
+高可用部署需要手动实现额外的架构（负载均衡器、复制等）。
 
-Memory usage scales with index size. Monitor resources for large deployments.
+内存占用随索引大小增长。大型部署请监控资源。
 
-First admin credentials must be set via environment variables before first run.
+首次运行前必须通过环境变量设置初始管理员凭据。
 
 # INSTALL
 

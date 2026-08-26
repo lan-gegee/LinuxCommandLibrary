@@ -1,30 +1,30 @@
 # TAGLINE
 
-Wikipedia summaries from the terminal
+从终端获取 Wikipedia 摘要
 
 # TLDR
 
-**Search Wikipedia**
+**搜索 Wikipedia**
 
 ```wikit [topic]```
 
-**Multiple word query**
+**多词查询**
 
 ```wikit "[linux kernel]"```
 
-**Specific language**
+**指定语言**
 
 ```wikit -l [es] [topic]```
 
-**Open in browser**
+**在浏览器中打开**
 
 ```wikit -b [topic]```
 
-**Show full article**
+**显示完整文章**
 
 ```wikit -a [topic]```
 
-**Disable line breaks**
+**禁用换行**
 
 ```wikit -n [topic]```
 
@@ -35,33 +35,33 @@ Wikipedia summaries from the terminal
 # PARAMETERS
 
 **-l**, **--lang** _LANG_
-> Wikipedia language.
+> Wikipedia 语言。
 
 **-b**, **--browser**
-> Open in browser.
+> 在浏览器中打开。
 
 **-a**, **--all**
-> Full article.
+> 完整文章。
 
 **-n**, **--line**
-> No line breaks.
+> 不自动换行。
 
 **-d**, **--disambig**
-> Show disambiguation.
+> 显示消歧义页面。
 
 # DESCRIPTION
 
-**wikit** is a command-line tool that fetches Wikipedia article summaries directly in the terminal. By default it displays the first paragraph of the matching article, providing a quick overview of any topic without leaving the command line.
+**wikit** 是一个命令行工具，可直接在终端获取 Wikipedia 文章摘要。默认情况下它显示匹配文章的第一段，让你无需离开命令行就能快速了解任何主题。
 
-The full article mode displays extended content beyond the opening summary. Language selection allows querying any of Wikipedia's language editions, and browser mode opens the complete article in a web browser for full reading. When a query matches multiple articles, disambiguation mode lists all possible meanings so you can refine your search.
+完整文章模式会显示开头摘要之外的扩展内容。语言选择功能可查询 Wikipedia 的任意语言版本；浏览器模式则在网页浏览器中打开完整文章以便通读。当一个查询匹配到多篇文章时，消歧义模式会列出所有可能的含义，方便你进一步细化搜索。
 
 # CAVEATS
 
-Requires internet. Wikipedia API limits. Not all languages complete.
+需要联网。受 Wikipedia API 限制。并非所有语言的数据都完整。
 
 # HISTORY
 
-**wikit** was created for quick Wikipedia lookups from the terminal. It provides instant access to encyclopedia knowledge.
+**wikit** 为在终端快速查阅 Wikipedia 而生。它提供对百科知识的即时访问。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Optimize PNG files with Zopfli compression
+使用 Zopfli 压缩优化 PNG 文件
 
 # TLDR
 
-**Optimize PNG**
+**优化 PNG**
 
 ```zopflipng [input.png] [output.png]```
 
-**In-place optimization**
+**原地优化**
 
 ```zopflipng -y [file.png] [file.png]```
 
-**Lossy optimization**
+**有损优化**
 
 ```zopflipng --lossy_transparent [input.png] [output.png]```
 
-**Maximum compression**
+**最大压缩**
 
 ```zopflipng -m [input.png] [output.png]```
 
-**Keep metadata**
+**保留元数据**
 
 ```zopflipng --keepchunks=iCCP,sRGB [input.png] [output.png]```
 
-**Quick mode**
+**快速模式**
 
 ```zopflipng -q [input.png] [output.png]```
 
-**Set specific number of iterations**
+**设置指定的迭代次数**
 
 ```zopflipng --iterations=[50] [input.png] [output.png]```
 
@@ -39,47 +39,47 @@ Optimize PNG files with Zopfli compression
 # PARAMETERS
 
 **-m**
-> Compress more: use more iterations (slower but better compression).
+> 更高强度压缩：使用更多迭代（更慢但压缩效果更好）。
 
 **-q**
-> Quick mode, less thorough compression.
+> 快速模式，压缩不够彻底。
 
 **-y**
-> Allow overwriting the output file.
+> 允许覆盖输出文件。
 
 **--iterations** _N_
-> Number of iterations for compression (default: 15 for small files, 5 for large files).
+> 压缩的迭代次数（默认：小文件 15 次，大文件 5 次）。
 
 **--lossy_transparent**
-> Lossy optimization of fully transparent pixels for smaller file size.
+> 对完全透明的像素做有损优化，以获得更小的文件。
 
 **--keepchunks** _CHUNKS_
-> Comma-separated list of metadata chunk names to preserve (e.g., iCCP,sRGB).
+> 要保留的元数据块名称列表（以逗号分隔），例如 iCCP,sRGB。
 
 **--keeptime**
-> Keep the original modification time of the input file.
+> 保留输入文件原有的修改时间。
 
 **--filters** _TYPES_
-> Filter strategies to try: 0-4, m (minimum sum), e (entropy), p (predefined), b (brute force).
+> 要尝试的过滤策略：0-4、m（最小和）、e（熵）、p（预定义）、b（暴力）。
 
 **--prefix** _PREFIX_
-> Add prefix to output filenames (may contain a directory path).
+> 为输出文件名添加前缀（可包含目录路径）。
 
 # DESCRIPTION
 
-**zopflipng** optimizes PNG files using the Zopfli compression algorithm, which produces deflate-compatible output that works everywhere standard PNG files do. It typically achieves 3-8% smaller files compared to standard PNG optimization tools.
+**zopflipng** 使用 Zopfli 压缩算法优化 PNG 文件，其输出与 deflate 兼容，凡标准 PNG 可用的地方都可使用。相比标准 PNG 优化工具，它通常能让文件小 3-8%。
 
-The tool strips metadata chunks by default for maximum size reduction, though specific chunks can be preserved with the **--keepchunks** option. A lossy transparency mode (**--lossy_transparent**) further reduces file size by optimizing invisible fully-transparent pixels without any visible quality change.
+该工具默认剥离元数据块以实现最大限度的体积缩减，但可以用 **--keepchunks** 选项保留特定块。有损透明模式（**--lossy_transparent**）通过优化不可见的完全透明像素进一步减小文件体积，且不会产生任何可见的质量变化。
 
-zopflipng is intentionally slow, trading compression time for smaller output. It is designed for final-stage optimization in build pipelines rather than interactive use. The **-m** flag enables additional iterations for even better compression at the cost of more processing time.
+zopflipng 刻意采用慢速策略，以压缩时间换取更小的输出。它是为构建流水线中的最终阶段优化设计的，不适合交互式使用。**-m** 标志会启用更多迭代以获得更好的压缩，代价是更长的处理时间。
 
 # CAVEATS
 
-Very slow for large images due to exhaustive compression search. CPU intensive. Best suited for final-stage optimization in build pipelines rather than interactive use. Strips metadata chunks by default.
+由于穷举式的压缩搜索，处理大图像时非常缓慢。CPU 占用高。最适合构建流水线中的最终阶段优化，而非交互式使用。默认剥离元数据块。
 
 # HISTORY
 
-**Zopfli** was created by **Google** for maximum deflate compression. zopflipng applies it to PNG images.
+**Zopfli** 由 **Google** 创建，用于实现最大程度的 deflate 压缩。zopflipng 将该算法应用到 PNG 图像上。
 
 # INSTALL
 

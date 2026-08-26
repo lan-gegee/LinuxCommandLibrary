@@ -1,22 +1,22 @@
 # TAGLINE
 
-Edit XML documents from command line
+从命令行编辑 XML 文档
 
 # TLDR
 
-**Update element value**
+**更新元素值**
 
 ```xml edit -u "[//element]" -v "[new value]" [file.xml]```
 
-**Insert element**
+**插入元素**
 
 ```xml edit -s "[//parent]" -t elem -n "[child]" -v "[value]" [file.xml]```
 
-**Delete element**
+**删除元素**
 
 ```xml edit -d "[//element]" [file.xml]```
 
-**Rename element**
+**重命名元素**
 
 ```xml edit -r "[//old]" -v "[new]" [file.xml]```
 
@@ -27,38 +27,38 @@ Edit XML documents from command line
 # PARAMETERS
 
 **-u**, **--update** _xpath_
-> Update matching nodes.
+> 更新匹配的节点。
 
 **-d**, **--delete** _xpath_
-> Delete matching nodes.
+> 删除匹配的节点。
 
 **-s**, **--subnode** _xpath_
-> Add subnode.
+> 添加子节点。
 
 **-i**, **--insert** _xpath_
-> Insert before.
+> 在其前插入。
 
 **-a**, **--append** _xpath_
-> Insert after.
+> 在其后追加。
 
 **-r**, **--rename** _xpath_
-> Rename nodes.
+> 重命名节点。
 
 **-v**, **--value** _value_
-> Value for operation.
+> 操作所用的值。
 
 **-t**, **--type** _type_
-> Node type (elem, attr, text).
+> 节点类型（elem、attr、text）。
 
 **-n**, **--name** _name_
-> Node name.
+> 节点名称。
 
 **-L**, **--inplace**
-> Edit file in place.
+> 就地编辑文件。
 
 # DESCRIPTION
 
-**xml edit** modifies XML documents from command line. Part of xmlstarlet toolkit. Supports inserting, updating, deleting, and renaming elements and attributes.
+**xml edit** 从命令行修改 XML 文档。属于 xmlstarlet 工具集。支持插入、更新、删除和重命名元素及属性。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ Edit XML documents from command line
 # SEE ALSO
 
 [xml-select](/man/xml-select)(1), [xml-format](/man/xml-format)(1)
-

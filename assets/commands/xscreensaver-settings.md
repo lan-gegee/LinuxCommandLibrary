@@ -1,14 +1,14 @@
 # TAGLINE
 
-Configure xscreensaver preferences
+配置 xscreensaver 偏好设置
 
 # TLDR
 
-**Open screensaver settings**
+**打开屏保设置**
 
 ```xscreensaver-settings```
 
-**Open settings with debug output**
+**带调试输出打开设置**
 
 ```xscreensaver-settings --debug```
 
@@ -19,38 +19,38 @@ Configure xscreensaver preferences
 # PARAMETERS
 
 **--display** _host:display.screen_
-> The X display to use for both the settings window and the controlled xscreensaver daemon
+> 设置窗口和受控 xscreensaver 守护进程共同使用的 X display
 
 **--debug**
-> Print diagnostics to stderr
+> 将诊断信息打印到 stderr
 
 # DESCRIPTION
 
-**xscreensaver-settings** is the graphical configuration tool for xscreensaver. It allows enabling/disabling individual screensavers, setting idle timeout, lock screen options, and display preferences.
+**xscreensaver-settings** 是 xscreensaver 的图形化配置工具。它允许启用/禁用单个屏保、设置空闲超时、锁屏选项和显示偏好。
 
-The interface has two main tabs: Display Modes for selecting and previewing screensavers, and Advanced for timing, locking, and power management settings. Changes are saved to ~/.xscreensaver.
+界面有两个主要标签页：Display Modes 用于选择和预览屏保，Advanced 用于计时、锁定和电源管理设置。更改会保存到 ~/.xscreensaver。
 
-Key settings include idle timeout before blanking, lock screen delay, cycle time between screensavers, and whether to blank all monitors or run different screensavers on each.
+关键设置包括屏幕变黑前的空闲超时、锁屏延迟、屏保之间的轮换时间，以及是让所有显示器一起变黑还是在每个显示器上运行不同屏保。
 
 # SETTINGS
 
-**Blank After**: Idle time before screen blanks.
+**Blank After**：屏幕变黑前的空闲时间。
 
-**Cycle After**: Time before switching screensavers.
+**Cycle After**：切换屏保前的时间。
 
-**Lock Screen After**: Grace period before password required.
+**Lock Screen After**：要求输入密码前的宽限时间。
 
-**Power Management**: Monitor power saving options.
+**Power Management**：显示器节能选项。
 
-**Mode**: Disable, Blank Only, One Random, or Random.
+**Mode**：Disable、Blank Only、One Random 或 Random。
 
 # CAVEATS
 
-Changes saved to ~/.xscreensaver file. GUI not available under Wayland (edit file manually). Requires xscreensaver daemon running. Previously called xscreensaver-demo.
+更改保存在 ~/.xscreensaver 文件中。Wayland 下无法使用 GUI（请手动编辑文件）。需要 xscreensaver 守护进程处于运行状态。之前名为 xscreensaver-demo。
 
 # HISTORY
 
-**xscreensaver-settings** (formerly xscreensaver-demo) is the configuration GUI for xscreensaver, created by Jamie Zawinski in 1992. Xscreensaver became the most popular X11 screensaver, with hundreds of display modules developed over the years.
+**xscreensaver-settings**（原名 xscreensaver-demo）是 xscreensaver 的图形配置界面，由 Jamie Zawinski 于 1992 年创建。Xscreensaver 成为最流行的 X11 屏保，多年来开发了数百个显示模块。
 
 # INSTALL
 

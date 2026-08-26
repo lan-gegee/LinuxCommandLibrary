@@ -1,38 +1,38 @@
 # TAGLINE
 
-Open source Verilog RTL synthesis framework
+开源 Verilog RTL 综合框架
 
 # TLDR
 
-**Run synthesis on Verilog file**
+对 Verilog 文件**运行综合**
 
 ```yosys -p "synth -top [module]" [design.v]```
 
-**Start interactive shell**
+**启动交互式 Shell**
 
 ```yosys```
 
-**Execute script file**
+**执行脚本文件**
 
 ```yosys -s [script.ys]```
 
-**Synthesize and output to file**
+**综合并输出到文件**
 
 ```yosys -p "synth -top [module]" -o [output.json] [design.v]```
 
-**Quick synthesis** shortcut
+快速综合**快捷方式**
 
 ```yosys -S [design.v]```
 
-**Run TCL script**
+**运行 TCL 脚本**
 
 ```yosys -c [script.tcl]```
 
-**List available commands**
+**列出可用命令**
 
 ```yosys -H```
 
-**Get help for command**
+**获取命令帮助**
 
 ```yosys -h [synth]```
 
@@ -43,70 +43,70 @@ Open source Verilog RTL synthesis framework
 # PARAMETERS
 
 **-s** _scriptfile_
-> Execute commands from script file.
+> 从脚本文件执行命令。
 
 **-c** _tclfile_
-> Execute TCL script file.
+> 执行 TCL 脚本文件。
 
 **-p** _command_
-> Execute command(s).
+> 执行命令。
 
 **-o** _outfile_
-> Write design to file on exit.
+> 退出时将设计写入文件。
 
 **-f** _frontend_
-> Frontend for input files.
+> 输入文件使用的前端。
 
 **-b** _backend_
-> Backend for output file.
+> 输出文件使用的后端。
 
 **-m** _module_
-> Load plugin module.
+> 加载插件模块。
 
 **-l** _logfile_
-> Write log to file.
+> 将日志写入文件。
 
 **-q**
-> Quiet operation (errors only).
+> 安静模式（仅输出错误）。
 
 **-v** _level_
-> Log verbosity level.
+> 日志详细程度级别。
 
 **-t**
-> Add timestamps to log.
+> 在日志中添加时间戳。
 
 **-S**
-> Shortcut for synth command.
+> synth 命令的快捷方式。
 
 **-H**
-> Print command list.
+> 打印命令列表。
 
 **-h** _command_
-> Help for specific command.
+> 显示特定命令的帮助。
 
 **-Q**
-> Suppress banner.
+> 不显示横幅。
 
 **-T**
-> Suppress footer.
+> 不显示页脚。
 
 # DESCRIPTION
 
-**yosys** is an open source framework for RTL synthesis. It reads Verilog hardware description language and synthesizes it to gate-level netlists for various target technologies.
+**yosys** 是一个开源的 RTL 综合框架。它读取 Verilog 硬件描述语言，并将其综合为适用于多种目标工艺的门级网表。
 
-The tool provides an interactive shell with numerous commands for reading designs, elaboration, optimization, technology mapping, and writing outputs. Synthesis flows are defined through script files or command-line arguments.
+该工具提供交互式 Shell，包含大量命令用于读取设计、细化、优化、工艺映射和写出结果。综合流程通过脚本文件或命令行参数定义。
 
-Supported input formats include Verilog, RTLIL, and Liberty. Output formats include BLIF, EDIF, JSON, Verilog, and various FPGA-specific formats. The tool supports plugins for extending functionality.
+支持的输入格式包括 Verilog、RTLIL 和 Liberty。输出格式包括 BLIF、EDIF、JSON、Verilog 以及各种 FPGA 专用格式。该工具支持通过插件扩展功能。
 
-Yosys is widely used in open-source FPGA toolchains including Lattice iCE40 and ECP5 flows with nextpnr.
+Yosys 广泛应用于开源 FPGA 工具链，包括基于 nextpnr 的 Lattice iCE40 和 ECP5 流程。
 
 # CAVEATS
 
-SystemVerilog support is limited. Complex designs may require multiple synthesis passes. Some features need external plugin modules. Memory and timing optimization may need manual tuning.
+SystemVerilog 支持有限。复杂设计可能需要多次综合。部分功能需要外部插件模块。存储器和时序优化可能需要手动调整。
 
 # HISTORY
 
-**yosys** was created by Clifford Wolf (now Claire Wolf) and released in 2012. It became the foundation of open-source FPGA toolchains, enabling fully open synthesis flows. The project is now maintained by YosysHQ and remains central to the open FPGA ecosystem.
+**yosys** 由 Clifford Wolf（现名 Claire Wolf）创建并于 2012 年发布。它成为开源 FPGA 工具链的基础，实现了完全开源的综合流程。该项目现由 YosysHQ 维护，仍是开源 FPGA 生态的核心。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display timezone information
+显示时区信息
 
 # TLDR
 
-Print **timezone** info
+打印**时区**信息
 
 ```zdump [timezone]```
 
@@ -15,26 +15,26 @@ Print **timezone** info
 # PARAMETERS
 
 **-v**
-> Verbose output with transition times
+> 详细输出，包含切换时间
 
 **-V**
-> More verbose output
+> 更详细的输出
 
 **-c** _YEAR_
-> Limit transitions to specified year range
+> 将切换限制在指定的年份范围内
 
 **--help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**zdump** prints timezone information including current time and UTC offset. It reads timezone data from the system timezone database.
+**zdump** 打印时区信息，包括当前时间和 UTC 偏移量。它从系统时区数据库读取时区数据。
 
-With -v flag, it shows all timezone transitions (daylight saving time changes).
+使用 -v 标志可显示所有时区切换（夏令时变更）。
 
 # CAVEATS
 
-Timezone names must match system database entries. Output format varies by system version.
+时区名称必须与系统数据库中的条目一致。输出格式因系统版本而异。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Decrypt yadm encrypted files
+解密 yadm 加密的文件
 
 # TLDR
 
-**Decrypt files**
+**解密文件**
 
 ```yadm decrypt```
 
-**Decrypt to specific location**
+**解密到指定位置**
 
 ```yadm decrypt -l```
 
@@ -19,13 +19,12 @@ Decrypt yadm encrypted files
 # PARAMETERS
 
 **-l**
-> List files to decrypt.
+> 列出待解密的文件。
 
 # DESCRIPTION
 
-**yadm decrypt** decrypts files encrypted with yadm encrypt. Restores sensitive files from encrypted archive. Requires GPG passphrase or key.
+**yadm decrypt** 解密由 yadm encrypt 加密的文件。从加密归档中恢复敏感文件。需要 GPG 口令或密钥。
 
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-encrypt](/man/yadm-encrypt)(1)
-

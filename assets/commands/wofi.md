@@ -1,18 +1,18 @@
 # TAGLINE
 
-Wayland application launcher
+Wayland 应用启动器
 
 # TLDR
 
-Show **apps** list
+显示**应用**列表
 
 ```wofi -S drun```
 
-Show **all** commands
+显示**所有**命令
 
 ```wofi -S run```
 
-**Dmenu** mode from stdin
+从标准输入进入 **Dmenu** 模式
 
 ```printf "Choice1\nChoice2\nChoice3" | wofi -d```
 
@@ -23,26 +23,26 @@ Show **all** commands
 # PARAMETERS
 
 **-S, --show** _MODE_
-> Show mode: drun (applications), run (commands), dmenu
+> 显示模式：drun（应用）、run（命令）、dmenu
 
 **-d, --dmenu**
-> Run in dmenu mode (read from stdin)
+> 以 dmenu 模式运行（从标准输入读取）
 
 **--style** _FILE_
-> Custom CSS stylesheet
+> 自定义 CSS 样式表
 
 **--conf** _FILE_
-> Configuration file
+> 配置文件
 
 # DESCRIPTION
 
-**wofi** is an application launcher for wlroots-based Wayland compositors. It functions similarly to rofi and dmenu, providing a searchable menu for launching applications or selecting items.
+**wofi** 是面向基于 wlroots 的 Wayland 合成器的应用启动器。它的功能与 rofi 和 dmenu 类似，提供一个可搜索的菜单，用于启动应用程序或选择条目。
 
-The drun mode shows desktop applications while run mode shows all executables in PATH.
+drun 模式显示桌面应用程序，而 run 模式显示 PATH 中的所有可执行文件。
 
 # CAVEATS
 
-Wayland only (wlroots-based compositors). Styling uses CSS. Some rofi features may not be available.
+仅支持 Wayland（基于 wlroots 的合成器）。样式使用 CSS 定义。某些 rofi 功能可能不可用。
 
 # INSTALL
 

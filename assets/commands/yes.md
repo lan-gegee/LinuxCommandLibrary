@@ -1,22 +1,22 @@
 # TAGLINE
 
-Repeatedly output a string
+反复输出一个字符串
 
 # TLDR
 
-**Output 'y' repeatedly** (for auto-confirming prompts)
+**反复输出 'y'**（用于自动确认提示）
 
 ```yes | [command]```
 
-**Output a custom string repeatedly**
+**反复输出自定义字符串**
 
 ```yes "[custom text]"```
 
-**Auto-answer 'no' to all prompts**
+**对所有提示自动回答 'no'**
 
 ```yes n | [command]```
 
-**Output for a limited number of lines**
+**只输出有限行数**
 
 ```yes | head -n [10]```
 
@@ -27,23 +27,23 @@ Repeatedly output a string
 # PARAMETERS
 
 _string..._
-> One or more strings to output repeatedly, joined by spaces (default: "y").
+> 要反复输出的一个或多个字符串，以空格连接（默认："y"）。
 
 **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**yes** outputs a string repeatedly until killed or the pipe closes. By default, it outputs "y" followed by a newline, endlessly.
+**yes** 会反复输出一个字符串，直到被终止或管道关闭。默认情况下，它无休止地输出 "y" 加换行符。
 
-The primary use is piping to commands that ask for confirmation, automatically answering "y" (or any specified response) to all prompts. This is useful for scripting commands that don't have native batch/quiet modes.
+它的主要用途是通过管道提供给需要确认的命令，自动对所有提示回答 "y"（或任何指定的响应）。对于没有原生批处理/静默模式的命令，这在脚本编写中很有用。
 
-When the receiving command closes its stdin (by exiting), yes terminates automatically due to the broken pipe.
+当接收方命令关闭其标准输入（即退出）时，yes 会因管道断裂而自动终止。
 
-Without piping, yes runs indefinitely and must be interrupted with Ctrl+C.
+不通过管道使用时，yes 会无限运行，必须用 Ctrl+C 中断。
 
 # EXAMPLES
 
@@ -63,15 +63,15 @@ yes > /dev/null
 
 # CAVEATS
 
-Using yes bypasses safety prompts. Ensure you understand what you're auto-confirming before piping yes to destructive commands.
+使用 yes 会绕过安全提示。在把 yes 通过管道传给破坏性命令之前，请确保你清楚自己在自动确认什么。
 
-Some commands detect non-interactive input and refuse to run or behave differently. Use command-specific flags (like **-y** or **--yes**) when available.
+某些命令会检测到非交互式输入而拒绝运行或表现不同。可行时请优先使用命令自带的标志（如 **-y** 或 **--yes**）。
 
-yes runs at maximum speed, which can generate significant CPU load when not piped to anything useful. Upon a write error (e.g., broken pipe), yes exits with status 1.
+yes 以最高速度运行，在没有管道传输给有用目标时可能产生可观的 CPU 负载。发生写入错误时（例如管道断裂），yes 会以状态码 1 退出。
 
 # HISTORY
 
-**yes** is part of **GNU coreutils**, written by **David MacKenzie**. It originates from Unix System V and has been part of coreutils since the early days of the project.
+**yes** 属于 **GNU coreutils**，由 **David MacKenzie** 编写。它源自 Unix System V，自项目早期起就是 coreutils 的一部分。
 
 # INSTALL
 

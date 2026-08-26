@@ -1,22 +1,22 @@
 # TAGLINE
 
-Extract password hashes from ZIP files
+从 ZIP 文件中提取密码哈希
 
 # TLDR
 
-**Extract hash from ZIP**
+**从 ZIP 提取哈希**
 
 ```zip2john [archive.zip] > [hash.txt]```
 
-**Extract specific file**
+**提取指定文件**
 
 ```zip2john [archive.zip]::[file.txt] > [hash.txt]```
 
-**Then crack with John**
+**然后用 John 破解**
 
 ```john [hash.txt]```
 
-**Show cracked password**
+**显示破解出的密码**
 
 ```john --show [hash.txt]```
 
@@ -26,29 +26,29 @@ Extract password hashes from ZIP files
 
 # DESCRIPTION
 
-**zip2john** extracts password hashes from ZIP files. It prepares hashes for John the Ripper.
+**zip2john** 从 ZIP 文件中提取密码哈希。它为 John the Ripper 准备哈希。
 
-Hash extraction works on encrypted ZIPs. Both PKZIP and AES encryption.
+哈希提取适用于加密的 ZIP 文件。同时支持 PKZIP 和 AES 加密。
 
-Output is John-compatible format. Pipe to file for cracking.
+输出为 John 兼容格式。重定向到文件即可进行破解。
 
-Multiple files in archive handled. Each produces hash entry.
+可处理归档中的多个文件。每个文件都会产生一个哈希条目。
 
-Used with John the Ripper for recovery. Dictionary and brute-force attacks.
+与 John the Ripper 配合用于恢复密码。支持字典攻击和暴力破解。
 
 # USAGE WORKFLOW
 
-1. Extract hash: `zip2john archive.zip > hash.txt`
-2. Crack hash: `john hash.txt`
-3. View result: `john --show hash.txt`
+1. 提取哈希：`zip2john archive.zip > hash.txt`
+2. 破解哈希：`john hash.txt`
+3. 查看结果：`john --show hash.txt`
 
 # CAVEATS
 
-For authorized recovery only. Strong passwords take time. Part of John the Ripper suite.
+仅限授权的密码恢复。强密码需要较长时间。是 John the Ripper 工具集的一部分。
 
 # HISTORY
 
-**zip2john** is part of **John the Ripper** password cracker. It enables ZIP password recovery.
+**zip2john** 是 **John the Ripper** 密码破解工具的一部分。它使 ZIP 密码恢复成为可能。
 
 # INSTALL
 

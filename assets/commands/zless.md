@@ -1,28 +1,28 @@
 # TAGLINE
 
-View compressed files with less pager
+使用 less 分页器查看压缩文件
 
 # TLDR
 
-**View a gzip compressed file**
+**查看 gzip 压缩文件**
 
 ```zless [file.gz]```
 
-**View multiple compressed files sequentially**
+**顺序查看多个压缩文件**
 
 ```zless [file1.gz] [file2.gz]```
 
-**Search for a pattern inside a compressed file**
+**在压缩文件内搜索模式**
 
 ```zless [file.gz]```
 
-then type **/**_pattern_ and press **Enter**
+然后输入 **/**_pattern_ 并按 **Enter**
 
-**Jump to the last line of a compressed file**
+**跳到压缩文件的最后一行**
 
 ```zless [file.gz]```
 
-then press **G**
+然后按 **G**
 
 # SYNOPSIS
 
@@ -30,53 +30,53 @@ then press **G**
 
 # PARAMETERS
 
-All parameters and commands available in **less** are also available in zless, including:
+**less** 中所有可用的参数和命令在 zless 中同样可用，包括：
 
 **Space**
-> Scroll forward one screen.
+> 向前滚动一屏。
 
 **b**
-> Scroll backward one screen.
+> 向后滚动一屏。
 
 **/**_pattern_
-> Search forward for pattern.
+> 向前搜索模式。
 
 **?**_pattern_
-> Search backward for pattern.
+> 向后搜索模式。
 
 **n**
-> Repeat previous search.
+> 重复上一次搜索。
 
 **N**
-> Repeat previous search in reverse direction.
+> 反方向重复上一次搜索。
 
 **g**
-> Go to first line.
+> 跳到第一行。
 
 **G**
-> Go to last line.
+> 跳到最后一行。
 
 **q**
-> Quit.
+> 退出。
 
 **h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**zless** is part of the **gzip** package. It works by setting `LESSOPEN` to pipe files through `gzip -cdfq` before passing them to **less**. This handles gzip (.gz) compressed files, as well as uncompressed files (gzip passes them through unchanged).
+**zless** 是 **gzip** 软件包的一部分。它的原理是将 `LESSOPEN` 设置为先让文件经过 `gzip -cdfq` 管道处理，再交给 **less** 查看。这样既能处理 gzip（.gz）压缩文件，也能处理未压缩的文件（gzip 会原样透传）。
 
-The command provides the same interactive viewing experience as less, including forward and backward navigation, searching, and line jumping. Files are decompressed on the fly without creating temporary files.
+该命令提供与 less 相同的交互式查看体验，包括前后翻页、搜索和跳转行。文件即时解压，不会创建临时文件。
 
-For broader format support (bzip2, xz, zstd, etc.), use **less** with **lesspipe** configured as the `LESSOPEN` preprocessor instead.
+如需支持更多格式（bzip2、xz、zstd 等），请改用配置了 **lesspipe** 作为 `LESSOPEN` 预处理器的 **less**。
 
 # CAVEATS
 
-zless is a gzip-specific tool and does not natively support bzip2, xz, lzma, or other formats. For those, use **less** with **lesspipe** or pipe via the appropriate decompressor (e.g. `xz -dc file.xz | less`). For tar.gz archives, zless will only decompress the gzip layer and display the raw tar data; use **tar -tzf** to list contents instead. zless cannot read compressed data from standard input; files must be given as arguments.
+zless 是 gzip 专用工具，原生不支持 bzip2、xz、lzma 等其他格式。对这些格式，请使用搭配 **lesspipe** 的 **less**，或通过相应的解压器做管道传输（例如 `xz -dc file.xz | less`）。对于 tar.gz 归档，zless 只会解开 gzip 层并显示原始 tar 数据；应改用 **tar -tzf** 列出内容。zless 无法从标准输入读取压缩数据；必须以参数形式给出文件。
 
 # HISTORY
 
-zless is part of the **gzip** package and was created as a companion to the zcat and zmore utilities. It combines the decompression capabilities of gzip with the advanced paging features of **less**, which became the preferred pager over **more** due to its ability to scroll backward and search. The command is included in most Unix-like systems as part of the standard gzip distribution.
+zless 是 **gzip** 软件包的一部分，是作为 zcat 和 zmore 工具的配套工具而创建的。它将 gzip 的解压能力与 **less** 的高级分页特性相结合；由于支持向后滚动和搜索，less 已取代 **more** 成为首选分页器。该命令作为标准 gzip 发行版的一部分，包含在大多数类 Unix 系统中。
 
 # INSTALL
 

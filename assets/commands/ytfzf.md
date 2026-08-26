@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search and play YouTube videos with fzf
+用 fzf 搜索并播放 YouTube 视频
 
 # TLDR
 
-**Search** with thumbnails
+带缩略图**搜索**
 
 ```ytfzf -t [search_pattern]```
 
-Play **audio** in loop
+循环播放**音频**
 
 ```ytfzf -m -a -l [search_pattern]```
 
-**Download** from history
+从历史记录中**下载**
 
 ```ytfzf -d --choose-from-history```
 
-Play **all** audio results
+播放**所有**音频结果
 
 ```ytfzf -m -A [search_pattern]```
 
-Show **trending** videos
+显示**热门**视频
 
 ```ytfzf --trending --ext-menu [search_pattern]```
 
-Search **PeerTube**
+搜索 **PeerTube**
 
 ```ytfzf --peertube [search_pattern]```
 
@@ -35,41 +35,41 @@ Search **PeerTube**
 # PARAMETERS
 
 **-t, --show-thumbnails**
-> Show thumbnail previews
+> 显示缩略图预览
 
 **-m, --audio-only**
-> Play only audio
+> 仅播放音频
 
 **-a, --auto-select**
-> Auto-select first result
+> 自动选择第一个结果
 
 **-l, --loop**
-> Loop playback
+> 循环播放
 
 **-d, --download**
-> Download instead of play
+> 下载而非播放
 
 **-A, --select-all**
-> Select all results
+> 选择全部结果
 
 **--trending**
-> Show trending videos
+> 显示热门视频
 
 **--peertube**
-> Search PeerTube instead of YouTube
+> 搜索 PeerTube 而非 YouTube
 
 **--ext-menu**
-> Use external menu program
+> 使用外部菜单程序
 
 # DESCRIPTION
 
-**ytfzf** is a POSIX shell script for finding and playing videos from YouTube and other platforms. It uses fzf for selection and mpv for playback.
+**ytfzf** 是一个 POSIX Shell 脚本，用于查找和播放 YouTube 及其他平台的视频。它使用 fzf 进行选择，使用 mpv 进行播放。
 
-The tool supports searching, streaming, and downloading videos with thumbnail previews.
+该工具支持搜索、流式播放和下载视频，并提供缩略图预览。
 
 # CAVEATS
 
-Requires fzf, mpv, and yt-dlp or youtube-dl. Thumbnail preview requires ueberzug or similar.
+需要 fzf、mpv 以及 yt-dlp 或 youtube-dl。缩略图预览需要 ueberzug 或类似工具。
 
 # INSTALL
 

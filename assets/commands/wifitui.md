@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal UI for managing WiFi connections
+管理 WiFi 连接的终端界面工具
 
 # TLDR
 
-**Launch the interactive WiFi manager**
+**启动交互式 WiFi 管理器**
 
 ```wifitui```
 
-**Scan and list available WiFi networks**
+**扫描并列出可用的 WiFi 网络**
 
 ```wifitui scan```
 
-**Connect to a specific network**
+**连接到特定网络**
 
 ```wifitui connect "[SSID]"```
 
-**Disconnect from current network**
+**断开当前网络**
 
 ```wifitui disconnect```
 
-**Show known (saved) networks**
+**显示已知（已保存）的网络**
 
 ```wifitui known```
 
@@ -31,30 +31,30 @@ Terminal UI for managing WiFi connections
 # PARAMETERS
 
 **scan**
-> Scan and display available WiFi networks.
+> 扫描并显示可用的 WiFi 网络。
 
 **connect** _SSID_
-> Connect to the specified WiFi network.
+> 连接到指定的 WiFi 网络。
 
 **disconnect**
-> Disconnect from the current WiFi network.
+> 断开当前的 WiFi 网络。
 
 **known**
-> List saved/known WiFi networks.
+> 列出已保存/已知的 WiFi 网络。
 
 # DESCRIPTION
 
-**wifitui** is a terminal-based WiFi manager for Linux that provides an interactive TUI for scanning, connecting, and managing wireless networks. It uses **NetworkManager** or **iwd** as the backend and provides fuzzy filtering for network selection.
+**wifitui** 是一个面向 Linux 的终端 WiFi 管理器，提供交互式 TUI 用于扫描、连接和管理无线网络。它以 **NetworkManager** 或 **iwd** 作为后端，并提供模糊过滤以便选择网络。
 
-Features include QR code generation for sharing network credentials and both interactive and non-interactive (command-line) modes of operation.
+功能包括生成二维码分享网络凭据，以及支持交互式和非交互式（命令行）两种操作模式。
 
 # CAVEATS
 
-Requires either **NetworkManager** or **iwd** to be running as the wireless backend. Root or appropriate group membership may be needed for scanning and connecting operations.
+需要 **NetworkManager** 或 **iwd** 作为无线后端正在运行。扫描和连接操作可能需要 root 权限或加入相应的用户组。
 
 # HISTORY
 
-**wifitui** was created by **shazow** and is written in **Rust**.
+**wifitui** 由 **shazow** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

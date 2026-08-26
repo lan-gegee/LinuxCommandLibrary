@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert PYX notation back to XML
+将 PYX 表示法转换回 XML
 
 # TLDR
 
-**Convert PYX to XML**
+**将 PYX 转换为 XML**
 
 ```xml depyx [file.pyx]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [file.pyx] | xml depyx```
 
@@ -19,13 +19,13 @@ Convert PYX notation back to XML
 # PARAMETERS
 
 _file_
-> Input PYX file.
+> 输入的 PYX 文件。
 
 # DESCRIPTION
 
-**xml depyx** converts PYX notation back to XML. It is part of the **xmlstarlet** toolkit and reconstructs XML documents from the line-oriented PYX format (based on ESIS, ISO 8879) after text processing with line-oriented tools such as **awk**, **sed**, or **grep**.
+**xml depyx** 将 PYX 表示法转换回 XML。它是 **xmlstarlet** 工具集的一部分，可在用 **awk**、**sed** 或 **grep** 等面向行的工具处理文本之后，从面向行的 PYX 格式（基于 ESIS，ISO 8879）重建 XML 文档。
 
-The inverse operation is performed by **xml pyx** (alias **xml p2x**), which converts XML into PYX.
+逆操作由 **xml pyx**（别名 **xml p2x**）执行，它将 XML 转换为 PYX。
 
 # INSTALL
 
@@ -46,4 +46,3 @@ The inverse operation is performed by **xml pyx** (alias **xml p2x**), which con
 # SEE ALSO
 
 [xml-pyx](/man/xml-pyx)(1), [xml-p2x](/man/xml-p2x)(1), [xml-format](/man/xml-format)(1), [xml-select](/man/xml-select)(1)
-

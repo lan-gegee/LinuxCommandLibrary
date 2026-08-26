@@ -1,34 +1,34 @@
 # TAGLINE
 
-Offline documentation search engine
+离线文档搜索引擎
 
 # TLDR
 
-**Search** documentation across all sources
+跨所有来源**搜索**文档
 
 ```wikiman [query]```
 
-**Search** only specific sources (comma-separated)
+**仅搜索指定来源**（逗号分隔）
 
 ```wikiman -s [man,arch] [query]```
 
-**List** available sources
+**列出**可用来源
 
 ```wikiman -S```
 
-**Search** with quick search mode
+以快速搜索模式**搜索**
 
 ```wikiman -q [query]```
 
-**Search** using AND operator (all keywords must match)
+使用 AND 运算符**搜索**（所有关键词都必须匹配）
 
 ```wikiman -a [query]```
 
-**Print** raw output without interactive selection
+**打印**原始输出而不进入交互选择
 
 ```wikiman -R [query]```
 
-**Open** results in HTML viewer instead of pager
+在 HTML 查看器而非分页器中**打开**结果
 
 ```wikiman -H [w3m] [query]```
 
@@ -39,74 +39,74 @@ Offline documentation search engine
 # PARAMETERS
 
 **-s** _SOURCES_
-> Comma-separated list of sources to search (default: all available).
+> 要搜索的来源列表，逗号分隔（默认：所有可用来源）。
 
 **-l** _LANGUAGES_
-> Comma-separated search languages (default: en).
+> 搜索语言，逗号分隔（默认：en）。
 
 **-f** _FINDER_
-> Fuzzy finder to use (default: fzf).
+> 要使用的模糊查找器（默认：fzf）。
 
 **-H** _VIEWER_
-> HTML viewer for wiki pages (default: w3m).
+> 用于 wiki 页面的 HTML 查看器（默认：w3m）。
 
 **-q**
-> Enable quick search mode.
+> 启用快速搜索模式。
 
 **-a**
-> Enable AND operator mode (all keywords must match).
+> 启用 AND 运算符模式（所有关键词都必须匹配）。
 
 **-p**
-> Disable quick result preview.
+> 禁用快速结果预览。
 
 **-k**
-> Keep wikiman open after viewing a result.
+> 查看某个结果后保持 wikiman 打开。
 
 **-c**
-> Show source column in results.
+> 在结果中显示来源列。
 
 **-R**
-> Print raw output without interactive selection.
+> 打印原始输出而不进入交互选择。
 
 **-S**
-> List available sources and exit.
+> 列出可用来源并退出。
 
 **-W** _SHELL_
-> Print widget code for the specified shell (bash, zsh, fish) and exit.
+> 为指定 shell（bash、zsh、fish）打印小部件代码并退出。
 
 **-v**
-> Print version and exit.
+> 打印版本并退出。
 
 **-h**
-> Display help and exit.
+> 显示帮助并退出。
 
 # SOURCES
 
-**man** - Man pages
+**man** - Man 手册页
 **arch** - Arch Wiki
 **gentoo** - Gentoo Wiki
-**tldr** - TLDR pages
-**fbsd** - FreeBSD documentation
+**tldr** - TLDR 页面
+**fbsd** - FreeBSD 文档
 **devdocs** - DevDocs
 
 # DESCRIPTION
 
-**wikiman** is an offline documentation search engine that aggregates multiple sources including man pages, Arch Wiki, Gentoo Wiki, TLDR pages, FreeBSD documentation, and DevDocs into a single searchable interface. Queries are matched across all configured sources simultaneously, with results ranked by relevance using fuzzy matching.
+**wikiman** 是一个离线文档搜索引擎，它把 man 手册页、Arch Wiki、Gentoo Wiki、TLDR 页面、FreeBSD 文档和 DevDocs 等多个来源聚合到一个可搜索的界面中。查询会同时在所有已配置的来源中匹配，并通过模糊匹配按相关性对结果排序。
 
-Source filtering allows narrowing searches to specific documentation types, such as only wiki articles or only man pages. Results can be viewed in a terminal pager or opened in a browser with full HTML formatting preserved for wiki content.
+来源过滤可将搜索范围缩小到特定的文档类型，例如只搜 wiki 文章或只搜 man 手册页。结果可以在终端分页器中查看，也可以在浏览器中打开，wiki 内容会保留完整的 HTML 格式。
 
-All documentation is stored locally after an initial sync, enabling fast searches without network access. If no keywords are provided, all pages are shown.
+首次同步后所有文档都存储在本地，无需网络即可快速搜索。如果不提供关键词，则显示所有页面。
 
 # CONFIGURATION
 
 **~/.config/wikiman/wikiman.conf**
-> User configuration file. Falls back to /etc/wikiman.conf if not present. Respects XDG_CONFIG_HOME.
+> 用户配置文件。若不存在则回退到 /etc/wikiman.conf。遵循 XDG_CONFIG_HOME。
 
-Shell key binding (default Ctrl+F) can be enabled by sourcing widget files from /usr/share/wikiman/widgets/ for bash, zsh, or fish.
+通过 source 来自 /usr/share/wikiman/widgets/ 的小部件文件（支持 bash、zsh 或 fish），可以启用 shell 按键绑定（默认 Ctrl+F）。
 
 # CAVEATS
 
-Initial source sync requires network access and may download significant data depending on which sources are enabled. Requires fzf or another fuzzy finder for interactive selection.
+初始来源同步需要网络访问，且根据启用的来源可能下载数量可观的数据。交互式选择需要 fzf 或其他模糊查找器。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI wrapper for Void Linux package manager
+Void Linux 包管理器的 TUI 前端
 
 # TLDR
 
-**Launch the package manager TUI**
+**启动包管理器 TUI**
 
 ```xbps-tui```
 
-**Launch in dry-run mode** (preview actions without executing)
+**以 dry-run 模式启动**（预览操作而不执行）
 
 ```xbps-tui --dry-run```
 
@@ -19,17 +19,17 @@ TUI wrapper for Void Linux package manager
 # PARAMETERS
 
 **--dry-run**
-> Preview install/remove actions without executing them.
+> 预览安装/移除操作而不实际执行。
 
 # DESCRIPTION
 
-**xbps-tui** is an interactive terminal frontend for the xbps package manager used by Void Linux. It supports fuzzy searching packages by name and description, filtering by installed, updatable, or marked packages, and marking packages for installation or removal with root execution.
+**xbps-tui** 是 Void Linux 所用 xbps 包管理器的交互式终端前端。它支持按名称和描述模糊搜索软件包，按已安装、可更新或已标记进行过滤，并可通过 root 执行来标记软件包以便安装或移除。
 
-Press **/** or **Ctrl+f** to enter fuzzy search mode. Use **h**/**k** or arrow keys to filter between all packages, installed, updatable, marked for install, and marked for removal. Set **XBPS_TUI_DATA** environment variable for a custom data directory.
+按 **/** 或 **Ctrl+f** 进入模糊搜索模式。使用 **h**/**k** 或方向键在全部软件包、已安装、可更新、已标记安装和已标记移除之间切换过滤。设置 **XBPS_TUI_DATA** 环境变量可指定自定义数据目录。
 
 # HISTORY
 
-**xbps-tui** was created by **lukeflo** and is written in **Rust**.
+**xbps-tui** 由 **lukeflo** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

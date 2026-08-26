@@ -1,38 +1,38 @@
 # TAGLINE
 
-Zsh history store with directory and exit-status context
+带目录和退出状态上下文的 Zsh 历史记录存储
 
 # TLDR
 
-**Hook zhist into zsh** (add to `.zshrc`)
+**将 zhist 挂接进 zsh**（添加到 `.zshrc`）
 
 ```eval "$(zhist init)"```
 
-**Import** an existing zsh history file once
+**一次性导入**现有的 zsh 历史文件
 
 ```zhist import ~/.zsh_history```
 
-**List** stored commands for the fzf picker (newest first, deduplicated)
+**列出**存储的命令供 fzf 选择器使用（最新在前，已去重）
 
 ```zhist list```
 
-**List** only commands recorded in the current directory
+**只列出**在当前目录记录的命令
 
 ```zhist list -dir "$PWD"```
 
-**Print** the full command text for an entry
+**打印**某个条目的完整命令文本
 
 ```zhist get -id [id]```
 
-**Delete** one stored entry
+**删除**单个存储条目
 
 ```zhist delete -id [id]```
 
-**Delete every entry** with the same command text
+**删除所有**具有相同命令文本的条目
 
 ```zhist delete -id [id] -all```
 
-**Record** a command from stdin with directory and exit status
+从标准输入**记录**一条命令，附带目录和退出状态
 
 ```print -r -- "[command]" | zhist add -dir "$PWD" -exit 0```
 
@@ -52,75 +52,75 @@ Zsh history store with directory and exit-status context
 
 # DESCRIPTION
 
-**zhist** is a zsh-only shell history tool written in Go. It replaces the zsh history file as the persistent store and records each command together with its working directory and exit status. Native zsh history keeps only the command and a timestamp; zhist keeps that extra context so the picker can highlight failures and switch between global history and the current directory.
+**zhist** 是一个仅支持 zsh 的 Shell 历史工具，用 Go 编写。它取代 zsh 历史文件作为持久化存储，并为每条命令记录其工作目录和退出状态。原生 zsh 历史只保存命令和时间戳；zhist 额外保存这些上下文，使选择器能够高亮失败的命令，并在全局历史与当前目录之间切换。
 
-The interactive UI is **fzf**, not a custom TUI. `eval "$(zhist init)"` emits zsh hooks and keybindings that call the **zhist** binary: a **preexec**/**precmd** pair appends each command via **zhist add**, and **ctrl-r** (plus bare up/down on an empty line) opens **zhist list** in fzf. Failed commands render in red. **ctrl-g** toggles global versus directory-scoped history.
+交互式界面是 **fzf**，而非自定义 TUI。`eval "$(zhist init)"` 会输出调用 **zhist** 二进制程序的 zsh 钩子和按键绑定：一对 **preexec**/**precmd** 钩子通过 **zhist add** 追加每条命令，而 **ctrl-r**（以及空行上的裸上/下方向键）会在 fzf 中打开 **zhist list**。失败的命令以红色渲染。**ctrl-g** 可在全局历史与目录范围历史之间切换。
 
-Entries are appended as JSON lines to **~/.local/share/zhist/history.jsonl** (mode **0600**), or to the path in **ZHIST_FILE**. Imported zsh **EXTENDED_HISTORY** lines have no directory or exit status; they show a blank directory and never render red.
+条目以 JSON 行的形式追加到 **~/.local/share/zhist/history.jsonl**（权限 **0600**），或追加到 **ZHIST_FILE** 指定的路径。导入的 zsh **EXTENDED_HISTORY** 行没有目录或退出状态信息；它们的目录显示为空，且永远不会渲染为红色。
 
 # PARAMETERS
 
 **init**
-> Print the zsh integration script (hooks, fzf picker, and keybindings). Intended for `eval "$(zhist init)"`.
+> 打印 zsh 集成脚本（钩子、fzf 选择器和按键绑定）。用于 `eval "$(zhist init)"`。
 
 **add** **-dir** _dir_ **-exit** _n_ [**-ts** _unix_]
-> Append one entry. Command text is read from stdin. **-ts** defaults to the current Unix time.
+> 追加一个条目。命令文本从标准输入读取。**-ts** 默认为当前 Unix 时间。
 
 **list** [**-dir** _dir_]
-> Print entries for fzf: newest first, one unique command per line, tab-separated id / relative time / command. **-dir** keeps only entries recorded in that directory.
+> 为 fzf 打印条目：最新在前，每行一条唯一命令，以制表符分隔 id / 相对时间 / 命令。**-dir** 只保留在该目录下记录的条目。
 
 **get** **-id** _id_
-> Print the full command for an entry (including embedded newlines).
+> 打印某条目的完整命令（包括内嵌换行符）。
 
 **delete** **-id** _id_ [**-all**]
-> Delete the entry with that id. **-all** also deletes every other entry with the same command text.
+> 删除具有该 id 的条目。**-all** 还会删除所有其他具有相同命令文本的条目。
 
 **import** _file_
-> Import a zsh **EXTENDED_HISTORY** file (`: timestamp:elapsed;command` lines). Prints `imported N entries`.
+> 导入 zsh **EXTENDED_HISTORY** 文件（`: timestamp:elapsed;command` 格式的行）。输出 `imported N entries`。
 
 # KEY BINDINGS
 
-These bindings are installed by **zhist init**:
+这些绑定由 **zhist init** 安装：
 
 **ctrl-r**
-> Open the history picker.
+> 打开历史选择器。
 
 **up** / **down**
-> Open the picker when the line is empty; otherwise step native line history.
+> 当输入行不为空时逐步浏览原生行历史。
 
 **ctrl-g**
-> Toggle global versus current-directory history.
+> 在全局历史与当前目录历史之间切换。
 
 **ctrl-d**
-> Delete the selected entry.
+> 删除选中的条目。
 
 **ctrl-x**
-> Delete all entries with the same command.
+> 删除所有具有相同命令的条目。
 
 **tab**
-> Accept and leave the command on the line.
+> 接受并将命令留在输入行上。
 
 **ctrl-/**
-> Toggle the command preview pane. Visibility is remembered in **${XDG_STATE_HOME:-$HOME/.local/state}/zhist/preview-hidden**.
+> 切换命令预览窗格。可见性状态保存在 **${XDG_STATE_HOME:-$HOME/.local/state}/zhist/preview-hidden** 中。
 
 # CONFIGURATION
 
-Add to **~/.zshrc** after any plugin that binds **ctrl-r** or the arrow keys (the last bind wins):
+添加到 **~/.zshrc** 中任何绑定 **ctrl-r** 或方向键的插件之后（后绑定的生效）：
 
 ```
 eval "$(zhist init)"
 ```
 
-Skip recording by first word with a **HIST_EXCLUDE** array. Matching is exact and case-sensitive on the first word only (`ls` skips `ls -la` but not `lsd`). A leading space also skips the command, matching **HIST_IGNORE_SPACE**.
+通过 **HIST_EXCLUDE** 数组按首词跳过记录。匹配仅在首词上精确且区分大小写（`ls` 会跳过 `ls -la`，但不会跳过 `lsd`）。以空格开头的命令也会被跳过，与 **HIST_IGNORE_SPACE** 一致。
 
 ```
 HIST_EXCLUDE=(cd ls clear pwd exit)
 ```
 
 **ZHIST_FILE**
-> Override the JSONL store path (default **~/.local/share/zhist/history.jsonl**).
+> 覆盖 JSONL 存储路径（默认 **~/.local/share/zhist/history.jsonl**）。
 
-Because zhist owns persistence, keep native zsh history in memory only:
+由于持久化由 zhist 负责，请将原生 zsh 历史保持在仅内存模式：
 
 ```
 unset HISTFILE
@@ -128,15 +128,15 @@ HISTSIZE=100000
 SAVEHIST=0
 ```
 
-Do not set **SHARE_HISTORY**, **INC_APPEND_HISTORY**, or **EXTENDED_HISTORY**; they only affect the history file zhist replaces.
+不要设置 **SHARE_HISTORY**、**INC_APPEND_HISTORY** 或 **EXTENDED_HISTORY**；它们只影响 zhist 所取代的历史文件。
 
 # CAVEATS
 
-zsh only; there is no bash or fish integration. The picker requires **fzf** 0.45 or newer. `eval "$(zhist init)"` must run after atuin, zsh-history-substring-search, or other widgets that bind the same keys. Building from source via **go install** needs the Go version declared in the module. Imported history has no directory or exit status. The record hook prepends itself to **precmd_functions** and passes **$?** through so later prompt hooks still see the real exit status.
+仅支持 zsh；没有 bash 或 fish 集成。选择器需要 **fzf** 0.45 或更新版本。`eval "$(zhist init)"` 必须在 atuin、zsh-history-substring-search 或其他绑定相同按键的 widget 之后运行。通过 **go install** 从源码构建需要模块声明的 Go 版本。导入的历史没有目录或退出状态。记录钩子会将自身置于 **precmd_functions** 最前面并透传 **$?**，以便后续的提示符钩子仍能看到真实的退出状态。
 
 # HISTORY
 
-**zhist** was created by **overflowy** in **August 2026**. It is written in Go and released under the MIT license. The store is JSON Lines; the search UI is delegated to fzf.
+**zhist** 由 **overflowy** 于 **2026 年 8 月**创建。它使用 Go 编写，以 MIT 许可证发布。存储格式为 JSON Lines；搜索界面委托给 fzf。
 
 # SEE ALSO
 

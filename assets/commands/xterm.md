@@ -1,26 +1,26 @@
 # TAGLINE
 
-Standard X11 terminal emulator
+标准 X11 终端模拟器
 
 # TLDR
 
-Open terminal with a **title**
+以指定**标题**打开终端
 
 ```xterm -T [Example]```
 
-Open terminal in **fullscreen** mode
+以**全屏**模式打开终端
 
 ```xterm -fullscreen```
 
-Open with **custom colors** (dark blue background, yellow text)
+使用**自定义颜色**打开（深蓝背景、黄色文字）
 
 ```xterm -bg darkblue -fg yellow```
 
-Open with specific **geometry** (100x35 characters at position 200,20)
+以指定**几何尺寸**打开（100x35 字符，位于位置 200,20）
 
 ```xterm -geometry 100x35+200+20```
 
-Open using a **specific font** and size
+使用**特定字体**和字号打开
 
 ```xterm -fa '[Serif]' -fs 20```
 
@@ -31,60 +31,60 @@ Open using a **specific font** and size
 # PARAMETERS
 
 **-T** _string_
-> Set window title
+> 设置窗口标题
 
 **-geometry** _WxH+X+Y_
-> Set window size and position
+> 设置窗口大小和位置
 
 **-bg** _color_
-> Background color
+> 背景色
 
 **-fg** _color_
-> Foreground (text) color
+> 前景（文字）色
 
 **-fa** _font_
-> TrueType font face name
+> TrueType 字体名
 
 **-fs** _size_
-> TrueType font size in points
+> TrueType 字号（磅）
 
 **-fn** _font_
-> Bitmap font name
+> 位图字体名
 
 **-fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-rv**
-> Reverse video (swap foreground/background)
+> 反显（交换前景/背景色）
 
 **-sb**
-> Enable scrollbar
+> 启用滚动条
 
 **-sl** _lines_
-> Number of lines to save in scrollback
+> 回滚缓冲区保存的行数
 
 **-e** _program_ [_args_]
-> Run program instead of shell
+> 运行指定程序而不是 shell
 
 **-hold**
-> Keep window open after command exits
+> 命令退出后保持窗口打开
 
 **-class** _class_
-> X resource class name
+> X 资源类名
 
 # DESCRIPTION
 
-**xterm** is the standard terminal emulator for the X Window System, providing a text terminal interface within a graphical environment. It supports VT102, VT220, and Tektronix 4014 terminal emulation with extensive customization options.
+**xterm** 是 X Window System 的标准终端模拟器，在图形环境中提供文本终端界面。它支持 VT102、VT220 和 Tektronix 4014 终端仿真，并提供丰富的自定义选项。
 
-Features include multiple fonts, configurable colors, scrollback buffer, selection and paste, Tektronix graphics mode, and full internationalization support. Configuration can be done via command line, X resources, or the control menus (Ctrl+click).
+功能包括多种字体、可配置的颜色、回滚缓冲区、选择与粘贴、Tektronix 图形模式以及完整的国际化支持。可以通过命令行、X 资源或控制菜单（Ctrl+点击）进行配置。
 
 # CAVEATS
 
-Requires X11 display. Default appearance is deliberately minimal; extensive customization via ~/.Xresources is common. Some modern features (like 256 colors) require specific resource settings. Font configuration differs between bitmap and TrueType fonts.
+需要 X11 显示。默认外观刻意保持极简；通过 ~/.Xresources 进行深度定制很常见。某些现代特性（如 256 色）需要特定的资源设置。位图字体和 TrueType 字体的配置方式不同。
 
 # HISTORY
 
-Originally written by Mark Vandevoorde at MIT as part of **Project Athena** in the mid-1980s, becoming part of the X Window System distribution. One of the oldest continuously maintained X applications. Thomas Dickey has been the primary maintainer since **1996**.
+最初由 Mark Vandevoorde 于 20 世纪 80 年代中期在 MIT 作为 **Project Athena** 的一部分编写，后来成为 X Window System 发行版的一部分。它是持续维护时间最长的 X 应用程序之一。Thomas Dickey 自 **1996 年**起一直是主要维护者。
 
 # INSTALL
 

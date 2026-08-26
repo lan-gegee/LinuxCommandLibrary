@@ -1,18 +1,18 @@
 # TAGLINE
 
-Transparent encryption for yadm files
+为 yadm 文件提供透明加密
 
 # TLDR
 
-**Initialize git-crypt**
+**初始化 git-crypt**
 
 ```yadm git-crypt init```
 
-**Unlock repository**
+**解锁仓库**
 
 ```yadm git-crypt unlock```
 
-**Add GPG key**
+**添加 GPG 密钥**
 
 ```yadm git-crypt add-gpg-user [key-id]```
 
@@ -22,9 +22,8 @@ Transparent encryption for yadm files
 
 # DESCRIPTION
 
-**yadm git-crypt** wraps git-crypt for transparent encryption. Files matching .gitattributes patterns are encrypted on push, decrypted on pull. Alternative to yadm encrypt for per-file encryption.
+**yadm git-crypt** 封装 git-crypt 以提供透明加密。匹配 .gitattributes 模式的文件在推送时被加密、拉取时被解密。这是 yadm encrypt 之外的按文件加密方案。
 
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [git-crypt](/man/git-crypt)(1)
-

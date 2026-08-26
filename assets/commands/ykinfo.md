@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display YubiKey device information
+显示 YubiKey 设备信息
 
 # TLDR
 
-**Show all YubiKey information**
+**显示所有 YubiKey 信息**
 
 ```ykinfo -a```
 
-**Show serial number in decimal**
+**以十进制显示序列号**
 
 ```ykinfo -s```
 
-**Show serial number in hex**
+**以十六进制显示序列号**
 
 ```ykinfo -H```
 
-**Show firmware version**
+**显示固件版本**
 
 ```ykinfo -v```
 
-**Check if slot 1 is programmed**
+**检查槽位 1 是否已编程**
 
 ```ykinfo -1```
 
-**Show capabilities (quiet mode for scripting)**
+**显示能力（供脚本使用的静默模式）**
 
 ```ykinfo -c -q```
 
@@ -35,53 +35,53 @@ Display YubiKey device information
 # PARAMETERS
 
 **-a**
-> Show all available information.
+> 显示所有可用信息。
 
 **-s**
-> Serial number in decimal.
+> 十进制序列号。
 
 **-m**
-> Serial number in modhex.
+> modhex 序列号。
 
 **-H**
-> Serial number in hex.
+> 十六进制序列号。
 
 **-v**
-> Firmware version.
+> 固件版本。
 
 **-t**
-> Touch level.
+> 触碰等级。
 
 **-p**
-> Programming sequence.
+> 编程序列。
 
 **-1**
-> Check if slot 1 is programmed.
+> 检查槽位 1 是否已编程。
 
 **-2**
-> Check if slot 2 is programmed.
+> 检查槽位 2 是否已编程。
 
 **-c**
-> Capabilities.
+> 能力信息。
 
 **-q**
-> Quiet mode; output values without labels.
+> 静默模式；输出值时不带标签。
 
 # DESCRIPTION
 
-**ykinfo** queries a connected YubiKey device and displays its identification information. It can report the serial number, firmware version, and supported capabilities of the hardware token.
+**ykinfo** 查询已连接的 YubiKey 设备并显示其标识信息。它可以报告硬件令牌的序列号、固件版本和支持的能力。
 
-The **-a** flag shows all available information at once. Individual flags like **-s** (serial), **-v** (version), and **-c** (capabilities) display specific details. Quiet mode (**-q**) outputs values without labels for use in scripts.
+**-a** 标志一次性显示所有可用信息。单独的标志如 **-s**（序列号）、**-v**（版本）和 **-c**（能力）则显示特定的细节。静默模式（**-q**）输出的值不带标签，便于在脚本中使用。
 
-When multiple YubiKeys are connected, the tool can select a specific device by serial number. It is part of the **yubikey-personalization** package and is useful for diagnostics, inventory, and scripting around YubiKey management.
+当连接了多个 YubiKey 时，该工具可以按序列号选择特定设备。它属于 **yubikey-personalization** 软件包，可用于诊断、盘点以及围绕 YubiKey 管理编写脚本。
 
 # CAVEATS
 
-Requires a YubiKey connected via USB. Part of the **yubikey-personalization** package. The yubikey-personalization project is in maintenance mode; **ykman** is the recommended tool for newer YubiKeys.
+需要通过 USB 连接 YubiKey。属于 **yubikey-personalization** 软件包。yubikey-personalization 项目已进入维护模式；对于较新的 YubiKey，推荐使用 **ykman**。
 
 # HISTORY
 
-**ykinfo** is part of **yubikey-personalization**, providing information about connected YubiKey devices.
+**ykinfo** 是 **yubikey-personalization** 的一部分，用于提供已连接 YubiKey 设备的信息。
 
 # INSTALL
 

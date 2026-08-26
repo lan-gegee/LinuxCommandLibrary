@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compile XKB keyboard descriptions
+编译 XKB 键盘描述
 
 # TLDR
 
-**Compile keymap for current display**
+**为当前显示器编译键盘映射**
 
 ```xkbcomp [keymap.xkb] $DISPLAY```
 
-**Extract current keymap to file**
+**将当前键盘映射提取到文件**
 
 ```xkbcomp $DISPLAY [output.xkb]```
 
-**Compile to binary keymap file**
+**编译为二进制键盘映射文件**
 
 ```xkbcomp -xkm [keymap.xkb] -o [keymap.xkm]```
 
-**Generate C header from keymap**
+**从键盘映射生成 C 头文件**
 
 ```xkbcomp -C [keymap.xkb] -o [keymap.h]```
 
-**Compile with additional include path**
+**使用额外的包含路径编译**
 
 ```xkbcomp -I[/usr/share/X11/xkb] [keymap.xkb] $DISPLAY```
 
-**Verbose compilation**
+**详细模式编译**
 
 ```xkbcomp -v 10 [keymap.xkb] $DISPLAY```
 
@@ -35,44 +35,44 @@ Compile XKB keyboard descriptions
 # PARAMETERS
 
 **-xkb**
-> Output XKB source format.
+> 输出 XKB 源格式。
 
 **-xkm**
-> Output compiled binary format.
+> 输出编译后的二进制格式。
 
 **-C**
-> Output C header file.
+> 输出 C 头文件。
 
 **-I** _dir_
-> Add directory to include search path.
+> 将目录添加到包含搜索路径。
 
 **-o** _file_
-> Specify output file name.
+> 指定输出文件名。
 
 **-v** _level_
-> Set verbosity level (0-10).
+> 设置详细程度（0-10）。
 
 **-w** _level_
-> Set warning level.
+> 设置警告级别。
 
 **-dflts**
-> Compute defaults for missing components.
+> 为缺失的组件计算默认值。
 
 # DESCRIPTION
 
-**xkbcomp** compiles XKB (X Keyboard Extension) keyboard descriptions into binary format or uploads them directly to an X server. It's the core tool for customizing keyboard layouts beyond what setxkbmap provides.
+**xkbcomp** 将 XKB（X Keyboard Extension）键盘描述编译为二进制格式，或直接上传到 X server。它是自定义键盘布局的核心工具，功能超出 setxkbmap 所能提供的范围。
 
-The tool can extract the current keymap from a running X server, modify it, and upload changes. Output formats include XKB source (.xkb), compiled binary (.xkm), and C headers for embedding in applications.
+该工具可以从运行中的 X server 提取当前键盘映射，修改后再上传更改。输出格式包括 XKB 源文件（.xkb）、编译后的二进制文件（.xkm）以及用于嵌入应用程序的 C 头文件。
 
-XKB provides advanced keyboard features including multiple layouts, dead keys, compose sequences, modifier handling, and accessibility options that simpler tools like xmodmap cannot achieve.
+XKB 提供高级键盘特性，包括多布局、死键、组合键序列、修饰键处理和无障碍选项，这些是 xmodmap 等较简单工具无法实现的。
 
 # CAVEATS
 
-Complex syntax requires understanding XKB architecture. Without $DISPLAY, only creates files without loading. Errors can leave keyboard in unusable state; keep backup layout accessible.
+语法复杂，需要理解 XKB 架构。没有 $DISPLAY 时只会创建文件而不会加载。出错可能使键盘处于不可用状态；请保留可用的备份布局。
 
 # HISTORY
 
-**xkbcomp** is part of the X Keyboard Extension (XKB), introduced in X11R6 to replace the limited keyboard handling of earlier X versions. XKB provides a comprehensive framework for keyboard configuration that supports internationalization and accessibility features.
+**xkbcomp** 是 X Keyboard Extension（XKB）的一部分，XKB 在 X11R6 中引入，用于取代早期 X 版本有限的键盘处理能力。XKB 为键盘配置提供了全面的框架，支持国际化和无障碍特性。
 
 # INSTALL
 

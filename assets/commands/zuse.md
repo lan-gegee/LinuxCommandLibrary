@@ -1,10 +1,10 @@
 # TAGLINE
 
-Sleek minimal IRC client for the terminal
+终端上简约时尚的 IRC 客户端
 
 # TLDR
 
-**Launch the IRC client**
+**启动 IRC 客户端**
 
 ```zuse```
 
@@ -14,11 +14,11 @@ Sleek minimal IRC client for the terminal
 
 # DESCRIPTION
 
-**ZUSE** is a modern IRC client built with Bubble Tea that features a split-pane layout for multiple channels, server management, and a synthwave-inspired aesthetic. Built for the Nightride FM community and focuses on clean, distraction-free terminal chatting.
+**ZUSE** 是一款用 Bubble Tea 构建的现代 IRC 客户端，特色包括面向多频道的分栏布局、服务器管理，以及受合成波（synthwave）启发的美学风格。它为 Nightride FM 社区而建，专注于干净、无干扰的终端聊天体验。
 
 # HISTORY
 
-**ZUSE** was created by **Baby Commando** (babycommando) and is written in **Go**.
+**ZUSE** 由 **Baby Commando**（babycommando）创建，使用 **Go** 编写。
 
 # INSTALL
 

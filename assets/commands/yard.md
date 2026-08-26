@@ -1,30 +1,30 @@
 # TAGLINE
 
-Ruby documentation generator
+Ruby 文档生成器
 
 # TLDR
 
-**Generate docs**
+**生成文档**
 
 ```yard doc```
 
-**Start server**
+**启动服务器**
 
 ```yard server```
 
-**List undocumented**
+**列出未文档化的对象**
 
 ```yard stats --list-undoc```
 
-**Generate for specific files**
+**为特定文件生成文档**
 
 ```yard doc [lib/**/*.rb]```
 
-**Generate for gems**
+**为 gem 生成文档**
 
 ```yard gems```
 
-**Show documentation for a class or method**
+**显示某个类或方法的文档**
 
 ```yard ri [ClassName]```
 
@@ -35,41 +35,41 @@ Ruby documentation generator
 # PARAMETERS
 
 **doc**
-> Generate docs.
+> 生成文档。
 
 **server**
-> Start server.
+> 启动服务器。
 
 **stats**
-> Show statistics.
+> 显示统计信息。
 
 **gems**
-> Document gems.
+> 为 gem 生成文档。
 
 **ri**
-> Show documentation.
+> 显示文档。
 
 **diff**
-> Show changes in documentation.
+> 显示文档的变化。
 
 **--list-undoc**
-> List undocumented objects.
+> 列出未文档化的对象。
 
 # DESCRIPTION
 
-**yard** (Yay! A Ruby Documentation Tool) generates API documentation from Ruby source code. It parses specially formatted comments above classes, modules, and methods to produce browsable HTML documentation with cross-references and search.
+**yard**（Yay! A Ruby Documentation Tool）从 Ruby 源代码生成 API 文档。它解析类、模块和方法上方特殊格式的注释，生成带有交叉引用和搜索功能的可浏览 HTML 文档。
 
-YARD uses its own tag syntax (such as **@param**, **@return**, **@example**) within comments to describe method signatures, return types, and usage examples. It also supports Markdown and other markup formats for free-form documentation within comments.
+YARD 在注释中使用自己的标签语法（如 **@param**、**@return**、**@example**）来描述方法签名、返回类型和用法示例。它还支持 Markdown 等标记格式，用于注释中的自由格式文档。
 
-The **server** subcommand starts a local web server for live documentation browsing during development. The **stats** subcommand reports documentation coverage, and **--list-undoc** identifies undocumented code. Templates control the HTML output layout and can be customized or replaced entirely.
+**server** 子命令会启动一个本地 Web 服务器，便于开发过程中实时浏览文档。**stats** 子命令报告文档覆盖率，**--list-undoc** 则识别未编写文档的代码。模板控制 HTML 输出的布局，可以自定义或完全替换。
 
 # CAVEATS
 
-Ruby-specific. YARD syntax in comments. Gem required.
+仅适用于 Ruby。注释中使用 YARD 语法。需要安装 gem。
 
 # HISTORY
 
-**YARD** (Yay! A Ruby Documentation Tool) was created as a modern replacement for RDoc.
+**YARD**（Yay! A Ruby Documentation Tool）作为 RDoc 的现代化替代品而创建。
 
 # SEE ALSO
 

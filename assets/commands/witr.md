@@ -1,34 +1,34 @@
 # TAGLINE
 
-Explain why a process, port, or container is running
+解释进程、端口或容器为何在运行
 
 # TLDR
 
-**Explain** a process by name
+按名称**解释**某个进程
 
 ```witr [name]```
 
-**Explain** what is listening on a port
+**解释**监听某端口的是什么
 
 ```witr --port [port]```
 
-**Explain** a process by PID
+按 PID **解释**某个进程
 
 ```witr --pid [pid]```
 
-**Show only the ancestry chain**
+仅显示祖先链
 
 ```witr [name] --short```
 
-**Show ancestry as a tree**
+以树状显示祖先链
 
 ```witr --pid [pid] --tree```
 
-**Look up a container** by name or image
+按名称或镜像**查找容器**
 
 ```witr --container [name]```
 
-**Open interactive TUI** dashboard
+**打开交互式 TUI** 仪表盘
 
 ```witr -i```
 
@@ -38,75 +38,75 @@ Explain why a process, port, or container is running
 
 # DESCRIPTION
 
-**witr** ("why is this running?") answers the causal question behind a running process: where it came from, how it was started, and what chain of supervisors, shells, services, or containers is keeping it alive. Unlike **ps**, **lsof**, or **systemctl** alone, it correlates those layers into one human-readable explanation (or a tree / JSON view).
+**witr**（"why is this running?"，为什么它在运行？）回答运行中进程背后的因果问题：它从何而来、如何被启动，以及是哪条由监督者、shell、服务或容器组成的链条让它保持存活。与单独使用 **ps**、**lsof** 或 **systemctl** 不同，它把这些层面关联成一份人类可读的解释（或树状 / JSON 视图）。
 
-Targets can be process names (substring match by default), PIDs, ports, open files, or containers. Container lookup spans Docker, Podman, nerdctl, Kubernetes/crictl, Incus, LXC/LXD, and FreeBSD jails. With no targets, or with **-i**, **witr** opens an interactive TUI.
+目标可以是进程名（默认子串匹配）、PID、端口、打开的文件或容器。容器查找涵盖 Docker、Podman、nerdctl、Kubernetes/crictl、Incus、LXC/LXD 和 FreeBSD jail。不带目标或带 **-i** 时，**witr** 会打开交互式 TUI。
 
 # PARAMETERS
 
 **-p**, **--pid** *pid*
 
-> Look up one or more process IDs (repeatable).
+> 查找一个或多个进程 ID（可重复）。
 
 **-o**, **--port** *port*
 
-> Look up process(es) bound to port(s) (repeatable).
+> 查找绑定到端口的进程（可重复）。
 
 **-f**, **--file** *path*
 
-> Look up the process holding a file open (repeatable).
+> 查找持有某个打开文件的进程（可重复）。
 
 **-c**, **--container** *name*
 
-> Look up container by name, image, command, or compose labels (repeatable).
+> 按名称、镜像、命令或 compose 标签查找容器（可重复）。
 
 **-x**, **--exact**
 
-> Exact process name match (disable substring search).
+> 精确匹配进程名（禁用子串搜索）。
 
 **-s**, **--short**
 
-> Print only the ancestry chain.
+> 只打印祖先链。
 
 **-t**, **--tree**
 
-> Print ancestry as a tree (includes children of the target).
+> 以树状打印祖先链（包括目标的子进程）。
 
 **-i**, **--interactive**
 
-> Interactive TUI mode.
+> 交互式 TUI 模式。
 
 **--json**
 
-> Machine-readable JSON output.
+> 输出机器可读的 JSON。
 
 **--env**
 
-> Include environment variables for the process.
+> 包含进程的环境变量。
 
 **--verbose**
 
-> Extended process information (mounts, networks, compose metadata for containers).
+> 扩展的进程信息（挂载、网络，容器的 compose 元数据）。
 
 **--no-color**
 
-> Disable colorized output.
+> 禁用彩色输出。
 
 **--warnings**
 
-> Show only warnings.
+> 仅显示警告。
 
 **-h**, **--help**
 
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
 
-> Show version.
+> 显示版本。
 
 # CAVEATS
 
-Some details (especially containers and remote runtimes) require appropriate privileges and installed client tools. Substring name matching can return multiple hits; re-run with **--pid** or **--exact**. Output quality depends on what the local process tree and supervisors expose.
+某些细节（尤其是容器和远程运行时）需要相应的权限和已安装的客户端工具。子串名称匹配可能返回多个结果；请用 **--pid** 或 **--exact** 重新运行。输出质量取决于本地进程树和监督者所暴露的信息。
 
 # INSTALL
 

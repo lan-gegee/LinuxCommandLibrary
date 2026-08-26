@@ -1,38 +1,38 @@
 # TAGLINE
 
-GPU-accelerated terminal emulator
+GPU 加速的终端模拟器
 
 # TLDR
 
-**Start terminal**
+**启动终端**
 
 ```wezterm```
 
-**Start with command**
+**启动并执行命令**
 
 ```wezterm start -- [command]```
 
-**Open new tab**
+**打开新标签页**
 
 ```wezterm cli spawn```
 
-**Split pane horizontally**
+**水平分割面板**
 
 ```wezterm cli split-pane --horizontal```
 
-**Split pane vertically**
+**垂直分割面板**
 
 ```wezterm cli split-pane```
 
-**List tabs**
+**列出标签页**
 
 ```wezterm cli list```
 
-**Connect to remote**
+**连接远程主机**
 
 ```wezterm connect [host]```
 
-**Show configuration**
+**显示配置**
 
 ```wezterm show-keys```
 
@@ -43,56 +43,56 @@ GPU-accelerated terminal emulator
 # PARAMETERS
 
 **start** [_--_] _CMD_
-> Start terminal with command.
+> 启动终端并执行命令。
 
 **cli spawn**
-> Open new tab.
+> 打开新标签页。
 
 **cli split-pane**
-> Split current pane.
+> 分割当前面板。
 
 **cli list**
-> List panes/tabs.
+> 列出面板/标签页。
 
 **connect** _HOST_
-> Connect to multiplexer.
+> 连接到多路复用器。
 
 **ssh** _DEST_
-> SSH connection.
+> SSH 连接。
 
 **serial** _PORT_
-> Serial connection.
+> 串口连接。
 
 **show-keys**
-> Show key bindings.
+> 显示按键绑定。
 
 **--config** _KEY=VALUE_
-> Override config.
+> 覆盖配置。
 
 **--config-file** _FILE_
-> Config file path.
+> 配置文件路径。
 
 # DESCRIPTION
 
-**wezterm** is a GPU-accelerated terminal emulator. Written in Rust, it's cross-platform and highly configurable.
+**wezterm** 是一款 GPU 加速的终端模拟器。它使用 Rust 编写，跨平台且高度可配置。
 
-Configuration uses Lua scripts. Keybindings, appearance, and behavior are programmable with full scripting capability.
+配置采用 Lua 脚本。按键绑定、外观和行为均可编程定制，具备完整的脚本能力。
 
-Multiplexing is built-in. Tabs and panes work without tmux. Sessions persist and can be reattached.
+内置多路复用功能。无需 tmux 即可使用标签页和面板。会话持久保存并可重新接入。
 
-Remote multiplexing connects to wezterm running on other machines. Local terminal controls remote sessions.
+远程多路复用可以连接其他机器上运行的 wezterm。本地终端控制远程会话。
 
-GPU rendering provides smooth scrolling and efficient display. Ligatures, emoji, and Nerd Fonts work correctly.
+GPU 渲染带来流畅滚动和高效显示。连字、emoji 和 Nerd Fonts 都能正确工作。
 
-Hyperlinks are clickable. URLs, file paths, and custom patterns can be configured as clickable links.
+超链接可点击。URL、文件路径和自定义模式都可以配置为可点击链接。
 
 # CAVEATS
 
-Lua config has learning curve. Some features are cross-platform only. GPU acceleration needs compatible drivers.
+Lua 配置有一定学习曲线。某些功能仅跨平台可用。GPU 加速需要兼容的驱动。
 
 # HISTORY
 
-**WezTerm** was created by **Wez Furlong** (wez) around **2018**. It combines modern rendering with powerful multiplexing, positioning itself between simple terminals and full terminal multiplexers.
+**WezTerm** 由 **Wez Furlong**（wez）于 **2018 年**前后创建。它将现代渲染与强大的多路复用相结合，定位于简单终端与完整终端复用器之间。
 
 # INSTALL
 

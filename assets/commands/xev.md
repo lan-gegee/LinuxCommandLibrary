@@ -1,26 +1,26 @@
 # TAGLINE
 
-X11 event monitoring tool
+X11 事件监视工具
 
 # TLDR
 
-**Start xev**
+**启动 xev**
 
 ```xev```
 
-**Show only keyboard events**
+**仅显示键盘事件**
 
 ```xev -event keyboard```
 
-**Show only mouse button** events
+**仅显示鼠标按键**事件
 
 ```xev -event button```
 
-**Monitor specific window** by ID
+按 ID **监视特定窗口**
 
 ```xev -id [window_id]```
 
-**Monitor root window** events
+**监视根窗口**事件
 
 ```xev -root```
 
@@ -31,63 +31,63 @@ X11 event monitoring tool
 # PARAMETERS
 
 **-display** _DISPLAY_
-> X server to contact.
+> 要连接的 X server。
 
 **-event** _TYPE_
-> Event type filter (can be specified multiple times).
+> 事件类型过滤器（可多次指定）。
 
 **-id** _WINDOW_
-> Monitor events on an existing window by ID.
+> 按 ID 监视已有窗口上的事件。
 
 **-root**
-> Monitor events on the root window.
+> 监视根窗口上的事件。
 
 **-name** _NAME_
-> Name to assign to the created window.
+> 分配给所创建窗口的名称。
 
 **-geometry** _GEOM_
-> Window size and position.
+> 窗口大小和位置。
 
 **-bw** _PIXELS_
-> Border width for the window.
+> 窗口的边框宽度。
 
 **-bs** _TYPE_
-> Backing store type (NotUseful, WhenMapped, Always). Default NotUseful.
+> 后备存储类型（NotUseful、WhenMapped、Always）。默认 NotUseful。
 
 **-rv**
-> Display window in reverse video.
+> 以反色显示窗口。
 
 # EVENT TYPES
 
-**keyboard** - Key press/release events
-**mouse** - All pointer events
-**button** - Button press/release events
-**motion** - Pointer motion events
-**expose** - Expose events
-**visibility** - Visibility change events
-**structure** - Window structure events
-**substructure** - Substructure events
-**focus** - Focus change events
-**property** - Property change events
-**colormap** - Colormap events
-**owner_grab_button** - Owner grab button events
-**randr** - RandR events
+**keyboard** - 按键按下/释放事件
+**mouse** - 所有指针事件
+**button** - 鼠标按钮按下/释放事件
+**motion** - 指针移动事件
+**expose** - 重绘（expose）事件
+**visibility** - 可见性变化事件
+**structure** - 窗口结构事件
+**substructure** - 子结构事件
+**focus** - 焦点变化事件
+**property** - 属性变化事件
+**colormap** - 色彩映射表事件
+**owner_grab_button** - 所有者抓取按钮事件
+**randr** - RandR 事件
 
 # DESCRIPTION
 
-**xev** is an X11 event monitoring utility that displays all events received by a window. When launched, it opens a small window and prints detailed information about every X event that occurs within it, including key presses, mouse movements, button clicks, window exposure, and focus changes.
+**xev** 是一个 X11 事件监视工具，用于显示窗口接收到的所有事件。启动后它会打开一个小窗口，并打印该窗口内发生的每个 X 事件的详细信息，包括按键、鼠标移动、按钮点击、窗口重绘以及焦点变化。
 
-The tool is primarily used for debugging X11 input issues and discovering keycodes for keyboard configuration. Each event is printed with full details including keycodes, key symbols, coordinates, modifier states, and timestamps. This makes it invaluable for setting up key bindings in window managers or diagnosing input problems.
+该工具主要用于调试 X11 输入问题以及查找键盘配置所需的键码。每个事件都会连同完整细节一起打印，包括键码、键符号、坐标、修饰键状态和时间戳。这使得它在配置窗口管理器的按键绑定或诊断输入问题时不可或缺。
 
-Events can be filtered by type using the **-event** option to show only keyboard, mouse, button, or motion events. The **-id** option monitors events on a specific existing window, while **-root** captures events on the root window for display-wide monitoring.
+可以使用 **-event** 选项按类型过滤事件，只显示键盘、鼠标、按钮或移动事件。**-id** 选项监视某个特定已有窗口上的事件，而 **-root** 则捕获根窗口上的事件，用于全屏范围的监视。
 
 # CAVEATS
 
-X11 only, not Wayland. Creates visible window. Output is verbose.
+仅支持 X11，不支持 Wayland。会创建一个可见窗口。输出较为冗长。
 
 # HISTORY
 
-**xev** is part of the standard X11 utilities. It's essential for understanding X input events and configuring key bindings.
+**xev** 是标准 X11 工具的一部分。它是理解 X 输入事件和配置按键绑定的必备工具。
 
 # INSTALL
 

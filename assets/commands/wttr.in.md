@@ -1,38 +1,38 @@
 # TAGLINE
 
-Console weather forecast service
+面向控制台的天气预报服务
 
 # TLDR
 
-**Get weather for current location** (based on IP)
+**获取当前位置的天气**（基于 IP）
 
 ```curl wttr.in```
 
-**Get weather for a specific city**
+**获取指定城市的天气**
 
 ```curl wttr.in/[Paris]```
 
-**Get weather for a landmark** or named location
+**获取地标或命名地点的天气**
 
 ```curl "wttr.in/~[Eiffel Tower]"```
 
-**Get current weather only** (no forecast)
+**只获取当前天气**（无预报）
 
 ```curl wttr.in/[London]?0```
 
-**Get one-line weather summary**
+**获取单行天气摘要**
 
 ```curl "wttr.in/[Berlin]?format=3"```
 
-**Get weather in metric units**
+**以公制单位获取天气**
 
 ```curl wttr.in/[NewYork]?m```
 
-**Get moon phase**
+**获取月相**
 
 ```curl wttr.in/moon```
 
-**Get weather as PNG image**
+**获取 PNG 格式的天气图片**
 
 ```curl wttr.in/[Tokyo].png --output weather.png```
 
@@ -43,70 +43,70 @@ Console weather forecast service
 # PARAMETERS
 
 _location_
-> City name, airport code (3 letters), GPS coordinates, area code, or domain name.
+> 城市名、机场代码（3 个字母）、GPS 坐标、区域代码或域名。
 
 **?0**
-> Show only current weather (no forecast).
+> 只显示当前天气（无预报）。
 
 **?1**
-> Show current weather and today's forecast.
+> 显示当前天气和今天的预报。
 
 **?2**
-> Show current weather, today's and tomorrow's forecast.
+> 显示当前天气以及今明两天的预报。
 
 **?m**
-> Use metric (SI) units.
+> 使用公制（SI）单位。
 
 **?u**
-> Use USCS (US) units.
+> 使用 USCS（美制）单位。
 
 **?n**
-> Narrow version showing only day and night.
+> 窄版输出，只显示白天和夜间。
 
 **?q**
-> Quiet version without "Weather report" header.
+> 安静版输出，不带 "Weather report" 标题。
 
 **?Q**
-> Superquiet version (no "Weather report" text, no city name).
+> 极简安静版（无 "Weather report" 文本，也无城市名）。
 
 **?format=**_string_
-> Custom format for one-line output. Presets: 1-4. Custom: %c (condition), %t (temperature), %w (wind), %h (humidity), %l (location), %m (moon phase).
+> 单行输出的自定义格式。预设：1-4。自定义：%c（天气状况）、%t（气温）、%w（风力）、%h（湿度）、%l（位置）、%m（月相）。
 
 **?T**
-> Disable terminal sequences (for piping).
+> 禁用终端转义序列（便于管道处理）。
 
 **?F**
-> Do not show the "Follow" line.
+> 不显示 "Follow" 一行。
 
 **?d**
-> Restrict output to standard console font glyphs.
+> 输出限制为标准控制台字体字形。
 
 **?M**
-> Show wind speed in m/s.
+> 以 m/s 显示风速。
 
 **?lang=**_code_
-> Set language (e.g., lang=de for German). Also available as subdomain: fr.wttr.in.
+> 设置语言（如 lang=de 表示德语）。也可以用子域名形式：fr.wttr.in。
 
 **.png**
-> Return weather as PNG image instead of text.
+> 返回 PNG 图片格式的天气而不是文本。
 
 # DESCRIPTION
 
-**wttr.in** is a console-oriented weather forecast service accessed via HTTP clients like curl, wget, or httpie. It provides weather information in ASCII art format directly in the terminal, requiring no installation.
+**wttr.in** 是一项面向控制台的天气预报服务，可通过 curl、wget 或 httpie 等 HTTP 客户端访问。它以 ASCII art 格式直接在终端中提供天气信息，无需安装任何东西。
 
-The service supports various location types: city names, 3-letter airport codes, GPS coordinates, area codes, domain names (prefixed with @), and landmarks (prefixed with ~). Without a location, it uses your IP address to determine location.
+该服务支持多种地点类型：城市名、3 字母机场代码、GPS 坐标、区域代码、域名（加 @ 前缀）以及地标（加 ~ 前缀）。不给定地点时，它会根据你的 IP 地址确定位置。
 
-Output can be customized for different use cases: full 3-day forecasts, current conditions only, one-line format for status bars (tmux, shell prompts), or PNG images. The v2 endpoint (v2.wttr.in) provides expanded data including historical information.
+输出可以按不同用途定制：完整的 3 天预报、仅当前天气、适合状态栏（tmux、shell 提示符）的单行格式，或 PNG 图片。v2 端点（v2.wttr.in）提供包含历史数据在内的扩展数据。
 
-wttr.in supports multiple languages and both metric and imperial units. The service handles millions of queries daily and is free to use.
+wttr.in 支持多种语言以及公制和英制单位。该服务每天处理数百万次查询，可免费使用。
 
 # CAVEATS
 
-Requires internet connection and an HTTP client (curl, wget). Location detection via IP may be inaccurate for VPNs or proxies. Rate limiting may apply for excessive requests. ASCII art display requires a terminal with sufficient width and Unicode support for best results.
+需要网络连接和 HTTP 客户端（curl、wget）。基于 IP 的定位在使用 VPN 或代理时可能不准确。请求过多可能触发限速。要获得最佳效果，ASCII art 显示需要宽度足够且支持 Unicode 的终端。
 
 # HISTORY
 
-**wttr.in** was created by **Igor Chubin** around **2016** as a wrapper for the wego weather client, demonstrating console-oriented web services. It gained popularity through Hacker News and social media, growing to handle tens of millions of daily queries. The service continues to be maintained and improved with new features.
+**wttr.in** 由 **Igor Chubin** 大约于 **2016 年**创建，作为 wego 天气客户端的封装，用以展示面向控制台的 Web 服务。它经由 Hacker News 和社交媒体走红，如今每天处理数千万次查询。该服务仍在持续维护和改进，不断加入新功能。
 
 # SEE ALSO
 

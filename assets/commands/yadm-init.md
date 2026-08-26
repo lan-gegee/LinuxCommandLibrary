@@ -1,18 +1,18 @@
 # TAGLINE
 
-Initialize new yadm dotfiles repository
+初始化新的 yadm dotfiles 仓库
 
 # TLDR
 
-**Initialize** a new yadm repository
+**初始化**一个新的 yadm 仓库
 
 ```yadm init```
 
-**Force reinitialization** of an existing repository
+**强制重新初始化**已有仓库
 
 ```yadm init -f```
 
-**Initialize with a custom worktree** path
+**以自定义工作树路径初始化**
 
 ```yadm init -w [path/to/worktree]```
 
@@ -23,16 +23,16 @@ Initialize new yadm dotfiles repository
 # PARAMETERS
 
 **-f**
-> Force reinitialization of an existing repository.
+> 强制重新初始化已有仓库。
 
 **-w** _dir_
-> Override the default work-tree ($HOME) with the specified directory.
+> 用指定目录覆盖默认工作树（$HOME）。
 
 # DESCRIPTION
 
-**yadm init** creates a new, empty repository for tracking dotfiles. The repository is initialized at **$HOME/.local/share/yadm/repo.git** with **$HOME** as the default work-tree. This is the first step for starting dotfiles management with yadm.
+**yadm init** 创建一个用于跟踪 dotfiles 的全新空仓库。该仓库初始化于 **$HOME/.local/share/yadm/repo.git**，并以 **$HOME** 作为默认工作树。这是使用 yadm 开始管理 dotfiles 的第一步。
 
-If a repository already exists, the **-f** flag is required to force reinitialization.
+如果仓库已经存在，则需要 **-f** 标志来强制重新初始化。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ If a repository already exists, the **-f** flag is required to force reinitializ
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-clone](/man/yadm-clone)(1), [yadm-config](/man/yadm-config)(1), [yadm-encrypt](/man/yadm-encrypt)(1)
-

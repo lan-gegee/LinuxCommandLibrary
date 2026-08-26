@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast CSV command-line toolkit
+快速的 CSV 命令行工具集
 
 # TLDR
 
-**Display CSV headers**
+**显示 CSV 表头**
 
 ```xsv headers [file.csv]```
 
-**Select specific columns**
+**选择特定列**
 
 ```xsv select [Name,Age] [file.csv]```
 
-**Format CSV as aligned table**
+**将 CSV 格式化为对齐的表格**
 
 ```xsv table [file.csv]```
 
-**Get statistics** for all columns
+**获取所有列的统计信息**
 
 ```xsv stats [file.csv]```
 
-**Search for pattern** in CSV
+在 CSV 中**搜索匹配模式**
 
 ```xsv search "[pattern]" [file.csv]```
 
-**Sort by column**
+**按列排序**
 
 ```xsv sort -s [column] [file.csv]```
 
-**Count rows**
+**统计行数**
 
 ```xsv count [file.csv]```
 
-**Sample random rows**
+**随机抽样若干行**
 
 ```xsv sample [10] [file.csv]```
 
@@ -43,83 +43,83 @@ Fast CSV command-line toolkit
 # PARAMETERS
 
 **cat**
-> Concatenate CSV files by row or column.
+> 按行或按列连接 CSV 文件。
 
 **count**
-> Count the rows in a CSV file.
+> 统计 CSV 文件的行数。
 
 **fixlengths**
-> Force all rows to have the same length.
+> 强制所有行具有相同的长度。
 
 **flatten**
-> Show each row on a single line.
+> 将每一行显示为单行。
 
 **fmt**
-> Format CSV output (delimiter, quoting).
+> 格式化 CSV 输出（分隔符、引号）。
 
 **frequency**
-> Show frequency tables for columns.
+> 显示各列的频率表。
 
 **headers**
-> Display column headers.
+> 显示列标题。
 
 **index**
-> Create an index for fast random access.
+> 创建索引以支持快速随机访问。
 
 **input**
-> Read CSV data with special handling.
+> 以特殊方式读取 CSV 数据。
 
 **join**
-> Join two CSV files on a column.
+> 按某一列连接两个 CSV 文件。
 
 **sample**
-> Randomly sample rows.
+> 随机抽取行样本。
 
 **search**
-> Search rows matching a regex pattern.
+> 搜索匹配正则表达式的行。
 
 **select**
-> Select specific columns.
+> 选择特定列。
 
 **slice**
-> Slice rows from the CSV.
+> 从 CSV 中切取部分行。
 
 **sort**
-> Sort rows by columns.
+> 按列排序行。
 
 **split**
-> Split CSV into multiple files.
+> 将 CSV 拆分为多个文件。
 
 **stats**
-> Compute statistics for columns.
+> 计算各列的统计信息。
 
 **table**
-> Format as aligned ASCII table.
+> 格式化为对齐的 ASCII 表格。
 
 **-d**, **--delimiter** _char_
-> Field delimiter (default: comma).
+> 字段分隔符（默认：逗号）。
 
 **--no-headers**
-> Input has no header row.
+> 输入没有标题行。
 
 **-o**, **--output** _file_
-> Write output to file.
+> 将输出写入文件。
 
 # DESCRIPTION
 
-**xsv** is a fast CSV command-line toolkit written in Rust. It provides commands for indexing, slicing, analyzing, splitting, and joining CSV files with excellent performance on large datasets.
+**xsv** 是一个用 Rust 编写的高速 CSV 命令行工具集。它提供索引用于索引、切片、分析、拆分和连接 CSV 文件的命令，在大数据集上表现出色。
 
-The tool creates indexes to enable fast random access and statistics gathering. Commands are designed to be composable through Unix pipes while maintaining high performance.
+该工具通过创建索引实现快速随机访问和统计收集。各命令设计为可通过 Unix 管道组合使用，同时保持高性能。
 
-xsv handles various CSV dialects and can work with different delimiters, quoting styles, and files with or without headers.
+xsv 能处理各种 CSV 方言，支持不同的分隔符、引号风格以及带或不带标题行的文件。
 
 # CAVEATS
 
-xsv is optimized for well-formed CSV files. Malformed input may produce unexpected results. Creating an index with **xsv index** significantly speeds up subsequent operations on large files.
+xsv 针对格式规范的 CSV 文件优化。格式错误的输入可能产生意外结果。先用 **xsv index** 创建索引可显著加速后续对大文件的操作。
 
 # HISTORY
 
-xsv was created by **Andrew Gallant** (BurntSushi) and first released in **2014**. It was developed as a demonstration of Rust's performance capabilities for command-line tools and CSV processing. The project has influenced the design of other Rust CSV tools and established patterns for high-performance CSV processing.
+xsv 由 **Andrew Gallant**（BurntSushi）创建，于 **2014 年**首次发布。它最初是为了展示 Rust 在命令行工具和 CSV 处理方面的性能潜力而开发的。该项目影响了其他 Rust CSV 工具的设计，并确立了高性能 CSV 处理的模式。
 
 # INSTALL
 

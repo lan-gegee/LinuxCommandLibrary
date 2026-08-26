@@ -1,34 +1,34 @@
 # TAGLINE
 
-Ultralytics YOLO object detection and computer vision CLI
+Ultralytics YOLO 目标检测与计算机视觉 CLI
 
 # TLDR
 
-**Run object detection** on an image
+对图像**运行目标检测**
 
 ```yolo detect predict model=[yolo11n.pt] source=[image.jpg]```
 
-**Train a model** on a custom dataset
+在自定义数据集上**训练模型**
 
 ```yolo detect train data=[data.yaml] model=[yolo11n.pt] epochs=[100] imgsz=[640]```
 
-**Validate model** accuracy
+**验证模型**准确率
 
 ```yolo detect val model=[best.pt] data=[data.yaml]```
 
-**Export model** to ONNX format
+将模型**导出**为 ONNX 格式
 
 ```yolo export model=[best.pt] format=[onnx]```
 
-**Track objects** in video
+在视频中**跟踪目标**
 
 ```yolo detect track model=[yolo11n.pt] source=[video.mp4]```
 
-**Run pose estimation**
+**运行姿态估计**
 
 ```yolo pose predict model=[yolo11n-pose.pt] source=[image.jpg]```
 
-**Benchmark** model performance across export formats
+跨导出格式对模型性能进行**基准测试**
 
 ```yolo benchmark model=[yolo11n.pt] imgsz=[640]```
 
@@ -41,80 +41,80 @@ Ultralytics YOLO object detection and computer vision CLI
 ## Tasks
 
 **detect**
-> Object detection.
+> 目标检测。
 
 **segment**
-> Instance segmentation.
+> 实例分割。
 
 **classify**
-> Image classification.
+> 图像分类。
 
 **pose**
-> Pose estimation.
+> 姿态估计。
 
 **obb**
-> Oriented bounding box detection.
+> 旋转边界框检测。
 
 ## Modes
 
 **train**
-> Train a model on a dataset.
+> 在数据集上训练模型。
 
 **val**
-> Validate model accuracy.
+> 验证模型准确率。
 
 **predict**
-> Run inference on images, video, or streams.
+> 对图像、视频或流进行推理。
 
 **export**
-> Convert model to deployment formats (ONNX, TensorRT, CoreML, etc.).
+> 将模型转换为部署格式（ONNX、TensorRT、CoreML 等）。
 
 **track**
-> Multi-object tracking on video.
+> 在视频上进行多目标跟踪。
 
 **benchmark**
-> Benchmark model speed and accuracy across export formats.
+> 跨导出格式测试模型的速度与准确率。
 
 ## Common Arguments
 
 **model=**_path_
-> Model file path (e.g., yolo11n.pt).
+> 模型文件路径（例如 yolo11n.pt）。
 
 **data=**_path_
-> Dataset configuration YAML file.
+> 数据集配置 YAML 文件。
 
 **source=**_path_
-> Input source: image, video, directory, URL, or webcam (0).
+> 输入源：图像、视频、目录、URL 或摄像头（0）。
 
 **epochs=**_n_
-> Number of training epochs.
+> 训练轮数。
 
 **imgsz=**_size_
-> Input image size (default: 640).
+> 输入图像尺寸（默认：640）。
 
 **batch=**_n_
-> Batch size.
+> 批大小。
 
 **device=**_id_
-> Device: GPU id (0, 0,1) or cpu.
+> 设备：GPU id（0、0,1）或 cpu。
 
 **format=**_fmt_
-> Export format: onnx, engine, coreml, tflite, etc.
+> 导出格式：onnx、engine、coreml、tflite 等。
 
 **conf=**_threshold_
-> Confidence threshold for predictions.
+> 预测的置信度阈值。
 
 # DESCRIPTION
 
-**yolo** is the CLI for Ultralytics YOLO, a state-of-the-art computer vision framework. It provides commands for object detection, instance segmentation, image classification, pose estimation, and oriented bounding box detection from the terminal.
+**yolo** 是 Ultralytics YOLO 的命令行工具，这是一个先进的计算机视觉框架。它提供从终端执行目标检测、实例分割、图像分类、姿态估计和旋转边界框检测的命令。
 
-The tool supports a complete workflow: **train** builds models from datasets, **val** evaluates model accuracy, **predict** runs inference on images or video, **export** converts models to deployment formats like ONNX and TensorRT, **track** performs multi-object tracking on video streams, and **benchmark** tests model performance across formats.
+该工具支持完整的工作流：**train** 基于数据集构建模型，**val** 评估模型准确率，**predict** 对图像或视频进行推理，**export** 将模型转换为 ONNX 和 TensorRT 等部署格式，**track** 对视频流执行多目标跟踪，**benchmark** 测试模型在各格式下的性能。
 
-Each command accepts an optional task type (detect, segment, classify, pose, obb) and a required mode. Arguments are passed as key=value pairs. Pre-trained models can be used directly for inference or fine-tuned on custom datasets. GPU acceleration is supported through PyTorch.
+每条命令都接受可选的任务类型（detect、segment、classify、pose、obb）和必需的模式。参数以 key=value 键值对的形式传入。预训练模型可以直接用于推理，也可以在自定义数据集上微调。GPU 加速通过 PyTorch 支持。
 
 # CAVEATS
 
-Requires Python and PyTorch. GPU recommended for training. Pre-trained model weights are downloaded automatically on first use. Use `yolo cfg` to view all available configuration arguments.
+需要 Python 和 PyTorch。训练建议使用 GPU。预训练模型权重会在首次使用时自动下载。使用 `yolo cfg` 可查看所有可用的配置参数。
 
 # SEE ALSO
 

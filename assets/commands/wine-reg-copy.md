@@ -1,22 +1,22 @@
 # TAGLINE
 
-Copy a key and its values within the Wine registry
+在 Wine 注册表内复制键及其值
 
 # TLDR
 
-**Copy** the values of one key to another
+把一个键的值**复制**到另一个键
 
 ```wine reg copy [HKCU\Software\MyApp] [HKCU\Software\MyAppCopy]```
 
-**Copy** a key **including all of its subkeys**
+**连同所有子键一起复制**键
 
 ```wine reg copy [HKCU\Software\MyApp] [HKCU\Software\MyAppCopy] /s```
 
-**Copy** a key, **overwriting the destination without prompting**
+**复制**键且**不经提示覆盖目标**
 
 ```wine reg copy [HKCU\Software\MyApp] [HKCU\Software\MyAppCopy] /f```
 
-**Copy** an entire subtree **non-interactively**
+以**非交互方式复制**整个子树
 
 ```wine reg copy [HKCU\Software\MyApp] [HKCU\Software\MyAppCopy] /s /f```
 
@@ -26,17 +26,17 @@ Copy a key and its values within the Wine registry
 
 # DESCRIPTION
 
-**wine reg copy** duplicates the values of a registry key to another key inside a Wine prefix. It mirrors the Windows **reg copy** command. By default it copies only the values stored directly under the source key; with **/s** it also copies every subkey beneath it.
+**wine reg copy** 将某个注册表键的值复制到 Wine 前缀内的另一个键。它与 Windows 的 **reg copy** 命令一致。默认情况下只复制直接存储在源键下的值；加上 **/s** 则同时复制其下所有子键。
 
-When a value already exists in the destination, the command prompts before overwriting it unless **/f** is supplied. The source and destination can be different keys within the same root or across different roots.
+当目标中已存在同名值时，除非提供 **/f**，否则命令在覆盖前会提示确认。源和目标可以是同一根键内的不同键，也可以跨不同的根键。
 
 # PARAMETERS
 
 **/s**
-> Copy all subkeys and values under the source key, not just its immediate values.
+> 复制源键下的所有子键和值，而不仅仅是其直属的值。
 
 **/f**
-> Force the copy, overwriting existing destination values without a confirmation prompt.
+> 强制复制，不经确认提示直接覆盖目标中已有的值。
 
 # INSTALL
 

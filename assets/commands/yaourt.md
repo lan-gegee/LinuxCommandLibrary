@@ -1,34 +1,34 @@
 # TAGLINE
 
-Deprecated Arch Linux AUR helper
+已弃用的 Arch Linux AUR 助手
 
 # TLDR
 
-**Update** all packages including AUR
+**更新**包括 AUR 在内的所有软件包
 
 ```yaourt -Syua```
 
-**Install** a package
+**安装**软件包
 
 ```yaourt -S [package]```
 
-**Remove** a package and its unneeded dependencies
+**移除**软件包及其不再需要的依赖
 
 ```yaourt -Rs [package]```
 
-**Search** for a package in repositories and AUR
+在仓库和 AUR 中**搜索**软件包
 
 ```yaourt -Ss [query]```
 
-**List** installed packages
+**列出**已安装的软件包
 
 ```yaourt -Q```
 
-**Download and build** a package from AUR without installing
+从 AUR **下载并构建**软件包但不安装
 
 ```yaourt -Sb [package]```
 
-**Get information** about a package
+**获取**软件包的**信息**
 
 ```yaourt -Si [package]```
 
@@ -39,45 +39,45 @@ Deprecated Arch Linux AUR helper
 # PARAMETERS
 
 **-S** _PACKAGE_
-> Install a package from repositories or AUR.
+> 从仓库或 AUR 安装软件包。
 
 **-Syua**
-> Synchronize databases and update all packages including AUR.
+> 同步数据库并更新所有软件包，包括 AUR 软件包。
 
 **-Sb** _PACKAGE_
-> Download and build a package without installing.
+> 下载并构建软件包，但不安装。
 
 **-Rs** _PACKAGE_
-> Remove a package and its unneeded dependencies.
+> 移除软件包及其不再需要的依赖。
 
 **-Ss** _QUERY_
-> Search for a package in the sync databases and AUR.
+> 在同步数据库和 AUR 中搜索软件包。
 
 **-Si** _PACKAGE_
-> Display detailed information about a package.
+> 显示软件包的详细信息。
 
 **-Q**
-> List installed packages.
+> 列出已安装的软件包。
 
 **-Qm**
-> List foreign (AUR-installed) packages.
+> 列出外来软件包（从 AUR 安装的）。
 
 **--noconfirm**
-> Do not ask for any confirmation.
+> 不请求任何确认。
 
 # DESCRIPTION
 
-**yaourt** (Yet AnOther User Repository Tool) is an AUR helper for Arch Linux that wraps pacman with additional features for building packages from the Arch User Repository.
+**yaourt**（Yet AnOther User Repository Tool）是一款面向 Arch Linux 的 AUR 助手，它封装了 pacman，并为从 Arch User Repository 构建软件包提供了额外功能。
 
-It combines official repository and AUR package management in a single interface with colorized output, interactive search/install, and orphan detection. Since the majority of yaourt's options are the same as pacman's, it can be used as a drop-in replacement.
+它在单一界面中结合了官方仓库与 AUR 的软件包管理，提供彩色输出、交互式搜索/安装以及孤立软件包检测。由于 yaourt 的大多数选项与 pacman 相同，它可以作为 pacman 的直接替代品使用。
 
 # HISTORY
 
-**yaourt** was one of the first popular AUR helpers but is now deprecated. Users are recommended to switch to yay, paru, or other maintained alternatives.
+**yaourt** 是最早流行的 AUR 助手之一，但现已弃用。建议用户改用 yay、paru 或其他仍在维护的替代品。
 
 # CAVEATS
 
-Deprecated and no longer maintained. Consider using yay or paru instead. AUR packages are not officially supported.
+已弃用且不再维护。请考虑改用 yay 或 paru。AUR 软件包不受官方支持。
 
 # SEE ALSO
 

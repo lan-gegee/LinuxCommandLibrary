@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage X server resource database
+管理 X server 资源数据库
 
 # TLDR
 
-**Start** xrdb in interactive mode
+以交互模式**启动** xrdb
 
 ```xrdb```
 
-**Load** values from a resource file
+从资源文件**加载**值
 
 ```xrdb -load [~/.Xresources]```
 
-**Query** the resource database and print current values
+**查询**资源数据库并打印当前值
 
 ```xrdb -query```
 
@@ -23,42 +23,42 @@ Manage X server resource database
 # PARAMETERS
 
 **-load**
-> Load resources from file, replacing existing values
+> 从文件加载资源，替换现有值
 
 **-merge**
-> Merge resources from file with existing values
+> 将文件中的资源与现有值合并
 
 **-query**
-> Display current resources
+> 显示当前资源
 
 **-remove**
-> Remove all resources
+> 移除所有资源
 
 **-symbols**
-> Print preprocessor symbols
+> 打印预处理器符号
 
 **-cpp _path_**
-> Specify preprocessor to use
+> 指定要使用的预处理器
 
 **-nocpp**
-> Don't preprocess input
+> 不对输入做预处理
 
 **-display _display_**
-> Specify X display
+> 指定 X display
 
 # DESCRIPTION
 
-**xrdb** (X Resource DataBase) manages the X server resource database. X resources configure the appearance and behavior of X applications, including colors, fonts, and other settings.
+**xrdb**（X Resource DataBase）管理 X server 的资源数据库。X 资源用于配置 X 应用程序的外观和行为，包括颜色、字体和其他设置。
 
-Resources are typically loaded from **~/.Xresources** or **~/.Xdefaults** at X session startup. The **-merge** option adds new resources without removing existing ones.
+资源通常在 X 会话启动时从 **~/.Xresources** 或 **~/.Xdefaults** 加载。**-merge** 选项可在不移除现有资源的情况下添加新资源。
 
 # CAVEATS
 
-Changes only affect newly started applications. Use **-merge** to preserve existing settings when adding new ones. The file is processed by cpp by default, allowing use of #include and #define. Part of the X.Org utilities.
+更改只影响新启动的应用程序。添加新设置时应使用 **-merge** 以保留现有设置。该文件默认由 cpp 处理，因此可以使用 #include 和 #define。属于 X.Org 工具集。
 
 # HISTORY
 
-**xrdb** has been part of the X Window System since the early releases in the mid-**1980s**, providing a way to configure application appearance and behavior before modern desktop environments existed.
+**xrdb** 自 **20 世纪 80 年代中期**早期版本起就是 X Window System 的一部分，在现代桌面环境出现之前就提供了配置应用外观和行为的方式。
 
 # INSTALL
 

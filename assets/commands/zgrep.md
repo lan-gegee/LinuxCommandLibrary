@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search gzip-compressed files for patterns
+在 gzip 压缩文件中搜索模式
 
 # TLDR
 
-**Search for pattern in gzipped file**
+**在 gzip 压缩文件中搜索模式**
 
 ```zgrep "[pattern]" [file.gz]```
 
-**Case-insensitive search**
+**不区分大小写搜索**
 
 ```zgrep -i "[pattern]" [file.gz]```
 
-**Show line numbers**
+**显示行号**
 
 ```zgrep -n "[pattern]" [file.gz]```
 
-**Search recursively in compressed files**
+**在压缩文件中递归搜索**
 
 ```zgrep -r "[pattern]" [directory]```
 
-**Count matching lines**
+**统计匹配的行数**
 
 ```zgrep -c "[pattern]" [file.gz]```
 
-**Show only filenames with matches**
+**只显示包含匹配项的文件名**
 
 ```zgrep -l "[pattern]" [*.gz]```
 
@@ -35,55 +35,55 @@ Search gzip-compressed files for patterns
 # PARAMETERS
 
 **-i**
-> Case-insensitive matching
+> 不区分大小写匹配
 
 **-n**
-> Show line numbers
+> 显示行号
 
 **-l**
-> List filenames with matches only
+> 只列出包含匹配项的文件名
 
 **-c**
-> Count matching lines
+> 统计匹配的行数
 
 **-v**
-> Invert match (show non-matching lines)
+> 反向匹配（显示不匹配的行）
 
 **-h**
-> Suppress filename in output
+> 输出中不显示文件名
 
 **-r**, **-R**
-> Recursive search
+> 递归搜索
 
 **-E**
-> Extended regular expressions (like egrep)
+> 扩展正则表达式（类似 egrep）
 
 **-F**
-> Fixed string matching (like fgrep)
+> 固定字符串匹配（类似 fgrep）
 
 **-e** _pattern_
-> Specify pattern
+> 指定模式
 
 # DESCRIPTION
 
-**zgrep** searches for patterns in gzip-compressed files without manual decompression. It's equivalent to **gunzip -c file.gz | grep pattern** but more convenient.
+**zgrep** 在 gzip 压缩文件中搜索模式，无需手动解压。它等价于 **gunzip -c file.gz | grep pattern**，但更方便。
 
-The tool automatically detects whether files are compressed and handles them appropriately. This makes it safe to use on directories containing mixed compressed and uncompressed files.
+该工具会自动检测文件是否被压缩并相应处理。因此可以放心用于同时包含压缩和未压缩文件的目录。
 
-zgrep supports the same options as grep, including basic and extended regular expressions. For explicit regex modes, use **zegrep** (extended) or **zfgrep** (fixed strings).
+zgrep 支持与 grep 相同的选项，包括基本和扩展正则表达式。要显式指定正则模式，请使用 **zegrep**（扩展）或 **zfgrep**（固定字符串）。
 
-Multiple files can be searched, with filenames shown by default when multiple files match.
+可以搜索多个文件，当多个文件有匹配时默认显示文件名。
 
 # CAVEATS
 
-Only gzip compression is supported natively. For other formats:
-- bzip2: use **bzgrep**
-- xz: use **xzgrep**
-- zstd: pipe through **zstdcat**
+原生仅支持 gzip 压缩。其他格式：
+- bzip2：使用 **bzgrep**
+- xz：使用 **xzgrep**
+- zstd：通过 **zstdcat** 管道处理
 
-Large compressed files must be fully decompressed to search, using CPU and potentially significant memory.
+大型压缩文件必须完全解压才能搜索，会消耗 CPU 并可能占用大量内存。
 
-On some systems, zgrep is a wrapper script that may have slightly different behavior than native grep.
+在某些系统上，zgrep 是一个封装脚本，行为可能与原生 grep 略有不同。
 
 # INSTALL
 

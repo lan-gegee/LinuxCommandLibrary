@@ -1,38 +1,38 @@
 # TAGLINE
 
-WirePlumber audio control tool
+WirePlumber 音频控制工具
 
 # TLDR
 
-List **objects**
+列出**对象**
 
 ```wpctl status```
 
-**Inspect** object
+**检查**对象
 
 ```wpctl inspect [id]```
 
-Set **default**
+设置**默认设备**
 
 ```wpctl set-default [id]```
 
-**Get** volume
+**获取**音量
 
 ```wpctl get-volume [id]```
 
-**Set** volume
+**设置**音量
 
 ```wpctl set-volume [id] [n]%```
 
-**Adjust** volume
+**调整**音量
 
 ```wpctl set-volume [id] [n]%[+|-]```
 
-Set volume with **limit**
+带**上限**设置音量
 
 ```wpctl set-volume -l 1 [id] [n]%+```
 
-**Mute** toggle
+切换**静音**
 
 ```wpctl set-mute [id] [1|0|toggle]```
 
@@ -43,40 +43,40 @@ Set volume with **limit**
 # COMMANDS
 
 **status**
-> List all managed objects
+> 列出所有受管对象
 
 **inspect** _ID_
-> Print object properties
+> 打印对象属性
 
 **set-default** _ID_
-> Set default for group
+> 为某组设置默认项
 
 **get-volume** _ID_
-> Get sink volume
+> 获取 sink 音量
 
 **set-volume** _ID_ _LEVEL_
-> Set sink volume
+> 设置 sink 音量
 
 **set-mute** _ID_ _STATE_
-> Set mute state
+> 设置静音状态
 
 # PARAMETERS
 
 **-l, --limit** _MAX_
-> Limit volume to maximum
+> 将音量限制在最大值以内
 
 **@DEFAULT_SINK@**
-> Special name for default sink
+> 表示默认 sink 的特殊名称
 
 # DESCRIPTION
 
-**wpctl** manages WirePlumber, the session and policy manager for PipeWire. It controls audio routing, volume, and device selection.
+**wpctl** 管理 WirePlumber，即 PipeWire 的会话与策略管理器。它控制音频路由、音量和设备选择。
 
-The special name @DEFAULT_SINK@ can be used instead of numeric IDs to target the current default sink.
+可以使用特殊名称 @DEFAULT_SINK@ 代替数字 ID 来操作当前默认的 sink。
 
 # CAVEATS
 
-Requires WirePlumber running. Object IDs may change between sessions. Volume percentages can exceed 100% unless limited.
+需要 WirePlumber 正在运行。对象 ID 在不同会话之间可能变化。若不加限制，音量百分比可能超过 100%。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-GTK dialog tool for shell scripts
+用于 shell 脚本的 GTK 对话框工具
 
 # TLDR
 
-**Display an info dialog**
+**显示信息对话框**
 
 ```yad --info --text="[Message text]"```
 
-**Show a file selection dialog**
+**显示文件选择对话框**
 
 ```yad --file --title="[Select a file]"```
 
-**Display a text entry dialog**
+**显示文本输入对话框**
 
 ```yad --entry --text="[Enter your name:]"```
 
-**Create a form** with multiple fields
+**创建包含多个字段的表单**
 
 ```yad --form --field="[Name]" --field="[Email]" --field="[Age]:NUM"```
 
-**Show a list selection dialog**
+**显示列表选择对话框**
 
 ```yad --list --column="[ID]" --column="[Name]" [1] "[Alice]" [2] "[Bob]"```
 
-**Display a progress bar** from stdin
+从标准输入**显示进度条**
 
 ```[command] | yad --progress --text="[Processing...]" --auto-close```
 
-**Create a calendar dialog**
+**创建日历对话框**
 
 ```yad --calendar --title="[Select date]"```
 
-**Show a notification icon** in system tray
+在系统托盘中**显示通知图标**
 
 ```yad --notification --image="[icon-name]" --text="[Tooltip text]"```
 
@@ -43,91 +43,91 @@ GTK dialog tool for shell scripts
 # PARAMETERS
 
 **--info**
-> Display an information dialog.
+> 显示信息对话框。
 
 **--warning**
-> Display a warning dialog.
+> 显示警告对话框。
 
 **--error**
-> Display an error dialog.
+> 显示错误对话框。
 
 **--question**
-> Display a question dialog with Yes/No buttons.
+> 显示带 Yes/No 按钮的提问对话框。
 
 **--entry**
-> Display a text entry dialog.
+> 显示文本输入对话框。
 
 **--file**
-> Display a file selection dialog.
+> 显示文件选择对话框。
 
 **--directory**
-> Display a directory selection dialog.
+> 显示目录选择对话框。
 
 **--form**
-> Display a form with multiple input fields.
+> 显示含多个输入字段的表单。
 
 **--list**
-> Display a list/table selection dialog.
+> 显示列表/表格选择对话框。
 
 **--progress**
-> Display a progress bar dialog.
+> 显示进度条对话框。
 
 **--calendar**
-> Display a calendar date selection dialog.
+> 显示日历日期选择对话框。
 
 **--color**
-> Display a color selection dialog.
+> 显示颜色选择对话框。
 
 **--font**
-> Display a font selection dialog.
+> 显示字体选择对话框。
 
 **--notification**
-> Display a system tray notification icon.
+> 显示系统托盘通知图标。
 
 **--text** _string_
-> Set the dialog text.
+> 设置对话框文本。
 
 **--title** _string_
-> Set the dialog window title.
+> 设置对话框窗口标题。
 
 **--width** _n_
-> Set the dialog width.
+> 设置对话框宽度。
 
 **--height** _n_
-> Set the dialog height.
+> 设置对话框高度。
 
 **--field** _label[:type]_
-> Add a field to a form (types: TEXT, NUM, CHK, CB, etc.).
+> 向表单添加字段（类型：TEXT、NUM、CHK、CB 等）。
 
 **--column** _name_
-> Add a column to list dialog.
+> 为列表对话框添加列。
 
 **--auto-close**
-> Close dialog when progress reaches 100%.
+> 进度达到 100% 时关闭对话框。
 
 **--button** _label:action_
-> Add custom button.
+> 添加自定义按钮。
 
 **--separator** _char_
-> Set output field separator.
+> 设置输出字段分隔符。
 
 # DESCRIPTION
 
-**YAD** (Yet Another Dialog) is a powerful GTK+ dialog tool for creating graphical dialogs from shell scripts. It is a fork and enhancement of Zenity with significantly more features and customization options.
+**YAD**（Yet Another Dialog）是一个功能强大的 GTK+ 对话框工具，用于在 shell 脚本中创建图形化对话框。它是 Zenity 的一个分叉增强版，拥有显著更多的特性和自定义选项。
 
-YAD supports numerous dialog types: message boxes, file/directory selection, forms, lists, progress bars, calendars, color pickers, font selectors, and system tray notifications. Forms can include various field types including text, numbers, checkboxes, combo boxes, file choosers, and more.
+YAD 支持多种对话框类型：消息框、文件/目录选择、表单、列表、进度条、日历、颜色选择器、字体选择器以及系统托盘通知。表单可以包含各种字段类型，包括文本、数字、复选框、组合框、文件选择器等。
 
-Dialog output is written to stdout, making it easy to capture user input in shell scripts. The exit code indicates which button was pressed. Custom buttons can be defined with specific return codes or actions.
+对话框的输出会写入标准输出，因此很容易在 shell 脚本中捕获用户输入。退出码表示按下的是哪个按钮。自定义按钮可以定义特定的返回码或动作。
 
-For complex interfaces, YAD supports multi-pane layouts with tabs and notebooks. The **--plug** and **--tabnum** options allow embedding multiple dialogs into a single window. HTML content can be displayed using the **--html** option with WebKit support.
+对于复杂界面，YAD 支持带有标签页和多页容器的多窗格布局。**--plug** 和 **--tabnum** 选项允许将多个对话框嵌入同一个窗口。在支持 WebKit 的情况下，可以使用 **--html** 选项显示 HTML 内容。
 
 # CAVEATS
 
-Requires GTK+ 3 libraries. Some features like HTML rendering require WebKit. Dialog appearance varies with GTK theme. Complex forms may require careful escaping of special characters. System tray support depends on desktop environment compatibility.
+需要 GTK+ 3 库。HTML 渲染等部分功能需要 WebKit。对话框外观随 GTK 主题而变化。复杂表单可能需要仔细转义特殊字符。系统托盘支持取决于桌面环境的兼容性。
 
 # HISTORY
 
-**YAD** was created by Victor Ananjevsky as an enhanced fork of Zenity. Development began around **2008** to address limitations in Zenity and add features needed for more sophisticated shell script GUIs. The project has been actively maintained with regular releases adding new dialog types and options.
+**YAD** 由 Victor Ananjevsky 创建，是 Zenity 的增强分叉版。开发始于 **2008 年**前后，目的是解决 Zenity 的局限并添加更复杂的 shell 脚本 GUI 所需的功能。该项目一直得到积极维护，定期发布新版本，不断添加新的对话框类型和选项。
 
 # INSTALL
 

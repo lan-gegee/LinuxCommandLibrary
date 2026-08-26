@@ -1,38 +1,38 @@
 # TAGLINE
 
-Static module bundler for JavaScript
+JavaScript 静态模块打包器
 
 # TLDR
 
-**Build the project** using default configuration
+使用默认配置**构建项目**
 
 ```webpack```
 
-**Build with a specific configuration file**
+**使用指定配置文件**构建
 
 ```webpack --config [webpack.config.js]```
 
-**Build for production**
+**面向生产环境**构建
 
 ```webpack --mode production```
 
-**Build for development**
+**面向开发环境**构建
 
 ```webpack --mode development```
 
-**Watch for changes** and rebuild
+**监视变更**并重新构建
 
 ```webpack --watch```
 
-**Specify output directory**
+**指定输出目录**
 
 ```webpack --output-path [path/to/dist]```
 
-**Start the development server**
+**启动开发服务器**
 
 ```webpack serve```
 
-**Show build statistics**
+**显示构建统计信息**
 
 ```webpack --stats verbose```
 
@@ -43,68 +43,68 @@ Static module bundler for JavaScript
 # PARAMETERS
 
 **build**, **bundle**, **b**
-> Run webpack to bundle the project (default command).
+> 运行 webpack 打包项目（默认命令）。
 
 **serve**, **server**, **s**
-> Run webpack dev server.
+> 运行 webpack 开发服务器。
 
 **watch**, **w**
-> Run webpack and watch for file changes.
+> 运行 webpack 并监视文件变化。
 
 **init**, **create**, **c**
-> Initialize a new webpack project.
+> 初始化新的 webpack 项目。
 
 **info**, **i**
-> Output information about your system.
+> 输出系统相关信息。
 
 **configtest**, **t**
-> Validate a webpack configuration file.
+> 校验 webpack 配置文件。
 
 **-c**, **--config** _file_
-> Path to webpack configuration file.
+> webpack 配置文件的路径。
 
 **--config-name** _name_
-> Name of the configuration to use.
+> 要使用的配置名称。
 
 **-m**, **--merge**
-> Merge multiple configurations.
+> 合并多个配置。
 
 **--mode** _mode_
-> Set mode: **production**, **development**, or **none**.
+> 设置模式：**production**、**development** 或 **none**。
 
 **-o**, **--output-path** _path_
-> Output directory (absolute path).
+> 输出目录（绝对路径）。
 
 **-w**, **--watch**
-> Watch mode, rebuild on file change.
+> 监视模式，文件变化时重新构建。
 
 **--env** _value_
-> Environment variables passed to config function.
+> 传递给配置函数的环境变量。
 
 **--stats** _preset_
-> Stats output level: errors-only, minimal, normal, verbose.
+> 统计输出级别：errors-only、minimal、normal、verbose。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**webpack** is a static module bundler for modern JavaScript applications. It builds a dependency graph from entry points and bundles modules into optimized output files for browsers.
+**webpack** 是一款面向现代 JavaScript 应用的静态模块打包器。它从入口点构建依赖图，并将模块打包成针对浏览器优化的输出文件。
 
-The CLI is provided by **webpack-cli** and wraps webpack's configuration options. Most options can be specified via command line or in **webpack.config.js**. CLI options override configuration file settings.
+CLI 由 **webpack-cli** 提供，封装了 webpack 的配置选项。大多数选项既可以通过命令行指定，也可以写在 **webpack.config.js** 中。命令行选项优先于配置文件设置。
 
-webpack supports code splitting, lazy loading, tree shaking, and various loaders and plugins for processing different file types (CSS, images, TypeScript, etc.).
+webpack 支持代码分割、懒加载、tree shaking，以及用于处理不同文件类型（CSS、图片、TypeScript 等）的各种 loader 和插件。
 
 # CAVEATS
 
-webpack-cli must be installed separately from webpack core (**npm install webpack webpack-cli**). The dev server (**webpack serve**) requires webpack-dev-server. Complex configurations are better maintained in config files rather than CLI arguments.
+webpack-cli 必须与 webpack 核心分开安装（**npm install webpack webpack-cli**）。开发服务器（**webpack serve**）需要 webpack-dev-server。复杂的配置更适合放在配置文件中维护，而不是通过命令行参数传递。
 
 # HISTORY
 
-webpack was created by **Tobias Koppers** and first released in **March 2012**. It revolutionized JavaScript build tooling by introducing concepts like code splitting and hot module replacement. webpack 4 (2018) focused on zero-config defaults, and webpack 5 (2020) improved build performance and module federation. The CLI was separated into webpack-cli starting with webpack 4.
+webpack 由 **Tobias Koppers** 创建，首次发布于 **2012 年 3 月**。它引入了代码分割和热模块替换等概念，革新了 JavaScript 构建工具生态。webpack 4（2018 年）聚焦零配置默认值，webpack 5（2020 年）改进了构建性能并加入 module federation。自 webpack 4 起，CLI 被拆分为独立的 webpack-cli。
 
 # INSTALL
 

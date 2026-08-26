@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display hardware watchdog timer status
+显示硬件看门狗定时器状态
 
 # TLDR
 
-**Display** the watchdog status
+**显示**看门狗状态
 
 ```wdctl```
 
-**Display** the watchdog status in key-value format on one line
+**以单行键值对格式显示**看门狗状态
 
 ```wdctl -O```
 
-**Display** only specific watchdog flags
+**只显示**指定的看门狗标志
 
 ```wdctl -f [flag_list]```
 
@@ -23,35 +23,35 @@ Display hardware watchdog timer status
 # PARAMETERS
 
 **-O, --oneline**
-> Output in single-line key-value format
+> 以单行键值对格式输出
 
 **-f, --flags _list_**
-> Display only specified flags
+> 只显示指定的标志
 
 **-s, --settimeout _seconds_**
-> Set the watchdog timeout
+> 设置看门狗超时
 
 **-x, --flags-only**
-> Show flags only
+> 仅显示标志
 
 **-o, --output _list_**
-> Define output columns
+> 定义输出列
 
 **-r, --raw**
-> Raw output format
+> 原始输出格式
 
 **-n, --noheadings**
-> Don't print headings
+> 不打印表头
 
 # DESCRIPTION
 
-**wdctl** shows the status of the hardware watchdog timer. A watchdog is a hardware or software timer that triggers a system reset if the main program fails to regularly reset it, preventing system lockups.
+**wdctl** 显示硬件看门狗定时器的状态。看门狗是一种硬件或软件定时器，如果主程序未能定期重置它，就会触发系统重启，从而防止系统死锁。
 
-The output includes information about the watchdog device, timeout values, and supported features. Different hardware watchdogs support different capabilities.
+输出包括看门狗设备的信息、超时值和支持的特性。不同的硬件看门狗支持不同的能力。
 
 # CAVEATS
 
-Requires read access to the watchdog device (typically **/dev/watchdog**). Available flags are driver-specific. Not all systems have hardware watchdog support. Part of the util-linux package.
+需要对看门狗设备（通常是 **/dev/watchdog**）的读取权限。可用标志因驱动而异。并非所有系统都支持硬件看门狗。属于 util-linux 软件包的一部分。
 
 # INSTALL
 

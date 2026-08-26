@@ -1,30 +1,30 @@
 # TAGLINE
 
-X11 compositing window manager
+X11 合成窗口管理器
 
 # TLDR
 
-**Start with default settings** (shadows and fading)
+**以默认设置启动**（阴影和渐变）
 
 ```xcompmgr```
 
-**Enable shadows** with custom offset and opacity
+**启用阴影**并使用自定义偏移和不透明度
 
 ```xcompmgr -c -l [left_offset] -t [top_offset] -o [opacity]```
 
-**Enable shadows and fading** with transition steps
+**启用阴影和渐变**并设置过渡步长
 
 ```xcompmgr -cCfF -D [fade_time_ms]```
 
-**Enable only fading effects** between window states
+**仅启用**窗口状态间的**渐变效果**
 
 ```xcompmgr -fF```
 
-**Run with softer shadows** (larger radius, more transparent)
+**以更柔和的阴影运行**（更大的半径、更透明）
 
 ```xcompmgr -c -r [shadow_radius] -o [0.5]```
 
-**Disable shadows on dock and panel windows**
+**在 dock 和面板窗口上禁用阴影**
 
 ```xcompmgr -c -n```
 
@@ -35,68 +35,68 @@ X11 compositing window manager
 # PARAMETERS
 
 **-d** _display_
-> Specifies which display to manage.
+> 指定要管理的 display。
 
 **-c**
-> Enable client-side shadows on windows.
+> 为窗口启用客户端阴影。
 
 **-C**
-> Disable shadows on dock/panel windows with _NET_WM_WINDOW_TYPE_DOCK.
+> 对带有 _NET_WM_WINDOW_TYPE_DOCK 的 dock/面板窗口禁用阴影。
 
 **-f**
-> Fade windows in and out when opening/closing.
+> 窗口打开/关闭时淡入淡出。
 
 **-F**
-> Fade windows during opacity changes.
+> 不透明度变化时对窗口进行渐变处理。
 
 **-r** _radius_
-> Shadow radius in pixels (default: 12).
+> 阴影半径，以像素为单位（默认：12）。
 
 **-o** _opacity_
-> Shadow opacity (0.0 to 1.0, default: 0.75).
+> 阴影不透明度（0.0 到 1.0，默认：0.75）。
 
 **-l** _offset_
-> Left offset for shadows in pixels (default: -15).
+> 阴影的左侧偏移量，以像素为单位（默认：-15）。
 
 **-t** _offset_
-> Top offset for shadows in pixels (default: -15).
+> 阴影的顶部偏移量，以像素为单位（默认：-15）。
 
 **-n**
-> Normal client-side shadows (no fading).
+> 常规客户端阴影（无渐变）。
 
 **-s**
-> Enable synchronous X operation for debugging.
+> 启用同步 X 操作以便调试。
 
 **-S**
-> Enable shadows on windows with shapes.
+> 为带形状（shape）的窗口启用阴影。
 
 **-D** _time_
-> Fade time step in milliseconds (default: 10).
+> 渐变时间步长，以毫秒为单位（默认：10）。
 
 **-a**
-> Disable fading on window open/close.
+> 窗口打开/关闭时禁用渐变。
 
 **-I** _opacity_
-> Opacity change per step while fading in (default: 0.028).
+> 淡入时每步的不透明度变化量（默认：0.028）。
 
 **-O** _opacity_
-> Opacity change per step while fading out (default: 0.03).
+> 淡出时每步的不透明度变化量（默认：0.03）。
 
 # DESCRIPTION
 
-**xcompmgr** is a compositing window manager for the X Window System that adds visual effects to windows including drop shadows, transparency, and fading transitions. It operates as a standalone compositor that works with any ICCCM/EWMH compliant window manager.
+**xcompmgr** 是 X Window System 的合成窗口管理器，为窗口添加投影、透明和渐变过渡等视觉效果。它作为一个独立的合成器运行，可与任何符合 ICCCM/EWMH 规范的窗口管理器配合工作。
 
-The compositor uses the X Composite extension to redirect window contents to off-screen pixmaps, then combines them with effects before displaying. This enables true transparency without the need for pseudo-transparency techniques. Windows can have per-window opacity set via tools like **transset**.
+该合成器使用 X Composite 扩展将窗口内容重定向到离屏像素图（pixmap），然后在显示之前将它们与特效合成。这使得无需伪透明技术就能实现真正的透明。可以使用 **transset** 等工具为单个窗口设置不透明度。
 
-Common configurations combine shadow (-c) and fade (-f) options for a polished desktop appearance. The shadow appearance is controlled through radius, offset, and opacity parameters. For lighter systems, shadows can be disabled on docks and panels with -C to reduce visual clutter.
+常见的配置是将阴影（-c）和渐变（-f）选项组合使用，以获得精致的桌面外观。阴影的外观通过半径、偏移和不透明度参数控制。对于配置较低的机器，可以用 -C 在 dock 和面板上禁用阴影，以减少视觉干扰。
 
 # CAVEATS
 
-Requires the Composite, Damage, Fixes, and Render X extensions to be enabled. May conflict with window managers that have built-in compositing (disable their compositor first). Performance depends on graphics driver quality; software rendering can be slow. Does not support advanced effects like blur or animations found in modern compositors like **picom**.
+需要启用 Composite、Damage、Fixes 和 Render 等 X 扩展。可能与内置合成的窗口管理器冲突（请先禁用它们的合成器）。性能取决于图形驱动的质量；软件渲染可能较慢。不支持 **picom** 等现代合成器所具备的模糊或动画等高级特效。
 
 # HISTORY
 
-**xcompmgr** was written by Keith Packard and released as a sample compositing manager following the introduction of the X Composite extension around **2004**. It served as a proof-of-concept and reference implementation demonstrating compositing capabilities in X.Org. While functional, it was superseded by more feature-rich compositors like **compton** and later **picom**, which offer additional effects and better performance.
+**xcompmgr** 由 Keith Packard 编写，在约 **2004 年** X Composite 扩展问世后作为示例合成管理器发布。它是一个概念验证和参考实现，展示了 X.Org 的合成能力。虽然功能可用，但它后来被功能更丰富的合成器取代，先是 **compton**，后来是 **picom**，后者提供了更多特效和更好的性能。
 
 # INSTALL
 

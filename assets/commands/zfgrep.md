@@ -1,26 +1,26 @@
 # TAGLINE
 
-Search gzip-compressed files for fixed strings
+在 gzip 压缩文件中搜索固定字符串
 
 # TLDR
 
-**Search for literal string in gzipped file**
+**在 gzip 压缩文件中搜索字面字符串**
 
 ```zfgrep "[string]" [file.gz]```
 
-**Case-insensitive search**
+**不区分大小写搜索**
 
 ```zfgrep -i "[string]" [file.gz]```
 
-**Show line numbers**
+**显示行号**
 
 ```zfgrep -n "[string]" [file.gz]```
 
-**Count matching lines**
+**统计匹配的行数**
 
 ```zfgrep -c "[string]" [file.gz]```
 
-**List files containing matches**
+**列出包含匹配项的文件**
 
 ```zfgrep -l "[string]" [*.gz]```
 
@@ -31,46 +31,46 @@ Search gzip-compressed files for fixed strings
 # PARAMETERS
 
 **-i**
-> Case-insensitive matching
+> 不区分大小写匹配
 
 **-n**
-> Show line numbers
+> 显示行号
 
 **-l**
-> List filenames with matches only
+> 只列出包含匹配项的文件名
 
 **-c**
-> Count matching lines
+> 统计匹配的行数
 
 **-v**
-> Invert match (show non-matching lines)
+> 反向匹配（显示不匹配的行）
 
 **-h**
-> Suppress filename in output
+> 输出中不显示文件名
 
 **-e** _pattern_
-> Specify pattern
+> 指定模式
 
 **-x**
-> Match whole lines only
+> 只匹配整行
 
 # DESCRIPTION
 
-**zfgrep** searches for fixed strings in gzip-compressed files without manual decompression. It's equivalent to **zcat file.gz | fgrep pattern** but more convenient.
+**zfgrep** 在 gzip 压缩文件中搜索固定字符串，无需手动解压。它等价于 **zcat file.gz | fgrep pattern**，但更方便。
 
-The "f" indicates fixed string matching (like **grep -F**). Patterns are interpreted literally, not as regular expressions. This is faster than regex matching and useful when searching for strings containing special characters.
+其中的 "f" 表示固定字符串匹配（如同 **grep -F**）。模式按字面解释，不作为正则表达式。这比正则匹配更快，适合搜索包含特殊字符的字符串。
 
-zfgrep automatically handles both compressed and uncompressed files, making it safe for mixed file sets.
+zfgrep 自动处理压缩和未压缩的文件，因此可以放心用于混合文件集合。
 
-Multiple patterns can be specified, one per line, using **-e** or by newline-separating them.
+可以使用 **-e** 指定多个模式，每行一个，或用换行符分隔。
 
 # CAVEATS
 
-Only gzip compression is supported. Use **bzfgrep** for bzip2 files or pipe through appropriate decompressors for other formats.
+仅支持 gzip 压缩。bzip2 文件请使用 **bzfgrep**，其他格式请通过相应的解压器管道处理。
 
-Fixed string matching means special characters like **.**,**\***, **[** are literal. Use **zgrep** or **zegrep** if regex is needed.
+固定字符串匹配意味着 **.**、**\***、**[** 等特殊字符按字面处理。需要正则表达式时请使用 **zgrep** 或 **zegrep**。
 
-Processing large compressed files requires CPU for decompression.
+处理大型压缩文件需要消耗 CPU 进行解压。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display X Window System logo
+显示 X Window System 标志
 
 # TLDR
 
-**Display X logo**
+**显示 X 标志**
 
 ```xlogo```
 
-**Display with anti-aliased rendering**
+**以抗锯齿渲染显示**
 
 ```xlogo -render```
 
-**Display with shaped (non-rectangular) window**
+**以异形（非矩形）窗口显示**
 
 ```xlogo -shape```
 
-**Display with custom colors**
+**使用自定义颜色显示**
 
 ```xlogo -fg [blue] -bg [white]```
 
-**Display with specific geometry**
+**以指定几何尺寸显示**
 
 ```xlogo -geometry [200x200+100+100]```
 
-**Display on remote display**
+**在远程显示器上显示**
 
 ```xlogo -display [hostname:0]```
 
@@ -35,41 +35,41 @@ Display X Window System logo
 # PARAMETERS
 
 **-render**
-> Use RENDER extension for anti-aliased edges.
+> 使用 RENDER 扩展实现抗锯齿边缘。
 
 **-sharp**
-> When used with -render, force sharp edges (1-bit alpha channel).
+> 与 -render 一起使用时，强制锐利边缘（1 位 alpha 通道）。
 
 **-shape**
-> Use non-rectangular window shape.
+> 使用非矩形的窗口形状。
 
 **-fg** _color_
-> Foreground color (logo color).
+> 前景色（标志颜色）。
 
 **-bg** _color_
-> Background color.
+> 背景色。
 
 **-geometry** _geom_
-> Window size and position.
+> 窗口大小和位置。
 
 **-display** _name_
-> X display to use.
+> 要使用的 X 显示器。
 
 # DESCRIPTION
 
-**xlogo** displays the X Window System logo in a window. It's a minimal X11 application used primarily for testing X server connectivity and verifying that display forwarding is working.
+**xlogo** 在窗口中显示 X Window System 标志。它是一个极简的 X11 应用，主要用于测试 X server 连接性以及验证显示转发是否正常工作。
 
-The program serves as a "hello world" equivalent for X11, making it useful for quickly testing if X is running and accessible. If xlogo fails to open, it indicates problems with the X server, DISPLAY variable, or network configuration.
+该程序相当于 X11 的 "hello world"，适合快速测试 X 是否正在运行且可访问。如果 xlogo 无法打开，则说明 X server、DISPLAY 变量或网络配置存在问题。
 
-With -render, the logo uses anti-aliased edges for smoother appearance. The -shape option creates a window that matches the logo outline rather than a rectangular window.
+使用 -render 时，标志会采用抗锯齿边缘，外观更平滑。-shape 选项创建一个与标志轮廓一致的窗口，而不是矩形窗口。
 
 # CAVEATS
 
-Minimal functionality by design. Requires running X server and correct DISPLAY setting. Legacy application; modern testing might use other methods.
+设计上功能极简。需要正在运行的 X server 和正确的 DISPLAY 设置。属于老旧应用；现代测试可能采用其他方法。
 
 # HISTORY
 
-**xlogo** has been part of the X Window System since its early days, providing a simple visual test of X server functionality. Despite its simplicity, it remains useful for basic X11 connectivity testing and demonstrating X11 concepts.
+**xlogo** 自早期起就是 X Window System 的一部分，为 X server 功能提供简单的可视化测试。尽管简单，它在基本的 X11 连接性测试和 X11 概念演示方面仍然有用。
 
 # INSTALL
 

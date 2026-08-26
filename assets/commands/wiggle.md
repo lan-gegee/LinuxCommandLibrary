@@ -1,26 +1,26 @@
 # TAGLINE
 
-Apply rejected patches with conflict resolution
+应用被拒绝的补丁并解决冲突
 
 # TLDR
 
-**Apply a rejected patch** in-place
+就地**应用被拒绝的补丁**
 
 ```wiggle --replace [original] [original.rej]```
 
-**Show a word-wise diff** between two files
+**显示两个文件之间的词级差异**
 
 ```wiggle --diff [file1] [file2]```
 
-**Perform a three-way merge**
+**执行三方合并**
 
 ```wiggle --merge [original] [changed] [modified]```
 
-**Interactively browse** a merge or patch
+**交互式浏览**合并或补丁结果
 
 ```wiggle --browse [original] [original.rej]```
 
-**Extract one branch** of a patch or merge
+**提取补丁或合并中的一个分支**
 
 ```wiggle --extract --patch [file.patch] > [patched]```
 
@@ -31,68 +31,68 @@ Apply rejected patches with conflict resolution
 # PARAMETERS
 
 **-m**, **--merge**
-> Three-way merge mode (default).
+> 三方合并模式（默认）。
 
 **-d**, **--diff**
-> Word-wise diff mode.
+> 词级差异模式。
 
 **-x**, **--extract**
-> Extract one file/branch from patch or merge.
+> 从补丁或合并中提取一个文件/分支。
 
 **-B**, **--browse**
-> Interactive ncurses browser for merges, diffs, or patches.
+> 用于合并、差异或补丁的交互式 ncurses 浏览器。
 
 **-r**, **--replace**
-> Overwrite the original file with the merge result (keeps `.porig` backup).
+> 用合并结果覆盖原文件（保留 `.porig` 备份）。
 
 **-o** _file_, **--output** _file_
-> Write output to given file instead of stdout.
+> 将输出发送到给定文件而不是 stdout。
 
 **-p**, **--patch**
-> Treat one of the arguments as a patch file.
+> 将其中一个参数视为补丁文件。
 
 **-w**, **--words**
-> Work at word granularity (default for text).
+> 以词为粒度处理（文本默认）。
 
 **-l**, **--lines**
-> Work at line granularity.
+> 以行为粒度处理。
 
 **-b**, **--ignore-blanks**
-> Ignore whitespace-only changes when merging.
+> 合并时忽略仅空白字符的差异。
 
 **-i**, **--no-ignore**
-> Do not ignore already-applied patches (include them in output).
+> 不忽略已应用的补丁（将它们包含在输出中）。
 
 **-W**, **--show-wiggles**
-> Mark hunks that were wiggled into place.
+> 标记被强行挪动到位的 hunk。
 
 **-q**, **--quiet**
-> Suppress informational messages.
+> 抑制提示性消息。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 提高输出详细程度。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**wiggle** applies patches that have been rejected by the standard patch utility due to minor conflicts between the patch context and the current file. Where patch requires exact context matching, wiggle performs word-level analysis to find where changes should be applied even when surrounding lines have shifted or been modified.
+**wiggle** 用于应用因补丁上下文与当前文件存在轻微冲突而被标准 patch 工具拒绝的补丁。patch 要求上下文完全匹配，而 wiggle 会执行词级分析，即使周围的行已移动或被修改，也能找到变更应当应用的位置。
 
-The tool supports three-way merging of files and can work with both unified diff files and .rej reject files produced by failed patch operations. When conflicts cannot be resolved automatically, an interactive browse mode lets users review and resolve remaining conflicts manually.
+该工具支持文件的三方合并，既能处理统一 diff 文件，也能处理补丁操作失败产生的 .rej 拒绝文件。当冲突无法自动解决时，交互式浏览模式允许用户手动审查并解决剩余的冲突。
 
-This makes wiggle particularly valuable for maintaining long-lived patch series against evolving codebases, where patches frequently fail to apply cleanly due to unrelated changes in nearby code.
+这使得 wiggle 在维护针对不断演进的代码库的长期补丁系列时特别有价值——附近代码的无关更改经常导致补丁无法干净地应用。
 
 # CAVEATS
 
-For patch failures. May not always work. Line changes needed.
+用于补丁应用失败的情况。不一定总能成功。可能需要修改行内容。
 
 # HISTORY
 
-**wiggle** was created by **Neil Brown** to help apply patches that were rejected due to minor conflicts.
+**wiggle** 由 **Neil Brown** 创建，用于帮助应用因轻微冲突而被拒绝的补丁。
 
 # INSTALL
 

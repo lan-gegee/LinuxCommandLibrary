@@ -1,26 +1,26 @@
 # TAGLINE
 
-Delete a key or value from the Wine registry
+从 Wine 注册表删除键或值
 
 # TLDR
 
-**Delete** a registry key and everything under it
+**删除**注册表键及其下所有内容
 
 ```wine reg delete [HKCU\Software\MyApp]```
 
-**Delete a single value** from a key
+从某个键中**删除单个值**
 
 ```wine reg delete [HKCU\Software\MyApp] /v [Name]```
 
-**Delete the default (unnamed) value** of a key
+**删除键的默认（无名）值**
 
 ```wine reg delete [HKCU\Software\MyApp] /ve```
 
-**Delete all values** under a key but keep the key itself
+**删除键下的所有值**但保留键本身
 
 ```wine reg delete [HKCU\Software\MyApp] /va```
 
-**Delete** a key **without a confirmation prompt**
+**不经确认提示删除**键
 
 ```wine reg delete [HKCU\Software\MyApp] /f```
 
@@ -30,27 +30,27 @@ Delete a key or value from the Wine registry
 
 # DESCRIPTION
 
-**wine reg delete** removes a registry key, a single value, or all values within a key from a Wine prefix. It mirrors the Windows **reg delete** command. With no value options, the entire key and all of its subkeys and values are removed.
+**wine reg delete** 从 Wine 前缀中移除注册表键、单个值或键内的所有值。它与 Windows 的 **reg delete** 命令一致。如果不带任何值选项，整个键及其所有子键和值都会被移除。
 
-By default the command prompts for confirmation before deleting. Use **/f** to suppress the prompt, which is required when running non-interactively in scripts.
+默认情况下命令在删除前会请求确认。使用 **/f** 可跳过提示，这在脚本中以非交互方式运行时是必需的。
 
 # PARAMETERS
 
 **/v**  _value_
-> Delete the named value under the key.
+> 删除键下指定名称的值。
 
 **/ve**
-> Delete the key's default (unnamed) value.
+> 删除键的默认（无名）值。
 
 **/va**
-> Delete all values under the key while leaving the key and its subkeys intact.
+> 删除键下的所有值，但保留键本身及其子键不变。
 
 **/f**
-> Force the deletion without a confirmation prompt.
+> 不经确认提示强制删除。
 
 # CAVEATS
 
-Deleting a key without specifying a value also removes every subkey beneath it. There is no undo, so export the key first with **wine reg export** if you might need to restore it.
+删除键而不指定值时，其下所有子键也会一并被移除。此操作无法撤销，如果之后可能需要恢复，请先用 **wine reg export** 导出该键。
 
 # INSTALL
 

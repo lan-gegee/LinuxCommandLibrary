@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fast internet-wide network scanner
+快速的互联网范围网络扫描器
 
 # TLDR
 
-**Scan port 80 on a network**
+**扫描网络上的 80 端口**
 
 ```sudo zmap -p [80] [192.168.1.0/24]```
 
-**Scan entire internet on specific port**
+**在特定端口上扫描整个互联网**
 
 ```sudo zmap -p [443] -o [results.txt]```
 
-**Scan with rate limit**
+**以速率限制扫描**
 
 ```sudo zmap -p [22] -r [10000] [10.0.0.0/8]```
 
-**Scan with bandwidth limit**
+**以带宽限制扫描**
 
 ```sudo zmap -p [80] -B [10M] [target_subnet]```
 
-**Use specific interface**
+**使用指定的网络接口**
 
 ```sudo zmap -p [80] -i [eth0] [target]```
 
-**Output as CSV**
+**以 CSV 格式输出**
 
 ```sudo zmap -p [80] -o [results.csv] -O csv [target]```
 
@@ -35,58 +35,58 @@ Fast internet-wide network scanner
 # PARAMETERS
 
 **-p**, **--target-port** _port_
-> Port to scan
+> 要扫描的端口
 
 **-o**, **--output-file** _file_
-> Output results to file
+> 将结果输出到文件
 
 **-b**, **--blacklist-file** _file_
-> File of addresses to exclude
+> 要排除的地址列表文件
 
 **-w**, **--whitelist-file** _file_
-> File of addresses to include (only scan these)
+> 要包含的地址文件（只扫描这些地址）
 
 **-r**, **--rate** _pps_
-> Packets per second (default: unlimited)
+> 每秒发包数（默认：无限制）
 
 **-B**, **--bandwidth** _bps_
-> Bandwidth limit (e.g., 10M, 1G)
+> 带宽限制（例如 10M、1G）
 
 **-i**, **--interface** _iface_
-> Network interface
+> 网络接口
 
 **-G**, **--gateway-mac** _mac_
-> Gateway MAC address
+> 网关 MAC 地址
 
 **-O**, **--output-module** _module_
-> Output format (csv, json, extended_file)
+> 输出格式（csv、json、extended_file）
 
 **-f**, **--output-fields** _fields_
-> Comma-separated fields to output
+> 以逗号分隔的输出字段
 
 **-n**, **--max-targets** _n_
-> Maximum targets to scan
+> 最大扫描目标数
 
 **-N**, **--max-results** _n_
-> Stop after N results
+> 收集到 N 个结果后停止
 
 # DESCRIPTION
 
-**ZMap** is a fast network scanner designed for internet-wide surveys. It can scan the entire IPv4 address space in under 45 minutes from a single machine, using optimized packet generation and stateless scanning.
+**ZMap** 是一款面向全网测量设计的快速网络扫描器。借助优化的数据包生成和无状态扫描，它能在一台机器上于 45 分钟内扫完整个 IPv4 地址空间。
 
-Unlike nmap which maintains connection state, ZMap sends probes and separately listens for responses, enabling much higher throughput. It uses a cyclic multiplicative group to randomize scan order, avoiding network hotspots.
+与维护连接状态的 nmap 不同，ZMap 发送探测包并单独监听响应，因而可以达到高得多的吞吐量。它使用循环乘法群随机化扫描顺序，避免形成网络热点。
 
-ZMap supports various probe types through modules (TCP SYN, ICMP, UDP) and output formats. It's commonly used for security research, measuring internet-wide vulnerability exposure, and census-style studies.
+ZMap 通过模块支持多种探测类型（TCP SYN、ICMP、UDP）和多种输出格式。它常用于安全研究、测量全网漏洞暴露面以及普查式研究。
 
 # CAVEATS
 
-**WARNING**: Scanning networks without authorization is illegal in many jurisdictions. Only scan networks you own or have explicit permission to test.
+**警告**：未经授权扫描网络在许多司法辖区属于违法行为。只扫描你拥有的或已获得明确测试许可的网络。
 
-Requires root/CAP_NET_RAW for raw socket access.
+需要 root/CAP_NET_RAW 才能访问原始套接字。
 
-High scan rates can overwhelm networks or trigger security alerts. Use rate limiting and respect network policies.
+过高的扫描速率可能压垮网络或触发安全告警。请使用速率限制并遵守网络策略。
 
-Always use a blacklist to exclude sensitive addresses (RFC 1918, military, critical infrastructure).
+务必使用黑名单排除敏感地址（RFC 1918、军事及关键基础设施）。
 
 # INSTALL
 

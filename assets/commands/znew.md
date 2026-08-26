@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert compress (.Z) files to gzip format
+将 compress（.Z）文件转换为 gzip 格式
 
 # TLDR
 
-**Convert .Z file to .gz**
+**将 .Z 文件转换为 .gz**
 
 ```znew [file.Z]```
 
-**Convert multiple files**
+**转换多个文件**
 
 ```znew [*.Z]```
 
-**Keep original file**
+**保留原始文件**
 
 ```znew -K [file.Z]```
 
-**Use best compression**
+**使用最佳压缩**
 
 ```znew -9 [file.Z]```
 
-**Force conversion even if .gz exists**
+**即使 .gz 已存在也强制转换**
 
 ```znew -f [file.Z]```
 
@@ -31,44 +31,44 @@ Convert compress (.Z) files to gzip format
 # PARAMETERS
 
 **-f**
-> Force recompression even if .gz file already exists
+> 即使 .gz 文件已存在也强制重新压缩
 
 **-t**
-> Test new file integrity before deleting original
+> 删除原文件前先测试新文件的完整性
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-9**
-> Use best compression level
+> 使用最高压缩级别
 
 **-P**
-> Use pipes for conversion (slower but uses less disk space)
+> 使用管道进行转换（较慢但占用更少磁盘空间）
 
 **-K**
-> Keep the original .Z file
+> 保留原始 .Z 文件
 
 # DESCRIPTION
 
-**znew** recompresses files from the old compress format (.Z) to gzip format (.gz). The compress utility used LZW compression, while gzip uses DEFLATE which typically achieves better compression ratios.
+**znew** 将旧的 compress 格式（.Z）文件重新压缩为 gzip 格式（.gz）。compress 工具采用 LZW 压缩，而 gzip 采用 DEFLATE，通常能获得更好的压缩比。
 
-The tool is useful for converting legacy compressed archives to the more modern and efficient gzip format. After conversion, the original .Z file is deleted by default.
+该工具适合将旧式的压缩归档转换为更现代、更高效的 gzip 格式。转换完成后，原始 .Z 文件默认会被删除。
 
-znew verifies the integrity of the new .gz file before removing the original when using the **-t** flag, providing safety against corruption.
+使用 **-t** 标志时，znew 会在删除原文件前校验新 .gz 文件的完整性，从而防范数据损坏。
 
 # HISTORY
 
-The compress utility and .Z format date from the 1980s. gzip was created in 1992 as a free alternative that avoided LZW patent issues. znew was created to facilitate migration from the older format.
+compress 工具和 .Z 格式诞生于 20 世纪 80 年代。gzip 创建于 1992 年，是为了规避 LZW 专利问题而推出的自由替代方案。znew 就是为方便从旧格式迁移而生。
 
 # CAVEATS
 
-Only converts .Z files to .gz. Does not handle other compression formats.
+只能将 .Z 文件转换为 .gz。不处理其他压缩格式。
 
-Without **-K**, the original file is deleted after successful conversion.
+若不加 **-K**，转换成功后原始文件会被删除。
 
-The **-P** option uses more CPU but less temporary disk space.
+**-P** 选项消耗更多 CPU 但占用更少的临时磁盘空间。
 
-Modern systems rarely encounter .Z files, making this tool primarily useful for archival work.
+现代系统很少遇到 .Z 文件，因此该工具主要用于归档工作。
 
 # INSTALL
 

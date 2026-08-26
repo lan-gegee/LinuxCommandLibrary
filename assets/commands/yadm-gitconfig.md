@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage yadm repository git configuration
+管理 yadm 仓库的 git 配置
 
 # TLDR
 
-**Show yadm git config**
+**查看 yadm git 配置**
 
 ```yadm gitconfig --list```
 
-**Set yadm git config**
+**设置 yadm git 配置**
 
 ```yadm gitconfig [setting] [value]```
 
@@ -18,7 +18,7 @@ Manage yadm repository git configuration
 
 # DESCRIPTION
 
-**yadm gitconfig** manages yadm repository's git configuration. Separate from system git config. Sets user, remote, and other git settings specifically for the yadm repo.
+**yadm gitconfig** 管理 yadm 仓库的 git 配置。它与系统的 git 配置相互独立，专门为 yadm 仓库设置用户、远程及其他 git 设置。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Manage yadm repository git configuration
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-config](/man/yadm-config)(1), [git-config](/man/git-config)(1)
-

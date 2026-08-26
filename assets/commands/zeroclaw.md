@@ -1,30 +1,30 @@
 # TAGLINE
 
-Autonomous AI agent runtime built in Rust
+用 Rust 构建的自主式 AI 智能体运行时
 
 # TLDR
 
-**Initialize** configuration with interactive setup wizard
+**初始化**配置，使用交互式设置向导
 
 ```zeroclaw onboard --interactive```
 
-**Start an interactive** CLI agent session
+**启动交互式** CLI 智能体会话
 
 ```zeroclaw agent```
 
-**Send a single message** without entering interactive mode
+**发送单条消息**，不进入交互模式
 
 ```zeroclaw agent -m "[message]"```
 
-**Start the full autonomous daemon** with channels and scheduler
+**启动完整的自主守护进程**，包含通道与调度器
 
 ```zeroclaw daemon```
 
-**Check system health** and run diagnostics
+**检查系统健康状态**并运行诊断
 
 ```zeroclaw doctor```
 
-**List all supported** LLM providers
+**列出所有支持的** LLM 提供商
 
 ```zeroclaw providers```
 
@@ -35,90 +35,90 @@ Autonomous AI agent runtime built in Rust
 # PARAMETERS
 
 **onboard**
-> Initialize or reconfigure the workspace. Creates **~/.zeroclaw/config.toml** and scaffold files.
+> 初始化或重新配置工作区。会创建 **~/.zeroclaw/config.toml** 和脚手架文件。
 
 **onboard --interactive**
-> Run the full 9-step configuration wizard.
+> 运行完整的 9 步配置向导。
 
 **onboard --api-key** _KEY_ **--provider** _PROVIDER_ [**--model** _MODEL_]
-> Non-interactive setup with API key and provider in one command.
+> 一条命令内以 API 密钥和提供商完成非交互式设置。
 
 **onboard --channels-only**
-> Repair or reconfigure channels and allowlists only.
+> 仅修复或重新配置通道与允许列表。
 
 **agent** [**-m** _MESSAGE_]
-> Run interactive CLI agent or send a single message with **-m**.
+> 运行交互式 CLI 智能体，或用 **-m** 发送单条消息。
 
 **agent --provider** _PROVIDER_
-> Override the default provider for this session.
+> 为本次会话覆盖默认提供商。
 
 **gateway** [**--port** _PORT_]
-> Start the HTTP/WebSocket server for external integrations. Default port: 42617.
+> 启动供外部集成使用的 HTTP/WebSocket 服务器。默认端口：42617。
 
 **daemon**
-> Start the full autonomous runtime with gateway, channels, heartbeat, and scheduler.
+> 启动包含 gateway、通道、心跳和调度器的完整自主运行时。
 
 **status**
-> Display comprehensive system status including provider, memory, channels, and security.
+> 显示全面的系统状态，包括提供商、内存、通道和安全。
 
 **doctor** [**models** | **traces**]
-> Run system diagnostics. Optionally check model catalogs or inspect runtime traces.
+> 运行系统诊断。可选检查模型目录或查看运行时追踪。
 
 **service install** | **start** | **stop** | **status** | **restart**
-> Manage zeroclaw as a background system service (systemd or OpenRC).
+> 将 zeroclaw 作为后台系统服务管理（systemd 或 OpenRC）。
 
 **channel list** | **doctor** | **start**
-> List, health-check, or start configured messaging channels.
+> 列出、健康检查或启动已配置的消息通道。
 
 **channel add** _TYPE_ _JSON_CONFIG_
-> Add a new messaging channel configuration.
+> 添加新的消息通道配置。
 
 **channel bind-telegram** _USER_ID_
-> Add a Telegram user to the allowlist.
+> 将 Telegram 用户加入允许列表。
 
 **auth login** _PROVIDER_ [_PROFILE_]
-> Authenticate via OAuth or device code flow.
+> 通过 OAuth 或设备码流程进行身份验证。
 
 **auth status** | **logout** _PROFILE_ID_
-> Show or remove authentication profiles.
+> 显示或移除身份验证配置档案。
 
 **memory stats** | **list** | **search** _QUERY_ | **delete** _KEY_ | **prune**
-> Manage the built-in memory system.
+> 管理内置的记忆系统。
 
 **cron add** _NAME_ _SCHEDULE_ _MESSAGE_ [**--tz** _TIMEZONE_]
-> Schedule a recurring task with a cron expression.
+> 使用 cron 表达式安排周期性任务。
 
 **cron list** | **remove** _NAME_
-> List or remove scheduled tasks.
+> 列出或移除计划任务。
 
 **skills list** | **install** _NAME_ | **remove** _NAME_
-> Manage agent skills and extensions.
+> 管理智能体技能和扩展。
 
 **migrate openclaw** [**--dry-run**]
-> Import memory from an OpenClaw runtime.
+> 从 OpenClaw 运行时导入记忆。
 
 **completions** _SHELL_
-> Generate shell completions for bash, zsh, fish, powershell, or nushell.
+> 为 bash、zsh、fish、powershell 或 nushell 生成 Shell 补全。
 
 **providers**
-> List all supported LLM providers and aliases.
+> 列出所有支持的 LLM 提供商及别名。
 
 **estop** [**--resume**]
-> Engage or resume from emergency stop.
+> 触发紧急停止或从中恢复。
 
 # DESCRIPTION
 
-**zeroclaw** is a lightweight, security-first autonomous AI agent runtime built entirely in Rust. It serves as infrastructure for agentic workflows, abstracting models, tools, memory, and execution into a single binary that can be deployed across ARM, x86, and RISC-V architectures.
+**zeroclaw** 是一个轻量级、安全优先的自主式 AI 智能体运行时，完全用 Rust 构建。它是智能体工作流的基础设施，将模型、工具、记忆和执行抽象为一个二进制文件，可部署于 ARM、x86 和 RISC-V 架构。
 
-The runtime compiles to an approximately 9MB binary with cold start under 10 milliseconds and less than 5MB RAM usage at idle. It uses a trait-driven architecture where providers, channels, memory backends, and tools are swappable through configuration without code changes.
+该运行时编译后约为 9MB 的二进制文件，冷启动低于 10 毫秒，空闲时内存占用不足 5MB。它采用 trait 驱动的架构，提供商、通道、记忆后端和工具都可以通过配置更换而无需修改代码。
 
-ZeroClaw includes a built-in hybrid search memory system combining vector embeddings with keyword search (SQLite-backed), requiring no external dependencies. It supports 28+ LLM providers including OpenRouter, Anthropic, OpenAI, Gemini, Ollama, and any OpenAI-compatible endpoint. Messaging integrations cover 70+ channels including Telegram, Discord, Slack, iMessage, Matrix, Signal, and WhatsApp.
+ZeroClaw 内置混合搜索记忆系统，将向量嵌入与关键词搜索相结合（基于 SQLite），无需外部依赖。它支持 28 个以上的 LLM 提供商，包括 OpenRouter、Anthropic、OpenAI、Gemini、Ollama 以及任何 OpenAI 兼容端点。消息集成覆盖 70 多个通道，包括 Telegram、Discord、Slack、iMessage、Matrix、Signal 和 WhatsApp。
 
-The agent supports multi-turn conversations with context preservation, tool execution (shell, file, git, browser), scheduled tasks via cron expressions, and hardware peripheral control for IoT devices.
+该智能体支持保留上下文的多轮对话、工具执行（shell、文件、git、浏览器）、基于 cron 表达式的定时任务，以及面向 IoT 设备的硬件外设控制。
 
 # CONFIGURATION
 
-Configuration is stored in **~/.zeroclaw/config.toml**. Run **zeroclaw onboard --interactive** for guided setup.
+配置存储在 **~/.zeroclaw/config.toml** 中。运行 **zeroclaw onboard --interactive** 进行引导式设置。
 
 ```
 [providers]
@@ -139,17 +139,17 @@ bot_token = "123:ABC..."
 allowed_users = ["123456789"]
 ```
 
-Supported memory backends: **sqlite** (default, hybrid search), **postgres**, **markdown**, and **none** (stateless).
+支持的记忆后端：**sqlite**（默认，混合搜索）、**postgres**、**markdown** 和 **none**（无状态）。
 
-Environment variables override config values: **ZEROCLAW_API_KEY**, **ZEROCLAW_PROVIDER**, **ZEROCLAW_MODEL**, **ZEROCLAW_WORKSPACE**.
+环境变量可覆盖配置值：**ZEROCLAW_API_KEY**、**ZEROCLAW_PROVIDER**、**ZEROCLAW_MODEL**、**ZEROCLAW_WORKSPACE**。
 
 # CAVEATS
 
-ZeroClaw executes shell commands and file operations with your user permissions. The agent can modify files and run arbitrary commands when tool use is enabled. API keys are stored in **config.toml** and **auth-profiles.json** (encrypted at rest if secrets encryption is enabled). Channel integrations require the daemon to be running. Compilation from source requires at least 2GB RAM and 6GB disk space due to the Rust toolchain.
+ZeroClaw 会以你的用户权限执行 shell 命令和文件操作。启用工具使用时，智能体可以修改文件并运行任意命令。API 密钥存储在 **config.toml** 和 **auth-profiles.json** 中（若启用了密钥加密则静态加密存储）。通道集成要求守护进程处于运行状态。由于需要 Rust 工具链，从源码编译至少需要 2GB 内存和 6GB 磁盘空间。
 
 # HISTORY
 
-ZeroClaw was created by **ZeroClaw Labs** and first released in **2025** as a Rust-based alternative to existing AI agent runtimes. It was designed around the principle of zero overhead and zero lock-in, targeting deployment on resource-constrained hardware while maintaining production-grade extensibility. The project introduced a trait-driven architecture allowing providers, channels, and tools to be swapped without code changes, and gained attention for achieving sub-10ms cold start times with a single-binary deployment model.
+ZeroClaw 由 **ZeroClaw Labs** 创建，于 **2025 年**首次发布，作为现有 AI 智能体运行时的 Rust 替代方案。它围绕零开销和零锁定的原则设计，目标是部署在资源受限的硬件上，同时保持生产级的可扩展性。该项目引入了 trait 驱动的架构，使提供商、通道和工具可以在不改动代码的情况下替换，并以低于 10 毫秒的冷启动时间和单二进制部署模型受到关注。
 
 # INSTALL
 

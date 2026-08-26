@@ -1,22 +1,22 @@
 # TAGLINE
 
-Vim-like modal document viewer
+类 Vim 的模态文档查看器
 
 # TLDR
 
-**Open** a document
+**打开**文档
 
 ```zathura [path/to/file]```
 
-Open a document at a specific **page**
+在指定**页码**处打开文档
 
 ```zathura -P [page_number] [path/to/file]```
 
-Open and **fork** into the background
+打开并 **fork 到后台**
 
 ```zathura --fork [path/to/file]```
 
-Open with a **password-protected** document
+打开**受密码保护的**文档
 
 ```zathura --password [password] [path/to/file]```
 
@@ -27,71 +27,71 @@ Open with a **password-protected** document
 # PARAMETERS
 
 **-P**, **--page** _NUM_
-> Open document at given page number (starting from 1, negative from end).
+> 在给定页码处打开文档（从 1 开始，负数表示从末尾计）。
 
 **--fork**
-> Fork into the background.
+> fork 到后台运行。
 
 **--password** _PASSWORD_
-> Provide the document password.
+> 提供文档密码。
 
 **-e** _XID_, **--reparent** _XID_
-> Reparent to window specified by XID.
+> 重新挂载到 XID 指定的窗口。
 
-**h/j/k/l or Arrow keys**
-> Navigate left/up/down/right.
+**h/j/k/l 或方向键**
+> 向左/上/下/右导航。
 
-**J/K or PgDn/PgUp**
-> Go to next/previous page.
+**J/K 或 PgDn/PgUp**
+> 转到下一页/上一页。
 
 **r**
-> Rotate document.
+> 旋转文档。
 
 **Ctrl+r**
-> Invert colors (recolor mode).
+> 反转颜色（重新着色模式）。
 
 **/**
-> Search for text.
+> 搜索文本。
 
 **n/N**
-> Search next/previous result.
+> 下一个/上一个搜索结果。
 
 **d**
-> Toggle dual page view.
+> 切换双页视图。
 
 **F5**
-> Switch to presentation mode.
+> 切换到演示模式。
 
 **F11**
-> Toggle fullscreen.
+> 切换全屏。
 
 **:bmark** _NAME_
-> Create bookmark.
+> 创建书签。
 
 **:bdelete** _NAME_
-> Delete bookmark.
+> 删除书签。
 
 **:blist**
-> List bookmarks.
+> 列出书签。
 
 **+, -**
-> Zoom in/out.
+> 放大/缩小。
 
 **a**
-> Fit to width.
+> 适应宽度。
 
 **s**
-> Fit to page.
+> 适应整页。
 
 # DESCRIPTION
 
-**zathura** is a Vim-like modal document viewer. It supports PDF, PostScript, DjVu, and other formats through backends.
+**zathura** 是一款类 Vim 的模态文档查看器。它通过后端支持 PDF、PostScript、DjVu 等格式。
 
-The viewer features keyboard-driven navigation, bookmarks, and an integrated command line.
+该查看器以键盘驱动的导航、书签和集成的命令行为特色。
 
 # CAVEATS
 
-Requires backend plugins (poppler or mupdf for PDF, etc.). Configuration via ~/.config/zathura/zathurarc. Vim-style keybindings may have a learning curve.
+需要后端插件（PDF 用 poppler 或 mupdf 等）。通过 ~/.config/zathura/zathurarc 配置。Vim 风格的键绑定可能需要一定学习成本。
 
 # INSTALL
 

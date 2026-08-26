@@ -1,10 +1,10 @@
 # TAGLINE
 
-Process yadm alternate files
+处理 yadm 替代文件
 
 # TLDR
 
-**Process alternate files**
+**处理替代文件**
 
 ```yadm alt```
 
@@ -14,7 +14,7 @@ Process yadm alternate files
 
 # DESCRIPTION
 
-**yadm alt** processes alternate files based on system conditions. Creates symlinks for files with class, hostname, or OS-specific suffixes. Enables different configs per system from same repo.
+**yadm alt** 根据系统条件处理替代文件。为带有类别、主机名或操作系统特定后缀的文件创建符号链接。使同一仓库能够在不同系统上使用不同的配置。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ Process yadm alternate files
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-config](/man/yadm-config)(1)
-

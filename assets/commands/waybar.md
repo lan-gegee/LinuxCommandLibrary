@@ -1,26 +1,26 @@
 # TAGLINE
 
-Customizable status bar for Wayland
+可定制的 Wayland 状态栏
 
 # TLDR
 
-**Start waybar**
+**启动 waybar**
 
 ```waybar```
 
-**Start with specific config**
+**使用指定的配置文件启动**
 
 ```waybar -c [~/.config/waybar/config]```
 
-**Start with specific style**
+**使用指定的样式文件启动**
 
 ```waybar -s [~/.config/waybar/style.css]```
 
-**Start on specific bar**
+**在指定的栏上启动**
 
 ```waybar -b [bar-0]```
 
-**Log to file**
+**记录日志到文件**
 
 ```waybar -l [/tmp/waybar.log]```
 
@@ -31,44 +31,44 @@ Customizable status bar for Wayland
 # PARAMETERS
 
 **-c** _FILE_
-> Config file.
+> 配置文件。
 
 **-s** _FILE_
-> Style file (CSS).
+> 样式文件（CSS）。
 
 **-b** _BAR_
-> Bar name.
+> 栏名称。
 
 **-l** _FILE_
-> Log file.
+> 日志文件。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**waybar** is a customizable status bar for Wayland compositors. It works with Sway, Hyprland, and other wlroots-based compositors.
+**waybar** 是一款适用于 Wayland 合成器的可定制状态栏。它支持 Sway、Hyprland 以及其他基于 wlroots 的合成器。
 
-Configuration is JSON/JSON5. Modules define content: workspaces, clock, battery, network, CPU, memory, and many more.
+配置采用 JSON/JSON5 格式。模块定义内容：工作区、时钟、电池、网络、CPU、内存等众多模块。
 
-Styling uses CSS. Colors, fonts, padding, and layout are customizable. Different styles can apply to different modules.
+样式基于 CSS。颜色、字体、内边距和布局均可自定义。不同模块可以应用不同的样式。
 
-Built-in modules cover common needs. Custom modules execute scripts for specialized information.
+内置模块覆盖常见需求。自定义模块可通过执行脚本提供专门信息。
 
-Click actions on modules run commands. Right-click, middle-click, and scroll actions are configurable.
+点击模块可运行命令。右键、中键和滚轮动作均可配置。
 
-The bar updates reactively. System changes trigger updates without polling where possible.
+状态栏响应式更新。系统变化会触发更新，尽可能避免轮询。
 
 # CAVEATS
 
-Wayland only - doesn't work on X11. Some modules are compositor-specific. CSS can get complex for advanced styling.
+仅限 Wayland——不支持 X11。部分模块依赖于特定合成器。高级样式定制时 CSS 可能变得复杂。
 
 # HISTORY
 
-**Waybar** was created by **Alex D.** (Alexays) around **2018** for Sway and other wlroots compositors. It became the standard status bar for Wayland, similar to polybar's role on X11.
+**Waybar** 由 **Alex D.**（Alexays）于 **2018 年**前后为 Sway 和其他 wlroots 合成器创建。它成为 Wayland 上标准的 status bar，地位类似于 polybar 在 X11 上的角色。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Force-close X11 windows by clicking
+点击强制关闭 X11 窗口
 
 # TLDR
 
-**Kill window by clicking**
+**点击关闭窗口**
 
 ```xkill```
 
-**Kill specific window ID**
+**关闭指定窗口 ID**
 
 ```xkill -id [window_id]```
 
-**Kill all with matching name**
+**关闭所有匹配名称的窗口**
 
 ```xkill -frame```
 
-**Show button to use**
+**显示可用的按钮**
 
 ```xkill -button any```
 
@@ -27,41 +27,41 @@ Force-close X11 windows by clicking
 # PARAMETERS
 
 **-id** _WINDOWID_
-> Kill specific window by ID.
+> 按 ID 关闭特定窗口。
 
 **-button** _BUTTON_
-> Button to use (any, 1, 2, 3).
+> 要使用的按钮（any、1、2、3）。
 
 **-frame**
-> Include window frame.
+> 包含窗口边框。
 
 **-all**
-> Kill all matching clients.
+> 关闭所有匹配的客户端。
 
 **-display** _DISPLAY_
-> X server display.
+> X server 显示器。
 
 # DESCRIPTION
 
-**xkill** forcibly closes X11 windows. After running, the cursor changes and the next clicked window is killed.
+**xkill** 强制关闭 X11 窗口。运行后光标会发生变化，下一个被点击的窗口将被杀死。
 
-The tool sends a kill request to the X server. This is more forceful than asking the window to close normally.
+该工具向 X server 发送终止请求。这比请求窗口正常关闭更为强硬。
 
-Window manager frames can be targeted. Using -frame kills the window even if clicking the decoration rather than content.
+可以针对窗口管理器的边框。使用 -frame 后，即使点击的是窗口装饰而非内容，也会杀死该窗口。
 
-Any mouse button can trigger the kill. By default, only button 1 (left click) works. The -button option changes this.
+任何鼠标按钮都可以触发终止。默认只有按钮 1（左键）有效。-button 选项可以改变这一点。
 
-Pressing any key cancels xkill without killing a window. This provides an escape if started accidentally.
+按下任意按键会取消 xkill 而不关闭窗口。这样即使误启动也能退出。
 
-The tool is useful when applications become unresponsive and normal close methods fail.
+当应用失去响应且正常关闭方法失效时，该工具非常有用。
 
 # CAVEATS
 
-X11 only - doesn't work on Wayland. May lose unsaved data. Doesn't gracefully close applications. Some windows may resist.
+仅支持 X11——在 Wayland 上无效。可能丢失未保存的数据。不会优雅地关闭应用程序。某些窗口可能会抵抗终止。
 
 # HISTORY
 
-**xkill** has been part of the **X.Org** utilities since the early days of X11. It provides a simple way to deal with misbehaving X applications.
+**xkill** 自 X11 早期起就是 **X.Org** 工具的一部分。它为应对行为异常的 X 应用提供了简单的手段。
 
 # INSTALL
 

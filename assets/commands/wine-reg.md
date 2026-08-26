@@ -1,30 +1,30 @@
 # TAGLINE
 
-Read and modify the Wine registry from the command line
+从命令行读取和修改 Wine 注册表
 
 # TLDR
 
-**Add** a value to a registry key
+向注册表键**添加**值
 
 ```wine reg add [HKCU\Software\MyApp] /v [Setting] /t [REG_SZ] /d [value] /f```
 
-**Query** a key and its values
+**查询**键及其值
 
 ```wine reg query [HKCU\Software\MyApp]```
 
-**Delete** a value from a key
+从键中**删除**值
 
 ```wine reg delete [HKCU\Software\MyApp] /v [Setting] /f```
 
-**Copy** a key (with subkeys) to another location
+把键（含子键）**复制**到另一个位置
 
 ```wine reg copy [HKCU\Software\MyApp] [HKCU\Software\MyAppBackup] /s /f```
 
-**Import** registry entries from a .reg file
+从 .reg 文件**导入**注册表项
 
 ```wine reg import [file.reg]```
 
-**Export** a key to a .reg file
+将键**导出**为 .reg 文件
 
 ```wine reg export [HKCU\Software\MyApp] [file.reg]```
 
@@ -36,35 +36,35 @@ operation := **add** | **delete** | **query** | **copy** | **import** | **export
 
 # DESCRIPTION
 
-**wine reg** is Wine's reimplementation of the Windows **reg.exe** console tool. It lets you inspect and edit the registry of a Wine prefix without launching the graphical **regedit**, which is handy for scripting installers, applying tweaks in a Wineprefix, and automating application configuration.
+**wine reg** 是 Wine 对 Windows **reg.exe** 控制台工具的重新实现。它让你无需启动图形化的 **regedit** 即可检查和编辑 Wine 前缀的注册表，这对编写安装脚本、在 Wine 前缀中应用调整以及自动化应用程序配置非常方便。
 
-Registry keys are addressed by their root and path, for example **HKEY_CURRENT_USER\Software\MyApp**. The standard root abbreviations are accepted: **HKLM** (HKEY_LOCAL_MACHINE), **HKCU** (HKEY_CURRENT_USER), **HKCR** (HKEY_CLASSES_ROOT), **HKU** (HKEY_USERS), and **HKCC** (HKEY_CURRENT_CONFIG).
+注册表键通过其根键和路径来定位，例如 **HKEY_CURRENT_USER\Software\MyApp**。也接受标准的根键缩写：**HKLM**（HKEY_LOCAL_MACHINE）、**HKCU**（HKEY_CURRENT_USER）、**HKCR**（HKEY_CLASSES_ROOT）、**HKU**（HKEY_USERS）和 **HKCC**（HKEY_CURRENT_CONFIG）。
 
-The tool operates on the registry of the prefix named by the **WINEPREFIX** environment variable (defaulting to **~/.wine**). Each operation is a separate subcommand documented in its own page.
+该工具操作的是由 **WINEPREFIX** 环境变量指定的前缀的注册表（默认为 **~/.wine**）。每个操作都是一个独立的子命令，各有自己的说明页。
 
 # OPERATIONS
 
 **add**
-> Create a key, or add or overwrite a value within it.
+> 创建键，或在其中添加或覆盖值。
 
 **delete**
-> Remove a key, a single value, or all values under a key.
+> 移除键、单个值或键下的所有值。
 
 **query**
-> Display the values stored under a key, optionally recursing into subkeys.
+> 显示存储在键下的值，可选递归进入子键。
 
 **copy**
-> Copy a key's values (and optionally its subkeys) to another key.
+> 将一个键的值（可选连同子键）复制到另一个键。
 
 **import**
-> Merge the contents of a .reg file into the registry.
+> 将 .reg 文件的内容合并进注册表。
 
 **export**
-> Write a key and its contents to a .reg file.
+> 将键及其内容写入 .reg 文件。
 
 # CAVEATS
 
-Backslashes in key paths may need quoting or escaping depending on your shell. Editing the registry of the wrong prefix is a common mistake; set **WINEPREFIX** explicitly when you maintain more than one. As with the native Windows tool, careless changes can break applications, so back up keys with **export** before modifying them.
+根据你所用的 shell，键路径中的反斜杠可能需要引号或转义处理。编辑错误前缀的注册表是常见失误；如果你维护多个前缀，请显式设置 **WINEPREFIX**。与原生 Windows 工具一样，粗心的修改可能破坏应用程序，因此修改前请先用 **export** 备份相关键。
 
 # INSTALL
 

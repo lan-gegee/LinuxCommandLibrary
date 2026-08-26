@@ -1,26 +1,26 @@
 # TAGLINE
 
-Add a key or value to the Wine registry
+向 Wine 注册表添加键或值
 
 # TLDR
 
-**Create** a registry key
+**创建**注册表键
 
 ```wine reg add [HKCU\Software\MyApp]```
 
-**Add a string value** to a key
+向某个键**添加字符串值**
 
 ```wine reg add [HKCU\Software\MyApp] /v [Name] /t [REG_SZ] /d [value]```
 
-**Add a DWORD value**
+**添加 DWORD 值**
 
 ```wine reg add [HKCU\Software\MyApp] /v [Enabled] /t [REG_DWORD] /d [1]```
 
-**Set the default (unnamed) value** of a key
+**设置键的默认（无名）值**
 
 ```wine reg add [HKCU\Software\MyApp] /ve /d [default]```
 
-**Overwrite** an existing value **without prompting**
+**不提示直接覆盖**已有值
 
 ```wine reg add [HKCU\Software\MyApp] /v [Name] /d [new] /f```
 
@@ -30,29 +30,29 @@ Add a key or value to the Wine registry
 
 # DESCRIPTION
 
-**wine reg add** creates a registry key inside a Wine prefix, or adds (or overwrites) a value within an existing key. It mirrors the behavior of the Windows **reg add** command. With no value options, it simply ensures the named key exists.
+**wine reg add** 在 Wine 前缀中创建注册表键，或在现有键中添加（或覆盖）值。它的行为与 Windows 的 **reg add** 命令一致。如果不带任何值选项，它只是确保指定的键存在。
 
-A value is described by its name (**/v**), its type (**/t**), and its data (**/d**). The default type is **REG_SZ** (a string). When the named value already exists, reg add prompts before overwriting unless **/f** is given.
+一个值由其名称（**/v**）、类型（**/t**）和数据（**/d**）描述。默认类型是 **REG_SZ**（字符串）。当指定的值已存在时，除非给出 **/f**，否则 reg add 在覆盖前会提示确认。
 
 # PARAMETERS
 
 **/v**  _value_
-> Name of the value to add under the key.
+> 要在该键下添加的值名称。
 
 **/ve**
-> Add or set the key's default (unnamed) value.
+> 添加或设置键的默认（无名）值。
 
 **/t**  _type_
-> Data type of the value, such as **REG_SZ**, **REG_EXPAND_SZ**, **REG_MULTI_SZ**, **REG_DWORD**, **REG_BINARY**, or **REG_NONE**. Defaults to **REG_SZ**.
+> 值的数据类型，如 **REG_SZ**、**REG_EXPAND_SZ**、**REG_MULTI_SZ**、**REG_DWORD**、**REG_BINARY** 或 **REG_NONE**。默认为 **REG_SZ**。
 
 **/s**  _separator_
-> Character used to separate the elements of a **REG_MULTI_SZ** value. Defaults to **\0**.
+> 用于分隔 **REG_MULTI_SZ** 值各元素的字符。默认为 **\0**。
 
 **/d**  _data_
-> The data to store in the value.
+> 要存储在值中的数据。
 
 **/f**
-> Force the operation, overwriting an existing value without a confirmation prompt.
+> 强制执行操作，不经确认提示直接覆盖已有的值。
 
 # INSTALL
 

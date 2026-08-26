@@ -1,30 +1,30 @@
 # TAGLINE
 
-Detect steganography in PNG and BMP images
+检测 PNG 和 BMP 图像中的隐写内容
 
 # TLDR
 
-**Analyze image**
+**分析图像**
 
 ```zsteg [image.png]```
 
-**Check all channels**
+**检查所有通道**
 
 ```zsteg -a [image.png]```
 
-**Extract specific data**
+**提取特定数据**
 
 ```zsteg -E "[b1,rgb,lsb]" [image.png]```
 
-**Verbose output**
+**详细输出**
 
 ```zsteg -v [image.png]```
 
-**Check BMP file**
+**检查 BMP 文件**
 
 ```zsteg [image.bmp]```
 
-**Limit output**
+**限制输出**
 
 ```zsteg --limit [1000] [image.png]```
 
@@ -35,41 +35,41 @@ Detect steganography in PNG and BMP images
 # PARAMETERS
 
 **-a**, **--all**
-> Check all methods.
+> 检查所有方法。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-E** _SPEC_
-> Extract data.
+> 提取数据。
 
 **--limit** _N_
-> Output limit.
+> 输出数量限制。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **--bits** _BITS_
-> Bits to check.
+> 要检查的位。
 
 **--order** _ORDER_
-> Bit order.
+> 位顺序。
 
 # DESCRIPTION
 
-**zsteg** detects and extracts data hidden through steganography in PNG and BMP image files. It analyzes multiple color channels (RGB, alpha, and individual colors) across various bit depths to identify concealed content such as text, embedded files, and binary patterns.
+**zsteg** 用于检测并提取隐藏在 PNG 和 BMP 图像文件中的隐写数据。它分析多个颜色通道（RGB、alpha 及各个单色通道）在不同位深下的情况，以识别文本、嵌入文件和二进制模式等隐藏内容。
 
-The tool's primary focus is LSB (Least Significant Bit) steganography, where data is hidden in the least significant bits of pixel color values. The **-a** flag performs a comprehensive check across all common methods and channel combinations, while the **-E** flag extracts data from a specific channel and bit configuration.
+该工具主要聚焦 LSB（最低有效位）隐写术，即把数据藏进像素颜色值的最低有效位。**-a** 标志会对所有常见方法和通道组合进行全面检查，**-E** 标志则从指定的通道与位配置中提取数据。
 
-zsteg is widely used in CTF (Capture The Flag) competitions for solving steganography challenges and in forensic analysis of suspicious image files. It is written in Ruby.
+zsteg 广泛用于 CTF（Capture The Flag）竞赛中的隐写题，以及对可疑图像文件的取证分析。它使用 Ruby 编写。
 
 # CAVEATS
 
-PNG and BMP only. False positives possible. Requires Ruby.
+仅支持 PNG 和 BMP。可能出现误报。需要 Ruby 环境。
 
 # HISTORY
 
-**zsteg** was created for CTF competitions and steganography analysis. It provides quick detection of hidden image data.
+**zsteg** 为 CTF 竞赛和隐写分析而创建。它能快速检测图像中隐藏的数据。
 
 # INSTALL
 

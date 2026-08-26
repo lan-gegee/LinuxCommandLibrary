@@ -1,22 +1,22 @@
 # TAGLINE
 
-Screen backlight brightness control
+屏幕背光亮度控制工具
 
 # TLDR
 
-**Get brightness**
+**获取亮度**
 
 ```ybacklight -get```
 
-**Set brightness**
+**设置亮度**
 
 ```ybacklight -set [50]```
 
-**Increase brightness**
+**提高亮度**
 
 ```ybacklight -inc [10]```
 
-**Decrease brightness**
+**降低亮度**
 
 ```ybacklight -dec [10]```
 
@@ -27,32 +27,32 @@ Screen backlight brightness control
 # PARAMETERS
 
 **-get**
-> Show current level.
+> 显示当前亮度等级。
 
 **-set** _VAL_
-> Set to percentage.
+> 设置为百分比亮度。
 
 **-inc** _VAL_
-> Increase by amount.
+> 按指定量增加亮度。
 
 **-dec** _VAL_
-> Decrease by amount.
+> 按指定量降低亮度。
 
 # DESCRIPTION
 
-**ybacklight** controls the display backlight brightness from the command line. It provides a simple interface for getting, setting, and adjusting the screen brightness level as a percentage value.
+**ybacklight** 从命令行控制显示屏背光亮度。它提供了一个简单的接口，以百分比值的方式获取、设置和调节屏幕亮度。
 
-Brightness can be set to an absolute percentage with **-set**, or adjusted relative to the current level with **-inc** and **-dec**. The **-get** option queries the current brightness level.
+可以使用 **-set** 将亮度设置为绝对的百分比，也可以用 **-inc** 和 **-dec** 相对于当前亮度进行调整。**-get** 选项用于查询当前的亮度等级。
 
-The tool serves as an alternative to **xbacklight**, providing similar functionality for systems where xbacklight does not work correctly due to driver or hardware differences.
+该工具可作为 **xbacklight** 的替代品，在因驱动或硬件差异导致 xbacklight 无法正常工作的系统上提供类似功能。
 
 # CAVEATS
 
-Hardware dependent. May need permissions. Backlight control.
+依赖硬件。可能需要相应权限。属于背光控制工具。
 
 # HISTORY
 
-**ybacklight** is a backlight control utility, similar to xbacklight, for adjusting display brightness.
+**ybacklight** 是一款类似于 xbacklight 的背光控制工具，用于调节显示器的亮度。
 
 # INSTALL
 

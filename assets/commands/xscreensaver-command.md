@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control running xscreensaver daemon
+控制运行中的 xscreensaver 守护进程
 
 # TLDR
 
-**Activate screensaver immediately**
+**立即激活屏保**
 
 ```xscreensaver-command -activate```
 
-**Lock screen**
+**锁定屏幕**
 
 ```xscreensaver-command -lock```
 
-**Deactivate screensaver**
+**停用屏保**
 
 ```xscreensaver-command -deactivate```
 
-**Restart screensaver daemon**
+**重启屏保守护进程**
 
 ```xscreensaver-command -restart```
 
-**Exit screensaver daemon**
+**退出屏保守护进程**
 
 ```xscreensaver-command -exit```
 
-**Show current status**
+**显示当前状态**
 
 ```xscreensaver-command -time```
 
-**Watch for state changes**
+**监视状态变化**
 
 ```xscreensaver-command -watch```
 
@@ -39,59 +39,59 @@ Control running xscreensaver daemon
 # PARAMETERS
 
 **-activate**
-> Blank screen immediately.
+> 立即使屏幕变黑。
 
 **-deactivate**
-> Simulate user activity; unblank screen.
+> 模拟用户活动；恢复屏幕显示。
 
 **-lock**
-> Lock screen immediately.
+> 立即锁定屏幕。
 
 **-cycle**
-> Switch to next screensaver hack.
+> 切换到下一个屏保特效（hack）。
 
 **-next** / **-prev**
-> Switch to next/previous hack.
+> 切换到下一个/上一个特效。
 
 **-select** _n_
-> Switch to hack number n.
+> 切换到编号为 n 的特效。
 
 **-restart**
-> Restart the daemon with same arguments.
+> 用相同参数重启守护进程。
 
 **-exit**
-> Exit daemon (fails if locked).
+> 退出守护进程（锁定状态下会失败）。
 
 **-time**
-> Show last activation/deactivation time.
+> 显示最近一次激活/停用的时间。
 
 **-watch**
-> Print state changes continuously.
+> 持续打印状态变化。
 
 **-version**
-> Print the version of the running xscreensaver daemon.
+> 打印正在运行的 xscreensaver 守护进程的版本号。
 
 **-quiet**
-> Print output only if an error occurs.
+> 仅在发生错误时打印输出。
 
 **-verbose**
-> Print verbose output (default).
+> 打印详细输出（默认）。
 
 # DESCRIPTION
 
-**xscreensaver-command** controls a running xscreensaver daemon by sending client messages. It can activate, deactivate, or lock the screen, cycle through display modes, and query status.
+**xscreensaver-command** 通过发送客户端消息来控制运行中的 xscreensaver 守护进程。它可以激活、停用或锁定屏幕，切换显示模式，以及查询状态。
 
-The -watch option streams state changes, useful for scripts that need to react to screensaver events. The -deactivate option can be called periodically to prevent screen blanking during video playback.
+-watch 选项会流式输出状态变化，适用于需要对屏保事件作出反应的脚本。-deactivate 选项可以被周期性调用，以防视频播放期间屏幕变黑。
 
-Configuration is done through xscreensaver-settings, which writes preferences to ~/.xscreensaver.
+配置通过 xscreensaver-settings 完成，偏好设置写入 ~/.xscreensaver。
 
 # CAVEATS
 
-Requires xscreensaver daemon running. Never use kill -9 while screensaver is active. The -exit command fails if screen is locked. X11 only.
+需要 xscreensaver 守护进程处于运行状态。屏保激活时切勿使用 kill -9。屏幕已锁定时 -exit 命令会失败。仅支持 X11。
 
 # HISTORY
 
-**xscreensaver** was created by Jamie Zawinski in 1992 and has been the most popular X11 screensaver framework for decades. The modular design separates the daemon, display hacks, and control interface, allowing extensive customization and third-party hack development.
+**xscreensaver** 由 Jamie Zawinski 于 1992 年创建，数十年来一直是最流行的 X11 屏保框架。其模块化设计将守护进程、显示特效和控制接口分离，支持高度自定义和第三方特效开发。
 
 # INSTALL
 

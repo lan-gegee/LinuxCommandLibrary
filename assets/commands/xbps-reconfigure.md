@@ -1,30 +1,30 @@
 # TAGLINE
 
-Reconfigure Void Linux packages
+重新配置 Void Linux 软件包
 
 # TLDR
 
-**Reconfigure a package**
+**重新配置一个软件包**
 
 ```sudo xbps-reconfigure [package_name]```
 
-**Force reconfigure a package**
+**强制重新配置一个软件包**
 
 ```sudo xbps-reconfigure -f [package_name]```
 
-**Reconfigure all packages**
+**重新配置所有软件包**
 
 ```sudo xbps-reconfigure -a```
 
-**Reconfigure kernel**
+**重新配置内核**
 
 ```sudo xbps-reconfigure -f linux[5.15]```
 
-**Verbose output**
+**详细输出**
 
 ```sudo xbps-reconfigure -v [package_name]```
 
-**Reconfigure in alternate root**
+**在替代根目录中重新配置**
 
 ```sudo xbps-reconfigure -r [/mnt] [package_name]```
 
@@ -35,41 +35,41 @@ Reconfigure Void Linux packages
 # PARAMETERS
 
 **-a**, **--all**
-> Reconfigure all packages.
+> 重新配置所有软件包。
 
 **-f**, **--force**
-> Force reconfiguration even if already configured.
+> 即使已配置过也强制重新配置。
 
 **-r** _rootdir_
-> Use alternate root directory.
+> 使用替代根目录。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-d**, **--debug**
-> Debug mode.
+> 调试模式。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**xbps-reconfigure** runs post-installation configuration scripts for packages on Void Linux. It's used to configure packages that weren't properly configured or to reconfigure after changing configuration files.
+**xbps-reconfigure** 在 Void Linux 上为软件包运行安装后的配置脚本。它用于配置未正确完成配置的软件包，或在修改配置文件后进行重新配置。
 
-The tool is useful for recovering from interrupted installations, reconfiguring after manual config changes, or rebuilding kernel modules. By default, only unconfigured packages are processed; use -f to force reconfiguration.
+该工具适用于从被中断的安装中恢复、手动修改配置后重新配置，或重建内核模块。默认只处理未配置的软件包；使用 -f 可强制重新配置。
 
-Common use cases include reconfiguring the kernel after updates, rerunning DKMS module builds, and fixing packages with configuration issues.
+常见用例包括更新后重新配置内核、重跑 DKMS 模块构建以及修复存在配置问题的软件包。
 
 # CAVEATS
 
-Void Linux specific (XBPS package manager). Some packages may overwrite manual configuration changes when reconfigured. Kernel reconfiguration requires specifying exact version.
+Void Linux 专用（XBPS 包管理器）。某些软件包在重新配置时可能会覆盖手动修改的配置。重新配置内核需要指定确切的版本号。
 
 # HISTORY
 
-**xbps-reconfigure** is part of XBPS (X Binary Package System), the package manager developed specifically for Void Linux. XBPS was designed from scratch to be fast, portable, and bug-free, providing a modern alternative to traditional package managers.
+**xbps-reconfigure** 是 XBPS（X Binary Package System）的一部分，后者是专为 Void Linux 开发的包管理器。XBPS 从零开始设计，追求快速、可移植和无缺陷，为传统包管理器提供了现代化的替代方案。
 
 # INSTALL
 

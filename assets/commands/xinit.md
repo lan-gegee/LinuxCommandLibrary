@@ -1,26 +1,26 @@
 # TAGLINE
 
-Start X Window System server
+启动 X Window System 服务器
 
 # TLDR
 
-**Start X with the default window manager**
+**以默认窗口管理器启动 X**
 
 ```xinit```
 
-**Start X with a specific window manager**
+**以指定窗口管理器启动 X**
 
 ```xinit /usr/bin/[openbox]```
 
-**Start X on a different display**
+**在不同的显示器上启动 X**
 
 ```xinit -- :1```
 
-**Start X with a specific server**
+**使用指定的服务器启动 X**
 
 ```xinit -- /usr/bin/Xorg :0```
 
-**Start X with server options**
+**带服务器选项启动 X**
 
 ```xinit -- -depth 24```
 
@@ -31,54 +31,54 @@ Start X Window System server
 # PARAMETERS
 
 **client**
-> Client program to start (must begin with / or .)
+> 要启动的客户端程序（必须以 / 或 . 开头）
 
 **--**
-> Separator between client and server arguments
+> 客户端参数与服务器参数之间的分隔符
 
 **server**
-> X server program to run (must begin with / or .)
+> 要运行的 X server 程序（必须以 / 或 . 开头）
 
 **display**
-> Display number (:0, :1, etc.)
+> 显示器编号（:0、:1 等）
 
 # ENVIRONMENT
 
 **DISPLAY**
-> Set to the name of the display clients should connect to.
+> 设置为客户端应连接的显示器名称。
 
 **XINITRC**
-> Specifies an init file containing shell commands to start the initial windows. Overrides ~/.xinitrc.
+> 指定一个包含启动初始窗口所需 shell 命令的初始化文件。覆盖 ~/.xinitrc。
 
 # CONFIGURATION FILES
 
 **~/.xinitrc**
-> Shell script for starting client programs; last program should run in foreground
+> 用于启动客户端程序的 shell 脚本；最后一个程序应在前台运行
 
 **~/.xserverrc**
-> Shell script for starting the X server
+> 用于启动 X server 的 shell 脚本
 
 **/etc/X11/xinit/xinitrc**
-> System-wide default client script
+> 系统级默认客户端脚本
 
 **/etc/X11/xinit/xserverrc**
-> System-wide default server script
+> 系统级默认服务器脚本
 
 # DESCRIPTION
 
-**xinit** starts the X Window System server and an initial client program. It is typically used on systems without a display manager or when running multiple window systems.
+**xinit** 启动 X Window System 服务器和一个初始客户端程序。它通常用于没有显示管理器的系统，或需要运行多个窗口系统的场合。
 
-Without arguments, xinit reads ~/.xinitrc to determine which clients to start, or uses a default (xterm). For the server, it checks ~/.xserverrc or uses the default X server.
+不带参数时，xinit 会读取 ~/.xinitrc 来确定要启动哪些客户端，否则使用默认值（xterm）。对于服务器，它会检查 ~/.xserverrc 或使用默认的 X server。
 
-Programs in .xinitrc should run in the background except the last one (usually a window manager), which keeps the session alive. When the foreground client exits, xinit kills the X server and terminates.
+.xinitrc 中的程序除最后一个外都应在后台运行，最后一个（通常是窗口管理器）保持会话存活。当前台客户端退出时，xinit 会杀死 X server 并终止。
 
 # CAVEATS
 
-xinit is a low-level utility; **startx** provides a friendlier interface for typical use. Programs in .xinitrc must be backgrounded except the final window manager. Display managers like GDM or SDDM are preferred for production systems.
+xinit 是一个底层工具；**startx** 为一般用途提供了更友好的接口。.xinitrc 中的程序除最终的窗口管理器外都必须放入后台。生产系统更推荐使用 GDM 或 SDDM 等显示管理器。
 
 # HISTORY
 
-xinit has been part of X11 since the early X Window System releases. The X Window System was developed at MIT starting in **1984**, with xinit providing the fundamental mechanism for starting X sessions without a display manager.
+xinit 自 X Window System 早期版本起就是 X11 的一部分。X Window System 由 MIT 自 **1984** 年起开发，xinit 提供了在没有显示管理器的情况下启动 X 会话的基本机制。
 
 # INSTALL
 

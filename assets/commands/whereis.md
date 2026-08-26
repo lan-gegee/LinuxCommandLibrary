@@ -1,30 +1,30 @@
 # TAGLINE
 
-Locate binary, source, and man page files
+定位二进制文件、源码文件和 man page 文件
 
 # TLDR
 
-Locate **binary, source, and man pages** for SSH
+定位 SSH 的**二进制文件、源码文件和 man page**
 
 ```whereis ssh```
 
-Locate **binary and man pages** only for ls
+只定位 ls 的**二进制文件和 man page**
 
 ```whereis -bm ls```
 
-Locate **source** of gcc and **man pages** for Git
+定位 gcc 的**源码**和 Git 的 **man page**
 
 ```whereis -s gcc -m git```
 
-Locate **binaries** for gcc in /usr/bin/ only
+只在 /usr/bin/ 中定位 gcc 的**二进制文件**
 
 ```whereis -b -B /usr/bin/ -f gcc```
 
-Locate **unusual** binaries (more or less than one binary)
+定位**异常的**二进制文件（多于或少于一个二进制文件）
 
 ```whereis -u *```
 
-Locate binaries with **unusual manual entries**
+定位带有**异常手册条目**的二进制文件
 
 ```whereis -u -m *```
 
@@ -35,45 +35,45 @@ Locate binaries with **unusual manual entries**
 # PARAMETERS
 
 **-b**
-> Search only for binaries
+> 只搜索二进制文件
 
 **-m**
-> Search only for manual sections
+> 只搜索手册章节
 
 **-s**
-> Search only for sources
+> 只搜索源码
 
 **-u**
-> Search for unusual entries (commands with more than one binary, or no manual)
+> 搜索异常条目（拥有多于一个二进制文件、或没有手册的命令）
 
 **-B** _list_
-> Limit binary search to specified directories
+> 将二进制搜索限制在指定目录
 
 **-M** _list_
-> Limit manual search to specified directories
+> 将手册搜索限制在指定目录
 
 **-S** _list_
-> Limit source search to specified directories
+> 将源码搜索限制在指定目录
 
 **-f**
-> Terminate directory list (required when using -B, -M, or -S)
+> 终止目录列表（使用 -B、-M 或 -S 时必需）
 
 **-l**
-> Output list of effective search paths
+> 输出生效的搜索路径列表
 
 # DESCRIPTION
 
-**whereis** locates the binary, source, and manual page files for a command by searching a set of standard locations. Unlike **which**, it searches predefined directories rather than the PATH variable, and can find source and documentation files.
+**whereis** 通过搜索一组标准位置来定位命令的二进制文件、源码文件和手册页文件。与 **which** 不同，它搜索的是预定义目录而非 PATH 变量，并且能找到源码和文档文件。
 
-The command uses hardcoded directory lists that may include /bin, /sbin, /usr/bin, /usr/share/man, /usr/src, and similar system directories. Use **-l** to see the actual search paths on your system.
+该命令使用硬编码的目录列表，可能包括 /bin、/sbin、/usr/bin、/usr/share/man、/usr/src 及类似的系统目录。使用 **-l** 可以查看你系统上的实际搜索路径。
 
 # CAVEATS
 
-May not find binaries in non-standard locations (use **which** for PATH-based lookup). Source directories are often empty on binary distributions. Results depend on the compiled-in search paths which vary between distributions.
+可能找不到位于非标准位置的二进制文件（基于 PATH 的查找请使用 **which**）。二进制发行版中源码目录通常是空的。结果取决于编译时内置的搜索路径，不同发行版之间有所差异。
 
 # HISTORY
 
-Originated in **3BSD Unix** (1979) at UC Berkeley. One of the early Berkeley additions to Unix for locating program components. Part of **util-linux** on modern Linux systems.
+起源于 UC Berkeley 的 **3BSD Unix**（1979 年），是伯克利早期添加到 Unix 中用于定位程序组件的工具之一。在现代 Linux 系统上是 **util-linux** 的一部分。
 
 # INSTALL
 

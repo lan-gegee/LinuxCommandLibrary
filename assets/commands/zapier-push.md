@@ -1,10 +1,10 @@
 # TAGLINE
 
-Deploy integration to Zapier
+将集成部署到 Zapier
 
 # TLDR
 
-**Push integration**
+**推送集成**
 
 ```zapier push```
 
@@ -14,9 +14,8 @@ Deploy integration to Zapier
 
 # DESCRIPTION
 
-**zapier push** deploys your integration to Zapier. Uploads built integration and creates a new version. Run after zapier build or let push build automatically.
+**zapier push** 将你的集成部署到 Zapier，上传已构建的集成并创建新版本。可在 zapier build 之后运行，或让 push 自动构建。
 
 # SEE ALSO
 
 [zapier](/man/zapier)(1), [zapier-build](/man/zapier-build)(1), [zapier-versions](/man/zapier-versions)(1)
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-YubiKey device management CLI
+YubiKey 设备管理 CLI
 
 # TLDR
 
-**List YubiKeys**
+**列出 YubiKey 设备**
 
 ```ykman list```
 
-**Show device info**
+**显示设备信息**
 
 ```ykman info```
 
-**List OATH accounts**
+**列出 OATH 账户**
 
 ```ykman oath accounts list```
 
-**Generate TOTP code**
+**生成 TOTP 验证码**
 
 ```ykman oath accounts code [account_name]```
 
-**Add OATH account**
+**添加 OATH 账户**
 
 ```ykman oath accounts add -t [name] [secret]```
 
-**Reset FIDO2**
+**重置 FIDO2**
 
 ```ykman fido reset```
 
-**Set FIDO2 PIN**
+**设置 FIDO2 PIN**
 
 ```ykman fido access change-pin```
 
-**List PIV certificates**
+**列出 PIV 证书**
 
 ```ykman piv certificates list```
 
@@ -43,44 +43,44 @@ YubiKey device management CLI
 # PARAMETERS
 
 **list**
-> List devices.
+> 列出设备。
 
 **info**
-> Device info.
+> 设备信息。
 
 **oath**
-> OATH commands.
+> OATH 命令。
 
 **fido**
-> FIDO commands.
+> FIDO 命令。
 
 **piv**
-> PIV commands.
+> PIV 命令。
 
 **openpgp**
-> OpenPGP commands.
+> OpenPGP 命令。
 
 **config**
-> Configuration.
+> 配置。
 
 **-d** _SERIAL_
-> Device serial.
+> 设备序列号。
 
 # DESCRIPTION
 
-**ykman** (YubiKey Manager) is the official CLI from Yubico for managing all aspects of YubiKey hardware security tokens. It provides a unified interface to configure and interact with the various applications available on the device.
+**ykman**（YubiKey Manager）是 Yubico 官方的命令行工具，用于管理 YubiKey 硬件安全密钥的各个方面。它提供统一的接口来配置设备上的各种应用并与之交互。
 
-The **oath** subcommand manages TOTP and HOTP accounts, storing two-factor authentication secrets on the hardware and generating one-time codes. The **fido** subcommand handles FIDO2/WebAuthn credentials for passwordless authentication, including PIN management and resident key storage. The **piv** subcommand manages X.509 certificates for smart card operations, and **openpgp** configures PGP keys for signing, encryption, and SSH authentication.
+**oath** 子命令管理 TOTP 和 HOTP 账户，将双因素认证密钥保存在硬件中并生成一次性验证码。**fido** 子命令处理用于无密码认证的 FIDO2/WebAuthn 凭据，包括 PIN 管理和驻留密钥存储。**piv** 子命令管理用于智能卡操作的 X.509 证书，**openpgp** 则配置用于签名、加密和 SSH 认证的 PGP 密钥。
 
-The **config** subcommand controls device-level settings such as enabling or disabling USB and NFC interfaces for specific applications. The **info** and **list** commands display device details including serial number, firmware version, and available applications. The **-d** flag selects a specific device when multiple YubiKeys are connected.
+**config** 子命令控制设备级设置，例如为特定应用启用或禁用 USB 和 NFC 接口。**info** 和 **list** 命令显示设备详情，包括序列号、固件版本和可用应用。当连接多个 YubiKey 时，可用 **-d** 选项选择特定设备。
 
 # CAVEATS
 
-Requires YubiKey. Some operations are destructive. Backup before reset.
+需要 YubiKey 设备。部分操作具有破坏性，重置前请先备份。
 
 # HISTORY
 
-**ykman** (YubiKey Manager) is the official CLI from **Yubico**. It replaces older tools with unified management.
+**ykman**（YubiKey Manager）是 **Yubico** 的官方命令行工具，以统一的管理方式取代了旧版工具。
 
 # INSTALL
 

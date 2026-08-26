@@ -1,26 +1,26 @@
 # TAGLINE
 
-Quagga routing manager daemon
+Quagga 路由管理守护进程
 
 # TLDR
 
-**Start zebra daemon**
+**启动 zebra 守护进程**
 
 ```sudo zebra -d```
 
-**Start with specific config file**
+**使用指定的配置文件启动**
 
 ```sudo zebra -d -f [/etc/quagga/zebra.conf]```
 
-**Run in foreground**
+**在前台运行**
 
 ```sudo zebra -A [127.0.0.1]```
 
-**Start with VTY on specific port**
+**在指定端口上启动 VTY**
 
 ```sudo zebra -d -P [2601]```
 
-**Connect to zebra shell**
+**连接 zebra shell**
 
 ```telnet localhost 2601```
 
@@ -31,50 +31,50 @@ Quagga routing manager daemon
 # PARAMETERS
 
 **-d**, **--daemon**
-> Run as daemon in background.
+> 作为守护进程在后台运行。
 
 **-f**, **--config_file** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-P**, **--vty_port** _port_
-> VTY (telnet) port number.
+> VTY（telnet）端口号。
 
 **-A**, **--vty_addr** _address_
-> VTY bind address.
+> VTY 绑定地址。
 
 **-u**, **--user** _user_
-> Run as specified user.
+> 以指定用户身份运行。
 
 **-g**, **--group** _group_
-> Run as specified group.
+> 以指定组身份运行。
 
 **-v**, **--version**
-> Display version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**zebra** is the core routing manager daemon from Quagga (formerly GNU Zebra). It manages the kernel routing table and provides the Zserv API for protocol daemons like ospfd, bgpd, and ripd to communicate routing updates.
+**zebra** 是 Quagga（前身为 GNU Zebra）的核心路由管理守护进程。它管理内核路由表，并提供 Zserv API，供 ospfd、bgpd、ripd 等协议守护进程传递路由更新。
 
-Zebra abstracts the kernel's routing interface, allowing protocol daemons to be portable across Unix variants. It receives routes from protocol daemons and installs them in the kernel FIB (Forwarding Information Base).
+Zebra 对内核的路由接口做了抽象，使协议守护进程可以跨各种 Unix 变体移植。它接收来自协议守护进程的路由，并将其安装到内核 FIB（转发信息库）中。
 
-Configuration uses a Cisco-like CLI accessible via telnet or the vtysh unified shell. Routes can be viewed and static routes configured through this interface.
+配置使用类 Cisco 的 CLI，可通过 telnet 或 vtysh 统一 shell 访问。通过该界面可以查看路由并配置静态路由。
 
 # CONFIGURATION
 
-Config file: /etc/quagga/zebra.conf
+配置文件：/etc/quagga/zebra.conf
 
-Defines interfaces, static routes, and access control. Protocol daemons have separate configuration files.
+定义接口、静态路由和访问控制。各协议守护进程有单独的配置文件。
 
 # CAVEATS
 
-Quagga is largely superseded by FRRouting (FRR). Default VTY password should be changed. Requires root or CAP_NET_ADMIN capability.
+Quagga 在很大程度上已被 FRRouting（FRR）取代。应修改默认的 VTY 密码。需要 root 权限或 CAP_NET_ADMIN 能力。
 
 # HISTORY
 
-**zebra** originated from the GNU Zebra project by Kunihiro Ishiguro, discontinued in 2005. Quagga forked from it and maintained development until FRRouting forked from Quagga in 2017 for faster, more open development. The zebra daemon name persists in both projects.
+**zebra** 源自 Kunihiro Ishiguro 发起的 GNU Zebra 项目，该项目于 2005 年停止开发。Quagga 从其分叉出来并持续维护，直到 2017 年 FRRouting 又从 Quagga 分叉，以实现更快、更开放的开发。zebra 守护进程的名字在这两个项目中都得以延续。
 
 # INSTALL
 

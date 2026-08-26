@@ -1,38 +1,38 @@
 # TAGLINE
 
-Count lines, words, and bytes in files
+统计文件中的行数、单词数和字节数
 
 # TLDR
 
-**Count lines, words, and bytes**
+**统计行数、单词数和字节数**
 
 ```wc [file]```
 
-**Count only lines**
+**只统计行数**
 
 ```wc -l [file]```
 
-**Count only words**
+**只统计单词数**
 
 ```wc -w [file]```
 
-**Count only characters**
+**只统计字符数**
 
 ```wc -m [file]```
 
-**Count only bytes**
+**只统计字节数**
 
 ```wc -c [file]```
 
-**Count lines in command output**
+**统计命令输出的行数**
 
 ```[command] | wc -l```
 
-**Count files in a directory**
+**统计目录中的文件数**
 
 ```ls | wc -l```
 
-**Count longest line length**
+**统计最长行的长度**
 
 ```wc -L [file]```
 
@@ -43,43 +43,43 @@ Count lines, words, and bytes in files
 # PARAMETERS
 
 **-l**, **--lines**
-> Print line count
+> 输出行数
 
 **-w**, **--words**
-> Print word count
+> 输出单词数
 
 **-c**, **--bytes**
-> Print byte count
+> 输出字节数
 
 **-m**, **--chars**
-> Print character count
+> 输出字符数
 
 **-L**, **--max-line-length**
-> Print length of longest line
+> 输出最长行的长度
 
 **--files0-from**=_F_
-> Read filenames from file F (NUL-terminated)
+> 从文件 F 读取文件名（以 NUL 结尾）
 
 **--total**=_when_
-> When to print total (auto, always, only, never)
+> 何时输出总计（auto、always、only、never）
 
 # DESCRIPTION
 
-**wc** (word count) prints newline, word, and byte counts for each file. With multiple files, it also prints totals. With no files or stdin, it reads standard input.
+**wc**（word count）为每个文件输出换行符、单词和字节计数。给定多个文件时，还会输出总计。未指定文件或输入来自 stdin 时，则读取标准输入。
 
-A word is defined as a sequence of non-whitespace characters delimited by whitespace or line boundaries. This matches most intuitive definitions of "word."
+单词被定义为以空白字符分隔、由非空白字符组成的序列，边界由空白或行界决定。这与大多数人对"单词"的直观定义一致。
 
-The default output shows lines, words, and bytes in that order. Options select which counts to display; if none are specified, all three are shown.
+默认输出依次显示行数、单词数和字节数。选项用于选择要显示的计数；若未指定任何选项，则三项全部显示。
 
-**wc -l** is extremely common for counting items in pipelines, such as counting files, matches, or log entries.
+**wc -l** 在管道中统计条目数量极为常用，例如统计文件数、匹配数或日志条目数。
 
 # CAVEATS
 
-Byte count (**-c**) and character count (**-m**) differ for multi-byte encodings like UTF-8. Use **-m** for actual character counts.
+对于 UTF-8 等多字节编码，字节数（**-c**）与字符数（**-m**）不同。要统计实际字符数请使用 **-m**。
 
-For counting files, **ls | wc -l** fails if filenames contain newlines. Use **find -print0 | wc -l --files0-from=-** for robustness.
+统计文件数时，如果文件名包含换行符，**ls | wc -l** 会出错。为了稳健性，请使用 **find -print0 | wc -l --files0-from=-**。
 
-Empty files have 0 lines, 0 words, and 0 bytes. A file with just "hello" (no newline) has 0 lines but 1 word.
+空文件的行数为 0、单词数为 0、字节数为 0。只包含 "hello"（无换行符）的文件行数为 0，但单词数为 1。
 
 # INSTALL
 

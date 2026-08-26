@@ -1,10 +1,10 @@
 # TAGLINE
 
-Generate LaTeX yearly daily planner
+生成 LaTeX 年度日程计划本
 
 # TLDR
 
-Create **daily planner**
+创建**每日计划本**
 
 ```yplan [language] [lettercase] [year] > [path/to/file.tex]```
 
@@ -15,23 +15,23 @@ Create **daily planner**
 # PARAMETERS
 
 _LANGUAGE_
-> Language for day/month names
+> 日/月名称使用的语言
 
 _CASE_
-> Lettercase: uppercase or lowercase
+> 大小写：大写或小写
 
 _YEAR_
-> Year for the planner
+> 计划本对应的年份
 
 # DESCRIPTION
 
-**yplan** generates LaTeX code for a two-page vertical daily planner for any chosen year. The output can be compiled with pdflatex or other LaTeX processors.
+**yplan** 为任意指定年份生成两页竖版每日计划本的 LaTeX 代码。输出可用 pdflatex 或其他 LaTeX 处理器编译。
 
-The planner format is designed for printing and binding.
+该计划本格式专为打印和装订设计。
 
 # CAVEATS
 
-Output requires LaTeX processing. Only generates calendar structure, not content.
+输出需要 LaTeX 处理。仅生成日历结构，不包含内容。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Python-powered cross-platform shell
+由 Python 驱动的跨平台 shell
 
 # TLDR
 
-**Start xonsh**
+**启动 xonsh**
 
 ```xonsh```
 
-**Run command**
+**运行命令**
 
 ```xonsh -c "[print('hello')]"```
 
-**Run script**
+**运行脚本**
 
 ```xonsh [script.xsh]```
 
-**Interactive Python mode**
+**交互式 Python 模式**
 
 ```xonsh -i```
 
@@ -27,32 +27,32 @@ Python-powered cross-platform shell
 # PARAMETERS
 
 **-c** _CMD_
-> Execute command.
+> 执行命令。
 
 **-i**
-> Interactive mode.
+> 交互模式。
 
 **--login**
-> Login shell.
+> 登录 shell。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**xonsh** is a cross-platform shell that combines the capabilities of Python with the familiarity of traditional Unix shells. It allows users to seamlessly mix Python expressions and standard shell commands in the same session, using Python syntax as the primary language while supporting conventional shell operations.
+**xonsh** 是一个跨平台 shell，它将 Python 的能力与传统 Unix shell 的熟悉感结合在一起。它允许用户在同一个会话中无缝混用 Python 表达式和标准 shell 命令，以 Python 语法作为主要语言，同时支持传统的 shell 操作。
 
-The shell provides context-aware tab completion, syntax highlighting, and a customizable prompt. Shell commands run natively, and Python code can be used anywhere for variable manipulation, control flow, and data processing. Scripts use the **.xsh** extension and can contain both Python and shell syntax.
+该 shell 提供上下文感知的制表符补全、语法高亮和可自定义的提示符。shell 命令原生运行，而 Python 代码可以在任何地方使用，用于变量操作、控制流和数据处理。脚本使用 **.xsh** 扩展名，可以同时包含 Python 和 shell 语法。
 
-xonsh runs on any platform where Python is available, making it a portable choice for users who want Python's expressiveness integrated directly into their shell workflow.
+xonsh 可在任何有 Python 的平台上运行，对于希望将 Python 的表达力直接融入 shell 工作流的用户来说是一个可移植的选择。
 
 # CAVEATS
 
-Python required. Different from bash. Learning curve.
+需要 Python。与 bash 不同。有学习曲线。
 
 # HISTORY
 
-**xonsh** was created to combine the power of Python with the familiarity of shell scripting.
+**xonsh** 的创建目的是将 Python 的强大功能与 shell 脚本的熟悉感结合起来。
 
 # INSTALL
 

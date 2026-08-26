@@ -1,42 +1,42 @@
 # TAGLINE
 
-Feature-rich video downloader fork
+功能丰富的视频下载器分支
 
 # TLDR
 
-**Download a video**
+**下载视频**
 
 ```yt-dlp [https://youtube.com/watch?v=VIDEO_ID]```
 
-**Download audio only** (best quality)
+**仅下载音频**（最佳质量）
 
 ```yt-dlp -x [url]```
 
-**Download audio as MP3**
+**下载为 MP3 音频**
 
 ```yt-dlp -x --audio-format mp3 [url]```
 
-**List available formats**
+**列出可用格式**
 
 ```yt-dlp -F [url]```
 
-**Download specific format**
+**下载指定格式**
 
 ```yt-dlp -f [format_code] [url]```
 
-**Download best video + audio**
+**下载最佳视频 + 音频**
 
 ```yt-dlp -f "bestvideo+bestaudio" [url]```
 
-**Download entire playlist**
+**下载整个播放列表**
 
 ```yt-dlp [playlist_url]```
 
-**Download with subtitles**
+**连同字幕下载**
 
 ```yt-dlp --write-subs --sub-lang en [url]```
 
-**Download with custom filename**
+**使用自定义文件名下载**
 
 ```yt-dlp -o "%(title)s.%(ext)s" [url]```
 
@@ -47,84 +47,84 @@ Feature-rich video downloader fork
 # PARAMETERS
 
 **-F**, **--list-formats**
-> List available formats
+> 列出可用格式
 
 **-f** _FORMAT_
-> Select format by code or quality selector
+> 按格式代码或质量选择器选择格式
 
 **-x**, **--extract-audio**
-> Extract audio only
+> 仅提取音频
 
 **--audio-format** _FORMAT_
-> Convert audio to format (mp3, aac, wav, etc.)
+> 将音频转换为指定格式（mp3、aac、wav 等）
 
 **--audio-quality** _QUALITY_
-> Audio quality (0=best, 9=worst)
+> 音频质量（0=最佳，9=最差）
 
 **-o** _TEMPLATE_
-> Output filename template
+> 输出文件名模板
 
 **--write-subs**
-> Download subtitles
+> 下载字幕
 
 **--sub-lang** _LANGS_
-> Subtitle languages (comma-separated)
+> 字幕语言（逗号分隔）
 
 **--embed-subs**
-> Embed subtitles in video
+> 将字幕嵌入视频
 
 **--embed-thumbnail**
-> Embed thumbnail in audio
+> 将缩略图嵌入音频
 
 **-P** _PATH_
-> Download to specified directory
+> 下载到指定目录
 
 **--no-playlist**
-> Download only the video if URL refers to playlist
+> 当 URL 指向播放列表时仅下载单个视频
 
 **--playlist-items** _ITEMS_
-> Playlist items to download (e.g., 1,3,5-10)
+> 要下载的播放列表条目（例如 1,3,5-10）
 
 **--cookies-from-browser** _BROWSER_
-> Extract cookies from browser (chrome, firefox, edge, safari, etc.)
+> 从浏览器提取 Cookie（chrome、firefox、edge、safari 等）
 
 **--limit-rate** _RATE_
-> Limit download speed (e.g., 50K, 4.2M)
+> 限制下载速度（例如 50K、4.2M）
 
 **--sponsorblock-mark** _CATS_
-> Mark SponsorBlock categories in video chapters (sponsor, intro, outro, etc.)
+> 在视频章节中标记 SponsorBlock 类别（sponsor、intro、outro 等）
 
 **-U**, **--update**
-> Update yt-dlp
+> 更新 yt-dlp
 
 # FILENAME TEMPLATE
 
-**%(title)s**: Video title
-**%(id)s**: Video ID
-**%(ext)s**: File extension
-**%(uploader)s**: Channel name
-**%(upload_date)s**: Upload date (YYYYMMDD)
-**%(playlist_index)s**: Playlist position
+**%(title)s**：视频标题
+**%(id)s**：视频 ID
+**%(ext)s**：文件扩展名
+**%(uploader)s**：频道名称
+**%(upload_date)s**：上传日期（YYYYMMDD）
+**%(playlist_index)s**：播放列表中的位置
 
 # DESCRIPTION
 
-**yt-dlp** is a feature-rich command-line program to download videos from YouTube and many other sites. It's a fork of youtube-dl with additional features and active maintenance.
+**yt-dlp** 是一款功能丰富的命令行程序，用于从 YouTube 和众多其他网站下载视频。它是 youtube-dl 的分支，具有更多功能并保持活跃维护。
 
-The tool supports thousands of sites, not just YouTube. Use **--list-extractors** to see all supported sites.
+该工具支持数千个网站，不限于 YouTube。使用 **--list-extractors** 可查看所有支持的站点。
 
-Format selection is powerful: **bestvideo+bestaudio** merges separate streams, **best[height<=720]** limits quality, and specific format codes from **-F** select exact streams.
+格式选择非常强大：**bestvideo+bestaudio** 合并分离的流，**best[height<=720]** 限制画质，而 **-F** 得到的具体格式代码可选择确切的流。
 
-Configuration can be stored in **~/.config/yt-dlp/config** for default options.
+配置可保存在 **~/.config/yt-dlp/config** 中作为默认选项。
 
 # CAVEATS
 
-Site support depends on extractor updates. When sites change, extractors may break until updated. Run **yt-dlp -U** regularly.
+站点支持依赖提取器的更新。网站改版后，提取器在更新前可能失效。请定期运行 **yt-dlp -U**。
 
-Some sites require authentication. Use **--cookies-from-browser** or **--cookies** to provide login cookies.
+部分站点需要身份验证。使用 **--cookies-from-browser** 或 **--cookies** 提供登录 Cookie。
 
-Downloaded content may be subject to copyright. Respect content creators' rights and terms of service.
+下载的内容可能受版权保护。请尊重内容创作者的权利和服务条款。
 
-Merging formats requires **ffmpeg** to be installed for proper video/audio combination.
+合并格式需要安装 **ffmpeg** 才能正确组合视频/音频。
 
 # INSTALL
 

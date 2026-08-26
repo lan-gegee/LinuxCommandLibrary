@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modern terminal workspace multiplexer
+现代终端工作区多路复用器
 
 # TLDR
 
-**Start a new session**
+**启动新会话**
 
 ```zellij```
 
-**Start a named session**
+**启动命名会话**
 
 ```zellij -s [session_name]```
 
-**List existing sessions**
+**列出现有会话**
 
 ```zellij list-sessions```
 
-**Attach to existing session**
+**附加到现有会话**
 
 ```zellij attach [session_name]```
 
-**Run with specific layout**
+**使用指定布局运行**
 
 ```zellij --layout [layout_name]```
 
-**Detach from session (keybinding)**
+**脱离会话（快捷键）**
 
 ```Ctrl+o d```
 
@@ -35,60 +35,60 @@ Modern terminal workspace multiplexer
 # PARAMETERS
 
 **-s**, **--session** _name_
-> Name for the new session
+> 新会话的名称
 
 **--layout** _layout_
-> Use specified layout file
+> 使用指定的布局文件
 
 **-l**, **--layout-path** _path_
-> Path to layout file
+> 布局文件的路径
 
 **-c**, **--config** _file_
-> Path to config file
+> 配置文件的路径
 
 **--config-dir** _dir_
-> Path to config directory
+> 配置目录的路径
 
 **-n**, **--new-session-with-layout** _layout_
-> Create new session with layout
+> 使用布局创建新会话
 
 # SUBCOMMANDS
 
 **attach** _name_
-> Attach to an existing session
+> 附加到现有会话
 
 **list-sessions**, **ls**
-> List active sessions
+> 列出活动会话
 
 **kill-session** _name_
-> Kill specified session
+> 终止指定会话
 
 **kill-all-sessions**
-> Kill all sessions
+> 终止所有会话
 
 **setup**
-> Setup wizard and shell integration
+> 设置向导与 Shell 集成
 
 **options**
-> Change session options
+> 更改会话选项
 
 # DESCRIPTION
 
-**zellij** is a terminal workspace manager (multiplexer) similar to tmux and screen, but with a modern approach. It provides panes, tabs, and sessions with a discoverable keyboard-driven interface.
+**zellij** 是一个终端工作区管理器（多路复用器），类似于 tmux 和 screen，但采用了更现代的方式。它提供窗格、标签页和会话，界面键盘驱动且易于发现。
 
-Key features include floating panes, a plugin system (WebAssembly-based), built-in layouts for common workflows, and a status bar showing available keybindings.
+主要特性包括浮动窗格、插件系统（基于 WebAssembly）、面向常见工作流的内置布局，以及显示可用快捷键的状态栏。
 
-Default keybindings use modes accessed via **Ctrl+key**: **Ctrl+p** for pane mode, **Ctrl+t** for tab mode, **Ctrl+n** for resize mode, **Ctrl+h** for move mode, **Ctrl+s** for scroll mode, **Ctrl+o** for session mode.
+默认快捷键通过 **Ctrl+按键** 进入不同模式：**Ctrl+p** 窗格模式、**Ctrl+t** 标签页模式、**Ctrl+n** 调整大小模式、**Ctrl+h** 移动模式、**Ctrl+s** 滚动模式、**Ctrl+o** 会话模式。
 
-Configuration is in **~/.config/zellij/config.kdl** using KDL format. Layouts define pane arrangements for reusable workspace setups.
+配置位于 **~/.config/zellij/config.kdl**，采用 KDL 格式。布局定义了窗格排列方式，便于复用工作区设置。
 
 # CAVEATS
 
-Some key combinations may conflict with shell or application bindings. Zellij's mode system helps avoid conflicts.
+某些组合键可能与 Shell 或应用程序的绑定冲突。Zellij 的模式系统有助于避免冲突。
 
-Plugin development requires Rust and WebAssembly knowledge.
+插件开发需要 Rust 和 WebAssembly 知识。
 
-Sessions persist until explicitly killed, potentially consuming resources if forgotten.
+会话会一直保留直到被显式终止，若被遗忘可能持续占用资源。
 
 # INSTALL
 

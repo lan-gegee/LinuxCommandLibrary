@@ -1,26 +1,26 @@
 # TAGLINE
 
-Secure tunneling and sharing platform
+安全的隧道与共享平台
 
 # TLDR
 
-**Share local HTTP service publicly**
+**公开共享本地 HTTP 服务**
 
 ```zrok share public localhost:[port]```
 
-**Share with reserved subdomain**
+**以保留子域名共享**
 
 ```zrok reserve public localhost:[port] --unique-name [subdomain]```
 
-**Share privately (requires zrok access)**
+**私密共享（需要 zrok access）**
 
 ```zrok share private localhost:[port]```
 
-**Access private share**
+**访问私有共享**
 
 ```zrok access private [share_token]```
 
-**Copy files to share**
+**复制文件到共享**
 
 ```zrok copy [file] [share_token]:[remote_path]```
 
@@ -31,68 +31,68 @@ Secure tunneling and sharing platform
 # SUBCOMMANDS
 
 **enable**
-> Enable zrok environment
+> 启用 zrok 环境
 
 **share** _mode_ _target_
-> Share local resource
+> 共享本地资源
 
 **reserve** _mode_ _target_
-> Create reserved share
+> 创建保留的共享
 
 **release** _share_
-> Release reserved share
+> 释放保留的共享
 
 **access** _mode_ _share_
-> Access shared resource
+> 访问共享资源
 
 **copy**
-> Copy files to/from shares
+> 向共享复制文件或从共享复制文件
 
 **status**
-> Show environment status
+> 显示环境状态
 
 **disable**
-> Disable zrok environment
+> 禁用 zrok 环境
 
-# PARAMETERS (share)
+# 参数（share）
 
 **public**
-> Publicly accessible share
+> 公开可访问的共享
 
 **private**
-> Share accessible only with token
+> 仅凭令牌访问的共享
 
 **--backend-mode** _mode_
-> Backend type (proxy, web, files)
+> 后端类型（proxy、web、files）
 
 **--unique-name** _name_
-> Reserve specific subdomain
+> 保留特定的子域名
 
 **--headless**
-> Run without terminal UI
+> 不使用终端 UI 运行
 
 # DESCRIPTION
 
-**zrok** is a next-generation sharing platform built on OpenZiti, providing secure tunneling for HTTP services, files, and arbitrary TCP/UDP traffic.
+**zrok** 是构建在 OpenZiti 之上的新一代共享平台，为 HTTP 服务、文件和任意 TCP/UDP 流量提供安全隧道。
 
-Public shares create internet-accessible URLs pointing to local services. Private shares require an access token and go through encrypted Ziti network overlay, providing zero-trust security.
+公开共享会生成指向本地服务的互联网可访问 URL。私有共享则需要访问令牌，流量经由加密的 Ziti 叠加网络传输，提供零信任安全。
 
-zrok can share:
-- HTTP/HTTPS services (web apps, APIs)
-- Static files (file server mode)
-- Raw TCP/UDP endpoints
+zrok 可以共享：
+- HTTP/HTTPS 服务（Web 应用、API）
+- 静态文件（文件服务器模式）
+- 原始 TCP/UDP 端点
 
-Unlike simple tunnels, zrok's private shares never expose traffic to the public internet - all traffic stays within the zero-trust overlay network.
+与简单的隧道不同，zrok 的私有共享绝不会把流量暴露给公共互联网——所有流量都留在零信任叠加网络内部。
 
 # CAVEATS
 
-Public shares expose your local service to the internet. Ensure appropriate authentication/security.
+公开共享会把你的本地服务暴露到互联网上。请确保有适当的身份验证/安全措施。
 
-Free tier has usage limits. Heavy usage may require a paid account or self-hosted infrastructure.
+免费套餐有用量限制。重度使用可能需要付费账户或自行部署基础设施。
 
-Reserved names persist but shares don't - you must re-run share commands after restart.
+保留名称会持久存在，但共享不会——重启之后必须重新运行 share 命令。
 
-zrok account required. Run **zrok invite** to get started.
+需要 zrok 账户。运行 **zrok invite** 即可开始使用。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate Zapier integration boilerplate code
+生成 Zapier 集成样板代码
 
 # TLDR
 
-**Scaffold trigger**
+**搭建触发器脚手架**
 
 ```zapier scaffold trigger [name]```
 
-**Scaffold create action**
+**搭建创建操作脚手架**
 
 ```zapier scaffold create [name]```
 
-**Scaffold search action**
+**搭建搜索操作脚手架**
 
 ```zapier scaffold search [name]```
 
@@ -23,22 +23,21 @@ Generate Zapier integration boilerplate code
 # PARAMETERS
 
 **trigger** _name_
-> Create trigger scaffold.
+> 创建触发器脚手架。
 
 **create** _name_
-> Create action scaffold.
+> 创建操作（create）脚手架。
 
 **search** _name_
-> Create search scaffold.
+> 创建搜索脚手架。
 
 **resource** _name_
-> Create resource scaffold.
+> 创建资源脚手架。
 
 # DESCRIPTION
 
-**zapier scaffold** generates boilerplate code for integration components. Creates triggers, actions, and searches with starter code. Speeds up integration development.
+**zapier scaffold** 为集成组件生成样板代码，用起始代码创建触发器、操作和搜索。可加快集成开发速度。
 
 # SEE ALSO
 
 [zapier](/man/zapier)(1), [zapier-init](/man/zapier-init)(1)
-

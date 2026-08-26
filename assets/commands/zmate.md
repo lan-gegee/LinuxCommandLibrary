@@ -1,14 +1,14 @@
 # TAGLINE
 
-Instant terminal sharing using Zellij sessions
+基于 Zellij 会话的即时终端共享
 
 # TLDR
 
-**Start sharing the current Zellij session**
+**开始共享当前 Zellij 会话**
 
 ```zmate```
 
-**Share on a custom port**
+**在自定义端口上共享**
 
 ```zmate -p [3333]```
 
@@ -18,11 +18,11 @@ Instant terminal sharing using Zellij sessions
 
 # DESCRIPTION
 
-**zmate** lets you share a Zellij terminal session with others instantly over untrusted networks or behind NAT gateways. It uses SSH remote port-forwarding tunnels through a public SSH server. Inspired by tmate but designed for Zellij instead of tmux.
+**zmate** 让你能在不受信任的网络或 NAT 网关之后，即时与他人共享 Zellij 终端会话。它借助一台公共 SSH 服务器建立 SSH 远程端口转发隧道。灵感来自 tmate，但面向 Zellij 而非 tmux 设计。
 
 # HISTORY
 
-**zmate** was created by **ziinaio** and is written in **Go**.
+**zmate** 由 **ziinaio** 创建，使用 **Go** 编写。
 
 # INSTALL
 

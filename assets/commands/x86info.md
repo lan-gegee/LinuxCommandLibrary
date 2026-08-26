@@ -1,38 +1,38 @@
 # TAGLINE
 
-Detailed x86 CPU diagnostic information
+详细的 x86 CPU 诊断信息
 
 # TLDR
 
-**Display all CPU information**
+**显示全部 CPU 信息**
 
 ```x86info -a```
 
-**Show CPU feature flags**
+**显示 CPU 特性标志**
 
 ```x86info -f```
 
-**Show cache and TLB information**
+**显示缓存和 TLB 信息**
 
 ```x86info -c```
 
-**Estimate current clock speed**
+**估算当前时钟频率**
 
 ```x86info -mhz```
 
-**Show raw CPUID register values**
+**显示原始 CPUID 寄存器值**
 
 ```x86info -r```
 
-**Dump model-specific registers** (requires root)
+**转储型号专用寄存器**（需要 root 权限）
 
 ```sudo x86info -m```
 
-**Show verbose descriptions**
+**显示详细描述**
 
 ```x86info -v```
 
-**Dump MP table** (multiprocessor info)
+**转储 MP 表**（多处理器信息）
 
 ```sudo x86info -mp```
 
@@ -43,50 +43,50 @@ Detailed x86 CPU diagnostic information
 # PARAMETERS
 
 **-a**, **--all**
-> Show all available information. Equivalent to -c -f -m -r -mhz.
+> 显示所有可用信息。等价于 -c -f -m -r -mhz。
 
 **-c**, **--cache**
-> Display TLB and cache sizes, including cache associativity.
+> 显示 TLB 和缓存大小，包括缓存相联度。
 
 **-f**, **--flags**
-> Show CPU feature flags (SSE, AVX, etc.).
+> 显示 CPU 特性标志（SSE、AVX 等）。
 
 **-m**, **--msr**
-> Dump model-specific registers. Requires root and supported processor.
+> 转储型号专用寄存器。需要 root 权限和受支持的处理器。
 
 **-mhz**, **--mhz**
-> Estimate current CPU clock rate.
+> 估算当前 CPU 时钟频率。
 
 **-mp**, **--mptable**
-> Dump MP table showing CPUs known to BIOS.
+> 转储 MP 表，显示 BIOS 已知的 CPU。
 
 **-r**, **--registers**
-> Show raw register values from all possible CPUID calls.
+> 显示所有可能的 CPUID 调用返回的原始寄存器值。
 
 **-s**, **--show-machine-check**
-> Display machine check exception information.
+> 显示机器检查异常信息。
 
 **-v**, **--verbose**
-> Show verbose descriptions of CPU features.
+> 显示 CPU 特性的详细描述。
 
 **-?**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**x86info** displays detailed diagnostic information about x86 CPUs, including processor identification, feature flags, cache topology, and model-specific registers. It queries the processor using the CPUID instruction and MSR (Model Specific Register) reads.
+**x86info** 显示关于 x86 CPU 的详细诊断信息，包括处理器标识、特性标志、缓存拓扑和型号专用寄存器。它通过 CPUID 指令和 MSR（Model Specific Register，型号专用寄存器）读取来查询处理器。
 
-The tool provides information similar to /proc/cpuinfo but with more detail, including cache associativity, TLB configuration, and raw CPUID data. It can identify the CPU vendor, family, model, and stepping, along with supported instruction set extensions.
+该工具提供的信息与 /proc/cpuinfo 类似但更加详细，包括缓存相联度、TLB 配置和原始 CPUID 数据。它可以识别 CPU 的厂商、家族、型号和步进，以及支持的指令集扩展。
 
-For full functionality, the kernel must have CPUID and MSR device drivers enabled, creating device files at /dev/cpu/\<n\>/cpuid and /dev/cpu/\<n\>/msr. Some options (MSR reading, MP table) require root privileges.
+要获得完整功能，内核必须启用 CPUID 和 MSR 设备驱动，并在 /dev/cpu/\<n\>/cpuid 和 /dev/cpu/\<n\>/msr 创建设备文件。某些选项（MSR 读取、MP 表）需要 root 权限。
 
 # CAVEATS
 
-Requires CPUID and MSR kernel modules for full functionality. MSR access requires root privileges. Model-specific register support varies by processor. Clock rate estimation may be inaccurate on systems with frequency scaling.
+完整功能需要 CPUID 和 MSR 内核模块。访问 MSR 需要 root 权限。型号专用寄存器的支持因处理器而异。在启用频率调节的系统上，时钟频率估算可能不准确。
 
 # HISTORY
 
-**x86info** was written by **Dave Jones** (davej@redhat.com), who also contributed significantly to the Linux kernel's CPU identification code. The tool has been available since the early **2000s** and provides detailed x86 CPU diagnostics not easily available through other means.
+**x86info** 由 **Dave Jones**（davej@redhat.com）编写，他对 Linux 内核的 CPU 识别代码也做出了重要贡献。该工具自 **2000 年代初**起就已可用，提供通过其他方式不易获得的详细 x86 CPU 诊断信息。
 
 # INSTALL
 

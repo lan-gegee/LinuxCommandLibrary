@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Windows icons to PPM format
+将 Windows 图标转换为 PPM 格式
 
 # TLDR
 
-**Convert Windows icon to PPM**
+**将 Windows 图标转换为 PPM**
 
 ```winicontoppm [input.ico] > [output.ppm]```
 
-**Extract specific image**
+**提取特定图像**
 
 ```winicontoppm -image [0] [input.ico] > [output.ppm]```
 
@@ -19,14 +19,14 @@ Convert Windows icons to PPM format
 # PARAMETERS
 
 **-image** _n_
-> Extract specific image index.
+> 提取指定索引的图像。
 
 **-verbose**
-> Print icon information.
+> 打印图标信息。
 
 # DESCRIPTION
 
-**winicontoppm** converts Windows ICO files to PPM format. Does not preserve transparency; use winicontopam for alpha channel. Part of Netpbm toolkit.
+**winicontoppm** 将 Windows ICO 文件转换为 PPM 格式。不保留透明度；需要 alpha 通道请使用 winicontopam。属于 Netpbm 工具集。
 
 # INSTALL
 

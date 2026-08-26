@@ -1,26 +1,26 @@
 # TAGLINE
 
-Search gzip-compressed files with extended regex
+使用扩展正则表达式搜索 gzip 压缩文件
 
 # TLDR
 
-**Search for pattern in gzipped file**
+**在 gzip 压缩文件中搜索模式**
 
 ```zegrep "[pattern]" [file.gz]```
 
-**Case-insensitive search**
+**不区分大小写搜索**
 
 ```zegrep -i "[pattern]" [file.gz]```
 
-**Show line numbers**
+**显示行号**
 
 ```zegrep -n "[pattern]" [file.gz]```
 
-**Search multiple files**
+**搜索多个文件**
 
 ```zegrep "[pattern]" [file1.gz] [file2.gz]```
 
-**Extended regex search (alternation, quantifiers)**
+**扩展正则表达式搜索（选择、量词）**
 
 ```zegrep "(foo|bar)+" [file.gz]```
 
@@ -31,45 +31,45 @@ Search gzip-compressed files with extended regex
 # PARAMETERS
 
 **-i**
-> Case-insensitive matching
+> 不区分大小写匹配
 
 **-n**
-> Show line numbers
+> 显示行号
 
 **-l**
-> List filenames with matches only
+> 只列出包含匹配项的文件名
 
 **-c**
-> Count matching lines
+> 统计匹配的行数
 
 **-v**
-> Invert match (show non-matching lines)
+> 反向匹配（显示不匹配的行）
 
 **-h**
-> Suppress filename in output
+> 输出中不显示文件名
 
 **-e** _pattern_
-> Specify pattern (useful for patterns starting with -)
+> 指定模式（对以 - 开头的模式很有用）
 
 # DESCRIPTION
 
-**zegrep** searches for patterns in gzip-compressed files without manually decompressing them. It's equivalent to **zcat file.gz | egrep pattern** but more convenient.
+**zegrep** 在 gzip 压缩文件中搜索模式，无需手动解压。它等价于 **zcat file.gz | egrep pattern**，但更方便。
 
-The "e" indicates extended regular expression support, same as **grep -E**. This allows patterns with **+**, **?**, **|**, and **()** without escaping.
+其中的 "e" 表示支持扩展正则表达式，与 **grep -E** 相同。这允许模式中使用 **+**、**?**、**|** 和 **()** 而无需转义。
 
-zegrep automatically detects whether input files are compressed. Uncompressed files are searched normally, making it safe to use on mixed file sets.
+zegrep 会自动检测输入文件是否被压缩。未压缩的文件按常规方式搜索，因此可以放心用于混合文件集合。
 
-Multiple patterns can be specified with **-e** or by separating with **|** in the pattern.
+可以使用 **-e** 指定多个模式，或在模式中用 **|** 分隔。
 
 # CAVEATS
 
-zegrep decompresses files to search them, which uses CPU. For large compressed files, this may be slow.
+zegrep 需要先解压文件才能搜索，这会消耗 CPU。对于较大的压缩文件，速度可能较慢。
 
-Only gzip compression is supported. For other formats, use **bzgrep** (bzip2) or **xzgrep** (xz).
+仅支持 gzip 压缩。其他格式请使用 **bzgrep**（bzip2）或 **xzgrep**（xz）。
 
-Memory usage scales with decompressed file size as the file must be processed through the decompressor.
+内存占用随解压后的文件大小增长，因为文件必须经过解压器处理。
 
-On some systems, zegrep is a script wrapper around zcat and egrep.
+在某些系统上，zegrep 是围绕 zcat 和 egrep 的脚本封装。
 
 # INSTALL
 

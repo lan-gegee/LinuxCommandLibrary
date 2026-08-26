@@ -1,38 +1,38 @@
 # TAGLINE
 
-Userspace Xbox controller driver
+用户态 Xbox 手柄驱动
 
 # TLDR
 
-**Start driver for connected controller**
+**为已连接的手柄启动驱动**
 
 ```sudo xboxdrv```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```sudo xboxdrv --daemon --detach```
 
-**Run with PID file**
+**运行时使用 PID 文件**
 
 ```sudo xboxdrv --daemon --detach --pid-file [/var/run/xboxdrv.pid]```
 
-**Use configuration file**
+**使用配置文件**
 
 ```sudo xboxdrv -c [/etc/default/xboxdrv]```
 
-**Silent mode**
+**安静模式**
 
 ```sudo xboxdrv --silent```
 
-**List connected controllers**
+**列出已连接的手柄**
 
 ```sudo xboxdrv --list-controller```
 
-**Map triggers as buttons** instead of axes
+**将扳机键映射为按钮**而不是轴
 
 ```sudo xboxdrv --trigger-as-button```
 
-**Set custom deadzone** for analog sticks
+**为摇杆设置自定义死区**
 
 ```sudo xboxdrv --deadzone [4000]```
 
@@ -43,47 +43,47 @@ Userspace Xbox controller driver
 # PARAMETERS
 
 **-D**, **--daemon**
-> Run as daemon, listening for USB events.
+> 以守护进程方式运行，监听 USB 事件。
 
 **--detach**
-> Detach from terminal when daemonizing.
+> 守护进程化时脱离终端。
 
 **--pid-file** _file_
-> Write PID to file.
+> 将 PID 写入文件。
 
 **-c**, **--config** _file_
-> Use configuration file.
+> 使用配置文件。
 
 **--silent**
-> Suppress normal output.
+> 抑制常规输出。
 
 **--list-controller**
-> List connected controllers.
+> 列出已连接的手柄。
 
 **-l**, **--led** _num_
-> Set LED status (0-off, 1-4 player number).
+> 设置 LED 状态（0 为关闭，1-4 为玩家编号）。
 
 **--deadzone** _value_
-> Set analog stick deadzone.
+> 设置模拟摇杆死区。
 
 **--trigger-as-button**
-> Map triggers as buttons.
+> 将扳机键映射为按钮。
 
 # DESCRIPTION
 
-**xboxdrv** is a userspace driver for Xbox and Xbox 360 controllers on Linux. It provides an alternative to the xpad kernel driver with additional features like button remapping, deadzone configuration, and multiple controller support.
+**xboxdrv** 是 Linux 上 Xbox 和 Xbox 360 手柄的用户态驱动。它作为 xpad 内核驱动的替代方案，提供额外的功能，如按键重映射、死区配置和多手柄支持。
 
-The driver creates virtual input devices through uinput, making controllers work with games and applications. Daemon mode automatically handles controller connection/disconnection events.
+该驱动通过 uinput 创建虚拟输入设备，使手柄可以在游戏和应用程序中正常工作。守护进程模式会自动处理手柄的连接/断开事件。
 
-Configuration files allow per-controller settings and complex mappings. The driver supports wired USB controllers and wireless controllers with the Xbox 360 wireless receiver.
+配置文件允许针对每个手柄进行设置和复杂的映射。该驱动支持有线 USB 手柄以及配合 Xbox 360 无线接收器使用的无线手柄。
 
 # CAVEATS
 
-Deprecated in favor of kernel xpad driver (Linux 6.1+). Requires uinput kernel module. Needs root or udev rules for USB access. May conflict with xpad kernel module.
+已被内核 xpad 驱动取代（Linux 6.1+），不再推荐使用。需要 uinput 内核模块。访问 USB 需要 root 权限或 udev 规则。可能与 xpad 内核模块冲突。
 
 # HISTORY
 
-**xboxdrv** was created when Linux kernel support for Xbox controllers was incomplete. It provided features the kernel driver lacked. As kernel support improved, xboxdrv development was discontinued, with users encouraged to use the kernel driver instead.
+**xboxdrv** 诞生于 Linux 内核对 Xbox 手柄支持尚不完善的时期。它提供了内核驱动所缺少的功能。随着内核支持的改进，xboxdrv 停止了开发，用户被建议改用内核驱动。
 
 # INSTALL
 

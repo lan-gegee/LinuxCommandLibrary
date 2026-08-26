@@ -1,22 +1,22 @@
 # TAGLINE
 
-Quick WireGuard VPN tunnel setup
+快速搭建 WireGuard VPN 隧道
 
 # TLDR
 
-**Bring up a WireGuard tunnel**
+**启动 WireGuard 隧道**
 
 ```sudo wg-quick up [wg0]```
 
-**Tear down a WireGuard tunnel**
+**关闭 WireGuard 隧道**
 
 ```sudo wg-quick down [wg0]```
 
-**Bring up a tunnel from a specific config file**
+**从指定的配置文件启动隧道**
 
 ```sudo wg-quick up [/etc/wireguard/wg0.conf]```
 
-**Save current interface state to config**
+**将当前接口状态保存到配置文件**
 
 ```sudo wg-quick save [wg0]```
 
@@ -27,30 +27,30 @@ Quick WireGuard VPN tunnel setup
 # PARAMETERS
 
 **up _interface_**
-> Bring up a WireGuard interface using config file
+> 使用配置文件启动 WireGuard 接口
 
 **down _interface_**
-> Tear down a WireGuard interface
+> 关闭 WireGuard 接口
 
 **save _interface_**
-> Save current configuration to config file
+> 将当前配置保存到配置文件
 
 **strip _interface_**
-> Output configuration without wg-quick-specific options
+> 输出不含 wg-quick 专属选项的配置
 
 # DESCRIPTION
 
-**wg-quick** is a convenience wrapper for setting up WireGuard VPN tunnels quickly. It reads configuration files from **/etc/wireguard/** and handles interface creation, routing, and DNS configuration automatically.
+**wg-quick** 是一个便捷的封装工具，用于快速搭建 WireGuard VPN 隧道。它从 **/etc/wireguard/** 读取配置文件，并自动处理接口创建、路由和 DNS 配置。
 
-Configuration files are named **[interface].conf** (e.g., **/etc/wireguard/wg0.conf**) and contain both WireGuard settings and wg-quick-specific options like Address, DNS, and routing rules.
+配置文件命名为 **[interface].conf**（例如 **/etc/wireguard/wg0.conf**），其中既包含 WireGuard 设置，也包含 Address、DNS 和路由规则等 wg-quick 专属选项。
 
 # CAVEATS
 
-Requires root privileges. Configuration files must exist in **/etc/wireguard/**. The script modifies routing tables and may affect network connectivity. DNS changes require resolvconf or systemd-resolved support.
+需要 root 权限。配置文件必须存在于 **/etc/wireguard/** 中。该脚本会修改路由表，可能影响网络连接。DNS 更改需要 resolvconf 或 systemd-resolved 支持。
 
 # HISTORY
 
-**wg-quick** is part of the WireGuard tools, created by **Jason A. Donenfeld**. WireGuard was initially developed as a Linux kernel module and merged into the mainline Linux kernel in version **5.6** (March 2020). The wg-quick script simplifies the setup that would otherwise require multiple **wg** and **ip** commands.
+**wg-quick** 是 WireGuard 工具的一部分，由 **Jason A. Donenfeld** 创建。WireGuard 最初作为 Linux 内核模块开发，并在 **5.6** 版本（2020 年 3 月）合入主线 Linux 内核。wg-quick 脚本简化了原本需要多条 **wg** 和 **ip** 命令才能完成的设置工作。
 
 # INSTALL
 

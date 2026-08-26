@@ -1,10 +1,10 @@
 # TAGLINE
 
-View zstd compressed files with pager
+用分页器查看 zstd 压缩文件
 
 # TLDR
 
-**View zstd compressed file**
+**查看 zstd 压缩文件**
 
 ```zstdless [file.zst]```
 
@@ -14,9 +14,9 @@ View zstd compressed files with pager
 
 # DESCRIPTION
 
-**zstdless** allows viewing of Zstandard (.zst) compressed files using the **less** pager. It decompresses the file on the fly and pipes the output to less, providing the full interactive navigation experience including forward and backward scrolling, searching, and line jumping.
+**zstdless** 让你可以借助 **less** 分页器查看 Zstandard（.zst）压缩文件。它会即时解压文件并把输出通过管道传给 less，从而获得完整的交互式浏览体验，包括前后滚动、搜索和跳转到指定行。
 
-This is particularly useful for browsing compressed log files and data without needing to decompress them to disk first. It is part of the zstd suite of compression utilities.
+这对于浏览压缩的日志文件和数据尤为有用，无需先将其解压到磁盘。它是 zstd 压缩工具套件的一部分。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ This is particularly useful for browsing compressed log files and data without n
 # SEE ALSO
 
 [zstd](/man/zstd)(1), [zstdcat](/man/zstdcat)(1), [less](/man/less)(1)
-

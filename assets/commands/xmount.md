@@ -1,18 +1,18 @@
 # TAGLINE
 
-Virtual disk image format conversion
+虚拟磁盘镜像格式转换
 
 # TLDR
 
-Mount **raw to DMG**
+将 **raw 挂载为 DMG**
 
 ```xmount --in raw [path/to/image.dd] --out dmg [mountpoint]```
 
-Mount **EWF to VHD** with cache
+带缓存将 **EWF 挂载为 VHD**
 
 ```xmount --cache [path/to/cache.ovl] --in ewf [path/to/image.E??] --out vhd [mountpoint]```
 
-Mount **partition** at offset
+在偏移处挂载**分区**
 
 ```xmount --offset 2048 --in raw [path/to/image.dd] --out raw [mountpoint]```
 
@@ -23,29 +23,29 @@ Mount **partition** at offset
 # PARAMETERS
 
 **--in** _FORMAT_ _IMAGE_
-> Input format and image file (raw, ewf, aff, etc.)
+> 输入格式和镜像文件（raw、ewf、aff 等）
 
 **--out** _FORMAT_
-> Output format (raw, dmg, vhd, vdi, vmdk)
+> 输出格式（raw、dmg、vhd、vdi、vmdk）
 
 **--cache** _FILE_
-> Write cache file for modifications
+> 用于记录修改的写入缓存文件
 
 **--offset** _SECTORS_
-> Offset to partition in sectors
+> 分区的扇区偏移量
 
 **--sizelimit** _BYTES_
-> Limit virtual image size
+> 限制虚拟镜像的大小
 
 # DESCRIPTION
 
-**xmount** creates virtual disk images using FUSE, converting between formats on-the-fly. It's useful for forensic analysis, allowing read-only access to disk images in different formats.
+**xmount** 使用 FUSE 创建虚拟磁盘镜像，并在格式之间实时转换。它对取证分析很有用，允许以只读方式访问不同格式的磁盘镜像。
 
-Write cache support enables modifications without altering the original image.
+写入缓存支持使你能够进行修改而不改动原始镜像。
 
 # CAVEATS
 
-Requires FUSE support. Some format conversions may not support all features. Used primarily for forensic and virtualization purposes.
+需要 FUSE 支持。某些格式转换可能不支持全部特性。主要用于取证和虚拟化用途。
 
 # INSTALL
 

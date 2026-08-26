@@ -1,22 +1,22 @@
 # TAGLINE
 
-YAML templating tool that understands YAML structure
+理解 YAML 结构的 YAML 模板工具
 
 # TLDR
 
-**Render** a template
+**渲染**模板
 
 ```ytt -f [template.yml]```
 
-**Overlay** data values
+**覆盖**数据值
 
 ```ytt -f [template.yml] --data-value [key=value]```
 
-**Multiple** files / directories
+**多个**文件/目录
 
 ```ytt -f [config/] -f [values.yml]```
 
-**Output** to a file
+**输出**到文件
 
 ```ytt -f [template.yml] > [out.yml]```
 
@@ -26,33 +26,33 @@ YAML templating tool that understands YAML structure
 
 # DESCRIPTION
 
-**ytt** (from Carvel) templates YAML by operating on the YAML structure rather than raw text, reducing indentation bugs common with string templates. It supports data values, overlays, functions, and modular libraries—popular for Kubernetes manifests alongside **kapp** and **kbld**.
+**ytt**（来自 Carvel）通过操作 YAML 结构而非原始文本来模板化 YAML，减少了字符串模板常见的缩进错误。它支持数据值、叠加（overlay）、函数和模块化库——与 **kapp** 和 **kbld** 一起常用于 Kubernetes 清单。
 
-Docs: https://carvel.dev/ytt/
+文档：https://carvel.dev/ytt/
 
 # PARAMETERS
 
 **-f**, **--file** *path*
 
-> Template or data file/directory (repeatable).
+> 模板或数据文件/目录（可重复）。
 
 **--data-value** *key=value*
 
-> Set a data value.
+> 设置一个数据值。
 
 **--data-values-file** *path*
 
-> Load data values from YAML.
+> 从 YAML 加载数据值。
 
 **--output-files** *dir*
 
-> Write results as files.
+> 将结果写为文件。
 
-See **ytt --help** for strict mode, warnings, and library paths.
+严格模式、警告和库路径见 **ytt --help**。
 
 # CAVEATS
 
-Learning curve differs from Helm/Go templates. Invalid YAML inputs fail closed. Combine with **kapp** for deploy workflows.
+学习曲线与 Helm/Go 模板不同。无效的 YAML 输入会导致直接失败。可与 **kapp** 组合构建部署工作流。
 
 # INSTALL
 

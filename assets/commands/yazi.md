@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast async terminal file manager
+快速的异步终端文件管理器
 
 # TLDR
 
-**Start file manager**
+**启动文件管理器**
 
 ```yazi```
 
-**Open specific directory**
+**打开特定目录**
 
 ```yazi [/path/to/directory]```
 
-**Change directory on exit**
+**退出时切换目录**
 
 ```ya () { local tmp="$(mktemp -t "yazi-cwd.XXXXX")"; yazi "$@" --cwd-file="$tmp"; cd "$(cat "$tmp")"; rm "$tmp"; }```
 
-**Start with specific config directory**
+**以指定的配置目录启动**
 
 ```yazi --config-dir [~/.config/yazi]```
 
-**Show debug information**
+**显示调试信息**
 
 ```yazi --debug```
 
@@ -31,97 +31,97 @@ Fast async terminal file manager
 # PARAMETERS
 
 **--cwd-file** _FILE_
-> Write CWD to file on exit.
+> 退出时将当前工作目录写入文件。
 
 **--chooser-file** _FILE_
-> Write selected files to file.
+> 将选中的文件写入文件。
 
 **--config-dir** _DIR_
-> Custom config directory.
+> 自定义配置目录。
 
 **--clear-cache**
-> Clear thumbnail cache.
+> 清除缩略图缓存。
 
 **--debug**
-> Print debug information for bug reports.
+> 打印用于 bug 报告的调试信息。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # KEYBOARD SHORTCUTS
 
 **h / l**
-> Navigate parent / enter directory.
+> 返回上级目录 / 进入目录。
 
 **j / k**
-> Move down / up.
+> 向下 / 向上移动。
 
 **gg / G**
-> Go to first / last item.
+> 跳到第一个 / 最后一个条目。
 
 **Space**
-> Toggle selection.
+> 切换选中状态。
 
 **Enter**
-> Open file.
+> 打开文件。
 
 **y**
-> Yank (copy) selection.
+> 复制（yank）选中项。
 
 **d**
-> Delete selection.
+> 删除选中项。
 
 **p**
-> Paste.
+> 粘贴。
 
 **r**
-> Rename.
+> 重命名。
 
 **a**
-> Create file.
+> 创建文件。
 
 **/**
-> Search.
+> 搜索。
 
 **n / N**
-> Next / previous search result.
+> 下一个 / 上一个搜索结果。
 
 **Tab**
-> Switch to next tab.
+> 切换到下一个标签页。
 
 **q**
-> Quit.
+> 退出。
 
 **~**
-> Go to home directory.
+> 回到主目录。
 
 **?**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**yazi** is a blazingly fast terminal file manager written in Rust. It emphasizes performance through async I/O and modern rendering.
+**yazi** 是一款用 Rust 编写、速度极快的终端文件管理器。它通过异步 I/O 和现代渲染技术着重提升性能。
 
-Navigation uses vim-like keybindings by default. Preview pane shows file contents, images (via terminal graphics), videos, PDFs, and archives. Syntax highlighting applies to code files.
+导航默认使用类似 vim 的按键绑定。预览窗格可以显示文件内容、图片（通过终端图形协议）、视频、PDF 以及归档。代码文件会应用语法高亮。
 
-Selection works across directories. Multiple files can be yanked and pasted in batch operations. Cut/copy/paste mirrors GUI file manager behavior.
+选择操作可跨目录进行。多个文件可以批量剪切/复制/粘贴，行为与 GUI 文件管理器一致。
 
-Tabs enable multiple directory views. Split panes compare directories side by side. Marks bookmark frequently accessed locations.
+标签页支持同时查看多个目录。分屏窗格可以并排比较目录。书签可以收藏常用位置。
 
-Plugins extend functionality through Lua scripting. Themes customize colors and icons. Configuration covers keybindings, sorting, and preview behavior.
+插件通过 Lua 脚本扩展功能。主题可以自定义颜色和图标。配置涵盖按键绑定、排序和预览行为。
 
-Image preview works in terminals supporting graphics protocols (Kitty, iTerm2, Sixel). Fallback uses ASCII art.
+图片预览需要终端支持图形协议（Kitty、iTerm2、Sixel）。不支持时回退为 ASCII 图形。
 
 # CAVEATS
 
-Terminal graphics require compatible terminal. Some features need external tools (ffmpegthumbnailer for video). Configuration in Lua may have learning curve. Newer project with evolving features. Shell wrapper needed for cd-on-exit.
+终端图形预览需要兼容的终端。部分功能依赖外部工具（视频预览需要 ffmpegthumbnailer）。Lua 配置有一定学习曲线。这是一个较新的项目，特性仍在演进。退出时切换目录需要 Shell 包装函数。
 
 # HISTORY
 
-**yazi** was created by **sxyazi** around **2023**. The name means "duck" in Chinese. Written in Rust with async architecture, it emerged as a faster alternative to ranger and lf. The project gained rapid adoption for its performance and modern features.
+**yazi** 由 **sxyazi** 于 **2023 年**前后创建。名字在中文里意为"鸭子"。它采用 Rust 编写并基于异步架构，作为 ranger 和 lf 的更快速替代品而出现。该项目凭借其性能和现代特性迅速获得广泛采用。
 
 # INSTALL
 

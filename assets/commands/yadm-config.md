@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage yadm configuration settings
+管理 yadm 配置项
 
 # TLDR
 
-**List configuration**
+**列出配置**
 
 ```yadm config --list```
 
-**Set configuration**
+**设置配置项**
 
 ```yadm config [name] [value]```
 
-**Set local class**
+**设置本地类别**
 
 ```yadm config local.class [work]```
 
@@ -23,23 +23,23 @@ Manage yadm configuration settings
 # PARAMETERS
 
 **--list**
-> List all settings.
+> 列出所有配置项。
 
 **--get** _name_
-> Get setting value.
+> 获取配置项的值。
 
 **--unset** _name_
-> Remove setting.
+> 移除配置项。
 
 **local.class**
-> System class for alternates.
+> 用于替代文件的系统类别。
 
 **local.hostname**
-> Override hostname.
+> 覆盖主机名。
 
 # DESCRIPTION
 
-**yadm config** manages yadm configuration. Sets local system properties for alternate file selection. Wraps git config for yadm-specific settings.
+**yadm config** 管理 yadm 的配置。它为替代文件的选择设置本地系统属性，并封装 git config 来管理 yadm 特有的配置项。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Manage yadm configuration settings
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-alt](/man/yadm-alt)(1)
-

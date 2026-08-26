@@ -1,26 +1,26 @@
 # TAGLINE
 
-Set up and control zram devices
+设置和控制 zram 设备
 
 # TLDR
 
-**Check** if zram is enabled
+**检查** zram 是否已启用
 
 ```lsmod | grep -i zram```
 
-**Enable** zram with dynamic number of devices
+**启用** zram，设备数量动态确定
 
 ```sudo modprobe zram```
 
-**Enable** zram with exactly 2 devices
+**启用** zram 并固定为 2 个设备
 
 ```sudo modprobe zram num_devices=2```
 
-**Find** and initialize the next free zram device
+**查找**并初始化下一个空闲的 zram 设备
 
 ```sudo zramctl -f -s 2GB -a lz4```
 
-**List** currently initialized devices
+**列出**当前已初始化的设备
 
 ```sudo zramctl```
 
@@ -31,38 +31,38 @@ Set up and control zram devices
 # PARAMETERS
 
 **-f, --find**
-> Find and initialize the next free zram device
+> 查找并初始化下一个空闲的 zram 设备
 
 **-s, --size _size_**
-> Set the size of the zram device
+> 设置 zram 设备的大小
 
 **-a, --algorithm _alg_**
-> Set compression algorithm (lz4, lzo, zstd, etc.)
+> 设置压缩算法（lz4、lzo、zstd 等）
 
 **-t, --streams _number_**
-> Set number of compression streams
+> 设置压缩流的数量
 
 **-r, --reset**
-> Reset the device
+> 重置设备
 
 **-o, --output _list_**
-> Define output columns
+> 定义输出的列
 
 **--raw**
-> Raw output format
+> 原始输出格式
 
 **-n, --no-headings**
-> Do not print column headings
+> 不打印列标题
 
 # DESCRIPTION
 
-**zramctl** sets up and controls zram devices, which are compressed RAM-based block devices. Zram is useful for creating compressed swap space or temporary filesystems, improving memory efficiency.
+**zramctl** 用于设置和控制 zram 设备，即基于内存的压缩块设备。zram 适合用来创建压缩交换空间或临时文件系统，提高内存使用效率。
 
-After creating a zram device with zramctl, use **mkswap** and **swapon** to use it as swap, or **mkfs** to create a filesystem.
+用 zramctl 创建 zram 设备后，可以用 **mkswap** 和 **swapon** 将其作为交换空间，或用 **mkfs** 在其上创建文件系统。
 
 # CAVEATS
 
-Requires the zram kernel module. Compression algorithms vary by kernel version. Zram swap can improve performance on memory-constrained systems but uses CPU for compression. Part of the util-linux package.
+需要 zram 内核模块。可用的压缩算法因内核版本而异。zram 交换空间能改善内存受限系统的性能，但要用 CPU 进行压缩。属于 util-linux 软件包的一部分。
 
 # INSTALL
 

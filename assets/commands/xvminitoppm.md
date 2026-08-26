@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert XV thumbnails to PPM format
+将 XV 缩略图转换为 PPM 格式
 
 # TLDR
 
-**Convert XV thumbnail to PPM**
+**将 XV 缩略图转换为 PPM**
 
 ```xvminitoppm [input.xv] > [output.ppm]```
 
@@ -14,7 +14,7 @@ Convert XV thumbnails to PPM format
 
 # DESCRIPTION
 
-**xvminitoppm** reads an XV "thumbnail" picture (a miniature image created by the XV visual schnauzer browser) as input and produces a PPM image as output. XV was a popular Unix image viewer in the 1990s. Part of the Netpbm toolkit.
+**xvminitoppm** 读取 XV "缩略图"图片（由 XV visual schnauzer 浏览器创建的微型图像）作为输入，生成 PPM 图像作为输出。XV 是 20 世纪 90 年代流行的 Unix 图像查看器。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert XV thumbnails to PPM format
 # SEE ALSO
 
 [pamtoxvmini](/man/pamtoxvmini)(1), [xwdtopnm](/man/xwdtopnm)(1)
-

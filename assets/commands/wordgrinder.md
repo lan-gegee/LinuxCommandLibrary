@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal word processor for focused writing
+面向专注写作的终端文字处理器
 
 # TLDR
 
-**Start WordGrinder**
+**启动 WordGrinder**
 
 ```wordgrinder```
 
-**Open document**
+**打开文档**
 
 ```wordgrinder [document.wg]```
 
-**Import file**
+**导入文件**
 
 ```wordgrinder --import=[file.txt]```
 
-**Export to format**
+**导出为其他格式**
 
 ```wordgrinder --export=[output.html]```
 
@@ -27,13 +27,13 @@ Terminal word processor for focused writing
 # PARAMETERS
 
 **--import** _FILE_
-> Import document.
+> 导入文档。
 
 **--export** _FILE_
-> Export document.
+> 导出文档。
 
 _document_
-> Open document.
+> 打开文档。
 
 # KEY BINDINGS
 
@@ -47,17 +47,17 @@ _document_
 
 # DESCRIPTION
 
-**wordgrinder** is a terminal-based word processor designed for focused, distraction-free writing. It emphasizes content over appearance, providing document structure through styles like headings, paragraphs, and lists rather than visual formatting controls.
+**wordgrinder** 是一款基于终端的文字处理器，专为专注、无干扰的写作而设计。它强调内容而非外观，通过标题、段落和列表等样式来组织文档结构，而不是提供视觉排版控制。
 
-Documents are saved in the native .wg format that preserves full structure, and can be exported to HTML, LaTeX, Markdown, ODT, and plain text. The full-screen editing environment keeps attention on the writing itself, with keyboard shortcuts for navigation and style changes.
+文档以原生的 .wg 格式保存，可以完整保留结构，并可导出为 HTML、LaTeX、Markdown、ODT 和纯文本。全屏编辑环境让注意力集中在写作本身，并提供键盘快捷键进行导航和样式切换。
 
 # CAVEATS
 
-Terminal-based, no WYSIWYG. Limited formatting. Specific to prose writing.
+基于终端，没有所见即所得。排版功能有限。专注于散文写作场景。
 
 # HISTORY
 
-**WordGrinder** was created for focused terminal writing. It provides a distraction-free word processing environment.
+**WordGrinder** 为专注的终端写作而生。它提供了一个无干扰的文字处理环境。
 
 # INSTALL
 

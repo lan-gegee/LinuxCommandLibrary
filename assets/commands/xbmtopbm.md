@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert X11 or X10 bitmap to PBM format
+将 X11 或 X10 位图转换为 PBM 格式
 
 # TLDR
 
-**Convert XBM to PBM**
+**将 XBM 转换为 PBM**
 
 ```xbmtopbm [input.xbm] > [output.pbm]```
 
@@ -14,7 +14,7 @@ Convert X11 or X10 bitmap to PBM format
 
 # DESCRIPTION
 
-**xbmtopbm** reads an X11 or X10 bitmap (.xbm) as input and produces a PBM image as output. X bitmap files are C source code that define image data as arrays; this tool extracts and converts the image data. Part of the Netpbm toolkit.
+**xbmtopbm** 读取 X11 或 X10 位图（.xbm）作为输入，并生成 PBM 图像作为输出。X 位图文件是将图像数据定义为数组的 C 源代码；本工具提取并转换其中的图像数据。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert X11 or X10 bitmap to PBM format
 # SEE ALSO
 
 [pbmtoxbm](/man/pbmtoxbm)(1), [xpmtoppm](/man/xpmtoppm)(1)
-

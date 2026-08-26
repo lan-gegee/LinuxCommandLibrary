@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactive terminal HTTP client
+交互式终端 HTTP 客户端
 
 # TLDR
 
-**Start interactive HTTP client**
+**启动交互式 HTTP 客户端**
 
 ```wuzz```
 
-**Start with a URL pre-filled**
+**启动时预填 URL**
 
 ```wuzz [https://api.example.com/users]```
 
-**Start with custom headers** (cURL-compatible syntax)
+**带自定义请求头启动**（cURL 兼容语法）
 
 ```wuzz -H "[Content-Type: application/json]" [https://api.example.com]```
 
-**Start with POST data**
+**带 POST 数据启动**
 
 ```wuzz -X POST -d '{"key":"value"}' [https://api.example.com]```
 
-**Start with a config file**
+**使用配置文件启动**
 
 ```wuzz -c [~/.wuzz/config.toml]```
 
@@ -31,39 +31,39 @@ Interactive terminal HTTP client
 # PARAMETERS
 
 **-H**, **--header** _HEADER_
-> Set a request header (can be specified multiple times).
+> 设置请求头（可多次指定）。
 
 **-d**, **--data** _DATA_
-> Set the request body data.
+> 设置请求体数据。
 
 **-X**, **--request** _METHOD_
-> Set the HTTP method (GET, POST, PUT, etc.).
+> 设置 HTTP 方法（GET、POST、PUT 等）。
 
 **-t**, **--timeout** _MSECS_
-> Request timeout in milliseconds.
+> 请求超时时间（毫秒）。
 
 **-F**, **--form** _FIELD_
-> Set multipart form data.
+> 设置 multipart 表单数据。
 
 **-c**, **--config** _FILE_
-> Use the specified configuration file.
+> 使用指定的配置文件。
 
 **--insecure**
-> Skip TLS certificate verification.
+> 跳过 TLS 证书校验。
 
 # DESCRIPTION
 
-**wuzz** is an interactive HTTP inspection tool with a terminal user interface. Command line arguments are compatible with cURL syntax, so requests can be copied from browser network inspectors using "copy as cURL".
+**wuzz** 是一个带终端用户界面的交互式 HTTP 调试工具。其命令行参数兼容 cURL 语法，因此可以从浏览器网络面板直接复制 "copy as cURL" 来发起请求。
 
-The interface has separate panels for URL, method, headers, request body, query parameters, and response. Navigation uses **Tab**/**Shift+Tab** between panels and **Ctrl+R** to send the request. **Ctrl+S** saves the response, **Ctrl+E** saves the request, **Ctrl+F** loads a saved request, and **Alt+H** toggles history. **F2-F9** jump to specific panels.
+界面分为多个面板：URL、方法、请求头、请求体、查询参数和响应。使用 **Tab**/**Shift+Tab** 在面板间导航，按 **Ctrl+R** 发送请求。**Ctrl+S** 保存响应，**Ctrl+E** 保存请求，**Ctrl+F** 加载已保存的请求，**Alt+H** 切换历史记录。**F2-F9** 可跳转到对应面板。
 
 # CAVEATS
 
-Terminal UI only. Configuration file uses TOML format (default: $XDG_CONFIG_HOME/wuzz/config.toml on Linux, ~/.wuzz/config.toml elsewhere).
+仅有终端 UI。配置文件采用 TOML 格式（Linux 上默认为 $XDG_CONFIG_HOME/wuzz/config.toml，其他平台为 ~/.wuzz/config.toml）。
 
 # HISTORY
 
-**wuzz** was created by **asciimoo** as an interactive command-line HTTP inspection tool, written in Go. Available at https://github.com/asciimoo/wuzz.
+**wuzz** 由 **asciimoo** 创建，是一款交互式命令行 HTTP 调试工具，使用 Go 编写。项目地址：https://github.com/asciimoo/wuzz。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI to explore Crossplane traces like k9s
+像 k9s 一样探索 Crossplane 追踪信息的 TUI
 
 # TLDR
 
-**Launch the Crossplane trace explorer**
+**启动 Crossplane 追踪浏览器**
 
 ```xpdig```
 
-**Specify a kubeconfig file**
+**指定 kubeconfig 文件**
 
 ```xpdig --kubeconfig [~/.kube/config]```
 
@@ -18,11 +18,11 @@ TUI to explore Crossplane traces like k9s
 
 # DESCRIPTION
 
-**xpdig** provides a terminal UI similar to k9s for interactively exploring Crossplane resource traces. It supports expanded details with issue highlighting, the ability to get, describe, edit, and delete objects, and automatic watching for resource changes.
+**xpdig** 提供一个类似 k9s 的终端 UI，用于交互式地探索 Crossplane 资源追踪信息。它支持带问题高亮的展开详情，可以对对象执行 get、describe、edit 和 delete 操作，并能自动监视资源变化。
 
 # HISTORY
 
-**xpdig** was created by **Bruno Luiz Silva** (brunoluiz) and is written in **Go**.
+**xpdig** 由 **Bruno Luiz Silva**（brunoluiz）创建，使用 **Go** 编写。
 
 # SEE ALSO
 

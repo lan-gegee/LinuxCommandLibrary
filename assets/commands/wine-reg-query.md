@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display keys and values from the Wine registry
+显示 Wine 注册表中的键和值
 
 # TLDR
 
-**Query** a key and list its values
+**查询**某个键并列出其值
 
 ```wine reg query [HKCU\Software\MyApp]```
 
-**Query a single value** of a key
+**查询键的单个值**
 
 ```wine reg query [HKCU\Software\MyApp] /v [Name]```
 
-**Query the default (unnamed) value** of a key
+**查询键的默认（无名）值**
 
 ```wine reg query [HKCU\Software\MyApp] /ve```
 
-**Query** a key **recursively**, including all subkeys
+**递归查询**键（包括所有子键）
 
 ```wine reg query [HKCU\Software\MyApp] /s```
 
@@ -26,20 +26,20 @@ Display keys and values from the Wine registry
 
 # DESCRIPTION
 
-**wine reg query** reads and prints the contents of a registry key inside a Wine prefix. It mirrors the Windows **reg query** command. With no value options, it lists the values stored directly under the given key.
+**wine reg query** 读取并打印 Wine 前缀中某个注册表键的内容。它与 Windows 的 **reg query** 命令一致。如果不带任何值选项，它列出直接存储在指定键下的值。
 
-For each value, the output shows its name, type, and data. Use **/s** to walk the entire subtree below the key, which is useful for inspecting an application's full configuration at once.
+对每个值，输出会显示其名称、类型和数据。使用 **/s** 可遍历该键下的整个子树，适合一次性查看应用程序的完整配置。
 
 # PARAMETERS
 
 **/v**  _value_
-> Query the named value under the key.
+> 查询键下指定名称的值。
 
 **/ve**
-> Query the key's default (unnamed) value.
+> 查询键的默认（无名）值。
 
 **/s**
-> Query all subkeys and their values recursively.
+> 递归查询所有子键及其值。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run Android in a container on Linux
+在 Linux 上的容器中运行 Android
 
 # TLDR
 
-**Start** Waydroid with full UI
+以完整 UI **启动** Waydroid
 
 ```waydroid show-full-ui```
 
-**Initialize** Waydroid (required on first run)
+**初始化** Waydroid（首次运行时必须）
 
 ```sudo waydroid init```
 
-**Install** an Android app from APK file
+从 APK 文件**安装** Android 应用
 
 ```waydroid app install [path/to/file.apk]```
 
-**Launch** an Android app by package name
+按包名**启动** Android 应用
 
 ```waydroid app launch [com.example.app]```
 
-**Start** or stop the Waydroid session
+**启动**或停止 Waydroid 会话
 
 ```waydroid session start|stop```
 
-**Manage** the Waydroid container
+**管理** Waydroid 容器
 
 ```sudo waydroid container start|stop|restart|freeze|unfreeze```
 
-**Open** Waydroid shell
+**打开** Waydroid shell
 
 ```sudo waydroid shell```
 
-**Adjust** Waydroid window dimensions
+**调整** Waydroid 窗口尺寸
 
 ```waydroid prop set persist.waydroid.width|height [number]```
 
@@ -43,41 +43,41 @@ Run Android in a container on Linux
 # PARAMETERS
 
 **show-full-ui**
-> Start Waydroid with full Android UI
+> 以完整 Android UI 启动 Waydroid
 
 **init**
-> Initialize Waydroid (first run setup)
+> 初始化 Waydroid（首次运行设置）
 
 **app install _apk_**
-> Install an APK file
+> 安装 APK 文件
 
 **app launch _package_**
-> Launch an app by package name
+> 按包名启动应用
 
 **session start|stop**
-> Start or stop the session
+> 启动或停止会话
 
 **container start|stop|restart|freeze|unfreeze**
-> Container management commands
+> 容器管理命令
 
 **shell**
-> Open Android shell
+> 打开 Android shell
 
 **prop set _key_ _value_**
-> Set Android system property
+> 设置 Android 系统属性
 
 **log**
-> Show Waydroid logs
+> 显示 Waydroid 日志
 
 # DESCRIPTION
 
-**waydroid** runs a full Android system in a container on Linux. It uses Linux namespaces to create an isolated Android environment that integrates with the host's Wayland compositor.
+**waydroid** 在 Linux 上的容器中运行完整的 Android 系统。它利用 Linux 命名空间创建一个隔离的 Android 环境，并与宿主机的 Wayland 合成器集成。
 
-Waydroid provides near-native Android performance by sharing the Linux kernel with the host. It supports Android apps, Google Play Services (with additional setup), and hardware acceleration.
+Waydroid 通过与宿主机共享 Linux 内核，提供接近原生的 Android 性能。它支持 Android 应用、Google Play 服务（需额外设置）以及硬件加速。
 
 # CAVEATS
 
-Requires a Wayland compositor (not X11). Needs kernel modules for binder and ashmem. Some Android apps may not work due to hardware or architecture differences. ARM translation layer needed for x86 hosts to run ARM-only apps.
+需要 Wayland 合成器（不支持 X11）。需要 binder 和 ashmem 内核模块。由于硬件或架构差异，某些 Android 应用可能无法运行。x86 主机需要 ARM 转译层才能运行仅支持 ARM 的应用。
 
 # INSTALL
 

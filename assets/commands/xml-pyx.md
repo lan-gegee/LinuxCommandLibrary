@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert XML to PYX line-oriented format
+将 XML 转换为面向行的 PYX 格式
 
 # TLDR
 
-**Convert an XML file to PYX format**
+**将 XML 文件转换为 PYX 格式**
 
 ```xml pyx [file.xml]```
 
-**Convert XML from stdin**
+**从 stdin 转换 XML**
 
 ```cat [file.xml] | xml pyx```
 
-**Strip all attributes from an XML file using PYX filtering**
+**使用 PYX 过滤去除 XML 文件中的所有属性**
 
 ```xml pyx [file.xml] | grep -v "^A" | xml depyx```
 
@@ -23,19 +23,19 @@ Convert XML to PYX line-oriented format
 # PARAMETERS
 
 _xml-file_
-> Input XML file. If omitted, reads from stdin.
+> 输入的 XML 文件。若省略则从 stdin 读取。
 
 # DESCRIPTION
 
-**xml pyx** converts XML documents to PYX notation, a line-oriented representation derived from the SGML ESIS format (ISO 8879). It is part of the **XMLStarlet** toolkit (also invoked as `xmlstarlet pyx`).
+**xml pyx** 将 XML 文档转换为 PYX 表示法，这是一种源自 SGML ESIS 格式（ISO 8879）的面向行的表示方式。它属于 **XMLStarlet** 工具集（也可写作 `xmlstarlet pyx`）。
 
-PYX represents each XML construct on a single line using prefix notation: `(` for opening tags, `)` for closing tags, `A` for attributes, `-` for text content, and `?` for processing instructions. This line-oriented format makes it easy to process XML with standard Unix text tools like **grep**, **sed**, and **awk** without requiring an XML parser.
+PYX 使用前缀表示法在单行中表示每个 XML 构件：`(` 表示开始标签，`)` 表示结束标签，`A` 表示属性，`-` 表示文本内容，`?` 表示处理指令。这种面向行的格式使你可以直接用 **grep**、**sed** 和 **awk** 等标准 Unix 文本工具处理 XML，无需 XML 解析器。
 
-The companion command **xml depyx** (or **xml p2x**) converts PYX back into XML.
+配套命令 **xml depyx**（或 **xml p2x**）可将 PYX 转换回 XML。
 
 # CAVEATS
 
-PYX is a simplified representation and may not preserve all XML features such as comments or CDATA sections.
+PYX 是一种简化的表示方式，可能无法保留注释或 CDATA 区段等全部 XML 特性。
 
 # INSTALL
 

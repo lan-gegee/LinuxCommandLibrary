@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert Windows icons to PAM format
+将 Windows 图标转换为 PAM 格式
 
 # TLDR
 
-**Convert Windows icon to PAM** (selects highest-quality image by default)
+**将 Windows 图标转换为 PAM**（默认选择质量最高的图像）
 
 ```winicontopam [input.ico] > [output.pam]```
 
-**Extract a specific image index**
+**提取特定索引的图像**
 
 ```winicontopam -image=[0] [input.ico] > [output.pam]```
 
-**Extract all images as a multi-image PAM**
+**将所有图像提取为多图像 PAM**
 
 ```winicontopam -allimages [input.ico] > [output.pam]```
 
-**Include AND mask as a fifth channel**
+**包含 AND 掩码作为第五个通道**
 
 ```winicontopam -andmasks [input.ico] > [output.pam]```
 
@@ -27,25 +27,25 @@ Convert Windows icons to PAM format
 # PARAMETERS
 
 **-image=**_N_
-> Extract image at index _N_ (zero-based). Cannot be combined with **-allimages**.
+> 提取索引为 _N_ 的图像（从零开始）。不能与 **-allimages** 同时使用。
 
 **-allimages**
-> Extract every image in the ICO/CUR file as a multi-image PAM stream.
+> 将 ICO/CUR 文件中的每一幅图像都提取为多图像 PAM 流。
 
 **-andmasks**
-> Emit five-channel PAM with the AND mask as the fifth plane (in addition to RGBA).
+> 输出五通道 PAM，将 AND 掩码作为第五个平面（在 RGBA 之外）。
 
 **-verbose**
-> Print informational messages about the input file.
+> 打印关于输入文件的提示信息。
 
 **-quiet**
-> Suppress informational output (standard libnetpbm option).
+> 抑制提示性输出（标准 libnetpbm 选项）。
 
 # DESCRIPTION
 
-**winicontopam** converts Microsoft Windows ICO or CUR files into Netpbm PAM images with an alpha channel. Windows icon files may contain several images at different resolutions and color depths; by default, winicontopam picks the highest-quality one (largest size, then most bits per pixel).
+**winicontopam** 将 Microsoft Windows 的 ICO 或 CUR 文件转换为带 alpha 通道的 Netpbm PAM 图像。Windows 图标文件可能包含多幅不同分辨率和颜色深度的图像；默认情况下，winicontopam 会挑选质量最高的一幅（先看尺寸最大，再看每像素位数最多）。
 
-Part of the **Netpbm** toolkit. Read from stdin when no file is given.
+属于 **Netpbm** 工具集。未指定文件时从 stdin 读取。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Print or check xxHash non-cryptographic checksums
+打印或校验 xxHash 非加密校验和
 
 # TLDR
 
-Calculate **XXH64 checksum** (default)
+计算 **XXH64 校验和**（默认）
 
 ```xxhsum [path/to/file]```
 
-Calculate **XXH32 checksum**
+计算 **XXH32 校验和**
 
 ```xxhsum -H0 [path/to/file]```
 
-Calculate **XXH128 checksum**
+计算 **XXH128 校验和**
 
 ```xxhsum -H2 [path/to/file]```
 
-**Verify checksums** from a file
+从文件**校验校验和**
 
 ```xxhsum -c [path/to/checksums.xxh]```
 
-Run **benchmark**
+运行**基准测试**
 
 ```xxhsum -b```
 
@@ -33,55 +33,55 @@ Run **benchmark**
 # PARAMETERS
 
 **-H** _HASHTYPE_
-> Hash algorithm: 0 (XXH32), 1 (XXH64, default), 2 (XXH128), 3 (XXH3). Also accepts 32, 64, 128 as aliases.
+> 哈希算法：0（XXH32）、1（XXH64，默认）、2（XXH128）、3（XXH3）。也接受 32、64、128 作为别名。
 
 **-b**
-> Activate benchmark mode
+> 启用基准测试模式
 
 **-B** _BLOCKSIZE_
-> Set benchmark block size in bytes (default: 102400)
+> 设置基准测试块大小（字节）（默认：102400）
 
 **-i** _ITERATIONS_
-> Set number of benchmark iterations (default: 3)
+> 设置基准测试迭代次数（默认：3）
 
 **-c, --check** _FILE_
-> Verify checksums from file
+> 从文件校验校验和
 
 **-q, --quiet**
-> Suppress OK messages during verification
+> 校验时抑制 OK 消息
 
 **-w, --warn**
-> Warn about malformed checksum lines
+> 对格式错误的校验和行发出警告
 
 **--strict**
-> Return error on invalid checksum lines
+> 遇到无效校验和行时返回错误
 
 **--status**
-> Silent verification; indicate result only via exit code
+> 静默校验；仅通过退出码指示结果
 
 **--tag**
-> Output in BSD-style format
+> 以 BSD 风格格式输出
 
 **--little-endian**
-> Display checksum in little-endian format (default is big-endian)
+> 以小端序格式显示校验和（默认为大端序）
 
 **-h, --help**
-> Display help
+> 显示帮助信息
 
 **-V, --version**
-> Display version
+> 显示版本信息
 
 # DESCRIPTION
 
-**xxhsum** prints or checks xxHash (32, 64, or 128 bit) checksums. xxHash is an extremely fast non-cryptographic hash function, suitable for integrity checking where speed is important.
+**xxhsum** 打印或校验 xxHash（32、64 或 128 位）校验和。xxHash 是一种极快的非加密哈希函数，适合在对速度要求高的完整性检查场景中使用。
 
-When no FILE is specified, reads from standard input. The command line syntax is similar to md5sum(1).
+未指定 FILE 时从标准输入读取。命令行语法类似于 md5sum(1)。
 
-Equivalent shortcut commands: **xxh32sum** (same as xxhsum -H0), **xxh64sum** (same as xxhsum -H1), **xxh128sum** (same as xxhsum -H2).
+等效的快捷命令：**xxh32sum**（同 xxhsum -H0）、**xxh64sum**（同 xxhsum -H1）、**xxh128sum**（同 xxhsum -H2）。
 
 # CAVEATS
 
-Not cryptographically secure. Should not be used for security-sensitive applications. For security, use SHA-256 or similar.
+不具备加密安全性。不应用于安全敏感场景。安全用途请使用 SHA-256 等。
 
 # INSTALL
 

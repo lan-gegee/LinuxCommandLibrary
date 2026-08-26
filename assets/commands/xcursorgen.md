@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create X cursor files from images
+从图像创建 X 光标文件
 
 # TLDR
 
-Create cursor from **config**
+从**配置**创建光标
 
 ```xcursorgen [path/to/config.cursor] [path/to/output_file]```
 
-Create with image **prefix**
+使用图像**前缀**创建
 
 ```xcursorgen --prefix [path/to/image_directory]/ [path/to/config.cursor] [path/to/output_file]```
 
-Write to **stdout**
+写入 **stdout**
 
 ```xcursorgen [path/to/config.cursor]```
 
@@ -23,17 +23,17 @@ Write to **stdout**
 # PARAMETERS
 
 **--prefix** _PATH_
-> Path to image directory
+> 图像目录的路径
 
 # DESCRIPTION
 
-**xcursorgen** creates X cursor files from a collection of PNG images. The configuration file specifies image sizes, hotspots, and frame delays for animated cursors.
+**xcursorgen** 从一组 PNG 图像创建 X 光标文件。配置文件指定图像尺寸、热点以及动画光标的帧延迟。
 
-The config file format defines each cursor frame with size, hotspot coordinates, filename, and optional delay.
+配置文件格式以尺寸、热点坐标、文件名和可选的延迟来定义每个光标帧。
 
 # CAVEATS
 
-Images must be PNG format. Configuration file format is specific. Without --prefix, images must be in current directory.
+图像必须为 PNG 格式。配置文件的格式比较特殊。不使用 --prefix 时，图像必须位于当前目录。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Images must be PNG format. Configuration file format is specific. Without --pref
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-XDP-based network packet filtering
+基于 XDP 的网络数据包过滤
 
 # TLDR
 
-**Load** filter on interface
+在网卡上**加载**过滤器
 
 ```sudo xdp-filter load -p allow -m skb [network_interface]```
 
-**Unload** filter
+**卸载**过滤器
 
 ```sudo xdp-filter unload [network_interface]```
 
-**Deny** destination port
+**拒绝**目标端口
 
 ```sudo xdp-filter port [destination_port]```
 
-Deny **source IP**
+拒绝**源 IP**
 
 ```sudo xdp-filter ip -m src [source_ip]```
 
-Deny **source MAC**
+拒绝**源 MAC**
 
 ```sudo xdp-filter ether -m src [mac_address]```
 
-Show **statistics**
+显示**统计信息**
 
 ```sudo xdp-filter poll -i 10000```
 
@@ -35,41 +35,41 @@ Show **statistics**
 # PARAMETERS
 
 **load** _INTERFACE_
-> Load filter on network interface
+> 在网络接口上加载过滤器
 
 **unload** _INTERFACE_
-> Unload filter from interface
+> 从网络接口卸载过滤器
 
 **port** _PORT_
-> Filter by port number
+> 按端口号过滤
 
 **ip** _ADDRESS_
-> Filter by IP address
+> 按 IP 地址过滤
 
 **ether** _ADDRESS_
-> Filter by MAC address
+> 按 MAC 地址过滤
 
 **poll**
-> Show statistics
+> 显示统计信息
 
 **-p, --policy** _POLICY_
-> Set default policy (allow/deny)
+> 设置默认策略（allow/deny）
 
 **-m, --mode** _MODE_
-> Filter mode (src/dst for direction, skb/native for XDP mode)
+> 过滤模式（src/dst 表示方向，skb/native 表示 XDP 模式）
 
 **-i, --interval** _MS_
-> Poll interval in milliseconds
+> 轮询间隔，以毫秒为单位
 
 # DESCRIPTION
 
-**xdp-filter** loads and manages eBPF XDP (eXpress Data Path) packet filters. It provides high-performance packet filtering at the network driver level, before packets reach the kernel networking stack.
+**xdp-filter** 加载和管理 eBPF XDP（eXpress Data Path）数据包过滤器。它在网络驱动层面、即数据包到达内核网络栈之前提供高性能的数据包过滤。
 
-Part of the xdp-tools collection for managing XDP programs.
+属于用于管理 XDP 程序的 xdp-tools 工具集的一部分。
 
 # CAVEATS
 
-Requires root privileges. Not all network drivers support native XDP mode. Filters operate at layer 2/3, not application layer.
+需要 root 权限。并非所有网卡驱动都支持原生 XDP 模式。过滤器工作在第 2/3 层，而非应用层。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate Go structs from XML documents
+从 XML 文档生成 Go 结构体
 
 # TLDR
 
-**Generate Go struct from XML file**
+**从 XML 文件生成 Go 结构体**
 
 ```zek [file.xml]```
 
-**Generate struct from XML stdin**
+**从标准输入的 XML 生成结构体**
 
 ```cat [file.xml] | zek```
 
-**Generate with custom struct name**
+**用自定义结构体名称生成**
 
 ```zek -n [StructName] [file.xml]```
 
-**Use compact output format**
+**使用紧凑输出格式**
 
 ```zek -c [file.xml]```
 
-**Read from URL**
+**从 URL 读取**
 
 ```zek [https://example.com/feed.xml]```
 
@@ -31,48 +31,48 @@ Generate Go structs from XML documents
 # PARAMETERS
 
 **-c**
-> Compact output (minimize struct tags)
+> 紧凑输出（最小化 struct 标签）
 
 **-e**
-> Add XMLName field to struct
+> 为结构体添加 XMLName 字段
 
 **-n** _name_
-> Use specified struct name (default: derived from root element)
+> 使用指定的结构体名称（默认：从根元素派生）
 
 **-p**
-> Add xml.Name XMLName field for precise marshaling
+> 添加 xml.Name XMLName 字段以便精确序列化
 
 **-t**
-> Include type comments in output
+> 在输出中包含类型注释
 
 **-x**
-> Emit only the struct, no package declaration
+> 只输出结构体本身，不含包声明
 
 **-max-examples** _n_
-> Maximum examples to show in comments
+> 注释中最多显示的示例数量
 
 **-version**
-> Print version and exit
+> 输出版本并退出
 
 # DESCRIPTION
 
-**zek** generates Go struct definitions from XML documents. It analyzes the XML structure and produces type-safe Go code that can unmarshal (and marshal) that XML format.
+**zek** 从 XML 文档生成 Go 结构体定义。它分析 XML 结构并生成可对该 XML 格式进行反序列化（及序列化）的类型安全的 Go 代码。
 
-Given an XML file, zek infers the structure and generates appropriate Go types with proper xml struct tags. It handles nested elements, attributes, repeated elements (slices), and mixed content.
+给定一个 XML 文件，zek 会推断其结构，并生成带有恰当 xml struct 标签的合适 Go 类型。它能处理嵌套元素、属性、重复元素（切片）和混合内容。
 
-This is useful for quickly creating Go types for consuming XML APIs, parsing XML data files, or working with XML-based formats like RSS, Atom, or SOAP.
+这对于快速创建用于消费 XML API、解析 XML 数据文件或处理 RSS、Atom、SOAP 等基于 XML 的格式的 Go 类型非常有用。
 
-zek uses sampling to infer types, so providing representative XML with all possible fields yields the best results.
+zek 通过采样来推断类型，因此提供涵盖所有可能字段的代表性 XML 会得到最佳结果。
 
 # CAVEATS
 
-Type inference is heuristic. Rarely-used optional fields may be missed if not present in the sample XML.
+类型推断是启发式的。样本 XML 中未出现的很少使用的可选字段可能会被遗漏。
 
-Complex XML schemas with polymorphic elements or namespaces may require manual adjustment of generated structs.
+带有多态元素或命名空间的复杂 XML schema 可能需要手动调整生成的结构体。
 
-For very large XML files, zek reads the entire document into memory for analysis.
+对于非常大的 XML 文件，zek 会将整个文档读入内存进行分析。
 
-Generated code should be reviewed and adjusted for production use, especially for null handling and validation.
+生成的代码在生产使用前应经过审查和调整，尤其是空值处理和校验方面。
 
 # SEE ALSO
 

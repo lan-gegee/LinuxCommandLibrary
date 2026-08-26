@@ -1,28 +1,28 @@
 # TAGLINE
 
-Remote Windows management via WS-Management
+通过 WS-Management 进行远程 Windows 管理
 
 # TLDR
 
-**Run a command** on a Windows host (via pywinrm Python library)
+在 Windows 主机上**执行命令**（通过 pywinrm Python 库）
 
 ```python -c "import winrm; s = winrm.Session('[host]', auth=('[user]', '[pass]')); print(s.run_cmd('ipconfig').std_out)"```
 
-**Run PowerShell command** on remote Windows host
+在远程 Windows 主机上**执行 PowerShell 命令**
 
 ```python -c "import winrm; s = winrm.Session('[host]', auth=('[user]', '[pass]')); print(s.run_ps('Get-Process').std_out)"```
 
-**Connect using HTTPS** (port 5986)
+**使用 HTTPS 连接**（端口 5986）
 
 ```python -c "import winrm; s = winrm.Session('[host]', auth=('[user]', '[pass]'), transport='ssl'); print(s.run_cmd('hostname').std_out)"```
 
-**Connect with NTLM authentication**
+**使用 NTLM 认证连接**
 
 ```python -c "import winrm; s = winrm.Session('[host]', auth=('[domain\\user]', '[pass]'), transport='ntlm'); print(s.run_cmd('whoami').std_out)"```
 
 # SYNOPSIS
 
-**winrm** (via pywinrm Python library)
+**winrm**（通过 pywinrm Python 库）
 
 ```python
 import winrm
@@ -34,46 +34,46 @@ result = session.run_ps(_powershell_script_)
 # PARAMETERS
 
 **host**
-> Windows target hostname or IP address.
+> Windows 目标主机名或 IP 地址。
 
 **auth**
-> Tuple of (username, password) for authentication.
+> 用于认证的 (用户名, 密码) 元组。
 
 **transport**
-> Authentication method: basic, ntlm, kerberos, ssl, or credssp.
+> 认证方式：basic、ntlm、kerberos、ssl 或 credssp。
 
 **run_cmd**(_command_, [_args_])
-> Execute a Windows command (cmd.exe).
+> 执行 Windows 命令（cmd.exe）。
 
 **run_ps**(_script_)
-> Execute a PowerShell script.
+> 执行 PowerShell 脚本。
 
 **std_out**
-> Standard output from command execution.
+> 命令执行的标准输出。
 
 **std_err**
-> Standard error from command execution.
+> 命令执行的标准错误。
 
 **status_code**
-> Exit code of the executed command.
+> 所执行命令的退出码。
 
 # DESCRIPTION
 
-**pywinrm** is a Python library for Windows Remote Management (WinRM), enabling command execution on Windows machines from Linux or other systems. WinRM is Microsoft's implementation of WS-Management protocol, providing remote management capabilities similar to SSH.
+**pywinrm** 是一个用于 Windows 远程管理（WinRM）的 Python 库，可以从 Linux 或其他系统在 Windows 机器上执行命令。WinRM 是 Microsoft 对 WS-Management 协议的实现，提供类似 SSH 的远程管理能力。
 
-The library supports multiple authentication methods: Basic (requires HTTPS or unencrypted setup), NTLM (works with domain and local accounts), Kerberos (for domain environments), and CredSSP (allows credential delegation). Connection uses HTTP port 5985 or HTTPS port 5986.
+该库支持多种认证方式：Basic（需要 HTTPS 或非加密配置）、NTLM（适用于域账户和本地账户）、Kerberos（用于域环境）和 CredSSP（允许凭据委托）。连接使用 HTTP 端口 5985 或 HTTPS 端口 5986。
 
-pywinrm is extensively used by automation tools like Ansible for Windows management. It can execute both cmd.exe commands (run_cmd) and PowerShell scripts (run_ps), returning output, errors, and exit codes.
+pywinrm 被 Ansible 等自动化工具广泛用于 Windows 管理。它既能执行 cmd.exe 命令（run_cmd），也能执行 PowerShell 脚本（run_ps），并返回输出、错误和退出码。
 
-Windows hosts must have WinRM enabled (Enable-PSRemoting -Force) and configured to accept the chosen authentication method.
+Windows 主机必须启用 WinRM（Enable-PSRemoting -Force），并配置为接受所选的认证方式。
 
 # CAVEATS
 
-WinRM communication is unencrypted over HTTP by default; use HTTPS or NTLM/Kerberos transport for security. Basic authentication requires explicit enabling on Windows hosts. Kerberos requires proper domain configuration and kinit initialization. Firewall rules must allow WinRM ports (5985/5986).
+WinRM 通过 HTTP 通信时默认不加密；出于安全考虑请使用 HTTPS 或 NTLM/Kerberos 传输方式。Windows 主机上需要显式启用 Basic 认证。Kerberos 需要正确的域配置和 kinit 初始化。防火墙规则必须放行 WinRM 端口（5985/5986）。
 
 # HISTORY
 
-**WinRM** (Windows Remote Management) was introduced by **Microsoft** in **Windows Vista** and **Server 2008** as part of the WS-Management standard. **pywinrm** was developed to enable WinRM access from Python on non-Windows systems. The library became essential for cross-platform Windows management, particularly gaining prominence through **Ansible's** Windows support starting around **2014**.
+**WinRM**（Windows Remote Management）由 **Microsoft** 在 **Windows Vista** 和 **Server 2008** 中引入，是 WS-Management 标准的一部分。**pywinrm** 的开发使得从非 Windows 系统上用 Python 访问 WinRM 成为可能。该库成为跨平台 Windows 管理的关键组件，尤其随着 **Ansible** 自 **2014 年前后**开始支持 Windows 而广受关注。
 
 # SEE ALSO
 

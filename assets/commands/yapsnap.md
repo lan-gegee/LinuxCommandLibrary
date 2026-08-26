@@ -1,34 +1,34 @@
 # TAGLINE
 
-Offline CPU speech-to-text from video URLs or local media
+从视频 URL 或本地媒体离线进行 CPU 语音转文字
 
 # TLDR
 
-**Transcribe** a local audio or video file to plaintext
+将本地音频或视频文件**转写**为纯文本
 
 ```yapsnap [path/to/file.mp4]```
 
-**Transcribe** a video from a URL (YouTube, X, TikTok, etc.)
+从 URL **转写**视频（YouTube、X、TikTok 等）
 
 ```yapsnap "[https://www.youtube.com/watch?v=...]"```
 
-**Include timestamps** in the output
+在输出中**包含时间戳**
 
 ```yapsnap [input.mp4] --timestamps```
 
-**Write the transcript** to a specific path
+将转写文本**写入**指定路径
 
 ```yapsnap [input.mp4] -o [path/to/transcript.txt]```
 
-**Preserve the downloaded audio** after a URL transcription
+URL 转写后**保留下载的音频**
 
 ```yapsnap "[url]" --keep-audio```
 
-**Disable the audio speedup** preprocessing
+**禁用音频加速**预处理
 
 ```yapsnap [input.mp4] --speed 1.0```
 
-**Use a custom model directory**
+**使用自定义模型目录**
 
 ```yapsnap [input.mp4] --model [path/to/model_dir]```
 
@@ -36,43 +36,43 @@ Offline CPU speech-to-text from video URLs or local media
 
 **yapsnap** _input_ [_options_]
 
-The alias **transcribe** is also installed and behaves identically.
+同时也会安装别名 **transcribe**，行为完全相同。
 
 # PARAMETERS
 
 **-o**, **--output** _PATH_
-> Write the transcript to _PATH_ instead of the default **./transcripts/<input>_transcript.txt**.
+> 将转写文本写入 _PATH_ 而不是默认的 **./transcripts/<input>_transcript.txt**。
 
 **--timestamps**
-> Emit one sentence per line prefixed with **[MM:SS]** instead of a single paragraph.
+> 每行输出一句话并以 **[MM:SS]** 作为前缀，而不是单个段落。
 
 **--speed** _FACTOR_
-> Speed up audio by _FACTOR_ before transcription (default **1.5**, pitch preserved). Set to **1.0** to disable.
+> 转写前将音频加速 _FACTOR_ 倍（默认 **1.5**，保持音调不变）。设为 **1.0** 可禁用。
 
 **--keep-audio**
-> Keep the extracted audio file after transcribing a URL.
+> 转写 URL 后保留提取出的音频文件。
 
 **--model** _DIR_
-> Override the model directory; falls back to the **KROKO_MODEL** environment variable, then to the cached default.
+> 覆盖模型目录；若未指定则回退到环境变量 **KROKO_MODEL**，再回退到缓存的默认模型。
 
 **--help**
-> Show the full option list and exit.
+> 显示完整的选项列表并退出。
 
 # DESCRIPTION
 
-**yapsnap** is a single-command speech-to-text tool that transcribes audio from local files or remote video URLs into plaintext. It runs entirely on CPU using a streaming **Zipformer** transducer (Kroko English) and downloads the ~80 MB model once on first run, after which it operates fully offline with no API keys and no audio leaving the machine.
+**yapsnap** 是一个单命令语音转文字工具，可将本地文件或远程视频 URL 中的音频转写为纯文本。它完全在 CPU 上运行，使用流式 **Zipformer** 转导模型（Kroko English），首次运行时会下载约 80 MB 的模型，之后便可完全离线工作，无需任何 API 密钥，音频也不会离开本机。
 
-URL inputs are fetched with **yt-dlp** and decoded with **ffmpeg**, so anything those tools can handle (YouTube, YouTube Shorts, X/Twitter, TikTok, Instagram Reels, direct media URLs) is fair game. Local files cover the common containers and codecs (**mp3**, **mp4**, **m4a**, **wav**, **webm**, **mov**, **mkv**, ...).
+URL 输入通过 **yt-dlp** 抓取并用 **ffmpeg** 解码，因此凡是这些工具能处理的内容都可以使用（YouTube、YouTube Shorts、X/Twitter、TikTok、Instagram Reels、直链媒体 URL 等）。本地文件则涵盖常见的容器和编码格式（**mp3**、**mp4**、**m4a**、**wav**、**webm**、**mov**、**mkv** 等）。
 
-By default the audio is sped up by 1.5x (pitch-preserved) before transcription, which keeps quality usable while shrinking wall-clock time well below real time on a laptop. Output is a single paragraph of plain text; **--timestamps** switches to a per-sentence layout.
+默认情况下音频会在转写前加速 1.5 倍（保持音调不变），这既能保持可用的质量，又能把实际耗时大幅压缩到实时以下（在笔记本电脑上）。输出是单个纯文本段落；**--timestamps** 可切换为逐句布局。
 
 # CAVEATS
 
-Requires **ffmpeg** on **PATH**; the installer does not bundle it. The default model is English-only, though additional models exist for French, German, Spanish, Italian, Portuguese, Dutch, Swedish, Swiss German, Hebrew, and Turkish (select via **--model**). Accuracy depends on input clarity: noisy audio, heavy accents, or overlapping speakers degrade output. The first run blocks on a one-time model download.
+需要在 **PATH** 中有 **ffmpeg**；安装程序不会捆绑它。默认模型仅支持英语，不过也有法语、德语、西班牙语、意大利语、葡萄牙语、荷兰语、瑞典语、瑞士德语、希伯来语和土耳其语等额外模型（可通过 **--model** 选择）。准确度取决于输入的清晰程度：嘈杂的音频、浓重的口音或说话人重叠都会降低输出质量。首次运行时会因一次性下载模型而阻塞。
 
 # HISTORY
 
-**yapsnap** was released in **2025** by GitHub user **kouhxp** as a minimal, local-first alternative to cloud speech-to-text APIs, built around the open **Kroko** Zipformer models. The repository is **github.com/kouhxp/yapsnap**.
+**yapsnap** 于 **2025 年**由 GitHub 用户 **kouhxp** 发布，是基于开源 **Kroko** Zipformer 模型构建的极简、本地优先的云语音转文字 API 替代品。仓库地址为 **github.com/kouhxp/yapsnap**。
 
 # SEE ALSO
 

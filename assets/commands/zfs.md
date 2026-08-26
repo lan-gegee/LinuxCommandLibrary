@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage ZFS filesystems and snapshots
+管理 ZFS 文件系统与快照
 
 # TLDR
 
-**List all datasets**
+**列出所有数据集**
 
 ```zfs list```
 
-**Create a new filesystem**
+**创建新文件系统**
 
 ```sudo zfs create [pool/dataset]```
 
-**Create a snapshot**
+**创建快照**
 
 ```sudo zfs snapshot [pool/dataset@snapshot_name]```
 
-**List snapshots**
+**列出快照**
 
 ```zfs list -t snapshot```
 
-**Rollback to snapshot**
+**回滚到快照**
 
 ```sudo zfs rollback [pool/dataset@snapshot_name]```
 
-**Set a property**
+**设置属性**
 
 ```sudo zfs set [compression=lz4] [pool/dataset]```
 
-**Get property value**
+**获取属性值**
 
 ```zfs get [compression] [pool/dataset]```
 
-**Destroy a dataset**
+**销毁数据集**
 
 ```sudo zfs destroy [pool/dataset]```
 
@@ -43,64 +43,64 @@ Manage ZFS filesystems and snapshots
 # SUBCOMMANDS
 
 **list** [**-t** _type_] [**-o** _properties_] [_dataset_]
-> List datasets and properties
+> 列出数据集和属性
 
 **create** [**-p**] _dataset_
-> Create filesystem or volume (-p creates parents)
+> 创建文件系统或卷（-p 创建父级）
 
 **destroy** [**-r**] _dataset_
-> Destroy dataset (-r recursive)
+> 销毁数据集（-r 递归）
 
 **snapshot** _dataset@name_
-> Create snapshot
+> 创建快照
 
 **rollback** _dataset@snapshot_
-> Rollback to snapshot
+> 回滚到快照
 
 **clone** _snapshot_ _dataset_
-> Create clone from snapshot
+> 从快照创建克隆
 
 **send** _snapshot_
-> Generate stream for replication
+> 生成用于复制的流
 
 **receive** _dataset_
-> Receive stream into dataset
+> 将流接收到数据集
 
 **set** _property=value_ _dataset_
-> Set property
+> 设置属性
 
 **get** _property_ _dataset_
-> Get property value
+> 获取属性值
 
 **mount** _dataset_
-> Mount filesystem
+> 挂载文件系统
 
 **unmount** _dataset_
-> Unmount filesystem
+> 卸载文件系统
 
 # DESCRIPTION
 
-**zfs** manages ZFS filesystems, snapshots, clones, and volumes. ZFS is a combined filesystem and volume manager with advanced features like copy-on-write, snapshots, checksums, and built-in compression.
+**zfs** 管理 ZFS 文件系统、快照、克隆和卷。ZFS 是文件系统与卷管理器的结合体，具有写时复制、快照、校验和以及内置压缩等高级特性。
 
-Key concepts:
-- **Datasets** are filesystems or volumes within a pool
-- **Snapshots** are read-only point-in-time copies
-- **Clones** are writable copies created from snapshots
-- **Properties** control behavior (compression, quota, mountpoint)
+关键概念：
+- **数据集**是池内的文件系统或卷
+- **快照**是只读的时间点副本
+- **克隆**是从快照创建的可写副本
+- **属性**控制行为（压缩、配额、挂载点）
 
-ZFS uses hierarchical datasets: **pool/parent/child** inherits properties from parent. Properties can be set locally to override inheritance.
+ZFS 使用分层数据集：**pool/parent/child** 从父级继承属性。可以在本地设置属性来覆盖继承。
 
-Common properties include **compression**, **quota**, **reservation**, **recordsize**, **atime**, and **mountpoint**.
+常见属性包括 **compression**、**quota**、**reservation**、**recordsize**、**atime** 和 **mountpoint**。
 
 # CAVEATS
 
-Most operations require root privileges.
+大多数操作需要 root 权限。
 
-**zfs destroy** is irreversible. Snapshots protect against accidental deletion but must be created proactively.
+**zfs destroy** 不可逆。快照可以防止误删，但必须提前创建。
 
-ZFS can consume significant memory for caching (ARC). Tune **zfs_arc_max** on memory-constrained systems.
+ZFS 可能消耗大量内存用于缓存（ARC）。在内存受限的系统上请调整 **zfs_arc_max**。
 
-Snapshots are cheap but not free. Many snapshots with high data churn can consume significant space.
+快照开销很小但并非为零。数据变动频繁时的众多快照可能占用大量空间。
 
 # INSTALL
 

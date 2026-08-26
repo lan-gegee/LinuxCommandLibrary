@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert Abekas YUV format to PPM
+将 Abekas YUV 格式转换为 PPM
 
 # TLDR
 
-**Convert Abekas YUV to PPM**
+**将 Abekas YUV 转换为 PPM**
 
 ```yuvtoppm [width] [height] [input.yuv] > [output.ppm]```
 
@@ -15,14 +15,14 @@ Convert Abekas YUV format to PPM
 # PARAMETERS
 
 _width_
-> Image width.
+> 图像宽度。
 
 _height_
-> Image height.
+> 图像高度。
 
 # DESCRIPTION
 
-**yuvtoppm** converts Abekas YUV format to PPM. Abekas made professional video equipment. Part of Netpbm toolkit.
+**yuvtoppm** 将 Abekas YUV 格式转换为 PPM。Abekas 是专业视频设备厂商。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ _height_
 # SEE ALSO
 
 [ppmtoyuv](/man/ppmtoyuv)(1), [yuvsplittoppm](/man/yuvsplittoppm)(1)
-

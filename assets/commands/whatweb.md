@@ -1,34 +1,34 @@
 # TAGLINE
 
-Web technology fingerprinting and identification
+Web 技术指纹识别工具
 
 # TLDR
 
-**Scan a website**
+**扫描网站**
 
 ```whatweb [https://example.com]```
 
-**Verbose output**
+**详细输出**
 
 ```whatweb -v [url]```
 
-**Aggressive scan** (makes additional requests per target)
+**激进扫描**（对每个目标发送额外请求）
 
 ```whatweb -a 3 [url]```
 
-**Save results as JSON**
+**将结果保存为 JSON**
 
 ```whatweb --log-json=[output.json] [url]```
 
-**Scan multiple URLs**
+**扫描多个 URL**
 
 ```whatweb [url1] [url2]```
 
-**Scan with custom user agent and threads**
+**使用自定义 User-Agent 和线程数扫描**
 
 ```whatweb --user-agent "[custom-agent]" -t [10] [url]```
 
-**Follow redirects only within the same site**
+**仅在同一站点内跟随重定向**
 
 ```whatweb --follow-redirect=same-site [url]```
 
@@ -39,53 +39,53 @@ Web technology fingerprinting and identification
 # PARAMETERS
 
 **-v**
-> Verbose output showing detailed plugin results.
+> 详细输出，显示插件的详细结果。
 
 **-a**, **--aggression** _LEVEL_
-> Aggression level: **1** (stealthy, single request, default), **3** (aggressive, additional requests on match), **4** (heavy, many requests per target). Level 2 is unused.
+> 激进级别：**1**（隐蔽，单个请求，默认）、**3**（激进，匹配时发送额外请求）、**4**（重度，对每个目标发送大量请求）。级别 2 未使用。
 
 **--log-verbose** _FILE_
-> Log verbose output to a file.
+> 将详细输出记录到文件。
 
 **--log-json** _FILE_
-> Log output in JSON format.
+> 以 JSON 格式记录输出。
 
 **--log-xml** _FILE_
-> Log output in XML format.
+> 以 XML 格式记录输出。
 
 **-q**, **--quiet**
-> Quiet mode; suppress output to stdout.
+> 安静模式；不在标准输出显示结果。
 
 **--user-agent** _UA_
-> Set a custom User-Agent string.
+> 设置自定义 User-Agent 字符串。
 
 **-t**, **--max-threads** _N_
-> Number of simultaneous threads. Default: 25.
+> 并发线程数。默认：25。
 
 **--follow-redirect** _WHEN_
-> When to follow redirects: never, http-only, meta-only, same-site, or always (default).
+> 何时跟随重定向：never、http-only、meta-only、same-site 或 always（默认）。
 
 **--cookie** _COOKIE_
-> Provide cookies (e.g., 'name=value; name2=value2').
+> 提供 cookie（如 'name=value; name2=value2'）。
 
 **--proxy** _HOST:PORT_
-> Use an HTTP proxy for requests.
+> 通过 HTTP 代理发送请求。
 
 # DESCRIPTION
 
-**whatweb** is a web scanner that identifies technologies used by websites, including content management systems, web frameworks, server software, JavaScript libraries, and analytics platforms. It sends requests to target URLs and analyzes responses to fingerprint the specific products and versions in use.
+**whatweb** 是一款识别网站所用技术的 Web 扫描器，可识别内容包括内容管理系统、Web 框架、服务器软件、JavaScript 库和分析平台。它向目标 URL 发送请求并分析响应，从而识别具体的产品和版本。
 
-The tool uses a plugin-based architecture with over 1,800 plugins for recognizing different technologies. Four aggression levels control scanning intensity, from passive analysis of a single page request to aggressive testing that makes additional requests to probe for specific technologies.
+该工具采用基于插件的架构，拥有超过 1,800 个用于识别不同技术的插件。四个激进级别控制扫描强度，从分析单次页面请求的被动模式，到发送额外请求探测特定技术的主动测试。
 
-Output can be formatted as JSON, XML, verbose text, or SQL for database storage. Multiple URLs can be scanned in a single run, and the tool supports authentication, custom headers, and proxy configuration for testing behind login pages or through intermediary servers.
+输出可以格式化为 JSON、XML、详细文本或 SQL 以便存入数据库。一次运行即可扫描多个 URL，并且支持身份验证、自定义请求头和代理配置，可用于登录页之后或经由中间服务器的测试。
 
 # CAVEATS
 
-Only use on systems you are authorized to scan. Aggressive modes (`-a 3` and `-a 4`) send many requests and are typically flagged by WAFs and IDS/IPS. Requires Ruby 2.x or newer. Plugin results can produce false positives on heavily customized sites.
+只在你被授权扫描的系统上使用。激进模式（`-a 3` 和 `-a 4`）会发送大量请求，通常会被 WAF 和 IDS/IPS 标记。需要 Ruby 2.x 或更新版本。在高度定制的网站上插件结果可能出现误报。
 
 # HISTORY
 
-**whatweb** was created by **Andrew Horton** (urbanadventurer) and **Brendan Coles** as an open-source web fingerprinting framework. Source: github.com/urbanadventurer/WhatWeb.
+**whatweb** 由 **Andrew Horton**（urbanadventurer）和 **Brendan Coles** 创建，是一款开源的 Web 指纹识别框架。源码：github.com/urbanadventurer/WhatWeb。
 
 # INSTALL
 

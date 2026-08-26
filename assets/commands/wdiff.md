@@ -1,30 +1,30 @@
 # TAGLINE
 
-Word-by-word file comparison tool
+逐词比较文件的工具
 
 # TLDR
 
-**Compare files word-by-word**
+**逐词比较文件**
 
 ```wdiff [file1.txt] [file2.txt]```
 
-**Statistics only**
+**仅显示统计信息**
 
 ```wdiff -s [file1.txt] [file2.txt]```
 
-**Ignore case**
+**忽略大小写**
 
 ```wdiff -i [file1.txt] [file2.txt]```
 
-**Use color output**
+**使用彩色输出**
 
 ```wdiff -w $'\033[1;31m' -x $'\033[0m' -y $'\033[1;32m' -z $'\033[0m' [file1] [file2]```
 
-**Show only differences (suppress common words)**
+**只显示差异（隐藏相同的单词）**
 
 ```wdiff -3 [file1.txt] [file2.txt]```
 
-**Avoid wrapping markers across lines**
+**避免标记跨行**
 
 ```wdiff -n [file1.txt] [file2.txt]```
 
@@ -35,65 +35,65 @@ Word-by-word file comparison tool
 # PARAMETERS
 
 **-s**, **--statistics**
-> Show word count statistics and percentage changes.
+> 显示单词计数统计和变化百分比。
 
 **-i**, **--ignore-case**
-> Ignore case differences.
+> 忽略大小写差异。
 
 **-3**, **--no-common**
-> Suppress common (unchanged) words; show only differences.
+> 隐藏相同（未改变）的单词；只显示差异。
 
 **-1**, **--no-deleted**
-> Suppress deleted words from output.
+> 在输出中不显示被删除的单词。
 
 **-2**, **--no-inserted**
-> Suppress inserted words from output.
+> 在输出中不显示被插入的单词。
 
 **-n**, **--avoid-wraps**
-> Prevent markup from spanning line boundaries.
+> 防止标记跨越行边界。
 
 **-a**, **--auto-pager**
-> Automatically pipe output through a pager.
+> 自动将输出通过分页器输出。
 
 **-t**, **--terminal**
-> Use termcap strings for terminal emphasis.
+> 使用 termcap 字符串进行终端强调。
 
 **-l**, **--less-mode**
-> Overstrike formatting optimized for the less pager.
+> 为 less 分页器优化的重叠打印格式。
 
 **-p**, **--printer**
-> Overstrike emphasis for printer output.
+> 用于打印机输出的重叠打印强调。
 
 **-d**, **--diff-input**
-> Accept unified diff format as input.
+> 接受 unified diff 格式作为输入。
 
 **-w** _STRING_
-> Start delete marker (default `[-`).
+> 删除标记的起始符号（默认 `[-`）。
 
 **-x** _STRING_
-> End delete marker (default `-]`).
+> 删除标记的结束符号（默认 `-]`）。
 
 **-y** _STRING_
-> Start insert marker (default `{+`).
+> 插入标记的起始符号（默认 `{+`）。
 
 **-z** _STRING_
-> End insert marker (default `+}`).
+> 插入标记的结束符号（默认 `+}`）。
 
 # DESCRIPTION
 
-**wdiff** compares two files on a word-by-word basis rather than line-by-line like traditional diff. This makes it particularly useful for comparing prose and text documents where changes often involve individual words within paragraphs rather than entire lines.
+**wdiff** 以逐词方式比较两个文件，而不是像传统 diff 那样逐行比较。这使得它特别适合比较散文和文本文档——这类文档中的修改通常只涉及段落中的个别单词，而非整行。
 
-By default, deleted words are enclosed in `[-...-]` markers and inserted words in `{+...+}` markers, making changes easy to spot in the output. These markers can be customized with ANSI escape codes to produce colored output highlighting additions and deletions visually.
+默认情况下，被删除的单词用 `[-...-]` 标记包围，被插入的单词用 `{+...+}` 标记包围，使更改在输出中一目了然。这些标记可以自定义为 ANSI 转义码，生成用颜色高亮增删内容的彩色输出。
 
-The statistics mode shows counts of deleted, inserted, and common words along with percentage changes. Case-insensitive comparison is available for situations where capitalization differences should be ignored.
+统计模式显示删除、插入和相同单词的数量以及变化百分比。在需要忽略大小写差异的场景下可以使用忽略大小写的比较。
 
 # CAVEATS
 
-Large files may be slow. Complex formatting lost. Line structure ignored.
+大文件可能较慢。复杂格式会丢失。忽略行的结构。
 
 # HISTORY
 
-**wdiff** was created as part of GNU and is maintained as a standalone GNU package. It provides word-level differences suited for prose and natural language text where line-based diff output is hard to read.
+**wdiff** 作为 GNU 项目的一部分创建，现作为独立的 GNU 软件包维护。它提供适合散文和自然语言文本的词级差异对比，弥补了基于行的 diff 输出难以阅读的问题。
 
 # INSTALL
 

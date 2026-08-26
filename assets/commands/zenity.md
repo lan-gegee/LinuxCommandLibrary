@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display GTK dialogs from shell scripts
+在 Shell 脚本中显示 GTK 对话框
 
 # TLDR
 
-**Display** the default question dialog
+**显示**默认的提问对话框
 
 ```zenity --question```
 
-**Display** an info dialog with a message
+**显示**带消息的信息对话框
 
 ```zenity --info --text "[message]"```
 
-**Display** a name/password form with custom separator
+**显示**带自定义分隔符的名称/密码表单
 
 ```zenity --forms --add-entry "[name_label]" --add-password "[password_label]" --separator ";"```
 
-**Display** a file selection for directories only
+**显示**仅限目录的文件选择对话框
 
 ```zenity --file-selection --directory```
 
-**Display** a progress bar that updates
+**显示**可更新的进度条
 
 ```(echo "#1"; sleep 1; echo "50"; echo "#2"; sleep 1; echo "100") | zenity --progress```
 
@@ -31,50 +31,50 @@ Display GTK dialogs from shell scripts
 # PARAMETERS
 
 **--question**
-> Display a question dialog with Yes/No buttons
+> 显示带"是/否"按钮的提问对话框
 
 **--info**
-> Display an information dialog
+> 显示信息对话框
 
 **--warning**
-> Display a warning dialog
+> 显示警告对话框
 
 **--error**
-> Display an error dialog
+> 显示错误对话框
 
 **--file-selection**
-> Display a file selection dialog
+> 显示文件选择对话框
 
 **--forms**
-> Display a forms dialog
+> 显示表单对话框
 
 **--progress**
-> Display a progress dialog
+> 显示进度对话框
 
 **--text _text_**
-> Set dialog text
+> 设置对话框文本
 
 **--add-entry _label_**
-> Add a text entry field (forms)
+> 添加文本输入框（表单）
 
 **--add-password _label_**
-> Add a password field (forms)
+> 添加密码输入框（表单）
 
 **--directory**
-> Allow only directory selection
+> 仅允许选择目录
 
 **--separator _char_**
-> Set output separator
+> 设置输出分隔符
 
 # DESCRIPTION
 
-**zenity** displays GTK+ dialogs from command-line scripts. It provides various dialog types including questions, information, file selection, progress bars, and forms.
+**zenity** 在命令行脚本中显示 GTK+ 对话框。它提供多种对话框类型，包括提问、信息、文件选择、进度条和表单。
 
-Return values indicate user action: 0 for OK/Yes, 1 for Cancel/No, 5 for timeout, and -1 for errors. Form data is returned on stdout.
+返回值表示用户的操作：0 表示确定/是，1 表示取消/否，5 表示超时，-1 表示出错。表单数据通过标准输出返回。
 
 # CAVEATS
 
-Requires a graphical environment (X11 or Wayland with XWayland). Dialog appearance depends on GTK theme. For KDE environments, consider **kdialog** as an alternative.
+需要图形环境（X11 或带 XWayland 的 Wayland）。对话框外观取决于 GTK 主题。对于 KDE 环境，可考虑使用 **kdialog** 作为替代。
 
 # INSTALL
 

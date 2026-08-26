@@ -1,10 +1,10 @@
 # TAGLINE
 
-Print current effective username
+打印当前有效用户名
 
 # TLDR
 
-**Print the current username**
+**打印当前用户名**
 
 ```whoami```
 
@@ -15,24 +15,24 @@ Print current effective username
 # PARAMETERS
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**whoami** prints the username associated with the current effective user ID. It's equivalent to **id -un**.
+**whoami** 打印与当前有效用户 ID 关联的用户名。它等价于 **id -un**。
 
-This is useful in scripts to determine which user is running the script, especially when the script might be run via sudo or after using su to switch users.
+在脚本中可以用它来确定正在运行脚本的用户，尤其是当脚本可能通过 sudo 运行或在使用 su 切换用户之后。
 
-Unlike **who am i** which shows the login name from utmp, **whoami** shows the effective user ID name, which may differ after sudo or su.
+与显示 utmp 中登录名的 **who am i** 不同，**whoami** 显示的是有效用户 ID 的名称，在 sudo 或 su 之后两者可能不同。
 
 # CAVEATS
 
-After **sudo**, whoami shows the target user (usually root), not the original user. Use **logname** or **who am i** to get the original login name.
+执行 **sudo** 之后，whoami 显示的是目标用户（通常是 root），而不是原始用户。要获取原始登录名，请使用 **logname** 或 **who am i**。
 
-The command shows the **effective** user ID. In setuid programs, this may differ from the real user ID.
+该命令显示的是**有效**用户 ID。在 setuid 程序中，它可能与真实用户 ID 不同。
 
 # INSTALL
 

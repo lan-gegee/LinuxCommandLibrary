@@ -1,22 +1,22 @@
 # TAGLINE
 
-Haskell type-safe web framework CLI
+Haskell 类型安全的 Web 框架 CLI
 
 # TLDR
 
-**Create project**
+**创建项目**
 
 ```yesod init```
 
-**Run development server**
+**运行开发服务器**
 
 ```yesod devel```
 
-**Add handler**
+**添加 handler**
 
 ```yesod add-handler [HandlerName]```
 
-**Generate Keter bundle**
+**生成 Keter 部署包**
 
 ```yesod keter```
 
@@ -27,44 +27,44 @@ Haskell type-safe web framework CLI
 # PARAMETERS
 
 **init**
-> Scaffold a new Yesod project interactively.
+> 以交互方式搭建一个新的 Yesod 项目骨架。
 
 **devel**
-> Run the development server with automatic recompilation on file changes.
+> 运行开发服务器，文件变化时自动重新编译。
 
 **add-handler**
-> Generate a new route handler with boilerplate code.
+> 生成带有样板代码的新路由 handler。
 
 **keter**
-> Build a Keter deployment bundle (.keter archive).
+> 构建 Keter 部署包（.keter 归档）。
 
 **test**
-> Run the project's test suite.
+> 运行项目的测试套件。
 
 **version**
-> Display yesod-bin version information.
+> 显示 yesod-bin 的版本信息。
 
 **-v, --verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--help**
-> Show usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**yesod** is the command-line tool for the Yesod web framework, which builds type-safe web applications in Haskell. It provides project scaffolding, development server management, and deployment bundling.
+**yesod** 是 Yesod Web 框架的命令行工具。该框架用于在 Haskell 中构建类型安全的 Web 应用。它提供项目脚手架、开发服务器管理和部署打包功能。
 
-The **init** command creates a new project with a complete directory structure, configuration, and dependencies. The **devel** subcommand starts a development server that watches for file changes and recompiles automatically, providing live reload during development.
+**init** 命令会创建一个新项目，包含完整的目录结构、配置和依赖。**devel** 子命令启动的开发服务器会监视文件变化并自动重新编译，在开发过程中提供实时重载。
 
-Route handlers can be added with **add-handler**, which generates boilerplate code following Yesod conventions. The **keter** command packages the application into a deployment bundle for the Keter web application deployment system.
+可以使用 **add-handler** 添加路由 handler，它会按照 Yesod 约定生成样板代码。**keter** 命令将应用打包成部署包，供 Keter Web 应用部署系统使用。
 
 # CAVEATS
 
-Haskell knowledge required. Stack/Cabal needed. Learning curve.
+需要 Haskell 知识。需要 Stack/Cabal。有学习曲线。
 
 # HISTORY
 
-**Yesod** was created by **Michael Snoyman** as a type-safe Haskell web framework.
+**Yesod** 由 **Michael Snoyman** 创建，是一个类型安全的 Haskell Web 框架。
 
 # INSTALL
 

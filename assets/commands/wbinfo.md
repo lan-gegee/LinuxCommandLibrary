@@ -1,46 +1,46 @@
 # TAGLINE
 
-Query Winbind for domain information
+向 Winbind 查询域信息
 
 # TLDR
 
-**List domain users**
+**列出域用户**
 
 ```wbinfo -u```
 
-**List domain groups**
+**列出域组**
 
 ```wbinfo -g```
 
-**Check winbind connection**
+**检查 winbind 连接**
 
 ```wbinfo -p```
 
-**Ping domain controller**
+**ping 域控制器**
 
 ```wbinfo -P```
 
-**Show domain info**
+**显示域信息**
 
 ```wbinfo -D [DOMAIN]```
 
-**List trusted domains**
+**列出受信任的域**
 
 ```wbinfo -m```
 
-**Convert username to SID**
+**将用户名转换为 SID**
 
 ```wbinfo -n [DOMAIN/username]```
 
-**Convert SID to name**
+**将 SID 转换为名称**
 
 ```wbinfo -s [S-1-5-21-...]```
 
-**Get user info by UID**
+**按 UID 获取用户信息**
 
 ```wbinfo --uid-info [1000]```
 
-**Check trust account**
+**检查信任账户**
 
 ```wbinfo -t```
 
@@ -51,71 +51,71 @@ Query Winbind for domain information
 # PARAMETERS
 
 **-u**, **--domain-users**
-> List all domain users.
+> 列出所有域用户。
 
 **-g**, **--domain-groups**
-> List all domain groups.
+> 列出所有域组。
 
 **-p**, **--ping**
-> Check if winbindd is running.
+> 检查 winbindd 是否正在运行。
 
 **-P**, **--ping-dc**
-> Ping the domain controller.
+> ping 域控制器。
 
 **-t**, **--check-secret**
-> Verify trust account.
+> 验证信任账户。
 
 **-m**, **--trusted-domains**
-> List trusted domains.
+> 列出受信任的域。
 
 **-D**, **--domain-info** _domain_
-> Show domain information.
+> 显示域信息。
 
 **--all-domains**
-> List all domains.
+> 列出所有域。
 
 **--own-domain**
-> Show own domain.
+> 显示自身所属的域。
 
 **-n**, **--name-to-sid** _name_
-> Convert name to SID.
+> 将名称转换为 SID。
 
 **-s**, **--sid-to-name** _SID_
-> Convert SID to name.
+> 将 SID 转换为名称。
 
 **-U**, **--uid-to-sid** _UID_
-> Convert UNIX UID to SID.
+> 将 UNIX UID 转换为 SID。
 
 **-G**, **--gid-to-sid** _GID_
-> Convert UNIX GID to SID.
+> 将 UNIX GID 转换为 SID。
 
 **-r**, **--user-groups** _user_
-> Get user's group memberships.
+> 获取用户的组成员身份。
 
 **--uid-info** _UID_
-> Get user info for UID.
+> 获取指定 UID 的用户信息。
 
 **--domain** _name_
-> Specify domain for operations.
+> 为操作指定域名。
 
 **-a** _user%pass_
-> Authenticate user (testing only).
+> 对用户进行身份验证（仅用于测试）。
 
 # DESCRIPTION
 
-**wbinfo** queries information from the winbindd daemon, which provides Windows domain integration for Samba and Linux systems. It retrieves user, group, and domain information from Active Directory or NT domains.
+**wbinfo** 从 winbindd 守护进程查询信息，该守护进程为 Samba 和 Linux 系统提供 Windows 域集成。它从 Active Directory 或 NT 域检索用户、组和域信息。
 
-The tool is essential for troubleshooting Winbind configurations and verifying domain connectivity. It can resolve between Windows SIDs and UNIX UIDs/GIDs using the configured ID mapping.
+该工具是排查 Winbind 配置和验证域连接性的必备工具。它可以依据已配置的 ID 映射在 Windows SID 与 UNIX UID/GID 之间进行转换。
 
-winbindd must be running and properly configured for wbinfo to function. The tool is commonly used to verify Samba domain membership.
+winbindd 必须正在运行且配置正确，wbinfo 才能正常工作。该工具常用于验证 Samba 的域成员资格。
 
 # CAVEATS
 
-Requires running winbindd daemon. Authentication via -a is for testing only; use ntlm_auth for applications. Some operations may take time on large domains. Exit status 0 indicates success, 1 indicates failure.
+需要 winbindd 守护进程正在运行。通过 -a 进行的身份验证仅用于测试；应用程序请使用 ntlm_auth。某些操作在大型域上可能耗时较长。退出状态 0 表示成功，1 表示失败。
 
 # HISTORY
 
-**wbinfo** is part of the Samba suite, which provides Windows interoperability for Unix systems. Winbind enables Unix systems to appear as members of Windows domains, allowing domain users to authenticate on Unix systems.
+**wbinfo** 是 Samba 套件的一部分，Samba 为 Unix 系统提供 Windows 互操作性。Winbind 使 Unix 系统能够作为 Windows 域成员出现，允许域用户在 Unix 系统上进行身份验证。
 
 # INSTALL
 

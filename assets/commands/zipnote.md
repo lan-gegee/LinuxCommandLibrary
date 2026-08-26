@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage ZIP file comments
+管理 ZIP 文件注释
 
 # TLDR
 
-**Show file comments**
+**显示文件注释**
 
 ```zipnote [archive.zip]```
 
-**Edit comments**
+**编辑注释**
 
 ```zipnote [archive.zip] > [notes.txt] && vim [notes.txt] && zipnote -w [archive.zip] < [notes.txt]```
 
-**Write comments from file**
+**从文件写入注释**
 
 ```zipnote -w [archive.zip] < [notes.txt]```
 
@@ -23,24 +23,24 @@ Manage ZIP file comments
 # PARAMETERS
 
 **-w**
-> Write mode.
+> 写入模式。
 
 **-b** _PATH_
-> Temp file path.
+> 临时文件路径。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 **-v**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**zipnote** reads and writes comments stored in ZIP archives. ZIP files support per-file comments and an overall archive comment, and zipnote provides a way to view and modify these metadata fields from the command line.
+**zipnote** 读写存储在 ZIP 归档中的注释。ZIP 文件支持每个文件的注释以及整个归档的注释，zipnote 提供了从命令行查看和修改这些元数据字段的方式。
 
-In read mode (the default), zipnote outputs a structured listing of all filenames and their associated comments. The output uses a specific format with **@** markers separating entries, which can be redirected to a file for editing.
+在读取模式（默认）下，zipnote 输出所有文件名及其关联注释的结构化列表。输出使用特定格式，以 **@** 标记分隔各条目，可以重定向到文件进行编辑。
 
-In write mode (**-w**), zipnote reads the modified structured format from standard input and updates the archive's comments accordingly. This workflow allows batch editing of comments across all files in an archive. zipnote is part of the Info-ZIP suite of utilities.
+在写入模式（**-w**）下，zipnote 从标准输入读取修改后的结构化格式，并相应更新归档的注释。这一工作流允许批量编辑归档中所有文件的注释。zipnote 是 Info-ZIP 工具集的一部分。
 
 # FORMAT
 
@@ -53,11 +53,11 @@ comment text here
 
 # CAVEATS
 
-Part of Info-ZIP. Specific format required. Edit carefully.
+属于 Info-ZIP。需要特定格式。请小心编辑。
 
 # HISTORY
 
-**zipnote** is part of **Info-ZIP** utilities. It enables comment management in ZIP files.
+**zipnote** 是 **Info-ZIP** 工具的一部分。它使 ZIP 文件中的注释管理成为可能。
 
 # INSTALL
 

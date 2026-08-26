@@ -1,30 +1,30 @@
 # TAGLINE
 
-WezTerm terminal control CLI
+WezTerm 终端控制 CLI
 
 # TLDR
 
-**Start new terminal**
+**启动新终端**
 
 ```wezterm start```
 
-**Connect to SSH**
+**连接 SSH**
 
 ```wezterm ssh [user@host]```
 
-**Connect to serial port**
+**连接串口**
 
 ```wezterm serial [/dev/ttyUSB0]```
 
-**Spawn new tab**
+**新建标签页**
 
 ```wezterm cli spawn```
 
-**Split pane**
+**分割面板**
 
 ```wezterm cli split-pane --right```
 
-**List panes**
+**列出面板**
 
 ```wezterm cli list```
 
@@ -35,40 +35,40 @@ WezTerm terminal control CLI
 # PARAMETERS
 
 **start**
-> Start new terminal.
+> 启动新终端。
 
 **ssh** _destination_
-> SSH connection.
+> SSH 连接。
 
 **serial** _port_
-> Serial port connection.
+> 串口连接。
 
 **cli spawn**
-> Create new tab.
+> 创建新标签页。
 
 **cli split-pane**
-> Split current pane.
+> 分割当前面板。
 
 **cli list**
-> List windows/tabs/panes.
+> 列出窗口/标签页/面板。
 
 **--config** _key=value_
-> Override configuration.
+> 覆盖配置。
 
 # CONFIGURATION
 
-**~/.wezterm.lua** or **~/.config/wezterm/wezterm.lua**
-> Lua-based configuration file for keybindings, fonts, colors, multiplexer settings, and SSH domains.
+**~/.wezterm.lua** 或 **~/.config/wezterm/wezterm.lua**
+> 基于 Lua 的配置文件，用于按键绑定、字体、颜色、多路复用设置和 SSH 域。
 
 # DESCRIPTION
 
-**wezterm** is a GPU-accelerated terminal emulator and multiplexer. It supports tabs, split panes, SSH and serial connections, and image display (sixel, iTerm2 protocol). Configuration is done via Lua scripts, enabling dynamic behavior and complex key mappings.
+**wezterm** 是一款 GPU 加速的终端模拟器和多路复用器。它支持标签页、分割面板、SSH 和串口连接以及图像显示（sixel、iTerm2 协议）。配置通过 Lua 脚本完成，可实现动态行为和复杂的按键映射。
 
-The `wezterm cli` subcommands control a running wezterm instance, allowing scripted pane management similar to tmux.
+`wezterm cli` 子命令用于控制正在运行的 wezterm 实例，可以像 tmux 一样通过脚本管理面板。
 
 # CAVEATS
 
-The `cli` subcommands require a running wezterm instance with the mux server enabled. Lua configuration errors prevent the terminal from starting; use `wezterm --config-file` to test alternate configs.
+`cli` 子命令要求 wezterm 实例正在运行且启用了 mux 服务器。Lua 配置出错会阻止终端启动；可使用 `wezterm --config-file` 测试备用配置。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ The `cli` subcommands require a running wezterm instance with the mux server ena
 # SEE ALSO
 
 [alacritty](/man/alacritty)(1), [kitty](/man/kitty)(1), [tmux](/man/tmux)(1)
-

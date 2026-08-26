@@ -1,18 +1,18 @@
 # TAGLINE
 
-run a WirePlumber Lua script outside of the daemon
+在守护进程之外运行 WirePlumber Lua 脚本
 
 # TLDR
 
-**Run a Lua** script
+**运行 Lua 脚本**
 
 ```wpexec [path/to/script.lua]```
 
-**Run a script with arguments**
+**带参数运行脚本**
 
 ```wpexec [path/to/script.lua] [arg1] [arg2]```
 
-**Show help**
+**显示帮助**
 
 ```wpexec --help```
 
@@ -23,27 +23,27 @@ run a WirePlumber Lua script outside of the daemon
 # PARAMETERS
 
 _SCRIPT_
-> Path to the Lua script to execute against the running WirePlumber daemon.
+> 要针对正在运行的 WirePlumber 守护进程执行的 Lua 脚本路径。
 
 _ARGUMENTS_
-> Positional arguments passed to the script and accessible via the **arg** Lua table.
+> 传给脚本的位置参数，可通过 **arg** Lua 表访问。
 
 **-h**, **--help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**wpexec** loads and runs a single WirePlumber Lua script in an isolated context. Unlike scripts that live in the **/usr/share/wireplumber/scripts/** tree and are managed by the daemon, **wpexec** spins up its own connection to the running WirePlumber session, executes the script, and exits when the script finishes.
+**wpexec** 在隔离上下文中加载并运行单个 WirePlumber Lua 脚本。与位于 **/usr/share/wireplumber/scripts/** 目录树中、由守护进程管理的脚本不同，**wpexec** 会自行建立到正在运行的 WirePlumber 会话的连接，执行脚本，并在脚本结束后退出。
 
-The full WirePlumber Lua API is available, including the **wp.Core**, **wp.ObjectManager**, **wp.Node**, and **wp.Link** classes, so the tool is well suited to ad-hoc PipeWire queries, one-off graph manipulations, and testing snippets that may later be promoted into a managed script.
+完整的 WirePlumber Lua API 均可使用，包括 **wp.Core**、**wp.ObjectManager**、**wp.Node** 和 **wp.Link** 等类，因此该工具非常适合临时性的 PipeWire 查询、一次性的图结构操作，以及测试之后可能升级为受管脚本的代码片段。
 
 # CAVEATS
 
-Requires both **WirePlumber** and **PipeWire** to be running. Scripts must be written against the version of the WirePlumber Lua API installed on the system; API breaks are documented in the WirePlumber release notes. Errors raised inside a script propagate to the exit status of **wpexec** but generally do not affect the long-running WirePlumber daemon.
+需要 **WirePlumber** 和 **PipeWire** 同时处于运行状态。脚本必须针对系统上安装的 WirePlumber Lua API 版本编写；API 变更记录在 WirePlumber 的发行说明中。脚本内部抛出的错误会传播为 **wpexec** 的退出状态，但一般不会影响长期运行的 WirePlumber 守护进程。
 
 # HISTORY
 
-**wpexec** ships with **WirePlumber**, the session and policy manager for PipeWire developed under the FreeDesktop.org umbrella. It exists alongside the **wpctl** control utility to give power users and packagers a way to drive PipeWire from Lua without modifying the daemon's own configuration.
+**wpexec** 随 **WirePlumber** 一起发布。WirePlumber 是在 FreeDesktop.org 框架下开发的 PipeWire 会话与策略管理器。它与 **wpctl** 控制工具并存，让高级用户和打包者可以通过 Lua 驱动 PipeWire，而无需修改守护进程自身的配置。
 
 # INSTALL
 

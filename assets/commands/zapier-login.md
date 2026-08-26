@@ -1,14 +1,14 @@
 # TAGLINE
 
-Authenticate with Zapier platform
+向 Zapier 平台进行身份验证
 
 # TLDR
 
-**Login to Zapier** interactively
+交互式**登录 Zapier**
 
 ```zapier login```
 
-**Login with SSO** (for Google, Facebook, or Microsoft accounts)
+使用 SSO **登录**（适用于 Google、Facebook 或 Microsoft 账户）
 
 ```zapier login --sso```
 
@@ -19,15 +19,15 @@ Authenticate with Zapier platform
 # PARAMETERS
 
 **--sso**
-> Use SSO authentication. Required if you log into Zapier via single sign-on (Google, Facebook, or Microsoft) and do not have a Zapier password. Prompts you to enter a deploy key generated from your Zapier developer account.
+> 使用 SSO 身份验证。如果你通过单点登录（Google、Facebook 或 Microsoft）登录 Zapier 且没有 Zapier 密码，则必须使用此选项。它会提示你输入从 Zapier 开发者账户生成的部署密钥（deploy key）。
 
 # DESCRIPTION
 
-**zapier login** authenticates with the Zapier platform and stores credentials in **~/.zapierrc**. Opens a browser for authentication. Required before using other Zapier CLI commands.
+**zapier login** 向 Zapier 平台进行身份验证，并将凭据存储在 **~/.zapierrc** 中。它会打开浏览器完成认证。使用其他 Zapier CLI 命令前必须先登录。
 
-As an alternative to interactive login, you can set the **ZAPIER_DEPLOY_KEY** environment variable to run privileged commands without user input.
+作为交互式登录的替代方案，可以设置 **ZAPIER_DEPLOY_KEY** 环境变量来在无需用户输入的情况下运行特权命令。
 
-Note: The CLI binary has been renamed from **zapier** to **zapier-platform** as of v18.0.0. The old **zapier** command still works but is deprecated.
+注意：自 v18.0.0 起，CLI 二进制已从 **zapier** 更名为 **zapier-platform**。旧的 **zapier** 命令仍可使用，但已弃用。
 
 # SEE ALSO
 

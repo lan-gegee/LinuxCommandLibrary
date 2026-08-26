@@ -1,34 +1,34 @@
 # TAGLINE
 
-Search inside ZIP archives
+在 ZIP 归档内搜索
 
 # TLDR
 
-**Search in ZIP**
+**在 ZIP 中搜索**
 
 ```zipgrep [pattern] [archive.zip]```
 
-**Search specific file**
+**搜索指定文件**
 
 ```zipgrep [pattern] [archive.zip] [file.txt]```
 
-**Case insensitive**
+**不区分大小写**
 
 ```zipgrep -i [pattern] [archive.zip]```
 
-**Show line numbers**
+**显示行号**
 
 ```zipgrep -n [pattern] [archive.zip]```
 
-**Count matches**
+**统计匹配数**
 
 ```zipgrep -c [pattern] [archive.zip]```
 
-**List matching files only**
+**只列出匹配的文件**
 
 ```zipgrep -l [pattern] [archive.zip]```
 
-**Search but exclude files in subdirectories**
+**搜索但排除子目录中的文件**
 
 ```zipgrep [pattern] [archive.zip] *.[ch] -x */*```
 
@@ -39,47 +39,47 @@ Search inside ZIP archives
 # PARAMETERS
 
 **-i**
-> Case insensitive.
+> 不区分大小写。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-c**
-> Count matches.
+> 统计匹配数。
 
 **-l**
-> List files only.
+> 只列出文件。
 
 **-h**
-> No filename prefix.
+> 不带文件名前缀。
 
 **-v**
-> Invert match.
+> 反向匹配。
 
 _pattern_
-> Search pattern.
+> 搜索模式。
 
 _members_
-> Specific files within the archive to search.
+> 归档内要搜索的特定文件。
 
 **-x** _xfile(s)_
-> Exclude specified archive members from processing. Wildcards match directory separators.
+> 从处理中排除指定的归档成员。通配符会匹配目录分隔符。
 
 # DESCRIPTION
 
-**zipgrep** searches for text patterns inside ZIP archives without requiring manual extraction. It works as a shell wrapper around **unzip** and **egrep**, piping decompressed file contents through pattern matching to display results in a familiar grep-like format.
+**zipgrep** 在 ZIP 归档内搜索文本模式，无需手动解压。它作为 **unzip** 和 **egrep** 的 Shell 封装工作，将解压后的文件内容通过管道传给模式匹配，以类似 grep 的格式显示结果。
 
-Pattern matching supports extended regular expressions through egrep. The output shows the matching filename and line for each hit, similar to running grep on extracted contents. Optional member arguments restrict the search to specific files within the archive.
+模式匹配通过 egrep 支持扩展正则表达式。输出会显示每个命中项的文件名和匹配行，类似于对解压内容运行 grep。可选的成员参数可将搜索限制在归档内的特定文件。
 
-All options before the ZIP archive filename are passed to egrep, so standard grep options like **-i** for case-insensitive matching, **-n** for line numbers, **-c** for match counts, and **-l** for listing matching filenames are all supported. If the literal filename is not found, the suffix .zip is appended. zipgrep is part of the Info-ZIP suite of utilities.
+ZIP 归档文件名之前的所有选项都会传给 egrep，因此标准的 grep 选项均受支持：**-i** 不区分大小写、**-n** 显示行号、**-c** 统计匹配数、**-l** 列出匹配的文件名。如果找不到字面文件名，则会追加 .zip 后缀。zipgrep 是 Info-ZIP 工具集的一部分。
 
 # CAVEATS
 
-Shell wrapper around unzip/egrep. May be slow on large archives. Part of Info-ZIP.
+它是 unzip/egrep 的 Shell 封装。大型归档可能较慢。属于 Info-ZIP。
 
 # HISTORY
 
-**zipgrep** is part of **Info-ZIP** utilities. It provides grep functionality for ZIP contents.
+**zipgrep** 是 **Info-ZIP** 工具的一部分。它为 ZIP 内容提供 grep 功能。
 
 # INSTALL
 

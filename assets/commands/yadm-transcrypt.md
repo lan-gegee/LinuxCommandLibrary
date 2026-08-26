@@ -1,18 +1,18 @@
 # TAGLINE
 
-Transparent encryption for yadm files
+为 yadm 文件提供透明加密
 
 # TLDR
 
-**Initialize transcrypt**
+**初始化 transcrypt**
 
 ```yadm transcrypt -c aes-256-gcm```
 
-**Unlock files**
+**解锁文件**
 
 ```yadm transcrypt --display```
 
-**Configure transcrypt**
+**配置 transcrypt**
 
 ```yadm transcrypt -p [password]```
 
@@ -23,19 +23,18 @@ Transparent encryption for yadm files
 # PARAMETERS
 
 **-c** _cipher_
-> Encryption cipher.
+> 加密算法。
 
 **-p** _password_
-> Set password.
+> 设置密码。
 
 **--display**
-> Show configuration.
+> 显示配置。
 
 # DESCRIPTION
 
-**yadm transcrypt** wraps transcrypt for transparent file encryption. Encrypts files on push using .gitattributes patterns. Alternative encryption method to yadm encrypt.
+**yadm transcrypt** 封装 transcrypt 以提供透明的文件加密。它根据 .gitattributes 模式在推送时加密文件。是 yadm encrypt 之外的另一种加密方式。
 
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [transcrypt](/man/transcrypt)(1)
-

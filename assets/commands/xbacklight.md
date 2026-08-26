@@ -1,26 +1,26 @@
 # TAGLINE
 
-Adjust screen backlight brightness
+调节屏幕背光亮度
 
 # TLDR
 
-Get current **brightness**
+获取当前**亮度**
 
 ```xbacklight```
 
-**Set** brightness
+**设置**亮度
 
 ```xbacklight -set [40]```
 
-**Increase** brightness
+**提高**亮度
 
 ```xbacklight -inc [25]```
 
-**Decrease** brightness
+**降低**亮度
 
 ```xbacklight -dec [75]```
 
-Set with **fade** effect
+以**渐变**效果设置
 
 ```xbacklight -set [100] -time [60000] -steps [60]```
 
@@ -31,38 +31,38 @@ Set with **fade** effect
 # PARAMETERS
 
 **-get**
-> Print current brightness percentage (default when no action given).
+> 打印当前亮度百分比（未指定操作时的默认行为）。
 
 **-set** _PERCENT_
-> Set brightness to percentage.
+> 将亮度设置为指定百分比。
 
 **-inc** _PERCENT_
-> Increase brightness by percentage.
+> 按百分比提高亮度。
 
 **-dec** _PERCENT_
-> Decrease brightness by percentage.
+> 按百分比降低亮度。
 
 **-time** _MS_
-> Fade duration in milliseconds.
+> 渐变时长，以毫秒为单位。
 
 **-steps** _N_
-> Number of steps for fade.
+> 渐变的步数。
 
 **-display** _DISPLAY_
-> X display to use.
+> 要使用的 X display。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**xbacklight** adjusts backlight brightness using the X RandR extension's backlight property. When called without arguments, it prints the current brightness level as a percentage. The **-set**, **-inc**, and **-dec** options modify the brightness.
+**xbacklight** 使用 X RandR 扩展的背光属性来调节背光亮度。不带参数调用时，它以百分比形式打印当前亮度级别。**-set**、**-inc** 和 **-dec** 选项用于修改亮度。
 
-The **-time** and **-steps** parameters enable smooth fade transitions, spreading the brightness change over the specified duration.
+**-time** 和 **-steps** 参数可实现平滑的渐变过渡，将亮度变化分散到指定的时长内完成。
 
 # CAVEATS
 
-X11 only; does not work with Wayland. Requires the RandR backlight property to be exposed by the display driver. Many modern laptops and proprietary drivers (e.g., NVIDIA) do not expose this property. Use **brightnessctl** or **light** as more reliable alternatives that work via sysfs.
+仅支持 X11；在 Wayland 下无法使用。需要显示驱动暴露 RandR 背光属性。许多现代笔记本电脑和专有驱动（如 NVIDIA）不暴露该属性。建议改用 **brightnessctl** 或 **light** 等通过 sysfs 工作的更可靠的替代工具。
 
 # INSTALL
 

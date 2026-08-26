@@ -1,30 +1,30 @@
 # TAGLINE
 
-Web application fuzzing tool
+Web 应用模糊测试工具
 
 # TLDR
 
-**Fuzz URL parameter**
+**模糊测试 URL 参数**
 
 ```wfuzz -c -z file,[wordlist.txt] "[http://target/?param=FUZZ]"```
 
-**Fuzz directory**
+**模糊测试目录**
 
 ```wfuzz -c -z file,[dirs.txt] "[http://target/FUZZ]"```
 
-**POST data fuzzing**
+**POST 数据模糊测试**
 
 ```wfuzz -c -z file,[wordlist.txt] -d "user=admin&pass=FUZZ" "[http://target/login]"```
 
-**Filter by response code**
+**按响应码过滤**
 
 ```wfuzz -c --hc 404 -z file,[wordlist.txt] "[http://target/FUZZ]"```
 
-**Filter by response size**
+**按响应大小过滤**
 
 ```wfuzz -c --hl 0 -z file,[wordlist.txt] "[http://target/FUZZ]"```
 
-**Multiple fuzz points**
+**多个模糊测试点**
 
 ```wfuzz -c -z file,[users.txt] -z file,[passwords.txt] "[http://target/?u=FUZ2Z&p=FUZZ]"```
 
@@ -35,47 +35,47 @@ Web application fuzzing tool
 # PARAMETERS
 
 **-z** _TYPE,DATA_
-> Payload specification.
+> Payload 规范。
 
 **-c**
-> Color output.
+> 彩色输出。
 
 **--hc** _CODES_
-> Hide response codes.
+> 隐藏指定响应码。
 
 **--hl** _LINES_
-> Hide by line count.
+> 按行数隐藏。
 
 **--hw** _WORDS_
-> Hide by word count.
+> 按单词数隐藏。
 
 **--hh** _CHARS_
-> Hide by char count.
+> 按字符数隐藏。
 
 **-d** _DATA_
-> POST data.
+> POST 数据。
 
 **-H** _HEADER_
-> HTTP header.
+> HTTP 请求头。
 
 **-t** _N_
-> Threads.
+> 线程数。
 
 # DESCRIPTION
 
-**wfuzz** is a web application security testing tool that performs brute-force discovery of directories, parameters, forms, and other injection points. It replaces the FUZZ keyword in URLs, headers, or POST data with entries from wordlists or other payload sources.
+**wfuzz** 是一款 Web 应用安全测试工具，用于对目录、参数、表单和其他注入点进行暴力发现。它将 URL、请求头或 POST 数据中的 FUZZ 关键字替换为字典或其他 payload 来源中的条目。
 
-Multiple injection points can be used simultaneously with FUZ2Z, FUZ3Z markers, allowing combined username and password attacks or multi-parameter fuzzing. Response filtering by status code, line count, word count, or character count hides uninteresting results and highlights anomalies that may indicate vulnerabilities.
+可以配合 FUZ2Z、FUZ3Z 标记同时使用多个注入点，实现用户名和密码的组合攻击或多参数模糊测试。通过状态码、行数、单词数或字符数过滤响应，可以隐藏无用的结果，并突出可能指示漏洞的异常。
 
-Payload sources include wordlist files, numeric ranges, and encoded variants. Multi-threading speeds up testing, and colored output makes results easier to scan. The tool is commonly used for directory enumeration, parameter discovery, and authentication testing in authorized security assessments.
+Payload 来源包括字典文件、数字范围和编码变体。多线程加速测试，彩色输出让结果更易于浏览。该工具常用于经授权的安全评估中的目录枚举、参数发现和身份验证测试。
 
 # CAVEATS
 
-For authorized testing only. Rate limiting may be needed. Large wordlists are slow.
+仅用于经授权的测试。可能需要控制请求速率。大型字典运行较慢。
 
 # HISTORY
 
-**wfuzz** was created by **Christian Martorella** (Edge-Security) for web application testing. It's a standard tool in penetration testing.
+**wfuzz** 由 **Christian Martorella**（Edge-Security）创建，用于 Web 应用测试。它是渗透测试的标准工具之一。
 
 # INSTALL
 

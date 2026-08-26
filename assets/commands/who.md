@@ -1,34 +1,34 @@
 # TAGLINE
 
-Show logged-in users
+显示已登录的用户
 
 # TLDR
 
-**Show who is logged in**
+**显示谁已登录**
 
 ```who```
 
-**Show current user** only
+**仅显示当前用户**
 
 ```who am i```
 
-**Show with column headers**
+**显示列标题**
 
 ```who -H```
 
-**Show login time and idle time**
+**显示登录时间和空闲时间**
 
 ```who -u```
 
-**Show all available information**
+**显示所有可用信息**
 
 ```who -a```
 
-**Count logged in users**
+**统计已登录用户数**
 
 ```who -q```
 
-**Show system boot time**
+**显示系统启动时间**
 
 ```who -b```
 
@@ -39,64 +39,64 @@ Show logged-in users
 # PARAMETERS
 
 **-a**, **--all**
-> Print all available information
+> 打印所有可用信息
 
 **-b**, **--boot**
-> Time of last system boot
+> 上次系统启动的时间
 
 **-d**, **--dead**
-> Print dead processes
+> 打印已死亡的进程
 
 **-H**, **--heading**
-> Print column headers
+> 打印列标题
 
 **-l**, **--login**
-> Print system login processes
+> 打印系统登录进程
 
 **-q**, **--count**
-> Only usernames and count of logged-in users
+> 仅显示用户名和已登录用户数
 
 **-r**, **--runlevel**
-> Print current runlevel
+> 打印当前运行级别
 
 **-p**, **--process**
-> Print active processes spawned by init
+> 打印由 init 派生的活动进程
 
 **-s**, **--short**
-> Print only name, line, and time (default)
+> 仅打印名称、终端行和时间（默认）
 
 **-t**, **--time**
-> Print last system clock change
+> 打印上次系统时钟变更
 
 **-T**, **-w**, **--mesg**
-> Add user's message status (+, -, ?)
+> 添加用户的消息状态（+、-、?）
 
 **-u**, **--users**
-> List users logged in
+> 列出已登录用户
 
 **--lookup**
-> Attempt to canonicalize hostnames via DNS
+> 尝试通过 DNS 规范化主机名
 
 **am i**
-> Print only current terminal's user info
+> 仅打印当前终端的用户信息
 
 # DESCRIPTION
 
-**who** displays information about users currently logged into the system. It reads from **/var/run/utmp** (or another specified file) which tracks login sessions.
+**who** 显示当前登录到系统的用户信息。它从跟踪登录会话的 **/var/run/utmp**（或其他指定文件）中读取数据。
 
-The basic output shows username, terminal line, and login time. Additional options reveal idle time, process IDs, and message status (whether the user accepts write/talk messages).
+基本输出包括用户名、终端行和登录时间。其他选项可显示空闲时间、进程 ID 和消息状态（即用户是否接受 write/talk 消息）。
 
-**who am i** shows information about the original login session. Unlike **whoami** (which shows the effective user), **who am i** displays the user who originally logged in, even after **su** to another account.
+**who am i** 显示最初登录会话的信息。与 **whoami**（显示有效用户）不同，即使已经用 **su** 切换到其他账户，**who am i** 显示的仍是最初登录的用户。
 
-The command can read historical login data from **/var/log/wtmp** to show past logins.
+该命令可以从 **/var/log/wtmp** 读取历史登录数据，以显示过去的登录记录。
 
 # CAVEATS
 
-Who shows login sessions, not all user processes. Users may have processes running without active login sessions.
+who 显示的是登录会话，而非所有用户进程。用户可能在没有活动登录会话的情况下运行进程。
 
-Remote connections may show as pseudo-terminals (pts/N) rather than physical terminals (tty).
+远程连接可能显示为伪终端（pts/N）而非物理终端（tty）。
 
-The utmp file format varies between Unix systems. Some information may not be available on all platforms.
+utmp 文件格式在不同 Unix 系统之间存在差异。某些信息可能在部分平台上不可用。
 
 # INSTALL
 

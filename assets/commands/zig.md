@@ -1,34 +1,34 @@
 # TAGLINE
 
-Systems programming language and compiler
+系统编程语言与编译器
 
 # TLDR
 
-**Compile and run a file**
+**编译并运行文件**
 
 ```zig run [file.zig]```
 
-**Build a project**
+**构建项目**
 
 ```zig build```
 
-**Compile to executable**
+**编译为可执行文件**
 
 ```zig build-exe [file.zig]```
 
-**Compile to object file**
+**编译为目标文件**
 
 ```zig build-obj [file.zig]```
 
-**Format Zig code**
+**格式化 Zig 代码**
 
 ```zig fmt [file.zig]```
 
-**Run tests**
+**运行测试**
 
 ```zig test [file.zig]```
 
-**Start REPL (interactive mode)**
+**启动 REPL（交互模式）**
 
 ```zig repl```
 
@@ -39,78 +39,78 @@ Systems programming language and compiler
 # SUBCOMMANDS
 
 **build**
-> Build project using build.zig
+> 使用 build.zig 构建项目
 
 **build-exe**
-> Compile to executable
+> 编译为可执行文件
 
 **build-lib**
-> Compile to library
+> 编译为库
 
 **build-obj**
-> Compile to object file
+> 编译为目标文件
 
 **run**
-> Compile and run immediately
+> 立即编译并运行
 
 **test**
-> Run unit tests
+> 运行单元测试
 
 **fmt**
-> Format source code
+> 格式化源代码
 
 **cc**
-> Use Zig as a C compiler
+> 将 Zig 用作 C 编译器
 
 **c++**
-> Use Zig as a C++ compiler
+> 将 Zig 用作 C++ 编译器
 
 **translate-c**
-> Translate C code to Zig
+> 将 C 代码翻译为 Zig
 
 **init-exe**
-> Initialize executable project
+> 初始化可执行项目
 
 **init-lib**
-> Initialize library project
+> 初始化库项目
 
 # PARAMETERS
 
 **-O** _mode_
-> Optimization mode (Debug, ReleaseSafe, ReleaseFast, ReleaseSmall)
+> 优化模式（Debug、ReleaseSafe、ReleaseFast、ReleaseSmall）
 
 **-target** _triple_
-> Cross-compilation target
+> 交叉编译目标
 
 **-I** _dir_
-> Add include directory
+> 添加头文件包含目录
 
 **-l** _lib_
-> Link library
+> 链接库
 
 **-femit-asm**
-> Output assembly
+> 输出汇编代码
 
 **-freference-trace**
-> Show compile error reference traces
+> 显示编译错误的引用追踪
 
 # DESCRIPTION
 
-**Zig** is a systems programming language focused on safety, performance, and maintainability. The zig command is both a compiler and build system.
+**Zig** 是一门专注于安全性、性能和可维护性的系统编程语言。zig 命令既是编译器也是构建系统。
 
-Key features include compile-time code execution (comptime), optional safety checks, C interoperability, and built-in cross-compilation to many targets without external toolchains.
+主要特性包括编译期代码执行（comptime）、可选的安全检查、C 互操作性，以及对众多目标的内置交叉编译能力而无需外部工具链。
 
-Zig can also serve as a drop-in C/C++ compiler (**zig cc**, **zig c++**) with consistent cross-compilation capabilities, making it useful even for non-Zig projects.
+Zig 还可以作为即插即用的 C/C++ 编译器（**zig cc**、**zig c++**），提供一致的交叉编译能力，即使对非 Zig 项目也很有用。
 
-The build system uses **build.zig** files written in Zig itself, providing full language power for build configuration.
+构建系统使用 Zig 本身编写的 **build.zig** 文件，为构建配置提供了完整的语言能力。
 
 # CAVEATS
 
-Zig is still pre-1.0 and the language/standard library may change between versions.
+Zig 仍处于 1.0 之前阶段，语言和标准库可能随版本变化。
 
-Debug builds include runtime safety checks that catch bugs but have performance overhead.
+Debug 构建包含能捕获 bug 的运行时安全检查，但有性能开销。
 
-Cross-compilation is powerful but target-specific system libraries may still be needed for some features.
+交叉编译功能强大，但某些特性仍可能需要目标平台特定的系统库。
 
 # INSTALL
 

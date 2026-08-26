@@ -1,34 +1,34 @@
 # TAGLINE
 
-HTML/XML/JSON data extraction tool
+HTML/XML/JSON 数据提取工具
 
 # TLDR
 
-**Extract with XPath**
+**使用 XPath 提取**
 
 ```xidel [file.html] -e "//title"```
 
-**Extract from URL**
+**从 URL 提取**
 
 ```xidel [https://example.com] -e "//h1"```
 
-**CSS selector**
+**CSS 选择器**
 
 ```xidel [file.html] --css "div.content"```
 
-**Extract JSON**
+**提取 JSON**
 
 ```xidel [file.json] -e "$json/key"```
 
-**Multiple extractions**
+**多次提取**
 
 ```xidel [file.html] -e "//title" -e "//h1"```
 
-**Output JSON**
+**输出 JSON**
 
 ```xidel [file.html] -e "//a/@href" --output-format=json```
 
-**Follow links**
+**跟随链接**
 
 ```xidel [url] -f "//a/@href" -e "//title"```
 
@@ -39,41 +39,41 @@ HTML/XML/JSON data extraction tool
 # PARAMETERS
 
 **-e**, **--extract** _EXPR_
-> XPath/XQuery expression.
+> XPath/XQuery 表达式。
 
 **--css** _SELECTOR_
-> CSS selector.
+> CSS 选择器。
 
 **-f**, **--follow** _EXPR_
-> Follow links.
+> 跟随链接。
 
 **--output-format** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--input-format** _FORMAT_
-> Input format.
+> 输入格式。
 
 **-s**, **--silent**
-> Suppress status.
+> 抑制状态信息。
 
 **--user-agent** _UA_
-> User agent.
+> 用户代理（User Agent）。
 
 # DESCRIPTION
 
-**xidel** is a command-line tool for extracting and querying data from HTML, XML, and JSON documents. It supports multiple query languages including XPath, XQuery, and CSS selectors, making it versatile for a wide range of data extraction tasks from both local files and remote URLs.
+**xidel** 是一个命令行工具，用于从 HTML、XML 和 JSON 文档中提取和查询数据。它支持多种查询语言，包括 XPath、XQuery 和 CSS 选择器，因此无论处理本地文件还是远程 URL，都能胜任各种数据提取任务。
 
-XPath and XQuery expressions allow precise navigation of document structure, while CSS selectors provide a familiar syntax for those accustomed to web development. For JSON documents, xidel uses a path-based syntax to navigate object hierarchies. Multiple extraction expressions can be combined in a single invocation for complex data gathering.
+XPath 和 XQuery 表达式可以精确地导航文档结构，而 CSS 选择器则为熟悉 Web 开发的用户提供了熟悉的语法。对于 JSON 文档，xidel 使用基于路径的语法来遍历对象层级。可以在一次调用中组合多个提取表达式，以完成复杂的数据收集。
 
-The tool includes a link-following mode that enables web spidering, where xidel can traverse links on pages and apply extraction expressions to each visited page. Output can be formatted as plain text, JSON, or other structured formats, making it suitable for integration into data processing pipelines.
+该工具包含链接跟随模式，可实现网络爬取：xidel 可以遍历页面上的链接，并对每个访问的页面应用提取表达式。输出可以格式化为纯文本、JSON 或其他结构化格式，便于集成到数据处理管道中。
 
 # CAVEATS
 
-Complex syntax learning curve. Large documents may be slow. Encoding issues possible.
+语法复杂，有学习曲线。大文档可能较慢。可能出现编码问题。
 
 # HISTORY
 
-**xidel** was created as a powerful command-line data extraction tool. It combines multiple query languages in one utility.
+**xidel** 作为一个功能强大的命令行数据提取工具而创建。它将多种查询语言整合到一个实用程序中。
 
 # INSTALL
 

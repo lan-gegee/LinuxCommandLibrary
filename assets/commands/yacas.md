@@ -1,22 +1,22 @@
 # TAGLINE
 
-Free computer algebra system
+自由的开源计算机代数系统
 
 # TLDR
 
-**Start calculator**
+**启动计算器**
 
 ```yacas```
 
-**Evaluate expression**
+**求值表达式**
 
 ```yacas -c "[Solve(x^2-4==0,x)]"```
 
-**Run script**
+**运行脚本**
 
 ```yacas [script.ys]```
 
-**Quiet mode**
+**安静模式**
 
 ```yacas -p```
 
@@ -27,30 +27,30 @@ Free computer algebra system
 # PARAMETERS
 
 **-c** _EXPR_
-> Evaluate expression.
+> 求值表达式。
 
 **-p**
-> Plain output.
+> 纯文本输出。
 
 **-d** _DIR_
-> Scripts directory.
+> 脚本目录。
 
 **--help**
-> Show help.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**yacas** (Yet Another Computer Algebra System) is a free symbolic mathematics program that provides an interactive environment for algebraic computation. It supports symbolic manipulation of expressions, equation solving, calculus operations including derivatives and integrals, and linear algebra.
+**yacas**（Yet Another Computer Algebra System）是一个自由的符号数学程序，提供代数计算的交互式环境。它支持表达式的符号操作、方程求解、包括导数和积分在内的微积分运算以及线性代数。
 
-The system includes its own scripting language for defining custom functions and mathematical procedures. It can be used interactively at the command line or by running script files, and supports both exact symbolic computation and numerical evaluation.
+该系统包含自己的脚本语言，可用于定义自定义函数和数学过程。它既可以在命令行中交互式使用，也可以通过运行脚本文件使用，同时支持精确符号计算和数值计算。
 
 # CAVEATS
 
-Learning curve. Own syntax. Not as full as Mathematica.
+有学习曲线。拥有自己的语法。不如 Mathematica 功能全面。
 
 # HISTORY
 
-**Yacas** (Yet Another Computer Algebra System) was created as a free computer algebra system.
+**Yacas**（Yet Another Computer Algebra System）作为一个自由的计算机代数系统而创建。
 
 # INSTALL
 

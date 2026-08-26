@@ -1,42 +1,42 @@
 # TAGLINE
 
-Convert HTML pages to images
+将 HTML 页面转换为图片
 
 # TLDR
 
-**Convert an HTML file** to PNG
+**将 HTML 文件**转换为 PNG
 
 ```wkhtmltoimage [input.html] [output.png]```
 
-**Convert a webpage** to image
+**将网页**转换为图片
 
 ```wkhtmltoimage [https://example.com] [output.png]```
 
-**Set output dimensions**
+**设置输出尺寸**
 
 ```wkhtmltoimage --width [1024] --height [768] [input.html] [output.png]```
 
-**Set output format** explicitly
+显式**指定输出格式**
 
 ```wkhtmltoimage --format [jpeg] [input.html] [output.jpg]```
 
-**Set image quality** (0-100)
+**设置图片质量**（0-100）
 
 ```wkhtmltoimage --quality [85] [input.html] [output.jpg]```
 
-**Crop the output**
+**裁剪输出**
 
 ```wkhtmltoimage --crop-x [10] --crop-y [10] --crop-w [800] --crop-h [600] [input.html] [output.png]```
 
-**Disable JavaScript**
+**禁用 JavaScript**
 
 ```wkhtmltoimage --disable-javascript [input.html] [output.png]```
 
-**Render with a zoom factor**
+以缩放系数渲染
 
 ```wkhtmltoimage --zoom [1.5] [input.html] [output.png]```
 
-**Wait for JavaScript** to finish
+**等待 JavaScript**执行完毕
 
 ```wkhtmltoimage --javascript-delay [2000] [input.html] [output.png]```
 
@@ -47,110 +47,110 @@ Convert HTML pages to images
 # PARAMETERS
 
 **--width** _int_
-> Set screen width (used as guideline).
+> 设置屏幕宽度（作为参考值）。
 
 **--height** _int_
-> Set screen height.
+> 设置屏幕高度。
 
 **-f**, **--format** _format_
-> Output format: png, jpg, bmp, svg.
+> 输出格式：png、jpg、bmp、svg。
 
 **--quality** _int_
-> Output quality 0-100 (default 94, for JPEG).
+> 输出质量 0-100（默认 94，用于 JPEG）。
 
 **--crop-x** _int_
-> X coordinate for cropping.
+> 裁剪的 X 坐标。
 
 **--crop-y** _int_
-> Y coordinate for cropping.
+> 裁剪的 Y 坐标。
 
 **--crop-w** _int_
-> Width for cropping.
+> 裁剪的宽度。
 
 **--crop-h** _int_
-> Height for cropping.
+> 裁剪的高度。
 
 **-n**, **--disable-javascript**
-> Disable JavaScript execution.
+> 禁用 JavaScript 执行。
 
 **--javascript-delay** _msec_
-> Wait milliseconds for JavaScript to finish.
+> 等待 JavaScript 执行完毕的毫秒数。
 
 **--user-style-sheet** _path_
-> Apply custom CSS stylesheet.
+> 应用自定义 CSS 样式表。
 
 **--cookie** _name_ _value_
-> Set a cookie (repeatable).
+> 设置 cookie（可重复使用）。
 
 **--custom-header** _name_ _value_
-> Set custom HTTP header (repeatable).
+> 设置自定义 HTTP 头（可重复使用）。
 
 **--zoom** _float_
-> Zoom factor for rendering (e.g., 2.0 for 2x).
+> 渲染的缩放系数（例如 2.0 表示放大两倍）。
 
 **--disable-smart-width**
-> Use strict width instead of guideline.
+> 使用严格宽度而非参考宽度。
 
 **--encoding** _encoding_
-> Set the default text encoding for input.
+> 设置输入的默认文本编码。
 
 **-p**, **--proxy** _proxy_
-> Use a proxy.
+> 使用代理。
 
 **--username** _username_
-> HTTP authentication username.
+> HTTP 身份验证用户名。
 
 **--password** _password_
-> HTTP authentication password.
+> HTTP 身份验证密码。
 
 **--run-script** _js_
-> Run additional JavaScript after the page finishes loading (repeatable).
+> 在页面加载完成后运行额外的 JavaScript（可重复使用）。
 
 **--load-error-handling** _handler_
-> How to handle pages that fail to load: abort, ignore, or skip (default: abort).
+> 页面加载失败时的处理方式：abort、ignore 或 skip（默认：abort）。
 
 **--allow** _path_
-> Allow files from the specified folder to be loaded (repeatable).
+> 允许从指定文件夹加载文件（可重复使用）。
 
 **--no-images**
-> Do not load or print images.
+> 不加载也不输出图片。
 
 **--stop-slow-scripts**
-> Stop slow-running JavaScript.
+> 停止运行缓慢的 JavaScript。
 
 **--window-status** _string_
-> Wait until window.status equals this string before rendering.
+> 等待 window.status 等于该字符串后再进行渲染。
 
 **--log-level** _level_
-> Set log level: none, error, warn, or info.
+> 设置日志级别：none、error、warn 或 info。
 
 **-q**, **--quiet**
-> Suppress output messages (equivalent to --log-level none).
+> 抑制输出消息（等同于 --log-level none）。
 
 **-H**, **--extended-help**
-> Display comprehensive help documentation.
+> 显示完整帮助文档。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**wkhtmltoimage** converts HTML pages to images using the WebKit rendering engine. It can process local HTML files or fetch remote URLs, producing PNG, JPEG, BMP, or SVG output.
+**wkhtmltoimage** 使用 WebKit 渲染引擎将 HTML 页面转换为图片。它可以处理本地 HTML 文件，也可以抓取远程 URL，生成 PNG、JPEG、BMP 或 SVG 输出。
 
-The tool runs headlessly without requiring a display server, making it suitable for server-side image generation. It supports JavaScript execution, custom stylesheets, cookies, and HTTP authentication.
+该工具以无头模式运行，不需要显示服务器，因此适合在服务器端生成图片。它支持执行 JavaScript、自定义样式表、cookie 以及 HTTP 身份验证。
 
-Part of the **wkhtmltopdf** suite, it shares the same rendering engine and many options with its PDF counterpart.
+它是 **wkhtmltopdf** 套件的一部分，与其 PDF 版本共享相同的渲染引擎和许多选项。
 
 # CAVEATS
 
-wkhtmltoimage is based on an older Qt WebKit version and may not render modern JavaScript frameworks correctly. For complex pages, consider alternatives like Puppeteer or Playwright. The project is in maintenance mode with limited updates.
+wkhtmltoimage 基于较旧的 Qt WebKit 版本，可能无法正确渲染现代 JavaScript 框架。对于复杂页面，可以考虑 Puppeteer 或 Playwright 等替代方案。该项目已进入维护模式，更新有限。
 
 # HISTORY
 
-wkhtmltoimage was created by **Jakob Truelsen** as part of the **wkhtmltopdf** project, first released around **2008**. It leverages Qt's WebKit implementation for rendering. The project gained popularity for server-side HTML-to-PDF/image conversion. Development has slowed as the underlying Qt WebKit has been deprecated in favor of Qt WebEngine.
+wkhtmltoimage 由 **Jakob Truelsen** 作为 **wkhtmltopdf** 项目的一部分创建，大约于 **2008 年**首次发布。它利用 Qt 的 WebKit 实现进行渲染。该项目因服务器端 HTML 转 PDF/图片转换而广受欢迎。随着底层 Qt WebKit 被 Qt WebEngine 取代而逐渐废弃，其开发速度也已放缓。
 
 # SEE ALSO
 

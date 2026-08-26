@@ -1,30 +1,30 @@
 # TAGLINE
 
-Free RDP remote desktop client
+自由的 RDP 远程桌面客户端
 
 # TLDR
 
-**Connect** to server
+**连接**服务器
 
 ```xfreerdp /u:[username] /p:[password] /v:[ip_address]```
 
-Connect with **audio**
+连接并启用**音频**
 
 ```xfreerdp /u:[username] /p:[password] /v:[ip_address] /sound:sys:alsa```
 
-Connect with **dynamic** resolution
+连接并启用**动态**分辨率
 
 ```xfreerdp /v:[ip_address] /u:[username] /p:[password] /dynamic-resolution```
 
-Connect with **clipboard**
+连接并启用**剪贴板**
 
 ```xfreerdp /v:[ip_address] /u:[username] /p:[password] +clipboard```
 
-**Ignore** certificate
+**忽略**证书
 
 ```xfreerdp /v:[ip_address] /u:[username] /p:[password] /cert:ignore```
 
-Connect with **shared** directory
+连接并启用**共享**目录
 
 ```xfreerdp /v:[ip_address] /u:[username] /p:[password] /drive:[path/to/directory],[share_name]```
 
@@ -35,41 +35,41 @@ Connect with **shared** directory
 # PARAMETERS
 
 **/v:** _HOST_
-> Server hostname or IP address
+> 服务器主机名或 IP 地址
 
 **/u:** _USERNAME_
-> Username for authentication
+> 用于身份验证的用户名
 
 **/p:** _PASSWORD_
-> Password for authentication
+> 用于身份验证的密码
 
 **/sound:** _DEVICE_
-> Enable audio redirection
+> 启用音频重定向
 
 **/dynamic-resolution**
-> Enable dynamic resolution updates
+> 启用动态分辨率更新
 
 **+clipboard**
-> Enable clipboard redirection
+> 启用剪贴板重定向
 
 **/cert:ignore**
-> Ignore certificate warnings
+> 忽略证书警告
 
 **/drive:** _PATH_,_NAME_
-> Share local directory
+> 共享本地目录
 
 **/f**
-> Fullscreen mode
+> 全屏模式
 
 # DESCRIPTION
 
-**xfreerdp** is a free Remote Desktop Protocol (RDP) client. It connects to Windows Remote Desktop servers and other RDP-compatible systems.
+**xfreerdp** 是一个免费的远程桌面协议（RDP）客户端。它可以连接 Windows 远程桌面服务器以及其他兼容 RDP 的系统。
 
-Part of the FreeRDP project providing open-source RDP implementation.
+它是 FreeRDP 项目的一部分，提供开源的 RDP 实现。
 
 # CAVEATS
 
-Certificate warnings should not be ignored in production environments. Password visible in process list if specified on command line.
+在生产环境中不应忽略证书警告。如果在命令行中指定密码，密码会在进程列表中可见。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Render HTML and CSS to PDF and PNG
+将 HTML 和 CSS 渲染为 PDF 和 PNG
 
 # TLDR
 
-**Convert HTML to PDF**
+**将 HTML 转换为 PDF**
 
 ```weasyprint [input.html] [output.pdf]```
 
-**Convert from URL**
+**从 URL 转换**
 
 ```weasyprint [https://example.com] [output.pdf]```
 
-**Convert HTML to PNG**
+**将 HTML 转换为 PNG**
 
 ```weasyprint [input.html] [output.png]```
 
-**Specify stylesheet**
+**指定样式表**
 
 ```weasyprint -s [style.css] [input.html] [output.pdf]```
 
-**Set base URL for resources**
+**设置资源的 base URL**
 
 ```weasyprint -u [https://example.com/] [input.html] [output.pdf]```
 
-**Render at specific resolution**
+**以指定分辨率渲染**
 
 ```weasyprint -r [150] [input.html] [output.png]```
 
-**Multiple stylesheets**
+**多个样式表**
 
 ```weasyprint -s [base.css] -s [print.css] [input.html] [output.pdf]```
 
@@ -39,68 +39,68 @@ Render HTML and CSS to PDF and PNG
 # PARAMETERS
 
 **-s**, **--stylesheet** _FILE_
-> Add CSS stylesheet.
+> 添加 CSS 样式表。
 
 **-u**, **--base-url** _URL_
-> Base URL for relative resources.
+> 相对资源的 base URL。
 
 **-m**, **--media-type** _TYPE_
-> Media type (default: print).
+> 媒体类型（默认：print）。
 
 **-r**, **--resolution** _DPI_
-> Resolution for PNG output.
+> PNG 输出的分辨率。
 
 **-a**, **--attachment** _FILE_
-> Attach file to PDF.
+> 将文件附加到 PDF。
 
 **-p**, **--presentational-hints**
-> Follow HTML presentational hints.
+> 遵循 HTML 表现性提示。
 
 **--pdf-identifier** _ID_
-> PDF document identifier.
+> PDF 文档标识符。
 
 **--pdf-variant** _VARIANT_
-> PDF variant: pdf/a-1b, pdf/a-2b, pdf/a-3b, pdf/ua-1.
+> PDF 变体：pdf/a-1b、pdf/a-2b、pdf/a-3b、pdf/ua-1。
 
 **--pdf-version** _VERSION_
-> PDF version: 1.4, 1.5, 1.6, 1.7, 2.0.
+> PDF 版本：1.4、1.5、1.6、1.7、2.0。
 
 **--pdf-forms**
-> Enable PDF forms.
+> 启用 PDF 表单。
 
 **--optimize-images**
-> Losslessly optimize images.
+> 无损优化图片。
 
 **--hinting**
-> Enable font hinting.
+> 启用字体微调（hinting）。
 
 **-e**, **--encoding** _ENCODING_
-> Input encoding.
+> 输入编码。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**WeasyPrint** renders HTML/CSS to PDF and PNG. It's designed for creating printable documents from web content, supporting CSS for paged media.
+**WeasyPrint** 将 HTML/CSS 渲染为 PDF 和 PNG。它专为从网页内容创建可打印文档而设计，支持用于分页媒体的 CSS。
 
-The tool processes HTML with full CSS support including modern features: flexbox, grid, CSS variables, and media queries. Print-specific CSS (page breaks, margins, headers/footers) works correctly.
+该工具处理 HTML 时提供完整的 CSS 支持，包括现代特性：flexbox、grid、CSS 变量和媒体查询。打印专用 CSS（分页、边距、页眉/页脚）也能正确工作。
 
-CSS Paged Media enables sophisticated print layouts: multi-column, page numbers, running headers, cross-references, and footnotes. The @page rule controls page size and margins.
+CSS Paged Media 支持复杂的印刷排版：多栏布局、页码、页眉页脚、交叉引用和脚注。@page 规则控制页面大小和边距。
 
-PDF output includes internal links, bookmarks from headings, and optional file attachments. PDF/A variants ensure archival quality for long-term storage.
+PDF 输出包含内部链接、由标题生成的书签，以及可选的文件附件。PDF/A 变体可确保长期存档的质量。
 
-Input can be files, URLs, or stdin. External stylesheets override or extend document styles. The base URL resolves relative resource paths.
+输入可以是文件、URL 或标准输入。外部样式表可以覆盖或扩展文档样式。base URL 用于解析相对资源路径。
 
-Image optimization reduces file size without quality loss. Font embedding ensures consistent rendering regardless of system fonts.
+图片优化可在不损失质量的前提下减小文件体积。字体嵌入确保无论系统安装了什么字体都能一致渲染。
 
 # CAVEATS
 
-Large documents may use significant memory. Some complex CSS may not render identically to browsers. JavaScript not supported - static HTML only. PDF form support is basic. Some font rendering differences from browsers.
+大型文档可能占用大量内存。某些复杂 CSS 的渲染效果可能与浏览器不一致。不支持 JavaScript——仅支持静态 HTML。PDF 表单支持较为基础。字体渲染与浏览器存在一些差异。
 
 # HISTORY
 
-**WeasyPrint** was created by **Kozea** (Simon Sapin and others) around **2011**. It was designed as an alternative to wkhtmltopdf, using native Python libraries instead of a headless browser. The focus on CSS Paged Media makes it particularly suitable for document generation.
+**WeasyPrint** 由 **Kozea**（Simon Sapin 等人）于 **2011 年**前后创建。它被设计为 wkhtmltopdf 的替代品，使用原生 Python 库而不是无头浏览器。对 CSS Paged Media 的专注使其特别适合文档生成。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Execute the yadm bootstrap program
+执行 yadm 引导程序
 
 # TLDR
 
-**Run the bootstrap script**
+**运行引导脚本**
 
 ```yadm bootstrap```
 
@@ -14,11 +14,11 @@ Execute the yadm bootstrap program
 
 # DESCRIPTION
 
-**yadm bootstrap** executes the bootstrap program at `$HOME/.config/yadm/bootstrap` if it exists. This is typically used for post-clone setup such as installing packages, setting permissions, or configuring applications. The bootstrap script must be executable.
+**yadm bootstrap** 会执行位于 `$HOME/.config/yadm/bootstrap` 的引导程序（如果存在）。这通常用于克隆后的设置工作，例如安装软件包、设置权限或配置应用程序。引导脚本必须是可执行文件。
 
-After `yadm clone` successfully clones a repository, yadm will prompt whether to run the bootstrap program if one is found. This prompt can be bypassed with the `--bootstrap` or `--no-bootstrap` options to `yadm clone`.
+`yadm clone` 成功克隆仓库后，如果找到引导程序，yadm 会询问是否运行它。可以通过 `yadm clone` 的 `--bootstrap` 或 `--no-bootstrap` 选项跳过该询问。
 
-The bootstrap program can be any executable file, though bash scripts are common. It is recommended to make the bootstrap logic idempotent so it can be safely re-run when merging changes from other hosts. The bootstrap path can be overridden with the `--yadm-bootstrap` option.
+引导程序可以是任何可执行文件，不过 bash 脚本最为常见。建议让引导逻辑具备幂等性，以便在合并来自其他主机的更改时可以安全地重复执行。可以使用 `--yadm-bootstrap` 选项覆盖引导程序路径。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ The bootstrap program can be any executable file, though bash scripts are common
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-clone](/man/yadm-clone)(1)
-

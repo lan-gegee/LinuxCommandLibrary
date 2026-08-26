@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert Zeiss microscope images to PNM
+将蔡司显微镜图像转换为 PNM
 
 # TLDR
 
-**Convert Zeiss confocal to PNM**
+**将蔡司共聚焦图像转换为 PNM**
 
 ```zeisstopnm [input.zeiss] > [output.pnm]```
 
@@ -14,7 +14,7 @@ Convert Zeiss microscope images to PNM
 
 # DESCRIPTION
 
-**zeisstopnm** converts Zeiss confocal microscope image format to PNM. Used in scientific imaging applications. Part of Netpbm toolkit.
+**zeisstopnm** 将蔡司共聚焦显微镜图像格式转换为 PNM。用于科学成像应用。是 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert Zeiss microscope images to PNM
 # SEE ALSO
 
 [fitstopnm](/man/fitstopnm)(1), [pgmnorm](/man/pgmnorm)(1)
-

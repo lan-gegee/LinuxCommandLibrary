@@ -1,38 +1,38 @@
 # TAGLINE
 
-LZMA2 compression utility
+LZMA2 压缩工具
 
 # TLDR
 
-**Compress a file**
+**压缩文件**
 
 ```xz [file]```
 
-**Decompress a file**
+**解压文件**
 
 ```xz -d [file.xz]```
 
-**Compress with maximum compression**
+**以最大压缩率压缩**
 
 ```xz -9 [file]```
 
-**Compress keeping the original file**
+**压缩时保留原文件**
 
 ```xz -k [file]```
 
-**Compress to stdout** (for piping)
+**压缩到 stdout**（用于管道）
 
 ```xz -c [file] > [file.xz]```
 
-**Decompress to stdout**
+**解压到 stdout**
 
 ```xz -dc [file.xz]```
 
-**List compressed file info**
+**列出压缩文件信息**
 
 ```xz -l [file.xz]```
 
-**Test compressed file integrity**
+**测试压缩文件的完整性**
 
 ```xz -t [file.xz]```
 
@@ -43,62 +43,62 @@ LZMA2 compression utility
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress files
+> 解压文件
 
 **-z**, **--compress**
-> Compress files (default)
+> 压缩文件（默认）
 
 **-k**, **--keep**
-> Keep original file
+> 保留原文件
 
 **-c**, **--stdout**
-> Write to stdout, keep original file
+> 写入 stdout，保留原文件
 
 **-f**, **--force**
-> Force compression/decompression
+> 强制压缩/解压
 
 **-t**, **--test**
-> Test compressed file integrity
+> 测试压缩文件的完整性
 
 **-l**, **--list**
-> List information about compressed files
+> 列出压缩文件的相关信息
 
-**-0** to **-9**
-> Compression level (0=fast, 9=best compression)
+**-0** 到 **-9**
+> 压缩级别（0=最快，9=压缩率最高）
 
 **-e**, **--extreme**
-> More compression (slower)
+> 更高压缩率（更慢）
 
 **-T** _N_, **--threads**=_N_
-> Use N threads (0 = auto-detect cores)
+> 使用 N 个线程（0 = 自动检测核心数）
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress warnings
+> 抑制警告
 
 # DESCRIPTION
 
-**xz** is a general-purpose compression tool using the LZMA2 algorithm. It provides high compression ratios, often better than gzip and bzip2, though compression is slower.
+**xz** 是一款使用 LZMA2 算法的通用压缩工具。它提供很高的压缩率，通常优于 gzip 和 bzip2，但压缩速度较慢。
 
-By default, xz compresses files and replaces them with .xz versions. Use **-k** to keep originals or **-c** to write to stdout for pipelines.
+默认情况下，xz 会压缩文件并用 .xz 版本替换原文件。使用 **-k** 保留原文件，或使用 **-c** 写入 stdout 以便用于管道。
 
-Multi-threading support (**-T**) significantly speeds up compression on multi-core systems. Decompression is single-threaded but fast.
+多线程支持（**-T**）可以显著加快多核系统上的压缩速度。解压是单线程的，但速度较快。
 
-The compression level affects both ratio and memory usage. Level 9 requires significantly more memory than lower levels, both for compression and decompression.
+压缩级别同时影响压缩率和内存占用。级别 9 在压缩和解压时所需的内存都远高于较低级别。
 
 # CAVEATS
 
-High compression levels (7-9) use substantial memory. Level 9 may require over 600MB for compression and 65MB for decompression.
+高压缩级别（7-9）会占用大量内存。级别 9 可能需要超过 600MB 内存进行压缩、65MB 进行解压。
 
-For archive distribution, consider xz's memory requirements on target systems. Lower compression levels are more universally usable.
+分发归档时需考虑目标系统上 xz 的内存需求。较低的压缩级别适用性更广。
 
-xz format is not compatible with gzip or bzip2. Use appropriate tools (**gzip**, **bzip2**) for those formats.
+xz 格式与 gzip 和 bzip2 不兼容。处理这些格式请使用相应的工具（**gzip**、**bzip2**）。
 
 # HISTORY
 
-**xz** was developed by **Lasse Collin** and **Igor Pavlov** (LZMA SDK). The xz format and liblzma were released in **2009** as successors to the LZMA format used by 7-Zip. xz is now widely used for compressing Linux kernel tarballs and package archives.
+**xz** 由 **Lasse Collin** 和 **Igor Pavlov**（LZMA SDK）开发。xz 格式和 liblzma 于 **2009 年**发布，作为 7-Zip 所用 LZMA 格式的后继者。xz 现已被广泛用于压缩 Linux 内核 tar 包和软件包归档。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compare gzip-compressed files byte-by-byte
+逐字节比较 gzip 压缩文件
 
 # TLDR
 
-**Compare compressed files**
+**比较压缩文件**
 
 ```zcmp [file1.gz] [file2.gz]```
 
-**Show differences**
+**显示差异**
 
 ```zcmp -l [file1.gz] [file2.gz]```
 
-**Silent mode**
+**安静模式**
 
 ```zcmp -s [file1.gz] [file2.gz]```
 
@@ -23,35 +23,35 @@ Compare gzip-compressed files byte-by-byte
 # PARAMETERS
 
 **-b**, **--print-bytes**
-> Print differing bytes (as octal values).
+> 打印不同的字节（以八进制值表示）。
 
 **-l**, **--verbose**
-> Output byte numbers and differing byte values for all differences.
+> 对所有差异输出字节序号和不同的字节值。
 
 **-s**, **--quiet**, **--silent**
-> Suppress all output; communicate result only via exit status.
+> 抑制所有输出，仅通过退出状态传递结果。
 
 **-i** _SKIP_, **--ignore-initial=**_SKIP_
-> Skip the first _SKIP_ bytes of each (decompressed) input.
+> 跳过每个（解压后）输入的前 _SKIP_ 字节。
 
 **-n** _LIMIT_, **--bytes=**_LIMIT_
-> Compare at most _LIMIT_ bytes.
+> 最多比较 _LIMIT_ 字节。
 
 # DESCRIPTION
 
-**zcmp** compares gzip-compressed files byte-by-byte without requiring manual decompression. It invokes **cmp** on uncompressed contents and passes all supplied options directly to it.
+**zcmp** 无需手动解压即可逐字节比较 gzip 压缩文件。它对解压后的内容调用 **cmp**，并将所有给定选项直接传给它。
 
-By default, zcmp reports only the first difference found. The **-l** flag shows all differing byte positions and values. Silent mode (**-s**) suppresses all output and communicates only through exit codes: 0 if files are identical, 1 if they differ, 2 on error.
+默认情况下，zcmp 只报告发现的第一个差异。**-l** 标志显示所有不同字节的位置和值。安静模式（**-s**）抑制所有输出，只通过退出码传递结果：文件相同为 0，不同为 1，出错为 2。
 
-The command is part of the gzip package and acts as a convenience wrapper. For line-by-line comparison of compressed files, use **zdiff** instead.
+该命令是 gzip 软件包的一部分，是一个便捷封装。要按行比较压缩文件，请改用 **zdiff**。
 
 # CAVEATS
 
-Gzip format. For .gz files. Part of gzip package.
+针对 gzip 格式的 .gz 文件。属于 gzip 软件包。
 
 # HISTORY
 
-**zcmp** is part of the gzip package, providing cmp-like functionality for compressed files.
+**zcmp** 是 gzip 软件包的一部分，为压缩文件提供类似 cmp 的功能。
 
 # INSTALL
 

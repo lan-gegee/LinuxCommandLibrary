@@ -1,28 +1,28 @@
 # TAGLINE
 
-World Model Optimizer CLI for routing, distilling, and serving models
+用于模型路由、蒸馏和服务部署的 World Model Optimizer CLI
 
 # TLDR
 
-Install and **configure providers**
+安装并**配置提供商**
 
 ```pip install world-model-optimizer```
 
 ```wmo providers set```
 
-**Build** a model from agent traces
+从智能体轨迹**构建**模型
 
 ```wmo build --file [traces.jsonl] --name [my-model]```
 
-**Serve** a tuned router/model
+**部署**调优后的路由器/模型
 
 ```wmo serve --name [my-model]```
 
-**Log in** to the hosted platform
+**登录**托管平台
 
 ```wmo login```
 
-**Run** a hosted agent or world model
+**运行**托管的智能体或世界模型
 
 ```wmo run [agent-id]```
 
@@ -33,42 +33,42 @@ Install and **configure providers**
 # PARAMETERS
 
 **providers set**
-> Register model providers and candidates in `.wmo/pool.toml`
+> 在 `.wmo/pool.toml` 中注册模型提供商和候选模型
 
 **build** **--file** _traces_ **--name** _name_
-> Build a world model / routing setup from OTel or agent traces
+> 根据 OTel 或智能体轨迹构建世界模型/路由配置
 
 **optimize**
-> Subcommands for route sweep/fit/report, distill, harness, and pin
+> 用于路由扫描/拟合/报告、蒸馏、harness 和 pin 的子命令
 
 **serve** **--name** _name_
-> Serve an endpoint that routes between frontier and smaller models
+> 部署一个在前沿大模型与较小模型之间进行路由的端点
 
 **login**
-> Authenticate against the Experiential Labs hosted platform
+> 向 Experiential Labs 托管平台进行身份验证
 
 **run** _id_
-> Run a hosted world model or agent harness
+> 运行托管的世界模型或智能体 harness
 
 **config telemetry** {_enable_|_disable_|_status_}
-> Control anonymous usage telemetry
+> 控制匿名使用情况遥测
 
 **eval**
-> Evaluate harnesses/tasks (optional E2B backend)
+> 评估 harness/任务（可选 E2B 后端）
 
 # DESCRIPTION
 
-**wmo** (World Model Optimizer) turns collected agent traces into smaller open models and cost-aware routers. It can distill via external APIs (e.g. Tinker), fit routing policies on held-out traces, and serve a local endpoint that keeps frontier quality while cutting inference cost.
+**wmo**（World Model Optimizer）将收集到的智能体轨迹转化为更小的开源模型和具有成本意识的路由器。它可以通过外部 API（如 Tinker）进行蒸馏，在留出的轨迹上拟合路由策略，并提供一个本地端点，在保持前沿模型质量的同时降低推理成本。
 
-The project also ships world-model simulation APIs for closed-loop agent testing and optional E2B sandbox backends for harness optimization. Local state lives under `.wmo/`.
+该项目还提供用于闭环智能体测试的世界模型仿真 API，以及用于 harness 优化的可选 E2B 沙箱后端。本地状态保存在 `.wmo/` 目录下。
 
 # CAVEATS
 
-Requires Python packaging (`pip install world-model-optimizer`) and provider API keys for most optimize/serve workflows. Hosted features need `wmo login`. Telemetry is on by default; disable with `wmo config telemetry disable` or `DO_NOT_TRACK=1` / `WMO_TELEMETRY=0`.
+需要 Python 安装包（`pip install world-model-optimizer`），大多数 optimize/serve 工作流还需要提供商 API 密钥。托管功能需要 `wmo login`。遥测默认开启；可用 `wmo config telemetry disable` 或 `DO_NOT_TRACK=1` / `WMO_TELEMETRY=0` 关闭。
 
 # HISTORY
 
-Open-source CLI from **Experiential Labs** for continual improvement of agent models from production traces.
+由 **Experiential Labs** 开发的开源 CLI，用于基于生产轨迹持续改进智能体模型。
 
 # SEE ALSO
 

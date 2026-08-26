@@ -1,22 +1,22 @@
 # TAGLINE
 
-Split ZIP archive into smaller parts
+将 ZIP 归档分割为更小的部分
 
 # TLDR
 
-**Split** archive
+**分割**归档
 
 ```zipsplit [path/to/archive.zip]```
 
-Split with **size** limit
+按**大小**限制分割
 
 ```zipsplit -n [size] [path/to/archive.zip]```
 
-**Pause** between parts
+在每个分卷之间**暂停**
 
 ```zipsplit -p -n [size] [path/to/archive.zip]```
 
-Output to **directory**
+输出到**目录**
 
 ```zipsplit -b [path/to/output_directory] -n [size] [path/to/archive.zip]```
 
@@ -27,44 +27,44 @@ Output to **directory**
 # PARAMETERS
 
 **-n** _SIZE_
-> Maximum bytes per split archive
+> 每个分割归档的最大字节数
 
 **-p**
-> Pause between creating each part
+> 在创建每个分卷之间暂停
 
 **-b** _PATH_
-> Output directory for split archives
+> 分割归档的输出目录
 
 **-t**
-> Report how many files would be created without actually creating them
+> 报告将创建多少个文件而不实际创建
 
 **-r** _ROOM_
-> Leave room for extra bytes on the first disk (default: 0)
+> 在第一个磁盘上预留额外字节的空间（默认：0）
 
 **-s**
-> Do a sequential split even if it takes more zip files
+> 即使需要更多 zip 文件也执行顺序分割
 
 **-i**
-> Create an index file (zipsplit.idx) and count its size against the first zip file
+> 创建索引文件（zipsplit.idx），并将其大小计入第一个 zip 文件
 
 **-h**
-> Show a short help message
+> 显示简短帮助信息
 
 **-v**
-> Show version information
+> 显示版本信息
 
 **-L**
-> Show software license
+> 显示软件许可证
 
 # DESCRIPTION
 
-**zipsplit** splits a ZIP archive into smaller ZIP archives. The default size limit is 36000 bytes if not specified with **-n**.
+**zipsplit** 将 ZIP 归档分割为更小的 ZIP 归档。若未通过 **-n** 指定，默认大小限制为 36000 字节。
 
-Output files are named with numeric suffixes based on the original filename.
+输出文件基于原始文件名以数字后缀命名。
 
 # CAVEATS
 
-Individual files that exceed the size limit cannot be split across archives. All parts are needed to extract the complete archive contents.
+超过大小限制的单个文件无法跨归档拆分。提取完整的归档内容需要所有分卷。
 
 # INSTALL
 

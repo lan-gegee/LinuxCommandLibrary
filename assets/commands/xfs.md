@@ -1,26 +1,26 @@
 # TAGLINE
 
-X Window System font server
+X Window System 字体服务器
 
 # TLDR
 
-**Start font server**
+**启动字体服务器**
 
 ```xfs```
 
-**Start with specific config**
+**使用指定配置启动**
 
 ```xfs -config [/etc/X11/fs/config]```
 
-**Start on specific port**
+**在指定端口上启动**
 
 ```xfs -port [7100]```
 
-**Run as daemon**
+**以守护进程方式运行**
 
 ```xfs -daemon```
 
-**Start with droppriv user**
+**以降权用户启动**
 
 ```xfs -user [nobody]```
 
@@ -31,44 +31,44 @@ X Window System font server
 # PARAMETERS
 
 **-config** _file_
-> Configuration file (default: /etc/X11/fs/config).
+> 配置文件（默认：/etc/X11/fs/config）。
 
 **-port** _num_
-> TCP port to listen on (default: 7100).
+> 监听的 TCP 端口（默认：7100）。
 
 **-daemon**
-> Fork to background.
+> 转入后台运行。
 
 **-droppriv**
-> Drop root privileges after startup.
+> 启动后放弃 root 权限。
 
 **-user** _user_
-> Run as specified user.
+> 以指定用户运行。
 
 **-ls** _num_
-> Listen socket queue length.
+> 监听套接字的队列长度。
 
 # DESCRIPTION
 
-**xfs** is the X Window System font server. It provides fonts to X servers over the network, allowing centralized font management for multiple X displays.
+**xfs** 是 X Window System 的字体服务器。它通过网络向 X server 提供字体，从而实现对多个 X 显示器的集中式字体管理。
 
-X servers can be configured to request fonts from xfs instead of (or in addition to) local font directories. This was useful for thin clients and diskless workstations sharing fonts from a server.
+可以将 X server 配置为向 xfs 请求字体，而不是（或除本地字体目录之外）从本地字体目录获取。这对于瘦客户机和无盘工作站共享服务器上的字体非常有用。
 
-Configuration defines font paths, client limits, and network settings. The server listens on TCP port 7100 by default.
+配置文件定义了字体路径、客户端限制和网络设置。服务器默认监听 TCP 端口 7100。
 
 # CONFIGURATION
 
-Config file: /etc/X11/fs/config
+配置文件：/etc/X11/fs/config
 
-Defines catalogue (font paths), client-limit, and clone-self settings.
+定义 catalogue（字体路径）、client-limit 和 clone-self 等设置。
 
 # CAVEATS
 
-Deprecated in favor of client-side font rendering (fontconfig/FreeType). Most modern systems don't use xfs. Network font access has security implications. Legacy application only.
+已被客户端字体渲染（fontconfig/FreeType）取代，属于过时方案。大多数现代系统不再使用 xfs。网络字体访问存在安全隐患。仅适用于遗留应用。
 
 # HISTORY
 
-**xfs** was developed for the X Window System to centralize font management. With the transition to client-side rendering using fontconfig and FreeType, xfs became largely obsolete. It remains available for legacy X applications requiring server-side fonts.
+**xfs** 为 X Window System 而开发，用于集中管理字体。随着向基于 fontconfig 和 FreeType 的客户端渲染过渡，xfs 在很大程度上已过时。它仍可用于需要服务器端字体的遗留 X 应用。
 
 # INSTALL
 

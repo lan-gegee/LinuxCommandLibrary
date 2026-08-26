@@ -1,34 +1,34 @@
 # TAGLINE
 
-Parse and validate XML documents
+解析和校验 XML 文档
 
 # TLDR
 
-**Check if an XML file is well-formed**
+**检查 XML 文件是否格式良好**
 
 ```xmllint [file.xml]```
 
-**Format and pretty-print** an XML file
+**格式化并美化打印** XML 文件
 
 ```xmllint --format [file.xml]```
 
-**Validate against a DTD**
+**依据 DTD 校验**
 
 ```xmllint --valid [file.xml]```
 
-**Validate against an XSD schema**
+**依据 XSD schema 校验**
 
 ```xmllint --schema [schema.xsd] [file.xml]```
 
-**Extract data using XPath**
+**使用 XPath 提取数据**
 
 ```xmllint --xpath "[//element/@attribute]" [file.xml]```
 
-**Format in place** (output to same file)
+**就地格式化**（输出到同一文件）
 
 ```xmllint --format [file.xml] -o [file.xml]```
 
-**Remove blank nodes** from output
+**从输出中移除空白节点**
 
 ```xmllint --noblanks [file.xml]```
 
@@ -39,68 +39,68 @@ Parse and validate XML documents
 # PARAMETERS
 
 **--format**
-> Reformat and reindent the output
+> 重新排版并为输出重新缩进
 
 **--valid**
-> Validate against the DTD declared in the document
+> 依据文档中声明的 DTD 进行校验
 
 **--schema** _file_
-> Validate against the specified XSD schema
+> 依据指定的 XSD schema 校验
 
 **--relaxng** _file_
-> Validate against a RelaxNG schema
+> 依据 RelaxNG schema 校验
 
 **--dtdvalid** _file_
-> Validate against the specified DTD
+> 依据指定的 DTD 校验
 
 **--xpath** _expression_
-> Evaluate XPath expression and print results
+> 计算 XPath 表达式并打印结果
 
 **--output** _file_, **-o** _file_
-> Write output to specified file
+> 将输出写入指定文件
 
 **--noout**
-> Suppress normal output (useful with validation)
+> 抑制正常输出（配合校验使用很有用）
 
 **--noblanks**
-> Remove ignorable blank nodes from output
+> 从输出中移除可忽略的空白节点
 
 **--encode** _encoding_
-> Output in specified encoding
+> 以指定编码输出
 
 **--html**
-> Parse input as HTML instead of XML
+> 将输入解析为 HTML 而非 XML
 
 **--recover**
-> Try to recover from parsing errors
+> 尝试从解析错误中恢复
 
 **--nonet**
-> Don't fetch external entities from network
+> 不从网络获取外部实体
 
 **--c14n**
-> Canonicalize output (for digital signatures)
+> 对输出进行规范化处理（用于数字签名）
 
 **--shell**
-> Enter interactive shell mode
+> 进入交互式 shell 模式
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**xmllint** is a command-line XML parser and processor from the **libxml2** library. It can parse XML files to check for well-formedness, validate documents against DTDs or schemas (XSD, RelaxNG), format XML for readability, and query documents using XPath expressions.
+**xmllint** 是来自 **libxml2** 库的命令行 XML 解析器和处理器。它可以解析 XML 文件以检查格式良好性、依据 DTD 或 schema（XSD、RelaxNG）校验文档、格式化 XML 以提高可读性，以及使用 XPath 表达式查询文档。
 
-The tool is indispensable for working with XML data in shell scripts and automated workflows. It can detect syntax errors, validate against various schema types, extract specific data using XPath, and transform or clean up XML output.
+该工具在 shell 脚本和自动化工作流中处理 XML 数据时不可或缺。它能检测语法错误、依据各种 schema 类型进行校验、用 XPath 提取特定数据，以及对 XML 输出进行转换或清理。
 
-Common uses include validating configuration files, extracting data from XML APIs, formatting machine-generated XML for human readability, and preprocessing XML before further transformation with XSLT.
+常见用途包括校验配置文件、从 XML API 提取数据、将机器生成的 XML 格式化为人类可读的形式，以及在用 XSLT 做进一步转换之前预处理 XML。
 
 # CAVEATS
 
-XPath support is limited to XPath 1.0; for XPath 2.0+ use tools like **saxon**. Large files may consume significant memory as the entire document is loaded. External entity expansion is enabled by default and can pose security risks with untrusted input; use **--nonet** and **--noent** flags for untrusted data. Some HTML parsing may require the **--html --recover** combination for malformed documents.
+XPath 支持仅限于 XPath 1.0；需要 XPath 2.0+ 时请使用 **saxon** 等工具。大文件可能消耗大量内存，因为整个文档都会被加载。外部实体展开默认启用，处理不可信输入时可能带来安全风险；对不可信数据请使用 **--nonet** 和 **--noent** 标志。某些格式错误的 HTML 文档可能需要 **--html --recover** 组合才能解析。
 
 # HISTORY
 
-**xmllint** was developed as part of the **libxml2** project, created by **Daniel Veillard** starting in **1998**. The library and its tools became the standard XML processing toolkit on Unix-like systems, used by projects like GNOME, PHP, and countless others. It is installed by default on most Linux distributions and macOS. The tool has been continuously maintained and updated to support evolving XML standards.
+**xmllint** 是 **libxml2** 项目的一部分，该项目由 **Daniel Veillard** 自 **1998** 年起创建。该库及其工具成为类 Unix 系统上的标准 XML 处理工具集，被 GNOME、PHP 以及无数其他项目采用。它在大多数 Linux 发行版和 macOS 上默认安装。该工具持续维护和更新，以支持不断演进的 XML 标准。
 
 # INSTALL
 

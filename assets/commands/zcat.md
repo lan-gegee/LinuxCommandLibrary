@@ -1,30 +1,30 @@
 # TAGLINE
 
-View gzip-compressed file contents
+查看 gzip 压缩文件的内容
 
 # TLDR
 
-**View contents** of a gzipped file
+**查看** gzip 压缩文件的**内容**
 
 ```zcat [file.gz]```
 
-**View contents of multiple** gzipped files
+**查看多个** gzip 压缩文件的**内容**
 
 ```zcat [file1.gz] [file2.gz]```
 
-**Pipe output** to another command
+将输出**管道传给**其他命令
 
 ```zcat [file.gz] | grep "[pattern]"```
 
-**Display with line numbers**
+带行号显示
 
 ```zcat [file.gz] | nl```
 
-**Page through** a gzipped file
+**分页浏览** gzip 压缩文件
 
 ```zcat [file.gz] | less```
 
-**Concatenate and decompress** multiple files into one output
+**合并解压**多个文件到一个输出
 
 ```zcat [file1.gz] [file2.gz] > [combined.txt]```
 
@@ -35,35 +35,35 @@ View gzip-compressed file contents
 # PARAMETERS
 
 **-f**, **--force**
-> Force decompression even if file has multiple links or the suffix does not match.
+> 即使文件有多个链接或后缀不匹配也强制解压。
 
 **-q**, **--quiet**
-> Suppress all warning messages.
+> 抑制所有警告消息。
 
 **-v**, **--verbose**
-> Display filename and compression ratio for each file.
+> 显示每个文件的文件名和压缩比。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # DESCRIPTION
 
-**zcat** decompresses gzip-compressed files and writes the uncompressed data to standard output, similar to **cat** for regular files. It is equivalent to **gunzip -c** or **gzip -dc**.
+**zcat** 解压 gzip 压缩文件并将未压缩的数据写到标准输出，类似于对普通文件使用 **cat**。它等价于 **gunzip -c** 或 **gzip -dc**。
 
-zcat can decompress files created by gzip, zip, compress, or pack. It recognizes compressed files by their magic number, not just the .gz extension, allowing decompression of files with non-standard names.
+zcat 可解压由 gzip、zip、compress 或 pack 创建的文件。它通过魔数（magic number）识别压缩文件，而不仅靠 .gz 扩展名，因此也能解压名称非标准的文件。
 
-When reading from stdin, zcat will pass through data that is not in a recognized compressed format unchanged (acting like cat).
+从标准输入读取时，若数据不是可识别的压缩格式，zcat 会原样透传（行为类似 cat）。
 
 # CAVEATS
 
-zcat only outputs to stdout; it cannot decompress files in place. For decompressing to files, use **gunzip** or **gzip -d**. On some systems (e.g., macOS), zcat may be installed as **gzcat** to avoid conflicts with the compress utility's zcat. Unlike gzip/gunzip, zcat does not support flags like -t (test), -l (list), -k (keep), or -r (recursive) since it only reads and decompresses to stdout.
+zcat 只输出到标准输出，不能就地解压文件。要解压到文件，请使用 **gunzip** 或 **gzip -d**。在某些系统（如 macOS）上，zcat 可能安装为 **gzcat**，以免与 compress 工具的 zcat 冲突。与 gzip/gunzip 不同，zcat 不支持 -t（测试）、-l（列出）、-k（保留）、-r（递归）等选项，因为它只读取并解压到标准输出。
 
 # HISTORY
 
-zcat is part of the **gzip** package, originally written by **Jean-loup Gailly** and **Mark Adler**. gzip was first released in **1992** as a free replacement for the Unix compress utility, which was encumbered by patents on the LZW algorithm. The gzip package became a GNU project and is now a standard utility on Unix-like systems.
+zcat 是 **gzip** 软件包的一部分，gzip 由 **Jean-loup Gailly** 和 **Mark Adler** 编写。gzip 于 **1992 年**首次发布，是 Unix compress 工具的自由替代品——后者受 LZW 算法专利限制。gzip 成为 GNU 项目的一部分，如今已是类 Unix 系统上的标准工具。
 
 # INSTALL
 

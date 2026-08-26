@@ -1,34 +1,34 @@
 # TAGLINE
 
-LALR parser generator for C
+面向 C 的 LALR 解析器生成器
 
 # TLDR
 
-**Generate a parser** from a grammar file
+从语法文件**生成解析器**
 
 ```yacc [grammar.y]```
 
-**Generate parser with header file** for token definitions
+生成解析器及用于记号定义的**头文件**
 
 ```yacc -d [grammar.y]```
 
-**Use a custom file prefix** instead of y
+**使用自定义文件名前缀**代替 y
 
 ```yacc -b [prefix] [grammar.y]```
 
-**Use a custom symbol prefix** instead of yy
+**使用自定义符号前缀**代替 yy
 
 ```yacc -p [prefix] [grammar.y]```
 
-**Generate verbose output** describing the parser
+**生成描述解析器的详细输出**
 
 ```yacc -v [grammar.y]```
 
-**Enable debugging** in generated code
+在生成的代码中**启用调试**
 
 ```yacc -t [grammar.y]```
 
-**Generate separate files** for code and tables
+将代码与表**生成为独立文件**
 
 ```yacc -r [grammar.y]```
 
@@ -39,53 +39,53 @@ LALR parser generator for C
 # PARAMETERS
 
 **-b** _prefix_
-> Use prefix for output filenames instead of **y**.
+> 输出文件名使用 prefix 而不是 **y**。
 
 **-d**
-> Generate header file **y.tab.h** with token definitions.
+> 生成包含记号定义的头文件 **y.tab.h**。
 
 **-g**
-> Generate graphviz format file **y.dot** for visualization.
+> 生成 graphviz 格式的文件 **y.dot** 用于可视化。
 
 **-i**
-> Generate supplementary header file **y.tab.i**.
+> 生成补充头文件 **y.tab.i**。
 
 **-l**
-> Do not insert **#line** directives in generated code.
+> 不在生成的代码中插入 **#line** 指令。
 
 **-p** _prefix_
-> Use prefix for yacc-generated symbols instead of **yy**.
+> yacc 生成的符号使用 prefix 而不是 **yy**。
 
 **-P**
-> Create a reentrant (pure) parser.
+> 创建可重入的（纯）解析器。
 
 **-r**
-> Generate separate files for code (**y.code.c**) and tables (**y.tab.c**).
+> 将代码（**y.code.c**）和表（**y.tab.c**）生成为独立文件。
 
 **-t**
-> Enable debugging statements in compiled code.
+> 在编译后的代码中启用调试语句。
 
 **-v**
-> Generate verbose description file **y.output**.
+> 生成详细的描述文件 **y.output**。
 
 **-V**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**yacc** (Yet Another Compiler Compiler) is an LALR(1) parser generator that reads grammar specifications and generates C code for a parser. The grammar file defines tokens, syntax rules, and semantic actions.
+**yacc**（Yet Another Compiler Compiler）是一个 LALR(1) 解析器生成器，读取语法规范并生成 C 语言解析器代码。语法文件定义了记号、语法规则和语义动作。
 
-yacc produces **y.tab.c** containing parsing tables and a driver routine. When used with **-d**, it also generates **y.tab.h** with token definitions for use with lex/flex lexers.
+yacc 生成的 **y.tab.c** 包含解析表和驱动例程。配合 **-d** 使用时，还会生成包含记号定义的 **y.tab.h**，供 lex/flex 词法分析器使用。
 
-On most Linux systems, **yacc** is actually **bison** (GNU parser generator) or **byacc** (Berkeley Yacc), both compatible with traditional AT&T yacc.
+在大多数 Linux 系统上，**yacc** 实际上是 **bison**（GNU 解析器生成器）或 **byacc**（Berkeley Yacc），两者都与传统的 AT&T yacc 兼容。
 
 # CAVEATS
 
-yacc reports shift/reduce and reduce/reduce conflicts that may indicate grammar ambiguities. Rules that are never reduced are also reported. The generated parser uses global variables by default; use **-P** for reentrant parsers.
+yacc 会报告移进/归约冲突和归约/归约冲突，这些冲突可能表明语法存在歧义。永远不会被归约的规则也会被报告。生成的解析器默认使用全局变量；需要可重入解析器时请使用 **-P**。
 
 # HISTORY
 
-yacc was written by **Stephen C. Johnson** at Bell Labs and first released in **1975** for Unix Version 6. The name stands for "Yet Another Compiler Compiler". **Berkeley Yacc** (byacc) was written by Robert Corbett in **1989** as a public domain implementation. **GNU Bison**, a compatible replacement with extensions, was first released in **1985** and is the standard yacc on GNU/Linux systems.
+yacc 由贝尔实验室的 **Stephen C. Johnson** 编写，于 **1975 年**随 Unix Version 6 首次发布。名字是 "Yet Another Compiler Compiler" 的缩写。**Berkeley Yacc**（byacc）由 Robert Corbett 于 **1989 年**编写，是一个公有领域实现。**GNU Bison** 是一个兼容的替代品并带有扩展，首次发布于 **1985 年**，现在是 GNU/Linux 系统上的标准 yacc。
 
 # INSTALL
 

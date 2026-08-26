@@ -1,18 +1,18 @@
 # TAGLINE
 
-CSV magician for terminal data manipulation
+用于终端数据处理的 CSV 魔术师
 
 # TLDR
 
-**Preview a CSV file in the terminal**
+**在终端中预览 CSV 文件**
 
 ```xan view [data.csv]```
 
-**Search for records in a column**
+**在某一列中搜索记录**
 
 ```xan search -s [name] "[pattern]" [data.csv]```
 
-**Plot a bar chart from frequency data**
+**根据频率数据绘制柱状图**
 
 ```xan frequency -s [column] [data.csv] | xan plot bar```
 
@@ -22,11 +22,11 @@ CSV magician for terminal data manipulation
 
 # DESCRIPTION
 
-**xan** is a powerful CSV processor forked from xsv that reads, manipulates, and visualizes CSV data directly in the terminal. It supports filtering, sorting, aggregating, deduplication, parallel processing, and can render scatter plots, histograms, and heatmaps. Handles gigabyte-scale files.
+**xan** 是一款从 xsv 分叉而来的强大 CSV 处理器，可直接在终端中读取、处理和可视化 CSV 数据。它支持过滤、排序、聚合、去重、并行处理，并能渲染散点图、直方图和热力图。可处理 GB 级别的文件。
 
 # HISTORY
 
-**xan** was created by **Guillaume Plique** and **medialab Sciences Po** and is written in **Rust**.
+**xan** 由 **Guillaume Plique** 和 **medialab Sciences Po**（巴黎政治学院实验室）创建，使用 **Rust** 编写。
 
 # INSTALL
 

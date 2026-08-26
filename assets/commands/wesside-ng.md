@@ -1,26 +1,26 @@
 # TAGLINE
 
-Automated WEP key recovery tool
+自动化 WEP 密钥破解工具
 
 # TLDR
 
-**Start automated WEP key recovery** on an interface
+在接口上**开始自动化 WEP 密钥破解**
 
 ```sudo wesside-ng -i [wlan0mon]```
 
-**Target a specific network** (BSSID)
+**针对特定网络**（BSSID）
 
 ```sudo wesside-ng -i [wlan0mon] -v [00:11:22:33:44:55]```
 
-**Specify network IP address**
+**指定网络的 IP 地址**
 
 ```sudo wesside-ng -i [wlan0mon] -n [192.168.1.0]```
 
-**Set maximum channel to scan**
+**设置扫描的最大信道**
 
 ```sudo wesside-ng -i [wlan0mon] -f [13]```
 
-**Gather PRGA without cracking**
+**只收集 PRGA 而不破解**
 
 ```sudo wesside-ng -i [wlan0mon] -c```
 
@@ -31,53 +31,53 @@ Automated WEP key recovery tool
 # PARAMETERS
 
 **-i** _interface_
-> Wireless interface to use (required). Must be in monitor mode.
+> 要使用的无线接口（必需）。必须处于监听模式。
 
 **-v** _bssid_
-> Target victim BSSID (MAC address of access point).
+> 目标受害者的 BSSID（接入点的 MAC 地址）。
 
 **-n** _netip_
-> Network IP address to use.
+> 要使用的网络 IP 地址。
 
 **-m** _myip_
-> Source IP address to use for injected packets.
+> 注入数据包时使用的源 IP 地址。
 
 **-a** _mymac_
-> Source MAC address to use.
+> 要使用的源 MAC 地址。
 
 **-c**
-> Collect PRGA data but do not crack the key.
+> 收集 PRGA 数据但不破解密钥。
 
 **-p** _minprga_
-> Minimum bytes of PRGA (pseudo-random generation algorithm) data to gather.
+> 要收集的 PRGA（伪随机生成算法）数据的最小字节数。
 
 **-t** _threshold_
-> Cracking threshold value.
+> 破解阈值。
 
 **-f** _maxchan_
-> Highest channel to scan. Default is 11.
+> 扫描的最高信道。默认为 11。
 
 **-k** _txnum_
-> Ignore acknowledgments and transmit txnum times.
+> 忽略确认帧并发送 txnum 次。
 
 **-h**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**wesside-ng** is an automated WEP key recovery tool from the Aircrack-ng suite. It performs a complete attack sequence without user intervention: network identification, association, PRGA data collection, IP scheme determination, ARP request injection, and WEP key cracking.
+**wesside-ng** 是 Aircrack-ng 套件中的自动化 WEP 密钥破解工具。它在无需人工干预的情况下执行完整的攻击流程：识别网络、建立关联、收集 PRGA 数据、推断 IP 规划、注入 ARP 请求以及破解 WEP 密钥。
 
-The tool exploits weaknesses in WEP encryption by injecting packets to generate traffic containing IVs (initialization vectors) needed for key recovery. It uses the fragmentation attack technique to obtain PRGA data, then reinjects ARP requests to accelerate IV collection.
+该工具利用 WEP 加密的弱点，通过注入数据包产生包含 IV（初始化向量）的流量，这些 IV 是密钥恢复所必需的。它先使用 fragmentation attack 技术获取 PRGA 数据，然后重放 ARP 请求以加速 IV 收集。
 
-wesside-ng requires a wireless adapter capable of packet injection in monitor mode. The interface must be set to monitor mode before running the tool (typically using airmon-ng).
+wesside-ng 需要一块支持监听模式下数据包注入的无线网卡。运行工具前必须先将接口设为监听模式（通常使用 airmon-ng）。
 
 # CAVEATS
 
-WEP is obsolete and should not be used for wireless security. This tool is for authorized security testing and educational purposes only. Unauthorized network access is illegal. Requires compatible wireless hardware with injection support. May not work reliably on all networks or with all hardware.
+WEP 已经过时，不应再用于无线安全。此工具仅用于经授权的安全测试和教育目的。未经授权访问网络属于违法行为。需要支持注入功能的兼容无线硬件。并非在所有网络或所有硬件上都能可靠工作。
 
 # HISTORY
 
-**wesside-ng** was originally written by **Andrea Bittau** as a proof-of-concept for research papers "The Fragmentation Attack in Practice" and "The Final Nail in WEP's Coffin" (co-authored with Mark Handley and Joshua Lockey). It was incorporated into the **Aircrack-ng** suite to demonstrate practical WEP vulnerabilities. The tool's relevance has diminished as networks migrated to WPA/WPA2/WPA3.
+**wesside-ng** 最初由 **Andrea Bittau** 编写，作为研究论文 "The Fragmentation Attack in Practice" 和 "The Final Nail in WEP's Coffin"（与 Mark Handley、Joshua Lockey 合著）的概念验证。它被并入 **Aircrack-ng** 套件，用以演示 WEP 的实际漏洞。随着网络迁移到 WPA/WPA2/WPA3，该工具的重要性已大幅下降。
 
 # INSTALL
 

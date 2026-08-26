@@ -1,30 +1,30 @@
 # TAGLINE
 
-Linux shell with Lua scripting and structured pipelines
+支持 Lua 脚本与结构化管道的 Linux shell
 
 # TLDR
 
-**Start an interactive wisp session**
+**启动交互式 wisp 会话**
 
 ```wisp```
 
-**Run a shell command string and exit**
+**执行一条 shell 命令字符串后退出**
 
 ```wisp -c "[ls | wc -l]"```
 
-**Run a Lua expression and exit**
+**执行一个 Lua 表达式后退出**
 
 ```wisp -e "[for i=1,5 do print(i) end]"```
 
-**Run a Lua script file**
+**运行 Lua 脚本文件**
 
 ```wisp -f [script.lua]```
 
-**Evaluate Lua at the prompt** (leading colon)
+**在提示符中求值 Lua**（前导冒号）
 
 ```:print(42 * 10)```
 
-**Background a job and list jobs** (inside wisp)
+**将任务放入后台并列出任务**（在 wisp 内）
 
 ```sleep 30 &```
 
@@ -37,38 +37,38 @@ Linux shell with Lua scripting and structured pipelines
 # PARAMETERS
 
 **-c** _command_
-> Execute a shell-syntax command line and exit. A leading **:** switches the string to Lua.
+> 执行一条 shell 语法的命令行后退出。前导 **:** 会把字符串切换为 Lua。
 
 **-e** _lua_
-> Execute a Lua expression or chunk and exit.
+> 执行一个 Lua 表达式或代码块后退出。
 
 **-f** _file_
-> Run a Lua script file (also usable via shebang `#!/usr/bin/env wisp`).
+> 运行 Lua 脚本文件（也可通过 shebang `#!/usr/bin/env wisp` 使用）。
 
 # CONFIGURATION
 
 **~/.config/wisp/init.lua**
-> User config loaded at startup. Any global Lua function defined here is callable by name as a shell command. Define **prompt()** for the interactive prompt. Copy **example-init.lua** from the repository as a starting point.
+> 启动时加载的用户配置。在此定义的任何全局 Lua 函数都可以按名称作为 shell 命令调用。定义 **prompt()** 可定制交互式提示符。可复制仓库中的 **example-init.lua** 作为起点。
 
 # DESCRIPTION
 
-**wisp** is a Linux shell that uses **Lua** (not a custom DSL) for configuration and scripting, and can pass structured data (Lua tables) between consecutive pipeline stages instead of only text.
+**wisp** 是一个 Linux shell，它使用 **Lua**（而非自定义 DSL）进行配置和脚本编写，并且可以在相邻的管道阶段之间传递结构化数据（Lua 表），而不仅仅是文本。
 
-Bare prompt lines use ordinary shell syntax: external commands, pipes, redirects (`<` `>` `>>` `2>` `2>&1` `&>`), background jobs (`&`), environment assignments, quoting, brace expansion, and globbing. Job control is supported (`Ctrl-Z`, `fg`, `bg`, `jobs`, `kill %N`, `disown`, `wait`). Tab completion covers builtins, Lua functions, `$PATH` executables, and filenames; **Ctrl-R** is reverse history search.
+裸提示符行使用普通的 shell 语法：外部命令、管道、重定向（`<` `>` `>>` `2>` `2>&1` `&>`）、后台任务（`&`）、环境变量赋值、引号、花括号展开和通配符匹配。支持作业控制（`Ctrl-Z`、`fg`、`bg`、`jobs`、`kill %N`、`disown`、`wait`）。Tab 补全覆盖内建命令、Lua 函数、`$PATH` 可执行文件和文件名；**Ctrl-R** 为反向历史搜索。
 
-A line starting with **:** is evaluated as Lua. User-defined Lua functions and builtins that form a "native run" stay in-process and chain Lua values (for example lists of tables) without forking. When a pipeline stage is a real external binary, wisp forks and converts between structured values and bytes at that boundary.
+以 **:** 开头的行会按 Lua 求值。构成"原生运行"的用户自定义 Lua 函数和内建命令会留在进程内，直接串联 Lua 值（例如表列表）而不 fork。当管道阶段是真正的外部二进制程序时，wisp 会 fork，并在该边界处进行结构化值与字节之间的转换。
 
-Builtins include **cd**, **pwd**, **echo**, **export**, **command**, **type**, **source**, **jobs**, **fg**, **bg**, **kill**, **disown**, **wait**, **exit**, and **pkg** (a thin front end to LuaRocks, requiring **luarocks** on `$PATH`).
+内建命令包括 **cd**、**pwd**、**echo**、**export**、**command**、**type**、**source**、**jobs**、**fg**、**bg**、**kill**、**disown**、**wait**、**exit** 和 **pkg**（LuaRocks 的轻量前端，需要 `$PATH` 中有 **luarocks**）。
 
-Requires **Lua 5.4** development headers to build (`liblua5.4-dev` on Debian/Ubuntu, `lua5.4` on Arch). Install with `make && sudo make install` (default `/usr/local/bin/wisp`), or `lua bootstrap.lua build`.
+构建需要 **Lua 5.4** 开发头文件（Debian/Ubuntu 上为 `liblua5.4-dev`，Arch 上为 `lua5.4`）。安装方式为 `make && sudo make install`（默认 `/usr/local/bin/wisp`），或 `lua bootstrap.lua build`。
 
 # CAVEATS
 
-Linux-focused; not a full POSIX shell. No shell-grammar `if`/`while`/`for`, heredocs, or `$1`..`$9` positional parameters — control flow belongs in Lua. Word splitting on expansion results is not POSIX-style (unquoted `$VAR` with spaces stays one argument). No sandboxing of `init.lua` (same trust model as `.bashrc`). Backgrounding an all-native pipeline is a no-op. Optional **pkg** needs LuaRocks installed separately.
+专注 Linux；不是完整的 POSIX shell。没有 shell 语法的 `if`/`while`/`for`、heredoc 或 `$1`..`$9` 位置参数——控制流应写在 Lua 中。对展开结果的分词不是 POSIX 风格（带空格的非引用 `$VAR` 仍是一个参数）。不对 `init.lua` 做沙箱隔离（信任模型与 `.bashrc` 相同）。将全原生管道放入后台是无效操作。可选的 **pkg** 需要单独安装 LuaRocks。
 
 # HISTORY
 
-**wisp** is a Lua-native Linux shell emphasizing structured pipelines and real job control. Upstream is maintained at **github.com/Hinikaa/wisp** under the MIT license (vendored **linenoise** is BSD-2-Clause).
+**wisp** 是一个 Lua 原生的 Linux shell，强调结构化管道和真正的作业控制。上游维护于 **github.com/Hinikaa/wisp**，采用 MIT 许可证（内置的 **linenoise** 为 BSD-2-Clause）。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert XIM images to PPM format
+将 XIM 图像转换为 PPM 格式
 
 # TLDR
 
-**Convert XIM to PPM**
+**将 XIM 转换为 PPM**
 
 ```ximtoppm [input.xim] > [output.ppm]```
 
@@ -14,7 +14,7 @@ Convert XIM images to PPM format
 
 # DESCRIPTION
 
-**ximtoppm** converts XIM (X Image) format to PPM. XIM was used by some X11 applications. Part of Netpbm toolkit.
+**ximtoppm** 将 XIM（X Image）格式转换为 PPM。XIM 曾被一些 X11 应用使用。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert XIM images to PPM format
 # SEE ALSO
 
 [xpmtoppm](/man/xpmtoppm)(1), [xwdtopnm](/man/xwdtopnm)(1)
-

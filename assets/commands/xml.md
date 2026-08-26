@@ -1,26 +1,26 @@
 # TAGLINE
 
-XMLStarlet command-line XML toolkit
+XMLStarlet 命令行 XML 工具集
 
 # TLDR
 
-**Validate XML**
+**校验 XML**
 
 ```xml val [file.xml]```
 
-**Format/pretty print**
+**格式化/美化打印**
 
 ```xml fo [file.xml]```
 
-**XPath query**
+**XPath 查询**
 
 ```xml sel -t -v "[//element]" [file.xml]```
 
-**Transform with XSLT**
+**用 XSLT 转换**
 
 ```xml tr [transform.xsl] [file.xml]```
 
-**Edit in place**
+**就地编辑**
 
 ```xml ed -u "[//node]" -v "[value]" [file.xml]```
 
@@ -31,38 +31,38 @@ XMLStarlet command-line XML toolkit
 # PARAMETERS
 
 **val**
-> Validate.
+> 校验。
 
 **fo**
-> Format.
+> 格式化。
 
 **sel**
-> Select (XPath).
+> 选择（XPath）。
 
 **tr**
-> Transform.
+> 转换。
 
 **ed**
-> Edit.
+> 编辑。
 
 **-t** **-v** _XPATH_
-> Template value.
+> 模板取值。
 
 # DESCRIPTION
 
-**xml** is the main command of XMLStarlet, a comprehensive command-line XML toolkit for querying, editing, validating, and transforming XML documents. It provides a set of subcommands that cover common XML processing tasks without requiring a full programming language.
+**xml** 是 XMLStarlet 的主命令，XMLStarlet 是一个全面的命令行 XML 工具集，用于查询、编辑、校验和转换 XML 文档。它提供一组子命令，覆盖常见的 XML 处理任务，无需完整的编程语言。
 
-Key subcommands include **val** for validating XML against DTDs or schemas, **fo** for pretty-printing and reformatting XML, **sel** for selecting data using XPath expressions, **ed** for editing XML elements and attributes in place, and **tr** for applying XSLT transformations. Each subcommand has its own set of options tailored to its specific operation.
+主要子命令包括：**val** 依据 DTD 或 schema 校验 XML，**fo** 美化打印和重新排版 XML，**sel** 使用 XPath 表达式选择数据，**ed** 就地编辑 XML 元素和属性，**tr** 应用 XSLT 转换。每个子命令都有针对其特定操作的一组选项。
 
-XMLStarlet is designed for shell scripting and automation, allowing XML processing tasks to be integrated into pipelines and build scripts. It reads from files or stdin and writes to stdout, following Unix conventions for composability.
+XMLStarlet 为 shell 脚本和自动化而设计，可以将 XML 处理任务集成到管道和构建脚本中。它遵循 Unix 组合式约定，从文件或 stdin 读取并写入 stdout。
 
 # CAVEATS
 
-XMLStarlet specific. Complex XPath syntax. Many subcommands.
+仅限 XMLStarlet。XPath 语法复杂。子命令众多。
 
 # HISTORY
 
-**XMLStarlet** (xml command) is a command-line XML toolkit for querying, validating, and transforming XML.
+**XMLStarlet**（xml 命令）是一个用于查询、校验和转换 XML 的命令行工具集。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Graphical network protocol analyzer
+图形化网络协议分析器
 
 # TLDR
 
-**Start Wireshark** graphical interface
+**启动 Wireshark** 图形界面
 
 ```wireshark```
 
-**Open a capture file**
+**打开捕获文件**
 
 ```wireshark [capture.pcapng]```
 
-**Start capturing** on a specific interface
+在指定网卡接口上**开始捕获**
 
 ```wireshark -i [eth0] -k```
 
-**Capture with a BPF capture filter**
+**使用 BPF 捕获过滤器进行捕获**
 
 ```wireshark -i [eth0] -f "port 80" -k```
 
-**Open a file with a display filter applied**
+**打开文件并应用显示过滤器**
 
 ```wireshark -Y "http.request" -r [capture.pcapng]```
 
-**Capture to a file** and stop after a duration
+**捕获到文件**并在指定时长后停止
 
 ```wireshark -i [eth0] -w [output.pcapng] -a duration:[60]```
 
-**List available capture interfaces**
+**列出可用的捕获接口**
 
 ```wireshark -D```
 
@@ -38,80 +38,80 @@ Graphical network protocol analyzer
 
 # DESCRIPTION
 
-**Wireshark** is a graphical network protocol analyzer for capturing and interactively analyzing network traffic. It decodes hundreds of protocols and provides detailed packet information in a user-friendly interface.
+**Wireshark** 是一款图形化网络协议分析器，用于捕获并交互式分析网络流量。它能解码数百种协议，并以友好的界面提供详细的数据包信息。
 
-The application displays packets in a three-pane window: packet list, packet details (protocol tree), and packet bytes. Powerful display filters allow isolating specific traffic patterns. Capture filters reduce capture file size.
+应用程序以三栏窗口显示数据包：数据包列表、数据包详情（协议树）和数据包字节。强大的显示过滤器可以隔离特定的流量模式。捕获过滤器则可减小捕获文件的体积。
 
-Wireshark is the industry standard for network troubleshooting, security analysis, protocol development, and education. It supports live capture from numerous interface types and can read many capture file formats.
+Wireshark 是网络排错、安全分析、协议开发和教学领域的行业标准。它支持从多种类型的接口进行实时捕获，并能读取多种捕获文件格式。
 
 # PARAMETERS
 
 **-i** _interface_
-> Capture on specified interface.
+> 在指定接口上捕获。
 
 **-f** _filter_
-> Capture filter (BPF syntax).
+> 捕获过滤器（BPF 语法）。
 
 **-Y** _filter_
-> Display filter.
+> 显示过滤器。
 
 **-w** _file_
-> Write capture to file.
+> 将捕获写入文件。
 
 **-r** _file_
-> Read capture file.
+> 读取捕获文件。
 
 **-a** _condition_
-> Autostop condition (duration, filesize, packets).
+> 自动停止条件（时长、文件大小、数据包数量）。
 
 **-b** _option_
-> Ring buffer options.
+> 环形缓冲区选项。
 
 **-k**
-> Start capturing immediately.
+> 立即开始捕获。
 
 **-D**
-> List available interfaces.
+> 列出可用接口。
 
 **-S**
-> Update packet list in real-time during capture.
+> 捕获期间实时更新数据包列表。
 
 **-c** _count_
-> Stop capture after receiving this many packets.
+> 收到指定数量的数据包后停止捕获。
 
 **-n**
-> Disable network name resolution.
+> 禁用网络名称解析。
 
 **-o** _preference:value_
-> Set a preference value (overrides preferences file).
+> 设置偏好项的值（覆盖偏好设置文件）。
 
 **-X** _extension_option_
-> Specify an extension option (e.g., lua_script:myscript.lua).
+> 指定扩展选项（如 lua_script:myscript.lua）。
 
 **--fullscreen**
-> Start Wireshark in full-screen mode.
+> 以全屏模式启动 Wireshark。
 
 **--list-time-stamp-types**
-> List timestamp types for interface.
+> 列出接口的时间戳类型。
 
 # DISPLAY FILTERS
 
-**ip.addr == 192.168.1.1**: Filter by IP address (source or destination).
-**tcp.port == 443**: Filter by TCP port.
-**http.request**: Show HTTP requests only.
-**dns**: Show DNS traffic.
-**tcp.flags.syn == 1 && tcp.flags.ack == 0**: SYN packets (connection initiations).
-**frame contains "password"**: Search packet content for a string.
-**ip.src == 10.0.0.0/8**: Filter by source subnet.
-**tcp.analysis.retransmission**: Show TCP retransmissions.
+**ip.addr == 192.168.1.1**: 按 IP 地址过滤（源或目标）。
+**tcp.port == 443**: 按 TCP 端口过滤。
+**http.request**: 仅显示 HTTP 请求。
+**dns**: 显示 DNS 流量。
+**tcp.flags.syn == 1 && tcp.flags.ack == 0**: SYN 数据包（连接发起）。
+**frame contains "password"**: 在数据包内容中搜索字符串。
+**ip.src == 10.0.0.0/8**: 按源子网过滤。
+**tcp.analysis.retransmission**: 显示 TCP 重传。
 
 # CAVEATS
 
-Requires privileges for live capture (root or cap_net_raw capability). Large captures use significant memory. Display filters differ from capture filters in syntax. Some protocols require additional dissector plugins.
+实时捕获需要权限（root 或 cap_net_raw 能力）。大型捕获会占用大量内存。显示过滤器的语法与捕获过滤器不同。某些协议需要额外的解析器插件。
 
 # HISTORY
 
-**Wireshark** began as **Ethereal**, created by **Gerald Combs** in **1998**. After trademark issues, it was renamed to Wireshark in **2006**. It has become the most widely used network protocol analyzer, supported by an active community and the Wireshark Foundation. The project continues adding support for new protocols.
+**Wireshark** 的前身是 **Ethereal**，由 **Gerald Combs** 于 **1998 年**创建。由于商标问题，它于 **2006 年**更名为 Wireshark。如今它已成为使用最广泛的网络协议分析器，由活跃的社区和 Wireshark 基金会提供支持。该项目持续为新协议添加解析支持。
 
 # INSTALL
 

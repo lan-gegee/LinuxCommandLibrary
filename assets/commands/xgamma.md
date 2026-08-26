@@ -1,26 +1,26 @@
 # TAGLINE
 
-Adjust X11 display gamma correction
+调整 X11 显示器伽马校正
 
 # TLDR
 
-**Display current gamma values**
+**显示当前伽马值**
 
 ```xgamma```
 
-**Set gamma for all channels**
+**为所有通道设置伽马**
 
 ```xgamma -gamma [1.2]```
 
-**Set individual channel gamma**
+**分别设置各通道的伽马**
 
 ```xgamma -rgamma [1.1] -ggamma [1.0] -bgamma [0.9]```
 
-**Set gamma on specific display**
+**在指定显示器上设置伽马**
 
 ```xgamma -display [:0] -gamma [1.2]```
 
-**Set gamma on specific screen**
+**在指定屏幕上设置伽马**
 
 ```xgamma -screen [0] -gamma [1.1]```
 
@@ -31,44 +31,44 @@ Adjust X11 display gamma correction
 # PARAMETERS
 
 **-gamma** _value_
-> Set gamma for all color channels.
+> 为所有颜色通道设置伽马。
 
 **-rgamma** _value_
-> Set red channel gamma.
+> 设置红色通道的伽马。
 
 **-ggamma** _value_
-> Set green channel gamma.
+> 设置绿色通道的伽马。
 
 **-bgamma** _value_
-> Set blue channel gamma.
+> 设置蓝色通道的伽马。
 
 **-display** _name_
-> X display to use.
+> 要使用的 X 显示器。
 
 **-screen** _num_
-> Screen number to adjust.
+> 要调整的屏幕编号。
 
 **-quiet**
-> Suppress normal output.
+> 抑制正常输出。
 
 **-help**
-> Show usage summary and exit.
+> 显示用法摘要并退出。
 
 # DESCRIPTION
 
-**xgamma** queries and alters the gamma correction of a monitor via the XFree86-VidModeExtension. Gamma affects mid-tone brightness; values below 1.0 increase contrast while values above 1.0 decrease it.
+**xgamma** 通过 XFree86-VidModeExtension 查询和修改显示器的伽马校正。伽马会影响中间调亮度；低于 1.0 的值会增大对比度，高于 1.0 的值会减小对比度。
 
-When invoked without gamma arguments, xgamma prints the current red, green, and blue gamma values to standard output. Gamma values are transmitted to the X server with three decimal places of precision. Separate control of red, green, and blue channels allows color temperature adjustment.
+不带伽马参数调用时，xgamma 会将当前的红色、绿色和蓝色伽马值打印到标准输出。伽马值以三位小数的精度传输给 X server。红、绿、蓝三个通道可分别控制，从而实现色温调整。
 
-Settings are temporary and reset on X server restart. For persistence, add xgamma commands to ~/.xinitrc or ~/.xprofile, or configure in xorg.conf. The **DISPLAY** environment variable provides the default host and display number.
+设置是临时的，X server 重启后会恢复原状。若要持久化，可将 xgamma 命令加入 ~/.xinitrc 或 ~/.xprofile，或在 xorg.conf 中配置。**DISPLAY** 环境变量提供默认的主机和显示器编号。
 
 # CAVEATS
 
-X11 only; no effect on Wayland. Settings don't persist across reboots without scripting. May conflict with color management tools like Redshift. Hardware support varies.
+仅支持 X11，对 Wayland 无效。不通过脚本处理时，设置不会在重启后保留。可能与 Redshift 等色彩管理工具冲突。硬件支持情况因设备而异。
 
 # HISTORY
 
-**xgamma** is part of the X.Org utility collection and was originally authored by **Kaleb Keithley** and **David Dawes**. It relies on the XFree86-VidModeExtension, which is considered obsolete; modern setups should prefer **xrandr** with the RandR 1.2+ gamma properties.
+**xgamma** 是 X.Org 工具集的一部分，最初由 **Kaleb Keithley** 和 **David Dawes** 编写。它依赖的 XFree86-VidModeExtension 已被视为过时；现代环境应改用支持 RandR 1.2+ 伽马属性的 **xrandr**。
 
 # INSTALL
 

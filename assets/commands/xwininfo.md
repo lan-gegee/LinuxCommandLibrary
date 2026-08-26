@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display X11 window information
+显示 X11 窗口信息
 
 # TLDR
 
-**Get window info by clicking** on it
+**点击窗口获取其信息**
 
 ```xwininfo```
 
-**Get root window info**
+**获取根窗口信息**
 
 ```xwininfo -root```
 
-**Get all info** for a window selected by clicking
+**获取点击所选窗口的全部信息**
 
 ```xwininfo -all```
 
-**Get by window ID**
+**按窗口 ID 获取**
 
 ```xwininfo -id [0x12345]```
 
-**Get by window name**
+**按窗口名称获取**
 
 ```xwininfo -name "[Window Name]"```
 
-**Show the full window tree** recursively from root
+从根窗口开始递归**显示完整窗口树**
 
 ```xwininfo -root -tree```
 
-**Display window IDs as integers** instead of hexadecimal
+以十进制而非十六进制**显示窗口 ID**
 
 ```xwininfo -int```
 
-**Show window manager hints** for a specific window
+为特定窗口**显示窗口管理器提示**
 
 ```xwininfo -wm -id [0x12345]```
 
@@ -43,72 +43,72 @@ Display X11 window information
 # PARAMETERS
 
 **-root**
-> Select the root window as the target without using the cursor.
+> 不用光标选择，直接以根窗口为目标。
 
 **-id** _wid_
-> Specify the target window by its X window ID.
+> 按 X 窗口 ID 指定目标窗口。
 
 **-name** _wdname_
-> Specify the target window by name.
+> 按名称指定目标窗口。
 
 **-int**
-> Display all X window IDs as integer values. Default is hexadecimal.
+> 将所有 X 窗口 ID 显示为整数值。默认为十六进制。
 
 **-children**
-> Display the root, parent, and children windows' IDs and names.
+> 显示根窗口、父窗口和子窗口的 ID 与名称。
 
 **-tree**
-> Like -children, but display all children recursively.
+> 类似 -children，但递归显示所有子窗口。
 
 **-stats**
-> Display location and appearance attributes including size, position, depth, and visual info. This is the default if no options are specified.
+> 显示位置和外观属性，包括大小、位置、色深和 visual 信息。未指定选项时这是默认行为。
 
 **-bits**
-> Display bit gravity, window gravity, backing-store, and save-under attributes.
+> 显示位重力、窗口重力、backing-store 和 save-under 属性。
 
 **-events**
-> Display the selected window's event masks.
+> 显示所选窗口的事件掩码。
 
 **-size**
-> Display sizing hints including minimum, maximum, and resize increment sizes.
+> 显示尺寸提示，包括最小、最大尺寸和调整步长。
 
 **-wm**
-> Display window manager hints including input model, icon info, and initial state.
+> 显示窗口管理器提示，包括输入模式、图标信息和初始状态。
 
 **-shape**
-> Display the window and border shape extents.
+> 显示窗口和边框形状的范围。
 
 **-frame**
-> Consider window manager frames when manually selecting windows.
+> 手动选择窗口时考虑窗口管理器的边框。
 
 **-metric**
-> Display dimensions in millimeters as well as number of pixels.
+> 以毫米以及像素数两种单位显示尺寸。
 
 **-english**
-> Display dimensions in inches as well as number of pixels.
+> 以英寸以及像素数两种单位显示尺寸。
 
 **-all**
-> Show all available information.
+> 显示所有可用信息。
 
 **-display** _host:dpy_
-> Specify the X server to connect to.
+> 指定要连接的 X server。
 
 **-version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 # DESCRIPTION
 
-**xwininfo** displays detailed information about X11 windows, including geometry (size and position), window ID, depth, visual class, and colormap. When run without arguments, it presents a crosshair cursor for interactive window selection by clicking.
+**xwininfo** 显示 X11 窗口的详细信息，包括几何属性（大小和位置）、窗口 ID、色深、visual 类和 colormap。不带参数运行时，它会显示一个十字光标，供点击交互式选择窗口。
 
-Specific windows can be targeted using **-id** for a window ID, **-name** for a window title, or **-root** for the root window. The **-tree** option displays the complete window hierarchy, showing how windows are nested within each other. If no information option is specified, **-stats** is assumed. The tool is commonly used for debugging window managers and scripting X11 window operations.
+可以使用 **-id** 指定窗口 ID、**-name** 指定窗口标题或 **-root** 指定根窗口来定位特定窗口。**-tree** 选项显示完整的窗口层级，展示窗口之间的嵌套关系。如果未指定任何信息选项，则默认采用 **-stats**。该工具常用于调试窗口管理器以及编写 X11 窗口操作脚本。
 
 # CAVEATS
 
-X11 only. Does not work on Wayland. Part of the x11-utils package (or xorg-xwininfo on Arch).
+仅支持 X11。不适用于 Wayland。属于 x11-utils 软件包（Arch 上为 xorg-xwininfo）。
 
 # HISTORY
 
-**xwininfo** is a standard X11 utility for displaying information about windows.
+**xwininfo** 是用于显示窗口信息的标准 X11 工具。
 
 # INSTALL
 

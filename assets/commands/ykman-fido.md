@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage YubiKey FIDO2 credentials
+管理 YubiKey FIDO2 凭据
 
 # TLDR
 
-**Show FIDO application information**
+**显示 FIDO 应用信息**
 
 ```ykman fido info```
 
-**List resident credentials (passkeys)**
+**列出常驻凭据（passkey）**
 
 ```ykman fido credentials list```
 
-**Delete a resident credential**
+**删除一个常驻凭据**
 
 ```ykman fido credentials delete [id]```
 
-**Set or change the FIDO PIN**
+**设置或更改 FIDO PIN**
 
 ```ykman fido access change-pin```
 
-**List registered fingerprints**
+**列出已注册的指纹**
 
 ```ykman fido fingerprints list```
 
-**Reset the FIDO application**
+**重置 FIDO 应用**
 
 ```ykman fido reset```
 
@@ -35,42 +35,42 @@ Manage YubiKey FIDO2 credentials
 # PARAMETERS
 
 **info**
-> Show FIDO2 application information.
+> 显示 FIDO2 应用信息。
 
 **credentials list**
-> List discoverable (resident) credentials.
+> 列出可发现（常驻）凭据。
 
 **credentials delete** _id_
-> Delete a resident credential.
+> 删除一个常驻凭据。
 
 **access change-pin**
-> Set or change the FIDO PIN.
+> 设置或更改 FIDO PIN。
 
 **access verify-pin**
-> Verify the FIDO PIN against the YubiKey.
+> 向 YubiKey 验证 FIDO PIN。
 
 **fingerprints list**
-> List registered fingerprints by ID and label.
+> 按 ID 和标签列出已注册的指纹。
 
 **fingerprints add** _name_
-> Add a new fingerprint (requires YubiKey Bio).
+> 添加新指纹（需要 YubiKey Bio）。
 
 **fingerprints delete** _id_
-> Delete a fingerprint by ID.
+> 按 ID 删除指纹。
 
 **fingerprints rename** _id_ _name_
-> Set the label for a fingerprint.
+> 设置指纹的标签。
 
 **reset**
-> Reset the FIDO application, removing all credentials and PIN.
+> 重置 FIDO 应用，移除所有凭据和 PIN。
 
 # DESCRIPTION
 
-**ykman fido** manages the FIDO2/WebAuthn application on a YubiKey. It allows viewing and managing passkeys (discoverable/resident credentials), configuring the FIDO PIN, and managing biometric fingerprints on YubiKey Bio series devices.
+**ykman fido** 管理 YubiKey 上的 FIDO2/WebAuthn 应用。它允许查看和管理 passkey（可发现/常驻凭据），配置 FIDO PIN，以及在 YubiKey Bio 系列设备上管理生物识别指纹。
 
 # CAVEATS
 
-Reset permanently removes all FIDO credentials, the PIN, and fingerprints from the device. Fingerprint commands require a YubiKey with a fingerprint sensor and a FIDO PIN must be set first.
+重置会永久移除设备上的所有 FIDO 凭据、PIN 和指纹。指纹命令需要带指纹传感器的 YubiKey，并且必须先设置 FIDO PIN。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ Reset permanently removes all FIDO credentials, the PIN, and fingerprints from t
 # SEE ALSO
 
 [ykman](/man/ykman)(1), [ykman-oath](/man/ykman-oath)(1)
-

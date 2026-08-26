@@ -1,30 +1,30 @@
 # TAGLINE
 
-Extended Bourne shell with advanced features
+具备高级特性的扩展 Bourne Shell
 
 # TLDR
 
-**Start an interactive zsh shell**
+**启动交互式 zsh shell**
 
 ```zsh```
 
-**Execute a script**
+**执行脚本**
 
 ```zsh [script.zsh]```
 
-**Execute a command**
+**执行命令**
 
 ```zsh -c "[command]"```
 
-**Start without loading config files**
+**不加载配置文件启动**
 
 ```zsh -f```
 
-**Start a login shell**
+**启动登录 shell**
 
 ```zsh -l```
 
-**Check script syntax** without executing
+**检查脚本语法**而不执行
 
 ```zsh -n [script.zsh]```
 
@@ -35,59 +35,59 @@ Extended Bourne shell with advanced features
 # PARAMETERS
 
 **-c** _string_
-> Execute commands from string
+> 执行字符串中的命令
 
 **-f**
-> Don't source startup files
+> 不读取启动文件
 
 **-i**
-> Force interactive mode
+> 强制进入交互模式
 
 **-l**
-> Login shell
+> 登录 shell
 
 **-n**
-> No execute; check syntax only
+> 不执行；仅检查语法
 
 **-s**
-> Read commands from stdin
+> 从 stdin 读取命令
 
 **-v**
-> Verbose; print input as read
+> 详细输出；按读取内容原样打印
 
 **-x**
-> Xtrace; print commands as executed
+> Xtrace；打印实际执行的命令
 
 # DESCRIPTION
 
-**zsh** (Z Shell) is an extended Bourne shell with many improvements, combining features from bash, ksh, and tcsh. It offers powerful completion, theming, and scripting capabilities.
+**zsh**（Z Shell）是扩展版 Bourne shell，结合了 bash、ksh 和 tcsh 的特性，并有众多改进。它提供强大的补全、主题和脚本功能。
 
-Zsh is highly configurable through **~/.zshrc** for interactive settings and **~/.zshenv** for all shells. Framework projects like Oh My Zsh and Prezto provide pre-configured themes and plugins.
+Zsh 高度可定制：交互式设置放在 **~/.zshrc**，对所有 shell 生效的设置放在 **~/.zshenv**。Oh My Zsh 和 Prezto 等框架项目提供了预配置的主题与插件。
 
-Key features include advanced tab completion (programmable and context-aware), spelling correction, shared history across sessions, powerful globbing (recursive patterns, qualifiers), and extensive customization options.
+关键特性包括先进的 Tab 补全（可编程且能感知上下文）、拼写纠正、跨会话共享历史、强大的 globbing（递归模式、限定符），以及丰富的自定义选项。
 
-Zsh is POSIX-compatible when needed but extends well beyond POSIX with associative arrays, floating-point math, and advanced parameter expansion.
+Zsh 在需要时可兼容 POSIX，同时凭借关联数组、浮点运算和高级参数展开等能力远超 POSIX 的范畴。
 
 # KEY FEATURES
 
-**Completion**: Context-aware, programmable, menu selection
-**Globbing**: **\*\*/** recursive, **(.)** qualifiers for filtering
-**History**: Shared, searchable, substring matching
-**Prompts**: Highly customizable with themes
-**Aliases**: Global aliases, suffix aliases
-**Arrays**: Indexed and associative arrays
+**补全**：上下文感知、可编程、支持菜单选择
+**Globbing**：**\*\*/** 递归匹配、用于过滤的 **(.)** 限定符
+**历史**：跨会话共享、可搜索、子串匹配
+**提示符**：可通过主题深度自定义
+**别名**：全局别名、后缀别名
+**数组**：索引数组与关联数组
 
 # CAVEATS
 
-Zsh syntax differs from bash in some areas (array indexing starts at 1 by default, different parameter expansion syntax). Scripts may need adjustment.
+Zsh 语法在某些方面与 bash 不同（数组下标默认从 1 开始、参数展开语法不一样）。脚本可能需要调整。
 
-Heavy customization can slow shell startup. Profile with **zprof** and lazy-load plugins for faster interactive use.
+过度定制会拖慢 shell 启动。可用 **zprof** 分析性能并延迟加载插件，让交互使用更快。
 
-The default completion system needs initialization with **compinit**. Most frameworks handle this automatically.
+默认补全系统需要用 **compinit** 初始化。多数框架会自动完成这一步。
 
 # HISTORY
 
-Zsh was created by **Paul Falstad** at Princeton University in **1990**, named after Yale professor Zhong Shao (zsh = Zhong SHell). It has grown into one of the most feature-rich shells available and became the default shell in macOS Catalina (2019).
+Zsh 由 **Paul Falstad** 于 **1990 年**在普林斯顿大学创建，得名于耶鲁大学教授 Zhong Shao（zsh = Zhong SHell）。它已发展为功能最丰富的 shell 之一，并从 macOS Catalina（2019 年）起成为 macOS 的默认 shell。
 
 # INSTALL
 

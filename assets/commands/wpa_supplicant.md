@@ -1,22 +1,22 @@
 # TAGLINE
 
-WPA/WPA2 wireless network authentication
+WPA/WPA2 无线网络身份验证
 
 # TLDR
 
-**Start with config**
+**带配置启动**
 
 ```wpa_supplicant -i [wlan0] -c [/etc/wpa_supplicant.conf]```
 
-**Run in foreground**
+**在前台运行**
 
 ```wpa_supplicant -i [wlan0] -c [config.conf] -d```
 
-**Background daemon**
+**后台守护进程**
 
 ```wpa_supplicant -i [wlan0] -c [config.conf] -B```
 
-**Use specific driver**
+**使用指定驱动**
 
 ```wpa_supplicant -i [wlan0] -c [config.conf] -D [nl80211]```
 
@@ -27,43 +27,43 @@ WPA/WPA2 wireless network authentication
 # PARAMETERS
 
 **-i** _IFACE_
-> Interface name.
+> 接口名称。
 
 **-c** _FILE_
-> Config file.
+> 配置文件。
 
 **-B**
-> Background mode.
+> 后台模式。
 
 **-D** _DRIVER_
-> Driver backend.
+> 驱动后端。
 
 **-d**
-> Debug output.
+> 调试输出。
 
 **-P** _FILE_
-> PID file.
+> PID 文件。
 
 # CONFIGURATION
 
 **/etc/wpa_supplicant/wpa_supplicant.conf**
-> Main configuration file containing network definitions, global settings, and credentials. Generate with **wpa_passphrase**.
+> 主配置文件，包含网络定义、全局设置和凭据。可用 **wpa_passphrase** 生成。
 
 # DESCRIPTION
 
-**wpa_supplicant** is the standard wireless network authentication daemon for Linux systems. It implements WPA, WPA2, and WPA3 security protocols, handling the key negotiation and authentication process required to connect to protected wireless networks.
+**wpa_supplicant** 是 Linux 系统标准的无线网络身份验证守护进程。它实现了 WPA、WPA2 和 WPA3 安全协议，处理连接受保护无线网络所需的密钥协商和身份验证过程。
 
-The daemon supports both personal (PSK) and enterprise (802.1X/EAP) authentication methods, and can manage multiple configured networks with automatic selection based on signal strength and priority. Configuration is defined in a config file specifying network SSIDs, security settings, and credentials.
+该守护进程同时支持个人（PSK）和企业（802.1X/EAP）认证方式，可以管理多个已配置的网络，并根据信号强度和优先级自动选择。网络 SSID、安全设置和凭据都在配置文件中定义。
 
-On most desktop Linux systems, wpa_supplicant runs as a backend service managed by NetworkManager or systemd-networkd rather than being invoked directly by users.
+在大多数桌面 Linux 系统上，wpa_supplicant 作为由 NetworkManager 或 systemd-networkd 管理的后端服务运行，而不是由用户直接调用。
 
 # CAVEATS
 
-Requires root privileges. The configuration file contains plaintext passwords and should have restricted permissions (600). On most desktop systems, wpa_supplicant is managed by NetworkManager or systemd-networkd rather than run directly. Running multiple instances on the same interface will cause conflicts.
+需要 root 权限。配置文件包含明文密码，应设置受限权限（600）。在大多数桌面系统上，wpa_supplicant 由 NetworkManager 或 systemd-networkd 管理，而非直接运行。在同一接口上运行多个实例会产生冲突。
 
 # HISTORY
 
-**wpa_supplicant** was created by **Jouni Malinen** for wireless network authentication on Linux.
+**wpa_supplicant** 由 **Jouni Malinen** 创建，用于 Linux 上的无线网络身份验证。
 
 # INSTALL
 

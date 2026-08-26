@@ -1,22 +1,22 @@
 # TAGLINE
 
-Decompress zstd files to stdout
+将 zstd 文件解压到 stdout
 
 # TLDR
 
-**Decompress to stdout**
+**解压到 stdout**
 
 ```zstdcat [file.zst]```
 
-**Decompress multiple files**
+**解压多个文件**
 
 ```zstdcat [file1.zst] [file2.zst]```
 
-**Decompress and pipe to another command**
+**解压并通过管道传给其他命令**
 
 ```zstdcat [file.zst] | grep [pattern]```
 
-**Decompress with verbose output**
+**以详细输出解压**
 
 ```zstdcat -v [file.zst]```
 
@@ -27,22 +27,22 @@ Decompress zstd files to stdout
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose mode. Display more information.
+> 详细模式。显示更多信息。
 
 **-q**, **--quiet**
-> Suppress warnings and notifications.
+> 抑制警告和通知。
 
 **--no-progress**
-> Do not display the progress bar.
+> 不显示进度条。
 
 **-f**, **--force**
-> Force overwrite and (de)compress symbolic links.
+> 强制覆盖并对符号链接执行（解）压缩。
 
 # DESCRIPTION
 
-**zstdcat** decompresses Zstandard (.zst) compressed files and writes the output to standard output, equivalent to running **zstd -dcf**. This makes it useful for piping compressed data into other commands without creating intermediate decompressed files on disk.
+**zstdcat** 将 Zstandard（.zst）压缩文件解压并写到标准输出，等效于运行 **zstd -dcf**。因此非常适合把压缩数据通过管道传给其他命令，而不必在磁盘上生成中间解压文件。
 
-When given multiple input files, zstdcat decompresses them in sequence and concatenates the output to stdout. It is part of the zstd suite of compression utilities.
+给定多个输入文件时，zstdcat 会按顺序逐一解压，并将输出串联后写到 stdout。它是 zstd 压缩工具套件的一部分。
 
 # INSTALL
 

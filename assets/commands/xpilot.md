@@ -1,34 +1,34 @@
 # TAGLINE
 
-Multiplayer space combat game
+多人太空对战游戏
 
 # TLDR
 
-**Start the game** and connect to a server
+**启动游戏**并连接到服务器
 
 ```xpilot```
 
-**Connect to a specific server**
+**连接到指定服务器**
 
 ```xpilot -join [server_address]```
 
-**Set player name** for the session
+**为本次会话设置玩家名称**
 
 ```xpilot -name "[player_name]"```
 
-**Connect with team selection**
+**选择队伍后连接**
 
 ```xpilot -join [server] -team [team_number]```
 
-**Use a specific ship shape**
+**使用特定的飞船外形**
 
 ```xpilot -shipShape "[shape_string]"```
 
-**List available servers** on the network
+**列出网络上可用的服务器**
 
 ```xpilot -list```
 
-**Start with specific display**
+**以指定显示器启动**
 
 ```xpilot -display [hostname:0]```
 
@@ -39,64 +39,64 @@ Multiplayer space combat game
 # PARAMETERS
 
 **-display** _host:n_
-> Connect to X server on specified display.
+> 连接到指定显示器上的 X server。
 
 **-join** _server_
-> Connect directly to the specified game server.
+> 直接连接到指定游戏服务器。
 
 **-name** _name_
-> Set the player name (default: login name).
+> 设置玩家名称（默认：登录名）。
 
 **-team** _n_
-> Join the specified team number.
+> 加入指定队伍编号。
 
 **-list**
-> Query and list available servers on the network.
+> 查询并列出网络上可用的服务器。
 
 **-port** _n_
-> Use specified port number for server connection.
+> 使用指定端口号连接服务器。
 
 **-shipShape** _shape_
-> Define custom ship appearance using shape string.
+> 使用外形字符串定义自定义飞船外观。
 
 **-geometry** _WxH+X+Y_
-> Set window geometry.
+> 设置窗口几何尺寸。
 
 **-fps** _n_
-> Target frames per second.
+> 目标帧率。
 
 **-keyTurnLeft** _key_
-> Bind key for turning left.
+> 绑定左转按键。
 
 **-keyTurnRight** _key_
-> Bind key for turning right.
+> 绑定右转按键。
 
 **-keyThrust** _key_
-> Bind key for thrust.
+> 绑定推进按键。
 
 **-keyFire** _key_
-> Bind key for firing.
+> 绑定开火按键。
 
 **-help**
-> Display help and available options.
+> 显示帮助与可用选项。
 
 # DESCRIPTION
 
-**XPilot** is a multiplayer tactical space combat game for the X Window System. Players pilot spacecraft in a 2D arena, competing against others in various game modes including team battles, capture the flag, and survival matches.
+**XPilot** 是一款面向 X Window System 的多人战术太空对战游戏。玩家在 2D 场地中驾驶航天器，与其他人竞争多种游戏模式，包括团队战斗、夺旗和生存赛。
 
-The game features Newtonian physics with momentum and gravity, requiring players to master thrust and rotation for maneuvering. Ships can collect power-ups for weapons like missiles, lasers, and mines. The gameplay emphasizes skill in navigation and combat timing.
+游戏采用包含动量与重力的牛顿物理，要求玩家熟练掌握推进与旋转操作来机动。飞船可以收集道具，获得导弹、激光和地雷等武器。玩法强调导航技巧和战斗时机的把握。
 
-Players connect to dedicated servers which host the game maps and manage the match. Multiple clients can connect to a single server for competitive play. The game supports both internet play and LAN sessions. Custom ship designs can be created using the ship shape specification language.
+玩家连接到托管游戏地图并管理比赛的服务器。多个客户端可以连接到同一台服务器进行对抗。游戏同时支持互联网对战和局域网会话。可以使用飞船外形规范语言创建自定义飞船设计。
 
-XPilot has an active community with various forks and enhanced versions. Configuration can be customized through command-line options or the **.xpilotrc** configuration file in the user's home directory.
+XPilot 拥有活跃的社区以及多个分支和增强版本。可以通过命令行选项或用户主目录中的 **.xpilotrc** 配置文件自定义配置。
 
 # CAVEATS
 
-Requires an X11 display. Network latency significantly affects gameplay on internet servers. Some servers may run modified versions with different rules or physics. The original XPilot has been superseded by forks like XPilot-AI and XPilot NG with improved features.
+需要 X11 显示。网络延迟会显著影响互联网服务器上的游戏体验。某些服务器可能运行着规则或物理特性不同的修改版。原版 XPilot 已被 XPilot-AI 和 XPilot NG 等功能更强的分支取代。
 
 # HISTORY
 
-**XPilot** was created by Bjorn Stabell and Ken Ronny Schouten, with the first public release in **1991**. It became one of the earliest popular networked multiplayer games for Unix systems. The game gained a dedicated following throughout the 1990s with servers running worldwide. Various forks emerged including XPilot NG (Next Generation) which modernized the codebase and added features.
+**XPilot** 由 Bjorn Stabell 和 Ken Ronny Schouten 创建，于 **1991 年**首次公开发布。它是 Unix 系统上最早流行的联网多人游戏之一。整个 20 世纪 90 年代，世界各地都有服务器运行该游戏，积累了忠实的玩家群体。后来出现了多个分支，其中 XPilot NG（Next Generation）现代化了代码库并添加了新功能。
 
 # INSTALL
 

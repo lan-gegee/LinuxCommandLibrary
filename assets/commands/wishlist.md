@@ -1,22 +1,22 @@
 # TAGLINE
 
-SSH directory and host browser
+SSH 目录与主机浏览器
 
 # TLDR
 
-**Start the SSH directory** with default settings
+以默认设置**启动 SSH 目录**
 
 ```wishlist```
 
-**Start with a specific config** file
+使用指定的**配置文件**启动
 
 ```wishlist -c [config.yaml]```
 
-**Listen on a specific port**
+**监听特定端口**
 
 ```wishlist -p [2222]```
 
-**Start with a specific listen address**
+以指定的监听地址启动
 
 ```wishlist -l [0.0.0.0:2222]```
 
@@ -27,33 +27,33 @@ SSH directory and host browser
 # PARAMETERS
 
 **-c** _FILE_
-> Path to the YAML configuration file.
+> YAML 配置文件的路径。
 
 **-l** _ADDRESS_
-> Bind address to listen on (e.g., 0.0.0.0:2222).
+> 要绑定的监听地址（如 0.0.0.0:2222）。
 
 **-p** _PORT_
-> Port to listen on (default: 22).
+> 监听端口（默认：22）。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wishlist** is an SSH directory that provides a terminal user interface for browsing and connecting to configured SSH hosts. It presents a searchable menu of available servers, allowing quick selection and connection without remembering hostnames or typing full SSH commands.
+**wishlist** 是一个 SSH 目录，提供终端用户界面来浏览和连接已配置的 SSH 主机。它呈现一个可搜索的可用服务器菜单，无需记住主机名或输入完整的 SSH 命令即可快速选择并连接。
 
-Hosts are defined in a YAML configuration file with connection details like hostname, port, and user. The tool is part of the Charm ecosystem and runs as an SSH server itself, meaning users can access their host directory by connecting to wishlist over SSH from any machine.
+主机在一个 YAML 配置文件中定义，包含主机名、端口和用户等连接信息。该工具属于 Charm 生态，本身也作为 SSH 服务器运行，这意味着用户可以从任何机器通过 SSH 连接到 wishlist 来访问自己的主机目录。
 
 # CAVEATS
 
-Configuration needed. Charm Labs tool. Go implementation.
+需要配置。Charm Labs 出品。Go 实现。
 
 # HISTORY
 
-**wishlist** is part of the **Charm** ecosystem, providing an SSH directory for easy host access.
+**wishlist** 是 **Charm** 生态的一部分，提供便于访问主机的 SSH 目录。
 
 # INSTALL
 

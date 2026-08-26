@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal weather app with ASCII animations
+带 ASCII 动画的终端天气应用
 
 # TLDR
 
-**Display current weather** for your location (auto-detected via IP)
+**显示你所在位置的当前天气**（通过 IP 自动检测）
 
 ```weathr```
 
-**Use imperial units** (Fahrenheit, mph, inches)
+**使用英制单位**（华氏度、mph、英寸）
 
 ```weathr --imperial```
 
-**Simulate a specific weather condition**
+**模拟特定的天气状况**
 
 ```weathr --simulate [rain|snow|thunderstorm|fog|clear|...]```
 
-**Simulate nighttime** weather
+**模拟夜间**天气
 
 ```weathr --simulate [condition] --night```
 
-**Hide the status HUD** and show only the animation
+**隐藏状态 HUD**，只显示动画
 
 ```weathr --hide-hud```
 
-**Add falling leaves** effect
+**添加落叶**效果
 
 ```weathr --leaves```
 
@@ -35,54 +35,54 @@ Terminal weather app with ASCII animations
 # PARAMETERS
 
 **--simulate** _condition_
-> Simulate a weather condition instead of using real data. Conditions: **clear**, **partly-cloudy**, **cloudy**, **overcast**, **fog**, **drizzle**, **rain**, **freezing-rain**, **rain-showers**, **snow**, **snow-grains**, **snow-showers**, **thunderstorm**, **thunderstorm-hail**
+> 模拟某种天气状况而不是使用真实数据。可选状况：**clear**、**partly-cloudy**、**cloudy**、**overcast**、**fog**、**drizzle**、**rain**、**freezing-rain**、**rain-showers**、**snow**、**snow-grains**、**snow-showers**、**thunderstorm**、**thunderstorm-hail**
 
 **--night**
-> Simulate nighttime visuals (moon, stars, fireflies)
+> 模拟夜间画面（月亮、星星、萤火虫）
 
 **--leaves**
-> Add falling leaves animation (autumn effect)
+> 添加落叶动画（秋季效果）
 
 **--imperial**
-> Use imperial units: Fahrenheit, mph, inches
+> 使用英制单位：华氏度、mph、英寸
 
 **--metric**
-> Use metric units: Celsius, km/h, mm (default)
+> 使用公制单位：摄氏度、km/h、mm（默认）
 
 **--auto-location**
-> Auto-detect location via IP geolocation (ipinfo.io)
+> 通过 IP 地理定位自动检测位置（ipinfo.io）
 
 **--hide-location**
-> Hide location coordinates from the display
+> 在显示中隐藏位置坐标
 
 **--hide-hud**
-> Hide the status HUD and show only the ASCII animation
+> 隐藏状态 HUD，只显示 ASCII 动画
 
 **--silent**
-> Suppress non-error messages
+> 不显示非错误消息
 
 **-h**, **--help**
-> Print help information
+> 打印帮助信息
 
 **-V**, **--version**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**weathr** is a terminal weather application that displays real-time weather data with animated ASCII art. It fetches current conditions from the **Open-Meteo** API and renders them as colorful terminal animations including rain, snow, thunderstorms, flying airplanes, drifting clouds, and birds.
+**weathr** 是一款终端天气应用，以动画 ASCII 艺术展示实时天气数据。它从 **Open-Meteo** API 获取当前天气状况，并渲染成多彩的终端动画，包括雨、雪、雷暴、飞过的飞机、飘动的云和飞鸟。
 
-The display adapts to time of day: daytime shows the sun, gliding clouds, V-shaped birds, and bright colors, while nighttime features the moon, twinkling stars, gliding clouds, fireflies, and shooting stars. A status HUD shows the weather category, temperature, wind speed, and precipitation.
+显示效果随一天中的时间变化：白天显示太阳、滑翔的云朵、V 字形飞鸟和明亮的色彩；夜晚则有月亮、闪烁的星星、滑翔的云朵、萤火虫和流星。状态 HUD 显示天气类别、温度、风速和降水量。
 
-**weathr** supports cross-platform use on Linux, macOS, Windows, and NixOS. It respects the **NO_COLOR** environment variable for accessibility.
+**weathr** 支持在 Linux、macOS、Windows 和 NixOS 上跨平台使用。它遵循 **NO_COLOR** 环境变量以提升无障碍性。
 
 # CONFIGURATION
 
-Configuration is stored in a TOML file:
-> **Linux**: ```~/.config/weathr/config.toml```
-> **macOS**: ```~/Library/Application Support/weathr/config.toml```
-> **Windows**: ```~/AppData/Roaming/weathr/config.toml```
+配置保存在 TOML 文件中：
+> **Linux**：```~/.config/weathr/config.toml```
+> **macOS**：```~/Library/Application Support/weathr/config.toml```
+> **Windows**：```~/AppData/Roaming/weathr/config.toml```
 
-Example configuration:
+配置示例：
 
 ```
 hide_hud = false
@@ -100,19 +100,19 @@ wind_speed = "kmh"
 precipitation = "mm"
 ```
 
-**temperature**: ```celsius``` or ```fahrenheit```
-**wind_speed**: ```kmh```, ```ms```, ```mph```, or ```kn``` (knots)
-**precipitation**: ```mm``` or ```inch```
+**temperature**：```celsius``` 或 ```fahrenheit```
+**wind_speed**：```kmh```、```ms```、```mph``` 或 ```kn```（节）
+**precipitation**：```mm``` 或 ```inch```
 
-Setting **auto = true** under **[location]** uses IP-based geolocation. Providing explicit **latitude** and **longitude** avoids external API calls for privacy.
+将 **[location]** 下的 **auto** 设为 true 会使用基于 IP 的地理定位。显式提供 **latitude** 和 **longitude** 可以避免调用外部 API，保护隐私。
 
 # CAVEATS
 
-Location auto-detection relies on **ipinfo.io** for IP geolocation, which may be inaccurate behind VPNs or proxies. Weather data comes from **Open-Meteo**, which is free but may have reduced accuracy in remote regions. The application requires a terminal with truecolor support for the best visual experience; it falls back to basic colors when **COLORTERM** is not set to "truecolor" or "24bit".
+位置自动检测依赖 **ipinfo.io** 的 IP 地理定位，在 VPN 或代理环境下可能不准确。天气数据来自 **Open-Meteo**，免费但在偏远地区精度可能降低。应用需要支持真彩色（truecolor）的终端才能获得最佳视觉效果；当 **COLORTERM** 未设置为 "truecolor" 或 "24bit" 时，会回退到基础颜色。
 
 # HISTORY
 
-**weathr** was created by **Veirt** and written in **Rust**. The project is hosted on GitHub and licensed under **GPL-3.0-or-later**. Weather data is sourced from **Open-Meteo.com** (CC BY 4.0 licensed). The latest release is **v1.3.0** from February 2026.
+**weathr** 由 **Veirt** 创建，使用 **Rust** 编写。项目托管在 GitHub 上，采用 **GPL-3.0-or-later** 许可证。天气数据来自 **Open-Meteo.com**（CC BY 4.0 许可）。最新版本为 2026 年 2 月发布的 **v1.3.0**。
 
 # INSTALL
 

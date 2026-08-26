@@ -1,26 +1,26 @@
 # TAGLINE
 
-Opinionated JavaScript and TypeScript linter
+有主见的 JavaScript 和 TypeScript linter
 
 # TLDR
 
-**Lint JavaScript**
+**检查 JavaScript**
 
 ```xo```
 
-**Lint specific files**
+**检查特定文件**
 
 ```xo [file.js]```
 
-**Fix issues**
+**修复问题**
 
 ```xo --fix```
 
-**Specify space indent**
+**指定空格缩进**
 
 ```xo --space```
 
-**Print config**
+**打印配置**
 
 ```xo --print-config```
 
@@ -31,33 +31,33 @@ Opinionated JavaScript and TypeScript linter
 # PARAMETERS
 
 **--fix**
-> Auto-fix issues.
+> 自动修复问题。
 
 **--space**
-> Use space indent.
+> 使用空格缩进。
 
 **--semicolon**
-> Require semicolons.
+> 要求分号。
 
 **--prettier**
-> Use Prettier.
+> 使用 Prettier。
 
 **--print-config**
-> Show config.
+> 显示配置。
 
 # DESCRIPTION
 
-**xo** is an opinionated JavaScript and TypeScript linter built on top of ESLint. It provides a zero-configuration linting experience with a curated set of strict rules designed to enforce consistent, high-quality code without requiring manual ESLint setup.
+**xo** 是一个构建于 ESLint 之上的有主见的 JavaScript 和 TypeScript linter。它提供零配置的代码检查体验，内置一套精心挑选的严格规则，无需手动设置 ESLint 即可实现一致的高质量代码。
 
-The tool includes built-in TypeScript support and optional Prettier integration for combined linting and formatting. The **--fix** option automatically corrects fixable issues, while **--space** switches from the default tab indentation to spaces. By defaulting to strict, well-chosen rules, xo eliminates the need for teams to debate and configure linting rules individually.
+该工具内置 TypeScript 支持，并可选集成 Prettier 以同时进行代码检查和格式化。**--fix** 选项自动修复可修复的问题，而 **--space** 将默认的制表符缩进切换为空格缩进。通过默认采用严格且经过斟酌的规则，xo 免去了团队逐条讨论和配置 lint 规则的必要。
 
 # CAVEATS
 
-Opinionated rules. Node.js required. ESLint-based.
+规则较为武断。需要 Node.js。基于 ESLint。
 
 # HISTORY
 
-**xo** was created by **Sindre Sorhus** as an opinionated ESLint wrapper with sensible defaults.
+**xo** 由 **Sindre Sorhus** 创建，是一个带有合理默认值的有主见的 ESLint 封装。
 
 # SEE ALSO
 

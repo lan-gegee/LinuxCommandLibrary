@@ -1,26 +1,26 @@
 # TAGLINE
 
-Extensible archive format tool
+可扩展归档格式工具
 
 # TLDR
 
-**Create archive**
+**创建归档**
 
 ```xar -cf [archive.xar] [files]```
 
-**Extract archive**
+**解压归档**
 
 ```xar -xf [archive.xar]```
 
-**List contents**
+**列出内容**
 
 ```xar -tf [archive.xar]```
 
-**Verbose extraction**
+**详细模式解压**
 
 ```xar -xvf [archive.xar]```
 
-**Extract to directory**
+**解压到目录**
 
 ```xar -xf [archive.xar] -C [directory]```
 
@@ -31,36 +31,36 @@ Extensible archive format tool
 # PARAMETERS
 
 **-c**
-> Create archive.
+> 创建归档。
 
 **-x**
-> Extract archive.
+> 解压归档。
 
 **-t**
-> List contents.
+> 列出内容。
 
 **-f** _FILE_
-> Archive file.
+> 归档文件。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **-C** _DIR_
-> Target directory.
+> 目标目录。
 
 # DESCRIPTION
 
-**xar** (eXtensible ARchive) creates and extracts archives using a format developed by Apple, primarily used for macOS installer packages. The format uses an XML-based table of contents that supports rich metadata and multiple compression algorithms per file.
+**xar**（eXtensible ARchive）使用由 Apple 开发的格式创建和解压归档，主要用于 macOS 安装程序包。该格式使用基于 XML 的目录表，支持丰富的元数据以及每个文件使用不同的压缩算法。
 
-The archive format also includes signature support for code signing and integrity verification. While primarily associated with macOS, xar is available on Linux for working with macOS package files and other XAR archives.
+该归档格式还包含用于代码签名和完整性验证的签名支持。虽然主要与 macOS 相关联，但 xar 也可在 Linux 上使用，用于处理 macOS 软件包文件和其他 XAR 归档。
 
 # CAVEATS
 
-macOS oriented. Less common on Linux. XML overhead.
+面向 macOS。在 Linux 上较少见。存在 XML 开销。
 
 # HISTORY
 
-**xar** (eXtensible ARchive) was developed by **Apple** for macOS installer packages.
+**xar**（eXtensible ARchive）由 **Apple** 为 macOS 安装程序包开发。
 
 # INSTALL
 

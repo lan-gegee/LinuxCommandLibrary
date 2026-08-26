@@ -1,30 +1,30 @@
 # TAGLINE
 
-Mono ASP.NET development web server
+Mono ASP.NET 开发用 Web 服务器
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```xsp```
 
-**Specify port**
+**指定端口**
 
 ```xsp --port [8080]```
 
-**Set root directory**
+**设置根目录**
 
 ```xsp --root [/var/www]```
 
-**Enable HTTPS**
+**启用 HTTPS**
 
 ```xsp --https --p12file [server.p12] --pkpwd [password]```
 
-**Run ASP.NET 4**
+**运行 ASP.NET 4**
 
 ```xsp4```
 
-**Bind to address**
+**绑定到地址**
 
 ```xsp --address [0.0.0.0]```
 
@@ -35,39 +35,39 @@ Mono ASP.NET development web server
 # PARAMETERS
 
 **--port** _PORT_
-> Listen port (default 8080).
+> 监听端口（默认 8080）。
 
 **--root** _PATH_
-> Application root directory.
+> 应用程序根目录。
 
 **--address** _IP_
-> Bind address.
+> 绑定地址。
 
 **--https**
-> Enable HTTPS.
+> 启用 HTTPS。
 
 **--p12file** _FILE_
-> PKCS#12 certificate file.
+> PKCS#12 证书文件。
 
 **--pkpwd** _PASSWORD_
-> Certificate password.
+> 证书密码。
 
 **--nonstop**
-> Don't stop on ENTER.
+> 不因按下 ENTER 而停止。
 
 # DESCRIPTION
 
-**xsp** is a lightweight standalone web server included with the Mono project for hosting ASP.NET applications on Linux and other Unix-like systems. It serves as a development and testing server, providing a quick way to run ASP.NET WebForms and MVC applications without requiring a full web server setup.
+**xsp** 是 Mono 项目附带的一个轻量级独立 Web 服务器，用于在 Linux 和其他类 Unix 系统上托管 ASP.NET 应用程序。它是一个开发和测试服务器，提供了一种快速运行 ASP.NET WebForms 和 MVC 应用程序的方式，无需完整配置 Web 服务器。
 
-The server supports HTTPS via PKCS#12 certificate files and can bind to specific addresses and ports. For production deployments, xsp should be replaced with mod_mono behind Apache or a similar reverse proxy configuration that provides better performance and security.
+该服务器通过 PKCS#12 证书文件支持 HTTPS，并可绑定到特定的地址和端口。生产部署时应以 Apache 后端的 mod_mono 或类似的反向代理配置替代 xsp，以获得更好的性能和安全性。
 
 # CAVEATS
 
-Development server. Mono required. Use with mod_mono for production.
+开发用服务器。需要 Mono。生产环境请配合 mod_mono 使用。
 
 # HISTORY
 
-**xsp** is part of the **Mono** project, providing a standalone ASP.NET web server for testing and development on Linux.
+**xsp** 是 **Mono** 项目的一部分，为 Linux 上的测试和开发提供独立的 ASP.NET Web 服务器。
 
 # INSTALL
 

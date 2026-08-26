@@ -1,38 +1,38 @@
 # TAGLINE
 
-Interactive frontend for wpa_supplicant
+wpa_supplicant 的交互式前端
 
 # TLDR
 
-**Scan** for available networks
+**扫描**可用网络
 
 ```sudo wpa_cli scan```
 
-Show **scan results**
+显示**扫描结果**
 
 ```sudo wpa_cli scan_results```
 
-**Add** a new network
+**添加**新网络
 
 ```sudo wpa_cli add_network```
 
-Set network **SSID**
+设置网络 **SSID**
 
 ```sudo wpa_cli set_network 0 ssid '"[MyNetwork]"'```
 
-Set network **password**
+设置网络**密码**
 
 ```sudo wpa_cli set_network 0 psk '"[password]"'```
 
-**Enable** a network
+**启用**一个网络
 
 ```sudo wpa_cli enable_network 0```
 
-**Save** configuration
+**保存**配置
 
 ```sudo wpa_cli save_config```
 
-Show connection **status**
+显示连接**状态**
 
 ```sudo wpa_cli status```
 
@@ -42,80 +42,80 @@ Show connection **status**
 
 # DESCRIPTION
 
-**wpa_cli** is a text-based frontend for interacting with wpa_supplicant. It can query network status, modify configuration, and handle authentication requests. It operates in interactive mode with a prompt or command-line mode with arguments.
+**wpa_cli** 是与 wpa_supplicant 交互的文本前端。它可以查询网络状态、修改配置以及处理身份验证请求。它既可以带提示符以交互模式运行，也可以通过参数以命令行模式运行。
 
 # PARAMETERS
 
 **-p PATH**
-> Specify path to control sockets
+> 指定控制套接字的路径
 
 **-g PATH**
-> Connect to the global control socket at the indicated path
+> 连接到指定路径的全局控制套接字
 
 **-i IFNAME**
-> Select network interface
+> 选择网络接口
 
 **-a FILE**
-> Run in daemon mode with action file for events
+> 以守护进程模式运行，并通过动作文件处理事件
 
 **-B**
-> Run as background daemon
+> 作为后台守护进程运行
 
 **-P FILE**
-> Set the location of the PID file
+> 设置 PID 文件的位置
 
 **-G INTERVAL**
-> Set ping interval in seconds
+> 设置 ping 间隔（秒）
 
 **status**
-> Show current connection status
+> 显示当前连接状态
 
 **scan**
-> Initiate a network scan
+> 发起网络扫描
 
 **scan_results**
-> Display scan results
+> 显示扫描结果
 
 **list_networks**
-> List configured networks
+> 列出已配置的网络
 
 **add_network**
-> Add a new network (returns network ID)
+> 添加新网络（返回网络 ID）
 
 **set_network ID PARAM VALUE**
-> Set network parameter
+> 设置网络参数
 
 **enable_network ID**
-> Enable a network
+> 启用一个网络
 
 **disable_network ID**
-> Disable a network
+> 禁用一个网络
 
 **select_network ID**
-> Select and enable a network, disabling others
+> 选择并启用某个网络，同时禁用其他网络
 
 **save_config**
-> Save current configuration to file
+> 将当前配置保存到文件
 
 **reconfigure**
-> Reload configuration file
+> 重新加载配置文件
 
 **disconnect**
-> Disconnect from current network
+> 断开当前网络连接
 
 **reassociate**
-> Force reconnection
+> 强制重新关联
 
 **terminate**
-> Stop wpa_supplicant
+> 停止 wpa_supplicant
 
 # CAVEATS
 
-Requires root privileges or proper group membership for the control interface. The control interface can be configured to allow non-root access through the ctrl_interface GROUP parameter in wpa_supplicant.conf.
+需要 root 权限，或者控制接口所属的正确用户组。可以通过 wpa_supplicant.conf 中的 ctrl_interface GROUP 参数将控制接口配置为允许非 root 用户访问。
 
 # HISTORY
 
-**wpa_cli** is part of **wpa_supplicant**, a WPA and WPA2 supplicant for Linux, BSD, and Windows, commonly used for wireless network authentication.
+**wpa_cli** 是 **wpa_supplicant** 的一部分。wpa_supplicant 是面向 Linux、BSD 和 Windows 的 WPA 与 WPA2 认证客户端，常用于无线网络身份验证。
 
 # INSTALL
 

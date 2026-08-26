@@ -1,26 +1,26 @@
 # TAGLINE
 
-Wyzer programming language compiler and runner
+Wyzer 编程语言的编译器与运行器
 
 # TLDR
 
-**Build** the compiler from a source checkout (OCaml / Dune)
+从源码检出**构建**编译器（OCaml / Dune）
 
 ```dune build```
 
-**Run** a Wyzer program (interpreter path)
+**运行** Wyzer 程序（解释器路径）
 
 ```wyzerc run [file.wyz]```
 
-**Build** a program to a native binary via LLVM + clang
+通过 LLVM + clang 将程序**编译**为原生二进制文件
 
 ```wyzerc build [file.wyz]```
 
-**Project** a choreography to a specific role, then run
+**投影**编排（choreography）到指定角色后运行
 
 ```wyzerc run [file.wyz] --role [RoleName]```
 
-**Build** for a specific role (outputs _base_Role.ll_ and a linked binary)
+**为特定角色构建**（输出 _base_Role.ll_ 及链接好的二进制文件）
 
 ```wyzerc build [file.wyz] --role [RoleName]```
 
@@ -30,30 +30,30 @@ Wyzer programming language compiler and runner
 
 # DESCRIPTION
 
-**wyzerc** is the compiler front end for **Wyzer**, a statically typed, resource-oriented programming language with Perceus-style memory management and choreographic programming for distributed safety. Source files use the **.wyz** extension.
+**wyzerc** 是 **Wyzer** 的编译器前端。Wyzer 是一种静态类型、面向资源的编程语言，采用 Perceus 风格的内存管理，并通过编排式编程（choreographic programming）保障分布式安全。源文件使用 **.wyz** 扩展名。
 
-Invoked as **wyzerc run** _file.wyz_, the tool parses and typechecks the program, applies Perceus transformation, and evaluates it in the built-in OCaml interpreter. **wyzerc build** takes the same front-end path, then generates LLVM IR (**_base_Role.ll_**) and invokes **clang** with the Wyzer runtime (**lib/wyzer_runtime.c**) to produce a native binary named **_base_Role_** (default role **Poly** when **--role** is omitted).
+以 **wyzerc run** _file.wyz_ 调用时，该工具会解析并做类型检查，应用 Perceus 变换，然后在内置的 OCaml 解释器中求值。**wyzerc build** 走相同的前端流程，随后生成 LLVM IR（**_base_Role.ll_**），并调用 **clang** 配合 Wyzer 运行时（**lib/wyzer_runtime.c**）生成名为 **_base_Role_** 的原生二进制文件（省略 **--role** 时默认角色为 **Poly**）。
 
-Optional **--role** selects a choreographic projection so multi-party programs can be specialized per participant. The project is early research; several language and distributed features are still unfinished.
+可选的 **--role** 用于选择编排投影，使多方程序可以按参与者分别特化。该项目尚处早期研究阶段；部分语言特性和分布式特性仍未完成。
 
 # PARAMETERS
 
 **run** _file.wyz_
-> Typecheck, transform, and execute _file.wyz_ with the interpreter.
+> 对 _file.wyz_ 进行类型检查、变换并用解释器执行。
 
 **build** _file.wyz_
-> Typecheck, transform, emit LLVM IR, and compile with **clang -O3** plus the Wyzer C runtime.
+> 进行类型检查、变换、生成 LLVM IR，再用 **clang -O3** 加 Wyzer C 运行时编译。
 
 **--role** _RoleName_
-> Project the program to _RoleName_ before evaluation or codegen. Default role for build is **Poly**.
+> 在求值或代码生成前将程序投影到 _RoleName_。build 的默认角色为 **Poly**。
 
 # CAVEATS
 
-Requires an OCaml toolchain (Dune, Menhir, LLVM bindings, and related opam packages) to build **wyzerc** itself; **build** mode additionally needs **clang** and the in-tree **lib/wyzer_runtime.c**. There is no polished package-manager install path yet—typical workflow is clone, **opam** deps, and **dune build** / **dune exec wyzerc**. Older docs sometimes show **dune exec wyzerc -- file.wyz** without a **run**/**build** subcommand; current usage requires **run** or **build** as the first argument. Project status is experimental research, not production-ready.
+构建 **wyzerc** 本身需要 OCaml 工具链（Dune、Menhir、LLVM 绑定及相关 opam 包）；**build** 模式还需要 **clang** 和仓库内的 **lib/wyzer_runtime.c**。目前还没有完善的包管理器安装途径——典型工作流是克隆仓库、安装 **opam** 依赖，然后执行 **dune build** / **dune exec wyzerc**。较旧的文档有时会展示不带 **run**/**build** 子命令的 **dune exec wyzerc -- file.wyz** 用法；当前用法要求将 **run** 或 **build** 作为第一个参数。项目状态为实验性研究，尚未达到生产可用。
 
 # HISTORY
 
-**Wyzer** is a research language exploring one ownership rule for memory, concurrency, and network protocols, combining Perceus reference counting with choreographic programming. The **wyzerc** binary is the public Dune executable name for the compiler in the upstream repository.
+**Wyzer** 是一门研究性语言，探索用同一条所有权规则统一内存、并发和网络协议的处理，它将 Perceus 引用计数与编排式编程相结合。**wyzerc** 是上游仓库中编译器的公开 Dune 可执行文件名。
 
 # SEE ALSO
 

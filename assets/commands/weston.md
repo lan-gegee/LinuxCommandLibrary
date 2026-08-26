@@ -1,38 +1,38 @@
 # TAGLINE
 
-Reference Wayland compositor
+参考实现的 Wayland 合成器
 
 # TLDR
 
-**Start Weston compositor** (requires seat access)
+**启动 Weston 合成器**（需要 seat 访问权限）
 
 ```weston```
 
-**Start with a specific backend**
+**使用指定的后端启动**
 
 ```weston --backend=[drm|wayland|x11]```
 
-**Start with a specific shell**
+**使用指定的 shell 启动**
 
 ```weston --shell=[desktop|fullscreen|kiosk]```
 
-**Start in windowed mode** under X11
+在 X11 下**以窗口模式启动**
 
 ```weston --backend=x11```
 
-**Start nested** inside another Wayland compositor
+在另一个 Wayland 合成器内**嵌套启动**
 
 ```weston --backend=wayland```
 
-**Run with Xwayland** for X11 client compatibility
+**启用 Xwayland** 以兼容 X11 客户端
 
 ```weston --xwayland```
 
-**Specify display socket name**
+**指定 display 套接字名称**
 
 ```weston -S [wayland-1]```
 
-**Start with specific configuration file**
+**使用指定配置文件启动**
 
 ```weston -c [path/to/weston.ini]```
 
@@ -43,73 +43,73 @@ Reference Wayland compositor
 # PARAMETERS
 
 **-B**, **--backend**=_backend_
-> Compositor backend: drm (native), x11, wayland, headless, rdp, vnc, pipewire.
+> 合成器后端：drm（原生）、x11、wayland、headless、rdp、vnc、pipewire。
 
 **--shell**=_shell_
-> Shell plugin: desktop (default), fullscreen, kiosk, ivi.
+> Shell 插件：desktop（默认）、fullscreen、kiosk、ivi。
 
 **-S**, **--socket**=_name_
-> Wayland socket name for clients to connect.
+> 供客户端连接的 Wayland 套接字名称。
 
 **-c**, **--config**=_file_
-> Path to configuration file. Default is $XDG_CONFIG_HOME/weston.ini or ~/.config/weston/weston.ini.
+> 配置文件路径。默认为 $XDG_CONFIG_HOME/weston.ini 或 ~/.config/weston/weston.ini。
 
 **--no-config**
-> Do not read configuration file.
+> 不读取配置文件。
 
 **--modules**=_module_
-> Load additional modules (comma-separated).
+> 加载额外模块（逗号分隔）。
 
 **--renderer**=_name_
-> Select rendering engine (gl, pixman, vulkan, noop).
+> 选择渲染引擎（gl、pixman、vulkan、noop）。
 
 **--xwayland**
-> Enable X11 application support via Xwayland.
+> 通过 Xwayland 启用 X11 应用支持。
 
 **-i**, **--idle-time**=_seconds_
-> Idle timeout before screen saver.
+> 进入屏幕保护前的空闲超时。
 
 **--log**=_file_
-> Log file path.
+> 日志文件路径。
 
 **-l**, **--logger-scopes**=_scopes_
-> Comma-separated logger scopes to enable.
+> 要启用的日志范围（逗号分隔）。
 
 **--debug**
-> Enable debug protocol extension.
+> 启用调试协议扩展。
 
 **--width**=_pixels_
-> Initial output width (windowed backends).
+> 初始输出宽度（窗口类后端）。
 
 **--height**=_pixels_
-> Initial output height (windowed backends).
+> 初始输出高度（窗口类后端）。
 
 **--scale**=_factor_
-> Output scale factor.
+> 输出缩放因子。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Weston** is the reference Wayland compositor, serving as both a display server and window manager. It demonstrates Wayland protocol capabilities and provides a functional desktop environment for testing and embedded systems.
+**Weston** 是参考实现的 Wayland 合成器，同时充当显示服务器和窗口管理器。它演示了 Wayland 协议的各项能力，并为测试和嵌入式系统提供一个功能完备的桌面环境。
 
-Weston supports multiple backends for different deployment scenarios: DRM for native Linux framebuffer access, X11 or Wayland backends for running nested inside other display servers, and headless/RDP/VNC backends for remote or testing purposes.
+Weston 支持多种后端以适应不同部署场景：DRM 用于原生访问 Linux framebuffer；X11 和 Wayland 后端用于嵌套在其他显示服务器中运行；headless/RDP/VNC 后端用于远程或测试用途。
 
-Different shells provide various user interface styles: desktop shell for traditional workstation use, fullscreen shell for single-application kiosks, and IVI shell for in-vehicle infotainment systems. Configuration is done through weston.ini.
+不同的 shell 提供不同的用户界面风格：desktop shell 面向传统工作站，fullscreen shell 用于单应用的 kiosk 模式，IVI shell 则面向车载信息娱乐系统。配置通过 weston.ini 完成。
 
-Weston requires access to input devices and display hardware through a seat manager (seatd or elogind). For native mode, the user must have appropriate permissions via the seat mechanism.
+Weston 需要通过 seat 管理器（seatd 或 elogind）访问输入设备和显示硬件。在原生模式下，用户必须通过 seat 机制拥有适当的权限。
 
 # CAVEATS
 
-Requires Linux kernel mode setting (KMS) for native operation. Running directly requires seat management setup (seatd or elogind). Some features depend on GPU driver support for EGL and DRM. weston-launch is deprecated since version 10.0.0.
+原生运行需要 Linux 内核模式设置（KMS）。直接运行需要 seat 管理配置（seatd 或 elogind）。部分功能依赖 GPU 对 EGL 和 DRM 的驱动支持。自 10.0.0 版本起 weston-launch 已弃用。
 
 # HISTORY
 
-**Weston** was developed alongside the **Wayland** protocol at **freedesktop.org**, with initial development led by **Kristian Høgsberg** starting around **2010**. It served as the proving ground for Wayland concepts and remains the reference implementation. While production desktops typically use compositors like GNOME's Mutter or KDE's KWin, Weston continues development for testing, embedded systems, and automotive applications.
+**Weston** 与 **Wayland** 协议一同在 **freedesktop.org** 开发，最初由 **Kristian Høgsberg** 于 **2010 年**前后主导。它是 Wayland 概念的试验场，至今仍是参考实现。虽然生产环境的桌面通常使用 GNOME 的 Mutter 或 KDE 的 KWin 等合成器，Weston 仍在持续开发，服务于测试、嵌入式系统和车载应用。
 
 # INSTALL
 

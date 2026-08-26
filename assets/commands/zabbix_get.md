@@ -1,26 +1,26 @@
 # TAGLINE
 
-Retrieve data from Zabbix agents
+从 Zabbix 代理检索数据
 
 # TLDR
 
-**Get CPU load from agent**
+从代理获取 CPU 负载
 
 ```zabbix_get -s [192.168.1.10] -k "system.cpu.load[all,avg1]"```
 
-**Get data from specific port**
+从指定端口获取数据
 
 ```zabbix_get -s [host] -p [10050] -k "[agent.version]"```
 
-**Get disk free space**
+获取磁盘剩余空间
 
 ```zabbix_get -s [host] -k "vfs.fs.size[/,free]"```
 
-**Get with timeout**
+带超时地获取数据
 
 ```zabbix_get -s [host] -t [60] -k "[key]"```
 
-**Get using TLS PSK**
+使用 TLS PSK 获取数据
 
 ```zabbix_get -s [host] --tls-connect psk --tls-psk-identity [id] --tls-psk-file [psk.txt] -k "[key]"```
 
@@ -31,66 +31,66 @@ Retrieve data from Zabbix agents
 # PARAMETERS
 
 **-s**, **--host** _host_
-> Host name or IP address of Zabbix agent.
+> Zabbix 代理的主机名或 IP 地址。
 
 **-p**, **--port** _port_
-> Port number (default: 10050).
+> 端口号（默认：10050）。
 
 **-k**, **--key** _key_
-> Item key to retrieve.
+> 要检索的监控项键。
 
 **-I**, **--source-address** _ip_
-> Source IP address for connection.
+> 连接使用的源 IP 地址。
 
 **-t**, **--timeout** _seconds_
-> Timeout (1-600, default: 30).
+> 超时时间（1-600，默认：30）。
 
 **--tls-connect** _mode_
-> Connection type: unencrypted, psk, or cert.
+> 连接类型：unencrypted、psk 或 cert。
 
 **--tls-psk-identity** _id_
-> PSK identity string.
+> PSK 身份字符串。
 
 **--tls-psk-file** _file_
-> File containing pre-shared key.
+> 包含预共享密钥的文件。
 
 **-P**, **--protocol** _value_
-> Communication protocol: auto (default, JSON with plaintext fallback), json, or plaintext (for agents 6.4.x and older).
+> 通信协议：auto（默认，JSON 并在失败时回退到明文）、json 或 plaintext（用于 6.4.x 及更早版本的代理）。
 
 **--tls-ca-file** _file_
-> Full path to file containing top-level CA certificates for peer certificate verification.
+> 包含顶级 CA 证书的文件的完整路径，用于对端证书验证。
 
 **--tls-cert-file** _file_
-> Full path to file containing the client certificate.
+> 包含客户端证书的文件的完整路径。
 
 **--tls-key-file** _file_
-> Full path to file containing the private key.
+> 包含私钥的文件的完整路径。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**zabbix_get** retrieves data from Zabbix agents for testing and troubleshooting. It performs passive checks, querying agents for specific item values using the same protocol as Zabbix server.
+**zabbix_get** 用于从 Zabbix 代理检索数据，以便测试和排障。它执行被动检查，使用与 Zabbix 服务器相同的协议向代理查询特定监控项的值。
 
-The tool helps verify agent configuration and connectivity before adding hosts to monitoring. The requesting host must be listed in the agent's Server configuration parameter.
+该工具有助于在将主机加入监控之前验证代理配置和连通性。发起请求的主机必须列入代理配置中的 Server 参数。
 
-Common use cases include testing new item keys, verifying agent responses, and debugging collection issues without accessing the Zabbix frontend.
+常见用例包括测试新的监控项键、验证代理响应，以及在不访问 Zabbix 前端的情况下调试采集问题。
 
 # EXIT STATUS
 
-Returns 0 on success, 1 on error or if value retrieval failed.
+成功返回 0，出错或取值失败返回 1。
 
 # CAVEATS
 
-Requesting host must be in agent's Server parameter. Only works with Zabbix agents, not other monitoring protocols. TLS requires matching configuration on both ends.
+发起请求的主机必须在代理的 Server 参数中。只适用于 Zabbix 代理，不支持其他监控协议。TLS 要求两端配置匹配。
 
 # HISTORY
 
-**zabbix_get** is part of the Zabbix monitoring system, created by Alexei Vladishev in 2001. Zabbix has grown into one of the most popular enterprise monitoring solutions, with zabbix_get remaining essential for agent troubleshooting.
+**zabbix_get** 是 Zabbix 监控系统的一部分，该系统由 Alexei Vladishev 于 2001 年创建。Zabbix 已成长为最受欢迎的企业监控解决方案之一，而 zabbix_get 始终是代理排障的重要工具。
 
 # INSTALL
 

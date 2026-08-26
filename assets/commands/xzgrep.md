@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search xz compressed files with grep
+用 grep 搜索 xz 压缩文件
 
 # TLDR
 
-**Search for a pattern in an xz-compressed file**
+在 xz 压缩文件中**搜索模式**
 
 ```xzgrep "[pattern]" [file.xz]```
 
-**Search case-insensitively**
+**忽略大小写搜索**
 
 ```xzgrep -i "[pattern]" [file.xz]```
 
-**Count matching lines**
+**统计匹配行数**
 
 ```xzgrep -c "[pattern]" [file.xz]```
 
-**Show line numbers with matches**
+**随匹配内容显示行号**
 
 ```xzgrep -n "[pattern]" [file.xz]```
 
-**List files containing a match**
+**列出包含匹配项的文件**
 
 ```xzgrep -l "[pattern]" [*.xz]```
 
-**Search using extended regular expressions**
+**使用扩展正则表达式搜索**
 
 ```xzgrep -E "[regex_pattern]" [file.xz]```
 
@@ -35,35 +35,35 @@ Search xz compressed files with grep
 # PARAMETERS
 
 **-i**
-> Case insensitive search.
+> 忽略大小写搜索。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-c**
-> Count matching lines.
+> 统计匹配行数。
 
 **-l**
-> List only filenames containing matches.
+> 只列出包含匹配内容的文件名。
 
 **-v**
-> Invert match (show non-matching lines).
+> 反向匹配（显示不匹配的行）。
 
 **-E**
-> Use extended regular expressions (like egrep).
+> 使用扩展正则表达式（类似 egrep）。
 
 **-F**
-> Use fixed strings instead of regular expressions (like fgrep).
+> 使用固定字符串而不是正则表达式（类似 fgrep）。
 
 **-h**
-> Suppress filename prefix on output.
+> 输出中不显示文件名前缀。
 
 **-H**
-> Always print filename prefix.
+> 始终打印文件名前缀。
 
 # DESCRIPTION
 
-**xzgrep** searches xz, lzma, and lzip compressed files for lines matching a pattern. It decompresses the data on the fly and passes it to grep, without creating temporary files on disk. All standard grep options are supported. Also available as **xzegrep** and **xzfgrep** variants.
+**xzgrep** 在 xz、lzma 和 lzip 压缩文件中搜索与模式匹配的行。它会即时解压数据并传给 grep，不会在磁盘上创建临时文件。支持所有标准的 grep 选项。另有 **xzegrep** 和 **xzfgrep** 变体可用。
 
 # INSTALL
 

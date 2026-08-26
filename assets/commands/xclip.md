@@ -1,34 +1,34 @@
 # TAGLINE
 
-X11 clipboard command-line interface
+X11 剪贴板命令行接口
 
 # TLDR
 
-Copy output to **primary selection**
+复制输出到 **primary selection**
 
 ```echo 123 | xclip```
 
-Copy to **system clipboard**
+复制到**系统剪贴板**
 
 ```echo 123 | xclip -selection clipboard```
 
-Copy **file contents** to clipboard
+复制**文件内容**到剪贴板
 
 ```xclip -selection clipboard input.txt```
 
-Copy **image** to clipboard
+复制**图像**到剪贴板
 
 ```xclip -selection clipboard -target image/png image.png```
 
-Copy from **user input**
+从**用户输入**复制
 
 ```xclip -i```
 
-**Paste** from primary selection
+从 primary selection **粘贴**
 
 ```xclip -o```
 
-**Paste** from clipboard
+从剪贴板**粘贴**
 
 ```xclip -o -selection clipboard```
 
@@ -38,53 +38,53 @@ Copy from **user input**
 
 # DESCRIPTION
 
-**xclip** is an X11 clipboard manipulation tool. It can read data from standard input or files and write it to any X selection (primary, secondary, or clipboard), or output selection contents to stdout.
+**xclip** 是一款 X11 剪贴板操作工具。它可以从标准输入或文件读取数据并写入任意 X selection（primary、secondary 或 clipboard），或者将 selection 的内容输出到 stdout。
 
 # PARAMETERS
 
 **-i, -in**
-> Read from stdin or files (default mode)
+> 从 stdin 或文件读取（默认模式）
 
 **-o, -out**
-> Write selection to stdout
+> 将 selection 写到 stdout
 
 **-se, -selection SELECTION**
-> Specify selection: primary, secondary, or clipboard
+> 指定 selection：primary、secondary 或 clipboard
 
 **-t, -target TYPE**
-> Specify MIME target type (e.g., image/png, text/html)
+> 指定 MIME 目标类型（如 image/png、text/html）
 
 **-d, -display DISPLAY**
-> X display to connect to
+> 要连接的 X display
 
 **-l, -loops N**
-> Number of paste requests to serve before exiting
+> 退出前服务的粘贴请求数量
 
 **-f, -filter**
-> Print input to stdout while copying
+> 复制的同时将输入打印到 stdout
 
 **-q, -quiet**
-> Suppress informational output
+> 抑制提示性输出
 
 **-v, -verbose**
-> Print extra information
+> 打印额外信息
 
 **-silent**
-> Fork into background (used with -loops)
+> 转入后台运行（与 -loops 配合使用）
 
 # X11 SELECTIONS
 
-**primary**: Middle-click paste (highlight to copy)
-**secondary**: Rarely used secondary selection
-**clipboard**: Ctrl+C/Ctrl+V clipboard
+**primary**：中键粘贴（高亮即复制）
+**secondary**：很少使用的次级 selection
+**clipboard**：Ctrl+C/Ctrl+V 剪贴板
 
 # CAVEATS
 
-Data is only available while xclip is running (unless using -loops or -silent). For persistent clipboard storage, use a clipboard manager. The default selection is primary, not clipboard.
+数据仅在 xclip 运行期间可用（除非使用 -loops 或 -silent）。要持久保存剪贴板内容，请使用剪贴板管理器。默认 selection 是 primary 而不是 clipboard。
 
 # HISTORY
 
-**xclip** was written by Kim Saunders as a command-line interface to X11 selections. It provides scriptable clipboard access without GUI dependencies.
+**xclip** 由 Kim Saunders 编写，是 X11 selections 的命令行接口。它提供可脚本化的剪贴板访问能力，而不依赖 GUI。
 
 # INSTALL
 

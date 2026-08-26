@@ -1,38 +1,38 @@
 # TAGLINE
 
-Yazi file manager CLI companion
+Yazi 文件管理器的命令行配套工具
 
 # TLDR
 
-**Install a plugin** or flavor package
+**安装插件**或主题包
 
 ```ya pkg add [owner/repo]```
 
-**Update all installed packages**
+**更新所有已安装的软件包**
 
 ```ya pkg upgrade```
 
-**Delete a package**
+**删除软件包**
 
 ```ya pkg delete [owner/repo]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```ya pkg list```
 
-**Install packages from package.toml**
+**从 package.toml 安装软件包**
 
 ```ya pkg install```
 
-**Publish a message** to yazi
+向 yazi**发布消息**
 
 ```ya pub [receiver] [args]```
 
-**Emit a command** to yazi
+向 yazi**发出命令**
 
 ```ya emit [command] [args]```
 
-**Show version**
+**显示版本**
 
 ```ya --version```
 
@@ -43,48 +43,48 @@ Yazi file manager CLI companion
 # SUBCOMMANDS
 
 **pkg**
-> Package manager for plugins and flavors.
+> 插件和主题的软件包管理器。
 
 **pub**
-> Publish a message to a yazi instance.
+> 向运行中的 yazi 实例发布消息。
 
 **emit**
-> Emit a command to a yazi instance.
+> 向运行中的 yazi 实例发出命令。
 
 # PKG SUBCOMMANDS
 
 **pkg add** _package_ [_package_...]
-> Install packages (owner/repo format).
+> 安装软件包（owner/repo 格式）。
 
 **pkg upgrade**
-> Update all installed packages.
+> 更新所有已安装的软件包。
 
 **pkg delete** _package_ [_package_...]
-> Remove installed packages.
+> 移除已安装的软件包。
 
 **pkg list**
-> List installed packages.
+> 列出已安装的软件包。
 
 **pkg install**
-> Install locked versions from package.toml.
+> 从 package.toml 安装锁定的版本。
 
 # DESCRIPTION
 
-**ya** (yazi-cli) is the command-line companion tool for **Yazi**, a fast terminal file manager written in Rust. It provides package management for plugins and themes, and enables communication with running Yazi instances.
+**ya**（yazi-cli）是 **Yazi** 的命令行配套工具，Yazi 是一个用 Rust 编写的高速终端文件管理器。它提供插件和主题的软件包管理功能，并可与运行中的 Yazi 实例通信。
 
-The package manager downloads plugins and flavors from GitHub repositories. Packages are specified in **owner/repo** format (e.g., **yazi-rs/plugins**). Installed packages are tracked in **~/.config/yazi/package.toml**.
+软件包管理器从 GitHub 仓库下载插件和主题。软件包以 **owner/repo** 格式指定（例如 **yazi-rs/plugins**）。已安装的软件包记录在 **~/.config/yazi/package.toml** 中。
 
-The **pub** and **emit** commands allow external scripts to interact with a running Yazi instance, enabling automation and integration with other tools. These verify that the receiver exists and has the necessary capabilities.
+**pub** 和 **emit** 命令允许外部脚本与运行中的 Yazi 实例交互，实现自动化以及与其他工具的集成。它们会验证接收者存在并具备所需的能力。
 
-ya is installed alongside the main **yazi** file manager binary.
+ya 随主 **yazi** 文件管理器二进制文件一同安装。
 
 # CAVEATS
 
-ya requires an active internet connection for package operations. The **ya** version must match the installed **yazi** version. Some packages may require specific Yazi versions.
+ya 的软件包操作需要联网。**ya** 版本必须与已安装的 **yazi** 版本匹配。某些软件包可能要求特定的 Yazi 版本。
 
 # HISTORY
 
-**ya** (yazi-cli) was developed as part of the **Yazi** project by **sxyazi**. Yazi was first released around **2023** as a modern, async terminal file manager written in Rust. The CLI tool was added to provide package management and inter-process communication capabilities for the file manager ecosystem.
+**ya**（yazi-cli）由 **sxyazi** 作为 **Yazi** 项目的一部分开发。Yazi 于 **2023 年**前后首次发布，是用 Rust 编写的现代异步终端文件管理器。CLI 工具的加入为文件管理器生态提供了软件包管理和进程间通信能力。
 
 # INSTALL
 

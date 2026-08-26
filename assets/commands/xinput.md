@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage X11 input devices
+管理 X11 输入设备
 
 # TLDR
 
-**List** all input devices
+**列出**所有输入设备
 
 ```xinput list```
 
-**Disable** an input device
+**禁用**输入设备
 
 ```xinput disable id```
 
-**Enable** an input device
+**启用**输入设备
 
 ```xinput enable id```
 
-**List properties** of a device
+**列出设备属性**
 
 ```xinput list-props id```
 
-**Set property** value for device
+**设置**设备属性值
 
 ```xinput set-prop id property value```
 
-**Detach** device from its master
+使设备与其主设备**分离**
 
 ```xinput float id```
 
-**Reattach** device to a master
+将设备重新**附加**到主设备
 
 ```xinput reattach id master_id```
 
-**Test** input events from device
+**测试**设备的输入事件
 
 ```xinput test id```
 
@@ -42,62 +42,62 @@ Manage X11 input devices
 
 # DESCRIPTION
 
-**xinput** is a utility to list available input devices, query information about a device, and change input device settings in the X Window System. It provides control over keyboard, mouse, touchpad, and other input devices.
+**xinput** 是一个用于列出可用输入设备、查询设备信息和更改 X Window System 中输入设备设置的工具。它可以控制键盘、鼠标、触摸板及其他输入设备。
 
 # PARAMETERS
 
 **list**
-> List all input devices with their IDs
+> 列出所有输入设备及其 ID
 
 **enable ID**
-> Enable the input device
+> 启用输入设备
 
 **disable ID**
-> Disable the input device
+> 禁用输入设备
 
 **list-props ID**
-> List configurable properties of a device
+> 列出设备的可配置属性
 
 **set-prop ID PROPERTY VALUE**
-> Set property value (supports 8, 16, or 32-bit formats)
+> 设置属性值（支持 8、16 或 32 位格式）
 
 **watch-props ID**
-> Monitor property changes in real-time
+> 实时监视属性变化
 
 **query-state ID**
-> Query the current state of a device
+> 查询设备的当前状态
 
 **set-mode ID MODE**
-> Set device mode to ABSOLUTE or RELATIVE
+> 将设备模式设置为 ABSOLUTE（绝对）或 RELATIVE（相对）
 
 **set-button-map ID MAP**
-> Remap physical buttons to logical buttons
+> 将物理按钮重映射为逻辑按钮
 
 **map-to-output ID OUTPUT**
-> Restrict device to specific display output
+> 将设备限制到特定的显示输出
 
 **float ID**
-> Detach a slave device from its master
+> 使从设备与其主设备分离
 
 **reattach ID MASTER_ID**
-> Reattach a slave device to a different master
+> 将从设备重新附加到另一个主设备
 
 **create-master NAME**
-> Create a new master device pair
+> 创建新的主设备对
 
 **remove-master ID**
-> Remove a master device and its paired device
+> 移除主设备及其配对设备
 
 **test ID**
-> Register for extended events and display data
+> 注册扩展事件并显示数据
 
 # CAVEATS
 
-On Xwayland, xinput only affects X11 clients connected to that Xwayland instance, not Wayland-native applications. Configuration changes may not persist across sessions; use system configuration files for permanent changes.
+在 Xwayland 上，xinput 只影响连接到该 Xwayland 实例的 X11 客户端，不影响 Wayland 原生应用。配置更改可能不会跨会话保留；永久性更改请使用系统配置文件。
 
 # HISTORY
 
-**xinput** is part of the X.Org input utilities, providing command-line management of XInput extension devices.
+**xinput** 是 X.Org 输入工具的一部分，提供对 XInput 扩展设备的命令行管理。
 
 # INSTALL
 

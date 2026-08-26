@@ -1,34 +1,34 @@
 # TAGLINE
 
-Wayland keyboard input simulator
+Wayland 键盘输入模拟器
 
 # TLDR
 
-**Type** text
+**输入**文本
 
 ```wtype "[Hello World]"```
 
-Type specific **key**
+输入特定**按键**
 
 ```wtype -k [Left]```
 
-**Press and release** a named key
+**按下并释放**指定名称的按键
 
 ```wtype -P [Left] -p [Left]```
 
-**Press** modifier
+**按下**修饰键
 
 ```wtype -M [shift|ctrl]```
 
-**Release** modifier
+**释放**修饰键
 
 ```wtype -m [ctrl]```
 
-**Delay** between keystrokes
+按键之间加入**延迟**
 
 ```wtype -d [500] "[text]"```
 
-Read from **stdin**
+从**标准输入**读取
 
 ```echo "[text]" | wtype -```
 
@@ -39,38 +39,38 @@ Read from **stdin**
 # PARAMETERS
 
 **-k** _KEY_
-> Type specific key by name
+> 按名称输入特定按键
 
 **-M** _MOD_
-> Press modifier key
+> 按下修饰键
 
 **-m** _MOD_
-> Release modifier key
+> 释放修饰键
 
 **-P** _KEY_
-> Press a named key
+> 按下指定名称的按键
 
 **-p** _KEY_
-> Release a named key
+> 释放指定名称的按键
 
 **-d** _MS_
-> Delay between keystrokes in milliseconds
+> 按键之间的延迟（毫秒）
 
 **-s** _MS_
-> Sleep before next option (for complex sequences)
+> 在处理下一个选项前休眠（用于复杂序列）
 
 **-**
-> Read text from stdin
+> 从标准输入读取文本
 
 # DESCRIPTION
 
-**wtype** simulates keyboard input on Wayland compositors, similar to xdotool type for X11. It can type text, press specific keys, and manage modifier states.
+**wtype** 在 Wayland 合成器上模拟键盘输入，类似于 X11 上的 xdotool type。它可以输入文本、按下特定按键并管理修饰键状态。
 
-The tool is useful for automation, testing, and scripting on Wayland systems.
+该工具适用于 Wayland 系统上的自动化、测试和脚本编写。
 
 # CAVEATS
 
-Wayland only. Requires appropriate permissions for input simulation. Some applications may not receive simulated input due to security restrictions.
+仅支持 Wayland。输入模拟需要相应的权限。由于安全限制，某些应用程序可能无法接收模拟输入。
 
 # INSTALL
 

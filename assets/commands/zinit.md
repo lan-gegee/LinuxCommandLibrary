@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast Zsh plugin manager with Turbo mode
+支持 Turbo 模式的快速 Zsh 插件管理器
 
 # TLDR
 
-**Load a plugin** from GitHub
+**从 GitHub 加载插件**
 
 ```zinit light [username/repository]```
 
-**Load a plugin with reporting** (slower but provides info)
+**以报告模式加载插件**（较慢但提供信息）
 
 ```zinit load [username/repository]```
 
-**Install and load Oh-My-Zsh plugin**
+**安装并加载 Oh-My-Zsh 插件**
 
 ```zinit snippet OMZ::plugins/[plugin]/[plugin].plugin.zsh```
 
-**Load with Turbo mode** (async, delayed loading)
+**以 Turbo 模式加载**（异步、延迟加载）
 
 ```zinit ice wait lucid; zinit light [username/repository]```
 
-**Load a completion** from a repository
+**从仓库加载补全**
 
 ```zinit ice as"completion"; zinit snippet [url]```
 
-**Update all plugins**
+**更新所有插件**
 
 ```zinit update --all```
 
-**Update a specific plugin**
+**更新特定插件**
 
 ```zinit update [username/repository]```
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```zinit list```
 
@@ -43,90 +43,90 @@ Fast Zsh plugin manager with Turbo mode
 # PARAMETERS
 
 **light** _plugin_
-> Load a plugin in light mode without tracking/reporting (fast).
+> 以 light 模式加载插件，不进行跟踪/报告（快速）。
 
 **load** _plugin_
-> Load a plugin with full tracking and reporting.
+> 以完整跟踪和报告方式加载插件。
 
 **snippet** _url_
-> Load a single file or snippet from a URL or Oh-My-Zsh/Prezto.
+> 从 URL 或 Oh-My-Zsh/Prezto 加载单个文件或片段。
 
 **ice** _modifiers..._
-> Set modifiers for the next zinit command (compile, wait, pick, etc.).
+> 为下一条 zinit 命令设置修饰符（compile、wait、pick 等）。
 
 **update** [_plugin_|_--all_]
-> Update specified plugin or all plugins.
+> 更新指定插件或所有插件。
 
 **delete** _plugin_
-> Remove a plugin.
+> 移除插件。
 
 **list**
-> List all loaded plugins.
+> 列出所有已加载的插件。
 
 **loaded**
-> Show currently loaded plugins.
+> 显示当前已加载的插件。
 
 **self-update**
-> Update zinit itself.
+> 更新 zinit 本身。
 
 **compile** _plugin_
-> Compile plugin scripts for faster loading.
+> 编译插件脚本以加快加载速度。
 
 **uncompile** _plugin_
-> Remove compiled files.
+> 移除编译后的文件。
 
 **report** _plugin_
-> Show report for a loaded plugin.
+> 显示某个已加载插件的报告。
 
 **times**
-> Show loading times for plugins.
+> 显示各插件的加载耗时。
 
 # ICE MODIFIERS
 
 **wait**
-> Turbo mode: delay loading (can specify time like wait"1").
+> Turbo 模式：延迟加载（可指定时间，如 wait"1"）。
 
 **lucid**
-> Skip "Loaded plugin" message.
+> 跳过 "Loaded plugin" 消息。
 
 **as"program"**
-> Add plugin directory to PATH.
+> 将插件目录加入 PATH。
 
 **as"completion"**
-> Load as completion script.
+> 作为补全脚本加载。
 
 **pick"file"**
-> Select specific file to source.
+> 选择要 source 的特定文件。
 
 **from"gitlab"**
-> Clone from GitLab instead of GitHub.
+> 从 GitLab 而非 GitHub 克隆。
 
 **depth"1"**
-> Shallow clone with depth 1.
+> 深度为 1 的浅克隆。
 
 **atload"command"**
-> Run command after loading.
+> 加载后运行命令。
 
 **atinit"command"**
-> Run command before loading.
+> 加载前运行命令。
 
 # DESCRIPTION
 
-**Zinit** (formerly Zplugin) is a flexible and fast Zsh plugin manager that supports Oh-My-Zsh and Prezto plugins, Turbo mode for deferred loading, and multiple installation methods. It compiles plugins to bytecode for faster shell startup times.
+**Zinit**（原名 Zplugin）是一个灵活且快速的 Zsh 插件管理器，支持 Oh-My-Zsh 和 Prezto 插件、用于延迟加载的 Turbo 模式以及多种安装方式。它将插件编译为字节码以加快 Shell 启动速度。
 
-The key feature is Turbo mode, which loads plugins asynchronously after Zsh starts, dramatically reducing shell initialization time. Ice modifiers provide fine-grained control over how plugins are downloaded, compiled, and sourced.
+其关键特性是 Turbo 模式，它在 Zsh 启动后异步加载插件，显著缩短 Shell 初始化时间。Ice 修饰符提供了对插件下载、编译和加载方式的细粒度控制。
 
-Zinit supports loading from GitHub, GitLab, Bitbucket, or arbitrary URLs. It can handle plugins, completions, scripts, and binary programs. The **light** command provides fast loading without tracking, while **load** enables full reporting capabilities.
+Zinit 支持从 GitHub、GitLab、Bitbucket 或任意 URL 加载。它可以处理插件、补全、脚本和二进制程序。**light** 命令提供无跟踪的快速加载，而 **load** 则启用完整的报告功能。
 
-Configuration is typically placed in **.zshrc** after sourcing zinit. Plugins are stored in **~/.zinit/plugins/** by default, with compiled versions cached for performance.
+配置通常放在 **.zshrc** 中 source zinit 之后的位置。插件默认存储在 **~/.zinit/plugins/**，编译版本会被缓存以提升性能。
 
 # CAVEATS
 
-Requires Zsh 5.1 or later. Turbo mode may cause race conditions with plugins that depend on each other. Some Oh-My-Zsh plugins require specific OMZ infrastructure to work correctly. Heavy use of ice modifiers can make configuration complex and hard to debug.
+需要 Zsh 5.1 或更高版本。Turbo 模式可能在相互依赖的插件之间造成竞争条件。某些 Oh-My-Zsh 插件需要特定的 OMZ 基础设施才能正常工作。大量使用 ice 修饰符会使配置复杂且难以调试。
 
 # HISTORY
 
-Zinit was created by Sebastian Gniazdowski, originally released as **Zplugin** in **2016**. It was renamed to Zinit in 2019 to avoid confusion with other tools. The project pioneered Turbo mode for asynchronous plugin loading in Zsh. The original repository was archived in 2021, and community forks continue maintenance under **zdharma-continuum/zinit**.
+Zinit 由 Sebastian Gniazdowski 创建，最初于 **2016 年**以 **Zplugin** 的名称发布。2019 年更名为 Zinit 以避免与其他工具混淆。该项目开创了 Zsh 中异步插件加载的 Turbo 模式。原始仓库于 2021 年归档，社区分支在 **zdharma-continuum/zinit** 下继续维护。
 
 # INSTALL
 

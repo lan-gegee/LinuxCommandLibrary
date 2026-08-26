@@ -1,38 +1,38 @@
 # TAGLINE
 
-Convert HTML pages to PDF
+将 HTML 页面转换为 PDF
 
 # TLDR
 
-**Convert HTML to PDF**
+**将 HTML 转换为 PDF**
 
 ```wkhtmltopdf [input.html] [output.pdf]```
 
-**Convert URL to PDF**
+**将 URL 转换为 PDF**
 
 ```wkhtmltopdf [https://example.com] [output.pdf]```
 
-**Set page size**
+**设置页面大小**
 
 ```wkhtmltopdf --page-size [A4] [input.html] [output.pdf]```
 
-**Set orientation**
+**设置方向**
 
 ```wkhtmltopdf --orientation [Landscape] [input.html] [output.pdf]```
 
-**Add margins**
+**添加页边距**
 
 ```wkhtmltopdf --margin-top [20mm] --margin-bottom [20mm] [input.html] [output.pdf]```
 
-**Disable JavaScript**
+**禁用 JavaScript**
 
 ```wkhtmltopdf --disable-javascript [input.html] [output.pdf]```
 
-**Add header and footer**
+**添加页眉和页脚**
 
 ```wkhtmltopdf --header-center "[title]" --footer-center "[page]/[topage]" [input.html] [output.pdf]```
 
-**Multiple pages**
+**多个页面**
 
 ```wkhtmltopdf [page1.html] [page2.html] [output.pdf]```
 
@@ -43,95 +43,95 @@ Convert HTML pages to PDF
 # PARAMETERS
 
 **--page-size** _SIZE_
-> Paper size: A4, Letter, Legal, etc.
+> 纸张大小：A4、Letter、Legal 等。
 
 **--orientation** _ORIENT_
-> Landscape or Portrait.
+> 横向或纵向。
 
 **--margin-top** _SIZE_
-> Top margin (e.g., 10mm, 1in).
+> 上边距（如 10mm、1in）。
 
 **--margin-bottom** _SIZE_
-> Bottom margin.
+> 下边距。
 
 **--margin-left** _SIZE_
-> Left margin.
+> 左边距。
 
 **--margin-right** _SIZE_
-> Right margin.
+> 右边距。
 
 **--dpi** _DPI_
-> Output resolution.
+> 输出分辨率。
 
 **--zoom** _FACTOR_
-> Zoom factor.
+> 缩放系数。
 
 **--grayscale**
-> Generate grayscale PDF.
+> 生成灰度 PDF。
 
 **--disable-javascript**
-> Don't run JavaScript.
+> 不运行 JavaScript。
 
 **--javascript-delay** _MS_
-> Wait before printing.
+> 打印前的等待时间。
 
 **--header-html** _FILE_
-> HTML header file.
+> HTML 页眉文件。
 
 **--header-center** _TEXT_
-> Centered header text.
+> 居中的页眉文本。
 
 **--footer-html** _FILE_
-> HTML footer file.
+> HTML 页脚文件。
 
 **--footer-center** _TEXT_
-> Centered footer text.
+> 居中的页脚文本。
 
 **--toc**
-> Include table of contents.
+> 包含目录。
 
 **--cover** _FILE_
-> Cover page HTML.
+> 封面页 HTML。
 
 **--cookie** _NAME_ _VALUE_
-> Set cookie.
+> 设置 cookie。
 
 **--username** _USER_
-> HTTP authentication user.
+> HTTP 身份验证用户名。
 
 **--password** _PASS_
-> HTTP authentication password.
+> HTTP 身份验证密码。
 
 **--no-images**
-> Don't load images.
+> 不加载图片。
 
 **--lowquality**
-> Generate lower quality PDF/PS to reduce file size.
+> 生成较低质量的 PDF/PS 以减小文件体积。
 
 **--encoding** _ENCODING_
-> Set the default text encoding.
+> 设置默认文本编码。
 
 # DESCRIPTION
 
-**wkhtmltopdf** converts HTML to PDF using the WebKit rendering engine. It renders pages as a browser would, then outputs to PDF.
+**wkhtmltopdf** 使用 WebKit 渲染引擎将 HTML 转换为 PDF。它像浏览器一样渲染页面，然后输出为 PDF。
 
-Multiple input pages combine into a single PDF. Table of contents can be auto-generated from headings. Cover pages and headers/footers frame the content.
+多个输入页面会合并为一个 PDF。目录可以根据标题自动生成。封面页和页眉/页脚用于框住正文内容。
 
-Headers and footers support variables: [page], [topage], [title], [section], [subsection], [date], [time], [webpage]. These enable automatic page numbers and running headers.
+页眉和页脚支持变量：[page]、[topage]、[title]、[section]、[subsection]、[date]、[time]、[webpage]。这些变量可实现自动页码和活动页眉。
 
-Page breaks can be controlled via CSS print media rules. The tool respects page-break-before, page-break-after, and related properties.
+可以通过 CSS 打印媒体规则控制分页。该工具支持 page-break-before、page-break-after 及相关属性。
 
-JavaScript delay handles dynamic content that loads asynchronously. For heavily JS-dependent pages, increasing delay ensures complete rendering.
+JavaScript 延迟用于处理异步加载的动态内容。对于重度依赖 JavaScript 的页面，增加延迟可确保渲染完整。
 
-Authentication options handle basic auth, cookies, and custom headers. This enables converting protected pages.
+身份验证选项支持基本认证、cookie 和自定义请求头，从而可以转换受保护的页面。
 
 # CAVEATS
 
-Based on old QtWebKit - some modern CSS/JS may not work. Project is no longer maintained. Security concerns with untrusted content. Large pages use significant memory. Some fonts may not embed correctly. Consider WeasyPrint or Chrome headless as alternatives.
+基于旧版 QtWebKit —— 部分现代 CSS/JS 可能无法正常工作。项目已不再维护。处理不可信内容存在安全隐患。大页面会占用大量内存。某些字体可能无法正确嵌入。可以考虑 WeasyPrint 或 Chrome headless 作为替代方案。
 
 # HISTORY
 
-**wkhtmltopdf** was created by **Jakob Truelsen** around **2008**. It provided command-line HTML to PDF conversion before headless browsers existed. Despite being based on an older WebKit version, it became widely used. Development slowed as headless Chrome/Firefox emerged as alternatives.
+**wkhtmltopdf** 由 **Jakob Truelsen** 大约于 **2008 年**创建。它在无头浏览器出现之前就提供了命令行的 HTML 转 PDF 功能。尽管基于较旧的 WebKit 版本，它仍被广泛使用。随着无头 Chrome/Firefox 成为替代方案，其开发逐渐放缓。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-VNC-accessible virtual X server
+可通过 VNC 访问的虚拟 X server
 
 # TLDR
 
-**Start VNC server on display :1**
+**在 display :1 上启动 VNC 服务器**
 
 ```Xvnc :1```
 
-**Start with specific geometry**
+**以指定几何尺寸启动**
 
 ```Xvnc :1 -geometry [1280x1024]```
 
-**Start with color depth**
+**指定颜色深度启动**
 
 ```Xvnc :1 -depth [24]```
 
-**Start with password file**
+**使用密码文件启动**
 
 ```Xvnc :1 -PasswordFile [~/.vnc/passwd]```
 
-**Start on specific port**
+**在特定端口上启动**
 
 ```Xvnc :1 -rfbport [5901]```
 
-**Use vncserver script (recommended)**
+**使用 vncserver 脚本（推荐）**
 
 ```vncserver :1```
 
@@ -35,44 +35,44 @@ VNC-accessible virtual X server
 # PARAMETERS
 
 **-geometry** _WxH_
-> Desktop size (default: 1024x768).
+> 桌面尺寸（默认：1024x768）。
 
 **-depth** _n_
-> Color depth: 16, 24, or 32 (default: 24).
+> 颜色深度：16、24 或 32（默认：24）。
 
 **-rfbport** _port_
-> VNC listener port (default: 5900+display).
+> VNC 监听端口（默认：5900+display 编号）。
 
 **-PasswordFile** _file_
-> Password file for authentication.
+> 用于身份验证的密码文件。
 
 **-SecurityTypes** _types_
-> Comma-separated list of security types.
+> 逗号分隔的安全类型列表。
 
 **-localhost**
-> Only accept connections from localhost.
+> 只接受来自 localhost 的连接。
 
 **-AlwaysShared**
-> Allow multiple simultaneous connections.
+> 允许多个同时连接。
 
 **-NeverShared**
-> Disconnect existing clients on new connection.
+> 新连接建立时断开现有客户端。
 
 # DESCRIPTION
 
-**Xvnc** is both an X server and a VNC server. It creates a virtual X display with no physical screen, accessible only via VNC viewers. Applications run on Xvnc as on a normal X display.
+**Xvnc** 既是 X server 也是 VNC 服务器。它创建一个没有物理屏幕的虚拟 X display，只能通过 VNC 客户端访问。应用程序在 Xvnc 上的运行方式与在普通 X display 上相同。
 
-The server listens on TCP port 5900+display for VNC connections. Unlike x11vnc which shares an existing display, Xvnc creates new independent virtual displays.
+服务器在 TCP 端口 5900+display 编号上监听 VNC 连接。与共享现有 display 的 x11vnc 不同，Xvnc 会创建全新的独立虚拟 display。
 
-The vncserver script is the recommended way to start Xvnc, handling environment setup and running initial applications. Multiple Xvnc instances can run on different display numbers.
+vncserver 脚本是启动 Xvnc 的推荐方式，它会处理环境设置并运行初始应用程序。多个 Xvnc 实例可以在不同的 display 编号上运行。
 
 # CAVEATS
 
-No hardware acceleration for 3D. Each session uses separate display number. Password file must be created with vncpasswd. Firewall rules needed for remote access.
+3D 无硬件加速。每个会话使用单独的 display 编号。密码文件必须用 vncpasswd 创建。远程访问需要配置防火墙规则。
 
 # HISTORY
 
-**Xvnc** was developed as part of VNC (Virtual Network Computing) at AT&T Laboratories Cambridge. Various implementations exist including TightVNC, TigerVNC, and RealVNC, each with additional features and optimizations.
+**Xvnc** 由 AT&T 剑桥实验室作为 VNC（Virtual Network Computing）的一部分开发。现在有多种实现，包括 TightVNC、TigerVNC 和 RealVNC，各自具有额外的特性和优化。
 
 # SEE ALSO
 

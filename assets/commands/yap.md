@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bidirectional text pager
+双向文本分页器
 
 # TLDR
 
-**View file contents**
+**查看文件内容**
 
 ```yap [file]```
 
-**View with specific page size**
+**以指定页面大小查看**
 
 ```yap -[20] [file]```
 
-**View without screen clearing**
+**查看时不清屏**
 
 ```yap -c [file]```
 
-**Suppress underline handling**
+**禁用下划线处理**
 
 ```yap -u [file]```
 
-**Display line numbers**
+**显示行号**
 
 ```yap -n [file]```
 
-**Start at specific line**
+**从指定行开始查看**
 
 ```yap +[100] [file]```
 
@@ -35,72 +35,72 @@ Bidirectional text pager
 # PARAMETERS
 
 **-**_num_
-> Set page size to num lines.
+> 将页面大小设置为 num 行。
 
 **-c**
-> Scroll instead of clearing screen for each page.
+> 每页滚动显示而不是清除屏幕。
 
 **-u**
-> Suppress underline processing for nroff output.
+> 对 nroff 输出禁用下划线处理。
 
 **-n**
-> Display line numbers.
+> 显示行号。
 
 **-q**
-> Only exit on explicit quit command.
+> 仅在显式退出命令时才退出。
 
 **+**_command_
-> Execute command on startup.
+> 启动时执行命令。
 
 # COMMANDS
 
-**SPACE**: Display next page.
+**SPACE**：显示下一页。
 
-**RETURN**: Display next line.
+**RETURN**：显示下一行。
 
-**b**: Page backwards.
+**b**：向后翻页。
 
-**s**: Skip lines forward.
+**s**：向前跳过若干行。
 
-**f**: Skip pages forward.
+**f**：向前跳过若干页。
 
-**g**: Go to beginning of file.
+**g**：跳到文件开头。
 
-**G**: Go to end of file.
+**G**：跳到文件末尾。
 
-**/pattern**: Search forward for pattern.
+**/pattern**：向后搜索 pattern（正向）。
 
-**?pattern**: Search backward for pattern.
+**?pattern**：向前搜索 pattern（反向）。
 
-**n**: Repeat last search.
+**n**：重复上一次搜索。
 
-**m**: Set mark on current page.
+**m**：在当前页设置标记。
 
-**'**: Return to mark.
+**'**：返回标记处。
 
-**h**: Display help.
+**h**：显示帮助。
 
-**q** or **Q**: Quit.
+**q** 或 **Q**：退出。
 
 # DESCRIPTION
 
-**yap** (Yet Another Pager) is a text file viewer that displays content one screenful at a time. Its distinguishing feature is bidirectional paging, allowing navigation both forwards and backwards even when reading from standard input.
+**yap**（Yet Another Pager）是一个文本文件查看器，每次显示一屏内容。它的特色功能是双向翻页，即使从标准输入读取时也能前后导航。
 
-The pager handles nroff-formatted text, processing underline and bold sequences appropriately for the terminal. It supports searching, marking positions, and various navigation commands similar to other Unix pagers.
+该分页器能处理 nroff 格式的文本，针对终端适当地处理下划线和粗体序列。它支持搜索、位置标记以及与其他 Unix 分页器类似的各种导航命令。
 
 # ENVIRONMENT
 
-**YAP**: Pre-set default flags.
+**YAP**：预设的默认选项标志。
 
-**TERM**: Terminal type for screen handling.
+**TERM**：用于屏幕处理的终端类型。
 
 # CAVEATS
 
-Limited availability on modern systems. Most users prefer less or more which offer similar functionality with additional features.
+在现代系统上较少见。大多数用户更喜欢 less 或 more，它们提供类似的功能以及更多特性。
 
 # HISTORY
 
-**yap** was developed for MINIX, Andrew S. Tanenbaum's Unix-like educational operating system. It provided essential paging functionality with the notable addition of backward scrolling, which was not available in the original more command. The less pager later became the standard solution offering similar bidirectional capabilities.
+**yap** 是为 MINIX（Andrew S. Tanenbaum 的类 Unix 教学操作系统）开发的。它提供了基本的分页功能，并显著地增加了向后滚动能力，这是原始 more 命令所不具备的。后来 less 分页器凭借类似的双向能力成为了标准方案。
 
 # INSTALL
 

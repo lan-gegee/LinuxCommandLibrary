@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display XML namespace information
+显示 XML 命名空间信息
 
 # TLDR
 
-**Show namespace information**
+**显示命名空间信息**
 
 ```xml xmln [file.xml]```
 
@@ -15,15 +15,15 @@ Display XML namespace information
 # PARAMETERS
 
 _file_
-> Input XML file.
+> 输入的 XML 文件。
 
 # DESCRIPTION
 
-**xml xmln** displays namespace information in XML documents. Part of the xmlstarlet toolkit. Shows declared namespaces with their prefixes and URIs, which is useful for crafting XPath expressions that target namespaced elements.
+**xml xmln** 显示 XML 文档中的命名空间信息。属于 xmlstarlet 工具集。它会列出已声明的命名空间及其前缀和 URI，有助于构造针对带命名空间元素的 XPath 表达式。
 
 # CAVEATS
 
-Operates only on well-formed XML. Default namespaces (without a prefix) are reported without a prefix; use an alias when building XPath queries.
+只能处理格式良好的 XML。默认命名空间（无前缀）会以无前缀形式报告；构造 XPath 查询时请使用别名。
 
 # INSTALL
 
@@ -44,4 +44,3 @@ Operates only on well-formed XML. Default namespaces (without a prefix) are repo
 # SEE ALSO
 
 [xml-elements](/man/xml-elements)(1), [xml-select](/man/xml-select)(1)
-

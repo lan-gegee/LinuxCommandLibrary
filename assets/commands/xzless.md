@@ -1,14 +1,14 @@
 # TAGLINE
 
-View xz compressed files with paging
+分页查看 xz 压缩文件
 
 # TLDR
 
-**View xz compressed file**
+**查看 xz 压缩文件**
 
 ```xzless [file.xz]```
 
-**View multiple files**
+**查看多个文件**
 
 ```xzless [file1.xz] [file2.xz]```
 
@@ -18,7 +18,7 @@ View xz compressed files with paging
 
 # DESCRIPTION
 
-**xzless** views xz compressed files with paging. Decompresses and pipes to less. Supports all less navigation commands. Use for browsing large compressed log files.
+**xzless** 分页查看 xz 压缩文件。它会解压并通过管道传给 less。支持所有 less 导航命令。适合浏览大型压缩日志文件。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ View xz compressed files with paging
 # SEE ALSO
 
 [xz](/man/xz)(1), [less](/man/less)(1), [xzmore](/man/xzmore)(1)
-

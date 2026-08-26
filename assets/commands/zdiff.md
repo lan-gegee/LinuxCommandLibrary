@@ -1,26 +1,26 @@
 # TAGLINE
 
-Compare gzip-compressed files line-by-line
+逐行比较 gzip 压缩文件
 
 # TLDR
 
-**Compare two compressed files**
+**比较两个压缩文件**
 
 ```zdiff [file1.gz] [file2.gz]```
 
-**Compare in unified format**
+**以统一格式比较**
 
 ```zdiff -u [file1.gz] [file2.gz]```
 
-**Compare in context format**
+**以上下文格式比较**
 
 ```zdiff -c [file1.gz] [file2.gz]```
 
-**Compare side by side**
+**并排比较**
 
 ```zdiff -y [file1.gz] [file2.gz]```
 
-**Compare a compressed file** against its uncompressed version
+将**压缩文件与其未压缩版本进行比较**
 
 ```zdiff [file.gz]```
 
@@ -30,39 +30,39 @@ Compare gzip-compressed files line-by-line
 
 # PARAMETERS
 
-All options are passed directly to **diff**(1). Common options include:
+所有选项都直接传给 **diff**(1)。常用选项包括：
 
 **-u**
-> Unified output format.
+> 统一输出格式。
 
 **-c**
-> Context output format.
+> 上下文输出格式。
 
 **-y**
-> Side-by-side output.
+> 并排输出。
 
 **-q**
-> Report only whether files differ.
+> 只报告文件是否不同。
 
 **-i**
-> Ignore case differences.
+> 忽略大小写差异。
 
 **-w**
-> Ignore all white space.
+> 忽略所有空白字符。
 
 # DESCRIPTION
 
-**zdiff** compares gzip-compressed files line-by-line without requiring manual decompression. It works like **diff** but transparently handles .gz files, decompressing them on the fly before comparing.
+**zdiff** 无需手动解压即可逐行比较 gzip 压缩文件。它的工作方式类似 **diff**，但透明地处理 .gz 文件，在比较前即时解压。
 
-If only one file is specified, it is compared against the uncompressed contents of the corresponding .gz file. If two files are specified, their contents (uncompressed if necessary) are fed to diff.
+若只指定一个文件，则将其与对应的 .gz 文件的解压内容进行比较。若指定两个文件，则它们的内容（必要时先解压）会送入 diff。
 
-All standard diff output formats are supported. Any options accepted by diff can be passed through to zdiff. The exit status from diff is preserved.
+支持所有标准的 diff 输出格式。diff 接受的任何选项都可以传给 zdiff。diff 的退出状态会被保留。
 
-The command is part of the gzip package. For byte-by-byte comparison, use **zcmp** instead.
+该命令是 gzip 软件包的一部分。要逐字节比较，请改用 **zcmp**。
 
 # CAVEATS
 
-Only handles gzip-compressed files. Both files are fully decompressed in memory before comparison. For xz/lzma files, use xzdiff; for bzip2 files, use bzdiff.
+只处理 gzip 压缩文件。比较前两个文件会完整解压到内存中。xz/lzma 文件请使用 xzdiff；bzip2 文件请使用 bzdiff。
 
 # INSTALL
 

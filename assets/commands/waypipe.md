@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remote Wayland application forwarding over SSH
+通过 SSH 转发远程 Wayland 应用
 
 # TLDR
 
-Run **remote** program locally
+在本地运行**远程**程序
 
 ```waypipe ssh [user]@[server] [program]```
 
-Open SSH **tunnel**
+打开 SSH **隧道**
 
 ```waypipe ssh [user]@[server]```
 
-Skip **Vulkan** test
+跳过 **Vulkan** 测试
 
 ```waypipe --test-skip-vulkan ssh [user]@[server] [program]```
 
-Display **help**
+显示**帮助**
 
 ```waypipe -h```
 
@@ -27,20 +27,20 @@ Display **help**
 # PARAMETERS
 
 **--test-skip-vulkan**
-> Skip testing for Vulkan support
+> 跳过 Vulkan 支持测试
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**waypipe** runs graphical Wayland applications remotely and displays them locally, similar to X11 forwarding but for Wayland compositors. It handles the Wayland protocol over SSH.
+**waypipe** 在远程运行图形化 Wayland 应用并在本地显示，类似于 X11 forwarding，但面向 Wayland 合成器。它通过 SSH 处理 Wayland 协议。
 
-The tool creates a transparent tunnel that makes remote applications appear as native local windows.
+该工具创建一条透明隧道，使远程应用看起来就像本地原生窗口一样。
 
 # CAVEATS
 
-Requires Wayland on both local and remote systems. Performance depends on network latency. Some applications may not work correctly with remote rendering.
+本地和远程系统都需要支持 Wayland。性能取决于网络延迟。某些应用在远程渲染下可能无法正常工作。
 
 # INSTALL
 

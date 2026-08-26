@@ -1,34 +1,34 @@
 # TAGLINE
 
-XFCE screenshot capture utility
+XFCE 截图工具
 
 # TLDR
 
-Launch **GUI**
+启动**图形界面**
 
 ```xfce4-screenshooter```
 
-Capture **fullscreen**
+捕获**全屏**
 
 ```xfce4-screenshooter -f```
 
-Capture and **save**
+捕获并**保存**
 
 ```xfce4-screenshooter -f -s [path/to/directory]```
 
-Capture after **delay**
+**延迟**后捕获
 
 ```xfce4-screenshooter -d [seconds]```
 
-Capture **region**
+捕获**选区**
 
 ```xfce4-screenshooter -r```
 
-Capture **window** to clipboard
+捕获**窗口**到剪贴板
 
 ```xfce4-screenshooter -w -c```
 
-Capture and **open** in program
+捕获并使用程序**打开**
 
 ```xfce4-screenshooter -w -o [gimp]```
 
@@ -39,50 +39,50 @@ Capture and **open** in program
 # PARAMETERS
 
 **-f, --fullscreen**
-> Capture entire screen
+> 捕获整个屏幕
 
 **-w, --window**
-> Capture active window
+> 捕获活动窗口
 
 **-r, --region**
-> Select region with mouse
+> 用鼠标选择区域
 
 **-d, --delay** _SECONDS_
-> Wait before capturing
+> 捕获前的等待时间
 
 **-m, --mouse**
-> Include mouse cursor in the screenshot
+> 在截图中包含鼠标光标
 
 **--no-border**
-> Remove window border from the screenshot
+> 从截图中去除窗口边框
 
 **-s, --save** _PATH_
-> Save to file path or directory
+> 保存到文件路径或目录
 
 **-c, --clipboard**
-> Copy to clipboard
+> 复制到剪贴板
 
 **-o, --open** _APPLICATION_
-> Open with application
+> 使用应用程序打开
 
 **-S, --show-in-folder**
-> Show the saved file in the file manager
+> 在文件管理器中显示已保存的文件
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 **--supported-formats**
-> List supported image formats (depends on installed pixbuf loaders)
+> 列出支持的图像格式（取决于已安装的 pixbuf 加载器）
 
 # DESCRIPTION
 
-**xfce4-screenshooter** is the screenshot utility for the XFCE desktop environment. It can capture the entire screen, a window, or a selected region.
+**xfce4-screenshooter** 是 XFCE 桌面环境的截图工具。它可以捕获整个屏幕、某个窗口或选定区域。
 
-Screenshots can be saved to file, copied to clipboard, or opened in an image editor. The save option accepts **png**, **jpg**, and **bmp** file extensions.
+截图可以保存为文件、复制到剪贴板，或在图像编辑器中打开。保存选项支持 **png**、**jpg** 和 **bmp** 文件扩展名。
 
 # CAVEATS
 
-Designed for XFCE but works on other desktops. Region selection requires mouse interaction.
+为 XFCE 设计，但也可在其他桌面上使用。区域选择需要鼠标交互。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Query XML documents with XPath
+使用 XPath 查询 XML 文档
 
 # TLDR
 
-**Select nodes with XPath**
+**用 XPath 选择节点**
 
 ```xml select -t -v "[//element]" [file.xml]```
 
-**Extract multiple values**
+**提取多个值**
 
 ```xml select -t -m "[//item]" -v "[@name]" -n [file.xml]```
 
-**Select with namespace**
+**带命名空间选择**
 
 ```xml select -N [ns=http://example.com] -t -v "[//ns:element]" [file.xml]```
 
-**Copy matching nodes**
+**复制匹配的节点**
 
 ```xml select -t -c "[//element]" [file.xml]```
 
@@ -27,29 +27,29 @@ Query XML documents with XPath
 # PARAMETERS
 
 **-t**, **--template**
-> Start template.
+> 开始模板。
 
 **-v**, **--value-of** _xpath_
-> Output value of XPath expression.
+> 输出 XPath 表达式的值。
 
 **-m**, **--match** _xpath_
-> Match XPath expression.
+> 匹配 XPath 表达式。
 
 **-c**, **--copy-of** _xpath_
-> Copy matching nodes.
+> 复制匹配的节点。
 
 **-n**, **--nl**
-> Output newline.
+> 输出换行符。
 
 **-N** _prefix=uri_
-> Define namespace prefix.
+> 定义命名空间前缀。
 
 **-T**
-> Text output mode.
+> 文本输出模式。
 
 # DESCRIPTION
 
-**xml select** queries XML documents using XPath expressions. Part of xmlstarlet toolkit. Extracts values, attributes, and node sets from XML files.
+**xml select** 使用 XPath 表达式查询 XML 文档。属于 xmlstarlet 工具集。从 XML 文件中提取值、属性和节点集。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Query XML documents with XPath
 # SEE ALSO
 
 [xml-edit](/man/xml-edit)(1), [xml-format](/man/xml-format)(1), [xmllint](/man/xmllint)(1)
-

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Hunt the Wumpus cave exploration game
+Hunt the Wumpus 洞穴探险游戏
 
 # TLDR
 
-**Start a game**
+**开始游戏**
 
 ```wump```
 
@@ -15,19 +15,19 @@ Hunt the Wumpus cave exploration game
 # PARAMETERS
 
 **-a** _arrows_
-> Number of arrows (default: 5).
+> 箭的数量（默认：5）。
 
 **-b** _bats_
-> Number of bat rooms (default: 2).
+> 蝙蝠房间的数量（默认：2）。
 
 **-p** _pits_
-> Number of pit rooms (default: 2).
+> 陷阱房间的数量（默认：2）。
 
 **-r** _rooms_
-> Number of rooms (default: 20).
+> 房间数量（默认：20）。
 
 **-t** _tunnels_
-> Number of tunnels per room (default: 3).
+> 每个房间的通道数量（默认：3）。
 
 # PREVIEW
 
@@ -42,17 +42,17 @@ Hunt the Wumpus cave exploration game
 
 # DESCRIPTION
 
-**wump** is the classic **Hunt the Wumpus** cave exploration game from the **bsdgames** collection. The player navigates a network of cave rooms connected by tunnels, hunting the fearsome Wumpus while avoiding bottomless pits and super bats.
+**wump** 是 **bsdgames** 合集中的经典游戏 **Hunt the Wumpus**（猎杀 Wumpus）。玩家在一个由通道连接的洞穴房间网络中穿行，猎杀可怕的 Wumpus，同时避开无底陷阱和超级蝙蝠。
 
-Clues warn of nearby dangers: "I smell a Wumpus!", "I feel a draft" (pit), or "Bats nearby!" The player can move to an adjacent room or shoot a crooked arrow through up to 5 rooms. Kill the Wumpus to win, but miss and it may move.
+线索会提示附近的危险："I smell a Wumpus!"（闻到 Wumpus 的气味）、"I feel a draft"（附近有陷阱）或 "Bats nearby!"（附近有蝙蝠）。玩家可以移动到相邻房间，也可以射出最多可穿过 5 个房间的弯箭。杀死 Wumpus 即获胜；但若射偏，它可能会移动。
 
 # CAVEATS
 
-Part of the bsdgames package. Text-based input with room numbers. Running out of arrows means the Wumpus wins.
+属于 bsdgames 软件包。通过文本输入房间号进行操作。箭用完即判负，Wumpus 获胜。
 
 # HISTORY
 
-**Hunt the Wumpus** was created by **Gregory Yob** in **1973** as a reaction against grid-based games. It is one of the earliest examples of a non-grid-based computer game and has been widely ported and reimagined.
+**Hunt the Wumpus** 由 **Gregory Yob** 于 **1973 年**创作，作为对网格类游戏的回应而诞生。它是最早的非网格计算机游戏之一，后来被广泛移植和重新演绎。
 
 # INSTALL
 

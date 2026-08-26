@@ -1,14 +1,14 @@
 # TAGLINE
 
-Compare xz compressed files
+比较 xz 压缩文件
 
 # TLDR
 
-**Compare xz compressed files**
+**比较 xz 压缩文件**
 
 ```xzcmp [file1.xz] [file2.xz]```
 
-**Compare compressed with uncompressed**
+**将压缩文件与未压缩文件比较**
 
 ```xzcmp [file.xz] [file]```
 
@@ -18,7 +18,7 @@ Compare xz compressed files
 
 # DESCRIPTION
 
-**xzcmp** compares xz compressed files. Decompresses and compares files using cmp. If only one file given, compares with stdin or uncompressed version. Wrapper around cmp for xz files.
+**xzcmp** 比较 xz 压缩文件。它会先解压再用 cmp 比较文件。若只给出一个文件，则与标准输入或未压缩版本进行比较。它是 cmp 针对 xz 文件的封装。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ Compare xz compressed files
 # SEE ALSO
 
 [xz](/man/xz)(1), [xzdiff](/man/xzdiff)(1), [cmp](/man/cmp)(1)
-

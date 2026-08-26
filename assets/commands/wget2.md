@@ -1,38 +1,38 @@
 # TAGLINE
 
-Next-generation recursive metalink/file/website downloader
+新一代的递归式 metalink/文件/网站下载器
 
 # TLDR
 
-**Download a file**
+**下载文件**
 
 ```wget2 [https://example.com/file.zip]```
 
-**Download to a specific filename**
+**下载为指定文件名**
 
 ```wget2 -O [output.zip] [url]```
 
-**Continue a partial download**
+**继续未完成的下载**
 
 ```wget2 -c [url]```
 
-**Download recursively**
+**递归下载**
 
 ```wget2 -r [https://example.com]```
 
-**Mirror a website**
+**镜像网站**
 
 ```wget2 -m [https://example.com]```
 
-**Download with chunked parallel transfer**
+**以分块并行传输下载**
 
 ```wget2 --chunk-size=[1M] [url]```
 
-**Limit download rate**
+**限制下载速率**
 
 ```wget2 --limit-rate=[1M] [url]```
 
-**Download with specific compression support**
+**指定压缩支持进行下载**
 
 ```wget2 --compression=[gzip,br,zstd] [url]```
 
@@ -43,59 +43,59 @@ Next-generation recursive metalink/file/website downloader
 # PARAMETERS
 
 **-O** _FILE_
-> Save to specified output filename.
+> 保存到指定的输出文件名。
 
 **-c**, **--continue**
-> Resume a partially downloaded file.
+> 继续部分下载的文件。
 
 **-r**, **--recursive**
-> Recursive download.
+> 递归下载。
 
 **-m**, **--mirror**
-> Mirror a website (shortcut for -r -N -l inf --no-remove-listing).
+> 镜像网站（-r -N -l inf --no-remove-listing 的快捷方式）。
 
 **--chunk-size** _SIZE_
-> Download large files in multithreaded chunks of the given size.
+> 以给定大小的多线程分块下载大文件。
 
 **--limit-rate** _RATE_
-> Limit bandwidth to the specified rate (e.g., 1M).
+> 将带宽限制在指定速率（如 1M）。
 
 **--http2**
-> Force HTTP/2 protocol.
+> 强制使用 HTTP/2 协议。
 
 **--http2-request-window** _NUM_
-> Set max number of parallel streams per HTTP/2 connection (default: 30).
+> 设置每条 HTTP/2 连接的最大并行流数（默认：30）。
 
 **--compression** _TYPE_
-> Set accepted compression types (identity, gzip, deflate, br, zstd, lzip, etc.).
+> 设置可接受的压缩类型（identity、gzip、deflate、br、zstd、lzip 等）。
 
 **-q**, **--quiet**
-> Quiet mode, suppress output.
+> 安静模式，不输出信息。
 
 **-P** _DIR_
-> Save files to specified directory prefix.
+> 将文件保存到指定的目录前缀。
 
 **--no-clobber**
-> Do not overwrite existing files or truncate partial files.
+> 不覆盖已有文件或截断未完成的文件。
 
 **-d**, **--debug**
-> Print debug output.
+> 打印调试输出。
 
 # DESCRIPTION
 
-**wget2** is the next-generation version of GNU Wget, rebuilt to support modern protocols and parallel downloading. It adds native HTTP/2 support with multiplexed streams, enabling more efficient communication with servers that support the protocol.
+**wget2** 是 GNU Wget 的下一代版本，为支持现代协议和并行下载而重构。它原生支持 HTTP/2 多路复用流，与支持该协议的服务器通信更高效。
 
-Parallel downloading fetches multiple files simultaneously over reused connections, significantly speeding up batch downloads compared to the sequential approach of the original wget. The **--chunk-size** option splits large single-file downloads into parallel chunks. Recursive downloading and website mirroring are supported with the same familiar -r and -m flags.
+并行下载通过复用的连接同时获取多个文件，相比原版 wget 的顺序方式显著加速批量下载。**--chunk-size** 选项将大型单文件下载拆分为并行分块。递归下载和网站镜像仍使用熟悉的 -r 和 -m 标志。
 
-wget2 also supports Metalink files for mirror-aware downloads with automatic integrity checking, compression negotiation, and modern TLS. The tool maintains command-line compatibility with wget for basic operations while improving performance through its modernized network stack.
+wget2 还支持 Metalink 文件，可实现感知镜像的下载并自动校验完整性，此外还支持压缩协商和现代 TLS。该工具在基本操作上保持与 wget 的命令行兼容性，同时通过现代化的网络栈提升性能。
 
 # CAVEATS
 
-Not all original wget options are supported. Some behavioral differences exist compared to wget. The --chunk-size feature works best with servers that support HTTP range requests.
+并非支持原版 wget 的所有选项。与 wget 存在一些行为差异。--chunk-size 功能对支持 HTTP range 请求的服务器效果最佳。
 
 # HISTORY
 
-**wget2** was developed by Tim Ruehsen as a modern rewrite of GNU Wget. Development began around 2012, with version 2.0.0 released in 2021. It adds HTTP/2, parallel downloading, and Metalink support while maintaining backward compatibility.
+**wget2** 由 Tim Ruehsen 开发，是 GNU Wget 的现代化重写版本。开发始于 2012 年前后，2.0.0 版本于 2021 年发布。它在保持向后兼容的同时增加了 HTTP/2、并行下载和 Metalink 支持。
 
 # INSTALL
 

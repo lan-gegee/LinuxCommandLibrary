@@ -1,38 +1,38 @@
 # TAGLINE
 
-X11 screen saver and locker
+X11 屏保与锁屏工具
 
 # TLDR
 
-**Start the screensaver daemon**
+**启动屏保守护进程**
 
 ```xscreensaver &```
 
-**Start with no splash screen**
+**启动时不显示启动画面**
 
 ```xscreensaver --no-splash &```
 
-**Activate the screensaver immediately**
+**立即激活屏保**
 
 ```xscreensaver-command -activate```
 
-**Lock the screen**
+**锁定屏幕**
 
 ```xscreensaver-command -lock```
 
-**Deactivate the screensaver** (unlock without password prompt)
+**停用屏保**（无需密码提示即解锁）
 
 ```xscreensaver-command -deactivate```
 
-**Open the preferences GUI**
+**打开偏好设置图形界面**
 
 ```xscreensaver-settings```
 
-**Preview a specific screensaver**
+**预览特定屏保**
 
 ```xscreensaver-command -select [saver_number]```
 
-**Restart the daemon** with new settings
+**用新设置重启守护进程**
 
 ```xscreensaver-command -restart```
 
@@ -45,66 +45,66 @@ X11 screen saver and locker
 # PARAMETERS
 
 **--no-splash**
-> Do not display the splash screen at startup.
+> 启动时不显示启动画面。
 
 **--verbose**
-> Print diagnostics to stderr.
+> 将诊断信息打印到 stderr。
 
 **--log** _file_
-> Append diagnostics to the specified log file.
+> 将诊断信息追加到指定的日志文件。
 
 **-display** _host:n_
-> Connect to the specified X display.
+> 连接到指定的 X display。
 
 # COMMANDS (xscreensaver-command)
 
 **-activate**
-> Turn on the screensaver immediately.
+> 立即开启屏保。
 
 **-deactivate**
-> Turn off the screensaver if it is active.
+> 若屏保处于激活状态则关闭它。
 
 **-lock**
-> Lock the screen immediately.
+> 立即锁定屏幕。
 
 **-select** _n_
-> Switch to screensaver number n.
+> 切换到编号为 n 的屏保。
 
 **-next**
-> Switch to the next screensaver in the cycle.
+> 切换到轮换序列中的下一个屏保。
 
 **-prev**
-> Switch to the previous screensaver.
+> 切换到上一个屏保。
 
 **-restart**
-> Restart the screensaver daemon with current settings.
+> 用当前设置重启屏保守护进程。
 
 **-exit**
-> Terminate the xscreensaver daemon.
+> 终止 xscreensaver 守护进程。
 
 **-time**
-> Print time since last user activity.
+> 打印距离上次用户活动的时间。
 
 **-watch**
-> Print a line each time the screensaver state changes.
+> 每当屏保状态变化时打印一行信息。
 
 # DESCRIPTION
 
-**XScreenSaver** is the standard screen saver and locker for the X Window System. It consists of a background daemon that monitors user activity and triggers screensavers, plus a collection of over 200 display hacks (individual screensaver programs).
+**XScreenSaver** 是 X Window System 的标准屏保和锁屏程序。它由一个监视用户活动并触发屏保的后台守护进程，以及 200 多个显示特效（独立的屏保程序）组成。
 
-The daemon should be started at login, typically from **.xinitrc**, **.xsession**, or a desktop autostart entry. It monitors keyboard and mouse activity to determine idle time. When the idle threshold is reached, it blanks the screen and runs a screensaver. Screen locking can occur automatically after additional idle time or be triggered manually.
+守护进程应在登录时启动，通常通过 **.xinitrc**、**.xsession** 或桌面环境的自动启动项。它监视键盘和鼠标活动来判断空闲时间。达到空闲阈值后，它会将屏幕变黑并运行屏保。可以在额外空闲时间后自动锁屏，也可以手动触发锁屏。
 
-Configuration is managed through **xscreensaver-settings** (formerly xscreensaver-demo), a GTK-based GUI that allows selecting which screensavers to run, adjusting timing, and previewing effects. Settings are stored in **~/.xscreensaver**.
+配置通过 **xscreensaver-settings**（原名 xscreensaver-demo）管理，这是一个基于 GTK 的 GUI，可以选择运行哪些屏保、调整计时以及预览效果。设置保存在 **~/.xscreensaver** 中。
 
-The project includes screensavers ranging from classic effects (flying toasters, matrix) to OpenGL visualizations and physics simulations. Each saver is a standalone executable that can also be run independently.
+该项目包含的屏保从经典特效（飞行烤面包机、Matrix）到 OpenGL 可视化和物理模拟应有尽有。每个屏保都是独立的可执行文件，也可以单独运行。
 
 # CAVEATS
 
-Requires the daemon to be running for any commands to work. Some desktop environments (GNOME, KDE) have their own screen lockers that may conflict. OpenGL screensavers require working 3D acceleration. The daemon must be restarted to pick up configuration changes. Power management (DPMS) settings may interact unexpectedly with screensaver timing.
+所有命令都需要守护进程正在运行才能生效。某些桌面环境（GNOME、KDE）有自己的锁屏工具，可能会产生冲突。OpenGL 屏保需要可用的 3D 加速。守护进程必须重启才能应用配置更改。电源管理（DPMS）设置可能与屏保计时产生意外的相互影响。
 
 # HISTORY
 
-**XScreenSaver** was created by Jamie Zawinski (jwz) with the first release in **1992**. It became the de facto standard screensaver for Unix systems, replacing earlier fragmented solutions. The project has been continuously maintained for over 30 years, with new screensavers and security fixes added regularly. Zawinski has been vocal about the importance of XScreenSaver's security model, particularly regarding screen locking.
+**XScreenSaver** 由 Jamie Zawinski（jwz）创建，于 **1992 年**首次发布。它取代了早期零散的解决方案，成为 Unix 系统上事实标准的屏保。该项目已持续维护超过 30 年，定期添加新屏保和安全修复。Zawinski 一直强调 XScreenSaver 安全模型的重要性，尤其是锁屏方面。
 
 # INSTALL
 

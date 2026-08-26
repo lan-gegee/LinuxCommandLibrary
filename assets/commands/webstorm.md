@@ -1,26 +1,26 @@
 # TAGLINE
 
-JetBrains JavaScript IDE launcher
+JetBrains JavaScript IDE 启动器
 
 # TLDR
 
-**Open project**
+**打开项目**
 
 ```webstorm [path/to/project]```
 
-**Open file at line**
+**打开文件并定位到某行**
 
 ```webstorm --line [42] [file.js]```
 
-**Compare files**
+**比较文件**
 
 ```webstorm diff [file1.js] [file2.js]```
 
-**Open in new window**
+**在新窗口中打开**
 
 ```webstorm --new-window [path/to/project]```
 
-**Wait until closed**
+**等待关闭后再返回**
 
 ```webstorm --wait [file.js]```
 
@@ -31,35 +31,35 @@ JetBrains JavaScript IDE launcher
 # PARAMETERS
 
 **--line** _N_
-> Open at line.
+> 打开并定位到指定行。
 
 **--column** _N_
-> Open at column.
+> 打开并定位到指定列。
 
 **--new-window**
-> Force new window.
+> 强制在新窗口打开。
 
 **--wait**
-> Wait until closed.
+> 等待文件关闭后才返回。
 
 **diff**
-> Compare files.
+> 比较文件。
 
 # DESCRIPTION
 
-**webstorm** is the command-line launcher for JetBrains WebStorm, a professional IDE for JavaScript and web development. It opens projects, files, and directories directly from the terminal, with options to specify the line and column position for precise cursor placement.
+**webstorm** 是 JetBrains WebStorm 的命令行启动器，WebStorm 是一款面向 JavaScript 和 Web 开发的专业 IDE。它可以直接从终端打开项目、文件和目录，并提供指定行列位置的选项以精确定位光标。
 
-The launcher supports opening files in an existing WebStorm instance or forcing a new window, and includes a diff mode for side-by-side file comparison. The --wait flag blocks the terminal until the file is closed, making it suitable for use as a Git editor or merge tool.
+该启动器支持在已有的 WebStorm 实例中打开文件，或强制新建窗口，还包含用于并排比较文件的 diff 模式。--wait 选项会阻塞终端直到文件被关闭，因此适合用作 Git 编辑器或合并工具。
 
-The command is typically installed via WebStorm's "Create Command-line Launcher" option in the Tools menu, which places it in the system PATH.
+该命令通常通过 WebStorm 工具菜单中的 "Create Command-line Launcher" 选项安装，安装后会放入系统 PATH。
 
 # CAVEATS
 
-WebStorm installation required. Commercial software. Launcher location varies.
+需要安装 WebStorm。商业软件。启动器的位置因安装方式而异。
 
 # HISTORY
 
-**WebStorm** is developed by **JetBrains** as a professional IDE for JavaScript and web development.
+**WebStorm** 由 **JetBrains** 开发，是一款面向 JavaScript 和 Web 开发的专业 IDE。
 
 # INSTALL
 

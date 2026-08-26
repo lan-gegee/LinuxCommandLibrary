@@ -1,18 +1,18 @@
 # TAGLINE
 
-X11 desktop teddy bear mascot
+X11 桌面泰迪熊吉祥物
 
 # TLDR
 
-**Show teddy bear**
+**显示泰迪熊**
 
 ```xteddy```
 
-**Different image**
+**使用不同图片**
 
 ```xteddy -f [image.png]```
 
-**Start at position**
+**在指定位置启动**
 
 ```xteddy -geometry [+100+100]```
 
@@ -23,27 +23,27 @@ X11 desktop teddy bear mascot
 # PARAMETERS
 
 **-f** _FILE_
-> Image file.
+> 图片文件。
 
 **-geometry** _POS_
-> Window position.
+> 窗口位置。
 
 **-display** _DPY_
-> X display.
+> X display。
 
 # DESCRIPTION
 
-**xteddy** is a classic X11 desktop toy that displays a teddy bear image in a shaped, borderless window. The bear can be dragged around the screen with the mouse, serving as a whimsical desktop companion. Clicking the teddy bear exits the program.
+**xteddy** 是一款经典的 X11 桌面玩具，它在一个异形无边框窗口中显示泰迪熊图片。可以用鼠标把小熊拖到屏幕上的任意位置，充当有趣的桌面伙伴。点击泰迪熊即可退出程序。
 
-Custom images can be provided with the **-f** option, allowing any PNG image to be used instead of the default teddy bear. The program is a lighthearted example of X11's shaped window capabilities and remains a nostalgic curiosity from the early days of desktop customization.
+可以通过 **-f** 选项提供自定义图片，用任意 PNG 图像替代默认的泰迪熊。该程序是 X11 异形窗口能力的一个轻松示例，也是桌面个性化早期岁月里令人怀念的小玩意。
 
 # CAVEATS
 
-X11 only. Just for fun. Nostalgia.
+仅支持 X11。纯属娱乐。怀旧之作。
 
 # HISTORY
 
-**xteddy** is a classic X11 desktop toy displaying a teddy bear that can be dragged around the screen.
+**xteddy** 是一款经典的 X11 桌面玩具，显示一只可在屏幕上拖动的泰迪熊。
 
 # INSTALL
 

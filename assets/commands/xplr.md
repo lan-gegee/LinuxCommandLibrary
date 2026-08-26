@@ -1,30 +1,30 @@
 # TAGLINE
 
-Hackable terminal file explorer
+可深度定制的终端文件管理器
 
 # TLDR
 
-**Start xplr**
+**启动 xplr**
 
 ```xplr```
 
-**Start in directory**
+**在指定目录中启动**
 
 ```xplr [/path/to/dir]```
 
-**Pipe selection to command**
+**将选中项通过管道传给命令**
 
 ```xplr | xargs [command]```
 
-**Start with config**
+**使用配置文件启动**
 
 ```xplr --config [config.lua]```
 
-**Read paths from stdin**
+**从标准输入读取路径**
 
 ```find . -name "*.txt" | xplr```
 
-**Print and quit** (on selection)
+**输出并退出**（基于当前选中项）
 
 ```xplr --print-pwd-as-result```
 
@@ -35,82 +35,82 @@ Hackable terminal file explorer
 # PARAMETERS
 
 **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--print-pwd-as-result**
-> Print current directory on exit instead of focused path.
+> 退出时输出当前目录而不是焦点所在路径。
 
 **-C** _NAME=VALUE_
-> Override config value.
+> 覆盖配置值。
 
 **--read-only**
-> Read-only mode (disables all write operations).
+> 只读模式（禁用所有写操作）。
 
 **--vroot** _PATH_
-> Set virtual root to restrict navigation boundary.
+> 设置虚拟根目录以限制浏览范围。
 
 **-m** _MSG_
-> Send a message to xplr for processing.
+> 向 xplr 发送一条消息进行处理。
 
 **-M** _MSG_
-> Send a message to xplr without quoting the value.
+> 向 xplr 发送消息但不为值加引号。
 
 **--version**, **-V**
-> Show version.
+> 显示版本信息。
 
 **--help**, **-h**
-> Show help.
+> 显示帮助信息。
 
 # KEY BINDINGS
 
-**j/k** or **down/up**
-> Navigate.
+**j/k** 或 **down/up**
+> 导航。
 
 **Enter**
-> Open/select.
+> 打开/选择。
 
 **q**
-> Quit.
+> 退出。
 
 **/**
-> Search.
+> 搜索。
 
 **space**
-> Toggle selection.
+> 切换选中状态。
 
 **h**
-> Go to parent.
+> 返回上级目录。
 
 **g**
-> Go to path.
+> 前往指定路径。
 
 **.**
-> Toggle hidden.
+> 切换隐藏文件显示。
 
 **ctrl-c**
-> Cancel.
+> 取消。
 
 # DESCRIPTION
 
-**xplr** is a hackable, minimal terminal file explorer. Written in Rust, it's fast and highly configurable.
+**xplr** 是一个可深度定制、极简的终端文件管理器。它用 Rust 编写，速度快且高度可配置。
 
-Lua configuration enables complete customization. Modes, keybindings, and UI can be redefined entirely.
+Lua 配置支持完全自定义。模式、按键绑定和界面都可以被彻底重新定义。
 
-Selection handling pipes to stdout. This enables integration with other commands and scripts.
+选中项的处理结果通过管道输出到 stdout，因此可以与其他命令和脚本集成。
 
-Modes define behavior sets. Normal mode, selection mode, and custom modes provide context-aware keybindings.
+模式定义了一组行为。普通模式、选择模式和自定义模式提供上下文相关的按键绑定。
 
-Plugins extend functionality. Community plugins add features like preview, bulk rename, and integration.
+插件可以扩展功能。社区插件提供了预览、批量重命名和集成等特性。
 
-The focus is on composition with Unix tools rather than built-in features for everything.
+它的设计理念是与 Unix 工具组合使用，而不是内置所有功能。
 
 # CAVEATS
 
-Steep learning curve for configuration. Fewer built-in features than ranger. Lua knowledge helpful for customization.
+配置学习曲线陡峭。内置功能比 ranger 少。掌握 Lua 对自定义会有帮助。
 
 # HISTORY
 
-**xplr** was created by **Arijit Basu** around **2021** as an extensible file explorer. It emphasizes hackability and composition over built-in features.
+**xplr** 由 **Arijit Basu** 于 **2021 年**前后创建，是一个可扩展的文件管理器。它强调可定制性和与工具的组合能力，而非堆砌内置功能。
 
 # INSTALL
 

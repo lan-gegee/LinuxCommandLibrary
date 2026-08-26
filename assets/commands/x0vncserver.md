@@ -1,14 +1,14 @@
 # TAGLINE
 
-Share existing X display over VNC
+通过 VNC 共享现有的 X 显示
 
 # TLDR
 
-Start with **passwordfile**
+以**密码文件**启动
 
 ```x0vncserver -display :0 -passwordfile [path/to/file]```
 
-Start on specific **port**
+在特定**端口**上启动
 
 ```x0vncserver -display :0 -rfbport [port]```
 
@@ -19,38 +19,38 @@ Start on specific **port**
 # PARAMETERS
 
 **-display** _DISPLAY_
-> X display to share
+> 要共享的 X display
 
 **-passwordfile** _FILE_
-> Password file for authentication
+> 用于身份验证的密码文件
 
 **-rfbport** _PORT_
-> VNC port to listen on
+> 监听的 VNC 端口
 
 **-SecurityTypes** _TYPES_
-> Comma-separated list of accepted security types (e.g. `VncAuth,Plain`).
+> 以逗号分隔的接受安全类型列表（如 `VncAuth,Plain`）。
 
 **-Geometry** _WxH+X+Y_
-> Limit the shared region to a subrectangle of the display.
+> 将共享区域限制为显示的一个子矩形。
 
 **-Log** _DEST:LEVEL_
-> Configure logging (e.g. `stderr:100`, `*:stderr:30`).
+> 配置日志（如 `stderr:100`、`*:stderr:30`）。
 
 **-SendCutText** / **-AcceptCutText**
-> Enable/disable clipboard forwarding between server and client.
+> 启用/禁用服务器与客户端之间的剪贴板转发。
 
 **-QueryConnect**
-> Prompt the local user before accepting each incoming connection.
+> 接受每个传入连接前先询问本地用户。
 
 # DESCRIPTION
 
-**x0vncserver** is a TigerVNC server that shares an existing X display over VNC. Unlike vncserver which creates a new virtual display, x0vncserver shares the physical display.
+**x0vncserver** 是 TigerVNC 的服务器组件，通过 VNC 共享已有的 X display。与创建新虚拟显示的 vncserver 不同，x0vncserver 共享的是物理显示。
 
-This allows remote access to the actual screen being displayed on the monitor.
+这样就能远程访问显示器上实际正在显示的画面。
 
 # CAVEATS
 
-Requires X11 display. Password must be set using vncpasswd. Security depends on network configuration. Consider SSH tunneling for secure access.
+需要 X11 display。必须先用 vncpasswd 设置密码。安全性取决于网络配置。建议考虑 SSH 隧道以实现安全访问。
 
 # INSTALL
 

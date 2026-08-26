@@ -1,34 +1,34 @@
 # TAGLINE
 
-Launch the user's preferred terminal emulator
+启动用户首选的终端模拟器
 
 # TLDR
 
-**Open the default terminal** without running a command
+**打开默认终端**而不运行命令
 
 ```xdg-terminal-exec```
 
-**Run a command** inside the preferred terminal
+**在首选终端中运行命令**
 
 ```xdg-terminal-exec [command] [args...]```
 
-**Set a window title** for the spawned terminal
+为启动的终端**设置窗口标题**
 
 ```xdg-terminal-exec --title=[My Shell] [command]```
 
-**Set a working directory** before executing the command
+执行命令前**设置工作目录**
 
 ```xdg-terminal-exec --dir=[path/to/dir] [command]```
 
-**Keep the terminal open** after the command exits
+命令退出后**保持终端打开**
 
 ```xdg-terminal-exec --hold [command]```
 
-**Print the selected Desktop Entry ID** instead of launching it
+**打印所选的 Desktop Entry ID**而不启动它
 
 ```xdg-terminal-exec --print-id```
 
-**Show the resolved command line** that would be executed
+**显示将要执行的完整命令行**
 
 ```xdg-terminal-exec --print-cmd [command]```
 
@@ -39,53 +39,53 @@ Launch the user's preferred terminal emulator
 # PARAMETERS
 
 **--app-id=**_app_id_
-> Set the Wayland app-id (or X11 class) of the spawned window.
+> 设置所生成窗口的 Wayland app-id（或 X11 class）。
 
 **--title=**_title_
-> Set the terminal window title.
+> 设置终端窗口标题。
 
 **--dir=**_workdir_
-> Change to _workdir_ before running the command.
+> 运行命令前切换到 _workdir_。
 
 **--hold**
-> Keep the terminal window open after the command terminates.
+> 命令终止后保持终端窗口打开。
 
 **--print-id**
-> Print the Desktop Entry ID that was selected.
+> 打印被选中的 Desktop Entry ID。
 
 **--print-path**
-> Print the filesystem path of the selected Desktop Entry.
+> 打印所选 Desktop Entry 的文件系统路径。
 
 **--print-content**
-> Print the full content of the selected Desktop Entry.
+> 打印所选 Desktop Entry 的完整内容。
 
 **--print-cmd**[=_printf_seq_]
-> Print the final command line that would be executed instead of running it.
+> 打印将要执行的最终命令行，而不是实际运行。
 
 **--print-delimiter=**_printf_seq_
-> Set the delimiter used between multiple print outputs.
+> 设置多个打印输出之间使用的分隔符。
 
 **--**
-> Treat all following arguments as the command to execute.
+> 将其后的所有参数视为要执行的命令。
 
 # DESCRIPTION
 
-**xdg-terminal-exec** launches the user's preferred terminal emulator, optionally with a command to execute inside it. It is the reference implementation of the proposed XDG Default Terminal Execution Specification from freedesktop.org.
+**xdg-terminal-exec** 启动用户首选的终端模拟器，并可在其中选择性地执行一条命令。它是 freedesktop.org 拟议中的 XDG Default Terminal Execution Specification 的参考实现。
 
-Candidate terminals are discovered from Desktop Entries installed on the system that declare the **TerminalEmulator** category and provide an **X-TerminalArgExec** key. The user chooses which of those entries to prefer by listing Desktop Entry IDs in a configuration file.
+候选终端从系统中已安装、声明了 **TerminalEmulator** 类别并提供 **X-TerminalArgExec** 键的 Desktop Entry 中发现。用户可以在配置文件中列出 Desktop Entry ID 来指定偏好哪个条目。
 
-This mirrors tools like **xdg-open**: instead of hard-coding a terminal in scripts, desktop launchers, or applications, callers invoke **xdg-terminal-exec** and the system resolves the user's choice at runtime.
+这与 **xdg-open** 等工具的做法一致：脚本、桌面启动器或应用程序不必硬编码终端，而是调用 **xdg-terminal-exec**，由系统在运行时解析用户的选择。
 
 # CONFIGURATION
 
-Preferred terminals are listed in the following files, searched in order of XDG config/data priority:
+首选终端列在以下文件中，按 XDG 配置/数据优先级顺序搜索：
 
 ```
 ${desktop}-xdg-terminals.list
 xdg-terminals.list
 ```
 
-Where _${desktop}_ is a lowercased item from **XDG_CURRENT_DESKTOP**. Each line is a Desktop Entry ID, optionally with an action suffix:
+其中 _${desktop}_ 是 **XDG_CURRENT_DESKTOP** 中某项的小写形式。每一行是一个 Desktop Entry ID，可以带动作后缀：
 
 ```
 foot.desktop
@@ -93,26 +93,26 @@ kitty.desktop
 org.gnome.Terminal.desktop:new-window
 ```
 
-Lines starting with **#** are comments. Special directives include **/enable_cache**, **/disable_cache**, **/execarg_compat**, **/execarg_strict**, and **/execarg_default:entry.desktop:arg**.
+以 **#** 开头的行是注释。特殊指令包括 **/enable_cache**、**/disable_cache**、**/execarg_compat**、**/execarg_strict** 和 **/execarg_default:entry.desktop:arg**。
 
 # ENVIRONMENT
 
 **XTE_CACHE_ENABLED**
-> Enable or disable caching of the resolved terminal.
+> 启用或禁用对已解析终端的缓存。
 
 **XTE_DEBUG**, **DEBUG**
-> Print debug information to stderr.
+> 向 stderr 打印调试信息。
 
 **XDG_CURRENT_DESKTOP**, **XDG_CONFIG_HOME**, **XDG_CONFIG_DIRS**, **XDG_DATA_DIRS**
-> Standard XDG variables used for desktop detection and config lookup.
+> 用于桌面检测和配置查找的标准 XDG 变量。
 
 # CAVEATS
 
-The specification is still a **proposal** on the freedesktop.org **terminal-wg** tracker; backwards compatibility is maintained on a best-effort basis. Not every terminal emulator ships the **X-TerminalArgExec** key yet, so some installed terminals may be invisible to the selector until their Desktop Entry is patched.
+该规范在 freedesktop.org 的 **terminal-wg** 议题库中仍是**提案**状态；仅以尽力而为的方式保持向后兼容。并非每个终端模拟器都已提供 **X-TerminalArgExec** 键，因此在相应 Desktop Entry 修复之前，某些已安装的终端可能不会被选择器发现。
 
 # HISTORY
 
-**xdg-terminal-exec** was created by **Vladimir Kudrya** (Vladimir-csp) as a shell-based reference implementation accompanying a merge request against the freedesktop.org terminal-wg specifications repository. It is packaged by several distributions (Debian, Arch, Fedora) as a dependency of modern desktop launchers that need a generic way to spawn terminals.
+**xdg-terminal-exec** 由 **Vladimir Kudrya**（Vladimir-csp）创建，是一个基于 shell 的参考实现，伴随针对 freedesktop.org terminal-wg 规范仓库的一个合并请求提交。它已被多个发行版（Debian、Arch、Fedora）打包，作为需要通用方式启动终端的现代桌面启动器的依赖项。
 
 # INSTALL
 

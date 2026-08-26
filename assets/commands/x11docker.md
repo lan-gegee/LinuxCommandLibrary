@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run GUI Docker containers securely
+安全地运行带 GUI 的 Docker 容器
 
 # TLDR
 
-**Run GUI app**
+**运行 GUI 应用**
 
 ```x11docker [image] [command]```
 
-**With GPU acceleration**
+**启用 GPU 加速**
 
 ```x11docker --gpu [image] [command]```
 
-**Share home directory**
+**共享家目录**
 
 ```x11docker --home [image]```
 
-**With audio**
+**启用音频**
 
 ```x11docker --pulseaudio [image]```
 
-**Clipboard sharing**
+**共享剪贴板**
 
 ```x11docker --clipboard [image]```
 
@@ -31,75 +31,75 @@ Run GUI Docker containers securely
 # PARAMETERS
 
 **--gpu**
-> Enable hardware OpenGL acceleration.
+> 启用硬件 OpenGL 加速。
 
 **--home**
-> Provide a persistent per-container home directory on the host.
+> 在主机上为容器提供一个持久的独立家目录。
 
 **--pulseaudio**
-> Enable PulseAudio sound support.
+> 启用 PulseAudio 声音支持。
 
 **--alsa**
-> Enable ALSA sound support.
+> 启用 ALSA 声音支持。
 
 **--pipewire**
-> Enable PipeWire sound support.
+> 启用 PipeWire 声音支持。
 
 **--clipboard**
-> Share clipboard between host and container.
+> 在主机和容器之间共享剪贴板。
 
 **--desktop**
-> Run a full desktop environment rather than a single application.
+> 运行完整的桌面环境而不是单个应用程序。
 
 **--xephyr**
-> Use the Xephyr nested X server (default fallback).
+> 使用 Xephyr 嵌套 X 服务器（默认回退方案）。
 
 **--xpra**
-> Use Xpra as the X server backend.
+> 使用 Xpra 作为 X 服务器后端。
 
 **--nxagent**
-> Use nxagent as the X server backend.
+> 使用 nxagent 作为 X 服务器后端。
 
 **--wayland**
-> Run in a Wayland compositor.
+> 在 Wayland 合成器中运行。
 
 **--hostdisplay**
-> Share the host X socket (less secure, fallback).
+> 共享主机的 X socket（安全性较低，作为回退方案）。
 
 **--share** _PATH_
-> Share a host file or folder with the container.
+> 将主机的文件或文件夹共享给容器。
 
 **--network**, **-I**
-> Allow network access from the container.
+> 允许容器访问网络。
 
 **--init** _SYSTEM_
-> Use an init system (e.g., systemd, runit, tini).
+> 使用 init 系统（如 systemd、runit、tini）。
 
 **--backend** _BACKEND_
-> Choose container backend: docker, podman, or host.
+> 选择容器后端：docker、podman 或 host。
 
 **--webcam**
-> Share webcams with the container.
+> 与容器共享摄像头。
 
 **--printer**
-> Share host CUPS printers.
+> 共享主机的 CUPS 打印机。
 
 **--user** _USER_
-> Run the container as a specific user.
+> 以指定用户身份运行容器。
 
 # DESCRIPTION
 
-**x11docker** runs graphical applications from Docker containers with secure X11 display forwarding. It provides isolated display access using multiple backends including Xephyr, Xpra, and nxagent, preventing containers from accessing the host's X server directly.
+**x11docker** 从 Docker 容器中运行图形应用，并提供安全的 X11 显示转发。它使用 Xephyr、Xpra 和 nxagent 等多种后端提供隔离的显示访问，防止容器直接访问主机的 X 服务器。
 
-The tool supports GPU hardware acceleration, PulseAudio integration, and clipboard sharing between the container and host. This security-focused approach allows running untrusted GUI applications in containers while maintaining display isolation from the host desktop environment.
+该工具支持 GPU 硬件加速、PulseAudio 集成以及容器与主机之间的剪贴板共享。这种注重安全的方式允许在容器中运行不可信的 GUI 应用，同时保持其与主机桌面环境的显示隔离。
 
 # CAVEATS
 
-Requires Docker or Podman. At least one nested X server backend (Xephyr, Xpra, nxagent, or Xwayland) must be installed on the host. Using **--hostdisplay** reduces isolation. GPU acceleration requires compatible drivers inside the container.
+需要 Docker 或 Podman。主机上至少要安装一个嵌套 X 服务器后端（Xephyr、Xpra、nxagent 或 Xwayland）。使用 **--hostdisplay** 会降低隔离性。GPU 加速要求容器内有兼容的驱动。
 
 # HISTORY
 
-**x11docker** was created by **Martin Viereck** to run Docker containers with GUI applications while preserving host security. It predates modern Wayland-native container workflows and remains a widely-used solution for desktop containerization.
+**x11docker** 由 **Martin Viereck** 创建，目的是在保护主机安全的前提下运行带 GUI 应用的 Docker 容器。它早于现代 Wayland 原生的容器化工作流出现，至今仍是桌面容器化的常用方案。
 
 # INSTALL
 

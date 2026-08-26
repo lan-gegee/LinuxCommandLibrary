@@ -1,18 +1,18 @@
 # TAGLINE
 
-KDE drop-down terminal emulator
+KDE 下拉式终端模拟器
 
 # TLDR
 
-**Start** yakuake
+**启动** yakuake
 
 ```yakuake```
 
-**Show version** information
+**显示版本**信息
 
 ```yakuake --version```
 
-**Show help**
+**显示帮助**
 
 ```yakuake --help```
 
@@ -23,61 +23,61 @@ KDE drop-down terminal emulator
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--help-qt**
-> Display Qt-specific options.
+> 显示 Qt 特有选项。
 
 **--help-kde**
-> Display KDE-specific options.
+> 显示 KDE 特有选项。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 **--author**
-> Show authors and credits.
+> 显示作者与致谢。
 
 **--license**
-> Display licensing information.
+> 显示许可信息。
 
 # KEYBOARD SHORTCUTS
 
 **F12**
-> Toggle Yakuake visibility (retract/extend).
+> 切换 Yakuake 的可见性（收起/展开）。
 
 **Ctrl+Shift+T**
-> Open a new session (tab).
+> 打开新会话（标签页）。
 
 **Ctrl+Shift+W**
-> Close the current session.
+> 关闭当前会话。
 
 **Ctrl+(**
-> Split the current session left/right.
+> 左右拆分当前会话。
 
 **Ctrl+)**
-> Split the current session top/bottom.
+> 上下拆分当前会话。
 
 **Ctrl+Shift+X**
-> Close the active split.
+> 关闭活动的拆分窗格。
 
 **Shift+Left / Shift+Right**
-> Switch to the previous/next session tab.
+> 切换到上一个/下一个会话标签页。
 
 **Ctrl+Alt+S**
-> Rename the current session.
+> 重命名当前会话。
 
 **Ctrl+Shift+,**
-> Open the configuration dialog.
+> 打开配置对话框。
 
 # DESCRIPTION
 
-**yakuake** is a drop-down terminal emulator for KDE based on **Konsole** technology. It slides down from the top of the screen when activated with a configurable global shortcut (F12 by default), similar to Quake-style consoles.
+**yakuake** 是一款面向 KDE 的下拉式终端模拟器，基于 **Konsole** 技术。按下可配置的全局快捷键（默认 F12）激活时，它会从屏幕顶部滑下，类似于 Quake 风格的控制台。
 
-The terminal supports tabs, horizontal and vertical split views, configurable width/height/opacity, and extensive customization through the KDE settings system and D-Bus scripting.
+该终端支持标签页、水平和垂直拆分视图、可配置的宽度/高度/透明度，并可通过 KDE 设置系统和 D-Bus 脚本进行大量定制。
 
 # CAVEATS
 
-Designed for KDE Plasma but works under other desktops provided the required KDE Frameworks libraries are installed. The F12 global shortcut may conflict with other applications; it can be rebound in the configuration dialog.
+专为 KDE Plasma 设计，但在安装了所需 KDE Frameworks 库的情况下也能在其他桌面上运行。F12 全局快捷键可能与其他应用冲突，可在配置对话框中重新绑定。
 
 # INSTALL
 

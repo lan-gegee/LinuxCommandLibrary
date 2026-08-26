@@ -1,22 +1,22 @@
 # TAGLINE
 
-Find an XDG user directory path
+查找 XDG 用户目录路径
 
 # TLDR
 
-Show **home** directory (default with no argument)
+显示**主目录**（无参数时的默认行为）
 
 ```xdg-user-dir```
 
-Show the **Downloads** directory path
+显示**下载**目录路径
 
 ```xdg-user-dir DOWNLOAD```
 
-Show the **Documents** directory path
+显示**文档**目录路径
 
 ```xdg-user-dir DOCUMENTS```
 
-Show the **Desktop** directory path
+显示**桌面**目录路径
 
 ```xdg-user-dir DESKTOP```
 
@@ -27,44 +27,44 @@ Show the **Desktop** directory path
 # PARAMETERS
 
 **DESKTOP**
-> Desktop directory
+> 桌面目录
 
 **DOWNLOAD**
-> Downloads directory
+> 下载目录
 
 **DOCUMENTS**
-> Documents directory
+> 文档目录
 
 **MUSIC**
-> Music directory
+> 音乐目录
 
 **PICTURES**
-> Pictures directory
+> 图片目录
 
 **VIDEOS**
-> Videos directory
+> 视频目录
 
 **TEMPLATES**
-> Templates directory
+> 模板目录
 
 **PUBLICSHARE**
-> Public share directory
+> 公共共享目录
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Show version information and exit
+> 显示版本信息并退出
 
 # DESCRIPTION
 
-**xdg-user-dir** looks up the current path for an XDG user directory as defined in the user-dirs.dirs configuration file. These are the standard directories for common content types like documents, music, and downloads.
+**xdg-user-dir** 在 user-dirs.dirs 配置文件定义的内容中查找某个 XDG 用户目录的当前路径。这些是存放文档、音乐、下载等常见内容类型的标准目录。
 
-The paths are configured in **~/.config/user-dirs.dirs** and can be customized per user. The **XDG_CONFIG_HOME** environment variable determines where the configuration file is located.
+路径配置在 **~/.config/user-dirs.dirs** 中，可按用户自定义。**XDG_CONFIG_HOME** 环境变量决定配置文件的位置。
 
 # CAVEATS
 
-Returns home directory if the requested directory is not configured or if an unknown directory name is given. Directory paths may not exist on the filesystem.
+如果请求的目录未配置或给出了未知的目录名，则返回主目录。目录路径在文件系统上可能不存在。
 
 # INSTALL
 

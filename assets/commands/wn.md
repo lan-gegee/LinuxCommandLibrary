@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command line interface to the WordNet lexical database
+WordNet 词汇数据库的命令行接口
 
 # TLDR
 
-**Look up synonyms** of a noun
+**查询名词的同义词**
 
 ```wn [word] -synsn```
 
-**Display the hypernym tree** (broader categories) for a noun
+**显示名词的上位词树**（更宽泛的类别）
 
 ```wn [word] -hypen```
 
-**Find antonyms** of an adjective
+**查找形容词的反义词**
 
 ```wn [word] -antsa```
 
-**Show an overview** of all senses of a word
+**显示单词所有义项的概览**
 
 ```wn [word] -over```
 
-**Display definitions** (glosses) for a noun
+**显示名词的释义**（gloss）
 
 ```wn [word] -g -synsn```
 
-**Find hyponyms** (narrower categories) for a noun
+**查找名词的下位词**（更具体的类别）
 
 ```wn [word] -hypon```
 
-**Search for compound words** containing a string
+**搜索包含某字符串的复合词**
 
 ```wn [word] -grepn```
 
@@ -39,70 +39,70 @@ Command line interface to the WordNet lexical database
 # PARAMETERS
 
 **-g**
-> Show textual glosses (definitions)
+> 显示文本释义（定义）
 
 **-s**
-> Show sense numbers in output
+> 在输出中显示义项编号
 
 **-o**
-> Display synset offset numbers
+> 显示 synset 偏移量编号
 
 **-a**
-> Show all synsets related to the search string
+> 显示与搜索字符串相关的所有 synset
 
 **-n** _#_
-> Restrict results to a specific sense number
+> 将结果限定为特定的义项编号
 
 **-h**
-> Display help text
+> 显示帮助文本
 
 **-l**
-> Display license and copyright information
+> 显示许可与版权信息
 
 # DESCRIPTION
 
-**wn** provides a command-line interface to the **WordNet** lexical database, displaying synsets (sets of synonyms) and semantic relations as formatted text. For each word, different searches are available based on syntactic category (noun, verb, adjective, adverb) and relation type.
+**wn** 提供 **WordNet** 词汇数据库的命令行接口，以格式化的文本形式显示 synset（同义词集合）和语义关系。对于每个单词，可根据句法类别（名词、动词、形容词、副词）和关系类型进行不同的搜索。
 
-Search options end with a letter indicating the part of speech: **n** for nouns, **v** for verbs, **a** for adjectives, **r** for adverbs. Multiple searches can be combined in a single command.
+搜索选项以表示词性的字母结尾：**n** 表示名词，**v** 表示动词，**a** 表示形容词，**r** 表示副词。多个搜索可以在一条命令中组合使用。
 
-The tool automatically performs morphological analysis, so inflected forms (e.g., "running") are resolved to their base form.
+该工具会自动执行形态学分析，因此屈折变化形式（如 "running"）会被解析为其基本形式。
 
 # SEARCH OPTIONS
 
 **-syns**(n|v|a|r)
-> Display synonyms and immediate hypernyms of matching synsets
+> 显示匹配 synset 的同义词及其直接上位词
 
 **-ants**(n|v|a|r)
-> Display direct antonyms (opposites)
+> 显示直接反义词（对立词）
 
 **-hype**(n|v)
-> Recursively display the hypernym tree (broader categories)
+> 递归显示上位词树（更宽泛的类别）
 
 **-hypo**(n|v)
-> Display immediate hyponyms (narrower categories)
+> 显示直接下位词（更具体的类别）
 
 **-tree**(n|v)
-> Display the subordinate hierarchy tree
+> 显示从属层级树
 
 **-deri**(n|v)
-> Show morphologically related word forms
+> 显示形态上相关的词形
 
 **-over**
-> Display an overview of all senses across all parts of speech
+> 显示跨所有词性的全部义项概览
 
 **-grep**(n|v|a|r)
-> List compound words containing the search string
+> 列出包含搜索字符串的复合词
 
 **-sims**v
-> Group verb senses by similarity of meaning
+> 按语义相似度对动词义项分组
 
 # CAVEATS
 
-WordNet's last official Princeton release was in **2011**, so coverage of newer vocabulary is limited. The database is English-only. Results are ordered by frequency of use, which may not reflect specialized domain usage.
+WordNet 最后一次普林斯顿官方发布是在 **2011 年**，因此对新词汇的覆盖有限。该数据库仅支持英语。结果按使用频率排序，可能无法反映特定专业领域的用法。
 
 # HISTORY
 
-**WordNet** was created in **1985** at **Princeton University's** Cognitive Science Laboratory under the direction of psychologist **George Armitage Miller**. Later directed by **Christiane Fellbaum**, the project received the **2006 Antonio Zampolli Prize**. Initially funded by the U.S. Office of Naval Research and later by DARPA and NSF.
+**WordNet** 于 **1985 年**在**普林斯顿大学**认知科学实验室创建，由心理学家 **George Armitage Miller** 领导。后来在 **Christiane Fellbaum** 的主持下，该项目获得了 **2006 年 Antonio Zampolli 奖**。项目最初由美国海军研究办公室资助，后来由 DARPA 和 NSF 资助。
 
 # INSTALL
 

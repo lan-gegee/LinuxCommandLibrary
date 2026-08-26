@@ -1,26 +1,26 @@
 # TAGLINE
 
-WireGuard VPN configuration utility
+WireGuard VPN 配置工具
 
 # TLDR
 
-**Check** status of currently active interfaces
+**检查**当前活动接口的状态
 
 ```sudo wg```
 
-**Generate** a new private key
+**生成**新的私钥
 
 ```wg genkey```
 
-**Generate** a public key from a private key
+从私钥**生成**公钥
 
 ```wg pubkey < [path/to/private_key] > [path/to/public_key]```
 
-**Generate** both public and private keys
+同时**生成**公钥和私钥
 
 ```wg genkey | tee [path/to/private_key] | wg pubkey > [path/to/public_key]```
 
-**Show** the current configuration of an interface
+**显示**接口当前的配置
 
 ```sudo wg showconf [wg0]```
 
@@ -31,38 +31,38 @@ WireGuard VPN configuration utility
 # PARAMETERS
 
 **show**
-> Show current configuration and status
+> 显示当前配置和状态
 
 **showconf _interface_**
-> Show configuration in config file format
+> 以配置文件格式显示配置
 
 **genkey**
-> Generate a new private key
+> 生成新的私钥
 
 **pubkey**
-> Generate public key from private key on stdin
+> 从标准输入的私钥生成公钥
 
 **genpsk**
-> Generate a preshared key
+> 生成预共享密钥
 
 **set _interface_ _options_**
-> Change configuration of an interface
+> 修改接口的配置
 
 **setconf _interface_ _file_**
-> Apply configuration from file
+> 应用来自文件的配置
 
 **addconf _interface_ _file_**
-> Add configuration from file
+> 添加来自文件的配置
 
 # DESCRIPTION
 
-**wg** is the configuration utility for WireGuard, a modern VPN tunnel. It manages WireGuard interfaces including key generation, peer configuration, and status monitoring.
+**wg** 是 WireGuard 的配置工具。WireGuard 是一种现代 VPN 隧道。它管理 WireGuard 接口，包括密钥生成、对端配置和状态监控。
 
-WireGuard uses state-of-the-art cryptography and is designed to be simpler, faster, and more secure than traditional VPN protocols like OpenVPN or IPsec.
+WireGuard 采用最先进的密码学技术，设计上比 OpenVPN 或 IPsec 等传统 VPN 协议更简单、更快速、更安全。
 
 # CAVEATS
 
-Requires root privileges for most operations. Private keys should be kept secure with restricted file permissions. Interface must be created (e.g., with **ip link add**) before configuration. For easier setup, consider using **wg-quick**.
+大多数操作需要 root 权限。私钥应以受限的文件权限妥善保管。必须先创建接口（例如用 **ip link add**）再进行配置。若想简化设置流程，可以考虑使用 **wg-quick**。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage YubiKey OpenPGP keys
+管理 YubiKey OpenPGP 密钥
 
 # TLDR
 
-**Show OpenPGP info**
+**显示 OpenPGP 信息**
 
 ```ykman openpgp info```
 
-**Set PIN**
+**设置 PIN**
 
 ```ykman openpgp access change-pin```
 
-**Set Admin PIN**
+**设置管理 PIN**
 
 ```ykman openpgp access change-admin-pin```
 
-**Reset OpenPGP**
+**重置 OpenPGP**
 
 ```ykman openpgp reset```
 
@@ -27,27 +27,27 @@ Manage YubiKey OpenPGP keys
 # PARAMETERS
 
 **info**
-> Show OpenPGP information.
+> 显示 OpenPGP 信息。
 
 **access** _cmd_
-> Manage PINs and access.
+> 管理 PIN 与访问控制。
 
 **certificates** _cmd_
-> Manage certificates.
+> 管理证书。
 
 **keys** _cmd_
-> Manage keys.
+> 管理密钥。
 
 **reset**
-> Reset OpenPGP application.
+> 重置 OpenPGP 应用。
 
 # DESCRIPTION
 
-**ykman openpgp** manages OpenPGP on YubiKey. Configure PGP keys for encryption, signing, and authentication. Hardware-backed GPG key storage.
+**ykman openpgp** 用于管理 YubiKey 上的 OpenPGP。可配置 PGP 密钥用于加密、签名和身份验证，提供基于硬件的 GPG 密钥存储。
 
 # CAVEATS
 
-Reset permanently removes all OpenPGP keys from the device.
+重置操作会永久删除设备上的所有 OpenPGP 密钥。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Reset permanently removes all OpenPGP keys from the device.
 # SEE ALSO
 
 [ykman](/man/ykman)(1), [gpg](/man/gpg)(1)
-

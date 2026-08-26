@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display ZFS pool event log
+显示 ZFS 存储池事件日志
 
 # TLDR
 
-**Show pool events**
+**显示存储池事件**
 
 ```zpool events```
 
-**Show verbose event details**
+**显示详细的事件信息**
 
 ```zpool events -v```
 
-**Show events for specific pool**
+**显示特定存储池的事件**
 
 ```zpool events [poolname]```
 
-**Follow events in real-time**
+**实时跟踪事件**
 
 ```zpool events -f```
 
-**Clear event log**
+**清空事件日志**
 
 ```zpool events -c```
 
-**Show verbose and follow**
+**详细输出并实时跟踪**
 
 ```zpool events -vf```
 
@@ -35,48 +35,48 @@ Display ZFS pool event log
 # PARAMETERS
 
 **-v**
-> Verbose output with full event payloads.
+> 详细输出，包含完整的事件负载。
 
 **-f**
-> Follow mode; wait for new events.
+> 跟随模式；等待新事件。
 
 **-c**
-> Clear event log after displaying.
+> 显示后清空事件日志。
 
 **-H**
-> Scripted mode; no headers, tab-separated.
+> 脚本模式；无表头，以制表符分隔。
 
 # EVENT CLASSES
 
-**ereport.fs.zfs.checksum**: Checksum error detected.
+**ereport.fs.zfs.checksum**: 检测到校验和错误。
 
-**ereport.fs.zfs.io**: I/O error on vdev.
+**ereport.fs.zfs.io**: vdev 上发生 I/O 错误。
 
-**ereport.fs.zfs.delay**: Slow I/O completion.
+**ereport.fs.zfs.delay**: I/O 完成缓慢。
 
-**sysevent.fs.zfs.pool_import**: Pool imported.
+**sysevent.fs.zfs.pool_import**: 存储池已导入。
 
-**sysevent.fs.zfs.pool_export**: Pool exported.
+**sysevent.fs.zfs.pool_export**: 存储池已导出。
 
-**sysevent.fs.zfs.scrub_start**: Scrub started.
+**sysevent.fs.zfs.scrub_start**: 清理（scrub）已开始。
 
-**sysevent.fs.zfs.resilver_finish**: Resilver completed.
+**sysevent.fs.zfs.resilver_finish**: 重建（resilver）已完成。
 
 # DESCRIPTION
 
-**zpool events** displays the internal event log maintained by ZFS since the kernel module was loaded. Events include errors, pool state changes, scrub operations, and device status updates.
+**zpool events** 显示 ZFS 自内核模块加载以来所维护的内部事件日志。事件包括错误、存储池状态变化、清理操作以及设备状态更新。
 
-The event log is stored in RAM with a configurable maximum size. Events are invaluable for diagnosing hardware problems, tracking pool operations, and understanding ZFS behavior.
+事件日志保存在内存中，其最大大小可以配置。这些事件对于诊断硬件问题、跟踪存储池操作以及理解 ZFS 行为都极为宝贵。
 
-The ZFS Event Daemon (zed) monitors these events in real-time and can trigger scripts for notifications or automated responses to events.
+ZFS Event Daemon（zed）实时监视这些事件，并能触发脚本发送通知或对事件做出自动响应。
 
 # CAVEATS
 
-Events stored in RAM; lost on reboot or module unload. Log size limited by zfs_event_len_max parameter. Use zed for persistent event handling and alerting.
+事件保存在内存中；重启或卸载内核模块后即丢失。日志大小受 zfs_event_len_max 参数限制。持久化的事件处理和告警请使用 zed。
 
 # HISTORY
 
-The ZFS event system provides visibility into pool operations and errors that traditional filesystems lack. It enables proactive monitoring and automated responses through the zed daemon, making ZFS self-healing capabilities more accessible.
+ZFS 事件系统提供了传统文件系统所不具备的对存储池操作和错误的可见性。它通过 zed 守护进程实现主动监控与自动响应，让 ZFS 的自愈能力更易用。
 
 # INSTALL
 

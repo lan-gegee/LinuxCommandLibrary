@@ -1,22 +1,22 @@
 # TAGLINE
 
-Tcl/Tk graphical interpreter
+Tcl/Tk 图形化解释器
 
 # TLDR
 
-**Start interactive Tk shell**
+**启动交互式 Tk shell**
 
 ```wish```
 
-**Run a Tk script**
+**运行 Tk 脚本**
 
 ```wish [script.tcl]```
 
-**Run script with arguments**
+**带参数运行脚本**
 
 ```wish [script.tcl] [arg1] [arg2]```
 
-**Execute Tk commands directly**
+**直接执行 Tk 命令**
 
 ```echo "[button .b -text Hello; pack .b]" | wish```
 
@@ -27,48 +27,48 @@ Tcl/Tk graphical interpreter
 # PARAMETERS
 
 **-colormap** _new_
-> Use new private colormap.
+> 使用新的私有色彩映射表。
 
 **-display** _display_
-> X display to use.
+> 要使用的 X display。
 
 **-geometry** _geometry_
-> Initial window geometry.
+> 初始窗口几何布局。
 
 **-name** _name_
-> Use name as application name.
+> 将 name 用作应用名称。
 
 **-sync**
-> Execute X server requests synchronously.
+> 同步执行 X 服务器请求。
 
 **-visual** _visual_
-> Visual type for main window.
+> 主窗口的 visual 类型。
 
 **-use** _id_
-> Embed in window with given id.
+> 嵌入到具有给定 id 的窗口中。
 
 **--**
-> End of options; remaining args go to script.
+> 选项结束；其余参数传给脚本。
 
 # DESCRIPTION
 
-**wish** is a Tcl interpreter extended with Tk toolkit commands for creating graphical interfaces. It reads Tcl/Tk commands from files or standard input and executes them, creating GUI windows and widgets.
+**wish** 是一个用 Tk 工具集命令扩展的 Tcl 解释器，用于创建图形界面。它从文件或标准输入读取 Tcl/Tk 命令并执行，创建 GUI 窗口和控件。
 
-When run without arguments, wish starts interactively with an empty main window and a "%" prompt for entering commands. Scripts can be made executable with #!/usr/bin/wish as the first line.
+不带参数运行时，wish 以交互方式启动，显示一个空的主窗口和一个 "%" 提示符供输入命令。脚本可以在第一行加上 #!/usr/bin/wish 使其可直接执行。
 
-Tk provides widgets including buttons, labels, entries, listboxes, canvases, menus, and more. The geometry manager commands (pack, grid, place) control widget layout.
+Tk 提供的控件包括按钮、标签、输入框、列表框、画布、菜单等等。几何管理器命令（pack、grid、place）控制控件的布局。
 
 # INTERACTIVE
 
-In interactive mode, wish displays "%" prompt. Commands are executed after complete statements. Prompts can be customized via tcl_prompt1 and tcl_prompt2 variables.
+在交互模式下，wish 显示 "%" 提示符。完整语句输入后才会执行。提示符可通过 tcl_prompt1 和 tcl_prompt2 变量自定义。
 
 # CAVEATS
 
-Requires a display server (X11 or Wayland with XWayland). Tk applications look dated without theming (ttk themed widgets improve this). Some distributions use versioned names like wish8.6. On macOS, Tk uses Aqua natively.
+需要显示服务器（X11 或带 XWayland 的 Wayland）。没有主题时 Tk 应用外观较陈旧（ttk 主题控件可改善这一点）。某些发行版使用带版本号的名称，如 wish8.6。在 macOS 上，Tk 原生使用 Aqua。
 
 # HISTORY
 
-**wish** was created by John Ousterhout alongside Tcl in the late 1980s. Tk was one of the first cross-platform GUI toolkits and influenced many later frameworks. Wish remains popular for quick GUI scripting and is used by tools like gitk.
+**wish** 由 John Ousterhout 于 20 世纪 80 年代末与 Tcl 一同创建。Tk 是最早的跨平台 GUI 工具集之一，影响了后来的许多框架。Wish 至今仍常用于快速 GUI 脚本编写，gitk 等工具就使用了它。
 
 # INSTALL
 

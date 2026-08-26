@@ -1,22 +1,22 @@
 # TAGLINE
 
-List connected X11 client applications
+列出已连接的 X11 客户端应用程序
 
 # TLDR
 
-**List X clients**
+**列出 X 客户端**
 
 ```xlsclients```
 
-**Show all windows**
+**显示所有窗口**
 
 ```xlsclients -a```
 
-**Long format**
+**长格式输出**
 
 ```xlsclients -l```
 
-**Specific display**
+**指定显示器**
 
 ```xlsclients -display [:0]```
 
@@ -27,30 +27,30 @@ List connected X11 client applications
 # PARAMETERS
 
 **-a**
-> All screens.
+> 所有屏幕。
 
 **-l**
-> Long format.
+> 长格式。
 
 **-display** _DPY_
-> X display.
+> X 显示器。
 
 **-m** _MAXCMD_
-> Max command length.
+> 命令的最大长度。
 
 # DESCRIPTION
 
-**xlsclients** lists the client applications currently connected to an X display server. For each client, it shows the window name and the command used to launch it, providing a quick overview of what X11 applications are running.
+**xlsclients** 列出当前连接到 X 显示服务器的客户端应用程序。它会显示每个客户端的窗口名称和启动命令，让你快速了解哪些 X11 应用正在运行。
 
-The tool is useful for debugging X11 sessions, identifying which applications are consuming display resources, and verifying that expected clients are connected. The **-a** option shows clients across all screens, while **-l** provides a long format with additional detail about each client's machine name and command line.
+该工具适用于调试 X11 会话、识别哪些应用正在占用显示资源，以及确认预期的客户端已连接。**-a** 选项显示所有屏幕上的客户端，而 **-l** 提供长格式输出，包含每个客户端的主机名和命令行等额外细节。
 
 # CAVEATS
 
-X11 only. No Wayland. Limited info shown.
+仅支持 X11。不支持 Wayland。显示的信息有限。
 
 # HISTORY
 
-**xlsclients** is a standard X11 utility for listing client applications connected to an X server.
+**xlsclients** 是用于列出连接到 X server 的客户端应用程序的标准 X11 工具。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for managing WireGuard configurations
+管理 WireGuard 配置的 TUI 工具
 
 # TLDR
 
-**Start the setup wizard for a new interface**
+为新接口**启动设置向导**
 
 ```wg-cmd new```
 
-**Manage an existing WireGuard interface**
+**管理已有的 WireGuard 接口**
 
 ```wg-cmd [wg0]```
 
-**Generate configuration without UI**
+不打开 UI 直接**生成配置**
 
 ```wg-cmd [wg0] make```
 
@@ -22,11 +22,11 @@ TUI for managing WireGuard configurations
 
 # DESCRIPTION
 
-**wg-cmd** (WG Commander) provides a text-based user interface for managing WireGuard configuration files. It includes an initial setup wizard, peer management with QR code viewing, and automatic configuration of sysctl, systemd, and NAT rules. Requires root permissions and assumes Linux with iptables and systemd.
+**wg-cmd**（WG Commander）提供一个文本用户界面来管理 WireGuard 配置文件。它包含初始设置向导、支持查看二维码的对端管理，以及 sysctl、systemd 和 NAT 规则的自动配置。需要 root 权限，并假定系统为带有 iptables 和 systemd 的 Linux。
 
 # HISTORY
 
-**wg-cmd** was created by **Andrian Budantsov** (AndrianBdn) and is written in **Go**.
+**wg-cmd** 由 **Andrian Budantsov**（AndrianBdn）创建，使用 **Go** 编写。
 
 # INSTALL
 

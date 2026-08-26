@@ -1,26 +1,26 @@
 # TAGLINE
 
-X11 analog and digital clock display
+X11 模拟和数字时钟显示
 
 # TLDR
 
-Display **analog** clock
+显示**模拟**时钟
 
 ```xclock```
 
-Display **digital** clock (24-hour brief)
+显示**数字**时钟（24 小时简式）
 
 ```xclock -digital -brief```
 
-Digital with **custom format**
+带**自定义格式**的数字时钟
 
 ```xclock -digital -strftime [format]```
 
-Digital with **seconds** update
+按**秒**更新的数字时钟
 
 ```xclock -digital -strftime '%H:%M:%S' -update 1```
 
-**12-hour** digital clock
+**12 小时制**数字时钟
 
 ```xclock -digital -twelve -brief```
 
@@ -31,29 +31,29 @@ Digital with **seconds** update
 # PARAMETERS
 
 **-digital**
-> Display digital clock instead of analog
+> 显示数字时钟而不是模拟时钟
 
 **-brief**
-> Show only hours and minutes
+> 只显示时和分
 
 **-twelve**
-> Use 12-hour format
+> 使用 12 小时制格式
 
 **-strftime** _FORMAT_
-> Custom time format (see strftime)
+> 自定义时间格式（参见 strftime）
 
 **-update** _SECONDS_
-> Update interval
+> 更新间隔
 
 # DESCRIPTION
 
-**xclock** displays the time in analog or digital form in an X11 window. It can show various time formats and update at configurable intervals.
+**xclock** 在 X11 窗口中以模拟或数字形式显示时间。它可以以多种时间格式显示，并以可配置的间隔更新。
 
-The analog display shows a traditional clock face. Digital mode supports strftime formatting for custom displays.
+模拟显示呈现传统的钟表表盘。数字模式支持 strftime 格式化以实现自定义显示。
 
 # CAVEATS
 
-X11 only. Requires X server running. Part of X.Org utilities.
+仅支持 X11。需要运行 X 服务器。属于 X.Org 实用工具的一部分。
 
 # INSTALL
 

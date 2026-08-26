@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage ZFS storage pools
+管理 ZFS 存储池
 
 # TLDR
 
-**List all pools**
+**列出所有存储池**
 
 ```zpool list```
 
-**Show pool status**
+**显示存储池状态**
 
 ```zpool status [pool]```
 
-**Create a mirrored pool**
+**创建镜像存储池**
 
 ```sudo zpool create [pool] mirror [/dev/sda] [/dev/sdb]```
 
-**Create a RAID-Z pool**
+**创建 RAID-Z 存储池**
 
 ```sudo zpool create [pool] raidz [/dev/sda] [/dev/sdb] [/dev/sdc]```
 
-**Add devices to pool**
+**向存储池添加设备**
 
 ```sudo zpool add [pool] [/dev/sdc]```
 
-**Start a scrub**
+**启动一次清理（scrub）**
 
 ```sudo zpool scrub [pool]```
 
-**Import a pool**
+**导入存储池**
 
 ```sudo zpool import [pool]```
 
-**Export a pool**
+**导出存储池**
 
 ```sudo zpool export [pool]```
 
@@ -43,75 +43,75 @@ Manage ZFS storage pools
 # SUBCOMMANDS
 
 **create** _pool_ _vdev_...
-> Create new storage pool
+> 创建新的存储池
 
 **destroy** _pool_
-> Destroy pool and all data
+> 销毁存储池及其全部数据
 
 **add** _pool_ _vdev_...
-> Add devices to pool
+> 向存储池添加设备
 
 **remove** _pool_ _device_
-> Remove device from pool
+> 从存储池移除设备
 
 **list** [_pool_]
-> List pools and properties
+> 列出存储池及其属性
 
 **status** [_pool_]
-> Show detailed status
+> 显示详细状态
 
 **iostat** [_pool_] [_interval_]
-> Display I/O statistics
+> 显示 I/O 统计信息
 
 **scrub** _pool_
-> Verify data integrity
+> 校验数据完整性
 
 **import** [_pool_]
-> Import pool(s)
+> 导入存储池
 
 **export** _pool_
-> Export pool for transport
+> 导出存储池以便迁移
 
 **upgrade** _pool_
-> Upgrade pool version
+> 升级存储池版本
 
 **history** _pool_
-> Show pool command history
+> 显示存储池的命令历史
 
 **attach** _pool_ _device_ _new_device_
-> Attach mirror to device
+> 为设备附加镜像
 
 **detach** _pool_ _device_
-> Detach mirror device
+> 分离镜像设备
 
 **replace** _pool_ _old_ _new_
-> Replace disk in pool
+> 更换存储池中的磁盘
 
 **online/offline** _pool_ _device_
-> Bring device online/offline
+> 使设备上线/离线
 
 # DESCRIPTION
 
-**zpool** manages ZFS storage pools. A pool is composed of virtual devices (vdevs) which can be single disks, mirrors, or RAID-Z configurations. Pools provide the underlying storage that ZFS datasets use.
+**zpool** 用于管理 ZFS 存储池。存储池由虚拟设备（vdev）组成，vdev 可以是单块磁盘、镜像或 RAID-Z 配置。存储池为 ZFS 数据集提供底层存储。
 
-Vdev types:
-- **mirror** - Data mirrored across 2+ disks
-- **raidz**, **raidz2**, **raidz3** - RAID-Z with 1/2/3 parity disks
-- **spare** - Hot spare disk
-- **cache** - L2ARC read cache (SSD)
-- **log** - ZIL write log (SSD)
+Vdev 类型：
+- **mirror** - 数据镜像到 2 块及以上磁盘
+- **raidz**、**raidz2**、**raidz3** - 带 1/2/3 个奇偶校验盘的 RAID-Z
+- **spare** - 热备磁盘
+- **cache** - L2ARC 读缓存（SSD）
+- **log** - ZIL 写日志（SSD）
 
-Scrubbing verifies all data checksums and repairs errors using redundant copies. Regular scrubs are essential for data integrity.
+清理（scrub）会校验所有数据的校验和，并利用冗余副本修复错误。定期清理对数据完整性至关重要。
 
 # CAVEATS
 
-Most operations require root privileges.
+大多数操作需要 root 权限。
 
-Pool destruction is permanent. **zpool destroy** deletes all data.
+销毁存储池不可逆。**zpool destroy** 会删除所有数据。
 
-RAID-Z cannot be expanded by adding disks to an existing vdev (as of OpenZFS 2.2, expansion is possible on some platforms).
+RAID-Z 无法通过向现有 vdev 追加磁盘来扩容（自 OpenZFS 2.2 起，部分平台已支持扩容）。
 
-Regular scrubs are critical. ZFS detects but cannot repair single-disk pool errors.
+定期清理至关重要。ZFS 能检测到单盘存储池的错误，但无法修复。
 
 # INSTALL
 

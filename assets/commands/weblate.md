@@ -1,34 +1,34 @@
 # TAGLINE
 
-Weblate translation management client
+Weblate 翻译管理客户端
 
 # TLDR
 
-**List projects (using wlc client)**
+**列出项目（使用 wlc 客户端）**
 
 ```wlc list-projects```
 
-**List components**
+**列出组件**
 
 ```wlc list-components [project/component]```
 
-**Download translations**
+**下载翻译**
 
 ```wlc download [project/component/language]```
 
-**Upload translation file**
+**上传翻译文件**
 
 ```wlc upload [project/component/language] [file.po]```
 
-**Lock component for editing**
+**锁定组件以进行编辑**
 
 ```wlc lock [project/component]```
 
-**Push changes to repository**
+**推送更改到仓库**
 
 ```wlc push [project/component]```
 
-**Show component stats**
+**显示组件统计信息**
 
 ```wlc stats [project/component]```
 
@@ -38,60 +38,60 @@ Weblate translation management client
 
 # WLC COMMANDS
 
-**list-projects**: List all projects.
+**list-projects**：列出所有项目。
 
-**list-components**: List components in project.
+**list-components**：列出项目中的组件。
 
-**list-translations**: List translations.
+**list-translations**：列出翻译。
 
-**show**: Show object details.
+**show**：显示对象详情。
 
-**download**: Download translation file.
+**download**：下载翻译文件。
 
-**upload**: Upload translation file.
+**upload**：上传翻译文件。
 
-**lock** / **unlock**: Lock/unlock translations.
+**lock** / **unlock**：锁定/解锁翻译。
 
-**push** / **pull**: Sync with repository.
+**push** / **pull**：与仓库同步。
 
-**commit**: Commit pending changes.
+**commit**：提交待处理的更改。
 
-**stats**: Show translation statistics.
+**stats**：显示翻译统计信息。
 
 # PARAMETERS
 
 **--url** _url_
-> Weblate server URL.
+> Weblate 服务器 URL。
 
 **--key** _key_
-> API key for authentication.
+> 用于身份验证的 API 密钥。
 
 **--format** _fmt_
-> Output format (text, csv, json, html).
+> 输出格式（text、csv、json、html）。
 
 **-o** _file_
-> Output to file.
+> 输出到文件。
 
 # DESCRIPTION
 
-**wlc** (Weblate Client) manages Weblate translation servers remotely via the REST API. It enables automation of translation workflows, continuous localization, and integration with build systems.
+**wlc**（Weblate Client）通过 REST API 远程管理 Weblate 翻译服务器。它支持翻译工作流自动化、持续本地化以及与构建系统的集成。
 
-The client handles common tasks: downloading/uploading translations, triggering repository syncs, locking during releases, and querying statistics. Configuration in ~/.config/weblate stores server URLs and API keys.
+该客户端处理常见任务：下载/上传翻译、触发仓库同步、发布期间锁定翻译以及查询统计信息。~/.config/weblate 中的配置保存服务器 URL 和 API 密钥。
 
-Server-side management uses Django's manage.py or the weblate script for database operations, import/export, and administration tasks.
+服务器端管理使用 Django 的 manage.py 或 weblate 脚本执行数据库操作、导入/导出和管理任务。
 
 # CONFIGURATION
 
 **~/.config/weblate**
-> Client configuration containing server URLs and API keys for authentication.
+> 客户端配置，包含用于身份验证的服务器 URL 和 API 密钥。
 
 # CAVEATS
 
-Requires API key from Weblate server. Rate limits may apply. Some operations require appropriate permissions on the server.
+需要 Weblate 服务器的 API 密钥。可能受速率限制。某些操作需要在服务器上具有相应权限。
 
 # HISTORY
 
-**Weblate** was created by Michal Čihař as a web-based continuous localization system. The wlc client enables command-line and scripted interaction with Weblate servers, supporting automated translation workflows.
+**Weblate** 由 Michal Čihař 创建，是一套基于网页的持续本地化系统。wlc 客户端使命令行和脚本方式操作 Weblate 服务器成为可能，支持自动化的翻译工作流。
 
 # INSTALL
 

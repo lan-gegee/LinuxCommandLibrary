@@ -1,34 +1,34 @@
 # TAGLINE
 
-Zsh plugin manager with parallel loading
+支持并行加载的 Zsh 插件管理器
 
 # TLDR
 
-**Load a plugin from GitHub**
+**从 GitHub 加载插件**
 
 ```zplug "[user/repo]"```
 
-**Load Oh My Zsh plugin**
+**加载 Oh My Zsh 插件**
 
 ```zplug "plugins/[git]", from:oh-my-zsh```
 
-**Load with specific command**
+**以命令形式加载**
 
 ```zplug "[user/repo]", as:command```
 
-**Load theme**
+**加载主题**
 
 ```zplug "[user/repo]", as:theme```
 
-**Install plugins**
+**安装插件**
 
 ```zplug install```
 
-**Update all plugins**
+**更新所有插件**
 
 ```zplug update```
 
-**Load all plugins**
+**加载所有插件**
 
 ```zplug load```
 
@@ -41,60 +41,60 @@ Zsh plugin manager with parallel loading
 # TAGS
 
 **from:**_source_
-> Plugin source (github, oh-my-zsh, local, etc.)
+> 插件来源（github、oh-my-zsh、local 等）
 
 **as:**_type_
-> Type: plugin, command, or theme
+> 类型：plugin、command 或 theme
 
 **use:**_pattern_
-> Glob pattern for files to source
+> 指定要 source 的文件的 glob 模式
 
 **at:**_branch/tag_
-> Branch, tag, or commit to use
+> 使用的分支、标签或提交
 
 **rename-to:**_name_
-> Rename command
+> 重命名命令
 
 **frozen:**_bool_
-> Don't update this plugin
+> 不更新此插件
 
 **defer:**_level_
-> Defer loading (0-3, higher loads later)
+> 延迟加载（0-3，数值越大加载越晚）
 
 **if:**_condition_
-> Conditional loading
+> 条件加载
 
 **hook-build:**_command_
-> Command to run after install
+> 安装后运行的命令
 
 # SUBCOMMANDS
 
 **install**
-> Install plugins not yet installed
+> 安装尚未安装的插件
 
 **update**
-> Update all plugins
+> 更新所有插件
 
 **load**
-> Source plugins
+> source 各个插件
 
 **list**
-> List installed plugins
+> 列出已安装的插件
 
 **clean**
-> Remove unused plugins
+> 移除未使用的插件
 
 **status**
-> Check plugin update status
+> 检查插件更新状态
 
 **check**
-> Check if plugin is installed
+> 检查插件是否已安装
 
 # DESCRIPTION
 
-**zplug** is a next-generation Zsh plugin manager featuring parallel installation, lazy loading, and dependency management. It supports loading from GitHub, Oh My Zsh, Prezto, local files, and gists.
+**zplug** 是新一代 Zsh 插件管理器，具有并行安装、延迟加载和依赖管理等特点。它支持从 GitHub、Oh My Zsh、Prezto、本地文件和 gist 加载内容。
 
-A typical .zshrc setup:
+典型的 .zshrc 配置：
 ```
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
@@ -103,15 +103,15 @@ if ! zplug check; then zplug install; fi
 zplug load
 ```
 
-zplug can manage not just Zsh plugins but also commands and binaries, installing them to a managed directory.
+zplug 不仅能管理 Zsh 插件，还能管理命令和二进制文件，并将它们安装到一个受管理的目录中。
 
 # CAVEATS
 
-zplug development has slowed. Consider **zinit** or **sheldon** for actively maintained alternatives.
+zplug 的开发节奏已经放缓。可以考虑 **zinit** 或 **sheldon** 这类仍在积极维护的替代品。
 
-First run may be slow while plugins install. Subsequent loads are fast.
+首次运行时安装插件可能较慢。之后的加载会很快。
 
-Complex configurations with many deferred plugins can make debugging difficult.
+包含大量延迟加载插件的复杂配置会加大调试难度。
 
 # INSTALL
 

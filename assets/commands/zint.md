@@ -1,30 +1,30 @@
 # TAGLINE
 
-Multi-format barcode generator
+多格式条形码生成器
 
 # TLDR
 
-**Generate QR code**
+**生成 QR 码**
 
 ```zint -b 58 -d "[data]" -o [output.png]```
 
-**Generate Code 128 barcode**
+**生成 Code 128 条形码**
 
 ```zint -b 20 -d "[data]" -o [output.png]```
 
-**Generate EAN-13 barcode**
+**生成 EAN-13 条形码**
 
 ```zint -b 13 -d "[1234567890123]"```
 
-**Set output format**
+**设置输出格式**
 
 ```zint -b 58 -d "[data]" -o [output.svg]```
 
-**Scale barcode size**
+**缩放条形码尺寸**
 
 ```zint -b 58 -d "[data]" --scale [3]```
 
-**Generate with human-readable text**
+**生成带人类可读文本的条形码**
 
 ```zint -b 20 -d "[data]" --notext=0```
 
@@ -35,62 +35,62 @@ Multi-format barcode generator
 # PARAMETERS
 
 **-b** _type_
-> Barcode type (number or name)
+> 条形码类型（编号或名称）
 
 **-d** _data_
-> Data to encode
+> 要编码的数据
 
 **-o** _file_
-> Output filename
+> 输出文件名
 
 **--scale** _factor_
-> Scale factor for output
+> 输出的缩放系数
 
 **--height** _value_
-> Barcode height (for 1D barcodes)
+> 条形码高度（用于一维条形码）
 
 **--fg** _color_
-> Foreground color (hex)
+> 前景色（十六进制）
 
 **--bg** _color_
-> Background color (hex)
+> 背景色（十六进制）
 
 **--notext**
-> Disable human-readable text
+> 禁用人类可读文本
 
 **-i** _file_
-> Read data from file
+> 从文件读取数据
 
 **--batch**
-> Process batch data from file
+> 处理来自文件的批量数据
 
 **--dump**
-> Output hex dump instead of image
+> 输出十六进制转储而非图像
 
 **-e**
-> Display symbol information
+> 显示符号信息
 
 # BARCODE TYPES
 
-Common types: **1** (Code 11), **13** (EAN-13), **20** (Code 128), **29** (UPC-A), **55** (PDF417), **58** (QR Code), **71** (Data Matrix), **92** (Aztec Code), **142** (MaxiCode)
+常见类型：**1**（Code 11）、**13**（EAN-13）、**20**（Code 128）、**29**（UPC-A）、**55**（PDF417）、**58**（QR Code）、**71**（Data Matrix）、**92**（Aztec Code）、**142**（MaxiCode）
 
-Use **zint -t** to list all supported types.
+使用 **zint -t** 列出所有支持的类型。
 
 # DESCRIPTION
 
-**zint** is a barcode generator supporting over 50 barcode types. It creates 1D barcodes (Code 128, EAN, UPC), 2D barcodes (QR Code, Data Matrix, PDF417), and specialized formats (postal codes, pharmaceutical).
+**zint** 是一款支持 50 多种条形码类型的生成器。它可创建一维条形码（Code 128、EAN、UPC）、二维条形码（QR Code、Data Matrix、PDF417）以及专用格式（邮政编码、医药条码）。
 
-Output formats include PNG, BMP, GIF, PCX, SVG, EPS, and EMF. The tool can also output raw hex dumps for debugging or custom rendering.
+输出格式包括 PNG、BMP、GIF、PCX、SVG、EPS 和 EMF。该工具还可输出原始十六进制转储，用于调试或自定义渲染。
 
-zint includes both a command-line interface and a GUI (zint-qt). A library (libzint) is available for integration into applications.
+zint 同时提供命令行界面和 GUI（zint-qt）。还提供库（libzint）以便集成到应用程序中。
 
 # CAVEATS
 
-Different barcode types have different data requirements. Some accept only numbers, others have length restrictions.
+不同的条形码类型有不同的数据要求。有些只接受数字，有些有长度限制。
 
-QR codes and other 2D barcodes have error correction levels that trade capacity for redundancy.
+QR 码等二维条形码具有纠错级别，会在容量与冗余之间权衡。
 
-Not all barcode scanners support all symbologies. Verify compatibility with target readers.
+并非所有条码扫描器都支持所有符号体系。请验证与目标读取设备的兼容性。
 
 # INSTALL
 

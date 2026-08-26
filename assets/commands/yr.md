@@ -1,18 +1,18 @@
 # TAGLINE
 
-Weather forecasts delivered to your terminal
+将天气预报送到终端
 
 # TLDR
 
-**Show current weather**
+**显示当前天气**
 
 ```yr```
 
-**Show 5-day forecast**
+**显示 5 天预报**
 
 ```yr -f```
 
-**Show tomorrow's weather at noon**
+**显示明天正午的天气**
 
 ```yr -d 1 -h 12```
 
@@ -23,38 +23,38 @@ Weather forecasts delivered to your terminal
 # PARAMETERS
 
 **-f**, **--forecast**
-> Show a multi-day forecast instead of the current weather.
+> 显示多日预报而非当前天气。
 
 **-d** _DAYS_
-> Forecast offset in days from today (0 = today, 1 = tomorrow).
+> 距今天的天数偏移（0 = 今天，1 = 明天）。
 
 **-h** _HOUR_
-> Forecast hour of the day (0-23).
+> 预报的小时数（0-23）。
 
 **-l** _LOCATION_
-> Override the configured location for this query.
+> 本次查询覆盖已配置的位置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**yr** is a command-line tool that fetches weather data from the yr.no API (Meteorologisk institutt) and OpenStreetMap's Nominatim API. It outputs forecasts in JSON format and supports querying specific hours and multi-day forecasts via a configuration file.
+**yr** 是一款命令行工具，从 yr.no API（挪威气象局 Meteorologisk institutt）和 OpenStreetMap 的 Nominatim API 获取天气数据。它以 JSON 格式输出预报，并支持通过配置文件查询特定小时和多日预报。
 
-A configuration file (typically under `~/.config/yr/`) stores the default location, units, and language so simple queries can be made without arguments.
+配置文件（通常位于 `~/.config/yr/` 下）保存默认位置、单位和语言设置，因此简单查询无需任何参数。
 
 # CONFIGURATION
 
 **~/.config/yr/config.toml**
-> Default location, units, and language settings.
+> 默认位置、单位与语言设置。
 
 # CAVEATS
 
-Requires network access to reach yr.no and Nominatim. Data coverage is global but precision varies by location. Hourly forecasts are limited to the range provided by the upstream API.
+需要网络访问以连接 yr.no 和 Nominatim。数据覆盖全球，但精度因位置而异。逐小时预报的范围受上游 API 提供的数据限制。
 
 # HISTORY
 
-**yr** was created by **clux** and is written in **Rust**.
+**yr** 由 **clux** 创建，以 **Rust** 编写。
 
 # INSTALL
 

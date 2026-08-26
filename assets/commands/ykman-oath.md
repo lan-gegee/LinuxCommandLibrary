@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage YubiKey OATH accounts
+管理 YubiKey OATH 账户
 
 # TLDR
 
-**List OATH accounts**
+**列出 OATH 账户**
 
 ```ykman oath accounts list```
 
-**Add TOTP account**
+**添加 TOTP 账户**
 
 ```ykman oath accounts add [name] [secret]```
 
-**Generate code**
+**生成验证码**
 
 ```ykman oath accounts code [name]```
 
-**Delete account**
+**删除账户**
 
 ```ykman oath accounts delete [name]```
 
@@ -27,20 +27,20 @@ Manage YubiKey OATH accounts
 # PARAMETERS
 
 **accounts** _cmd_
-> Manage OATH accounts.
+> 管理 OATH 账户。
 
 **info**
-> Show OATH information.
+> 显示 OATH 信息。
 
 **access** _cmd_
-> Manage password protection.
+> 管理密码保护。
 
 **reset**
-> Reset OATH application.
+> 重置 OATH 应用。
 
 # DESCRIPTION
 
-**ykman oath** manages TOTP/HOTP accounts on YubiKey. Store 2FA secrets securely on hardware. Generate one-time passwords for authentication.
+**ykman oath** 管理 YubiKey 上的 TOTP/HOTP 账户。将双因素认证机密安全地存储在硬件中，并可生成用于身份验证的一次性密码。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Manage YubiKey OATH accounts
 # SEE ALSO
 
 [ykman](/man/ykman)(1), [ykman-fido](/man/ykman-fido)(1)
-

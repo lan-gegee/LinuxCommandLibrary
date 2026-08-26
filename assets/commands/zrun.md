@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run commands on compressed files by auto-decompressing arguments
+自动解压参数，对压缩文件运行命令
 
 # TLDR
 
-**Run command on compressed file**
+**对压缩文件运行命令**
 
 ```zrun [command] [file.gz]```
 
-**Run diff on two compressed files**
+**对两个压缩文件运行 diff**
 
 ```zrun diff [file1.gz] [file2.gz]```
 
-**Run less on gzipped file**
+**对 gzip 文件运行 less**
 
 ```zrun less [file.gz]```
 
@@ -22,21 +22,21 @@ Run commands on compressed files by auto-decompressing arguments
 
 # DESCRIPTION
 
-**zrun** transparently decompresses compressed file arguments to temporary files before passing them to the specified command. It detects which arguments are compressed files by their extension, decompresses only those to temporary files (not pipes), runs the command with the decompressed paths, then cleans up.
+**zrun** 会先将压缩文件参数透明地解压到临时文件，再交给指定命令处理。它根据扩展名识别哪些参数是压缩文件，只把这些解压到临时文件（而不是管道），用解压后的路径运行命令，最后完成清理。
 
-This is useful for running commands that don't natively support compressed input without manual decompression steps.
+对于原生不支持压缩输入的命令，它可以省去手动解压的步骤。
 
-The following compression types are supported: **gz**, **bz2**, **Z**, **xz**, **lzma**, **lzo**.
+支持以下压缩类型：**gz**、**bz2**、**Z**、**xz**、**lzma**、**lzo**。
 
-If **zrun** is symlinked to a name beginning with **z** (e.g., **zprog**), executing the link is equivalent to running **zrun prog**.
+如果把 **zrun** 符号链接为一个以 **z** 开头的名字（例如 **zprog**），那么执行该链接就等同于运行 **zrun prog**。
 
 # CAVEATS
 
-Modifications to the uncompressed temporary file are not fed back into the input file, so using this as a way to make an editor support compressed files will not work.
+对解压出的临时文件所做的修改不会回写到输入文件，因此不能用这个办法让编辑器支持压缩文件。
 
-Large compressed files require temporary disk space for decompression.
+较大的压缩文件解压时需要占用临时磁盘空间。
 
-The command sees different (temporary) filenames than the originals, which may matter for some tools.
+命令看到的是不同的（临时）文件名，而不是原始文件名，这对某些工具可能有影响。
 
 # INSTALL
 

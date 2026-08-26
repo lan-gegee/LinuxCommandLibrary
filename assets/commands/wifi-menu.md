@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive wireless network connection dialog
+交互式无线网络连接对话框
 
 # TLDR
 
-Connect **interactively**
+以**交互方式**连接
 
 ```wifi-menu```
 
-Connect with **obscured** password
+连接时**遮蔽**密码
 
 ```wifi-menu -o```
 
-Display **help**
+显示**帮助**
 
 ```wifi-menu -h```
 
@@ -23,20 +23,20 @@ Display **help**
 # PARAMETERS
 
 **-o, --obscure**
-> Obscure the wireless passphrase
+> 遮蔽无线密码短语
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**wifi-menu** provides an interactive text-based interface for connecting to wireless networks. It scans for available networks and allows selection and configuration through a dialog menu.
+**wifi-menu** 提供交互式的文本界面用于连接无线网络。它会扫描可用网络，并允许通过对话框菜单进行选择和配置。
 
-Part of the netctl package for Arch Linux, it creates and manages netctl profiles for wireless connections.
+它是 Arch Linux netctl 软件包的一部分，为无线连接创建和管理 netctl 配置文件。
 
 # CAVEATS
 
-Arch Linux specific (netctl). Requires root privileges. Creates profile files in /etc/netctl/. May conflict with NetworkManager.
+Arch Linux 专用（netctl）。需要 root 权限。会在 /etc/netctl/ 中创建配置文件。可能与 NetworkManager 冲突。
 
 # SEE ALSO
 

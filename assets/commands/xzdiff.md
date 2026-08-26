@@ -1,14 +1,14 @@
 # TAGLINE
 
-Show differences in xz compressed files
+显示 xz 压缩文件的差异
 
 # TLDR
 
-**Show differences in xz files**
+**显示 xz 文件的差异**
 
 ```xzdiff [file1.xz] [file2.xz]```
 
-**Compare compressed with original**
+**将压缩文件与原文件比较**
 
 ```xzdiff [file.xz] [file]```
 
@@ -18,7 +18,7 @@ Show differences in xz compressed files
 
 # DESCRIPTION
 
-**xzdiff** shows differences between xz compressed files. Decompresses and runs diff on the contents. Supports all diff options. Wrapper around diff for xz files.
+**xzdiff** 显示 xz 压缩文件之间的差异。它会解压后对内容运行 diff。支持所有 diff 选项。它是 diff 针对 xz 文件的封装。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ Show differences in xz compressed files
 # SEE ALSO
 
 [xz](/man/xz)(1), [xzcmp](/man/xzcmp)(1), [diff](/man/diff)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal weather forecast with ASCII art
+带 ASCII 艺术的终端天气预报
 
 # TLDR
 
-**Show 3-day forecast for current location**
+**显示当前位置的 3 天预报**
 
 ```wego```
 
-**Show forecast for specific city**
+**显示指定城市的预报**
 
 ```wego [London]```
 
-**Show 5-day forecast**
+**显示 5 天预报**
 
 ```wego -d [5]```
 
-**Show forecast for city with days**
+**显示指定城市指定天数的预报**
 
 ```wego [Paris] [4]```
 
-**Use emoji frontend**
+**使用 emoji 前端**
 
 ```wego -f emoji```
 
-**Output as JSON**
+**输出 JSON**
 
 ```wego -f json```
 
@@ -35,44 +35,44 @@ Terminal weather forecast with ASCII art
 # PARAMETERS
 
 **-d**, **--days** _num_
-> Number of forecast days (1-7, default 3).
+> 预报天数（1-7，默认 3）。
 
 **-f**, **--frontend** _type_
-> Output frontend: ascii-art-table, emoji, or json.
+> 输出前端：ascii-art-table、emoji 或 json。
 
 **-u**, **--units** _system_
-> Units: metric or imperial.
+> 单位制：metric 或 imperial。
 
 **-b**, **--backend** _name_
-> Weather data source.
+> 天气数据源。
 
 **-l**, **--location** _place_
-> Set location for forecast.
+> 设置预报位置。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wego** is a terminal weather client that displays forecasts using ASCII art. Written in Go, it shows temperature, wind speed and direction, visibility, and precipitation probability.
+**wego** 是一款以 ASCII 艺术显示预报的终端天气客户端。它使用 Go 编写，可显示温度、风速与风向、能见度和降水概率。
 
-The tool supports multiple weather data backends including OpenWeatherMap. You need to register for an API key and configure it in ~/.wegorc before use.
+该工具支持多种天气数据后端，包括 OpenWeatherMap。使用前你需要注册获取 API 密钥并在 ~/.wegorc 中配置。
 
-Three output frontends are available: ascii-art-table (classic terminal look), emoji (modern icons), and json (for scripting). The display requires a UTF-8 terminal with 256 colors.
+有三种输出前端可选：ascii-art-table（经典终端外观）、emoji（现代图标）和 json（便于脚本处理）。显示效果需要支持 UTF-8 和 256 色的终端。
 
 # CONFIGURATION
 
-Config file: ~/.wegorc
+配置文件：~/.wegorc
 
-Required: API key from weather backend. Optional: default location, units, and frontend preferences.
+必需：天气后端的 API 密钥。可选：默认位置、单位制和前端偏好。
 
 # CAVEATS
 
-Requires API key from weather service. Some backends no longer offer free keys. Needs UTF-8 terminal with 256 colors and appropriate fonts for ASCII art display.
+需要天气服务的 API 密钥。部分后端已不再提供免费密钥。ASCII 艺术显示需要支持 UTF-8 和 256 色的终端以及合适的字体。
 
 # HISTORY
 
-**wego** was created as a fun terminal weather application. It inspired wttr.in, a web service that wraps wego and serves weather via curl, making terminal weather checks as simple as `curl wttr.in`.
+**wego** 最初是一个趣味性的终端天气应用。它启发了 wttr.in——一个封装 wego 并通过 curl 提供天气查询的网络服务，让终端查天气简单到只需 `curl wttr.in`。
 
 # INSTALL
 

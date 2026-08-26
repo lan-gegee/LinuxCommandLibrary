@@ -1,14 +1,14 @@
 # TAGLINE
 
-X11 mouse-tracking eyes demo
+X11 鼠标追踪眼睛演示程序
 
 # TLDR
 
-**Launch** xeyes
+**启动** xeyes
 
 ```xeyes```
 
-Launch on **remote** display
+在**远程**显示器上启动
 
 ```xeyes -display [remote_host]:[0].[0]```
 
@@ -19,33 +19,33 @@ Launch on **remote** display
 # PARAMETERS
 
 **-display** _HOST:DISPLAY.SCREEN_
-> X display to connect to
+> 要连接的 X 显示器
 
 **-geometry** _WxH+X+Y_
-> Window size and position
+> 窗口大小和位置
 
 **-fg** _COLOR_
-> Foreground color
+> 前景色
 
 **-bg** _COLOR_
-> Background color
+> 背景色
 
 **-center** _COLOR_
-> Pupil center color
+> 瞳孔中心的颜色
 
 # DESCRIPTION
 
-**xeyes** displays a pair of eyes on the screen that follow the mouse cursor. It's a classic X11 demo application used to verify X11 display connectivity.
+**xeyes** 在屏幕上显示一双跟随鼠标光标移动的眼睛。它是一个经典的 X11 演示程序，常用于验证 X11 显示连接是否正常。
 
-The eyes track the mouse pointer position across the entire screen.
+这双眼睛会追踪鼠标指针在整个屏幕上的位置。
 
 # HISTORY
 
-**xeyes** is one of the original X11 demo programs, dating back to the 1980s. It has been included with X Window System distributions as a simple test and novelty application.
+**xeyes** 是最早的 X11 演示程序之一，可以追溯到 20 世纪 80 年代。它作为简单的测试和趣味应用，一直随 X Window System 发行版一同提供。
 
 # CAVEATS
 
-X11 only. Limited practical use beyond testing display connections.
+仅支持 X11。除测试显示连接外实际用途有限。
 
 # INSTALL
 

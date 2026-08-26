@@ -1,18 +1,18 @@
 # TAGLINE
 
-Process .so includes in roff source files
+处理 roff 源文件中的 .so 包含
 
 # TLDR
 
-**Process .so requests in file**
+**处理文件中的 .so 请求**
 
 ```zsoelim [file.man]```
 
-**Process from stdin**
+**从 stdin 处理**
 
 ```cat [file.man] | zsoelim```
 
-**Process compressed man page**
+**处理压缩的 man page**
 
 ```zcat [file.man.gz] | zsoelim```
 
@@ -23,31 +23,31 @@ Process .so includes in roff source files
 # PARAMETERS
 
 **-C**, **--compatible**
-> Enable .so requests followed by something other than whitespace
+> 允许 .so 请求后面跟非空白字符
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**zsoelim** processes **.so** requests in roff/man page source files. The **.so** directive includes the content of another file, similar to C's #include.
+**zsoelim** 用于处理 roff/man page 源文件中的 **.so** 请求。**.so** 指令会把另一个文件的内容包含进来，类似 C 语言的 #include。
 
-When man pages contain lines like **.so man3/other.3**, zsoelim reads and substitutes the referenced file's content. This is used in the man page system to avoid duplicating documentation for aliases.
+当 man page 中出现 **.so man3/other.3** 这样的行时，zsoelim 会读取被引用文件的内容并加以替换。man page 系统用它来避免为命令别名重复编写文档。
 
-The "z" prefix indicates support for gzip-compressed input files, typical of the man page system where sources may be stored compressed.
+"z" 前缀表示支持 gzip 压缩的输入文件，这在 man page 系统中很典型，因为源文件可能以压缩形式存储。
 
-zsoelim searches for included files in the standard man page hierarchy and processes them recursively.
+zsoelim 会在标准 man page 目录层级中搜索被包含的文件，并进行递归处理。
 
 # CAVEATS
 
-Primarily used as part of the man page processing pipeline, rarely invoked directly.
+主要作为 man page 处理流水线的一环使用，很少被直接调用。
 
-File paths in .so directives are relative to the man directory structure, not the current directory.
+.so 指令中的文件路径是相对于 man 目录结构的，而非当前目录。
 
-The tool expects roff/man page format input. It's not a general-purpose file includer.
+该工具要求输入为 roff/man page 格式。它不是通用的文件包含工具。
 
 # SEE ALSO
 

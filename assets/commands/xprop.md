@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display X11 window properties
+显示 X11 窗口属性
 
 # TLDR
 
-**Click to select a window** and display its properties
+**点击选择窗口**并显示其属性
 
 ```xprop```
 
-**Display properties of the root window**
+**显示根窗口的属性**
 
 ```xprop -root```
 
-**Display properties of a window by ID**
+**按 ID 显示窗口属性**
 
 ```xprop -id [0x200007]```
 
-**Display properties of a window by name**
+**按名称显示窗口属性**
 
 ```xprop -name "[window_name]"```
 
-**Display a specific property**
+**显示特定属性**
 
 ```xprop -root WM_NAME```
 
-**Monitor property changes** continuously
+持续**监视属性变化**
 
 ```xprop -spy -id [window_id]```
 
-**Set a property** on a window
+**设置窗口上的某个属性**
 
 ```xprop -root -set [PROPERTY_NAME] "[value]"```
 
-**Remove a property** from a window
+**移除窗口上的某个属性**
 
 ```xprop -root -remove [PROPERTY_NAME]```
 
@@ -43,56 +43,56 @@ Display X11 window properties
 # PARAMETERS
 
 **-display** _display_
-> Connect to the specified X server.
+> 连接到指定的 X server。
 
 **-id** _id_
-> Query window by numeric ID (decimal or hex with 0x prefix).
+> 按数字 ID 查询窗口（十进制或带 0x 前缀的十六进制）。
 
 **-name** _name_
-> Query window by its WM_NAME property (title).
+> 按窗口的 WM_NAME 属性（标题）查询窗口。
 
 **-root**
-> Display properties of the root window (desktop).
+> 显示根窗口（桌面）的属性。
 
 **-frame**
-> Select the window manager frame instead of the client window.
+> 选择窗口管理器的边框而不是客户端窗口。
 
 **-len** _n_
-> Limit output to the first n bytes per property.
+> 将每个属性的输出限制在前 n 个字节内。
 
 **-notype**
-> Don't print property types, only names and values.
+> 不打印属性类型，只打印名称和值。
 
 **-spy**
-> Monitor for property change events continuously.
+> 持续监视属性变化事件。
 
 **-set** _property_ _value_
-> Set a property on the window.
+> 在窗口上设置属性。
 
 **-remove** _property_
-> Remove a property from the window.
+> 从窗口上移除属性。
 
 **-f** _atom_ _format_ [_dformat_]
-> Specify format for interpreting a property.
+> 指定解释属性所用的格式。
 
 **-version**
-> Print version and exit.
+> 打印版本号并退出。
 
 # DESCRIPTION
 
-**xprop** displays properties of X Window System windows. Properties are arbitrary data that applications and window managers use to communicate, such as window titles (WM_NAME), window classes (WM_CLASS), and window states.
+**xprop** 显示 X Window System 窗口的属性。属性是应用程序和窗口管理器用来通信的任意数据，例如窗口标题（WM_NAME）、窗口类（WM_CLASS）和窗口状态。
 
-When invoked without **-id**, **-name**, or **-root**, xprop displays a crosshair cursor allowing interactive window selection by clicking. Specific properties can be listed as arguments to display only those.
+在不带 **-id**、**-name** 或 **-root** 的情况下调用时，xprop 会显示一个十字光标，允许点击交互式选择窗口。可以在参数中列出特定属性，从而只显示这些属性。
 
-Common properties include WM_NAME (title), WM_CLASS (application class), WM_STATE, _NET_WM_PID, and various Extended Window Manager Hints (_NET_WM_*).
+常见属性包括 WM_NAME（标题）、WM_CLASS（应用类）、WM_STATE、_NET_WM_PID 以及各种扩展窗口管理器提示（Extended Window Manager Hints，_NET_WM_*）。
 
 # CAVEATS
 
-xprop only works with X11 windows; Wayland applications may not expose properties the same way. Window IDs can be obtained from **xwininfo** or **xdotool**. Property names are case-sensitive.
+xprop 仅适用于 X11 窗口；Wayland 应用程序可能不会以相同方式暴露属性。窗口 ID 可以通过 **xwininfo** 或 **xdotool** 获得。属性名区分大小写。
 
 # HISTORY
 
-xprop is part of the standard X.Org utility collection and has been included with X Window System distributions since the early X11 releases in the **1980s**. It remains an essential debugging and scripting tool for X11 environments.
+xprop 是标准 X.Org 工具集的一部分，自 **20 世纪 80 年代**早期 X11 发布以来就随 X Window System 发行版一同提供。它至今仍是 X11 环境中不可或缺的调试和脚本编写工具。
 
 # INSTALL
 

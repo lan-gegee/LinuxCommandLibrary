@@ -1,22 +1,22 @@
 # TAGLINE
 
-Install desktop menu entries
+安装桌面菜单项
 
 # TLDR
 
-**Install** application to menu
+将应用**安装**到菜单
 
 ```xdg-desktop-menu install [path/to/file.desktop]```
 
-Install **without vendor** check
+**不做厂商**检查直接安装
 
 ```xdg-desktop-menu install --novendor [path/to/file.desktop]```
 
-**Uninstall** from menu
+从菜单**卸载**
 
 ```xdg-desktop-menu uninstall [path/to/file.desktop]```
 
-**Force update** menu
+**强制更新**菜单
 
 ```xdg-desktop-menu forceupdate --mode [user|system]```
 
@@ -27,29 +27,29 @@ Install **without vendor** check
 # PARAMETERS
 
 **install** _FILE_
-> Install desktop file to menu system
+> 将 desktop 文件安装到菜单系统
 
 **uninstall** _FILE_
-> Remove desktop file from menu system
+> 从菜单系统中移除 desktop 文件
 
 **forceupdate**
-> Force menu system to update
+> 强制菜单系统更新
 
 **--novendor**
-> Disable vendor prefix check
+> 禁用厂商前缀检查
 
 **--mode** _MODE_
-> Specify user or system mode
+> 指定 user 或 system 模式
 
 # DESCRIPTION
 
-**xdg-desktop-menu** installs and uninstalls desktop menu items conforming to the FreeDesktop.org Desktop Entry Specification. It handles the registration of applications with the desktop menu system.
+**xdg-desktop-menu** 安装和卸载符合 FreeDesktop.org Desktop Entry 规范的桌面菜单项。它负责向桌面菜单系统注册应用程序。
 
-The tool is part of the xdg-utils package that provides standardized desktop integration utilities.
+该工具是 xdg-utils 软件包的一部分，后者提供标准化的桌面集成实用程序。
 
 # CAVEATS
 
-Requires valid .desktop files. Menu system must be XDG compliant. Changes may require logout or menu refresh to appear.
+需要有效的 .desktop 文件。菜单系统必须符合 XDG 规范。更改可能需要注销或刷新菜单后才能显示。
 
 # INSTALL
 

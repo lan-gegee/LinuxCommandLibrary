@@ -1,14 +1,14 @@
 # TAGLINE
 
-Minimal neofetch-like system info tool in Zig
+用 Zig 编写的极简 neofetch 风格系统信息工具
 
 # TLDR
 
-**Display system information**
+**显示系统信息**
 
 ```zigfetch```
 
-**Display with no ASCII art logo**
+**显示时不带 ASCII 艺术标志**
 
 ```zigfetch --no-logo```
 
@@ -19,15 +19,15 @@ Minimal neofetch-like system info tool in Zig
 # PARAMETERS
 
 **--no-logo**
-> Disable ASCII art logo display.
+> 禁用 ASCII 艺术标志显示。
 
 # DESCRIPTION
 
-**zigfetch** is a lightweight system information display tool inspired by neofetch and fastfetch. It shows OS, kernel, uptime, shell, CPU, memory, and other hardware information alongside an ASCII art logo. Configurable via a config.json file in **~/.config/zigfetch**.
+**zigfetch** 是一款受 neofetch 和 fastfetch 启发的轻量级系统信息显示工具。它在 ASCII 艺术标志旁显示操作系统、内核、运行时间、Shell、CPU、内存等硬件信息。可通过 **~/.config/zigfetch** 下的 config.json 文件进行配置。
 
 # HISTORY
 
-**zigfetch** was created by **utox39** and is written in **Zig**.
+**zigfetch** 由 **utox39** 创建，使用 **Zig** 编写。
 
 # INSTALL
 

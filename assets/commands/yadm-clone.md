@@ -1,18 +1,18 @@
 # TAGLINE
 
-Clone dotfiles repository with yadm
+用 yadm 克隆 dotfiles 仓库
 
 # TLDR
 
-**Clone dotfiles repo**
+**克隆 dotfiles 仓库**
 
 ```yadm clone [url]```
 
-**Clone with bootstrap**
+**克隆并运行引导程序**
 
 ```yadm clone --bootstrap [url]```
 
-**Clone without checkout**
+**克隆但不检出文件**
 
 ```yadm clone --no-checkout [url]```
 
@@ -23,20 +23,20 @@ Clone dotfiles repository with yadm
 # PARAMETERS
 
 **--bootstrap**
-> Run bootstrap after clone.
+> 克隆后运行引导程序。
 
 **--no-checkout**
-> Clone without checkout.
+> 克隆但不检出文件。
 
 **-f**, **--force**
-> Force overwrite existing files.
+> 强制覆盖已有文件。
 
 **-w** _dir_
-> Set worktree directory.
+> 设置工作树目录。
 
 # DESCRIPTION
 
-**yadm clone** clones a dotfiles repository to manage with yadm. Downloads repo and checks out files to home directory. First step in setting up dotfiles on a new system.
+**yadm clone** 克隆一个 dotfiles 仓库并交由 yadm 管理。它会下载仓库并将文件检出到主目录。这是在新系统上配置 dotfiles 的第一步。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Clone dotfiles repository with yadm
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-bootstrap](/man/yadm-bootstrap)(1)
-

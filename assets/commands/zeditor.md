@@ -1,22 +1,22 @@
 # TAGLINE
 
-Launch Zed code editor from terminal
+从终端启动 Zed 代码编辑器
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```zeditor [file]```
 
-**Open at line**
+**在指定行打开**
 
 ```zeditor [file]:[line]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```zeditor [file1] [file2]```
 
-**New window**
+**新建窗口**
 
 ```zeditor --new [file]```
 
@@ -27,29 +27,29 @@ Launch Zed code editor from terminal
 # PARAMETERS
 
 **--new**
-> New window.
+> 新建窗口。
 
 **--wait**
-> Wait for close.
+> 等待窗口关闭。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**zeditor** is the command-line launcher for Zed, a modern code editor written in Rust. It opens files and directories in the Zed graphical editor from the terminal.
+**zeditor** 是 Zed 的命令行启动器，Zed 是一款用 Rust 编写的现代代码编辑器。它可以在终端中于 Zed 图形编辑器内打开文件和目录。
 
-Files can be opened at specific line numbers using the **file:line** syntax. The **--new** flag opens a new editor window instead of reusing an existing one, and **--wait** blocks the terminal until the editor window is closed, useful for git commit messages and other tools that invoke an editor.
+文件可以使用 **file:line** 语法在指定行号处打开。**--new** 标志会新建一个编辑器窗口而不是复用现有窗口；**--wait** 会阻塞终端直到编辑器窗口关闭，这对 git 提交信息以及其他需要调用编辑器的工具很有用。
 
-Zed itself is a high-performance editor featuring real-time collaborative editing, integrated AI code assistance, and a minimal interface designed for speed.
+Zed 本身是一款高性能编辑器，具有实时协作编辑、集成 AI 代码辅助，以及为速度而设计的极简界面。
 
 # CAVEATS
 
-Zed installation required. Newer editor. Platform support varies.
+需要安装 Zed。编辑器较新，各平台支持情况不一。
 
 # HISTORY
 
-**zeditor** is the command-line launcher for **Zed**, a modern code editor built in Rust.
+**zeditor** 是 **Zed** 的命令行启动器，Zed 是一款用 Rust 构建的现代代码编辑器。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert PYX format back to XML
+将 PYX 格式转换回 XML
 
 # TLDR
 
-**Convert PYX to XML**
+**将 PYX 转换为 XML**
 
 ```xml p2x [file.pyx]```
 
@@ -15,11 +15,11 @@ Convert PYX format back to XML
 # PARAMETERS
 
 _file_
-> Input PYX file.
+> 输入的 PYX 文件。
 
 # DESCRIPTION
 
-**xml p2x** converts PYX format back to XML. Part of xmlstarlet toolkit. Alias for xml depyx command.
+**xml p2x** 将 PYX 格式转换回 XML。属于 xmlstarlet 工具集。是 xml depyx 命令的别名。
 
 # INSTALL
 
@@ -40,4 +40,3 @@ _file_
 # SEE ALSO
 
 [xml-pyx](/man/xml-pyx)(1), [xml-depyx](/man/xml-depyx)(1)
-

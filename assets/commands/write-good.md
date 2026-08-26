@@ -1,34 +1,34 @@
 # TAGLINE
 
-English prose linter for documentation
+面向文档的英文散文 linter
 
 # TLDR
 
-**Check a file** for prose issues
+**检查单个文件**中的散文问题
 
 ```write-good [path/to/file.md]```
 
-**Check multiple files** using glob pattern
+使用 glob 模式**检查多个文件**
 
 ```write-good [**/*.md]```
 
-**Check inline text**
+**检查内联文本**
 
 ```write-good --text="[It should have been defined there.]"```
 
-**Disable passive voice check**
+**禁用被动语态检查**
 
 ```write-good --no-passive [path/to/file.md]```
 
-**Disable adverb warnings**
+**禁用副词警告**
 
 ```write-good --no-adverb [path/to/file.md]```
 
-**Only check for specific issues**
+**只检查特定问题**
 
 ```write-good --passive --adverb [path/to/file.md]```
 
-**Parse text from stdin**
+**解析来自标准输入的文本**
 
 ```echo "[The file was written by him.]" | write-good```
 
@@ -39,58 +39,58 @@ English prose linter for documentation
 # PARAMETERS
 
 **--text**=_string_
-> Analyze the provided text string instead of files.
+> 分析给定的文本字符串而不是文件。
 
 **--no-passive**
-> Disable passive voice detection.
+> 禁用被动语态检测。
 
 **--no-adverb**
-> Disable adverb warnings (really, extremely, etc.).
+> 禁用副词警告（really、extremely 等）。
 
 **--no-illusion**
-> Disable lexical illusion detection (repeated words).
+> 禁用词汇幻影检测（重复出现的单词）。
 
 **--no-so**
-> Disable warnings for sentences starting with "so".
+> 禁用以 "so" 开头的句子的警告。
 
 **--no-thereIs**
-> Disable warnings for "there is/are" at sentence start.
+> 禁用句首 "there is/are" 的警告。
 
 **--no-weasel**
-> Disable weasel word detection.
+> 禁用模糊用词（weasel word）检测。
 
 **--no-tooWordy**
-> Disable wordy phrase detection.
+> 禁用冗长短语检测。
 
 **--no-cliches**
-> Disable cliche detection.
+> 禁用陈词滥调检测。
 
 **--yes-eprime**
-> Enable E-Prime checking, flagging forms of "to be" (disabled by default).
+> 启用 E-Prime 检查，标记 "to be" 的各种形式（默认禁用）。
 
 **--parse**
-> Enable parse-friendly output with Unix exit codes.
+> 启用便于解析的输出和 Unix 风格退出码。
 
 **--whitelist** _WORDS_
-> Comma-separated list of words to whitelist from suggestions.
+> 以逗号分隔的白名单单词列表，这些词不会出现在建议中。
 
 # DESCRIPTION
 
-**write-good** is a linter for English prose that helps identify common writing issues. It flags passive voice, unnecessary adverbs, weasel words, cliches, lexical illusions (repeated words), and wordy phrases.
+**write-good** 是一个英文散文 linter，帮助识别常见的写作问题。它会标记被动语态、不必要的副词、模糊用词、陈词滥调、词汇幻影（重复的单词）和冗长短语。
 
-The tool is designed for developers writing documentation, README files, and technical content. It can analyze individual files, multiple files via glob patterns, or inline text strings.
+该工具专为编写文档、README 和技术内容的开发者设计。它可以分析单个文件、通过 glob 模式分析多个文件，或分析内联文本字符串。
 
-Each suggestion includes the problematic text, its position in the file, and a reason explaining the issue. Checks can be selectively disabled using **--no-** flags, or enabled individually by specifying only the desired checks.
+每条建议都包含有问题的文本、其在文件中的位置，以及解释问题的原因。可以使用 **--no-** 标志选择性地禁用某些检查，也可以只指定需要的检查项来单独启用。
 
-write-good integrates with editors through plugins for Vim (via ALE), Sublime Text, VS Code, and others. It can also run in Docker containers for CI/CD pipelines.
+write-good 通过编辑器插件集成到 Vim（经由 ALE）、Sublime Text、VS Code 等编辑器中。它也可以在 Docker 容器中运行，用于 CI/CD 流水线。
 
 # CAVEATS
 
-The linter is intentionally "naive" and may flag false positives. Passive voice and adverbs are not always wrong; use judgment when reviewing suggestions. The tool focuses on common issues and is not a comprehensive grammar checker. Some technical writing may legitimately require passive construction.
+该 linter 刻意保持"朴素"，可能会产生误报。被动语态和副词并不总是错的，审阅建议时需要自行判断。该工具专注于常见问题，并非全面的语法检查器。某些技术写作确实需要被动结构。
 
 # HISTORY
 
-**write-good** was created by **Brian Ford** (btford) and first released around **2014**. It has become a popular tool in the JavaScript community for improving documentation quality and is used in CI pipelines for open-source projects.
+**write-good** 由 **Brian Ford**（btford）创建，大约于 **2014 年**首次发布。它已成为 JavaScript 社区中提升文档质量的流行工具，并被用于开源项目的 CI 流水线。
 
 # INSTALL
 

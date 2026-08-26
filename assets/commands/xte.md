@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate fake X11 input events
+生成伪造的 X11 输入事件
 
 # TLDR
 
-**Simulate key press**
+**模拟按键**
 
 ```xte 'key [Return]'```
 
-**Type a string**
+**输入字符串**
 
 ```xte 'str [Hello World]'```
 
-**Click left mouse button**
+**点击鼠标左键**
 
 ```xte 'mouseclick 1'```
 
-**Move mouse to absolute position**
+**移动鼠标到绝对位置**
 
 ```xte 'mousemove [100] [200]'```
 
-**Move mouse relative**
+**相对移动鼠标**
 
 ```xte 'mousermove [10] [-5]'```
 
-**Simulate Ctrl+C**
+**模拟 Ctrl+C**
 
 ```xte 'keydown Control_L' 'key c' 'keyup Control_L'```
 
-**Sleep between actions**
+**在动作之间休眠**
 
 ```xte 'mousemove 100 100' 'sleep 1' 'mouseclick 1'```
 
@@ -38,51 +38,51 @@ Generate fake X11 input events
 
 # COMMANDS
 
-**key** _k_: Press and release key k.
+**key** _k_：按下并释放按键 k。
 
-**keydown** _k_: Press key k down.
+**keydown** _k_：按住按键 k。
 
-**keyup** _k_: Release key k.
+**keyup** _k_：释放按键 k。
 
-**str** _text_: Type text string.
+**str** _text_：输入文本字符串。
 
-**mouseclick** _n_: Click mouse button (1=left, 2=middle, 3=right).
+**mouseclick** _n_：点击鼠标按钮（1=左键，2=中键，3=右键）。
 
-**mousedown** _n_: Press mouse button down.
+**mousedown** _n_：按下鼠标按钮。
 
-**mouseup** _n_: Release mouse button.
+**mouseup** _n_：释放鼠标按钮。
 
-**mousemove** _x_ _y_: Move to absolute position.
+**mousemove** _x_ _y_：移动到绝对位置。
 
-**mousermove** _x_ _y_: Move relative to current position.
+**mousermove** _x_ _y_：相对当前位置移动。
 
-**sleep** _n_: Sleep n seconds.
+**sleep** _n_：休眠 n 秒。
 
-**usleep** _n_: Sleep n microseconds.
+**usleep** _n_：休眠 n 微秒。
 
 # PARAMETERS
 
 **-x** _display_
-> Send commands to specified display.
+> 向指定 display 发送命令。
 
 **-i** _id_
-> Use specific XInput device.
+> 使用指定的 XInput 设备。
 
 # DESCRIPTION
 
-**xte** generates fake keyboard and mouse input using the XTest X11 extension. It's part of the xautomation package and enables automation of GUI interactions from scripts.
+**xte** 使用 XTest X11 扩展生成伪造的键盘和鼠标输入。它属于 xautomation 软件包，可以在脚本中自动化 GUI 交互。
 
-Commands can be chained in a single invocation or across multiple calls. Key names follow X11 keysym naming conventions. Mouse buttons are numbered: 1 (left), 2 (middle), 3 (right), 4/5 (scroll).
+命令可以在单次调用中链式执行，也可以分多次调用。按键名遵循 X11 keysym 命名规范。鼠标按钮编号：1（左键）、2（中键）、3（右键）、4/5（滚轮）。
 
-Common uses include GUI testing, automating repetitive tasks, and creating macros. Often combined with xbindkeys for keyboard shortcuts.
+常见用途包括 GUI 测试、自动化重复任务和创建宏。经常与 xbindkeys 结合使用来实现键盘快捷键。
 
 # CAVEATS
 
-X11 only; no Wayland support. The str command has limited Unicode support. Some applications may detect synthetic input. Part of xautomation package.
+仅支持 X11；不支持 Wayland。str 命令对 Unicode 支持有限。某些应用程序可能检测到合成输入。属于 xautomation 软件包。
 
 # HISTORY
 
-**xte** is part of xautomation, a suite of tools for X11 automation created by Steve Slaven. It provides a simple command-line interface to the XTest extension, which was designed for automated testing of X applications.
+**xte** 属于 xautomation，这是 Steve Slaven 创建的一套 X11 自动化工具。它为 XTest 扩展提供了简单的命令行接口，而 XTest 扩展正是为 X 应用程序的自动化测试而设计的。
 
 # INSTALL
 

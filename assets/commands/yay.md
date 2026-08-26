@@ -1,38 +1,38 @@
 # TAGLINE
 
-Arch Linux AUR helper
+Arch Linux AUR 助手
 
 # TLDR
 
-**Update** all packages from repos and the AUR
+从仓库和 AUR **更新**所有软件包
 
 ```yay```
 
-Interactively **search and install** by name or term
+按名称或关键词交互式**搜索并安装**
 
 ```yay [search_term]```
 
-**Install** a package without confirmation prompts
+**安装**软件包且不弹出确认提示
 
 ```yay -S [package] --noconfirm```
 
-**Search** repos and AUR for a keyword
+在仓库和 AUR 中**搜索**关键词
 
 ```yay -Ss [keyword]```
 
-**Remove** a package with unused deps and configs
+**移除**软件包连同不再使用的依赖和配置
 
 ```yay -Rns [package]```
 
-Clean **orphans** tracked by yay
+清理 yay 跟踪的**孤立软件包**
 
 ```yay -Yc```
 
-Clear **pacman/yay package caches**
+清理 **pacman/yay 软件包缓存**
 
 ```yay -Scc```
 
-Print package/system **stats**
+打印软件包/系统**统计信息**
 
 ```yay -Ps```
 
@@ -42,391 +42,391 @@ Print package/system **stats**
 
 # DESCRIPTION
 
-Yay is a Pacman wrapper with AUR support. It passes options to Makepkg and Pacman after resolving packages to install/upgrade.
+Yay 是一个支持 AUR 的 Pacman 封装器。它在解析出要安装/升级的软件包后，将选项传递给 Makepkg 和 Pacman。
 
 #  YAY OPERATIONS
 
 **-Y, --yay**
 
-> Perform yay specific operations. This is the default if no other operation is selected.
+> 执行 yay 特有的操作。未选择其他操作时这是默认行为。
 
 **-P, --show**
 
-> Perform yay specific print operations.
+> 执行 yay 特有的打印操作。
 
 **-G, --getpkgbuild**
 
-> Downloads PKGBUILD from ABS or AUR. The ABS can only be used for Arch Linux repositories
+> 从 ABS 或 AUR 下载 PKGBUILD。ABS 只能用于 Arch Linux 官方仓库。
 
-If **no arguments are provided** 'yay -Syu' will be performed.
+如果**不提供任何参数**，将执行 'yay -Syu'。
 
-If **no operation is selected** -Y will be assumed.
+如果**未选择任何操作**，则默认为 -Y。
 
 # EXTENDED PACMAN OPERATIONS
 
 **-S, -Si, -Sl, -Ss, -Su, -Sc, -Qu**
 
-> These operations are extended to support both AUR and repo packages.
+> 这些操作被扩展为同时支持 AUR 与仓库软件包。
 
 **-Sc**
 
-> Yay will also clean cached AUR package and any untracked Files in the cache. Cleaning untracked files will wipe any downloaded sources or built packages but will keep already downloaded vcs sources.
+> Yay 还会清理缓存的 AUR 软件包以及缓存中所有未被跟踪的文件。清理未跟踪文件会抹去已下载的源码或已构建的软件包，但会保留已经下载的 VCS 源码。
 
 **-R**
 
-> Yay will also remove cached data about devel packages.
+> Yay 还会移除关于 devel 软件包的缓存数据。
 
 # YAY OPTIONS (APPLY TO -Y AND --YAY)
 
 **<NO OPTION>**
 
-> Displays a list of packages matching the search terms and prompts the user on which packages to install (yogurt mode).
+> 显示与搜索词匹配的软件包列表，并提示用户选择要安装的软件包（yogurt 模式）。
 
 **--gendb**
 
-> Generate development package database. Tracks the latest commit for each development package, when there is a new commit Yay will know to update. This is done per package whenever a package is synced. This option should only be used when migrating to Yay from another AUR helper.
+> 生成开发软件包数据库。它会跟踪每个开发软件包的最新提交，当有新提交时 Yay 便知道需要更新。每次同步软件包时都会对该软件包执行此操作。此选项只应在从其他 AUR 助手迁移到 Yay 时使用。
 
 **-c, --clean**
 
-> Remove unneeded dependencies.
+> 移除不需要的依赖。
 
 # SHOW OPTIONS (APPLY TO -P AND --SHOW)
 
 **-c, --complete**
 
-> Print a list of all AUR and repo packages. This allows shell completion and is not intended to be used directly by the user.
+> 打印所有 AUR 与仓库软件包的列表。这用于 Shell 补全，并非供用户直接使用。
 
 **-f, --fish**
 
-> During complete adjust the output for the fish shell.
+> 补全时针对 fish shell 调整输出格式。
 
 **-d, --defaultconfig**
 
-> Print default yay configuration.
+> 打印默认的 yay 配置。
 
 **-g, --currentconfig**
 
-> Print current yay configuration.
+> 打印当前的 yay 配置。
 
 **-n, --numberupgrades**
 
-> Deprecated, use  **yay -Qu**  and  **wc -l**  instead.
+> 已弃用，请改用 **yay -Qu** 加 **wc -l**。
 
 **-s, --stats**
 
-> Displays information about installed packages and system health. If there are orphaned, or out-of-date packages, or packages that no longer exist on the AUR; warnings will be displayed.
+> 显示已安装软件包和系统健康状况的信息。如果存在孤立软件包、过期的软件包或 AUR 上已不存在的软件包，将会显示警告。
 
 **-u, --upgrades**
 
-> Deprecated, use  **yay -Qu**  instead.
+> 已弃用，请改用 **yay -Qu**。
 
 **-w, --news**
 
-> Print new news from the Archlinux homepage. News is considered new if it is newer than the build date of all native packages. Pass this twice to show all available news.
+> 打印 Archlinux 主页上的新消息。只有比所有原生软件包的构建日期更新的消息才被视为新消息。传递两次该标志可显示全部可用消息。
 
 **-q, --quiet**
 
-> Only show titles when printing news.
+> 打印消息时仅显示标题。
 
 # PERMANENT CONFIGURATION SETTINGS
 
 **--save**
 
-> Causes the following options to be saved back to the config file. This provides an easy way to change config options without directly editing the file.
+> 将其后的选项保存回配置文件。这提供了一种无需直接编辑文件即可修改配置项的简便方法。
 
 **--aururl**
 
-> Set an alternative AUR URL. This is mostly useful for users in China who wish to use https://aur.tuna.tsinghua.edu.cn/.
+> 设置替代的 AUR URL。这对希望使用 https://aur.tuna.tsinghua.edu.cn/ 的中国用户尤其有用。
 
 **--builddir <dir>**
 
-> Directory to use for Building AUR Packages. This directory is also used as the AUR cache when deciding if Yay should skip builds.
+> 用于构建 AUR 软件包的目录。在决定 Yay 是否应跳过构建时，该目录也用作 AUR 缓存。
 
 **--editor <command>**
 
-> Editor to use when editing PKGBUILDs. If this is not set the  **EDITOR**  environment variable will be checked, followed by  **VISUAL**. If none of these are set Yay will prompt the user for an editor.
+> 编辑 PKGBUILD 时使用的编辑器。若未设置，将依次检查 **EDITOR** 环境变量和 **VISUAL** 环境变量。若都未设置，Yay 会提示用户指定编辑器。
 
 **--editorflags <flags>**
 
-> Passes arguments to the editor. These flags get passed to every instance where the editor is called by Yay. Arguments are split on whitespace before being passed to the editor. Multiple arguments may be passed by supplying a space separated list that is quoted by the shell.
+> 传递给编辑器的参数。这些标志会被传给 Yay 调用编辑器的每一次。参数在传递给编辑器之前按空白字符拆分。可以通过提供由 shell 引号包裹的空格分隔列表来传入多个参数。
 
 **--makepkg <command>**
 
-> The command to use for  **makepkg**  calls. This can be a command in  **PATH**  or an absolute path to the file.
+> 用于 **makepkg** 调用的命令。可以是 **PATH** 中的命令，也可以是文件的绝对路径。
 
 **--pacman <command>**
 
-> The command to use for  **pacman**  calls. This can be a command in  **PATH**  or an absolute path to the file.
+> 用于 **pacman** 调用的命令。可以是 **PATH** 中的命令，也可以是文件的绝对路径。
 
 **--tar <command>**
 
-> The command to use for  **bsdtar**  calls. This can be a command in  **PATH**  or an absolute path to the file.
+> 用于 **bsdtar** 调用的命令。可以是 **PATH** 中的命令，也可以是文件的绝对路径。
 
 **--git <command>**
 
-> The command to use for  **git**  calls. This can be a command in  **PATH**  or an absolute path to the file.
+> 用于 **git** 调用的命令。可以是 **PATH** 中的命令，也可以是文件的绝对路径。
 
 **--gpg <command>**
 
-> The command to use for  **gpg**  calls. This can be a command in  **PATH**  or an absolute path to the file.
+> 用于 **gpg** 调用的命令。可以是 **PATH** 中的命令，也可以是文件的绝对路径。
 
 **--config <file>**
 
-> The pacman config file to use.
+> 要使用的 pacman 配置文件。
 
 **--makepkgconf <file>**
 
-> The config file for makepkg to use. If this is not set then the default config file will be used.
+> makepkg 要使用的配置文件。若未设置，则使用默认配置文件。
 
 **--nomakepkgconf**
 
-> Reset the makepkg config file back to its default.
+> 将 makepkg 配置文件重置为默认值。
 
 **--requestsplitn <number>**
 
-> The maximum amount of packages to request per AUR query. The higher the number the faster AUR requests will be. Requesting too many packages in one AUR query will cause an error. This should only make a noticeable difference with very large requests (>500) packages.
+> 每次 AUR 查询请求的最大软件包数量。数值越大 AUR 请求越快。单次 AUR 查询请求过多软件包会导致错误。只有在非常大的查询（超过 500 个软件包）时才会有明显差异。
 
 **--completioninterval <days>**
 
-> Time in days to refresh the completion cache. Setting this to 0 will cause the cache to be refreshed every time, while setting this to -1 will cause the cache to never be refreshed.
+> 刷新补全缓存的间隔天数。设为 0 表示每次都刷新缓存，设为 -1 则永不刷新缓存。
 
 **--sortby <votes|popularity|id|baseid|name|base|submitted|modified>**
 
-> Sort AUR results by a specific field during search.
+> 搜索时按特定字段对 AUR 结果排序。
 
 **--searchby <name|name-desc|maintainer|depends|checkdepends|makedepends|optdepends>**
 
-> Search for AUR packages by querying the specified field.
+> 通过查询指定字段来搜索 AUR 软件包。
 
 **--answerclean <All|None|Installed|NotInstalled|...>**
 
-> Set a predetermined answer for the clean build menu question. This answer will be used instead of reading from standard input but will be parsed exactly the same.
+> 为清理构建菜单的问题设置预定答案。该答案将代替从标准输入读取的内容，但解析方式完全相同。
 
 **--answerdiff <All|None|Installed|NotInstalled|...>**
 
-> Set a predetermined answer for the edit diff menu question. This answer will be used instead of reading from standard input but will be parsed exactly the same.
+> 为编辑 diff 菜单的问题设置预定答案。该答案将代替从标准输入读取的内容，但解析方式完全相同。
 
 **--answeredit <All|None|Installed|NotInstalled|...>**
 
-> Set a predetermined answer for the edit pkgbuild menu question. This answer will be used instead of reading from standard input but will be parsed exactly the same.
+> 为编辑 pkgbuild 菜单的问题设置预定答案。该答案将代替从标准输入读取的内容，但解析方式完全相同。
 
 **--answerupgrade <Repo|^Repo|None|...>**
 
-> Set a predetermined answer for the upgrade menu question. Selects which package ranges or repos to omit for updates. This answer will be used instead of reading from standard input but will be treated exactly the same.
+> 为升级菜单的问题设置预定答案。选择更新时要排除哪些软件包范围或仓库。该答案将代替从标准输入读取的内容，但处理方式完全相同。
 
 **--noanswerclean**
 
-> Unset the answer for the clean build menu.
+> 取消为清理构建菜单设置的答案。
 
 **--noanswerdiff**
 
-> Unset the answer for the diff menu.
+> 取消为 diff 菜单设置的答案。
 
 **--noansweredit**
 
-> Unset the answer for the edit pkgbuild menu.
+> 取消为编辑 pkgbuild 菜单设置的答案。
 
 **--noanswerupgrade**
 
-> Unset the answer for the upgrade menu.
+> 取消为升级菜单设置的答案。
 
 **--cleanmenu**
 
-> Show the clean menu. This menu gives you the chance to fully delete the downloaded build files from Yay's cache before redownloading a fresh copy.
+> 显示清理菜单。该菜单让你有机会在重新下载全新副本之前，彻底删除 Yay 缓存中已下载的构建文件。
 
 **--diffmenu**
 
-> Show the diff menu. This menu gives you the option to view diffs from build files before building.
+> 显示 diff 菜单。该菜单让你可以在构建前查看构建文件的 diff。
 
-Diffs are shown via  **git diff**  which uses less by default. This behaviour can be changed via git's config, the  **$GIT_PAGER**  or  **$PAGER**  environment variables.
+diff 通过 **git diff** 显示，默认使用 less。可以通过 git 的配置、**$GIT_PAGER** 或 **$PAGER** 环境变量改变这一行为。
 
 **--editmenu**
 
-> Show the edit menu. This menu gives you the option to edit or view PKGBUILDs before building.
+> 显示编辑菜单。该菜单让你可以在构建前编辑或查看 PKGBUILD。
 
-**Warning**: Yay resolves dependencies ahead of time via the RPC. It is not recommended to edit pkgbuild variables unless you know what you are doing.
+**Warning**: Yay 会提前通过 RPC 解析依赖。除非你清楚自己在做什么，否则不建议编辑 pkgbuild 变量。
 
 **--upgrademenu**
 
-> Show a detailed list of updates in a similar format to VerbosePkgLists. Upgrades can also be skipped using numbers, number ranges or repo names. Additionally ^ can be used to invert the selection.
+> 以类似 VerbosePkgLists 的格式显示详细的更新列表。可以使用数字、数字范围或仓库名称跳过升级。此外可以用 ^ 反转选择。
 
-**Warning**: It is not recommended to skip updates from the repositories as this can lead to partial upgrades. This feature is intended to easily skip AUR updates on the fly that may be broken or have a long compile time. Ultimately it is up to the user what upgrades they skip.
+**Warning**: 不建议跳过来自官方仓库的更新，因为这可能导致部分升级。此功能旨在方便地临时跳过可能损坏或编译时间很长的 AUR 更新。最终跳过哪些升级由用户自行决定。
 
 **--nocleanmenu**
 
-> Do not show the clean menu.
+> 不显示清理菜单。
 
 **--nodiffmenu**
 
-> Do not show the diff menu.
+> 不显示 diff 菜单。
 
 **--noeditmenu**
 
-> Do not show the edit menu.
+> 不显示编辑菜单。
 
 **--noupgrademenu**
 
-> Do not show the upgrade menu.
+> 不显示升级菜单。
 
 **--askremovemake**
 
-> Ask to remove makedepends after installing packages.
+> 安装软件包后询问是否移除 makedepends。
 
 **--removemake**
 
-> Remove makedepends after installing packages.
+> 安装软件包后移除 makedepends。
 
 **--noremovemake**
 
-> Do not remove makedepends after installing packages.
+> 安装软件包后不移除 makedepends。
 
 **--topdown**
 
-> Display repository packages first and then AUR packages.
+> 先显示仓库软件包，再显示 AUR 软件包。
 
 **--bottomup**
 
-> Show AUR packages first and then repository packages.
+> 先显示 AUR 软件包，再显示仓库软件包。
 
 **--singlelineresults**
 
-> Override pacman's usual double-line search result format and list each result on its own line.
+> 覆盖 pacman 常规的双行搜索结果格式，将每个结果单独列在一行。
 
 **--doublelineresults**
 
-> Follow pacman's double-line search result format and list each result using two lines.
+> 遵循 pacman 的双行搜索结果格式，用两行显示每个结果。
 
 **--devel**
 
-> During sysupgrade also check AUR development packages for updates. Currently only Git packages are supported.
+> 系统升级时同时检查 AUR 开发软件包是否有更新。目前仅支持 Git 软件包。
 
-Devel checking is done using  **git ls-remote**. The newest commit hash is compared against the hash at install time. This allows devel updates to be checked almost instantly and not require the original pkgbuild to be downloaded.
+devel 检查通过 **git ls-remote** 完成。将最新的提交哈希与安装时的哈希进行比较。这使得 devel 更新几乎可以即时检查，并且无需重新下载原始 pkgbuild。
 
-The slower pacaur-like devel checks can be implemented manually by piping a list of packages into yay (see  **examples**).
+较慢的类 pacaur 式 devel 检查可以通过把软件包列表管道输入 yay 来手动实现（参见 **examples**）。
 
 **--nodevel**
 
-> Do not check for development packages updates during sysupgrade.
+> 系统升级时不检查开发软件包的更新。
 
 **--cleanafter**
 
-> Remove untracked files after installation.
+> 安装后移除未跟踪的文件。
 
-Untracked files are removed with the exception of directories. This allows VCS packages to easily pull an update instead of having to reclone the entire repo.
+移除未跟踪文件时会保留目录。这样 VCS 软件包可以轻松拉取更新，而不必重新克隆整个仓库。
 
 **--nocleanafter**
 
-> Do not remove package sources after successful Install.
+> 安装成功后不移除软件包源码。
 
 **--timeupdate**
 
-> During sysupgrade also compare the build time of installed packages against the last modification time of each package's AUR page.
+> 系统升级时，还会将已安装软件包的构建时间与其 AUR 页面的最后修改时间进行比较。
 
 **--notimeupdate**
 
-> Do not consider build times during sysupgrade.
+> 系统升级时不考虑构建时间。
 
 **--redownload**
 
-> Always download pkgbuilds of targets even when a copy is available in cache.
+> 总是重新下载目标的 pkgbuild，即使缓存中已有副本。
 
 **--redownloadall**
 
-> Always download pkgbuilds of all AUR packages even when a copy is available in cache.
+> 总是重新下载所有 AUR 软件包的 pkgbuild，即使缓存中已有副本。
 
 **--noredownload**
 
-> When downloading pkgbuilds if the pkgbuild is found in cache and is equal or newer than the AUR's version use that instead of downloading a new one.
+> 下载 pkgbuild 时，如果缓存中的 pkgbuild 与 AUR 版本相同或更新，则使用缓存版本而不是重新下载。
 
 **--provides**
 
-> Look for matching providers when searching for AUR packages. When multiple providers are found a menu will appear prompting you to pick one. This increases dependency resolve time although this should not be noticeable.
+> 搜索 AUR 软件包时查找匹配的提供者（provider）。找到多个提供者时会弹出菜单提示你选择其一。这会增加依赖解析时间，不过应该察觉不到。
 
 **--noprovides**
 
-> Do not look for matching providers when searching for AUR packages. Yay will never show its provider menu but Pacman will still show its provider menu for repo packages.
+> 搜索 AUR 软件包时不查找匹配的提供者。Yay 永远不会显示其提供者菜单，但对于仓库软件包，Pacman 仍会显示自己的提供者菜单。
 
 **--pgpfetch**
 
-> Prompt to import unknown PGP keys from the  **validpgpkeys**  field of each PKGBUILD.
+> 提示从每个 PKGBUILD 的 **validpgpkeys** 字段导入未知的 PGP 密钥。
 
 **--nopgpfetch**
 
-> Do not prompt to import unknown PGP keys. This is likely to cause a build failure unless using options such as  **--skippgpcheck**  or a customized gpg config.
+> 不提示导入未知 PGP 密钥。这很可能导致构建失败，除非使用诸如 **--skippgpcheck** 之类的选项或自定义 gpg 配置。
 
 **--useask**
 
-> Use pacman's --ask flag to automatically confirm package conflicts. Yay lists conflicts ahead of time. It is possible that Yay does not detect a conflict, causing a package to be removed without the user's confirmation. However, this is very unlikely.
+> 使用 pacman 的 --ask 标志自动确认软件包冲突。Yay 会提前列出冲突。Yay 有可能未能检测到某个冲突，导致软件包在没有用户确认的情况下被移除。不过这种情况极不可能发生。
 
 **--nouseask**
 
-> Manually resolve package conflicts during the install. Packages which do not conflict will not need to be confined manually.
+> 在安装过程中手动解决软件包冲突。不冲突的软件包无需手动处理。
 
 **--combinedupgrade**
 
-> During sysupgrade, Yay will first perform a refresh, then show its combined menu of repo and AUR packages that will be upgraded. Then after reviewing the pkgbuilds, the repo and AUR upgrade will start with no need for manual intervention.
+> 系统升级时，Yay 会先刷新数据库，然后显示即将升级的仓库与 AUR 软件包的合并菜单。查看 pkgbuild 后，仓库和 AUR 升级将直接开始，无需人工干预。
 
-If Yay exits for any reason After the refresh without upgrading. It is then the user's responsibility to either resolve the reason Yay exited or run a sysupgrade through pacman directly.
+如果在刷新之后 Yay 因任何原因退出而未进行升级，则需要用户自行解决 Yay 退出的原因，或者直接通过 pacman 执行系统升级。
 
 **--nocombinedupgrade**
 
-> During sysupgrade, Pacman -Syu will be called, then the AUR upgrade will start. This means the upgrade menu and pkgbuild review will be performed after the sysupgrade has finished.
+> 系统升级时，先调用 Pacman -Syu，然后开始 AUR 升级。这意味着升级菜单和 pkgbuild 审查将在系统升级完成后进行。
 
 **--batchinstall**
 
-> When building and installing AUR packages instead of installing each package after building, queue each package for install. Then once either all packages are built or a package in the build queue is needed as a dependency to build another package, install all the packages in the install queue.
+> 构建并安装 AUR 软件包时，不是每构建完一个就立即安装，而是将每个软件包加入安装队列。然后一旦所有软件包都构建完成，或构建队列中的某个软件包被另一个软件包作为依赖所需，就一次性安装队列中的所有软件包。
 
 **--nobatchinstall**
 
-> Always install AUR packages immediately after building them.
+> 构建 AUR 软件包后总是立即安装。
 
 **--rebuild**
 
-> Always build target packages even when a copy is available in cache.
+> 总是重建目标软件包，即使缓存中已有副本。
 
 **--rebuildall**
 
-> Always build all AUR packages even when a copy is available in cache.
+> 总是重建所有 AUR 软件包，即使缓存中已有副本。
 
 **--rebuildtree**
 
-> When installing an AUR package rebuild and reinstall all of its AUR dependencies recursively, even the ones already installed. This flag allows you to easily rebuild packages against your current system's libraries if they have become incompatible.
+> 安装某个 AUR 软件包时，递归地重建并重装它的所有 AUR 依赖，包括已经安装过的。当这些依赖与当前系统的库变得不兼容时，此标志可以让你方便地对它们进行重建。
 
 **--norebuild**
 
-> When building packages if the package is found in cache and is an equal version to the one wanted skip the package build and use the existing package.
+> 构建软件包时，如果缓存中的软件包与所需版本相同，则跳过构建并使用现有的软件包。
 
 **--mflags <flags>**
 
-> Passes arguments to makepkg. These flags get passed to every instance where makepkg is called by Yay. Arguments are split on whitespace before being passed to makepkg. Multiple arguments may be passed by supplying a space separated list that is quoted by the shell.
+> 传递给 makepkg 的参数。这些标志会被传给 Yay 调用 makepkg 的每一次。参数在传递给 makepkg 之前按空白字符拆分。可以通过提供由 shell 引号包裹的空格分隔列表来传入多个参数。
 
 **--gpgflags <flags>**
 
-> Passes arguments to gpg. These flags get passed to every instance where gpg is called by Yay. Arguments are split on whitespace before being passed to gpg. Multiple arguments may be passed by supplying a space separated list that is quoted by the shell.
+> 传递给 gpg 的参数。这些标志会被传给 Yay 调用 gpg 的每一次。参数在传递给 gpg 之前按空白字符拆分。可以通过提供由 shell 引号包裹的空格分隔列表来传入多个参数。
 
 **--sudo <command>**
 
-> The command to use for  **sudo**  calls. This can be a command in  **PATH**  or an absolute path to the file. The sudoloop is not guaranteed to work with a custom  **sudo**  command.
+> 用于 **sudo** 调用的命令。可以是 **PATH** 中的命令，也可以是文件的绝对路径。自定义 **sudo** 命令不保证能与 sudoloop 一起工作。
 
 **--sudoflags <flags>**
 
-> Passes arguments to sudo. These flags get passed to every instance where sudo is called by Yay. Arguments are split on whitespace before being passed to sudo. Multiple arguments may be passed by supplying a space separated list that is quoted by the shell.
+> 传递给 sudo 的参数。这些标志会被传给 Yay 调用 sudo 的每一次。参数在传递给 sudo 之前按空白字符拆分。可以通过提供由 shell 引号包裹的空格分隔列表来传入多个参数。
 
 **--sudoloop**
 
-> Loop sudo calls in the background to prevent sudo from timing out during long builds.
+> 在后台循环调用 sudo，防止长时间构建期间 sudo 超时。
 
 **--nosudoloop**
 
-> Do not loop sudo calls in the background.
+> 不在后台循环调用 sudo。
 
 # CAVEAT
 
-Like other AUR helpers, yay facilitates installing **user-submitted packages** from the Arch User Repository, which **aren't officially vetted** and could potentially contain malicious code—always review the PKGBUILD file before proceeding with installation to mitigate security risks.
+与其他 AUR 助手一样，yay 便于安装来自 Arch User Repository 的**用户提交软件包**，这些软件包**未经官方审核**，可能包含恶意代码——安装前务必审查 PKGBUILD 文件以降低安全风险。
 
 # HISTORY
 
-The yay command, short for "**Yet Another Yogurt**," is an AUR (Arch User Repository) helper tool written in **Go**, designed to simplify installing and managing packages on **Arch Linux** and its derivatives. It was created by developer Jguer and first initiated in **September 2016**.
+yay 命令是 "**Yet Another Yogurt**" 的缩写，是一款用 **Go** 编写的 AUR（Arch User Repository）助手工具，旨在简化 **Arch Linux** 及其衍生发行版上软件包的安装与管理。它由开发者 Jguer 创建，始于 **2016 年 9 月**。
 
 # INSTALL
 

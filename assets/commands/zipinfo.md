@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display ZIP archive information
+显示 ZIP 归档信息
 
 # TLDR
 
-**Show archive info**
+**显示归档信息**
 
 ```zipinfo [archive.zip]```
 
-**Short listing**
+**简短列表**
 
 ```zipinfo -1 [archive.zip]```
 
-**Long listing**
+**长列表**
 
 ```zipinfo -l [archive.zip]```
 
-**Medium listing**
+**中等列表**
 
 ```zipinfo -m [archive.zip]```
 
-**Show header info**
+**显示头部信息**
 
 ```zipinfo -h [archive.zip]```
 
-**Show totals only**
+**只显示总计**
 
 ```zipinfo -t [archive.zip]```
 
-**Show specific file info**
+**显示特定文件信息**
 
 ```zipinfo [archive.zip] [file.txt]```
 
@@ -39,75 +39,75 @@ Display ZIP archive information
 # PARAMETERS
 
 **-1**
-> Filenames only, one per line.
+> 只显示文件名，每行一个。
 
 **-2**
-> Filenames only, allows headers (-h), totals (-t), and comments (-z).
+> 只显示文件名，允许配合头部（-h）、总计（-t）和注释（-z）。
 
 **-s**
-> Short Unix ls -l format (default).
+> 简短的 Unix ls -l 格式（默认）。
 
 **-m**
-> Medium format: adds compression factor percentage.
+> 中等格式：增加压缩率百分比。
 
 **-l**
-> Long format: shows compressed size in bytes.
+> 长格式：以字节显示压缩后的尺寸。
 
 **-h**
-> Print archive header (name, size, file count).
+> 打印归档头部（名称、大小、文件数量）。
 
 **-t**
-> Print totals (file count, total sizes, compression ratio).
+> 打印总计（文件数量、总大小、压缩比）。
 
 **-T**
-> Print timestamps in sortable decimal format (yymmdd.hhmmss).
+> 以可排序的十进制格式打印时间戳（yymmdd.hhmmss）。
 
 **-z**
-> Print archive comment.
+> 打印归档注释。
 
 **-v**
-> Verbose multi-page format with all available info.
+> 详细的多页格式，包含所有可用信息。
 
 **-M**
-> Pipe output through internal pager (like more).
+> 将输出通过内置分页器管道显示（类似 more）。
 
 **-x** _PATTERN_
-> Exclude files matching pattern.
+> 排除匹配模式的文件。
 
 # OUTPUT FIELDS
 
-Long listing shows:
-- Permissions
-- Version
-- OS
-- Size (uncompressed)
-- Compression type
-- Size (compressed)
-- Ratio
-- Date/time
-- Filename
+长列表显示：
+- 权限
+- 版本
+- 操作系统
+- 大小（未压缩）
+- 压缩类型
+- 大小（已压缩）
+- 压缩比
+- 日期/时间
+- 文件名
 
 # DESCRIPTION
 
-**zipinfo** displays information about ZIP archives without extracting. It shows structure, compression, and metadata.
+**zipinfo** 无需解压即可显示 ZIP 归档的信息。它展示结构、压缩和元数据。
 
-Short listing (-1) provides filenames only, useful for scripting. Each file appears on its own line.
+简短列表（-1）只提供文件名，便于脚本使用。每个文件独占一行。
 
-Long listing (-l) resembles ls -l output. It shows permissions, sizes, compression, and dates.
+长列表（-l）类似 ls -l 的输出。它显示权限、大小、压缩和日期信息。
 
-The header (-h) shows archive-level information: filename, size, and number of entries.
+头部（-h）显示归档级信息：文件名、大小和条目数量。
 
-Totals (-t) summarize the archive: file count, total sizes, and compression ratio.
+总计（-t）汇总归档情况：文件数量、总大小和压缩比。
 
-Pattern matching selects specific files to display. Wildcards work for filtering large archives.
+模式匹配用于选择要显示的特定文件。通配符可用于过滤大型归档。
 
 # CAVEATS
 
-Part of Info-ZIP package. Some encrypted archives may not show all info. Very large archives may be slow.
+属于 Info-ZIP 软件包。某些加密归档可能无法显示全部信息。非常大的归档可能较慢。
 
 # HISTORY
 
-**zipinfo** is part of **Info-ZIP**, developed by the Info-ZIP group starting in the early **1990s**. It provides archive inspection without extraction.
+**zipinfo** 是 **Info-ZIP** 的一部分，由 Info-ZIP 组织自 20 世纪 **90 年代初**开始开发。它提供无需解压的归档查看功能。
 
 # INSTALL
 

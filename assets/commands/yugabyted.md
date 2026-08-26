@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage YugabyteDB distributed SQL clusters
+管理 YugabyteDB 分布式 SQL 集群
 
 # TLDR
 
-**Start local cluster**
+**启动本地集群**
 
 ```yugabyted start```
 
-**Start with specific data directory**
+**以指定数据目录启动**
 
 ```yugabyted start --base_dir=[/data/yb]```
 
-**Check cluster status**
+**检查集群状态**
 
 ```yugabyted status```
 
-**Stop the cluster**
+**停止集群**
 
 ```yugabyted stop```
 
-**Connect with PostgreSQL client**
+**使用 PostgreSQL 客户端连接**
 
 ```ysqlsh```
 
-**Connect with Cassandra client**
+**使用 Cassandra 客户端连接**
 
 ```ycqlsh```
 
-**Add a node to cluster**
+**向集群添加节点**
 
 ```yugabyted start --join=[existing-node]```
 
-**Destroy cluster data**
+**销毁集群数据**
 
 ```yugabyted destroy```
 
@@ -47,85 +47,85 @@ Manage YugabyteDB distributed SQL clusters
 # YUGABYTED COMMANDS
 
 **start**
-> Start YugabyteDB node.
+> 启动 YugabyteDB 节点。
 
 **stop**
-> Stop YugabyteDB node.
+> 停止 YugabyteDB 节点。
 
 **status**
-> Show cluster status.
+> 显示集群状态。
 
 **destroy**
-> Remove cluster data.
+> 删除集群数据。
 
 **configure**
-> Configure cluster settings.
+> 配置集群设置。
 
 **collect_logs**
-> Gather logs for troubleshooting.
+> 收集日志用于排障。
 
 **version**
-> Show version information.
+> 显示版本信息。
 
 # YUGABYTED OPTIONS
 
 **--base_dir** _path_
-> Data directory.
+> 数据目录。
 
 **--listen** _address_
-> Listen address for the node.
+> 节点的监听地址。
 
 **--join** _host_
-> Existing node to join cluster.
+> 要加入的集群中的现有节点。
 
 **--cloud_location** _region.zone_
-> Cloud placement information.
+> 云端放置信息。
 
 **--fault_tolerance** _level_
-> Fault tolerance: none, zone, region.
+> 容错级别：none、zone、region。
 
 **--ui** _bool_
-> Enable admin UI. Default: true.
+> 启用管理界面。默认：true。
 
 # YSQLSH PARAMETERS
 
 **-h**, **--host** _host_
-> Database server host.
+> 数据库服务器主机。
 
 **-p**, **--port** _port_
-> Database port. Default: 5433.
+> 数据库端口。默认：5433。
 
 **-U**, **--username** _user_
-> Database username.
+> 数据库用户名。
 
 **-d**, **--dbname** _database_
-> Database name.
+> 数据库名称。
 
 **-c** _command_
-> Execute single command.
+> 执行单条命令。
 
 **-f** _file_
-> Execute commands from file.
+> 从文件执行命令。
 
 # DESCRIPTION
 
-**yugabyted** manages YugabyteDB clusters, a distributed SQL database compatible with PostgreSQL. It simplifies single-node and multi-node deployments.
+**yugabyted** 管理 YugabyteDB 集群——一种与 PostgreSQL 兼容的分布式 SQL 数据库。它简化了单节点和多节点部署。
 
-YugabyteDB offers two APIs: YSQL (PostgreSQL-compatible) and YCQL (Cassandra-compatible). Use **ysqlsh** for SQL workloads and **ycqlsh** for wide-column workloads.
+YugabyteDB 提供两种 API：YSQL（兼容 PostgreSQL）和 YCQL（兼容 Cassandra）。SQL 工作负载使用 **ysqlsh**，宽列工作负载使用 **ycqlsh**。
 
-**yugabyted start** runs YB-Master and YB-TServer processes. The admin UI (default port 15433) shows cluster health, tables, and metrics. Connect YSQL on port 5433.
+**yugabyted start** 运行 YB-Master 和 YB-TServer 进程。管理界面（默认端口 15433）显示集群健康状况、表和指标。YSQL 通过端口 5433 连接。
 
-For multi-node clusters, start the first node normally, then use **--join** on additional nodes. **--fault_tolerance** configures replication for zone or region failure survival.
+对于多节点集群，先正常启动第一个节点，然后在其他节点上使用 **--join**。**--fault_tolerance** 配置复制策略，以在可用区或区域故障时继续存活。
 
-YSQL supports most PostgreSQL features including extensions, stored procedures, and common ORMs. Connection strings follow PostgreSQL format.
+YSQL 支持大多数 PostgreSQL 特性，包括扩展、存储过程和常见 ORM。连接字符串遵循 PostgreSQL 格式。
 
 # CAVEATS
 
-Some PostgreSQL features are unsupported or behave differently in distributed context. Minimum 3 nodes for fault tolerance. RF3 replication triples storage requirements. Clock synchronization important for consistency.
+部分 PostgreSQL 特性在分布式环境下不受支持或行为不同。容错至少需要 3 个节点。RF3 复制会使存储需求增至三倍。时钟同步对一致性至关重要。
 
 # HISTORY
 
-YugabyteDB was created by **Yugabyte, Inc.** founded by former Facebook engineers **Kannan Muthukkaruppan** and **Karthik Ranganathan** in **2016**. First released in **2017**, it was designed as an open-source alternative to Google Spanner. The database combines Spanner-like architecture with PostgreSQL and Cassandra compatibility. YugabyteDB is Apache-licensed with enterprise features available separately.
+YugabyteDB 由 **Yugabyte, Inc.** 创建，该公司由前 Facebook 工程师 **Kannan Muthukkaruppan** 和 **Karthik Ranganathan** 于 **2016 年**创立。它于 **2017 年**首次发布，设计目标是 Google Spanner 的开源替代品。该数据库将类 Spanner 架构与 PostgreSQL 和 Cassandra 兼容性相结合。YugabyteDB 采用 Apache 许可证，企业版功能单独提供。
 
 # SEE ALSO
 

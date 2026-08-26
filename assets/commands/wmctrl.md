@@ -1,30 +1,30 @@
 # TAGLINE
 
-Command-line window manager control
+命令行窗口管理器控制工具
 
 # TLDR
 
-**List** windows
+**列出**窗口
 
 ```wmctrl -l```
 
-**Activate** window by title
+按标题**激活**窗口
 
 ```wmctrl -a [window_title]```
 
-**Move** window and focus
+**移动**窗口并聚焦
 
 ```wmctrl -R [window_title]```
 
-**Switch** workspace
+**切换**工作区
 
 ```wmctrl -s [workspace_number]```
 
-Toggle **fullscreen**
+切换**全屏**状态
 
 ```wmctrl -r [window_title] -b toggle,fullscreen```
 
-Move window to **workspace**
+将窗口移动到其他**工作区**
 
 ```wmctrl -r [window_title] -t [workspace_number]```
 
@@ -35,35 +35,35 @@ Move window to **workspace**
 # PARAMETERS
 
 **-l**
-> List windows
+> 列出窗口
 
 **-a** _TITLE_
-> Activate window matching title
+> 激活标题匹配的窗口
 
 **-R** _TITLE_
-> Move window to current workspace and focus
+> 将窗口移动到当前工作区并聚焦
 
 **-s** _N_
-> Switch to workspace N
+> 切换到工作区 N
 
 **-r** _TITLE_
-> Select window for action
+> 为操作选择目标窗口
 
 **-b** _ACTION_
-> Modify window state (toggle, add, remove)
+> 修改窗口状态（toggle、add、remove）
 
 **-t** _N_
-> Move window to workspace N
+> 将窗口移动到工作区 N
 
 # DESCRIPTION
 
-**wmctrl** is a command-line tool for interacting with an X Window Manager that supports the EWMH/NetWM specification. It allows listing, switching, and manipulating windows from scripts or the terminal.
+**wmctrl** 是一个命令行工具，用于与支持 EWMH/NetWM 规范的 X 窗口管理器交互。它可以在脚本或终端中列出、切换和操作窗口。
 
-Window titles can be partial matches. Multiple actions can be combined.
+窗口标题支持部分匹配。多个操作可以组合使用。
 
 # CAVEATS
 
-X11 only. Requires EWMH-compliant window manager. Some features depend on window manager support.
+仅支持 X11。需要符合 EWMH 规范的窗口管理器。部分功能取决于窗口管理器的支持程度。
 
 # INSTALL
 

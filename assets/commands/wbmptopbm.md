@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert Wireless Bitmap to PBM format
+将 Wireless Bitmap 转换为 PBM 格式
 
 # TLDR
 
-**Convert WBMP to PBM**
+**将 WBMP 转换为 PBM**
 
 ```wbmptopbm [input.wbmp] > [output.pbm]```
 
@@ -15,17 +15,17 @@ Convert Wireless Bitmap to PBM format
 # PARAMETERS
 
 _file_
-> Input WBMP file (reads from stdin if omitted)
+> 输入的 WBMP 文件（省略时从标准输入读取）
 
 # DESCRIPTION
 
-**wbmptopbm** converts WBMP (Wireless Bitmap) format images to PBM (Portable Bitmap) format. WBMP is a monochrome bitmap format that was used in WAP (Wireless Application Protocol) mobile web pages. Part of the Netpbm toolkit.
+**wbmptopbm** 将 WBMP（Wireless Bitmap）格式的图像转换为 PBM（Portable Bitmap）格式。WBMP 是一种单色位图格式，曾用于 WAP（Wireless Application Protocol）移动网页。它是 Netpbm 工具集的一部分。
 
-The output is written to stdout.
+输出写入到标准输出。
 
 # CAVEATS
 
-WBMP only supports monochrome (1-bit) images, so the output PBM is always black and white.
+WBMP 只支持单色（1 位）图像，因此输出的 PBM 始终是黑白的。
 
 # INSTALL
 
@@ -48,4 +48,3 @@ WBMP only supports monochrome (1-bit) images, so the output PBM is always black 
 # SEE ALSO
 
 [pbmtowbmp](/man/pbmtowbmp)(1), [netpbm](/man/netpbm)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query domain and IP registration information
+查询域名和 IP 注册信息
 
 # TLDR
 
-**Look up domain registration info**
+**查询域名注册信息**
 
 ```whois [example.com]```
 
-**Look up IP address info**
+**查询 IP 地址信息**
 
 ```whois [8.8.8.8]```
 
-**Query a specific WHOIS server**
+**查询指定的 WHOIS 服务器**
 
 ```whois -h [whois.verisign-grs.com] [example.com]```
 
-**Look up AS number**
+**查询 AS 编号**
 
 ```whois [AS15169]```
 
-**Disable recursive lookups**
+**禁用递归查询**
 
 ```whois -r [example.com]```
 
@@ -31,54 +31,54 @@ Query domain and IP registration information
 # PARAMETERS
 
 **-h** _host_, **--host** _host_
-> Query the specified WHOIS server instead of guessing it from the object.
+> 查询指定的 WHOIS 服务器，而不是根据对象猜测。
 
 **-p** _port_, **--port** _port_
-> Connect to the given TCP port (default: 43).
+> 连接到给定的 TCP 端口（默认：43）。
 
 **-H**
-> Hide the legal disclaimers that some registries show.
+> 隐藏某些注册机构显示的法律免责声明。
 
 **-r**
-> Disable recursive lookups for contact information (RIPE-style servers).
+> 禁用对联系信息的递归查询（RIPE 风格的服务器）。
 
 **-I**
-> Query whois.iana.org first and then follow its referral.
+> 先查询 whois.iana.org，然后跟随其转介。
 
 **-a**
-> Also search all the mirrored databases (RIPE).
+> 同时搜索所有镜像数据库（RIPE）。
 
 **-T** _type_
-> Restrict the search to objects of the given type (e.g. _inetnum_, _person_).
+> 将搜索限制为给定类型的对象（如 _inetnum_、_person_）。
 
 **-B**
-> Disable object filtering; include e-mail addresses in results.
+> 禁用对象过滤；在结果中包含电子邮件地址。
 
 **-R**
-> Disable following referrals; show the object from the local copy.
+> 不跟随转介；显示本地副本中的对象。
 
 **--verbose**
-> Verbose output; show which server is being queried.
+> 详细输出；显示正在查询哪台服务器。
 
 # DESCRIPTION
 
-**whois** queries databases for domain name registration information, IP address allocation, and autonomous system (AS) numbers. It provides details about domain ownership, registration dates, name servers, and contact information.
+**whois** 查询数据库以获取域名注册信息、IP 地址分配和自治系统（AS）编号。它提供域名所有者、注册日期、域名服务器和联系信息等详情。
 
-For domain names, whois contacts the appropriate registry (based on TLD) to retrieve registration data. For IP addresses, it queries regional internet registries (ARIN, RIPE, APNIC, etc.).
+对于域名，whois 会根据 TLD 联系相应的注册机构来获取注册数据。对于 IP 地址，它会查询区域互联网注册机构（ARIN、RIPE、APNIC 等）。
 
-The data returned includes registrant information (often privacy-protected), registration and expiration dates, name servers, and registrar details.
+返回的数据包括注册人信息（通常受隐私保护）、注册和到期日期、域名服务器以及注册商详情。
 
-Different registries have different data formats and levels of detail. Some domains use privacy services that mask the actual registrant information.
+不同注册机构的数据格式和详细程度各不相同。一些域名使用隐私服务来隐藏实际的注册人信息。
 
 # CAVEATS
 
-Many domain registrations now use privacy protection services, showing proxy information instead of actual registrant details.
+如今许多域名注册都使用隐私保护服务，显示的是代理信息而非实际注册人详情。
 
-Rate limits may apply. Excessive queries can result in temporary blocks from WHOIS servers.
+可能存在速率限制。过多的查询可能导致被 WHOIS 服务器临时封锁。
 
-Data format varies significantly between registries. Parsing WHOIS output programmatically is challenging.
+各注册机构之间的数据格式差异很大。以编程方式解析 WHOIS 输出相当困难。
 
-RDAP (Registration Data Access Protocol) is gradually replacing WHOIS with a structured, standardized format.
+RDAP（注册数据访问协议）正以其结构化、标准化的格式逐渐取代 WHOIS。
 
 # INSTALL
 

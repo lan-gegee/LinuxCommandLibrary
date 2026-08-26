@@ -1,38 +1,38 @@
 # TAGLINE
 
-Configure Wacom tablet settings
+配置 Wacom 数位板设置
 
 # TLDR
 
-**List** all Wacom devices
+**列出**所有 Wacom 设备
 
 ```xsetwacom list devices```
 
-**List** available parameters
+**列出**可用参数
 
 ```xsetwacom list parameters```
 
-**Get** all current settings for a device
+**获取**设备的全部当前设置
 
 ```xsetwacom get "[device_name]" all```
 
-**Map** tablet input to a specific screen
+**映射**数位板输入到指定屏幕
 
 ```xsetwacom set "[device_name]" MapToOutput [screen]```
 
-Set input **mode** to Relative (mouse) or Absolute (pen)
+将输入**模式**设为 Relative（鼠标式）或 Absolute（笔式）
 
 ```xsetwacom set "[device_name]" Mode [Relative|Absolute]```
 
-**Rotate** tablet input
+**旋转**数位板输入
 
 ```xsetwacom set "[device_name]" Rotate [none|half|cw|ccw]```
 
-Set **pressure curve** using Bezier control points (0-100)
+使用贝塞尔控制点（0-100）设置**压感曲线**
 
 ```xsetwacom set "[device_name]" PressureCurve [0] [0] [100] [100]```
 
-**Map** a tablet button to a keystroke
+**映射**数位板按钮到按键组合
 
 ```xsetwacom set "[device_name]" Button [button_number] "key [keystroke]"```
 
@@ -43,67 +43,67 @@ Set **pressure curve** using Bezier control points (0-100)
 # PARAMETERS
 
 **list** devices
-> List all recognized Wacom input devices.
+> 列出所有已识别的 Wacom 输入设备。
 
 **list** parameters
-> List all parameters suitable for get or set commands.
+> 列出适用于 get 或 set 命令的所有参数。
 
 **list** modifiers
-> List available modifiers for key and button actions.
+> 列出可用于按键和按钮操作的修饰键。
 
 **set** _DEVICE_ _PARAM_ _VALUE_
-> Set a parameter value on the given device.
+> 为给定设备设置参数值。
 
 **get** _DEVICE_ _PARAM_
-> Get the current value of a parameter. Use "all" to show all settings.
+> 获取参数的当前值。使用 "all" 显示全部设置。
 
 **-s**, **--shell**
-> Display output as shell commands that can reproduce the same settings.
+> 以可复现相同设置的 shell 命令形式显示输出。
 
 **-x**, **--xconf**
-> Display output as xorg.conf options.
+> 以 xorg.conf 选项的形式显示输出。
 
 # COMMON PARAMETERS
 
 **Mode** [Relative|Absolute]
-> Relative mode makes the device act like a mouse. Absolute mode maps position directly to the screen.
+> Relative 模式使设备表现得像鼠标。Absolute 模式将位置直接映射到屏幕。
 
 **MapToOutput** _SCREEN_
-> Map tablet input area to a specific screen output (e.g. "HDMI-1") or X11 geometry (WIDTHxHEIGHT+X+Y).
+> 将数位板输入区域映射到特定的屏幕输出（例如 "HDMI-1"）或 X11 几何描述（WIDTHxHEIGHT+X+Y）。
 
 **Rotate** [none|half|cw|ccw]
-> Rotate input. none: no rotation, half: 180 degrees, cw: 90 clockwise, ccw: 90 counter-clockwise.
+> 旋转输入。none：不旋转；half：180 度；cw：顺时针 90 度；ccw：逆时针 90 度。
 
 **Button** _NUMBER_ _MAPPING_
-> Map a button to a mouse button number or a key action.
+> 将按钮映射到鼠标按键编号或按键操作。
 
 **PressureCurve** _x1_ _y1_ _x2_ _y2_
-> Bezier curve control points (0-100) defining pressure response.
+> 定义压感响应的贝塞尔曲线控制点（0-100）。
 
 **Area** _x1_ _y1_ _x2_ _y2_
-> Set the tablet input area in device coordinates (top-left and bottom-right).
+> 以设备坐标设置数位板输入区域（左上角和右下角）。
 
 **Threshold** _LEVEL_
-> Minimum pressure to generate a button event. Range 0-2047, default 27.
+> 触发按键事件所需的最小压力。范围 0-2047，默认 27。
 
 **Touch** [on|off]
-> Enable or disable touch input on the device.
+> 启用或禁用设备的触摸输入。
 
 **TabletPCButton** [on|off]
-> When on, the stylus must touch the screen to generate button events. On by default for Tablet PCs.
+> 开启时，触控笔必须接触屏幕才会生成按钮事件。Tablet PC 上默认开启。
 
 **Suppress** _LEVEL_
-> Minimum coordinate change required before sending an input event.
+> 发送输入事件前所需的最小坐标变化量。
 
 # DESCRIPTION
 
-**xsetwacom** is a command-line utility to query and modify Wacom driver settings at runtime. It can configure input mode, screen mapping, rotation, pressure response, button mapping, and touch behavior.
+**xsetwacom** 是一个在运行时查询和修改 Wacom 驱动设置的命令行工具。它可以配置输入模式、屏幕映射、旋转、压感响应、按钮映射和触摸行为。
 
-Device names can be found using `xsetwacom list devices` or `xinput list`. Not all parameters are available on all device types; use `xsetwacom list parameters` to see what is supported.
+设备名称可通过 `xsetwacom list devices` 或 `xinput list` 查看。并非所有参数都适用于所有设备类型；使用 `xsetwacom list parameters` 可以查看支持的参数。
 
 # CAVEATS
 
-X11 only; does not work with Wayland. Settings do not persist across reboots or device reconnection. For persistent configuration, use xorg.conf.d snippets. Device names may change when devices are reconnected.
+仅支持 X11；不适用于 Wayland。设置不会在重启或设备重新连接后保留。持久配置请使用 xorg.conf.d 片段。设备重新连接后设备名称可能变化。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Install and update Void Linux packages
+安装和更新 Void Linux 软件包
 
 # TLDR
 
-**Install** a new package
+**安装**新软件包
 
 ```xbps-install [package]```
 
-**Synchronize** and update all packages
+**同步并更新**所有软件包
 
 ```xbps-install -S -u```
 
@@ -19,38 +19,38 @@ Install and update Void Linux packages
 # PARAMETERS
 
 **-S, --sync**
-> Synchronize repository index
+> 同步软件仓库索引
 
 **-u, --update**
-> Update installed packages
+> 更新已安装的软件包
 
 **-y, --yes**
-> Assume yes to all questions
+> 对所有提问自动回答 yes
 
 **-n, --dry-run**
-> Show what would be done
+> 显示将要执行的操作
 
 **-f, --force**
-> Force installation
+> 强制安装
 
 **-R, --repository _url_**
-> Add repository to search
+> 添加要搜索的软件仓库
 
 **-D, --download-only**
-> Download packages only
+> 仅下载软件包
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 # DESCRIPTION
 
-**xbps-install** is the package installation and update utility for XBPS, the package manager used by Void Linux. It handles package installation, dependency resolution, and system updates.
+**xbps-install** 是 XBPS（Void Linux 所用的包管理器）的软件包安装和更新工具。它负责软件包安装、依赖解析和系统更新。
 
-Before installing or updating packages, synchronize the repository index with **-S** to get the latest package information.
+在安装或更新软件包之前，先用 **-S** 同步软件仓库索引以获取最新的软件包信息。
 
 # CAVEATS
 
-Requires root privileges for system-wide installation. Repository sync (**-S**) should be run before updates. Part of the XBPS package management system for Void Linux.
+系统级安装需要 root 权限。更新前应先运行仓库同步（**-S**）。属于 Void Linux 的 XBPS 包管理系统的一部分。
 
 # INSTALL
 

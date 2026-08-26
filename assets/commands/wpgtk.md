@@ -1,46 +1,46 @@
 # TAGLINE
 
-Wallpaper-based colorscheme manager
+基于壁纸的配色方案管理器
 
 # TLDR
 
-**Add wallpaper to collection**
+**将壁纸加入收藏**
 
 ```wpg -a [/path/to/image.jpg]```
 
-**Set wallpaper and apply colorscheme**
+**设置壁纸并应用配色方案**
 
 ```wpg -s [wallpaper.jpg]```
 
-**List added wallpapers**
+**列出已添加的壁纸**
 
 ```wpg -l```
 
-**Show current wallpaper**
+**显示当前壁纸**
 
 ```wpg -c```
 
-**Shuffle wallpaper's colorscheme**
+**重新生成壁纸的配色方案**
 
 ```wpg -z [wallpaper.jpg]```
 
-**Import JSON colorscheme**
+**导入 JSON 配色方案**
 
 ```wpg -i [wallpaper.jpg] [colorscheme.json]```
 
-**Apply colorscheme to terminal**
+**将配色方案应用到终端**
 
 ```wpg -t```
 
-**Set wallpaper without changing colorscheme**
+**只设置壁纸而不更改配色方案**
 
 ```wpg -ns [wallpaper.jpg]```
 
-**Adjust saturation of colorscheme**
+**调整配色方案的饱和度**
 
 ```wpg --sat [wallpaper.jpg] [0.1]```
 
-**Launch GUI**
+**启动图形界面**
 
 ```wpgtk```
 
@@ -53,68 +53,68 @@ Wallpaper-based colorscheme manager
 # PARAMETERS
 
 **-a** _image_
-> Add wallpaper to collection.
+> 将壁纸加入收藏。
 
 **-s** _wallpaper_ [_fallback_]
-> Set wallpaper and colorscheme.
+> 设置壁纸和配色方案。
 
 **-l**
-> List added wallpapers.
+> 列出已添加的壁纸。
 
 **-c**
-> Print current wallpaper name.
+> 打印当前壁纸名称。
 
 **-d** _wallpaper_
-> Delete wallpaper from collection.
+> 从收藏中删除壁纸。
 
 **-t**
-> Apply colorscheme to terminal.
+> 将配色方案应用到终端。
 
 **-z** _wallpaper_
-> Shuffle/regenerate colorscheme.
+> 重新生成配色方案。
 
 **-n**
-> Do not set wallpaper when applying colorscheme (use with -s).
+> 应用配色方案时不设置壁纸（与 -s 配合使用）。
 
 **-i** _wallpaper_ _json_
-> Import colorscheme from JSON file.
+> 从 JSON 文件导入配色方案。
 
 **-A** _wallpaper_
-> Auto-adjust colorscheme for distinct foreground and background.
+> 自动调整配色方案以区分前景色和背景色。
 
 **--auto** _wallpaper_
-> Auto-generate foreground versions of the first 8 colors.
+> 自动生成前 8 种颜色的前景版本。
 
 **--sat** _wallpaper_ _value_
-> Adjust saturation of all colors (negative values subtract).
+> 调整所有颜色的饱和度（负值为减）。
 
 **--brt** _wallpaper_ _value_
-> Adjust brightness of all colors (negative values subtract).
+> 调整所有颜色的亮度（负值为减）。
 
 **--theme** [_theme_]
-> Set a preset theme. Without arguments, list available themes.
+> 设置预设主题。不带参数时列出可用主题。
 
 **--pywal** _theme_
-> Select and set a pywal theme.
+> 选择并应用 pywal 主题。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wpgtk** is a colorscheme, wallpaper, and template manager for Unix-like systems. It uses pywal as its backend to extract colors from wallpapers and apply them system-wide through configurable templates.
+**wpgtk** 是面向类 Unix 系统的配色方案、壁纸和模板管理器。它使用 pywal 作为后端从壁纸中提取颜色，并通过可配置的模板将其应用到整个系统。
 
-The tool generates coordinated colorschemes from wallpaper images, applying them to terminals, GTK themes, window managers, and other applications. Templates define how colors are applied to each application's configuration files. Both a CLI (wpg) and GUI (wpgtk) interface are provided.
+该工具根据壁纸图像生成协调一致的配色方案，应用到终端、GTK 主题、窗口管理器及其他应用程序。模板定义了颜色如何应用到每个应用程序的配置文件中。它同时提供 CLI（wpg）和 GUI（wpgtk）两种界面。
 
-Colorschemes are saved with their wallpapers, allowing instant theme switching. Colors can be manually edited, imported from JSON (compatible with terminal.sexy), or auto-adjusted for better contrast.
+配色方案与其壁纸一同保存，可实现即时主题切换。颜色可以手动编辑、从 JSON 导入（兼容 terminal.sexy），或自动调整以获得更好的对比度。
 
 # CAVEATS
 
-Requires pywal as backend. Template files need manual setup for each application. Some applications require restart to apply new colors. GTK theme changes may need session restart.
+需要 pywal 作为后端。每个应用程序的模板文件需要手动设置。某些应用程序需要重启才能应用新颜色。GTK 主题更改可能需要重启会话。
 
 # HISTORY
 
-**wpgtk** was created by deviantfero to provide a user-friendly interface on top of pywal. While pywal handles color extraction and basic application, wpgtk adds wallpaper management, color editing, template management, and a graphical interface for users who prefer visual configuration.
+**wpgtk** 由 deviantfero 创建，旨在 pywal 之上提供友好的用户界面。pywal 负责颜色提取和基本应用，而 wpgtk 增加了壁纸管理、颜色编辑、模板管理和图形界面，适合偏好可视化配置的用户。
 
 # INSTALL
 

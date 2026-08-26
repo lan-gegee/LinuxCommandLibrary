@@ -1,34 +1,34 @@
 # TAGLINE
 
-Firefox WebExtension development tool
+Firefox WebExtension 开发工具
 
 # TLDR
 
-**Run extension in Firefox**
+**在 Firefox 中运行扩展**
 
 ```web-ext run```
 
-**Run in specific Firefox**
+**在指定的 Firefox 中运行**
 
 ```web-ext run --firefox=[/path/to/firefox]```
 
-**Build extension**
+**构建扩展**
 
 ```web-ext build```
 
-**Lint extension**
+**对扩展进行 lint 检查**
 
 ```web-ext lint```
 
-**Sign extension**
+**签名扩展**
 
 ```web-ext sign --api-key=[key] --api-secret=[secret]```
 
-**Run from specific directory**
+**从指定目录运行**
 
 ```web-ext run -s [extension/]```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```web-ext run -v```
 
@@ -39,47 +39,47 @@ Firefox WebExtension development tool
 # PARAMETERS
 
 **run**
-> Run in browser.
+> 在浏览器中运行。
 
 **build**
-> Package extension.
+> 打包扩展。
 
 **lint**
-> Check for issues.
+> 检查问题。
 
 **sign**
-> Sign for distribution.
+> 签名以便分发。
 
 **-s**, **--source-dir** _DIR_
-> Extension source.
+> 扩展源码目录。
 
 **--firefox** _PATH_
-> Firefox binary.
+> Firefox 可执行文件。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--api-key** _KEY_
-> AMO API key.
+> AMO API 密钥。
 
 **--api-secret** _SECRET_
-> AMO API secret.
+> AMO API 秘钥。
 
 # DESCRIPTION
 
-**web-ext** is Mozilla's official command-line tool for developing, testing, and publishing Firefox WebExtensions. It streamlines the extension development workflow by providing commands for running, building, linting, and signing extensions.
+**web-ext** 是 Mozilla 官方用于开发、测试和发布 Firefox WebExtension 的命令行工具。它提供运行、构建、lint 检查和签名扩展的命令，简化了扩展开发工作流。
 
-The run command launches Firefox with the extension temporarily loaded and automatically reloads it when source files change, enabling rapid development iteration. The build command packages the extension into a .zip file ready for submission to addons.mozilla.org (AMO), and the lint command checks for common issues like manifest errors and deprecated API usage.
+run 命令启动 Firefox 并临时加载扩展，当源文件变化时自动重新加载，实现快速开发迭代。build 命令将扩展打包为 .zip 文件，可直接提交到 addons.mozilla.org（AMO）；lint 命令检查常见问题，例如 manifest 错误和已弃用的 API 用法。
 
-The sign command submits the extension to Mozilla for signing, which is required for distribution outside AMO. Authentication requires an AMO API key and secret obtained from the Firefox developer portal.
+sign 命令将扩展提交给 Mozilla 签名，这是在 AMO 之外分发所必需的。身份验证需要从 Firefox 开发者门户获取的 AMO API 密钥和秘钥。
 
 # CAVEATS
 
-Firefox-specific tool. Signing needs AMO account. Some features need Nightly.
+仅针对 Firefox 的工具。签名需要 AMO 账户。某些功能需要 Nightly 版本。
 
 # HISTORY
 
-**web-ext** was created by **Mozilla** for WebExtension development. It simplifies the extension development workflow.
+**web-ext** 由 **Mozilla** 为 WebExtension 开发而创建。它简化了扩展开发工作流。
 
 # INSTALL
 

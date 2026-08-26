@@ -1,22 +1,22 @@
 # TAGLINE
 
-Raw zlib compression and decompression utility
+原始 zlib 压缩与解压工具
 
 # TLDR
 
-**Compress data**
+**压缩数据**
 
 ```zlib-flate -compress < [input] > [output.zz]```
 
-**Decompress data**
+**解压数据**
 
 ```zlib-flate -uncompress < [input.zz] > [output]```
 
-**Compress with specific level (1=fastest, 9=best)**
+**以指定级别压缩（1=最快，9=最佳）**
 
 ```zlib-flate -compress=[9] < [input] > [output.zz]```
 
-**Decompress a raw zlib stream from a PDF**
+**解压 PDF 中的原始 zlib 流**
 
 ```zlib-flate -uncompress < [stream.bin] > [decoded.txt]```
 
@@ -27,29 +27,29 @@ Raw zlib compression and decompression utility
 # PARAMETERS
 
 **-compress**
-> Compress data.
+> 压缩数据。
 
 **-uncompress**
-> Decompress data.
+> 解压数据。
 
 **=**_LEVEL_
-> Compression level (1-9).
+> 压缩级别（1-9）。
 
 # DESCRIPTION
 
-**zlib-flate** performs raw zlib compression and decompression. It reads from standard input and writes to standard output, making it suitable for use in shell pipelines.
+**zlib-flate** 执行原始 zlib 压缩与解压。它从标准输入读取并向标准输出写入，因此适合在 shell 管道中使用。
 
-The tool uses raw zlib compression format, which distinguishes it from utilities like **gzip** that add wrapper headers. Compression levels from 1 (fastest) to 9 (best compression) can be specified with the **-compress=** option.
+该工具使用原始 zlib 压缩格式，这一点与 **gzip** 这类会添加包装头部的工具不同。可以通过 **-compress=** 选项指定 1（最快）到 9（压缩率最高）的压缩级别。
 
-zlib-flate is included as a utility in the **QPDF** package. It is primarily provided as a debugging tool for working with raw zlib streams such as those found inside PDF files. It should not be used as a general purpose compression tool; use **gzip** instead for that.
+zlib-flate 作为实用工具包含在 **QPDF** 软件包中，主要用于调试原始 zlib 流，例如 PDF 文件内部的那些流。不应把它当作通用压缩工具；通用用途请改用 **gzip**。
 
 # CAVEATS
 
-Raw zlib format only, no gzip or other wrapper headers. Part of the qpdf package. Not intended as a general purpose compression tool.
+仅支持原始 zlib 格式，没有 gzip 或其他包装头部。属于 qpdf 软件包的一部分。不适合作为通用压缩工具。
 
 # HISTORY
 
-**zlib-flate** is included with **QPDF**, providing raw zlib deflate compression and decompression.
+**zlib-flate** 随 **QPDF** 一同提供，用于原始 zlib deflate 压缩与解压。
 
 # INSTALL
 

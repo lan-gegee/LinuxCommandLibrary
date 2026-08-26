@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run commands in virtual X server
+在虚拟 X server 中运行命令
 
 # TLDR
 
-**Run a command in a virtual X server**
+**在虚拟 X server 中运行命令**
 
 ```xvfb-run [command]```
 
-**Auto-select a free server number**
+**自动选择空闲的服务器编号**
 
 ```xvfb-run -a [command]```
 
-**Pass server arguments for screen resolution and depth**
+**传递用于屏幕分辨率和色深的服务器参数**
 
 ```xvfb-run -s "-screen 0 1024x768x24" [command]```
 
-**Log Xvfb errors to a file**
+**将 Xvfb 错误记录到文件**
 
 ```xvfb-run -e [/tmp/xvfb.log] [command]```
 
-**Use a specific server number**
+**使用特定的服务器编号**
 
 ```xvfb-run -n [44] [command]```
 
@@ -31,41 +31,41 @@ Run commands in virtual X server
 # PARAMETERS
 
 **-a, --auto-servernum**
-> Try to get a free server number, starting at 99 or the argument to --server-num
+> 尝试获取空闲的服务器编号，从 99 或 --server-num 的参数值开始
 
 **-s, --server-args** _ARGS_
-> Arguments passed to Xvfb server (default: "-screen 0 640x480x8")
+> 传给 Xvfb 服务器的参数（默认："-screen 0 640x480x8"）
 
 **-n, --server-num** _NUM_
-> Use specified server number (default: 99)
+> 使用指定的服务器编号（默认：99）
 
 **-e, --error-file** _FILE_
-> Store output from xauth and Xvfb in file (default: /dev/null)
+> 将 xauth 和 Xvfb 的输出保存到文件（默认：/dev/null）
 
 **-f, --auth-file** _FILE_
-> Use specified X authority file
+> 使用指定的 X authority 文件
 
 **-l, --listen-tcp**
-> Enable TCP port listening in the X server (disabled by default for security)
+> 在 X server 中启用 TCP 端口监听（出于安全考虑默认禁用）
 
 **-p, --xauth-protocol** _PROTO_
-> X authority protocol to use (default: MIT-MAGIC-COOKIE-1)
+> 要使用的 X authority 协议（默认：MIT-MAGIC-COOKIE-1）
 
 **-w, --wait** _DELAY_
-> Wait delay seconds after launching Xvfb before starting the command (default: 3)
+> 启动 Xvfb 后等待 delay 秒再启动命令（默认：3）
 
 **-h, --help**
-> Display usage information and exit
+> 显示用法信息并退出
 
 # DESCRIPTION
 
-**xvfb-run** runs a command in a virtual X server environment using Xvfb (X Virtual Frame Buffer). This allows running graphical applications on systems without a display.
+**xvfb-run** 使用 Xvfb（X Virtual Frame Buffer）在虚拟 X server 环境中运行命令。这让你可以在没有显示器的系统上运行图形应用程序。
 
-The tool is useful for automated testing, CI/CD pipelines, and headless server environments.
+该工具适用于自动化测试、CI/CD 流水线和无头服务器环境。
 
 # CAVEATS
 
-Xvfb must be installed. Some applications may behave differently in virtual X. Performance may vary for GPU-intensive applications.
+必须安装 Xvfb。某些应用程序在虚拟 X 中的行为可能有所不同。GPU 密集型应用的性能可能有差异。
 
 # INSTALL
 

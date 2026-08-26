@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fast terminal Excel viewer with interactive TUI
+带交互式 TUI 的快速终端 Excel 查看器
 
 # TLDR
 
-**Open an Excel file in the interactive TUI**
+**在交互式 TUI 中打开 Excel 文件**
 
 ```xleak [report.xlsx]```
 
-**Open a specific sheet by name**
+**按名称打开指定工作表**
 
 ```xleak [report.xlsx] --sheet "[Q3 Results]"```
 
-**Export a spreadsheet to CSV**
+**将电子表格导出为 CSV**
 
 ```xleak [data.xlsx] --export csv > [output.csv]```
 
-**Export a spreadsheet to JSON**
+**将电子表格导出为 JSON**
 
 ```xleak [data.xlsx] --export json > [output.json]```
 
-**List all tables in a workbook**
+**列出工作簿中的所有表**
 
 ```xleak [workbook.xlsx] --list-tables```
 
-**View formulas by default**
+**默认显示公式**
 
 ```xleak [data.xlsx] --formulas```
 
@@ -35,74 +35,74 @@ Fast terminal Excel viewer with interactive TUI
 # PARAMETERS
 
 **--sheet** _NAME|NUMBER_
-> Open a specific sheet by name or index.
+> 按名称或索引打开指定工作表。
 
 **-n**, **--num-rows** _COUNT_
-> Limit the number of rows displayed. `0` shows all rows.
+> 限制显示的行数。`0` 表示显示所有行。
 
 **-w**, **--width** _WIDTH_
-> Set column width.
+> 设置列宽。
 
 **-H**
-> Enable horizontal scrolling with auto-sized columns.
+> 启用水平滚动并自动调整列宽。
 
 **--formulas**
-> Display cell formulas instead of computed values by default.
+> 默认显示单元格公式而非计算结果。
 
 **--export** _FORMAT_
-> Export the spreadsheet to stdout in `csv`, `json`, or `text` (tab-separated) format.
+> 将电子表格以 `csv`、`json` 或 `text`（制表符分隔）格式导出到 stdout。
 
 **--table** _NAME_
-> Extract a specific named Excel table (.xlsx only).
+> 提取指定的命名 Excel 表格（仅限 .xlsx）。
 
 **--list-tables**
-> List all tables in the workbook and exit.
+> 列出工作簿中的所有表并退出。
 
 **--config** _PATH_
-> Use a custom configuration file instead of the default at `~/.config/xleak/config.toml`.
+> 使用自定义配置文件，而非 `~/.config/xleak/config.toml` 默认配置。
 
 # KEYBOARD SHORTCUTS
 
-**Arrow keys**
-> Move between cells.
+**方向键**
+> 在单元格之间移动。
 
 **/**
-> Search across all cells.
+> 在所有单元格中搜索。
 
 **n** / **N**
-> Jump to next / previous search result.
+> 跳到下一条 / 上一条搜索结果。
 
 **Enter**
-> View cell details and formula.
+> 查看单元格详情和公式。
 
 **c**
-> Copy cell value to clipboard.
+> 将单元格值复制到剪贴板。
 
 **C**
-> Copy entire row to clipboard.
+> 将整行复制到剪贴板。
 
 **Tab** / **Shift+Tab**
-> Switch between sheets.
+> 在工作表之间切换。
 
 **Ctrl+G**
-> Jump to a specific cell or row number.
+> 跳转到特定单元格或行号。
 
 **t**
-> Cycle through colour themes.
+> 循环切换配色主题。
 
 **?**
-> Display help.
+> 显示帮助。
 
 **q**
-> Quit.
+> 退出。
 
 # DESCRIPTION
 
-**xleak** is a terminal-based Excel viewer that supports .xlsx, .xls, .xlsm, .xlsb, and .ods files. Features include full-text search across cells, formula display, lazy loading for large files, clipboard support, and export to CSV and JSON.
+**xleak** 是一个基于终端的 Excel 查看器，支持 .xlsx、.xls、.xlsm、.xlsb 和 .ods 文件。功能包括跨单元格全文搜索、公式显示、大文件懒加载、剪贴板支持以及导出 CSV 和 JSON。
 
 # HISTORY
 
-**xleak** was created by **Brandon Greenwell** (bgreenwell) and is written in **Rust**.
+**xleak** 由 **Brandon Greenwell**（bgreenwell）创建，使用 **Rust** 编写。
 
 # INSTALL
 

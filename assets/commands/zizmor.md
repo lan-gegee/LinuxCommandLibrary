@@ -1,18 +1,18 @@
 # TAGLINE
 
-Static analysis tool for GitHub Actions security
+GitHub Actions 安全静态分析工具
 
 # TLDR
 
-**Audit all GitHub Actions in current directory**
+**审计当前目录中的所有 GitHub Actions**
 
 ```zizmor .```
 
-**Output in SARIF format**
+**以 SARIF 格式输出**
 
 ```zizmor --format sarif [.github/workflows/]```
 
-**Run fully offline**
+**完全离线运行**
 
 ```zizmor --offline .```
 
@@ -22,11 +22,11 @@ Static analysis tool for GitHub Actions security
 
 # DESCRIPTION
 
-**zizmor** audits GitHub Actions YAML files for security issues including template injection vulnerabilities, mutable tag pinning, and known advisory usage. It has approximately 24 audit rules, generates SARIF output for GitHub code scanning integration, and supports offline mode by default.
+**zizmor** 审计 GitHub Actions YAML 文件的安全问题，包括模板注入漏洞、可变标签固定以及已知安全公告的使用。它拥有约 24 条审计规则，可生成用于 GitHub code scanning 集成的 SARIF 输出，并且默认支持离线模式。
 
 # HISTORY
 
-**zizmor** was created by **William Woodruff** (Trail of Bits) and is written in **Rust**.
+**zizmor** 由 **William Woodruff**（Trail of Bits）创建，使用 **Rust** 编写。
 
 # INSTALL
 

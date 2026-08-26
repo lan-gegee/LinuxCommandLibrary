@@ -1,22 +1,22 @@
 # TAGLINE
 
-Produce canonical XML form
+生成规范的 XML 形式
 
 # TLDR
 
-**Canonicalize XML (W3C C14N)**
+**规范化 XML（W3C C14N）**
 
 ```xml canonic [file.xml]```
 
-**Exclusive canonicalization**
+**排他式规范化**
 
 ```xml canonic --exc-c14n [file.xml]```
 
-**Canonicalize without comments**
+**不含注释地规范化**
 
 ```xml canonic --without-comments [file.xml]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat file.xml | xml canonic```
 
@@ -26,21 +26,21 @@ Produce canonical XML form
 
 # DESCRIPTION
 
-**xml canonic** produces a canonical XML form of the input document as defined by the W3C XML Canonicalization (C14N) specification. Canonicalization normalizes whitespace, attribute order, namespace declarations, and character encoding so that two logically equivalent documents produce identical byte streams.
+**xml canonic** 按照 W3C XML Canonicalization（C14N）规范生成输入文档的规范 XML 形式。规范化会统一空白、属性顺序、命名空间声明和字符编码，使两个逻辑等价的文档产生完全相同的字节流。
 
-It is part of the **xmlstarlet** command-line XML toolkit. Canonical XML is commonly used as a preparation step before computing cryptographic digests for XML digital signatures (XML-DSig), and for reliable document comparison.
+它是 **xmlstarlet** 命令行 XML 工具集的一部分。规范 XML 常用作计算 XML 数字签名（XML-DSig）加密摘要前的准备步骤，也用于可靠地比较文档。
 
 # PARAMETERS
 
 **--exc-c14n**
-> Use Exclusive XML Canonicalization (EXC-C14N) instead of the default Canonical XML 1.0.
+> 使用 Exclusive XML Canonicalization（EXC-C14N）而非默认的 Canonical XML 1.0。
 
 **--without-comments**
-> Omit comments from canonical output.
+> 在规范化输出中省略注释。
 
 # CAVEATS
 
-Canonicalization is lossy: comments may be stripped, whitespace normalized, and namespace declarations rewritten. Non-canonical formatting differences are intentionally erased. Cryptographic signatures over canonicalized XML require both parties to use the same C14N variant.
+规范化是有损的：注释可能被去除、空白被统一、命名空间声明被改写。非规范化的格式差异会被有意消除。对规范化后的 XML 计算加密签名时，要求双方使用相同的 C14N 变体。
 
 # INSTALL
 

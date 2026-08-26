@@ -1,34 +1,34 @@
 # TAGLINE
 
-Lock packages to specific versions
+将软件包锁定在特定版本
 
 # TLDR
 
-**Lock a package** to its currently installed version
+将软件包**锁定在其当前安装的版本**
 
 ```sudo yum versionlock add [package_name]```
 
-**List all locked packages**
+**列出所有已锁定的软件包**
 
 ```yum versionlock list```
 
-**Remove a lock** from a specific package
+**移除**特定软件包的锁定
 
 ```sudo yum versionlock delete [package_name]```
 
-**Clear all version locks**
+**清除所有版本锁定**
 
 ```sudo yum versionlock clear```
 
-**Lock a package to a specific version**
+将软件包**锁定到指定版本**
 
 ```sudo yum versionlock add [package_name]-[version]-[release]```
 
-**Exclude packages matching a pattern** from updates
+**排除匹配某模式的软件包**，使其不被更新
 
 ```sudo yum versionlock exclude [package_pattern*]```
 
-**Show status** of versionlock plugin
+显示 versionlock 插件的**状态**
 
 ```yum versionlock status```
 
@@ -39,40 +39,40 @@ Lock packages to specific versions
 # PARAMETERS
 
 **add** _package_
-> Lock the specified package(s) to their currently installed versions. Prevents yum from updating these packages.
+> 将指定软件包锁定在其当前安装的版本，阻止 yum 更新这些包。
 
 **list**
-> Display all currently locked packages and their versions.
+> 显示当前所有已锁定的软件包及其版本。
 
 **delete** _package_
-> Remove the version lock from the specified package(s), allowing them to be updated again.
+> 移除指定软件包的版本锁定，允许其再次被更新。
 
 **clear**
-> Remove all version locks from the system.
+> 移除系统上所有的版本锁定。
 
 **exclude** _package_
-> Disallow currently available versions of the packages matching the given wildcards.
+> 排除匹配给定通配符的软件包的当前可用版本。
 
 **status**
-> List any available updates that are currently blocked by versionlock.
+> 列出当前被 versionlock 阻止的所有可用更新。
 
 # DESCRIPTION
 
-**yum-versionlock** is a yum plugin that allows administrators to lock specific packages to their currently installed versions, preventing them from being updated during system upgrades. This is useful for maintaining stability when newer package versions might break compatibility or when specific versions are required for compliance.
+**yum-versionlock** 是一个 yum 插件，允许管理员将特定软件包锁定在其当前安装的版本，防止它们在系统升级时被更新。当较新的软件包版本可能破坏兼容性，或出于合规要求必须使用特定版本时，这个功能有助于维持系统稳定性。
 
-When a package is locked, yum will skip it during **yum update** operations, even if newer versions are available in configured repositories. The lock persists across reboots and update sessions until explicitly removed.
+软件包被锁定后，即使在已配置的软件仓库中有更新的版本，yum 也会在 **yum update** 操作中跳过它。锁定会跨重启和更新会话保持有效，直到被显式移除。
 
-Locked packages are stored in **/etc/yum/pluginconf.d/versionlock.list** (or similar path depending on the distribution). Each entry follows the NEVRA format: name-epoch:version-release.arch.
+被锁定的软件包保存在 **/etc/yum/pluginconf.d/versionlock.list**（或因发行版而异的类似路径）中。每个条目遵循 NEVRA 格式：name-epoch:version-release.arch。
 
-The plugin must be installed separately via **yum install yum-plugin-versionlock** (RHEL/CentOS 7) or **dnf install python3-dnf-plugin-versionlock** (Fedora/RHEL 8+). On newer systems using DNF, the command syntax is **dnf versionlock**.
+该插件需要单独安装：**yum install yum-plugin-versionlock**（RHEL/CentOS 7）或 **dnf install python3-dnf-plugin-versionlock**（Fedora/RHEL 8+）。在使用 DNF 的较新系统上，命令语法为 **dnf versionlock**。
 
 # CAVEATS
 
-Locking packages may create dependency conflicts if other packages require newer versions. Security updates are also blocked for locked packages, potentially leaving vulnerabilities unpatched. The lock file format changed between yum and dnf versions. Version locks do not prevent manual installation of specific versions.
+如果其他软件包依赖较新的版本，锁定可能造成依赖冲突。被锁定软件包的安全更新也会被阻止，可能导致漏洞得不到修补。锁定文件的格式在 yum 和 dnf 版本之间有所变化。版本锁定不能阻止手动安装特定版本。
 
 # HISTORY
 
-The versionlock plugin was developed as part of the yum-utils package collection for Red Hat-based Linux distributions. It provided functionality similar to apt-mark hold on Debian systems. With the transition from yum to DNF in Fedora 22 (2015) and RHEL 8 (2019), the plugin was rewritten as a DNF plugin while maintaining command compatibility.
+versionlock 插件是为 Red Hat 系 Linux 发行版开发的 yum-utils 软件包集合的一部分。它提供的功能类似于 Debian 系统上的 apt-mark hold。随着 Fedora 22（2015 年）和 RHEL 8（2019 年）从 yum 向 DNF 过渡，该插件被重写为 DNF 插件，同时保持了命令兼容性。
 
 # SEE ALSO
 

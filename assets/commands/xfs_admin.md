@@ -1,26 +1,26 @@
 # TAGLINE
 
-Modify XFS filesystem parameters
+修改 XFS 文件系统参数
 
 # TLDR
 
-Display **label**
+显示**卷标**
 
 ```sudo xfs_admin -l [/dev/sdX]```
 
-Set **label**
+设置**卷标**
 
 ```sudo xfs_admin -L "[label]" [/dev/sdX]```
 
-Display **UUID**
+显示 **UUID**
 
 ```sudo xfs_admin -u [/dev/sdX]```
 
-Set **UUID**
+设置 **UUID**
 
 ```sudo xfs_admin -U [uuid] [/dev/sdX]```
 
-**Generate** new UUID
+**生成**新 UUID
 
 ```sudo xfs_admin -U generate [/dev/sdX]```
 
@@ -31,29 +31,29 @@ Set **UUID**
 # PARAMETERS
 
 **-l, --list**
-> Display filesystem label
+> 显示文件系统卷标
 
 **-L, --Label** _LABEL_
-> Set filesystem label
+> 设置文件系统卷标
 
 **-u, --uuid**
-> Display filesystem UUID
+> 显示文件系统 UUID
 
 **-U, --UUID** _UUID_
-> Set filesystem UUID (or "generate" for new)
+> 设置文件系统 UUID（或用 "generate" 生成新的）
 
 **-c** _0|1_
-> Enable/disable lazy-counters
+> 启用/禁用延迟计数器
 
 # DESCRIPTION
 
-**xfs_admin** modifies parameters of an XFS filesystem. It can change the label and UUID of unmounted XFS filesystems.
+**xfs_admin** 用于修改 XFS 文件系统的参数。它可以更改未挂载的 XFS 文件系统的卷标和 UUID。
 
-The filesystem must be unmounted before modifying parameters.
+修改参数前必须先卸载文件系统。
 
 # CAVEATS
 
-Changing UUID may affect fstab and boot configurations. Requires root privileges. XFS filesystems only.
+更改 UUID 可能影响 fstab 和启动配置。需要 root 权限。仅适用于 XFS 文件系统。
 
 # INSTALL
 

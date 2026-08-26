@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI disk space analyzer and cleanup tool
+TUI 磁盘空间分析与清理工具
 
 # TLDR
 
-**Analyze the current directory**
+**分析当前目录**
 
 ```wiper```
 
-**Analyze a specific directory**
+**分析指定目录**
 
 ```wiper [/home]```
 
-**Navigate with keyboard: j/k or arrows to move, l/Enter to enter folder, h/Backspace to go back**
+**键盘导航：j/k 或方向键移动，l/Enter 进入文件夹，h/Backspace 返回上级**
 
 ```wiper```
 
-**Press d twice to delete selected item, press t to toggle trash mode**
+**按两次 d 删除选中项，按 t 切换回收站模式**
 
 ```wiper```
 
@@ -27,36 +27,36 @@ TUI disk space analyzer and cleanup tool
 # PARAMETERS
 
 **j, k, Down, Up**
-> Navigate up and down through directories
+> 在目录中上下移动
 
 **l, Right, Enter**
-> Enter a selected folder
+> 进入选中的文件夹
 
 **h, Left, Backspace**
-> Return to parent directory
+> 返回父目录
 
 **d**
-> Delete mode (press once to select, again to confirm)
+> 删除模式（按一次选中，再按确认）
 
 **s**
-> Toggle sort order between name and size
+> 在按名称和按大小之间切换排序方式
 
 **c**
-> Toggle gradient coloring for visual space usage
+> 切换渐变着色以直观展示空间占用
 
 **t**
-> Toggle trash mode (permanent vs. recoverable deletion)
+> 切换回收站模式（永久删除与可恢复删除）
 
 **q**
-> Exit the application
+> 退出应用
 
 # DESCRIPTION
 
-**wiper** is a terminal-based disk analyzer that scans directories and visually displays which folders consume the most space. It provides colored output, file size metrics, and keyboard shortcuts for navigating and cleaning up disk usage. Works on Linux, macOS, and Windows.
+**wiper** 是一个基于终端的磁盘分析器，它会扫描目录并以可视化方式展示哪些文件夹占用空间最多。它提供彩色输出、文件大小指标以及用于浏览和清理磁盘占用的快捷键。支持 Linux、macOS 和 Windows。
 
 # HISTORY
 
-**wiper** was created by **Alexandr Kobrin** (ikebastuz) and is written in **Rust**.
+**wiper** 由 **Alexandr Kobrin**（ikebastuz）创建，使用 **Rust** 编写。
 
 # INSTALL
 

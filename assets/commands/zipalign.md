@@ -1,26 +1,26 @@
 # TAGLINE
 
-Optimize Android APK file alignment
+优化 Android APK 文件对齐
 
 # TLDR
 
-**Align an APK file** with 4-byte alignment and 16 KiB page alignment for shared libraries
+**对齐 APK 文件**，使用 4 字节对齐以及共享库 16 KiB 页面对齐
 
 ```zipalign -P 16 -f -v 4 [input.apk] [output.apk]```
 
-**Verify alignment** of an APK
+**验证** APK 的**对齐**
 
 ```zipalign -c -P 16 -v 4 [path/to/file.apk]```
 
-**Align with basic 4-byte alignment** only
+**仅进行基本的 4 字节对齐**
 
 ```zipalign -v 4 [input.apk] [output.apk]```
 
-**Force overwrite** existing output file
+**强制覆盖**已有的输出文件
 
 ```zipalign -f 4 [input.apk] [output.apk]```
 
-**Check alignment without verbose output**
+**检查对齐而不输出详细信息**
 
 ```zipalign -c 4 [path/to/file.apk]```
 
@@ -31,52 +31,52 @@ Optimize Android APK file alignment
 # PARAMETERS
 
 **-c**
-> Check alignment only (confirm mode). Does not modify the file.
+> 仅检查对齐（确认模式）。不修改文件。
 
 **-f**
-> Force overwrite of existing output file.
+> 强制覆盖已有的输出文件。
 
 **-P** _pagesize_kb_
-> Page-align uncompressed .so files to the specified page size in KiB. Valid values are **4**, **16**, or **64**. Use **-P 16** for compatibility with both 4 KiB and 16 KiB page size devices.
+> 将未压缩的 .so 文件按指定的页大小（KiB）进行页面对齐。有效值为 **4**、**16** 或 **64**。使用 **-P 16** 可同时兼容 4 KiB 和 16 KiB 页面大小的设备。
 
 **-p**
-> Deprecated. Legacy 4 KiB page alignment for .so files. Use **-P 16** instead.
+> 已弃用。针对 .so 文件的旧式 4 KiB 页面对齐。请改用 **-P 16**。
 
 **-v**
-> Verbose output, showing alignment status for each file in the archive.
+> 详细输出，显示归档中每个文件的对齐状态。
 
 **-z**
-> Recompress using Zopfli for smaller file size (slower).
+> 使用 Zopfli 重新压缩以获得更小的文件体积（较慢）。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 _alignment_
-> Byte alignment boundary. Always use **4** for APK files.
+> 字节对齐边界。APK 文件始终使用 **4**。
 
 _input.apk_
-> The input APK file to process.
+> 要处理的输入 APK 文件。
 
 _output.apk_
-> The output aligned APK file (required unless using -c).
+> 对齐后的输出 APK 文件（使用 -c 时可省略）。
 
 # DESCRIPTION
 
-**zipalign** is an archive alignment tool from the Android SDK that optimizes APK files by ensuring all uncompressed data starts at a particular byte alignment relative to the file start. This optimization allows Android to memory-map files directly from the APK, reducing RAM usage and improving app launch performance.
+**zipalign** 是 Android SDK 提供的归档对齐工具，通过确保所有未压缩数据相对于文件起始位置按特定字节边界对齐来优化 APK 文件。这项优化使 Android 能够直接从 APK 内存映射文件，降低 RAM 占用并提升应用启动性能。
 
-The tool works by adjusting the extra field padding in ZIP entries so that file data boundaries align to the specified value (always 4 bytes for APKs). This allows the Android runtime to access uncompressed resources with **mmap()** instead of copying them into the heap.
+该工具通过调整 ZIP 条目中的 extra field 填充，使文件数据边界对齐到指定值（APK 恒为 4 字节）。这使 Android 运行时可以用 **mmap()** 访问未压缩资源，而不是将其复制到堆中。
 
-The correct order of operations depends on the signing tool used. When using **apksigner**, run zipalign **before** signing. When using **jarsigner**, run zipalign **after** signing. For Android App Bundles (AAB), zipalign is not needed as Google Play handles optimization during APK generation.
+正确的操作顺序取决于所用的签名工具。使用 **apksigner** 时，应在签名**之前**运行 zipalign。使用 **jarsigner** 时，应在签名**之后**运行 zipalign。对于 Android App Bundle（AAB），无需 zipalign，因为 Google Play 会在生成 APK 时处理优化。
 
-The tool is located in the **build-tools** directory of the Android SDK (e.g., `$ANDROID_HOME/build-tools/34.0.0/zipalign`).
+该工具位于 Android SDK 的 **build-tools** 目录中（例如 `$ANDROID_HOME/build-tools/34.0.0/zipalign`）。
 
 # CAVEATS
 
-The order relative to signing depends on the tool: run zipalign **before** apksigner but **after** jarsigner. Using **-P 16** is required for apps targeting Android 15+ to properly align native libraries for 16 KiB page size devices. Does not work with Android App Bundles (AAB). The alignment value should always be 4 for APKs. Zipalign does not perform signing. The lowercase **-p** flag is deprecated in favor of **-P**.
+与签名的先后顺序取决于工具：在 apksigner **之前**运行 zipalign，但在 jarsigner **之后**运行。面向 Android 15+ 的应用必须使用 **-P 16**，以便为 16 KiB 页面大小的设备正确对齐原生库。不适用于 Android App Bundle（AAB）。APK 的对齐值应始终为 4。Zipalign 不执行签名。小写的 **-p** 标志已弃用，请改用 **-P**。
 
 # HISTORY
 
-**zipalign** was introduced by Google as part of the Android SDK tools. It became part of the standard Android build process to ensure optimal runtime performance. Starting November **2025**, Google Play requires all apps targeting Android 15+ on 64-bit devices to support 16 KiB page sizes, making the **-P 16** flag essential for apps with native libraries.
+**zipalign** 由 Google 作为 Android SDK 工具的一部分推出。它成为标准 Android 构建流程的一环，以确保最佳的运行时性能。自 **2025 年 11 月**起，Google Play 要求所有面向 Android 15+ 的应用在 64 位设备上支持 16 KiB 页面大小，这使得 **-P 16** 标志对带原生库的应用至关重要。
 
 # INSTALL
 

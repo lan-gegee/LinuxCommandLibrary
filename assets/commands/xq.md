@@ -1,34 +1,34 @@
 # TAGLINE
 
-XML processor using jq syntax
+使用 jq 语法的 XML 处理器
 
 # TLDR
 
-**Convert XML to JSON**
+**将 XML 转换为 JSON**
 
 ```xq . [file.xml]```
 
-**Extract value using jq syntax**
+**使用 jq 语法提取值**
 
 ```xq '.[key]' [file.xml]```
 
-**Convert and format XML**
+**转换并格式化 XML**
 
 ```cat [file.xml] | xq .```
 
-**Convert JSON back to XML**
+**将 JSON 转回 XML**
 
 ```xq -x . [file.json]```
 
-**Process multiple XML files**
+**处理多个 XML 文件**
 
 ```xq . [a.xml] [b.xml]```
 
-**Stream large XML document**
+**流式处理大型 XML 文档**
 
 ```xq . --xml-item-depth [2] [large.xml]```
 
-**Wrap output in XML root element**
+**用 XML 根元素包裹输出**
 
 ```xq -x --xml-root [root] . [file.json]```
 
@@ -39,52 +39,52 @@ XML processor using jq syntax
 # PARAMETERS
 
 **-x**, **--xml-output**
-> Transcode output back to XML.
+> 将输出转码回 XML。
 
 **--xml-item-depth** _n_
-> Stream items at depth n (for large documents).
+> 在深度 n 处流式处理元素（用于大型文档）。
 
 **--xml-dtd**
-> Preserve Document Type Definition.
+> 保留文档类型定义（DTD）。
 
 **--xml-root** _name_
-> Wrap XML output in element with this name.
+> 用以此命名的元素包裹 XML 输出。
 
 **--xml-force-list** _element_
-> Force element to always be a list.
+> 强制某元素始终为列表。
 
 **-i**, **--in-place**
-> Edit files in place.
+> 就地编辑文件。
 
 **-c**, **--compact-output**
-> Compact JSON output.
+> 紧凑的 JSON 输出。
 
 **-r**, **--raw-output**
-> Raw string output.
+> 原始字符串输出。
 
 **--version**
-> Display version.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**xq** is a command-line XML processor that wraps jq. It transcodes XML documents to JSON using xmltodict, pipes them through jq for processing, and optionally converts the result back to XML.
+**xq** 是一个封装了 jq 的命令行 XML 处理器。它使用 xmltodict 将 XML 文档转换为 JSON，通过 jq 进行处理，并可选地将结果转回 XML。
 
-The tool enables using jq's powerful JSON query syntax on XML data. All standard jq filters and operations work on the converted JSON representation.
+该工具让你可以在 XML 数据上使用 jq 强大的 JSON 查询语法。所有标准的 jq 过滤器和操作都可用于转换后的 JSON 表示。
 
-For large XML documents, the --xml-item-depth option enables streaming mode, processing elements at a specified depth without loading the entire document into memory.
+对于大型 XML 文档，--xml-item-depth 选项可启用流式模式，在指定深度处理元素而无需将整个文档载入内存。
 
-Entity expansion and DTD resolution are disabled by default for security. Install via: `pip install yq` or `brew install python-yq`
+出于安全考虑，实体展开和 DTD 解析默认被禁用。安装方式：`pip install yq` 或 `brew install python-yq`
 
 # CAVEATS
 
-XML attribute ordering may not be preserved. Some XML features have limited JSON representation. Part of the yq package (not the Go-based yq). Requires Python and jq.
+XML 属性的顺序可能无法保留。某些 XML 特性在 JSON 中的表示能力有限。属于 yq 软件包的一部分（不是基于 Go 的 yq）。需要 Python 和 jq。
 
 # HISTORY
 
-**xq** was created as part of the yq project by Andrey Kislyuk to provide jq-like functionality for YAML and XML. It fills the gap for command-line XML processing using the familiar jq syntax.
+**xq** 由 Andrey Kislyuk 作为 yq 项目的一部分创建，旨在为 YAML 和 XML 提供 jq 风格的功能。它填补了用熟悉的 jq 语法进行命令行 XML 处理的空白。
 
 # INSTALL
 

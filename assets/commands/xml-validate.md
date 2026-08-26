@@ -1,30 +1,30 @@
 # TAGLINE
 
-Validate XML against schemas
+依据 schema 校验 XML
 
 # TLDR
 
-**Validate against embedded DTD**
+**依据内嵌 DTD 校验**
 
 ```xml val [file.xml]```
 
-**Validate against an XSD schema**
+**依据 XSD schema 校验**
 
 ```xml val --xsd [schema.xsd] [file.xml]```
 
-**Validate against a RelaxNG schema**
+**依据 RelaxNG schema 校验**
 
 ```xml val --relaxng [schema.rng] [file.xml]```
 
-**Check well-formedness only** (no schema validation)
+**仅检查格式良好性**（不做 schema 校验）
 
 ```xml val --well-formed [file.xml]```
 
-**Validate multiple files**
+**校验多个文件**
 
 ```xml val [file1.xml] [file2.xml]```
 
-**Validate using embedded schema reference**
+**使用内嵌的 schema 引用校验**
 
 ```xml val -E [file.xml]```
 
@@ -35,26 +35,26 @@ Validate XML against schemas
 # PARAMETERS
 
 **--xsd** _file_
-> Validate against XML Schema.
+> 依据 XML Schema 校验。
 
 **--dtd** _file_
-> Validate against DTD.
+> 依据 DTD 校验。
 
 **--relaxng** _file_
-> Validate against RelaxNG schema.
+> 依据 RelaxNG schema 校验。
 
 **--well-formed**
-> Check well-formedness only.
+> 仅检查格式良好性。
 
 **-E**, **--embed**
-> Use embedded schema.
+> 使用内嵌 schema。
 
 **-e**, **--err**
-> Print errors.
+> 打印错误信息。
 
 # DESCRIPTION
 
-**xml val** (or `xml validate`) validates XML documents against schemas. Part of the XMLStarlet toolkit. Supports DTD, XML Schema (XSD), and RelaxNG validation. Returns exit code 0 if valid, non-zero otherwise.
+**xml val**（或 `xml validate`）依据 schema 校验 XML 文档。属于 XMLStarlet 工具集。支持 DTD、XML Schema（XSD）和 RelaxNG 校验。有效时返回退出码 0，否则返回非零值。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ Validate XML against schemas
 # SEE ALSO
 
 [xml-format](/man/xml-format)(1), [xmllint](/man/xmllint)(1)
-

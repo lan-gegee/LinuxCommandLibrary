@@ -1,34 +1,34 @@
 # TAGLINE
 
-Copy data to Wayland clipboard
+将数据复制到 Wayland 剪贴板
 
 # TLDR
 
-**Copy text** to the clipboard
+**复制文本**到剪贴板
 
 ```wl-copy "[text]"```
 
-**Pipe** command output to the clipboard
+将命令输出通过管道送入剪贴板
 
 ```ls | wl-copy```
 
-Copy for **only one paste** then clear
+只允许**粘贴一次**然后清空
 
 ```wl-copy --paste-once "[text]"```
 
-Copy an **image**
+复制**图片**
 
 ```wl-copy < [path/to/image]```
 
-Copy **sensitive** data (e.g., a password) without clipboard history
+复制**敏感**数据（如密码），不进入剪贴板历史
 
 ```wl-copy --sensitive "[password]"```
 
-Set a specific **MIME type**
+指定特定 **MIME 类型**
 
 ```wl-copy --type text/html "[<b>bold</b>]"```
 
-**Clear** the clipboard
+**清空**剪贴板
 
 ```wl-copy --clear```
 
@@ -39,48 +39,48 @@ Set a specific **MIME type**
 # PARAMETERS
 
 **-o**, **--paste-once**
-> Only serve one paste request then exit
+> 只响应一次粘贴请求后退出
 
 **-c**, **--clear**
-> Clear the clipboard instead of copying
+> 清空剪贴板而不是复制内容
 
 **-p**, **--primary**
-> Use the primary selection instead of clipboard
+> 使用 primary 选择区而不是剪贴板
 
 **-n**, **--trim-newline**
-> Do not append newline character
+> 不追加换行符
 
 **-t**, **--type** _mime-type_
-> Set the MIME type for the content
+> 设置内容的 MIME 类型
 
 **-s**, **--seat** _seat_
-> Pick the seat to work with
+> 选择要使用的 seat
 
 **-f**, **--foreground**
-> Stay in foreground instead of forking
+> 保持在前台运行而不 fork
 
 **--sensitive**
-> Hint that content is sensitive (e.g., passwords); clipboard managers may avoid persisting it in history
+> 提示内容是敏感信息（如密码）；剪贴板管理器可能会避免将其保存到历史记录中
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**wl-copy** copies data to the Wayland clipboard. It can copy text from arguments or read binary data from stdin, automatically handling MIME types. The tool forks into the background by default to keep the clipboard contents available.
+**wl-copy** 将数据复制到 Wayland 剪贴板。它可以从参数复制文本，也可以从标准输入读取二进制数据，并自动处理 MIME 类型。该工具默认 fork 到后台运行，以保持剪贴板内容可用。
 
-Data can be piped into wl-copy for copying command output or file contents. It supports both the regular clipboard and the primary selection (for middle-click paste).
+数据可以通过管道传入 wl-copy，用于复制命令输出或文件内容。它同时支持常规剪贴板和 primary 选择区（用于鼠标中键粘贴）。
 
 # CAVEATS
 
-Only works under Wayland; use **xclip** or **xsel** for X11. The process must stay running (or fork) to serve paste requests. Clipboard contents are lost when wl-copy exits in foreground mode.
+只能在 Wayland 下工作；X11 请使用 **xclip** 或 **xsel**。进程必须保持运行（或 fork）才能响应粘贴请求。在前台模式下，wl-copy 退出后剪贴板内容会丢失。
 
 # HISTORY
 
-Part of **wl-clipboard**, written by Sergey Bugaev for Wayland-native clipboard access. Provides equivalent functionality to X11 tools like xclip and xsel but uses the Wayland clipboard protocol.
+属于 **wl-clipboard** 项目，由 Sergey Bugaev 编写，用于以 Wayland 原生方式访问剪贴板。提供与 xclip、xsel 等 X11 工具等效的功能，但使用的是 Wayland 剪贴板协议。
 
 # INSTALL
 

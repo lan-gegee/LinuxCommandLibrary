@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display ZFS pool health status
+显示 ZFS 存储池健康状态
 
 # TLDR
 
-**Show status of all pools**
+**显示所有存储池的状态**
 
 ```zpool status```
 
-**Show status of specific pool**
+**显示特定存储池的状态**
 
 ```zpool status [poolname]```
 
-**Show only pools with errors**
+**只显示有错误的存储池**
 
 ```zpool status -x```
 
-**Show verbose error details**
+**显示详细的错误信息**
 
 ```zpool status -v```
 
-**Show deduplication statistics**
+**显示去重统计信息**
 
 ```zpool status -D```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```zpool status -j```
 
@@ -35,58 +35,58 @@ Display ZFS pool health status
 # PARAMETERS
 
 **-v**
-> Verbose mode; show data error list.
+> 详细模式；显示数据错误列表。
 
 **-x**
-> Only show pools with errors or unavailable.
+> 只显示有错误或不可用的存储池。
 
 **-D**
-> Display deduplication statistics.
+> 显示去重统计信息。
 
 **-g**
-> Display vdev GUIDs.
+> 显示 vdev GUID。
 
 **-L**
-> Display real device paths.
+> 显示实际的设备路径。
 
 **-P**
-> Display full device paths.
+> 显示完整的设备路径。
 
 **-T** _d_|_u_
-> Timestamp format: d (date) or u (unix).
+> 时间戳格式：d（日期）或 u（Unix）。
 
 **-j**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # POOL STATES
 
-**ONLINE**: Fully operational.
+**ONLINE**: 完全正常运行。
 
-**DEGRADED**: One or more devices failed but pool operational.
+**DEGRADED**: 一个或多个设备故障，但存储池仍可运行。
 
-**FAULTED**: Pool completely inaccessible.
+**FAULTED**: 存储池完全无法访问。
 
-**OFFLINE**: Device explicitly taken offline.
+**OFFLINE**: 设备被显式置于离线状态。
 
-**UNAVAIL**: Device cannot be opened.
+**UNAVAIL**: 设备无法打开。
 
-**REMOVED**: Device physically removed.
+**REMOVED**: 设备已被物理移除。
 
 # DESCRIPTION
 
-**zpool status** displays detailed health information for ZFS storage pools. It shows device hierarchy, state of each vdev, error counts, and any ongoing scrub or resilver operations.
+**zpool status** 显示 ZFS 存储池的详细健康信息。它会展示设备层级结构、每个 vdev 的状态、错误计数以及正在进行的清理（scrub）或重建（resilver）操作。
 
-The READ, WRITE, and CKSUM columns show error counts for each device. Non-zero values indicate potential hardware problems requiring attention. Regular scrubs help detect silent corruption early.
+READ、WRITE 和 CKSUM 列显示每个设备的错误计数。非零值表示可能存在需要关注的硬件问题。定期执行 scrub 有助于及早发现静默损坏。
 
-When scrubs or resilvers are active, progress percentage and estimated completion time are displayed. The -x option provides a quick way to check if any pools need attention.
+当 scrub 或 resilver 正在进行时，会显示进度百分比和预计完成时间。-x 选项提供了一种快速检查是否有存储池需要关注的途径。
 
 # CAVEATS
 
-Error counts persist until cleared. CKSUM errors may indicate controller or cable issues, not just drive failure. Degraded pools should be repaired promptly to avoid data loss.
+错误计数会一直保留直到被清除。CKSUM 错误可能意味着控制器或线缆有问题，而不仅仅是硬盘故障。降级（degraded）的存储池应及时修复，避免数据丢失。
 
 # HISTORY
 
-**zpool status** is the primary tool for ZFS pool health monitoring. ZFS was developed by Sun Microsystems and introduced data integrity verification features that make status reporting more informative than traditional storage systems.
+**zpool status** 是监控 ZFS 存储池健康状态的主要工具。ZFS 由 Sun Microsystems 开发，引入了数据完整性校验特性，使其状态报告比传统存储系统信息更丰富。
 
 # INSTALL
 

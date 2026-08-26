@@ -1,38 +1,38 @@
 # TAGLINE
 
-Query, compile and test XKB keymaps from the command line
+从命令行查询、编译和测试 XKB 键盘映射
 
 # TLDR
 
-**List** all available XKB rules, models, layouts, variants and options
+**列出**所有可用的 XKB 规则、型号、布局、变体和选项
 
 ```xkbcli list```
 
-**Compile** the active system keymap and dump it to stdout
+**编译**当前活动的系统键盘映射并转储到 stdout
 
 ```xkbcli compile-keymap```
 
-**Compile a keymap** with a specific layout/variant
+**使用指定的布局/变体编译键盘映射**
 
 ```xkbcli compile-keymap --layout [us] --variant [dvorak]```
 
-**Show how to type** a particular Unicode codepoint
+**显示如何输入**特定 Unicode 码点
 
 ```xkbcli how-to-type [0x00e9]```
 
-**Interactively debug** XKB keymaps under **Wayland**
+在 **Wayland** 下交互式调试 XKB 键盘映射
 
 ```xkbcli interactive-wayland```
 
-**Interactively debug** XKB keymaps under **X11**
+在 **X11** 下交互式调试 XKB 键盘映射
 
 ```xkbcli interactive-x11```
 
-**Interactively debug** XKB keymaps reading from **evdev** (requires root)
+从 **evdev** 读取并交互式调试 XKB 键盘映射（需要 root 权限）
 
 ```sudo xkbcli interactive-evdev```
 
-**Print** the version of libxkbcommon
+**打印** libxkbcommon 的版本
 
 ```xkbcli --version```
 
@@ -45,49 +45,49 @@ Query, compile and test XKB keymaps from the command line
 # PARAMETERS
 
 **--help**
-> Show usage and exit.
+> 显示用法并退出。
 
 **--version**
-> Print the libxkbcommon version and exit.
+> 打印 libxkbcommon 版本并退出。
 
 # SUBCOMMANDS
 
 **compile-keymap**
-> Compile an RMLVO (rules + model + layout + variant + options) keymap source into the keymap text format and print it. Accepts **--rules**, **--model**, **--layout**, **--variant**, **--options** and **--keymap**.
+> 将 RMLVO（rules + model + layout + variant + options）键盘映射源编译为键映射文本格式并打印。接受 **--rules**、**--model**、**--layout**、**--variant**、**--options** 和 **--keymap**。
 
 **compile-compose**
-> Compile a Compose file and print the resulting Compose table.
+> 编译 Compose 文件并打印生成的 Compose 表。
 
 **how-to-type** _codepoint_
-> Show every keysym/key combination that produces the given Unicode codepoint (decimal, or **0x** hex).
+> 显示产生给定 Unicode 码点的所有按键组合（十进制或 **0x** 十六进制）。
 
 **interactive-evdev**
-> Interactive XKB debugger reading raw events from **/dev/input/eventN**; usually requires root or membership in the **input** group.
+> 交互式 XKB 调试器，从 **/dev/input/eventN** 读取原始事件；通常需要 root 权限或加入 **input** 组。
 
 **interactive-x11**
-> Interactive XKB debugger using the live X11 keymap.
+> 使用实时 X11 键盘映射的交互式 XKB 调试器。
 
 **interactive-wayland**
-> Interactive XKB debugger using the live Wayland keymap.
+> 使用实时 Wayland 键盘映射的交互式 XKB 调试器。
 
 **list**
-> Print all rules, models, layouts, variants and options known to libxkbcommon. Optionally filter with **--ruleset**.
+> 打印 libxkbcommon 已知的所有规则、型号、布局、变体和选项。可选择用 **--ruleset** 过滤。
 
 # DESCRIPTION
 
-**xkbcli** is the user-facing front-end shipped with **libxkbcommon**, the keymap library used by Wayland compositors, the X.Org server (since 1.20), GTK, Qt, EFL and most modern toolkits. It exposes the library's compilation, lookup and inspection APIs as a single multiplexed binary with sub-commands.
+**xkbcli** 是 **libxkbcommon** 附带的面向用户的前端。libxkbcommon 是 Wayland 合成器、X.Org 服务器（自 1.20 起）、GTK、Qt、EFL 以及大多数现代工具包使用的键盘映射库。它把该库的编译、查找和检查 API 封装为一个带有子命令的单一多路复用二进制文件。
 
-It is most often used in three ways. First, **xkbcli list** answers the question "which layouts/variants does my system know about?" — the same data shown by graphical keyboard pickers but in a machine-parseable form. Second, **xkbcli compile-keymap** reproduces exactly what a compositor or X server does when it compiles a keymap, which is invaluable when diagnosing why a custom layout is not being applied. Third, the **interactive-*** sub-commands print the live keysym, modifier state, group and Unicode codepoint of every keypress, making **xkbcli** the equivalent of **xev**(1) for the libxkbcommon era.
+它最常见的用法有三种。第一，**xkbcli list** 回答"我的系统认识哪些布局/变体？"——与图形化键盘选择器显示的数据相同，但以机器可解析的形式呈现。第二，**xkbcli compile-keymap** 可以完全复现合成器或 X server 编译键盘映射时所做的操作，这在诊断自定义布局为何未生效时非常宝贵。第三，**interactive-*** 子命令会打印每次按键产生的实时键符号（keysym）、修饰键状态、分组和 Unicode 码点，使 **xkbcli** 成为 libxkbcommon 时代的 **xev**(1) 等价物。
 
-The tool relies on the system's **xkeyboard-config** data files (typically under **/usr/share/X11/xkb**), so its output reflects the keymaps that any libxkbcommon-based program would see.
+该工具依赖系统的 **xkeyboard-config** 数据文件（通常位于 **/usr/share/X11/xkb** 下），因此其输出反映了任何基于 libxkbcommon 的程序所看到的键盘映射。
 
 # CAVEATS
 
-**interactive-evdev** reads raw kernel input events and therefore needs read access to **/dev/input/event\***; on most distributions this means **root** or membership of the **input** group. **interactive-wayland** and **interactive-x11** are only built when their respective headers are available at compile time, so they may be missing on minimal installations. The **list** sub-command shows what is shipped on the system, not what is currently active — use the compositor or **setxkbmap -query** for that.
+**interactive-evdev** 读取内核原始输入事件，因此需要对 **/dev/input/event\*** 的读权限；在大多数发行版上这意味着 **root** 或 **input** 组成员身份。**interactive-wayland** 和 **interactive-x11** 仅在编译时其对应头文件可用的情况下才会构建，因此在精简安装上可能缺失。**list** 子命令显示的是系统附带的配置，而非当前生效的配置——后者请查看合成器或 **setxkbmap -query**。
 
 # HISTORY
 
-**libxkbcommon** was forked from **libxkbfile**/**xkbcomp** in **2012** by **Daniel Stone** and **Ran Benita** to provide a modern, X-server-independent XKB implementation usable by Wayland compositors. The **xkbcli** umbrella tool was added later as a single entry point for the family of debugging utilities (replacing the per-tool **xkbcompose**, **xkbgetkeymap**, etc.). It is now distributed by every major Linux distribution as part of the **libxkbcommon-tools** / **libxkbcommon-utils** package.
+**libxkbcommon** 于 **2012** 年由 **Daniel Stone** 和 **Ran Benita** 从 **libxkbfile**/**xkbcomp** 分叉而来，旨在提供一个不依赖 X server 的现代 XKB 实现，供 Wayland 合成器使用。**xkbcli** 总控工具是后来添加的，作为这一系列调试工具的统一入口（取代了各自独立的 **xkbcompose**、**xkbgetkeymap** 等）。如今每个主要 Linux 发行版都以 **libxkbcommon-tools** / **libxkbcommon-utils** 软件包的形式分发它。
 
 # INSTALL
 

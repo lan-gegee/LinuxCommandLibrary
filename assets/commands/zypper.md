@@ -1,30 +1,30 @@
 # TAGLINE
 
-SUSE and openSUSE package manager
+SUSE 和 openSUSE 的软件包管理器
 
 # TLDR
 
-**Synchronize** list of packages and versions available
+**同步**可用软件包及其版本的列表
 
 ```sudo zypper refresh```
 
-**Install** a new package
+**安装**新软件包
 
 ```sudo zypper install [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```sudo zypper remove [package]```
 
-**Upgrade** installed packages to newest available versions
+**升级**已安装软件包到最新可用版本
 
 ```sudo zypper update```
 
-**Search** for a package via keyword
+**搜索**软件包（按关键字）
 
 ```zypper search [keyword]```
 
-**Show** information about configured repositories
+**显示**已配置软件仓库的信息
 
 ```zypper repos --sort-by-priority```
 
@@ -35,41 +35,41 @@ SUSE and openSUSE package manager
 # PARAMETERS
 
 **ref, refresh**
-> Refresh all repositories
+> 刷新所有软件仓库
 
 **in, install _package_**
-> Install packages
+> 安装软件包
 
 **rm, remove _package_**
-> Remove packages
+> 移除软件包
 
 **up, update**
-> Update installed packages
+> 更新已安装的软件包
 
 **se, search _pattern_**
-> Search for packages
+> 搜索软件包
 
 **lr, repos**
-> List all configured repositories
+> 列出所有已配置的软件仓库
 
 **dup, dist-upgrade**
-> Perform distribution upgrade
+> 执行发行版升级
 
 **--no-confirm**
-> Don't ask for confirmation
+> 不询问确认
 
 **--sort-by-priority**
-> Sort repository list by priority
+> 按优先级排序仓库列表
 
 # DESCRIPTION
 
-**zypper** is the command-line package management utility for SUSE and openSUSE Linux. It provides complete package management including installation, removal, updates, and repository management.
+**zypper** 是 SUSE 和 openSUSE Linux 的命令行软件包管理工具。它提供完整的包管理功能，涵盖安装、移除、更新和软件仓库管理。
 
-Zypper supports dependency resolution, patch management, and can handle distribution upgrades. It uses the libzypp library and is the CLI frontend for YaST software management.
+Zypper 支持依赖解析和补丁管理，也能处理发行版升级。它基于 libzypp 库构建，是 YaST 软件管理功能的 CLI 前端。
 
 # CAVEATS
 
-Requires root privileges for package operations. Repository refresh (**zypper ref**) should be run before updates. Distribution upgrades (**zypper dup**) should be done carefully.
+软件包操作需要 root 权限。更新前应先刷新仓库（**zypper ref**）。发行版升级（**zypper dup**）须谨慎执行。
 
 # INSTALL
 

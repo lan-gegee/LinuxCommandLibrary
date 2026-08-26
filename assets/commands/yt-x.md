@@ -1,18 +1,18 @@
 # TAGLINE
 
-Browse and download YouTube from your terminal
+在终端中浏览和下载 YouTube 内容
 
 # TLDR
 
-**Launch the YouTube browser**
+**启动 YouTube 浏览器**
 
 ```yt-x```
 
-**Search for videos**
+**搜索视频**
 
 ```yt-x --search "[linux tutorial]"```
 
-**Download a video**
+**下载视频**
 
 ```yt-x --download [url]```
 
@@ -22,11 +22,11 @@ Browse and download YouTube from your terminal
 
 # DESCRIPTION
 
-**yt-x** is a terminal-based YouTube client that lets you search, browse feeds, trending videos, playlists, and subscriptions. It plays videos via mpv or vlc and downloads via yt-dlp. Supports extensions for other yt-dlp-supported sites.
+**yt-x** 是一个基于终端的 YouTube 客户端，可用于搜索、浏览信息流、热门视频、播放列表和订阅内容。它通过 mpv 或 vlc 播放视频，通过 yt-dlp 下载。还支持扩展以访问其他 yt-dlp 支持的网站。
 
 # HISTORY
 
-**yt-x** was created by **Benedict Xavier** (Benexl) and is written in **Shell** (Bash).
+**yt-x** 由 **Benedict Xavier**（Benexl）创建，以 **Shell**（Bash）编写。
 
 # INSTALL
 

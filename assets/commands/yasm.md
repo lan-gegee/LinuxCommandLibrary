@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modular x86 and AMD64 assembler
+模块化的 x86 与 AMD64 汇编器
 
 # TLDR
 
-**Assemble to ELF64 object file**
+**汇编为 ELF64 目标文件**
 
 ```yasm -f elf64 -o [output.o] [input.asm]```
 
-**Assemble for Windows 64-bit**
+**面向 Windows 64 位汇编**
 
 ```yasm -f win64 -o [output.obj] [input.asm]```
 
-**Assemble 32-bit ELF**
+**汇编 32 位 ELF**
 
 ```yasm -f elf32 -o [output.o] [input.asm]```
 
-**Use GAS syntax**
+**使用 GAS 语法**
 
 ```yasm -p gas -f elf64 -o [output.o] [input.s]```
 
-**Generate debug info** in DWARF format
+生成 DWARF 格式的**调试信息**
 
 ```yasm -g dwarf2 -f elf64 -o [output.o] [input.asm]```
 
-**Preprocess only**
+仅进行**预处理**
 
 ```yasm -e [input.asm]```
 
-**Define macro**
+**定义宏**
 
 ```yasm -D [DEBUG=1] -f elf64 -o [output.o] [input.asm]```
 
@@ -39,83 +39,83 @@ Modular x86 and AMD64 assembler
 # PARAMETERS
 
 **-f** _format_, **--oformat=**_format_
-> Output format (default: bin): bin, elf32, elf64, win32, win64, macho32, macho64, coff.
+> 输出格式（默认：bin）：bin、elf32、elf64、win32、win64、macho32、macho64、coff。
 
 **-o** _outfile_, **--objfile=**_outfile_
-> Output file name.
+> 输出文件名。
 
 **-a** _arch_, **--arch=**_arch_
-> Target architecture (default: x86).
+> 目标架构（默认：x86）。
 
 **-m** _machine_, **--machine=**_machine_
-> Machine subtype: x86, amd64.
+> 机器子类型：x86、amd64。
 
 **-p** _parser_, **--parser=**_parser_
-> Syntax parser: nasm (default), gas.
+> 语法解析器：nasm（默认）、gas。
 
 **-r** _preproc_, **--preproc=**_preproc_
-> Preprocessor: nasm (default), raw, cpp, gas.
+> 预处理器：nasm（默认）、raw、cpp、gas。
 
 **-g** _debug_, **--dformat=**_debug_
-> Debug format: dwarf2, stabs, cv8, null.
+> 调试格式：dwarf2、stabs、cv8、null。
 
 **-L** _list_, **--lformat=**_list_
-> List file format (default: nasm).
+> 列表文件格式（默认：nasm）。
 
 **-l** _file_, **--list=**_file_
-> Output list file name.
+> 输出列表文件名。
 
 **-D** _macro[=value]_
-> Define preprocessor macro.
+> 定义预处理宏。
 
 **-U** _macro_
-> Undefine macro.
+> 取消定义宏。
 
 **-I** _path_
-> Add include search directory.
+> 添加 include 搜索目录。
 
 **-P** _file_
-> Pre-include file before input.
+> 在输入之前预先包含文件。
 
 **-e**, **--preproc-only**
-> Preprocess only (no assembly), output to stdout.
+> 仅预处理（不汇编），输出到标准输出。
 
 **-w**
-> Suppress all warning messages.
+> 抑制所有警告消息。
 
 **-Werror**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **-Worphan-labels**
-> Warn on labels lacking trailing colons (NASM mode).
+> 对缺少尾随冒号的标签发出警告（NASM 模式）。
 
 **-X** _style_
-> Error/warning reporting style: gnu or vc.
+> 错误/警告报告风格：gnu 或 vc。
 
 **--force-strict**
-> Treat all sized operands as strict.
+> 将所有带尺寸的操作数视为严格模式。
 
 **--version**
-> Display version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**yasm** is a modular assembler supporting x86 and AMD64 instruction sets. It is a complete rewrite of NASM under the BSD license, offering multiple input syntaxes and output formats.
+**yasm** 是一款支持 x86 与 AMD64 指令集的模块化汇编器。它是在 BSD 许可证下对 NASM 的完全重写，支持多种输入语法和输出格式。
 
-Supported syntaxes include NASM (default) and GAS (GNU Assembler). Output formats cover ELF, Win32/Win64 PE, Mach-O, COFF, and raw binary (bin, the default). Debug information can be generated in DWARF 2, STABS, or CodeView 8 formats. Use `yasm -f help` to list all available object formats.
+支持的语法包括 NASM（默认）和 GAS（GNU Assembler）。输出格式涵盖 ELF、Win32/Win64 PE、Mach-O、COFF 以及原始二进制（bin，即默认值）。调试信息可生成为 DWARF 2、STABS 或 CodeView 8 格式。使用 `yasm -f help` 可列出所有可用的目标格式。
 
-The assembler is used for low-level system programming, operating system development, and performance-critical code. It integrates with C/C++ toolchains through standard object file formats.
+该汇编器用于底层系统编程、操作系统开发以及对性能要求苛刻的代码。它可以通过标准目标文件格式与 C/C++ 工具链集成。
 
 # CAVEATS
 
-Some NASM syntax extensions may not be fully compatible. GAS syntax support is not complete. AMD64 mode requires explicit selection via -m amd64 or 64-bit object format.
+某些 NASM 语法扩展可能不完全兼容。GAS 语法的支持尚不完整。AMD64 模式需要通过 -m amd64 或 64 位目标格式显式选择。
 
 # HISTORY
 
-**yasm** was created by Peter Johnson and Michael Urman as a rewrite of NASM with a modular architecture. It aimed to support multiple architectures and syntaxes while maintaining NASM compatibility. Development began in 2001 with the project remaining actively used in various build systems.
+**yasm** 由 Peter Johnson 和 Michael Urman 创建，是以模块化架构对 NASM 的重写。它旨在支持多种架构和语法的同时保持与 NASM 兼容。项目始于 2001 年，至今仍在各种构建系统中被积极使用。
 
 # INSTALL
 

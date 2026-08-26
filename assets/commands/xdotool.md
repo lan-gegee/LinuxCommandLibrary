@@ -1,38 +1,38 @@
 # TAGLINE
 
-X11 keyboard and mouse automation
+X11 键盘和鼠标自动化
 
 # TLDR
 
-**Search** for windows by name
+**按名称搜索窗口**
 
 ```xdotool search --onlyvisible --name firefox```
 
-Perform **mouse click**
+执行**鼠标点击**
 
 ```xdotool click 1```
 
-Get **active window** ID
+获取**活动窗口** ID
 
 ```xdotool getactivewindow```
 
-**Focus** on specific window
+**聚焦到指定窗口**
 
 ```xdotool windowfocus --sync 12345```
 
-**Type** text with delay
+带延迟**输入文本**
 
 ```xdotool type --delay 500 "Hello world"```
 
-Press a **key**
+按下一个**按键**
 
 ```xdotool key Return```
 
-**Move mouse** to position
+**移动鼠标**到指定位置
 
 ```xdotool mousemove 100 200```
 
-Get **mouse location**
+获取**鼠标位置**
 
 ```xdotool getmouselocation```
 
@@ -42,85 +42,85 @@ Get **mouse location**
 
 # DESCRIPTION
 
-**xdotool** simulates keyboard and mouse input in X11. It can search for windows, send keystrokes, move/click the mouse, and manipulate windows, making it useful for automation and scripting.
+**xdotool** 在 X11 中模拟键盘和鼠标输入。它可以搜索窗口、发送按键、移动/点击鼠标以及操作窗口，非常适合自动化和脚本编写。
 
 # COMMANDS
 
 **search [options] pattern**
-> Search for windows matching pattern
+> 搜索匹配模式的窗口
 
 **getactivewindow**
-> Output currently active window ID
+> 输出当前活动窗口的 ID
 
 **getwindowfocus**
-> Output currently focused window ID
+> 输出当前获得焦点的窗口 ID
 
 **windowfocus [options] window_id**
-> Focus a window
+> 聚焦一个窗口
 
 **windowactivate [options] window_id**
-> Activate (focus and raise) a window
+> 激活（聚焦并提升）一个窗口
 
 **windowmove [options] window_id x y**
-> Move a window
+> 移动一个窗口
 
 **windowsize [options] window_id width height**
-> Resize a window
+> 调整窗口大小
 
 **windowminimize window_id**
-> Minimize a window
+> 最小化一个窗口
 
 **key [options] keystroke**
-> Send a keystroke
+> 发送一次按键
 
 **keydown/keyup key**
-> Press/release a key
+> 按下/释放一个键
 
 **type [options] text**
-> Type a string of characters
+> 输入一串字符
 
 **click [options] button**
-> Click mouse button (1=left, 2=middle, 3=right)
+> 点击鼠标按钮（1=左键，2=中键，3=右键）
 
 **mousedown/mouseup button**
-> Press/release mouse button
+> 按下/释放鼠标按钮
 
 **mousemove [options] x y**
-> Move mouse cursor
+> 移动鼠标光标
 
 **getmouselocation**
-> Get current mouse position
+> 获取当前鼠标位置
 
 # PARAMETERS
 
 **--delay milliseconds**
-> Delay between keystrokes when typing
+> 输入时按键之间的延迟
 
 **--clearmodifiers**
-> Clear modifier keys before command
+> 命令前清除修饰键状态
 
 **--sync**
-> Wait for window to be visible
+> 等待窗口变为可见
 
 **--onlyvisible**
-> Search only visible windows
+> 仅搜索可见窗口
 
 **--name**
-> Search by window name
+> 按窗口名称搜索
 
 **--class**
-> Search by window class
+> 按窗口类搜索
 
 **--window window_id**
-> Target specific window
+> 定位到特定窗口
 
 # CAVEATS
 
-Only works with X11, not Wayland. Some applications may not respond to synthetic input. Window IDs are session-specific and change between restarts.
+仅适用于 X11，不适用于 Wayland。某些应用程序可能不响应模拟输入。窗口 ID 是会话相关的，重启后会改变。
 
 # HISTORY
 
-**xdotool** was written by Jordan Sissel as an automation tool for X11. It provides scriptable access to the XTEST extension for simulating input events.
+**xdotool** 由 Jordan Sissel 编写，是一款 X11 自动化工具。它通过 XTEST 扩展提供可脚本化的输入事件模拟能力。
 
 # INSTALL
 

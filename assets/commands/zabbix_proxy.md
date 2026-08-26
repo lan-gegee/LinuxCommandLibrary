@@ -1,30 +1,30 @@
 # TAGLINE
 
-Distributed Zabbix monitoring data proxy
+分布式 Zabbix 监控数据代理
 
 # TLDR
 
-**Start proxy daemon**
+**启动代理守护进程**
 
 ```sudo systemctl start zabbix-proxy```
 
-**Run in foreground**
+**在前台运行**
 
 ```zabbix_proxy -f```
 
-**Use alternate config file**
+**使用替代的配置文件**
 
 ```zabbix_proxy -c [/etc/zabbix/zabbix_proxy.conf]```
 
-**Display runtime diagnostics**
+**显示运行时诊断信息**
 
 ```zabbix_proxy -R diaginfo```
 
-**Reload configuration cache**
+**重新加载配置缓存**
 
 ```zabbix_proxy -R config_cache_reload```
 
-**Display version**
+**显示版本**
 
 ```zabbix_proxy -V```
 
@@ -35,47 +35,47 @@ Distributed Zabbix monitoring data proxy
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Use alternate configuration file.
+> 使用替代的配置文件。
 
 **-f**, **--foreground**
-> Run in foreground.
+> 在前台运行。
 
 **-R**, **--runtime-control** _option_
-> Runtime control command.
+> 运行时控制命令。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # RUNTIME CONTROL
 
-**config_cache_reload**: Reload configuration cache.
+**config_cache_reload**: 重新加载配置缓存。
 
-**housekeeper_execute**: Start housekeeper.
+**housekeeper_execute**: 启动清理进程（housekeeper）。
 
-**log_level_increase**: Increase log level.
+**log_level_increase**: 提高日志级别。
 
-**log_level_decrease**: Decrease log level.
+**log_level_decrease**: 降低日志级别。
 
-**diaginfo**: Write diagnostic info to log.
+**diaginfo**: 将诊断信息写入日志。
 
 # DESCRIPTION
 
-**zabbix_proxy** is a daemon that collects monitoring data and forwards it to a Zabbix server. It's used for distributed monitoring of remote locations and reduces load on the central server.
+**zabbix_proxy** 是一个守护进程，负责收集监控数据并转发给 Zabbix 服务器。它用于对远程位置进行分布式监控，并减轻中央服务器的负载。
 
-The proxy collects data from agents, stores it locally in its database, then transmits to the server. This architecture survives temporary network outages and centralizes data collection for remote sites.
+代理从各代理端收集数据，先存储在本地数据库中，再传输给服务器。这种架构可以在临时网络中断时继续工作，并为远程站点集中数据收集。
 
-Proxies can operate in active mode (initiating connections to server) or passive mode (accepting connections from server). Each proxy requires its own database (SQLite, MySQL, or PostgreSQL).
+代理可以以主动模式（主动连接服务器）或被动模式（接受服务器的连接）运行。每个代理需要自己的数据库（SQLite、MySQL 或 PostgreSQL）。
 
 # CAVEATS
 
-Requires separate database from server. Cannot share database with server. Configuration changes may require cache reload. Memory buffer recommended for performance in Zabbix 7.0+.
+需要独立于服务器的数据库，不能与服务器共用数据库。配置更改可能需要重新加载缓存。在 Zabbix 7.0+ 中建议使用内存缓冲区以提升性能。
 
 # HISTORY
 
-**zabbix_proxy** was added to Zabbix to enable distributed monitoring architectures. It allows organizations to monitor remote sites without direct server connectivity and reduces WAN bandwidth usage by compressing and batching data transfers.
+**zabbix_proxy** 是为支持分布式监控架构而加入 Zabbix 的。它让组织无需与服务器直接连通即可监控远程站点，并通过压缩和批量传输数据减少 WAN 带宽占用。
 
 # INSTALL
 

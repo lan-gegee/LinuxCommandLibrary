@@ -1,18 +1,18 @@
 # TAGLINE
 
-Decode zlib-compressed JavaScript from PDFs
+解码 PDF 中的 zlib 压缩 JavaScript
 
 # TLDR
 
-**Decode Zlib-compressed JavaScript**
+**解码 zlib 压缩的 JavaScript**
 
 ```zjsdecode [encoded.js] [output.js]```
 
-**Decode from stdin**
+**从 stdin 解码**
 
 ```cat [encoded.js] | zjsdecode > [output.js]```
 
-**Decode and beautify**
+**解码并美化**
 
 ```zjsdecode [encoded.js] | js-beautify```
 
@@ -23,26 +23,26 @@ Decode zlib-compressed JavaScript from PDFs
 # PARAMETERS
 
 _input_file_
-> Compressed JavaScript file to decode
+> 待解码的压缩 JavaScript 文件
 
 _output_file_
-> Output file for decoded JavaScript
+> 存放解码后 JavaScript 的输出文件
 
 # DESCRIPTION
 
-**zjsdecode** decodes JavaScript files that have been compressed using zlib encoding, commonly found in PDF files. Some malicious PDFs embed JavaScript that is zlib-compressed to evade analysis.
+**zjsdecode** 用于解码经 zlib 编码压缩的 JavaScript 文件，这种压缩常见于 PDF 文件中。一些恶意 PDF 会嵌入经 zlib 压缩的 JavaScript 以躲避分析。
 
-The tool is useful for malware analysis, PDF forensics, and extracting embedded scripts from documents. It reverses the FlateDecode compression used in PDF streams.
+该工具适用于恶意软件分析、PDF 取证以及从文档中提取嵌入脚本。它可以还原 PDF 流中使用的 FlateDecode 压缩。
 
-zjsdecode is part of several PDF analysis toolkits and is commonly used alongside other PDF examination utilities.
+zjsdecode 是多个 PDF 分析工具包的组成部分，通常与其他 PDF 检查工具配合使用。
 
 # CAVEATS
 
-This is a specialized tool for PDF analysis. It won't decode JavaScript obfuscated with other methods (like eval(), string encoding, or minification).
+这是一个专门用于 PDF 分析的工具。它无法解码采用其他混淆手段（如 eval()、字符串编码或压缩精简）处理的 JavaScript。
 
-Decoded JavaScript may still be obfuscated and require further analysis or deobfuscation.
+解码后的 JavaScript 可能仍是混淆过的，需要进一步分析或去混淆。
 
-Use caution when analyzing potentially malicious scripts. Run in isolated environments.
+分析潜在恶意脚本时务必谨慎。请在隔离环境中运行。
 
 # INSTALL
 

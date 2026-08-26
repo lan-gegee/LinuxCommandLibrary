@@ -1,38 +1,38 @@
 # TAGLINE
 
-Build and execute commands from stdin
+从 stdin 构建并执行命令
 
 # TLDR
 
-**Run command with arguments from stdin**
+**使用来自 stdin 的参数运行命令**
 
 ```echo [file1 file2] | xargs rm```
 
-**Use custom delimiter**
+**使用自定义分隔符**
 
 ```echo "[a:b:c]" | xargs -d ":" echo```
 
-**Run with placeholder**
+**配合占位符运行**
 
 ```find . -name "*.txt" | xargs -I {} cp {} [/backup/]```
 
-**Run in parallel**
+**并行运行**
 
 ```find . -name "*.jpg" | xargs -P [4] -I {} convert {} {}.png```
 
-**Handle filenames with spaces**
+**处理带空格的文件名**
 
 ```find . -name "*.txt" -print0 | xargs -0 rm```
 
-**Limit arguments per command**
+**限制每条命令的参数数量**
 
 ```echo {1..100} | xargs -n [10] echo```
 
-**Prompt before execution**
+**执行前提示确认**
 
 ```find . -name "*.tmp" | xargs -p rm```
 
-**Skip execution if input is empty** (GNU extension)
+**输入为空时跳过执行**（GNU 扩展）
 
 ```echo "" | xargs -r echo "not empty"```
 
@@ -43,65 +43,65 @@ Build and execute commands from stdin
 # PARAMETERS
 
 **-I** _REPLACE_
-> Replace string in command.
+> 替换命令中的字符串。
 
 **-n** _NUM_, **--max-args** _NUM_
-> Maximum arguments per command.
+> 每条命令的最大参数个数。
 
 **-P** _NUM_, **--max-procs** _NUM_
-> Parallel processes.
+> 并行进程数。
 
 **-0**, **--null**
-> Input items are null-terminated.
+> 输入项以 null 字符结尾。
 
 **-d** _DELIM_, **--delimiter** _DELIM_
-> Input delimiter character.
+> 输入分隔符字符。
 
 **-p**, **--interactive**
-> Prompt before each execution.
+> 每次执行前提示确认。
 
 **-t**, **--verbose**
-> Print commands before execution.
+> 执行前先打印命令。
 
 **-r**, **--no-run-if-empty**
-> Don't run if input is empty.
+> 输入为空时不运行。
 
 **-L** _NUM_, **--max-lines** _NUM_
-> Use NUM lines per command.
+> 每条命令最多使用 NUM 行输入。
 
 **-s** _NUM_, **--max-chars** _NUM_
-> Maximum command line length.
+> 命令行的最大长度。
 
 **-a** _FILE_, **--arg-file** _FILE_
-> Read arguments from file.
+> 从文件读取参数。
 
 **-x**, **--exit**
-> Exit if command line too long.
+> 命令行过长时退出。
 
 **--show-limits**
-> Show system limits.
+> 显示系统限制。
 
 # DESCRIPTION
 
-**xargs** builds and executes commands from standard input. It converts input into arguments for a command, handling batching, parallelization, and argument limits.
+**xargs** 从标准输入构建并执行命令。它将输入转换为命令的参数，并处理分批、并行化和参数数量限制。
 
-By default, xargs appends all input as arguments to a single command invocation. The -n option limits arguments per invocation, running the command multiple times.
+默认情况下，xargs 将所有输入作为参数附加到单次命令调用中。-n 选项限制每次调用的参数数量，从而多次运行该命令。
 
-The -I flag enables argument placement anywhere in the command. {} (or any placeholder) is replaced with each input item. This runs the command once per input item.
+-I 选项允许把参数放在命令中的任意位置。{}（或任意占位符）会被替换为每个输入项。这样每个输入项都会运行一次命令。
 
-Parallel execution (-P) runs multiple commands simultaneously. Combined with -n or -I, this processes items concurrently, utilizing multiple CPU cores.
+并行执行（-P）同时运行多条命令。与 -n 或 -I 结合使用时可以并发处理各项，充分利用多个 CPU 核心。
 
-Null-delimited input (-0) handles filenames with spaces, newlines, or special characters safely. Use with find -print0 or similar tools.
+以 null 分隔的输入（-0）可以安全地处理包含空格、换行符或特殊字符的文件名。可与 find -print0 或类似工具搭配使用。
 
-Without -r, xargs runs the command even with empty input. The -r flag prevents this, useful when empty input would cause errors.
+如果不加 -r，即使输入为空 xargs 也会运行命令。-r 标志可避免这种情况，在空输入会导致错误时很有用。
 
 # CAVEATS
 
-Special characters in filenames cause issues without -0. Shell features (pipes, redirects) need wrapper scripts. Argument limit depends on system. Error handling across parallel jobs is limited. Order not preserved with -P.
+不加 -0 时文件名中的特殊字符会引发问题。Shell 特性（管道、重定向）需要借助包装脚本。参数数量上限取决于系统。跨并行作业的错误处理能力有限。使用 -P 时不保证顺序。
 
 # HISTORY
 
-**xargs** originated in **PWB/UNIX** in the **1970s**. It addressed the limitation of shell command line length - programs couldn't accept unlimited arguments. The tool became essential for chaining Unix commands, enabling "do something to many files" patterns that define Unix philosophy.
+**xargs** 起源于 **1970 年代**的 **PWB/UNIX**。它解决了 shell 命令行长度的限制——程序无法接受无限多的参数。这个工具成为串联 Unix 命令的重要手段，实现了定义 Unix 哲学的"对许多文件做某件事"的模式。
 
 # INSTALL
 

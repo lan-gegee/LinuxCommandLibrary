@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal Tetris clone
+终端俄罗斯方块克隆
 
 # TLDR
 
-**Start** game
+**启动**游戏
 
 ```yetris```
 
@@ -15,35 +15,35 @@ Terminal Tetris clone
 # PARAMETERS
 
 **Arrow Left/Right**
-> Move piece horizontally
+> 左右移动方块
 
 **Arrow Down**
-> Soft drop
+> 软降
 
 **Space**
-> Hard drop
+> 硬降
 
 **x/z**
-> Rotate clockwise/counterclockwise
+> 顺时针/逆时针旋转
 
 **c**
-> Hold piece
+> 暂存方块
 
 **p**
-> Pause/unpause
+> 暂停/继续
 
 **q**
-> Quit
+> 退出
 
 # DESCRIPTION
 
-**yetris** is a terminal-based clone of Tetris. It features colorful ncurses graphics, piece holding, ghost piece, and scoring.
+**yetris** 是一个基于终端的俄罗斯方块克隆。它具有彩色 ncurses 图形、方块暂存、投影方块和计分功能。
 
-The game runs entirely in the terminal and supports keyboard controls.
+游戏完全在终端中运行，支持键盘控制。
 
 # CAVEATS
 
-Requires ncurses support. Terminal size affects display. No mouse support.
+需要 ncurses 支持。终端大小会影响显示。不支持鼠标。
 
 # INSTALL
 

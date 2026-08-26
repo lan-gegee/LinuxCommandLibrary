@@ -1,38 +1,38 @@
 # TAGLINE
 
-WordPress security vulnerability scanner
+WordPress 安全漏洞扫描器
 
 # TLDR
 
-**Scan WordPress site**
+**扫描 WordPress 站点**
 
 ```wpscan --url [https://example.com]```
 
-**Enumerate users**
+**枚举用户**
 
 ```wpscan --url [https://example.com] -e u```
 
-**Enumerate plugins**
+**枚举插件**
 
 ```wpscan --url [https://example.com] -e vp```
 
-**Enumerate themes**
+**枚举主题**
 
 ```wpscan --url [https://example.com] -e vt```
 
-**Full enumeration**
+**完整枚举**
 
 ```wpscan --url [https://example.com] -e ap,at,u```
 
-**Password brute force**
+**密码暴力破解**
 
 ```wpscan --url [https://example.com] -U [admin] -P [passwords.txt]```
 
-**Use API token**
+**使用 API token**
 
 ```wpscan --url [https://example.com] --api-token [TOKEN]```
 
-**Output to file**
+**输出到文件**
 
 ```wpscan --url [https://example.com] -o [output.txt]```
 
@@ -43,85 +43,85 @@ WordPress security vulnerability scanner
 # PARAMETERS
 
 **--url** _URL_
-> Target URL.
+> 目标 URL。
 
 **-e** _LIST_
-> Enumeration options.
+> 枚举选项。
 
 **-U** _USER_
-> Username for brute force.
+> 用于暴力破解的用户名。
 
 **-P** _FILE_
-> Password wordlist.
+> 密码字典文件。
 
 **--api-token** _TOKEN_
-> WPScan API token.
+> WPScan API token。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-f** _FORMAT_
-> Output format (cli, json, etc.).
+> 输出格式（cli、json 等）。
 
 **--random-user-agent**
-> Random user agent.
+> 随机 user agent。
 
 **--wp-content-dir** _DIR_
-> wp-content directory.
+> wp-content 目录。
 
 **--detection-mode** _MODE_
-> Detection mode (mixed, passive, aggressive).
+> 检测模式（mixed、passive、aggressive）。
 
 **--force**
-> Don't check if target is WordPress.
+> 不检查目标是否为 WordPress。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 # ENUMERATION OPTIONS
 
 **u**
-> Users.
+> 用户。
 
 **vp**
-> Vulnerable plugins.
+> 存在漏洞的插件。
 
 **ap**
-> All plugins.
+> 所有插件。
 
 **vt**
-> Vulnerable themes.
+> 存在漏洞的主题。
 
 **at**
-> All themes.
+> 所有主题。
 
 **cb**
-> Config backups.
+> 配置备份。
 
 **dbe**
-> DB exports.
+> 数据库导出。
 
 # DESCRIPTION
 
-**wpscan** is a WordPress security scanner. It identifies vulnerabilities, misconfigurations, and weak credentials.
+**wpscan** 是一款 WordPress 安全扫描器。它可以识别漏洞、错误配置和弱凭据。
 
-User enumeration finds valid usernames through various techniques. These can be used for targeted attacks.
+用户枚举通过多种技术找出有效用户名，这些用户名可用于针对性攻击。
 
-Plugin and theme enumeration identifies installed components. Vulnerable plugins are a major attack vector for WordPress.
+插件和主题枚举可识别已安装的组件。存在漏洞的插件是 WordPress 的主要攻击面之一。
 
-The vulnerability database requires an API token. Free tokens have limited requests; paid tokens provide more.
+漏洞数据库需要 API token。免费 token 的请求数有限；付费 token 提供更多额度。
 
-Password brute forcing tests credentials. Rate limiting may apply; use responsibly.
+密码暴力破解用于测试凭据强度。目标可能启用了速率限制，请负责任地使用。
 
-Detection modes balance stealth versus thoroughness. Aggressive mode may trigger security plugins.
+检测模式在隐蔽性与全面性之间权衡。aggressive 模式可能触发安全插件。
 
 # CAVEATS
 
-Only use with authorization. May trigger security alerts. API token needed for vulnerability data. Resource intensive for full scans.
+只能在获得授权的情况下使用。可能触发安全告警。获取漏洞数据需要 API token。完整扫描会消耗大量资源。
 
 # HISTORY
 
-**WPScan** was created by the **WPScan Team** around **2011**. It became the standard WordPress security assessment tool, used by security professionals and bug bounty hunters.
+**WPScan** 由 **WPScan Team** 大约于 **2011 年**创建。它已成为标准的 WordPress 安全评估工具，被安全专业人士和漏洞赏金猎人广泛使用。
 
 # INSTALL
 

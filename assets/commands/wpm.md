@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal typing speed test
+终端打字速度测试
 
 # TLDR
 
-**Start typing test**
+**开始打字测试**
 
 ```wpm```
 
-**Practice with text file**
+**使用文本文件练习**
 
 ```wpm [text.txt]```
 
-**Set duration**
+**设置时长**
 
 ```wpm -d [60]```
 
-**Set word count**
+**设置单词数量**
 
 ```wpm -w [50]```
 
@@ -27,27 +27,27 @@ Terminal typing speed test
 # PARAMETERS
 
 **-d** _SEC_
-> Duration.
+> 时长。
 
 **-w** _COUNT_
-> Word count.
+> 单词数量。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wpm** is a terminal-based typing speed test that measures words per minute and accuracy. It presents text passages for the user to type, tracking speed and error rate in a distraction-free terminal environment.
+**wpm** 是基于终端的打字速度测试工具，测量每分钟单词数和准确率。它呈现一段文本让用户输入，在无干扰的终端环境中跟踪速度和错误率。
 
-Custom text files can be provided for practice with specific content, and test duration or word count can be configured. The tool is useful for practicing touch typing and benchmarking typing performance over time.
+可以提供自定义文本文件来练习特定内容，还可以配置测试时长或单词数量。该工具适合练习盲打，也适合长期对比打字表现。
 
 # CAVEATS
 
-Terminal only. Various implementations. Practice tool.
+仅支持终端。存在多种实现。属于练习工具。
 
 # HISTORY
 
-**wpm** (words per minute) tools measure typing speed in the terminal for practice and benchmarking.
+**wpm**（words per minute）类工具在终端中测量打字速度，用于练习和基准测试。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Simplified curl wrapper for downloading
+简化下载操作的 curl 封装
 
 # TLDR
 
-**Download file**
+**下载文件**
 
 ```wcurl [https://example.com/file.zip]```
 
-**Download multiple**
+**下载多个文件**
 
 ```wcurl [url1] [url2]```
 
-**Resume download**
+**断点续传**
 
 ```wcurl -c [url]```
 
-**With output name**
+**指定输出文件名**
 
 ```wcurl -o [filename] [url]```
 
@@ -27,29 +27,29 @@ Simplified curl wrapper for downloading
 # PARAMETERS
 
 **-c**
-> Continue/resume.
+> 继续/恢复下载。
 
 **-o** _FILE_
-> Output filename.
+> 输出文件名。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wcurl** is a thin wrapper around curl that provides sensible defaults for the common task of downloading files. It automatically enables a progress bar, follows redirects, and uses the remote filename for output, eliminating the need to specify common curl flags for simple downloads.
+**wcurl** 是 curl 的轻量封装，为下载文件这一常见任务提供了合理的默认值。它会自动启用进度条、跟随重定向，并使用远程文件名作为输出名，从而免去为简单下载指定常见 curl 参数的麻烦。
 
-Resume support allows continuing interrupted downloads without manually configuring curl's range options. Multiple URLs can be specified to download several files in sequence, and a custom output filename can be provided when the remote name is not suitable.
+断点续传支持让你无需手动配置 curl 的 range 选项即可继续中断的下载。可以指定多个 URL 以下载多个文件；当远程文件名不合适时，也可以提供自定义输出文件名。
 
-The tool is designed for users who frequently use curl for downloads but find its default behavior (outputting to stdout with no progress indicator) inconvenient for that use case.
+该工具面向经常使用 curl 下载、但觉得其默认行为（输出到 stdout 且无进度提示）对这种用例不方便的用户。
 
 # CAVEATS
 
-Wrapper around curl. Less flexible. Download-focused.
+只是 curl 的封装。灵活性较低。专注于下载场景。
 
 # HISTORY
 
-**wcurl** provides a simpler interface to curl for the common case of downloading files.
+**wcurl** 为使用 curl 下载文件这一常见场景提供了更简单的接口。
 
 # INSTALL
 

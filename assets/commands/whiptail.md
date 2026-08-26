@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal dialog boxes for shell scripts
+为 shell 脚本提供终端对话框
 
 # TLDR
 
-Display a simple **message** box
+显示一个简单的**消息**框
 
 ```whiptail --title "[title]" --msgbox "[message]" [height] [width]```
 
-Display a **yes/no** choice
+显示**是/否**选择框
 
 ```whiptail --title "[title]" --yesno "[message]" [height] [width]```
 
-**Customize** yes/no button text
+**自定义**是/否按钮文本
 
 ```whiptail --title "[title]" --yes-button "[text]" --no-button "[text]" --yesno "[message]" [height] [width]```
 
-Display a **text input** box
+显示**文本输入**框
 
 ```result=$(whiptail --title "[title]" --inputbox "[message]" [height] [width] [default] 3>&1 1>&2 2>&3)```
 
-Display a **password** input box
+显示**密码**输入框
 
 ```result=$(whiptail --title "[title]" --passwordbox "[message]" [height] [width] 3>&1 1>&2 2>&3)```
 
-Display a **menu** with choices
+显示带选项的**菜单**
 
 ```result=$(whiptail --title "[title]" --menu "[message]" [height] [width] [menu_height] "val1" "text1" "val2" "text2" 3>&1 1>&2 2>&3)```
 
-Display a **checklist** for multiple selections
+显示支持多选的**复选列表**
 
 ```result=$(whiptail --title "[title]" --checklist "[message]" [height] [width] [list_height] "opt1" "text1" ON "opt2" "text2" OFF 3>&1 1>&2 2>&3)```
 
-Display a **progress bar** (gauge)
+显示**进度条**（gauge）
 
 ```echo [50] | whiptail --title "[title]" --gauge "[message]" [height] [width] [0]```
 
@@ -43,90 +43,90 @@ Display a **progress bar** (gauge)
 # PARAMETERS
 
 **--title** _title_
-> Dialog title
+> 对话框标题
 
 **--backtitle** _text_
-> Background title
+> 背景标题
 
 **--msgbox** _text_ _height_ _width_
-> Display message with OK button
+> 显示消息和 OK 按钮
 
 **--yesno** _text_ _height_ _width_
-> Display yes/no dialog
+> 显示是/否对话框
 
 **--inputbox** _text_ _height_ _width_ [_init_]
-> Text input dialog
+> 文本输入对话框
 
 **--passwordbox** _text_ _height_ _width_
-> Password input (hidden text)
+> 密码输入（隐藏文本）
 
 **--menu** _text_ _height_ _width_ _menu-height_ [_tag_ _item_]...
-> Selection menu
+> 选择菜单
 
 **--checklist** _text_ _height_ _width_ _list-height_ [_tag_ _item_ _status_]...
-> Multiple choice checklist
+> 多选复选列表
 
 **--radiolist** _text_ _height_ _width_ _list-height_ [_tag_ _item_ _status_]...
-> Radio button list
+> 单选按钮列表
 
 **--gauge** _text_ _height_ _width_ _percent_
-> Progress bar
+> 进度条
 
 **--yes-button** _text_
-> Custom yes button label
+> 自定义 yes 按钮标签
 
 **--no-button** _text_
-> Custom no button label
+> 自定义 no 按钮标签
 
 **--ok-button** _text_
-> Custom OK button label
+> 自定义 OK 按钮标签
 
 **--cancel-button** _text_
-> Custom cancel button label
+> 自定义取消按钮标签
 
 **--defaultno**
-> Default to No in yes/no dialogs
+> 在是/否对话框中默认选择 No
 
 **--nocancel**
-> Suppress the Cancel button
+> 不显示 Cancel 按钮
 
 **--separate-output**
-> Output checklist results one per line
+> 复选列表结果每行输出一项
 
 **--scrolltext**
-> Force display of a vertical scrollbar
+> 强制显示垂直滚动条
 
 **--topleft**
-> Place dialog in the top-left corner
+> 将对话框放在左上角
 
 **--clear**
-> Clear the screen on exit
+> 退出时清屏
 
 **--fullbuttons**
-> Use full-width buttons instead of compact
+> 使用全宽按钮而不是紧凑按钮
 
 **--output-fd** _FD_
-> Direct output to given file descriptor instead of stderr
+> 将输出发送到给定的文件描述符而不是 stderr
 
 **--textbox** _file_ _height_ _width_
-> Display contents of a file in a scrollable box
+> 在可滚动的框中显示文件内容
 
 **--infobox** _text_ _height_ _width_
-> Display message without waiting for input
+> 显示消息但不等待输入
 
 # DESCRIPTION
 
-**whiptail** displays text-based dialog boxes from shell scripts, providing a user-friendly interface for input and selection. It creates ncurses-based dialogs that work in terminal environments, supporting various dialog types including messages, input boxes, menus, and progress bars.
+**whiptail** 可从 shell 脚本中显示基于文本的对话框，为输入和选择提供友好的界面。它创建基于 ncurses 的对话框，可在终端环境中工作，支持多种对话框类型，包括消息框、输入框、菜单和进度条。
 
-Output from input dialogs goes to stderr, requiring file descriptor redirection (3>&1 1>&2 2>&3) to capture in shell variables. Exit codes indicate user choices (0 for OK/Yes, 1 for Cancel/No).
+输入对话框的输出走 stderr，需要重定向文件描述符（3>&1 1>&2 2>&3）才能捕获到 shell 变量中。退出码表示用户的选择（0 表示 OK/Yes，1 表示 Cancel/No）。
 
 # CAVEATS
 
-Dialog dimensions must be specified in characters and should fit the terminal. Results go to stderr, requiring fd redirection for capture. A lightweight alternative to **dialog** with fewer features but smaller dependencies.
+对话框尺寸必须以字符为单位指定，且应适应终端大小。结果输出到 stderr，需要重定向文件描述符才能捕获。它是 **dialog** 的轻量替代品，功能较少但依赖更小。
 
 # HISTORY
 
-Created as a lightweight, newt-based reimplementation of the **dialog** utility. Part of the **newt** library developed by Red Hat. Commonly used in Debian installer and system configuration scripts due to its small footprint.
+作为 **dialog** 工具的轻量级重新实现而创建，基于 newt 库构建，属于 Red Hat 开发的 **newt** 库的一部分。由于占用资源少，常用于 Debian 安装器和系统配置脚本中。
 
 # INSTALL
 

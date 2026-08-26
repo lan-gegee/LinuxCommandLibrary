@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display brief man page descriptions
+显示 man page 的简要描述
 
 # TLDR
 
-Display a **description** from a man page
+显示 man page 中的**描述**
 
 ```whatis [command]```
 
-Don't **cut the description** off at the end of the line
+不在行尾**截断描述**
 
 ```whatis -l [command]```
 
-Display descriptions for commands matching a **glob**
+显示匹配**通配符**的命令描述
 
 ```whatis -w net*```
 
-Search man page descriptions with a **regex**
+用**正则表达式**搜索 man page 描述
 
 ```whatis -r 'wish[0-9]\.[0-9]'```
 
-Display descriptions in a **specific language**
+以**指定语言**显示描述
 
 ```whatis -L en [command]```
 
@@ -31,45 +31,45 @@ Display descriptions in a **specific language**
 # PARAMETERS
 
 **-d**, **--debug**
-> Enable debug mode
+> 启用调试模式
 
 **-l**, **--long**
-> Do not trim output to terminal width
+> 不将输出裁剪到终端宽度
 
 **-r**, **--regex**
-> Interpret name as a regular expression
+> 将 name 解释为正则表达式
 
 **-w**, **--wildcard**
-> Interpret name as a shell glob pattern
+> 将 name 解释为 shell 通配符模式
 
 **-s** _list_, **--sections=**_list_
-> Search only specified manual sections
+> 只搜索指定的手册章节
 
 **-m** _system_, **--systems=**_system_
-> Search man pages from other systems
+> 搜索其他系统的 man page
 
 **-M** _path_, **--manpath=**_path_
-> Set manual page search path
+> 设置手册页搜索路径
 
 **-L** _locale_, **--locale=**_locale_
-> Set locale for searching
+> 设置搜索使用的 locale
 
 **-v**, **--verbose**
-> Print verbose warning messages
+> 打印详细的警告消息
 
 # DESCRIPTION
 
-**whatis** searches the manual page names and displays brief descriptions from the NAME section of matching man pages. It queries the whatis database, a cache of manual page descriptions built by **mandb**.
+**whatis** 搜索手册页名称，并显示匹配的 man page NAME 区中的简要描述。它查询 whatis 数据库——一个由 **mandb** 构建的手册页描述缓存。
 
-The command is useful for quickly determining what a command does without reading the full manual page. Multiple commands can be queried at once, and pattern matching allows searching for groups of related commands.
+该命令适合快速了解某个命令的用途而无需阅读完整手册页。可以一次查询多个命令，且支持模式匹配以搜索一组相关命令。
 
 # CAVEATS
 
-Requires the whatis database to be built (usually done automatically by mandb). Results may be incomplete if the database is out of date. Use **mandb** to rebuild the database if necessary.
+需要已构建的 whatis 数据库（通常由 mandb 自动完成）。数据库过期时结果可能不完整。必要时使用 **mandb** 重建数据库。
 
 # HISTORY
 
-Derived from **BSD Unix** as part of the man page system. The whatis database was introduced to speed up lookups compared to scanning all man pages. On modern systems, **mandb** maintains the database, replacing older **makewhatis** implementations.
+源自 **BSD Unix**，是 man page 系统的一部分。引入 whatis 数据库是为了加快查找速度，避免扫描全部 man page。在现代系统上由 **mandb** 维护该数据库，取代了较旧的 **makewhatis** 实现。
 
 # INSTALL
 

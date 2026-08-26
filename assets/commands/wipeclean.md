@@ -1,18 +1,18 @@
 # TAGLINE
 
-Animated terminal screen clearing
+带动画效果的终端清屏
 
 # TLDR
 
-**Clean terminal**
+**清理终端**
 
 ```wipeclean```
 
-**With specific animation**
+**使用指定动画**
 
 ```wipeclean -a [1]```
 
-**Custom speed**
+**自定义速度**
 
 ```wipeclean -s [50]```
 
@@ -23,27 +23,27 @@ Animated terminal screen clearing
 # PARAMETERS
 
 **-a** _N_
-> Animation type.
+> 动画类型。
 
 **-s** _SPEED_
-> Animation speed.
+> 动画速度。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**wipeclean** is a fun alternative to the clear command that clears the terminal screen with visual animations instead of simply scrolling content away. Multiple animation styles are available, each providing a different visual effect as the screen content is wiped.
+**wipeclean** 是 clear 命令的有趣替代品，它以视觉动画的方式清除终端屏幕，而不是简单地滚动内容。提供多种动画样式，在屏幕内容被擦除时各自呈现不同的视觉效果。
 
-The animation speed can be adjusted to control how quickly the clearing effect plays out. It is purely decorative and serves no functional advantage over the standard clear command, but adds a bit of visual flair to terminal workflows.
+动画速度可调，用于控制清除效果播放的快慢。它纯粹是装饰性的，相比标准 clear 命令没有任何功能优势，但能为终端工作流程增添一丝视觉趣味。
 
 # CAVEATS
 
-Just for fun. Not faster than clear. Rust implementation.
+仅供娱乐。不比 clear 更快。Rust 实现。
 
 # HISTORY
 
-**wipeclean** was created as a fun animated alternative to the clear command for terminal cleaning.
+**wipeclean** 作为 clear 命令的趣味动画替代品而创建，用于终端清屏。
 
 # INSTALL
 

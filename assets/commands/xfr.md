@@ -1,18 +1,18 @@
 # TAGLINE
 
-Modern iperf3 alternative with live TUI and QUIC
+带实时 TUI 和 QUIC 的现代 iperf3 替代品
 
 # TLDR
 
-**Start a test server**
+**启动测试服务器**
 
 ```xfr server```
 
-**Run a client test against a server**
+**针对服务器运行客户端测试**
 
 ```xfr client -c [192.168.1.1]```
 
-**Test with QUIC transport**
+**使用 QUIC 传输进行测试**
 
 ```xfr client -c [host] --quic```
 
@@ -22,11 +22,11 @@ Modern iperf3 alternative with live TUI and QUIC
 
 # DESCRIPTION
 
-**xfr** is a network performance testing tool with a live TUI featuring real-time throughput graphs, per-stream stats, and a multi-client server dashboard. It supports TCP, UDP, and QUIC protocols with configurable bitrate pacing and multiple output formats (plain text, JSON, CSV).
+**xfr** 是一个网络性能测试工具，其实时 TUI 提供实时吞吐量图表、每条流的统计信息以及多客户端服务器仪表盘。它支持 TCP、UDP 和 QUIC 协议，具有可配置的比特率限速和多种输出格式（纯文本、JSON、CSV）。
 
 # HISTORY
 
-**xfr** was created by **lance0** and is written in **Rust**.
+**xfr** 由 **lance0** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

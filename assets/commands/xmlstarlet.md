@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line XML processing toolkit
+命令行 XML 处理工具集
 
 # TLDR
 
-**Select nodes** using an XPath expression
+**使用 XPath 表达式选择节点**
 
 ```xmlstarlet sel -t -v "[xpath]" [file.xml]```
 
-**Format/pretty-print** an XML file
+**格式化/美化打印** XML 文件
 
 ```xmlstarlet fo [file.xml]```
 
-**Validate an XML file** against a schema
+**依据 schema 校验 XML 文件**
 
 ```xmlstarlet val -s [schema.xsd] [file.xml]```
 
-**Edit an XML file** (update a node value)
+**编辑 XML 文件**（更新节点值）
 
 ```xmlstarlet ed -u "[xpath]" -v "[new_value]" [file.xml]```
 
-**Transform XML** using an XSLT stylesheet
+**使用 XSLT 样式表转换 XML**
 
 ```xmlstarlet tr [stylesheet.xsl] [file.xml]```
 
-**List element structure** of an XML document
+**列出 XML 文档的元素结构**
 
 ```xmlstarlet el [file.xml]```
 
-**Escape special characters** for XML
+**为 XML 转义特殊字符**
 
 ```echo "[text]" | xmlstarlet esc```
 
-**Check well-formedness** of an XML file
+**检查 XML 文件的格式良好性**
 
 ```xmlstarlet val --well-formed [file.xml]```
 
@@ -43,62 +43,62 @@ Command-line XML processing toolkit
 # PARAMETERS
 
 **sel** (**select**)
-> Select or query XML nodes using XPath expressions.
+> 使用 XPath 表达式选择或查询 XML 节点。
 
 **ed** (**edit**)
-> Edit XML documents by inserting, deleting, updating, or renaming nodes.
+> 通过插入、删除、更新或重命名节点来编辑 XML 文档。
 
 **tr** (**transform**)
-> Perform XSLT transformations on XML documents.
+> 对 XML 文档执行 XSLT 转换。
 
 **val** (**validate**)
-> Validate XML documents against DTDs or XML Schemas.
+> 依据 DTD 或 XML Schema 校验 XML 文档。
 
 **fo** (**format**)
-> Format XML documents for readability with proper indentation.
+> 用适当的缩进格式化 XML 文档以提高可读性。
 
 **el** (**elements**)
-> Display element structure of an XML document.
+> 显示 XML 文档的元素结构。
 
 **c14n** (**canonic**)
-> Canonicalize XML documents (C14N).
+> 规范化 XML 文档（C14N）。
 
 **ls** (**list**)
-> List directory contents as XML.
+> 将目录内容列为 XML。
 
 **esc** (**escape**)
-> Escape special XML characters in text.
+> 转义文本中的特殊 XML 字符。
 
 **unesc** (**unescape**)
-> Unescape XML entities to original characters.
+> 将 XML 实体反转义为原始字符。
 
 **pyx**
-> Convert XML to PYX format.
+> 将 XML 转换为 PYX 格式。
 
 **p2x** (**depyx**)
-> Convert PYX back to XML.
+> 将 PYX 转换回 XML。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help message.
+> 显示帮助消息。
 
 # DESCRIPTION
 
-**XMLStarlet** is a command-line XML toolkit that provides Unix-style utilities for processing XML files. It allows querying, transforming, validating, and editing XML documents using familiar shell command patterns, similar to how grep, sed, and awk work with plain text.
+**XMLStarlet** 是一个命令行 XML 工具集，为处理 XML 文件提供 Unix 风格的工具。它让你能用熟悉的 shell 命令模式查询、转换、校验和编辑 XML 文档，就像 grep、sed 和 awk 处理纯文本一样。
 
-The toolkit uses XPath for node selection and supports XSLT for transformations. It can validate against DTDs, XML Schema (XSD), and RelaxNG. Built on libxml2 and libxslt libraries, it provides robust XML processing capabilities.
+该工具集使用 XPath 选择节点，支持 XSLT 进行转换。它可以依据 DTD、XML Schema（XSD）和 RelaxNG 进行校验。基于 libxml2 和 libxslt 库构建，提供了健壮的 XML 处理能力。
 
-Each command has its own options; use **xmlstarlet command --help** for detailed help on specific commands.
+每个命令都有自己的选项；使用 **xmlstarlet command --help** 可查看特定命令的详细帮助。
 
 # CAVEATS
 
-XMLStarlet requires well-formed XML input; malformed documents will cause errors. It primarily supports XPath 1.0 and XSLT 1.0, lacking features from newer specifications. Namespace handling can be complex and may require explicit prefix declarations.
+XMLStarlet 要求输入的 XML 格式良好；格式错误的文档会导致错误。它主要支持 XPath 1.0 和 XSLT 1.0，缺少新规范中的特性。命名空间处理可能比较复杂，可能需要显式声明前缀。
 
 # HISTORY
 
-XMLStarlet was created by **Mikhail Grushinskiy** and first released in **2002**. It was developed to fill the need for command-line XML processing tools that could integrate with Unix shell workflows. The project is hosted on SourceForge and continues to be maintained as a standard utility for XML manipulation in scripting environments.
+XMLStarlet 由 **Mikhail Grushinskiy** 创建，于 **2002** 年首次发布。它的开发是为了满足能与 Unix shell 工作流集成的命令行 XML 处理工具的需求。该项目托管在 SourceForge 上，至今仍在维护，是脚本环境中处理 XML 的标准工具。
 
 # INSTALL
 

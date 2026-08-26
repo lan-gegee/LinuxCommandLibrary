@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive Git-backed todo list for the terminal
+终端中基于 Git 的交互式待办清单
 
 # TLDR
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```yatto```
 
-**Add a task**
+**添加任务**
 
 ```yatto add "[Fix login bug]" --project [myapp] --priority high```
 
-**List open tasks**
+**列出未完成任务**
 
 ```yatto list --status open```
 
@@ -22,11 +22,11 @@ Interactive Git-backed todo list for the terminal
 
 # DESCRIPTION
 
-**yatto** is a terminal task manager that stores each task as a JSON file and manages the task directory as a Git or Jujutsu repository. Every change is versioned, enabling sync and collaboration via shared repositories. Supports due dates, priorities, statuses, and markdown descriptions.
+**yatto** 是一个终端任务管理器，它将每个任务存储为一个 JSON 文件，并把任务目录作为 Git 或 Jujutsu 仓库来管理。每次更改都会被版本化记录，从而可以通过共享仓库实现同步和协作。支持截止日期、优先级、状态和 markdown 描述。
 
 # HISTORY
 
-**yatto** was created by **handlebargh** and is written in **Go**.
+**yatto** 由 **handlebargh** 创建，使用 **Go** 编写。
 
 # INSTALL
 

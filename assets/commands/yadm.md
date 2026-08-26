@@ -1,54 +1,54 @@
 # TAGLINE
 
-Git-based dotfiles manager
+基于 Git 的 dotfiles 管理器
 
 # TLDR
 
-**Initialize a new dotfiles repository**
+**初始化一个新的 dotfiles 仓库**
 
 ```yadm init```
 
-**Clone an existing dotfiles repository**
+**克隆一个已有的 dotfiles 仓库**
 
 ```yadm clone [https://github.com/user/dotfiles.git]```
 
-**Clone and run bootstrap automatically**
+**克隆并自动运行引导程序**
 
 ```yadm clone --bootstrap [https://github.com/user/dotfiles.git]```
 
-**Add a file** to be tracked
+**添加要跟踪的文件**
 
 ```yadm add [~/.bashrc]```
 
-**Commit changes**
+**提交更改**
 
 ```yadm commit -m "[message]"```
 
-**Push to remote**
+**推送到远程仓库**
 
 ```yadm push```
 
-**Pull updates** from remote
+从远程仓库**拉取更新**
 
 ```yadm pull```
 
-**List managed files**
+**列出受管理的文件**
 
 ```yadm list -a```
 
-**Encrypt sensitive files**
+**加密敏感文件**
 
 ```yadm encrypt```
 
-**Decrypt files**
+**解密文件**
 
 ```yadm decrypt```
 
-**List encrypted files** without decrypting
+**列出加密文件**但不解密
 
 ```yadm decrypt -l```
 
-**Show status** of tracked dotfiles
+**查看状态**：被跟踪的 dotfiles 的当前状态
 
 ```yadm status```
 
@@ -59,70 +59,70 @@ Git-based dotfiles manager
 # COMMANDS
 
 **init**
-> Initialize a new dotfiles repository
+> 初始化一个新的 dotfiles 仓库
 
 **clone** _url_
-> Clone a remote dotfiles repository
+> 克隆一个远程 dotfiles 仓库
 
 **add** _file_...
-> Add files to the repository
+> 将文件添加到仓库
 
 **commit**
-> Record changes to the repository
+> 将更改记录到仓库
 
 **push**
-> Upload changes to remote repository
+> 将更改上传到远程仓库
 
 **pull**
-> Download changes from remote repository
+> 从远程仓库下载更改
 
 **list** [**-a**]
-> List managed files (-a for all)
+> 列出受管理的文件（-a 表示全部）
 
 **encrypt**
-> Encrypt files matching patterns in ~/.config/yadm/encrypt
+> 加密 ~/.config/yadm/encrypt 中匹配模式的文件
 
 **decrypt** [**-l**]
-> Decrypt files from the encrypted archive. Use -l to list only.
+> 从加密归档中解密文件。使用 -l 仅列出。
 
 **alt**
-> Create symbolic links and process templates for alternate files
+> 为替代文件创建符号链接并处理模板
 
 **enter**
-> Run a sub-shell with Git variables set
+> 在设置了 Git 变量的子 Shell 中运行
 
 **config**
-> Manage yadm configuration (works like git config)
+> 管理 yadm 配置（用法类似 git config）
 
 **bootstrap**
-> Run the bootstrap script if it exists
+> 运行引导脚本（如果存在）
 
 **status**
-> Display repository status
+> 显示仓库状态
 
 **diff**
-> View uncommitted changes to tracked files
+> 查看被跟踪文件的未提交更改
 
 **remote** [**-v**]
-> Show details about configured remote repositories
+> 显示已配置远程仓库的详细信息
 
 # DESCRIPTION
 
-**yadm** (Yet Another Dotfiles Manager) manages dotfiles using Git while keeping them in their natural locations in **$HOME**. Any Git command works with yadm, making it easy to learn for Git users.
+**yadm**（Yet Another Dotfiles Manager）使用 Git 管理 dotfiles，同时让它们保留在 **$HOME** 中的原始位置。所有 Git 命令都可以配合 yadm 使用，因此 Git 用户很容易上手。
 
-The repository is stored in **~/.local/share/yadm/repo.git** with **$HOME** as the working tree. Files stay in place; yadm tracks them without requiring symlinks or copying.
+仓库存储在 **~/.local/share/yadm/repo.git**，以 **$HOME** 作为工作树。文件保持原位，yadm 无需符号链接或复制即可跟踪它们。
 
-Key features include **alternate files** (system-specific configurations based on hostname, OS, or user), **templates** using Jinja2 or envtpl for dynamic configuration, and **encryption** for sensitive data using GPG, OpenSSL, transcrypt, or git-crypt.
+其主要特性包括**替代文件**（基于主机名、操作系统或用户的系统专属配置）、使用 Jinja2 或 envtpl 实现动态配置的**模板**，以及通过 GPG、OpenSSL、transcrypt 或 git-crypt 对敏感数据进行**加密**。
 
-The **bootstrap** command runs **~/.config/yadm/bootstrap** after cloning, enabling automated setup of new machines.
+克隆完成后，**bootstrap** 命令会运行 **~/.config/yadm/bootstrap**，从而实现新机器的自动化设置。
 
 # CAVEATS
 
-yadm requires Git; encryption features require GPG or another supported tool. The working tree is $HOME by default, so be careful with destructive Git operations. Alternate files and templates may need manual **yadm alt** after changes.
+yadm 依赖 Git；加密功能需要 GPG 或其他受支持的工具。默认情况下工作树是 $HOME，因此在执行破坏性 Git 操作时要格外小心。替代文件和模板在修改后可能需要手动执行 **yadm alt**。
 
 # HISTORY
 
-**yadm** was created by **Tim Byrne** as a simple dotfiles manager that leverages Git directly without complex abstractions. First released around **2015**, it gained popularity for its philosophy that managing dotfiles should be as simple as using Git, while adding features like encryption and system-specific alternates.
+**yadm** 由 **Tim Byrne** 创建，是一个直接利用 Git 而不引入复杂抽象的简洁 dotfiles 管理器。它于 **2015 年**前后首次发布，其理念是管理 dotfiles 应当像使用 Git 一样简单，同时又加入了加密和系统专属替代文件等特性，因而广受欢迎。
 
 # INSTALL
 

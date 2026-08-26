@@ -1,34 +1,34 @@
 # TAGLINE
 
-Lightweight X11 PDF viewer
+轻量级 X11 PDF 查看器
 
 # TLDR
 
-**Open PDF file**
+**打开 PDF 文件**
 
 ```xpdf [document.pdf]```
 
-**Open at specific page**
+**打开并定位到指定页**
 
 ```xpdf [document.pdf] [5]```
 
-**Set initial zoom** (percent, "page", "width")
+**设置初始缩放**（百分比、"page"、"width"）
 
 ```xpdf -z [150] [document.pdf]```
 
-**Full screen mode**
+**全屏模式**
 
 ```xpdf -fullscreen [document.pdf]```
 
-**Open with owner password**
+**使用所有者密码打开**
 
 ```xpdf -opw [owner_password] [document.pdf]```
 
-**Reverse video** (dark background) mode
+**反色**（深色背景）模式
 
 ```xpdf -rv [document.pdf]```
 
-**Remote control mode**
+**远程控制模式**
 
 ```xpdf -remote [name] [document.pdf]```
 
@@ -39,86 +39,86 @@ Lightweight X11 PDF viewer
 # PARAMETERS
 
 **-z** _ZOOM_
-> Initial zoom (percent, page, width).
+> 初始缩放（百分比、page、width）。
 
 **-fullscreen**
-> Full screen mode.
+> 全屏模式。
 
 **-opw** _PASSWORD_
-> Owner password.
+> 所有者密码。
 
 **-upw** _PASSWORD_
-> User password.
+> 用户密码。
 
 **-remote** _NAME_
-> Start in remote mode.
+> 以远程模式启动。
 
 **-g** _GEOMETRY_
-> Window geometry.
+> 窗口几何尺寸。
 
 **-rv**
-> Reverse video mode.
+> 反色模式。
 
 **-papercolor** _COLOR_
-> Paper background color.
+> 纸张背景颜色。
 
 **-mattecolor** _COLOR_
-> Matte color around page area.
+> 页面周围的衬底颜色。
 
 **-cfg** _FILE_
-> Config file.
+> 配置文件。
 
 **-v**
-> Show version.
+> 显示版本。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 # KEY BINDINGS
 
 **n**, **Space**, **PgDn**
-> Next page.
+> 下一页。
 
 **p**, **Backspace**, **PgUp**
-> Previous page.
+> 上一页。
 
 **+**, **-**
-> Zoom in/out.
+> 放大/缩小。
 
 **z**
-> Zoom to page.
+> 缩放至整页。
 
 **w**
-> Zoom to width.
+> 缩放至页宽。
 
 **/**
-> Search forward.
+> 向前搜索。
 
 **?**
-> Search backward.
+> 向后搜索。
 
 **q**
-> Quit.
+> 退出。
 
 # DESCRIPTION
 
-**xpdf** is a lightweight PDF viewer for X11. It renders PDF documents with minimal resource usage.
+**xpdf** 是一个面向 X11 的轻量级 PDF 查看器。它以极少的资源占用来渲染 PDF 文档。
 
-The viewer provides basic PDF functionality: navigation, zoom, search, and printing. It handles most standard PDF features.
+该查看器提供基本的 PDF 功能：导航、缩放、搜索和打印。它能处理大多数标准 PDF 特性。
 
-Remote mode enables control from scripts. Commands sent to the named instance open files, navigate, and control display.
+远程模式允许从脚本进行控制。发送到命名实例的命令可以打开文件、导航和控制显示。
 
-Configuration through ~/.xpdfrc customizes appearance and behavior. Font paths, colors, and key bindings are adjustable.
+通过 ~/.xpdfrc 可以自定义外观和行为。字体路径、颜色和按键绑定均可调整。
 
-The xpdf package includes command-line tools: [pdftotext](/man/pdftotext)(1), [pdftops](/man/pdftops)(1), [pdfinfo](/man/pdfinfo)(1), and [pdfimages](/man/pdfimages)(1). These are widely used independent of the viewer.
+xpdf 软件包还包含命令行工具：[pdftotext](/man/pdftotext)(1)、[pdftops](/man/pdftops)(1)、[pdfinfo](/man/pdfinfo)(1) 和 [pdfimages](/man/pdfimages)(1)。这些工具被广泛使用，且不依赖于查看器本身。
 
 # CAVEATS
 
-Fewer features than Evince or Okular. Some modern PDF features may not render. X11 only. Development slower than alternatives.
+功能少于 Evince 或 Okular。某些现代 PDF 特性可能无法渲染。仅支持 X11。开发进度比同类软件慢。
 
 # HISTORY
 
-**xpdf** was created by **Derek Noonburg** starting in **1995**. It was one of the first open-source PDF viewers and spawned the Poppler library used by many modern viewers.
+**xpdf** 由 **Derek Noonburg** 自 **1995** 年起创建。它是最早的开源 PDF 查看器之一，并催生了 Poppler 库——许多现代查看器都在使用它。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Canonicalize XML documents (xmlstarlet c14n)
+对 XML 文档进行规范化（xmlstarlet c14n）
 
 # TLDR
 
-**Inclusive canonicalization with comments** (W3C XML C14N 1.0)
+**保留注释的包含式规范化**（W3C XML C14N 1.0）
 
 ```xml c14n --with-comments [file.xml]```
 
-**Inclusive canonicalization stripping comments**
+**去除注释的包含式规范化**
 
 ```xml c14n --without-comments [file.xml]```
 
-**Exclusive canonicalization with comments** (XML EXC-C14N)
+**保留注释的排他式规范化**（XML EXC-C14N）
 
 ```xml c14n --exc-with-comments [file.xml]```
 
-**Exclusive canonicalization without comments**
+**不保留注释的排他式规范化**
 
 ```xml c14n --exc-without-comments [file.xml]```
 
-**Canonicalize a subset selected by an XPath expression file**
+**规范化由 XPath 表达式文件选出的子集**
 
 ```xml c14n --without-comments [file.xml] [xpath.xml]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [file.xml] | xml c14n --with-comments -```
 
@@ -34,27 +34,27 @@ Canonicalize XML documents (xmlstarlet c14n)
 
 # PARAMETERS
 
-_MODE_ (required, exactly one)
-> One of **--with-comments**, **--without-comments**, **--exc-with-comments**, **--exc-without-comments**.
+_MODE_（必填，且只能有一个）
+> **--with-comments**、**--without-comments**、**--exc-with-comments**、**--exc-without-comments** 四者之一。
 
 _XML-FILE_
-> XML document to canonicalize. Use **-** to read stdin.
+> 要规范化的 XML 文档。使用 **-** 表示从 stdin 读取。
 
 _XPATH-FILE_
-> Optional XML file whose root element's text content is an XPath expression that selects the node-set to canonicalize.
+> 可选的 XML 文件，其根元素的文本内容是一个 XPath 表达式，用于选择要规范化的节点集。
 
 _INCLUSIVE-NS-LIST_
-> For exclusive C14N only: space-separated list of namespace prefixes to treat as inclusive (e.g. `'soap xsd'`).
+> 仅用于排他式 C14N：以空格分隔的命名空间前缀列表，这些前缀将被视为包含式的（例如 `'soap xsd'`）。
 
 # DESCRIPTION
 
-**xml c14n** is the canonicalization sub-command of **xmlstarlet**. It produces a byte-stable serialization of an XML document according to the W3C **Canonical XML 1.0** or **Exclusive XML Canonicalization 1.0** specifications. The result is what tools must compute before generating or verifying XML Digital Signatures (XML-DSig) so that semantically equivalent documents hash to the same value.
+**xml c14n** 是 **xmlstarlet** 的规范化子命令。它按照 W3C **Canonical XML 1.0** 或 **Exclusive XML Canonicalization 1.0** 规范生成字节级稳定的 XML 文档序列化结果。在生成或验证 XML 数字签名（XML-DSig）之前，工具必须先计算该结果，以便语义等价的文档哈希出相同的值。
 
-Inclusive canonicalization includes ancestor namespace declarations; exclusive canonicalization (used by SAML, WS-Security, etc.) drops them unless explicitly listed in the inclusive namespace prefix list.
+包含式规范化会保留祖先命名空间声明；排他式规范化（被 SAML、WS-Security 等使用）则会丢弃它们，除非在包含式命名空间前缀列表中明确列出。
 
 # CAVEATS
 
-The mode flag is positional — every invocation must supply exactly one of the four mode options before the input file. The XPath argument is itself an XML file containing an XPath, not a literal expression on the command line.
+模式标志与位置相关——每次调用都必须在输入文件之前提供四个模式选项中的一个。XPath 参数本身是一个包含 XPath 的 XML 文件，而不是命令行上的字面表达式。
 
 # INSTALL
 

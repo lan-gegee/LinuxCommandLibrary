@@ -1,18 +1,18 @@
 # TAGLINE
 
-Passive hostname, domain and IP lookup tool
+被动式主机名、域名与 IP 查询工具
 
 # TLDR
 
-**Look up a domain**
+**查询域名**
 
 ```wtfis [example.com]```
 
-**Look up an IP with Shodan enrichment**
+**结合 Shodan 信息查询 IP**
 
 ```wtfis -s [8.8.8.8]```
 
-**Enable all enrichments**
+**启用全部信息增强**
 
 ```wtfis -A [example.com]```
 
@@ -22,11 +22,11 @@ Passive hostname, domain and IP lookup tool
 
 # DESCRIPTION
 
-**wtfis** gathers and presents information about domains, hostnames, and IP addresses using OSINT services like VirusTotal, IP2Whois, and Shodan in a colorized, human-readable format. It minimizes API calls to avoid hitting free-tier rate limits.
+**wtfis** 利用 VirusTotal、IP2Whois 和 Shodan 等 OSINT 服务收集并以彩色、人类可读的格式呈现域名、主机名和 IP 地址的信息。它会尽量减少 API 调用次数，以免触及免费额度的速率限制。
 
 # HISTORY
 
-**wtfis** was created by **pirxthepilot** (Joon) and is written in **Python**.
+**wtfis** 由 **pirxthepilot**（Joon）创建，使用 **Python** 编写。
 
 # INSTALL
 

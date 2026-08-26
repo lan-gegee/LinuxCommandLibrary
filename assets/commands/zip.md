@@ -1,54 +1,54 @@
 # TAGLINE
 
-Create and modify ZIP archives
+创建和修改 ZIP 归档
 
 # TLDR
 
-**Create a ZIP archive**
+**创建 ZIP 归档**
 
 ```zip [archive.zip] [file1] [file2]```
 
-**Create archive from directory**
+**从目录创建归档**
 
 ```zip -r [archive.zip] [directory/]```
 
-**Add files to existing archive**
+**向已有归档添加文件**
 
 ```zip [archive.zip] [newfile.txt]```
 
-**Create archive with compression level**
+**以指定压缩级别创建归档**
 
 ```zip -9 [archive.zip] [files]```
 
-**Create encrypted archive**
+**创建加密归档**
 
 ```zip -e [archive.zip] [files]```
 
-**Exclude files from archive**
+**排除文件不入归档**
 
 ```zip -r [archive.zip] [directory/] -x "*.log"```
 
-**Update only changed files**
+**只更新有变化的文件**
 
 ```zip -u [archive.zip] [files]```
 
-**Create archive excluding directory**
+**创建归档时排除目录**
 
 ```zip -r [archive.zip] [dir/] -x [dir/subdir/*]```
 
-**Delete file from archive**
+**从归档中删除文件**
 
 ```zip -d [archive.zip] [file_to_remove]```
 
-**Move files into archive (delete originals)**
+**将文件移入归档（删除原文件）**
 
 ```zip -m [archive.zip] [file1] [file2]```
 
-**Create a split archive with 100 MB parts**
+**创建分为 100 MB 卷的分卷归档**
 
 ```zip -s [100m] [archive.zip] [files]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```zip -T [archive.zip]```
 
@@ -58,84 +58,84 @@ Create and modify ZIP archives
 
 # DESCRIPTION
 
-**zip** creates and modifies ZIP archives, a widely supported compressed archive format. It compresses files using the DEFLATE algorithm (or store without compression) and packages them with metadata including names, timestamps, and permissions.
+**zip** 创建和修改 ZIP 归档，这是一种广泛支持的压缩归档格式。它使用 DEFLATE 算法压缩文件（或不压缩直接存储），并将名称、时间戳和权限等元数据一并打包。
 
-ZIP archives are cross-platform compatible and supported natively on Windows, macOS, and most Unix systems. The format supports directory structures, encryption, and archives spanning multiple files.
+ZIP 归档跨平台兼容，在 Windows、macOS 和大多数 Unix 系统上原生受支持。该格式支持目录结构、加密以及跨多个文件的分卷归档。
 
-zip can create new archives, add files to existing ones, update changed files, or delete entries. It's commonly used for file distribution, backups, and data exchange.
+zip 可以创建新归档、向现有归档添加文件、更新变化的文件或删除条目。它常用于文件分发、备份和数据交换。
 
 # PARAMETERS
 
 **-r**
-> Recurse into directories.
+> 递归处理目录。
 
 **-9**
-> Maximum compression.
+> 最大压缩。
 
 **-0**
-> Store only (no compression).
+> 仅存储（不压缩）。
 
 **-e**
-> Encrypt archive (prompts for password).
+> 加密归档（提示输入密码）。
 
 **-P** _password_
-> Use specified password.
+> 使用指定密码。
 
 **-u**
-> Update only changed files.
+> 只更新有变化的文件。
 
 **-f**
-> Freshen (update existing entries only).
+> 刷新（仅更新已有条目）。
 
 **-d**
-> Delete entries from archive.
+> 从归档中删除条目。
 
 **-x** _pattern_
-> Exclude files matching pattern.
+> 排除匹配模式的文件。
 
 **-i** _pattern_
-> Include only matching files.
+> 只包含匹配的文件。
 
 **-j**
-> Junk directory paths.
+> 去除目录路径。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-m**
-> Move files into archive (delete originals after successful archiving).
+> 将文件移入归档（成功归档后删除原文件）。
 
 **-g**
-> Grow (append to) an existing archive.
+> 扩展（追加到）已有归档。
 
 **-T**
-> Test archive integrity after creation. Aborts if the check fails.
+> 创建后测试归档完整性。检查失败则中止。
 
 **-@**
-> Read file list from stdin.
+> 从标准输入读取文件列表。
 
 **-s** _size_
-> Split archive into pieces of the given size (e.g. `100m`, `1g`).
+> 将归档分割为指定大小的分卷（如 `100m`、`1g`）。
 
 **-sf**
-> Show the files that would be operated on, then exit without creating the archive.
+> 显示将被操作的文件，然后退出而不创建归档。
 
 **-FS**
-> Sync archive contents with the filesystem: add new files, update changed files, and remove entries not on disk.
+> 将归档内容与文件系统同步：添加新文件、更新有变化的文件，并删除磁盘上已不存在的条目。
 
 **-y**
-> Store symbolic links as links rather than following them.
+> 将符号链接按链接本身存储，而不是跟随链接。
 
 # CAVEATS
 
-Default encryption is weak (ZipCrypto); use 7z for strong encryption. Maximum file size is 4GB without ZIP64. Password on command line is insecure. Timestamps may lose precision.
+默认加密很弱（ZipCrypto）；强加密请使用 7z。不启用 ZIP64 时单个文件最大为 4GB。在命令行上输入密码不安全。时间戳可能损失精度。
 
 # HISTORY
 
-The ZIP format was created by **Phil Katz** for **PKZIP** in **1989**. The **Info-ZIP** project was started the same year to provide free implementations. Info-ZIP's zip became the standard Unix ZIP utility and is included in virtually all Unix-like systems. The format has evolved to support larger files (ZIP64) and better compression.
+ZIP 格式由 **Phil Katz** 于 **1989 年**为其 **PKZIP** 创建。同年启动了 **Info-ZIP** 项目以提供自由实现。Info-ZIP 的 zip 成为标准的 Unix ZIP 工具，几乎所有类 Unix 系统都有收录。该格式不断演进，以支持更大的文件（ZIP64）和更好的压缩。
 
 # INSTALL
 

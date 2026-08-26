@@ -1,26 +1,26 @@
 # TAGLINE
 
-Weblate command-line client
+Weblate 命令行客户端
 
 # TLDR
 
-**List projects**
+**列出项目**
 
 ```wlc ls```
 
-**Show component**
+**查看组件**
 
 ```wlc show [project/component]```
 
-**Download translations**
+**下载翻译**
 
 ```wlc download [project/component]```
 
-**Upload translations**
+**上传翻译**
 
 ```wlc upload [project/component]```
 
-**Commit changes**
+**提交更改**
 
 ```wlc commit [project/component]```
 
@@ -31,36 +31,36 @@ Weblate command-line client
 # PARAMETERS
 
 **ls**
-> List projects.
+> 列出项目。
 
 **show**
-> Show details.
+> 显示详情。
 
 **download**
-> Get translations.
+> 获取翻译。
 
 **upload**
-> Send translations.
+> 发送翻译。
 
 **commit**
-> Commit changes.
+> 提交更改。
 
 **--config** _FILE_
-> Config file.
+> 配置文件。
 
 # DESCRIPTION
 
-**wlc** is the command-line client for Weblate, an open-source web-based translation management system. It provides access to Weblate's API for managing translation projects, downloading and uploading translation files, and committing changes from the terminal.
+**wlc** 是 Weblate 的命令行客户端。Weblate 是一个开源的基于 Web 的翻译管理系统。该客户端提供对 Weblate API 的访问，可用于管理翻译项目、下载和上传翻译文件，以及从终端提交更改。
 
-The tool supports listing projects and components, viewing translation status, and performing bulk operations across multiple translation files. It requires a Weblate server URL and API key for authentication, which can be stored in a configuration file for convenience.
+该工具支持列出项目和组件、查看翻译状态，以及对多个翻译文件执行批量操作。它需要 Weblate 服务器 URL 和 API 密钥进行身份验证，为方便起见可以将它们保存在配置文件中。
 
 # CAVEATS
 
-Weblate server needed. API key required. Python-based.
+需要 Weblate 服务器。必须有 API 密钥。基于 Python。
 
 # HISTORY
 
-**wlc** is the command-line client for **Weblate**, an open-source translation management system.
+**wlc** 是开源翻译管理系统 **Weblate** 的命令行客户端。
 
 # INSTALL
 

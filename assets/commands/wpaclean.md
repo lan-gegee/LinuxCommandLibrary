@@ -1,14 +1,14 @@
 # TAGLINE
 
-Extract WPA handshakes from capture files
+从抓包文件中提取 WPA 握手数据
 
 # TLDR
 
-**Clean capture file**
+**清理抓包文件**
 
 ```wpaclean [output.cap] [input.cap]```
 
-**Clean multiple files**
+**清理多个文件**
 
 ```wpaclean [output.cap] [file1.cap] [file2.cap]```
 
@@ -19,26 +19,26 @@ Extract WPA handshakes from capture files
 # PARAMETERS
 
 _output_
-> Cleaned output file.
+> 清理后的输出文件。
 
 _input_
-> Input capture files.
+> 输入的抓包文件。
 
 # DESCRIPTION
 
-**wpaclean** cleans capture files to get only the 4-way handshake and a beacon. It produces cleaned output files containing only the EAPOL authentication frames needed for offline password analysis, significantly reducing file size by removing all non-handshake traffic.
+**wpaclean** 清理抓包文件，只保留四次握手和一个信标帧。它生成的输出文件只包含离线密码分析所需的 EAPOL 认证帧，通过移除所有非握手流量显著减小文件体积。
 
-Multiple input capture files can be processed and combined into a single cleaned output file. The tool is part of the aircrack-ng suite and is typically used to prepare capture files before running them through aircrack-ng or hashcat for WPA/WPA2 password recovery during authorized security assessments.
+多个输入抓包文件可以被处理并合并为一个清理后的输出文件。该工具属于 aircrack-ng 套件，通常用于在授权的安全评估中，将抓包文件送入 aircrack-ng 或 hashcat 进行 WPA/WPA2 密码恢复之前做预处理。
 
-Note that the output file is specified **before** the input file(s) in the argument order.
+注意：参数顺序上，输出文件要写在输入文件**之前**。
 
 # CAVEATS
 
-Part of the aircrack-ng suite. Only extracts WPA/WPA2 4-way handshakes and beacons; all other frames are discarded. The tool has no command-line options beyond the positional arguments. Input files must be in pcap format.
+属于 aircrack-ng 套件。只提取 WPA/WPA2 四次握手和信标帧；所有其他帧都会被丢弃。除位置参数外没有任何命令行选项。输入文件必须是 pcap 格式。
 
 # HISTORY
 
-**wpaclean** is part of the **aircrack-ng** suite, a set of tools for 802.11 wireless network security auditing.
+**wpaclean** 是 **aircrack-ng** 套件的一部分。aircrack-ng 是一组用于 802.11 无线网络安全审计的工具。
 
 # INSTALL
 

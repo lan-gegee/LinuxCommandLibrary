@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert YBM face format to PBM
+将 YBM 人脸图像格式转换为 PBM
 
 # TLDR
 
-**Convert Bennet Yee face to PBM**
+**将 Bennet Yee face 格式转换为 PBM**
 
 ```ybmtopbm [input.ybm] > [output.pbm]```
 
@@ -14,7 +14,7 @@ Convert YBM face format to PBM
 
 # DESCRIPTION
 
-**ybmtopbm** converts Bennet Yee's "face" format to PBM. YBM was used for simple face images. Part of Netpbm toolkit.
+**ybmtopbm** 将 Bennet Yee 的 "face" 格式转换为 PBM。YBM 曾用于简单的人脸图像。它是 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert YBM face format to PBM
 # SEE ALSO
 
 [pbmtoybm](/man/pbmtoybm)(1), [icontopbm](/man/icontopbm)(1)
-

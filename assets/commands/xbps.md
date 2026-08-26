@@ -1,30 +1,30 @@
 # TAGLINE
 
-Void Linux package management system
+Void Linux 包管理系统
 
 # TLDR
 
-View **install** documentation
+查看 **install** 文档
 
 ```tldr xbps-install```
 
-View **remove** documentation
+查看 **remove** 文档
 
 ```tldr xbps-remove```
 
-View **query** documentation
+查看 **query** 文档
 
 ```tldr xbps-query```
 
 # DESCRIPTION
 
-**xbps** (X Binary Package System) is the package manager used by Void Linux. It is not a single command but a set of related commands for package management.
+**xbps**（X Binary Package System）是 Void Linux 所用的包管理器。它不是单个命令，而是一组用于软件包管理的相关命令。
 
-The main commands are xbps-install for installing/updating, xbps-remove for removing, and xbps-query for querying package information.
+主要命令包括用于安装/更新的 xbps-install、用于移除的 xbps-remove，以及用于查询软件包信息的 xbps-query。
 
 # CAVEATS
 
-Void Linux specific. Commands have different syntax from other package managers.
+Void Linux 专用。命令语法与其他包管理器不同。
 
 # INSTALL
 

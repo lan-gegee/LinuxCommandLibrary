@@ -1,38 +1,38 @@
 # TAGLINE
 
-Define and look up zsh styles by context
+按上下文定义和查询 zsh 样式（style）
 
 # TLDR
 
-**Define a style** for a pattern (e.g. enable case-insensitive completion matching)
+**为模式定义样式**（例如启用不区分大小写的补全匹配）
 
 ```zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'```
 
-**List all** style definitions in zstyle form
+**以 zstyle 形式列出全部**样式定义
 
 ```zstyle -L```
 
-**List styles** matching a meta-pattern
+**列出匹配元模式的样式**
 
 ```zstyle -L ':completion:*'```
 
-**Delete a style** for a pattern
+**删除某模式下的样式**
 
 ```zstyle -d ':completion:*' menu```
 
-**Look up a style** value into a scalar variable
+**把样式值查询到标量变量**
 
 ```zstyle -s ':completion:*' completer REPLY```
 
-**Look up a style** as an array
+**以数组形式查询样式**
 
 ```zstyle -a ':completion:*:descriptions' format DESCR```
 
-**Test a boolean style** (returns 0 if set to yes/true/on/1)
+**测试布尔样式**（设为 yes/true/on/1 时返回 0）
 
 ```zstyle -t ':completion:*' verbose```
 
-**Define a dynamically-evaluated** style with `-e`
+用 `-e` **定义动态求值的**样式
 
 ```zstyle -e ':completion:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'```
 
@@ -55,58 +55,58 @@ Define and look up zsh styles by context
 # PARAMETERS
 
 **-L** [_metapattern_ [_style_]]
-> List style definitions as **zstyle** commands. Optional _metapattern_ filters by pattern, _style_ filters by style name.
+> 以 **zstyle** 命令的形式列出样式定义。可选的 _metapattern_ 按模式过滤，_style_ 按样式名过滤。
 
 **-e**
-> Treat the value as code to be evaluated when the style is looked up; the parameter **reply** must be set to the resulting strings.
+> 将值视为在查询样式时需求值的代码；参数 **reply** 必须被设置为结果字符串。
 
 **-d** [_pattern_ [_style_ ...]]
-> Delete styles. Without arguments deletes all definitions. With a _pattern_, deletes that pattern; with _styles_, deletes only those.
+> 删除样式。不带参数时删除全部定义。给定 _pattern_ 时删除该模式；再给定 _styles_ 时只删除这些样式。
 
 **-g** _name_ [_pattern_ [_style_]]
-> Get definitions into the array _name_. Returns patterns, styles for a pattern, or values for a (pattern, style) pair.
+> 把定义取入数组 _name_。可返回所有模式、某个模式的样式，或某个（模式, 样式）对的值。
 
 **-s** _context_ _style_ _name_ [_sep_]
-> Read the style as a scalar into _name_, joining multiple values with spaces or _sep_. Returns 0 if set, 1 otherwise.
+> 把样式作为标量读入 _name_，多个值之间用空格或 _sep_ 连接。已设置返回 0，否则返回 1。
 
 **-b** _context_ _style_ _name_
-> Read the style as a boolean (`yes` if the single value is **yes**, **true**, **on**, or **1**; otherwise `no`).
+> 把样式作为布尔值读取（当唯一值为 **yes**、**true**、**on** 或 **1** 时得到 `yes`，否则得到 `no`）。
 
 **-a** _context_ _style_ _name_
-> Read the style as an array; if _name_ is associative, alternate strings become keys and values.
+> 把样式作为数组读取；若 _name_ 是关联数组，交替出现的字符串会分别成为键和值。
 
 **-t** _context_ _style_ [_string_ ...]
-> Test a style. Status 0 = matches/true, 1 = defined but not matching, 2 = undefined.
+> 测试样式。状态 0 = 匹配/为真，1 = 已定义但不匹配，2 = 未定义。
 
 **-T** _context_ _style_ [_string_ ...]
-> Like **-t** but returns 0 (instead of 2) when the style is undefined for any matching pattern.
+> 与 **-t** 类似，但当样式对任何匹配模式都未定义时返回 0（而不是 2）。
 
 **-m** _context_ _style_ _pattern_
-> Pattern-match a style value. Returns 0 if _pattern_ matches at least one of the value's strings.
+> 对样式值做模式匹配。若 _pattern_ 至少匹配值中的一个字符串则返回 0。
 
 # DESCRIPTION
 
-**zstyle** is a builtin from the **zsh/zutil** module used to define and look up styles. A style is a name/value pair stored against a pattern; lookups supply a colon-separated **context** string that is matched against those patterns. The most specific matching pattern wins.
+**zstyle** 是 **zsh/zutil** 模块的一个内建命令，用于定义和查询样式。样式是以某个模式为键存储的名称/值对；查询时会提供一个以冒号分隔的 **context** 字符串，与这些模式进行匹配，其中最具体的匹配模式胜出。
 
-Pattern specificity is determined by the number of colon-separated components and how literal each component is. Literal strings beat patterns, complex patterns beat the wildcard `*`, and ties are broken in favor of the pattern defined first. A `*` matches any number of characters including colons.
+模式的具体程度由冒号分隔组件的数量以及各组件的字面程度决定。字面字符串优先于模式，复杂模式优先于通配符 `*`，平局时先定义的模式获胜。`*` 可以匹配任意数量的字符，包括冒号。
 
-Styles are most prominently used by zsh's shell-function-based completion system, where contexts follow the form **:completion:_function_:_completer_:_command_:_argument_:_tag_**. They are also used by prompt themes (e.g. **vcs_info**), zsh plugins, and arbitrary user code that calls **zstyle -s/-a/-b/-t** to read user preferences.
+样式最主要的应用是 zsh 基于 shell 函数的补全系统，其上下文形如 **:completion:_function_:_completer_:_command_:_argument_:_tag_**。提示符主题（如 **vcs_info**）、zsh 插件，以及任何调用 **zstyle -s/-a/-b/-t** 来读取用户偏好的自定义代码也都在使用样式。
 
 # CAVEATS
 
-A common gotcha with **-L**: the meta-pattern is matched against the stored pattern, so `zstyle -L ":completion:*"` matches any stored pattern beginning with `:completion:`, not just the literal `:completion:*`. Use `:completion:\*` to match the literal asterisk. The **-L** option cannot be combined with other options.
+使用 **-L** 有个常见的坑：元模式是与存储下来的模式做匹配的，所以 `zstyle -L ":completion:*"` 会匹配所有以 `:completion:` 开头的已存模式，而不只是字面上的 `:completion:*`。要按字面星号匹配，请写 `:completion:\*`。**-L** 选项不能与其他选项组合使用。
 
-The **-e** form re-evaluates its value on every lookup; if **reply** is left unset by the evaluation, the style is treated as undefined.
+**-e** 形式会在每次查询时重新求值；如果求值后 **reply** 未被设置，该样式将被视为未定义。
 
 # CONFIGURATION
 
-Styles are typically set in **~/.zshrc** after **autoload -U compinit && compinit**. There is no on-disk configuration file dedicated to styles; they live in shell memory until the shell exits.
+样式通常在 **~/.zshrc** 中、紧跟 **autoload -U compinit && compinit** 之后设置。没有专门存放样式的磁盘配置文件；样式保存在 shell 内存中，直到 shell 退出。
 
-Common contexts include **:completion:\***, **:vcs_info:\***, **:zle:\***, and plugin-specific namespaces such as **:weather:\*** or **:zsh-autosuggest**.
+常见上下文包括 **:completion:\***、**:vcs_info:\***、**:zle:\***，以及插件专属的命名空间，如 **:weather:** 或 **:zsh-autosuggest**。
 
 # HISTORY
 
-The **zstyle** builtin was introduced as part of the **zsh/zutil** module to support the new function-based completion system that replaced the older **compctl** approach in **zsh 4.0** (2001). It became the standard configuration mechanism for completion behavior, prompt themes such as **vcs_info**, and many third-party zsh plugins.
+**zstyle** 内建命令作为 **zsh/zutil** 模块的一部分引入，用于支撑新的基于函数的补全系统——该系统在 **zsh 4.0**（2001 年）中取代了旧有的 **compctl** 方案。此后它成为配置补全行为、**vcs_info** 等提示符主题以及众多第三方 zsh 插件的标准机制。
 
 # SEE ALSO
 

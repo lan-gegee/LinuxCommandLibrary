@@ -1,30 +1,30 @@
 # TAGLINE
 
-Hide the X11 mouse cursor while typing
+输入时隐藏 X11 鼠标指针
 
 # TLDR
 
-**Hide the cursor when typing** and show it again on mouse movement
+**打字时隐藏指针**，移动鼠标时重新显示
 
 ```xbanish```
 
-**Keep the cursor hidden** the entire time the program runs
+**在程序运行期间始终隐藏指针**
 
 ```xbanish -a```
 
-**Ignore a modifier key** so it does not hide the cursor
+**忽略某个修饰键**，使其不隐藏指针
 
 ```xbanish -i [shift]```
 
-**Move the cursor** to a screen corner when hiding it
+**隐藏时把指针移到**屏幕角落
 
 ```xbanish -m [nw]```
 
-**Hide the cursor** after a number of idle seconds
+**空闲若干秒后隐藏指针**
 
 ```xbanish -t [5]```
 
-**Run automatically** by adding it to the X startup file
+**开机自动运行**：将其加入 X 启动文件
 
 ```echo "xbanish &" >> ~/.xinitrc```
 
@@ -34,39 +34,39 @@ Hide the X11 mouse cursor while typing
 
 # DESCRIPTION
 
-**xbanish** hides the X11 mouse cursor when a key is pressed and shows it again when the mouse is moved or a button is clicked. This keeps the pointer out of the way during keyboard-driven work without removing it from sight when the mouse is actually needed.
+**xbanish** 在按下按键时隐藏 X11 鼠标指针，并在移动鼠标或点击按钮时重新显示。这样在进行键盘驱动的工作时指针不会碍事，而在真正需要鼠标时又能立刻看到。
 
-It was written as an alternative to **unclutter -keystroke** mode, which has to grab and replay keystrokes and can interfere with other clients. Instead, xbanish uses the XInput extension to passively watch input events. On systems supporting XInput 2.2 it reads raw motion and button events; otherwise it walks the window hierarchy to register for events. The XFixes extension performs the actual hiding and showing of the cursor.
+它是作为 **unclutter -keystroke** 模式的替代品而编写的，后者必须抓取并重放按键，可能干扰其他客户端。xbanish 则使用 XInput 扩展被动地监听输入事件。在支持 XInput 2.2 的系统上它读取原始的运动和按钮事件；否则它会遍历窗口层级来注册事件。指针的实际显示与隐藏由 XFixes 扩展完成。
 
-Because it only listens for events, xbanish runs as a lightweight background daemon and works across the whole X session regardless of the window manager.
+由于只监听事件，xbanish 作为一个轻量级后台守护进程运行，无论窗口管理器是什么都能作用于整个 X 会话。
 
 # PARAMETERS
 
 **-a**
-> Always keep the cursor hidden while running.
+> 运行期间始终保持指针隐藏。
 
 **-d**
-> Print debugging messages to standard output.
+> 向标准输出打印调试消息。
 
 **-i** _MODIFIER_
-> Ignore a key press when the given modifier is held, so the cursor stays visible. Valid modifiers are shift, lock, control, mod1, mod2, mod3, mod4, mod5, or all. May be given multiple times.
+> 在按住给定修饰键时忽略按键，使指针保持可见。有效的修饰键为 shift、lock、control、mod1、mod2、mod3、mod4、mod5 或 all。可多次指定。
 
 **-m** _POSITION_
-> When hiding the cursor, move it to a screen corner (nw, ne, sw, se) or to an absolute position such as +50-100. Prefix a corner with **w** to position relative to the current window.
+> 隐藏指针时，将其移到屏幕角落（nw、ne、sw、se）或绝对位置（如 +50-100）。在角落前加 **w** 前缀可相对于当前窗口定位。
 
 **-t** _SECONDS_
-> Hide the cursor after the given number of seconds without mouse movement.
+> 鼠标无移动达到指定秒数后隐藏指针。
 
 **-s**
-> Ignore scrolling events, so scrolling the wheel does not reveal the cursor.
+> 忽略滚动事件，这样滚动滚轮不会让指针重新出现。
 
 # CAVEATS
 
-Works on X11 only and has no effect under native Wayland sessions. Requires the XInput and XFixes extensions, which are present on essentially all modern X servers.
+仅适用于 X11，在原生 Wayland 会话下无效。需要 XInput 和 XFixes 扩展，而几乎所有现代 X 服务器都具备这些扩展。
 
 # HISTORY
 
-**xbanish** was written by Joshua Stein (jcs) to replace the keystroke-hiding behavior of **unclutter** with a cleaner, event-driven implementation built on the XInput and XFixes extensions.
+**xbanish** 由 Joshua Stein（jcs）编写，用基于 XInput 和 XFixes 扩展的更简洁的事件驱动实现，取代了 **unclutter** 的按键隐藏行为。
 
 # INSTALL
 

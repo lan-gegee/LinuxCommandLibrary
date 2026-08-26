@@ -1,18 +1,18 @@
 # TAGLINE
 
-Send messages to logged-in users
+向已登录的用户发送消息
 
 # TLDR
 
-**Send** a message to a user on a specific terminal
+向特定终端上的用户**发送**消息
 
 ```write [username] [terminal_id]```
 
-**Send** message to user on tty5
+向 tty5 上的用户**发送**消息
 
 ```write [username] tty5```
 
-**Send** message to user on pseudo terminal
+向伪终端上的用户**发送**消息
 
 ```write [username] pts/5```
 
@@ -22,13 +22,13 @@ Send messages to logged-in users
 
 # DESCRIPTION
 
-**write** allows you to communicate with other users by copying lines from your terminal to theirs. When you run write, the user receives a message indicating who is writing. You can then type your message, line by line, which appears on their terminal.
+**write** 允许你与其他用户通信，方式是把你的终端上输入的内容逐行复制到对方的终端。运行 write 后，对方会收到一条提示，显示谁在发消息。然后你可以逐行输入内容，这些内容会出现在对方的终端上。
 
-Press Ctrl+D (EOF) or Ctrl+C to end the message session. Use the **who** command to find terminal IDs of logged-in users.
+按 Ctrl+D（EOF）或 Ctrl+C 结束消息会话。可以使用 **who** 命令查找已登录用户的终端 ID。
 
 # CAVEATS
 
-The recipient must have their terminal writable (use **mesg y**). If the user is logged in on multiple terminals and ttyname is not specified, write picks the terminal with the shortest idle time. Only works for users on the same system.
+接收方的终端必须可写（使用 **mesg y**）。如果用户登录了多个终端且未指定 ttyname，write 会选择空闲时间最短的终端。只能对同一系统上的用户生效。
 
 # SEE ALSO
 

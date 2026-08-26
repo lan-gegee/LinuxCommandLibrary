@@ -1,42 +1,42 @@
 # TAGLINE
 
-Build Xcode projects from command line
+从命令行构建 Xcode 项目
 
 # TLDR
 
-**Build a project** with default settings
+**以默认设置构建项目**
 
 ```xcodebuild```
 
-**Build a specific scheme**
+**构建指定的 scheme**
 
 ```xcodebuild -scheme [SchemeName]```
 
-**Build for a specific SDK** and destination
+**针对指定 SDK**和目标设备构建
 
 ```xcodebuild -scheme [SchemeName] -sdk iphoneos -destination "generic/platform=iOS"```
 
-**Build a workspace**
+**构建一个 workspace**
 
 ```xcodebuild -workspace [App.xcworkspace] -scheme [SchemeName]```
 
-**Create an archive**
+**创建归档**
 
 ```xcodebuild archive -scheme [SchemeName] -archivePath [path/to/App.xcarchive]```
 
-**Export an archive** to IPA
+**导出归档**为 IPA
 
 ```xcodebuild -exportArchive -archivePath [App.xcarchive] -exportPath [output] -exportOptionsPlist [options.plist]```
 
-**Run tests**
+**运行测试**
 
 ```xcodebuild test -scheme [SchemeName] -destination "platform=iOS Simulator,name=iPhone 15"```
 
-**List available schemes**
+**列出可用的 scheme**
 
 ```xcodebuild -list```
 
-**List available SDKs**
+**列出可用的 SDK**
 
 ```xcodebuild -showsdks```
 
@@ -47,71 +47,71 @@ Build Xcode projects from command line
 # PARAMETERS
 
 **-project** _name_
-> Build the project specified by name.xcodeproj.
+> 构建由 name.xcodeproj 指定的项目。
 
 **-workspace** _name_
-> Build the workspace specified by name.xcworkspace.
+> 构建由 name.xcworkspace 指定的 workspace。
 
 **-scheme** _name_
-> Build the scheme with the specified name. Required for workspaces.
+> 构建具有指定名称的 scheme。workspace 必须提供此参数。
 
 **-target** _name_
-> Build the target with the specified name.
+> 构建具有指定名称的 target。
 
 **-sdk** _sdk_
-> Build with the specified SDK (iphoneos, iphonesimulator, macosx).
+> 使用指定的 SDK 构建（iphoneos、iphonesimulator、macosx）。
 
 **-destination** _destination_
-> Use the destination described by destination.
+> 使用 destination 所描述的目标设备。
 
 **-configuration** _config_
-> Build configuration: Debug or Release.
+> 构建配置：Debug 或 Release。
 
 **-archivePath** _path_
-> Path for archive output.
+> 归档输出的路径。
 
 **-exportPath** _path_
-> Path for export output.
+> 导出输出的路径。
 
 **-exportOptionsPlist** _path_
-> Plist file specifying export options.
+> 指定导出选项的 plist 文件。
 
 **-list**
-> List all targets, schemes, and configurations.
+> 列出所有 target、scheme 和配置。
 
 **-showsdks**
-> List all available SDKs.
+> 列出所有可用的 SDK。
 
 **-allowProvisioningUpdates**
-> Allow automatic provisioning profile management.
+> 允许自动管理描述文件。
 
 **build**
-> Build the target (default action).
+> 构建 target（默认操作）。
 
 **archive**
-> Create an archive for distribution.
+> 创建用于分发的归档。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **clean**
-> Remove build products.
+> 移除构建产物。
 
 # DESCRIPTION
 
-**xcodebuild** is Apple's command-line tool for building Xcode projects and workspaces. It performs build, test, archive, and export operations, making it essential for CI/CD pipelines and automated builds of macOS, iOS, watchOS, and tvOS applications.
+**xcodebuild** 是 Apple 用于构建 Xcode 项目和 workspace 的命令行工具。它执行构建、测试、归档和导出操作，是 CI/CD 流水线以及自动化构建 macOS、iOS、watchOS 和 tvOS 应用的关键工具。
 
-The tool works with projects (.xcodeproj) or workspaces (.xcworkspace). Workspaces, commonly used with CocoaPods or Swift Package Manager, require specifying a scheme. Schemes define which targets to build and with what configuration.
+该工具可用于项目（.xcodeproj）或 workspace（.xcworkspace）。workspace 通常与 CocoaPods 或 Swift Package Manager 一起使用，必须指定 scheme。scheme 定义要构建哪些 target 以及使用什么配置。
 
-Building for iOS distribution is typically a two-step process: first **archive** to create an .xcarchive, then **-exportArchive** with an export options plist to produce the final .ipa file. Code signing and provisioning can be managed automatically with **-allowProvisioningUpdates**.
+面向 iOS 分发的构建通常是两个步骤：先 **archive** 创建 .xcarchive，然后用导出选项 plist 执行 **-exportArchive** 生成最终的 .ipa 文件。代码签名和描述文件可通过 **-allowProvisioningUpdates** 自动管理。
 
 # CAVEATS
 
-Requires Xcode installation (not just Command Line Tools). Use `xcode-select -s` to switch developer directories if needed. Archive and export require valid code signing identities and provisioning profiles. Simulator destinations require the simulator to be installed.
+需要安装 Xcode（仅有 Command Line Tools 不够）。如有需要可使用 `xcode-select -s` 切换开发者目录。归档和导出需要有效的代码签名身份和描述文件。模拟器目标设备需要已安装模拟器。
 
 # HISTORY
 
-**xcodebuild** has been part of **Xcode** since its early versions, evolving alongside Apple's development tools. The tool has grown significantly more powerful, adding workspace support, destination specifiers for simulators and devices, and xcpretty-compatible output. It remains the foundation for iOS and macOS continuous integration systems.
+**xcodebuild** 自 **Xcode** 早期版本起就一直是其组成部分，随 Apple 开发者工具一同演进。该工具的功能日益强大，陆续增加了对 workspace 的支持、用于模拟器和真机的 destination 描述符以及与 xcpretty 兼容的输出。它仍然是 iOS 和 macOS 持续集成系统的基础。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Lightweight Zsh plugin manager
+轻量级 Zsh 插件管理器
 
 # TLDR
 
-**Load Oh My Zsh**
+**加载 Oh My Zsh**
 
 ```zgen oh-my-zsh```
 
-**Load Oh My Zsh plugin**
+**加载 Oh My Zsh 插件**
 
 ```zgen oh-my-zsh plugins/[git]```
 
-**Load plugin from GitHub**
+**从 GitHub 加载插件**
 
 ```zgen load [zsh-users/zsh-autosuggestions]```
 
-**Load theme**
+**加载主题**
 
 ```zgen oh-my-zsh themes/[robbyrussell]```
 
-**Save configuration and generate init script**
+**保存配置并生成 init 脚本**
 
 ```zgen save```
 
-**Update all plugins**
+**更新所有插件**
 
 ```zgen update```
 
-**Reset and regenerate**
+**重置并重新生成**
 
 ```zgen reset```
 
@@ -39,41 +39,41 @@ Lightweight Zsh plugin manager
 # SUBCOMMANDS
 
 **oh-my-zsh** [_plugin_or_theme_]
-> Load Oh My Zsh or specific component
+> 加载 Oh My Zsh 或特定组件
 
 **load** _repo_ [_file_]
-> Load plugin from GitHub repository
+> 从 GitHub 仓库加载插件
 
 **save**
-> Save current configuration to init script
+> 将当前配置保存到 init 脚本
 
 **update**
-> Update all plugins
+> 更新所有插件
 
 **reset**
-> Delete generated init script (regenerates on next load)
+> 删除生成的 init 脚本（下次加载时重新生成）
 
 **list**
-> List loaded plugins
+> 列出已加载的插件
 
 **selfupdate**
-> Update zgen itself
+> 更新 zgen 本身
 
 **clone** _repo_
-> Clone repository without loading
+> 仅克隆仓库而不加载
 
 # DESCRIPTION
 
-**zgen** is a lightweight plugin manager for Zsh. It generates a static init script from your plugin configuration, making shell startup fast because plugins don't need to be loaded dynamically each time.
+**zgen** 是一个轻量级的 Zsh 插件管理器。它会根据你的插件配置生成静态的 init 脚本，使 Shell 启动更快，因为插件无需每次都动态加载。
 
-The typical workflow:
-1. Define plugins in **.zshrc** using zgen commands
-2. Run **zgen save** to generate the init script
-3. Subsequent shell starts load the pre-generated script
+典型工作流程：
+1. 在 **.zshrc** 中用 zgen 命令定义插件
+2. 运行 **zgen save** 生成 init 脚本
+3. 之后的 Shell 启动直接加载预生成的脚本
 
-zgen supports Oh My Zsh, Prezto, and any GitHub-hosted Zsh plugin. It handles cloning repositories and sourcing the appropriate files.
+zgen 支持 Oh My Zsh、Prezto 以及任何托管在 GitHub 上的 Zsh 插件。它负责克隆仓库并加载相应的文件。
 
-Configuration example in .zshrc:
+.zshrc 中的配置示例：
 ```
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
@@ -86,11 +86,11 @@ fi
 
 # CAVEATS
 
-After changing plugins in .zshrc, run **zgen reset** and restart the shell to regenerate the init script.
+修改 .zshrc 中的插件后，运行 **zgen reset** 并重启 Shell 以重新生成 init 脚本。
 
-zgen development is less active. Consider **zinit** or **sheldon** for actively maintained alternatives.
+zgen 的开发不太活跃。可以考虑 **zinit** 或 **sheldon** 等维护活跃的替代品。
 
-Plugin updates require manual **zgen update**. No automatic update mechanism.
+插件更新需要手动运行 **zgen update**。没有自动更新机制。
 
 # SEE ALSO
 

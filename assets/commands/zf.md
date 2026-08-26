@@ -1,14 +1,14 @@
 # TAGLINE
 
-Fuzzy finder optimized for filtering file paths
+针对文件路径过滤优化的模糊查找器
 
 # TLDR
 
-**Fuzzy find files interactively**
+**交互式模糊查找文件**
 
 ```find . -type f | zf```
 
-**Open selected file in vim**
+**在 vim 中打开选中的文件**
 
 ```vim $(find . -type f | zf)```
 
@@ -18,11 +18,11 @@ Fuzzy finder optimized for filtering file paths
 
 # DESCRIPTION
 
-**zf** is a command-line fuzzy finder that prioritizes filename matches over full path matches. When the query resembles a file path, it applies path-aware heuristics for more accurate results. Also available as an allocation-free library.
+**zf** 是一个命令行模糊查找器，它优先匹配文件名而非完整路径。当查询内容类似文件路径时，它会应用路径感知启发式算法以获得更准确的结果。也可作为零分配的库使用。
 
 # HISTORY
 
-**zf** was created by **Nate Craddock** (natecraddock) and is written in **Zig**.
+**zf** 由 **Nate Craddock**（natecraddock）创建，使用 **Zig** 编写。
 
 # INSTALL
 

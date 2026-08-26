@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate WPA pre-shared key from passphrase
+从口令生成 WPA 预共享密钥
 
 # TLDR
 
-**Compute** WPA-PSK key reading passphrase from stdin
+从标准输入读取口令来**计算** WPA-PSK 密钥
 
 ```wpa_passphrase [SSID]```
 
-**Compute** WPA-PSK key with passphrase as argument
+以参数形式提供口令来**计算** WPA-PSK 密钥
 
 ```wpa_passphrase [SSID] [passphrase]```
 
-**Generate and append** to wpa_supplicant configuration
+**生成并追加**到 wpa_supplicant 配置
 
 ```wpa_passphrase [SSID] [passphrase] >> /etc/wpa_supplicant/wpa_supplicant.conf```
 
@@ -23,20 +23,20 @@ Generate WPA pre-shared key from passphrase
 # PARAMETERS
 
 **ssid**
-> The network name (SSID) to generate the key for
+> 为其生成密钥的网络名称（SSID）
 
 **passphrase**
-> The WiFi password, must be 8 to 63 printable ASCII characters (read from stdin if omitted)
+> WiFi 密码，必须为 8 到 63 个可打印 ASCII 字符（若省略则从标准输入读取）
 
 # DESCRIPTION
 
-**wpa_passphrase** generates a WPA-PSK (Pre-Shared Key) configuration from an ASCII passphrase for a given network SSID. The output is in wpa_supplicant.conf format and can be appended to the configuration file.
+**wpa_passphrase** 根据给定网络 SSID 的 ASCII 口令生成 WPA-PSK（预共享密钥）配置。输出采用 wpa_supplicant.conf 格式，可以直接追加到配置文件中。
 
-The tool pre-computes the PSK using PBKDF2, which is faster than having wpa_supplicant compute it each time. The output includes both the plain text passphrase (commented) and the computed PSK.
+该工具会用 PBKDF2 预先计算 PSK，比让 wpa_supplicant 每次重新计算更快。输出同时包含明文口令（注释形式）和计算得到的 PSK。
 
 # CAVEATS
 
-Providing the passphrase on the command line exposes it in process listings and shell history. For security, prefer reading from stdin. The passphrase must be between 8 and 63 characters. The SSID is case-sensitive and must match exactly. Part of the wpa_supplicant package.
+在命令行上提供口令会使它暴露在进程列表和 shell 历史记录中。为了安全起见，建议从标准输入读取。口令长度必须在 8 到 63 个字符之间。SSID 区分大小写，必须完全匹配。属于 wpa_supplicant 软件包的一部分。
 
 # INSTALL
 

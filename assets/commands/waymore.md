@@ -1,34 +1,34 @@
 # TAGLINE
 
-Find archived URLs from multiple sources
+从多个来源查找已归档的 URL
 
 # TLDR
 
-**Find URLs for a domain**
+**查找某个域名的 URL**
 
 ```waymore -i [example.com]```
 
-**Retrieve URLs only** (skip response downloads)
+**只获取 URL**（跳过响应下载）
 
 ```waymore -i [example.com] -mode U```
 
-**Retrieve both URLs and archived responses**
+**同时获取 URL 和已归档的响应**
 
 ```waymore -i [example.com] -mode B```
 
-**Output URLs to a specific file**
+**将 URL 输出到指定文件**
 
 ```waymore -i [example.com] -oU [urls.txt]```
 
-**Exclude subdomains**
+**排除子域名**
 
 ```waymore -i [example.com] -n```
 
-**Check estimated time and request count** before running
+运行前**检查预计耗时和请求数量**
 
 ```waymore -i [example.com] -co```
 
-**Limit requests per source**
+**限制每个来源的请求数**
 
 ```waymore -i [example.com] -lr [100]```
 
@@ -39,56 +39,56 @@ Find archived URLs from multiple sources
 # PARAMETERS
 
 **-i** _DOMAIN_
-> Input domain or file of domains.
+> 输入的域名或域名列表文件。
 
 **-mode** _MODE_
-> Mode: U (URLs only), R (Responses only), B (Both). Default: U.
+> 模式：U（仅 URL）、R（仅响应）、B（两者）。默认：U。
 
 **-n**, **--no-subs**
-> Do not include subdomains of the target domain.
+> 不包含目标域名的子域名。
 
 **-oU** _FILE_
-> Output file for discovered URLs.
+> 发现的 URL 的输出文件。
 
 **-oR** _DIR_
-> Output directory for downloaded responses.
+> 下载响应的输出目录。
 
 **-xcc**
-> Exclude Common Crawl results.
+> 排除 Common Crawl 结果。
 
 **-xav**
-> Exclude Alien Vault OTX results.
+> 排除 Alien Vault OTX 结果。
 
 **-lr** _NUM_
-> Limit requests per source (0 = no limit).
+> 限制每个来源的请求数（0 = 不限制）。
 
 **-co**, **--check-only**
-> Check estimated request count and time without running.
+> 仅检查预计请求数和耗时，不实际运行。
 
 **-ow**, **--output-overwrite**
-> Overwrite output file instead of appending.
+> 覆盖输出文件而不是追加。
 
 **-f** _REGEX_
-> Filter URLs with keyword regex.
+> 用关键字正则表达式过滤 URL。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**waymore** is a reconnaissance tool that discovers URLs and archived responses for a domain by querying multiple web archive sources including the Wayback Machine, Common Crawl, Alien Vault OTX, URLScan, VirusTotal, GhostArchive, and Intelligence X. It provides broader coverage than tools that query only a single archive.
+**waymore** 是一款侦察工具，通过查询多个网络存档来源来发现某个域名的 URL 和已归档的响应，这些来源包括 Wayback Machine、Common Crawl、Alien Vault OTX、URLScan、VirusTotal、GhostArchive 和 Intelligence X。相比只查询单一存档的工具，它的覆盖范围更广。
 
-The tool operates in three modes: URL mode (U) extracts known URLs for the target domain from archive indices, response mode (R) retrieves the actual archived page contents, and both mode (B) does both. Results can be filtered to exclude specific sources or match keyword patterns.
+该工具有三种模式：URL 模式（U）从存档索引中提取目标域名的已知 URL；响应模式（R）检索实际归档的页面内容；both 模式（B）则两者兼顾。可以对结果进行过滤，排除特定来源或匹配关键字模式。
 
-Multi-threaded processing speeds up large queries, and output can be saved to files for further analysis. The tool is commonly used in security research and bug bounty programs for discovering forgotten endpoints, old API paths, and removed content.
+多线程处理加速大规模查询，输出可保存到文件以便进一步分析。该工具常用于安全研究和漏洞赏金项目，用于发现被遗忘的端点、旧的 API 路径和已被移除的内容。
 
 # CAVEATS
 
-Rate limited by archive sources. Large domains can take significant time; use -co to estimate first. Requires Python 3. Configuration via config.yml for API keys and defaults.
+受存档来源的速率限制。大型域名可能耗费大量时间；建议先用 -co 进行预估。需要 Python 3。通过 config.yml 配置 API 密钥和默认值。
 
 # HISTORY
 
-**waymore** was created by **xnl-h4ck3r** for web reconnaissance, searching multiple archive sources for URLs.
+**waymore** 由 **xnl-h4ck3r** 创建，用于网络侦察，可在多个存档来源中搜索 URL。
 
 # INSTALL
 

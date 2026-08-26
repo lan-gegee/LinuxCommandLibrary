@@ -1,34 +1,34 @@
 # TAGLINE
 
-Streaming torrent client for the terminal
+终端下的流式下载 BitTorrent 客户端
 
 # TLDR
 
-**Download torrent**
+**下载种子**
 
 ```webtorrent download "[magnet:?xt=...]"```
 
-**Download to directory**
+**下载到目录**
 
 ```webtorrent download [file.torrent] -o [./downloads]```
 
-**Stream to player**
+**串流到播放器**
 
 ```webtorrent download [magnet] --vlc```
 
-**Stream to Chromecast**
+**投屏到 Chromecast**
 
 ```webtorrent download [magnet] --chromecast```
 
-**Seed file**
+**做种文件**
 
 ```webtorrent seed [file.mp4]```
 
-**Show torrent info**
+**显示种子信息**
 
 ```webtorrent info [file.torrent]```
 
-**Create torrent**
+**创建种子**
 
 ```webtorrent create [file.mp4]```
 
@@ -39,50 +39,50 @@ Streaming torrent client for the terminal
 # PARAMETERS
 
 **download** _TORRENT_
-> Download torrent.
+> 下载种子。
 
 **seed** _FILE_
-> Seed file.
+> 为文件做种。
 
 **info** _TORRENT_
-> Show info.
+> 显示信息。
 
 **create** _FILE_
-> Create torrent.
+> 创建种子。
 
 **-o**, **--out** _DIR_
-> Output directory.
+> 输出目录。
 
 **--vlc**
-> Open in VLC.
+> 在 VLC 中打开。
 
 **--mpv**
-> Open in mpv.
+> 在 mpv 中打开。
 
 **--chromecast**
-> Cast to Chromecast.
+> 投屏到 Chromecast。
 
 **--airplay**
-> Cast to AirPlay.
+> 投屏到 AirPlay。
 
 **-s**, **--select** _N_
-> Select file index.
+> 选择文件索引。
 
 # DESCRIPTION
 
-**webtorrent** is a torrent client that can download files to disk or stream them directly to media players like VLC and mpv while the download is still in progress. It supports both traditional BitTorrent peers and WebRTC-based browser peers.
+**webtorrent** 是一款可以在下载仍在进行时将文件直接串流到 VLC、mpv 等媒体播放器，也可以将文件下载到磁盘的种子客户端。它同时支持传统 BitTorrent 节点以及基于 WebRTC 的浏览器节点。
 
-The download command saves torrent contents to a specified directory, while streaming options like --vlc or --mpv open the media in the corresponding player as data arrives. Casting to Chromecast and AirPlay devices is also supported for streaming to TV screens.
+download 命令将种子内容保存到指定目录，而 --vlc 或 --mpv 等串流选项会在数据到达时在对应播放器中打开媒体内容。它还支持投屏到 Chromecast 和 AirPlay 设备，以便在电视屏幕上观看。
 
-The seed command shares local files over the BitTorrent network, and the create command generates new .torrent files. The tool accepts magnet links, torrent files, and info hashes as input.
+seed 命令通过 BitTorrent 网络分享本地文件，create 命令生成新的 .torrent 文件。该工具接受磁力链接、种子文件和 info hash 作为输入。
 
 # CAVEATS
 
-Some trackers not supported. Streaming needs sufficient bandwidth. Browser version is different.
+不支持某些 tracker。串流需要足够的带宽。浏览器版本是不同的产品。
 
 # HISTORY
 
-**WebTorrent** was created by **Feross Aboukhadijeh** to bring torrents to browsers. The CLI extends functionality to Node.js.
+**WebTorrent** 由 **Feross Aboukhadijeh** 创建，旨在把种子下载带入浏览器。CLI 版本将其功能扩展到了 Node.js。
 
 # SEE ALSO
 

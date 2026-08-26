@@ -1,38 +1,38 @@
 # TAGLINE
 
-AI-powered speech recognition and transcription
+AI 驱动的语音识别与转录工具
 
 # TLDR
 
-**Transcribe audio file**
+**转录音频文件**
 
 ```whisper [audio.mp3]```
 
-**Transcribe with specific model**
+**使用指定模型转录**
 
 ```whisper --model [medium] [audio.mp3]```
 
-**Transcribe with language hint**
+**带语言提示转录**
 
 ```whisper --language [en] [audio.mp3]```
 
-**Output specific format**
+**输出指定格式**
 
 ```whisper --output_format [srt] [audio.mp3]```
 
-**Translate to English**
+**翻译成英语**
 
 ```whisper --task translate [audio.mp3]```
 
-**Output to specific directory**
+**输出到指定目录**
 
 ```whisper --output_dir [/path/to/output] [audio.mp3]```
 
-**Transcribe multiple files**
+**转录多个文件**
 
 ```whisper [audio1.mp3] [audio2.wav]```
 
-**Use GPU with float16**
+**在 GPU 上使用 float16**
 
 ```whisper --device cuda --fp16 True [audio.mp3]```
 
@@ -43,77 +43,77 @@ AI-powered speech recognition and transcription
 # PARAMETERS
 
 **--model** _SIZE_
-> Model size: tiny, base, small, medium, large, turbo (default: turbo). English-only variants: tiny.en, base.en, small.en, medium.en.
+> 模型大小：tiny、base、small、medium、large、turbo（默认：turbo）。仅英语变体：tiny.en、base.en、small.en、medium.en。
 
 **--language** _LANG_
-> Language code (en, de, fr, etc.) or auto.
+> 语言代码（en、de、fr 等）或 auto。
 
 **--task** _TASK_
-> Task: transcribe or translate.
+> 任务：transcribe（转录）或 translate（翻译）。
 
 **--output_format** _FORMAT_
-> Output format: txt, vtt, srt, tsv, json, all.
+> 输出格式：txt、vtt、srt、tsv、json、all。
 
 **--output_dir** _DIR_
-> Output directory.
+> 输出目录。
 
 **--device** _DEVICE_
-> Device: cpu, cuda.
+> 设备：cpu、cuda。
 
 **--fp16** / **--no-fp16**
-> Use float16 (GPU) or float32.
+> 使用 float16（GPU）或 float32。
 
 **--temperature** _TEMP_
-> Sampling temperature.
+> 采样温度。
 
 **--best_of** _NUM_
-> Number of candidates.
+> 候选数量。
 
 **--beam_size** _NUM_
-> Beam search size.
+> 束搜索宽度。
 
 **--word_timestamps** _BOOL_
-> Include word-level timestamps.
+> 包含词级时间戳。
 
 **--condition_on_previous_text** _BOOL_
-> Use previous output as context.
+> 将之前的输出作为上下文。
 
 **--verbose** _BOOL_
-> Show progress and transcription.
+> 显示进度和转录内容。
 
 **--threads** _NUM_
-> CPU threads.
+> CPU 线程数。
 
 **--model_dir** _DIR_
-> Directory to save and load models (default: ~/.cache/whisper).
+> 保存和加载模型的目录（默认：~/.cache/whisper）。
 
 **--initial_prompt** _TEXT_
-> Optional text to provide as prompt for the first window.
+> 可选文本，作为第一个窗口的提示词。
 
 **--clip_timestamps** _TIMESTAMPS_
-> Comma-separated start/end timestamps to process specific audio segments.
+> 逗号分隔的起止时间戳，用于处理特定音频片段。
 
 # DESCRIPTION
 
-**Whisper** is OpenAI's automatic speech recognition (ASR) system. It transcribes audio in many languages and can translate to English.
+**Whisper** 是 OpenAI 的自动语音识别（ASR）系统。它可以转录多种语言的音频，并能翻译成英语。
 
-Model sizes trade accuracy for speed: tiny runs fastest, large is most accurate. The turbo model (default) offers a good balance, running ~8x faster than large with minor quality loss. The .en suffix (tiny.en, base.en) denotes English-only models, slightly better for English. The turbo model is not trained for translation tasks.
+模型大小在精度和速度之间权衡：tiny 运行最快，large 精度最高。turbo 模型（默认）提供了良好的平衡，速度比 large 快约 8 倍而质量损失很小。.en 后缀（tiny.en、base.en）表示仅英语模型，对英语的效果略好。turbo 模型没有针对翻译任务进行训练。
 
-Language detection is automatic but can be hinted. For non-English audio, specifying the language improves accuracy. Translation mode transcribes any language to English text.
+语言检测是自动的，但也可以手动指定。对于非英语音频，指定语言可以提高准确率。翻译模式可将任何语言转录为英文文本。
 
-Output formats include plain text, subtitles (SRT, VTT), and JSON with timing data. Word-level timestamps enable karaoke-style highlighting.
+输出格式包括纯文本、字幕（SRT、VTT）以及带时间数据的 JSON。词级时间戳可实现卡拉 OK 式的高亮显示。
 
-Processing uses GPU (CUDA) when available, significantly faster than CPU. The --fp16 flag enables half-precision math on compatible GPUs.
+处理时如果可用则使用 GPU（CUDA），比 CPU 快得多。--fp16 标志可在兼容的 GPU 上启用半精度运算。
 
-Audio preprocessing handles various formats via FFmpeg. Long files are processed in segments with context maintained across segments.
+音频预处理通过 FFmpeg 支持多种格式。长文件分段处理，并在各段之间保持上下文。
 
 # CAVEATS
 
-Large models require significant VRAM (10GB+ for large). CPU inference is slow. Accuracy varies by audio quality and accent. Hallucinations possible on silent or noisy segments. No speaker diarization. Model download required on first use.
+大模型需要大量显存（large 需要 10GB 以上）。CPU 推理速度慢。准确率因音频质量和口音而异。在静音或嘈杂片段上可能出现幻觉。不支持说话人分离。首次使用需下载模型。
 
 # HISTORY
 
-**Whisper** was released by **OpenAI** in **September 2022**. Trained on 680,000 hours of multilingual audio, it achieved near-human transcription accuracy. The open-source release enabled local deployment, spawning community projects and integrations. The large-v3-turbo model was added in September 2024, offering significantly faster inference with minimal quality loss.
+**Whisper** 由 **OpenAI** 于 **2022 年 9 月**发布。它基于 68 万小时的多语言音频训练而成，达到了接近人类的转录准确率。开源发布使本地部署成为可能，催生了众多社区项目和集成方案。2024 年 9 月新增了 large-v3-turbo 模型，推理速度显著提升而质量损失极小。
 
 # SEE ALSO
 

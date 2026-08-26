@@ -1,10 +1,10 @@
 # TAGLINE
 
-Page through xz compressed files
+逐页浏览 xz 压缩文件
 
 # TLDR
 
-**View xz compressed file**
+**查看 xz 压缩文件**
 
 ```xzmore [file.xz]```
 
@@ -14,7 +14,7 @@ Page through xz compressed files
 
 # DESCRIPTION
 
-**xzmore** displays xz compressed files page by page. Uses more as pager. Simpler than xzless but with fewer navigation features. Press space for next page, q to quit.
+**xzmore** 逐页显示 xz 压缩文件。使用 more 作为分页器。比 xzless 简单，但导航功能较少。按空格翻到下一页，按 q 退出。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Page through xz compressed files
 # SEE ALSO
 
 [xz](/man/xz)(1), [more](/man/more)(1), [xzless](/man/xzless)(1)
-

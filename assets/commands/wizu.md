@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fast interactive directory tree viewer
+快速的交互式目录树查看器
 
 # TLDR
 
-**Display current directory tree**
+**显示当前目录树**
 
 ```wisu```
 
-**Interactive mode with file icons**
+带文件图标的**交互模式**
 
 ```wisu -i --icons```
 
-**Sort by size descending with gitignore support**
+按大小降序排序并支持 gitignore
 
 ```wisu -g --sort size --reverse```
 
@@ -23,33 +23,33 @@ Fast interactive directory tree viewer
 # PARAMETERS
 
 _PATH_
-> Root directory to display (defaults to the current directory).
+> 要显示的根目录（默认为当前目录）。
 
 **-i**, **--interactive**
-> Launch the interactive TUI browser.
+> 启动交互式 TUI 浏览器。
 
 **--icons**
-> Render file-type emoji icons next to entries.
+> 在条目旁渲染文件类型的 emoji 图标。
 
 **-g**, **--gitignore**
-> Respect `.gitignore` files when walking.
+> 遍历时遵循 `.gitignore` 文件。
 
 **--sort** _KEY_
-> Sort entries by `name`, `size`, `mtime`, etc.
+> 按 `name`、`size`、`mtime` 等对条目排序。
 
 **--reverse**
-> Reverse the sort order.
+> 反转排序顺序。
 
 **--export** _FORMAT_
-> Export the tree to `csv`, `xml`, or `json`.
+> 将目录树导出为 `csv`、`xml` 或 `json`。
 
 # DESCRIPTION
 
-**wizu** (binary name **wisu**) is a directory tree viewer offering both a classic tree-like display and a fully interactive TUI. Features include dual display modes, search, theme-aware coloring via LS_COLORS, emoji file icons, gitignore support, multiple sort modes, time-based filtering, and export to CSV, XML, and JSON formats.
+**wizu**（二进制名 **wisu**）是一个目录树查看器，既提供经典的树状显示，也提供完全交互式的 TUI。功能包括双显示模式、搜索、基于 LS_COLORS 的主题感知着色、emoji 文件图标、gitignore 支持、多种排序模式、按时间过滤，以及导出为 CSV、XML 和 JSON 格式。
 
 # HISTORY
 
-**wizu** was created by **Andrea Frolli** (sh1zen) and is written in **Rust**.
+**wizu** 由 **Andrea Frolli**（sh1zen）创建，使用 **Rust** 编写。
 
 # SEE ALSO
 

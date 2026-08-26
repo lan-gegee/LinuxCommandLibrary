@@ -1,30 +1,30 @@
 # TAGLINE
 
-Convert between YAML, JSON, TOML, and HCL
+在 YAML、JSON、TOML 和 HCL 之间转换
 
 # TLDR
 
-Convert a **YAML file to JSON**
+将 **YAML 文件转换为 JSON**
 
 ```cat [file.yaml] | yj```
 
-Convert a **YAML file to TOML**
+将 **YAML 文件转换为 TOML**
 
 ```cat [file.yaml] | yj -yt```
 
-Convert a **JSON file to YAML**
+将 **JSON 文件转换为 YAML**
 
 ```cat [file.json] | yj -jy```
 
-Convert a **TOML file to JSON** with **indented output**
+将 **TOML 文件转换为 JSON** 并带**缩进输出**
 
 ```cat [file.toml] | yj -ti```
 
-Convert an **HCL file to JSON**
+将 **HCL 文件转换为 JSON**
 
 ```cat [file.hcl] | yj -c```
 
-Convert a **JSON file to TOML** with **indented output**
+将 **JSON 文件转换为 TOML** 并带**缩进输出**
 
 ```cat [file.json] | yj -jti```
 
@@ -35,86 +35,86 @@ Convert a **JSON file to TOML** with **indented output**
 # PARAMETERS
 
 **-yj**, **-y**
-> Convert YAML to JSON (default)
+> 将 YAML 转换为 JSON（默认）
 
 **-yy**
-> Convert YAML to YAML
+> 将 YAML 转换为 YAML
 
 **-yt**
-> Convert YAML to TOML
+> 将 YAML 转换为 TOML
 
 **-yc**
-> Convert YAML to HCL
+> 将 YAML 转换为 HCL
 
 **-jy**, **-r**
-> Convert JSON to YAML
+> 将 JSON 转换为 YAML
 
 **-jj**
-> Convert JSON to JSON
+> 将 JSON 转换为 JSON
 
 **-jt**
-> Convert JSON to TOML
+> 将 JSON 转换为 TOML
 
 **-jc**
-> Convert JSON to HCL
+> 将 JSON 转换为 HCL
 
 **-tj**, **-t**
-> Convert TOML to JSON
+> 将 TOML 转换为 JSON
 
 **-ty**
-> Convert TOML to YAML
+> 将 TOML 转换为 YAML
 
 **-tt**
-> Convert TOML to TOML
+> 将 TOML 转换为 TOML
 
 **-tc**
-> Convert TOML to HCL
+> 将 TOML 转换为 HCL
 
 **-cj**, **-c**
-> Convert HCL to JSON
+> 将 HCL 转换为 JSON
 
 **-cy**
-> Convert HCL to YAML
+> 将 HCL 转换为 YAML
 
 **-ct**
-> Convert HCL to TOML
+> 将 HCL 转换为 TOML
 
 **-cc**
-> Convert HCL to HCL
+> 将 HCL 转换为 HCL
 
 **-n**
-> Do not convert inf, -inf, and NaN to/from strings (YAML or TOML only)
+> 不在字符串与 inf、-inf 和 NaN 之间转换（仅限 YAML 或 TOML）
 
 **-e**
-> Escape HTML characters in output (JSON only)
+> 对输出中的 HTML 字符进行转义（仅限 JSON）
 
 **-i**
-> Indent output (JSON or TOML only)
+> 缩进输出（仅限 JSON 或 TOML）
 
 **-k**
-> Attempt to parse keys as objects or numeric types (YAML output only)
+> 尝试将键解析为对象或数值类型（仅限 YAML 输出）
 
 **-h**
-> Show help
+> 显示帮助
 
 **-v**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**yj** is a lightweight command-line tool for converting between **YAML**, **JSON**, **TOML**, and **HCL** serialization formats. It reads from **stdin** and writes to **stdout**, making it easy to compose with other Unix tools via piping.
+**yj** 是一款轻量级命令行工具，用于在 **YAML**、**JSON**、**TOML** 和 **HCL** 序列化格式之间转换。它从 **stdin** 读取并向 **stdout** 写入，因此很容易通过管道与其他 Unix 工具组合。
 
-A key feature of yj is that it **preserves map key order** during conversion, which many similar tools do not. The default behavior converts YAML to JSON. Conversion direction is specified by combining format letters: the first letter is the input format and the second is the output format (e.g. **-yt** for YAML to TOML).
+yj 的一个关键特性是转换过程中能**保留映射键的顺序**，这是许多类似工具做不到的。默认行为是将 YAML 转换为 JSON。转换方向由格式字母的组合指定：第一个字母是输入格式，第二个是输出格式（例如 **-yt** 表示从 YAML 到 TOML）。
 
-Supported format versions are YAML v1.2, TOML v1.0.0, JSON RFC 7159, and HCL v1.
+支持的格式版本包括 YAML v1.2、TOML v1.0.0、JSON RFC 7159 和 HCL v1。
 
 # CAVEATS
 
-Only **HCL v1** is supported. Modern Terraform files using HCL2 syntax may not parse correctly. The tool reads exclusively from stdin and writes to stdout; there are no flags for specifying input or output files directly. JSON and TOML output is compact by default and requires **-i** for human-readable indented output.
+仅支持 **HCL v1**。使用 HCL2 语法的现代 Terraform 文件可能无法正确解析。该工具只能从 stdin 读取、向 stdout 写入；没有直接指定输入或输出文件的选项。JSON 和 TOML 输出默认是紧凑格式，需要 **-i** 才能得到便于阅读的缩进输出。
 
 # HISTORY
 
-**yj** was created by **Stephen Levine** and first released in **March 2017**. It is written in **Go** and is available on GitHub at sclevine/yj. The tool is installable via Homebrew and as pre-built binaries for Linux, macOS, and Windows. It is licensed under the Apache License 2.0.
+**yj** 由 **Stephen Levine** 创建，首次发布于 **2017 年 3 月**。它用 **Go** 编写，GitHub 地址为 sclevine/yj。可以通过 Homebrew 安装，也有适用于 Linux、macOS 和 Windows 的预构建二进制文件。采用 Apache License 2.0 许可证。
 
 # INSTALL
 

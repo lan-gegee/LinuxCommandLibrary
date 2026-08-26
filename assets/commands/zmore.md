@@ -1,26 +1,26 @@
 # TAGLINE
 
-View compressed files with more pager
+使用 more 分页器查看压缩文件
 
 # TLDR
 
-**View a compressed file** one screen at a time
+**逐屏查看压缩文件**
 
 ```zmore [file.gz]```
 
-**View with a specific number** of lines per screen
+**以指定的每屏行数查看**
 
 ```zmore -[20] [file.gz]```
 
-**Display helpful prompts** instead of beeping on invalid keys
+**显示有用的提示**而不是对无效按键发出蜂鸣
 
 ```zmore -d [file.gz]```
 
-**Squeeze multiple blank lines** into one
+**将多个空行压缩为一行**
 
 ```zmore -s [file.gz]```
 
-**Start at first occurrence** of a pattern
+**从模式的首次出现处开始**
 
 ```zmore +/[pattern] [file.gz]```
 
@@ -31,41 +31,41 @@ View compressed files with more pager
 # PARAMETERS
 
 **-_number_**
-> Number of lines per screen
+> 每屏显示的行数
 
 **-d**
-> Display helpful messages instead of ringing bell on errors
+> 出错时显示有用的提示信息而不是响铃
 
 **-f**
-> Count logical lines rather than screen lines (long lines not folded)
+> 按逻辑行而不是屏幕行计数（不折叠长行）
 
 **-l**
-> Do not pause after form feed characters
+> 在换页符之后不暂停
 
 **-s**
-> Squeeze consecutive blank lines into one
+> 将连续的空行压缩为一行
 
 **+_linenum_**
-> Start at specified line number
+> 从指定行号开始
 
 **+/_pattern_**
-> Start two lines before first match of pattern
+> 从模式首次匹配行的前两行开始
 
 # DESCRIPTION
 
-**zmore** is a pager for viewing compressed text files one screen at a time. It works with files compressed using gzip, compress, or pack, and also handles uncompressed files.
+**zmore** 是一个分页器，用于逐屏查看压缩的文本文件。它支持用 gzip、compress 或 pack 压缩的文件，也能处理未压缩的文件。
 
-If a file doesn't exist, zmore automatically looks for versions with .gz, .z, or .Z extensions. The command combines decompression with the more pager, displaying --More-- at the bottom of each screenful.
+如果文件不存在，zmore 会自动查找带 .gz、.z 或 .Z 扩展名的版本。该命令将解压功能与 more 分页器结合在一起，在每一屏的底部显示 --More--。
 
-Press space to advance one screen, Enter for one line, or q to quit. When output is not a terminal, zmore behaves like zcat, decompressing to stdout.
+按空格键前进一屏，按 Enter 前进一行，或按 q 退出。当输出不是终端时，zmore 的行为如同 zcat，将内容解压到 stdout。
 
 # CAVEATS
 
-zmore cannot scroll backward through files; use **zless** for bi-directional scrolling. On SSDs, repeatedly viewing compressed files causes minimal wear, but extracting files does. Set the PAGER environment variable to use an alternative pager like less.
+zmore 无法向后翻看文件；需要双向滚动请使用 **zless**。在 SSD 上反复查看压缩文件造成的磨损微乎其微，但解压文件则会带来磨损。可设置 PAGER 环境变量来改用 less 等其他分页器。
 
 # HISTORY
 
-zmore was created as part of the **gzip** package in the early 1990s to provide convenient viewing of compressed files. It wraps the traditional more pager with on-the-fly decompression.
+zmore 于 20 世纪 90 年代初作为 **gzip** 软件包的一部分被创建，用于方便地查看压缩文件。它在传统 more 分页器的基础上增加了即时解压能力。
 
 # INSTALL
 

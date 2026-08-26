@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create bootable Windows USB drives
+创建可启动的 Windows USB 安装盘
 
 # TLDR
 
-Create bootable USB (**format** device)
+创建可启动 USB（**格式化**设备）
 
 ```woeusb -d [path/to/windows.iso] [/dev/sdX]```
 
-Create bootable **partition** (no format)
+创建可启动**分区**（不格式化）
 
 ```woeusb -p [path/to/windows.iso] [/dev/sdXN]```
 
@@ -19,41 +19,41 @@ Create bootable **partition** (no format)
 # PARAMETERS
 
 **-d**, **--device**
-> Format entire device and make bootable (wipes all data)
+> 格式化整个设备并使其可启动（会清除所有数据）
 
 **-p**, **--partition**
-> Use existing partition without erasing other partitions
+> 使用现有分区，不擦除其他分区
 
 **--target-filesystem** _FS_, **--tgt-fs** _FS_
-> Target partition filesystem: FAT or NTFS (device mode only)
+> 目标分区文件系统：FAT 或 NTFS（仅限 device 模式）
 
 **-l** _LABEL_, **--label** _LABEL_
-> Filesystem label for the created partition (device mode only)
+> 所建分区的文件系统标签（仅限 device 模式）
 
 **--workaround-bios-boot-flag**
-> Toggle the partition boot flag for BIOSes that require it
+> 为需要它的 BIOS 切换分区引导标志
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--no-color**
-> Disable colored output
+> 禁用彩色输出
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-V**, **--version**
-> Print version information
+> 打印版本信息
 
 # DESCRIPTION
 
-**woeusb** is a Windows media creation tool for Linux. It creates bootable Windows USB installation drives from ISO images.
+**woeusb** 是 Linux 上的 Windows 介质创建工具。它可以从 ISO 镜像创建可启动的 Windows U 盘安装介质。
 
-The --device mode formats the entire USB drive. The --partition mode preserves existing data on other partitions.
+--device 模式会格式化整个 U 盘。--partition 模式则保留其他分区上的现有数据。
 
 # CAVEATS
 
-Device mode erases all data on the USB drive. Requires sufficient USB drive size. UEFI boot may require FAT32 filesystem. Some Windows ISOs may not work correctly.
+device 模式会擦除 U 盘上的所有数据。需要足够容量的 U 盘。UEFI 启动可能需要 FAT32 文件系统。某些 Windows ISO 可能无法正常工作。
 
 # INSTALL
 

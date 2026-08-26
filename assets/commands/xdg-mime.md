@@ -1,22 +1,22 @@
 # TAGLINE
 
-Query and manage MIME type associations
+查询和管理 MIME 类型关联
 
 # TLDR
 
-**Display** the MIME type of a file
+**显示**文件的 MIME 类型
 
 ```xdg-mime query filetype [path/to/file]```
 
-**Display** the default application for opening PNGs
+**显示**打开 PNG 的默认应用程序
 
 ```xdg-mime query default image/png```
 
-**Display** the default application for a file's MIME type
+**显示**文件对应 MIME 类型的默认应用程序
 
 ```xdg-mime query default $(xdg-mime query filetype [path/to/file])```
 
-**Set** an application as default for specific MIME types
+为特定 MIME 类型**设置**默认应用程序
 
 ```xdg-mime default [imv.desktop] image/png image/jpeg```
 
@@ -27,29 +27,29 @@ Query and manage MIME type associations
 # PARAMETERS
 
 **query filetype _file_**
-> Display the MIME type of a file
+> 显示文件的 MIME 类型
 
 **query default _mimetype_**
-> Display the default application for a MIME type
+> 显示 MIME 类型的默认应用程序
 
 **default _application_ _mimetype_...**
-> Set default application for MIME types
+> 为 MIME 类型设置默认应用程序
 
 **install _mimetypes-file_**
-> Install a MIME type definition
+> 安装一个 MIME 类型定义
 
 **uninstall _mimetypes-file_**
-> Uninstall a MIME type definition
+> 卸载一个 MIME 类型定义
 
 # DESCRIPTION
 
-**xdg-mime** queries and manages MIME types according to the XDG (freedesktop.org) standard. It can detect file types, query default applications, and set application associations.
+**xdg-mime** 依据 XDG（freedesktop.org）标准查询和管理 MIME 类型。它可以检测文件类型、查询默认应用程序以及设置应用关联。
 
-The tool integrates with the desktop environment's MIME type handling, storing user preferences in **~/.config/mimeapps.list**.
+该工具与桌面环境的 MIME 类型处理集成，将用户偏好存储在 **~/.config/mimeapps.list** 中。
 
 # CAVEATS
 
-Application associations use .desktop file names. Changes may require restarting applications to take effect. Works with XDG-compliant desktop environments.
+应用程序关联使用 .desktop 文件名。更改可能需要重启应用程序才能生效。适用于符合 XDG 规范的桌面环境。
 
 # INSTALL
 

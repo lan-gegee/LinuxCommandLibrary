@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scan barcodes from webcam video
+从摄像头视频扫描条形码
 
 # TLDR
 
-**Scan** barcodes
+**扫描**条形码
 
 ```zbarcam```
 
-Scan **without display**
+扫描但**不显示画面**
 
 ```zbarcam --nodisplay```
 
-Print **raw** output
+打印**原始**输出
 
 ```zbarcam --raw```
 
-Specify **device**
+指定**设备**
 
 ```zbarcam [/dev/video_device]```
 
@@ -27,29 +27,29 @@ Specify **device**
 # PARAMETERS
 
 **--nodisplay**
-> Disable video window
+> 禁用视频窗口
 
 **--raw**
-> Print barcode data without type
+> 打印条形码数据而不带类型
 
 **--prescale** _WxH_
-> Prescale video to specified size
+> 将视频预缩放到指定尺寸
 
 **-v, --verbose**
-> Increase verbosity
+> 提高详细程度
 
 **-q, --quiet**
-> Suppress output
+> 抑制输出
 
 # DESCRIPTION
 
-**zbarcam** scans and decodes barcodes and QR codes from a video device (webcam). Decoded data is printed to stdout in real-time.
+**zbarcam** 从视频设备（网络摄像头）扫描并解码条形码和二维码，解码的数据实时打印到标准输出。
 
-Part of the ZBar barcode reader package.
+属于 ZBar 条形码读取软件包的一部分。
 
 # CAVEATS
 
-Requires webcam or video capture device. Barcode must be clearly visible and properly lit. May need v4l2 permissions.
+需要网络摄像头或视频采集设备。条形码必须清晰可见且光照良好。可能需要 v4l2 权限。
 
 # INSTALL
 

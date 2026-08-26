@@ -1,10 +1,10 @@
 # TAGLINE
 
-Repair XFS filesystem
+修复 XFS 文件系统
 
 # TLDR
 
-**Repair** partition
+**修复**分区
 
 ```sudo xfs_repair [path/to/partition]```
 
@@ -15,29 +15,29 @@ Repair XFS filesystem
 # PARAMETERS
 
 **-n**
-> No modify mode (check only)
+> 不修改模式（仅检查）
 
 **-L**
-> Force log zeroing (data loss risk)
+> 强制清零日志（有数据丢失风险）
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-d**
-> Repair dangerously (allow repair on mounted FS)
+> 危险修复（允许修复已挂载的文件系统）
 
 **-m** _MAXMEM_
-> Maximum memory usage
+> 最大内存用量
 
 # DESCRIPTION
 
-**xfs_repair** repairs an XFS filesystem. It checks and fixes filesystem metadata, directory structures, and allocation information.
+**xfs_repair** 用于修复 XFS 文件系统。它会检查并修复文件系统的元数据、目录结构和分配信息。
 
-The filesystem must be unmounted before repair. A log replay may be needed first.
+修复前必须先卸载文件系统。可能需要先执行日志重放。
 
 # CAVEATS
 
-Requires unmounted filesystem. Using -L can cause data loss. Backup important data before repair. May require running multiple times.
+需要卸载文件系统。使用 -L 可能导致数据丢失。修复前请备份重要数据。可能需要运行多次。
 
 # INSTALL
 

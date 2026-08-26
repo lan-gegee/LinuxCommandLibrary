@@ -1,18 +1,18 @@
 # TAGLINE
 
-Instantaneous system information snapshots
+即时的系统信息快照
 
 # TLDR
 
-**Display system information**
+**显示系统信息**
 
 ```zeitfetch```
 
-**Display without ASCII art logo**
+**不显示 ASCII 艺术标志**
 
 ```zeitfetch --no-logo```
 
-**Display in minimal vertical layout**
+**以极简垂直布局显示**
 
 ```zeitfetch --minimal```
 
@@ -22,11 +22,11 @@ Instantaneous system information snapshots
 
 # DESCRIPTION
 
-**zeitfetch** is a neofetch-like system information tool that aims to be near-instantaneous with minimal dependencies. It displays OS, kernel, uptime, shell, and hardware info with ASCII art logos. Fully cross-platform on Windows, macOS, and Linux.
+**zeitfetch** 是一款类似 neofetch 的系统信息工具，力求近乎瞬时完成且依赖极少。它显示操作系统、内核、运行时间、Shell 和硬件信息，并带有 ASCII 艺术标志。完全跨平台，支持 Windows、macOS 和 Linux。
 
 # HISTORY
 
-**zeitfetch** was created by **Henrique** (nidnogg) and is written in **Rust**.
+**zeitfetch** 由 **Henrique**（nidnogg）创建，使用 **Rust** 编写。
 
 # INSTALL
 

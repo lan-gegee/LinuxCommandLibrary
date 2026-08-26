@@ -1,34 +1,34 @@
 # TAGLINE
 
-Zabbix monitoring agent daemon
+Zabbix 监控代理守护进程
 
 # TLDR
 
-**Start agent**
+**启动代理**
 
 ```zabbix_agentd```
 
-**With config file**
+**使用配置文件**
 
 ```zabbix_agentd -c [/etc/zabbix/zabbix_agentd.conf]```
 
-**Foreground mode**
+**前台模式**
 
 ```zabbix_agentd -f```
 
-**Test a single item key**
+**测试单个监控项键**
 
 ```zabbix_agentd -t [system.cpu.load]```
 
-**Print all supported items with current values**
+**打印所有支持的监控项及当前值**
 
 ```zabbix_agentd -p```
 
-**Validate configuration file**
+**校验配置文件**
 
 ```zabbix_agentd -T```
 
-**Increase log level at runtime**
+**运行时提高日志级别**
 
 ```zabbix_agentd -R log_level_increase```
 
@@ -39,44 +39,44 @@ Zabbix monitoring agent daemon
 # PARAMETERS
 
 **-c**, **--config** _config-file_
-> Use an alternate config file instead of the default (/usr/local/etc/zabbix_agentd.conf).
+> 使用替代的配置文件而非默认文件（/usr/local/etc/zabbix_agentd.conf）。
 
 **-f**, **--foreground**
-> Run agent in foreground instead of as a daemon.
+> 在前台运行代理，而不是作为守护进程。
 
 **-p**, **--print**
-> Print all known items and their current values, then exit.
+> 打印所有已知监控项及其当前值，然后退出。
 
 **-t**, **--test** _item-key_
-> Test a single item key and print the result, then exit.
+> 测试单个监控项键并打印结果，然后退出。
 
 **-R**, **--runtime-control** _runtime-option_
-> Perform administrative functions. Options: userparameter_reload, log_level_increase[=target], log_level_decrease[=target].
+> 执行管理功能。选项：userparameter_reload、log_level_increase[=target]、log_level_decrease[=target]。
 
 **-T**, **--test-config**
-> Validate configuration file and exit.
+> 校验配置文件并退出。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**zabbix_agentd** is the Zabbix monitoring agent daemon that collects system metrics and sends them to a Zabbix server or proxy. It gathers data on CPU, memory, disk, network, and other system resources using built-in item keys.
+**zabbix_agentd** 是 Zabbix 监控代理守护进程，负责收集系统指标并发送到 Zabbix 服务器或代理。它使用内置的监控项键收集 CPU、内存、磁盘、网络等系统资源数据。
 
-The agent supports two operating modes: passive mode where the server queries the agent on demand, and active mode where the agent initiates connections and sends data at configured intervals. Custom monitoring can be added through user parameters, which define commands that the agent executes to collect application-specific metrics.
+该代理支持两种工作模式：被动模式下服务器按需查询代理；主动模式下代理主动发起连接并按配置的间隔发送数据。可通过用户参数添加自定义监控，用户参数定义了代理执行以采集应用特定指标的命令。
 
-The **-t** flag tests individual item keys for troubleshooting, and **-p** prints all supported items with their current values. Runtime control commands via **-R** allow changing log levels and reloading configuration without restarting the daemon.
+**-t** 选项可测试单个监控项键以排障，**-p** 打印所有支持的监控项及其当前值。通过 **-R** 进行运行时控制，可在不重启守护进程的情况下更改日志级别和重新加载配置。
 
 # CAVEATS
 
-Requires a Zabbix server or proxy to receive collected data. A configuration file is needed; the default path is /usr/local/etc/zabbix_agentd.conf. Some item keys require root privileges. Runtime control (-R) is not supported on OpenBSD, NetBSD, and Windows.
+需要 Zabbix 服务器或代理来接收收集的数据。必须有配置文件，默认路径为 /usr/local/etc/zabbix_agentd.conf。部分监控项键需要 root 权限。OpenBSD、NetBSD 和 Windows 不支持运行时控制（-R）。
 
 # HISTORY
 
-**zabbix_agentd** is the agent daemon for **Zabbix**, an enterprise monitoring solution.
+**zabbix_agentd** 是企业级监控解决方案 **Zabbix** 的代理守护进程。
 
 # INSTALL
 

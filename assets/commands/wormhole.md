@@ -1,34 +1,34 @@
 # TAGLINE
 
-Secure file transfer with human-readable codes
+使用人类可读口令的安全文件传输工具
 
 # TLDR
 
-**Send a file**
+**发送文件**
 
 ```wormhole send [file]```
 
-**Send a directory** (will be zipped automatically)
+**发送目录**（会自动压缩为 zip）
 
 ```wormhole send [directory/]```
 
-**Send text** instead of a file
+**发送文本**而不是文件
 
 ```wormhole send --text "[message]"```
 
-**Send with a custom code**
+**用自定义口令发送**
 
 ```wormhole send --code [custom-code] [file]```
 
-**Receive a file**
+**接收文件**
 
 ```wormhole receive [code]```
 
-**Receive and automatically accept**
+**接收并自动确认**
 
 ```wormhole receive --accept-file [code]```
 
-**Receive to specific output file**
+**接收并保存到指定输出文件**
 
 ```wormhole receive --output-file [filename] [code]```
 
@@ -39,56 +39,56 @@ Secure file transfer with human-readable codes
 # PARAMETERS
 
 **send**
-> Send a file, directory, or text message.
+> 发送文件、目录或文本消息。
 
 **receive**
-> Receive a file or text message.
+> 接收文件或文本消息。
 
 **--text**, **-t**
-> Send a text message instead of file.
+> 发送文本消息而非文件。
 
 **--code** _code_
-> Use a specific wormhole code instead of generating one.
+> 使用指定的 wormhole 口令而不是自动生成。
 
 **-c**, **--code-length** _n_
-> Number of words in generated code.
+> 生成的口令包含的单词数量。
 
 **--verify**
-> Request receiver to verify data checksum.
+> 要求接收方校验数据校验和。
 
 **--accept-file**
-> Automatically accept incoming file (use with caution).
+> 自动接受传入的文件（需谨慎使用）。
 
 **--output-file** _file_
-> Save received data to specified filename.
+> 将接收到的数据保存为指定文件名。
 
 **--relay-url** _url_
-> Use a custom rendezvous server.
+> 使用自定义的汇合服务器。
 
 **--hide-progress**
-> Don't show progress bar during transfer.
+> 传输过程中不显示进度条。
 
 **--help**
-> Display help message.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Magic-Wormhole** provides secure, simple file transfer between two computers. The sender generates a short, human-readable code that the receiver types to establish an encrypted connection.
+**Magic-Wormhole** 在两台计算机之间提供安全、简单的文件传输。发送方生成一个简短的、人类可读的口令，接收方输入该口令即可建立加密连接。
 
-Security is based on SPAKE2+ password-authenticated key exchange, ensuring strong encryption from a simple code. Data transfers directly peer-to-peer when possible; otherwise, an encrypted relay tunnels the data. Neither servers see unencrypted content.
+其安全性基于 SPAKE2+ 口令认证密钥交换，用一个简单的口令即可实现强加密。数据尽可能直接点对点传输；否则通过加密的中继服务器隧道传输。服务器都无法看到未加密的内容。
 
-Directories are automatically zipped for transfer and unzipped on receipt. Text messages can be sent for quick sharing of passwords or small data.
+目录会自动压缩成 zip 进行传输，接收后自动解压。也可以发送文本消息，方便快速分享密码或小段数据。
 
 # CAVEATS
 
-Both sender and receiver must have wormhole installed. The wormhole code must be communicated securely (ideally spoken or via trusted channel). Using **--accept-file** with untrusted senders is risky as files are saved without confirmation.
+发送方和接收方都必须安装 wormhole。wormhole 口令必须通过安全途径告知对方（最好是口头或可信渠道）。对不可信的发送方使用 **--accept-file** 有风险，因为文件会在未经确认的情况下直接保存。
 
 # HISTORY
 
-Magic-Wormhole was created by **Brian Warner** and first released in **2015**. It was designed to solve the problem of securely transferring files between computers without complex setup. The PAKE-based security model allows strong encryption from easy-to-type codes. Alternative implementations exist in Go (wormhole-william) and Rust.
+Magic-Wormhole 由 **Brian Warner** 创建，于 **2015 年**首次发布。它旨在解决无需复杂配置即可在计算机之间安全传输文件的问题。基于 PAKE 的安全模型让易输入的口令也能实现强加密。此外还有 Go（wormhole-william）和 Rust 的替代实现。
 
 # INSTALL
 

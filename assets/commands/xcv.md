@@ -1,26 +1,26 @@
 # TAGLINE
 
-File cut, copy, and paste for terminal
+终端中的文件剪切、复制和粘贴工具
 
 # TLDR
 
-**Cut files**
+**剪切文件**
 
 ```xcv x [file1] [file2]```
 
-**Copy files**
+**复制文件**
 
 ```xcv c [file1] [file2]```
 
-**Paste files**
+**粘贴文件**
 
 ```xcv v```
 
-**List clipboard**
+**列出剪贴板**
 
 ```xcv l```
 
-**Paste to directory**
+**粘贴到目录**
 
 ```xcv v [directory/]```
 
@@ -31,30 +31,30 @@ File cut, copy, and paste for terminal
 # PARAMETERS
 
 **x**
-> Cut files (uses mv).
+> 剪切文件（使用 mv）。
 
 **c**
-> Copy files (uses cp).
+> 复制文件（使用 cp）。
 
 **v**
-> Paste files to current directory.
+> 将文件粘贴到当前目录。
 
 **l**
-> List files in clipboard.
+> 列出剪贴板中的文件。
 
 # DESCRIPTION
 
-**xcv** provides clipboard-style cut, copy, and paste operations for files in the terminal. Files are staged in the ~/.xcv directory, acting as a persistent clipboard between operations. The x command cuts (moves) files to the staging area, c copies them, v pastes them to the current or specified directory, and l lists the current clipboard contents.
+**xcv** 在终端中为文件提供类似剪贴板的剪切、复制和粘贴操作。文件被暂存在 ~/.xcv 目录中，作为操作之间的持久化剪贴板。x 命令将文件剪切（移动）到暂存区，c 复制文件，v 将其粘贴到当前或指定目录，l 列出当前剪贴板的内容。
 
-The tool wraps the standard cp and mv commands, providing a simple and intuitive workflow for moving files around without needing to type full source and destination paths.
+该工具包装了标准的 cp 和 mv 命令，为移动文件提供简单直观的工作流，无需输入完整的源路径和目标路径。
 
 # CAVEATS
 
-Files stored in ~/.xcv. Bash required. Install via npm.
+文件存储在 ~/.xcv 中。需要 Bash。通过 npm 安装。
 
 # HISTORY
 
-**xcv** was created as a simple bash tool to provide cut, copy, and paste functionality for files in the terminal.
+**xcv** 的创建初衷是作为一个简单的 bash 工具，在终端中提供文件的剪切、复制和粘贴功能。
 
 # INSTALL
 

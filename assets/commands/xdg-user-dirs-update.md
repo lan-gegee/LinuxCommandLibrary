@@ -1,22 +1,22 @@
 # TAGLINE
 
-Update XDG user directory configuration
+更新 XDG 用户目录配置
 
 # TLDR
 
-**Change** XDG's DESKTOP directory to a specified directory
+将 XDG 的 DESKTOP 目录**更改为**指定目录
 
 ```xdg-user-dirs-update --set DESKTOP "/[path/to/directory]"```
 
-**Set** the DOWNLOAD directory to a custom path
+**将** DOWNLOAD 目录设置为自定义路径
 
 ```xdg-user-dirs-update --set DOWNLOAD "/[path/to/downloads]"```
 
-**Write** the result to a dry-run file instead of user-dirs.dirs
+**将**结果写入 dry-run 文件而不是 user-dirs.dirs
 
 ```xdg-user-dirs-update --dummy-output "[path/to/dry_run_file]" --set [xdg_user_directory] "/[path/to/directory]"```
 
-**Force** a complete reset of the user directory configuration
+**强制**完全重置用户目录配置
 
 ```xdg-user-dirs-update --force```
 
@@ -27,28 +27,28 @@ Update XDG user directory configuration
 # PARAMETERS
 
 **--set** _NAME_ _PATH_
-> Set a specific user directory. NAME must be one of DESKTOP, DOWNLOAD, TEMPLATES, PUBLICSHARE, DOCUMENTS, MUSIC, PICTURES, or VIDEOS. PATH must be absolute.
+> 设置指定的用户目录。NAME 必须是 DESKTOP、DOWNLOAD、TEMPLATES、PUBLICSHARE、DOCUMENTS、MUSIC、PICTURES 或 VIDEOS 之一。PATH 必须是绝对路径。
 
 **--dummy-output** _PATH_
-> Write the configuration to PATH instead of the default configuration file. No directories are created when using this option.
+> 将配置写入 PATH 而不是默认配置文件。使用此选项时不会创建目录。
 
 **--force**
-> Force a complete reset of existing configuration. Recreates directories instead of resetting to HOME and always recreates the locale file.
+> 强制完全重置现有配置。会重新创建目录而不是重置为 HOME，并且总是重新创建 locale 文件。
 
 **--help**
-> Print help output and exit.
+> 打印帮助信息并退出。
 
 # DESCRIPTION
 
-**xdg-user-dirs-update** updates the current state of the user's user-dirs.dirs file. If none existed before, one is created based on system default values. XDG user directories are special folders like Desktop, Documents, Downloads, Music, Pictures, and Videos.
+**xdg-user-dirs-update** 更新用户的 user-dirs.dirs 文件的当前状态。如果之前不存在该文件，则基于系统默认值创建一个。XDG 用户目录是 Desktop、Documents、Downloads、Music、Pictures 和 Videos 等特殊文件夹。
 
-The configuration is stored in **~/.config/user-dirs.dirs** and defines where applications should look for user content directories. A **user-dirs.locale** file is also created on first run to track which locale was used for directory name translations.
+配置存储在 **~/.config/user-dirs.dirs** 中，定义应用程序应在哪里查找用户内容目录。首次运行时还会创建 **user-dirs.locale** 文件，用于记录目录名称翻译所使用的区域设置。
 
-This command is normally run automatically at the start of a user session. Directories pointing to non-existent locations are reset to the user's home directory.
+此命令通常在用户会话开始时自动运行。指向不存在位置的目录会被重置为用户的主目录。
 
 # CAVEATS
 
-Changing directories doesn't move existing content. Applications may need to be restarted to recognize changes. The specified paths must be absolute. Part of the xdg-user-dirs package.
+更改目录不会移动现有内容。应用程序可能需要重启才能识别更改。指定的路径必须是绝对路径。属于 xdg-user-dirs 软件包的一部分。
 
 # INSTALL
 

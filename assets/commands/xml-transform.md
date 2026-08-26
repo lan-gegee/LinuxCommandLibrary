@@ -1,18 +1,18 @@
 # TAGLINE
 
-Apply XSLT stylesheets to XML
+对 XML 应用 XSLT 样式表
 
 # TLDR
 
-**Apply XSLT transformation**
+**应用 XSLT 转换**
 
 ```xml transform [stylesheet.xsl] [input.xml]```
 
-**Transform with parameters**
+**带参数转换**
 
 ```xml transform --xinclude -p "[param=value]" [stylesheet.xsl] [input.xml]```
 
-**Output to file**
+**输出到文件**
 
 ```xml transform [stylesheet.xsl] [input.xml] > [output.xml]```
 
@@ -23,23 +23,23 @@ Apply XSLT stylesheets to XML
 # PARAMETERS
 
 **-p**, **--param** _name=value_
-> Pass parameter to stylesheet.
+> 向样式表传递参数。
 
 **-s**, **--stringparam** _name=value_
-> Pass string parameter.
+> 传递字符串参数。
 
 **--xinclude**
-> Process XInclude.
+> 处理 XInclude。
 
 **--html**
-> Input is HTML.
+> 输入为 HTML。
 
 **--omit-decl**
-> Omit XML declaration.
+> 省略 XML 声明。
 
 # DESCRIPTION
 
-**xml transform** applies XSLT stylesheets to XML documents. Part of xmlstarlet toolkit. Transforms XML using XSLT 1.0 processor for document conversion and processing.
+**xml transform** 将 XSLT 样式表应用于 XML 文档。属于 xmlstarlet 工具集。使用 XSLT 1.0 处理器转换 XML，用于文档转换和处理。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ Apply XSLT stylesheets to XML
 # SEE ALSO
 
 [xml-select](/man/xml-select)(1), [xsltproc](/man/xsltproc)(1)
-

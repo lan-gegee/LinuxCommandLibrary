@@ -1,14 +1,14 @@
 # TAGLINE
 
-Combine YUV component files into a PPM image
+将 YUV 分量文件合并为 PPM 图像
 
 # TLDR
 
-**Combine YUV component files into a PPM image**
+**将 YUV 分量文件合并为 PPM 图像**
 
 ```yuvsplittoppm [base] [width] [height] > [output.ppm]```
 
-**Combine using CCIR 601 (MPEG) colour scaling**
+**使用 CCIR 601（MPEG）色彩缩放合并**
 
 ```yuvsplittoppm -ccir601 [base] [width] [height] > [output.ppm]```
 
@@ -19,22 +19,22 @@ Combine YUV component files into a PPM image
 # PARAMETERS
 
 _basename_
-> Base name of the component files. Reads _basename_.Y, _basename_.U, and _basename_.V.
+> 分量文件的基本名称。将读取 _basename_.Y、_basename_.U 和 _basename_.V。
 
 _width_
-> Image width in pixels.
+> 图像宽度（像素）。
 
 _height_
-> Image height in pixels.
+> 图像高度（像素）。
 
 **-ccir601**
-> Interpret YUV values using the CCIR 601 (MPEG) range rather than the default JFIF (JPEG) range.
+> 使用 CCIR 601（MPEG）范围而非默认的 JFIF（JPEG）范围解释 YUV 值。
 
 # DESCRIPTION
 
-**yuvsplittoppm** reads three raw files containing the Y, U, and V colour components and produces a PPM image on standard output. The filenames are derived from _basename_ by appending `.Y`, `.U`, and `.V`. Because the files are raw with no header, the image dimensions must be given on the command line.
+**yuvsplittoppm** 读取分别包含 Y、U、V 颜色分量的三个原始文件，并在标准输出上生成 PPM 图像。文件名由 _basename_ 加上 `.Y`、`.U` 和 `.V` 后缀构成。由于这些文件是不带头的原始数据，必须在命令行上给出图像尺寸。
 
-It is the inverse of [ppmtoyuvsplit](/man/ppmtoyuvsplit)(1) and is part of the Netpbm toolkit.
+它是 [ppmtoyuvsplit](/man/ppmtoyuvsplit)(1) 的逆操作，属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ It is the inverse of [ppmtoyuvsplit](/man/ppmtoyuvsplit)(1) and is part of the N
 # SEE ALSO
 
 [ppmtoyuvsplit](/man/ppmtoyuvsplit)(1), [yuvtoppm](/man/yuvtoppm)(1), [rgb3toppm](/man/rgb3toppm)(1)
-

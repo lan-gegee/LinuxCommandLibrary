@@ -1,42 +1,42 @@
 # TAGLINE
 
-Fast Rust-based static site generator
+基于 Rust 的快速静态网站生成器
 
 # TLDR
 
-**Create a new site**
+**创建新站点**
 
 ```zola init [site_name]```
 
-**Build the site**
+**构建站点**
 
 ```zola build```
 
-**Start development server**
+**启动开发服务器**
 
 ```zola serve```
 
-**Serve on specific port**
+**在指定端口上提供服务**
 
 ```zola serve -p [8080]```
 
-**Build with custom output directory**
+**使用自定义输出目录构建**
 
 ```zola build -o [public]```
 
-**Check for errors without building**
+**只检查错误而不构建**
 
 ```zola check```
 
-**Check site structure, skipping external link validation**
+**检查站点结构，跳过外部链接校验**
 
 ```zola check --skip-external-links```
 
-**Serve with auto-open in browser**
+**启动服务并自动打开浏览器**
 
 ```zola serve --open```
 
-**Initialize site in non-empty directory**
+**在非空目录中初始化站点**
 
 ```zola init --force [site_name]```
 
@@ -47,78 +47,78 @@ Fast Rust-based static site generator
 # SUBCOMMANDS
 
 **init** _name_
-> Create new site scaffolding
+> 创建新站点骨架
 
 **build**
-> Build the static site
+> 构建静态网站
 
 **serve**
-> Start local development server with live reload
+> 启动支持实时重载的本地开发服务器
 
 **check**
-> Validate site without building
+> 校验站点而不构建
 
 **completion** _shell_
-> Generate shell completions
+> 生成 Shell 补全
 
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Path to config file (default: config.toml)
+> 配置文件路径（默认：config.toml）
 
 **-r**, **--root** _dir_
-> Site root directory
+> 站点根目录
 
 **-o**, **--output-dir** _dir_
-> Output directory for build
+> 构建的输出目录
 
 **-p**, **--port** _port_
-> Port for serve command (default: 1111)
+> serve 命令使用的端口（默认：1111）
 
 **-i**, **--interface** _addr_
-> Interface to bind server (default: 127.0.0.1)
+> 服务器绑定的网络接口（默认：127.0.0.1）
 
 **-u**, **--base-url** _url_
-> Override base URL from config
+> 覆盖配置中的 base URL
 
 **--open**
-> Automatically open site in browser (serve only)
+> 自动在浏览器中打开网站（仅限 serve）
 
 **--force**
-> Overwrite existing output directory without prompting
+> 直接覆盖已存在的输出目录，不做提示
 
 **--drafts**
-> Include draft content
+> 包含草稿内容
 
 **--skip-external-links**
-> Skip external link validation (check only)
+> 跳过外部链接校验（仅限 check）
 
 # DESCRIPTION
 
-**Zola** is a fast static site generator written in Rust. It combines content (Markdown files), templates (Tera templating), and configuration into a static website.
+**Zola** 是一个用 Rust 编写的快速静态网站生成器。它把内容（Markdown 文件）、模板（Tera 模板）和配置组合成静态网站。
 
-The site structure includes:
-- **content/** - Markdown files organized as sections
-- **templates/** - Tera HTML templates
-- **static/** - Static assets copied directly
-- **themes/** - Optional downloadable themes
-- **config.toml** - Site configuration
+站点结构包括：
+- **content/** - 按分节组织的 Markdown 文件
+- **templates/** - Tera HTML 模板
+- **static/** - 直接复制的静态资源
+- **themes/** - 可选的可下载主题
+- **config.toml** - 站点配置
 
-Zola features include syntax highlighting, automatic table of contents, taxonomies (tags, categories), shortcodes, and built-in Sass compilation.
+Zola 的特性包括语法高亮、自动目录、分类法（标签、分类）、短代码以及内置的 Sass 编译。
 
-The development server provides live reload, rebuilding automatically when files change.
+开发服务器提供实时重载，文件变化时会自动重新构建。
 
 # CAVEATS
 
-Zola uses Tera templating, which differs from Hugo, Jekyll, or other static site generators. Template migration requires rewriting.
+Zola 使用 Tera 模板引擎，与 Hugo、Jekyll 或其他静态网站生成器不同。模板迁移需要重写。
 
-No plugin system. Extensibility is limited to shortcodes and templates.
+没有插件系统。可扩展性仅限于短代码和模板。
 
-Large sites with many pages may have noticeable build times, though Zola is generally faster than alternatives.
+页面众多的大型站点构建耗时可能较为明显，不过 Zola 总体上比同类工具更快。
 
 # HISTORY
 
-**Zola** was created by **Vincent Prouillet** and originally named **Gutenberg**. It was renamed to Zola in **2018** (after Emile Zola). Written in Rust, it was designed as a single-binary alternative to static site generators like Hugo and Jekyll, emphasizing simplicity and build speed.
+**Zola** 由 **Vincent Prouillet** 创建，最初名为 **Gutenberg**。**2018 年**更名为 Zola（得名于 Emile Zola）。它用 Rust 编写，定位为 Hugo 和 Jekyll 等静态网站生成器的单二进制替代方案，强调简洁与构建速度。
 
 # INSTALL
 

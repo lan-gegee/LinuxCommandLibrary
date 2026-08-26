@@ -1,18 +1,18 @@
 # TAGLINE
 
-Transparent X display screen locker
+透明的 X 显示锁屏工具
 
 # TLDR
 
-**Lock** display
+**锁定**显示器
 
 ```xtrlock```
 
-Lock with **blank** screen
+锁定时同时使屏幕**变黑**
 
 ```xtrlock -b```
 
-Lock and **fork** to background
+锁定并 **fork** 到后台
 
 ```xtrlock -f```
 
@@ -23,20 +23,20 @@ Lock and **fork** to background
 # PARAMETERS
 
 **-b**
-> Blank the screen in addition to locking
+> 锁定的同时使屏幕变黑
 
 **-f**
-> Fork to background and return immediately
+> fork 到后台并立即返回
 
 # DESCRIPTION
 
-**xtrlock** locks the X display until the user supplies their password. While locked, the cursor changes to a padlock icon and keyboard input is captured for authentication.
+**xtrlock** 锁定 X 显示，直到用户输入密码为止。锁定期间，光标变为挂锁图标，键盘输入会被捕获用于身份验证。
 
-The lock is transparent, showing the desktop but preventing interaction.
+这种锁是透明的：桌面仍然可见，但无法交互。
 
 # CAVEATS
 
-X11 only. Does not blank screen by default. Requires proper PAM configuration for authentication.
+仅支持 X11。默认不会使屏幕变黑。身份验证需要正确的 PAM 配置。
 
 # INSTALL
 

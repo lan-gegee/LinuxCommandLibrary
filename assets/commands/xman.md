@@ -1,18 +1,18 @@
 # TAGLINE
 
-Graphical manual page viewer
+图形化手册页查看器
 
 # TLDR
 
-**Start** xman
+**启动** xman
 
 ```xman```
 
-Open **file**
+打开**文件**
 
 ```xman -helpfile [filename]```
 
-Show **both** panes
+显示**两个**窗格
 
 ```xman -bothshown```
 
@@ -23,33 +23,33 @@ Show **both** panes
 # PARAMETERS
 
 **-helpfile** _FILE_
-> Use specified helpfile instead of the default
+> 使用指定的帮助文件代替默认值
 
 **-bothshown**
-> Show both directory and manual page panes simultaneously
+> 同时显示目录窗格和手册页窗格
 
 **-notopbox**
-> Start without the top menu box with the three buttons
+> 启动时不显示带有三个按钮的顶部菜单框
 
 **-geometry** _WxH+X+Y_
-> Set size and location of the top menu window
+> 设置顶部菜单窗口的大小和位置
 
 **-pagesize** _WxH+X+Y_
-> Set size and location of manual page windows
+> 设置手册页窗口的大小和位置
 
 # DESCRIPTION
 
-**xman** is a manual page browser for the X Window System. It provides a graphical interface to man pages with a directory listing of available pages organized by section. The initial window is intentionally small so it can be left running throughout a login session. Pressing Control-S opens a prompt for a specific manual page to display.
+**xman** 是 X Window System 的手册页浏览器。它为 man 页面提供图形界面，并以目录形式按章节列出可用的页面。初始窗口刻意做得很小，因此可以在整个登录会话期间保持运行。按下 Control-S 会打开一个提示框，用于指定要显示的手册页。
 
-The **MANPATH** environment variable controls the search path for manual pages.
+**MANPATH** 环境变量控制手册页的搜索路径。
 
 # HISTORY
 
-**xman** is one of the original X11 utilities, providing a GUI alternative to the terminal-based man command.
+**xman** 是最早的 X11 工具之一，为基于终端的 man 命令提供了 GUI 替代方案。
 
 # CAVEATS
 
-X11 only. Interface is dated compared to modern alternatives. Limited search capabilities.
+仅支持 X11。与现代替代品相比界面陈旧。搜索能力有限。
 
 # INSTALL
 

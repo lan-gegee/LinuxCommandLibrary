@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display internal yadm information
+显示 yadm 内部信息
 
 # TLDR
 
-**List available yadm commands**
+**列出可用的 yadm 命令**
 
 ```yadm introspect commands```
 
-**List supported configuration options**
+**列出支持的配置选项**
 
 ```yadm introspect configs```
 
-**Show repo location**
+**显示仓库位置**
 
 ```yadm introspect repo```
 
-**List available command-line switches**
+**列出可用的命令行开关**
 
 ```yadm introspect switches```
 
@@ -27,22 +27,21 @@ Display internal yadm information
 # PARAMETERS
 
 **commands**
-> List available yadm commands.
+> 列出可用的 yadm 命令。
 
 **configs**
-> List supported configuration options.
+> 列出支持的配置选项。
 
 **repo**
-> Show repo path.
+> 显示仓库路径。
 
 **switches**
-> List available command-line switches.
+> 列出可用的命令行开关。
 
 # DESCRIPTION
 
-**yadm introspect** reports internal yadm data. Its primary purpose is to support command-line completion, but it can also be used for debugging and scripting.
+**yadm introspect** 报告 yadm 的内部数据。它的主要用途是支持命令行补全，但也可用于调试和脚本编写。
 
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [yadm-config](/man/yadm-config)(1)
-

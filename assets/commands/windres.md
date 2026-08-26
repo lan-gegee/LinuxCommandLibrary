@@ -1,34 +1,34 @@
 # TAGLINE
 
-GNU Windows resource compiler
+GNU Windows 资源编译器
 
 # TLDR
 
-**Compile resource script** to COFF object file
+**将资源脚本编译**为 COFF 目标文件
 
 ```windres [input.rc] -o [output.o]```
 
-**Compile to binary resource format**
+**编译为二进制资源格式**
 
 ```windres -O res [input.rc] -o [output.res]```
 
-**Convert res file** to COFF object
+**将 res 文件转换**为 COFF 目标文件
 
 ```windres -i [input.res] -o [output.o]```
 
-**Specify input format** explicitly
+显式**指定输入格式**
 
 ```windres -I rc -i [input.rc] -O coff -o [output.o]```
 
-**Include directory** for headers
+头文件的**包含目录**
 
 ```windres --include-dir=[path/to/includes] [input.rc] -o [output.o]```
 
-**Define preprocessor symbol**
+**定义预处理器符号**
 
 ```windres -D [SYMBOL=value] [input.rc] -o [output.o]```
 
-**Cross-compile for 64-bit Windows**
+为 64 位 Windows **交叉编译**
 
 ```x86_64-w64-mingw32-windres [input.rc] -o [output.o]```
 
@@ -39,70 +39,70 @@ GNU Windows resource compiler
 # PARAMETERS
 
 **-i** _file_, **--input** _file_
-> Input file name. Without this, uses first non-option argument.
+> 输入文件名。若未指定，则使用第一个非选项参数。
 
 **-o** _file_, **--output** _file_
-> Output file name.
+> 输出文件名。
 
 **-I** _format_, **--input-format** _format_
-> Input format: rc (resource script), res (binary), coff (object).
+> 输入格式：rc（资源脚本）、res（二进制）、coff（目标文件）。
 
 **-O** _format_, **--output-format** _format_
-> Output format: rc, res, or coff.
+> 输出格式：rc、res 或 coff。
 
 **-F** _target_, **--target** _target_
-> Specify BFD target format for COFF output.
+> 为 COFF 输出指定 BFD 目标格式。
 
 **--include-dir** _dir_
-> Add directory to search path for included files.
+> 将目录添加到被包含文件的搜索路径。
 
 **-D** _sym_[=_val_], **--define** _sym_[=_val_]
-> Define preprocessor symbol.
+> 定义预处理器符号。
 
 **-U** _sym_, **--undefine** _sym_
-> Undefine preprocessor symbol.
+> 取消预处理器符号的定义。
 
 **--preprocessor** _prog_
-> Preprocessor program to use. Default is `gcc -E -xc-header -DRC_INVOKED`.
+> 要使用的预处理器程序。默认为 `gcc -E -xc-header -DRC_INVOKED`。
 
 **--preprocessor-arg** _arg_
-> Additional argument for preprocessor.
+> 传给预处理器的额外参数。
 
 **--no-use-temp-file**
-> Use pipes for communication with the preprocessor (default).
+> 使用管道与预处理器通信（默认）。
 
 **--use-temp-file**
-> Use a temporary file for preprocessor communication instead of pipes.
+> 使用临时文件而非管道与预处理器通信。
 
 **@** _file_
-> Read command-line options from file.
+> 从文件读取命令行选项。
 
 **-v**, **--verbose**
-> Enable verbose mode.
+> 启用详细输出模式。
 
 **--help**
-> Display help message.
+> 显示帮助消息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**windres** is the GNU resource compiler for Windows applications, part of GNU Binutils. It compiles resource script (.rc) files containing UI elements like icons, cursors, menus, dialogs, and version information into binary formats usable by Windows executables.
+**windres** 是面向 Windows 应用程序的 GNU 资源编译器，属于 GNU Binutils。它将包含图标、光标、菜单、对话框和版本信息等 UI 元素的资源脚本（.rc）文件编译成 Windows 可执行文件可用的二进制格式。
 
-The tool supports three formats: "rc" (text resource scripts), "res" (binary resource files), and "coff" (object files for linking). Typical workflow involves compiling .rc files to COFF objects, then linking them with the application.
+该工具支持三种格式："rc"（文本资源脚本）、"res"（二进制资源文件）和 "coff"（用于链接的目标文件）。典型工作流程是将 .rc 文件编译为 COFF 目标文件，然后与应用程序链接。
 
-For cross-compilation from Linux to Windows, windres is typically used as part of the MinGW-w64 toolchain with architecture-specific prefixes (e.g., x86_64-w64-mingw32-windres for 64-bit Windows targets).
+对于从 Linux 到 Windows 的交叉编译，windres 通常作为 MinGW-w64 工具链的一部分使用，并带有特定于架构的前缀（例如针对 64 位 Windows 目标的 x86_64-w64-mingw32-windres）。
 
-Resource scripts are preprocessed by gcc before compilation, allowing use of #include and #define directives.
+资源脚本在编译前会先经过 gcc 预处理，因此可以使用 #include 和 #define 指令。
 
 # CAVEATS
 
-Resource script syntax follows Microsoft conventions but may have minor compatibility differences. Some complex resources may require adjustments when moving from Microsoft's rc.exe. The tool is primarily useful for Windows cross-compilation; native Windows development typically uses Microsoft tools.
+资源脚本语法遵循 Microsoft 约定，但可能存在细微的兼容性差异。从 Microsoft 的 rc.exe 迁移时，某些复杂资源可能需要调整。该工具主要用于 Windows 交叉编译；Windows 原生开发通常使用 Microsoft 工具。
 
 # HISTORY
 
-**windres** was developed as part of **GNU Binutils** to provide a free alternative to Microsoft's Resource Compiler (rc.exe). It has been part of the MinGW and MinGW-w64 toolchains since the **late 1990s**, enabling Windows application development on Unix-like systems. The tool continues to be maintained as part of the Binutils project.
+**windres** 作为 **GNU Binutils** 的一部分开发，旨在提供 Microsoft 资源编译器（rc.exe）的自由替代品。自 **20 世纪 90 年代末**起，它就是 MinGW 和 MinGW-w64 工具链的组成部分，让类 Unix 系统上的 Windows 应用程序开发成为可能。该工具作为 Binutils 项目的一部分持续维护。
 
 # SEE ALSO
 

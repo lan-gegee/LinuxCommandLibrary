@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert YUY2 packed video to PAM
+将 YUY2 打包视频转换为 PAM
 
 # TLDR
 
-**Convert YUY2 video to PAM**
+**将 YUY2 视频转换为 PAM**
 
 ```yuy2topam [width] [height] [input.yuy2] > [output.pam]```
 
@@ -15,14 +15,14 @@ Convert YUY2 packed video to PAM
 # PARAMETERS
 
 _width_
-> Image width.
+> 图像宽度。
 
 _height_
-> Image height.
+> 图像高度。
 
 # DESCRIPTION
 
-**yuy2topam** converts YUY2 (YUYV) packed YUV format to PAM. YUY2 is a common video format used by webcams and video capture. Part of Netpbm toolkit.
+**yuy2topam** 将 YUY2（YUYV）打包 YUV 格式转换为 PAM。YUY2 是网络摄像头和视频采集常用的视频格式。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ _height_
 # SEE ALSO
 
 [yuvtoppm](/man/yuvtoppm)(1)
-

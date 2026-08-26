@@ -1,14 +1,14 @@
 # TAGLINE
 
-Swiss army knife bootstrapping 1000+ CLI tools
+引导 1000 多个 CLI 工具的瑞士军刀
 
 # TLDR
 
-**Set up a Node.js environment**
+**搭建 Node.js 环境**
 
 ```x env use node [20]```
 
-**Use AI chat**
+**使用 AI 聊天**
 
 ```x ai chat "[explain this error]"```
 
@@ -18,11 +18,11 @@ Swiss army knife bootstrapping 1000+ CLI tools
 
 # DESCRIPTION
 
-**x-cmd** is a POSIX Shell-based toolkit with 100+ built-in modules and a package manager supporting 500+ third-party CLI tools. It includes AI agent capabilities, environment management for Node, Python, Go, and Java, terminal theming, and runs without root privileges with on-demand downloads.
+**x-cmd** 是一个基于 POSIX Shell 的工具集，包含 100 多个内置模块和一个支持 500 多个第三方 CLI 工具的包管理器。它提供 AI 智能体能力、Node/Python/Go/Java 的环境管理、终端主题美化，无需 root 权限即可运行并按需下载。
 
 # HISTORY
 
-**x-cmd** was created by the **x-cmd team** and is written in **Shell** (POSIX Shell).
+**x-cmd** 由 **x-cmd team** 创建，使用 **Shell**（POSIX Shell）编写。
 
 # INSTALL
 

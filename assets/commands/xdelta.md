@@ -1,26 +1,26 @@
 # TAGLINE
 
-Binary delta compression and patching
+二进制差量压缩与补丁
 
 # TLDR
 
-**Create delta**
+**创建差量文件**
 
 ```xdelta delta [old_file] [new_file] [patch.xdelta]```
 
-**Apply patch**
+**应用补丁**
 
 ```xdelta patch [patch.xdelta] [old_file] [new_file]```
 
-**Create with compression**
+**以压缩方式创建**
 
 ```xdelta -9 delta [old_file] [new_file] [patch.xdelta]```
 
-**Show patch info**
+**显示补丁信息**
 
 ```xdelta info [patch.xdelta]```
 
-**Test patch**
+**测试补丁**
 
 ```xdelta test [patch.xdelta] [old_file]```
 
@@ -31,39 +31,39 @@ Binary delta compression and patching
 # PARAMETERS
 
 **delta**
-> Create delta file.
+> 创建差量文件。
 
 **patch**
-> Apply delta file.
+> 应用差量文件。
 
 **info**
-> Show patch info.
+> 显示补丁信息。
 
 **test**
-> Verify patch.
+> 验证补丁。
 
-**-0** to **-9**
-> Compression level.
+**-0** 到 **-9**
+> 压缩级别。
 
 **-f**, **--force**
-> Force overwrite.
+> 强制覆盖。
 
 **-s** _SOURCE_
-> Source file.
+> 源文件。
 
 # DESCRIPTION
 
-**xdelta** creates and applies binary delta patches between two versions of a file. The delta command compares an old file with a new file and produces a compact patch file containing only the differences, which is typically much smaller than distributing the full new file.
+**xdelta** 在一个文件的两个版本之间创建和应用二进制差量补丁。delta 命令将旧文件与新文件比较，生成只包含差异的紧凑补丁文件，其体积通常远小于直接分发完整的新文件。
 
-The patch command reconstructs the new file by applying the delta to the original file. Configurable compression levels trade processing time for smaller patch sizes. The tool is commonly used for software update distribution, ROM patching, and efficient file synchronization where only changes need to be transmitted.
+patch 命令通过将差量应用到原始文件来重建新文件。可配置的压缩级别以处理时间换取更小的补丁体积。该工具常用于软件更新分发、ROM 补丁制作，以及只需传输变更内容的高效文件同步场景。
 
 # CAVEATS
 
-Old file must match exactly. Large files need memory. Version compatibility matters.
+旧文件必须完全匹配。大文件需要较多内存。版本兼容性很重要。
 
 # HISTORY
 
-**xdelta** was created for efficient binary differencing. Version 1 evolved into xdelta3 with VCDIFF standard support.
+**xdelta** 为高效的二进制差异比较而创建。第 1 版演化为支持 VCDIFF 标准的 xdelta3。
 
 # INSTALL
 

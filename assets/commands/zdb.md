@@ -1,30 +1,30 @@
 # TAGLINE
 
-ZFS pool debugging and diagnostics tool
+ZFS 存储池调试与诊断工具
 
 # TLDR
 
-**Display pool configuration**
+**显示存储池配置**
 
 ```sudo zdb -C [pool]```
 
-**Display detailed vdev information**
+**显示详细的 vdev 信息**
 
 ```sudo zdb -l [/dev/disk]```
 
-**Dump pool metadata**
+**转储存储池元数据**
 
 ```sudo zdb -d [pool]```
 
-**Display object set contents**
+**显示对象集内容**
 
 ```sudo zdb -dd [pool/dataset]```
 
-**Check pool integrity without modifying**
+**检查存储池完整性而不修改数据**
 
 ```sudo zdb -c [pool]```
 
-**Display block statistics**
+**显示块统计信息**
 
 ```sudo zdb -b [pool]```
 
@@ -35,61 +35,61 @@ ZFS pool debugging and diagnostics tool
 # PARAMETERS
 
 **-b**
-> Display block allocation statistics
+> 显示块分配统计信息
 
 **-c**
-> Verify pool integrity (checksum all data)
+> 校验存储池完整性（对全部数据做校验和）
 
 **-C**
-> Display pool configuration from cachefile
+> 从缓存文件显示存储池配置
 
 **-d**
-> Dump metadata from specified dataset
+> 转储指定数据集的元数据
 
 **-D**
-> Display deduplication statistics
+> 显示去重统计信息
 
 **-e**
-> Operate on exported pool (specify devices with -p)
+> 操作已导出的存储池（用 -p 指定设备）
 
 **-l**
-> Read and display vdev label contents
+> 读取并显示 vdev 标签内容
 
 **-L**
-> Disable leak tracking
+> 禁用泄漏跟踪
 
 **-m**
-> Display metaslab information
+> 显示 metaslab 信息
 
 **-p** _path_
-> Path to vdev (use with -e)
+> vdev 的路径（与 -e 搭配使用）
 
 **-R**
-> Read and display raw data
+> 读取并显示原始数据
 
 **-s**
-> Display space map histograms
+> 显示空间映射直方图
 
 **-v**
-> Verbose output
+> 详细输出
 
 # DESCRIPTION
 
-**zdb** is the ZFS debugger, used to display detailed internal information about ZFS pools, datasets, and vdevs. It's primarily a diagnostic and debugging tool for ZFS administrators and developers.
+**zdb** 是 ZFS 调试器，用于显示 ZFS 存储池、数据集和 vdev 的详细内部信息。它主要面向 ZFS 管理员和开发者的诊断与调试。
 
-The tool can examine pool structure, display block allocation maps, verify data checksums, and dump raw ZFS metadata. It operates read-only and doesn't modify pool data.
+该工具可以检查存储池结构、显示块分配图、校验数据校验和，以及转储原始 ZFS 元数据。它以只读方式运行，不会修改存储池数据。
 
-Common uses include diagnosing pool corruption, examining vdev labels after disk failures, and understanding ZFS internals.
+常见用途包括诊断存储池损坏、在磁盘故障后查看 vdev 标签，以及理解 ZFS 内部机制。
 
 # CAVEATS
 
-zdb requires root privileges to access raw disk devices and ZFS internal structures.
+zdb 需要 root 权限才能访问原始磁盘设备和 ZFS 内部结构。
 
-This is a debugging tool meant for experts. Misinterpreting output can lead to incorrect conclusions about pool health.
+这是一个面向专家的调试工具。误读输出可能导致对存储池健康状况的错误结论。
 
-Output format may change between ZFS versions as internal structures evolve.
+随着内部结构的演进，输出格式可能随 ZFS 版本而变化。
 
-For routine pool diagnostics, use **zpool status** instead.
+常规的存储池诊断请改用 **zpool status**。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line XSLT processor
+命令行 XSLT 处理器
 
 # TLDR
 
-**Transform XML** using an XSLT stylesheet
+**使用 XSLT 样式表转换 XML**
 
 ```xsltproc [stylesheet.xsl] [input.xml]```
 
-**Save output to a file**
+**将输出保存到文件**
 
 ```xsltproc -o [output.html] [stylesheet.xsl] [input.xml]```
 
-**Pass a string parameter** to the stylesheet
+向样式表**传递字符串参数**
 
 ```xsltproc --stringparam [name] "[value]" [stylesheet.xsl] [input.xml]```
 
-**Pass an XPath expression** as parameter
+**传递 XPath 表达式**作为参数
 
 ```xsltproc --param [name] "[xpath]" [stylesheet.xsl] [input.xml]```
 
-**Process XInclude** elements in the input
+处理输入中的 **XInclude** 元素
 
 ```xsltproc --xinclude [stylesheet.xsl] [input.xml]```
 
-**Transform HTML** input
+转换 **HTML** 输入
 
 ```xsltproc --html [stylesheet.xsl] [input.html]```
 
-**Show timing information**
+**显示计时信息**
 
 ```xsltproc --timing [stylesheet.xsl] [input.xml]```
 
-**Disable network access** for external resources
+**禁用对外部资源的网络访问**
 
 ```xsltproc --nonet [stylesheet.xsl] [input.xml]```
 
@@ -43,65 +43,65 @@ Command-line XSLT processor
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Write output to file instead of stdout.
+> 将输出写入文件而不是 stdout。
 
 **--stringparam** _name_ _value_
-> Pass a string parameter to the stylesheet.
+> 向样式表传递字符串参数。
 
 **--param** _name_ _value_
-> Pass an XPath expression result as parameter.
+> 传递 XPath 表达式的求值结果作为参数。
 
 **--xinclude**
-> Process XInclude elements before transformation.
+> 转换前先处理 XInclude 元素。
 
 **--html**
-> Treat input as HTML instead of XML.
+> 将输入视为 HTML 而不是 XML。
 
 **--nonet**
-> Disable network access (for DTDs, entities, stylesheets).
+> 禁用网络访问（针对 DTD、实体和样式表）。
 
 **--novalid**
-> Skip DTD validation of input document.
+> 跳过对输入文档的 DTD 校验。
 
 **--noout**
-> Suppress output of result.
+> 不输出转换结果。
 
 **--timing**
-> Display timing for parsing and transformation.
+> 显示解析和转换的耗时。
 
 **--profile**
-> Output profiling information for optimization.
+> 输出用于优化的剖析信息。
 
 **--maxdepth** _value_
-> Maximum template stack depth (default: 3000).
+> 模板栈的最大深度（默认：3000）。
 
 **--nowrite**
-> Refuse to write to any file.
+> 拒绝写入任何文件。
 
 **--nomkdir**
-> Refuse to create directories.
+> 拒绝创建目录。
 
 **-v**, **--verbose**
-> Output each step during processing.
+> 处理过程中输出每一步操作。
 
 **-V**, **--version**
-> Show libxml and libxslt versions.
+> 显示 libxml 和 libxslt 的版本号。
 
 # DESCRIPTION
 
-**xsltproc** is a command-line XSLT processor for transforming XML documents using XSLT stylesheets. It is part of libxslt, the XSLT C library for GNOME, but operates independently of the GNOME desktop.
+**xsltproc** 是一个命令行 XSLT 处理器，用于使用 XSLT 样式表转换 XML 文档。它是 libxslt（GNOME 的 XSLT C 库）的一部分，但可以独立于 GNOME 桌面运行。
 
-If the input XML document contains a stylesheet processing instruction, xsltproc can automatically use the referenced stylesheet without command-line specification.
+如果输入的 XML 文档包含样式表处理指令，xsltproc 可以自动使用所引用的样式表，无需在命令行中指定。
 
-The tool supports XSLT 1.0 and EXSLT extensions. Output can be XML, HTML, or text depending on the stylesheet's **xsl:output** directive.
+该工具支持 XSLT 1.0 和 EXSLT 扩展。根据样式表的 **xsl:output** 指令，输出可以是 XML、HTML 或文本。
 
 # CAVEATS
 
-xsltproc only supports XSLT 1.0; XSLT 2.0 and 3.0 features are not available. For XSLT 2.0+, consider Saxon or other processors. Return codes indicate specific error types (4 = stylesheet parse error, 5 = stylesheet error, 6 = document error).
+xsltproc 仅支持 XSLT 1.0；不支持 XSLT 2.0 和 3.0 特性。需要 XSLT 2.0+ 时可以考虑 Saxon 等其他处理器。返回码表示具体的错误类型（4 = 样式表解析错误，5 = 样式表错误，6 = 文档错误）。
 
 # HISTORY
 
-xsltproc was developed by **Daniel Veillard** as part of the **libxslt** library for the GNOME project, with the first release around **2001**. It is built on libxml2 for XML parsing. The tool has become a standard for command-line XSLT processing on Unix-like systems and is included in most Linux distributions.
+xsltproc 由 **Daniel Veillard** 为 GNOME 项目开发，是 **libxslt** 库的一部分，于 **2001 年**前后首次发布。它基于 libxml2 进行 XML 解析。该工具已成为类 Unix 系统上命令行 XSLT 处理的标准工具，包含在大多数 Linux 发行版中。
 
 # INSTALL
 

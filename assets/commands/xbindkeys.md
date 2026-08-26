@@ -1,34 +1,34 @@
 # TAGLINE
 
-Bind keys to commands in X11
+在 X11 中将按键绑定到命令
 
 # TLDR
 
-**Start xbindkeys**
+**启动 xbindkeys**
 
 ```xbindkeys```
 
-**Generate default config file**
+**生成默认配置文件**
 
 ```xbindkeys --defaults > ~/.xbindkeysrc```
 
-**Identify key codes interactively**
+**交互式识别按键代码**
 
 ```xbindkeys -k```
 
-**Identify multi-key combinations**
+**识别多键组合**
 
 ```xbindkeys -mk```
 
-**Show current bindings**
+**显示当前绑定**
 
 ```xbindkeys -s```
 
-**Reload configuration**
+**重新加载配置**
 
 ```killall -HUP xbindkeys```
 
-**Use specific config file**
+**使用指定的配置文件**
 
 ```xbindkeys -f [~/.config/xbindkeysrc]```
 
@@ -39,47 +39,47 @@ Bind keys to commands in X11
 # PARAMETERS
 
 **-d**, **--defaults**
-> Print default configuration to stdout.
+> 将默认配置打印到 stdout。
 
 **-f**, **--file** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-k**, **--key**
-> Identify a key (press key in window).
+> 识别一个按键（在窗口中按下该键）。
 
 **-mk**, **--multikey**
-> Identify multi-key combination.
+> 识别多键组合。
 
 **-s**, **--show**
-> Show current key bindings.
+> 显示当前的按键绑定。
 
 **-n**, **--nodaemon**
-> Don't run as daemon.
+> 不以守护进程方式运行。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细模式。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-X**, **--display** _display_
-> Set X display to use.
+> 设置要使用的 X display。
 
 **-g**, **--geometry** _geometry_
-> Set size and position of the key identification window (used with -k or -mk).
+> 设置按键识别窗口的大小和位置（与 -k 或 -mk 配合使用）。
 
 **-dg**, **--defaults-guile**
-> Print a default Guile configuration file to stdout.
+> 将默认的 Guile 配置文件打印到 stdout。
 
 **-fg**, **--file-guile** _file_
-> Use an alternative Guile configuration file.
+> 使用替代的 Guile 配置文件。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # CONFIGURATION
 
-Config file syntax (~/.xbindkeysrc):
+配置文件语法（~/.xbindkeysrc）：
 ```
 "command"
     modifier + key
@@ -95,25 +95,25 @@ Config file syntax (~/.xbindkeysrc):
 
 # MODIFIERS
 
-**Control**, **Shift**, **Mod1** (Alt), **Mod2** (NumLock), **Mod3** (CapsLock), **Mod4** (Super/Win), **Mod5** (Scroll Lock), **Release** (trigger on key release)
+**Control**、**Shift**、**Mod1**（Alt）、**Mod2**（NumLock）、**Mod3**（CapsLock）、**Mod4**（Super/Win）、**Mod5**（Scroll Lock）、**Release**（在按键释放时触发）
 
 # DESCRIPTION
 
-**xbindkeys** binds keys or key combinations to shell commands in X11. It works independently of window managers, making it useful for global hotkeys including multimedia keys.
+**xbindkeys** 在 X11 中将按键或按键组合绑定到 shell 命令。它独立于窗口管理器工作，因此非常适合配置包括多媒体键在内的全局快捷键。
 
-Use `xbindkeys -k` to identify key names interactively. Press the desired key in the popup window to see its name and keycode.
+使用 `xbindkeys -k` 可以交互式地识别按键名称。在弹出的窗口中按下目标按键，即可看到它的名称和键码。
 
-Configuration is read from ~/.xbindkeysrc by default. The daemon monitors the config file and reloads automatically when modified. Send SIGHUP to force reload.
+默认从 ~/.xbindkeysrc 读取配置。守护进程会监视配置文件，在其被修改时自动重新加载。发送 SIGHUP 可强制重载。
 
-For complex setups, xbindkeys supports Guile Scheme configuration via ~/.xbindkeysrc.scm.
+对于复杂的设置，xbindkeys 通过 ~/.xbindkeysrc.scm 支持 Guile Scheme 配置。
 
 # CAVEATS
 
-X11 only; won't work under Wayland. Some keys may be grabbed by other applications. Key names can be found in /usr/include/X11/keysymdef.h. Multimedia keys require proper kernel/X configuration.
+仅支持 X11；在 Wayland 下无法使用。某些按键可能已被其他应用程序抓取。按键名称可在 /usr/include/X11/keysymdef.h 中查找。多媒体键需要正确的内核/X 配置。
 
 # HISTORY
 
-**xbindkeys** was created to provide a window-manager-independent way to bind keys to commands. It fills the gap for desktop environments and window managers that lack built-in hotkey configuration.
+**xbindkeys** 的创建目的是提供一种不依赖窗口管理器的按键绑定命令的方式。它填补了那些缺少内置快捷键配置功能的桌面环境和窗口管理器的空白。
 
 # INSTALL
 

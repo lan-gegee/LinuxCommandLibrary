@@ -1,10 +1,10 @@
 # TAGLINE
 
-Add missing .gz extension to gzip files
+为 gzip 文件补上缺失的 .gz 扩展名
 
 # TLDR
 
-Add **.gz** extension
+添加 **.gz** 扩展名
 
 ```zforce [path/to/file1 path/to/file2 ...]```
 
@@ -14,13 +14,13 @@ Add **.gz** extension
 
 # DESCRIPTION
 
-**zforce** adds a .gz extension to files compressed with gzip that are missing the extension. It examines files and renames only those that are valid gzip files.
+**zforce** 为缺少扩展名的 gzip 压缩文件添加 .gz 扩展名。它会检查文件，只重命名那些有效的 gzip 文件。
 
-Files that already have the .gz extension or are not gzip-compressed are ignored.
+已有 .gz 扩展名或不是 gzip 压缩的文件会被忽略。
 
 # CAVEATS
 
-Only processes gzip files without .gz extension. Does not compress files, only renames them.
+只处理没有 .gz 扩展名的 gzip 文件。不会压缩文件，只进行重命名。
 
 # INSTALL
 

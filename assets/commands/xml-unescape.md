@@ -1,18 +1,18 @@
 # TAGLINE
 
-Decode XML entities to characters
+将 XML 实体解码为字符
 
 # TLDR
 
-**Unescape XML entities in a string**
+**反转义字符串中的 XML 实体**
 
 ```xml unescape "[&lt;text&gt;]"```
 
-**Unescape XML entities from stdin**
+**从 stdin 反转义 XML 实体**
 
 ```echo "[&lt;text&gt;]" | xml unescape```
 
-**Using the short alias**
+**使用短别名**
 
 ```xml unesc "[&lt;text&gt;]"```
 
@@ -23,14 +23,14 @@ Decode XML entities to characters
 # PARAMETERS
 
 _text_
-> Text with XML entities. If not provided, reads from standard input.
+> 含 XML 实体的文本。若未提供则从标准输入读取。
 
 **--help**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**xml unescape** (also `xml unesc`) converts XML entities back to their original characters. Part of the XMLStarlet toolkit. Decodes &amp;lt; &amp;gt; &amp;amp; &amp;apos; &amp;quot; and numeric character references to their original characters.
+**xml unescape**（也可写作 `xml unesc`）将 XML 实体转换回原始字符。属于 XMLStarlet 工具集。可解码 &amp;lt; &amp;gt; &amp;amp; &amp;apos; &amp;quot; 以及数字字符引用为原始字符。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ _text_
 # SEE ALSO
 
 [xml-escape](/man/xml-escape)(1), [xml-select](/man/xml-select)(1), [xmlstarlet](/man/xmlstarlet)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Configure YubiKey authentication slots
+配置 YubiKey 认证插槽
 
 # TLDR
 
-**Show YubiKey status**
+**显示 YubiKey 状态**
 
 ```ykpersonalize -v```
 
-**Program slot 1 with Yubico OTP**
+**以 Yubico OTP 编程插槽 1**
 
 ```ykpersonalize -1```
 
-**Program slot 2 with challenge-response**
+**以挑战-应答模式编程插槽 2**
 
 ```ykpersonalize -2 -ochal-resp -ochal-hmac```
 
-**Set static password in slot 2**
+**在插槽 2 中设置静态密码**
 
 ```ykpersonalize -2 -ostatic-ticket```
 
-**Set CCID mode**
+**设置 CCID 模式**
 
 ```sudo ykpersonalize -m 86```
 
-**Program with specific AES key**
+**以指定的 AES 密钥编程**
 
 ```ykpersonalize -1 -a[hex_key]```
 
-**Set access code to protect configuration**
+**设置访问码保护配置**
 
 ```ykpersonalize -oaccess=[hex_code]```
 
@@ -39,50 +39,50 @@ Configure YubiKey authentication slots
 # PARAMETERS
 
 **-1** / **-2**
-> Program slot 1 or slot 2.
+> 编程插槽 1 或插槽 2。
 
 **-a** _key_
-> Set AES key (hex encoded).
+> 设置 AES 密钥（十六进制编码）。
 
 **-c** _code_
-> Current access code to unlock.
+> 用于解锁的当前访问码。
 
 **-oaccess=** _code_
-> Set new access code.
+> 设置新的访问码。
 
 **-ochal-resp**
-> Enable challenge-response mode.
+> 启用挑战-应答模式。
 
 **-ochal-hmac**
-> Use HMAC-SHA1 for challenge-response.
+> 挑战-应答使用 HMAC-SHA1。
 
 **-ostatic-ticket**
-> Enable static password mode.
+> 启用静态密码模式。
 
 **-m** _mode_
-> Set USB mode (OTP, CCID, etc.).
+> 设置 USB 模式（OTP、CCID 等）。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-y**
-> Auto-confirm operations.
+> 自动确认操作。
 
 # DESCRIPTION
 
-**ykpersonalize** configures YubiKey hardware tokens from Yubico. It can program the two configuration slots with various authentication modes including Yubico OTP, HMAC-SHA1 challenge-response, and static passwords.
+**ykpersonalize** 用于配置 Yubico 的 YubiKey 硬件密钥。它可以为两个配置槽位编程多种认证模式，包括 Yubico OTP、HMAC-SHA1 挑战-应答以及静态密码。
 
-Each YubiKey has two slots: slot 1 activates on short touch, slot 2 on long touch. Slots can be independently configured for different use cases like OTP authentication and disk encryption.
+每个 YubiKey 有两个插槽：插槽 1 在短触时激活，插槽 2 在长触时激活。两个插槽可以独立配置，用于 OTP 认证和磁盘加密等不同用途。
 
-Access codes can protect configuration from unauthorized changes. The tool requires direct USB access to the YubiKey.
+访问码可以防止配置被未经授权地修改。该工具需要直接通过 USB 访问 YubiKey。
 
 # CAVEATS
 
-Programming overwrites existing slot configuration. Access codes prevent reconfiguration without the code. Some operations require root. Superseded by ykman for newer features.
+编程会覆盖插槽的现有配置。设置访问码后，没有访问码将无法重新配置。某些操作需要 root 权限。较新的功能已由 ykman 取代。
 
 # HISTORY
 
-**ykpersonalize** was developed by Yubico as part of the yubikey-personalization package for configuring YubiKey tokens. While still functional, Yubico now recommends ykman (YubiKey Manager) for newer YubiKey models and features.
+**ykpersonalize** 由 Yubico 开发，是 yubikey-personalization 软件包的一部分，用于配置 YubiKey 密钥。虽然它仍然可用，但 Yubico 现在对较新的 YubiKey 型号和功能推荐使用 ykman（YubiKey Manager）。
 
 # INSTALL
 

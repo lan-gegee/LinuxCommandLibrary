@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manipulate WebP metadata and animation
+操作 WebP 元数据和动画
 
 # TLDR
 
-**Extract frame from animation**
+**从动画中提取帧**
 
 ```webpmux -get frame [1] [input.webp] -o [frame.webp]```
 
-**Get ICC profile**
+**获取 ICC 配置文件**
 
 ```webpmux -get icc [input.webp] -o [profile.icc]```
 
-**Set EXIF metadata**
+**设置 EXIF 元数据**
 
 ```webpmux -set exif [metadata.exif] [input.webp] -o [output.webp]```
 
-**Create animation from frames**
+**用帧创建动画**
 
 ```webpmux -frame [1.webp] +[100] -frame [2.webp] +[100] -loop [0] -o [output.webp]```
 
-**Show file info**
+**显示文件信息**
 
 ```webpmux -info [input.webp]```
 
-**Strip EXIF metadata**
+**移除 EXIF 元数据**
 
 ```webpmux -strip exif [input.webp] -o [output.webp]```
 
-**Change frame duration of an animation**
+**修改动画帧的持续时间**
 
 ```webpmux -duration [200] [input.webp] -o [output.webp]```
 
@@ -39,50 +39,50 @@ Manipulate WebP metadata and animation
 # PARAMETERS
 
 **-get** _TYPE_
-> Extract data: frame n, icc, exif, or xmp.
+> 提取数据：第 n 帧、icc、exif 或 xmp。
 
 **-set** _TYPE FILE_
-> Set metadata: icc, exif, or xmp.
+> 设置元数据：icc、exif 或 xmp。
 
 **-strip** _TYPE_
-> Remove metadata: icc, exif, or xmp.
+> 移除元数据：icc、exif 或 xmp。
 
 **-frame** _FILE+OPTS_
-> Add frame for animation (file +duration[+x+y[+method[blend]]]).
+> 为动画添加帧（file +duration[+x+y[+method[blend]]]）。
 
 **-duration** _DURATION[,START[,END]]_
-> Set frame duration in milliseconds.
+> 以毫秒为单位设置帧持续时间。
 
 **-loop** _COUNT_
-> Loop count for animation (0=infinite, range 0-65535).
+> 动画循环次数（0=无限循环，范围 0-65535）。
 
 **-bgcolor** _A,R,G,B_
-> Background color for animation canvas (values 0-255).
+> 动画画布的背景色（取值 0-255）。
 
 **-info**
-> Display file information.
+> 显示文件信息。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-version**
-> Display version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**webpmux** is a tool from Google's libwebp library for manipulating WebP image files at the container level. It can extract and set metadata profiles (ICC color, XMP, EXIF), extract individual frames from animated WebP files, and combine frames into animations.
+**webpmux** 是 Google libwebp 库中的一个工具，用于在容器层面操作 WebP 图像文件。它可以提取和设置元数据配置文件（ICC 色彩、XMP、EXIF），从动态 WebP 文件中提取单个帧，以及将帧合成为动画。
 
-The tool operates on the WebP container format without re-encoding the image data, making operations fast and lossless. Metadata can be stripped from files to reduce size, or added to include color management and descriptive information.
+该工具直接操作 WebP 容器格式而不重新编码图像数据，因此操作快速且无损。可以从文件中剥离元数据以减小体积，也可以添加元数据以纳入色彩管理和描述信息。
 
-For animated WebP files, individual frames can be extracted as separate WebP images, and frame timing and looping parameters can be inspected with the info command.
+对于动态 WebP 文件，可以将单个帧提取为独立的 WebP 图像，并可用 info 命令查看帧时序和循环参数。
 
 # CAVEATS
 
-WebP format only. Part of libwebp-tools. Only one -strip/-get/-set operation per invocation; stripping multiple metadata types requires separate commands.
+仅支持 WebP 格式。属于 libwebp-tools 的一部分。每次调用只能执行一个 -strip/-get/-set 操作；要剥离多种元数据类型需要分别执行命令。
 
 # HISTORY
 
-**webpmux** is part of **libwebp** by Google, providing tools to manipulate WebP images.
+**webpmux** 是 Google 的 **libwebp** 的一部分，提供操作 WebP 图像的工具。
 
 # INSTALL
 

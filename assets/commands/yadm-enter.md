@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run a sub-shell with yadm Git variables set
+在设置了 yadm Git 变量的子 Shell 中运行命令
 
 # TLDR
 
-**Enter a sub-shell with yadm Git variables set**
+**进入设置了 yadm Git 变量的子 Shell**
 
 ```yadm enter```
 
-**Run a specific command in the yadm context**
+**在 yadm 上下文中运行特定命令**
 
 ```yadm enter [command]```
 
-**Run git log within the yadm worktree**
+**在 yadm 工作树中运行 git log**
 
 ```yadm enter git log --oneline```
 
@@ -22,9 +22,9 @@ Run a sub-shell with yadm Git variables set
 
 # DESCRIPTION
 
-**yadm enter** opens a sub-shell with **GIT_DIR** and **GIT_WORK_TREE** environment variables set to the yadm repository. Exit the sub-shell the same way you leave your normal shell (usually with "exit"). This is useful for complex git operations on dotfiles, or for integrating with tools that use Git directly such as **tig**, **vim-fugitive**, or **git-cola**.
+**yadm enter** 会打开一个子 Shell，其中 **GIT_DIR** 和 **GIT_WORK_TREE** 环境变量已设置为 yadm 仓库。退出该子 Shell 的方式与退出普通 Shell 相同（通常是 "exit"）。这对于对 dotfiles 执行复杂的 git 操作很有用，也便于与直接使用 Git 的工具集成，例如 **tig**、**vim-fugitive** 或 **git-cola**。
 
-Optionally, provide a command after "enter" and that command will be run with the yadm Git variables exposed in its environment, instead of invoking a sub-shell.
+也可以在 "enter" 之后提供一个命令，该命令将在其环境中带有 yadm Git 变量的情况下运行，而不是启动子 Shell。
 
 # INSTALL
 
@@ -43,4 +43,3 @@ Optionally, provide a command after "enter" and that command will be run with th
 # SEE ALSO
 
 [yadm](/man/yadm)(1)
-

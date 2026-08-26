@@ -1,22 +1,22 @@
 # TAGLINE
 
-JavaScript toolchain for writing shell scripts
+用于编写 shell 脚本的 JavaScript 工具链
 
 # TLDR
 
-**Run** a zx script file
+**运行** zx 脚本文件
 
 ```zx [script.mjs]```
 
-**Run** inline with npx
+**用 npx 直接运行**
 
 ```npx zx [script.mjs]```
 
-**Install** the package
+**安装**软件包
 
 ```npm install -g zx```
 
-Example script header and command execution:
+脚本头部与命令执行示例：
 
 ```js
 #!/usr/bin/env zx
@@ -30,25 +30,25 @@ const branch = await $`git branch --show-current`
 
 # DESCRIPTION
 
-**zx** (from Google) makes writing complex shell scripts in JavaScript pleasant. It wraps Node's **child_process** with the **$`cmd`** tagged template for safe argument escaping, sensible defaults, and cross-platform behavior. Scripts can use async/await, **Promise.all** for parallel tasks, and the usual npm ecosystem.
+**zx**（来自 Google）让你用 JavaScript 编写复杂 shell 脚本变得轻松愉快。它封装了 Node 的 **child_process**，借助 **$`cmd`** 标签模板实现安全的参数转义、合理的默认值和跨平台行为。脚本可以使用 async/await、**Promise.all** 处理并行任务，并享受整个 npm 生态。
 
-Works with Node.js, Bun, Deno, and similar runtimes. Documentation and setup variants (including a lite build) are at https://google.github.io/zx/.
+可与 Node.js、Bun、Deno 及类似运行时配合使用。文档和各种安装变体（含 lite 版本）见 https://google.github.io/zx/。
 
 # PARAMETERS
 
 *script*
 
-> Path to a **.mjs**/**.js** (or TypeScript when supported) script. Often starts with **#!/usr/bin/env zx**.
+> **.mjs**/**.js** 脚本（在支持的环境下也可为 TypeScript）的路径。通常以 **#!/usr/bin/env zx** 开头。
 
 **-h**, **--help** / **--version**
 
-> Help and version (see **zx --help** for the installed CLI flags).
+> 帮助与版本信息（已安装 CLI 的可用标志请查看 **zx --help**）。
 
-Inside scripts, the primary API is **$`command`** plus helpers documented upstream (**cd**, **fetch**, **question**, **sleep**, **nothrow**, etc.).
+在脚本内部，核心 API 就是 **$`command`**，外加游文档所载的各种辅助函数（**cd**、**fetch**、**question**、**sleep**、**nothrow** 等）。
 
 # CAVEATS
 
-Not an officially supported Google product. Requires a JS runtime on PATH. Prefer quoting/escaping via **$** templates rather than string concatenation to avoid injection. Behavior of the host shell still matters for complex pipelines.
+并非 Google 官方支持的产品。需要 PATH 上有 JS 运行时。应优先用 **$** 模板做引号包裹/转义，避免字符串拼接带来的注入风险。复杂管道的行为仍受宿主 shell 影响。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Zapier Platform CLI for building integrations
+用于构建集成的 Zapier Platform CLI
 
 # TLDR
 
-**Authenticate with Zapier**
+**向 Zapier 进行身份验证**
 
 ```zapier login```
 
-**Initialize a new integration project**
+**初始化新的集成项目**
 
 ```zapier init [project-name]```
 
-**Push integration code to Zapier**
+**将集成代码推送到 Zapier**
 
 ```zapier push```
 
-**Run integration tests locally**
+**在本地运行集成测试**
 
 ```zapier test```
 
-**Validate the integration against Zapier's schema**
+**对照 Zapier 的模式校验集成**
 
 ```zapier validate```
 
-**Promote a version to public access**
+**将某个版本提升为公开可用**
 
 ```zapier promote [1.0.0] [100]```
 
-**View logs for the integration**
+**查看集成的日志**
 
 ```zapier logs```
 
-**Invoke a trigger or action locally for testing**
+**在本地调用触发器或操作进行测试**
 
 ```zapier invoke [trigger] [trigger_key]```
 
@@ -43,68 +43,68 @@ Zapier Platform CLI for building integrations
 # PARAMETERS
 
 **login**
-> Authenticate with Zapier.
+> 向 Zapier 进行身份验证。
 
 **logout**
-> Deauthenticate from Zapier.
+> 退出 Zapier 登录。
 
 **init**
-> Create a new integration project.
+> 创建新的集成项目。
 
 **scaffold**
-> Scaffold a new trigger, action, or search.
+> 搭建新的触发器、操作或搜索脚手架。
 
 **push**
-> Upload the current integration to Zapier.
+> 将当前集成上传到 Zapier。
 
 **test**
-> Run integration tests locally.
+> 在本地运行集成测试。
 
 **validate**
-> Check integration against Zapier's schema.
+> 对照 Zapier 的模式检查集成。
 
 **promote**
-> Promote a version to public access.
+> 将某个版本提升为公开可用。
 
 **describe**
-> Describe the current integration.
+> 描述当前集成。
 
 **logs**
-> View recent logs for the integration.
+> 查看集成最近的日志。
 
 **env:set**
-> Set environment variables for a version.
+> 为某个版本设置环境变量。
 
 **env:get**
-> Get environment variables for a version.
+> 获取某个版本的环境变量。
 
 **invoke**
-> Invoke a trigger, action, or search locally.
+> 在本地调用触发器、操作或搜索。
 
 **register**
-> Register a new integration on Zapier.
+> 在 Zapier 上注册新集成。
 
 **build**
-> Build a pushable zip from the current directory.
+> 从当前目录构建可推送的 zip 包。
 
 **versions**
-> List the versions of the current integration.
+> 列出当前集成的各版本。
 
 # DESCRIPTION
 
-**zapier** is the official command-line interface for developing integrations on the Zapier automation platform. It provides tools for creating, testing, validating, and deploying custom integrations that connect third-party applications using JavaScript.
+**zapier** 是 Zapier 自动化平台官方的命令行界面，用于开发集成。它提供创建、测试、校验和部署自定义集成的工具，这些集成用 JavaScript 连接第三方应用。
 
-The development workflow starts with **zapier init** to scaffold a new project, followed by defining triggers, actions, and searches in JavaScript (Node.js v22). The **test** command runs integration tests locally, **invoke** lets you test triggers and actions from the terminal, and **validate** checks the integration against Zapier's schema requirements before deployment.
+开发工作流从 **zapier init** 搭建新项目开始，随后用 JavaScript（Node.js v22）定义触发器、操作和搜索。**test** 命令在本地运行集成测试，**invoke** 允许从终端测试触发器和操作，**validate** 在部署前对照 Zapier 的模式要求检查集成。
 
-Once ready, **zapier push** uploads the integration to Zapier's platform. The **promote** command makes a specific version publicly available. Environment variables for deployed versions are managed with the **env:set** and **env:get** commands.
+就绪后，**zapier push** 将集成上传到 Zapier 平台。**promote** 命令使特定版本公开可用。已部署版本的环境变量用 **env:set** 和 **env:get** 管理。
 
 # CAVEATS
 
-Zapier account required. Node.js required (integrations run on Node.js v22). Installed via `npm install -g zapier-platform-cli`.
+需要 Zapier 账户。需要 Node.js（集成运行于 Node.js v22）。通过 `npm install -g zapier-platform-cli` 安装。
 
 # HISTORY
 
-The **zapier** CLI was created by **Zapier** as the developer tool for building integrations on their automation platform. It replaced the earlier visual builder approach, giving developers a code-first workflow using JavaScript and Node.js.
+**zapier** CLI 由 **Zapier** 创建，是用于在其自动化平台上构建集成的开发者工具。它取代了早期的可视化构建器方式，为开发者提供了基于代码、使用 JavaScript 和 Node.js 的工作流。
 
 # SEE ALSO
 

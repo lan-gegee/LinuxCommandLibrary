@@ -1,38 +1,38 @@
 # TAGLINE
 
-Read barcodes from image files
+从图像文件读取条形码
 
 # TLDR
 
-**Scan image for barcodes**
+**扫描图像中的条形码**
 
 ```zbarimg [image.png]```
 
-**Scan multiple images**
+**扫描多张图像**
 
 ```zbarimg [image1.png] [image2.jpg]```
 
-**Output raw data only**
+**只输出原始数据**
 
 ```zbarimg --raw [image.png]```
 
-**Scan only QR codes** (disable all, then enable qrcode)
+**只扫描二维码**（先禁用全部，再启用 qrcode）
 
 ```zbarimg -Sdisable -Sqrcode.enable [image.png]```
 
-**Quiet mode** (suppress statistics and warnings)
+**安静模式**（不显示统计和警告）
 
 ```zbarimg -q [image.png]```
 
-**Display image with detected barcodes highlighted**
+**显示图像并高亮检测到的条形码**
 
 ```zbarimg -d [image.png]```
 
-**XML output**
+**XML 输出**
 
 ```zbarimg --xml [image.png]```
 
-**Output polygon points of detected barcodes**
+**输出检测到的条形码的多边形顶点**
 
 ```zbarimg --polygon [image.png]```
 
@@ -43,82 +43,82 @@ Read barcodes from image files
 # PARAMETERS
 
 **--raw**
-> Output raw symbol data without symbology type prefix.
+> 输出原始符号数据，不带编码类型前缀。
 
 **-q**, **--quiet**
-> Quiet operation; only output decoded symbol data. Suppresses the statistics line and no-barcode warnings on stderr.
+> 安静模式；只输出解码的符号数据。抑制统计行以及 stderr 上无条形码的警告。
 
 **-d**, **--display**
-> Enable display of images with decoded symbols highlighted.
+> 启用图像显示，并将已解码的符号高亮。
 
 **-D**, **--nodisplay**
-> Disable image display.
+> 禁用图像显示。
 
 **--xml**, **--noxml**
-> Enable or disable XML output format wrapping decoded data with scan metadata.
+> 启用或禁用 XML 输出格式，其中包含扫描元数据包裹的解码数据。
 
 **--polygon**
-> Output polygon points of the barcode boundary in SVG format.
+> 以 SVG 格式输出条形码边界的多边形顶点。
 
 **-S** _[symbology.]config[=value]_
-> Set decoder configuration. Symbologies include: ean13, ean8, upca, upce, isbn13, isbn10, i25, codabar, code39, code93, code128, qrcode, or * for all.
+> 设置解码器配置。编码类型包括：ean13、ean8、upca、upce、isbn13、isbn10、i25、codabar、code39、code93、code128、qrcode，或 * 表示全部。
 
 **-v**, **--verbose**[=_n_]
-> Increase debug output level. Use multiple -v for more detail, or specify n directly.
+> 提高调试输出级别。可多次使用 -v 获取更多细节，或直接指定 n。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # SUPPORTED FORMATS
 
 **QR-Code**
-> 2D matrix barcodes.
+> 二维矩阵条形码。
 
-**EAN-13**, **EAN-8**
-> European Article Number.
+**EAN-13**、**EAN-8**
+> 欧洲商品编号（European Article Number）。
 
-**UPC-A**, **UPC-E**
-> Universal Product Code.
+**UPC-A**、**UPC-E**
+> 通用产品代码（Universal Product Code）。
 
-**Code-128**, **Code-93**, **Code-39**
-> Linear barcodes.
+**Code-128**、**Code-93**、**Code-39**
+> 一维线性条形码。
 
 **Interleaved 2 of 5** (i25)
-> Numeric-only linear barcode.
+> 仅数字的线性条形码。
 
 **Codabar**
-> Numeric barcode used in libraries and blood banks.
+> 图书馆和血库使用的数字条形码。
 
-**ISBN-10**, **ISBN-13**
-> Book identifiers.
+**ISBN-10**、**ISBN-13**
+> 图书标识符。
 
-**DataBar**, **DataBar Expanded**
-> GS1 DataBar symbologies.
+**DataBar**、**DataBar Expanded**
+> GS1 DataBar 编码体系。
 
 # DESCRIPTION
 
-**zbarimg** reads barcodes from image files. It detects and decodes various barcode formats including QR codes.
+**zbarimg** 从图像文件读取条形码，检测并解码包括二维码在内的多种条形码格式。
 
-Multiple barcode types are detected automatically. Settings can disable specific types for faster scanning.
+系统会自动检测多种条形码类型。可通过设置禁用特定类型以加快扫描。
 
-Output shows barcode type and decoded data. Raw mode outputs only the data without type prefixes.
+输出显示条形码类型和解码数据。原始模式只输出数据，不带类型前缀。
 
-Multiple barcodes in one image are all detected. Each is reported on a separate line.
+一张图像中的多个条形码都会被检测到，每个条目单独占一行报告。
 
-The display option shows images with detected barcodes highlighted. This helps verify correct detection.
+display 选项会显示图像并高亮检测到的条形码，有助于确认检测结果是否正确。
 
-Image formats supported include PNG, JPEG, and any format supported by ImageMagick.
+支持的图像格式包括 PNG、JPEG 以及 ImageMagick 支持的任何格式。
 
 # CAVEATS
 
-Detection depends on image quality. Blurry or low-contrast images may fail. Some barcode types need explicit enabling.
+检测效果取决于图像质量。模糊或对比度低的图像可能失败。某些条形码类型需要显式启用。
 
 # HISTORY
 
-**zbar** and **zbarimg** were created by **Jeff Brown** around **2007**. The library provides barcode scanning for both images and video, with bindings for many languages.
+**zbar** 和 **zbarimg** 由 **Jeff Brown** 于 **2007 年**前后创建。该库为图像和视频提供条形码扫描功能，并提供多种语言的绑定。
 
 # INSTALL
 

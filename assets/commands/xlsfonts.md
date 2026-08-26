@@ -1,34 +1,34 @@
 # TAGLINE
 
-List available X11 fonts
+列出可用的 X11 字体
 
 # TLDR
 
-**List all available fonts**
+**列出所有可用字体**
 
 ```xlsfonts```
 
-**List fonts matching a pattern**
+**列出匹配模式的字体**
 
 ```xlsfonts -fn "*courier*"```
 
-**List fonts with detailed info**
+**列出字体及详细信息**
 
 ```xlsfonts -l```
 
-**List fonts on specific display**
+**列出指定显示器上的字体**
 
 ```xlsfonts -display [hostname:0]```
 
-**List fonts one per line**
+**每行一个字体列出**
 
 ```xlsfonts -1```
 
-**Count available fonts**
+**统计可用字体的数量**
 
 ```xlsfonts | wc -l```
 
-**List monospace fonts**
+**列出等宽字体**
 
 ```xlsfonts -fn "*-m-*"```
 
@@ -39,54 +39,54 @@ List available X11 fonts
 # PARAMETERS
 
 **-display** _HOST:DISPLAY_
-> Connect to specified X display.
+> 连接到指定的 X 显示器。
 
 **-fn** _PATTERN_
-> List only fonts matching pattern (wildcards supported).
+> 仅列出匹配模式的字体（支持通配符）。
 
 **-l**
-> List fonts with minimal attributes.
+> 以最少属性列出字体。
 
 **-ll**
-> List fonts with more attributes.
+> 列出字体并显示更多属性。
 
 **-lll**
-> List fonts with all attributes.
+> 列出字体并显示全部属性。
 
 **-m**
-> Use maximum output width (usually 79 columns).
+> 使用最大输出宽度（通常为 79 列）。
 
 **-C**
-> Use multiple columns.
+> 使用多列输出。
 
 **-1**
-> Force single column output.
+> 强制单列输出。
 
 **-w** _WIDTH_
-> Maximum width for multi-column output.
+> 多列输出的最大宽度。
 
 **-n** _COLUMNS_
-> Number of columns.
+> 列数。
 
 **-u**
-> Leave output unsorted.
+> 不对输出排序。
 
 **-o**
-> Use OpenFont/QueryFont instead of ListFonts.
+> 使用 OpenFont/QueryFont 而不是 ListFonts。
 
 # DESCRIPTION
 
-**xlsfonts** lists fonts available from the X server's font path. By default, it lists all fonts in multiple columns. Font names follow the X Logical Font Description (XLFD) convention with fields for foundry, family, weight, slant, width, style, pixel size, point size, resolution, spacing, average width, and character set.
+**xlsfonts** 列出 X server 字体路径中可用的字体。默认以多列方式列出所有字体。字体名称遵循 X Logical Font Description（XLFD）约定，包含铸造方、字族、字重、倾斜、宽度、样式、像素大小、点数大小、分辨率、间距、平均宽度和字符集等字段。
 
-Patterns can include wildcards (* matches any string, ? matches single character). Common pattern uses filter by family (-fn "*helvetica*"), spacing (-fn "*-m-*" for monospace), or size.
+模式中可以包含通配符（* 匹配任意字符串，? 匹配单个字符）。常见用法包括按字族过滤（-fn "*helvetica*"）、按间距过滤（-fn "*-m-*" 表示等宽）或按大小过滤。
 
 # CAVEATS
 
-xlsfonts shows X11 core fonts only, not modern fontconfig/Xft fonts used by most applications. The output can be extensive on systems with many fonts installed. Font paths and availability depend on X server configuration.
+xlsfonts 只显示 X11 核心字体，不包括大多数应用使用的现代 fontconfig/Xft 字体。在安装了大量字体的系统上，输出可能非常庞大。字体路径和可用性取决于 X server 配置。
 
 # HISTORY
 
-xlsfonts has been part of the X Window System utilities since the early X11 releases in the late 1980s. While modern applications typically use fontconfig and Xft for antialiased font rendering, xlsfonts remains useful for diagnosing X11 core font availability and for legacy applications.
+xlsfonts 自 20 世纪 80 年代末最早的 X11 版本起就是 X Window System 工具的一部分。虽然现代应用通常使用 fontconfig 和 Xft 进行抗锯齿字体渲染，但 xlsfonts 在诊断 X11 核心字体可用性以及支持遗留应用方面仍然有用。
 
 # INSTALL
 

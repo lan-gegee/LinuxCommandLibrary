@@ -1,22 +1,22 @@
 # TAGLINE
 
-ZFS event monitoring daemon
+ZFS 事件监控守护进程
 
 # TLDR
 
-**Start zed in foreground mode**
+**以前台模式启动 zed**
 
 ```sudo zed -F```
 
-**Start zed with verbose output**
+**以详细输出启动 zed**
 
 ```sudo zed -v```
 
-**Run in foreground without state file**
+**在前台运行且不使用状态文件**
 
 ```sudo zed -M```
 
-**Specify alternative config directory**
+**指定替代的配置目录**
 
 ```sudo zed -d [/etc/zfs/zed.d]```
 
@@ -27,60 +27,60 @@ ZFS event monitoring daemon
 # PARAMETERS
 
 **-c** _conffile_
-> Read configuration from specified file
+> 从指定的文件读取配置
 
 **-d** _confdir_
-> Read enabled scripts from directory (default: /etc/zfs/zed.d)
+> 从目录读取已启用的脚本（默认：/etc/zfs/zed.d）
 
 **-F**
-> Run in foreground, don't daemonize
+> 在前台运行，不守护进程化
 
 **-h**
-> Display help message
+> 显示帮助信息
 
 **-I** _idle_
-> Idle timeout in seconds for script execution
+> 脚本执行的空闲超时时间（秒）
 
 **-M**
-> Ignore missing state file
+> 忽略缺失的状态文件
 
 **-p** _pidfile_
-> Write process ID to file
+> 将进程 ID 写入文件
 
 **-P** _path_
-> Set PATH for script execution
+> 为脚本执行设置 PATH
 
 **-s** _statefile_
-> Write state to file
+> 将状态写入文件
 
 **-v**
-> Verbose mode, log events to stderr
+> 详细模式，将事件记录到 stderr
 
 **-V**
-> Display version
+> 显示版本
 
 # DESCRIPTION
 
-**zed** (ZFS Event Daemon) monitors ZFS kernel events and executes scripts in response. It listens for events like scrub completion, device failures, pool imports, and data errors, then runs corresponding handler scripts.
+**zed**（ZFS Event Daemon）监控 ZFS 内核事件并执行脚本作为响应。它监听诸如 scrub 完成、设备故障、存储池导入和数据错误等事件，然后运行相应的处理脚本。
 
-Scripts are stored in **/etc/zfs/zed.d/** with naming convention **event-name.sh**. Enabled scripts are symlinked to be active. Common events include:
+脚本存放在 **/etc/zfs/zed.d/** 中，命名约定为 **事件名.sh**。被启用的脚本通过符号链接激活。常见事件包括：
 
-- **resilver.finish** - Resilver completed
-- **scrub.finish** - Scrub completed
-- **statechange** - Pool state changed
-- **data** - Data errors detected
+- **resilver.finish** - 重建（resilver）完成
+- **scrub.finish** - 清理（scrub）完成
+- **statechange** - 存储池状态改变
+- **data** - 检测到数据错误
 
-zed enables automated responses to ZFS events like sending email notifications on errors or running custom maintenance scripts.
+zed 可以自动响应 ZFS 事件，例如在出错时发送电子邮件通知或运行自定义维护脚本。
 
 # CAVEATS
 
-zed must run as root to receive kernel events and access pool information.
+zed 必须 root 身份运行才能接收内核事件和访问存储池信息。
 
-Script execution is serialized by default. Long-running scripts can delay processing of subsequent events.
+脚本执行默认是串行的。长时间运行的脚本会延迟后续事件的处理。
 
-Poorly written event scripts can cause system issues. Test scripts thoroughly before enabling.
+编写不佳的事件脚本可能导致系统问题。启用前请充分测试脚本。
 
-On systemd systems, zed typically runs as a systemd service (zfs-zed.service).
+在 systemd 系统上，zed 通常作为 systemd 服务运行（zfs-zed.service）。
 
 # INSTALL
 

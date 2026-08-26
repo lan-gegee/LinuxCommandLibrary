@@ -1,10 +1,10 @@
 # TAGLINE
 
-Browse Wikipedia from your terminal
+在终端中浏览 Wikipedia
 
 # TLDR
 
-**Launch the Wikipedia browser**
+**启动 Wikipedia 浏览器**
 
 ```wiki-tui```
 
@@ -14,11 +14,11 @@ Browse Wikipedia from your terminal
 
 # DESCRIPTION
 
-**wiki-tui** is a simple and fast Wikipedia TUI client. It provides rich search results with previews, article viewing with functioning links and formatted text, table of contents with section jumping, layered article navigation, and vim-like keybindings. Supports multiple Wikipedia languages.
+**wiki-tui** 是一个简洁快速的 Wikipedia TUI 客户端。它提供带预览的丰富搜索结果、支持可点击链接和格式化文本的文章查看、可跳转章节的目录、分层式文章导航以及类似 vim 的按键绑定。支持多种 Wikipedia 语言版本。
 
 # HISTORY
 
-**wiki-tui** was created by **Builditluc** and is written in **Rust**.
+**wiki-tui** 由 **Builditluc** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

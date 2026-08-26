@@ -1,38 +1,38 @@
 # TAGLINE
 
-Rank local LLMs that actually run well on your hardware
+对能在你的硬件上流畅运行的本地 LLM 进行排名
 
 # TLDR
 
-**Detect hardware and list** the best-fit local models
+**检测硬件并列出**最适合的本地模型
 
 ```whichllm```
 
-**Show only your detected hardware**
+**仅显示检测到的硬件**
 
 ```whichllm hardware```
 
-**Restrict ranking to CPU-only** machines
+**将排名限制在仅用 CPU** 的机器上
 
 ```whichllm --cpu-only```
 
-**Simulate a specific GPU** for purchase planning
+**模拟特定 GPU** 以便规划购买
 
 ```whichllm --gpu "[RTX 4090]"```
 
-**Plan in reverse**: what GPU runs a given model
+**反向规划**：运行给定模型需要什么 GPU
 
 ```whichllm plan [model_name]```
 
-**Download a model and chat** with it interactively
+**下载模型并交互式对话**
 
 ```whichllm run [model_name]```
 
-**Print a Python snippet** for using a model
+**打印使用模型的 Python 代码片段**
 
 ```whichllm snippet [model_name]```
 
-**Emit JSON** for scripting
+**输出 JSON** 供脚本使用
 
 ```whichllm --json```
 
@@ -43,65 +43,65 @@ Rank local LLMs that actually run well on your hardware
 # PARAMETERS
 
 **hardware**
-> Print detected GPU, CPU, RAM, and OS information without ranking models.
+> 打印检测到的 GPU、CPU、内存、操作系统信息，不对模型排名。
 
 **run** _model_
-> Download _model_ via Ollama and start an interactive chat session.
+> 通过 Ollama 下载 _model_ 并启动交互式聊天会话。
 
 **plan** _model_
-> Reverse lookup: estimate which GPU or RAM tier is needed to run _model_ at usable speed.
+> 反向查询：估算以可用速度运行 _model_ 需要哪一档 GPU 或内存。
 
 **snippet** _model_
-> Print a ready-to-paste Python snippet that loads _model_ from HuggingFace or Ollama.
+> 打印一段可直接粘贴的 Python 代码，用于从 HuggingFace 或 Ollama 加载 _model_。
 
 **--gpu** _name_
-> Override hardware detection and rank as if running on the named GPU (e.g. "RTX 4090").
+> 覆盖硬件检测，按指定的 GPU（如 "RTX 4090"）进行排名。
 
 **--cpu-only**
-> Restrict ranking to models that run acceptably without a GPU.
+> 将排名限制在没有 GPU 也能可接受速度运行的模型。
 
 **--top** _N_
-> Show the top _N_ ranked models instead of the default short list.
+> 显示排名前 _N_ 的模型，而非默认的精简列表。
 
 **--quant** _type_
-> Filter results by quantization (e.g. _Q4_K_M_, _Q5_K_M_, _Q8_0_, _fp16_).
+> 按量化方式过滤结果（如 _Q4_K_M_、_Q5_K_M_、_Q8_0_、_fp16_）。
 
 **--profile** _use_case_
-> Bias ranking towards a specific profile (_coding_, _vision_, _math_, _general_).
+> 使排名偏向特定用途（_coding_ 编程、_vision_ 视觉、_math_ 数学、_general_ 通用）。
 
 **--json**
-> Emit machine-readable JSON instead of the formatted table.
+> 输出机器可读的 JSON 而非格式化表格。
 
 **--refresh**
-> Bypass the local cache and refetch benchmark data.
+> 绕过本地缓存并重新拉取基准测试数据。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 # DESCRIPTION
 
-**whichllm** detects local hardware (GPU model and VRAM, CPU, RAM, OS) and ranks open-weight large language models from **HuggingFace** and **Ollama** by how well they will actually run on that machine. Instead of treating "fits in VRAM" as the only criterion, it combines a fit check with **recency-aware benchmark** scores from sources such as **LiveBench**, **Artificial Analysis**, **Aider**, and the **Chatbot Arena** ELO leaderboard, and applies penalties for quantization, partial offload, and MoE architectures.
+**whichllm** 会检测本地硬件（GPU 型号与显存、CPU、内存、操作系统），并对来自 **HuggingFace** 和 **Ollama** 的开放权重大型语言模型进行排名，衡量它们在这台机器上的实际运行效果。它并非只把"能否塞进显存"当作唯一标准，而是将适配性检查与来自 **LiveBench**、**Artificial Analysis**、**Aider** 和 **Chatbot Arena** ELO 排行榜等来源的**考虑时效性的基准测试**分数相结合，并对量化、部分卸载和 MoE 架构施加惩罚。
 
-The tool is designed for the common practical question "which model should I download tonight" rather than for marketing claims. The default invocation prints a short ranked table; subcommands extend the same engine to launch interactive sessions, plan hardware upgrades, or emit code snippets for direct integration.
+该工具面向常见的实际问题——"今晚该下载哪个模型"，而不是营销宣传。默认调用会打印一个简短的排名表；子命令扩展了同一引擎，可用于启动交互式会话、规划硬件升级，或输出便于直接集成的代码片段。
 
 # CONFIGURATION
 
 **~/.cache/whichllm/**
-> Cached benchmark snapshots; cleared by **--refresh**.
+> 缓存的基准测试快照；可通过 **--refresh** 清除。
 
 **Ollama**
-> When present, **whichllm run** delegates model download and serving to a local Ollama daemon.
+> 如果存在，**whichllm run** 会把模型下载与服务交给本地 Ollama 守护进程处理。
 
 # CAVEATS
 
-Rankings depend on third-party benchmarks; new models appear before their scores stabilise, so use **--refresh** if a recent release is missing. Hardware detection works best on NVIDIA, AMD, and Apple Silicon; exotic accelerators may fall back to CPU-only estimates. The tool only recommends models — it does not enforce licensing constraints on the suggested weights.
+排名依赖第三方基准测试；新模型会在其分数稳定之前出现，如果缺少近期发布的模型请使用 **--refresh**。硬件检测在 NVIDIA、AMD 和 Apple Silicon 上效果最佳；特殊加速器可能会退回到仅 CPU 的估算。该工具只推荐模型——它不会对建议的权重强制执行许可约束。
 
 # HISTORY
 
-**whichllm** was published in **2025** by **Andyyyy64** as a Python utility distributed via **uv**, **pip**, and **Homebrew**. It emerged as the local-LLM ecosystem fragmented across HuggingFace, Ollama, and dozens of quantization formats, where simply checking VRAM size was no longer enough to pick a usable model. The project has continued to track new releases and benchmark updates through **v0.5.x** (2026).
+**whichllm** 由 **Andyyyy64** 于 **2025 年**发布，是一个通过 **uv**、**pip** 和 **Homebrew** 分发的 Python 工具。它的诞生源于本地 LLM 生态在 HuggingFace、Ollama 和数十种量化格式之间的碎片化，彼时仅仅查看显存大小已不足以挑选出可用的模型。截至 **v0.5.x**（2026 年），该项目仍在持续跟踪新发布和基准测试更新。
 
 # INSTALL
 

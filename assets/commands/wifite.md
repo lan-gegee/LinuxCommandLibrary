@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automated wireless network security auditing
+自动化无线网络安全审计
 
 # TLDR
 
-**Start wifite** in interactive mode
+以交互模式**启动 wifite**
 
 ```sudo wifite```
 
-**Target only WPA networks**
+**只针对 WPA 网络**
 
 ```sudo wifite --wpa```
 
-**Target only WPS-enabled networks**
+**只针对启用 WPS 的网络**
 
 ```sudo wifite --wps```
 
-**Specify wireless interface**
+**指定无线网卡接口**
 
 ```sudo wifite -i [wlan0]```
 
-**Attack networks with minimum signal strength**
+**攻击信号强度不低于阈值的网络**
 
 ```sudo wifite --power [50]```
 
-**Target specific network** by ESSID
+按 ESSID **指定目标网络**
 
 ```sudo wifite --essid "[NetworkName]"```
 
-**Use specific wordlist** for cracking
+破解时**使用指定的字典文件**
 
 ```sudo wifite --dict [/path/to/wordlist.txt]```
 
-**Scan 5GHz channels**
+**扫描 5GHz 信道**
 
 ```sudo wifite --5ghz```
 
@@ -43,83 +43,83 @@ Automated wireless network security auditing
 # PARAMETERS
 
 **-i** _INTERFACE_
-> Wireless interface to use
+> 要使用的无线网卡接口
 
 **-c** _CHANNEL_
-> Channel(s) to scan (e.g., 1,3-6)
+> 要扫描的信道（如 1,3-6）
 
 **-5**, **--5ghz**
-> Include 5GHz channels
+> 包含 5GHz 信道
 
 **-p** _POWER_, **--power** _POWER_
-> Minimum signal strength (dBm)
+> 最小信号强度（dBm）
 
 **--essid** _NAME_
-> Target specific network by name
+> 按名称指定目标网络
 
 **--bssid** _MAC_
-> Target specific network by MAC address
+> 按 MAC 地址指定目标网络
 
 **--wpa**
-> Target only WPA-encrypted networks
+> 只针对 WPA 加密的网络
 
 **--wps**
-> Target only WPS-enabled networks
+> 只针对启用 WPS 的网络
 
 **--wep**
-> Target only WEP-encrypted networks
+> 只针对 WEP 加密的网络
 
 **--dict** _FILE_
-> Wordlist for password cracking
+> 用于密码破解的字典文件
 
 **--pmkid**
-> Use PMKID capture attack
+> 使用 PMKID 捕获攻击
 
 **--new-hs**
-> Capture new handshake, ignore existing
+> 捕获新的握手包，忽略已有的
 
 **--pixie**
-> Use Pixie Dust attack on WPS
+> 对 WPS 使用 Pixie Dust 攻击
 
 **--bully**
-> Use Bully for WPS attacks
+> 使用 Bully 进行 WPS 攻击
 
 **--reaver**
-> Use Reaver for WPS attacks
+> 使用 Reaver 进行 WPS 攻击
 
 **--clients-only**
-> Only show networks with clients
+> 仅显示有客户端的网络
 
 **--nodeauths**
-> Passive mode; no deauthentication
+> 被动模式；不进行去认证攻击
 
 **--daemon**
-> Return interface to managed mode on exit
+> 退出时将网卡恢复为管理模式
 
 **--infinite**
-> Enable infinite attack mode
+> 启用无限攻击模式
 
 **-v**, **--verbose**
-> Show more output and commands
+> 显示更多输出和命令
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 # DESCRIPTION
 
-**wifite** is an automated wireless network auditing tool that simplifies Wi-Fi security testing. It automates scanning for networks, capturing handshakes, and attempting to crack passwords using various attack methods.
+**wifite** 是一款自动化无线网络审计工具，简化了 Wi-Fi 安全测试。它自动完成网络扫描、握手包捕获，并尝试使用多种攻击方法破解密码。
 
-The tool supports multiple attack vectors: WPA handshake capture with dictionary attacks, WPS PIN brute-forcing, Pixie Dust attacks against vulnerable WPS implementations, and legacy WEP attacks. It integrates with tools like Aircrack-ng, Reaver, Bully, and Hashcat.
+该工具支持多种攻击向量：WPA 握手捕获配合字典攻击、WPS PIN 暴力破解、针对存在漏洞的 WPS 实现的 Pixie Dust 攻击，以及传统的 WEP 攻击。它与 Aircrack-ng、Reaver、Bully 和 Hashcat 等工具集成。
 
-Wifite handles putting the wireless adapter into monitor mode, scanning for targets, and sequentially attempting attacks. Results are displayed in an interactive interface that shows network details and attack progress.
+Wifite 负责将无线网卡置于监听模式、扫描目标，并依次尝试攻击。结果通过交互式界面展示，显示网络详情和攻击进度。
 
 # CAVEATS
 
-Requires a wireless adapter supporting monitor mode and packet injection. Root privileges are required. Only test networks you own or have explicit permission to audit—unauthorized access is illegal. Some attacks (deauthentication) disrupt legitimate network users. Success depends on network configuration and password complexity.
+需要支持监听模式和包注入的无线网卡。需要 root 权限。只应测试你拥有或有明确授权审计的网络——未经授权的访问是违法的。某些攻击（去认证）会影响合法的网络用户。成功率取决于网络配置和密码复杂度。
 
 # HISTORY
 
-Wifite was originally created by **derv82** to automate common Wi-Fi auditing tasks that previously required manual use of multiple tools. Wifite2, a complete rewrite, added Python 3 support, improved attack methods, and better handling of modern wireless security. The tool became popular in the security community for penetration testing and is included by default in Kali Linux.
+Wifite 最初由 **derv82** 创建，旨在自动完成以前需要手动使用多个工具的常见 Wi-Fi 审计任务。完全重写的 Wifite2 增加了 Python 3 支持、改进了攻击方法，并更好地应对现代无线安全机制。该工具因渗透测试而在安全社区广受欢迎，并默认包含在 Kali Linux 中。
 
 # INSTALL
 

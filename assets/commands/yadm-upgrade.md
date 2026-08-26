@@ -1,10 +1,10 @@
 # TAGLINE
 
-Migrate yadm configuration version
+迁移 yadm 配置版本
 
 # TLDR
 
-**Upgrade yadm configuration**
+**升级 yadm 配置**
 
 ```yadm upgrade```
 
@@ -14,13 +14,13 @@ Migrate yadm configuration version
 
 # DESCRIPTION
 
-**yadm upgrade** migrates an existing yadm installation to the layout used by the current version. In particular, it relocates the yadm repository and configuration from the legacy **~/.yadm** directory to the XDG-compliant locations under **$XDG_DATA_HOME/yadm** and **$XDG_CONFIG_HOME/yadm** (typically **~/.local/share/yadm** and **~/.config/yadm**).
+**yadm upgrade** 将现有的 yadm 安装迁移到当前版本所使用的布局。具体而言，它会把 yadm 仓库和配置从旧式的 **~/.yadm** 目录迁移到符合 XDG 规范的位置，即 **$XDG_DATA_HOME/yadm** 和 **$XDG_CONFIG_HOME/yadm**（通常是 **~/.local/share/yadm** 与 **~/.config/yadm**）。
 
-It also normalizes encrypted file storage and other on-disk layouts that have changed across yadm releases. Run this once after upgrading yadm so subsequent commands find files in the expected places.
+它还会规范化加密文件存储以及其他在 yadm 各版本间发生变化的磁盘布局。在升级 yadm 之后运行一次该命令，后续命令才能在预期的位置找到文件。
 
 # CAVEATS
 
-The upgrade is a one-time, mostly idempotent operation; running it on an already-upgraded repository is safe but performs no work. Back up your dotfiles repository before running it on systems with custom yadm hooks or unusual configurations.
+升级是一次性的、基本幂等的操作；对已升级过的仓库再次运行是安全的，但不会做任何事。在使用了自定义 yadm 钩子或特殊配置的系统上运行之前，请先备份你的 dotfiles 仓库。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ The upgrade is a one-time, mostly idempotent operation; running it on an already
 # SEE ALSO
 
 [yadm](/man/yadm)(1), [git](/man/git)(1)
-

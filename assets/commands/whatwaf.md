@@ -1,26 +1,26 @@
 # TAGLINE
 
-Web Application Firewall detection and bypass
+Web 应用防火墙检测与绕过
 
 # TLDR
 
-**Detect WAF**
+**检测 WAF**
 
 ```whatwaf -u [https://example.com]```
 
-**From file**
+**从文件读取 URL**
 
 ```whatwaf -l [urls.txt]```
 
-**Use Tor**
+**使用 Tor**
 
 ```whatwaf -u [url] --tor```
 
-**Specific payloads**
+**指定 payload**
 
 ```whatwaf -u [url] --payload "[<script>]"```
 
-**JSON output**
+**JSON 输出**
 
 ```whatwaf -u [url] --json```
 
@@ -31,38 +31,38 @@ Web Application Firewall detection and bypass
 # PARAMETERS
 
 **-u** _URL_
-> Target URL.
+> 目标 URL。
 
 **-l** _FILE_
-> URL list file.
+> URL 列表文件。
 
 **--tor**
-> Use Tor network.
+> 使用 Tor 网络。
 
 **--payload** _PAY_
-> Custom payload.
+> 自定义 payload。
 
 **--json**
-> JSON output.
+> JSON 输出。
 
 **--tamper** _SCRIPT_
-> Tamper script.
+> Tamper 脚本。
 
 # DESCRIPTION
 
-**whatwaf** is a security tool that detects Web Application Firewalls (WAFs) protecting websites and suggests potential bypass techniques. It sends various payloads to the target and analyzes responses to fingerprint the specific WAF product in use.
+**whatwaf** 是一款安全工具，用于检测保护网站的 Web 应用防火墙（WAF），并给出潜在的绕过技术。它向目标发送各种 payload 并分析响应，从而识别所使用的 WAF 产品。
 
-Beyond detection, whatwaf provides tamper scripts and evasion suggestions tailored to the identified WAF, helping penetration testers understand what protections they need to work around during authorized assessments. Custom payloads can be specified for targeted testing.
+除检测之外，whatwaf 还针对识别出的 WAF 提供 tamper 脚本和规避建议，帮助渗透测试人员了解在授权评估中需要绕过哪些防护。可以指定自定义 payload 进行针对性测试。
 
-The tool supports batch scanning from URL files, Tor network routing for anonymous testing, and JSON output for integration with other security tools. It is intended exclusively for authorized security testing and research.
+该工具支持从 URL 文件批量扫描、通过 Tor 网络路由实现匿名测试，以及 JSON 输出以便与其他安全工具集成。它仅用于经授权的安全测试和研究。
 
 # CAVEATS
 
-Authorized testing only. May trigger alerts. Python required.
+仅限经授权的测试。可能触发告警。需要 Python。
 
 # HISTORY
 
-**WhatWaf** was created for identifying Web Application Firewalls and suggesting bypass techniques.
+**WhatWaf** 的创建目的是识别 Web 应用防火墙并给出绕过技术建议。
 
 # SEE ALSO
 

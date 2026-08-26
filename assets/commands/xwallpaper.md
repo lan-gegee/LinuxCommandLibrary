@@ -1,34 +1,34 @@
 # TAGLINE
 
-Lightweight X11 wallpaper setter
+轻量级 X11 壁纸设置工具
 
 # TLDR
 
-**Set wallpaper centered**
+**居中设置壁纸**
 
 ```xwallpaper --center [image.jpg]```
 
-**Set wallpaper zoomed to fill**
+**缩放填满设置壁纸**
 
 ```xwallpaper --zoom [image.jpg]```
 
-**Stretch to fit screen**
+**拉伸以适应屏幕**
 
 ```xwallpaper --stretch [image.jpg]```
 
-**Tile wallpaper**
+**平铺壁纸**
 
 ```xwallpaper --tile [image.png]```
 
-**Set for specific output**
+**为特定输出设置**
 
 ```xwallpaper --output [HDMI-1] --zoom [image.jpg]```
 
-**Different wallpapers per output**
+**每个输出使用不同壁纸**
 
 ```xwallpaper --output [HDMI-1] --zoom [wall1.jpg] --output [eDP-1] --center [wall2.jpg]```
 
-**Run as daemon** for output changes
+以守护进程方式**运行**以响应输出变化
 
 ```xwallpaper --daemon --zoom [image.jpg]```
 
@@ -39,67 +39,67 @@ Lightweight X11 wallpaper setter
 # PARAMETERS
 
 **--center** _file_
-> Center image without scaling.
+> 居中显示图片，不缩放。
 
 **--zoom** _file_
-> Zoom to fill, cropping if needed.
+> 缩放至填满，必要时裁剪。
 
 **--maximize** _file_
-> Scale to fit without cropping.
+> 缩放以适应屏幕，不裁剪。
 
 **--stretch** _file_
-> Stretch to fill, ignoring aspect ratio.
+> 拉伸填满，忽略宽高比。
 
 **--tile** _file_
-> Tile image from upper left.
+> 从左上角开始平铺图片。
 
 **--focus** _file_
-> Focus on selection with --trim.
+> 配合 --trim 聚焦于选定区域。
 
 **--output** _name_
-> Target specific output (use xrandr to list).
+> 定位到特定输出（可用 xrandr 列出）。
 
 **--screen** _screen_
-> Target specific X screen.
+> 定位到特定的 X screen。
 
 **--trim** _WxH[+X+Y]_
-> Trim input image.
+> 裁剪输入图像。
 
 **--daemon**
-> Redraw on output changes.
+> 输出变化时重新绘制。
 
 **--clear**
-> Clear wallpaper.
+> 清除壁纸。
 
 **--no-randr**
-> Disable RandR support.
+> 禁用 RandR 支持。
 
 **--no-atoms**
-> Don't set wallpaper atoms.
+> 不设置壁纸 atom。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--version**
-> Display version.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**xwallpaper** is a wallpaper setting utility for X11. It supports JPEG, PNG, and XPM formats with various scaling modes to fit different display configurations.
+**xwallpaper** 是一款 X11 壁纸设置工具。它支持 JPEG、PNG 和 XPM 格式，并提供多种缩放模式以适应不同的显示配置。
 
-The tool supports multi-monitor setups through RandR, allowing different wallpapers per output. In daemon mode, it monitors output changes and redraws wallpapers automatically when displays are connected or resized.
+该工具通过 RandR 支持多显示器设置，可以为每个输出设置不同的壁纸。守护进程模式下，它会监视输出变化，并在显示器连接或分辨率改变时自动重绘壁纸。
 
-Wallpaper atoms are set to support semi-transparent backgrounds in compatible applications.
+它会设置壁纸 atom，以支持兼容应用中的半透明背景。
 
-For Wayland, consider using swaybg or wbg instead.
+Wayland 下请改用 swaybg 或 wbg。
 
 # CAVEATS
 
-X11 only; won't work under pure Wayland. Daemon mode requires RandR support. Image formats depend on build configuration. Some window managers may override wallpaper.
+仅支持 X11；纯 Wayland 环境下无法工作。守护进程模式需要 RandR 支持。图像格式取决于编译配置。某些窗口管理器可能会覆盖壁纸。
 
 # HISTORY
 
-**xwallpaper** was created by Tobias Stoeckmann as a lightweight, dependency-minimal wallpaper setter for X11. It focuses on correctness and minimal resource usage compared to larger tools like feh.
+**xwallpaper** 由 Tobias Stoeckmann 创建，是一款轻量、依赖极少的 X11 壁纸设置工具。与 feh 等大型工具相比，它更注重正确性和最小的资源占用。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI application for exploring Kafka cluster data
+用于浏览 Kafka 集群数据的 TUI 应用
 
 # TLDR
 
-**Launch the Kafka explorer TUI**
+**启动 Kafka 浏览器 TUI**
 
 ```yozefu```
 
-**Run in headless CLI mode**
+**以无界面 CLI 模式运行**
 
 ```yozefu --headless --topic [my-topic]```
 
-**Connect to a specific cluster**
+**连接到特定集群**
 
 ```yozefu --cluster [my-cluster]```
 
@@ -22,11 +22,11 @@ TUI application for exploring Kafka cluster data
 
 # DESCRIPTION
 
-**yozefu** is an interactive terminal application for browsing and searching data in Kafka clusters. It features a SQL-inspired query language for filtering records, a headless mode for shell scripts, WebAssembly-based user-defined filtering functions, and a ring buffer storing the last 500 records.
+**yozefu** 是一个交互式终端应用，用于浏览和搜索 Kafka 集群中的数据。它具有类 SQL 的查询语言用于过滤记录、面向 Shell 脚本的无界面模式、基于 WebAssembly 的用户自定义过滤函数，以及存储最近 500 条记录的环形缓冲区。
 
 # HISTORY
 
-**yozefu** was created by **Yann Prono** (MAIF) and is written in **Rust**.
+**yozefu** 由 **Yann Prono**（MAIF）创建，以 **Rust** 编写。
 
 # INSTALL
 

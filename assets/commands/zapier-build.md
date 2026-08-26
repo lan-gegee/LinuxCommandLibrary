@@ -1,10 +1,10 @@
 # TAGLINE
 
-Build Zapier integration for deployment
+构建 Zapier 集成以便部署
 
 # TLDR
 
-**Build integration**
+**构建集成**
 
 ```zapier build```
 
@@ -14,9 +14,8 @@ Build Zapier integration for deployment
 
 # DESCRIPTION
 
-**zapier build** compiles a Zapier integration for deployment. Builds source files into deployable format. Run before push to verify build succeeds.
+**zapier build** 编译 Zapier 集成以备部署，将源码文件构建为可部署的格式。可在 push 之前运行以确认构建成功。
 
 # SEE ALSO
 
 [zapier](/man/zapier)(1), [zapier-push](/man/zapier-push)(1)
-

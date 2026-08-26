@@ -1,34 +1,34 @@
 # TAGLINE
 
-Simple xargs and apply replacement
+简单的 xargs 和 apply 替代品
 
 # TLDR
 
-**Run command for each line of stdin**
+**为 stdin 的每一行运行命令**
 
 ```cat [list.txt] | xe [command]```
 
-**Use {} as placeholder for the argument**
+**使用 {} 作为参数占位符**
 
 ```cat [list.txt] | xe [command] {}```
 
-**Parallel execution with N jobs**
+**以 N 个作业并行执行**
 
 ```cat [urls.txt] | xe -j [4] curl {}```
 
-**Pass arguments directly after --**
+**在 -- 之后直接传递参数**
 
 ```xe -a -- mv {} {}.bak -- [file1] [file2]```
 
-**Null-separated input (for filenames with spaces)**
+**以 null 分隔的输入**（用于带空格的文件名）
 
 ```find . -print0 | xe -0 echo {}```
 
-**Pass up to N arguments per command**
+**每条命令最多传 N 个参数**
 
 ```xe -N [10] rm -- [*.txt]```
 
-**Dry-run: print commands without executing**
+**Dry-run：只打印命令而不执行**
 
 ```cat list.txt | xe -n [command] {}```
 
@@ -38,66 +38,66 @@ Simple xargs and apply replacement
 
 # DESCRIPTION
 
-**xe** is a tool for constructing command lines from file listings or arguments, combining the best features of **xargs**(1) and **apply**(1). By default it runs the given command once per input line, substituting **{}** with the argument, making common use cases simpler than **xargs**.
+**xe** 是一款从文件列表或参数构建命令行的工具，结合了 **xargs**(1) 和 **apply**(1) 的最佳特性。默认情况下它对每个输入行运行一次给定命令，并将 **{}** 替换为该参数，使常见用法比 **xargs** 更简单。
 
-Unlike xargs, xe has sane defaults: it is equivalent to `xargs -d'\n' -I{} -n1 -r`. Arguments can be read from stdin (default), from a file with **-f**, or directly from the command line after **-a**.
+与 xargs 不同，xe 的默认行为很合理：等价于 `xargs -d'\n' -I{} -n1 -r`。参数可以从 stdin（默认）、通过 **-f** 从文件、或通过 **-a** 直接从命令行读取。
 
-**xe** supports parallel execution with **-j**, make-style percent rule matching with **-p**, and can invoke a shell script per argument with **-s**.
+**xe** 支持通过 **-j** 并行执行、通过 **-p** 进行 make 风格的百分号规则匹配，并可通过 **-s** 对每个参数调用一个 shell 脚本。
 
 # PARAMETERS
 
 **-0**
-> Input arguments are separated by NUL bytes instead of newlines. Useful with `find -print0`.
+> 输入参数以 NUL 字节而不是换行符分隔。配合 `find -print0` 很有用。
 
 **-a**
-> Take arguments from the command line (after the command, separated by **--**) instead of stdin.
+> 从命令行获取参数（位于命令之后，以 **--** 分隔），而不是从 stdin 获取。
 
 **-A** _argsep_
-> Use a custom argument separator instead of **--** (implies **-a**).
+> 使用自定义参数分隔符代替 **--**（隐含 **-a**）。
 
 **-f** _argfile_
-> Read arguments from _argfile_ instead of stdin.
+> 从 _argfile_ 读取参数而不是 stdin。
 
 **-F**
-> Fatal: stop and exit when a command execution fails.
+> Fatal：命令执行失败时停止并退出。
 
 **-I** _replace-arg_
-> Set the replacement string (default: **{}**).
+> 设置替换字符串（默认：**{}**）。
 
 **-j** _maxjobs_
-> Run up to _maxjobs_ processes concurrently.
+> 最多并发运行 _maxjobs_ 个进程。
 
 **-L**
-> Line-buffered output so lines from concurrent jobs do not interleave.
+> 按行缓冲输出，使并发作业的输出行不会交错。
 
 **-N** _maxargs_
-> Pass up to _maxargs_ arguments to each command invocation (default: **1**).
+> 每次命令调用最多传入 _maxargs_ 个参数（默认：**1**）。
 
 **-n**
-> Dry-run: print the commands that would be executed without running them.
+> Dry-run：打印将要执行的命令而不实际运行。
 
 **-p**
-> Make-style percent rule matching for pattern-dispatched commands.
+> 用于按模式分发命令的 make 风格百分号规则匹配。
 
 **-q**
-> Quiet: redirect stdout/stderr of commands to /dev/null.
+> 安静模式：将命令的 stdout/stderr 重定向到 /dev/null。
 
 **-R**
-> Return exit status 122 when no arguments are supplied (instead of 0).
+> 未提供任何参数时返回退出状态 122（而不是 0）。
 
 **-s** _shellscript_
-> Execute _shellscript_ via the shell; arguments are available as $1, $2, etc.
+> 通过 shell 执行 _shellscript_；参数可通过 $1、$2 等访问。
 
 **-v**
-> Verbose: print commands to stderr before running them.
+> 详细模式：运行前将命令打印到 stderr。
 
 # CAVEATS
 
-**xe** is distinct from the XenServer **xe** CLI and from xargs despite similar goals. If xargs compatibility is required, flags and behavior may differ (for example xe uses **{}** as placeholder by default and always runs one command per argument unless **-N** is given).
+虽然目标相似，**xe** 与 XenServer 的 **xe** CLI 以及 xargs 都不相同。如果需要 xargs 兼容性，标志和行为可能有差异（例如 xe 默认使用 **{}** 作为占位符，并且在未指定 **-N** 时总是每个参数运行一次命令）。
 
 # HISTORY
 
-**xe** was written by **Leah Neukirchen** as a modernized replacement for **xargs**(1) and **apply**(1) with saner defaults and a cleaner interface. It is distributed as a small, portable C program.
+**xe** 由 **Leah Neukirchen** 编写，作为 **xargs**(1) 和 **apply**(1) 的现代化替代品，拥有更合理的默认值和更简洁的接口。它是一个小巧、可移植的 C 程序。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-X11 authorization credential management
+X11 授权凭据管理
 
 # TLDR
 
-**List all authorization entries**
+**列出所有授权条目**
 
 ```xauth list```
 
-**Display authority file info**
+**显示授权文件信息**
 
 ```xauth info```
 
-**Add an authorization entry**
+**添加一条授权条目**
 
 ```xauth add [display_name] [protocol_name] [hex_key]```
 
-**Generate a new authorization entry via the server**
+**通过服务器生成新的授权条目**
 
 ```xauth generate [display_name] [protocol_name]```
 
-**Remove an authorization entry**
+**移除一条授权条目**
 
 ```xauth remove [display_name]```
 
-**Extract entry for the current display to a file**
+**将当前 display 的条目提取到文件**
 
 ```xauth extract [path/to/file] $DISPLAY```
 
-**Merge entries from a file**
+**合并来自文件的条目**
 
 ```xauth merge [path/to/file]```
 
-**Use a specific authority file**
+**使用指定的授权文件**
 
 ```xauth -f [path/to/file] list```
 
@@ -43,79 +43,79 @@ X11 authorization credential management
 # COMMANDS
 
 **add** _DISPLAY_ _PROTOCOL_ _HEXKEY_
-> Add an authorization entry for the indicated display.
+> 为指定的 display 添加授权条目。
 
 **generate** _DISPLAY_ _PROTOCOL_ [_options_]
-> Contact the server to generate and add an authorization entry.
+> 联系服务器生成并添加授权条目。
 
 **remove** _DISPLAY_
-> Remove matching authorization entries.
+> 移除匹配的授权条目。
 
 **list** [_DISPLAY_]
-> List authorization entries (all if no display specified).
+> 列出授权条目（未指定 display 时列出全部）。
 
 **nlist** [_DISPLAY_]
-> List entries in numeric format.
+> 以数字格式列出条目。
 
 **extract** _FILE_ _DISPLAY_
-> Write authorization entries to a file.
+> 将授权条目写入文件。
 
 **nextract** _FILE_ _DISPLAY_
-> Extract entries in numeric format for non-binary transmission.
+> 以数字格式提取条目，便于非二进制传输。
 
 **merge** _FILE_...
-> Read and merge authorization entries from files.
+> 从文件读取并合并授权条目。
 
 **nmerge** _FILE_...
-> Merge entries in numeric format.
+> 合并以数字格式表示的条目。
 
 **source** _FILE_
-> Execute xauth commands from a script file.
+> 执行脚本文件中的 xauth 命令。
 
 **info**
-> Display information about the authority file.
+> 显示授权文件的相关信息。
 
 **exit**
-> Save changes and exit.
+> 保存更改并退出。
 
 **quit**
-> Exit without saving changes.
+> 不保存更改直接退出。
 
 **help**
-> List available commands.
+> 列出可用命令。
 
 # PARAMETERS
 
 **-f** _FILE_
-> Use the specified authority file instead of ~/.Xauthority.
+> 使用指定的授权文件而不是 ~/.Xauthority。
 
 **-v**
-> Verbose mode. Print status messages for operations.
+> 详细模式。为操作打印状态信息。
 
 **-q**
-> Quiet mode. Suppress unsolicited status messages.
+> 安静模式。抑制主动输出的状态信息。
 
 **-i**
-> Ignore authority file locks.
+> 忽略授权文件锁。
 
 **-b**
-> Attempt to break stale authority file locks.
+> 尝试解除失效的授权文件锁。
 
 **-n**
-> Do not resolve hostnames; display stored addresses directly.
+> 不解析主机名；直接显示存储的地址。
 
 **-V**
-> Display the xauth version number.
+> 显示 xauth 版本号。
 
 # DESCRIPTION
 
-**xauth** edits and displays the authorization information used for connecting to X servers. It manages the ~/.Xauthority file (or the file specified by the XAUTHORITY environment variable) which contains credentials for X11 authentication.
+**xauth** 编辑和显示用于连接 X 服务器的授权信息。它管理 ~/.Xauthority 文件（或 XAUTHORITY 环境变量指定的文件），其中包含用于 X11 身份验证的凭据。
 
-The tool is commonly used to extract authorization records from one machine and merge them on another for remote display access, X11 forwarding over SSH, and managing X security.
+该工具常用于从一台机器提取授权记录并在另一台机器上合并，以便进行远程显示访问、通过 SSH 的 X11 转发以及 X 安全管理。
 
 # CAVEATS
 
-Authority files contain sensitive credentials and should have restrictive permissions (readable only by the owner). X11 forwarding with SSH requires proper xauth setup. The program does not contact the X server except when the `generate` command is used.
+授权文件包含敏感凭据，应设置严格的权限（仅所有者可读）。SSH 的 X11 转发需要正确配置 xauth。除使用 `generate` 命令外，程序不会联系 X 服务器。
 
 # INSTALL
 

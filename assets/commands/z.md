@@ -1,30 +1,30 @@
 # TAGLINE
 
-Jump to frequently used directories
+跳转到常用目录
 
 # TLDR
 
-**Jump to most frecent directory matching pattern**
+**跳转到匹配模式且 frecent 值最高的目录**
 
 ```z [pattern]```
 
-**Jump to directory matching multiple patterns**
+**跳转到匹配多个模式的目录**
 
 ```z [foo] [bar]```
 
-**List matching directories ranked by frecency**
+**按 frecency 排序列出匹配的目录**
 
 ```z -l [pattern]```
 
-**Jump to highest ranked match only**
+**只跳转到排名最高的匹配**
 
 ```z -r [pattern]```
 
-**Jump to most recently accessed match**
+**跳转到最近访问的匹配**
 
 ```z -t [pattern]```
 
-**Remove current directory from database**
+**将当前目录从数据库中移除**
 
 ```z -x```
 
@@ -35,40 +35,40 @@ Jump to frequently used directories
 # PARAMETERS
 
 **-c**
-> Restrict matches to subdirectories of current directory
+> 将匹配限制在当前目录的子目录内
 
 **-h**
-> Show help
+> 显示帮助
 
 **-l**
-> List matches instead of jumping
+> 列出匹配项而不跳转
 
 **-r**
-> Match by rank only (most accessed)
+> 仅按访问频率（rank）匹配
 
 **-t**
-> Match by recency only (most recent)
+> 仅按最近程度（recency）匹配
 
 **-x**
-> Remove current directory from datafile
+> 从数据文件中移除当前目录
 
 # DESCRIPTION
 
-**z** tracks your most used directories and allows you to jump to them with minimal keystrokes. It uses "frecency" - a combination of frequency and recency - to rank directories.
+**z** 会跟踪你最常使用的目录，让你用最少的按键跳转过去。它使用 "frecency"——频率（frequency）与最近度（recency）的结合——来对目录排序。
 
-As you navigate with cd, z learns which directories you visit most. Typing **z foo** jumps to the most frecent directory containing "foo" in its path. Multiple arguments are matched in order: **z foo bar** matches paths containing "foo" followed by "bar".
+当你用 cd 导航时，z 会学习你访问最多的目录。输入 **z foo** 即可跳转到路径中包含 "foo" 的 frecent 值最高的目录。多个参数按顺序匹配：**z foo bar** 匹配路径中先出现 "foo" 后出现 "bar" 的条目。
 
-The database is stored in **~/.z** by default and is updated automatically when changing directories (via a shell hook).
+数据库默认存储在 **~/.z**，在切换目录时通过 shell 钩子自动更新。
 
 # CAVEATS
 
-Requires shell integration. Add **source /path/to/z.sh** to your shell profile (.bashrc, .zshrc) for it to track directories.
+需要 shell 集成。在 shell 配置文件（.bashrc、.zshrc）中加入 **source /path/to/z.sh**，它才能跟踪目录。
 
-New installations start with an empty database. It takes time for z to learn your patterns.
+新安装时数据库为空，z 需要一段时间才能学会你的使用模式。
 
-Matching is case-insensitive by default but can be configured.
+默认大小写不敏感匹配，但可以配置。
 
-Similar tools exist: **zoxide**, **autojump**, **fasd** offer comparable functionality with different features.
+类似工具还有 **zoxide**、**autojump**、**fasd**，功能相近但各有特点。
 
 # INSTALL
 

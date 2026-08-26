@@ -1,30 +1,30 @@
 # TAGLINE
 
-XFCE terminal emulator
+XFCE 终端模拟器
 
 # TLDR
 
-**Open** new terminal
+**打开**新终端
 
 ```xfce4-terminal```
 
-Set **title**
+设置**标题**
 
 ```xfce4-terminal --initial-title "[initial_title]"```
 
-Open new **tab**
+打开新**标签页**
 
 ```xfce4-terminal --tab```
 
-**Execute** command
+**执行**命令
 
 ```xfce4-terminal --command "[command_with_args]"```
 
-Execute and **hold**
+执行并**保持**窗口
 
 ```xfce4-terminal --command "[command_with_args]" --hold```
 
-Open **multiple** tabs
+打开**多个**标签页
 
 ```xfce4-terminal --tab --command "[command1]" --tab --command "[command2]"```
 
@@ -35,35 +35,35 @@ Open **multiple** tabs
 # PARAMETERS
 
 **--initial-title** _TITLE_
-> Set initial window title
+> 设置初始窗口标题
 
 **--tab**
-> Open new tab
+> 打开新标签页
 
 **--command** _COMMAND_
-> Execute command in terminal
+> 在终端中执行命令
 
 **--hold**
-> Keep terminal open after command exits
+> 命令退出后保持终端打开
 
 **--working-directory** _DIR_
-> Set working directory
+> 设置工作目录
 
 **--geometry** _WxH+X+Y_
-> Window geometry
+> 窗口几何尺寸
 
 **--fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 # DESCRIPTION
 
-**xfce4-terminal** is the terminal emulator for the XFCE desktop environment. It provides tabs, configurable appearance, and drop-down mode support.
+**xfce4-terminal** 是 XFCE 桌面环境的终端模拟器。它提供标签页、可定制的外观以及下拉模式支持。
 
-The terminal supports multiple profiles and can execute commands on startup.
+该终端支持多种配置文件（profile），并可在启动时执行命令。
 
 # CAVEATS
 
-Designed for XFCE but works on other desktops. Requires GTK and VTE libraries.
+为 XFCE 设计，但也可在其他桌面上使用。需要 GTK 和 VTE 库。
 
 # INSTALL
 

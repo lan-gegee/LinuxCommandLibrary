@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage ZeroTier cryptographic identities
+管理 ZeroTier 加密身份
 
 # TLDR
 
-**Generate new identity**
+**生成新身份**
 
 ```zerotier-idtool generate [identity.secret]```
 
-**Get public identity from secret**
+**从私钥获取公钥身份**
 
 ```zerotier-idtool getpublic [identity.secret]```
 
-**Sign a file**
+**签署文件**
 
 ```zerotier-idtool sign [identity.secret] [file]```
 
-**Verify signature**
+**验证签名**
 
 ```zerotier-idtool verify [identity.public] [file] [signature]```
 
-**Show identity address**
+**显示身份地址**
 
 ```zerotier-idtool info [identity.secret]```
 
@@ -31,43 +31,43 @@ Manage ZeroTier cryptographic identities
 # SUBCOMMANDS
 
 **generate** _secret_file_
-> Generate new identity, write to file
+> 生成新身份并写入文件
 
 **getpublic** _secret_file_
-> Output public identity from secret
+> 从私钥输出生成的公钥身份
 
 **sign** _secret_file_ _file_to_sign_
-> Sign file with identity
+> 用身份对文件签名
 
 **verify** _public_file_ _file_ _signature_
-> Verify signature against public identity
+> 针对公钥身份验证签名
 
 **info** _identity_file_
-> Display identity information (address, type)
+> 显示身份信息（地址、类型）
 
 **initmoon** _identity_file_
-> Initialize moon (custom root) definition
+> 初始化 moon（自定义根服务器）定义
 
 **genmoon** _moon_json_
-> Generate moon.d file from JSON definition
+> 从 JSON 定义生成 moon.d 文件
 
 # DESCRIPTION
 
-**zerotier-idtool** manages ZeroTier cryptographic identities. Identities consist of a secret key (kept private) and a public key that derives the 10-digit ZeroTier address.
+**zerotier-idtool** 管理 ZeroTier 加密身份。身份由一个私钥（保密保存）和一个公钥组成，公钥可派生出 10 位 ZeroTier 地址。
 
-The tool can generate new identities, extract public keys, and perform cryptographic operations like signing and verification. This is useful for backup, migration, and creating custom network infrastructure.
+该工具可以生成新身份、提取公钥，以及执行签名和验证等加密操作。这对备份、迁移和创建自定义网络基础设施很有用。
 
-Identities are automatically generated when zerotier-one first starts, stored in the ZeroTier home directory (typically /var/lib/zerotier-one/).
+zerotier-one 首次启动时会自动生成身份，存储在 ZeroTier 主目录中（通常为 /var/lib/zerotier-one/）。
 
-For advanced users, the tool supports creating "moons" - custom root servers for private ZeroTier infrastructure.
+对于高级用户，该工具还支持创建 "moon"——用于私有 ZeroTier 基础设施的自定义根服务器。
 
 # CAVEATS
 
-**identity.secret** files must be kept secure. Anyone with this file can impersonate that ZeroTier node.
+**identity.secret** 文件必须妥善保管。任何拿到该文件的人都可以冒充对应的 ZeroTier 节点。
 
-Regenerating an identity creates a new address. Existing network memberships must be re-authorized.
+重新生成身份会产生新地址。已有的网络成员资格必须重新授权。
 
-Moon creation requires understanding ZeroTier's root server architecture.
+创建 moon 需要理解 ZeroTier 的根服务器架构。
 
 # SEE ALSO
 

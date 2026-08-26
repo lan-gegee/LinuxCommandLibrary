@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run Windows apps on Linux as native windows
+在 Linux 上以原生窗口运行 Windows 应用
 
 # TLDR
 
-**Start the Windows pod** and wait until RDP is ready
+**启动 Windows pod** 并等待 RDP 就绪
 
 ```winpodx pod start --wait```
 
-**List available Windows applications** detected inside the pod
+**列出 pod 内检测到的可用 Windows 应用**
 
 ```winpodx app list```
 
-**Launch a registered application** (e.g. Microsoft Word)
+**启动已注册的应用**（如 Microsoft Word）
 
 ```winpodx app run [app_name]```
 
-**Open a local file** with a Windows application
+用 Windows 应用程序**打开本地文件**
 
 ```winpodx app run [app_name] [path/to/file]```
 
-**Launch the full Windows desktop** as a single RDP window
+以单个 RDP 窗口的形式**启动完整的 Windows 桌面**
 
 ```winpodx app run desktop```
 
-**Open the Qt6 graphical interface**
+**打开 Qt6 图形界面**
 
 ```winpodx gui```
 
-**Stop the pod** when finished
+完成后**停止 pod**
 
 ```winpodx pod stop```
 
-**Run the interactive setup wizard**
+**运行交互式设置向导**
 
 ```winpodx setup```
 
@@ -43,103 +43,103 @@ Run Windows apps on Linux as native windows
 # PARAMETERS
 
 **app list**
-> Show every Windows application detected inside the pod.
+> 显示 pod 内检测到的所有 Windows 应用。
 
 **app run** _name_ [_file_]
-> Launch the named application as a RemoteApp window. An optional file is opened with that application.
+> 以 RemoteApp 窗口的方式启动指定应用。可选的文件将用该应用打开。
 
 **app install** _name_
-> Register a custom application in the desktop launcher menu.
+> 将自定义应用注册到桌面启动器菜单。
 
 **app install-all**
-> Register every detected application as a desktop launcher entry.
+> 将检测到的每个应用都注册为桌面启动器条目。
 
 **app sessions**
-> List active RemoteApp sessions.
+> 列出活动的 RemoteApp 会话。
 
 **app kill** _name_
-> Terminate a running RemoteApp session.
+> 终止正在运行的 RemoteApp 会话。
 
 **app refresh**
-> Rescan the Windows guest for newly installed applications.
+> 重新扫描 Windows 客户机以发现新安装的应用。
 
 **pod start** [**--wait**]
-> Start the Windows container. **--wait** blocks until RDP is reachable.
+> 启动 Windows 容器。**--wait** 会阻塞直到 RDP 可连接。
 
 **pod stop**
-> Stop the Windows container.
+> 停止 Windows 容器。
 
 **pod restart**
-> Restart the Windows container.
+> 重启 Windows 容器。
 
 **pod status**
-> Print container, RDP, and agent state.
+> 打印容器、RDP 和代理的状态。
 
 **pod wait-ready** [**--logs**]
-> Block until the first-boot Sysprep / OEM phase finishes. **--logs** streams progress.
+> 阻塞直到首次启动的 Sysprep / OEM 阶段结束。**--logs** 会流式输出进度。
 
 **pod apply-fixes**
-> Reapply Windows-side configuration tweaks (registry, services, defaults).
+> 重新应用 Windows 侧的配置调整（注册表、服务、默认值）。
 
 **pod sync-password**
-> Synchronise the RDP password between **winpodx.toml** and the Windows guest.
+> 在 **winpodx.toml** 与 Windows 客户机之间同步 RDP 密码。
 
 **pod multi-session** {_on_|_off_|_status_}
-> Toggle bundled rdprrap multi-session support.
+> 切换内置的 rdprrap 多会话支持。
 
 **power --suspend**
-> Pause the running container.
+> 暂停正在运行的容器。
 
 **power --resume**
-> Resume a paused container.
+> 恢复已暂停的容器。
 
 **rotate-password**
-> Generate and apply a new RDP password.
+> 生成并应用新的 RDP 密码。
 
 **setup**
-> Run the interactive first-time configuration wizard.
+> 运行交互式首次配置向导。
 
 **check** [**--json**]
-> Run health probes (pod, RDP, agent, round-trip, disk) and print results.
+> 运行健康探测（pod、RDP、代理、往返延迟、磁盘）并打印结果。
 
 **info**
-> Print system diagnostics (versions, paths, dependencies).
+> 打印系统诊断信息（版本、路径、依赖）。
 
 **cleanup**
-> Remove stale Office lock files in the guest.
+> 清除客户机中过期的 Office 锁定文件。
 
 **timesync**
-> Force a time synchronisation in the Windows guest.
+> 强制 Windows 客户机进行一次时间同步。
 
 **debloat**
-> Disable telemetry and unneeded services in the guest.
+> 禁用客户机中的遥测和不需要的服务。
 
 **config show**
-> Print the current configuration.
+> 打印当前配置。
 
 **config set** _key_ _value_
-> Update a configuration key (e.g. **rdp.scale 140**).
+> 更新配置键（如 **rdp.scale 140**）。
 
 **config import**
-> Import settings from an existing **winapps.conf**.
+> 从现有的 **winapps.conf** 导入设置。
 
 **gui**
-> Launch the Qt6 main window.
+> 启动 Qt6 主窗口。
 
 **tray**
-> Launch the system tray icon.
+> 启动系统托盘图标。
 
 # DESCRIPTION
 
-**winpodx** runs a Windows guest inside a Podman or Docker container and presents individual Windows applications as native Linux windows through **FreeRDP** RemoteApp. Each app gets its own pinnable, alt-tabbable window with the original icon and file association, without exposing the underlying Windows desktop.
+**winpodx** 在 Podman 或 Docker 容器内运行一个 Windows 客户机，并通过 **FreeRDP** RemoteApp 把各个 Windows 应用呈现为原生的 Linux 窗口。每个应用都有自己可固定、可 Alt-Tab 切换的窗口，带有原始图标和文件关联，而不会暴露底层的 Windows 桌面。
 
-A small HTTP agent inside the guest receives bearer-authenticated commands from the host so app launches do not flash a PowerShell window. Application discovery, password rotation, multi-session, and health checks are all driven from the **winpodx** CLI; a Qt6 GUI provides the same actions plus an allowlisted in-app terminal.
+客户机内的一个小型 HTTP 代理接收来自宿主机的 bearer 认证命令，因此启动应用时不会闪现 PowerShell 窗口。应用发现、密码轮换、多会话和健康检查都由 **winpodx** CLI 驱动；Qt6 GUI 提供相同的操作，外加一个带白名单的应用内终端。
 
-**winpodx** targets Linux only. The first run downloads a Windows ISO, runs Sysprep, and applies an OEM customisation pass; expect five to ten minutes before the pod is usable.
+**winpodx** 仅面向 Linux。首次运行会下载 Windows ISO、执行 Sysprep 并应用 OEM 定制步骤；在 pod 可用之前预计需要五到十分钟。
 
 # CONFIGURATION
 
-The configuration file lives at _~/.config/winpodx/winpodx.toml_ and is editable through **winpodx config set**:
+配置文件位于 _~/.config/winpodx/winpodx.toml_，可通过 **winpodx config set** 编辑：
 
 ```
 [pod]
@@ -162,7 +162,7 @@ port = 8765
 token = "<generated>"
 ```
 
-Environment variables read at start:
+启动时读取的环境变量：
 
 ```
 WINPODX_CONFIG       Override config file path
@@ -171,11 +171,11 @@ WINPODX_LOG_LEVEL    debug | info | warn | error
 
 # CAVEATS
 
-Requires a working Podman or Docker installation, a usable KVM accelerator, and a recent **FreeRDP 3** build with RemoteApp support. The first boot performs a full Windows install plus Sysprep; do not interrupt **winpodx pod wait-ready**. Microsoft Windows itself remains subject to its own licensing terms and is **not redistributed** by winpodx; the user supplies a valid Windows installation. The guest agent listens on **localhost:8765** with a bearer token; do not expose this port to other hosts.
+需要可正常工作的 Podman 或 Docker 安装、可用的 KVM 加速器，以及带有 RemoteApp 支持的较新 **FreeRDP 3** 版本。首次启动会执行完整的 Windows 安装加 Sysprep；不要中断 **winpodx pod wait-ready**。Microsoft Windows 本身仍受其自身许可条款约束，winpodx **不会再分发**它；用户需自行提供有效的 Windows 安装介质。客户机代理使用 bearer 令牌监听 **localhost:8765**；不要将该端口暴露给其他主机。
 
 # HISTORY
 
-**winpodx** is a Python 3.9+ project that pairs the **dockur/windows** container image with **FreeRDP** RemoteApp and a custom PowerShell HTTP guest agent. It targets the same use case as **WinApps** but ships container, agent, and GUI as a single tool rather than relying on a manually configured VM. Active development continues on the **kernalix7/winpodx** repository.
+**winpodx** 是一个 Python 3.9+ 项目，它把 **dockur/windows** 容器镜像与 **FreeRDP** RemoteApp 以及自定义的 PowerShell HTTP 客户机代理结合在一起。它面向与 **WinApps** 相同的使用场景，但将容器、代理和 GUI 作为单一工具交付，而不是依赖手动配置的虚拟机。开发仍在 **kernalix7/winpodx** 仓库持续进行。
 
 # INSTALL
 

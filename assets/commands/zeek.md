@@ -1,26 +1,26 @@
 # TAGLINE
 
-Network security monitoring and analysis framework
+网络安全监测与分析框架
 
 # TLDR
 
-**Analyze a pcap file**
+**分析 pcap 文件**
 
 ```zeek -r [capture.pcap]```
 
-**Analyze pcap with specific script**
+**用指定脚本分析 pcap**
 
 ```zeek -r [capture.pcap] [script.zeek]```
 
-**Capture live traffic on interface**
+**在网卡上捕获实时流量**
 
 ```sudo zeek -i [eth0]```
 
-**Run with local site policy**
+**以本地站点策略运行**
 
 ```zeek -r [capture.pcap] local```
 
-**Print version and exit**
+**输出版本并退出**
 
 ```zeek --version```
 
@@ -31,54 +31,54 @@ Network security monitoring and analysis framework
 # PARAMETERS
 
 **-r** _file_
-> Read packets from pcap file
+> 从 pcap 文件读取数据包
 
 **-i** _interface_
-> Capture from network interface
+> 从网络接口捕获
 
 **-C**
-> Ignore checksum errors
+> 忽略校验和错误
 
 **-e** _code_
-> Execute Zeek script code
+> 执行 Zeek 脚本代码
 
 **-f** _filter_
-> Apply BPF filter
+> 应用 BPF 过滤器
 
 **-N**
-> List all available plug-ins and exit.
+> 列出所有可用的插件并退出。
 
 **-w** _file_
-> Write raw packets to file.
+> 将原始数据包写入文件。
 
 **-b**, **--bare-mode**
-> Don't load scripts from the base/ directory.
+> 不从 base/ 目录加载脚本。
 
 **--parse-only**
-> Parse scripts and exit.
+> 解析脚本后退出。
 
 **--version**
-> Print version and exit.
+> 输出版本并退出。
 
 # DESCRIPTION
 
-**Zeek** (formerly Bro) is a powerful network analysis framework focused on security monitoring. Unlike packet sniffers that show raw traffic, Zeek interprets network activity and generates high-level logs about connections, protocols, and detected threats.
+**Zeek**（原名 Bro）是一个专注于安全监测的强大网络分析框架。与显示原始流量的数据包嗅探器不同，Zeek 会解析网络活动，并生成关于连接、协议和检测到的威胁的高级日志。
 
-Zeek processes network traffic (live or from pcap files) and produces structured logs: **conn.log** for connections, **http.log** for HTTP traffic, **dns.log** for DNS queries, **ssl.log** for TLS connections, and many more.
+Zeek 处理网络流量（实时的或来自 pcap 文件）并生成结构化日志：**conn.log** 记录连接、**http.log** 记录 HTTP 流量、**dns.log** 记录 DNS 查询、**ssl.log** 记录 TLS 连接，还有更多其他日志。
 
-The tool uses a custom scripting language for defining analysis logic. Scripts can detect intrusions, extract files from traffic, identify protocols, and generate custom logs. The **local.zeek** policy loads site-specific configurations.
+该工具使用自定义脚本语言定义分析逻辑。脚本可以检测入侵、从流量中提取文件、识别协议以及生成自定义日志。**local.zeek** 策略会加载站点特定的配置。
 
-Output logs are tab-separated by default, easily parsed by tools like **zeek-cut** or imported into SIEM systems.
+输出日志默认以制表符分隔，便于使用 **zeek-cut** 等工具解析或导入 SIEM 系统。
 
 # CAVEATS
 
-Zeek requires significant CPU and memory for high-traffic networks. Tune workers and analysis depth accordingly.
+对于高流量网络，Zeek 需要大量 CPU 和内存。请相应地调整 worker 数量和分析深度。
 
-The scripting language has a learning curve. Start with built-in scripts before writing custom analyzers.
+其脚本语言有一定的学习曲线。编写自定义分析器之前，先从内置脚本入手。
 
-Live capture requires root or appropriate capabilities. Pcap file analysis runs as a normal user.
+实时捕获需要 root 权限或相应的能力（capabilities）。pcap 文件分析可以普通用户身份运行。
 
-Log rotation and management should be configured for production deployments.
+生产部署应配置好日志轮转与管理。
 
 # INSTALL
 
