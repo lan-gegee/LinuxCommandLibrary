@@ -128,7 +128,12 @@ def validate(path: str) -> list[str]:
         n_all = [t for _, t in n_h]
         for idx, t in o1:
             nt = n_all[idx]
-            if t != nt and not _has_cjk(nt):
+            structural = t.upper() == t and any(c.isalpha() for c in t)
+            if structural:
+                if t != nt:
+                    errs.append(f"{path}: 全大写 section 键被改动: {t!r} -> {nt!r}")
+                    break
+            elif t != nt and not _has_cjk(nt):
                 errs.append(f"{path}: 第{idx+1}个 H1 标题被非翻译方式改动: {t!r} -> {nt!r}")
                 break
 

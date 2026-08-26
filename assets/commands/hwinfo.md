@@ -53,7 +53,7 @@
 **--dump-db LEVEL**
 > 转储硬件数据库
 
-# 硬件组件
+# HARDWARE COMPONENTS
 
 **--cpu**：处理器信息
 **--memory**：RAM 与内存

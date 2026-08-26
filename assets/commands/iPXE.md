@@ -66,7 +66,7 @@ iPXE 命令行或脚本命令
 
 iPXE 可以嵌入 BIOS/UEFI、烧录到 ROM，或从现有 PXE 链式加载。它支持灵活的基于网络的系统安装和无盘启动。
 
-# 启动脚本示例
+# BOOT SCRIPT EXAMPLE
 
 ```
 #!ipxe

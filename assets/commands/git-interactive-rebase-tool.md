@@ -30,7 +30,7 @@
 
 该工具清晰地展示提交及其操作（pick、squash、fixup、reword、edit、drop 等），让复杂的变基更易于管理。
 
-# 快捷键
+# KEYBINDINGS
 
 **↑/↓** 或 **k/j**
 > 在提交之间导航

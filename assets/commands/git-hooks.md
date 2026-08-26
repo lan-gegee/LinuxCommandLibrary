@@ -22,7 +22,7 @@
 
 钩子存放在 **.git/hooks/** 中且必须可执行。常见钩子包括 pre-commit（提交之前）、prepare-commit-msg（编辑信息）、commit-msg（校验信息）和 pre-push（推送之前）。
 
-# 钩子类型
+# HOOK TYPES
 
 **客户端钩子：**
 ```

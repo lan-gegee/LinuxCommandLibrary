@@ -66,7 +66,7 @@
 
 配置通过 ~/.config/hypr/hyprland.conf 完成，使用自定义语法设置按键绑定、装饰和布局选项。
 
-# 配置示例
+# CONFIGURATION EXAMPLE
 
 ```
 monitor=,preferred,auto,1
