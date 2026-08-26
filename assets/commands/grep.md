@@ -1,46 +1,46 @@
 # TAGLINE
 
-Pattern-matching text search utility
+模式匹配文本搜索工具
 
 # TLDR
 
-**Search for pattern in file**
+**在文件中搜索模式**
 
 ```grep [pattern] [file]```
 
-**Case insensitive search**
+**忽略大小写搜索**
 
 ```grep -i [pattern] [file]```
 
-**Recursive search in directory**
+**递归搜索目录**
 
 ```grep -r [pattern] [directory]```
 
-**Show line numbers**
+**显示行号**
 
 ```grep -n [pattern] [file]```
 
-**Invert match (exclude pattern)**
+**反转匹配（排除模式）**
 
 ```grep -v [pattern] [file]```
 
-**Extended regex**
+**扩展正则表达式**
 
 ```grep -E '[regex]' [file]```
 
-**Show only filenames containing matches**
+**只显示包含匹配的文件名**
 
 ```grep -rl [pattern] [directory]```
 
-**Count matches**
+**统计匹配数量**
 
 ```grep -c [pattern] [file]```
 
-**Search with context (3 lines before and after)**
+**带上下文搜索（前后各 3 行）**
 
 ```grep -C 3 [pattern] [file]```
 
-**Search recursively but only in specific file types**
+**递归搜索但仅限特定文件类型**
 
 ```grep -r --include='[*.py]' [pattern] [directory]```
 
@@ -51,81 +51,81 @@ Pattern-matching text search utility
 # PARAMETERS
 
 _PATTERN_
-> Regular expression pattern to match.
+> 要匹配的正则表达式模式。
 
 _FILES_
-> Files to search.
+> 要搜索的文件。
 
 **-i**, **--ignore-case**
-> Case insensitive matching.
+> 忽略大小写匹配。
 
 **-v**, **--invert-match**
-> Select non-matching lines.
+> 选择不匹配的行。
 
 **-r**, **--recursive**
-> Search directories recursively.
+> 递归搜索目录。
 
 **-n**, **--line-number**
-> Show line numbers.
+> 显示行号。
 
 **-c**, **--count**
-> Print match count only.
+> 仅打印匹配计数。
 
 **-l**, **--files-with-matches**
-> Print only filenames.
+> 仅打印文件名。
 
 **-E**, **--extended-regexp**
-> Use extended regex.
+> 使用扩展正则表达式。
 
 **-F**, **--fixed-strings**
-> Match literal strings.
+> 匹配字面字符串。
 
 **-o**, **--only-matching**
-> Print only matched parts.
+> 仅打印匹配到的部分。
 
 **-A** _NUM_
-> Print NUM lines after match.
+> 打印匹配行之后的 NUM 行。
 
 **-B** _NUM_
-> Print NUM lines before match.
+> 打印匹配行之前的 NUM 行。
 
 **-C** _NUM_
-> Print NUM lines of context.
+> 打印 NUM 行上下文。
 
 **-P**, **--perl-regexp**
-> Use Perl-compatible regular expressions (PCRE).
+> 使用 Perl 兼容正则表达式（PCRE）。
 
 **-w**, **--word-regexp**
-> Match only whole words.
+> 仅匹配完整单词。
 
 **-q**, **--quiet**, **--silent**
-> Suppress output; exit with 0 if match found.
+> 不输出内容；若找到匹配则以退出码 0 退出。
 
 **--include** _GLOB_
-> Search only files matching the glob pattern.
+> 只搜索匹配 glob 模式的文件。
 
 **--exclude** _GLOB_
-> Skip files matching the glob pattern.
+> 跳过匹配 glob 模式的文件。
 
 **--color**
-> Highlight matches.
+> 高亮匹配项。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grep** searches files for lines matching a regular expression pattern. It is one of the most fundamental Unix utilities, named for g/re/p (global regular expression print) from the ed editor.
+**grep** 在文件中搜索与正则表达式模式匹配的行。它是最基础的 Unix 工具之一，其名称来自 ed 编辑器中的 g/re/p（global regular expression print）命令。
 
-The tool supports basic and extended regular expressions, recursive directory searching, and various output formats. It can search multiple files, show context around matches, and highlight results with color.
+该工具支持基本和扩展正则表达式、递归目录搜索以及多种输出格式。它可以搜索多个文件、显示匹配周围的上下文，并用颜色高亮结果。
 
 # CAVEATS
 
-Basic vs extended regex syntax differences. Binary files may produce unexpected output. Large files may be slow without optimizations.
+基本与扩展正则表达式的语法存在差异。二进制文件可能产生意外的输出。未经优化时处理大文件可能较慢。
 
 # HISTORY
 
-grep was created by **Ken Thompson** at **Bell Labs** in **1973**. It was inspired by the g/re/p command in ed. GNU grep is the most widely used implementation today.
+grep 由 **Ken Thompson** 于 **1973 年** 在 **贝尔实验室（Bell Labs）** 创建。它的灵感来自 ed 中的 g/re/p 命令。GNU grep 是当今使用最广泛的实现。
 
 # INSTALL
 

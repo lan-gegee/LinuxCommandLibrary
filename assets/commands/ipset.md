@@ -1,38 +1,38 @@
 # TAGLINE
 
-Create and manage IP address sets for firewall rules
+创建和管理用于防火墙规则的 IP 地址集合
 
 # TLDR
 
-**Create** an empty IP set
+**创建**一个空的 IP 集
 
 ```ipset create [set_name] hash:ip```
 
-**Add** an IP address to a set
+向集合中**添加**一个 IP 地址
 
 ```ipset add [set_name] [192.168.1.25]```
 
-**Delete** an IP address from a set
+从集合中**删除**一个 IP 地址
 
 ```ipset del [set_name] [192.168.1.25]```
 
-**Destroy** an IP set
+**销毁**一个 IP 集
 
 ```ipset destroy [set_name]```
 
-**Save** an IP set to file
+将 IP 集**保存**到文件
 
 ```ipset save [set_name] > [path/to/ip_set]```
 
-**List** all IP sets
+**列出**所有 IP 集
 
 ```ipset list```
 
-**Test** if an IP is in a set
+**测试**某个 IP 是否在集合中
 
 ```ipset test [set_name] [192.168.1.25]```
 
-**Restore** IP sets from file
+从文件**恢复** IP 集
 
 ```ipset restore < [path/to/ip_set]```
 
@@ -43,51 +43,51 @@ Create and manage IP address sets for firewall rules
 # PARAMETERS
 
 **create** _NAME_ _TYPE_
-> Create a new IP set (types: hash:ip, hash:net, hash:ip,port, etc.)
+> 创建新的 IP 集（类型：hash:ip、hash:net、hash:ip,port 等）
 
 **add** _NAME_ _ENTRY_
-> Add entry to a set
+> 向集合添加条目
 
 **del** _NAME_ _ENTRY_
-> Remove entry from a set
+> 从集合移除条目
 
 **destroy** _NAME_
-> Delete a set
+> 删除集合
 
 **list** [_NAME_]
-> List set contents
+> 列出集合内容
 
 **save** [_NAME_]
-> Output sets in restorable format
+> 以可恢复格式输出集合
 
 **restore**
-> Restore sets from saved output
+> 从保存的输出恢复集合
 
 **test** _NAME_ _ENTRY_
-> Test if an entry is in a set
+> 测试条目是否在集合中
 
 **flush** [_NAME_]
-> Clear all entries from a set
+> 清空集合中的所有条目
 
 **-exist**
-> Ignore errors when adding already existing entries or deleting non-existing entries
+> 添加已存在的条目或删除不存在的条目时不报错
 
 **-quiet**
-> Suppress output
+> 抑制输出
 
 # DESCRIPTION
 
-**ipset** creates and manages IP sets, a framework for storing IP addresses, networks, ports, and combinations thereof. Sets can be referenced in iptables/nftables rules for efficient matching against large lists.
+**ipset** 创建和管理 IP 集——一种用于存储 IP 地址、网络、端口及其组合的框架。iptables/nftables 规则可以引用这些集合，从而高效地匹配大列表。
 
-Different set types support different entry formats: hash:ip for individual addresses, hash:net for CIDR ranges, hash:ip,port for address-port combinations. Sets use hash tables for O(1) lookup performance.
+不同的集合类型支持不同的条目格式：hash:ip 用于单个地址，hash:net 用于 CIDR 段，hash:ip,port 用于地址-端口组合。集合使用哈希表实现 O(1) 的查找性能。
 
 # CAVEATS
 
-Requires root privileges. Sets must be created before they can be referenced in firewall rules. Set contents are not persistent across reboots without explicit save/restore.
+需要 root 权限。必须先创建集合才能在防火墙规则中引用。若无显式的保存/恢复操作，集合内容在重启后不会保留。
 
 # HISTORY
 
-ipset was developed by Jozsef Kadlecsik to provide efficient set-based matching for the Linux firewall. It became part of the standard Linux networking toolkit and is widely used for implementing blocklists and allowlists.
+ipset 由 Jozsef Kadlecsik 开发，为 Linux 防火墙提供高效的基于集合的匹配。它已成为标准 Linux 网络工具集的一部分，被广泛用于实现黑名单和白名单。
 
 # INSTALL
 

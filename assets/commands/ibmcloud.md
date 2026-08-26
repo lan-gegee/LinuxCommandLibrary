@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for managing resources on IBM Cloud
+管理 IBM Cloud 资源的命令行界面
 
 # TLDR
 
-**Log in interactively**
+**交互式登录**
 
 ```ibmcloud login```
 
-**Log in with single sign-on**
+**使用单点登录**
 
 ```ibmcloud login --sso```
 
-**Log in non-interactively** with an API key
+使用 API 密钥**非交互式登录**
 
 ```ibmcloud login --apikey [API_KEY]```
 
-**Set the target region and resource group**
+**设置目标区域和资源组**
 
 ```ibmcloud target -r [us-south] -g [default]```
 
-**List resource instances**
+**列出资源实例**
 
 ```ibmcloud resource service-instances```
 
-**Show account information**
+**显示账户信息**
 
 ```ibmcloud account show```
 
-**Install a plugin** from the IBM Cloud repo
+从 IBM Cloud 仓库**安装插件**
 
 ```ibmcloud plugin install [plugin-name]```
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```ibmcloud plugin list```
 
@@ -43,62 +43,62 @@ CLI for managing resources on IBM Cloud
 # PARAMETERS
 
 **login** [**--sso**] [**--apikey** _KEY_] [**-r** _REGION_] [**-g** _GROUP_] [**-c** _ACCOUNT_ID_]
-> Authenticate against IBM Cloud. `--sso` uses single sign-on, `--apikey` uses a platform API key.
+> 对 IBM Cloud 进行身份验证。`--sso` 使用单点登录，`--apikey` 使用平台 API 密钥。
 
 **logout**
-> End the current session.
+> 结束当前会话。
 
 **target** [**-r** _REGION_] [**-g** _GROUP_] [**-o** _ORG_] [**-s** _SPACE_]
-> Set or show the current target region, resource group, Cloud Foundry org, or space.
+> 设置或显示当前目标区域、资源组、Cloud Foundry 组织或空间。
 
 **account** _subcommand_
-> Manage accounts (e.g. `account show`, `account users`, `account list`).
+> 管理账户（例如 `account show`、`account users`、`account list`）。
 
 **resource** _subcommand_
-> Manage resource groups and service instances (e.g. `resource groups`, `resource service-instances`, `resource service-instance-create`).
+> 管理资源组和服务实例（例如 `resource groups`、`resource service-instances`、`resource service-instance-create`）。
 
 **plugin** _subcommand_
-> Manage plugins: `install`, `uninstall`, `list`, `update`, `repo-plugins`.
+> 管理插件：`install`、`uninstall`、`list`、`update`、`repo-plugins`。
 
 **cf** _subcommand_
-> Cloud Foundry commands (requires the `cloud-foundry` plugin).
+> Cloud Foundry 命令（需要 `cloud-foundry` 插件）。
 
 **iam** _subcommand_
-> Manage users, service IDs, API keys, and access policies.
+> 管理用户、服务 ID、API 密钥和访问策略。
 
 **config** [**--http-timeout** _N_] [**--color** _on|off_] [**--locale** _LOCALE_] [**--check-version** _true|false_]
-> Configure CLI behavior (HTTP timeout, output color, locale, version check).
+> 配置 CLI 行为（HTTP 超时、输出颜色、区域设置、版本检查）。
 
 **--help**, **-h**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Print the CLI version.
+> 打印 CLI 版本。
 
 # DESCRIPTION
 
-**ibmcloud** is the official command-line interface for IBM Cloud. It wraps IBM Cloud's REST APIs for account, IAM, and resource management, and exposes service-specific functionality through installable plugins.
+**ibmcloud** 是 IBM Cloud 的官方命令行界面。它封装了 IBM Cloud 用于账户、IAM 和资源管理的 REST API，并通过可安装的插件提供各服务专属的功能。
 
-Most workflows begin with `ibmcloud login` followed by `ibmcloud target` to select the region and resource group. From there, `resource`, `iam`, and plugin commands create and manage services, clusters, and functions. Plugins such as `kubernetes-service`, `code-engine`, `container-registry`, and `cloud-databases` add service-specific subcommands.
+大多数工作流以 `ibmcloud login` 开始，随后用 `ibmcloud target` 选择区域和资源组。之后即可通过 `resource`、`iam` 和各插件命令创建和管理服务、集群与函数。`kubernetes-service`、`code-engine`、`container-registry`、`cloud-databases` 等插件会添加相应服务的子命令。
 
 # CONFIGURATION
 
 **~/.bluemix/config.json**
-> Stores session, target, and configuration information.
+> 存储会话、目标和配置信息。
 
 **IBMCLOUD_API_KEY**
-> If set, used by `ibmcloud login` to authenticate non-interactively.
+> 若设置，`ibmcloud login` 将用它进行非交互式身份验证。
 
 **IBMCLOUD_HOME**
-> Overrides the default `~/.bluemix` configuration directory.
+> 覆盖默认的 `~/.bluemix` 配置目录。
 
 # CAVEATS
 
-Requires an IBM Cloud account and network access to `cloud.ibm.com`. Many service commands live in plugins, which must be installed first. Some regions require specific resource groups; running commands before `ibmcloud target` often yields "no target" errors.
+需要 IBM Cloud 账户以及访问 `cloud.ibm.com` 的网络连接。许多服务命令位于插件中，必须先安装。某些区域需要特定的资源组；在 `ibmcloud target` 之前运行命令常常会导致 "no target" 错误。
 
 # HISTORY
 
-**ibmcloud** is the official CLI for **IBM Cloud** (formerly **Bluemix**). The current binary unified and replaced the older `bluemix` (`bx`) CLI around 2018, adopting the `ibmcloud` command name along with IBM's Bluemix-to-IBM-Cloud rebrand.
+**ibmcloud** 是 **IBM Cloud**（前身为 **Bluemix**）的官方 CLI。当前的二进制程序在 2018 年前后统一并取代了较旧的 `bluemix`（`bx`）CLI，随着 IBM 将 Bluemix 品牌重塑为 IBM Cloud，命令名也改为 `ibmcloud`。
 
 # SEE ALSO
 

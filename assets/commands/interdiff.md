@@ -1,26 +1,26 @@
 # TAGLINE
 
-compares two unified diff files and generates a diff representing the changes
+比较两个统一 diff 文件并生成表示差异的 diff
 
 # TLDR
 
-**Show differences between two patches**
+**显示两个补丁之间的差异**
 
 ```interdiff [old.patch] [new.patch]```
 
-**Create a patch to convert** from one version to another
+**创建用于从一个版本转换为另一个版本的补丁**
 
 ```interdiff [version1.patch] [version2.patch] > [upgrade.patch]```
 
-**Strip leading path components** from patch filenames
+**从补丁文件名中剥离前导路径组件**
 
 ```interdiff -p 1 [old.patch] [new.patch]```
 
-**Display additional lines of context**
+**显示额外的上下文行**
 
 ```interdiff -U [3] [old.patch] [new.patch]```
 
-**Compare gzip/bzip2 compressed patches**
+**比较 gzip/bzip2 压缩的补丁**
 
 ```interdiff -z [old.patch.gz] [new.patch.gz]```
 
@@ -31,54 +31,54 @@ compares two unified diff files and generates a diff representing the changes
 # PARAMETERS
 
 **-U** _N_, **--unified=**_N_
-> Display N lines of context (default: 3).
+> 显示 N 行上下文（默认：3）。
 
 **-p** _N_, **--strip-match=**_N_
-> Ignore N leading pathname components when matching filenames.
+> 匹配文件名时忽略前 N 个路径组件。
 
 **-d** _PAT_, **--drop-context=**_PAT_
-> Exclude context for files whose names match pattern PAT.
+> 排除名称匹配模式 PAT 的文件的上下文。
 
 **-i**, **--ignore-case**
-> Treat upper and lower case as identical when comparing.
+> 比较时忽略大小写差异。
 
 **-w**, **--ignore-all-space**
-> Ignore all whitespace when comparing.
+> 比较时忽略所有空白字符。
 
 **-b**, **--ignore-space-change**
-> Ignore changes in the amount of whitespace.
+> 忽略空白字符数量的变化。
 
 **-B**, **--ignore-blank-lines**
-> Ignore changes that consist only of blank-line additions/removals.
+> 忽略仅由空行增删构成的变化。
 
 **-z**, **--decompress**
-> Automatically decompress .gz and .bz2 patches.
+> 自动解压 .gz 和 .bz2 补丁。
 
 **-q**, **--quiet**
-> Reduce warnings in output.
+> 减少输出中的警告。
 
 **--no-revert-omitted**
-> Do not revert portions of the first patch that are omitted from the second.
+> 不还原第一个补丁中被第二个补丁省略的部分。
 
 **--help**
-> Display usage information.
+> 显示用法信息。
 
 **--version**
-> Show version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**interdiff** compares two unified diff files (patches) and generates a diff representing the changes between them. This is useful for understanding what changed between two versions of a patch or for creating incremental patches.
+**interdiff** 比较两个统一 diff 文件（补丁），并生成表示二者之间差异的 diff。这有助于了解一个补丁的两个版本之间改了什么，或用于创建增量补丁。
 
-Given patch1 that transforms A to B, and patch2 that transforms A to C, interdiff produces a patch that transforms B to C. This helps when reviewing patch revisions or creating upgrade paths between software versions.
+给定把 A 变为 B 的 patch1 和把 A 变为 C 的 patch2，interdiff 会生成把 B 变为 C 的补丁。这在审阅补丁修订版或在软件版本之间构建升级路径时很有用。
 
 # CAVEATS
 
-Both input patches must be in unified diff format. Context diffs are not supported. The patches must apply to the same base files for meaningful results. Complex patches with significant structural changes may produce confusing output.
+两个输入补丁必须是统一 diff 格式，不支持上下文 diff 格式。要获得有意义的结果，两个补丁必须作用于相同的基础文件。结构变化较大的复杂补丁可能产生令人困惑的输出。
 
 # HISTORY
 
-**interdiff** is part of the **patchutils** package, written by Tim Waugh and first released around **2001**. The patchutils suite provides tools for manipulating patch files, addressing common needs in software development and distribution workflows.
+**interdiff** 是 **patchutils** 软件包的一部分，由 Tim Waugh 编写，约 **2001 年**首次发布。patchutils 工具集提供操作补丁文件的工具，满足软件开发和分发工作流中的常见需求。
 
 # INSTALL
 

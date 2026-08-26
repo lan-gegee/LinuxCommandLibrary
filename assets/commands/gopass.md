@@ -1,38 +1,38 @@
 # TAGLINE
 
-Team-oriented password manager compatible with pass
+面向团队、兼容 pass 的密码管理器
 
 # TLDR
 
-**Initialize password store**
+**初始化密码库**
 
 ```gopass init```
 
-**Generate new password**
+**生成新密码**
 
 ```gopass generate [site/username]```
 
-**Show password**
+**显示密码**
 
 ```gopass show [site/username]```
 
-**Copy password to clipboard**
+**将密码复制到剪贴板**
 
 ```gopass show -c [site/username]```
 
-**Insert new secret**
+**录入新的机密条目**
 
 ```gopass insert [site/username]```
 
-**List all entries**
+**列出所有条目**
 
 ```gopass ls```
 
-**Search entries**
+**搜索条目**
 
 ```gopass find [query]```
 
-**Sync with remote**
+**与远程同步**
 
 ```gopass sync```
 
@@ -43,59 +43,59 @@ Team-oriented password manager compatible with pass
 # PARAMETERS
 
 **init**
-> Initialize password store.
+> 初始化密码库。
 
 **generate** _name_ [_length_]
-> Generate new password.
+> 生成新密码。
 
 **insert** _name_
-> Insert new secret.
+> 录入新的机密条目。
 
 **show** _name_
-> Display secret.
+> 显示机密内容。
 
 **ls** [_folder_]
-> List entries.
+> 列出条目。
 
 **find** _query_
-> Search entries.
+> 搜索条目。
 
 **edit** _name_
-> Edit existing entry.
+> 编辑已有条目。
 
 **rm** _name_
-> Remove entry.
+> 删除条目。
 
 **mv** _old_ _new_
-> Move/rename entry.
+> 移动/重命名条目。
 
 **sync**
-> Sync with git remote.
+> 与 git 远程仓库同步。
 
 **-c**, **--clip**
-> Copy to clipboard.
+> 复制到剪贴板。
 
 # DESCRIPTION
 
-**gopass** is a password manager compatible with pass (the standard Unix password manager). It stores passwords encrypted with GPG in a git repository, enabling version control and synchronization.
+**gopass** 是一个与 pass（标准 Unix 密码管理器）兼容的密码管理器。它把用 GPG 加密的密码存储在 git 仓库中，从而实现版本控制和同步。
 
-The tool supports multiple stores, team sharing, TOTP generation, and integration with browsers and other tools. It adds features like better multi-user handling and mounted substores over standard pass.
+该工具支持多个密码库、团队共享、TOTP 生成以及与浏览器和其他工具的集成。相比标准 pass，它还提供了更完善的多用户处理和子库挂载等特性。
 
 # CONFIGURATION
 
 **~/.config/gopass/config**
-> gopass configuration file with store locations, mount points, and default settings.
+> gopass 配置文件，包含密码库位置、挂载点和默认设置。
 
 **~/.local/share/gopass/stores/**
-> Default storage location for password store data.
+> 密码库数据的默认存储位置。
 
 # CAVEATS
 
-Requires GPG key setup. Git configuration needed for sync. Clipboard cleared after timeout. Multiple recipients need key exchange.
+需要先配置 GPG 密钥。同步功能需要 git 配置。剪贴板会在超时后自动清空。多个接收者之间需要交换密钥。
 
 # HISTORY
 
-**gopass** was created as a pass-compatible password manager written in Go, adding features for team use and better secrets management. It emerged around **2017** as organizations needed shared password management with GPG encryption.
+**gopass** 作为一款用 Go 编写、兼容 pass 的密码管理器而诞生，增加了面向团队使用和更好机密管理的特性。它出现于 **2017 年**前后，当时各组织正需要基于 GPG 加密的共享密码管理方案。
 
 # INSTALL
 

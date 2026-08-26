@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays information about shell builtin commands
+显示 shell 内建命令的相关信息
 
 # TLDR
 
-**Get help for builtin**
+**获取内建命令的帮助**
 
 ```help [cd]```
 
-**List all builtins**
+**列出所有内建命令**
 
 ```help```
 
-**Short description**
+**简短描述**
 
 ```help -d [command]```
 
-**Man page format**
+**man page 格式**
 
 ```help -m [command]```
 
-**Show usage synopsis**
+**显示用法概要**
 
 ```help -s [command]```
 
@@ -31,30 +31,30 @@ displays information about shell builtin commands
 # PARAMETERS
 
 _PATTERN_
-> Shell builtin name or pattern.
+> Shell 内建命令名称或模式。
 
 **-d**
-> Short description only.
+> 仅显示简短描述。
 
 **-m**
-> Man page format.
+> 以 man page 格式显示。
 
 **-s**
-> Usage synopsis only.
+> 仅显示用法概要。
 
 # DESCRIPTION
 
-**help** displays information about shell builtin commands. It's a Bash builtin that provides documentation for commands built into the shell.
+**help** 显示 shell 内建命令的相关信息。它是一个 Bash 内建命令，为 shell 内建的命令提供文档。
 
-The command shows usage, options, and descriptions for Bash builtins. It's useful for learning about commands like cd, export, and source.
+该命令显示 Bash 内建命令的用法、选项和描述。适合用于了解 cd、export、source 等命令。
 
 # CAVEATS
 
-Bash specific. Only for builtins, not external commands. Use man for external commands.
+仅限 Bash 使用。只适用于内建命令，不适用于外部命令。外部命令请使用 man。
 
 # HISTORY
 
-help has been part of **Bash** since early versions, providing built-in documentation for shell commands.
+help 自早期版本起就是 **Bash** 的一部分，为 shell 命令提供内置文档。
 
 # SEE ALSO
 

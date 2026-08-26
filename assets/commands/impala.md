@@ -1,26 +1,26 @@
 # TAGLINE
 
-terminal user interface for managing Wi-Fi networks
+用于管理 Wi-Fi 网络的终端用户界面
 
 # TLDR
 
-Launch in **station mode**
+以**站点模式**启动
 
 ```impala```
 
-Launch in **Access Point** mode
+以**接入点模式**启动
 
 ```impala -m ap```
 
-**Navigate** between sections
+在各个区域之间**导航**
 
 ```Tab / Shift+Tab```
 
-**Select** a network
+**选中**一个网络
 
 ```Space```
 
-Show **hotkeys**
+显示**快捷键**
 
 ```?```
 
@@ -30,26 +30,26 @@ Show **hotkeys**
 
 # DESCRIPTION
 
-**impala** is a terminal user interface (TUI) for managing Wi-Fi networks. It provides an interactive way to scan, connect, and manage wireless connections without using the command line directly.
+**impala** 是一个用于管理 Wi-Fi 网络的终端用户界面（TUI）。它提供了一种交互方式，无需直接使用命令行即可扫描、连接和管理无线连接。
 
 # PARAMETERS
 
 **-m, --mode MODE**
-> Set operating mode: "station" (default) or "ap" (Access Point)
+> 设置运行模式："station"（默认）或 "ap"（接入点）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # CAVEATS
 
-Requires appropriate wireless interface and permissions. Access Point mode requires a compatible wireless adapter that supports AP mode. Uses iwd (iNet Wireless Daemon) as the backend.
+需要相应的无线网卡和权限。接入点模式要求无线网卡支持 AP 模式。使用 iwd（iNet Wireless Daemon）作为后端。
 
 # HISTORY
 
-**impala** was created to provide a user-friendly TUI for wireless network management, making it easier to manage Wi-Fi connections in terminal environments.
+**impala** 的创建目的是为无线网络管理提供一个友好的 TUI，让在终端环境中管理 Wi-Fi 连接更加轻松。
 
 # INSTALL
 

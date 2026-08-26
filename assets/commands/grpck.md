@@ -1,22 +1,22 @@
 # TAGLINE
 
-verify integrity of group files
+校验组文件的完整性
 
 # TLDR
 
-**Check group file integrity**
+**检查组文件完整性**
 
 ```sudo grpck```
 
-**Read-only mode**
+**只读模式**
 
 ```sudo grpck -r```
 
-**Sort by GID**
+**按 GID 排序**
 
 ```sudo grpck -s```
 
-**Check specific files**
+**检查指定文件**
 
 ```sudo grpck [/etc/group] [/etc/gshadow]```
 
@@ -27,36 +27,36 @@ verify integrity of group files
 # PARAMETERS
 
 _GROUP_
-> Group file to check (default /etc/group).
+> 要检查的组文件（默认 /etc/group）。
 
 _SHADOW_
-> Shadow group file (default /etc/gshadow).
+> 影子组文件（默认 /etc/gshadow）。
 
 **-r**
-> Read-only mode, report only.
+> 只读模式，仅报告。
 
 **-s**
-> Sort entries by GID.
+> 按 GID 对条目排序。
 
 **-R** _DIR_
-> Chroot directory.
+> chroot 目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grpck** verifies the integrity of group information files. It checks for duplicate entries, valid field formats, and consistency between /etc/group and /etc/gshadow.
+**grpck** 校验组信息文件的完整性。它检查重复条目、有效的字段格式，以及 /etc/group 与 /etc/gshadow 之间的一致性。
 
-The tool can automatically fix some issues when run interactively. It is essential for maintaining system security and proper group functionality.
+以交互方式运行时，该工具可以自动修复某些问题。它对维护系统安全和组的正常功能至关重要。
 
 # CAVEATS
 
-Requires root access. Interactive fixes need confirmation. Back up files before repair.
+需要 root 权限。交互式修复需要确认。修复前请先备份文件。
 
 # HISTORY
 
-grpck was developed as part of the **shadow** password suite for Unix/Linux system administration.
+grpck 作为 **shadow** 密码工具套件的一部分开发，用于 Unix/Linux 系统管理。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-simple tool that checks if an MQTT broker allows connections, optionally
+检查 MQTT 代理是否允许连接的简易工具，可选择
 
 # TLDR
 
-**Check MQTT broker** for anonymous access
+**检查 MQTT 代理**是否允许匿名访问
 
 ```impacket-mqtt_check [192.168.1.100]```
 
-**Check MQTT on a specific port**
+**检查特定端口上的 MQTT**
 
 ```impacket-mqtt_check [192.168.1.100] -port [1883]```
 
-**Check MQTT with credentials**
+使用凭据**检查 MQTT**
 
 ```impacket-mqtt_check [192.168.1.100] -user [username] -password [password]```
 
@@ -23,27 +23,27 @@ simple tool that checks if an MQTT broker allows connections, optionally
 # PARAMETERS
 
 **-port** _PORT_
-> MQTT broker port (default: 1883)
+> MQTT 代理端口（默认：1883）
 
 **-user** _USERNAME_
-> Username for MQTT authentication
+> 用于 MQTT 身份验证的用户名
 
 **-password** _PASSWORD_
-> Password for MQTT authentication
+> 用于 MQTT 身份验证的密码
 
 # DESCRIPTION
 
-**impacket-mqtt_check** is a simple tool that checks if an MQTT (Message Queuing Telemetry Transport) broker allows connections, optionally testing for anonymous access. MQTT is a lightweight messaging protocol commonly used in IoT devices and applications.
+**impacket-mqtt_check** 是一款简单的工具，用于检查 MQTT（Message Queuing Telemetry Transport）代理是否允许连接，并可选择测试匿名访问。MQTT 是一种轻量级消息协议，常见于 IoT 设备和应用中。
 
-The tool attempts to connect to the specified broker and reports whether the connection succeeds, helping identify misconfigured brokers that allow unauthenticated access.
+该工具尝试连接到指定的代理，并报告连接是否成功，帮助识别允许未经身份验证访问的错误配置代理。
 
 # CAVEATS
 
-Only tests connection capability, does not enumerate topics or messages. MQTT over TLS (port 8883) may require additional configuration. Some brokers may allow connection but restrict actions based on ACLs.
+仅测试连接能力，不枚举主题或消息。基于 TLS 的 MQTT（端口 8883）可能需要额外配置。某些代理允许建立连接，但会根据 ACL 限制操作。
 
 # HISTORY
 
-Part of the **Impacket** library by SecureAuth. Added to address the growing security concerns around IoT protocols, particularly MQTT brokers exposed to the internet without proper authentication.
+属于 SecureAuth 的 **Impacket** 库。加入此工具是为了应对围绕 IoT 协议日益增长的安全担忧，尤其是暴露在互联网上且缺乏适当身份验证的 MQTT 代理。
 
 # INSTALL
 

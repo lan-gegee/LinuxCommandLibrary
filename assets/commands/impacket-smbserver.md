@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates an SMB server to share files
+创建用于共享文件的 SMB 服务器
 
 # TLDR
 
-**Start SMB server sharing current directory**
+**启动共享当前目录的 SMB 服务器**
 
 ```impacket-smbserver [sharename] .```
 
-**Share specific directory**
+**共享指定目录**
 
 ```impacket-smbserver [sharename] [/path/to/share]```
 
-**Use SMB2 protocol**
+**使用 SMB2 协议**
 
 ```impacket-smbserver -smb2support [sharename] [path]```
 
-**Require authentication**
+**要求身份验证**
 
 ```impacket-smbserver -username [user] -password [pass] [sharename] [path]```
 
-**Specify IP to bind**
+**指定绑定的 IP**
 
 ```impacket-smbserver -ip [0.0.0.0] [sharename] [path]```
 
@@ -31,23 +31,23 @@ creates an SMB server to share files
 # PARAMETERS
 
 **-smb2support**
-> Enable SMB2 protocol support.
+> 启用 SMB2 协议支持。
 
 **-username** _user_
-> Require username for auth.
+> 要求用户名进行身份验证。
 
 **-password** _pass_
-> Require password for auth.
+> 要求密码进行身份验证。
 
 **-ip** _address_
-> IP address to bind.
+> 要绑定的 IP 地址。
 
 **-port** _port_
-> Port to listen on (default 445).
+> 监听端口（默认 445）。
 
 # DESCRIPTION
 
-**impacket-smbserver** creates an SMB server to share files. Part of the Impacket toolkit. Useful for transferring files to/from Windows systems during penetration testing. Supports SMB1 and SMB2 protocols and optional authentication.
+**impacket-smbserver** 创建一个用于共享文件的 SMB 服务器。属于 Impacket 工具集。适用于渗透测试期间与 Windows 系统互传文件。支持 SMB1 和 SMB2 协议以及可选的身份验证。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ creates an SMB server to share files
 # SEE ALSO
 
 [samba](/man/samba)(1), [impacket-smbclient](/man/impacket-smbclient)(1)
-

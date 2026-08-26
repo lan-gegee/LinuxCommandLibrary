@@ -1,22 +1,22 @@
 # TAGLINE
 
-server daemon for the hunt game
+hunt 游戏的服务器守护进程
 
 # TLDR
 
-**Start hunt server**
+**启动 hunt 服务器**
 
 ```huntd```
 
-**Specify port**
+**指定端口**
 
 ```huntd -p [9999]```
 
-**Run in server mode** (run forever)
+**以服务器模式运行**（永久运行）
 
 ```huntd -s```
 
-**Fork into background** (log errors via syslog)
+**fork 到后台运行**（通过 syslog 记录错误）
 
 ```huntd -b```
 
@@ -27,30 +27,30 @@ server daemon for the hunt game
 # PARAMETERS
 
 **-p** _port_
-> Change the UDP port number used to rendezvous with the player process.
+> 更改用于与玩家进程会合的 UDP 端口号。
 
 **-s**
-> Run in server mode (run forever). Consumes a process table entry when no one is playing.
+> 以服务器模式运行（永久运行）。无人游玩时会占用一个进程表条目。
 
 **-b**
-> Fork into the background. Errors are logged via syslog instead of stderr.
+> fork 到后台。错误改由 syslog 记录，而不是输出到标准错误。
 
 **-a** _addr_
-> Listen only on a specific interface address (given as an IP address).
+> 只监听指定的接口地址（以 IP 地址给出）。
 
 # DESCRIPTION
 
-**huntd** is the server daemon for the hunt game. It manages the game world and coordinates multiple players.
+**huntd** 是 hunt 游戏的服务器守护进程。它负责管理游戏世界并协调多名玩家。
 
-The server creates the maze and handles player connections, shots, and scoring. Multiple players connect via the hunt client.
+服务器创建迷宫，并处理玩家连接、射击和计分。多名玩家通过 hunt 客户端连接。
 
 # CAVEATS
 
-Part of BSD games. Can be run standalone with -s or under inetd. Without -s, the daemon exits when all players disconnect.
+属于 BSD games 的一部分。可以用 -s 独立运行，也可以在 inetd 下运行。不带 -s 时，所有玩家断开连接后守护进程就会退出。
 
 # HISTORY
 
-huntd is the server component of **hunt**, a classic BSD network game from the 1980s.
+huntd 是 **hunt** 的服务端组件。hunt 是上世纪 80 年代的经典 BSD 网络游戏。
 
 # SEE ALSO
 

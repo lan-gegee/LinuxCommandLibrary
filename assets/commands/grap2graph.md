@@ -1,22 +1,22 @@
 # TAGLINE
 
-Grap graph to image converter
+Grap 图形转图像转换器
 
 # TLDR
 
-**Convert grap to image**
+**将 grap 转换为图像**
 
 ```grap2graph [file.grap] > output.png```
 
-**Specify output format**
+**指定输出格式**
 
 ```grap2graph -Tpng [file.grap] > output.png```
 
-**Create SVG output**
+**创建 SVG 输出**
 
 ```grap2graph -Tsvg [file.grap] > output.svg```
 
-**Process from stdin**
+**从标准输入处理**
 
 ```echo ".G1 ... .G2" | grap2graph > output.png```
 
@@ -27,30 +27,30 @@ Grap graph to image converter
 # PARAMETERS
 
 _FILE_
-> Input file containing grap code.
+> 包含 grap 代码的输入文件。
 
 **-T** _FORMAT_
-> Output format (png, svg, pdf, etc.).
+> 输出格式（png、svg、pdf 等）。
 
 **-resolution** _DPI_
-> Set image resolution.
+> 设置图像分辨率。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grap2graph** converts grap graphs to image formats. It is a wrapper that pipes grap output through groff and converts the result to various image formats like PNG, SVG, and PDF.
+**grap2graph** 将 grap 图形转换为图像格式。它是一个封装工具，将 grap 输出通过 groff 管道处理，并把结果转换为 PNG、SVG、PDF 等多种图像格式。
 
-The tool is part of the groff suite and handles the intermediate processing steps automatically, producing standalone images from grap source.
+该工具是 groff 套件的一部分，会自动处理中间步骤，从 grap 源码生成独立图像。
 
 # CAVEATS
 
-Requires groff and grap. Image quality depends on resolution settings. Part of groff package.
+需要 groff 和 grap。图像质量取决于分辨率设置。属于 groff 软件包的一部分。
 
 # HISTORY
 
-grap2graph was developed as part of the **GNU groff** project to facilitate graph image creation from grap source.
+grap2graph 作为 **GNU groff** 项目的一部分开发，旨在简化从 grap 源码创建图形图像的过程。
 
 # INSTALL
 

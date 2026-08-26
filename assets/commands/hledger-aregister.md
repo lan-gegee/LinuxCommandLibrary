@@ -1,34 +1,34 @@
 # TAGLINE
 
-shows transactions and running balance for a single account in bank-statement format
+以银行对账单格式显示单个账户的交易和滚动余额
 
 # TLDR
 
-**Show account register**
+**显示账户流水**
 
 ```hledger aregister [checking]```
 
-**Show with a specific journal file**
+**使用指定账簿文件显示**
 
 ```hledger aregister -f [journal.ledger] [assets:bank]```
 
-**Show monthly summary**
+**显示月度汇总**
 
 ```hledger aregister [checking] --monthly```
 
-**Include historical balance from before report period**
+**包含报告期之前的历史余额**
 
 ```hledger aregister [checking] -H```
 
-**Limit output width**
+**限制输出宽度**
 
 ```hledger aregister [checking] -w [80]```
 
-**Include zero-change transactions**
+**包含净变动为零的交易**
 
 ```hledger aregister [checking] -E```
 
-**Output as CSV**
+**输出为 CSV**
 
 ```hledger aregister [checking] -O csv```
 
@@ -39,44 +39,44 @@ shows transactions and running balance for a single account in bank-statement fo
 # PARAMETERS
 
 **-f**, **--file** _file_
-> Use specified journal file.
+> 使用指定的账簿文件。
 
 **--daily**
-> Show daily summaries.
+> 显示每日汇总。
 
 **--weekly**
-> Show weekly summaries.
+> 显示每周汇总。
 
 **--monthly**
-> Show monthly summaries.
+> 显示每月汇总。
 
 **-H**, **--historical**
-> Include balance from before report period.
+> 包含报告期之前的余额。
 
 **-E**, **--empty**
-> Show transactions making a net change of zero.
+> 显示净变动为零的交易。
 
 **--txn-dates**
-> Filter by transaction date instead of posting date.
+> 按交易日期而非分录日期过滤。
 
 **--depth** _n_
-> Limit account depth.
+> 限制账户层级深度。
 
 **-w**, **--width** _n_
-> Set output width.
+> 设置输出宽度。
 
 **-O**, **--output-format** _fmt_
-> Output format: txt, csv, tsv, html, fods, json.
+> 输出格式：txt、csv、tsv、html、fods、json。
 
 **--quarterly**
-> Show quarterly summaries.
+> 显示每季度汇总。
 
 **--yearly**
-> Show yearly summaries.
+> 显示每年汇总。
 
 # DESCRIPTION
 
-**hledger aregister** (alias **areg**) shows transactions and running balance for a single account in bank-statement format. Each transaction appears on one line with the date, description, other accounts involved, amount, and running balance. Unlike **register**, which shows one line per posting, aregister groups postings by transaction. The account can be specified by full name or a case-insensitive regular expression matching the first account alphabetically.
+**hledger aregister**（别名 **areg**）以银行对账单格式显示单个账户的交易和滚动余额。每笔交易占一行，包含日期、描述、涉及的其他账户、金额和滚动余额。与每个分录显示一行的 **register** 不同，aregister 会把同一交易的各条分录归为一行。账户可以用完整名称指定，也可以用一个不区分大小写的正则表达式匹配（按字母序取第一个匹配账户）。
 
 # INSTALL
 
@@ -99,4 +99,3 @@ shows transactions and running balance for a single account in bank-statement fo
 # SEE ALSO
 
 [hledger](/man/hledger)(1), [hledger-balance](/man/hledger-balance)(1), [hledger-print](/man/hledger-print)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Proxmox VE High Availability services
+管理 Proxmox VE 高可用服务
 
 # TLDR
 
-**Show HA status**
+**显示 HA 状态**
 
 ```ha-manager status```
 
-**Enable HA for VM**
+**为 VM 启用 HA**
 
 ```ha-manager add [vm:100]```
 
-**Remove from HA**
+**移出 HA**
 
 ```ha-manager remove [vm:100]```
 
-**Set HA group**
+**设置 HA 组**
 
 ```ha-manager set [vm:100] --group [hagroup1]```
 
-**Migrate service**
+**迁移服务**
 
 ```ha-manager migrate [vm:100] [target-node]```
 
@@ -31,40 +31,40 @@ manages Proxmox VE High Availability services
 # PARAMETERS
 
 **status**
-> Show HA manager status.
+> 显示 HA 管理器状态。
 
 **add** _sid_
-> Add service to HA.
+> 将服务加入 HA。
 
 **remove** _sid_
-> Remove service from HA.
+> 将服务移出 HA。
 
 **set** _sid_ [_options_]
-> Configure service options.
+> 配置服务选项。
 
 **migrate** _sid_ _node_
-> Migrate service to node.
+> 将服务迁移到节点。
 
 **relocate** _sid_ _node_
-> Request relocation.
+> 请求重新定位。
 
 **--group** _name_
-> HA group assignment.
+> HA 组分配。
 
 **--state** _state_
-> Desired state (started, stopped, disabled).
+> 期望的状态（started、stopped、disabled）。
 
 **--max_restart** _n_
-> Maximum restart attempts.
+> 最大重启尝试次数。
 
 **--max_relocate** _n_
-> Maximum relocate attempts.
+> 最大重新定位尝试次数。
 
 # DESCRIPTION
 
-**ha-manager** manages Proxmox VE High Availability services. It controls which VMs and containers are protected by HA, ensuring they're automatically restarted or migrated if a node fails.
+**ha-manager** 管理 Proxmox VE 高可用服务。它控制哪些虚拟机和容器受 HA 保护，确保节点故障时它们能被自动重启或迁移。
 
-HA requires a cluster of at least three nodes for proper quorum. Services are monitored and automatically recovered based on configured policies.
+HA 需要至少三个节点的集群才能形成正确的法定票数（quorum）。服务会受到监视，并根据配置的策略自动恢复。
 
 # SERVICE ID FORMAT
 
@@ -75,11 +75,11 @@ ct:101        Container ID 101
 
 # CAVEATS
 
-Requires Proxmox cluster. Minimum 3 nodes for quorum. Shared storage needed for VM migration. Network fencing recommended. HA manager must be running.
+需要 Proxmox 集群。法定票数要求至少 3 个节点。VM 迁移需要共享存储。建议配置网络隔离（fencing）。HA manager 必须处于运行状态。
 
 # HISTORY
 
-ha-manager is part of **Proxmox VE**, an open-source virtualization platform. Proxmox HA provides automatic failover using the Corosync cluster engine.
+ha-manager 是开源虚拟化平台 **Proxmox VE** 的一部分。Proxmox HA 使用 Corosync 集群引擎提供自动故障转移。
 
 # SEE ALSO
 

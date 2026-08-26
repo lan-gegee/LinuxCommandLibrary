@@ -1,38 +1,38 @@
 # TAGLINE
 
-system information script that provides detailed information about hardware
+系统信息脚本，提供详细的硬件信息
 
 # TLDR
 
-Print **basic** system summary
+打印**基础**系统摘要
 
 ```inxi```
 
-Print **full** system description with sensitive info filtered
+打印**完整**系统描述并过滤敏感信息
 
 ```inxi -ez```
 
-Print **CPU** information
+打印 **CPU** 信息
 
 ```inxi -C```
 
-Print **graphics** information
+打印**显卡**信息
 
 ```inxi -G```
 
-Print **memory/RAM** information
+打印**内存/RAM** 信息
 
 ```inxi -m```
 
-Print **audio** system information
+打印**音频**系统信息
 
 ```inxi -A```
 
-Print **sensor** data (temperatures, fans)
+打印**传感器**数据（温度、风扇）
 
 ```inxi -s```
 
-Print **repository** information
+打印**软件仓库**信息
 
 ```inxi -r```
 
@@ -43,45 +43,45 @@ Print **repository** information
 # PARAMETERS
 
 **-C**, **--cpu**
-> CPU information
+> CPU 信息
 
 **-G**, **--graphics**
-> Graphics card and display information
+> 显卡和显示信息
 
 **-m**, **--memory**
-> RAM memory information
+> RAM 内存信息
 
 **-A**, **--audio**
-> Audio/sound card information
+> 音频/声卡信息
 
 **-s**, **--sensors**
-> Sensor data (temperature, fans, voltages)
+> 传感器数据（温度、风扇、电压）
 
 **-r**, **--repos**
-> Distribution repository information
+> 发行版软件仓库信息
 
 **-e**, **--expanded**
-> Show extra details
+> 显示更多细节
 
 **-z**, **--filter**
-> Filter out sensitive information (IPs, MACs, etc.)
+> 过滤敏感信息（IP、MAC 地址等）
 
 **-F**, **--full**
-> Full system information output
+> 输出完整系统信息
 
 # DESCRIPTION
 
-**inxi** is a system information script that provides detailed information about hardware and software configuration. It's designed to be a quick debugging and support tool, producing clean, human-readable output.
+**inxi** 是一个系统信息脚本，提供关于硬件和软件配置的详细信息。它被设计为一款快速调试和支持工具，输出整洁、人类易读。
 
-The tool aggregates information from various system sources including /proc, /sys, and utility commands, presenting it in a consistent format suitable for sharing in forums or support tickets.
+该工具从 /proc、/sys 以及各种实用命令等多个系统来源聚合信息，并以一致的格式呈现，适合粘贴到论坛或支持工单中分享。
 
 # CAVEATS
 
-Some information requires root privileges. Accuracy depends on available system utilities and kernel interfaces. Output format may vary between versions.
+部分信息需要 root 权限。准确性取决于可用的系统工具和内核接口。不同版本之间的输出格式可能有差异。
 
 # HISTORY
 
-inxi was created as a fork of infobash by locsmif and is maintained by the inxi project team. It has become a standard tool in many Linux distributions for quickly gathering system information for debugging.
+inxi 由 locsmif 从 infobash 分支而来，由 inxi 项目团队维护。它已成为许多 Linux 发行版中快速收集系统信息进行调试的标准工具。
 
 # INSTALL
 

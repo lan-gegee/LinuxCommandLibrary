@@ -1,22 +1,22 @@
 # TAGLINE
 
-ImageMagick 6 version of identify
+ImageMagick 6 版本的 identify
 
 # TLDR
 
-**Show image info**
+**显示图片信息**
 
 ```identify.im6 [image.jpg]```
 
-**Verbose output**
+**详细输出**
 
 ```identify.im6 -verbose [image.png]```
 
-**Custom format**
+**自定义格式**
 
 ```identify.im6 -format "%wx%h" [image]```
 
-**Quick ping mode**
+**快速探测模式**
 
 ```identify.im6 -ping [image.jpg]```
 
@@ -27,33 +27,33 @@ ImageMagick 6 version of identify
 # PARAMETERS
 
 _FILES_
-> Image files to identify.
+> 要识别的图片文件。
 
 **-verbose**
-> Detailed information.
+> 详细信息。
 
 **-format** _STRING_
-> Custom format string.
+> 自定义格式字符串。
 
 **-ping**
-> Quick identification.
+> 快速识别。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**identify.im6** is the ImageMagick 6 version of identify. It describes image format, dimensions, and characteristics.
+**identify.im6** 是 ImageMagick 6 版本的 identify。用于描述图片的格式、尺寸和特性。
 
-The tool provides the same functionality as identify but specifically from ImageMagick version 6. Both may coexist on systems.
+该工具与 identify 功能相同，但专门来自 ImageMagick 第 6 版。两者可能共存于同一系统。
 
 # CAVEATS
 
-ImageMagick 6 specific. May conflict with IM7. Legacy version.
+ImageMagick 6 特有。可能与 IM7 冲突。属于旧版本。
 
 # HISTORY
 
-identify.im6 is part of **ImageMagick 6**, maintained separately from ImageMagick 7.
+identify.im6 是 **ImageMagick 6** 的一部分，与 ImageMagick 7 分开维护。
 
 # SEE ALSO
 

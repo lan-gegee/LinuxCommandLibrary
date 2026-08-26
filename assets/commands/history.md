@@ -1,42 +1,42 @@
 # TAGLINE
 
-bash builtin command that displays or manipulates the command history list
+用于显示或操作命令历史列表的 bash 内建命令
 
 # TLDR
 
-**Display command history** with line numbers
+**显示带行号的命令历史**
 
 ```history```
 
-**Show the last N commands**
+**显示最近 N 条命令**
 
 ```history [20]```
 
-**Clear the entire history**
+**清空全部历史**
 
 ```history -c```
 
-**Delete a specific history entry** by line number
+**按行号删除指定历史条目**
 
 ```history -d [42]```
 
-**Append current session history** to the history file
+**将当前会话的历史追加到历史文件**
 
 ```history -a```
 
-**Read history file** and append to current list
+**读取历史文件并追加到当前列表**
 
 ```history -r```
 
-**Write current history** to the history file
+**将当前历史写入历史文件**
 
 ```history -w```
 
-**Execute a command** from history by number
+**按编号执行历史中的命令**
 
 ```![42]```
 
-**Execute the previous command**
+**执行上一条命令**
 
 ```!!```
 
@@ -57,67 +57,67 @@ bash builtin command that displays or manipulates the command history list
 # PARAMETERS
 
 **-c**
-> Clear the history list
+> 清空历史列表
 
 **-d** _OFFSET_
-> Delete the history entry at position offset
+> 删除位置 offset 处的历史条目
 
 **-d** _START-END_
-> Delete the range of history entries between start and end
+> 删除 start 和 end 之间的历史条目区间
 
 **-a**
-> Append new history lines to the history file
+> 将新增的历史行追加到历史文件
 
 **-n**
-> Read history lines not already read from the file to current list
+> 从文件读取尚未读取过的历史行并加入当前列表
 
 **-r**
-> Read the history file and append contents to the history list
+> 读取历史文件并将其内容追加到历史列表
 
 **-w**
-> Write current history to the history file
+> 将当前历史写入历史文件
 
 **-p**
-> Perform history substitution on args and display without storing
+> 对参数执行历史替换并显示结果，但不保存
 
 **-s** _ARG_
-> Add args to the end of the history list as a single entry
+> 将参数作为单个条目追加到历史列表末尾
 
 # ENVIRONMENT
 
 **HISTFILE**
-> File where history is saved (default: ~/.bash_history)
+> 保存历史的文件（默认：~/.bash_history）
 
 **HISTSIZE**
-> Number of commands kept in memory for current session
+> 当前会话在内存中保留的命令数量
 
 **HISTFILESIZE**
-> Number of commands kept in the history file
+> 历史文件中保留的命令数量
 
 **HISTTIMEFORMAT**
-> Format string for timestamps (strftime format)
+> 时间戳的格式字符串（strftime 格式）
 
 **HISTCONTROL**
-> Controls what is saved (ignorespace, ignoredups, erasedups)
+> 控制哪些内容被保存（ignorespace、ignoredups、erasedups）
 
 **HISTIGNORE**
-> Colon-separated patterns of commands to ignore
+> 以冒号分隔的要忽略的命令模式
 
 # DESCRIPTION
 
-**history** is a bash builtin command that displays or manipulates the command history list. The shell maintains a record of commands entered during a session, allowing quick access to previous commands.
+**history** 是一个 bash 内建命令，用于显示或操作命令历史列表。shell 会记录会话期间输入的命令，方便快速调用之前的命令。
 
-Without arguments, history displays the numbered list of commands. With an integer argument **n**, it shows the last n entries. The history is loaded from **HISTFILE** at shell startup and can be written back with **-w** or automatically on exit.
+不带参数时，history 显示带编号的命令列表。给定整数参数 **n** 时，只显示最后 n 条。shell 启动时会从 **HISTFILE** 加载历史，可用 **-w** 写回，或在退出时自动写回。
 
-History expansion allows re-executing previous commands: **!!** repeats the last command, **!n** executes command number n, **!string** executes the most recent command starting with string, and **!?string** matches any command containing string. Use **Ctrl+r** for interactive reverse search.
+历史扩展支持重复执行之前的命令：**!!** 重复上一条命令，**!n** 执行编号为 n 的命令，**!string** 执行最近一条以 string 开头的命令，**!?string** 匹配任何包含 string 的命令。可使用 **Ctrl+r** 进行交互式反向搜索。
 
 # CAVEATS
 
-Commands starting with a space are not saved if **HISTCONTROL** contains ignorespace. The history is per-shell and not shared between concurrent sessions unless explicitly synchronized with **-a** and **-r**. History files can contain sensitive information like passwords accidentally typed on the command line. Use **HISTIGNORE** to exclude sensitive commands.
+若 **HISTCONTROL** 包含 ignorespace，则以空格开头的命令不会保存。历史是每个 shell 独立的，并发会话之间不共享，除非用 **-a** 和 **-r** 显式同步。历史文件可能包含不小心在命令行上输入的密码等敏感信息。请使用 **HISTIGNORE** 排除敏感命令。
 
 # HISTORY
 
-Command history originated in the **C shell** (csh) developed by Bill Joy in the late 1970s at Berkeley. The bash implementation builds on the **GNU Readline** library, which provides history manipulation and editing capabilities. The history command and expansion syntax became a standard feature in Unix shells, allowing users to efficiently reuse and modify previous commands.
+命令历史起源于 Bill Joy 于 20 世纪 70 年代末在伯克利开发的 **C shell**（csh）。bash 的实现基于提供历史操作和编辑能力的 **GNU Readline** 库。history 命令及其扩展语法已成为 Unix shell 的标准特性，让用户能够高效地复用和修改之前的命令。
 
 # SEE ALSO
 

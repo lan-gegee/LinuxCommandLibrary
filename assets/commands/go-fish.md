@@ -1,14 +1,14 @@
 # TAGLINE
 
-play the classic Go Fish card game against the computer
+与计算机对战经典的 Go Fish 纸牌游戏
 
 # TLDR
 
-**Start a game**
+**开始一局游戏**
 
 ```go-fish```
 
-**Play in "professional" mode** (randomly decide who asks first)
+**以"专业"模式游玩**（随机决定谁先要牌）
 
 ```go-fish -p```
 
@@ -19,7 +19,7 @@ play the classic Go Fish card game against the computer
 # PARAMETERS
 
 **-p**
-> Professional mode: randomly determine who asks first, instead of always letting the player start.
+> 专业模式：随机决定谁先要牌，而不是总让玩家先开始。
 
 # PREVIEW
 
@@ -32,17 +32,17 @@ Books won: 1
 
 # DESCRIPTION
 
-**go-fish** is a text-interface version of the traditional children's card game, part of the **bsd-games** collection. The player and the computer are each dealt seven cards, and take turns asking each other for cards of a given rank in order to collect "books" (all four cards of that rank).
+**go-fish** 是传统儿童纸牌游戏的文本界面版本，属于 **bsd-games** 游戏合集。玩家和计算机各发七张牌，双方轮流互相索要某个点数的牌，以收集"成套牌"（books，即该点数的全部四张牌）。
 
-You may only ask for a rank you already hold at least one card of. If the opponent has none, you're told to "Go Fish!" and must draw from the remaining deck; drawing the requested rank lets you go again. Completed books are set aside and that rank becomes unavailable. The game ends when either player is out of cards, and whoever has collected the most books wins.
+你只能索要自己手中至少持有一张的那个点数。如果对方没有这种牌，你会收到"Go Fish!"（去钓鱼）的提示，必须从剩余的牌堆中摸一张牌；若恰好摸到所请求的点数，还可以继续行动。收集完成的成套牌会被放到一旁，该点数此后不可再被索要。当任一方手牌出完时游戏结束，收集成套牌最多的一方获胜。
 
 # CAVEATS
 
-Part of the bsd-games package, so availability depends on your distribution installing it. The computer opponent rarely bluffs and mostly plays honestly.
+本命令属于 bsd-games 软件包，因此是否可用取决于你的发行版是否安装了该软件包。计算机对手很少虚张声势，基本按规则诚实出牌。
 
 # HISTORY
 
-**go-fish** originates from the **BSD Games** collection first assembled in the 1980s-90s and later packaged for Linux distributions as **bsd-games**/**bsdgames**.
+**go-fish** 源自 **BSD Games** 游戏合集，该合集最初汇编于 20 世纪 80 至 90 年代，后来以 **bsd-games**/**bsdgames** 软件包的形式提供给各 Linux 发行版。
 
 # SEE ALSO
 

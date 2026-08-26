@@ -1,14 +1,14 @@
 # TAGLINE
 
-extend a partition to fill available space
+扩展分区以填满可用空间
 
 # TLDR
 
-**Extend** partition n to fill empty space until end of disk
+**扩展**第 n 个分区，填满直到磁盘末尾的空闲空间
 
 ```growpart /dev/sdX [n]```
 
-Show what modifications would be made (**dry run**)
+显示将要进行的修改（**dry run**）
 
 ```growpart -N /path/to/disk.img [n]```
 
@@ -19,32 +19,32 @@ Show what modifications would be made (**dry run**)
 # PARAMETERS
 
 **-N**, **--dry-run**
-> Show what would be done without making changes
+> 显示将要执行的操作而不实际修改
 
 **-u**, **--update** _TYPE_
-> Update type: auto, growfs, off
+> 更新类型：auto、growfs、off
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-h**, **--help**
-> Display help message
+> 显示帮助消息
 
 # DESCRIPTION
 
-**growpart** extends a partition to fill available free space following it on a disk. It is commonly used after enlarging a virtual disk or cloud volume to make the added space available to the partition.
+**growpart** 将一个分区扩展到磁盘上紧随其后的可用空闲空间。它常用于扩大虚拟磁盘或云盘卷之后，使新增的空间可供该分区使用。
 
-The tool works with both physical disks (like /dev/sda) and disk image files. It automatically handles partition table updates for both MBR and GPT partition schemes.
+该工具既适用于物理磁盘（如 /dev/sda），也适用于磁盘映像文件。它会自动处理 MBR 和 GPT 两种分区方案的分区表更新。
 
-After growing a partition, you typically need to resize the filesystem within it using tools like **resize2fs** (ext4), **xfs_growfs** (XFS), or **btrfs filesystem resize** (Btrfs).
+扩展分区之后，通常还需要用 **resize2fs**（ext4）、**xfs_growfs**（XFS）或 **btrfs filesystem resize**（Btrfs）等工具调整其中文件系统的大小。
 
 # CAVEATS
 
-Only grows partitions into immediately following free space. Cannot grow partitions that have other partitions after them without first moving those partitions. Requires unmounting or using a live system for root partition resizing.
+只能将分区扩展到紧随其后的空闲空间。如果分区后面还有其他分区，则必须先移动那些分区才能扩展。调整根分区大小时需要卸载或使用 live 系统。
 
 # HISTORY
 
-growpart is part of the cloud-utils package, developed by Canonical for Ubuntu and widely used in cloud environments. It was created to simplify the common task of expanding partitions when virtual disks are resized.
+growpart 属于 cloud-utils 软件包，由 Canonical 为 Ubuntu 开发，在云环境中被广泛使用。它的出现是为了简化虚拟磁盘扩容后扩展分区的常见任务。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-display information from a connected iOS device (libimobiledevice)
+显示已连接 iOS 设备的信息（libimobiledevice）
 
 # TLDR
 
-**Show every available property** of the first connected device
+**显示第一台已连接设备的所有可用属性**
 
 ```ideviceinfo```
 
-**Target a specific device by UDID**
+**按 UDID 指定目标设备**
 
 ```ideviceinfo -u [device-udid]```
 
-**Query a specific key only**
+**只查询特定键**
 
 ```ideviceinfo -k [ProductVersion]```
 
-**Query a specific Lockdown domain**
+**查询特定的 Lockdown 域**
 
 ```ideviceinfo -q [com.apple.disk_usage]```
 
-**Output as an XML property list**
+**以 XML 属性列表输出**
 
 ```ideviceinfo -x```
 
-**Connect to a device over the network** (Wi-Fi pairing)
+**通过网络连接设备**（Wi-Fi 配对）
 
 ```ideviceinfo -n```
 
-**Simple/unpaired connection** (skip auto-pairing)
+**简单/未配对连接**（跳过自动配对）
 
 ```ideviceinfo -s```
 
@@ -39,45 +39,45 @@ display information from a connected iOS device (libimobiledevice)
 # PARAMETERS
 
 **-u**, **--udid** _UDID_
-> Target a specific device by its UDID. Required when more than one device is connected.
+> 按设备的 UDID 指定目标设备。连接多台设备时必须提供。
 
 **-q**, **--domain** _NAME_
-> Restrict the query to the given Lockdown domain (e.g. `com.apple.disk_usage`, `com.apple.mobile.battery`, `com.apple.mobile.wireless_lockdown`).
+> 将查询限制在给定的 Lockdown 域（如 `com.apple.disk_usage`、`com.apple.mobile.battery`、`com.apple.mobile.wireless_lockdown`）。
 
 **-k**, **--key** _NAME_
-> Only print the value of the given key. Prints the raw value with no key header.
+> 只打印给定键的值。直接输出原始值，不带键名前缀。
 
 **-x**, **--xml**
-> Emit output as an Apple XML plist instead of `key: value` lines. Useful for scripting.
+> 以 Apple XML plist 格式而非 `key: value` 行输出。适合脚本处理。
 
 **-s**, **--simple**
-> Use a simple Lockdown connection that does not pair with the device. A smaller subset of keys is available.
+> 使用不与设备配对的简单 Lockdown 连接。可用的键会少一些。
 
 **-n**, **--network**
-> Connect to a device paired over Wi-Fi instead of USB.
+> 连接通过 Wi-Fi（而非 USB）配对的设备。
 
 **-d**, **--debug**
-> Verbose debugging output from libimobiledevice.
+> 输出 libimobiledevice 的详细调试信息。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ideviceinfo** queries the Lockdown service on a connected iOS (iPhone, iPad, iPod, Apple TV) device and prints its properties. Without a key or domain, it dumps the public root-level keys — `DeviceName`, `ProductType`, `ProductVersion`, `BuildVersion`, `SerialNumber`, `UniqueDeviceID`, `WiFiAddress`, `BluetoothAddress`, and so on.
+**ideviceinfo** 查询已连接 iOS（iPhone、iPad、iPod、Apple TV）设备上的 Lockdown 服务并打印其属性。不指定键或域时，它会转储公开的根级键——`DeviceName`、`ProductType`、`ProductVersion`、`BuildVersion`、`SerialNumber`、`UniqueDeviceID`、`WiFiAddress`、`BluetoothAddress` 等等。
 
-Per-domain queries (`-q`) unlock protected namespaces like `com.apple.disk_usage` (storage stats) or `com.apple.mobile.battery` (battery info). Most domains require the device to be paired and unlocked.
+按域查询（`-q`）可以访问受保护的命名空间，例如 `com.apple.disk_usage`（存储统计）或 `com.apple.mobile.battery`（电池信息）。大多数域要求设备已完成配对并处于解锁状态。
 
 # CAVEATS
 
-Part of **libimobiledevice**. The device must be **trusted** on the host — i.e. plugged in once while unlocked and the "Trust this computer?" prompt accepted. On macOS, Apple's own `usbmuxd` replaces libimobiledevice's; mixing the two can cause pairing conflicts. Over-the-network (`-n`) only works after Wi-Fi sync is enabled in iTunes/Finder.
+属于 **libimobiledevice**。设备必须在主机上被**信任**——即在解锁状态下插入过一次，并在"信任这台电脑？"提示中点击同意。在 macOS 上，Apple 自带的 `usbmuxd` 会替代 libimobiledevice 的版本；两者混用可能导致配对冲突。网络连接方式（`-n`）只有在 iTunes/Finder 中启用 Wi-Fi 同步后才能使用。
 
 # HISTORY
 
-**ideviceinfo** ships with the **libimobiledevice** project — a cross-platform reimplementation of Apple's iTunes/Finder device protocols. Created around **2008** by **Jonathan Beck**, it is now maintained by **Nikias Bassen** and contributors.
+**ideviceinfo** 随 **libimobiledevice** 项目一同发布——该项目是 Apple iTunes/Finder 设备协议的跨平台重新实现。它由 **Jonathan Beck** 于 **2008 年**前后创建，目前由 **Nikias Bassen** 及众多贡献者维护。
 
 # INSTALL
 

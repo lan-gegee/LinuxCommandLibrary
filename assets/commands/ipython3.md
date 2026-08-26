@@ -1,30 +1,30 @@
 # TAGLINE
 
-enhanced interactive Python shell
+增强的交互式 Python shell
 
 # TLDR
 
-**Start IPython shell**
+**启动 IPython shell**
 
 ```ipython3```
 
-**Run script in IPython**
+**在 IPython 中运行脚本**
 
 ```ipython3 [script.py]```
 
-**Start with specific profile**
+**以指定配置档启动**
 
 ```ipython3 --profile=[myprofile]```
 
-**Run in no-banner mode**
+**以无横幅模式运行**
 
 ```ipython3 --no-banner```
 
-**Start Qt console**
+**启动 Qt 控制台**
 
 ```ipython3 qtconsole```
 
-**Start notebook server**
+**启动 notebook 服务器**
 
 ```jupyter notebook```
 
@@ -35,34 +35,34 @@ enhanced interactive Python shell
 # PARAMETERS
 
 **--profile** _name_
-> Use specific profile.
+> 使用指定的配置档。
 
 **--no-banner**
-> Don't show startup banner.
+> 不显示启动横幅。
 
 **-i**
-> Run in interactive mode after script.
+> 脚本执行后进入交互模式。
 
 **-c** _command_
-> Execute command.
+> 执行命令。
 
 **--pdb**
-> Enable automatic debugger on exceptions.
+> 发生异常时自动启用调试器。
 
 **--matplotlib** _backend_
-> Configure matplotlib backend.
+> 配置 matplotlib 后端。
 
 **qtconsole**
-> Start Qt GUI console.
+> 启动 Qt 图形界面控制台。
 
 **notebook**
-> Start Jupyter notebook (deprecated, use jupyter).
+> 启动 Jupyter notebook（已弃用，请使用 jupyter）。
 
 # DESCRIPTION
 
-**IPython** is an enhanced interactive Python shell. It provides syntax highlighting, tab completion, magic commands, shell integration, and rich media display.
+**IPython** 是一个增强的交互式 Python shell。它提供语法高亮、制表符补全、魔法命令、Shell 集成和富媒体显示。
 
-IPython extends Python's REPL with features like history across sessions, object introspection, and system shell access. It's the kernel behind Jupyter notebooks.
+IPython 通过跨会话历史、对象内省和系统 shell 访问等特性扩展了 Python 的 REPL。它是 Jupyter notebook 背后的内核。
 
 # MAGIC COMMANDS
 
@@ -80,11 +80,11 @@ IPython extends Python's REPL with features like history across sessions, object
 
 # CAVEATS
 
-Separate from standard Python. Some magic commands are IPython-specific. Jupyter notebooks recommended for notebook interface.
+与标准 Python 是分开的。某些魔法命令为 IPython 专有。notebook 界面推荐使用 Jupyter notebooks。
 
 # HISTORY
 
-IPython was created by **Fernando Pérez** in **2001** to improve Python's interactive capabilities. It became the foundation for Jupyter, which generalized the notebook concept to multiple languages.
+IPython 由 **Fernando Pérez** 于 **2001 年**创建，旨在提升 Python 的交互能力。它成为 Jupyter 的基础，后者将 notebook 概念推广到多种语言。
 
 # INSTALL
 

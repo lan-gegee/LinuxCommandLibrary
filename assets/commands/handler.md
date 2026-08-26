@@ -1,22 +1,22 @@
 # TAGLINE
 
-A2A Protocol client TUI and CLI
+A2A 协议客户端 TUI 与 CLI
 
 # TLDR
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```handler tui```
 
-**Start the local A2A server agent**
+**启动本地 A2A 服务器智能体**
 
 ```handler server```
 
-**Send a message to an agent**
+**向智能体发送消息**
 
 ```handler send --url [agent_url] --message "[message]"```
 
-**Validate an A2A agent**
+**验证 A2A 智能体**
 
 ```handler validate --url [agent_url]```
 
@@ -26,43 +26,43 @@ A2A Protocol client TUI and CLI
 
 # DESCRIPTION
 
-**handler** is a client and developer toolkit for the **A2A (Agent-to-Agent) Protocol**, providing both a TUI and CLI interface for interacting with A2A-compliant agents. It allows developers to send messages, validate agents, manage tasks, and chat interactively with AI agents from the terminal.
+**handler** 是面向 **A2A（Agent-to-Agent）协议**的客户端和开发者工具包，同时提供 TUI 与 CLI 两种界面，用于与符合 A2A 标准的智能体交互。它让开发者可以在终端中发送消息、验证智能体、管理任务，并与 AI 智能体交互式聊天。
 
-The tool includes a built-in local A2A server agent (requires **Ollama** running locally) for testing and development purposes.
+该工具内置一个本地 A2A 服务器智能体（需要本地运行 **Ollama**），可用于测试和开发。
 
 # PARAMETERS
 
 **tui**
-> Launch the interactive terminal user interface
+> 启动交互式终端用户界面
 
 **server**
-> Start the local A2A server agent
+> 启动本地 A2A 服务器智能体
 
 **send**
-> Send a message to an agent
+> 向智能体发送消息
 
 **validate**
-> Validate an A2A agent endpoint
+> 验证 A2A 智能体端点
 
 **--url** _URL_
-> Target agent URL
+> 目标智能体的 URL
 
 **--message** _TEXT_
-> Message to send
+> 要发送的消息
 
 **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--debug**
-> Enable debug logging
+> 启用调试日志
 
 # CAVEATS
 
-The built-in server agent requires **Ollama** to be running locally. The A2A Protocol is relatively new and agent compatibility may vary across implementations.
+内置的服务器智能体要求本地正在运行 **Ollama**。A2A 协议相对较新，不同实现之间的智能体兼容性可能存在差异。
 
 # HISTORY
 
-**handler** was created by **Al Duncanson** and is written in **Python**. It was developed as a developer toolkit for Google's **Agent-to-Agent (A2A) Protocol**, which enables communication between AI agents from different frameworks.
+**handler** 由 **Al Duncanson** 创建，使用 **Python** 编写。它是为 Google 的 **Agent-to-Agent (A2A) Protocol** 开发的开发者工具包，该协议使来自不同框架的 AI 智能体能够相互通信。
 
 # SEE ALSO
 

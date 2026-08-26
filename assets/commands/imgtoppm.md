@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts an Img-whatnot image file to PPM format
+将 Img-whatnot 图像文件转换为 PPM 格式
 
 # TLDR
 
-**Convert IMG to PPM**
+**将 IMG 转换为 PPM**
 
 ```imgtoppm [file.img] > [output.ppm]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [file.img] | imgtoppm > [output.ppm]```
 
@@ -18,7 +18,7 @@ converts an Img-whatnot image file to PPM format
 
 # DESCRIPTION
 
-**imgtoppm** converts an Img-whatnot image file to PPM (Portable Pixmap) format. Part of the Netpbm package of graphics manipulation tools. Reads from stdin if no file is specified.
+**imgtoppm** 将 Img-whatnot 图像文件转换为 PPM（Portable Pixmap）格式。它是 Netpbm 图像处理工具包的一员。未指定文件时从 stdin 读取。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ converts an Img-whatnot image file to PPM format
 # SEE ALSO
 
 [ppmtogif](/man/ppmtogif)(1), [netpbm](/man/netpbm)(1)
-

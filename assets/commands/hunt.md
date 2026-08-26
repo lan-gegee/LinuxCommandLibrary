@@ -1,22 +1,22 @@
 # TAGLINE
 
-multiplayer terminal game where players hunt each other in a maze
+玩家在迷宫中互相追杀的多人终端游戏
 
 # TLDR
 
-**Start hunt game**
+**启动 hunt 游戏**
 
 ```hunt```
 
-**Connect to server**
+**连接到服务器**
 
 ```hunt -h [hostname]```
 
-**Use specific name**
+**使用指定的名字**
 
 ```hunt -n [playername]```
 
-**Connect to port**
+**连接到指定端口**
 
 ```hunt -p [port]```
 
@@ -27,22 +27,22 @@ multiplayer terminal game where players hunt each other in a maze
 # PARAMETERS
 
 **-h** _HOST_
-> Server hostname.
+> 服务器主机名。
 
 **-n** _NAME_
-> Player name.
+> 玩家名字。
 
 **-p** _PORT_
-> Server port.
+> 服务器端口。
 
 **-t** _TEAM_
-> Team number.
+> 队伍编号。
 
 **-c**
-> Auto-connect.
+> 自动连接。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -56,17 +56,17 @@ multiplayer terminal game where players hunt each other in a maze
 
 # DESCRIPTION
 
-**hunt** is a multiplayer terminal game where players hunt each other in a maze. Players shoot and dodge in text-based combat.
+**hunt** 是一款多人终端游戏，玩家在迷宫中互相追杀。玩家在基于文本的战斗中射击和闪避。
 
-The game connects to a huntd server where multiple players compete. It features walls, bombs, and maze navigation.
+游戏会连接到 huntd 服务器，多名玩家在其中竞技。游戏包含墙壁、炸弹和迷宫导航等元素。
 
 # CAVEATS
 
-Requires huntd server. Part of BSD games. Terminal-based graphics.
+需要 huntd 服务器。属于 BSD games 的一部分。采用基于终端的图形。
 
 # HISTORY
 
-hunt is a classic **BSD** network game from the 1980s, providing multiplayer action in terminals.
+hunt 是上世纪 80 年代的经典 **BSD** 网络游戏，在终端中提供多人对战体验。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-modify a group definition
+修改组定义
 
 # TLDR
 
-Change the **group name**
+修改**组名**
 
 ```sudo groupmod -n [new_group] [group_name]```
 
-Change the **group ID**
+修改**组 ID**
 
 ```sudo groupmod -g [new_id] [group_name]```
 
@@ -19,47 +19,47 @@ Change the **group ID**
 # PARAMETERS
 
 **-g**, **--gid** _GID_
-> Change group ID to _GID_
+> 将组 ID 改为 _GID_
 
 **-n**, **--new-name** _NAME_
-> Change group name to _NAME_
+> 将组名改为 _NAME_
 
 **-o**, **--non-unique**
-> Allow non-unique GID
+> 允许非唯一的 GID
 
 **-p**, **--password** _PASSWORD_
-> Set encrypted group password
+> 设置加密后的组密码
 
 **-a**, **--append**
-> With **-U**, append the given users to the group's existing members instead of replacing the list
+> 与 **-U** 搭配使用时，将给定用户追加到组的现有成员之后而不是替换成员列表
 
 **-U**, **--users** _USER_[,_USER_,...]
-> Comma-separated list of usernames to set as the group's members
+> 以逗号分隔的用户名列表，设置为组的成员
 
 **-R**, **--root** _CHROOT_DIR_
-> Apply changes in chroot environment
+> 在 chroot 环境中应用更改
 
 **-P**, **--prefix** _PREFIX_DIR_
-> Apply changes in prefix directory (uses config files there without chrooting)
+> 在前缀目录中应用更改（不 chroot，但使用其中的配置文件）
 
 **-h**, **--help**
-> Display help message and exit
+> 显示帮助消息并退出
 
 # DESCRIPTION
 
-**groupmod** modifies the attributes of an existing group on the system. It can change the group name, group ID (GID), or group password.
+**groupmod** 修改系统上现有组的属性。它可以更改组名、组 ID（GID）或组密码。
 
-When changing GID, files owned by the group are NOT automatically updated. You must manually find and update file ownership using commands like **find / -gid OLDGID -exec chgrp NEWGROUP {} \;**.
+更改 GID 时，该组所拥有的文件不会被自动更新。你必须手动查找并更新文件归属，例如使用 **find / -gid OLDGID -exec chgrp NEWGROUP {} \;** 这样的命令。
 
-Changing a group name has no effect on file ownership since files reference groups by GID, not name.
+更改组名对文件归属没有影响，因为文件是通过 GID 而不是名称来引用组的。
 
 # CAVEATS
 
-Changing GID does not update file ownership automatically. Users must log out and back in for group changes to take effect. Cannot change a group to a name or GID that already exists (unless -o is used for GID).
+修改 GID 不会自动更新文件归属。用户必须注销后重新登录，组变更才会生效。不能把组改成已存在的名称或 GID（除非对 GID 使用 -o）。
 
 # HISTORY
 
-groupmod is part of the shadow-utils package, which has been the standard for Unix group management across Linux distributions. It provides safe modification of the /etc/group and /etc/gshadow files.
+groupmod 属于 shadow-utils 软件包，后者一直是各 Linux 发行版上 Unix 组管理的标准工具。它提供对 /etc/group 和 /etc/gshadow 文件的安全修改。
 
 # INSTALL
 

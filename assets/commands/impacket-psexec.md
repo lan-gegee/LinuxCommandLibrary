@@ -1,22 +1,22 @@
 # TAGLINE
 
-executes commands on remote Windows systems via SMB
+通过 SMB 在远程 Windows 系统上执行命令
 
 # TLDR
 
-**Execute command on remote host**
+**在远程主机上执行命令**
 
 ```impacket-psexec [domain]/[user]:[password]@[target] [command]```
 
-**Get interactive shell**
+**获取交互式 shell**
 
 ```impacket-psexec [domain]/[user]:[password]@[target]```
 
-**Use NTLM hash instead of password**
+**使用 NTLM 哈希代替密码**
 
 ```impacket-psexec -hashes :[hash] [domain]/[user]@[target]```
 
-**Specify service name**
+**指定服务名**
 
 ```impacket-psexec -service-name [name] [domain]/[user]:[password]@[target]```
 
@@ -27,42 +27,42 @@ executes commands on remote Windows systems via SMB
 # PARAMETERS
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes for authentication (LM hash may be empty).
+> 使用 NTLM 哈希进行身份验证（LM 哈希可以为空）。
 
 **-k**
-> Use Kerberos authentication. Grabs credentials from ccache file (KRB5CCNAME).
+> 使用 Kerberos 身份验证。从 ccache 文件（KRB5CCNAME）获取凭据。
 
 **-no-pass**
-> Don't ask for password (useful with -k).
+> 不询问密码（与 -k 搭配时有用）。
 
 **-aesKey** _HEX_
-> AES key for Kerberos authentication (128 or 256 bits).
+> 用于 Kerberos 身份验证的 AES 密钥（128 或 256 位）。
 
 **-dc-ip** _IP_
-> IP of the domain controller.
+> 域控制器的 IP。
 
 **-target-ip** _IP_
-> Target IP (overrides target hostname resolution).
+> 目标 IP（覆盖目标主机名的解析结果）。
 
 **-service-name** _NAME_
-> Name for the SMB server share.
+> SMB 服务器共享的名称。
 
 **-remote-binary-name** _NAME_
-> Custom remote binary name on target (default: random).
+> 目标上的自定义远程二进制文件名（默认：随机）。
 
 **-codec** _CODEC_
-> Output codec used to decode remote stdout (default: locale-aware).
+> 用于解码远程 stdout 的输出编码（默认：随区域设置）。
 
 **-debug**
-> Enable verbose debug output.
+> 启用详细的调试输出。
 
 # DESCRIPTION
 
-**impacket-psexec** executes commands on remote Windows systems via SMB. Part of the Impacket toolkit. Works by uploading a service executable to ADMIN$ share and using Service Control Manager to start it. Requires administrator credentials. Used for authorized penetration testing and system administration.
+**impacket-psexec** 通过 SMB 在远程 Windows 系统上执行命令。属于 Impacket 工具集。其工作原理是向 ADMIN$ 共享上传一个服务可执行文件，然后通过服务控制管理器启动它。需要管理员凭据。用于经授权的渗透测试和系统管理。
 
 # CAVEATS
 
-Requires administrator access on target. Leaves artifacts on target system. For authorized security testing only.
+需要对目标的管理员访问权限。会在目标系统上留下痕迹。仅限用于经授权的安全测试。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Requires administrator access on target. Leaves artifacts on target system. For 
 # SEE ALSO
 
 [impacket-smbclient](/man/impacket-smbclient)(1)
-

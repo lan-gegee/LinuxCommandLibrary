@@ -1,30 +1,30 @@
 # TAGLINE
 
-sets the X11 root window background
+设置 X11 根窗口背景
 
 # TLDR
 
-**Set solid color background**
+**设置纯色背景**
 
 ```hsetroot -solid "[#1a1b26]"```
 
-**Set wallpaper (fill)**
+**设置壁纸（填充）**
 
 ```hsetroot -fill [wallpaper.jpg]```
 
-**Set wallpaper (center)**
+**设置壁纸（居中）**
 
 ```hsetroot -center [wallpaper.png]```
 
-**Set wallpaper (tile)**
+**设置壁纸（平铺）**
 
 ```hsetroot -tile [pattern.png]```
 
-**Set gradient**
+**设置渐变**
 
 ```hsetroot -add "[#1a1b26]" -add "[#24283b]" -gradient [0]```
 
-**Set with cover mode**
+**以 cover 模式设置**
 
 ```hsetroot -cover [wallpaper.jpg]```
 
@@ -35,48 +35,48 @@ sets the X11 root window background
 # PARAMETERS
 
 **-solid** _color_
-> Solid color background.
+> 纯色背景。
 
 **-fill** _image_
-> Scale to fill screen.
+> 缩放至填满屏幕。
 
 **-center** _image_
-> Center image.
+> 居中显示图像。
 
 **-tile** _image_
-> Tile image.
+> 平铺图像。
 
 **-cover** _image_
-> Cover screen, preserve aspect.
+> 覆盖屏幕，保持宽高比。
 
 **-add** _color_
-> Add color to gradient.
+> 向渐变添加颜色。
 
 **-gradient** _angle_
-> Create gradient at angle.
+> 以指定角度创建渐变。
 
 **-screens** _n_
-> Apply to n screens.
+> 应用到 n 个屏幕。
 
 **-brightness** _value_
-> Adjust brightness.
+> 调整亮度。
 
 **-contrast** _value_
-> Adjust contrast.
+> 调整对比度。
 
 # DESCRIPTION
 
-**hsetroot** sets the X11 root window background. It's commonly used with minimal window managers that don't include wallpaper functionality, like dwm, bspwm, or i3.
+**hsetroot** 用于设置 X11 根窗口背景。它常与不自带壁纸功能的极简窗口管理器一起使用，如 dwm、bspwm 或 i3。
 
-The tool supports solid colors, images with various scaling modes, and gradients. It's lightweight and scriptable.
+该工具支持纯色、多种缩放模式的图像以及渐变。它轻量且易于脚本化。
 
 # CAVEATS
 
-X11 only; doesn't work with Wayland. Some compositors may override. Requires Imlib2. Color formats: #RRGGBB or names.
+仅支持 X11；不适用于 Wayland。某些合成器可能会覆盖设置。需要 Imlib2。颜色格式：#RRGGBB 或颜色名称。
 
 # HISTORY
 
-hsetroot is a fork/rewrite of various root background setters. It's commonly used in the minimal/tiling window manager community where dedicated wallpaper handling is needed.
+hsetroot 是各种根窗口背景设置工具的分支/重写。它在需要专门壁纸处理的极简/平铺窗口管理器社区中很常用。
 
 # INSTALL
 

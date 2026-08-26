@@ -1,38 +1,38 @@
 # TAGLINE
 
-opens the GitHub repository page in your web browser
+在 Web 浏览器中打开 GitHub 仓库页面
 
 # TLDR
 
-**Open repo in browser**
+**在浏览器中打开仓库**
 
 ```hub browse```
 
-**Open issues page**
+**打开 issues 页面**
 
 ```hub browse -- issues```
 
-**Open pull requests**
+**打开 pull request 页面**
 
 ```hub browse -- pulls```
 
-**Open specific issue**
+**打开特定 issue**
 
 ```hub browse -- issues/[123]```
 
-**Open wiki**
+**打开 wiki**
 
 ```hub browse -- wiki```
 
-**Open different repo**
+**打开其他仓库**
 
 ```hub browse [owner/repo]```
 
-**Print URL instead of opening browser**
+**只打印 URL 而不打开浏览器**
 
 ```hub browse -u```
 
-**Copy URL to clipboard**
+**将 URL 复制到剪贴板**
 
 ```hub browse -c```
 
@@ -43,21 +43,21 @@ opens the GitHub repository page in your web browser
 # PARAMETERS
 
 **-u**, **--url**
-> Print URL instead of opening browser.
+> 只打印 URL 而不打开浏览器。
 
 **-c**, **--copy**
-> Copy URL to clipboard.
+> 将 URL 复制到剪贴板。
 
 **--**
-> Separator for subpage path.
+> 子页面路径的分隔符。
 
 # DESCRIPTION
 
-**hub browse** opens the GitHub repository page in your web browser. You can specify subpages like issues, pulls, wiki, commits, or specific file paths. Works with the current repository by default or specify another repo.
+**hub browse** 会在 Web 浏览器中打开 GitHub 仓库页面。你可以指定子页面，例如 issues、pulls、wiki、commits 或具体的文件路径。默认作用于当前仓库，也可以指定其他仓库。
 
 # CAVEATS
 
-Hub is deprecated. Consider using **gh browse** instead.
+Hub 已被弃用。建议改用 **gh browse**。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ Hub is deprecated. Consider using **gh browse** instead.
 # SEE ALSO
 
 [hub](/man/hub)(1), [gh-browse](/man/gh-browse)(1)
-

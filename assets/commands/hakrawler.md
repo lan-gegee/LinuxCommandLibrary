@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast web crawler for gathering URLs and JavaScript file references
+用于收集 URL 和 JavaScript 文件引用的快速网络爬虫
 
 # TLDR
 
-**Crawl single URL**
+**爬取单个 URL**
 
 ```echo "[https://example.com]" | hakrawler```
 
-**Crawl with depth**
+**按指定深度爬取**
 
 ```echo "[https://example.com]" | hakrawler -d [3]```
 
-**Include subdomains in scope**
+**将子域名纳入范围**
 
 ```echo "[https://example.com]" | hakrawler -s subs```
 
-**Use plain output**
+**使用纯文本输出**
 
 ```echo "[https://example.com]" | hakrawler -plain```
 
-**Crawl with custom timeout and disable redirects**
+**使用自定义超时并禁用重定向**
 
 ```echo "[https://example.com]" | hakrawler -t [15] -dr```
 
@@ -31,34 +31,34 @@ fast web crawler for gathering URLs and JavaScript file references
 # PARAMETERS
 
 **-d** _depth_
-> Crawl depth (default 1).
+> 爬取深度（默认为 1）。
 
 **-s** _scope_
-> Scope of the crawl: strict (same domain only), subs (include subdomains), or fuzzy (everything). Default is strict.
+> 爬取范围：strict（仅同域名）、subs（包含子域名）或 fuzzy（全部）。默认为 strict。
 
 **-plain**
-> Plain output mode, only prints URLs.
+> 纯文本输出模式，只打印 URL。
 
 **-t** _seconds_
-> Request timeout in seconds (default 10).
+> 请求超时时间，单位为秒（默认为 10）。
 
 **-w** _workers_
-> Number of concurrent workers (default 8).
+> 并发 worker 数量（默认为 8）。
 
 **-insecure**
-> Skip TLS certificate verification.
+> 跳过 TLS 证书验证。
 
 **-dr**
-> Disable following redirects.
+> 禁用跟随重定向。
 
 **-h**
-> Show help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hakrawler** is a fast web crawler for gathering URLs and JavaScript file references. It's designed for reconnaissance in web application security testing.
+**hakrawler** 是一款用于收集 URL 和 JavaScript 文件引用的快速网络爬虫。它专为 Web 应用安全测试中的信息收集而设计。
 
-The tool reads URLs from stdin and outputs discovered links, making it easy to chain with other tools in security testing pipelines.
+该工具从标准输入读取 URL 并输出发现的链接，便于在安全测试管道中与其他工具串联使用。
 
 # USAGE EXAMPLES
 
@@ -75,11 +75,11 @@ echo "https://target.com" | hakrawler -d 3 -s subs -plain
 
 # CAVEATS
 
-For authorized security testing only. May trigger security controls. High worker counts may cause rate limiting or IP bans.
+仅限用于已授权的安全测试。可能触发安全控制机制。过高的并发数可能导致速率限制或 IP 封禁。
 
 # HISTORY
 
-hakrawler was created by **Luke Stephens** (hakluke) as part of a suite of security tools. It's designed for bug bounty hunters and penetration testers doing web reconnaissance.
+hakrawler 由 **Luke Stephens**（hakluke）创建，是其安全工具套件的一部分。它面向进行 Web 侦察的漏洞赏金猎人和渗透测试人员。
 
 # INSTALL
 

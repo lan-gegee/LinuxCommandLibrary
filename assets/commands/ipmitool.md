@@ -1,30 +1,30 @@
 # TAGLINE
 
-provides a command-line interface to the Intelligent Platform Management
+提供智能平台管理接口（IPMI）的命令行界面
 
 # TLDR
 
-Show **chassis power status**
+显示机箱**电源状态**
 
 ```sudo ipmitool chassis status```
 
-**Power on / off / cycle** the server remotely
+远程对服务器执行**开机 / 关机 / 电源循环**
 
 ```ipmitool -I lanplus -H [ip] -U [user] -P [pass] chassis power on```
 
-Read all **sensors**
+读取全部**传感器**
 
 ```sudo ipmitool sensor list```
 
-Show **System Event Log** (SEL)
+显示**系统事件日志**（SEL）
 
 ```sudo ipmitool sel list```
 
-Configure **IPMI LAN** on channel 1
+配置通道 1 上的 **IPMI LAN**
 
 ```sudo ipmitool lan print 1```
 
-Activate **Serial-over-LAN** console
+激活 **Serial-over-LAN** 控制台
 
 ```ipmitool -I lanplus -H [ip] -U [user] sol activate```
 
@@ -35,48 +35,48 @@ Activate **Serial-over-LAN** console
 # PARAMETERS
 
 **-H** _HOST_
-> Remote host IP address or hostname
+> 远程主机的 IP 地址或主机名
 
 **-U** _USER_
-> Remote username
+> 远程用户名
 
 **-P** _PASSWORD_
-> Remote password (or use -E to read from environment)
+> 远程密码（或用 -E 从环境变量读取）
 
 **-I** _INTERFACE_
-> Interface type: open, lan, lanplus
+> 接口类型：open、lan、lanplus
 
 **shell**
-> Interactive IPMI shell
+> 交互式 IPMI shell
 
 **sensor**
-> Display sensor information
+> 显示传感器信息
 
 **chassis**
-> Chassis commands (power, status, identify)
+> 机箱相关命令（电源、状态、定位灯）
 
 **lan**
-> Configure LAN settings
+> 配置 LAN 设置
 
 **user**
-> User management commands
+> 用户管理命令
 
 **sol**
-> Serial-over-LAN commands
+> Serial-over-LAN 命令
 
 # DESCRIPTION
 
-**ipmitool** provides a command-line interface to the Intelligent Platform Management Interface (IPMI). IPMI enables out-of-band management of servers, including power control, hardware monitoring, and remote console access.
+**ipmitool** 为智能平台管理接口（IPMI）提供命令行界面。IPMI 支持服务器的带外管理，包括电源控制、硬件监控和远程控制台访问。
 
-Common operations include checking sensor readings (temperatures, voltages, fan speeds), controlling power state, and accessing the serial console over the network. IPMI works independently of the main operating system.
+常见操作包括查看传感器读数（温度、电压、风扇转速）、控制电源状态，以及通过网络访问串行控制台。IPMI 独立于主操作系统工作。
 
 # CAVEATS
 
-IPMI access requires proper BMC configuration. Network access uses UDP ports 623 (IPMI) and may require firewall rules. lanplus interface provides encrypted communication. Local access requires the ipmi kernel modules.
+访问 IPMI 需要正确配置 BMC。网络访问使用 UDP 端口 623（IPMI），可能需要防火墙规则放行。lanplus 接口提供加密通信。本地访问需要加载 ipmi 内核模块。
 
 # HISTORY
 
-IPMI was developed by Intel, HP, NEC, and Dell starting in **1998**. ipmitool became the standard open-source tool for IPMI management on Linux systems, supporting both local and remote operations.
+IPMI 由 Intel、HP、NEC 和 Dell 自 **1998 年**起联合开发。ipmitool 成为 Linux 系统上进行 IPMI 管理的标准开源工具，同时支持本地和远程操作。
 
 # INSTALL
 

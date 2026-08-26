@@ -1,30 +1,30 @@
 # TAGLINE
 
-outputs the first 10 lines of each FILE to standard output
+将每个 FILE 的前 10 行输出到标准输出
 
 # TLDR
 
-Display **first 10 lines** of a file
+显示文件的**前 10 行**
 
 ```head path/to/file```
 
-Display first **5 lines** of a file
+显示文件的前 **5 行**
 
 ```head -n 5 path/to/file```
 
-Display first **100 bytes** of a file
+显示文件的前 **100 字节**
 
 ```head -c 100 path/to/file```
 
-Display all but the **last 5 lines**
+显示除**最后 5 行**以外的所有内容
 
 ```head -n -5 path/to/file```
 
-Display first lines of **multiple files**
+显示**多个文件**的开头几行
 
 ```head path/to/file1 path/to/file2```
 
-Suppress **filename headers**
+不显示**文件名标题**
 
 ```head -q path/to/file1 path/to/file2```
 
@@ -34,32 +34,32 @@ Suppress **filename headers**
 
 # DESCRIPTION
 
-**head** outputs the first 10 lines of each FILE to standard output. When processing multiple files, it precedes each with a header containing the filename. If no file is specified or when FILE is "-", it reads from standard input.
+**head** 将每个 FILE 的前 10 行输出到标准输出。处理多个文件时，会在每个文件的内容前面加上含有文件名的标题。如果未指定文件，或 FILE 为 "-"，则从标准输入读取。
 
 # PARAMETERS
 
 **-c, --bytes=[-]NUM**
-> Print the first NUM bytes of each file; with leading "-", print all but the last NUM bytes
+> 打印每个文件的前 NUM 字节；带前导 "-" 时，打印除最后 NUM 字节之外的所有内容
 
 **-n, --lines=[-]NUM**
-> Print the first NUM lines instead of 10; with leading "-", print all but the last NUM lines
+> 打印前 NUM 行而不是默认的 10 行；带前导 "-" 时，打印除最后 NUM 行之外的所有内容
 
 **-q, --quiet, --silent**
-> Never print headers giving filenames
+> 从不打印含文件名的标题
 
 **-v, --verbose**
-> Always print headers giving filenames
+> 总是打印含文件名的标题
 
 **-z, --zero-terminated**
-> Use NUL as line delimiter instead of newline
+> 使用 NUL 作为行分隔符而不是换行符
 
 # CAVEATS
 
-NUM may have a multiplier suffix: b (512), kB (1000), K (1024), MB (1000*1000), M (1024*1024), and so on for G, T, P, E, Z, Y. Binary prefixes like KiB, MiB are also supported.
+NUM 可以带有倍数后缀：b（512）、kB（1000）、K（1024）、MB（1000*1000）、M（1024*1024），G、T、P、E、Z、Y 依此类推。也支持 KiB、MiB 等二进制前缀。
 
 # HISTORY
 
-**head** has been part of Unix since early versions and is included in GNU **coreutils**.
+**head** 自 Unix 早期版本起就一直是其组成部分，现收录于 GNU **coreutils**。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-JVM build automation tool
+JVM 构建自动化工具
 
 # TLDR
 
-**Build project**
+**构建项目**
 
 ```gradle build```
 
-**Run tests**
+**运行测试**
 
 ```gradle test```
 
-**Clean and rebuild**
+**清理并重新构建**
 
 ```gradle clean build```
 
-**List available tasks**
+**列出可用任务**
 
 ```gradle tasks```
 
-**Build with parallel execution**
+**并行执行构建**
 
 ```gradle build --parallel```
 
-**Run with a build scan** for detailed reporting
+**运行并生成 build scan**以获得详细报告
 
 ```gradle build --scan```
 
-**Use the configuration cache** for faster repeat builds
+**使用配置缓存**加速重复构建
 
 ```gradle build --configuration-cache```
 
-**Use a specific build file**
+**使用特定的构建文件**
 
 ```gradle -b [path/to/build.gradle] build```
 
@@ -43,77 +43,77 @@ JVM build automation tool
 # PARAMETERS
 
 _TASKS_
-> Tasks to execute.
+> 要执行的任务。
 
 **--daemon**
-> Use Gradle daemon (enabled by default).
+> 使用 Gradle 守护进程（默认已启用）。
 
 **--no-daemon**
-> Do not use the Gradle daemon.
+> 不使用 Gradle 守护进程。
 
 **-q**, **--quiet**
-> Log errors only.
+> 只记录错误日志。
 
 **-i**, **--info**
-> Set log level to info.
+> 将日志级别设为 info。
 
 **-d**, **--debug**
-> Set log level to debug.
+> 将日志级别设为 debug。
 
 **--parallel**
-> Build projects in parallel.
+> 并行构建各项目。
 
 **--configuration-cache**
-> Enable the configuration cache for faster repeat builds.
+> 启用配置缓存以加速重复构建。
 
 **--scan**
-> Create a build scan at scans.gradle.com.
+> 在 scans.gradle.com 上创建构建扫描。
 
 **-b**, **--build-file** _file_
-> Specify the build file.
+> 指定构建文件。
 
 **-c**, **--settings-file** _file_
-> Specify the settings file.
+> 指定 settings 文件。
 
 **--refresh-dependencies**
-> Refresh the state of dependencies.
+> 刷新依赖的状态。
 
 **-x**, **--exclude-task** _task_
-> Exclude a task from execution.
+> 将某个任务排除在执行之外。
 
 **--continuous**
-> Continuous build; re-execute on file changes.
+> 持续构建；在文件变更时重新执行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gradle** is a build automation tool for Java, Kotlin, Android, and other JVM projects. It uses Groovy or Kotlin DSL for build scripts and provides dependency management, incremental builds, and an extensive plugin ecosystem.
+**gradle** 是一个面向 Java、Kotlin、Android 及其他 JVM 项目的构建自动化工具。它使用 Groovy 或 Kotlin DSL 编写构建脚本，提供依赖管理、增量构建和丰富的插件生态。
 
-Gradle is the standard build system for Android development and supports multi-project builds. The Gradle daemon runs persistently in the background to improve build performance and is enabled by default. In most projects, the **Gradle Wrapper** (`./gradlew`) is preferred over invoking `gradle` directly to ensure consistent build tool versions.
+Gradle 是 Android 开发的标准构建系统，支持多项目构建。Gradle 守护进程会在后台持续运行以提升构建性能，且默认启用。在大多数项目中，推荐使用 **Gradle Wrapper**（`./gradlew`）而不是直接调用 `gradle`，以确保构建工具版本一致。
 
 # CONFIGURATION
 
 **build.gradle** / **build.gradle.kts**
-> Project build script defining tasks, dependencies, and plugins.
+> 项目构建脚本，定义任务、依赖和插件。
 
 **gradle.properties**
-> Project and user-level properties for build configuration.
+> 用于构建配置的项目级和用户级属性。
 
 **settings.gradle** / **settings.gradle.kts**
-> Multi-project build settings and included modules.
+> 多项目构建设置及包含的模块。
 
 **~/.gradle/gradle.properties**
-> User-level Gradle properties applied to all builds.
+> 应用于所有构建的用户级 Gradle 属性。
 
 # CAVEATS
 
-JVM required. First run downloads dependencies and the Gradle distribution. The daemon is enabled by default; use **--no-daemon** to disable. Prefer the Gradle Wrapper (**./gradlew**) to ensure reproducible builds.
+需要 JVM。首次运行会下载依赖和 Gradle 分发包。守护进程默认启用；使用 **--no-daemon** 可禁用。建议使用 Gradle Wrapper（**./gradlew**）以确保构建可复现。
 
 # HISTORY
 
-Gradle was created by **Hans Dockter**, first released in **2007**, becoming the official Android build system in **2013**. Kotlin DSL support was added in Gradle 5.0 (2018). The configuration cache for faster builds was stabilized in Gradle 8.1 (2023).
+Gradle 由 **Hans Dockter** 创建，首次发布于 **2007 年**，并于 **2013 年**成为官方 Android 构建系统。Kotlin DSL 支持在 Gradle 5.0（2018 年）中加入。用于加速构建的配置缓存于 Gradle 8.1（2023 年）转为正式特性。
 
 # INSTALL
 

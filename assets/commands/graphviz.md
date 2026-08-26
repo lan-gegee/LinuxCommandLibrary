@@ -1,26 +1,26 @@
 # TAGLINE
 
-Graph visualization toolkit
+图可视化工具包
 
 # TLDR
 
-**Render DOT file to PNG**
+**将 DOT 文件渲染为 PNG**
 
 ```dot -Tpng [graph.dot] -o [graph.png]```
 
-**Render to SVG**
+**渲染为 SVG**
 
 ```dot -Tsvg [graph.dot] -o [graph.svg]```
 
-**Use different layout engine**
+**使用不同的布局引擎**
 
 ```neato -Tpng [graph.dot] -o [graph.png]```
 
-**Render to PDF**
+**渲染为 PDF**
 
 ```dot -Tpdf [graph.dot] -o [graph.pdf]```
 
-**Circular layout**
+**环形布局**
 
 ```circo -Tpng [graph.dot] -o [graph.png]```
 
@@ -31,22 +31,22 @@ Graph visualization toolkit
 # PARAMETERS
 
 **-T** _format_
-> Output format: png, svg, pdf, ps, jpg.
+> 输出格式：png、svg、pdf、ps、jpg。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-K** _engine_
-> Layout engine: dot, neato, fdp, sfdp, circo, twopi.
+> 布局引擎：dot、neato、fdp、sfdp、circo、twopi。
 
 **-G** _name=value_
-> Set graph attribute.
+> 设置图属性。
 
 **-N** _name=value_
-> Set node attribute.
+> 设置节点属性。
 
 **-E** _name=value_
-> Set edge attribute.
+> 设置边属性。
 
 # LAYOUT ENGINES
 
@@ -73,17 +73,17 @@ digraph G {
 
 # DESCRIPTION
 
-**Graphviz** is a graph visualization toolkit that reads graph descriptions in the DOT language and renders them as images. Multiple layout algorithms handle different graph types, from hierarchical directed graphs to force-directed undirected layouts.
+**Graphviz** 是一个图可视化工具包，它读取以 DOT 语言描述的图并将其渲染为图像。多种布局算法可以处理不同类型的图，从层次化的有向图到力导向的无向布局。
 
-The suite includes several layout programs (dot, neato, fdp, sfdp, circo, twopi) and utility tools for format conversion and graph manipulation.
+该套件包含多个布局程序（dot、neato、fdp、sfdp、circo、twopi）以及用于格式转换和图操作的工具。
 
 # CAVEATS
 
-Large graphs may be slow to render. Layout quality varies by algorithm choice. Complex styling requires learning DOT attributes. Text rendering may vary by output format.
+大型图的渲染可能较慢。布局质量因算法选择而异。复杂的样式需要学习 DOT 属性。文本渲染效果可能因输出格式而异。
 
 # HISTORY
 
-Graphviz was developed at **AT&T Labs Research**, with initial work by **Stephen North**, **Emden Gansner**, and others in the **1990s**. It was open-sourced and became the standard for programmatic graph visualization.
+Graphviz 由 **AT&T 实验室研究院** 开发，**Stephen North**、**Emden Gansner** 等人于 **20 世纪 90 年代**完成了早期工作。它被开源后成为程序化图可视化的事实标准。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-cryptocurrency trading engine with CLI client
+带 CLI 客户端的加密货币交易引擎
 
 # TLDR
 
-**Start the trading engine**
+**启动交易引擎**
 
 ```gocryptotrader```
 
-**Start with a specific config file**
+**使用指定配置文件启动**
 
 ```gocryptotrader -config [config.json]```
 
-**List supported exchanges using the CLI client**
+**用 CLI 客户端列出支持的交易所**
 
 ```gctcli getexchanges```
 
-**Get ticker for a currency pair**
+**获取货币对的行情**
 
 ```gctcli getticker --exchange [binance] --pair [BTC-USDT] --asset [spot]```
 
-**Get account portfolio summary**
+**获取账户投资组合摘要**
 
 ```gctcli getportfoliosummary```
 
-**Enable or disable an exchange**
+**启用或禁用某个交易所**
 
 ```gctcli enableexchange --exchange [binance]```
 
-**Get orderbook for a currency pair**
+**获取货币对的订单簿**
 
 ```gctcli getorderbook --exchange [binance] --pair [BTC-USDT] --asset [spot]```
 
@@ -41,34 +41,33 @@ cryptocurrency trading engine with CLI client
 # PARAMETERS
 
 **-config** _FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 **-verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-version**
-> Display version.
+> 显示版本。
 
 **-help**
-> Display help.
+> 显示帮助。
 
 **-grpchost** _HOST_
-> gRPC host address (gctcli, default: localhost).
+> gRPC 主机地址（gctcli，默认：localhost）。
 
 **-grpcport** _PORT_
-> gRPC port (gctcli, default: 9052).
+> gRPC 端口（gctcli，默认：9052）。
 
 # DESCRIPTION
 
-**gocryptotrader** is an open-source cryptocurrency trading engine written in Go. It supports simultaneous connections to multiple exchanges for trading, portfolio management, and market data retrieval.
+**gocryptotrader** 是一个用 Go 编写的开源加密货币交易引擎。它支持同时连接多个交易所，进行交易、投资组合管理和市场数据获取。
 
-The companion CLI tool **gctcli** provides command-line access to the trading engine via gRPC, allowing users to query tickers, manage orders, view portfolios, and configure exchange connections. The engine supports backtesting, live trading, and paper trading modes.
+配套的 CLI 工具 **gctcli** 通过 gRPC 提供对交易引擎的命令行访问，让用户可以查询行情、管理订单、查看投资组合以及配置交易所连接。该引擎支持回测、实盘交易和模拟交易三种模式。
 
 # CAVEATS
 
-Requires API keys from supported exchanges for trading functionality. The trading engine must be running for gctcli commands to work. Written in Go.
+交易功能需要受支持交易所的 API 密钥。gctcli 命令只有在交易引擎运行时才能工作。采用 Go 编写。
 
 # SEE ALSO
 
 [freqtrade](/man/freqtrade)(1), [cointop](/man/cointop)(1)
-

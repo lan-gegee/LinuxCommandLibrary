@@ -1,34 +1,34 @@
 # TAGLINE
 
-Merge and pack disjoint graphs
+合并并打包互不相交的图
 
 # TLDR
 
-**Merge laid-out graphs**
+**合并已布局的图**
 
 ```gvpack [graph1.dot] [graph2.dot] > [merged.dot]```
 
-**Pack at graph level** (prevents interleaving)
+**在图级别打包**（防止交错）
 
 ```gvpack -g [graph1.dot] [graph2.dot] > [merged.dot]```
 
-**Pack at node level** (ignoring clusters)
+**在节点级别打包**（忽略簇）
 
 ```gvpack -n [graph1.dot] [graph2.dot] > [merged.dot]```
 
-**Combine without packing**
+**不打包直接合并**
 
 ```gvpack -u [graph1.dot] [graph2.dot] > [merged.dot]```
 
-**Arrange in array layout with margin**
+**按数组布局排列并设置边距**
 
 ```gvpack -array -m [20] [graph1.dot] [graph2.dot] > [merged.dot]```
 
-**Set graph attributes on output**
+**在输出上设置图属性**
 
 ```gvpack -G "label=[My Graph]" [graph1.dot] [graph2.dot] > [merged.dot]```
 
-**Full pipeline: decompose, layout, pack, render**
+**完整流程：分解、布局、打包、渲染**
 
 ```ccomps -x [graph.dot] | dot | gvpack | neato -s -n2 -Tpng -o [output.png]```
 
@@ -39,39 +39,39 @@ Merge and pack disjoint graphs
 # PARAMETERS
 
 **-g**
-> Pack at graph level. Uses more space but prevents parts of one graph from occurring between parts of another.
+> 在图级别打包。占用更多空间，但可以防止一张图的各部分出现在另一张图的各部分之间。
 
 **-n**
-> Pack at node level, ignoring clusters.
+> 在节点级别打包，忽略簇。
 
 **-u**
-> Combine without packing. Just merge into a single graph.
+> 不打包直接合并。只是合并为单个图。
 
 **-array**[_flags_][_n_]
-> Arrange graphs in an array layout. Optional flags: c (column-major), t/b/l/r (align top/bottom/left/right), u (use sortv attribute). Optional _n_ sets columns (or rows with c).
+> 将图按数组布局排列。可选标志：c（按列优先）、t/b/l/r（对齐上/下/左/右）、u（使用 sortv 属性）。可选 _n_ 设置列数（配合 c 则为行数）。
 
 **-m** _margin_
-> Packing margin in points around each part.
+> 每个部分周围的打包边距（以点为单位）。
 
 **-o** _file_
-> Output to file instead of stdout.
+> 输出到文件而非标准输出。
 
 **-s** _name_
-> Root graph name (default: root).
+> 根图的名称（默认为 root）。
 
 **-G** _name=value_
-> Add attributes to the resulting union graph.
+> 为生成的联合图添加属性。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 # DESCRIPTION
 
-**gvpack** reads in a stream of graphs, combines them into a single layout, and produces a single graph serving as the union of the input graphs. Input must be in dot format with layout information (produced by a layout engine like dot or neato without the -T flag). By default, packing is at cluster level, preventing graph parts from overlapping. Output can be rendered with **neato -s -n2** and the desired output format.
+**gvpack** 读入一个图流，将其组合成单一布局，并生成一个作为输入图并集的单个图。输入必须是带布局信息的 dot 格式（由 dot 或 neato 等布局引擎在不加 -T 标志时生成）。默认情况下按簇级别打包，防止图的部分之间相互重叠。输出可以用 **neato -s -n2** 加所需的输出格式进行渲染。
 
 # CAVEATS
 
-All input graphs must be either all directed or all undirected. Nodes with the same names across graphs are automatically renamed to avoid conflicts.
+所有输入图必须全是有向图或全是无向图。跨图的同名节点会被自动重命名以避免冲突。
 
 # INSTALL
 

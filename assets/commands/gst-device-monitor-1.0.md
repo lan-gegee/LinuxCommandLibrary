@@ -1,30 +1,30 @@
 # TAGLINE
 
-GStreamer multimedia device detection tool
+GStreamer 多媒体设备检测工具
 
 # TLDR
 
-**List all devices**
+**列出所有设备**
 
 ```gst-device-monitor-1.0```
 
-**Monitor for device changes**
+**监视设备变化**
 
 ```gst-device-monitor-1.0 --follow```
 
-**List audio sources only**
+只**列出音频源**
 
 ```gst-device-monitor-1.0 Audio/Source```
 
-**List video sources**
+**列出视频源**
 
 ```gst-device-monitor-1.0 Video/Source```
 
-**Include hidden devices**
+**包含隐藏设备**
 
 ```gst-device-monitor-1.0 --include-hidden```
 
-**Filter by capabilities**
+**按能力过滤**
 
 ```gst-device-monitor-1.0 Video/Source:video/x-raw```
 
@@ -35,26 +35,26 @@ GStreamer multimedia device detection tool
 # PARAMETERS
 
 **-f**, **--follow**
-> Continue monitoring for device changes.
+> 持续监视设备变化。
 
 **-i**, **--include-hidden**
-> Include devices from hidden providers.
+> 包含来自隐藏提供者的设备。
 
 **--help**
-> Show help synopsis.
+> 显示帮助概要。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**gst-device-monitor-1.0** is a GStreamer tool for detecting and listing available multimedia devices. It shows audio sources (microphones), audio sinks (speakers), video sources (webcams), and other media devices.
+**gst-device-monitor-1.0** 是一款 GStreamer 工具，用于检测并列出可用的多媒体设备。它显示音频源（麦克风）、音频输出（扬声器）、视频源（网络摄像头）和其他媒体设备。
 
-By default, it lists all devices and exits. Use **--follow** to continuously monitor for device additions and removals.
+默认情况下，它列出所有设备后退出。使用 **--follow** 可持续监视设备的添加和移除。
 
 # CAVEATS
 
-Requires GStreamer 1.4+ with appropriate plugins. Device detection depends on installed plugins (ALSA, PulseAudio, V4L2). May require proper permissions to detect some devices.
+需要 GStreamer 1.4+ 及相应插件。设备检测依赖已安装的插件（ALSA、PulseAudio、V4L2）。检测某些设备可能需要适当的权限。
 
 # INSTALL
 

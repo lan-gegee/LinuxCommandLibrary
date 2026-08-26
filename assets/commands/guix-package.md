@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages packages in GNU Guix, a functional package manager
+管理 GNU Guix（一款函数式软件包管理器）中的软件包
 
 # TLDR
 
-**Install** a package
+**安装**软件包
 
 ```guix package -i [package]```
 
-**Remove** a package
+**移除**软件包
 
 ```guix package -r [package]```
 
-**Search** for packages
+**搜索**软件包
 
 ```guix package -s "[search_pattern]"```
 
-List **installed** packages
+列出**已安装**的软件包
 
 ```guix package -I```
 
-List **generations** (previous configurations)
+列出**代际**（先前的配置）
 
 ```guix package -l```
 
-**Roll back** to the previous generation
+**回滚**到上一个代际
 
 ```guix package --roll-back```
 
@@ -35,41 +35,41 @@ List **generations** (previous configurations)
 # PARAMETERS
 
 **-i**, **--install** _PACKAGE_
-> Install specified package
+> 安装指定的软件包
 
 **-r**, **--remove** _PACKAGE_
-> Remove specified package
+> 移除指定的软件包
 
 **-s**, **--search** _PATTERN_
-> Search package database using regex pattern
+> 使用正则表达式模式搜索软件包数据库
 
 **-I**, **--list-installed**
-> List all installed packages
+> 列出所有已安装的软件包
 
 **-l**, **--list-generations**
-> List all generations (snapshots)
+> 列出所有代际（快照）
 
 **--roll-back**
-> Switch to the previous generation
+> 切换到上一个代际
 
 **-u**, **--upgrade**
-> Upgrade installed packages
+> 升级已安装的软件包
 
 # DESCRIPTION
 
-**guix package** manages packages in GNU Guix, a functional package manager. Unlike traditional package managers, Guix keeps multiple versions and configurations in separate generations, allowing easy rollback to previous states.
+**guix package** 管理 GNU Guix 中的软件包，后者是一款函数式软件包管理器。与传统软件包管理器不同，Guix 将多个版本和配置保存在不同的代际中，可以轻松回滚到先前的状态。
 
-Each operation creates a new generation, preserving the previous state. This transactional approach means failed upgrades don't leave the system in a broken state, and users can always return to a known-good configuration.
+每次操作都会创建一个新代际，同时保留之前的状态。这种事务性方法意味着失败的升级不会让系统陷入损坏状态，用户始终可以回到已知良好的配置。
 
-Packages are installed per-user by default, not requiring root privileges. The functional model ensures reproducible builds and the ability to run multiple versions of the same package.
+软件包默认按用户安装，不需要 root 权限。函数式模型确保了可复现构建，并且能够运行同一软件包的多个版本。
 
 # CAVEATS
 
-Guix uses a different filesystem hierarchy than traditional systems, with packages in /gnu/store. Shell integration may require sourcing Guix profile. Build times can be long when substitutes aren't available.
+Guix 使用不同于传统系统的文件系统层次结构，软件包存放在 /gnu/store 中。Shell 集成可能需要 source Guix profile。没有替代二进制源（substitute）可用时构建时间可能很长。
 
 # HISTORY
 
-GNU Guix was announced in **2012** by Ludovic Courtès as a functional package manager based on Nix concepts but using GNU Guile Scheme. It evolved into a full GNU/Linux distribution (Guix System) while remaining usable as a package manager on other distributions.
+GNU Guix 由 Ludovic Courtès 于 **2012 年**发布，是一款基于 Nix 概念但使用 GNU Guile Scheme 的函数式软件包管理器。后来它发展为完整的 GNU/Linux 发行版（Guix System），同时仍可作为软件包管理器在其他发行版上使用。
 
 # SEE ALSO
 

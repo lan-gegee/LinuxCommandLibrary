@@ -1,30 +1,30 @@
 # TAGLINE
 
-scans I2C buses to detect connected devices
+扫描 I2C 总线以检测已连接的设备
 
 # TLDR
 
-List **active I2C buses**
+列出**活动的 I2C 总线**
 
 ```i2cdetect -l```
 
-**Scan devices** on I2C bus 1
+在 I2C 总线 1 上**扫描设备**
 
 ```i2cdetect -y 1```
 
-**Scan using SMBus quick write** commands (safer default mode)
+**使用 SMBus quick write** 命令扫描（更安全的默认模式）
 
 ```i2cdetect -y -q 1```
 
-**Scan using SMBus read byte** commands
+**使用 SMBus read byte** 命令扫描
 
 ```i2cdetect -y -r 1```
 
-**Scan all addresses** including reserved ones (0x00-0x7f)
+**扫描所有地址**，包括保留地址（0x00-0x7f）
 
 ```i2cdetect -y -a 1```
 
-**Display adapter functionality**
+**显示适配器功能**
 
 ```i2cdetect -F 1```
 
@@ -35,42 +35,42 @@ List **active I2C buses**
 # PARAMETERS
 
 **-l**
-> List available I2C buses
+> 列出可用的 I2C 总线
 
 **-y**
-> Disable interactive mode (no confirmation prompt)
+> 禁用交互模式（不显示确认提示）
 
 **-a**
-> Scan all addresses (0x00-0x7f instead of 0x03-0x77)
+> 扫描所有地址（0x00-0x7f 而非 0x03-0x77）
 
 **-q**
-> Use SMBus quick write commands for probing
+> 使用 SMBus quick write 命令进行探测
 
 **-r**
-> Use SMBus read byte commands for probing
+> 使用 SMBus read byte 命令进行探测
 
 **-F**
-> Display functionality of the adapter
+> 显示适配器的功能
 
 # DESCRIPTION
 
-**i2cdetect** scans I2C buses to detect connected devices. It's commonly used for debugging I2C hardware, identifying device addresses, and verifying hardware connections on embedded systems and single-board computers.
+**i2cdetect** 扫描 I2C 总线以检测已连接的设备。它常用于调试 I2C 硬件、识别设备地址以及在嵌入式系统和单板计算机上验证硬件连接。
 
-The output is a grid showing addresses 0x00-0x7f. Detected devices show their address, while empty positions show "--". Addresses marked "UU" are in use by a kernel driver.
+输出是一个显示 0x00-0x7f 地址的网格。检测到的设备会显示其地址，空位显示 "--"。标记为 "UU" 的地址正被某个内核驱动占用。
 
-On Raspberry Pi and similar boards, I2C is often used for sensors, displays, and other peripherals. Common devices include:
-- 0x27/0x3f - LCD displays
-- 0x48-0x4f - Temperature sensors
-- 0x50-0x57 - EEPROMs
-- 0x68 - Real-time clocks
+在 Raspberry Pi 等开发板上，I2C 常用于传感器、显示器和其他外设。常见设备包括：
+- 0x27/0x3f — LCD 显示屏
+- 0x48-0x4f — 温度传感器
+- 0x50-0x57 — EEPROM
+- 0x68 — 实时时钟
 
 # CAVEATS
 
-Requires root privileges or membership in the i2c group. Scanning can interfere with sensitive devices; use **-y** carefully in production. Some devices may not respond to detection probes.
+需要 root 权限或属于 i2c 组。扫描可能干扰敏感设备；在生产环境中使用 **-y** 时请谨慎。某些设备可能不会响应探测。
 
 # HISTORY
 
-i2cdetect is part of i2c-tools, a set of utilities for I2C bus access on Linux. I2C (Inter-Integrated Circuit) was developed by Philips in **1982** and became widely used in embedded systems.
+i2cdetect 是 i2c-tools 的一部分，这是一套用于 Linux 上 I2C 总线访问的工具。I2C（Inter-Integrated Circuit）由飞利浦于 **1982 年**开发，随后在嵌入式系统中被广泛采用。
 
 # INSTALL
 

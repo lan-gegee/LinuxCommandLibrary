@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line editor for HCL2 configuration files
+HCL2 配置文件的命令行编辑器
 
 # TLDR
 
-**Get an attribute** value from stdin HCL
+**从 stdin 的 HCL 中获取属性值**
 
 ```cat [file.hcl] | hcledit attribute get [resource.foo.bar.attr]```
 
-**Set an attribute** (print result)
+**设置属性**（打印结果）
 
 ```cat [file.hcl] | hcledit attribute set [resource.foo.bar.attr] '["val"]'```
 
-**Update file in place**
+**就地更新文件**
 
 ```hcledit attribute set [resource.foo.bar.attr] '["val"]' -f [file.hcl] -u```
 
-**Remove an attribute**
+**移除属性**
 
 ```cat [file.hcl] | hcledit attribute rm [resource.foo.bar.attr]```
 
-**List blocks**
+**列出块**
 
 ```cat [file.hcl] | hcledit block list```
 
-**Get a block**
+**获取块**
 
 ```cat [file.hcl] | hcledit block get [resource.foo.bar]```
 
-**Format HCL**
+**格式化 HCL**
 
 ```hcledit fmt -f [file.hcl] -u```
 
@@ -38,41 +38,41 @@ Command-line editor for HCL2 configuration files
 
 # DESCRIPTION
 
-**hcledit** is a schemaless command-line editor for **HCL2**. It reads HCL from stdin (or **-f**), applies token-based edits that preserve comments, and writes the result to stdout (or updates in place with **-u**). It was built for Terraform-style refactoring but works for any HCL2 file without needing the target application binary.
+**hcledit** 是一个无模式的 **HCL2** 命令行编辑器。它从 stdin（或 **-f** 指定的文件）读取 HCL，应用基于 token 的编辑且保留注释，然后将结果写到 stdout（或用 **-u** 就地更新）。它为 Terraform 风格的重构而设计，但同样适用于任何 HCL2 文件，并且不需要目标应用的二进制程序。
 
-Operations cover attributes (**get**, **set**, **append**, **rm**, **mv**, **replace**), blocks (**list**, **get**, **append**, **new**, **rm**, **mv**), body extraction, and **fmt**.
+其操作覆盖属性（**get**、**set**、**append**、**rm**、**mv**、**replace**）、块（**list**、**get**、**append**、**new**、**rm**、**mv**）、body 内容提取以及 **fmt**。
 
-Install via Homebrew, release binaries, or **make install** from source.
+可通过 Homebrew、发行版二进制文件或从源码执行 **make install** 安装。
 
 # PARAMETERS
 
 **attribute** get|set|append|rm|mv|replace ...
 
-> Read or modify attributes by dotted address (for example **resource.foo.bar.nested.attr**).
+> 通过点分地址读取或修改属性（例如 **resource.foo.bar.nested.attr**）。
 
 **block** list|get|append|new|rm|mv ...
 
-> Inspect or reshape blocks and labels.
+> 检查或调整块及其标签。
 
 **body** get
 
-> Extract body content.
+> 提取 body 内容。
 
 **fmt**
 
-> Format HCL.
+> 格式化 HCL。
 
 **-f**, **--file** *path*
 
-> Input file (default **-** stdin).
+> 输入文件（默认 **-** 表示 stdin）。
 
 **-u**, **--update**
 
-> Write changes back to the file in place.
+> 将修改就地写回文件。
 
 # CAVEATS
 
-HCL2 only (not HCL1). Schemaless parsing can be looser than application validation; always review diffs and run **terraform validate** (or equivalent) after bulk edits. Quote string values carefully when setting attributes from the shell.
+仅支持 HCL2（不支持 HCL1）。无模式解析可能比应用自身的校验更宽松；批量编辑后务必审查差异，并运行 **terraform validate**（或等效的校验）。在 shell 中设置属性时，请小心地对字符串值加引号。
 
 # INSTALL
 

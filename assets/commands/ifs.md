@@ -1,22 +1,22 @@
 # TAGLINE
 
-shell variable controlling word splitting
+控制分词的 Shell 变量
 
 # TLDR
 
-**Set field separator**
+**设置字段分隔符**
 
 ```IFS=':' read -ra arr <<< "a:b:c"```
 
-**Split on newline**
+**按换行符分割**
 
 ```IFS=$'\n'```
 
-**Save and restore IFS**
+**保存并恢复 IFS**
 
 ```OLD_IFS="$IFS"; IFS=','; ...; IFS="$OLD_IFS"```
 
-**Default IFS**
+**默认 IFS**
 
 ```IFS=$' \t\n'```
 
@@ -27,21 +27,21 @@ shell variable controlling word splitting
 # PARAMETERS
 
 **IFS**
-> Internal Field Separator variable.
+> 内部字段分隔符（Internal Field Separator）变量。
 
 # DESCRIPTION
 
-**IFS** (Internal Field Separator) is a shell variable controlling word splitting. It defines characters used to split strings into fields.
+**IFS**（Internal Field Separator，内部字段分隔符）是一个控制分词的 Shell 变量。它定义了用于将字符串拆分为字段的字符。
 
-The default IFS is space, tab, and newline. Changing IFS affects read, for loops, and word splitting behavior.
+默认 IFS 为空格、制表符和换行符。修改 IFS 会影响 read、for 循环以及分词行为。
 
 # CAVEATS
 
-Shell variable, not command. Affects word splitting globally. Restore after use.
+是 Shell 变量而非命令。全局影响分词行为。用完后要恢复。
 
 # HISTORY
 
-IFS is a standard **POSIX shell** variable, present in all Bourne-compatible shells.
+IFS 是标准的 **POSIX shell** 变量，存在于所有与 Bourne 兼容的 Shell 中。
 
 # SEE ALSO
 

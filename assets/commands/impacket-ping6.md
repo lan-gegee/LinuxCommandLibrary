@@ -1,14 +1,14 @@
 # TAGLINE
 
-ICMPv6 ping implementation using raw sockets via the Impacket library
+基于 Impacket 库、使用原始套接字的 ICMPv6 ping 实现
 
 # TLDR
 
-**Send ICMPv6 echo requests** to a target
+向目标**发送 ICMPv6 回显请求**
 
 ```impacket-ping6 [2001:db8::1]```
 
-**Ping IPv6 address with specific source**
+**以指定源地址 ping IPv6 地址**
 
 ```impacket-ping6 -src [2001:db8::50] [2001:db8::1]```
 
@@ -19,21 +19,21 @@ ICMPv6 ping implementation using raw sockets via the Impacket library
 # PARAMETERS
 
 **-src** _IP_
-> Source IPv6 address to use for the ping packets
+> 用于 ping 数据包的源 IPv6 地址
 
 # DESCRIPTION
 
-**impacket-ping6** is an ICMPv6 ping implementation using raw sockets via the Impacket library. It sends ICMPv6 echo request packets to the specified IPv6 target and reports responses.
+**impacket-ping6** 是一个 ICMPv6 ping 实现，通过 Impacket 库使用原始套接字。它向指定的 IPv6 目标发送 ICMPv6 回显请求包，并报告响应。
 
-This tool provides IPv6 ping functionality using Impacket's raw socket capabilities, useful for testing IPv6 connectivity in security testing scenarios.
+该工具利用 Impacket 的原始套接字能力提供 IPv6 ping 功能，适用于安全测试场景中的 IPv6 连通性测试。
 
 # CAVEATS
 
-Requires root/administrator privileges to create raw sockets. Target must be an IPv6 address. May be blocked by firewalls that filter ICMPv6 traffic. For most use cases, the standard **ping6** or **ping -6** command is more feature-rich.
+创建原始套接字需要 root/管理员权限。目标必须是 IPv6 地址。可能被过滤 ICMPv6 流量的防火墙拦截。对大多数场景而言，标准的 **ping6** 或 **ping -6** 命令功能更完善。
 
 # HISTORY
 
-Part of the **Impacket** library by SecureAuth. Provides IPv6 counterpart to impacket-ping for environments using IPv6 networking.
+属于 SecureAuth 的 **Impacket** 库，为使用 IPv6 网络的环境提供 impacket-ping 的 IPv6 对应版本。
 
 # INSTALL
 

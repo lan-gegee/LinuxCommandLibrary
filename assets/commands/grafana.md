@@ -1,30 +1,30 @@
 # TAGLINE
 
-Analytics and monitoring visualization platform
+分析与监控可视化平台
 
 # TLDR
 
-**Start Grafana server** (modern binary)
+**启动 Grafana 服务器**（新版二进制）
 
 ```grafana server```
 
-**Start Grafana server** (legacy binary)
+**启动 Grafana 服务器**（旧版二进制）
 
 ```grafana-server```
 
-**Start with config file**
+**使用配置文件启动**
 
 ```grafana server --config [/etc/grafana/grafana.ini]```
 
-**Check version**
+**检查版本**
 
 ```grafana server -v```
 
-**Run the admin CLI**
+**运行管理 CLI**
 
 ```grafana cli admin reset-admin-password [newpass]```
 
-**Access web interface**
+**访问 Web 界面**
 
 ```http://localhost:3000```
 
@@ -35,22 +35,22 @@ Analytics and monitoring visualization platform
 # PARAMETERS
 
 **--config** _file_
-> Configuration file path.
+> 配置文件路径。
 
 **--homepath** _path_
-> Grafana home directory.
+> Grafana 主目录。
 
 **--pidfile** _file_
-> PID file path.
+> PID 文件路径。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Grafana** is an open-source analytics and visualization platform. It creates dashboards for monitoring metrics from data sources like Prometheus, InfluxDB, Elasticsearch, and many others.
+**Grafana** 是一个开源的分析与可视化平台。它创建仪表盘，用于监控来自 Prometheus、InfluxDB、Elasticsearch 等众多数据源的指标。
 
-Grafana provides rich visualization options including graphs, tables, heatmaps, and alerting. It is commonly used for infrastructure monitoring, application metrics, and business analytics.
+Grafana 提供丰富的可视化选项，包括图表、表格、热力图和告警。它常用于基础设施监控、应用指标和业务分析。
 
 # DEFAULT CREDENTIALS
 
@@ -62,27 +62,27 @@ Password: admin (change on first login)
 
 # KEY FEATURES
 
-- Multi-source dashboards
-- Alerting with notifications
-- User authentication and teams
-- Plugin ecosystem
-- Dashboard templating
+- 多数据源仪表盘
+- 带通知的告警
+- 用户身份验证与团队
+- 插件生态
+- 仪表盘模板化
 
 # CONFIGURATION
 
 **/etc/grafana/grafana.ini**
-> Main server configuration file controlling ports, authentication, database, and data sources.
+> 主服务器配置文件，控制端口、身份验证、数据库和数据源。
 
 **/etc/grafana/provisioning/**
-> Directory for provisioning dashboards, data sources, and alerting via YAML files.
+> 用于通过 YAML 文件预配置（provisioning）仪表盘、数据源和告警的目录。
 
 # CAVEATS
 
-Runs as service; requires systemd or init setup. Data sources need separate installation. Complex dashboards may impact performance. Consider security for internet exposure.
+以服务方式运行；需要 systemd 或 init 配置。数据源需要单独安装。复杂的仪表盘可能影响性能。暴露到互联网时请注意安全。
 
 # HISTORY
 
-Grafana was created by **Torkel Odegaard** in **2014**, initially as a fork of Kibana for Graphite visualization. It grew into a leading visualization platform, with Grafana Labs founded in **2015** to support commercial development.
+Grafana 由 **Torkel Odegaard** 于 **2014 年**创建，最初是用于 Graphite 可视化的 Kibana 分支。它逐步成长为领先的可视化平台，**2015 年**成立的 Grafana Labs 支持其商业化开发。
 
 # INSTALL
 

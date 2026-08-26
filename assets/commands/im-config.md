@@ -1,26 +1,26 @@
 # TAGLINE
 
-configures input method framework for Linux desktops
+为 Linux 桌面配置输入法框架
 
 # TLDR
 
-**Configure input method**
+**配置输入法**
 
 ```im-config```
 
-**List available methods**
+**列出可用的方法**
 
 ```im-config -l```
 
-**Set input method**
+**设置输入法**
 
 ```im-config -n [ibus]```
 
-**Show current method**
+**显示当前方法**
 
 ```im-config -c```
 
-**Reset to auto**
+**重置为自动**
 
 ```im-config -a```
 
@@ -31,36 +31,36 @@ configures input method framework for Linux desktops
 # PARAMETERS
 
 **-l**
-> List available methods.
+> 列出可用的方法。
 
 **-n** _METHOD_
-> Set input method.
+> 设置输入法。
 
 **-c**
-> Show current setting.
+> 显示当前设置。
 
 **-a**
-> Auto-detect method.
+> 自动检测方法。
 
 **-x**
-> X mode (GUI).
+> X 模式（GUI）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**im-config** configures input method framework for Linux desktops. It selects between IBus, Fcitx, SCIM, and other input systems.
+**im-config** 为 Linux 桌面配置输入法框架。它在 IBus、Fcitx、SCIM 等输入系统之间进行选择。
 
-The tool manages X startup scripts for input method activation. It's used for setting up multilingual input.
+该工具管理用于激活输入法的 X 启动脚本。它常用于设置多语言输入。
 
 # CAVEATS
 
-Debian/Ubuntu tool. Session restart needed. Desktop-specific behavior.
+Debian/Ubuntu 工具。需要重启会话。行为因桌面环境而异。
 
 # HISTORY
 
-im-config is a Debian tool for managing input method configuration.
+im-config 是一个用于管理输入法配置的 Debian 工具。
 
 # SEE ALSO
 

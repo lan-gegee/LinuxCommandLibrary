@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast, cross-platform network scanner that scans IP addresses and ports
+快速、跨平台的网络扫描器，可扫描 IP 地址和端口
 
 # TLDR
 
-**Launch Angry IP Scanner** GUI
+**启动 Angry IP Scanner** 图形界面
 
 ```ipscan```
 
-**Scan a single IP address** from command line
+从命令行**扫描单个 IP 地址**
 
 ```ipscan -s -f:txt -o [output.txt] [192.168.1.1]```
 
-**Scan an IP range** and save results
+**扫描一段 IP 范围**并保存结果
 
 ```ipscan -s -f:txt -o [output.txt] [192.168.1.1] [192.168.1.254]```
 
-**Scan using a file** with IP addresses
+**使用包含 IP 地址的文件**进行扫描
 
 ```ipscan -s -f:csv -o [output.csv] -ff:[iplist.txt]```
 
-**Scan and export in XML format**
+**扫描并以 XML 格式导出**
 
 ```ipscan -s -f:xml -o [output.xml] [192.168.1.0/24]```
 
-**Scan with specific ports and quit after completion**
+**扫描指定端口并在完成后退出**
 
 ```ipscan -s -q -f:txt -o [output.txt] -p [80,443,8080] [192.168.1.1] [192.168.1.254]```
 
@@ -35,42 +35,42 @@ fast, cross-platform network scanner that scans IP addresses and ports
 # PARAMETERS
 
 **-s**
-> Run in silent (command-line) mode without GUI
+> 以静默（命令行）模式运行，不显示图形界面
 
 **-f:format**
-> Output format: txt, csv, xml, ip-port
+> 输出格式：txt、csv、xml、ip-port
 
 **-o** _filename_
-> Output filename for scan results
+> 扫描结果的输出文件名
 
 **-ff:** _filename_
-> Read IP addresses from file
+> 从文件读取 IP 地址
 
 **-q**
-> Quit after scanning (with -s).
+> 扫描完成后退出（配合 -s 使用）。
 
 **-a**
-> Append to output file instead of overwriting.
+> 追加到输出文件而不是覆盖。
 
 **-p** _ports_
-> Specify ports to scan.
+> 指定要扫描的端口。
 
 **-d** _ms_
-> Delay in milliseconds between each request.
+> 每次请求之间的延迟（毫秒）。
 
 # DESCRIPTION
 
-**ipscan** (Angry IP Scanner) is a fast, cross-platform network scanner that scans IP addresses and ports. It uses multiple threads for speed and can detect live hosts, resolve hostnames, scan ports, and retrieve NetBIOS information.
+**ipscan**（Angry IP Scanner）是一款快速、跨平台的网络扫描器，可扫描 IP 地址和端口。它使用多线程提升速度，能够检测存活主机、解析主机名、扫描端口并获取 NetBIOS 信息。
 
-The tool can run as a GUI application for interactive use or in command-line mode for scripting and automation. It supports multiple output formats for integration with other tools.
+该工具既可以作为 GUI 应用交互式使用，也可以在命令行模式下运行，便于脚本化和自动化。它支持多种输出格式，方便与其他工具集成。
 
 # CAVEATS
 
-High scan rates may trigger IDS/IPS alerts or violate network policies. Some features require administrative privileges. Port scanning without authorization may be illegal in certain jurisdictions. The GUI requires Java to be installed.
+过高的扫描速率可能触发 IDS/IPS 告警或违反网络策略。某些功能需要管理员权限。未经授权进行端口扫描在部分司法辖区可能违法。图形界面需要安装 Java。
 
 # HISTORY
 
-**Angry IP Scanner** was created by Anton Keks and first released in **2001**. Originally written for Windows, it was rewritten in Java around **2007** to become cross-platform. It remains one of the most popular open-source network scanners with millions of downloads.
+**Angry IP Scanner** 由 Anton Keks 创建，于 **2001 年**首次发布。最初为 Windows 编写，约在 **2007 年**用 Java 重写以实现跨平台。它至今仍是最受欢迎的开源网络扫描器之一，下载量达数百万次。
 
 # INSTALL
 

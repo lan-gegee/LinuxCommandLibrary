@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line control utility for Hyprland, a dynamic tiling Wayland compositor
+Hyprland（动态平铺 Wayland 合成器）的命令行控制工具
 
 # TLDR
 
-**Reload** Hyprland configuration
+**重载** Hyprland 配置
 
 ```hyprctl reload```
 
-Return the **active window** name
+返回**活动窗口**名称
 
 ```hyprctl activewindow```
 
-List all connected **input devices**
+列出所有已连接的**输入设备**
 
 ```hyprctl devices```
 
-List all **workspaces** with properties
+列出所有**工作区**及其属性
 
 ```hyprctl workspaces```
 
-Call a **dispatcher**
+调用一个 **dispatcher**
 
 ```hyprctl dispatch [dispatcher]```
 
-Set a **configuration keyword** dynamically
+动态设置**配置关键字**
 
 ```hyprctl keyword [keyword] [value]```
 
-Display **version**
+显示**版本**
 
 ```hyprctl version```
 
@@ -39,85 +39,85 @@ Display **version**
 # PARAMETERS
 
 **reload**
-> Reload Hyprland configuration
+> 重载 Hyprland 配置
 
 **activewindow**
-> Show active window information
+> 显示活动窗口信息
 
 **devices**
-> List input devices
+> 列出输入设备
 
 **workspaces**
-> List workspaces
+> 列出工作区
 
 **monitors**
-> List monitors and properties
+> 列出显示器及其属性
 
 **clients**
-> List all windows/clients
+> 列出所有窗口/客户端
 
 **dispatch** _DISPATCHER_ [_ARGS_]
-> Execute a dispatcher (window actions, workspace changes)
+> 执行一个 dispatcher（窗口操作、工作区切换）
 
 **keyword** _KEY_ _VALUE_
-> Set configuration option at runtime
+> 在运行时设置配置选项
 
 **setcursor** _THEME_ _SIZE_
-> Set cursor theme and size
+> 设置光标主题和大小
 
 **switchxkblayout** _DEVICE_ _CMD_
-> Switch keyboard layout (_CMD_ is `next`, `prev`, or a layout index)
+> 切换键盘布局（_CMD_ 为 `next`、`prev` 或布局索引）
 
 **getoption** _SECTION.OPTION_
-> Print the current value of a config option, e.g. `getoption general.border_size`
+> 打印配置选项的当前值，例如 `getoption general.border_size`
 
 **layers**
-> List layer-shell surfaces (bars, launchers, notifications, etc.)
+> 列出 layer-shell 表面（状态栏、启动器、通知等）
 
 **notify** _ICON_ _TIME_MS_ _COLOR_ _MESSAGE_
-> Show an on-screen notification using Hyprland's built-in notification system
+> 使用 Hyprland 内置的通知系统在屏幕上显示通知
 
 **seterror** _COLOR_ _MESSAGE_ | disable
-> Set (or clear) a persistent error bar message
+> 设置（或清除）持久显示的错误栏消息
 
 **eval** _LUA_
-> Run a Lua expression against the Lua config API (e.g. `hl.dispatch(...)`), added alongside Hyprland's optional Lua config
+> 对 Lua 配置 API 运行 Lua 表达式（例如 `hl.dispatch(...)`），随 Hyprland 可选的 Lua 配置一同引入
 
 **repl**
-> Start an interactive Lua REPL for the same API used by **eval**
+> 启动交互式 Lua REPL，使用与 **eval** 相同的 API
 
 **output** create|remove _BACKEND_ [_NAME_]
-> Add or remove a fake output (`wayland`, `headless`, or `auto` backend)
+> 添加或移除虚拟输出（`wayland`、`headless` 或 `auto` 后端）
 
 **--batch** _CMD1;CMD2;..._
-> Execute multiple commands in one request, separated by semicolons - cuts down IPC round-trips versus many separate calls
+> 在一次请求中执行多条命令，以分号分隔——相比多次单独调用可减少 IPC 往返
 
 **-j**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-r**
-> Force a state refresh after issuing the command (e.g. after a layout or rule change)
+> 在发出命令后强制刷新状态（例如布局或规则变化之后）
 
 **-i** _INSTANCE_
-> Target a specific Hyprland instance (id or index from `hyprctl instances`) when more than one is running
+> 当有多个实例运行时，指定目标 Hyprland 实例（来自 `hyprctl instances` 的 id 或索引）
 
 # DESCRIPTION
 
-**hyprctl** is the command-line control utility for Hyprland, a dynamic tiling Wayland compositor. It talks to the running compositor over its IPC socket to query state (monitors, workspaces, clients, devices) and to trigger actions at runtime, and is installed automatically alongside Hyprland.
+**hyprctl** 是动态平铺 Wayland 合成器 Hyprland 的命令行控制工具。它通过合成器的 IPC 套接字与运行中的合成器通信，查询状态（显示器、工作区、客户端、设备）并在运行时触发操作；它会随 Hyprland 自动安装。
 
-Dispatchers control actions like moving windows, changing workspaces, and executing programs, invoked via `hyprctl dispatch <DISPATCHER> [ARGS]`. Common dispatchers include **exec**, **killactive**, **workspace**, **movewindow**, **fullscreen**, and **togglefloating**; see the Dispatchers page in the Hyprland wiki for the full list.
+Dispatcher 控制移动窗口、切换工作区、执行程序等操作，通过 `hyprctl dispatch <DISPATCHER> [ARGS]` 调用。常用的 dispatcher 包括 **exec**、**killactive**、**workspace**、**movewindow**、**fullscreen** 和 **togglefloating**；完整列表见 Hyprland wiki 的 Dispatchers 页面。
 
-Runtime config values are read with **getoption** and set with **keyword** _SECTION.OPTION_ _VALUE_; changes made this way are lost on the next **reload** unless also written to the config file. Since Hyprland added optional Lua-based configuration (`hyprland.lua`), **hyprctl eval** and **hyprctl repl** expose the same Lua API (`hl.dispatch`, `hl.config`, etc.) for scripting, alongside the traditional **keyword**/**dispatch** interface which still works for `hyprland.conf`-based setups.
+运行时配置值可通过 **getoption** 读取，并通过 **keyword** _SECTION.OPTION_ _VALUE_ 设置；这样做的修改会在下次 **reload** 时丢失，除非同时写入配置文件。自 Hyprland 加入可选的基于 Lua 的配置（`hyprland.lua`）后，**hyprctl eval** 和 **hyprctl repl** 暴露了同一套 Lua API（`hl.dispatch`、`hl.config` 等）供脚本使用，而传统的 **keyword**/**dispatch** 接口仍可用于基于 `hyprland.conf` 的配置方式。
 
-Because hyprctl calls are handled synchronously by the compositor, issuing many of them in quick succession (e.g. from a script) can cause visible stutter - use **--batch** to bundle several commands into a single request instead.
+由于 hyprctl 调用由合成器同步处理，快速连续发出大量调用（例如来自脚本）可能造成明显的卡顿——请改用 **--batch** 将多条命令打包为单次请求。
 
 # CAVEATS
 
-Only works when Hyprland is running, and talks only to the local Hyprland instance(s) via a Unix socket under `$XDG_RUNTIME_DIR/hypr`. Changes made via **keyword** don't persist across restarts or reloads unless also saved to the config file. The Lua config system (and thus **eval**/**repl**) is optional and only active if `~/.config/hypr/hyprland.lua` exists; otherwise Hyprland falls back to the classic `hyprland.conf`.
+仅在 Hyprland 运行时有效，且只能通过 `$XDG_RUNTIME_DIR/hypr` 下的 Unix 套接字与本地的 Hyprland 实例通信。通过 **keyword** 所做的修改不会在重启或重载后保留，除非同时保存到配置文件。Lua 配置系统（以及 **eval**/**repl**）是可选的，仅当 `~/.config/hypr/hyprland.lua` 存在时才启用；否则 Hyprland 回退到传统的 `hyprland.conf`。
 
 # HISTORY
 
-hyprctl is part of the Hyprland project, a Wayland compositor created by **Vaxry**, first released in **2022** and known for its animations, dynamic tiling, and extensive customization. In **2026**, Hyprland 0.55 added an optional Lua configuration system, extending hyprctl with the **eval** and **repl** commands for scripting alongside its existing keyword/dispatch interface.
+hyprctl 是 Hyprland 项目的一部分。Hyprland 由 **Vaxry** 创建的 Wayland 合成器，于 **2022 年**首次发布，以其动画效果、动态平铺和高度可定制性著称。**2026 年**，Hyprland 0.55 加入了可选的 Lua 配置系统，为 hyprctl 扩展了用于脚本的 **eval** 和 **repl** 命令，与既有的 keyword/dispatch 接口并存。
 
 # INSTALL
 

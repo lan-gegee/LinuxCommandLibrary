@@ -1,10 +1,10 @@
 # TAGLINE
 
-display IP routing table entries
+显示 IP 路由表条目
 
 # TLDR
 
-This command is an alias of **ip route list**
+此命令是 **ip route list** 的别名
 
 ```tldr ip-route-list```
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Go module dependency management
+Go 模块依赖管理
 
 # TLDR
 
-**Initialize new module**
+**初始化新模块**
 
 ```go mod init [module-name]```
 
-**Download dependencies**
+**下载依赖**
 
 ```go mod download```
 
-**Tidy dependencies**
+**整理依赖**
 
 ```go mod tidy```
 
-**Vendor dependencies**
+**将依赖复制到 vendor 目录**
 
 ```go mod vendor```
 
-**Verify checksums**
+**验证校验和**
 
 ```go mod verify```
 
@@ -31,59 +31,59 @@ Go module dependency management
 # PARAMETERS
 
 **init** _NAME_
-> Initialize new module.
+> 初始化新模块。
 
 **download**
-> Download modules to cache.
+> 将模块下载到缓存。
 
 **tidy**
-> Add missing, remove unused.
+> 添加缺失的依赖，移除未使用的依赖。
 
 **vendor**
-> Create vendor directory.
+> 创建 vendor 目录。
 
 **verify**
-> Verify dependencies.
+> 验证依赖。
 
 **graph**
-> Print dependency graph.
+> 打印依赖图。
 
 **why** _PACKAGE_
-> Explain why needed.
+> 解释为什么需要该包。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**go mod** manages Go modules, the official dependency management system for Go. Modules are collections of packages with versioned dependencies defined in go.mod files.
+**go mod** 管理 Go modules——Go 官方的依赖管理系统。模块是包的集合，其带版本的依赖关系定义在 go.mod 文件中。
 
-The command initializes modules, manages dependencies, and maintains reproducible builds. It integrates with module proxies and checksum databases to ensure package integrity and availability.
+该命令用于初始化模块、管理依赖并维持可重现的构建。它与模块代理及校验和数据库集成，以确保包的完整性和可用性。
 
 # CONFIGURATION
 
 **go.mod**
-> Module definition file containing module path, Go version, and dependency requirements.
+> 模块定义文件，包含模块路径、Go 版本和依赖要求。
 
 **go.sum**
-> Checksums of module dependencies for verification.
+> 用于验证的模块依赖校验和。
 
 **GOSUMDB**
-> Name of the checksum database used to verify downloaded modules; set to **off** to disable verification.
+> 用于验证已下载模块的校验和数据库名称；设为 **off** 可禁用验证。
 
 **GONOSUMDB**
-> Glob patterns of module paths to exclude from checksum-database verification (defaults from **GOPRIVATE** if unset).
+> 不参与校验和数据库验证的模块路径 glob 模式（未设置时默认取自 **GOPRIVATE**）。
 
 **GOFLAGS**
-> Default flags applied to go commands, including go mod subcommands.
+> 应用于 go 命令的默认标志，包括 go mod 子命令。
 
 # CAVEATS
 
-Requires Go 1.11+. go.sum should be committed. Vendor mode for offline builds.
+需要 Go 1.11 及以上版本。go.sum 应提交到版本控制。离线构建可使用 vendor 模式。
 
 # HISTORY
 
-Go modules were introduced in **Go 1.11** as the official dependency management solution, replacing GOPATH-based workflows.
+Go modules 在 **Go 1.11** 中引入，作为官方的依赖管理方案，取代了基于 GOPATH 的工作流程。
 
 # INSTALL
 

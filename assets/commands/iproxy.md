@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates a TCP proxy that forwards connections from a local port to
+创建 TCP 代理，把本地端口的连接转发到 iOS 设备上的端口
 
 # TLDR
 
-**Forward local port 2222 to port 22** on USB-connected iOS device
+**将本地端口 2222 转发到 USB 连接的 iOS 设备的端口 22**
 
 ```iproxy 2222 22```
 
-**Forward port to a specific device** by UDID
+按 UDID **将端口转发到特定设备**
 
 ```iproxy 2222 22 -u [device_udid]```
 
-**Forward to a network-connected device**
+**转发到通过网络连接的设备**
 
 ```iproxy 2222 22 -n```
 
-**Create tunnel for SSH** access to iOS device
+**创建 SSH 隧道**以访问 iOS 设备
 
 ```iproxy 2222 22 & ssh -p 2222 root@localhost```
 
-**Forward port for debugging** (e.g., lldb debugserver)
+**转发端口用于调试**（如 lldb debugserver）
 
 ```iproxy 1234 1234```
 
@@ -31,33 +31,33 @@ creates a TCP proxy that forwards connections from a local port to
 # PARAMETERS
 
 **-u** _UDID_
-> Target device by its unique device identifier
+> 按设备的唯一标识符指定目标设备
 
 **-n**
-> Connect to network device instead of USB
+> 连接网络设备而非 USB 设备
 
 **-d**
-> Enable debug logging
+> 启用调试日志
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 **-s** _SOURCE_
-> Source address to bind to
+> 要绑定的源地址
 
 # DESCRIPTION
 
-**iproxy** creates a TCP proxy that forwards connections from a local port to a port on an iOS device connected via USB or network. It uses the usbmuxd protocol to communicate with iOS devices, bypassing the need for network configuration.
+**iproxy** 创建一个 TCP 代理，把来自本地端口的连接转发到通过 USB 或网络连接的 iOS 设备上的端口。它使用 usbmuxd 协议与 iOS 设备通信，无需进行网络配置。
 
-This tool is essential for SSH access to jailbroken iOS devices, remote debugging, and development workflows that require TCP connectivity to iOS. The most common use case is forwarding port 22 for SSH access.
+对于越狱 iOS 设备的 SSH 访问、远程调试以及任何需要 TCP 连接到 iOS 的开发工作流，该工具都不可或缺。最常见的用法是转发端口 22 以进行 SSH 访问。
 
 # CAVEATS
 
-Requires **usbmuxd** to be running for USB connections. SSH access requires a jailbroken device with OpenSSH installed. The device must be paired/trusted with the computer. Network mode requires the device to be on the same network.
+USB 连接要求 **usbmuxd** 正在运行。SSH 访问要求设备已越狱并安装 OpenSSH。设备必须与电脑完成配对/信任。网络模式要求设备处于同一网络中。
 
 # HISTORY
 
-**iproxy** is part of the **libusbmuxd** project, which is part of the **libimobiledevice** suite. Libimobiledevice was created around **2009** as a cross-platform library to communicate with iOS devices, providing open-source alternatives to Apple's proprietary protocols.
+**iproxy** 是 **libusbmuxd** 项目的一部分，后者又属于 **libimobiledevice** 套件。libimobiledevice 创建于约 **2009 年**，是一个与 iOS 设备通信的跨平台库，为 Apple 的专有协议提供了开源替代方案。
 
 # INSTALL
 

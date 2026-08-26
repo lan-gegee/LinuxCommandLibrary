@@ -1,38 +1,38 @@
 # TAGLINE
 
-Update binaries installed by "go install" in parallel
+并行更新通过 "go install" 安装的二进制文件
 
 # TLDR
 
-**Update all binaries** installed under $GOPATH/bin in parallel
+**并行更新** $GOPATH/bin 下安装的所有二进制文件
 
 ```gup update```
 
-**List all installed** Go binaries with paths and versions
+**列出所有已安装的** Go 二进制文件的路径和版本
 
 ```gup list```
 
-**Update all binaries** but exclude specific ones
+**更新所有二进制文件**但排除指定项
 
 ```gup update --exclude=[binary1,binary2]```
 
-**Preview updates** without making any changes
+**预览更新**而不做任何更改
 
 ```gup update --dry-run```
 
-**Check** if installed binaries are at their latest versions
+**检查**已安装的二进制文件是否为最新版本
 
 ```gup check```
 
-**Remove** an installed Go binary
+**移除**已安装的 Go 二进制文件
 
 ```gup remove [binary_name]```
 
-**Export** current binary configuration to gup.json
+将当前二进制文件配置**导出**到 gup.json
 
 ```gup export```
 
-**Reinstall** all binaries from a gup.json configuration file
+从 gup.json 配置文件**重新安装**所有二进制文件
 
 ```gup import --input=[path/to/gup.json]```
 
@@ -43,76 +43,76 @@ Update binaries installed by "go install" in parallel
 # PARAMETERS
 
 **update**
-> Update all binaries under $GOPATH/bin to the latest version using goroutines.
+> 使用 goroutine 将 $GOPATH/bin 下的所有二进制文件更新到最新版本。
 
 **list**
-> Display all installed binaries with their import paths and versions.
+> 显示所有已安装的二进制文件及其导入路径和版本。
 
 **remove** _binary_
-> Delete the specified binary from $GOPATH/bin or $GOBIN.
+> 从 $GOPATH/bin 或 $GOBIN 中删除指定的二进制文件。
 
 **check**
-> Verify whether each installed binary is at its latest version without updating.
+> 检查每个已安装的二进制文件是否为最新版本，但不执行更新。
 
 **export**
-> Write the current set of binaries to a gup.json configuration file.
+> 将当前的二进制文件集合写入 gup.json 配置文件。
 
 **import**
-> Install or restore binaries listed in a gup.json file.
+> 安装或恢复 gup.json 文件中列出的二进制文件。
 
 **man**
-> Generate man pages (Linux/macOS).
+> 生成 man page（Linux/macOS）。
 
 **completion**
-> Generate shell completion scripts.
+> 生成 Shell 补全脚本。
 
 **version**
-> Print version information.
+> 打印版本信息。
 
 **-e**, **--exclude** _list_
-> Comma-separated list of binaries to skip during update.
+> 更新时要跳过的二进制文件列表，以逗号分隔。
 
 **--dry-run**
-> Show what would be done without performing any updates.
+> 显示将要执行的操作，但不进行任何更新。
 
 **--notify**
-> Display a desktop notification when the operation finishes.
+> 操作完成时显示桌面通知。
 
 **--main**
-> Use the @main module channel when updating.
+> 更新时使用 @main 模块通道。
 
 **--master**
-> Use the @master module channel when updating.
+> 更新时使用 @master 模块通道。
 
 **--latest**
-> Use the @latest module channel when updating.
+> 更新时使用 @latest 模块通道。
 
 **--force**
-> Skip confirmation prompts (used with **remove**).
+> 跳过确认提示（与 **remove** 配合使用）。
 
 # DESCRIPTION
 
-**gup** updates binaries installed by **go install** to the latest version. It scans the directory pointed to by **GOBIN** (or **$GOPATH/bin**), inspects each binary's embedded module information, and rebuilds them in parallel using goroutines. This makes upgrading large collections of Go-based CLI tools significantly faster than running **go install** manually for each one.
+**gup** 用于将通过 **go install** 安装的二进制文件更新到最新版本。它会扫描 **GOBIN**（或 **$GOPATH/bin**）指向的目录，检查每个二进制文件内嵌的模块信息，并使用 goroutine 并行重建它们。这使得升级大量基于 Go 的 CLI 工具比逐个手动运行 **go install** 快得多。
 
-The tool reads version metadata embedded in Go binaries since Go 1.17 and feeds the original module path back into **go install**. Binaries built without module information cannot be updated and are skipped with a warning.
+该工具读取 Go 1.17 起嵌入在 Go 二进制文件中的版本元数据，并将原始模块路径重新传给 **go install**。没有模块信息的二进制文件无法更新，会被跳过并给出警告。
 
-In addition to updates, **gup** provides subcommands for listing, removing, checking, exporting, and re-importing binaries, making it useful for replicating a Go toolchain across machines.
+除更新外，**gup** 还提供列出、移除、检查、导出和重新导入二进制文件的子命令，便于在多台机器之间复制同一套 Go 工具链。
 
 # CAVEATS
 
-Requires the **go** toolchain to be installed and available in **$PATH**. Only binaries built with module information (Go 1.17+ default) can be updated. Binaries installed via **GOPROXY=off** or from local paths cannot be reinstalled. Update channels (**@latest**, **@main**, **@master**) must be supported by the upstream module.
+需要安装 **go** 工具链且在 **$PATH** 中可用。只有带模块信息构建的二进制文件（Go 1.17+ 的默认行为）才能被更新。通过 **GOPROXY=off** 安装或从本地路径安装的二进制文件无法重新安装。更新通道（**@latest**、**@main**、**@master**）必须得到上游模块的支持。
 
 # CONFIGURATION
 
 **gup.json**
-> Configuration file written by **gup export** and consumed by **gup import**. Stores each binary's module path and chosen update channel. Replaced the older **gup.conf** format in v1.0.0.
+> 由 **gup export** 写入、由 **gup import** 使用的配置文件。存储每个二进制文件的模块路径和所选的更新通道。在 v1.0.0 中取代了旧的 **gup.conf** 格式。
 
 **$GOPATH/bin** / **$GOBIN**
-> Target directory scanned for binaries. **$GOBIN** takes precedence when set.
+> 扫描二进制文件的目标目录。设置 **$GOBIN** 时以其为准。
 
 # HISTORY
 
-**gup** was created by **nao1215** and first released in **2022**. Written in Go, it was designed to make managing Go-installed CLI tools easier by updating them concurrently. Version **1.0.0** introduced the JSON configuration format and per-binary update channel selection.
+**gup** 由 **nao1215** 创建，首次发布于 **2022 年**。它使用 Go 编写，旨在通过并发更新让管理以 go install 方式安装的 CLI 工具更加轻松。版本 **1.0.0** 引入了 JSON 配置格式以及按二进制文件选择更新通道的功能。
 
 # INSTALL
 

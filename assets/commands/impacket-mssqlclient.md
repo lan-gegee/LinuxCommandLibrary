@@ -1,22 +1,22 @@
 # TAGLINE
 
-connects to Microsoft SQL Server databases for executing queries and database
+连接 Microsoft SQL Server 数据库以执行查询和数据库操作
 
 # TLDR
 
-**Connect to MSSQL server**
+**连接 MSSQL 服务器**
 
 ```impacket-mssqlclient [domain]/[user]:[password]@[target]```
 
-**Connect with Windows authentication**
+**使用 Windows 身份验证连接**
 
 ```impacket-mssqlclient -windows-auth [domain]/[user]:[password]@[target]```
 
-**Specify port**
+**指定端口**
 
 ```impacket-mssqlclient -port [1433] [user]:[password]@[target]```
 
-**Execute query**
+**执行查询**
 
 ```impacket-mssqlclient [user]:[password]@[target] -q "[SELECT @@version]"```
 
@@ -27,23 +27,23 @@ connects to Microsoft SQL Server databases for executing queries and database
 # PARAMETERS
 
 **-windows-auth**
-> Use Windows authentication.
+> 使用 Windows 身份验证。
 
 **-port** _port_
-> SQL Server port (default 1433).
+> SQL Server 端口（默认 1433）。
 
 **-q** _query_
-> Execute query and exit.
+> 执行查询后退出。
 
 **-file** _file_
-> Execute SQL from file.
+> 执行文件中的 SQL。
 
 **-hashes** _lm:nt_
-> Use NTLM hashes.
+> 使用 NTLM 哈希。
 
 # DESCRIPTION
 
-**impacket-mssqlclient** connects to Microsoft SQL Server databases for executing queries and database operations. Part of the Impacket toolkit. Supports SQL and Windows authentication. Interactive mode provides a SQL shell for commands like xp_cmdshell.
+**impacket-mssqlclient** 连接 Microsoft SQL Server 数据库，用于执行查询和数据库操作。属于 Impacket 工具集。支持 SQL 和 Windows 身份验证。交互模式提供 SQL shell，可执行 xp_cmdshell 等命令。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ connects to Microsoft SQL Server databases for executing queries and database
 # SEE ALSO
 
 [sqlcmd](/man/sqlcmd)(1), [impacket-psexec](/man/impacket-psexec)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-image optimization tool
+图像优化工具
 
 # TLDR
 
-**Compress images in place**
+**就地压缩图片**
 
 ```imagemin [images/*] --out-dir=[images]```
 
-**Compress to different directory**
+**压缩到不同目录**
 
 ```imagemin [src/images/*] --out-dir=[dist/images]```
 
-**Use specific plugin**
+**使用指定插件**
 
 ```imagemin [images/*] --plugin=pngquant --out-dir=[output]```
 
-**Set quality**
+**设置质量**
 
 ```imagemin [images/*] --plugin.mozjpeg.quality=80 --out-dir=[output]```
 
@@ -27,19 +27,19 @@ image optimization tool
 # PARAMETERS
 
 **--out-dir**, **-o** _dir_
-> Output directory.
+> 输出目录。
 
 **--plugin** _name_
-> Use specific plugin.
+> 使用指定插件。
 
 **--plugin.**_name_._option_
-> Plugin option.
+> 插件选项。
 
 # DESCRIPTION
 
-**imagemin** is an image optimization tool. It compresses PNG, JPEG, GIF, and SVG images using various plugins while maintaining visual quality.
+**imagemin** 是一个图像优化工具。它借助各种插件压缩 PNG、JPEG、GIF 和 SVG 图像，同时保持视觉质量。
 
-It's commonly used in build pipelines to reduce image file sizes for web applications, improving load times without noticeable quality loss.
+它常用于构建流水线中，为 Web 应用减小图片文件体积，在不明显损失质量的情况下提升加载速度。
 
 # PLUGINS
 
@@ -65,11 +65,11 @@ await imagemin(['images/*.jpg'], {
 
 # CAVEATS
 
-Requires Node.js. Plugins installed separately. Lossy compression reduces quality. Original files overwritten with same out-dir.
+需要 Node.js。插件需单独安装。有损压缩会降低质量。使用相同的 out-dir 时原始文件会被覆盖。
 
 # HISTORY
 
-imagemin was created as a Node.js-based image optimization toolkit. It provides a unified interface for various image compression algorithms, popular in web development workflows.
+imagemin 作为一个基于 Node.js 的图像优化工具集诞生。它为各种图像压缩算法提供统一接口，在 Web 开发工作流中广受欢迎。
 
 # SEE ALSO
 

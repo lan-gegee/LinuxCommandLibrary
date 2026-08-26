@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modern alternative to the watch command with diff history
+watch 命令的现代替代品，支持 diff 历史
 
 # TLDR
 
-**Watch a command** every 2 seconds
+每 2 秒**监视一个命令**
 
 ```hwatch [command]```
 
-**Watch with a custom interval**
+以自定义间隔进行**监视**
 
 ```hwatch -n [5] [command]```
 
-**Watch with color output**
+以彩色输出进行**监视**
 
 ```hwatch -c [command]```
 
-**Watch and highlight differences**
+**监视并高亮差异**
 
 ```hwatch -d [command]```
 
-**Execute action on output change**
+在输出变化时**执行动作**
 
 ```hwatch -A "[action_command]" [command]```
 
-**Output diffs to stdout** instead of TUI
+将 diff **输出到 stdout** 而非 TUI
 
 ```hwatch -b [command]```
 
@@ -34,17 +34,17 @@ Modern alternative to the watch command with diff history
 
 # DESCRIPTION
 
-**hwatch** is a modern alternative to the **watch** command that records the differences in execution results and allows you to review this history afterward. It provides a TUI with the ability to scroll through previous outputs, search and filter history, and highlight differences between runs.
+**hwatch** 是 **watch** 命令的现代替代品，它会记录执行结果的差异，并允许你事后回顾这段历史。它提供一个 TUI，可以滚动查看之前的输出、搜索和过滤历史，并高亮各次运行之间的差异。
 
-Key features include color mode support, regex filtering of history with **/** and **\*** keys, change detection with the **-A** option (which stores change information as JSON in the **HWATCH_DATA** environment variable), and the ability to output diffs directly to stdout with **-b** instead of using the TUI.
+主要特性包括彩色模式支持、使用 **/** 和 **\*** 键对历史进行正则过滤、通过 **-A** 选项进行变化检测（该选项会将变化信息以 JSON 形式存储在 **HWATCH_DATA** 环境变量中），以及通过 **-b** 将 diff 直接输出到 stdout 而不使用 TUI。
 
 # CAVEATS
 
-History is stored in memory and does not persist across restarts. Very frequent intervals with large outputs may consume significant memory.
+历史记录保存在内存中，重启后不会保留。非常频繁的间隔加上大量输出可能消耗大量内存。
 
 # HISTORY
 
-**hwatch** was created by **blacknon** and is written in **Rust**. It was designed to address limitations of the traditional watch command, particularly the inability to review or compare previous outputs.
+**hwatch** 由 **blacknon** 创建，用 **Rust** 编写。它的设计目的是解决传统 watch 命令的局限性，尤其是无法回顾或比较之前输出的问题。
 
 # INSTALL
 

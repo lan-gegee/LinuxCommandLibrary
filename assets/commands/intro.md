@@ -1,18 +1,18 @@
 # TAGLINE
 
-Introduction to user commands (man page section 1)
+用户命令简介（man page 第 1 区）
 
 # TLDR
 
-**Read the introduction to user commands**
+**阅读用户命令简介**
 
 ```man intro```
 
-**Read the introduction for a specific section**
+**阅读特定区的简介**
 
 ```man [1] intro```
 
-**Search for all intro pages across sections**
+**搜索所有区中的 intro 页面**
 
 ```man -k intro```
 
@@ -22,26 +22,26 @@ Introduction to user commands (man page section 1)
 
 # DESCRIPTION
 
-**intro** is an introductory man page present in each section of the manual. Section 1 describes user commands and tools, including file manipulation tools, shells, compilers, web browsers, editors, and other programs that users commonly invoke from the command line.
+**intro** 是手册每个区都有的介绍性 man page。第 1 区描述用户命令和工具，包括文件操作工具、shell、编译器、网页浏览器、编辑器以及其他用户常在命令行调用的程序。
 
-Each manual section has its own intro page providing an overview of the section's scope:
+每个手册区都有自己的 intro 页面，概述该区的范围：
 
-- **1** - User commands and programs
-- **2** - System calls (kernel interfaces)
-- **3** - Library functions (C library routines)
-- **4** - Special files (devices in /dev)
-- **5** - File formats and conventions
-- **6** - Games and screensavers
-- **7** - Miscellaneous (protocols, conventions, character sets)
-- **8** - System administration commands
+- **1** - 用户命令和程序
+- **2** - 系统调用（内核接口）
+- **3** - 库函数（C 库例程）
+- **4** - 特殊文件（/dev 中的设备）
+- **5** - 文件格式和约定
+- **6** - 游戏和屏保
+- **7** - 杂项（协议、约定、字符集）
+- **8** - 系统管理命令
 
 # CAVEATS
 
-Read-only documentation. Content varies by distribution. Part of the **man-pages** package on Linux.
+只读文档。内容因发行版而异。Linux 上属于 **man-pages** 软件包的一部分。
 
 # HISTORY
 
-intro pages have been part of **Unix documentation** since the earliest versions, providing orientation for each manual section. The convention of numbered sections dates back to the original **Unix Programmer's Manual** from **1971**.
+intro 页面自最早版本的 **Unix 文档**起就存在，为手册的每个区提供导览。编号分区的惯例可追溯到 **1971 年**的原始 **Unix Programmer's Manual**。
 
 # SEE ALSO
 

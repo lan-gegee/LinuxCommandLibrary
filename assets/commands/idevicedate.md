@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays or sets the date and time on iOS devices
+显示或设置 iOS 设备上的日期和时间
 
 # TLDR
 
-**Show device date and time**
+**显示设备的日期和时间**
 
 ```idevicedate```
 
-**Set date and time**
+**设置日期和时间**
 
 ```idevicedate -s "[2024-01-15 10:30:00]"```
 
-**Show in UTC**
+**以 UTC 显示**
 
 ```idevicedate -u```
 
-**Target specific device**
+**指定目标设备**
 
 ```idevicedate -u [device-udid]```
 
@@ -27,20 +27,20 @@ displays or sets the date and time on iOS devices
 # PARAMETERS
 
 **-s** _datetime_
-> Set device date/time.
+> 设置设备日期/时间。
 
 **-u**
-> Show time in UTC.
+> 以 UTC 显示时间。
 
 **-c**
-> Use current host time.
+> 使用当前主机时间。
 
 **-n**
-> Connect over network.
+> 通过网络连接。
 
 # DESCRIPTION
 
-**idevicedate** displays or sets the date and time on iOS devices. Part of the libimobiledevice suite. Can synchronize device time with host system.
+**idevicedate** 显示或设置 iOS 设备上的日期和时间，属于 libimobiledevice 套件。可将设备时间与主机系统同步。
 
 # INSTALL
 

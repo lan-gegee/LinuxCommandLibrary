@@ -1,38 +1,38 @@
 # TAGLINE
 
-Natural language interface that lets language models execute code locally
+让语言模型在本地执行代码的自然语言界面
 
 # TLDR
 
-**Start an interactive session**
+**启动交互式会话**
 
 ```interpreter```
 
-**Auto-run code without confirmation**
+**无需确认自动运行代码**
 
 ```interpreter -y```
 
-**Use a specific model**
+**使用指定模型**
 
 ```interpreter --model [gpt-4o]```
 
-**Use a local model**
+**使用本地模型**
 
 ```interpreter --local```
 
-**Enable fast mode with a smaller model**
+**启用小模型的快速模式**
 
 ```interpreter --fast```
 
-**Set context window and max tokens**
+**设置上下文窗口和最大 token 数**
 
 ```interpreter --local --max_tokens [1000] --context_window [3000]```
 
-**Load a saved profile**
+**加载已保存的 profile**
 
 ```interpreter --profile [my_profile.yaml]```
 
-**Pipe input from stdin**
+**从 stdin 管道输入**
 
 ```echo "[What OS am I using?]" | interpreter --stdin -y```
 
@@ -43,79 +43,79 @@ Natural language interface that lets language models execute code locally
 # PARAMETERS
 
 **-y**, **--auto-run**
-> Run code without manual confirmation at each step
+> 无需每步手动确认即可运行代码
 
 **--model** _MODEL_
-> Specify which model to use (e.g., gpt-4o, claude-3-sonnet)
+> 指定要使用的模型（如 gpt-4o、claude-3-sonnet）
 
 **--local**
-> Use a local model for code interpretation (via Ollama, LM Studio, jan.ai, etc.)
+> 使用本地模型进行代码解释（通过 Ollama、LM Studio、jan.ai 等）
 
 **--fast**
-> Use a faster, smaller model for quicker responses
+> 使用更快、更小的模型以加快响应速度
 
 **--verbose**
-> Activate verbose mode for detailed output
+> 启用详细输出模式
 
 **--os**
-> Enable OS mode for controlling your computer (mouse, keyboard, screen)
+> 启用 OS 模式以控制你的计算机（鼠标、键盘、屏幕）
 
 **--max_tokens** _N_
-> Maximum tokens for model output
+> 模型输出的最大 token 数
 
 **--context_window** _N_
-> Context window size (must be larger than max_tokens)
+> 上下文窗口大小（必须大于 max_tokens）
 
 **--profile** _FILE_
-> Load configuration from a YAML profile
+> 从 YAML profile 加载配置
 
 **--save-profile** _NAME_
-> Save current configuration as a named profile
+> 将当前配置保存为命名的 profile
 
 **--tools** _LIST_
-> Enable specific tools (default: interpreter,editor)
+> 启用特定工具（默认：interpreter,editor）
 
 **--stdin**
-> Accept input from stdin for Unix-style piping
+> 接受来自 stdin 的输入，支持 Unix 风格管道
 
 **--custom_instructions** _TEXT_
-> Append custom instructions to the system message (e.g., system info, preferred languages).
+> 向系统消息追加自定义指令（如系统信息、偏好的编程语言）。
 
 **--api_base** _URL_
-> Custom API base URL for model provider.
+> 模型提供商的自定义 API 基础 URL。
 
 **--api_key** _KEY_
-> API key for authentication.
+> 用于身份验证的 API 密钥。
 
 # IN-SESSION COMMANDS
 
 **%reset**
-> Reset the current session's conversation
+> 重置当前会话的对话
 
 **%undo**
-> Remove the previous message and AI response
+> 删除上一条消息及 AI 回复
 
 **%tokens** _[prompt]_
-> Calculate tokens and estimate cost for next prompt
+> 计算下一个提示的 token 数并估算费用
 
 **%verbose true|false**
-> Toggle verbose mode during chat
+> 在聊天过程中切换详细输出模式
 
 # DESCRIPTION
 
-**Open Interpreter** provides a natural language interface for computers, allowing language models to execute code (Python, JavaScript, Shell, and more) locally on your machine. It functions like ChatGPT's Code Interpreter but runs in your terminal with full access to your local environment.
+**Open Interpreter** 为计算机提供自然语言接口，允许语言模型在你的机器上本地执行代码（Python、JavaScript、Shell 等）。它的作用类似于 ChatGPT 的 Code Interpreter，但运行在你的终端中，可以完全访问本地环境。
 
-The tool equips function-calling language models with an exec() function that accepts a programming language and code to run. Since code executes in your local environment, it can interact with files, install packages, browse the web, and control system settings. By default, interpreter asks for confirmation before executing code.
+该工具为支持函数调用的语言模型提供一个 exec() 函数，接受编程语言和要运行的代码。由于代码在本地环境中执行，它可以与文件交互、安装软件包、浏览网页以及控制系统设置。默认情况下，interpreter 在执行代码前会请求确认。
 
-Open Interpreter supports multiple model providers including OpenAI, Anthropic, and local models via Ollama, LM Studio, or jan.ai. Configuration can be saved to YAML profiles for easy switching between setups.
+Open Interpreter 支持多种模型提供商，包括 OpenAI、Anthropic 以及通过 Ollama、LM Studio 或 jan.ai 提供的本地模型。配置可保存为 YAML profile，便于在不同设置间切换。
 
 # CAVEATS
 
-Generated code runs with full access to your local environment, which can lead to data loss or security risks. Always review code before confirming execution. The **-y** flag bypasses confirmation and should be used with caution. Local models may have reduced capabilities compared to cloud APIs.
+生成的代码对本地环境拥有完全访问权限，可能导致数据丢失或安全风险。确认执行前务必检查代码。**-y** 标志会跳过确认，应谨慎使用。本地模型的能力可能弱于云端 API。
 
 # HISTORY
 
-Open Interpreter was created by **Killian Lucas** and released on **September 5, 2023**. It became the #1 trending repository on GitHub within its first week, gaining over 20,000 stars. The project is based in Seattle, Washington, and has grown to over 50,000 GitHub stars as an open-source Agent-Computer-Interface project.
+Open Interpreter 由 **Killian Lucas** 创建，于 **2023 年 9 月 5 日**发布。它在第一周内就成为 GitHub 趋势榜第一，获得了超过 20,000 颗星。该项目位于华盛顿州西雅图，作为开源 Agent-Computer-Interface 项目已增长至超过 50,000 GitHub 星标。
 
 # SEE ALSO
 

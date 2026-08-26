@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages the routing policy database, which controls how routing table lookups
+管理路由策略数据库，控制路由表查找的方式
 
 # TLDR
 
-Display the **routing policy** database
+显示**路由策略**数据库
 
 ```ip rule```
 
-**Add** a rule to lookup a specific table
+**添加**规则以查找特定表
 
 ```sudo ip rule add from all lookup [100]```
 
-Add rule based on **source** address
+基于**源**地址添加规则
 
 ```sudo ip rule add from [192.168.1.0/24]```
 
-Add rule based on **destination** address
+基于**目标**地址添加规则
 
 ```sudo ip rule add to [10.0.0.0/8]```
 
-**Delete** a rule
+**删除**一条规则
 
 ```sudo ip rule delete from [192.168.1.0/24]```
 
-**Flush** all rules
+**清空**所有规则
 
 ```sudo ip rule flush```
 
-**Save** rules to a file
+将规则**保存**到文件
 
 ```ip rule save > [path/to/rules.dat]```
 
-**Restore** rules from a file
+从文件**恢复**规则
 
 ```sudo ip rule restore < [path/to/rules.dat]```
 
@@ -43,45 +43,45 @@ Add rule based on **destination** address
 # PARAMETERS
 
 **add** [_selector_] [_action_]
-> Add a new rule
+> 添加新规则
 
 **delete** [_selector_]
-> Remove a rule
+> 移除一条规则
 
 **flush**
-> Delete all rules
+> 删除所有规则
 
 **save**
-> Output rules to stdout (for backup)
+> 将规则输出到 stdout（用于备份）
 
 **restore**
-> Restore rules from stdin
+> 从 stdin 恢复规则
 
 **from** _PREFIX_
-> Match source address
+> 匹配源地址
 
 **to** _PREFIX_
-> Match destination address
+> 匹配目标地址
 
 **lookup** _TABLE_
-> Route table to use (number or name)
+> 要使用的路由表（编号或名称）
 
 **priority** _NUM_
-> Rule priority (lower = higher priority)
+> 规则优先级（数值越小优先级越高）
 
 # DESCRIPTION
 
-**ip rule** manages the routing policy database (RPDB), which controls how routing table lookups are performed. Rules define selectors (conditions) and actions (which table to consult) enabling policy-based routing.
+**ip rule** 管理路由策略数据库（RPDB），它控制路由表查找的执行方式。规则定义选择器（条件）和动作（查询哪个表），从而实现基于策略的路由。
 
-Multiple routing tables can exist, each with different routes. Rules determine which table is consulted based on source address, destination, interface, firewall mark, and other criteria. This enables complex routing scenarios like multi-homing.
+可以同时存在多个路由表，每个表包含不同的路由。规则根据源地址、目标地址、接口、防火墙标记等条件决定查询哪个表。这使得多宿主等复杂路由场景成为可能。
 
 # CAVEATS
 
-Modifying rules requires root privileges. Rule changes are not persistent across reboots without additional configuration. Incorrect rules can break network connectivity.
+修改规则需要 root 权限。若无额外配置，规则更改在重启后不会保留。错误的规则可能破坏网络连接。
 
 # HISTORY
 
-Policy routing was introduced in Linux 2.2 as part of the advanced routing capabilities. The ip rule command in iproute2 provides management of these features.
+策略路由作为高级路由能力的一部分在 Linux 2.2 中引入。iproute2 中的 ip rule 命令提供对这些功能的管理。
 
 # INSTALL
 

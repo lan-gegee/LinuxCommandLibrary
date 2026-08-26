@@ -1,30 +1,30 @@
 # TAGLINE
 
-Featureful trash CLI manager and safe rm alternative
+功能丰富的回收站 CLI 管理器与安全的 rm 替代品
 
 # TLDR
 
-**Move files to trash** instead of deleting
+**将文件移入回收站**而不是删除
 
 ```gtrash put [path/to/file1] [path/to/file2]```
 
-**List files in the trash**
+**列出回收站中的文件**
 
 ```gtrash find```
 
-**Restore files interactively** with a TUI
+**使用 TUI 交互式恢复文件**
 
 ```gtrash restore```
 
-**Permanently delete files** matching a pattern from trash
+从回收站中**永久删除匹配模式的文件**
 
 ```gtrash find --rm "[pattern]"```
 
-**Show trash summary** with sizes
+**显示回收站摘要**及大小
 
 ```gtrash summary```
 
-**Clean up old files** from trash
+**清理回收站中的旧文件**
 
 ```gtrash prune --day [30]```
 
@@ -34,40 +34,40 @@ Featureful trash CLI manager and safe rm alternative
 
 # DESCRIPTION
 
-**gtrash** is a featureful trash CLI manager that serves as a safer alternative to **rm**. Instead of permanently deleting files with the unlink syscall, it moves them to the system trash using the rename syscall, enabling easy restoration. It follows the **FreeDesktop.org Trash specification**, making it compatible with desktop trash implementations and other tools like **gio trash** and **trash-cli**.
+**gtrash** 是一款功能丰富的回收站 CLI 管理器，可作为更安全的 **rm** 替代品。它不通过 unlink 系统调用永久删除文件，而是使用 rename 系统调用将其移入系统回收站，从而方便恢复。它遵循 **FreeDesktop.org 回收站规范**，因此与桌面环境的回收站实现以及其他工具（如 **gio trash** 和 **trash-cli**）兼容。
 
-Key features include directory size caching for fast browsing, restoration of co-deleted files, an interactive TUI for selecting files to restore, and support for external drives with per-volume trash directories.
+其主要特性包括：用于快速浏览的目录大小缓存、共同删除文件的成组恢复、用于选择要恢复文件的交互式 TUI，以及对带有独立卷回收站目录的外置驱动器的支持。
 
 # PARAMETERS
 
 **put**
-> Move files to trash
+> 将文件移入回收站
 
 **find**
-> List files in trash (supports --rm to permanently delete matches)
+> 列出回收站中的文件（支持 --rm 永久删除匹配项）
 
 **restore**
-> Interactively restore files from trash using TUI
+> 使用 TUI 交互式地从回收站恢复文件
 
 **summary**
-> Show trash size summary
+> 显示回收站大小摘要
 
 **prune**
-> Remove old files from trash
+> 移除回收站中的旧文件
 
 **--day** _N_
-> Used with prune to specify age threshold in days
+> 与 prune 配合，指定以天为单位的时限阈值
 
 **--rm**
-> Used with find to permanently delete matching files
+> 与 find 配合，永久删除匹配的文件
 
 # CAVEATS
 
-Files moved to trash still consume disk space until pruned or permanently deleted. The rename syscall used for trashing only works within the same filesystem; cross-filesystem moves require copying. Permanently deleting with **--rm** is irreversible, similar to rm.
+移入回收站的文件在被清理或永久删除之前仍占用磁盘空间。回收操作所用的 rename 系统调用只在同一文件系统内有效；跨文件系统的移动需要进行复制。使用 **--rm** 永久删除不可逆，与 rm 类似。
 
 # HISTORY
 
-**gtrash** was created by **umlx5h** as a modern, feature-rich alternative to both **rm** and existing trash managers. It is written in **Go** and distributed as a single static binary.
+**gtrash** 由 **umlx5h** 创建，旨在同时替代 **rm** 和现有回收站管理器，是一个现代且功能丰富的工具。它用 **Go** 编写，以单个静态二进制文件分发。
 
 # INSTALL
 

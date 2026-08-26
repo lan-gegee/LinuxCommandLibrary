@@ -1,14 +1,14 @@
 # TAGLINE
 
-Lightweight image viewer for LXDE
+LXDE 的轻量级图像查看器
 
 # TLDR
 
-**Open image**
+**打开图像**
 
 ```gpicview [image.jpg]```
 
-**Start GPicView**
+**启动 GPicView**
 
 ```gpicview```
 
@@ -19,19 +19,19 @@ Lightweight image viewer for LXDE
 # PARAMETERS
 
 _file_
-> Image file to open.
+> 要打开的图像文件。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**GPicView** is a lightweight image viewer for the LXDE desktop environment. It provides fast image viewing with minimal resource usage, supporting common formats like JPEG, PNG, GIF, and BMP.
+**GPicView** 是 LXDE 桌面环境的轻量级图像查看器。它以极低的资源占用提供快速的图像浏览，支持 JPEG、PNG、GIF 和 BMP 等常见格式。
 
-The viewer offers basic navigation, zoom, rotation, and slideshow features. It is designed to be simple and responsive, ideal for systems with limited resources.
+该查看器提供基本的导航、缩放、旋转和幻灯片放映功能。它的设计目标是简洁和响应迅速，非常适合资源有限的系统。
 
 # KEYBOARD SHORTCUTS
 
@@ -49,11 +49,11 @@ F11         Fullscreen
 
 # CAVEATS
 
-Limited editing features. No support for RAW formats. Part of LXDE but can run standalone. May lack features of heavier viewers like gThumb.
+编辑功能有限。不支持 RAW 格式。属于 LXDE 但也可独立运行。功能可能不及 gThumb 等更重量级的查看器丰富。
 
 # HISTORY
 
-GPicView was created as part of the **LXDE** (Lightweight X11 Desktop Environment) project, designed for fast performance on low-resource systems. It follows the LXDE philosophy of being lightweight and simple.
+GPicView 作为 **LXDE**（Lightweight X11 Desktop Environment）项目的一部分创建，专为在低资源系统上实现快速性能而设计。它遵循 LXDE 轻量、简洁的理念。
 
 # INSTALL
 

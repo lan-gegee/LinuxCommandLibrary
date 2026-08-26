@@ -1,22 +1,22 @@
 # TAGLINE
 
-Flexible command-line template renderer
+灵活的命令行模板渲染器
 
 # TLDR
 
-**Render** a template file
+**渲染**一个模板文件
 
 ```gomplate -f [template.tmpl]```
 
-**Render** with an environment datasource
+使用环境变量数据源进行**渲染**
 
 ```gomplate -d [config=env:] -f [template.tmpl]```
 
-**Render** from stdin
+从标准输入**渲染**
 
 ```cat [template.tmpl] | gomplate```
 
-**Output** to a file
+**输出**到文件
 
 ```gomplate -f [in.tmpl] -o [out.txt]```
 
@@ -26,35 +26,35 @@ Flexible command-line template renderer
 
 # DESCRIPTION
 
-**gomplate** is a template CLI built on Go templates. It can pull **datasources** from files, HTTP, environment variables, AWS/GCP metadata, Consul, Vault, and more, then render text configs, scripts, or manifests. Popular for generating Kubernetes YAML, dotenv files, and bootstrapping scripts without a full programming run.
+**gomplate** 是一个基于 Go 模板构建的模板 CLI。它能从文件、HTTP、环境变量、AWS/GCP 元数据、Consul、Vault 等多种来源获取**数据源（datasources）**，进而渲染文本配置、脚本或清单文件。它常用于生成 Kubernetes YAML、dotenv 文件以及引导脚本，而不必运行完整的编程代码。
 
 # PARAMETERS
 
 **-f**, **--file** *path*
 
-> Template file (repeatable / dir modes available).
+> 模板文件（可重复指定 / 提供目录模式）。
 
 **-o**, **--out** *path*
 
-> Output file (default stdout).
+> 输出文件（默认输出到标准输出）。
 
 **-d**, **--datasource** *alias=url*
 
-> Define a named datasource (e.g. **config=file:///…**, **env:/**).
+> 定义命名数据源（例如 **config=file:///…**、**env:/**）。
 
 **-c**, **--context** *alias=url*
 
-> Attach datasource into the template context.
+> 把数据源附加到模板上下文中。
 
 **--input-dir** / **--output-dir**
 
-> Batch-render directory trees.
+> 批量渲染目录树。
 
-Extensive datasource URL schemes are documented at https://docs.gomplate.ca/
+丰富的数据源 URL 方案说明见 https://docs.gomplate.ca/
 
 # CAVEATS
 
-Template injection risks apply if templates or datasources are untrusted. Network datasources need connectivity and credentials. Syntax is Go text/template plus gomplate functions—not Jinja/Mustache.
+如果模板或数据源不可信，则会带来模板注入风险。网络数据源需要有网络连接和相应凭据。其语法是 Go text/template 加上 gomplate 函数——并非 Jinja/Mustache。
 
 # INSTALL
 

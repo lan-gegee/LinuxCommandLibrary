@@ -1,38 +1,38 @@
 # TAGLINE
 
-high-performance password recovery tool that uses CPU, GPU, and other hardware
+利用 CPU、GPU 及其他硬件的高性能密码恢复工具
 
 # TLDR
 
-**Run a dictionary attack** on MD5 hashes
+对 MD5 哈希**执行字典攻击**
 
 ```hashcat -m 0 -a 0 [hashes.txt] [wordlist.txt]```
 
-**Crack SHA-256 hashes** with a wordlist and output to file
+使用词表**破解 SHA-256 哈希**并输出到文件
 
 ```hashcat -m 1400 -a 0 -o [cracked.txt] [hashes.txt] [wordlist.txt]```
 
-**Brute-force attack** with a mask (8 lowercase characters)
+使用掩码发起**暴力破解攻击**（8 个小写字符）
 
 ```hashcat -m 0 -a 3 [hashes.txt] '?l?l?l?l?l?l?l?l'```
 
-**Run benchmark** to test system performance
+**运行基准测试**以检验系统性能
 
 ```hashcat -b```
 
-**Show already cracked passwords** from potfile
+从 potfile **显示已破解的密码**
 
 ```hashcat -m 0 --show [hashes.txt]```
 
-**Crack bcrypt hashes** using GPU
+使用 GPU **破解 bcrypt 哈希**
 
 ```hashcat -m 3200 -a 0 -D 2 [hashes.txt] [wordlist.txt]```
 
-**Resume a previous session**
+**恢复之前的会话**
 
 ```hashcat --restore```
 
-**Crack NTLM hashes** with rules
+配合规则**破解 NTLM 哈希**
 
 ```hashcat -m 1000 -a 0 -r [rules/best64.rule] [hashes.txt] [wordlist.txt]```
 
@@ -45,97 +45,97 @@ high-performance password recovery tool that uses CPU, GPU, and other hardware
 # PARAMETERS
 
 **-m**, **--hash-type** _NUM_
-> Hash type (0=MD5, 1000=NTLM, 1400=SHA256, 1800=SHA512crypt, 3200=bcrypt)
+> 哈希类型（0=MD5，1000=NTLM，1400=SHA256，1800=SHA512crypt，3200=bcrypt）
 
 **-a**, **--attack-mode** _NUM_
-> Attack mode (0=dictionary, 1=combinator, 3=brute-force, 6=hybrid, 7=hybrid)
+> 攻击模式（0=字典，1=组合器，3=暴力破解，6=混合，7=混合）
 
 **-o**, **--outfile** _FILE_
-> Output file for recovered passwords
+> 存放已恢复密码的输出文件
 
 **-r**, **--rules-file** _FILE_
-> Rule file for word mangling
+> 用于变换单词的规则文件
 
 **-D**, **--opencl-device-types** _NUM_
-> Device types (1=CPU, 2=GPU, 3=FPGA/DSP/Co-Processor)
+> 设备类型（1=CPU，2=GPU，3=FPGA/DSP/协处理器）
 
 **-w**, **--workload-profile** _NUM_
-> Workload profile (1=low, 2=default, 3=high, 4=nightmare)
+> 工作负载档位（1=低，2=默认，3=高，4=nightmare）
 
 **-b**, **--benchmark**
-> Run benchmark on all hash types
+> 对所有哈希类型运行基准测试
 
 **--show**
-> Show cracked passwords from potfile
+> 显示 potfile 中已破解的密码
 
 **--remove**
-> Remove hashes from file once cracked
+> 哈希被破解后立即从文件中移除
 
 **--restore**
-> Restore previous session
+> 恢复之前的会话
 
 **--session** _NAME_
-> Name session for restore capability
+> 为会话命名，以便日后恢复
 
 **--status**
-> Enable automatic status updates
+> 启用自动状态更新
 
 **--runtime** _SECS_
-> Abort after specified seconds
+> 在指定秒数后中止
 
 **-1**, **-2**, **-3**, **-4**
-> Define custom character sets for masks
+> 为掩码定义自定义字符集
 
 **-i**, **--increment**
-> Enable mask increment mode
+> 启用掩码增量模式
 
 **--increment-min** _NUM_
-> Start mask length for increment
+> 增量模式的起始掩码长度
 
 **--increment-max** _NUM_
-> Stop mask length for increment
+> 增量模式的结束掩码长度
 
 **-h**, **--help**
-> Show help message
+> 显示帮助信息
 
 **-V**, **--version**
-> Show version
+> 显示版本号
 
 # MASK CHARSETS
 
 **?l**
-> Lowercase letters (a-z)
+> 小写字母（a-z）
 
 **?u**
-> Uppercase letters (A-Z)
+> 大写字母（A-Z）
 
 **?d**
-> Digits (0-9)
+> 数字（0-9）
 
 **?s**
-> Special characters
+> 特殊字符
 
 **?a**
-> All printable characters (?l?u?d?s)
+> 所有可打印字符（?l?u?d?s）
 
 **?b**
-> Binary (0x00-0xff)
+> 二进制（0x00-0xff）
 
 # DESCRIPTION
 
-**hashcat** is a high-performance password recovery tool that uses CPU, GPU, and other hardware accelerators to crack hashed passwords. It supports over 300 hash types including MD5, SHA-family, bcrypt, WPA, and many application-specific formats.
+**hashcat** 是一款高性能密码恢复工具，它利用 CPU、GPU 和其他硬件加速器来破解哈希密码。它支持 300 多种哈希类型，包括 MD5、SHA 系列、bcrypt、WPA 以及众多应用专用格式。
 
-The tool offers multiple attack modes: dictionary attacks use wordlists, brute-force uses masks to generate candidates, combinator joins words from multiple dictionaries, and hybrid modes combine approaches. Rules can transform dictionary words to match common password patterns.
+该工具提供多种攻击模式：字典攻击使用词表；暴力破解使用掩码生成候选密码；组合器把多个词典中的单词拼接起来；混合模式则结合上述方法。规则可以对词典单词进行变换，以覆盖常见的密码模式。
 
-Hashcat maintains a potfile storing cracked hashes to avoid redundant work. Sessions can be paused and restored. The tool automatically optimizes for available hardware and supports distributed cracking across multiple machines.
+Hashcat 维护一个 potfile，记录已破解的哈希以避免重复工作。会话可以暂停和恢复。该工具会自动针对可用硬件进行优化，并支持跨多台机器的分布式破解。
 
 # CAVEATS
 
-Password cracking is CPU/GPU intensive and generates significant heat. Only use on systems you own or have explicit authorization to test. Large wordlists and complex attacks may run for days or weeks. GPU drivers must be properly installed for hardware acceleration. Some hash types (bcrypt, scrypt) are intentionally slow to crack.
+密码破解极度消耗 CPU/GPU 并产生大量热量。只应在自己拥有或已获明确授权测试的系统上使用。大型词表和复杂攻击可能需要运行数天甚至数周。必须正确安装 GPU 驱动才能启用硬件加速。某些哈希类型（bcrypt、scrypt）在设计上就难以快速破解。
 
 # HISTORY
 
-Hashcat was created by **Jens Steube** (atom) with the first version released in **2009**. Originally closed-source, it became open-source in **December 2015**. The project evolved from CPU-only (hashcat-legacy) to GPU-accelerated (oclHashcat) and eventually unified as hashcat supporting multiple platforms. It became the world's fastest password recovery tool, pioneering techniques like rule-based attacks and optimized GPU kernels.
+Hashcat 由 **Jens Steube**（atom）创建，首个版本发布于 **2009 年**。它最初是闭源软件，于 **2015 年 12 月**转为开源。该项目从仅支持 CPU（hashcat-legacy）演进到 GPU 加速（oclHashcat），最终统一为支持多平台的 hashcat。它已成为世界上最快的密码恢复工具，开创了基于规则的攻击、优化的 GPU 内核等技术。
 
 # INSTALL
 

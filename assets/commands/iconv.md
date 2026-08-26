@@ -1,34 +1,34 @@
 # TAGLINE
 
-converts text files from one character encoding to another
+将文本文件从一种字符编码转换为另一种
 
 # TLDR
 
-**Convert file** from UTF-8 to ISO-8859-1
+**转换文件**，从 UTF-8 到 ISO-8859-1
 
 ```iconv -f UTF-8 -t ISO-8859-1 [input.txt] > [output.txt]```
 
-**Convert file** in place (with temp file)
+**就地转换文件**（借助临时文件）
 
 ```iconv -f UTF-8 -t ASCII//TRANSLIT [input.txt] -o [output.txt]```
 
-**List available encodings**
+**列出可用编码**
 
 ```iconv -l```
 
-**Convert with transliteration** (approximate characters)
+**以音译方式转换**（近似字符）
 
 ```iconv -f UTF-8 -t ASCII//TRANSLIT [input.txt]```
 
-**Convert ignoring errors**
+**忽略错误进行转换**
 
 ```iconv -f UTF-8 -t ASCII//IGNORE [input.txt]```
 
-**Convert from Windows codepage**
+**从 Windows 代码页转换**
 
 ```iconv -f CP1252 -t UTF-8 [windows.txt]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [file.txt] | iconv -f UTF-8 -t UTF-16```
 
@@ -38,48 +38,48 @@ converts text files from one character encoding to another
 
 # DESCRIPTION
 
-**iconv** converts text files from one character encoding to another. It reads input in the source encoding and writes output in the target encoding, handling the character mapping between different character sets.
+**iconv** 将文本文件从一种字符编码转换为另一种。它以源编码读取输入，以目标编码写出输出，处理不同字符集之间的字符映射。
 
-The tool supports hundreds of encodings including UTF-8, ISO-8859 family, Windows code pages, Asian encodings, and legacy formats. Special suffixes //TRANSLIT (approximate conversion) and //IGNORE (skip unconvertible) modify conversion behavior.
+该工具支持数百种编码，包括 UTF-8、ISO-8859 系列、Windows 代码页、亚洲编码以及遗留格式。特殊后缀 //TRANSLIT（近似转换）和 //IGNORE（跳过无法转换的字符）可以改变转换行为。
 
-iconv is essential for handling files from different systems, migrating legacy data, and ensuring proper text display across platforms with different default encodings.
+iconv 对于处理来自不同系统的文件、迁移遗留数据，以及确保文本在具有不同默认编码的平台之间正确显示都不可或缺。
 
 # PARAMETERS
 
 **-f** _encoding_, **--from-code=** _encoding_
-> Source encoding.
+> 源编码。
 
 **-t** _encoding_, **--to-code=** _encoding_
-> Target encoding.
+> 目标编码。
 
 **-l**, **--list**
-> List available encodings.
+> 列出可用的编码。
 
 **-o** _file_, **--output=** _file_
-> Output file.
+> 输出文件。
 
 **-c**
-> Silently discard unconvertible characters.
+> 静默丢弃无法转换的字符。
 
 **-s**, **--silent**
-> Suppress warnings.
+> 抑制警告。
 
 **--verbose**
-> Print progress information.
+> 打印进度信息。
 
 **//TRANSLIT**
-> Transliterate unconvertible characters.
+> 对无法转换的字符进行音译。
 
 **//IGNORE**
-> Skip unconvertible characters.
+> 跳过无法转换的字符。
 
 # CAVEATS
 
-Not all character mappings are reversible. Some characters may be lost or approximated. UTF-8 is the recommended target for modern systems. Encoding detection is not automatic (use chardet first if unknown). Binary files should not be converted.
+并非所有字符映射都是可逆的。某些字符可能丢失或被近似替代。现代系统建议使用 UTF-8 作为目标编码。编码检测不是自动的（未知时先用 chardet）。不要转换二进制文件。
 
 # HISTORY
 
-**iconv** is part of the **POSIX standard** and has implementations in glibc (GNU libc) and other C libraries. The character conversion functionality has been standardized since **POSIX.2** in **1992**. The GNU implementation supports an extensive list of encodings and is the version found on most Linux systems.
+**iconv** 是 **POSIX 标准**的一部分，在 glibc（GNU libc）及其他 C 库中都有实现。自 **1992 年**的 **POSIX.2** 起，字符转换功能就已标准化。GNU 实现支持大量编码，是大多数 Linux 系统上常见的版本。
 
 # INSTALL
 

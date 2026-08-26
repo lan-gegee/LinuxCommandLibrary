@@ -1,22 +1,22 @@
 # TAGLINE
 
-runs a command only if there is input
+仅在有输入时才运行命令
 
 # TLDR
 
-**Run command if input**
+**有输入时才运行命令**
 
 ```command1 | ifne command2```
 
-**Delete file if results**
+**有结果时删除文件**
 
 ```find . -empty | ifne xargs rm```
 
-**Invert condition**
+**反转条件**
 
 ```command | ifne -n echo "no output"```
 
-**Mail if errors**
+**有错误时发送邮件**
 
 ```make 2>&1 | ifne mail -s "errors" [admin]```
 
@@ -27,30 +27,30 @@ runs a command only if there is input
 # PARAMETERS
 
 _COMMAND_
-> Command to run.
+> 要运行的命令。
 
 _ARGS_
-> Command arguments.
+> 命令参数。
 
 **-n**
-> Run if NO input.
+> 在没有输入时才运行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ifne** ("if not empty") reads from standard input and runs the given command only if that input is non-empty. The buffered input is then re-emitted on the command's stdin, so the consumer sees the original stream unchanged. With **-n**, the behavior is inverted: the command runs only if standard input is empty (useful for handling "nothing to do" branches in scripts).
+**ifne**（"if not empty"，即"非空则执行"）从标准输入读取数据，只有当输入非空时才运行给定命令。缓冲的输入随后会重新发送到该命令的标准输入，因此下游看到的仍是原始数据流。使用 **-n** 时行为相反：只有当标准输入为空时才运行命令（适用于在脚本中处理"无事可做"的分支）。
 
-This makes **ifne** the natural complement to filters that may produce no output: pipelines like **find ... -print0 | ifne xargs -0 rm** or **make 2>&1 | ifne mail -s "errors" admin** stay silent when there is nothing to do.
+这使得 **ifne** 成为那些可能不产生输出的过滤器的天然补充：像 **find ... -print0 | ifne xargs -0 rm** 或 **make 2>&1 | ifne mail -s "errors" admin** 这样的管道，在没有事情要做时会保持安静。
 
 # CAVEATS
 
-Part of **moreutils**. Input must fit in memory or in the pipe buffer; the entire stream is read before the command is started, so very large inputs may be slow or memory-hungry. Stdin is only forwarded to the wrapped command when input was non-empty; in the **-n** case the wrapped command inherits an empty stdin.
+属于 **moreutils**。输入必须能装进内存或管道缓冲区；整个数据流会在命令启动前被读完，因此非常大的输入可能导致速度慢或占用大量内存。只有当输入非空时，stdin 才会被转发给所包装的命令；在 **-n** 的情况下，被包装的命令继承的是空的 stdin。
 
 # HISTORY
 
-ifne is part of **moreutils**, a collection of Unix tools by **Joey Hess**.
+ifne 是 **moreutils** 的一部分，后者是由 **Joey Hess** 编写的一套 Unix 工具集。
 
 # INSTALL
 

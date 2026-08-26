@@ -1,30 +1,30 @@
 # TAGLINE
 
-Copy files using the GVFS virtual file system (deprecated)
+使用 GVFS 虚拟文件系统复制文件（已弃用）
 
 # TLDR
 
-**Copy a local file**
+**复制本地文件**
 
 ```gvfs-copy [source] [destination]```
 
-**Copy a file from a remote SMB share**
+**从远程 SMB 共享复制文件**
 
 ```gvfs-copy smb://server/share/file.txt [local-file]```
 
-**Copy a file from an FTP server**
+**从 FTP 服务器复制文件**
 
 ```gvfs-copy ftp://server/path/file.txt [local-file]```
 
-**Copy with progress indicator**
+**复制并显示进度指示器**
 
 ```gvfs-copy -p [source] [destination]```
 
-**Prompt before overwriting an existing file**
+**覆盖已存在文件前先提示**
 
 ```gvfs-copy -i [source] [destination]```
 
-**Copy while preserving file attributes**
+**复制并保留文件属性**
 
 ```gvfs-copy --preserve [source] [destination]```
 
@@ -35,44 +35,44 @@ Copy files using the GVFS virtual file system (deprecated)
 # PARAMETERS
 
 _SOURCE_
-> Source file path or URI.
+> 源文件路径或 URI。
 
 _DESTINATION_
-> Destination file path or URI.
+> 目标文件路径或 URI。
 
 **-p**, **--progress**
-> Show a progress indicator during the copy operation.
+> 在复制操作期间显示进度指示器。
 
 **-i**, **--interactive**
-> Prompt before overwriting an existing destination file.
+> 覆盖已存在的目标文件前先提示。
 
 **--preserve**
-> Preserve file attributes such as timestamps and permissions.
+> 保留时间戳和权限等文件属性。
 
 **-b**, **--backup**
-> Create a backup of the destination file if it already exists.
+> 如果目标文件已存在，为其创建备份。
 
 **--no-dereference**
-> Do not follow symbolic links; copy the link itself.
+> 不跟随符号链接；复制链接本身。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gvfs-copy** copies files using GVFS (GNOME Virtual File System). It supports local files and remote URIs including SMB, FTP, SFTP, DAV, and other protocols supported by GVFS backends.
+**gvfs-copy** 使用 GVFS（GNOME 虚拟文件系统）复制文件。它支持本地文件和远程 URI，包括 SMB、FTP、SFTP、DAV 以及其他由 GVFS 后端支持的协议。
 
-The tool handles network protocols transparently, copying files across different backends. It integrates with GNOME's file system abstraction layer.
+该工具透明地处理网络协议，可在不同后端之间复制文件。它与 GNOME 的文件系统抽象层集成。
 
-This command is deprecated and has been replaced by **gio copy**, which provides the same functionality.
+此命令已被弃用，由提供相同功能的 **gio copy** 取代。
 
 # CAVEATS
 
-Deprecated in favor of **gio copy**. Requires GNOME/GVFS libraries and a running GVFS daemon.
+已被弃用，建议改用 **gio copy**。需要 GNOME/GVFS 库和正在运行的 GVFS 守护进程。
 
 # HISTORY
 
-gvfs-copy was developed as part of **GVFS** for GNOME, now largely replaced by the **gio** command introduced in GLib 2.36.
+gvfs-copy 是 GNOME 的 **GVFS** 的一部分开发而成，如今已在很大程度上被 GLib 2.36 中引入的 **gio** 命令取代。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-manages user authentication files for Apache HTTP Server's basic authentication
+管理 Apache HTTP Server 基本认证的用户认证文件
 
 # TLDR
 
-**Create a new password file** with a user
+**创建新的密码文件**并添加用户
 
 ```htpasswd -c [path/to/.htpasswd] [username]```
 
-**Add or update a user** in existing file
+**在已有文件中添加或更新用户**
 
 ```htpasswd [path/to/.htpasswd] [username]```
 
-**Add user with password** on command line (insecure)
+**在命令行上指定密码添加用户**（不安全）
 
 ```htpasswd -b [path/to/.htpasswd] [username] [password]```
 
-**Delete a user** from the file
+**从文件中删除用户**
 
 ```htpasswd -D [path/to/.htpasswd] [username]```
 
-**Verify a user's password**
+**验证用户的密码**
 
 ```htpasswd -v [path/to/.htpasswd] [username]```
 
-**Use bcrypt** encryption (more secure)
+**使用 bcrypt 加密**（更安全）
 
 ```htpasswd -B [path/to/.htpasswd] [username]```
 
-**Display password hash** without updating file
+**只显示密码哈希**而不更新文件
 
 ```htpasswd -n [username]```
 
-**Create file using SHA** encryption
+**使用 SHA 加密创建文件**
 
 ```htpasswd -c -s [path/to/.htpasswd] [username]```
 
@@ -43,60 +43,60 @@ manages user authentication files for Apache HTTP Server's basic authentication
 # PARAMETERS
 
 **-c**
-> Create a new file (overwrites existing).
+> 创建新文件（覆盖已有文件）。
 
 **-n**
-> Display results on stdout, don't update file.
+> 将结果显示到标准输出，不更新文件。
 
 **-b**
-> Use password from command line (batch mode, insecure).
+> 使用命令行中给出的密码（批处理模式，不安全）。
 
 **-i**
-> Read password from stdin without verification.
+> 从标准输入读取密码，不进行确认。
 
 **-m**
-> Use MD5 encryption (default on most systems).
+> 使用 MD5 加密（大多数系统的默认值）。
 
 **-B**
-> Use bcrypt encryption (most secure).
+> 使用 bcrypt 加密（最安全）。
 
 **-C** _cost_
-> Set bcrypt cost (4-17, default 5, higher = slower).
+> 设置 bcrypt cost（4-17，默认 5，越高越慢）。
 
 **-d**
-> Use crypt() encryption (insecure, limited to 8 chars).
+> 使用 crypt() 加密（不安全，密码最多 8 个字符）。
 
 **-s**
-> Use SHA encryption (insecure).
+> 使用 SHA 加密（不安全）。
 
 **-p**
-> Use plaintext (insecure, for testing only).
+> 使用明文（不安全，仅用于测试）。
 
 **-D**
-> Delete the specified user.
+> 删除指定用户。
 
 **-v**
-> Verify password for user.
+> 验证用户密码。
 
 # DESCRIPTION
 
-**htpasswd** manages user authentication files for Apache HTTP Server's basic authentication. It creates and updates flat-file databases containing usernames and encrypted passwords used with **.htaccess** or Apache configuration directives.
+**htpasswd** 管理 Apache HTTP Server 基本认证所需的用户认证文件。它创建并更新包含用户名和加密密码的平面文件数据库，供 **.htaccess** 或 Apache 配置指令使用。
 
-The password file format is simple: one line per user with **username:encrypted_password**. Apache's mod_auth_basic reads this file to authenticate requests. The file should be stored outside the web root and have restrictive permissions.
+密码文件的格式很简单：每个用户一行，形如 **username:encrypted_password**。Apache 的 mod_auth_basic 读取该文件来认证请求。此文件应存放在 web 根目录之外，并设置严格的访问权限。
 
-Password encryption defaults to MD5-based algorithm (prefixed with $apr1$). The **-B** flag enables bcrypt, which is more resistant to brute-force attacks and recommended for new installations. The cost factor (-C) controls bcrypt's computational intensity.
+密码加密默认采用基于 MD5 的算法（以 $apr1$ 为前缀）。**-B** 选项启用 bcrypt，它能更好地抵抗暴力破解攻击，推荐用于新部署。cost 因子（-C）控制 bcrypt 的计算强度。
 
-For non-interactive use in scripts, **-b** allows specifying the password on the command line, though this exposes the password in process lists. The **-i** flag reads from stdin, which is safer for scripting.
+若要在脚本中进行非交互式操作，**-b** 允许直接在命令行上给出密码，但这会把密码暴露在进程列表中。**-i** 选项改为从标准输入读取，对脚本而言更安全。
 
-The tool is often used with Nginx as well, since Nginx can read Apache-format password files for basic authentication.
+该工具也常与 Nginx 搭配使用，因为 Nginx 可以读取 Apache 格式的密码文件来实现基本认证。
 
 # CAVEATS
 
-The -b flag exposes passwords in process listings. Basic authentication sends credentials in base64 (not encrypted) - always use with HTTPS. Old algorithms (crypt, SHA, plaintext) are insecure. File permissions must be restrictive. Not for high-security applications.
+-b 选项会将密码暴露在进程列表中。基本认证以 base64 发送凭据（并未加密）——务必配合 HTTPS 使用。旧算法（crypt、SHA、明文）都不安全。文件权限必须严格限制。不适合高安全性场景。
 
 # HISTORY
 
-**htpasswd** has been part of the Apache HTTP Server project since its early days in the mid-1990s. It evolved from NCSA HTTPd's password management tools. The bcrypt option was added later as password security requirements increased. The tool remains the standard for managing Apache basic auth despite the availability of more sophisticated authentication methods.
+**htpasswd** 自上世纪 90 年代中期以来一直是 Apache HTTP Server 项目的一部分。它源自 NCSA HTTPd 的密码管理工具。随着密码安全要求的提高，后来加入了 bcrypt 选项。尽管如今有更复杂的认证方法可用，该工具仍是管理 Apache 基本认证的标准工具。
 
 # INSTALL
 

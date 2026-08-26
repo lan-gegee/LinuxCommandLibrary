@@ -1,10 +1,10 @@
 # TAGLINE
 
-lists all available IBM Cloud regions
+列出所有可用的 IBM Cloud 区域
 
 # TLDR
 
-**List all regions**
+**列出所有区域**
 
 ```ibmcloud regions```
 
@@ -14,9 +14,8 @@ lists all available IBM Cloud regions
 
 # DESCRIPTION
 
-**ibmcloud regions** lists all available IBM Cloud regions. Regions include locations like us-south, us-east, eu-gb, eu-de, au-syd, jp-tok, and others. Use this to find valid region codes for **ibmcloud login -r** or **ibmcloud target -r**.
+**ibmcloud regions** 列出所有可用的 IBM Cloud 区域。区域包括 us-south、us-east、eu-gb、eu-de、au-syd、jp-tok 等位置。用于查找 **ibmcloud login -r** 或 **ibmcloud target -r** 的有效区域代码。
 
 # SEE ALSO
 
 [ibmcloud](/man/ibmcloud)(1), [ibmcloud-target](/man/ibmcloud-target)(1)
-

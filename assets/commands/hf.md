@@ -1,34 +1,34 @@
 # TAGLINE
 
-official command-line interface for Hugging Face Hub
+Hugging Face Hub 官方命令行界面
 
 # TLDR
 
-**Log in to Hugging Face** Hub
+**登录 Hugging Face** Hub
 
 ```hf auth login```
 
-**Download a model** from the Hub
+从 Hub **下载模型**
 
 ```hf download [gpt2]```
 
-**Download specific files** from a model
+从模型中**下载指定文件**
 
 ```hf download [meta-llama/Llama-2-7b] [config.json] [model.safetensors]```
 
-**Upload a folder** to the Hub
+将文件夹**上传到 Hub**
 
 ```hf upload [username/my-model] [./models] [.]```
 
-**List trending models**
+**列出热门模型**
 
 ```hf models ls```
 
-**Run a job on GPU** infrastructure
+在 GPU 基础设施上**运行作业**
 
 ```hf jobs run --flavor [a10g-small] [pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel] [python train.py]```
 
-**View cache usage**
+**查看缓存占用**
 
 ```hf cache ls```
 
@@ -39,120 +39,120 @@ official command-line interface for Hugging Face Hub
 # COMMANDS
 
 **auth login**
-> Log in to Hugging Face Hub with access token.
+> 使用访问令牌登录 Hugging Face Hub。
 
 **auth logout**
-> Log out and remove stored tokens.
+> 登出并移除已保存的令牌。
 
 **auth whoami**
-> Display current user and organizations.
+> 显示当前用户和组织。
 
 **download** _repo_id_ [_files_]
-> Download files from the Hub to local cache.
+> 将 Hub 上的文件下载到本地缓存。
 
 **upload** _repo_id_ _local_path_ _path_in_repo_
-> Upload files or folders to a repository.
+> 将文件或文件夹上传到仓库。
 
 **repo create** _repo_id_
-> Create a new repository on the Hub.
+> 在 Hub 上创建新仓库。
 
 **repo delete** _repo_id_
-> Delete a repository.
+> 删除仓库。
 
 **cache ls**
-> List cached repositories and their sizes.
+> 列出已缓存的仓库及其大小。
 
 **cache rm** _repo_id_
-> Remove cached files.
+> 移除缓存的文件。
 
 **jobs run** _image_ _command_
-> Run compute jobs on Hugging Face infrastructure.
+> 在 Hugging Face 基础设施上运行计算作业。
 
 **jobs ps**
-> List running and recent jobs.
+> 列出正在运行和最近的作业。
 
 **models ls**
-> List and search models on the Hub.
+> 列出并搜索 Hub 上的模型。
 
 **datasets ls**
-> List and search datasets.
+> 列出并搜索数据集。
 
 **spaces ls**
-> List and search Spaces.
+> 列出并搜索 Spaces。
 
 **endpoints ls**
-> List Inference Endpoints.
+> 列出推理端点（Inference Endpoints）。
 
 **collections ls**
-> List collections on the Hub.
+> 列出 Hub 上的合集。
 
 **env**
-> Print environment information for debugging.
+> 打印用于调试的环境信息。
 
 **version**
-> Print the installed hf version.
+> 打印已安装的 hf 版本。
 
 # PARAMETERS
 
 **--repo-type** _type_
-> Repository type: model, dataset, or space.
+> 仓库类型：model、dataset 或 space。
 
 **--revision** _ref_
-> Specific revision (branch, tag, or commit hash).
+> 指定修订版本（分支、标签或提交哈希）。
 
 **--local-dir** _path_
-> Download to specific local directory instead of cache.
+> 下载到指定的本地目录而不是缓存。
 
 **--include** _pattern_
-> Include files matching glob pattern.
+> 仅包含匹配 glob 模式的文件。
 
 **--exclude** _pattern_
-> Exclude files matching glob pattern.
+> 排除匹配 glob 模式的文件。
 
 **--token** _token_
-> Authentication token for private repos.
+> 用于私有仓库的身份验证令牌。
 
 **--quiet**
-> Suppress verbose output, print only final result.
+> 抑制详细输出，只打印最终结果。
 
 **--flavor** _hardware_
-> Hardware for jobs: cpu-basic, t4-small, a10g-small, a100-large, etc.
+> 作业使用的硬件：cpu-basic、t4-small、a10g-small、a100-large 等。
 
 **--timeout** _duration_
-> Job timeout with units: 30m, 2h, 1d.
+> 作业超时时间，需带单位：30m、2h、1d。
 
 **--format** _mode_
-> Output format: auto (default), human, agent, json, or quiet.
+> 输出格式：auto（默认）、human、agent、json 或 quiet。
 
 **--json**
-> Shortcut for --format json; print structured output for scripting.
+> --format json 的快捷方式；打印结构化输出以便脚本处理。
 
 **-q**, **--quiet**
-> Shortcut for --format quiet; print only IDs, one per line.
+> --format quiet 的快捷方式；仅打印 ID，每行一个。
 
 **--no-truncate**
-> Show full values in tables instead of shortening long ones with "...".
+> 表格中显示完整值，而不是用 "..." 截断长值。
 
 **--help**
-> Display help for any command.
+> 显示任意命令的帮助信息。
 
 # DESCRIPTION
 
-**hf** (formerly **huggingface-cli**) is the official command-line interface for Hugging Face Hub. It provides direct terminal access to download models and datasets, upload files, manage repositories, run compute jobs, and interact with the ML community platform.
+**hf**（前身为 **huggingface-cli**）是 Hugging Face Hub 的官方命令行界面。它让你可以直接在终端下载模型和数据集、上传文件、管理仓库、运行计算作业，并与这个机器学习社区平台交互。
 
-The CLI follows a consistent **hf resource action** pattern. Files are cached locally in **~/.cache/huggingface/hub/** with smart deduplication. The **download** command supports partial downloads with **--include/--exclude** patterns and resumable transfers.
+该 CLI 采用统一的 **hf resource action**（资源 动作）模式。文件会被智能去重并缓存到本地 **~/.cache/huggingface/hub/** 目录。**download** 命令支持通过 **--include/--exclude** 模式进行部分下载，且传输可断点续传。
 
-**hf jobs** enables running code on Hugging Face infrastructure including GPUs (T4, A10G, A100) and TPUs, with Docker-like commands. Jobs support environment variables, secrets, scheduled execution, and UV scripts for self-contained Python tasks.
+**hf jobs** 支持在 Hugging Face 基础设施上运行代码，包括 GPU（T4、A10G、A100）和 TPU，命令风格类似 Docker。作业支持环境变量、密钥、定时执行，以及适用于自包含 Python 任务的 UV 脚本。
 
-Authentication is managed via **hf auth login** which stores tokens locally. Tokens can also be set via the **HF_TOKEN** environment variable for scripting.
+身份验证通过 **hf auth login** 管理，令牌保存在本地。脚本场景下也可以通过 **HF_TOKEN** 环境变量设置令牌。
 
 # CAVEATS
 
-Some features require a Hugging Face Pro subscription or organization membership, including **hf jobs** for compute access. Large model downloads may require significant disk space and bandwidth. Private repositories require authentication.
+部分功能需要 Hugging Face Pro 订阅或组织成员资格，包括用于获取算力的 **hf jobs**。大型模型的下载可能需要大量磁盘空间和带宽。私有仓库需要身份验证。
 
 # HISTORY
 
-The Hugging Face Hub CLI was introduced as part of the **huggingface_hub** Python package to provide programmatic access to the model repository. In **July 2025**, the CLI was renamed from **huggingface-cli** to **hf** for brevity, with commands reorganized into a clearer **resource action** structure. The legacy command remains functional with deprecation warnings.
+Hugging Face Hub CLI 最初作为 **huggingface_hub** Python 包的一部分推出，用于以编程方式访问模型仓库。**2025 年 7 月**，为求简洁，CLI 从 **huggingface-cli** 更名为 **hf**，并将命令重组为更清晰的 **resource action** 结构。旧命令仍可使用，但会出现弃用警告。
 
 # INSTALL
 

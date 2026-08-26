@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create a new Hakyll static site project with a basic structure
+创建具有基本结构的新 Hakyll 静态网站项目
 
 # TLDR
 
-**Create a new Hakyll site**
+**创建新的 Hakyll 网站**
 
 ```hakyll-init [my-site]```
 
-**Create in current directory**
+**在当前目录创建**
 
 ```hakyll-init .```
 
@@ -18,7 +18,7 @@ Create a new Hakyll static site project with a basic structure
 
 # DESCRIPTION
 
-**hakyll-init** creates a new Hakyll static site project with a basic structure. Hakyll is a Haskell-based static site generator with Pandoc integration. The generated project includes site.hs (main configuration), templates, CSS, sample posts, and images. After initialization, compile site.hs with GHC and use the resulting binary to build and serve the site.
+**hakyll-init** 创建一个具有基本结构的新 Hakyll 静态网站项目。Hakyll 是基于 Haskell 的静态网站生成器，集成了 Pandoc。生成的项目包括 site.hs（主配置）、templates、CSS、示例文章和图片。初始化完成后，用 GHC 编译 site.hs，再使用得到的二进制文件来构建和托管网站。
 
 # INSTALL
 

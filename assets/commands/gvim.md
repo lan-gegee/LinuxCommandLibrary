@@ -1,34 +1,34 @@
 # TAGLINE
 
-GUI version of Vim
+Vim 的图形界面版本
 
 # TLDR
 
-**Open file in GUI vim**
+**在 GUI 版 vim 中打开文件**
 
 ```gvim [file]```
 
-**Open multiple files in tabs**
+**以标签页打开多个文件**
 
 ```gvim -p [file1] [file2]```
 
-**Open in read-only mode**
+**以只读模式打开**
 
 ```gvim -R [file]```
 
-**Open with diff mode**
+**以 diff 模式打开**
 
 ```gvim -d [file1] [file2]```
 
-**Open at specific line**
+**打开并定位到指定行**
 
 ```gvim +[42] [file]```
 
-**Open in foreground (do not fork)**
+**在前台打开（不 fork）**
 
 ```gvim -f [file]```
 
-**Execute a command after opening a file**
+**打开文件后执行命令**
 
 ```gvim -c "[%s/foo/bar/g]" [file]```
 
@@ -39,66 +39,66 @@ GUI version of Vim
 # PARAMETERS
 
 _FILES_
-> Files to edit.
+> 要编辑的文件。
 
 **-p**
-> Open files in tabs.
+> 以标签页方式打开文件。
 
 **-o**
-> Open files in horizontal splits.
+> 以水平分割方式打开文件。
 
 **-O**
-> Open files in vertical splits.
+> 以垂直分割方式打开文件。
 
 **-R**
-> Read-only mode.
+> 只读模式。
 
 **-d**
-> Diff mode.
+> diff 模式。
 
 **+** _NUM_
-> Start at line number.
+> 从指定行号开始。
 
 **-c** _CMD_
-> Execute command after start.
+> 启动后执行命令。
 
 **-f**, **--nofork**
-> Run in foreground, do not fork and detach from the shell.
+> 在前台运行，不 fork 并脱离 shell。
 
 **-g**
-> Start in GUI mode (used when calling as vim -g).
+> 以 GUI 模式启动（用于以 vim -g 方式调用时）。
 
 **-u** _FILE_
-> Use specified vimrc file for initialization instead of default.
+> 使用指定的 vimrc 文件而非默认文件进行初始化。
 
 **-U** _FILE_
-> Use specified gvimrc file for GUI initialization.
+> 使用指定的 gvimrc 文件进行 GUI 初始化。
 
 **-N**
-> No-compatible mode. Resets the 'compatible' option.
+> 非兼容模式。重置 'compatible' 选项。
 
 **-geometry** _GEOM_
-> Set initial window geometry (e.g., 80x25+0+0).
+> 设置初始窗口几何尺寸（如 80x25+0+0）。
 
 **--**
-> End of options. Arguments after this are treated as file names.
+> 选项结束标志。此后的参数被视为文件名。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gvim** is the GUI version of Vim. It provides all Vim functionality with graphical menus, mouse support, and system clipboard integration.
+**gvim** 是 Vim 的 GUI 版本。它在提供全部 Vim 功能的同时，增加了图形菜单、鼠标支持和系统剪贴板集成。
 
-The editor supports the same commands and plugins as terminal Vim. It offers visual features like toolbar, scrollbars, and configurable fonts. By default, gvim forks and detaches from the launching shell; use -f or --nofork to run in the foreground.
+该编辑器支持与终端 Vim 相同的命令和插件。它提供工具栏、滚动条和可配置字体等视觉特性。默认情况下，gvim 会 fork 并脱离启动它的 shell；使用 -f 或 --nofork 可以在前台运行。
 
 # CAVEATS
 
-Requires X11/Wayland or Windows GUI. Larger memory footprint than vim. GUI features configurable in .gvimrc.
+需要 X11/Wayland 或 Windows GUI。内存占用比 vim 更大。GUI 特性可在 .gvimrc 中配置。
 
 # HISTORY
 
-gvim was developed as part of **Vim** by **Bram Moolenaar** to provide a graphical interface for the editor.
+gvim 由 **Bram Moolenaar** 作为 **Vim** 的一部分开发而成，用于为该编辑器提供图形界面。
 
 # INSTALL
 

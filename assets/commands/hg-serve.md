@@ -1,26 +1,26 @@
 # TAGLINE
 
-starts a built-in HTTP server for the repository
+为仓库启动内置 HTTP 服务器
 
 # TLDR
 
-**Start HTTP server**
+**启动 HTTP 服务器**
 
 ```hg serve```
 
-**Specify port**
+**指定端口**
 
 ```hg serve -p [8080]```
 
-**Specify address**
+**指定地址**
 
 ```hg serve -a [0.0.0.0]```
 
-**Allow push**
+**允许推送**
 
 ```hg serve --config web.push_ssl=false --config web.allow_push=*```
 
-**Run in background**
+**在后台运行**
 
 ```hg serve -d```
 
@@ -31,51 +31,51 @@ starts a built-in HTTP server for the repository
 # PARAMETERS
 
 **-p**, **--port** _PORT_
-> Listen port (default 8000).
+> 监听端口（默认 8000）。
 
 **-a**, **--address** _ADDR_
-> Listen address.
+> 监听地址。
 
 **-d**, **--daemon**
-> Run in background.
+> 在后台运行。
 
 **--pid-file** _FILE_
-> PID file location.
+> PID 文件位置。
 
 **-n**, **--name** _NAME_
-> Repository name.
+> 仓库名称。
 
 **--web-conf** _FILE_
-> Web config file.
+> Web 配置文件。
 
 **-A**, **--accesslog** _FILE_
-> Name of access log file to write to.
+> 要写入的访问日志文件名。
 
 **-E**, **--errorlog** _FILE_
-> Name of error log file to write to.
+> 要写入的错误日志文件名。
 
 **--certificate** _FILE_
-> SSL certificate file, to serve over HTTPS.
+> SSL 证书文件，用于通过 HTTPS 提供服务。
 
 **--print-url**
-> Start the server and print only its URL.
+> 启动服务器并只打印其 URL。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg serve** starts a built-in HTTP server for the repository. It provides read access via web browser and clone/pull access for other clients.
+**hg serve** 为仓库启动内置 HTTP 服务器。它通过 Web 浏览器提供读取访问，也为其他客户端提供 clone/pull 访问。
 
-The server is convenient for quick sharing but not for production. It supports multiple repositories with configuration.
+该服务器便于快速共享，但不适合生产环境。通过配置可以支持多个仓库。
 
 # CAVEATS
 
-Not production-ready. Push disabled by default. Single-threaded.
+不具备生产环境可用性。推送默认禁用。单线程运行。
 
 # HISTORY
 
-Serve is a **Mercurial** built-in feature for quick repository sharing since version 1.0.
+serve 是 **Mercurial** 自 1.0 版本以来内置的快速仓库共享功能。
 
 # SEE ALSO
 

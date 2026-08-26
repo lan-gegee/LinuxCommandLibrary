@@ -1,14 +1,14 @@
 # TAGLINE
 
-Binary patcher and editor with TUI and disassembler
+带 TUI 和反汇编器的二进制修补与编辑工具
 
 # TLDR
 
-**Open a binary file** for editing
+**打开二进制文件**进行编辑
 
 ```hexpatch [path/to/binary]```
 
-**Open a remote file via SSH**
+**通过 SSH 打开远程文件**
 
 ```hexpatch ssh://[user]@[host]:[path/to/file]```
 
@@ -18,17 +18,17 @@ Binary patcher and editor with TUI and disassembler
 
 # DESCRIPTION
 
-**hexpatch** (HexPatch) is a binary patcher and editor with a terminal user interface, capable of **disassembling** instructions and **assembling** patches. It supports a variety of architectures and file formats, making it useful for security researchers, reverse engineers, and low-level programmers.
+**hexpatch**（HexPatch）是一个带终端用户界面的二进制修补与编辑工具，能够**反汇编**指令并**汇编**补丁。它支持多种架构和文件格式，对安全研究人员、逆向工程师和底层程序员很有用。
 
-Key features include hex and ASCII editing, virtual address jumping, text and symbol search, a text view mode, and support for **Lua plugins** for extensibility. Files can be edited locally or remotely via **SSH**.
+主要特性包括十六进制和 ASCII 编辑、虚拟地址跳转、文本和符号搜索、文本查看模式，以及用于扩展功能的 **Lua 插件**支持。文件可以在本地编辑，也可以通过 **SSH** 远程编辑。
 
 # CAVEATS
 
-Modifying executable binaries can break them or introduce security vulnerabilities. Always work on copies of important files. Disassembly support varies by architecture.
+修改可执行二进制文件可能使其损坏或引入安全漏洞。请务必在重要文件的副本上进行操作。反汇编支持因架构而异。
 
 # HISTORY
 
-**hexpatch** was created by **Etto48** and is written in **Rust**. It was designed to provide an all-in-one terminal tool for binary analysis and patching, combining hex editing with disassembly capabilities.
+**hexpatch** 由 **Etto48** 创建，使用 **Rust** 编写。其设计目标是提供一个集二进制分析与修补于一体的终端工具，将十六进制编辑与反汇编能力结合在一起。
 
 # INSTALL
 

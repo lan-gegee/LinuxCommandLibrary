@@ -1,26 +1,26 @@
 # TAGLINE
 
-mount filesystems using GRUB's drivers via FUSE
+通过 FUSE 使用 GRUB 的驱动程序挂载文件系统
 
 # TLDR
 
-**Mount** a block device or file system image to a mount point
+将块设备或文件系统镜像**挂载**到挂载点
 
 ```grub-mount [/dev/sdXY] [/mnt]```
 
-Mount a **specific partition** from a disk image
+从磁盘镜像挂载**特定分区**
 
 ```grub-mount -r [2] [disk.img] [/mnt]```
 
-Mount an **encrypted** device with passphrase prompt
+以密码提示方式挂载**加密**设备
 
 ```grub-mount -C [/dev/sdXY] [/mnt]```
 
-Load a **ZFS encryption key** from a file
+从文件加载 **ZFS 加密密钥**
 
 ```grub-mount -K [path/to/zfs.key] [/dev/sdX] [/mnt]```
 
-Enable **verbose** output
+启用**详细输出**
 
 ```grub-mount -v [image] [/mnt]```
 
@@ -31,36 +31,36 @@ Enable **verbose** output
 # PARAMETERS
 
 **-r**, **--root** _PARTITION_
-> Specify partition number to mount from a disk image
+> 指定要从磁盘镜像挂载的分区号
 
 **-C**, **--crypto**
-> Enable cryptographic device support, prompts for passphrase
+> 启用加密设备支持，会提示输入密码
 
 **-K**, **--zfs-key** _FILE_
-> Load ZFS encryption key from specified file
+> 从指定文件加载 ZFS 加密密钥
 
 **-d**, **--debug** _STRING_
-> Show debugging output for matching category
+> 显示匹配类别的调试输出
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**grub-mount** mounts file systems or disk images read-only using GRUB's built-in file system drivers via FUSE. This is useful for accessing file systems that GRUB supports but the host operating system might not, or for inspecting boot images.
+**grub-mount** 通过 FUSE 使用 GRUB 内置的文件系统驱动程序以只读方式挂载文件系统或磁盘镜像。这适用于访问 GRUB 支持但宿主操作系统可能不支持的文件系统，或检查启动镜像。
 
-The tool supports various file systems including ext2/3/4, XFS, Btrfs, ZFS, FAT, NTFS, and ISO9660. It can also handle encrypted volumes with the appropriate options.
+该工具支持多种文件系统，包括 ext2/3/4、XFS、Btrfs、ZFS、FAT、NTFS 和 ISO9660。配合适当的选项还可以处理加密卷。
 
 # CAVEATS
 
-All mounts are read-only. Requires FUSE support on the host system. Some advanced file system features may not be fully supported. Encrypted volumes require appropriate keys or passphrases.
+所有挂载均为只读。要求宿主系统支持 FUSE。某些高级文件系统特性可能不被完全支持。加密卷需要相应的密钥或密码。
 
 # HISTORY
 
-grub-mount is part of GRUB 2, providing a FUSE-based mounting interface using GRUB's file system drivers. This allows administrators to access and verify boot environments without requiring kernel support for all file system types.
+grub-mount 是 GRUB 2 的一部分，基于 GRUB 的文件系统驱动程序提供 FUSE 挂载接口。它让管理员无需内核支持所有文件系统类型即可访问和验证启动环境。
 
 # INSTALL
 

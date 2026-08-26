@@ -1,18 +1,18 @@
 # TAGLINE
 
-writes a value to a specified register of an I2C device
+向 I2C 设备的指定寄存器写入一个值
 
 # TLDR
 
-**Write** to a register of an I2C device
+**写入** I2C 设备的某个寄存器
 
 ```i2cset [i2cbus] [device_address] [register_address] [value]```
 
-Write without **confirmation** prompt
+无需**确认**提示直接写入
 
 ```i2cset -y [i2cbus] [device_address] [register_address] [value]```
 
-Write using a **specific mode**
+使用**指定模式**写入
 
 ```i2cset [i2cbus] [device_address] [register_address] [value] [b|w|c|s|i]```
 
@@ -23,36 +23,36 @@ Write using a **specific mode**
 # PARAMETERS
 
 **-y**
-> Disable interactive confirmation (dangerous on some hardware)
+> 禁用交互式确认（在某些硬件上很危险）
 
 **b**
-> Byte mode - write single byte (default)
+> 字节模式 — 写入单个字节（默认）
 
 **w**
-> Word mode - write 16-bit value
+> 字模式 — 写入 16 位值
 
 **c**
-> Consecutive byte mode
+> 连续字节模式
 
 **s**
-> SMBus block mode
+> SMBus 块模式
 
 **i**
-> I2C block mode
+> I2C 块模式
 
 # DESCRIPTION
 
-**i2cset** writes a value to a specified register of an I2C device. This allows configuration of I2C peripherals, setting parameters, or controlling device behavior.
+**i2cset** 向 I2C 设备的指定寄存器写入一个值。这可用于配置 I2C 外设、设置参数或控制设备行为。
 
-All addresses and values should be specified in hexadecimal notation. The command will prompt for confirmation before writing unless the -y flag is used.
+所有地址和值都应以十六进制表示。除非使用 -y 标志，否则命令在写入前会提示确认。
 
 # CAVEATS
 
-Writing to I2C registers can cause hardware damage or unexpected behavior. Always verify device addresses and register meanings before writing. Some devices may become unresponsive or require power cycling after incorrect writes. Requires root privileges or i2c group membership.
+向 I2C 寄存器写入可能导致硬件损坏或意外行为。写入前务必核实设备地址和寄存器含义。某些设备在错误写入后可能失去响应或需要重新上电。需要 root 权限或属于 i2c 组。
 
 # HISTORY
 
-i2cset is part of the i2c-tools package, providing userspace write access to I2C devices. The I2C protocol was developed by Philips (now NXP) in **1982** for low-speed peripheral communication.
+i2cset 是 i2c-tools 软件包的一部分，提供对 I2C 设备的用户态写访问。I2C 协议由飞利浦（现 NXP）于 **1982 年**开发，用于低速外设通信。
 
 # INSTALL
 

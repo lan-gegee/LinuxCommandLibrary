@@ -1,30 +1,30 @@
 # TAGLINE
 
-extracts data from HTML using CSS selectors
+使用 CSS 选择器从 HTML 中提取数据
 
 # TLDR
 
-**Extract elements by selector**
+**按选择器提取元素**
 
 ```cat [page.html] | htmlq [.class-name]```
 
-**Get attribute value**
+**获取属性值**
 
 ```htmlq -a href [a.link] < [page.html]```
 
-**Get text content**
+**获取文本内容**
 
 ```htmlq -t [p] < [page.html]```
 
-**Pretty print HTML**
+**美化输出 HTML**
 
 ```htmlq -p [body] < [page.html]```
 
-**Remove nodes before extracting**
+**提取前先移除节点**
 
 ```htmlq --remove-nodes [.unwanted] [div.content] < [page.html]```
 
-**From URL via curl**
+**通过 curl 从 URL 获取**
 
 ```curl -s [url] | htmlq [selector]```
 
@@ -35,54 +35,54 @@ extracts data from HTML using CSS selectors
 # PARAMETERS
 
 _SELECTOR_
-> CSS selector.
+> CSS 选择器。
 
 **-a**, **--attribute** _ATTR_
-> Only return this attribute's value from selected elements.
+> 仅返回所选元素的该属性值。
 
 **-t**, **--text**
-> Output only the text content of selected elements.
+> 仅输出所选元素的文本内容。
 
 **-p**, **--pretty**
-> Pretty-print the serialised HTML output.
+> 美化输出的序列化 HTML。
 
 **-b**, **--base** _URL_
-> Use this URL as the base for relative links.
+> 将该 URL 作为相对链接的基准。
 
 **-B**, **--detect-base**
-> Detect the base URL from the document's `<base>` tag.
+> 从文档的 `<base>` 标签检测基准 URL。
 
 **-f**, **--filename** _FILE_
-> Input file (defaults to stdin).
+> 输入文件（默认为标准输入）。
 
 **-o**, **--output** _FILE_
-> Output file (defaults to stdout).
+> 输出文件（默认为标准输出）。
 
 **-r**, **--remove-nodes** _SELECTOR_
-> Remove matching nodes before output. May be specified multiple times.
+> 在输出前移除匹配的节点。可多次指定。
 
 **-w**, **--ignore-whitespace**
-> When printing text nodes, ignore whitespace-only nodes.
+> 打印文本节点时，忽略仅含空白字符的节点。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**htmlq** extracts data from HTML using CSS selectors. It's like jq for HTML, providing command-line HTML parsing.
+**htmlq** 使用 CSS 选择器从 HTML 中提取数据。它就像 HTML 版的 jq，提供命令行下的 HTML 解析能力。
 
-The tool reads HTML from stdin or files and outputs matching elements. It supports extracting text, attributes, and formatted HTML.
+该工具从标准输入或文件读取 HTML，并输出匹配的元素。它支持提取文本、属性以及格式化后的 HTML。
 
 # CAVEATS
 
-Does not validate HTML; malformed input may produce unexpected results. CSS selector support covers most common patterns but may not support all CSS4 pseudo-selectors. Input is read entirely into memory, so very large HTML documents may be slow.
+不校验 HTML；格式错误的输入可能产生意外结果。CSS 选择器支持涵盖大多数常见模式，但可能不支持所有 CSS4 伪类选择器。输入会被完整读入内存，因此非常大的 HTML 文档处理起来可能较慢。
 
 # HISTORY
 
-htmlq was created as a command-line HTML querying tool inspired by jq for JSON processing.
+htmlq 是一款命令行 HTML 查询工具，其灵感来自用于 JSON 处理的 jq。
 
 # INSTALL
 

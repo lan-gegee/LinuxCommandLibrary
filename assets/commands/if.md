@@ -1,10 +1,10 @@
 # TAGLINE
 
-Shell conditional statement
+Shell 条件语句
 
 # TLDR
 
-**Basic if statement**
+**基本 if 语句**
 
 ```if [[ condition ]]; then command; fi```
 
@@ -16,19 +16,19 @@ Shell conditional statement
 
 ```if [[ $x -eq 1 ]]; then cmd1; elif [[ $x -eq 2 ]]; then cmd2; else cmd3; fi```
 
-**Test file exists**
+**测试文件是否存在**
 
 ```if [[ -e file ]]; then echo "found"; fi```
 
-**Test string equality**
+**测试字符串相等**
 
 ```if [[ "$a" == "$b" ]]; then echo "equal"; fi```
 
-**Test command exit status**
+**测试命令退出状态**
 
 ```if grep -q "pattern" file; then echo "found"; fi```
 
-**Numeric comparison**
+**数值比较**
 
 ```if [[ $count -gt 10 ]]; then echo "more than 10"; fi```
 
@@ -39,33 +39,33 @@ Shell conditional statement
 # PARAMETERS
 
 _test-commands_
-> A list of commands whose exit status determines the branch taken. An exit status of 0 (success) means the condition is true.
+> 一组命令，其退出状态决定分支走向。退出状态为 0（成功）表示条件为真。
 
 **then**
-> Introduces commands to execute when the preceding condition is true.
+> 引出在前一条件为真时要执行的命令。
 
 **elif**
-> Else-if clause; tests an additional condition if prior conditions were false.
+> else-if 子句；在之前的条件均为假时测试另一个条件。
 
 **else**
-> Commands to execute if all preceding conditions were false.
+> 在所有之前的条件均为假时执行的命令。
 
 **fi**
-> End of the if block.
+> if 块的结束。
 
 # DESCRIPTION
 
-**if** is a shell builtin conditional statement. It executes the _test-commands_ list and, if the exit status is zero (success), runs the corresponding **then** clause. If non-zero, each **elif** clause is tested in turn. If no condition succeeds and an **else** clause is present, its commands are executed.
+**if** 是 Shell 内建的条件语句。它执行 _test-commands_ 列表，若退出状态为零（成功），则运行对应的 **then** 子句。若非零，则依次测试每个 **elif** 子句。如果没有任何条件成立且存在 **else** 子句，则执行其中的命令。
 
-Although **if** is most commonly used with **test** or **[[ ]]** expressions, any command can serve as the condition since the decision is based on exit status. For example, **if grep -q pattern file** branches on whether grep found a match.
+虽然 **if** 最常与 **test** 或 **[[ ]]** 表达式搭配使用，但任何命令都可以作为条件，因为判断依据是退出状态。例如，**if grep -q pattern file** 会根据 grep 是否找到匹配来分支。
 
 # CAVEATS
 
-Shell builtin. Spaces inside **[ ]** and **[[ ]]** are required (e.g., **[ "$a" = "$b" ]**, not **["$a"="$b"]**). The POSIX-compatible test syntax is **[ ]**, while **[[ ]]** is a bash/zsh extension with additional features like pattern matching and regex.
+Shell 内建命令。**[ ]** 和 **[[ ]]** 内部的空格必不可少（如 **[ "$a" = "$b" ]**，而非 **["$a"="$b"]**）。POSIX 兼容的测试语法是 **[ ]**，而 **[[ ]]** 是 bash/zsh 的扩展，额外支持模式匹配和正则表达式等特性。
 
 # HISTORY
 
-**if** is a standard **Unix shell** construct, present in all POSIX-compliant shells since the original Bourne shell.
+**if** 是标准的 **Unix shell** 构件，自最初的 Bourne shell 起就存在于所有符合 POSIX 的 Shell 中。
 
 # INSTALL
 

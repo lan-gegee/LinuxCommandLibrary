@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line launcher for IntelliJ IDEA
+IntelliJ IDEA 的命令行启动器
 
 # TLDR
 
-**Open project**
+**打开项目**
 
 ```idea [project-directory]```
 
-**Open file**
+**打开文件**
 
 ```idea [file.java]```
 
-**Open at line**
+**定位到指定行打开**
 
 ```idea --line [42] [file.java]```
 
-**Compare files**
+**比较文件**
 
 ```idea diff [file1] [file2]```
 
-**Merge files**
+**合并文件**
 
 ```idea merge [local] [remote] [base] [output]```
 
-**Wait for IDE** (use as $EDITOR)
+**等待 IDE 关闭**（用作 $EDITOR）
 
 ```idea --wait [file]```
 
-**Format files** with project code style
+**按项目代码风格格式化文件**
 
 ```idea format -r -s [code-style.xml] [src/]```
 
-**Run inspections headlessly**
+**无头运行代码检查**
 
 ```idea inspect [project_dir] [inspection-profile.xml] [out_dir]```
 
@@ -43,57 +43,57 @@ command-line launcher for IntelliJ IDEA
 # PARAMETERS
 
 _FILES_
-> Files or projects to open.
+> 要打开的文件或项目。
 
 **--line** _NUM_
-> Open the file with the cursor at the given line number.
+> 打开文件并将光标置于指定行号。
 
 **--column** _NUM_
-> Open at a specific column (combine with **--line**).
+> 定位到指定列（与 **--line** 组合使用）。
 
-**diff** _file1_ _file2_
-> Open the diff viewer comparing two files.
+diff _file1_ _file2_
+> 打开差异查看器，比较两个文件。
 
-**merge** _local_ _remote_ _base_ _output_
-> Open the three-way merge tool.
+merge _local_ _remote_ _base_ _output_
+> 打开三方合并工具。
 
-**format** [_options_] _files_
-> Apply project code-style formatting to one or more files non-interactively.
+format [_options_] _files_
+> 以非交互方式对一个或多个文件应用项目代码风格格式化。
 
-**inspect** _project_ _profile_ _output_
-> Run code inspection on a project headlessly and write the report to _output_.
+inspect _project_ _profile_ _output_
+> 对项目进行无头代码检查，并将报告写入 _output_。
 
-**installPlugins** _id_...
-> Install plugins by ID from JetBrains Marketplace or a custom repository.
+installPlugins _id_...
+> 按 ID 从 JetBrains Marketplace 或自定义仓库安装插件。
 
 **--wait**
-> Block until the opened file is closed (useful as **$EDITOR**).
+> 阻塞直到所打开的文件被关闭（适合用作 **$EDITOR**）。
 
-**nosplash**
-> Skip the splash screen at startup.
+nosplash
+> 启动时跳过闪屏。
 
-**dontReopenProjects**
-> Show the welcome screen instead of reopening the previous projects.
+dontReopenProjects
+> 显示欢迎界面，而不是重新打开上次的项目。
 
-**disableNonBundledPlugins**
-> Launch with only bundled plugins; helpful for troubleshooting.
+disableNonBundledPlugins
+> 仅使用内置插件启动；有助于排查问题。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**idea** is the command-line launcher for IntelliJ IDEA. It opens files, projects, and invokes IDE features from the terminal.
+**idea** 是 IntelliJ IDEA 的命令行启动器。它可以从终端打开文件、项目并调用 IDE 功能。
 
-The tool supports diff, merge, and project navigation. It integrates with git and other tools requiring an editor.
+该工具支持 diff、merge 和项目导航。可与 git 及其他需要编辑器的工具集成。
 
 # CAVEATS
 
-Requires IntelliJ IDEA installed. Path setup needed. Resource intensive.
+需要已安装 IntelliJ IDEA。需要配置路径。资源占用较高。
 
 # HISTORY
 
-idea is the CLI launcher for **JetBrains IntelliJ IDEA**, a popular Java IDE.
+idea 是 **JetBrains IntelliJ IDEA** 的 CLI 启动器，后者是一款流行的 Java IDE。
 
 # SEE ALSO
 

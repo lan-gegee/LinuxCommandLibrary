@@ -1,34 +1,34 @@
 # TAGLINE
 
-configures Bluetooth devices
+配置蓝牙设备
 
 # TLDR
 
-**Show all Bluetooth interfaces**
+**显示所有蓝牙接口**
 
 ```hciconfig```
 
-**Show specific interface**
+**显示指定接口**
 
 ```hciconfig [hci0]```
 
-**Bring interface up**
+**启用接口**
 
 ```sudo hciconfig [hci0] up```
 
-**Bring interface down**
+**禁用接口**
 
 ```sudo hciconfig [hci0] down```
 
-**Enable device scanning**
+**启用设备扫描**
 
 ```sudo hciconfig [hci0] piscan```
 
-**Reset interface**
+**重置接口**
 
 ```sudo hciconfig [hci0] reset```
 
-**Show detailed info**
+**显示详细信息**
 
 ```hciconfig -a```
 
@@ -38,55 +38,55 @@ configures Bluetooth devices
 
 # DESCRIPTION
 
-**hciconfig** configures Bluetooth devices. It displays and modifies HCI (Host Controller Interface) device settings, similar to ifconfig for network interfaces.
+**hciconfig** 用于配置蓝牙设备。它显示并修改 HCI（Host Controller Interface，主机控制器接口）设备设置，作用类似于网络接口领域的 ifconfig。
 
-The tool manages Bluetooth adapter state, visibility, and various parameters like name, class, and scan modes.
+该工具管理蓝牙适配器的状态、可见性以及名称、设备类、扫描模式等各类参数。
 
 # PARAMETERS
 
 **-a**
-> Show all information.
+> 显示所有信息。
 
 **up**
-> Bring device up.
+> 启用设备。
 
 **down**
-> Bring device down.
+> 禁用设备。
 
 **reset**
-> Reset device.
+> 重置设备。
 
 **piscan**
-> Enable page and inquiry scan.
+> 同时启用页面扫描和查询扫描。
 
 **noscan**
-> Disable scanning.
+> 禁用扫描。
 
 **iscan**
-> Enable inquiry scan only.
+> 仅启用查询扫描。
 
 **pscan**
-> Enable page scan only.
+> 仅启用页面扫描。
 
 **name** _name_
-> Set local name.
+> 设置本地名称。
 
 **class** _class_
-> Set device class.
+> 设置设备类。
 
 **auth**
-> Enable authentication.
+> 启用认证。
 
 **noauth**
-> Disable authentication.
+> 禁用认证。
 
 # CAVEATS
 
-Deprecated in favor of bluetoothctl. Requires root for configuration. Changes may not persist after reboot. Interface naming may vary.
+已被 bluetoothctl 取代（废弃）。配置操作需要 root 权限。更改在重启后可能不会保留。接口命名可能有所不同。
 
 # HISTORY
 
-**hciconfig** is part of **BlueZ**, the official Linux Bluetooth stack. BlueZ was created by **Maxim Krasnyansky** and **Marcel Holtmann**, and is maintained by the community with Intel contributions. While hciconfig is being phased out, it remains useful for low-level Bluetooth configuration.
+**hciconfig** 属于 **BlueZ**，即 Linux 官方的蓝牙协议栈。BlueZ 由 **Maxim Krasnyansky** 和 **Marcel Holtmann** 创建，现由社区维护并获得 Intel 的贡献。尽管 hciconfig 正在被逐步淘汰，它在底层蓝牙配置方面仍然有用。
 
 # INSTALL
 

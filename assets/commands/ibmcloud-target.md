@@ -1,30 +1,30 @@
 # TAGLINE
 
-sets or displays the targeted account, region, resource group, and Cloud
+设置或显示目标账户、区域、资源组和 Cloud Foundry 组织/空间
 
 # TLDR
 
-**Show current target**
+**显示当前目标**
 
 ```ibmcloud target```
 
-**Set target region**
+**设置目标区域**
 
 ```ibmcloud target -r [us-south]```
 
-**Set target resource group**
+**设置目标资源组**
 
 ```ibmcloud target -g [resource-group]```
 
-**Set Cloud Foundry org and space**
+**设置 Cloud Foundry 组织和空间**
 
 ```ibmcloud target -o [org] -s [space]```
 
-**Set target account**
+**设置目标账户**
 
 ```ibmcloud target -c [account-id]```
 
-**Unset resource group**
+**取消资源组**
 
 ```ibmcloud target --unset-resource-group```
 
@@ -35,37 +35,36 @@ sets or displays the targeted account, region, resource group, and Cloud
 # PARAMETERS
 
 **-r** _region_
-> Target region.
+> 目标区域。
 
 **-g** _group_
-> Target resource group.
+> 目标资源组。
 
 **-c** _account_
-> Target account ID.
+> 目标账户 ID。
 
 **-o** _org_
-> Target Cloud Foundry organization.
+> 目标 Cloud Foundry 组织。
 
 **-s** _space_
-> Target Cloud Foundry space.
+> 目标 Cloud Foundry 空间。
 
 **--cf**
-> Target a Cloud Foundry environment and auto-select org/space.
+> 目标设为 Cloud Foundry 环境并自动选择组织/空间。
 
 **--cf-api** _URL_
-> Target a specific Cloud Foundry API endpoint.
+> 目标设为指定的 Cloud Foundry API 端点。
 
 **--unset-resource-group**
-> Clear the targeted resource group.
+> 清除已设置的资源组。
 
 **--output** _FORMAT_
-> Output format (e.g. `json`).
+> 输出格式（例如 `json`）。
 
 # DESCRIPTION
 
-**ibmcloud target** sets or displays the targeted account, region, resource group, and Cloud Foundry org/space. Subsequent CLI commands operate within the targeted context. Run without options to display current target.
+**ibmcloud target** 设置或显示目标账户、区域、资源组以及 Cloud Foundry 组织/空间。后续的 CLI 命令都在该目标上下文中运行。不带选项运行可显示当前目标。
 
 # SEE ALSO
 
 [ibmcloud](/man/ibmcloud)(1), [ibmcloud-login](/man/ibmcloud-login)(1)
-

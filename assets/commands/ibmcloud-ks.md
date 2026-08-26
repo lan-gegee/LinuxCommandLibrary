@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages IBM Cloud Kubernetes Service
+管理 IBM Cloud Kubernetes Service
 
 # TLDR
 
-**List clusters**
+**列出集群**
 
 ```ibmcloud ks clusters```
 
-**Create cluster**
+**创建集群**
 
 ```ibmcloud ks cluster create classic --name [my-cluster]```
 
-**Get cluster config**
+**获取集群配置**
 
 ```ibmcloud ks cluster config --cluster [cluster-name]```
 
-**List worker nodes**
+**列出工作节点**
 
 ```ibmcloud ks workers --cluster [cluster-name]```
 
-**Show cluster info**
+**显示集群信息**
 
 ```ibmcloud ks cluster get --cluster [cluster-name]```
 
@@ -31,39 +31,39 @@ manages IBM Cloud Kubernetes Service
 # PARAMETERS
 
 _COMMAND_
-> Kubernetes Service command.
+> Kubernetes Service 命令。
 
 **clusters**
-> List clusters.
+> 列出集群。
 
 **cluster create**
-> Create cluster.
+> 创建集群。
 
 **cluster config**
-> Get kubeconfig.
+> 获取 kubeconfig。
 
 **workers**
-> List worker nodes.
+> 列出工作节点。
 
 **cluster get**
-> Show cluster info.
+> 显示集群信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ibmcloud ks** manages IBM Cloud Kubernetes Service. It creates and manages Kubernetes clusters on IBM Cloud infrastructure.
+**ibmcloud ks** 管理 IBM Cloud Kubernetes Service。它在 IBM Cloud 基础设施上创建和管理 Kubernetes 集群。
 
-The tool handles cluster lifecycle, worker pools, and configuration. It integrates with kubectl for cluster access.
+该工具处理集群生命周期、工作节点池和配置。它与 kubectl 集成以访问集群。
 
 # CAVEATS
 
-IKS plugin required. Cluster costs apply. Regional deployment options.
+需要安装 IKS 插件。集群会产生费用。提供区域化部署选项。
 
 # HISTORY
 
-ibmcloud ks is the Kubernetes Service plugin for **IBM Cloud** CLI.
+ibmcloud ks 是 **IBM Cloud** CLI 的 Kubernetes Service 插件。
 
 # SEE ALSO
 

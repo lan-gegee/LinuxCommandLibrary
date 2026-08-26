@@ -1,38 +1,38 @@
 # TAGLINE
 
-JavaScript task runner for automation
+用于自动化的 JavaScript 任务运行器
 
 # TLDR
 
-**Run default task**
+**运行默认任务**
 
 ```grunt```
 
-**Run specific task**
+**运行特定任务**
 
 ```grunt [task-name]```
 
-**Run multiple tasks in sequence**
+**按顺序运行多个任务**
 
 ```grunt [task-one] [task-two]```
 
-**List available tasks and options**
+**列出可用任务和选项**
 
 ```grunt --help```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```grunt --verbose```
 
-**Force execution despite warnings**
+**忽略警告强制执行**
 
 ```grunt --force```
 
-**Use an alternate Gruntfile**
+**使用备用的 Gruntfile**
 
 ```grunt --gruntfile [path/to/Gruntfile.js] [task-name]```
 
-**Perform a dry run without writing files**
+**执行试运行，不写入文件**
 
 ```grunt --no-write```
 
@@ -43,59 +43,59 @@ JavaScript task runner for automation
 # PARAMETERS
 
 _TASKS_
-> Tasks to execute, in order. Runs the **default** task if none is given.
+> 要按顺序执行的任务。未指定时运行 **default** 任务。
 
 **-f**, **--force**
-> Continue past warnings instead of aborting.
+> 遇到警告时继续执行而不是中止。
 
 **-v**, **--verbose**
-> Verbose mode, printing more information about what Grunt is doing.
+> 详细模式，输出更多关于 Grunt 正在执行操作的信息。
 
 **-b**, **--base** _PATH_
-> Alternate base path; file paths are relative to the Gruntfile by default.
+> 备用的基准路径；文件路径默认相对于 Gruntfile。
 
 **--no-color**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--gruntfile** _FILE_
-> Specify an alternate Gruntfile.
+> 指定备用的 Gruntfile。
 
 **--no-write**
-> Disable writing files (dry run).
+> 禁用文件写入（试运行）。
 
 **-d**, **--debug**
-> Enable debugging mode for tasks that support it.
+> 为支持调试的任务启用调试模式。
 
 **--stack**
-> Print a stack trace when exiting with a warning or fatal error.
+> 因警告或致命错误退出时打印堆栈跟踪。
 
 **-V**, **--version**
-> Print the Grunt version; combine with --verbose for plugin versions too.
+> 打印 Grunt 版本；与 --verbose 组合可同时显示插件版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Grunt** is a JavaScript task runner for automating repetitive tasks. It handles minification, compilation, testing, and linting through a plugin ecosystem.
+**Grunt** 是一款 JavaScript 任务运行器，用于自动化重复性任务。它通过插件生态处理压缩、编译、测试和代码检查等工作。
 
-The tool reads configuration from Gruntfile.js. The globally-installed **grunt-cli** package provides the **grunt** command itself; it just locates and runs the version of Grunt installed locally in the project, which is what actually loads the Gruntfile and plugins. Grunt was widely used before npm scripts and newer build tools like Gulp and webpack gained popularity.
+该工具从 Gruntfile.js 读取配置。全局安装的 **grunt-cli** 软件包提供 **grunt** 命令本身；它只是定位并运行项目本地安装的 Grunt 版本，实际加载 Gruntfile 和插件的正是本地版本。在 npm scripts 以及 Gulp、webpack 等更新的构建工具流行之前，Grunt 曾被广泛使用。
 
 # CONFIGURATION
 
 **Gruntfile.js**
-> Project-level configuration file defining tasks, their options, and execution order.
+> 项目级配置文件，定义任务、任务选项及执行顺序。
 
 **package.json**
-> Lists Grunt plugins as devDependencies.
+> 将 Grunt 插件列为 devDependencies。
 
 # CAVEATS
 
-Requires Node.js. Configuration can be verbose. Newer alternatives exist (Gulp, npm scripts).
+需要 Node.js。配置可能较为繁琐。已有更新的替代方案（Gulp、npm scripts）。
 
 # HISTORY
 
-Grunt was created by **Ben Alman** in **2012** as one of the first JavaScript task runners.
+Grunt 由 **Ben Alman** 于 **2012 年**创建，是最早的 JavaScript 任务运行器之一。
 
 # INSTALL
 

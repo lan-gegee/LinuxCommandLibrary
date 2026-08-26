@@ -1,22 +1,22 @@
 # TAGLINE
 
-ImageMagick 6 version of the import screen capture tool
+ImageMagick 6 版本的 import 屏幕截图工具
 
 # TLDR
 
-**Capture entire screen**
+**捕获整个屏幕**
 
 ```import.im6 screenshot.png```
 
-**Capture by clicking window**
+**点击窗口进行捕获**
 
 ```import.im6 window.png```
 
-**Capture root window**
+**捕获根窗口**
 
 ```import.im6 -window root screen.png```
 
-**Capture with pause**
+**带延迟捕获**
 
 ```import.im6 -pause [3] screenshot.png```
 
@@ -27,33 +27,33 @@ ImageMagick 6 version of the import screen capture tool
 # PARAMETERS
 
 **-window** _ID_
-> Capture specific window or "root".
+> 捕获特定窗口或 "root"。
 
 **-pause** _SECONDS_
-> Delay before capture.
+> 捕获前的延迟时间。
 
 **-frame**
-> Include window frame.
+> 包含窗口框架。
 
 **-crop** _GEOMETRY_
-> Crop captured image.
+> 裁剪捕获的图像。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**import.im6** is the ImageMagick 6 version of the import screen capture tool. It captures X Window screenshots to various image formats.
+**import.im6** 是 ImageMagick 6 版本的 import 屏幕截图工具。它将 X Window 屏幕截图保存为各种图像格式。
 
-This legacy version is maintained for compatibility with scripts depending on ImageMagick 6 behavior.
+保留这一旧版本是为了兼容依赖 ImageMagick 6 行为的脚本。
 
 # CAVEATS
 
-Legacy ImageMagick 6 version. X11 only. Use import for newer systems.
+旧版 ImageMagick 6 版本。仅支持 X11。较新的系统请使用 import。
 
 # HISTORY
 
-import.im6 is the versioned name for **ImageMagick 6** import, allowing coexistence with ImageMagick 7.
+import.im6 是 **ImageMagick 6** 中 import 的带版本后缀名称，以便与 ImageMagick 7 共存。
 
 # SEE ALSO
 

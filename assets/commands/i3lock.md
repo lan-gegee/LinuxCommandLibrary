@@ -1,34 +1,34 @@
 # TAGLINE
 
-Improved screen locker
+改进版的屏幕锁定工具
 
 # TLDR
 
-**Lock the screen with a white background**
+以白色背景**锁定屏幕**
 
 ```i3lock```
 
-**Lock with a solid color background**
+以纯色背景**锁定**
 
 ```i3lock -c [000000]```
 
-**Lock with a background image**
+以背景图片**锁定**
 
 ```i3lock -i [path/to/image.png]```
 
-**Lock with a tiled background image**
+以平铺的背景图片**锁定**
 
 ```i3lock -t -i [path/to/image.png]```
 
-**Lock without showing the unlock indicator**
+**锁定**且不显示解锁指示器
 
 ```i3lock -u```
 
-**Lock and show failed authentication attempts**
+**锁定**并显示失败的认证尝试次数
 
 ```i3lock -f```
 
-**Lock without forking to the background**
+**锁定**且不派生到后台
 
 ```i3lock -n```
 
@@ -39,56 +39,56 @@ Improved screen locker
 # PARAMETERS
 
 **-v**, **--version**
-> Display the version of i3lock.
+> 显示 i3lock 的版本。
 
 **-n**, **--nofork**
-> Do not fork after starting. Useful for combining with other commands.
+> 启动后不派生。适合与其他命令组合使用。
 
 **-b**, **--beep**
-> Enable beeping on authentication failure.
+> 认证失败时发出蜂鸣声。
 
 **-c** _RRGGBB_, **--color** _RRGGBB_
-> Set background color in 6-byte hex format (default: white).
+> 以 6 字节十六进制格式设置背景颜色（默认：白色）。
 
 **-i** _PATH_, **--image** _PATH_
-> Display the given PNG image as background instead of a blank screen.
+> 显示指定的 PNG 图片作为背景，而非空白屏幕。
 
 **-t**, **--tiling**
-> Tile the image across the entire screen.
+> 将图片平铺到整个屏幕。
 
 **-u**, **--no-unlock-indicator**
-> Disable the unlock indicator circle shown when typing.
+> 禁用输入时显示的解锁指示圆圈。
 
 **-f**, **--show-failed-attempts**
-> Show the number of failed authentication attempts.
+> 显示认证失败的次数。
 
 **-p** _win|default_, **--pointer** _win|default_
-> Control mouse pointer visibility. "default" shows the pointer, "win" shows a Windows-style pointer.
+> 控制鼠标指针可见性。"default" 显示指针，"win" 显示 Windows 风格的指针。
 
 **-e**, **--ignore-empty-password**
-> Do not validate an empty password.
+> 不校验空密码。
 
 **--raw** _FORMAT_
-> Read the image given by --image as raw bytes instead of PNG.
+> 以原始字节而非 PNG 格式读取 --image 给出的图片。
 
 **--debug**
-> Enable debug logging. Note: this logs the password to stdout.
+> 启用调试日志。注意：这会将密码记录到 stdout。
 
 # DESCRIPTION
 
-**i3lock** is an improved screen locker based on slock. It displays a blank screen or image and requires PAM authentication (typically a password) to unlock. After a configurable timeout, the screen turns off via DPMS.
+**i3lock** 是一款基于 slock 的改进版屏幕锁定工具。它显示空白屏幕或图片，并要求通过 PAM 认证（通常是输入密码）来解锁。在可配置的超时后，屏幕会通过 DPMS 关闭。
 
-An unlock indicator circle appears when typing: it shows a green fill while verifying, a red fill on failure, and clears when idle. The indicator provides visual feedback without revealing password length.
+输入时会显示一个解锁指示圆圈：验证期间填充为绿色，失败时填充为红色，空闲时清空。该指示器在不暴露密码长度的情况下提供视觉反馈。
 
-The locker was designed for the i3 window manager but works with any X11 session.
+此锁屏工具为 i3 窗口管理器设计，但可在任何 X11 会话中使用。
 
 # CAVEATS
 
-X11 only; for Wayland, use **swaylock** instead. Only PNG images are supported (unless using --raw). The **i3lock-color** fork adds many additional features such as custom ring colors and clock display.
+仅支持 X11；Wayland 请改用 **swaylock**。仅支持 PNG 图片（除非使用 --raw）。**i3lock-color** 分支增加了许多额外功能，例如自定义圆环颜色和时钟显示。
 
 # HISTORY
 
-**i3lock** was created by Michael Stapelberg as the screen locker for the **i3** window manager, focusing on simplicity and security. It is a significantly improved version of **slock** with features like an unlock indicator and PAM support.
+**i3lock** 由 Michael Stapelberg 创建，作为 **i3** 窗口管理器的锁屏工具，注重简洁与安全。它是 **slock** 的显著改进版本，加入了解锁指示器和 PAM 支持等特性。
 
 # INSTALL
 

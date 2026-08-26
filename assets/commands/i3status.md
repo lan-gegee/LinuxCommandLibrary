@@ -1,18 +1,18 @@
 # TAGLINE
 
-generates a status line for use with i3bar, dzen2, xmobar, or similar status
+为 i3bar、dzen2、xmobar 或类似状态栏生成状态行
 
 # TLDR
 
-Print the **status line** to stdout using default configuration
+使用默认配置将**状态行**输出到 stdout
 
 ```i3status```
 
-Print status line using a **specific configuration**
+使用**指定配置**输出状态行
 
 ```i3status -c [path/to/i3status.conf]```
 
-Display **help** and version
+显示**帮助**和版本
 
 ```i3status -h```
 
@@ -23,33 +23,33 @@ Display **help** and version
 # PARAMETERS
 
 **-c** _CONFIG_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-h**
-> Display help and version
+> 显示帮助和版本
 
 # DESCRIPTION
 
-**i3status** generates a status line for use with i3bar, dzen2, xmobar, or similar status bars. It outputs system information like battery status, network connectivity, disk usage, and time in a format suitable for piping to a status bar.
+**i3status** 为 i3bar、dzen2、xmobar 或类似状态栏生成状态行。它以适合管道传给状态栏的格式输出系统信息，如电池状态、网络连接、磁盘用量和时间。
 
-Configuration is stored in **~/.config/i3status/config** or **/etc/i3status.conf**. The config file defines which modules to display and their order.
+配置存储在 **~/.config/i3status/config** 或 **/etc/i3status.conf**。配置文件定义要显示哪些模块及其顺序。
 
-Common modules:
-- **disk** - Filesystem usage
-- **wireless/ethernet** - Network status
-- **battery** - Battery level and status
-- **cpu_usage** - CPU utilization
-- **load** - System load averages
-- **time** - Date and time
-- **volume** - Audio volume
+常用模块：
+- **disk** — 文件系统用量
+- **wireless/ethernet** — 网络状态
+- **battery** — 电量与状态
+- **cpu_usage** — CPU 利用率
+- **load** — 系统平均负载
+- **time** — 日期与时间
+- **volume** — 音频音量
 
 # CAVEATS
 
-Designed primarily for i3 window manager but works with other status bars. Some modules require specific kernel features or hardware. Custom scripts can extend functionality through the wrapper approach.
+主要为 i3 窗口管理器设计，但也可与其他状态栏配合使用。某些模块需要特定的内核特性或硬件。可通过包装方式用自定义脚本扩展功能。
 
 # HISTORY
 
-i3status was created by Michael Stapelberg as part of the i3 window manager project, which began in **2009**. It provides a lightweight, efficient status line generator following Unix philosophy.
+i3status 由 Michael Stapelberg 创建，是始于 **2009 年**的 i3 窗口管理器项目的一部分。它遵循 Unix 哲学，提供轻量高效的状态行生成功能。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Shell keyword separating the loop variable from the list in for and select loops
+Shell 关键字，在 for 和 select 循环中分隔循环变量与列表
 
 # TLDR
 
-**Iterate over a list of words**
+**遍历单词列表**
 
 ```for fruit in apple banana cherry; do echo "$fruit"; done```
 
-**Iterate over a glob**
+**遍历通配符展开结果**
 
 ```for f in *.txt; do echo "$f"; done```
 
-**Iterate over command substitution**
+**遍历命令替换结果**
 
 ```for user in $(cat users.txt); do echo "$user"; done```
 
-**Iterate over a brace-expansion range**
+**遍历花括号展开的范围**
 
 ```for i in {1..10}; do echo "$i"; done```
 
-**Interactive menu with select**
+**用 select 实现交互式菜单**
 
 ```select opt in start stop quit; do echo "$opt"; done```
 
@@ -32,17 +32,17 @@ Shell keyword separating the loop variable from the list in for and select loops
 
 # DESCRIPTION
 
-**in** is a reserved word of the POSIX shell grammar, used as a delimiter between the loop variable and the word list in **for** and **select** compound commands and in **case** statements. It is not a standalone program and cannot be invoked directly; shells such as bash, zsh, dash, and ksh parse it as part of the surrounding control structure.
+**in** 是 POSIX shell 语法的保留字，在 **for** 和 **select** 复合命令以及 **case** 语句中用作循环变量与单词列表之间的分隔符。它不是一个独立的程序，无法直接调用；bash、zsh、dash 和 ksh 等 shell 会将其作为外围控制结构的一部分来解析。
 
-Inside a **for** loop, the variable named before **in** is assigned successively to each word produced by the list after **in** (which may be literal words, glob expansions, command substitutions, or parameter expansions). When the word list is omitted entirely, the loop iterates over the positional parameters "$@".
+在 **for** 循环内部，**in** 之前命名的变量会被依次赋值为 **in** 之后列表产生的每个单词（列表可以是字面单词、通配符展开、命令替换或参数展开）。当单词列表被完全省略时，循环会遍历位置参数 "$@"。
 
 # CAVEATS
 
-**in** is a keyword, not an executable; `which in` will typically return nothing. It has no flags or options of its own. Behavior depends on the surrounding shell construct and on POSIX quoting/expansion rules.
+**in** 是关键字而不是可执行文件；`which in` 通常不会有任何输出。它自身没有任何标志或选项。其行为取决于外围的 shell 结构以及 POSIX 的引号/展开规则。
 
 # HISTORY
 
-**in** comes from the Bourne shell and has been part of the POSIX shell specification since its inception. It is inherited by all POSIX-compatible shells including bash, ksh, zsh, and dash, and by the C shell family in similar form.
+**in** 源自 Bourne shell，自 POSIX shell 规范诞生之初便是其中一员。所有兼容 POSIX 的 shell（包括 bash、ksh、zsh 和 dash）都继承了它，C shell 家族也有类似形式的关键字。
 
 # INSTALL
 

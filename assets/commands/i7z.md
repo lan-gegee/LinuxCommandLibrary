@@ -1,10 +1,10 @@
 # TAGLINE
 
-real-time reporting tool for Intel Core i3, i5, and i7 processors
+Intel Core i3、i5 和 i7 处理器的实时报告工具
 
 # TLDR
 
-**Start** i7z monitoring (requires root)
+**启动** i7z 监控（需要 root）
 
 ```sudo i7z```
 
@@ -14,17 +14,17 @@ real-time reporting tool for Intel Core i3, i5, and i7 processors
 
 # DESCRIPTION
 
-**i7z** is a real-time reporting tool for Intel Core i3, i5, and i7 processors. It displays CPU frequency, temperature, turbo boost states, and power management information in a console-based interface.
+**i7z** 是一款面向 Intel Core i3、i5 和 i7 处理器的实时报告工具。它在基于控制台的界面中显示 CPU 频率、温度、睿频加速状态和电源管理信息。
 
-The tool reads CPU-specific MSRs (Model Specific Registers) to provide accurate information about processor performance states, including per-core frequencies and C-state residency.
+该工具读取 CPU 特有的 MSR（Model Specific Register，型号专用寄存器），提供关于处理器性能状态的准确信息，包括每核心频率和 C-state 驻留情况。
 
 # CAVEATS
 
-Only works with Intel Core i3, i5, and i7 processors (Sandy Bridge and later). Requires root privileges to access CPU MSRs. May not work correctly with very new processor generations. Has been superseded by more modern tools like turbostat.
+仅适用于 Intel Core i3、i5 和 i7 处理器（Sandy Bridge 及之后）。访问 CPU MSR 需要 root 权限。对非常新的处理器代际可能无法正常工作。已被 turbostat 等更现代的工具取代。
 
 # HISTORY
 
-i7z was developed to provide detailed Intel processor monitoring when existing tools lacked support for newer Intel processor features like Turbo Boost. Development started around **2009** with the introduction of the Intel Core i7 processor family.
+i7z 的开发初衷是在现有工具缺乏对 Turbo Boost 等 Intel 处理器新特性支持的情况下，提供详细的 Intel 处理器监控。开发始于 **2009 年**前后，正值 Intel Core i7 处理器家族发布之际。
 
 # INSTALL
 

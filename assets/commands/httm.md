@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive file-level Time Machine for ZFS, btrfs, and nilfs2
+面向 ZFS、btrfs 和 nilfs2 的交互式文件级 Time Machine
 
 # TLDR
 
-**Show all available versions** of a file
+**显示文件的所有可用版本**
 
 ```httm [path/to/file]```
 
-**Browse snapshots interactively**
+**交互式浏览快照**
 
 ```httm -i [path/to/file]```
 
-**Restore a file** from a snapshot
+**从快照恢复文件**
 
 ```httm -r [path/to/file]```
 
-**List deleted files** in a directory
+**列出目录中被删除的文件**
 
 ```httm -d [path/to/directory]```
 
-**Recursively list deleted files**
+**递归列出被删除的文件**
 
 ```httm -R [path/to/directory]```
 
-**Prune snapshots interactively**
+**交互式清理快照**
 
 ```httm --prune```
 
@@ -34,17 +34,17 @@ Interactive file-level Time Machine for ZFS, btrfs, and nilfs2
 
 # DESCRIPTION
 
-**httm** prints the size, date, and corresponding locations of available unique versions of files residing on filesystem snapshots. It works with **ZFS**, **btrfs**, **nilfs2** snapshots, as well as **Restic** and **Time Machine** backups.
+**httm** 会列出驻留在文件系统快照中的文件的所有唯一可用版本，包括其大小、日期及对应位置。它支持 **ZFS**、**btrfs**、**nilfs2** 快照，以及 **Restic** 和 **Time Machine** 备份。
 
-The tool has four native interactive modes: **browse** for navigating snapshot versions, **select** for choosing a specific version, **prune** for removing old snapshots, and **restore** for recovering files. It can search for and recursively list deleted files, including files hidden behind deleted directories.
+该工具有四种原生交互模式：**browse** 用于浏览快照版本，**select** 用于选择特定版本，**prune** 用于删除旧快照，**restore** 用于恢复文件。它还能搜索并递归列出被删除的文件，包括隐藏在被删除目录之后的文件。
 
 # CAVEATS
 
-Requires a filesystem with snapshot support (ZFS, btrfs, or nilfs2) or compatible backup system. Performance depends on the number of snapshots. Restoration overwrites the current file version.
+需要支持快照的文件系统（ZFS、btrfs 或 nilfs2）或兼容的备份系统。性能取决于快照的数量。恢复操作会覆盖当前版本的文件。
 
 # HISTORY
 
-**httm** was created by **kimono-koans** and is written in **Rust**. It was designed to bring the intuitive file-level browsing experience of macOS Time Machine to Linux snapshot-capable filesystems.
+**httm** 由 **kimono-koans** 创建，使用 **Rust** 编写。其设计目标是将 macOS Time Machine 直观的文件级浏览体验带到 Linux 上支持快照的文件系统中。
 
 # INSTALL
 

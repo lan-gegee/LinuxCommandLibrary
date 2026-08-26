@@ -1,34 +1,34 @@
 # TAGLINE
 
-build and run GStreamer multimedia pipelines
+构建并运行 GStreamer 多媒体流水线
 
 # TLDR
 
-**Play a video file**
+**播放视频文件**
 
 ```gst-launch-1.0 filesrc location=[video.mp4] ! decodebin ! autovideosink```
 
-**Display test video pattern**
+**显示测试视频图案**
 
 ```gst-launch-1.0 videotestsrc ! autovideosink```
 
-**Play audio file**
+**播放音频文件**
 
 ```gst-launch-1.0 filesrc location=[audio.mp3] ! decodebin ! autoaudiosink```
 
-**Display webcam**
+**显示摄像头画面**
 
 ```gst-launch-1.0 v4l2src ! autovideosink```
 
-**Stream from RTSP**
+**从 RTSP 拉流**
 
 ```gst-launch-1.0 rtspsrc location=[rtsp://url] ! decodebin ! autovideosink```
 
-**Verbose output**
+**详细输出**
 
 ```gst-launch-1.0 -v videotestsrc ! autovideosink```
 
-**Send EOS on interrupt**
+**中断时发送 EOS**
 
 ```gst-launch-1.0 -e filesrc location=[video.mp4] ! decodebin ! autovideosink```
 
@@ -39,41 +39,41 @@ build and run GStreamer multimedia pipelines
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose output, prints properties and tags as the pipeline runs.
+> 详细输出，在流水线运行时打印属性和标签。
 
 **-q**, **--quiet**
-> Suppress status output (position, progress).
+> 抑制状态输出（位置、进度）。
 
 **-e**, **--eos-on-shutdown**
-> Send EOS on interrupt for clean shutdown, instead of stopping abruptly.
+> 中断时发送 EOS 以便干净地关闭，而不是突然停止。
 
 **-m**, **--messages**
-> Output messages posted on the pipeline's bus.
+> 输出发布到流水线总线上的消息。
 
 **-t**, **--tags**
-> Output tags (metadata) found in the stream.
+> 输出流中发现的标签（元数据）。
 
 **-f**, **--no-fault**
-> Do not install a fault handler (segfault backtrace helper).
+> 不安装故障处理器（段错误回溯辅助工具）。
 
 **--gst-debug=**_STRING_
-> Set debug levels for specific categories (e.g., **GST_SCHEDULING:5**).
+> 为特定类别设置调试级别（例如 **GST_SCHEDULING:5**）。
 
 **--gst-debug-level=**_N_
-> Set global debug level (0-9).
+> 设置全局调试级别（0-9）。
 
 **--gst-plugin-path=**_PATH_
-> Add extra directories to scan for plugins.
+> 添加额外目录以扫描插件。
 
 # DESCRIPTION
 
-**gst-launch-1.0** builds and runs GStreamer multimedia pipelines from the command line. Elements are linked with **!** (exclamation mark), and properties are set with **name=value** syntax.
+**gst-launch-1.0** 从命令行构建并运行 GStreamer 多媒体流水线。元素之间用 **!**（感叹号）连接，属性用 **name=value** 语法设置。
 
-Caps filters constrain formats between elements (e.g., **video/x-raw,width=640,height=480**). Use **decodebin** or **playbin** for automatic codec selection.
+Caps 过滤器约束元素之间的格式（例如 **video/x-raw,width=640,height=480**）。使用 **decodebin** 或 **playbin** 可以自动选择编解码器。
 
 # CAVEATS
 
-Intended for testing and prototyping pipelines, not as a robust playback application. Press Ctrl+C to stop; without **-e** the pipeline stops immediately rather than draining buffered data.
+它面向测试和原型验证流水线，并非健壮的播放应用。按 Ctrl+C 停止；若未加 **-e**，流水线会立即停止而不是排空缓冲数据。
 
 # INSTALL
 

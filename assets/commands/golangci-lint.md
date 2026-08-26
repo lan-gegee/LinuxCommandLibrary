@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast Go linter aggregator
+快速的 Go linter 聚合器
 
 # TLDR
 
-**Run all enabled linters** in the current project
+在当前项目中**运行所有已启用的 linter**
 
 ```golangci-lint run```
 
-**Run linters on specific packages**
+**对指定的包运行 linter**
 
 ```golangci-lint run ./cmd/... ./internal/...```
 
-**Enable specific linters** in addition to defaults
+在默认配置之外**启用特定 linter**
 
 ```golangci-lint run --enable errcheck --enable gocritic```
 
-**Run only specific linters** (disable all others)
+**只运行特定 linter**（禁用其他所有）
 
 ```golangci-lint run --disable-all --enable gosimple --enable govet```
 
-**Show all available linters** and their status
+**显示所有可用的 linter** 及其状态
 
 ```golangci-lint linters```
 
-**Run with a specific config** file
+使用指定的配置文件**运行**
 
 ```golangci-lint run -c [.golangci.yml]```
 
-**Fix issues** automatically where supported
+在支持的地方自动**修复问题**
 
 ```golangci-lint run --fix```
 
-**Output results** in JSON format
+以 JSON 格式**输出结果**
 
 ```golangci-lint run --out-format json```
 
@@ -43,67 +43,67 @@ Fast Go linter aggregator
 # PARAMETERS
 
 **run**
-> Run linters on the current project.
+> 在当前项目上运行 linter。
 
 **linters**
-> List available linters with enabled/disabled status.
+> 列出可用的 linter 及其启用/禁用状态。
 
 **cache**
-> Cache management commands (clean, status).
+> 缓存管理命令（clean、status）。
 
 **version**
-> Display version information.
+> 显示版本信息。
 
 **--enable** _LINTER_
-> Enable a specific linter. Can be specified multiple times.
+> 启用特定的 linter。可多次指定。
 
 **--disable** _LINTER_
-> Disable a specific linter. Can be specified multiple times.
+> 禁用特定的 linter。可多次指定。
 
 **--disable-all**
-> Disable all linters, then selectively enable with --enable.
+> 先禁用所有 linter，再用 --enable 选择性地启用。
 
 **--fix**
-> Automatically fix issues where the linter supports it.
+> 在 linter 支持的情况下自动修复问题。
 
 **--out-format** _FORMAT_
-> Output format: colored-line-number (default), json, tab, checkstyle, github-actions, etc.
+> 输出格式：colored-line-number（默认）、json、tab、checkstyle、github-actions 等。
 
 **--timeout** _DURATION_
-> Timeout for the total run. Default: **1m**.
+> 总运行的超时时间。默认：**1m**。
 
 **--new**
-> Only show issues from new code (based on git).
+> 只显示新代码中的问题（基于 git）。
 
 **--new-from-rev** _REV_
-> Show issues only from changes since the given git revision.
+> 只显示自给定 git 修订版本以来的改动中的问题。
 
 **-c** _FILE_, **--config** _FILE_
-> Path to config file.
+> 配置文件的路径。
 
 **--no-config**
-> Do not read any config file.
+> 不读取任何配置文件。
 
 **-j** _N_, **--concurrency** _N_
-> Number of concurrent linter goroutines. Default: number of CPUs.
+> 并发运行的 linter goroutine 数量。默认为 CPU 数量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**golangci-lint** is a fast Go linter runner that aggregates dozens of linters into one tool. It provides parallel execution, result caching, and unified configuration for checking style, bugs, performance, and security issues.
+**golangci-lint** 是一个高速的 Go linter 运行器，把数十个 linter 聚合到一个工具里。它提供并行执行、结果缓存和统一配置，用于检查风格、bug、性能和安全问题。
 
-Configuration via .golangci.yml enables project-specific rules and linter selection, replacing the need to run individual linters separately. Results are cached between runs for speed.
+通过 .golangci.yml 可以进行项目级配置，选择 linter 并定制规则，从而不必再分别单独运行各个 linter。运行结果会被缓存，加快后续执行。
 
 # CONFIGURATION
 
 **.golangci.yml** / **.golangci.yaml**
-> Project-level configuration file for linter selection, rules, severity, and exclusions.
+> 项目级配置文件，用于选择 linter 以及设置规则、严重级别和排除项。
 
 # CAVEATS
 
-First run may be slow while building the cache. The set of default-enabled linters changes between versions. Pin your version in CI for reproducible results. Some linters may conflict with each other.
+首次运行时因要构建缓存可能较慢。默认启用的 linter 集合会随版本变化而改变。为了获得可复现的结果，请在 CI 中固定所用的版本。部分 linter 之间可能存在冲突。
 
 # INSTALL
 

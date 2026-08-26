@@ -1,26 +1,26 @@
 # TAGLINE
 
-development and testing tool that implements an IPP Everywhere compliant
+实现符合 IPP Everywhere 标准虚拟打印机的开发与测试工具
 
 # TLDR
 
-**Start an IPP Everywhere printer** for testing
+**启动一台 IPP Everywhere 打印机**用于测试
 
 ```ippeveprinter [TestPrinter]```
 
-**Start printer on a specific port**
+**在特定端口上启动打印机**
 
 ```ippeveprinter -p [8631] [TestPrinter]```
 
-**Create printer with specific command** for processing jobs
+**用特定命令创建打印机**来处理作业
 
 ```ippeveprinter -c '[/usr/bin/cat > /tmp/printjob.pdf]' [TestPrinter]```
 
-**Start printer with verbose logging**
+**以详细日志启动打印机**
 
 ```ippeveprinter -v [TestPrinter]```
 
-**Create printer that advertises via DNS-SD**
+**创建通过 DNS-SD 广告的打印机**
 
 ```ippeveprinter -d [TestPrinter]```
 
@@ -31,45 +31,45 @@ development and testing tool that implements an IPP Everywhere compliant
 # PARAMETERS
 
 **-c** _command_
-> Command to run for each print job (receives job data on stdin)
+> 为每个打印作业运行的命令（作业数据通过 stdin 传入）
 
 **-d**
-> Advertise the printer using DNS-SD/Bonjour
+> 使用 DNS-SD/Bonjour 广告该打印机
 
 **-p** _port_
-> Port number to listen on (default: auto-assigned)
+> 要监听的端口号（默认：自动分配）
 
 **-v**
-> Verbose mode; show detailed logging
+> 详细模式；显示详细日志
 
 **-2**
-> Support 2-sided printing
+> 支持双面打印
 
 **-M** _manufacturer_
-> Manufacturer name for the printer
+> 打印机的制造商名称
 
 **-m** _model_
-> Model name for the printer
+> 打印机的型号名称
 
 **-i** _iconfile_
-> Icon file for the printer
+> 打印机的图标文件
 
 **-l** _location_
-> Printer location string
+> 打印机的位置字符串
 
 # DESCRIPTION
 
-**ippeveprinter** is a development and testing tool that implements an IPP Everywhere compliant virtual printer. IPP Everywhere is a PWG (Printer Working Group) standard that enables driverless printing.
+**ippeveprinter** 是一个实现符合 IPP Everywhere 标准的虚拟打印机的开发与测试工具。IPP Everywhere 是 PWG（Printer Working Group，打印机工作组）的标准，支持无驱动打印。
 
-The tool creates a network printer that accepts print jobs via the Internet Printing Protocol. Jobs can be processed by a custom command or simply logged for testing purposes. This is useful for testing IPP clients, developing print workflows, or debugging printer discovery.
+该工具创建一个通过网络打印协议（IPP）接受打印作业的网络打印机。作业可以由自定义命令处理，或仅记录下来用于测试。这可用于测试 IPP 客户端、开发打印工作流或调试打印机发现。
 
 # CAVEATS
 
-Not intended for production use as a print server. The printer only exists while the command is running. Requires appropriate firewall rules if accepting remote connections. Part of CUPS but functionality varies by version.
+不适合作为生产环境的打印服务器。打印机只在命令运行期间存在。接受远程连接时需要适当的防火墙规则。属于 CUPS 的一部分，但功能因版本而异。
 
 # HISTORY
 
-**ippeveprinter** is part of the **CUPS** (Common Unix Printing System) project, originally developed by Michael Sweet at Easy Software Products and later maintained by Apple. IPP Everywhere support was added to facilitate driverless printing standards compliance testing.
+**ippeveprinter** 是 **CUPS**（Common Unix Printing System）项目的一部分，最初由 Easy Software Products 的 Michael Sweet 开发，后由 Apple 维护。加入 IPP Everywhere 支持是为了便于进行无驱动打印标准的合规性测试。
 
 # INSTALL
 

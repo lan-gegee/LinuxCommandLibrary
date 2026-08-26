@@ -1,30 +1,30 @@
 # TAGLINE
 
-Raspberry Pi GPIO pin control utility
+树莓派 GPIO 引脚控制工具
 
 # TLDR
 
-**Read GPIO pin state**
+**读取 GPIO 引脚状态**
 
 ```gpio read [pin]```
 
-**Set GPIO pin output**
+**设置 GPIO 引脚输出**
 
 ```gpio write [pin] [0|1]```
 
-**Set pin mode**
+**设置引脚模式**
 
 ```gpio mode [pin] [in|out|pwm]```
 
-**Read all pins**
+**读取所有引脚**
 
 ```gpio readall```
 
-**Export pin for user access**
+**导出引脚供用户访问**
 
 ```gpio export [pin] [in|out]```
 
-**Unexport pin**
+**取消导出引脚**
 
 ```gpio unexport [pin]```
 
@@ -35,45 +35,45 @@ Raspberry Pi GPIO pin control utility
 # PARAMETERS
 
 **read** _pin_
-> Read pin value.
+> 读取引脚值。
 
 **write** _pin_ _value_
-> Write value (0 or 1) to pin.
+> 向引脚写入值（0 或 1）。
 
 **mode** _pin_ _mode_
-> Set pin mode: in, out, pwm, clock.
+> 设置引脚模式：in、out、pwm、clock。
 
 **readall**
-> Display all GPIO pins status.
+> 显示所有 GPIO 引脚的状态。
 
 **export** _pin_ _mode_
-> Export pin for user-space access.
+> 导出引脚供用户空间访问。
 
 **unexport** _pin_
-> Unexport pin.
+> 取消导出引脚。
 
 **pwm** _pin_ _value_
-> Set PWM value (0-1023).
+> 设置 PWM 值（0-1023）。
 
 **-g**
-> Use BCM GPIO numbering.
+> 使用 BCM GPIO 编号。
 
 **-1**
-> Use physical pin numbering.
+> 使用物理引脚编号。
 
 # DESCRIPTION
 
-**gpio** is the WiringPi command-line utility for controlling GPIO pins on Raspberry Pi and similar boards. It allows reading, writing, and configuring GPIO pins from shell scripts and the command line.
+**gpio** 是 WiringPi 的命令行工具，用于控制树莓派及类似开发板上的 GPIO 引脚。它允许通过 shell 脚本和命令行读取、写入和配置 GPIO 引脚。
 
-The tool supports multiple pin numbering schemes: WiringPi numbering (default), BCM GPIO numbering (**-g**), and physical pin numbers (**-1**). The **readall** command displays a complete pin status table.
+该工具支持多种引脚编号方案：WiringPi 编号（默认）、BCM GPIO 编号（**-g**）以及物理引脚编号（**-1**）。**readall** 命令会显示完整的引脚状态表。
 
 # CAVEATS
 
-WiringPi is deprecated but still functional. Different numbering schemes can cause confusion. Requires appropriate permissions. Pin capabilities vary by board. Some pins have special functions.
+WiringPi 已被弃用但仍可使用。不同的编号方案容易造成混淆。需要相应的权限。引脚功能因开发板而异。部分引脚具有特殊功能。
 
 # HISTORY
 
-gpio is part of **WiringPi**, created by **Gordon Henderson** for Raspberry Pi GPIO access. While WiringPi was deprecated in 2019, it remains widely used. Alternatives include libgpiod and Python's RPi.GPIO.
+gpio 是 **WiringPi** 的一部分，由 **Gordon Henderson** 创建，用于访问树莓派的 GPIO。虽然 WiringPi 于 2019 年被弃用，但它仍被广泛使用。替代方案包括 libgpiod 和 Python 的 RPi.GPIO。
 
 # SEE ALSO
 

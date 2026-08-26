@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search Google from the command line (surfraw elvi)
+从命令行搜索 Google（surfraw elvi）
 
 # TLDR
 
-**Search Google** and open the results page in the default browser
+**搜索 Google** 并在默认浏览器中打开结果页面
 
 ```google "[search query]"```
 
-**Feel lucky**: jump straight to the first result
+**手气不错**：直接跳到第一个结果
 
 ```google -lucky "[search query]"```
 
-**Search images**
+**搜索图片**
 
 ```google -images "[search query]"```
 
-**Search news**
+**搜索新闻**
 
 ```google -news "[search query]"```
 
-**Limit to a number of results**
+**限制结果条数**
 
 ```google -results=[25] "[search query]"```
 
-**Search a country-specific edition of Google**
+**搜索特定国家/地区的 Google 版本**
 
 ```google -country=[uk] "[search query]"```
 
@@ -35,45 +35,45 @@ Search Google from the command line (surfraw elvi)
 # PARAMETERS
 
 **-l**, **-lucky**
-> "I'm Feeling Lucky": jump directly to the first result.
+> "手气不错"：直接跳转到第一个结果。
 
 **-i**, **-images**
-> Search Google Images (shorthand for **-search=images**).
+> 搜索 Google 图片（**-search=images** 的简写形式）。
 
 **-v**, **-videos**
-> Search Google Videos.
+> 搜索 Google 视频。
 
 **-m**, **-maps**
-> Search Google Maps.
+> 搜索 Google 地图。
 
 **-n**, **-news**
-> Search Google News.
+> 搜索 Google 新闻。
 
 **-G**, **-groups**
-> Search Google Groups.
+> 搜索 Google 网上论坛。
 
 **-results=**_NUM_
-> Number of search results to return.
+> 要返回的搜索结果数量。
 
 **-country=**_CODE_
-> Regional Google site to query, given as an ISO 3166 alpha-2 country code (default **us**, i.e. google.com).
+> 要查询的地区性 Google 站点，使用 ISO 3166 两位字母国家代码表示（默认 **us**，即 google.com）。
 
 **-safe=**_LEVEL_
-> SafeSearch filtering level: **default**, **off**, **moderate**, or **strict**.
+> SafeSearch 过滤级别：**default**、**off**、**moderate** 或 **strict**。
 
 # DESCRIPTION
 
-**google** is one of the "elvi" (search engine profiles) that ship with **surfraw**. Running it builds the appropriate Google search URL from its arguments and opens it in **$BROWSER**, so no query is made without a browser being launched.
+**google** 是 **surfraw** 附带的"elvi"（搜索引擎配置）之一。运行它会根据参数拼出相应的 Google 搜索 URL，并在 **$BROWSER** 中打开，因此在浏览器未启动时不会发起任何查询。
 
-With no query words, it opens the relevant Google front page (web, images, news, etc.) instead of a results page. It can also be invoked as **sr google** [_options_] _words_ if the standalone symlink isn't installed.
+不带查询词时，它会打开对应的 Google 首页（网页、图片、新闻等），而不是结果页面。如果没有安装独立的符号链接，也可以通过 **sr google** [_options_] _words_ 来调用。
 
 # CAVEATS
 
-Requires the **surfraw** package and a configured **$BROWSER**. It opens results in a browser rather than printing them to the terminal, unlike googler or ddgr.
+需要安装 **surfraw** 软件包并配置好 **$BROWSER**。与 googler 或 ddgr 不同，它在浏览器中打开结果，而不是将结果打印到终端。
 
 # HISTORY
 
-**google** is one of the bundled elvi in **surfraw**, a Unix command-line interface to a variety of web search engines, originally written by **Julian Assange** in the late 1990s and later maintained by the surfraw community.
+**google** 是 **surfraw** 内置的 elvi 之一。surfraw 是面向多种网络搜索引擎的 Unix 命令行接口，最初由 **Julian Assange** 于 20 世纪 90 年代末编写，其后由 surfraw 社区维护。
 
 # SEE ALSO
 

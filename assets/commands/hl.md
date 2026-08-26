@@ -1,34 +1,34 @@
 # TAGLINE
 
-Fast log viewer and processor for JSON and logfmt
+面向 JSON 和 logfmt 的高速日志查看与处理工具
 
 # TLDR
 
-**View JSON logs** from a file
+**查看 JSON 日志**文件
 
 ```hl [path/to/logfile.json]```
 
-**Filter logs by level**
+**按级别过滤日志**
 
 ```hl -l [error] [path/to/logfile]```
 
-**Filter by field value**
+**按字段值过滤**
 
 ```hl -f [key]=[value] [path/to/logfile]```
 
-**Stream logs** without pager
+**不用分页器流式输出日志**
 
 ```hl -P [path/to/logfile]```
 
-**Filter by time range**
+**按时间范围过滤**
 
 ```hl --since "[2024-01-01]" --until "[2024-01-02]" [path/to/logfile]```
 
-**Show logs in local timezone**
+**以本地时区显示日志**
 
 ```hl -L [path/to/logfile]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [path/to/logfile] | hl```
 
@@ -39,42 +39,42 @@ Fast log viewer and processor for JSON and logfmt
 # PARAMETERS
 
 **-l** _LEVEL_
-> Filter by log level (debug, info, warn, error)
+> 按日志级别过滤（debug、info、warn、error）
 
 **-f** _KEY=VALUE_
-> Filter by field value
+> 按字段值过滤
 
 **--since** _TIME_
-> Show logs after this timestamp
+> 只显示此时间戳之后的日志
 
 **--until** _TIME_
-> Show logs before this timestamp
+> 只显示此时间戳之前的日志
 
 **-P**
-> Disable pager (streaming mode)
+> 禁用分页器（流式模式）
 
 **-L**
-> Show timestamps in local timezone
+> 以本地时区显示时间戳
 
 **-Z** _ZONE_
-> Show timestamps in specified timezone
+> 以指定时区显示时间戳
 
 **--allow-prefix**
-> Process logs with non-JSON prefixes
+> 处理带非 JSON 前缀的日志
 
 # DESCRIPTION
 
-**hl** is a high-performance log viewer and processor that converts **JSON** logs and **logfmt** logs into clear human-readable format. It automatically detects log formats and renders them with color-coded output for quick analysis.
+**hl** 是一个高性能的日志查看与处理工具，可将 **JSON** 日志和 **logfmt** 日志转换为清晰的人类可读格式。它会自动检测日志格式，并以彩色编码的输出呈现，便于快速分析。
 
-The tool supports field-based filtering, log level filtering, and timestamp range filtering. It automatically integrates with a pager (defaulting to **less**) and supports theme customization through configuration files.
+该工具支持按字段过滤、按日志级别过滤以及按时间戳范围过滤。它自动集成分页器（默认为 **less**），并支持通过配置文件自定义主题。
 
 # CAVEATS
 
-Designed for structured log formats (JSON, logfmt); plain text logs are passed through as-is. Very large log files benefit from the tool's streaming mode to avoid buffering the entire file in memory.
+专为结构化日志格式（JSON、logfmt）设计；纯文本日志会原样透传。处理非常大的日志文件时，可利用其流式模式避免将整个文件缓冲到内存中。
 
 # HISTORY
 
-**hl** was created by **pamburus** and is written in **Rust**. It was designed as a blazing-fast alternative to tools like **jq** for log analysis, with built-in understanding of common log formats and levels.
+**hl** 由 **pamburus** 创建，使用 **Rust** 编写。其设计目标是成为 **jq** 等工具在日志分析场景下极快的替代品，内置对常见日志格式和级别的理解。
 
 # INSTALL
 

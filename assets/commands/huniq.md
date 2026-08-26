@@ -1,22 +1,22 @@
 # TAGLINE
 
-Filter duplicate lines without sorting
+无需排序即可过滤重复行
 
 # TLDR
 
-**Unique lines**, preserve first-seen order
+**保留唯一行**，维持首次出现的顺序
 
 ```echo -e "foo\nbar\nfoo\nbaz" | huniq```
 
-**Count occurrences**
+**统计出现次数**
 
 ```echo -e "foo\nbar\nfoo\nbaz" | huniq -c```
 
-**Null-delimited** records
+处理以 NUL **分隔的**记录
 
 ```find . -print0 | huniq -0```
 
-**Custom delimiter**
+**自定义分隔符**
 
 ```huniq -d [,]```
 
@@ -26,31 +26,31 @@ Filter duplicate lines without sorting
 
 # DESCRIPTION
 
-**huniq** removes duplicate lines from stdin using a hash set instead of sorting. Output order is stable in normal mode (first occurrence wins). With **-c** / **--count** it prints occurrence counts (order is not stable in count mode).
+**huniq** 使用哈希集合而非排序来移除标准输入中的重复行。普通模式下输出顺序稳定（首次出现者优先）。配合 **-c** / **--count** 时会打印出现次数（计数模式下顺序不稳定）。
 
-It is intended as a faster alternative to **sort | uniq** or **sort -u** when sorted output is not required. Install with **cargo install huniq**.
+它旨在作为 **sort | uniq** 或 **sort -u** 的更快的替代方案，适用于不需要排序输出的场合。可通过 **cargo install huniq** 安装。
 
 # PARAMETERS
 
 **-c**, **--count**
 
-> Print counts of unique lines (like **uniq -c**, without sorting).
+> 打印各唯一行的出现次数（类似 **uniq -c**，但不排序）。
 
 **-0**, **--null**
 
-> Use NUL as record delimiter.
+> 使用 NUL 作为记录分隔符。
 
 **-d**, **--delim** *DELIM*
 
-> Use a custom delimiter instead of newline.
+> 使用自定义分隔符代替换行符。
 
 **-h**
 
-> Show help.
+> 显示帮助。
 
 # CAVEATS
 
-Memory grows with the number of unique keys (hash table). For sorted unique output, keep using **sort -u**. Count mode does not preserve input order.
+内存占用随唯一键数量增长（哈希表）。如果需要已排序的去重输出，请继续使用 **sort -u**。计数模式不保留输入顺序。
 
 # INSTALL
 

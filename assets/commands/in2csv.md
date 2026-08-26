@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts tabular data from various formats to CSV
+将各种格式的表格数据转换为 CSV
 
 # TLDR
 
-**Convert Excel to CSV**
+**将 Excel 转换为 CSV**
 
 ```in2csv [data.xlsx] > [output.csv]```
 
-**Convert specific sheet**
+**转换特定工作表**
 
 ```in2csv --sheet [Sheet1] [data.xlsx]```
 
-**Convert JSON to CSV**
+**将 JSON 转换为 CSV**
 
 ```in2csv [data.json] > [output.csv]```
 
-**Specify input format**
+**指定输入格式**
 
 ```in2csv -f [xlsx|json|ndjson] [input]```
 
-**Convert fixed-width file**
+**转换固定宽度文件**
 
 ```in2csv -f fixed -s [schema.csv] [data.txt]```
 
@@ -31,36 +31,36 @@ converts tabular data from various formats to CSV
 # PARAMETERS
 
 **-f** _FORMAT_
-> Input format (csv, xlsx, xls, json, ndjson, fixed).
+> 输入格式（csv、xlsx、xls、json、ndjson、fixed）。
 
 **--sheet** _NAME_
-> Sheet name for Excel files.
+> Excel 文件的工作表名称。
 
 **-s** _SCHEMA_
-> Schema file for fixed-width input.
+> 固定宽度输入的模式文件。
 
 **-H**, **--no-header-row**
-> Input has no header row.
+> 输入没有标题行。
 
 **-K** _N_
-> Skip N lines at start.
+> 跳过开头的 N 行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**in2csv** converts tabular data from various formats to CSV. It's part of the csvkit toolkit for working with CSV files.
+**in2csv** 将各种格式的表格数据转换为 CSV。它是用于处理 CSV 文件的 csvkit 工具集的一员。
 
-The tool handles Excel, JSON, fixed-width, and other formats. It enables piping data to other csvkit tools for analysis.
+该工具可处理 Excel、JSON、固定宽度等多种格式。它支持将数据通过管道传给其他 csvkit 工具进行分析。
 
 # CAVEATS
 
-Part of csvkit. Python-based. Large files may be slow.
+属于 csvkit。基于 Python。大文件可能较慢。
 
 # HISTORY
 
-in2csv is part of **csvkit**, created by **Christopher Groskopf** for journalists and data analysts.
+in2csv 是 **csvkit** 的一部分，由 **Christopher Groskopf** 为记者和数据分析人员创建。
 
 # SEE ALSO
 

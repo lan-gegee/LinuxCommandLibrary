@@ -1,38 +1,38 @@
 # TAGLINE
 
-tool for creating glamorous shell scripts
+打造精美 Shell 脚本的工具
 
 # TLDR
 
-**Prompt for input**
+**提示用户输入**
 
 ```gum input --placeholder "Enter name"```
 
-**Choose from options**
+**从选项中选择**
 
 ```gum choose "Option 1" "Option 2" "Option 3"```
 
-**Confirm action**
+**确认操作**
 
 ```gum confirm "Delete file?" && rm file```
 
-**Style text**
+**美化文本样式**
 
 ```gum style --foreground 212 "Styled text"```
 
-**Spin while running**
+**运行命令时显示加载动画**
 
 ```gum spin --title "Loading" -- sleep 5```
 
-**Write multiline text**
+**输入多行文本**
 
 ```gum write --placeholder "Description"```
 
-**Filter a list with fuzzy search**
+**用模糊搜索过滤列表**
 
 ```cat [flavors.txt] | gum filter```
 
-**Render a markdown string**
+**渲染 markdown 字符串**
 
 ```gum format -- "# Heading" "- item one" "- item two"```
 
@@ -43,63 +43,63 @@ tool for creating glamorous shell scripts
 # PARAMETERS
 
 _COMMAND_
-> Subcommand to run.
+> 要运行的子命令。
 
 **input**
-> Prompt for a single line of input.
+> 提示输入单行内容。
 
 **write**
-> Prompt for long-form, multi-line text.
+> 提示输入长篇多行文本。
 
 **choose**
-> Choose one or more options from a list.
+> 从列表中选择一个或多个选项。
 
 **confirm**
-> Ask a user to confirm an action (exit code 0 or 1).
+> 请用户确认操作（退出码为 0 或 1）。
 
 **filter**
-> Fuzzy-filter items from a list.
+> 对列表中的条目进行模糊过滤。
 
 **file**
-> Pick a file from a folder.
+> 从文件夹中选取文件。
 
 **pager**
-> Scroll through a file or text.
+> 滚动查看文件或文本。
 
 **table**
-> Render or select a row from tabular data.
+> 渲染表格数据或从中选择一行。
 
 **style**
-> Apply coloring, borders, and spacing to text.
+> 为文本应用颜色、边框和间距。
 
 **join**
-> Combine styled text blocks vertically or horizontally.
+> 将带样式的文本块按垂直或水平方向组合。
 
 **format**
-> Render markdown, template strings, or named emoji.
+> 渲染 markdown、模板字符串或具名 emoji。
 
 **log**
-> Log leveled, structured messages to the terminal.
+> 向终端记录分级、结构化的消息。
 
 **spin**
-> Show a spinner while running a command.
+> 运行命令时显示加载动画。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gum** is a tool for creating glamorous shell scripts. It provides interactive prompts, styled output, and TUI components for building beautiful CLI applications without writing any Go code, built on Charm's Bubble Tea, Bubbles, and Lip Gloss libraries.
+**gum** 是一款用于打造精美 Shell 脚本的工具。它提供交互式提示、样式化输出和 TUI 组件，无需编写任何 Go 代码即可构建美观的 CLI 应用程序，底层基于 Charm 的 Bubble Tea、Bubbles 和 Lip Gloss 库。
 
-Each subcommand is independently configurable via command-line flags or `GUM_<COMMAND>_<OPTION>` environment variables, so scripts can compose the components as needed.
+每个子命令都可以通过命令行标志或 `GUM_<COMMAND>_<OPTION>` 环境变量独立配置，脚本可以按需组合这些组件。
 
 # CAVEATS
 
-Requires a terminal with color support (true color recommended for full styling). Part of Charm's suite of TUI tools.
+需要支持色彩的终端（完整样式效果建议使用真彩色）。属于 Charm 的 TUI 工具套件的一部分。
 
 # HISTORY
 
-**gum** was created by **Charm** and first released in **2022** as part of their TUI toolkit for building delightful command-line tools. It is written in Go and released under the MIT license.
+**gum** 由 **Charm** 创建，首次发布于 **2022 年**，是其用于构建愉悦命令行工具的 TUI 工具包的一部分。它使用 Go 编写，以 MIT 许可证发布。
 
 # INSTALL
 

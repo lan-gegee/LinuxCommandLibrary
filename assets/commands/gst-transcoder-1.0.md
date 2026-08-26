@@ -1,30 +1,30 @@
 # TAGLINE
 
-GStreamer media transcoder
+GStreamer 媒体转码器
 
 # TLDR
 
-**Transcode a video file** to WebM format (auto-detected from extension)
+**将视频文件转码**为 WebM 格式（根据扩展名自动检测）
 
 ```gst-transcoder-1.0 file:///[path/to/input.mp4] file:///[path/to/output.webm]```
 
-**Transcode with a specific encoding format**
+**以指定的编码格式转码**
 
 ```gst-transcoder-1.0 file:///[path/to/input.mp4] file:///[path/to/output.mkv] "[encoding_format]"```
 
-**Transcode and resize** the video to a specific frame size
+**转码并调整尺寸**，将视频缩放到指定帧大小
 
 ```gst-transcoder-1.0 -s [1280x720] file:///[path/to/input.mp4] file:///[path/to/output.mp4]```
 
-**Transcode with a specific video framerate**
+**以指定的视频帧率转码**
 
 ```gst-transcoder-1.0 -f [30/1] file:///[path/to/input.mp4] file:///[path/to/output.mp4]```
 
-**List all available encoding targets**
+**列出所有可用的编码目标**
 
 ```gst-transcoder-1.0 -l```
 
-**Limit CPU usage** during transcoding
+转码期间**限制 CPU 占用**
 
 ```gst-transcoder-1.0 -c [50] file:///[path/to/input.mp4] file:///[path/to/output.mp4]```
 
@@ -35,47 +35,47 @@ GStreamer media transcoder
 # PARAMETERS
 
 **-h**, **--help**
-> Show help options.
+> 显示帮助选项。
 
 **--help-all**
-> Show all help options.
+> 显示所有帮助选项。
 
 **--help-gst**
-> Show GStreamer-specific options.
+> 显示 GStreamer 特有选项。
 
 **-c**, **--cpu-usage** _PERCENT_
-> Target CPU usage percentage for the transcoding process.
+> 转码进程的目标 CPU 占用百分比。
 
 **-l**, **--list-targets**
-> List all available encoding targets and exit.
+> 列出所有可用的编码目标并退出。
 
 **-s**, **--size** _WxH_
-> Set the output video frame size (e.g. 1280x720).
+> 设置输出的视频帧大小（例如 1280x720）。
 
 **-r**, **--audio-rate** _HZ_
-> Set the audio sampling rate in Hz.
+> 设置音频采样率（Hz）。
 
 **-f**, **--framerate** _FRACTION_
-> Set the video framerate as a fraction (e.g. 24/1) or a single number (e.g. 24).
+> 以分数（例如 24/1）或单个数字（例如 24）设置视频帧率。
 
 **-v**, **--video-encoder** _ENCODER_
-> Specify the video encoder element to use.
+> 指定要使用的视频编码器元素。
 
 # DESCRIPTION
 
-**gst-transcoder-1.0** is a command-line tool that transcodes multimedia streams from one format to another using the GStreamer framework. It reads from an input URI, processes the media, and writes to an output URI in the specified encoding format.
+**gst-transcoder-1.0** 是一款命令行工具，它使用 GStreamer 框架将多媒体流从一种格式转码为另一种格式。它从输入 URI 读取、处理媒体，并以指定的编码格式写入输出 URI。
 
-The encoding format can be specified explicitly as a serialization string (e.g. **muxer_caps:video_caps:audio_caps**), as a named target from **.gep** profile files, or omitted entirely to let the tool guess the format from the output file extension.
+编码格式可以显式指定为序列化字符串（例如 **muxer_caps:video_caps:audio_caps**），也可以是来自 **.gep** 配置文件的命名目标，还可以完全省略，让工具根据输出文件扩展名推测格式。
 
-The tool uses the GStreamer Transcoder API internally, leveraging **decodebin** and **encodebin** elements for automatic format detection and encoding.
+该工具内部使用 GStreamer Transcoder API，借助 **decodebin** 和 **encodebin** 元素实现自动格式检测和编码。
 
 # CAVEATS
 
-Input and output paths must be specified as URIs with the **file:///** prefix, not as plain file paths. The available encoding formats depend on which GStreamer plugins are installed on the system. The CPU usage throttling is approximate and depends on system load. Complex transcoding scenarios may require explicit encoding format strings rather than relying on file extension detection.
+输入和输出路径必须以 **file:///** 前缀的 URI 形式给出，而不是普通文件路径。可用的编码格式取决于系统上安装了哪些 GStreamer 插件。CPU 占用限制只是近似值，并受系统负载影响。复杂的转码场景可能需要显式指定编码格式字符串，而不能依赖扩展名检测。
 
 # HISTORY
 
-**gst-transcoder-1.0** was originally developed as part of the **Pitivi** video editor project to provide transcoding functionality. It was later integrated into **gst-plugins-bad**, becoming a standard GStreamer utility. The tool builds on the GstTranscoder library, which provides a simplified high-level API for media transcoding on top of GStreamer's pipeline framework.
+**gst-transcoder-1.0** 最初作为 **Pitivi** 视频编辑器项目的一部分开发，用于提供转码功能。它后来被整合进 **gst-plugins-bad**，成为标准的 GStreamer 工具。该工具构建在 GstTranscoder 库之上，后者在 GStreamer 的流水线框架之上提供了简化后的高级媒体转码 API。
 
 # INSTALL
 

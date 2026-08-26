@@ -1,22 +1,22 @@
 # TAGLINE
 
-manage group membership
+管理组成员关系
 
 # TLDR
 
-**Add user to group**
+**将用户加入组**
 
 ```sudo groupmems -g [group] -a [user]```
 
-**Remove user from group**
+**将用户移出组**
 
 ```sudo groupmems -g [group] -d [user]```
 
-**List group members**
+**列出组成员**
 
 ```sudo groupmems -g [group] -l```
 
-**Purge all members**
+**清除所有成员**
 
 ```sudo groupmems -g [group] -p```
 
@@ -27,39 +27,39 @@ manage group membership
 # PARAMETERS
 
 **-g**, **--group** _GROUP_
-> Target group name. Required for superuser; regular users operate on their primary group.
+> 目标组名。超级用户必需；普通用户只能操作自己的主组。
 
 **-a**, **--add** _USER_
-> Add user to group.
+> 将用户加入组。
 
 **-d**, **--delete** _USER_
-> Delete user from group.
+> 将用户从组中删除。
 
 **-l**, **--list**
-> List group members.
+> 列出组成员。
 
 **-p**, **--purge**
-> Purge all members from the group.
+> 清除组内的所有成员。
 
 **-R**, **--root** _DIR_
-> Apply changes in the specified chroot directory.
+> 在指定的 chroot 目录中应用更改。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**groupmems** manages group membership. It allows administrators to add or remove users from groups without directly editing /etc/group.
+**groupmems** 用于管理组成员关系。它让管理员无需直接编辑 /etc/group 即可向组添加或从中移除用户。
 
-The tool provides a safe interface for group membership changes. Regular users can manage their own primary group without superuser privileges; only the superuser can modify other groups using the **-g** option.
+该工具为组成员关系变更提供了安全的接口。普通用户无需超级用户权限即可管理自己的主组；只有超级用户才能使用 **-g** 选项修改其他组。
 
 # CAVEATS
 
-Requires root or primary group ownership. Part of the shadow-utils package. Changes take effect on next login. If /etc/gshadow exists, entries are updated automatically.
+需要 root 权限或主组所有权。属于 shadow-utils 软件包。更改在下次登录时生效。如果 /etc/gshadow 存在，其中的条目会自动更新。
 
 # HISTORY
 
-groupmems was developed as part of the **shadow** password suite for secure group management.
+groupmems 作为 **shadow** 密码工具套件的一部分开发，用于安全的组管理。
 
 # INSTALL
 

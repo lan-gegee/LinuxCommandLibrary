@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates a new GitHub repository and adds it as a remote
+创建新的 GitHub 仓库并将其添加为 remote
 
 # TLDR
 
-**Create new GitHub repository**
+**创建新的 GitHub 仓库**
 
 ```hub create```
 
-**Create with description**
+**带描述创建**
 
 ```hub create -d "[description]"```
 
-**Create private repository**
+**创建私有仓库**
 
 ```hub create -p```
 
-**Create in organization**
+**在组织中创建**
 
 ```hub create [org/repo]```
 
-**Create and open in browser**
+**创建并在浏览器中打开**
 
 ```hub create --browse```
 
-**Create with homepage**
+**带主页 URL 创建**
 
 ```hub create -h [https://example.com]```
 
@@ -35,30 +35,30 @@ creates a new GitHub repository and adds it as a remote
 # PARAMETERS
 
 **-d**, **--description** _text_
-> Repository description.
+> 仓库描述。
 
 **-p**, **--private**
-> Create private repository.
+> 创建私有仓库。
 
 **-h**, **--homepage** _url_
-> Repository homepage URL.
+> 仓库主页 URL。
 
 **-o**, **--browse**
-> Open the new repository in a web browser.
+> 在 Web 浏览器中打开新仓库。
 
 **-c**, **--copy**
-> Copy the new repository URL to the clipboard instead of printing.
+> 将新仓库的 URL 复制到剪贴板而不是打印出来。
 
 **--remote-name** _name_
-> Set the name for the new git remote (default: origin).
+> 设置新 git remote 的名称（默认：origin）。
 
 # DESCRIPTION
 
-**hub create** creates a new GitHub repository and adds it as a remote. Uses the current directory name if no name specified. Can create repositories in organizations by specifying org/repo format.
+**hub create** 创建一个新的 GitHub 仓库并将其添加为 remote。未指定名称时使用当前目录名。可以通过 org/repo 格式在组织中创建仓库。
 
 # CAVEATS
 
-Hub is deprecated. Consider using **gh repo create** instead.
+Hub 已被弃用。建议改用 **gh repo create**。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ Hub is deprecated. Consider using **gh repo create** instead.
 # SEE ALSO
 
 [hub](/man/hub)(1), [gh-repo-create](/man/gh-repo-create)(1)
-

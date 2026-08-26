@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal number-eating puzzle game
+终端吃数字解谜游戏
 
 # TLDR
 
-**Start a new game**
+**开始新游戏**
 
 ```greed```
 
-**Move using arrow keys**
+**使用方向键移动**
 
 ```# Use arrow keys or hjkl to move```
 
@@ -19,10 +19,10 @@ Terminal number-eating puzzle game
 # PARAMETERS
 
 **-s**
-> Show high score list.
+> 显示高分列表。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -35,17 +35,17 @@ Terminal number-eating puzzle game
 
 # DESCRIPTION
 
-**greed** is a terminal-based puzzle game where players move through a grid collecting numbers. Moving in any direction consumes that many squares, and the goal is to clear as many as possible.
+**greed** 是一款基于终端的解谜游戏，玩家在网格中移动并收集数字。朝任意方向移动会消耗掉相应数量的格子，目标是清除尽可能多的格子。
 
-The player uses arrow keys or vi-style hjkl keys to move. Strategy involves planning moves to avoid getting stuck. The game ends when no valid moves remain.
+玩家使用方向键或 vi 风格的 hjkl 键移动。策略在于规划移动路线以避免被困住。当没有可用的移动时游戏结束。
 
 # CAVEATS
 
-Text-based interface. Requires terminal with cursor support. Game state not saved.
+纯文本界面。需要支持光标控制的终端。游戏进度不会保存。
 
 # HISTORY
 
-greed was originally created by **Matt Day** and is maintained by **Eric S. Raymond**. It is a standalone terminal game, not part of the BSD games collection.
+greed 最初由 **Matt Day** 创作，目前由 **Eric S. Raymond** 维护。它是一款独立的终端游戏，不属于 BSD 游戏合集。
 
 # INSTALL
 

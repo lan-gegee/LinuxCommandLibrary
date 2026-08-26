@@ -1,26 +1,26 @@
 # TAGLINE
 
-shell built-in that manages the hash table of recently executed commands
+管理最近执行命令哈希表的 Shell 内建命令
 
 # TLDR
 
-**Show command hash table**
+**显示命令哈希表**
 
 ```hash```
 
-**Clear hash table**
+**清空哈希表**
 
 ```hash -r```
 
-**Add command to hash**
+**将命令添加到哈希表**
 
 ```hash -p [/usr/local/bin/mycommand] [mycommand]```
 
-**Remove command from hash**
+**从哈希表中移除命令**
 
 ```hash -d [command]```
 
-**Show path for command**
+**显示命令对应的路径**
 
 ```hash -t [command]```
 
@@ -31,25 +31,25 @@ shell built-in that manages the hash table of recently executed commands
 # PARAMETERS
 
 **-r**
-> Clear hash table.
+> 清空哈希表。
 
 **-p** _path_ _name_
-> Add path for name.
+> 为 name 添加路径。
 
 **-d** _name_
-> Delete name from hash.
+> 从哈希表中删除 name。
 
 **-t** _name_
-> Print path for name.
+> 打印 name 的路径。
 
 **-l**
-> List in reusable format.
+> 以可复用的格式列出。
 
 # DESCRIPTION
 
-**hash** is a shell built-in that manages the hash table of recently executed commands. The shell uses this table to remember the full paths of commands, avoiding repeated PATH searches.
+**hash** 是一个管理最近执行命令哈希表的 Shell 内建命令。Shell 利用该表记住命令的完整路径，避免反复搜索 PATH。
 
-When a command is executed, the shell stores its path in the hash table. Subsequent invocations use the cached path, improving performance.
+命令执行时，Shell 会将其路径存入哈希表。之后的调用直接使用缓存的路径，从而提升性能。
 
 ```bash
 # View hash table
@@ -67,11 +67,11 @@ hash -l
 
 # CAVEATS
 
-Shell built-in; behavior and available options vary by shell (bash, zsh, ksh each implement their own version). The hash table becomes stale if a hashed command's file is moved or removed. Run `hash -r` after installing software or modifying PATH. Only affects the current shell session, not child processes.
+这是 Shell 内建命令；行为和可用选项因 shell 而异（bash、zsh、ksh 各自实现了自己的版本）。如果被哈希的命令文件被移动或删除，哈希表就会失效。安装软件或修改 PATH 后请运行 `hash -r`。它只影响当前 shell 会话，不影响子进程。
 
 # HISTORY
 
-**hash** has been part of Unix shells since the Bourne shell. POSIX only mandates the `-r` option; bash extends it with `-p`, `-d`, `-t`, and `-l` for finer control over the command path cache.
+**hash** 自 Bourne shell 起就是 Unix shell 的一部分。POSIX 只强制要求 `-r` 选项；bash 在此基础上扩展了 `-p`、`-d`、`-t` 和 `-l`，用于更精细地控制命令路径缓存。
 
 # SEE ALSO
 

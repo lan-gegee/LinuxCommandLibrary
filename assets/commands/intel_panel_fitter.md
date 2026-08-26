@@ -1,22 +1,22 @@
 # TAGLINE
 
-controls the hardware scaler for Intel GPUs
+控制 Intel GPU 的硬件缩放器
 
 # TLDR
 
-**Show panel fitter status**
+**显示面板缩放器状态**
 
 ```sudo intel_panel_fitter```
 
-**Show for specific pipe**
+**显示指定管道的状态**
 
 ```sudo intel_panel_fitter -p [0]```
 
-**Enable panel fitting**
+**启用面板缩放**
 
 ```sudo intel_panel_fitter -e```
 
-**Disable panel fitting**
+**禁用面板缩放**
 
 ```sudo intel_panel_fitter -d```
 
@@ -27,30 +27,30 @@ controls the hardware scaler for Intel GPUs
 # PARAMETERS
 
 **-p** _PIPE_
-> Display pipe number.
+> 显示管道编号。
 
 **-e**
-> Enable panel fitter.
+> 启用面板缩放器。
 
 **-d**
-> Disable panel fitter.
+> 禁用面板缩放器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**intel_panel_fitter** controls the hardware scaler for Intel GPUs. The panel fitter scales content to match display resolution.
+**intel_panel_fitter** 控制 Intel GPU 的硬件缩放器。面板缩放器将内容缩放到与显示器分辨率匹配。
 
-The tool shows current scaling settings and allows enabling/disabling hardware scaling. Useful for resolution mismatch debugging.
+该工具显示当前的缩放设置，并允许启用/禁用硬件缩放。可用于调试分辨率不匹配问题。
 
 # CAVEATS
 
-Intel graphics only. May affect display. Part of intel-gpu-tools. Requires root.
+仅适用于 Intel 显卡。可能影响显示。属于 intel-gpu-tools 的一部分。需要 root 权限。
 
 # HISTORY
 
-intel_panel_fitter is part of **intel-gpu-tools**, developed for testing Intel display hardware scaling functionality.
+intel_panel_fitter 是 **intel-gpu-tools** 的一部分，为测试 Intel 显示硬件的缩放功能而开发。
 
 # INSTALL
 

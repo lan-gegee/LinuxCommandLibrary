@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run and test HTTP requests with plain text
+用纯文本运行和测试 HTTP 请求
 
 # TLDR
 
-**Run requests from a Hurl file**
+**从 Hurl 文件运行请求**
 
 ```hurl [path/to/file.hurl]```
 
-**Run in test mode** with progress reporting
+**以测试模式运行**并报告进度
 
 ```hurl --test [path/to/file.hurl]```
 
-**Run with verbose output**
+**带详细输出运行**
 
 ```hurl --verbose [path/to/file.hurl]```
 
-**Run with a variable**
+**带变量运行**
 
 ```hurl --variable [name]=[value] [path/to/file.hurl]```
 
-**Run multiple files in parallel**
+**并行运行多个文件**
 
 ```hurl --parallel [path/to/file1.hurl] [path/to/file2.hurl]```
 
-**Output results as JSON**
+**以 JSON 输出结果**
 
 ```hurl --json [path/to/file.hurl]```
 
-**Run with retry on failure**
+**失败时自动重试**
 
 ```hurl --retry [3] [path/to/file.hurl]```
 
@@ -39,74 +39,74 @@ Run and test HTTP requests with plain text
 # PARAMETERS
 
 **-u, --user** _user:password_
-> Add basic authentication credentials
+> 添加基本认证凭据
 
 **-H, --header** _header_
-> Add a custom HTTP header
+> 添加自定义 HTTP 头
 
 **-L, --location**
-> Follow HTTP redirects
+> 跟随 HTTP 重定向
 
 **--test**
-> Activate test mode with progress reporting
+> 启用测试模式并报告进度
 
 **--json**
-> Output results in JSON format
+> 以 JSON 格式输出结果
 
 **--parallel**
-> Run files concurrently
+> 并发运行多个文件
 
 **--retry** _num_
-> Number of retry attempts on failure
+> 失败时的重试次数
 
 **--delay** _ms_
-> Pause before each request
+> 每个请求前的暂停时间
 
 **--variable** _name=value_
-> Define a template variable
+> 定义一个模板变量
 
 **--variables-file** _file_
-> Load variables from a file
+> 从文件加载变量
 
 **--secret** _name=value_
-> Define a redacted variable (hidden from logs)
+> 定义一个脱敏变量（不出现在日志中）
 
 **-o, --output** _file_
-> Write response body to file
+> 将响应体写入文件
 
 **-k, --insecure**
-> Allow insecure SSL connections
+> 允许不安全的 SSL 连接
 
 **--verbose**
-> Enable detailed logging
+> 启用详细日志
 
 **--very-verbose**
-> Enable extra-detailed logging including request/response bodies
+> 启用更详细的日志，包括请求/响应体
 
 **--continue-on-error**
-> Proceed despite assertion failures
+> 即使断言失败也继续执行
 
 **--from-entry** _num_
-> Start execution at a specific entry
+> 从指定条目开始执行
 
 **--to-entry** _num_
-> Stop execution at a specific entry
+> 在指定条目处停止执行
 
 # DESCRIPTION
 
-**hurl** is a command-line tool that runs HTTP requests defined in simple plain text **.hurl** files. It can chain multiple requests, capture values from responses, and evaluate assertions on headers, status codes, and body content using XPath, JSONPath, and regex queries.
+**hurl** 是一款命令行工具，用于执行定义在简单纯文本 **.hurl** 文件中的 HTTP 请求。它可以串联多个请求、从响应中捕获值，并通过 XPath、JSONPath 和正则表达式查询对响应头、状态码和响应体内容进行断言。
 
-Hurl supports REST, SOAP, GraphQL, and any XML/JSON-based API. It handles authentication, cookies, form data, multipart uploads, and binary bodies. Built in **Rust** and powered by **libcurl**, it is a single binary with no runtime dependencies.
+Hurl 支持 REST、SOAP、GraphQL 以及任何基于 XML/JSON 的 API。它能处理认证、cookie、表单数据、multipart 上传和二进制响应体。它使用 **Rust** 编写并由 **libcurl** 驱动，是一个没有运行时依赖的单一二进制文件。
 
-Hurl is designed for both fetching data and testing HTTP sessions, with built-in support for assertions on response status, headers, body content, duration, and SSL certificates. Multiple report formats (text, JUnit, TAP, HTML) make it easy to integrate into CI/CD pipelines.
+Hurl 既可用于获取数据，也可用于测试 HTTP 会话，内置对响应状态、请求头、响应体内容、耗时和 SSL 证书的断言支持。多种报告格式（text、JUnit、TAP、HTML）使它能够方便地集成到 CI/CD 流水线中。
 
 # CAVEATS
 
-Hurl files use a custom format that is not compatible with curl command syntax despite the shared libcurl backend. The plain text format requires learning Hurl's specific syntax for assertions and captures. Error messages for malformed .hurl files can be cryptic.
+尽管共享 libcurl 后端，Hurl 文件所用的自定义格式与 curl 命令语法并不兼容。这种纯文本格式要求学习 Hurl 特有的断言与捕获语法。对于格式错误的 .hurl 文件，其报错信息可能晦涩难懂。
 
 # HISTORY
 
-**hurl** was created by **Orange-OpenSource** (the French telecommunications company) and first released on GitHub in **August 2020**. Written in Rust with libcurl as its HTTP engine, it has grown to over 18,000 GitHub stars and is actively maintained.
+**hurl** 由 **Orange-OpenSource**（法国电信公司）创建，于 **2020 年 8 月**首次发布到 GitHub。它使用 Rust 编写，以 libcurl 作为 HTTP 引擎，目前 GitHub star 数已超过 18000，并且仍在活跃维护。
 
 # INSTALL
 

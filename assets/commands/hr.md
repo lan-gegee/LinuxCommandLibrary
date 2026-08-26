@@ -1,22 +1,22 @@
 # TAGLINE
 
-prints horizontal rules in the terminal
+在终端中打印水平分隔线
 
 # TLDR
 
-**Print a horizontal rule using the default # character**
+**使用默认的 # 字符打印水平线**
 
 ```hr```
 
-**Print a horizontal rule with a specific character**
+**用指定字符打印水平线**
 
 ```hr [=]```
 
-**Print multiple horizontal rules with different characters**
+**用不同字符打印多条水平线**
 
 ```hr [#] [-]```
 
-**Print a horizontal rule with a multi-character pattern**
+**用多字符模式打印水平线**
 
 ```hr [-#-]```
 
@@ -26,13 +26,13 @@ prints horizontal rules in the terminal
 
 # DESCRIPTION
 
-**hr** prints horizontal rules spanning the terminal width. Each argument is used as a character or pattern to repeat across one line. If no argument is given, **#** is used by default. Multiple arguments produce multiple lines, one per argument.
+**hr** 打印横跨整个终端宽度的水平分隔线。每个参数用作在一行内重复的字符或模式。若不给参数，默认使用 **#**。多个参数会产出多行，一个参数一行。
 
-The terminal width is determined by `tput cols`, falling back to the **COLUMNS** environment variable or 80 columns if neither is available.
+终端宽度由 `tput cols` 决定；若不可用，则回退到 **COLUMNS** 环境变量，若两者都不可用则使用 80 列。
 
 # CAVEATS
 
-Multiple implementations of **hr** exist with different features. The most common (LuRsT/hr) is a pure Bash script with no flags or options. Other implementations may support additional features like color or width control.
+存在多个功能各异的 **hr** 实现。最常见的（LuRsT/hr）是一个纯 Bash 脚本，没有任何标志或选项。其他实现可能支持颜色或宽度控制等额外特性。
 
 # INSTALL
 

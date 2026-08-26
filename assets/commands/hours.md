@@ -1,22 +1,22 @@
 # TAGLINE
 
-No-frills time tracking toolkit for the command line
+命令行下朴实无华的时间记录工具集
 
 # TLDR
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```hours```
 
-**View a time tracking report**
+**查看时间记录报告**
 
 ```hours report```
 
-**Show statistics**
+**显示统计信息**
 
 ```hours stats```
 
-**View activity log**
+**查看活动日志**
 
 ```hours log```
 
@@ -26,17 +26,17 @@ No-frills time tracking toolkit for the command line
 
 # DESCRIPTION
 
-**hours** is a minimalistic time tracking toolkit for the terminal. It provides a simple TUI where almost everything can be achieved with one or two keypresses, making it fast to log time against tasks and projects.
+**hours** 是一个极简的终端时间记录工具集。它提供一个简单的 TUI，几乎一切操作只需一两次按键即可完成，让针对任务和项目的时间记录非常快捷。
 
-Besides the interactive TUI, hours offers subcommands for viewing **reports**, **statistics**, and **logs** based on the time tracking data. It stores all data locally and focuses on providing a distraction-free experience for developers who want to track time without leaving the terminal.
+除了交互式 TUI，hours 还提供基于时间记录数据查看**报告**、**统计**和**日志**的子命令。它将所有数据存储在本地，专注于为希望在终端内记录时间的开发者提供无干扰的体验。
 
 # CAVEATS
 
-Data is stored locally and does not sync across devices. No integration with external time tracking services.
+数据存储在本地，不会跨设备同步。不与外部时间跟踪服务集成。
 
 # HISTORY
 
-**hours** was created by **Dhruv Thakur** (dhth) and is written in **Go**. It was designed as a no-frills alternative to web-based time tracking tools for developers who prefer terminal workflows.
+**hours** 由 **Dhruv Thakur**（dhth）创建，用 **Go** 编写。它是为偏好终端工作流的开发者设计的、基于 Web 的时间跟踪工具的朴素替代品。
 
 # INSTALL
 

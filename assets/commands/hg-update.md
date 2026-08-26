@@ -1,30 +1,30 @@
 # TAGLINE
 
-updates the working directory to a specific revision
+将工作目录更新到指定修订版本
 
 # TLDR
 
-**Update to tip**
+**更新到 tip**
 
 ```hg update```
 
-**Update to specific revision**
+**更新到特定修订版本**
 
 ```hg update -r [revision]```
 
-**Update to branch**
+**更新到某个分支**
 
 ```hg update [branch-name]```
 
-**Update to tag**
+**更新到某个标签**
 
 ```hg update [tag-name]```
 
-**Clean update discarding changes**
+**丢弃更改进行强制更新**
 
 ```hg update -C```
 
-**Check for uncommitted changes first**
+**先检查是否存在未提交的更改**
 
 ```hg update -c [revision]```
 
@@ -35,23 +35,23 @@ updates the working directory to a specific revision
 # PARAMETERS
 
 **-r**, **--rev** _rev_
-> Revision to update to.
+> 要更新到的修订版本。
 
 **-C**, **--clean**
-> Discard uncommitted changes.
+> 丢弃未提交的更改。
 
 **-c**, **--check**
-> Abort if uncommitted changes exist.
+> 存在未提交的更改时中止。
 
 **-m**, **--merge**
-> Merge uncommitted changes.
+> 合并未提交的更改。
 
 **-d**, **--date** _date_
-> Tipmost revision matching date.
+> 匹配日期的最新（tipmost）修订版本。
 
 # DESCRIPTION
 
-**hg update** (alias: **up**, **checkout**, **co**) updates the working directory to a specific revision. Without arguments, updates to the tip of the current branch. Can update to revisions, branches, tags, or bookmarks. Use **-C** to discard local changes or **-c** to abort if changes exist.
+**hg update**（别名：**up**、**checkout**、**co**）将工作目录更新到指定修订版本。不带参数时，更新到当前分支的 tip。可以更新到修订版本、分支、标签或书签。使用 **-C** 丢弃本地更改，或使用 **-c** 在存在更改时中止。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ updates the working directory to a specific revision
 # SEE ALSO
 
 [hg](/man/hg)(1), [hg-pull](/man/hg-pull)(1), [hg-commit](/man/hg-commit)(1), [hg-status](/man/hg-status)(1)
-

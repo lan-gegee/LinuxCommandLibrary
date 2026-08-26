@@ -1,38 +1,38 @@
 # TAGLINE
 
-Graphical ping with live terminal graph
+在终端中实时绘制图形的 ping 工具
 
 # TLDR
 
-**Ping a host with graph**
+**以图形方式 ping 主机**
 
 ```gping [example.com]```
 
-**Ping multiple hosts**
+**ping 多台主机**
 
 ```gping [example.com] [google.com] [cloudflare.com]```
 
-**Ping with custom interval**
+**以自定义间隔 ping**
 
 ```gping -i [0.5] [example.com]```
 
-**Execute command and graph results**
+**执行命令并绘制结果图形**
 
 ```gping --cmd "[curl -so /dev/null -w '%{time_total}' example.com]"```
 
-**Ping with custom buffer size**
+**以自定义缓冲区大小 ping**
 
 ```gping -b [100] [example.com]```
 
-**Force IPv4**
+**强制使用 IPv4**
 
 ```gping -4 [example.com]```
 
-**Set graph color**
+**设置图表颜色**
 
 ```gping --color [blue] [example.com]```
 
-**Use simple graphics mode** (for terminals without braille support)
+**使用简单图形模式**（用于不支持盲文点字的终端）
 
 ```gping -s [example.com]```
 
@@ -43,40 +43,40 @@ Graphical ping with live terminal graph
 # PARAMETERS
 
 **-i**, **--interval** _seconds_
-> Ping interval. Default: 0.2.
+> ping 间隔。默认：0.2。
 
 **-b**, **--buffer** _size_
-> Number of data points in graph. Default: 300.
+> 图表中的数据点数量。默认：300。
 
 **-n**, **--watch-interval** _seconds_
-> Interval for command execution graph.
+> 命令执行图表的间隔。
 
 **-s**, **--simple-graphics**
-> Use dot character instead of braille.
+> 使用点号字符代替盲文点字。
 
 **--vertical-margin** _lines_
-> Vertical margin above graph.
+> 图表上方的垂直边距。
 
 **--horizontal-margin** _cols_
-> Horizontal margin beside graph.
+> 图表两侧的水平边距。
 
 **-c**, **--color** _color_
-> Graph line color (repeatable).
+> 图表线条颜色（可重复使用）。
 
 **-4**
-> Force IPv4.
+> 强制使用 IPv4。
 
 **-6**
-> Force IPv6.
+> 强制使用 IPv6。
 
 **--cmd** _command_
-> Execute command and graph output as float.
+> 执行命令并将输出按浮点数绘图。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # COLORS
 
@@ -84,17 +84,17 @@ red, green, blue, yellow, cyan, magenta, white, black
 
 # DESCRIPTION
 
-**gping** is a graphical ping tool that displays latency as a live updating graph in the terminal. Multiple hosts can be pinged simultaneously, each displayed with different colors for easy comparison.
+**gping** 是一个图形化的 ping 工具，它在终端中以实时更新的图表显示延迟。可以同时 ping 多台主机，每台主机用不同颜色显示，便于比较。
 
-The **--cmd** option executes arbitrary commands and graphs their numeric output, useful for graphing any time-series metric like response times or resource usage. Simple graphics mode (**-s**) uses basic characters for terminals lacking Unicode braille support.
+**--cmd** 选项可以执行任意命令并将其数值输出绘制成图，适用于绘制响应时间、资源占用等任何时间序列指标。简单图形模式（**-s**）为缺少 Unicode 盲文点字支持的终端使用基本字符。
 
 # CAVEATS
 
-Requires ICMP permissions (may need root/sudo on Linux). Terminal must support 256 colors for best display. Some terminals may not render braille characters correctly.
+需要 ICMP 权限（在 Linux 上可能需要 root/sudo）。终端需支持 256 色才能获得最佳显示效果。某些终端可能无法正确渲染盲文点字字符。
 
 # HISTORY
 
-gping was created by **orf** and first released around **2020**. Written in Rust, it was designed as a modern alternative to traditional ping with visual feedback. The project gained popularity for its intuitive display and multi-host comparison capability.
+gping 由 **orf** 创建，首次发布于 **2020 年**前后。它用 Rust 编写，旨在作为带有可视化反馈的传统 ping 的现代替代品。该项目凭借直观的显示和多主机对比能力而广受欢迎。
 
 # INSTALL
 

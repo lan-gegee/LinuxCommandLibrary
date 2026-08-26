@@ -1,22 +1,22 @@
 # TAGLINE
 
-GNU Prolog compiler and interpreter
+GNU Prolog 编译器和解释器
 
 # TLDR
 
-**Start GNU Prolog interpreter**
+**启动 GNU Prolog 解释器**
 
 ```gprolog```
 
-**Load and run file**
+**加载并运行文件**
 
 ```gprolog --consult-file [program.pl]```
 
-**Compile to executable**
+**编译为可执行文件**
 
 ```gplc [program.pl] -o [program]```
 
-**Run query from command line**
+**从命令行运行查询**
 
 ```gprolog --query-goal "[goal]"```
 
@@ -29,25 +29,25 @@ GNU Prolog compiler and interpreter
 # PARAMETERS
 
 **--consult-file** _file_
-> Load Prolog file at startup.
+> 启动时加载 Prolog 文件。
 
 **--query-goal** _goal_
-> Execute goal after loading.
+> 加载后执行目标。
 
 **--init-goal** _goal_
-> Execute initialization goal.
+> 执行初始化目标。
 
 **--entry-goal** _goal_
-> Entry point goal.
+> 入口点目标。
 
 **--no-top-level**
-> Exit after executing goals.
+> 执行完目标后退出。
 
 # DESCRIPTION
 
-**GNU Prolog** is a Prolog compiler with constraint solving over finite domains. It compiles Prolog to native code and provides an interactive interpreter.
+**GNU Prolog** 是一个支持有限域约束求解的 Prolog 编译器。它将 Prolog 编译为原生代码，并提供交互式解释器。
 
-GNU Prolog supports ISO Prolog with extensions for constraint logic programming, making it suitable for combinatorial problems, scheduling, and AI applications.
+GNU Prolog 支持 ISO Prolog 并带有约束逻辑编程扩展，适用于组合问题、调度和 AI 应用。
 
 # INTERPRETER COMMANDS
 
@@ -76,11 +76,11 @@ gplc --no-top-level program.pl -o program
 
 # CAVEATS
 
-Syntax differs slightly from SWI-Prolog. Native compilation adds startup complexity. Constraint solving requires finite domain declarations. Interactive debugging requires trace mode.
+语法与 SWI-Prolog 略有不同。原生编译增加了启动的复杂度。约束求解需要有限域声明。交互式调试需要跟踪模式。
 
 # HISTORY
 
-GNU Prolog was created by **Daniel Diaz** at INRIA, first released in **1996**. It emphasizes native code compilation and constraint solving, distinguishing it from interpreted Prolog systems.
+GNU Prolog 由 INRIA 的 **Daniel Diaz** 创建，首次发布于 **1996 年**。它强调原生代码编译和约束求解，这使它有别于解释型的 Prolog 系统。
 
 # INSTALL
 

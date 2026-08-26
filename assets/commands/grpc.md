@@ -1,30 +1,30 @@
 # TAGLINE
 
-high-performance remote procedure call framework
+高性能远程过程调用框架
 
 # TLDR
 
-**Generate Go code from proto**
+**从 proto 生成 Go 代码**
 
 ```protoc --go_out=. --go-grpc_out=. [service.proto]```
 
-**Generate Python code**
+**生成 Python 代码**
 
 ```python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. [service.proto]```
 
-**Call gRPC service**
+**调用 gRPC 服务**
 
 ```grpcurl -plaintext [localhost:50051] [package.Service/Method]```
 
-**List services**
+**列出服务**
 
 ```grpcurl -plaintext [localhost:50051] list```
 
 # DESCRIPTION
 
-**gRPC** is a high-performance RPC framework using Protocol Buffers for serialization. It enables efficient communication between services with features like streaming, authentication, and load balancing.
+**gRPC** 是一个使用 Protocol Buffers 进行序列化的高性能 RPC 框架。它以流式传输、身份验证和负载均衡等特性实现服务之间的高效通信。
 
-gRPC uses HTTP/2 for transport and provides code generation for multiple languages from .proto service definitions.
+gRPC 使用 HTTP/2 作为传输层，并能根据 .proto 服务定义为多种语言生成代码。
 
 # PROTO FILE EXAMPLE
 
@@ -56,11 +56,11 @@ evans           Interactive gRPC client
 
 # CAVEATS
 
-Requires protocol buffer definitions. HTTP/2 needed; some proxies don't support it. Debugging harder than REST. Browser support requires gRPC-Web.
+需要 protocol buffer 定义。需要 HTTP/2；部分代理不支持。调试比 REST 困难。浏览器支持需要 gRPC-Web。
 
 # HISTORY
 
-gRPC was developed by **Google** and open-sourced in **2015**. It's based on Google's internal Stubby RPC framework and is now a CNCF project used extensively in cloud-native applications.
+gRPC 由 **Google** 开发并于 **2015 年**开源。它基于 Google 内部的 Stubby RPC 框架构建，如今是 CNCF 项目，在云原生应用中被广泛使用。
 
 # INSTALL
 

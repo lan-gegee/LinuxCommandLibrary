@@ -1,26 +1,26 @@
 # TAGLINE
 
-alias or variant of HTTPie for HTTPS requests
+HTTPie 用于 HTTPS 请求的别名或变体
 
 # TLDR
 
-**GET request over HTTPS**
+**通过 HTTPS 发送 GET 请求**
 
 ```https [https://api.example.com/users]```
 
-**POST with JSON**
+**以 JSON 发送 POST**
 
 ```https POST [url] name=value```
 
-**Skip certificate verification**
+**跳过证书校验**
 
 ```https --verify no [url]```
 
-**Custom headers**
+**自定义请求头**
 
 ```https [url] Authorization:"Bearer token"```
 
-**Download file**
+**下载文件**
 
 ```https --download [url]```
 
@@ -31,72 +31,72 @@ alias or variant of HTTPie for HTTPS requests
 # PARAMETERS
 
 _METHOD_
-> HTTP method (GET, POST, PUT, DELETE, etc.). Inferred from the presence of data if omitted.
+> HTTP 方法（GET、POST、PUT、DELETE 等）。若省略，则根据是否存在数据进行推断。
 
 _URL_
-> Request URL. The **https://** scheme is assumed when none is given.
+> 请求 URL。未给出协议时默认使用 **https://**。
 
 _DATA_
-> Request items: `key=value` for JSON/form fields, `key:value` for headers, `key==value` for query params, `key@file` for file uploads.
+> 请求项：`key=value` 表示 JSON/表单字段，`key:value` 表示请求头，`key==value` 表示查询参数，`key@file` 表示文件上传。
 
 **-j**, **--json**
-> Encode data items as a JSON object (default).
+> 将数据项编码为 JSON 对象（默认）。
 
 **-f**, **--form**
-> Encode data items as `multipart/form-data` or `application/x-www-form-urlencoded`.
+> 将数据项编码为 `multipart/form-data` 或 `application/x-www-form-urlencoded`。
 
 **-o**, **--output** _FILE_
-> Write output to a file instead of stdout.
+> 将输出写入文件而不是标准输出。
 
 **-d**, **--download**
-> Download the response body as a file, like a resumable wget.
+> 将响应体下载为文件，类似支持断点续传的 wget。
 
 **-v**, **--verbose**
-> Print the whole request as well as the response.
+> 同时打印完整的请求和响应。
 
 **-p**, **--print** _FLAGS_
-> Control what's printed: `H`/`B` for request headers/body, `h`/`b` for response headers/body.
+> 控制打印内容：`H`/`B` 对应请求头/请求体，`h`/`b` 对应响应头/响应体。
 
 **-a**, **--auth** _USER[:PASS]_
-> Basic or digest authentication credentials.
+> 基本认证或摘要认证凭据。
 
 **--session** _NAME_
-> Create or reuse a named session, persisting cookies and headers between requests.
+> 创建或复用命名会话，在多个请求之间持久化 cookie 和请求头。
 
 **--verify** _yes|no|CA_BUNDLE_
-> SSL certificate verification; set to **no** to skip, or point at a custom CA bundle.
+> SSL 证书校验；设为 **no** 可跳过，或指向自定义 CA 证书包。
 
 **--cert** _FILE_
-> Client-side SSL certificate.
+> 客户端 SSL 证书。
 
 **--cert-key** _FILE_
-> Private key file for the client certificate, if not bundled with **--cert**.
+> 客户端证书对应的私钥文件（若未包含在 **--cert** 中）。
 
 **--proxy** _PROTOCOL:URL_
-> Proxy to use for the given protocol.
+> 为指定协议使用的代理。
 
 **--follow**
-> Follow HTTP redirects (30x responses).
+> 跟随 HTTP 重定向（30x 响应）。
 
 **--offline**
-> Build and print the request without sending it over the network.
+> 构造并打印请求而不通过网络发送。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**https** is a companion executable installed alongside **HTTPie**. It is functionally identical to the **http** command, except the default URL scheme is **https://** instead of **http://**, so a bare hostname like `https example.org` requests `https://example.org`. All other behavior, options, and output formatting are shared with **http**.
+**https** 是随 **HTTPie** 一起安装的配套可执行文件。它在功能上与 **http** 命令完全相同，只是默认 URL 协议为 **https://** 而非 **http://**，因此像 `https example.org` 这样只写主机名就会请求 `https://example.org`。所有其他行为、选项和输出格式均与 **http** 共享。
 
-Like HTTPie generally, it provides colorized, formatted output, intuitive key=value/key:value syntax for building requests, JSON support by default, and features like sessions, downloads, and authentication.
+与整个 HTTPie 的风格一致，它提供彩色格式化输出、直观的 key=value/key:value 请求构造语法、默认的 JSON 支持，以及会话、下载和认证等特性。
 
 # CAVEATS
 
-Not a shell alias but a separate entry point shipped by the **httpie** Python package; installing HTTPie installs both **http** and **https**. Equivalent to running `http --default-scheme=https`.
+它不是一个 shell 别名，而是 **httpie** Python 软件包附带的独立入口；安装 HTTPie 会同时安装 **http** 和 **https**。等同于运行 `http --default-scheme=https`。
 
 # HISTORY
 
-**https** has been bundled with **HTTPie** since its early releases, created by **Jakub Roztocil** as a more user-friendly alternative to curl for command-line HTTP/API testing.
+**https** 自早期版本起便随 **HTTPie** 一同提供。HTTPie 由 **Jakub Roztocil** 创建，旨在作为比 curl 更易用的命令行 HTTP/API 测试工具。
 
 # INSTALL
 

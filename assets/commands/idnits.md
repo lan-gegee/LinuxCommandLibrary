@@ -1,22 +1,22 @@
 # TAGLINE
 
-checks Internet-Drafts for formatting issues
+检查 Internet-Draft 的格式问题
 
 # TLDR
 
-**Check Internet-Draft**
+**检查 Internet-Draft**
 
 ```idnits [draft.txt]```
 
-**Verbose output**
+**详细输出**
 
 ```idnits --verbose [draft.txt]```
 
-**Check for submission**
+**按提交要求检查**
 
 ```idnits --submitcheck [draft.txt]```
 
-**Show year warnings**
+**显示年份警告**
 
 ```idnits --year [2024] [draft.txt]```
 
@@ -27,36 +27,36 @@ checks Internet-Drafts for formatting issues
 # PARAMETERS
 
 _FILE_
-> Internet-Draft file to check.
+> 要检查的 Internet-Draft 文件。
 
 **--verbose**
-> Detailed output.
+> 详细输出。
 
 **--submitcheck**
-> Strict submission checks.
+> 严格的提交检查。
 
 **--year** _YEAR_
-> Set copyright year.
+> 设置版权年份。
 
 **--nowarn** _WARN_
-> Disable specific warning.
+> 禁用特定警告。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**idnits** checks Internet-Drafts for formatting issues. It validates IETF document format requirements before submission.
+**idnits** 检查 Internet-Draft 的格式问题。它在提交之前验证 IETF 文档的格式要求。
 
-The tool checks RFC formatting, boilerplate text, references, and common errors. It helps authors prepare drafts for IETF submission.
+该工具检查 RFC 格式、样板文本、参考文献以及常见错误。它帮助作者准备用于 IETF 提交的草案。
 
 # CAVEATS
 
-IETF-specific tool. Formatting rules change. Text format required.
+IETF 专用工具。格式规则会变化。要求纯文本格式。
 
 # HISTORY
 
-idnits was developed by the **IETF** to help authors validate Internet-Draft formatting.
+idnits 由 **IETF** 开发，用于帮助作者验证 Internet-Draft 的格式。
 
 # INSTALL
 

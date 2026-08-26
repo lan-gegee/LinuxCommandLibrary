@@ -1,34 +1,34 @@
 # TAGLINE
 
-Grafana plugin and administration manager
+Grafana 插件与管理工具
 
 # TLDR
 
-**Install plugin**
+**安装插件**
 
 ```grafana-cli plugins install [plugin-id]```
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```grafana-cli plugins ls```
 
-**Update all installed plugins**
+**更新所有已安装的插件**
 
 ```grafana-cli plugins update-all```
 
-**Update plugin**
+**更新插件**
 
 ```grafana-cli plugins update [plugin-id]```
 
-**Remove plugin**
+**移除插件**
 
 ```grafana-cli plugins remove [plugin-id]```
 
-**List available plugins** in the remote repository
+**列出远程仓库中可用的插件**
 
 ```grafana-cli plugins list-remote```
 
-**Reset the admin password**
+**重置管理员密码**
 
 ```grafana-cli admin reset-admin-password [newpassword]```
 
@@ -39,74 +39,74 @@ Grafana plugin and administration manager
 # COMMANDS
 
 **plugins install** _ID_ [_VERSION_]
-> Install a plugin, optionally pinning to a specific version.
+> 安装插件，可选固定到特定版本。
 
 **plugins ls**
-> List installed plugins.
+> 列出已安装的插件。
 
 **plugins update** _ID_
-> Update a single plugin to the latest compatible version.
+> 将单个插件更新到最新的兼容版本。
 
 **plugins update-all**
-> Update every installed plugin.
+> 更新所有已安装的插件。
 
 **plugins remove** _ID_
-> Remove an installed plugin.
+> 移除已安装的插件。
 
 **plugins list-remote**
-> List all plugins available in the configured repository.
+> 列出所配置仓库中所有可用的插件。
 
 **plugins list-versions** _ID_
-> List available versions for a given plugin.
+> 列出给定插件的所有可用版本。
 
 **admin reset-admin-password** _PASSWORD_
-> Reset the built-in admin account password.
+> 重置内置管理员账户的密码。
 
 **admin data-migration encrypt-datasource-passwords**
-> Migrate plaintext data-source passwords to the secureJsonData field.
+> 将明文数据源密码迁移到 secureJsonData 字段。
 
 # PARAMETERS
 
 **--config** _FILE_
-> Use an alternate **grafana.ini** configuration file.
+> 使用替代的 **grafana.ini** 配置文件。
 
 **--homepath** _DIR_
-> Grafana home directory used to locate config and plugin paths.
+> Grafana 主目录，用于定位配置和插件路径。
 
 **--pluginsDir** _DIR_
-> Override the plugin install directory.
+> 覆盖插件安装目录。
 
 **--pluginUrl** _URL_
-> Install a plugin from a custom URL (zip) instead of the plugin repository.
+> 从自定义 URL（zip）安装插件而不是从插件仓库安装。
 
 **--repo** _URL_
-> Use a different plugin repository.
+> 使用不同的插件仓库。
 
 **--insecure**
-> Skip TLS verification when downloading plugins.
+> 下载插件时跳过 TLS 验证。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **-v**, **--version**
-> Show the CLI version.
+> 显示 CLI 版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grafana-cli** manages Grafana plugins and administration tasks. It installs, updates, and removes visualization plugins and data sources from the Grafana plugin repository.
+**grafana-cli** 管理 Grafana 插件和管理任务。它可以从 Grafana 插件仓库安装、更新和移除可视化插件与数据源。
 
-The tool handles plugin lifecycle management independently of the Grafana server. It also provides admin commands for password reset and database migration.
+该工具独立于 Grafana 服务器处理插件生命周期管理。它还提供密码重置和数据库迁移等管理命令。
 
 # CAVEATS
 
-Requires appropriate permissions. May need Grafana restart. Plugin compatibility varies.
+需要相应的权限。可能需要重启 Grafana。插件兼容性因版本而异。
 
 # HISTORY
 
-grafana-cli was developed alongside **Grafana** to provide command-line management of the visualization platform.
+grafana-cli 与 **Grafana** 一同开发，为该可视化平台提供命令行管理能力。
 
 # INSTALL
 
@@ -125,4 +125,3 @@ grafana-cli was developed alongside **Grafana** to provide command-line manageme
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

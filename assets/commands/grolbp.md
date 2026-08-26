@@ -1,18 +1,18 @@
 # TAGLINE
 
-Groff Canon LBP printer driver
+Groff 的 Canon LBP 打印机驱动
 
 # TLDR
 
-**Generate Canon LBP output**
+**生成 Canon LBP 输出**
 
 ```groff -Tlbp [file.roff] | lpr -P[printer]```
 
-**Direct grolbp usage**
+**直接使用 grolbp**
 
 ```grolbp [file] > output.lbp```
 
-**Specify font**
+**指定字体**
 
 ```grolbp -F [fontdir] [file]```
 
@@ -23,45 +23,45 @@ Groff Canon LBP printer driver
 # PARAMETERS
 
 _FILE_
-> Groff intermediate output file.
+> groff 中间输出文件。
 
 **-c** _N_, **--copies** _N_
-> Print N copies of each page.
+> 每页打印 N 份。
 
 **-F** _DIR_, **--fontdir** _DIR_
-> Prepend directory to the font search path.
+> 将目录添加到字体搜索路径的最前面。
 
 **-l**, **--landscape**
-> Format the document in landscape orientation.
+> 以横向格式排版文档。
 
 **-o** _ORIENTATION_, **--orientation** _ORIENTATION_
-> Set orientation to portrait or landscape.
+> 设置方向为纵向或横向。
 
 **-p** _SIZE_, **--papersize** _SIZE_
-> Set paper size (A4, letter, legal, executive).
+> 设置纸张尺寸（A4、letter、legal、executive）。
 
 **-w** _WIDTH_, **--linewidth** _WIDTH_
-> Set default line thickness in thousandths of an em (default: 40).
+> 设置默认线条粗细（单位为千分之一 em，默认：40）。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grolbp** is a groff output driver that produces output in CAPSL and VDM format suitable for Canon LBP-4 and LBP-8 series laser printers. It supports various paper sizes, orientations, and copy counts.
+**grolbp** 是一个 groff 输出驱动，生成适用于 Canon LBP-4 和 LBP-8 系列激光打印机的 CAPSL 与 VDM 格式输出。它支持多种纸张尺寸、方向和份数。
 
-The driver processes groff intermediate output and produces printer-specific commands for direct printing to Canon LBP hardware.
+该驱动处理 groff 中间输出，并生成打印机专用命令，可直接发送到 Canon LBP 硬件进行打印。
 
 # CAVEATS
 
-Part of groff package. Specific to Canon LBP printers. May require printer-specific configuration.
+属于 groff 软件包。专用于 Canon LBP 打印机。可能需要特定于打印机的配置。
 
 # HISTORY
 
-grolbp was developed as part of **GNU groff** to support Canon laser beam printers.
+grolbp 作为 **GNU groff** 的一部分开发，用于支持 Canon 激光束打印机。
 
 # INSTALL
 

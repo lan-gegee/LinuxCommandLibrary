@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal-based graphical activity monitor
+基于终端的图形化活动监视器
 
 # TLDR
 
-**Start gotop**
+**启动 gotop**
 
 ```gotop```
 
-**Use specific color scheme**
+**使用指定的配色方案**
 
 ```gotop -c [monokai]```
 
-**Show per-CPU usage**
+**显示每个 CPU 的使用率**
 
 ```gotop -p```
 
-**Use minimal layout**
+**使用极简布局**
 
 ```gotop -m```
 
-**Show battery widget**
+**显示电池组件**
 
 ```gotop -b```
 
-**Set update interval**
+**设置刷新间隔**
 
 ```gotop -r [500ms]```
 
-**Disable CPU graph**
+**禁用 CPU 图表**
 
 ```gotop --no-cpu```
 
-**Use specific network interface**
+**使用指定的网络接口**
 
 ```gotop -i [eth0]```
 
@@ -43,109 +43,109 @@ Terminal-based graphical activity monitor
 # PARAMETERS
 
 **-c**, **--color** _scheme_
-> Color scheme: default, monokai, solarized, vice, etc.
+> 配色方案：default、monokai、solarized、vice 等。
 
 **-p**, **--percpu**
-> Show each CPU core separately.
+> 分别显示每个 CPU 核心。
 
 **-a**, **--averagecpu**
-> Show average CPU usage.
+> 显示 CPU 平均使用率。
 
 **-m**, **--minimal**
-> Minimal terminal UI.
+> 极简终端界面。
 
 **-b**, **--battery**
-> Show battery widget.
+> 显示电池组件。
 
 **-r**, **--rate** _duration_
-> Update interval. Default: 1s.
+> 刷新间隔。默认：1s。
 
 **-i**, **--interface** _name_
-> Network interface filter.
+> 网络接口过滤器。
 
 **-l**, **--layout** _name_
-> Named or custom layout (e.g. minimal, battery, kitchensink).
+> 命名布局或自定义布局（例如 minimal、battery、kitchensink）。
 
 **--nvidia**
-> Enable NVIDIA GPU stats (requires nvidia-smi).
+> 启用 NVIDIA GPU 统计信息（需要 nvidia-smi）。
 
 **--list** _keys|colorschemes_
-> Print available key bindings or built-in color schemes and exit.
+> 打印可用的按键绑定或内置配色方案，然后退出。
 
 **--write-config**
-> Persist current flags to the config file.
+> 将当前命令行选项持久化到配置文件。
 
 **--no-cpu**
-> Disable CPU widget.
+> 禁用 CPU 组件。
 
 **--no-disk**
-> Disable disk widget.
+> 禁用磁盘组件。
 
 **--no-mem**
-> Disable memory widget.
+> 禁用内存组件。
 
 **--no-net**
-> Disable network widget.
+> 禁用网络组件。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # KEYBOARD COMMANDS
 
 **q**, **Ctrl+c**
-> Quit.
+> 退出。
 
 **Tab**
-> Move to next widget.
+> 移动到下一个组件。
 
-**j**/**k** or **Down**/**Up**
-> Scroll process list.
+**j**/**k** 或 **Down**/**Up**
+> 滚动进程列表。
 
 **g**/**G**
-> Go to top/bottom of list.
+> 跳到列表顶部/底部。
 
 **d**
-> Kill selected process.
+> 终止选中的进程。
 
 **/**
-> Filter processes.
+> 过滤进程。
 
 **h**
-> Toggle help.
+> 切换帮助显示。
 
 **c**
-> Sort by CPU.
+> 按 CPU 排序。
 
 **m**
-> Sort by memory.
+> 按内存排序。
 
 **p**
-> Sort by PID.
+> 按 PID 排序。
 
 # DESCRIPTION
 
-**gotop** is a terminal-based graphical activity monitor inspired by gtop and vtop. It displays CPU, memory, disk, network, and process information with ASCII graphs in real-time widget panels.
+**gotop** 是一个基于终端的图形化活动监视器，灵感来自 gtop 和 vtop。它通过 ASCII 图表在实时的组件面板中显示 CPU、内存、磁盘、网络和进程信息。
 
-Color schemes like monokai, solarized, and vice change the appearance. Custom layouts with **-l** allow rearranging and resizing widgets using YAML format. Process sorting supports CPU, memory, and PID columns with filtering and kill capabilities.
+monokai、solarized、vice 等配色方案可以改变外观。配合 **-l** 使用的自定义布局允许以 YAML 格式重新排列和调整组件大小。进程排序支持 CPU、内存和 PID 列，并带有过滤和终止进程的功能。
 
 # CONFIGURATION
 
 **~/.config/gotop/layout**
-> Custom layout file defining widget placement in YAML format.
+> 以 YAML 格式定义组件位置的自定义布局文件。
 
 **~/.config/gotop/colorscheme**
-> Custom color scheme definitions.
+> 自定义配色方案定义。
 
 # CAVEATS
 
-NVIDIA GPU monitoring requires the **nvidia-smi** binary to be present; no AMD GPU support. Some metrics may be platform-specific (Windows support is limited compared to Linux/FreeBSD/macOS). Battery widget requires supported hardware. High update rates increase CPU usage.
+NVIDIA GPU 监控需要系统中有 **nvidia-smi** 二进制文件；不支持 AMD GPU。部分指标可能与平台相关（与 Linux/FreeBSD/macOS 相比，Windows 支持有限）。电池组件需要受支持的硬件。过高的刷新频率会增加 CPU 占用。
 
 # HISTORY
 
-gotop was originally created by **Caleb Bassi** (cjbassi) in **2018** as a Go rewrite of gtop. The original project was archived in **2020**. A community fork maintained by **xxxserxxx** continues development with additional features and fixes. gotop brought the visual monitor style to Go with cross-platform support.
+gotop 最初由 **Caleb Bassi**（cjbassi）于 **2018 年**创建，是 gtop 的 Go 语言重写版。原项目于 **2020 年**归档。由 **xxxserxxx** 维护的社区分支继续开发，并添加了新功能与修复。gotop 将可视化监视器风格带入 Go 生态，并提供跨平台支持。
 
 # INSTALL
 

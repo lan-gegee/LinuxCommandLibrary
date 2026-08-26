@@ -1,26 +1,26 @@
 # TAGLINE
 
-enhanced shell history browser
+增强的 Shell 历史浏览器
 
 # TLDR
 
-**Launch hstr**
+**启动 hstr**
 
 ```hstr```
 
-**Search command history**
+**搜索命令历史**
 
 ```hstr [pattern]```
 
-**Show favorites**
+**显示收藏**
 
 ```hstr -f```
 
-**Non-interactive search**
+**非交互式搜索**
 
 ```hstr -n [pattern]```
 
-**Add current binding**
+**添加当前按键绑定**
 
 ```hstr --show-configuration >> ~/.bashrc```
 
@@ -30,52 +30,52 @@ enhanced shell history browser
 
 # DESCRIPTION
 
-**hstr** (HiSToRy) is an enhanced shell history browser. It provides a visual interface for searching and selecting commands from history, with ranking by frequency and recency.
+**hstr**（HiSToRy）是一个增强的 Shell 历史浏览器。它提供可视化界面，用于从历史中搜索和选择命令，并按使用频率和最近时间排序。
 
-The tool integrates with bash and zsh, replacing or augmenting Ctrl+R with a more powerful search interface.
+该工具与 bash 和 zsh 集成，用更强大的搜索界面取代或增强 Ctrl+R。
 
 # PARAMETERS
 
 **-f**, **--favorites**
-> Show favorite commands.
+> 显示收藏的命令。
 
 **-n**, **--non-interactive**
-> Non-interactive mode.
+> 非交互模式。
 
 **-s**, **--show-configuration**
-> Show shell configuration.
+> 显示 Shell 配置。
 
 **-b**, **--show-blacklist**
-> Show blacklisted commands.
+> 显示被列入黑名单的命令。
 
 **--show-zsh-configuration**
-> Show zsh configuration for integration.
+> 显示用于集成的 zsh 配置。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 # ENVIRONMENT
 
 **HSTR_CONFIG**
-> Comma-separated configuration options: hicolor, monochromatic, case-sensitive, raw-history-view, favorites-view, duplicates, verbose-kill, blacklist, keywords-matching, static-favorites, skip-favorites-comments.
+> 逗号分隔的配置选项：hicolor、monochromatic、case-sensitive、raw-history-view、favorites-view、duplicates、verbose-kill、blacklist、keywords-matching、static-favorites、skip-favorites-comments。
 
 # KEYBOARD SHORTCUTS
 
-**Ctrl+R**: Search history
-**Tab** / **Right**: Complete selection
-**Ctrl+F**: Add to favorites
-**Ctrl+/** / **Ctrl+7**: Rotate view (history/favorites/sorted)
-**Ctrl+E**: Toggle regex mode
-**Ctrl+L**: Toggle case sensitivity
-**Del**: Remove command from history
+**Ctrl+R**: 搜索历史
+**Tab** / **Right**: 确认选择
+**Ctrl+F**: 加入收藏
+**Ctrl+/** / **Ctrl+7**: 轮换视图（历史/收藏/排序）
+**Ctrl+E**: 切换正则表达式模式
+**Ctrl+L**: 切换大小写敏感
+**Del**: 从历史中删除命令
 
 # CAVEATS
 
-Requires shell configuration. Large history may be slow initially. Favorites stored separately. Works best with large history limit.
+需要配置 Shell。历史记录很大时初次加载可能较慢。收藏单独存储。在较大的历史记录上限下效果最佳。
 
 # HISTORY
 
-**hstr** was created by **Martin Dvorak** to improve command-line history navigation. It addresses the limitations of basic Ctrl+R search by providing visual feedback and better ranking algorithms.
+**hstr** 由 **Martin Dvorak** 创建，旨在改善命令行历史导航。它通过提供可视反馈和更好的排序算法，解决了基础 Ctrl+R 搜索的局限。
 
 # INSTALL
 

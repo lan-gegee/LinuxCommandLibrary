@@ -1,30 +1,30 @@
 # TAGLINE
 
-configures network interfaces
+配置网络接口
 
 # TLDR
 
-**Show all interfaces**
+**显示所有接口**
 
 ```ifconfig```
 
-**Show specific interface**
+**显示指定接口**
 
 ```ifconfig [eth0]```
 
-**Set IP address**
+**设置 IP 地址**
 
 ```sudo ifconfig [eth0] [192.168.1.100]```
 
-**Enable interface**
+**启用接口**
 
 ```sudo ifconfig [eth0] up```
 
-**Disable interface**
+**禁用接口**
 
 ```sudo ifconfig [eth0] down```
 
-**Set netmask**
+**设置子网掩码**
 
 ```sudo ifconfig [eth0] netmask [255.255.255.0]```
 
@@ -35,60 +35,60 @@ configures network interfaces
 # PARAMETERS
 
 _INTERFACE_
-> Network interface name.
+> 网络接口名称。
 
 **up**
-> Activate interface.
+> 激活接口。
 
 **down**
-> Deactivate interface.
+> 停用接口。
 
 **netmask** _MASK_
-> Set network mask.
+> 设置子网掩码。
 
 **broadcast** _ADDR_
-> Set broadcast address.
+> 设置广播地址。
 
 **mtu** _SIZE_
-> Set MTU size.
+> 设置 MTU 大小。
 
 **-a**
-> Display all interfaces, even if down.
+> 显示所有接口，包括已停用的。
 
 **hw** _class_ _address_
-> Set hardware (MAC) address (e.g. `hw ether AA:BB:...`).
+> 设置硬件（MAC）地址（如 `hw ether AA:BB:...`）。
 
 **promisc** / **-promisc**
-> Enable or disable promiscuous mode.
+> 启用或禁用混杂模式。
 
 **arp** / **-arp**
-> Enable or disable ARP protocol on the interface.
+> 在接口上启用或禁用 ARP 协议。
 
 **multicast** / **-multicast**
-> Enable or disable multicast flag.
+> 启用或禁用多播标志。
 
 **add** _ADDR_/_PREFIX_
-> Add an IPv6 address to the interface.
+> 向接口添加 IPv6 地址。
 
 **del** _ADDR_/_PREFIX_
-> Remove an IPv6 address from the interface.
+> 从接口移除 IPv6 地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ifconfig** configures network interfaces. It displays and modifies IP addresses, netmasks, and interface status. Without arguments, it shows all active interfaces. With **-a**, it shows all interfaces including those that are down.
+**ifconfig** 用于配置网络接口。它可以显示和修改 IP 地址、子网掩码和接口状态。不带参数时显示所有活动的接口。使用 **-a** 时显示所有接口，包括已停用的。
 
-The tool is part of **net-tools** and is being replaced by the **ip** command from iproute2, but remains widely used on many systems.
+该工具属于 **net-tools**，正在被 iproute2 的 **ip** 命令取代，但在许多系统上仍被广泛使用。
 
 # CAVEATS
 
-Deprecated for ip command. Part of net-tools. Root needed for changes.
+已被 ip 命令弃用。属于 net-tools。修改配置需要 root 权限。
 
 # HISTORY
 
-**ifconfig** has been part of Unix networking since **4.2BSD** (1983). On Linux it is part of the **net-tools** package, now largely superseded by **iproute2**.
+**ifconfig** 自 **4.2BSD**（1983 年）起就是 Unix 网络功能的一部分。在 Linux 上它属于 **net-tools** 软件包，如今已在很大程度上被 **iproute2** 取代。
 
 # INSTALL
 

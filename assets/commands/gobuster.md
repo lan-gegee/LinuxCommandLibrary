@@ -1,30 +1,30 @@
 # TAGLINE
 
-Directory and DNS brute-forcing tool
+目录与 DNS 爆破工具
 
 # TLDR
 
-**Directory brute-force**
+**目录爆破**
 
 ```gobuster dir -u [https://example.com] -w [wordlist.txt]```
 
-**DNS subdomain enumeration**
+**DNS 子域枚举**
 
 ```gobuster dns -d [example.com] -w [subdomains.txt]```
 
-**Vhost discovery**
+**虚拟主机发现**
 
 ```gobuster vhost -u [https://example.com] -w [wordlist.txt]```
 
-**With file extensions**
+**指定文件扩展名**
 
 ```gobuster dir -u [https://example.com] -w [wordlist.txt] -x [php,html,txt]```
 
-**With custom threads**
+**指定自定义线程数**
 
 ```gobuster dir -u [https://example.com] -w [wordlist.txt] -t [50]```
 
-**Follow redirects**
+**跟随重定向**
 
 ```gobuster dir -u [https://example.com] -w [wordlist.txt] -r```
 
@@ -35,66 +35,66 @@ Directory and DNS brute-forcing tool
 # PARAMETERS
 
 **dir**
-> Directory/file brute-forcing mode.
+> 目录/文件爆破模式。
 
 **dns**
-> DNS subdomain enumeration mode.
+> DNS 子域枚举模式。
 
 **vhost**
-> Virtual host discovery mode.
+> 虚拟主机发现模式。
 
 **fuzz**
-> Generic fuzzing mode using a **FUZZ** keyword placeholder in the URL, headers, or body.
+> 通用模糊测试模式，在 URL、请求头或请求体中使用 **FUZZ** 关键字占位符。
 
 **s3**
-> Enumerate open Amazon S3 buckets.
+> 枚举开放的 Amazon S3 存储桶。
 
 **gcs**
-> Enumerate open Google Cloud Storage buckets.
+> 枚举开放的 Google Cloud Storage 存储桶。
 
 **tftp**
-> Enumerate files on a TFTP server.
+> 枚举 TFTP 服务器上的文件。
 
 **-u** _url_
-> Target URL.
+> 目标 URL。
 
 **-w** _file_
-> Wordlist file.
+> 字典文件。
 
 **-t** _n_
-> Number of threads.
+> 线程数。
 
 **-x** _extensions_
-> File extensions to search.
+> 要搜索的文件扩展名。
 
 **-r**
-> Follow redirects.
+> 跟随重定向。
 
 **-k**
-> Skip TLS certificate verification.
+> 跳过 TLS 证书验证。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-s** _codes_
-> Status codes to consider valid.
+> 视为有效的状态码。
 
 **-b** _codes_
-> Status codes to blacklist.
+> 要加入黑名单的状态码。
 
 # DESCRIPTION
 
-**gobuster** is a fast directory and DNS brute-forcing tool written in Go. It discovers hidden directories, files, and subdomains through wordlist-based enumeration.
+**gobuster** 是一个用 Go 编写的高速目录与 DNS 爆破工具。它通过基于字典的枚举来发现隐藏的目录、文件和子域。
 
-The tool is designed for web application security testing, helping identify hidden content that may reveal vulnerabilities or sensitive information. It supports multiple modes including directory enumeration, DNS subdomain brute-forcing, and virtual host discovery.
+该工具专为 Web 应用安全测试设计，帮助识别可能暴露漏洞或敏感信息的隐藏内容。它支持多种模式，包括目录枚举、DNS 子域爆破和虚拟主机发现。
 
 # CAVEATS
 
-Only for authorized security testing. May trigger WAF rules. Large wordlists slow on remote hosts. Respect rate limits.
+仅限授权的安全测试使用。可能触发 WAF 规则。大字典在远程主机上速度较慢。请遵守速率限制。
 
 # HISTORY
 
-**gobuster** was created by **OJ Reeves** as a fast alternative to tools like DirBuster. Written in Go for concurrency and performance, it became a standard tool in penetration testing and bug bounty hunting.
+**gobuster** 由 **OJ Reeves** 创建，作为 DirBuster 等工具的高速替代品。它采用 Go 编写以获得并发能力和性能，如今已成为渗透测试和漏洞赏金挖掘中的标准工具。
 
 # INSTALL
 

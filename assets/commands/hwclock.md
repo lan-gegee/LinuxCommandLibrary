@@ -1,30 +1,30 @@
 # TAGLINE
 
-reads and sets the hardware clock, which is a battery-backed clock
+读取和设置硬件时钟（一种由电池供电的时钟）
 
 # TLDR
 
-Display the **current time** from the hardware clock
+显示硬件时钟的**当前时间**
 
 ```sudo hwclock```
 
-Write **system time to hardware** clock
+将**系统时间写入硬件**时钟
 
 ```sudo hwclock -w```
 
-Write **hardware time to system** clock
+将**硬件时间写入系统**时钟
 
 ```sudo hwclock -s```
 
-**Set hardware clock** to a specific time
+将**硬件时钟设置**为指定时间
 
 ```sudo hwclock --set --date="2025-01-15 14:30:00"```
 
-Set hardware clock to **UTC mode**
+将硬件时钟设为 **UTC 模式**
 
 ```sudo hwclock --systohc --utc```
 
-Set hardware clock to **local time** mode (for dual-boot with Windows)
+将硬件时钟设为**本地时间**模式（用于与 Windows 双启动）
 
 ```sudo hwclock --systohc --localtime```
 
@@ -35,50 +35,50 @@ Set hardware clock to **local time** mode (for dual-boot with Windows)
 # PARAMETERS
 
 **-r**, **--show**
-> Read and display hardware clock time
+> 读取并显示硬件时钟时间
 
 **-w**, **--systohc**
-> Set hardware clock from system time
+> 根据系统时间设置硬件时钟
 
 **-s**, **--hctosys**
-> Set system time from hardware clock
+> 根据硬件时钟设置系统时间
 
 **--set** **--date=**_TIME_
-> Set hardware clock to specified time
+> 将硬件时钟设置为指定时间
 
 **--localtime**
-> Hardware clock is in local time
+> 硬件时钟使用本地时间
 
 **--utc**
-> Hardware clock is in UTC
+> 硬件时钟使用 UTC
 
 **--adjust**
-> Adjust for systematic drift
+> 校正系统性漂移
 
 **--verbose**
-> Show detailed information about what hwclock is doing
+> 显示 hwclock 正在执行操作的详细信息
 
 **--test**
-> Dry run; show what would be done without modifying anything
+> 试运行；显示将要执行的操作但不修改任何内容
 
 **-f**, **--rtc** _FILE_
-> Use specified RTC device (default: /dev/rtc0)
+> 使用指定的 RTC 设备（默认：/dev/rtc0）
 
 # DESCRIPTION
 
-**hwclock** reads and sets the hardware clock (Real-Time Clock/RTC), which is a battery-backed clock that maintains time when the system is powered off.
+**hwclock** 读取并设置硬件时钟（Real-Time Clock/RTC），这是一种由电池供电、在系统断电时仍维持时间的时钟。
 
-The hardware clock can be set to either UTC or local time. Linux systems typically use UTC for the hardware clock and convert to local time for display. Dual-boot systems with Windows may need the hardware clock in local time since Windows expects this.
+硬件时钟可以设为 UTC 或本地时间。Linux 系统通常让硬件时钟使用 UTC，并在显示时转换为本地时间。与 Windows 双启动的系统可能需要硬件时钟使用本地时间，因为 Windows 预期如此。
 
-During boot, the system typically runs **hwclock --hctosys** to initialize system time from the hardware clock. NTP then corrects for any drift.
+在启动过程中，系统通常会运行 **hwclock --hctosys** 以根据硬件时钟初始化系统时间，随后 NTP 会校正任何漂移。
 
 # CAVEATS
 
-Requires root privileges. Windows and Linux have different expectations for RTC timezone - Linux prefers UTC, Windows prefers localtime. On virtualized systems, the hardware clock may be emulated. Modern systems often use systemd-timesyncd or NTP for time management.
+需要 root 权限。Windows 和 Linux 对 RTC 时区的预期不同——Linux 倾向于 UTC，Windows 倾向于本地时间。在虚拟化系统上，硬件时钟可能是模拟的。现代系统通常使用 systemd-timesyncd 或 NTP 来管理时间。
 
 # HISTORY
 
-hwclock has been the standard Linux utility for hardware clock management since the early days of Linux. It's part of the util-linux package and replaces older tools like clock.
+自 Linux 早期以来，hwclock 一直是管理硬件时钟的标准 Linux 工具。它属于 util-linux 软件包，取代了 clock 等更早的工具。
 
 # INSTALL
 

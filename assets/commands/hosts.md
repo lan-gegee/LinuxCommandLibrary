@@ -1,42 +1,42 @@
 # TAGLINE
 
-Command-line editor for the system hosts file
+系统 hosts 文件的命令行编辑器
 
 # TLDR
 
-**List** all hosts entries
+**列出**所有 hosts 条目
 
 ```hosts```
 
-**Search** entries matching a string or regex
+**搜索**匹配字符串或正则表达式的条目
 
 ```hosts [localhost]```
 
-**Add** an entry
+**添加**条目
 
 ```hosts add [127.0.0.1] [example.com]```
 
-**Remove** an entry
+**移除**条目
 
 ```hosts remove [example.com]```
 
-**Block** a domain (IPv4 and IPv6)
+**屏蔽**域名（IPv4 和 IPv6）
 
 ```hosts block [example.com]```
 
-**Unblock** a domain
+**取消屏蔽**域名
 
 ```hosts unblock [example.com]```
 
-**Disable** (comment out) an entry
+**禁用**（注释掉）条目
 
 ```hosts disable [example.com]```
 
-**Enable** a disabled entry
+**启用**已禁用的条目
 
 ```hosts enable [example.com]```
 
-**Create a backup**
+**创建备份**
 
 ```hosts backups create```
 
@@ -46,47 +46,47 @@ Command-line editor for the system hosts file
 
 # DESCRIPTION
 
-**hosts** is a portable shell script for managing **/etc/hosts** (or the system hosts file): list and search entries, add/remove mappings, block/unblock domains, enable/disable lines by commenting, and maintain backups. It works with existing hosts files rather than replacing them.
+**hosts** 是一个可移植的 Shell 脚本，用于管理 **/etc/hosts**（或系统 hosts 文件）：列出和搜索条目、添加/删除映射、屏蔽/解除屏蔽域名、通过注释启用/禁用行，以及维护备份。它在现有 hosts 文件的基础上工作，而不是替换它们。
 
-Install via Homebrew (**xwmx/taps**), npm (**hosts.sh**), bpkg, **make install**, AUR, or by placing the script on **PATH**. Many operations need root privileges to write the system hosts file.
+可通过 Homebrew（**xwmx/taps**）、npm（**hosts.sh**）、bpkg、**make install**、AUR 安装，或将脚本放入 **PATH**。许多操作需要 root 权限才能写入系统 hosts 文件。
 
 # PARAMETERS
 
 *(no args)* / **list**
 
-> List hosts file entries.
+> 列出 hosts 文件条目。
 
 *pattern*
 
-> Search entries matching a string or regular expression.
+> 搜索匹配字符串或正则表达式的条目。
 
 **add** *ip* *hostname*...
 
-> Add a mapping.
+> 添加映射。
 
 **remove** *ip|host|regex*
 
-> Remove matching entries (prompts for confirmation).
+> 删除匹配的条目（会提示确认）。
 
 **block** / **unblock** *domain*
 
-> Add or remove blocking entries for a domain.
+> 为域名添加或移除屏蔽条目。
 
 **disable** / **enable** *entry*
 
-> Comment or uncomment entries.
+> 注释或取消注释条目。
 
 **backups** create|show|compare|...
 
-> Backup management for the hosts file.
+> hosts 文件的备份管理。
 
 **completions install**
 
-> Install shell completions (often needs sudo).
+> 安装 Shell 补全（通常需要 sudo）。
 
 # CAVEATS
 
-Editing the system hosts file usually requires **sudo**. Bad entries can break name resolution; keep backups. On some systems the hosts path differs; the script targets the platform default. Completions are optional when installing the script alone.
+编辑系统 hosts 文件通常需要 **sudo**。错误的条目可能破坏名称解析；请保留备份。在某些系统上 hosts 路径不同；该脚本针对平台默认路径。仅安装脚本时补全是可选的。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-ImageMagick utility for capturing X Window screenshots
+用于捕获 X Window 屏幕截图的 ImageMagick 工具
 
 # TLDR
 
-**Capture window by click** (interactive crosshair selector)
+**点击窗口捕获**（交互式十字准线选择器）
 
 ```import screenshot.png```
 
-**Capture entire screen**
+**捕获整个屏幕**
 
 ```import -window root screenshot.png```
 
-**Capture specific window**
+**捕获特定窗口**
 
 ```import -window [window_id] screenshot.png```
 
-**Capture with delay**
+**延迟捕获**
 
 ```import -pause [5] screenshot.png```
 
-**Capture region**
+**捕获区域**
 
 ```import -crop [640x480+100+100] screenshot.png```
 
-**Set image format**
+**设置图像格式**
 
 ```import screenshot.[jpg|png|gif]```
 
@@ -35,42 +35,42 @@ ImageMagick utility for capturing X Window screenshots
 # PARAMETERS
 
 **-window** _ID_
-> Capture specific window ID or "root" for full screen.
+> 捕获特定的窗口 ID，"root" 表示全屏。
 
 **-pause** _SECONDS_
-> Delay before capture.
+> 捕获前的延迟时间。
 
 **-crop** _GEOMETRY_
-> Crop to specified geometry.
+> 裁剪到指定的几何尺寸。
 
 **-frame**
-> Include window frame.
+> 包含窗口框架。
 
 **-border**
-> Include window border.
+> 包含窗口边框。
 
 **-screen**
-> Capture from virtual root window.
+> 从虚拟根窗口捕获。
 
 **-silent**
-> Suppress progress monitor.
+> 不显示进度监视器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**import** is an ImageMagick utility for capturing X Window screenshots. It can capture the entire screen, specific windows, or user-selected regions.
+**import** 是一款用于捕获 X Window 屏幕截图的 ImageMagick 工具。它可以捕获整个屏幕、特定窗口或用户选择的区域。
 
-The tool supports various output formats determined by file extension. It integrates with the ImageMagick processing pipeline for immediate manipulation.
+该工具支持由文件扩展名决定的各种输出格式。它与 ImageMagick 处理流水线集成，可立即进行处理操作。
 
 # CAVEATS
 
-X11 only. Requires ImageMagick. Click-to-select default behavior.
+仅支持 X11。需要安装 ImageMagick。默认行为是点击选择。
 
 # HISTORY
 
-import is part of the **ImageMagick** suite, created by **John Cristy** in 1987 for X Window screen capture.
+import 是 **ImageMagick** 套件的一部分，由 **John Cristy** 于 1987 年创建，用于 X Window 屏幕捕获。
 
 # INSTALL
 

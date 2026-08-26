@@ -1,22 +1,22 @@
 # TAGLINE
 
-finds and requests Kerberos service tickets for user accounts with SPNs
+查找拥有 SPN 的用户账户并请求其 Kerberos 服务票据
 
 # TLDR
 
-**Find Kerberoastable accounts**
+**查找可被 Kerberoasting 的账户**
 
 ```impacket-GetUserSPNs [domain]/[user]:[password] -dc-ip [dc-ip]```
 
-**Request service tickets**
+**请求服务票据**
 
 ```impacket-GetUserSPNs [domain]/[user]:[password] -dc-ip [dc-ip] -request```
 
-**Output to file for cracking**
+**输出到文件以便破解**
 
 ```impacket-GetUserSPNs [domain]/[user]:[password] -dc-ip [dc-ip] -request -outputfile [hashes.txt]```
 
-**Use NTLM hash**
+**使用 NTLM 哈希**
 
 ```impacket-GetUserSPNs -hashes :[hash] [domain]/[user] -dc-ip [dc-ip]```
 
@@ -27,23 +27,23 @@ finds and requests Kerberos service tickets for user accounts with SPNs
 # PARAMETERS
 
 **-dc-ip** _ip_
-> Domain controller IP.
+> 域控制器 IP。
 
 **-request**
-> Request TGS tickets.
+> 请求 TGS 票据。
 
 **-outputfile** _file_
-> Save tickets to file.
+> 将票据保存到文件。
 
 **-hashes** _lm:nt_
-> Use NTLM hashes.
+> 使用 NTLM 哈希。
 
 **-k**
-> Use Kerberos authentication.
+> 使用 Kerberos 身份验证。
 
 # DESCRIPTION
 
-**impacket-GetUserSPNs** finds and requests Kerberos service tickets for user accounts with SPNs (Service Principal Names). Part of the Impacket toolkit. Used for Kerberoasting attacks where TGS tickets can be cracked offline. For authorized security testing only.
+**impacket-GetUserSPNs** 查找拥有 SPN（服务主体名称）的用户账户并请求其 Kerberos 服务票据。属于 Impacket 工具集。用于 Kerberoasting 攻击，获取的 TGS 票据可以离线破解。仅限用于经授权的安全测试。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ finds and requests Kerberos service tickets for user accounts with SPNs
 # SEE ALSO
 
 [impacket-gettgt](/man/impacket-gettgt)(1), [hashcat](/man/hashcat)(1)
-

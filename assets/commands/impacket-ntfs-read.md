@@ -1,18 +1,18 @@
 # TAGLINE
 
-reads files from remote Windows systems via SMB by directly parsing the NTFS
+通过 SMB 直接解析 NTFS 结构，从远程 Windows 系统读取文件
 
 # TLDR
 
-**Read a file from a remote NTFS share**
+**从远程 NTFS 共享读取文件**
 
 ```impacket-ntfs-read '[domain]/[user]:[password]@[192.168.1.100]' '[C$\Windows\System32\config\SAM]'```
 
-**Read file using NTLM hash** authentication
+使用 **NTLM 哈希**身份验证**读取文件**
 
 ```impacket-ntfs-read -hashes ':[nthash]' '[domain]/[user]@[192.168.1.100]' '[share\path\to\file]'```
 
-**Read file using Kerberos** authentication
+使用 **Kerberos** 身份验证**读取文件**
 
 ```impacket-ntfs-read -k -no-pass '[domain]/[user]@[target]' '[C$\path\to\file]'```
 
@@ -23,33 +23,33 @@ reads files from remote Windows systems via SMB by directly parsing the NTFS
 # PARAMETERS
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes for authentication instead of password
+> 使用 NTLM 哈希而非密码进行身份验证
 
 **-no-pass**
-> Don't ask for password (useful with -k)
+> 不询问密码（与 -k 搭配时有用）
 
 **-k**
-> Use Kerberos authentication from ccache file
+> 使用 ccache 文件中的 Kerberos 身份验证
 
 **-aesKey** _KEY_
-> AES key to use for Kerberos authentication
+> 用于 Kerberos 身份验证的 AES 密钥
 
 **-dc-ip** _IP_
-> IP address of the domain controller (for Kerberos)
+> 域控制器的 IP 地址（用于 Kerberos）
 
 # DESCRIPTION
 
-**impacket-ntfs-read** reads files from remote Windows systems via SMB by directly parsing the NTFS file system structures. This allows reading files that might be locked by the operating system, such as registry hives or other system files.
+**impacket-ntfs-read** 通过 SMB 直接解析 NTFS 文件系统结构，从远程 Windows 系统读取文件。这样可以读取可能被操作系统锁定的文件，例如注册表配置单元（registry hive）或其他系统文件。
 
-The tool connects to administrative shares (C$, ADMIN$) and reads files at the raw NTFS level, bypassing Windows file locking mechanisms. This is particularly useful for extracting sensitive files during penetration tests.
+该工具连接管理共享（C$、ADMIN$），在原始 NTFS 层级读取文件，绕过 Windows 的文件锁定机制。这在渗透测试期间提取敏感文件时尤其有用。
 
 # CAVEATS
 
-Requires administrative access to the target system (access to C$ or ADMIN$ shares). Some files may still be inaccessible due to NTFS permissions. The path should use backslashes and reference the share name.
+需要对目标系统的管理员访问权限（能访问 C$ 或 ADMIN$ 共享）。某些文件仍可能因 NTFS 权限而无法访问。路径应使用反斜杠并引用共享名。
 
 # HISTORY
 
-Part of the **Impacket** library by SecureAuth. The tool implements NTFS parsing over SMB to enable reading locked files, a technique commonly used in credential extraction workflows.
+属于 SecureAuth 的 **Impacket** 库。该工具实现了基于 SMB 的 NTFS 解析以读取被锁定的文件，这是凭据提取工作流中常用的技术。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-terminal-based Google Hangouts client (defunct: Hangouts was shut down in 2022)
+基于终端的 Google Hangouts 客户端（已失效：Hangouts 已于 2022 年关停）
 
 # TLDR
 
-**Start hangups** (prompts an OAuth login on first run, then caches the refresh token)
+**启动 hangups**（首次运行时会提示 OAuth 登录，随后缓存刷新令牌）
 
 ```hangups```
 
-**Use the manual (copy-paste) OAuth login flow**
+**使用手动（复制粘贴）OAuth 登录流程**
 
 ```hangups --manual-login```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```hangups --config [hangups.conf]```
 
-**Enable verbose debug logging** to a file
+**启用详细调试日志**写入文件
 
 ```hangups --debug --log [hangups.log]```
 
-**Rebind a keyboard shortcut**, e.g. quit
+**重新绑定键盘快捷键**，例如退出键
 
 ```hangups --key-quit [ctrl q]```
 
-**Show the installed version**
+**显示已安装版本**
 
 ```hangups --version```
 
@@ -35,52 +35,52 @@ terminal-based Google Hangouts client (defunct: Hangouts was shut down in 2022)
 # PARAMETERS
 
 **-c**, **--config** _FILE_
-> Configuration file path.
+> 配置文件路径。
 
 **-d**, **--debug**
-> Log detailed debugging messages.
+> 记录详细的调试信息。
 
 **--manual-login**
-> Use the manual (copy-paste) OAuth login flow instead of opening a browser.
+> 使用手动（复制粘贴）OAuth 登录流程，而不是打开浏览器。
 
 **--token-path** _PATH_
-> Path used to store the cached OAuth refresh token.
+> 用于存储缓存 OAuth 刷新令牌的路径。
 
 **--log** _FILE_
-> Log file path.
+> 日志文件路径。
 
 **-D**, **--discreet-notifications**
-> Hide message details in desktop notifications.
+> 在桌面通知中隐藏消息详情。
 
 **--notification-type** _TYPE_
-> Type of desktop notifications to create.
+> 要创建的桌面通知类型。
 
 **--key-quit**, **--key-next-tab**, **--key-prev-tab**, **--key-close-tab**, **--key-menu** _KEY_
-> Rebind the corresponding action's key (defaults: ctrl e, ctrl d, ctrl u, ctrl w, ctrl n).
+> 重新绑定对应操作的按键（默认值：ctrl e、ctrl d、ctrl u、ctrl w、ctrl n）。
 
 **--col-scheme** _NAME_
-> Colour scheme to use.
+> 要使用的配色方案。
 
 **--keep-emoticons**
-> Don't replace emoticons with corresponding emoji.
+> 不将表情符号替换为对应的 emoji。
 
 **-v**, **--version**
-> Print the installed hangups version.
+> 打印已安装的 hangups 版本。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hangups** was the first third-party instant messaging client for Google Hangouts, providing a Python library plus a terminal (urwid-based) reference client. It worked by reverse-engineering Google's proprietary Hangouts protocol, which let it support features like group messaging that weren't available to XMPP-based clients.
+**hangups** 是第一款第三方 Google Hangouts 即时通讯客户端，提供了一个 Python 库和一个终端参考客户端（基于 urwid）。它的实现方式是对 Google 私有的 Hangouts 协议进行逆向工程，因此得以支持群聊等基于 XMPP 的客户端所不具备的功能。
 
 # CAVEATS
 
-Google shut down consumer Hangouts in **November 2022** and decommissioned the API hangups depended on; the client can no longer log in or connect, and the project has seen no functional release since (last PyPI release was 0.4.18, April 2022). It is kept online for reference only, not as a usable chat client.
+Google 已于 **2022 年 11 月**关停了消费版 Hangouts，并停用了 hangups 所依赖的 API；该客户端已无法登录或连接，此后项目也未再发布功能性更新（PyPI 上的最后一次发布是 2022 年 4 月的 0.4.18）。目前它仅作为参考资料保留，不再是可用的聊天客户端。
 
 # HISTORY
 
-hangups was created by **Tom Dryer**, with its first release in **2014**, as an unofficial Google Hangouts client for terminal users. Several bots and bridges (HangupsBot, telepathy-hangups) were built on top of its protocol library before Hangouts itself was retired.
+hangups 由 **Tom Dryer** 创建，首个版本发布于 **2014 年**，是面向终端用户的非官方 Google Hangouts 客户端。在 Hangouts 本身退役之前，不少机器人和桥接工具（HangupsBot、telepathy-hangups）都构建在它的协议库之上。
 
 # SEE ALSO
 

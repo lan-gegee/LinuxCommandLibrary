@@ -1,18 +1,18 @@
 # TAGLINE
 
-watches for network state changes in real-time and reports them to stdout
+实时监视网络状态变化并输出到 stdout
 
 # TLDR
 
-**Monitor** all network state changes
+**监视**所有网络状态变化
 
 ```ip monitor```
 
-Monitor **specific** event type
+监视**特定**事件类型
 
 ```ip monitor [link|address|route|neigh|rule|maddress]```
 
-**Replay** an event file generated with rtmon
+**回放**由 rtmon 生成的记录文件
 
 ```ip monitor file [path/to/file]```
 
@@ -23,39 +23,39 @@ Monitor **specific** event type
 # PARAMETERS
 
 **link**
-> Monitor link state changes
+> 监视链路状态变化
 
 **address**
-> Monitor address changes
+> 监视地址变化
 
 **route**
-> Monitor routing table changes
+> 监视路由表变化
 
 **neigh**
-> Monitor neighbour/ARP table changes
+> 监视邻居/ARP 表变化
 
 **rule**
-> Monitor policy routing rule changes
+> 监视策略路由规则变化
 
 **maddress**
-> Monitor multicast address changes
+> 监视组播地址变化
 
 **file** _FILE_
-> Replay events from file (generated with rtmon)
+> 从文件回放事件（由 rtmon 生成）
 
 # DESCRIPTION
 
-**ip monitor** watches for network state changes in real-time and reports them to stdout. It uses netlink sockets to receive kernel notifications about network configuration changes.
+**ip monitor** 实时监视网络状态变化并将其报告到 stdout。它使用 netlink 套接字接收内核关于网络配置变更的通知。
 
-This is useful for debugging network issues, monitoring dynamic changes, and understanding how network configuration evolves over time. Multiple event types can be monitored simultaneously.
+这可用于调试网络问题、监视动态变化，以及了解网络配置随时间的演变。可以同时监视多种事件类型。
 
 # CAVEATS
 
-Monitoring requires appropriate privileges to access netlink sockets. Output can be verbose on active systems. Events are reported in real-time but may be buffered.
+监视需要适当的权限才能访问 netlink 套接字。在繁忙的系统上输出可能非常冗长。事件会实时报告，但可能被缓冲。
 
 # HISTORY
 
-ip monitor is part of iproute2, developed by Alexey Kuznetsov. The netlink interface it uses was introduced in Linux 2.2 and has been enhanced in subsequent kernel versions.
+ip monitor 是 iproute2 的一部分，由 Alexey Kuznetsov 开发。它所使用的 netlink 接口在 Linux 2.2 中引入，并在后续内核版本中不断增强。
 
 # SEE ALSO
 

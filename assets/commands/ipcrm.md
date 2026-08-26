@@ -1,34 +1,34 @@
 # TAGLINE
 
-removes System V IPC resources
+删除 System V IPC 资源
 
 # TLDR
 
-Delete shared memory segment by **ID**
+按 **ID** 删除共享内存段
 
 ```ipcrm -m [shmem_id]```
 
-Delete shared memory segment by **key**
+按**键**删除共享内存段
 
 ```ipcrm -M [shmem_key]```
 
-Delete message queue by **ID**
+按 **ID** 删除消息队列
 
 ```ipcrm -q [queue_id]```
 
-Delete message queue by **key**
+按**键**删除消息队列
 
 ```ipcrm -Q [queue_key]```
 
-Delete semaphore by **ID**
+按 **ID** 删除信号量
 
 ```ipcrm -s [semaphore_id]```
 
-Delete semaphore by **key**
+按**键**删除信号量
 
 ```ipcrm -S [semaphore_key]```
 
-Delete **all** IPC resources
+删除**所有** IPC 资源
 
 ```ipcrm -a```
 
@@ -39,39 +39,39 @@ Delete **all** IPC resources
 # PARAMETERS
 
 **-m**, **--shmem-id** _ID_
-> Remove shared memory segment by ID
+> 按 ID 删除共享内存段
 
 **-M**, **--shmem-key** _KEY_
-> Remove shared memory segment by key
+> 按键删除共享内存段
 
 **-q**, **--queue-id** _ID_
-> Remove message queue by ID
+> 按 ID 删除消息队列
 
 **-Q**, **--queue-key** _KEY_
-> Remove message queue by key
+> 按键删除消息队列
 
 **-s**, **--semaphore-id** _ID_
-> Remove semaphore set by ID
+> 按 ID 删除信号量集
 
 **-S**, **--semaphore-key** _KEY_
-> Remove semaphore set by key
+> 按键删除信号量集
 
 **-a**, **--all**
-> Remove all IPC resources
+> 删除所有 IPC 资源
 
 # DESCRIPTION
 
-**ipcrm** removes System V IPC resources (shared memory segments, message queues, and semaphores). Resources can be identified by either their numeric ID or key value.
+**ipcrm** 删除 System V IPC 资源（共享内存段、消息队列和信号量）。资源可通过其数字 ID 或键值来标识。
 
-Use ipcs to list existing resources and their IDs/keys before removal. Resources should be removed when no longer needed to free system resources.
+删除之前请先用 ipcs 列出现有资源及其 ID/键。不再需要的资源应及时删除以释放系统资源。
 
 # CAVEATS
 
-Removing resources while processes are still using them can cause those processes to fail. Requires appropriate permissions (owner or root). The -a option removes all accessible resources.
+在进程仍在使用资源时将其删除，可能导致这些进程失败。需要适当的权限（所有者或 root）。-a 选项会删除所有可访问的资源。
 
 # HISTORY
 
-ipcrm has been part of Unix systems since System V IPC was introduced in the early **1980s**. It provides essential cleanup functionality for IPC resources that persist beyond process lifetime.
+自 **1980 年代**初 System V IPC 引入以来，ipcrm 就一直是 Unix 系统的一部分。它为生命周期超出进程的 IPC 资源提供必要的清理功能。
 
 # INSTALL
 

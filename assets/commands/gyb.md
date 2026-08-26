@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line tool for backing up and restoring Gmail
+用于备份和恢复 Gmail 的命令行工具
 
 # TLDR
 
-**Backup Gmail**
+**备份 Gmail**
 
 ```gyb --email [user@gmail.com] --action backup```
 
-**Restore emails**
+**恢复邮件**
 
 ```gyb --email [user@gmail.com] --action restore```
 
-**Estimate backup size**
+**估算备份大小**
 
 ```gyb --email [user@gmail.com] --action estimate```
 
-**Backup only recent messages**
+**只备份最近的邮件**
 
 ```gyb --email [user@gmail.com] --action backup --search "newer_than:[7d]"```
 
-**Count messages**
+**统计邮件数量**
 
 ```gyb --email [user@gmail.com] --action count```
 
-**Fast incremental backup** (skip refreshing labels for already-backed-up messages)
+**快速增量备份**（跳过已备份邮件的标签刷新）
 
 ```gyb --email [user@gmail.com] --action backup --fast-incremental```
 
@@ -35,48 +35,48 @@ command-line tool for backing up and restoring Gmail
 # PARAMETERS
 
 **--email** _ADDR_
-> Gmail address.
+> Gmail 地址。
 
 **--action** _ACT_
-> Action: backup, restore, restore-mbox, estimate, count, purge, print-labels, quota, reindex.
+> 操作：backup、restore、restore-mbox、estimate、count、purge、print-labels、quota、reindex。
 
 **--local-folder** _DIR_
-> Local backup directory.
+> 本地备份目录。
 
 **--search** _QUERY_
-> Gmail search query to filter messages.
+> 用于过滤邮件的 Gmail 搜索查询。
 
 **--fast-incremental**
-> Skip refreshing labels/flags for already-backed-up messages.
+> 跳过已备份邮件的标签/标志刷新。
 
 **--label-restored** _LABEL_
-> On restore, additionally apply this label to all messages.
+> 恢复时为所有邮件额外应用此标签。
 
 **--strip-labels**
-> Remove existing labels during restore.
+> 恢复期间移除现有标签。
 
 **--spam-trash**
-> Include Spam and Trash folders.
+> 包含垃圾邮件和回收站文件夹。
 
 **--service-account**
-> Use Google Service Account authentication.
+> 使用 Google 服务账号身份验证。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**GYB** (Got Your Back) is a command-line tool for backing up and restoring Gmail using the Gmail API over HTTPS.
+**GYB**（Got Your Back）是一款用于备份和恢复 Gmail 的命令行工具，通过 HTTPS 使用 Gmail API。
 
-It supports incremental backups, search queries to filter specific messages, and can also restore from mbox exports (e.g., Google Takeout). Backups are stored locally with a SQLite index.
+它支持增量备份和用于筛选特定邮件的搜索查询，还可以从 mbox 导出文件恢复（例如 Google Takeout）。备份以 SQLite 索引的形式存储在本地。
 
 # CAVEATS
 
-Requires OAuth authorization. Rate limited by Gmail API. Large mailboxes take time.
+需要 OAuth 授权。受 Gmail API 速率限制。大型邮箱耗时较长。
 
 # HISTORY
 
-GYB was created by **Jay Lee** as an open-source Gmail backup tool, widely used for Google Workspace migrations.
+GYB 由 **Jay Lee** 创建，是一款开源 Gmail 备份工具，广泛用于 Google Workspace 迁移。
 
 # INSTALL
 

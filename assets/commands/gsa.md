@@ -1,26 +1,26 @@
 # TAGLINE
 
-Analyze size breakdown of Go compiled binaries
+分析 Go 编译二进制文件的体积构成
 
 # TLDR
 
-**Text report** for a binary
+二进制文件的**文本报告**
 
 ```gsa [path/to/binary]```
 
-**Interactive terminal UI**
+**交互式终端 UI**
 
 ```gsa --tui [path/to/binary]```
 
-**Web UI** on local server
+本地服务器上的 **Web UI**
 
 ```gsa --web [path/to/binary]```
 
-**JSON output**
+**JSON 输出**
 
 ```gsa -f json [path/to/binary]```
 
-**Compare two binaries**
+**比较两个二进制文件**
 
 ```gsa --diff [old-binary] [new-binary]```
 
@@ -30,43 +30,43 @@ Analyze size breakdown of Go compiled binaries
 
 # DESCRIPTION
 
-**gsa** (**go-size-analyzer**) analyses the size of Go-compiled binaries. It supports ELF, Mach-O, PE, and experimental WebAssembly, with breakdowns by packages and sections. Output formats include text, JSON, HTML, and SVG. Interactive exploration is available via **--tui** and **--web**.
+**gsa**（**go-size-analyzer**）分析 Go 编译的二进制文件的体积构成。它支持 ELF、Mach-O、PE 以及实验性的 WebAssembly，可按包和节进行分解。输出格式包括 text、JSON、HTML 和 SVG。可通过 **--tui** 和 **--web** 进行交互式探索。
 
-Install from GitHub releases, Homebrew (**brew install go-size-analyzer**), Scoop, or:
+可以从 GitHub releases、Homebrew（**brew install go-size-analyzer**）、Scoop 安装，或：
 
 ```
 GOEXPERIMENT=jsonv2 go install github.com/Zxilly/go-size-analyzer/cmd/gsa@latest
 ```
 
-Building from source needs a recent Go toolchain with the **jsonv2** experiment enabled (as documented upstream).
+从源码构建需要较新的 Go 工具链并启用 **jsonv2** 实验（如上游文档所述）。
 
 # PARAMETERS
 
 *binary*
 
-> Path to a compiled Go binary (or multiple for supported modes).
+> 编译后的 Go 二进制文件路径（在支持的模式下可以是多个）。
 
 **--tui**
 
-> Open the terminal UI explorer.
+> 打开终端 UI 浏览器。
 
 **--web**
 
-> Start a web UI (default port documented in **--help**, commonly 8080).
+> 启动 Web UI（默认端口见 **--help** 文档，通常为 8080）。
 
 **-f**, **--format** text|json|html|svg
 
-> Output format for non-interactive runs.
+> 非交互运行时的输出格式。
 
 **--diff**
 
-> Compare binaries (json/text).
+> 比较二进制文件（json/text）。
 
-See **gsa --help** for verbose flags, hide options, and server bind addresses.
+详细标志、隐藏选项和服务器绑定地址请参见 **gsa --help**。
 
 # CAVEATS
 
-Best results on Go binaries with symbol/package information; stripped binaries yield coarser reports. WebAssembly analysis is experimental. Browser/WASM analysis is much slower than native. Source builds need specific Go version features.
+对带有符号/包信息的 Go 二进制文件效果最佳；剥离符号的二进制文件只能得到较粗略的报告。WebAssembly 分析是实验性的。浏览器/WASM 分析比本地分析慢得多。从源码构建需要特定的 Go 版本特性。
 
 # INSTALL
 

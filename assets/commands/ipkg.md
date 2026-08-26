@@ -1,30 +1,30 @@
 # TAGLINE
 
-lightweight package manager for embedded Linux systems
+面向嵌入式 Linux 系统的轻量级软件包管理器
 
 # TLDR
 
-**Update package list**
+**更新软件包列表**
 
 ```ipkg update```
 
-**Install package**
+**安装软件包**
 
 ```ipkg install [package]```
 
-**Remove package**
+**卸载软件包**
 
 ```ipkg remove [package]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```ipkg list_installed```
 
-**Search packages**
+**搜索软件包**
 
 ```ipkg list | grep [pattern]```
 
-**Upgrade all packages**
+**升级所有软件包**
 
 ```ipkg upgrade```
 
@@ -35,45 +35,45 @@ lightweight package manager for embedded Linux systems
 # PARAMETERS
 
 **update**
-> Update package list.
+> 更新软件包列表。
 
 **install** _package_
-> Install package.
+> 安装软件包。
 
 **remove** _package_
-> Remove package.
+> 卸载软件包。
 
 **upgrade**
-> Upgrade all packages.
+> 升级所有软件包。
 
 **list**
-> List available packages.
+> 列出可用的软件包。
 
 **list_installed**
-> List installed packages.
+> 列出已安装的软件包。
 
 **info** _package_
-> Show package information.
+> 显示软件包信息。
 
 **status** _package_
-> Show package status.
+> 显示软件包状态。
 
 **download** _package_
-> Download without installing.
+> 只下载而不安装。
 
 # DESCRIPTION
 
-**ipkg** (Itsy Package Management System) is a lightweight package manager for embedded Linux systems. It was designed for devices with limited storage and memory, using a format similar to Debian's dpkg.
+**ipkg**（Itsy Package Management System）是面向嵌入式 Linux 系统的轻量级软件包管理器。它专为存储和内存有限的设备设计，使用与 Debian 的 dpkg 类似的格式。
 
-ipkg was commonly used on OpenWrt, NSLU2, and other embedded devices before being succeeded by opkg.
+在被 opkg 接替之前，ipkg 曾广泛用于 OpenWrt、NSLU2 及其他嵌入式设备。
 
 # CAVEATS
 
-Deprecated in favor of opkg. Limited to embedded systems. Package availability depends on feed configuration. No dependency resolution in some versions.
+已被 opkg 取代，属于弃用状态。仅限于嵌入式系统。软件包可用性取决于 feed 配置。某些版本不具备依赖解析功能。
 
 # HISTORY
 
-ipkg was developed for the NSLU2 Linux community and used by OpenWrt before version 8.09. It was succeeded by **opkg**, which is a fork with improved features and active maintenance.
+ipkg 为 NSLU2 Linux 社区而开发，并在 8.09 版本之前被 OpenWrt 使用。它的继任者是 **opkg**，这是一个功能更强且仍在活跃维护的分叉版本。
 
 # INSTALL
 

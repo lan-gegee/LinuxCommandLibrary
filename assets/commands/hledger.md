@@ -1,42 +1,42 @@
 # TAGLINE
 
-plain text accounting tool
+纯文本记账工具
 
 # TLDR
 
-**Show account balances**
+**显示账户余额**
 
 ```hledger balance```
 
-**Show a register of transactions**
+**显示交易账簿**
 
 ```hledger register```
 
-**Show income statement**
+**显示利润表**
 
 ```hledger incomestatement```
 
-**Show balance sheet**
+**显示资产负债表**
 
 ```hledger balancesheet```
 
-**Add a transaction interactively**
+**交互式添加交易**
 
 ```hledger add```
 
-**Use a specific journal file**
+**使用指定的日志文件**
 
 ```hledger -f [ledger.journal] balance```
 
-**Show balances for a date range**
+**显示日期范围内的余额**
 
 ```hledger balance -b [2024-01-01] -e [2024-12-31]```
 
-**Show monthly balance changes**
+**显示按月的余额变动**
 
 ```hledger balance --monthly```
 
-**Show cash flow report**
+**显示现金流量报告**
 
 ```hledger cashflow```
 
@@ -47,80 +47,80 @@ plain text accounting tool
 # PARAMETERS
 
 **balance**, **bal**
-> Show account balances.
+> 显示账户余额。
 
 **register**, **reg**
-> Show transaction register with running total.
+> 显示带累计总额的交易账簿。
 
 **print**
-> Print journal entries in standard format.
+> 以标准格式打印日志条目。
 
 **add**
-> Add a transaction interactively.
+> 交互式添加交易。
 
 **incomestatement**, **is**
-> Show income statement (revenues and expenses).
+> 显示利润表（收入与支出）。
 
 **balancesheet**, **bs**
-> Show balance sheet (assets, liabilities, equity).
+> 显示资产负债表（资产、负债、权益）。
 
 **cashflow**, **cf**
-> Show cash flow statement.
+> 显示现金流量表。
 
 **accounts**
-> List account names.
+> 列出账户名。
 
 **stats**
-> Show journal statistics.
+> 显示日志统计信息。
 
 **import**
-> Import new transactions from CSV or other files.
+> 从 CSV 或其他文件导入新交易。
 
 **-f** _FILE_
-> Read this journal file instead of the default ($LEDGER_FILE or ~/.hledger.journal).
+> 读取指定的日志文件，而非默认文件（$LEDGER_FILE 或 ~/.hledger.journal）。
 
 **-b** _DATE_
-> Begin date (include transactions on or after this date).
+> 起始日期（包含此日期及之后的交易）。
 
 **-e** _DATE_
-> End date (include transactions before this date).
+> 结束日期（包含此日期之前的交易）。
 
 **-p** _PERIOD_
-> Period expression (e.g., "monthly", "quarterly", "2024").
+> 期间表达式（例如 "monthly"、"quarterly"、"2024"）。
 
 **--monthly**, **--quarterly**, **--yearly**
-> Show amounts per time period.
+> 按时间段显示金额。
 
 **--depth** _N_
-> Limit account display depth.
+> 限制账户显示深度。
 
 **--cost**, **-B**
-> Convert to cost using transaction prices.
+> 使用交易价格转换为成本。
 
 **--market**, **-V**
-> Convert to market value using market prices.
+> 使用市场价格转换为市值。
 
 **--output-format** _FMT_
-> Output format: txt, csv, json, html.
+> 输出格式：txt、csv、json、html。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hledger** is a plain text accounting tool that reads journal files and produces financial reports. It implements double-entry accounting, where every transaction must balance (debits equal credits).
+**hledger** 是一个纯文本记账工具，读取日志文件并生成财务报表。它实现复式记账，每笔交易必须平衡（借方等于贷方）。
 
-The default journal file is **~/.hledger.journal** or the file specified by the **LEDGER_FILE** environment variable. Journal entries consist of a date, description, and two or more postings (account name and amount). The tool supports multiple currencies, commodity prices, periodic transactions, and CSV import rules.
+默认的日志文件是 **~/.hledger.journal**，或由 **LEDGER_FILE** 环境变量指定的文件。日志条目由日期、描述和两条及以上分录（账户名和金额）组成。该工具支持多种货币、商品价格、周期性交易以及 CSV 导入规则。
 
-Reports can be filtered by date range, account name patterns, and description queries. Multi-period reports (**--monthly**, **--quarterly**) show changes over time for trend analysis.
+报告可以按日期范围、账户名模式和描述查询进行过滤。多期间报表（**--monthly**、**--quarterly**）展示随时间变化的情况，便于趋势分析。
 
 # CAVEATS
 
-Double-entry accounting requires every transaction to balance, which can be confusing for beginners. Journal file syntax is whitespace-sensitive: account names and amounts must be separated by at least two spaces. The default journal file must exist or be specified with **-f** or **LEDGER_FILE**.
+复式记账要求每笔交易平衡，这对初学者可能有些困惑。日志文件语法对空白敏感：账户名和金额之间必须至少隔两个空格。默认日志文件必须已存在，或通过 **-f** 或 **LEDGER_FILE** 指定。
 
 # HISTORY
 
-**hledger** was created by **Simon Michael** in **2007** as a Haskell reimplementation inspired by John Wiegley's Ledger. It aims to be a reliable, portable plain text accounting tool with a focus on usability and documentation.
+**hledger** 由 **Simon Michael** 于 **2007 年**创建，是受 John Wiegley 的 Ledger 启发而做的 Haskell 重实现。它致力于成为可靠、可移植的纯文本记账工具，注重易用性和文档。
 
 # INSTALL
 

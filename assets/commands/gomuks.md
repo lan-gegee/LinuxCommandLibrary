@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal Matrix client
+终端 Matrix 客户端
 
 # TLDR
 
-**Connect** to Matrix homeserver
+**连接**到 Matrix 主服务器
 
 ```gomuks```
 
-**Connect** with specific user
+以指定用户身份**连接**
 
 ```gomuks -u [@user:example.com]```
 
-**Connect** to specific server
+**连接**到指定的服务器
 
 ```gomuks -s [https://matrix.example.com]```
 
@@ -23,79 +23,79 @@ Terminal Matrix client
 # PARAMETERS
 
 **-u, --user** _MXID_
-> Matrix user ID (@user:server)
+> Matrix 用户 ID（@user:server）
 
 **-s, --server** _URL_
-> Homeserver URL
+> 主服务器 URL
 
 **-c, --config** _FILE_
-> Configuration file path
+> 配置文件的路径
 
 **-d, --debug**
-> Enable debug logging
+> 启用调试日志
 
 **--version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**gomuks** is a terminal-based Matrix client. It provides a text-based interface for the Matrix protocol, supporting end-to-end encryption, rooms, direct messages, and file sharing.
+**gomuks** 是一个基于终端的 Matrix 客户端。它为 Matrix 协议提供文本界面，支持端到端加密、房间、私信和文件分享。
 
-The client is designed for users who prefer terminal-based workflows and need Matrix access without a GUI.
+该客户端专为偏好终端工作流、不需要 GUI 即可使用 Matrix 的用户设计。
 
 # KEYBINDINGS
 
 **↑/↓**
-> Navigate messages
+> 在消息之间导航
 
 **Tab**
-> Switch between rooms
+> 在房间之间切换
 
 **Ctrl+N**
-> Next room with unread messages
+> 跳到下一个有未读消息的房间
 
 **Ctrl+P**
-> Previous room
+> 上一个房间
 
 **/**
-> Search messages
+> 搜索消息
 
 **: or /**
-> Command mode
+> 命令模式
 
 **q**
-> Quit
+> 退出
 
 **?**
-> Show help
+> 显示帮助
 
 # COMMANDS
 
 **/join** _#room:server_
-> Join a room
+> 加入一个房间
 
 **/part**
-> Leave current room
+> 离开当前房间
 
 **/nick** _name_
-> Change display name
+> 更改显示名称
 
 **/me** _action_
-> Send action message
+> 发送动作消息
 
 **/react** _emoji_
-> React to message
+> 对消息添加表情回应
 
 # CAVEATS
 
-End-to-end encryption requires device verification. Some Matrix features may not be supported. Media display is limited in terminal. Requires Matrix account.
+端到端加密需要完成设备验证。部分 Matrix 功能可能不受支持。终端中媒体内容的显示能力有限。需要拥有 Matrix 账户。
 
 # HISTORY
 
-**gomuks** was created as a terminal Matrix client for users preferring CLI-based communication tools.
+**gomuks** 作为一款终端 Matrix 客户端诞生，面向偏好 CLI 类通信工具的用户。
 
 # INSTALL
 

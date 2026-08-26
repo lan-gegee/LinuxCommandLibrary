@@ -1,22 +1,22 @@
 # TAGLINE
 
-GVFS daemon that handles virtual filesystem operations
+处理虚拟文件系统操作的 GVFS 守护进程
 
 # TLDR
 
-**Start GVFS daemon**
+**启动 GVFS 守护进程**
 
 ```gvfsd```
 
-**Replace existing daemon**
+**替换现有守护进程**
 
 ```gvfsd --replace```
 
-**Debug mode**
+**调试模式**
 
 ```gvfsd --debug```
 
-**No fuse support**
+**禁用 FUSE 支持**
 
 ```gvfsd --no-fuse```
 
@@ -27,33 +27,33 @@ GVFS daemon that handles virtual filesystem operations
 # PARAMETERS
 
 **--replace**
-> Replace running daemon.
+> 替换正在运行的守护进程。
 
 **--no-fuse**
-> Disable FUSE support.
+> 禁用 FUSE 支持。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Show version number and exit.
+> 显示版本号并退出。
 
 # DESCRIPTION
 
-**gvfsd** is the main daemon for the GVFS virtual filesystem. It provides the `org.gtk.vfs.Daemon` name on the session bus and is autostarted by GIO clients if not already running.
+**gvfsd** 是 GVFS 虚拟文件系统的主守护进程。它在会话总线上注册 `org.gtk.vfs.Daemon` 名称，如果尚未运行，会被 GIO 客户端自动启动。
 
-The primary task of gvfsd is to act as a mount tracker/manager. It spawns new backends when requested, keeps track of their lifecycle, maintains a list of active mounts, and creates direct connections to them. GVFS backends run as children of the gvfsd process.
+gvfsd 的主要任务是充当挂载跟踪器/管理器。它按需派生新的后端，跟踪其生命周期，维护活动挂载点列表，并创建到它们的直接连接。GVFS 后端作为 gvfsd 进程的子进程运行。
 
 # CAVEATS
 
-Usually auto-started by D-Bus. Requires proper D-Bus session. GNOME specific.
+通常由 D-Bus 自动启动。需要正确的 D-Bus 会话。GNOME 专属。
 
 # HISTORY
 
-gvfsd was developed as part of **GVFS** for the **GNOME** desktop environment to provide virtual filesystem support.
+gvfsd 作为 **GNOME** 桌面环境 **GVFS** 的一部分开发而成，用于提供虚拟文件系统支持。
 
 # SEE ALSO
 

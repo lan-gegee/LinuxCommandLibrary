@@ -1,14 +1,14 @@
 # TAGLINE
 
-Initialize a git repository and add a GitHub remote
+初始化 git 仓库并添加 GitHub remote
 
 # TLDR
 
-**Initialize repository and create on GitHub**
+**初始化仓库并在 GitHub 上创建**
 
 ```hub init && hub create```
 
-**Initialize with specific directory**
+**在指定目录中初始化**
 
 ```hub init [directory]```
 
@@ -19,24 +19,24 @@ Initialize a git repository and add a GitHub remote
 # PARAMETERS
 
 **-g**
-> After initializing, create a "USER/REPO" repository on GitHub and add it as the "origin" remote.
+> 初始化后，在 GitHub 上创建 "USER/REPO" 仓库并将其添加为 "origin" remote。
 
 **--bare**
-> Create bare repository.
+> 创建裸仓库。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **--template** _dir_
-> Use template directory.
+> 使用模板目录。
 
 # DESCRIPTION
 
-**hub init** creates a git repository as with git-init(1) and adds remote "origin" at "git@github.com:USER/REPOSITORY.git". With the **-g** flag, it also creates the GitHub repository. Typically used with **hub create** to initialize a local repository and create a matching GitHub repository in one workflow.
+**hub init** 会像 git-init(1) 一样创建 git 仓库，并将 remote "origin" 设置为 "git@github.com:USER/REPOSITORY.git"。使用 **-g** 标志时，它还会在 GitHub 上创建对应的仓库。通常与 **hub create** 搭配，在一个工作流中完成本地仓库初始化和对应 GitHub 仓库的创建。
 
 # CAVEATS
 
-Hub is no longer maintained. Consider using **git init** and **gh repo create** instead.
+Hub 已不再维护。建议改用 **git init** 和 **gh repo create**。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Hub is no longer maintained. Consider using **git init** and **gh repo create** 
 # SEE ALSO
 
 [hub](/man/hub)(1), [git-init](/man/git-init)(1), [hub-create](/man/hub-create)(1)
-

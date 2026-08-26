@@ -1,38 +1,38 @@
 # TAGLINE
 
-Google Chrome web browser
+Google Chrome 网页浏览器
 
 # TLDR
 
-**Start** Chrome
+**启动** Chrome
 
 ```google-chrome```
 
-**Open one or more URLs**
+**打开一个或多个 URL**
 
 ```google-chrome [https://example.com] [https://wikipedia.org]```
 
-**Open in incognito** mode
+以**无痕模式打开**
 
 ```google-chrome --incognito [url]```
 
-**Take a headless screenshot** of a page
+对页面**进行无头截图**
 
 ```google-chrome --headless --disable-gpu --screenshot=[out.png] --window-size=[1280,800] [url]```
 
-**Save a page as PDF**
+**将页面保存为 PDF**
 
 ```google-chrome --headless --disable-gpu --print-to-pdf=[out.pdf] [url]```
 
-**Dump the rendered DOM** to stdout
+把渲染后的 **DOM 转储**到标准输出
 
 ```google-chrome --headless --disable-gpu --dump-dom [url]```
 
-**Launch for remote debugging** (DevTools Protocol)
+**以远程调试方式启动**（DevTools 协议）
 
 ```google-chrome --headless --disable-gpu --remote-debugging-port=[9222]```
 
-**Use an isolated profile** directory
+**使用隔离的配置**目录
 
 ```google-chrome --user-data-dir=[/tmp/chrome-profile]```
 
@@ -43,77 +43,77 @@ Google Chrome web browser
 # PARAMETERS
 
 _urls_
-> One or more URLs or local file paths to open.
+> 要打开的一个或多个 URL 或本地文件路径。
 
 **--incognito**
-> Start a new incognito (private) window.
+> 新建一个无痕（隐私）窗口。
 
 **--new-window**
-> Open the URL in a new window instead of a new tab.
+> 在新窗口而非新标签页中打开 URL。
 
 **--headless**
-> Run without a visible UI. Modern builds default to the "new" headless mode; pass `--headless=old` for the legacy implementation.
+> 不显示可视界面运行。新版本默认采用"新版"无头模式；如需旧版实现，请传入 `--headless=old`。
 
 **--disable-gpu**
-> Disable GPU hardware acceleration. Traditionally required together with `--headless` on Linux/Windows.
+> 禁用 GPU 硬件加速。在 Linux/Windows 上传统上需与 `--headless` 搭配使用。
 
 **--screenshot**[=_file_]
-> In headless mode, save a PNG screenshot (default `screenshot.png`).
+> 在无头模式下保存 PNG 截图（默认 `screenshot.png`）。
 
 **--print-to-pdf**[=_file_]
-> In headless mode, save the rendered page as PDF (default `output.pdf`).
+> 在无头模式下将渲染好的页面保存为 PDF（默认 `output.pdf`）。
 
 **--dump-dom**
-> Print the serialized DOM of the target page to stdout.
+> 将目标页面序列化后的 DOM 打印到标准输出。
 
 **--window-size** _W,H_
-> Set the initial window size (useful for consistent screenshots).
+> 设置初始窗口大小（有助于获得一致的截图效果）。
 
 **--remote-debugging-port** _port_
-> Enable the DevTools Protocol on the given TCP port for automation tools like Puppeteer or ChromeDriver.
+> 在给定的 TCP 端口上启用 DevTools 协议，供 Puppeteer 或 ChromeDriver 等自动化工具使用。
 
 **--no-sandbox**
-> Disable the sandbox. Sometimes required inside Docker containers; never use for untrusted content.
+> 禁用沙箱。有时在 Docker 容器内必须使用；切勿用于不受信任的内容。
 
 **--disable-dev-shm-usage**
-> Avoid using `/dev/shm`, which is often too small in containers and CI.
+> 避免使用 `/dev/shm`，该目录在容器和 CI 环境中往往过小。
 
 **--disable-extensions**
-> Start with all extensions disabled.
+> 启动时禁用所有扩展。
 
 **--no-first-run**
-> Skip the first-run experience and welcome prompts (useful in CI).
+> 跳过首次运行引导和欢迎提示（在 CI 中很有用）。
 
 **--proxy-server** _url_
-> Route traffic through the specified HTTP/SOCKS proxy.
+> 让流量经由指定的 HTTP/SOCKS 代理转发。
 
 **--user-data-dir** _dir_
-> Use a custom profile directory (enables fully isolated sessions).
+> 使用自定义的配置目录（可实现完全隔离的会话）。
 
 **--app** _url_
-> Open the URL as a chromeless standalone app window.
+> 以无浏览器边框的独立应用窗口打开 URL。
 
 # DESCRIPTION
 
-**google-chrome** is Google's proprietary build of the open-source Chromium browser. It ships the Blink rendering engine and the V8 JavaScript engine together with a multi-process, sandboxed architecture, synchronization with a Google account, and the Chrome Web Store extension ecosystem.
+**google-chrome** 是 Google 基于开源 Chromium 浏览器打造的专有版本。它内置 Blink 渲染引擎和 V8 JavaScript 引擎，采用多进程、沙箱化架构，支持与 Google 账户同步，并可接入 Chrome 网上应用店的扩展生态。
 
-The command-line interface accepts hundreds of switches and is widely used for automation, testing, and scraping. Headless mode, combined with `--screenshot`, `--print-to-pdf`, `--dump-dom`, or `--remote-debugging-port`, makes Chrome a popular backend for tools like Puppeteer, Playwright, and ChromeDriver.
+其命令行接口接受数百个开关，被广泛用于自动化、测试和数据抓取。无头模式配合 `--screenshot`、`--print-to-pdf`、`--dump-dom` 或 `--remote-debugging-port`，使 Chrome 成为 Puppeteer、Playwright、ChromeDriver 等工具常用的后端。
 
 # CONFIGURATION
 
 **~/.config/google-chrome/**
-> Default user profile directory containing bookmarks, history, extensions, preferences, and cached data.
+> 默认用户配置目录，包含书签、历史记录、扩展、偏好设置和缓存数据。
 
 **chrome://flags**
-> In-browser page listing experimental features that can be toggled independently of command-line switches.
+> 浏览器内的实验功能列表页面，这些功能可以独立于命令行开关进行切换。
 
 # CAVEATS
 
-Chrome is resource-intensive; a typical session uses multiple processes and significant RAM. Many command-line switches are undocumented, version-specific, and may be removed without notice; the canonical reference is [peter.sh/experiments/chromium-command-line-switches](https://peter.sh/experiments/chromium-command-line-switches/). **--no-sandbox** weakens Chrome's security model and should only be used for trusted content. In containers/CI, pair `--headless` with `--disable-gpu`, `--disable-dev-shm-usage`, and `--no-first-run` for reliability.
+Chrome 较为消耗资源；一个典型会话会占用多个进程和相当多的内存。许多命令行开关没有正式文档、依赖具体版本，并且可能随时被移除而不会另行通知；权威参考是 [peter.sh/experiments/chromium-command-line-switches](https://peter.sh/experiments/chromium-command-line-switches/)。**--no-sandbox** 会削弱 Chrome 的安全模型，只应配合受信任的内容使用。在容器/CI 环境中，为了稳定运行，建议将 `--headless` 与 `--disable-gpu`、`--disable-dev-shm-usage`、`--no-first-run` 搭配使用。
 
 # HISTORY
 
-**Google Chrome** was first released in **September 2008** on Windows and expanded to Linux and macOS in 2010. Built on the open-source Chromium project, it introduced a sandboxed, per-tab process model and the V8 JavaScript engine, and has grown into the world's most-used web browser.
+**Google Chrome** 于 **2008 年 9 月**首次登陆 Windows，并于 2010 年扩展到 Linux 和 macOS。它基于开源的 Chromium 项目构建，引入了沙箱化的每标签页进程模型和 V8 JavaScript 引擎，如今已成为全球使用最广泛的网页浏览器。
 
 # INSTALL
 

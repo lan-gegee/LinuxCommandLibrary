@@ -1,22 +1,22 @@
 # TAGLINE
 
-requests a Kerberos Ticket Granting Ticket from an Active Directory domain
+从 Active Directory 域请求 Kerberos 票据授予票据（TGT）
 
 # TLDR
 
-**Request a TGT** for a domain user with password
+为拥有密码的域用户**请求 TGT**
 
 ```impacket-gettgt '[domain]/[user]:[password]'```
 
-**Request TGT** and save to a specific file
+**请求 TGT** 并保存到指定文件
 
 ```impacket-gettgt -dc-ip [192.168.1.100] '[domain]/[user]:[password]'```
 
-**Request TGT using NTLM hash**
+**使用 NTLM 哈希请求 TGT**
 
 ```impacket-gettgt -hashes ':[nthash]' '[domain]/[user]'```
 
-**Request TGT using AES key**
+**使用 AES 密钥请求 TGT**
 
 ```impacket-gettgt -aesKey '[aes256key]' '[domain]/[user]'```
 
@@ -27,42 +27,42 @@ requests a Kerberos Ticket Granting Ticket from an Active Directory domain
 # PARAMETERS
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes for authentication instead of password.
+> 使用 NTLM 哈希而非密码进行身份验证。
 
 **-no-pass**
-> Don't ask for password (useful together with **-k**).
+> 不询问密码（与 **-k** 搭配时有用）。
 
 **-k**
-> Use Kerberos authentication; grab credentials from ccache file (KRB5CCNAME).
+> 使用 Kerberos 身份验证；从 ccache 文件（KRB5CCNAME）获取凭据。
 
 **-aesKey** _KEY_
-> AES key to use for Kerberos authentication (128 or 256 bit).
+> 用于 Kerberos 身份验证的 AES 密钥（128 或 256 位）。
 
 **-dc-ip** _IP_
-> IP address of the domain controller (KDC). If omitted, the domain part of the identity is used.
+> 域控制器（KDC）的 IP 地址。省略时使用身份中的域部分。
 
 **-service** _SPN_
-> Request a service ticket directly through an AS-REQ for the given SPN.
+> 通过 AS-REQ 直接为给定 SPN 请求服务票据。
 
 **-principalType** _TYPE_
-> Principal name type (default NT_PRINCIPAL).
+> 主体名称类型（默认 NT_PRINCIPAL）。
 
 **-debug**
-> Enable debug output.
+> 启用调试输出。
 
 # DESCRIPTION
 
-**impacket-gettgt** requests a Kerberos Ticket Granting Ticket (TGT) from an Active Directory domain controller. The TGT is saved to a ccache file that can be used for subsequent Kerberos authentication with other tools.
+**impacket-gettgt** 从 Active Directory 域控制器请求 Kerberos 票据授予票据（TGT）。TGT 会保存到 ccache 文件中，可供后续与其他工具进行 Kerberos 身份验证时使用。
 
-This tool is useful for obtaining Kerberos tickets when you have valid credentials (password, hash, or AES key) and need to authenticate to Kerberos-enabled services. The resulting ccache file can be exported via the KRB5CCNAME environment variable.
+当你持有有效凭据（密码、哈希或 AES 密钥）并需要向支持 Kerberos 的服务进行身份验证时，该工具可用于获取 Kerberos 票据。生成的 ccache 文件可通过 KRB5CCNAME 环境变量导出。
 
 # CAVEATS
 
-Requires valid domain credentials in some form (password, NTLM hash, or AES key). The domain controller must be reachable and Kerberos ports (88/tcp) must be accessible. Time synchronization between client and KDC is critical for Kerberos to function.
+需要某种形式的有效域凭据（密码、NTLM 哈希或 AES 密钥）。域控制器必须可达，且 Kerberos 端口（88/tcp）必须可访问。客户端与 KDC 之间的时间同步对 Kerberos 正常工作至关重要。
 
 # HISTORY
 
-Part of the **Impacket** library by SecureAuth, implementing the Kerberos protocol for penetration testing. TGT retrieval is a fundamental operation in Kerberos-based attacks and authentication workflows.
+属于 SecureAuth 的 **Impacket** 库，用 Python 实现了用于渗透测试的 Kerberos 协议。TGT 获取是基于 Kerberos 的攻击和身份验证工作流中的基础操作。
 
 # INSTALL
 

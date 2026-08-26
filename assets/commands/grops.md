@@ -1,22 +1,22 @@
 # TAGLINE
 
-Groff PostScript output driver
+Groff 的 PostScript 输出驱动
 
 # TLDR
 
-**Convert groff to PostScript**
+**将 groff 转换为 PostScript**
 
 ```groff -Tps [file.roff] > output.ps```
 
-**Direct grops usage**
+**直接使用 grops**
 
 ```grops [file] > output.ps```
 
-**Specify paper size**
+**指定纸张尺寸**
 
 ```grops -p [a4] [file] > output.ps```
 
-**Landscape mode**
+**横向模式**
 
 ```grops -l [file] > output.ps```
 
@@ -27,42 +27,42 @@ Groff PostScript output driver
 # PARAMETERS
 
 _FILE_
-> Groff intermediate output.
+> groff 中间输出。
 
 **-c** _N_
-> Number of copies.
+> 份数。
 
 **-F** _DIR_
-> Font directory.
+> 字体目录。
 
 **-l**
-> Landscape orientation.
+> 横向方向。
 
 **-p** _SIZE_
-> Paper size (letter, a4, legal).
+> 纸张尺寸（letter、a4、legal）。
 
 **-P** _PROLOGUE_
-> Use prologue file.
+> 使用 prologue 文件。
 
 **-b**
-> Broken flag for compatibility.
+> 用于兼容性的 broken 标志。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grops** is a groff output driver that produces PostScript. It is the primary driver for high-quality printed output from groff, generating Level 2 PostScript with support for color, graphics, and embedded fonts.
+**grops** 是一个生成 PostScript 的 groff 输出驱动。它是 groff 高质量打印输出的主要驱动，生成支持色彩、图形和内嵌字体的 Level 2 PostScript。
 
-Output can be printed directly or converted to PDF with tools like ps2pdf.
+输出可以直接打印，也可以用 ps2pdf 等工具转换为 PDF。
 
 # CAVEATS
 
-Part of groff package. PostScript output can be large. Requires PostScript viewer or printer.
+属于 groff 软件包。PostScript 输出可能较大。需要 PostScript 查看器或打印机。
 
 # HISTORY
 
-grops was developed as part of **GNU groff** by **James Clark** as the primary output driver for printed documents.
+grops 作为 **GNU groff** 的一部分由 **James Clark** 开发，是打印文档的主要输出驱动。
 
 # INSTALL
 

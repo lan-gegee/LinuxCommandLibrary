@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts HTML files to PDF or PostScript
+将 HTML 文件转换为 PDF 或 PostScript
 
 # TLDR
 
-**Convert HTML to PDF**
+**将 HTML 转换为 PDF**
 
 ```htmldoc --webpage -f [output.pdf] [input.html]```
 
-**Convert to PostScript**
+**转换为 PostScript**
 
 ```htmldoc --webpage --format ps -f [output.ps] [input.html]```
 
-**Convert multiple files**
+**转换多个文件**
 
 ```htmldoc --book -f [output.pdf] [chapter1.html] [chapter2.html]```
 
-**Set page size**
+**设置页面尺寸**
 
 ```htmldoc --webpage --size [letter] -f [output.pdf] [input.html]```
 
-**Add header**
+**添加页眉**
 
 ```htmldoc --webpage --header [.t.] -f [output.pdf] [input.html]```
 
@@ -31,46 +31,46 @@ converts HTML files to PDF or PostScript
 # PARAMETERS
 
 **--webpage**
-> Single page mode.
+> 单页模式。
 
 **--book**
-> Multi-chapter book mode.
+> 多章节书籍模式。
 
 **-f** _file_
-> Output filename.
+> 输出文件名。
 
 **--format** _format_
-> Output format: pdf, ps, html.
+> 输出格式：pdf、ps、html。
 
 **--size** _size_
-> Page size: letter, a4, legal.
+> 页面尺寸：letter、a4、legal。
 
 **--landscape**
-> Landscape orientation.
+> 横向排版。
 
 **--header** _format_
-> Header format.
+> 页眉格式。
 
 **--footer** _format_
-> Footer format.
+> 页脚格式。
 
 **--title**
-> Include title page.
+> 包含标题页。
 
 **--toc**
-> Include table of contents.
+> 包含目录。
 
 **--numbered**
-> Number headings.
+> 为标题编号。
 
 **--gray**
-> Grayscale output.
+> 灰度输出。
 
 # DESCRIPTION
 
-**HTMLDOC** converts HTML files to PDF or PostScript. It can process single pages or combine multiple HTML files into a book with table of contents and headers/footers.
+**HTMLDOC** 将 HTML 文件转换为 PDF 或 PostScript。它可以处理单个页面，也可以将多个 HTML 文件合并成一本带目录和页眉/页脚的书。
 
-The tool is useful for generating printable documentation from HTML sources. It handles basic HTML and CSS, creating well-formatted output.
+该工具适合从 HTML 源生成可打印的文档。它处理基础的 HTML 和 CSS，生成排版良好的输出。
 
 # HEADER/FOOTER FORMAT
 
@@ -88,11 +88,11 @@ D   - Date/time
 
 # CAVEATS
 
-Limited CSS support. Complex layouts may not render correctly. JavaScript is not executed. Best for simple, structured HTML.
+CSS 支持有限。复杂布局可能无法正确渲染。不执行 JavaScript。最适合简单、结构化的 HTML。
 
 # HISTORY
 
-HTMLDOC was created by **Michael Sweet** and was originally released by Easy Software Products. It has been used for documentation generation and is now an open-source project.
+HTMLDOC 由 **Michael Sweet** 创建，最初由 Easy Software Products 发布。它一直被用于文档生成，现在是一个开源项目。
 
 # INSTALL
 
@@ -123,4 +123,3 @@ HTMLDOC was created by **Michael Sweet** and was originally released by Easy Sof
 ```[Documentation](https://www.msweet.org/htmldoc/htmldoc.html)```
 
 <!-- verified: 2026-07-19 -->
-

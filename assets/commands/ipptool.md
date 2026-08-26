@@ -1,26 +1,26 @@
 # TAGLINE
 
-versatile testing tool for IPP printers and servers
+功能全面的 IPP 打印机和服务器测试工具
 
 # TLDR
 
-**Get printer attributes** from an IPP printer
+从 IPP 打印机**获取打印机属性**
 
 ```ipptool -tv [ipp://printer.local/ipp/print] get-printer-attributes.test```
 
-**Run a test file** against a printer
+对打印机**运行测试文件**
 
 ```ipptool [ipp://printer.local/ipp/print] [test.ipp]```
 
-**Submit a print job** for testing
+**提交一个打印作业**进行测试
 
 ```ipptool -f [document.pdf] [ipp://printer.local/ipp/print] print-job.test```
 
-**Test with verbose output**
+**以详细输出进行测试**
 
 ```ipptool -tv [ipp://printer.local/ipp/print] [test.ipp]```
 
-**Run conformance tests**
+**运行一致性测试**
 
 ```ipptool -tIv [ipp://printer.local/ipp/print] ipp-everywhere.test```
 
@@ -31,66 +31,66 @@ versatile testing tool for IPP printers and servers
 # PARAMETERS
 
 **-t**
-> Generate CUPS-style test report output.
+> 生成 CUPS 风格的测试报告输出。
 
 **-v**
-> Verbose mode; display every request and response attribute.
+> 详细模式；显示每个请求和响应属性。
 
 **-q**
-> Quiet mode; suppress the normal summary output.
+> 安静模式；抑制常规摘要输出。
 
 **-l**
-> Produce plain-text (list) output rather than the default report.
+> 生成纯文本（列表）输出而非默认报告。
 
 **-c**
-> Produce comma-separated (CSV) output.
+> 生成逗号分隔（CSV）输出。
 
 **-X**
-> Produce Apple plist XML output.
+> 生成 Apple plist XML 输出。
 
 **-P** _FILE_
-> In addition to the normal report, write machine-readable plist XML results to _FILE_.
+> 在生成常规报告之外，将机器可读的 plist XML 结果写入 _FILE_。
 
 **-f** _FILENAME_
-> File to use as document data for print-job tests.
+> 用作 print-job 测试文档数据的文件。
 
 **-d** _name=value_
-> Define a variable for use in test files (may be repeated).
+> 定义测试文件中可用的变量（可重复使用）。
 
 **-I**
-> Ignore errors and continue with the next test rather than aborting.
+> 忽略错误并继续下一个测试，而不是中止。
 
 **-S**
-> Use encryption (TLS/SSL) when connecting to the printer.
+> 连接打印机时使用加密（TLS/SSL）。
 
 **-T** _SECONDS_
-> Request timeout in seconds.
+> 请求超时时间（秒）。
 
 **-V** _VERSION_
-> IPP version to advertise (**1.0**, **1.1**, **2.0**, **2.1**, **2.2**).
+> 要声明的 IPP 版本（**1.0**、**1.1**、**2.0**、**2.1**、**2.2**）。
 
 **-4**, **-6**
-> Force IPv4 or IPv6 connections respectively.
+> 分别强制使用 IPv4 或 IPv6 连接。
 
 **-C**
-> Use HTTP/1.1 chunked transfer encoding for requests.
+> 对请求使用 HTTP/1.1 分块传输编码。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ipptool** is a versatile testing tool for IPP (Internet Printing Protocol) printers and servers. It sends IPP requests based on test files and validates responses, making it essential for printer conformance testing and debugging.
+**ipptool** 是一款功能全面的 IPP（Internet Printing Protocol，互联网打印协议）打印机和服务器测试工具。它根据测试文件发送 IPP 请求并验证响应，是打印机一致性测试与调试的必备工具。
 
-Test files define IPP operations and expected responses using a simple text format. The tool comes with standard test files for common operations like getting printer attributes, submitting jobs, and IPP Everywhere conformance testing.
+测试文件以简单的文本格式定义 IPP 操作和预期响应。该工具附带标准测试文件，涵盖获取打印机属性、提交作业以及 IPP Everywhere 一致性测试等常见操作。
 
 # CAVEATS
 
-Requires knowledge of IPP protocol for creating custom test files. Some tests may modify printer state or produce actual printed output. The printer URI format varies by printer model and manufacturer.
+创建自定义测试文件需要了解 IPP 协议。某些测试可能会修改打印机状态或产生实际的打印输出。打印机 URI 格式因打印机型号和制造商而异。
 
 # HISTORY
 
-**ipptool** is part of **CUPS**, developed by Michael Sweet. It evolved from earlier IPP testing tools to become the reference implementation for IPP conformance testing, used by printer manufacturers to validate IPP Everywhere compliance.
+**ipptool** 是 **CUPS** 的一部分，由 Michael Sweet 开发。它由更早期的 IPP 测试工具演化而来，成为 IPP 一致性测试的参考实现，被打印机制造商用于验证 IPP Everywhere 合规性。
 
 # INSTALL
 

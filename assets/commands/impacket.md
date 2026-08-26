@@ -1,26 +1,26 @@
 # TAGLINE
 
-collection of Python classes for working with network protocols
+用于处理网络协议的 Python 类集合
 
 # TLDR
 
-**Get TGT with password**
+**使用密码获取 TGT**
 
 ```impacket-getTGT [domain/user:password]```
 
-**Remote command execution**
+**远程命令执行**
 
 ```impacket-psexec [domain/user:password@target]```
 
-**WMI execution**
+**WMI 执行**
 
 ```impacket-wmiexec [domain/user:password@target]```
 
-**SMB execution**
+**SMB 执行**
 
 ```impacket-smbexec [domain/user:password@target]```
 
-**Dump secrets**
+**导出机密**
 
 ```impacket-secretsdump [domain/user:password@target]```
 
@@ -34,9 +34,9 @@ collection of Python classes for working with network protocols
 
 # DESCRIPTION
 
-**Impacket** is a collection of Python classes for working with network protocols. It includes numerous tools for penetration testing, particularly useful for Windows network attacks and assessments.
+**Impacket** 是一组用于处理网络协议的 Python 类。它包含大量渗透测试工具，对 Windows 网络攻击和评估尤其有用。
 
-The toolkit provides implementations of SMB, MSRPC, Kerberos, LDAP, and other protocols commonly used in Windows environments.
+该工具包实现了 Windows 环境中常用的 SMB、MSRPC、Kerberos、LDAP 等协议。
 
 # COMMON TOOLS
 
@@ -61,11 +61,11 @@ domain/user@target -k (Kerberos)
 
 # CAVEATS
 
-For authorized testing only. May trigger security alerts. Requires Python. Some tools need local admin on target. Windows Defender may detect tools.
+仅限用于经授权的测试。可能触发安全告警。需要 Python。部分工具需要对目标拥有本地管理员权限。Windows Defender 可能检出这些工具。
 
 # HISTORY
 
-Impacket was created by **SecureAuth** (now part of Delinea). It's widely used in penetration testing and red team operations for Windows network exploitation.
+Impacket 由 **SecureAuth** 创建（现为 Delinea 的一部分）。它在针对 Windows 网络的渗透测试和红队行动中被广泛使用。
 
 # INSTALL
 

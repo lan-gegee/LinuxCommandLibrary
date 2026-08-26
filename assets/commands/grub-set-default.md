@@ -1,14 +1,14 @@
 # TAGLINE
 
-set permanent default GRUB boot entry
+设置永久的 GRUB 默认启动条目
 
 # TLDR
 
-Set the **default boot entry** permanently
+永久设置**默认启动条目**
 
 ```sudo grub-set-default [entry_number]```
 
-Set default for an **alternative boot directory**
+为**替代启动目录**设置默认条目
 
 ```sudo grub-set-default --boot-directory /[path/to/boot_directory] [entry_number]```
 
@@ -19,29 +19,29 @@ Set default for an **alternative boot directory**
 # PARAMETERS
 
 _entry_
-> Menu entry number (0-indexed), name, or identifier
+> 菜单条目编号（从 0 开始）、名称或标识符
 
 **--boot-directory** _DIR_
-> Use alternative boot directory instead of /boot
+> 使用替代启动目录而不是 /boot
 
 # DESCRIPTION
 
-**grub-set-default** sets the permanent default boot entry for GRUB. Unlike **grub-reboot**, this setting persists across all subsequent boots until changed.
+**grub-set-default** 为 GRUB 设置永久的默认启动条目。与 **grub-reboot** 不同，该设置会在之后所有启动中持续生效，直到被更改。
 
-The entry can be specified as a number (0 for first entry), the full entry name from grub.cfg, or a menu entry identifier. Submenu entries use notation like "1>2" for the third item in the second submenu.
+条目可以指定为编号（第一个条目为 0）、grub.cfg 中的完整条目名称或菜单条目标识符。子菜单条目使用类似 "1>2" 的记法，表示第二个子菜单中的第三项。
 
 # CONFIGURATION
 
 **/etc/default/grub**
-> Must contain GRUB_DEFAULT=saved for grub-set-default to take effect.
+> 必须包含 GRUB_DEFAULT=saved，grub-set-default 才能生效。
 
 # CAVEATS
 
-Requires GRUB_DEFAULT=saved in /etc/default/grub and regenerating the configuration with grub-mkconfig. Without this, the setting in grubenv is ignored. Entry numbers can change when kernels are added or removed.
+需要在 /etc/default/grub 中设置 GRUB_DEFAULT=saved，并使用 grub-mkconfig 重新生成配置。否则 grubenv 中的设置将被忽略。添加或移除内核时，条目编号可能发生变化。
 
 # HISTORY
 
-grub-set-default is part of GRUB 2's saved default functionality. It provides a way to change the boot default without editing configuration files, storing the selection in the grubenv file.
+grub-set-default 是 GRUB 2 保存默认条目功能的一部分。它提供了一种无需编辑配置文件即可更改默认启动项的方式，将选择存储在 grubenv 文件中。
 
 # INSTALL
 

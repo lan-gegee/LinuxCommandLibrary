@@ -1,26 +1,26 @@
 # TAGLINE
 
-HTTP benchmarking tool that runs multiple HTTP fetches in parallel
+并行运行多个 HTTP 请求的 HTTP 基准测试工具
 
 # TLDR
 
-Test with **20 requests/second** for 60 seconds
+以**每秒 20 个请求**进行测试，持续 60 秒
 
 ```http_load -rate 20 -seconds 60 urls.txt```
 
-Test with **5 concurrent** connections for 60 seconds
+以 **5 个并发**连接进行测试，持续 60 秒
 
 ```http_load -parallel 5 -seconds 60 urls.txt```
 
-Run **1000 requests** at 20/second
+以每秒 20 个的速度执行 **1000 个请求**
 
 ```http_load -rate 20 -fetches 1000 urls.txt```
 
-Run **1000 requests** with 5 concurrent connections
+使用 5 个并发连接执行 **1000 个请求**
 
 ```http_load -parallel 5 -fetches 1000 urls.txt```
 
-Test single **URL** directly
+直接测试单个 **URL**
 
 ```echo "http://example.com/" | http_load -parallel 5 -seconds 30 /dev/stdin```
 
@@ -30,53 +30,53 @@ Test single **URL** directly
 
 # DESCRIPTION
 
-**http_load** is an HTTP benchmarking tool that runs multiple HTTP fetches in parallel to test the throughput and response time of a web server. It reads URLs from a file and generates load according to specified parameters.
+**http_load** 是一款 HTTP 基准测试工具，通过并行运行多个 HTTP 请求来测试 Web 服务器的吞吐量和响应时间。它从文件中读取 URL，并按指定参数生成负载。
 
 # PARAMETERS
 
 **-rate N**
-> Generate N requests per second
+> 每秒生成 N 个请求
 
 **-parallel N**
-> Keep N connections active simultaneously
+> 同时保持 N 个活动连接
 
 **-fetches N**
-> Total number of requests to perform
+> 要执行的请求总数
 
 **-seconds N**
-> Duration of the test in seconds
+> 测试持续时间（秒）
 
 **-timeout N**
-> Timeout for each request in seconds
+> 每个请求的超时时间（秒）
 
 **-sip**
-> Source IP addresses (one per line in file)
+> 源 IP 地址（文件中每行一个）
 
 **-cipher CIPHER**
-> SSL cipher to use
+> 要使用的 SSL 密码套件
 
 **-proxy HOST:PORT**
-> Use HTTP proxy
+> 使用 HTTP 代理
 
 **-jitter**
-> Vary the -rate rate randomly by about 10%, to avoid unrealistically regular traffic patterns
+> 让 -rate 的速率随机波动约 10%，以避免过于规律、不真实的流量模式
 
 **-throttle**
-> Limit data consumption to 33.6Kbps, to simulate a modem-speed client
+> 将数据消耗限制在 33.6Kbps，以模拟调制解调器速度的客户端
 
 **-checksum**
-> Verify fetched files against a checksum computed on the first fetch of each URL
+> 对照每个 URL 首次抓取时计算出的校验和，验证之后抓取到的文件
 
 **-verbose**
-> Print progress reports to stderr while the test runs
+> 测试运行期间向标准错误打印进度报告
 
 # CAVEATS
 
-Either -rate or -parallel must be specified, not both. Either -fetches or -seconds must be specified to set the test duration. The URL file should contain one URL per line; URLs are picked at random from the file for each fetch.
+必须指定 -rate 或 -parallel 其中之一，不能同时指定。必须指定 -fetches 或 -seconds 之一来设定测试时长。URL 文件应每行包含一个 URL；每次抓取都会从文件中随机选取 URL。
 
 # HISTORY
 
-**http_load** was written by **Jef Poskanzer** and distributed through **ACME Labs** as a simple, single-process HTTP load testing tool for benchmarking web server throughput.
+**http_load** 由 **Jef Poskanzer** 编写并通过 **ACME Labs** 分发，是一款简单的单进程 HTTP 负载测试工具，用于测量 Web 服务器的吞吐量。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ Either -rate or -parallel must be specified, not both. Either -fetches or -secon
 ```[Source code](https://www.acme.com/software/http_load/)```
 
 <!-- verified: 2026-07-19 -->
-

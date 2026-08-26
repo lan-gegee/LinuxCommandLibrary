@@ -1,38 +1,38 @@
 # TAGLINE
 
-package manager for Kubernetes
+Kubernetes 的包管理器
 
 # TLDR
 
-**Install chart** as a named release
+**将 chart 安装**为具名 release
 
 ```helm install [release-name] [chart]```
 
-**Install with custom values** file
+**使用自定义 values 文件安装**
 
 ```helm install [release-name] [chart] -f [values.yaml]```
 
-**Add repository**
+**添加仓库**
 
 ```helm repo add [name] [url]```
 
-**Update** repository indexes
+**更新**仓库索引
 
 ```helm repo update```
 
-**List releases** in current namespace
+**列出**当前命名空间中的 release
 
 ```helm list```
 
-**Upgrade release** to new chart version
+**将 release 升级**到新 chart 版本
 
 ```helm upgrade [release-name] [chart]```
 
-**Uninstall release**
+**卸载 release**
 
 ```helm uninstall [release-name]```
 
-**Show configurable values** for a chart
+**查看 chart 的可配置值**
 
 ```helm show values [chart]```
 
@@ -43,63 +43,63 @@ package manager for Kubernetes
 # PARAMETERS
 
 **install** _release_ _chart_
-> Install a chart as a named release.
+> 将 chart 安装为具名 release。
 
 **upgrade** _release_ _chart_
-> Upgrade a release to a new chart version or values.
+> 将 release 升级到新 chart 版本或新值。
 
 **uninstall** _release_
-> Uninstall a release and its resources.
+> 卸载 release 及其资源。
 
 **list**
-> List deployed releases.
+> 列出已部署的 release。
 
 **repo add** _name_ _url_
-> Add a chart repository.
+> 添加 chart 仓库。
 
 **repo update**
-> Update chart repository indexes.
+> 更新 chart 仓库索引。
 
 **search repo** _keyword_
-> Search repositories for charts.
+> 在仓库中搜索 chart。
 
 **show values** _chart_
-> Show configurable values for a chart.
+> 显示 chart 的可配置值。
 
 **template** _release_ _chart_
-> Render chart templates locally without installing.
+> 在本地渲染 chart 模板而不实际安装。
 
 **rollback** _release_ _revision_
-> Roll back a release to a previous revision.
+> 将 release 回滚到先前的修订版本。
 
 **-n**, **--namespace** _NS_
-> Kubernetes namespace for the operation.
+> 操作的目标 Kubernetes 命名空间。
 
 **-f**, **--values** _FILE_
-> Specify values file for chart configuration.
+> 指定用于 chart 配置的 values 文件。
 
 **--set** _key=value_
-> Set individual values on the command line.
+> 在命令行上设置单个值。
 
 **--dry-run**
-> Simulate an install/upgrade without applying changes.
+> 模拟安装/升级而不实际应用更改。
 
 **--wait**
-> Wait until all resources are ready before marking release as successful.
+> 等待所有资源就绪后再将 release 标记为成功。
 
 # DESCRIPTION
 
-**Helm** is the package manager for Kubernetes. It manages charts, which are packages of pre-configured Kubernetes resources. Charts define, install, and upgrade complex Kubernetes applications.
+**Helm** 是 Kubernetes 的包管理器。它管理 chart，即预先配置好的 Kubernetes 资源包。chart 用于定义、安装和升级复杂的 Kubernetes 应用。
 
-Helm simplifies application deployment, versioning, and upgrades. It uses Go templating to customize deployments for different environments. Values files and **--set** flags override chart defaults for environment-specific configuration.
+Helm 简化了应用的部署、版本管理和升级。它使用 Go 模板针对不同环境定制部署。values 文件和 **--set** 标志可以覆盖 chart 默认值，实现特定环境的配置。
 
 # CAVEATS
 
-Requires kubectl configured with cluster access. Chart versions should be pinned for reproducible deployments. Helm 3 removed the server-side Tiller component, operating entirely client-side.
+需要已配置集群访问权限的 kubectl。为保证部署的可重现性，应固定 chart 版本。Helm 3 移除了服务端 Tiller 组件，完全在客户端运行。
 
 # HISTORY
 
-Helm was created by **Deis** and is now a **CNCF** graduated project, becoming the standard for Kubernetes package management.
+Helm 由 **Deis** 创建，现在是 **CNCF** 毕业项目，已成为 Kubernetes 包管理的标准。
 
 # INSTALL
 

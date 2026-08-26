@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal interface for Hardcover book tracking
+Hardcover 图书追踪的终端界面
 
 # TLDR
 
-**Launch hardcover-tui**
+**启动 hardcover-tui**
 
 ```hardcover-tui```
 
@@ -14,15 +14,15 @@ Terminal interface for Hardcover book tracking
 
 # DESCRIPTION
 
-**hardcover-tui** is an unofficial terminal user interface client for **Hardcover.app**, a social book tracking platform. It provides a TUI for browsing, searching, and managing your reading list directly from the terminal, including tracking reading progress, marking books as read, and exploring book recommendations.
+**hardcover-tui** 是 **Hardcover.app**（一个社交化图书追踪平台）的非官方终端用户界面客户端。它提供一个 TUI，让你可以直接在终端中浏览、搜索和管理阅读清单，包括追踪阅读进度、把书标记为已读以及浏览图书推荐。
 
 # CAVEATS
 
-Requires a Hardcover.app account and API token for authentication. As an unofficial client, feature availability depends on the Hardcover API.
+需要 Hardcover.app 账户和 API 令牌进行身份验证。作为非官方客户端，其功能可用性取决于 Hardcover API。
 
 # HISTORY
 
-**hardcover-tui** was developed as a community project to bring Hardcover.app functionality to the terminal for users who prefer keyboard-driven workflows.
+**hardcover-tui** 是作为一个社区项目开发的，目的是让偏好键盘驱动工作流的用户也能在终端中使用 Hardcover.app 的功能。
 
 # SEE ALSO
 

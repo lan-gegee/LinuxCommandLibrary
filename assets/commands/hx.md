@@ -1,30 +1,30 @@
 # TAGLINE
 
-command for Helix editor
+Helix 编辑器的命令
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```hx [file]```
 
-**Open at line**
+在指定行打开文件
 
 ```hx [file]:[line]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```hx [file1] [file2]```
 
-**Check language support**
+**检查语言支持情况**
 
 ```hx --health [language]```
 
-**Open tutor**
+**打开教程**
 
 ```hx --tutor```
 
-**Split all given files into vertical windows**
+将所有给定文件**拆分为垂直窗口**
 
 ```hx --vsplit [file1] [file2]```
 
@@ -35,57 +35,57 @@ command for Helix editor
 # PARAMETERS
 
 _FILES_
-> Files to edit, optionally suffixed with **:LINE** or **:LINE:COLUMN**.
+> 要编辑的文件，可选地以 **:LINE** 或 **:LINE:COLUMN** 后缀指定位置。
 
 **+**_N_
-> Open the first given file at line _N_.
+> 在第 _N_ 行打开第一个给定文件。
 
 **--tutor**
-> Open the interactive tutorial.
+> 打开交互式教程。
 
 **--health** [_CATEGORY_]
-> Check for setup problems; _CATEGORY_ can be a language name, or clipboard, languages, all-languages, all.
+> 检查配置问题；_CATEGORY_ 可以是语言名称，或 clipboard、languages、all-languages、all。
 
 **-c**, **--config** _FILE_
-> Configuration file to use.
+> 要使用的配置文件。
 
 **-g**, **--grammar** {**fetch**|**build**}
-> Fetch or build tree-sitter grammars.
+> 拉取或构建 tree-sitter 语法。
 
 **-w**, **--working-dir** _PATH_
-> Initial working directory.
+> 初始工作目录。
 
 **--vsplit** / **--hsplit**
-> Split all given files vertically / horizontally into separate windows.
+> 将所有给定文件垂直/水平拆分到独立窗口。
 
 **--strict**
-> Bail with an error for commands that can fail.
+> 对于可能失败的命令直接报错退出。
 
 **--log** _FILE_
-> File to use for logging.
+> 用于记录日志的文件。
 
 **-v**
-> Increase logging verbosity (repeatable).
+> 增加日志详细程度（可重复使用）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**hx** is the command for Helix editor. Helix is a post-modern modal editor with built-in LSP support and tree-sitter integration.
+**hx** 是 Helix 编辑器的命令。Helix 是一款后现代模态编辑器，内置 LSP 支持和 tree-sitter 集成。
 
-The editor uses selection-first editing model inspired by Kakoune. It provides syntax highlighting, completions, and diagnostics out of the box.
+该编辑器采用受 Kakoune 启发的选择优先编辑模型。它开箱即用地提供语法高亮、补全和诊断功能。
 
 # CAVEATS
 
-Different model than Vim. Learning curve for new users. Rust-based.
+与 Vim 的模式不同，新用户需要学习曲线。基于 Rust 编写。
 
 # HISTORY
 
-Helix was created as a modern terminal editor, taking inspiration from **Kakoune** and **Neovim**.
+Helix 作为一款现代终端编辑器而诞生，设计灵感来自 **Kakoune** 和 **Neovim**。
 
 # INSTALL
 

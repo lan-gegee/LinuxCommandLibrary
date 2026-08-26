@@ -1,42 +1,42 @@
 # TAGLINE
 
-converts images to PDF without re-encoding, preserving the original image
+将图像转换为 PDF 且不重新编码，保留原始图像数据
 
 # TLDR
 
-**Convert images to PDF**
+**将图像转换为 PDF**
 
 ```img2pdf [image1.jpg] [image2.png] -o [output.pdf]```
 
-**Convert all images in directory**
+**转换目录中的所有图像**
 
 ```img2pdf [*.jpg] -o [output.pdf]```
 
-**Set page size to A4**
+**将页面尺寸设为 A4**
 
 ```img2pdf --pagesize [A4] [image.jpg] -o [output.pdf]```
 
-**Fit image to page** while maintaining aspect ratio
+**在保持宽高比的前提下使图像适配页面**
 
 ```img2pdf --fit [into] --pagesize [A4] [image.jpg] -o [output.pdf]```
 
-**Set specific image size**
+**设置特定的图像尺寸**
 
 ```img2pdf --imgsize [150mmx100mm] [image.jpg] -o [output.pdf]```
 
-**Convert with custom page margins**
+**以自定义页边距进行转换**
 
 ```img2pdf --border [1cm:1cm] [image.jpg] -o [output.pdf]```
 
-**Set PDF title and author**
+**设置 PDF 标题和作者**
 
 ```img2pdf --title "[Document Title]" --author "[Author Name]" [image.jpg] -o [output.pdf]```
 
-**Output a PDF/A-1b compliant document**
+**输出符合 PDF/A-1b 标准的文档**
 
 ```img2pdf --pdfa [image.jpg] -o [output.pdf]```
 
-**Pipe image from stdin**
+**从 stdin 管道传入图像**
 
 ```cat [image.jpg] | img2pdf -o [output.pdf]```
 
@@ -47,93 +47,93 @@ converts images to PDF without re-encoding, preserving the original image
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output PDF file (required).
+> 输出的 PDF 文件（必需）。
 
 **--pagesize** _size_
-> Page size: A4, Letter, Legal, or WxH (e.g., 210mmx297mm).
+> 页面尺寸：A4、Letter、Legal 或 WxH（例如 210mmx297mm）。
 
 **--imgsize** _LxL_
-> Image size on the PDF page: WxH with units (e.g., 150mmx100mm).
+> 图像在 PDF 页面上的尺寸：带单位的 WxH（例如 150mmx100mm）。
 
 **--fit** _mode_
-> Fit mode: into, fill, exact, shrink, enlarge.
+> 适配模式：into、fill、exact、shrink、enlarge。
 
 **--border** _margin_
-> Page borders/margins (e.g., 1cm, 1cm:2cm).
+> 页面边框/边距（例如 1cm、1cm:2cm）。
 
 **--rotation** _angle_
-> Rotate pages: auto, none, ifvalid, 0, 90, 180, 270.
+> 旋转页面：auto、none、ifvalid、0、90、180、270。
 
 **--title** _string_
-> PDF title metadata.
+> PDF 标题元数据。
 
 **--author** _string_
-> PDF author metadata.
+> PDF 作者元数据。
 
 **--subject** _string_
-> PDF subject metadata.
+> PDF 主题元数据。
 
 **--keywords** _string_
-> PDF keywords metadata.
+> PDF 关键词元数据。
 
 **--creationdate** _date_
-> PDF creation date.
+> PDF 创建日期。
 
 **--moddate** _date_
-> PDF modification date.
+> PDF 修改日期。
 
 **--viewer-panes** _panes_
-> Initial viewer panes: outlines, thumbs.
+> 阅读器初始窗格：outlines（大纲）、thumbs（缩略图）。
 
 **--viewer-initial-page** _n_
-> Initial page to display.
+> 初始显示的页面。
 
 **--viewer-fullscreen**
-> Open in fullscreen mode.
+> 以全屏模式打开。
 
 **-D**, **--nodate**
-> Suppress timestamps for deterministic output.
+> 不写入时间戳，以获得确定性输出。
 
 **-S**, **--colorspace** _space_
-> Force colorspace: RGB, L (grayscale).
+> 强制指定色彩空间：RGB、L（灰度）。
 
 **-a**, **--auto-orient**
-> Match page orientation to input image.
+> 使页面方向与输入图像一致。
 
 **--pdfa**
-> Output a PDF/A-1b compliant document.
+> 输出符合 PDF/A-1b 标准的文档。
 
 **--first-frame-only**
-> Convert only the first frame of multi-frame images (e.g., animated GIF, multi-page TIFF).
+> 仅转换多帧图像的第一帧（例如动画 GIF、多页 TIFF）。
 
 **--pillow-limit-break**
-> Disable Pillow's decompression bomb size limit for very large images.
+> 禁用 Pillow 的解压炸弹大小限制，以便处理超大图像。
 
 **--from-file** _FILE_
-> Read list of input images from FILE (NUL-separated paths).
+> 从 FILE 读取输入图像列表（以 NUL 分隔的路径）。
 
 **-v**, **--verbose**
-> Enable verbose mode, printing messages on standard error.
+> 启用详细模式，向标准错误打印消息。
 
 # DESCRIPTION
 
-**img2pdf** converts images to PDF without re-encoding, preserving the original image quality. Unlike tools that rasterize images, img2pdf embeds the original JPEG, PNG, TIFF, or other image data directly into the PDF structure.
+**img2pdf** 将图像转换为 PDF 且不重新编码，从而保留原始图像质量。与会对图像栅格化的工具不同，img2pdf 将原始 JPEG、PNG、TIFF 或其他图像数据直接嵌入到 PDF 结构中。
 
-This lossless approach means a 5MB JPEG becomes approximately a 5MB PDF (plus minimal PDF overhead), with no quality loss. Re-encoding tools would either lose quality or produce much larger files at equivalent quality.
+这种无损方式意味着一个 5MB 的 JPEG 会变成约 5MB 的 PDF（外加极少的 PDF 结构开销），且没有任何质量损失。而重新编码的工具要么损失质量，要么在同等质量下生成大得多的文件。
 
-Supported input formats include JPEG, JPEG2000, PNG (including transparency), TIFF, GIF, and others. The tool automatically handles colorspace, bit depth, and multi-page TIFFs.
+支持的输入格式包括 JPEG、JPEG2000、PNG（含透明度）、TIFF、GIF 等。该工具会自动处理色彩空间、位深和多页 TIFF。
 
-Page sizing offers flexible options: natural image size (at specified DPI), fixed page sizes with fit modes, or explicit dimensions. The fit modes control how images are placed: **into** fits inside the page, **fill** fills the page (may crop), **exact** stretches to exact size, **shrink** only shrinks larger images, **enlarge** only enlarges smaller images.
+页面尺寸设置提供灵活选项：自然图像尺寸（按指定 DPI）、配合适配模式的固定页面尺寸，或显式指定的尺寸。适配模式控制图像的放置方式：**into** 在页面内完整容纳，**fill** 填满页面（可能裁剪），**exact** 拉伸到精确尺寸，**shrink** 只缩小较大的图像，**enlarge** 只放大较小的图像。
 
-Multiple images become multi-page PDFs in argument order. Piping from stdin enables integration with image processing pipelines.
+多张图像会按参数顺序组成多页 PDF。通过 stdin 管道传入输入可便于与图像处理流水线集成。
 
 # CAVEATS
 
-Only works with raster images (no vector formats). Some viewers may struggle with large embedded images. Not all PDF features are supported (no encryption, compression control is limited). Pillow limits input image size by default; use **--pillow-limit-break** to override.
+仅适用于栅格图像（不支持矢量格式）。某些阅读器可能难以处理大型嵌入图像。并非所有 PDF 特性都受支持（不支持加密，压缩控制有限）。Pillow 默认限制输入图像的大小；可使用 **--pillow-limit-break** 覆盖此限制。
 
 # HISTORY
 
-**img2pdf** was created by Johannes Schauer Marin Rodrigues to address the common problem of converting images to PDF without quality loss. Existing tools like ImageMagick would re-encode images, causing quality degradation or size bloat. The tool is written in Python and published as a pip package.
+**img2pdf** 由 Johannes Schauer Marin Rodrigues 创建，旨在解决将图像转换为 PDF 时避免质量损失的常见问题。ImageMagick 等现有工具会重新编码图像，导致质量下降或文件体积膨胀。该工具用 Python 编写，并以 pip 包形式发布。
 
 # INSTALL
 

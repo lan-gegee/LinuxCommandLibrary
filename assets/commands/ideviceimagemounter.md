@@ -1,22 +1,22 @@
 # TAGLINE
 
-mounts disk images on iOS devices
+在 iOS 设备上挂载磁盘镜像
 
 # TLDR
 
-**Mount developer disk image**
+**挂载开发者磁盘镜像**
 
 ```ideviceimagemounter [DeveloperDiskImage.dmg]```
 
-**Mount with signature**
+**带签名文件挂载**
 
 ```ideviceimagemounter [DeveloperDiskImage.dmg] [DeveloperDiskImage.dmg.signature]```
 
-**List mounted images**
+**列出已挂载的镜像**
 
 ```ideviceimagemounter -l```
 
-**Target specific device**
+**指定目标设备**
 
 ```ideviceimagemounter -u [device-udid] [image.dmg]```
 
@@ -27,20 +27,20 @@ mounts disk images on iOS devices
 # PARAMETERS
 
 **-u** _udid_
-> Target specific device.
+> 指定目标设备。
 
 **-l**
-> List mounted images.
+> 列出已挂载的镜像。
 
 **-n**
-> Connect over network.
+> 通过网络连接。
 
 **-t** _type_
-> Image type (default: Developer).
+> 镜像类型（默认：Developer）。
 
 # DESCRIPTION
 
-**ideviceimagemounter** mounts disk images on iOS devices. Part of the libimobiledevice suite. Primarily used to mount Developer Disk Images for debugging and development tools like Xcode instruments. Requires the corresponding signature file.
+**ideviceimagemounter** 在 iOS 设备上挂载磁盘镜像，属于 libimobiledevice 套件。主要用于挂载开发者磁盘镜像，以便使用调试和开发工具（如 Xcode instruments）。需要提供对应的签名文件。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts Graphviz DOT format to GXL
+将 Graphviz DOT 格式转换为 GXL
 
 # TLDR
 
-**Convert DOT to GXL**
+**将 DOT 转换为 GXL**
 
 ```gv2gxl [input.gv] -o [output.gxl]```
 
-**Output to stdout**
+**输出到标准输出**
 
 ```gv2gxl [input.dot]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```gv2gxl [file1.gv] [file2.gv] -o [output.gxl]```
 
@@ -23,32 +23,32 @@ converts Graphviz DOT format to GXL
 # PARAMETERS
 
 **-g**
-> Force input to be treated as GV format and generate GXL output, ignoring file extension
+> 强制将输入视为 GV 格式并生成 GXL 输出，忽略文件扩展名
 
 **-d**
-> Force input to be treated as GXL format and generate GV output, ignoring file extension
+> 强制将输入视为 GXL 格式并生成 GV 输出，忽略文件扩展名
 
 **-o** _outfile_
-> Write output to the specified file instead of stdout
+> 将输出写入指定文件而非标准输出
 
 **-?**
-> Display usage information and exit
+> 显示用法信息并退出
 
 # DESCRIPTION
 
-**gv2gxl** converts between graphs represented in GXL (Graph eXchange Language) and Graphviz GV/DOT format. GXL is an XML-based format for graph interchange.
+**gv2gxl** 在以 GXL（Graph eXchange Language）表示的图与 Graphviz GV/DOT 格式之间进行转换。GXL 是一种基于 XML 的图交换格式。
 
-Unless a conversion type is specified with **-g** or **-d**, the tool deduces the conversion direction from the input file suffix: a ".gv" suffix converts from GV to GXL, and a ".gxl" suffix converts from GXL to GV. When input is from a pipe with no flags, the conversion direction is determined by the executable name: **gv2gxl** converts from GV to GXL.
+除非用 **-g** 或 **-d** 指定转换类型，否则该工具会根据输入文件的扩展名推断转换方向：".gv" 后缀表示从 GV 转换为 GXL，".gxl" 后缀表示从 GXL 转换为 GV。当通过管道输入且未加任何标志时，转换方向由可执行文件名决定：**gv2gxl** 从 GV 转换为 GXL。
 
-The commands **dot2gxl**, **gv2gxl**, and **gxl2dot** are aliases of **gxl2gv**.
+命令 **dot2gxl**、**gv2gxl** 和 **gxl2dot** 都是 **gxl2gv** 的别名。
 
 # CAVEATS
 
-The conversion can only handle one graph per GXL file. Applying gxl2gv followed by gv2gxl is semantically equivalent to the identity operator.
+转换只能处理每个 GXL 文件中的一个图。先执行 gxl2gv 再执行 gv2gxl 在语义上等价于恒等操作。
 
 # HISTORY
 
-gv2gxl is part of the **Graphviz** project, created at **AT&T Labs** for XML-based graph interchange.
+gv2gxl 是 **Graphviz** 项目的一部分，由 **AT&T 实验室**创建，用于基于 XML 的图交换。
 
 # INSTALL
 

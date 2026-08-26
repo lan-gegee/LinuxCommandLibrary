@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists inode information from filesystem images
+列出文件系统镜像中的 inode 信息
 
 # TLDR
 
-**List inodes**
+**列出 inode**
 
 ```ils [image.dd]```
 
-**Show allocated only**
+**只显示已分配的**
 
 ```ils -a [image.dd]```
 
-**Show unallocated only**
+**只显示未分配的**
 
 ```ils -e [image.dd]```
 
-**Specify offset**
+**指定偏移量**
 
 ```ils -o [2048] [image.dd]```
 
-**Machine output**
+**机器可读输出**
 
 ```ils -m [image.dd]```
 
@@ -31,39 +31,39 @@ lists inode information from filesystem images
 # PARAMETERS
 
 _IMAGE_
-> Disk or partition image.
+> 磁盘或分区镜像。
 
 **-a**
-> Show allocated only.
+> 只显示已分配的。
 
 **-e**
-> Show unallocated only.
+> 只显示未分配的。
 
 **-o** _OFFSET_
-> Partition offset.
+> 分区偏移量。
 
 **-m**
-> Machine-readable output.
+> 机器可读输出。
 
 **-f** _FSTYPE_
-> Filesystem type.
+> 文件系统类型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ils** lists inode information from filesystem images. It's part of The Sleuth Kit for digital forensics.
+**ils** 列出文件系统镜像中的 inode 信息。它是数字取证工具集 The Sleuth Kit 的一部分。
 
-The tool shows inode metadata for allocated and deleted files. It's useful for file recovery and forensic analysis.
+该工具显示已分配和已删除文件的 inode 元数据。它对文件恢复和取证分析很有用。
 
 # CAVEATS
 
-Part of sleuthkit. Forensic tool. Read-only analysis.
+属于 sleuthkit。取证工具。只读分析。
 
 # HISTORY
 
-ils is part of **The Sleuth Kit** by **Brian Carrier** for filesystem forensics.
+ils 是 **Brian Carrier** 开发的 **The Sleuth Kit** 的一部分，用于文件系统取证。
 
 # INSTALL
 

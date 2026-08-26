@@ -1,22 +1,22 @@
 # TAGLINE
 
-uploads images to Imgur from the command line
+从命令行上传图像到 Imgur
 
 # TLDR
 
-**Upload image**
+**上传图像**
 
 ```imgur-upload [image.png]```
 
-**Upload from clipboard**
+**从剪贴板上传**
 
 ```imgur-upload -c```
 
-**Upload with custom title**
+**以自定义标题上传**
 
 ```imgur-upload -t "[My Image]" [image.jpg]```
 
-**Upload from URL**
+**从 URL 上传**
 
 ```imgur-upload -u "[https://example.com/image.png]"```
 
@@ -27,28 +27,28 @@ uploads images to Imgur from the command line
 # PARAMETERS
 
 _file_
-> Image file to upload.
+> 要上传的图像文件。
 
 **-c**, **--clipboard**
-> Upload from clipboard.
+> 从剪贴板上传。
 
 **-u**, **--url** _url_
-> Upload image from URL.
+> 从 URL 上传图像。
 
 **-t**, **--title** _text_
-> Image title.
+> 图像标题。
 
 **-d**, **--description** _text_
-> Image description.
+> 图像描述。
 
 **-a**, **--album** _id_
-> Add to album.
+> 添加到相册。
 
 # DESCRIPTION
 
-**imgur-upload** uploads images to Imgur from the command line. It returns the direct image URL, useful for sharing screenshots or images quickly.
+**imgur-upload** 从命令行将图像上传到 Imgur。它会返回图像的直接 URL，便于快速分享截图或图片。
 
-Various implementations exist; some require Imgur API credentials while others use anonymous uploads.
+该命令存在多种实现；有些需要 Imgur API 凭据，另一些则使用匿名上传。
 
 # EXAMPLE SCRIPT
 
@@ -63,11 +63,11 @@ notify-send "Uploaded: $url"
 
 # CAVEATS
 
-Requires Imgur API key for some versions. Anonymous uploads may have limits. Images may be removed if violating TOS. Multiple implementations exist with different features.
+某些版本需要 Imgur API 密钥。匿名上传可能有限制。违反服务条款的图像可能被删除。存在多种实现，功能各不相同。
 
 # HISTORY
 
-Various imgur command-line uploaders have been created by the community. They provide quick image sharing from the terminal, popular with screenshot workflows and automation.
+社区创建了多种 imgur 命令行上传工具。它们支持从终端快速分享图像，在截图工作流和自动化场景中很受欢迎。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-reads hardware registers from Intel GPUs
+读取 Intel GPU 的硬件寄存器
 
 # TLDR
 
-**Read a specific register by address**
+**按地址读取指定寄存器**
 
 ```sudo intel_reg read [0x70000]```
 
-**Read multiple registers**
+**读取多个寄存器**
 
 ```sudo intel_reg read [0x70000] [0x70004]```
 
-**Decode register bits into named fields**
+**将寄存器位解码为命名字段**
 
 ```sudo intel_reg read --decode [0x70000]```
 
-**Dump all known registers**
+**转储所有已知寄存器**
 
 ```sudo intel_reg read --all```
 
-**Dump registers with decoding**
+**带解码地转储寄存器**
 
 ```sudo intel_reg read --all --decode```
 
@@ -31,30 +31,30 @@ reads hardware registers from Intel GPUs
 # PARAMETERS
 
 _REGISTER_
-> Register address in hex (e.g., 0x70000).
+> 十六进制寄存器地址（如 0x70000）。
 
 **--decode**
-> Decode register bits into named fields.
+> 将寄存器位解码为命名字段。
 
 **--all**
-> Dump all known registers.
+> 转储所有已知寄存器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**intel_reg read** is a subcommand of `intel_reg` that reads hardware registers from Intel GPUs. It provides direct access to GPU configuration registers for debugging and development.
+**intel_reg read** 是 `intel_reg` 的子命令，用于读取 Intel GPU 的硬件寄存器。它直接访问 GPU 配置寄存器，便于调试和开发。
 
-The tool can decode register bits into meaningful named fields when used with the `--decode` flag.
+配合 `--decode` 标志使用时，该工具可将寄存器位解码为有意义的命名字段。
 
 # CAVEATS
 
-Intel graphics only. Requires root. Can affect system stability. Part of intel-gpu-tools.
+仅适用于 Intel 显卡。需要 root 权限。可能影响系统稳定性。属于 intel-gpu-tools 的一部分。
 
 # HISTORY
 
-intel_reg_read is part of **intel-gpu-tools**, created for Intel graphics driver development and debugging.
+intel_reg_read 是 **intel-gpu-tools** 的一部分，为 Intel 显卡驱动开发与调试而创建。
 
 # SEE ALSO
 

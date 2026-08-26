@@ -1,26 +1,26 @@
 # TAGLINE
 
-schedules files for removal from the repository
+安排文件从仓库中移除
 
 # TLDR
 
-**Remove file**
+**移除文件**
 
 ```hg remove [file]```
 
-**Remove with force**
+**强制移除**
 
 ```hg remove -f [file]```
 
-**Remove after deletion**
+**删除后记录移除**
 
 ```hg remove -A```
 
-**Remove directory**
+**移除目录**
 
 ```hg remove [directory]```
 
-**Dry run**
+**试运行**
 
 ```hg remove -n [file]```
 
@@ -31,39 +31,39 @@ schedules files for removal from the repository
 # PARAMETERS
 
 _FILES_
-> Files to remove.
+> 要移除的文件。
 
 **-f**, **--force**
-> Remove even if modified.
+> 即使文件已修改也强制移除。
 
 **-A**, **--after**
-> Record removal of missing files.
+> 记录移除已经从文件系统消失的文件。
 
 **-I**, **--include** _PATTERN_
-> Include pattern.
+> 包含模式。
 
 **-X**, **--exclude** _PATTERN_
-> Exclude pattern.
+> 排除模式。
 
 **-n**, **--dry-run**
-> Show what would be done.
+> 显示将要执行的操作。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg remove** schedules files for removal from the repository. The files are deleted from the working directory and marked for removal on next commit.
+**hg remove** 安排文件从仓库中移除。这些文件会从工作目录中删除，并在下一次提交时被标记为移除。
 
-The -A flag records removal of files already deleted from the filesystem. Force removes modified files.
+-A 标志用于记录那些已经从文件系统中删除的文件的移除。force 选项可移除已修改的文件。
 
 # CAVEATS
 
-Removal requires commit. History preserved. Use forget to just untrack.
+移除操作需要提交才生效。历史会被保留。若只是取消跟踪，请使用 forget。
 
 # HISTORY
 
-Remove is a core **Mercurial** command for managing tracked files since version 1.0.
+remove 是 **Mercurial** 自 1.0 版本以来管理被跟踪文件的核心命令。
 
 # INSTALL
 

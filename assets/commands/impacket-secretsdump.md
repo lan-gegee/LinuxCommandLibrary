@@ -1,26 +1,26 @@
 # TAGLINE
 
-extracts credentials from Windows systems via SAM, LSA secrets, cached
+通过 SAM、LSA 机密、缓存凭据等从 Windows 系统提取凭据
 
 # TLDR
 
-**Dump secrets from domain controller**
+**从域控制器导出机密**
 
 ```impacket-secretsdump [domain]/[user]:[password]@[target]```
 
-**Dump using NTLM hash**
+**使用 NTLM 哈希导出**
 
 ```impacket-secretsdump -hashes :[hash] [domain]/[user]@[target]```
 
-**Dump from local SAM file**
+**从本地 SAM 文件导出**
 
 ```impacket-secretsdump -sam [SAM] -system [SYSTEM] LOCAL```
 
-**Dump NTDS.dit**
+**导出 NTDS.dit**
 
 ```impacket-secretsdump -ntds [ntds.dit] -system [SYSTEM] LOCAL```
 
-**Just DCSync (no registry)**
+**仅 DCSync（不读注册表）**
 
 ```impacket-secretsdump -just-dc [domain]/[user]:[password]@[dc]```
 
@@ -31,33 +31,33 @@ extracts credentials from Windows systems via SAM, LSA secrets, cached
 # PARAMETERS
 
 **-hashes** _lm:nt_
-> Use NTLM hashes.
+> 使用 NTLM 哈希。
 
 **-sam** _file_
-> Local SAM file.
+> 本地 SAM 文件。
 
 **-system** _file_
-> Local SYSTEM hive.
+> 本地 SYSTEM 配置单元。
 
 **-ntds** _file_
-> NTDS.dit file.
+> NTDS.dit 文件。
 
 **-just-dc**
-> Extract only NTDS.dit data via DCSync.
+> 仅通过 DCSync 提取 NTDS.dit 数据。
 
 **-just-dc-ntlm**
-> Extract only NTLM hashes.
+> 仅提取 NTLM 哈希。
 
 **-k**
-> Use Kerberos authentication.
+> 使用 Kerberos 身份验证。
 
 # DESCRIPTION
 
-**impacket-secretsdump** extracts credentials from Windows systems via SAM, LSA secrets, cached credentials, and NTDS.dit. Part of the Impacket toolkit. Supports DCSync for domain controllers. For authorized penetration testing and security assessments only.
+**impacket-secretsdump** 通过 SAM、LSA 机密、缓存凭据和 NTDS.dit 从 Windows 系统提取凭据。属于 Impacket 工具集。支持针对域控制器的 DCSync。仅限用于经授权的渗透测试和安全评估。
 
 # CAVEATS
 
-Highly sensitive operation. Requires administrator/domain admin access. For authorized security testing only.
+高度敏感的操作。需要管理员/域管理员权限。仅限用于经授权的安全测试。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Highly sensitive operation. Requires administrator/domain admin access. For auth
 # SEE ALSO
 
 [impacket-psexec](/man/impacket-psexec)(1)
-

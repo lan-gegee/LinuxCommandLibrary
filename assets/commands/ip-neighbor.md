@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages the ARP and NDP neighbor tables
+管理 ARP 和 NDP 邻居表
 
 # TLDR
 
-Display the **neighbor/ARP table**
+显示**邻居/ARP 表**
 
 ```ip neighbor```
 
-**Flush** entries for a specific device
+**清空**特定设备的条目
 
 ```sudo ip neighbor flush dev [eth0]```
 
-**Lookup** a neighbor entry
+**查找**一条邻居条目
 
 ```ip neighbor get [192.168.1.1] dev [eth0]```
 
-**Add** a static ARP entry
+**添加**一条静态 ARP 条目
 
 ```sudo ip neighbor add [192.168.1.100] lladdr [00:11:22:33:44:55] dev [eth0] nud reachable```
 
-**Delete** an ARP entry
+**删除**一条 ARP 条目
 
 ```sudo ip neighbor delete [192.168.1.100] dev [eth0]```
 
-**Replace** an ARP entry
+**替换**一条 ARP 条目
 
 ```sudo ip neighbor replace [192.168.1.100] lladdr [00:11:22:33:44:55] dev [eth0]```
 
@@ -35,50 +35,50 @@ Display the **neighbor/ARP table**
 # PARAMETERS
 
 **show** [**dev** _DEVICE_]
-> Display neighbor table entries
+> 显示邻居表条目
 
 **add** _IP_ **lladdr** _MAC_ **dev** _DEVICE_
-> Add a neighbor entry
+> 添加一条邻居条目
 
 **delete** _IP_ **dev** _DEVICE_
-> Remove a neighbor entry
+> 移除一条邻居条目
 
 **change** _IP_ **lladdr** _MAC_ **dev** _DEVICE_
-> Modify existing entry
+> 修改现有条目
 
 **replace** _IP_ **lladdr** _MAC_ **dev** _DEVICE_
-> Add or change entry
+> 添加或修改条目
 
 **flush** **dev** _DEVICE_
-> Clear entries for a device
+> 清空某个设备的条目
 
 **get** _IP_ **dev** _DEVICE_
-> Lookup single entry
+> 查找单条条目
 
 **nud** _STATE_
-> Neighbor state: permanent, noarp, reachable, stale, none, incomplete, delay, probe, failed.
+> 邻居状态：permanent、noarp、reachable、stale、none、incomplete、delay、probe、failed。
 
 **proxy** _ADDR_
-> Manage proxy ARP/NDP entries.
+> 管理代理 ARP/NDP 条目。
 
 **to** _PREFIX_
-> Filter entries by address prefix (used with show/flush).
+> 按地址前缀过滤条目（与 show/flush 配合使用）。
 
 # DESCRIPTION
 
-**ip neighbor** manages the ARP (IPv4) and NDP (IPv6) neighbor tables. These tables map IP addresses to link-layer (MAC) addresses for hosts on directly connected networks.
+**ip neighbor** 管理 ARP（IPv4）和 NDP（IPv6）邻居表。这些表将 IP 地址映射为直连网络上主机的链路层（MAC）地址。
 
-The neighbor cache is normally populated automatically through ARP/NDP protocols, but static entries can be added for hosts that don't respond to ARP or for security purposes.
+邻居缓存通常通过 ARP/NDP 协议自动填充，但也可以为不响应 ARP 的主机或出于安全目的添加静态条目。
 
-**neighbor** is the American spelling accepted by **ip**; **neighbour** is the equivalent British spelling, and both refer to the same object. The keyword can also be abbreviated to **neigh** or **n**.
+**neighbor** 是 **ip** 接受的美式拼写；**neighbour** 是对应的英式拼写，二者指同一对象。该关键字还可以缩写为 **neigh** 或 **n**。
 
 # CAVEATS
 
-Modifying entries requires root privileges. Static entries may become stale if the actual MAC changes. IPv6 uses NDP instead of ARP but is managed through the same interface.
+修改条目需要 root 权限。如果实际 MAC 地址发生变化，静态条目可能会失效。IPv6 使用 NDP 而非 ARP，但通过同一接口进行管理。
 
 # HISTORY
 
-ip neighbor is part of iproute2 and replaces the older arp command from net-tools. It provides unified IPv4 and IPv6 neighbor management.
+ip neighbor 是 iproute2 的一部分，取代了 net-tools 中较旧的 arp 命令。它提供统一的 IPv4 和 IPv6 邻居管理。
 
 # SEE ALSO
 

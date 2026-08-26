@@ -1,42 +1,42 @@
 # TAGLINE
 
-user-friendly HTTP client for the command line
+对用户友好的命令行 HTTP 客户端
 
 # TLDR
 
-**Simple GET request**
+**简单的 GET 请求**
 
 ```http [https://api.example.com/users]```
 
-**POST with JSON**
+**以 JSON 发送 POST**
 
 ```http POST [https://api.example.com/users] name=John age:=30```
 
-**POST form data**
+**发送表单数据 POST**
 
 ```http -f POST [url] name=John email=john@example.com```
 
-**Add custom header**
+**添加自定义请求头**
 
 ```http [url] Authorization:"Bearer [token]"```
 
-**Download file**
+**下载文件**
 
 ```http --download [https://example.com/file.zip]```
 
-**Authenticated request**
+**带认证的请求**
 
 ```http -a [user:password] [url]```
 
-**Follow redirects**
+**跟随重定向**
 
 ```http --follow [url]```
 
-**Show verbose request and response**
+**显示详细的请求和响应**
 
 ```http --verbose [url]```
 
-**Show only response headers**
+**只显示响应头**
 
 ```http --headers [url]```
 
@@ -47,61 +47,61 @@ user-friendly HTTP client for the command line
 # PARAMETERS
 
 _method_
-> HTTP method (GET, POST, PUT, DELETE, etc.).
+> HTTP 方法（GET、POST、PUT、DELETE 等）。
 
 **--json**, **-j**
-> JSON data (default).
+> JSON 数据（默认）。
 
 **--form**, **-f**
-> Form data.
+> 表单数据。
 
 **--headers**, **-h**
-> Print only headers.
+> 只打印请求头。
 
 **--body**, **-b**
-> Print only body.
+> 只打印响应体。
 
 **--download**, **-d**
-> Download file.
+> 下载文件。
 
 **--follow**, **-F**
-> Follow redirects.
+> 跟随重定向。
 
 **--auth**, **-a** _user:pass_
-> Basic authentication.
+> 基本认证。
 
 **--auth-type**, **-A** _type_
-> Auth type: basic, digest, bearer.
+> 认证类型：basic、digest、bearer。
 
 **--verbose**, **-v**
-> Print entire HTTP exchange (request and response).
+> 打印完整的 HTTP 交互（请求和响应）。
 
 **--print**, **-p** _what_
-> Selectively print: H (request headers), B (request body), h (response headers), b (response body), m (metadata).
+> 选择性打印：H（请求头）、B（请求体）、h（响应头）、b（响应体）、m（元数据）。
 
 **--verify** _verify_
-> SSL certificate verification. Set to "no" to skip.
+> SSL 证书校验。设为 "no" 可跳过。
 
 **--timeout** _seconds_
-> Connection timeout in seconds (default: 30).
+> 连接超时时间（秒）（默认：30）。
 
 **--proxy** _protocol:url_
-> Set proxy (e.g., http:http://proxy:8080).
+> 设置代理（例如 http:http://proxy:8080）。
 
 **--check-status**
-> Exit with error on HTTP 3xx/4xx/5xx status codes.
+> 遇到 HTTP 3xx/4xx/5xx 状态码时以错误状态退出。
 
 **--output**, **-o** _file_
-> Save response body to file.
+> 将响应体保存到文件。
 
 **--session** _name_
-> Named session for persisting cookies/auth/headers.
+> 命名会话，用于持久化 cookie/认证信息/请求头。
 
 **--pretty** _mode_
-> Output formatting: all, colors, format, none.
+> 输出格式化方式：all、colors、format、none。
 
 **--offline**
-> Build request offline without sending.
+> 离线构造请求而不发送。
 
 # ITEM TYPES
 
@@ -116,15 +116,15 @@ key@file        File upload with field name
 
 # DESCRIPTION
 
-**HTTPie** is a user-friendly HTTP client for the command line. It provides intuitive syntax, colored output, and sensible defaults for API testing and debugging.
+**HTTPie** 是一款对用户友好的命令行 HTTP 客户端。它提供直观的语法、彩色输出和合理的默认值，适合 API 测试与调试。
 
 # CAVEATS
 
-Requires Python. Syntax differs from curl. Large responses may be slow to colorize. The command is `http` (or `https`), not `httpie`.
+需要 Python。语法与 curl 不同。较大的响应着色渲染可能较慢。命令是 `http`（或 `https`），而不是 `httpie`。
 
 # HISTORY
 
-HTTPie was created by **Jakub Roztočil** in **2012** as a more user-friendly alternative to curl for interacting with HTTP APIs.
+HTTPie 由 **Jakub Roztočil** 于 **2012 年**创建，旨在作为比 curl 更易用的 HTTP API 交互工具。
 
 # INSTALL
 

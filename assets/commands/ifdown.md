@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bring down network interfaces previously configured with ifup
+停用之前由 ifup 配置的网络接口
 
 # TLDR
 
-**Disable** a specific interface
+**禁用**指定接口
 
 ```ifdown [eth0]```
 
-**Disable all** enabled interfaces
+**禁用所有**已启用的接口
 
 ```ifdown -a```
 
-**Show** commands without running them (dry run)
+只**显示**要执行的命令而不运行（干跑）
 
 ```ifdown -n [eth0]```
 
-**Force** deconfiguration even if interface state says it is down
+即使接口状态显示为已停止，也**强制**解除配置
 
 ```ifdown --force [eth0]```
 
-**Verbose** output
+**详细**输出
 
 ```ifdown -v [eth0]```
 
-**Use an alternate** interfaces file
+使用**其他** interfaces 文件
 
 ```ifdown -i [/path/to/interfaces] [eth0]```
 
@@ -35,60 +35,60 @@ Bring down network interfaces previously configured with ifup
 # PARAMETERS
 
 **-a**, **--all**
-> Affect all defined interfaces, brought down in the order listed in the state file.
+> 作用于所有已定义的接口，按状态文件中列出的顺序依次停用。
 
 **--allow** _CLASS_
-> Only act on interfaces listed in an `allow-CLASS` stanza in /etc/network/interfaces (e.g. `allow-hotplug`).
+> 只作用于在 /etc/network/interfaces 中列于某个 `allow-CLASS` 段落中的接口（如 `allow-hotplug`）。
 
 **-i** _FILE_, **--interfaces**=_FILE_
-> Read interface definitions from _FILE_ instead of /etc/network/interfaces.
+> 从 _FILE_ 而不是 /etc/network/interfaces 读取接口定义。
 
 **--state-dir**=_DIR_
-> Keep interface state in _DIR_ instead of /run/network.
+> 将接口状态保存在 _DIR_ 而不是 /run/network。
 
 **-X** _PATTERN_, **--exclude**=_PATTERN_
-> Exclude interfaces matching _PATTERN_.
+> 排除匹配 _PATTERN_ 的接口。
 
 **-o** _OPTION=VALUE_
-> Set _OPTION_ to _VALUE_ as if defined in /etc/network/interfaces.
+> 将 _OPTION_ 设置为 _VALUE_，如同定义在 /etc/network/interfaces 中一样。
 
 **-n**, **--no-act**
-> Don't configure any interfaces or run up/down commands (dry run).
+> 不配置任何接口，也不运行 up/down 命令（干跑）。
 
 **-v**, **--verbose**
-> Show commands as they are executed.
+> 在命令执行时显示它们。
 
 **-f**, **--force**
-> Force deconfiguration even if ifupdown believes the interface is not up.
+> 即使 ifupdown 认为接口未处于启用状态也强制解除配置。
 
 **--ignore-errors**
-> Continue even if a command or script fails.
+> 即使某个命令或脚本失败也继续执行。
 
 **--no-mappings**
-> Do not run mappings during deconfiguration.
+> 解除配置时不运行映射（mappings）。
 
 **--no-scripts**
-> Don't run any scripts under /etc/network/if-*.d/.
+> 不运行 /etc/network/if-*.d/ 下的任何脚本。
 
 **-V**, **--version**
-> Show copyright and version information.
+> 显示版权和版本信息。
 
 **-h**, **--help**
-> Show summary of options.
+> 显示选项摘要。
 
 # DESCRIPTION
 
-**ifdown** brings down network interfaces that were previously configured with ifup. It reads interface definitions from **/etc/network/interfaces** and executes the appropriate commands and scripts to deconfigure the interface.
+**ifdown** 停用之前由 ifup 配置的网络接口。它从 **/etc/network/interfaces** 读取接口定义，并执行相应的命令和脚本来解除接口配置。
 
-The command performs any necessary cleanup including removing IP addresses, stopping DHCP clients, and running user-defined scripts defined in the interfaces file.
+该命令会完成一切必要的清理工作，包括移除 IP 地址、停止 DHCP 客户端以及运行 interfaces 文件中定义的用户脚本。
 
 # CAVEATS
 
-Part of the ifupdown package, primarily used on Debian-based systems. Modern systems often use NetworkManager or systemd-networkd instead. Interface must have been brought up with ifup for ifdown to work correctly.
+属于 ifupdown 软件包，主要用于基于 Debian 的系统。现代系统通常改用 NetworkManager 或 systemd-networkd。接口必须先由 ifup 启用过，ifdown 才能正常工作。
 
 # HISTORY
 
-ifdown is part of the ifupdown package, the traditional network interface configuration system on Debian and derivatives. It has been used since the early days of Debian but is gradually being replaced by NetworkManager and systemd-networkd on desktop and server systems respectively.
+ifdown 属于 ifupdown 软件包——Debian 及其衍生版传统的网络接口配置系统。它自 Debian 早期就开始使用，但在桌面系统上正逐渐被 NetworkManager 取代，在服务器上则被 systemd-networkd 取代。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-fast static site generator written in Go
+用 Go 编写的快速静态站点生成器
 
 # TLDR
 
-**Create new site**
+**创建新站点**
 
 ```hugo new site [site-name]```
 
-**Build site**
+**构建站点**
 
 ```hugo```
 
-**Create new content**
+**创建新内容**
 
 ```hugo new content [posts/my-post.md]```
 
-**Start development server**
+**启动开发服务器**
 
 ```hugo server```
 
-**Build with drafts included**
+**构建时包含草稿**
 
 ```hugo --buildDrafts```
 
-**Build for production with minification**
+**为生产环境进行压缩优化构建**
 
 ```hugo --minify```
 
-**Build to a specific directory**
+**构建到指定目录**
 
 ```hugo -d [/path/to/output]```
 
@@ -39,57 +39,57 @@ fast static site generator written in Go
 # PARAMETERS
 
 **new content**
-> Create new content file.
+> 创建新的内容文件。
 
 **new site**
-> Create a new site scaffold.
+> 创建新的站点骨架。
 
 **server**
-> Start built-in development server.
+> 启动内置的开发服务器。
 
 **-b**, **--baseURL** _URL_
-> Hostname and path to the root.
+> 站点根路径的主机名和路径。
 
 **-D**, **--buildDrafts**
-> Include content marked as draft.
+> 包含标记为草稿的内容。
 
 **-E**, **--buildExpired**
-> Include expired content.
+> 包含过期内容。
 
 **-F**, **--buildFuture**
-> Include content with future publish dates.
+> 包含发布日期在未来的内容。
 
 **-d**, **--destination** _DIR_
-> Filesystem path to write files to.
+> 写入文件的文件系统路径。
 
 **--minify**
-> Minify supported output formats (HTML, XML, etc.).
+> 压缩受支持的输出格式（HTML、XML 等）。
 
 **--gc**
-> Run cleanup tasks after the build (remove unused cache files).
+> 构建后运行清理任务（移除未使用的缓存文件）。
 
 **--cleanDestinationDir**
-> Remove files from destination not found in static directories.
+> 从目标目录移除静态目录中不存在的文件。
 
 **-t**, **--theme** _THEME_
-> Theme to use.
+> 要使用的主题。
 
 **--logLevel** _LEVEL_
-> Log level (debug, info, warn, error).
+> 日志级别（debug、info、warn、error）。
 
 # DESCRIPTION
 
-**Hugo** is a fast static site generator written in Go. It builds websites from Markdown content using templates and themes.
+**Hugo** 是一个用 Go 编写的快速静态站点生成器。它基于 Markdown 内容，借助模板和主题构建网站。
 
-Hugo is extremely fast, building thousands of pages in seconds. It supports themes, taxonomies, and shortcodes for complex sites.
+Hugo 速度极快，可在数秒内构建数千个页面。它通过主题、分类法和短代码（shortcode）支持复杂站点。
 
 # CAVEATS
 
-Go-template syntax learning curve. Theme compatibility varies. No dynamic content.
+Go 模板语法有一定学习曲线。主题兼容性参差不齐。不支持动态内容。
 
 # HISTORY
 
-Hugo was created by **Steve Francia** in **2013** as a fast alternative to Jekyll, written in Go. Note: `hugo new` for creating content is deprecated; use `hugo new content` instead.
+Hugo 由 **Steve Francia** 于 **2013 年**创建，使用 Go 编写，作为 Jekyll 的快速替代方案。注意：用于创建内容的 `hugo new` 已被弃用；请改用 `hugo new content`。
 
 # INSTALL
 

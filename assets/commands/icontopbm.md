@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts a Sun icon file to PBM format
+将 Sun 图标文件转换为 PBM 格式
 
 # TLDR
 
-**Convert icon to PBM**
+**将图标转换为 PBM**
 
 ```icontopbm [file.icon] > [output.pbm]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [file.icon] | icontopbm > [output.pbm]```
 
-**Convert and pipe** to PNG via Netpbm tools
+**转换并通过 Netpbm 工具管道输出**为 PNG
 
 ```icontopbm [file.icon] | pnmtopng > [output.png]```
 
@@ -23,17 +23,17 @@ converts a Sun icon file to PBM format
 # PARAMETERS
 
 _iconfile_
-> Sun icon format input file. If not specified, reads from standard input.
+> Sun 图标格式的输入文件。若未指定，则从标准输入读取。
 
 # DESCRIPTION
 
-**icontopbm** converts a Sun icon file to PBM (Portable Bitmap) format. Sun icon files are a simple bitmap format historically used by Sun Microsystems workstations for desktop icons. The output is written to standard output in PBM format, which can be piped to other Netpbm tools for further conversion.
+**icontopbm** 将 Sun 图标文件转换为 PBM（Portable Bitmap，可移植位图）格式。Sun 图标文件是 Sun Microsystems 工作站历史上用于桌面图标的一种简单位图格式。输出以 PBM 格式写入标准输出，可通过管道传给其他 Netpbm 工具做进一步转换。
 
-Part of the Netpbm package of graphics manipulation tools.
+属于 Netpbm 图像处理工具集的一部分。
 
 # CAVEATS
 
-Only reads Sun icon format files. The format is largely obsolete, but conversion may be needed for legacy file archives.
+只能读取 Sun 图标格式的文件。该格式基本已过时，但处理遗留文件归档时可能仍需转换。
 
 # INSTALL
 

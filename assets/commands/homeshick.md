@@ -1,34 +1,34 @@
 # TAGLINE
 
-git-based dotfile synchronizer written in Bash
+用 Bash 编写的基于 Git 的 dotfile 同步器
 
 # TLDR
 
-**Create** a new castle (dotfiles repository)
+**创建**新的 castle（dotfiles 仓库）
 
 ```homeshick generate [castle_name]```
 
-**Track** a file in your castle
+**跟踪** castle 中的文件
 
 ```homeshick track [castle_name] [path/to/file]```
 
-**Go** to a castle directory
+**进入**某个 castle 目录
 
 ```homeshick cd [castle_name]```
 
-**Clone** a castle from GitHub
+**从 GitHub 克隆** castle
 
 ```homeshick clone [github_username]/[repository_name]```
 
-**Symlink** all files from a castle
+**符号链接** castle 中的所有文件
 
 ```homeshick link [castle_name]```
 
-**List** installed castles
+**列出**已安装的 castle
 
 ```homeshick list```
 
-**Update** all castles from their remotes
+**从远程更新**所有 castle
 
 ```homeshick pull```
 
@@ -39,60 +39,60 @@ git-based dotfile synchronizer written in Bash
 # PARAMETERS
 
 **generate** _CASTLE_ [_CASTLE_...]
-> Create a new castle (dotfiles repository)
+> 创建新的 castle（dotfiles 仓库）
 
 **track** _CASTLE_ _FILE_ [_FILE_...]
-> Move a file/folder into a castle and replace it with a symlink
+> 将文件/文件夹移入 castle 并用符号链接替换原位置
 
 **cd** _CASTLE_
-> Change directory to a castle's repository, for running git commands directly
+> 切换到某个 castle 的仓库目录，便于直接运行 git 命令
 
 **clone** _URL_...
-> Clone a castle from a Git repository (supports GitHub "user/repo" shorthand)
+> 从 Git 仓库克隆 castle（支持 GitHub "user/repo" 简写）
 
 **link**, **symlink** [_CASTLE_...]
-> Symlink all files in the given castles' (or all castles') home folders into $HOME
+> 将给定 castle（或全部 castle）home 文件夹中的所有文件符号链接到 $HOME
 
 **pull** [_CASTLE_...]
-> Run git pull for the given castles (or all castles) and their submodules
+> 对给定 castle（或全部 castle）及其子模块运行 git pull
 
 **check**, **updates** [_CASTLE_...]
-> Check whether castles are behind, ahead, or up to date with their remote
+> 检查各 castle 相对远程是落后、领先还是已最新
 
 **refresh**
-> Check remotes for updates, skipping castles checked within the last week
+> 检查远程是否有更新，跳过最近一周内检查过的 castle
 
 **list**, **ls**
-> List all installed castles
+> 列出所有已安装的 castle
 
 **-q**, **--quiet**
-> Suppress status output except when input is required
+> 抑制状态输出，仅在需要输入时显示
 
 **-s**, **--skip**
-> Skip conflicting files in $HOME instead of overwriting them
+> 跳过 $HOME 中冲突的文件而不覆盖它们
 
 **-f**, **--force**
-> Overwrite conflicting files in $HOME automatically
+> 自动覆盖 $HOME 中冲突的文件
 
 **-b**, **--batch**
-> Run non-interactively, accepting default answers
+> 以非交互方式运行，接受默认答案
 
 **-v**, **--verbose**
-> Print additional diagnostic output
+> 打印额外的诊断信息
 
 # DESCRIPTION
 
-**homeshick** is a Git-based dotfile synchronizer written in Bash. It uses "castles" (Git repositories) to manage dotfiles, creating symlinks from the repository to your home directory.
+**homeshick** 是一个用 Bash 编写的、基于 Git 的 dotfile 同步器。它使用 "castle"（Git 仓库）来管理 dotfiles，通过符号链接把仓库中的文件链接到家目录。
 
-Each castle is a Git repository stored in **~/.homesick/repos/**. Files tracked in a castle (with **track**) are moved into the repository and replaced with symlinks pointing back to the repository copy. This allows version control and easy synchronization across machines. Multiple castles can be installed side by side, letting you combine shared dotfile collections (e.g. an oh-my-zsh castle) with your own.
+每个 castle 都是保存在 **~/.homesick/repos/** 下的一个 Git 仓库。被跟踪进 castle 的文件（通过 **track**）会移动到仓库中，原位置则替换为指向仓库副本的符号链接。这样可以进行版本控制并方便地跨机器同步。多个 castle 可以并存，让你把自己的 dotfile 集合与共享的集合（例如 oh-my-zsh castle）组合起来。
 
 # CAVEATS
 
-Requires Bash 3+ and Git 1.5+. Symlinks may not work correctly on some filesystems or in containers. Conflicts can arise when multiple castles contain the same file; use **-f/--force** or **-s/--skip** to resolve them non-interactively.
+需要 Bash 3+ 和 Git 1.5+。在某些文件系统或容器中符号链接可能无法正常工作。当多个 castle 包含同一文件时会产生冲突；可使用 **-f/--force** 或 **-s/--skip** 以非交互方式解决。
 
 # HISTORY
 
-homeshick was created by **Anders Ingemann**, with the repository dating to **2012**, as a pure Bash alternative to homesick (a Ruby gem). The name combines "home" (dotfiles) with "shell" (Bash implementation).
+homeshick 由 **Anders Ingemann** 创建，仓库历史可追溯到 **2012 年**，作为 homesick（一个 Ruby gem）的纯 Bash 替代品。其名称结合了 "home"（dotfiles）和 "shell"（Bash 实现）。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ homeshick was created by **Anders Ingemann**, with the repository dating to **20
 ```[Documentation](https://github.com/andsens/homeshick/wiki)```
 
 <!-- verified: 2026-07-19 -->
-

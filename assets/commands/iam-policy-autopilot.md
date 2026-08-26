@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate baseline AWS IAM policies from application source
+从应用程序源代码生成基线 AWS IAM 策略
 
 # TLDR
 
-**Generate policies** from source (pretty JSON)
+从源代码**生成策略**（美化 JSON 输出）
 
 ```iam-policy-autopilot generate-policies [./src/app.py] --pretty```
 
-**Limit analysis** with service hints
+使用服务提示**限制分析范围**
 
 ```iam-policy-autopilot generate-policies [./src/app.py] --service-hints s3 iam organizations --pretty```
 
-**Include region and account** in resource ARNs
+在资源 ARN 中**包含区域和账户**
 
 ```iam-policy-autopilot generate-policies [./src] --region [us-east-1] --account [123456789012] --pretty```
 
-**Suggest fixes** for an AccessDenied error
+为 AccessDenied 错误**建议修复方案**
 
 ```iam-policy-autopilot fix-access-denied "[error message text]"```
 
-**Start MCP server** for AI coding assistants
+为 AI 编码助手**启动 MCP 服务器**
 
 ```iam-policy-autopilot mcp-server```
 
-**MCP over HTTP**
+**基于 HTTP 的 MCP**
 
 ```iam-policy-autopilot mcp-server --transport http```
 
@@ -34,43 +34,43 @@ Generate baseline AWS IAM policies from application source
 
 # DESCRIPTION
 
-**IAM Policy Autopilot** is an open-source CLI and MCP server from AWS Labs that analyzes application code locally and produces baseline identity-based IAM policies for the AWS SDK calls it finds. Supported languages and SDKs include Python (Boto3/Botocore), Go (AWS SDK v2), Java (SDK v2), and JavaScript/TypeScript (AWS SDK v3).
+**IAM Policy Autopilot** 是 AWS Labs 开发的开源 CLI 和 MCP 服务器，它在本地分析应用代码，并针对发现的 AWS SDK 调用生成基线的基于身份的 IAM 策略。支持的语言和 SDK 包括 Python（Boto3/Botocore）、Go（AWS SDK v2）、Java（SDK v2）以及 JavaScript/TypeScript（AWS SDK v3）。
 
-It also helps interpret **AccessDenied** errors and can run as an MCP server so AI coding assistants can request policy generation. Install via **uvx iam-policy-autopilot**, **pip install iam-policy-autopilot**, or the project install script to **/usr/local/bin/iam-policy-autopilot**.
+它还能帮助解读 **AccessDenied** 错误，并可运行为 MCP 服务器，让 AI 编码助手请求生成策略。可通过 **uvx iam-policy-autopilot**、**pip install iam-policy-autopilot** 安装，或通过项目安装脚本安装到 **/usr/local/bin/iam-policy-autopilot**。
 
-Generated policies are starting points: review and tighten them before production. The tool does not produce resource-based policies (bucket policies, KMS key policies), SCPs, RCPs, or permission boundaries.
+生成的策略只是起点：在生产使用前请审查并收紧。该工具不生成基于资源的策略（存储桶策略、KMS 密钥策略）、SCP、RCP 或权限边界。
 
 # PARAMETERS
 
 **generate-policies** *source_files*...
 
-> Analyze sources and emit IAM policy documents.
+> 分析源代码并输出 IAM 策略文档。
 >
-> **--region** *REGION* – region for resource ARNs
+> **--region** *REGION* – 资源 ARN 使用的区域
 >
-> **--account** *ACCOUNT* – AWS account id for ARNs
+> **--account** *ACCOUNT* – ARN 中使用的 AWS 账户 ID
 >
-> **--service-hints** *SERVICES* – limit analysis to named services (recommended)
+> **--service-hints** *SERVICES* – 将分析限制在指定的服务（推荐）
 >
-> **--upload-policies** *PREFIX* – upload generated policies to IAM with a name prefix
+> **--upload-policies** *PREFIX* – 以名称前缀将生成的策略上传到 IAM
 >
-> **--pretty** – pretty-print JSON
+> **--pretty** – 美化打印 JSON
 
 **fix-access-denied** *message*
 
-> Analyze an AccessDenied error string and suggest policy changes. **--yes** applies changes without confirmation.
+> 分析 AccessDenied 错误字符串并建议策略修改。**--yes** 无需确认直接应用更改。
 
 **mcp-server**
 
-> Start the MCP server. **--transport** **stdio** (default) or **http**.
+> 启动 MCP 服务器。**--transport** 可选 **stdio**（默认）或 **http**。
 
 **-h**, **--help** / **-V**, **--version**
 
-> Help and version.
+> 帮助与版本信息。
 
 # CAVEATS
 
-Static analysis may include extra actions when method names match multiple services; use **--service-hints**. Runtime resource names are not always known, so resource ARNs may be broad. AI assistants may further edit policies when generating IaC; always review before deploy. Some commands need AWS credentials configured (AWS CLI profile/region). Corporate proxies may need network allowlisting for AWS endpoints.
+当方法名匹配多个服务时，静态分析可能包含多余的动作；请使用 **--service-hints**。运行时的资源名称并不总是可知，因此资源 ARN 可能过于宽泛。AI 助手在生成 IaC 时可能进一步修改策略；部署前务必审查。部分命令需要已配置 AWS 凭据（AWS CLI 的 profile/region）。企业代理可能需要为 AWS 端点配置网络白名单。
 
 # SEE ALSO
 

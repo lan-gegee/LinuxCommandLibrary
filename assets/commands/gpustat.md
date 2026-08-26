@@ -1,30 +1,30 @@
 # TAGLINE
 
-Concise NVIDIA GPU status monitor
+简洁的 NVIDIA GPU 状态监视器
 
 # TLDR
 
-**Show GPU status**
+**显示 GPU 状态**
 
 ```gpustat```
 
-**Show with process info**
+**显示进程信息**
 
 ```gpustat -p```
 
-**Continuous monitoring**
+**持续监控**
 
 ```gpustat -i [1]```
 
-**Show full command names**
+**显示完整的命令名称**
 
 ```gpustat -cp```
 
-**JSON output**
+**JSON 输出**
 
 ```gpustat --json```
 
-**Show process usernames**
+**显示进程用户名**
 
 ```gpustat -u```
 
@@ -35,63 +35,63 @@ Concise NVIDIA GPU status monitor
 # PARAMETERS
 
 **-p**, **--show-pid**
-> Show process PIDs.
+> 显示进程 PID。
 
 **-u**, **--show-user**
-> Show process usernames.
+> 显示进程用户名。
 
 **-c**, **--show-cmd**
-> Show process commands.
+> 显示进程命令。
 
 **-f**, **--show-full-cmd**
-> Show full command line and CPU stats of the running process.
+> 显示运行中进程的完整命令行和 CPU 统计信息。
 
 **-F**, **--show-fan-speed**
-> Show GPU fan speed.
+> 显示 GPU 风扇转速。
 
 **-P**, **--show-power**
-> Show GPU power usage/draw and limit.
+> 显示 GPU 功耗/用电量及上限。
 
 **-e**, **--show-codec**
-> Show encoder/decoder utilization.
+> 显示编码器/解码器利用率。
 
 **-i**, **--interval**, **--watch** _seconds_
-> Run in watch mode, refreshing every _seconds_.
+> 以 watch 模式运行，每 _seconds_ 秒刷新一次。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--no-color**
-> Disable color output.
+> 禁用彩色输出。
 
 **--no-header**
-> Hide header.
+> 隐藏表头。
 
 **--no-processes**
-> Omit running-process information (memory, user, etc.).
+> 省略运行中进程的信息（内存、用户等）。
 
 **-a**, **--show-all**
-> Show all information.
+> 显示所有信息。
 
 **--id** _id_
-> Show specific GPU only.
+> 仅显示指定的 GPU。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gpustat** displays GPU status in a concise format, similar to nvidia-smi but more readable. It shows GPU utilization, memory usage, temperature, and running processes at a glance.
+**gpustat** 以简洁的格式显示 GPU 状态，类似于 nvidia-smi 但更易读。它可以一目了然地显示 GPU 利用率、内存占用、温度和运行中的进程。
 
-The tool is designed for quick monitoring of NVIDIA GPUs during machine learning training or other GPU-intensive tasks.
+该工具专为机器学习训练或其他 GPU 密集型任务期间的 NVIDIA GPU 快速监控而设计。
 
 # CAVEATS
 
-Requires NVIDIA GPU and drivers. Uses nvidia-smi internally. Not suitable for non-NVIDIA GPUs. Process info needs appropriate permissions.
+需要 NVIDIA GPU 及其驱动。内部使用 nvidia-smi。不适用于非 NVIDIA GPU。查看进程信息需要相应的权限。
 
 # HISTORY
 
-**gpustat** was created by **Jongwook Choi** as a simple GPU monitoring tool for machine learning practitioners. It provides a cleaner alternative to nvidia-smi's verbose output, focusing on essential metrics.
+**gpustat** 由 **Jongwook Choi** 创建，是为机器学习从业者打造的简易 GPU 监控工具。它提供了比 nvidia-smi 冗长输出更清爽的替代方案，专注于关键指标。
 
 # INSTALL
 

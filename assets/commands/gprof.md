@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNU execution profiler
+GNU 执行性能分析器
 
 # TLDR
 
-**Generate profile report**
+**生成性能分析报告**
 
 ```gprof [program] [gmon.out]```
 
-**Flat profile only**
+**仅输出平铺性能报告**
 
 ```gprof -p [program]```
 
-**Call graph only**
+**仅输出调用图**
 
 ```gprof -q [program]```
 
-**Suppress static functions**
+**不显示静态函数**
 
 ```gprof -a [program]```
 
-**Output to file**
+**输出到文件**
 
 ```gprof [program] > [profile.txt]```
 
@@ -31,40 +31,40 @@ GNU execution profiler
 # PARAMETERS
 
 **-p**, **--flat-profile**
-> Print flat profile only.
+> 仅打印平铺性能报告。
 
 **-q**, **--graph**
-> Print call graph only.
+> 仅打印调用图。
 
 **-b**, **--brief**
-> Suppress explanatory text.
+> 不输出说明性文字。
 
 **-a**, **--no-static**
-> Suppress static functions.
+> 不显示静态函数。
 
 **-z**, **--display-unused-functions**
-> Show functions never called.
+> 显示从未被调用的函数。
 
 **-c**, **--static-call-graph**
-> Discover child functions by scanning the machine code, even if never called at runtime.
+> 通过扫描机器代码来发现子函数，即使它们在运行时从未被调用。
 
 **-A**, **--annotated-source**
-> Print annotated source.
+> 打印带注释的源码。
 
 **-l**, **--line**
-> Line-by-line profiling.
+> 逐行性能分析。
 
 **-s**, **--sum**
-> Accumulate several profile data files into a summary `gmon.sum`.
+> 将多个性能数据文件累加到汇总文件 `gmon.sum` 中。
 
 **-i**, **--file-info**
-> Print summary information about the profile data file, then exit.
+> 打印关于性能数据文件的摘要信息，然后退出。
 
 # DESCRIPTION
 
-**gprof** analyzes program execution profiles to identify performance bottlenecks. It requires programs compiled with the **-pg** flag and produces reports showing time spent in each function and call relationships.
+**gprof** 分析程序执行的性能剖析数据，以识别性能瓶颈。它要求程序使用 **-pg** 标志编译，生成的报告会显示每个函数所花费的时间以及调用关系。
 
-The tool generates two main reports: a flat profile showing time per function, and a call graph showing function relationships and cumulative times.
+该工具生成两种主要报告：显示各函数耗时情况的平铺报告（flat profile），以及展示函数间关系和累计时间的调用图（call graph）。
 
 # WORKFLOW
 
@@ -81,11 +81,11 @@ gprof program gmon.out > analysis.txt
 
 # CAVEATS
 
-Requires recompilation with -pg. Adds overhead to execution. Sampling-based; short-running functions may be underrepresented. Modern alternatives include perf and valgrind.
+需要用 -pg 重新编译。会给执行带来额外开销。基于采样；运行时间短的函数可能被低估。现代替代方案包括 perf 和 valgrind。
 
 # HISTORY
 
-gprof was developed at **UC Berkeley** in the early **1980s** by Susan Graham, Peter Kessler, and Marshall McKusick. It became the standard Unix profiler and remains part of GNU binutils.
+gprof 由 Susan Graham、Peter Kessler 和 Marshall McKusick 于 **20 世纪 80 年代初**在 **UC Berkeley** 开发。它成为标准的 Unix 性能分析器，至今仍是 GNU binutils 的一部分。
 
 # INSTALL
 

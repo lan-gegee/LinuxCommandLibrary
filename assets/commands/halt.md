@@ -1,26 +1,26 @@
 # TAGLINE
 
-instructs the system to stop all processes and halt the CPU
+指示系统停止所有进程并暂停 CPU
 
 # TLDR
 
-**Halt** the system
+**停机**系统
 
 ```halt```
 
-**Power off** the system (same as poweroff)
+**关闭电源**（等同于 poweroff）
 
 ```halt -p```
 
-**Reboot** the system (same as reboot)
+**重启**系统（等同于 reboot）
 
 ```halt --reboot```
 
-Halt **immediately** without contacting the system manager
+**立即停机**，不联系系统管理器
 
 ```halt -f```
 
-Write the wtmp shutdown entry **without halting**
+仅写入 wtmp 关机记录而**不实际停机**
 
 ```halt -w```
 
@@ -31,44 +31,44 @@ Write the wtmp shutdown entry **without halting**
 # PARAMETERS
 
 **-p**, **--poweroff**
-> Power off the machine (equivalent to poweroff)
+> 关闭机器电源（等同于 poweroff）
 
 **--reboot**
-> Reboot the machine (equivalent to reboot)
+> 重启机器（等同于 reboot）
 
 **--halt**
-> Halt the machine, regardless of which command is invoked
+> 停机，无论调用的是哪个命令
 
 **-f**, **--force**
-> Force immediate halt without contacting the init system
+> 强制立即停机，不联系 init 系统
 
 **-w**, **--wtmp-only**
-> Only write wtmp record, don't actually halt
+> 仅写入 wtmp 记录，并不真正停机
 
 **-d**, **--no-wtmp**
-> Don't write wtmp record
+> 不写入 wtmp 记录
 
 **--no-wall**
-> Don't send wall message before halt
+> 停机前不发送 wall 消息
 
 # DESCRIPTION
 
-**halt** instructs the system to stop all processes and halt the CPU. On modern systems with systemd, halt is a symlink to systemctl and triggers a proper shutdown sequence.
+**halt** 指示系统停止所有进程并暂停 CPU。在使用 systemd 的现代系统上，halt 是指向 systemctl 的符号链接，会触发正常的关机流程。
 
-The difference between halt, poweroff, and reboot:
-- **halt** - Stops the CPU but may leave power on
-- **poweroff** - Stops the CPU and powers off the machine
-- **reboot** - Restarts the machine
+halt、poweroff 和 reboot 的区别：
+- **halt** - 停止 CPU，但电源可能保持开启
+- **poweroff** - 停止 CPU 并切断机器电源
+- **reboot** - 重启机器
 
-In practice, most systems treat halt and poweroff similarly, powering off the machine.
+实际上，大多数系统对 halt 和 poweroff 的处理类似，都会关闭机器电源。
 
 # CAVEATS
 
-Using **-f** bypasses the normal shutdown sequence, which may cause data loss. On systemd systems, these commands are wrappers around systemctl. Running halt typically requires root privileges.
+使用 **-f** 会绕过正常的关机流程，可能导致数据丢失。在 systemd 系统上，这些命令都是 systemctl 的封装。运行 halt 通常需要 root 权限。
 
 # HISTORY
 
-halt is a traditional Unix command dating back to early Unix systems. On modern Linux distributions using systemd, halt, poweroff, and reboot are symlinks to systemctl, providing backwards compatibility while using systemd's shutdown mechanisms.
+halt 是一个可以追溯到早期 Unix 系统的传统 Unix 命令。在使用 systemd 的现代 Linux 发行版上，halt、poweroff 和 reboot 都是指向 systemctl 的符号链接，在使用 systemd 关机机制的同时提供了向后兼容性。
 
 # INSTALL
 

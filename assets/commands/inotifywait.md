@@ -1,38 +1,38 @@
 # TAGLINE
 
-uses Linux's inotify API to efficiently watch files and directories for changes
+利用 Linux 的 inotify API 高效监视文件和目录的变化
 
 # TLDR
 
-**Watch** a specific file for events, exiting after the first one
+**监视**特定文件的事件，首个事件发生后退出
 
 ```inotifywait [path/to/file]```
 
-**Continuously watch** a file for events
+**持续监视**文件的事件
 
 ```inotifywait -m [path/to/file]```
 
-Watch a directory **recursively** for events
+**递归**监视目录的事件
 
 ```inotifywait -m -r [path/to/directory]```
 
-Watch a directory **excluding** files matching regex
+监视目录但**排除**匹配正则表达式的文件
 
 ```inotifywait -m -r --exclude "[regex]" [path/to/directory]```
 
-Watch with a **timeout** of 30 seconds
+以 30 秒为**超时**进行监视
 
 ```inotifywait -m -t 30 [path/to/file]```
 
-Watch only for **specific events** (modify)
+只监视**特定事件**（modify）
 
 ```inotifywait -e modify [path/to/file]```
 
-Watch **quietly** (no status messages)
+**安静地**监视（无状态消息）
 
 ```inotifywait -q [path/to/file]```
 
-Run a **command** when a file is accessed
+文件被访问时运行一条**命令**
 
 ```inotifywait -e access [path/to/file] && [command]```
 
@@ -43,51 +43,51 @@ Run a **command** when a file is accessed
 # PARAMETERS
 
 **-m**, **--monitor**
-> Keep running, don't exit after first event
+> 持续运行，第一个事件发生后不退出
 
 **-r**, **--recursive**
-> Watch directories recursively
+> 递归监视目录
 
 **-e**, **--event** _EVENT_
-> Watch for specific events (access, modify, create, delete, etc.)
+> 只监视特定事件（access、modify、create、delete 等）
 
 **-t**, **--timeout** _SECONDS_
-> Exit after timeout with no events
+> 超时且无事件时退出
 
 **-q**, **--quiet**
-> Suppress informational messages
+> 抑制信息性消息
 
 **--exclude** _PATTERN_
-> Exclude files matching regex pattern
+> 排除匹配正则表达式模式的文件
 
 **--format** _FMT_
-> Custom output format
+> 自定义输出格式
 
 **-c**, **--csv**
-> Output in CSV format
+> 以 CSV 格式输出
 
 # DESCRIPTION
 
-**inotifywait** uses Linux's inotify API to efficiently watch files and directories for changes. It blocks until a filesystem event occurs, making it ideal for triggering actions on file changes.
+**inotifywait** 利用 Linux 的 inotify API 高效监视文件和目录的变化。它会阻塞直到发生文件系统事件，非常适合在文件变化时触发操作。
 
-Available events include:
-- **access** - File read
-- **modify** - File written
-- **create** - File/directory created
-- **delete** - File/directory deleted
-- **move** - File moved
-- **attrib** - Metadata changed
-- **close_write** - File closed after writing
+可用事件包括：
+- **access** - 文件被读取
+- **modify** - 文件被写入
+- **create** - 文件/目录被创建
+- **delete** - 文件/目录被删除
+- **move** - 文件被移动
+- **attrib** - 元数据发生变化
+- **close_write** - 写入后文件关闭
 
-This is commonly used in scripts to rebuild projects, sync files, or trigger deployments when source files change.
+它常用于脚本中：源文件变化时重新构建项目、同步文件或触发部署。
 
 # CAVEATS
 
-Linux-only (uses inotify kernel subsystem). There are limits on the number of watches (configurable via /proc/sys/fs/inotify/max_user_watches). Recursive watching creates a watch per directory. Not suitable for very large directory trees.
+仅限 Linux（使用 inotify 内核子系统）。监视数量有上限（可通过 /proc/sys/fs/inotify/max_user_watches 配置）。递归监视会为每个目录创建一个 watch。不适合非常大的目录树。
 
 # HISTORY
 
-inotifywait is part of inotify-tools, created to provide user-space access to Linux's inotify API, which was introduced in kernel 2.6.13 (**2005**). It replaced the older dnotify mechanism.
+inotifywait 是 inotify-tools 的一部分，旨在为 Linux 的 inotify API 提供用户空间访问方式。该 API 于内核 2.6.13（**2005 年**）引入，取代了较旧的 dnotify 机制。
 
 # INSTALL
 

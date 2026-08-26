@@ -1,38 +1,38 @@
 # TAGLINE
 
-user-friendly HTTP client
+对用户友好的 HTTP 客户端
 
 # TLDR
 
-**GET request**
+**GET 请求**
 
 ```http [https://api.example.com/users]```
 
-**POST with JSON**
+**以 JSON 发送 POST**
 
 ```http POST [url] name=value```
 
-**POST with form data**
+**以表单数据发送 POST**
 
 ```http --form POST [url] field=value```
 
-**Custom headers**
+**自定义请求头**
 
 ```http [url] Authorization:"Bearer [token]"```
 
-**Download file**
+**下载文件**
 
 ```http --download [url]```
 
-**Authenticated request**
+**带认证的请求**
 
 ```http --auth [user]:[password] [url]```
 
-**Verbose output**
+**详细输出**
 
 ```http --verbose [url]```
 
-**Use a named session**
+**使用命名会话**
 
 ```http --session=[name] [url]```
 
@@ -43,69 +43,69 @@ user-friendly HTTP client
 # PARAMETERS
 
 _METHOD_
-> HTTP method (GET, POST, PUT, DELETE).
+> HTTP 方法（GET、POST、PUT、DELETE）。
 
 _URL_
-> Request URL.
+> 请求 URL。
 
 _DATA_
-> Request data (key=value pairs).
+> 请求数据（键值对）。
 
 **-d**, **--download**
-> Download file.
+> 下载文件。
 
 **-f**, **--form**
-> Form encoded data.
+> 表单编码数据。
 
 **-j**, **--json**
-> JSON data.
+> JSON 数据。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-o**, **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **-a**, **--auth** _USER:PASS_
-> Basic or digest authentication credentials.
+> 基本认证或摘要认证凭据。
 
 **-A**, **--auth-type** _TYPE_
-> Authentication type: basic, digest, bearer.
+> 认证类型：basic、digest、bearer。
 
 **--session** _NAME_
-> Create or reuse a named session for cookies and headers.
+> 创建或复用命名会话，用于保存 cookie 和请求头。
 
 **-p**, **--print** _FLAGS_
-> Control output: H (request headers), B (request body), h (response headers), b (response body).
+> 控制输出内容：H（请求头）、B（请求体）、h（响应头）、b（响应体）。
 
 **--pretty** _STYLE_
-> Output formatting: all, colors, format, none.
+> 输出格式化方式：all、colors、format、none。
 
 **--verify** _CERT_
-> SSL certificate verification. Use **no** to skip.
+> SSL 证书校验。使用 **no** 可跳过。
 
 **--proxy** _PROTOCOL:URL_
-> Use a proxy for requests.
+> 为请求使用代理。
 
 **--follow**
-> Follow HTTP redirects.
+> 跟随 HTTP 重定向。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**HTTPie** (http) is a user-friendly HTTP client. It provides intuitive syntax, colorized output, and JSON support for API interaction.
+**HTTPie**（http）是一个对用户友好的 HTTP 客户端。它为 API 交互提供直观的语法、彩色输出和 JSON 支持。
 
-The tool simplifies making HTTP requests from the command line. It automatically formats responses and supports sessions and authentication.
+该工具简化了从命令行发起 HTTP 请求的过程。它会自动格式化响应，并支持会话和认证。
 
 # CAVEATS
 
-Python package. Different from curl syntax. JSON by default.
+Python 软件包。语法与 curl 不同。默认使用 JSON。
 
 # HISTORY
 
-HTTPie was created by **Jakub Roztocil** as a more user-friendly alternative to curl for API testing.
+HTTPie 由 **Jakub Roztocil** 创建，旨在作为比 curl 更易用的 API 测试工具。
 
 # INSTALL
 

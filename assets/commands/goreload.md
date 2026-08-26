@@ -1,30 +1,30 @@
 # TAGLINE
 
-Live reload tool for Go development
+Go 开发的实时重载工具
 
 # TLDR
 
-**Watch and reload the app in the current directory**
+**监视并重载当前目录中的应用**
 
 ```goreload```
 
-**Watch and build a specific entry point**
+**监视并构建指定的入口文件**
 
 ```goreload [main.go]```
 
-**Watch a specific path**
+**监视指定路径**
 
 ```goreload -t [./cmd/server]```
 
-**Exclude a directory from watching**
+**将某个目录排除在监视之外**
 
 ```goreload -x [vendor]```
 
-**Reload on any file change, not just .go files**
+**任何文件变化都触发重载，而不限于 .go 文件**
 
 ```goreload --all```
 
-**Pass extra arguments to go build**
+**向 go build 传递额外参数**
 
 ```goreload --buildArgs "[-ldflags=-s -w]"```
 
@@ -35,45 +35,45 @@ Live reload tool for Go development
 # PARAMETERS
 
 **-t**, **--path** _DIR_
-> Directory to watch for changes (default: current directory).
+> 监视变化的目录（默认：当前目录）。
 
 **-d**, **--build** _DIR_
-> Path to build files from (default: same as **--path**).
+> 构建源文件的路径（默认：与 **--path** 相同）。
 
 **-b**, **--bin** _NAME_
-> Name of the generated binary (default: .goreload).
+> 生成的二进制文件名（默认：.goreload）。
 
 **-x**, **--excludeDir** _DIR_
-> Relative directory to exclude from monitoring (repeatable).
+> 不参与监视的相对目录（可重复指定）。
 
 **--all**
-> Reload on any file change, not just **.go** files.
+> 任何文件变化都触发重载，而不只是 **.go** 文件。
 
 **--buildArgs** _ARGS_
-> Extra arguments passed through to **go build**.
+> 透传给 **go build** 的额外参数。
 
 **--logPrefix** _PREFIX_
-> Custom prefix for log output.
+> 日志输出的自定义前缀。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**goreload** is a live reload tool for Go development, forked from **codegangsta/gin**. It watches source files and automatically rebuilds and restarts the application when changes are detected, eliminating manual rebuild cycles.
+**goreload** 是一款面向 Go 开发的实时重载工具，从 **codegangsta/gin** 分叉而来。它监视源文件，检测到变化时自动重新构建并重启应用，省去了手动重建的循环。
 
-The tool supports configurable watch directories, exclude patterns, and custom build commands.
+该工具支持配置监视目录、排除模式和自定义构建命令。
 
 # CAVEATS
 
-Development tool only. Some file events may be missed. Configure exclude patterns.
+仅用于开发环境。部分文件事件可能被遗漏。请合理配置排除模式。
 
 # HISTORY
 
-goreload was forked from **codegangsta/gin**, trimming unused features, and has itself been re-forked by several maintainers (e.g. acoshift, oxycoder) as one of many Go live-reload utilities.
+goreload 从 **codegangsta/gin** 分叉而来，精简了未使用的功能；此后它又被多位维护者再次分叉（如 acoshift、oxycoder），成为众多 Go 实时重载工具中的一员。
 
 # SEE ALSO
 

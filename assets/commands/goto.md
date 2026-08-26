@@ -1,22 +1,22 @@
 # TAGLINE
 
-Directory navigation with aliases
+支持别名的目录导航工具
 
 # TLDR
 
-**Register** current directory
+**注册**当前目录
 
 ```goto -r [alias-name]```
 
-**Navigate** to aliased directory
+**跳转**到别名对应的目录
 
 ```goto [alias-name]```
 
-**List** all aliases
+**列出**所有别名
 
 ```goto -l```
 
-**Unregister** an alias
+**注销**一个别名
 
 ```goto -u [alias-name]```
 
@@ -27,38 +27,38 @@ Directory navigation with aliases
 # PARAMETERS
 
 **-r, --register** _ALIAS_
-> Register current directory as alias
+> 将当前目录注册为别名
 
 **-u, --unregister** _ALIAS_
-> Unregister alias
+> 注销别名
 
 **-l, --list**
-> List all registered aliases
+> 列出所有已注册的别名
 
 **-c, --clean**
-> Remove non-existent directory aliases
+> 移除指向不存在目录的别名
 
 **-x, --expand** _ALIAS_
-> Print alias path
+> 打印别名对应的路径
 
 **-p, --push**
-> Use pushd instead of cd
+> 使用 pushd 而不是 cd
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**goto** is a directory navigation tool that allows users to create aliases for frequently accessed directories. It provides tab completion and quick jumping between projects.
+**goto** 是一个目录导航工具，允许用户为经常访问的目录创建别名。它提供 Tab 补全以及在项目之间快速跳转的能力。
 
-The tool integrates with the shell (bash, zsh, fish) and provides fast navigation without typing long paths.
+该工具与 shell（bash、zsh、fish）集成，无需输入冗长的路径即可实现快速导航。
 
 # SHELL INTEGRATION
 
-Add to shell configuration:
+添加到 shell 配置中：
 
 **Bash/Zsh:**
 ```bash
@@ -81,11 +81,11 @@ goto -u proj      # Remove alias
 
 # CAVEATS
 
-Requires shell integration. Aliases are stored in user's home directory. Tab completion requires shell setup.
+需要集成到 shell。别名存储在用户主目录中。Tab 补全需要进行相应的 shell 设置。
 
 # HISTORY
 
-**goto** was inspired by similar tools like z.lua and autojump, focusing on simplicity and alias-based navigation.
+**goto** 的灵感来自 z.lua 和 autojump 等类似工具，专注于简洁性和基于别名的导航方式。
 
 # INSTALL
 

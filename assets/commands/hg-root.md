@@ -1,14 +1,14 @@
 # TAGLINE
 
-prints the root directory of the Mercurial repository
+输出 Mercurial 仓库的根目录
 
 # TLDR
 
-**Show repository root**
+**显示仓库根目录**
 
 ```hg root```
 
-**Use in scripts**
+**在脚本中使用**
 
 ```cd $(hg root)```
 
@@ -19,27 +19,27 @@ prints the root directory of the Mercurial repository
 # PARAMETERS
 
 **--share-source**
-> Print the share source root instead, when the repository was created with the **share** extension.
+> 当仓库是通过 **share** 扩展创建时，改为输出共享源仓库的根目录。
 
 **-T**, **--template** _TEMPLATE_
-> Display output with the given template.
+> 使用给定模板显示输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg root** prints the root directory of the Mercurial repository. It outputs the absolute path to the .hg directory's parent.
+**hg root** 输出 Mercurial 仓库的根目录，即 .hg 目录的上一级的绝对路径。
 
-The command is useful in scripts to locate the repository root regardless of current working directory. It fails if not in a repository.
+在脚本中，无论当前工作目录是什么，该命令都能定位到仓库根目录，非常实用。不在仓库内时会报错。
 
 # CAVEATS
 
-Fails if not in repository. Returns absolute path. Simple utility command.
+不在仓库内时会失败。返回绝对路径。是一个简单的实用命令。
 
 # HISTORY
 
-Root is a **Mercurial** utility command for locating the repository top-level directory.
+root 是 **Mercurial** 中用于定位仓库顶层目录的实用命令。
 
 # SEE ALSO
 

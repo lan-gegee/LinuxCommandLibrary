@@ -1,34 +1,34 @@
 # TAGLINE
 
-OpenPGP and PIV smartcard management
+OpenPGP 和 PIV 智能卡管理
 
 # TLDR
 
-**List available smartcards**
+**列出可用的智能卡**
 
 ```gpg-card list```
 
-**Display card information**
+**显示卡片信息**
 
 ```gpg-card info```
 
-**Change PIN**
+**修改 PIN**
 
 ```gpg-card passwd```
 
-**Set cardholder name**
+**设置持卡人姓名**
 
 ```gpg-card name```
 
-**Fetch public key from card URL**
+**从卡片 URL 获取公钥**
 
 ```gpg-card fetch```
 
-**Generate keys on card**
+**在卡上生成密钥**
 
 ```gpg-card generate```
 
-**Reset card to factory defaults**
+**将卡片恢复出厂设置**
 
 ```gpg-card factory-reset```
 
@@ -39,43 +39,43 @@ OpenPGP and PIV smartcard management
 # SUBCOMMANDS
 
 **list**
-> List available cards and readers.
+> 列出可用的卡片和读卡器。
 
 **info**
-> Display card information.
+> 显示卡片信息。
 
 **name**
-> Set cardholder name.
+> 设置持卡人姓名。
 
 **lang**
-> Set language preference.
+> 设置语言偏好。
 
 **url**
-> Set public key URL.
+> 设置公钥 URL。
 
 **fetch**
-> Fetch key from URL on card.
+> 从卡上记录的 URL 获取密钥。
 
 **passwd**
-> Change PIN, Admin PIN, or Reset Code.
+> 修改 PIN、Admin PIN 或重置码（Reset Code）。
 
 **generate**
-> Generate keys on card.
+> 在卡上生成密钥。
 
 **keytocard**
-> Transfer key to card.
+> 将密钥传输到卡上。
 
 **forcesig**
-> Toggle signature PIN requirement.
+> 切换签名是否必须输入 PIN。
 
 **factory-reset**
-> Reset card to factory defaults.
+> 将卡片恢复出厂设置。
 
 # DESCRIPTION
 
-**gpg-card** is a GnuPG tool for managing OpenPGP and PIV smartcards. It provides an interactive interface for configuring cards, managing PINs, generating keys, and transferring keys to smartcards.
+**gpg-card** 是 GnuPG 中用于管理 OpenPGP 和 PIV 智能卡的工具。它提供交互式界面，可用于配置卡片、管理 PIN、生成密钥以及将密钥传输到智能卡。
 
-Introduced in GnuPG 2.3 as a replacement for the older **gpg --card-edit** workflow, it offers a more streamlined command-line experience for smartcard operations.
+它随 GnuPG 2.3 推出，用来取代较旧的 **gpg --card-edit** 工作流，为智能卡操作提供了更精简的命令行体验。
 
 # INSTALL
 

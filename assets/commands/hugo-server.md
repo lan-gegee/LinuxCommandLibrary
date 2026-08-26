@@ -1,34 +1,34 @@
 # TAGLINE
 
-starts a local development server with live reload
+启动支持实时重载的本地开发服务器
 
 # TLDR
 
-**Start development server**
+**启动开发服务器**
 
 ```hugo server```
 
-**Include draft content**
+**包含草稿内容**
 
 ```hugo server -D```
 
-**Start on a custom port**
+**在自定义端口上启动**
 
 ```hugo server -p [8080]```
 
-**Bind to all interfaces** (accessible from other devices on the network)
+**绑定到所有网卡**（可从网络中的其他设备访问）
 
 ```hugo server --bind 0.0.0.0```
 
-**Disable live reload**
+**禁用实时重载**
 
 ```hugo server --disableLiveReload```
 
-**Navigate to changes** automatically in the browser
+**在浏览器中自动导航到变更的内容**
 
 ```hugo server --navigateToChanged```
 
-**Build and serve with a specific base URL**
+**以指定的 base URL 构建并提供服务**
 
 ```hugo server --baseURL [http://example.com]```
 
@@ -39,57 +39,57 @@ starts a local development server with live reload
 # PARAMETERS
 
 **-D**, **--buildDrafts**
-> Include draft content.
+> 包含草稿内容。
 
 **-E**, **--buildExpired**
-> Include expired content.
+> 包含过期内容。
 
 **-F**, **--buildFuture**
-> Include content with future publish dates.
+> 包含发布日期在未来的内容。
 
 **-p**, **--port** _PORT_
-> Server port (default: 1313).
+> 服务器端口（默认：1313）。
 
 **--bind** _ADDR_
-> Listen address (default: 127.0.0.1).
+> 监听地址（默认：127.0.0.1）。
 
 **-b**, **--baseURL** _URL_
-> Hostname and path to the root.
+> 站点根路径的主机名和路径。
 
 **--disableLiveReload**
-> Disable automatic live reloading of browser.
+> 禁用浏览器的自动实时刷新。
 
 **--navigateToChanged**
-> Navigate to changed content file on live reload.
+> 实时重载时导航到发生变化的文件对应的页面。
 
 **--poll** _DURATION_
-> Use polling with this period for file change detection (e.g., 700ms).
+> 以该周期轮询来检测文件变化（例如 700ms）。
 
 **-w**, **--watch**
-> Watch for changes and rebuild (default: true).
+> 监视变化并重新构建（默认：true）。
 
 **--noHTTPCache**
-> Prevent HTTP caching.
+> 阻止 HTTP 缓存。
 
 **--renderStaticToDisk**
-> Serve static files from disk and dynamic files from memory.
+> 静态文件从磁盘提供，动态文件从内存提供。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hugo server** starts a local development server with live reload. It watches for file changes and automatically rebuilds the site, then signals connected browsers to refresh via injected JavaScript.
+**hugo server** 启动一个支持实时重载的本地开发服务器。它会监视文件变化并自动重建站点，然后通过注入的 JavaScript 通知已连接的浏览器刷新。
 
-The server renders content to memory by default for speed. It defaults to **localhost:1313** and enables watching/live reload automatically.
+为了提高速度，服务器默认将内容渲染到内存中。它默认监听 **localhost:1313**，并自动启用监视/实时重载功能。
 
 # CAVEATS
 
-Intended for development only, not production use. The **--bind 0.0.0.0** option exposes the server on all network interfaces. Memory usage can be significant with large sites since content is rendered to memory. Use **--poll** in environments where filesystem events are unreliable (e.g., Docker, network mounts).
+仅用于开发，不适合生产环境。**--bind 0.0.0.0** 选项会将服务器暴露在所有网络接口上。由于内容渲染到内存中，大型站点的内存占用可能相当可观。在文件系统事件不可靠的环境中（例如 Docker、网络挂载），请使用 **--poll**。
 
 # HISTORY
 
-hugo server is the built-in development server for **Hugo**, the open-source static site generator written in Go.
+hugo server 是 **Hugo** 内置的开发服务器。Hugo 是用 Go 编写的开源静态站点生成器。
 
 # INSTALL
 

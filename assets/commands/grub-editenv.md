@@ -1,18 +1,18 @@
 # TAGLINE
 
-manage GRUB environment block variables
+管理 GRUB 环境块变量
 
 # TLDR
 
-Set a **default boot entry**
+设置**默认启动项**
 
 ```grub-editenv /boot/grub/grubenv set default=Ubuntu```
 
-Display all GRUB **environment variables**
+显示所有 GRUB **环境变量**
 
 ```grub-editenv /boot/grub/grubenv list```
 
-**Reset** the saved_entry variable to the default
+将 saved_entry 变量**重置**为默认值
 
 ```grub-editenv /boot/grub/grubenv unset saved_entry```
 
@@ -23,43 +23,43 @@ Display all GRUB **environment variables**
 # PARAMETERS
 
 **list**
-> List all variables in the environment file
+> 列出环境文件中的所有变量
 
 **set** _NAME=VALUE_
-> Set a variable to a value
+> 将变量设置为某个值
 
 **unset** _NAME_
-> Remove a variable
+> 移除变量
 
 **create**
-> Create a new empty environment file
+> 创建一个新的空环境文件
 
 **-v**, **--verbose**
-> Print verbose messages
+> 打印详细消息
 
 # DESCRIPTION
 
-**grub-editenv** manages GRUB's environment block (grubenv), which stores persistent variables across boots. The environment file is typically located at /boot/grub/grubenv or /boot/grub2/grubenv.
+**grub-editenv** 管理 GRUB 的环境块（grubenv），其中保存着跨启动持久化的变量。环境文件通常位于 /boot/grub/grubenv 或 /boot/grub2/grubenv。
 
-Common variables include **saved_entry** (the boot entry to use when GRUB_DEFAULT=saved), **next_entry** (entry for next boot only, used by grub-reboot), and **recordfail** (set when a boot fails).
+常见变量包括 **saved_entry**（当 GRUB_DEFAULT=saved 时使用的启动项）、**next_entry**（仅下一次启动生效的条目，由 grub-reboot 使用）以及 **recordfail**（启动失败时设置）。
 
-This tool enables scripted management of boot configuration without regenerating grub.cfg.
+该工具支持以脚本方式管理启动配置，而无需重新生成 grub.cfg。
 
 # CONFIGURATION
 
 **/boot/grub/grubenv**
-> The GRUB environment block file storing persistent boot variables.
+> 存储持久化启动变量的 GRUB 环境块文件。
 
 **/etc/default/grub**
-> Must contain GRUB_DEFAULT=saved for grub-editenv settings to take effect.
+> 必须包含 GRUB_DEFAULT=saved，grub-editenv 的设置才能生效。
 
 # CAVEATS
 
-The grubenv file has a fixed size (1024 bytes). Variables and values must fit within this space. Some bootloader configurations may not use grubenv. Changes require GRUB_DEFAULT=saved in /etc/default/grub.
+grubenv 文件大小固定（1024 字节）。变量和值必须能放进这个空间。某些引导加载程序配置可能不使用 grubenv。更改要求 /etc/default/grub 中设置了 GRUB_DEFAULT=saved。
 
 # HISTORY
 
-grub-editenv is part of GRUB 2's saved default mechanism, allowing boot preferences to persist without modifying the main configuration file. This enables features like "boot once" and remembering the last successful boot.
+grub-editenv 是 GRUB 2 已保存默认项机制的一部分，允许启动偏好在无需修改主配置文件的情况下持久保存。这使得"仅启动一次"以及记住上次成功启动等特性成为可能。
 
 # INSTALL
 

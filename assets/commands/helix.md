@@ -1,30 +1,30 @@
 # TAGLINE
 
-post-modern modal text editor inspired by Kakoune and Vim
+受 Kakoune 和 Vim 启发的后现代模态文本编辑器
 
 # TLDR
 
-**Open file**
+**打开文件**
 
 ```hx [file]```
 
-**Open at specific line**
+**在指定行打开**
 
 ```hx [file]:[line]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```hx [file1] [file2]```
 
-**Check health**
+**检查健康状态**
 
 ```hx --health```
 
-**Open tutor**
+**打开教程**
 
 ```hx --tutor```
 
-**Open a file at a specific working directory**
+**在指定工作目录中打开文件**
 
 ```hx -w [path/to/project] [file]```
 
@@ -35,60 +35,60 @@ post-modern modal text editor inspired by Kakoune and Vim
 # PARAMETERS
 
 _FILES_
-> Files to edit, optionally suffixed with **:LINE** or **:LINE:COLUMN**.
+> 要编辑的文件，可选择以 **:LINE** 或 **:LINE:COLUMN** 作为后缀。
 
 **+**_N_
-> Open the first given file at line _N_ (or the last line if _N_ is omitted).
+> 在第 _N_ 行打开第一个给定的文件（若省略 _N_ 则为最后一行）。
 
 **--health** [_CATEGORY_]
-> Check for potential setup problems; _CATEGORY_ can be a language name, or one of clipboard, languages, all-languages, all.
+> 检查潜在的配置问题；_CATEGORY_ 可以是语言名称，或 clipboard、languages、all-languages、all 之一。
 
 **--tutor**
-> Open the interactive tutorial.
+> 打开交互式教程。
 
 **-g**, **--grammar** {**fetch**|**build**}
-> Fetch or build the tree-sitter grammars listed in languages.toml.
+> 获取或构建 languages.toml 中列出的 tree-sitter 语法。
 
 **-c**, **--config** _FILE_
-> Specify a configuration file to use.
+> 指定要使用的配置文件。
 
 **--log** _FILE_
-> Specify a file to use for logging.
+> 指定用于记录日志的文件。
 
 **-w**, **--working-dir** _PATH_
-> Specify an initial working directory.
+> 指定初始工作目录。
 
 **--vsplit**
-> Split all given files vertically into separate windows.
+> 将所有给定文件垂直拆分到独立窗口。
 
 **--hsplit**
-> Split all given files horizontally into separate windows.
+> 将所有给定文件水平拆分到独立窗口。
 
 **--strict**
-> Bail with an error for commands that can fail.
+> 对可能失败的命令直接报错退出。
 
 **-v**
-> Increase logging verbosity (repeatable, up to 3 times).
+> 提高日志详细程度（可重复使用，最多 3 次）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Print version information.
+> 输出版本信息。
 
 # DESCRIPTION
 
-**Helix** is a post-modern modal text editor inspired by Kakoune and Vim. It features multiple selections, built-in LSP support, and tree-sitter integration.
+**Helix** 是一款受 Kakoune 和 Vim 启发的后现代模态文本编辑器。它具有多重选区、内置 LSP 支持以及 tree-sitter 集成等特性。
 
-The editor provides syntax highlighting, auto-completion, and diagnostics out of the box. It uses selection-action model instead of verb-object.
+该编辑器开箱即用地提供语法高亮、自动补全和诊断功能。它采用"先选区后操作"的模型，而不是"动词—宾语"模式。
 
 # CAVEATS
 
-Different keybindings than Vim. Learning curve for selection model. Rust-based, requires compilation.
+按键绑定与 Vim 不同。选区模型存在学习曲线。基于 Rust 编写，需要编译。
 
 # HISTORY
 
-**Helix** was started by **Blaž Hrastnik** in 2020 and first announced publicly in 2021. Unlike Vim/Neovim, it ships with sane defaults, tree-sitter-based syntax analysis, and LSP support built in rather than added via plugins, and it adopts Kakoune's selection-first ("selection, then action") editing model.
+**Helix** 由 **Blaž Hrastnik** 于 2020 年启动，2021 年首次公开发布。与 Vim/Neovim 不同，它自带合理的默认配置，内置基于 tree-sitter 的语法分析和 LSP 支持（而非通过插件添加），并采用 Kakoune 的"选区优先"（先选择、后操作）的编辑模型。
 
 # INSTALL
 

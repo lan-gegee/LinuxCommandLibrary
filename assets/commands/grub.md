@@ -1,26 +1,26 @@
 # TAGLINE
 
-GRand Unified Bootloader for Linux systems
+Linux 系统的 GRand Unified Bootloader（GRUB）
 
 # TLDR
 
-**Install GRUB to disk**
+**将 GRUB 安装到磁盘**
 
 ```sudo grub-install /dev/sda```
 
-**Update GRUB configuration** (Debian/Ubuntu)
+**更新 GRUB 配置**（Debian/Ubuntu）
 
 ```sudo update-grub```
 
-**Generate config file directly**
+**直接生成配置文件**
 
 ```sudo grub-mkconfig -o /boot/grub/grub.cfg```
 
-**Set the default boot entry**
+**设置默认启动条目**
 
 ```sudo grub-set-default 0```
 
-**Check GRUB version**
+**检查 GRUB 版本**
 
 ```grub-install --version```
 
@@ -33,49 +33,49 @@ GRand Unified Bootloader for Linux systems
 # PARAMETERS
 
 **--root-directory** _DIR_
-> Install to alternate root.
+> 安装到备用根目录。
 
 **--boot-directory** _DIR_
-> Boot directory location.
+> 启动目录位置。
 
 **--target** _TARGET_
-> Target platform.
+> 目标平台。
 
 **--recheck**
-> Probe devices again.
+> 重新探测设备。
 
 **--removable**
-> Install for removable media.
+> 为可移动介质安装。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**GRUB** (GRand Unified Bootloader) is the standard bootloader for Linux systems. It loads the kernel and initrd, presenting a boot menu for system selection.
+**GRUB**（GRand Unified Bootloader）是 Linux 系统的标准引导加载程序。它负责加载内核和 initrd，并显示启动菜单供选择系统。
 
-GRUB 2 supports multiple filesystems, LVM, RAID, and encrypted partitions. It provides rescue mode for system recovery and scripting for advanced configurations.
+GRUB 2 支持多种文件系统、LVM、RAID 和加密分区。它提供用于系统恢复的救援模式，以及面向高级配置的脚本功能。
 
-Unlike GRUB Legacy, GRUB 2 has no single unified **grub** command; its functionality is split across separate utilities such as **grub-install**, **grub-mkconfig**, **grub-set-default**, and **grub-editenv**. An interactive GRUB command line is available from the boot menu itself (press **c**), not from a running Linux shell.
+与 GRUB Legacy 不同，GRUB 2 没有单一的统一 **grub** 命令；其功能分散在 **grub-install**、**grub-mkconfig**、**grub-set-default**、**grub-editenv** 等独立工具中。交互式 GRUB 命令行可在启动菜单本身中进入（按 **c**），而不是在运行中的 Linux Shell 里。
 
 # CONFIGURATION
 
 **/etc/default/grub**
-> Main GRUB configuration file controlling default boot entry, timeout, kernel parameters, and display settings.
+> 主 GRUB 配置文件，控制默认启动条目、超时时间、内核参数和显示设置。
 
 **/etc/grub.d/**
-> Directory containing scripts that generate the grub.cfg file. Custom entries can be added here.
+> 存放生成 grub.cfg 文件所需脚本的目录。可以在此添加自定义条目。
 
 **/boot/grub/grub.cfg**
-> Generated configuration file. Do not edit directly; use grub-mkconfig to regenerate.
+> 生成的配置文件。不要直接编辑；应使用 grub-mkconfig 重新生成。
 
 # CAVEATS
 
-Misconfiguration can prevent booting. Keep rescue media available. GRUB 2 differs from legacy GRUB.
+配置错误可能导致无法启动。请保留可用的救援介质。GRUB 2 与旧版 GRUB 有所不同。
 
 # HISTORY
 
-GRUB was created as part of the **GNU Project**. GRUB 2 was released in **2002** as a complete rewrite with enhanced features.
+GRUB 作为 **GNU 工程**的一部分创建。GRUB 2 于 **2002 年**发布，是一次功能增强的完全重写。
 
 # INSTALL
 

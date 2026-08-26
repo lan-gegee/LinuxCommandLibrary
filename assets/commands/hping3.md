@@ -1,6 +1,6 @@
 # TAGLINE
 
-network tool for crafting TCP/IP packets
+用于构造 TCP/IP 数据包的网络工具
 
 # TLDR
 
@@ -16,19 +16,19 @@ network tool for crafting TCP/IP packets
 
 ```sudo hping3 -2 -p [53] [target]```
 
-**Traceroute mode**
+**traceroute 模式**
 
 ```sudo hping3 --traceroute -p [80] -S [target]```
 
-**Flood mode**
+**洪水模式**
 
 ```sudo hping3 --flood -S -p [80] [target]```
 
-**Set source port**
+**设置源端口**
 
 ```sudo hping3 -S -p [80] -s [12345] [target]```
 
-**Scan a range of ports**
+**扫描一段端口范围**
 
 ```sudo hping3 -8 [1-1000] -S [target]```
 
@@ -39,63 +39,63 @@ network tool for crafting TCP/IP packets
 # PARAMETERS
 
 **-S**, **--syn**
-> Set SYN flag.
+> 设置 SYN 标志。
 
 **-A**, **--ack**
-> Set ACK flag.
+> 设置 ACK 标志。
 
 **-F**, **--fin**
-> Set FIN flag.
+> 设置 FIN 标志。
 
 **-p** _port_
-> Destination port.
+> 目标端口。
 
 **-s** _port_
-> Source port.
+> 源端口。
 
 **-1**, **--icmp**
-> ICMP mode.
+> ICMP 模式。
 
 **-2**, **--udp**
-> UDP mode.
+> UDP 模式。
 
 **-8**, **--scan** _range_
-> Port scan mode, e.g. `-8 1-1000`.
+> 端口扫描模式，例如 `-8 1-1000`。
 
 **-V**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--flood**
-> Flood mode (fast as possible).
+> 洪水模式（尽可能快地发送）。
 
 **--traceroute**
-> Traceroute mode.
+> traceroute 模式。
 
 **-i** _interval_
-> Interval between packets.
+> 数据包之间的间隔。
 
 **-c** _count_
-> Packet count.
+> 数据包数量。
 
 **-a** _address_
-> Spoof source address.
+> 伪造源地址。
 
 **--data** _size_
-> Data size.
+> 数据大小。
 
 # DESCRIPTION
 
-**hping3** is a network tool for crafting TCP/IP packets. It's used for firewall testing, port scanning, network testing, and security auditing. It provides more control than ping or traceroute.
+**hping3** 是一个用于构造 TCP/IP 数据包的网络工具。它可用于防火墙测试、端口扫描、网络测试和安全审计。它比 ping 或 traceroute 提供更多控制能力。
 
-hping3 can send custom packets with specified flags, options, and payloads, making it valuable for penetration testing and troubleshooting. When no protocol mode is given, it defaults to **TCP mode**, sending headers to the target's port 0 with no flags set.
+hping3 可以发送带有指定标志、选项和载荷的自定义数据包，因此在渗透测试和故障排查中很有价值。未指定协议模式时，它默认使用 **TCP 模式**，向目标的 0 端口发送不设任何标志的报文头。
 
 # CAVEATS
 
-Requires root privileges. Flood mode can cause DoS. Spoofed packets may be illegal. For authorized testing only. Some features may trigger IDS.
+需要 root 权限。洪水模式可能造成 DoS。伪造数据包可能违法。仅限授权测试。某些功能可能触发 IDS。
 
 # HISTORY
 
-hping was created by **Salvatore Sanfilippo** (antirez, also creator of Redis). hping3 is the latest version, adding scripting capabilities and improved functionality.
+hping 由 **Salvatore Sanfilippo**（antirez，也是 Redis 的作者）创建。hping3 是最新版本，增加了脚本能力和改进的功能。
 
 # INSTALL
 
@@ -114,4 +114,3 @@ hping was created by **Salvatore Sanfilippo** (antirez, also creator of Redis). 
 ```[Source code](https://github.com/antirez/hping)```
 
 <!-- verified: 2026-07-19 -->
-

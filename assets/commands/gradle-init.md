@@ -1,30 +1,30 @@
 # TAGLINE
 
-Gradle project scaffolding generator
+Gradle 项目脚手架生成器
 
 # TLDR
 
-**Create new project interactively**
+**以交互方式创建新项目**
 
 ```gradle init```
 
-**Create Java application**
+**创建 Java 应用**
 
 ```gradle init --type java-application```
 
-**Create with Kotlin DSL**
+**使用 Kotlin DSL 创建**
 
 ```gradle init --type java-application --dsl kotlin```
 
-**Create library with test framework**
+**创建带测试框架的库**
 
 ```gradle init --type java-library --test-framework junit-jupiter```
 
-**Create Kotlin application**
+**创建 Kotlin 应用**
 
 ```gradle init --type kotlin-application```
 
-**Create basic empty project**
+**创建基础空项目**
 
 ```gradle init --type basic```
 
@@ -35,27 +35,27 @@ Gradle project scaffolding generator
 # PARAMETERS
 
 **--type** _type_
-> Project type: java-application, java-library, kotlin-application, etc.
+> 项目类型：java-application、java-library、kotlin-application 等。
 
 **--dsl** _dsl_
-> Build script DSL: groovy or kotlin.
+> 构建脚本 DSL：groovy 或 kotlin。
 
 **--test-framework** _framework_
-> Test framework: junit, junit-jupiter, spock, testng.
+> 测试框架：junit、junit-jupiter、spock、testng。
 
 **--project-name** _name_
-> Project name.
+> 项目名称。
 
 **--package** _package_
-> Source package name.
+> 源码包名。
 
 # DESCRIPTION
 
-**gradle init** creates a new Gradle project with a standard directory structure. It can run interactively, prompting for project type, language, and build script DSL, or non-interactively with command-line options. Supported types include applications and libraries for Java, Kotlin, Groovy, Scala, C++, and Swift.
+**gradle init** 以标准目录结构创建新的 Gradle 项目。它可以交互式运行，提示选择项目类型、语言和构建脚本 DSL，也可以通过命令行选项非交互式运行。支持的类型包括 Java、Kotlin、Groovy、Scala、C++ 和 Swift 的应用程序与库。
 
 # CAVEATS
 
-Running in a non-empty directory may fail or skip generation if existing build files are detected. The **--incubating** APIs used for scaffolding new project types can change between Gradle versions.
+在非空目录中运行时，如果检测到现有构建文件，可能会失败或跳过生成。用于搭建新项目类型的 **--incubating** API 可能随 Gradle 版本而变化。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert Kerberos tickets between ccache and kirbi formats
+在 ccache 和 kirbi 格式之间转换 Kerberos 票据
 
 # TLDR
 
-**Convert a kirbi ticket to ccache** format
+**将 kirbi 票据转换为 ccache** 格式
 
 ```impacket-ticketConverter [ticket.kirbi] [ticket.ccache]```
 
-**Convert a ccache ticket to kirbi** format
+**将 ccache 票据转换为 kirbi** 格式
 
 ```impacket-ticketConverter [ticket.ccache] [ticket.kirbi]```
 
-**Convert a base64-encoded ticket**
+**转换 base64 编码的票据**
 
 ```impacket-ticketConverter -b [encoded_ticket.txt] [ticket.ccache]```
 
@@ -23,30 +23,30 @@ Convert Kerberos tickets between ccache and kirbi formats
 # PARAMETERS
 
 _input_file_
-> Source ticket file in either kirbi (KRB-CRED) or ccache format. The format is detected automatically.
+> kirbi（KRB-CRED）或 ccache 格式的源票据文件。格式会被自动检测。
 
 _output_file_
-> Destination filename for the converted ticket.
+> 转换后票据的目标文件名。
 
 **-b, --base64**
-> Decode the input ticket from base64 encoding before conversion.
+> 在转换前先将输入票据从 base64 编码解码。
 
 **-h, --help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**impacket-ticketConverter** converts Kerberos authentication tickets between two common formats: **ccache** (used by UNIX-based tools like Impacket) and **kirbi** / KRB-CRED (used by Windows tools like Mimikatz). The tool automatically detects the input format by examining the first byte of the file and converts to the opposite format.
+**impacket-ticketConverter** 在两种常见的 Kerberos 身份验证票据格式之间转换：**ccache**（Impacket 等 UNIX 工具使用）和 **kirbi** / KRB-CRED（Mimikatz 等 Windows 工具使用）。该工具通过检查文件的首个字节自动检测输入格式，并转换为相反的格式。
 
-This is useful when working across platforms during authorized security assessments, where tickets obtained on Windows need to be used with Linux-based tools or vice versa.
+在经授权的安全评估中进行跨平台操作时，这很有用：在 Windows 上获取的票据需要交给基于 Linux 的工具使用，反之亦然。
 
 # CAVEATS
 
-Part of the **Impacket** toolkit. The tool only converts between ccache and kirbi formats; it does not create, modify, or validate tickets. Requires Python and the Impacket library to be installed. Only for use in authorized security testing contexts.
+属于 **Impacket** 工具集。该工具仅在 ccache 和 kirbi 格式之间转换；它不创建、修改或校验票据。需要安装 Python 和 Impacket 库。仅限在经授权的安全测试环境中使用。
 
 # HISTORY
 
-**Impacket** was originally developed by **SecureAuth** and is now maintained by **Fortra's Core Security**. It is a collection of Python classes for working with network protocols, designed to assist security professionals with penetration testing and security research.
+**Impacket** 最初由 **SecureAuth** 开发，现由 **Fortra's Core Security** 维护。它是一组用于处理网络协议的 Python 类，旨在帮助安全专业人员开展渗透测试和安全研究。
 
 # INSTALL
 

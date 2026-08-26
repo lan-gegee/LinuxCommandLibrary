@@ -1,30 +1,30 @@
 # TAGLINE
 
-IPv6 packet filter administration tool
+IPv6 数据包过滤管理工具
 
 # TLDR
 
-**List** all rules
+**列出**所有规则
 
 ```sudo ip6tables -L```
 
-**List** rules with line numbers
+**列出**规则并显示行号
 
 ```sudo ip6tables -L --line-numbers```
 
-**Accept** traffic on port
+**放行**端口上的流量
 
 ```sudo ip6tables -A INPUT -p tcp --dport 22 -j ACCEPT```
 
-**Drop** traffic from address
+**丢弃**来自某地址的流量
 
 ```sudo ip6tables -A INPUT -s 2001:db8::1 -j DROP```
 
-**Delete** rule by number
+按编号**删除**规则
 
 ```sudo ip6tables -D INPUT 1```
 
-**Flush** all rules
+**清空**所有规则
 
 ```sudo ip6tables -F```
 
@@ -34,80 +34,80 @@ IPv6 packet filter administration tool
 
 # DESCRIPTION
 
-**ip6tables** is the IPv6 packet filter administration tool. It has the same syntax and functionality as iptables but operates on IPv6 traffic. It manages rules for filtering, NAT, and packet mangling.
+**ip6tables** 是 IPv6 数据包过滤管理工具。它的语法和功能与 iptables 相同，只是处理 IPv6 流量。它管理用于过滤、NAT 和数据包修改的规则。
 
 # PARAMETERS
 
 **-L, --list**
-> List all rules in the selected chain.
+> 列出所选链中的所有规则。
 
 **-A, --append**
-> Append a rule to the end of chain.
+> 将规则追加到链的末尾。
 
 **-D, --delete**
-> Delete a rule from chain.
+> 从链中删除一条规则。
 
 **-I, --insert**
-> Insert a rule at position.
+> 在指定位置插入规则。
 
 **-R, --replace**
-> Replace a rule in the selected chain.
+> 替换所选链中的一条规则。
 
 **-F, --flush**
-> Flush (delete all rules in) a chain.
+> 清空链（删除链中所有规则）。
 
 **-N, --new-chain**
-> Create a user-defined chain.
+> 创建用户自定义链。
 
 **-X, --delete-chain**
-> Delete a user-defined chain.
+> 删除用户自定义链。
 
 **-P, --policy**
-> Set default policy for a chain (ACCEPT/DROP).
+> 设置链的默认策略（ACCEPT/DROP）。
 
 **-Z, --zero**
-> Zero the packet and byte counters.
+> 将包计数器和字节计数器清零。
 
 **-p, --protocol**
-> Protocol to match (tcp, udp, icmpv6).
+> 要匹配的协议（tcp、udp、icmpv6）。
 
 **--dport**
-> Destination port.
+> 目标端口。
 
 **--sport**
-> Source port.
+> 源端口。
 
 **-s, --source**
-> Source address.
+> 源地址。
 
 **-d, --destination**
-> Destination address.
+> 目标地址。
 
 **-i, --in-interface**
-> Interface a packet was received on.
+> 接收数据包的接口。
 
 **-o, --out-interface**
-> Interface a packet is going to be sent on.
+> 发送数据包的接口。
 
 **-j, --jump**
-> Target (ACCEPT, DROP, REJECT, LOG, etc.).
+> 目标动作（ACCEPT、DROP、REJECT、LOG 等）。
 
 **-v, --verbose**
-> Verbose output (show counters and interfaces).
+> 详细输出（显示计数器和接口）。
 
 **-n, --numeric**
-> Show numeric addresses and ports instead of resolving names.
+> 直接显示数字形式的地址和端口，而不解析名称。
 
 **--line-numbers**
-> Show rule numbers when listing.
+> 列出时显示规则编号。
 
 # CAVEATS
 
-IPv6 and IPv4 rules are managed separately. Rules are not persistent by default - use ip6tables-save/restore. Consider migrating to nftables for unified IPv4/IPv6 management.
+IPv6 与 IPv4 规则是分开管理的。默认情况下规则不会持久保留——请使用 ip6tables-save/restore。可考虑迁移到 nftables 以统一管理 IPv4/IPv6。
 
 # HISTORY
 
-**ip6tables** is the IPv6 counterpart to **iptables**, part of the netfilter framework. It is being superseded by nftables.
+**ip6tables** 是 **iptables** 的 IPv6 对应物，属于 netfilter 框架的一部分。它正逐渐被 nftables 取代。
 
 # INSTALL
 

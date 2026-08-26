@@ -1,30 +1,30 @@
 # TAGLINE
 
-blue light filter for Hyprland, the dynamic tiling Wayland compositor
+Hyprland（动态平铺 Wayland 合成器）的蓝光过滤工具
 
 # TLDR
 
-**Start** the blue light filter service
+**启动**蓝光过滤服务
 
 ```hyprsunset```
 
-Start with specific **temperature** and **gamma**
+以指定的**色温**和 **gamma 值**启动
 
 ```hyprsunset -t [4000] -g [90]```
 
-**Adjust temperature** while running (via hyprctl)
+运行时**调整色温**（通过 hyprctl）
 
 ```hyprctl hyprsunset temperature [4000]```
 
-**Adjust gamma** while running (via hyprctl)
+运行时**调整 gamma 值**（通过 hyprctl）
 
 ```hyprctl hyprsunset gamma [90]```
 
-**Reset** temperature to default (6000K)
+将色温**重置**为默认值（6000K）
 
 ```hyprctl hyprsunset reset temperature```
 
-**Reset** gamma to default (100%)
+将 gamma 值**重置**为默认值（100%）
 
 ```hyprctl hyprsunset reset gamma```
 
@@ -35,29 +35,29 @@ Start with specific **temperature** and **gamma**
 # PARAMETERS
 
 **-t**, **--temperature** _KELVIN_
-> Set color temperature in Kelvin (lower is warmer, default: 6000K)
+> 以开尔文设置色温（越低越暖，默认：6000K）
 
 **-g**, **--gamma** _PERCENT_
-> Set gamma percentage (default: 100%)
+> 设置 gamma 百分比（默认：100%）
 
 **--identity**
-> Disable temperature adjustments; only gamma changes take effect
+> 禁用色温调整；仅 gamma 变更生效
 
 # DESCRIPTION
 
-**hyprsunset** is a blue light filter for Hyprland, the dynamic tiling Wayland compositor. It adjusts screen color temperature to reduce blue light emission, which can help reduce eye strain and improve sleep quality during evening computer use.
+**hyprsunset** 是 Hyprland（动态平铺 Wayland 合成器）的蓝光过滤工具。它调整屏幕色温以减少蓝光发射，有助于减轻眼部疲劳并改善夜间使用电脑时的睡眠质量。
 
-Once running, settings can be adjusted dynamically using hyprctl commands without restarting the service. This method is preferred over screen shaders as it will not be captured via recording or screenshots.
+服务启动后，可以使用 hyprctl 命令动态调整设置，无需重启。这种方式优于屏幕着色器，因为其效果不会被录屏或截图捕获。
 
-Lower temperature values (e.g., 3000K-4000K) produce warmer, more orange-tinted colors suitable for night use. The default 6000K represents standard daylight white.
+较低的色温值（例如 3000K-4000K）会产生偏暖、偏橙的色彩，适合夜间使用。默认的 6000K 代表标准的日光白。
 
 # CAVEATS
 
-Only works with Hyprland compositor. Requires Hyprland to be running. Changes affect all monitors. May interfere with color-accurate work like photo editing.
+仅适用于 Hyprland 合成器，且要求 Hyprland 正在运行。更改会影响所有显示器。可能干扰对色彩要求精确的工作（如照片编辑）。
 
 # HISTORY
 
-hyprsunset is part of the Hyprland ecosystem, created by Vaxry. It provides functionality similar to redshift or gammastep but specifically designed for the Hyprland Wayland compositor.
+hyprsunset 是 Hyprland 生态的一部分，由 Vaxry 创建。它提供与 redshift 或 gammastep 类似的功能，但专为 Hyprland Wayland 合成器设计。
 
 # INSTALL
 

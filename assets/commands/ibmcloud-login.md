@@ -1,34 +1,34 @@
 # TAGLINE
 
-authenticates to IBM Cloud
+对 IBM Cloud 进行身份验证
 
 # TLDR
 
-**Login interactively**
+**交互式登录**
 
 ```ibmcloud login```
 
-**Login with SSO**
+**使用 SSO 登录**
 
 ```ibmcloud login --sso```
 
-**Login with API key**
+**使用 API 密钥登录**
 
 ```ibmcloud login --apikey [API_KEY]```
 
-**Login to specific region**
+**登录到指定区域**
 
 ```ibmcloud login -r [us-south]```
 
-**Login with username and password**
+**使用用户名和密码登录**
 
 ```ibmcloud login -u [user@example.com] -p [password]```
 
-**Login to specific API endpoint**
+**登录到指定 API 端点**
 
 ```ibmcloud login -a [https://cloud.ibm.com]```
 
-**Login with API key from file**
+**从文件读取 API 密钥登录**
 
 ```ibmcloud login --apikey @[keyfile]```
 
@@ -39,37 +39,36 @@ authenticates to IBM Cloud
 # PARAMETERS
 
 **-u** _user_
-> Username (email).
+> 用户名（邮箱）。
 
 **-p** _password_
-> Password.
+> 密码。
 
 **--sso**
-> Use single sign-on (federated ID).
+> 使用单点登录（联合 ID）。
 
 **--apikey** _key_
-> API key for authentication.
+> 用于身份验证的 API 密钥。
 
 **-a** _endpoint_
-> API endpoint URL.
+> API 端点 URL。
 
 **-r** _region_
-> Target region.
+> 目标区域。
 
 **-c** _account_
-> Target account ID.
+> 目标账户 ID。
 
 **-o** _org_
-> Target organization.
+> 目标组织。
 
 **-s** _space_
-> Target space.
+> 目标空间。
 
 # DESCRIPTION
 
-**ibmcloud login** authenticates to IBM Cloud. Supports interactive login, SSO for federated IDs, and API key authentication. After login, use **ibmcloud target** to set account, region, or resource group context. Environment variables IC_API_KEY, IC_API_ENDPOINT, and IC_REGION can be used for automation.
+**ibmcloud login** 对 IBM Cloud 进行身份验证。支持交互式登录、联合 ID 的 SSO 以及 API 密钥认证。登录后，使用 **ibmcloud target** 设置账户、区域或资源组上下文。自动化场景可使用环境变量 IC_API_KEY、IC_API_ENDPOINT 和 IC_REGION。
 
 # SEE ALSO
 
 [ibmcloud](/man/ibmcloud)(1), [ibmcloud-target](/man/ibmcloud-target)(1), [ibmcloud-api](/man/ibmcloud-api)(1)
-

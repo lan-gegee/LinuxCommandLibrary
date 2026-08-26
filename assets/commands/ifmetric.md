@@ -1,18 +1,18 @@
 # TAGLINE
 
-manipulates IPv4 route metrics for network interfaces
+操作网络接口的 IPv4 路由度量值
 
 # TLDR
 
-Set the **priority** of a network interface (higher number = lower priority)
+设置网络接口的**优先级**（数值越大 = 优先级越低）
 
 ```sudo ifmetric [interface] [value]```
 
-**Reset** the priority of an interface to default
+将接口的优先级**重置**为默认值
 
 ```sudo ifmetric [interface] 0```
 
-Prefer **wired** over wireless by giving wireless a higher metric
+给无线接口设置更高的度量值，使**有线**连接优先于无线
 
 ```sudo ifmetric wlan0 100```
 
@@ -23,24 +23,24 @@ Prefer **wired** over wireless by giving wireless a higher metric
 # PARAMETERS
 
 _interface_
-> Name of the network interface (e.g., eth0, wlan0)
+> 网络接口名称（如 eth0、wlan0）
 
 _metric_
-> Route metric value (higher values mean lower priority, 0 resets to default)
+> 路由度量值（数值越大表示优先级越低，0 表示重置为默认）
 
 # DESCRIPTION
 
-**ifmetric** manipulates IPv4 route metrics for network interfaces. Route metrics determine which interface is preferred when multiple routes to the same destination exist - lower metric values have higher priority.
+**ifmetric** 操作网络接口的 IPv4 路由度量值。当存在多条到达同一目的地的路由时，路由度量值决定优先使用哪个接口——度量值越小优先级越高。
 
-This is useful for systems with multiple network connections (e.g., wired and wireless) where you want to control which connection is preferred for outgoing traffic.
+对于拥有多个网络连接（如有线和无线）的系统，它可用于控制出站流量优先使用哪个连接。
 
 # CAVEATS
 
-Requires root privileges. Only affects IPv4 routes. Changes are not persistent across reboots unless scripted. Does not work with IPv6 routes.
+需要 root 权限。只影响 IPv4 路由。除非编写脚本，更改在重启后不会保留。不适用于 IPv6 路由。
 
 # HISTORY
 
-ifmetric was created by Lennart Poettering (who later created PulseAudio and systemd) to provide a simple way to manipulate routing metrics without complex ip route commands.
+ifmetric 由 Lennart Poettering（后来创建了 PulseAudio 和 systemd）开发，提供了一种无需复杂 ip route 命令即可操作路由度量的简单方式。
 
 # INSTALL
 

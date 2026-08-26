@@ -1,26 +1,26 @@
 # TAGLINE
 
-lightweight image viewer for Wayland and X11, designed for use with tiling
+面向 Wayland 和 X11 的轻量级图像查看器，专为平铺窗口管理器设计
 
 # TLDR
 
-**View** multiple images
+**查看**多张图像
 
 ```imv [path/to/image1] [path/to/image2]```
 
-View in **fullscreen** mode
+以**全屏**模式查看
 
 ```imv -f [path/to/image]```
 
-View images **recursively** from a directory as slideshow
+**递归**加载目录中的图像并以幻灯片方式查看
 
 ```imv -r --slideshow [path/to/directory]```
 
-**Slideshow** with 10-second interval
+以 10 秒间隔进行**幻灯片放映**
 
 ```imv -t 10 [path/to/directory]```
 
-Open images from **stdin**
+从 **stdin** 打开图像
 
 ```find . -name "*.svg" | imv```
 
@@ -31,39 +31,39 @@ Open images from **stdin**
 # PARAMETERS
 
 **-f**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-r**
-> Load directories recursively
+> 递归加载目录
 
 **-t** _SECONDS_
-> Slideshow interval in seconds
+> 幻灯片间隔（秒）
 
 **--slideshow**
-> Start in slideshow mode
+> 以幻灯片模式启动
 
 **-s** _MODE_
-> Scaling mode (none, shrink, full, crop)
+> 缩放模式（none、shrink、full、crop）
 
 **-b** _COLOR_
-> Set background color
+> 设置背景颜色
 
 **-d**
-> Show overlay with image information
+> 显示包含图像信息的叠加层
 
 # DESCRIPTION
 
-**imv** is a lightweight image viewer for Wayland and X11, designed for use with tiling window managers. It supports numerous image formats including PSD (Photoshop), SVG, and animated GIFs.
+**imv** 是一款面向 Wayland 和 X11 的轻量级图像查看器，专为实现平铺式窗口管理器的工作流而设计。它支持大量图像格式，包括 PSD（Photoshop）、SVG 和动画 GIF。
 
-The viewer is keyboard-driven with vim-like bindings by default. It can read file lists from stdin, making it ideal for integration with other command-line tools. Features include zooming, panning, rotation, and slideshow mode.
+该查看器以键盘驱动，默认采用类似 vim 的按键绑定。它可以从 stdin 读取文件列表，非常适合与其他命令行工具集成。功能包括缩放、平移、旋转和幻灯片模式。
 
 # CAVEATS
 
-Requires appropriate backend libraries for format support. Some formats like PSD require optional dependencies. Configuration file controls key bindings.
+格式支持需要相应的后端库。某些格式（如 PSD）需要可选依赖。按键绑定由配置文件控制。
 
 # HISTORY
 
-imv was created to provide a fast, minimal image viewer suitable for tiling window manager workflows. It supports both X11 and Wayland, making it versatile across different Linux desktop environments.
+imv 的创建目的是提供一款适合平铺窗口管理器工作流的快速极简图像查看器。它同时支持 X11 和 Wayland，可在各种 Linux 桌面环境中通用。
 
 # INSTALL
 

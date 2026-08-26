@@ -1,30 +1,30 @@
 # TAGLINE
 
-executes System V style init script actions
+执行 System V 风格 init 脚本动作
 
 # TLDR
 
-**Start a service**
+**启动服务**
 
 ```sudo invoke-rc.d [service] start```
 
-**Stop a service**
+**停止服务**
 
 ```sudo invoke-rc.d [service] stop```
 
-**Restart a service**
+**重启服务**
 
 ```sudo invoke-rc.d [service] restart```
 
-**Check service status**
+**检查服务状态**
 
 ```invoke-rc.d [service] status```
 
-**Reload service configuration**
+**重新加载服务配置**
 
 ```sudo invoke-rc.d [service] reload```
 
-**Query whether an action would be allowed** by the policy layer
+**查询策略层是否允许某动作**
 
 ```invoke-rc.d --query [service] start```
 
@@ -35,45 +35,45 @@ executes System V style init script actions
 # PARAMETERS
 
 _NAME_
-> Name of the init script in /etc/init.d/.
+> /etc/init.d/ 中 init 脚本的名称。
 
 _ACTION_
-> Action to perform: start, stop, restart, reload, force-reload, force-stop, try-restart, or status.
+> 要执行的动作：start、stop、restart、reload、force-reload、force-stop、try-restart 或 status。
 
 **--quiet**
-> Suppress warnings and informational messages.
+> 抑制警告和信息性消息。
 
 **--force**
-> Try to run the init script regardless of policy and init script subsystem errors. Use in maintainer scripts is discouraged.
+> 无论策略和 init 脚本子系统错误如何都尝试运行 init 脚本。不建议在维护者脚本中使用。
 
 **--try-anyway**
-> Try to run the init script if a non-fatal error is detected.
+> 检测到非致命错误时仍尝试运行 init 脚本。
 
 **--disclose-deny**
-> Return status code 101 instead of 0 if the action is denied by the policy layer.
+> 当动作被策略层拒绝时返回状态码 101 而不是 0。
 
 **--query**
-> Query what action would be taken without executing it. Returns status codes 100-106. Implies --disclose-deny and --no-fallback.
+> 查询将采取什么动作而不实际执行。返回状态码 100-106。隐含 --disclose-deny 和 --no-fallback。
 
 **--no-fallback**
-> Ignore any fallback action requests by the policy layer.
+> 忽略策略层的任何回退动作请求。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**invoke-rc.d** executes System V style init script actions on Debian-based systems. It provides a standard interface that respects runlevel constraints and local policies set by the system administrator via policy-rc.d.
+**invoke-rc.d** 在基于 Debian 的系统上执行 System V 风格的 init 脚本动作。它提供一个标准接口，会遵循运行级别约束以及系统管理员通过 policy-rc.d 设置的本地策略。
 
-The tool checks /usr/sbin/policy-rc.d before executing actions. It is the recommended way to control services in package maintainer scripts, as it properly handles policy restrictions that may be in place (such as in chroot environments or containers).
+该工具在执行动作前会检查 /usr/sbin/policy-rc.d。它是在软件包维护者脚本中控制服务的推荐方式，因为它能正确处理可能存在的策略限制（例如 chroot 环境或容器中）。
 
 # CAVEATS
 
-Debian/Ubuntu specific. On systemd systems, invoke-rc.d redirects to systemctl. The policy-rc.d mechanism allows administrators to block service actions, which is commonly used in Docker containers to prevent services from starting during package installation.
+Debian/Ubuntu 特有。在 systemd 系统上，invoke-rc.d 会重定向到 systemctl。policy-rc.d 机制允许管理员阻止服务动作，这在 Docker 容器中很常用，可防止软件包安装期间启动服务。
 
 # HISTORY
 
-invoke-rc.d was created for **Debian** to provide policy-compliant init script invocation, especially in package maintainer scripts.
+invoke-rc.d 是为 **Debian** 创建的，用于提供符合策略的 init 脚本调用方式，尤其是在软件包维护者脚本中。
 
 # INSTALL
 

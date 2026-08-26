@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast, simple static blog framework
+快速、简洁的静态博客框架
 
 # TLDR
 
-**Create new blog**
+**创建新博客**
 
 ```hexo init [blog-name]```
 
-**Create new post**
+**创建新文章**
 
 ```hexo new [post-title]```
 
-**Generate static files**
+**生成静态文件**
 
 ```hexo generate```
 
-**Start local server**
+**启动本地服务器**
 
 ```hexo server```
 
-**Deploy to remote**
+**部署到远程**
 
 ```hexo deploy```
 
-**Clean generated files**
+**清理生成的文件**
 
 ```hexo clean```
 
@@ -35,54 +35,54 @@ fast, simple static blog framework
 # PARAMETERS
 
 _COMMAND_
-> Subcommand to execute.
+> 要执行的子命令。
 
 **init**
-> Initialize new blog.
+> 初始化新博客。
 
 **new** _TITLE_
-> Create new post/page.
+> 创建新的文章/页面。
 
 **generate**, **g**
-> Generate static files.
+> 生成静态文件。
 
 **publish** _TITLE_
-> Move a draft into the posts folder as a published post.
+> 将草稿移入文章文件夹并作为已发布文章。
 
 **server**, **s**
-> Start local server.
+> 启动本地服务器。
 
 **deploy**, **d**
-> Deploy to remote.
+> 部署到远程。
 
 **list** _TYPE_
-> List site data (for example posts, pages, routes, tags).
+> 列出站点数据（例如 posts、pages、routes、tags）。
 
 **clean**
-> Remove the cache file (`db.json`) and generated `public` directory.
+> 移除缓存文件（`db.json`）和已生成的 `public` 目录。
 
 **-p**, **--port** _PORT_
-> Server port (default 4000).
+> 服务器端口（默认 4000）。
 
 **-w**, **--watch**
-> Watch for file changes (with `generate` or `server`).
+> 监视文件变更（配合 `generate` 或 `server` 使用）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Hexo** is a fast, simple static blog framework. It uses Markdown for content and supports themes, plugins, and multiple deployment targets.
+**Hexo** 是一个快速、简洁的静态博客框架。它使用 Markdown 编写内容，支持主题、插件和多种部署目标。
 
-The framework generates static HTML from Markdown posts. It's popular for developer blogs and documentation sites.
+该框架从 Markdown 文章生成静态 HTML。它在开发者博客和文档站点中很受欢迎。
 
 # CAVEATS
 
-Node.js required. Learning curve for themes. Plugin compatibility varies.
+需要 Node.js。主题有一定学习曲线。插件兼容性因实现而异。
 
 # HISTORY
 
-Hexo was created by **Tommy Chen** as a fast static site generator for blogs, gaining popularity in the developer community.
+Hexo 由 **Tommy Chen** 创建，是一款面向博客的快速静态站点生成器，在开发者社区广受欢迎。
 
 # INSTALL
 

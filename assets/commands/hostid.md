@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays the current host's unique identifier as a 32-bit hexadecimal value
+以 32 位十六进制值显示当前主机的唯一标识符
 
 # TLDR
 
-**Display the host ID**
+**显示主机 ID**
 
 ```hostid```
 
-**Show version**
+**显示版本**
 
 ```hostid --version```
 
-**Show help**
+**显示帮助**
 
 ```hostid --help```
 
@@ -23,18 +23,18 @@ displays the current host's unique identifier as a 32-bit hexadecimal value
 # PARAMETERS
 
 **--help**
-> Display help and exit.
+> 显示帮助后退出。
 
 **--version**
-> Display version and exit.
+> 显示版本后退出。
 
 # DESCRIPTION
 
-**hostid** displays the current host's unique identifier as a 32-bit hexadecimal value. If **/etc/hostid** exists, the value stored there is printed; otherwise it is derived from the machine's hostname and IP address via the **gethostid**(3) function. The identifier was historically used by software licensing schemes and is largely a legacy feature on modern Linux systems.
+**hostid** 以 32 位十六进制值显示当前主机的唯一标识符。若 **/etc/hostid** 存在，则打印其中存储的值；否则通过 **gethostid**(3) 函数根据机器的主机名和 IP 地址推导。该标识符在历史上被软件授权方案使用，在现代 Linux 系统上基本是一项遗留特性。
 
 # CAVEATS
 
-The value is **not guaranteed to be unique** across machines, particularly when derived from a hostname rather than a fixed **/etc/hostid** file. It has no security value and should not be relied on as a hardware fingerprint.
+该值**不保证跨机器唯一**，尤其是当它由主机名推导而非来自固定的 **/etc/hostid** 文件时。它没有任何安全价值，不应作为硬件指纹使用。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ The value is **not guaranteed to be unique** across machines, particularly when 
 ```[Documentation](https://www.gnu.org/software/coreutils/manual/coreutils.html)```
 
 <!-- verified: 2026-07-19 -->
-

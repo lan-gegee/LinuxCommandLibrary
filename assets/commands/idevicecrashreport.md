@@ -1,34 +1,34 @@
 # TAGLINE
 
-move crash reports from a device to a local directory
+将崩溃报告从设备转移到本地目录
 
 # TLDR
 
-**Move crash reports** from device to a local directory (removes from device)
+**转移崩溃报告**：从设备到本地目录（会从设备上删除）
 
 ```idevicecrashreport [output-dir]```
 
-**Copy crash reports** but keep them on the device
+**复制崩溃报告**但保留在设备上
 
 ```idevicecrashreport -k [output-dir]```
 
-**Extract raw crash reports** into separate .crash files
+**提取原始崩溃报告**为独立的 .crash 文件
 
 ```idevicecrashreport -e [output-dir]```
 
-**Filter crash reports** by name (case sensitive)
+**按名称过滤崩溃报告**（区分大小写）
 
 ```idevicecrashreport -f [app-name] [output-dir]```
 
-**Remove all crash logs** from device without copying
+**删除设备上的所有崩溃日志**而不复制
 
 ```idevicecrashreport --remove-all```
 
-**Target a specific device** by UDID
+**按 UDID 指定目标设备**
 
 ```idevicecrashreport -u [device-udid] [output-dir]```
 
-**Connect to a network device**
+**连接网络设备**
 
 ```idevicecrashreport -n [output-dir]```
 
@@ -39,37 +39,37 @@ move crash reports from a device to a local directory
 # PARAMETERS
 
 **-u**, **--udid** _UDID_
-> Target specific device by UDID.
+> 按 UDID 指定目标设备。
 
 **-n**, **--network**
-> Connect to network device.
+> 连接到网络设备。
 
 **-e**, **--extract**
-> Extract raw crash report into separate '.crash' files.
+> 将原始崩溃报告提取为独立的 '.crash' 文件。
 
 **-k**, **--keep**
-> Copy but do not remove crash reports from device.
+> 复制但不从设备上移除崩溃报告。
 
 **-f**, **--filter** _NAME_
-> Filter crash reports by NAME (case sensitive).
+> 按 NAME 过滤崩溃报告（区分大小写）。
 
 **--remove-all**
-> Remove all crash log files without copying. Can be used with -f to only remove matching files.
+> 不复制而直接移除所有崩溃日志文件。可与 -f 组合，仅移除匹配的文件。
 
 **-d**, **--debug**
-> Enable communication debugging.
+> 启用通信调试。
 
 **-h**, **--help**
-> Print usage information.
+> 打印用法信息。
 
 **-v**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**idevicecrashreport** is a simple utility to move crash reports from an iOS device to a local directory. Part of the libimobiledevice suite. By default it moves reports (deleting them from the device); use **-k** to copy instead. It downloads .crash, .ips, and related diagnostic files. Useful for debugging app crashes without iTunes or Xcode.
+**idevicecrashreport** 是一个将崩溃报告从 iOS 设备转移到本地目录的简单工具，属于 libimobiledevice 套件。默认会移动报告（即从设备上删除）；使用 **-k** 可改为复制。它下载 .crash、.ips 及相关诊断文件。无需 iTunes 或 Xcode 即可调试应用崩溃。
 
-Output lines are prefixed with "Link:", "Copy:", or "Move:" depending on whether a symlink was created, a file was copied, or moved from the device.
+输出行根据是创建了符号链接、复制了文件还是从设备上移动了文件，分别以 "Link:"、"Copy:" 或 "Move:" 作为前缀。
 
 # INSTALL
 

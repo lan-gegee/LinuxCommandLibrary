@@ -1,26 +1,26 @@
 # TAGLINE
 
-Open-source game engine and editor
+开源游戏引擎与编辑器
 
 # TLDR
 
-**Start Godot editor**
+**启动 Godot 编辑器**
 
 ```godot```
 
-**Open project**
+**打开项目**
 
 ```godot --path [project-dir]```
 
-**Run project**
+**运行项目**
 
 ```godot --path [project-dir] --main-pack [game.pck]```
 
-**Export project**
+**导出项目**
 
 ```godot --headless --export-release "[preset]" [output]```
 
-**Run script**
+**运行脚本**
 
 ```godot --script [script.gd]```
 
@@ -31,39 +31,39 @@ Open-source game engine and editor
 # PARAMETERS
 
 _SCENE_
-> Scene file to open.
+> 要打开的场景文件。
 
 **--path** _DIR_
-> Project directory.
+> 项目目录。
 
 **--editor**, **-e**
-> Start editor mode.
+> 以编辑器模式启动。
 
 **--headless**
-> No window mode.
+> 无窗口模式。
 
 **--export-release** _PRESET_
-> Export with preset.
+> 使用指定预设导出。
 
 **--script** _SCRIPT_
-> Run script.
+> 运行脚本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Godot** is the Godot game engine editor and runtime. It provides a complete game development environment with 2D/3D rendering, physics, scripting, and export capabilities.
+**Godot** 是 Godot 游戏引擎的编辑器与运行时。它提供完整的游戏开发环境，涵盖 2D/3D 渲染、物理、脚本和导出能力。
 
-The engine uses GDScript, C#, or C++ for game logic and supports export to desktop, mobile, and web platforms. Headless mode enables CI/CD pipelines for automated builds and testing.
+游戏逻辑可以使用 GDScript、C# 或 C++ 编写，并支持导出到桌面、移动和 Web 平台。无头（headless）模式适用于 CI/CD 流水线的自动化构建与测试。
 
 # CAVEATS
 
-Resource-intensive for 3D. GDScript has learning curve. Export templates needed for platforms.
+3D 方面对资源消耗较大。GDScript 有一定的学习曲线。面向各平台导出需要相应的导出模板。
 
 # HISTORY
 
-Godot was created by **Juan Linietsky** and **Ariel Manzur**, open-sourced in **2014**, becoming a popular free game engine.
+Godot 由 **Juan Linietsky** 与 **Ariel Manzur** 创建，**2014 年**开源，如今已成为广受欢迎的免费游戏引擎。
 
 # INSTALL
 

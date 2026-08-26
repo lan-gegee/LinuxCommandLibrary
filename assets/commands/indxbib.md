@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates inverted indexes for bibliographic databases
+为文献数据库创建倒排索引
 
 # TLDR
 
-**Build bibliography index**
+**构建文献索引**
 
 ```indxbib [database.bib]```
 
-**Index multiple files**
+**为多个文件建立索引**
 
 ```indxbib [file1.bib] [file2.bib]```
 
-**Specify output base**
+**指定输出索引基名**
 
 ```indxbib -o [index] [database.bib]```
 
-**Set common words file**
+**设置常用词文件**
 
 ```indxbib -c [common.txt] [database.bib]```
 
@@ -27,36 +27,36 @@ creates inverted indexes for bibliographic databases
 # PARAMETERS
 
 **-o** _NAME_
-> Output index base name.
+> 输出索引的基名。
 
 **-c** _FILE_
-> Common words file to ignore.
+> 要忽略的常用词文件。
 
 **-h** _N_
-> Minimum word length to index.
+> 建立索引的最小词长。
 
 **-i** _STRING_
-> Characters to ignore in index keys.
+> 索引键中要忽略的字符。
 
 **-l** _N_
-> Maximum keys per record.
+> 每条记录的最大键数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**indxbib** creates inverted indexes for bibliographic databases. These indexes enable fast lookups by lkbib and refer.
+**indxbib** 为文献数据库创建倒排索引。这些索引可供 lkbib 和 refer 进行快速查找。
 
-The tool processes refer-format bibliography files. The generated index files have extensions .ia, .ib, .ic.
+该工具处理 refer 格式的文献文件。生成的索引文件扩展名为 .ia、.ib、.ic。
 
 # CAVEATS
 
-Part of groff. Works with refer-format files. Index files are binary.
+属于 groff 的一部分，只能处理 refer 格式的文件。索引文件为二进制格式。
 
 # HISTORY
 
-indxbib is part of the **groff** document formatting system, derived from traditional Unix refer tools.
+indxbib 是 **groff** 文档排版系统的一部分，源自传统的 Unix refer 工具。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-random number generator daemon that feeds the Linux kernel's entropy pool
+为 Linux 内核熵池补充随机数的随机数生成守护进程
 
 # TLDR
 
-**Start** haveged daemon
+**启动** haveged 守护进程
 
 ```sudo haveged```
 
-Run haveged in **foreground**
+以**前台方式**运行 haveged
 
 ```sudo haveged -F```
 
-Set **file path** for output
+设置输出的**文件路径**
 
 ```sudo haveged -f [path/to/file]```
 
-Set **run level** for daemon
+设置守护进程的**运行级别**
 
 ```sudo haveged -r [runlevel]```
 
-Set collection **buffer size** in KiB words
+设置采集**缓冲区大小**（KiB 字）
 
 ```sudo haveged -b [buffersizeinKW]```
 
-Set **cache size** in KiB words
+设置**缓存大小**（KiB 字）
 
 ```sudo haveged -d [cachesizeinKW]```
 
-Set **number of bytes** to write to output file
+设置写入输出文件的**字节数**
 
 ```sudo haveged -n [byteamount]```
 
@@ -39,48 +39,48 @@ Set **number of bytes** to write to output file
 # PARAMETERS
 
 **-F**, **--Foreground**
-> Run in foreground (don't daemonize)
+> 在前台运行（不守护进程化）
 
 **-f**, **--file** _PATH_
-> Write random data to file instead of /dev/random
+> 将随机数据写入文件而不是 /dev/random
 
 **-r**, **--run** _LEVEL_
-> Set run level (0=run as daemon, 1=display results)
+> 设置运行级别（0=作为守护进程运行，1=显示结果）
 
 **-b**, **--buffer** _SIZE_
-> Collection buffer size in KiB words
+> 采集缓冲区大小（KiB 字）
 
 **-d**, **--data** _SIZE_
-> Cache size in KiB words
+> 缓存大小（KiB 字）
 
 **-n**, **--number** _BYTES_
-> Number of bytes to write to output
+> 要写入输出的字节数
 
 **-w**, **--write** _BYTES_
-> Write _BYTES_ to /dev/random at a time
+> 每次向 /dev/random 写入 _BYTES_ 字节
 
 **-v**, **--verbose** _LEVEL_
-> Verbosity level
+> 详细程度
 
 # DESCRIPTION
 
-**haveged** is a random number generator daemon that feeds the Linux kernel's entropy pool (/dev/random). It uses the HAVEGE (HArdware Volatile Entropy Gathering and Expansion) algorithm, which harvests entropy from CPU timing variations.
+**haveged** 是一个随机数生成守护进程，为 Linux 内核的熵池（/dev/random）补充随机数。它采用 HAVEGE（HArdware Volatile Entropy Gathering and Expansion）算法，从 CPU 计时变化中采集熵。
 
-The daemon is particularly useful for:
-- Headless servers lacking traditional entropy sources (keyboard, mouse)
-- Virtual machines with limited hardware entropy
-- Systems requiring high-throughput random number generation
-- Preventing /dev/random blocking during cryptographic operations
+该守护进程在以下场景特别有用：
+- 缺少传统熵源（键盘、鼠标）的无头服务器
+- 硬件熵有限的虚拟机
+- 需要高吞吐量随机数生成的系统
+- 防止加密操作期间 /dev/random 阻塞
 
-haveged monitors the kernel entropy pool and automatically feeds it when levels drop.
+haveged 监视内核熵池，并在熵量下降时自动补充。
 
 # CAVEATS
 
-Some security researchers debate HAVEGE's entropy quality on virtualized or modern CPUs with consistent timing. Consider using hardware RNG (rngd) when available. On modern kernels, /dev/random no longer blocks, reducing the need for haveged.
+部分安全研究者质疑 HAVEGE 在虚拟化环境或计时行为一致的现代 CPU 上产生的熵质量。若硬件 RNG（rngd）可用，建议优先考虑。在现代内核上，/dev/random 已不再阻塞，这降低了对 haveged 的需求。
 
 # HISTORY
 
-haveged was developed by Gary Wuertz based on the HAVEGE algorithm created by André Seznec and Nicolas Sendrier. It became popular for addressing entropy starvation on Linux servers and VMs.
+haveged 由 Gary Wuertz 开发，基于 André Seznec 和 Nicolas Sendrier 提出的 HAVEGE 算法。它在解决 Linux 服务器和虚拟机的熵饥饿问题方面广受欢迎。
 
 # INSTALL
 

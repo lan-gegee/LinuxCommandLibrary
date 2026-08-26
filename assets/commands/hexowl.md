@@ -1,22 +1,22 @@
 # TAGLINE
 
-Lightweight programmer's calculator with variables and functions
+支持变量和函数的轻量级程序员计算器
 
 # TLDR
 
-**Start the interactive calculator**
+**启动交互式计算器**
 
 ```hexowl```
 
-**Perform a hex calculation**
+**进行十六进制计算**
 
 ```hexowl -e "0xFF + 0x10"```
 
-**Mix number bases** in expressions
+**在表达式中混合不同进制**
 
 ```hexowl -e "255 + 0b1010 + 0xF"```
 
-**Define and use variables**
+**定义并使用变量**
 
 ```hexowl -e "x = 42; x * 2"```
 
@@ -26,17 +26,17 @@ Lightweight programmer's calculator with variables and functions
 
 # DESCRIPTION
 
-**hexowl** is a lightweight and flexible programmer's calculator with support for user-defined **variables** and **functions**. Its main purpose is to perform operations on numbers regardless of their base — a single expression can contain **decimal**, **hexadecimal**, and **binary** numbers mixed together.
+**hexowl** 是一个轻量灵活的程序员计算器，支持用户自定义**变量**和**函数**。它的主要用途是对数字执行运算而不受进制限制——同一个表达式中可以同时混用**十进制**、**十六进制**和**二进制**数字。
 
-Users can declare variables for reuse and define custom functions using the **->** operator. The calculator supports standard arithmetic operations, bitwise operations, and base conversions, making it useful for low-level programming, embedded development, and reverse engineering tasks.
+用户可以声明变量以便复用，并可以使用 **->** 运算符定义自定义函数。该计算器支持标准算术运算、位运算和进制转换，适合底层编程、嵌入式开发和逆向工程等任务。
 
 # CAVEATS
 
-Has no external dependencies. Function syntax uses the **->** operator which differs from most calculator conventions. Results are displayed in decimal by default.
+没有外部依赖。函数语法使用 **->** 运算符，这与大多数计算器的惯例不同。结果默认以十进制显示。
 
 # HISTORY
 
-**hexowl** was created by **DECE2183** and is written in **Go**. A web implementation is also available at hexowl.ru for browser-based usage.
+**hexowl** 由 **DECE2183** 创建，使用 **Go** 编写。网站 hexowl.ru 上还提供了网页版实现，可直接在浏览器中使用。
 
 # INSTALL
 

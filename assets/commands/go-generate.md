@@ -1,30 +1,30 @@
 # TAGLINE
 
-run code generation directives in Go source files
+运行 Go 源文件中的代码生成指令
 
 # TLDR
 
-**Run generators in current package**
+**在当前包中运行生成器**
 
 ```go generate```
 
-**Run generators in all packages**
+**在所有包中运行生成器**
 
 ```go generate ./...```
 
-**Run specific generator by pattern**
+**按模式运行特定生成器**
 
 ```go generate -run [pattern]```
 
-**Preview commands without executing**
+**预览命令而不执行**
 
 ```go generate -n```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```go generate -v```
 
-**Skip generators matching pattern**
+**跳过匹配模式的生成器**
 
 ```go generate -skip [pattern]```
 
@@ -35,27 +35,27 @@ run code generation directives in Go source files
 # PARAMETERS
 
 **-run** _regexp_
-> Run only directives matching regexp.
+> 只运行匹配正则表达式的指令。
 
 **-skip** _regexp_
-> Skip directives matching regexp.
+> 跳过匹配正则表达式的指令。
 
 **-n**
-> Print commands without executing.
+> 打印命令但不执行。
 
 **-v**
-> Print package names as processed.
+> 在处理过程中打印包名。
 
 **-x**
-> Print commands as executed.
+> 在命令执行时打印它们。
 
 # DESCRIPTION
 
-**go generate** scans Go source files for special directives of the form **//go:generate command** and executes the specified command. It automates code generation before compilation, commonly used for creating string methods, mock implementations, protocol buffers, and other generated code. Directives must start at the beginning of a line with no space between // and go:generate.
+**go generate** 会扫描 Go 源文件中以 **//go:generate command** 形式书写的特殊指令，并执行其中指定的命令。它在编译前自动完成代码生成，常用于创建字符串方法、mock 实现、protocol buffers 以及其他生成的代码。指令必须位于行首，且 // 与 go:generate 之间不能有空格。
 
 # CAVEATS
 
-Environment variables $GOARCH, $GOOS, $GOFILE, $GOLINE, $GOPACKAGE, $GOROOT, $DOLLAR, and $PATH are set during execution. Generated files should include a comment matching **^// Code generated .* DO NOT EDIT\.$** before non-comment content. **go generate** is never run automatically by **go build** or **go test**; it must be invoked explicitly.
+执行期间会设置环境变量 $GOARCH、$GOOS、$GOFILE、$GOLINE、$GOPACKAGE、$GOROOT、$DOLLAR 和 $PATH。生成的文件应在非注释内容之前包含一行符合 **^// Code generated .* DO NOT EDIT\.$** 的注释。**go build** 或 **go test** 绝不会自动运行 **go generate**；必须显式调用它。
 
 # INSTALL
 

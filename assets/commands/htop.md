@@ -1,34 +1,34 @@
 # TAGLINE
 
-interactive process viewer and system monitor
+交互式进程查看器和系统监视器
 
 # TLDR
 
-**Start htop**
+**启动 htop**
 
 ```htop```
 
-**Show processes for a specific user**
+**显示特定用户的进程**
 
 ```htop -u [username]```
 
-**Show only processes containing string**
+**只显示包含指定字符串的进程**
 
 ```htop -F [string]```
 
-**Start with tree view**
+**以树状视图启动**
 
 ```htop -t```
 
-**Sort by memory usage**
+**按内存使用量排序**
 
 ```htop -s PERCENT_MEM```
 
-**Monochrome mode**
+**单色模式**
 
 ```htop -C```
 
-**Show help**
+**显示帮助**
 
 ```htop -h```
 
@@ -38,60 +38,60 @@ interactive process viewer and system monitor
 
 # DESCRIPTION
 
-**htop** is an interactive, ncurses-based process viewer and system monitor designed as a more capable alternative to the traditional top command. Its full-screen interface displays per-core CPU utilization, memory, and swap usage as color-coded bar meters at the top, followed by a scrollable, sortable table of all running processes. Unlike top, htop supports full mouse interaction and intuitive keyboard shortcuts for everyday tasks.
+**htop** 是一个基于 ncurses 的交互式进程查看器和系统监视器，旨在作为传统 top 命令更强大的替代品。它的全屏界面在顶部以彩色条形计量表显示每核心 CPU 利用率、内存和交换空间的使用情况，下方则是所有运行进程组成的可滚动、可排序表格。与 top 不同，htop 支持完整的鼠标交互，并提供直观的键盘快捷键来完成日常任务。
 
-Users can filter the process list in real time (F4), search for processes by name (F3), and toggle a tree view (F5) that reveals parent-child process hierarchies. Sending signals to processes is straightforward -- pressing F9 presents a menu of signals (SIGTERM, SIGKILL, SIGHUP, etc.) to send to one or more tagged processes. Process priority (nice value) can be adjusted directly, and the setup screen (F2) allows full customization of which columns and meters are displayed, persisted across sessions.
+用户可以实时过滤进程列表（F4）、按名称搜索进程（F3），以及切换树状视图（F5）以展示父子进程层级。向进程发送信号也很简单——按下 F9 会弹出信号菜单（SIGTERM、SIGKILL、SIGHUP 等），可将其发送给一个或多个已标记的进程。进程优先级（nice 值）可直接调整，设置界面（F2）还允许完全自定义要显示的列和计量表，并且这些配置会在会话之间持久保存。
 
 # PARAMETERS
 
 **-u** _user_, **--user=** _user_
-> Show only processes of specified user.
+> 只显示指定用户的进程。
 
 **-p** _pid_, **--pid=** _pid_
-> Show only specified PIDs.
+> 只显示指定的 PID。
 
 **-t**, **--tree**
-> Start in tree view mode.
+> 以树状视图模式启动。
 
 **-s** _column_, **--sort-key=** _column_
-> Sort by specified column.
+> 按指定列排序。
 
 **-d** _delay_, **--delay=** _delay_
-> Update interval in tenths of seconds.
+> 更新间隔，单位为十分之一秒。
 
 **-C**, **--no-color**
-> Monochrome mode.
+> 单色模式。
 
 **-F** _string_, **--filter=** _string_
-> Show only processes containing string.
+> 只显示包含指定字符串的进程。
 
 **-H**, **--highlight-changes**
-> Highlight new/changed processes.
+> 高亮显示新增或有变化的进程。
 
 **--readonly**
-> Disable process manipulation.
+> 禁用进程操作。
 
 # KEYBOARD CONTROLS
 
-**F1** / **h**: Help screen
-**F2** / **S**: Setup menu
-**F3** / **/**: Search
-**F4** / **\\**: Filter
-**F5** / **t**: Tree view toggle
-**F6** / **>**: Sort column menu
-**F9** / **k**: Kill process
-**F10** / **q**: Quit
-**Space**: Tag process
-**U**: Untag all
-**c**: Tag and children
+**F1** / **h**: 帮助界面
+**F2** / **S**: 设置菜单
+**F3** / **/**: 搜索
+**F4** / **\\**: 过滤
+**F5** / **t**: 切换树状视图
+**F6** / **>**: 排序列菜单
+**F9** / **k**: 杀死进程
+**F10** / **q**: 退出
+**Space**: 标记进程
+**U**: 取消所有标记
+**c**: 标记进程及其子进程
 
 # CAVEATS
 
-Some features require root privileges (changing priorities, killing other users' processes). High refresh rates may impact system performance. Process information is a snapshot and may change between refreshes.
+某些功能需要 root 权限（更改优先级、杀死其他用户的进程）。过高的刷新频率可能影响系统性能。进程信息只是一个快照，两次刷新之间可能发生变化。
 
 # HISTORY
 
-**htop** was created by **Hisham Muhammad** in **2004** as a more user-friendly process viewer for Linux. It addressed common complaints about top's interface and lack of interactivity. The project was later forked as **htop-dev** by a community group after maintenance lapsed. htop has become the de facto interactive process viewer on Linux systems.
+**htop** 由 **Hisham Muhammad** 于 **2004 年**创建，目标是成为 Linux 上更易用的进程查看器。它解决了用户对 top 界面不友好、缺乏交互性的普遍抱怨。在维护一度中断之后，该项目由一个社区团队 fork 为 **htop-dev** 并继续开发。htop 已成为 Linux 系统上事实上的交互式进程查看器。
 
 # INSTALL
 

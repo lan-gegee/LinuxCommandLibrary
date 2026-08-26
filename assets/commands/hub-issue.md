@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages GitHub issues from the command line
+在命令行管理 GitHub issues
 
 # TLDR
 
-**List open issues**
+**列出打开状态的 issues**
 
 ```hub issue```
 
-**List issues with a label**
+**按标签列出 issues**
 
 ```hub issue -l [bug]```
 
-**Create a new issue** (opens an editor)
+**创建新 issue**（会打开编辑器）
 
 ```hub issue create```
 
-**Create with title and body**
+**带标题和正文创建**
 
 ```hub issue create -m "[title]" -m "[body]"```
 
-**Show a specific issue**
+**查看特定 issue**
 
 ```hub issue show [123]```
 
-**List an assignee's issues**
+**列出指派给某人的 issues**
 
 ```hub issue -a [username]```
 
@@ -41,76 +41,76 @@ manages GitHub issues from the command line
 # SUBCOMMANDS
 
 **list**
-> List issues in the current repository (default when no subcommand is given).
+> 列出当前仓库中的 issues（未指定子命令时的默认行为）。
 
 **show** _number_
-> Show an existing issue.
+> 显示一个已有的 issue。
 
 **create**
-> Open a new issue in the current repository.
+> 在当前仓库中新建一个 issue。
 
 **update** _number_
-> Update fields of an existing issue.
+> 更新已有 issue 的字段。
 
 **labels**
-> List the labels available in this repository.
+> 列出此仓库中可用的标签。
 
 **transfer** _number_ _repository_
-> Transfer an issue to another repository.
+> 将一个 issue 转移到其他仓库。
 
 # PARAMETERS
 
 **-a**, **--assignee** _user_
-> In list mode, show only issues assigned to _user_. In create/update mode (**--assign**), a comma-separated list of users to assign.
+> 列表模式下，只显示指派给 _user_ 的 issues。在创建/更新模式（**--assign**）下，为以逗号分隔的待指派用户列表。
 
 **-c**, **--creator** _user_
-> Show only issues created by _user_.
+> 只显示由 _user_ 创建的 issues。
 
 **-@**, **--mentioned** _user_
-> Show only issues mentioning _user_.
+> 只显示提及 _user_ 的 issues。
 
 **-s**, **--state** _state_
-> Show issues with state **open**, **closed**, or **all** (default: open).
+> 显示状态为 **open**、**closed** 或 **all** 的 issues（默认：open）。
 
 **-f**, **--format** _format_
-> Customize output using placeholders such as %i (number), %t (title), %S (state), %l (labels), %b (body), %au (author).
+> 使用占位符自定义输出，例如 %i（编号）、%t（标题）、%S（状态）、%l（标签）、%b（正文）、%au（作者）。
 
 **-M**, **--milestone** _name_
-> Show only issues for the given milestone.
+> 只显示属于给定里程碑的 issues。
 
 **-l**, **--labels** _labels_
-> Show only issues with the given comma-separated labels.
+> 只显示带有给定逗号分隔标签的 issues。
 
 **-d**, **--since** _date_
-> Show only issues updated on or after _date_ (ISO 8601).
+> 只显示在 _date_（ISO 8601）当天或之后更新过的 issues。
 
 **-L**, **--limit** _n_
-> Show only the first _n_ issues.
+> 只显示前 _n_ 个 issues。
 
 **-m**, **--message** _msg_
-> Issue title/body text (repeatable; first line is the title).
+> issue 的标题/正文文本（可重复使用；第一行为标题）。
 
 **-F**, **--file** _file_
-> Read the issue title and description from _file_.
+> 从 _file_ 中读取 issue 的标题和描述。
 
 **--edit**
-> Open the title and description in a text editor before submitting.
+> 提交前先在文本编辑器中编辑标题和描述。
 
 **-o**, **--browse**
-> Open the new issue in a web browser instead of printing its URL.
+> 在 Web 浏览器中打开新 issue，而不是打印其 URL。
 
 **--include-pulls**
-> Include pull requests alongside issues.
+> 在显示 issues 的同时一并显示 pull request。
 
 # DESCRIPTION
 
-**hub issue** manages GitHub issues from the command line. List, create, update, and view issues without leaving the terminal.
+**hub issue** 用于从命令行管理 GitHub issues。无需离开终端即可列出、创建、更新和查看 issues。
 
-With no arguments, it lists open issues for the current repository, sorted by creation date. Subcommands cover viewing a single issue, filing new ones, editing existing ones, listing labels, and transferring an issue to another repository.
+不带参数时，它会按创建日期排序列出当前仓库处于打开状态的 issues。子命令涵盖查看单个 issue、提交新 issue、编辑现有 issue、列出标签，以及将 issue 转移到另一个仓库。
 
 # CAVEATS
 
-Part of **hub**, which is deprecated in favor of the official GitHub CLI (**gh**); consider using **gh issue** instead. Requires GitHub authentication.
+属于 **hub** 的一部分，hub 已被弃用，推荐改用官方 GitHub CLI（**gh**）；可以考虑使用 **gh issue**。需要 GitHub 认证。
 
 # INSTALL
 
@@ -137,4 +137,3 @@ Part of **hub**, which is deprecated in favor of the official GitHub CLI (**gh**
 ```[Homepage](https://hub.github.com/)```
 
 <!-- verified: 2026-07-19 -->
-

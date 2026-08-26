@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line tool for writing ID3 tags to MP3 files
+向 MP3 文件写入 ID3 标签的命令行工具
 
 # TLDR
 
-**Set song title**
+**设置歌曲标题**
 
 ```id3tag -s "[title]" [file.mp3]```
 
-**Set artist**
+**设置艺术家**
 
 ```id3tag -a "[artist]" [file.mp3]```
 
-**Set album**
+**设置专辑**
 
 ```id3tag -A "[album]" [file.mp3]```
 
-**Set year and track number**
+**设置年份和音轨号**
 
 ```id3tag -y [2024] -t [1] [file.mp3]```
 
-**Set genre by number**
+**按编号设置流派**
 
 ```id3tag -g [17] [file.mp3]```
 
-**Set multiple tags at once**
+**一次性设置多个标签**
 
 ```id3tag -a "[artist]" -s "[title]" -A "[album]" -y [2024] -t [1] [file.mp3]```
 
-**Write only ID3v2 tags**
+**只写入 ID3v2 标签**
 
 ```id3tag -2 -a "[artist]" -s "[title]" [file.mp3]```
 
@@ -39,47 +39,47 @@ command-line tool for writing ID3 tags to MP3 files
 # PARAMETERS
 
 **-1**, **--v1tag**
-> Render only the id3v1 tag.
+> 只生成 id3v1 标签。
 
 **-2**, **--v2tag**
-> Render only the id3v2 tag.
+> 只生成 id3v2 标签。
 
 **-a**, **--artist** _ARTIST_
-> Set artist name.
+> 设置艺术家名称。
 
 **-s**, **--song** _SONG_
-> Set song title.
+> 设置歌曲标题。
 
 **-A**, **--album** _ALBUM_
-> Set album name.
+> 设置专辑名称。
 
 **-y**, **--year** _NUM_
-> Set release year.
+> 设置发行年份。
 
 **-t**, **--track** _NUM_
-> Set track number.
+> 设置音轨号。
 
 **-T**, **--total** _NUM_
-> Set total number of tracks on the album.
+> 设置专辑总音轨数。
 
 **-g**, **--genre** _NUM_
-> Set genre by number.
+> 按编号设置流派。
 
 **-c**, **--comment** _COMMENT_
-> Set comment.
+> 设置注释。
 
 **-C**, **--desc** _DESCRIPTION_
-> Set comment description.
+> 设置注释描述。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 # DESCRIPTION
 
-**id3tag** is a command-line tool for writing ID3 tags to MP3 files. Part of the id3lib/libid3-tools package. Renders both ID3v1 and ID3v2 tags by default; use **-1** or **-2** to render only one type. Can set title, artist, album, year, track number, genre, and comments. Useful for batch tagging with shell scripts. Use **id3info** to view existing tags.
+**id3tag** 是一个向 MP3 文件写入 ID3 标签的命令行工具，属于 id3lib/libid3-tools 软件包。默认同时生成 ID3v1 和 ID3v2 标签；使用 **-1** 或 **-2** 可只生成其中一种。可设置标题、艺术家、专辑、年份、音轨号、流派和注释。适合配合 shell 脚本进行批量打标签。使用 **id3info** 可查看已有标签。
 
 # INSTALL
 

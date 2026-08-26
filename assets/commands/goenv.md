@@ -1,38 +1,38 @@
 # TAGLINE
 
-Go version manager
+Go 版本管理器
 
 # TLDR
 
-**List available Go versions**
+**列出可用的 Go 版本**
 
 ```goenv install -l```
 
-**Install a Go version**
+**安装一个 Go 版本**
 
 ```goenv install [1.21.0]```
 
-**Install the latest stable version**
+**安装最新稳定版本**
 
 ```goenv install latest```
 
-**List installed versions**
+**列出已安装的版本**
 
 ```goenv versions```
 
-**Set global Go version**
+**设置全局 Go 版本**
 
 ```goenv global [1.21.0]```
 
-**Set local version for directory**
+**为目录设置局部版本**
 
 ```goenv local [1.21.0]```
 
-**Show current version**
+**显示当前版本**
 
 ```goenv version```
 
-**Uninstall a version**
+**卸载某个版本**
 
 ```goenv uninstall [1.21.0]```
 
@@ -43,56 +43,56 @@ Go version manager
 # SUBCOMMANDS
 
 **install** _version_
-> Install a Go version.
+> 安装一个 Go 版本。
 
 **uninstall** _version_
-> Uninstall a Go version.
+> 卸载一个 Go 版本。
 
 **versions**
-> List installed versions.
+> 列出已安装的版本。
 
 **version**
-> Show current active version.
+> 显示当前激活的版本。
 
 **global** _version_
-> Set global default version.
+> 设置全局默认版本。
 
 **local** _version_
-> Set directory-specific version (writes a `.go-version` file).
+> 设置目录级版本（会写入 `.go-version` 文件）。
 
 **shell** _version_
-> Set a shell-specific version via the `GOENV_VERSION` variable.
+> 通过 `GOENV_VERSION` 变量设置 shell 级版本。
 
 **which** _command_
-> Show the full path to the executable that goenv will invoke.
+> 显示 goenv 将调用的可执行文件的完整路径。
 
 **rehash**
-> Rebuild shim executables.
+> 重建 shim 可执行文件。
 
 **init**
-> Configure shell environment.
+> 配置 shell 环境。
 
 # PARAMETERS
 
 **-l**, **--list**
-> List available versions for install.
+> 列出可安装的版本。
 
 # DESCRIPTION
 
-**goenv** is a Go version manager inspired by rbenv and pyenv. It allows installing multiple Go versions side by side and switching between them per-project or globally.
+**goenv** 是一个受 rbenv 和 pyenv 启发的 Go 版本管理器。它可以并行安装多个 Go 版本，并按项目或全局切换使用。
 
-Version selection is managed through **.go-version** files and shims that intercept Go commands, routing them to the appropriate version.
+版本选择通过 **.go-version** 文件和 shim 来管理：shim 会拦截 Go 命令，并将其路由到相应的版本。
 
 # CONFIGURATION
 
 **~/.goenv/version**
-> Global Go version setting.
+> 全局 Go 版本设置。
 
 **.go-version**
-> Per-directory Go version override file.
+> 目录级的 Go 版本覆盖文件。
 
 **GOENV_ROOT**
-> Environment variable specifying the goenv installation directory (default ~/.goenv).
+> 指定 goenv 安装目录的环境变量（默认 ~/.goenv）。
 
 # INSTALL
 

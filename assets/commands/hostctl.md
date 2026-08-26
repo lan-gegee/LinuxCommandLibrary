@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage /etc/hosts with profiles
+使用配置组（profile）管理 /etc/hosts
 
 # TLDR
 
-**List all profiles** and their entries
+**列出所有配置组**及其条目
 
 ```hostctl list```
 
-**Add entries to a profile**
+**向配置组添加条目**
 
 ```hostctl add [profile_name] [ip] [hostname]```
 
-**Enable a profile**
+**启用一个配置组**
 
 ```hostctl enable [profile_name]```
 
-**Disable a profile**
+**禁用一个配置组**
 
 ```hostctl disable [profile_name]```
 
-**Remove a profile**
+**删除一个配置组**
 
 ```hostctl remove [profile_name]```
 
-**Import a profile from a file**
+**从文件导入配置组**
 
 ```hostctl set [profile_name] -from [path/to/file]```
 
-**Create a backup** of the hosts file
+**创建 hosts 文件的备份**
 
 ```hostctl backup```
 
-**Sync profile with Docker Compose** containers
+**与 Docker Compose 容器同步**配置组
 
 ```hostctl sync dockercompose -f [docker-compose.yml] -p [profile_name]```
 
@@ -42,43 +42,43 @@ Manage /etc/hosts with profiles
 
 # DESCRIPTION
 
-**hostctl** is a CLI tool for managing your **/etc/hosts** file using profiles. You can have multiple profiles, enable or disable exactly what you need, and switch between different host configurations with simple commands. It automatically detects your OS and uses the correct hosts file location.
+**hostctl** 是一个使用配置组（profile）管理 **/etc/hosts** 文件的 CLI 工具。你可以拥有多个配置组，精确启用或禁用所需内容，并用简单命令在不同主机配置之间切换。它会自动检测操作系统并使用正确的 hosts 文件位置。
 
-Profiles allow grouping host entries for different environments (development, staging, production) and toggling them on or off without manual file editing. It also supports syncing profiles with **Docker** and **Docker Compose** containers.
+配置组允许将主机条目按不同环境（开发、预发布、生产）分组，并无需手动编辑文件即可切换开关状态。它还支持与 **Docker** 和 **Docker Compose** 容器同步配置组。
 
 # PARAMETERS
 
 **list**
-> Show a detailed list of profiles and entries
+> 显示配置组和条目的详细列表
 
 **add** _profile_ _ip_ _hostname_
-> Add an entry to a profile
+> 向配置组添加条目
 
 **enable** _profile_
-> Enable a profile
+> 启用一个配置组
 
 **disable** _profile_
-> Disable a profile
+> 禁用一个配置组
 
 **remove** _profile_
-> Remove a profile entirely
+> 完全删除一个配置组
 
 **set** _profile_
-> Replace content of a profile
+> 替换某个配置组的内容
 
 **backup**
-> Create a backup of the hosts file
+> 创建 hosts 文件的备份
 
 **sync**
-> Sync with Docker or Docker Compose
+> 与 Docker 或 Docker Compose 同步
 
 # CAVEATS
 
-Modifying the hosts file requires **root/administrator** privileges. Incorrect entries can break local DNS resolution. Always use the **backup** command before making large changes.
+修改 hosts 文件需要 **root/管理员**权限。错误的条目可能破坏本地 DNS 解析。进行大规模更改前务必使用 **backup** 命令。
 
 # HISTORY
 
-**hostctl** was created by **guumaster** and is written in **Go**. It was designed to replace manual editing of the hosts file with a structured, profile-based approach that integrates with modern development workflows.
+**hostctl** 由 **guumaster** 创建，用 **Go** 编写。它旨在用结构化的、基于配置组的方式取代手动编辑 hosts 文件，并与现代开发工作流集成。
 
 # INSTALL
 

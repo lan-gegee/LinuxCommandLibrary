@@ -1,18 +1,18 @@
 # TAGLINE
 
-simple SVG viewer bundled with Inkscape
+Inkscape 附带的简易 SVG 查看器
 
 # TLDR
 
-**View SVG file**
+**查看 SVG 文件**
 
 ```inkview [file.svg]```
 
-**View multiple files**
+**查看多个文件**
 
 ```inkview [file1.svg] [file2.svg]```
 
-**Slideshow mode**
+**幻灯片模式**
 
 ```inkview [*.svg]```
 
@@ -23,30 +23,30 @@ simple SVG viewer bundled with Inkscape
 # PARAMETERS
 
 _FILE_
-> SVG files to view.
+> 要查看的 SVG 文件。
 
 **-t** _SECONDS_
-> Slideshow timer interval.
+> 幻灯片计时器间隔。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**inkview** is a simple SVG viewer bundled with Inkscape. It displays SVG files in a window for quick preview.
+**inkview** 是 Inkscape 附带的简易 SVG 查看器，在窗口中显示 SVG 文件以便快速预览。
 
-The viewer supports slideshow mode for presenting multiple SVGs. It renders using Inkscape's engine for accurate display.
+该查看器支持幻灯片模式，可用于展示多个 SVG。它使用 Inkscape 的渲染引擎，确保显示准确。
 
 # CAVEATS
 
-Part of Inkscape. Limited interaction. View-only functionality.
+属于 Inkscape 的一部分。交互功能有限，仅有查看功能。
 
 # HISTORY
 
-inkview was created as a lightweight SVG viewer companion to **Inkscape** for quick file preview.
+inkview 作为 **Inkscape** 的轻量级配套 SVG 查看器而创建，用于快速预览文件。
 
 # INSTALL
 

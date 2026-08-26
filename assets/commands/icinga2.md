@@ -1,30 +1,30 @@
 # TAGLINE
 
-monitoring system that checks availability of hosts and services
+检查主机和服务可用性的监控系统
 
 # TLDR
 
-**Check configuration**
+**检查配置**
 
 ```icinga2 daemon -C```
 
-**Start Icinga 2**
+**启动 Icinga 2**
 
 ```sudo systemctl start icinga2```
 
-**Reload configuration**
+**重载配置**
 
 ```sudo systemctl reload icinga2```
 
-**Show features**
+**显示功能特性**
 
 ```icinga2 feature list```
 
-**Enable feature**
+**启用功能特性**
 
 ```sudo icinga2 feature enable [api]```
 
-**List objects**
+**列出对象**
 
 ```icinga2 object list --type Host```
 
@@ -35,48 +35,48 @@ monitoring system that checks availability of hosts and services
 # PARAMETERS
 
 **daemon** [**-C**]
-> Run daemon (or check config with -C).
+> 运行守护进程（或使用 -C 检查配置）。
 
 **feature** _subcommand_
-> Manage features (list, enable, disable).
+> 管理功能特性（list、enable、disable）。
 
 **object** _subcommand_
-> Object management (list).
+> 对象管理（list）。
 
 **node** _subcommand_
-> Node/cluster management.
+> 节点/集群管理。
 
 **pki** _subcommand_
-> PKI/certificate management.
+> PKI/证书管理。
 
 **console**
-> Open debug console.
+> 打开调试控制台。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Icinga 2** is a monitoring system that checks availability of hosts and services. It supports distributed monitoring, advanced configurations, and integrates with various backends.
+**Icinga 2** 是一个监控系统，用于检查主机和服务的可用性。它支持分布式监控和高级配置，并可与多种后端集成。
 
-Icinga 2 uses a domain-specific language (DSL) for configuration, supporting templates, apply rules, and runtime modifications through its API.
+Icinga 2 使用领域特定语言（DSL）进行配置，支持模板、apply 规则，以及通过 API 进行运行时修改。
 
 # FEATURES
 
-- Host and service monitoring
-- Distributed/clustered setup
+- 主机与服务监控
+- 分布式/集群部署
 - REST API
-- Graphite/InfluxDB integration
-- Notification system
-- Performance data
+- Graphite/InfluxDB 集成
+- 通知系统
+- 性能数据
 
 # CAVEATS
 
-Configuration syntax differs from Icinga 1/Nagios. Cluster setup requires PKI. Large installations need tuning. Web interface (Icinga Web 2) installed separately.
+配置语法与 Icinga 1/Nagios 不同。集群部署需要 PKI。大型部署需要调优。Web 界面（Icinga Web 2）需单独安装。
 
 # HISTORY
 
-Icinga was forked from **Nagios** in **2009** due to disagreements about project governance. Icinga 2, released in **2014**, was a complete rewrite with modern architecture and new configuration language.
+Icinga 于 **2009 年**因项目治理分歧从 **Nagios** 分叉而来。发布于 **2014 年**的 Icinga 2 是一次完全重写，采用现代架构和全新的配置语言。
 
 # INSTALL
 

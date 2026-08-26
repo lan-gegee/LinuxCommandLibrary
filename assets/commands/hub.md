@@ -1,34 +1,34 @@
 # TAGLINE
 
-extends git with GitHub integration
+通过 GitHub 集成扩展 git 功能
 
 # TLDR
 
-**Clone repository**
+**克隆仓库**
 
 ```hub clone [user/repo]```
 
-**Create pull request**
+**创建 pull request**
 
 ```hub pull-request```
 
-**Fork repository**
+**fork 仓库**
 
 ```hub fork```
 
-**Create issue with title and message**
+**带标题和消息创建 issue**
 
 ```hub issue create -m "[title]"```
 
-**Browse repository in browser**
+**在浏览器中浏览仓库**
 
 ```hub browse```
 
-**Create release with tag**
+**带 tag 创建 release**
 
 ```hub release create -m "[Release title]" [tag]```
 
-**Open a pull request with a message**
+**带消息发起 pull request**
 
 ```hub pull-request -m "[title]"```
 
@@ -39,51 +39,51 @@ extends git with GitHub integration
 # PARAMETERS
 
 _COMMAND_
-> GitHub command.
+> GitHub 命令。
 
 **clone**
-> Clone repository.
+> 克隆仓库。
 
 **pull-request**
-> Create pull request.
+> 创建 pull request。
 
 **fork**
-> Fork repository.
+> fork 仓库。
 
 **issue**
-> Issue operations.
+> issue 相关操作。
 
 **browse**
-> Open in browser.
+> 在浏览器中打开。
 
 **release**
-> Release management.
+> release 管理。
 
 **create**
-> Create repository on GitHub.
+> 在 GitHub 上创建仓库。
 
 **ci-status**
-> Show CI status of the current commit.
+> 显示当前提交的 CI 状态。
 
 **api**
-> Make GitHub API requests directly.
+> 直接发起 GitHub API 请求。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hub** extends git with GitHub integration. It adds commands for pull requests, forks, issues, and other GitHub operations.
+**hub** 通过 GitHub 集成扩展了 git 的功能。它添加了用于 pull request、fork、issue 以及其他 GitHub 操作的命令。
 
-The tool wraps git commands and adds GitHub-specific functionality. It can be aliased as git for seamless integration.
+该工具包装 git 命令并加入 GitHub 特有的功能。它可以被别名为 git，从而实现无缝集成。
 
 # CAVEATS
 
-Hub is no longer actively maintained and has been superseded by the official GitHub CLI (**gh**). Requires GitHub authentication via **GITHUB_TOKEN** or OAuth. When aliased as **git**, hub transparently wraps all standard git commands.
+Hub 已不再活跃维护，已被官方 GitHub CLI（**gh**）取代。需要通过 **GITHUB_TOKEN** 或 OAuth 进行 GitHub 认证。当被别名为 **git** 时，hub 会透明地包装所有标准 git 命令。
 
 # HISTORY
 
-hub was created by **GitHub** as a command-line wrapper for git, later superseded by the official **gh** CLI.
+hub 由 **GitHub** 创建，是 git 的命令行包装器，后来被官方的 **gh** CLI 取代。
 
 # INSTALL
 

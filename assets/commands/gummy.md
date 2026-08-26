@@ -1,30 +1,30 @@
 # TAGLINE
 
-screen brightness and color temperature manager for Linux systems running X11
+面向运行 X11 的 Linux 系统的屏幕亮度和色温管理器
 
 # TLDR
 
-**Start the gummy daemon** (required before adjustments take effect)
+**启动 gummy 守护进程**（调整生效前必须先运行）
 
 ```gummy start```
 
-Set screen **temperature** to 3400K on all screens
+在所有屏幕上将**色温**设为 3400K
 
 ```gummy -t [3400]```
 
-Set **brightness** to 60% on a specific screen
+在指定屏幕上将**亮度**设为 60%
 
 ```gummy -b [60] -s [1]```
 
-**Enable automatic brightness** based on screen content
+**启用基于屏幕内容的自动亮度**
 
 ```gummy -B [1]```
 
-**Enable automatic temperature** with sunrise/sunset times
+**启用自动色温**并设置日出/日落时间
 
 ```gummy -T [1] -y [06:00] -u [16:30]```
 
-**Disable automatic brightness** on a specific screen
+在指定屏幕上**禁用自动亮度**
 
 ```gummy -B [0] -s [1]```
 
@@ -37,45 +37,45 @@ Set **brightness** to 60% on a specific screen
 # PARAMETERS
 
 **start**
-> Start the gummy background daemon that applies brightness/temperature adjustments.
+> 启动 gummy 后台守护进程，用于应用亮度/色温调整。
 
 **-t** _KELVIN_
-> Set screen color temperature manually.
+> 手动设置屏幕色温。
 
 **-T** _0|1_
-> Toggle automatic temperature adjustment based on sunrise/sunset times.
+> 切换是否基于日出/日落时间自动调整色温。
 
 **-b** _PERCENT_
-> Set screen brightness manually.
+> 手动设置屏幕亮度。
 
 **-B** _0|1|2_
-> Toggle automatic brightness: 0 = off, 1 = based on captured screen content, 2 = based on an ambient light sensor (if available).
+> 切换自动亮度：0 = 关闭，1 = 基于捕获的屏幕内容，2 = 基于环境光传感器（如果可用）。
 
 **-y** _HH:MM_
-> Set the sunrise time used for automatic temperature.
+> 设置自动色温所使用的日出时间。
 
 **-u** _HH:MM_
-> Set the sunset time used for automatic temperature.
+> 设置自动色温所使用的日落时间。
 
 **-s** _NUMBER_
-> Apply the given options to a specific screen (0-indexed) instead of all screens.
+> 将给定选项应用于特定屏幕（从 0 开始编号）而非所有屏幕。
 
 **-h**
-> Print help information.
+> 打印帮助信息。
 
 # DESCRIPTION
 
-**gummy** is a CLI screen manager for X11 that adjusts brightness and color temperature, automatically or manually, per screen or across all screens. Brightness is applied via gamma (and, on supported embedded displays, backlight), while temperature adjustment reduces blue light for reduced eye strain in the evening.
+**gummy** 是一款面向 X11 的命令行屏幕管理器，可以自动或手动地按屏幕或全局调整亮度和色温。亮度通过 gamma（在受支持的嵌入式显示器上还包括背光）来调节，而色温调节会减少蓝光，以减轻夜间用眼疲劳。
 
-Automatic brightness can follow either captured screen content (estimating ambient brightness from what's being displayed) or an ambient light sensor where present. Automatic temperature follows configurable sunrise/sunset times. The **gummy start** daemon must be running for either automatic mode, or for changes to persist.
+自动亮度既可以跟随捕获的屏幕内容（根据当前显示的内容估算环境亮度），也可以使用环境光传感器（如果存在）。自动色温遵循可配置的日出/日落时间。无论是自动模式还是让更改持久生效，都必须运行 **gummy start** 守护进程。
 
 # CAVEATS
 
-Requires X11; does not work under Wayland. The upstream `Fushko/gummy` repository is no longer available on GitHub; forks/mirrors such as `Gitoffthelawn/gummy` carry the code forward. A separate configuration GUI, **gummy-conf**, exists for users who prefer not to use the CLI directly.
+需要 X11；在 Wayland 下无法工作。上游 `Fushko/gummy` 仓库已在 GitHub 上不可用；`Gitoffthelawn/gummy` 等 fork/镜像延续了该代码。另有独立的配置图形界面 **gummy-conf**，适合不想直接使用 CLI 的用户。
 
 # HISTORY
 
-**gummy** was created by **Francesco Fusco** as a lightweight, daemon-based alternative to Redshift-style tools for managing screen brightness and color temperature on Linux/X11.
+**gummy** 由 **Francesco Fusco** 创建，是一款轻量级、基于守护进程的工具，用于在 Linux/X11 上管理屏幕亮度和色温，是 Redshift 类工具的替代品。
 
 # INSTALL
 

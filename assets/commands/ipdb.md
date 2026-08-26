@@ -1,22 +1,22 @@
 # TAGLINE
 
-IPython-enhanced Python debugger
+IPython 增强的 Python 调试器
 
 # TLDR
 
-**Start ipdb debugger**
+**启动 ipdb 调试器**
 
 ```python -m ipdb [script.py]```
 
-**Set breakpoint in code**
+**在代码中设置断点**
 
 ```import ipdb; ipdb.set_trace()```
 
-**Post-mortem debugging**
+**事后调试**
 
 ```python -m ipdb -c continue [script.py]```
 
-**Run until exception**
+**运行直到发生异常**
 
 ```ipdb.pm()```
 
@@ -27,10 +27,10 @@ IPython-enhanced Python debugger
 # PARAMETERS
 
 **-c** _command_
-> Execute command on start.
+> 启动时执行命令。
 
 _script_
-> Python script to debug.
+> 要调试的 Python 脚本。
 
 # DEBUGGER COMMANDS
 
@@ -50,9 +50,9 @@ h (help)      Show help
 
 # DESCRIPTION
 
-**ipdb** is the IPython-enhanced Python debugger. It provides the same interface as pdb but with syntax highlighting, tab completion, and better introspection from IPython.
+**ipdb** 是 IPython 增强的 Python 调试器。它提供与 pdb 相同的接口，但借助 IPython 具备语法高亮、制表符补全和更强的内省能力。
 
-ipdb makes Python debugging more interactive and user-friendly, especially for exploring variables and understanding program state.
+ipdb 让 Python 调试更具交互性、更友好，尤其适合查看变量和理解程序状态。
 
 # USAGE IN CODE
 
@@ -67,11 +67,11 @@ def problematic_function():
 
 # CAVEATS
 
-Requires ipython package. Breakpoints pause execution. Don't leave set_trace() in production code. Use breakpoint() in Python 3.7+ with PYTHONBREAKPOINT=ipdb.set_trace.
+需要 ipython 软件包。断点会暂停程序执行。不要把 set_trace() 留在生产代码中。在 Python 3.7+ 中可使用 breakpoint() 并设置 PYTHONBREAKPOINT=ipdb.set_trace。
 
 # HISTORY
 
-ipdb was created as a drop-in replacement for pdb that leverages IPython's features. It provides the familiar pdb interface with enhanced usability.
+ipdb 作为 pdb 的直接替代品而创建，充分利用了 IPython 的特性。它在保留 pdb 熟悉接口的同时增强了易用性。
 
 # SEE ALSO
 

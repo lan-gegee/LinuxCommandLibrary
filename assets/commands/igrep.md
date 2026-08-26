@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive grep with TUI for browsing results
+带 TUI 的交互式 grep，可浏览搜索结果
 
 # TLDR
 
-**Search for a pattern** in the current directory
+在当前目录中**搜索模式**
 
 ```igrep "[pattern]"```
 
-**Search in a specific directory**
+在指定目录中**搜索**
 
 ```igrep "[pattern]" [path/to/directory]```
 
-**Search case-insensitively**
+不区分大小写地**搜索**
 
 ```igrep -i "[pattern]"```
 
-**Search hidden files**
+**搜索隐藏文件**
 
 ```igrep --hidden "[pattern]"```
 
-**Filter by file type**
+按文件类型**过滤**
 
 ```igrep -t [rust] "[pattern]"```
 
-**Open results in a specific editor**
+用指定的编辑器**打开结果**
 
 ```igrep --editor [nvim] "[pattern]"```
 
@@ -34,17 +34,17 @@ Interactive grep with TUI for browsing results
 
 # DESCRIPTION
 
-**igrep** (Interactive Grep) runs **ripgrep** in the background and provides a TUI to interactively browse search results. When you select a match, it opens the file at the matching line in your text editor of choice (Vim by default). Supported editors include Vim, Neovim, nano, VS Code, Emacs, Helix, Sublime Text, Micro, and various JetBrains IDEs.
+**igrep**（Interactive Grep）在后台运行 **ripgrep**，并提供一个 TUI 来交互式浏览搜索结果。选中某个匹配后，它会用你选择的文本编辑器（默认 Vim）打开文件并定位到匹配行。支持的编辑器包括 Vim、Neovim、nano、VS Code、Emacs、Helix、Sublime Text、Micro 以及各种 JetBrains IDE。
 
-The interface allows filtering, sorting, and navigating through results with keyboard shortcuts, making it efficient for exploring large codebases.
+该界面支持通过键盘快捷键对结果进行过滤、排序和导航，适合高效探索大型代码库。
 
 # CAVEATS
 
-Requires ripgrep (rg) as a dependency for the search backend. Editor integration depends on the editor supporting line-number arguments.
+需要 ripgrep（rg）作为搜索后端依赖。编辑器集成取决于编辑器是否支持行号参数。
 
 # HISTORY
 
-**igrep** was created by **konradsz** and is written in **Rust**. It was designed to bridge the gap between grep's search capabilities and editor integration, providing a visual selection layer.
+**igrep** 由 **konradsz** 开发，使用 **Rust** 编写。它的设计目的是弥补 grep 的搜索能力与编辑器集成之间的空隙，提供一个可视化的选择层。
 
 # INSTALL
 

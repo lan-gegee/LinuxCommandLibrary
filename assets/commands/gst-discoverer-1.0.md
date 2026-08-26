@@ -1,30 +1,30 @@
 # TAGLINE
 
-GStreamer media file metadata analyzer
+GStreamer 媒体文件元数据分析器
 
 # TLDR
 
-**Show media file information**
+**显示媒体文件信息**
 
 ```gst-discoverer-1.0 [video.mp4]```
 
-**Show verbose information**
+**显示详细信息**
 
 ```gst-discoverer-1.0 -v [video.mp4]```
 
-**Analyze entire directory**
+**分析整个目录**
 
 ```gst-discoverer-1.0 [/path/to/directory]```
 
-**Analyze from URL**
+**从 URL 分析**
 
 ```gst-discoverer-1.0 [https://example.com/video.webm]```
 
-**Show table of contents**
+**显示目录（TOC）信息**
 
 ```gst-discoverer-1.0 -c [video.mp4]```
 
-**Set timeout**
+**设置超时时间**
 
 ```gst-discoverer-1.0 -t [30] [video.mp4]```
 
@@ -35,25 +35,25 @@ GStreamer media file metadata analyzer
 # PARAMETERS
 
 **-v**, **--verbose**
-> Output all available information.
+> 输出所有可用信息。
 
 **-a**, **--async**
-> Use asynchronous code path.
+> 使用异步代码路径。
 
 **-t**, **--timeout** _seconds_
-> Timeout in seconds (default 10).
+> 以秒为单位的超时时间（默认 10 秒）。
 
 **-c**, **--toc**
-> Output TOC (chapters and editions).
+> 输出 TOC（章节和版本）。
 
 **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 # DESCRIPTION
 
-**gst-discoverer-1.0** displays metadata and stream information about media files. It analyzes containers, codecs, duration, resolution, sample rates, bitrates, and other properties without playing the file.
+**gst-discoverer-1.0** 显示媒体文件的元数据和流信息。它分析容器、编解码器、时长、分辨率、采样率、比特率等属性，无需播放文件。
 
-The tool is useful for debugging multimedia issues and understanding media structure. It recurses into subdirectories when given a directory path.
+该工具适用于调试多媒体问题和了解媒体结构。给定目录路径时会递归处理子目录。
 
 # INSTALL
 

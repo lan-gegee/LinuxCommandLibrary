@@ -1,26 +1,26 @@
 # TAGLINE
 
-parent of all processes on the system, responsible for starting and stopping
+系统中所有进程的父进程，负责启动和停止服务
 
 # TLDR
 
-Set system to **graphical** environment (runlevel 5)
+将系统切换到**图形**环境（运行级别 5）
 
 ```sudo init 5```
 
-Set system to **multiuser terminal** (runlevel 3)
+将系统切换到**多用户终端**（运行级别 3）
 
 ```sudo init 3```
 
-Set system to **single user** mode (runlevel 1)
+将系统切换到**单用户**模式（运行级别 1）
 
 ```sudo init 1```
 
-**Shut down** the system
+**关闭**系统
 
 ```init 0```
 
-**Reboot** the system
+**重启**系统
 
 ```init 6```
 
@@ -31,41 +31,41 @@ Set system to **single user** mode (runlevel 1)
 # PARAMETERS
 
 **0**
-> Halt the system
+> 停机（halt）系统
 
-**1** or **S**
-> Single user mode (maintenance)
+**1** 或 **S**
+> 单用户模式（维护模式）
 
 **2**
-> Multi-user mode without NFS (Debian default multi-user with GUI)
+> 无 NFS 的多用户模式（Debian 上默认为带 GUI 的多用户模式）
 
 **3**
-> Multi-user mode with networking, text console only
+> 带网络的多用户模式，仅文本控制台
 
 **4**
-> Unused/custom (available for user-defined purposes)
+> 未使用/自定义（可用于用户自定义用途）
 
 **5**
-> Multi-user mode with networking and graphical desktop (Red Hat default GUI)
+> 带网络和图形桌面的多用户模式（Red Hat 默认的图形模式）
 
 **6**
-> Reboot the system
+> 重启系统
 
 # DESCRIPTION
 
-**init** is the parent of all processes on the system, responsible for starting and stopping services at different runlevels. It is the traditional System V init daemon that manages the system state.
+**init** 是系统中所有进程的父进程，负责在不同运行级别启动和停止服务。它是管理传统 System V init 守护进程的系统状态。
 
-Runlevels define different system states, from single-user maintenance mode to full graphical desktop. Changing runlevels causes init to start or stop services as defined in /etc/rc.d or /etc/init.d scripts.
+运行级别定义了不同的系统状态，从单用户维护模式到完整的图形桌面。改变运行级别会让 init 按照 /etc/rc.d 或 /etc/init.d 脚本中的定义启动或停止服务。
 
-On modern systemd-based systems, init may be a compatibility wrapper that translates runlevel commands to systemd targets.
+在现代基于 systemd 的系统上，init 可能是一个兼容层包装器，将运行级别命令转换为 systemd target。
 
 # CAVEATS
 
-Behavior varies between distributions. On systemd-based systems, **init** is a symlink to systemd and runlevel commands are translated to systemd targets (e.g., runlevel 3 maps to multi-user.target, runlevel 5 to graphical.target). Direct runlevel changes can disrupt running services. Use **systemctl** on modern systems.
+行为因发行版而异。在基于 systemd 的系统上，**init** 是指向 systemd 的符号链接，运行级别命令会被转换为 systemd target（例如运行级别 3 映射到 multi-user.target，运行级别 5 映射到 graphical.target）。直接切换运行级别可能干扰正在运行的服务。现代系统请使用 **systemctl**。
 
 # HISTORY
 
-System V init originated in AT&T UNIX System V in **1983**. It was the standard init system on most Linux distributions until systemd began replacing it around **2011**.
+System V init 源于 AT&T UNIX System V（**1983 年**）。在大约 **2011 年** systemd 开始取代它之前，它一直是大多数 Linux 发行版的标准 init 系统。
 
 # INSTALL
 

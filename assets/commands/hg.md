@@ -1,38 +1,38 @@
 # TAGLINE
 
-distributed version control system
+分布式版本控制系统
 
 # TLDR
 
-**Initialize repository**
+**初始化仓库**
 
 ```hg init```
 
-**Clone repository**
+**克隆仓库**
 
 ```hg clone [url]```
 
-**Show status**
+**显示状态**
 
 ```hg status```
 
-**Add files**
+**添加文件**
 
 ```hg add [files]```
 
-**Commit changes**
+**提交更改**
 
 ```hg commit -m "[message]"```
 
-**View log**
+**查看日志**
 
 ```hg log```
 
-**Pull changes**
+**拉取更改**
 
 ```hg pull```
 
-**Push changes**
+**推送更改**
 
 ```hg push```
 
@@ -43,64 +43,64 @@ distributed version control system
 # PARAMETERS
 
 _COMMAND_
-> Mercurial command.
+> Mercurial 命令。
 
 **init**
-> Create repository.
+> 创建仓库。
 
 **clone**
-> Clone repository.
+> 克隆仓库。
 
 **status**
-> Show working directory status.
+> 显示工作目录状态。
 
 **add**
-> Add files.
+> 添加文件。
 
 **commit**
-> Commit changes.
+> 提交更改。
 
 **log**
-> Show history.
+> 显示历史。
 
 **pull**
-> Pull from remote.
+> 从远程拉取。
 
 **push**
-> Push to remote.
+> 推送到远程。
 
 **-R**, **--repository** _REPO_
-> Run as if started in the given repository.
+> 以给定仓库为起点运行。
 
 **-v**, **--verbose**
-> Increase amount of output.
+> 增加输出量。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--version**
-> Output version information.
+> 输出版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Mercurial** (hg) is a distributed version control system. It tracks changes in source code and supports branching, merging, and collaboration.
+**Mercurial**（hg）是一个分布式版本控制系统。它跟踪源代码的变更，支持分支、合并和协作。
 
-Mercurial is similar to Git but with different command syntax and philosophy. It emphasizes simplicity and consistency in its interface.
+Mercurial 与 Git 类似，但命令语法和设计理念不同。它强调界面的简洁与一致性。
 
 # CONFIGURATION
 
-Mercurial reads settings from several **hgrc** files, in order: the system-wide file (e.g. **/etc/mercurial/hgrc**), the per-user file (**~/.hgrc**), and the per-repository file (**.hg/hgrc**). Later files override earlier ones. Common sections include **[ui]** for username and editor, **[paths]** for remote aliases, and **[extensions]** to enable built-in or third-party extensions.
+Mercurial 会按顺序读取多个 **hgrc** 配置文件：系统级文件（例如 **/etc/mercurial/hgrc**）、用户级文件（**~/.hgrc**）和仓库级文件（**.hg/hgrc**）。后面的文件会覆盖前面的配置。常见配置节包括用于设置用户名和编辑器的 **[ui]**、用于设置远程别名的 **[paths]**，以及用于启用内置或第三方扩展的 **[extensions]**。
 
 # CAVEATS
 
-Less popular than Git. Different workflow. Extension system for features.
+不如 Git 流行。工作流有所差异。通过扩展系统提供更多功能。
 
 # HISTORY
 
-Mercurial was created by **Matt Mackall** in **2005**, shortly after Git, as another solution for Linux kernel development.
+Mercurial 由 **Matt Mackall** 于 **2005 年**创建，仅晚于 Git，是针对 Linux 内核开发的另一种解决方案。
 
 # INSTALL
 

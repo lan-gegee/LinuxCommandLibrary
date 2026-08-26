@@ -1,30 +1,30 @@
 # TAGLINE
 
-performs a route lookup and displays exactly which route the kernel would use
+执行路由查找并显示内核将使用的确切路由
 
 # TLDR
 
-Print **route to destination**
+输出**到目的地的路由**
 
 ```ip route get [1.1.1.1]```
 
-Print route from a **specific source**
+从**特定源**输出路由
 
 ```ip route get [destination] from [source]```
 
-Print route for packets arriving on a **specific interface**
+输出从**特定接口**到达的数据包的路由
 
 ```ip route get [destination] iif [eth0]```
 
-Print route forcing output through **specific interface**
+输出强制经**特定接口**发出的路由
 
 ```ip route get [destination] oif [eth0]```
 
-Print route with **Type of Service**
+输出带**服务类型**的路由
 
 ```ip route get [destination] tos [0x10]```
 
-Print route using **VRF** instance
+使用 **VRF** 实例输出路由
 
 ```ip route get [destination] vrf [myvrf]```
 
@@ -35,36 +35,36 @@ Print route using **VRF** instance
 # PARAMETERS
 
 **from** _SOURCE_
-> Source address for route lookup
+> 用于路由查找的源地址
 
 **iif** _DEVICE_
-> Input interface (for forwarded packets)
+> 入站接口（针对转发的数据包）
 
 **oif** _DEVICE_
-> Force output interface
+> 强制指定出站接口
 
 **tos** _TOS_
-> Type of Service value
+> 服务类型值
 
 **vrf** _NAME_
-> VRF instance name
+> VRF 实例名称
 
 **mark** _MARK_
-> Firewall mark value
+> 防火墙标记值
 
 # DESCRIPTION
 
-**ip route get** performs a route lookup and displays exactly which route the kernel would use for a given destination. This shows the complete route entry including gateway, interface, source address, and any other attributes.
+**ip route get** 执行一次路由查找，显示内核对给定目标实际会使用的路由。它会显示完整的路由条目，包括网关、接口、源地址以及其他属性。
 
-Unlike ip route list, which shows stored routes, ip route get queries the kernel's routing decision for a specific packet, accounting for policy routing rules and route selection algorithms.
+与显示已存储路由的 ip route list 不同，ip route get 会查询内核针对特定数据包的路由决策，并将策略路由规则和路由选择算法考虑在内。
 
 # CAVEATS
 
-The output reflects the current routing state, which may change dynamically. VRF lookups require the VRF to be configured. Mark-based lookups require matching policy rules.
+输出反映当前路由状态，可能会动态变化。VRF 查找要求 VRF 已配置。基于 mark 的查找需要有匹配的策略规则。
 
 # HISTORY
 
-ip route get is part of iproute2 and provides insight into the kernel's actual routing decisions, which can differ from the stored route table due to policy rules and route metrics.
+ip route get 是 iproute2 的一部分，可用于了解内核的实际路由决策；由于策略规则和路由 metric 的存在，这一决策可能与存储的路由表不同。
 
 # SEE ALSO
 

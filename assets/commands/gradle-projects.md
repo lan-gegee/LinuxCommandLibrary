@@ -1,18 +1,18 @@
 # TAGLINE
 
-Gradle subproject hierarchy viewer
+Gradle 子项目层次结构查看工具
 
 # TLDR
 
-**List all subprojects**
+**列出所有子项目**
 
 ```gradle projects```
 
-**List with wrapper**
+**通过 wrapper 列出**
 
 ```./gradlew projects```
 
-**List for specific project**
+**列出特定项目的子项目**
 
 ```gradle :[subproject]:projects```
 
@@ -22,7 +22,7 @@ Gradle subproject hierarchy viewer
 
 # DESCRIPTION
 
-**gradle projects** displays a hierarchical list of all subprojects in a multi-project Gradle build. The output shows the root project and all its subprojects with their paths, helping navigate complex builds with multiple modules.
+**gradle projects** 显示多项目 Gradle 构建中所有子项目的分层列表。输出展示根项目及其所有子项目的路径，帮助在包含多个模块的复杂构建中导航。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Gradle dependency tracing tool
+Gradle 依赖追踪工具
 
 # TLDR
 
-**Trace a dependency** to see why it is included
+**追踪某个依赖**以查看它为何被引入
 
 ```gradle dependencyInsight --dependency [library-name]```
 
-**Trace a dependency** in a specific configuration
+**在特定配置中追踪**依赖
 
 ```gradle dependencyInsight --configuration [compileClasspath] --dependency [guava]```
 
-**Show only a single path** to each dependency (useful for large graphs)
+**只显示通向每个依赖的单一路径**（适用于大型依赖图）
 
 ```gradle dependencyInsight --dependency [library-name] --singlepath```
 
-**Trace a dependency** in a specific subproject
+**在特定子项目中追踪**依赖
 
 ```gradle :[subproject]:dependencyInsight --dependency [library-name]```
 
@@ -27,25 +27,25 @@ Gradle dependency tracing tool
 # PARAMETERS
 
 **--dependency** _NAME_
-> Required. The dependency to trace. Matches partially against group, name, or version.
+> 必需。要追踪的依赖。支持对 group、name 或 version 的部分匹配。
 
 **--configuration** _NAME_
-> Configuration to inspect (e.g., compileClasspath, runtimeClasspath). Defaults to compileClasspath for Java projects.
+> 要检查的配置（例如 compileClasspath、runtimeClasspath）。Java 项目默认为 compileClasspath。
 
 **--singlepath**
-> Show only one path to each dependency instead of all paths. Useful for large dependency graphs.
+> 只显示通向每个依赖的一条路径而不是所有路径。适用于大型依赖图。
 
 # DESCRIPTION
 
-**gradle dependencyInsight** traces why a specific dependency appears in the build. It shows the path from direct dependencies to the transitive inclusion, revealing how version conflicts are resolved.
+**gradle dependencyInsight** 追踪特定依赖为何出现在构建中。它会显示从直接依赖到传递引入的路径，揭示版本冲突是如何被解决的。
 
-The **--dependency** value is matched partially against the group, name, or version of dependencies, so a query like `guava` will match `com.google.guava:guava:31.1-jre`.
+**--dependency** 的值会对依赖的 group、name 或 version 做部分匹配，因此查询 `guava` 可以匹配 `com.google.guava:guava:31.1-jre`。
 
-The task is essential for debugging dependency issues and understanding why specific versions are selected during resolution.
+该任务是调试依赖问题、理解解析过程中为何选中特定版本的关键工具。
 
 # CAVEATS
 
-The **--dependency** flag is required. Without **--configuration**, the task defaults to compileClasspath in Java projects. The dependency value uses partial matching, which may return unexpected results for common names.
+必须提供 **--dependency** 标志。不指定 **--configuration** 时，该任务在 Java 项目中默认使用 compileClasspath。依赖值采用部分匹配，常见名称可能返回意料之外的结果。
 
 # INSTALL
 

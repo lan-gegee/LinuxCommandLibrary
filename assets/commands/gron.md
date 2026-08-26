@@ -1,26 +1,26 @@
 # TAGLINE
 
-Make JSON greppable
+让 JSON 变得可 grep
 
 # TLDR
 
-**Convert JSON to gron**
+**将 JSON 转换为 gron 格式**
 
 ```gron [file.json]```
 
-**Pipe JSON to gron**
+**将 JSON 通过管道传给 gron**
 
 ```curl [api/url] | gron```
 
-**Filter with grep**
+**配合 grep 过滤**
 
 ```gron [file.json] | grep [pattern]```
 
-**Convert back to JSON**
+**转换回 JSON**
 
 ```gron [file.json] | grep [filter] | gron -u```
 
-**Colorize output**
+**彩色输出**
 
 ```gron --color [file.json]```
 
@@ -31,39 +31,39 @@ Make JSON greppable
 # PARAMETERS
 
 _FILE_
-> JSON file to process.
+> 要处理的 JSON 文件。
 
 **-u**, **--ungron**
-> Convert gron back to JSON.
+> 将 gron 格式转换回 JSON。
 
 **-s**, **--stream**
-> Stream processing mode.
+> 流式处理模式。
 
 **--color**
-> Colorize output.
+> 彩色输出。
 
 **--no-sort**
-> Preserve original order.
+> 保留原始顺序。
 
 **-j**, **--json**
-> Output as JSON.
+> 以 JSON 输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gron** transforms JSON into discrete path-value assignments, making it greppable with standard Unix tools. Each JSON value becomes a single line showing its full path from the root.
+**gron** 将 JSON 转换为离散的路径-值赋值形式，使其可以被标准 Unix 工具 grep。每个 JSON 值变成单独一行，显示其从根开始的完整路径。
 
-Results can be filtered with grep and converted back to valid JSON using ungron mode (**-u**), enabling powerful JSON querying without specialized tools.
+结果可以用 grep 过滤，再通过 ungron 模式（**-u**）转换回有效的 JSON，从而无需专用工具即可实现强大的 JSON 查询。
 
 # CAVEATS
 
-Large JSON files produce many lines. Path syntax may vary. Ungron requires valid gron format.
+大型 JSON 文件会产生大量行。路径语法可能有差异。ungron 要求输入是有效的 gron 格式。
 
 # HISTORY
 
-gron was created by **Tom Hudson** to solve the problem of searching complex JSON structures with traditional Unix tools.
+gron 由 **Tom Hudson** 创建，用于解决用传统 Unix 工具搜索复杂 JSON 结构的难题。
 
 # INSTALL
 

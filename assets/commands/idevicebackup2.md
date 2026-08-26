@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates and restores backups of iOS devices running iOS 4 and later
+为运行 iOS 4 及更高版本的 iOS 设备创建和恢复备份
 
 # TLDR
 
-**Create full backup**
+**创建完整备份**
 
 ```idevicebackup2 backup [backup-dir]```
 
-**Restore from backup**
+**从备份恢复**
 
 ```idevicebackup2 restore [backup-dir]```
 
-**List files in backup**
+**列出备份中的文件**
 
 ```idevicebackup2 list [backup-dir]```
 
-**Backup specific device**
+**备份指定设备**
 
 ```idevicebackup2 -u [device-udid] backup [backup-dir]```
 
-**Force full backup**
+**强制完整备份**
 
 ```idevicebackup2 backup --full [backup-dir]```
 
-**Enable backup encryption**
+**启用备份加密**
 
 ```idevicebackup2 encryption on [password]```
 
@@ -35,49 +35,49 @@ creates and restores backups of iOS devices running iOS 4 and later
 # SUBCOMMANDS
 
 **backup**
-> Create device backup. Use --full to force full backup.
+> 创建设备备份。使用 --full 强制进行完整备份。
 
 **restore**
-> Restore from backup. Supports --system, --settings, --remove, --copy, --skip-apps, --no-reboot, --password.
+> 从备份恢复。支持 --system、--settings、--remove、--copy、--skip-apps、--no-reboot、--password。
 
 **list**
-> List files of last completed backup in CSV format.
+> 以 CSV 格式列出最近一次已完成备份的文件。
 
 **unback**
-> Unpack a completed backup.
+> 解包一个已完成的备份。
 
 **encryption** on|off [_PWD_]
-> Enable or disable backup encryption.
+> 启用或禁用备份加密。
 
 **changepw** [_OLD_] [_NEW_]
-> Change backup password on target device.
+> 在目标设备上更改备份密码。
 
 **cloud** on|off
-> Enable or disable cloud use (requires iCloud account).
+> 启用或禁用云备份（需要 iCloud 账户）。
 
 **info**
-> Show details about last completed backup.
+> 显示最近一次已完成备份的详细信息。
 
 # PARAMETERS
 
 **-u**, **--udid** _UDID_
-> Target specific device by UDID.
+> 按 UDID 指定目标设备。
 
 **-s**, **--source** _UDID_
-> Use backup data from device specified by UDID.
+> 使用按 UDID 指定设备的备份数据。
 
 **-i**, **--interactive**
-> Request passwords interactively on the command line.
+> 在命令行上交互式请求密码。
 
 **-n**, **--network**
-> Connect to network device.
+> 连接到网络设备。
 
 **-d**, **--debug**
-> Enable communication debugging.
+> 启用通信调试。
 
 # DESCRIPTION
 
-**idevicebackup2** creates and restores backups of iOS devices running iOS 4 and later. Part of the libimobiledevice suite. Supports encrypted backups, incremental backups, and restoring backups from different devices.
+**idevicebackup2** 为运行 iOS 4 及更高版本的 iOS 设备创建和恢复备份，属于 libimobiledevice 套件。支持加密备份、增量备份以及从其他设备恢复备份。
 
 # INSTALL
 

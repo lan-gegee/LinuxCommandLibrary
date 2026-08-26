@@ -1,34 +1,34 @@
 # TAGLINE
 
-measures the latency and throughput of a web server by sending HTTP requests
+通过发送 HTTP 请求测量 Web 服务器的延迟和吞吐量
 
 # TLDR
 
-**Ping a URL**
+**Ping 一个 URL**
 
 ```httping [https://example.com]```
 
-**Ping with count**
+**指定次数 Ping**
 
 ```httping -c [5] [https://example.com]```
 
-**Use GET instead of HEAD**
+**使用 GET 代替 HEAD**
 
 ```httping -G [https://example.com]```
 
-**Use SSL/HTTPS**
+**使用 SSL/HTTPS**
 
 ```httping -l [https://example.com]```
 
-**Show split latency timing**
+**显示分阶段的延迟计时**
 
 ```httping -S [https://example.com]```
 
-**Use persistent connection**
+**使用持久连接**
 
 ```httping -Q [https://example.com]```
 
-**Set timeout**
+**设置超时时间**
 
 ```httping -t [5] [https://example.com]```
 
@@ -39,44 +39,44 @@ measures the latency and throughput of a web server by sending HTTP requests
 # PARAMETERS
 
 **-c** _count_
-> Number of pings.
+> Ping 次数。
 
 **-G**
-> Use GET request instead of HEAD.
+> 使用 GET 请求代替 HEAD。
 
 **-l**
-> Connect using SSL (for https).
+> 使用 SSL 连接（用于 https）。
 
 **-S**
-> Split latency into connect, send, receive, etc.
+> 将延迟细分为连接、发送、接收等阶段。
 
 **-Q**
-> Use persistent connection (Keep-Alive).
+> 使用持久连接（Keep-Alive）。
 
 **-t** _seconds_
-> Timeout per request.
+> 每个请求的超时时间。
 
 **-i** _seconds_
-> Interval between requests.
+> 请求之间的间隔。
 
 **-q**
-> Quiet mode, only show summary.
+> 安静模式，只显示摘要。
 
 **-x** _host:port_
-> Probe through the given proxy server.
+> 通过指定的代理服务器进行探测。
 
 **-m**
-> Machine-readable output, for use in scripts.
+> 输出机器可读格式，便于在脚本中使用。
 
 **-b**
-> Show transfer speed in KB/s (used with **-G**).
+> 以 KB/s 显示传输速度（与 **-G** 配合使用）。
 
 **-v**
-> Verbose mode, adds standard deviation and timestamps.
+> 详细模式，额外显示标准差和时间戳。
 
 # DESCRIPTION
 
-**httping** measures the latency and throughput of a web server by sending HTTP requests and timing the response. Unlike ICMP ping, it measures actual HTTP round-trip time including network latency and server processing. Use **-S** to see breakdown of connection phases.
+**httping** 通过发送 HTTP 请求并对响应计时来测量 Web 服务器的延迟和吞吐量。与 ICMP ping 不同，它测量的是实际的 HTTP 往返时间，其中包含网络延迟和服务器处理时间。使用 **-S** 可以查看各连接阶段的耗时分解。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ measures the latency and throughput of a web server by sending HTTP requests
 ```[Homepage](https://www.vanheusden.com/httping/)```
 
 <!-- verified: 2026-07-19 -->
-

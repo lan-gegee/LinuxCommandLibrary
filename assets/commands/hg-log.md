@@ -1,38 +1,38 @@
 # TAGLINE
 
-displays repository commit history
+显示仓库的提交历史
 
 # TLDR
 
-**Show commit history**
+**显示提交历史**
 
 ```hg log```
 
-**Show last n commits**
+**显示最近 n 条提交**
 
 ```hg log -l [5]```
 
-**Show specific file history**
+**显示特定文件的历史**
 
 ```hg log [file]```
 
-**Show with patch**
+**显示补丁**
 
 ```hg log -p```
 
-**Graph view**
+**图形视图**
 
 ```hg log -G```
 
-**Show specific revision**
+**显示特定修订版本**
 
 ```hg log -r [revision]```
 
-**Show commits by a specific user**
+**显示特定用户的提交**
 
 ```hg log -u [username]```
 
-**Show commits matching a keyword**
+**显示匹配关键字的提交**
 
 ```hg log -k [keyword]```
 
@@ -43,48 +43,48 @@ displays repository commit history
 # PARAMETERS
 
 _FILE_
-> Limit to specific file.
+> 限定为特定文件。
 
 **-l**, **--limit** _N_
-> Limit number of entries.
+> 限制条目数量。
 
 **-r**, **--rev** _REV_
-> Show specific revision.
+> 显示特定修订版本。
 
 **-p**, **--patch**
-> Show patches.
+> 显示补丁。
 
 **-G**, **--graph**
-> Show DAG graph.
+> 显示 DAG 图。
 
 **-b**, **--branch** _BRANCH_
-> Show branch commits.
+> 显示分支上的提交。
 
 **-u**, **--user** _USER_
-> Show commits by user.
+> 显示指定用户的提交。
 
 **-k**, **--keyword** _TEXT_
-> Search commit messages.
+> 搜索提交信息。
 
 **--template** _TPL_
-> Output template.
+> 输出模板。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg log** displays repository commit history. It shows changesets with author, date, summary, and other metadata.
+**hg log** 显示仓库的提交历史。它展示变更集及其作者、日期、摘要等元数据。
 
-The command supports filtering by file, branch, or revision range. Graph mode visualizes branch and merge structure.
+该命令支持按文件、分支或修订版本范围过滤。图形模式可可视化分支和合并结构。
 
 # CAVEATS
 
-Large histories can be slow. Use -l to limit. Templates for custom output.
+大型历史可能较慢。请用 -l 加以限制。可用模板自定义输出。
 
 # HISTORY
 
-Log is a core **Mercurial** command for viewing repository history since version 1.0.
+log 是 **Mercurial** 自 1.0 版本以来查看仓库历史的核心命令。
 
 # SEE ALSO
 

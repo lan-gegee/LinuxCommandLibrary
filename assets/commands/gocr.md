@@ -1,22 +1,22 @@
 # TAGLINE
 
-Optical character recognition program
+光学字符识别程序
 
 # TLDR
 
-**OCR an image**
+**对图像进行 OCR 识别**
 
 ```gocr [image.pbm]```
 
-**Set recognition mode**
+**设置识别模式**
 
 ```gocr -m [mode] [image.pbm]```
 
-**Output to file**
+**输出到文件**
 
 ```gocr -o [output.txt] [image.pbm]```
 
-**Set character filter**
+**设置字符过滤**
 
 ```gocr -C "[a-zA-Z0-9]" [image.pbm]```
 
@@ -27,36 +27,36 @@ Optical character recognition program
 # PARAMETERS
 
 _IMAGE_
-> Image file to process.
+> 要处理的图像文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-m** _MODE_
-> Recognition mode.
+> 识别模式。
 
 **-C** _CHARS_
-> Expected characters.
+> 预期出现的字符。
 
 **-i** _FORMAT_
-> Input format.
+> 输入格式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gocr** is an optical character recognition (OCR) program that reads images and outputs recognized text. It supports various image formats including PBM, PGM, PPM, and can be tuned for specific character sets.
+**gocr** 是一个光学字符识别（OCR）程序，读取图像并输出识别出的文本。它支持多种图像格式，包括 PBM、PGM、PPM，还可以针对特定字符集进行调优。
 
-The tool processes scanned documents and images to extract text, integrating into document processing pipelines via standard input and output.
+该工具通过处理扫描文档和图像来提取文字，并可通过标准输入和输出集成到文档处理流水线中。
 
 # CAVEATS
 
-Accuracy varies by image quality. Works best with clean scans. Consider tesseract for better accuracy.
+准确率因图像质量而异。对干净的扫描件效果最佳。如需更高准确率，可以考虑 tesseract。
 
 # HISTORY
 
-**gocr** (also known as **JOCR**, since the name GOCR was already taken on SourceForge) was created by **Jörg Schulenburg** in the late 1990s as a free OCR program under the GPL.
+**gocr**（又称 **JOCR**，因为 GOCR 这个名称在 SourceForge 上已被占用）由 **Jörg Schulenburg** 于 20 世纪 90 年代末创建，是一个遵循 GPL 的免费 OCR 程序。
 
 # INSTALL
 

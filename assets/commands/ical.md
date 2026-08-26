@@ -1,22 +1,22 @@
 # TAGLINE
 
-command-line tool for working with iCalendar files
+处理 iCalendar 文件的命令行工具
 
 # TLDR
 
-**Display calendar**
+**显示日历**
 
 ```ical [calendar.ics]```
 
-**List events**
+**列出事件**
 
 ```ical -l [calendar.ics]```
 
-**Show events for today**
+**显示今天的事件**
 
 ```ical -t [calendar.ics]```
 
-**Export to different format**
+**导出为其他格式**
 
 ```ical -o [output.txt] [calendar.ics]```
 
@@ -27,17 +27,17 @@ command-line tool for working with iCalendar files
 # PARAMETERS
 
 **-l**
-> List events.
+> 列出事件。
 
 **-t**
-> Show today's events.
+> 显示今天的事件。
 
 **-o** _file_
-> Output to file.
+> 输出到文件。
 
 # DESCRIPTION
 
-**ical** is a command-line tool for working with iCalendar (.ics) files. It can display, parse, and manipulate calendar data in the standard iCalendar format used by most calendar applications.
+**ical** 是一款处理 iCalendar（.ics）文件的命令行工具。它可以显示、解析和操作大多数日历应用所使用的标准 iCalendar 格式的日历数据。
 
 # INSTALL
 
@@ -50,4 +50,3 @@ command-line tool for working with iCalendar files
 # SEE ALSO
 
 [calcurse](/man/calcurse)(1), [khal](/man/khal)(1), [remind](/man/remind)(1)
-

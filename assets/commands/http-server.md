@@ -1,30 +1,30 @@
 # TAGLINE
 
-simple static file server
+简单的静态文件服务器
 
 # TLDR
 
-**Start server**
+**启动服务器**
 
 ```http-server```
 
-**Specify port**
+**指定端口**
 
 ```http-server -p [8080]```
 
-**Specify directory**
+**指定目录**
 
 ```http-server [./public]```
 
-**Enable CORS**
+**启用 CORS**
 
 ```http-server --cors```
 
-**Enable gzip**
+**启用 gzip**
 
 ```http-server -g```
 
-**SSL server**
+**SSL 服务器**
 
 ```http-server -S -C [cert.pem] -K [key.pem]```
 
@@ -35,54 +35,54 @@ simple static file server
 # PARAMETERS
 
 _PATH_
-> Directory to serve.
+> 要提供服务的目录。
 
 **-p**, **--port** _PORT_
-> Port number (default 8080).
+> 端口号（默认 8080）。
 
 **-a** _ADDRESS_
-> Listen address.
+> 监听地址。
 
 **-c** _SECONDS_
-> Cache time.
+> 缓存时间。
 
 **--cors**
-> Enable CORS headers.
+> 启用 CORS 头。
 
 **-g**, **--gzip**
-> Enable gzip.
+> 启用 gzip。
 
 **-S**, **--ssl**
-> Enable SSL.
+> 启用 SSL。
 
 **-C** _FILE_
-> SSL certificate file (default: cert.pem).
+> SSL 证书文件（默认：cert.pem）。
 
 **-K** _FILE_
-> SSL key file (default: key.pem).
+> SSL 密钥文件（默认：key.pem）。
 
 **-o**
-> Open browser after starting.
+> 启动后打开浏览器。
 
 **-P**, **--proxy** _URL_
-> Proxy unresolvable requests to this URL.
+> 将无法解析的请求代理到此 URL。
 
 **--no-dotfiles**
-> Do not serve dotfiles.
+> 不提供点文件（dotfiles）服务。
 
 # DESCRIPTION
 
-**http-server** is a simple, zero-configuration static file server for Node.js. It serves files from a directory over HTTP, making it ideal for quickly testing frontend builds, sharing files on a local network, or previewing static sites.
+**http-server** 是一个面向 Node.js 的简单零配置静态文件服务器。它通过 HTTP 从某个目录提供文件，非常适合快速测试前端构建产物、在局域网内共享文件或预览静态站点。
 
-Install via `npm install -g http-server`. Serves the current directory by default on port 8080.
+可通过 `npm install -g http-server` 安装。默认在 8080 端口上提供当前目录的服务。
 
 # CAVEATS
 
-Requires Node.js and npm. Not suitable for production use — provides no authentication, rate limiting, or hardened security. For production static file serving, use nginx or a CDN.
+需要 Node.js 和 npm。不适用于生产环境——没有身份验证、速率限制或强化的安全机制。生产环境的静态文件服务请使用 nginx 或 CDN。
 
 # HISTORY
 
-http-server is a popular **npm** package for quickly serving static files during development.
+http-server 是一个流行的 **npm** 软件包，用于在开发过程中快速提供静态文件服务。
 
 # INSTALL
 

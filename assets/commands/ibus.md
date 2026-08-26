@@ -1,34 +1,34 @@
 # TAGLINE
 
-input method framework for Linux
+Linux 输入法框架
 
 # TLDR
 
-**Start IBus daemon**
+**启动 IBus 守护进程**
 
 ```ibus-daemon -drx```
 
-**List available input engines**
+**列出可用的输入引擎**
 
 ```ibus list-engine```
 
-**Show current input engine**
+**显示当前输入引擎**
 
 ```ibus engine```
 
-**Set the current input engine**
+**设置当前输入引擎**
 
 ```ibus engine [engine_name]```
 
-**Restart the IBus daemon**
+**重启 IBus 守护进程**
 
 ```ibus restart```
 
-**Show IBus version**
+**显示 IBus 版本**
 
 ```ibus version```
 
-**Print current configuration**
+**打印当前配置**
 
 ```ibus read-config```
 
@@ -39,57 +39,57 @@ input method framework for Linux
 # PARAMETERS
 
 _COMMAND_
-> IBus subcommand to execute.
+> 要执行的 IBus 子命令。
 
 **list-engine**
-> Show available input engines.
+> 显示可用的输入引擎。
 
 **engine** [_ENGINE_NAME_]
-> Show current engine, or set engine to ENGINE_NAME.
+> 显示当前引擎，或将引擎设置为 ENGINE_NAME。
 
 **start**
-> Start the IBus daemon.
+> 启动 IBus 守护进程。
 
 **restart**
-> Restart the IBus daemon.
+> 重启 IBus 守护进程。
 
 **exit**
-> Exit the IBus daemon.
+> 退出 IBus 守护进程。
 
 **version**
-> Show the IBus version.
+> 显示 IBus 版本。
 
 **read-config**
-> Print configuration values.
+> 打印配置值。
 
 **reset-config**
-> Reset configuration to defaults.
+> 将配置重置为默认值。
 
 **read-cache**
-> Show the registry cache.
+> 显示注册表缓存。
 
 **write-cache**
-> Save the registry cache.
+> 保存注册表缓存。
 
 **emoji**
-> Launch IBus Emojier.
+> 启动 IBus Emojier。
 
 **help**
-> Show the commands list.
+> 显示命令列表。
 
 # DESCRIPTION
 
-**IBus** (Intelligent Input Bus) is an input method framework for Linux. It enables typing in languages requiring complex input like CJK.
+**IBus**（Intelligent Input Bus）是 Linux 的输入法框架。它支持输入需要复杂输入方式的语言，如中日韩文字。
 
-The framework manages input method engines and provides a unified interface. It supports many languages and input systems.
+该框架管理输入法引擎并提供统一接口。它支持多种语言和输入系统。
 
 # CAVEATS
 
-Desktop integration needed. Engine selection required. X11/Wayland support varies.
+需要桌面环境集成。需要选择输入引擎。X11/Wayland 支持程度不一。
 
 # HISTORY
 
-IBus was created by **Peng Huang** as the next-generation input framework for Linux, replacing SCIM.
+IBus 由 **Peng Huang** 创建，是 Linux 的新一代输入框架，取代了 SCIM。
 
 # INSTALL
 

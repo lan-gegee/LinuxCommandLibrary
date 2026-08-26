@@ -1,26 +1,26 @@
 # TAGLINE
 
-Groff font file format description
+Groff 字体文件格式说明
 
 # TLDR
 
-**List available fonts**
+**列出可用字体**
 
 ```groff -Tps -Z -f[fontname] < /dev/null```
 
-**View font directory**
+**查看字体目录**
 
 ```ls /usr/share/groff/current/font/```
 
-**Check font files**
+**查看字体文件内容**
 
 ```cat /usr/share/groff/current/font/devps/DESC```
 
 # DESCRIPTION
 
-**groff_font** describes the format of font files used by GNU troff (groff). Font files define character metrics, kerning pairs, and other typographic information needed for text layout.
+**groff_font** 描述 GNU troff（groff）所用字体文件的格式。字体文件定义了字符度量、字距调整对（kerning pairs）以及文本排版所需的其他排印信息。
 
-Font files are stored in device-specific subdirectories under /usr/share/groff/. Each output device (ps, pdf, html) has its own font definitions with the DESC file specifying device parameters.
+字体文件存放在 /usr/share/groff/ 下特定于设备的子目录中。每个输出设备（ps、pdf、html）都有自己的字体定义，其中 DESC 文件用于指定设备参数。
 
 # FONT FILE FORMAT
 
@@ -56,7 +56,7 @@ H   - Helvetica
 
 # CAVEATS
 
-Font availability depends on device. Custom fonts need proper installation. PostScript fonts require AFM files. Modern use may prefer pdfgroff.
+字体的可用性取决于设备。自定义字体需要正确安装。PostScript 字体需要 AFM 文件。现代用法可能更适合使用 pdfgroff。
 
 # SEE ALSO
 

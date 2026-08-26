@@ -1,42 +1,42 @@
 # TAGLINE
 
-bluetooth Host Controller Interface tool for monitoring, configuring
+用于监视和配置的蓝牙主机控制器接口（HCI）工具
 
 # TLDR
 
-**Scan** for Bluetooth devices
+**扫描**蓝牙设备
 
 ```hcitool scan```
 
-Scan for **Bluetooth Low Energy (BLE)** devices
+扫描**低功耗蓝牙（BLE）**设备
 
 ```hcitool lescan```
 
-Output the **name** of a device by MAC address
+按 MAC 地址输出设备的**名称**
 
 ```hcitool name [bdaddr]```
 
-Fetch **information** about a remote Bluetooth device
+获取远程蓝牙设备的**信息**
 
 ```hcitool info [bdaddr]```
 
-Check the **link quality** to a Bluetooth device
+检查到蓝牙设备的**链路质量**
 
 ```hcitool lq [bdaddr]```
 
-Modify the **transmit power** level
+修改**发射功率**级别
 
 ```hcitool tpl [bdaddr] [0|1]```
 
-Display the **link policy**
+显示**链路策略**
 
 ```hcitool lp```
 
-Request **authentication** with a specific device
+向特定设备请求**认证**
 
 ```hcitool auth [bdaddr]```
 
-Display **local devices**
+显示**本地设备**
 
 ```hcitool dev```
 
@@ -47,57 +47,57 @@ Display **local devices**
 # PARAMETERS
 
 **-i** _hciX_
-> Use the specified HCI device instead of the first available one.
+> 使用指定的 HCI 设备而不是第一个可用设备。
 
 **scan**
-> Scan for discoverable Bluetooth devices
+> 扫描可发现的蓝牙设备
 
 **lescan**
-> Scan for Bluetooth Low Energy (BLE) devices
+> 扫描低功耗蓝牙（BLE）设备
 
 **dev**
-> List local Bluetooth adapters
+> 列出本地蓝牙适配器
 
 **name** _bdaddr_
-> Get remote device name
+> 获取远程设备名称
 
 **info** _bdaddr_
-> Get remote device information
+> 获取远程设备信息
 
 **lq** _bdaddr_
-> Get link quality
+> 获取链路质量
 
 **tpl** _bdaddr_ _type_
-> Get/set transmit power level
+> 获取/设置发射功率级别
 
 **lp**
-> Display link policy
+> 显示链路策略
 
 **auth** _bdaddr_
-> Request authentication
+> 请求认证
 
 **con**
-> Display active connections
+> 显示活动连接
 
 **cc** _bdaddr_
-> Create connection
+> 创建连接
 
 **dc** _bdaddr_
-> Disconnect
+> 断开连接
 
 # DESCRIPTION
 
-**hcitool** is a Bluetooth Host Controller Interface tool for monitoring, configuring connections, and sending commands to Bluetooth devices. It provides low-level access to Bluetooth functionality for diagnostics and advanced configuration.
+**hcitool** 是一款蓝牙主机控制器接口（HCI）工具，用于监视、配置连接以及向蓝牙设备发送命令。它提供对蓝牙功能的底层访问，适合诊断和高级配置。
 
-The tool can discover nearby devices, query device information, manage connections, and configure link parameters. It operates at the HCI layer, below the higher-level profiles like A2DP or HFP.
+该工具能够发现附近的设备、查询设备信息、管理连接并配置链路参数。它工作在 HCI 层，位于 A2DP、HFP 等更高层协议之下。
 
 # CAVEATS
 
-Deprecated in favor of bluetoothctl in modern BlueZ versions. May require root privileges for some operations. Some features depend on Bluetooth adapter capabilities.
+在现代 BlueZ 版本中已被 bluetoothctl 取代（废弃）。某些操作可能需要 root 权限。部分功能取决于蓝牙适配器的能力。
 
 # HISTORY
 
-hcitool is part of the BlueZ Bluetooth protocol stack for Linux. While functional, it's considered legacy and bluetoothctl from BlueZ 5 is recommended for most operations on modern systems.
+hcitool 是 Linux 蓝牙协议栈 BlueZ 的一部分。它虽然仍然可用，但被视为遗留工具；现代系统上的大多数操作建议改用 BlueZ 5 的 bluetoothctl。
 
 # INSTALL
 

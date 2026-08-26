@@ -1,34 +1,34 @@
 # TAGLINE
 
-GitHub-flavored Markdown preview server
+GitHub 风格 Markdown 预览服务器
 
 # TLDR
 
-**Preview README in current directory**
+**预览当前目录的 README**
 
 ```grip```
 
-**Preview and open in browser**
+**预览并在浏览器中打开**
 
 ```grip -b```
 
-**Preview specific file**
+**预览指定文件**
 
 ```grip [README.md]```
 
-**Preview on specific port**
+**在指定端口预览**
 
 ```grip [file.md] [8080]```
 
-**Export to HTML file**
+**导出为 HTML 文件**
 
 ```grip --export [file.md]```
 
-**Export to a specific HTML file**
+**导出为指定的 HTML 文件**
 
 ```grip [README.md] --export [output.html]```
 
-**Preview from stdin**
+**从标准输入预览**
 
 ```cat [file.md] | grip -```
 
@@ -39,53 +39,53 @@ GitHub-flavored Markdown preview server
 # PARAMETERS
 
 **-b**, **--browser**
-> Open in browser after starting.
+> 启动后在浏览器中打开。
 
 **--export**
-> Export to HTML file instead of serving.
+> 导出为 HTML 文件而不是启动服务。
 
 **--offline**
-> Render without GitHub API.
+> 不使用 GitHub API 进行渲染。
 
 **--norefresh**
-> Disable auto-refresh on file changes.
+> 文件变更时禁用自动刷新。
 
 **--quiet**
-> Suppress terminal output.
+> 不输出终端信息。
 
 **--user** _user_
-> GitHub username for API auth.
+> 用于 API 身份验证的 GitHub 用户名。
 
 **--pass** _pass_
-> GitHub password or personal access token.
+> GitHub 密码或个人访问令牌。
 
 **--wide**
-> Render wide page layout.
+> 渲染宽版页面布局。
 
 **--user-content**
-> Render as user-generated content (like comments or issues).
+> 以用户生成内容（如评论或 issue）的形式渲染。
 
 **--context** _repo_
-> Repository context for relative URL linking (e.g., user/repo).
+> 相对 URL 链接所用的仓库上下文（例如 user/repo）。
 
 **--title** _title_
-> Custom page title for the rendered output.
+> 渲染输出的自定义页面标题。
 
 **--no-inline**
-> Do not inline CSS styles in exported HTML.
+> 导出的 HTML 中不内联 CSS 样式。
 
 **--api-url** _url_
-> Use a custom GitHub API URL (for GitHub Enterprise).
+> 使用自定义 GitHub API URL（用于 GitHub Enterprise）。
 
 # DESCRIPTION
 
-**grip** (GitHub Readme Instant Preview) is a command-line server that renders GitHub-flavored Markdown using GitHub's API. It displays how your README will appear on GitHub with accurate styling, and changes to files are reflected instantly without page refresh.
+**grip**（GitHub Readme Instant Preview）是一款命令行服务器，它使用 GitHub 的 API 来渲染 GitHub 风格的 Markdown。它能以精确的样式展示 README 在 GitHub 上的呈现效果，文件变更无需刷新页面即可立即反映出来。
 
-Use **--offline** to avoid API rate limits for basic rendering.
+使用 **--offline** 可避免基础渲染受 API 速率限制的影响。
 
 # CAVEATS
 
-Without authentication, GitHub API rate limits may apply. Use **--user** and **--pass** with a personal access token for higher limits.
+未进行身份验证时可能受到 GitHub API 速率限制。使用 **--user** 和 **--pass** 配合个人访问令牌可获得更高的限额。
 
 # INSTALL
 

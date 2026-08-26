@@ -1,30 +1,30 @@
 # TAGLINE
 
-Encode and decode internationalized domain names
+对国际化域名进行编码和解码
 
 # TLDR
 
-**Encode a Unicode domain to ACE/Punycode (default mode)**
+**将 Unicode 域名编码为 ACE/Punycode（默认模式）**
 
 ```echo "münchen.de" | idn```
 
-**Decode a Punycode domain back to Unicode**
+**将 Punycode 域名解码回 Unicode**
 
 ```echo "xn--mnchen-3ya.de" | idn --idna-to-unicode```
 
-**Apply Nameprep stringprep to input**
+**对输入应用 Nameprep stringprep 处理**
 
 ```echo "[string]" | idn --stringprep```
 
-**Explicitly run IDNA ToASCII on an argument**
+**对参数显式执行 IDNA ToASCII**
 
 ```idn --idna-to-ascii [münchen.de]```
 
-**Encode or decode raw Punycode (no IDNA wrapping)**
+**编码或解码原始 Punycode（不做 IDNA 包装）**
 
 ```echo "[label]" | idn --punycode-encode```
 
-**Quiet mode (suppress informational messages)**
+**安静模式（抑制提示信息）**
 
 ```idn --quiet [domain]```
 
@@ -35,65 +35,65 @@ Encode and decode internationalized domain names
 # PARAMETERS
 
 _strings_
-> Domain names or labels to convert. Read from standard input if not provided.
+> 要转换的域名或标签。未提供时从标准输入读取。
 
 **-a**, **--idna-to-ascii**
-> Convert input to ACE according to IDNA. This is the default mode.
+> 按照 IDNA 将输入转换为 ACE。这是默认模式。
 
 **-u**, **--idna-to-unicode**
-> Convert input from ACE (Punycode) back to Unicode using IDNA.
+> 使用 IDNA 将输入从 ACE（Punycode）转换回 Unicode。
 
 **-s**, **--stringprep**
-> Prepare the string according to the Nameprep profile.
+> 按 Nameprep 概要（profile）处理字符串。
 
 **-e**, **--punycode-encode**
-> Encode raw input with the Punycode algorithm, without IDNA pre/post processing.
+> 用 Punycode 算法编码原始输入，不经过 IDNA 前置/后置处理。
 
 **-d**, **--punycode-decode**
-> Decode raw Punycode input, without IDNA pre/post processing.
+> 解码原始 Punycode 输入，不经过 IDNA 前置/后置处理。
 
 **-n**, **--nfkc**
-> Normalize input according to Unicode v3.2 NFKC.
+> 按 Unicode v3.2 NFKC 规范化输入。
 
 **-p** _profile_, **--profile**=_profile_
-> Use the named stringprep profile. Valid values: `Nameprep`, `iSCSI`, `Nodeprep`, `Resourceprep`, `trace`, `SASLprep`.
+> 使用指定的 stringprep 概要。有效值：`Nameprep`、`iSCSI`、`Nodeprep`、`Resourceprep`、`trace`、`SASLprep`。
 
 **--allow-unassigned**
-> Toggle the IDNA `AllowUnassigned` flag (default off).
+> 切换 IDNA 的 `AllowUnassigned` 标志（默认关闭）。
 
 **--usestd3asciirules**
-> Toggle the IDNA `UseSTD3ASCIIRules` flag (default off); forbids non-LDH characters.
+> 切换 IDNA 的 `UseSTD3ASCIIRules` 标志（默认关闭）；禁止非 LDH 字符。
 
 **--no-tld**
-> Skip TLD-specific validity checks (only affects `--idna-to-ascii` / `--idna-to-unicode`).
+> 跳过针对 TLD 的有效性检查（仅影响 `--idna-to-ascii` / `--idna-to-unicode`）。
 
 **--quiet**
-> Silent operation.
+> 静默运行。
 
 **--debug**
-> Print debugging information, including the detected character set.
+> 打印调试信息，包括检测到的字符集。
 
 **-h**, **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 **-V**, **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**idn** converts internationalized domain names between Unicode and ASCII-Compatible Encoding (ACE / Punycode). It implements the IDNA (Internationalized Domain Names in Applications) standard, allowing domain names with non-ASCII characters to be represented in the DNS.
+**idn** 在 Unicode 与 ASCII 兼容编码（ACE / Punycode）之间转换国际化域名。它实现了 IDNA（Internationalized Domain Names in Applications）标准，让包含非 ASCII 字符的域名能够在 DNS 中表示。
 
-The encoding pipeline applies Nameprep stringprep (case folding, NFKC normalization, prohibited-character checks) before Punycode encoding. ACE-encoded labels use the **xn--** prefix. The tool reads strings from command-line arguments, or from standard input if none are supplied.
+编码流程会先应用 Nameprep stringprep（大小写折叠、NFKC 规范化、禁用字符检查），再进行 Punycode 编码。经过 ACE 编码的标签使用 **xn--** 前缀。该工具从命令行参数读取字符串；若未提供参数，则从标准输入读取。
 
-Input is expected in the locale's preferred charset; override this by setting the **CHARSET** environment variable. To process a string starting with `-`, use `--` to mark the end of options (e.g. `idn --quiet -a -- -foo`).
+输入应使用区域设置的首选字符集；可通过设置 **CHARSET** 环境变量覆盖。要处理以 `-` 开头的字符串，请用 `--` 标记选项结束（如 `idn --quiet -a -- -foo`）。
 
 # CAVEATS
 
-This tool implements **IDNA 2003** (RFC 3490). For the newer **IDNA 2008** standard (RFC 5891), use **idn2** from the libidn2 package. The two standards differ in handling of several characters (e.g. German eszett `ß`, Greek final sigma `ς`). Part of **GNU Libidn**.
+该工具实现的是 **IDNA 2003**（RFC 3490）。对于较新的 **IDNA 2008** 标准（RFC 5891），请使用 libidn2 软件包中的 **idn2**。两个标准在若干字符的处理上存在差异（如德语 eszett `ß`、希腊语词尾 sigma `ς`）。属于 **GNU Libidn**。
 
 # HISTORY
 
-**idn** is part of **GNU Libidn**, written by **Simon Josefsson**. The IDNA standard was published as RFC 3490 in **2003** to enable internationalized domain names in the DNS.
+**idn** 是 **GNU Libidn** 的一部分，由 **Simon Josefsson** 编写。IDNA 标准于 **2003 年**作为 RFC 3490 发布，旨在让国际化域名进入 DNS。
 
 # INSTALL
 

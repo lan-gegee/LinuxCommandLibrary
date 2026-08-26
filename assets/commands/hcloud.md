@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line interface for Hetzner Cloud
+Hetzner Cloud 的命令行界面
 
 # TLDR
 
-**List servers**
+**列出服务器**
 
 ```hcloud server list```
 
-**Create server**
+**创建服务器**
 
 ```hcloud server create --name [myserver] --type [cx22] --image [ubuntu-24.04]```
 
-**SSH to server**
+**SSH 连接到服务器**
 
 ```hcloud server ssh [myserver]```
 
-**Delete server**
+**删除服务器**
 
 ```hcloud server delete [myserver]```
 
-**List images**
+**列出镜像**
 
 ```hcloud image list```
 
-**Create snapshot**
+**创建快照**
 
 ```hcloud server create-image [myserver] --type snapshot```
 
@@ -35,63 +35,63 @@ command-line interface for Hetzner Cloud
 # PARAMETERS
 
 _COMMAND_
-> Resource or subcommand to execute.
+> 要执行的资源或子命令。
 
 **server**
-> Manage cloud servers.
+> 管理云服务器。
 
 **image**
-> Manage server images and snapshots.
+> 管理服务器镜像和快照。
 
 **volume**
-> Manage block storage volumes.
+> 管理块存储卷。
 
 **network**
-> Manage private networks.
+> 管理私有网络。
 
 **firewall**
-> Manage firewalls and rules.
+> 管理防火墙及规则。
 
 **load-balancer**
-> Manage load balancers.
+> 管理负载均衡器。
 
 **ssh-key**
-> Manage SSH keys.
+> 管理 SSH 密钥。
 
 **certificate**
-> Manage TLS certificates.
+> 管理 TLS 证书。
 
 **context**
-> Manage CLI contexts (project/API token profiles).
+> 管理 CLI 上下文（项目/API 令牌配置档案）。
 
 **config**
-> Manage local CLI configuration.
+> 管理本地 CLI 配置。
 
 **--context** _name_
-> Use a specific context instead of the active one.
+> 使用指定的上下文而不是当前激活的上下文。
 
 **-o**, **--output** _format_
-> Output format: table, json, or yaml.
+> 输出格式：table、json 或 yaml。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hcloud** is the command-line interface for Hetzner Cloud. It manages cloud servers, images, volumes, and networks.
+**hcloud** 是 Hetzner Cloud 的命令行界面，用于管理云服务器、镜像、卷和网络。
 
-The tool provides complete control over Hetzner Cloud infrastructure. It supports automation and scripting for cloud resource management.
+该工具提供对 Hetzner Cloud 基础设施的完整控制，支持以自动化和脚本方式管理云资源。
 
 # CAVEATS
 
-Requires API token. Hetzner Cloud specific. Some operations incur costs.
+需要 API 令牌。仅适用于 Hetzner Cloud。某些操作会产生费用。
 
 # HISTORY
 
-hcloud was developed by **Hetzner** as the official CLI for their cloud platform.
+hcloud 由 **Hetzner** 开发，是其云平台的官方 CLI。
 
 # INSTALL
 

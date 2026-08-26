@@ -1,26 +1,26 @@
 # TAGLINE
 
-describes image format and characteristics
+描述图片格式和特性
 
 # TLDR
 
-**Show image info**
+**显示图片信息**
 
 ```identify [image.jpg]```
 
-**Verbose info**
+**详细信息**
 
 ```identify -verbose [image.png]```
 
-**Show specific property**
+**显示特定属性**
 
 ```identify -format "%wx%h" [image.jpg]```
 
-**Check multiple images**
+**检查多张图片**
 
 ```identify [*.png]```
 
-**Show format only**
+**只显示格式**
 
 ```identify -format "%m\n" [image]```
 
@@ -31,42 +31,42 @@ describes image format and characteristics
 # PARAMETERS
 
 _FILES_
-> Image files to identify.
+> 要识别的图片文件。
 
 **-verbose**
-> Detailed output.
+> 详细输出。
 
 **-format** _STRING_
-> Custom output format.
+> 自定义输出格式。
 
 **-quiet**
-> Suppress warnings.
+> 抑制警告。
 
 **-ping**
-> Efficiently determine image attributes without fully decoding pixels.
+> 高效获取图片属性，无需完整解码像素。
 
 **-regard-warnings**
-> Pay attention to warnings when loading the image.
+> 加载图片时关注警告信息。
 
 **-list** _type_
-> List supported values for the specified option (e.g. format, color).
+> 列出指定选项支持的取值（如 format、color）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**identify** describes image format and characteristics. It shows dimensions, color depth, format, and other metadata.
+**identify** 描述图片的格式和特性。它显示尺寸、颜色深度、格式以及其他元数据。
 
-The tool is part of ImageMagick. It reads many image formats and provides detailed technical information about images. In ImageMagick 7, the equivalent is invoked as **magick identify**.
+该工具是 ImageMagick 的一部分。它能读取多种图片格式，并提供关于图片的详细技术信息。在 ImageMagick 7 中，等价命令为 **magick identify**。
 
 # CAVEATS
 
-Part of ImageMagick. Memory for large images. Some formats need delegates.
+属于 ImageMagick。大图片会占用内存。某些格式需要委托（delegate）程序支持。
 
 # HISTORY
 
-identify is part of **ImageMagick**, the comprehensive image manipulation suite.
+identify 是 **ImageMagick** 的组成部分，后者是功能全面的图像处理套件。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-modern Python project manager
+现代的 Python 项目管理工具
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```hatch new [project-name]```
 
-**Build package**
+**构建软件包**
 
 ```hatch build```
 
-**Run tests**
+**运行测试**
 
 ```hatch run test```
 
-**Enter environment**
+**进入环境**
 
 ```hatch shell```
 
-**Publish to PyPI**
+**发布到 PyPI**
 
 ```hatch publish```
 
-**Show or bump project version**
+**查看或提升项目版本**
 
 ```hatch version```
 
@@ -35,40 +35,40 @@ modern Python project manager
 # PARAMETERS
 
 **new** _name_
-> Create new project.
+> 创建新项目。
 
 **build**
-> Build distributions.
+> 构建发行版。
 
 **publish**
-> Publish to package index.
+> 发布到软件包索引。
 
 **run** _cmd_
-> Run command in environment.
+> 在环境中运行命令。
 
 **shell**
-> Enter project environment.
+> 进入项目环境。
 
 **env** _subcommand_
-> Manage environments.
+> 管理环境。
 
 **test**
-> Run tests across environments.
+> 跨多个环境运行测试。
 
 **fmt**
-> Format code.
+> 格式化代码。
 
 **version**
-> Show/bump version.
+> 查看/提升版本。
 
 **clean**
-> Remove build artifacts.
+> 移除构建产物。
 
 # DESCRIPTION
 
-**Hatch** is a modern, extensible Python project manager. It handles project creation, building, publishing, environment management, and testing in a unified tool. It is the official build backend recommended by the Python Packaging Authority (PyPA).
+**Hatch** 是一个现代、可扩展的 Python 项目管理工具。它在同一个工具中处理项目创建、构建、发布、环境管理和测试。它是 Python Packaging Authority（PyPA）推荐的官方构建后端。
 
-Hatch uses pyproject.toml for configuration and supports current PEP standards. It provides reproducible environments and multi-environment testing via configurable matrices.
+Hatch 使用 pyproject.toml 作为配置，并遵循现行的 PEP 标准。它提供可复现的环境，并通过可配置的矩阵实现多环境测试。
 
 # PYPROJECT.TOML
 
@@ -90,11 +90,11 @@ test = "pytest {args}"
 
 # CAVEATS
 
-Relatively new; ecosystem still growing. Different workflow from pip/setuptools. Environment management differs from virtualenv. Some plugins may be needed.
+相对较新；生态仍在发展壮大。工作流与 pip/setuptools 不同。环境管理方式与 virtualenv 有差异。某些场景可能需要插件。
 
 # HISTORY
 
-Hatch was created by **Ofek Lev** as a modern replacement for traditional Python packaging tools. It follows current PEP standards and aims to simplify the Python project lifecycle.
+Hatch 由 **Ofek Lev** 创建，作为传统 Python 打包工具的现代替代品。它遵循现行的 PEP 标准，旨在简化 Python 项目的生命周期。
 
 # INSTALL
 

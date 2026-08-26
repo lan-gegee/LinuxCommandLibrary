@@ -1,30 +1,30 @@
 # TAGLINE
 
-Python ASGI web server supporting HTTP/1, HTTP/2, and WebSockets
+支持 HTTP/1、HTTP/2 和 WebSocket 的 Python ASGI Web 服务器
 
 # TLDR
 
-**Run ASGI application**
+**运行 ASGI 应用**
 
 ```hypercorn [app:app]```
 
-**Specify host and port**
+**指定主机和端口**
 
 ```hypercorn [app:app] --bind [0.0.0.0:8000]```
 
-**Run with multiple workers**
+以多个 worker **运行**
 
 ```hypercorn [app:app] --workers [4]```
 
-**Enable reload for development**
+为开发**启用热重载**
 
 ```hypercorn [app:app] --reload```
 
-**Use HTTPS (also enables HTTP/2)**
+**使用 HTTPS（同时启用 HTTP/2）**
 
 ```hypercorn [app:app] --certfile [cert.pem] --keyfile [key.pem]```
 
-**Load configuration from a TOML file**
+**从 TOML 文件加载配置**
 
 ```hypercorn [app:app] --config [hypercorn.toml]```
 
@@ -35,78 +35,78 @@ Python ASGI web server supporting HTTP/1, HTTP/2, and WebSockets
 # PARAMETERS
 
 _module:application_
-> Python module and ASGI app variable.
+> Python 模块与 ASGI 应用变量。
 
 **--bind**, **-b** _address_
-> Address to bind (host:port).
+> 要绑定的地址（host:port）。
 
 **--workers**, **-w** _n_
-> Number of worker processes.
+> worker 进程数量。
 
 **--reload**
-> Auto-reload on code changes (development only).
+> 代码变化时自动重载（仅用于开发）。
 
 **-c**, **--config** _FILE_
-> Load config from a TOML file, or `python:module` / `file:path.py` for a Python source.
+> 从 TOML 文件加载配置，或通过 `python:module` / `file:path.py` 使用 Python 源文件。
 
 **--access-logfile** _FILE_
-> Target for the access log; use `-` for stdout. (`--access-log` still works but is deprecated.)
+> 访问日志的目标；用 `-` 表示 stdout。（`--access-log` 仍可用但已弃用。）
 
 **--access-logformat** _FORMAT_
-> Access log line format string.
+> 访问日志行的格式字符串。
 
 **--error-logfile**, **--log-file** _FILE_
-> Target for the error log; use `-` for stderr. (`--error-log` still works but is deprecated.)
+> 错误日志的目标；用 `-` 表示 stderr。（`--error-log` 仍可用但已弃用。）
 
 **--log-level** _LEVEL_
-> Error log verbosity (defaults to info).
+> 错误日志详细程度（默认为 info）。
 
 **--certfile** _FILE_
-> Path to the SSL certificate file.
+> SSL 证书文件的路径。
 
 **--keyfile** _FILE_
-> Path to the SSL key file.
+> SSL 密钥文件的路径。
 
 **--ca-certs** _FILE_
-> Path to the SSL CA certificate file.
+> SSL CA 证书文件的路径。
 
 **--worker-class**, **-k** _CLASS_
-> Worker type: `asyncio` (default), `uvloop`, or `trio`.
+> worker 类型：`asyncio`（默认）、`uvloop` 或 `trio`。
 
 **--graceful-timeout** _SECONDS_
-> Time to wait after SIGTERM/Ctrl-C for in-flight requests to finish.
+> 收到 SIGTERM/Ctrl-C 后等待进行中的请求完成的时间。
 
 **--keep-alive** _SECONDS_
-> How long to keep idle connections open.
+> 空闲连接保持打开的时长。
 
 **--max-requests** _N_
-> Restart a worker after it has served this many requests.
+> worker 处理完指定数量的请求后重启。
 
 **-p**, **--pid** _FILE_
-> Write the PID to a file.
+> 将 PID 写入文件。
 
 **-D**, **--daemon**
-> Run the workers as daemons.
+> 以守护进程方式运行 worker。
 
 **--quic-bind** _ADDRESS_
-> UDP/QUIC host:port to bind for HTTP/3 support (experimental).
+> 为支持 HTTP/3 而绑定的 UDP/QUIC host:port（实验性）。
 
 **--insecure-bind** _ADDRESS_
-> Extra TCP host:port to bind without SSL (e.g. for HTTP-to-HTTPS redirection).
+> 额外绑定的不带 SSL 的 TCP host:port（例如用于 HTTP 到 HTTPS 的重定向）。
 
 # DESCRIPTION
 
-**Hypercorn** is an ASGI server supporting HTTP/1, HTTP/2, and WebSockets (over both HTTP/1 and HTTP/2), plus experimental HTTP/3 via **--quic-bind**. It runs ASGI applications like FastAPI, Starlette, and Quart, and can also serve WSGI apps.
+**Hypercorn** 是一个 ASGI 服务器，支持 HTTP/1、HTTP/2 和 WebSocket（基于 HTTP/1 和 HTTP/2），并通过 **--quic-bind** 实验性地支持 HTTP/3。它可以运行 FastAPI、Starlette、Quart 等 ASGI 应用，也能服务 WSGI 应用。
 
-It's built on sans-I/O libraries from the `hyper` family (h11, h2, wsproto) and can run its event loop on asyncio, uvloop, or trio via **--worker-class**, providing production-ready features including multiple worker processes, graceful shutdown, and TOML/Python-based configuration in addition to CLI flags.
+它构建于 `hyper` 系列的 sans-I/O 库之上（h11、h2、wsproto），可通过 **--worker-class** 在 asyncio、uvloop 或 trio 上运行事件循环，提供面向生产环境的特性，包括多 worker 进程、优雅关闭以及除 CLI 参数之外的 TOML/Python 配置方式。
 
 # CAVEATS
 
-Serving HTTP/2 to browsers requires TLS (**--certfile**/**--keyfile**); cleartext HTTP/2 (h2c) is possible for non-browser clients. **--reload** is meant for development only. As with other ASGI servers, running behind a reverse proxy (nginx, Caddy) is recommended in production for TLS termination and static file serving.
+向浏览器提供 HTTP/2 需要 TLS（**--certfile**/**--keyfile**）；明文 HTTP/2（h2c）可用于非浏览器客户端。**--reload** 仅用于开发。与其他 ASGI 服务器一样，建议在生产环境中置于反向代理（nginx、Caddy）之后，以处理 TLS 终止和静态文件服务。
 
 # HISTORY
 
-Hypercorn was created by **Philip Jones** (pgjones), who also created the **Quart** framework; Hypercorn began as Quart's built-in server before being split out as a standalone, framework-agnostic ASGI server.
+Hypercorn 由 **Philip Jones**（pgjones）创建，他也是 **Quart** 框架的作者；Hypercorn 最初是 Quart 内置的服务器，后来被拆分为独立的、不依赖特定框架的 ASGI 服务器。
 
 # INSTALL
 

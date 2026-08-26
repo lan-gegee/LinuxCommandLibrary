@@ -1,30 +1,30 @@
 # TAGLINE
 
-sends commands to a running i3 window manager
+向运行中的 i3 窗口管理器发送命令
 
 # TLDR
 
-**Switch workspace**
+**切换工作区**
 
 ```i3-msg workspace [3]```
 
-**Move window**
+**移动窗口**
 
 ```i3-msg move left```
 
-**Execute command**
+**执行命令**
 
 ```i3-msg exec [firefox]```
 
-**Reload config**
+**重载配置**
 
 ```i3-msg reload```
 
-**Get workspaces**
+**获取工作区**
 
 ```i3-msg -t get_workspaces```
 
-**Change layout**
+**更改布局**
 
 ```i3-msg layout [tabbed]```
 
@@ -35,33 +35,33 @@ sends commands to a running i3 window manager
 # PARAMETERS
 
 _COMMAND_
-> i3 command to execute.
+> 要执行的 i3 命令。
 
 **-t** _TYPE_
-> Message type (command, get_workspaces).
+> 消息类型（command、get_workspaces）。
 
 **-s** _SOCKET_
-> Socket path.
+> 套接字路径。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**i3-msg** sends commands to a running i3 window manager. It provides scriptable control over windows, workspaces, and layouts.
+**i3-msg** 向运行中的 i3 窗口管理器发送命令。它提供对窗口、工作区和布局的可脚本化控制。
 
-The tool can execute any i3 command and query state information. It's essential for scripting and automation.
+该工具可以执行任何 i3 命令并查询状态信息。它是脚本化和自动化不可或缺的工具。
 
 # CAVEATS
 
-Requires running i3. Socket must be accessible. Commands must be valid i3 syntax.
+需要 i3 正在运行。套接字必须可访问。命令必须符合有效的 i3 语法。
 
 # HISTORY
 
-i3-msg is part of the **i3** window manager project for IPC communication.
+i3-msg 是 **i3** 窗口管理器项目中负责 IPC 通信的部分。
 
 # INSTALL
 

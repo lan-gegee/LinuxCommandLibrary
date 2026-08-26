@@ -1,34 +1,34 @@
 # TAGLINE
 
-Set or dump IEC958 (S/PDIF) status bits on ALSA devices
+设置或读取 ALSA 设备上的 IEC958（S/PDIF）状态位
 
 # TLDR
 
-**Show current IEC958 status**
+**显示当前 IEC958 状态**
 
 ```iecset```
 
-**Dump status as AES bytes**
+**以 AES 字节格式转储状态**
 
 ```iecset -x```
 
-**Set professional mode**
+**设置专业模式**
 
 ```iecset pro on```
 
-**Set audio mode**
+**设置音频模式**
 
 ```iecset audio on```
 
-**Set sample rate**
+**设置采样率**
 
 ```iecset rate [48000]```
 
-**Use a specific sound card**
+**使用指定的声卡**
 
 ```iecset -c [1]```
 
-**Read commands from stdin**
+**从 stdin 读取命令**
 
 ```iecset -i```
 
@@ -39,57 +39,57 @@ Set or dump IEC958 (S/PDIF) status bits on ALSA devices
 # PARAMETERS
 
 **pro** _on|off_
-> Professional mode (true) or consumer mode (false).
+> 专业模式（true）或消费模式（false）。
 
 **audio** _on|off_
-> Audio mode (true) or non-audio mode (false).
+> 音频模式（true）或非音频模式（false）。
 
 **rate** _RATE_
-> Sample rate in Hz.
+> 采样率，单位 Hz。
 
 **emphasis** _0|1|2_
-> Emphasis: 0 = none, 1 = 50/15us, 2 = CCITT.
+> 预加重：0 = 无，1 = 50/15us，2 = CCITT。
 
 **copyright** _on|off_
-> Copyright flag (consumer mode only).
+> 版权标志（仅限消费模式）。
 
 **category** _VALUE_
-> Category code 0-0x7f (consumer mode only).
+> 类别代码 0-0x7f（仅限消费模式）。
 
 **lock** _on|off_
-> Rate lock (professional mode only).
+> 速率锁定（仅限专业模式）。
 
 **sbits** _VALUE_
-> Sample bits: 2 = 20bit, 4 = 24bit, 6 = undefined (professional mode only).
+> 采样位数：2 = 20bit，4 = 24bit，6 = 未定义（仅限专业模式）。
 
 **-c** _CARD_
-> Sound card index number.
+> 声卡索引号。
 
 **-D** _DEVICE_
-> Device name.
+> 设备名称。
 
 **-n** _INDEX_
-> IEC958 control element index for multiple IEC958 devices.
+> 多个 IEC958 设备时使用的 IEC958 控件元素索引。
 
 **-x**
-> Dump status in AESx byte format.
+> 以 AESx 字节格式转储状态。
 
 **-i**
-> Read command sequences from stdin.
+> 从 stdin 读取命令序列。
 
 # DESCRIPTION
 
-**iecset** sets or dumps IEC958 (S/PDIF) status bits on ALSA devices. When started without commands, it shows the current IEC958 status in a human-readable form.
+**iecset** 设置或读取 ALSA 设备上的 IEC958（S/PDIF）状态位。不带命令启动时，它以人类可读的形式显示当前 IEC958 状态。
 
-The tool controls professional/consumer mode, sample rates, emphasis, and other S/PDIF parameters for digital audio output.
+该工具控制专业/消费模式、采样率、预加重以及其他数字音频输出的 S/PDIF 参数。
 
 # CAVEATS
 
-Part of alsa-utils. Device must support IEC958. Settings may reset.
+属于 alsa-utils。设备必须支持 IEC958。设置可能会被重置。
 
 # HISTORY
 
-iecset is part of **ALSA** utilities for Linux digital audio configuration.
+iecset 是 **ALSA** 工具集的一部分，用于 Linux 数字音频配置。
 
 # INSTALL
 

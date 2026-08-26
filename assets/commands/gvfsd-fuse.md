@@ -1,18 +1,18 @@
 # TAGLINE
 
-provides FUSE access to GVFS mounts
+为 GVFS 挂载点提供 FUSE 访问
 
 # TLDR
 
-**Start FUSE bridge**
+**启动 FUSE 桥接**
 
 ```gvfsd-fuse [/run/user/UID/gvfs]```
 
-**Start with debug**
+**以调试模式启动**
 
 ```gvfsd-fuse -d [mountpoint]```
 
-**Foreground mode**
+**前台模式**
 
 ```gvfsd-fuse -f [mountpoint]```
 
@@ -23,35 +23,35 @@ provides FUSE access to GVFS mounts
 # PARAMETERS
 
 _MOUNTPOINT_
-> FUSE mount location.
+> FUSE 挂载位置。
 
 **-d**
-> Enable FUSE debug output (implies **-f**).
+> 启用 FUSE 调试输出（隐含 **-f**）。
 
 **-f**
-> Run in the foreground.
+> 在前台运行。
 
 **-s**
-> Run single-threaded.
+> 以单线程方式运行。
 
 **-o** _OPTION_
-> Pass a FUSE-specific mount option (see FUSE documentation for available settings).
+> 传递 FUSE 专用的挂载选项（可用设置参见 FUSE 文档）。
 
 # DESCRIPTION
 
-**gvfsd-fuse** maintains a FUSE mount that exposes GVFS backends (SMB, SFTP, FTP, MTP, and others) to ordinary POSIX applications that know nothing about GVFS. The mount point is given as _PATH_, normally **$XDG_RUNTIME_DIR/gvfs** on modern systems (or the legacy **$HOME/.gvfs**).
+**gvfsd-fuse** 维护一个 FUSE 挂载，将 GVFS 后端（SMB、SFTP、FTP、MTP 等）暴露给对 GVFS 一无所知的普通 POSIX 应用程序。挂载点以 _PATH_ 形式给出，在现代系统上通常是 **$XDG_RUNTIME_DIR/gvfs**（或旧式的 **$HOME/.gvfs**）。
 
-Unlike the deprecated gvfs-bin command-line tools (gvfs-ls, gvfs-mount, etc., all replaced by **gio**), gvfsd-fuse remains an active part of the current GVFS architecture: it is what lets non-GNOME-aware programs open files under a GVFS mount as if they were local.
+与已弃用的 gvfs-bin 命令行工具（gvfs-ls、gvfs-mount 等，均已被 **gio** 取代）不同，gvfsd-fuse 仍是当前 GVFS 架构中的活跃组成部分：正是它让不感知 GNOME 的程序能够像访问本地文件一样打开 GVFS 挂载下的文件。
 
-The daemon is normally started automatically by **gvfsd** the first time something is mounted, and does not need to be run manually.
+该守护进程通常在首次有内容被挂载时由 **gvfsd** 自动启动，无需手动运行。
 
 # CAVEATS
 
-Usually auto-started by gvfsd; manual invocation is rarely needed. Requires kernel FUSE support. Performance depends on the underlying GVFS backend.
+通常由 gvfsd 自动启动；很少需要手动调用。需要内核支持 FUSE。性能取决于底层 GVFS 后端。
 
 # HISTORY
 
-**gvfsd-fuse** has been part of **GVFS** since GNOME 2.22 (2008), providing FUSE-based filesystem access to GVFS mounts for applications that don't use the GIO/GVFS API directly.
+**gvfsd-fuse** 自 GNOME 2.22（2008 年）起就是 **GVFS** 的一部分，为不直接使用 GIO/GVFS API 的应用程序提供基于 FUSE 的文件系统访问，以访问 GVFS 挂载点。
 
 # SEE ALSO
 

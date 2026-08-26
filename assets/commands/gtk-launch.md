@@ -1,14 +1,14 @@
 # TAGLINE
 
-Launch an application using its desktop file
+通过 desktop 文件启动应用程序
 
 # TLDR
 
-**Launch** an application
+**启动**应用程序
 
 ```gtk-launch [Application_name]```
 
-Display **help**
+显示**帮助**
 
 ```gtk-launch -h```
 
@@ -19,29 +19,29 @@ Display **help**
 # PARAMETERS
 
 _application_
-> Desktop file name (without .desktop extension)
+> Desktop 文件名（不含 .desktop 扩展名）
 
 _URI..._
-> Optional URIs/files to open with the application
+> 供应用程序打开的可选 URI/文件
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**gtk-launch** launches applications using their .desktop files from standard XDG locations (/usr/share/applications, ~/.local/share/applications, etc.). This is the programmatic equivalent of clicking an application icon.
+**gtk-launch** 使用来自标准 XDG 位置（/usr/share/applications、~/.local/share/applications 等）的 .desktop 文件启动应用程序。这相当于以编程方式点击应用程序图标。
 
-The application parameter is the desktop file ID (filename without .desktop extension). For example, **gtk-launch firefox** launches the application defined in firefox.desktop.
+application 参数是 desktop 文件 ID（去掉 .desktop 扩展名的文件名）。例如，**gtk-launch firefox** 启动 firefox.desktop 中定义的应用程序。
 
-This is useful for launching applications from scripts in a desktop-agnostic way, respecting the application's StartupNotify, exec parameters, and other desktop file settings.
+这对于在脚本中以与桌面环境无关的方式启动应用程序很有用，会遵循应用程序的 StartupNotify、exec 参数及其他 desktop 文件设置。
 
 # CAVEATS
 
-Only works with applications that have .desktop files. Application names are case-sensitive and must match the desktop file name exactly (without extension). Requires GTK libraries to be installed.
+仅适用于有 .desktop 文件的应用程序。应用程序名称区分大小写，必须与 desktop 文件名完全一致（不含扩展名）。需要已安装 GTK 库。
 
 # HISTORY
 
-gtk-launch is part of GTK's command-line tools, providing a standard way to launch desktop applications. It supports the XDG Desktop Entry Specification for cross-desktop compatibility.
+gtk-launch 是 GTK 命令行工具的一部分，提供了启动桌面应用程序的标准方式。它支持 XDG Desktop Entry 规范以实现跨桌面兼容性。
 
 # INSTALL
 

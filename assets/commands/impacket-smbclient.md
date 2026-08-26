@@ -1,18 +1,18 @@
 # TAGLINE
 
-generic SMB client for listing shares and files, uploading
+通用 SMB 客户端，用于列出共享和文件、上传等操作
 
 # TLDR
 
-**Connect to SMB server**
+**连接 SMB 服务器**
 
 ```impacket-smbclient [domain]/[user]:[password]@[target]```
 
-**Connect with NTLM hash**
+**使用 NTLM 哈希连接**
 
 ```impacket-smbclient -hashes :[hash] [domain]/[user]@[target]```
 
-**Use Kerberos authentication**
+**使用 Kerberos 身份验证**
 
 ```impacket-smbclient -k [domain]/[user]@[target]```
 
@@ -23,20 +23,20 @@ generic SMB client for listing shares and files, uploading
 # PARAMETERS
 
 **-hashes** _lm:nt_
-> Use NTLM hashes.
+> 使用 NTLM 哈希。
 
 **-k**
-> Use Kerberos authentication.
+> 使用 Kerberos 身份验证。
 
 **-dc-ip** _ip_
-> Domain controller IP.
+> 域控制器 IP。
 
 **-target-ip** _ip_
-> Target IP (if different from hostname).
+> 目标 IP（与主机名不同时）。
 
 # DESCRIPTION
 
-**impacket-smbclient** is a generic SMB client for listing shares and files, uploading, downloading, renaming, and managing directories on Windows systems. Part of the Impacket toolkit. Supports password, NTLM hash, and Kerberos authentication.
+**impacket-smbclient** 是一个通用 SMB 客户端，可用于在 Windows 系统上列出共享和文件、上传、下载、重命名以及管理目录。属于 Impacket 工具集。支持密码、NTLM 哈希和 Kerberos 身份验证。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ generic SMB client for listing shares and files, uploading
 # SEE ALSO
 
 [smbclient](/man/smbclient)(1), [impacket-psexec](/man/impacket-psexec)(1)
-

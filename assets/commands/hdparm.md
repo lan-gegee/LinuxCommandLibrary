@@ -1,34 +1,34 @@
 # TAGLINE
 
-Get and set SATA/IDE hard drive parameters
+获取和设置 SATA/IDE 硬盘参数
 
 # TLDR
 
-**Get device identification info**
+**获取设备识别信息**
 
 ```sudo hdparm -I [/dev/sda]```
 
-**Test buffered and cached read speed**
+**测试缓冲读取和缓存读取速度**
 
 ```sudo hdparm -tT [/dev/sda]```
 
-**Get or set write-caching**
+**获取或设置写缓存**
 
 ```sudo hdparm -W [1] [/dev/sda]```
 
-**Show current power mode status**
+**查看当前电源模式状态**
 
 ```sudo hdparm -C [/dev/sda]```
 
-**Set Advanced Power Management level** (1-127 allow spindown, 128-254 keep spinning)
+**设置高级电源管理级别**（1-127 允许停转，128-254 保持旋转）
 
 ```sudo hdparm -B [127] [/dev/sda]```
 
-**Set standby timeout** (value in 5-second increments, 0 to disable)
+**设置待机超时时间**（数值以 5 秒为增量，0 表示禁用）
 
 ```sudo hdparm -S [60] [/dev/sda]```
 
-**Force drive into standby mode**
+**强制硬盘进入待机模式**
 
 ```sudo hdparm -y [/dev/sda]```
 
@@ -38,59 +38,59 @@ Get and set SATA/IDE hard drive parameters
 
 # DESCRIPTION
 
-**hdparm** gets and sets SATA/IDE hard drive parameters. It can display device information, configure power management settings, test performance, and enable or disable drive features.
+**hdparm** 用于获取和设置 SATA/IDE 硬盘参数。它可以显示设备信息、配置电源管理设置、测试性能，以及启用或禁用各种硬盘特性。
 
 # PARAMETERS
 
 **-I**
-> Display detailed device identification
+> 显示详细的设备识别信息
 
 **-i**
-> Display kernel's cached identification info
+> 显示内核缓存的识别信息
 
 **-B** [_value_]
-> Get or set Advanced Power Management (1-254)
+> 获取或设置高级电源管理（1-254）
 
 **-C**
-> Display current power mode status
+> 显示当前的电源模式状态
 
 **-S** _value_
-> Set standby timeout (0=off, 1-240=5s increments, 241-251=30m increments)
+> 设置待机超时时间（0=关闭，1-240=以 5 秒递增，241-251=以 30 分钟递增）
 
 **-y**
-> Force drive into standby mode
+> 强制硬盘进入待机模式
 
 **-Y**
-> Force drive into sleep mode (may require hard reset)
+> 强制硬盘进入休眠模式（可能需要断电重启才能恢复）
 
 **-t**
-> Test buffered read speed
+> 测试缓冲读取速度
 
 **-T**
-> Test cache read speed
+> 测试缓存读取速度
 
 **-g**
-> Display drive geometry (cylinders, heads, sectors, size)
+> 显示硬盘几何信息（柱面、磁头、扇区、容量）
 
 **-M** [_value_]
-> Get or set Automatic Acoustic Management (0=off, 128=quiet, 254=fast)
+> 获取或设置自动声学管理（0=关闭，128=安静，254=快速）
 
 **-W** [_value_]
-> Get or set write-caching (0=off, 1=on)
+> 获取或设置写缓存（0=关闭，1=开启）
 
 **-F**
-> Flush drive write cache
+> 刷新硬盘写缓存
 
 **--security-erase** _password_
-> Secure erase the drive (WARNING: destroys all data)
+> 安全擦除硬盘（警告：会销毁所有数据）
 
 # CAVEATS
 
-Some features require kernel and hardware support. APM values 1-127 allow spindown while 128-254 keep the drive spinning. Sleep mode (-Y) may require power cycling to recover. When no options are given, -acdgkmur is assumed.
+部分功能需要内核和硬件支持。APM 值为 1-127 时允许停转，128-254 则保持盘片旋转。休眠模式（-Y）可能需要重新上电才能恢复。不给任何选项时，默认按 -acdgkmur 处理。
 
 # HISTORY
 
-**hdparm** has been the standard Linux tool for drive parameter control since the early days of IDE drives.
+自 IDE 硬盘时代早期以来，**hdparm** 就一直是 Linux 上控制硬盘参数的标准工具。
 
 # INSTALL
 

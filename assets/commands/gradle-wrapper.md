@@ -1,30 +1,30 @@
 # TAGLINE
 
-Gradle version-pinning wrapper generator
+Gradle 版本锁定 wrapper 生成器
 
 # TLDR
 
-**Generate wrapper**
+**生成 wrapper**
 
 ```gradle wrapper```
 
-**Specify Gradle version**
+**指定 Gradle 版本**
 
 ```gradle wrapper --gradle-version [9.4.0]```
 
-**Use distribution type (bin or all)**
+**使用分发类型（bin 或 all）**
 
 ```gradle wrapper --distribution-type [all]```
 
-**Upgrade wrapper version using existing wrapper**
+**用现有 wrapper 升级 wrapper 版本**
 
 ```./gradlew wrapper --gradle-version [9.4.0]```
 
-**Specify distribution with SHA-256 verification**
+**指定带 SHA-256 校验的分发包**
 
 ```gradle wrapper --gradle-version [9.4.0] --gradle-distribution-sha256-sum [checksum]```
 
-**Run project build with wrapper**
+**用 wrapper 运行项目构建**
 
 ```./gradlew build```
 
@@ -35,38 +35,38 @@ Gradle version-pinning wrapper generator
 # PARAMETERS
 
 **--gradle-version** _VERSION_
-> Gradle version to use.
+> 要使用的 Gradle 版本。
 
 **--distribution-type** _TYPE_
-> bin or all (includes sources).
+> bin 或 all（包含源码）。
 
 **--gradle-distribution-url** _URL_
-> Custom distribution URL.
+> 自定义分发包 URL。
 
 **--gradle-distribution-sha256-sum** _HASH_
-> SHA-256 checksum for distribution verification.
+> 用于校验分发包的 SHA-256 校验和。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gradle wrapper** generates the Gradle Wrapper, enabling projects to use a specific Gradle version without requiring a global installation. Users run **./gradlew** instead of **gradle**, and the wrapper downloads and uses the specified version automatically.
+**gradle wrapper** 生成 Gradle Wrapper，使项目能够使用特定的 Gradle 版本而无需全局安装。用户运行 **./gradlew** 而不是 **gradle**，wrapper 会自动下载并使用指定的版本。
 
-This ensures consistent builds across different machines and CI systems by pinning the exact Gradle version in source control.
+通过在版本控制中固定确切的 Gradle 版本，可以保证不同机器和 CI 系统上构建的一致性。
 
 # CONFIGURATION
 
 **gradle/wrapper/gradle-wrapper.properties**
-> Specifies the Gradle distribution URL, version, and checksum for the wrapper.
+> 为 wrapper 指定 Gradle 分发包的 URL、版本和校验和。
 
 # CAVEATS
 
-Wrapper files should be committed. First run downloads Gradle. Use https distribution URLs.
+Wrapper 文件应提交到版本库。首次运行会下载 Gradle。请使用 https 分发 URL。
 
 # HISTORY
 
-The Gradle Wrapper was introduced to solve version consistency problems, becoming the recommended way to run Gradle builds.
+Gradle Wrapper 的引入是为了解决版本一致性问题，现已成为运行 Gradle 构建的推荐方式。
 
 # INSTALL
 

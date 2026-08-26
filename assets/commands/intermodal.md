@@ -1,22 +1,22 @@
 # TAGLINE
 
-Command-line BitTorrent metainfo utility
+命令行 BitTorrent 元信息工具
 
 # TLDR
 
-**Create a torrent file**
+**创建 torrent 文件**
 
 ```imdl torrent create --input [path/to/content]```
 
-**View torrent file info**
+**查看 torrent 文件信息**
 
 ```imdl torrent show [path/to/file.torrent]```
 
-**Verify torrent content**
+**校验 torrent 内容**
 
 ```imdl torrent verify --input [path/to/content] [path/to/file.torrent]```
 
-**Create with a specific tracker**
+**以指定 tracker 创建**
 
 ```imdl torrent create --input [path/to/content] --announce [udp://tracker.example.com:6969]```
 
@@ -26,17 +26,17 @@ Command-line BitTorrent metainfo utility
 
 # DESCRIPTION
 
-**intermodal** (binary name **imdl**) is a user-friendly and featureful command-line BitTorrent metainfo utility. It supports creation, viewing, and verification of **.torrent** files. The tool handles single-file and multi-file torrents, supports multiple trackers, and can create both v1 and v2 torrent files.
+**intermodal**（二进制名为 **imdl**）是一款易用且功能丰富的命令行 BitTorrent 元信息工具。它支持 **.torrent** 文件的创建、查看和校验。该工具可处理单文件和多文件种子，支持多个 tracker，并能创建 v1 和 v2 两种 torrent 文件。
 
-imdl provides detailed output including file listings, piece information, tracker URLs, and content hashes, making it useful for torrent creation, inspection, and debugging.
+imdl 提供详细的输出，包括文件列表、分片信息、tracker URL 和内容哈希，因此很适合种子的创建、检查和调试。
 
 # CAVEATS
 
-Only handles torrent metainfo files; does not download or seed torrents. Creating torrents for large files may take time due to piece hashing.
+只处理 torrent 元信息文件；不能下载或做种。为大型文件创建 torrent 时，由于需要计算分片哈希，可能耗时较长。
 
 # HISTORY
 
-**intermodal** was created by **Casey Rodarmor** (creator of **just** and **ord**) and is written in **Rust**. It is released under the **Creative Commons Zero** public domain dedication.
+**intermodal** 由 **Casey Rodarmor**（**just** 和 **ord** 的作者）创建，用 **Rust** 编写。它以 **Creative Commons Zero** 公有领域贡献方式发布。
 
 # INSTALL
 

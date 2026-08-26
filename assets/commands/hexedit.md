@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal-based hex editor for viewing and editing binary files at the byte level
+基于终端的十六进制编辑器，可在字节级别查看和编辑二进制文件
 
 # TLDR
 
-**Open a file** in hex editor
+在十六进制编辑器中**打开文件**
 
 ```hexedit [path/to/file]```
 
-**Open in read-only mode**
+**以只读模式打开**
 
 ```hexedit -r [path/to/file]```
 
-**Open with a specific sector size** (for disks)
+**以指定扇区大小打开**（用于磁盘）
 
 ```hexedit -s [512] [/dev/sda]```
 
-**Open without showing ASCII column**
+**打开时不显示 ASCII 列**
 
 ```hexedit --nocolor [path/to/file]```
 
@@ -27,83 +27,83 @@ terminal-based hex editor for viewing and editing binary files at the byte level
 # PARAMETERS
 
 **-s**, **--sector** _size_
-> Set sector size for disk editing (default: 512).
+> 设置磁盘编辑的扇区大小（默认：512）。
 
 **-r**, **--readonly**
-> Open file in read-only mode.
+> 以只读模式打开文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--nocolor**
-> Disable color output.
+> 禁用彩色输出。
 
 # KEYBOARD COMMANDS
 
-**Arrow keys**
-> Navigate through the file.
+**方向键**
+> 在文件中导航。
 
 **Page Up/Down**
-> Move one page up/down.
+> 向上/向下翻一页。
 
 **Home/End**
-> Go to beginning/end of file.
+> 跳到文件的开头/结尾。
 
 **Tab**
-> Toggle between hex and ASCII editing.
+> 在十六进制和 ASCII 编辑之间切换。
 
 **Ctrl-G**
-> Go to specific offset (hex or decimal).
+> 跳转到指定偏移量（十六进制或十进制）。
 
 **Ctrl-S**
-> Save changes.
+> 保存更改。
 
 **Ctrl-X**
-> Save and exit.
+> 保存并退出。
 
 **Ctrl-C**
-> Exit without saving.
+> 不保存直接退出。
 
-**Ctrl-F** or **/**
-> Search forward (hex or ASCII).
+**Ctrl-F** 或 **/**
+> 向前搜索（十六进制或 ASCII）。
 
 **Ctrl-R**
-> Search backward.
+> 向后搜索。
 
 **Ctrl-Space**
-> Set mark.
+> 设置标记。
 
 **Ctrl-Y**
-> Paste (fill with copied byte).
+> 粘贴（用复制的字节填充）。
 
 **Ctrl-U**
-> Undo all changes.
+> 撤销所有更改。
 
 **F2**
-> Save.
+> 保存。
 
 **F3**
-> View modified bytes.
+> 查看已修改的字节。
 
 # DESCRIPTION
 
-**hexedit** is a terminal-based hex editor for viewing and editing binary files at the byte level. It displays file contents in hexadecimal alongside ASCII representation, allowing direct modification of individual bytes.
+**hexedit** 是一个基于终端的十六进制编辑器，用于在字节级别查看和编辑二进制文件。它以十六进制并辅以 ASCII 表示来显示文件内容，允许直接修改单个字节。
 
-The interface shows three columns: byte offset on the left, hexadecimal values in the middle, and ASCII characters on the right. Pressing Tab switches between editing hex values and ASCII characters. Modified bytes are highlighted.
+界面显示三列：左侧是字节偏移量，中间是十六进制值，右侧是 ASCII 字符。按 Tab 可在编辑十六进制值和编辑 ASCII 字符之间切换。被修改的字节会高亮显示。
 
-Navigation is efficient for both small files and large binaries (or even block devices). The Ctrl-G command accepts offsets in hex (prefix with 0x) or decimal. Search works for both hex patterns and ASCII strings.
+无论小文件还是大型二进制文件（甚至块设备），导航都很高效。Ctrl-G 命令接受十六进制（加 0x 前缀）或十进制的偏移量。搜索同时支持十六进制模式和 ASCII 字符串。
 
-For disk editing, the sector size option (-s) affects how the editor handles reads and writes. Changes to block devices require appropriate permissions and extreme caution.
+对于磁盘编辑，扇区大小选项（-s）会影响编辑器的读写方式。修改块设备需要相应权限，且须格外谨慎。
 
-hexedit uses a simple memory model - changes are held in memory until explicitly saved. The Ctrl-U command reverts all unsaved changes. For large files, it memory-maps the file for efficient access.
+hexedit 采用简单的内存模型——更改保存在内存中，直到显式保存为止。Ctrl-U 命令可撤销所有未保存的更改。对大文件，它会使用内存映射以实现高效访问。
 
 # CAVEATS
 
-Editing block devices or system files requires root. No undo history - only revert all changes. Limited to files that fit in virtual memory (or are memory-mappable). Cannot insert or delete bytes, only overwrite. Search patterns must be contiguous.
+编辑块设备或系统文件需要 root 权限。没有撤销历史——只能撤销全部更改。仅限于能放入虚拟内存（或可内存映射）的文件。不能插入或删除字节，只能覆盖。搜索的模式必须连续。
 
 # HISTORY
 
-**hexedit** was written by Pixel (Pascal Rigaux) and released in the 1990s. It filled the need for a simple, fast hex editor for Unix terminals. Despite its age, it remains popular due to its simplicity, low resource usage, and availability in virtually all Linux distribution repositories.
+**hexedit** 由 Pixel（Pascal Rigaux）编写，发布于 20 世纪 90 年代。它满足了 Unix 终端上一个简单、快速的十六进制编辑器的需求。尽管年代久远，它仍因其简单、低资源占用以及几乎在所有 Linux 发行版软件仓库中都可用而广受欢迎。
 
 # INSTALL
 

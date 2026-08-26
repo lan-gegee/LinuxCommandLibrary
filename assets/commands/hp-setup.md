@@ -1,26 +1,26 @@
 # TAGLINE
 
-Installs HPLIP-supported HP printers and faxes into the CUPS spooler
+将 HPLIP 支持的 HP 打印机和传真安装到 CUPS 打印池
 
 # TLDR
 
-**Launch the graphical setup wizard** (default when no mode is given)
+**启动图形化设置向导**（未指定模式时的默认行为）
 
 ```hp-setup```
 
-**Run the text-based interactive wizard**
+**运行基于文本的交互式向导**
 
 ```hp-setup -i```
 
-**Set up a USB printer automatically**, no prompts, using its bus:device ID from lsusb
+**自动设置 USB 打印机**，无提示，使用 lsusb 中的 bus:device ID
 
 ```hp-setup -i -a [001:002]```
 
-**Set up a network printer** by IP address, automatically and without a test page
+**按 IP 地址设置网络打印机**，自动进行且不打印测试页
 
 ```hp-setup -i -a -x [192.168.1.100]```
 
-**Remove an installed printer**
+**移除已安装的打印机**
 
 ```hp-setup -r -p [printer-name]```
 
@@ -31,57 +31,57 @@ Installs HPLIP-supported HP printers and faxes into the CUPS spooler
 # PARAMETERS
 
 **-u**, **--gui**
-> Run the graphical (Qt) setup wizard. This is the default when no mode is given.
+> 运行图形（Qt）设置向导。未指定模式时这是默认行为。
 
 **-i**, **--interactive**
-> Run the text-based interactive setup wizard.
+> 运行基于文本的交互式设置向导。
 
 **-a**, **--auto**
-> Non-interactive automatic setup, skipping prompts (interactive mode only).
+> 非交互式自动设置，跳过提示（仅限交互模式）。
 
 **-x**
-> Skip printing a test page in automatic mode (interactive mode only).
+> 自动模式下跳过打印测试页（仅限交互模式）。
 
 **-p** _printer_, **--printer**=_printer_
-> Set the CUPS printer queue name (interactive mode only).
+> 设置 CUPS 打印机队列名称（仅限交互模式）。
 
 **-f** _fax_, **--fax**=_fax_
-> Set the CUPS fax queue name (interactive mode only).
+> 设置 CUPS 传真队列名称（仅限交互模式）。
 
 **-t** _typelist_, **--type**=_typelist_
-> Queue types to create: print, fax (interactive mode only).
+> 要创建的队列类型：print、fax（仅限交互模式）。
 
 **-d** _device-uri_, **--device**=_device-uri_
-> Specify the device URI directly (GUI mode only).
+> 直接指定设备 URI（仅限 GUI 模式）。
 
 **-r**, **--rm**, **--remove**
-> Remove the printer/fax queue instead of installing it.
+> 移除打印机/传真队列而不是安装。
 
 **--port**=_port_
-> Multi-port JetDirect port number: 1 (default), 2, or 3.
+> 多端口 JetDirect 的端口号：1（默认）、2 或 3。
 
 **-l** _level_, **--logging**=_level_
-> Set logging verbosity: none, info, error, warn, or debug.
+> 设置日志详细程度：none、info、error、warn 或 debug。
 
 **-g**
-> Run with debug-level logging (equivalent to **-l debug**).
+> 以调试级别日志运行（等价于 **-l debug**）。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助后退出。
 
 # DESCRIPTION
 
-**hp-setup** discovers an HP printer (USB, network/JetDirect, or parallel port) and installs it into the CUPS spooler, automatically choosing an appropriate PPD/driver and, for fax-capable models, setting up a fax queue and basic fax parameters. It can also print a test page as part of installation.
+**hp-setup** 发现 HP 打印机（USB、网络/JetDirect 或并口），并将其安装到 CUPS 打印池中，自动选择合适的 PPD/驱动；对于支持传真的机型，还会设置传真队列和基本传真参数。它还可以在安装过程中打印测试页。
 
-Run with no arguments it opens the Qt graphical wizard. For scripted or headless installs, use **-i** for the text-based wizard, adding **-a** to skip all interactive prompts, and optionally **-x** to skip the test page. A device can be targeted directly by USB bus:device ID (from **lsusb**), IP address, hostname, serial number, or parallel port devnode; without one, hp-setup probes USB and parallel buses for a compatible printer.
+不带参数运行时，它会打开 Qt 图形向导。对于脚本化或无头（headless）安装，使用 **-i** 进入文本向导，加 **-a** 跳过所有交互提示，可选加 **-x** 跳过测试页。可以通过 USB bus:device ID（来自 **lsusb**）、IP 地址、主机名、序列号或并口设备节点直接指定目标设备；若不指定，hp-setup 会探测 USB 和并行总线以寻找兼容的打印机。
 
 # CAVEATS
 
-Part of the HPLIP package. Installing print queues typically requires root or a user in the CUPS **lpadmin** group. Some models require HP's proprietary binary plugin, which hp-setup will offer to download and install (needs internet access) via **hp-plugin**.
+属于 HPLIP 软件包。安装打印队列通常需要 root 权限或用户属于 CUPS 的 **lpadmin** 组。某些型号需要 HP 的专有二进制插件，hp-setup 会通过 **hp-plugin** 提示下载并安装（需要联网）。
 
 # HISTORY
 
-**hp-setup** is the main installation utility in **HPLIP** (HP Linux Imaging and Printing), HP's open-source printer/scanner driver suite for Linux.
+**hp-setup** 是 **HPLIP**（HP Linux Imaging and Printing）中的主要安装工具。HPLIP 是 HP 面向 Linux 的开源打印/扫描驱动套件。
 
 # INSTALL
 

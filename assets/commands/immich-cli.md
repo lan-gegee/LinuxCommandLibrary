@@ -1,26 +1,26 @@
 # TAGLINE
 
-command-line interface for Immich photo server
+Immich 照片服务器的命令行界面
 
 # TLDR
 
-**Upload photos**
+**上传照片**
 
 ```immich upload [/path/to/photos]```
 
-**Upload with album**
+**上传并指定相册**
 
 ```immich upload --album [AlbumName] [/path/to/photos]```
 
-**Login to server**
+**登录服务器**
 
 ```immich login [https://server] [api-key]```
 
-**Check server info**
+**查看服务器信息**
 
 ```immich server-info```
 
-**Dry run upload**
+**试运行上传**
 
 ```immich upload --dry-run [/path/to/photos]```
 
@@ -31,39 +31,39 @@ command-line interface for Immich photo server
 # PARAMETERS
 
 _COMMAND_
-> Subcommand to run.
+> 要运行的子命令。
 
 **upload**
-> Upload files.
+> 上传文件。
 
 **login**
-> Authenticate with server.
+> 向服务器进行身份验证。
 
 **server-info**
-> Show server information.
+> 显示服务器信息。
 
 **--album** _NAME_
-> Target album.
+> 目标相册。
 
 **--dry-run**
-> Simulate upload.
+> 模拟上传。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**immich-cli** is the command-line interface for Immich photo server. It enables bulk uploads and server management.
+**immich-cli** 是 Immich 照片服务器的命令行界面。它支持批量上传和服务器管理。
 
-The tool authenticates with API keys and uploads photos/videos. It supports album assignment and duplicate detection.
+该工具通过 API 密钥进行身份验证，并上传照片/视频。它支持分配相册和重复项检测。
 
 # CAVEATS
 
-Requires Immich server. API key authentication. Node.js based.
+需要 Immich 服务器。使用 API 密钥身份验证。基于 Node.js。
 
 # HISTORY
 
-immich-cli is the official CLI for **Immich** photo management server.
+immich-cli 是 **Immich** 照片管理服务器的官方 CLI。
 
 # INSTALL
 

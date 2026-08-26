@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create a new system group
+创建新的系统组
 
 # TLDR
 
-Create a **new group**
+创建**新组**
 
 ```sudo groupadd group_name```
 
-Create a **system group**
+创建**系统组**
 
 ```sudo groupadd -r group_name```
 
-Create group with specific **group ID**
+以指定的**组 ID** 创建组
 
 ```sudo groupadd -g 1001 group_name```
 
-Create group with **initial members**
+创建带**初始成员**的组
 
 ```sudo groupadd -U user1,user2 group_name```
 
@@ -27,48 +27,48 @@ Create group with **initial members**
 # PARAMETERS
 
 **-f, --force**
-> Exit successfully if group exists; use next available GID if specified one is taken
+> 若组已存在则成功退出；若指定的 GID 已被占用则使用下一个可用的 GID
 
 **-g, --gid GID**
-> Set numerical group ID (must be unique unless -o used)
+> 设置数字组 ID（必须唯一，除非使用 -o）
 
 **-K, --key KEY=VALUE**
-> Override /etc/login.defs defaults
+> 覆盖 /etc/login.defs 中的默认值
 
 **-o, --non-unique**
-> Allow creation with duplicate GID
+> 允许使用重复的 GID 创建
 
 **-p, --password PASSWORD**
-> Set encrypted group password
+> 设置加密后的组密码
 
 **-r, --system**
-> Create a system group
+> 创建系统组
 
 **-U, --users USER1,USER2**
-> Add users as group members
+> 将这些用户添加为组成员
 
 **-R, --root CHROOT_DIR**
-> Apply changes in chroot environment
+> 在 chroot 环境中应用更改
 
 **-P, --prefix PREFIX_DIR**
-> Apply changes in prefix directory
+> 在前缀目录中应用更改
 
 **-h, --help**
-> Display help message and exit
+> 显示帮助消息并退出
 
 # DESCRIPTION
 
-**groupadd** creates a new group account on the system. It records the new group information in system files (/etc/group and /etc/gshadow), assigning a unique GID unless specified.
+**groupadd** 在系统上创建新的组账户。它将新组信息记录到系统文件（/etc/group 和 /etc/gshadow）中，除非另行指定，否则会分配一个唯一的 GID。
 
-System groups (created with **-r**) use GIDs from the system range defined in /etc/login.defs, typically below 1000.
+系统组（用 **-r** 创建）使用的 GID 来自 /etc/login.defs 中定义的系统范围，通常在 1000 以下。
 
 # CAVEATS
 
-Group names must be 32 characters maximum and cannot start with dash, plus, or tilde. Names cannot contain colons, commas, whitespace, or be entirely numeric.
+组名最长 32 个字符，且不能以连字符、加号或波浪号开头。名称不能包含冒号、逗号、空白字符，也不能完全是数字。
 
 # HISTORY
 
-**groupadd** is part of the **shadow-utils** package for managing group accounts on Unix-like systems.
+**groupadd** 属于用于管理类 Unix 系统上组账户的 **shadow-utils** 软件包。
 
 # INSTALL
 

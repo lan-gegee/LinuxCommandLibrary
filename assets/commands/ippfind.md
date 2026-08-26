@@ -1,30 +1,30 @@
 # TAGLINE
 
-discovers IPP printers and services on the local network using DNS-SD
+使用 DNS-SD 在本地网络中发现 IPP 打印机和服务
 
 # TLDR
 
-**Find all IPP printers** on the network
+**查找网络上所有 IPP 打印机**
 
 ```ippfind```
 
-**Find printers matching a name pattern**
+**查找匹配名称模式的打印机**
 
 ```ippfind --name '[*HP*]'```
 
-**Find printers and print their URIs**
+**查找打印机并输出其 URI**
 
 ```ippfind --print```
 
-**Find printers and execute a command** for each
+**查找打印机并对每台执行命令**
 
 ```ippfind --exec [ipptool] -t '{}' [get-printer-attributes.test] \;```
 
-**Search for a specific time** then exit
+**搜索指定时间**后退出
 
 ```ippfind -T [5]```
 
-**Find printers with specific capabilities**
+**查找具有特定能力的打印机**
 
 ```ippfind --txt-key '[pdl]' --txt-value '[*pdf*]'```
 
@@ -35,45 +35,45 @@ discovers IPP printers and services on the local network using DNS-SD
 # PARAMETERS
 
 **--name** _PATTERN_
-> Match printer names against pattern (supports wildcards)
+> 将打印机名称与模式匹配（支持通配符）
 
 **--txt-key** _KEY_
-> Match DNS-SD TXT record key
+> 匹配 DNS-SD TXT 记录键
 
 **--txt-value** _VALUE_
-> Match DNS-SD TXT record value
+> 匹配 DNS-SD TXT 记录值
 
 **--print**
-> Print the URI of each found printer
+> 输出每台找到的打印机的 URI
 
 **--exec** _command_ \;
-> Execute command for each printer ({} is replaced with URI)
+> 对每台打印机执行命令（{} 会被替换为 URI）
 
 **-T** _seconds_
-> Search for specified number of seconds then exit
+> 搜索指定的秒数后退出
 
 **-P** _number_
-> Stop after finding specified number of printers
+> 找到指定数量的打印机后停止
 
 **--quiet**
-> Suppress output except for matched URIs
+> 除匹配到的 URI 外不输出任何内容
 
 **--version**
-> Show version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**ippfind** discovers IPP (Internet Printing Protocol) printers and services on the local network using DNS-SD (Bonjour/mDNS). It can find printers, filter results by various criteria, and execute commands for each discovered printer.
+**ippfind** 使用 DNS-SD（Bonjour/mDNS）在本地网络中发现 IPP（Internet Printing Protocol，互联网打印协议）打印机和服务。它可以查找打印机、按各种条件过滤结果，并对每台发现的打印机执行命令。
 
-This tool is essential for driverless printing environments where printers are discovered automatically rather than configured manually. It supports searching by name, capabilities, and DNS-SD TXT record attributes.
+在无驱动打印环境中，打印机是自动发现而非手动配置的，该工具在其中不可或缺。它支持按名称、能力和 DNS-SD TXT 记录属性进行搜索。
 
 # CAVEATS
 
-Requires mDNS/DNS-SD support on the network (typically provided by Avahi on Linux or mDNSResponder on macOS). Discovery may miss printers on different subnets unless mDNS reflection is configured. Results depend on printers properly advertising their capabilities.
+需要网络支持 mDNS/DNS-SD（Linux 上通常由 Avahi 提供，macOS 上为 mDNSResponder）。若未配置 mDNS 反射，可能发现不了不同子网上的打印机。结果取决于打印机是否正确广告了自身的能力。
 
 # HISTORY
 
-Part of **CUPS** and the IPP tooling suite developed by Michael Sweet. Created to support the IPP Everywhere initiative for driverless printing, leveraging DNS-SD for automatic printer discovery as standardized by the PWG.
+**CUPS** 及 IPP 工具套件的一部分，由 Michael Sweet 开发。为支持无驱动打印的 IPP Everywhere 计划而创建，利用 PWG 标准化的 DNS-SD 实现打印机自动发现。
 
 # INSTALL
 

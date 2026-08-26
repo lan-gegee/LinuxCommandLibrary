@@ -1,26 +1,26 @@
 # TAGLINE
 
-minimalist filesystem-based IRC client
+极简的基于文件系统的 IRC 客户端
 
 # TLDR
 
-**Connect to IRC server**
+**连接 IRC 服务器**
 
 ```ii -s [irc.libera.chat] -n [nickname]```
 
-**Connect with port**
+**指定端口连接**
 
 ```ii -s [irc.libera.chat] -p [6697] -n [nickname]```
 
-**Specify IRC directory**
+**指定 IRC 目录**
 
 ```ii -s [server] -i [~/.irc] -n [nickname]```
 
-**Join channel**
+**加入频道**
 
 ```echo "/j #channel" > ~/irc/server/in```
 
-**Send message**
+**发送消息**
 
 ```echo "Hello world" > ~/irc/server/#channel/in```
 
@@ -31,43 +31,43 @@ minimalist filesystem-based IRC client
 # PARAMETERS
 
 **-s** _server_
-> IRC server address.
+> IRC 服务器地址。
 
 **-p** _port_
-> Server port (default 6667).
+> 服务器端口（默认 6667）。
 
 **-n** _nickname_
-> IRC nickname (defaults to $USER).
+> IRC 昵称（默认为 $USER）。
 
 **-k** _env_var_
-> Environment variable that holds the IRC password (avoids exposing it on the command line).
+> 保存 IRC 密码的环境变量（避免在命令行上暴露密码）。
 
 **-f** _fullname_
-> Real name (GECOS field).
+> 真实姓名（GECOS 字段）。
 
 **-i** _prefix_
-> IRC directory prefix (default ~/irc).
+> IRC 目录前缀（默认 ~/irc）。
 
 **-t**
-> Connect using TLS.
+> 使用 TLS 连接。
 
 **-v**
-> Do not verify the TLS certificate.
+> 不验证 TLS 证书。
 
 **-4**
-> Only connect over IPv4.
+> 仅通过 IPv4 连接。
 
 **-6**
-> Only connect over IPv6.
+> 仅通过 IPv6 连接。
 
 **-u** _socket_
-> Connect to a UNIX domain socket instead of a network server.
+> 连接到 UNIX 域套接字而不是网络服务器。
 
 # DESCRIPTION
 
-**ii** (IRC It) is a minimalist filesystem-based IRC client. It creates a directory structure where each server and channel is a directory with **in** (write to send) and **out** (read for messages) files.
+**ii**（IRC It）是一个极简的基于文件系统的 IRC 客户端。它会创建一个目录结构，每个服务器和频道都是一个目录，其中包含 **in** 文件（写入以发送）和 **out** 文件（读取消息）。
 
-This design follows the Unix philosophy, allowing IRC interaction through standard file operations and shell scripts. It can be combined with tools like tail, cat, and custom scripts.
+这种设计遵循 Unix 哲学，允许通过标准文件操作和 shell 脚本与 IRC 交互。它可以与 tail、cat 及自定义脚本等工具结合使用。
 
 # DIRECTORY STRUCTURE
 
@@ -96,11 +96,11 @@ echo "Hello!" > ~/irc/server/#channel/in
 
 # CAVEATS
 
-No built-in interface; requires scripts or tools. No SSL support without wrapper. Limited feature set. Manual channel/nick management.
+没有内置界面；需要脚本或其他工具。不借助包装器则不支持 SSL。功能有限。频道/昵称需手动管理。
 
 # HISTORY
 
-ii was created as part of the **suckless** project, following their philosophy of minimal, filesystem-based tools. It demonstrates IRC can work with standard Unix file operations.
+ii 是 **suckless** 项目的一部分，秉承其极简、基于文件系统的工具哲学。它展示了 IRC 可以仅靠标准 Unix 文件操作工作。
 
 # INSTALL
 

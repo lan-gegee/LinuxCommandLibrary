@@ -1,42 +1,42 @@
 # TAGLINE
 
-professional vector graphics editor
+专业矢量图形编辑器
 
 # TLDR
 
-**Open file in GUI**
+**在 GUI 中打开文件**
 
 ```inkscape [file.svg]```
 
-**Export to PNG**
+**导出为 PNG**
 
 ```inkscape [input.svg] -o [output.png]```
 
-**Export with specific size**
+**按指定尺寸导出**
 
 ```inkscape [input.svg] -w [1024] -h [768] -o [output.png]```
 
-**Export to PDF**
+**导出为 PDF**
 
 ```inkscape [input.svg] -o [output.pdf]```
 
-**Convert SVG to EPS**
+**将 SVG 转换为 EPS**
 
 ```inkscape [input.svg] -o [output.eps]```
 
-**Export specific area**
+**导出指定区域**
 
 ```inkscape [input.svg] --export-area-page -o [output.png]```
 
-**Export drawing area only (crop to content)**
+**仅导出绘图区域（裁剪到内容）**
 
 ```inkscape [input.svg] -D -o [output.png]```
 
-**Run without GUI**
+**无 GUI 运行**
 
 ```inkscape --export-type=[png] [input.svg]```
 
-**Run batch actions from command line**
+**从命令行运行批量操作**
 
 ```inkscape --actions="open:[input.svg];export-filename:[output.png];export-do" --batch-process```
 
@@ -47,63 +47,63 @@ professional vector graphics editor
 # PARAMETERS
 
 **-o** _FILE_
-> Output filename.
+> 输出文件名。
 
 **-w** _WIDTH_
-> Export width in pixels.
+> 导出宽度（像素）。
 
 **-h** _HEIGHT_
-> Export height in pixels.
+> 导出高度（像素）。
 
 **-d** _DPI_
-> Export resolution.
+> 导出分辨率。
 
 **--export-type** _TYPE_
-> Export format (png, pdf, eps, ps, svg, emf, wmf). Comma-separated for multiple.
+> 导出格式（png、pdf、eps、ps、svg、emf、wmf）。多种格式用逗号分隔。
 
 **-C**, **--export-area-page**
-> Export entire page area.
+> 导出整个页面区域。
 
 **-D**, **--export-area-drawing**
-> Export drawing bounding box only (crop to content).
+> 仅导出绘图边界框（裁剪到内容）。
 
 **-i**, **--export-id** _ID_
-> Export specific object by ID. Semicolon-separated for multiple.
+> 按 ID 导出特定对象。多个对象用分号分隔。
 
 **-l**, **--export-plain-svg**
-> Export as plain SVG without Inkscape-specific namespaces.
+> 导出为不含 Inkscape 专有命名空间的纯 SVG。
 
 **-T**, **--export-text-to-path**
-> Convert text objects to paths on export.
+> 导出时将文本对象转换为路径。
 
 **--actions** _ACTIONS_
-> Execute semicolon-separated actions for batch processing.
+> 执行分号分隔的操作序列，用于批量处理。
 
 **--shell**
-> Enter interactive command line shell mode.
+> 进入交互式命令行 Shell 模式。
 
 **--batch-process**
-> Process files and close without GUI.
+> 处理文件后关闭，不启动 GUI。
 
 **--pdf-page** _N_
-> Page number to import from multi-page PDF (starting from 1).
+> 从多页 PDF 导入的页码（从 1 开始）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Inkscape** is a professional vector graphics editor. It supports SVG as native format and exports to PNG, PDF, EPS, and other formats.
+**Inkscape** 是一款专业矢量图形编辑器。它以 SVG 为原生格式，可导出为 PNG、PDF、EPS 等其他格式。
 
-The application provides comprehensive drawing tools, path operations, and text handling. It can run headless for batch conversions.
+该应用提供全面的绘图工具、路径操作和文本处理能力，还可以无界面（headless）方式运行进行批量转换。
 
 # CAVEATS
 
-Large files may be slow. Some SVG features are unsupported. The command-line interface changed significantly in version 1.0 (old flags like `-e` and `-A` were replaced).
+大文件可能较慢。部分 SVG 特性不受支持。1.0 版本的命令行接口变化很大（`-e`、`-A` 等旧标志已被替换）。
 
 # HISTORY
 
-Inkscape was forked from **Sodipodi** in 2003. It became the leading open-source alternative to Adobe Illustrator.
+Inkscape 于 2003 年从 **Sodipodi** 分支而来，后来成为 Adobe Illustrator 的主要开源替代品。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Legacy TCP/IP packet crafting and analysis tool, the predecessor to hping3
+老式的 TCP/IP 数据包构造与分析工具，hping3 的前身
 
 # TLDR
 
-**Send ICMP ping**
+**发送 ICMP ping**
 
 ```hping -1 [host]```
 
-**Send TCP SYN to a port**
+**向端口发送 TCP SYN**
 
 ```hping -S -p [80] [host]```
 
-**Send UDP packets to a port**
+**向端口发送 UDP 包**
 
 ```hping -2 -p [53] [host]```
 
-**Traceroute mode**
+**traceroute 模式**
 
 ```hping --traceroute -1 [host]```
 
-**Send a fixed number of packets**
+**发送固定数量的数据包**
 
 ```hping -c [5] -1 [host]```
 
-**Spoof the source IP address**
+**伪造源 IP 地址**
 
 ```hping -a [source-ip] -S -p [80] [host]```
 
-**Scan a range of ports**
+**扫描一段端口范围**
 
 ```hping -8 [1-100] -S [host]```
 
@@ -39,60 +39,60 @@ Legacy TCP/IP packet crafting and analysis tool, the predecessor to hping3
 # PARAMETERS
 
 **-0**, **--rawip**
-> Raw IP mode.
+> Raw IP 模式。
 
 **-1**, **--icmp**
-> ICMP mode.
+> ICMP 模式。
 
 **-2**, **--udp**
-> UDP mode.
+> UDP 模式。
 
 **-8**, **--scan** _range_
-> Port scan mode.
+> 端口扫描模式。
 
 **-S**, **--syn**
-> Set TCP SYN flag.
+> 设置 TCP SYN 标志。
 
 **-A**, **--ack**
-> Set TCP ACK flag.
+> 设置 TCP ACK 标志。
 
 **-p**, **--destport** _port_
-> Destination port.
+> 目标端口。
 
 **-s**, **--baseport** _port_
-> Source port.
+> 源端口。
 
 **-c**, **--count** _count_
-> Number of packets to send.
+> 要发送的数据包数量。
 
 **-i**, **--interval** _wait_
-> Interval between packets.
+> 数据包之间的间隔。
 
 **-a**, **--spoof** _host_
-> Spoof the source address.
+> 伪造源地址。
 
 **-T**, **--traceroute**
-> Traceroute mode.
+> traceroute 模式。
 
 **-C** _type_
-> Set ICMP type.
+> 设置 ICMP 类型。
 
 **-K** _code_
-> Set ICMP code.
+> 设置 ICMP 代码。
 
 # DESCRIPTION
 
-**hping** (also known as hping2) is a command-line tool that crafts and sends custom TCP, UDP, ICMP, or raw IP packets and displays the target's replies, similar to how **ping** shows ICMP echo replies. It supports fragmentation, arbitrary packet bodies, and can be used for firewall testing, port scanning, path MTU discovery, traceroute-like probing over arbitrary protocols, and TCP/IP stack auditing.
+**hping**（也称为 hping2）是一个命令行工具，用于构造并发送自定义的 TCP、UDP、ICMP 或 Raw IP 数据包，并显示目标的回应，类似于 **ping** 显示 ICMP 回显应答。它支持分片和任意数据包载荷，可用于防火墙测试、端口扫描、路径 MTU 发现、基于任意协议的类 traceroute 探测以及 TCP/IP 协议栈审计。
 
-**hping3** superseded this version by adding Tcl scripting support, but reuses the same underlying packet-generation code, so hping's command-line flags carry over almost unchanged. Most current Linux distributions only package **hping3**; the plain **hping** binary is largely a legacy name kept for compatibility and may not be installed by default.
+**hping3** 通过增加 Tcl 脚本支持取代了这个版本，但复用了相同的底层数据包生成代码，因此 hping 的命令行标志几乎原样沿用。当前大多数 Linux 发行版只打包 **hping3**；单纯的 **hping** 二进制文件在很大程度上是保留兼容性的遗留名称，默认可能不会安装。
 
 # CAVEATS
 
-Requires root privileges to craft raw packets. **hping** is unmaintained; new deployments should use **hping3** instead, which receives the (limited) ongoing upkeep. Spoofed packets and aggressive scanning may be illegal without authorization and can trigger firewalls or IDS systems.
+构造原始数据包需要 root 权限。**hping** 已无人维护；新的部署应改用仍在（有限地）维护的 **hping3**。未经授权发送伪造数据包或进行激进扫描可能违法，并可能触发防火墙或 IDS 系统。
 
 # HISTORY
 
-**hping** was created by **Salvatore Sanfilippo** ("antirez", also the creator of Redis) in the late 1990s as a packet generator and analyzer for TCP/IP protocols. Sanfilippo used it to develop the idle scan technique later adopted by Nmap. **hping3**, released in 2005, replaced it as the actively developed version by adding a Tcl scripting engine on top of the same core packet-crafting code.
+**hping** 由 **Salvatore Sanfilippo**（"antirez"，也是 Redis 的作者）于 20 世纪 90 年代末创建，作为 TCP/IP 协议的数据包生成器和分析器。Sanfilippo 用它开发了后来被 Nmap 采用的 idle scan 技术。2005 年发布的 **hping3** 在相同的核心数据包构造代码之上加入了 Tcl 脚本引擎，取代它成为活跃开发的版本。
 
 # INSTALL
 

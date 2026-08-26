@@ -1,30 +1,30 @@
 # TAGLINE
 
-Arch Linux news reader and pacman hook
+Arch Linux 新闻阅读器和 pacman 钩子
 
 # TLDR
 
-**Check** for unread news items
+**检查**是否有未读新闻
 
 ```informant check```
 
-**Read** all unread news interactively
+**交互式阅读**所有未读新闻
 
 ```sudo informant read```
 
-**Mark all news as read** without printing
+**将所有新闻标记为已读**但不打印
 
 ```sudo informant read --all```
 
-**List** latest news titles
+**列出**最新的新闻标题
 
 ```informant list```
 
-**List only unread** news items
+**只列出未读的**新闻条目
 
 ```informant list --unread```
 
-**List news** in reverse order (newest first)
+**以倒序列出新闻**（最新在前）
 
 ```informant list --reverse```
 
@@ -35,42 +35,42 @@ Arch Linux news reader and pacman hook
 # PARAMETERS
 
 **check**
-> Check for unread news items (exit code equals number of unread items). Prints and marks as read if only one unread.
+> 检查是否有未读新闻（退出码等于未读条数）。当只有一条未读时打印并将其标记为已读。
 
 **read**
-> Loop through unread items, printing each and prompting to continue. Specify an item by index or title match.
+> 循环遍历未读条目，逐条打印并提示是否继续。可通过索引或标题匹配指定某个条目。
 
 **read --all**
-> Mark all items as read without printing them.
+> 将所有条目标记为已读而不打印。
 
 **list**
-> List recent news titles (read and unread).
+> 列出最近的新闻标题（含已读与未读）。
 
 **--unread**
-> Only show unread items (with `list`).
+> 只显示未读条目（配合 `list`）。
 
 **--reverse**
-> Show items newest first (with `list`).
+> 最新条目优先显示（配合 `list`）。
 
 **-n**, **--count** _NUM_
-> Number of items to display.
+> 要显示的条目数量。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助消息。
 
 # DESCRIPTION
 
-**informant** is a tool for reading Arch Linux news from the archlinux.org website. It helps users stay informed about important package updates, manual intervention requirements, and system changes.
+**informant** 是一个用于阅读 archlinux.org 网站上 Arch Linux 新闻的工具。它帮助用户及时了解重要的软件包更新、需要手动干预的事项以及系统变更。
 
-The tool can be integrated with pacman hooks to prevent updates when unread news items exist, ensuring users review important announcements before proceeding with system updates.
+该工具可与 pacman 钩子集成：存在未读新闻时阻止更新，确保用户在执行系统更新前先查看重要公告。
 
 # CAVEATS
 
-Specific to Arch Linux. Requires network access to fetch news. Some operations require root privileges to mark news as read in system-wide cache.
+仅适用于 Arch Linux。获取新闻需要网络访问。某些操作需要 root 权限，以便在系统级缓存中将新闻标记为已读。
 
 # HISTORY
 
-informant was created to address a common issue in Arch Linux: users updating their systems without reading important news announcements that may require manual intervention. It can block pacman updates until news is acknowledged.
+informant 的诞生是为了解决 Arch Linux 的一个常见问题：用户在不阅读重要新闻公告的情况下更新系统，而这些公告可能要求手动干预。它可以在用户确认新闻之前阻止 pacman 更新。
 
 # INSTALL
 

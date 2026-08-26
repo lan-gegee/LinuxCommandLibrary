@@ -1,34 +1,34 @@
 # TAGLINE
 
-Hex viewer with syntax highlighting
+带语法高亮的十六进制查看器
 
 # TLDR
 
-**View a file** in hex
+以十六进制**查看文件**
 
 ```hevi [path/to/file]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [path/to/file] | hevi```
 
-**Disable colored output**
+**禁用彩色输出**
 
 ```hevi --no-color [path/to/file]```
 
-**Use uppercase hex digits**
+**使用大写十六进制数字**
 
 ```hevi --uppercase [path/to/file]```
 
-**Force a specific parser** (e.g. elf, pe)
+**强制指定解析器**（例如 elf、pe）
 
 ```hevi --parser [elf] [path/to/file]```
 
-**Raw mode** (disable size, offset, ASCII columns)
+**原始模式**（禁用大小、偏移、ASCII 列）
 
 ```hevi --raw [path/to/file]```
 
-**Show the active color palette**
+**显示当前使用的调色板**
 
 ```hevi --show-palette```
 
@@ -38,52 +38,52 @@ Hex viewer with syntax highlighting
 
 # DESCRIPTION
 
-**hevi** (pronounced like "heavy") is a hex viewer similar to **xxd** or **hexdump**, with the added ability to parse structured file formats like **ELF** and **PE** executables and provide **syntax highlighting** for recognized sections. This makes it easier to visually identify headers, sections, and data regions in binary files.
+**hevi**（读音同 "heavy"）是一个类似于 **xxd** 或 **hexdump** 的十六进制查看器，额外增加了对 **ELF** 和 **PE** 可执行文件等结构化文件格式的解析能力，并能对识别出的区域进行**语法高亮**。这使你更容易从视觉上辨认二进制文件中的头部、节和数据区域。
 
-Custom color palettes can be specified using standard ANSI colors or truecolor. The viewer displays offset addresses, hexadecimal values, and ASCII representation in a clean, colored layout. Behavior can be controlled via flags, a config file, or environment variables (including **NO_COLOR**), with flags taking precedence.
+可以使用标准 ANSI 颜色或 truecolor 自定义调色板。查看器以整洁的彩色布局显示偏移地址、十六进制值和 ASCII 表示。行为可以通过标志、配置文件或环境变量（包括 **NO_COLOR**）控制，标志优先级最高。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Show help
+> 显示帮助信息
 
 **-v**, **--version**
-> Print version
+> 打印版本信息
 
 **--color**, **--no-color**
-> Enable or disable colored output
+> 启用或禁用彩色输出
 
 **--lowercase**, **--uppercase**
-> Choose the case of hex digits
+> 选择十六进制数字的大小写
 
 **--size**, **--no-size**
-> Show or hide the size column
+> 显示或隐藏大小列
 
 **--offset**, **--no-offset**
-> Show or hide the offset column
+> 显示或隐藏偏移列
 
 **--ascii**, **--no-ascii**
-> Show or hide the ASCII representation
+> 显示或隐藏 ASCII 表示
 
 **--skip-lines**, **--no-skip-lines**
-> Collapse or keep repeated identical lines
+> 折叠或保留重复的相同行
 
 **--raw**
-> Raw output, disabling most decorations
+> 原始输出，禁用大部分修饰
 
 **--parser** _NAME_
-> Force the specified file-format parser (e.g. elf, pe)
+> 强制使用指定的文件格式解析器（例如 elf、pe）
 
 **--show-palette**
-> Print the active color palette and exit
+> 打印当前使用的调色板并退出
 
 # CAVEATS
 
-Read-only viewer; cannot edit files. Format parsing is limited to supported file types (ELF, PE). Custom color palettes require a terminal with truecolor support for full fidelity.
+只读查看器，无法编辑文件。格式解析仅限于受支持的文件类型（ELF、PE）。自定义调色板需要支持 truecolor 的终端才能完整呈现。
 
 # HISTORY
 
-**hevi** was created by **Arnau478** and is written in **Zig**. It was designed to improve upon traditional hex viewers by adding structural awareness of common binary formats.
+**hevi** 由 **Arnau478** 创建，使用 **Zig** 编写。其设计目标是在传统十六进制查看器的基础上，增加对常见二进制格式的结构感知能力。
 
 # INSTALL
 

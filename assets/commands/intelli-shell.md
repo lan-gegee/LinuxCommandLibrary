@@ -1,34 +1,34 @@
 # TAGLINE
 
-IntelliSense-style command template manager for your shell
+Shell 的 IntelliSense 风格命令模板管理器
 
 # TLDR
 
-**Search saved commands interactively (shell hotkey)**
+**交互式搜索已保存的命令（shell 快捷键）**
 
 ```# Press Ctrl+Space in your shell```
 
-**Bookmark the last executed command (shell hotkey)**
+**收藏最近执行的命令（shell 快捷键）**
 
 ```# Press Ctrl+B in your shell```
 
-**Fix the current command with AI (shell hotkey)**
+**用 AI 修复当前命令（shell 快捷键）**
 
 ```# Press Ctrl+X in your shell```
 
-**Add a command template from the CLI**
+**从 CLI 添加命令模板**
 
 ```intelli-shell new "[command_template]" -d "[description]"```
 
-**Search commands from the CLI**
+**从 CLI 搜索命令**
 
 ```intelli-shell search "[query]"```
 
-**Import commands from a file or URL**
+**从文件或 URL 导入命令**
 
 ```intelli-shell import [path_or_url]```
 
-**Export your command library**
+**导出你的命令库**
 
 ```intelli-shell export [path]```
 
@@ -39,41 +39,41 @@ IntelliSense-style command template manager for your shell
 # SUBCOMMANDS
 
 **new**
-> Create a new command template.
+> 创建新的命令模板。
 
 **search**
-> Search stored commands (optionally interactively).
+> 搜索存储的命令（可选交互式）。
 
 **replace**
-> Replace variables of a given command.
+> 替换给定命令中的变量。
 
 **import**
-> Import commands from a file, URL, or Gist.
+> 从文件、URL 或 Gist 导入命令。
 
 **export**
-> Export commands to a file.
+> 将命令导出到文件。
 
 **fix**
-> Use an LLM to suggest fixes for a command.
+> 使用 LLM 为命令建议修复方案。
 
 **completions**
-> Generate shell completions.
+> 生成 Shell 补全脚本。
 
 # DESCRIPTION
 
-**intelli-shell** is a cross-platform command template and snippet manager written in **Rust**. It turns your terminal into a searchable library of commands that can be recalled with a keybinding and expanded with parameterized variables.
+**intelli-shell** 是一个用 **Rust** 编写的跨平台命令模板和代码片段管理器。它把你的终端变成一个可搜索的命令库，可通过快捷键调出，并以参数化变量展开。
 
-It integrates with **Bash**, **Zsh**, **Fish**, **Nushell**, and **PowerShell**. Once the shell hook is installed, **Ctrl+Space** opens an interactive fuzzy search over your stored commands, **Ctrl+B** bookmarks the last executed line, and **Ctrl+X** asks a configured LLM to fix the current line.
+它与 **Bash**、**Zsh**、**Fish**、**Nushell** 和 **PowerShell** 集成。安装 shell 钩子后，**Ctrl+Space** 打开交互式模糊搜索来查找已存的命令，**Ctrl+B** 收藏最近执行的命令行，**Ctrl+X** 让配置好的 LLM 修复当前命令行。
 
-Templates support dynamic variables such as `{{file}}` with optional suggestion generators, workspace-local command sets, and tag-based categorization.
+模板支持动态变量（如 `{{file}}`）及可选的建议生成器，还支持工作区本地命令集和基于标签的分类。
 
 # CAVEATS
 
-Shell integration requires sourcing the hook script provided by **intelli-shell init** in your shell's rc file. AI-powered fixes require configuring an API key (OpenAI, Gemini, Anthropic, etc.) in **~/.config/intelli-shell/config.toml**. Workspace awareness relies on **.intellishell** files in project directories.
+Shell 集成需要在 shell 的 rc 文件中 source **intelli-shell init** 提供的钩子脚本。AI 修复功能需要在 **~/.config/intelli-shell/config.toml** 中配置 API 密钥（OpenAI、Gemini、Anthropic 等）。工作区感知依赖项目目录中的 **.intellishell** 文件。
 
 # HISTORY
 
-**intelli-shell** is maintained by **lasantosr** and is written in **Rust**. It was created to bring IDE-like autocomplete and command management to the terminal.
+**intelli-shell** 由 **lasantosr** 维护，用 **Rust** 编写。它的目标是把 IDE 式的自动补全和命令管理带到终端。
 
 # INSTALL
 

@@ -1,40 +1,40 @@
 # TAGLINE
 
-modern Linux networking command for showing and manipulating routing
+现代 Linux 网络命令，用于查看和操作路由
 
 # TLDR
 
-List interfaces with **detailed info**
+列出接口及**详细信息**
 
 ```ip address```
 
-List interfaces with **brief** network layer info
+以**简要格式**列出接口的网络层信息
 
 ```ip -br address```
 
-List interfaces with brief **link layer** info
+以简要格式列出接口的**链路层**信息
 
 ```ip -br link```
 
-Display the **routing table**
+显示**路由表**
 
 ```ip route```
 
-Show **neighbors** (ARP table)
+显示**邻居**（ARP 表）
 
 ```ip neighbour```
 
-Make an interface **up/down**
+将接口**启用/禁用**
 
 ```sudo ip link set [ethX] up```
 ```sudo ip link set [ethX] down```
 
-**Add/Delete** an IP address to an interface
+为接口**添加/删除** IP 地址
 
 ```sudo ip address add [ip_address]/[mask] dev [ethX]```
 ```sudo ip address delete [ip_address]/[mask] dev [ethX]```
 
-Add a **default route**
+添加**默认路由**
 
 ```sudo ip route add default via [ip_address] dev [ethX]```
 
@@ -44,56 +44,56 @@ Add a **default route**
 
 # DESCRIPTION
 
-**ip** is the modern Linux networking command for showing and manipulating routing, devices, policy routing, and tunnels. It replaces the older **ifconfig**, **route**, and **arp** commands.
+**ip** 是现代 Linux 网络命令，用于查看和操作路由、设备、策略路由和隧道。它取代了较旧的 **ifconfig**、**route** 和 **arp** 命令。
 
 # PARAMETERS
 
 **address, a**
-> Display and manage IP addresses
+> 显示和管理 IP 地址
 
 **link, l**
-> Display and manage network interfaces
+> 显示和管理网络接口
 
 **route, r**
-> Display and manage routing table
+> 显示和管理路由表
 
 **neighbour, n**
-> Display and manage ARP/neighbor cache
+> 显示和管理 ARP/邻居缓存
 
 **tunnel**
-> Display and manage IP tunnels
+> 显示和管理 IP 隧道
 
 **maddr**
-> Display and manage multicast addresses
+> 显示和管理组播地址
 
 **rule**
-> Display and manage routing policy database
+> 显示和管理路由策略数据库
 
 **-br, -brief**
-> Print output in brief format
+> 以简要格式输出
 
 **-c, -color**
-> Use color output
+> 使用彩色输出
 
 **-4**
-> IPv4 only
+> 仅 IPv4
 
 **-6**
-> IPv6 only
+> 仅 IPv6
 
 **-s, -stats**
-> Output more statistics
+> 输出更多统计信息
 
 **-o, -oneline**
-> Output each record on a single line
+> 每条记录输出为单行
 
 # CAVEATS
 
-Changes made with **ip** are not persistent across reboots. Use network configuration files or NetworkManager for persistent changes.
+通过 **ip** 所做的更改在重启后不会保留。要使更改持久化，请使用网络配置文件或 NetworkManager。
 
 # HISTORY
 
-Part of the **iproute2** package, introduced in **Linux 2.2** as a replacement for the older net-tools package (ifconfig, route, arp).
+属于 **iproute2** 软件包，在 **Linux 2.2** 中引入，用于取代旧的 net-tools 软件包（ifconfig、route、arp）。
 
 # INSTALL
 

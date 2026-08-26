@@ -1,42 +1,42 @@
 # TAGLINE
 
-InterPlanetary File System distributed peer-to-peer CLI
+星际文件系统（IPFS）分布式点对点命令行工具
 
 # TLDR
 
-**Initialize IPFS repository**
+**初始化 IPFS 仓库**
 
 ```ipfs init```
 
-**Start IPFS daemon**
+**启动 IPFS 守护进程**
 
 ```ipfs daemon```
 
-**Add file to IPFS**
+**将文件添加到 IPFS**
 
 ```ipfs add [file]```
 
-**Add directory recursively**
+**递归添加目录**
 
 ```ipfs add -r [directory]```
 
-**Get file by CID**
+**按 CID 获取文件**
 
 ```ipfs get [CID]```
 
-**View file contents**
+**查看文件内容**
 
 ```ipfs cat [CID]```
 
-**Pin a file**
+**固定一个文件**
 
 ```ipfs pin add [CID]```
 
-**List pinned files**
+**列出已固定的文件**
 
 ```ipfs pin ls```
 
-**Show node info**
+**显示节点信息**
 
 ```ipfs id```
 
@@ -47,59 +47,59 @@ InterPlanetary File System distributed peer-to-peer CLI
 # SUBCOMMANDS
 
 **init**
-> Initialize local repository.
+> 初始化本地仓库。
 
 **daemon**
-> Start IPFS daemon.
+> 启动 IPFS 守护进程。
 
 **add** _file_
-> Add file to IPFS.
+> 将文件添加到 IPFS。
 
 **get** _cid_
-> Download file by CID.
+> 按 CID 下载文件。
 
 **cat** _cid_
-> Display file contents.
+> 显示文件内容。
 
 **pin add** _cid_
-> Pin content locally.
+> 在本地固定内容。
 
 **pin ls**
-> List pinned content.
+> 列出已固定的内容。
 
 **id**
-> Show node identity.
+> 显示节点身份信息。
 
 **swarm peers**
-> List connected peers.
+> 列出已连接的对等节点。
 
 **files**
-> Manage MFS (Mutable File System).
+> 管理 MFS（可变文件系统）。
 
 # PARAMETERS
 
 **-r**, **--recursive**
-> Add directories recursively.
+> 递归添加目录。
 
 **-q**, **--quiet**
-> Minimal output.
+> 精简输出。
 
 **-w**, **--wrap-with-directory**
-> Wrap files in directory.
+> 将文件包装进目录。
 
 # DESCRIPTION
 
-**ipfs** is the command-line interface for the **Kubo** implementation of the InterPlanetary File System, a peer-to-peer content-addressed storage and distribution network. Each file or block is identified by a CID (Content Identifier) derived from the cryptographic hash of its contents, so the same data is reachable from any node that holds it without requiring a fixed host or URL.
+**ipfs** 是 **Kubo** 实现（InterPlanetary File System，星际文件系统）的命令行界面。IPFS 是一种点对点的内容寻址存储与分发网络。每个文件或块都由基于其内容加密哈希派生的 CID（Content Identifier，内容标识符）标识，因此相同的数据可以从任何持有它的节点获取，无需固定的主机或 URL。
 
-A local **ipfs daemon** acts as a gateway between the user and the global IPFS swarm: it dials peers, fetches blocks, pins content for long-term retention, and exposes both an HTTP gateway and a JSON-RPC API. The **add** subcommand stores files in the local datastore and prints the resulting CID; **cat** and **get** retrieve content; **pin add** keeps content from being garbage-collected; and **files** offers a POSIX-like mutable filesystem (MFS) layered on top of immutable IPLD objects.
+本地 **ipfs daemon** 充当用户与全球 IPFS 群集之间的网关：它连接对等节点、抓取数据块、固定内容以便长期保留，并同时提供 HTTP 网关和 JSON-RPC API。**add** 子命令将文件存入本地数据存储并输出得到的 CID；**cat** 和 **get** 用于检索内容；**pin add** 防止内容被垃圾回收；**files** 则在不可变的 IPLD 对象之上提供一个类似 POSIX 的可变文件系统（MFS）。
 
 # CAVEATS
 
-A daemon must be running for most subcommands; **ipfs init** must be called once per user to create the configuration in **~/.ipfs/**. Content is not private by default - anyone who knows a CID can fetch the underlying data through any IPFS node. The default port allocation (4001 TCP/UDP for swarm, 5001 for API, 8080 for gateway) needs to be firewall-friendly for good connectivity.
+大多数子命令都需要守护进程正在运行；每位用户必须先执行一次 **ipfs init** 以在 **~/.ipfs/** 中创建配置。内容默认不是私有的——任何知道 CID 的人都可以通过任意 IPFS 节点获取底层数据。默认端口分配（群集 4001 TCP/UDP、API 5001、网关 8080）需要考虑防火墙设置以获得良好的连通性。
 
 # HISTORY
 
-**IPFS** was proposed by **Juan Benet** at **Protocol Labs** in a **2014** whitepaper. The first reference implementation in Go (later renamed **Kubo**) reached **0.4.0** in **2016** and **1.0.0** in **2023**. A Rust implementation (**iroh**) and a JavaScript implementation (**js-ipfs**, later **Helia**) followed.
+**IPFS** 由 **Protocol Labs** 的 **Juan Benet** 在 **2014 年**的白皮书中提出。首个 Go 参考实现（后更名为 **Kubo**）于 **2016 年**发布 **0.4.0** 版本，并于 **2023 年**达到 **1.0.0**。随后出现了 Rust 实现（**iroh**）和 JavaScript 实现（**js-ipfs**，后更名 **Helia**）。
 
 # INSTALL
 
@@ -118,4 +118,3 @@ A daemon must be running for most subcommands; **ipfs init** must be called once
 # SEE ALSO
 
 [curl](/man/curl)(1), [wget](/man/wget)(1), [rsync](/man/rsync)(1)
-

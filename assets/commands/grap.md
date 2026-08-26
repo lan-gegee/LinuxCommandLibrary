@@ -1,22 +1,22 @@
 # TAGLINE
 
-Graph language preprocessor for groff documents
+用于 groff 文档的图表语言预处理器
 
 # TLDR
 
-**Process a grap script into PostScript via groff**
+**将 grap 脚本经 groff 处理为 PostScript**
 
 ```grap [script.grap] | groff -Tps > [output.ps]```
 
-**Pipe grap output through pic and groff**
+**将 grap 输出通过 pic 和 groff 管道处理**
 
 ```grap [script.grap] | pic | troff -Tps > [output.ps]```
 
-**Define a variable from the command line**
+**从命令行定义变量**
 
 ```grap -d "[x=100]" [script.grap] | groff -Tps > [output.ps]```
 
-**Read from standard input**
+**从标准输入读取**
 
 ```cat [script.grap] | grap | groff -Tps > [output.ps]```
 
@@ -27,33 +27,33 @@ Graph language preprocessor for groff documents
 # PARAMETERS
 
 _FILE_
-> Grap input file. If omitted, reads from standard input.
+> grap 输入文件。若省略，则从标准输入读取。
 
 **-d** _VAR=VALUE_
-> Define a variable and its value before processing.
+> 在处理前定义变量及其值。
 
 **-l**
-> Use the graph's default line thickness.
+> 使用图形默认的线条粗细。
 
 **-R**
-> Do not load the default macro startup file.
+> 不加载默认的宏启动文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grap** is a preprocessor for creating graphs within groff/troff documents. Input is written in a simple declarative language enclosed between .G1 and .G2 macros, and the output is pic(1) code suitable for further processing by pic and troff/groff.
+**grap** 是一个预处理器，用于在 groff/troff 文档中创建图表。输入以简单的声明式语言编写，置于 .G1 和 .G2 宏之间；输出是 pic(1) 代码，可进一步交由 pic 和 troff/groff 处理。
 
-The tool creates publication-quality graphs for technical documents, supporting features like labeled axes, multiple data sets, logarithmic scales, and coordinate systems. It integrates seamlessly with the troff document processing pipeline.
+该工具为技术文档创建出版级质量的图表，支持坐标轴标注、多数据集、对数刻度和坐标系等特性。它与 troff 文档处理管道无缝集成。
 
 # CAVEATS
 
-Part of the groff ecosystem. Outputs pic format that must be further processed by pic(1) and troff/groff. Not installed by default on most distributions; often available as a separate package.
+属于 groff 生态系统的一部分。输出 pic 格式，必须再由 pic(1) 和 troff/groff 进一步处理。大多数发行版默认不安装它，通常作为独立软件包提供。
 
 # HISTORY
 
-grap was developed at **Bell Labs** as part of the Unix document preparation tools, described by Kernighan and Bentley.
+grap 由 **贝尔实验室（Bell Labs）** 开发，是 Unix 文档准备工具的一部分，由 Kernighan 和 Bentley 撰文描述。
 
 # INSTALL
 

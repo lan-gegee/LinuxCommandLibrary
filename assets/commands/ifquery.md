@@ -1,26 +1,26 @@
 # TAGLINE
 
-queries network interface configuration
+查询网络接口配置
 
 # TLDR
 
-**Query configuration** for an interface
+**查询**某个接口的配置
 
 ```ifquery [eth0]```
 
-**List** all configured interfaces
+**列出**所有已配置的接口
 
 ```ifquery --list```
 
-List interfaces that **are currently up** (from state file)
+列出当前**处于启用状态**的接口（来自状态文件）
 
 ```ifquery --state```
 
-Query configuration for a specific **class** of interfaces (e.g. hotplug)
+查询特定**类别**接口的配置（如 hotplug）
 
 ```ifquery --list --allow [hotplug]```
 
-Check the **running state** of an interface against its configuration
+对照配置检查接口的**运行状态**
 
 ```ifquery --check [eth0]```
 
@@ -31,46 +31,46 @@ Check the **running state** of an interface against its configuration
 # PARAMETERS
 
 _INTERFACE_
-> Network interface name to query.
+> 要查询的网络接口名称。
 
 **-a**, **--all**
-> Query all interfaces marked **auto** in the configuration.
+> 查询配置中标记为 **auto** 的所有接口。
 
 **--list**
-> List matching interface names instead of printing their configuration. Combine with **--all** or **--allow** to filter.
+> 列出匹配的接口名称，而不是打印其配置。可与 **--all** 或 **--allow** 组合过滤。
 
 **--state**
-> Query the state file (**/run/network/ifstate**) for currently active interfaces rather than the configuration file.
+> 查询状态文件（**/run/network/ifstate**）中当前活动的接口，而非配置文件。
 
 **--check**
-> Compare running interface state against its configuration and report differences (ifupdown2 only).
+> 将接口的运行状态与其配置进行比较并报告差异（仅限 ifupdown2）。
 
 **--allow** _CLASS_
-> Only match interfaces in the given allow class (e.g. **auto**, **hotplug**).
+> 只匹配给定 allow 类别中的接口（如 **auto**、**hotplug**）。
 
 **-i**, **--interfaces** _FILE_
-> Read configuration from _FILE_ instead of **/etc/network/interfaces**.
+> 从 _FILE_ 而不是 **/etc/network/interfaces** 读取配置。
 
 **--force**
-> Force the operation (used with some queries in ifupdown2).
+> 强制执行操作（在 ifupdown2 中与某些查询配合使用）。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ifquery** queries network interface configuration as defined in **/etc/network/interfaces** and its **interfaces.d/** drop-in directory. It is read-only and never modifies interface state.
+**ifquery** 查询 **/etc/network/interfaces** 及其 **interfaces.d/** 附加目录中定义的网络接口配置。它是只读的，从不修改接口状态。
 
-When called without **--state**, it parses the configuration file and prints the stanzas matching the given interface(s). With **--state**, it reads **/run/network/ifstate** to show which interfaces are currently marked as up.
+不带 **--state** 调用时，它解析配置文件并打印与给定接口匹配的段落。使用 **--state** 时，它读取 **/run/network/ifstate** 以显示哪些接口当前被标记为启用。
 
-On systems using **ifupdown2** (common on newer Debian/Ubuntu), additional features are available including **--check** to compare running state against configuration and JSON output.
+在使用 **ifupdown2** 的系统上（较新的 Debian/Ubuntu 常见），还提供额外功能，包括用于比较运行状态与配置的 **--check** 以及 JSON 输出。
 
 # CAVEATS
 
-Debian/Ubuntu specific; part of the **ifupdown** (or **ifupdown2**) package. Only reads configuration and state files; never changes anything. The **--check** flag is only available in ifupdown2. Systems using NetworkManager or systemd-networkd may not use **/etc/network/interfaces** at all.
+Debian/Ubuntu 特有；属于 **ifupdown**（或 **ifupdown2**）软件包。只读取配置和状态文件；绝不修改任何内容。**--check** 标志仅在 ifupdown2 中可用。使用 NetworkManager 或 systemd-networkd 的系统可能完全不使用 **/etc/network/interfaces**。
 
 # INSTALL
 

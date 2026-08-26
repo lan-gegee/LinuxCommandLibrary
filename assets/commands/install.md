@@ -1,38 +1,38 @@
 # TAGLINE
 
-copies files while setting permissions and ownership
+复制文件的同时设置权限和所有者
 
 # TLDR
 
-**Copy file with specific permissions**
+**以指定权限复制文件**
 
 ```install -m [755] [source] [dest]```
 
-**Copy files into a target directory**
+**将文件复制到目标目录**
 
 ```install -t [/usr/local/bin/] [file1] [file2]```
 
-**Create directories (including parents)**
+**创建目录（含父目录）**
 
 ```install -d [/path/to/dir]```
 
-**Set owner and group**
+**设置所有者和组**
 
 ```install -o [user] -g [group] [file] [dest]```
 
-**Copy preserving timestamps**
+**复制时保留时间戳**
 
 ```install -p [file] [dest]```
 
-**Strip binaries during install**
+**安装时剥离二进制文件**
 
 ```install -s [binary] [/usr/local/bin/]```
 
-**Copy only if source is different (avoids unnecessary writes)**
+**仅当源文件不同才复制**（避免不必要的写入）
 
 ```install -C [file] [dest]```
 
-**Create parent directories then copy**
+**先创建父目录再复制**
 
 ```install -D [source] [/path/to/new/dir/dest]```
 
@@ -46,70 +46,70 @@ copies files while setting permissions and ownership
 
 # DESCRIPTION
 
-**install** copies files while setting permissions and ownership. It is primarily used in Makefiles and installation scripts to place files with correct attributes.
+**install** 在复制文件的同时设置权限和所有者。它主要用于 Makefile 和安装脚本中，以正确的属性放置文件。
 
-The tool combines cp, chmod, chown, and mkdir functionality, streamlining installation tasks. It can also strip binaries and back up existing files. The default permission mode is **rwxr-xr-x** (755).
+该工具集 cp、chmod、chown 和 mkdir 功能于一体，简化安装任务。它还能剥离二进制文件并备份已有文件。默认权限模式为 **rwxr-xr-x**（755）。
 
 # PARAMETERS
 
 **-m** _mode_, **--mode**=_mode_
-> Set permission mode (as in chmod), instead of the default rwxr-xr-x.
+> 设置权限模式（同 chmod），替代默认的 rwxr-xr-x。
 
 **-o** _owner_, **--owner**=_owner_
-> Set ownership (super-user only).
+> 设置所有者（仅超级用户）。
 
 **-g** _group_, **--group**=_group_
-> Set group ownership instead of the process's current group.
+> 设置组所有权，替代进程的当前组。
 
 **-d**, **--directory**
-> Treat all arguments as directory names; create all components of the specified directories.
+> 将所有参数视为目录名；创建指定目录的所有组成部分。
 
 **-D**
-> Create all leading parent directory components of dest, then copy source to dest.
+> 创建 dest 的全部父目录组件，然后把 source 复制为 dest。
 
 **-t** _DIRECTORY_, **--target-directory**=_DIRECTORY_
-> Copy all source arguments into DIRECTORY.
+> 将所有 source 参数复制到 DIRECTORY 中。
 
 **-T**, **--no-target-directory**
-> Treat dest as a normal file, not a directory.
+> 将 dest 视为普通文件而非目录。
 
 **-C**, **--compare**
-> Compare source and destination; do not modify dest if content, ownership, and permissions are unchanged.
+> 比较 source 与目标；若内容、所有权和权限均未变化则不修改目标。
 
 **-s**, **--strip**
-> Strip symbol tables from installed binaries.
+> 从安装的二进制文件中剥离符号表。
 
 **--strip-program**=_PROGRAM_
-> Program used to strip binaries (default: strip).
+> 用于剥离二进制文件的程序（默认：strip）。
 
 **-p**, **--preserve-timestamps**
-> Apply access/modification times of source files to destination files.
+> 将源文件的访问/修改时间应用到目标文件。
 
 **-b**
-> Make a backup of each existing destination file.
+> 为每个已存在的目标文件创建备份。
 
 **--backup**[=_CONTROL_]
-> Make a backup of each existing destination file, with optional version control method.
+> 为每个已存在的目标文件创建备份，可选版本控制方式。
 
 **-S** _suffix_, **--suffix**=_suffix_
-> Override the usual backup suffix.
+> 覆盖常用的备份后缀。
 
 **-v**, **--verbose**
-> Print the name of each file or directory as it is created.
+> 打印每个被创建的文件或目录的名称。
 
 **-c**
-> Ignored; for compatibility with older Unix versions.
+> 被忽略；仅为兼容旧版 Unix。
 
 **-Z**, **--context**
-> Set SELinux security context of destination files to the default type.
+> 将目标文件的 SELinux 安全上下文设为默认类型。
 
 # CAVEATS
 
-Not intended for general file copying. The default permission mode is 755 (rwxr-xr-x), unlike cp which preserves source permissions. Requires appropriate privileges for ownership changes.
+不适用于一般性文件复制。默认权限模式是 755（rwxr-xr-x），与 cp 会保留源文件权限不同。更改所有权需要相应权限。
 
 # HISTORY
 
-**install** is a traditional Unix utility, part of **GNU coreutils** on Linux. It has been used in Makefiles since early Unix for standardized software installation procedures.
+**install** 是传统 Unix 工具，在 Linux 上属于 **GNU coreutils**。自早期 Unix 起，它就被用于 Makefile 以实现标准化的软件安装流程。
 
 # INSTALL
 

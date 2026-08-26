@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI command organizer for saving and recalling snippets
+用于保存和调用命令片段的 CLI 命令管理器
 
 # TLDR
 
-**Save a new command** to hoard
+**将新命令保存**到 hoard
 
 ```hoard new```
 
-**List and search saved commands**
+**列出并搜索已保存的命令**
 
 ```hoard list```
 
-**Edit a saved command**
+**编辑已保存的命令**
 
 ```hoard edit```
 
-**Remove a saved command**
+**删除已保存的命令**
 
 ```hoard remove```
 
-**Save a parameterized command** with placeholders
+**用占位符保存参数化命令**
 
 ```hoard new --name "[name]" --command "curl -X POST #url# -d #data#"```
 
@@ -30,21 +30,21 @@ CLI command organizer for saving and recalling snippets
 
 # DESCRIPTION
 
-**hoard** is a CLI command organizer that saves commands you frequently use but are too complicated or long to remember. For every hoarded command, it saves the command parameterized with a customizable token (default **#**), so when you select a command, hoard asks for all missing parameters before sending the complete command to your shell.
+**hoard** 是一个 CLI 命令管理器，用来保存那些你经常使用、但过于复杂或冗长而记不住的命令。对于每个收藏的命令，它会以可自定义的分隔符（默认 **#**）将其参数化保存；当你选择某个命令时，hoard 会先询问所有缺失的参数，再把完整命令发送给你的 Shell。
 
-When a **trove.yml** file is present in the local directory, hoard loads only that file, enabling project-specific command collections. It can be installed as a shell plugin for autocomplete integration.
+当本地目录中存在 **trove.yml** 文件时，hoard 只加载该文件，从而支持项目专属的命令集合。它还可以安装为 Shell 插件，实现自动补全集成。
 
 # CONFIGURATION
 
-Commands are stored in a **trove.yml** file. Global configuration supports customizing the parameter token, default namespace, and shell integration settings.
+命令保存在 **trove.yml** 文件中。全局配置支持自定义参数分隔符、默认命名空间和 Shell 集成设置。
 
 # CAVEATS
 
-Shell plugin installation is required for full autocomplete and inline execution features. Parameterized commands use a simple token replacement that doesn't support complex templating.
+需要安装 Shell 插件才能使用完整的自动补全和内联执行功能。参数化命令采用简单的分隔符替换，不支持复杂的模板语法。
 
 # HISTORY
 
-**hoard** was created by **Hyde46** and is written in **Rust**. It was designed to solve the problem of remembering complex CLI commands by providing a quick-access organized collection with parameter substitution.
+**hoard** 由 **Hyde46** 创建，使用 **Rust** 编写。它旨在通过提供带参数替换的快速访问命令集合，解决记住复杂 CLI 命令的问题。
 
 # INSTALL
 

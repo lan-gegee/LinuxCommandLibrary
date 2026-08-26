@@ -1,22 +1,22 @@
 # TAGLINE
 
-lists connected iOS device identifiers
+列出已连接 iOS 设备的标识符
 
 # TLDR
 
-**List connected devices**
+**列出已连接的设备**
 
 ```idevice_id -l```
 
-**Show device UDID**
+**显示设备 UDID**
 
 ```idevice_id```
 
-**List in simple mode**
+**以简单模式列出**
 
 ```idevice_id -l -n```
 
-**Debug output**
+**调试输出**
 
 ```idevice_id -d -l```
 
@@ -27,33 +27,33 @@ lists connected iOS device identifiers
 # PARAMETERS
 
 **-l**, **--list**
-> List device UDIDs.
+> 列出设备 UDID。
 
 **-n**, **--network**
-> Include network devices.
+> 包含网络设备。
 
 **-d**, **--debug**
-> Debug output.
+> 调试输出。
 
 **-u** _UDID_
-> Target device.
+> 目标设备。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**idevice_id** lists connected iOS device identifiers. It detects iPhones, iPads, and iPods via USB or network.
+**idevice_id** 列出已连接 iOS 设备的标识符。它通过 USB 或网络检测 iPhone、iPad 和 iPod。
 
-The tool provides UDIDs needed for other libimobiledevice commands. It's the first step in iOS device management.
+该工具提供其他 libimobiledevice 命令所需的 UDID。它是 iOS 设备管理的第一步。
 
 # CAVEATS
 
-Part of libimobiledevice. Requires USB access. May need pairing.
+属于 libimobiledevice。需要 USB 访问权限。可能需要先配对。
 
 # HISTORY
 
-idevice_id is part of **libimobiledevice**, the open-source iOS device communication library.
+idevice_id 是 **libimobiledevice** 的一部分，后者是一个开源的 iOS 设备通信库。
 
 # INSTALL
 

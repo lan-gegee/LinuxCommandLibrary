@@ -1,34 +1,34 @@
 # TAGLINE
 
-vulnerability scanner for container images and filesystems
+容器镜像和文件系统的漏洞扫描器
 
 # TLDR
 
-**Scan container image**
+**扫描容器镜像**
 
 ```grype [image:tag]```
 
-**Scan directory**
+**扫描目录**
 
 ```grype dir:[path]```
 
-**Scan SBOM file**
+**扫描 SBOM 文件**
 
 ```grype sbom:[sbom.json]```
 
-**Output in JSON**
+**以 JSON 输出**
 
 ```grype [image] -o json```
 
-**Fail CI if high or critical vulnerabilities found**
+**发现高危或严重漏洞时使 CI 失败**
 
 ```grype [image] --fail-on high```
 
-**Show only vulnerabilities with available fixes**
+**只显示有可用修复的漏洞**
 
 ```grype [image] --only-fixed```
 
-**Scan and exclude specific paths**
+**扫描并排除特定路径**
 
 ```grype dir:[path] --exclude "[glob_pattern]"```
 
@@ -39,68 +39,68 @@ vulnerability scanner for container images and filesystems
 # PARAMETERS
 
 **-o**, **--output** _format_
-> Report format (table, json, cyclonedx, cyclonedx-json, sarif, template).
+> 报告格式（table、json、cyclonedx、cyclonedx-json、sarif、template）。
 
 **-f**, **--fail-on** _severity_
-> Return exit code 2 if vulnerability found at severity level or higher (negligible, low, medium, high, critical).
+> 若发现达到或超过指定级别的漏洞则返回退出码 2（negligible、low、medium、high、critical）。
 
 **--only-fixed**
-> Show only vulnerabilities with available fixes.
+> 只显示有可用修复的漏洞。
 
 **--only-notfixed**
-> Show only vulnerabilities without available fixes.
+> 只显示没有可用修复的漏洞。
 
 **--by-cve**
-> Organize results by CVE rather than original vulnerability ID.
+> 按 CVE 而不是原始漏洞 ID 组织结果。
 
 **--add-cpes-if-none**
-> Generate CPEs for packages that lack them.
+> 为缺少 CPE 的软件包生成 CPE。
 
 **-s**, **--scope** _scope_
-> Layer analysis scope (squashed, all-layers).
+> 层分析范围（squashed、all-layers）。
 
 **--exclude** _glob_
-> Exclude paths matching the given glob pattern.
+> 排除匹配给定 glob 模式的路径。
 
 **--platform** _platform_
-> Container platform specifier (e.g., linux/arm64).
+> 容器平台说明符（例如 linux/arm64）。
 
 **-q**, **--quiet**
-> Suppress logging output.
+> 抑制日志输出。
 
 **-v**, **--verbose**
-> Increase verbosity (-v for info, -vv for debug).
+> 提高详细程度（-v 为 info，-vv 为 debug）。
 
 **-c**, **--config** _file_
-> Specify configuration file.
+> 指定配置文件。
 
 **--file** _path_
-> Write report output to a file instead of stdout.
+> 将报告输出写入文件而不是 stdout。
 
 **--vex** _document_
-> Apply VEX documents to filter results.
+> 应用 VEX 文档过滤结果。
 
 # DESCRIPTION
 
-**grype** is a vulnerability scanner for container images and filesystems. It identifies known security vulnerabilities in packages and dependencies by comparing against vulnerability databases.
+**grype** 是一款面向容器镜像和文件系统的漏洞扫描器。它通过比对漏洞数据库来识别软件包和依赖中的已知安全漏洞。
 
-The tool integrates with CI/CD pipelines and produces reports in various formats. It works with the same sources as Syft for comprehensive software composition analysis.
+该工具可与 CI/CD 流水线集成，并以多种格式生成报告。它与 Syft 使用相同的源，可实现全面的软件组成分析。
 
 # SOURCE TYPES
 
-**image**: Container image (default)
-**dir:**: Local directory
-**file:**: Single file
-**sbom:**: SBOM file (Syft, CycloneDX, SPDX)
-**registry:**: Remote container registry
+**image**: 容器镜像（默认）
+**dir:**: 本地目录
+**file:**: 单个文件
+**sbom:**: SBOM 文件（Syft、CycloneDX、SPDX）
+**registry:**: 远程容器仓库
 
 # CAVEATS
 
-Database updates needed regularly. False positives possible. Coverage depends on ecosystem. Large images scan slowly.
+需要定期更新数据库。可能出现误报。覆盖范围取决于生态系统。大型镜像扫描较慢。
 
 # HISTORY
 
-**grype** was created by **Anchore** as part of their open source security tooling alongside Syft. It emerged around **2020** to address container security scanning needs with a focus on accuracy and integration.
+**grype** 由 **Anchore** 创建，是其开源安全工具链中与 Syft 并列的组成部分。它出现于 **2020 年**前后，旨在满足容器安全扫描需求，重点关注准确性和集成能力。
 
 # INSTALL
 

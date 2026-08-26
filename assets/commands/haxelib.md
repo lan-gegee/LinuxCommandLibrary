@@ -1,46 +1,46 @@
 # TAGLINE
 
-Package manager for the Haxe programming language
+Haxe 编程语言的软件包管理器
 
 # TLDR
 
-**Install a library**
+**安装库**
 
 ```haxelib install [library]```
 
-**Install a specific version**
+**安装指定版本**
 
 ```haxelib install [library] [version]```
 
-**Install from a zip file**
+**从 zip 文件安装**
 
 ```haxelib install [file.zip]```
 
-**Update a single library**
+**更新单个库**
 
 ```haxelib update [library]```
 
-**Update all installed libraries**
+**更新所有已安装的库**
 
 ```haxelib update```
 
-**List installed libraries**
+**列出已安装的库**
 
 ```haxelib list```
 
-**Search for libraries**
+**搜索库**
 
 ```haxelib search [query]```
 
-**Remove a library**
+**移除库**
 
 ```haxelib remove [library]```
 
-**Use a git repository as a library**
+**使用 git 仓库作为库**
 
 ```haxelib git [library] [https://github.com/user/repo.git]```
 
-**Point a library at a local development directory**
+**将库指向本地开发目录**
 
 ```haxelib dev [library] [path/to/source]```
 
@@ -51,71 +51,71 @@ Package manager for the Haxe programming language
 # SUBCOMMANDS
 
 **install** _name_ [_version_]
-> Install a library from the haxelib repository or a local zip.
+> 从 haxelib 仓库或本地 zip 安装库。
 
 **update** [_name_]
-> Update a single library, or all installed libraries when no name is given.
+> 更新单个库；不指定名称时更新所有已安装的库。
 
 **upgrade**
-> Update every installed library to the latest version.
+> 将所有已安装的库更新到最新版本。
 
 **remove** _name_ [_version_]
-> Remove an installed library.
+> 移除已安装的库。
 
 **list**
-> List installed libraries and their versions.
+> 列出已安装的库及其版本。
 
 **search** _query_
-> Search the haxelib repository for libraries matching _query_.
+> 在 haxelib 仓库中搜索匹配 _query_ 的库。
 
 **info** _name_
-> Show information about a library.
+> 显示某个库的信息。
 
 **run** _name_ [_args..._]
-> Execute a library's run script.
+> 执行库的运行脚本。
 
 **dev** _name_ _path_
-> Point a library at a local development directory. Pass no path to clear.
+> 将库指向本地开发目录。不传路径则清除指向。
 
 **git** _name_ _url_ [_branch_]
-> Use a git repository as the source for a library.
+> 使用 git 仓库作为库的来源。
 
 **hg** _name_ _url_ [_branch_]
-> Use a mercurial repository as the source for a library.
+> 使用 mercurial 仓库作为库的来源。
 
 **path** _name..._
-> Print source paths, dependencies, and compiler defines for the given libraries.
+> 打印给定库的源码路径、依赖关系和编译器 define。
 
 **libpath** _name..._
-> Print the root path of each library, one per line.
+> 打印每个库的根路径，每行一个。
 
 **version**
-> Print the haxelib version.
+> 打印 haxelib 版本。
 
 **config**
-> Print the haxelib repository path.
+> 打印 haxelib 仓库路径。
 
 **setup** [_path_]
-> Configure the haxelib repository path.
+> 配置 haxelib 仓库路径。
 
 **newrepo**
-> Create a local repository in the current directory.
+> 在当前目录创建本地仓库。
 
 **deleterepo**
-> Remove the local repository in the current directory.
+> 移除当前目录中的本地仓库。
 
 **selfupdate**
-> Update haxelib itself.
+> 更新 haxelib 自身。
 
 # DESCRIPTION
 
-**haxelib** is the package manager for the **Haxe** programming language. It installs, updates, and removes libraries from the central registry at `lib.haxe.org`, and also supports installing libraries from git or mercurial repositories or local zip archives.
+**haxelib** 是 **Haxe** 编程语言的软件包管理器。它可以从 `lib.haxe.org` 中央注册表安装、更新和移除库，也支持从 git 或 mercurial 仓库以及本地 zip 压缩包安装库。
 
-The `dev` command points a library at a local working copy, which is the standard workflow for developing a library and testing it inside another project. The `newrepo` command creates a per-project library directory so each project can pin its own dependency versions.
+`dev` 命令将某个库指向本地工作副本，这是开发库并在其他项目中测试它的标准工作流。`newrepo` 命令创建项目专属的库目录，使每个项目都可以固定自己的依赖版本。
 
 # CAVEATS
 
-The default repository is shared system-wide; use `haxelib newrepo` for project-local installs. Library names are case-sensitive on case-sensitive filesystems.
+默认仓库是全系统共享的；如需项目级安装，请使用 `haxelib newrepo`。在区分大小写的文件系统上，库名称区分大小写。
 
 # INSTALL
 

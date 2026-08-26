@@ -1,22 +1,22 @@
 # TAGLINE
 
-write GRUB boot code to MBR for BIOS systems
+将 GRUB 引导代码写入 BIOS 系统的 MBR
 
 # TLDR
 
-Set up a device to **boot with GRUB**
+设置某个设备以**通过 GRUB 启动**
 
 ```grub-bios-setup /dev/sdX```
 
-Install even if **problems are detected**
+即使**检测到问题**也继续安装
 
 ```grub-bios-setup -f /dev/sdX```
 
-Install GRUB in a **specific directory**
+在**特定目录**中安装 GRUB
 
 ```grub-bios-setup -d /boot/grub /dev/sdX```
 
-Also make the drive **bootable as a floppy**
+同时使驱动器可作为**软盘启动**
 
 ```grub-bios-setup -a /dev/sdX```
 
@@ -27,45 +27,45 @@ Also make the drive **bootable as a floppy**
 # PARAMETERS
 
 **-b**, **--boot-image** _FILE_
-> Use _FILE_ as the boot image instead of boot.img
+> 使用 _FILE_ 作为引导映像，而不是 boot.img
 
 **-c**, **--core-image** _FILE_
-> Use _FILE_ as the core image instead of core.img
+> 使用 _FILE_ 作为核心映像，而不是 core.img
 
 **-d**, **--directory** _DIR_
-> Use GRUB files from _DIR_ instead of default
+> 使用 _DIR_ 中的 GRUB 文件，而非默认位置
 
 **-m**, **--device-map** _FILE_
-> Use device map from _FILE_
+> 使用来自 _FILE_ 的设备映射
 
 **-f**, **--force**
-> Install even if problems are detected
+> 即使检测到问题也安装
 
 **-a**, **--allow-floppy**
-> Make the drive also bootable as a floppy (may break on some BIOSes)
+> 使驱动器同时可作为软盘启动（在某些 BIOS 上可能失效）
 
 **-s**, **--skip-fs-probe**
-> Skip filesystem probing
+> 跳过文件系统探测
 
 **--no-rs-codes**
-> Do not add Reed-Solomon error-correcting codes (x86 BIOS targets only)
+> 不添加 Reed-Solomon 纠错码（仅限 x86 BIOS 目标）
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 # DESCRIPTION
 
-**grub-bios-setup** is a low-level tool that writes the GRUB boot code to a disk's Master Boot Record (MBR) or BIOS Boot Partition for BIOS/legacy boot systems.
+**grub-bios-setup** 是一个底层工具，用于将 GRUB 引导代码写入磁盘的主引导记录（MBR）或 BIOS 引导分区，供 BIOS/传统引导系统使用。
 
-In most cases, you should use **grub-install** instead, which handles both copying GRUB files and running grub-bios-setup automatically. This tool is typically used for advanced scenarios like installing GRUB to a different device than where the GRUB files are located.
+大多数情况下应改用 **grub-install**，它会自动完成复制 GRUB 文件和运行 grub-bios-setup 两个步骤。本工具通常用于高级场景，例如把 GRUB 安装到与 GRUB 文件所在位置不同的设备上。
 
 # CAVEATS
 
-For BIOS systems only; UEFI systems use different methods. Incorrect use can make a system unbootable. Requires GRUB files to already be in place (use grub-install for normal installations).
+仅适用于 BIOS 系统；UEFI 系统使用不同的方法。使用不当可能导致系统无法启动。要求 GRUB 文件已经就位（常规安装请使用 grub-install）。
 
 # HISTORY
 
-grub-bios-setup is part of GRUB 2, providing the low-level MBR installation that was previously handled by a single grub-install command. The separation allows more flexibility in complex installation scenarios.
+grub-bios-setup 属于 GRUB 2，提供了原先由单一 grub-install 命令处理的底层 MBR 安装功能。这种拆分为复杂的安装场景带来了更大的灵活性。
 
 # INSTALL
 

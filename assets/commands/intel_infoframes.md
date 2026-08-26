@@ -1,14 +1,14 @@
 # TAGLINE
 
-view and change HDMI InfoFrames sent by the GPU
+查看和修改 GPU 发送的 HDMI InfoFrame
 
 # TLDR
 
-**View HDMI infoframes**
+**查看 HDMI infoframe**
 
 ```sudo intel_infoframes```
 
-**Display help** with field descriptions
+**显示带字段说明的帮助**
 
 ```intel_infoframes --help```
 
@@ -19,21 +19,21 @@ view and change HDMI InfoFrames sent by the GPU
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information and field descriptions.
+> 显示帮助信息和字段说明。
 
 # DESCRIPTION
 
-**intel_infoframes** is a debugging tool that views and changes the HDMI InfoFrames sent by the GPU. InfoFrames carry metadata about video format, audio, and other display parameters.
+**intel_infoframes** 是一款调试工具，用于查看和修改 GPU 发送的 HDMI InfoFrame。InfoFrame 承载关于视频格式、音频和其他显示参数的元数据。
 
-Descriptions of the InfoFrame fields can be found in the HDMI and CEA-861 specifications. Not all HDMI monitors respect the InfoFrames sent to them. In some cases (e.g., when changing modes) the Kernel will undo the changes made by this tool.
+InfoFrame 字段的说明可参考 HDMI 和 CEA-861 规范。并非所有 HDMI 显示器都会遵守发送给它们的 InfoFrame。某些情况下（例如切换显示模式时），内核会撤销本工具所做的更改。
 
 # CAVEATS
 
-Intel graphics only (GEN 4 or newer). Requires active display. Part of intel-gpu-tools (igt-gpu-tools).
+仅适用于 Intel 显卡（GEN 4 或更新）。需要有正在工作的显示器。属于 intel-gpu-tools（igt-gpu-tools）的一部分。
 
 # HISTORY
 
-intel_infoframes is part of **intel-gpu-tools**, created for debugging digital display connections on Intel graphics.
+intel_infoframes 是 **intel-gpu-tools** 的一部分，用于调试 Intel 显卡的数字显示连接。
 
 # INSTALL
 

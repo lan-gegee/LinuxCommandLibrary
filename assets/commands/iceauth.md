@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages ICE authorization entries
+管理 ICE 授权条目
 
 # TLDR
 
-**List entries**
+**列出条目**
 
 ```iceauth list```
 
-**Extract to file**
+**提取到文件**
 
 ```iceauth extract [auth-file]```
 
-**Add entry**
+**添加条目**
 
 ```iceauth add [protocol] [address] [auth-name] [auth-data]```
 
-**Merge from file**
+**从文件合并**
 
 ```iceauth merge [auth-file]```
 
@@ -27,39 +27,39 @@ manages ICE authorization entries
 # PARAMETERS
 
 _COMMAND_
-> Command (list, add, remove, extract, merge).
+> 命令（list、add、remove、extract、merge）。
 
 **list**
-> List authorization entries.
+> 列出授权条目。
 
 **add**
-> Add entry.
+> 添加条目。
 
 **remove**
-> Remove entry.
+> 移除条目。
 
 **extract**
-> Extract to file.
+> 提取到文件。
 
 **merge**
-> Merge from file.
+> 从文件合并。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**iceauth** manages ICE (Inter-Client Exchange) authorization entries. ICE is used for communication between X11 clients.
+**iceauth** 管理 ICE（Inter-Client Exchange，客户端间交换）授权条目。ICE 用于 X11 客户端之间的通信。
 
-The tool handles authentication records for X session managers and similar applications. It's analogous to xauth for X display connections.
+该工具处理 X 会话管理器及类似应用程序的认证记录，其作用类似于 X 显示连接中的 xauth。
 
 # CAVEATS
 
-X11 specific. Used by session managers. Low-level utility.
+X11 特有。由会话管理器使用。属于底层工具。
 
 # HISTORY
 
-iceauth is part of **X.Org** for managing ICE protocol authentication, used in X session management.
+iceauth 是 **X.Org** 的组成部分，用于管理 ICE 协议认证，应用于 X 会话管理。
 
 # INSTALL
 

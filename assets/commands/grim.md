@@ -1,30 +1,30 @@
 # TAGLINE
 
-Wayland-native screenshot tool
+Wayland 原生截图工具
 
 # TLDR
 
-**Screenshot** all outputs
+对**所有输出进行截图**
 
 ```grim```
 
-Screenshot a **specific output**
+对**特定输出**截图
 
 ```grim -o [output_name]```
 
-Screenshot a **specific region**
+对**特定区域**截图
 
 ```grim -g "[x],[y] [width]x[height]"```
 
-**Select** a region and screenshot it (using slurp)
+**选择**一个区域并对其截图（配合 slurp）
 
 ```grim -g "$(slurp)"```
 
-Use a **custom filename**
+使用**自定义文件名**
 
 ```grim "[path/to/file.png]"```
 
-Screenshot and **copy to clipboard**
+截图并**复制到剪贴板**
 
 ```grim - | wl-copy```
 
@@ -35,39 +35,39 @@ Screenshot and **copy to clipboard**
 # PARAMETERS
 
 **-g** _GEOMETRY_
-> Capture specific region (x,y widthxheight format)
+> 捕获特定区域（x,y widthxheight 格式）
 
 **-o** _OUTPUT_
-> Capture specific Wayland output (monitor)
+> 捕获特定的 Wayland 输出（显示器）
 
 **-s** _FACTOR_
-> Set scale factor
+> 设置缩放系数
 
 **-t** _TYPE_
-> Output format: png, jpeg, or ppm
+> 输出格式：png、jpeg 或 ppm
 
 **-q** _QUALITY_
-> JPEG quality (1-100)
+> JPEG 质量（1-100）
 
 **-l** _LEVEL_
-> PNG compression level (0-9)
+> PNG 压缩级别（0-9）
 
 **-c**
-> Include cursor in screenshot
+> 在截图中包含光标
 
 # DESCRIPTION
 
-**grim** (grab image) is a Wayland-native screenshot tool. It captures images directly from the Wayland compositor, making it compatible with Sway, GNOME on Wayland, and other Wayland-based environments.
+**grim**（grab image）是一款 Wayland 原生截图工具。它直接从 Wayland 合成器捕获图像，因此与 Sway、Wayland 上的 GNOME 及其他基于 Wayland 的环境兼容。
 
-For region selection, grim is commonly paired with **slurp**, which allows interactive selection of screen areas. Output to stdout (**-**) enables piping to clipboard managers like **wl-copy**.
+对于区域选择，grim 通常与 **slurp** 搭配使用，后者支持交互式选择屏幕区域。输出到标准输出（**-**）可以通过管道传给 **wl-copy** 等剪贴板管理器。
 
 # CAVEATS
 
-Wayland-only; does not work on X11 (use scrot or maim instead). Requires a compatible Wayland compositor with screencopy protocol support. Some compositors may need additional configuration to enable screenshots.
+仅限 Wayland；在 X11 上无法工作（请改用 scrot 或 maim）。需要支持 screencopy 协议的兼容 Wayland 合成器。某些合成器可能需要额外配置才能启用截图。
 
 # HISTORY
 
-grim was created by Simon Ser (emersion) as part of the Wayland ecosystem tooling for the Sway window manager. It provides functionality similar to X11 tools like scrot but designed specifically for Wayland's security model.
+grim 由 Simon Ser（emersion）创建，是 Sway 窗口管理器 Wayland 生态工具的一部分。它提供类似 scrot 等 X11 工具的功能，但专为 Wayland 的安全模型而设计。
 
 # INSTALL
 

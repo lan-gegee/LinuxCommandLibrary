@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates a copy of a Mercurial repository
+创建 Mercurial 仓库的副本
 
 # TLDR
 
-**Clone repository**
+**克隆仓库**
 
 ```hg clone [url]```
 
-**Clone to specific directory**
+**克隆到指定目录**
 
 ```hg clone [url] [directory]```
 
-**Clone specific branch**
+**克隆特定分支**
 
 ```hg clone -b [branch] [url]```
 
-**Clone with specific revision**
+**以指定修订版本克隆**
 
 ```hg clone -r [revision] [url]```
 
-**Clone without working directory**
+**不带工作目录克隆**
 
 ```hg clone -U [url]```
 
@@ -31,51 +31,51 @@ creates a copy of a Mercurial repository
 # PARAMETERS
 
 _SOURCE_
-> Repository URL or path.
+> 仓库 URL 或路径。
 
 _DEST_
-> Destination directory.
+> 目标目录。
 
 **-b**, **--branch** _BRANCH_
-> Clone specific branch.
+> 克隆特定分支。
 
 **-r**, **--rev** _REV_
-> Clone up to revision.
+> 克隆到指定的修订版本为止。
 
 **-U**, **--noupdate**
-> Clone without working directory.
+> 克隆但不创建工作目录。
 
 **-u**, **--updaterev** _REV_
-> Check out the given revision, tag, or branch instead of the tip.
+> 检出指定的修订版本、标签或分支，而不是 tip。
 
 **--pull**
-> Use pull protocol to copy metadata.
+> 使用 pull 协议复制元数据。
 
 **--stream**
-> Clone with minimal data processing (faster, but skips revlog delta reconstruction).
+> 以最少的数据处理方式克隆（更快，但会跳过 revlog 增量重建）。
 
 **-e**, **--ssh** _CMD_
-> Specify ssh command to use.
+> 指定要使用的 ssh 命令。
 
 **--insecure**
-> Do not verify the server certificate.
+> 不验证服务器证书。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg clone** creates a copy of a Mercurial repository. It downloads the entire history and creates a working directory.
+**hg clone** 创建 Mercurial 仓库的副本。它会下载完整历史并创建工作目录。
 
-The command supports various protocols including SSH, HTTP, and local paths. It can clone specific branches or revisions.
+该命令支持多种协议，包括 SSH、HTTP 和本地路径。也可以只克隆特定的分支或修订版本。
 
 # CAVEATS
 
-Full history downloaded by default. Large repos take time. Network required for remote repos.
+默认下载完整历史。大型仓库耗时较长。远程仓库需要网络连接。
 
 # HISTORY
 
-Clone is a core **Mercurial** command since version 1.0, providing distributed repository copying.
+clone 是 **Mercurial** 自 1.0 版本以来的核心命令，用于分布式仓库复制。
 
 # INSTALL
 

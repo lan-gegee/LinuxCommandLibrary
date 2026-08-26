@@ -1,38 +1,38 @@
 # TAGLINE
 
-python WSGI HTTP server for Unix
+适用于 Unix 的 Python WSGI HTTP 服务器
 
 # TLDR
 
-**Run a WSGI application**
+**运行 WSGI 应用程序**
 
 ```gunicorn [myapp:app]```
 
-**Run on a specific host and port**
+**在指定的主机和端口上运行**
 
 ```gunicorn --bind [0.0.0.0:8000] [myapp:app]```
 
-**Run with multiple workers**
+**使用多个 worker 运行**
 
 ```gunicorn --workers [4] [myapp:app]```
 
-**Run with automatic worker restart**
+**自动重启 worker 运行**
 
 ```gunicorn --reload [myapp:app]```
 
-**Run with access logging**
+**开启访问日志运行**
 
 ```gunicorn --access-logfile [access.log] [myapp:app]```
 
-**Run as a daemon** (background)
+**以守护进程方式运行**（后台）
 
 ```gunicorn --daemon --pid [gunicorn.pid] [myapp:app]```
 
-**Run with Unix socket**
+**使用 Unix 套接字运行**
 
 ```gunicorn --bind unix:[/tmp/gunicorn.sock] [myapp:app]```
 
-**Use async workers** (gevent)
+**使用异步 worker**（gevent）
 
 ```gunicorn --worker-class [gevent] --workers [4] [myapp:app]```
 
@@ -43,80 +43,80 @@ python WSGI HTTP server for Unix
 # PARAMETERS
 
 **-b**, **--bind** _ADDRESS_
-> Socket to bind (HOST:PORT, unix:PATH, or fd://FD).
+> 要绑定的套接字（HOST:PORT、unix:PATH 或 fd://FD）。
 
 **-w**, **--workers** _INT_
-> Number of worker processes (default: 1).
+> worker 进程数量（默认为 1）。
 
 **-k**, **--worker-class** _STRING_
-> Worker type: sync, gevent, eventlet, tornado, gthread.
+> worker 类型：sync、gevent、eventlet、tornado、gthread。
 
 **--threads** _INT_
-> Threads per worker (for gthread worker).
+> 每个 worker 的线程数（用于 gthread worker）。
 
 **-t**, **--timeout** _INT_
-> Worker timeout in seconds (default: 30).
+> worker 超时时间，单位为秒（默认为 30）。
 
 **--graceful-timeout** _INT_
-> Timeout for graceful worker restart.
+> worker 优雅重启的超时时间。
 
 **--reload**
-> Restart workers when code changes (development only).
+> 代码变更时重启 worker（仅用于开发）。
 
 **-D**, **--daemon**
-> Daemonize the process.
+> 以守护进程方式运行。
 
 **-p**, **--pid** _FILE_
-> PID file path.
+> PID 文件路径。
 
 **--access-logfile** _FILE_
-> Access log file (- for stdout).
+> 访问日志文件（- 表示标准输出）。
 
 **--error-logfile** _FILE_
-> Error log file (- for stderr).
+> 错误日志文件（- 表示标准错误）。
 
 **--log-level** _LEVEL_
-> Logging level: debug, info, warning, error, critical.
+> 日志级别：debug、info、warning、error、critical。
 
 **-c**, **--config** _FILE_
-> Configuration file path.
+> 配置文件路径。
 
 **--preload**
-> Load application code before forking workers.
+> 在 fork worker 之前加载应用程序代码。
 
 **--max-requests** _INT_
-> Restart workers after this many requests (0 = disabled). Helps prevent memory leaks.
+> 处理这么多请求后重启 worker（0 表示禁用）。有助于防止内存泄漏。
 
 **--max-requests-jitter** _INT_
-> Random jitter added to max-requests to stagger restarts.
+> 添加到 max-requests 的随机抖动量，使重启时机错开。
 
 **--keep-alive** _INT_
-> Seconds to wait for requests on a Keep-Alive connection (default: 2).
+> Keep-Alive 连接上等待请求的秒数（默认为 2）。
 
 **-n**, **--name** _STRING_
-> Process name for ps output.
+> ps 输出中显示的进程名。
 
 **-u**, **--user** _USER_
-> Switch worker processes to run as this user.
+> 让 worker 进程以此用户身份运行。
 
 **-g**, **--group** _GROUP_
-> Switch worker process to run as this group.
+> 让 worker 进程以此组身份运行。
 
 # DESCRIPTION
 
-**Gunicorn** (Green Unicorn) is a Python WSGI HTTP server for Unix systems, designed to serve web applications in production using a pre-fork worker model. A master process manages a pool of worker processes, each of which independently handles incoming requests. The application is specified as **module:variable** (e.g., `myapp:app` for Flask or `myproject.wsgi:application` for Django), and the recommended worker count is **(2 x CPU cores) + 1** to balance concurrency against memory usage.
+**Gunicorn**（Green Unicorn）是一个面向 Unix 系统的 Python WSGI HTTP 服务器，专为在生产环境中服务 Web 应用而设计，采用 pre-fork worker 模型。主进程管理一个 worker 进程池，每个 worker 进程独立处理传入的请求。应用程序以 **module:variable** 形式指定（例如 Flask 使用 `myapp:app`，Django 使用 `myproject.wsgi:application`），推荐的 worker 数量为 **(2 x CPU 核心数) + 1**，以在并发能力与内存占用之间取得平衡。
 
-The default synchronous worker handles one request at a time per process, which is suitable for CPU-bound applications. For I/O-bound workloads with many concurrent connections, async worker classes such as `gevent` or `eventlet` use cooperative multithreading to multiplex thousands of connections within fewer processes, while the `gthread` worker uses OS threads. Workers that exceed the configurable timeout are automatically killed and restarted by the master process, providing resilience against hung requests.
+默认的同步 worker 每个进程一次只处理一个请求，适合 CPU 密集型应用。对于并发连接众多的 I/O 密集型工作负载，`gevent` 或 `eventlet` 等异步 worker 类使用协作式多线程，在更少的进程内复用数千个连接，而 `gthread` worker 则使用操作系统线程。超过可配置超时时间的 worker 会被主进程自动终止并重启，从而对挂起的请求提供容错能力。
 
-In production, Gunicorn typically runs behind a reverse proxy like Nginx, which handles SSL termination, static file serving, and request buffering. Communication between the proxy and Gunicorn occurs over HTTP or a Unix domain socket.
+在生产环境中，Gunicorn 通常运行在 Nginx 等反向代理之后，由代理负责 SSL 终止、静态文件服务和请求缓冲。代理与 Gunicorn 之间通过 HTTP 或 Unix 域套接字通信。
 
 # CAVEATS
 
-Not designed for Windows. Sync workers block on slow clients without buffering proxy. --reload is for development only. Preload can cause issues with some frameworks. Workers are killed after timeout regardless of what they're doing.
+不支持 Windows。没有缓冲代理时，同步 worker 会被慢速客户端阻塞。--reload 仅用于开发。--preload 可能与某些框架产生冲突。worker 超时后无论正在做什么都会被终止。
 
 # HISTORY
 
-**Gunicorn** was created by Benoît Chesneau, with the first release around **2010**. The name is a portmanteau of "Green Unicorn." It was designed as a Python port of Ruby's Unicorn server, bringing its pre-fork architecture to Python. Gunicorn has become one of the most popular WSGI servers for Python web applications.
+**Gunicorn** 由 Benoît Chesneau 创建，首个版本发布于约 **2010 年**。其名称是 "Green Unicorn" 的合成词。它的设计初衷是将 Ruby 的 Unicorn 服务器移植到 Python，把 pre-fork 架构带入 Python 世界。Gunicorn 已成为 Python Web 应用最流行的 WSGI 服务器之一。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-administration tool for IPv4 packet filtering and NAT in the Linux kernel
+Linux 内核中 IPv4 数据包过滤和 NAT 的管理工具
 
 # TLDR
 
-**View** chains, rules, and counters with line numbers
+带行号**查看**链、规则和计数器
 
 ```sudo iptables -vnL --line-numbers```
 
-Set chain **policy** rule
+设置链的**策略**规则
 
 ```sudo iptables -P [chain] [rule]```
 
-**Append** rule to chain for an IP
+为某个 IP 向链中**追加**规则
 
 ```sudo iptables -A [chain] -s [ip_address] -j [rule]```
 
-Append rule for IP with **protocol and port**
+为 IP 追加带**协议和端口**的规则
 
 ```sudo iptables -A [chain] -s [ip_address] -p tcp --dport [port] -j [rule]```
 
-Add a **NAT masquerade** rule
+添加 **NAT 伪装（masquerade）**规则
 
 ```sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -j MASQUERADE```
 
-**Delete** a chain rule by line number
+按行号**删除**链中的规则
 
 ```sudo iptables -D [chain] [rule_line_number]```
 
-**Flush** all rules
+**清空**所有规则
 
 ```sudo iptables -F```
 
@@ -38,86 +38,86 @@ Add a **NAT masquerade** rule
 
 # DESCRIPTION
 
-**iptables** is the administration tool for IPv4 packet filtering and NAT in the Linux kernel firewall (netfilter). It allows configuration of tables, chains, and rules to control network traffic.
+**iptables** 是 Linux 内核防火墙（netfilter）中 IPv4 数据包过滤和 NAT 的管理工具。它允许配置表、链和规则以控制网络流量。
 
 # PARAMETERS
 
 **-L, --list**
-> List all rules in selected chain
+> 列出所选链中的所有规则
 
 **-A, --append chain**
-> Append rule to chain
+> 将规则追加到链
 
 **-D, --delete chain**
-> Delete rule from chain
+> 从链中删除规则
 
 **-I, --insert chain [rulenum]**
-> Insert rule at position in chain (default position 1)
+> 在链中的指定位置插入规则（默认位置 1）
 
 **-P, --policy chain target**
-> Set default policy for chain
+> 设置链的默认策略
 
 **-F, --flush**
-> Flush all rules
+> 清空所有规则
 
 **-N, --new-chain chain**
-> Create a new user-defined chain
+> 创建新的用户自定义链
 
 **-X, --delete-chain [chain]**
-> Delete a user-defined chain (must be empty)
+> 删除用户自定义链（必须为空）
 
 **-E, --rename-chain old new**
-> Rename a user-defined chain
+> 重命名用户自定义链
 
 **-t, --table table**
-> Specify table (filter, nat, mangle, raw, security)
+> 指定表（filter、nat、mangle、raw、security）
 
 **-s, --source address**
-> Source address specification
+> 源地址规格
 
 **-d, --destination address**
-> Destination address specification
+> 目标地址规格
 
 **-p, --protocol protocol**
-> Protocol (tcp, udp, icmp, all)
+> 协议（tcp、udp、icmp、all）
 
 **--dport port**
-> Destination port
+> 目标端口
 
 **--sport port**
-> Source port
+> 源端口
 
 **-j, --jump target**
-> Target for rule (ACCEPT, DROP, REJECT, MASQUERADE, etc.)
+> 规则的目标动作（ACCEPT、DROP、REJECT、MASQUERADE 等）
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-n, --numeric**
-> Numeric output (don't resolve names)
+> 数字形式输出（不解析名称）
 
 **-x, --exact**
-> Expand numbers (display exact packet and byte counters)
+> 展开数字（显示精确的包计数器和字节计数器）
 
 **-i, --in-interface name**
-> Input interface name
+> 入站接口名称
 
 **-o, --out-interface name**
-> Output interface name
+> 出站接口名称
 
 **-m, --match match**
-> Load extended match module (e.g., state, conntrack, multiport)
+> 加载扩展匹配模块（如 state、conntrack、multiport）
 
 **--line-numbers**
-> Show line numbers
+> 显示行号
 
 # CAVEATS
 
-Rules are not persistent by default; use **iptables-save** and **iptables-restore** for persistence. Use **ip6tables** for IPv6 traffic. Modern systems may use **nftables** instead.
+默认情况下规则不会持久保留；要持久化请使用 **iptables-save** 和 **iptables-restore**。IPv6 流量请使用 **ip6tables**。现代系统可能改用 **nftables**。
 
 # HISTORY
 
-Part of the **netfilter** project. Introduced in **Linux 2.4** (2001) as a replacement for ipchains. Being gradually replaced by **nftables**.
+属于 **netfilter** 项目。在 **Linux 2.4**（2001 年）中引入，用于取代 ipchains。目前正逐渐被 **nftables** 取代。
 
 # INSTALL
 

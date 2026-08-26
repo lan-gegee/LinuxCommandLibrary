@@ -1,10 +1,10 @@
 # TAGLINE
 
-Restore IPv6 firewall rules from file
+从文件恢复 IPv6 防火墙规则
 
 # TLDR
 
-This command is an alias of **iptables-restore** for IPv6 firewall
+此命令是 IPv6 防火墙场景下 **iptables-restore** 的别名
 
 ```tldr iptables-restore```
 
@@ -14,7 +14,7 @@ This command is an alias of **iptables-restore** for IPv6 firewall
 
 # DESCRIPTION
 
-**ip6tables-restore** restores IPv6 firewall rules previously saved by **ip6tables-save**. It is functionally identical to **iptables-restore** but operates on the IPv6 **ip6tables** ruleset instead of the IPv4 **iptables** ruleset.
+**ip6tables-restore** 恢复之前由 **ip6tables-save** 保存的 IPv6 防火墙规则。它在功能上与 **iptables-restore** 完全相同，只是作用于 IPv6 的 **ip6tables** 规则集而非 IPv4 的 **iptables** 规则集。
 
 # INSTALL
 

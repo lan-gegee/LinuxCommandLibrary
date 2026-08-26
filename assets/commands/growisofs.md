@@ -1,22 +1,22 @@
 # TAGLINE
 
-DVD and Blu-ray disc burning tool
+DVD 和蓝光盘刻录工具
 
 # TLDR
 
-**Burn ISO to DVD**
+**将 ISO 刻录到 DVD**
 
 ```growisofs -dvd-compat -Z /dev/dvd=[image.iso]```
 
-**Create DVD from directory**
+**从目录创建 DVD**
 
 ```growisofs -Z /dev/dvd -R -J [directory]```
 
-**Append to multisession DVD**
+**追加到多区段 DVD**
 
 ```growisofs -M /dev/dvd -R -J [directory]```
 
-**Burn with verification**
+**刻录并进行校验**
 
 ```growisofs -dvd-compat -Z /dev/dvd=[image.iso] && md5sum /dev/dvd```
 
@@ -27,39 +27,39 @@ DVD and Blu-ray disc burning tool
 # PARAMETERS
 
 **-Z** _DEVICE_
-> Create new session on device.
+> 在设备上创建新区段。
 
 **-M** _DEVICE_
-> Append to existing multisession.
+> 追加到已有的多区段。
 
 **-dvd-compat**
-> Close disc for maximum compatibility.
+> 封盘以获得最大兼容性。
 
 **-speed=** _N_
-> Set burn speed.
+> 设置刻录速度。
 
 **-dry-run**
-> Simulate without writing.
+> 模拟而不实际写入。
 
 **-use-the-force-luke**
-> Override safety checks.
+> 覆盖安全检查。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**growisofs** burns DVDs and Blu-ray discs. It combines an mkisofs frontend with a dvd+rw-tools backend for seamless disc creation.
+**growisofs** 用于刻录 DVD 和蓝光光盘。它将 mkisofs 前端与 dvd+rw-tools 后端结合在一起，实现无缝的光盘创建。
 
-The tool handles session management, supports multisession DVDs, and works with DVD-R, DVD+R, DVD-RW, and Blu-ray media. It is the standard Linux DVD burning utility.
+该工具负责区段管理、支持多区段 DVD，并兼容 DVD-R、DVD+R、DVD-RW 和蓝光介质。它是 Linux 上的标准 DVD 刻录工具。
 
 # CAVEATS
 
-Requires dvd+rw-tools. Media type affects options. Speed depends on drive and media.
+需要 dvd+rw-tools。介质类型会影响可用选项。速度取决于驱动器和介质。
 
 # HISTORY
 
-growisofs was developed by **Andy Polyakov** as part of the **dvd+rw-tools** package for Linux optical disc burning.
+growisofs 由 **Andy Polyakov** 开发，是用于 Linux 光盘刻录的 **dvd+rw-tools** 软件包的一部分。
 
 # INSTALL
 

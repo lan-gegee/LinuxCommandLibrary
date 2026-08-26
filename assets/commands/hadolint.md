@@ -1,34 +1,34 @@
 # TAGLINE
 
-dockerfile linter that validates best practices and common mistakes
+校验最佳实践和常见错误的 Dockerfile linter
 
 # TLDR
 
-**Lint a Dockerfile**
+**对 Dockerfile 进行 lint**
 
 ```hadolint [path/to/Dockerfile]```
 
-**Lint from stdin**
+**从标准输入 lint**
 
 ```cat Dockerfile | hadolint -```
 
-**Ignore specific rules**
+**忽略指定规则**
 
 ```hadolint --ignore [DL3008] --ignore [DL3009] [path/to/Dockerfile]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```hadolint --format json [path/to/Dockerfile]```
 
-**Only allow images from trusted registries**
+**只允许来自受信任仓库的镜像**
 
 ```hadolint --trusted-registry [docker.io] [path/to/Dockerfile]```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```hadolint --config [path/to/.hadolint.yaml] [path/to/Dockerfile]```
 
-**Set failure threshold severity**
+**设置失败阈值的严重级别**
 
 ```hadolint --failure-threshold [warning] [path/to/Dockerfile]```
 
@@ -39,48 +39,48 @@ dockerfile linter that validates best practices and common mistakes
 # PARAMETERS
 
 _DOCKERFILE_
-> Dockerfile to lint.
+> 要 lint 的 Dockerfile。
 
 **--ignore** _RULE_
-> Ignore specific rule.
+> 忽略指定的规则。
 
 **--format** _FMT_
-> Output format: tty, json, checkstyle, codeclimate, gitlab_codeclimate, gnu, codacy, sonarqube, sarif (default: tty).
+> 输出格式：tty、json、checkstyle、codeclimate、gitlab_codeclimate、gnu、codacy、sonarqube、sarif（默认为 tty）。
 
 **--trusted-registry** _REG_
-> Trusted container registry. Images from untrusted registries generate warnings.
+> 受信任的容器仓库。来自不受信任仓库的镜像会产生警告。
 
 **--config** _FILE_
-> Config file path (default: .hadolint.yaml).
+> 配置文件路径（默认为 .hadolint.yaml）。
 
 **--failure-threshold** _SEVERITY_
-> Exit with failure code only for rules at or above this severity (error, warning, info, style, ignore, none).
+> 只有达到或超过该严重级别的规则才以失败码退出（error、warning、info、style、ignore、none）。
 
 **--no-color**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--no-fail**
-> Don't exit with a failure status code.
+> 不以失败状态码退出。
 
 **-t**, **--strict-labels**
-> Check that labels conform to defined format.
+> 检查标签是否符合定义的格式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Hadolint** is a Dockerfile linter that validates best practices and common mistakes. It uses ShellCheck to validate shell commands in RUN instructions.
+**Hadolint** 是一款 Dockerfile linter，用于校验最佳实践和常见错误。它使用 ShellCheck 校验 RUN 指令中的 shell 命令。
 
-The tool checks for security issues, inefficient layering, and deprecated syntax. It helps create optimized, secure container images.
+该工具检查安全问题、低效的分层和弃用的语法，帮助创建优化且安全的容器镜像。
 
 # CAVEATS
 
-Shell checking requires bash syntax. Some rules may not apply to all use cases. Configuration file recommended.
+shell 检查要求 bash 语法。部分规则未必适用于所有场景。建议使用配置文件。
 
 # HISTORY
 
-Hadolint was created to improve Dockerfile quality by combining Docker best practices with ShellCheck's shell analysis.
+Hadolint 的诞生旨在结合 Docker 最佳实践与 ShellCheck 的 shell 分析来提升 Dockerfile 质量。
 
 # INSTALL
 

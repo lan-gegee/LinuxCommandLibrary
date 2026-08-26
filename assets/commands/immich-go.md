@@ -1,30 +1,30 @@
 # TAGLINE
 
-go-based alternative CLI for Immich
+基于 Go 的 Immich 替代 CLI
 
 # TLDR
 
-**Upload photos**
+**上传照片**
 
 ```immich-go upload [/path/to/photos]```
 
-**Upload Google Photos Takeout archive**
+**上传 Google Photos Takeout 归档**
 
 ```immich-go upload --google-photos [takeout.zip]```
 
-**Create album per folder**
+**按文件夹创建相册**
 
 ```immich-go upload --create-album-folder [/path/to/photos]```
 
-**Dry run to preview upload**
+**试运行以预览上传**
 
 ```immich-go upload --dry-run [/path/to/photos]```
 
-**Set server and API key**
+**设置服务器和 API 密钥**
 
 ```immich-go upload --server [url] --api-key [api-key] [/path/to/photos]```
 
-**Upload with date range filter**
+**带日期范围过滤上传**
 
 ```immich-go upload --date-range [2023-01-01,2023-12-31] [/path/to/photos]```
 
@@ -35,51 +35,51 @@ go-based alternative CLI for Immich
 # PARAMETERS
 
 **upload**
-> Upload files to the Immich server.
+> 将文件上传到 Immich 服务器。
 
 **archive**
-> Export assets from an Immich server to local storage.
+> 将资产从 Immich 服务器导出到本地存储。
 
 **stack**
-> Organize related photos into stacks (RAW+JPEG pairs, bursts, etc.).
+> 将相关照片整理为堆叠（RAW+JPEG 组合、连拍等）。
 
 **--server** _URL_
-> Immich server URL.
+> Immich 服务器 URL。
 
 **--api-key** _KEY_
-> API key for authentication.
+> 用于身份验证的 API 密钥。
 
 **--google-photos**
-> Parse Google Photos Takeout archive.
+> 解析 Google Photos Takeout 归档。
 
 **--icloud**
-> Parse iCloud photo export.
+> 解析 iCloud 照片导出。
 
 **--create-album-folder**
-> Create albums from folder names.
+> 根据文件夹名称创建相册。
 
 **--dry-run**
-> Simulate upload without making changes.
+> 模拟上传，不做实际更改。
 
 **--date-range** _RANGE_
-> Upload only photos within a date range.
+> 仅上传日期范围内的照片。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**immich-go** is a Go-based alternative CLI for the Immich self-hosted photo management server. It provides efficient bulk uploads with support for Google Photos Takeout, iCloud exports, and Picasa archives.
+**immich-go** 是一个基于 Go 的替代 CLI，用于 Immich 自托管照片管理服务器。它提供高效的批量上传，支持 Google Photos Takeout、iCloud 导出和 Picasa 归档。
 
-The tool handles date parsing from various metadata sources including EXIF, JSON sidecars, and file names. It is distributed as a single binary with no runtime dependencies, making it faster and easier to deploy than the official Node.js-based CLI for large uploads.
+该工具能从多种元数据来源解析日期，包括 EXIF、JSON sidecar 文件和文件名。它以单个二进制文件分发，没有运行时依赖，与官方基于 Node.js 的 CLI 相比，在大批量上传时部署更快、更简单。
 
 # CAVEATS
 
-Unofficial community tool, not maintained by the Immich project. Requires a running Immich server and a valid API key. Flag syntax uses double dashes (e.g. --server, --api-key).
+非官方社区工具，不由 Immich 项目维护。需要正在运行的 Immich 服务器和有效的 API 密钥。选项语法使用双横线（例如 --server、--api-key）。
 
 # HISTORY
 
-immich-go was created by **simulot** as a faster, dependency-free alternative CLI for **Immich** with Google Takeout import support. It is written in **Go**.
+immich-go 由 **simulot** 创建，是一个更快速、无依赖的 **Immich** 替代 CLI，并支持导入 Google Takeout。它用 **Go** 编写。
 
 # INSTALL
 

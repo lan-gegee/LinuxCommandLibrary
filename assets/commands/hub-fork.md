@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates a fork of a GitHub repository
+创建 GitHub 仓库的 fork
 
 # TLDR
 
-**Fork current repository**
+**fork 当前仓库**
 
 ```hub fork```
 
-**Fork without remote**
+**fork 但不添加 remote**
 
 ```hub fork --no-remote```
 
-**Fork specific repository**
+**fork 指定的仓库**
 
 ```hub fork [user/repo]```
 
-**Fork to organization**
+**fork 到组织**
 
 ```hub fork --org [myorg]```
 
@@ -27,27 +27,27 @@ creates a fork of a GitHub repository
 # PARAMETERS
 
 **--no-remote**
-> Skip adding a git remote for the fork.
+> 跳过为 fork 添加 git remote。
 
 **--remote-name** _REMOTE_
-> Set the name for the new git remote.
+> 设置新 git remote 的名称。
 
 **--org** _ORGANIZATION_
-> Fork the repository within this organization instead of your account.
+> 将仓库 fork 到该组织，而不是你的账号。
 
 # DESCRIPTION
 
-**hub fork** creates a fork of a GitHub repository. It adds a remote pointing to your fork automatically.
+**hub fork** 创建 GitHub 仓库的 fork，并自动添加指向你 fork 的 remote。
 
-The command forks the repository detected in the current directory to your account or the specified organization, then adds a git remote for it (named **origin** by default, unless **origin** is already taken, in which case it uses your GitHub username).
+该命令会将当前目录中检测到的仓库 fork 到你的账号或指定的组织，然后为它添加一个 git remote（默认名为 **origin**；若 **origin** 已被占用，则改用你的 GitHub 用户名）。
 
 # CAVEATS
 
-Part of **hub**, which is deprecated in favor of the official GitHub CLI (**gh**); use **gh repo fork** instead. Requires GitHub authentication.
+属于 **hub** 的一部分，hub 已被弃用，推荐改用官方 GitHub CLI（**gh**）；请使用 **gh repo fork**。需要 GitHub 认证。
 
 # HISTORY
 
-hub fork is part of **hub**, GitHub's original command-line wrapper around git for repository operations, created in 2012.
+hub fork 是 **hub** 的组成部分。hub 是 GitHub 于 2012 年推出的、围绕 git 的仓库操作命令行包装工具。
 
 # INSTALL
 

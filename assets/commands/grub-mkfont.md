@@ -1,22 +1,22 @@
 # TAGLINE
 
-convert fonts to GRUB PF2 format
+将字体转换为 GRUB PF2 格式
 
 # TLDR
 
-**Convert font to GRUB format**
+**将字体转换为 GRUB 格式**
 
 ```grub-mkfont -o [output.pf2] [input.ttf]```
 
-**Specify font size**
+**指定字号**
 
 ```grub-mkfont -s [16] -o [font16.pf2] [input.ttf]```
 
-**Include specific characters**
+**包含特定字符**
 
 ```grub-mkfont --range=[0x0-0xff] -o [font.pf2] [input.ttf]```
 
-**Verbose conversion**
+**转换时输出详细信息**
 
 ```grub-mkfont -v -o [output.pf2] [input.ttf]```
 
@@ -27,45 +27,45 @@ convert fonts to GRUB PF2 format
 # PARAMETERS
 
 _FONT-FILE_
-> Input font (TTF, OTF, PF2).
+> 输入字体（TTF、OTF、PF2）。
 
 **-o**, **--output** _FILE_
-> Output PF2 file.
+> 输出的 PF2 文件。
 
 **-s**, **--size** _N_
-> Font size in pixels.
+> 以像素为单位的字号。
 
 **-i**, **--index** _N_
-> Face index for TTC.
+> TTC 字体的 face 索引。
 
 **-n**, **--name** _NAME_
-> Set font family name.
+> 设置字体家族名称。
 
 **-b**, **--bold**
-> Convert to a bold font.
+> 转换为粗体字体。
 
 **-r**, **--range** _FROM-TO_
-> Unicode range(s) to include (comma-separated).
+> 要包含的 Unicode 范围（逗号分隔）。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grub-mkfont** converts fonts to GRUB's PF2 bitmap format, enabling custom fonts in the GRUB boot menu. The tool accepts TrueType, OpenType, and other font formats.
+**grub-mkfont** 将字体转换为 GRUB 的 PF2 位图格式，从而在 GRUB 启动菜单中使用自定义字体。该工具接受 TrueType、OpenType 及其他字体格式。
 
-It can generate fonts at specific sizes and with specific character ranges, allowing fine control over which glyphs are included in the output.
+它可以按指定字号和字符范围生成字体，精细控制输出中包含哪些字形。
 
 # CAVEATS
 
-Part of GRUB package. Larger fonts increase boot time. Limited to bitmap conversion.
+属于 GRUB 软件包的一部分。字体越大，启动时间越长。仅限位图转换。
 
 # HISTORY
 
-grub-mkfont was developed as part of **GNU GRUB 2** to support graphical boot menus with custom fonts.
+grub-mkfont 作为 **GNU GRUB 2** 的一部分开发，用于支持带有自定义字体的图形化启动菜单。
 
 # INSTALL
 

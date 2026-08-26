@@ -1,42 +1,42 @@
 # TAGLINE
 
-control interface for strongSwan/Libreswan IPsec VPN implementations
+strongSwan/Libreswan IPsec VPN 实现的控制接口
 
 # TLDR
 
-**Start IPsec service**
+**启动 IPsec 服务**
 
 ```sudo ipsec start```
 
-**Stop IPsec service**
+**停止 IPsec 服务**
 
 ```sudo ipsec stop```
 
-**Check status**
+**检查状态**
 
 ```sudo ipsec status```
 
-**Show all connections**
+**显示所有连接**
 
 ```sudo ipsec statusall```
 
-**Reload configuration**
+**重新加载配置**
 
 ```sudo ipsec reload```
 
-**Start specific connection**
+**启动特定连接**
 
 ```sudo ipsec up [connection]```
 
-**Stop specific connection**
+**停止特定连接**
 
 ```sudo ipsec down [connection]```
 
-**Show version information**
+**显示版本信息**
 
 ```ipsec --version```
 
-**Reload secrets** from ipsec.secrets
+从 ipsec.secrets **重新加载密钥**
 
 ```sudo ipsec rereadsecrets```
 
@@ -47,64 +47,64 @@ control interface for strongSwan/Libreswan IPsec VPN implementations
 # PARAMETERS
 
 **start**
-> Start IPsec daemon.
+> 启动 IPsec 守护进程。
 
 **stop**
-> Stop IPsec daemon.
+> 停止 IPsec 守护进程。
 
 **restart**
-> Restart daemon.
+> 重启守护进程。
 
 **status**
-> Show active connections.
+> 显示活跃的连接。
 
 **statusall**
-> Show detailed status.
+> 显示详细状态。
 
 **reload**
-> Reload configuration.
+> 重新加载配置。
 
 **up** _connection_
-> Start connection.
+> 建立连接。
 
 **down** _connection_
-> Stop connection.
+> 断开连接。
 
 **update**
-> Apply config changes without full restart.
+> 应用配置更改而无需完全重启。
 
 **route** _connection_
-> Install kernel IPsec policy for a connection.
+> 为连接安装内核 IPsec 策略。
 
 **unroute** _connection_
-> Remove kernel IPsec policy for a connection.
+> 移除连接的内核 IPsec 策略。
 
 **rereadsecrets**
-> Reload secrets from ipsec.secrets.
+> 从 ipsec.secrets 重新加载密钥。
 
 **listalgs**
-> List supported cryptographic algorithms.
+> 列出支持的加密算法。
 
 **listcerts**
-> List certificates.
+> 列出证书。
 
 **listcacerts**
-> List CA certificates.
+> 列出 CA 证书。
 
 **listall**
-> List all information.
+> 列出全部信息。
 
 **rereadall**
-> Execute all reread operations.
+> 执行所有 reread 操作。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ipsec** is the control interface for strongSwan/Libreswan IPsec VPN implementations. It manages IKE (Internet Key Exchange) connections for encrypted network tunnels.
+**ipsec** 是 strongSwan/Libreswan IPsec VPN 实现的控制接口。它管理用于加密网络隧道的 IKE（Internet Key Exchange）连接。
 
-IPsec provides network-layer encryption for VPNs, supporting site-to-site tunnels and remote access. Configuration is typically in /etc/ipsec.conf and /etc/ipsec.secrets.
+IPsec 为 VPN 提供网络层加密，支持站点到站点隧道和远程访问。配置通常位于 /etc/ipsec.conf 和 /etc/ipsec.secrets 中。
 
 # CONFIGURATION
 
@@ -120,11 +120,11 @@ conn myvpn
 
 # CAVEATS
 
-Requires kernel IPsec support. Certificate management can be complex. Firewall rules needed for IKE (UDP 500, 4500). Debug with ipsec statusall.
+需要内核支持 IPsec。证书管理可能较为复杂。IKE（UDP 500、4500）需要相应的防火墙规则。可用 ipsec statusall 进行调试。
 
 # HISTORY
 
-IPsec was standardized by IETF in the 1990s. strongSwan (forked from FreeS/WAN in 2005) and Libreswan are the main Linux implementations, providing the ipsec command interface.
+IPsec 由 IETF 在 1990 年代标准化。strongSwan（2005 年从 FreeS/WAN 分叉而来）和 Libreswan 是 Linux 上主要的两个实现，提供 ipsec 命令接口。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line benchmarking tool that measures command execution time
+测量命令执行时间的命令行基准测试工具
 
 # TLDR
 
-**Benchmark a command**
+**对一条命令进行基准测试**
 
 ```hyperfine '[sleep 0.3]'```
 
-**Compare multiple commands**
+**比较多条命令**
 
 ```hyperfine '[command1]' '[command2]' '[command3]'```
 
-**Run warmup iterations** before timing
+在计时前**运行预热迭代**
 
 ```hyperfine --warmup [3] '[command]'```
 
-**Set minimum number of runs**
+**设置最小运行次数**
 
 ```hyperfine --min-runs [20] '[command]'```
 
-**Run setup command** before each benchmark
+每次基准测试前**运行准备命令**
 
 ```hyperfine --prepare '[make clean]' '[make]'```
 
-**Export results to JSON**
+将结果**导出为 JSON**
 
 ```hyperfine '[command]' --export-json [results.json]```
 
-**Benchmark with parameter range**
+以参数范围进行基准测试
 
 ```hyperfine -P threads 1 8 '[./program --threads {threads}]'```
 
-**Ignore command failures**
+忽略命令失败
 
 ```hyperfine --ignore-failure '[command]'```
 
@@ -43,75 +43,75 @@ command-line benchmarking tool that measures command execution time
 # PARAMETERS
 
 **-w**, **--warmup** _n_
-> Run n warmup iterations before timing.
+> 计时前运行 n 次预热迭代。
 
 **-m**, **--min-runs** _n_
-> Minimum number of runs (default: 10).
+> 最小运行次数（默认：10）。
 
 **-M**, **--max-runs** _n_
-> Maximum number of runs.
+> 最大运行次数。
 
 **-r**, **--runs** _n_
-> Exact number of runs.
+> 精确的运行次数。
 
 **-p**, **--prepare** _cmd_
-> Command to run before each timing run.
+> 每次计时运行前执行的命令。
 
 **-c**, **--cleanup** _cmd_
-> Command to run after each timing run.
+> 每次计时运行后执行的命令。
 
 **-s**, **--setup** _cmd_
-> Command to run once before all benchmarks.
+> 所有基准测试开始前执行一次的命令。
 
 **-P**, **--parameter-scan** _var start end_
-> Run benchmark for parameter range.
+> 对参数范围运行基准测试。
 
 **-L**, **--parameter-list** _var_ _vals_
-> Run benchmark for comma-separated values.
+> 对逗号分隔的值运行基准测试。
 
 **-S**, **--shell** _shell_
-> Shell to use (default: system default).
+> 要使用的 shell（默认：系统默认 shell）。
 
 **-N**
-> No shell, run command directly.
+> 不经过 shell，直接运行命令。
 
 **--ignore-failure**
-> Continue on non-zero exit codes.
+> 遇到非零退出码时继续执行。
 
 **--export-json** _file_
-> Export to JSON.
+> 导出为 JSON。
 
 **--export-csv** _file_
-> Export to CSV.
+> 导出为 CSV。
 
 **--export-markdown** _file_
-> Export to Markdown.
+> 导出为 Markdown。
 
 **--show-output**
-> Show command output.
+> 显示命令输出。
 
 **--style** _type_
-> Output style: auto, full, basic, nocolor, color, none.
+> 输出样式：auto、full、basic、nocolor、color、none。
 
 # DESCRIPTION
 
-**hyperfine** is a command-line benchmarking tool that measures command execution time with statistical analysis. It provides accurate measurements by running commands multiple times and calculating mean, standard deviation, min, max, and relative comparisons.
+**hyperfine** 是一款命令行基准测试工具，通过统计分析来测量命令执行时间。它多次运行命令并计算平均值、标准差、最小值、最大值和相对比较，从而提供准确的测量结果。
 
-The tool automatically determines the optimal number of runs based on variance, ensuring statistically meaningful results. Warmup runs help account for cache effects and JIT compilation in interpreted languages.
+该工具会根据方差自动确定最优运行次数，确保结果具有统计意义。预热运行有助于消除缓存效应和解释型语言 JIT 编译的影响。
 
-When comparing multiple commands, hyperfine shows relative speedup/slowdown ratios. Color-coded output highlights the fastest command. This makes A/B testing of optimizations straightforward.
+比较多条命令时，hyperfine 会显示相对加速/减速比。彩色输出会高亮最快的命令。这让优化的 A/B 测试变得简单直接。
 
-Parameter scanning enables benchmarking across value ranges without writing wrapper scripts. For example, testing thread counts from 1-16 with a single command. Results can be exported to JSON, CSV, or Markdown for further analysis or documentation.
+参数扫描可以在一个数值范围内进行基准测试，而无需编写包装脚本。例如，用一条命令即可测试 1-16 的线程数。结果可导出为 JSON、CSV 或 Markdown，以便进一步分析或写入文档。
 
-The prepare option enables clean-state benchmarks (e.g., clearing caches or rebuilding). The shell option allows testing shell-specific features or running with minimal shell overhead using -N.
+prepare 选项可实现干净状态的基准测试（例如清除缓存或重新构建）。shell 选项允许测试特定 shell 的特性，或使用 -N 以最小的 shell 开销直接运行。
 
 # CAVEATS
 
-System load affects results - close other applications for accurate measurements. Warmup is important for JIT-compiled or cached operations. Very fast commands (< 5ms) may have significant measurement overhead. Statistical outliers can affect mean; check min/max values.
+系统负载会影响结果——请关闭其他应用以获得准确的测量。对于 JIT 编译或涉及缓存的操作，预热非常重要。极快的命令（< 5ms）可能存在明显的测量开销。统计离群值会影响平均值；请检查最小/最大值。
 
 # HISTORY
 
-**hyperfine** was created by David Peter (sharkdp) and released around **2018**. Written in Rust, it was designed as a more user-friendly and statistically rigorous alternative to shell-based benchmarking with **time**. It's part of a collection of modern CLI tools (including fd, bat, etc.) that improve on traditional Unix utilities.
+**hyperfine** 由 David Peter（sharkdp）创建，于 **2018 年**前后发布。它用 Rust 编写，设计初衷是提供比基于 **time** 的 shell 基准测试更易用且统计上更严谨的替代方案。它是现代 CLI 工具集（包括 fd、bat 等）中的一员，这些工具是对传统 Unix 工具的改进。
 
 # INSTALL
 

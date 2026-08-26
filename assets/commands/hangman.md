@@ -1,18 +1,18 @@
 # TAGLINE
 
-classic word-guessing game
+经典猜词游戏
 
 # TLDR
 
-**Start hangman game**
+**开始猜词游戏**
 
 ```hangman```
 
-**Use custom word list**
+**使用自定义词表**
 
 ```hangman -w [wordlist.txt]```
 
-**Set word length**
+**设置单词长度**
 
 ```hangman -l [8]```
 
@@ -23,16 +23,16 @@ classic word-guessing game
 # PARAMETERS
 
 **-w** _FILE_
-> Word list file.
+> 词表文件。
 
 **-l** _LEN_
-> Minimum word length.
+> 最短单词长度。
 
 **-k**
-> Show keyboard.
+> 显示键盘。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -47,17 +47,17 @@ _|_
 
 # DESCRIPTION
 
-**hangman** is a classic word-guessing game. Players guess letters to reveal a hidden word before making too many wrong guesses.
+**hangman** 是一款经典的猜词游戏。玩家需要在错误次数过多之前猜出字母，逐步揭示隐藏的单词。
 
-The game displays the gallows and tracks incorrect guesses. It uses the system dictionary or a custom word list for challenges.
+游戏会显示绞刑架并记录错误的猜测。它使用系统词典或自定义词表作为出题来源。
 
 # CAVEATS
 
-Part of BSD games. Requires /usr/share/dict/words or custom list. Terminal-based display.
+属于 BSD games 游戏集的一部分。需要 /usr/share/dict/words 或自定义词表。基于终端显示。
 
 # HISTORY
 
-hangman has been part of **BSD games** collection since early Unix systems, providing terminal entertainment.
+hangman 自早期 Unix 系统起就是 **BSD games** 游戏集的一部分，为终端带来消遣娱乐。
 
 # INSTALL
 

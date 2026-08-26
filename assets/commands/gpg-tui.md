@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal user interface for GnuPG key management
+用于 GnuPG 密钥管理的终端用户界面
 
 # TLDR
 
-**Launch gpg-tui**
+**启动 gpg-tui**
 
 ```gpg-tui```
 
-**Specify keyring to use**
+**指定要使用的密钥环**
 
 ```gpg-tui --homedir [~/.gnupg]```
 
-**Use specific style**
+**使用指定的样式**
 
 ```gpg-tui --style [colored]```
 
-**Export output format**
+**导出输出格式**
 
 ```gpg-tui --output-format [minimal]```
 
@@ -27,37 +27,37 @@ Terminal user interface for GnuPG key management
 # PARAMETERS
 
 **--homedir** _DIR_
-> Use _DIR_ as the GnuPG home directory (overrides **GNUPGHOME**).
+> 将 _DIR_ 用作 GnuPG 主目录（覆盖 **GNUPGHOME**）。
 
 **-c**, **--color** _COLOR_
-> Set the accent color (e.g. _gray_, _red_, _green_, _blue_, or a hex value).
+> 设置强调色（例如 _gray_、_red_、_green_、_blue_ 或十六进制值）。
 
 **-s**, **--style** _STYLE_
-> Set the table border style: _plain_, _bold_, _double_, or _light_.
+> 设置表格边框样式：_plain_、_bold_、_double_ 或 _light_。
 
 **-d**, **--detail-level** _LEVEL_
-> Initial detail level for keys: _minimum_, _standard_, or _full_.
+> 密钥的初始详细级别：_minimum_、_standard_ 或 _full_。
 
 **-r**, **--no-tty**
-> Run without TTY interaction (useful when piping).
+> 在无 TTY 交互的情况下运行（管道场景下很有用）。
 
 **-x**, **--select** _SELECTION_
-> Pre-select rows on startup (key IDs or fingerprints).
+> 启动时预选中某些行（密钥 ID 或指纹）。
 
 **--splash**
-> Show the splash screen at startup.
+> 启动时显示启动画面。
 
 **-h**, **--help**
-> Show help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**gpg-tui** is a terminal user interface for managing GnuPG keys. Written in Rust, it provides an interactive interface for listing, viewing, importing, exporting, signing, editing, and deleting keys without memorizing complex gpg command-line options.
+**gpg-tui** 是一个用于管理 GnuPG 密钥的终端用户界面。它用 Rust 编写，提供交互式界面来列出、查看、导入、导出、签名、编辑和删除密钥，无需记忆复杂的 gpg 命令行选项。
 
-The tool reads from the standard GnuPG keyring and supports multiple visual styles for display customization.
+该工具从标准 GnuPG 密钥环读取数据，并支持多种视觉样式以自定义显示效果。
 
 # INSTALL
 

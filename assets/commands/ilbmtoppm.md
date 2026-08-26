@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert an IFF ILBM file into a PPM image
+将 IFF ILBM 文件转换为 PPM 图像
 
 # TLDR
 
-**Convert an ILBM file to PPM**
+**将 ILBM 文件转换为 PPM**
 
 ```ilbmtoppm [file.ilbm] > [output.ppm]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [file.ilbm] | ilbmtoppm > [output.ppm]```
 
-**Convert only the color map, not the image**
+**只转换颜色映射，不转换图像本身**
 
 ```ilbmtoppm -cmaponly [file.ilbm] > [output.ppm]```
 
-**Convert with verbose output**
+**带详细输出进行转换**
 
 ```ilbmtoppm -verbose [file.ilbm] > [output.ppm]```
 
-**Force interpretation as HAM format**
+**强制按 HAM 格式解析**
 
 ```ilbmtoppm -isham [file.ilbm] > [output.ppm]```
 
@@ -31,50 +31,50 @@ Convert an IFF ILBM file into a PPM image
 # PARAMETERS
 
 **-verbose**
-> Display information about the ILBM file during conversion.
+> 转换过程中显示关于 ILBM 文件的信息。
 
 **-ignore** _chunkID_
-> Skip the specified 4-letter IFF chunk during processing.
+> 处理时跳过指定的 4 字母 IFF 块（chunk）。
 
 **-isham**
-> Treat the input as a HAM (Hold-And-Modify) picture, even if the CAMG chunk does not indicate this.
+> 将输入视为 HAM（Hold-And-Modify）图片，即使 CAMG 块并未如此标示。
 
 **-isnotham**
-> Do not treat the input as HAM, even if the CAMG chunk indicates it.
+> 不将输入视为 HAM，即使 CAMG 块如此标示。
 
 **-isehb**
-> Treat the input as Extra_Halfbrite (EHB), even if not indicated in the CAMG chunk.
+> 将输入视为 Extra_Halfbrite（EHB），即使 CAMG 块中未标示。
 
 **-isnotehb**
-> Do not treat the input as EHB.
+> 不将输入视为 EHB。
 
 **-isdeep**
-> Treat the input as a deep (direct color) image.
+> 将输入视为深色（直接颜色）图像。
 
 **-isnotdeep**
-> Do not treat the input as a deep image.
+> 不将输入视为深色图像。
 
 **-cmaponly**
-> Output a PPM of the color map only, not the image itself.
+> 只输出颜色映射的 PPM，而不是图像本身。
 
 **-adjustcolors**
-> Scale the color map to 8 bits per channel.
+> 将颜色映射缩放到每通道 8 位。
 
 **-transparent** _color_
-> Set the transparency color.
+> 设置透明色。
 
 **-maskfile** _filename_
-> Write the transparency mask to the specified PBM file.
+> 将透明掩码写入指定的 PBM 文件。
 
 # DESCRIPTION
 
-**ilbmtoppm** converts an IFF ILBM (Interleaved Bitmap) file to PPM (Portable Pixmap) format. ILBM was the standard image format on Amiga computers.
+**ilbmtoppm** 将 IFF ILBM（Interleaved Bitmap，交错位图）文件转换为 PPM（Portable Pixmap）格式。ILBM 是 Amiga 计算机上的标准图像格式。
 
-The program handles normal ILBMs with 1-16 planes, Amiga Extra_Halfbrite (EHB), Amiga HAM with 3-16 planes, Multipalette pictures (normal or HAM), color map only images, and unofficial direct color formats. It is part of the **Netpbm** package of graphics manipulation tools.
+该程序支持 1-16 位平面的普通 ILBM、Amiga Extra_Halfbrite（EHB）、3-16 位平面的 Amiga HAM、多调色板图片（普通或 HAM）、仅颜色映射的图像，以及非官方的直接颜色格式。它是 **Netpbm** 图像处理工具集的一部分。
 
 # CAVEATS
 
-Some ILBM files use non-standard or unofficial extensions that may not be correctly auto-detected. Use the **-isham**, **-isehb**, or **-isdeep** flags to force the correct interpretation when auto-detection fails.
+某些 ILBM 文件使用非标准或非官方扩展，可能无法被正确自动检测。当自动检测失败时，使用 **-isham**、**-isehb** 或 **-isdeep** 标志强制采用正确的解析方式。
 
 # INSTALL
 

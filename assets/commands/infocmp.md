@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compare or print out terminfo descriptions
+比较或打印 terminfo 描述
 
 # TLDR
 
-**Show current terminal capabilities**
+**显示当前终端的能力**
 
 ```infocmp```
 
-**Show a specific terminal type**
+**显示特定的终端类型**
 
 ```infocmp [xterm-256color]```
 
-**Compare two terminal descriptions** (show differences)
+**比较两个终端描述**（显示差异）
 
 ```infocmp -d [xterm] [xterm-256color]```
 
-**Output in terminfo source format** (can be compiled with tic)
+**以 terminfo 源格式输出**（可用 tic 编译）
 
 ```infocmp -I [xterm]```
 
-**Show capabilities one per line**
+**每行显示一项能力**
 
 ```infocmp -1 [xterm]```
 
-**Output in termcap format**
+**以 termcap 格式输出**
 
 ```infocmp -C [xterm]```
 
-**Generate relative description** using use= fields
+**利用 use= 字段生成相对描述**
 
 ```infocmp -u [xterm-256color] [xterm]```
 
@@ -39,63 +39,63 @@ Compare or print out terminfo descriptions
 # PARAMETERS
 
 _termname_
-> Terminal type(s) to display or compare.
+> 要显示或比较的终端类型。
 
 **-d**
-> Show differences between two terminal descriptions.
+> 显示两个终端描述之间的差异。
 
 **-c**
-> Show common capabilities between two terminals.
+> 显示两个终端之间的共同能力。
 
 **-n**
-> Show capabilities common to both, listing those that differ.
+> 显示两者共同的能力，并列出不同的部分。
 
 **-u**
-> Produce a terminfo source relative to other entries using **use=** fields.
+> 使用 **use=** 字段生成相对于其他条目的 terminfo 源。
 
 **-I**
-> Output in terminfo source format.
+> 以 terminfo 源格式输出。
 
 **-C**
-> Output in termcap format.
+> 以 termcap 格式输出。
 
 **-L**
-> Use long C variable names in output.
+> 输出中使用长的 C 变量名。
 
 **-1**
-> Print one capability per line.
+> 每行打印一项能力。
 
 **-r**
-> Show resolved paths for terminfo entries.
+> 显示 terminfo 条目的解析后路径。
 
 **-E**
-> Dump capabilities as C initializer tables for a TERMTYPE structure.
+> 将能力导出为 TERMTYPE 结构的 C 初始化表。
 
 **-e**
-> Dump capabilities as a C initializer for a TERMTYPE structure.
+> 将能力导出为 TERMTYPE 结构的 C 初始化器。
 
 **-F**
-> Compare terminfo files, reporting matches and differences between entries.
+> 比较 terminfo 文件，报告各条目之间的相同与不同之处。
 
 **-A** _dir_
-> Use the specified directory for the first terminal's terminfo database.
+> 为第一个终端使用指定的 terminfo 数据库目录。
 
 **-B** _dir_
-> Use the specified directory for the second terminal's terminfo database.
+> 为第二个终端使用指定的 terminfo 数据库目录。
 
 # DESCRIPTION
 
-**infocmp** compares or prints out terminal capability descriptions from the terminfo database. It can rewrite descriptions to use the **use=** field for sharing common capabilities, compare binary entries between different terminal types, and output in several formats including terminfo source and termcap.
+**infocmp** 对来自 terminfo 数据库的终端能力描述进行比较或打印。它可以改写描述，使其通过 **use=** 字段共享共同能力；可以比较不同终端类型之间的二进制条目；还能以多种格式输出，包括 terminfo 源和 termcap。
 
-The command reads compiled terminfo entries and outputs them in a readable format. It is useful for debugging terminal issues, understanding terminal features, and preparing terminfo source files for compilation with **tic**.
+该命令读取已编译的 terminfo 条目并以可读格式输出。它可用于调试终端问题、了解终端特性，以及准备待用 **tic** 编译的 terminfo 源文件。
 
 # CAVEATS
 
-Terminfo database location varies by system (commonly **/usr/share/terminfo** or **/usr/lib/terminfo**). Some capabilities may be missing from terminal entries. Modern terminals support many extensions beyond the standard terminfo set. In compare mode (**-d**), only differing capabilities are shown.
+terminfo 数据库位置因系统而异（常见为 **/usr/share/terminfo** 或 **/usr/lib/terminfo**）。某些能力可能在终端条目中缺失。现代终端支持的许多扩展超出了标准 terminfo 集合。比较模式（**-d**）下只显示有差异的能力。
 
 # HISTORY
 
-**infocmp** is part of the **ncurses** library, which implements the terminfo database. The terminfo system replaced the older termcap format, providing a more extensible binary format for terminal capabilities.
+**infocmp** 是 **ncurses** 库的一部分，后者实现了 terminfo 数据库。terminfo 系统取代了较旧的 termcap 格式，为终端能力提供了更可扩展的二进制格式。
 
 # INSTALL
 

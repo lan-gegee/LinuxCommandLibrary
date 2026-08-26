@@ -1,26 +1,26 @@
 # TAGLINE
 
-mounts virtual filesystems through GVFS
+通过 GVFS 挂载虚拟文件系统
 
 # TLDR
 
-**Mount remote location**
+**挂载远程位置**
 
 ```gvfs-mount [smb://server/share]```
 
-**Mount SSH location**
+**挂载 SSH 位置**
 
 ```gvfs-mount [sftp://user@host]```
 
-**List mounted locations**
+**列出已挂载的位置**
 
 ```gvfs-mount -l```
 
-**Unmount location**
+**卸载位置**
 
 ```gvfs-mount -u [smb://server/share]```
 
-**Eject media**
+**弹出介质**
 
 ```gvfs-mount -e [/dev/sr0]```
 
@@ -35,40 +35,40 @@ mounts virtual filesystems through GVFS
 # PARAMETERS
 
 _LOCATION_
-> File or directory path or URI to mount.
+> 要挂载的文件或目录路径或 URI。
 
 **-m**, **--mountable**
-> Mount the specified location as a mountable, rather than the default mount operation.
+> 将指定位置作为可挂载对象挂载，而非执行默认的挂载操作。
 
 **-d**, **--device** _DEVICE_
-> Mount the volume with the given device file.
+> 挂载具有给定设备文件的卷。
 
 **-u**, **--unmount**
-> Unmount the given locations.
+> 卸载给定的位置。
 
 **-e**, **--eject**
-> Eject the given locations.
+> 弹出给定的位置。
 
 **-s**, **--unmount-scheme** _SCHEME_
-> Unmount all mounts with the given scheme (e.g. smb, sftp).
+> 卸载所有使用给定协议（scheme）的挂载点（如 smb、sftp）。
 
 **-l**, **--list**
-> List all known mounts.
+> 列出所有已知的挂载点。
 
 **-o**, **--monitor**
-> Monitor mount and unmount events.
+> 监视挂载和卸载事件。
 
 **-i**, **--detail**
-> Show extra information for **--list** and **--monitor**.
+> 为 **--list** 和 **--monitor** 显示额外信息。
 
 **-h**, **--help**
-> Print a short help text and exit.
+> 打印简短帮助文本并退出。
 
 # DESCRIPTION
 
-**gvfs-mount** mounts virtual filesystems through GVFS (GNOME Virtual File System). It supports various protocols including SMB/CIFS, SFTP, FTP, WebDAV, and MTP.
+**gvfs-mount** 通过 GVFS（GNOME 虚拟文件系统）挂载虚拟文件系统。它支持多种协议，包括 SMB/CIFS、SFTP、FTP、WebDAV 和 MTP。
 
-GVFS provides a userspace filesystem layer, allowing file managers and applications to access remote resources transparently.
+GVFS 提供用户空间文件系统层，让文件管理器和应用程序能够透明地访问远程资源。
 
 # SUPPORTED SCHEMES
 
@@ -83,11 +83,11 @@ gphoto2:// PTP cameras
 
 # CAVEATS
 
-Part of the gvfs-bin command-line tools, deprecated in gvfs 1.31 (2016) and removed entirely in gvfs 1.38 (2018) in favor of the unified **gio** command (`gio mount`). Modern distributions no longer ship gvfs-mount. Requires a running GVFS daemon; mount points appear under /run/user/$UID/gvfs/.
+属于 gvfs-bin 命令行工具集，在 gvfs 1.31（2016 年）中被弃用，并在 gvfs 1.38（2018 年）中被完全移除，由统一的 **gio** 命令（`gio mount`）取代。现代发行版不再附带 gvfs-mount。需要正在运行的 GVFS 守护进程；挂载点位于 /run/user/$UID/gvfs/ 下。
 
 # HISTORY
 
-**gvfs-mount** was part of GVFS's original gvfs-bin utilities, introduced for GNOME alongside GVFS in **2008** (GNOME 2.22). It has since been superseded by **gio mount**.
+**gvfs-mount** 是 GVFS 原始 gvfs-bin 实用工具的一部分，于 **2008 年**（GNOME 2.22）随 GVFS 一同为 GNOME 引入。此后被 **gio mount** 取代。
 
 # SEE ALSO
 

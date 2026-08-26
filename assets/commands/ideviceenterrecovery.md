@@ -1,18 +1,18 @@
 # TAGLINE
 
-puts an iOS device into recovery mode
+让 iOS 设备进入恢复模式
 
 # TLDR
 
-**Enter recovery mode**
+**进入恢复模式**
 
 ```ideviceenterrecovery [udid]```
 
-**Enter recovery by name**
+**按名称进入恢复模式**
 
 ```ideviceenterrecovery -n [device-name]```
 
-**Debug mode**
+**调试模式**
 
 ```ideviceenterrecovery -d [udid]```
 
@@ -23,30 +23,30 @@ puts an iOS device into recovery mode
 # PARAMETERS
 
 _UDID_
-> Device UDID.
+> 设备 UDID。
 
 **-n** _NAME_
-> Target by device name.
+> 按设备名称指定目标。
 
 **-d**, **--debug**
-> Debug output.
+> 调试输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ideviceenterrecovery** puts an iOS device into recovery mode. Recovery mode is used for firmware restoration and troubleshooting.
+**ideviceenterrecovery** 让 iOS 设备进入恢复模式。恢复模式用于固件恢复和故障排查。
 
-The tool sends the command to enter recovery via USB. The device must be paired and trusted.
+该工具通过 USB 发送进入恢复模式的命令。设备必须已完成配对并被信任。
 
 # CAVEATS
 
-Device must be paired. Recovery mode needs manual exit. Part of libimobiledevice.
+设备必须已配对。恢复模式需要手动退出。属于 libimobiledevice。
 
 # HISTORY
 
-ideviceenterrecovery is part of **libimobiledevice** for iOS device management on Linux.
+ideviceenterrecovery 是 **libimobiledevice** 的组成部分，用于在 Linux 上管理 iOS 设备。
 
 # INSTALL
 

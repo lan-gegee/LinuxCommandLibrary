@@ -1,22 +1,22 @@
 # TAGLINE
 
-fills your terminal with the kind of fake "hacking" screens seen in movies
+用电影里常见的那种虚假"黑客"画面填满你的终端
 
 # TLDR
 
-**Fill the console** with Hollywood technobabble
+**用好莱坞式技术黑话填满控制台**
 
 ```hollywood```
 
-Specify the **number of splits** for the screen
+指定屏幕的**分屏数量**
 
 ```hollywood -s [4]```
 
-Run **without sound** (disable theme song)
+**静音运行**（关闭主题曲）
 
 ```hollywood -q```
 
-Display **help**
+显示**帮助**
 
 ```hollywood -h```
 
@@ -27,35 +27,35 @@ Display **help**
 # PARAMETERS
 
 **-s**, **--splits** _SPLITS_
-> The number of splits to divide the screen into.
+> 将屏幕分割成的窗格数量。
 
 **-q**, **--quiet**, **--nosound**
-> Disable the theme song.
+> 禁用主题曲。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hollywood** fills your console with Hollywood melodrama technobabble. It splits a byobu/tmux console into multiple panes displaying various busy-looking activities like hexdumps, network traffic, system logs, and code scrolling.
+**hollywood** 用好莱坞式的夸张"技术黑话"填满你的控制台。它会将 byobu/tmux 控制台分割为多个窗格，显示各种看起来很忙碌的活动，如十六进制转储、网络流量、系统日志和滚动的代码。
 
-The display is purely cosmetic - it doesn't actually perform any real hacking or system modifications. It tries not to overwhelm the system by running widgets with minimum scheduling priority. It's designed for entertainment, movie props, or impressing people who don't know better.
+这些显示纯属视觉效果——它并不会执行任何真正的入侵行为或修改系统。它通过以最低调度优先级运行各个小部件来尽量避免拖累系统。它专为娱乐、电影道具或唬人设计。
 
-Activities displayed include:
-- Scrolling hexadecimal data
-- Fake system logs
-- Network monitoring displays
-- Code compilation output
-- Directory listings
-- Various system utilities
+显示的活动包括：
+- 滚动的十六进制数据
+- 假装的系统日志
+- 网络监控界面
+- 代码编译输出
+- 目录列表
+- 各种系统工具
 
 # CAVEATS
 
-Requires byobu, tmux, and various other tools to be installed. Recommends packages such as cmatrix, htop, ccze, speedometer, and others for full effect. High CPU usage due to running many processes simultaneously. Press Ctrl+C to exit.
+需要安装 byobu、tmux 及其他多种工具。建议安装 cmatrix、htop、ccze、speedometer 等软件包以获得完整效果。由于同时运行大量进程，CPU 占用率较高。按 Ctrl+C 退出。
 
 # HISTORY
 
-hollywood was created by Dustin Kirkland at Canonical as a fun side project. It became popular as a way to recreate the unrealistic "hacking" scenes from Hollywood movies, where computers display endless streams of incomprehensible data.
+hollywood 由 Canonical 的 Dustin Kirkland 作为趣味副业项目创建。它因重现好莱坞电影中那种计算机上不断滚动着令人费解数据流的不真实"黑客"场景而流行起来。
 
 # INSTALL
 

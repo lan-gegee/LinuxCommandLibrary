@@ -1,26 +1,26 @@
 # TAGLINE
 
-command-line interface for Handshake daemon
+Handshake 守护进程的命令行接口
 
 # TLDR
 
-**Show wallet info**
+**显示钱包信息**
 
 ```hsd-cli wallet get```
 
-**Generate address**
+**生成地址**
 
 ```hsd-cli wallet createaddress```
 
-**Send coins**
+**发送币**
 
 ```hsd-cli wallet send [address] [amount]```
 
-**Show balance**
+**显示余额**
 
 ```hsd-cli wallet balance```
 
-**Query name**
+**查询名称**
 
 ```hsd-cli rpc getnameinfo [name]```
 
@@ -31,42 +31,42 @@ command-line interface for Handshake daemon
 # PARAMETERS
 
 _COMMAND_
-> Command to execute.
+> 要执行的命令。
 
 **wallet**
-> Wallet operations.
+> 钱包操作。
 
 **rpc**
-> RPC method calls.
+> RPC 方法调用。
 
 **--url** _URL_
-> Node URL.
+> 节点 URL。
 
 **--api-key** _KEY_
-> API key.
+> API 密钥。
 
 **--network** _NETWORK_
-> Network to use (main, testnet, regtest, simnet).
+> 要使用的网络（main、testnet、regtest、simnet）。
 
 **--wallet** _ID_
-> Wallet ID.
+> 钱包 ID。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hsd-cli** is the command-line interface for the Handshake daemon (hsd). Handshake is a decentralized naming protocol compatible with DNS where top-level domains are registered on a blockchain.
+**hsd-cli** 是 Handshake 守护进程（hsd）的命令行接口。Handshake 是一个与 DNS 兼容的去中心化命名协议，其顶级域名注册在区块链上。
 
-The tool interacts with the hsd node server for blockchain queries and name operations. For wallet-specific operations, the companion tool **hsw-cli** communicates with the wallet server. RPC commands are available via `hsd-cli rpc <command>`.
+该工具与 hsd 节点服务器交互，进行区块链查询和名称操作。钱包相关的操作则由配套工具 **hsw-cli** 与钱包服务器通信完成。RPC 命令通过 `hsd-cli rpc <command>` 调用。
 
 # CAVEATS
 
-Requires a running hsd node. Requires Node.js. Name auctions follow specific bidding rules and timelines.
+需要运行中的 hsd 节点。需要 Node.js。名称拍卖遵循特定的出价规则和时间表。
 
 # HISTORY
 
-hsd-cli is part of **Handshake** (HNS), a decentralized naming and certificate authority project.
+hsd-cli 是 **Handshake**（HNS）的一部分，这是一个去中心化的命名和证书颁发机构项目。
 
 # SEE ALSO
 

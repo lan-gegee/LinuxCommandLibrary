@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages the initial RAM filesystem on Debian-based systems
+管理基于 Debian 的系统上的初始 RAM 文件系统
 
 # TLDR
 
-**Update initramfs for current kernel**
+**更新当前内核的 initramfs**
 
 ```sudo update-initramfs -u```
 
-**Create new initramfs**
+**创建新的 initramfs**
 
 ```sudo update-initramfs -c -k [$(uname -r)]```
 
-**Update all initramfs images**
+**更新所有 initramfs 镜像**
 
 ```sudo update-initramfs -u -k all```
 
-**Delete initramfs for kernel**
+**删除内核的 initramfs**
 
 ```sudo update-initramfs -d -k [5.10.0-1]```
 
-**Show verbose output**
+**显示详细输出**
 
 ```sudo update-initramfs -u -v```
 
@@ -31,22 +31,22 @@ manages the initial RAM filesystem on Debian-based systems
 # PARAMETERS
 
 **-c**
-> Create new initramfs.
+> 创建新的 initramfs。
 
 **-u**
-> Update existing initramfs.
+> 更新已有的 initramfs。
 
 **-d**
-> Delete initramfs.
+> 删除 initramfs。
 
 **-k** _version_
-> Kernel version (or "all").
+> 内核版本（或 "all"）。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-b** _directory_
-> Set boot directory.
+> 设置 boot 目录。
 
 # CONFIGURATION
 
@@ -59,17 +59,17 @@ manages the initial RAM filesystem on Debian-based systems
 
 # DESCRIPTION
 
-**initramfs-tools** manages the initial RAM filesystem (initramfs) on Debian-based systems. The initramfs contains the minimal filesystem loaded before the real root filesystem is mounted.
+**initramfs-tools** 管理基于 Debian 的系统上的初始 RAM 文件系统（initramfs）。initramfs 包含挂载真正的根文件系统之前加载的最小文件系统。
 
-It includes drivers, scripts, and tools needed for early boot, such as filesystem drivers, LVM, RAID, or encryption setup.
+其中包括早期启动所需的驱动、脚本和工具，如文件系统驱动、LVM、RAID 或加密设置。
 
 # CAVEATS
 
-Debian/Ubuntu specific. Incorrect configuration may prevent boot. Always keep a working backup. Custom modules need manual configuration.
+仅限 Debian/Ubuntu。配置不当可能导致无法启动。务必保留一份可用的备份。自定义模块需要手动配置。
 
 # HISTORY
 
-initramfs-tools replaced the older initrd mechanism on Debian. It provides a modular, scriptable framework for building the initial filesystem, developed by the Debian project.
+initramfs-tools 在 Debian 上取代了较旧的 initrd 机制。它由 Debian 项目开发，提供了一个模块化、可脚本化的框架来构建初始文件系统。
 
 # SEE ALSO
 

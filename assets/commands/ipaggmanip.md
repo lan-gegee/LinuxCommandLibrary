@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manipulate IP address aggregate files created by ipaggcreate
+操作由 ipaggcreate 创建的 IP 地址聚合文件
 
 # TLDR
 
-**Read aggregate file and output sorted counts**
+**读取聚合文件并按计数排序输出**
 
 ```ipaggmanip -r [input.agg] --sorted-counts```
 
-**Combine (union) multiple aggregate files**
+**合并（求并集）多个聚合文件**
 
 ```ipaggmanip --or [file1.agg] [file2.agg] -o [combined.agg]```
 
-**Re-aggregate to a shorter prefix length (e.g., /16)**
+**重新聚合成更短的前缀长度（例如 /16）**
 
 ```ipaggmanip --prefix [16] -r [input.agg]```
 
-**Drop labels with fewer than N packets**
+**丢弃少于 N 个数据包的标签**
 
 ```ipaggmanip --cut-smaller [100] -r [input.agg]```
 
-**Output in ASCII with IP addresses**
+**以带 IP 地址的 ASCII 输出**
 
 ```ipaggmanip --ip -r [input.agg]```
 
-**Count number of active labels**
+**统计活跃标签数量**
 
 ```ipaggmanip --num-labels -r [input.agg]```
 
@@ -35,72 +35,72 @@ Manipulate IP address aggregate files created by ipaggcreate
 # PARAMETERS
 
 **-r**, **--read-file** _FILE_
-> Read aggregate data from FILE (default: stdin).
+> 从 FILE 读取聚合数据（默认：stdin）。
 
 **-o**, **--output** _FILE_
-> Write results to FILE (default: stdout).
+> 将结果写入 FILE（默认：stdout）。
 
 **-b**, **--binary**
-> Output in binary format.
+> 以二进制格式输出。
 
 **-A**, **--text**
-> Output in ASCII text format.
+> 以 ASCII 文本格式输出。
 
 **--ip**
-> Output in ASCII with IP addresses instead of raw integer labels.
+> 以 ASCII 输出，用 IP 地址代替原始整数标签。
 
 **-p**, **--prefix** _P_
-> Re-aggregate to prefix level P (e.g., 16 for /16).
+> 重新聚合到前缀级别 P（例如 16 表示 /16）。
 
 **-P**, **--posterize**
-> Replace every nonzero count with 1.
+> 将所有非零计数替换为 1。
 
 **--sample** _N_
-> Randomly sample packets with probability 1/N.
+> 以 1/N 的概率随机采样数据包。
 
 **--cut-smaller** _N_
-> Drop labels with fewer than N packets.
+> 丢弃少于 N 个数据包的标签。
 
 **--cut-larger** _N_
-> Drop labels with N or more packets.
+> 丢弃 N 个及以上数据包的标签。
 
 **-n**, **--num-labels**
-> Print the count of active labels.
+> 打印活跃标签的数量。
 
 **--counts**
-> Output counts in label order.
+> 按标签顺序输出计数。
 
 **--sorted-counts**
-> Output counts in descending order.
+> 按降序输出计数。
 
 **-e**, **--each**
-> Process each input file separately.
+> 分别处理每个输入文件。
 
 **--or**
-> Combine input files by adding aggregates (union).
+> 通过累加聚合来合并输入文件（并集）。
 
 **--and**
-> Combine inputs, keeping only labels common to all files.
+> 合并输入，仅保留所有文件共有的标签。
 
 **--minus**
-> Keep FILE1, drop labels present in other files.
+> 保留 FILE1，丢弃其他文件中也存在的标签。
 
 **--xor**
-> Keep labels present in exactly one file.
+> 仅保留恰好出现在一个文件中的标签。
 
 # DESCRIPTION
 
-**ipaggmanip** manipulates IP address aggregate files created by **ipaggcreate**. It can merge multiple aggregate files, filter by thresholds, re-aggregate with different parameters, and convert between formats.
+**ipaggmanip** 操作由 **ipaggcreate** 创建的 IP 地址聚合文件。它可以合并多个聚合文件、按阈值过滤、以不同参数重新聚合，并在不同格式之间转换。
 
-This tool completes the ipsumdump suite's workflow for network traffic analysis: capture with **ipsumdump**, aggregate with **ipaggcreate**, and manipulate/analyze with **ipaggmanip**.
+该工具补全了 ipsumdump 套件的网络流量分析工作流：用 **ipsumdump** 抓取，用 **ipaggcreate** 聚合，再用 **ipaggmanip** 操作和分析。
 
 # CAVEATS
 
-Input files must be in the ipagg format produced by ipaggcreate. Merging files with incompatible aggregation parameters may produce unexpected results.
+输入文件必须是 ipaggcreate 生成的 ipagg 格式。合并使用不兼容聚合参数的文件可能产生意外结果。
 
 # HISTORY
 
-Part of the **ipsumdump** package developed by Eddie Kohler. Designed for large-scale network measurement research where traffic summarization and analysis across multiple data sources is required.
+Eddie Kohler 开发的 **ipsumdump** 软件包的一部分。专为大规模网络测量研究设计，用于跨多个数据源进行流量汇总与分析。
 
 # SEE ALSO
 

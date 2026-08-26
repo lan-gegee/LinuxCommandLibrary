@@ -1,26 +1,26 @@
 # TAGLINE
 
-Displays bar graphs of current ink or toner supply levels for HP printers
+以条形图显示 HP 打印机当前的墨水或碳粉余量
 
 # TLDR
 
-**Show ink/toner levels** for the default/only installed printer
+为默认/唯一安装的打印机**显示墨水/碳粉余量**
 
 ```hp-levels```
 
-**Show levels for a specific CUPS printer**
+**显示指定 CUPS 打印机的余量**
 
 ```hp-levels -p [printer-name]```
 
-**Show levels by device URI**
+**按设备 URI 显示余量**
 
 ```hp-levels -d [device-uri]```
 
-**Run interactively**, choosing the printer from a list
+**以交互方式运行**，从列表中选择打印机
 
 ```hp-levels -i```
 
-**Draw a wider bar graph** (default width is 51 characters)
+**绘制更宽的条形图**（默认宽度为 51 个字符）
 
 ```hp-levels -s [80]```
 
@@ -31,45 +31,45 @@ Displays bar graphs of current ink or toner supply levels for HP printers
 # PARAMETERS
 
 **-d** _device-uri_, **--device**=_device-uri_
-> Specify the target printer by CUPS device URI.
+> 按 CUPS 设备 URI 指定目标打印机。
 
 **-p** _printer_, **--printer**=_printer_
-> Specify the target printer by CUPS queue name.
+> 按 CUPS 队列名称指定目标打印机。
 
 **-i**, **--interactive**
-> Run in interactive mode, prompting to choose a device.
+> 以交互模式运行，提示选择设备。
 
 **-s** _size_, **--size**=_size_
-> Bar graph width in characters (default 51).
+> 条形图宽度（字符数，默认 51）。
 
 **-c**, **--color**
-> Use colored bar graphs (colorized by default).
+> 使用彩色条形图（默认已启用彩色）。
 
 **-a** _char_, **--char**=_char_
-> Character used to draw the bar graph (default **/**).
+> 用于绘制条形图的字符（默认 **/**）。
 
 **-l** _level_, **--logging**=_level_
-> Set logging verbosity: none, info (default), error, warn, or debug.
+> 设置日志详细程度：none、info（默认）、error、warn 或 debug。
 
 **-g**
-> Run with debug-level logging (equivalent to **-l debug**).
+> 以调试级别日志运行（等价于 **-l debug**）。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助后退出。
 
 # DESCRIPTION
 
-**hp-levels** queries an HPLIP-supported HP printer for its current ink or toner supply levels and renders them as text bar graphs in the terminal, one bar per installed cartridge or tank.
+**hp-levels** 查询 HPLIP 支持的 HP 打印机当前的墨水或碳粉余量，并在终端中以文本条形图呈现，每个已安装的墨盒或墨仓对应一条。
 
-Point it at a printer with **-p** or **-d**; with no target given it uses the sole installed HPLIP device or prompts to choose one when several are configured. This is the CLI equivalent of the supply-levels panel in the HPLIP toolbox GUI.
+用 **-p** 或 **-d** 指向某台打印机；若未给出目标，则使用唯一已安装的 HPLIP 设备，或在配置了多台时提示选择。它相当于 HPLIP 工具箱 GUI 中耗材面板的命令行版本。
 
 # CAVEATS
 
-Part of the HPLIP package. Level reporting accuracy and granularity vary by printer model; some cheaper models only report ok/low/out rather than a percentage, and a few report nothing at all.
+属于 HPLIP 软件包。余量报告的准确性和粒度因打印机型号而异；一些廉价机型只报告正常/偏低/耗尽而非百分比，少数机型完全不报告。
 
 # HISTORY
 
-**hp-levels** is one of the supply-monitoring utilities in **HPLIP** (HP Linux Imaging and Printing), HP's open-source printer/scanner driver suite for Linux.
+**hp-levels** 是 **HPLIP**（HP Linux Imaging and Printing）中的耗材监控工具之一。HPLIP 是 HP 面向 Linux 的开源打印/扫描驱动套件。
 
 # INSTALL
 

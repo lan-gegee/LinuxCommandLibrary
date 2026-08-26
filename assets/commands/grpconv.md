@@ -1,14 +1,14 @@
 # TAGLINE
 
-convert to shadow group format
+转换为影子组格式
 
 # TLDR
 
-**Convert to shadow groups**
+**转换为影子组**
 
 ```sudo grpconv```
 
-**Check current status first**
+**先检查当前状态**
 
 ```ls -la /etc/gshadow```
 
@@ -19,24 +19,24 @@ convert to shadow group format
 # PARAMETERS
 
 **-R** _DIR_
-> Chroot directory.
+> chroot 目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grpconv** converts from traditional group format to shadow group format. It creates /etc/gshadow from /etc/group information.
+**grpconv** 将传统组格式转换为影子组格式。它根据 /etc/group 中的信息创建 /etc/gshadow。
 
-The tool moves encrypted group passwords from /etc/group to /etc/gshadow, improving security by limiting access to password data.
+该工具把加密的组密码从 /etc/group 移到 /etc/gshadow，通过限制对密码数据的访问来提升安全性。
 
 # CAVEATS
 
-Requires root access. Run grpck first to verify integrity. Irreversible without backup.
+需要 root 权限。请先运行 grpck 验证完整性。没有备份时操作不可逆。
 
 # HISTORY
 
-grpconv was developed as part of the **shadow** password suite to improve group password security.
+grpconv 作为 **shadow** 密码工具套件的一部分开发，用于提升组密码的安全性。
 
 # INSTALL
 

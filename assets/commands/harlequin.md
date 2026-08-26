@@ -1,38 +1,38 @@
 # TAGLINE
 
-terminal-based SQL IDE supporting multiple database backends
+支持多种数据库后端的终端 SQL IDE
 
 # TLDR
 
-**Connect to DuckDB database**
+**连接 DuckDB 数据库**
 
 ```harlequin [database.db]```
 
-**Connect to SQLite database**
+**连接 SQLite 数据库**
 
 ```harlequin -a sqlite [database.sqlite]```
 
-**Connect to PostgreSQL**
+**连接 PostgreSQL**
 
 ```harlequin -a postgres -h [localhost] -p [5432] -U [user] -d [database]```
 
-**Connect to MySQL**
+**连接 MySQL**
 
 ```harlequin -a mysql -h [localhost] -p [3306] -U [user] --database [database]```
 
-**Open in-memory DuckDB**
+**打开内存中的 DuckDB**
 
 ```harlequin```
 
-**Query Parquet files**
+**查询 Parquet 文件**
 
 ```harlequin [data.parquet]```
 
-**Connect with connection string**
+**使用连接字符串连接**
 
 ```harlequin "postgresql://[user]:[pass]@[host]/[db]"```
 
-**Set read-only mode**
+**设置只读模式**
 
 ```harlequin --read-only [database.db]```
 
@@ -43,92 +43,92 @@ terminal-based SQL IDE supporting multiple database backends
 # PARAMETERS
 
 **-a**, **--adapter** _name_
-> Database adapter: duckdb (default), sqlite, postgres, mysql, bigquery.
+> 数据库适配器：duckdb（默认）、sqlite、postgres、mysql、bigquery。
 
 **-h**, **--host** _host_
-> Database host.
+> 数据库主机。
 
 **-p**, **--port** _port_
-> Database port.
+> 数据库端口。
 
 **-U**, **--user** _user_
-> Database username.
+> 数据库用户名。
 
 **-d**, **--database** _name_
-> Database name.
+> 数据库名称。
 
 **--password** _password_
-> Database password.
+> 数据库密码。
 
 **--read-only**
-> Open connection in read-only mode.
+> 以只读模式打开连接。
 
 **-t**, **--theme** _theme_
-> Color theme name (any Textual theme).
+> 配色主题名称（任意 Textual 主题）。
 
 **--limit** _rows_
-> Default result row limit.
+> 默认的结果行数上限。
 
 **-f**, **--profile** _name_
-> Load a named profile from config file.
+> 从配置文件加载指定的命名配置档案。
 
 **--no-download-tzdata**
-> Skip downloading timezone data for DuckDB.
+> 跳过为 DuckDB 下载时区数据。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # KEYBOARD COMMANDS
 
 **Ctrl+Enter**
-> Execute query.
+> 执行查询。
 
 **Ctrl+j**
-> Execute query (alternative).
+> 执行查询（备选按键）。
 
 **Ctrl+o**
-> Open query file.
+> 打开查询文件。
 
 **Ctrl+s**
-> Save query to file.
+> 将查询保存到文件。
 
 **F1-F10**
-> Switch between query tabs.
+> 在查询标签页之间切换。
 
 **Ctrl+n**
-> New query tab.
+> 新建查询标签页。
 
 **Ctrl+w**
-> Close current tab.
+> 关闭当前标签页。
 
 **Ctrl+e**
-> Export results.
+> 导出结果。
 
 **Ctrl+q**
-> Quit.
+> 退出。
 
 # DESCRIPTION
 
-**harlequin** is a terminal-based SQL IDE supporting multiple database backends. It provides a rich interface for writing queries, exploring schemas, and viewing results.
+**harlequin** 是一款基于终端的 SQL IDE，支持多种数据库后端。它提供丰富的界面，可用于编写查询、浏览模式和查看结果。
 
-The interface shows a schema browser, query editor with syntax highlighting, and results pane. Multiple query tabs enable working on several queries simultaneously.
+界面包含模式浏览器、带语法高亮的查询编辑器和结果面板。多查询标签页让你可以同时处理多条查询。
 
-DuckDB is the default adapter, enabling direct querying of Parquet, CSV, and JSON files. Other adapters connect to traditional databases like PostgreSQL, MySQL, and SQLite.
+DuckDB 是默认适配器，可直接查询 Parquet、CSV 和 JSON 文件。其他适配器则用于连接 PostgreSQL、MySQL 和 SQLite 等传统数据库。
 
-Query results display in a scrollable table with export options. History and autocomplete assist query writing. The schema browser shows tables, columns, and types.
+查询结果显示在可滚动的表格中，并带有导出选项。历史记录和自动补全辅助编写查询。模式浏览器会显示表、列和类型。
 
-Configuration via config file or environment variables sets defaults for themes, limits, and connection preferences.
+可以通过配置文件或环境变量进行配置，为主题、行数限制和连接偏好设置默认值。
 
 # CAVEATS
 
-Some adapters require additional packages. Large result sets may impact terminal performance. Keyboard shortcuts may conflict with terminal emulator bindings. Features vary by adapter.
+部分适配器需要额外安装软件包。较大的结果集可能影响终端性能。键盘快捷键可能与终端模拟器的绑定冲突。具体功能因适配器而异。
 
 # HISTORY
 
-Harlequin was created by **Ted Conbeer** and first released in **2023**. Built with Textual framework, it provides a modern terminal SQL experience. The project grew from frustration with CLI database tools lacking visual feedback. It emphasizes the DuckDB ecosystem while supporting traditional databases. Active development continues with new adapters and features.
+Harlequin 由 **Ted Conbeer** 创建，首次发布于 **2023 年**。它基于 Textual 框架构建，带来现代化的终端 SQL 体验。该项目源于作者对缺乏视觉反馈的 CLI 数据库工具的不满。它以 DuckDB 生态为核心，同时支持传统数据库。目前仍在积极开发中，不断推出新的适配器和功能。
 
 # INSTALL
 

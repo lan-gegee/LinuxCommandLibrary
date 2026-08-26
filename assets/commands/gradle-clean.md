@@ -1,18 +1,18 @@
 # TAGLINE
 
-Gradle build artifact removal task
+Gradle 构建产物清理任务
 
 # TLDR
 
-**Clean build directory**
+**清理构建目录**
 
 ```gradle clean```
 
-**Clean specific module**
+**清理特定模块**
 
 ```gradle :module:clean```
 
-**Clean and build**
+**清理并构建**
 
 ```gradle clean build```
 
@@ -23,27 +23,27 @@ Gradle build artifact removal task
 # PARAMETERS
 
 **clean**_TaskName_
-> Task rule that deletes only the outputs of a named task, e.g. `cleanJar` removes the JAR produced by the `jar` task.
+> 任务规则：只删除指定任务的输出，例如 `cleanJar` 会删除 `jar` 任务生成的 JAR。
 
 **--info**
-> Info logging.
+> Info 级别日志。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gradle clean** deletes the project build directory (the path set by `layout.buildDirectory`, by default `build/`) and everything in it. It removes compiled classes, packaged artifacts, and cached build output, ensuring a fresh build environment.
+**gradle clean** 删除项目的构建目录（由 `layout.buildDirectory` 设置的路径，默认为 `build/`）及其中的所有内容。它会移除编译后的类文件、打包的构件和缓存的构建输出，确保构建环境干净如初。
 
-The task is provided by Gradle's base plugin, which is applied by the Java, Application, and most other language plugins. It is useful when builds become inconsistent or caches are corrupted, forcing a complete rebuild on the next invocation.
+该任务由 Gradle 的 base 插件提供，Java、Application 以及大多数其他语言插件都会应用该插件。当构建结果不一致或缓存损坏时，它非常有用，可强制下次调用时进行完整重建。
 
 # CAVEATS
 
-Removes all build output. Next build will be full rebuild. Doesn't clean dependencies.
+会移除所有构建输出。下次构建将是完整重建。不会清理依赖。
 
 # HISTORY
 
-The clean task is a standard **Gradle** lifecycle task for build artifact removal.
+clean 任务是用于移除构建产物的标准 **Gradle** 生命周期任务。
 
 # INSTALL
 

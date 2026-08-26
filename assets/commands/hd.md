@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays file contents in hexadecimal format
+以十六进制格式显示文件内容
 
 # TLDR
 
-**Display file in hex**
+**以十六进制显示文件**
 
 ```hd [file]```
 
-**Show first 100 bytes**
+**只显示前 100 字节**
 
 ```hd -n 100 [file]```
 
-**Skip first 50 bytes**
+**跳过前 50 字节**
 
 ```hd -s 50 [file]```
 
-**One-byte octal display**
+**单字节八进制显示**
 
 ```hd -b [file]```
 
-**Canonical hex+ASCII display**
+**标准的十六进制+ASCII 显示**
 
 ```hd -C [file]```
 
@@ -31,39 +31,39 @@ displays file contents in hexadecimal format
 # PARAMETERS
 
 _FILE_
-> File to display.
+> 要显示的文件。
 
 **-n** _LENGTH_
-> Number of bytes to display.
+> 要显示的字节数。
 
 **-s** _OFFSET_
-> Skip offset bytes.
+> 跳过 offset 字节。
 
 **-b**
-> One-byte octal display.
+> 单字节八进制显示。
 
 **-C**
-> Canonical hex+ASCII display.
+> 标准的十六进制+ASCII 显示。
 
 **-v**
-> Display all data (no suppression).
+> 显示全部数据（不做重复行抑制）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hd** displays file contents in hexadecimal format. Invoking **hexdump** as **hd** is equivalent to running it with **-C**, showing offset, hex bytes, and the ASCII representation side by side.
+**hd** 以十六进制格式显示文件内容。以 **hd** 名称调用 **hexdump** 等价于加 **-C** 运行：偏移量、十六进制字节和 ASCII 表示会并排显示。
 
-The tool is useful for examining binary files, analyzing data formats, and debugging. It formats output in readable columns.
+该工具适用于检查二进制文件、分析数据格式和调试。它会将输出格式化为易读的列。
 
 # CAVEATS
 
-Non-printable bytes are shown as dots in the ASCII column. Large files produce extensive output; pipe through a pager or use **-n**/**-s** to limit the range.
+不可打印的字节在 ASCII 列中以点号显示。大文件会产生大量输出；建议通过分页器管道查看，或用 **-n**/**-s** 限制范围。
 
 # HISTORY
 
-**hd** originated as a BSD convenience alias for **hexdump**. On current Linux systems it's provided by the **util-linux** package (which absorbed hexdump from the older bsdmainutils package around 2017), so both **hexdump** and **hd** invoke the same binary.
+**hd** 最初是 BSD 中 **hexdump** 的一个便捷别名。在当前的 Linux 系统上，它由 **util-linux** 软件包提供（util-linux 在 2017 年前后吸收了旧 bsdmainutils 软件包中的 hexdump），因此 **hexdump** 与 **hd** 调用的是同一个二进制程序。
 
 # INSTALL
 

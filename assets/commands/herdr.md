@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal multiplexer built for AI coding agents
+专为 AI 编程智能体打造的终端复用器
 
 # TLDR
 
-**Start** herdr in the current project
+在当前项目中**启动** herdr
 
 ```herdr```
 
-**Detach** from a session (default prefix style)
+**脱离**会话（默认前缀键风格）
 
 ```[ctrl+b] q```
 
-**Reattach** later
+之后**重新接入**
 
 ```herdr```
 
-**Install** via script
+通过脚本**安装**
 
 ```curl -fsSL https://herdr.dev/install.sh | sh```
 
@@ -26,23 +26,23 @@ Terminal multiplexer built for AI coding agents
 
 # DESCRIPTION
 
-**herdr** is an agent-oriented terminal multiplexer: a single Rust binary that runs inside your existing terminal, shows live panes for coding agents (Claude Code, Codex, and others), and keeps sessions running after detach—including over SSH. It supports keyboard and mouse, tmux-style prefix keys, splits, plugins, and a socket API so agents can spawn panes and wait on each other.
+**herdr** 是一个面向智能体的终端复用器：它是一个单独的 Rust 二进制文件，运行在你现有的终端内，为编程智能体（Claude Code、Codex 等）显示实时窗格，并使会话在脱离后继续运行——包括通过 SSH 连接的场景。它支持键盘和鼠标操作、tmux 风格的前缀键、窗口拆分、插件以及套接字 API，让各个智能体能够创建窗格并相互等待。
 
-Docs: https://herdr.dev/docs/
+文档：https://herdr.dev/docs/
 
 # PARAMETERS
 
 **herdr**
 
-> Attach to the session for the current workspace or create one.
+> 接入当前工作区的会话，不存在则创建。
 
-Additional subcommands and flags (remote attach, plugin management, etc.) are version-specific—run **herdr --help** and see the online quick start.
+其他子命令和标志（远程接入、插件管理等）因版本而异——请运行 **herdr --help** 并参阅在线快速入门。
 
-Common UX: prefix **ctrl+b** then **q** to detach; run **herdr** again to reattach.
+常见用法：按前缀键 **ctrl+b** 再按 **q** 脱离；再次运行 **herdr** 即可重新接入。
 
 # CAVEATS
 
-Agent integrations depend on which tools you install. Socket API and plugins expand the attack surface—treat untrusted plugins carefully. Not a drop-in replacement for every **tmux** workflow; learn herdr's own keybindings.
+智能体集成取决于你安装了哪些工具。套接字 API 和插件会扩大攻击面——请谨慎对待不受信任的插件。它并非所有 **tmux** 工作流的直接替代品，需要学习 herdr 自己的按键绑定。
 
 # INSTALL
 

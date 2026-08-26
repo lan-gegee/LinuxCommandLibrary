@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays user and group identity information
+显示用户和组的身份信息
 
 # TLDR
 
-**Show current user info**
+**显示当前用户信息**
 
 ```id```
 
-**Show info for user**
+**显示指定用户的信息**
 
 ```id [username]```
 
-**Show only user ID**
+**只显示用户 ID**
 
 ```id -u```
 
-**Show only group ID**
+**只显示组 ID**
 
 ```id -g```
 
-**Show all group IDs**
+**显示所有组 ID**
 
 ```id -G```
 
-**Show names instead of numbers**
+**显示名称而非数字**
 
 ```id -n -u```
 
@@ -35,39 +35,39 @@ displays user and group identity information
 # PARAMETERS
 
 _USER_
-> Username to query.
+> 要查询的用户名。
 
 **-u**, **--user**
-> Print user ID only.
+> 仅打印用户 ID。
 
 **-g**, **--group**
-> Print primary group ID.
+> 打印主组 ID。
 
 **-G**, **--groups**
-> Print all group IDs.
+> 打印所有组 ID。
 
 **-n**, **--name**
-> Print names instead of IDs.
+> 打印名称而非 ID。
 
 **-r**, **--real**
-> Print real ID.
+> 打印真实 ID。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**id** displays user and group identity information. It shows UID, GID, and supplementary groups for users.
+**id** 显示用户和组的身份信息，展示用户的 UID、GID 以及附加组。
 
-The command is useful for verifying permissions and group memberships. It can query any user or the current user by default.
+该命令可用于核实权限和组成员关系。默认查询当前用户，也可以查询任意用户。
 
 # CAVEATS
 
-Part of coreutils. Shows cached info at login. Real vs effective ID support.
+属于 coreutils。显示的是登录时缓存的信息。支持真实 ID 与有效 ID 的区分。
 
 # HISTORY
 
-id is a standard **Unix** command, part of **GNU coreutils** on Linux.
+id 是标准的 **Unix** 命令，在 Linux 上属于 **GNU coreutils**。
 
 # INSTALL
 

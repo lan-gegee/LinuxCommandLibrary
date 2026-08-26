@@ -1,18 +1,18 @@
 # TAGLINE
 
-displays the Graphics Translation Table for Intel GPUs
+显示 Intel GPU 的图形地址重映射表（GTT）
 
 # TLDR
 
-**Show GTT status**
+**显示 GTT 状态**
 
 ```sudo intel_gtt```
 
-**Dump GTT entries**
+**转储 GTT 条目**
 
 ```sudo intel_gtt -d```
 
-**Show specific range**
+**显示指定范围**
 
 ```sudo intel_gtt -r [0x0-0x1000]```
 
@@ -23,27 +23,27 @@ displays the Graphics Translation Table for Intel GPUs
 # PARAMETERS
 
 **-d**
-> Dump GTT entries.
+> 转储 GTT 条目。
 
 **-r** _RANGE_
-> Show specific address range.
+> 显示指定的地址范围。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**intel_gtt** displays the Graphics Translation Table for Intel GPUs. The GTT maps graphics memory addresses to physical memory.
+**intel_gtt** 显示 Intel GPU 的图形地址重映射表（Graphics Translation Table）。GTT 将图形内存地址映射到物理内存。
 
-The tool shows aperture usage and memory mappings. Useful for debugging memory allocation and GPU memory issues.
+该工具显示孔径使用情况和内存映射。可用于调试内存分配和 GPU 内存问题。
 
 # CAVEATS
 
-Intel graphics only. Requires root. Part of intel-gpu-tools.
+仅适用于 Intel 显卡。需要 root 权限。属于 intel-gpu-tools 的一部分。
 
 # HISTORY
 
-intel_gtt is part of **intel-gpu-tools**, developed for low-level debugging of Intel integrated graphics.
+intel_gtt 是 **intel-gpu-tools** 的一部分，为 Intel 集成显卡的底层调试而开发。
 
 # INSTALL
 

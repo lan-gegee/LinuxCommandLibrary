@@ -1,22 +1,22 @@
 # TAGLINE
 
-captures and displays HTTP traffic in real-time
+实时捕获并显示 HTTP 流量
 
 # TLDR
 
-**Capture HTTP traffic on interface**
+**在网卡上捕获 HTTP 流量**
 
 ```sudo httpflow -i [eth0]```
 
-**Filter by port**
+**按端口过滤**
 
 ```sudo httpflow -i [eth0] 'port 80'```
 
-**Save to file**
+**保存到文件**
 
 ```sudo httpflow -i [eth0] -w [output]```
 
-**Read from pcap**
+**从 pcap 读取**
 
 ```httpflow -r [capture.pcap]```
 
@@ -27,39 +27,39 @@ captures and displays HTTP traffic in real-time
 # PARAMETERS
 
 _FILTER_
-> BPF filter expression.
+> BPF 过滤表达式。
 
 **-i** _INTERFACE_
-> Network interface.
+> 网络接口。
 
 **-r** _FILE_
-> Read from pcap file.
+> 从 pcap 文件读取。
 
 **-w** _DIR_
-> Write output directory.
+> 输出写入的目录。
 
 **-u** _URL_
-> Filter by URL pattern.
+> 按 URL 模式过滤。
 
 **-d**
-> Print debug info.
+> 打印调试信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**httpflow** captures and displays HTTP traffic in real-time. It reconstructs HTTP requests and responses from network packets.
+**httpflow** 实时捕获并显示 HTTP 流量。它会从网络数据包中重建 HTTP 请求和响应。
 
-The tool is useful for debugging, monitoring, and analyzing web traffic. It displays headers, bodies, and request/response pairs.
+该工具可用于调试、监视和分析 Web 流量。它能显示请求头、请求体以及请求/响应对。
 
 # CAVEATS
 
-Requires root for live capture. Cannot decode HTTPS. Privacy considerations apply.
+实时捕获需要 root 权限。无法解码 HTTPS。使用时须注意隐私问题。
 
 # HISTORY
 
-**httpflow** is an open-source utility built on **libpcap** that reassembles TCP streams to reconstruct HTTP requests and responses for real-time traffic analysis and debugging.
+**httpflow** 是一款基于 **libpcap** 的开源工具，它重组 TCP 流以重建 HTTP 请求和响应，用于实时的流量分析与调试。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ Requires root for live capture. Cannot decode HTTPS. Privacy considerations appl
 ```[Source code](https://github.com/six-ddc/httpflow)```
 
 <!-- verified: 2026-07-19 -->
-

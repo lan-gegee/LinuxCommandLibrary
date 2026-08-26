@@ -1,38 +1,38 @@
 # TAGLINE
 
-displays or sets the system's host name
+显示或设置系统的主机名
 
 # TLDR
 
-**Display the current hostname**
+**显示当前主机名**
 
 ```hostname```
 
-**Display the fully qualified domain name** (FQDN)
+**显示完全限定域名**（FQDN）
 
 ```hostname -f```
 
-**Display the short hostname** (without domain)
+**显示短主机名**（不含域名）
 
 ```hostname -s```
 
-**Display all IP addresses** of the host
+**显示主机的所有 IP 地址**
 
 ```hostname -I```
 
-**Display the DNS domain name**
+**显示 DNS 域名**
 
 ```hostname -d```
 
-**Set the hostname** (temporary, until reboot)
+**设置主机名**（临时，重启后失效）
 
 ```sudo hostname [new_hostname]```
 
-**Set hostname from a file**
+**从文件读取主机名**
 
 ```sudo hostname -F [/etc/hostname]```
 
-**Display the NIS/YP domain name**
+**显示 NIS/YP 域名**
 
 ```hostname -y```
 
@@ -47,59 +47,59 @@ displays or sets the system's host name
 # PARAMETERS
 
 **-a**, **--alias**
-> Display the alias name of the host
+> 显示主机的别名
 
 **-d**, **--domain**
-> Display the DNS domain name
+> 显示 DNS 域名
 
 **-f**, **--fqdn**, **--long**
-> Display the Fully Qualified Domain Name (FQDN)
+> 显示完全限定域名（FQDN）
 
 **-A**, **--all-fqdns**
-> Display all FQDNs of the machine
+> 显示机器的所有 FQDN
 
 **-i**, **--ip-address**
-> Display the IP address for the hostname
+> 显示主机名对应的 IP 地址
 
 **-I**, **--all-ip-addresses**
-> Display all network addresses of the host (excludes loopback and IPv6 link-local)
+> 显示主机的所有网络地址（不包括回环和 IPv6 链路本地地址）
 
 **-s**, **--short**
-> Display the short hostname (up to the first dot)
+> 显示短主机名（截取第一个点之前的部分）
 
 **-y**, **--yp**, **--nis**
-> Display or set the NIS/YP domain name
+> 显示或设置 NIS/YP 域名
 
 **-F**, **--file** _FILE_
-> Read hostname from the specified file
+> 从指定文件读取主机名
 
 **-b**, **--boot**
-> Always set a hostname; if none specified, use default
+> 总是设置一个主机名；若未指定则使用默认值
 
 **-v**, **--verbose**
-> Be verbose about actions taken
+> 详细输出所执行的操作
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**hostname** displays or sets the system's host name. The host name is used by many network programs to identify the machine. The command can show various name components including the short name, FQDN, domain name, and IP addresses.
+**hostname** 用于显示或设置系统的主机名。主机名被许多网络程序用来标识机器。该命令可以显示多种名称组成部分，包括短名称、FQDN、域名和 IP 地址。
 
-When called without arguments, it displays the current hostname as returned by the gethostname system call. When called with an argument, it sets the hostname (requires root privileges). Related commands **domainname**, **dnsdomainname**, and **nisdomainname** are often symbolic links to hostname.
+不带参数调用时，它显示 gethostname 系统调用返回的当前主机名。带参数调用时，它会设置主机名（需要 root 权限）。相关命令 **domainname**、**dnsdomainname** 和 **nisdomainname** 通常是指向 hostname 的符号链接。
 
-The **-I** option is particularly useful for scripts as it lists all configured IP addresses without relying on DNS resolution. The FQDN (**-f**) combines the short hostname with the DNS domain.
+**-I** 选项对脚本特别有用，因为它列出所有已配置的 IP 地址而不依赖 DNS 解析。FQDN（**-f**）由短主机名与 DNS 域组合而成。
 
 # CAVEATS
 
-Setting the hostname with this command is temporary and does not persist across reboots. For permanent changes, edit **/etc/hostname** or use **hostnamectl** on systemd-based systems. The **-i** option depends on DNS resolution and may fail if the hostname cannot be resolved. Changes require root privileges.
+用该命令设置的主机名是临时的，重启后不会保留。要永久更改，请编辑 **/etc/hostname** 或在基于 systemd 的系统上使用 **hostnamectl**。**-i** 选项依赖 DNS 解析，若主机名无法解析可能失败。更改需要 root 权限。
 
 # HISTORY
 
-The hostname command has been part of Unix systems since the early BSD releases in the 1980s. It evolved from simple hostname display to include domain name handling as TCP/IP networking became standard. On modern Linux systems, **hostnamectl** from systemd provides additional functionality for persistent hostname configuration including static, transient, and pretty hostnames.
+hostname 命令自 20 世纪 80 年代早期 BSD 版本起就是 Unix 系统的一部分。随着 TCP/IP 网络成为标准，它从简单的主机名显示演变为包含域名处理。在现代 Linux 系统上，systemd 提供的 **hostnamectl** 为持久化主机名配置提供了更多功能，包括静态、瞬态（transient）和友好（pretty）主机名。
 
 # INSTALL
 

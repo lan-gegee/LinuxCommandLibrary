@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal visualization for real-time hardware sensor data from HWInfo
+对 HWInfo 实时硬件传感器数据进行终端可视化
 
 # TLDR
 
-**Monitor sensors interactively** from a CSV file
+从 CSV 文件**交互式监控传感器**
 
 ```hwinfo-tui monitor [sensors.csv] "[sensor_name]"```
 
-**Monitor multiple sensors**
+**监控多个传感器**
 
 ```hwinfo-tui monitor [sensors.csv] "[CPU Temperature]" "[GPU Temperature]"```
 
-**Set custom refresh rate**
+设置自定义**刷新率**
 
 ```hwinfo-tui monitor --refresh [0.5] [sensors.csv] "[sensor_name]"```
 
-**Set history window** duration
+设置**历史窗口**时长
 
 ```hwinfo-tui monitor --history [600] [sensors.csv] "[sensor_name]"```
 
@@ -26,17 +26,17 @@ Terminal visualization for real-time hardware sensor data from HWInfo
 
 # DESCRIPTION
 
-**hwinfo-tui** is a terminal visualization tool for monitoring real-time hardware sensor data from **HWInfo64**. Inspired by **gping**, it provides a clean TUI with interactive charts and statistics tables showing min, max, average, and 95th percentile values for each monitored sensor.
+**hwinfo-tui** 是一个终端可视化工具，用于监控来自 **HWInfo64** 的实时硬件传感器数据。它受 **gping** 启发，提供一个整洁的 TUI，带有交互式图表和统计表，显示每个被监控传感器的最小值、最大值、平均值和 95 百分位数值。
 
-The tool features fuzzy sensor name matching with suggestions, configurable refresh rates (0.1-60 seconds), and adjustable history windows (10-7200 seconds). It reads sensor data from CSV files exported by HWInfo64.
+该工具支持带建议的模糊传感器名匹配、可配置的刷新率（0.1-60 秒）以及可调整的历史窗口（10-7200 秒）。它读取由 HWInfo64 导出的 CSV 文件中的传感器数据。
 
 # CAVEATS
 
-**HWInfo64** is only available on Windows; on other platforms you can use the tool with pre-exported CSV files. Requires Python 3. Memory usage scales with history window size and number of monitored sensors.
+**HWInfo64** 仅在 Windows 上可用；在其他平台上，你可以使用预先导出的 CSV 文件来使用本工具。需要 Python 3。内存占用随历史窗口大小和被监控传感器数量而增加。
 
 # HISTORY
 
-**hwinfo-tui** was created by **Juanjo Fuchs** and is written in **Python**. It was inspired by the visual style of gping and designed to bring hardware monitoring to the terminal.
+**hwinfo-tui** 由 **Juanjo Fuchs** 创建，用 **Python** 编写。其设计灵感来自 gping 的视觉风格，旨在把硬件监控带入终端。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-GNOME desktop configuration command-line interface
+GNOME 桌面配置命令行界面
 
 # TLDR
 
-**Set** the value of a key
+**设置**键的值
 
 ```gsettings set [org.example.schema] [example-key] [value]```
 
-**Get** the value of a key
+**获取**键的值
 
 ```gsettings get [org.example.schema] [example-key]```
 
-**Reset** a key to its schema default value
+将键**重置**为其架构默认值
 
 ```gsettings reset [org.example.schema] [example-key]```
 
-Display all schemas, keys, and **values recursively**
+递归显示所有架构、键和**值**
 
 ```gsettings list-recursively```
 
-Display keys and values from **one schema**
+显示**单个架构**中的键和值
 
 ```gsettings list-recursively [org.example.schema]```
 
-Display **allowed values** for a key
+显示键的**允许取值范围**
 
 ```gsettings range [org.example.schema] [example-key]```
 
-Display the **description** of a key
+显示键的**描述**
 
 ```gsettings describe [org.example.schema] [example-key]```
 
@@ -39,51 +39,51 @@ Display the **description** of a key
 # PARAMETERS
 
 **get** _SCHEMA_ _KEY_
-> Get the value of a key
+> 获取键的值
 
 **set** _SCHEMA_ _KEY_ _VALUE_
-> Set a key's value (must match schema type)
+> 设置键的值（必须符合架构类型）
 
 **reset** _SCHEMA_ _KEY_
-> Reset key to schema default
+> 将键重置为架构默认值
 
 **list-schemas**
-> List installed schemas
+> 列出已安装的架构
 
 **list-keys** _SCHEMA_
-> List keys in a schema
+> 列出架构中的键
 
 **list-recursively** [_SCHEMA_]
-> List all settings (optionally filtered by schema)
+> 列出所有设置（可选按架构过滤）
 
 **range** _SCHEMA_ _KEY_
-> Show valid values for a key
+> 显示键的有效取值
 
 **describe** _SCHEMA_ _KEY_
-> Show human-readable description
+> 显示人类可读的描述
 
 **monitor** _SCHEMA_ [_KEY_]
-> Watch for changes
+> 监视更改
 
 # DESCRIPTION
 
-**gsettings** is the command-line interface for GSettings, GNOME's configuration system. It provides schema-validated access to dconf settings, ensuring type safety and valid values.
+**gsettings** 是 GSettings（GNOME 的配置系统）的命令行界面。它提供经架构校验的 dconf 设置访问方式，确保类型安全和取值有效。
 
-Settings are organized in schemas (like org.gnome.desktop.interface) containing typed keys. Unlike direct dconf access, gsettings validates values against the schema before applying them.
+设置按架构组织（如 org.gnome.desktop.interface），其中包含带类型的键。与直接访问 dconf 不同，gsettings 会在应用值之前根据架构进行校验。
 
 # COMMON SCHEMAS
 
-**org.gnome.desktop.interface** - Desktop appearance settings
-**org.gnome.desktop.wm.preferences** - Window manager preferences
-**org.gnome.shell** - GNOME Shell settings
+**org.gnome.desktop.interface** - 桌面外观设置
+**org.gnome.desktop.wm.preferences** - 窗口管理器偏好
+**org.gnome.shell** - GNOME Shell 设置
 
 # CAVEATS
 
-Only works with applications using GSettings (primarily GNOME). Some settings require logout or restart to take effect. Schema must be installed for settings to work.
+仅适用于使用 GSettings 的应用（主要是 GNOME）。某些设置需要注销或重启才能生效。必须安装相应架构，设置才能工作。
 
 # HISTORY
 
-GSettings was introduced in GLib 2.26 (**2010**) as a replacement for GConf. It uses dconf as its backend while providing schema validation, making configuration more robust and introspectable.
+GSettings 于 GLib 2.26（**2010 年**）中引入，用以取代 GConf。它以 dconf 作为后端，同时提供架构校验，使配置更健壮且可自省。
 
 # INSTALL
 

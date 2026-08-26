@@ -1,26 +1,26 @@
 # TAGLINE
 
-2D data plotting utility
+二维数据绘图工具
 
 # TLDR
 
-**Plot data from file**
+**绘制文件中的数据**
 
 ```graph [data.txt] > [plot.ps]```
 
-**Plot with specific range**
+**按指定范围绘图**
 
 ```graph -x [0] [10] -y [0] [100] [data.txt] > [plot.ps]```
 
-**Create PNG output**
+**创建 PNG 输出**
 
 ```graph -T png [data.txt] > [plot.png]```
 
-**Plot with title**
+**带标题绘图**
 
 ```graph --title-font-size [0.05] -L "[My Graph]" [data.txt] > [plot.ps]```
 
-**Multiple datasets**
+**多个数据集**
 
 ```graph [data1.txt] [data2.txt] > [plot.ps]```
 
@@ -31,40 +31,40 @@
 # PARAMETERS
 
 **-T** _type_
-> Output format: X, png, pnm, gif, svg, ai, ps, cgm, fig, pcl, hpgl, regis, meta, tek. Defaults to meta (GNU graphics metafile, viewable with plot).
+> 输出格式：X、png、pnm、gif、svg、ai、ps、cgm、fig、pcl、hpgl、regis、meta、tek。默认为 meta（GNU 图形元文件，可用 plot 查看）。
 
 **-x** _min_ _max_
-> X-axis range.
+> X 轴范围。
 
 **-y** _min_ _max_
-> Y-axis range.
+> Y 轴范围。
 
 **-L** _label_
-> Top label (title).
+> 顶部标签（标题）。
 
 **-X** _label_
-> X-axis label.
+> X 轴标签。
 
 **-Y** _label_
-> Y-axis label.
+> Y 轴标签。
 
 **-m** _type_
-> Line mode (0-5).
+> 线条模式（0-5）。
 
 **-S** _type_
-> Symbol type.
+> 符号类型。
 
 **-C**
-> Use color.
+> 使用彩色。
 
 **-g** _type_
-> Grid type (0-3).
+> 网格类型（0-3）。
 
 # DESCRIPTION
 
-**graph** is part of GNU plotutils, creating 2D plots from data files. It reads x,y coordinates from input and generates publication-quality graphs in various formats including PostScript, PNG, and SVG.
+**graph** 是 GNU plotutils 的组成部分，用于根据数据文件创建二维图形。它从输入读取 x,y 坐标，并生成 PostScript、PNG、SVG 等多种格式的出版级质量图形。
 
-The tool supports multiple datasets, various line and symbol styles, and extensive customization for scientific and technical plotting.
+该工具支持多个数据集、多种线条和符号样式，并为科学与技术绘图提供丰富的自定义选项。
 
 # INPUT FORMAT
 
@@ -81,11 +81,11 @@ The tool supports multiple datasets, various line and symbol styles, and extensi
 
 # CAVEATS
 
-Part of plotutils package. Limited interactivity. For complex plots, consider gnuplot. The default output type is the GNU metafile format; use **-T** to select a concrete format such as png, svg, or ps.
+属于 plotutils 软件包。交互性有限。对于复杂图形请考虑使用 gnuplot。默认输出类型是 GNU 元文件格式；使用 **-T** 选择具体格式，如 png、svg 或 ps。
 
 # HISTORY
 
-graph is part of **GNU plotutils**, maintained by the GNU project. The package provides a collection of plotting utilities following the Unix philosophy of simple, composable tools.
+graph 属于 **GNU plotutils**，由 GNU 项目维护。该软件包提供一系列遵循 Unix 简单、可组合工具哲学的绘图工具。
 
 # INSTALL
 

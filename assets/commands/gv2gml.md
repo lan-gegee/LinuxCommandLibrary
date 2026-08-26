@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts Graphviz DOT format to GML
+将 Graphviz DOT 格式转换为 GML
 
 # TLDR
 
-**Convert DOT to GML**
+**将 DOT 转换为 GML**
 
 ```gv2gml [input.gv] -o [output.gml]```
 
-**Output to stdout**
+**输出到标准输出**
 
 ```gv2gml [input.dot]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```gv2gml [file1.gv] [file2.gv] -o [output.gml]```
 
@@ -23,30 +23,30 @@ converts Graphviz DOT format to GML
 # PARAMETERS
 
 _FILES_
-> Input DOT/GV files. Reads stdin if none given.
+> 输入的 DOT/GV 文件。未指定时从标准输入读取。
 
 **-o** _outfile_
-> Write output to outfile instead of stdout.
+> 将输出写入 outfile 而非标准输出。
 
 **-y**
-> Use yWorks.com GML attribute conventions instead of the plain GML specification.
+> 使用 yWorks.com 的 GML 属性约定而非普通 GML 规范。
 
 **-?**
-> Display usage information and exit.
+> 显示用法信息并退出。
 
 # DESCRIPTION
 
-**gv2gml** converts a graph specified in the DOT language to GML (Graph Modelling Language), an interchange format used by graph analysis and visualization tools such as yEd and Gephi.
+**gv2gml** 将以 DOT 语言表示的图转换为 GML（Graph Modelling Language），这是一种供 yEd 和 Gephi 等图分析与可视化工具使用的交换格式。
 
-It is the reverse-direction counterpart of **gml2gv**, both built from the same source and dispatching on the program name.
+它是 **gml2gv** 的反方向对应工具，两者由同一份源码构建，根据程序名称分派行为。
 
 # CAVEATS
 
-Does not support subgraphs or clusters. GML has no way to declare default node/edge attributes, so gv2gml repeats each attribute explicitly on every node and edge.
+不支持子图和簇。GML 无法声明默认的节点/边属性，因此 gv2gml 会在每个节点和边上显式重复每个属性。
 
 # HISTORY
 
-gv2gml is part of the **Graphviz** project, created at **AT&T Labs** for graph format conversion.
+gv2gml 是 **Graphviz** 项目的一部分，由 **AT&T 实验室**创建，用于图格式转换。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert C header files to Perl header files
+将 C 头文件转换为 Perl 头文件
 
 # TLDR
 
-**Convert a C header file to Perl**
+**将 C 头文件转换为 Perl**
 
 ```h2ph [header.h]```
 
-**Process all system headers recursively**
+**递归处理所有系统头文件**
 
 ```cd /usr/include && h2ph -r -l *.h```
 
-**Output to a specific directory**
+**输出到指定目录**
 
 ```h2ph -d [/usr/lib/perl5] [header.h]```
 
-**Convert a header and all headers it includes**
+**转换某个头文件及其包含的所有头文件**
 
 ```h2ph -a [sys/types.h]```
 
@@ -27,42 +27,42 @@ Convert C header files to Perl header files
 # PARAMETERS
 
 _HEADERFILES_
-> C header files (.h) to convert to Perl header files (.ph).
+> 要转换为 Perl 头文件（.ph）的 C 头文件（.h）。
 
 **-d** _DIR_
-> Put resulting .ph files beneath the specified directory instead of the default Perl library location.
+> 将生成的 .ph 文件放在指定目录之下，而非默认的 Perl 库位置。
 
 **-r**
-> Run recursively, converting all .h files in specified directories and their subdirectories.
+> 递归运行，转换指定目录及其子目录中的所有 .h 文件。
 
 **-a**
-> Run automagically; convert specified headers as well as any .h files they include.
+> 自动运行；转换指定的头文件以及它们包含的所有 .h 文件。
 
 **-l**
-> Create symbolic links for duplicate output files instead of separate copies.
+> 为重复的输出文件创建符号链接，而非生成独立副本。
 
 **-D** _DIR_
-> Search the specified directory for included header files.
+> 在指定目录中搜索被包含的头文件。
 
 **-e**
-> If an error is encountered during conversion, output file names and continue parsing.
+> 转换过程中遇到错误时，输出文件名并继续解析。
 
 **-Q**
-> Quiet mode. Do not print the names of converted files.
+> 静默模式。不打印已转换文件的名称。
 
 # DESCRIPTION
 
-**h2ph** converts C header files (.h) to Perl header files (.ph). It translates **#define** macros and constant definitions into Perl equivalents that can be loaded with **require**.
+**h2ph** 将 C 头文件（.h）转换为 Perl 头文件（.ph）。它把 **#define** 宏和常量定义翻译成可用 **require** 加载的 Perl 等价物。
 
-The tool is best run from **/usr/include** to convert system headers. It wraps definitions inside **eval** blocks so that you can access the definitions it can translate even if some fail. Output .ph files are placed in Perl's architecture-dependent library directory by default.
+该工具最好在 **/usr/include** 下运行以转换系统头文件。它将定义包裹在 **eval** 块中，即使部分定义转换失败，你仍能访问成功转换的部分。默认情况下，输出的 .ph 文件放置在 Perl 的体系结构相关库目录中。
 
 # CAVEATS
 
-Only handles simple **#define** constants and macros. Complex C macros, function-like macros, and typedefs are not translated. Output may need manual corrections. The **h2xs** tool is generally preferred for creating Perl extensions from C headers.
+只能处理简单的 **#define** 常量和宏。复杂的 C 宏、函数式宏和 typedef 不会被翻译。输出可能需要手动修正。从 C 头文件创建 Perl 扩展时通常更推荐使用 **h2xs** 工具。
 
 # HISTORY
 
-h2ph has been part of the **Perl** distribution since early versions, providing a quick way to access system constants from Perl programs before XS and h2xs became the preferred approach.
+h2ph 自早期版本起就是 **Perl** 发行版的一部分，在 XS 和 h2xs 成为首选方案之前，为 Perl 程序访问系统常量提供了一种快捷方式。
 
 # INSTALL
 

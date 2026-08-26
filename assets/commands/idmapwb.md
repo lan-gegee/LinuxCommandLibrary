@@ -1,14 +1,14 @@
 # TAGLINE
 
-refers to Winbind's ID mapping functionality in Samba
+指 Samba 中 Winbind 的 ID 映射功能
 
 # TLDR
 
-**Configure in smb.conf**
+**在 smb.conf 中配置**
 
 ```idmap config * : backend = tdb```
 
-**Set range**
+**设置范围**
 
 ```idmap config * : range = 10000-999999```
 
@@ -19,27 +19,27 @@ refers to Winbind's ID mapping functionality in Samba
 # PARAMETERS
 
 **backend**
-> ID mapping backend type.
+> ID 映射后端类型。
 
 **range**
-> UID/GID range allocation.
+> UID/GID 范围分配。
 
 **read only**
-> Read-only mode.
+> 只读模式。
 
 # DESCRIPTION
 
-**idmapwb** refers to Winbind's ID mapping functionality in Samba. It translates Windows SIDs to Unix UIDs and GIDs.
+**idmapwb** 指 Samba 中 Winbind 的 ID 映射功能。它将 Windows SID 转换为 Unix UID 和 GID。
 
-The component uses configurable backends like tdb, ad, or rfc2307. It enables Unix systems to work with Windows domain users.
+该组件使用可配置的后端，如 tdb、ad 或 rfc2307。它让 Unix 系统能够与 Windows 域用户协同工作。
 
 # CAVEATS
 
-Part of Samba/Winbind. Configuration via smb.conf. Domain membership needed.
+属于 Samba/Winbind。通过 smb.conf 配置。需要加入域。
 
 # HISTORY
 
-idmapwb is part of **Samba Winbind** for Windows-Unix identity integration.
+idmapwb 是 **Samba Winbind** 的组成部分，用于 Windows-Unix 身份集成。
 
 # SEE ALSO
 

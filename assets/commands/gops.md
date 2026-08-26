@@ -1,26 +1,26 @@
 # TAGLINE
 
-Go process diagnostic tool
+Go 进程诊断工具
 
 # TLDR
 
-**List Go processes**
+**列出 Go 进程**
 
 ```gops```
 
-**Show process details**
+**显示进程详情**
 
 ```gops [pid]```
 
-**Dump stack trace**
+**转储堆栈跟踪**
 
 ```gops stack [pid]```
 
-**Memory statistics**
+**查看内存统计**
 
 ```gops memstats [pid]```
 
-**CPU profile**
+**生成 CPU 剖析**
 
 ```gops pprof-cpu [pid]```
 
@@ -31,39 +31,39 @@ Go process diagnostic tool
 # PARAMETERS
 
 _PID_
-> Process ID.
+> 进程 ID。
 
 **stack** _PID_
-> Print stack trace.
+> 打印堆栈跟踪。
 
 **memstats** _PID_
-> Show memory stats.
+> 显示内存统计。
 
 **pprof-cpu** _PID_
-> CPU profile.
+> 生成 CPU 剖析。
 
 **pprof-heap** _PID_
-> Heap profile.
+> 生成堆内存剖析。
 
 **gc** _PID_
-> Trigger garbage collection.
+> 触发垃圾回收。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gops** lists and diagnoses Go processes running on the system. It identifies Go programs and provides debugging commands including stack traces, memory statistics, and CPU/heap profiling.
+**gops** 用于列出并诊断系统中运行的 Go 进程。它能识别 Go 程序，并提供堆栈跟踪、内存统计以及 CPU/堆剖析等调试命令。
 
-For full diagnostic capabilities, the gops agent must be imported in target programs. Basic process identification works without the agent.
+要使用完整的诊断能力，必须在目标程序中引入 gops agent。不引入 agent 也可以进行基本的进程识别。
 
 # CAVEATS
 
-Full features need agent imported. Works with compatible Go versions. Some info from /proc.
+完整功能需要引入 agent。仅兼容特定版本的 Go。部分信息来自 /proc。
 
 # HISTORY
 
-gops was created by **Jaana Dogan** at Google to provide a diagnostic tool for Go processes.
+gops 由 Google 的 **Jaana Dogan** 创建，用于为 Go 进程提供诊断工具。
 
 # INSTALL
 

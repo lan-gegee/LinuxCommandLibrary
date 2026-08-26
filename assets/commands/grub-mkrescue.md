@@ -1,26 +1,26 @@
 # TAGLINE
 
-create bootable GRUB rescue images
+创建可引导的 GRUB 救援镜像
 
 # TLDR
 
-Create a **bootable ISO** from the current directory
+从当前目录创建**可引导 ISO**
 
 ```grub-mkrescue --output [grub.iso] .```
 
-Create an ISO using GRUB files from a **custom directory**
+使用**自定义目录**中的 GRUB 文件创建 ISO
 
 ```grub-mkrescue --directory [/usr/lib/grub/i386-pc] --output [grub.iso] [path/to/source]```
 
-Use **compression** for GRUB files when building the image
+构建镜像时对 GRUB 文件进行**压缩**
 
 ```grub-mkrescue --compress [xz|gz|lzo|no] --output [grub.iso] [path/to/source]```
 
-**Preload** specific GRUB modules into the image
+向镜像中**预加载**指定的 GRUB 模块
 
 ```grub-mkrescue --modules "[part_gpt iso9660]" --output [grub.iso] [path/to/source]```
 
-Display **help**
+显示**帮助**
 
 ```grub-mkrescue --help```
 
@@ -31,36 +31,36 @@ Display **help**
 # PARAMETERS
 
 **--output** _FILE_
-> Write the generated image to the specified file
+> 将生成的镜像写入指定文件
 
 **--directory** _DIR_
-> Use GRUB files from the specified directory
+> 使用指定目录中的 GRUB 文件
 
 **--compress** _TYPE_
-> Compress GRUB files using xz, gz, lzo, or disable with no
+> 使用 xz、gz、lzo 压缩 GRUB 文件，no 表示禁用压缩
 
 **--modules** _MODULES_
-> Preload specified GRUB modules into the image
+> 向镜像中预加载指定的 GRUB 模块
 
 **--disable-cli**
-> Disable GRUB command-line interface in the generated image
+> 在生成的镜像中禁用 GRUB 命令行界面
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**grub-mkrescue** creates bootable CD, USB, or floppy images using GRUB as the bootloader. It generates hybrid images that can boot from both BIOS and UEFI systems.
+**grub-mkrescue** 以 GRUB 作为引导加载程序，创建可引导的 CD、USB 或软盘镜像。它生成的是混合镜像，既可以从 BIOS 系统启动，也可以从 UEFI 系统启动。
 
-The command packages the source directory contents with the necessary GRUB files to create a bootable rescue or installation medium. Additional options can be passed to the underlying xorriso tool using the -- separator.
+该命令将源目录内容与必要的 GRUB 文件打包在一起，制作成可引导的救援或安装介质。可以使用 -- 分隔符向底层的 xorriso 工具传递额外选项。
 
 # CAVEATS
 
-Requires xorriso to be installed for ISO creation. The generated images are hybrid by default, suitable for both optical media and USB drives. Some BIOS/UEFI combinations may require specific module preloading.
+创建 ISO 需要已安装 xorriso。生成的镜像默认为混合镜像，适用于光盘和 USB 驱动器。某些 BIOS/UEFI 组合可能需要预加载特定模块。
 
 # HISTORY
 
-grub-mkrescue is part of GRUB 2 (GRand Unified Bootloader), the successor to GNU GRUB Legacy. GRUB 2 development began around **2002** and became the default bootloader in most Linux distributions by 2009.
+grub-mkrescue 是 GRUB 2（GRand Unified Bootloader）的一部分，GRUB 2 是 GNU GRUB Legacy 的后继者。GRUB 2 的开发始于 **2002 年**前后，到 2009 年已成为大多数 Linux 发行版的默认引导加载程序。
 
 # INSTALL
 

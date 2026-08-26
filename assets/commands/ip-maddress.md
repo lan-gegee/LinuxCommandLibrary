@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages link-layer multicast addresses
+管理链路层组播地址
 
 # TLDR
 
-**List** all multicast addresses
+**列出**所有组播地址
 
 ```ip maddress```
 
-List multicast addresses for a **specific device**
+列出**特定设备**的组播地址
 
 ```ip maddress show dev [eth0]```
 
-**Join** a multicast group statically
+静态**加入**一个组播组
 
 ```sudo ip maddress add [33:33:00:00:00:02] dev [eth0]```
 
-**Leave** a multicast group
+**离开**一个组播组
 
 ```sudo ip maddress delete [33:33:00:00:00:02] dev [eth0]```
 
-Display **help**
+显示**帮助**
 
 ```ip maddress help```
 
@@ -31,30 +31,30 @@ Display **help**
 # PARAMETERS
 
 **show** [**dev** _DEVICE_]
-> Display multicast addresses (optionally for specific device)
+> 显示组播地址（可选指定具体设备）
 
 **add** _ADDRESS_ **dev** _DEVICE_
-> Join a multicast group on specified device
+> 在指定设备上加入一个组播组
 
 **delete** _ADDRESS_ **dev** _DEVICE_
-> Leave a multicast group on specified device
+> 在指定设备上离开一个组播组
 
 **help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**ip maddress** manages link-layer multicast addresses. It displays which multicast groups a device is subscribed to and allows manual addition or removal of static multicast memberships.
+**ip maddress** 用于管理链路层组播地址。它显示设备订阅了哪些组播组，并允许手动添加或移除静态组播成员关系。
 
-Multicast addresses enable one-to-many communication, where a single packet can be received by multiple hosts that have joined the multicast group. This is commonly used for service discovery, streaming, and cluster communication.
+组播地址实现一对多通信：单个数据包可以被加入了该组播组的多个主机接收。这常用于服务发现、流媒体传输和集群通信。
 
 # CAVEATS
 
-Adding and deleting multicast addresses requires root privileges. Changes are not persistent across reboots. Application-level multicast (IGMP) is handled separately.
+添加和删除组播地址需要 root 权限。更改在重启后不会保留。应用层的组播（IGMP）则另行处理。
 
 # HISTORY
 
-The ip maddress command is part of iproute2, the modern replacement for the older net-tools package. iproute2 was developed by Alexey Kuznetsov starting in **1999** to provide a unified interface to Linux networking features.
+ip maddress 命令是 iproute2 的一部分，后者是旧 net-tools 软件包的现代替代品。iproute2 由 Alexey Kuznetsov 自 **1999** 年起开发，旨在为 Linux 网络功能提供统一的管理接口。
 
 # SEE ALSO
 

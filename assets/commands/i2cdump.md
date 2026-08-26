@@ -1,22 +1,22 @@
 # TAGLINE
 
-reads and displays all registers of an I2C device connected to a specified bus
+读取并显示连接到指定总线的 I2C 设备的所有寄存器
 
 # TLDR
 
-**Dump** all registers of an I2C device
+**转储** I2C 设备的所有寄存器
 
 ```i2cdump [i2cbus] [device_address]```
 
-Dump without **confirmation** prompt
+无需**确认**提示直接转储
 
 ```i2cdump -y [i2cbus] [device_address]```
 
-Dump using a **specific mode**
+使用**指定模式**转储
 
 ```i2cdump [i2cbus] [device_address] [b|w|c|s|i]```
 
-Dump a **range** of registers
+转储一个**范围**内的寄存器
 
 ```i2cdump -r [start]-[end] [i2cbus] [device_address]```
 
@@ -27,39 +27,39 @@ Dump a **range** of registers
 # PARAMETERS
 
 **-y**
-> Disable interactive confirmation (dangerous on some hardware)
+> 禁用交互式确认（在某些硬件上很危险）
 
 **-r** _START-END_
-> Limit dump to registers in specified range
+> 将转储限制在指定范围内的寄存器
 
 **b**
-> Byte mode (default for most devices)
+> 字节模式（大多数设备的默认值）
 
 **w**
-> Word mode (16-bit values)
+> 字模式（16 位值）
 
 **c**
-> Consecutive byte mode
+> 连续字节模式
 
 **s**
-> SMBus block mode
+> SMBus 块模式
 
 **i**
-> I2C block mode
+> I2C 块模式
 
 # DESCRIPTION
 
-**i2cdump** reads and displays all registers of an I2C device connected to a specified bus. It outputs a hexadecimal table showing register addresses and their contents, useful for debugging I2C hardware.
+**i2cdump** 读取并显示连接到指定总线的 I2C 设备的所有寄存器。它输出一张十六进制表，展示寄存器地址及其内容，可用于调试 I2C 硬件。
 
-All addresses should be specified in hexadecimal notation. The i2cbus number can be determined using i2cdetect -l, and device addresses can be found with i2cdetect.
+所有地址都应以十六进制表示。总线号可通过 i2cdetect -l 确定，设备地址可通过 i2cdetect 查找。
 
 # CAVEATS
 
-Accessing I2C devices can cause hardware issues on some systems. Always use the -y flag with caution. Reading from some registers may have side effects. Requires appropriate permissions (usually root or i2c group membership).
+访问 I2C 设备可能在某些系统上造成硬件问题。使用 -y 标志时务必谨慎。读取某些寄存器可能产生副作用。需要适当的权限（通常是 root 或属于 i2c 组）。
 
 # HISTORY
 
-i2cdump is part of the i2c-tools package, providing userspace access to I2C buses. The I2C bus protocol was developed by Philips Semiconductor (now NXP) in **1982** for inter-chip communication.
+i2cdump 是 i2c-tools 软件包的一部分，提供对 I2C 总线的用户态访问。I2C 总线协议由飞利浦半导体（现 NXP）于 **1982 年**开发，用于芯片间通信。
 
 # INSTALL
 

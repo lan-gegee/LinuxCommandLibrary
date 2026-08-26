@@ -1,55 +1,55 @@
 # TAGLINE
 
-self-hosted photo and video backup solution
+自托管的照片和视频备份方案
 
 # TLDR
 
-**Start Immich server**
+**启动 Immich 服务器**
 
 ```docker compose up -d```
 
-**Stop Immich**
+**停止 Immich**
 
 ```docker compose down```
 
-**View logs**
+**查看日志**
 
 ```docker compose logs -f```
 
-**Backup database**
+**备份数据库**
 
 ```docker exec immich_postgres pg_dump > backup.sql```
 
 # SYNOPSIS
 
-**immich** runs as Docker containers
+**immich** 以 Docker 容器方式运行
 
 # PARAMETERS
 
-Configured via docker-compose.yml and .env file.
+通过 docker-compose.yml 和 .env 文件配置。
 
 **UPLOAD_LOCATION**
-> Photo storage path.
+> 照片存储路径。
 
 **DB_PASSWORD**
-> Database password.
+> 数据库密码。
 
 **IMMICH_VERSION**
-> Version tag.
+> 版本标签。
 
 # DESCRIPTION
 
-**Immich** is a self-hosted photo and video backup solution. It provides Google Photos-like functionality with mobile apps and web interface.
+**Immich** 是一个自托管的照片和视频备份方案。它提供类似 Google Photos 的功能，配有移动应用和网页界面。
 
-The platform supports face recognition, geolocation, and automatic organization. It's designed for personal photo management.
+该平台支持人脸识别、地理位置和自动整理。它专为个人照片管理而设计。
 
 # CAVEATS
 
-Runs via Docker. Resource intensive. Mobile apps available.
+通过 Docker 运行。资源占用较高。提供移动应用。
 
 # HISTORY
 
-Immich was created by **Alex Tran** as an open-source alternative to Google Photos.
+Immich 由 **Alex Tran** 创建，是 Google Photos 的开源替代品。
 
 # INSTALL
 

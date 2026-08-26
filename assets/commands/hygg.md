@@ -1,18 +1,18 @@
 # TAGLINE
 
-Minimalistic Vim-like TUI document reader
+极简的类 Vim TUI 文档阅读器
 
 # TLDR
 
-**Read a PDF file**
+**阅读 PDF 文件**
 
 ```hygg [path/to/document.pdf]```
 
-**Read an EPUB file**
+**阅读 EPUB 文件**
 
 ```hygg [path/to/book.epub]```
 
-**Read a DOCX file**
+**阅读 DOCX 文件**
 
 ```hygg [path/to/document.docx]```
 
@@ -22,26 +22,26 @@ Minimalistic Vim-like TUI document reader
 
 # DESCRIPTION
 
-**hygg** is a minimalistic terminal document reader with **Vim-inspired** keybindings. It supports universal document formats including **PDF**, **EPUB**, **DOCX**, and many more via **pandoc** integration. The reader provides smart text justification formatted for terminal width, powerful search with highlighting, bookmarks, and automatic progress saving.
+**hygg** 是一款极简的终端文档阅读器，采用 **Vim 风格**的按键绑定。它通过 **pandoc** 集成支持包括 **PDF**、**EPUB**、**DOCX** 在内的多种通用文档格式。该阅读器提供按终端宽度排版的智能文本对齐、带高亮的强大搜索、书签以及自动保存进度。
 
-Hygg is built with a pipeline architecture where individual components (converters, justifier) can be reused as standalone Unix CLI utilities. It runs locally and respects privacy, with optional self-hosted sync support.
+Hygg 采用管道式架构，各个组件（转换器、对齐器）都可以作为独立的 Unix CLI 工具复用。它在本地运行并尊重隐私，还支持可选的自托管同步。
 
-# KEY BINDINGS
+# 按键绑定
 
-**j/k** — Scroll down/up
-**g/G** — Go to top/bottom
-**/** — Search
-**n/N** — Next/previous search result
-**m** — Set bookmark
-**q** — Quit
+**j/k** — 向下/向上滚动
+**g/G** — 跳到顶部/底部
+**/** — 搜索
+**n/N** — 下一个/上一个搜索结果
+**m** — 设置书签
+**q** — 退出
 
 # CAVEATS
 
-Some formats require **pandoc** to be installed for conversion. Complex document layouts (tables, images) may not render perfectly in the terminal. Large documents may take a moment to convert on first open.
+某些格式的转换需要安装 **pandoc**。复杂的文档版式（表格、图片）在终端中可能无法完美呈现。大型文档首次打开时的转换可能需要一些时间。
 
 # HISTORY
 
-**hygg** was created by **kruseio** and is written in **Rust**. The name evokes the Danish/Norwegian concept of "hygge" (coziness), reflecting its focus on a comfortable reading experience in the terminal.
+**hygg** 由 **kruseio** 创建，用 **Rust** 编写。其名字让人联想到丹麦语/挪威语中的 "hygge"（惬意），体现了它对终端舒适阅读体验的追求。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Markdown browser for the terminal
+终端中的 Markdown 浏览器
 
 # TLDR
 
-**Start hike** to browse markdown files
+**启动 hike**浏览 Markdown 文件
 
 ```hike```
 
-**Open a specific markdown file**
+**打开指定的 Markdown 文件**
 
 ```hike [path/to/file.md]```
 
@@ -18,17 +18,17 @@ Markdown browser for the terminal
 
 # DESCRIPTION
 
-**hike** is a terminal-based Markdown browser that provides the ability to browse and view local Markdown files, as well as Markdown files downloaded from the web. It includes shortcuts for quickly accessing Markdown files on popular git forges like **GitHub**, **GitLab**, **Codeberg**, and **Bitbucket**.
+**hike** 是一个基于终端的 Markdown 浏览器，能够浏览和查看本地 Markdown 文件以及从网络下载的 Markdown 文件。它内置快捷方式，可快速访问 **GitHub**、**GitLab**、**Codeberg** 和 **Bitbucket** 等热门 git 托管平台上的 Markdown 文件。
 
-Hike supports editing Markdown documents from the local filesystem with a built-in editor, and also supports using your own choice of external editor. Commands can be discovered via the command palette (**Ctrl+P**).
+Hike 支持使用内置编辑器编辑本地文件系统上的 Markdown 文档，也支持选用你自己的外部编辑器。可以通过命令面板（**Ctrl+P**）发现各种命令。
 
 # CAVEATS
 
-Requires a terminal with modern rendering capabilities. Web-hosted Markdown files require an internet connection for fetching.
+需要具备现代渲染能力的终端。获取网络上的 Markdown 文件需要互联网连接。
 
 # HISTORY
 
-**hike** was created by **Dave Pearson** (davep) and is written in **Python** using the **Textual** TUI framework. It was designed to provide a native terminal experience for browsing documentation and README files.
+**hike** 由 **Dave Pearson**（davep）创建，使用基于 **Textual** TUI 框架的 **Python** 编写。其设计目标是为浏览文档和 README 文件提供原生的终端体验。
 
 # SEE ALSO
 

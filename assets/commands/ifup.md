@@ -1,14 +1,14 @@
 # TAGLINE
 
-brings up network interfaces configured in **/etc/network/interfaces**
+启用 **/etc/network/interfaces** 中配置的网络接口
 
 # TLDR
 
-**Enable** a specific interface
+**启用**指定接口
 
 ```ifup [eth0]```
 
-Enable **all** interfaces marked as auto
+启用标记为 auto 的**所有**接口
 
 ```ifup -a```
 
@@ -19,30 +19,30 @@ Enable **all** interfaces marked as auto
 # PARAMETERS
 
 **-a**, **--all**
-> Bring up all interfaces marked as auto in /etc/network/interfaces
+> 启用 /etc/network/interfaces 中标记为 auto 的所有接口
 
 **-v**, **--verbose**
-> Print verbose information
+> 打印详细信息
 
 **--force**
-> Force configuration even if interface seems to be up
+> 即使接口看似已启用也强制配置
 
 **--no-scripts**
-> Don't run any pre/post scripts
+> 不运行任何前置/后置脚本
 
 # DESCRIPTION
 
-**ifup** brings up network interfaces configured in **/etc/network/interfaces**. It reads the interface definition and executes the appropriate commands and scripts to configure the interface, including setting IP addresses, running DHCP clients, and executing user-defined scripts.
+**ifup** 启用 **/etc/network/interfaces** 中配置的网络接口。它读取接口定义并执行相应的命令和脚本来配置接口，包括设置 IP 地址、运行 DHCP 客户端以及执行用户定义的脚本。
 
-The command handles the complete interface initialization sequence, including any dependencies or prerequisites defined in the configuration file.
+该命令处理完整的接口初始化流程，包括配置文件中定义的所有依赖或前置条件。
 
 # CAVEATS
 
-Part of the ifupdown package, primarily used on Debian-based systems. Modern systems often use NetworkManager or systemd-networkd instead. Requires the interface to be defined in /etc/network/interfaces.
+属于 ifupdown 软件包，主要用于基于 Debian 的系统。现代系统通常改用 NetworkManager 或 systemd-networkd。要求接口已在 /etc/network/interfaces 中定义。
 
 # HISTORY
 
-ifup is part of the ifupdown package, the traditional network interface configuration system on Debian and derivatives. While still widely used, it is gradually being replaced by NetworkManager for desktop systems and systemd-networkd for servers.
+ifup 属于 ifupdown 软件包——Debian 及其衍生版传统的网络接口配置系统。虽然仍在广泛使用，但在桌面系统上正逐渐被 NetworkManager 取代，在服务器上则被 systemd-networkd 取代。
 
 # INSTALL
 

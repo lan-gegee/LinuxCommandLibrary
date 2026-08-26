@@ -1,42 +1,42 @@
 # TAGLINE
 
-compresses files using the Lempel-Ziv coding algorithm
+使用 Lempel-Ziv 编码算法压缩文件
 
 # TLDR
 
-**Compress a file**
+**压缩文件**
 
 ```gzip [file]```
 
-**Decompress a file**
+**解压文件**
 
 ```gzip -d [file.gz]```
 
-**Compress keeping original file**
+**压缩并保留原文件**
 
 ```gzip -k [file]```
 
-**Compress with best compression**
+**以最高压缩率压缩**
 
 ```gzip -9 [file]```
 
-**Compress with fastest speed**
+**以最快速度压缩**
 
 ```gzip -1 [file]```
 
-**List compression information**
+**列出压缩信息**
 
 ```gzip -l [file.gz]```
 
-**Test compressed file integrity**
+**测试压缩文件完整性**
 
 ```gzip -t [file.gz]```
 
-**Compress to stdout** (pipe)
+**压缩到标准输出**（管道）
 
 ```gzip -c [file] > [file.gz]```
 
-**Decompress to stdout**
+**解压到标准输出**
 
 ```gzip -dc [file.gz]```
 
@@ -46,63 +46,63 @@ compresses files using the Lempel-Ziv coding algorithm
 
 # DESCRIPTION
 
-**gzip** compresses files using the Lempel-Ziv coding (LZ77) algorithm. Each file is replaced by a compressed version with a .gz extension, preserving ownership, modes, and timestamps.
+**gzip** 使用 Lempel-Ziv（LZ77）编码算法压缩文件。每个文件都会被替换为带 .gz 后缀的压缩版本，同时保留所有者、权限和时间戳。
 
-By default, gzip removes the original file after compression. Compressed files can be restored using gzip -d (or gunzip). The tool can also compress data from stdin and write to stdout for pipeline use.
+默认情况下，gzip 在压缩后会删除原文件。压缩文件可用 gzip -d（或 gunzip）恢复。该工具还可以从标准输入读取数据并写入标准输出，以便在管道中使用。
 
-gzip is widely supported and commonly used for compressing individual files, creating archives with tar, and transferring data. The format is defined in RFC 1952.
+gzip 得到广泛支持，常用于压缩单个文件、配合 tar 创建归档以及传输数据。其格式定义于 RFC 1952。
 
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress files.
+> 解压文件。
 
 **-c**, **--stdout**
-> Write to stdout, keep original files.
+> 写入标准输出，保留原始文件。
 
 **-k**, **--keep**
-> Keep original files.
+> 保留原始文件。
 
 **-l**, **--list**
-> List compression info.
+> 列出压缩信息。
 
 **-t**, **--test**
-> Test integrity.
+> 测试完整性。
 
 **-f**, **--force**
-> Force compression/decompression.
+> 强制压缩/解压。
 
 **-r**, **--recursive**
-> Recurse into directories.
+> 递归处理目录。
 
 **-n**, **--no-name**
-> Don't save original name/timestamp.
+> 不保存原始文件名/时间戳。
 
 **-N**, **--name**
-> Save/restore original name/timestamp.
+> 保存/恢复原始文件名/时间戳。
 
-**-1** to **-9**
-> Compression level (fast to best).
+**-1** 到 **-9**
+> 压缩级别（从最快到最佳）。
 
 **--best**
-> Maximum compression (-9).
+> 最高压缩率（-9）。
 
 **--fast**
-> Fastest compression (-1).
+> 最快速度（-1）。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-q**, **--quiet**
-> Suppress warnings.
+> 抑制警告信息。
 
 # CAVEATS
 
-Cannot compress directories directly (use tar first). Original file is removed by default unless -k is used. Links are followed (not compressed as links). gzip -r on directories compresses each file separately.
+无法直接压缩目录（需先用 tar）。除非使用 -k，否则默认删除原始文件。链接会被跟随解引用（不会作为链接本身压缩）。对目录使用 gzip -r 会分别压缩其中的每个文件。
 
 # HISTORY
 
-**gzip** was written by **Jean-loup Gailly** and **Mark Adler** in **1992** as a free replacement for the Unix compress utility, which was encumbered by patents. The gzip format became the standard for file compression on Unix systems and is used by HTTP for content encoding. The underlying DEFLATE algorithm is also used in ZIP files and PNG images.
+**gzip** 由 **Jean-loup Gailly** 和 **Mark Adler** 于 **1992 年**编写，是受专利困扰的 Unix compress 工具的自由替代品。gzip 格式成为 Unix 系统上文件压缩的标准，并被 HTTP 用于内容编码。底层的 DEFLATE 算法也用于 ZIP 文件和 PNG 图像。
 
 # INSTALL
 

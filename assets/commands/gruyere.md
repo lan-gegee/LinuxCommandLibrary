@@ -1,22 +1,22 @@
 # TAGLINE
 
-View and kill processes listening on ports
+查看并终止监听端口的进程
 
 # TLDR
 
-**Show all processes** listening on ports
+**显示所有**监听端口的进程
 
 ```gruyere```
 
-**Show full command details** instead of app names
+显示**完整命令详情**而不是应用名称
 
 ```gruyere --details```
 
-**Filter by a specific port**
+**按指定端口过滤**
 
 ```gruyere --port [8000]```
 
-**Filter by current user**
+**按当前用户过滤**
 
 ```gruyere --user```
 
@@ -26,17 +26,17 @@ View and kill processes listening on ports
 
 # DESCRIPTION
 
-**gruyere** is a tiny and visually appealing TUI program for viewing and killing processes that are listening on network ports. It provides a cleaner alternative to manually using **lsof** or **ss** to find which process occupies a port, presenting the information in a readable terminal interface with the ability to terminate processes directly.
+**gruyere** 是一个小巧且美观的 TUI 程序，用于查看和终止监听网络端口的进程。相比手动使用 **lsof** 或 **ss** 查找占用端口的进程，它提供了更简洁的替代方案，以易读的终端界面呈现信息，并支持直接终止进程。
 
-The tool displays process names, PIDs, and port numbers in a formatted view, making it easy to identify and manage port conflicts during development.
+该工具以格式化的视图显示进程名、PID 和端口号，便于在开发过程中识别和处理端口冲突。
 
 # CAVEATS
 
-Requires appropriate permissions to view and kill processes. Killing system processes may require root privileges. Only shows processes with active listening sockets.
+需要相应权限才能查看和终止进程。终止系统进程可能需要 root 权限。只显示拥有活动监听套接字的进程。
 
 # HISTORY
 
-**gruyere** was created by **Savannah Ostrowski** as a lightweight utility for developers who frequently need to identify and free up occupied ports. It is written in **Rust** and named after the Swiss cheese known for its holes, a playful reference to network ports.
+**gruyere** 由 **Savannah Ostrowski** 创建，是一款面向经常需要识别并释放被占用端口的开发者的轻量级工具。它用 **Rust** 编写，名字取自以其孔洞闻名的瑞士奶酪，是对网络端口的一种俏皮呼应。
 
 # INSTALL
 

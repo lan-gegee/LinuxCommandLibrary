@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI for SourceHut services
+SourceHut 服务的命令行客户端
 
 # TLDR
 
-**Set up hut's configuration** (prompts for an OAuth2 access token)
+**设置 hut 的配置**（会提示输入 OAuth2 访问令牌）
 
 ```hut init```
 
-**List your Git repositories**
+**列出你的 Git 仓库**
 
 ```hut git list```
 
-**Create a new Git repository**
+**创建新的 Git 仓库**
 
 ```hut git create [repo-name]```
 
-**List build jobs**
+**列出构建任务**
 
 ```hut builds list```
 
-**List issue trackers**
+**列出 issue 追踪器**
 
 ```hut todo list```
 
-**Create a paste from a file**
+**从文件创建 paste**
 
 ```hut paste create [file]```
 
@@ -35,66 +35,66 @@ CLI for SourceHut services
 # PARAMETERS
 
 _SERVICE_
-> SourceHut service to operate on.
+> 要操作的 SourceHut 服务。
 
 _COMMAND_
-> Command within that service (commonly **list**, **create**, **show**, **update**, **delete**).
+> 该服务下的命令（常见有 **list**、**create**、**show**、**update**、**delete**）。
 
 **builds**
-> Manage build jobs on builds.sr.ht.
+> 管理 builds.sr.ht 上的构建任务。
 
 **git**
-> Manage Git repositories on git.sr.ht.
+> 管理 git.sr.ht 上的 Git 仓库。
 
 **hg**
-> Manage Mercurial repositories on hg.sr.ht.
+> 管理 hg.sr.ht 上的 Mercurial 仓库。
 
 **lists**
-> Manage mailing lists and patchsets on lists.sr.ht.
+> 管理 lists.sr.ht 上的邮件列表和补丁集。
 
 **meta**
-> Manage account settings, SSH/PGP keys, and profile info.
+> 管理账号设置、SSH/PGP 密钥以及个人资料信息。
 
 **pages**
-> Publish static websites to pages.sr.ht.
+> 将静态网站发布到 pages.sr.ht。
 
 **paste**
-> Create and share text pastes on paste.sr.ht.
+> 在 paste.sr.ht 上创建并分享文本片段。
 
 **todo**
-> Manage issue trackers and tickets on todo.sr.ht.
+> 管理 todo.sr.ht 上的 issue 追踪器和工单。
 
 **graphql**
-> Run a raw GraphQL query against a given service.
+> 对指定服务执行原始 GraphQL 查询。
 
 **init**
-> Set up hut's configuration file with an OAuth2 token.
+> 使用 OAuth2 令牌设置 hut 的配置文件。
 
 **export** / **import**
-> Back up or restore account data.
+> 备份或恢复账号数据。
 
 **--config** _FILE_
-> Use a specific configuration file.
+> 使用指定的配置文件。
 
 **--instance** _NAME_
-> Select which sr.ht instance to use.
+> 选择要使用的 sr.ht 实例。
 
 **--debug**
-> Print the underlying GraphQL requests to stderr.
+> 将底层的 GraphQL 请求打印到标准错误输出。
 
 # DESCRIPTION
 
-**hut** is the official command-line client for SourceHut (sr.ht) services. It provides access to builds, Git and Mercurial repositories, issue trackers, mailing lists, pastes, static site hosting, and account management, all backed by each service's GraphQL API.
+**hut** 是 SourceHut（sr.ht）服务的官方命令行客户端。它提供对构建服务、Git 与 Mercurial 仓库、issue 追踪器、邮件列表、文本片段（paste）、静态站点托管以及账号管理的访问，全部基于各服务的 GraphQL API。
 
-Commands follow a **hut** _service_ _command_ pattern, so most operations map directly onto one of the sr.ht services. The **graphql** subcommand also allows running arbitrary GraphQL queries against any service for tasks not otherwise covered.
+命令遵循 **hut** _service_ _command_ 模式，因此大多数操作都直接对应某个 sr.ht 服务。**graphql** 子命令还允许对任意服务执行任意 GraphQL 查询，可用于其他方式无法覆盖的任务。
 
 # CAVEATS
 
-Requires a SourceHut account and an OAuth2 access token, configured via **hut init**. Available services and their subcommands vary by sr.ht instance and hut version; run **hut help** or **hut** _service_ **--help** to see what's supported locally.
+需要 SourceHut 账号和 OAuth2 访问令牌，通过 **hut init** 进行配置。可用服务及其子命令因 sr.ht 实例和 hut 版本而异；请运行 **hut help** 或 **hut** _service_ **--help** 查看本地支持的命令。
 
 # HISTORY
 
-hut is the official CLI for **SourceHut** (sr.ht), a lightweight, privacy-focused software development platform created by **Drew DeVault**. It is written in Go and replaced earlier ad-hoc scripts for scripting SourceHut services from the command line.
+hut 是 **SourceHut**（sr.ht）的官方 CLI。SourceHut 是由 **Drew DeVault** 创建的轻量级、注重隐私的软件开发平台。hut 使用 Go 编写，取代了早期为在命令行中编写 SourceHut 服务脚本而临时编写的各类脚本。
 
 # INSTALL
 

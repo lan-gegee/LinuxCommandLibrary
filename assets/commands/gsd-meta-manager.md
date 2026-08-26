@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal dashboard for multiple Get-Shit-Done workflow projects
+面向多个 Get-Shit-Done 工作流项目的终端仪表盘
 
 # TLDR
 
-**Launch the TUI** showing all registered GSD projects
+**启动 TUI**，显示所有已注册的 GSD 项目
 
 ```gsd-meta-manager```
 
-**Register a project directory** in the global registry
+将项目目录**注册到全局注册表**
 
 ```gsd-meta-manager add [path/to/project]```
 
-**Register with a custom alias**
+以自定义别名**注册**
 
 ```gsd-meta-manager add [path/to/project] [alias]```
 
-**Remove a project** from the registry by name or alias
+按名称或别名从注册表中**移除项目**
 
 ```gsd-meta-manager remove [project]```
 
-**List all registered projects** on stdout
+将所有已注册的项目**列出**到 stdout
 
 ```gsd-meta-manager list```
 
-**Use a non-default config file**
+**使用非默认配置文件**
 
 ```gsd-meta-manager --config [path/to/config.json]```
 
-**Show the version**
+**显示版本号**
 
 ```gsd-meta-manager --version```
 
@@ -45,75 +45,75 @@ Terminal dashboard for multiple Get-Shit-Done workflow projects
 # PARAMETERS
 
 **--config** _FILE_
-> Override the default config file location.
+> 覆盖默认配置文件位置。
 
 **--version**
-> Print the version number and exit.
+> 打印版本号并退出。
 
 **--help**
-> Display the help message.
+> 显示帮助信息。
 
 # SUBCOMMANDS
 
 **add** _PATH_ [_ALIAS_]
-> Register the GSD project at _PATH_ in the global registry. _ALIAS_ sets a custom display name.
+> 将 _PATH_ 处的 GSD 项目注册到全局注册表。_ALIAS_ 设置自定义显示名称。
 
 **remove** _PROJECT_
-> Remove a project from the registry, identified by its alias or path.
+> 从注册表中移除一个项目，通过别名或路径标识。
 
 **list**
-> Print all registered projects.
+> 打印所有已注册的项目。
 
 **help** [_SUBCOMMAND_]
-> Show help for a specific subcommand.
+> 显示特定子命令的帮助。
 
 # KEY BINDINGS
 
 **j**, **k**
-> Move down or up in the project list.
+> 在项目列表中下移或上移。
 
 **Enter**
-> Open the detail view for the selected project.
+> 打开所选项目的详情视图。
 
 **Tab**, **Shift+Tab**
-> Switch between detail tabs.
+> 在详情标签页之间切换。
 
 **/**
-> Activate search and filter mode.
+> 激活搜索与过滤模式。
 
 **a**
-> Add a new project interactively.
+> 交互式添加新项目。
 
 **n**
-> Create a brand-new GSD project.
+> 创建全新的 GSD 项目。
 
 **d**
-> Delete the selected project from the registry.
+> 从注册表中删除所选项目。
 
 **?**
-> Display the in-app help.
+> 显示应用内帮助。
 
 **q**
-> Quit the application.
+> 退出应用程序。
 
 # DESCRIPTION
 
-**gsd-meta-manager** is a Rust terminal UI that aggregates state from many GSD ("Get Shit Done") workflow projects into a single dashboard. It reads project state directly from disk, auto-detects running Claude Code sessions tied to GSD projects, and shows progress without any background daemon.
+**gsd-meta-manager** 是一个 Rust 终端 UI，它将多个 GSD（"Get Shit Done"）工作流项目的状态汇总到单一仪表盘中。它直接从磁盘读取项目状态，自动检测绑定到 GSD 项目的 Claude Code 会话，无需任何后台守护进程即可展示进度。
 
-Each registered project can be inspected through a 10-tab detail view: **Phases**, **Roadmap** (rendered as an ASCII DAG), **Backlog**, **Git History**, **Pipeline**, **Queue**, **Sessions**, **Archive**, **Config**, and **Docs**. The intent is to make multi-project status the default view rather than something assembled by hand from many terminals.
+每个已注册的项目都可以通过包含 10 个标签页的详情视图查看：**Phases**、**Roadmap**（渲染为 ASCII DAG）、**Backlog**、**Git History**、**Pipeline**、**Queue**、**Sessions**、**Archive**、**Config** 和 **Docs**。其设计意图是让多项目状态成为默认视图，而不是靠人手在许多终端间拼凑出来。
 
 # CONFIGURATION
 
 **~/.config/gsd-meta-manager/config.json**
-> Default registry file. Stores the list of registered project paths and aliases. Overridable with **--config**.
+> 默认注册表文件。存储已注册项目路径和别名的列表。可用 **--config** 覆盖。
 
 # CAVEATS
 
-The tool only reflects state that already lives in each project on disk; it does not run pipelines, edit code, or push commits. Projects must already follow the GSD layout for tabs such as **Phases** and **Roadmap** to render anything meaningful.
+该工具只反映磁盘上各项目中已有的状态；它不会运行流水线、编辑代码或推送提交。项目必须已经遵循 GSD 布局，**Phases** 和 **Roadmap** 等标签页才能渲染出有意义的内容。
 
 # HISTORY
 
-**gsd-meta-manager** was published by **bitcreed** in 2026 under the MIT license. It is distributed through **crates.io** and requires Rust 1.85 or newer to build from source.
+**gsd-meta-manager** 由 **bitcreed** 于 2026 年以 MIT 许可证发布。它通过 **crates.io** 分发，从源码构建需要 Rust 1.85 或更新版本。
 
 # SEE ALSO
 

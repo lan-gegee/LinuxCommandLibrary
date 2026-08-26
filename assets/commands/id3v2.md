@@ -1,26 +1,26 @@
 # TAGLINE
 
-command-line tool for viewing and editing ID3v2 tags in MP3 files
+查看和编辑 MP3 文件中 ID3v2 标签的命令行工具
 
 # TLDR
 
-**List** all available genres
+**列出**所有可用的流派
 
 ```id3v2 -L```
 
-**List** all tags of specific files
+**列出**指定文件的所有标签
 
 ```id3v2 -l [path/to/file.mp3]```
 
-**Delete** id3v2 tags from files
+从文件中**删除** id3v2 标签
 
 ```id3v2 --delete-v2 [path/to/file.mp3]```
 
-**Delete** id3v1 tags from files
+从文件中**删除** id3v1 标签
 
 ```id3v2 --delete-v1 [path/to/file.mp3]```
 
-Display **help**
+显示**帮助**
 
 ```id3v2 -h```
 
@@ -31,48 +31,48 @@ Display **help**
 # PARAMETERS
 
 **-L**, **--list-genres**
-> List all available genre codes
+> 列出所有可用的流派代码
 
 **-l**, **--list**
-> List all tags in the specified files
+> 列出指定文件中的所有标签
 
 **--delete-v2**
-> Delete all id3v2 tags
+> 删除所有 id3v2 标签
 
 **--delete-v1**
-> Delete all id3v1 tags
+> 删除所有 id3v1 标签
 
 **-a**, **--artist** _ARTIST_
-> Set the artist tag
+> 设置艺术家标签
 
 **-A**, **--album** _ALBUM_
-> Set the album tag
+> 设置专辑标签
 
 **-t**, **--song** _TITLE_
-> Set the song title tag
+> 设置歌曲标题标签
 
 **-g**, **--genre** _GENRE_
-> Set the genre (number or name)
+> 设置流派（编号或名称）
 
 **-y**, **--year** _YEAR_
-> Set the year tag
+> 设置年份标签
 
 **-T**, **--track** _NUM/TOTAL_
-> Set track number
+> 设置音轨号
 
 # DESCRIPTION
 
-**id3v2** is a command-line tool for viewing and editing ID3v2 tags in MP3 files. It also handles ID3v1 tags and can convert between the two versions.
+**id3v2** 是一个查看和编辑 MP3 文件中 ID3v2 标签的命令行工具。它也能处理 ID3v1 标签，并可在两个版本之间转换。
 
-ID3 tags store metadata like artist, album, title, year, and genre within MP3 files. The id3v2 format supports extended information including album art, lyrics, and custom frames.
+ID3 标签在 MP3 文件内存储艺术家、专辑、标题、年份和流派等元数据。id3v2 格式支持扩展信息，包括专辑封面、歌词和自定义帧。
 
 # CAVEATS
 
-Some poorly-encoded files may have corrupted tags. ID3v2 tags can be at the beginning or end of the file. Editing tags doesn't re-encode the audio. Some players may cache tag information.
+一些编码不佳的文件可能存在损坏的标签。ID3v2 标签可能位于文件开头或结尾。编辑标签不会重新编码音频。某些播放器可能会缓存标签信息。
 
 # HISTORY
 
-ID3v2 was developed as an extension to the original ID3v1 tag format, which was limited to 30 characters per field. ID3v2 was introduced in **1998** and supports Unicode, embedded images, and virtually unlimited field lengths.
+ID3v2 是对原始 ID3v1 标签格式的扩展，后者每个字段最多只有 30 个字符。ID3v2 于 **1998 年**推出，支持 Unicode、内嵌图片以及几乎不限长度的字段。
 
 # INSTALL
 

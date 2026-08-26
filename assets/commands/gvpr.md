@@ -1,22 +1,22 @@
 # TAGLINE
 
-graph stream editor, similar to awk for graphs
+图流编辑器，类似于面向图的 awk
 
 # TLDR
 
-**Run gvpr script**
+**运行 gvpr 脚本**
 
 ```gvpr -f [script.gvpr] [input.gv]```
 
-**Inline program**
+**内联程序**
 
 ```gvpr 'N[color=="red"]' [input.gv]```
 
-**Output to file**
+**输出到文件**
 
 ```gvpr -o [output.gv] -f [script.gvpr] [input.gv]```
 
-**Select nodes by attribute**
+**按属性选择节点**
 
 ```gvpr 'N[degree>3]' [graph.gv]```
 
@@ -27,51 +27,51 @@ graph stream editor, similar to awk for graphs
 # PARAMETERS
 
 _'prog'_
-> Inline gvpr program text (a series of predicate-action clauses). Required unless **-f** is given.
+> 内联 gvpr 程序文本（一系列谓词-动作子句）。未给出 **-f** 时必填。
 
 _FILES_
-> Input graph files in DOT format. Reads stdin if none given.
+> DOT 格式的输入图文件。未指定时从标准输入读取。
 
 **-f** _progfile_
-> Read the gvpr program from progfile instead of the command line.
+> 从 progfile 读取 gvpr 程序，而非从命令行读取。
 
 **-o** _outfile_
-> Write output to outfile instead of stdout.
+> 将输出写入 outfile 而非标准输出。
 
 **-a** _args_
-> Pass a whitespace-separated argument string to the program, available as ARGV/ARGC.
+> 向程序传递以空白分隔的参数字符串，可通过 ARGV/ARGC 访问。
 
 **-c**
-> Use the source graph as the output graph, so in-place edits are emitted.
+> 将源图用作输出图，从而原位编辑会被输出。
 
 **-i**
-> Derive the output as the node-induced subgraph extension in the context of its root graph.
+> 在根图上下文中，将输出派生为节点诱导子图扩展。
 
 **-n**
-> Disable graph read-ahead (affects the **$NG** variable).
+> 禁用图的预读（影响 **$NG** 变量）。
 
 **-q**
-> Suppress warning messages.
+> 抑制警告消息。
 
 **-V**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **-?**
-> Display usage information and exit.
+> 显示用法信息并退出。
 
 # DESCRIPTION
 
-**gvpr** (formerly **gpr**) is a graph pattern scanning and processing language, similar to **awk** but for graphs instead of text. Programs consist of pattern-action clauses (**BEGIN**, **BEG_G**, **N** for nodes, **E** for edges, **END_G**, **END**) that are matched against each input graph in turn.
+**gvpr**（旧名 **gpr**）是一种图模式扫描和处理语言，类似 **awk**，但处理对象是图而非文本。程序由模式-动作子句组成（**BEGIN**、**BEG_G**、针对节点的 **N**、针对边的 **E**、**END_G**、**END**），依次与每个输入图进行匹配。
 
-For each node or edge visited, gvpr evaluates the predicates in order and runs the associated action for the first (or every) match. The language provides C-like types, associative arrays, and built-in graph functions, letting programs filter, transform, restructure, or compute statistics over DOT graphs.
+对于访问到的每个节点或边，gvpr 按顺序求值各谓词，并对第一个（或每个）匹配项执行关联的动作。该语言提供类 C 的类型、关联数组和内置图函数，可用于对 DOT 图进行过滤、转换、重构或统计计算。
 
 # CAVEATS
 
-Part of the Graphviz package. The pattern-action language has a learning curve, and complex programs over large graphs can be slow.
+属于 Graphviz 软件包的一部分。模式-动作语言有一定学习曲线，在大型图上运行复杂程序可能较慢。
 
 # HISTORY
 
-gvpr was developed as part of **Graphviz** at **AT&T Labs** to provide AWK-like processing for graph structures, replacing the earlier **gpr** tool.
+gvpr 作为 **Graphviz** 项目的一部分在 **AT&T 实验室**开发而成，用于为图结构提供类似 AWK 的处理能力，取代了更早的 **gpr** 工具。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-extracts and displays Intel graphics BIOS information
+提取并显示 Intel 显卡 BIOS 信息
 
 # TLDR
 
-**Parse VBT from a BIOS dump file**
+**从 BIOS 转储文件解析 VBT**
 
 ```intel_bios_reader --file=[bios.bin]```
 
-**Parse details for all flat panels**
+**解析所有平板面板的详细信息**
 
 ```intel_bios_reader --file=[bios.bin] --all-panels```
 
-**Hex dump BIOS blocks**
+**以十六进制转储 BIOS 块**
 
 ```intel_bios_reader --file=[bios.bin] --hexdump```
 
-**Dump a specific BIOS Data Block**
+**转储指定的 BIOS 数据块**
 
 ```intel_bios_reader --file=[bios.bin] --block=[N]```
 
-**Pretend to be a specific PCI device ID**
+**伪装成指定的 PCI 设备 ID**
 
 ```intel_bios_reader --file=[bios.bin] --devid=[DEVID]```
 
@@ -31,39 +31,39 @@ extracts and displays Intel graphics BIOS information
 # PARAMETERS
 
 **--file=** _FILE_
-> Parse Video BIOS Tables from FILE.
+> 从 FILE 解析 Video BIOS Tables。
 
 **--devid=** _DEVID_
-> Pretend to be PCI ID DEVID for more accurate platform-specific parsing.
+> 伪装成 PCI ID DEVID，以便进行更准确的平台特定解析。
 
 **--panel-type=** _N_
-> Parse details for flat panel N, overriding the value from the VBT.
+> 解析第 N 个平板面板的详细信息，覆盖 VBT 中的值。
 
 **--all-panels**
-> Parse details for all flat panels present in the Video BIOS Tables.
+> 解析 Video BIOS Tables 中所有平板面板的详细信息。
 
 **--hexdump**
-> Hex dump the blocks.
+> 以十六进制转储各块。
 
 **--block=** _N_
-> Dump only the BIOS Data Block number N.
+> 只转储编号为 N 的 BIOS 数据块。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**intel_bios_reader** parses the Intel Video BIOS Tables (VBT) and prints the information in a human-readable format. The binary VBT can be read from kernel debug interfaces or from a previously saved dump file.
+**intel_bios_reader** 解析 Intel Video BIOS Tables（VBT），并以人类可读的格式打印信息。二进制 VBT 可以从内核调试接口读取，也可以从之前保存的转储文件读取。
 
-The tool shows panel timing, backlight settings, and display connector information. It is primarily used for debugging Intel integrated graphics display configuration issues.
+该工具显示面板时序、背光设置和显示连接器信息。它主要用于调试 Intel 集成显卡的显示配置问题。
 
 # CAVEATS
 
-Intel graphics only. A VBT dump file (produced by intel_bios_dumper) or appropriate kernel debug access is required. Part of intel-gpu-tools.
+仅适用于 Intel 显卡。需要 VBT 转储文件（由 intel_bios_dumper 生成）或相应的内核调试访问权限。属于 intel-gpu-tools 的一部分。
 
 # HISTORY
 
-intel_bios_reader is part of **intel-gpu-tools** (igt-gpu-tools), developed for debugging Intel integrated graphics hardware.
+intel_bios_reader 是 **intel-gpu-tools**（igt-gpu-tools）的一部分，为调试 Intel 集成显卡硬件而开发。
 
 # SEE ALSO
 

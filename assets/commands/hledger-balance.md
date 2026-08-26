@@ -1,30 +1,30 @@
 # TAGLINE
 
-shows account balances from the journal
+显示账簿中的账户余额
 
 # TLDR
 
-**Show all balances**
+**显示所有余额**
 
 ```hledger balance```
 
-**Show assets only**
+**只显示资产**
 
 ```hledger balance assets```
 
-**Show with hierarchy**
+**以层级结构显示**
 
 ```hledger balance --tree```
 
-**Show flat list**
+**以扁平列表显示**
 
 ```hledger balance --flat```
 
-**Monthly breakdown**
+**按月分解**
 
 ```hledger balance -M```
 
-**Show percentages**
+**显示百分比**
 
 ```hledger balance --percent```
 
@@ -35,45 +35,45 @@ shows account balances from the journal
 # PARAMETERS
 
 _PATTERNS_
-> Account name patterns.
+> 账户名称模式。
 
 **--tree**
-> Hierarchical display.
+> 层级显示。
 
 **--flat**
-> Flat account list.
+> 扁平账户列表。
 
 **-M**, **--monthly**
-> Monthly breakdown.
+> 按月分解。
 
 **-Q**, **--quarterly**
-> Quarterly breakdown.
+> 按季度分解。
 
 **-Y**, **--yearly**
-> Yearly breakdown.
+> 按年分解。
 
 **--percent**
-> Show percentages.
+> 显示百分比。
 
 **--depth** _N_
-> Limit account depth.
+> 限制账户层级深度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hledger balance** shows account balances from the journal. It summarizes debits and credits across all matching accounts.
+**hledger balance** 显示账簿中的账户余额。它汇总所有匹配账户的借方和贷方。
 
-The command supports filtering by account pattern, time period, and display format. It's the primary tool for checking financial status.
+该命令支持按账户模式、时间段和显示格式过滤。它是检查财务状况的主要工具。
 
 # CAVEATS
 
-Zero balances hidden by default. Requires valid journal. Part of hledger suite.
+零余额默认隐藏。需要有效的账簿。属于 hledger 工具套件。
 
 # HISTORY
 
-Balance is a core command in **hledger** for displaying account summaries in plain text accounting.
+balance 是 **hledger** 中用于在纯文本记账中显示账户汇总的核心命令。
 
 # INSTALL
 

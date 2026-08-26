@@ -1,22 +1,22 @@
 # TAGLINE
 
-Determine the OS architecture of a remote Windows system
+判断远程 Windows 系统的操作系统架构
 
 # TLDR
 
-**Detect the architecture** of a remote Windows system
+**检测远程 Windows 系统**的架构
 
 ```impacket-getarch -target [192.168.1.100]```
 
-**Check architecture** of multiple targets from a file
+从文件中**检查多个目标**的架构
 
 ```impacket-getarch -targets [targets.txt]```
 
-**Detect architecture** with custom timeout
+使用自定义超时**检测架构**
 
 ```impacket-getarch -target [192.168.1.100] -timeout [5]```
 
-**Detect architecture** with debug output
+带调试输出**检测架构**
 
 ```impacket-getarch -target [192.168.1.100] -debug```
 
@@ -27,33 +27,33 @@ Determine the OS architecture of a remote Windows system
 # PARAMETERS
 
 **-target** _IP_
-> IP address of the target system to probe
+> 要探测的目标系统 IP 地址
 
 **-targets** _FILE_
-> File containing a list of target IP addresses (one per line)
+> 包含目标 IP 地址列表的文件（每行一个）
 
 **-timeout** _SECONDS_
-> Socket timeout when connecting to the target (default: 2)
+> 连接目标时的套接字超时时间（默认：2）
 
 **-debug**
-> Enable debug output
+> 启用调试输出
 
 **-ts**
-> Add timestamp to every logging output
+> 为每条日志输出添加时间戳
 
 # DESCRIPTION
 
-**impacket-getarch** is a reconnaissance tool that determines whether a remote Windows system is running a 32-bit or 64-bit operating system. It works by connecting to the target's SMB service and analyzing differences in how 32-bit and 64-bit Windows respond to certain SMB requests. This technique is documented by Microsoft and requires no authentication.
+**impacket-getarch** 是一款侦察工具，用于判断远程 Windows 系统运行的是 32 位还是 64 位操作系统。它的工作原理是连接目标的 SMB 服务，并分析 32 位和 64 位 Windows 在响应某些 SMB 请求时的差异。这一技术由微软记录在案，且无需身份验证。
 
-This information is valuable during penetration testing when preparing architecture-specific payloads or exploits.
+在渗透测试中准备特定架构的载荷或漏洞利用时，这些信息非常有价值。
 
 # CAVEATS
 
-Requires network access to the target's SMB port (typically 445). Results depend on SMB being accessible and not blocked by firewalls. Does not work against non-Windows systems or systems running Samba.
+需要能访问目标的 SMB 端口（通常为 445）。结果的可靠性取决于 SMB 可访问且未被防火墙拦截。对非 Windows 系统或运行 Samba 的系统无效。
 
 # HISTORY
 
-Part of the **Impacket** library, originally by SecureAuth and now maintained by Fortra.
+属于 **Impacket** 库，最初由 SecureAuth 开发，现由 Fortra 维护。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-templating language that compiles to HTML
+编译为 HTML 的模板语言
 
 # TLDR
 
-**Render a Haml file to HTML** (prints to stdout)
+**将 Haml 文件渲染为 HTML**（打印到标准输出）
 
 ```haml render [input.haml]```
 
-**Render and save the result to a file**
+**渲染并将结果保存到文件**
 
 ```haml render [input.haml] > [output.html]```
 
-**Render from stdin**
+**从 stdin 渲染**
 
 ```cat [input.haml] | haml render -```
 
-**Show the compiled Ruby source** instead of evaluating it
+**显示编译后的 Ruby 源码**而不执行它
 
 ```haml compile [input.haml]```
 
-**Check Haml syntax** without evaluating
+不执行代码，只**检查 Haml 语法**
 
 ```haml compile --check [input.haml]```
 
-**Show the parsed syntax tree**
+**显示解析后的语法树**
 
 ```haml parse [input.haml]```
 
-**Display the installed Haml version**
+**显示已安装的 Haml 版本**
 
 ```haml version```
 
@@ -39,42 +39,42 @@ templating language that compiles to HTML
 # PARAMETERS
 
 **render** _file_
-> Render the Haml template and print the resulting HTML to stdout. Use **-** to read from stdin.
+> 渲染 Haml 模板并将生成的 HTML 打印到标准输出。使用 **-** 表示从 stdin 读取。
 
 **compile** _file_
-> Print the compiled Ruby source for the template instead of evaluating it.
+> 打印模板编译后的 Ruby 源码，而不是执行它。
 
 **-c**, **--check**
-> With **compile**, only parse and validate the generated Ruby; print "Syntax OK" or the error instead of the source.
+> 与 **compile** 搭配使用时，只解析并验证生成的 Ruby；打印 "Syntax OK" 或错误信息，而不是源码。
 
 **temple** _file_
-> Print the intermediate Temple expression used to generate the Ruby code.
+> 打印用于生成 Ruby 代码的中间 Temple 表达式。
 
 **parse** _file_
-> Print the parsed abstract syntax tree.
+> 打印解析后的抽象语法树。
 
 **version**
-> Print the installed Haml version.
+> 打印已安装的 Haml 版本。
 
 **-r**, **--require** _file_
-> Require a Ruby library before rendering (render command only).
+> 在渲染前引入 Ruby 库（仅限 render 命令）。
 
 **-I**, **--load-path** _path_
-> Add a directory to Ruby's load path (render command only).
+> 向 Ruby 的加载路径添加目录（仅限 render 命令）。
 
 **--no-escape-html**
-> Disable automatic escaping of `=` output (escaping is on by default).
+> 禁用对 `=` 输出的自动转义（转义默认开启）。
 
 **--no-escape-attrs**
-> Disable automatic escaping of attribute values (escaping is on by default).
+> 禁用对属性值的自动转义（转义默认开启）。
 
 # DESCRIPTION
 
-**HAML** (HTML Abstraction Markup Language) is a templating language that compiles to HTML. It uses indentation for nesting and provides a concise syntax for HTML elements, attributes, and embedded Ruby.
+**HAML**（HTML Abstraction Markup Language）是一种编译为 HTML 的模板语言。它使用缩进表示嵌套，并为 HTML 元素、属性和内嵌 Ruby 提供了简洁的语法。
 
-Since Haml 6, the engine is built on Temple and the `haml` executable is a subcommand-based CLI (render, compile, temple, parse, version) rather than a single set of flags.
+自 Haml 6 起，引擎构建在 Temple 之上，`haml` 可执行文件是一个基于子命令的 CLI（render、compile、temple、parse、version），而不是单一的一组选项。
 
-HAML is commonly used in Ruby on Rails applications, via the separate `haml-rails` gem, but can be used standalone for any HTML generation.
+HAML 通常通过独立的 `haml-rails` gem 在 Ruby on Rails 应用中使用，但也可以独立用于任何 HTML 生成场景。
 
 # HAML SYNTAX
 
@@ -93,11 +93,11 @@ HAML is commonly used in Ruby on Rails applications, via the separate `haml-rail
 
 # CAVEATS
 
-Requires Ruby. Whitespace-sensitive; indentation errors cause failures. The CLI's subcommands (render, compile, temple, parse) replaced the older single-invocation `haml input output` style and flags like `--rails` or `--style` in Haml 6; scripts written for Haml 3/4/5 need updating.
+需要 Ruby。该语言对空白字符敏感；缩进错误会导致失败。CLI 的子命令（render、compile、temple、parse）取代了旧的单次调用 `haml input output` 风格以及 Haml 6 中的 `--rails`、`--style` 等选项；为 Haml 3/4/5 编写的脚本需要更新。
 
 # HISTORY
 
-HAML was created by **Hampton Catlin** in **2006** as part of the Ruby ecosystem. Haml 6 (2022) replaced the original hand-written compiler with one built on Temple, rewrote the CLI around Thor subcommands, and dropped the html4/xhtml output format options.
+HAML 由 **Hampton Catlin** 于 **2006 年**创建，属于 Ruby 生态的一部分。Haml 6（2022 年）用基于 Temple 构建的编译器取代了原来的手写编译器，围绕 Thor 子命令重写了 CLI，并移除了 html4/xhtml 输出格式选项。
 
 # INSTALL
 

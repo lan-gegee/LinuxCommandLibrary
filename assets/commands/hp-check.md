@@ -1,22 +1,22 @@
 # TAGLINE
 
-verifies HPLIP installation and dependencies
+验证 HPLIP 的安装和依赖
 
 # TLDR
 
-**Check HPLIP status**
+**检查 HPLIP 状态**
 
 ```hp-check```
 
-**Auto-install missing**
+**自动安装缺失组件**
 
 ```hp-check -a```
 
-**Fix runtime issues**
+**修复运行时问题**
 
 ```hp-check -r```
 
-**Check specific dependency**
+**检查特定依赖**
 
 ```hp-check -t```
 
@@ -27,33 +27,33 @@ verifies HPLIP installation and dependencies
 # PARAMETERS
 
 **-a**, **--auto**
-> Automatic install mode.
+> 自动安装模式。
 
 **-r**, **--runtime**
-> Check runtime only.
+> 仅检查运行时。
 
 **-t**
-> Check dependencies.
+> 检查依赖项。
 
 **-f**
-> Force all checks.
+> 强制执行所有检查。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hp-check** verifies HPLIP installation and dependencies. It checks for missing packages, configuration issues, and printer connectivity.
+**hp-check** 验证 HPLIP 的安装和依赖。它检查缺失的软件包、配置问题以及打印机连接状况。
 
-The tool can automatically install missing components on supported distributions. It helps diagnose and fix printing problems.
+该工具可以在受支持的发行版上自动安装缺失的组件。它有助于诊断和修复打印问题。
 
 # CAVEATS
 
-Part of HPLIP package. May need root for fixes. Distribution-specific behavior.
+属于 HPLIP 软件包。修复操作可能需要 root 权限。行为因发行版而异。
 
 # HISTORY
 
-hp-check is part of **HPLIP** (HP Linux Imaging and Printing), providing diagnostic capabilities for HP printer setups.
+hp-check 是 **HPLIP**（HP Linux Imaging and Printing）的一部分，为 HP 打印机设置提供诊断能力。
 
 # INSTALL
 

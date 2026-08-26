@@ -1,14 +1,14 @@
 # TAGLINE
 
-samba ID mapping backend using RFC 2307 LDAP schema
+使用 RFC 2307 LDAP 模式的 Samba ID 映射后端
 
 # TLDR
 
-**Configure in smb.conf**
+**在 smb.conf 中配置**
 
 ```idmap config DOMAIN : backend = rfc2307```
 
-**Set range**
+**设置范围**
 
 ```idmap config DOMAIN : range = 10000-99999```
 
@@ -19,33 +19,33 @@ samba ID mapping backend using RFC 2307 LDAP schema
 # PARAMETERS
 
 **backend**
-> Set to rfc2307.
+> 设置为 rfc2307。
 
 **range**
-> UID/GID range.
+> UID/GID 范围。
 
 **ldap_server**
-> LDAP server mode.
+> LDAP 服务器模式。
 
 **bind_path_user**
-> User search base.
+> 用户搜索基准（base）。
 
 **bind_path_group**
-> Group search base.
+> 组搜索基准（base）。
 
 # DESCRIPTION
 
-**idmap_rfc2307** is a Samba ID mapping backend using RFC 2307 LDAP schema. It maps Windows SIDs to Unix UIDs/GIDs stored in LDAP.
+**idmap_rfc2307** 是一个使用 RFC 2307 LDAP 模式的 Samba ID 映射后端。它将 Windows SID 映射到存储在 LDAP 中的 Unix UID/GID。
 
-The backend reads uidNumber and gidNumber attributes from Active Directory or LDAP. It provides consistent ID mapping across systems.
+该后端从 Active Directory 或 LDAP 中读取 uidNumber 和 gidNumber 属性。它提供跨系统一致的 ID 映射。
 
 # CAVEATS
 
-Samba configuration module. Requires LDAP with RFC 2307 schema. AD integration needed.
+Samba 配置模块。需要支持 RFC 2307 模式的 LDAP。需要 AD 集成。
 
 # HISTORY
 
-idmap_rfc2307 is part of **Samba** for enterprise Unix/Windows ID mapping.
+idmap_rfc2307 是 **Samba** 的组成部分，用于企业级 Unix/Windows ID 映射。
 
 # SEE ALSO
 

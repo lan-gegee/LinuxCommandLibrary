@@ -1,34 +1,34 @@
 # TAGLINE
 
-monitors disk I/O latency in real time, similar to how ping shows network
+实时监视磁盘 I/O 延迟，就像 ping 显示网络延迟一样
 
 # TLDR
 
-**Measure disk latency**
+**测量磁盘延迟**
 
 ```ioping [path]```
 
-**Run specific number of requests**
+**执行指定次数的请求**
 
 ```ioping -c [10] [path]```
 
-**Measure with specific size**
+**以指定大小测量**
 
 ```ioping -s [1M] [path]```
 
-**Measure disk seek rate**
+**测量磁盘寻道速率**
 
 ```ioping -R [/dev/sda]```
 
-**Measure sequential speed**
+**测量顺序读写速度**
 
 ```ioping -RL [/dev/sda]```
 
-**Use direct I/O**
+**使用直接 I/O**
 
 ```ioping -D [path]```
 
-**Quiet mode with statistics**
+**安静模式并输出统计信息**
 
 ```ioping -q -c [100] [path]```
 
@@ -39,38 +39,38 @@ monitors disk I/O latency in real time, similar to how ping shows network
 # PARAMETERS
 
 **-c** _count_
-> Stop after count requests.
+> 执行 count 次请求后停止。
 
 **-s** _size_
-> Request size (default 4k).
+> 请求大小（默认 4k）。
 
 **-R**
-> Disk seek rate test.
+> 磁盘寻道速率测试。
 
 **-L**
-> Sequential operations (default random).
+> 顺序操作（默认随机）。
 
 **-D**
-> Use direct I/O (O_DIRECT).
+> 使用直接 I/O（O_DIRECT）。
 
 **-W**
-> Use writes (dangerous for devices).
+> 使用写入操作（对设备有危险）。
 
 **-C**
-> Use cached I/O.
+> 使用缓存 I/O。
 
 **-A**
-> Use asynchronous I/O.
+> 使用异步 I/O。
 
 **-q**
-> Quiet mode, show only summary.
+> 安静模式，仅显示摘要。
 
 **-w** _seconds_
-> Stop after specified time.
+> 在指定时间后停止。
 
 # DESCRIPTION
 
-**ioping** monitors disk I/O latency in real time, similar to how ping shows network latency. Generates I/O patterns and measures response time. SSDs should show sub-millisecond latency; HDDs typically show a few milliseconds. High latency spikes may indicate problems.
+**ioping** 实时监视磁盘 I/O 延迟，就像 ping 显示网络延迟一样。它生成 I/O 模式并测量响应时间。SSD 的延迟应在毫秒以下；HDD 通常为几毫秒。延迟出现高峰可能预示存在问题。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ monitors disk I/O latency in real time, similar to how ping shows network
 # SEE ALSO
 
 [fio](/man/fio)(1), [iostat](/man/iostat)(1), [ping](/man/ping)(1)
-

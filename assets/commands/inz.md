@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI for instancez, a single-binary Supabase alternative
+instancez 的 CLI，instancez 是单二进制的 Supabase 替代品
 
 # TLDR
 
-**Install** the inz CLI
+**安装** inz CLI
 
 ```curl -fsSL https://get.instancez.ai | sh```
 
-**Scaffold** a new project (creates instancez.yaml)
+**初始化**新项目（创建 instancez.yaml）
 
 ```inz init```
 
-**Run the dev server** with embedded Postgres
+**以内嵌 Postgres 启动开发服务器**
 
 ```inz dev --embedded-pg```
 
-**Run the dev server** against an existing database
+**针对已有数据库启动开发服务器**
 
 ```inz dev```
 
-**Serve** in production mode
+**以生产模式提供服务**
 
 ```inz serve```
 
-**Deploy** instancez.yaml to instancez Cloud
+**将 instancez.yaml 部署到** instancez Cloud
 
 ```inz cloud deploy```
 
@@ -34,31 +34,31 @@ CLI for instancez, a single-binary Supabase alternative
 
 # DESCRIPTION
 
-**inz** is the command-line interface for **instancez**, an LLM-friendly, single-binary backend intended as a drop-in replacement for many Supabase use cases. Schema, auth policies, storage buckets, and functions are declared in one **instancez.yaml** file. On change, instancez diffs the file against the live database and applies only the delta—including drops—without hand-written migration scripts.
+**inz** 是 **instancez** 的命令行界面。instancez 是一个对 LLM 友好的单二进制后端，可作为许多 Supabase 用例的直接替代品。Schema、认证策略、存储桶和函数都在一个 **instancez.yaml** 文件中声明。文件发生变化时，instancez 会将其与线上数据库做差量比较，仅应用变化部分（包括删除），无需手写迁移脚本。
 
-The binary embeds a dashboard and speaks PostgREST-style REST, auth (password, magic link, OTP, anonymous, OAuth, TOTP MFA), SQL RPC, Node.js edge functions, and storage (local or S3) with row-level security. Existing **@supabase/supabase-js** clients can point at an instancez API URL and publishable key. **inz dev** provisions roles, applies the schema, and serves the API (default **http://localhost:8080**); with **--embedded-pg** no external Postgres install is required. Publishable and secret keys are written to **.development.env** on first run. Production secrets load from **.production.env** when present.
+该二进制内嵌了一个控制台面板，支持 PostgREST 风格的 REST、认证（密码、魔法链接、OTP、匿名、OAuth、TOTP MFA）、SQL RPC、Node.js edge functions 以及带行级安全性的存储（本地或 S3）。现有的 **@supabase/supabase-js** 客户端可以直接指向 instancez 的 API URL 和 publishable key。**inz dev** 会预置角色、应用 schema 并提供 API 服务（默认 **http://localhost:8080**）；配合 **--embedded-pg** 则无需外部安装 Postgres。首次运行时会把 publishable key 和 secret key 写入 **.development.env**；若存在 **.production.env**，生产密钥将从其中加载。
 
 # PARAMETERS
 
 **init**
-> Create a scaffold project including **instancez.yaml** and example tables/functions.
+> 创建脚手架项目，包含 **instancez.yaml** 及示例表/函数。
 
 **dev** [**--embedded-pg**]
-> Run the development API with live schema reload. **--embedded-pg** starts an embedded Postgres; otherwise set **INSTANCEZ_DATABASE_URL**.
+> 运行支持实时 schema 重载的开发 API。**--embedded-pg** 会启动内嵌的 Postgres；否则需设置 **INSTANCEZ_DATABASE_URL**。
 
 **serve**
-> Run the production server (self-host).
+> 运行生产服务器（自托管）。
 
 **cloud deploy**
-> Push **instancez.yaml** to a managed instancez Cloud project.
+> 将 **instancez.yaml** 推送到托管的 instancez Cloud 项目。
 
 # CAVEATS
 
-Realtime/websockets are not supported yet. Storage image resize covers JPEG/PNG only (no WebP/AVIF). Phone/SMS auth is not available. Production still needs Postgres (or cloud hosting); the single binary is not a full multi-region Supabase stack. Building from source needs Go 1.25+ and Node 22+ to embed the dashboard.
+尚不支持 Realtime/websockets。存储图像缩放仅支持 JPEG/PNG（不支持 WebP/AVIF）。不提供手机/SMS 认证。生产环境仍需要 Postgres（或云托管）；单二进制并非完整的多区域 Supabase 套件。从源码构建需要 Go 1.25+ 和 Node 22+ 才能内嵌控制台面板。
 
 # HISTORY
 
-**instancez** is an Apache-2.0 project shipping a portable Go binary (**cmd/inz**) aimed at declarative, AI-friendly backend scaffolding with Supabase client compatibility.
+**instancez** 是一个 Apache-2.0 项目，发布便携式 Go 二进制（**cmd/inz**），目标是声明式、AI 友好的后端脚手架，并与 Supabase 客户端兼容。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-official command-line client for the IPinfo API
+IPinfo API 的官方命令行客户端
 
 # TLDR
 
-**Look up your own IP address**
+**查询你自己的 IP 地址**
 
 ```ipinfo myip```
 
-**Look up details for a specific IP address**
+**查询特定 IP 地址的详情**
 
 ```ipinfo [8.8.8.8]```
 
-**Look up ASN information**
+**查询 ASN 信息**
 
 ```ipinfo [AS15169]```
 
-**Bulk lookup** multiple IPs or CIDR ranges
+**批量查询**多个 IP 或 CIDR 段
 
 ```ipinfo bulk [1.1.1.0/30] [8.8.8.8]```
 
-**Extract a specific field** (city, country, org, hostname, etc.)
+**提取特定字段**（城市、国家、组织、主机名等）
 
 ```ipinfo [8.8.8.8] -f [city]```
 
-**Output in CSV format**
+**以 CSV 格式输出**
 
 ```cat ips.txt | ipinfo -c```
 
-**Authenticate with an API token** for higher rate limits
+使用 API 令牌**进行身份验证**以获得更高的速率限制
 
 ```ipinfo init [your_token]```
 
-**Summarize details for a list of IPs**
+**汇总**一组 IP 的详情
 
 ```cat ips.txt | ipinfo summarize```
 
@@ -43,53 +43,53 @@ official command-line client for the IPinfo API
 # PARAMETERS
 
 **init** _token_
-> Save an API token for authenticated requests.
+> 保存用于身份验证请求的 API 令牌。
 
 **myip**
-> Look up details for your own IP address.
+> 查询你自己的 IP 地址详情。
 
 **bulk** _ips_
-> Process multiple IPs or CIDR ranges.
+> 处理多个 IP 或 CIDR 段。
 
 **summarize** _ips_
-> Produce a summary report for a list of IPs.
+> 为一组 IP 生成汇总报告。
 
 **-f**, **--field** _FIELD_
-> Return only the specified field (e.g., ip, city, region, country, org, hostname).
+> 仅返回指定字段（如 ip、city、region、country、org、hostname）。
 
 **-c**, **--csv**
-> Output results in CSV format.
+> 以 CSV 格式输出结果。
 
 **--nocolor**
-> Disable colored output (or set the `NO_COLOR` environment variable).
+> 关闭彩色输出（或设置 `NO_COLOR` 环境变量）。
 
 **--token** _TOKEN_
-> Pass an API token for this invocation.
+> 为本次调用传入 API 令牌。
 
 **completion**
-> Generate shell completions (bash, zsh, fish).
+> 生成 Shell 补全脚本（bash、zsh、fish）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ipinfo** is the official command-line client for the IPinfo.io API. It returns IP intelligence data including geographic location, ISP, organization, ASN, hostname, and abuse contact information.
+**ipinfo** 是 IPinfo.io API 的官方命令行客户端。它返回 IP 情报数据，包括地理位置、ISP、组织、ASN、主机名和滥用投诉联系信息。
 
-The tool accepts IP addresses (IPv4/IPv6), ASNs, and CIDR ranges. Multiple inputs can be queried at once or piped in from another command. Output can be rendered as human-readable text, JSON, or CSV, and specific fields can be extracted for use in scripts.
+该工具接受 IP 地址（IPv4/IPv6）、ASN 和 CIDR 段。可以一次查询多个输入，也可以从其他命令管道传入。输出可呈现为人类可读的文本、JSON 或 CSV 格式，并可提取特定字段供脚本使用。
 
-The CLI ships with several helper binaries such as **grepip**, **prips**, **cidr2range**, **cidr2ip**, **range2cidr**, and **mmdb** for working with IP lists and MMDB databases.
+该 CLI 还附带多个辅助程序，如 **grepip**、**prips**、**cidr2range**、**cidr2ip**、**range2cidr** 和 **mmdb**，用于处理 IP 列表和 MMDB 数据库。
 
 # CAVEATS
 
-Requires internet connectivity to reach ipinfo.io. Anonymous requests are heavily rate-limited; register for a free token via `ipinfo init` for higher quotas. Private, reserved, and multicast addresses cannot be geolocated. Geolocation accuracy varies by region and network type.
+需要联网才能访问 ipinfo.io。匿名请求受到严格的速率限制；通过 `ipinfo init` 注册免费令牌可获得更高的配额。私有地址、保留地址和多播地址无法进行地理定位。地理定位的准确性因地区和网络类型而异。
 
 # HISTORY
 
-Developed by **IPinfo.io**, a geolocation data provider founded in **2013**. The CLI is written in Go and wraps the same public API used by the web service.
+由 **IPinfo.io** 开发，这是一家成立于 **2013 年**的地理定位数据提供商。该 CLI 使用 Go 编写，封装了与 Web 服务相同的公共 API。
 
 # INSTALL
 

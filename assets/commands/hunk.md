@@ -1,14 +1,14 @@
 # TAGLINE
 
-Review-first terminal diff viewer for agentic coding
+面向智能体编程的"审查优先"终端 diff 查看器
 
 # TLDR
 
-**Open** hunk on a git repo
+**在 git 仓库上打开** hunk
 
 ```hunk```
 
-**Install** via npm or Homebrew
+**通过 npm 或 Homebrew 安装**
 
 ```npm i -g hunk```
 
@@ -18,15 +18,15 @@ Review-first terminal diff viewer for agentic coding
 
 # DESCRIPTION
 
-**hunk** is a terminal diff review tool aimed at developers and coding agents: navigate hunks, review changes with a keyboard-first UI, and integrate into agentic workflows. Install from npm, Homebrew, or upstream releases (**modem-dev/hunk**).
+**hunk** 是一款面向开发者和编程智能体的终端 diff 审查工具：浏览各个 hunk、通过键盘优先的 UI 审查变更，并可集成到智能体工作流中。可从 npm、Homebrew 或上游发布页（**modem-dev/hunk**）安装。
 
 # PARAMETERS
 
-Default UI reviews the working tree / staged changes. Flags for path, staging, and theme are listed in **hunk --help**.
+默认 UI 审查的是工作区/已暂存的变更。路径、暂存和主题相关的标志请参见 **hunk --help**。
 
 # CAVEATS
 
-Relatively new; UX may change quickly. Requires a git repository for typical use.
+相对较新；用户体验可能快速变化。常规使用需要 git 仓库。
 
 # INSTALL
 

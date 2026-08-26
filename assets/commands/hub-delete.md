@@ -1,18 +1,18 @@
 # TAGLINE
 
-deletes a GitHub repository
+删除 GitHub 仓库
 
 # TLDR
 
-**Delete a repository under your user**
+**删除你自己名下的仓库**
 
 ```hub delete [name]```
 
-**Delete an organization repository**
+**删除组织仓库**
 
 ```hub delete [organization]/[name]```
 
-**Skip the confirmation prompt**
+**跳过确认提示**
 
 ```hub delete -y [user]/[name]```
 
@@ -23,27 +23,27 @@ deletes a GitHub repository
 # PARAMETERS
 
 [_ORGANIZATION_/]_NAME_
-> The name of the repository on GitHub, optionally prefixed by an organization.
+> GitHub 上仓库的名称，可选地以组织名作为前缀。
 
 **-y**, **--yes**
-> Skip the confirmation prompt and immediately delete the repository.
+> 跳过确认提示，立即删除仓库。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hub delete** deletes a GitHub repository. The repository name is required and may be prefixed with an organization for repositories not owned by the current user.
+**hub delete** 删除一个 GitHub 仓库。仓库名称为必填项；对于不属于当前用户的仓库，可在名称前加上组织前缀。
 
-The command requires interactive confirmation unless **-y** is provided. It permanently removes the repository including all issues, pull requests, and wiki data.
+除非提供了 **-y**，否则该命令需要交互式确认。它会永久删除仓库，包括其中所有的 issue、pull request 和 wiki 数据。
 
 # CAVEATS
 
-Destructive and irreversible. Requires authentication and the **delete_repo** scope on the GitHub token. Owner or admin permissions on the target repository are required.
+具有破坏性且不可逆。需要进行认证，且 GitHub token 必须具有 **delete_repo** 权限范围。还要求对目标仓库拥有所有者或管理员权限。
 
 # HISTORY
 
-hub delete is part of **hub**, GitHub's original CLI for repository management.
+hub delete 是 **hub** 的组成部分。hub 是 GitHub 最早的仓库管理命令行工具。
 
 # INSTALL
 

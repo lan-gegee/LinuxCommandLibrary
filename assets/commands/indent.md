@@ -1,34 +1,34 @@
 # TAGLINE
 
-reformats C source code according to specified style guidelines
+按指定的风格规范重新排版 C 源代码
 
 # TLDR
 
-**Format C source file**
+**格式化 C 源文件**
 
 ```indent [source.c]```
 
-**Format to specific style**
+**按特定风格格式化**
 
 ```indent -kr [source.c]```
 
-**GNU style formatting**
+**GNU 风格格式化**
 
 ```indent -gnu [source.c]```
 
-**BSD style formatting**
+**BSD 风格格式化**
 
 ```indent -orig [source.c]```
 
-**Output to different file**
+**输出到另一个文件**
 
 ```indent [input.c] -o [output.c]```
 
-**Set tab width to 4 spaces**
+**将制表符宽度设为 4 个空格**
 
 ```indent -ts4 [source.c]```
 
-**Set indentation to 4 spaces per level**
+**将每级缩进设为 4 个空格**
 
 ```indent -i4 [source.c]```
 
@@ -39,57 +39,57 @@ reformats C source code according to specified style guidelines
 # PARAMETERS
 
 **-kr**
-> Kernighan & Ritchie style.
+> Kernighan & Ritchie 风格。
 
 **-gnu**
-> GNU coding style.
+> GNU 编码风格。
 
 **-orig**
-> Original BSD style.
+> 原始 BSD 风格。
 
 **-linux**
-> Linux kernel style.
+> Linux 内核风格。
 
 **-ts** _N_
-> Set tab size.
+> 设置制表符大小。
 
 **-i** _N_
-> Set indentation level.
+> 设置缩进级别。
 
 **-l** _N_
-> Maximum line length.
+> 最大行长度。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-npro**
-> Do not read .indent.pro profile files.
+> 不读取 .indent.pro 配置文件。
 
 **-bad**
-> Force blank line after declarations.
+> 强制在声明后加空行。
 
 **-bap**
-> Force blank line after procedure bodies.
+> 强制在过程体后加空行。
 
 **-nbc**
-> Do not force newlines after commas in declarations.
+> 不强制在声明中的逗号后换行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**indent** reformats C source code according to specified style guidelines. It handles indentation, brace placement, spacing, and line breaking.
+**indent** 会按指定的风格规范重新排版 C 源代码，处理缩进、花括号位置、空格和换行等。
 
-The tool supports predefined styles (K&R, GNU, BSD) and extensive customization. It can modify files in place or write to new files.
+该工具支持预定义风格（K&R、GNU、BSD）以及大量自定义选项。它可以直接修改原文件，也可以写入新文件。
 
 # CAVEATS
 
-C-specific; does not handle C++ or other languages well. May alter semantics when processing complex macros or preprocessor directives. Modifies files in-place by default; use **-o** to write to a separate file. Configuration can be stored in **.indent.pro** files loaded automatically from the current directory or home directory.
+仅针对 C 语言，不能很好地处理 C++ 或其他语言。处理复杂宏或预处理指令时可能改变语义。默认直接修改文件；使用 **-o** 可写入单独的文件。配置可保存在 **.indent.pro** 文件中，会自动从当前目录或主目录加载。
 
 # HISTORY
 
-indent originated in **BSD Unix**. The GNU version was developed as part of the GNU project with extended options.
+indent 起源于 **BSD Unix**。GNU 版本是 GNU 项目的一部分，扩展了更多选项。
 
 # INSTALL
 

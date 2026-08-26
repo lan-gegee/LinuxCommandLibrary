@@ -1,22 +1,22 @@
 # TAGLINE
 
-generates device URIs for HP printers
+为 HP 打印机生成设备 URI
 
 # TLDR
 
-**Generate device URI**
+**生成设备 URI**
 
 ```hp-makeuri [192.168.1.100]```
 
-**USB device**
+**USB 设备**
 
 ```hp-makeuri -b usb```
 
-**Network scan**
+**网络探测**
 
 ```hp-makeuri -g```
 
-**Specific port**
+**指定端口**
 
 ```hp-makeuri -p [9100] [ip-address]```
 
@@ -27,36 +27,36 @@ generates device URIs for HP printers
 # PARAMETERS
 
 _IP-ADDRESS_
-> Printer IP address.
+> 打印机 IP 地址。
 
 **-b** _BUS_
-> Bus type (usb, net).
+> 总线类型（usb、net）。
 
 **-g**
-> Guess/probe for device.
+> 猜测/探测设备。
 
 **-p** _PORT_
-> Network port.
+> 网络端口。
 
 **-s** _SERIAL_
-> Serial number filter.
+> 按序列号过滤。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hp-makeuri** generates device URIs for HP printers. It creates the proper URI format needed for CUPS printer configuration.
+**hp-makeuri** 为 HP 打印机生成设备 URI。它创建 CUPS 打印机配置所需的正确 URI 格式。
 
-The tool probes network or USB printers and constructs valid device identifiers. URIs are used with lpadmin and CUPS.
+该工具会探测网络或 USB 打印机并构造有效的设备标识符。URI 配合 lpadmin 和 CUPS 使用。
 
 # CAVEATS
 
-Part of HPLIP package. Network printers need connectivity. USB requires permissions.
+属于 HPLIP 软件包。网络打印机需要网络连通性。USB 设备需要相应权限。
 
 # HISTORY
 
-hp-makeuri is part of **HPLIP** (HP Linux Imaging and Printing) for device URI generation.
+hp-makeuri 是 **HPLIP**（HP Linux Imaging and Printing）中负责设备 URI 生成的组件。
 
 # INSTALL
 

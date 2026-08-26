@@ -1,18 +1,18 @@
 # TAGLINE
 
-manages MIME type associations in GNOME
+管理 GNOME 中的 MIME 类型关联
 
 # TLDR
 
-**Show default handler**
+**显示默认处理程序**
 
 ```gvfs-mime --query [text/plain]```
 
-**Set default handler**
+**设置默认处理程序**
 
 ```gvfs-mime --set [text/html] [firefox.desktop]```
 
-**Query image handler**
+**查询图像处理程序**
 
 ```gvfs-mime --query [image/jpeg]```
 
@@ -23,33 +23,33 @@ manages MIME type associations in GNOME
 # PARAMETERS
 
 _MIMETYPE_
-> MIME type to query or set.
+> 要查询或设置的 MIME 类型。
 
 _HANDLER_
-> Desktop file for handler.
+> 处理程序对应的 desktop 文件。
 
 **--query**
-> Query default handler.
+> 查询默认处理程序。
 
 **--set**
-> Set default handler.
+> 设置默认处理程序。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gvfs-mime** manages MIME type associations in GNOME. It queries and sets default applications for opening different file types.
+**gvfs-mime** 管理 GNOME 中的 MIME 类型关联。它查询并设置打开不同文件类型的默认应用程序。
 
-The tool modifies the user's MIME database to associate applications with content types. Changes affect how files are opened in GNOME.
+该工具会修改用户的 MIME 数据库，将应用程序与内容类型相关联。更改会影响 GNOME 中文件的打开方式。
 
 # CAVEATS
 
-Part of the gvfs-bin command-line tools, deprecated in gvfs 1.31 (2016) and removed entirely in gvfs 1.38 (2018) in favor of the unified **gio** command (`gio mime`). Modern distributions no longer ship gvfs-mime. GNOME specific; uses .desktop file IDs as handlers.
+属于 gvfs-bin 命令行工具集，在 gvfs 1.31（2016 年）中被弃用，并在 gvfs 1.38（2018 年）中被完全移除，由统一的 **gio** 命令（`gio mime`）取代。现代发行版不再附带 gvfs-mime。GNOME 专属；使用 .desktop 文件 ID 作为处理程序。
 
 # HISTORY
 
-**gvfs-mime** was part of GVFS's original gvfs-bin utilities, introduced for GNOME alongside GVFS in **2008** (GNOME 2.22). It has since been superseded by **gio mime**.
+**gvfs-mime** 是 GVFS 原始 gvfs-bin 实用工具的一部分，于 **2008 年**（GNOME 2.22）随 GVFS 一同为 GNOME 引入。此后被 **gio mime** 取代。
 
 # SEE ALSO
 

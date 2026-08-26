@@ -1,38 +1,38 @@
 # TAGLINE
 
-Internet Archive command-line tool
+Internet Archive 命令行工具
 
 # TLDR
 
-**Download all files** from an item
+从条目**下载所有文件**
 
 ```ia download [item-name]```
 
-**Download a specific file** from an item
+从条目**下载指定文件**
 
 ```ia download [item-name] --glob="[*.pdf]"```
 
-**Upload a file** to an item
+向条目**上传文件**
 
 ```ia upload [item-name] [file]```
 
-**Search items** in the archive
+在归档中**搜索条目**
 
 ```ia search "[query]"```
 
-**Get item metadata** in JSON format
+以 JSON 格式**获取条目元数据**
 
 ```ia metadata [item-name]```
 
-**List files** in an item
+**列出**条目中的**文件**
 
 ```ia list [item-name]```
 
-**Delete a file** from an item
+从条目**删除文件**
 
 ```ia delete [item-name] [file]```
 
-**Configure** Internet Archive credentials
+**配置** Internet Archive 凭据
 
 ```ia configure```
 
@@ -43,51 +43,51 @@ Internet Archive command-line tool
 # PARAMETERS
 
 _COMMAND_
-> Subcommand to execute.
+> 要执行的子命令。
 
 **download**
-> Download files from an item.
+> 从条目下载文件。
 
 **upload**
-> Upload files to an item.
+> 向条目上传文件。
 
 **delete**
-> Delete files from an item.
+> 从条目删除文件。
 
 **search**
-> Search the Internet Archive catalog.
+> 搜索 Internet Archive 目录。
 
 **metadata**
-> Retrieve or modify item metadata.
+> 获取或修改条目元数据。
 
 **list**
-> List files in an item.
+> 列出条目中的文件。
 
 **configure**
-> Configure Internet Archive credentials.
+> 配置 Internet Archive 凭据。
 
 **tasks**
-> Retrieve information about catalog tasks.
+> 获取目录任务的信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ia** is the official Internet Archive command-line tool, provided via the **internetarchive** Python package. It provides access to downloading, uploading, searching, and managing items in the archive.org collection.
+**ia** 是 Internet Archive 的官方命令行工具，由 **internetarchive** Python 软件包提供。它可用于下载、上传、搜索和管理 archive.org 馆藏中的条目。
 
-The tool supports bulk operations and scripting, making it suitable for archivists and researchers working with large datasets. It can manage metadata, upload and delete files, and query the catalog task queue. Authentication is handled via S3-like API keys obtained from archive.org.
+该工具支持批量操作和脚本化，适合处理大型数据集的档案工作者和研究人员使用。它可以管理元数据、上传和删除文件，以及查询目录任务队列。身份验证通过从 archive.org 获取的类 S3 API 密钥完成。
 
 # CAVEATS
 
-Requires an archive.org account and API keys for uploads and modifications. Rate limits apply to bulk operations. Large file transfers may take considerable time. Install via **pip install internetarchive**.
+上传和修改操作需要 archive.org 账户及 API 密钥。批量操作受速率限制约束。大文件传输可能耗时较长。通过 **pip install internetarchive** 安装。
 
 # HISTORY
 
-ia was created by the **Internet Archive** to provide command-line access to their digital library.
+ia 由 **Internet Archive** 创建，用于以命令行方式访问其数字图书馆。
 
 # SEE ALSO
 

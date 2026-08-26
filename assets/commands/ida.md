@@ -1,26 +1,26 @@
 # TAGLINE
 
-disassembler and debugger for analyzing binary executables
+用于分析二进制可执行文件的反汇编器和调试器
 
 # TLDR
 
-**Open binary in IDA**
+**在 IDA 中打开二进制文件**
 
 ```ida [binary]```
 
-**Run IDA in text mode**
+**以文本模式运行 IDA**
 
 ```ida -T [binary]```
 
-**Batch mode analysis**
+**批处理模式分析**
 
 ```ida -B [binary]```
 
-**Run script**
+**运行脚本**
 
 ```ida -S[script.py] [binary]```
 
-**Open 64-bit binary**
+**打开 64 位二进制文件**
 
 ```ida64 [binary]```
 
@@ -33,40 +33,40 @@ disassembler and debugger for analyzing binary executables
 # PARAMETERS
 
 _file_
-> Binary file to analyze.
+> 要分析的二进制文件。
 
 **-T**
-> Text mode (no GUI).
+> 文本模式（无 GUI）。
 
 **-B**
-> Batch mode (analyze and exit).
+> 批处理模式（分析后退出）。
 
 **-A**
-> Autonomous mode (auto-answer dialogs).
+> 自主模式（自动应答对话框）。
 
 **-S**_script_
-> Run script on startup.
+> 启动时运行脚本。
 
 **-L**_logfile_
-> Log file.
+> 日志文件。
 
 **-c**
-> Create new database.
+> 创建新数据库。
 
 **-o**_database_
-> Output database file.
+> 输出数据库文件。
 
 # DESCRIPTION
 
-**IDA** (Interactive DisAssembler) is a disassembler and debugger for analyzing binary executables. It's the industry standard for reverse engineering, malware analysis, and vulnerability research.
+**IDA**（Interactive DisAssembler，交互式反汇编器）是用于分析二进制可执行文件的反汇编器和调试器。它是逆向工程、恶意软件分析和漏洞研究领域的行业标准。
 
-IDA supports numerous processor architectures and file formats. It provides features like cross-references, function recognition, and an IDAPython scripting interface.
+IDA 支持众多处理器架构和文件格式。它提供交叉引用、函数识别以及 IDAPython 脚本接口等功能。
 
 # EDITIONS
 
-- **IDA Free**: Limited free version
-- **IDA Home**: Personal use
-- **IDA Pro**: Full professional version
+- **IDA Free**：功能受限的免费版本
+- **IDA Home**：个人使用版本
+- **IDA Pro**：完整专业版本
 
 # SCRIPTING
 
@@ -79,11 +79,11 @@ for func in idautils.Functions():
 
 # CAVEATS
 
-Commercial software (free version has limitations). Large binaries require significant RAM. Database files can be large. Learning curve for effective use.
+商业软件（免费版有功能限制）。大型二进制文件需要大量内存。数据库文件可能很大。要熟练使用需要一定的学习成本。
 
 # HISTORY
 
-IDA was created by **Ilfak Guilfanov** and first released in **1991**. It's developed by Hex-Rays and has become the de facto standard for binary analysis in security research.
+IDA 由 **Ilfak Guilfanov** 开发，首次发布于 **1991 年**。它由 Hex-Rays 维护开发，已成为安全研究领域二进制分析的事实标准。
 
 # INSTALL
 

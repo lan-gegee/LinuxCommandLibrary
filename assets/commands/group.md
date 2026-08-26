@@ -1,30 +1,30 @@
 # TAGLINE
 
-System group database file
+系统组数据库文件
 
 # TLDR
 
-**View group file**
+**查看 group 文件**
 
 ```cat /etc/group```
 
-**Find groups for user**
+**查找用户所属的组**
 
 ```groups [username]```
 
-**Find group by name**
+**按名称查找组**
 
 ```getent group [groupname]```
 
-**List group members**
+**列出组成员**
 
 ```getent group [groupname] | cut -d: -f4```
 
 # DESCRIPTION
 
-**/etc/group** is the system file that defines groups and their members. Each line contains a group entry with four colon-separated fields: group name, password placeholder, numeric GID, and a comma-separated list of member usernames.
+**/etc/group** 是定义组及其成员的系统文件。每行包含一个组条目，由四个冒号分隔的字段组成：组名、密码占位符、数字 GID，以及逗号分隔的成员用户名列表。
 
-Groups control file access permissions and are fundamental to Unix security. Users can belong to multiple groups, with one primary group set in /etc/passwd.
+组控制文件的访问权限，是 Unix 安全的基础。用户可以属于多个组，其中一个主组在 /etc/passwd 中设置。
 
 # FILE FORMAT
 
@@ -32,11 +32,11 @@ Groups control file access permissions and are fundamental to Unix security. Use
 groupname:password:GID:members
 ```
 
-**Fields:**
-- **groupname**: Group name
-- **password**: Usually 'x' (see /etc/gshadow)
-- **GID**: Numeric group ID
-- **members**: Comma-separated list of users
+**字段说明：**
+- **groupname**：组名
+- **password**：通常为 'x'（参见 /etc/gshadow）
+- **GID**：数字组 ID
+- **members**：逗号分隔的用户列表
 
 # RELATED COMMANDS
 
@@ -51,7 +51,7 @@ newgrp groupname        # Switch primary group
 
 # CAVEATS
 
-Direct editing not recommended; use groupadd/groupmod. Changes may require logout to take effect. GIDs below 1000 typically reserved for system groups.
+不建议直接编辑；请使用 groupadd/groupmod。更改可能需要注销后才能生效。低于 1000 的 GID 通常保留给系统组。
 
 # SEE ALSO
 

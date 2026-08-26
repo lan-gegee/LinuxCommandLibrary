@@ -1,34 +1,34 @@
 # TAGLINE
 
-Animated version control history visualization
+动画式版本控制历史可视化工具
 
 # TLDR
 
-**Visualize current repo**
+**可视化当前仓库**
 
 ```gource```
 
-**Visualize specific repo**
+**可视化特定仓库**
 
 ```gource [/path/to/repo]```
 
-**Run in fullscreen mode**
+**以全屏模式运行**
 
 ```gource -f```
 
-**Output PPM stream and pipe to ffmpeg for video**
+**输出 PPM 流并通过管道传给 ffmpeg 生成视频**
 
 ```gource -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -pix_fmt yuv420p [output.mp4]```
 
-**Set time scale**
+**设置时间缩放**
 
 ```gource --seconds-per-day [0.1]```
 
-**Hide specific elements**
+**隐藏特定元素**
 
 ```gource --hide filenames,mouse,progress```
 
-**Visualize with a date range**
+**按日期范围可视化**
 
 ```gource --start-date "[2024-01-01]" --stop-date "[2024-12-31]"```
 
@@ -39,57 +39,57 @@ Animated version control history visualization
 # PARAMETERS
 
 _PATH_
-> Repository path (defaults to current directory).
+> 仓库路径（默认为当前目录）。
 
 **-o**, **--output-ppm-stream** _FILE_
-> Output PPM image stream to file ('-' for stdout). Used with ffmpeg for video creation.
+> 将 PPM 图像流输出到文件（'-' 表示标准输出）。与 ffmpeg 配合用于制作视频。
 
 **-r**, **--output-framerate** _FPS_
-> Framerate of output (25, 30, 60). Used with --output-ppm-stream.
+> 输出帧率（25、30、60）。需与 --output-ppm-stream 配合使用。
 
 **-WIDTHxHEIGHT**, **--viewport** _WIDTHxHEIGHT_
-> Set viewport size (e.g., 1280x720).
+> 设置视口大小（例如 1280x720）。
 
 **--seconds-per-day** _SEC_
-> Time in seconds for each day of history (default: 10).
+> 历史中每一天对应的时间（秒）（默认：10）。
 
 **--hide** _ELEMENTS_
-> Hide display elements (comma-separated): bloom, date, dirnames, files, filenames, mouse, progress, root, tree, users, usernames.
+> 隐藏显示元素（逗号分隔）：bloom、date、dirnames、files、filenames、mouse、progress、root、tree、users、usernames。
 
 **--start-date** _DATE_
-> Start at a date (YYYY-MM-DD format).
+> 从指定日期开始（YYYY-MM-DD 格式）。
 
 **--stop-date** _DATE_
-> Stop at a date.
+> 在指定日期停止。
 
 **-f**, **--fullscreen**
-> Fullscreen mode.
+> 全屏模式。
 
 **--title** _TITLE_
-> Set a title.
+> 设置标题。
 
 **--load-config** _FILE_
-> Load a configuration file.
+> 加载配置文件。
 
 **--save-config** _FILE_
-> Save current options to a configuration file.
+> 将当前选项保存到配置文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gource** visualizes version control history as an animated tree. Developers appear as avatars making changes, with files and directories branching from the center in a real-time animation.
+**gource** 将版本控制历史可视化为动画树。开发者以化身的形式出现并进行修改，文件和目录在实时动画中从中心向外分支生长。
 
-The tool supports Git, SVN, Mercurial, and Bazaar repositories. Output can be piped to video encoders like ffmpeg for creating shareable recordings of project history.
+该工具支持 Git、SVN、Mercurial 和 Bazaar 仓库。输出可以通过管道传给 ffmpeg 等视频编码器，以创建便于分享的项目历史录像。
 
 # CAVEATS
 
-Requires OpenGL. Large repositories with many files or commits may be slow to render. The output stream uses uncompressed PPM format, so piped video files can be very large before encoding. Use --seconds-per-day and --hide to optimize for large repos.
+需要 OpenGL。包含大量文件或提交的大型仓库渲染速度可能较慢。输出流使用未压缩的 PPM 格式，因此编码前通过管道传输的视频文件可能非常大。对于大型仓库，可使用 --seconds-per-day 和 --hide 进行优化。
 
 # HISTORY
 
-gource was created by **Andrew Caudwell** to visualize software development history as engaging animations.
+gource 由 **Andrew Caudwell** 创建，旨在将软件开发历史可视化为引人入胜的动画。
 
 # INSTALL
 

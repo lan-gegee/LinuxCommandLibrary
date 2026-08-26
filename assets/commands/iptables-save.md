@@ -1,18 +1,18 @@
 # TAGLINE
 
-dumps the current iptables IPv4 configuration to stdout or a file
+将当前 iptables IPv4 配置转储到 stdout 或文件
 
 # TLDR
 
-**Print** all rules
+**打印**所有规则
 
 ```sudo iptables-save```
 
-Print **specific table**
+打印**特定表**
 
 ```sudo iptables-save -t filter```
 
-**Save** to file
+**保存**到文件
 
 ```sudo iptables-save -f /etc/iptables.rules```
 
@@ -22,26 +22,26 @@ Print **specific table**
 
 # DESCRIPTION
 
-**iptables-save** dumps the current iptables IPv4 configuration to stdout or a file. The output can be restored using iptables-restore. Use ip6tables-save for IPv6 rules.
+**iptables-save** 将当前 iptables IPv4 配置转储到 stdout 或文件。输出可通过 iptables-restore 恢复。IPv6 规则请使用 ip6tables-save。
 
 # PARAMETERS
 
 **-t, --table** _table_
-> Only output rules for the specified table (filter, nat, mangle, raw, security)
+> 仅输出指定表的规则（filter、nat、mangle、raw、security）
 
 **-f, --file** _filename_
-> Write output to file instead of stdout
+> 将输出写入文件而非 stdout
 
 **-c, --counters**
-> Include packet and byte counters in output
+> 在输出中包含包计数器和字节计数器
 
 # CAVEATS
 
-This saves only IPv4 rules. Use ip6tables-save for IPv6. Rules are output in a format suitable for iptables-restore. Counter values change constantly on active systems.
+此命令只保存 IPv4 规则。IPv6 请使用 ip6tables-save。规则的输出格式适用于 iptables-restore。在繁忙的系统上计数器值会不断变化。
 
 # HISTORY
 
-**iptables-save** is part of the **iptables** package for managing the Linux kernel firewall.
+**iptables-save** 是用于管理 Linux 内核防火墙的 **iptables** 软件包的一部分。
 
 # INSTALL
 

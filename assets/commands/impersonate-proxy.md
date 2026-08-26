@@ -1,34 +1,34 @@
 # TAGLINE
 
-Local MITM proxy with configurable TLS and HTTP fingerprints
+可配置 TLS 和 HTTP 指纹的本地中间人代理
 
 # TLDR
 
-**Build** the binary from a clone
+从克隆的仓库中**构建**二进制文件
 
 ```make build```
 
-**Start** the proxy (rebuilds, frees port 8080, reads `config.yaml`)
+**启动**代理（重新构建、释放 8080 端口、读取 `config.yaml`）
 
 ```make run```
 
-**Run** an already-built binary with the default config
+用默认配置**运行**已构建的二进制文件
 
 ```impersonate-proxy```
 
-**Run** with an explicit config file
+以显式指定的配置文件**运行**
 
 ```impersonate-proxy -config [config.yaml]```
 
-**Send curl** through the proxy with the generated CA
+通过代理并使用生成的 CA **发送 curl 请求**
 
 ```curl --proxy http://127.0.0.1:8080 --cacert [ca.crt] [https://example.com]```
 
-**Read** the live management API
+**读取**实时管理 API
 
 ```curl http://127.0.0.1:8081/api/config```
 
-**Switch** the TLS preset at runtime (new connections only)
+运行时**切换** TLS 预设（仅对新连接生效）
 
 ```curl -X POST http://127.0.0.1:8081/api/config -H 'Content-Type: application/json' -d '{"tls_preset":"firefox"}'```
 
@@ -39,73 +39,73 @@ Local MITM proxy with configurable TLS and HTTP fingerprints
 # PARAMETERS
 
 **-config** _file_
-> Path to the YAML configuration file. Default: `config.yaml`.
+> YAML 配置文件的路径。默认：`config.yaml`。
 
-The project Makefile also exposes:
+项目的 Makefile 还提供了以下目标：
 
 **make build**
-> Compile the Go sources to `./impersonate-proxy`. Requires Go 1.22+.
+> 将 Go 源码编译为 `./impersonate-proxy`。需要 Go 1.22+。
 
 **make run**
-> Build, kill any process on port 8080, then start `./impersonate-proxy -config config.yaml`.
+> 构建并结束占用端口 8080 的进程，然后启动 `./impersonate-proxy -config config.yaml`。
 
 **make trust-ca**
-> On macOS, add the generated `ca.crt` to the system keychain (requires sudo).
+> 在 macOS 上将生成的 `ca.crt` 添加到系统钥匙串（需要 sudo）。
 
 **make clean**
-> Remove the binary, `ca.crt`, and `ca.key`.
+> 删除二进制文件、`ca.crt` 和 `ca.key`。
 
 # DESCRIPTION
 
-**impersonate-proxy** is a local man-in-the-middle HTTP proxy written in Go. It decrypts client TLS with a generated CA, then opens a new upstream connection whose TLS ClientHello, HTTP/2 SETTINGS, header order, and User-Agent are taken from a YAML profile. The intent is authorized testing of WAF and bot-detection systems: route curl, a browser, or Playwright through the proxy and observe how a given fingerprint is classified.
+**impersonate-proxy** 是一个用 Go 编写的本地中间人 HTTP 代理。它使用生成的 CA 解密客户端 TLS，然后建立新的上游连接，其 TLS ClientHello、HTTP/2 SETTINGS、头部顺序和 User-Agent 均取自 YAML 配置档案。其用途是对 WAF 和机器人检测系统进行经授权的测试：将 curl、浏览器或 Playwright 经由该代理路由，观察特定指纹会被如何分类。
 
-On first start the process writes `ca.crt` and `ca.key` (paths are configurable) and listens on `127.0.0.1:8080` by default. Clients must trust that CA or pass it explicitly (`curl --cacert`, `NODE_EXTRA_CA_CERTS`, Firefox certificate import). A second listener (`mgmt_listen`, default `127.0.0.1:8081`) serves `GET`/`POST /api/config` so the bundled Chrome extension — or curl — can change the TLS preset, a custom JA3/JA4 `custom_hello`, spoofed client IP headers, and User-Agent without restarting.
+首次启动时，进程会写入 `ca.crt` 和 `ca.key`（路径可配置），并默认监听 `127.0.0.1:8080`。客户端必须信任该 CA 或显式传入它（`curl --cacert`、`NODE_EXTRA_CA_CERTS`、Firefox 证书导入）。第二个监听器（`mgmt_listen`，默认 `127.0.0.1:8081`）提供 `GET`/`POST /api/config`，使随附的 Chrome 扩展——或 curl——能够在不重启的情况下更改 TLS 预设、自定义 JA3/JA4 `custom_hello`、伪造客户端 IP 头部以及 User-Agent。
 
-Built-in TLS presets include `chrome`, `firefox`, `safari`, `edge`, `ios`, `random`, `golang`, and `custom`. HTTP/1.1 rewriting covers header order, add/remove, User-Agent, and optional `X-Forwarded-For` / `True-Client-IP`. When HTTP/2 is enabled on the proxy-to-server leg, SETTINGS order, `WINDOW_UPDATE`, and pseudo-header order are also configurable.
+内置的 TLS 预设包括 `chrome`、`firefox`、`safari`、`edge`、`ios`、`random`、`golang` 和 `custom`。HTTP/1.1 改写涵盖头部顺序、增删头部、User-Agent 以及可选的 `X-Forwarded-For` / `True-Client-IP`。当代理到服务器一端启用 HTTP/2 时，SETTINGS 顺序、`WINDOW_UPDATE` 和伪头部顺序也可配置。
 
-Supported platforms are **macOS** and **Linux** (amd64 and arm64). There is no package-manager binary; clone the repository and run `make build`.
+支持的平台为 **macOS** 和 **Linux**（amd64 与 arm64）。没有包管理器二进制包；请克隆仓库并运行 `make build`。
 
 # CONFIGURATION
 
 **config.yaml**
-> Single YAML file read at startup. All keys have defaults; only overrides need to be set.
+> 启动时读取的单一 YAML 文件。所有键都有默认值；只需设置需要覆盖的部分。
 
 **listen**
-> Proxy bind address. Default `127.0.0.1:8080`.
+> 代理绑定地址。默认 `127.0.0.1:8080`。
 
 **mgmt_listen**
-> Management API bind address. Default `127.0.0.1:8081`. Set to empty to disable.
+> 管理 API 绑定地址。默认 `127.0.0.1:8081`。设为空则禁用。
 
 **ca_cert** / **ca_key**
-> Paths for the MITM CA (default `ca.crt` / `ca.key`). Generated on first run if missing.
+> 中间人 CA 的路径（默认 `ca.crt` / `ca.key`）。缺失时在首次运行时生成。
 
 **tls.preset**
-> `chrome` | `firefox` | `safari` | `edge` | `ios` | `random` | `golang` | `custom`.
+> `chrome` | `firefox` | `safari` | `edge` | `ios` | `random` | `golang` | `custom`。
 
 **tls.custom_hello**
-> Used only when `preset` is `custom`. Fields: `cipher_suites`, `curves`, `versions`, `extensions`. Order of cipher suites and extensions is part of the JA3/JA4 fingerprint. GREASE placeholders (`0x0a0a` and other `0xXAXA` values) are randomized per connection.
+> 仅当 `preset` 为 `custom` 时使用。字段：`cipher_suites`、`curves`、`versions`、`extensions`。密码套件和扩展的顺序是 JA3/JA4 指纹的一部分。GREASE 占位值（`0x0a0a` 及其他 `0xXAXA` 值）会在每个连接中随机化。
 
 **http.user_agent**
-> Override the forwarded User-Agent. Empty string passes the client's value through.
+> 覆盖转发使用的 User-Agent。空字符串表示原样传递客户端的值。
 
 **http.client_ip**
-> When set, overwrites `X-Forwarded-For` and `True-Client-IP`.
+> 设置后覆盖 `X-Forwarded-For` 和 `True-Client-IP`。
 
 **http.header_order** / **add_headers** / **remove_headers**
-> Control HTTP/1.1 header order and membership. Unlisted headers are appended.
+> 控制 HTTP/1.1 头部的顺序和成员关系。未列出的头部会追加在末尾。
 
 **http2.enabled** / **settings** / **window_update** / **pseudo_header_order**
-> HTTP/2 fingerprint on the upstream leg. SETTINGS `id` values follow RFC 7540 §11.3.
+> 上游一端的 HTTP/2 指纹。SETTINGS 的 `id` 值遵循 RFC 7540 §11.3。
 
-Runtime `POST /api/config` accepts `tls_preset`, `custom_hello`, `client_ip`, and `user_agent`. Changes apply to new connections only.
+运行时 `POST /api/config` 接受 `tls_preset`、`custom_hello`、`client_ip` 和 `user_agent`。更改仅对新连接生效。
 
 # CAVEATS
 
-This is a decrypting MITM proxy. Clients must trust the generated CA, and intercepting traffic without authorization may violate law and terms of service. The client-to-proxy leg is HTTP/1.1 CONNECT only; custom HTTP/2 fingerprints apply solely on the proxy-to-server side. Chunked request bodies are not supported. QUIC and HTTP/3 are out of scope. The proxy rewrites the HTTP `User-Agent` header, not JavaScript `navigator.userAgent`. Some applications use certificate pinning and will refuse the MITM certificate. The management API has no authentication — keep it on localhost.
+这是一个解密的中间人代理。客户端必须信任生成的 CA，且未经授权拦截流量可能违反法律和服务条款。客户端到代理一端仅支持 HTTP/1.1 CONNECT；自定义 HTTP/2 指纹仅应用于代理到服务器一端。不支持分块请求体。不支持 QUIC 和 HTTP/3。代理改写的是 HTTP `User-Agent` 头部，而非 JavaScript 的 `navigator.userAgent`。某些应用使用证书固定，会拒绝 MITM 证书。管理 API 没有身份验证——请将其保留在 localhost 上。
 
 # HISTORY
 
-Written in **Go** by **ytkoka** as a standalone local proxy around the uTLS TLS-fingerprint library. The binary name produced by `go build -o impersonate-proxy .` is **impersonate-proxy**. Licensed under MIT.
+由 **ytkoka** 用 **Go** 编写，是围绕 uTLS TLS 指纹库构建的独立本地代理。`go build -o impersonate-proxy .` 生成的二进制文件名为 **impersonate-proxy**。采用 MIT 许可证。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays an income statement showing revenues and expenses for the report
+显示利润表，列出报告期内的收入与支出
 
 # TLDR
 
-**Show income statement**
+**显示利润表**
 
 ```hledger incomestatement```
 
-**Show from specific file**
+**从指定文件显示**
 
 ```hledger incomestatement -f [journal.ledger]```
 
-**Show for specific period**
+**显示特定期间**
 
 ```hledger incomestatement -p "[this month]"```
 
-**Show monthly breakdown**
+**按月细分显示**
 
 ```hledger incomestatement --monthly```
 
-**Limit account depth**
+**限制账户深度**
 
 ```hledger incomestatement --depth [2]```
 
@@ -31,47 +31,47 @@ displays an income statement showing revenues and expenses for the report
 # PARAMETERS
 
 **-f**, **--file** _file_
-> Use specified journal file.
+> 使用指定的日志文件。
 
 **-p**, **--period** _expr_
-> Report period (e.g., "this month", "2024").
+> 报告期间（例如 "this month"、"2024"）。
 
 **--monthly**
-> Show monthly columns.
+> 显示按月分列。
 
 **--quarterly**
-> Show quarterly columns.
+> 显示按季度分列。
 
 **--yearly**
-> Show yearly columns.
+> 显示按年分列。
 
 **--depth** _n_
-> Limit account depth.
+> 限制账户深度。
 
 **--tree**
-> Show accounts as tree.
+> 以树状结构显示账户。
 
 **--flat**
-> Show accounts as flat list (default).
+> 以扁平列表显示账户（默认）。
 
 **--average**
-> Show a row average column.
+> 显示行平均值列。
 
 **--row-total**
-> Show a row total column.
+> 显示行合计列。
 
 **--no-total**
-> Omit the final total row.
+> 省略最后的总计行。
 
 **--sort-amount**
-> Sort by amount instead of account name.
+> 按金额而非账户名排序。
 
 **--output-format** _fmt_
-> Output format (txt, html, csv, tsv, json).
+> 输出格式（txt、html、csv、tsv、json）。
 
 # DESCRIPTION
 
-**hledger incomestatement** (alias **is**) displays an income statement (profit & loss report) showing revenues and expenses for the report period, and their difference as net income. Part of hledger's standard financial reports alongside balance sheet and cash flow.
+**hledger incomestatement**（别名 **is**）显示一份利润表（损益报告），列出报告期内的收入与支出，并将二者的差额作为净收入展示。它是 hledger 标准财务报表之一，与资产负债表和现金流量表并列。
 
 # INSTALL
 
@@ -94,4 +94,3 @@ displays an income statement showing revenues and expenses for the report
 # SEE ALSO
 
 [hledger](/man/hledger)(1), [hledger-balancesheet](/man/hledger-balancesheet)(1)
-

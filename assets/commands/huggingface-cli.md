@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for Hugging Face Hub
+Hugging Face Hub 的命令行界面
 
 # TLDR
 
-**Login to Hugging Face**
+**登录 Hugging Face**
 
 ```huggingface-cli login```
 
-**Download a model**
+**下载模型**
 
 ```huggingface-cli download [model-name]```
 
-**Download specific files from a model**
+**下载模型中的指定文件**
 
 ```huggingface-cli download [model-name] [config.json] [model.safetensors]```
 
-**Download to a local directory**
+**下载到本地目录**
 
 ```huggingface-cli download [model-name] --local-dir [path]```
 
-**Download a dataset**
+**下载数据集**
 
 ```huggingface-cli download [dataset-name] --repo-type dataset```
 
-**Upload a folder to a repo**
+**将文件夹上传到仓库**
 
 ```huggingface-cli upload [repo-id] [local_path] [path_in_repo]```
 
-**Scan the local cache**
+**扫描本地缓存**
 
 ```huggingface-cli scan-cache```
 
-**Show current logged-in user**
+**显示当前登录的用户**
 
 ```huggingface-cli whoami```
 
@@ -43,64 +43,64 @@ command-line interface for Hugging Face Hub
 # SUBCOMMANDS
 
 **login**
-> Authenticate with Hugging Face Hub.
+> 向 Hugging Face Hub 进行身份验证。
 
 **logout**
-> Log out of Hugging Face Hub.
+> 退出 Hugging Face Hub 登录。
 
 **whoami**
-> Show current logged-in user and organizations.
+> 显示当前登录用户及其所属组织。
 
 **download** _repo_ [_files_]
-> Download files from the Hub.
+> 从 Hub 下载文件。
 
 **upload** _repo_ [_local_path_] [_path_in_repo_]
-> Upload files or folders to a repository.
+> 将文件或文件夹上传到仓库。
 
 **upload-large-folder** _repo_ _local_path_
-> Upload a large folder with resumable chunked uploads.
+> 以可断点续传的分块上传方式上传大型文件夹。
 
 **repo create** _repo_
-> Create a new repository on the Hub.
+> 在 Hub 上创建新仓库。
 
 **scan-cache**
-> Scan and report on the local cache directory.
+> 扫描并报告本地缓存目录的情况。
 
 **delete-cache**
-> Interactively delete unused cache revisions.
+> 以交互方式删除未使用的缓存版本。
 
 **tag** _repo_ _tag_
-> Tag a repository with a version.
+> 为仓库打上版本标签。
 
 **env**
-> Display environment and library info.
+> 显示环境和依赖库信息。
 
 # PARAMETERS
 
 **--token** _token_
-> Use specific access token.
+> 使用指定的访问令牌。
 
 **--repo-type** _type_
-> Repository type: model, dataset, or space (default: model).
+> 仓库类型：model、dataset 或 space（默认：model）。
 
 **--local-dir** _path_
-> Download to a specific local directory instead of cache.
+> 下载到指定的本地目录而不是缓存。
 
 **--include** _pattern_
-> Glob pattern for files to include in download.
+> 匹配要包含进下载内容的文件的 Glob 模式。
 
 **--exclude** _pattern_
-> Glob pattern for files to exclude from download.
+> 匹配要从下载中排除的文件的 Glob 模式。
 
 **--revision** _rev_
-> Specific revision to download (branch, tag, or commit hash).
+> 要下载的特定版本（分支、tag 或提交哈希）。
 
 **--quiet**
-> Suppress progress output.
+> 不显示进度输出。
 
 # DESCRIPTION
 
-**huggingface-cli** is the command-line interface for Hugging Face Hub, also available as the **hf** command. Download models and datasets, manage repositories, and authenticate your machine. Part of the huggingface_hub Python package. The newer **hf** CLI uses a resource-action pattern (e.g. `hf auth login`, `hf download`). Default cache location is ~/.cache/huggingface or HF_HOME environment variable.
+**huggingface-cli** 是 Hugging Face Hub 的命令行界面，也可作为 **hf** 命令使用。它可以下载模型和数据集、管理仓库以及对本机进行认证。它是 huggingface_hub Python 软件包的一部分。较新的 **hf** CLI 采用资源-操作模式（例如 `hf auth login`、`hf download`）。默认缓存位置为 ~/.cache/huggingface，或由 HF_HOME 环境变量指定。
 
 # INSTALL
 
@@ -111,4 +111,3 @@ command-line interface for Hugging Face Hub
 # SEE ALSO
 
 [pip](/man/pip)(1)
-

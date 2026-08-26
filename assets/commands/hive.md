@@ -1,26 +1,26 @@
 # TAGLINE
 
-data warehouse system for Hadoop
+面向 Hadoop 的数据仓库系统
 
 # TLDR
 
-**Start Hive shell**
+**启动 Hive shell**
 
 ```hive```
 
-**Execute query**
+**执行查询**
 
 ```hive -e "SELECT * FROM [table]"```
 
-**Run script file**
+**运行脚本文件**
 
 ```hive -f [script.hql]```
 
-**Set configuration**
+**设置配置**
 
 ```hive --hiveconf [key=value]```
 
-**Silent mode**
+**静默模式**
 
 ```hive -S -e "[query]"```
 
@@ -31,39 +31,39 @@ data warehouse system for Hadoop
 # PARAMETERS
 
 **-e** _QUERY_
-> Execute query.
+> 执行查询。
 
 **-f** _FILE_
-> Execute script file.
+> 执行脚本文件。
 
 **-S**, **--silent**
-> Silent mode.
+> 静默模式。
 
 **--hiveconf** _KEY=VALUE_
-> Set configuration.
+> 设置配置。
 
 **--database** _DB_
-> Use database.
+> 使用指定数据库。
 
 **-i** _FILE_
-> Initialization file.
+> 初始化文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Hive** is a data warehouse system for Hadoop. It provides SQL-like query language (HiveQL) for querying large datasets stored in HDFS.
+**Hive** 是面向 Hadoop 的数据仓库系统。它提供类 SQL 的查询语言（HiveQL），用于查询存储在 HDFS 中的大型数据集。
 
-The tool translates queries to MapReduce, Tez, or Spark jobs. It's used for data analysis and ETL on big data platforms.
+该工具将查询转换为 MapReduce、Tez 或 Spark 作业。它用于大数据平台上的数据分析和 ETL。
 
 # CAVEATS
 
-Requires Hadoop cluster. Query latency higher than RDBMS. Schema on read.
+需要 Hadoop 集群。查询延迟高于 RDBMS。采用读时模式（schema on read）。
 
 # HISTORY
 
-Apache Hive was developed at **Facebook** and contributed to the **Apache** project for SQL-based big data analytics.
+Apache Hive 由 **Facebook** 开发，后贡献给 **Apache** 项目，用于基于 SQL 的大数据分析。
 
 # INSTALL
 

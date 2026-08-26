@@ -1,26 +1,26 @@
 # TAGLINE
 
-schedules files to be added to the repository on the next commit
+安排文件在下一次提交时加入仓库
 
 # TLDR
 
-**Add a specific file**
+**添加指定文件**
 
 ```hg add [file]```
 
-**Add all new files**
+**添加所有新文件**
 
 ```hg add```
 
-**Add files by pattern**
+**按模式添加文件**
 
 ```hg add '*.py'```
 
-**Add files in directory**
+**添加目录中的文件**
 
 ```hg add [path/to/directory]```
 
-**Dry run to preview**
+**试运行预览效果**
 
 ```hg add -n [file]```
 
@@ -31,20 +31,20 @@ schedules files to be added to the repository on the next commit
 # PARAMETERS
 
 **-n**, **--dry-run**
-> Show what would be added without modifying state.
+> 显示将要添加的内容，但不修改实际状态。
 
 **-I**, **--include** _PATTERN_
-> Add only files matching the pattern (repeatable).
+> 只添加匹配模式的文件（可重复使用）。
 
 **-X**, **--exclude** _PATTERN_
-> Skip files matching the pattern (repeatable).
+> 跳过匹配模式的文件（可重复使用）。
 
 **-S**, **--subrepos**
-> Recurse into subrepositories.
+> 递归处理子仓库。
 
 # DESCRIPTION
 
-**hg add** schedules files to be added to the repository on the next commit. Without arguments, it adds all new files in the working directory. Use a .hgignore file to exclude files from version control. Added files appear with 'A' status in **hg status** until committed.
+**hg add** 安排文件在下一次提交时加入仓库。不带参数时，它会添加工作目录中的所有新文件。可使用 .hgignore 文件将某些文件排除在版本控制之外。已添加的文件在提交前会在 **hg status** 中显示 'A' 状态。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ schedules files to be added to the repository on the next commit
 # SEE ALSO
 
 [hg](/man/hg)(1), [hg-commit](/man/hg-commit)(1), [hg-status](/man/hg-status)(1)
-

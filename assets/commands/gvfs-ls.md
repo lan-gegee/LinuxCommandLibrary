@@ -1,26 +1,26 @@
 # TAGLINE
 
-lists files and directory contents using GVFS
+使用 GVFS 列出文件和目录内容
 
 # TLDR
 
-**List directory**
+**列出目录**
 
 ```gvfs-ls [directory]```
 
-**List remote directory**
+**列出远程目录**
 
 ```gvfs-ls smb://server/share/```
 
-**Show hidden files**
+**显示隐藏文件**
 
 ```gvfs-ls -h [directory]```
 
-**Long listing format**
+**长列表格式**
 
 ```gvfs-ls -l [directory]```
 
-**Show specific attributes**
+**显示指定属性**
 
 ```gvfs-ls -a [standard::name,standard::size] [directory]```
 
@@ -31,39 +31,39 @@ lists files and directory contents using GVFS
 # PARAMETERS
 
 _LOCATION_
-> File or directory path or URI (defaults to the current directory).
+> 文件或目录的路径或 URI（默认为当前目录）。
 
 **-h**, **--hidden**
-> Show hidden files.
+> 显示隐藏文件。
 
 **-l**, **--long**
-> Long listing format.
+> 长列表格式。
 
 **-a**, **--attributes** _ATTR_
-> Show specific attributes, given as gvfs attribute names, a namespace, or `*` for all.
+> 显示指定属性，可以是 gvfs 属性名、命名空间，或用 `*` 表示全部。
 
 **-n**, **--nofollow-symlinks**
-> Don't follow symlinks.
+> 不跟随符号链接。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gvfs-ls** lists information about the given locations, similar to the traditional **ls** utility but using GVFS locations instead of local files, so paths like smb://server/share/file.txt can be listed directly.
+**gvfs-ls** 列出给定位置的信息，类似于传统的 **ls** 工具，但使用的是 GVFS 位置而非本地文件，因此可以直接列出 smb://server/share/file.txt 之类的路径。
 
-Attributes requested with **-a** can be gvfs attribute names (e.g. standard::icon), a namespace (e.g. unix), or a wildcard (*), with multiple values separated by commas.
+通过 **-a** 请求的属性可以是 gvfs 属性名（如 standard::icon）、命名空间（如 unix）或通配符（*），多个值以逗号分隔。
 
 # CAVEATS
 
-Part of the gvfs-bin command-line tools, deprecated in gvfs 1.31 (2016) and removed entirely in gvfs 1.38 (2018) in favor of the unified **gio** command (`gio list`). Modern distributions no longer ship gvfs-ls. Requires a running GVFS daemon to reach non-local backends.
+属于 gvfs-bin 命令行工具集，在 gvfs 1.31（2016 年）中被弃用，并在 gvfs 1.38（2018 年）中被完全移除，由统一的 **gio** 命令（`gio list`）取代。现代发行版不再附带 gvfs-ls。访问非本地后端需要正在运行的 GVFS 守护进程。
 
 # HISTORY
 
-**gvfs-ls** was part of GVFS's original gvfs-bin utilities, introduced for GNOME alongside GVFS in **2008** (GNOME 2.22) as a replacement for the older gnome-vfs library's tools. It has since been superseded by **gio list**.
+**gvfs-ls** 是 GVFS 原始 gvfs-bin 实用工具的一部分，于 **2008 年**（GNOME 2.22）随 GVFS 一同为 GNOME 引入，用于取代更旧的 gnome-vfs 库中的工具。此后被 **gio list** 取代。
 
 # SEE ALSO
 

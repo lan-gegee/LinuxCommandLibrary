@@ -1,22 +1,22 @@
 # TAGLINE
 
-friendly greeting program
+友好的问候程序
 
 # TLDR
 
-**Print hello world**
+**输出 hello world**
 
 ```hello```
 
-**Traditional greeting**
+**传统问候语**
 
 ```hello -t```
 
-**Specify greeting**
+**指定问候语**
 
 ```hello -g "Custom greeting"```
 
-**Show version**
+**显示版本**
 
 ```hello -v```
 
@@ -27,30 +27,30 @@ friendly greeting program
 # PARAMETERS
 
 **-g**, **--greeting** _TEXT_
-> Custom greeting text.
+> 自定义问候语文本。
 
 **-t**, **--traditional**
-> Use the traditional "hello, world" greeting.
+> 使用传统的 "hello, world" 问候语。
 
 **-h**, **--help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 **-v**, **--version**
-> Show version and licensing information and exit.
+> 显示版本和许可信息并退出。
 
 # DESCRIPTION
 
-**GNU Hello** is a friendly greeting program. It serves as an example of GNU coding standards and a template for new GNU packages.
+**GNU Hello** 是一个友好的问候程序。它是 GNU 编码规范的一个示例，也是新 GNU 软件包的模板。
 
-The program demonstrates proper use of gettext, autoconf, and other GNU infrastructure. It's useful for testing and learning.
+该程序演示了 gettext、autoconf 及其他 GNU 基础设施的正确用法，适合用于测试和学习。
 
 # CAVEATS
 
-Example program. Not for production use. Demonstrates GNU standards.
+示例程序，不适用于生产环境，仅用于演示 GNU 规范。
 
 # HISTORY
 
-GNU Hello was created as part of the **GNU Project** to serve as an example program demonstrating GNU packaging standards.
+GNU Hello 作为 **GNU 计划**的一部分而创建，用作演示 GNU 软件包规范的示例程序。
 
 # INSTALL
 

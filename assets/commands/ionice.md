@@ -1,26 +1,26 @@
 # TAGLINE
 
-gets or sets the I/O scheduling class and priority for a process
+获取或设置进程的 I/O 调度类别和优先级
 
 # TLDR
 
-Run command with specific I/O **class and priority**
+以指定的 I/O **类别和优先级**运行命令
 
 ```ionice -c [1|2|3] -n [0-7] [command]```
 
-Set I/O class of a running process by **PID**
+按 **PID** 设置运行中进程的 I/O 类别
 
 ```ionice -c [class] -p [pid]```
 
-**Print** I/O scheduling class and priority of a process
+**打印**进程的 I/O 调度类别和优先级
 
 ```ionice -p [pid]```
 
-Run with **idle** priority (only uses I/O when no other process needs it)
+以 **idle** 优先级运行（仅在没有其他进程需要 I/O 时使用）
 
 ```ionice -c 3 [command]```
 
-**Ignore** failure to set priority
+**忽略**设置优先级失败
 
 ```ionice -t -n [priority] -p [pid]```
 
@@ -31,39 +31,39 @@ Run with **idle** priority (only uses I/O when no other process needs it)
 # PARAMETERS
 
 **-c**, **--class** _CLASS_
-> Scheduling class: 1 (realtime), 2 (best-effort), 3 (idle)
+> 调度类别：1（实时）、2（尽力而为）、3（空闲）
 
 **-n**, **--classdata** _LEVEL_
-> Priority level within class: 0 (highest) to 7 (lowest)
+> 类别内的优先级：0（最高）到 7（最低）
 
 **-p**, **--pid** _PID_
-> Apply to process with given PID
+> 应用于给定 PID 的进程
 
 **-P**, **--pgid** _PGID_
-> Apply to process group
+> 应用于进程组
 
 **-u**, **--uid** _UID_
-> Apply to all processes owned by user
+> 应用于某用户的全部进程
 
 **-t**, **--ignore**
-> Ignore failures to set priority
+> 忽略设置优先级的失败
 
 # DESCRIPTION
 
-**ionice** gets or sets the I/O scheduling class and priority for a process. This controls how disk I/O requests are scheduled relative to other processes.
+**ionice** 获取或设置进程的 I/O 调度类别和优先级，控制磁盘 I/O 请求相对于其他进程的调度方式。
 
-**Scheduling classes:**
-- **Realtime (1)** - Highest priority, guaranteed I/O access (requires root)
-- **Best-effort (2)** - Default class, shares I/O fairly based on priority
-- **Idle (3)** - Only gets I/O time when no other process needs it
+**调度类别：**
+- **Realtime (1)** - 最高优先级，保证 I/O 访问（需要 root）
+- **Best-effort (2)** - 默认类别，根据优先级公平共享 I/O
+- **Idle (3)** - 仅在没有其他进程需要时才获得 I/O 时间
 
 # CAVEATS
 
-Only works with the CFQ (Completely Fair Queuing) I/O scheduler. Realtime class requires root privileges. BFQ and mq-deadline schedulers have different priority semantics.
+只对 CFQ（Completely Fair Queuing）I/O 调度器有效。实时类别需要 root 权限。BFQ 和 mq-deadline 调度器的优先级语义不同。
 
 # HISTORY
 
-ionice was introduced as part of util-linux to provide user control over the CFQ I/O scheduler's prioritization features, which were added to the Linux kernel in version 2.6.13 (**2005**).
+ionice 作为 util-linux 的一部分引入，让用户可以控制 CFQ I/O 调度器的优先级特性；该特性在 Linux 内核 2.6.13（**2005 年**）中加入。
 
 # INSTALL
 

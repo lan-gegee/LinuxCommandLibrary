@@ -1,22 +1,22 @@
 # TAGLINE
 
-context switcher for various tools
+多种工具的上下文切换器
 
 # TLDR
 
-**Show current context**
+**显示当前上下文**
 
 ```ic```
 
-**Switch context**
+**切换上下文**
 
 ```ic [context-name]```
 
-**List contexts**
+**列出上下文**
 
 ```ic -l```
 
-**Create context**
+**创建上下文**
 
 ```ic -c [name]```
 
@@ -27,33 +27,33 @@ context switcher for various tools
 # PARAMETERS
 
 _CONTEXT_
-> Context name to switch to.
+> 要切换到的上下文名称。
 
 **-l**, **--list**
-> List contexts.
+> 列出上下文。
 
 **-c**, **--create** _NAME_
-> Create new context.
+> 创建新上下文。
 
 **-d**, **--delete** _NAME_
-> Delete context.
+> 删除上下文。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ic** is a context switcher for various tools. Different implementations exist for kubectl contexts, AWS profiles, and other multi-environment tools.
+**ic** 是面向多种工具的上下文切换器。针对 kubectl 上下文、AWS 配置文件及其他多环境工具，存在不同的实现。
 
-The tool simplifies switching between configurations. It provides quick access to different environments or clusters.
+该工具简化了配置之间的切换。它提供对不同环境或集群的快速访问。
 
 # CAVEATS
 
-Multiple tools use this name. Check which version installed. Context-specific behavior.
+多个工具使用此名称。请确认安装的是哪个版本。行为因具体上下文而异。
 
 # HISTORY
 
-ic is commonly used as a shorthand for interactive context switching in various CLI tools.
+ic 在各种 CLI 工具中常被用作交互式上下文切换的简称。
 
 # SEE ALSO
 

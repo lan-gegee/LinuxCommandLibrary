@@ -1,22 +1,22 @@
 # TAGLINE
 
-clones GitHub repositories using shorthand notation
+使用简写表示法克隆 GitHub 仓库
 
 # TLDR
 
-**Clone with shorthand**
+**用简写方式克隆**
 
 ```hub clone [user/repo]```
 
-**Clone to directory**
+**克隆到指定目录**
 
 ```hub clone [user/repo] [directory]```
 
-**Clone with depth**
+**按深度克隆**
 
 ```hub clone --depth [1] [user/repo]```
 
-**Clone own repository**
+**克隆自己的仓库**
 
 ```hub clone [repo-name]```
 
@@ -27,36 +27,36 @@ clones GitHub repositories using shorthand notation
 # PARAMETERS
 
 _[USER/]REPOSITORY_
-> Repository to clone. _USER_ defaults to your own GitHub username when omitted.
+> 要克隆的仓库。省略 _USER_ 时默认为你自己的 GitHub 用户名。
 
 _DIRECTORY_
-> Target directory to clone into (default: the repository name).
+> 克隆到的目标目录（默认：仓库名）。
 
 **-p**
-> (Deprecated) Clone a private repository over SSH.
+> （已弃用）通过 SSH 克隆私有仓库。
 
 **--depth** _N_
-> Create a shallow clone with the given commit history depth. Passed straight through to git clone.
+> 创建具有指定提交历史深度的浅克隆。直接透传给 git clone。
 
 **-b**, **--branch** _BRANCH_
-> Checkout _BRANCH_ instead of the remote's default branch. Passed straight through to git clone.
+> 检出 _BRANCH_ 而不是远程的默认分支。直接透传给 git clone。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hub clone** expands GitHub shorthand (`user/repo`, or just `repo` for your own repositories) into a full clone URL and then hands off to a normal **git clone**, so any git-clone option (**--depth**, **-b**, **--recurse-submodules**, etc.) works as-is. Without a `user/` prefix, hub assumes the repository belongs to the authenticated GitHub user.
+**hub clone** 会把 GitHub 简写（`user/repo`，或对于你自己的仓库只写 `repo`）展开成完整的克隆 URL，然后交给普通的 **git clone** 处理，因此任何 git-clone 选项（**--depth**、**-b**、**--recurse-submodules** 等）都能照常使用。如果没有 `user/` 前缀，hub 会假定该仓库属于当前认证的 GitHub 用户。
 
-By default hub clones over HTTPS; set `git config --global hub.protocol ssh` to have it generate SSH URLs instead for **clone**, **fork**, and related commands.
+默认情况下 hub 通过 HTTPS 克隆；运行 `git config --global hub.protocol ssh` 可让它在 **clone**、**fork** 及相关命令中改用 SSH URL。
 
 # CAVEATS
 
-Hub is no longer actively maintained and has been superseded by the official GitHub CLI (**gh**, via **gh repo clone**). GitHub authentication is only needed for private repositories or to resolve `repo` (no user) shorthand against your own account; cloning a public `user/repo` works without it.
+Hub 已不再活跃维护，已被官方 GitHub CLI（**gh**，即 **gh repo clone**）取代。只有在处理私有仓库，或需要针对自己的账号解析 `repo`（不带用户前缀）这种简写时才需要 GitHub 认证；克隆公开的 `user/repo` 无需认证。
 
 # HISTORY
 
-hub clone is part of **hub**, GitHub's original command-line tool that predates the official **gh** CLI.
+hub clone 是 **hub** 的组成部分。hub 是 GitHub 最早的命令行工具，早于官方的 **gh** CLI。
 
 # INSTALL
 

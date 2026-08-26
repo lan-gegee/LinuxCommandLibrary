@@ -1,30 +1,30 @@
 # TAGLINE
 
-sets or displays the IBM Cloud API endpoint
+设置或显示 IBM Cloud API 端点
 
 # TLDR
 
-**Show current API endpoint**
+**显示当前 API 端点**
 
 ```ibmcloud api```
 
-**Set API endpoint**
+**设置 API 端点**
 
 ```ibmcloud api [https://cloud.ibm.com]```
 
-**Set private endpoint**
+**设置私有端点**
 
 ```ibmcloud api https://private.cloud.ibm.com```
 
-**Set private endpoint via VPC**
+通过 VPC **设置私有端点**
 
 ```ibmcloud api https://private.cloud.ibm.com --vpc```
 
-**Unset API endpoint**
+**取消 API 端点**
 
 ```ibmcloud api --unset```
 
-**Skip SSL validation**
+**跳过 SSL 校验**
 
 ```ibmcloud api [endpoint] --skip-ssl-validation```
 
@@ -35,19 +35,18 @@ sets or displays the IBM Cloud API endpoint
 # PARAMETERS
 
 **--unset**
-> Clear the API endpoint.
+> 清除 API 端点。
 
 **--skip-ssl-validation**
-> Bypass SSL validation (not recommended).
+> 跳过 SSL 校验（不推荐）。
 
 **--vpc**
-> Use VPC connection for private endpoint.
+> 私有端点使用 VPC 连接。
 
 # DESCRIPTION
 
-**ibmcloud api** sets or displays the IBM Cloud API endpoint. If neither an endpoint nor **--unset** is specified, the current API endpoint is displayed. The default public endpoint is https://cloud.ibm.com. Use https://private.cloud.ibm.com for private network access. Setting the API endpoint is required before logging in with **ibmcloud login**.
+**ibmcloud api** 设置或显示 IBM Cloud API 端点。如果既未指定端点也未指定 **--unset**，则显示当前 API 端点。默认公共端点是 https://cloud.ibm.com。私有网络访问请使用 https://private.cloud.ibm.com。使用 **ibmcloud login** 登录之前必须先设置 API 端点。
 
 # SEE ALSO
 
 [ibmcloud](/man/ibmcloud)(1), [ibmcloud-login](/man/ibmcloud-login)(1)
-

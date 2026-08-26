@@ -1,34 +1,34 @@
 # TAGLINE
 
-ethereum development environment
+以太坊开发环境
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```npx hardhat init```
 
-**Compile contracts**
+**编译合约**
 
 ```npx hardhat compile```
 
-**Run tests**
+**运行测试**
 
 ```npx hardhat test```
 
-**Start local node**
+**启动本地节点**
 
 ```npx hardhat node```
 
-**Run deployment script**
+**运行部署脚本**
 
 ```npx hardhat run [scripts/deploy.js]```
 
-**Deploy to network**
+**部署到网络**
 
 ```npx hardhat run [scripts/deploy.js] --network [sepolia]```
 
-**Open console**
+**打开控制台**
 
 ```npx hardhat console```
 
@@ -39,49 +39,49 @@ ethereum development environment
 # PARAMETERS
 
 **compile**
-> Compile Solidity contracts.
+> 编译 Solidity 合约。
 
 **test**
-> Run test suite.
+> 运行测试套件。
 
 **node**
-> Start local Ethereum node.
+> 启动本地以太坊节点。
 
 **run** _script_
-> Run JavaScript script.
+> 运行 JavaScript 脚本。
 
 **console**
-> Open interactive console.
+> 打开交互式控制台。
 
 **clean**
-> Clear cache and artifacts.
+> 清除缓存和构建产物。
 
 **--network** _name_
-> Target network.
+> 目标网络。
 
 **--config** _file_
-> Path to a Hardhat config file.
+> Hardhat 配置文件的路径。
 
 **--verbose**
-> Enable Hardhat verbose logging.
+> 启用 Hardhat 详细日志。
 
 **--show-stack-traces**
-> Show full stack traces.
+> 显示完整的堆栈跟踪。
 
 **--max-memory** _size_
-> Maximum amount of memory that Hardhat can use.
+> Hardhat 可使用的最大内存量。
 
 **--version**
-> Show Hardhat version.
+> 显示 Hardhat 版本。
 
 **--help**
-> Show help message, or a task's help if its name is provided.
+> 显示帮助消息；若提供了任务名，则显示该任务的帮助。
 
 # DESCRIPTION
 
-**Hardhat** is an Ethereum development environment. It provides a local blockchain, debugging tools, and a plugin ecosystem for compiling, testing, and deploying smart contracts.
+**Hardhat** 是一个以太坊开发环境。它提供本地区块链、调试工具和插件生态，用于编译、测试和部署智能合约。
 
-Hardhat features console.log for Solidity debugging, network forking, and TypeScript support. It's the most popular choice for professional Ethereum development.
+Hardhat 具备用于 Solidity 调试的 console.log、网络分叉以及 TypeScript 支持。它是专业以太坊开发中最流行的选择。
 
 # CONFIGURATION
 
@@ -100,11 +100,11 @@ module.exports = {
 
 # CAVEATS
 
-Requires Node.js. Network configuration needs RPC URLs. Private keys should use environment variables. Gas estimation may differ from mainnet.
+需要 Node.js。网络配置需要 RPC URL。私钥应通过环境变量提供。Gas 估算结果可能与主网不同。
 
 # HISTORY
 
-Hardhat was created by **Nomic Foundation** (formerly Nomic Labs) as a successor to Buidler. It became the leading Ethereum development framework, known for its developer experience and debugging capabilities.
+Hardhat 由 **Nomic Foundation**（前身为 Nomic Labs）创建，是 Buidler 的继任者。它已成为领先的以太坊开发框架，以开发者体验和调试能力著称。
 
 # INSTALL
 

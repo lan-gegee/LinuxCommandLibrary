@@ -1,38 +1,38 @@
 # TAGLINE
 
-self-hosted implementation of the Tailscale control server
+Tailscale 控制服务器的自托管实现
 
 # TLDR
 
-**Start the server**
+**启动服务器**
 
 ```headscale serve```
 
-**Create a user**
+**创建用户**
 
 ```headscale users create [username]```
 
-**List users**
+**列出用户**
 
 ```headscale users list```
 
-**Create auth key**
+**创建认证密钥**
 
 ```headscale authkeys create --user [username]```
 
-**List nodes**
+**列出节点**
 
 ```headscale nodes list```
 
-**Register a node**
+**注册节点**
 
 ```headscale nodes register --user [username] --key [nodekey:abc123]```
 
-**Delete a node**
+**删除节点**
 
 ```headscale nodes delete --id [1]```
 
-**Enable routes for a node**
+**为节点启用路由**
 
 ```headscale routes enable --route [10.0.0.0/24]```
 
@@ -43,79 +43,79 @@ self-hosted implementation of the Tailscale control server
 # COMMANDS
 
 **serve**
-> Start Headscale server.
+> 启动 Headscale 服务器。
 
 **users** create|list|rename|destroy
-> Manage users (namespaces).
+> 管理用户（命名空间）。
 
 **nodes** list|register|delete|expire|rename|move|tag
-> Manage nodes.
+> 管理节点。
 
 **authkeys** create|list|expire
-> Manage pre-authentication keys.
+> 管理预认证密钥。
 
 **routes** list|enable|disable
-> Manage subnet routes.
+> 管理子网路由。
 
 **preauthkeys** create|list|expire
-> Alias for authkeys.
+> authkeys 的别名。
 
 **apikeys** create|list|expire
-> Manage API keys.
+> 管理 API 密钥。
 
 **debug**
-> Debug commands.
+> 调试命令。
 
 **completion**
-> Generate shell completions.
+> 生成 shell 补全脚本。
 
 # PARAMETERS
 
 **--user**, **-u** _name_
-> User (namespace) name.
+> 用户（命名空间）名称。
 
 **--key** _nodekey_
-> Node key for registration.
+> 用于注册的节点密钥。
 
 **--id** _id_
-> Node or route ID.
+> 节点或路由 ID。
 
 **--expiration** _duration_
-> Key expiration time.
+> 密钥过期时间。
 
 **--reusable**
-> Create reusable auth key.
+> 创建可重复使用的认证密钥。
 
 **--ephemeral**
-> Create ephemeral auth key.
+> 创建临时认证密钥。
 
 **--tags** _list_
-> ACL tags for auth key.
+> 认证密钥的 ACL 标签。
 
 **--output** _format_
-> Output format: human, json, yaml.
+> 输出格式：human、json、yaml。
 
 # DESCRIPTION
 
-**headscale** is a self-hosted implementation of the Tailscale control server. It coordinates WireGuard connections between Tailscale clients.
+**headscale** 是 Tailscale 控制服务器的自托管实现，用于协调 Tailscale 客户端之间的 WireGuard 连接。
 
-**serve** starts the coordination server. Clients connect to exchange keys and discover peers. Configuration is in **/etc/headscale/config.yaml**.
+**serve** 启动协调服务器。客户端连接后交换密钥并发现对等节点。配置文件位于 **/etc/headscale/config.yaml**。
 
-Users (namespaces) organize nodes. Each user has isolated nodes unless ACL policies allow cross-user communication. Create users before registering nodes.
+用户（命名空间）用来组织节点。除非 ACL 策略允许跨用户通信，否则各用户的节点相互隔离。注册节点之前必须先创建用户。
 
-**authkeys** create pre-authentication keys for unattended registration. Clients use these instead of interactive login. Keys can be reusable or single-use.
+**authkeys** 创建预认证密钥，用于无人值守的注册。客户端用它们代替交互式登录。密钥可以是可重复使用的或一次性的。
 
-Subnet routes advertised by nodes require explicit enabling with **routes enable**. This controls which networks are accessible through the mesh.
+节点通告的子网路由必须通过 **routes enable** 显式启用。由此控制哪些网络可以通过 mesh 网络访问。
 
-ACL policies defined in config control traffic between nodes based on users, groups, and tags.
+配置中定义的 ACL 策略基于用户、组和标签来控制节点之间的流量。
 
 # CAVEATS
 
-Requires TLS certificate for production. DERP servers needed for NAT traversal. Not all Tailscale features are supported. Tailscale clients need HEADSCALE_URL configuration.
+生产环境需要 TLS 证书。NAT 穿透需要 DERP 服务器。并非所有 Tailscale 功能都受支持。Tailscale 客户端需要进行 HEADSCALE_URL 配置。
 
 # HISTORY
 
-Headscale was created by **Juan Font** and first released in **2020**. It provides self-hosted alternative to Tailscale's coordination service while using the same WireGuard-based clients. The project grew from desire for self-hosted mesh VPN without vendor control. Headscale is popular for organizations wanting Tailscale compatibility with full infrastructure ownership.
+Headscale 由 **Juan Font** 创建，首次发布于 **2020 年**。它在复用相同的 WireGuard 客户端的基础上，提供了 Tailscale 协调服务的自托管替代方案。该项目源于人们对摆脱厂商控制的自主托管 mesh VPN 的需求。对于希望兼得 Tailscale 兼容性与基础设施完全掌控权的组织而言，Headscale 颇受欢迎。
 
 # INSTALL
 

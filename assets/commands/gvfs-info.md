@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays file information using GVFS
+使用 GVFS 显示文件信息
 
 # TLDR
 
-**Show file information**
+**显示文件信息**
 
 ```gvfs-info [file]```
 
-**Show remote file info**
+**显示远程文件信息**
 
 ```gvfs-info smb://server/share/file```
 
-**Show specific attribute**
+**显示指定属性**
 
 ```gvfs-info -a [standard::size] [file]```
 
-**Show filesystem info**
+**显示文件系统信息**
 
 ```gvfs-info -f [file]```
 
@@ -27,32 +27,32 @@ displays file information using GVFS
 # PARAMETERS
 
 _LOCATION_
-> File path or URI.
+> 文件路径或 URI。
 
 **-a**, **--attributes** _ATTR_
-> Show specific attributes.
+> 显示指定的属性。
 
 **-f**, **--filesystem**
-> Show filesystem info.
+> 显示文件系统信息。
 
 **-n**, **--nofollow-symlinks**
-> Don't follow symlinks.
+> 不跟随符号链接。
 
 **-w**, **--query-writable**
-> Show writable attributes.
+> 显示可写属性。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gvfs-info** displays file information using GVFS. It shows attributes like size, type, permissions, and custom metadata for local and remote files.
+**gvfs-info** 使用 GVFS 显示文件信息。它会显示本地和远程文件的大小、类型、权限及自定义元数据等属性。
 
-The tool accesses files through GVFS backends, providing unified information across different protocols like SMB, FTP, and local filesystems.
+该工具通过 GVFS 后端访问文件，在 SMB、FTP 和本地文件系统等不同协议间提供统一的信息。
 
 # CAVEATS
 
-Deprecated since GNOME 3.22 in favor of **gio info**. Requires the GVFS daemon to be running. Only available on systems with the GNOME/GLib stack.
+自 GNOME 3.22 起被弃用，建议改用 **gio info**。需要 GVFS 守护进程正在运行。仅在带有 GNOME/GLib 技术栈的系统上可用。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates geographical-style maps from graphs
+从图创建地理风格地图
 
 # TLDR
 
-**Create map from graph**
+**从图创建地图**
 
 ```gvmap [input.gv] > map.gv```
 
-**Include edges in the output**
+**在输出中包含边**
 
 ```gvmap -e [input.gv] > map.gv```
 
-**Specify a color scheme** (1: pastel, 2: blue-yellow, 3: white-red)
+**指定配色方案**（1：柔和色，2：蓝黄色，3：白红色）
 
 ```gvmap -c [2] [input.gv] > colored.gv```
 
-**Specify output file**
+**指定输出文件**
 
 ```gvmap -o [output.gv] [input.gv]```
 
-**Use top-level cluster subgraphs for clustering**
+**使用顶层簇子图进行聚类**
 
 ```gvmap -D [input.gv] > map.gv```
 
@@ -31,63 +31,63 @@ creates geographical-style maps from graphs
 # PARAMETERS
 
 _FILES_
-> Input DOT files.
+> 输入的 DOT 文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-e**
-> Include edges in the final output.
+> 在最终输出中包含边。
 
 **-c** _K_
-> Use color scheme K (1: pastel, 2: blue-yellow, 3: white-red, etc.).
+> 使用配色方案 K（1：柔和色，2：蓝黄色，3：白红色等）。
 
 **-C** _K_
-> Maximum number of clusters. Default 0 (no limit).
+> 簇的最大数量。默认为 0（无限制）。
 
 **-D**
-> Use top-level cluster subgraphs to determine clustering.
+> 使用顶层簇子图来确定聚类。
 
 **-O**
-> Do NOT do color assignment optimization.
+> 不进行颜色分配优化。
 
 **-a** _K_
-> Average number of artificial points added along bounding box of labels.
+> 沿标签边界框添加的人工点的平均数量。
 
 **-m** _V_
-> Generate a margin of V points around the drawing.
+> 在绘图周围生成 V 点宽的边距。
 
 **-r** _K_
-> Number of random points used to define sea and lake boundaries. 0 for auto.
+> 用于定义海洋和湖泊边界的随机点数量。0 表示自动。
 
 **-s** _V_
-> Depth of sea and lake shores in points. 0 for auto.
+> 海岸线和湖岸线的深度（以点为单位）。0 表示自动。
 
 **-t** _N_
-> Make N attempts to improve cluster contiguity.
+> 尝试 N 次以改善簇的邻接性。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-z** _COLOR_
-> Set polygon line color. Default is black.
+> 设置多边形线条颜色。默认为黑色。
 
 **-h**
-> Print usage and exit.
+> 打印用法并退出。
 
 # DESCRIPTION
 
-**gvmap** takes as input a graph in DOT format with node position information (produced by a Graphviz layout engine such as sfdp) and groups related nodes into clusters, drawing them as geographical-style map regions.
+**gvmap** 以带有节点位置信息（由 sfdp 等 Graphviz 布局引擎生成）的 DOT 格式图作为输入，将相关节点分组为簇，并将其绘制为地理风格的地图区域。
 
-The tool analyzes graph structure to cluster nodes into countries or regions, adds visual styling with color schemes, and can include edges in the output. It is typically used as part of a pipeline with **sfdp** and **gvmap.sh**.
+该工具分析图结构，将节点聚为国家或地区，通过配色方案增加视觉样式，并可在输出中包含边。它通常作为 **sfdp** 和 **gvmap.sh** 组成的管道的一部分使用。
 
 # CAVEATS
 
-Part of Graphviz package. Input graphs must have node position information; run a layout engine like **sfdp** first. The **gvmap.sh** wrapper script handles the full pipeline automatically.
+属于 Graphviz 软件包的一部分。输入图必须带有节点位置信息；请先运行 **sfdp** 之类的布局引擎。**gvmap.sh** 包装脚本可自动完成整个流程。
 
 # HISTORY
 
-gvmap was developed as part of **Graphviz** at **AT&T Labs** for creating geographical-style graph visualizations.
+gvmap 作为 **Graphviz** 的一部分在 **AT&T 实验室**开发而成，用于创建地理风格的图可视化效果。
 
 # INSTALL
 

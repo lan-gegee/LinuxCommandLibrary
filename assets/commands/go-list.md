@@ -1,38 +1,38 @@
 # TAGLINE
 
-list Go packages and module information
+列出 Go 包和模块信息
 
 # TLDR
 
-**List current package**
+**列出当前包**
 
 ```go list```
 
-**List all packages**
+**列出所有包**
 
 ```go list ./...```
 
-**List as JSON**
+**以 JSON 格式列出**
 
 ```go list -json [package]```
 
-**List with dependencies**
+**连同依赖一起列出**
 
 ```go list -deps [package]```
 
-**List modules instead of packages**
+**列出模块而非包**
 
 ```go list -m all```
 
-**Check for module updates**
+**检查模块更新**
 
 ```go list -m -u all```
 
-**Custom format output**
+**自定义格式输出**
 
 ```go list -f '{{.ImportPath}}: {{.Dir}}'```
 
-**List available versions of a module**
+**列出模块的可用版本**
 
 ```go list -m -versions [module]```
 
@@ -43,44 +43,44 @@ list Go packages and module information
 # PARAMETERS
 
 **-f** _format_
-> Custom output format using Go template syntax. Default is **{{.ImportPath}}**.
+> 使用 Go 模板语法的自定义输出格式。默认为 **{{.ImportPath}}**。
 
 **-json**
-> Output in JSON format. Optionally accepts comma-separated field names to limit output.
+> 以 JSON 格式输出。可选地接受以逗号分隔的字段名来限制输出内容。
 
 **-m**
-> List modules instead of packages.
+> 列出模块而非包。
 
 **-deps**
-> Include all dependencies in depth-first post-order traversal.
+> 以深度优先后序遍历的方式包含所有依赖。
 
 **-e**
-> Include erroneous packages without printing errors to standard error.
+> 包含有错误的包，且不向标准错误打印错误信息。
 
 **-u**
-> Show available updates (with **-m**). Also shows deprecation and retraction info.
+> 显示可用更新（配合 **-m** 使用）。同时显示弃用（deprecation）和撤回（retraction）信息。
 
 **-find**
-> Identify packages without resolving dependencies. Imports and Deps lists will be empty.
+> 只识别包而不解析依赖。Imports 和 Deps 列表将为空。
 
 **-compiled**
-> Set CompiledGoFiles to the Go source files presented to the compiler, including generated code from CgoFiles and SwigFiles.
+> 将 CompiledGoFiles 设置为呈现给编译器的 Go 源文件，包括由 CgoFiles 和 SwigFiles 生成的代码。
 
 **-export**
-> Set the Export field to a file containing up-to-date export information and the BuildID field.
+> 将 Export 字段设置为一个包含最新导出信息的文件，并设置 BuildID 字段。
 
 **-test**
-> Report test binaries and their recompiled dependencies for the named packages.
+> 报告指定包的测试二进制文件及其重新编译的依赖。
 
 **-versions**
-> Set the Module's Versions field to all known versions (with **-m**).
+> 将 Module 的 Versions 字段设置为所有已知版本（配合 **-m** 使用）。
 
 **-retracted**
-> Report information about retracted module versions (with **-m**).
+> 报告有关已撤回模块版本的信息（配合 **-m** 使用）。
 
 # DESCRIPTION
 
-**go list** displays information about Go packages and modules. It enumerates packages, their source directories, import paths, and dependencies. With **-m**, it lists modules instead of packages. The **-f** flag allows custom formatting using Go template syntax with access to package struct fields like ImportPath, Dir, Deps, and GoFiles.
+**go list** 显示 Go 包和模块的相关信息。它会枚举包及其源码目录、导入路径和依赖。使用 **-m** 时，它列出的是模块而非包。**-f** 标志支持用 Go 模板语法进行自定义格式化，可访问 ImportPath、Dir、Deps、GoFiles 等包结构体字段。
 
 # INSTALL
 

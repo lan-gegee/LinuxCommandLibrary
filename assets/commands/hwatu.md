@@ -1,34 +1,34 @@
 # TAGLINE
 
-Fast headless verification browser for AI coding agents
+面向 AI 编码代理的高速无头验证浏览器
 
 # TLDR
 
-**Install** then run setup to detect agent workflows
+先**安装**再运行 setup 以检测代理工作流
 
 ```hwatu setup```
 
-Open a site **headlessly** and run a one-call verify pass
+以**无头**方式打开站点并运行一次性的 verify 流程
 
 ```hwatu check localhost:5173 --eval 'document.title' --shot=/tmp/after.png```
 
-Open a URL like a terminal browser (headless by default)
+像终端浏览器一样打开 URL（默认无头）
 
 ```hwatu localhost:3000```
 
-**Pixel-diff** two open windows and print match percent
+对两个已打开的窗口进行**像素 diff** 并打印匹配百分比
 
 ```hwatu diff --id 2 --other 1 --heatmap /tmp/heat.png```
 
-**Render** HTML from stdin and screenshot
+从 stdin **渲染** HTML 并截图
 
 ```echo '<h1>hi</h1>' | hwatu render --stdin --shot=/tmp/gen.png```
 
-Hand a live session to a **human** in the tiling WM
+把一个活动会话在平铺窗口管理器中交给**人类**
 
 ```hwatu focus [window_id]```
 
-Start the **MCP** server for agent clients
+为代理客户端启动 **MCP** 服务器
 
 ```hwatu mcp```
 
@@ -41,53 +41,53 @@ Start the **MCP** server for agent clients
 # PARAMETERS
 
 **check** _url_
-> One-call verify: load, optional eval/screenshot, return JSON metrics
+> 一次性验证：加载页面，可选 eval/截图，返回 JSON 指标
 
 **diff** **--id** _n_ **--other** _m_
-> Pixel-diff two windows; optional **--heatmap** path
+> 对两个窗口做像素 diff；可选 **--heatmap** 路径
 
 **motion** **--id** _n_
-> Report animations as numbers (duration, easing, velocity)
+> 将动画以数值形式报告（时长、缓动、速度）
 
 **snapshot**
-> Page state as structured JSON (tokens, not pixels)
+> 以结构化 JSON 形式呈现页面状态（token 而非像素）
 
 **render** **--stdin**
-> Render markup from stdin without a local HTTP server
+> 从 stdin 渲染标记语言，无需本地 HTTP 服务器
 
 **focus** _id_
-> Materialize a headless window into a visible session for human hand-off
+> 将无头窗口实体化为可见会话以便人工接管
 
 **setup** [**--client** _name_] [**--scope** project|user] [**--dry-run**] [**--undo**]
-> Detect coding agents and configure MCP/socket connections
+> 检测编码代理并配置 MCP/socket 连接
 
 **doctor**
-> Environment and readiness checks
+> 环境与就绪状态检查
 
 **mcp**
-> Run as an MCP server (`command: hwatu`, `args: ["mcp"]`)
+> 作为 MCP 服务器运行（`command: hwatu`、`args: ["mcp"]`）
 
 **demo**
-> Run a built-in demo verification pass
+> 运行内置的演示验证流程
 
 **--headless**
-> Headless window mode (default for agent use; per-window property)
+> 无头窗口模式（代理使用的默认值；按窗口的属性）
 
 # DESCRIPTION
 
-**hwatu** is a Linux verification browser built for AI agent loops: a warm WebKitGTK daemon that keeps the engine hot so page checks stay cheap (~tens of milliseconds), returns measurement primitives (pixel match scores, animation metrics, console/network errors) instead of only raw screenshots, and can hand the **same live session** to a human mid-task without losing cookies or state.
+**hwatu** 是一个专为 AI 代理循环构建的 Linux 验证浏览器：它是一个常驻的 WebKitGTK 守护进程，保持引擎热身使页面检查开销极低（约几十毫秒），返回的是可度量的原语（像素匹配分数、动画指标、控制台/网络错误）而不仅仅是原始截图，并且可以在任务中途把**同一个活动会话**移交给人类而不丢失 cookie 或状态。
 
-It ships as a static binary plus the distro's webkitgtk, exposes a plain CLI, an MCP server, and a newline-delimited JSON Unix socket protocol. Typical agent flow: open headless windows, `check` or `diff` until the match percent climbs, then `focus` only when a CAPTCHA or judgment call needs a person.
+它以静态二进制加发行版 webkitgtk 的形式发布，提供简洁的 CLI、一个 MCP 服务器以及换行分隔 JSON 的 Unix socket 协议。典型的代理流程是：打开无头窗口，反复 `check` 或 `diff` 直到匹配百分比上升，只有当出现 CAPTCHA 或需要人为判断时才 `focus`。
 
-Linux-only; renders WebKit, not Chromium — keep a Chromium matrix in CI for engine-specific bugs.
+仅限 Linux；渲染引擎是 WebKit 而非 Chromium——针对引擎相关的缺陷，请在 CI 中保留一套 Chromium 测试矩阵。
 
 # CAVEATS
 
-Requires WebKitGTK 6.x on the host. Headless is a per-window property switchable live, not a launch-only mode. AGPL-3.0 licensed. Not a full replacement for Playwright multi-browser CI matrices.
+要求主机上安装 WebKitGTK 6.x。无头是可在运行中实时切换的按窗口属性，而非仅限启动时设置的模式。采用 AGPL-3.0 许可证。不能完全替代 Playwright 的多浏览器 CI 矩阵。
 
 # HISTORY
 
-Open-source Rust project aimed at making agent browser verification one tool call instead of multi-step Playwright/devtools sessions, with interruptible human hand-off as a first-class feature.
+这是一个开源 Rust 项目，旨在让代理的浏览器验证变成单次工具调用，而不是多步骤的 Playwright/devtools 会话，并把可中断的人工移交作为一等特性。
 
 # INSTALL
 

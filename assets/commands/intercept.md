@@ -1,14 +1,14 @@
 # TAGLINE
 
-reads raw input events from a Linux input device and outputs them to stdout
+从 Linux 输入设备读取原始输入事件并输出到 stdout
 
 # TLDR
 
-Read raw input events **exclusively** (system won't see them)
+**独占式**读取原始输入事件（系统将看不到这些事件）
 
 ```sudo intercept -g [/dev/input/eventX]```
 
-Read raw input events **non-exclusively** (system also sees them)
+**非独占式**读取原始输入事件（系统也能看到）
 
 ```sudo intercept [/dev/input/eventX]```
 
@@ -19,24 +19,24 @@ Read raw input events **non-exclusively** (system also sees them)
 # PARAMETERS
 
 **-g**
-> Grab the device exclusively, preventing other programs from reading events
+> 独占地抓取设备，阻止其他程序读取事件
 
 _device_
-> Input device file (e.g., /dev/input/event0)
+> 输入设备文件（如 /dev/input/event0）
 
 # DESCRIPTION
 
-**intercept** reads raw input events from a Linux input device and outputs them to stdout. It is part of the Interception Tools project, designed for creating input device manipulation pipelines.
+**intercept** 从 Linux 输入设备读取原始输入事件并输出到 stdout。它是 Interception Tools 项目的一部分，旨在构建输入设备处理管道。
 
-The output can be piped to transformation tools and then back to a virtual input device using uinput, enabling key remapping, macro creation, and other input modifications at a low level.
+其输出可以通过管道传给转换工具，再通过 uinput 送回虚拟输入设备，从而在底层实现按键重映射、宏创建和其他输入修改。
 
 # CAVEATS
 
-Requires root privileges to access input devices. Using -g flag captures input exclusively, which can lock you out if intercepting keyboard input without proper output handling. Part of the interception-tools package.
+访问输入设备需要 root 权限。使用 -g 标志会独占捕获输入；如果拦截键盘输入却没有正确处理输出，可能把自己锁在门外。属于 interception-tools 软件包。
 
 # HISTORY
 
-intercept is part of the Interception Tools project, designed as a composable set of utilities for intercepting and manipulating input events on Linux using the evdev and uinput interfaces.
+intercept 是 Interception Tools 项目的一部分。该项目是一组可组合的实用工具，利用 evdev 和 uinput 接口拦截和操纵 Linux 上的输入事件。
 
 # INSTALL
 

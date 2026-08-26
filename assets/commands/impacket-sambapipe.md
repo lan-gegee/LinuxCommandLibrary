@@ -1,18 +1,18 @@
 # TAGLINE
 
-connects to named pipes on remote Windows systems via SMB
+通过 SMB 连接远程 Windows 系统上的命名管道
 
 # TLDR
 
-**Access named pipe** on a remote SMB share
+**访问远程 SMB 共享上的命名管道**
 
 ```impacket-sambapipe '[domain]/[user]:[password]@[192.168.1.100]' '[pipename]'```
 
-**Connect to pipe using NTLM hash**
+**使用 NTLM 哈希连接管道**
 
 ```impacket-sambapipe -hashes ':[nthash]' '[domain]/[user]@[192.168.1.100]' '[pipename]'```
 
-**Access pipe via Kerberos authentication**
+**通过 Kerberos 身份验证访问管道**
 
 ```impacket-sambapipe -k -no-pass '[domain]/[user]@[target]' '[pipename]'```
 
@@ -23,33 +23,33 @@ connects to named pipes on remote Windows systems via SMB
 # PARAMETERS
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes for authentication instead of password
+> 使用 NTLM 哈希而非密码进行身份验证
 
 **-no-pass**
-> Don't ask for password (useful with -k)
+> 不询问密码（与 -k 搭配时有用）
 
 **-k**
-> Use Kerberos authentication from ccache file
+> 使用 ccache 文件中的 Kerberos 身份验证
 
 **-aesKey** _KEY_
-> AES key to use for Kerberos authentication
+> 用于 Kerberos 身份验证的 AES 密钥
 
 **-dc-ip** _IP_
-> IP address of the domain controller (for Kerberos)
+> 域控制器的 IP 地址（用于 Kerberos）
 
 # DESCRIPTION
 
-**impacket-sambapipe** connects to named pipes on remote Windows systems via SMB. Named pipes are used for inter-process communication in Windows and many services expose functionality through pipes.
+**impacket-sambapipe** 通过 SMB 连接远程 Windows 系统上的命名管道。命名管道是 Windows 中进程间通信的方式，许多服务都通过管道暴露功能。
 
-This tool is useful for interacting with services that communicate through named pipes, testing pipe accessibility, or as part of more complex attack chains involving pipe communication.
+该工具适用于与通过命名管道通信的服务交互、测试管道的可访问性，或作为涉及管道通信的更复杂攻击链的一环。
 
 # CAVEATS
 
-Requires appropriate permissions to access the named pipe. Some pipes require administrative access. The pipe must exist and be accessible on the target system.
+需要拥有访问命名管道的相应权限。某些管道需要管理员权限。管道必须存在于目标系统上且可访问。
 
 # HISTORY
 
-Part of the **Impacket** library by SecureAuth. Named pipe access is fundamental to many Windows protocols and services, making this tool useful for various testing scenarios.
+属于 SecureAuth 的 **Impacket** 库。命名管道访问是许多 Windows 协议和服务的基础，使该工具在多种测试场景中都很有用。
 
 # INSTALL
 

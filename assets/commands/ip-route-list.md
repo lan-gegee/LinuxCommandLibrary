@@ -1,38 +1,38 @@
 # TAGLINE
 
-displays entries from the kernel routing tables
+显示内核路由表中的条目
 
 # TLDR
 
-Display the **main** routing table
+显示 **main** 路由表
 
 ```ip route list```
 
-Display the **local** routing table
+显示 **local** 路由表
 
 ```ip route list table local```
 
-Display **all** routing tables
+显示**所有**路由表
 
 ```ip route list table all```
 
-List routes for a **specific device**
+列出**特定设备**的路由
 
 ```ip route list dev [eth0]```
 
-List routes within a **specific scope**
+列出**特定作用范围**内的路由
 
 ```ip route list scope link```
 
-Display the **routing cache**
+显示**路由缓存**
 
 ```ip route list cache```
 
-Display only **IPv6** routes
+仅显示 **IPv6** 路由
 
 ```ip -6 route```
 
-Display only **IPv4** routes
+仅显示 **IPv4** 路由
 
 ```ip -4 route```
 
@@ -43,36 +43,36 @@ Display only **IPv4** routes
 # PARAMETERS
 
 **table** _TABLE_
-> Routing table: main (254), local (255), all (0), or custom name/number
+> 路由表：main（254）、local（255）、all（0），或自定义名称/编号
 
 **dev** _DEVICE_
-> Show routes for specific device only
+> 仅显示特定设备的路由
 
 **scope** _SCOPE_
-> Filter by scope: global, link, host
+> 按作用范围过滤：global、link、host
 
 **cache**
-> Show routing cache entries
+> 显示路由缓存条目
 
 **type** _TYPE_
-> Route type: unicast, local, broadcast, multicast, etc.
+> 路由类型：unicast、local、broadcast、multicast 等
 
 **proto** _PROTOCOL_
-> Filter by routing protocol
+> 按路由协议过滤
 
 # DESCRIPTION
 
-**ip route list** displays entries from the kernel routing tables. The main table contains user-configured routes, while the local table contains routes for local addresses automatically maintained by the kernel.
+**ip route list** 显示内核路由表中的条目。main 表包含用户配置的路由，而 local 表包含由内核自动维护的本地地址路由。
 
-Routes show the destination network, gateway or interface, and various attributes like metrics, source preference, and protocol that added the route.
+路由条目显示目标网络、网关或接口，以及各种属性，如 metric、源地址偏好和添加该路由的协议。
 
 # CAVEATS
 
-The routing cache was removed in Linux 3.6. Very large routing tables may produce extensive output. Multiple tables exist for policy routing setups.
+路由缓存在 Linux 3.6 中已被移除。非常大的路由表可能产生大量输出。策略路由设置中会存在多个路由表。
 
 # HISTORY
 
-ip route list is part of iproute2 and replaces the older route command. It provides comprehensive access to Linux's advanced routing features including multiple tables and policy routing.
+ip route list 是 iproute2 的一部分，取代了较旧的 route 命令。它全面支持 Linux 的高级路由功能，包括多路由表和策略路由。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display available Gradle project tasks
+显示可用的 Gradle 项目任务
 
 # TLDR
 
-**List main tasks**
+**列出主要任务**
 
 ```gradle tasks```
 
-**List all tasks including internal ones**
+**列出所有任务（包括内部任务）**
 
 ```gradle tasks --all```
 
-**List with Gradle wrapper**
+**通过 Gradle wrapper 列出**
 
 ```./gradlew tasks```
 
-**List tasks for a subproject**
+**列出子项目的任务**
 
 ```gradle :app:tasks```
 
-**List tasks in a specific group**
+**列出特定分组中的任务**
 
 ```gradle tasks --group [build]```
 
-**Get help on a specific task**
+**获取特定任务的帮助**
 
 ```gradle help --task [taskName]```
 
@@ -35,19 +35,19 @@ Display available Gradle project tasks
 # PARAMETERS
 
 **--all**
-> Show all tasks including internal and lifecycle tasks without a group.
+> 显示所有任务，包括内部任务和未分组的生命周期任务。
 
 **--group** _name_
-> Show only tasks belonging to the specified group.
+> 只显示属于指定分组的任务。
 
 **--no-report**
-> Hide the task rule report at the bottom of the output.
+> 隐藏输出底部的任务规则报告。
 
 # DESCRIPTION
 
-**gradle tasks** displays available tasks for the selected project. By default, it shows only tasks assigned to a task group that have descriptions. Use **--all** to include ungrouped, internal, and lifecycle tasks. Use **--group** to filter by a specific task group. Use **gradle help --task** to get detailed information about a specific task including its type, path, and options.
+**gradle tasks** 显示所选项目可用的任务。默认情况下，只显示已分配到任务组且带有描述的任务。使用 **--all** 可包含未分组、内部和生命周期任务。使用 **--group** 可按特定任务组过滤。使用 **gradle help --task** 可获取特定任务的详细信息，包括其类型、路径和选项。
 
-Tasks are organized into groups such as build, verification, documentation, and help. Custom task groups defined in build scripts also appear in the output.
+任务按 build、verification、documentation、help 等分组组织。构建脚本中定义的自定义任务组也会出现在输出中。
 
 # INSTALL
 

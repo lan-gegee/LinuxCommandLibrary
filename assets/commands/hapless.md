@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run and manage background processes
+运行和管理后台进程
 
 # TLDR
 
-**Run a command in the background**
+**在后台运行命令**
 
 ```hap run [command]```
 
-**List all tracked processes**
+**列出所有被跟踪的进程**
 
 ```hap```
 
-**Show status of a specific process**
+**查看特定进程的状态**
 
 ```hap status [id]```
 
-**Show logs of a process**
+**查看进程的日志**
 
 ```hap logs [id]```
 
-**Show live log output** of a process
+**实时查看进程日志输出**
 
 ```hap logs -f [id]```
 
-**Pause a running process**
+**暂停正在运行的进程**
 
 ```hap pause [id]```
 
-**Resume a paused process**
+**恢复已暂停的进程**
 
 ```hap resume [id]```
 
@@ -38,40 +38,40 @@ Run and manage background processes
 
 # DESCRIPTION
 
-**hapless** is a lightweight command-line utility for running and managing background processes. It wraps commands to track their status during and after execution, without requiring a daemon process or configuration files. Simply prefix any command with **hap run** to launch it in the background with automatic logging and status tracking.
+**hapless** 是一个轻量级命令行工具，用于运行和管理后台进程。它会包装命令以跟踪其执行期间及之后的状态，不需要守护进程或配置文件。只要在任何命令前面加上 **hap run**，就能把它启动到后台并获得自动日志记录和状态跟踪。
 
-The tool provides a convenient overview of all tracked processes with their current status, exit codes, and runtime. Logs for both stdout and stderr are automatically captured and can be reviewed at any time.
+该工具提供所有被跟踪进程的总览，包括当前状态、退出码和运行时长。stdout 与 stderr 的日志都会被自动捕获，可随时查看。
 
 # PARAMETERS
 
 **run** _command_
-> Run a command in the background
+> 在后台运行命令
 
 **status** _id_
-> Show status of a specific process
+> 查看特定进程的状态
 
 **logs** _id_
-> Show logs of a process (-f for follow mode)
+> 查看进程日志（-f 表示跟随模式）
 
 **pause** _id_
-> Pause a running process
+> 暂停正在运行的进程
 
 **resume** _id_
-> Resume a paused process
+> 恢复已暂停的进程
 
 **kill** _id_
-> Terminate a process
+> 终止进程
 
 **clean**
-> Remove completed processes from the list
+> 从列表中移除已完成的进程
 
 # CAVEATS
 
-Does not persist across system reboots. Process tracking relies on PID files stored locally. Interactive commands that require terminal input are not supported in the background.
+不会跨系统重启保留。进程跟踪依赖存储在本地的 PID 文件。需要终端输入的交互式命令无法在后台运行。
 
 # HISTORY
 
-**hapless** was created by **Misha Behersky** (bmwant) and is written in **Python**. It was designed to be a simpler alternative to tools like **screen**, **tmux**, or **nohup** for basic background process management, with the goal of requiring zero configuration.
+**hapless** 由 **Misha Behersky**（bmwant）创建，使用 **Python** 编写。它被设计成 **screen**、**tmux** 或 **nohup** 等工具在基础后台进程管理场景下的更简单替代品，目标是零配置。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for InfluxDB time-series database
+InfluxDB 时序数据库的命令行界面
 
 # TLDR
 
-**Start interactive shell**
+**启动交互式 Shell**
 
 ```influx```
 
-**Connect to host**
+**连接到主机**
 
 ```influx -host [hostname] -port [8086]```
 
-**Execute query**
+**执行查询**
 
 ```influx -execute "[SELECT * FROM measurement]"```
 
-**Use specific database**
+**使用指定数据库**
 
 ```influx -database [mydb]```
 
-**Import data**
+**导入数据**
 
 ```influx -import -path [data.txt]```
 
-**Execute query** with JSON output
+**执行查询**并以 JSON 输出
 
 ```influx -database [mydb] -execute "[SELECT * FROM measurement]" -format json```
 
-**Authenticate**
+**进行身份验证**
 
 ```influx -username [user] -password [pass]```
 
@@ -39,57 +39,57 @@ command-line interface for InfluxDB time-series database
 # PARAMETERS
 
 **-host** _HOST_
-> InfluxDB server hostname.
+> InfluxDB 服务器主机名。
 
 **-port** _PORT_
-> Server port (default 8086).
+> 服务器端口（默认 8086）。
 
 **-database** _DB_
-> Database to use.
+> 要使用的数据库。
 
 **-execute** _QUERY_
-> Execute query and exit.
+> 执行查询并退出。
 
 **-import**
-> Import data from file.
+> 从文件导入数据。
 
 **-path** _FILE_
-> File path for import.
+> 导入用的文件路径。
 
 **-username** _USER_
-> Authentication username.
+> 身份验证用户名。
 
 **-password** _PASS_
-> Authentication password.
+> 身份验证密码。
 
 **-precision** _UNIT_
-> Timestamp precision (ns, u, ms, s, m, h).
+> 时间戳精度（ns、u、ms、s、m、h）。
 
 **-ssl**
-> Use HTTPS for requests.
+> 使用 HTTPS 发送请求。
 
 **-format** _FORMAT_
-> Output format: column, csv, json (default: column).
+> 输出格式：column、csv、json（默认：column）。
 
 **-type** _TYPE_
-> Query type: influxql or flux.
+> 查询类型：influxql 或 flux。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**influx** is the command-line interface for InfluxDB time-series database. It provides an interactive shell for querying and managing data.
+**influx** 是 InfluxDB 时序数据库的命令行界面，提供一个交互式 Shell 用于查询和管理数据。
 
-The v1 CLI uses direct connection flags (-host, -port, -username) and supports InfluxQL. The v2 CLI is a separate tool that uses token-based authentication and configuration profiles, supporting both InfluxQL and Flux query languages. The options documented here apply to the v1 CLI.
+v1 CLI 使用直接连接标志（-host、-port、-username），支持 InfluxQL。v2 CLI 是一个独立的工具，采用基于令牌的身份验证和配置 profile，同时支持 InfluxQL 和 Flux 查询语言。本文档介绍的选项适用于 v1 CLI。
 
 # CAVEATS
 
-InfluxDB must be running. Authentication may be required. InfluxQL syntax differs from SQL.
+InfluxDB 必须处于运行状态。可能需要进行身份验证。InfluxQL 语法与 SQL 不同。
 
 # HISTORY
 
-influx is part of **InfluxDB**, created by **InfluxData** as an open-source time-series database platform.
+influx 是 **InfluxDB** 的一部分，由 **InfluxData** 创建，是一个开源时序数据库平台。
 
 # INSTALL
 

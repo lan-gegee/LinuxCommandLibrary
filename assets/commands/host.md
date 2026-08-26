@@ -1,30 +1,30 @@
 # TAGLINE
 
-simple DNS lookup utility
+简单的 DNS 查询工具
 
 # TLDR
 
-**Lookup IP address**
+**查询 IP 地址**
 
 ```host [example.com]```
 
-**Reverse DNS lookup**
+**反向 DNS 查询**
 
 ```host [192.168.1.1]```
 
-**Query specific DNS server**
+**查询指定 DNS 服务器**
 
 ```host [example.com] [8.8.8.8]```
 
-**Query specific record type**
+**查询特定记录类型**
 
 ```host -t [MX] [example.com]```
 
-**Verbose output**
+**详细输出**
 
 ```host -v [example.com]```
 
-**Query all records**
+**查询所有记录**
 
 ```host -a [example.com]```
 
@@ -34,79 +34,79 @@ simple DNS lookup utility
 
 # DESCRIPTION
 
-**host** is a simple DNS lookup utility. It converts hostnames to IP addresses and vice versa, and can query specific DNS record types.
+**host** 是一个简单的 DNS 查询工具。它将主机名转换为 IP 地址（反之亦然），并可查询特定的 DNS 记录类型。
 
-The tool provides quick DNS queries without the complexity of dig, making it useful for simple lookups and troubleshooting.
+该工具提供快捷的 DNS 查询，没有 dig 那样的复杂性，适合简单查找和故障排查。
 
 # PARAMETERS
 
 **-t** _type_
-> Query type (A, AAAA, MX, NS, TXT, SOA, etc.).
+> 查询类型（A、AAAA、MX、NS、TXT、SOA 等）。
 
 **-a**
-> Equivalent to -v -t ANY; queries all record types with verbose output.
+> 等价于 -v -t ANY；以详细输出查询所有记录类型。
 
 **-A**
-> Like -a but omits RRSIG, NSEC, and NSEC3 records.
+> 类似 -a，但省略 RRSIG、NSEC 和 NSEC3 记录。
 
 **-C**
-> Check SOA record consistency across authoritative name servers.
+> 检查各权威名称服务器之间 SOA 记录的一致性。
 
 **-v**
-> Verbose output (equivalent to -d).
+> 详细输出（等价于 -d）。
 
 **-l**
-> Perform a zone transfer (AXFR) and list NS, PTR, and A/AAAA records.
+> 执行区域传送（AXFR）并列出 NS、PTR 和 A/AAAA 记录。
 
 **-4**
-> Use IPv4 transport only.
+> 仅使用 IPv4 传输。
 
 **-6**
-> Use IPv6 transport only.
+> 仅使用 IPv6 传输。
 
 **-r**
-> Non-recursive query (clears RD bit).
+> 非递归查询（清除 RD 位）。
 
 **-s**
-> Do not try the next name server after a SERVFAIL response.
+> 收到 SERVFAIL 响应后不再尝试下一个名称服务器。
 
 **-W** _seconds_
-> Query timeout in seconds (default: 5 for UDP, 10 for TCP).
+> 查询超时秒数（默认：UDP 为 5 秒，TCP 为 10 秒）。
 
 **-w**
-> Wait forever (set query timeout to maximum).
+> 无限等待（将查询超时设为最大值）。
 
 **-R** _retries_
-> Number of UDP query retries.
+> UDP 查询重试次数。
 
 **-T**
-> Use TCP instead of UDP.
+> 使用 TCP 而非 UDP。
 
 **-U**
-> Force UDP, even for ANY queries.
+> 强制使用 UDP，即使是 ANY 查询。
 
 **-p** _port_
-> Query port (default: 53).
+> 查询端口（默认：53）。
 
 **-N** _ndots_
-> Number of dots required for an absolute name lookup.
+> 绝对名称查找所需的点号数量。
 
 **-c** _class_
-> Query class (IN, HS, CH; default: IN).
+> 查询类别（IN、HS、CH；默认：IN）。
 
 **-m** _flag_
-> Memory debugging (record, usage, or trace).
+> 内存调试（record、usage 或 trace）。
 
 **-V**
-> Print version number and exit.
+> 打印版本号后退出。
 
 # CAVEATS
 
-Less detailed than dig. Caching may affect results. Some record types need explicit query. Name server defaults to system resolver.
+不如 dig 详细。缓存可能影响结果。某些记录类型需要显式查询。名称服务器默认使用系统解析器。
 
 # HISTORY
 
-**host** is part of **BIND** (Berkeley Internet Name Domain), developed originally at **UC Berkeley** in the **1980s**. It provides a simplified interface compared to dig and nslookup, targeting users who need quick DNS lookups.
+**host** 是 **BIND**（Berkeley Internet Name Domain）的一部分，最初于 **20 世纪 80 年代**在**加州大学伯克利分校**开发。相比 dig 和 nslookup，它提供了更简化的接口，面向需要快速 DNS 查找的用户。
 
 # INSTALL
 

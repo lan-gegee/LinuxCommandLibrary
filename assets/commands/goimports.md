@@ -1,30 +1,30 @@
 # TAGLINE
 
-Go import line management and formatting
+Go 导入行的管理与格式化
 
 # TLDR
 
-**Format and fix imports in a file**
+**格式化文件并修复其中的导入**
 
 ```goimports [file.go]```
 
-**Fix imports and write to file**
+**修复导入并写回文件**
 
 ```goimports -w [file.go]```
 
-**Show diff of changes**
+**显示更改的差异**
 
 ```goimports -d [file.go]```
 
-**List files with import issues**
+**列出存在导入问题的文件**
 
 ```goimports -l [file.go]```
 
-**Separate local packages**
+**分离本地包的导入**
 
 ```goimports -local [github.com/myorg] [file.go]```
 
-**Format all files in directory**
+**格式化目录中的所有文件**
 
 ```goimports -w .```
 
@@ -35,34 +35,34 @@ Go import line management and formatting
 # PARAMETERS
 
 **-d**
-> Display diffs instead of rewriting.
+> 显示差异而不重写。
 
 **-l**
-> List files whose imports differ.
+> 列出导入有差异的文件。
 
 **-w**
-> Write result to source file.
+> 将结果写回源文件。
 
 **-local** _prefix_
-> Comma-separated prefixes for local packages.
+> 以逗号分隔的本地包前缀列表。
 
 **-e**
-> Report all errors (not just the first 10 on different lines).
+> 报告所有错误（而不是不同行上只报前 10 个）。
 
 **-format-only**
-> Do not fix imports; only format the code. In this mode goimports is effectively gofmt with grouped imports.
+> 不修复导入，仅格式化代码。在此模式下，goimports 实际上就是带分组导入的 gofmt。
 
 **-v**
-> Verbose logging.
+> 详细日志输出。
 
 **-srcdir** _dir_
-> Choose imports as if source code is from the specified directory.
+> 在选择导入时，假定源码位于指定目录中。
 
 # DESCRIPTION
 
-**goimports** updates Go import lines by adding missing imports and removing unreferenced ones. It also formats code in the same style as gofmt, making it a drop-in replacement.
+**goimports** 更新 Go 导入行：添加缺失的导入，移除未被引用的导入。它还会按照与 gofmt 相同的风格格式化代码，因此可以作为 gofmt 的直接替代品。
 
-Imports are grouped with standard library first, then third-party packages, and sorted alphabetically within each group. The **-local** flag allows separating project-specific imports into their own group.
+导入会被分组：标准库在最前，随后是第三方包，组内按字母顺序排序。**-local** 标志可以把项目自身的导入单独分成一组。
 
 # INSTALL
 

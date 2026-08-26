@@ -1,34 +1,34 @@
 # TAGLINE
 
-terminal interface for hledger
+hledger 的终端界面
 
 # TLDR
 
-**Start TUI**
+**启动 TUI**
 
 ```hledger-ui```
 
-**Open specific journal**
+**打开指定日志**
 
 ```hledger-ui -f [ledger.journal]```
 
-**Start at date**
+**从指定日期开始**
 
 ```hledger-ui --begin [2024-01-01]```
 
-**Show specific account**
+**显示特定账户**
 
 ```hledger-ui [assets:bank]```
 
-**Watch for changes**
+**监视文件变化**
 
 ```hledger-ui --watch```
 
-**Start on the balance sheet screen**
+**在资产负债表界面启动**
 
 ```hledger-ui --bs```
 
-**Use a specific display theme**
+**使用指定的显示主题**
 
 ```hledger-ui --theme [dark]```
 
@@ -39,89 +39,89 @@ terminal interface for hledger
 # PARAMETERS
 
 _PATTERNS_
-> Account patterns to show.
+> 要显示的账户匹配模式。
 
 **-f**, **--file** _[FMT:]FILE_
-> Journal file(s) to use. Defaults to $LEDGER_FILE or ~/.hledger.journal.
+> 要使用的日志文件。默认为 $LEDGER_FILE 或 ~/.hledger.journal。
 
 **-w**, **--watch**
-> Auto-reload and update the display when the journal file(s) change.
+> 当日志文件发生变化时自动重新加载并更新显示。
 
 **-b**, **--begin** _DATE_
-> Show only postings/transactions on or after this date.
+> 只显示此日期及之后的分录/交易。
 
 **-e**, **--end** _DATE_
-> Show only postings/transactions before this date.
+> 只显示此日期之前的分录/交易。
 
 **-t**, **--tree**
-> Show accounts as a hierarchical tree.
+> 以层级树状结构显示账户。
 
 **-l**, **--flat**
-> Show accounts as a flat list (default).
+> 以扁平列表显示账户（默认）。
 
 **--theme** _THEME_
-> Display theme to use: light, dark, terminal, or greenterm.
+> 使用的显示主题：light、dark、terminal 或 greenterm。
 
 **--cash**, **--bs**, **--is**, **--all**
-> Start on the cash accounts, balance sheet, income statement, or all-accounts screen instead of the default accounts screen.
+> 启动时进入现金账户、资产负债表、利润表或全部账户界面，而不是默认的账户界面。
 
 **--register** _ACCTREGEX_
-> Start in the register screen for the first matched account.
+> 在第一个匹配账户的账簿（register）界面启动。
 
 **--change**
-> Show period balance changes at startup instead of historical (ending) balances.
+> 启动时显示期间余额变动，而不是历史（期末）余额。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hledger-ui** is hledger's terminal (curses-based) interface. It provides an efficient full-window way to browse accounts, transactions and reports interactively, with some limited data entry capability.
+**hledger-ui** 是 hledger 的终端（基于 curses）界面。它提供一种高效的全窗口方式，可交互地浏览账户、交易和报表，并具备有限的数据录入能力。
 
-The TUI supports keyboard and mouse navigation, drilling down from an accounts screen into a register and individual transactions, filtering by a query typed at any time, and switching between accounts/register/transaction screens. With **-w/--watch**, it reloads automatically whenever the underlying journal file(s) change on disk.
+该 TUI 支持键盘和鼠标导航，可以从账户界面下钻到账簿和单笔交易，随时键入查询进行过滤，并在账户/账簿/交易界面之间切换。配合 **-w/--watch**，只要底层日志文件在磁盘上发生变化，它就会自动重新加载。
 
 # KEY BINDINGS
 
 **?**
-> Show the help dialog, listing all keys for the current screen.
+> 显示帮助对话框，列出当前界面的所有按键。
 
 **arrows**, **j**/**k**/**h**/**l**, **CTRL-n**/**p**/**f**/**b**
-> Navigate up/down/left/right (vi- and emacs-style equivalents both work).
+> 上/下/左/右移动（vi 和 emacs 风格的等价按键均可用）。
 
 **/**
-> Open the query filter editor.
+> 打开查询过滤器编辑器。
 
 **a**
-> Run hledger's **add** command to record a new transaction.
+> 运行 hledger 的 **add** 命令记录一笔新交易。
 
 **g**
-> Reload the journal file(s) from disk.
+> 从磁盘重新加载日志文件。
 
 **t**
-> Toggle tree/flat account display.
+> 切换树状/扁平账户显示。
 
 **B** / **V**
-> Toggle cost / market value conversion.
+> 切换成本 / 市值转换。
 
 **H**
-> Toggle between period and historical balances.
+> 在期间余额与历史余额之间切换。
 
 **F**
-> Toggle forecast mode, revealing future-dated transactions.
+> 切换预测模式，显示带未来日期的交易。
 
 **E**
-> Open the journal file in $EDITOR.
+> 在 $EDITOR 中打开日志文件。
 
 **q**, **ESCAPE**
-> Quit, or back out to the previous/top screen.
+> 退出，或返回上一层/顶层界面。
 
 # CAVEATS
 
-Requires a terminal that supports at least basic colors for a good experience. Some screens and keys assume the journal is in journal format; other formats have limited support. Part of the hledger suite.
+需要至少支持基本颜色的终端才能获得良好体验。部分界面和按键假定日志为 journal 格式；其他格式的支持有限。本命令属于 hledger 套件。
 
 # HISTORY
 
-hledger-ui was developed as the terminal interface complement to hledger's command-line and web (**hledger-web**) interfaces, built with the **brick** TUI library.
+hledger-ui 作为 hledger 命令行与 Web（**hledger-web**）界面的补充而开发，基于 **brick** TUI 库构建。
 
 # INSTALL
 

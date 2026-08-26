@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal hex editor for editing bytes by the nibble
+用于按半字节编辑字节的终端十六进制编辑器
 
 # TLDR
 
-**Open a file** in the hex editor
+**打开文件**
 
 ```heh [path/to/file]```
 
@@ -14,27 +14,27 @@ Terminal hex editor for editing bytes by the nibble
 
 # DESCRIPTION
 
-**heh** is a cross-platform terminal hex editor used for modifying file data at the byte level. It aims to replicate the visual style of **hexyl** while functionally acting as a terminal UI version of **GHex**. The editor supports viewing and editing in both hexadecimal and ASCII modes, with editing granularity down to the nibble (half-byte).
+**heh** 是一个跨平台的终端十六进制编辑器，用于在字节级别修改文件数据。它旨在复刻 **hexyl** 的视觉风格，同时在功能上充当 **GHex** 的终端 UI 版本。该编辑器支持在十六进制和 ASCII 两种模式下查看和编辑，编辑粒度可精确到半字节（nibble，即半个字节）。
 
-The interface displays offset addresses, hex values, and ASCII representation side by side, with color-coded byte categories for easy identification of different data types.
+界面并排显示偏移地址、十六进制值和 ASCII 表示，并按类别对字节进行着色，便于识别不同的数据类型。
 
 # KEY BINDINGS
 
-**h/j/k/l** — Move cursor left/down/up/right
-**i** — Enter insert mode
-**Esc** — Return to normal mode
-**/** — Search
-**:w** — Save
-**:q** — Quit
-**:wq** — Save and quit
+**h/j/k/l** — 向左/下/上/右移动光标
+**i** — 进入插入模式
+**Esc** — 返回普通模式
+**/** — 搜索
+**:w** — 保存
+**:q** — 退出
+**:wq** — 保存并退出
 
 # CAVEATS
 
-Large files may consume significant memory as the entire file is loaded. The editor uses vim-like key bindings which may require familiarity with modal editing.
+大文件可能会消耗大量内存，因为整个文件都会被加载。编辑器采用类 vim 的按键绑定，可能需要熟悉模态编辑。
 
 # HISTORY
 
-**heh** was created by **ndd7xv** and is written in **Rust**. It was designed to provide a lightweight, terminal-native hex editing experience with a familiar visual layout.
+**heh** 由 **ndd7xv** 创建，使用 **Rust** 编写。其设计目标是提供轻量、原生于终端的十六进制编辑体验，同时保持熟悉的视觉布局。
 
 # INSTALL
 

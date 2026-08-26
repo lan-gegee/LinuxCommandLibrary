@@ -1,34 +1,34 @@
 # TAGLINE
 
-PHP code quality enforcement via git hooks
+通过 git 钩子强制执行 PHP 代码质量检查
 
 # TLDR
 
-**Generate a starter configuration file**
+**生成初始配置文件**
 
 ```grumphp configure```
 
-**Run all configured tasks**
+**运行所有已配置的任务**
 
 ```grumphp run```
 
-**Run specific tasks**
+**运行特定任务**
 
 ```grumphp run --tasks=[phpcs,phpunit]```
 
-**Run a specific testsuite**
+**运行特定的测试套件**
 
 ```grumphp run --testsuite=[mytestsuite]```
 
-**Register GrumPHP's git hooks**
+**注册 GrumPHP 的 git 钩子**
 
 ```grumphp git:init```
 
-**Unregister GrumPHP's git hooks**
+**注销 GrumPHP 的 git 钩子**
 
 ```grumphp git:deinit```
 
-**Manually run the pre-commit hook tasks**
+**手动运行 pre-commit 钩子的任务**
 
 ```grumphp git:pre-commit```
 
@@ -39,53 +39,53 @@ PHP code quality enforcement via git hooks
 # PARAMETERS
 
 _COMMAND_
-> Command to run.
+> 要运行的命令。
 
 **configure**
-> Generate a starter grumphp.yml configuration file, guessing sensible defaults.
+> 生成初始的 grumphp.yml 配置文件，并推测合理的默认值。
 
 **run**
-> Execute all configured tasks against the codebase.
+> 对代码库执行所有已配置的任务。
 
 **git:init**
-> Register GrumPHP's git hooks (run automatically after `composer install`).
+> 注册 GrumPHP 的 git 钩子（`composer install` 之后自动运行）。
 
 **git:deinit**
-> Unregister GrumPHP's git hooks.
+> 注销 GrumPHP 的 git 钩子。
 
 **git:pre-commit**
-> Run the tasks bound to the pre-commit hook.
+> 运行绑定到 pre-commit 钩子的任务。
 
 **git:commit-msg**
-> Run the tasks that validate the commit message.
+> 运行校验提交信息的任务。
 
 **--tasks** _TASK1,TASK2_
-> Only run the given comma-separated tasks.
+> 只运行给定的逗号分隔任务。
 
 **--testsuite** _NAME_
-> Only run tasks belonging to the given testsuite.
+> 只运行属于给定测试套件的任务。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**GrumPHP** is a PHP code quality tool that runs checks on git commits. It enforces coding standards by running tasks like PHPStan, PHP_CodeSniffer, and PHPUnit before allowing commits.
+**GrumPHP** 是一款 PHP 代码质量工具，会在 git 提交时运行检查。它通过在允许提交前运行 PHPStan、PHP_CodeSniffer 和 PHPUnit 等任务来强制执行编码规范。
 
-The tool integrates with git hooks to prevent commits that fail quality checks. It is configurable via a grumphp.yml file in the project root.
+该工具与 git 钩子集成，阻止未通过质量检查的提交。它可以通过项目根目录下的 grumphp.yml 文件进行配置。
 
 # CONFIGURATION
 
 **grumphp.yml**
-> Project-level configuration file defining tasks, parameters, and git hook settings.
+> 项目级配置文件，定义任务、参数和 git 钩子设置。
 
 # CAVEATS
 
-PHP project specific. Requires Composer. May slow down commits with many tasks.
+仅适用于 PHP 项目。需要 Composer。任务较多时可能拖慢提交速度。
 
 # HISTORY
 
-GrumPHP was created by **phpro** to automate PHP code quality enforcement through git hooks.
+GrumPHP 由 **phpro** 创建，旨在通过 git 钩子自动化 PHP 代码质量检查。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Apache HTTP Server daemon
+Apache HTTP 服务器守护进程
 
 # TLDR
 
-**Start** the Apache HTTP server
+**启动** Apache HTTP 服务器
 
 ```sudo httpd```
 
-**Test** the configuration file syntax
+**测试**配置文件语法
 
 ```httpd -t```
 
-**Start** in single-process debug mode (foreground)
+以单进程调试模式（前台）**启动**
 
 ```httpd -X```
 
-**List all loaded** modules (static and shared)
+**列出所有已加载的**模块（静态与共享）
 
 ```httpd -M```
 
-**Show version** and build parameters
+**显示版本**及编译参数
 
 ```httpd -V```
 
-**Use a specific** configuration file
+**使用指定的**配置文件
 
 ```httpd -f [/path/to/httpd.conf]```
 
-**Send a signal** to a running instance (start, stop, restart, graceful)
+**向运行中的实例发送信号**（start、stop、restart、graceful）
 
 ```httpd -k [graceful]```
 
-**Stop** Apache gracefully
+**优雅地停止** Apache
 
 ```httpd -k graceful-stop```
 
@@ -42,55 +42,55 @@ Apache HTTP Server daemon
 
 # DESCRIPTION
 
-**httpd** is the Apache HTTP Server daemon. It serves web content using HTTP/HTTPS protocols, handling static files, CGI scripts, and reverse proxying.
+**httpd** 是 Apache HTTP 服务器的守护进程。它通过 HTTP/HTTPS 协议提供 Web 内容服务，处理静态文件、CGI 脚本以及反向代理。
 
-Apache is highly configurable through modules and configuration directives, supporting virtual hosts, access control, and numerous authentication methods.
+Apache 可通过模块和配置指令高度定制，支持虚拟主机、访问控制以及众多认证方法。
 
 # PARAMETERS
 
 **-t**
-> Test configuration syntax.
+> 测试配置语法。
 
 **-T**
-> Start without document check.
+> 启动时跳过文档检查。
 
 **-X**
-> Run in single-process debug mode.
+> 以单进程调试模式运行。
 
 **-f** _file_
-> Specify configuration file.
+> 指定配置文件。
 
 **-M**
-> List loaded modules.
+> 列出已加载的模块。
 
 **-V**
-> Show version and build info.
+> 显示版本和构建信息。
 
 **-k** _signal_
-> Send signal to running instance: start, stop, restart, graceful, graceful-stop.
+> 向运行中的实例发送信号：start、stop、restart、graceful、graceful-stop。
 
 **-D** _param_
-> Define a runtime configuration parameter.
+> 定义一个运行时配置参数。
 
 **-d** _dir_
-> Set the ServerRoot directory.
+> 设置 ServerRoot 目录。
 
 **-e** _level_
-> Set startup log level (debug, info, notice, warn, error, crit, alert, emerg).
+> 设置启动日志级别（debug、info、notice、warn、error、crit、alert、emerg）。
 
 **-n** _name_
-> Set the service name (Windows only).
+> 设置服务名称（仅限 Windows）。
 
 **-l**
-> List compiled-in modules (static modules only).
+> 列出编译进程序的模块（仅静态模块）。
 
 # CAVEATS
 
-Configuration can be complex for beginners due to the large number of directives and modules. Module compatibility varies between major versions. Performance tuning (MPM selection, worker/thread limits) is needed for high-traffic sites. On many Linux distributions, **apachectl** or **systemctl** is the preferred way to manage the service rather than invoking **httpd** directly. On Debian/Ubuntu, the binary is named **apache2** instead of **httpd**.
+指令和模块数量庞大，配置对初学者来说可能比较复杂。模块兼容性因主版本而异。高流量站点需要进行性能调优（MPM 选择、worker/线程上限）。在许多 Linux 发行版上，管理服务首选 **apachectl** 或 **systemctl**，而非直接调用 **httpd**。在 Debian/Ubuntu 上，二进制文件名为 **apache2** 而非 **httpd**。
 
 # HISTORY
 
-**Apache HTTP Server** was started in **1995** based on NCSA HTTPd, becoming the most popular web server for decades. The **Apache Software Foundation** grew around it. The name comes from "a patchy server" due to its patch-based origins.
+**Apache HTTP Server** 项目始于 **1995 年**，基于 NCSA HTTPd 发展而来，此后数十年一直是最流行的 Web 服务器。**Apache Software Foundation** 也是围绕它发展起来的。由于其起源于一系列补丁，名字来自 "a patchy server" 的谐音。
 
 # INSTALL
 

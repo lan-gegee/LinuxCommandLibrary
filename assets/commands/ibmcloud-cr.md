@@ -1,30 +1,30 @@
 # TAGLINE
 
-manages IBM Cloud Container Registry
+管理 IBM Cloud Container Registry
 
 # TLDR
 
-**Login to registry**
+**登录镜像仓库**
 
 ```ibmcloud cr login```
 
-**List images**
+**列出镜像**
 
 ```ibmcloud cr image-list```
 
-**Create namespace**
+**创建命名空间**
 
 ```ibmcloud cr namespace-add [namespace]```
 
-**Build image**
+**构建镜像**
 
 ```ibmcloud cr build -t [registry/namespace/image:tag] [.]```
 
-**Remove image**
+**移除镜像**
 
 ```ibmcloud cr image-rm [image]```
 
-**List namespaces**
+**列出命名空间**
 
 ```ibmcloud cr namespace-list```
 
@@ -35,57 +35,57 @@ manages IBM Cloud Container Registry
 # PARAMETERS
 
 _COMMAND_
-> Container Registry command.
+> Container Registry 命令。
 
 **login**
-> Log the local Docker daemon in to the IBM Cloud registry.
+> 将本地 Docker 守护进程登录到 IBM Cloud 镜像仓库。
 
 **image-list**
-> List images in your account/namespaces.
+> 列出你账户/命名空间中的镜像。
 
 **image-rm** _IMAGE_
-> Remove one or more images from the registry.
+> 从镜像仓库中移除一个或多个镜像。
 
 **image-tag** _SRC_ _DST_
-> Add a new tag to an existing image.
+> 为现有镜像添加新标签。
 
 **namespace-add** _NAME_
-> Create a namespace.
+> 创建命名空间。
 
 **namespace-list**
-> List namespaces in the targeted account.
+> 列出目标账户中的命名空间。
 
 **namespace-rm** _NAME_
-> Delete a namespace (must be empty).
+> 删除命名空间（必须为空）。
 
 **build** _CONTEXT_
-> Build a container image with IBM Cloud's remote builder and push the result.
+> 使用 IBM Cloud 的远程构建器构建容器镜像并推送结果。
 
 **va** _IMAGE_
-> Show Vulnerability Advisor results for an image.
+> 显示镜像的漏洞顾问（Vulnerability Advisor）结果。
 
 **quota**
-> Display storage and pull-traffic quota for the account.
+> 显示账户的存储和拉取流量配额。
 
 **region-set** _REGION_
-> Switch the registry region (e.g., _us-south_, _eu-de_, _jp-tok_).
+> 切换镜像仓库区域（例如 _us-south_、_eu-de_、_jp-tok_）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ibmcloud cr** manages IBM Cloud Container Registry. It provides private Docker image storage and vulnerability scanning.
+**ibmcloud cr** 管理 IBM Cloud Container Registry。它提供私有 Docker 镜像存储和漏洞扫描功能。
 
-The tool handles namespaces, images, and registry authentication. It integrates with IBM Cloud Kubernetes Service.
+该工具管理命名空间、镜像和仓库身份验证。它与 IBM Cloud Kubernetes Service 集成。
 
 # CAVEATS
 
-Registry plugin required. Namespace quotas apply. Vulnerability scanning available.
+需要安装 Registry 插件。受命名空间配额限制。提供漏洞扫描功能。
 
 # HISTORY
 
-ibmcloud cr is the Container Registry plugin for **IBM Cloud** CLI.
+ibmcloud cr 是 **IBM Cloud** CLI 的 Container Registry 插件。
 
 # SEE ALSO
 

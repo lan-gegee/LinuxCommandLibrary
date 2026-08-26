@@ -1,34 +1,34 @@
 # TAGLINE
 
-JavaScript task runner for automating development workflows
+用于自动化开发工作流的 JavaScript 任务运行器
 
 # TLDR
 
-**Run default task**
+**运行默认任务**
 
 ```gulp```
 
-**Run specific task**
+**运行指定任务**
 
 ```gulp [taskname]```
 
-**List available tasks**
+**列出可用任务**
 
 ```gulp --tasks```
 
-**Run multiple tasks in series instead of parallel**
+**以串行而非并行方式运行多个任务**
 
 ```gulp [task1] [task2] --series```
 
-**Run with custom gulpfile**
+**使用自定义 gulpfile 运行**
 
 ```gulp --gulpfile [path/gulpfile.js]```
 
-**Run in silent mode**
+**以静默模式运行**
 
 ```gulp --silent```
 
-**Watch for changes** (requires a "watch" task in the gulpfile)
+**监视文件变化**（需要 gulpfile 中存在 "watch" 任务）
 
 ```gulp watch```
 
@@ -38,49 +38,49 @@ JavaScript task runner for automating development workflows
 
 # DESCRIPTION
 
-**gulp** is a JavaScript task runner for automating development workflows. It streams files through processing pipelines, handling tasks like compilation, minification, and testing.
+**gulp** 是一个用于自动化开发工作流的 JavaScript 任务运行器。它将文件流式传输到处理管道中，处理编译、压缩和测试等任务。
 
-The tool uses code-over-configuration with a gulpfile.js defining tasks as JavaScript functions. Its streaming architecture makes it efficient for file processing. Tasks listed on the CLI run concurrently (in parallel) by default, as if they were dependencies of a single task.
+该工具采用"代码优于配置"的理念，通过 gulpfile.js 将任务定义为 JavaScript 函数。其流式架构使文件处理十分高效。在命令行上列出的任务默认并发（并行）执行，就像它们是单个任务的依赖项一样。
 
 # PARAMETERS
 
 **-T**, **--tasks**
-> Print the task dependency tree for the loaded gulpfile.
+> 打印已加载 gulpfile 的任务依赖树。
 
 **--tasks-simple**
-> Print a plaintext list of tasks, useful for scripting.
+> 以纯文本形式打印任务列表，便于脚本化使用。
 
 **-f**, **--gulpfile** _path_
-> Manually set the path of the gulpfile.
+> 手动设置 gulpfile 的路径。
 
 **--cwd** _dir_
-> Manually set the working directory.
+> 手动设置工作目录。
 
 **-S**, **--silent**
-> Suppress all gulp logging.
+> 抑制所有 gulp 日志输出。
 
 **--continue**
-> Continue execution of tasks upon failure.
+> 任务失败后继续执行后续任务。
 
 **-L**, **--log-level**
-> Set the logging level; repeat to increase verbosity (e.g. -LL).
+> 设置日志级别；重复使用可提高详细程度（如 -LL）。
 
 **--series**
-> Run the tasks given on the CLI in series instead of parallel.
+> 以串行而非并行方式运行命令行上给定的任务。
 
 **--color**, **--no-color**
-> Force enable or disable colored output.
+> 强制启用或禁用彩色输出。
 
 **-v**, **--version**
-> Print the global and local gulp versions.
+> 打印全局与本地 gulp 的版本号。
 
 # CAVEATS
 
-Requires Node.js and npm. Plugin ecosystem fragmented. Gulp 4 API differs from 3. Some plugins unmaintained.
+需要 Node.js 和 npm。插件生态较为碎片化。Gulp 4 的 API 与 Gulp 3 不同。部分插件已无人维护。
 
 # HISTORY
 
-**gulp** was created by **Eric Schoffstall** and released in **2013** as an alternative to Grunt. Its streaming approach and code-based configuration appealed to developers. While newer bundlers have emerged, gulp remains popular for task automation.
+**gulp** 由 **Eric Schoffstall** 创建，于 **2013 年**发布，作为 Grunt 的替代方案。其流式处理方式和基于代码的配置深受开发者欢迎。虽然更新的打包工具不断涌现，gulp 在任务自动化领域依然流行。
 
 # INSTALL
 

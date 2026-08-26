@@ -1,26 +1,26 @@
 # TAGLINE
 
-synchronizes IMAP mailboxes between servers
+在服务器之间同步 IMAP 邮箱
 
 # TLDR
 
-**Sync mailboxes**
+**同步邮箱**
 
 ```imapsync --host1 [src] --user1 [user] --password1 [pass] --host2 [dst] --user2 [user] --password2 [pass]```
 
-**Dry run**
+**试运行**
 
 ```imapsync --dry --host1 [src] --user1 [user] ...```
 
-**Exclude folders**
+**排除文件夹**
 
 ```imapsync --exclude "Trash|Spam" --host1 [src] ...```
 
-**SSL connections**
+**SSL 连接**
 
 ```imapsync --ssl1 --ssl2 --host1 [src] ...```
 
-**Delete source after sync**
+**同步后删除源邮件**
 
 ```imapsync --delete1 --host1 [src] ...```
 
@@ -31,42 +31,42 @@ synchronizes IMAP mailboxes between servers
 # PARAMETERS
 
 **--host1** _HOST_
-> Source IMAP server.
+> 源 IMAP 服务器。
 
 **--user1** _USER_
-> Source username.
+> 源用户名。
 
 **--password1** _PASS_
-> Source password.
+> 源密码。
 
 **--host2** _HOST_
-> Destination server.
+> 目标服务器。
 
 **--user2** _USER_
-> Destination username.
+> 目标用户名。
 
 **--dry**
-> Dry run mode.
+> 试运行模式。
 
 **--ssl1**, **--ssl2**
-> Use SSL.
+> 使用 SSL。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**imapsync** synchronizes IMAP mailboxes between servers. It copies emails, folders, and flags from source to destination.
+**imapsync** 在服务器之间同步 IMAP 邮箱。它将邮件、文件夹和标志从源复制到目标。
 
-The tool handles mail migrations and backups. It supports incremental sync, filtering, and various authentication methods.
+该工具可用于邮件迁移和备份。它支持增量同步、过滤以及多种身份验证方式。
 
 # CAVEATS
 
-Can be slow for large mailboxes. Memory usage scales with size. Commercial version available.
+邮箱较大时速度可能较慢。内存占用随数据量增长。另有商业版本可用。
 
 # HISTORY
 
-imapsync was created by **Gilles Lamiral** for IMAP mailbox migration and synchronization.
+imapsync 由 **Gilles Lamiral** 创建，用于 IMAP 邮箱的迁移与同步。
 
 # INSTALL
 

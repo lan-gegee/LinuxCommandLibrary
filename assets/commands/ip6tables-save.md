@@ -1,10 +1,10 @@
 # TAGLINE
 
-save current IPv6 firewall rules
+保存当前 IPv6 防火墙规则
 
 # TLDR
 
-This command is an alias of **iptables-save** for IPv6 firewall
+此命令是 IPv6 防火墙场景下 **iptables-save** 的别名
 
 ```tldr iptables-save```
 

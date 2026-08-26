@@ -1,34 +1,34 @@
 # TAGLINE
 
-screenshot utility designed specifically for the Hyprland Wayland compositor
+专为 Hyprland Wayland 合成器设计的截图工具
 
 # TLDR
 
-Select and screenshot a **region**
+选择并截图一个**区域**
 
 ```hyprshot -m region```
 
-Select and screenshot a **specific window**
+选择并截图**指定窗口**
 
 ```hyprshot -m window```
 
-Select and screenshot a **specific output**
+选择并截图**指定输出**
 
 ```hyprshot -m output```
 
-Screenshot the **active window**
+截图**活动窗口**
 
 ```hyprshot -m active -m window```
 
-**Freeze** the screen and screenshot selected region
+**冻结**屏幕并截图选定区域
 
 ```hyprshot -z -m region```
 
-Screenshot to a specific **output directory**
+截图保存到指定的**输出目录**
 
 ```hyprshot -o [path/to/directory] -m window```
 
-Screenshot to **clipboard only**
+仅截图到**剪贴板**
 
 ```hyprshot --clipboard -m output```
 
@@ -39,48 +39,48 @@ Screenshot to **clipboard only**
 # PARAMETERS
 
 **-m**, **--mode** _MODE_
-> Screenshot mode: region, window, output, active
+> 截图模式：region、window、output、active
 
 **-o**, **--output-folder** _DIR_
-> Save screenshots to specified directory
+> 将截图保存到指定目录
 
 **-f**, **--filename** _NAME_
-> Set output filename
+> 设置输出文件名
 
 **--clipboard**
-> Copy to clipboard only (don't save to file)
+> 仅复制到剪贴板（不保存为文件）
 
 **-z**, **--freeze**
-> Freeze screen while selecting
+> 选择时冻结屏幕
 
 **-s**, **--silent**
-> Don't send notification after screenshot
+> 截图后不发送通知
 
 **-r**, **--raw**
-> Output raw image data to stdout
+> 将原始图像数据输出到 stdout
 
 **-d**, **--delay** _SECONDS_
-> Wait before taking screenshot
+> 截图前等待的时间
 
 # DESCRIPTION
 
-**hyprshot** is a screenshot utility designed specifically for the Hyprland Wayland compositor. It provides interactive selection for regions, windows, and outputs with clipboard integration.
+**hyprshot** 是一款专为 Hyprland Wayland 合成器设计的截图工具。它提供针对区域、窗口和输出的交互式选择，并与剪贴板集成。
 
-Modes:
-- **region** - Select a rectangular area
-- **window** - Select a specific window
-- **output** - Select a monitor/output
-- **active** - Combined with window/output for current focus
+模式：
+- **region** — 选择矩形区域
+- **window** — 选择特定窗口
+- **output** — 选择显示器/输出
+- **active** — 与 window/output 组合使用，表示当前焦点
 
-Screenshots are saved to **~/Pictures/Screenshots** by default. The tool uses slurp for region selection and grim for capture.
+截图默认保存到 **~/Pictures/Screenshots**。该工具使用 slurp 进行区域选择，使用 grim 进行捕获。
 
 # CAVEATS
 
-Requires Hyprland, grim, slurp, and wl-clipboard. The freeze option may not work on all systems. Window selection depends on Hyprland's client list.
+需要 Hyprland、grim、slurp 和 wl-clipboard。freeze 选项并非在所有系统上都可用。窗口选择依赖于 Hyprland 的客户端列表。
 
 # HISTORY
 
-hyprshot was created by Gustash as a convenient wrapper around screenshot tools for Hyprland users. It provides a streamlined interface compared to manually combining grim and slurp.
+hyprshot 由 Gustash 创建，是为 Hyprland 用户封装截图工具的便捷方案。相比手动组合 grim 和 slurp，它提供了更精简的界面。
 
 # INSTALL
 

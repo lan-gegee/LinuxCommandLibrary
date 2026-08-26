@@ -1,34 +1,34 @@
 # TAGLINE
 
-Ghostscript PostScript and PDF interpreter
+Ghostscript PostScript 和 PDF 解释器
 
 # TLDR
 
-**View** a PDF file
+**查看** PDF 文件
 
 ```gs -dQUIET -dBATCH file.pdf```
 
-**Reduce** PDF file size for e-book
+**压缩** PDF 文件体积用于电子书
 
 ```gs -dNOPAUSE -dQUIET -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -sOutputFile=output.pdf input.pdf```
 
-Convert **PDF to JPEG** images
+将 **PDF 转换为 JPEG** 图像
 
 ```gs -dQUIET -dBATCH -dNOPAUSE -sDEVICE=jpeg -r150 -sOutputFile=output_%d.jpg input.pdf```
 
-Convert **specific pages** to images
+将**指定页面**转换为图像
 
 ```gs -dQUIET -dBATCH -dNOPAUSE -sDEVICE=jpeg -dFirstPage=1 -dLastPage=3 -sOutputFile=page%d.jpg input.pdf```
 
-**Merge** PDF files
+**合并** PDF 文件
 
 ```gs -dQUIET -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=merged.pdf file1.pdf file2.pdf```
 
-Convert **PostScript to PDF**
+将 **PostScript 转换为 PDF**
 
 ```gs -dQUIET -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=output.pdf input.ps```
 
-List available **devices**
+列出可用的**设备**
 
 ```gs -h```
 
@@ -39,60 +39,60 @@ List available **devices**
 # PARAMETERS
 
 **-sDEVICE=DEVICE**
-> Select output device (pdfwrite, jpeg, png16m, etc.)
+> 选择输出设备（pdfwrite、jpeg、png16m 等）
 
 **-sOutputFile=FILE**
-> Specify output filename (use %d for page numbers)
+> 指定输出文件名（用 %d 表示页码）
 
 **-o FILE**
-> Shorthand for -sOutputFile=FILE that also implies -dNOPAUSE and -dBATCH
+> -sOutputFile=FILE 的简写，同时隐含 -dNOPAUSE 和 -dBATCH
 
-**-r RES or -rXRESxYRES**
-> Set output resolution in DPI
+**-r RES 或 -rXRESxYRES**
+> 设置输出分辨率（DPI）
 
 **-dPDFSETTINGS=SETTING**
-> PDF quality preset (/screen, /ebook, /printer, /prepress)
+> PDF 质量预设（/screen、/ebook、/printer、/prepress）
 
 **-dNOPAUSE**
-> Do not pause between pages
+> 页面之间不暂停
 
 **-dBATCH**
-> Exit after processing files
+> 处理完文件后退出
 
-**-dQUIET or -q**
-> Suppress normal output messages
+**-dQUIET 或 -q**
+> 抑制常规输出消息
 
 **-dSAFER**
-> Restrict file operations (default)
+> 限制文件操作（默认）
 
 **-dFirstPage=N**
-> Start from page N
+> 从第 N 页开始
 
 **-dLastPage=N**
-> Process through page N
+> 处理到第 N 页为止
 
 **-sPAPERSIZE=SIZE**
-> Set paper size (a4, letter, legal, etc.)
+> 设置纸张大小（a4、letter、legal 等）
 
 **-I DIRECTORIES**
-> Add library search paths
+> 添加库搜索路径
 
-**-h or -?**
-> Display help and available devices
+**-h 或 -?**
+> 显示帮助和可用设备
 
 # DESCRIPTION
 
-**gs** (Ghostscript) is an interpreter for Adobe PostScript and PDF languages. It can convert between formats, render to various output devices, and process PDF and PostScript files.
+**gs**（Ghostscript）是 Adobe PostScript 和 PDF 语言的解释器。它可以进行格式转换、渲染到各种输出设备，以及处理 PDF 和 PostScript 文件。
 
-Ghostscript is widely used for PDF manipulation including merging, splitting, compressing, and converting to image formats. The -dPDFSETTINGS preset controls quality and file size: /screen (lowest), /ebook, /printer, /prepress (highest).
+Ghostscript 广泛用于 PDF 操作，包括合并、拆分、压缩和转换为图像格式。-dPDFSETTINGS 预设控制质量与文件大小：/screen（最低）、/ebook、/printer、/prepress（最高）。
 
 # CAVEATS
 
-The available devices depend on your Ghostscript installation. Use gs -h to see installed devices. PDFSETTINGS presets affect quality and file size significantly.
+可用设备取决于所安装的 Ghostscript。使用 gs -h 查看已安装的设备。PDFSETTINGS 预设对质量和文件大小的影响很大。
 
 # HISTORY
 
-**Ghostscript** has been developed since 1986, providing free PostScript and PDF interpretation. It is widely used for PDF manipulation on Linux systems.
+**Ghostscript** 自 1986 年开始开发，免费提供 PostScript 和 PDF 解释功能。它在 Linux 系统上被广泛用于 PDF 操作。
 
 # INSTALL
 

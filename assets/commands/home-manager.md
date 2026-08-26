@@ -1,46 +1,46 @@
 # TAGLINE
 
-nix-based tool for managing user environment configuration declaratively
+基于 Nix 的工具，以声明式方式管理用户环境配置
 
 # TLDR
 
-**Apply home configuration** from default location
+**从默认位置应用 home 配置**
 
 ```home-manager switch```
 
-**Apply a specific flake** configuration
+**应用指定的 flake 配置**
 
 ```home-manager switch --flake [.#username]```
 
-**Initialize** a new flake-based configuration
+**初始化**新的基于 flake 的配置
 
 ```home-manager init```
 
-**Initialize and immediately activate** the configuration
+**初始化并立即激活**配置
 
 ```home-manager init --switch```
 
-**Build without activating**
+**只构建而不激活**
 
 ```home-manager build```
 
-**List generations** (configuration history)
+**列出各代配置**（配置历史）
 
 ```home-manager generations```
 
-**Rollback to previous generation**
+**回滚到上一代配置**
 
 ```home-manager rollback```
 
-**Remove old generations**
+**删除旧代配置**
 
 ```home-manager expire-generations "[30 days ago]"```
 
-**Edit configuration file**
+**编辑配置文件**
 
 ```home-manager edit```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```home-manager packages```
 
@@ -51,81 +51,81 @@ nix-based tool for managing user environment configuration declaratively
 # PARAMETERS
 
 **switch**
-> Build and activate new configuration.
+> 构建并激活新配置。
 
 **build**
-> Build configuration without activating.
+> 构建配置但不激活。
 
 **init** [_--switch_] [_dir_]
-> Generate an initial Home Manager configuration. Use **--switch** to also activate it.
+> 生成初始的 Home Manager 配置。使用 **--switch** 可同时激活它。
 
 **generations**
-> List all configuration generations.
+> 列出所有配置代。
 
 **rollback**
-> Revert to previous generation.
+> 回滚到上一代配置。
 
 **expire-generations** _period_
-> Remove generations older than period.
+> 删除早于指定时期的各代配置。
 
 **remove-generations** _IDs_
-> Remove specific generations by ID.
+> 按 ID 删除特定的配置代。
 
 **edit**
-> Open configuration in $EDITOR.
+> 在 $EDITOR 中打开配置。
 
 **news**
-> Show news entries about configuration.
+> 显示关于配置的更新公告。
 
 **packages**
-> List installed packages.
+> 列出已安装的软件包。
 
 **uninstall**
-> Remove Home Manager from the user environment.
+> 从用户环境中移除 Home Manager。
 
 **option** _name_
-> Show value of configuration option.
+> 显示某个配置选项的值。
 
 **--flake** _flake-uri_
-> Use flake-based configuration.
+> 使用基于 flake 的配置。
 
 **-f**, **--file** _file_
-> Configuration file path.
+> 配置文件路径。
 
 **-A** _attribute_
-> Attribute to build from configuration.
+> 要从配置构建的属性。
 
 **-b** _ext_
-> Backup file extension for existing files that would be overwritten.
+> 为将被覆盖的现有文件指定备份文件扩展名。
 
 **-n**, **--dry-run**
-> Show what would be done without doing it.
+> 显示将执行的操作但不实际执行。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 增加详细输出。
 
 **--show-trace**
-> Show detailed location information for errors.
+> 显示错误的详细位置信息。
 
 # DESCRIPTION
 
-**home-manager** is a Nix-based tool for managing user environment configuration declaratively. It handles dotfiles, user packages, and environment settings through Nix expressions, enabling reproducible and versionable home directory setups.
+**home-manager** 是一个基于 Nix 的工具，用于以声明式方式管理用户环境配置。它通过 Nix 表达式处理 dotfiles、用户软件包和环境设置，实现可复现、可版本化的家目录设置。
 
-Configuration is written in Nix language, typically in **~/.config/home-manager/home.nix** or as part of a Nix flake. The configuration declares packages to install, programs to configure, files to manage, and services to run.
+配置使用 Nix 语言编写，通常位于 **~/.config/home-manager/home.nix**，或作为 Nix flake 的一部分。配置中声明要安装的软件包、要配置的程序、要管理的文件和要运行的服务。
 
-Many programs have dedicated Home Manager modules that generate configuration files automatically. For example, configuring **programs.git** generates ~/.gitconfig with proper syntax. This is more maintainable than managing dotfiles manually.
+许多程序都有专门的 Home Manager 模块，可自动生成配置文件。例如，配置 **programs.git** 会以正确的语法生成 ~/.gitconfig。这比手动管理 dotfiles 更易维护。
 
-Generations provide configuration history. Each **switch** creates a new generation, and you can roll back to any previous state. This makes experimentation safe - broken configurations can be reverted instantly.
+配置代（generation）提供了配置历史。每次 **switch** 都会创建一个新代，你可以回滚到任何先前的状态。这使得实验很安全——损坏的配置可以立即还原。
 
-Home Manager can run standalone or integrate with NixOS. In standalone mode, it manages the user environment independently. With NixOS, it can be imported as a module for tighter integration.
+Home Manager 可以独立运行，也可以与 NixOS 集成。独立模式下，它独立管理用户环境。在 NixOS 上，它可以作为模块导入以实现更紧密的集成。
 
 # CAVEATS
 
-Requires Nix package manager. Learning curve for Nix language. Some program configurations may conflict with manually managed dotfiles. Flake-based configs need experimental features enabled. Generation management requires manual cleanup to prevent disk usage growth.
+需要 Nix 软件包管理器。Nix 语言有学习曲线。某些程序配置可能与手动管理的 dotfiles 冲突。基于 flake 的配置需要启用实验性特性。配置代管理需要手动清理以防磁盘占用增长。
 
 # HISTORY
 
-**Home Manager** was created by Robert Helgesson (rycee) around **2017** to bring NixOS's declarative configuration approach to user home directories. It filled a gap for users who wanted Nix's reproducibility for their personal environment without running NixOS. The project has grown to include modules for hundreds of programs.
+**Home Manager** 由 Robert Helgesson（rycee）于 **2017 年**前后创建，目的是把 NixOS 的声明式配置方式带到用户的家目录。它填补了一个空白：让那些想要 Nix 可复现性来管理个人环境、但又不想运行 NixOS 的用户有了选择。该项目现已发展为包含数百个程序的模块。
 
 # INSTALL
 

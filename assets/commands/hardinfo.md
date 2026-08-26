@@ -1,22 +1,22 @@
 # TAGLINE
 
-graphical system information and benchmark tool for Linux
+Linux 的图形化系统信息与基准测试工具
 
 # TLDR
 
-**Start the graphical interface**
+**启动图形界面**
 
 ```hardinfo```
 
-**Generate a text report to stdout**
+**生成文本报告输出到标准输出**
 
 ```hardinfo -r```
 
-**Generate an HTML report**
+**生成 HTML 报告**
 
 ```hardinfo -r -f html > [report.html]```
 
-**List available modules**
+**列出可用模块**
 
 ```hardinfo -l```
 
@@ -27,39 +27,39 @@ graphical system information and benchmark tool for Linux
 # PARAMETERS
 
 **-r**, **--generate-report**
-> Generate report to stdout instead of opening GUI
+> 生成报告到标准输出而不是打开 GUI
 
 **-f**, **--report-format** _FORMAT_
-> Report format: text, html, or shell
+> 报告格式：text、html 或 shell
 
 **-m**, **--load-module** _MODULE_
-> Load specific module
+> 加载指定模块
 
 **-a**, **--autoload**
-> Automatically load all modules
+> 自动加载所有模块
 
 **-l**, **--list-modules**
-> List available modules
+> 列出可用模块
 
 # DESCRIPTION
 
-**hardinfo** (Hardware Information) is a graphical system information and benchmark tool for Linux. It displays detailed information about hardware components, software configuration, and system resources.
+**hardinfo**（Hardware Information）是一款面向 Linux 的图形化系统信息与基准测试工具。它显示关于硬件组件、软件配置和系统资源的详细信息。
 
-The GUI organizes information into categories including:
-- **Computer** - Summary, operating system, kernel modules, boots
-- **Devices** - Processor, memory, PCI devices, USB devices, storage
-- **Network** - Interfaces, IP connections, routing table
-- **Benchmarks** - CPU, FPU, and memory performance tests
+GUI 将信息分为以下几个类别：
+- **Computer** - 摘要、操作系统、内核模块、启动记录
+- **Devices** - 处理器、内存、PCI 设备、USB 设备、存储
+- **Network** - 接口、IP 连接、路由表
+- **Benchmarks** - CPU、FPU 和内存性能测试
 
-Reports can be generated for documentation or support purposes in text, HTML, or shell variable formats.
+可以生成文本、HTML 或 shell 变量格式的报告，用于存档或寻求技术支持。
 
 # CAVEATS
 
-Some information requires root privileges. Benchmark results are relative and shouldn't be compared across different hardinfo versions. Hardware detection depends on kernel drivers being loaded.
+某些信息需要 root 权限。基准测试结果是相对值，不应跨不同的 hardinfo 版本进行比较。硬件检测依赖已加载的内核驱动。
 
 # HISTORY
 
-hardinfo was created by Leandro A. F. Pereira and first released in **2003**. It has been a popular system information tool on Linux desktops, providing functionality similar to Windows' System Information utility.
+hardinfo 由 Leandro A. F. Pereira 创建，首次发布于 **2003 年**。它一直是 Linux 桌面上广受欢迎的系统信息工具，提供的功能与 Windows 的系统信息实用程序类似。
 
 # INSTALL
 

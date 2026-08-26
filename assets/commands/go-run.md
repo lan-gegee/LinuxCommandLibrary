@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compile and run Go programs
+编译并运行 Go 程序
 
 # TLDR
 
-**Run Go file**
+**运行 Go 文件**
 
 ```go run [main.go]```
 
-**Run package**
+**运行包**
 
 ```go run .```
 
-**Run with arguments**
+**带参数运行**
 
 ```go run [main.go] [arg1] [arg2]```
 
-**Run multiple files**
+**运行多个文件**
 
 ```go run [main.go] [helper.go]```
 
@@ -27,33 +27,33 @@ Compile and run Go programs
 # PARAMETERS
 
 _PACKAGE_
-> Go files or package to run.
+> 要运行的 Go 文件或包。
 
 _ARGUMENTS_
-> Arguments passed to program.
+> 传递给程序的参数。
 
 **-race**
-> Enable race detector.
+> 启用竞态检测器。
 
 **-exec** _CMD_
-> Execution wrapper.
+> 执行包装器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**go run** compiles and runs a Go program in one step. It compiles to a temporary location and executes immediately, making it useful for rapid development and testing without creating a persistent binary.
+**go run** 用一步完成 Go 程序的编译和运行。它会把程序编译到临时位置并立即执行，因此非常适合快速开发和测试，而无需生成持久的二进制文件。
 
-Any arguments after the package name are passed to the program. Standard build flags like `-race` and `-ldflags` are supported.
+包名之后的任何参数都会传递给程序。支持 `-race` 和 `-ldflags` 等标准构建标志。
 
 # CAVEATS
 
-Slower than running compiled binary. Temporary binary not retained. Useful for development.
+比直接运行已编译的二进制文件慢。临时二进制文件不会被保留。适合开发阶段使用。
 
 # HISTORY
 
-go run is part of the **Go** toolchain, providing convenient rapid iteration during development.
+go run 是 **Go** 工具链的一部分，为开发过程中的快速迭代提供便利。
 
 # INSTALL
 

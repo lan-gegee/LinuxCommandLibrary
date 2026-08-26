@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages IBM Cloud CLI configuration
+管理 IBM Cloud CLI 配置
 
 # TLDR
 
-**Show configuration**
+**显示配置**
 
 ```ibmcloud config --list```
 
-**Set HTTP timeout**
+**设置 HTTP 超时**
 
 ```ibmcloud config --http-timeout [60]```
 
-**Set trace**
+**设置跟踪**
 
 ```ibmcloud config --trace [true]```
 
-**Set color output**
+**设置彩色输出**
 
 ```ibmcloud config --color [true]```
 
-**Set locale**
+**设置区域设置**
 
 ```ibmcloud config --locale [en_US]```
 
@@ -31,39 +31,39 @@ manages IBM Cloud CLI configuration
 # PARAMETERS
 
 **--list**
-> Show all settings.
+> 显示所有设置。
 
 **--http-timeout** _SEC_
-> HTTP timeout.
+> HTTP 超时。
 
 **--trace** _BOOL_
-> Enable tracing.
+> 启用跟踪。
 
 **--color** _BOOL_
-> Color output.
+> 彩色输出。
 
 **--locale** _LOCALE_
-> Output locale.
+> 输出区域设置。
 
 **--check-version** _BOOL_
-> Version check.
+> 版本检查。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ibmcloud config** manages IBM Cloud CLI configuration. It sets options for timeouts, output formatting, and behavior.
+**ibmcloud config** 管理 IBM Cloud CLI 的配置。它用于设置超时、输出格式和行为等选项。
 
-The command stores settings for the current user. Settings persist across sessions and affect all ibmcloud commands.
+该命令存储当前用户的设置。设置在多个会话之间持久保存，并影响所有 ibmcloud 命令。
 
 # CAVEATS
 
-User-specific settings. Some settings require restart. Part of ibmcloud CLI.
+设置为用户级别。某些设置需要重启后生效。属于 ibmcloud CLI 的一部分。
 
 # HISTORY
 
-ibmcloud config is part of the **IBM Cloud** CLI configuration system.
+ibmcloud config 是 **IBM Cloud** CLI 配置系统的组成部分。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-queries and changes the system hostname and related machine metadata
+查询和更改系统主机名及相关机器元数据
 
 # TLDR
 
-Show current **hostname** information
+显示当前**主机名**信息
 
 ```hostnamectl```
 
-Set the **hostname**
+设置**主机名**
 
 ```sudo hostnamectl set-hostname "hostname"```
 
-Set **static and pretty** hostnames
+设置**静态与友好**主机名
 
 ```sudo hostnamectl set-hostname --static "hostname.example.com" && sudo hostnamectl set-hostname --pretty "My Computer"```
 
-Reset **pretty hostname** to default
+将**友好主机名**重置为默认
 
 ```sudo hostnamectl set-hostname --pretty ""```
 
-Set **chassis type**
+设置**机箱类型**
 
 ```sudo hostnamectl set-chassis desktop```
 
-Set **deployment environment**
+设置**部署环境**
 
 ```sudo hostnamectl set-deployment production```
 
@@ -34,67 +34,67 @@ Set **deployment environment**
 
 # DESCRIPTION
 
-**hostnamectl** queries and changes the system hostname and related machine metadata. It manages three hostname types: static (persistent), pretty (human-readable), and transient (temporary).
+**hostnamectl** 查询并更改系统主机名及相关机器元数据。它管理三种主机名：静态（持久化）、友好（人类可读）和瞬态（临时）。
 
 # COMMANDS
 
 **status**
-> Show current hostname and machine information
+> 显示当前的主机名和机器信息
 
 **hostname [NAME]**
-> Get or set the system hostname
+> 获取或设置系统主机名
 
 **set-hostname NAME**
-> Set the system hostname
+> 设置系统主机名
 
 **set-chassis TYPE**
-> Set the chassis type (desktop, laptop, server, vm, container, etc.)
+> 设置机箱类型（desktop、laptop、server、vm、container 等）
 
 **set-deployment ENV**
-> Set deployment environment (development, production, etc.)
+> 设置部署环境（development、production 等）
 
 **set-location LOC**
-> Set physical location of the machine
+> 设置机器的物理位置
 
 **set-icon-name NAME**
-> Set icon name for graphical UIs
+> 为图形界面设置图标名称
 
 # PARAMETERS
 
 **--static**
-> Operate on static hostname only
+> 仅操作静态主机名
 
 **--transient**
-> Operate on transient hostname only
+> 仅操作瞬态主机名
 
 **--pretty**
-> Operate on pretty hostname only
+> 仅操作友好主机名
 
 **--no-ask-password**
-> Do not prompt for password
+> 不提示输入密码
 
 **-H, --host**
-> Execute operation on remote host
+> 在远程主机上执行操作
 
 **-M, --machine**
-> Execute operation on container
+> 在容器上执行操作
 
 **-j, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 # HOSTNAME TYPES
 
-**Static**: Stored in /etc/hostname, survives reboots
-**Transient**: Temporary, set by DHCP or mDNS
-**Pretty**: Free-form UTF-8 name for display purposes
+**Static**: 保存在 /etc/hostname，重启后保留
+**Transient**: 临时的，由 DHCP 或 mDNS 设置
+**Pretty**: 用于显示的自由格式 UTF-8 名称
 
 # CAVEATS
 
-The static hostname should be a single valid DNS label (no spaces, only alphanumeric and hyphens). The pretty hostname can contain any characters and is for display only.
+静态主机名应为单个有效的 DNS 标签（不含空格，只能使用字母数字和连字符）。友好主机名可以包含任意字符，仅用于显示。
 
 # HISTORY
 
-**hostnamectl** is part of **systemd**, providing unified hostname management through systemd-hostnamed.
+**hostnamectl** 是 **systemd** 的一部分，通过 systemd-hostnamed 提供统一的主机名管理。
 
 # INSTALL
 

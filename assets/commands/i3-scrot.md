@@ -1,34 +1,34 @@
 # TAGLINE
 
-Wrapper script around scrot for the i3 window manager
+为 i3 窗口管理器封装的 scrot 包装脚本
 
 # TLDR
 
-Capture **full screen** screenshot
+截取**全屏**截图
 
 ```i3-scrot```
 
-Capture the **active window**
+截取**活动窗口**
 
 ```i3-scrot --window```
 
-Capture a **selected region**
+截取**选定区域**
 
 ```i3-scrot --select```
 
-Capture full screen and copy to **clipboard**
+截取全屏并复制到**剪贴板**
 
 ```i3-scrot --xclip --desk```
 
-Capture active window and copy to **clipboard**
+截取活动窗口并复制到**剪贴板**
 
 ```i3-scrot --xclip --window```
 
-Capture selection and copy to **clipboard**
+截取选定区域并复制到**剪贴板**
 
 ```i3-scrot --xclip --select```
 
-Capture full screen with a **delay** in seconds
+带**延迟**（秒）截取全屏
 
 ```i3-scrot --desk [5]```
 
@@ -39,33 +39,33 @@ Capture full screen with a **delay** in seconds
 # PARAMETERS
 
 **-d**, **--desk**
-> Capture the full screen (default action).
+> 截取全屏（默认动作）。
 
 **-w**, **--window**
-> Capture the currently active window.
+> 截取当前活动窗口。
 
 **-s**, **--select**
-> Capture a user-selected rectangular region.
+> 截取用户选择的矩形区域。
 
 **-x**, **--xclip**
-> Copy the screenshot to the clipboard instead of only saving to file.
+> 将截图复制到剪贴板，而不只是保存为文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**i3-scrot** is a wrapper script around the scrot screenshot utility, designed for use with the i3 window manager. It provides convenient options for common screenshot operations and sends desktop notifications on completion.
+**i3-scrot** 是围绕 scrot 截图工具的包装脚本，专为配合 i3 窗口管理器使用而设计。它为常见的截图操作提供了便捷选项，并在完成后发送桌面通知。
 
-Screenshots are saved to **~/Pictures** by default. The save location and other settings can be changed in **~/.config/i3-scrot.conf**. The default action without any flags is full screen capture.
+截图默认保存到 **~/Pictures**。保存位置及其他设置可在 **~/.config/i3-scrot.conf** 中修改。不带任何标志时的默认动作是全屏截图。
 
 # CAVEATS
 
-Requires scrot and xclip to be installed. Designed for i3/Manjaro but works with other X11 window managers. Does not work with Wayland; use grim or hyprshot instead.
+需要安装 scrot 和 xclip。虽然为 i3/Manjaro 设计，但也可在其他 X11 窗口管理器下工作。不支持 Wayland；请改用 grim 或 hyprshot。
 
 # HISTORY
 
-i3-scrot was developed by Manjaro Linux as part of their i3 edition, providing convenient screenshot functionality integrated with the i3 window manager workflow.
+i3-scrot 由 Manjaro Linux 开发，是其 i3 版本的一部分，提供与 i3 窗口管理器工作流集成的便捷截图功能。
 
 # INSTALL
 

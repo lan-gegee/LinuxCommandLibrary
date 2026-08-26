@@ -1,14 +1,14 @@
 # TAGLINE
 
-ends the current IBM Cloud CLI session
+结束当前的 IBM Cloud CLI 会话
 
 # TLDR
 
-**Logout from IBM Cloud**
+**从 IBM Cloud 注销**
 
 ```ibmcloud logout```
 
-**Logout and clear cache**
+**注销并清除缓存**
 
 ```ibmcloud logout -a```
 
@@ -19,24 +19,24 @@ ends the current IBM Cloud CLI session
 # PARAMETERS
 
 **-a**, **--all**
-> Clear all cached data.
+> 清除所有缓存数据。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ibmcloud logout** ends the current IBM Cloud CLI session. It removes stored credentials and tokens.
+**ibmcloud logout** 结束当前的 IBM Cloud CLI 会话。它会移除存储的凭据和令牌。
 
-The command clears authentication state locally. Use before switching accounts or for security.
+该命令在本地清除认证状态。切换账户前或出于安全考虑时使用。
 
 # CAVEATS
 
-Local credentials only. API keys remain valid. Re-login required after.
+仅影响本地凭据。API 密钥仍然有效。之后需要重新登录。
 
 # HISTORY
 
-ibmcloud logout is part of the **IBM Cloud** CLI authentication system.
+ibmcloud logout 是 **IBM Cloud** CLI 身份验证系统的组成部分。
 
 # SEE ALSO
 

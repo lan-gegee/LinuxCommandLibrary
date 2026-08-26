@@ -1,38 +1,38 @@
 # TAGLINE
 
-Simple command line media playback tool using GStreamer
+基于 GStreamer 的简单命令行媒体播放工具
 
 # TLDR
 
-**Play a media file**
+**播放媒体文件**
 
 ```gst-play-1.0 [path/to/file.mp4]```
 
-**Play multiple files**
+**播放多个文件**
 
 ```gst-play-1.0 [file1.mp3] [file2.mp3] [file3.mp3]```
 
-**Play all media files in a directory** recursively
+递归**播放目录中的所有媒体文件**
 
 ```gst-play-1.0 [path/to/directory]```
 
-**Play a file with a specific video sink**
+**使用指定的视频输出端播放文件**
 
 ```gst-play-1.0 --videosink=ximagesink [path/to/file.mp4]```
 
-**Play files in shuffle order**
+**随机顺序播放文件**
 
 ```gst-play-1.0 --shuffle [file1.mp3] [file2.mp3] [file3.mp3]```
 
-**Play a file with gapless playback enabled**
+**启用无缝播放模式播放文件**
 
 ```gst-play-1.0 --gapless [file1.mp3] [file2.mp3]```
 
-**Play a stream from a URI**
+**播放 URI 流**
 
 ```gst-play-1.0 [https://example.com/stream.mp3]```
 
-**Play a file at half volume**
+**以一半音量播放文件**
 
 ```gst-play-1.0 --volume=0.5 [path/to/file.mp3]```
 
@@ -43,49 +43,49 @@ Simple command line media playback tool using GStreamer
 # PARAMETERS
 
 **--audiosink=**_SINK_
-> Use the specified audio sink instead of **autoaudiosink**.
+> 使用指定的音频输出端代替 **autoaudiosink**。
 
 **--videosink=**_SINK_
-> Use the specified video sink instead of **autovideosink**.
+> 使用指定的视频输出端代替 **autovideosink**。
 
 **--volume=**_VOLUME_
-> Set initial playback volume. **0.0** is silent, **1.0** is unchanged (default).
+> 设置初始播放音量。**0.0** 为静音，**1.0** 为不改变音量（默认）。
 
 **--shuffle**
-> Play files in random order.
+> 随机顺序播放文件。
 
 **--no-interactive**
-> Disable interactive keyboard control.
+> 禁用交互式键盘控制。
 
 **--gapless**
-> Enable gapless (seamless) playback between tracks.
+> 启用曲目之间的无缝（gapless）播放。
 
 **-v**, **--verbose**
-> Output status information and property notifications.
+> 输出状态信息和属性通知。
 
 **-q**, **--quiet**
-> Suppress all output except errors.
+> 抑制除错误外的所有输出。
 
 **--use-playbin3**
-> Use the playbin3 pipeline instead of the default playbin.
+> 使用 playbin3 流水线代替默认的 playbin。
 
 **--wait-on-eos**
-> Keep the last video frame displayed after playback ends instead of closing.
+> 播放结束后保持最后一帧视频显示，而不是直接关闭。
 
 **--flags**
-> Control playback behavior via the playbin **flags** property.
+> 通过 playbin 的 **flags** 属性控制播放行为。
 
 **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **--help**
-> Show available options and exit.
+> 显示可用选项并退出。
 
 # DESCRIPTION
 
-**gst-play-1.0** is a command line playback testing tool that uses GStreamer's **playbin** element to play audio and video files. It accepts individual files, directories (which are traversed recursively), and URIs as input.
+**gst-play-1.0** 是一款命令行播放测试工具，它使用 GStreamer 的 **playbin** 元素来播放音频和视频文件。它接受单个文件、目录（会递归遍历）和 URI 作为输入。
 
-The tool provides interactive keyboard controls during playback for pausing, seeking, adjusting volume, changing playback speed, and switching between audio, video, and subtitle tracks. It supports gapless playback for seamless transitions between tracks and can play media from local files or network streams.
+该工具在播放期间提供交互式键盘控制，可用于暂停、跳转、调节音量、改变播放速度，以及在音频、视频和字幕轨道之间切换。它支持无缝播放以实现曲目间的平滑过渡，并能播放本地文件或网络流中的媒体。
 
 # INTERACTIVE CONTROLS
 
@@ -107,11 +107,11 @@ Q or ESC  Quit
 
 # CAVEATS
 
-**gst-play-1.0** is intended as a testing and debugging tool rather than a full-featured media player. Playback capabilities depend entirely on which GStreamer plugins are installed on the system. Missing codecs will result in playback errors. Interactive keyboard controls require a terminal and are disabled when stdin is not a TTY.
+**gst-play-1.0** 定位为测试与调试工具，而非功能完备的媒体播放器。播放能力完全取决于系统上安装了哪些 GStreamer 插件。缺少编解码器会导致播放错误。交互式键盘控制需要终端，当 stdin 不是 TTY 时将被禁用。
 
 # HISTORY
 
-**gst-play-1.0** was introduced as part of the **GStreamer** multimedia framework's base plugins. GStreamer itself was created by **Erik Walthinsen** in **1999** and has grown into the standard multimedia framework on Linux. The play tool provides a simple way to test playback pipelines without constructing them manually via **gst-launch-1.0**. It replaced the older **gst-play-0.10** tool when GStreamer transitioned to the 1.x series in **2012**.
+**gst-play-1.0** 作为 **GStreamer** 多媒体框架基础插件的一部分推出。GStreamer 本身由 **Erik Walthinsen** 于 **1999 年**创建，如今已发展为 Linux 上标准的多媒体框架。play 工具提供了一种简单的方式来测试播放流水线，无需通过 **gst-launch-1.0** 手工构建。当 GStreamer 在 **2012 年**过渡到 1.x 系列时，它取代了较旧的 **gst-play-0.10** 工具。
 
 # INSTALL
 

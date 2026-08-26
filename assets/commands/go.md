@@ -1,26 +1,26 @@
 # TAGLINE
 
-Go programming language toolchain
+Go 编程语言工具链
 
 # TLDR
 
-**Run a program**
+**运行程序**
 
 ```go run [main.go]```
 
-**Build an executable**
+**构建可执行文件**
 
 ```go build```
 
-**Run tests**
+**运行测试**
 
 ```go test```
 
-**Download dependencies**
+**下载依赖**
 
 ```go mod download```
 
-**Format code**
+**格式化代码**
 
 ```go fmt ./...```
 
@@ -31,68 +31,68 @@ Go programming language toolchain
 # PARAMETERS
 
 **build**
-> Compile packages and dependencies.
+> 编译包及其依赖。
 
 **run**
-> Compile and run program.
+> 编译并运行程序。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **mod**
-> Module maintenance.
+> 模块维护。
 
 **get**
-> Download and install packages.
+> 下载并安装包。
 
 **fmt**
-> Format source code.
+> 格式化源码。
 
 **vet**
-> Report likely mistakes.
+> 报告疑似错误。
 
 **doc**
-> Show documentation.
+> 显示文档。
 
 **install**
-> Compile and install packages.
+> 编译并安装包。
 
 **generate**
-> Run code generators.
+> 运行代码生成器。
 
 **clean**
-> Remove build cache and binaries.
+> 移除构建缓存和二进制文件。
 
 **env**
-> Print Go environment variables.
+> 打印 Go 环境变量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**go** is the tool for managing Go source code. It provides commands for building, testing, running, and managing Go programs and modules.
+**go** 是用于管理 Go 源码的工具。它提供建构、测试、运行和管理 Go 程序与模块的各种命令。
 
-The tool handles compilation, dependency management, testing, and code quality. Go modules provide versioned dependency management. The toolchain is self-contained and produces statically linked binaries by default.
+该工具负责编译、依赖管理、测试和代码质量。Go modules 提供带版本的依赖管理。工具链自成一体，默认生成静态链接的二进制文件。
 
 # CONFIGURATION
 
 **go.mod**
-> Module definition file specifying module path, Go version, and dependencies.
+> 模块定义文件，指定模块路径、Go 版本和依赖。
 
 **go.sum**
-> Cryptographic checksums of module dependencies for verification.
+> 用于验证的模块依赖加密校验和。
 
 **$GOPATH**
-> Workspace directory for Go source and binaries (default: ~/go).
+> 存放 Go 源码和二进制文件的工作区目录（默认：~/go）。
 
 # CAVEATS
 
-Requires GOPATH or modules. Cross-compilation built-in. CGO may need additional setup.
+需要 GOPATH 或 modules。内置交叉编译支持。CGO 可能需要额外配置。
 
 # HISTORY
 
-Go was created at **Google** by **Robert Griesemer, Rob Pike, and Ken Thompson** in **2007**, released publicly in **2009**.
+Go 由 **Robert Griesemer、Rob Pike 和 Ken Thompson** 于 **2007 年**在 **Google** 创造，**2009 年**公开发布。
 
 # INSTALL
 

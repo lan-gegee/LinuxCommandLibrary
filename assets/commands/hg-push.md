@@ -1,30 +1,30 @@
 # TAGLINE
 
-sends local changesets to a remote repository
+将本地变更集推送到远程仓库
 
 # TLDR
 
-**Push to default remote**
+**推送到默认远程**
 
 ```hg push```
 
-**Push to specific URL**
+**推送到指定 URL**
 
 ```hg push [url]```
 
-**Push specific branch**
+**推送特定分支**
 
 ```hg push -b [branch]```
 
-**Push specific revision**
+**推送特定修订版本**
 
 ```hg push -r [revision]```
 
-**Force push**
+**强制推送**
 
 ```hg push -f```
 
-**Push new branch**
+**推送新分支**
 
 ```hg push --new-branch```
 
@@ -35,39 +35,39 @@ sends local changesets to a remote repository
 # PARAMETERS
 
 _DEST_
-> Destination repository.
+> 目标仓库。
 
 **-b**, **--branch** _BRANCH_
-> Push specific branch.
+> 推送特定分支。
 
 **-r**, **--rev** _REV_
-> Push up to revision.
+> 推送到指定修订版本为止。
 
 **-f**, **--force**
-> Force push.
+> 强制推送。
 
 **--new-branch**
-> Allow pushing new branches.
+> 允许推送新分支。
 
 **-B**, **--bookmark** _NAME_
-> Push bookmark.
+> 推送书签。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg push** sends local changesets to a remote repository. It transfers committed changes that the remote doesn't have.
+**hg push** 将本地变更集发送到远程仓库。它传输远程所没有的已提交更改。
 
-The command verifies the push won't create multiple heads unless forced. It supports pushing specific branches or revisions.
+该命令会验证推送不会产生多个头（head），除非强制执行。它支持推送特定的分支或修订版本。
 
 # CAVEATS
 
-Cannot push uncommitted changes. Force push can cause issues. Remote hooks may reject.
+无法推送未提交的更改。强制推送可能引发问题。远端钩子可能会拒绝推送。
 
 # HISTORY
 
-Push is a core **Mercurial** command for distributed collaboration since version 1.0.
+push 是 **Mercurial** 自 1.0 版本以来用于分布式协作的核心命令。
 
 # INSTALL
 

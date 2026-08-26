@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays directory contents in tree format using GVFS
+使用 GVFS 以树状格式显示目录内容
 
 # TLDR
 
-**Show directory tree**
+**显示目录树**
 
 ```gvfs-tree [directory]```
 
-**Show remote tree**
+**显示远程目录树**
 
 ```gvfs-tree smb://server/share/```
 
-**Show hidden files**
+**显示隐藏文件**
 
 ```gvfs-tree -h [directory]```
 
-**Follow symlinks**
+**跟随符号链接**
 
 ```gvfs-tree -l [directory]```
 
@@ -27,30 +27,30 @@ displays directory contents in tree format using GVFS
 # PARAMETERS
 
 _LOCATION_
-> Directory path or URI.
+> 目录路径或 URI。
 
 **-h**, **--hidden**
-> Show hidden files.
+> 显示隐藏文件。
 
 **-l**, **--follow-symlinks**
-> Follow symbolic links, mounts and shortcuts.
+> 跟随符号链接、挂载点和快捷方式。
 
 **-?**, **--help**
-> Print a short help text and exit.
+> 打印简短帮助文本并退出。
 
 # DESCRIPTION
 
-**gvfs-tree** displays directory contents in tree format using GVFS. It shows hierarchical structure of local and remote directories.
+**gvfs-tree** 使用 GVFS 以树状格式显示目录内容。它可以显示本地和远程目录的层次结构。
 
-The tool visualizes directory trees across GVFS backends, providing a unified view of local and networked filesystems.
+该工具可在 GVFS 各后端之间可视化目录树，为本地和网络文件系统提供统一的视图。
 
 # CAVEATS
 
-Part of the gvfs-bin command-line tools, deprecated in gvfs 1.31 (2016) and removed entirely in gvfs 1.38 (2018) in favor of the unified **gio** command (`gio tree`). Modern distributions no longer ship gvfs-tree. Large or deeply nested remote trees may be slow to enumerate.
+属于 gvfs-bin 命令行工具集，在 gvfs 1.31（2016 年）中被弃用，并在 gvfs 1.38（2018 年）中被完全移除，由统一的 **gio** 命令（`gio tree`）取代。现代发行版不再附带 gvfs-tree。大型或嵌套很深的远程目录树枚举起来可能很慢。
 
 # HISTORY
 
-**gvfs-tree** was part of GVFS's original gvfs-bin utilities, introduced for GNOME alongside GVFS in **2008** (GNOME 2.22). It has since been superseded by **gio tree**.
+**gvfs-tree** 是 GVFS 原始 gvfs-bin 实用工具的一部分，于 **2008 年**（GNOME 2.22）随 GVFS 一同为 GNOME 引入。此后被 **gio tree** 取代。
 
 # SEE ALSO
 

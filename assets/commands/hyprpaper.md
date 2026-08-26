@@ -1,34 +1,34 @@
 # TAGLINE
 
-official wallpaper utility for Hyprland
+Hyprland 官方的壁纸工具
 
 # TLDR
 
-Start the **hyprpaper service**
+启动 **hyprpaper 服务**
 
 ```hyprpaper```
 
-**Preload** a wallpaper
+**预加载**一张壁纸
 
 ```hyprctl hyprpaper preload "[path/to/image.png]"```
 
-**Switch wallpaper** to a different preloaded image
+将壁纸**切换**为另一张已预加载的图片
 
 ```hyprctl hyprpaper wallpaper "[monitor],[path/to/image.png]"```
 
-**Reload** wallpaper (set/change without preloading first)
+**重载**壁纸（无需先预加载即可设置/更换）
 
 ```hyprctl hyprpaper reload "[monitor],[path/to/image.png]"```
 
-Set wallpaper on **all monitors** (empty monitor field)
+在**所有显示器**上设置壁纸（monitor 字段留空）
 
 ```hyprctl hyprpaper wallpaper ",[path/to/image.png]"```
 
-**Unload** all preloaded wallpapers
+**卸载**所有已预加载的壁纸
 
 ```hyprctl hyprpaper unload all```
 
-List **preloaded** wallpapers
+列出**已预加载**的壁纸
 
 ```hyprctl hyprpaper listloaded```
 
@@ -36,47 +36,47 @@ List **preloaded** wallpapers
 
 **hyprpaper**
 
-Control via: **hyprctl hyprpaper** _command_ [_arguments_]
+通过以下方式控制：**hyprctl hyprpaper** _command_ [_arguments_]
 
 # PARAMETERS
 
 **preload** _PATH_
-> Load wallpaper into memory for quick switching
+> 将壁纸载入内存以便快速切换
 
 **wallpaper** _MONITOR,PATH_
-> Set wallpaper on specified monitor
+> 在指定显示器上设置壁纸
 
 **reload** _MONITOR,PATH_
-> Preload, set, and unload unused wallpapers
+> 预加载、设置并卸载不再使用的壁纸
 
 **unload** _PATH_
-> Remove wallpaper from memory
+> 将壁纸从内存中移除
 
 **listloaded**
-> Show preloaded wallpapers
+> 显示已预加载的壁纸
 
 **listactive**
-> Show active wallpapers per monitor
+> 显示各显示器当前使用的壁纸
 
 # DESCRIPTION
 
-**hyprpaper** is the official wallpaper utility for Hyprland. It runs as a background service and allows dynamic wallpaper changes without restarting.
+**hyprpaper** 是 Hyprland 官方的壁纸工具。它以后台服务形式运行，支持在不重启的情况下动态更换壁纸。
 
-Configuration is stored in **~/.config/hypr/hyprpaper.conf** with directives:
+配置存储在 **~/.config/hypr/hyprpaper.conf** 中，使用如下指令：
 ```
 preload = /path/to/image.png
 wallpaper = monitor,/path/to/image.png
 ```
 
-The preload system allows fast wallpaper switching by keeping images in memory. Use **listloaded** to track memory usage and **unload** to free unused wallpapers.
+预加载系统通过将图片保存在内存中来实现快速切换壁纸。使用 **listloaded** 跟踪内存占用，使用 **unload** 释放不用的壁纸。
 
 # CAVEATS
 
-Requires Hyprland to be running. Preloaded wallpapers consume memory. Large images or many preloaded wallpapers can impact system resources. Monitor names must match Hyprland output names.
+需要 Hyprland 正在运行。预加载的壁纸会占用内存。大图片或大量预加载壁纸可能影响系统资源。显示器名称必须与 Hyprland 的输出名称一致。
 
 # HISTORY
 
-hyprpaper was created as part of the Hyprland ecosystem by Vaxry. It provides wallpaper functionality specifically designed for Hyprland's Wayland implementation, with IPC integration for dynamic control.
+hyprpaper 由 Vaxry 作为 Hyprland 生态的一部分创建。它专为 Hyprland 的 Wayland 实现提供壁纸功能，并通过 IPC 集成实现动态控制。
 
 # INSTALL
 

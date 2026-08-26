@@ -1,18 +1,18 @@
 # TAGLINE
 
-compile custom key bindings for the GNU Info reader
+为 GNU Info 阅读器编译自定义键绑定
 
 # TLDR
 
-**Compile the default key bindings file**
+**编译默认键绑定文件**
 
 ```infokey```
 
-**Compile a specific input file**
+**编译指定的输入文件**
 
 ```infokey [path/to/file]```
 
-**Compile and output to a specific file**
+**编译并输出到指定文件**
 
 ```infokey -o [path/to/output] [path/to/input]```
 
@@ -23,30 +23,30 @@ compile custom key bindings for the GNU Info reader
 # PARAMETERS
 
 _FILE_
-> Input file (default $HOME/.infokey).
+> 输入文件（默认为 $HOME/.infokey）。
 
 **-o** _FILE_
-> Output compiled key file (default $HOME/.info).
+> 输出编译后的键文件（默认为 $HOME/.info）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**infokey** compiles a source file containing custom key bindings and variable settings for the GNU Info reader into a binary format. It reads $HOME/.infokey by default and writes the compiled output to $HOME/.info.
+**infokey** 把包含 GNU Info 阅读器自定义键绑定和变量设置的源文件编译成二进制格式。它默认读取 $HOME/.infokey，并将编译结果写入 $HOME/.info。
 
-The input file contains sections for defining key sequences and their associated actions. The **#info** section defines key bindings for Info windows, the **#echo-area** section defines bindings for the echo area, and the **#var** section sets Info variables. Custom bindings override the default Info navigation keys.
+输入文件包含若干区段，用于定义按键序列及其关联的动作。**#info** 区段定义 Info 窗口的键绑定，**#echo-area** 区段定义回显区的绑定，**#var** 区段设置 Info 变量。自定义绑定会覆盖 Info 默认的导航键。
 
 # CAVEATS
 
-The input file format is specific to Info and uses a custom syntax. The binary output is not human-readable. Requires the GNU Info reader to use the compiled bindings. In newer versions of Texinfo (6.0+), the infokey command was deprecated and the Info reader can read the .infokey text file directly without compilation.
+输入文件格式为 Info 专用，使用自定义语法。二进制输出不可读。需要配合 GNU Info 阅读器才能使用编译后的绑定。在较新版本的 Texinfo（6.0+）中，infokey 命令已被弃用，Info 阅读器可以直接读取 .infokey 文本文件而无需编译。
 
 # HISTORY
 
-infokey is part of the **GNU Texinfo** package. It was introduced to allow customization of Info reader key bindings. In **Texinfo 6.0** (2015), the standalone infokey command was deprecated as the Info reader gained the ability to read the .infokey source file directly.
+infokey 是 **GNU Texinfo** 软件包的一部分，用于自定义 Info 阅读器的键绑定。在 **Texinfo 6.0**（2015 年）中，独立的 infokey 命令被弃用，因为 Info 阅读器已能直接读取 .infokey 源文件。
 
 # SEE ALSO
 

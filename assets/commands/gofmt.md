@@ -1,34 +1,34 @@
 # TAGLINE
 
-Go source code formatter
+Go 源代码格式化工具
 
 # TLDR
 
-**Format a Go file** and print to stdout
+**格式化 Go 文件**并打印到标准输出
 
 ```gofmt [file.go]```
 
-**Format and overwrite** the original file
+**格式化并覆盖**原文件
 
 ```gofmt -w [file.go]```
 
-**Format all Go files** in a directory recursively
+递归**格式化一个目录中的所有 Go 文件**
 
 ```gofmt -w [path/to/directory]```
 
-**Show diff of formatting** changes
+显示格式化**更改的差异**
 
 ```gofmt -d [file.go]```
 
-**List files that would be** modified
+**列出将被修改**的文件
 
 ```gofmt -l [path/to/directory]```
 
-**Simplify code** in addition to formatting
+在格式化的同时**简化代码**
 
 ```gofmt -s [file.go]```
 
-**Format and simplify** in place
+就地**格式化并简化**
 
 ```gofmt -s -w [file.go]```
 
@@ -39,36 +39,36 @@ Go source code formatter
 # PARAMETERS
 
 **-w**
-> Write result to source file instead of stdout.
+> 将结果写回源文件而不是打印到标准输出。
 
 **-d**
-> Display diffs instead of rewriting files.
+> 显示差异而不重写文件。
 
 **-l**
-> List files whose formatting differs from gofmt's.
+> 列出格式与 gofmt 输出不一致的文件。
 
 **-s**
-> Simplify code (apply simplification rules).
+> 简化代码（应用简化规则）。
 
 **-e**
-> Report all errors (not just first 10 per file).
+> 报告所有错误（而不是每个文件只报前 10 个）。
 
 **-r** _RULE_
-> Apply rewrite rule (e.g., 'a[b:len(a)] -> a[b:]').
+> 应用重写规则（例如 'a[b:len(a)] -> a[b:]'）。
 
 # DESCRIPTION
 
-**gofmt** formats Go source code according to standard Go style guidelines. It uses tabs for indentation and blanks for alignment, ensuring consistent formatting across all Go codebases.
+**gofmt** 按照 Go 标准风格规范格式化 Go 源码。它使用制表符缩进、空格对齐，确保所有 Go 代码库的格式保持一致。
 
-When invoked without paths, it reads from standard input. With file or directory arguments, it processes those paths recursively. The **-s** flag applies simplification transformations like removing unnecessary type declarations. The **-r** flag enables custom rewrite rules for code transformations.
+不带路径调用时，它从标准输入读取。给定文件或目录参数时，它会递归处理这些路径。**-s** 标志会应用简化转换，例如删除多余的类型声明。**-r** 标志支持通过自定义重写规则对代码进行变换。
 
 # CAVEATS
 
-gofmt enforces Go's official style with no configuration options for style preferences like brace placement or tab width. Files must be syntactically valid Go code. For import organization, use **goimports** instead, which also handles imports.
+gofmt 强制执行 Go 的官方风格，不提供花括号位置、制表符宽度等风格偏好方面的配置选项。文件必须是语法有效的 Go 代码。需要整理导入（import）时，请改用同样能处理导入的 **goimports**。
 
 # HISTORY
 
-gofmt was created as part of the Go programming language, first released by Google in **2009**. The decision to include an official formatter with no style options was intentional, eliminating debates about code style in Go projects. This "one true style" approach has been widely adopted and influenced other languages to create similar tools (rustfmt, prettier, black).
+gofmt 作为 Go 编程语言的一部分问世，由 Google 于 **2009 年**首次发布。随语言附带你无法调整风格的官方格式化工具是刻意为之的设计，目的是终结 Go 项目中关于代码风格的争论。这种"唯一风格"的思路得到了广泛采纳，并影响了其他语言创建类似的工具（rustfmt、prettier、black）。
 
 # INSTALL
 

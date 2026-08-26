@@ -1,30 +1,30 @@
 # TAGLINE
 
-HTTP load testing tool
+HTTP 负载测试工具
 
 # TLDR
 
-**Send 200 requests**
+**发送 200 个请求**
 
 ```hey -n [200] [https://example.com]```
 
-**Set concurrency**
+**设置并发数**
 
 ```hey -n [1000] -c [50] [https://example.com]```
 
-**Set duration**
+**设置持续时间**
 
 ```hey -z [30s] [https://example.com]```
 
-**POST with body**
+**带请求体进行 POST**
 
 ```hey -m POST -d "[{\"key\":\"value\"}]" [https://example.com/api]```
 
-**POST with body from file**
+**从文件读取请求体进行 POST**
 
 ```hey -m POST -D [data.json] -T "[application/json]" [https://example.com/api]```
 
-**Add header**
+**添加请求头**
 
 ```hey -H "[Authorization: Bearer token]" [https://example.com]```
 
@@ -35,87 +35,87 @@ HTTP load testing tool
 # PARAMETERS
 
 **-n** _requests_
-> Number of requests to run. Default is 200.
+> 要运行的请求总数。默认为 200。
 
 **-c** _concurrency_
-> Number of concurrent workers. Default is 50.
+> 并发工作线程数。默认为 50。
 
 **-z** _duration_
-> Duration to send requests (e.g., 10s, 3m). Overrides -n.
+> 发送请求的持续时间（例如 10s、3m）。会覆盖 -n。
 
 **-m** _method_
-> HTTP method (GET, POST, PUT, DELETE, HEAD, OPTIONS). Default is GET.
+> HTTP 方法（GET、POST、PUT、DELETE、HEAD、OPTIONS）。默认为 GET。
 
 **-d** _body_
-> Request body.
+> 请求体。
 
 **-D** _file_
-> Request body from file.
+> 从文件读取请求体。
 
 **-T** _content-type_
-> Content-Type header. Default is "text/html".
+> Content-Type 请求头。默认为 "text/html"。
 
 **-H** _header_
-> Custom HTTP header. Can be repeated for multiple headers.
+> 自定义 HTTP 请求头。可重复使用以添加多个请求头。
 
 **-t** _timeout_
-> Timeout for each request in seconds. Default is 20. Use 0 for infinite.
+> 每个请求的超时时间（秒）。默认为 20。设为 0 表示无限等待。
 
 **-A** _accept_
-> HTTP Accept header.
+> HTTP Accept 请求头。
 
 **-a** _auth_
-> Basic authentication, username:password.
+> 基本认证，格式为 username:password。
 
 **-x** _proxy_
-> HTTP Proxy address as host:port.
+> HTTP 代理地址，格式为 host:port。
 
 **-q** _rate_
-> Rate limit in QPS per worker. No limit by default.
+> 每个工作线程的 QPS 速率限制。默认不限制。
 
 **-o** _format_
-> Output format: csv.
+> 输出格式：csv。
 
 **-h2**
-> Enable HTTP/2.
+> 启用 HTTP/2。
 
 **-host** _header_
-> HTTP Host header.
+> HTTP Host 请求头。
 
 **-disable-compression**
-> Disable compression.
+> 禁用压缩。
 
 **-disable-keepalive**
-> Disable keep-alive, prevents TCP connection reuse.
+> 禁用 keep-alive，阻止 TCP 连接复用。
 
 **-disable-redirects**
-> Disable following of HTTP redirects.
+> 禁用跟随 HTTP 重定向。
 
 **-cpus** _n_
-> Number of CPU cores to use.
+> 要使用的 CPU 核心数。
 
 # DESCRIPTION
 
-**hey** is a HTTP load testing tool. It sends concurrent requests to a URL and provides statistics including latency distribution, throughput, and status code breakdown.
+**hey** 是一个 HTTP 负载测试工具。它向 URL 发送并发请求，并提供延迟分布、吞吐量和状态码分布等统计信息。
 
-hey is designed to be simple and fast, written in Go. It's useful for quick performance testing and benchmarking web services.
+hey 用 Go 编写，设计简单而快速。适合对 Web 服务进行快速性能测试和基准测试。
 
 # OUTPUT
 
-Displays:
-- Total time and requests
-- Requests per second
-- Latency distribution (10%, 50%, 90%, 99%)
-- Status code distribution
-- Error summary
+显示内容：
+- 总耗时和请求数
+- 每秒请求数
+- 延迟分布（10%、50%、90%、99%）
+- 状态码分布
+- 错误摘要
 
 # CAVEATS
 
-Can overload target servers; use responsibly. May be blocked by rate limiters. Not suitable for distributed load testing. Single machine limitation.
+可能使目标服务器过载，请负责任地使用。可能被速率限制器拦截。不适合分布式负载测试。受单机性能限制。
 
 # HISTORY
 
-hey was created by **Jaana B. Dogan** (rakyll) at Google as a successor to the tool "boom". It's written in Go and designed for simplicity and ease of use.
+hey 由 Google 的 **Jaana B. Dogan**（rakyll）创建，是工具 "boom" 的后继者。它用 Go 编写，设计上追求简洁易用。
 
 # INSTALL
 

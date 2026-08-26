@@ -1,38 +1,38 @@
 # TAGLINE
 
-website copier that downloads websites to a local directory for offline browsing
+将网站下载到本地目录以便离线浏览的网站复制工具
 
 # TLDR
 
-**Mirror a website** to the current directory
+**将网站镜像到当前目录**
 
 ```httrack [https://example.com]```
 
-**Mirror a website** to a specific directory
+**将网站镜像到指定目录**
 
 ```httrack [https://example.com] -O [path/to/output]```
 
-**Mirror a website** with a specific depth limit
+**按指定深度限制镜像网站**
 
 ```httrack [https://example.com] -r[3]```
 
-**Continue an interrupted download**
+**继续中断的下载**
 
 ```httrack --continue```
 
-**Update an existing mirror**
+**更新已有的镜像**
 
 ```httrack --update```
 
-**Mirror a website** using a proxy
+**通过代理镜像网站**
 
 ```httrack [https://example.com] -P [proxy:8080]```
 
-**Mirror only specific file types**
+**只镜像特定类型的文件**
 
 ```httrack [https://example.com] +*.pdf +*.jpg -* ```
 
-**Limit download speed** (bytes per second)
+**限制下载速度**（字节/秒）
 
 ```httrack [https://example.com] -A[102400]```
 
@@ -47,112 +47,112 @@ website copier that downloads websites to a local directory for offline browsing
 # PARAMETERS
 
 **-O**, **--path** _PATH_
-> Output/project path
+> 输出/项目路径
 
 **-w**, **--mirror**
-> Mirror websites (default mode)
+> 镜像网站（默认模式）
 
 **-W**, **--mirror-wizard**
-> Mirror websites with interactive wizard
+> 通过交互式向导镜像网站
 
 **-g**, **--get-files**
-> Get files without mirroring structure
+> 只获取文件，不镜像目录结构
 
 **-i**, **--continue**
-> Continue an interrupted download
+> 继续中断的下载
 
 **-r** _N_, **--depth** _N_
-> Set link depth limit (default: unlimited for mirror mode)
+> 设置链接深度限制（默认：镜像模式下不限制）
 
 **-m** _N_, **--max-files** _N_
-> Maximum number of files to download
+> 最大下载文件数
 
 **-M** _N_, **--max-size** _N_
-> Maximum total size in bytes
+> 最大总大小（字节）
 
 **-E** _N_, **--max-time** _N_
-> Maximum mirror time in seconds
+> 最大镜像时长（秒）
 
 **-A** _N_, **--max-rate** _N_
-> Maximum transfer rate (bytes/second)
+> 最大传输速率（字节/秒）
 
 **-c** _N_, **--sockets** _N_
-> Number of simultaneous connections
+> 同时连接的数量
 
 **-T** _N_, **--timeout** _N_
-> Connection timeout in seconds
+> 连接超时时间（秒）
 
 **-R** _N_, **--retries** _N_
-> Number of retry attempts
+> 重试次数
 
 **-P**, **--proxy** _HOST:PORT_
-> Use proxy server
+> 使用代理服务器
 
 **-K** _N_, **--keep-links** _N_
-> Keep original link format (0=relative, 2=absolute)
+> 保持原始链接格式（0=相对，2=绝对）
 
 **-x**, **--replace-external**
-> Replace external links with error page
+> 用错误页面替换外部链接
 
 **-n**, **--near**
-> Get non-HTML files near links
+> 获取链接附近的非 HTML 文件
 
 **-t**, **--test**
-> Test links only, do not download
+> 仅测试链接，不下载
 
 **-q**, **--quiet**
-> Quiet mode, no output
+> 安静模式，无输出
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-s0**, **--robots=0**
-> Ignore robots.txt
+> 忽略 robots.txt
 
 **-F** _STRING_
-> Set the User-Agent header for HTTP requests
+> 为 HTTP 请求设置 User-Agent 头
 
 **-N** _N_
-> Structure type for saved files naming convention
+> 已保存文件的命名结构类型规范
 
 **-%c** _N_
-> Maximum number of connections per second
+> 每秒最大连接数
 
 **-h**, **--help**
-> Display help
+> 显示帮助
 
 # FILTERS
 
 **+**_pattern_
-> Include URLs matching pattern
+> 包含匹配模式的 URL
 
 **-**_pattern_
-> Exclude URLs matching pattern
+> 排除匹配模式的 URL
 
 **+*.pdf**
-> Include all PDF files
+> 包含所有 PDF 文件
 
 **-*.exe**
-> Exclude all EXE files
+> 排除所有 EXE 文件
 
 **+example.com/*  -***
-> Only mirror from specific domain
+> 只从特定域名镜像
 
 # DESCRIPTION
 
-**httrack** is a website copier that downloads websites to a local directory for offline browsing. It preserves the original site structure, converting links to work locally. The mirrored site can be browsed offline using any web browser.
+**httrack** 是一款网站复制工具，可将网站下载到本地目录以便离线浏览。它会保留原始站点结构，并将链接转换为可在本地使用的形式。镜像出来的站点可以用任何 Web 浏览器离线浏览。
 
-The tool follows links to specified depths, downloads files, and reconstructs relative paths. It supports HTTP and HTTPS protocols, authentication, cookies, and proxy servers. Filters control which files are downloaded using wildcard patterns.
+该工具按指定深度跟踪链接、下载文件并重建相对路径。它支持 HTTP 和 HTTPS 协议、身份验证、cookie 以及代理服务器。过滤器通过通配符模式控制要下载哪些文件。
 
-HTTrack can update previously mirrored sites, downloading only changed files. It handles interrupted downloads gracefully with the continue option. The **webhttrack** command provides a browser-based graphical interface.
+HTTrack 可以更新之前镜像过的站点，只下载发生变化的文件。借助 continue 选项，它能妥善处理中断的下载。**webhttrack** 命令提供基于浏览器的图形界面。
 
 # CAVEATS
 
-Mirroring websites may violate terms of service or copyright laws. Always check robots.txt and site policies. JavaScript-rendered content and dynamically generated pages may not mirror correctly. Some sites employ anti-scraping measures that can block HTTrack. CGI scripts and server-side functionality will not work in the offline copy. Large sites can consume significant disk space and bandwidth.
+镜像网站可能违反服务条款或版权法。务必检查 robots.txt 和站点政策。JavaScript 渲染的内容和动态生成的页面可能无法正确镜像。一些站点采用反爬措施，可能会阻止 HTTrack。CGI 脚本和服务器端功能在离线副本中无法工作。大型站点可能占用大量磁盘空间和带宽。
 
 # HISTORY
 
-HTTrack was created by **Xavier Roche** and first released in **1998**. Written in C, it became one of the most popular open-source website mirroring tools. The project provides both command-line and GUI interfaces across Windows, Linux, and other Unix-like systems. Development continues with regular updates to handle modern web technologies.
+HTTrack 由 **Xavier Roche** 创建，于 **1998 年**首次发布。它采用 C 语言编写，是最受欢迎的开源网站镜像工具之一。该项目在 Windows、Linux 及其他类 Unix 系统上同时提供命令行和 GUI 界面。开发仍在继续，定期更新以适应现代 Web 技术。
 
 # INSTALL
 

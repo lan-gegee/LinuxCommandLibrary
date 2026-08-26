@@ -1,18 +1,18 @@
 # TAGLINE
 
-Groff HP LaserJet 4 printer driver
+Groff 的 HP LaserJet 4 打印机驱动
 
 # TLDR
 
-**Generate HP LaserJet output**
+**生成 HP LaserJet 输出**
 
 ```groff -Tlj4 [file.roff] | lpr -P[printer]```
 
-**Direct grolj4 usage**
+**直接使用 grolj4**
 
 ```grolj4 [file] > output.lj4```
 
-**Specify copies**
+**指定份数**
 
 ```grolj4 -c [3] [file]```
 
@@ -23,45 +23,45 @@ Groff HP LaserJet 4 printer driver
 # PARAMETERS
 
 _FILE_
-> Groff intermediate output.
+> groff 中间输出。
 
 **-c** _N_
-> Number of copies.
+> 份数。
 
 **-d** _DUPLEX_
-> Duplex mode (1=long, 2=short).
+> 双面打印模式（1=长边装订，2=短边装订）。
 
 **-F** _DIR_
-> Font directory.
+> 字体目录。
 
 **-l**
-> Landscape orientation.
+> 横向方向。
 
 **-p** _SIZE_
-> Paper size.
+> 纸张尺寸。
 
 **-w** _WIDTH_
-> Line thickness in thousandths of an em (default 40).
+> 线条粗细（单位为千分之一 em，默认 40）。
 
 **-v**, **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grolj4** is a groff output driver for HP LaserJet 4-series and compatible printers. It produces PCL 5 output and supports duplex printing, various paper sizes, and orientations.
+**grolj4** 是面向 HP LaserJet 4 系列及兼容打印机的 groff 输出驱动。它生成 PCL 5 输出，支持双面打印、多种纸张尺寸和方向。
 
-Normally **grolj4** is invoked indirectly by **groff -Tlj4**, not run directly; it reads groff's intermediate output format and translates it into PCL5 printer commands.
+通常 **grolj4** 由 **groff -Tlj4** 间接调用而非直接运行；它读取 groff 的中间输出格式并将其转换为 PCL5 打印机命令。
 
 # CAVEATS
 
-Part of groff package. Specific to HP PCL5 compatible printers. Default paper format is "letter" if none is specified; default duplex mode is long-side binding. Some features require printer support.
+属于 groff 软件包。专用于 HP PCL5 兼容打印机。未指定时默认纸张格式为 "letter"；默认双面模式为长边装订。部分功能需要打印机支持。
 
 # HISTORY
 
-grolj4 was developed as part of **GNU groff** to support HP LaserJet series printers.
+grolj4 作为 **GNU groff** 的一部分开发，用于支持 HP LaserJet 系列打印机。
 
 # INSTALL
 

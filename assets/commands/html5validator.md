@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line HTML5 validation tool using the Nu Html Checker
+使用 Nu Html Checker 的命令行 HTML5 校验工具
 
 # TLDR
 
-**Validate an HTML file**
+**校验一个 HTML 文件**
 
 ```html5validator [file.html]```
 
-**Validate all HTML in directory**
+**校验目录中的所有 HTML**
 
 ```html5validator --root [path/to/directory]```
 
-**Show warnings**
+**显示警告**
 
 ```html5validator --show-warnings [file.html]```
 
-**Match custom file pattern**
+**匹配自定义文件模式**
 
 ```html5validator --root [path] --match "*.html *.php"```
 
-**Exclude directories**
+**排除目录**
 
 ```html5validator --root [path] --blacklist "node_modules vendor"```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```html5validator --format json [file.html]```
 
-**Ignore specific errors**
+**忽略特定错误**
 
 ```html5validator --ignore-re 'Attribute "ng-[a-z-]+" not allowed' [file.html]```
 
@@ -39,39 +39,39 @@ command-line HTML5 validation tool using the Nu Html Checker
 # PARAMETERS
 
 **--root** _dir_
-> Start directory for file search.
+> 文件搜索的起始目录。
 
 **--match** _pattern_
-> File patterns to match (default *.html).
+> 要匹配的文件模式（默认 *.html）。
 
 **--blacklist** _dirs_
-> Directory names to skip.
+> 要跳过的目录名。
 
 **--show-warnings**
-> Show warnings as errors.
+> 将警告视为错误显示。
 
 **--format** _fmt_
-> Output format: gnu, xml, json, text.
+> 输出格式：gnu、xml、json、text。
 
 **--ignore-re** _regex_
-> Ignore errors matching regex.
+> 忽略匹配正则表达式的错误。
 
 **--ignore** _message_
-> Ignore errors that exactly match the given message.
+> 忽略与给定消息完全一致的错误。
 
 **--also-check-css**
-> Also validate CSS files (matches *.html and *.css by default).
+> 同时校验 CSS 文件（默认匹配 *.html 和 *.css）。
 
 **--config** _file_
-> Read options from a configuration file.
+> 从配置文件读取选项。
 
 # DESCRIPTION
 
-**html5validator** is a command-line HTML5 validation tool using the Nu Html Checker (v.Nu). Designed for static site generators and continuous integration. Returns exit code 0 for valid HTML. Requires Python 3.6+ and Java 8.
+**html5validator** 是一个使用 Nu Html Checker（v.Nu）的命令行 HTML5 校验工具。它为静态站点生成器和持续集成而设计。HTML 有效时返回退出码 0。需要 Python 3.6+ 和 Java 8。
 
 # CAVEATS
 
-Requires a working **Java** runtime (OpenJDK 8+) on the **PATH**, since it shells out to the bundled **vnu.jar** to perform the actual validation.
+需要 **PATH** 上有可用的 **Java** 运行时（OpenJDK 8+），因为它会调用内置的 **vnu.jar** 来执行实际的校验。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ Requires a working **Java** runtime (OpenJDK 8+) on the **PATH**, since it shell
 ```[Source code](https://github.com/svenkreiss/html5validator)```
 
 <!-- verified: 2026-07-19 -->
-

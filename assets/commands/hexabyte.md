@@ -1,22 +1,22 @@
 # TAGLINE
 
-Modern modular TUI hex editor
+现代化的模块化 TUI 十六进制编辑器
 
 # TLDR
 
-**Open a file** in the hex editor
+在十六进制编辑器中**打开文件**
 
 ```hexabyte [path/to/file]```
 
-**Open a single file** in split screen view
+**打开单个文件**并以分屏视图显示
 
 ```hexabyte -s [path/to/file]```
 
-**Open two files** side-by-side for diff
+**并排打开两个文件**进行比较
 
 ```hexabyte [path/to/file1] [path/to/file2]```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```hexabyte -c [path/to/config.toml] [path/to/file]```
 
@@ -27,27 +27,27 @@ Modern modular TUI hex editor
 # PARAMETERS
 
 **-s**, **--split**
-> Display a single file in two split-screen editors.
+> 在两个分屏编辑器中显示单个文件。
 
 **-c**, **--config** _FILE_
-> Use a custom config file (default: `~/.config/hexabyte/config.toml`).
+> 使用自定义配置文件（默认：`~/.config/hexabyte/config.toml`）。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**hexabyte** is a modern, modular, and robust TUI hex editor designed for modifying file contents at the byte level. It supports viewing and editing in hexadecimal, UTF-8 text, and binary with multiple display modes: **single** file editing, **split** view for side-by-side panes on one file, and **diff** mode when two files are opened together.
+**hexabyte** 是一个现代化、模块化且健壮的 TUI 十六进制编辑器，用于在字节级别修改文件内容。它支持以十六进制、UTF-8 文本和二进制方式查看与编辑，并提供多种显示模式：**单文件**编辑、针对同一文件的**分屏**视图，以及同时打开两个文件时的**比较（diff）**模式。
 
-The editor features a plugin architecture for extensibility and provides standard hex editing operations including inserting, deleting, and replacing bytes, as well as selecting and copy/pasting byte ranges.
+该编辑器采用可扩展的插件架构，提供标准的十六进制编辑操作，包括插入、删除和替换字节，以及选择和复制/粘贴字节区间。
 
 # CAVEATS
 
-Requires Python 3.10+. Very large files may impact performance. The diff mode highlights byte-level differences, which may produce noisy output for structurally different files.
+需要 Python 3.10 及以上版本。非常大的文件可能影响性能。比较模式会高亮字节级差异，对于结构差异较大的文件可能产生大量噪声输出。
 
 # HISTORY
 
-**hexabyte** was created by **thetacom** and is written in **Python**. It was designed to provide a modern, extensible alternative to traditional terminal hex editors.
+**hexabyte** 由 **thetacom** 创建，使用 **Python** 编写。其设计目标是成为传统终端十六进制编辑器的现代、可扩展替代品。
 
 # INSTALL
 

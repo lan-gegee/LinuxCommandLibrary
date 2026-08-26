@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search and download iOS App Store IPA packages from the command line
+从命令行搜索并下载 iOS App Store 的 IPA 软件包
 
 # TLDR
 
-**Log in** to the App Store
+**登录** App Store
 
 ```ipatool auth login```
 
-**Show** current account info
+**显示**当前账户信息
 
 ```ipatool auth info```
 
-**Search** for an app
+**搜索**应用
 
 ```ipatool search "[term]"```
 
-**Download** an app by bundle identifier
+按 bundle 标识符**下载**应用
 
 ```ipatool download -b [com.example.app]```
 
-**Purchase** an app (if required before download)
+**购买**应用（若下载前需要）
 
 ```ipatool purchase -b [com.example.app]```
 
-**JSON output** for scripting
+用于脚本的 **JSON 输出**
 
 ```ipatool search "[term]" --format json```
 
@@ -34,47 +34,47 @@ Search and download iOS App Store IPA packages from the command line
 
 # DESCRIPTION
 
-**ipatool** is a command-line client for the iOS (and tvOS) App Store. After authenticating with Apple ID credentials, you can search the store, purchase apps when needed, and download **.ipa** packages for devices or tooling workflows. It is commonly used for automation, archiving, and reverse-engineering research—not as a substitute for official App Store installation on a phone.
+**ipatool** 是 iOS（及 tvOS）App Store 的命令行客户端。通过 Apple ID 凭据完成身份验证后，你可以搜索商店、在需要时购买应用，并下载用于设备或工具链工作流的 **.ipa** 软件包。它常用于自动化、归档和逆向工程研究——并非手机上官方 App Store 安装的替代品。
 
-Global options control output format and interactivity. Subcommands cover **auth**, **search**, **download**, **purchase**, and related operations; run **ipatool** *command* **--help** for full flags.
+全局选项控制输出格式和交互性。子命令涵盖 **auth**、**search**、**download**、**purchase** 及相关操作；运行 **ipatool** *command* **--help** 可查看完整的选项。
 
 # PARAMETERS
 
 **auth login** | **auth info** | **auth revoke**
 
-> Manage App Store session credentials.
+> 管理 App Store 会话凭据。
 
 **search** *term*
 
-> Search iOS/tvOS apps. **-l**, **--limit** caps results; **--platform** selects **iphone**, **ipad**, or **appletv**.
+> 搜索 iOS/tvOS 应用。**-l**, **--limit** 限制结果数量；**--platform** 选择 **iphone**、**ipad** 或 **appletv**。
 
 **download**
 
-> Download an IPA (typically **-b** / **--bundle-identifier**). See **--help** for version and output options.
+> 下载 IPA（通常配合 **-b** / **--bundle-identifier**）。版本与输出选项见 **--help**。
 
 **purchase**
 
-> Purchase an app so it can be downloaded with the current account.
+> 购买应用，使其可被当前账户下载。
 
 **--format** *text*|*json*
 
-> Output format (default: text).
+> 输出格式（默认：text）。
 
 **--non-interactive**
 
-> Do not prompt; fail if input would be required.
+> 不进行提示；若需要输入则直接失败。
 
 **--verbose**
 
-> Verbose logging.
+> 详细日志输出。
 
 **-h**, **--help**
 
-> Help for the command or subcommand.
+> 显示命令或子命令的帮助。
 
 # CAVEATS
 
-Requires a valid Apple ID and compliance with Apple's terms. Some apps are region-locked, paid, or refuse bulk download. IPAs obtained this way are not sideloadable onto stock iOS without additional signing tooling. Do not use for piracy.
+需要有效的 Apple ID 并遵守 Apple 条款。某些应用有地区限制、收费或拒绝批量下载。以此方式获取的 IPA 在没有额外签名工具的情况下无法直接侧载到未越狱的 iOS 设备。不得用于盗版。
 
 # INSTALL
 

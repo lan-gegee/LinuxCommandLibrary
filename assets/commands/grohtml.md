@@ -1,18 +1,18 @@
 # TAGLINE
 
-Groff HTML output driver
+Groff 的 HTML 输出驱动
 
 # TLDR
 
-**Convert groff to HTML**
+**将 groff 转换为 HTML**
 
 ```groff -Thtml [file.roff] > output.html```
 
-**Direct grohtml usage**
+**直接使用 grohtml**
 
 ```grohtml [file] > output.html```
 
-**Generate with images**
+**生成带图像的输出**
 
 ```groff -Thtml -P-i [file.roff] > output.html```
 
@@ -23,36 +23,36 @@ Groff HTML output driver
 # PARAMETERS
 
 _FILE_
-> Groff intermediate output.
+> groff 中间输出。
 
 **-b**
-> Create background color.
+> 创建背景色。
 
 **-i**
-> Generate inline images.
+> 生成内联图像。
 
 **-s** _SIZE_
-> Font base size.
+> 字体基础大小。
 
 **-F** _DIR_
-> Font directory.
+> 字体目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grohtml** is a groff output driver that produces HTML. It converts groff documents to web-viewable format with optional image generation for elements that do not translate directly to HTML.
+**grohtml** 是一个生成 HTML 的 groff 输出驱动。它将 groff 文档转换为可在网页上查看的格式，对于无法直接映射为 HTML 的元素可以选择生成图像。
 
-The driver handles text formatting and creates appropriate HTML tags. Complex formatting elements can be rendered as inline images for accurate representation.
+该驱动负责处理文本格式并创建相应的 HTML 标签。复杂的格式元素可以渲染为内联图像以保证精确呈现。
 
 # CAVEATS
 
-Part of groff package. Complex formatting may not render perfectly. Image generation requires additional tools.
+属于 groff 软件包。复杂格式可能无法完美呈现。生成图像需要额外的工具。
 
 # HISTORY
 
-grohtml was developed as part of **GNU groff** to enable web publishing of groff documents.
+grohtml 作为 **GNU groff** 的一部分开发，用于实现 groff 文档的 Web 发布。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-runs git's own branch command unmodified through hub
+通过 hub 原样运行 git 自带的 branch 命令
 
 # TLDR
 
-**List local and remote branches**
+**列出本地和远程分支**
 
 ```hub branch -a```
 
-**Create a new branch**
+**创建新分支**
 
 ```hub branch [branch-name]```
 
-**Delete a branch**
+**删除分支**
 
 ```hub branch -d [branch-name]```
 
-**Force delete branch**
+**强制删除分支**
 
 ```hub branch -D [branch-name]```
 
-**Rename current branch**
+**重命名当前分支**
 
 ```hub branch -m [new-name]```
 
@@ -31,32 +31,32 @@ runs git's own branch command unmodified through hub
 # PARAMETERS
 
 **-a**, **--all**
-> List both local and remote branches.
+> 同时列出本地和远程分支。
 
 **-r**, **--remotes**
-> List remote branches only.
+> 只列出远程分支。
 
 **-d**
-> Delete branch (only if merged).
+> 删除分支（仅限已合并的分支）。
 
 **-D**
-> Force delete branch.
+> 强制删除分支。
 
 **-m**
-> Rename branch.
+> 重命名分支。
 
 **-v**, **--verbose**
-> Show more info.
+> 显示更多信息。
 
 # DESCRIPTION
 
-**hub** is a command-line wrapper for git that adds GitHub-specific behavior to certain git subcommands (**clone**, **fetch**, **remote**, **checkout**, **merge**, and a few others) while transparently passing every other subcommand straight through to the real git binary. **branch** is not one of the commands hub extends, so `hub branch` behaves exactly like `git branch`: it lists, creates, renames, and deletes branches with no added GitHub integration.
+**hub** 是 git 的命令行包装器，它为特定的 git 子命令（**clone**、**fetch**、**remote**、**checkout**、**merge** 以及少数几个其他命令）添加 GitHub 特有的行为，同时把其余所有子命令原样透传给真正的 git 二进制文件。**branch** 并不是 hub 扩展的命令之一，因此 `hub branch` 的行为与 `git branch` 完全一致：列出、创建、重命名和删除分支，不附加任何 GitHub 集成功能。
 
-It is included here because, when hub is aliased as `git` (see `hub alias`), any git subcommand - including **branch** - can be invoked through it.
+之所以收录此条目，是因为当 hub 被别名为 `git` 时（参见 `hub alias`），任何 git 子命令——包括 **branch**——都可以通过它来调用。
 
 # CAVEATS
 
-Hub is no longer actively maintained and has been superseded by the official GitHub CLI (**gh**). For actual GitHub-aware branch operations (e.g. checking out a pull request as a branch), see **hub checkout** or **gh pr checkout** instead.
+Hub 已不再活跃维护，已被官方 GitHub CLI（**gh**）取代。如需真正感知 GitHub 的分支操作（例如将 pull request 检出为分支），请改用 **hub checkout** 或 **gh pr checkout**。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Hub is no longer actively maintained and has been superseded by the official Git
 ```[Source code](https://github.com/mislav/hub)```
 
 <!-- verified: 2026-07-19 -->
-

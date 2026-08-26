@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages pairing with iOS devices
+管理与 iOS 设备的配对
 
 # TLDR
 
-**Pair with device**
+**与设备配对**
 
 ```idevicepair pair```
 
-**Check pair status**
+**检查配对状态**
 
 ```idevicepair validate```
 
-**Unpair device**
+**取消设备配对**
 
 ```idevicepair unpair```
 
-**List paired devices**
+**列出已配对的设备**
 
 ```idevicepair list```
 
-**Target specific device**
+**指定目标设备**
 
 ```idevicepair -u [udid] pair```
 
@@ -31,39 +31,39 @@ manages pairing with iOS devices
 # PARAMETERS
 
 _COMMAND_
-> Operation (pair, validate, unpair, list).
+> 操作（pair、validate、unpair、list）。
 
 **pair**
-> Pair with device.
+> 与设备配对。
 
 **validate**
-> Check pairing status.
+> 检查配对状态。
 
 **unpair**
-> Remove pairing.
+> 移除配对。
 
 **list**
-> List paired devices.
+> 列出已配对的设备。
 
 **-u** _UDID_
-> Target device.
+> 目标设备。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**idevicepair** manages pairing with iOS devices. Pairing establishes trust between computer and device.
+**idevicepair** 管理与 iOS 设备的配对。配对可在计算机与设备之间建立信任关系。
 
-The tool handles the trust dialog workflow. Pairing is required before most device operations work.
+该工具处理信任对话框的流程。大多数设备操作都需要先完成配对。
 
 # CAVEATS
 
-Requires device trust approval. Part of libimobiledevice. USB connection needed.
+需要在设备上确认信任。属于 libimobiledevice。需要 USB 连接。
 
 # HISTORY
 
-idevicepair is part of **libimobiledevice** for establishing trusted connections with iOS devices.
+idevicepair 是 **libimobiledevice** 的组成部分，用于与 iOS 设备建立受信任连接。
 
 # INSTALL
 

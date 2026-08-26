@@ -1,34 +1,34 @@
 # TAGLINE
 
-GnuPG component configuration utility
+GnuPG 组件配置工具
 
 # TLDR
 
-**List all GnuPG components**
+**列出所有 GnuPG 组件**
 
 ```gpgconf --list-components```
 
-**List directories used by GnuPG**
+**列出 GnuPG 使用的目录**
 
 ```gpgconf --list-dirs```
 
-**Reload gpg-agent**
+**重新加载 gpg-agent**
 
 ```gpgconf --reload gpg-agent```
 
-**Kill gpg-agent**
+**终止 gpg-agent**
 
 ```gpgconf --kill gpg-agent```
 
-**Launch gpg-agent**
+**启动 gpg-agent**
 
 ```gpgconf --launch gpg-agent```
 
-**List options for a component**
+**列出某个组件的选项**
 
 ```gpgconf --list-options [gpg-agent]```
 
-**Apply default configuration**
+**应用默认配置**
 
 ```gpgconf --apply-defaults```
 
@@ -39,40 +39,40 @@ GnuPG component configuration utility
 # SUBCOMMANDS
 
 **--list-components**
-> List installed GnuPG components.
+> 列出已安装的 GnuPG 组件。
 
 **--list-dirs**
-> List directories used by GnuPG.
+> 列出 GnuPG 使用的目录。
 
 **--list-options** _component_
-> List options for component.
+> 列出组件的选项。
 
 **--list-config**
-> List global configuration.
+> 列出全局配置。
 
 **--check-options** _component_
-> Check options for component.
+> 检查组件的选项。
 
 **--apply-defaults**
-> Apply default values.
+> 应用默认值。
 
 **--reload** _component_
-> Reload a component.
+> 重新加载某个组件。
 
 **--kill** _component_
-> Kill a running component.
+> 终止正在运行的组件。
 
 **--launch** _component_
-> Launch a component.
+> 启动某个组件。
 
 **--check-programs**
-> Check installed programs.
+> 检查已安装的程序。
 
 # DESCRIPTION
 
-**gpgconf** is a utility for querying and modifying GnuPG component configuration. It can manage daemons like gpg-agent, apply settings programmatically, and inspect the GnuPG installation.
+**gpgconf** 是一个用于查询和修改 GnuPG 组件配置的工具。它可以管理 gpg-agent 等守护进程、以编程方式应用设置以及检查 GnuPG 的安装情况。
 
-The tool is commonly used to reload gpg-agent after configuration changes, list available components, and troubleshoot GnuPG installations.
+该工具常用于在配置更改后重新加载 gpg-agent、列出可用组件以及排查 GnuPG 安装问题。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-updates the IBM Cloud CLI to the latest version
+将 IBM Cloud CLI 更新到最新版本
 
 # TLDR
 
-**Update IBM Cloud CLI**
+**更新 IBM Cloud CLI**
 
 ```ibmcloud update```
 
-**Update with force**
+**强制更新**
 
 ```ibmcloud update -f```
 
-**Check for updates**
+**检查更新**
 
 ```ibmcloud update --check```
 
@@ -23,16 +23,15 @@ updates the IBM Cloud CLI to the latest version
 # PARAMETERS
 
 **-f**, **--force**
-> Force update without confirmation.
+> 无需确认强制更新。
 
 **--check**
-> Check for available updates.
+> 检查是否有可用更新。
 
 # DESCRIPTION
 
-**ibmcloud update** updates the IBM Cloud CLI to the latest version. Use **--check** to see if an update is available without installing it.
+**ibmcloud update** 将 IBM Cloud CLI 更新到最新版本。使用 **--check** 可以查看是否有可用更新而不进行安装。
 
 # SEE ALSO
 
 [ibmcloud](/man/ibmcloud)(1), [ibmcloud-version](/man/ibmcloud-version)(1)
-

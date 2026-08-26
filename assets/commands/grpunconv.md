@@ -1,14 +1,14 @@
 # TAGLINE
 
-revert from shadow group format
+从影子组格式恢复为传统格式
 
 # TLDR
 
-**Convert from shadow groups**
+**从影子组转换回来**
 
 ```sudo grpunconv```
 
-**Verify status after**
+**之后验证状态**
 
 ```ls -la /etc/gshadow```
 
@@ -19,24 +19,24 @@ revert from shadow group format
 # PARAMETERS
 
 **-R** _DIR_
-> Chroot directory.
+> chroot 目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grpunconv** converts from shadow group format back to traditional format. It moves password information from /etc/gshadow back to /etc/group and removes /etc/gshadow.
+**grpunconv** 将影子组格式转换回传统格式。它把密码信息从 /etc/gshadow 移回 /etc/group 并删除 /etc/gshadow。
 
-The tool reverses what grpconv does, returning to traditional group password storage. This is rarely needed on modern systems.
+该工具执行 grpconv 的逆操作，恢复到传统的组密码存储方式。现代系统上很少需要这样做。
 
 # CAVEATS
 
-Requires root access. Reduces security. Rarely needed on modern systems.
+需要 root 权限。会降低安全性。现代系统上很少用到。
 
 # HISTORY
 
-grpunconv was developed as part of the **shadow** password suite to allow reverting shadow group changes.
+grpunconv 作为 **shadow** 密码工具套件的一部分开发，用于撤销影子组的相关更改。
 
 # INSTALL
 

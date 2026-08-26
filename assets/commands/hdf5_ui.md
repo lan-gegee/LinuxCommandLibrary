@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal UI for inspecting HDF5 files
+检查 HDF5 文件的终端 UI
 
 # TLDR
 
-**Open an HDF5 file** for inspection
+**打开 HDF5 文件进行检查**
 
 ```h5tui [path/to/file.h5]```
 
@@ -14,16 +14,16 @@ Terminal UI for inspecting HDF5 files
 
 # DESCRIPTION
 
-**hdf5_ui** (invoked as **h5tui**) is a Textual User Interface for inspecting **HDF5** files. It provides a tree-based browser for navigating groups and datasets within HDF5 files, displaying attributes and metadata in an organized layout.
+**hdf5_ui**（调用名为 **h5tui**）是一个用于检查 **HDF5** 文件的文本用户界面。它提供基于树的浏览器来浏览 HDF5 文件内的组和数据集，并以条理清晰的布局显示属性和元数据。
 
-The tool comes with built-in plugins including a **HexViewer** that displays hexadecimal representations of datasets, and an **ImageViewer** that visualizes two- or three-dimensional image data directly in the terminal. When a node is highlighted, its attributes are shown in the bottom-left panel.
+该工具内置多个插件，包括以十六进制形式展示数据集内容的 **HexViewer**，以及直接在终端中可视化二维或三维图像数据的 **ImageViewer**。当某个节点被高亮时，它的属性会显示在左下方的面板中。
 
 # CAVEATS
 
-Requires Python and the h5py library. Install via `pip install h5ui`. Very large datasets may be slow to render in the terminal. The ImageViewer plugin requires data that can be converted to a Pillow image. Custom plugins can be added via entrypoints.
+需要 Python 和 h5py 库。通过 `pip install h5ui` 安装。特别大的数据集在终端中渲染可能很慢。ImageViewer 插件要求数据可以转换为 Pillow 图像。自定义插件可以通过 entrypoints 添加。
 
 # HISTORY
 
-**hdf5_ui** was created by **Rik Huygen** (rhuygen) and is written in **Python** using the **Textual** TUI framework. It was developed to provide a convenient terminal-based alternative to graphical HDF5 inspection tools like HDFView.
+**hdf5_ui** 由 **Rik Huygen**（rhuygen）创建，使用 **Python** 编写，基于 **Textual** TUI 框架。它的开发初衷是为 HDFView 等图形化 HDF5 检查工具提供一个便捷的终端替代方案。
 
 # SEE ALSO

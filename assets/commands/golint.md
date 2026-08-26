@@ -1,22 +1,22 @@
 # TAGLINE
 
-Go source code style linter (deprecated)
+Go 源码风格 linter（已废弃）
 
 # TLDR
 
-**Lint current package**
+**对当前包进行 lint**
 
 ```golint .```
 
-**Lint specific file**
+**对指定文件进行 lint**
 
 ```golint [file.go]```
 
-**Lint package recursively**
+**递归 lint 各个包**
 
 ```golint ./...```
 
-**Set minimum confidence**
+**设置最低置信度**
 
 ```golint -min_confidence [0.8] ./...```
 
@@ -27,27 +27,27 @@ Go source code style linter (deprecated)
 # PARAMETERS
 
 **-min_confidence** _n_
-> Minimum confidence for issues (0.0-1.0).
+> 报告问题的最低置信度（0.0-1.0）。
 
 **-set_exit_status**
-> Exit with non-zero status on issues.
+> 发现问题时以非零状态退出。
 
 _packages_
-> Package paths to lint.
+> 要 lint 的包路径。
 
 # DESCRIPTION
 
-**golint** checks Go source code for style issues based on the guidelines from Effective Go and the Go Code Review Comments. It focuses on naming conventions, comments, and code structure.
+**golint** 依据 Effective Go 与 Go Code Review Comments 中的准则，检查 Go 源码中的风格问题。它侧重于命名约定、注释和代码结构。
 
-Unlike go vet which finds bugs, golint focuses on style and readability. Issues are suggestions, not errors. The tool is deprecated in favor of staticcheck or golangci-lint.
+与查找 bug 的 go vet 不同，golint 关注的是风格和可读性。其输出是建议而不是错误。该工具已被弃用，建议改用 staticcheck 或 golangci-lint。
 
 # CAVEATS
 
-Deprecated in favor of staticcheck or golangci-lint. Suggestions are stylistic, not bugs. High false-positive rate for some projects. Not actively maintained.
+已被弃用，请改用 staticcheck 或 golangci-lint。给出的建议属于风格层面，并非 bug。对某些项目的误报率较高。已不再积极维护。
 
 # HISTORY
 
-golint was created by the **Go team** at Google as a style checker. It was deprecated in **2021** in favor of more comprehensive linters like staticcheck. The project recommends using golangci-lint which includes multiple linters.
+golint 由 Google 的 **Go 团队**创建，作为风格检查器使用。它于 **2021 年**被弃用，由 staticcheck 等更全面的 linter 取代。官方建议改用集成了多个 linter 的 golangci-lint。
 
 # INSTALL
 

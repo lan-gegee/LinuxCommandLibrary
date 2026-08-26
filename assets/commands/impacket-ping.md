@@ -1,10 +1,10 @@
 # TAGLINE
 
-simple ICMP ping implementation using raw sockets via the Impacket library
+基于 Impacket 库、使用原始套接字的简单 ICMP ping 实现
 
 # TLDR
 
-**Send ICMP echo requests** to a target from a specific source IP
+从特定源 IP 向目标**发送 ICMP 回显请求**
 
 ```impacket-ping [192.168.1.50] [192.168.1.100]```
 
@@ -15,26 +15,26 @@ simple ICMP ping implementation using raw sockets via the Impacket library
 # PARAMETERS
 
 **source_ip**
-> Source IP address to use for the outgoing ICMP echo request packets.
+> 用于发出 ICMP 回显请求数据包的源 IP 地址。
 
 **destination_ip**
-> Destination IP address to ping.
+> 要 ping 的目标 IP 地址。
 
 # DESCRIPTION
 
-**impacket-ping** is a simple ICMP ping implementation using raw sockets via the Impacket library. It sends ICMP echo request packets to the specified destination and reports echo-reply responses. Both source and destination IP addresses are required positional arguments.
+**impacket-ping** 是一个简单的 ICMP ping 实现，通过 Impacket 库使用原始套接字。它向指定的目标发送 ICMP 回显请求包，并报告收到的回显应答。源 IP 和目标 IP 都是必需的位置参数。
 
-The script sends echo requests in a loop with a one-second interval and reports the sequence number of each reply. Unlike the standard ping utility, this implementation uses Impacket's raw socket capabilities, which can be useful in environments where the standard ping may be restricted or when integration with other Impacket tools is desired.
+该脚本以一秒为间隔循环发送回显请求，并报告每个应答的序列号。与标准 ping 工具不同，此实现使用 Impacket 的原始套接字能力，适用于标准 ping 受限的环境，或需要与其他 Impacket 工具集成的场景。
 
-Note that a reply is not a definitive test of host availability, as the remote host may be up but configured to refuse ICMP probes.
+注意，收到应答并不能确凿证明主机可用，因为远程主机可能在线但被配置为拒绝 ICMP 探测。
 
 # CAVEATS
 
-Requires root/administrator privileges to create raw sockets. May be blocked by firewalls that filter ICMP traffic. Both source and destination IPs must be specified (there is no automatic source address detection). For most use cases, the standard **ping** command is more feature-rich.
+创建原始套接字需要 root/管理员权限。可能被过滤 ICMP 流量的防火墙拦截。必须同时指定源 IP 和目标 IP（没有自动检测源地址的功能）。对大多数场景而言，标准的 **ping** 命令功能更完善。
 
 # HISTORY
 
-Part of the **Impacket** library, originally developed by SecureAuth (now maintained by Fortra). Included as a basic example of using Impacket's ImpactPacket and ImpactDecoder classes for raw socket operations. Authors: Gerardo Richarte and Javier Kohen.
+属于 **Impacket** 库，最初由 SecureAuth 开发（现由 Fortra 维护）。作为演示 Impacket 的 ImpactPacket 和 ImpactDecoder 类进行原始套接字操作的基础示例收录。作者：Gerardo Richarte 和 Javier Kohen。
 
 # SEE ALSO
 

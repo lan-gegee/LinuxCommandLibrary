@@ -1,22 +1,22 @@
 # TAGLINE
 
-manages MCUboot firmware images
+管理 MCUboot 固件镜像
 
 # TLDR
 
-**Create MCUboot image**
+**创建 MCUboot 镜像**
 
 ```imgtool create --key [key.pem] --align 4 --version 1.0.0 [app.bin] [signed.bin]```
 
-**Sign image**
+**签名镜像**
 
 ```imgtool sign --key [key.pem] [input.bin] [output.bin]```
 
-**Get image info**
+**获取镜像信息**
 
 ```imgtool getinfo [image.bin]```
 
-**Generate keys**
+**生成密钥**
 
 ```imgtool keygen --key [key.pem] --type rsa-2048```
 
@@ -27,39 +27,39 @@ manages MCUboot firmware images
 # PARAMETERS
 
 _COMMAND_
-> Operation to perform.
+> 要执行的操作。
 
 **create**
-> Create signed image.
+> 创建已签名的镜像。
 
 **sign**
-> Sign existing image.
+> 对现有镜像进行签名。
 
 **getinfo**
-> Show image information.
+> 显示镜像信息。
 
 **keygen**
-> Generate signing keys.
+> 生成签名密钥。
 
 **--key** _FILE_
-> Key file.
+> 密钥文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**imgtool** manages MCUboot firmware images. It creates, signs, and inspects bootloader-compatible images.
+**imgtool** 用于管理 MCUboot 固件镜像。它创建、签名和检查与引导加载程序兼容的镜像。
 
-The tool is essential for secure boot workflows. It handles image headers, signatures, and version information.
+该工具是安全启动工作流中不可或缺的一环。它负责处理镜像头部、签名和版本信息。
 
 # CAVEATS
 
-Part of MCUboot project. Specific image format. Cryptographic keys required.
+属于 MCUboot 项目。使用特定的镜像格式。需要加密密钥。
 
 # HISTORY
 
-imgtool is part of **MCUboot**, an open-source secure bootloader for microcontrollers.
+imgtool 是 **MCUboot** 的一部分，这是一个面向微控制器的开源安全引导加载程序。
 
 # INSTALL
 

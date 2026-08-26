@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fast configurable port scanner with reasonable defaults
+具有合理默认值的快速可配置端口扫描器
 
 # TLDR
 
-**Scan default ports** on a host
+**扫描主机的默认端口**
 
 ```havn [host]```
 
-**Scan a specific port range**
+**扫描指定端口范围**
 
 ```havn -p [1-1024] [host]```
 
-**Scan specific ports**
+**扫描指定端口**
 
 ```havn -p [80,443,8080] [host]```
 
-**Scan with increased retry count**
+**以更多重试次数扫描**
 
 ```havn -r [3] [host]```
 
-**Scan with custom timeout** (in milliseconds)
+**以自定义超时时间扫描**（毫秒）
 
 ```havn -t [2000] [host]```
 
-**Scan all ports**
+**扫描所有端口**
 
 ```havn -p [1-65535] [host]```
 
@@ -35,33 +35,33 @@ Fast configurable port scanner with reasonable defaults
 # PARAMETERS
 
 **-p** _PORTS_
-> Port or port range to scan (e.g. 80, 1-1024, 80,443,8080)
+> 要扫描的端口或端口范围（例如 80、1-1024、80,443,8080）
 
 **-r** _RETRIES_
-> Number of retries for each port
+> 每个端口的重试次数
 
 **-t** _TIMEOUT_
-> Timeout in milliseconds per port
+> 每个端口的超时时间（毫秒）
 
 **-h**, **--help**
-> Print help
+> 打印帮助信息
 
 **-V**, **--version**
-> Print version
+> 打印版本号
 
 # DESCRIPTION
 
-**havn** is a lightweight, self-contained port scanning application written in **Rust**. It uses asynchronous **Tokio** multithreading to deliver fast and reliable results with a binary size under 1MB. It supports both **IPv4** and **IPv6** scanning and runs on Linux (including ARM), macOS, and Windows.
+**havn** 是一个用 **Rust** 编写的轻量级、自包含的端口扫描应用。它借助异步 **Tokio** 多线程实现快速可靠的扫描结果，二进制体积不足 1MB。它支持 **IPv4** 与 **IPv6** 扫描，可运行于 Linux（含 ARM）、macOS 和 Windows。
 
-havn comes with sensible defaults for quick scanning while allowing customization of port ranges, timeouts, and retry counts for more thorough scans.
+havn 自带合理的默认值，适合快速扫描，同时允许自定义端口范围、超时时间和重试次数，以满足更彻底的扫描需求。
 
 # CAVEATS
 
-Scanning ports on systems you do not own or have authorization to test may be illegal. Firewalls and intrusion detection systems may block or rate-limit scan attempts. Very large port ranges with short timeouts may produce false negatives.
+对你不拥有或未获授权测试的系统进行端口扫描可能是违法行为。防火墙和入侵检测系统可能会拦截或限制扫描尝试。超大端口范围搭配过短的超时时间可能导致漏报。
 
 # HISTORY
 
-**havn** was created by **Jack Wills** (mrjackwills) and is written in **Rust**. The name is Danish for "port" (as in harbor). It was designed as a minimal, fast alternative to more complex scanning tools.
+**havn** 由 **Jack Wills**（mrjackwills）创建，使用 **Rust** 编写。其名称是丹麦语中的“港口”（harbor 的 port）。它的设计目标是成为比复杂扫描工具更精简、更快速的选择。
 
 # INSTALL
 

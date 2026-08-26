@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interact with the diagnostics interface of an iOS device
+与 iOS 设备的诊断接口交互
 
 # TLDR
 
-**Restart device**
+**重启设备**
 
 ```idevicediagnostics restart```
 
-**Shutdown device**
+**关闭设备**
 
 ```idevicediagnostics shutdown```
 
-**Put device to sleep**
+**让设备进入睡眠**
 
 ```idevicediagnostics sleep```
 
-**Get diagnostics info**
+**获取诊断信息**
 
 ```idevicediagnostics diagnostics```
 
-**Get battery info**
+**获取电池信息**
 
 ```idevicediagnostics diagnostics GasGauge```
 
-**Target a specific device** by UDID
+**按 UDID 指定目标设备**
 
 ```idevicediagnostics -u [UDID] restart```
 
-**Print IORegistry** for a specific plane
+**打印指定平面的 IORegistry**
 
 ```idevicediagnostics ioregistry IODeviceTree```
 
@@ -39,43 +39,43 @@ Interact with the diagnostics interface of an iOS device
 # SUBCOMMANDS
 
 **diagnostics** [_type_]
-> Print diagnostics information, optionally by type: All (default), WiFi, GasGauge, or NAND.
+> 打印诊断信息，可按类型选择：All（默认）、WiFi、GasGauge 或 NAND。
 
 **mobilegestalt** _key_ [_key_ ...]
-> Print values of MobileGestalt keys.
+> 打印 MobileGestalt 键的值。
 
 **ioregistry** [_plane_]
-> Print IORegistry of device, optionally by plane (IODeviceTree, IOPower, IOService). iOS 5+ only.
+> 打印设备的 IORegistry，可选按平面选择（IODeviceTree、IOPower、IOService）。仅限 iOS 5+。
 
 **restart**
-> Restart the device.
+> 重启设备。
 
 **shutdown**
-> Shut down the device.
+> 关闭设备。
 
 **sleep**
-> Put device to sleep.
+> 让设备进入睡眠。
 
 # PARAMETERS
 
 **-u**, **--udid** _UDID_
-> Target specific device by its UDID.
+> 按设备的 UDID 指定目标设备。
 
 **-n**, **--network**
-> Connect to network device.
+> 连接到网络设备。
 
 **-d**, **--debug**
-> Enable communication debugging.
+> 启用通信调试。
 
 **-h**, **--help**
-> Print usage information.
+> 打印用法信息。
 
 **-v**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**idevicediagnostics** interacts with the diagnostics interface of an iOS device to retrieve diagnostics data, MobileGestalt data, and IORegistry information, as well as perform actions like restart, shutdown, and sleep. Part of the **libimobiledevice** suite. Available for iOS 4 and later; IORegistry access requires iOS 5 or later.
+**idevicediagnostics** 与 iOS 设备的诊断接口交互，用于获取诊断数据、MobileGestalt 数据和 IORegistry 信息，并可执行重启、关机和睡眠等操作。属于 **libimobiledevice** 套件。适用于 iOS 4 及更高版本；访问 IORegistry 需要 iOS 5 或更高版本。
 
 # INSTALL
 

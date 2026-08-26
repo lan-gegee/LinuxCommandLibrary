@@ -1,30 +1,30 @@
 # TAGLINE
 
-phylogenetic analysis tool for maximum likelihood tree inference
+用于最大似然树推断的系统发育分析工具
 
 # TLDR
 
-**Run phylogenetic analysis**
+**运行系统发育分析**
 
 ```iqtree -s [alignment.fasta]```
 
-**Specify model**
+**指定模型**
 
 ```iqtree -s [alignment.fasta] -m [GTR+G]```
 
-**Automatic model selection**
+**自动模型选择**
 
 ```iqtree -s [alignment.fasta] -m MFP```
 
-**Standard bootstrap analysis**
+**标准自展分析**
 
 ```iqtree -s [alignment.fasta] -b [1000]```
 
-**Ultra-fast bootstrap** (IQ-TREE2 uses -B)
+**超快自展**（IQ-TREE2 使用 -B）
 
 ```iqtree -s [alignment.fasta] -B [1000]```
 
-**Use multiple threads** (IQ-TREE2 uses -T)
+**使用多线程**（IQ-TREE2 使用 -T）
 
 ```iqtree -s [alignment.fasta] -T [4]```
 
@@ -35,43 +35,43 @@ phylogenetic analysis tool for maximum likelihood tree inference
 # PARAMETERS
 
 **-s** _file_
-> Input alignment file.
+> 输入的比对文件。
 
 **-m** _model_
-> Substitution model (or MFP for selection).
+> 替换模型（或用 MFP 进行模型选择）。
 
 **-b** _n_
-> Standard bootstrap replicates.
+> 标准自展重复次数。
 
 **-B**, **--ufboot** _n_
-> Ultra-fast bootstrap replicates (minimum 1000). IQ-TREE v1 used -bb.
+> 超快自展重复次数（最少 1000）。IQ-TREE v1 使用 -bb。
 
 **-T**, **--threads** _n_|AUTO
-> Number of CPU threads, or AUTO to auto-detect. IQ-TREE v1 used -nt.
+> CPU 线程数，或用 AUTO 自动检测。IQ-TREE v1 使用 -nt。
 
 **-pre** _prefix_
-> Output file prefix.
+> 输出文件前缀。
 
 **-o** _taxa_
-> Outgroup taxa.
+> 外群分类单元。
 
 **-t** _tree_
-> Starting tree file.
+> 起始树文件。
 
 **-wbt**
-> Write bootstrap trees.
+> 输出自展树。
 
 **--bnni**
-> Optimize UFBoot trees by NNI on bootstrap alignment (reduces overestimation).
+> 在自展比对上通过 NNI 优化 UFBoot 树（减少高估）。
 
 **-alrt** _n_
-> SH-like approximate likelihood ratio test.
+> SH 类近似似然比检验。
 
 # DESCRIPTION
 
-**IQ-TREE** is a phylogenetic analysis tool for maximum likelihood tree inference. It supports various substitution models, model selection, and multiple bootstrap methods.
+**IQ-TREE** 是一款用于最大似然树推断的系统发育分析工具。它支持多种替换模型、模型选择以及多种自展方法。
 
-IQ-TREE is known for its speed and accuracy, implementing efficient algorithms for large-scale phylogenetic analysis. It handles DNA, protein, codon, and morphological data.
+IQ-TREE 以其速度和准确性著称，实现了面向大规模系统发育分析的高效算法。它可处理 DNA、蛋白质、密码子和形态学数据。
 
 # OUTPUT FILES
 
@@ -85,11 +85,11 @@ IQ-TREE is known for its speed and accuracy, implementing efficient algorithms f
 
 # CAVEATS
 
-Large alignments require significant memory. Model selection can be time-consuming. Bootstrap numbers vary by study requirements.
+大型比对需要大量内存。模型选择可能耗时较长。自展次数因研究需求而异。
 
 # HISTORY
 
-IQ-TREE was developed by **Bui Quang Minh**, **Lam-Tung Nguyen**, and **Arndt von Haeseler** at the University of Vienna. First released in **2014**, it's become a standard tool for molecular phylogenetics.
+IQ-TREE 由维也纳大学的 **Bui Quang Minh**、**Lam-Tung Nguyen** 和 **Arndt von Haeseler** 开发。首次发布于 **2014 年**，现已成为分子系统发育学的标准工具。
 
 # INSTALL
 

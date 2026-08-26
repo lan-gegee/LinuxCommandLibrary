@@ -1,26 +1,26 @@
 # TAGLINE
 
-scans documents from HP all-in-one devices
+从 HP 多功能一体机扫描文档
 
 # TLDR
 
-**Scan document**
+**扫描文档**
 
 ```hp-scan```
 
-**Specify output file**
+**指定输出文件**
 
 ```hp-scan -o [output.pdf]```
 
-**Scan to JPEG**
+**扫描为 JPEG**
 
 ```hp-scan -t jpeg -o [output.jpg]```
 
-**Specify resolution**
+**指定分辨率**
 
 ```hp-scan -r [300]```
 
-**Use ADF**
+**使用自动进纸器**
 
 ```hp-scan --adf```
 
@@ -31,39 +31,39 @@ scans documents from HP all-in-one devices
 # PARAMETERS
 
 **-o**, **--output** _FILE_
-> Output filename.
+> 输出文件名。
 
 **-t**, **--type** _TYPE_
-> Output format (pdf, jpeg, png).
+> 输出格式（pdf、jpeg、png）。
 
 **-r**, **--resolution** _DPI_
-> Scan resolution.
+> 扫描分辨率。
 
 **--adf**
-> Use automatic document feeder.
+> 使用自动文档进纸器（ADF）。
 
 **-p** _PRINTER_
-> Printer/scanner name.
+> 打印机/扫描仪名称。
 
 **-d** _DEVICE_
-> Device URI.
+> 设备 URI。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hp-scan** scans documents from HP all-in-one devices. It supports various output formats and resolutions.
+**hp-scan** 从 HP 多功能一体机扫描文档。它支持多种输出格式和分辨率。
 
-The tool can use the flatbed or automatic document feeder. It provides a command-line alternative to the graphical scanning interface.
+该工具可以使用平板或自动文档进纸器。它是图形扫描界面的命令行替代方案。
 
 # CAVEATS
 
-Part of HPLIP package. Some models need plugin. Requires scanner-capable device.
+属于 HPLIP 软件包。部分型号需要插件。需要具备扫描功能的设备。
 
 # HISTORY
 
-hp-scan is part of **HPLIP** (HP Linux Imaging and Printing) for scanning on HP multifunction devices.
+hp-scan 是 **HPLIP**（HP Linux Imaging and Printing）的一部分，用于在 HP 多功能设备上进行扫描。
 
 # INSTALL
 

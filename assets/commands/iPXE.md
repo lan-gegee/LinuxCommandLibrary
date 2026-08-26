@@ -1,72 +1,72 @@
 # TAGLINE
 
-open-source network boot firmware
+开源网络启动固件
 
 # TLDR
 
-**Boot from iPXE command line**
+**从 iPXE 命令行启动**
 
 ```dhcp && chain http://server/boot.ipxe```
 
-**Boot specific kernel**
+**启动指定内核**
 
 ```kernel http://server/vmlinuz initrd=initrd.img```
 
-**Load initrd**
+**加载 initrd**
 
 ```initrd http://server/initrd.img```
 
-**Boot loaded kernel**
+**启动已加载的内核**
 
 ```boot```
 
-**Show network configuration**
+**显示网络配置**
 
 ```ifstat```
 
 # SYNOPSIS
 
-iPXE command-line or script commands
+iPXE 命令行或脚本命令
 
 # COMMANDS
 
 **dhcp**
-> Obtain IP via DHCP.
+> 通过 DHCP 获取 IP。
 
 **ifopen**
-> Open network interface.
+> 打开网络接口。
 
 **ifstat**
-> Show interface statistics.
+> 显示接口统计信息。
 
 **kernel** _url_
-> Load kernel image.
+> 加载内核镜像。
 
 **initrd** _url_
-> Load initial ramdisk.
+> 加载初始内存盘。
 
 **boot**
-> Boot loaded kernel.
+> 启动已加载的内核。
 
 **chain** _url_
-> Load and execute script.
+> 加载并执行脚本。
 
 **imgfree**
-> Free loaded images.
+> 释放已加载的镜像。
 
 **shell**
-> Enter iPXE shell.
+> 进入 iPXE shell。
 
 **exit**
-> Exit iPXE.
+> 退出 iPXE。
 
 # DESCRIPTION
 
-**iPXE** is an open-source network boot firmware. It replaces or extends PXE (Preboot Execution Environment), supporting HTTP, iSCSI, FCoE, and many other protocols for network booting.
+**iPXE** 是一款开源网络启动固件。它替代或扩展 PXE（Preboot Execution Environment，预启动执行环境），支持 HTTP、iSCSI、FCoE 等多种网络启动协议。
 
-iPXE can be embedded in BIOS/UEFI, burned to ROM, or chainloaded from existing PXE. It enables flexible network-based system installation and diskless booting.
+iPXE 可以嵌入 BIOS/UEFI、烧录到 ROM，或从现有 PXE 链式加载。它支持灵活的基于网络的系统安装和无盘启动。
 
-# BOOT SCRIPT EXAMPLE
+# 启动脚本示例
 
 ```
 #!ipxe
@@ -78,11 +78,11 @@ boot
 
 # CAVEATS
 
-Requires network boot support. HTTPS needs certificates. UEFI and BIOS need different builds. Some NICs may lack driver support.
+需要网络启动支持。HTTPS 需要证书。UEFI 和 BIOS 需要不同的构建版本。某些网卡可能缺少驱动支持。
 
 # HISTORY
 
-iPXE evolved from Etherboot and gPXE projects. It provides advanced network booting beyond standard PXE, supporting modern protocols and scripting capabilities.
+iPXE 由 Etherboot 和 gPXE 项目演化而来。它提供超越标准 PXE 的高级网络启动能力，支持现代协议和脚本功能。
 
 # SEE ALSO
 

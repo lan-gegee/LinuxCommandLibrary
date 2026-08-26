@@ -1,30 +1,30 @@
 # TAGLINE
 
-Add or remove computer accounts in Active Directory via Impacket
+通过 Impacket 在 Active Directory 中添加或删除计算机账户
 
 # TLDR
 
-**Add a computer account** to the domain using default credentials
+使用默认凭据向域**添加计算机账户**
 
 ```impacket-addcomputer -computer-name '[NEWPC$]' -computer-pass '[Password123]' '[domain]/[user]:[password]'```
 
-**Add a computer account** specifying the domain controller IP
+指定域控制器 IP **添加计算机账户**
 
 ```impacket-addcomputer -computer-name '[NEWPC$]' -dc-ip [192.168.1.100] '[domain]/[user]:[password]'```
 
-**Add a computer** using LDAPS (secure connection)
+使用 LDAPS（安全连接）**添加计算机**
 
 ```impacket-addcomputer -computer-name '[NEWPC$]' -use-ldaps '[domain]/[user]:[password]'```
 
-**Add a computer** using Kerberos authentication with a ticket
+使用带票据的 Kerberos 身份验证**添加计算机**
 
 ```impacket-addcomputer -computer-name '[NEWPC$]' -k -no-pass '[domain]/[user]'```
 
-**Add a computer** using the LDAPS method
+使用 LDAPS 方法**添加计算机**
 
 ```impacket-addcomputer -computer-name '[NEWPC$]' -method LDAPS '[domain]/[user]:[password]'```
 
-**Delete a computer account** from the domain
+从域中**删除计算机账户**
 
 ```impacket-addcomputer -computer-name '[TARGETPC$]' -delete '[domain]/[user]:[password]'```
 
@@ -35,72 +35,72 @@ Add or remove computer accounts in Active Directory via Impacket
 # PARAMETERS
 
 **-computer-name** _NAME_
-> Name of the computer account to add (should end with $)
+> 要添加的计算机账户名（应以 $ 结尾）
 
 **-computer-pass** _PASSWORD_
-> Password for the new computer account
+> 新计算机账户的密码
 
 **-delete**
-> Delete the specified computer account instead of adding
+> 删除指定的计算机账户而不是添加
 
 **-no-add**
-> Don't add a computer, only set its password (requires existing account)
+> 不添加计算机，仅设置其密码（要求账户已存在）
 
 **-dc-ip** _IP_
-> IP address of the domain controller
+> 域控制器的 IP 地址
 
 **-dc-host** _HOSTNAME_
-> Hostname of the domain controller
+> 域控制器的主机名
 
 **-use-ldaps**
-> Use LDAPS instead of LDAP
+> 使用 LDAPS 代替 LDAP
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes for authentication instead of password
+> 使用 NTLM 哈希而非密码进行身份验证
 
 **-no-pass**
-> Don't ask for password (useful with -k)
+> 不询问密码（与 -k 搭配时有用）
 
 **-k**
-> Use Kerberos authentication from ccache file
+> 使用 ccache 文件中的 Kerberos 身份验证
 
 **-aesKey** _KEY_
-> AES key to use for Kerberos authentication
+> 用于 Kerberos 身份验证的 AES 密钥
 
 **-method** _{SAMR,LDAPS}_
-> Method to add the computer account (default: SAMR)
+> 添加计算机账户的方法（默认：SAMR）
 
 **-port** _{139,445,636}_
-> Destination port (SAMR defaults to 445, LDAPS to 636)
+> 目标端口（SAMR 默认为 445，LDAPS 为 636）
 
 **-baseDN** _DN_
-> LDAP base distinguished name (derived from domain if omitted)
+> LDAP 基准专有名称（省略时从域名推导）
 
 **-computer-group** _GROUP_
-> LDAP path of group to add the computer to (e.g., CN=Computers,DC=test,DC=local)
+> 要将计算机加入的组的 LDAP 路径（例如 CN=Computers,DC=test,DC=local）
 
 **-domain-netbios** _NETBIOSNAME_
-> Domain NetBIOS name (required if the DC has multiple domains)
+> 域的 NetBIOS 名称（当域控制器上有多个域时必需）
 
 **-ts**
-> Add timestamps to output
+> 在输出中添加时间戳
 
 **-debug**
-> Enable debug output
+> 启用调试输出
 
 # DESCRIPTION
 
-**impacket-addcomputer** is a tool from the Impacket library that allows adding or removing computer accounts in an Active Directory domain. By default, domain users can add up to 10 computer accounts (controlled by the ms-DS-MachineAccountQuota attribute), making this useful for penetration testing scenarios.
+**impacket-addcomputer** 是 Impacket 库中的一个工具，用于在 Active Directory 域中添加或删除计算机账户。默认情况下，域用户最多可以添加 10 个计算机账户（由 ms-DS-MachineAccountQuota 属性控制），因此该工具在渗透测试场景中很有用。
 
-The tool communicates with the domain controller via LDAP or SAMR protocols to create machine accounts. Created computer accounts can then be used for various attack techniques including resource-based constrained delegation attacks.
+该工具通过 LDAP 或 SAMR 协议与域控制器通信来创建机器账户。创建的计算机账户随后可用于多种攻击技术，包括基于资源的约束委派攻击。
 
 # CAVEATS
 
-Requires valid domain credentials with permissions to create computer accounts. The default ms-DS-MachineAccountQuota may be set to 0 in hardened environments. Computer names should follow NetBIOS naming conventions and typically end with a dollar sign ($).
+需要具有创建计算机账户权限的有效域凭据。在加固环境中，ms-DS-MachineAccountQuota 默认值可能被设为 0。计算机名应遵循 NetBIOS 命名规范，通常以美元符号（$）结尾。
 
 # HISTORY
 
-Impacket was created by **SecureAuth** (formerly Core Security) as a collection of Python classes for working with network protocols. The addcomputer script was added to support Active Directory penetration testing workflows, particularly after research into resource-based constrained delegation attacks became prominent around **2018-2019**.
+Impacket 由 **SecureAuth**（前身为 Core Security）创建，是一组用于处理网络协议的 Python 类。addcomputer 脚本的加入是为了支持 Active Directory 渗透测试工作流，尤其是在 **2018-2019 年**前后基于资源的约束委派攻击研究兴起之后。
 
 # INSTALL
 

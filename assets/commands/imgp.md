@@ -1,18 +1,18 @@
 # TAGLINE
 
-fast, command-line image resizer and rotator for JPEG and PNG files
+面向 JPEG 和 PNG 文件的快速命令行图像缩放与旋转工具
 
 # TLDR
 
-**Resize** images or directories to specific resolution
+将图像或目录**缩放**到指定分辨率
 
 ```imgp -x [1366x1000] [path/to/directory] [path/to/file]```
 
-**Scale** an image by percentage and overwrite source
+按百分比**缩放**图像并覆盖源文件
 
 ```imgp -x [75] -w [path/to/file]```
 
-**Rotate** an image clockwise by 90 degrees
+将图像**顺时针旋转** 90 度
 
 ```imgp -o [90] [path/to/file]```
 
@@ -23,39 +23,39 @@ fast, command-line image resizer and rotator for JPEG and PNG files
 # PARAMETERS
 
 **-x**, **--res** _RES_
-> Target resolution (WxH) or scale percentage
+> 目标分辨率（WxH）或缩放百分比
 
 **-o**, **--rotate** _DEGREES_
-> Rotate image clockwise (90, 180, 270)
+> 顺时针旋转图像（90、180、270）
 
 **-w**, **--overwrite**
-> Overwrite source images
+> 覆盖源图像
 
 **-q**, **--quality** _VALUE_
-> JPEG quality (1-95, default 75)
+> JPEG 质量（1-95，默认 75）
 
 **-n**, **--enlarge**
-> Allow enlarging images
+> 允许放大图像
 
 **-e**, **--erase**
-> Remove EXIF metadata
+> 移除 EXIF 元数据
 
 **-c**, **--convert**
-> Convert between PNG and JPEG
+> 在 PNG 和 JPEG 之间转换
 
 # DESCRIPTION
 
-**imgp** is a fast, command-line image resizer and rotator for JPEG and PNG files. It can process single files or entire directories, making batch operations efficient.
+**imgp** 是一款快速的命令行图像缩放与旋转工具，适用于 JPEG 和 PNG 文件。它可以处理单个文件或整个目录，使批量操作非常高效。
 
-The tool preserves aspect ratio by default when resizing and can process images in parallel for improved performance. It maintains EXIF orientation metadata and supports both percentage-based scaling and absolute resolution targets.
+该工具在缩放时默认保持宽高比，并可并行处理图像以提升性能。它会保留 EXIF 方向元数据，同时支持基于百分比的缩放和绝对分辨率目标。
 
 # CAVEATS
 
-Only supports JPEG and PNG formats. By default creates new files rather than overwriting. Very large batch operations may consume significant memory.
+仅支持 JPEG 和 PNG 格式。默认创建新文件而不是覆盖。超大批量操作可能消耗较多内存。
 
 # HISTORY
 
-imgp was created by Arun Prakash Jana and is part of a collection of efficient command-line utilities. It was designed to provide fast, scriptable image manipulation without the complexity of larger tools like ImageMagick.
+imgp 由 Arun Prakash Jana 创建，是其高效命令行工具集的一员。它的设计目标是提供快速、可脚本化的图像处理能力，而无需面对 ImageMagick 这类大型工具的复杂性。
 
 # INSTALL
 

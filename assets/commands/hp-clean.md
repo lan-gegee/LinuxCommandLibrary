@@ -1,26 +1,26 @@
 # TAGLINE
 
-Printhead cleaning utility for HPLIP-supported HP inkjet printers
+面向 HPLIP 支持的 HP 喷墨打印机的打印头清洁工具
 
 # TLDR
 
-**Clean print heads** for the default printer (opens the interactive cleaning wizard)
+为默认打印机**清洁打印头**（打开交互式清洁向导）
 
 ```hp-clean```
 
-**Clean a specific CUPS printer** by queue name
+按队列名称**清洁指定的 CUPS 打印机**
 
 ```hp-clean -p [printer-name]```
 
-**Clean a printer** by device URI
+按设备 URI **清洁打印机**
 
 ```hp-clean -d [device-uri]```
 
-**Run interactively**, choosing the cleaning level (1-3) at the prompt
+**以交互方式运行**，在提示时选择清洁级别（1-3）
 
 ```hp-clean -i```
 
-**Enable debug-level logging** for troubleshooting
+**启用调试级别日志**以便排查问题
 
 ```hp-clean -g```
 
@@ -31,38 +31,38 @@ Printhead cleaning utility for HPLIP-supported HP inkjet printers
 # PARAMETERS
 
 **-d** _device-uri_, **--device**=_device-uri_
-> Specify the target printer by CUPS device URI.
+> 按 CUPS 设备 URI 指定目标打印机。
 
 **-p** _printer_, **--printer**=_printer_
-> Specify the target printer by CUPS queue name.
+> 按 CUPS 队列名称指定目标打印机。
 
 **-i**, **--interactive**
-> Run in interactive mode.
+> 以交互模式运行。
 
 **-l** _level_, **--logging**=_level_
-> Set logging verbosity: none, info (default), error, warn, or debug.
+> 设置日志详细程度：none、info（默认）、error、warn 或 debug。
 
 **-g**
-> Run with debug-level logging (equivalent to **-l debug**).
+> 以调试级别日志运行（等价于 **-l debug**）。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助后退出。
 
 # DESCRIPTION
 
-**hp-clean** runs the printhead cleaning routine on HPLIP-supported HP inkjet printers, clearing dried ink and debris from the nozzles to restore print quality.
+**hp-clean** 在 HPLIP 支持的 HP 喷墨打印机上执行打印头清洁流程，清除喷嘴上干涸的墨水与碎屑，以恢复打印质量。
 
-When launched without a specific mode it walks through an interactive wizard that lets the user pick a cleaning level from 1 to 3; higher levels clean more aggressively and consume more ink, so level 1 is usually tried first. The target printer can be selected up front with **-p** or **-d**, otherwise hp-clean prompts for one if more than one HPLIP device is installed.
+不带特定模式启动时，它会进入一个交互式向导，让用户从 1 到 3 中选择清洁级别；级别越高清洁越强力，消耗的墨水也越多，因此通常先尝试级别 1。可以先用 **-p** 或 **-d** 指定目标打印机，否则当安装了多台 HPLIP 设备时 hp-clean 会提示选择。
 
-hp-clean only works with inkjet printers whose HPLIP plugin exposes a cleaning routine; laser printers and some low-end inkjets do not support it.
+hp-clean 仅适用于其 HPLIP 插件提供清洁例程的喷墨打印机；激光打印机和部分低端喷墨打印机不支持此功能。
 
 # CAVEATS
 
-Part of the HPLIP package. Cleaning consumes ink and should only be run when print quality actually degrades (streaks, missing lines). Not all HPLIP-supported models implement printhead cleaning.
+属于 HPLIP 软件包。清洁会消耗墨水，只应在打印质量确实下降（出现条纹、缺线）时才运行。并非所有 HPLIP 支持的型号都实现打印头清洁功能。
 
 # HISTORY
 
-**hp-clean** is one of the device-maintenance utilities in **HPLIP** (HP Linux Imaging and Printing), HP's open-source printer/scanner driver suite for Linux, alongside **hp-align** and **hp-linefeedcal**.
+**hp-clean** 是 **HPLIP**（HP Linux Imaging and Printing）中设备维护工具之一，与 **hp-align** 和 **hp-linefeedcal** 并列。HPLIP 是 HP 面向 Linux 的开源打印/扫描驱动套件。
 
 # INSTALL
 

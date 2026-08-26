@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal monitor for Go process goroutines via pprof
+基于 pprof 的 Go 进程 goroutine 终端监视器
 
 # TLDR
 
-**Connect** to default local pprof endpoint
+**连接**到默认的本地 pprof 端点
 
 ```grmon```
 
-**Connect** to a specific host and port
+**连接**到特定的主机和端口
 
 ```grmon -host [localhost:6060]```
 
-**Set refresh interval** in seconds (0 disables auto-refresh)
+**设置刷新间隔**（秒，0 表示禁用自动刷新）
 
 ```grmon -i [2]```
 
-**Use a custom pprof path**
+**使用自定义 pprof 路径**
 
 ```grmon -endpoint [/debug/pprof]```
 
@@ -26,29 +26,29 @@ Terminal monitor for Go process goroutines via pprof
 
 # DESCRIPTION
 
-**grmon** is an interactive terminal UI for watching goroutines in a running Go program. The target process must expose Go's **net/http/pprof** endpoints (or start the small **grmon** agent). **grmon** polls the profile endpoint and displays goroutine counts and stacks; you can pause refresh, filter, sort, and expand individual traces.
+**grmon** 是一个交互式终端 UI，用于观察运行中的 Go 程序里的 goroutine。目标进程必须暴露 Go 的 **net/http/pprof** 端点（或启动小型 **grmon** 代理）。**grmon** 轮询 profile 端点并显示 goroutine 数量和堆栈；你可以暂停刷新、过滤、排序以及展开单个调用轨迹。
 
-Default target is **localhost:1234** with path **/debug/pprof**. In the target app, either call **grmon.Start()** from the agent package or serve pprof yourself (for example **http.ListenAndServe(":6060", nil)** with **_ "net/http/pprof"** imported).
+默认目标为 **localhost:1234**，路径为 **/debug/pprof**。在目标应用中，可以调用代理包中的 **grmon.Start()**，也可以自行提供 pprof 服务（例如在导入 **_ "net/http/pprof"** 后执行 **http.ListenAndServe(":6060", nil)**）。
 
 # PARAMETERS
 
 **-i** *seconds*
 
-> Refresh interval (default: 5). **0** disables automatic refresh.
+> 刷新间隔（默认：5）。**0** 表示禁用自动刷新。
 
 **-host** *host:port*
 
-> Target host (default: **localhost:1234**).
+> 目标主机（默认：**localhost:1234**）。
 
 **-endpoint** *path*
 
-> pprof base path (default: **/debug/pprof**).
+> pprof 基础路径（默认：**/debug/pprof**）。
 
-Interactive keys include **r** refresh, **p** pause, **s** sort, **f** filter, arrows/**j**/**k** move, Enter expand, **t** full-screen trace, **q** quit.
+交互按键包括 **r** 刷新、**p** 暂停、**s** 排序、**f** 过滤、方向键/**j**/**k** 移动、Enter 展开、**t** 全屏查看轨迹、**q** 退出。
 
 # CAVEATS
 
-The target must expose pprof; binding pprof to a public interface is a security risk. Stack collection has runtime cost. **go get** install paths may differ by Go module mode—prefer current module install instructions from the repository.
+目标必须暴露 pprof；将 pprof 绑定到公网接口存在安全风险。收集堆栈有运行时开销。不同 Go module 模式下 **go get** 的安装路径可能不同——请以仓库中最新的模块安装说明为准。
 
 # INSTALL
 

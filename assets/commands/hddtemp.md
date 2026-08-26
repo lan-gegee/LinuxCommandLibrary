@@ -1,34 +1,34 @@
 # TAGLINE
 
-displays the temperature of hard disk drives via S
+通过 S.M.A.R.T. 显示硬盘温度
 
 # TLDR
 
-Display **temperature** of a SATA drive
+显示 SATA 硬盘的**温度**
 
 ```hddtemp SATA:/dev/sda```
 
-Display in **Fahrenheit**
+以**华氏度**显示
 
 ```hddtemp -u F SATA:/dev/sda```
 
-Display **numeric** value only
+仅显示**数值**
 
 ```hddtemp -n SATA:/dev/sda```
 
-Log to **syslog** every N seconds
+每 N 秒记录到 **syslog**
 
 ```hddtemp -S 60 SATA:/dev/sda```
 
-**Wake** drive before reading temperature
+读取温度前先**唤醒**硬盘
 
 ```hddtemp -w SATA:/dev/sda```
 
-Run in **daemon** mode
+以**守护进程**模式运行
 
 ```hddtemp -d SATA:/dev/sda```
 
-Show **debug** information
+显示**调试**信息
 
 ```hddtemp -D SATA:/dev/sda```
 
@@ -38,47 +38,47 @@ Show **debug** information
 
 # DESCRIPTION
 
-**hddtemp** displays the temperature of hard disk drives via S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology). It can show temperature for SATA, PATA, and SCSI drives that support S.M.A.R.T.
+**hddtemp** 通过 S.M.A.R.T.（Self-Monitoring, Analysis and Reporting Technology，自我监测、分析及报告技术）显示硬盘温度。它可以显示支持 S.M.A.R.T. 的 SATA、PATA 和 SCSI 硬盘的温度。
 
 # PARAMETERS
 
 **-n, --numeric**
-> Print only the numeric temperature value without units
+> 只打印数字形式的温度值，不带单位
 
 **-u, --unit=UNIT**
-> Set temperature unit (C for Celsius, F for Fahrenheit)
+> 设置温度单位（C 为摄氏度，F 为华氏度）
 
 **-S, --syslog=SECONDS**
-> Log temperatures to syslog every N seconds
+> 每 N 秒把温度记录到 syslog
 
 **-d, --daemon**
-> Run as daemon (TCP/IP server mode)
+> 以守护进程方式运行（TCP/IP 服务器模式）
 
 **-l, --listen=ADDR**
-> Listen on specified address in daemon mode
+> 守护进程模式下监听指定地址
 
 **-p, --port=PORT**
-> Listen on specified port in daemon mode (default: 7634)
+> 守护进程模式下监听指定端口（默认：7634）
 
 **-w, --wake-up**
-> Wake up the drive before reading temperature
+> 读取温度前先唤醒硬盘
 
 **-q, --quiet**
-> Suppress drive type compatibility warnings
+> 抑制硬盘型号兼容性警告
 
 **-D, --debug**
-> Show S.M.A.R.T. fields and their values
+> 显示 S.M.A.R.T. 字段及其取值
 
 **-f, --file=FILE**
-> Use specified drive database file
+> 使用指定的硬盘数据库文件
 
 # CAVEATS
 
-Requires root privileges to access drive S.M.A.R.T. data. The drive type prefix (SATA, PATA, SCSI) is required for proper operation. Not all drives support temperature monitoring through S.M.A.R.T.
+访问硬盘的 S.M.A.R.T. 数据需要 root 权限。必须提供硬盘类型前缀（SATA、PATA、SCSI）才能正常工作。并非所有硬盘都支持通过 S.M.A.R.T. 监测温度。
 
 # HISTORY
 
-**hddtemp** was developed to provide simple temperature monitoring for hard drives using S.M.A.R.T. data, commonly used for system health monitoring.
+**hddtemp** 的开发目标是利用 S.M.A.R.T. 数据为硬盘提供简单的温度监测，常用于系统健康监控。
 
 # INSTALL
 

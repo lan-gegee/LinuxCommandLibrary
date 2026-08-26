@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages named branches in Mercurial
+管理 Mercurial 中的命名分支
 
 # TLDR
 
-**Show current branch**
+**显示当前分支**
 
 ```hg branch```
 
-**Create a new branch**
+**创建新分支**
 
 ```hg branch [branch-name]```
 
-**List all branches**
+**列出所有分支**
 
 ```hg branches```
 
-**Switch to a branch**
+**切换到某个分支**
 
 ```hg update [branch-name]```
 
-**Close current branch**
+**关闭当前分支**
 
 ```hg commit --close-branch -m "[message]"```
 
@@ -31,16 +31,15 @@ manages named branches in Mercurial
 # PARAMETERS
 
 **-f**, **--force**
-> Set branch name even if shadowing an existing branch.
+> 即使分支名与现有分支重名也强制设置。
 
 **-C**, **--clean**
-> Reset branch name to parent branch name.
+> 将分支名重置为父分支的名称。
 
 # DESCRIPTION
 
-**hg branch** manages named branches in Mercurial. Without arguments, it shows the current branch name. With a name argument, it marks the working directory as being on a new branch, which takes effect on the next commit. Named branches are permanent parts of changeset history. For lightweight Git-style branches, use **hg bookmark** instead.
+**hg branch** 管理 Mercurial 中的命名分支。不带参数时，它显示当前分支的名称。带有名称参数时，它将工作目录标记为新分支，此标记在下一次提交时生效。命名分支是变更集历史的永久组成部分。如需 Git 风格的轻量级分支，请改用 **hg bookmark**。
 
 # SEE ALSO
 
 [hg](/man/hg)(1), [hg-update](/man/hg-update)(1), [hg-commit](/man/hg-commit)(1)
-

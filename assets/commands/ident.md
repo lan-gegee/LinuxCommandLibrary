@@ -1,22 +1,22 @@
 # TAGLINE
 
-extracts RCS keywords from files
+从文件中提取 RCS 关键字
 
 # TLDR
 
-**Show RCS keywords**
+**显示 RCS 关键字**
 
 ```ident [file]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```ident [file1] [file2]```
 
-**Quiet mode**
+**安静模式**
 
 ```ident -q [file]```
 
-**Show version keyword only**
+**只显示版本关键字**
 
 ```ident -V [file]```
 
@@ -27,30 +27,30 @@ extracts RCS keywords from files
 # PARAMETERS
 
 _FILES_
-> Files to scan.
+> 要扫描的文件。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-V**
-> Show version only.
+> 只显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ident** extracts RCS keywords from files. It finds and displays embedded version control information like $Id$ and $Revision$.
+**ident** 从文件中提取 RCS 关键字。它会查找并显示内嵌的版本控制信息，如 $Id$ 和 $Revision$。
 
-The tool scans binary and text files for RCS keyword patterns. It's used to identify file versions in builds.
+该工具在二进制和文本文件中扫描 RCS 关键字模式。它用于在构建过程中识别文件版本。
 
 # CAVEATS
 
-Part of RCS package. Keywords must be expanded. Historical tool.
+属于 RCS 软件包。关键字必须已被展开。属于历史工具。
 
 # HISTORY
 
-ident is part of **RCS** (Revision Control System), predating modern version control systems.
+ident 是 **RCS**（Revision Control System）的一部分，早于现代版本控制系统。
 
 # INSTALL
 

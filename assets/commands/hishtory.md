@@ -1,38 +1,38 @@
 # TAGLINE
 
-Synced queryable shell history with context
+带上下文、可同步查询的 Shell 历史记录工具
 
 # TLDR
 
-**Install and enable** hishtory
+**安装并启用** hishtory
 
 ```hishtory install```
 
-**Query shell history**
+**查询 shell 历史**
 
 ```hishtory query [search_term]```
 
-**Enable Control+R integration**
+**启用 Control+R 集成**
 
 ```hishtory config-set enable-control-r true```
 
-**Search with AI assistance** (prefix with ?)
+**借助 AI 搜索**（以 ? 为前缀）
 
 ```hishtory query ?[how to find large files]```
 
-**Export all history entries**
+**导出全部历史条目**
 
 ```hishtory export```
 
-**Show sync and configuration status**
+**显示同步与配置状态**
 
 ```hishtory status```
 
-**Delete history entries matching a query**
+**删除匹配查询的历史条目**
 
 ```hishtory redact [search_term]```
 
-**Temporarily disable recording**
+**暂时停用记录功能**
 
 ```hishtory disable```
 
@@ -42,49 +42,49 @@ Synced queryable shell history with context
 
 # DESCRIPTION
 
-**hishtory** is a shell history tool that replaces the default history with a synced, queryable, and context-aware alternative. It hooks into your shell to track all commands that are run, saving them in a local **SQLite** database with additional context like the working directory, exit code, and duration.
+**hishtory** 是一个 shell 历史记录工具，它用一个可同步、可查询且带上下文的方案取代默认的历史记录。它会挂接到你的 shell 以跟踪所有运行过的命令，并将它们连同工作目录、退出码和耗时等附加上下文一起保存到本地 **SQLite** 数据库中。
 
-History is **end-to-end encrypted** with AES-GCM and can be synced across all your devices. When you press **Control+R** or run **hishtory query**, a SQL query finds matching entries in the local database. Queries can also be prefixed with **?** to use ChatGPT for natural language command search.
+历史记录使用 AES-GCM 进行**端到端加密**，可以在你的所有设备之间同步。当你按下 **Control+R** 或运行 **hishtory query** 时，一条 SQL 查询会在本地数据库中找到匹配的条目。查询也可以加上 **?** 前缀，借助 ChatGPT 进行自然语言命令搜索。
 
 # PARAMETERS
 
 **install**
-> Install and configure hishtory
+> 安装并配置 hishtory
 
 **query** _term_
-> Search shell history
+> 搜索 shell 历史
 
 **export**
-> Export all history entries
+> 导出全部历史条目
 
 **status**
-> Show sync and configuration status
+> 显示同步与配置状态
 
 **config-set** _key_ _value_
-> Set a configuration option
+> 设置某个配置项
 
 **config-get** _key_
-> Get a configuration value
+> 获取某个配置值
 
 **redact** _query_
-> Delete matching history entries locally and from all synced devices.
+> 在本地及所有已同步设备上删除匹配的历史条目。
 
 **update**
-> Securely download and apply the latest hishtory update.
+> 安全地下载并应用最新的 hishtory 更新。
 
 **disable**
-> Temporarily stop recording shell history.
+> 暂时停止记录 shell 历史。
 
 **enable**
-> Resume recording shell history.
+> 恢复记录 shell 历史。
 
 # CAVEATS
 
-Requires an active shell session to record commands. Syncing across devices requires internet connectivity. The AI-powered search feature requires a ChatGPT API connection. End-to-end encryption means lost encryption keys result in unrecoverable data. Commands prefixed with a space are not recorded, following shell conventions.
+需要有活动的 shell 会话才能记录命令。跨设备同步需要互联网连接。AI 搜索功能需要 ChatGPT API 连接。端到端加密意味着加密密钥一旦丢失，数据将无法恢复。按照 shell 的惯例，以空格开头的命令不会被记录。
 
 # HISTORY
 
-**hishtory** was created by **David Dworken** and is written in **Go**. It was designed to address the limitations of built-in shell history by adding encryption, cross-device sync, and contextual metadata.
+**hishtory** 由 **David Dworken** 创建，使用 **Go** 编写。其设计目标是通过增加加密、跨设备同步和上下文元数据，弥补内置 shell 历史功能的不足。
 
 # INSTALL
 

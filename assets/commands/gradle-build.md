@@ -1,30 +1,30 @@
 # TAGLINE
 
-Gradle full build lifecycle task
+Gradle 完整构建生命周期任务
 
 # TLDR
 
-**Build project**
+**构建项目**
 
 ```gradle build```
 
-**Build without tests**
+**跳过测试构建**
 
 ```gradle build -x test```
 
-**Build specific module**
+**构建特定模块**
 
 ```gradle :module:build```
 
-**Build with info logging**
+**以 info 日志级别构建**
 
 ```gradle build --info```
 
-**Build with parallel execution**
+**并行执行构建**
 
 ```gradle build --parallel```
 
-**Dry run** to see which tasks would execute
+**试运行**以查看将执行哪些任务
 
 ```gradle build --dry-run```
 
@@ -35,54 +35,54 @@ Gradle full build lifecycle task
 # PARAMETERS
 
 **-x** _TASK_, **--exclude-task** _TASK_
-> Exclude a task from execution.
+> 将某个任务排除在执行之外。
 
 **--info**
-> Set log level to info.
+> 将日志级别设为 info。
 
 **--debug**
-> Set log level to debug.
+> 将日志级别设为 debug。
 
 **--stacktrace**
-> Print full stacktrace for exceptions.
+> 为异常打印完整的堆栈跟踪。
 
 **--parallel**
-> Build projects in parallel.
+> 并行构建各项目。
 
 **--offline**
-> Execute the build without accessing network resources.
+> 在不访问网络资源的情况下执行构建。
 
 **--build-cache**
-> Enable the Gradle build cache.
+> 启用 Gradle 构建缓存。
 
 **--no-daemon**
-> Run the build without the Gradle daemon.
+> 不使用 Gradle 守护进程运行构建。
 
 **--continue**
-> Continue task execution after a task failure.
+> 在某个任务失败后继续执行其他任务。
 
 **--dry-run**
-> Show which tasks would be executed without running them.
+> 显示将要执行的任务但不实际运行。
 
 **-P** _PROP_, **--project-prop** _PROP_
-> Set a project property.
+> 设置项目属性。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gradle build** compiles source code, runs tests, and produces output artifacts. It is the main build lifecycle task combining compile, test, and assemble phases.
+**gradle build** 编译源代码、运行测试并生成输出构件。它是组合了编译、测试和组装阶段的主构建生命周期任务。
 
-The command executes the complete build process including dependency resolution, compilation, testing, and packaging. It can be customized per project through build scripts. The build task is provided by the Java plugin and follows Gradle's three-phase lifecycle: initialization, configuration, and execution.
+该命令执行完整的构建过程，包括依赖解析、编译、测试和打包。可以通过构建脚本按项目进行定制。build 任务由 Java 插件提供，遵循 Gradle 的三阶段生命周期：初始化、配置和执行。
 
 # CAVEATS
 
-Runs tests by default. Use **-x test** to skip. The first build may download dependencies which can take significant time. Requires a **build.gradle** or **build.gradle.kts** file in the project directory.
+默认会运行测试。使用 **-x test** 可跳过。首次构建可能需要下载依赖，耗时较长。项目目录中需要有 **build.gradle** 或 **build.gradle.kts** 文件。
 
 # HISTORY
 
-The build task is a standard **Gradle** lifecycle task inherited from Java plugin conventions.
+build 任务是继承自 Java 插件约定的标准 **Gradle** 生命周期任务。
 
 # INSTALL
 

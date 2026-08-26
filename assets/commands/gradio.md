@@ -1,30 +1,30 @@
 # TAGLINE
 
-Machine learning web interface builder
+机器学习 Web 界面构建工具
 
 # TLDR
 
-**Run a Gradio app** with hot-reload (restarts on file changes)
+**运行 Gradio 应用**并启用热重载（文件变更时重启）
 
 ```gradio [app.py]```
 
-**Run directly with Python** (no auto-reload)
+**直接用 Python 运行**（无自动重载）
 
 ```python [app.py]```
 
-**Deploy the current directory** as a Hugging Face Space
+**将当前目录部署**为 Hugging Face Space
 
 ```gradio deploy```
 
-**Deploy with a custom title** and entry file
+**使用自定义标题**和入口文件部署
 
 ```gradio deploy --title [my-app] --app-file [app.py]```
 
-**Print the Gradio environment info** for bug reports
+**打印 Gradio 环境信息**用于缺陷报告
 
 ```gradio environment```
 
-**Run with debug output** enabled
+**运行时启用调试输出**
 
 ```GRADIO_DEBUG=1 python [app.py]```
 
@@ -39,45 +39,45 @@ Machine learning web interface builder
 # PARAMETERS
 
 _file_
-> Python file containing a Gradio app. Running **gradio file.py** launches it with auto-reload, equivalent to **python file.py** but restarting on edits.
+> 包含 Gradio 应用的 Python 文件。运行 **gradio file.py** 会以自动重载方式启动它，等同于 **python file.py**，但会在文件被编辑时重启。
 
 **deploy**
-> Subcommand: upload the current directory to Hugging Face Spaces, respecting **.gitignore**.
+> 子命令：将当前目录上传到 Hugging Face Spaces，遵循 **.gitignore** 规则。
 
 **environment**
-> Subcommand: print Gradio, Python, and OS version info useful for issue reports.
+> 子命令：打印 Gradio、Python 和操作系统的版本信息，便于提交 issue。
 
 **--title** _title_
-> (**deploy**) Name the Hugging Face Space.
+> （**deploy**）为 Hugging Face Space 命名。
 
 **--app-file** _file_
-> (**deploy**) Path to the entry Python file (default: **app.py**).
+> （**deploy**）入口 Python 文件的路径（默认：**app.py**）。
 
 **--demo-name** _name_
-> Name of the demo variable inside the script (default: **demo**).
+> 脚本中 demo 变量的名称（默认：**demo**）。
 
 **--watch-dirs** _dirs_
-> Additional directories to watch for hot-reload.
+> 热重载时要额外监听的目录。
 
 # ENVIRONMENT
 
 **GRADIO_SERVER_PORT**
-> Port to bind (default: **7860**).
+> 要绑定的端口（默认：**7860**）。
 
 **GRADIO_SERVER_NAME**
-> Interface to bind. Use **0.0.0.0** to listen on all interfaces.
+> 要绑定的网络接口。使用 **0.0.0.0** 可监听所有接口。
 
 **GRADIO_DEBUG**
-> Set to **1** to keep the main thread alive and print stack traces (useful in Colab).
+> 设为 **1** 可保持主线程存活并打印堆栈跟踪（在 Colab 中很有用）。
 
 **GRADIO_TEMP_DIR**
-> Directory for temporary files such as uploaded media.
+> 临时文件（如上传的媒体）的存放目录。
 
 # DESCRIPTION
 
-**Gradio** is a Python library for building machine-learning demos and web UIs, plus a small companion CLI. The **gradio** command wraps **python** to run a script with live reload - whenever the watched files change, the server restarts and the browser refreshes automatically, which is the main reason to use **gradio app.py** instead of **python app.py** during development.
+**Gradio** 是一个用于构建机器学习演示和 Web UI 的 Python 库，附带一个轻量级配套 CLI。**gradio** 命令包装 **python** 来以实时重载方式运行脚本——只要被监听的文件发生变化，服务器就会重启、浏览器也会自动刷新，这是开发阶段使用 **gradio app.py** 而非 **python app.py** 的主要原因。
 
-The CLI also exposes **gradio deploy**, which packages the working directory and pushes it to **Hugging Face Spaces** for hosting, and **gradio environment**, which prints diagnostic information. Server settings such as port, host, share links, and authentication are normally configured via arguments to **demo.launch()** inside the Python script, or via **GRADIO_*** environment variables.
+该 CLI 还提供 **gradio deploy**，它会打包工作目录并推送到 **Hugging Face Spaces** 进行托管；另有 **gradio environment** 用于打印诊断信息。端口、主机、分享链接和身份验证等服务器设置通常通过 Python 脚本内 **demo.launch()** 的参数配置，或通过 **GRADIO_*** 环境变量设置。
 
 # PYTHON EXAMPLE
 
@@ -93,11 +93,11 @@ demo.launch()
 
 # CAVEATS
 
-The **gradio** CLI is thin: most configuration happens in **demo.launch(...)** inside your Python script, not via flags. Share links created with **share=True** expire after 72 hours and tunnel through Gradio infrastructure. **gradio deploy** requires a Hugging Face token (via **huggingface-cli login**). Requires Python 3.10+ in recent versions.
+**gradio** CLI 非常精简：大多数配置发生在 Python 脚本内的 **demo.launch(...)** 中，而不是通过命令行标志。用 **share=True** 创建的分享链接 72 小时后过期，且流量经由 Gradio 基础设施隧道转发。**gradio deploy** 需要 Hugging Face 令牌（通过 **huggingface-cli login** 获取）。新版本要求 Python 3.10+。
 
 # HISTORY
 
-Gradio was created by **Abubakar Abid** and team, acquired by **Hugging Face** in **2022**. It revolutionized ML demo creation by making interactive interfaces accessible to researchers without web development expertise.
+Gradio 由 **Abubakar Abid** 及其团队创建，于 **2022 年**被 **Hugging Face** 收购。它让不具备 Web 开发经验的研究者也能创建交互式界面，从而革新了机器学习演示的制作方式。
 
 # SEE ALSO
 

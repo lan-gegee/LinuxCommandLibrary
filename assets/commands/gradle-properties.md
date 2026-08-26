@@ -1,22 +1,22 @@
 # TAGLINE
 
-Gradle project properties viewer
+Gradle 项目属性查看工具
 
 # TLDR
 
-**List all project properties**
+**列出所有项目属性**
 
 ```gradle properties```
 
-**List with wrapper**
+**通过 wrapper 列出**
 
 ```./gradlew properties```
 
-**Set property via command line**
+**通过命令行设置属性**
 
 ```gradle build -PmyProp=value```
 
-**Set multiple properties**
+**设置多个属性**
 
 ```gradle build -Pprop1=val1 -Pprop2=val2```
 
@@ -29,14 +29,14 @@ Gradle project properties viewer
 # PARAMETERS
 
 **-P**_name_=_value_
-> Set project property.
+> 设置项目属性。
 
 **-D**org.gradle.project._name_=_value_
-> Set property via system property.
+> 通过系统属性设置属性。
 
 # DESCRIPTION
 
-**gradle properties** displays all properties available in a Gradle project, including built-in properties and those defined in gradle.properties files. Properties can be set via command line with **-P**, through environment variables (ORG_GRADLE_PROJECT_name), or in gradle.properties files at project or user level.
+**gradle properties** 显示 Gradle 项目中所有可用的属性，包括内置属性以及在 gradle.properties 文件中定义的属性。属性可以通过命令行 **-P** 设置，也可以通过环境变量（ORG_GRADLE_PROJECT_name）或项目级/用户级的 gradle.properties 文件设置。
 
 # SEE ALSO
 

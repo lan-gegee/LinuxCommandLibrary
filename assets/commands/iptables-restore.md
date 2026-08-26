@@ -1,22 +1,22 @@
 # TAGLINE
 
-restores iptables IPv4 rules from a file created by iptables-save
+从 iptables-save 创建的文件恢复 iptables IPv4 规则
 
 # TLDR
 
-**Restore** from file
+从文件**恢复**
 
 ```sudo iptables-restore /etc/iptables.rules```
 
-**Restore** from file without flushing existing rules
+从文件**恢复**但不清空现有规则
 
 ```sudo iptables-restore -n /etc/iptables.rules```
 
-**Test** rules without applying them
+**测试**规则而不实际应用
 
 ```sudo iptables-restore -t /etc/iptables.rules```
 
-**Restore** from stdin using iptables-save
+配合 iptables-save 从 stdin **恢复**
 
 ```sudo iptables-save | sudo iptables-restore```
 
@@ -26,41 +26,41 @@ restores iptables IPv4 rules from a file created by iptables-save
 
 # DESCRIPTION
 
-**iptables-restore** restores iptables IPv4 rules from a file created by iptables-save. Use ip6tables-restore for IPv6 rules. Input can be from a file or stdin.
+**iptables-restore** 从 iptables-save 创建的文件恢复 iptables IPv4 规则。IPv6 规则请使用 ip6tables-restore。输入可以来自文件或 stdin。
 
 # PARAMETERS
 
 **-c, --counters**
-> Restore packet and byte counter values
+> 恢复包计数器和字节计数器的值
 
 **-n, --noflush**
-> Don't flush existing rules before restoring
+> 恢复前不清空现有规则
 
 **-T, --table** _name_
-> Only restore the specified table
+> 仅恢复指定的表
 
 **-t, --test**
-> Test mode - parse rules but don't apply
+> 测试模式——解析规则但不应用
 
 **-v, --verbose**
-> Print additional debug info during ruleset processing
+> 在处理规则集期间输出额外的调试信息
 
 **-w, --wait** [_seconds_]
-> Wait for xtables lock
+> 等待 xtables 锁
 
 **-V, --version**
-> Print the program version number
+> 输出程序版本号
 
 **-M, --modprobe** _modprobe_
-> Specify the path to the modprobe program
+> 指定 modprobe 程序的路径
 
 # CAVEATS
 
-By default, all existing rules are flushed before restore. Use -n to add rules without flushing. This only restores IPv4 rules; use ip6tables-restore for IPv6.
+默认情况下，恢复前会清空所有现有规则。使用 -n 可在不清空的情况下追加规则。此命令只恢复 IPv4 规则；IPv6 请使用 ip6tables-restore。
 
 # HISTORY
 
-**iptables-restore** is part of the **iptables** package for managing the Linux kernel firewall.
+**iptables-restore** 是用于管理 Linux 内核防火墙的 **iptables** 软件包的一部分。
 
 # INSTALL
 

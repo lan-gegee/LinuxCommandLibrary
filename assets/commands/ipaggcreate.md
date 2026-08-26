@@ -1,30 +1,30 @@
 # TAGLINE
 
-creates IP address aggregates from network traffic dumps or pcap files
+从网络流量转储或 pcap 文件创建 IP 地址聚合
 
 # TLDR
 
-**Aggregate IP addresses from a dump file**
+**从转储文件聚合 IP 地址**
 
 ```ipaggcreate [input.dump] > [output.agg]```
 
-**Create aggregates from pcap file**
+**从 pcap 文件创建聚合**
 
 ```ipaggcreate -r [capture.pcap] > [output.agg]```
 
-**Aggregate by source IP address**
+**按源 IP 地址聚合**
 
 ```ipaggcreate --src [input.dump]```
 
-**Aggregate by destination IP address**
+**按目标 IP 地址聚合**
 
 ```ipaggcreate --dst [input.dump]```
 
-**Aggregate by TCP/UDP flows**
+**按 TCP/UDP 流聚合**
 
 ```ipaggcreate --flows -r [capture.pcap]```
 
-**Count bytes instead of packets**
+**统计字节数而非数据包数**
 
 ```ipaggcreate --bytes [input.dump]```
 
@@ -35,57 +35,57 @@ creates IP address aggregates from network traffic dumps or pcap files
 # PARAMETERS
 
 **-r**, **--tcpdump** _FILE_
-> Read from one or more tcpdump/pcap files
+> 从一个或多个 tcpdump/pcap 文件读取
 
 **-s**, **--src**
-> Label by IP source address
+> 按 IP 源地址打标签
 
 **-d**, **--dst**
-> Label by IP destination address (default)
+> 按 IP 目标地址打标签（默认）
 
 **--flows**
-> Label by TCP or UDP flow
+> 按 TCP 或 UDP 流打标签
 
 **--address-pairs**
-> Label by address pair
+> 按地址对打标签
 
 **--packets**
-> Count packets per label (default)
+> 统计每个标签的数据包数（默认）
 
 **-B**, **--bytes**
-> Count bytes per label (IP and transport headers included, link headers excluded)
+> 统计每个标签的字节数（含 IP 和传输层头部，不含链路层头部）
 
 **-o**, **--output** _FILE_
-> Write output to file instead of stdout
+> 将输出写入文件而非 stdout
 
 **-f**, **--filter** _FILTER_
-> Include only packets matching a tcpdump filter expression
+> 仅包含匹配 tcpdump 过滤表达式的数据包
 
 **-b**, **--binary**
-> Write summary in binary format
+> 以二进制格式写出摘要
 
 **-A**, **--anonymize**
-> Anonymize IP addresses in output
+> 匿名化输出中的 IP 地址
 
 **-t**, **--interval** _TIME_
-> Stop after recording aggregate data for specified duration
+> 记录指定时长的聚合数据后停止
 
 **-q**, **--quiet**
-> Suppress progress bar output
+> 不显示进度条输出
 
 # DESCRIPTION
 
-**ipaggcreate** reads IP packets from one or more data sources, maps each packet to a label (such as source address, destination address, or flow), and outputs an aggregate file reporting the number of packets or bytes observed per label.
+**ipaggcreate** 从一个或多个数据源读取 IP 数据包，将每个数据包映射为一个标签（如源地址、目标地址或流），并输出一个聚合文件，报告每个标签观测到的数据包数或字节数。
 
-This tool is part of the **ipsumdump** package and works in conjunction with **ipsumdump** and **ipaggmanip** for network traffic analysis and summarization.
+该工具是 **ipsumdump** 软件包的一部分，与 **ipsumdump** 和 **ipaggmanip** 配合使用，进行网络流量分析与汇总。
 
 # CAVEATS
 
-Input format must be compatible with ipsumdump output or pcap format. Large capture files may require significant memory for aggregation. Output format is specific to the ipagg tool suite.
+输入格式必须兼容 ipsumdump 输出格式或 pcap 格式。大型抓包文件可能需要大量内存进行聚合。输出格式为 ipagg 工具套件专用。
 
 # HISTORY
 
-Part of the **ipsumdump** package developed by Eddie Kohler at UCLA and later ICSI. The tool suite was created for network measurement research and released as open source software in the early **2000s**.
+由 Eddie Kohler 在 UCLA 以及后来的 ICSI 开发的 **ipsumdump** 软件包的一部分。该工具套件为网络测量研究而创建，于 **2000 年代**初作为开源软件发布。
 
 # SEE ALSO
 

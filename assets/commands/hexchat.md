@@ -1,22 +1,22 @@
 # TAGLINE
 
-graphical IRC client for Linux, Windows, and macOS
+面向 Linux、Windows 和 macOS 的图形化 IRC 客户端
 
 # TLDR
 
-**Start HexChat**
+**启动 HexChat**
 
 ```hexchat```
 
-**Connect to server**
+**连接到服务器**
 
 ```hexchat [irc://irc.libera.chat/channel]```
 
-**Start minimized**
+**以最小化方式启动**
 
 ```hexchat --minimize=2```
 
-**Specify config directory**
+**指定配置目录**
 
 ```hexchat -d [~/.config/hexchat]```
 
@@ -27,52 +27,52 @@ graphical IRC client for Linux, Windows, and macOS
 # PARAMETERS
 
 _url_
-> IRC URL to connect to.
+> 要连接的 IRC URL。
 
 **-d**, **--cfgdir** _dir_
-> Configuration directory.
+> 配置目录。
 
 **-n**, **--no-plugins**
-> Don't load plugins.
+> 不加载插件。
 
 **--minimize**=_level_
-> Start window minimized: **0** = none, **1** = window minimized, **2** = tray-only.
+> 以最小化窗口启动：**0** = 不最小化，**1** = 最小化窗口，**2** = 仅最小化到托盘。
 
 **-a**, **--no-auto**
-> Don't auto-connect to any servers on startup.
+> 启动时不自动连接任何服务器。
 
 **-e**, **--existing**
-> Open in existing instance.
+> 在已有实例中打开。
 
 **--url** _url_
-> Connect to IRC URL.
+> 连接到指定的 IRC URL。
 
 **-v**, **--version**
-> Show version.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**HexChat** is a graphical IRC client for Linux, Windows, and macOS. It provides a tabbed interface for multiple channels and servers, with features like DCC file transfer, scripting, and extensive customization.
+**HexChat** 是一款面向 Linux、Windows 和 macOS 的图形化 IRC 客户端。它为多个频道和服务器提供标签页界面，具备 DCC 文件传输、脚本扩展和丰富的自定义功能。
 
-HexChat supports plugins in C, Perl, Python, and Lua. It's a fork of XChat, continuing development with modern features and active maintenance.
+HexChat 支持 C、Perl、Python 和 Lua 插件。它是 XChat 的分支，在现代特性上持续开发并获得活跃维护。
 
 # FEATURES
 
-- Tabbed interface for channels
-- DCC file transfers
-- SSL/TLS support
-- Scripting (Python, Perl, Lua)
-- Spell checking
-- Desktop notifications
-- Auto-join and reconnect
+- 频道标签页界面
+- DCC 文件传输
+- SSL/TLS 支持
+- 脚本扩展（Python、Perl、Lua）
+- 拼写检查
+- 桌面通知
+- 自动加入频道和重新连接
 
 # CAVEATS
 
-Configuration stored in ~/.config/hexchat. IRC connections may need SSL. Some networks require registration. Plugin compatibility varies.
+配置保存在 ~/.config/hexchat 中。IRC 连接可能需要 SSL。某些网络要求注册。插件兼容性因实现而异。
 
 # HISTORY
 
-HexChat was forked from **XChat** in **2009** when XChat's Windows builds became shareware. It's maintained by a community of developers and is the most popular graphical IRC client on Linux.
+HexChat 于 **2009 年**从 **XChat** 分支而来，当时 XChat 的 Windows 版本转为共享软件。它由开发者社区维护，是 Linux 上最受欢迎的图形化 IRC 客户端。
 
 # INSTALL
 

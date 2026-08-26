@@ -1,22 +1,22 @@
 # TAGLINE
 
-installs Slackware packages, which are compressed tar archives containing
+安装 Slackware 软件包，即包含文件与安装脚本的压缩 tar 归档
 
 # TLDR
 
-**Install** a Slackware package
+**安装** Slackware 软件包
 
 ```sudo installpkg [path/to/package.tgz]```
 
-**Simulate** installation and report to stdout
+**模拟**安装并将报告输出到 stdout
 
 ```installpkg -warn [path/to/package.tgz]```
 
-**Create** a package from current directory
+**从当前目录创建**软件包
 
 ```installpkg -m [package_name.tgz]```
 
-**Install** contents of current directory as named package
+**将当前目录内容作为命名软件包安装**
 
 ```sudo installpkg -r [package_name.tgz]```
 
@@ -27,33 +27,33 @@ installs Slackware packages, which are compressed tar archives containing
 # PARAMETERS
 
 **-warn**
-> Generate installation report without actually installing
+> 生成安装报告而不实际安装
 
 **-m** _NAME_
-> Make a package from the current directory
+> 从当前目录制作软件包
 
 **-r** _NAME_
-> Install current directory contents as a package
+> 将当前目录内容作为软件包安装
 
 **-menu**
-> Interactive package browser
+> 交互式软件包浏览器
 
 **-priority** _ORDER_
-> Set search order for packages
+> 设置软件包的搜索顺序
 
 # DESCRIPTION
 
-**installpkg** installs Slackware packages, which are compressed tar archives containing files and installation scripts. It extracts package contents to the filesystem and runs any included doinst.sh installation script.
+**installpkg** 安装 Slackware 软件包。这类包是压缩的 tar 归档，包含文件和安装脚本。它会将包内容解压到文件系统，并运行随附的 doinst.sh 安装脚本（如果有）。
 
-Package metadata is stored in /var/log/packages, allowing tracking of installed files for later removal or upgrade. The tool handles the .tgz, .txz, .tbz, and .tlz package formats.
+软件包元数据存储在 /var/log/packages 中，便于跟踪已安装的文件，供日后删除或升级使用。该工具支持 .tgz、.txz、.tbz 和 .tlz 软件包格式。
 
 # CAVEATS
 
-Slackware-specific package tool. Does not handle dependencies automatically. Overwrites existing files without warning unless using -warn option.
+Slackware 专用软件包工具。不会自动处理依赖关系。除非使用 -warn 选项，否则会不加警告地覆盖现有文件。
 
 # HISTORY
 
-installpkg has been part of Slackware Linux since its early releases in **1993**. Slackware's package management is intentionally simple, preferring manual dependency handling to give users full control.
+installpkg 自 **1993 年**早期版本起就是 Slackware Linux 的一部分。Slackware 的软件包管理刻意保持简单，倾向于手动处理依赖关系，让用户拥有完全控制权。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-GTK graphical interface for the HandBrake video transcoder
+HandBrake 视频转码器的 GTK 图形界面
 
 # TLDR
 
-**Launch the HandBrake GUI**
+**启动 HandBrake 图形界面**
 
 ```ghb```
 
-**Open a video file directly in the GUI**
+**直接在图形界面中打开视频文件**
 
 ```ghb [video.mkv]```
 
-**Open the GUI with a preset preselected**
+打开图形界面并**预选一个预设**
 
 ```ghb --preset="[Fast 1080p30]"```
 
-**Load a DVD/Blu-ray device or directory**
+**加载 DVD/蓝光设备或目录**
 
 ```ghb --device [/dev/dvd]```
 
-**Automatically start the encode queue on launch**
+启动时**自动开始转码队列**
 
 ```ghb --auto-start-queue [video.mkv]```
 
-**Enable verbose debug logging to the terminal**
+**启用输出到终端的详细调试日志**
 
 ```ghb --debug --console```
 
@@ -35,41 +35,41 @@ GTK graphical interface for the HandBrake video transcoder
 # PARAMETERS
 
 **-d**, **--device** _file_
-> Device, directory, or file to load for encoding on startup.
+> 启动时加载用于转码的设备、目录或文件。
 
 **-p**, **--preset** _name_
-> Preset to select on startup.
+> 启动时选择的预设。
 
 **-x**, **--debug**
-> Enable verbose (debug-level) logging.
+> 启用详细（调试级）日志。
 
 **-c**, **--console**
-> Write debug output to the console instead of capturing it internally.
+> 将调试输出写入控制台，而不是在内部捕获。
 
 **-o**, **--config** _dir_
-> Override the user configuration directory.
+> 覆盖用户配置目录。
 
 **--auto-start-queue**
-> Automatically start the encode queue on launch.
+> 启动时自动开始转码队列。
 
 **--clear-queue**
-> Clear previously queued items on launch.
+> 启动时清除之前排队的项目。
 
 # DESCRIPTION
 
-**HandBrake** is an open-source video transcoder. **ghb** is its native GTK graphical interface, used on Linux to pick sources, choose presets, configure video/audio/subtitle settings, and manage an encode queue interactively.
+**HandBrake** 是一款开源视频转码器。**ghb** 是其原生 GTK 图形界面，在 Linux 上用于选择来源、挑选预设、配置视频/音频/字幕设置，并以交互方式管理转码队列。
 
-ghb and [HandBrakeCLI](/man/handbrakecli)(1) share the same underlying libhb encoding engine and preset format: presets built or tweaked in ghb can be exported and reused from HandBrakeCLI for scripted or headless encoding, and vice versa.
+ghb 与 [HandBrakeCLI](/man/handbrakecli)(1) 共享相同的底层 libhb 编码引擎和预设格式：在 ghb 中创建或调整的预设可以导出，并在 HandBrakeCLI 中复用于脚本化或无头转码，反之亦然。
 
-On Linux, ghb is installed via the distribution's package (e.g. `handbrake` on Arch, `handbrake-gtk` on Debian/Ubuntu) or as the `fr.handbrake.ghb` Flatpak.
+在 Linux 上，ghb 通过发行版的软件包安装（如 Arch 上的 `handbrake`、Debian/Ubuntu 上的 `handbrake-gtk`），也可以作为 `fr.handbrake.ghb` Flatpak 安装。
 
 # CAVEATS
 
-Requires a graphical session (GTK4/Wayland or X11); not usable over a plain SSH connection without display forwarding. DVD/Blu-ray decryption requires libdvdcss. Hardware encoding needs a compatible GPU and drivers.
+需要图形会话（GTK4/Wayland 或 X11）；在没有显示转发的纯 SSH 连接下无法使用。DVD/蓝光解密需要 libdvdcss。硬件编码需要兼容的 GPU 及驱动。
 
 # HISTORY
 
-HandBrake was originally created by **Eric Petit** in **2003** as "MediaFork" for BeOS, later renamed and ported to other platforms. The GTK interface was written for Linux users after the project's revival by the open-source community, and now targets GTK 4.
+HandBrake 最初由 **Eric Petit** 于 **2003 年**为 BeOS 创建，当时名为 "MediaFork"，后来更名并移植到其他平台。GTK 界面是在开源社区复兴该项目之后为 Linux 用户编写的，现在面向 GTK 4。
 
 # INSTALL
 

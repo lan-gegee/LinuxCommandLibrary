@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI for executing HTTP, gRPC, WebSocket, and MQTT requests from files
+用于从文件执行 HTTP、gRPC、WebSocket 和 MQTT 请求的命令行工具
 
 # TLDR
 
-**Execute all requests** in an HTTP file
+**执行 HTTP 文件中的所有请求**
 
 ```httpyac send [path/to/requests.http]```
 
-**Execute all requests** in a directory
+**执行目录中的所有请求**
 
 ```httpyac send [path/to/directory]```
 
-**Execute with a specific environment**
+**以指定环境执行**
 
 ```httpyac send --env [production] [path/to/requests.http]```
 
-**Execute all requests** in a file
+**执行文件中的所有请求**
 
 ```httpyac send --all [path/to/requests.http]```
 
-**Run in interactive mode**
+**以交互模式运行**
 
 ```httpyac send -i [path/to/requests.http]```
 
@@ -30,17 +30,17 @@ CLI for executing HTTP, gRPC, WebSocket, and MQTT requests from files
 
 # DESCRIPTION
 
-**httpyac** is a command-line interface for executing requests defined in **.http** and **.rest** files. It supports **HTTP**, **REST**, **GraphQL**, **WebSocket**, **gRPC**, and **MQTT** protocols. The tool provides built-in support for authentication methods including **OAuth2**, **AWS**, **Basic**, **Digest**, and **SSL client certificates**.
+**httpyac** 是一个命令行界面，用于执行定义在 **.http** 和 **.rest** 文件中的请求。它支持 **HTTP**、**REST**、**GraphQL**、**WebSocket**、**gRPC** 和 **MQTT** 协议。该工具内置对多种认证方法的支持，包括 **OAuth2**、**AWS**、**Basic**、**Digest** 和 **SSL 客户端证书**。
 
-httpyac supports variables, environments (including dotenv files), and scripting for complex test scenarios. It can be used for quick one-off requests or automated API testing in CI/CD pipelines.
+httpyac 支持变量、环境配置（包括 dotenv 文件）以及脚本功能，可应对复杂的测试场景。它既可以用于快速的临时请求，也可以用于 CI/CD 流水线中的自动化 API 测试。
 
 # CAVEATS
 
-Requires Node.js runtime. Request file format follows the IntelliJ HTTP client specification with extensions. Complex scripting may require familiarity with JavaScript.
+需要 Node.js 运行时。请求文件格式遵循 IntelliJ HTTP 客户端规范及其扩展。编写复杂脚本可能需要熟悉 JavaScript。
 
 # HISTORY
 
-**httpyac** was created by **Andreas Weber** (AnWeber) and is written in **TypeScript/JavaScript**. It is also available as a **VS Code extension** for integrated HTTP request execution within the editor.
+**httpyac** 由 **Andreas Weber**（AnWeber）创建，使用 **TypeScript/JavaScript** 编写。它还提供 **VS Code 扩展**版本，可在编辑器内集成执行 HTTP 请求。
 
 # INSTALL
 

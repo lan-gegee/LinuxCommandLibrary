@@ -1,18 +1,18 @@
 # TAGLINE
 
-decodes HP Business Inkjet Printer Language files
+解码 HP Business Inkjet Printer Language 文件
 
 # TLDR
 
-**Decode HBP file**
+**解码 HBP 文件**
 
 ```hbpldecode [input.hbp]```
 
-**Decode to file**
+**解码到文件**
 
 ```hbpldecode [input.hbp] > [output.pbm]```
 
-**Verbose output**
+**详细输出**
 
 ```hbpldecode -v [input.hbp]```
 
@@ -23,27 +23,27 @@ decodes HP Business Inkjet Printer Language files
 # PARAMETERS
 
 _FILE_
-> HBP file to decode.
+> 要解码的 HBP 文件。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**hbpldecode** decodes HP Business Inkjet Printer Language files. It extracts image data from printer spool files.
+**hbpldecode** 用于解码 HP Business Inkjet Printer Language 文件。它从打印机假脱机文件中提取图像数据。
 
-The tool is part of foo2hbpl printer driver suite. It's useful for analyzing printer data and extracting embedded images.
+该工具是 foo2hbpl 打印机驱动套件的一部分，适合分析打印机数据和提取内嵌图像。
 
 # CAVEATS
 
-Specific to HP printers. Part of foo2hbpl package. Limited file format support.
+仅适用于 HP 打印机。属于 foo2hbpl 软件包的一部分。支持的文件格式有限。
 
 # HISTORY
 
-hbpldecode was developed as part of **foo2hbpl** for Linux printing support of HP Business Inkjet printers.
+hbpldecode 作为 **foo2hbpl** 的一部分开发，用于支持 HP Business Inkjet 打印机的 Linux 打印。
 
 # INSTALL
 

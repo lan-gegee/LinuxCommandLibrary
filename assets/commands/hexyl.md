@@ -1,30 +1,30 @@
 # TAGLINE
 
-modern hex viewer for the terminal
+现代化的终端十六进制查看器
 
 # TLDR
 
-**View file in hex**
+以十六进制**查看文件**
 
 ```hexyl [file]```
 
-**Show specific length**
+**显示指定长度**
 
 ```hexyl -n [100] [file]```
 
-**Skip bytes**
+**跳过字节**
 
 ```hexyl --skip [50] [file]```
 
-**Show in plain style**
+**以朴素风格显示**
 
 ```hexyl --plain [file]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [file] | hexyl```
 
-**No character panel**
+**不显示字符面板**
 
 ```hexyl --no-characters [file]```
 
@@ -35,69 +35,69 @@ modern hex viewer for the terminal
 # PARAMETERS
 
 _FILE_
-> File to display (use - for stdin).
+> 要显示的文件（用 - 表示 stdin）。
 
 **-n**, **--length** _N_
-> Number of bytes to read (supports k, M, G suffixes and hex).
+> 要读取的字节数（支持 k、M、G 后缀和十六进制）。
 
 **-c**, **--bytes** _N_
-> Alias for --length.
+> --length 的别名。
 
 **-s**, **--skip** _N_
-> Skip first N bytes (negative values seek from end).
+> 跳过前 N 个字节（负值表示从末尾开始定位）。
 
 **-o**, **--display-offset** _N_
-> Add N bytes to the displayed file offset.
+> 在显示的文件偏移量上加上 N 个字节。
 
 **--block-size** _SIZE_
-> Size of the block unit (default: 512).
+> 块单元的大小（默认：512）。
 
 **-v**, **--no-squeezing**
-> Display all data; don't collapse identical lines with an asterisk.
+> 显示所有数据；不用星号折叠相同的行。
 
 **--color** _WHEN_
-> Color output: always (default), auto, never.
+> 彩色输出：always（默认）、auto、never。
 
 **-p**, **--plain**
-> Plain output (shorthand for --no-characters --no-position --border=none --color=never).
+> 朴素输出（等价于 --no-characters --no-position --border=none --color=never）。
 
 **--no-characters**
-> Hide the character panel.
+> 隐藏字符面板。
 
 **--no-position**
-> Hide the position offset column.
+> 隐藏位置偏移列。
 
 **--border** _STYLE_
-> Border style: unicode (default), ascii, none.
+> 边框样式：unicode（默认）、ascii、none。
 
 **--panels** _N_
-> Number of hex data panels (or 'auto').
+> 十六进制数据面板的数量（或 'auto'）。
 
 **--group-size** _N_
-> Bytes per group: 1 (default), 2, 4, or 8.
+> 每组的字节数：1（默认）、2、4 或 8。
 
 **--endianness** _ENDIAN_
-> Byte ordering within groups: little or big.
+> 组内字节序：little 或 big。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**hexyl** is a modern hex viewer for the terminal. It displays file contents with colored output distinguishing different byte types.
+**hexyl** 是一款现代化的终端十六进制查看器。它以彩色输出显示文件内容，区分不同的字节类型。
 
-The tool uses colors to highlight ASCII, non-ASCII, null bytes, and whitespace. It provides a clean, readable hex dump with offset and character views.
+该工具使用颜色突出 ASCII、非 ASCII、空字节和空白字符。它提供整洁易读的十六进制转储，并带有偏移量和字符视图。
 
 # CAVEATS
 
-Requires color terminal. Large files may be slow. Written in Rust.
+需要支持颜色的终端。大文件可能较慢。使用 Rust 编写。
 
 # HISTORY
 
-hexyl was created as a modern, colorful alternative to traditional hex dump tools like xxd and hexdump.
+hexyl 的创建旨在成为 xxd 和 hexdump 等传统十六进制转储工具的现代、彩色化替代品。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-download and manage Go package dependencies
+下载和管理 Go 包依赖
 
 # TLDR
 
-**Download package**
+**下载包**
 
 ```go get [github.com/pkg/errors]```
 
-**Download specific version**
+**下载指定版本**
 
 ```go get [github.com/pkg/errors@v0.9.1]```
 
-**Update package**
+**更新包**
 
 ```go get -u [package]```
 
-**Download all dependencies**
+**下载所有依赖**
 
 ```go get ./...```
 
-**Install binary**
+**安装二进制文件**
 
 ```go install [github.com/user/tool@latest]```
 
@@ -31,36 +31,36 @@ download and manage Go package dependencies
 # PARAMETERS
 
 _PACKAGES_
-> Packages to download.
+> 要下载的包。
 
 **-u**
-> Update to latest version.
+> 更新到最新版本。
 
 **-d**
-> Download only, don't install (default behavior since Go 1.16; the flag is now a deprecated no-op).
+> 仅下载而不安装（自 Go 1.16 起为默认行为；该标志现已废弃，无实际作用）。
 
 **-t**
-> Include test dependencies.
+> 包含测试依赖。
 
 **@** _VERSION_
-> Specify version.
+> 指定版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**go get** downloads and installs packages and dependencies. In module mode, it updates go.mod and go.sum files to track dependencies. For installing tool binaries, use **go install** instead.
+**go get** 用于下载并安装包及其依赖。在模块模式下，它会更新 go.mod 和 go.sum 文件以跟踪依赖。如需安装工具类二进制文件，请改用 **go install**。
 
-The command resolves versions from module proxies, supporting semantic versioning. It can target specific versions, branches, or commits.
+该命令通过模块代理解析版本，支持语义化版本控制。它可以指定具体的版本、分支或提交。
 
 # CAVEATS
 
-Since **Go 1.18**, **go get** no longer builds or installs packages; it only edits go.mod/go.sum and populates the module cache. Running it outside a module, or to install a command, fails with an error pointing to **go install**. Updates modify go.mod and go.sum, which should be committed.
+自 **Go 1.18** 起，**go get** 不再构建或安装包；它只编辑 go.mod/go.sum 并填充模块缓存。在模块之外运行它，或试图用它安装命令时，都会失败并报错提示使用 **go install**。更新操作会修改 go.mod 和 go.sum，这些更改应当提交到版本控制中。
 
 # HISTORY
 
-go get is part of the **Go** toolchain. Its build/install functionality was split off into **go install** in **Go 1.17-1.18** as part of the modules transition, leaving go get focused solely on dependency resolution.
+go get 是 **Go** 工具链的一部分。作为模块化转型的一部分，其构建/安装功能在 **Go 1.17-1.18** 中被拆分给 **go install**，此后 go get 只专注于依赖解析。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-outputs transactions from the journal
+输出日志中的交易
 
 # TLDR
 
-**Print all transactions**
+**打印所有交易**
 
 ```hledger print```
 
-**Print specific account**
+**打印特定账户**
 
 ```hledger print [account-pattern]```
 
-**Print date range**
+**打印日期范围**
 
 ```hledger print -b [2024-01-01] -e [2024-12-31]```
 
-**Print with cost**
+**按成本打印**
 
 ```hledger print --cost```
 
-**Output as CSV**
+**以 CSV 输出**
 
 ```hledger print -O csv```
 
@@ -31,39 +31,39 @@ outputs transactions from the journal
 # PARAMETERS
 
 _PATTERNS_
-> Account or description patterns.
+> 账户或描述匹配模式。
 
 **-b** _DATE_
-> Begin date.
+> 起始日期。
 
 **-e** _DATE_
-> End date.
+> 结束日期。
 
 **--cost**
-> Convert to cost basis.
+> 转换为成本基准。
 
 **--explicit**
-> Make amounts explicit.
+> 使金额显式化。
 
 **-O** _FORMAT_
-> Output format (txt, csv).
+> 输出格式（txt、csv）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hledger print** outputs transactions from the journal. It reproduces transaction records, optionally filtered or transformed.
+**hledger print** 输出日志中的交易。它会重现交易记录，可按需过滤或转换。
 
-The command is useful for extracting subsets of transactions or converting between formats. Output is valid journal syntax.
+该命令适合提取交易的子集或在格式之间转换。输出为合法的 journal 语法。
 
 # CAVEATS
 
-Outputs in journal format by default. Filtering reduces output. Part of hledger suite.
+默认以 journal 格式输出。过滤会减少输出内容。本命令属于 hledger 套件。
 
 # HISTORY
 
-Print is a core **hledger** command for displaying and extracting transactions from journals.
+Print 是 **hledger** 中用于显示和从日志中提取交易的核心命令。
 
 # INSTALL
 

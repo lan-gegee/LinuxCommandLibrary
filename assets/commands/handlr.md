@@ -1,30 +1,30 @@
 # TAGLINE
 
-modern alternative to xdg-utils for managing default applications on Linux
+Linux 上管理默认应用程序的 xdg-utils 现代替代品
 
 # TLDR
 
-**Open** a URL in the default application
+用默认应用**打开** URL
 
 ```handlr open https://example.com```
 
-Open a **PDF** in the default PDF viewer
+用默认 PDF 查看器打开 **PDF**
 
 ```handlr open [path/to/file.pdf]```
 
-**Set** imv as the default application for PNG files
+**将** imv **设置**为 PNG 文件的默认应用
 
 ```handlr set .png imv.desktop```
 
-Set MPV as the default for all **audio files**
+将 MPV 设置为所有**音频文件**的默认应用
 
 ```handlr set 'audio/*' mpv.desktop```
 
-**List** all default apps
+**列出**所有默认应用
 
 ```handlr list```
 
-**Get** the default application for PNG files
+**查询** PNG 文件的默认应用
 
 ```handlr get .png```
 
@@ -35,38 +35,38 @@ Set MPV as the default for all **audio files**
 # PARAMETERS
 
 **open** _PATH|URL_
-> Open file or URL with default application
+> 用默认应用打开文件或 URL
 
 **set** _MIME|EXT_ _HANDLER_
-> Set default application for MIME type or extension
+> 为 MIME 类型或扩展名设置默认应用
 
 **get** _MIME|EXT_
-> Get default application for MIME type or extension
+> 查询 MIME 类型或扩展名的默认应用
 
 **list**
-> List all configured default applications
+> 列出所有已配置的默认应用
 
 **unset** _MIME|EXT_
-> Remove default application setting
+> 移除默认应用设置
 
 **add** _MIME|EXT_ _HANDLER_
-> Add handler to list without setting as default
+> 将处理程序添加到列表而不设为默认
 
 # DESCRIPTION
 
-**handlr** is a modern alternative to xdg-utils for managing default applications on Linux. It handles file and URL associations through MIME types and file extensions.
+**handlr** 是 Linux 上管理默认应用程序的 xdg-utils 现代替代品。它通过 MIME 类型和文件扩展名处理文件与 URL 的关联。
 
-The tool modifies ~/.config/mimeapps.list (and optionally the deprecated ~/.local/share/applications/mimeapps.list) to set default applications. It supports both specific file extensions (.pdf, .png) and MIME type patterns (audio/*, video/*).
+该工具通过修改 ~/.config/mimeapps.list（以及可选的已废弃的 ~/.local/share/applications/mimeapps.list）来设置默认应用。它既支持具体的文件扩展名（.pdf、.png），也支持 MIME 类型模式（audio/*、video/*）。
 
-handlr aims to be simpler and more predictable than xdg-open and xdg-mime, with better terminal integration and clear output.
+handlr 力求比 xdg-open 和 xdg-mime 更简单、行为更可预测，并具备更好的终端集成和清晰的输出。
 
 # CAVEATS
 
-Requires .desktop files to be properly installed in standard locations. May not be recognized by all desktop environments. Some applications may have their own file association mechanisms that override system defaults.
+要求 .desktop 文件已正确安装在标准位置。可能无法被所有桌面环境识别。某些应用拥有自己的文件关联机制，可能会覆盖系统默认设置。
 
 # HISTORY
 
-handlr was created as a Rust-based alternative to the xdg-utils suite, focusing on simplicity and reliability. It addresses common frustrations with xdg-open's unpredictable behavior and complex fallback mechanisms.
+handlr 是作为 xdg-utils 工具集的 Rust 替代品而创建的，注重简洁和可靠性。它解决了 xdg-open 行为不可预测、回退机制复杂等常见困扰。
 
 # INSTALL
 

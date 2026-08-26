@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts GTS files to STL format
+将 GTS 文件转换为 STL 格式
 
 # TLDR
 
-**Convert a GTS file to STL**
+**将 GTS 文件转换为 STL**
 
 ```gts2stl < [input.gts] > [output.stl]```
 
-**Convert with verbose output**
+**转换并输出详细信息**
 
 ```gts2stl --verbose < [input.gts] > [output.stl]```
 
-**Convert with reversed face normals**
+**转换并反转面法线**
 
 ```gts2stl --revert < [input.gts] > [output.stl]```
 
@@ -23,35 +23,35 @@ converts GTS files to STL format
 # PARAMETERS
 
 **-v**, **--verbose**
-> Print statistics about the surface.
+> 打印曲面的统计信息。
 
 **-r**, **--revert**
-> Revert face normals (flip the orientation of triangles).
+> 反转面法线（翻转三角形朝向）。
 
 **-h**, **--help**
-> Display the help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gts2stl** converts GTS (GNU Triangulated Surface) files to STL (STereoLithography) format. GTS is a library for 3D surface mesh operations, and this tool exports meshes to the widely-used STL format.
+**gts2stl** 将 GTS（GNU Triangulated Surface）文件转换为 STL（STereoLithography）格式。GTS 是一个用于 3D 表面网格操作的库，此工具将网格导出为广泛使用的 STL 格式。
 
-STL files are commonly used for 3D printing and CAD applications. The conversion preserves the triangular mesh structure. The output is in ASCII STL format.
+STL 文件常用于 3D 打印和 CAD 应用。转换会保留三角网格结构。输出为 ASCII STL 格式。
 
 # GTS FORMAT
 
-GTS files contain:
-- Vertex count, edge count, face count
-- Vertex coordinates
-- Edge definitions (vertex pairs)
-- Face definitions (edge triplets)
+GTS 文件包含：
+- 顶点数、边数、面数
+- 顶点坐标
+- 边的定义（顶点对）
+- 面的定义（边三元组）
 
 # CAVEATS
 
-Reads from stdin, writes to stdout. Large meshes may take time. GTS format is less common than STL. Part of GTS library package.
+从 stdin 读取，写入 stdout。大型网格可能需要较长时间。GTS 格式不如 STL 常见。属于 GTS 库软件包的一部分。
 
 # HISTORY
 
-gts2stl is part of the **GTS Library** (GNU Triangulated Surface), developed for computational geometry operations. The library provides tools for surface mesh manipulation, boolean operations, and format conversion.
+gts2stl 是 **GTS 库**（GNU Triangulated Surface）的一部分，该库面向计算几何操作开发，提供表面网格处理、布尔运算和格式转换等工具。
 
 # INSTALL
 

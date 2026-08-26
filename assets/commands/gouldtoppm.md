@@ -1,14 +1,14 @@
 # TAGLINE
 
-Gould scanner file to PPM converter
+Gould 扫描仪文件转 PPM 转换器
 
 # TLDR
 
-**Convert Gould scanner file to PPM**
+**将 Gould 扫描仪文件转换为 PPM**
 
 ```gouldtoppm [file.gould] > [output.ppm]```
 
-**Convert from stdin**
+**从标准输入转换**
 
 ```cat [file.gould] | gouldtoppm > [output.ppm]```
 
@@ -18,9 +18,9 @@ Gould scanner file to PPM converter
 
 # DESCRIPTION
 
-**gouldtoppm** reads a file produced by a Gould scanner and converts it to PPM (Portable Pixmap) format. It is part of the Netpbm package of graphics manipulation tools.
+**gouldtoppm** 读取由 Gould 扫描仪生成的文件并将其转换为 PPM（Portable Pixmap）格式。它是 Netpbm 图像处理工具集的一部分。
 
-The command reads from a file argument or standard input and writes PPM output to standard output.
+该命令从文件参数或标准输入读取数据，并将 PPM 输出写入标准输出。
 
 # INSTALL
 

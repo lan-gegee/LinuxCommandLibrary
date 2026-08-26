@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run local large language models through Ubuntu inference snaps from the terminal
+在终端中通过 Ubuntu 推理 snap 运行本地大语言模型
 
 # TLDR
 
-Start a chat session with the selected model
+用所选模型启动一个对话会话
 
 ```inference-snaps chat```
 
-Check engine and server status
+查看引擎和服务器状态
 
 ```inference-snaps status```
 
-Switch to a different execution engine (e.g. CUDA)
+切换到其他执行引擎（如 CUDA）
 
 ```sudo inference-snaps use-engine cuda```
 
-Show hardware information (RAM, architecture, GPUs)
+显示硬件信息（内存、架构、GPU）
 
 ```sudo inference-snaps show-machine```
 
@@ -26,34 +26,34 @@ Show hardware information (RAM, architecture, GPUs)
 
 # DESCRIPTION
 
-**inference-snaps** (and the associated model snaps such as `deepseek-r1`, `gemma3`, `gemma4`, etc.) provide a simple way to run powerful open-weight LLMs locally on Ubuntu without writing any code or managing Python environments.
+**inference-snaps**（以及 `deepseek-r1`、`gemma3`、`gemma4` 等关联的模型 snap）提供了一种简单方式，无需编写代码或管理 Python 环境，就能在 Ubuntu 上本地运行强大的开放权重 LLM。
 
-The snaps bundle the model weights, an inference engine (CPU, CUDA, ROCm, etc.), and a small chat server. Once started, you can talk to the model from the terminal or connect other tools to the local HTTP API.
+这些 snap 打包了模型权重、推理引擎（CPU、CUDA、ROCm 等）和一个轻量聊天服务器。启动后，你可以在终端中与模型对话，或将其他工具连接到本地 HTTP API。
 
-Supported models (as of 2026) include DeepSeek R1, Google Gemma 3/4, Nemotron, Qwen-VL and others. Each model snap installs its own command that behaves like `inference-snaps`.
+支持的模型（截至 2026 年）包括 DeepSeek R1、Google Gemma 3/4、Nemotron、Qwen-VL 等。每个模型 snap 会安装自己的命令，用法与 `inference-snaps` 相同。
 
 # COMMANDS
 
 **chat**  
-> Start an interactive chat (launches the background server on first use)
+> 启动交互式对话（首次使用时会拉起后台服务器）
 
 **status**  
-> Show which model/engine is active and whether the chat server is running
+> 显示当前激活的模型/引擎，以及聊天服务器是否正在运行
 
 **use-engine** _engine_  
-> Switch execution backend (cpu, cuda, rocm, etc.) and download the matching model variant if needed
+> 切换执行后端（cpu、cuda、rocm 等），并在需要时下载匹配的模型变体
 
 **show-machine**  
-> Print detailed hardware information relevant to LLM inference
+> 打印与 LLM 推理相关的详细硬件信息
 
 **get** / **set**  
-> Read or change configuration keys (host, port, etc.)
+> 读取或修改配置项（host、port 等）
 
 # CAVEATS
 
-- These are Ubuntu Snap packages. They work best on Ubuntu and Ubuntu-derived distributions.
-- Large models require substantial RAM and/or a supported GPU.
-- The first run of a model will download several gigabytes of weights.
+- 这些是 Ubuntu Snap 软件包，在 Ubuntu 及其衍生发行版上效果最佳。
+- 大型模型需要大量内存和/或受支持的 GPU。
+- 首次运行模型会下载数 GB 的权重文件。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-checks if an email is registered on various websites
+检查某个邮箱是否在各类网站上注册过
 
 # TLDR
 
-**Check email registration**
+**检查邮箱注册情况**
 
 ```holehe [email@example.com]```
 
-**Output as CSV**
+**以 CSV 输出**
 
 ```holehe [email@example.com] --csv```
 
-**Output only positive results**
+**只输出命中的结果**
 
 ```holehe --only-used [email@example.com]```
 
-**Disable colored output**
+**禁用彩色输出**
 
 ```holehe --no-color [email@example.com]```
 
-**Set request timeout**
+**设置请求超时**
 
 ```holehe --timeout [10] [email@example.com]```
 
@@ -31,36 +31,36 @@ checks if an email is registered on various websites
 # PARAMETERS
 
 _EMAIL_
-> Email address to check.
+> 要检查的邮箱地址。
 
 **--csv**
-> Output as CSV.
+> 以 CSV 格式输出。
 
 **--only-used**
-> Show only positive results.
+> 只显示命中的结果。
 
 **--no-color**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-t**, **--timeout** _SEC_
-> Request timeout.
+> 请求超时时间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**holehe** checks if an email is registered on various websites. It uses password reset and registration functions to detect account existence.
+**holehe** 检查某个邮箱是否在各类网站上注册过。它利用密码重置和注册功能来检测账号是否存在。
 
-The tool is useful for OSINT and security testing. It checks hundreds of websites for email registration status.
+该工具适用于 OSINT（开源情报）和安全测试。它会检查数百个网站的邮箱注册状态。
 
 # CAVEATS
 
-OSINT tool requiring authorization. Rate limits may apply. Results may have false positives.
+这是需要授权使用的 OSINT 工具。可能受到速率限制。结果可能存在误报。
 
 # HISTORY
 
-holehe was created as an OSINT tool for checking email registrations across many platforms.
+holehe 是作为一个跨众多平台检查邮箱注册情况的 OSINT 工具而创建的。
 
 # INSTALL
 

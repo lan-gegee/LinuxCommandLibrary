@@ -1,42 +1,42 @@
 # TAGLINE
 
-measures network bandwidth between two endpoints
+测量两个端点之间的网络带宽
 
 # TLDR
 
-**Start server** mode
+**以服务器模式启动**
 
 ```iperf -s```
 
-**Connect to server** and run test
+**连接服务器**并运行测试
 
 ```iperf -c [server_ip]```
 
-**Run test for specific** duration
+按指定时长**运行测试**
 
 ```iperf -c [server_ip] -t [30]```
 
-**Run UDP test** instead of TCP
+**改用 UDP 测试**而非 TCP
 
 ```iperf -c [server_ip] -u```
 
-**Test with multiple** parallel streams
+**使用多条并行流**进行测试
 
 ```iperf -c [server_ip] -P [4]```
 
-**Run bidirectional** test
+**运行双向**测试
 
 ```iperf -c [server_ip] -d```
 
-**Set target bandwidth** for UDP
+为 UDP **设置目标带宽**
 
 ```iperf -c [server_ip] -u -b [100M]```
 
-**Specify port**
+**指定端口**
 
 ```iperf -c [server_ip] -p [5001]```
 
-**Report at intervals**
+**定期报告**结果
 
 ```iperf -c [server_ip] -i [1]```
 
@@ -49,86 +49,86 @@ measures network bandwidth between two endpoints
 # PARAMETERS
 
 **-s**
-> Run in server mode.
+> 以服务器模式运行。
 
 **-c** _HOST_
-> Run in client mode, connecting to server at HOST.
+> 以客户端模式运行，连接到 HOST 上的服务器。
 
 **-p** _PORT_
-> Server port to listen on or connect to (default: 5001).
+> 监听或连接的服务器端口（默认：5001）。
 
 **-u**
-> Use UDP instead of TCP.
+> 使用 UDP 而非 TCP。
 
 **-b** _BANDWIDTH_
-> Target bandwidth (e.g., 10M, 1G). Limits UDP and TCP rates.
+> 目标带宽（如 10M、1G）。限制 UDP 和 TCP 的速率。
 
 **-t** _TIME_
-> Test duration in seconds (default: 10).
+> 测试时长（秒）（默认：10）。
 
 **-n** _BYTES_
-> Transmit specified number of bytes instead of using a time duration (e.g., 100M, 1G).
+> 传输指定的字节数而非按时长测试（如 100M、1G）。
 
 **-i** _INTERVAL_
-> Report interval in seconds.
+> 报告间隔（秒）。
 
 **-P** _STREAMS_
-> Number of parallel client streams.
+> 并行客户端流的数量。
 
 **-d**
-> Bidirectional test using separate unidirectional sockets.
+> 双向测试，使用独立的单向套接字。
 
 **-r**
-> Bidirectional test (sequential: client-to-server, then reverse).
+> 双向测试（先客户端到服务器，再反向依次进行）。
 
 **--full-duplex**
-> Full duplex test using a single socket for both directions.
+> 全双工测试，两个方向共用单个套接字。
 
 **-R**
-> Reverse traffic flow (server sends, client receives).
+> 反转流量方向（服务器发送，客户端接收）。
 
 **-f** _FORMAT_
-> Report format: a (adaptive), k/m/g (bits), K/M/G (bytes).
+> 报告格式：a（自适应）、k/m/g（比特）、K/M/G（字节）。
 
 **-w** _SIZE_
-> Socket buffer size (TCP window size).
+> 套接字缓冲区大小（TCP 窗口大小）。
 
 **-l** _LENGTH_
-> Read/write buffer length (TCP default 128K, UDP default 1470).
+> 读/写缓冲区长度（TCP 默认 128K，UDP 默认 1470）。
 
 **-M** _MSS_
-> Set TCP maximum segment size via TCP_MAXSEG.
+> 通过 TCP_MAXSEG 设置 TCP 最大报文段大小。
 
 **-N**
-> Disable Nagle's algorithm (set TCP_NODELAY).
+> 禁用 Nagle 算法（设置 TCP_NODELAY）。
 
 **-B** _HOST_
-> Bind to a specific host, interface, or multicast address.
+> 绑定到特定的主机、接口或多播地址。
 
 **-D**
-> Run the server as a daemon.
+> 将服务器作为守护进程运行。
 
 **-e**
-> Display enhanced output in reports.
+> 在报告中显示增强的输出。
 
 **-o** _FILE_
-> Write report output to specified file.
+> 将报告输出写入指定文件。
 
 # DESCRIPTION
 
-**iperf** measures network bandwidth between two endpoints. One host runs in server mode (-s), and another connects as a client (-c) to perform the test. By default, iperf measures TCP throughput.
+**iperf** 测量两个端点之间的网络带宽。一台主机以服务器模式运行（-s），另一台作为客户端连接（-c）执行测试。默认情况下，iperf 测量 TCP 吞吐量。
 
-UDP mode (-u) tests UDP performance with configurable target bandwidth. This is useful for measuring packet loss and jitter at specific rates. Parallel streams (-P) can saturate high-bandwidth links that a single stream cannot fill.
+UDP 模式（-u）以可配置的目标带宽测试 UDP 性能。这可用于测量特定速率下的丢包和抖动。并行流（-P）可以打满单条流无法填满的高带宽链路。
 
-Results show bandwidth achieved, along with additional metrics depending on protocol (retransmits for TCP, packet loss and jitter for UDP).
+结果显示达到的带宽，以及取决于协议的其他指标（TCP 显示重传数，UDP 显示丢包率和抖动）。
 
 # CAVEATS
 
-iperf (version 2) and iperf3 are separate projects with incompatible protocols. This page covers iperf2. Firewall rules may need to allow the iperf port (default 5001). Results can be affected by CPU limitations on either end, especially at high bandwidths.
+iperf（版本 2）与 iperf3 是相互独立的项目，协议互不兼容。本页面介绍的是 iperf2。防火墙规则可能需要放行 iperf 端口（默认 5001）。测试结果可能受任一端 CPU 性能限制的影响，在高带宽下尤其明显。
 
 # HISTORY
 
-iperf was developed by NLANR/DAST as an open-source network testing tool. The original iperf (version 2) became widely used for network diagnostics. **iperf3** is a complete rewrite by ESnet with enhanced features but uses an incompatible protocol, requiring both endpoints to use the same version.
+iperf 由 NLANR/DAST 开发，是一款开源的网络测试工具。最初的 iperf（版本 2）被广泛用于网络诊断。**iperf3** 是 ESnet 的完全重写版本，功能有所增强，但使用不兼容的协议，要求两端使用相同的版本。
 
 # INSTALL
 

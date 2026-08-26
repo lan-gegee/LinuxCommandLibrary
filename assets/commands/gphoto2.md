@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line client for digital cameras via libgphoto2
+通过 libgphoto2 控制数码相机的命令行客户端
 
 # TLDR
 
-**Detect connected cameras** and the ports they are attached to
+**检测已连接的相机**及其所连接的端口
 
 ```gphoto2 --auto-detect```
 
-**Capture an image** and keep it on the camera
+**拍摄一张照片**并将其保留在相机上
 
 ```gphoto2 --capture-image```
 
-**Capture an image** and download it immediately
+**拍摄一张照片**并立即下载
 
 ```gphoto2 --capture-image-and-download```
 
-**List all files** stored on the camera
+**列出相机上存储的所有文件**
 
 ```gphoto2 --list-files```
 
-**Download a specific file** by index number
+按索引编号**下载特定文件**
 
 ```gphoto2 --get-file [number]```
 
-**Download every file** from the camera
+**下载相机上的所有文件**
 
 ```gphoto2 --get-all-files```
 
-**Time-lapse capture** of 10 frames at 30 second intervals
+以 30 秒间隔**延时拍摄** 10 帧
 
 ```gphoto2 --capture-image-and-download -F 10 -I 30```
 
-**Stream live preview** to stdout (useful as webcam source)
+将**实时预览流**输出到标准输出（可用作网络摄像头源）
 
 ```gphoto2 --stdout --capture-movie```
 
@@ -43,101 +43,101 @@ Command-line client for digital cameras via libgphoto2
 # PARAMETERS
 
 **--auto-detect**
-> Detect cameras attached to the system.
+> 检测连接到系统的相机。
 
 **--list-cameras**
-> Print list of all supported camera models.
+> 打印所有受支持相机型号的列表。
 
 **--list-ports**
-> Print list of supported port types.
+> 打印受支持端口类型的列表。
 
 **--port** _PATH_
-> Select a specific port (e.g. _usb:_ or _serial:/dev/ttyS0_).
+> 选择特定端口（例如 _usb:_ 或 _serial:/dev/ttyS0_）。
 
 **--camera** _MODEL_
-> Force a specific camera model.
+> 强制使用特定的相机型号。
 
 **-L**, **--list-files**
-> List files in the current folder on the camera.
+> 列出相机上当前文件夹中的文件。
 
 **-f** _FOLDER_, **--folder** _FOLDER_
-> Switch to specified folder on the camera.
+> 切换到相机上的指定文件夹。
 
 **-p** _RANGE_, **--get-file** _RANGE_
-> Download files identified by number range (e.g. _1_, _1-4_, _1,3,5_).
+> 按编号范围下载文件（例如 _1_、_1-4_、_1,3,5_）。
 
 **--get-all-files**
-> Download every file from the current folder.
+> 下载当前文件夹中的所有文件。
 
 **--get-thumbnail** _RANGE_
-> Download thumbnails rather than full files.
+> 下载缩略图而不是完整文件。
 
 **--get-raw-data** _RANGE_
-> Download raw sensor data.
+> 下载原始传感器数据。
 
 **-u** _FILE_, **--upload-file** _FILE_
-> Upload a file to the camera.
+> 将文件上传到相机。
 
 **-d** _RANGE_, **--delete-file** _RANGE_
-> Delete files by number.
+> 按编号删除文件。
 
 **-D**, **--delete-all-files**
-> Delete every file in the current folder.
+> 删除当前文件夹中的所有文件。
 
 **--capture-image**
-> Trigger the shutter and keep the image on the camera.
+> 触发快门并将图像保留在相机上。
 
 **--capture-image-and-download**
-> Capture and immediately download the resulting file.
+> 拍摄并立即下载生成的文件。
 
 **--capture-movie** [_=COUNT_|_=SECONDSs_]
-> Capture a movie or stream of preview frames.
+> 拍摄视频或预览帧流。
 
 **-F** _N_, **--frames** _N_
-> Number of frames for time-lapse captures.
+> 延时拍摄的帧数。
 
 **-I** _SECONDS_, **--interval** _SECONDS_
-> Seconds between frames during time-lapse.
+> 延时拍摄中帧与帧之间的秒数。
 
 **--filename** _TEMPLATE_
-> Specify an output filename template (supports _%n_, _%C_, _%f_, etc.).
+> 指定输出文件名模板（支持 _%n_、_%C_、_%f_ 等）。
 
 **--stdout**
-> Write downloaded data to standard output instead of a file.
+> 将下载的数据写入标准输出而不是文件。
 
 **--list-config**
-> List all camera configuration entries.
+> 列出所有相机配置项。
 
 **--get-config** _NAME_
-> Print the current value of a configuration entry.
+> 打印某个配置项的当前值。
 
 **--set-config** _NAME=VALUE_
-> Set a configuration entry (e.g. _iso=400_, _shutterspeed=1/125_).
+> 设置配置项（例如 _iso=400_、_shutterspeed=1/125_）。
 
 **--summary**
-> Print a summary of the camera's capabilities.
+> 打印相机功能的摘要。
 
 **-q**, **--quiet**
-> Reduce output verbosity.
+> 降低输出详细程度。
 
 **-h**, **--help**
-> Show usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**gphoto2** is the official command-line frontend for the **libgphoto2** library, providing access to more than **2500 digital cameras** over USB, serial, PTP/IP, and other transports. It lets photographers and developers capture images, download files, trigger the shutter, tether cameras to computers, and adjust settings without using the vendor software.
+**gphoto2** 是 **libgphoto2** 库的官方命令行前端，可通过 USB、串口、PTP/IP 等传输方式访问超过 **2500 款数码相机**。它让摄影师和开发者无需厂商软件即可拍摄图像、下载文件、触发快门、将相机联机到电脑以及调整设置。
 
-The tool operates on the current folder of the camera's storage; switch folders with **--folder** and query structure with **--list-folders** or **--list-files**. Each file is addressed by a 1-based index. Multiple actions may be combined on one command line and are executed sequentially.
+该工具作用于相机存储的当前文件夹；用 **--folder** 切换文件夹，用 **--list-folders** 或 **--list-files** 查询结构。每个文件通过从 1 开始的索引来寻址。多个操作可以在一条命令行上组合，并按顺序执行。
 
-For configuration, gphoto2 exposes the camera's property tree (exposure, ISO, white balance, focus mode, etc.) through **--list-config**, **--get-config**, and **--set-config**. This makes it a common building block for remote capture studios, observatory rigs, and Linux webcam setups (e.g. piping **--capture-movie** output into **ffmpeg** and **v4l2loopback**).
+在配置方面，gphoto2 通过 **--list-config**、**--get-config** 和 **--set-config** 暴露相机的属性树（曝光、ISO、白平衡、对焦模式等）。这使它成为远程拍摄工作室、天文台设备和 Linux 网络摄像头方案（例如把 **--capture-movie** 的输出通过管道传给 **ffmpeg** 和 **v4l2loopback**）的常用构件。
 
 # CAVEATS
 
-Not every camera supports every feature; PTP cameras usually allow capture and config, while older PTP-incompatible cameras expose only file transfer. Stop any desktop service that auto-mounts MTP/PTP cameras (e.g. _gvfs-gphoto2-volume-monitor_) before using gphoto2 directly; otherwise the USB device is held by another process. Long tethered sessions may require explicit power settings to prevent the camera from sleeping.
+并非每台相机都支持所有功能；PTP 相机通常允许拍摄和配置，而较旧的不兼容 PTP 的相机仅提供文件传输。直接使用 gphoto2 前，请先停止任何自动挂载 MTP/PTP 相机的桌面服务（如 _gvfs-gphoto2-volume-monitor_）；否则 USB 设备会被其他进程占用。长时间联机会话可能需要显式设置电源选项，以防相机进入休眠。
 
 # HISTORY
 
-The **gphoto** project was started in **1997** by **Scott Fritzinger** to give Linux users a common interface for consumer digital cameras. The second-generation library **libgphoto2** and its reference client **gphoto2** were released in **2001**, reworking the architecture around modular camlib drivers. The project is maintained by an open-source community and underpins camera support in desktop environments such as GNOME and KDE.
+**gphoto** 项目由 **Scott Fritzinger** 于 **1997 年**发起，目的是为 Linux 用户提供一个访问消费级数码相机的通用接口。第二代库 **libgphoto2** 及其参考客户端 **gphoto2** 于 **2001 年**发布，围绕模块化的 camlib 驱动重构了架构。该项目由开源社区维护，是 GNOME 和 KDE 等桌面环境中相机支持的基石。
 
 # INSTALL
 

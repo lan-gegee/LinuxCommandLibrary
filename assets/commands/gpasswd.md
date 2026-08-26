@@ -1,26 +1,26 @@
 # TAGLINE
 
-Administer group passwords and membership
+管理组密码和组成员关系
 
 # TLDR
 
-Define group **administrators**
+定义组**管理员**
 
 ```sudo gpasswd -A [user1,user2] [group]```
 
-Set the list of group **members**
+设置组**成员**列表
 
 ```sudo gpasswd -M [user1,user2] [group]```
 
-Create a **password** for the named group
+为指定组创建**密码**
 
 ```gpasswd [group]```
 
-**Add** a user to the named group
+将用户**添加**到指定组
 
 ```gpasswd -a [user] [group]```
 
-**Remove** a user from the named group
+从指定组**移除**用户
 
 ```gpasswd -d [user] [group]```
 
@@ -31,36 +31,36 @@ Create a **password** for the named group
 # PARAMETERS
 
 **-a**, **--add** _USER_
-> Add user to the group
+> 将用户添加到组
 
 **-d**, **--delete** _USER_
-> Remove user from the group
+> 将用户从组中移除
 
 **-A**, **--administrators** _USER,..._
-> Set list of group administrators
+> 设置组管理员列表
 
 **-M**, **--members** _USER,..._
-> Set list of group members (replaces existing)
+> 设置组成员列表（替换现有成员）
 
 **-r**, **--remove-password**
-> Remove group password
+> 移除组密码
 
 **-R**, **--restrict**
-> Restrict access to group (only members can use newgrp)
+> 限制对组的访问（仅成员可以使用 newgrp）
 
 # DESCRIPTION
 
-**gpasswd** administers /etc/group and /etc/gshadow files. It is used to add and remove users from groups, set group administrators, and manage group passwords.
+**gpasswd** 用于管理 /etc/group 和 /etc/gshadow 文件。它可以向组中添加或移除用户、设置组管理员以及管理组密码。
 
-Group administrators (set with **-A**) can add or remove members without root privileges, delegating group management to trusted users. Group passwords (rarely used) allow non-members to temporarily join a group using the **newgrp** command.
+组管理员（通过 **-A** 设置）无需 root 权限即可添加或移除成员，从而把组管理委托给受信任的用户。组密码（很少使用）允许非成员通过 **newgrp** 命令临时加入某个组。
 
 # CAVEATS
 
-The **-M** option replaces all group members, not appends. Use **-a** and **-d** for incremental changes. Group password usage is discouraged in favor of proper membership management. Changes take effect on next login.
+**-M** 选项会替换全部组成员，而不是追加。增量修改请用 **-a** 和 **-d**。不建议使用组密码，应优先采用规范的成员管理。更改将在下次登录时生效。
 
 # HISTORY
 
-gpasswd is part of the shadow-utils package, which provides the shadow password suite for Unix systems. The shadow system was developed in the 1980s to improve password security by moving password hashes from the world-readable /etc/passwd to the restricted /etc/shadow file.
+gpasswd 是 shadow-utils 软件包的一部分，该软件包为 Unix 系统提供影子密码（shadow password）套件。shadow 系统开发于 20 世纪 80 年代，通过将密码哈希从人人可读的 /etc/passwd 移到受限访问的 /etc/shadow 文件来提升密码安全性。
 
 # INSTALL
 

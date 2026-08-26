@@ -1,30 +1,30 @@
 # TAGLINE
 
-LPU-powered terminal coding assistant
+LPU 驱动的终端编程助手
 
 # TLDR
 
-**Start interactive chat** session
+**启动交互式聊天**会话
 
 ```groq```
 
-**Run without installation** using npx
+使用 npx **免安装运行**
 
 ```npx groq-code-cli@latest```
 
-**Set generation temperature** for responses
+**设置响应的生成温度**
 
 ```groq -t [0.7]```
 
-**Provide a custom system message**
+**提供自定义系统消息**
 
 ```groq -s "You are a helpful coding assistant"```
 
-**Enable debug logging** to file
+**启用调试日志**写入文件
 
 ```groq -d```
 
-**Configure proxy** for API requests
+为 API 请求**配置代理**
 
 ```groq --proxy [http://proxy:8080]```
 
@@ -35,43 +35,43 @@ LPU-powered terminal coding assistant
 # PARAMETERS
 
 **-t**, **--temperature** _temp_
-> Set generation temperature controlling response randomness. Default: 1.
+> 设置生成温度，控制响应的随机性。默认：1。
 
 **-s**, **--system** _message_
-> Provide a custom system message for the conversation.
+> 为对话提供自定义系统消息。
 
 **-d**, **--debug**
-> Enable debug logging output to debug-agent.log.
+> 启用调试日志输出到 debug-agent.log。
 
 **-p**, **--proxy** _url_
-> Configure proxy for API requests. Supports HTTP, HTTPS, and SOCKS5 protocols.
+> 为 API 请求配置代理。支持 HTTP、HTTPS 和 SOCKS5 协议。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Show version number.
+> 显示版本号。
 
 # DESCRIPTION
 
-**groq** (Groq Code CLI) is a command-line coding assistant powered by Groq's LPU (Language Processing Unit) inference engine, known for extremely fast response times. It provides an interactive terminal-based interface for AI-assisted code generation and development tasks.
+**groq**（Groq Code CLI）是一款由 Groq 的 LPU（Language Processing Unit）推理引擎驱动的命令行编程助手，后者以极快的响应速度著称。它提供一个基于终端的交互式界面，用于 AI 辅助的代码生成和开发任务。
 
-The CLI stores configuration in a **.groq/** folder in your home directory, including API keys and model preferences. Users can select different language models available on the Groq platform using the **/model** command.
+该 CLI 将配置存储在主目录的 **.groq/** 文件夹中，包括 API 密钥和模型偏好。用户可以使用 **/model** 命令选择 Groq 平台上可用的不同语言模型。
 
-Proxy configuration follows a priority order: CLI flag (**--proxy**) takes precedence over **HTTPS_PROXY**, which takes precedence over **HTTP_PROXY** environment variables.
+代理配置遵循优先级顺序：CLI 标志（**--proxy**）优先于 **HTTPS_PROXY**，后者又优先于 **HTTP_PROXY** 环境变量。
 
 # CONFIGURATION
 
 **~/.groq/**
-> Configuration directory storing API keys, model preferences, and session data.
+> 存储API 密钥、模型偏好和会话数据的配置目录。
 
 # CAVEATS
 
-Requires a **GROQ_API_KEY** environment variable or authentication via the **/login** command. API usage is subject to Groq's rate limits and terms of service. The CLI requires Node.js for installation.
+需要 **GROQ_API_KEY** 环境变量或通过 **/login** 命令进行身份验证。API 用量受 Groq 的速率限制和服务条款约束。该 CLI 的安装需要 Node.js。
 
 # HISTORY
 
-Groq Code CLI was released as an open-source project by Groq to showcase their LPU inference capabilities for developers. Groq, founded in **2016**, developed custom tensor streaming processor chips optimized for AI inference, achieving significantly faster response times than traditional GPU-based solutions. The CLI leverages this speed advantage for interactive coding workflows.
+Groq Code CLI 由 Groq 作为开源项目发布，用于向开发者展示其 LPU 推理能力。Groq 成立于 **2016 年**，开发了针对 AI 推理优化的定制张量流处理器芯片，其响应速度显著快于传统的基于 GPU 的方案。该 CLI 正是利用这一速度优势来支持交互式编程工作流。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-attach a serial line to an input-layer device
+将串口线路连接到输入层设备
 
 # TLDR
 
-Attach a **Pulse8 CEC** adapter
+连接 **Pulse8 CEC** 适配器
 
 ```sudo inputattach --pulse8-cec /dev/ttyACM0```
 
-Attach a **Wacom W8001** pen-only tablet at 19200 baud
+以 19200 波特率连接 **Wacom W8001** 仅笔式数位板
 
 ```sudo inputattach --baud 19200 --w8001 /dev/ttyS0```
 
-Attach an **ELO touchscreen** and fork into the background
+连接 **ELO 触摸屏**并转入后台
 
 ```sudo inputattach --daemon --elo /dev/ttyS0```
 
-Attach a **Microsoft serial mouse**
+连接 **Microsoft 串口鼠标**
 
 ```sudo inputattach --microsoft /dev/ttyS0```
 
-List **supported devices**
+列出**支持的设备**
 
 ```inputattach --help```
 
@@ -31,55 +31,55 @@ List **supported devices**
 # PARAMETERS
 
 **--daemon**
-> Fork into the background after attaching.
+> 连接后转入后台。
 
 **--always**
-> Ignore initialization failures and keep the device attached.
+> 忽略初始化失败并保持设备连接。
 
 **--noinit**
-> Skip device initialization.
+> 跳过设备初始化。
 
 **--baud** _RATE_
-> Override the default serial baud rate.
+> 覆盖默认的串口波特率。
 
 **--help**
-> Display help and list all supported device modes.
+> 显示帮助并列出所有支持的设备模式。
 
-Mode flags (select one):
+模式标志（选择其一）：
 
 **--microsoft**, **--mouseman**, **--intellimouse**, **--mousesystems**
-> Common serial mouse protocols.
+> 常见串口鼠标协议。
 
 **--elo**, **--mtouch**, **--touchit213**, **--fujitsu**
-> Serial touchscreen protocols.
+> 串口触摸屏协议。
 
 **--w8001**, **--wacom_iv**, **--wacom_v**
-> Wacom serial tablet protocols.
+> Wacom 串口数位板协议。
 
 **--pulse8-cec**, **--rainshadow-cec**
-> HDMI-CEC adapters that present as serial devices.
+> 以串口设备形式呈现的 HDMI-CEC 适配器。
 
 **--magellan**, **--spaceorb**, **--spaceball**
-> 6-DOF serial input devices.
+> 6 自由度（6-DOF）串口输入设备。
 
 **--sunkbd**, **--lkkbd**, **--stowaway**
-> Serial keyboard protocols.
+> 串口键盘协议。
 
 # DESCRIPTION
 
-**inputattach** attaches a serial line to the Linux input subsystem. It reads raw bytes from the named serial device, decodes them according to the chosen protocol, and feeds the resulting events into the kernel where they appear as standard input devices under `/dev/input/`.
+**inputattach** 将串口线路接入 Linux 输入子系统。它从指定的串口设备读取原始字节，按所选协议解码，然后把得到的事件送入内核，使其成为 `/dev/input/` 下的标准输入设备。
 
-The program is part of the **linuxconsoletools** package. After attaching, devices can be used with libinput, evdev, X.Org, or any other consumer of the Linux input layer. With **--daemon**, inputattach detaches from the controlling terminal so it can be started from rc scripts or systemd units.
+该程序是 **linuxconsoletools** 软件包的一部分。连接完成后，设备即可供 libinput、evdev、X.Org 或任何其他 Linux 输入层消费者使用。配合 **--daemon** 时，inputattach 会脱离控制终端，因此可以从 rc 脚本或 systemd unit 启动。
 
-For Wacom W8001 hardware, the default rate of 38400 bps covers pen-and-touch and touch-only devices. Pen-only devices need **--baud 19200**.
+对于 Wacom W8001 硬件，默认速率 38400 bps 适用于笔+触摸及纯触摸设备；仅笔式设备需要 **--baud 19200**。
 
 # CAVEATS
 
-Usually requires root or write access to the serial node. The mode flag must match the connected hardware; the wrong protocol will produce no events or garbage. Once attached, the device remains owned by inputattach until the process exits.
+通常需要 root 权限或对串口节点的写权限。模式标志必须与所连硬件匹配；协议选错会导致收不到事件或产生乱码。一旦连接，设备将一直由 inputattach 占用，直到进程退出。
 
 # HISTORY
 
-inputattach is maintained as part of **linuxconsoletools** (formerly joyutils). The Wacom variants are also distributed by the **linuxwacom** project for use with serial Wacom tablets.
+inputattach 作为 **linuxconsoletools**（前身为 joyutils）的一部分维护。Wacom 变体也由 **linuxwacom** 项目分发，用于串口 Wacom 数位板。
 
 # INSTALL
 

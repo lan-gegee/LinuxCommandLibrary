@@ -1,38 +1,38 @@
 # TAGLINE
 
-network throughput testing tool that measures maximum TCP and UDP bandwidth
+测量最大 TCP 和 UDP 带宽的网络吞吐量测试工具
 
 # TLDR
 
-**Start a server**
+**启动服务器**
 
 ```iperf3 -s```
 
-**Connect to a server** and run a test
+**连接服务器**并运行测试
 
 ```iperf3 -c [server_ip]```
 
-**Run for a specific duration**
+按指定时长**运行测试**
 
 ```iperf3 -c [server_ip] -t [30]```
 
-**Test upload speed** (reverse mode)
+**测试上传速度**（反向模式）
 
 ```iperf3 -c [server_ip] -R```
 
-**Test UDP** instead of TCP
+**改用 UDP 测试**而非 TCP
 
 ```iperf3 -c [server_ip] -u```
 
-**Use multiple parallel streams**
+**使用多条并行流**
 
 ```iperf3 -c [server_ip] -P [4]```
 
-**Set target bandwidth** (for UDP)
+**设置目标带宽**（针对 UDP）
 
 ```iperf3 -c [server_ip] -u -b [100M]```
 
-**Output results in JSON**
+**以 JSON 输出**结果
 
 ```iperf3 -c [server_ip] -J```
 
@@ -43,78 +43,78 @@ network throughput testing tool that measures maximum TCP and UDP bandwidth
 # PARAMETERS
 
 **-s**, **--server**
-> Run in server mode.
+> 以服务器模式运行。
 
 **-c**, **--client** _host_
-> Run as client, connect to server.
+> 作为客户端连接服务器。
 
 **-p**, **--port** _port_
-> Server port (default: 5201).
+> 服务器端口（默认：5201）。
 
 **-t**, **--time** _n_
-> Test duration in seconds (default: 10).
+> 测试时长（秒）（默认：10）。
 
 **-P**, **--parallel** _n_
-> Number of parallel streams.
+> 并行流的数量。
 
 **-u**, **--udp**
-> Use UDP instead of TCP.
+> 使用 UDP 而非 TCP。
 
 **-b**, **--bandwidth** _n[KMG]_
-> Target bandwidth (UDP default: 1 Mbit/s).
+> 目标带宽（UDP 默认：1 Mbit/s）。
 
 **-R**, **--reverse**
-> Run in reverse mode (server sends, client receives).
+> 以反向模式运行（服务器发送，客户端接收）。
 
 **--bidir**
-> Bidirectional test simultaneously.
+> 同时进行双向测试。
 
 **-i**, **--interval** _n_
-> Seconds between periodic reports.
+> 定期报告之间的间隔秒数。
 
 **-n**, **--bytes** _n[KMG]_
-> Number of bytes to transmit.
+> 要传输的字节数。
 
 **-J**, **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-l**, **--length** _n[KMG]_
-> Buffer/packet size.
+> 缓冲区/数据包大小。
 
 **-w**, **--window** _n[KMG]_
-> Socket buffer size.
+> 套接字缓冲区大小。
 
 **-B**, **--bind** _addr_
-> Bind to specific address.
+> 绑定到特定地址。
 
 **-4**, **-6**
-> Use IPv4/IPv6 only.
+> 仅使用 IPv4/IPv6。
 
 **-D**, **--daemon**
-> Run server as daemon.
+> 将服务器作为守护进程运行。
 
 **--logfile** _file_
-> Write output to file.
+> 将输出写入文件。
 
 # DESCRIPTION
 
-**iperf3** is a network throughput testing tool that measures maximum TCP and UDP bandwidth performance. It creates data streams between a server and client to measure achievable network speed, useful for troubleshooting, benchmarking, and capacity planning.
+**iperf3** 是一款网络吞吐量测试工具，用于测量最大 TCP 和 UDP 带宽性能。它在服务器和客户端之间创建数据流来测量可达的网络速度，可用于故障排查、基准测试和容量规划。
 
-A typical test requires running iperf3 in server mode on one machine and client mode on another. The client initiates the test, and both sides report the measured throughput. By default, tests run for 10 seconds with TCP.
+典型的测试需要在一台机器上以服务器模式运行 iperf3，在另一台上以客户端模式运行。由客户端发起测试，双方都会报告测得的吞吐量。默认情况下，测试以 TCP 运行 10 秒。
 
-TCP mode measures bulk transfer speed, limited by congestion control, RTT, and link capacity. UDP mode with -b sets a target send rate, useful for testing whether a network can sustain specific bandwidth without packet loss.
+TCP 模式测量批量传输速度，受拥塞控制、RTT 和链路容量的限制。配合 -b 的 UDP 模式可设定目标发送速率，适合测试网络能否在不丢包的情况下维持特定带宽。
 
-Parallel streams (-P) can reveal aggregation limits and help saturate high-bandwidth links where a single stream can't achieve full capacity. The reverse mode (-R) tests upload by having the server send to the client.
+并行流（-P）可以发现聚合能力的上限，并帮助打满单条流无法占满的高带宽链路。反向模式（-R）让服务器向客户端发送数据，从而测试上传速度。
 
-JSON output enables automated testing and integration with monitoring systems. Server can run as a daemon for ongoing availability.
+JSON 输出便于自动化测试和与监控系统集成。服务器可作为守护进程运行，以保持持续可用。
 
 # CAVEATS
 
-Not compatible with iperf2 protocol. Server port (5201) must be accessible through firewalls. Tests consume significant bandwidth - don't run on production networks unexpectedly. Single server handles one client at a time. Results affected by CPU, memory, and network interface capabilities.
+与 iperf2 协议不兼容。服务器端口（5201）必须能穿过防火墙访问。测试会消耗大量带宽——不要在生产网络上未经告知就运行。单个服务器一次只能处理一个客户端。结果受 CPU、内存和网络接口能力的影响。
 
 # HISTORY
 
-**iperf3** was developed by ESnet (Energy Sciences Network) at Lawrence Berkeley National Laboratory, released around **2014** as a rewrite of the original iperf. The rewrite improved the codebase, added features like JSON output and bidirectional testing, and fixed protocol limitations. It has become the standard network throughput testing tool.
+**iperf3** 由劳伦斯伯克利国家实验室的 ESnet（能源科学网络）开发，约在 **2014 年**发布，是对原版 iperf 的重写。重写改进了代码库，加入了 JSON 输出和双向测试等特性，并修复了协议上的局限。它已成为标准的网络吞吐量测试工具。
 
 # INSTALL
 

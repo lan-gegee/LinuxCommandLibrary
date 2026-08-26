@@ -1,44 +1,44 @@
 # TAGLINE
 
-configfs-based USB gadget management tool
+基于 configfs 的 USB gadget 管理工具
 
 # TLDR
 
-**List available USB device controllers (UDCs)**
+**列出可用的 USB 设备控制器（UDC）**
 
 ```gt udc```
 
-**List existing gadgets**
+**列出现有的 gadget**
 
 ```gt gadget```
 
-**Create a new gadget**
+**创建新的 gadget**
 
 ```gt create [gadget-name]```
 
-**Set gadget attributes** (vendor/product IDs)
+**设置 gadget 属性**（厂商/产品 ID）
 
 ```gt set [gadget-name] idVendor=[0x1d6b] idProduct=[0x0104]```
 
-**Create a USB function** (e.g. Ethernet)
+**创建 USB 功能**（如以太网）
 
 ```gt func create [gadget-name] [ecm] [usb0]```
 
-**Create a configuration and bind the function to it**
+**创建配置并将功能绑定到其中**
 
 ```gt config create [gadget-name] [c] [1]```
 
 ```gt config add [gadget-name] [c] [1] [ecm] [usb0]```
 
-**Enable a gadget on the first available UDC**
+**在第一个可用的 UDC 上启用 gadget**
 
 ```gt enable [gadget-name]```
 
-**Save the current gadget setup as a reusable template**
+**将当前 gadget 设置保存为可复用的模板**
 
 ```gt save [gadget-name] [template-name]```
 
-**Remove a gadget and all its configurations/functions**
+**移除 gadget 及其所有配置/功能**
 
 ```gt rm -rf [gadget-name]```
 
@@ -51,65 +51,65 @@ configfs-based USB gadget management tool
 # PARAMETERS
 
 _COMMAND_
-> Subcommand to execute (see below).
+> 要执行的子命令（见下文）。
 
 **udc**
-> Show the list of available USB device controllers.
+> 显示可用的 USB 设备控制器列表。
 
 **create** _gadget_ [_attr=val_...]
-> Create a gadget with the given name and optionally set its attributes. `-f`/`--force` overrides an existing gadget with the same name.
+> 创建具有给定名称的 gadget，可选设置其属性。`-f`/`--force` 会覆盖同名 gadget。
 
 **rm** _gadget_
-> Remove a gadget. `-f`/`--force` disables it first if enabled; `-r`/`--recursive` also removes its configurations and functions.
+> 移除 gadget。`-f`/`--force` 会先禁用处于启用状态的 gadget；`-r`/`--recursive` 还会移除其配置和功能。
 
 **get** _gadget_ [_attr_]
-> Print the given attribute, or all attributes if none is specified.
+> 打印给定的属性；未指定时打印所有属性。
 
 **set** _gadget_ _attr=val_...
-> Set one or more gadget attributes to new values.
+> 将一个或多个 gadget 属性设置为新值。
 
 **enable** [_gadget_]
-> Enable a gadget on a UDC. If only one gadget/UDC exists it is chosen automatically.
+> 在 UDC 上启用 gadget。若只存在一个 gadget/UDC 则自动选择。
 
 **disable** [_gadget_]
-> Disable a gadget. `-u`/`--udc` _udc_ disables whichever gadget is active on the given UDC.
+> 禁用 gadget。`-u`/`--udc` _udc_ 可禁用在给定 UDC 上活动的任意 gadget。
 
 **gadget** [_name_]
-> List all gadgets, or show details for one. `-v`/`--verbose` also prints attributes; `-r`/`--recursive` also shows function/config details.
+> 列出所有 gadget 或显示某个 gadget 的详情。`-v`/`--verbose` 同时打印属性；`-r`/`--recursive` 还显示功能/配置详情。
 
 **func create/rm/show** _gadget_ _type_ _instance_
-> Create, remove, or show a USB function (e.g. **ecm**, **acm**, **mass_storage**) bound to a gadget.
+> 创建、移除或显示绑定到 gadget 的 USB 功能（如 **ecm**、**acm**、**mass_storage**）。
 
 **func list-types**
-> Print the list of function types supported by the running kernel.
+> 打印当前内核支持的功能类型列表。
 
 **config create/rm/show** _gadget_ _label_ _id_
-> Create, remove, or show a gadget configuration.
+> 创建、移除或显示 gadget 配置。
 
 **config add/del** _gadget_ _label_ _id_ _func-type_ _func-instance_
-> Bind or unbind a function to/from a configuration.
+> 将功能绑定到配置或解除绑定。
 
 **save** _gadget_ [_name_]
-> Store the gadget's current setup as a system template. `--file`, `--stdout`, and `--path` redirect where it is stored.
+> 将 gadget 当前的设置保存为系统模板。`--file`、`--stdout` 和 `--path` 可以改变保存位置。
 
 **load** _name_ [_gadget_]
-> Create and enable a gadget from a saved template. `-o`/`--off` skips enabling it.
+> 从保存的模板创建并启用 gadget。`-o`/`--off` 跳过启用步骤。
 
 **template** [_name_]
-> List templates, or show one template's configurations and functions.
+> 列出模板，或显示某个模板的配置和功能。
 
 **settings set/get/append/detach** _variable_ [_value_]
-> Manage gt's own configuration variables (some of which hold lists).
+> 管理 gt 自身的配置变量（其中一些变量持有列表值）。
 
 # DESCRIPTION
 
-**gt** (gadget-tool) configures Linux USB gadgets through the kernel's **configfs** interface, replacing manual `mkdir`/`echo` manipulation of the configfs tree with a small set of subcommands. It builds gadgets out of **functions** (e.g. Ethernet, mass storage, serial, HID) grouped into one or more **configurations**, which are then enabled on a USB Device Controller (UDC).
+**gt**（gadget-tool）通过内核的 **configfs** 接口配置 Linux USB gadget，用一小组子命令取代对 configfs 树的手工 `mkdir`/`echo` 操作。它由**功能**（function，如以太网、大容量存储、串口、HID）组成 gadget，这些功能被归入一个或多个**配置**（configuration），随后在 USB 设备控制器（UDC）上启用。
 
-**gt** operates directly on configfs and therefore needs root privileges. The companion binary **gadgetctl** talks to a **gadgetd** daemon instead using the same command syntax, but gadgetd is considered obsolete.
+**gt** 直接操作 configfs，因此需要 root 权限。配套的二进制程序 **gadgetctl** 使用相同的命令语法与 **gadgetd** 守护进程通信，但 gadgetd 已被视为过时。
 
 # CAVEATS
 
-Requires root and a kernel built with USB gadget/configfs support (`CONFIGFS_FS`, `USB_CONFIGFS`, and the relevant function drivers); which function types are available depends on the running kernel. Mainly used on embedded boards and devices with a USB device-mode controller, not on typical desktop hardware.
+需要 root 权限以及启用了 USB gadget/configfs 支持的内核（`CONFIGFS_FS`、`USB_CONFIGFS` 以及相关的功能驱动）；可用的功能类型取决于当前运行的内核。主要用于嵌入式开发板和带 USB 设备模式控制器的设备，而非典型的桌面硬件。
 
 # INSTALL
 

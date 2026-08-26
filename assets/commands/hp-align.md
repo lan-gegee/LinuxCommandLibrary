@@ -1,26 +1,26 @@
 # TAGLINE
 
-aligns print cartridges on HP printers
+校准 HP 打印机的打印墨盒
 
 # TLDR
 
-**Align print heads**
+**校准打印头**
 
 ```hp-align```
 
-**Specify printer**
+**指定打印机**
 
 ```hp-align -p [printer-name]```
 
-**Interactive mode**
+**交互模式**
 
 ```hp-align -i```
 
-**Specify device URI**
+**指定设备 URI**
 
 ```hp-align -d [hp:/usb/Deskjet_Printer?serial=XYZ]```
 
-**Enable debug logging**
+**启用调试日志**
 
 ```hp-align -g```
 
@@ -31,36 +31,36 @@ aligns print cartridges on HP printers
 # PARAMETERS
 
 **-p** _PRINTER_, **--printer=**_PRINTER_
-> CUPS printer name.
+> CUPS 打印机名称。
 
 **-d** _URI_, **--device=**_URI_
-> Device URI (e.g. `hp:/usb/...`).
+> 设备 URI（例如 `hp:/usb/...`）。
 
 **-i**, **--interactive**
-> Run in interactive mode.
+> 以交互模式运行。
 
 **-l** _LEVEL_, **--logging=**_LEVEL_
-> Logging level: none, info, error, warn, debug.
+> 日志级别：none、info、error、warn、debug。
 
 **-g**
-> Debug mode (equivalent to `-l debug`).
+> 调试模式（等价于 `-l debug`）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hp-align** aligns print cartridges on HP printers. It runs the alignment procedure to ensure optimal print quality.
+**hp-align** 校准 HP 打印机上的打印墨盒。它运行对齐程序以确保最佳打印质量。
 
-The tool supports automatic and interactive alignment modes. Interactive mode displays alignment patterns and asks for best match selection.
+该工具支持自动和交互两种对齐模式。交互模式会显示对齐图案并要求选择最匹配的一项。
 
 # CAVEATS
 
-Part of HPLIP package. Uses paper and ink. May require manual selection.
+属于 HPLIP 软件包。会消耗纸张和墨水。可能需要手动选择。
 
 # HISTORY
 
-hp-align is part of **HPLIP** (HP Linux Imaging and Printing), HP's official printer driver project for Linux.
+hp-align 是 **HPLIP**（HP Linux Imaging and Printing）的一部分，这是 HP 官方的 Linux 打印机驱动项目。
 
 # INSTALL
 

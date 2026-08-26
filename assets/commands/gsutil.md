@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line tool for Google Cloud Storage
+Google Cloud Storage 命令行工具
 
 # TLDR
 
-**List buckets**
+**列出存储桶**
 
 ```gsutil ls```
 
-**List bucket contents**
+**列出存储桶内容**
 
 ```gsutil ls gs://[bucket-name]```
 
-**Copy file to bucket**
+**复制文件到存储桶**
 
 ```gsutil cp [file.txt] gs://[bucket]/```
 
-**Copy bucket to local**
+**复制存储桶到本地**
 
 ```gsutil cp gs://[bucket]/[file] [./]```
 
-**Sync directory to bucket**
+**同步目录到存储桶**
 
 ```gsutil rsync -r [local_dir] gs://[bucket]/[path]```
 
-**Make object public**
+**将对象设为公开**
 
 ```gsutil acl ch -u AllUsers:R gs://[bucket]/[file]```
 
-**Remove object**
+**删除对象**
 
 ```gsutil rm gs://[bucket]/[file]```
 
@@ -38,54 +38,54 @@ command-line tool for Google Cloud Storage
 
 # DESCRIPTION
 
-**gsutil** is a command-line tool for interacting with Google Cloud Storage (GCS). It provides commands for creating and deleting buckets, uploading and downloading objects, synchronizing local directories with remote bucket paths, and managing access control lists (ACLs) and bucket policies. Objects are referenced using the `gs://bucket/path` URI scheme.
+**gsutil** 是一款与 Google Cloud Storage（GCS）交互的命令行工具。它提供的命令可以创建和删除存储桶、上传和下载对象、将本地目录与远程存储桶路径同步，以及管理访问控制列表（ACL）和存储桶策略。对象通过 `gs://bucket/path` URI 方案引用。
 
-For large-scale operations, the `-m` flag enables parallel, multi-threaded execution of commands like `cp`, `mv`, `rm`, and `rsync`, significantly improving throughput when working with many files or large datasets. Transfers are resumable by default -- interrupted uploads and downloads can be retried without starting over. gsutil also supports server-side features such as object versioning, lifecycle management, and cross-bucket replication, and it authenticates through the Google Cloud SDK's credential system.
+对于大规模操作，`-m` 标志可以并行多线程执行 `cp`、`mv`、`rm` 和 `rsync` 等命令，在处理大量文件或大型数据集时显著提升吞吐量。传输默认支持断点续传——中断的上传和下载可以重试而不必从头开始。gsutil 还支持对象版本控制、生命周期管理和跨存储桶复制等服务端特性，并通过 Google Cloud SDK 的凭据体系进行身份验证。
 
 # PARAMETERS
 
 **ls**
-> List buckets or objects.
+> 列出存储桶或对象。
 
 **cp**
-> Copy files/objects.
+> 复制文件/对象。
 
 **mv**
-> Move files/objects.
+> 移动文件/对象。
 
 **rm**
-> Remove objects.
+> 删除对象。
 
 **rsync**
-> Synchronize directories.
+> 同步目录。
 
 **mb**
-> Make bucket.
+> 创建存储桶。
 
 **rb**
-> Remove bucket.
+> 删除存储桶。
 
 **acl**
-> Manage access control.
+> 管理访问控制。
 
 **-m**
-> Parallel operations.
+> 并行操作。
 
 **-r**
-> Recursive operation.
+> 递归操作。
 
 **-n**
-> Dry run (no changes).
+> 试运行（不做更改）。
 
 # CAVEATS
 
-**gsutil is a legacy tool**: Google now recommends the newer **gcloud storage** commands (part of the Google Cloud CLI), which are faster and support features gsutil lacks, such as soft delete and managed folders. gsutil still ships with the Cloud CLI and works as before, but is only minimally maintained.
+**gsutil 已属于旧版工具**：Google 现在推荐更新的 **gcloud storage** 命令（Google Cloud CLI 的一部分），它们速度更快，并支持 gsutil 缺少的功能，如软删除和托管文件夹。gsutil 仍随 Cloud CLI 一同发布且照常可用，但只做最低限度的维护。
 
-Requires Google Cloud authentication. Large transfers may incur costs. ACL changes need careful consideration. Parallel operations use more resources.
+需要 Google Cloud 身份验证。大规模传输可能产生费用。ACL 更改需要谨慎考虑。并行操作会占用更多资源。
 
 # HISTORY
 
-**gsutil** was developed by **Google** as part of the Google Cloud SDK. It evolved from early Cloud Storage access tools to become the standard CLI for Cloud Storage operations, supporting Python 2 initially and later Python 3.
+**gsutil** 由 **Google** 开发，是 Google Cloud SDK 的一部分。它从早期的 Cloud Storage 访问工具演变为 Cloud Storage 操作的标准 CLI，最初支持 Python 2，后来支持 Python 3。
 
 # SEE ALSO
 

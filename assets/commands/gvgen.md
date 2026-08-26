@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates various types of graphs in DOT format
+生成 DOT 格式的各类图
 
 # TLDR
 
-**Generate a star graph** with 5 vertices
+**生成有 5 个顶点的星形图**
 
 ```gvgen -s [5] > star.gv```
 
-**Generate a grid graph**
+**生成网格图**
 
 ```gvgen -g [3],[4] > grid.gv```
 
-**Generate a complete graph** on 6 vertices
+**生成 6 个顶点的完全图**
 
 ```gvgen -k [6] > complete.gv```
 
-**Generate a binary tree** of height 4
+**生成高度为 4 的二叉树**
 
 ```gvgen -t [4] > tree.gv```
 
-**Generate a random graph** with 10 vertices
+**生成有 10 个顶点的随机图**
 
 ```gvgen -r [10],[0.3] > random.gv```
 
-**Generate a directed cycle** and write to a file
+**生成有向环**并写入文件
 
 ```gvgen -d -c [8] -o [cycle.gv]```
 
@@ -35,90 +35,90 @@ generates various types of graphs in DOT format
 # PARAMETERS
 
 **-s** _n_
-> Generate a star on n vertices.
+> 生成 n 个顶点上的星形图。
 
 **-g** [**f**]_x_,_y_
-> Generate an x by y grid. If f is given, the grid is folded with edges attaching opposing corner vertices.
+> 生成 x 乘 y 的网格。如果给出 f，网格会被折叠，用边连接相对的角落顶点。
 
 **-k** _n_
-> Generate a complete graph on n vertices.
+> 生成 n 个顶点上的完全图。
 
 **-c** _n_
-> Generate a cycle with n vertices and edges.
+> 生成具有 n 个顶点和边的环。
 
 **-p** _n_
-> Generate a path on n vertices.
+> 生成 n 个顶点上的路径。
 
 **-t** _n_
-> Generate a complete binary tree of height n. Use **-t** _h_,_n_ for an n-ary tree.
+> 生成高度为 n 的完全二叉树。使用 **-t** _h_,_n_ 可生成 n 叉树。
 
 **-r** _x_,_y_
-> Generate a random graph. The x and y give the number of vertices and the density of the edges (between 0 and 1).
+> 生成随机图。x 和 y 分别指定顶点数量和边的密度（介于 0 到 1 之间）。
 
 **-R** _x_
-> Generate a random rooted tree on x vertices.
+> 生成 x 个顶点上的随机有根树。
 
 **-h** _n_
-> Generate a hypercube of degree n (2^n vertices).
+> 生成 n 维超立方体（2^n 个顶点）。
 
 **-b** _x_,_y_
-> Generate a complete x by y bipartite graph.
+> 生成 x 乘 y 的完全二部图。
 
 **-C** _x_,_y_
-> Generate an x by y cylinder.
+> 生成 x 乘 y 的圆柱体。
 
 **-B** _x_,_y_
-> Generate an x by y ball (a cylinder with two caps).
+> 生成 x 乘 y 的球体（带两个盖的圆柱体）。
 
 **-m** _n_
-> Generate a triangular mesh with n vertices on a side.
+> 生成每边有 n 个顶点的三角网格。
 
 **-M** _x_,_y_
-> Generate an x by y Moebius strip.
+> 生成 x 乘 y 的莫比乌斯带。
 
 **-T** _x_,_y_
-> Generate an x by y torus.
+> 生成 x 乘 y 的环面。
 
 **-S** _n_
-> Generate a Sierpinski graph of order n.
+> 生成 n 阶谢尔宾斯基图。
 
 **-w** _n_
-> Generate a wheel graph on n vertices.
+> 生成 n 个顶点上的轮形图。
 
 **-d**
-> Make the generated graph directed.
+> 使生成的图为有向图。
 
 **-n** _prefix_
-> Prepend prefix to integer node names.
+> 在整型节点名前添加前缀。
 
 **-N** _name_
-> Use name as the name of the graph.
+> 将 name 用作图的名称。
 
 **-o** _outfile_
-> Write output to the specified file instead of stdout.
+> 将输出写入指定文件而非标准输出。
 
 **-u** _seed_
-> Specify the seed for the random number generator.
+> 指定随机数生成器的种子。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-?**
-> Print usage information.
+> 打印用法信息。
 
 # DESCRIPTION
 
-**gvgen** generates a variety of simple, regularly-structured abstract graphs in DOT format. It creates standard graph structures useful for testing, visualization, and algorithm demonstrations.
+**gvgen** 以 DOT 格式生成各种简单的、规则结构的抽象图。它创建的标准图结构可用于测试、可视化和算法演示。
 
-The tool supports stars, grids, trees, complete graphs, cycles, paths, random graphs, hypercubes, bipartite graphs, cylinders, tori, Moebius strips, Sierpinski graphs, and more. Output is in Graphviz DOT format for visualization with layout engines.
+该工具支持星形、网格、树、完全图、环、路径、随机图、超立方体、二部图、圆柱体、环面、莫比乌斯带、谢尔宾斯基图等。输出为 Graphviz DOT 格式，可用布局引擎进行可视化。
 
 # CAVEATS
 
-Part of the Graphviz package. Random graphs vary each run unless a seed is specified with **-u**. Large graphs may be slow to render.
+属于 Graphviz 软件包的一部分。如果不通过 **-u** 指定种子，每次运行生成的随机图都会不同。大型图的渲染可能较慢。
 
 # HISTORY
 
-gvgen was developed as part of the **Graphviz** project to provide sample graph generation for testing and demonstration.
+gvgen 作为 **Graphviz** 项目的一部分开发而成，用于提供测试和演示所需的示例图生成功能。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-static code analysis tool for HTML
+HTML 静态代码分析工具
 
 # TLDR
 
-**Lint HTML file**
+**检查 HTML 文件**
 
 ```htmlhint [file.html]```
 
-**Lint multiple files**
+**检查多个文件**
 
 ```htmlhint [*.html]```
 
-**Use config file**
+**使用配置文件**
 
 ```htmlhint -c [.htmlhintrc] [file.html]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```htmlhint --format json [file.html]```
 
-**Ignore specific patterns**
+**忽略特定模式**
 
 ```htmlhint --ignore [**/vendor/**] [file.html]```
 
-**List all available rules**
+**列出所有可用规则**
 
 ```htmlhint --list```
 
-**Initialize config file**
+**初始化配置文件**
 
 ```htmlhint --init```
 
@@ -39,54 +39,54 @@ static code analysis tool for HTML
 # PARAMETERS
 
 _FILES_
-> HTML files to lint.
+> 要检查的 HTML 文件。
 
 **-c**, **--config** _FILE_
-> Config file path.
+> 配置文件路径。
 
 **-f**, **--format** _FORMAT_
-> Output format: default, json, unix, sarif, markdown, junit, html, compact, checkstyle.
+> 输出格式：default、json、unix、sarif、markdown、junit、html、compact、checkstyle。
 
 **-i**, **--ignore** _PATTERN_
-> Glob patterns of files or folders to ignore.
+> 要忽略的文件或文件夹的 glob 模式。
 
 **-r**, **--rules** _RULES_
-> Rules to enable (comma-separated, e.g., tag-pair,attr-lowercase=true).
+> 要启用的规则（逗号分隔，例如 tag-pair,attr-lowercase=true）。
 
 **-R**, **--rulesdir** _PATH_
-> Load custom rules from file or folder.
+> 从文件或文件夹加载自定义规则。
 
 **-l**, **--list**
-> Show all available rules.
+> 显示所有可用规则。
 
 **--init**
-> Create a new .htmlhintrc config file with default rules.
+> 创建一个包含默认规则的新 .htmlhintrc 配置文件。
 
 **--nocolor**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--warn**
-> Warn only, exit with code 0.
+> 仅警告，以退出码 0 退出。
 
 **-V**, **--version**
-> Output the version number.
+> 输出版本号。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**HTMLHint** is a static code analysis tool for HTML. It checks for common mistakes, deprecated elements, and best practices.
+**HTMLHint** 是一个 HTML 静态代码分析工具。它检查常见错误、已弃用的元素和最佳实践。
 
-The tool enforces consistent HTML style and catches potential issues. It supports custom rules and configuration files.
+该工具强制一致的 HTML 风格并捕获潜在问题。它支持自定义规则和配置文件。
 
 # CAVEATS
 
-Requires Node.js. Rule set is configurable via .htmlhintrc or CLI flags. Some rules may conflict with framework-specific HTML patterns (e.g., Angular, Vue).
+需要 Node.js。规则集可通过 .htmlhintrc 或 CLI 标志配置。某些规则可能与框架特有的 HTML 模式冲突（如 Angular、Vue）。
 
 # HISTORY
 
-HTMLHint was created to provide ESLint-style static analysis for HTML documents.
+HTMLHint 的创建目的是为 HTML 文档提供 ESLint 风格的静态分析。
 
 # INSTALL
 

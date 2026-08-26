@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays file contents in hexadecimal, decimal, octal, or ASCII formats
+以十六进制、十进制、八进制或 ASCII 格式显示文件内容
 
 # TLDR
 
-Print the **hexadecimal representation** of a file
+输出文件的**十六进制表示**
 
 ```hexdump [path/to/file]```
 
-Display offset and **ASCII representation** in canonical format
+以规范格式显示偏移量和 **ASCII 表示**
 
 ```hexdump -C [path/to/file]```
 
-Display hex but interpret only **n bytes**
+以十六进制显示，但只解释 **n 个字节**
 
 ```hexdump -C -n [number_of_bytes] [path/to/file]```
 
-**Don't replace** duplicate lines with '*'
+**不将**重复行替换为 '*'
 
 ```hexdump -v [path/to/file]```
 
@@ -27,50 +27,50 @@ Display hex but interpret only **n bytes**
 # PARAMETERS
 
 **-C**, **--canonical**
-> Canonical hex+ASCII display (most common format)
+> 规范的十六进制+ASCII 显示（最常用的格式）
 
 **-n**, **--length** _LENGTH_
-> Interpret only _LENGTH_ bytes of input
+> 只解释输入的前 _LENGTH_ 个字节
 
 **-s**, **--skip** _OFFSET_
-> Skip _OFFSET_ bytes from the beginning
+> 跳过开头的 _OFFSET_ 个字节
 
 **-v**, **--no-squeezing**
-> Display all lines (don't compress identical lines)
+> 显示所有行（不压缩相同的行）
 
 **-e** _FORMAT_
-> Specify custom format string
+> 指定自定义格式字符串
 
 **-b**
-> One-byte octal display
+> 单字节八进制显示
 
 **-c**
-> One-byte character display
+> 单字节字符显示
 
 **-d**
-> Two-byte decimal display
+> 双字节十进制显示
 
 **-o**
-> Two-byte octal display
+> 双字节八进制显示
 
 **-x**
-> Two-byte hexadecimal display
+> 双字节十六进制显示
 
 # DESCRIPTION
 
-**hexdump** displays file contents in hexadecimal, decimal, octal, or ASCII formats. It's essential for examining binary files, debugging data formats, and analyzing file structures.
+**hexdump** 以十六进制、十进制、八进制或 ASCII 格式显示文件内容。它是检查二进制文件、调试数据格式和分析文件结构的必备工具。
 
-The **-C** (canonical) format is most commonly used, showing offset, hex bytes, and ASCII representation side by side. By default, repeated identical lines are replaced with '*' to save space.
+**-C**（规范）格式最为常用，它并排显示偏移量、十六进制字节和 ASCII 表示。默认情况下，重复的相同行会被替换为 '*' 以节省空间。
 
-Custom format strings (**-e**) allow precise control over output format for scripting and automation.
+自定义格式字符串（**-e**）允许精确控制输出格式，便于脚本编写和自动化。
 
 # CAVEATS
 
-Large files produce enormous output; use **-n** to limit. The default format isn't the most readable; use **-C** for practical inspection. For editing hex, consider tools like xxd or hexedit.
+大文件会产生海量输出；请使用 **-n** 加以限制。默认格式的可读性不佳；实际检查时应使用 **-C**。若需编辑十六进制内容，请考虑 xxd 或 hexedit 等工具。
 
 # HISTORY
 
-hexdump originated in BSD Unix and is part of the util-linux package on Linux systems. It provides functionality similar to the older od (octal dump) command but with more flexible formatting options.
+hexdump 起源于 BSD Unix，在 Linux 系统上是 util-linux 软件包的一部分。它提供与较早的 od（octal dump）命令类似的功能，但格式选项更灵活。
 
 # INSTALL
 

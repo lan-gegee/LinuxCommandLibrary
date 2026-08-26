@@ -1,10 +1,10 @@
 # TAGLINE
 
-hardware locality topology viewer alias
+硬件拓扑（hardware locality）查看器的别名
 
 # TLDR
 
-This command is an alias of **lstopo-no-graphics**
+此命令是 **lstopo-no-graphics** 的别名
 
 ```tldr lstopo-no-graphics```
 

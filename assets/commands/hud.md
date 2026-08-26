@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compact heads-up display for coding-agent CLIs
+面向编程智能体 CLI 的紧凑型抬头显示面板
 
 # TLDR
 
-**Install** globally and wire agent handbacks
+**安装**到全局并配置智能体回切
 
 ```npm install -g adrida/hud-mode && hud install```
 
-**Start** with the default agent engine
+**使用默认智能体引擎启动**
 
 ```hud```
 
-**Start with a prompt**
+**带提示词启动**
 
 ```hud "[fix the failing CI]"```
 
-**Resume** the last session in this directory
+**恢复**本目录的上一次会话
 
 ```hud -r```
 
-**Drive Claude Code** under the same deck
+**在同一个面板下驱动 Claude Code**
 
 ```hud claude "[fix the CI]"```
 
-**Drive Codex** and resume the last session
+**驱动 Codex 并恢复上次会话**
 
 ```hud codex -r```
 
-**Set** the default engine for bare `hud`
+**设置裸 `hud` 命令使用的默认引擎**
 
 ```hud default claude```
 
@@ -42,58 +42,58 @@ Compact heads-up display for coding-agent CLIs
 
 # DESCRIPTION
 
-**hud** is a zero-dependency terminal front end for coding agents (**OpenCode**, **Claude Code**, and **Codex**). It drives each CLI headless through its JSON event stream and shows a compact instrument panel (model, tokens, status, activity) instead of a scrolling wall of tool calls. The prompt bar stays writable mid-turn so follow-ups queue; when the agent finishes, the full answer lands with rendered markdown.
+**hud** 是一个零依赖的终端前端，面向编程智能体（**OpenCode**、**Claude Code** 和 **Codex**）。它通过各 CLI 的 JSON 事件流以无界面方式驱动它们，显示一个紧凑的仪表盘（模型、token、状态、活动），而不是不断滚动刷屏的工具调用记录。提示词输入栏在整个回合进行期间保持可写状态，后续提示会排队等待；当智能体完成时，完整的回答会连同渲染好的 markdown 一同呈现。
 
-`/hud` toggles between this deck and the engine's full TUI for the same session (hook / AGENTS.md rule / custom command, depending on the engine). Quitting a full TUI returns to the hud. Instruments and preferences persist under `~/.claude/hud/`.
+`/hud` 可在同一会话的这块仪表盘与引擎的完整 TUI 之间切换（具体机制因引擎而异：hook / AGENTS.md 规则 / 自定义命令）。退出完整 TUI 后会返回 hud。仪表项和偏好设置持久保存在 `~/.claude/hud/` 下。
 
-Requires **Node.js ≥ 18** and at least one of `opencode`, `claude`, or `codex` on `PATH`.
+需要 **Node.js ≥ 18**，并且 `PATH` 上至少存在 `opencode`、`claude` 或 `codex` 之一。
 
 # PARAMETERS
 
 **-r** [_session-id_]
-> Resume the last session in the current directory, or a specific session id.
+> 恢复当前目录的上一次会话，或恢复指定的会话 ID。
 
 **-m**, **--model** _model_
-> Engine-specific model id.
+> 特定于引擎的模型 ID。
 
 **-e**, **--effort** _level_
-> Engine-specific reasoning effort.
+> 特定于引擎的推理力度等级。
 
 **--danger**
-> Skip approvals / sandboxing where the engine supports it.
+> 在引擎支持的前提下跳过审批/沙箱限制。
 
 **claude**, **codex**, **opencode**
-> Select which agent binary to drive for this run.
+> 选择本次运行要驱动的智能体二进制程序。
 
 **install**
-> Interactive setup: default agent, OpenCode echo, handback wiring into Claude/Codex/OpenCode configs.
+> 交互式设置：默认智能体、OpenCode 回显，以及向 Claude/Codex/OpenCode 配置写入回切接线。
 
 **uninstall**
-> Remove hooks, skills, prompts, and config blocks written by **install**.
+> 移除由 **install** 写入的 hook、技能、提示词和配置块。
 
 **default** _engine_
-> Persist which engine bare **hud** launches.
+> 持久保存裸 **hud** 启动时使用的引擎。
 
 # CONFIGURATION
 
 **~/.claude/hud/config.json**
-> Default engine and instrument (`/gauges`) preferences.
+> 默认引擎及仪表项（`/gauges`）偏好设置。
 
 **~/.claude/hud/links/**
-> Per-session ledger of URLs the agent shared (OSC 8 hyperlinks in supporting terminals).
+> 记录智能体分享过哪些 URL 的按会话台账（在支持的终端中以 OSC 8 超链接呈现）。
 
 **~/.claude/hud/handoff.json**
-> Sentinel file used when toggling to/from a full engine TUI.
+> 与完整引擎 TUI 相互切换时使用的哨兵文件。
 
-**hud install** also writes engine-specific pieces under `~/.claude/skills/hud/`, `~/.claude/settings.json` (hook; backup `.hud-backup`), `~/.codex/prompts/hud.md`, a marked block in `~/.codex/AGENTS.md`, and `~/.config/opencode/commands/hud.md`.
+**hud install** 还会在以下位置写入引擎专属内容：`~/.claude/skills/hud/`、`~/.claude/settings.json`（hook；备份为 `.hud-backup`）、`~/.codex/prompts/hud.md`、`~/.codex/AGENTS.md` 中的一个标记区块，以及 `~/.config/opencode/commands/hud.md`。
 
 # CAVEATS
 
-Not a fork of the agent CLIs — behavior depends on each engine's headless JSON stream and resume APIs. Codex handback may use a plain `hud` AGENTS.md rule rather than a zero-token slash command. Permission approvals inside the hud itself remain on the roadmap.
+并不是智能体 CLI 的分叉——行为取决于各引擎的无头 JSON 流和恢复 API。Codex 的回切可能采用普通的 `hud` AGENTS.md 规则，而非零 token 斜杠命令。hud 内部的权限审批功能仍在计划之中。
 
 # HISTORY
 
-**hud** (package **hud-mode**) is an MIT-licensed terminal UI by the Tracer / adrida authors, aimed at making multi-turn agent sessions scannable without replacing Claude Code, Codex, or OpenCode.
+**hud**（软件包名 **hud-mode**）是由 Tracer / adrida 作者开发的 MIT 许可终端 UI，目标是让多回合的智能体会话一目了然，同时不取代 Claude Code、Codex 或 OpenCode 本身。
 
 # SEE ALSO
 

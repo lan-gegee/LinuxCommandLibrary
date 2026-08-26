@@ -1,22 +1,22 @@
 # TAGLINE
 
-GNAT project-aware Ada builder
+支持 GNAT 项目感知的 Ada 构建工具
 
 # TLDR
 
-**Build project**
+**构建项目**
 
 ```gprbuild -P [project.gpr]```
 
-**Build with configuration**
+**使用配置构建**
 
 ```gprbuild -P [project.gpr] -XBUILD_MODE=release```
 
-**Clean and build**
+**清理并构建**
 
 ```gprbuild -P [project.gpr] --clean```
 
-**Parallel build**
+**并行构建**
 
 ```gprbuild -P [project.gpr] -j[4]```
 
@@ -27,39 +27,39 @@ GNAT project-aware Ada builder
 # PARAMETERS
 
 _PROJECT_
-> Project file (.gpr).
+> 项目文件（.gpr）。
 
 **-P** _FILE_
-> Project file.
+> 项目文件。
 
 **-X** _NAME=VALUE_
-> External variable.
+> 外部变量。
 
 **-j** _N_
-> Parallel jobs.
+> 并行任务数。
 
 **--clean**
-> Clean before build.
+> 构建前先清理。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gprbuild** is the GNAT project-aware builder for Ada. It compiles Ada projects defined in GPR (GNAT Project) files, handling dependencies and build configuration automatically.
+**gprbuild** 是 GNAT 面向 Ada 的项目感知构建工具。它编译以 GPR（GNAT Project）文件定义的 Ada 项目，自动处理依赖关系和构建配置。
 
-The tool manages compilation of Ada sources with incremental builds, supporting configuration through external variables and multiple build modes.
+该工具通过增量构建管理 Ada 源码的编译，并支持通过外部变量和多种构建模式进行配置。
 
 # CAVEATS
 
-Ada/GNAT specific. Requires GPR project file. Part of GNAT toolchain.
+仅适用于 Ada/GNAT。需要 GPR 项目文件。属于 GNAT 工具链的一部分。
 
 # HISTORY
 
-gprbuild is part of the **GNAT** Ada toolchain, developed by AdaCore for Ada project building.
+gprbuild 是 **GNAT** Ada 工具链的一部分，由 AdaCore 开发，用于构建 Ada 项目。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-synchronizes the local system time using HTTP headers from web servers
+利用 Web 服务器的 HTTP 头同步本地系统时间
 
 # TLDR
 
-**Synchronize** date and time
+**同步**日期和时间
 
 ```sudo htpdate [host]```
 
-Perform **simulation** without any action
+执行**模拟**而不做任何实际操作
 
 ```htpdate -q [host]```
 
-**Compensate** for systematic clock drift
+**补偿**系统性的时钟漂移
 
 ```sudo htpdate -x [host]```
 
-Set time **immediately** after synchronization
+同步后**立即**设置时间
 
 ```sudo htpdate -s [host]```
 
@@ -27,50 +27,50 @@ Set time **immediately** after synchronization
 # PARAMETERS
 
 **-q**
-> Query only; don't set time
+> 仅查询；不设置时间
 
 **-s**
-> Set time immediately (step)
+> 立即设置时间（步进调整）
 
 **-x**
-> Adjust for systematic drift
+> 补偿系统性漂移
 
 **-a**
-> Adjust time gradually (slew)
+> 平滑调整时间（渐进式）
 
 **-d**
-> Run as daemon
+> 以守护进程方式运行
 
 **-l**
-> Use syslog for logging
+> 使用 syslog 记录日志
 
 **-t**
-> Turn off sanity time check
+> 关闭时间合理性检查
 
 **-u** _USER_
-> Run as specified user
+> 以指定用户身份运行
 
 **-p** _FILE_
-> Create PID file
+> 创建 PID 文件
 
 # DESCRIPTION
 
-**htpdate** synchronizes the local system time using HTTP headers from web servers. It extracts the Date header from HTTP responses, providing time synchronization without dedicated NTP ports.
+**htpdate** 利用来自 Web 服务器的 HTTP 头来同步本地系统时间。它从 HTTP 响应中提取 Date 头，从而在不依赖专用 NTP 端口的情况下实现时间同步。
 
-This is useful in restricted network environments where:
-- NTP (port 123) is blocked by firewalls
-- Only HTTP/HTTPS traffic is allowed
-- Time synchronization is needed but NTP servers are inaccessible
+这在受限的网络环境中非常有用，例如：
+- NTP（端口 123）被防火墙屏蔽
+- 只允许 HTTP/HTTPS 流量
+- 需要时间同步但无法访问 NTP 服务器
 
-htpdate can query multiple servers and average the results for better accuracy. It supports both one-time synchronization and daemon mode for continuous adjustment.
+htpdate 可以查询多台服务器并对结果取平均值以提高精度。它既支持一次性同步，也支持持续调整的守护进程模式。
 
 # CAVEATS
 
-Less accurate than NTP (HTTP timestamps have one-second resolution). Depends on web servers having accurate time. Network latency affects accuracy. HTTPS requires additional processing that may affect precision.
+精度不如 NTP（HTTP 时间戳只有秒级分辨率）。依赖 Web 服务器本身拥有准确的时间。网络延迟会影响精度。HTTPS 需要额外的处理过程，可能影响精度。
 
 # HISTORY
 
-htpdate was created by Eddy Vervest as an alternative to NTP for environments where NTP traffic is restricted. It leverages the ubiquity of HTTP access to provide basic time synchronization.
+htpdate 由 Eddy Vervest 创建，用于在 NTP 流量受限的环境中替代 NTP。它利用 HTTP 访问的普遍性来提供基本的时间同步。
 
 # INSTALL
 

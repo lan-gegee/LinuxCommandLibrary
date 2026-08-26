@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal-based automated file organizer
+基于终端的自动文件整理工具
 
 # TLDR
 
-**Launch the TUI to manage rules**
+**启动 TUI 管理规则**
 
 ```hazelnut```
 
-**Start the background daemon to watch folders**
+**启动后台守护进程监视文件夹**
 
 ```hazelnutd```
 
-**Initialize a new configuration**
+**初始化新配置**
 
 ```hazelnut init```
 
-**List all configured rules**
+**列出所有已配置的规则**
 
 ```hazelnut list```
 
-**Dry-run rules on a directory**
+**对目录试运行规则**
 
 ```hazelnut run --dir [~/Downloads]```
 
-**Apply rules on a directory**
+**对目录应用规则**
 
 ```hazelnut run --dir [~/Downloads] --apply```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```hazelnut --config [path/to/config.toml]```
 
@@ -41,43 +41,43 @@ Terminal-based automated file organizer
 # PARAMETERS
 
 **init**
-> Initialize a new configuration file.
+> 初始化新的配置文件。
 
 **list**
-> List all configured rules.
+> 列出所有已配置的规则。
 
 **run**
-> Dry-run or apply rules on a directory.
+> 对目录试运行或应用规则。
 
 **update**
-> Check for updates.
+> 检查更新。
 
 **--config** _path_
-> Specify a custom config file.
+> 指定自定义配置文件。
 
 **--dir** _path_
-> Specify a directory to process (used with run).
+> 指定要处理的目录（与 run 搭配使用）。
 
 **--apply**
-> Apply rules instead of dry-running (used with run).
+> 应用规则而非试运行（与 run 搭配使用）。
 
 # DESCRIPTION
 
-**hazelnut** is a terminal-based automated file organizer inspired by **Hazel** for macOS. It watches folders and organizes files based on user-defined rules. The tool consists of two components: a **TUI** for creating and managing rules interactively, and a **daemon** (hazelnutd) that runs in the background applying rules continuously.
+**hazelnut** 是一款基于终端的自动文件整理工具，灵感来自 macOS 上的 **Hazel**。它监视文件夹并按照用户定义的规则整理文件。该工具由两个组件构成：交互式创建和管理规则的 **TUI**，以及在后台持续应用规则的**守护进程**（hazelnutd）。
 
-Rules are defined in human-readable **TOML** configuration files and can trigger actions like moving, copying, renaming, archiving, deleting, trashing, or running custom commands on matched files. Matching conditions include file extension, name pattern, size, and age.
+规则定义在人类可读的 **TOML** 配置文件中，可以对匹配的文件触发移动、复制、重命名、归档、删除、移入废纸篓或执行自定义命令等操作。匹配条件包括文件扩展名、名称模式、大小和文件年龄。
 
 # CONFIGURATION
 
-Rules are stored in TOML config files. Each rule specifies a watch folder, file matching conditions (by extension, name pattern, size, age), and actions to perform. Multiple rules can match the same file and all matching rules execute in order.
+规则存储在 TOML 配置文件中。每条规则指定一个监视文件夹、文件匹配条件（按扩展名、名称模式、大小、年龄）以及要执行的操作。多条规则可以匹配同一个文件，所有匹配的规则按顺序依次执行。
 
 # CAVEATS
 
-The daemon (hazelnutd) is only available on **macOS** and **Linux**; on Windows only the TUI is available. File watching relies on OS-level filesystem notification APIs, which may have limitations on certain filesystems.
+守护进程（hazelnutd）仅在 **macOS** 和 **Linux** 上可用；Windows 上只有 TUI 可用。文件监视依赖操作系统级的文件系统通知 API，在某些文件系统上可能有局限。
 
 # HISTORY
 
-**hazelnut** was created by **Ricardo Dantas** and is written in **Rust** using the **Ratatui** TUI library. It was inspired by the popular macOS automation app Hazel, bringing similar file organization capabilities to the terminal.
+**hazelnut** 由 **Ricardo Dantas** 创建，使用 **Rust** 和 **Ratatui** TUI 库编写。它的灵感来自广受欢迎的 macOS 自动化应用 Hazel，将类似的文件整理能力带到了终端。
 
 # INSTALL
 

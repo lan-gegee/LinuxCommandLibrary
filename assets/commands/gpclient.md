@@ -1,38 +1,38 @@
 # TAGLINE
 
-GlobalProtect VPN client for Linux
+Linux 平台的 GlobalProtect VPN 客户端
 
 # TLDR
 
-**Connect** to a GlobalProtect VPN using a portal server
+使用门户服务器**连接** GlobalProtect VPN
 
 ```gpclient connect [vpn_gateway_url]```
 
-**Disconnect** from the currently connected VPN server
+与当前连接的 VPN 服务器**断开连接**
 
 ```gpclient disconnect```
 
-Launch the **graphical user interface** for VPN management
+启动用于 VPN 管理的**图形用户界面**
 
 ```gpclient launch-gui```
 
-Generate a **HIP report** (Host Integrity Protection)
+生成 **HIP 报告**（主机完整性保护）
 
 ```gpclient hip```
 
-Use **OpenSSL workaround** to bypass legacy renegotiation errors
+使用 **OpenSSL 变通方案**绕过旧式重协商错误
 
 ```gpclient connect --fix-openssl [vpn_gateway_url]```
 
-**Ignore TLS errors** during connection
+连接期间**忽略 TLS 错误**
 
 ```gpclient connect --ignore-tls-errors [vpn_gateway_url]```
 
-Display **version**
+显示**版本**
 
 ```gpclient --version```
 
-Display **help** for any command
+显示任意命令的**帮助**
 
 ```gpclient help [command]```
 
@@ -43,51 +43,51 @@ Display **help** for any command
 # PARAMETERS
 
 **connect** _URL_
-> Connect to GlobalProtect VPN gateway
+> 连接到 GlobalProtect VPN 网关
 
 **disconnect**
-> Disconnect from current VPN session
+> 断开当前 VPN 会话
 
 **launch-gui**
-> Open graphical interface
+> 打开图形界面
 
 **hip**
-> Generate a HIP (Host Integrity Protection) report
+> 生成 HIP（主机完整性保护）报告
 
 **--fix-openssl**
-> Apply workaround for OpenSSL legacy renegotiation
+> 应用针对 OpenSSL 旧式重协商问题的变通方案
 
 **--ignore-tls-errors**
-> Skip TLS certificate validation
+> 跳过 TLS 证书验证
 
 **-g**, **--gateway** _URL_
-> Connect directly to this gateway instead of prompting
+> 直接连接到此网关而不进行提示
 
 **--auto-gateway**
-> Automatically try gateways in priority order without prompting
+> 按优先级顺序自动尝试各网关，无需提示
 
 **-u**, **--user** _USERNAME_
-> Specify username for authentication
+> 指定用于身份验证的用户名
 
 **--browser** [_BROWSER_]
-> Use external browser for SSO authentication (chrome, firefox, default, or remote)
+> 使用外部浏览器进行 SSO 身份验证（chrome、firefox、default 或 remote）
 
 **--as-gateway**
-> Treat the server argument as a gateway instead of a portal
+> 将服务器参数视为网关而不是门户
 
 # DESCRIPTION
 
-**gpclient** is a Linux client for Palo Alto Networks GlobalProtect VPN, built on top of OpenConnect. It provides both command-line and graphical interfaces for connecting to corporate VPN gateways that use GlobalProtect.
+**gpclient** 是 Palo Alto Networks GlobalProtect VPN 的 Linux 客户端，构建于 OpenConnect 之上。它同时提供命令行和图形界面，用于连接使用 GlobalProtect 的企业 VPN 网关。
 
-The client supports SAML authentication, two-factor authentication, and both portal and gateway connections. It is an open-source alternative to the official GlobalProtect client, which has limited Linux support.
+该客户端支持 SAML 身份验证、双因素身份验证，以及门户和网关两种连接方式。它是官方 GlobalProtect 客户端的开源替代品，后者对 Linux 的支持十分有限。
 
 # CAVEATS
 
-Requires OpenConnect with GlobalProtect support. Some authentication methods (like hardware tokens) may have limited support. The **--ignore-tls-errors** option should only be used for testing as it bypasses security.
+需要支持 GlobalProtect 的 OpenConnect。某些身份验证方式（如硬件令牌）的支持可能有限。**--ignore-tls-errors** 选项仅应用于测试，因为它绕过了安全机制。
 
 # HISTORY
 
-**gpclient** is part of the **GlobalProtect-openconnect** project, created as an open-source solution for Linux users needing to connect to GlobalProtect VPNs. It leverages OpenConnect's GlobalProtect protocol support (added in OpenConnect 8.0). The project was rewritten from Python/Qt to **Rust** and **Tauri** in its 2.x series.
+**gpclient** 是 **GlobalProtect-openconnect** 项目的一部分，该项目是为需要连接 GlobalProtect VPN 的 Linux 用户打造的开源方案。它利用了 OpenConnect 对 GlobalProtect 协议的支持（OpenConnect 8.0 中加入）。在 2.x 系列中，项目从 Python/Qt 重写为 **Rust** 和 **Tauri**。
 
 # INSTALL
 

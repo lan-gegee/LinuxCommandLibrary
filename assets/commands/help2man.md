@@ -1,30 +1,30 @@
 # TAGLINE
 
-generates man pages from program --help and --version output
+根据程序的 --help 和 --version 输出生成 man page
 
 # TLDR
 
-**Generate a man page from a program's help output**
+**根据程序的帮助输出生成 man page**
 
 ```help2man [program] > [program.1]```
 
-**Generate with a specific man page section number**
+**指定 man page 区号生成**
 
 ```help2man -s [1] [program] > [program.1]```
 
-**Add a name/description for the NAME section**
+**为 NAME 区添加名称/描述**
 
 ```help2man -n "program description" [program] > [program.1]```
 
-**Include additional text from an include file**
+**从 include 文件中补充内容**
 
 ```help2man --include [extra.h2m] [program] > [program.1]```
 
-**Write output directly to a file**
+**直接写入文件输出**
 
 ```help2man -o [program.1] [program]```
 
-**Suppress "info" pointer in the generated page**
+**抑制生成的页面中的 "info" 指引**
 
 ```help2man -N [program] > [program.1]```
 
@@ -35,69 +35,69 @@ generates man pages from program --help and --version output
 # PARAMETERS
 
 _EXECUTABLE_
-> Program whose --help and --version output will be used to generate the man page.
+> 其 --help 与 --version 输出将被用于生成 man page 的程序。
 
 **-n**, **--name** _STRING_
-> Short description for the NAME section.
+> NAME 区的简短描述。
 
 **-s**, **--section** _NUM_
-> Man page section number (default: 1).
+> Man page 区号（默认：1）。
 
 **-i**, **--include** _FILE_
-> Include extra material from file. The file uses `[section]` headers to place text.
+> 从文件中包含额外内容。该文件使用 `[section]` 标头来放置文本。
 
 **-I**, **--opt-include** _FILE_
-> Like **-i** but does not fail if file is missing.
+> 类似 **-i**，但文件缺失时不报错。
 
 **-N**, **--no-info**
-> Suppress the "see also info page" pointer.
+> 不生成 "参见 info 页面" 的指引。
 
 **-o**, **--output** _FILE_
-> Write output to file instead of stdout.
+> 将输出写入文件而不是 stdout。
 
 **-m**, **--manual** _TEXT_
-> Name of the manual (e.g., "User Commands").
+> 手册名称（例如 "User Commands"）。
 
 **-S**, **--source** _TEXT_
-> Source of the program (e.g., "FSF", "Debian").
+> 程序来源（例如 "FSF"、"Debian"）。
 
 **-L**, **--locale** _STRING_
-> Set locale for fetching help output (default: "C").
+> 获取帮助输出时使用的 locale（默认："C"）。
 
 **-l**, **--libtool**
-> Drop libtool `lt-` prefix from program name.
+> 从程序名中去掉 libtool 的 `lt-` 前缀。
 
 **-p**, **--info-page** _TEXT_
-> Name of Texinfo manual to reference.
+> 要引用的 Texinfo 手册名称。
 
 **-h**, **--help-option** _STRING_
-> Alternative help option string to use instead of --help.
+> 替代 --help 使用的帮助选项字符串。
 
 **-v**, **--version-option** _STRING_
-> Alternative version option string to use instead of --version.
+> 替代 --version 使用的版本选项字符串。
 
 **--version-string** _STRING_
-> Use this version string instead of running the program's version option.
+> 使用此版本字符串，而不运行程序的版本选项。
 
 **--no-discard-stderr**
-> Include stderr output when parsing option output.
+> 解析选项输出时包含 stderr 输出。
 
 **--version**
-> Show help2man version.
+> 显示 help2man 版本。
 
 # DESCRIPTION
 
-**help2man** generates man pages from a program's `--help` and `--version` output. It parses the structured help text and formats it as troff-style man page source, creating basic documentation automatically.
+**help2man** 根据程序的 `--help` 和 `--version` 输出生成 man page。它解析结构化的帮助文本并将其格式化为 troff 风格的 man page 源码，自动创建基础文档。
 
-The tool produces minimal man pages suitable for programs that follow GNU conventions for help output. Additional content can be added via include files (`.h2m`), which support inserting text before or after automatically generated sections using `[section]` headers.
+该工具生成的 man page 较为精简，适合遵循 GNU 帮助输出约定的程序。可以通过 include 文件（`.h2m`）添加更多内容，此类文件支持使用 `[section]` 标头在自动生成的各区之前或之后插入文本。
 
 # CAVEATS
 
-Output quality depends heavily on the format of the program's `--help` output. Works best with GNU-style option formatting (leading dashes, aligned descriptions). Programs with non-standard help text may produce poorly formatted man pages that require manual editing. Does not document features not mentioned in `--help` output.
+输出质量在很大程度上取决于程序 `--help` 输出的格式。对于 GNU 风格的选项格式（前置连字符、描述对齐）效果最佳。帮助文本不规范的程序可能生成格式欠佳的 man page，需要手动编辑。不会记录 `--help` 输出中未提及的功能。
 
 # HISTORY
 
-help2man was created by **Brendan O'Dea** as part of the **GNU** project to automate man page generation for GNU utilities during the build process.
+help2man 由 **Brendan O'Dea** 创建，是 **GNU** 项目的一部分，用于在构建过程中自动生成 GNU 实用工具的 man page。
 
 # INSTALL
 

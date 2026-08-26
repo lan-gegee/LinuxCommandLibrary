@@ -1,26 +1,26 @@
 # TAGLINE
 
-handshake wallet client
+Handshake 钱包客户端
 
 # TLDR
 
-**Show wallet info**
+**显示钱包信息**
 
 ```hsw-cli get```
 
-**List wallets**
+**列出钱包**
 
 ```hsw-cli wallets```
 
-**Create wallet**
+**创建钱包**
 
 ```hsw-cli create [wallet-name]```
 
-**Show balance**
+**显示余额**
 
 ```hsw-cli balance```
 
-**Generate address**
+**生成地址**
 
 ```hsw-cli address```
 
@@ -31,45 +31,45 @@ handshake wallet client
 # PARAMETERS
 
 _COMMAND_
-> Command to execute.
+> 要执行的命令。
 
 **get**
-> Get wallet info.
+> 获取钱包信息。
 
 **wallets**
-> List wallets.
+> 列出钱包。
 
 **create**
-> Create wallet.
+> 创建钱包。
 
 **balance**
-> Show balance.
+> 显示余额。
 
 **address**
-> Generate address.
+> 生成地址。
 
 **--url** _URL_
-> Wallet service URL.
+> 钱包服务 URL。
 
 **--api-key** _KEY_
-> API key.
+> API 密钥。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hsw-cli** is the Handshake wallet client. It connects to the wallet service for managing HNS wallets and transactions.
+**hsw-cli** 是 Handshake 的钱包客户端。它连接钱包服务，管理 HNS 钱包和交易。
 
-The tool handles wallet creation, balance queries, and address generation. It separates wallet functions from the main node.
+该工具处理钱包创建、余额查询和地址生成。它将钱包功能与主节点分离。
 
 # CAVEATS
 
-Requires wallet service running. Separate from node client. Cryptocurrency tool.
+需要钱包服务正在运行。独立于节点客户端。加密货币工具。
 
 # HISTORY
 
-hsw-cli is the wallet-specific CLI for **Handshake**, complementing the hsd-cli node client.
+hsw-cli 是 **Handshake** 的钱包专用 CLI，作为 hsd-cli 节点客户端的补充。
 
 # SEE ALSO
 

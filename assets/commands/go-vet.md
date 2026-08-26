@@ -1,26 +1,26 @@
 # TAGLINE
 
-Static analysis for Go source code
+对 Go 源码进行静态分析
 
 # TLDR
 
-**Check current package**
+**检查当前包**
 
 ```go vet```
 
-**Check specific package**
+**检查指定的包**
 
 ```go vet [package]```
 
-**Check all packages**
+**检查所有包**
 
 ```go vet ./...```
 
-**Run specific analyzer**
+**运行特定分析器**
 
 ```go vet -[analyzer] [package]```
 
-**List analyzers**
+**列出分析器**
 
 ```go vet -help```
 
@@ -31,42 +31,42 @@ Static analysis for Go source code
 # PARAMETERS
 
 _PACKAGES_
-> Packages to check.
+> 要检查的包。
 
 **-json**
-> JSON output.
+> 以 JSON 格式输出。
 
 **-c** _N_
-> Display offending line with N lines of context.
+> 显示问题所在行及其 N 行上下文。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-n**
-> Print commands but do not run them.
+> 打印命令但不运行。
 
 **-x**
-> Print the commands as they are executed.
+> 在命令执行时打印它们。
 
 **-vettool** _prog_
-> Select a different analysis tool.
+> 选择其他分析工具。
 
 **-tags** _TAGS_
-> Build tags.
+> 构建标签。
 
 # DESCRIPTION
 
-**go vet** examines Go source code and reports suspicious constructs that the compiler does not catch. It finds bugs like incorrect printf format strings, unreachable code, and misuse of sync primitives.
+**go vet** 检查 Go 源码，报告编译器无法捕获的可疑代码结构。它能发现 printf 格式字符串错误、不可达代码以及 sync 原语误用等 bug。
 
-The tool runs multiple analyzers that check for common mistakes. It is part of the standard quality assurance workflow alongside testing and formatting.
+该工具运行多个分析器来检查常见错误。它与测试、格式化一起构成标准的质量保证工作流。
 
 # CAVEATS
 
-Not exhaustive; false positives are possible. Use alongside tests and code review. Run `go help vet` for full documentation. Additional analyzers (like shadow) require `-vettool`.
+并非面面俱到；可能出现误报。请配合测试和代码审查使用。运行 `go help vet` 查看完整文档。额外的分析器（如 shadow）需要通过 `-vettool` 启用。
 
 # HISTORY
 
-go vet is part of the **Go** toolchain, providing static analysis for catching common programming errors.
+go vet 是 **Go** 工具链的一部分，通过静态分析捕捉常见的编程错误。
 
 # INSTALL
 

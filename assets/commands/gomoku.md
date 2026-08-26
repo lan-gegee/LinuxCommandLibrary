@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal-based Five in a Row board game
+终端版五子棋棋盘游戏
 
 # TLDR
 
-**Start gomoku game**
+**开始五子棋游戏**
 
 ```gomoku```
 
@@ -24,17 +24,17 @@ Terminal-based Five in a Row board game
 
 # DESCRIPTION
 
-**gomoku** is a terminal-based implementation of the Gomoku (Five in a Row) board game. Players take turns placing stones on a grid, trying to get five in a row horizontally, vertically, or diagonally.
+**gomoku** 是五子棋（Gomoku）棋盘游戏的终端实现。玩家轮流在网格上落子，争取在横向、纵向或斜向连成五子。
 
-The game is typically played against an AI opponent and is a strategy game originating from Japan.
+该游戏通常与 AI 对手对弈，是一款源自日本的策略游戏。
 
 # CAVEATS
 
-Terminal game. Requires appropriate terminal. Various implementations exist.
+终端游戏。需要合适的终端环境。存在多种不同的实现版本。
 
 # HISTORY
 
-Gomoku is a traditional strategy board game. Terminal versions provide accessible gameplay.
+五子棋是一种传统的策略棋盘游戏。终端版本让这一游戏变得易于上手。
 
 # INSTALL
 

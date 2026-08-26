@@ -1,22 +1,22 @@
 # TAGLINE
 
-legacy BlueZ tool that emulates a Bluetooth HCI device via the hci_vhci kernel module
+通过 hci_vhci 内核模块模拟蓝牙 HCI 设备的旧版 BlueZ 工具
 
 # TLDR
 
-**Emulate an HCI device with a given local address**
+**以给定的本地地址模拟 HCI 设备**
 
 ```sudo hciemu [00:11:22:33:44:55]```
 
-**Emulate a specific device type**
+**模拟指定类型的设备**
 
 ```sudo hciemu -d [vhci] [00:11:22:33:44:55]```
 
-**Capture emulated traffic to a snoop file**
+**把模拟流量捕获到 snoop 文件**
 
 ```sudo hciemu -s [capture.snoop] [00:11:22:33:44:55]```
 
-**Run in the foreground without detaching**
+**在前台运行而不脱离终端**
 
 ```sudo hciemu -n [00:11:22:33:44:55]```
 
@@ -27,28 +27,28 @@ legacy BlueZ tool that emulates a Bluetooth HCI device via the hci_vhci kernel m
 # PARAMETERS
 
 **-d** _device_
-> Device type to emulate (e.g. vhci).
+> 要模拟的设备类型（例如 vhci）。
 
 **-b** _bdaddr_
-> Bluetooth device address to emulate.
+> 要模拟的蓝牙设备地址。
 
 **-s** _file_
-> Write captured HCI packets to a snoop file.
+> 把捕获的 HCI 数据包写入 snoop 文件。
 
 **-n**
-> Do not detach from the controlling terminal.
+> 不从控制终端脱离。
 
 # DESCRIPTION
 
-**hciemu** is a legacy BlueZ test utility that emulates a Bluetooth Host Controller Interface (HCI) device through the **hci_vhci** kernel module. It creates a virtual Bluetooth controller with a given local address, letting the Bluetooth stack and applications be exercised without physical hardware.
+**hciemu** 是一个旧版 BlueZ 测试工具，通过 **hci_vhci** 内核模块模拟蓝牙主机控制器接口（HCI）设备。它会创建一个具有指定本地地址的虚拟蓝牙控制器，让蓝牙协议栈和应用程序无需真实硬件即可得到测试。
 
 # CAVEATS
 
-Requires the **hci_vhci** kernel module and root privileges. This standalone command dates from the pre-BlueZ5 bluez-utils test suite and has been dropped from the tools shipped by current Linux distributions; modern BlueZ only keeps an internal emulator library (used by its own test suite) under the same name, not a user-facing binary. For interactive Bluetooth testing today, use **bluetoothctl**.
+需要 **hci_vhci** 内核模块和 root 权限。这个独立命令来自 BlueZ5 之前的 bluez-utils 测试套件，目前已从主流 Linux 发行版附带的工具中移除；现代 BlueZ 仅保留同名的内部模拟器库（供其自身测试套件使用），不再提供面向用户的二进制文件。如今需要进行交互式蓝牙测试时，请使用 **bluetoothctl**。
 
 # HISTORY
 
-hciemu was part of the original **BlueZ** (bluez-utils) test tools, predating BlueZ5. It has since been removed from mainstream distribution packages.
+hciemu 是最初 **BlueZ**（bluez-utils）测试工具的一部分，早于 BlueZ5 出现。此后它已从主流发行版的软件包中移除。
 
 # SEE ALSO
 

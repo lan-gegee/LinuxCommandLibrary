@@ -1,22 +1,22 @@
 # TAGLINE
 
-utility that spins down external hard disks after a period of idle time
+让外部硬盘在空闲一段时间后停转的工具
 
 # TLDR
 
-**Start** the hd-idle service with default settings (10 minute idle time)
+**启动** hd-idle 服务并使用默认设置（10 分钟空闲时间）
 
 ```systemctl start hd-idle```
 
-**Spin down** a disk immediately
+**立即停转**某块磁盘
 
 ```hd-idle -t [/dev/sdX]```
 
-Set **per-disk idle times** in seconds
+以秒为单位设置**各磁盘的空闲时间**
 
 ```hd-idle -i 0 -a /dev/sda -i [300] -a /dev/sdb -i [1200]```
 
-Disable spin-down globally, enable for **specific disks** only
+全局禁用停转，仅为**特定磁盘**启用
 
 ```hd-idle -i 0 -a [/dev/sda] -i [600]```
 
@@ -27,33 +27,33 @@ Disable spin-down globally, enable for **specific disks** only
 # PARAMETERS
 
 **-a** _DEVICE_
-> Apply the following idle time to the specified device
+> 将其后的空闲时间应用到指定设备
 
 **-i** _SECONDS_
-> Set idle time in seconds (0 disables spin-down)
+> 设置空闲时间（秒）（0 表示禁用停转）
 
 **-t** _DEVICE_
-> Spin down the specified disk immediately
+> 立即停转指定磁盘
 
 **-l** _LOGFILE_
-> Log spin-down events to specified file
+> 将停转事件记录到指定文件
 
 **-d**
-> Run in debug mode, do not daemonize
+> 以调试模式运行，不守护进程化
 
 # DESCRIPTION
 
-**hd-idle** is a utility that spins down external hard disks after a period of idle time. It is particularly useful for USB or eSATA drives that don't support the hdparm -S command for automatic spin-down.
+**hd-idle** 是一款在空闲一段时间后停转外部硬盘的工具。对于不支持 hdparm -S 自动停转命令的 USB 或 eSATA 硬盘，它尤其有用。
 
-The daemon monitors disk activity and issues spin-down commands when disks have been idle for the configured time. Different idle times can be set for different disks, allowing fine-grained control over power management.
+守护进程监视磁盘活动，并在磁盘空闲达到配置的时间后发出停转命令。可以为不同的磁盘设置不同的空闲时间，从而对电源管理进行细粒度控制。
 
 # CAVEATS
 
-Works best with external drives that don't support native APM. Some drives may not respond to software spin-down commands. Frequent spin-down/spin-up cycles can reduce drive lifespan.
+对不支持原生 APM 的外置硬盘效果最好。有些硬盘可能不响应软件发出的停转命令。频繁的停转/启动循环可能会缩短硬盘寿命。
 
 # HISTORY
 
-hd-idle was created as a solution for external drives that lack proper power management support. It fills a gap where hdparm's spin-down feature doesn't work, common with USB enclosures that don't pass through ATA commands.
+hd-idle 是为缺乏妥善电源管理支持的外置硬盘而设计的解决方案。它填补了 hdparm 停转功能无法工作时的空白——这种情况常见于不透传 ATA 命令的 USB 硬盘盒。
 
 # INSTALL
 

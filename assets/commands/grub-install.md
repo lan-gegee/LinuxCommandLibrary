@@ -1,30 +1,30 @@
 # TAGLINE
 
-install GRUB bootloader to a device
+将 GRUB 引导加载程序安装到设备
 
 # TLDR
 
-Install GRUB on a **BIOS system**
+在 **BIOS 系统**上安装 GRUB
 
 ```sudo grub-install [/dev/device]```
 
-Install GRUB on a BIOS system with **specific architecture**
+以**指定架构**在 BIOS 系统上安装 GRUB
 
 ```sudo grub-install --target i386-pc [/dev/device]```
 
-Install GRUB on an **UEFI system**
+在 **UEFI 系统**上安装 GRUB
 
 ```sudo grub-install --efi-directory [/path/to/efi]```
 
-Install GRUB on UEFI with **architecture and bootloader ID**
+在 UEFI 上以**指定架构和引导加载程序 ID** 安装 GRUB
 
 ```sudo grub-install --target x86_64-efi --efi-directory [/path/to/efi] --bootloader-id GRUB```
 
-Install GRUB **pre-loading specific modules**
+安装 GRUB 并**预加载指定模块**
 
 ```sudo grub-install --target x86_64-efi --efi-directory [/path/to/efi] --modules "part_gpt part_msdos"```
 
-Display **help**
+显示**帮助**
 
 ```grub-install --help```
 
@@ -35,44 +35,44 @@ Display **help**
 # PARAMETERS
 
 **--target** _PLATFORM_
-> Installation target: i386-pc (BIOS), x86_64-efi, i386-efi, arm-efi
+> 安装目标：i386-pc（BIOS）、x86_64-efi、i386-efi、arm-efi
 
 **--efi-directory** _DIR_
-> EFI System Partition mount point
+> EFI 系统分区挂载点
 
 **--bootloader-id** _ID_
-> Boot manager identifier in EFI menu
+> 在 EFI 菜单中显示的引导管理器标识符
 
 **--boot-directory** _DIR_
-> Directory containing boot files (default: /boot)
+> 存放启动文件的目录（默认：/boot）
 
 **--modules** _MODULES_
-> Pre-load specified GRUB modules
+> 预加载指定的 GRUB 模块
 
 **--recheck**
-> Delete device map and regenerate
+> 删除设备映射并重新生成
 
 **--removable**
-> Install to removable media path
+> 安装到可移动介质路径
 
 **--force**
-> Install even if problems detected
+> 即使检测到问题也强制安装
 
 # DESCRIPTION
 
-**grub-install** installs the GRUB bootloader to a disk device or EFI System Partition. The installation method differs between BIOS/legacy and UEFI systems.
+**grub-install** 将 GRUB 引导加载程序安装到磁盘设备或 EFI 系统分区。BIOS/legacy 与 UEFI 系统的安装方式有所不同。
 
-For **BIOS systems**, GRUB is installed to the Master Boot Record (MBR) or a BIOS Boot Partition on GPT disks. For **UEFI systems**, GRUB is installed to the EFI System Partition (ESP), and the **--bootloader-id** option sets the name shown in the UEFI boot menu.
+对于 **BIOS 系统**，GRUB 被安装到主引导记录（MBR）或 GPT 磁盘上的 BIOS Boot 分区。对于 **UEFI 系统**，GRUB 被安装到 EFI 系统分区（ESP），并且 **--bootloader-id** 选项设置在 UEFI 启动菜单中显示的名称。
 
-After installation, run **grub-mkconfig** to generate the configuration file.
+安装完成后，运行 **grub-mkconfig** 生成配置文件。
 
 # CAVEATS
 
-Requires root privileges. Incorrect installation can make system unbootable - have recovery media ready. UEFI installation requires the ESP to be mounted. Secure Boot may require signed GRUB binaries.
+需要 root 权限。错误的安装可能导致系统无法启动——请提前准备好恢复介质。UEFI 安装要求 ESP 已挂载。安全启动（Secure Boot）可能需要经过签名的 GRUB 二进制文件。
 
 # HISTORY
 
-GRUB 2 grub-install replaced the older GRUB Legacy installation method around **2009**. It supports modern features like GPT partition tables, UEFI, and modular design.
+大约在 **2009 年**，GRUB 2 的 grub-install 取代了较旧的 GRUB Legacy 安装方式。它支持 GPT 分区表、UEFI 和模块化设计等现代特性。
 
 # INSTALL
 

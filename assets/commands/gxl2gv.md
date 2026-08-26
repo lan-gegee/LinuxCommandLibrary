@@ -1,18 +1,18 @@
 # TAGLINE
 
-converts GXL to Graphviz DOT format
+将 GXL 转换为 Graphviz DOT 格式
 
 # TLDR
 
-**Convert GXL to DOT**
+**将 GXL 转换为 DOT**
 
 ```gxl2gv [input.gxl] -o [output.gv]```
 
-**Output to stdout**
+**输出到标准输出**
 
 ```gxl2gv [input.gxl]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```gxl2gv [file1.gxl] [file2.gxl] -o [output.gv]```
 
@@ -23,32 +23,32 @@ converts GXL to Graphviz DOT format
 # PARAMETERS
 
 _FILES_
-> Input GXL files.
+> 输入的 GXL 文件。
 
 **-o** _FILE_
-> Output DOT file.
+> 输出的 DOT 文件。
 
 **-d**
-> Output directed graph.
+> 输出有向图。
 
 **-?**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gxl2gv** converts between graphs represented in GXL (Graph eXchange Language) and in the GV language. It enables importing XML-based graph data into the Graphviz ecosystem.
+**gxl2gv** 在以 GXL（Graph eXchange Language）表示的图与以 GV 语言表示的图之间进行转换。它可以将基于 XML 的图数据导入 Graphviz 生态。
 
-Unless a conversion type is specified using a flag, gxl2gv deduces the type of conversion from the suffix of the input file: a ".gv" suffix causes conversion from GV to GXL, and a ".gxl" suffix causes conversion from GXL to GV. When input is from a pipe, the conversion type is inferred from the executable name.
+除非通过标志指定转换类型，否则 gxl2gv 会根据输入文件的后缀推断转换类型：".gv" 后缀表示从 GV 转换为 GXL，".gxl" 后缀表示从 GXL 转换为 GV。当通过管道输入时，转换类型由可执行文件名推断。
 
-GXL supports a richer graph model than GV. gxl2gv maps GXL constructs into analogous GV constructs when possible; otherwise the GXL information is stored as an attribute.
+GXL 支持比 GV 更丰富的图模型。gxl2gv 会尽可能将 GXL 构件映射到对应的 GV 构件；无法映射时，GXL 信息会作为属性存储。
 
 # CAVEATS
 
-Part of Graphviz package. Requires valid GXL input. Some attributes may not convert.
+属于 Graphviz 软件包的一部分。需要有效的 GXL 输入。部分属性可能无法转换。
 
 # HISTORY
 
-gxl2gv is part of the **Graphviz** project, created at **AT&T Labs** for XML-based graph interchange.
+gxl2gv 是 **Graphviz** 项目的一部分，由 **AT&T 实验室**创建，用于基于 XML 的图交换。
 
 # INSTALL
 

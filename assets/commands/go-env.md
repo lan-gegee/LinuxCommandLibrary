@@ -1,30 +1,30 @@
 # TAGLINE
 
-print and manage Go environment variables
+打印和管理 Go 环境变量
 
 # TLDR
 
-**Print all Go environment variables**
+**打印所有 Go 环境变量**
 
 ```go env```
 
-**Print specific variable**
+**打印指定变量**
 
 ```go env GOPATH```
 
-**Print multiple variables**
+**打印多个变量**
 
 ```go env GOROOT GOPATH GOBIN```
 
-**Set a variable persistently**
+**持久化设置一个变量**
 
 ```go env -w GOBIN=[/path/to/bin]```
 
-**Unset a variable**
+**取消设置一个变量**
 
 ```go env -u GOBIN```
 
-**Print as JSON**
+**以 JSON 格式打印**
 
 ```go env -json```
 
@@ -35,26 +35,26 @@ print and manage Go environment variables
 # PARAMETERS
 
 **-json**
-> Print environment in JSON format.
+> 以 JSON 格式打印环境信息。
 
 **-w** _var_=_value_
-> Set variable persistently in go/env file.
+> 在 go/env 文件中持久化设置变量。
 
 **-u** _var_
-> Unset variable from go/env file.
+> 从 go/env 文件中取消设置变量。
 
 # DESCRIPTION
 
-**go env** prints Go environment information. Without arguments, it prints all known environment variables. With arguments, it prints the values of the named variables. The **-w** flag writes values to the go/env file, making them persistent across sessions. The **-u** flag removes variables from go/env.
+**go env** 用于打印 Go 环境信息。不带参数时，它会打印所有已知的环境变量；带参数时，则打印指定变量的值。**-w** 标志会将值写入 go/env 文件，使其跨会话持久生效。**-u** 标志则从 go/env 中移除变量。
 
 # CONFIGURATION
 
 **$HOME/.config/go/env**
-> Persistent Go environment variable file managed by go env -w.
+> 由 go env -w 管理的持久化 Go 环境变量文件。
 
 # CAVEATS
 
-Variables set with -w take precedence over shell environment variables. The go/env file is typically located at $HOME/.config/go/env.
+用 -w 设置的变量优先于 shell 环境变量。go/env 文件通常位于 $HOME/.config/go/env。
 
 # SEE ALSO
 

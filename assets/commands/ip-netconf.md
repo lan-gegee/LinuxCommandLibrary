@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays network configuration parameters for interfaces
+显示接口的网络配置参数
 
 # TLDR
 
-Show **all** network configuration
+显示**所有**网络配置
 
 ```ip netconf```
 
-Show config for **specific interface**
+显示**特定接口**的配置
 
 ```ip netconf show dev eth0```
 
-Show only **IPv4** configuration
+仅显示 **IPv4** 配置
 
 ```ip -4 netconf```
 
-Show only **IPv6** configuration
+仅显示 **IPv6** 配置
 
 ```ip -6 netconf```
 
@@ -26,39 +26,39 @@ Show only **IPv6** configuration
 
 # DESCRIPTION
 
-**ip netconf** monitors and displays IPv4 and IPv6 network configuration parameters from /proc/sys/net/ipv[4|6]/conf/. It shows settings like forwarding status, RPF (Reverse Path Filtering) mode, MC forwarding, and proxy ARP/NDP status. If no interface is specified, the **all** entry is displayed.
+**ip netconf** 监视并显示来自 /proc/sys/net/ipv[4|6]/conf/ 的 IPv4 和 IPv6 网络配置参数。它显示转发状态、RPF（反向路径过滤）模式、组播转发以及代理 ARP/NDP 状态等设置。若未指定接口，则显示 **all** 条目。
 
 # PARAMETERS
 
 **show**
-> Show network configuration (default if omitted)
+> 显示网络配置（省略时为默认操作）
 
 **dev NAME**
-> Show configuration for specific interface
+> 显示特定接口的配置
 
 **help**
-> Display help information
+> 显示帮助信息
 
 # OUTPUT FIELDS
 
 **forwarding**
-> Whether IP forwarding is enabled
+> IP 转发是否已启用
 
 **rp_filter**
-> Reverse Path Filtering mode (0=off, 1=strict, 2=loose)
+> 反向路径过滤模式（0=关闭，1=严格，2=宽松）
 
 **mc_forwarding**
-> Whether multicast forwarding is enabled
+> 组播转发是否已启用
 
 **proxy_neigh**
-> Whether proxy neighbor (ARP/NDP) is enabled
+> 代理邻居（ARP/NDP）是否已启用
 
 **ignore_routes_with_linkdown**
-> Ignore routes when link is down
+> 链路断开时忽略路由
 
 # CAVEATS
 
-Use -4 or -6 to filter by address family. Configuration can only be changed through sysctl or interface-specific tools, not through ip netconf directly.
+使用 -4 或 -6 可按地址族过滤。配置只能通过 sysctl 或接口专用工具修改，无法直接通过 ip netconf 更改。
 
 # SEE ALSO
 

@@ -1,46 +1,46 @@
 # TAGLINE
 
-system container and virtual machine manager
+系统容器与虚拟机管理器
 
 # TLDR
 
-**Initialize Incus**
+**初始化 Incus**
 
 ```incus admin init```
 
-**Launch a container**
+**启动一个容器**
 
 ```incus launch images:ubuntu/22.04 [container-name]```
 
-**Launch a VM**
+**启动一个虚拟机**
 
 ```incus launch images:ubuntu/22.04 [vm-name] --vm```
 
-**List instances**
+**列出实例**
 
 ```incus list```
 
-**Execute command in instance**
+**在实例中执行命令**
 
 ```incus exec [name] -- [command]```
 
-**Open a shell in an instance**
+**在实例中打开一个 Shell**
 
 ```incus shell [name]```
 
-**Copy a file into an instance**
+**向实例中复制文件**
 
 ```incus file push [local/path] [name]/[remote/path]```
 
-**Show detailed instance info**
+**显示实例详细信息**
 
 ```incus info [name]```
 
-**Stop an instance**
+**停止一个实例**
 
 ```incus stop [name]```
 
-**Delete an instance**
+**删除一个实例**
 
 ```incus delete [name]```
 
@@ -51,50 +51,50 @@ system container and virtual machine manager
 # SUBCOMMANDS
 
 **admin init**
-> Initialize Incus.
+> 初始化 Incus。
 
 **launch** _image_ _name_
-> Create and start instance.
+> 创建并启动实例。
 
 **start** _name_
-> Start instance.
+> 启动实例。
 
 **stop** _name_
-> Stop instance.
+> 停止实例。
 
 **delete** _name_
-> Delete instance.
+> 删除实例。
 
 **exec** _name_ **--** _cmd_
-> Run command in instance.
+> 在实例中运行命令。
 
 **shell** _name_
-> Open an interactive shell in an instance.
+> 在实例中打开交互式 Shell。
 
 **info** _name_
-> Show detailed instance configuration and state.
+> 显示实例的详细配置和状态。
 
 **file** _push|pull|edit_
-> Transfer or edit files inside an instance.
+> 在实例内传输或编辑文件。
 
 **list**
-> List all instances.
+> 列出所有实例。
 
 **image list**
-> List available images.
+> 列出可用镜像。
 
 **copy**
-> Copy instances.
+> 复制实例。
 
 **move**
-> Move instances.
+> 移动实例。
 
 **snapshot**
-> Manage snapshots.
+> 管理快照。
 
 # DESCRIPTION
 
-**incus** is a system container and virtual machine manager. Community fork of LXD, maintained by the Linux Containers project. Manages containers via LXC and VMs via QEMU through a unified CLI and REST API. Supports local and remote access, profiles, storage pools, and networking.
+**incus** 是一个系统容器与虚拟机管理器，是 LXD 的社区分支，由 Linux Containers 项目维护。它通过统一的 CLI 和 REST API，借助 LXC 管理容器、借助 QEMU 管理虚拟机。支持本地和远程访问、profile、存储池以及网络功能。
 
 # INSTALL
 
@@ -117,4 +117,3 @@ system container and virtual machine manager
 # SEE ALSO
 
 [lxc](/man/lxc)(1), [docker](/man/docker)(1)
-

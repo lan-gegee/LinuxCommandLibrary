@@ -1,22 +1,22 @@
 # TAGLINE
 
-validate GRUB configuration script syntax
+校验 GRUB 配置脚本语法
 
 # TLDR
 
-Check a GRUB script file for **syntax errors**
+检查 GRUB 脚本文件的**语法错误**
 
 ```grub-script-check [path/to/grub.cfg]```
 
-Display each line of input after reading (**verbose**)
+读取后显示输入的每一行（**详细模式**）
 
 ```grub-script-check -v [path/to/grub.cfg]```
 
-Check script from **stdin**
+从 **stdin** 检查脚本
 
 ```cat [path/to/script] | grub-script-check```
 
-Display **help**
+显示**帮助**
 
 ```grub-script-check --help```
 
@@ -27,27 +27,27 @@ Display **help**
 # PARAMETERS
 
 **-v**, **--verbose**
-> Display each line of input after reading it
+> 读取后显示输入的每一行
 
 **--help**
-> Display help message
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**grub-script-check** validates GRUB configuration scripts for syntax errors. It parses the GRUB scripting language used in configuration files like grub.cfg and reports any syntax problems.
+**grub-script-check** 校验 GRUB 配置脚本是否存在语法错误。它会解析 grub.cfg 等配置文件所用的 GRUB 脚本语言，并报告任何语法问题。
 
-If no file path is provided, the tool reads from standard input. This is useful for validating generated configurations or testing script fragments before deployment.
+若未提供文件路径，该工具将从标准输入读取。这可用于校验生成的配置或在部署前测试脚本片段。
 
 # CAVEATS
 
-Only checks syntax, not semantic correctness. Valid syntax doesn't guarantee the configuration will boot properly. Cannot verify that referenced files or modules exist.
+只检查语法，不检查语义正确性。语法有效并不能保证配置能够正常启动。也无法验证引用的文件或模块是否存在。
 
 # HISTORY
 
-grub-script-check is part of GRUB 2, providing validation for GRUB's configuration scripting language. The scripting capability was introduced in GRUB 2 to replace the simpler configuration format of GRUB Legacy.
+grub-script-check 是 GRUB 2 的一部分，用于校验 GRUB 的配置脚本语言。脚本能力是在 GRUB 2 中引入的，用以取代 GRUB Legacy 较简单的配置格式。
 
 # INSTALL
 

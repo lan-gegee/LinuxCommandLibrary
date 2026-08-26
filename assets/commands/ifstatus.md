@@ -1,14 +1,14 @@
 # TAGLINE
 
-OpenWRT utility that displays network interface status in JSON format
+以 JSON 格式显示网络接口状态的 OpenWRT 工具
 
 # TLDR
 
-Display **interface status** in JSON format
+以 JSON 格式显示**接口状态**
 
 ```ifstatus [interface_name]```
 
-Display **help**
+显示**帮助**
 
 ```ifstatus```
 
@@ -19,21 +19,21 @@ Display **help**
 # PARAMETERS
 
 _interface_
-> Name of the network interface to query
+> 要查询的网络接口名称
 
 # DESCRIPTION
 
-**ifstatus** is an OpenWRT utility that displays network interface status in JSON format. It queries the netifd (network interface daemon) for detailed information about interface configuration and state.
+**ifstatus** 是一个 OpenWRT 工具，以 JSON 格式显示网络接口的状态。它向 netifd（网络接口守护进程）查询关于接口配置和状态的详细信息。
 
-The output includes IP addresses, DNS servers, connection state, protocol type, and other interface-specific information in a machine-readable format suitable for scripts and automation.
+输出包括 IP 地址、DNS 服务器、连接状态、协议类型以及其他接口相关信息，采用机器可读的格式，适合脚本和自动化处理。
 
 # CAVEATS
 
-Only available on OpenWRT/LEDE systems. Interface names correspond to netifd logical interfaces, not kernel device names. Requires netifd to be running.
+仅在 OpenWRT/LEDE 系统上可用。接口名称对应的是 netifd 逻辑接口，而非内核设备名。要求 netifd 正在运行。
 
 # HISTORY
 
-ifstatus is part of netifd, the OpenWRT network interface daemon introduced in OpenWRT **12.09** (Attitude Adjustment). It replaced the older hotplug-based network configuration system with a more robust daemon-based approach.
+ifstatus 是 netifd 的组成部分，后者是 OpenWRT **12.09**（Attitude Adjustment）中引入的网络接口守护进程。它用更健壮的守护进程方案取代了旧的基于热插拔（hotplug）的网络配置系统。
 
 # INSTALL
 

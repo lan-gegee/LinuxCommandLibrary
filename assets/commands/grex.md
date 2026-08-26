@@ -1,34 +1,34 @@
 # TAGLINE
 
-Regex generator from example strings
+根据示例字符串生成正则表达式
 
 # TLDR
 
-**Generate regex from examples**
+**从示例生成正则表达式**
 
 ```grex [foo] [bar] [baz]```
 
-**Convert digits to** `\d`
+**将数字转换为** `\d`
 
 ```grex -d [test1] [test2]```
 
-**Convert whitespace to** `\s` **and words to** `\w`
+**将空白转换为** `\s` **、单词转换为** `\w`
 
 ```grex -s -w [example1] [example2]```
 
-**Case insensitive matching**
+**忽略大小写匹配**
 
 ```grex -i [example1] [example2]```
 
-**Generate with repetition detection**
+**启用重复检测生成**
 
 ```grex -r [aaab] [aaac]```
 
-**Generate without start/end anchors**
+**生成不带首尾锚点的正则**
 
 ```grex --no-anchors [examples...]```
 
-**Read examples from file** (one per line)
+**从文件读取示例**（每行一个）
 
 ```grex -f [examples.txt]```
 
@@ -39,63 +39,63 @@ Regex generator from example strings
 # PARAMETERS
 
 _TEST-STRINGS_
-> Example strings to generate regex from.
+> 用于生成正则表达式的示例字符串。
 
 **-d**, **--digits**
-> Convert Unicode decimal digits to \d.
+> 将 Unicode 十进制数字转换为 \d。
 
 **-D**, **--non-digits**
-> Convert non-digit characters to \D.
+> 将非数字字符转换为 \D。
 
 **-s**, **--spaces**
-> Convert Unicode whitespace to \s.
+> 将 Unicode 空白字符转换为 \s。
 
 **-S**, **--non-spaces**
-> Convert non-whitespace characters to \S.
+> 将非空白字符转换为 \S。
 
 **-w**, **--words**
-> Convert Unicode word characters to \w.
+> 将 Unicode 单词字符转换为 \w。
 
 **-W**, **--non-words**
-> Convert non-word characters to \W.
+> 将非单词字符转换为 \W。
 
 **-i**, **--ignore-case**
-> Generate case-insensitive regex.
+> 生成忽略大小写的正则表达式。
 
 **-e**, **--escape**
-> Replace all non-ASCII characters with unicode escape sequences.
+> 将所有非 ASCII 字符替换为 unicode 转义序列。
 
 **-r**, **--repetitions**
-> Detect repeated substrings and convert to quantifier notation.
+> 检测重复的子字符串并将其转换为量词记法。
 
 **--no-anchors**
-> Remove ^ and $ anchors (anchors are added by default).
+> 移除 ^ 和 $ 锚点（默认会添加锚点）。
 
 **--no-start-anchor**
-> Remove the ^ start anchor only.
+> 仅移除 ^ 起始锚点。
 
 **--no-end-anchor**
-> Remove the $ end anchor only.
+> 仅移除 $ 结束锚点。
 
 **-f**, **--file** _FILE_
-> Read test strings from a file (one per line).
+> 从文件读取测试字符串（每行一个）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grex** generates regular expressions from user-provided test strings. It analyzes the input examples and produces a regex that matches all of them. By default, the generated regex includes ^ and $ anchors.
+**grex** 根据用户提供的测试字符串生成正则表达式。它会分析输入示例并产出一个能匹配所有示例的正则表达式。默认情况下，生成的正则包含 ^ 和 $ 锚点。
 
-The tool supports various character class conversions (\d, \s, \w and their inverses), repetition detection, and case-insensitive matching. It is useful for quickly creating regexes without manual pattern analysis.
+该工具支持多种字符类转换（\d、\s、\w 及其反向形式）、重复检测和忽略大小写匹配。它适合快速创建正则表达式，免去手工分析模式的麻烦。
 
 # CAVEATS
 
-Generated regex may be overly specific or general. Manual refinement often needed. Complex patterns may require additional examples.
+生成的正则可能过于具体或过于宽泛。通常需要手动调整。复杂模式可能需要更多示例。
 
 # HISTORY
 
-grex was created by **Peter M. Stahl** as a command-line tool to simplify regex creation through example-based learning.
+grex 由 **Peter M. Stahl** 创建，是一款通过基于示例的学习来简化正则表达式编写的命令行工具。
 
 # INSTALL
 

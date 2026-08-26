@@ -1,26 +1,26 @@
 # TAGLINE
 
-Dump remote host NTLM authentication information
+导出远程主机的 NTLM 身份验证信息
 
 # TLDR
 
-**Dump NTLM info** from a target host via SMB
+通过 SMB 从目标主机**导出 NTLM 信息**
 
 ```impacket-dumpntlminfo [192.168.1.100]```
 
-**Dump NTLM info** using a specific port
+使用指定端口**导出 NTLM 信息**
 
 ```impacket-dumpntlminfo -port [139] [192.168.1.100]```
 
-**Dump NTLM info** using RPC protocol instead of SMB
+使用 RPC 协议代替 SMB **导出 NTLM 信息**
 
 ```impacket-dumpntlminfo -protocol RPC [192.168.1.100]```
 
-**Dump NTLM info** with a specific target IP
+以指定的目标 IP **导出 NTLM 信息**
 
 ```impacket-dumpntlminfo -target-ip [192.168.1.100] [hostname]```
 
-**Enable debug output** for troubleshooting
+**启用调试输出**以便排查问题
 
 ```impacket-dumpntlminfo -debug [192.168.1.100]```
 
@@ -31,33 +31,33 @@ Dump remote host NTLM authentication information
 # PARAMETERS
 
 **-debug**
-> Turn DEBUG output on.
+> 开启 DEBUG 输出。
 
 **-ts**
-> Add timestamp to every logging output.
+> 为每条日志输出添加时间戳。
 
 **-target-ip** _IP_
-> IP address of the target machine. Useful when target is a NetBIOS name that cannot be resolved.
+> 目标机器的 IP 地址。当目标是无法解析的 NetBIOS 名称时很有用。
 
 **-port** _PORT_
-> Destination port to connect to the SMB/RPC server. Default is 445.
+> 连接 SMB/RPC 服务器的目标端口。默认为 445。
 
 **-protocol** {**SMB**, **RPC**}
-> Protocol to use. Default is SMB. Port 135 normally uses RPC.
+> 要使用的协议。默认为 SMB。端口 135 通常使用 RPC。
 
 # DESCRIPTION
 
-**impacket-dumpntlminfo** performs NTLM authentication against a remote host and extracts information from the NTLM challenge response, **without requiring any credentials**. By initiating an SMB or RPC connection, the tool triggers an NTLM authentication handshake and parses the server's response to reveal details such as the hostname, domain name, DNS information, OS version, and timestamp.
+**impacket-dumpntlminfo** 对远程主机执行 NTLM 身份验证，并从 NTLM 质询响应中提取信息，且**无需任何凭据**。通过发起 SMB 或 RPC 连接，该工具会触发一次 NTLM 身份验证握手，并解析服务器的响应，从而揭示主机名、域名、DNS 信息、操作系统版本和时间戳等细节。
 
-This is useful for reconnaissance during penetration testing, as it provides network and host information without authentication.
+这在渗透测试侦察阶段非常有用，因为它可以在不进行身份验证的情况下获取网络和主机信息。
 
 # CAVEATS
 
-Only works against hosts with SMB or RPC services exposed. Firewalls or security policies may block unauthenticated NTLM negotiation. The amount of information returned depends on the target's SMB/RPC configuration and Windows version.
+仅对暴露了 SMB 或 RPC 服务的主机有效。防火墙或安全策略可能会阻止未经身份验证的 NTLM 协商。返回信息的数量取决于目标的 SMB/RPC 配置和 Windows 版本。
 
 # HISTORY
 
-Part of the **Impacket** library, originally developed by **SecureAuth** (now **Fortra**). Impacket is a collection of Python classes for working with network protocols, widely used in penetration testing and security research. The tool leverages the NTLM authentication handshake to extract server metadata without credentials.
+属于 **Impacket** 库，最初由 **SecureAuth**（现为 **Fortra**）开发。Impacket 是一组用于处理网络协议的 Python 类，广泛用于渗透测试和安全研究。该工具利用 NTLM 身份验证握手在无需凭据的情况下提取服务器元数据。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Google Chrome stable release browser
+Google Chrome 稳定版浏览器
 
 # TLDR
 
-**Open a URL**
+**打开一个 URL**
 
 ```google-chrome-stable [https://example.com]```
 
-**Open in incognito mode**
+**以无痕模式打开**
 
 ```google-chrome-stable --incognito [https://example.com]```
 
-**Open in headless mode** and print to PDF
+**以无头模式打开**并打印为 PDF
 
 ```google-chrome-stable --headless --print-to-pdf=[output.pdf] [https://example.com]```
 
-**Start with remote debugging** enabled
+**启用远程调试**启动
 
 ```google-chrome-stable --remote-debugging-port=[9222]```
 
-**Disable all extensions**
+**禁用所有扩展**
 
 ```google-chrome-stable --disable-extensions```
 
-**Open in kiosk mode** (fullscreen, no UI chrome)
+**以信息亭模式打开**（全屏、无浏览器界面）
 
 ```google-chrome-stable --kiosk [https://example.com]```
 
-**Use a custom user data directory**
+**使用自定义的用户数据目录**
 
 ```google-chrome-stable --user-data-dir=[/path/to/profile]```
 
@@ -39,49 +39,49 @@ Google Chrome stable release browser
 # PARAMETERS
 
 **--incognito**
-> Open in private browsing mode.
+> 以隐私浏览模式打开。
 
 **--headless**
-> Run without a visible UI (for automation and testing).
+> 不显示可视界面运行（用于自动化和测试）。
 
 **--print-to-pdf=**_file_
-> Print page to PDF (use with --headless).
+> 把页面打印为 PDF（配合 --headless 使用）。
 
 **--remote-debugging-port=**_port_
-> Enable remote debugging on the specified port.
+> 在指定端口上启用远程调试。
 
 **--disable-extensions**
-> Disable all browser extensions.
+> 禁用所有浏览器扩展。
 
 **--no-sandbox**
-> Disable the sandbox (for testing environments).
+> 禁用沙箱（用于测试环境）。
 
 **--disable-gpu**
-> Disable GPU hardware acceleration.
+> 禁用 GPU 硬件加速。
 
 **--user-data-dir=**_dir_
-> Use a custom user data directory for the profile.
+> 使用自定义的用户数据目录存放配置。
 
 **--proxy-server=**_proxy_
-> Route traffic through a specified proxy server.
+> 让流量经由指定的代理服务器转发。
 
 **--window-size=**_W,H_
-> Set initial window dimensions (e.g., 1024,768).
+> 设置初始窗口尺寸（例如 1024,768）。
 
 **--app=**_URL_
-> Launch URL in application mode (minimal UI).
+> 以应用模式启动 URL（极简界面）。
 
 **--kiosk**
-> Launch in kiosk mode (fullscreen, restricted UI).
+> 以信息亭模式启动（全屏、受限界面）。
 
 **--new-window**
-> Open URL in a new window instead of a new tab.
+> 在新窗口而非新标签页中打开 URL。
 
 # DESCRIPTION
 
-**google-chrome-stable** is the command-line launcher for the stable release of Google Chrome. It shares most functionality with the open-source Chromium browser but includes Google-specific features like automatic updates, proprietary codecs, and integration with Google services.
+**google-chrome-stable** 是 Google Chrome 稳定版的命令行启动器。它与开源的 Chromium 浏览器共享大部分功能，但包含一些 Google 特有的特性，如自动更新、专有编解码器以及与 Google 服务的集成。
 
-Common command-line options are identical to Chromium, including headless mode, remote debugging, user profile management, and various flags for development and testing. The command name varies by system: **google-chrome**, **google-chrome-stable**, or simply **chrome** may be available.
+常用的命令行选项与 Chromium 一致，包括无头模式、远程调试、用户配置管理，以及各种面向开发和测试的开关。命令名因系统而异：可用的可能是 **google-chrome**、**google-chrome-stable**，或简称 **chrome**。
 
 # INSTALL
 

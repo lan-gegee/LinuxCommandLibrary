@@ -1,26 +1,26 @@
 # TAGLINE
 
-Encrypted overlay filesystem using FUSE
+基于 FUSE 的加密叠加文件系统
 
 # TLDR
 
-**Create encrypted directory**
+**创建加密目录**
 
 ```gocryptfs -init [cipher-dir]```
 
-**Mount encrypted directory**
+**挂载加密目录**
 
 ```gocryptfs [cipher-dir] [mount-point]```
 
-**Unmount**
+**卸载**
 
 ```fusermount -u [mount-point]```
 
-**Change password**
+**修改密码**
 
 ```gocryptfs -passwd [cipher-dir]```
 
-**Show info**
+**显示信息**
 
 ```gocryptfs -info [cipher-dir]```
 
@@ -31,47 +31,47 @@ Encrypted overlay filesystem using FUSE
 # PARAMETERS
 
 _CIPHERDIR_
-> Encrypted directory.
+> 加密目录。
 
 _MOUNTPOINT_
-> Where to mount.
+> 挂载位置。
 
 **-init**
-> Initialize new volume.
+> 初始化新卷。
 
 **-passwd**
-> Change password.
+> 修改密码。
 
 **-info**
-> Show volume info.
+> 显示卷信息。
 
 **-fg**
-> Run in foreground.
+> 在前台运行。
 
 **-allow_other**
-> Allow other users.
+> 允许其他用户访问。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gocryptfs** is an encrypted overlay filesystem written in Go. It encrypts files individually using AES-256-GCM, storing ciphertext in a directory while presenting plaintext through a FUSE mount.
+**gocryptfs** 是一个用 Go 编写的加密叠加文件系统。它使用 AES-256-GCM 对每个文件单独加密，把密文存储在一个目录中，同时通过 FUSE 挂载呈现明文视图。
 
-The tool provides file-level encryption with encrypted file names, enabling safe cloud backup of encrypted data. Metadata leakage is minimized compared to full-disk encryption alternatives.
+该工具提供文件级加密以及加密的文件名，可将加密数据安全地备份到云端。与全盘加密类方案相比，其元数据泄露被降到更低。
 
 # CONFIGURATION
 
 **gocryptfs.conf**
-> Per-volume configuration file stored in the cipher directory, containing encryption parameters and the encrypted master key.
+> 保存在密文目录中的每卷配置文件，包含加密参数和加密后的主密钥。
 
 # CAVEATS
 
-FUSE required. File sizes visible. Password recovery impossible without master key backup.
+需要 FUSE。文件大小对外可见。如果没有备份主密钥，密码将无法恢复。
 
 # HISTORY
 
-gocryptfs was created as a modern, audited alternative to EncFS, using authenticated encryption and written in Go.
+gocryptfs 的定位是 EncFS 的现代化、经过安全审计的替代品，采用认证加密并以 Go 编写。
 
 # INSTALL
 

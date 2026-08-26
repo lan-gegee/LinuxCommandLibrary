@@ -1,26 +1,26 @@
 # TAGLINE
 
-Simplified OpenPGP signature verifier
+精简版 OpenPGP 签名验证工具
 
 # TLDR
 
-**Verify a signed file**
+**验证已签名的文件**
 
 ```gpgv [file.sig]```
 
-**Verify detached signature**
+**验证分离签名**
 
 ```gpgv [file.sig] [file]```
 
-**Use specific keyring**
+**使用指定的密钥环**
 
 ```gpgv --keyring [keyring.gpg] [file.sig]```
 
-**Verbose verification**
+**详细模式验证**
 
 ```gpgv -v [file.sig]```
 
-**Quiet mode**
+**安静模式**
 
 ```gpgv -q [file.sig]```
 
@@ -31,35 +31,35 @@ Simplified OpenPGP signature verifier
 # PARAMETERS
 
 **-v**, **--verbose**
-> More information during processing.
+> 处理过程中输出更多信息。
 
 **-q**, **--quiet**
-> Try to be as quiet as possible.
+> 尽量保持安静。
 
 **--keyring** _file_
-> Use specified keyring.
+> 使用指定的密钥环。
 
 **--homedir** _dir_
-> GnuPG home directory.
+> GnuPG 主目录。
 
 **--ignore-time-conflict**
-> Turn timestamp checks into warnings.
+> 将时间戳检查降级为警告。
 
 **--weak-digest** _name_
-> Treat digest as weak.
+> 将指定摘要算法视为弱算法。
 
 **--status-fd** _n_
-> Write status strings to file descriptor.
+> 将状态字符串写入文件描述符。
 
 # DESCRIPTION
 
-**gpgv** is a stripped-down version of gpg designed solely for verifying OpenPGP signatures. It assumes all keys in the keyring are trustworthy and does not check for expired or revoked keys.
+**gpgv** 是 gpg 的精简版本，专门用于验证 OpenPGP 签名。它假定密钥环中的所有密钥都是可信的，不会检查密钥是否过期或被吊销。
 
-By default, it uses the trustedkeys.kbx or trustedkeys.gpg keyring in the GnuPG home directory. It is commonly used in package managers and automated verification scripts where trust is pre-established.
+默认情况下，它使用 GnuPG 主目录中的 trustedkeys.kbx 或 trustedkeys.gpg 密钥环。它常用于包管理器和自动化验证脚本等信任关系已预先建立的场景。
 
 # CAVEATS
 
-Returns 0 if verification succeeds, 1 if any signature is bad, and other codes for fatal errors. Unlike gpg, gpgv does not validate key trust.
+验证成功返回 0，任何签名无效返回 1，致命错误返回其他代码。与 gpg 不同，gpgv 不验证密钥的信任状态。
 
 # INSTALL
 

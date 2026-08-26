@@ -1,30 +1,30 @@
 # TAGLINE
 
-displays the state of files in the working directory
+显示工作目录中文件的状态
 
 # TLDR
 
-**Show all changed files**
+**显示所有已变更的文件**
 
 ```hg status```
 
-**Show only modified files**
+**仅显示已修改的文件**
 
 ```hg status -m```
 
-**Show only added files**
+**仅显示已添加的文件**
 
 ```hg status -a```
 
-**Show untracked files**
+**显示未跟踪的文件**
 
 ```hg status -u```
 
-**Show changes in specific revision**
+**显示特定修订版本中的变更**
 
 ```hg status --change [rev]```
 
-**Show clean files**
+**显示未变更的文件**
 
 ```hg status -c```
 
@@ -35,29 +35,29 @@ displays the state of files in the working directory
 # PARAMETERS
 
 **-m**, **--modified**
-> Show only modified files.
+> 仅显示已修改的文件。
 
 **-a**, **--added**
-> Show only added files.
+> 仅显示已添加的文件。
 
 **-r**, **--removed**
-> Show only removed files.
+> 仅显示已移除的文件。
 
 **-d**, **--deleted**
-> Show only deleted (missing) files.
+> 仅显示已删除（缺失）的文件。
 
 **-c**, **--clean**
-> Show only clean (unchanged) files.
+> 仅显示未变更（干净）的文件。
 
 **-u**, **--unknown**
-> Show only untracked files.
+> 仅显示未跟踪的文件。
 
 **--change** _rev_
-> Show changes in revision.
+> 显示指定修订版本中的变更。
 
 # DESCRIPTION
 
-**hg status** displays the state of files in the working directory. Status codes: **M** (modified), **A** (added), **R** (removed), **C** (clean), **!** (missing), **?** (untracked), **I** (ignored). Use **hg diff** to see actual content changes.
+**hg status** 显示工作目录中文件的状态。状态代码：**M**（已修改）、**A**（已添加）、**R**（已移除）、**C**（干净）、**!**（缺失）、**?**（未跟踪）、**I**（已忽略）。使用 **hg diff** 可查看实际的内容变化。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ displays the state of files in the working directory
 # SEE ALSO
 
 [hg](/man/hg)(1), [hg-commit](/man/hg-commit)(1)
-

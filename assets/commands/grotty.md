@@ -1,22 +1,22 @@
 # TAGLINE
 
-Groff terminal output driver
+Groff 的终端输出驱动
 
 # TLDR
 
-**Display in terminal**
+**在终端中显示**
 
 ```groff -Tutf8 [file.roff]```
 
-**ASCII output**
+**ASCII 输出**
 
 ```groff -Tascii [file.roff]```
 
-**Direct grotty usage**
+**直接使用 grotty**
 
 ```grotty [file]```
 
-**Disable SGR sequences**
+**禁用 SGR 序列**
 
 ```grotty -c [file]```
 
@@ -27,57 +27,57 @@ Groff terminal output driver
 # PARAMETERS
 
 _FILE_
-> Groff intermediate output.
+> groff 中间输出。
 
 **-b**
-> Suppress overstriking for bold characters in legacy (**-c**) output format.
+> 在传统（**-c**）输出格式中抑制粗体字符的重打（overstriking）。
 
 **-c**
-> Use grotty's legacy output format (overstriking) instead of SGR escape sequences.
+> 使用 grotty 的传统输出格式（重打）而非 SGR 转义序列。
 
 **-d**
-> Ignore all drawing commands in the input.
+> 忽略输入中的所有绘图命令。
 
 **-f**
-> Emit a form feed at the end of each page whose last line has no output.
+> 在最后一行没有输出的每页末尾发出换页符。
 
 **-i**
-> Render slanted fonts using the SGR italic attribute instead of underlining.
+> 使用 SGR 斜体属性渲染倾斜字体，而不是加下划线。
 
 **-o**
-> Suppress overstriking, other than for bold and/or underlined characters.
+> 抑制重打（粗体和/或下划线字符除外）。
 
 **-u**
-> Suppress underlining for italic characters in legacy output format.
+> 在传统输出格式中抑制斜体字符的下划线。
 
 **-h**
-> Use literal horizontal tab characters in the output.
+> 在输出中使用字面水平制表符。
 
 **-t**
-> Assume the output device supports SGR 38/48 (24-bit color) escape sequences.
+> 假定输出设备支持 SGR 38/48（24 位色）转义序列。
 
 **-F** _DIR_
-> Prepend _DIR_/devname to the search path for font and device description files.
+> 将 _DIR_/devname 添加到字体和设备描述文件搜索路径的最前面。
 
 **-v**, **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grotty** is a groff output driver for terminal display. It produces ASCII or UTF-8 output suitable for viewing in text terminals, supporting bold and underline via SGR escape sequences or overstriking.
+**grotty** 是用于终端显示的 groff 输出驱动。它生成适合在文本终端中查看的 ASCII 或 UTF-8 输出，通过 SGR 转义序列或重打方式支持粗体和下划线。
 
-It is the driver used for man page display and terminal document viewing.
+它是 man page 显示和终端文档查看所使用的驱动。
 
 # CAVEATS
 
-Part of groff package. Output quality depends on terminal capabilities. Some formatting lost in text mode.
+属于 groff 软件包。输出质量取决于终端能力。文本模式下会丢失部分格式。
 
 # HISTORY
 
-grotty was developed as part of **GNU groff** to enable terminal viewing of formatted documents.
+grotty 作为 **GNU groff** 的一部分开发，用于实现排版文档的终端查看。
 
 # INSTALL
 

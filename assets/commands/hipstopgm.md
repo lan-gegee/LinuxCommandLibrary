@@ -1,14 +1,14 @@
 # TAGLINE
 
-converts a HIPS image file to PGM format
+将 HIPS 图像文件转换为 PGM 格式
 
 # TLDR
 
-**Convert HIPS file to PGM**
+**将 HIPS 文件转换为 PGM**
 
 ```hipstopgm [file.hip] > [output.pgm]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [file.hip] | hipstopgm > [output.pgm]```
 
@@ -18,7 +18,7 @@ converts a HIPS image file to PGM format
 
 # DESCRIPTION
 
-**hipstopgm** converts a HIPS (Human Information Processing Laboratory, NYU) image file to PGM (Portable Graymap) format. Part of the Netpbm package of graphics manipulation tools. If the HIPS file contains multiple frames, they are concatenated vertically in the output. The tool has no command-specific options beyond standard Netpbm options.
+**hipstopgm** 将 HIPS（Human Information Processing Laboratory, NYU）图像文件转换为 PGM（Portable Graymap）格式。它是 Netpbm 图像处理工具包的一部分。如果 HIPS 文件包含多帧，各帧会在输出中垂直拼接。除标准 Netpbm 选项外，该工具没有专属选项。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ converts a HIPS image file to PGM format
 # SEE ALSO
 
 [pgm](/man/pgm)(1), [pgmtoppm](/man/pgmtoppm)(1), [ppmtogif](/man/ppmtogif)(1), [netpbm](/man/netpbm)(1)
-

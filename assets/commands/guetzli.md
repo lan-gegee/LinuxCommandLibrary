@@ -1,26 +1,26 @@
 # TAGLINE
 
-Perceptual JPEG encoder that optimizes for visual quality at small file sizes
+感知式 JPEG 编码器，在小体积下优化视觉质量
 
 # TLDR
 
-**Re-encode a JPEG**
+**重新编码 JPEG**
 
 ```guetzli [input.jpg] [output.jpg]```
 
-**Encode a PNG to JPEG**
+**将 PNG 编码为 JPEG**
 
 ```guetzli [input.png] [output.jpg]```
 
-**Set quality level (84-100)**
+**设置质量级别（84-100）**
 
 ```guetzli --quality [90] [input.jpg] [output.jpg]```
 
-**Maximum compression (lowest supported quality)**
+**最大压缩（支持的最低质量）**
 
 ```guetzli --quality [84] [input.jpg] [output.jpg]```
 
-**Show progress trace**
+**显示进度跟踪**
 
 ```guetzli --verbose [input.png] [output.jpg]```
 
@@ -31,30 +31,30 @@ Perceptual JPEG encoder that optimizes for visual quality at small file sizes
 # PARAMETERS
 
 _input_
-> Source image. PNG and JPEG inputs are supported.
+> 源图像。支持 PNG 和 JPEG 输入。
 
 _output.jpg_
-> Destination JPEG file.
+> 目标 JPEG 文件。
 
 **--quality** _Q_
-> Visual quality, expressed in libjpeg-equivalent units. Range 84-100, default 95. Values below 84 are not supported.
+> 视觉质量，以 libjpeg 等价单位表示。范围 84-100，默认 95。不支持低于 84 的值。
 
 **--verbose**
-> Print a trace of encoding attempts.
+> 打印编码尝试的跟踪记录。
 
 # DESCRIPTION
 
-**Guetzli** is a JPEG encoder that targets the human visual system. It uses Butteraugli, a psychovisual model, to search the JPEG quantization space and produce baseline-compatible JPEG files that are typically 20-30% smaller than equivalent libjpeg output at the same perceived quality.
+**Guetzli** 是一款面向人类视觉系统的 JPEG 编码器。它使用心理视觉模型 Butteraugli 搜索 JPEG 量化空间，生成基线兼容的 JPEG 文件，在相同感知质量下通常比 libjpeg 的等效输出小 20-30%。
 
-Output files are compatible with all standard JPEG decoders. The trade-off is encoding cost: guetzli is computationally and memory intensive.
+输出文件与所有标准 JPEG 解码器兼容。代价是编码开销：guetzli 需要大量计算和内存。
 
 # CAVEATS
 
-Very slow: encoding a single megapixel can take a minute or more. Memory usage is roughly 300 MB per megapixel. Only quality values 84-100 are accepted. Best results come from non-degraded sources (PNG or high-quality JPEG); re-encoding heavily compressed JPEGs offers limited gains.
+非常慢：编码一百万像素可能需要一分钟以上。内存占用约为每百万像素 300 MB。只接受 84-100 的质量值。对未降质的源（PNG 或高质量 JPEG）效果最佳；重新编码高度压缩的 JPEG 收益有限。
 
 # HISTORY
 
-**Guetzli** was developed by **Google Research** and released as open source in **March 2017** alongside the Butteraugli perceptual distance metric.
+**Guetzli** 由 **Google Research** 开发，于 **2017 年 3 月**连同 Butteraugli 感知距离度量一起开源发布。
 
 # INSTALL
 

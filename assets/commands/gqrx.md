@@ -1,22 +1,22 @@
 # TAGLINE
 
-Software defined radio receiver
+软件定义无线电接收器
 
 # TLDR
 
-**Start Gqrx**
+**启动 Gqrx**
 
 ```gqrx```
 
-**Start with specific config**
+**使用指定配置启动**
 
 ```gqrx -c [config.conf]```
 
-**Reset settings**
+**重置设置**
 
 ```gqrx -r```
 
-**Edit settings before start**
+**启动前编辑设置**
 
 ```gqrx -e```
 
@@ -27,22 +27,22 @@ Software defined radio receiver
 # PARAMETERS
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **-r**, **--reset**
-> Reset settings to defaults.
+> 将设置重置为默认值。
 
 **-e**, **--edit**
-> Edit configuration before start.
+> 启动前编辑配置。
 
 **-s** _style_
-> Qt style.
+> Qt 样式。
 
 # DESCRIPTION
 
-**Gqrx** is an open-source software defined radio (SDR) receiver. It provides a graphical interface for receiving radio signals using RTL-SDR, HackRF, Airspy, and other SDR hardware.
+**Gqrx** 是一个开源的软件定义无线电（SDR）接收器。它提供图形界面，可使用 RTL-SDR、HackRF、Airspy 等 SDR 硬件接收无线电信号。
 
-The application features a waterfall display, spectrum analyzer, and various demodulation modes including AM, FM, SSB, and CW. It can record audio and I/Q data.
+该应用具有瀑布图显示、频谱分析仪以及 AM、FM、SSB 和 CW 等多种解调模式。它还可以录制音频和 I/Q 数据。
 
 # SUPPORTED HARDWARE
 
@@ -56,24 +56,24 @@ The application features a waterfall display, spectrum analyzer, and various dem
 
 # FEATURES
 
-- Waterfall and spectrum displays
-- AM, FM, WFM, SSB, CW demodulation
-- Adjustable filters and squelch
-- Audio recording
-- Remote control via TCP
+- 瀑布图和频谱显示
+- AM、FM、WFM、SSB、CW 解调
+- 可调节的滤波器和静噪
+- 音频录制
+- 通过 TCP 远程控制
 
 # CONFIGURATION
 
 **~/.config/gqrx/default.conf**
-> Default configuration file storing frequency, gain, and demodulation settings.
+> 默认配置文件，存储频率、增益和解调设置。
 
 # CAVEATS
 
-Requires SDR hardware. CPU usage increases with bandwidth. Some modes need specific hardware. RTL-SDR has frequency limitations.
+需要 SDR 硬件。带宽越大 CPU 占用越高。某些模式需要特定硬件。RTL-SDR 存在频率限制。
 
 # HISTORY
 
-Gqrx was created by **Alexandru Csete** (OZ9AEC) around **2011** as a user-friendly SDR application built on GNU Radio. It became the go-to GUI application for Linux SDR users.
+Gqrx 由 **Alexandru Csete**（OZ9AEC）于 **2011 年**前后创建，是一个基于 GNU Radio 构建的易用 SDR 应用。它成为 Linux SDR 用户首选的 GUI 应用程序。
 
 # INSTALL
 

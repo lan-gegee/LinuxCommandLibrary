@@ -1,30 +1,30 @@
 # TAGLINE
 
-official installer for TeX Live, a comprehensive TeX distribution including
+TeX Live 官方安装器，TeX Live 是一套完整的 TeX 发行版
 
 # TLDR
 
-**Start the TeX Live installer** interactively
+**交互式启动 TeX Live 安装器**
 
 ```install-tl```
 
-**Install TeX Live** in unattended mode with default settings
+**以无人值守模式和默认设置安装 TeX Live**
 
 ```install-tl --no-interaction```
 
-**Install from a local ISO** or directory
+**从本地 ISO 或目录安装**
 
 ```install-tl --repository [/path/to/texlive/iso]```
 
-**Install a minimal scheme** (basic packages only)
+**安装最小方案**（仅基础软件包）
 
 ```install-tl --scheme=small```
 
-**Specify custom installation directory**
+**指定自定义安装目录**
 
 ```install-tl --texdir=[/opt/texlive/2024]```
 
-**Install with a specific profile** file
+**使用指定的 profile 文件安装**
 
 ```install-tl --profile=[texlive.profile]```
 
@@ -35,54 +35,54 @@ official installer for TeX Live, a comprehensive TeX distribution including
 # PARAMETERS
 
 **-gui**
-> Start in GUI mode (requires Perl/Tk)
+> 以 GUI 模式启动（需要 Perl/Tk）
 
 **-no-gui**
-> Force text mode installation
+> 强制使用文本模式安装
 
 **-repository** _URL_
-> Specify package repository (local path or URL)
+> 指定软件包仓库（本地路径或 URL）
 
 **-scheme** _SCHEME_
-> Installation scheme: full, medium, small, basic, minimal, etc.
+> 安装方案：full、medium、small、basic、minimal 等
 
 **-profile** _FILE_
-> Use settings from profile file for automated installation
+> 使用 profile 文件中的设置进行自动化安装
 
 **-texdir** _DIR_
-> Main TeX Live installation directory
+> TeX Live 主安装目录
 
 **-texmflocal** _DIR_
-> Directory for site-wide local files
+> 站点级本地文件目录
 
 **-texmfhome** _DIR_
-> Directory for user-specific files
+> 用户专属文件目录
 
 **-portable**
-> Install for portable use (USB drive, no system integration)
+> 便携式安装（USB 盘，不集成到系统）
 
 **-no-interaction**
-> Run without user interaction (automated installation)
+> 无人值守运行（自动化安装）
 
 **-no-cls**
-> Do not clear screen before output
+> 输出前不清屏
 
 **-help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**install-tl** is the official installer for TeX Live, a comprehensive TeX distribution including LaTeX, fonts, and related programs. The installer can run in GUI, text, or fully automated mode depending on available dependencies and command-line options.
+**install-tl** 是 TeX Live 的官方安装器。TeX Live 是一个包含 LaTeX、字体及相关程序的完整 TeX 发行版。根据可用依赖和命令行选项，安装器可以在 GUI、文本或全自动模式下运行。
 
-The installer downloads packages from CTAN mirrors or uses a local repository. Installation schemes range from minimal (~100MB) to full (~7GB). Post-installation, use **tlmgr** (TeX Live Manager) to update and manage packages.
+安装器从 CTAN 镜像下载软件包，也可以使用本地仓库。安装方案从最小（约 100MB）到完整（约 7GB）不等。安装完成后，可使用 **tlmgr**（TeX Live Manager）来更新和管理软件包。
 
 # CAVEATS
 
-Full installation requires several gigabytes of disk space. Network installations depend on CTAN mirror availability. GUI mode requires Perl/Tk which may not be installed by default. Annual releases mean reinstallation is typically needed each year rather than upgrades.
+完整安装需要数 GB 磁盘空间。网络安装依赖 CTAN 镜像的可用性。GUI 模式需要 Perl/Tk，默认可能未安装。TeX Live 每年发布新版本，通常需要每年重新安装而非原地升级。
 
 # HISTORY
 
-TeX Live was first released in **1996** as a collaboration between TeX user groups worldwide to provide a consistent, cross-platform TeX distribution. The install-tl script has evolved alongside, with the Perl-based installer becoming standard around **2008**. It replaced earlier platform-specific installers and continues to be actively maintained by the TeX Live team.
+TeX Live 首次发布于 **1996 年**，是全球各 TeX 用户组合作的成果，旨在提供一致、跨平台的 TeX 发行版。install-tl 脚本随之演进，基于 Perl 的安装器在 **2008 年**前后成为标准。它取代了早期各平台专用的安装器，至今仍由 TeX Live 团队积极维护。
 
 # SEE ALSO
 

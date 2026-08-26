@@ -1,38 +1,38 @@
 # TAGLINE
 
-Gradle unit test runner
+Gradle 单元测试运行器
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```gradle test```
 
-**Run with wrapper**
+**通过 wrapper 运行**
 
 ```./gradlew test```
 
-**Run specific test class**
+**运行特定的测试类**
 
 ```gradle test --tests [SomeTestClass]```
 
-**Run specific test method**
+**运行特定的测试方法**
 
 ```gradle test --tests [SomeTestClass.testMethod]```
 
-**Run tests matching pattern**
+**运行匹配模式的测试**
 
 ```gradle test --tests '*Test'```
 
-**Force re-run all tests**
+**强制重新运行所有测试**
 
 ```gradle cleanTest test```
 
-**Run tests with continue on failure**
+**运行测试并在失败后继续**
 
 ```gradle test --continue```
 
-**Dry run without executing**
+**不执行的试运行**
 
 ```gradle test --test-dry-run```
 
@@ -43,26 +43,26 @@ Gradle unit test runner
 # PARAMETERS
 
 **--tests** _pattern_
-> Run tests matching pattern (class, method, or wildcard).
+> 运行匹配模式的测试（类、方法或通配符）。
 
 **--continue**
-> Continue on test failure.
+> 在测试失败后继续。
 
 **--test-dry-run**
-> Simulate without executing tests.
+> 模拟执行而不实际运行测试。
 
 **--info**
-> Show more test output.
+> 显示更多测试输出。
 
 **--rerun-tasks**
-> Force re-run even if up-to-date.
+> 即使是最新的也强制重新运行。
 
 **-x** _task_
-> Exclude a task.
+> 排除某个任务。
 
 # DESCRIPTION
 
-**gradle test** runs the unit test suite for a Gradle project. It compiles test sources, runs tests, and generates reports. Use **--tests** to run specific tests by class name, method name, or wildcard pattern. Multiple **--tests** options can be combined. By default, Gradle skips tests that passed previously unless sources changed.
+**gradle test** 运行 Gradle 项目的单元测试套件。它会编译测试源码、运行测试并生成报告。使用 **--tests** 可以按类名、方法名或通配符模式运行特定测试。多个 **--tests** 选项可以组合使用。默认情况下，Gradle 会跳过之前已通过的测试，除非源码发生了变化。
 
 # INSTALL
 

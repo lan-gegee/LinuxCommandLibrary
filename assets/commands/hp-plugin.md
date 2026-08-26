@@ -1,22 +1,22 @@
 # TAGLINE
 
-installs the HP proprietary plugin
+安装 HP 专有插件
 
 # TLDR
 
-**Install plugin**
+**安装插件**
 
 ```sudo hp-plugin```
 
-**Interactive install**
+**交互式安装**
 
 ```sudo hp-plugin -i```
 
-**Automatic install**
+**自动安装**
 
 ```sudo hp-plugin -a```
 
-**Download only**
+**仅下载**
 
 ```hp-plugin -d```
 
@@ -27,36 +27,36 @@ installs the HP proprietary plugin
 # PARAMETERS
 
 **-i**, **--interactive**
-> Interactive mode.
+> 交互模式。
 
 **-a**, **--auto**
-> Automatic mode.
+> 自动模式。
 
 **-d**, **--download-only**
-> Download without install.
+> 只下载不安装。
 
 **-p** _PATH_
-> Plugin file path.
+> 插件文件路径。
 
 **--force**
-> Force reinstall.
+> 强制重新安装。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hp-plugin** installs the HP proprietary plugin. Some HP printers require this binary plugin for full functionality like scanning.
+**hp-plugin** 安装 HP 专有插件。某些 HP 打印机需要这个二进制插件才能实现扫描等完整功能。
 
-The tool downloads and installs the plugin package. It must be run as root and requires network access.
+该工具会下载并安装插件包。必须以 root 身份运行，并且需要网络连接。
 
 # CAVEATS
 
-Requires root access. Downloads from HP servers. Some countries may have restrictions.
+需要 root 权限。从 HP 服务器下载。某些国家/地区可能存在限制。
 
 # HISTORY
 
-hp-plugin is part of **HPLIP** for installing proprietary components needed by certain HP devices.
+hp-plugin 是 **HPLIP** 的一部分，用于安装特定 HP 设备所需的专有组件。
 
 # INSTALL
 

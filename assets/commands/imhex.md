@@ -1,34 +1,34 @@
 # TAGLINE
 
-feature-rich hex editor designed for reverse engineers and programmers
+专为逆向工程师和程序员设计的功能丰富的十六进制编辑器
 
 # TLDR
 
-**Open** a file in ImHex
+在 ImHex 中**打开**文件
 
 ```imhex [path/to/file]```
 
-**Create** a new empty file
+**创建**新的空文件
 
 ```imhex --new```
 
-Open file and **select** a byte range using hex offsets
+打开文件并使用十六进制偏移量**选中**字节范围
 
 ```imhex --open [path/to/file] --select [0x100] [0x200]```
 
-Display **file information** (type, entropy, etc.)
+显示**文件信息**（类型、熵等）
 
 ```imhex --file-info [path/to/file]```
 
-Calculate **SHA-256 hash** of a file
+计算文件的 **SHA-256 哈希**
 
 ```imhex --hash sha256 [path/to/file]```
 
-Generate **hex dump** of a file
+生成文件的**十六进制转储**
 
 ```imhex --hexdump [path/to/file]```
 
-Display **version** information
+显示**版本**信息
 
 ```imhex --version```
 
@@ -39,39 +39,39 @@ Display **version** information
 # PARAMETERS
 
 **--new**
-> Create a new empty file
+> 创建新的空文件
 
 **--open** _FILE_
-> Open specified file
+> 打开指定文件
 
 **--select** _START_ _END_
-> Select byte range (hexadecimal offsets)
+> 选中字节范围（十六进制偏移量）
 
 **--file-info** _FILE_
-> Display file information
+> 显示文件信息
 
 **--hash** _ALGORITHM_ _FILE_
-> Calculate file hash (md5, sha1, sha224, sha256, sha384, sha512)
+> 计算文件哈希（md5、sha1、sha224、sha256、sha384、sha512）
 
 **--hexdump** _FILE_
-> Generate hexadecimal dump
+> 生成十六进制转储
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**ImHex** is a feature-rich hex editor designed for reverse engineers and programmers. It provides advanced analysis tools including a custom pattern language for parsing binary formats, data inspection, hash calculation, and visualization features.
+**ImHex** 是一款专为逆向工程师和程序员设计的功能丰富的十六进制编辑器。它提供高级分析工具，包括用于解析二进制格式的自定义模式语言、数据检查、哈希计算和可视化功能。
 
-The editor supports multiple data views, bookmark management, and extensibility through plugins. It can handle large files efficiently and includes built-in parsers for common file formats.
+该编辑器支持多种数据视图、书签管理以及通过插件进行扩展。它能够高效处理大型文件，并内置了常见文件格式的解析器。
 
 # CAVEATS
 
-GUI application, though some features available via command line. Requires significant memory for very large files. Pattern language has a learning curve.
+GUI 应用程序，但部分功能可通过命令行使用。处理超大文件需要较多内存。模式语言有一定学习曲线。
 
 # HISTORY
 
-ImHex was created by WerWolv and first released in **2020**. It was designed as a modern replacement for older hex editors, incorporating features specifically useful for reverse engineering and binary analysis.
+ImHex 由 WerWolv 创建，于 **2020 年**首次发布。它被设计为老式十六进制编辑器的现代替代品，融入了专门面向逆向工程和二进制分析的功能。
 
 # INSTALL
 

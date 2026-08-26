@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build and hot-reload native desktop apps written with the Gova Go GUI framework
+构建并热重载用 Gova Go GUI 框架编写的原生桌面应用
 
 # TLDR
 
-**Install** the CLI
+**安装** CLI
 
 ```go install github.com/nv404/gova/cmd/gova@latest```
 
-**Start the dev loop** with file-watching and hot reload
+**启动开发循环**，支持文件监听和热重载
 
 ```gova dev```
 
-**Build and run** once without watching for changes
+**一次性构建并运行**，不监听变更
 
 ```gova run```
 
-**Compile a release binary** for the current platform
+**为当前平台编译发布二进制文件**
 
 ```gova build```
 
-**Build a stripped, smaller release binary**
+**构建去除符号、体积更小的发布二进制文件**
 
 ```gova build -ldflags "-s -w"```
 
-**Build with a custom output name**
+**以自定义名称构建输出**
 
 ```gova build -o [myapp]```
 
-**Run dev loop against a specific entry package**
+**针对指定的入口包运行开发循环**
 
 ```gova dev [./cmd/myapp]```
 
@@ -39,35 +39,35 @@ Build and hot-reload native desktop apps written with the Gova Go GUI framework
 # PARAMETERS
 
 **dev**
-> Watch the working directory, rebuild on file save, and relaunch the window. Ignores **.git**, **node_modules**, **vendor**, and **_test.go** files.
+> 监听工作目录，在文件保存时重新构建并重启窗口。忽略 **.git**、**node_modules**、**vendor** 和 **_test.go** 文件。
 
 **run**
-> Build and launch the application once without starting a file watcher. Useful for CI pipelines or one-shot verifications.
+> 构建并启动应用一次，不开启文件监听。适用于 CI 流水线或一次性验证。
 
 **build**
-> Compile a single static binary for the host platform. Accepts Go build flags such as **-ldflags** and **-o**.
+> 为宿主平台编译单个静态二进制文件。接受 **-ldflags** 和 **-o** 等 Go 构建标志。
 
 **-ldflags** _flags_
-> Pass linker flags through to the underlying **go build** call (e.g. **"-s -w"** to strip symbols).
+> 将链接器标志传递给底层的 **go build** 调用（例如用 **"-s -w"** 去除符号）。
 
 **-o** _name_
-> Set the output binary name produced by **gova build**.
+> 设置 **gova build** 生成的二进制文件名。
 
 # DESCRIPTION
 
-**Gova** is a declarative GUI framework for Go that emits a single static binary for macOS, Windows, and Linux. The **gova** CLI wraps **go build** and **go run** with file-watching, cgo setup, and platform-specific native toolkit plumbing so developers can iterate quickly on a Gova application without hand-writing build tooling.
+**Gova** 是一个面向 Go 的声明式 GUI 框架，可为 macOS、Windows 和 Linux 生成单个静态二进制文件。**gova** CLI 在 **go build** 和 **go run** 之上封装了文件监听、cgo 设置以及平台相关的原生工具链处理，让开发者无需手写构建工具即可快速迭代 Gova 应用。
 
-Components are written in pure Go with a reactive state model and typed props. Typed platform dialogs (file pickers, alerts, notifications) are exposed through the framework and linked against native system libraries via cgo.
+组件用纯 Go 编写，采用响应式状态模型和类型化的 props。框架暴露了类型化的平台对话框（文件选择器、提醒、通知），并通过 cgo 链接到原生系统库。
 
-During **gova dev**, saving any watched **.go** file triggers an incremental rebuild and relaunches the window, preserving development flow. **gova build** produces a release-ready binary that can be distributed without a runtime dependency on Go.
+在 **gova dev** 过程中，保存任何被监听的 **.go** 文件都会触发增量重建并重启窗口，从而保持开发流畅性。**gova build** 生成的发布级二进制文件分发时不依赖 Go 运行环境。
 
 # CAVEATS
 
-The project is **pre-1.0** — the CLI surface and framework API are still evolving. Requires **Go 1.26+** and a working **C toolchain** on every target platform because of cgo. The name collides with unrelated Go packages (**golang-collections/gova**), with **govc** (VMware vSphere CLI), and with **govm** (Go version manager) — none of which are related.
+该项目尚处于 **pre-1.0** 阶段——CLI 接口和框架 API 仍在演进中。由于依赖 cgo，每个目标平台都需要 **Go 1.26+** 和可用的 **C 工具链**。其名称与无关的 Go 软件包（**golang-collections/gova**）、**govc**（VMware vSphere CLI）以及 **govm**（Go 版本管理器）重名——它们之间没有任何关联。
 
 # HISTORY
 
-Gova was created by **NV404** and published at **github.com/NV404/gova** with documentation at **gova.dev**. It grew out of the wider movement to build native desktop UIs in Go (alongside Fyne and Wails) while keeping the developer experience closer to modern reactive frameworks.
+Gova 由 **NV404** 创建，发布于 **github.com/NV404/gova**，文档见 **gova.dev**。它源自用 Go 构建原生桌面 UI 的更大潮流（与 Fyne、Wails 并列），同时让开发者体验更接近现代响应式框架。
 
 # SEE ALSO
 

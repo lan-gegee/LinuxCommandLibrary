@@ -1,26 +1,26 @@
 # TAGLINE
 
-shows a standard balance sheet report
+显示标准资产负债表报告
 
 # TLDR
 
-**Show balance sheet**
+**显示资产负债表**
 
 ```hledger balancesheet```
 
-**Monthly comparison**
+**按月对比**
 
 ```hledger balancesheet -M```
 
-**Yearly comparison**
+**按年对比**
 
 ```hledger balancesheet -Y```
 
-**Show as percentages**
+**以百分比显示**
 
 ```hledger balancesheet --percent```
 
-**Tree view**
+**树状视图**
 
 ```hledger balancesheet --tree```
 
@@ -31,78 +31,78 @@ shows a standard balance sheet report
 # PARAMETERS
 
 **-M**, **--monthly**
-> Monthly breakdown.
+> 按月细分。
 
 **-Q**, **--quarterly**
-> Quarterly breakdown.
+> 按季度细分。
 
 **-Y**, **--yearly**
-> Yearly breakdown.
+> 按年细分。
 
 **--tree**
-> Hierarchical view.
+> 层级视图。
 
 **--flat**
-> Flat list view.
+> 扁平列表视图。
 
 **--percent**
-> Show percentages.
+> 以百分比显示。
 
 **-H**, **--historical**
-> Show period-ending balances (accumulating). The default is period-change balances.
+> 显示期末余额（累计）。默认显示期间变动余额。
 
 **--cumulative**
-> Show cumulative balances from the report start, ignoring any opening balances.
+> 显示自报告起始的累计余额，忽略任何期初余额。
 
 **-T**, **--row-total**
-> Add a per-row Total column.
+> 为每行添加合计（Total）列。
 
 **-A**, **--average**
-> Add a per-row Average column.
+> 为每行添加平均值（Average）列。
 
 **--no-total**
-> Omit the final Total row.
+> 省略最后的总计行。
 
 **-d**, **--depth** _N_
-> Aggregate beyond depth _N_ of the account tree.
+> 将账户树中深度超过 _N_ 的层级聚合在一起。
 
 **--pretty**
-> Use Unicode box-drawing characters.
+> 使用 Unicode 制表符（框线字符）。
 
 **--transpose**
-> Swap rows and columns.
+> 交换行与列。
 
 **--invert**
-> Flip the sign on all amounts.
+> 将所有金额符号取反。
 
 **-b** _DATE_
-> Begin date.
+> 起始日期。
 
 **-e** _DATE_
-> End date.
+> 结束日期。
 
 **-o**, **--output-file** _FILE_
-> Write output to _FILE_ (format inferred from extension).
+> 将输出写入 _FILE_（根据扩展名推断格式）。
 
 **-O**, **--output-format** _FMT_
-> Force output format: `txt`, `csv`, `tsv`, `html`, `json`, `fods`, `sql`.
+> 强制指定输出格式：`txt`、`csv`、`tsv`、`html`、`json`、`fods`、`sql`。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hledger balancesheet** shows a standard balance sheet report. It displays assets, liabilities, and calculates net worth.
+**hledger balancesheet** 显示一份标准资产负债表报告。它展示资产、负债，并计算净资产。
 
-The report follows accounting conventions with assets on one side and liabilities on the other. Net worth is assets minus liabilities.
+该报告遵循会计惯例，资产在一侧，负债在另一侧。净资产等于资产减去负债。
 
 # CAVEATS
 
-Requires accounts that match the queries `type:A` (assets) and `type:L` (liabilities), or top-level accounts named `assets` / `liabilities`. If equity accounts exist, consider **hledger balancesheetequity** for the full three-section statement. Alias: **bs**.
+需要有匹配查询 `type:A`（资产）和 `type:L`（负债）的账户，或名为 `assets` / `liabilities` 的顶层账户。若存在权益类账户，请考虑使用 **hledger balancesheetequity** 获取完整的三段式报表。别名：**bs**。
 
 # HISTORY
 
-Balancesheet is a standard report in **hledger** for viewing financial position at a point in time.
+Balancesheet 是 **hledger** 中用于查看某一时点财务状况的标准报表。
 
 # INSTALL
 

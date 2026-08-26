@@ -1,18 +1,18 @@
 # TAGLINE
 
-Check presence of command line tools and their versions
+检查命令行工具是否存在及其版本
 
 # TLDR
 
-**Check if specific tools are available**
+**检查特定工具是否可用**
 
 ```has [git] [node] [python3]```
 
-**Check a list of tools** and report missing ones
+**检查一组工具**并报告缺失项
 
 ```has [docker] [kubectl] [helm] [terraform]```
 
-**Use in a script** to verify dependencies
+**在脚本中使用**以验证依赖
 
 ```has [make] [gcc] && echo "Ready to build"```
 
@@ -22,17 +22,17 @@ Check presence of command line tools and their versions
 
 # DESCRIPTION
 
-**has** is a simple shell script that checks the presence of various command-line tools on your PATH and reports their installed versions. It provides a quick way to verify that all required dependencies are available before running a build, deployment, or setup script.
+**has** 是一个简单的 shell 脚本，用于检查 PATH 上是否存在各种命令行工具，并报告它们已安装的版本。在运行构建、部署或初始化脚本之前，可以用它快速验证所有必需的依赖是否就绪。
 
-For each command passed as an argument, **has** checks if it exists on the PATH and attempts to determine its version. Found tools are displayed with a green checkmark and their version number, while missing tools are shown with a red cross. The exit status code reflects the number of commands not found.
+对于作为参数传入的每个命令，**has** 会检查它是否存在于 PATH 上，并尝试确定其版本。找到的工具会连同版本号一起以绿色对勾显示，缺失的工具则以红色叉号显示。退出状态码等于未找到的命令数量。
 
 # CAVEATS
 
-**has** is a single bash script with no dependencies beyond bash itself. Version detection relies on common flags like **--version** and **-v**, which may not work for all tools. Some tools may report version information in non-standard formats.
+**has** 是单个 bash 脚本，除 bash 本身之外没有任何依赖。版本检测依赖 **--version** 和 **-v** 等常见标志，未必对所有工具有效。有些工具可能以非标准格式报告版本信息。
 
 # HISTORY
 
-**has** was created by **Kunal Dabir** (kdabir) as a lightweight utility for verifying development environment prerequisites. It is implemented as a single **bash** script, making it trivially installable on any Unix-like system.
+**has** 由 **Kunal Dabir**（kdabir）创建，是一个用于验证开发环境前置条件的轻量级工具。它实现为单个 **bash** 脚本，在任何类 Unix 系统上都能轻松安装。
 
 # INSTALL
 

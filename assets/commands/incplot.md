@@ -1,18 +1,18 @@
 # TAGLINE
 
-CLI tool for drawing plots in the terminal using Unicode
+使用 Unicode 在终端中绘制图表的 CLI 工具
 
 # TLDR
 
-**Plot data from stdin**
+**绘制来自 stdin 的数据**
 
 ```echo "1 2 3 4 5" | incplot```
 
-**Plot from a CSV file**
+**从 CSV 文件绘图**
 
 ```cat [data.csv] | incplot```
 
-**Plot with a specific chart type**
+**以指定的图表类型绘图**
 
 ```cat [data.csv] | incplot --chart [bar]```
 
@@ -22,17 +22,17 @@ CLI tool for drawing plots in the terminal using Unicode
 
 # DESCRIPTION
 
-**incplot** is a command-line tool for drawing attractive plots in the terminal using **Unicode characters**. It automatically infers what to display and how based on the data piped in, with smart features like automatic color scheme detection from the terminal, automatic filtering of extreme values, automatic sizing, and value labels with metric prefix scaling.
+**incplot** 是一款命令行工具，使用 **Unicode 字符**在终端中绘制美观的图表。它会根据管道传入的数据自动推断显示内容和方式，具备诸多智能特性：从终端自动检测配色方案、自动过滤极端值、自动调整尺寸，以及带公制前缀缩放的数值标签。
 
-The tool is designed for user ergonomics and simplicity — pipe data in and get a readable chart with minimal configuration.
+该工具专为用户易用性和简洁性而设计——只需把数据管道传进来，无需多少配置即可得到可读的图表。
 
 # CAVEATS
 
-Requires a terminal with Unicode support for proper rendering. Output quality depends on terminal font and character support. Designed for quick visualization rather than publication-quality charts.
+需要支持 Unicode 的终端才能正确渲染。输出质量取决于终端字体和字符支持。它面向快速可视化，而非出版级图表。
 
 # HISTORY
 
-**incplot** was created by **InCom-0** and is written in **C++**. It was designed as a quick visualization tool that prioritizes ergonomics and automatic formatting over manual configuration.
+**incplot** 由 **InCom-0** 创建，用 **C++** 编写。它的设计理念是作为一款快速可视化工具，优先考虑易用性和自动排版而非手动配置。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI to manage emails
+管理电子邮件的 CLI
 
 # TLDR
 
-**List email envelopes** in the inbox
+**列出收件箱中的邮件信封**
 
 ```himalaya envelope list```
 
-**Read a specific email**
+**阅读特定邮件**
 
 ```himalaya message read [id]```
 
-**Compose and send a new email**
+**撰写并发送新邮件**
 
 ```himalaya message write```
 
-**Reply to an email**
+**回复邮件**
 
 ```himalaya message reply [id]```
 
-**Forward an email**
+**转发邮件**
 
 ```himalaya message forward [id]```
 
-**List folders**
+**列出文件夹**
 
 ```himalaya folder list```
 
-**Download attachments**
+**下载附件**
 
 ```himalaya attachment download [id]```
 
-**Use a specific account**
+**使用指定账户**
 
 ```himalaya -a [account_name] envelope list```
 
@@ -42,56 +42,56 @@ CLI to manage emails
 
 # DESCRIPTION
 
-**himalaya** is a command-line interface for managing emails. Unlike TUI email clients like **mutt** or **aerc**, himalaya is a pure CLI with no event loop — you interact with your emails using shell commands in a stateless way. This makes it composable with pipes and scripts, and freely integrable with other CLI tools.
+**himalaya** 是一个用于管理电子邮件的命令行界面。与 **mutt** 或 **aerc** 这类 TUI 邮件客户端不同，himalaya 是一个没有事件循环的纯 CLI——你以无状态的方式用 shell 命令操作邮件。这使它可以与管道和脚本组合，并自由地与其他 CLI 工具集成。
 
-It supports multiple backends including **IMAP**, **SMTP**, **Maildir**, and **Notmuch**, with features like multi-account support, **PGP encryption**, and **OAuth 2.0** authentication. Himalaya is designed to extract email logic into a simple CLI API that can be used directly from the terminal, from scripts, and from UIs.
+它支持多种后端，包括 **IMAP**、**SMTP**、**Maildir** 和 **Notmuch**，具备多账户支持、**PGP 加密**和 **OAuth 2.0** 身份验证等特性。Himalaya 的设计理念是将邮件逻辑提取为一个简单的 CLI API，可以直接从终端、脚本和 UI 中使用。
 
 # PARAMETERS
 
 **-a**, **--account** _name_
-> Use a specific email account.
+> 使用指定的电子邮件账户。
 
 **envelope list**
-> List email envelopes in the current folder.
+> 列出当前文件夹中的邮件信封。
 
 **envelope watch**
-> Watch for new envelope changes in real time.
+> 实时监视新信封的变化。
 
 **message read** _id_
-> Read a specific email message.
+> 阅读特定的邮件。
 
 **message write**
-> Compose a new email message.
+> 撰写新邮件。
 
 **message reply** _id_
-> Reply to an email message.
+> 回复某封邮件。
 
 **message forward** _id_
-> Forward an email message.
+> 转发某封邮件。
 
 **message delete** _id_
-> Delete an email message.
+> 删除某封邮件。
 
 **folder list**
-> List mail folders.
+> 列出邮件文件夹。
 
 **folder create** _name_
-> Create a new mail folder.
+> 创建新的邮件文件夹。
 
 **attachment download** _id_
-> Download attachments from a message.
+> 从邮件中下载附件。
 
 # CONFIGURATION
 
-Configuration is stored in **$XDG_CONFIG_HOME/himalaya/config.toml** (or **~/.config/himalaya/config.toml**) and defines accounts with backend settings for IMAP, SMTP, Maildir, or Notmuch. Run **himalaya account configure** for an interactive setup wizard.
+配置保存在 **$XDG_CONFIG_HOME/himalaya/config.toml**（或 **~/.config/himalaya/config.toml**）中，其中定义了各个账户及其 IMAP、SMTP、Maildir 或 Notmuch 后端设置。运行 **himalaya account configure** 可启动交互式设置向导。
 
 # CAVEATS
 
-Initial configuration requires manual setup of mail accounts. OAuth 2.0 setup may require additional steps depending on the provider. PGP encryption requires GPG to be installed and configured.
+初始配置需要手动设置邮件账户。OAuth 2.0 的设置可能因提供商而需要额外步骤。PGP 加密需要安装并配置 GPG。
 
 # HISTORY
 
-**himalaya** was created by **Clément DOUIN** as part of the **Pimalaya** project and is written in **Rust**. It was designed as a Unix-philosophy approach to email, providing simple composable commands rather than a monolithic TUI application.
+**himalaya** 由 **Clément DOUIN** 创建，是 **Pimalaya** 项目的一部分，使用 **Rust** 编写。其设计遵循 Unix 哲学处理邮件：提供简单可组合的命令，而不是一个庞大的 TUI 应用。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-gets or sets the name of an iOS device
+获取或设置 iOS 设备的名称
 
 # TLDR
 
-**Get device name**
+**获取设备名称**
 
 ```idevicename```
 
-**Set device name**
+**设置设备名称**
 
 ```idevicename "New Name"```
 
-**Target specific device**
+**指定目标设备**
 
 ```idevicename -u [udid]```
 
-**Debug output**
+**调试输出**
 
 ```idevicename -d```
 
@@ -27,33 +27,33 @@ gets or sets the name of an iOS device
 # PARAMETERS
 
 _NAME_
-> New device name to set.
+> 要设置的新设备名称。
 
 **-u** _UDID_
-> Target device by UDID.
+> 按 UDID 指定目标设备。
 
 **-n**
-> Use network connection.
+> 使用网络连接。
 
 **-d**, **--debug**
-> Debug output.
+> 调试输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**idevicename** gets or sets the name of an iOS device. Without argument it displays the current name.
+**idevicename** 获取或设置 iOS 设备的名称。不带参数时显示当前名称。
 
-The tool changes the device name visible in iTunes and Finder. It requires the device to be paired and trusted.
+该工具修改的是在 iTunes 和 Finder 中可见的设备名称。它要求设备已完成配对并被信任。
 
 # CAVEATS
 
-Part of libimobiledevice. Device must be paired. Name syncs after change.
+属于 libimobiledevice。设备必须已配对。名称修改后会自动同步。
 
 # HISTORY
 
-idevicename is part of **libimobiledevice** for iOS device property management.
+idevicename 是 **libimobiledevice** 的组成部分，用于管理 iOS 设备属性。
 
 # INSTALL
 

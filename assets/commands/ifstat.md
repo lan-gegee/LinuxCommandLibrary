@@ -1,30 +1,30 @@
 # TAGLINE
 
-reports network interface bandwidth in a format similar to vmstat/iostat
+以类似 vmstat/iostat 的格式报告网络接口带宽
 
 # TLDR
 
-Display statistics for all interfaces, updating every **second**
+显示所有接口的统计信息，每**秒**更新一次
 
 ```ifstat```
 
-Display statistics every **5 seconds**
+每**5 秒**显示一次统计信息
 
 ```ifstat [5]```
 
-Report bandwidth in **kbits/sec** instead of kbytes/sec
+以 **kbits/sec** 而非 kbytes/sec 报告带宽
 
 ```ifstat -b```
 
-Monitor only **specific interfaces**
+只监控**指定接口**
 
 ```ifstat -i [eth0],[wlan0]```
 
-Show **total bandwidth** across all interfaces
+显示所有接口的**总带宽**
 
 ```ifstat -T```
 
-Ignore history and show **absolute counters**
+忽略历史记录并显示**绝对计数**
 
 ```ifstat -a```
 
@@ -35,52 +35,52 @@ Ignore history and show **absolute counters**
 # PARAMETERS
 
 **-a**
-> Ignore the history file and show absolute counters since boot
+> 忽略历史文件，显示自启动以来的绝对计数
 
 **-b**
-> Report bandwidth in kbits/sec instead of kbytes/sec
+> 以 kbits/sec 而非 kbytes/sec 报告带宽
 
 **-e**
-> Show errors
+> 显示错误
 
 **-i** _IFACE_
-> Monitor only the specified interfaces (comma-separated)
+> 只监控指定的接口（逗号分隔）
 
 **-l**
-> Enable monitoring of loopback interfaces
+> 启用对环回接口的监控
 
 **-n**
-> Turn off display of the header periodically
+> 关闭周期性显示的表头
 
 **-r**
-> Reset history
+> 重置历史记录
 
 **-S**
-> Keep stats on the same line (no scrolling)
+> 统计数据保持在同一行（不滚动）
 
 **-T**
-> Show total bandwidth for all monitored interfaces
+> 显示所有被监控接口的总带宽
 
 **-t**
-> Add a timestamp at the beginning of each line
+> 在每行开头添加时间戳
 
 **-w**
-> Use fixed-width columns
+> 使用固定宽度的列
 
 **-z**
-> Hide interfaces with zero counters
+> 隐藏计数为零的接口
 
 # DESCRIPTION
 
-**ifstat** reports network interface bandwidth just like vmstat/iostat do for other system counters. It keeps history between invocations and by default shows the difference since the last call.
+**ifstat** 报告网络接口的带宽，就像 vmstat/iostat 对其他系统计数器所做的那样。它在多次调用之间保留历史记录，默认显示自上次调用以来的差值。
 
-The positional argument _delay_ sets the update interval in seconds (default 1). An optional _count_ limits the number of updates. A second delay can be specified separated by a slash for alternating intervals.
+位置参数 _delay_ 设置更新间隔，单位为秒（默认 1）。可选的 _count_ 限制更新次数。还可以用一个斜杠分隔的第二个延迟值来交替间隔。
 
-Note: Two different tools share the name ifstat. The standalone version (section 1) described here is the most common. The iproute2 version (section 8) has different options.
+注意：有两个不同的工具共用 ifstat 这个名字。这里描述的是最常见的独立版本（section 1）。iproute2 版本（section 8）的选项不同。
 
 # CAVEATS
 
-Statistics depend on kernel interface counters. Very high traffic rates may overflow 32-bit counters on older systems. The iproute2 ifstat(8) has different flags than the standalone ifstat(1).
+统计依赖于内核接口计数器。极高的流量速率可能导致旧系统上的 32 位计数器溢出。iproute2 的 ifstat(8) 与独立的 ifstat(1) 标志不同。
 
 # INSTALL
 

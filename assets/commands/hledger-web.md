@@ -1,30 +1,30 @@
 # TAGLINE
 
-provides a web interface for hledger
+为 hledger 提供 Web 界面
 
 # TLDR
 
-**Start web interface**
+**启动 Web 界面**
 
 ```hledger-web```
 
-**Specify port**
+**指定端口**
 
 ```hledger-web --port [5001]```
 
-**Open specific journal**
+**打开指定日志**
 
 ```hledger-web -f [ledger.journal]```
 
-**Serve externally**
+**对外提供服务**
 
 ```hledger-web --serve --host [0.0.0.0]```
 
-**Read-only mode**
+**只读模式**
 
 ```hledger-web --capabilities=view```
 
-**Allow full access including editing and deleting**
+**允许包括编辑和删除在内的完整访问**
 
 ```hledger-web --capabilities=view,add,manage```
 
@@ -35,45 +35,45 @@ provides a web interface for hledger
 # PARAMETERS
 
 **-f** _FILE_
-> Journal file.
+> 日志文件。
 
 **--port** _PORT_
-> Server port (default 5000).
+> 服务器端口（默认 5000）。
 
 **--host** _HOST_
-> Listen address.
+> 监听地址。
 
 **--serve**
-> Serve without opening a web browser.
+> 以服务方式运行，不自动打开浏览器。
 
 **--serve-api**
-> Serve only the JSON API, without the web UI.
+> 只提供 JSON API，不提供 Web UI。
 
 **--capabilities** _CAPS_
-> Allowed actions: view, add, manage (default: view,add).
+> 允许的操作：view、add、manage（默认：view,add）。
 
 **--cors** _ORIGIN_
-> Allow cross-origin requests from the specified origin.
+> 允许来自指定来源的跨域请求。
 
 **--base-url** _URL_
-> Base URL for links (useful behind a reverse proxy).
+> 链接使用的基础 URL（在反向代理后很有用）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hledger-web** provides a web interface for hledger. It offers a browser-based way to view reports, add transactions, and manage journal entries.
+**hledger-web** 为 hledger 提供 Web 界面。它提供基于浏览器的方式查看报表、添加交易和管理日志条目。
 
-The interface includes account registers, balance reports, and transaction entry forms. It can run locally or be served on a network. By default it listens on 127.0.0.1 port 5000 and opens a browser automatically.
+该界面包含账户账簿、余额报表和交易录入表单。它可以在本地运行，也可以在网络中提供服务。默认监听 127.0.0.1 的 5000 端口并自动打开浏览器。
 
 # CAVEATS
 
-Not recommended for public internet exposure without a reverse proxy and proper authentication. Built-in access control is limited to the **--capabilities** flag. Part of the hledger suite.
+若没有反向代理和适当的身份验证，不建议直接暴露到公共互联网。内置的访问控制仅限于 **--capabilities** 标志。本命令属于 hledger 套件。
 
 # HISTORY
 
-hledger-web was developed as the web interface for **hledger** to provide browser-based plain text accounting.
+hledger-web 作为 **hledger** 的 Web 界面而开发，旨在提供基于浏览器的纯文本记账体验。
 
 # INSTALL
 

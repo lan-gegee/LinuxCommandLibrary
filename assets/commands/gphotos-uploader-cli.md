@@ -1,34 +1,34 @@
 # TAGLINE
 
-Mass upload media folders to Google Photos
+向 Google Photos 批量上传媒体文件夹
 
 # TLDR
 
-**Initialize** default configuration
+**初始化**默认配置
 
 ```gphotos-uploader-cli init```
 
-**Overwrite** existing configuration
+**覆盖**现有配置
 
 ```gphotos-uploader-cli init --force```
 
-**Authenticate** with Google Photos (browser flow)
+**认证** Google Photos（浏览器流程）
 
 ```gphotos-uploader-cli auth```
 
-**Upload** configured folders
+**上传**已配置的文件夹
 
 ```gphotos-uploader-cli push```
 
-**Dry-run** upload (no files sent)
+**试运行**上传（不发送文件）
 
 ```gphotos-uploader-cli push --dry-run```
 
-**List albums**
+**列出**相册
 
 ```gphotos-uploader-cli list albums```
 
-**Show version**
+**显示版本**
 
 ```gphotos-uploader-cli version```
 
@@ -38,45 +38,45 @@ Mass upload media folders to Google Photos
 
 # DESCRIPTION
 
-**gphotos-uploader-cli** is a Google Photos command-line client for Linux (and other platforms where Go binaries run). The official Google backup tools target macOS and Windows; this project fills the gap for bulk folder upload, album organization, and listing media already in the library.
+**gphotos-uploader-cli** 是一个 Google Photos 命令行客户端，适用于 Linux（以及其他能运行 Go 二进制文件的平台）。官方 Google 备份工具只面向 macOS 和 Windows；本项目填补了批量文件夹上传、相册整理以及列出现有媒体库内容的空白。
 
-Workflow: **init** creates config under **~/.gphotos-uploader-cli** (override with **--config**), you set Google API app credentials and upload jobs in **config.hjson**, **auth** completes OAuth in a browser, then **push** scans configured source folders and uploads new objects. A file tracker avoids re-uploading known media.
+工作流程：**init** 在 **~/.gphotos-uploader-cli** 下创建配置（可用 **--config** 覆盖），你在 **config.hjson** 中设置 Google API 应用凭据和上传任务，**auth** 在浏览器中完成 OAuth，然后 **push** 扫描已配置的源文件夹并上传新对象。文件跟踪器可避免重复上传已知媒体。
 
 # PARAMETERS
 
 **init**
 
-> Create default configuration. **--force** overwrites an existing config.
+> 创建默认配置。**--force** 会覆盖现有配置。
 
 **auth**
 
-> Run the OAuth authentication flow against Google Photos.
+> 针对 Google Photos 运行 OAuth 认证流程。
 
 **push**
 
-> Upload local folders defined in the config jobs. **--dry-run** reports work without uploading.
+> 上传配置任务中定义的本地文件夹。**--dry-run** 只报告将要执行的工作而不实际上传。
 
-**list albums** / **list** media-related subcommands
+**list albums** / 与媒体相关的 **list** 子命令
 
-> List albums or media items already in Google Photos.
+> 列出 Google Photos 中已有的相册或媒体条目。
 
 **version**
 
-> Print the CLI version.
+> 打印 CLI 版本。
 
 **reset**
 
-> Reset local tracking state (see **gphotos-uploader-cli reset --help**).
+> 重置本地跟踪状态（见 **gphotos-uploader-cli reset --help**）。
 
-Global flags include **--config** (config directory), **--debug**, and **--silent** (mutually exclusive with debug).
+全局标志包括 **--config**（配置目录）、**--debug** 以及 **--silent**（与 debug 互斥）。
 
 # CONFIGURATION
 
-Default directory: **~/.gphotos-uploader-cli**, file **config.hjson**. You must supply Google Photos API app credentials (**APIAppCredentials**) and define **jobs** (source folders, include/exclude patterns, album policy). See the project documentation for the full schema.
+默认目录：**~/.gphotos-uploader-cli**，配置文件为 **config.hjson**。你必须提供 Google Photos API 应用凭据（**APIAppCredentials**）并定义 **jobs**（源文件夹、包含/排除模式、相册策略）。完整的配置结构请参阅项目文档。
 
 # CAVEATS
 
-Requires Google API credentials and interactive browser OAuth (headless setups need SSH port forwarding to the local callback port). The project has sought new maintainers; check GitHub for current status. Google Photos API quotas and policy limits apply. Not a full replacement for Google Takeout or the official backup clients.
+需要 Google API 凭据和交互式浏览器 OAuth（无头环境需要将 SSH 端口转发到本地回调端口）。该项目曾公开招募新维护者；请在 GitHub 上查看当前状态。需遵守 Google Photos API 的配额和策略限制。不能完全替代 Google Takeout 或官方备份客户端。
 
 # INSTALL
 

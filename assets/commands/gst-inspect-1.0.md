@@ -1,34 +1,34 @@
 # TAGLINE
 
-GStreamer plugin and element inspector
+GStreamer 插件和元素检查器
 
 # TLDR
 
-**List all available plugins and elements**
+**列出所有可用的插件和元素**
 
 ```gst-inspect-1.0```
 
-**Inspect a specific element**
+**检查特定元素**
 
 ```gst-inspect-1.0 [filesrc]```
 
-**Inspect a plugin by name**
+**按名称检查插件**
 
 ```gst-inspect-1.0 [coreelements]```
 
-**Print details of all elements**
+**打印所有元素的详情**
 
 ```gst-inspect-1.0 -a```
 
-**Print machine-parseable feature info for a plugin**
+**打印某插件机器可解析的特性信息**
 
 ```gst-inspect-1.0 --print-plugin-auto-install-info [playback]```
 
-**Show GStreamer version**
+**显示 GStreamer 版本**
 
 ```gst-inspect-1.0 --version```
 
-**Search for elements by name or description**
+**按名称或描述搜索元素**
 
 ```gst-inspect-1.0 | grep [audio]```
 
@@ -39,45 +39,45 @@ GStreamer plugin and element inspector
 # PARAMETERS
 
 **-a**, **--print-all**
-> Print information about all available elements.
+> 打印所有可用元素的信息。
 
 **--print-plugin-auto-install-info**
-> Print a machine-parseable list of features the specified plugin or element provides. Useful for package managers and auto-installers.
+> 打印指定插件或元素所提供特性的机器可解析列表。对软件包管理器和自动安装程序很有用。
 
 **-b**, **--print-blacklist**
-> Print a list of blacklisted (failed to load) plugins.
+> 打印被列入黑名单（加载失败）的插件列表。
 
 **--plugin**
-> List features of a plugin. The argument is treated as a plugin name rather than an element.
+> 列出插件的特性。参数被视为插件名而非元素。
 
 **--types** _types_
-> Filter elements by type when used with `--print-all` (e.g., Audio/Sink).
+> 与 `--print-all` 一起使用时按类型过滤元素（例如 Audio/Sink）。
 
 **--exists** _element_
-> Check if the specified element exists. Returns exit code 0 if found, 1 if not.
+> 检查指定元素是否存在。存在则返回退出码 0，否则返回 1。
 
 **--atleast-version** _version_
-> When used with `--exists`, also check that the element is at least the specified version.
+> 与 `--exists` 一起使用时，还检查元素版本是否不低于指定版本。
 
 **--uri-handlers**
-> Print all available URI handlers.
+> 打印所有可用的 URI 处理器。
 
 **--gst-plugin-path=**_PATH_
-> Add directories to the plugin search path (separated by colons).
+> 向插件搜索路径添加目录（以冒号分隔）。
 
 **--version**
-> Show GStreamer version information.
+> 显示 GStreamer 版本信息。
 
 **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 # DESCRIPTION
 
-**gst-inspect-1.0** queries information about GStreamer plugins and elements. It displays element details including pad information, capabilities, properties with types and defaults, and available signals.
+**gst-inspect-1.0** 查询 GStreamer 插件和元素的信息。它显示元素详情，包括 pad 信息、能力、带类型和默认值的属性以及可用的信号。
 
-Without arguments, it lists all available plugins and their elements with summaries. With an element or plugin name, it shows detailed information about that component, including the element's factory details, pads, properties, and signals.
+不带参数时，它列出所有可用插件及其元素的摘要。给定元素或插件名称时，它会显示该组件的详细信息，包括元素的工厂详情、pad、属性和信号。
 
-This is an essential tool for GStreamer pipeline development, allowing developers to discover available elements, understand their capabilities, and check property types before constructing pipelines with **gst-launch-1.0**.
+这是 GStreamer 流水线开发的重要工具，让开发者能够在用 **gst-launch-1.0** 构建流水线之前发现可用元素、了解其能力并检查属性类型。
 
 # INSTALL
 

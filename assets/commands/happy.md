@@ -1,30 +1,30 @@
 # TAGLINE
 
-parser generator for Haskell, similar to yacc for C
+Haskell 的解析器生成器，类似于 C 语言中的 yacc
 
 # TLDR
 
-**Generate parser from grammar file**
+**从文法文件生成解析器**
 
 ```happy [grammar.y] -o [Parser.hs]```
 
-**Generate with info file for debugging**
+**生成信息文件以便调试**
 
 ```happy -i [grammar.y]```
 
-**Generate with GHC extensions for faster code**
+**使用 GHC 扩展生成更快的代码**
 
 ```happy -g [grammar.y]```
 
-**Generate array-based parser with GHC string encoding**
+**生成基于数组并以 GHC 字符串编码的解析器**
 
 ```happy -ag [grammar.y]```
 
-**Generate parser with debugging output at runtime**
+**生成运行时可打印调试信息的解析器**
 
 ```happy -d [grammar.y]```
 
-**Generate GLR parser**
+**生成 GLR 解析器**
 
 ```happy -l [grammar.y]```
 
@@ -35,51 +35,51 @@ parser generator for Haskell, similar to yacc for C
 # PARAMETERS
 
 _FILE_
-> Grammar file (.y).
+> 文法文件（.y）。
 
 **-o** _FILE_
-> Output file name. Defaults to FILE.hs.
+> 输出文件名。默认为 FILE.hs。
 
 **-i** [_FILE_]
-> Generate info file with grammar details, parser states, and conflicts.
+> 生成包含文法细节、解析器状态和冲突信息的信息文件。
 
 **-g**, **--ghc**
-> Use GHC-specific extensions for faster parsers.
+> 使用 GHC 特有的扩展，以生成更快的解析器。
 
 **-a**, **--array**
-> Generate array-based parser (smaller but slower). Combined with -g, arrays are encoded as strings for faster performance.
+> 生成基于数组的解析器（更小但更慢）。与 -g 组合时，数组会编码为字符串以提升性能。
 
 **-c**, **--coerce**
-> Use GHC's unsafeCoerce# for smaller, faster parsers. May crash at runtime if grammar has type errors.
+> 使用 GHC 的 unsafeCoerce# 生成更小更快的解析器。如果文法存在类型错误，可能在运行时崩溃。
 
 **-d**, **--debug**
-> Generate a parser that prints shift/reduce debugging info to stderr.
+> 生成会向 stderr 打印移进/归约调试信息的解析器。
 
 **-l**, **--glr**
-> Generate a GLR parser instead of LALR(1).
+> 生成 GLR 解析器而不是 LALR(1)。
 
 **-t** _DIR_, **--template=**_DIR_
-> Directory for template files.
+> 模板文件所在目录。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**Happy** is a parser generator for Haskell, similar to yacc for C. It takes a grammar specification and produces a Haskell parser module.
+**Happy** 是 Haskell 的解析器生成器，类似于 C 语言中的 yacc。它接受一份文法规范并生成一个 Haskell 解析器模块。
 
-The tool generates LALR parsers from BNF-like grammars and can also produce GLR parsers. It integrates with the Alex lexer generator for complete parsing solutions.
+该工具从类 BNF 文法生成 LALR 解析器，也可以生成 GLR 解析器。它与 Alex 词法分析器生成器集成，构成完整的解析方案。
 
 # CAVEATS
 
-Haskell specific. Learning curve for grammar syntax. Debugging shift/reduce conflicts.
+仅适用于 Haskell。文法语法有一定的学习曲线。需要调试移进/归约冲突。
 
 # HISTORY
 
-Happy was created for **Haskell** as an equivalent to yacc/bison, widely used in Haskell compilers and tools like GHC.
+Happy 是为 **Haskell** 打造的 yacc/bison 等价物，广泛用于 Haskell 编译器以及 GHC 等工具中。
 
 # INSTALL
 

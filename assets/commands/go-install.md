@@ -1,26 +1,26 @@
 # TAGLINE
 
-compile and install Go packages and binaries
+编译并安装 Go 包和二进制文件
 
 # TLDR
 
-**Install a package from current module**
+**从当前模块安装包**
 
 ```go install```
 
-**Install specific package**
+**安装指定的包**
 
 ```go install [package]```
 
-**Install latest version of a tool**
+**安装工具的最新版本**
 
 ```go install [example.com/tool]@latest```
 
-**Install specific version**
+**安装指定版本**
 
 ```go install [example.com/tool]@v1.2.3```
 
-**Install with verbose output**
+**以详细输出安装**
 
 ```go install -v [package]```
 
@@ -31,28 +31,28 @@ compile and install Go packages and binaries
 # PARAMETERS
 
 **-v**
-> Print package names as compiled.
+> 在编译时打印包名。
 
 **-n**
-> Print commands without executing.
+> 打印命令但不执行。
 
 **-x**
-> Print commands as executed.
+> 在命令执行时打印它们。
 
 **@version**
-> Install specific version (latest, v1.2.3, etc.).
+> 安装指定版本（latest、v1.2.3 等）。
 
 # DESCRIPTION
 
-**go install** compiles and installs packages and their dependencies. Executables are installed to the directory named by the GOBIN environment variable, defaulting to $GOPATH/bin or $HOME/go/bin. When used with an @version suffix, it installs in module-aware mode regardless of the current directory, ignoring any go.mod present.
+**go install** 用于编译并安装包及其依赖。可执行文件会被安装到 GOBIN 环境变量指定的目录，默认为 $GOPATH/bin 或 $HOME/go/bin。带上 @version 后缀使用时，无论当前目录位于何处，它都会以模块感知模式进行安装，并忽略任何已存在的 go.mod。
 
 # CAVEATS
 
-Use **@latest** or **@version** to install tools independent of current module. Without a version suffix, go install uses dependencies from the current module's go.mod.
+使用 **@latest** 或 **@version** 可以独立于当前模块安装工具。不带版本后缀时，go install 会使用当前模块 go.mod 中声明的依赖。
 
 # HISTORY
 
-Since **Go 1.16**, **go install** is the recommended way to build and install commands at a specific version, taking over that role from **go get**, which was fully restricted from doing so as of **Go 1.18**.
+自 **Go 1.16** 起，**go install** 成为在特定版本下构建和安装命令的推荐方式，接替了 **go get** 的这一角色；而 go get 自 **Go 1.18** 起已被完全禁止执行此类操作。
 
 # INSTALL
 

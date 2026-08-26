@@ -1,18 +1,18 @@
 # TAGLINE
 
-systemd component that maps hardware properties to udev device attributes
+将硬件属性映射到 udev 设备属性的 systemd 组件
 
 # TLDR
 
-**Update hardware database**
+**更新硬件数据库**
 
 ```sudo systemd-hwdb update```
 
-**Query device properties**
+**查询设备属性**
 
 ```systemd-hwdb query [modalias]```
 
-**Show hardware database path**
+显示硬件数据库路径
 
 ```systemd-hwdb --help```
 
@@ -23,28 +23,28 @@ systemd component that maps hardware properties to udev device attributes
 # PARAMETERS
 
 **update**
-> Compile hwdb files to binary.
+> 将 hwdb 文件编译为二进制格式。
 
 **query** _modalias_
-> Query properties for modalias.
+> 查询指定 modalias 的属性。
 
 **--path** _path_
-> Custom hwdb path.
+> 自定义 hwdb 路径。
 
 **--root** _root_
-> Root directory.
+> 根目录。
 
 **--strict**
-> Strict parsing mode.
+> 严格解析模式。
 
 **--usr**
-> Use /usr directory.
+> 使用 /usr 目录。
 
 # DESCRIPTION
 
-**hwdb** (Hardware Database) is a systemd component that maps hardware properties to udev device attributes. It matches hardware by modalias strings and sets properties like device names, permissions, and driver hints.
+**hwdb**（Hardware Database，硬件数据库）是一个 systemd 组件，用于将硬件属性映射到 udev 设备属性。它通过 modalias 字符串匹配硬件，并设置设备名称、权限和驱动提示等属性。
 
-The database is compiled from text files in /usr/lib/udev/hwdb.d/ and /etc/udev/hwdb.d/ into a binary format for fast matching.
+该数据库由 /usr/lib/udev/hwdb.d/ 和 /etc/udev/hwdb.d/ 中的文本文件编译成二进制格式，以实现快速匹配。
 
 # HWDB FILE FORMAT
 
@@ -73,7 +73,7 @@ udevadm info /dev/input/event0 | grep MODALIAS
 
 # CAVEATS
 
-Changes require hwdb update and udevadm trigger. Modalias format varies by bus type. Incorrect entries may cause device issues.
+修改后需要执行 hwdb update 和 udevadm trigger。modalias 格式因总线类型而异。错误的条目可能导致设备问题。
 
 # SEE ALSO
 

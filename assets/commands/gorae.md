@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI librarian for PDFs and EPUBs
+管理 PDF 和 EPUB 的 TUI 图书馆工具
 
 # TLDR
 
-**Open** library browser
+**打开**图书馆浏览器
 
 ```gorae```
 
-**Add** files to library
+向图书馆中**添加**文件
 
 ```gorae add [/path/to/books]```
 
-**Search** library
+**搜索**图书馆
 
 ```gorae search [query]```
 
@@ -23,62 +23,62 @@ TUI librarian for PDFs and EPUBs
 # PARAMETERS
 
 **add** _PATH_
-> Add files or directory to library
+> 将文件或目录加入图书馆
 
 **remove** _ID_
-> Remove item from library
+> 从图书馆移除条目
 
 **search** _QUERY_
-> Search library
+> 搜索图书馆
 
 **list**
-> List all items
+> 列出所有条目
 
 **open** _ID_
-> Open book with external viewer
+> 用外部查看器打开书籍
 
 **-c, --config** _FILE_
-> Configuration file path
+> 配置文件的路径
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**gorae** is a terminal-based library manager for PDF and EPUB documents. It provides an organized way to browse, search, and manage digital book collections.
+**gorae** 是一个基于终端的 PDF 和 EPUB 文档图书馆管理器。它为浏览、搜索和管理电子书收藏提供了有条理的方式。
 
-The tool can extract metadata from documents, display covers (in supported terminals), and integrates with external viewers for reading.
+该工具可以从文档中提取元数据、（在支持的终端中）显示封面，并与外部查看器集成以便阅读。
 
 # KEYBINDINGS
 
 **↑/↓**
-> Navigate items
+> 在条目之间导航
 
 **/**
-> Search
+> 搜索
 
 **Enter**
-> Open book
+> 打开书籍
 
 **i**
-> Show book info
+> 显示书籍信息
 
 **d**
-> Delete from library
+> 从图书馆删除
 
 **q**
-> Quit
+> 退出
 
 # CAVEATS
 
-Requires external viewer for reading. Cover display depends on terminal capabilities. Metadata extraction may fail for some documents.
+阅读需要外部查看器。封面显示取决于终端的能力。部分文档的元数据提取可能失败。
 
 # HISTORY
 
-**gorae** was created as a TUI-based alternative to GUI ebook managers, providing keyboard-driven library management.
+**gorae** 作为 GUI 电子书管理器的 TUI 替代方案而创建，提供完全由键盘驱动的图书库管理。
 
 # SEE ALSO
 

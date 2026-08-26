@@ -1,18 +1,18 @@
 # TAGLINE
 
-Groff preprocessor for Gremlin graphics
+处理 Gremlin 图形的 groff 预处理器
 
 # TLDR
 
-**Process gremlin file**
+**处理 gremlin 文件**
 
 ```grn [file.grn] | groff > output.ps```
 
-**Specify macro file**
+**指定宏文件目录**
 
 ```grn -M [macrodir] [file.grn]```
 
-**Compatible mode**
+**兼容模式**
 
 ```grn -C [file.grn]```
 
@@ -23,33 +23,33 @@ Groff preprocessor for Gremlin graphics
 # PARAMETERS
 
 _FILE_
-> Gremlin input file.
+> Gremlin 输入文件。
 
 **-M** _DIR_
-> Macro directory.
+> 宏目录。
 
 **-C**
-> Compatible mode with older versions.
+> 与旧版本兼容的模式。
 
 **-F** _FILE_
-> Font file.
+> 字体文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grn** is a groff preprocessor for Gremlin graphics files. It converts Gremlin vector graphics format to groff commands for embedding line drawings and text in documents.
+**grn** 是一个用于 Gremlin 图形文件的 groff 预处理器。它将 Gremlin 矢量图形格式转换为 groff 命令，以便在文档中嵌入线条图和文字。
 
-The tool was originally developed for SunView and later adapted for groff. It handles line drawings, text labels, and other Gremlin primitives.
+该工具最初为 SunView 开发，后来被移植到 groff。它可以处理线条图、文本标签及其他 Gremlin 图元。
 
 # CAVEATS
 
-Part of groff suite. Gremlin format is largely obsolete. Limited to basic vector graphics.
+属于 groff 套件。Gremlin 格式已基本过时。仅限于基本矢量图形。
 
 # HISTORY
 
-grn was created at **UC Berkeley** for the Gremlin drawing program, later included in **GNU groff** for compatibility.
+grn 由 **加州大学伯克利分校（UC Berkeley）** 为 Gremlin 绘图程序创建，后来为了兼容性被收入 **GNU groff**。
 
 # INSTALL
 

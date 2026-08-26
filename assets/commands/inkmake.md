@@ -1,26 +1,26 @@
 # TAGLINE
 
-automates Inkscape exports for batch processing
+自动化 Inkscape 导出，便于批量处理
 
 # TLDR
 
-**Export all layers**
+**导出所有图层**
 
 ```inkmake [input.svg]```
 
-**Export specific size**
+**按指定尺寸导出**
 
 ```inkmake -w [1024] [input.svg]```
 
-**Export to directory**
+**导出到目录**
 
 ```inkmake -o [output/] [input.svg]```
 
-**Export specific format**
+**以指定格式导出**
 
 ```inkmake -f [png|pdf|svg] [input.svg]```
 
-**Export specific layers**
+**导出指定图层**
 
 ```inkmake -l "[layer1,layer2]" [input.svg]```
 
@@ -31,39 +31,39 @@ automates Inkscape exports for batch processing
 # PARAMETERS
 
 **-w** _WIDTH_
-> Output width in pixels.
+> 输出宽度（像素）。
 
 **-h** _HEIGHT_
-> Output height in pixels.
+> 输出高度（像素）。
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **-f** _FORMAT_
-> Output format (png, pdf, svg).
+> 输出格式（png、pdf、svg）。
 
 **-l** _LAYERS_
-> Comma-separated layer names.
+> 逗号分隔的图层名称。
 
 **-d** _DPI_
-> Output resolution.
+> 输出分辨率。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**inkmake** automates Inkscape exports for batch processing. It exports layers or objects from SVG files to various formats.
+**inkmake** 自动化 Inkscape 的导出流程，便于批量处理。它可将 SVG 文件中的图层或对象导出为多种格式。
 
-The tool is useful for generating icons, assets, or multiple sizes from a single source. It wraps Inkscape's export capabilities.
+该工具适合从单一源文件生成图标、素材或多尺寸输出。它是 Inkscape 导出能力的封装。
 
 # CAVEATS
 
-Requires Inkscape installed. SVG layer naming important. Wrapper script.
+需要安装 Inkscape。SVG 图层命名很重要。本质上是包装脚本。
 
 # HISTORY
 
-inkmake was created to simplify batch exporting from **Inkscape** SVG files for asset generation workflows.
+inkmake 的创建是为了简化从 **Inkscape** SVG 文件的批量导出，用于素材生成工作流。
 
 # SEE ALSO
 

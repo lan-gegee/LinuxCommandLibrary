@@ -1,18 +1,18 @@
 # TAGLINE
 
-starts applications with input method support
+以输入法支持启动应用程序
 
 # TLDR
 
-**Launch with input method**
+**带输入法启动**
 
 ```im-launch [application]```
 
-**Launch application with a specific input method (e.g., ibus, fcitx)**
+**以指定输入法（如 ibus、fcitx）启动应用**
 
 ```im-launch -n [ibus] [application]```
 
-**Show what input method would be used without launching**
+只显示将使用的输入法而不实际启动
 
 ```im-launch -v [application]```
 
@@ -23,30 +23,30 @@ starts applications with input method support
 # PARAMETERS
 
 _COMMAND_
-> Application to launch.
+> 要启动的应用程序。
 
 **-n** _METHOD_
-> Specify input method.
+> 指定输入法。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**im-launch** starts applications with input method support. It sets up environment variables for the selected input framework.
+**im-launch** 以输入法支持启动应用程序。它会为所选的输入框架设置环境变量。
 
-The tool ensures applications can use IBus, Fcitx, or other input methods. It's useful for launching apps needing international input.
+该工具确保应用程序能够使用 IBus、Fcitx 或其他输入法。适合启动需要国际化输入的应用。
 
 # CAVEATS
 
-Part of im-config package. Environment variable setup. Debian/Ubuntu specific.
+属于 im-config 软件包。通过设置环境变量实现。Debian/Ubuntu 特有。
 
 # HISTORY
 
-im-launch is part of **im-config** for launching applications with input method support.
+im-launch 是 **im-config** 的一部分，用于以输入法支持启动应用程序。
 
 # SEE ALSO
 

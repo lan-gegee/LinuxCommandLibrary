@@ -1,30 +1,30 @@
 # TAGLINE
 
-reads documentation in GNU's texinfo format
+阅读 GNU texinfo 格式的文档
 
 # TLDR
 
-**Read manual for command**
+**阅读命令的手册**
 
 ```info [command]```
 
-**Start at top directory**
+**从顶层目录开始**
 
 ```info```
 
-**Go to specific node**
+**跳转到指定节点**
 
 ```info -n "[node_name]" [command]```
 
-**Search in manuals**
+**在手册中搜索**
 
 ```info --apropos=[keyword]```
 
-**Output to stdout**
+**输出到标准输出**
 
 ```info -o - [command]```
 
-**Use specific file**
+**使用指定的文件**
 
 ```info -f [file.info]```
 
@@ -35,48 +35,48 @@ reads documentation in GNU's texinfo format
 # PARAMETERS
 
 _MENU-ITEM_
-> Manual page or node to display.
+> 要显示的手册页或节点。
 
 **-f** _FILE_
-> Read specified info file.
+> 读取指定的 info 文件。
 
 **-n** _NODE_
-> Start at named node.
+> 从指定节点开始。
 
 **-o** _FILE_
-> Output to file (- for stdout).
+> 输出到文件（- 表示标准输出）。
 
 **--apropos** _STRING_
-> Search all manuals for string.
+> 在所有手册中搜索字符串。
 
 **-w**, **--where**
-> Print location of info file.
+> 打印 info 文件的位置。
 
 **--all**
-> Use all matching manuals.
+> 使用所有匹配的手册。
 
 **--subnodes**
-> Recursively output menu items.
+> 递归输出菜单项。
 
 **-k** _STRING_, **--index-search** _STRING_
-> Look up STRING in all indices of all manuals.
+> 在所有手册的所有索引中查找 STRING。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**info** reads documentation in GNU's texinfo format. It provides hypertext navigation through structured documentation organized as nodes in a tree.
+**info** 读取 GNU texinfo 格式的文档。它以超文本方式浏览按树状节点组织的结构化文档。
 
-The reader supports navigation between nodes, menus, and cross-references. Common navigation keys: **n** (next node), **p** (previous node), **u** (up), **l** (last visited), **q** (quit), **/** or **s** (search), **Tab** (next link), **Enter** (follow link).
+该阅读器支持在节点、菜单和交叉引用之间导航。常用导航键：**n**（下一个节点）、**p**（上一个节点）、**u**（上一层）、**l**（上次访问的节点）、**q**（退出）、**/** 或 **s**（搜索）、**Tab**（下一个链接）、**Enter**（跟随链接）。
 
 # CAVEATS
 
-Not all software has info pages. Navigation keys differ from man. Uses Emacs-style keybindings by default. The **--apropos** search can be slow as it scans all info files.
+并非所有软件都有 info 页面。导航键与 man 不同。默认使用 Emacs 风格的键绑定。**--apropos** 搜索可能较慢，因为它要扫描所有 info 文件。
 
 # HISTORY
 
-info was created as part of the **GNU project** to provide richer documentation than man pages, supporting hypertext features.
+info 是 **GNU 项目**的一部分，旨在提供比 man page 更丰富的文档，支持超文本特性。
 
 # INSTALL
 

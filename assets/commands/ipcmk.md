@@ -1,22 +1,22 @@
 # TAGLINE
 
-creates System V IPC resources
+创建 System V IPC 资源
 
 # TLDR
 
-Create a **shared memory** segment
+创建**共享内存**段
 
 ```ipcmk -M [segment_size_in_bytes]```
 
-Create a **semaphore** set
+创建**信号量**集
 
 ```ipcmk -S [element_size]```
 
-Create a **message queue**
+创建**消息队列**
 
 ```ipcmk -Q```
 
-Create shared memory with specific **permissions**
+以指定**权限**创建共享内存
 
 ```ipcmk -M [segment_size] -p [0644]```
 
@@ -27,30 +27,30 @@ Create shared memory with specific **permissions**
 # PARAMETERS
 
 **-M**, **--shmem** _SIZE_
-> Create shared memory segment of specified size in bytes
+> 创建指定字节数大小的共享内存段
 
 **-S**, **--semaphore** _COUNT_
-> Create semaphore set with specified number of elements
+> 创建含指定元素数量的信号量集
 
 **-Q**, **--queue**
-> Create message queue
+> 创建消息队列
 
 **-p**, **--mode** _MODE_
-> Set permissions (octal, default 0644)
+> 设置权限（八进制，默认 0644）
 
 # DESCRIPTION
 
-**ipcmk** creates System V IPC (Inter-Process Communication) resources. These resources allow processes to communicate and synchronize: shared memory enables direct data sharing, semaphores coordinate access to resources, and message queues enable asynchronous messaging.
+**ipcmk** 创建 System V IPC（进程间通信）资源。这些资源允许进程之间进行通信和同步：共享内存支持直接共享数据，信号量协调对资源的访问，消息队列支持异步消息传递。
 
-Created resources are identified by a key and ID, which can be viewed with ipcs and removed with ipcrm. Resources persist until explicitly removed or system reboot.
+创建的资源由键和 ID 标识，可用 ipcs 查看、用 ipcrm 删除。资源会一直存在，直到被显式删除或系统重启。
 
 # CAVEATS
 
-System V IPC has kernel limits on the number and size of resources. Resources are not automatically cleaned up when creating processes exit. Modern applications often prefer POSIX IPC or other mechanisms.
+System V IPC 对资源的数量和大小有内核限制。创建这些资源的进程退出后，资源不会被自动清理。现代应用程序通常更倾向于使用 POSIX IPC 或其他机制。
 
 # HISTORY
 
-System V IPC was introduced in AT&T UNIX System V in the early **1980s**. While older than POSIX alternatives, it remains widely used and supported across Unix-like systems.
+System V IPC 于 **1980 年代**初在 AT&T UNIX System V 中引入。虽然比 POSIX 替代方案更古老，但它在各类类 Unix 系统上仍被广泛使用和支持。
 
 # INSTALL
 

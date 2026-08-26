@@ -1,30 +1,30 @@
 # TAGLINE
 
-adds cryptographic signatures to in-toto metadata files
+为 in-toto 元数据文件添加加密签名
 
 # TLDR
 
-**Sign a link file**
+**签名链接文件**
 
 ```in-toto-sign -k [key.pem] -f [link_file]```
 
-**Sign layout file**
+**签名布局文件**
 
 ```in-toto-sign -k [key] -f [root.layout]```
 
-**Append** signature to existing signatures
+将签名**追加**到已有签名之后
 
 ```in-toto-sign -k [key] -f [file] -a```
 
-**Output** signed metadata to a specific file
+将签好名的元数据**输出**到指定文件
 
 ```in-toto-sign -k [key] -f [input] -o [output]```
 
-**Verify** signatures on a metadata file
+**验证**元数据文件上的签名
 
 ```in-toto-sign --verify -k [key.pub] -f [file]```
 
-**Sign** with a GPG key
+使用 GPG 密钥**签名**
 
 ```in-toto-sign -g [gpg_keyid] -f [file]```
 
@@ -35,51 +35,51 @@ adds cryptographic signatures to in-toto metadata files
 # PARAMETERS
 
 **-k** _KEY_
-> Private signing key file.
+> 用于签名的私钥文件。
 
 **-f** _FILE_
-> File to sign (link or layout).
+> 要签名的文件（链接或布局）。
 
 **-a**, **--append**
-> Append signature instead of replacing.
+> 追加签名而不是替换。
 
 **-o** _OUTPUT_
-> Output file path.
+> 输出文件的路径。
 
 **-g** [_KEYID ..._]
-> GPG keyids used to sign or verify
+> 用于签名或验证的 GPG keyid
 
 **--gpg-home** _PATH_
-> GPG home directory path
+> GPG 主目录路径
 
 **--verify**
-> Verify signatures instead of signing
+> 验证签名而不是签名
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-q**
-> Quiet output
+> 安静输出
 
 **--version**
-> Show version information
+> 显示版本信息
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**in-toto-sign** adds cryptographic signatures to in-toto metadata files. It signs both link files from build steps and layout files that define supply chain policies.
+**in-toto-sign** 为 in-toto 元数据文件添加加密签名。它既可以签名构建步骤产生的链接文件，也可以签名定义供应链策略的布局文件。
 
-Multiple signatures can be added for multi-party verification. The tool supports GPG and PEM key formats.
+可以为多方验证添加多个签名。该工具支持 GPG 和 PEM 两种密钥格式。
 
 # CAVEATS
 
-Part of in-toto framework. Requires compatible key format. Signatures must match verification keys.
+属于 in-toto 框架。需要兼容的密钥格式。签名必须与验证密钥匹配。
 
 # HISTORY
 
-in-toto-sign is part of **in-toto**, developed at **NYU** Secure Systems Lab for supply chain integrity verification.
+in-toto-sign 是 **in-toto** 的一部分，由 **纽约大学** 安全系统实验室开发，用于供应链完整性验证。
 
 # SEE ALSO
 

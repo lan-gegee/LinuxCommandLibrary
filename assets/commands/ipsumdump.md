@@ -1,30 +1,30 @@
 # TAGLINE
 
-summarizes network traffic by extracting and displaying selected
+通过提取和显示所选字段来汇总网络流量
 
 # TLDR
 
-**Dump summary of packets** from a pcap file
+从 pcap 文件**转储数据包摘要**
 
 ```ipsumdump -r [capture.pcap]```
 
-**Capture live traffic** and summarize
+**抓取实时流量**并进行汇总
 
 ```sudo ipsumdump -i [eth0]```
 
-**Extract source and destination IPs**
+**提取源和目标 IP**
 
 ```ipsumdump -r [capture.pcap] --src --dst```
 
-**Output timestamp, source, destination, and protocol**
+**输出时间戳、源地址、目标地址和协议**
 
 ```ipsumdump -r [capture.pcap] --timestamp --src --dst --proto```
 
-**Filter packets** using BPF expression
+使用 BPF 表达式**过滤数据包**
 
 ```ipsumdump -r [capture.pcap] --filter '[tcp port 80]' --src --dst```
 
-**Output in specific format** with custom fields
+**以指定格式输出**自定义字段
 
 ```ipsumdump -r [capture.pcap] --src --sport --dst --dport --length```
 
@@ -35,57 +35,57 @@ summarizes network traffic by extracting and displaying selected
 # PARAMETERS
 
 **-r** _file_
-> Read from pcap file
+> 从 pcap 文件读取
 
 **-i** _interface_
-> Capture live traffic from interface
+> 从接口抓取实时流量
 
 **--filter** _expression_
-> BPF filter expression
+> BPF 过滤表达式
 
 **--src**
-> Output source IP address
+> 输出源 IP 地址
 
 **--dst**
-> Output destination IP address
+> 输出目标 IP 地址
 
 **--sport**
-> Output source port
+> 输出源端口
 
 **--dport**
-> Output destination port
+> 输出目标端口
 
 **--proto**
-> Output IP protocol
+> 输出 IP 协议
 
 **--timestamp**
-> Output packet timestamp
+> 输出数据包时间戳
 
 **--length**
-> Output packet length
+> 输出数据包长度
 
 **--payload**
-> Output payload data
+> 输出载荷数据
 
 **--no-promiscuous**
-> Don't set interface to promiscuous mode
+> 不将接口设为混杂模式
 
 **-o** _file_
-> Write output to file
+> 将输出写入文件
 
 # DESCRIPTION
 
-**ipsumdump** summarizes network traffic by extracting and displaying selected fields from packet headers. It reads from pcap files or captures live traffic, producing compact text output suitable for further processing.
+**ipsumdump** 通过提取并显示数据包头中的选定字段来汇总网络流量。它可以从 pcap 文件读取或抓取实时流量，生成适合进一步处理的紧凑文本输出。
 
-The tool is designed for network analysis and measurement, producing ASCII output with one line per packet. It's particularly useful for creating datasets for analysis, generating aggregate statistics, or extracting specific packet fields.
+该工具专为网络分析与测量设计，每个数据包输出一行 ASCII 文本。它特别适用于创建分析用数据集、生成聚合统计或提取特定的数据包字段。
 
 # CAVEATS
 
-Live capture requires root/administrator privileges. High traffic volumes may cause packet drops. Output format is text-based; for binary analysis, consider other tools. Part of a suite that includes ipaggcreate and ipaggmanip.
+实时抓包需要 root/管理员权限。高流量可能导致丢包。输出格式为文本；若需二进制分析请考虑其他工具。它是 ipsumdump 套件的一部分，套件还包括 ipaggcreate 和 ipaggmanip。
 
 # HISTORY
 
-**ipsumdump** was developed by Eddie Kohler at UCLA (later ICSI) for network measurement research. First released in the early **2000s**, it's built on the Click modular router framework and remains useful for network traffic analysis and research.
+**ipsumdump** 由 Eddie Kohler 在 UCLA（后来在 ICSI）开发，用于网络测量研究。首次发布于 **2000 年代**初，基于 Click 模块化路由器框架构建，至今仍可用于网络流量分析和研究。
 
 # INSTALL
 

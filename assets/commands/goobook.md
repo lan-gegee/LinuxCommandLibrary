@@ -1,14 +1,14 @@
 # TAGLINE
 
-Google Contacts command-line interface
+Google 通讯录命令行接口
 
 # TLDR
 
-Complete **OAuth2** setup so goobook can read Google Contacts
+完成 **OAuth2** 设置，让 goobook 可以读取 Google 通讯录
 
 ```goobook authenticate```
 
-Export all contacts as **XML** on stdout
+将所有联系人以 **XML** 格式导出到标准输出
 
 ```goobook dump_contacts```
 
@@ -19,43 +19,44 @@ Export all contacts as **XML** on stdout
 # PARAMETERS
 
 **authenticate**
-> Authenticate with Google and store OAuth2 credentials
+> 向 Google 进行身份验证并存储 OAuth2 凭据
 
 **query** _QUERY_
-> Search contacts matching query
+> 搜索与查询匹配的联系人
 
 **add**
-> Add contact from email headers (stdin)
+> 从邮件头（标准输入）添加联系人
 
 **dump_contacts**
-> Export all contacts to XML format
+> 将所有联系人导出为 XML 格式
 
 **reload**
-> Reload and cache contacts from Google
+> 重新从 Google 加载联系人并缓存
 
 # DESCRIPTION
 
-**goobook** provides command-line access to Google Contacts, designed primarily for integration with the mutt email client. It allows searching contacts for email address completion and adding new contacts from email headers.
+**goobook** 提供对 Google 通讯录的命令行访问，主要设计用于与 mutt 邮件客户端集成。它可以搜索联系人来补全电子邮件地址，也能根据邮件头添加新联系人。
 
-For mutt integration, add to **.muttrc**:
+要与 mutt 集成，请在 **.muttrc** 中添加：
+
 ```
 set query_command="goobook query %s"
 ```
 
-Configuration is stored in **~/.goobookrc** and includes Google API credentials obtained through the OAuth2 authentication flow.
+配置存储在 **~/.goobookrc** 中，包含通过 OAuth2 身份验证流程获得的 Google API 凭据。
 
 # CONFIGURATION
 
 **~/.goobookrc**
-> Configuration file containing Google API credentials, OAuth2 tokens, and cache settings.
+> 包含 Google API 凭据、OAuth2 令牌和缓存设置的配置文件。
 
 # CAVEATS
 
-Requires Google API credentials and OAuth2 authentication. Google's API quotas may limit frequent queries. Contact changes may take time to sync. The Google Contacts API access requires proper OAuth scopes.
+需要 Google API 凭据和 OAuth2 身份验证。Google 的 API 配额可能会限制频繁查询。联系人的更改同步可能需要时间。访问 Google Contacts API 需要正确的 OAuth 授权范围。
 
 # HISTORY
 
-goobook was created to bridge the gap between command-line email clients like mutt and Google's contact management. It provides a simple interface to Google Contacts that works well with Unix text-processing tools and email workflows.
+goobook 的诞生是为了打通 mutt 等命令行邮件客户端与 Google 联系人管理之间的隔阂。它为 Google 通讯录提供了一个简单接口，能很好地融入 Unix 文本处理工具和邮件工作流。
 
 # INSTALL
 

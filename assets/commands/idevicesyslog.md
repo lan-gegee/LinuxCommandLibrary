@@ -1,34 +1,34 @@
 # TAGLINE
 
-streams the system log from iOS devices
+从 iOS 设备实时传输系统日志
 
 # TLDR
 
-**Stream system log** from the attached device
+从所连接设备**实时查看系统日志**
 
 ```idevicesyslog```
 
-**Include only** messages from specific processes (pipe-separated)
+**仅包含**指定进程的消息（以竖线分隔）
 
 ```idevicesyslog -p [Safari|WebKit]```
 
-**Target a specific device** by UDID
+按 UDID **指定目标设备**
 
 ```idevicesyslog -u [udid]```
 
-**Print only** lines containing a pattern
+**只打印**包含某模式的行
 
 ```idevicesyslog -m "[error]"```
 
-**Exclude processes** (pipe-separated)
+**排除进程**（以竖线分隔）
 
 ```idevicesyslog -e "[SpringBoard|backboardd]"```
 
-**Stream over network** instead of USB
+**通过网络**而非 USB 传输
 
 ```idevicesyslog -n```
 
-**Save output** to a file
+将输出**保存到文件**
 
 ```idevicesyslog -o [device.log]```
 
@@ -43,63 +43,63 @@ streams the system log from iOS devices
 # PARAMETERS
 
 **-u**, **--udid** _UDID_
-> Target a specific device by UDID.
+> 按 UDID 指定目标设备。
 
 **-n**, **--network**
-> Connect to a network-attached device instead of USB.
+> 连接网络设备而非 USB 设备。
 
 **-p**, **--process** _PROCESS_
-> Include messages from the given process names (**|** separated).
+> 只包含来自给定进程名的消息（以 **|** 分隔）。
 
 **-e**, **--exclude** _PROCESS_
-> Exclude messages from the given process names (**|** separated).
+> 排除来自给定进程名的消息（以 **|** 分隔）。
 
 **-m**, **--match** _STRING_
-> Print only messages containing _STRING_.
+> 只打印包含 _STRING_ 的消息。
 
 **-M**, **--unmatch** _STRING_
-> Print only messages **not** containing _STRING_.
+> 只打印**不**包含 _STRING_ 的消息。
 
 **-t**, **--trigger** _STRING_
-> Start logging when a message containing _STRING_ is seen.
+> 看到包含 _STRING_ 的消息时开始记录日志。
 
 **-T**, **--untrigger** _STRING_
-> Stop logging when a message containing _STRING_ is seen.
+> 看到包含 _STRING_ 的消息时停止记录日志。
 
 **-k**, **--kernel**, **-K**, **--no-kernel**
-> Include or exclude kernel messages.
+> 包含或排除内核消息。
 
 **-o**, **--output** _FILE_
-> Write the log stream to _FILE_ in addition to the terminal.
+> 除终端外，还将日志流写入 _FILE_。
 
 **-x**, **--exit**
-> Exit when the device disconnects.
+> 设备断开连接时退出。
 
 **--no-colors**, **--colors**
-> Disable or force ANSI color output.
+> 禁用或强制 ANSI 彩色输出。
 
 **-q**, **--quiet**
-> Suppress banner / status output.
+> 抑制横幅/状态输出。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**idevicesyslog** streams the system log from iOS devices. It provides real-time access to device logs for debugging.
+**idevicesyslog** 实时传输 iOS 设备的系统日志。它提供对设备日志的实时访问，便于调试。
 
-The tool shows messages from all processes or filtered subsets. It's essential for iOS app development and debugging.
+该工具可显示所有进程的消息或经过过滤的子集。它是 iOS 应用开发和调试的必备工具。
 
 # CAVEATS
 
-Part of libimobiledevice. Continuous stream. May need developer mode on iOS 16+.
+属于 libimobiledevice。持续输出流。iOS 16+ 可能需要开启开发者模式。
 
 # HISTORY
 
-idevicesyslog is part of **libimobiledevice** for iOS log streaming.
+idevicesyslog 是 **libimobiledevice** 的组成部分，用于 iOS 日志流式传输。
 
 # INSTALL
 

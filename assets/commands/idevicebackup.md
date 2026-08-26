@@ -1,18 +1,18 @@
 # TAGLINE
 
-creates and restores backups of iOS devices
+创建和恢复 iOS 设备的备份
 
 # TLDR
 
-**Create backup**
+**创建备份**
 
 ```idevicebackup backup [backup-dir]```
 
-**Restore from backup**
+**从备份恢复**
 
 ```idevicebackup restore [backup-dir]```
 
-**Backup specific device**
+**备份指定设备**
 
 ```idevicebackup -u [device-udid] backup [backup-dir]```
 
@@ -23,29 +23,29 @@ creates and restores backups of iOS devices
 # SUBCOMMANDS
 
 **backup**
-> Create device backup.
+> 创建设备备份。
 
 **restore**
-> Restore from backup.
+> 从备份恢复。
 
 # PARAMETERS
 
 **-u** _udid_
-> Target specific device.
+> 指定目标设备。
 
 **-n**
-> Connect over network.
+> 通过网络连接。
 
 **-d**
-> Enable debug output.
+> 启用调试输出。
 
 # DESCRIPTION
 
-**idevicebackup** creates and restores backups of iOS devices. Part of the libimobiledevice suite. Works with older iOS versions. For iOS 4 and later, use **idevicebackup2** instead.
+**idevicebackup** 创建并恢复 iOS 设备的备份，属于 libimobiledevice 套件。适用于较旧的 iOS 版本。对于 iOS 4 及更高版本，请改用 **idevicebackup2**。
 
 # CAVEATS
 
-Deprecated for newer iOS versions. Use idevicebackup2 for iOS 4+.
+在较新的 iOS 版本上已弃用。iOS 4+ 请使用 idevicebackup2。
 
 # INSTALL
 

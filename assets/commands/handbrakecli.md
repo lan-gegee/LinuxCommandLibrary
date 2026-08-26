@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for HandBrake, a powerful open-source video transcoder
+HandBrake 的命令行界面，一款强大的开源视频转码器
 
 # TLDR
 
-**Convert a video** using a preset
+使用预设**转换视频**
 
 ```HandBrakeCLI -i [input.mkv] -o [output.mp4] --preset="[Fast 1080p30]"```
 
-**List available presets**
+**列出可用预设**
 
 ```HandBrakeCLI --preset-list```
 
-**Convert with specific video codec**
+**使用指定视频编码器转换**
 
 ```HandBrakeCLI -i [input.mkv] -o [output.mp4] -e [x264]```
 
-**Set video quality** (lower = better, 18-28 typical)
+**设置视频质量**（数值越低质量越好，通常取 18-28）
 
 ```HandBrakeCLI -i [input.mkv] -o [output.mp4] -q [22]```
 
-**Convert a DVD** or Blu-ray directory
+**转换 DVD** 或蓝光目录
 
 ```HandBrakeCLI -i [/path/to/VIDEO_TS] -o [output.mp4] --preset="[Fast 1080p30]"```
 
-**Extract a specific title** from disc
+从光盘**提取指定标题**
 
 ```HandBrakeCLI -i [/dev/dvd] -t [1] -o [output.mp4]```
 
-**Convert with audio and subtitle** selection
+转换时**选择音频和字幕**轨道
 
 ```HandBrakeCLI -i [input.mkv] -o [output.mp4] -a [1,2] -s [1]```
 
-**Scan input** to see titles and tracks
+**扫描输入**以查看标题和轨道
 
 ```HandBrakeCLI -i [input.mkv] --scan```
 
@@ -43,75 +43,75 @@ command-line interface for HandBrake, a powerful open-source video transcoder
 # PARAMETERS
 
 **-i**, **--input** _source_
-> Input file, directory, or device.
+> 输入文件、目录或设备。
 
 **-o**, **--output** _file_
-> Output file path.
+> 输出文件路径。
 
 **-Z**, **--preset** _name_
-> Use named preset (see --preset-list).
+> 使用命名预设（参见 --preset-list）。
 
 **-z**, **--preset-list**
-> List available presets.
+> 列出可用预设。
 
 **-t**, **--title** _number_
-> Select title number (for DVDs/Blu-rays).
+> 选择标题编号（用于 DVD/蓝光）。
 
 **--scan**
-> Scan input without encoding.
+> 只扫描输入而不转码。
 
 **-e**, **--encoder** _codec_
-> Video encoder: x264, x265, nvenc_h264, nvenc_h265, vce_h264, vce_h265, svt_av1.
+> 视频编码器：x264、x265、nvenc_h264、nvenc_h265、vce_h264、vce_h265、svt_av1。
 
 **-q**, **--quality** _RF_
-> Constant quality (RF value, lower = better).
+> 恒定质量（RF 值，数值越低质量越好）。
 
 **-b**, **--vb** _kbps_
-> Video bitrate in kbps.
+> 视频码率（kbps）。
 
 **-r**, **--rate** _fps_
-> Frame rate.
+> 帧率。
 
 **-a**, **--audio** _tracks_
-> Audio track(s) to include (comma-separated).
+> 要包含的音频轨道（逗号分隔）。
 
 **-E**, **--aencoder** _codec_
-> Audio encoder: copy, aac, ac3, mp3, opus, flac.
+> 音频编码器：copy、aac、ac3、mp3、opus、flac。
 
 **-s**, **--subtitle** _tracks_
-> Subtitle track(s) to include.
+> 要包含的字幕轨道。
 
 **--crop** _top:bottom:left:right_
-> Crop values.
+> 裁剪值。
 
 **-w**, **--width** _pixels_
-> Output width.
+> 输出宽度。
 
 **-l**, **--height** _pixels_
-> Output height.
+> 输出高度。
 
 **--multi-pass**
-> Enable multi-pass encoding (replaces the older --two-pass flag).
+> 启用多趟编码（取代旧的 --two-pass 标志）。
 
 # DESCRIPTION
 
-**HandBrakeCLI** is the command-line interface for HandBrake, a powerful open-source video transcoder. It converts videos between formats, rips DVDs and Blu-rays, and can significantly reduce file sizes while maintaining quality.
+**HandBrakeCLI** 是 HandBrake 的命令行界面。HandBrake 是一款强大的开源视频转码器，可以在不同格式之间转换视频、抓取 DVD 和蓝光光盘，并能在保持质量的同时显著减小文件体积。
 
-The tool uses presets to simplify common encoding scenarios. Built-in presets target specific devices (Apple TV, Android, Roku) or quality levels (Fast 1080p30, HQ 1080p30 Surround). Custom presets can be exported from the GUI and imported into CLI workflows.
+该工具使用预设来简化常见的编码场景。内置预设针对特定设备（Apple TV、Android、Roku）或质量级别（Fast 1080p30、HQ 1080p30 Surround）。自定义预设可以从 GUI 导出，再导入 CLI 工作流中使用。
 
-For quality-based encoding, the RF (Rate Factor) value controls the quality-to-size tradeoff. For x264/x265, values of 18-22 provide high quality, 23-28 provide smaller files with acceptable quality. Lower numbers mean higher quality and larger files.
+对于基于质量的编码，RF（Rate Factor）值控制质量与体积之间的权衡。对 x264/x265 而言，18-22 可提供高质量，23-28 则产生更小且质量尚可接受的文件。数值越低意味着质量越高、文件越大。
 
-HandBrake supports hardware acceleration on supported systems: NVIDIA NVENC, AMD VCE/VCN, Intel QuickSync, and Apple VideoToolbox. Hardware encoders are faster but may produce larger files at equivalent quality.
+HandBrake 在受支持的系统上支持硬件加速：NVIDIA NVENC、AMD VCE/VCN、Intel QuickSync 以及 Apple VideoToolbox。硬件编码器速度更快，但在同等质量下可能产生更大的文件。
 
-Audio and subtitle tracks can be selected, converted, or passed through. Multiple audio tracks can be included with different encodings. Subtitles can be burned in or kept as soft subs.
+音频和字幕轨道可以被选择、转换或直接传递。可以包含多条采用不同编码的音频轨道。字幕既可以烧录进画面，也可以保留为软字幕。
 
 # CAVEATS
 
-Cannot output to some patent-encumbered formats. DVD/Blu-ray decryption requires libdvdcss. Quality settings don't translate directly between encoders. Hardware encoding availability depends on GPU and drivers. Multi-pass encoding takes longer than a single pass.
+无法输出到某些受专利限制的格式。DVD/蓝光解密需要 libdvdcss。质量设置在不同编码器之间不能直接换算。硬件编码的可用性取决于 GPU 和驱动。多趟编码比单趟耗时更长。
 
 # HISTORY
 
-**HandBrake** was originally created by Eric Petit (titer) in **2003** as "MediaFork" for BeOS, then renamed and continued on other platforms. The project was revived by the open-source community after a period of inactivity. It has become one of the most popular open-source video transcoders, known for its balance of features and usability.
+**HandBrake** 最初由 Eric Petit（titer）于 **2003 年**为 BeOS 创建，当时名为 "MediaFork"，随后更名并在其他平台上继续开发。该项目在一段沉寂之后由开源社区复兴。如今它已成为最受欢迎的开源视频转码器之一，以功能与易用性的良好平衡著称。
 
 # SEE ALSO
 

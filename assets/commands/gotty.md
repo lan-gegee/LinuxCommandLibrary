@@ -1,26 +1,26 @@
 # TAGLINE
 
-Share terminal as a web application
+将终端共享为 Web 应用
 
 # TLDR
 
-**Share terminal as web**
+**将终端共享为网页**
 
 ```gotty [command]```
 
-**Share with write permission**
+**以写入权限共享**
 
 ```gotty -w [bash]```
 
-**Specify port**
+**指定端口**
 
 ```gotty -p [8080] [command]```
 
-**With authentication**
+**启用身份验证**
 
 ```gotty -c [user:pass] [command]```
 
-**Random URL path**
+**随机 URL 路径**
 
 ```gotty --random-url [command]```
 
@@ -31,59 +31,59 @@ Share terminal as a web application
 # PARAMETERS
 
 _COMMAND_
-> Command to share.
+> 要共享的命令。
 
 **-w**, **--permit-write**
-> Allow input from browser.
+> 允许来自浏览器的输入。
 
 **-p** _PORT_, **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **-c** _CRED_, **--credential** _CRED_
-> Basic authentication credentials in the form user:pass.
+> 基本认证凭据，格式为 user:pass。
 
 **-r**, **--random-url**
-> Add a random string to the URL path.
+> 在 URL 路径中添加随机字符串。
 
 **-t**, **--tls**
-> Enable TLS/SSL.
+> 启用 TLS/SSL。
 
 **--tls-crt** _PATH_
-> Path to TLS certificate file.
+> TLS 证书文件路径。
 
 **--tls-key** _PATH_
-> Path to TLS key file.
+> TLS 密钥文件路径。
 
 **--reconnect**
-> Allow client to reconnect after the connection is closed.
+> 允许客户端在连接关闭后重新连接。
 
 **--once**
-> Quit after the first client disconnects.
+> 在第一个客户端断开后退出。
 
 **--config** _FILE_
-> Configuration file path.
+> 配置文件路径。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gotty** shares a terminal command as a web application accessible through a browser. It runs a command and exposes it through HTTP, enabling remote terminal access, log viewing, and collaborative debugging.
+**gotty** 将一个终端命令共享为可通过浏览器访问的 Web 应用。它运行一个命令并通过 HTTP 暴露该命令，从而实现远程终端访问、日志查看和协作调试。
 
-Authentication and TLS are supported for secure deployments. The **-w** flag enables browser users to send input to the running command.
+支持身份验证和 TLS 以实现安全的部署。**-w** 标志允许浏览器用户向正在运行的命令发送输入。
 
 # CONFIGURATION
 
 **~/.gotty**
-> Configuration file for default settings like port, TLS certificates, and credential options.
+> 用于保存默认设置（如端口、TLS 证书和凭据选项）的配置文件。
 
 # CAVEATS
 
-Security sensitive with -w flag. Use authentication in production. Firewall considerations.
+使用 -w 标志时存在安全风险。生产环境中请启用身份验证。注意防火墙相关事项。
 
 # HISTORY
 
-gotty was created by **Iwasaki Yudai** to share terminal sessions through web browsers.
+gotty 由 **Iwasaki Yudai** 创建，用于通过 Web 浏览器共享终端会话。
 
 # INSTALL
 

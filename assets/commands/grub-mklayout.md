@@ -1,18 +1,18 @@
 # TAGLINE
 
-create GRUB keyboard layout files
+创建 GRUB 键盘布局文件
 
 # TLDR
 
-**Create keyboard layout**
+**创建键盘布局**
 
 ```grub-mklayout -o [layout.gkb] < [layout.ckb]```
 
-**Convert from console layout**
+**从控制台布局转换**
 
 ```ckbcomp [us] | grub-mklayout -o [us.gkb]```
 
-**Verbose output**
+**详细输出**
 
 ```grub-mklayout -v -o [layout.gkb] < [input]```
 
@@ -23,27 +23,27 @@ create GRUB keyboard layout files
 # PARAMETERS
 
 **-o**, **--output** _FILE_
-> Output GKB file.
+> 输出的 GKB 文件。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**grub-mklayout** creates keyboard layout files for GRUB by converting console keyboard maps to GRUB's GKB format. It reads from stdin and produces a binary layout file for use during boot.
+**grub-mklayout** 通过将控制台键盘映射转换为 GRUB 的 GKB 格式来创建键盘布局文件。它从 stdin 读取输入，并生成供启动过程使用的二进制布局文件。
 
-The tool enables non-US keyboard layouts in GRUB, allowing users to type passwords and commands in the boot menu using their native keyboard layout.
+借助该工具，GRUB 可以使用非美式键盘布局，让用户能在启动菜单中用自己的母语键盘布局输入密码和命令。
 
 # CAVEATS
 
-Part of GRUB package. Requires ckbcomp for console layouts. Limited layout options.
+属于 GRUB 软件包的一部分。处理控制台布局需要 ckbcomp。可用的布局选项有限。
 
 # HISTORY
 
-grub-mklayout was developed as part of **GNU GRUB 2** to support international keyboard layouts in the boot menu.
+grub-mklayout 作为 **GNU GRUB 2** 的一部分开发，用于在启动菜单中支持国际化键盘布局。
 
 # INSTALL
 

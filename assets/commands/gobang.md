@@ -1,18 +1,18 @@
 # TAGLINE
 
-Cross-platform TUI database management tool
+跨平台 TUI 数据库管理工具
 
 # TLDR
 
-**Launch gobang** with default config
+**使用默认配置启动 gobang**
 
 ```gobang```
 
-**Launch with a custom config file**
+**使用自定义配置文件启动**
 
 ```gobang -c [path/to/config.toml]```
 
-**Display help**
+**显示帮助**
 
 ```gobang -h```
 
@@ -23,53 +23,53 @@ Cross-platform TUI database management tool
 # PARAMETERS
 
 **-c**, **--config-path** _PATH_
-> Set the config file path.
+> 设置配置文件路径。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**gobang** is a cross-platform terminal-based database management tool written in Rust, supporting MySQL, PostgreSQL, and SQLite. It provides an interactive TUI for browsing databases, running queries, and managing tables.
+**gobang** 是一个用 Rust 编写的跨平台终端数据库管理工具，支持 MySQL、PostgreSQL 和 SQLite。它提供交互式 TUI，可用于浏览数据库、执行查询和管理表。
 
-Database connections are configured in a TOML config file (default: **~/.config/gobang/config.toml**). The tool features a SQL editor with syntax highlighting and result display in table format.
+数据库连接在 TOML 配置文件中设置（默认：**~/.config/gobang/config.toml**）。该工具配有支持语法高亮的 SQL 编辑器，并以表格形式展示结果。
 
 # KEYBINDINGS
 
 **↑/↓**
-> Navigate tables/columns
+> 在表/列之间导航
 
 **Enter**
-> Select table/view columns
+> 选择表 / 查看各列
 
 **Tab**
-> Switch between panels
+> 在面板之间切换
 
 **e**
-> Edit connection
+> 编辑连接
 
 **d**
-> Delete record
+> 删除记录
 
 **q**
-> Quit
+> 退出
 
 **>**
-> Open query editor
+> 打开查询编辑器
 
 **?**
-> Show help
+> 显示帮助
 
 # CAVEATS
 
-Requires database credentials. Large query results may impact performance. Some database-specific features may not be supported.
+需要数据库凭据。过大的查询结果可能影响性能。部分特定于数据库的功能可能不受支持。
 
 # HISTORY
 
-**gobang** was created as a universal terminal-based database client, similar to GUI tools like DBeaver but for the terminal.
+**gobang** 的定位是通用的终端数据库客户端，类似于 DBeaver 等 GUI 工具，但运行在终端中。
 
 # SEE ALSO
 

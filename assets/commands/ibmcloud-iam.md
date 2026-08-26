@@ -1,26 +1,26 @@
 # TAGLINE
 
-manages Identity and Access Management
+管理身份与访问管理（IAM）
 
 # TLDR
 
-**List API keys**
+**列出 API 密钥**
 
 ```ibmcloud iam api-keys```
 
-**Create API key**
+**创建 API 密钥**
 
 ```ibmcloud iam api-key-create [name]```
 
-**List service IDs**
+**列出服务 ID**
 
 ```ibmcloud iam service-ids```
 
-**Show access groups**
+**显示访问组**
 
 ```ibmcloud iam access-groups```
 
-**Get user policies**
+**获取用户策略**
 
 ```ibmcloud iam user-policies [user]```
 
@@ -31,39 +31,39 @@ manages Identity and Access Management
 # PARAMETERS
 
 _COMMAND_
-> IAM command.
+> IAM 命令。
 
 **api-keys**
-> List API keys.
+> 列出 API 密钥。
 
 **api-key-create**
-> Create API key.
+> 创建 API 密钥。
 
 **service-ids**
-> List service IDs.
+> 列出服务 ID。
 
 **access-groups**
-> List access groups.
+> 列出访问组。
 
 **user-policies**
-> Show user policies.
+> 显示用户策略。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ibmcloud iam** manages Identity and Access Management. It handles API keys, service IDs, access groups, and policies.
+**ibmcloud iam** 管理身份与访问管理（Identity and Access Management）。它处理 API 密钥、服务 ID、访问组和策略。
 
-The tool controls authentication and authorization for IBM Cloud resources. It enables secure service-to-service communication.
+该工具控制 IBM Cloud 资源的身份验证和授权。它支持安全的服务间通信。
 
 # CAVEATS
 
-Account owner or admin needed. Policy changes immediate. Audit trails available.
+需要账户所有者或管理员权限。策略更改立即生效。提供审计跟踪。
 
 # HISTORY
 
-ibmcloud iam is the IAM management component of **IBM Cloud** CLI.
+ibmcloud iam 是 **IBM Cloud** CLI 的 IAM 管理组件。
 
 # SEE ALSO
 

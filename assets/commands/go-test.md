@@ -1,38 +1,38 @@
 # TAGLINE
 
-Go package testing framework
+Go 包测试框架
 
 # TLDR
 
-**Run tests in current package**
+**运行当前包中的测试**
 
 ```go test```
 
-**Run tests with verbose output**
+**以详细输出运行测试**
 
 ```go test -v```
 
-**Run specific tests by pattern**
+**按模式运行特定测试**
 
 ```go test -run [TestName]```
 
-**Run benchmarks**
+**运行基准测试**
 
 ```go test -bench .```
 
-**Run with race detector**
+**启用竞态检测器运行**
 
 ```go test -race```
 
-**Run with coverage**
+**启用覆盖率检测运行**
 
 ```go test -cover```
 
-**Generate coverage profile**
+**生成覆盖率分析文件**
 
 ```go test -coverprofile=[coverage.out]```
 
-**Run tests in all packages**
+**运行所有包中的测试**
 
 ```go test ./...```
 
@@ -43,47 +43,47 @@ Go package testing framework
 # PARAMETERS
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-run** _regexp_
-> Run only tests matching pattern.
+> 只运行匹配模式的测试。
 
 **-bench** _regexp_
-> Run benchmarks matching pattern.
+> 运行匹配模式的基准测试。
 
 **-cover**
-> Enable coverage analysis.
+> 启用覆盖率分析。
 
 **-coverprofile** _file_
-> Write coverage to file.
+> 将覆盖率写入文件。
 
 **-race**
-> Enable race detector.
+> 启用竞态检测器。
 
 **-count** _n_
-> Run each test n times.
+> 每个测试运行 n 次。
 
 **-timeout** _d_
-> Test timeout (default 10m).
+> 测试超时时间（默认 10m）。
 
 **-short**
-> Tell tests to shorten long operations.
+> 让测试缩短耗时较长的操作。
 
 **-parallel** _n_
-> Max parallel test execution.
+> 测试的最大并行执行数。
 
 **-json**
-> Output results as JSON.
+> 以 JSON 格式输出结果。
 
 # DESCRIPTION
 
-**go test** automates testing of Go packages. It compiles and runs test files (*_test.go) containing functions named Test*, Benchmark*, and Example*. Tests can run in parallel, include race detection, and generate coverage reports.
+**go test** 自动执行 Go 包的测试。它会编译并运行包含 Test*、Benchmark*、Example* 命名函数的测试文件（*_test.go）。测试可以并行运行、进行竞态检测，并生成覆盖率报告。
 
-The command recompiles packages as needed and caches successful test results (cache is bypassed with **-count=1**). It runs **go vet** automatically on the package before testing, and supports subtests, table-driven tests, and fuzz testing for comprehensive validation.
+该命令会按需重新编译包，并缓存成功的测试结果（设置 **-count=1** 可绕过缓存）。它在测试前会对包自动运行 **go vet**，并支持子测试、表驱动测试和模糊测试，以实现全面的验证。
 
 # CAVEATS
 
-Cached results are reused for unchanged tests unless **-count=1** is set. Only functions matching `Test*`, `Benchmark*`, `Example*`, and `Fuzz*` in `*_test.go` files are recognized.
+只要未设置 **-count=1**，未变化的测试就会复用缓存的结果。只有 `*_test.go` 文件中匹配 `Test*`、`Benchmark*`、`Example*` 和 `Fuzz*` 的函数才会被识别。
 
 # INSTALL
 

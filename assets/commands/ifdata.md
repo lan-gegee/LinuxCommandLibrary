@@ -1,34 +1,34 @@
 # TAGLINE
 
-retrieves network interface information in a script-friendly format
+以脚本友好的格式获取网络接口信息
 
 # TLDR
 
-**Get IP address**
+**获取 IP 地址**
 
 ```ifdata -pa [eth0]```
 
-**Get netmask**
+**获取子网掩码**
 
 ```ifdata -pn [eth0]```
 
-**Get broadcast address**
+**获取广播地址**
 
 ```ifdata -pb [eth0]```
 
-**Get MAC address**
+**获取 MAC 地址**
 
 ```ifdata -ph [eth0]```
 
-**Get MTU**
+**获取 MTU**
 
 ```ifdata -pm [eth0]```
 
-**Check if interface exists**
+**检查接口是否存在**
 
 ```ifdata -e [eth0]```
 
-**Get network address**
+**获取网络地址**
 
 ```ifdata -pN [eth0]```
 
@@ -39,32 +39,32 @@ retrieves network interface information in a script-friendly format
 # PARAMETERS
 
 **-e**
-> Test if interface exists (exit code).
+> 测试接口是否存在（通过退出码）。
 
 **-pa**
-> Print IP address.
+> 打印 IP 地址。
 
 **-pn**
-> Print netmask.
+> 打印子网掩码。
 
 **-pN**
-> Print network address.
+> 打印网络地址。
 
 **-pb**
-> Print broadcast address.
+> 打印广播地址。
 
 **-pm**
-> Print MTU.
+> 打印 MTU。
 
 **-ph**
-> Print hardware (MAC) address.
+> 打印硬件（MAC）地址。
 
 **-pf**
-> Print flags.
+> 打印标志。
 
 # DESCRIPTION
 
-**ifdata** retrieves network interface information in a script-friendly format. Part of the moreutils package. Unlike ifconfig or ip, it returns single clean values without parsing. Exit codes indicate success/failure for conditional testing in scripts.
+**ifdata** 以脚本友好的格式获取网络接口信息，属于 moreutils 软件包。与 ifconfig 或 ip 不同，它直接返回单一干净的值，无需解析。退出码可用于脚本中的条件判断，表示成功/失败。
 
 # INSTALL
 

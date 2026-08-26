@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays groff output in an X11 window
+在 X11 窗口中显示 groff 输出
 
 # TLDR
 
-**View groff document**
+**查看 groff 文档**
 
 ```gxditview [file.roff]```
 
-**Specify page size**
+**指定页面尺寸**
 
 ```gxditview -page [a4] [file.roff]```
 
-**View from stdin**
+**从标准输入查看**
 
 ```groff -X [file.roff]```
 
-**View with specific resolution**
+**以指定分辨率查看**
 
 ```gxditview -resolution [100] [file.roff]```
 
@@ -27,33 +27,33 @@ displays groff output in an X11 window
 # PARAMETERS
 
 _FILE_
-> Groff intermediate output.
+> Groff 中间输出。
 
 **-page** _SIZE_
-> Page size (a4, letter).
+> 页面尺寸（a4、letter）。
 
 **-resolution** _DPI_
-> Display resolution.
+> 显示分辨率。
 
 **-backingStore**
-> Use backing store.
+> 使用后备存储（backing store）。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gxditview** displays groff output in an X11 window. It provides on-screen preview of formatted documents without printing.
+**gxditview** 在 X11 窗口中显示 groff 输出。它可以在不打印的情况下在屏幕上预览排版后的文档。
 
-The tool reads groff's intermediate output format and renders it graphically. It's invoked by groff -X or can read ditroff output directly.
+该工具读取 groff 的中间输出格式并将其图形化渲染。它由 groff -X 调用，也可以直接读取 ditroff 输出。
 
 # CAVEATS
 
-Part of groff package. Requires X11. Dated interface. May have font issues.
+属于 groff 软件包的一部分。需要 X11。界面较为陈旧。可能存在字体问题。
 
 # HISTORY
 
-gxditview was developed as part of **GNU groff** as an X11 previewer, derived from **xditview** from X11.
+gxditview 作为 **GNU groff** 的一部分开发而成，是一个 X11 预览器，派生自 X11 的 **xditview**。
 
 # INSTALL
 

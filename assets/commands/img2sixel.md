@@ -1,26 +1,26 @@
 # TAGLINE
 
-converts images to Sixel format for terminal display
+将图像转换为 Sixel 格式以便在终端中显示
 
 # TLDR
 
-**Display image in terminal**
+**在终端中显示图像**
 
 ```img2sixel [image.png]```
 
-**Set width**
+**设置宽度**
 
 ```img2sixel -w [800] [image.png]```
 
-**Set height**
+**设置高度**
 
 ```img2sixel -h [600] [image.png]```
 
-**Specify colors**
+**指定颜色数**
 
 ```img2sixel -p [256] [image.png]```
 
-**Pipe output**
+**管道传输输出**
 
 ```curl [url/image.png] | img2sixel```
 
@@ -31,39 +31,39 @@ converts images to Sixel format for terminal display
 # PARAMETERS
 
 _FILE_
-> Image file to display.
+> 要显示的图像文件。
 
 **-w** _WIDTH_
-> Output width in pixels.
+> 以像素为单位的输出宽度。
 
 **-h** _HEIGHT_
-> Output height in pixels.
+> 以像素为单位的输出高度。
 
 **-p** _COLORS_
-> Number of colors.
+> 颜色数。
 
 **-d** _DIFFUSION_
-> Dithering method.
+> 抖动方法。
 
 **-e**
-> Encode only (no display).
+> 仅编码（不显示）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**img2sixel** converts images to Sixel format for terminal display. Sixel enables inline graphics in compatible terminals.
+**img2sixel** 将图像转换为 Sixel 格式以便在终端中显示。Sixel 让兼容的终端能够显示内联图形。
 
-The tool supports various image formats and outputs Sixel escape sequences. It works with terminals like xterm, mlterm, and others.
+该工具支持多种图像格式，并输出 Sixel 转义序列。它可用于 xterm、mlterm 等终端。
 
 # CAVEATS
 
-Requires Sixel-capable terminal. Part of libsixel. Quality depends on colors.
+需要支持 Sixel 的终端。属于 libsixel 项目。画质取决于颜色数。
 
 # HISTORY
 
-img2sixel is part of **libsixel** by **Hayaki Saito** for terminal graphics.
+img2sixel 是 **Hayaki Saito** 开发的 **libsixel** 的一部分，用于终端图形显示。
 
 # INSTALL
 

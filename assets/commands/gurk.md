@@ -1,14 +1,14 @@
 # TAGLINE
 
-Signal Messenger client for the terminal
+终端上的 Signal Messenger 客户端
 
 # TLDR
 
-**Start gurk** and link to Signal account
+**启动 gurk** 并链接 Signal 账户
 
 ```gurk```
 
-**Start with a specific config file**
+**使用指定的配置文件启动**
 
 ```gurk --config [path/to/config.toml]```
 
@@ -18,19 +18,19 @@ Signal Messenger client for the terminal
 
 # DESCRIPTION
 
-**gurk** is a Signal Messenger client that runs entirely in the terminal. It provides a TUI interface for sending and receiving encrypted messages through the Signal protocol, supporting both individual and group conversations.
+**gurk** 是一款完全运行在终端中的 Signal Messenger 客户端。它提供 TUI 界面，通过 Signal 协议收发加密消息，同时支持单聊和群聊。
 
-On first launch, gurk displays a **QR code** that can be scanned with the Signal mobile app to link the terminal client as a secondary device. Once linked, messages sync between devices and conversations can be managed using keyboard shortcuts.
+首次启动时，gurk 会显示一个**二维码**，用 Signal 手机应用扫描即可将该终端客户端绑定为附属设备。绑定成功后，消息会在设备间同步，你可以使用键盘快捷键管理会话。
 
-The client stores its data and configuration in a local directory, and supports customizable key bindings through a TOML configuration file.
+该客户端将数据和配置存储在本地目录中，并支持通过 TOML 配置文件自定义按键绑定。
 
 # CAVEATS
 
-Requires an existing Signal account on a mobile device for linking. Does not support creating new Signal accounts. Some Signal features like voice/video calls and stories are not available in the terminal client. Message history before linking is not synced.
+需要一个移动设备上已有的 Signal 账户用于绑定。不支持创建新的 Signal 账户。语音/视频通话和快照等部分 Signal 功能在终端客户端中不可用。绑定之前的历史消息不会同步。
 
 # HISTORY
 
-**gurk** (gurk-rs) was created by **boxdot** and is written in **Rust**. The name is German slang for cucumber. It is the only actively maintained Signal client for the terminal, providing privacy-focused messaging for headless systems and terminal-centric workflows.
+**gurk**（gurk-rs）由 **boxdot** 创建，使用 **Rust** 编写。其名称是德语俚语"黄瓜"的意思。它是唯一仍在活跃维护的终端 Signal 客户端，为无头系统和以终端为中心的工作流提供注重隐私的消息传递功能。
 
 # INSTALL
 

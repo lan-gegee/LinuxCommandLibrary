@@ -1,18 +1,18 @@
 # TAGLINE
 
-display user group memberships
+显示用户的组成员关系
 
 # TLDR
 
-**Show current user groups**
+**显示当前用户的组**
 
 ```groups```
 
-**Show groups for user**
+**显示指定用户的组**
 
 ```groups [username]```
 
-**Show groups for multiple users**
+**显示多个用户的组**
 
 ```groups [user1] [user2]```
 
@@ -23,27 +23,27 @@ display user group memberships
 # PARAMETERS
 
 _USERS_
-> Usernames to check groups for.
+> 要查询所属组的用户名。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**groups** displays the group memberships for a user. Without arguments, it shows groups for the current user. The primary group is listed first, followed by supplementary groups.
+**groups** 显示一个用户的组成员关系。不带参数时，它显示当前用户所属的组。主组排在最前，其后是补充组。
 
-The command reads from **/etc/group** and the user's supplementary group list. It is equivalent to **id -Gn** but with simpler output formatting.
+该命令从 **/etc/group** 和用户的补充组列表中读取信息。它等价于 **id -Gn**，但输出格式更简单。
 
 # CAVEATS
 
-Shows cached groups at login. New group memberships require re-login. Primary group shown first.
+显示的是登录时缓存的组。新加入的组需要重新登录才能生效。主组排在最前面。
 
 # HISTORY
 
-groups is a standard Unix command, part of **GNU coreutils** on Linux systems.
+groups 是标准的 Unix 命令，在 Linux 系统上属于 **GNU coreutils**。
 
 # INSTALL
 

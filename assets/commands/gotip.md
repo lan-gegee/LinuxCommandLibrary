@@ -1,18 +1,18 @@
 # TAGLINE
 
-Daily builds of Go from development tree
+来自 Go 开发树的每日构建版本
 
 # TLDR
 
-**Run** Go development version
+**运行** Go 开发版本
 
 ```gotip [go-commands]```
 
-**Install** latest development version
+**安装**最新开发版本
 
 ```gotip download```
 
-**Build** specific CL
+**构建**特定的 CL
 
 ```gotip download [CL-number]```
 
@@ -23,23 +23,23 @@ Daily builds of Go from development tree
 # PARAMETERS
 
 **download** [_CL_]
-> Fetch and build the current Go development tree into **$HOME/sdk/gotip**. When a Gerrit change-list number is supplied, that CL is applied on top before building.
+> 获取并构建当前 Go 开发树到 **$HOME/sdk/gotip**。如果提供了 Gerrit 变更列表（change-list）编号，则会在构建前先应用该 CL。
 
-Any other argument is passed through unchanged to the **go** tool inside the installed gotip SDK, so **gotip build**, **gotip test**, **gotip env**, etc. all Just Work.
+任何其他参数都会原样传递给已安装的 gotip SDK 中的 **go** 工具，因此 **gotip build**、**gotip test**、**gotip env** 等命令都能直接使用。
 
 # DESCRIPTION
 
-**gotip** provides access to daily builds of Go from the development tree. It allows developers to test upcoming Go features and bug fixes before they are released in stable versions.
+**gotip** 提供来自 Go 开发树的每日构建版本。它让开发者能够在即将发布的特性与缺陷修复进入稳定版本之前先行测试。
 
-Unlike the numbered `go1.XX` download wrappers, **gotip download** builds the toolchain from source at the latest **master** commit of **golang/go**, so a working Go installation is required to bootstrap it. To refresh the installation, delete **~/sdk/gotip/.unpacked-success** (or the whole directory) and re-run **gotip download**.
+与带版本号的 `go1.XX` 下载包装器不同，**gotip download** 会从 **golang/go** 仓库最新的 **master** 提交开始从源码构建工具链，因此需要一个可用的 Go 安装来进行引导。要刷新安装，删除 **~/sdk/gotip/.unpacked-success**（或整个目录）后重新运行 **gotip download** 即可。
 
 # USAGE
 
-Install latest development version:
+安装最新开发版本：
 
 ```gotip download```
 
-Use gotip like regular Go:
+像普通 go 命令一样使用 gotip：
 
 ```gotip run main.go```
 ```gotip test ./...```
@@ -47,11 +47,11 @@ Use gotip like regular Go:
 
 # CAVEATS
 
-Development versions may be unstable. Not recommended for production use. Requires internet connection to download. Binaries are large downloads.
+开发版本可能不稳定。不建议用于生产环境。下载时需要联网。二进制文件体积较大。
 
 # HISTORY
 
-**gotip** was created by the Go team to make testing development versions easier, replacing earlier workarounds for accessing pre-release Go versions.
+**gotip** 由 Go 团队创建，目的是让测试开发版本更加方便，取代了早期访问 Go 预发布版本的种种变通方法。
 
 # INSTALL
 

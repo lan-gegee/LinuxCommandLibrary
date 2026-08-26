@@ -1,26 +1,26 @@
 # TAGLINE
 
-Universal groff document viewer
+通用 groff 文档查看器
 
 # TLDR
 
-**View man page**
+**查看 man page**
 
 ```groffer [man-page]```
 
-**View file in X window**
+**在 X 窗口中查看文件**
 
 ```groffer --x [file.roff]```
 
-**View as PDF**
+**以 PDF 查看**
 
 ```groffer --pdf [file.roff]```
 
-**View as text in terminal**
+**以文本方式在终端查看**
 
 ```groffer --tty [file.roff]```
 
-**Specify viewer**
+**指定查看器**
 
 ```groffer --viewer [evince] [file.roff]```
 
@@ -31,42 +31,42 @@ Universal groff document viewer
 # PARAMETERS
 
 _FILES_
-> Files or man pages to display.
+> 要显示的文件或 man page。
 
 **--pdf**
-> Output as PDF.
+> 以 PDF 输出。
 
 **--ps**
-> Output as PostScript.
+> 以 PostScript 输出。
 
 **--tty**
-> Output to terminal.
+> 输出到终端。
 
 **--x**
-> Display in X window.
+> 在 X 窗口中显示。
 
 **--viewer** _PROG_
-> Specify viewer program.
+> 指定查看器程序。
 
 **--mode** _MODE_
-> Display mode.
+> 显示模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**groffer** is a wrapper for groff that automatically selects the best display method for a document. It can handle man pages, roff files, and various input formats.
+**groffer** 是 groff 的一个封装工具，能为文档自动选择最佳的显示方式。它可以处理 man page、roff 文件以及各种输入格式。
 
-The tool detects the environment and chooses between X viewers, PDF viewers, or terminal display, simplifying the groff workflow significantly.
+该工具会检测环境，并在 X 查看器、PDF 查看器或终端显示之间做出选择，显著简化了 groff 的使用流程。
 
 # CAVEATS
 
-Part of groff package. Viewer selection depends on installed applications. Some modes require X display.
+属于 groff 软件包。查看器的选择取决于已安装的应用程序。某些模式需要 X 显示服务。
 
 # HISTORY
 
-groffer was developed as part of **GNU groff** to provide a user-friendly interface for viewing groff documents.
+groffer 作为 **GNU groff** 的一部分开发，旨在为查看 groff 文档提供友好的界面。
 
 # SEE ALSO
 

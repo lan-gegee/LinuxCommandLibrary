@@ -1,18 +1,18 @@
 # TAGLINE
 
-Open-source phishing simulation framework
+开源钓鱼模拟框架
 
 # TLDR
 
-**Start Gophish server**
+**启动 Gophish 服务器**
 
 ```./gophish```
 
-**Start with custom config**
+**以自定义配置启动**
 
 ```./gophish -config [config.json]```
 
-**Access admin panel**
+**访问管理后台**
 
 ```https://localhost:3333```
 
@@ -23,18 +23,18 @@ Open-source phishing simulation framework
 # PARAMETERS
 
 **-config** _file_
-> Configuration file path.
+> 配置文件的路径。
 
 # DESCRIPTION
 
-**Gophish** is an open-source phishing framework for security awareness training and penetration testing. It provides a web interface for creating and managing phishing campaigns, including email template editing, landing page cloning, and results tracking.
+**Gophish** 是一个用于安全意识培训和渗透测试的开源钓鱼框架。它提供 Web 界面来创建和管理钓鱼活动，包括邮件模板编辑、落地页克隆和结果跟踪。
 
-The platform is used by security teams to test organizational awareness and response to phishing attacks, with campaign management, user group handling, and API support for automation.
+安全团队用它来测试组织内部对钓鱼攻击的意识和响应能力。平台提供活动管理、用户组处理，并支持 API 以便自动化操作。
 
 # CONFIGURATION
 
 **config.json**
-> Main configuration file specifying admin server address, phishing server address, database path, and TLS settings.
+> 主配置文件，指定管理服务器地址、钓鱼服务器地址、数据库路径和 TLS 设置。
 
 # DEFAULT CREDENTIALS
 
@@ -46,11 +46,11 @@ Password: (shown on first run)
 
 # CAVEATS
 
-For authorized security testing only. Requires proper authorization before use. Email sending needs configured SMTP. May be flagged by security software. Store credentials securely.
+仅限授权的安全测试使用。使用前必须获得适当授权。发送邮件需要配置 SMTP。可能被安全软件标记为威胁。请妥善保管凭据。
 
 # HISTORY
 
-Gophish was created by **Jordan Wright** in **2015** as an open-source alternative to commercial phishing simulation platforms. It's widely used in security awareness training and penetration testing.
+Gophish 由 **Jordan Wright** 于 **2015 年**创建，作为商业钓鱼模拟平台的开源替代品。它被广泛应用于安全意识培训和渗透测试中。
 
 # INSTALL
 

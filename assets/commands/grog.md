@@ -1,22 +1,22 @@
 # TAGLINE
 
-Groff command-line option guesser
+groff 命令行选项推测工具
 
 # TLDR
 
-**Guess the groff command needed for a file**
+**推测处理某个文件所需的 groff 命令**
 
 ```grog [file.roff]```
 
-**Guess and immediately run groff**
+**推测并立即运行 groff**
 
 ```grog [file.roff] | sh```
 
-**Process multiple files at once**
+**一次处理多个文件**
 
 ```grog [file1.roff] [file2.roff]```
 
-**Read from standard input**
+**从标准输入读取**
 
 ```cat [file.roff] | grog```
 
@@ -27,32 +27,32 @@ Groff command-line option guesser
 # PARAMETERS
 
 _FILES_
-> Files to analyze; reads standard input if omitted or given as "-".
+> 要分析的文件；若省略或给定为 "-"，则读取标准输入。
 
 **-C**
-> Enable AT&T troff compatibility mode (also passed through to the guessed command).
+> 启用 AT&T troff 兼容模式（同时也会传递给推测出的命令）。
 
 **-v**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 **-h**, **--help**
-> Display a usage message and exit.
+> 显示用法消息并退出。
 
-Any other **groff**(1) option (e.g. **-T**, **-k**) is passed through unchanged to the guessed command line.
+其他任何 **groff**(1) 选项（例如 **-T**、**-k**）都会原样传递给推测出的命令行。
 
 # DESCRIPTION
 
-**grog** analyzes roff input files and suggests the appropriate groff command line. It detects which macro packages and preprocessors are needed by examining document content for macro usage.
+**grog** 分析 roff 输入文件并给出合适的 groff 命令行。它通过检查文档内容中宏的使用情况，检测需要哪些宏包和预处理器。
 
-The tool outputs the complete groff command with correct options, which can be piped to a shell for execution.
+该工具输出带有正确选项的完整 groff 命令，可以通过管道交给 shell 执行。
 
 # CAVEATS
 
-Part of groff package. May not detect all requirements. Suggestions should be verified.
+属于 groff 软件包。可能无法检测出所有需求。建议先验证其给出的结果。
 
 # HISTORY
 
-grog was developed as part of **GNU groff** to simplify determining the correct options for complex documents.
+grog 作为 **GNU groff** 的一部分开发，用于简化为复杂文档确定正确选项的过程。
 
 # INSTALL
 

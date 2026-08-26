@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast HTTP toolkit for probing web servers
+用于探测 Web 服务器的快速 HTTP 工具包
 
 # TLDR
 
-**Probe live hosts**
+**探测存活主机**
 
 ```cat [hosts.txt] | httpx```
 
-**Check with title**
+**探测并显示页面标题**
 
 ```httpx -l [hosts.txt] -title```
 
-**Show status codes**
+**显示状态码**
 
 ```httpx -l [hosts.txt] -status-code```
 
-**Check specific ports**
+**探测指定端口**
 
 ```httpx -l [hosts.txt] -ports [80,443,8080]```
 
-**Follow redirects**
+**跟随重定向**
 
 ```httpx -l [hosts.txt] -follow-redirects```
 
-**Output JSON**
+**输出 JSON**
 
 ```httpx -l [hosts.txt] -json -o [output.json]```
 
@@ -35,78 +35,78 @@ fast HTTP toolkit for probing web servers
 # PARAMETERS
 
 **-l**, **-list** _FILE_
-> Input file containing the list of hosts to process.
+> 包含待处理主机列表的输入文件。
 
 **-u**, **-target** _HOST_
-> Probe a specific target host directly instead of reading a list.
+> 直接探测指定的目标主机，而不是读取列表。
 
 **-title**
-> Display the page title.
+> 显示页面标题。
 
 **-sc**, **-status-code**
-> Display the response status code.
+> 显示响应状态码。
 
 **-td**, **-tech-detect**
-> Display detected technologies (based on the Wappalyzer dataset).
+> 显示检测到的技术（基于 Wappalyzer 数据集）。
 
 **-ip**
-> Display the resolved host IP.
+> 显示解析出的主机 IP。
 
 **-p**, **-ports** _PORTS_
-> Ports to probe, using nmap-style syntax (e.g. `http:1,2-10,https:443`).
+> 要探测的端口，使用 nmap 风格的语法（例如 `http:1,2-10,https:443`）。
 
 **-x** _METHOD_
-> HTTP method(s) to probe; use `all` to try every method.
+> 要探测的 HTTP 方法；使用 `all` 可尝试所有方法。
 
 **-H** _HEADER_
-> Custom HTTP header to send with each request.
+> 随每个请求发送的自定义 HTTP 头。
 
 **-fr**, **-follow-redirects**
-> Follow HTTP redirects.
+> 跟随 HTTP 重定向。
 
 **-mc**, **-match-code** _CODES_
-> Only show responses matching the given status codes (e.g. `-mc 200,301`).
+> 只显示匹配指定状态码的响应（例如 `-mc 200,301`）。
 
 **-fc**, **-filter-code** _CODES_
-> Exclude responses matching the given status codes.
+> 排除匹配指定状态码的响应。
 
 **-t**, **-threads** _N_
-> Number of concurrent threads (default 50).
+> 并发线程数（默认 50）。
 
 **-rl**, **-rate-limit** _N_
-> Maximum requests per second (default 150).
+> 每秒最大请求数（默认 150）。
 
 **-timeout** _SECONDS_
-> Request timeout (default 10).
+> 请求超时时间（默认 10）。
 
 **-retries** _N_
-> Number of retries on failure.
+> 失败后的重试次数。
 
 **-silent**
-> Only print results, suppressing the banner and stats.
+> 只打印结果，隐藏横幅和统计信息。
 
 **-json**
-> Store output in JSONL(ines) format.
+> 以 JSONL（JSON lines）格式保存输出。
 
 **-o**, **-output** _FILE_
-> File to write results to.
+> 写入结果的文件。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**httpx** is a fast, multi-purpose HTTP toolkit built on Go's `retryablehttp` library for running many probes against a list of hosts at once. It checks which hosts are alive and can report status codes, titles, response headers, TLS data, detected technologies, screenshots, and more.
+**httpx** 是一款基于 Go 的 `retryablehttp` 库构建的快速多用途 HTTP 工具包，用于同时对一批主机运行大量探测。它会检查哪些主机存活，并能报告状态码、页面标题、响应头、TLS 信息、检测到的技术、屏幕截图等。
 
-By default it probes with the **HTTPS** scheme first and falls back to **HTTP** only if HTTPS is unreachable; **-no-fallback** shows both. The tool is built for reconnaissance and security testing workflows, processing large host lists concurrently and integrating with the rest of the ProjectDiscovery toolchain (**nuclei**, **subfinder**, etc.).
+默认情况下，它先以 **HTTPS** 协议探测，只有在 HTTPS 无法访问时才回退到 **HTTP**；使用 **-no-fallback** 可以两种协议都尝试。该工具为侦察和安全测试工作流而构建，能够并发处理大量主机列表，并可与其余 ProjectDiscovery 工具链（**nuclei**、**subfinder** 等）配合使用。
 
 # CAVEATS
 
-Intended for reconnaissance and security testing against systems you're authorized to test. Requires Go to build from source; prebuilt binaries are available. Flags are single-dash (e.g. `-json`, not `--json`).
+仅用于对获得授权的系统进行侦察和安全测试。从源码构建需要 Go；也有预编译二进制可用。选项采用单横线风格（例如 `-json`，而非 `--json`）。
 
 # HISTORY
 
-httpx was created by **ProjectDiscovery** as part of its open-source security reconnaissance toolkit, alongside tools like **nuclei** and **subfinder**.
+httpx 由 **ProjectDiscovery** 创建，是其开源安全侦察工具套件的组成部分，与 **nuclei**、**subfinder** 等工具属于同一体系。
 
 # INSTALL
 

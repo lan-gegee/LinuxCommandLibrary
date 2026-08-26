@@ -1,30 +1,30 @@
 # TAGLINE
 
-AI-powered terminal coding agent using xAI's API
+基于 xAI API 的 AI 终端编码智能体
 
 # TLDR
 
-**Start an interactive session** in the current directory
+在当前目录**启动交互式会话**
 
 ```grok```
 
-**Start in a specific directory**
+**在特定目录中启动**
 
 ```grok -d [path/to/project]```
 
-**Run a one-off command** and exit (headless mode)
+**执行一次性命令**后退出（无头模式）
 
 ```grok -p "[prompt]"```
 
-**Specify a different model**
+**指定其他模型**
 
 ```grok -m [grok-4-latest]```
 
-**Run with custom API key**
+**使用自定义 API 密钥运行**
 
 ```grok -k [your_api_key]```
 
-**Add an MCP server**
+**添加 MCP 服务器**
 
 ```grok mcp add [server-name] --transport stdio --command bun --args [server.js]```
 
@@ -37,53 +37,53 @@ AI-powered terminal coding agent using xAI's API
 # PARAMETERS
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-d**, **--directory** _path_
-> Set working directory for the session.
+> 设置会话的工作目录。
 
 **-k**, **--api-key** _key_
-> Provide xAI Grok API credentials.
+> 提供 xAI Grok API 凭据。
 
 **-u**, **--base-url** _url_
-> Custom API endpoint (default: https://api.x.ai/v1).
+> 自定义 API 端点（默认：https://api.x.ai/v1）。
 
 **-m**, **--model** _model_
-> Specify AI model (grok-4-latest, grok-3-latest, grok-3-fast, grok-3-mini-fast, grok-code-fast-1).
+> 指定 AI 模型（grok-4-latest、grok-3-latest、grok-3-fast、grok-3-mini-fast、grok-code-fast-1）。
 
 **-p**, **--prompt** _text_
-> Execute single prompt in headless mode and exit.
+> 以无头模式执行单个提示词后退出。
 
 **--max-tool-rounds** _n_
-> Limit the number of tool execution rounds.
+> 限制工具执行轮数。
 
 **-h**, **--help**
-> Display help documentation.
+> 显示帮助文档。
 
 # DESCRIPTION
 
-**Grok CLI** is an open-source AI agent that brings xAI's Grok directly into the terminal. It provides a conversational interface for coding assistance, file operations, and shell command execution through natural language.
+**Grok CLI** 是一款开源 AI 智能体，将 xAI 的 Grok 直接带入终端。它通过自然语言提供对话式界面，用于编程辅助、文件操作和 shell 命令执行。
 
-The tool operates in two modes: interactive mode for extended sessions with ongoing dialogue, and headless mode (**-p**) for scripted automation and one-off commands. Grok can navigate codebases, view and edit files, run bash commands, and intelligently select appropriate tools for requested tasks.
+该工具有两种模式：适用于持续对话长时间会话的交互模式，以及适用于脚本化自动化和一次性命令的无头模式（**-p**）。Grok 可以浏览代码库、查看和编辑文件、运行 bash 命令，并为请求的任务智能地选择合适的工具。
 
 # CONFIGURATION
 
 **~/.grok/user-settings.json**
-> User-level settings including API key, model preferences, and default behaviors.
+> 用户级设置，包括 API 密钥、模型偏好和默认行为。
 
 **.grok/settings.json**
-> Project-level settings for tool permissions and configuration.
+> 项目级的工具权限和配置设置。
 
 **.grok/GROK.md**
-> Project-level custom instructions loaded automatically.
+> 自动加载的项目级自定义指令。
 
 # CAVEATS
 
-Requires an **xAI API key** which must be obtained from the xAI API Console. The CLI uses the xAI API endpoint by default and requires Node.js version 18 or higher. API usage is subject to xAI's rate limits and billing. The Morph Fast Apply feature for high-speed code editing requires additional configuration.
+需要从 xAI API 控制台获取 **xAI API 密钥**。该 CLI 默认使用 xAI API 端点，并要求 Node.js 18 或更高版本。API 用量受 xAI 的速率限制和计费约束。用于高速代码编辑的 Morph Fast Apply 功能需要额外配置。
 
 # HISTORY
 
-Grok CLI emerged as an open-source project in **2024** following xAI's public release of their Grok API. Built by the Superagent AI community, it provides terminal access to xAI's Grok models. The tool gained significant traction in **2025** as a challenger to proprietary coding assistants, with xAI announcing their official **Grok Build** coding agent in **January 2026** to provide first-party CLI support.
+Grok CLI 作为开源项目于 **2024 年**问世，此前 xAI 公开发布了其 Grok API。它由 Superagent AI 社区构建，提供对 xAI Grok 模型的终端访问。**2025 年**，该工具作为专有编程助手的挑战者获得了显著关注；xAI 又于 **2026 年 1 月**宣布了官方的 **Grok Build** 编码智能体，以提供第一方的 CLI 支持。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-creates a new Mercurial repository in the specified directory or current
+在指定目录或当前目录创建新的 Mercurial 仓库
 
 # TLDR
 
-**Create repository in current directory**
+**在当前目录创建仓库**
 
 ```hg init```
 
-**Create repository in new directory**
+**在新目录中创建仓库**
 
 ```hg init [project-name]```
 
@@ -19,31 +19,31 @@ creates a new Mercurial repository in the specified directory or current
 # PARAMETERS
 
 _DEST_
-> Directory to create the repository in; created if it doesn't exist. Defaults to the current directory.
+> 创建仓库的目录；不存在时会自动创建。默认为当前目录。
 
 **-e**, **--ssh** _CMD_
-> Specify ssh command to use (for remote destinations).
+> 指定要使用的 ssh 命令（针对远程目标）。
 
 **--remotecmd** _CMD_
-> Specify hg command to run on the remote side.
+> 指定在远端运行的 hg 命令。
 
 **--insecure**
-> Do not verify the server certificate.
+> 不验证服务器证书。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**hg init** creates a new Mercurial repository in the specified directory or current directory if none given. It creates a **.hg** subdirectory containing all version control data. After initialization, use **hg add** to track files and **hg commit** to save changesets. The working directory contains the source files while **.hg** stores the repository history.
+**hg init** 在指定目录中创建新的 Mercurial 仓库，未指定目录时使用当前目录。它会创建一个包含全部版本控制数据的 **.hg** 子目录。初始化后，使用 **hg add** 跟踪文件，用 **hg commit** 保存变更集。工作目录存放源文件，而 **.hg** 保存仓库历史。
 
 # CAVEATS
 
-Fails if the destination already exists as a non-empty, non-repository directory. Initializing inside an existing repository creates a nested repo, which is usually unintended.
+如果目标位置已是一个非空且非仓库的目录，则会失败。在现有仓库内执行初始化会创建嵌套仓库，这通常不是想要的结果。
 
 # HISTORY
 
-Init is a core **Mercurial** command, present since the project's first release in 2005.
+init 是 **Mercurial** 的核心命令，自该项目 2005 年首次发布以来一直存在。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ Init is a core **Mercurial** command, present since the project's first release 
 ```[Documentation](https://wiki.mercurial-scm.org/)```
 
 <!-- verified: 2026-07-19 -->
-

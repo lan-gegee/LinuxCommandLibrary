@@ -1,18 +1,18 @@
 # TAGLINE
 
-decodes Intel GPU error states from kernel logs
+解码内核日志中的 Intel GPU 错误状态
 
 # TLDR
 
-**Decode GPU error from dmesg**
+**从 dmesg 解码 GPU 错误**
 
 ```dmesg | intel_error_decode```
 
-**Decode error file**
+**解码错误文件**
 
 ```intel_error_decode < [error_state.txt]```
 
-**Decode with shader info**
+**附带着色器信息解码**
 
 ```intel_error_decode -s [shader.bin]```
 
@@ -23,27 +23,27 @@ decodes Intel GPU error states from kernel logs
 # PARAMETERS
 
 **-s** _FILE_
-> Shader binary for context.
+> 提供上下文的着色器二进制文件。
 
 **-c**
-> Color output.
+> 彩色输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**intel_error_decode** decodes Intel GPU error states from kernel logs. It translates hardware register dumps into human-readable information.
+**intel_error_decode** 从内核日志中解码 Intel GPU 的错误状态。它将硬件寄存器转储转换为人类可读的信息。
 
-The tool parses GPU hang information to identify failing batches and instructions. Essential for debugging graphics driver issues.
+该工具解析 GPU 挂起（hang）信息，以定位出错的批处理和指令。它是调试图形驱动问题的重要工具。
 
 # CAVEATS
 
-Intel graphics only. Requires error state from dmesg. Part of intel-gpu-tools.
+仅适用于 Intel 显卡。需要来自 dmesg 的错误状态。属于 intel-gpu-tools 的一部分。
 
 # HISTORY
 
-intel_error_decode is part of **intel-gpu-tools**, created for debugging GPU hangs on Intel graphics hardware.
+intel_error_decode 是 **intel-gpu-tools** 的一部分，为调试 Intel 显卡硬件上的 GPU 挂起问题而创建。
 
 # INSTALL
 

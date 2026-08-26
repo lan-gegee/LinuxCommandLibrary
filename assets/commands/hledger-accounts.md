@@ -1,42 +1,42 @@
 # TAGLINE
 
-lists account names from the journal
+列出账簿中的账户名称
 
 # TLDR
 
-**List all accounts**
+**列出所有账户**
 
 ```hledger accounts```
 
-**List accounts from specific file**
+**从指定文件列出账户**
 
 ```hledger accounts -f [journal.ledger]```
 
-**List accounts matching pattern**
+**列出匹配模式的账户**
 
 ```hledger accounts [expenses]```
 
-**List with depth limit**
+**限制层级深度列出**
 
 ```hledger accounts --depth [2]```
 
-**Show account tree**
+**显示账户树**
 
 ```hledger accounts --tree```
 
-**List used accounts only**
+**仅列出使用过的账户**
 
 ```hledger accounts --used```
 
-**List declared accounts only**
+**仅列出已声明的账户**
 
 ```hledger accounts --declared```
 
-**Show accounts with their types**
+**连同账户类型一起显示**
 
 ```hledger accounts --types```
 
-**Drop first N account name components**
+**去掉账户名的前 N 个组成部分**
 
 ```hledger accounts --drop [1]```
 
@@ -47,32 +47,32 @@ lists account names from the journal
 # PARAMETERS
 
 **-f**, **--file** _file_
-> Use specified journal file.
+> 使用指定的账簿文件。
 
 **--depth** _n_
-> Limit account depth shown.
+> 限制显示的账户层级深度。
 
 **--tree**
-> Show accounts as tree structure.
+> 以树形结构显示账户。
 
 **--used**
-> Show only accounts with transactions.
+> 仅显示有交易记录的账户。
 
 **--declared**
-> Show only accounts declared with account directives.
+> 仅显示用 account 指令声明的账户。
 
 **--flat**
-> Show accounts as a flat list with full names (default).
+> 以完整名称的扁平列表形式显示账户（默认）。
 
 **--drop** _n_
-> In flat mode, omit the first n account name components.
+> 扁平模式下省略账户名的前 n 个组成部分。
 
 **--types**
-> Show each account's type, if known.
+> 显示每个账户的类型（如果已知）。
 
 # DESCRIPTION
 
-**hledger accounts** lists account names from the journal. Part of the hledger plain text accounting tool. It shows accounts that are declared (with account directives), posted to, or both (the default). Accounts can be filtered by query pattern, limited by depth, and displayed as a flat list or tree.
+**hledger accounts** 列出账簿中的账户名称。它是 hledger 纯文本记账工具的一部分。它显示已声明（通过 account 指令）、有分录过账或两者兼有的账户（默认行为）。账户可以按查询模式过滤、按深度限制，并以扁平列表或树形方式显示。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ lists account names from the journal
 # SEE ALSO
 
 [hledger](/man/hledger)(1), [hledger-balance](/man/hledger-balance)(1), [hledger-print](/man/hledger-print)(1), [ledger](/man/ledger)(1)
-
