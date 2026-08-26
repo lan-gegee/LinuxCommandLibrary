@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run unit and integration tests
+运行单元测试和集成测试
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```cargo test```
 
-**Run specific test**
+**运行指定测试**
 
 ```cargo test [test_name]```
 
-**Run tests in module**
+**运行模块中的测试**
 
 ```cargo test [module_name]::**```
 
-**Run ignored tests**
+**运行被忽略的测试**
 
 ```cargo test -- --ignored```
 
-**Show output from passing tests**
+**显示通过测试的输出**
 
 ```cargo test -- --show-output```
 
-**Run documentation tests only**
+**只运行文档测试**
 
 ```cargo test --doc```
 
-**Run tests without stopping on failure**
+**失败时不停止继续运行**
 
 ```cargo test -- --no-fail-fast```
 
-**Compile without running**
+**只编译不运行**
 
 ```cargo test --no-run```
 
@@ -42,71 +42,71 @@ Run unit and integration tests
 
 # DESCRIPTION
 
-**cargo test** compiles and runs the test suite for a Rust project. It discovers unit tests (functions annotated with `#[test]` in `src/`), integration tests (files in `tests/`), documentation tests (code blocks in doc comments), and benchmark tests. A test name filter can be provided to run only matching tests.
+**cargo test** 编译并运行 Rust 项目的测试套件。它会发现单元测试（`src/` 中标注 `#[test]` 的函数）、集成测试（`tests/` 目录中的文件）、文档测试（文档注释中的代码块）以及基准测试。可以提供测试名称过滤器，只运行匹配的测试。
 
-Arguments after `--` are passed directly to the test harness rather than to Cargo. This allows controlling test execution behavior such as thread count, output capture, and whether ignored tests should run. Tests run in parallel by default; use `--test-threads=1` for sequential execution when tests have shared state.
+`--` 之后的参数会直接传给测试框架而不是 Cargo。这样可以控制测试执行行为，例如线程数、输出捕获以及是否运行被忽略的测试。测试默认并行运行；当测试间存在共享状态时，可使用 `--test-threads=1` 进行顺序执行。
 
 # PARAMETERS
 
 **--no-run**
-> Compile without running
+> 只编译不运行
 
 **--no-fail-fast**
-> Run all tests regardless of failures
+> 无论是否失败都运行全部测试
 
 **--doc**
-> Run documentation tests only
+> 只运行文档测试
 
 **--lib**
-> Test library only
+> 只测试库
 
 **--bins**
-> Test all binaries
+> 测试所有二进制文件
 
 **--tests**
-> Test all test targets
+> 测试所有测试目标
 
 **--benches**
-> Test all benchmarks
+> 测试所有基准测试
 
 **--all-targets**
-> Test all targets
+> 测试所有目标
 
 **-p**, **--package** _spec_
-> Test specified packages
+> 测试指定的软件包
 
 **--workspace**
-> Test all workspace members
+> 测试所有工作空间成员
 
 **-j**, **--jobs** _n_
-> Parallel build jobs
+> 并行构建任务数
 
 **--release**
-> Test with release profile
+> 以 release profile 测试
 
 **--features** _features_
-> Enable features
+> 启用特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 # TEST BINARY OPTIONS
 
 **-- --ignored**
-> Run ignored tests
+> 运行被忽略的测试
 
 **-- --show-output**
-> Show stdout from passing tests
+> 显示通过测试的标准输出
 
 **-- --test-threads** _n_
-> Number of parallel test threads
+> 并行测试线程数
 
 **-- --nocapture**
-> Don't capture test output
+> 不捕获测试输出
 
 # CAVEATS
 
-Tests run in parallel by default. Use --test-threads=1 for sequential execution.
+测试默认并行运行。需要顺序执行时请使用 --test-threads=1。
 
 # INSTALL
 

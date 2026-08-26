@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search bzip2 files using extended regular expressions
+使用扩展正则表达式搜索 bzip2 文件
 
 # TLDR
 
-**Search for an extended regex pattern in a bzip2 compressed file**
+**在 bzip2 压缩文件中搜索扩展正则表达式模式**
 
 ```bzegrep "[pattern]" [path/to/file.bz2]```
 
-**Search case-insensitively**
+**不区分大小写地搜索**
 
 ```bzegrep -i "[pattern]" [path/to/file.bz2]```
 
-**Print line numbers with matches**
+**打印匹配行的行号**
 
 ```bzegrep -n "[pattern]" [path/to/file.bz2]```
 
-**Search multiple compressed files**
+**搜索多个压缩文件**
 
 ```bzegrep "[pattern]" [file1.bz2] [file2.bz2]```
 
-**Count matching lines**
+**统计匹配行数**
 
 ```bzegrep -c "[pattern]" [path/to/file.bz2]```
 
-**Search from stdin**
+**从 stdin 搜索**
 
 ```bzcat [path/to/file.bz2] | bzegrep "[pattern]"```
 
@@ -34,40 +34,40 @@ Search bzip2 files using extended regular expressions
 
 # DESCRIPTION
 
-**bzegrep** searches possibly bzip2-compressed files for lines matching an extended regular expression pattern. It transparently decompresses **.bz2** files before searching and passes all options directly to **egrep**.
+**bzegrep** 在可能经 bzip2 压缩的文件中搜索匹配扩展正则表达式模式的行。它会在搜索前透明地解压 **.bz2** 文件，并将所有选项直接传递给 **egrep**。
 
-If no file is specified, bzegrep reads from standard input, decompressing if necessary. This allows it to be used in pipelines with other bzip2 utilities.
+如果未指定文件，bzegrep 会从标准输入读取，必要时进行解压。这使它可以与其他 bzip2 工具一起用于管道。
 
-The command is equivalent to running **bzgrep** but using **egrep** (extended grep) for pattern matching, supporting extended regular expression syntax including **+**, **?**, **|**, and parentheses for grouping.
+该命令等同于运行 **bzgrep**，但使用 **egrep**（扩展 grep）进行模式匹配，支持包括 **+**、**?**、**|** 和用于分组的圆括号在内的扩展正则表达式语法。
 
 # PARAMETERS
 
-All **egrep** options are supported, including:
+支持所有 **egrep** 选项，包括：
 
 **-i**
-> Case-insensitive matching
+> 不区分大小写的匹配
 
 **-n**
-> Print line numbers
+> 打印行号
 
 **-c**
-> Print only a count of matching lines
+> 只打印匹配行的数量
 
 **-v**
-> Invert match (show non-matching lines)
+> 反转匹配（显示不匹配的行）
 
 **-l**
-> Print only names of files containing matches
+> 只打印包含匹配内容的文件名
 
 **-h**
-> Suppress the filename prefix on output (when searching multiple files)
+> 抑制输出中的文件名前缀（搜索多个文件时）
 
 **-e** _pattern_
-> Specify the pattern (useful if pattern starts with -)
+> 指定模式（当模式以 - 开头时很有用）
 
 # CAVEATS
 
-The **GREP** environment variable can be set to specify an alternate grep program. The file must be bzip2-compressed for transparent decompression; uncompressed files are searched directly.
+可以设置 **GREP** 环境变量来指定替代的 grep 程序。文件必须是 bzip2 压缩的才能透明解压；未压缩的文件会被直接搜索。
 
 # INSTALL
 

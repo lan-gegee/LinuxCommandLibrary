@@ -1,26 +1,26 @@
 # TAGLINE
 
-Print the path to a project's Cargo.toml
+输出项目 Cargo.toml 的路径
 
 # TLDR
 
-**Show manifest path**
+**显示清单路径**
 
 ```cargo locate-project```
 
-**Show workspace root manifest**
+**显示工作空间根清单**
 
 ```cargo locate-project --workspace```
 
-**Output as plain path**
+**以纯路径输出**
 
 ```cargo locate-project --message-format plain```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```cargo locate-project --message-format json```
 
-**Locate project from a specific directory**
+**从指定目录定位项目**
 
 ```cargo locate-project --manifest-path [path/to/Cargo.toml]```
 
@@ -30,36 +30,36 @@ Print the path to a project's Cargo.toml
 
 # DESCRIPTION
 
-**cargo locate-project** prints the path to the Cargo.toml manifest file for the current package. Searches current directory and parent directories for the manifest.
+**cargo locate-project** 输出当前软件包的 Cargo.toml 清单文件路径。它会从当前目录开始向上层目录搜索清单文件。
 
 # PARAMETERS
 
 **--workspace**
-> Locate workspace root Cargo.toml instead of current package
+> 定位工作空间根目录的 Cargo.toml 而非当前软件包
 
 **--message-format** _format_
-> Output format: json (default), plain
+> 输出格式：json（默认）、plain
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress log messages
+> 抑制日志消息
 
 **--color** _WHEN_
-> Control color output: auto, always, never
+> 控制彩色输出：auto、always、never
 
 # OUTPUT
 
-**JSON format (default)**
+**JSON 格式（默认）**
 ```json
 {"root":"/path/to/project/Cargo.toml"}
 ```
 
-**Plain format**
+**Plain 格式**
 ```
 /path/to/project/Cargo.toml
 ```
@@ -67,14 +67,14 @@ Print the path to a project's Cargo.toml
 # EXIT STATUS
 
 **0**
-> Success
+> 成功
 
 **101**
-> Failed to locate manifest
+> 未能找到清单
 
 # CAVEATS
 
-Useful for scripts and tooling that need to find the project root. Returns exit code 101 if no Cargo.toml is found in the current or any parent directory.
+适用于需要查找项目根目录的脚本和工具。若当前及所有父目录中都找不到 Cargo.toml，则返回退出码 101。
 
 # INSTALL
 

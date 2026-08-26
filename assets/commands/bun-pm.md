@@ -1,34 +1,34 @@
 # TAGLINE
 
-Bun package manager utilities
+Bun 包管理器实用工具
 
 # TLDR
 
-**Show the bin directory path**
+**显示 bin 目录路径**
 
 ```bun pm bin```
 
-**Show the global bin directory path**
+**显示全局 bin 目录路径**
 
 ```bun pm bin -g```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```bun pm ls```
 
-**List all installed packages including dependencies**
+**列出所有已安装的软件包包括依赖**
 
 ```bun pm ls --all```
 
-**Print the package manager version**
+**输出包管理器版本**
 
 ```bun pm version```
 
-**Migrate from npm or yarn to Bun**
+**从 npm 或 yarn 迁移到 Bun**
 
 ```bun pm migrate```
 
-**Generate or update the lockfile without installing**
+**生成或更新 lockfile 而不安装**
 
 ```bun pm hash```
 
@@ -39,32 +39,32 @@ Bun package manager utilities
 # SUBCOMMANDS
 
 **bin**
-> Print the path to the bin folder. Use **-g** for the global bin directory.
+> 输出 bin 文件夹的路径。使用 **-g** 查看全局 bin 目录。
 
 **ls**
-> List installed packages. Use **--all** to include transitive dependencies.
+> 列出已安装的软件包。使用 **--all** 包括传递依赖。
 
 **version**
-> Print the package manager version.
+> 输出包管理器版本。
 
 **migrate**
-> Migrate from npm or yarn to Bun by converting lockfiles.
+> 通过转换 lockfile 从 npm 或 yarn 迁移到 Bun。
 
 **hash**
-> Print the hash of the lockfile.
+> 输出 lockfile 的哈希值。
 
 **hash-print**
-> Print the hash stored in the lockfile.
+> 输出存储在 lockfile 中的哈希值。
 
 **hash-string**
-> Print the string used to compute the lockfile hash.
+> 输出用于计算 lockfile 哈希的字符串。
 
 **cache**
-> Print the path to the global module cache, or clear it with **rm**.
+> 输出全局模块缓存的路径，或使用 **rm** 清空它。
 
 # DESCRIPTION
 
-**bun pm** provides package manager utilities for managing dependencies and package configuration. It offers commands for inspecting installations, migrating projects from npm/yarn, and working with the lockfile and cache.
+**bun pm** 提供用于管理依赖和软件包配置的包管理器实用工具。它提供检查安装情况、从 npm/yarn 迁移项目以及处理 lockfile 和缓存的命令。
 
 # INSTALL
 

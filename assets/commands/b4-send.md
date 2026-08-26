@@ -1,30 +1,30 @@
 # TAGLINE
 
-Send a prepared patch series to its recipients
+将准备好的补丁系列发送给收件人
 
 # TLDR
 
-**Send the current** prepared series
+**发送当前**已准备好的系列
 
 ```b4 send```
 
-**Preview without sending** what would go out
+**仅预览不发送**，看看将要发出什么
 
 ```b4 send -d```
 
-**Send a test copy** only to yourself
+**发送测试副本**，只发给自己
 
 ```b4 send --reflect```
 
-**Write the messages** to a directory instead of sending
+**将消息写入目录**而不是发送
 
 ```b4 send -o [path/to/dir]```
 
-**Edit the cover letter** before sending
+**发送前编辑 cover letter**
 
 ```b4 send --edit-cover```
 
-**Resend** a previously sent revision
+**重发**先前已发送过的修订版
 
 ```b4 send --resend```
 
@@ -34,36 +34,36 @@ Send a prepared patch series to its recipients
 
 # DESCRIPTION
 
-**b4 send** delivers a series prepared with **b4 prep**. It turns the tracked branch into a numbered patch set, attaches the stored cover letter, fills in the To and Cc lists, and dispatches the messages over your configured SMTP server (or a project web endpoint where supported).
+**b4 send** 发送用 **b4 prep** 准备好的系列。它会把跟踪分支转换成带编号的补丁集，附上保存的 cover letter，填写 To 和 Cc 收件人列表，然后通过你配置好的 SMTP 服务器（或在支持的情况下通过项目的 Web 提交端点）发出消息。
 
-By default b4 adds a cryptographic attestation so reviewers can verify the patches were not altered in transit. Use the dry-run and reflect options to rehearse a submission before it reaches a public list.
+默认情况下 b4 会附加加密证明（attestation），评审者可以据此核实补丁在传输过程中未被篡改。在提交到公开邮件列表之前，请先用 dry-run 和 reflect 选项演练。
 
 # PARAMETERS
 
 **-d**, **--dry-run**
-> Print what would be sent without actually sending anything.
+> 打印将要发送的内容，但不实际发送任何东西。
 
 **-o** _DIR_, **--output-dir** _DIR_
-> Write the messages as files into _DIR_ instead of sending them.
+> 将消息作为文件写入 _DIR_，而不发送。
 
 **--reflect**
-> Send the series only to yourself for testing.
+> 只将该系列发送给你自己，用于测试。
 
 **--resend** _[VER]_
-> Resend a previously sent revision unchanged.
+> 原样重发之前发送过的修订版。
 
 **--no-sign**
-> Do not add cryptographic attestation to the messages.
+> 不为消息添加加密证明。
 
 **-e**, **--edit-cover**
-> Edit the cover letter before sending.
+> 发送前编辑 cover letter。
 
 **--preview-to** _ADDR_
-> Send a preview copy to the given address(es).
+> 向指定的地址发送预览副本。
 
 # CAVEATS
 
-Sending requires a working SMTP or **git send-email** configuration. Always rehearse with **-d** or **--reflect** before posting to a public mailing list, since patches cannot be unsent.
+发送前需要配置好可用的 SMTP 或 **git send-email**。发布到公开邮件列表之前，务必先用 **-d** 或 **--reflect** 演练，因为补丁一经发出就无法撤回。
 
 # INSTALL
 

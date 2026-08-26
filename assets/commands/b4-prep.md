@@ -1,30 +1,30 @@
 # TAGLINE
 
-Prepare and manage a patch series for submission
+准备并管理待提交的补丁系列
 
 # TLDR
 
-**Start a new tracked branch** for a series
+**为系列新建跟踪分支**
 
 ```b4 prep -n [topical-branch-name]```
 
-**Enroll the current branch** for b4 management
+**将当前分支纳入 b4 管理**
 
 ```b4 prep -e [base-branch]```
 
-**Seed a new branch** from a previously posted series
+**基于先前发布的系列创建新分支**
 
 ```b4 prep -F [message-id]```
 
-**Edit the cover letter** in your editor
+**在编辑器中编辑 cover letter**
 
 ```b4 prep --edit-cover```
 
-**Auto-populate To and Cc** from maintainers and git history
+**根据维护者和 git 历史自动填充 To 和 Cc**
 
 ```b4 prep --auto-to-cc```
 
-**Run pre-submission checks** on the series
+**对系列运行提交前检查**
 
 ```b4 prep --check```
 
@@ -34,41 +34,41 @@ Prepare and manage a patch series for submission
 
 # DESCRIPTION
 
-**b4 prep** sets up and maintains a patch series as a dedicated, b4-tracked git branch. After creating or enrolling a branch, you add commits as usual and reorder or amend them with **git rebase -i**; b4 stores the cover letter and series metadata inside the branch so revisions stay versioned alongside the code.
+**b4 prep** 将补丁系列建立为一个专用的、由 b4 跟踪的 git 分支并加以维护。创建或登记分支之后，你可以照常添加提交，并用 **git rebase -i** 重排或修改它们；b4 会把 cover letter 和系列元数据保存在分支内部，让各修订版随代码一同保留版本记录。
 
-It can build the recipient list automatically from MAINTAINERS files and commit history, validate the series against project conventions, and hand a clean series to **b4 send** for delivery. Each time you post, b4 records the revision so later submissions are numbered correctly.
+它可以根据 MAINTAINERS 文件和提交历史自动构建收件人列表，按照项目约定检查系列，并把整理好的系列交给 **b4 send** 发送。每次发布时 b4 都会记录修订号，保证后续提交的编号正确。
 
 # PARAMETERS
 
 **-n** _NAME_, **--new** _NAME_
-> Create a new b4-tracked branch named _NAME_ for the series.
+> 为系列创建名为 _NAME_ 的新 b4 跟踪分支。
 
 **-f** _POINT_, **--fork-point** _POINT_
-> Use _POINT_ as the fork point when creating the new branch.
+> 创建新分支时，使用 _POINT_ 作为分叉点。
 
 **-e** _[BRANCH]_, **--enroll** _[BRANCH]_
-> Enroll an existing branch for b4 management, tracking against _BRANCH_.
+> 登记现有分支交由 b4 管理，并以 _BRANCH_ 作为跟踪基准。
 
 **-F** _MSGID_, **--from-thread** _MSGID_
-> Populate a new branch from a previously posted series.
+> 用先前发布的系列填充新分支。
 
 **--edit-cover**
-> Open the cover letter in your editor.
+> 在编辑器中打开 cover letter。
 
 **--show-revision**
-> Show the current tracked revision of the series.
+> 显示该系列当前的跟踪修订号。
 
 **--force-revision** _N_
-> Force the series to revision number _N_.
+> 强制将系列设为修订号 _N_。
 
 **--auto-to-cc**
-> Collect To and Cc recipients from maintainers and git history.
+> 根据维护者信息和 git 历史收集 To 和 Cc 收件人。
 
 **--check**
-> Run b4 and project checks against the series.
+> 对该系列运行 b4 及项目自带的检查。
 
 **--cleanup** _[BRANCH]_
-> Archive and remove a completed prep-tracked branch.
+> 归档并移除已完成任务的 prep 跟踪分支。
 
 # INSTALL
 

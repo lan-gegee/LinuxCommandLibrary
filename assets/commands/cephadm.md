@@ -1,30 +1,30 @@
 # TAGLINE
 
-container-based Ceph cluster deployment
+基于容器的 Ceph 集群部署
 
 # TLDR
 
-**Bootstrap** a new Ceph cluster
+**引导（bootstrap）**一个新的 Ceph 集群
 
 ```sudo cephadm bootstrap --mon-ip [monitor_ip]```
 
-**Add** a new host to the cluster
+向集群**添加**新主机
 
 ```sudo cephadm add-host [hostname] [ip_address]```
 
-**Deploy** a specific service
+**部署**指定服务
 
 ```sudo cephadm deploy [service_type] --name [service_name]```
 
-Check **status** of cluster services
+检查集群服务的**状态**
 
 ```sudo cephadm shell -- ceph -s```
 
-Enter a **shell** inside the Ceph container
+进入 Ceph 容器内的 **shell**
 
 ```sudo cephadm shell```
 
-**Remove** a service from the cluster
+从集群中**移除**服务
 
 ```sudo cephadm rm-service [service_type] --name [service_name]```
 
@@ -34,94 +34,94 @@ Enter a **shell** inside the Ceph container
 
 # DESCRIPTION
 
-**cephadm** deploys and manages Ceph distributed storage clusters using containers (Podman preferred, Docker supported). It is the modern orchestration tool for Ceph, replacing older deployment methods like ceph-deploy and ceph-ansible.
+**cephadm** 使用容器部署和管理 Ceph 分布式存储集群（首选 Podman，也支持 Docker）。它是现代的 Ceph 编排工具，取代了 ceph-deploy 和 ceph-ansible 等较老的部署方式。
 
-The tool handles the complete cluster lifecycle: bootstrapping a new cluster on a single node, adding hosts, deploying daemons (monitors, OSDs, managers, gateways), and upgrading the cluster. Each Ceph daemon runs in its own container, providing isolation and simplified upgrades.
+该工具处理完整的集群生命周期：在单个节点上引导新集群、添加主机、部署守护进程（monitor、OSD、manager、网关）以及升级集群。每个 Ceph 守护进程运行在自己的容器中，从而提供隔离性并简化升级。
 
-The `bootstrap` command creates an initial single-node cluster with a monitor and manager, generates admin credentials, and sets up the orchestrator for subsequent operations. The `shell` command provides an interactive environment inside a Ceph container with all management tools available.
+`bootstrap` 命令创建一个带 monitor 和 manager 的初始单节点集群，生成管理员凭证，并为后续操作设置编排器。`shell` 命令提供一个位于 Ceph 容器内的交互环境，所有管理工具均可用。
 
 # SUBCOMMANDS
 
 **bootstrap**
-> Initialize a new Ceph cluster
+> 初始化新的 Ceph 集群
 
 **add-host**
-> Add a host to the cluster
+> 向集群添加主机
 
 **rm-host**
-> Remove a host from the cluster
+> 从集群移除主机
 
 **deploy**
-> Deploy a daemon
+> 部署守护进程
 
 **rm-daemon**
-> Remove a daemon
+> 移除守护进程
 
 **shell**
-> Enter interactive shell in Ceph container
+> 进入 Ceph 容器内的交互式 shell
 
 **enter**
-> Run a command inside an existing Ceph container
+> 在已有的 Ceph 容器内运行命令
 
 **ls**
-> List all Ceph daemons running on this host
+> 列出此主机上运行的所有 Ceph 守护进程
 
 **ps**
-> Show status of daemons (alias of `ls --no-extra-info`)
+> 显示守护进程状态（`ls --no-extra-info` 的别名）
 
 **check-host**
-> Verify host prerequisites (packages, time sync, container runtime)
+> 检查主机前提条件（软件包、时间同步、容器运行时）
 
 **prepare-host**
-> Install missing prerequisites
+> 安装缺失的前提条件
 
 **gather-facts**
-> Collect host inventory information
+> 收集主机清单信息
 
 **adopt**
-> Adopt a daemon from a legacy (non-cephadm) deployment
+> 接管来自旧式（非 cephadm）部署的守护进程
 
 **logs**
-> View daemon logs
+> 查看守护进程日志
 
 **rm-cluster**
-> Destroy the local cluster state (dangerous)
+> 销毁本地集群状态（危险操作）
 
 # PARAMETERS
 
 **--mon-ip** _ip_
-> Monitor IP address for bootstrap
+> 引导时使用的 monitor IP 地址
 
 **--cluster-network** _CIDR_
-> Restrict the OSD replication network to the given subnet.
+> 将 OSD 复制网络限制到给定的子网。
 
 **--ssh-user** _USER_
-> User cephadm should SSH to remote hosts as (default `root`).
+> cephadm SSH 连接远程主机所用的用户（默认 `root`）。
 
 **--initial-dashboard-user**, **--initial-dashboard-password**
-> Credentials for the Ceph Dashboard created during bootstrap.
+> 引导过程中创建的 Ceph Dashboard 凭证。
 
 **--skip-dashboard**
-> Do not enable the dashboard.
+> 不启用 dashboard。
 
 **--fsid** _UUID_
-> Reuse an existing cluster FSID instead of generating one.
+> 复用现有的集群 FSID 而不是重新生成。
 
 **--name** _name_
-> Service or daemon name
+> 服务或守护进程名称
 
 **--image** _image_
-> Container image to use
+> 要使用的容器镜像
 
 **--docker**
-> Force the use of Docker instead of Podman.
+> 强制使用 Docker 而不是 Podman。
 
 **-v**, **--verbose**
-> Increase logging verbosity.
+> 增加日志详细程度。
 
 # CAVEATS
 
-Requires container runtime (Podman preferred, Docker supported). Bootstrap creates initial admin credentials. Services are managed through the orchestrator, not directly.
+需要容器运行时（首选 Podman，也支持 Docker）。引导过程会创建初始管理员凭证。服务通过编排器管理，而非直接管理。
 
 # INSTALL
 

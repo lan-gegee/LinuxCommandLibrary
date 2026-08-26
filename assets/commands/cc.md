@@ -1,10 +1,10 @@
 # TAGLINE
 
-system C compiler
+系统 C 编译器
 
 # TLDR
 
-This command is an alias of **gcc**.
+此命令是 **gcc** 的别名。
 
 # SYNOPSIS
 
@@ -12,9 +12,9 @@ This command is an alias of **gcc**.
 
 # DESCRIPTION
 
-**cc** is traditionally the system C compiler command. On most Linux systems, it is a symbolic link or alias to **gcc** (GNU Compiler Collection).
+**cc** 传统上是系统 C 编译器命令。在大多数 Linux 系统上，它是指向 **gcc**（GNU 编译器套件）的符号链接或别名。
 
-Using **cc** in build scripts provides portability across systems where different compilers may be the default.
+在构建脚本中使用 **cc** 可以获得跨系统可移植性，因为不同系统的默认编译器可能不同。
 
 # INSTALL
 

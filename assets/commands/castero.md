@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI podcast client for the terminal
+终端中的 TUI 播客客户端
 
 # TLDR
 
-**Launch** the podcast client interactively
+**交互式启动**播客客户端
 
 ```castero```
 
-**Import** podcast subscriptions from an OPML file
+**从 OPML 文件导入**播客订阅
 
 ```castero --import [path/to/subscriptions.opml]```
 
-**Export** current subscriptions to an OPML file
+**将当前订阅导出**到 OPML 文件
 
 ```castero --export [path/to/feeds.opml]```
 
-**Show version** information
+**显示版本**信息
 
 ```castero --version```
 
@@ -27,22 +27,22 @@ TUI podcast client for the terminal
 # PARAMETERS
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 **--import** _PATH_
-> Path to an OPML file of feeds to import; adds subscriptions and exits.
+> 要导入的 OPML 订阅源文件路径；添加订阅后退出。
 
 **--export** _PATH_
-> Path to save current feeds as an OPML file; exports and exits.
+> 将当前订阅源保存为 OPML 文件的路径；导出后退出。
 
 # DESCRIPTION
 
-**castero** is a terminal-based podcast client that lets users subscribe to RSS podcast feeds, browse episodes, download them for offline playback, and play them directly from the terminal. It uses a curses-based TUI with multiple switchable layouts. Playback is delegated to either **VLC** or **mpv** as an external media player backend.
+**castero** 是一个基于终端的播客客户端，用户可以订阅 RSS 播客源、浏览节目、下载以便离线播放，并直接在终端中播放。它使用基于 curses 的 TUI，提供多种可切换的布局。播放委托给 **VLC** 或 **mpv** 作为外部媒体播放器后端。
 
-Key capabilities include adding, deleting, and reloading podcast feeds, queuing episodes for playback, adjusting volume and playback speed, seeking within episodes, marking episodes as played or unplayed, and filtering or searching within feeds. Subscriptions can be imported and exported via OPML for portability between podcast clients.
+主要功能包括添加、删除和刷新播客源，将节目加入播放队列，调节音量和播放速度，在节目中跳转进度，标记节目为已播/未播，以及在订阅源内过滤或搜索。订阅可以通过 OPML 导入导出，便于在不同播客客户端之间迁移。
 
 # KEY BINDINGS
 
@@ -61,17 +61,17 @@ s    Save offline      x    Delete download
 
 # CONFIGURATION
 
-Configuration stored at **~/.config/castero/castero.conf** (created on first run). User data and downloads stored at **~/.local/share/castero/**.
+配置存储于 **~/.config/castero/castero.conf**（首次运行时创建）。用户数据和下载内容存储于 **~/.local/share/castero/**。
 
-Notable options include **player** (mpv or vlc), **default_layout** (1-5), **default_playback_speed**, **default_volume** (0-100), **seek_distance_forward/backward** in seconds, **reload_on_start**, **custom_download_dir**, and proxy settings (**proxy_http**, **proxy_https**). All keybindings and colors are customizable.
+值得注意的选项包括 **player**（mpv 或 vlc）、**default_layout**（1-5）、**default_playback_speed**、**default_volume**（0-100）、以秒为单位的 **seek_distance_forward/backward**、**reload_on_start**、**custom_download_dir**，以及代理设置（**proxy_http**、**proxy_https**）。所有按键绑定和颜色均可自定义。
 
 # CAVEATS
 
-Requires an external media player (**VLC** or **mpv**) to be installed for audio playback. Python 3.5+ and SQLite3 are required. The project has not seen new releases since 2022 and may not be actively maintained.
+需要安装外部媒体播放器（**VLC** 或 **mpv**）才能播放音频。需要 Python 3.5+ 和 SQLite3。该项目自 2022 年起没有新版本发布，可能已不再积极维护。
 
 # HISTORY
 
-**castero** was created by **Jake Robertson** and first released in **April 2018**. Major milestones include episode downloading (v0.2.0, 2018), mpv backend support (v0.4.0, 2019), SQLite database and played/unplayed tracking (v0.5.0, 2019), and OPML import/export (v0.6.0, 2019). The latest release is v0.9.5.
+**castero** 由 **Jake Robertson** 创建，于 **2018 年 4 月**首次发布。主要里程碑包括节目下载（v0.2.0，2018）、mpv 后端支持（v0.4.0，2019）、SQLite 数据库及已播/未播跟踪（v0.5.0，2019），以及 OPML 导入/导出（v0.6.0，2019）。最新版本为 v0.9.5。
 
 # INSTALL
 

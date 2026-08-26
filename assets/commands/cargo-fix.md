@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automatically fix compiler warnings in Rust code
+自动修复 Rust 代码中的编译器警告
 
 # TLDR
 
-**Fix all warnings**
+**修复所有警告**
 
 ```cargo fix```
 
-**Fix all targets**
+**修复所有目标**
 
 ```cargo fix --all-targets```
 
-**Fix with all features enabled**
+**启用所有特性进行修复**
 
 ```cargo fix --all-features```
 
-**Migrate to new edition**
+**迁移到新的 edition**
 
 ```cargo fix --edition```
 
-**Fix even with compiler errors**
+**即使存在编译错误也进行修复**
 
 ```cargo fix --broken-code```
 
-**Allow dirty working directory**
+**允许脏的工作目录**
 
 ```cargo fix --allow-dirty```
 
-**Allow uncommitted changes**
+**允许已暂存的更改**
 
 ```cargo fix --allow-staged```
 
-**Fix a specific package in a workspace**
+**修复工作空间中的特定软件包**
 
 ```cargo fix -p [package_name]```
 
@@ -42,79 +42,79 @@ Automatically fix compiler warnings in Rust code
 
 # DESCRIPTION
 
-**cargo fix** automatically applies rustc's suggested fixes to source code. Runs **cargo check** internally and applies machine-applicable suggestions from diagnostics.
+**cargo fix** 自动将 rustc 建议的修复应用到源代码。它内部运行 **cargo check**，并应用诊断信息中可机器应用的修复建议。
 
 # PARAMETERS
 
 **--edition**
-> Apply fixes for edition migration.
+> 应用 edition 迁移所需的修复。
 
 **--edition-idioms**
-> Apply edition-specific idiom changes for the current edition.
+> 为当前 edition 应用特定惯用法更改。
 
 **--broken-code**
-> Fix code even with existing compiler errors. Leaves broken code for manual inspection.
+> 即使存在编译错误也修复代码。可能留下损坏的代码供人工检查。
 
 **--allow-dirty**
-> Allow fixes on a dirty working directory (including staged changes).
+> 允许在脏的工作目录（包括已暂存的更改）上进行修复。
 
 **--allow-staged**
-> Allow fixes with staged changes.
+> 允许在存在已暂存更改时进行修复。
 
 **--allow-no-vcs**
-> Allow fixes even if no version control system is detected.
+> 即使未检测到版本控制系统也允许修复。
 
 **--all-targets**
-> Fix all targets (lib, bins, tests, benches, examples).
+> 修复所有目标（lib、bins、tests、benches、examples）。
 
 **--all-features**
-> Activate all available features.
+> 启用所有可用特性。
 
 **--no-default-features**
-> Do not activate the default feature.
+> 不启用默认特性。
 
 **-F**, **--features** _features_
-> Space or comma-separated list of features to activate.
+> 要启用的特性列表，以空格或逗号分隔。
 
 **--lib**
-> Fix library only.
+> 只修复库。
 
 **--bins**
-> Fix all binaries.
+> 修复所有二进制文件。
 
 **--tests**
-> Fix all test targets.
+> 修复所有测试目标。
 
 **--benches**
-> Fix all benchmark targets.
+> 修复所有基准测试目标。
 
 **--examples**
-> Fix all example targets.
+> 修复所有示例目标。
 
 **-p**, **--package** _spec_
-> Fix specific packages.
+> 修复指定的软件包。
 
 **--workspace**
-> Fix all workspace members.
+> 修复所有工作空间成员。
 
 **--exclude** _spec_
-> Exclude specified packages (requires **--workspace**).
+> 排除指定软件包（需要 **--workspace**）。
 
 **--target** _triple_
-> Fix for the specified target architecture.
+> 为指定的目标架构进行修复。
 
 **-j**, **--jobs** _N_
-> Number of parallel jobs to run.
+> 并行任务数。
 
 # EDITION MIGRATION
 
 ```cargo fix --edition```
 
-Migrates code from one Rust edition to the next (e.g., 2021 to 2024). After running, update the **edition** field in **Cargo.toml** manually.
+将代码从一个 Rust edition 迁移到下一个（例如从 2021 到 2024）。运行后需手动更新 **Cargo.toml** 中的 **edition** 字段。
 
 # CAVEATS
 
-Can only fix normally compiled code. Conditionally compiled code requires appropriate **--features** or **--target** flags. Built into Cargo since Rust 1.29. By default, requires a clean VCS state; use **--allow-dirty** or **--allow-staged** to override.
+只能修复正常编译的代码。条件编译的代码需要相应的 **--features** 或 **--target** 选项。自 Rust 1.29 起内置于 Cargo。默认要求干净的 VCS 状态；可使用 **--allow-dirty** 或 **--allow-staged** 覆盖此限制。
 
 # INSTALL
 

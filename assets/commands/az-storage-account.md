@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure Storage accounts
+管理 Azure 存储账户
 
 # TLDR
 
-**Create a storage account**
+**创建存储账户**
 
 ```az storage account create -n [account-name] -g [resource-group] -l [westus] --sku [Standard_LRS]```
 
-**List all storage accounts**
+**列出所有存储账户**
 
 ```az storage account list -o table```
 
-**Show storage account details**
+**显示存储账户详情**
 
 ```az storage account show -n [account-name] -g [resource-group]```
 
-**Get the connection string**
+**获取连接字符串**
 
 ```az storage account show-connection-string -n [account-name] -g [resource-group]```
 
-**List storage account keys**
+**列出存储账户密钥**
 
 ```az storage account keys list -n [account-name] -g [resource-group]```
 
-**Generate an account-level SAS token**
+**生成账户级 SAS 令牌**
 
 ```az storage account generate-sas --account-name [account-name] --services [bfqt] --resource-types [sco] --permissions [racwdl] --expiry [2026-12-31T00:00Z]```
 
-**Check name availability**
+**检查名称可用性**
 
 ```az storage account check-name --name [proposed-name]```
 
-**Delete a storage account**
+**删除存储账户**
 
 ```az storage account delete -n [account-name] -g [resource-group] --yes```
 
@@ -42,69 +42,69 @@ Manage Azure Storage accounts
 
 # DESCRIPTION
 
-**az storage account** manages Azure storage accounts, which provide a unique namespace for storing and accessing Azure Storage data objects. Storage accounts support blobs, files, queues, tables, and disks.
+**az storage account** 管理 Azure 存储账户。存储账户为存储和访问 Azure 存储数据对象提供唯一命名空间，支持 Blob、文件、队列、表和磁盘。
 
-Different account types and SKUs offer varying performance tiers, redundancy options, and access patterns. StorageV2 (general-purpose v2) accounts support all storage services and features.
+不同的账户类型和 SKU 提供不同的性能层级、冗余选项和访问模式。StorageV2（常规用途 v2）账户支持所有存储服务和功能。
 
 # SUBCOMMANDS
 
-**Account Lifecycle**
+**账户生命周期**
 > create, delete, list, show, update, check-name
 
-**Access**
+**访问**
 > keys list, keys renew, generate-sas, show-connection-string, revoke-delegation-keys
 
-**Network Security**
+**网络安全**
 > network-rule add, network-rule list, network-rule remove, private-endpoint-connection
 
-**Blob Service**
+**Blob 服务**
 > blob-service-properties show, blob-service-properties update, blob-inventory-policy
 
-**File Service**
+**文件服务**
 > file-service-properties show, file-service-properties update
 
-**Advanced**
+**高级功能**
 > management-policy create, encryption-scope create, failover, local-user
 
 # PARAMETERS
 
 **-n, --name** _value_
-> Storage account name (globally unique, 3-24 chars, lowercase/numbers only)
+> 存储账户名（全局唯一，3-24 个字符，只能包含小写字母/数字）
 
 **-g, --resource-group** _value_
-> Name of the resource group
+> 资源组的名称
 
 **-l, --location** _value_
-> Azure region for the storage account
+> 存储账户所在的 Azure 区域
 
 **--sku** _value_
-> Storage SKU. Default **Standard_RAGRS**. Values include Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Standard_GZRS, Standard_RAGZRS, Premium_LRS, Premium_ZRS.
+> 存储 SKU。默认 **Standard_RAGRS**。取值包括 Standard_LRS、Standard_GRS、Standard_RAGRS、Standard_ZRS、Standard_GZRS、Standard_RAGZRS、Premium_LRS、Premium_ZRS。
 
 **--kind** _value_
-> Account kind. Default **StorageV2**. Values: StorageV2, Storage, BlobStorage, FileStorage, BlockBlobStorage.
+> 账户类型。默认 **StorageV2**。取值：StorageV2、Storage、BlobStorage、FileStorage、BlockBlobStorage。
 
 **--access-tier** _value_
-> Access tier for blob data: Hot, Cool, Cold, Premium.
+> Blob 数据的访问层：Hot、Cool、Cold、Premium。
 
 **--https-only** _value_
-> Require HTTPS for requests. Default **true**.
+> 要求请求使用 HTTPS。默认 **true**。
 
 **--min-tls-version** _value_
-> Minimum TLS version allowed: TLS1_0, TLS1_1, TLS1_2, TLS1_3.
+> 允许的最低 TLS 版本：TLS1_0、TLS1_1、TLS1_2、TLS1_3。
 
 **--allow-blob-public-access** _value_
-> Allow anonymous public access to blobs. Default **false** for new accounts.
+> 允许匿名公开访问 Blob。新建账户默认 **false**。
 
 **--hns**, **--enable-hierarchical-namespace** _value_
-> Enable hierarchical namespace (Azure Data Lake Storage Gen2).
+> 启用分层命名空间（Azure Data Lake Storage Gen2）。
 
 # CAVEATS
 
-Storage account names must be globally unique across all Azure customers. Changing redundancy options (GRS to LRS) may require data migration. Deleting a storage account is irreversible and removes all contained data. Premium accounts have different pricing and performance characteristics.
+存储账户名称必须在所有 Azure 客户之间全局唯一。更改冗余选项（例如从 GRS 改为 LRS）可能需要进行数据迁移。删除存储账户不可逆，会一并移除其中包含的所有数据。高级（Premium）账户具有不同的定价和性能特征。
 
 # HISTORY
 
-Azure Storage was one of the first Azure services, available since the platform's launch in **2010**. StorageV2 accounts became the recommended default in **2018**, unifying previously separate storage types and enabling new features like access tiers.
+Azure 存储是最早的 Azure 服务之一，自平台 **2010** 年上线起即可使用。StorageV2 账户于 **2018** 年成为推荐的默认账户类型，它统一了此前相互独立的存储类型，并启用了访问层等新功能。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-terminal string styling with colors and formatting
+带颜色和格式的终端字符串样式化工具
 
 # TLDR
 
-**Style text with color**
+**用颜色修饰文本**
 
 ```chalk red "Hello World"```
 
-**Apply multiple styles**
+**应用多种样式**
 
 ```chalk red bold "Important text"```
 
-**Use template syntax**
+**使用模板语法**
 
 ```chalk -t "{red.bold Unicorns} are {blue fun}"```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```echo "text" | chalk --stdin green```
 
-**Negate a style in template**
+**在模板中取消某个样式**
 
 ```chalk -t "{red text {~red normal}}"```
 
-**Output without newline**
+**输出时不换行**
 
 ```chalk -n yellow "No newline"```
 
-**Demo all styles**
+**演示所有样式**
 
 ```chalk --demo```
 
@@ -40,28 +40,28 @@ terminal string styling with colors and formatting
 
 # DESCRIPTION
 
-**chalk-cli** is a command-line tool for styling terminal strings with colors and formatting. It wraps the popular Node.js Chalk library, providing access to its styling capabilities from shell scripts and the command line.
+**chalk-cli** 是一款为终端字符串添加颜色和格式的命令行工具。它封装了流行的 Node.js Chalk 库，让 shell 脚本和命令行也能使用其样式化能力。
 
-Styles include foreground and background colors (standard and bright variants), as well as text modifiers like bold, dim, italic, underline, inverse, and strikethrough. Multiple styles can be combined, and the template syntax allows applying different styles to different parts of a single string.
+样式包括前景色和背景色（标准色和高亮变体），以及 bold、dim、italic、underline、inverse、strikethrough 等文本修饰。多种样式可以组合使用，模板语法还允许对单个字符串的不同部分应用不同样式。
 
-Input can come from command arguments or stdin, making it useful in shell pipelines for highlighting output or building colorful CLI interfaces.
+输入可以来自命令参数或 stdin，因此非常适合在 shell 管道中高亮输出或构建多彩的 CLI 界面。
 
 # PARAMETERS
 
 **-t**, **--template**
-> Use template syntax for nested styles
+> 使用模板语法实现嵌套样式
 
 **--stdin**
-> Read input from stdin
+> 从 stdin 读取输入
 
 **-n**, **--no-newline**
-> Don't emit newline after output
+> 输出后不追加换行符
 
 **--demo**
-> Show demo of all available styles
+> 展示所有可用样式的演示
 
 **-c**, **--color**
-> Force color support
+> 强制启用颜色支持
 
 # STYLES
 
@@ -69,17 +69,17 @@ Input can come from command arguments or stdin, making it useful in shell pipeli
 > black, red, green, yellow, blue, magenta, cyan, white, gray
 
 **Bright colors**
-> redBright, greenBright, yellowBright, etc.
+> redBright, greenBright, yellowBright 等
 
 **Background**
-> bgRed, bgGreen, bgBlue, etc.
+> bgRed, bgGreen, bgBlue 等
 
 **Modifiers**
 > bold, dim, italic, underline, inverse, strikethrough
 
 # TEMPLATE SYNTAX
 
-Templates allow inline nested styling:
+模板支持内联嵌套样式：
 
 ```
 {red.bold text}
@@ -92,7 +92,7 @@ Templates allow inline nested styling:
 
 # CAVEATS
 
-Requires Node.js. Color support depends on terminal capabilities. Use --color to force colors in pipes.
+需要 Node.js。颜色支持取决于终端能力。在管道中使用时可用 --color 强制着色。
 
 # INSTALL
 

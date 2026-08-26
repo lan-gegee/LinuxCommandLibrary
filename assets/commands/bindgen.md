@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate Rust FFI bindings from C/C++ headers
+从 C/C++ 头文件生成 Rust FFI 绑定
 
 # TLDR
 
-**Generate Rust bindings** from a C header
+**从 C 头文件生成 Rust 绑定**
 
 ```bindgen [input.h] -o [bindings.rs]```
 
-**Generate bindings with allowlist**
+**使用白名单生成绑定**
 
 ```bindgen [input.h] --allowlist-function "[regex]" --allowlist-type "[regex]" -o [bindings.rs]```
 
-**Generate bindings with blocklist**
+**使用黑名单生成绑定**
 
 ```bindgen [input.h] --blocklist-type "[type_name]" -o [bindings.rs]```
 
-**Add include path** for headers
+**为头文件添加包含路径**
 
 ```bindgen [input.h] -o [bindings.rs] -- -I[/path/to/includes]```
 
-**Generate bindings** for a C++ header
+**为 C++ 头文件生成绑定**
 
 ```bindgen [input.hpp] --enable-cxx-namespaces -o [bindings.rs]```
 
-**Use specific clang arguments**
+**传递特定的 clang 参数**
 
 ```bindgen [input.h] -o [bindings.rs] -- -std=c11 -DFOO=1```
 
-**Generate with derive traits**
+**生成带 derive trait 的绑定**
 
 ```bindgen [input.h] --with-derive-default --with-derive-eq -o [bindings.rs]```
 
@@ -38,66 +38,66 @@ Generate Rust FFI bindings from C/C++ headers
 
 # DESCRIPTION
 
-**bindgen** automatically generates Rust FFI (Foreign Function Interface) bindings to C and C++ libraries. It parses C/C++ header files using libclang and produces Rust code that allows calling native functions from Rust.
+**bindgen** 自动为 C 和 C++ 库生成 Rust FFI（外部函数接口）绑定。它使用 libclang 解析 C/C++ 头文件，并产出允许在 Rust 中调用原生函数的 Rust 代码。
 
-The generated bindings include function declarations, struct definitions, enums, constants, and type aliases. bindgen handles complex types like function pointers, unions, and opaque types, mapping them to appropriate Rust equivalents.
+生成的绑定包括函数声明、结构体定义、枚举、常量和类型别名。bindgen 能处理函数指针、联合体和不透明类型等复杂类型，并将它们映射到合适的 Rust 对应物。
 
-Typically used in build.rs scripts to generate bindings at compile time, ensuring bindings stay synchronized with library headers. It's a key tool in the Rust ecosystem for interfacing with existing C/C++ code.
+它通常用于 build.rs 脚本中，在编译期生成绑定，确保绑定与库头文件保持同步。它是 Rust 生态中与现有 C/C++ 代码交互的关键工具。
 
 # PARAMETERS
 
 **-o** _file_
-> Write output to file instead of stdout.
+> 将输出写入文件而不是 stdout。
 
 **--allowlist-function** _regex_
-> Only generate bindings for matching functions.
+> 只为匹配的函数生成绑定。
 
 **--allowlist-type** _regex_
-> Only generate bindings for matching types.
+> 只为匹配的类型生成绑定。
 
 **--blocklist-type** _regex_
-> Exclude matching types from bindings.
+> 从绑定中排除匹配的类型。
 
 **--blocklist-function** _regex_
-> Exclude matching functions.
+> 排除匹配的函数。
 
 **--enable-cxx-namespaces**
-> Enable C++ namespace support.
+> 启用 C++ 命名空间支持。
 
 **--with-derive-default**
-> Add Default derive to structs.
+> 为结构体添加 Default derive。
 
 **--with-derive-eq**
-> Add Eq derive to applicable types.
+> 为适用的类型添加 Eq derive。
 
 **--with-derive-hash**
-> Add Hash derive to applicable types.
+> 为适用的类型添加 Hash derive。
 
 **--no-layout-tests**
-> Skip generating layout tests.
+> 跳过布局测试的生成。
 
 **--generate** _items_
-> Specify what to generate (functions, types, vars, methods).
+> 指定要生成的内容（functions、types、vars、methods）。
 
 **--opaque-type** _regex_
-> Treat matching types as opaque.
+> 将匹配的类型视为不透明类型。
 
 **--wrap-static-fns**
-> Generate wrappers for static and static inline functions.
+> 为 static 和 static inline 函数生成包装器。
 
 **--rust-target** _version_
-> Minimum supported Rust version for the generated bindings.
+> 生成的绑定支持的最低 Rust 版本。
 
 **--**
-> Separator for clang arguments passed to libclang.
+> 分隔符，之后的 clang 参数将传给 libclang。
 
 # CAVEATS
 
-Requires libclang to be installed. C++ support is more limited than C. Some C constructs like bitfields may need manual adjustment. Generated code may require the libc crate. Build-time generation requires libclang on all build machines. Complex macros are not translated.
+需要安装 libclang。对 C++ 的支持比 C 更有限。位域等某些 C 构造可能需要手动调整。生成的代码可能需要 libc crate。编译期生成要求所有构建机器上都装有 libclang。复杂宏不会被翻译。
 
 # HISTORY
 
-**bindgen** was originally created by **Jyun-Yan You** in **2013** and has been maintained by the Rust project community. It became an official rust-lang project and is now maintained under the **rust-lang/rust-bindgen** repository. The tool has evolved significantly to handle more complex C/C++ patterns and improve the quality of generated Rust code, becoming essential for Rust's interoperability story.
+**bindgen** 由 **Jyun-Yan You** 于 **2013 年**创建，此后由 Rust 项目社区维护。它成为 rust-lang 官方项目，现由 **rust-lang/rust-bindgen** 仓库维护。该工具经过大幅演进，能够处理更复杂的 C/C++ 模式并提升生成代码的质量，已成为 Rust 互操作能力的重要一环。
 
 # INSTALL
 

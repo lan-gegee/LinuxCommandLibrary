@@ -1,34 +1,34 @@
 # TAGLINE
 
-Trace block layer I/O events
+跟踪块层 I/O 事件
 
 # TLDR
 
-**Trace block I/O** on a device
+**跟踪某设备上的块 I/O**
 
 ```blktrace -d [/dev/sda]```
 
-**Trace with output to specific directory**
+**跟踪并将输出写入指定目录**
 
 ```blktrace -d [/dev/sda] -D [/tmp/traces]```
 
-**Trace multiple devices**
+**跟踪多个设备**
 
 ```blktrace -d [/dev/sda] -d [/dev/sdb]```
 
-**Trace for a specific duration**
+**跟踪指定时长**
 
 ```blktrace -d [/dev/sda] -w [10]```
 
-**Trace and pipe to blkparse**
+**跟踪并通过管道传给 blkparse**
 
 ```blktrace -d [/dev/sda] -o - | blkparse -i -```
 
-**Trace with specific buffer size**
+**以指定的缓冲区大小跟踪**
 
 ```blktrace -d [/dev/sda] -b [1024]```
 
-**Stop tracing** (in another terminal)
+**停止跟踪**（在另一个终端中）
 
 ```killall blktrace```
 
@@ -38,60 +38,60 @@ Trace block layer I/O events
 
 # DESCRIPTION
 
-**blktrace** is a Linux block layer I/O tracing utility that captures detailed information about block device operations. It tracks requests from submission through the I/O scheduler to completion, providing visibility into storage subsystem behavior.
+**blktrace** 是一个 Linux 块层 I/O 跟踪工具，可捕获块设备操作的详细信息。它跟踪请求从提交、经过 I/O 调度器到完成的整个过程，让你了解存储子系统的行为。
 
-The traces include information like queue insertions, merges, dispatch to driver, and completion events. Each event contains timestamp, process ID, action code, and I/O parameters (sector, size, flags).
+跟踪内容涵盖队列插入、合并、向驱动的下发以及完成事件等。每个事件包含时间戳、进程 ID、动作代码和 I/O 参数（扇区、大小、标志）。
 
-blktrace produces binary trace files that are analyzed with blkparse, btt, or other tools. It's invaluable for diagnosing I/O performance issues, understanding workload patterns, and tuning storage configurations.
+blktrace 产生二进制跟踪文件，可用 blkparse、btt 或其他工具分析。它对于诊断 I/O 性能问题、理解负载模式和调优存储配置非常有价值。
 
 # PARAMETERS
 
 **-d** _device_
-> Device to trace (can specify multiple).
+> 要跟踪的设备（可指定多个）。
 
 **-o** _file_
-> Output file base name.
+> 输出文件基本名。
 
 **-D** _dir_
-> Directory for output files.
+> 输出文件所在目录。
 
 **-w** _seconds_
-> Trace duration in seconds.
+> 跟踪时长，单位为秒。
 
 **-b** _size_
-> Per-CPU buffer size in KiB (default 512).
+> 每个 CPU 的缓冲区大小，单位 KiB（默认 512）。
 
 **-n** _num_
-> Number of per-CPU sub-buffers (default 4).
+> 每个 CPU 的子缓冲区数量（默认 4）。
 
 **-a** _action_
-> Add an action to the trace filter mask (e.g. queue, complete).
+> 向跟踪过滤器掩码添加一个动作（如 queue、complete）。
 
 **-A** _mask_
-> Set the trace filter to the given hex action mask.
+> 将跟踪过滤器设为给定的十六进制动作掩码。
 
 **-r** _path_
-> debugfs mount point to use (default /sys/kernel/debug).
+> 要使用的 debugfs 挂载点（默认 /sys/kernel/debug）。
 
 **-I** _file_
-> Add the devices listed in _file_ as trace targets.
+> 将 _file_ 中列出的设备加入跟踪目标。
 
 **-l**, **--listen**
-> Run in server mode to receive traces over the network.
+> 以服务器模式运行，通过网络接收跟踪数据。
 
 **-h** _host_, **--host** _host_
-> Connect to the given network server when tracing.
+> 跟踪时连接到给定的网络服务器。
 
 **-V**, **-v**
-> Display version.
+> 显示版本。
 
 # CAVEATS
 
-Requires root privileges. Must have debugfs mounted (usually at /sys/kernel/debug). Creates binary trace files per CPU that need blkparse to read. High I/O rates can produce large trace files quickly. May impact performance on very busy systems due to trace overhead.
+需要 root 权限。必须已挂载 debugfs（通常位于 /sys/kernel/debug）。会为每个 CPU 创建需要 blkparse 才能读取的二进制跟踪文件。高 I/O 速率会迅速产生大量跟踪文件。在非常繁忙的系统上可能因跟踪开销影响性能。
 
 # HISTORY
 
-**blktrace** was developed by **Jens Axboe** and merged into the Linux kernel in version **2.6.17** (released **2006**). It was created to provide detailed insight into the Linux block I/O layer, replacing older and less detailed tracing methods. The tool has become standard for storage performance analysis on Linux and is part of the blktrace package alongside blkparse and btt.
+**blktrace** 由 **Jens Axboe** 开发，于 **2.6.17** 版本（**2006 年**发布）合并进 Linux 内核。其创建目的是深入洞察 Linux 块 I/O 层，取代较旧且不够详细的跟踪方法。该工具已成为 Linux 存储性能分析的标准工具，与 blkparse 和 btt 同属 blktrace 软件包。
 
 # INSTALL
 

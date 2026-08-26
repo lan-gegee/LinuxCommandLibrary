@@ -1,22 +1,22 @@
 # TAGLINE
 
-Strip directory and suffix from filenames.
+从文件名中去除目录部分和后缀。
 
 # TLDR
 
-**Extract** filename from path
+从路径中**提取**文件名
 
 ```basename [/path/to/file.txt]```
 
-**Remove** suffix
+**移除**后缀
 
 ```basename [/path/to/file.txt] [.txt]```
 
-**Multiple** files
+**多个**文件
 
 ```basename -a [/path/to/file1.txt] [/path/to/file2.txt]```
 
-Remove **any suffix**
+移除**任意后缀**
 
 ```basename -s [.txt] [/path/to/file.txt]```
 
@@ -26,34 +26,34 @@ Remove **any suffix**
 
 # DESCRIPTION
 
-**basename** removes directory components from a pathname, leaving only the final filename. It can optionally remove a trailing suffix, making it useful for extracting filenames in shell scripts.
+**basename** 从路径名中去除目录部分，只留下最后的文件名。它还可以选择性地去除末尾的后缀，非常适合在 Shell 脚本中提取文件名。
 
-The tool is part of GNU coreutils and commonly used in build scripts and file processing pipelines.
+该工具是 GNU coreutils 的一部分，常用于构建脚本和文件处理流水线。
 
 # PARAMETERS
 
 **-a**, **--multiple**
-> Process multiple arguments
+> 处理多个参数
 
 **-s**, **--suffix=**_suffix_
-> Remove trailing suffix
+> 移除末尾后缀
 
 **-z**, **--zero**
-> Separate output with NUL instead of newline
+> 输出以 NUL 而非换行符分隔
 
 # BEHAVIOR
 
-Given `/path/to/file.txt`:
-- **basename** returns `file.txt`
-- **basename** with suffix `.txt` returns `file`
+给定 `/path/to/file.txt`：
+- **basename** 返回 `file.txt`
+- 带 `.txt` 后缀的 **basename** 返回 `file`
 
 # CAVEATS
 
-Only removes a single trailing suffix exactly matching the argument — `basename file.tar.gz .gz` yields `file.tar`, not `file`. The path does not need to exist on disk. The two-argument form (positional suffix) is the POSIX behavior; `-s` plus `-a` is the GNU extension that supports multiple inputs and a non-positional suffix. In Bash scripts the parameter-expansion forms `${filepath##*/}` and `${name%.txt}` are faster than spawning `basename`.
+只精确移除一个与参数完全匹配的末尾后缀——`basename file.tar.gz .gz` 得到的是 `file.tar` 而非 `file`。路径不必真实存在于磁盘上。双参数形式（位置后缀）是 POSIX 行为；`-s` 加 `-a` 是 GNU 扩展，支持多输入和非位置式后缀。在 Bash 脚本中，参数展开形式 `${filepath##*/}` 和 `${name%.txt}` 比启动 `basename` 进程更快。
 
 # HISTORY
 
-**basename** has been part of Unix since the early days, included in POSIX standards, and is available in GNU coreutils since **1992**.
+**basename** 自早期起就是 Unix 的一部分，已纳入 POSIX 标准，自 **1992** 年起可在 GNU coreutils 中使用。
 
 # INSTALL
 

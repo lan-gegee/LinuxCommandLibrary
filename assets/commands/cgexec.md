@@ -1,22 +1,22 @@
 # TAGLINE
 
-run a command in a control group
+在控制组中运行命令
 
 # TLDR
 
-Run a command in a **cpu cgroup**
+在 **cpu cgroup** 中运行命令
 
 ```cgexec -g cpu:mygroup [command]```
 
-Run with **multiple controllers** in a single cgroup
+在单个 cgroup 中使用**多个控制器**运行
 
 ```cgexec -g cpu,memory:mygroup [command]```
 
-Run with **separate cgroups** for different controllers
+为不同控制器使用**独立的 cgroup** 运行
 
 ```cgexec -g cpu:mygroup -g memory:memgroup [command]```
 
-Run with **sticky** flag to prevent reclassification by cgred
+带 **sticky** 标志运行以防止 cgred 重新分类
 
 ```cgexec --sticky -g cpu:mygroup [command]```
 
@@ -26,40 +26,40 @@ Run with **sticky** flag to prevent reclassification by cgred
 
 # DESCRIPTION
 
-**cgexec** executes a process within a specified control group (cgroup). Unlike cgclassify, which moves already-running processes, cgexec starts a new process directly inside the target cgroup from the beginning.
+**cgexec** 在指定的控制组（cgroup）内执行进程。与移动已在运行的进程的 cgclassify 不同，cgexec 从一开始就将新进程直接启动在目标 cgroup 中。
 
-Cgroups allow limiting, measuring, and controlling resource usage by processes for CPU, memory, I/O, and other resources. By launching a process with cgexec, all resource constraints defined for that cgroup apply immediately from process startup, including any child processes it spawns.
+cgroup 允许对进程的 CPU、内存、I/O 等资源使用进行限制、度量和控制。通过 cgexec 启动进程时，该 cgroup 定义的所有资源约束从进程启动起立即生效，包括其派生的所有子进程。
 
-cgexec is part of the libcgroup-tools package and works with cgroups v1. For cgroups v2 systems, systemd-run provides similar functionality.
+cgexec 属于 libcgroup-tools 软件包，适用于 cgroups v1。在 cgroups v2 系统上，systemd-run 提供类似功能。
 
 # PARAMETERS
 
 **-g** _controllers:path_
-> Specify the controller(s) and cgroup path. Multiple controllers can be comma-separated. Can be used multiple times.
+> 指定控制器和 cgroup 路径。多个控制器可用逗号分隔。可多次使用。
 
 **--sticky**
-> Prevent cgrulesengd (cgred) from reclassifying the process or its children.
+> 防止 cgrulesengd (cgred) 对该进程或其子进程进行重新分类。
 
 **-b**
-> Ignore the default systemd delegated hierarchy path and construct the cgroup path relative to the root hierarchy.
+> 忽略默认的 systemd 委派层级路径，改为相对根层级构造 cgroup 路径。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 Controllers include:
-> **cpu** - CPU time allocation
-> **memory** - Memory usage limits
-> **blkio** - Block I/O limits
-> **cpuset** - CPU and memory node assignment
-> **devices** - Device access control
+> **cpu** - CPU 时间分配
+> **memory** - 内存使用限制
+> **blkio** - 块设备 I/O 限制
+> **cpuset** - CPU 和内存节点分配
+> **devices** - 设备访问控制
 
 # CAVEATS
 
-The cgroup must exist before using cgexec (create with cgcreate). Multiple controllers can be comma-separated in a single -g option or specified with multiple -g options. Requires appropriate permissions or root access. If -g is not specified, cgexec assigns the task based on /etc/cgrules.conf.
+使用 cgexec 前 cgroup 必须已存在（用 cgcreate 创建）。多个控制器可在单个 -g 选项中以逗号分隔，也可用多个 -g 选项指定。需要相应权限或 root 权限。若未指定 -g，cgexec 会根据 /etc/cgrules.conf 分配任务。
 
 # HISTORY
 
-**cgexec** is part of **libcgroup**, providing cgroup management utilities for resource control on Linux.
+**cgexec** 是 **libcgroup** 的一部分，后者为 Linux 上的资源控制提供 cgroup 管理工具。
 
 # INSTALL
 

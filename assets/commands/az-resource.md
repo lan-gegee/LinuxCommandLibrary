@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure resources generically across all types
+以通用方式管理所有类型的 Azure 资源
 
 # TLDR
 
-**List all resources** in the subscription
+**列出订阅中的所有资源**
 
 ```az resource list```
 
-**List resources** in a resource group
+**列出资源组中的资源**
 
 ```az resource list --resource-group [rg_name]```
 
-**Show a resource** by ID
+**按 ID 显示资源**
 
 ```az resource show --ids [/subscriptions/.../resourceGroups/.../providers/.../name]```
 
-**Show a resource** by name and type
+**按名称和类型显示资源**
 
 ```az resource show --resource-group [rg_name] --resource-type [Microsoft.Web/sites] --name [resource_name]```
 
-**Delete a resource**
+**删除资源**
 
 ```az resource delete --ids [resource_id]```
 
-**Move resources** to another resource group
+**将资源移动到另一个资源组**
 
 ```az resource move --destination-group [dest_rg] --ids [resource_id1] [resource_id2]```
 
-**Tag a resource**
+**为资源添加标记**
 
 ```az resource tag --tags [env=prod] [team=backend] --ids [resource_id]```
 
-**Update a resource** property
+**更新资源属性**
 
 ```az resource update --ids [resource_id] --set properties.someProperty=value```
 
@@ -42,84 +42,84 @@ Manage Azure resources generically across all types
 
 # DESCRIPTION
 
-**az resource** is a subcommand of the Azure CLI that manages Azure resources generically across all resource types. It provides a unified interface for operations that apply to any resource, regardless of the specific service.
+**az resource** 是 Azure CLI 的一个子命令，用于以通用方式管理所有资源类型的 Azure 资源。它为适用于任何资源的操作提供统一接口，与具体服务无关。
 
-Resources in Azure are identifiable entities like virtual machines, storage accounts, or databases. Each has a unique resource ID following the pattern /subscriptions/{sub}/resourceGroups/{rg}/providers/{provider}/{type}/{name}.
+Azure 中的资源是可识别的实体，例如虚拟机、存储账户或数据库。每个资源都有唯一的资源 ID，遵循 /subscriptions/{sub}/resourceGroups/{rg}/providers/{provider}/{type}/{name} 这一模式。
 
-This command is useful for scripting cross-resource operations, bulk management, and working with resource types that may not have dedicated CLI command groups.
+该命令适合编写跨资源操作的脚本、进行批量管理，以及处理可能尚无专用 CLI 命令组的资源类型。
 
 # PARAMETERS
 
 **list**
-> List resources with optional filters.
+> 列出资源，可附带筛选条件。
 
 **show**
-> Display resource details.
+> 显示资源详细信息。
 
 **create**
-> Create a resource from properties.
+> 根据属性创建资源。
 
 **delete**
-> Remove a resource.
+> 删除资源。
 
 **update**
-> Update a resource by PUT request.
+> 通过 PUT 请求更新资源。
 
 **patch**
-> Update a resource by PATCH request.
+> 通过 PATCH 请求更新资源。
 
 **move**
-> Move resources between groups or subscriptions.
+> 在资源组或订阅之间移动资源。
 
 **tag**
-> Tag a resource.
+> 为资源添加标记。
 
 **invoke-action**
-> Invoke an action on a resource.
+> 对资源调用某个操作。
 
 **wait**
-> Wait until a condition on a resource is met (provisioning, deletion, etc.).
+> 等待资源满足某个条件（预配、删除等）。
 
 **--ids** _ids_
-> One or more resource IDs.
+> 一个或多个资源 ID。
 
 **--resource-group** _rg_
-> Resource group name.
+> 资源组名称。
 
 **--resource-type** _type_
-> Resource type (e.g., Microsoft.Compute/virtualMachines).
+> 资源类型（例如 Microsoft.Compute/virtualMachines）。
 
 **--name** _name_
-> Resource name.
+> 资源名称。
 
 **--namespace** _namespace_
-> Provider namespace.
+> 提供程序命名空间。
 
 **--api-version** _version_
-> API version for the resource type.
+> 该资源类型的 API 版本。
 
 **--set** _property=value_
-> Update a property on the resource (e.g., properties.someProperty=value).
+> 更新资源上的某个属性（例如 properties.someProperty=value）。
 
 **--add** _list property=value_
-> Add an object to a list of objects (e.g., --add tags.newKey=value).
+> 向对象列表添加对象（例如 --add tags.newKey=value）。
 
 **--remove** _property/index_
-> Remove a property or an element from a list.
+> 移除某个属性或列表中的元素。
 
 **--tags** _tags_
-> Space-separated tags (key=value).
+> 以空格分隔的标记（key=value）。
 
 **--query-string** _query_
-> Filter resources with OData query.
+> 使用 OData 查询筛选资源。
 
 # CAVEATS
 
-Some resources cannot be moved between resource groups or subscriptions. Deleting a resource may leave orphaned dependent resources. API version compatibility varies by resource type. Generic commands may lack service-specific validations available in dedicated command groups. Resource moves may take extended time and have service-specific limitations.
+某些资源无法在资源组或订阅之间移动。删除资源可能会留下孤立的依赖资源。API 版本的兼容性因资源类型而异。通用命令可能缺少专用命令组所具备的服务特定验证。资源移动可能耗时较长，且存在服务特定的限制。
 
 # HISTORY
 
-The generic resource commands have been part of the Azure CLI since **Azure CLI 2.0** launched in **2017**. They provide ARM (Azure Resource Manager) API access for any resource type. As Azure has grown, dedicated command groups for services have expanded, but the generic resource commands remain valuable for automation, bulk operations, and accessing new resource types before dedicated commands exist.
+通用资源命令自 **2017** 年 **Azure CLI 2.0** 发布起就是 Azure CLI 的一部分。它们可为任何资源类型提供 ARM（Azure Resource Manager）API 访问。随着 Azure 的成长，各服务的专用命令组不断增多，但通用资源命令在自动化、批量操作以及抢先使用尚无专用命令的新资源类型方面仍然很有价值。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure Quantum workspaces and jobs
+管理 Azure Quantum 工作区和作业
 
 # TLDR
 
-**List available quantum providers** in a location
+在某个位置**列出可用的量子提供程序**
 
 ```az quantum offerings list --location [eastus]```
 
-**Create a quantum workspace**
+**创建量子工作区**
 
 ```az quantum workspace create --name [MyWorkspace] --resource-group [MyResourceGroup] --location [eastus] --storage-account [MyStorageAccount]```
 
-**List quantum workspaces**
+**列出量子工作区**
 
 ```az quantum workspace list --resource-group [MyResourceGroup]```
 
-**Set default workspace** for later commands
+为后续命令**设置默认工作区**
 
 ```az quantum workspace set --resource-group [MyResourceGroup] --workspace-name [MyWorkspace] --location [eastus]```
 
-**Submit a quantum job**
+**提交量子作业**
 
 ```az quantum job submit --resource-group [MyResourceGroup] --workspace-name [MyWorkspace] --target-id [ionq.simulator] --job-name [MyJob] --job-input-file [circuit.json] --job-input-format [ionq.circuit.v1]```
 
-**Submit a job and wait** for the result
+**提交作业并等待**结果
 
 ```az quantum run --resource-group [MyResourceGroup] --workspace-name [MyWorkspace] --target-id [ionq.simulator] --job-input-file [circuit.json] --job-input-format [ionq.circuit.v1]```
 
-**List quantum jobs**
+**列出量子作业**
 
 ```az quantum job list```
 
-**Show job status**
+**显示作业状态**
 
 ```az quantum job show --job-id [job_id]```
 
@@ -43,82 +43,82 @@ Manage Azure Quantum workspaces and jobs
 # SUBCOMMANDS
 
 **workspace create**
-> Create a new Azure Quantum workspace.
+> 创建新的 Azure Quantum 工作区。
 
 **workspace list**
-> List the Azure Quantum workspaces available.
+> 列出可用的 Azure Quantum 工作区。
 
 **workspace set**
-> Select a default workspace for future commands.
+> 为后续命令选择默认工作区。
 
 **workspace show**
-> Show details of the given (or current) workspace.
+> 显示给定（或当前）工作区的详情。
 
 **workspace delete**
-> Delete a quantum workspace.
+> 删除量子工作区。
 
 **workspace quotas**
-> List quotas for the workspace.
+> 列出工作区的配额。
 
 **workspace keys**
-> List or regenerate workspace API keys.
+> 列出或重新生成工作区的 API 密钥。
 
 **offerings list**
-> List all provider offerings available in a location.
+> 列出某个位置所有可用的提供程序产品。
 
 **offerings accept-terms**
-> Accept the terms for a provider and SKU before using it.
+> 在使用某个提供程序和 SKU 之前接受其条款。
 
 **job submit**
-> Submit a program or circuit to run on Azure Quantum.
+> 提交要在 Azure Quantum 上运行的程序或线路。
 
 **job list**
-> List jobs in a workspace.
+> 列出工作区中的作业。
 
 **job show**
-> Get a job's status and details.
+> 获取作业的状态和详情。
 
 **job output**
-> Get the results of a completed job.
+> 获取已完成的作业的结果。
 
 **job wait**
-> Wait until a job finishes running.
+> 等待作业运行结束。
 
 **run**, **execute**
-> Submit a job and wait for the result (equivalent commands).
+> 提交作业并等待结果（等价命令）。
 
 **target list**
-> List providers and their targets in a workspace.
+> 列出工作区中的提供程序及其目标。
 
 **target set**
-> Select the default target for submitting jobs.
+> 选择用于提交作业的默认目标。
 
 # PARAMETERS
 
 **--resource-group**, **-g**
-> Name of the resource group. Configure a default with **az configure --defaults group=NAME**.
+> 资源组的名称。可用 **az configure --defaults group=NAME** 配置默认值。
 
 **--workspace-name**, **-w**
-> Name of the Quantum Workspace. Configure a default with **az quantum workspace set**.
+> Quantum 工作区的名称。可用 **az quantum workspace set** 配置默认值。
 
 **--target-id**, **-t**
-> Execution engine (target) for the job, for example `ionq.simulator`. Configure a default with **az quantum target set**.
+> 作业的执行引擎（目标），例如 `ionq.simulator`。可用 **az quantum target set** 配置默认值。
 
 **--job-input-file**
-> Path to the program or circuit file to submit.
+> 要提交的程序或线路文件的路径。
 
 **--job-input-format**
-> Format of the input file, for example `ionq.circuit.v1` or `qir.v1`.
+> 输入文件的格式，例如 `ionq.circuit.v1` 或 `qir.v1`。
 
 # DESCRIPTION
 
-**az quantum** manages Azure Quantum resources, which provide access to quantum computing hardware and simulators from various providers. Azure Quantum supports multiple providers including IonQ, Quantinuum, Rigetti, and Microsoft's simulators.
+**az quantum** 管理 Azure Quantum 资源，这些资源提供对来自多家提供商的量子计算硬件和模拟器的访问。Azure Quantum 支持多个提供商，包括 IonQ、Quantinuum、Rigetti 以及 Microsoft 的模拟器。
 
-Workspaces are the top-level resource for managing quantum jobs, targets, and provider access. Set a default workspace and target to avoid repeating **--workspace-name** and **--target-id** on every command.
+工作区是管理量子作业、目标和提供商访问的顶层资源。设置默认工作区和目标可以避免在每条命令上重复输入 **--workspace-name** 和 **--target-id**。
 
 # CAVEATS
 
-This command group is in **preview**. Part of the **quantum** extension (Azure CLI 2.73.0 or higher); it installs automatically the first time an **az quantum** command runs, or install it manually with **az extension add --name quantum**. Quantum services have regional availability constraints, and job costs vary significantly by provider and target.
+此命令组处于**预览**阶段。属于 **quantum** 扩展（需要 Azure CLI 2.73.0 或更高版本）；首次运行 **az quantum** 命令时会自动安装，也可以用 **az extension add --name quantum** 手动安装。量子服务存在区域可用性限制，且作业成本因提供商和目标而异，差异很大。
 
 # INSTALL
 

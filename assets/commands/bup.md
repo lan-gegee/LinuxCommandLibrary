@@ -1,38 +1,38 @@
 # TAGLINE
 
-Git-based backup system with deduplication
+基于 Git、支持去重的备份系统
 
 # TLDR
 
-**Initialize** a bup repository in the default location (~/.bup)
+**在默认位置（~/.bup）初始化** bup 仓库
 
 ```bup init```
 
-**Initialize** a repository in a custom directory
+**在自定义目录中初始化**仓库
 
 ```BUP_DIR=[/path/to/repo] bup init```
 
-**Index** files for backup
+**为备份建立文件索引**
 
 ```bup index [/path/to/backup]```
 
-**Save** an indexed backup with a name
+**保存**已建立索引的备份并命名
 
 ```bup save -n [backup-name] [/path/to/backup]```
 
-**List** all backups
+**列出**所有备份
 
 ```bup ls```
 
-**List** files in a specific backup
+**列出**特定备份中的文件
 
 ```bup ls [backup-name]/latest/```
 
-**Restore** files to a target directory
+**恢复**文件到目标目录
 
 ```bup restore -C [/restore/path] [backup-name/latest/path]```
 
-**Check** repository integrity
+**检查**仓库完整性
 
 ```bup fsck```
 
@@ -42,55 +42,55 @@ Git-based backup system with deduplication
 
 # DESCRIPTION
 
-**bup** is a backup system based on git's packfile format. It provides very efficient storage through deduplication, splitting large files into chunks, and using rolling checksums to find duplicate data.
+**bup** 是一个基于 git packfile 格式的备份系统。它通过去重提供非常高效的存储：将大文件拆分为数据块，并使用滚动校验和来发现重复数据。
 
-The tool is particularly effective for backing up large files with small changes.
+该工具对备份只有少量改动的大文件尤其有效。
 
 # PARAMETERS
 
 **init**
-> Initialize bup repository. Uses ~/.bup by default or BUP_DIR if set.
+> 初始化 bup 仓库。默认使用 ~/.bup，若设置了 BUP_DIR 则使用它。
 
 **index** _path_
-> Index files for backup. Must be run before save.
+> 为备份建立文件索引。必须在 save 之前运行。
 
 **save** **-n** _name_ _path_
-> Save indexed files as a named backup set.
+> 将已建立索引的文件保存为命名备份集。
 
 **restore** **-C** _target_ _backup-path_
-> Restore files from a backup to the target directory.
+> 将备份中的文件恢复到目标目录。
 
 **ls** [_backup_]
-> List backups or files within a backup.
+> 列出备份或某个备份内的文件。
 
 **fsck**
-> Check repository integrity.
+> 检查仓库完整性。
 
 **fuse** _mountpoint_
-> Mount backups as a read-only FUSE filesystem.
+> 将备份挂载为只读的 FUSE 文件系统。
 
 **damage**
-> Deliberately damage a repository for testing fsck.
+> 故意损坏仓库，用于测试 fsck。
 
 **margin**
-> Report the maximum number of matching prefix bits between objects.
+> 报告对象之间匹配前缀位的最大数量。
 
 **midx**
-> Create or display midx (multi-index) files.
+> 创建或显示 midx（多索引）文件。
 
 **memtest**
-> Test memory throughput.
+> 测试内存吞吐量。
 
 **web**
-> Start a web server to browse backups.
+> 启动一个 Web 服务器以浏览备份。
 
 # ENVIRONMENT
 
 **BUP_DIR**
-> Path to the bup repository. Defaults to ~/.bup.
+> bup 仓库的路径。默认为 ~/.bup。
 
 **BUP_FORCE_TTY**
-> Force progress output even when not on a terminal.
+> 即使不在终端中也强制输出进度信息。
 
 # WORKFLOW
 
@@ -125,19 +125,19 @@ bup save -r myserver: -n documents ~/Documents
 
 # DEDUPLICATION
 
-Uses rolling checksums to identify duplicate chunks even when shifted within files. Very efficient for:
-- Virtual machine images
-- Large archives
-- Database backups
-- Version control repositories
+使用滚动校验和识别重复的数据块，即使它们在文件内发生了位移。对以下场景特别高效：
+- 虚拟机镜像
+- 大型归档
+- 数据库备份
+- 版本控制仓库
 
 # CAVEATS
 
-Not encrypted by default. Repository can grow large without maintenance. Restore can be slow for many small files. Less mature than borg/restic. Documentation sometimes lacking. Not ideal for many tiny files. No built-in pruning of old backups.
+默认不加密。缺乏维护时仓库可能变得很大。大量小文件的恢复速度较慢。不如 borg/restic 成熟。文档有时不够完善。不适合海量微小文件。没有内置的旧备份清理功能。
 
 # HISTORY
 
-**bup** was created by Avery Pennarun around **2010** to provide git-like backup with efficient deduplication for large files.
+**bup** 由 Avery Pennarun 在 **2010 年**前后创建，旨在为大型文件提供类似 git 的高效去重备份。
 
 # INSTALL
 

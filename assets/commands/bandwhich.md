@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display network bandwidth usage per process
+按进程显示网络带宽占用
 
 # TLDR
 
-**Monitor** network usage (requires root)
+**监控**网络使用情况（需要 root）
 
 ```sudo bandwhich```
 
-Monitor a **specific interface**
+监控**指定接口**
 
 ```sudo bandwhich --interface [eth0]```
 
-**Do not resolve** hostnames
+**不解析**主机名
 
 ```sudo bandwhich --no-resolve```
 
-Show only the **processes** table
+只显示**进程**表
 
 ```sudo bandwhich --processes```
 
-Show **cumulative** (total) utilization
+显示**累计**总利用率
 
 ```sudo bandwhich --total-utilization```
 
-Output **machine-friendly** text instead of the UI
+输出**机器可读的**文本而不是 UI
 
 ```sudo bandwhich --raw```
 
@@ -34,66 +34,66 @@ Output **machine-friendly** text instead of the UI
 
 # DESCRIPTION
 
-**bandwhich** is a CLI utility for displaying current network utilization by process, connection, and remote IP/hostname. It provides a terminal UI showing which programs are using bandwidth in real-time.
+**bandwhich** 是一款按进程、连接和远程 IP/主机名显示当前网络利用率的 CLI 工具。它提供终端 UI，实时展示哪些程序正在占用带宽。
 
-The tool is particularly useful for identifying bandwidth-heavy applications and monitoring network activity.
+该工具特别适合找出高带宽应用并监控网络活动。
 
 # PARAMETERS
 
 **-i**, **--interface** _name_
-> Monitor a specific network interface (may be repeated).
+> 监控指定的网络接口（可重复使用）。
 
 **-r**, **--raw**
-> Output machine-friendly text instead of the interactive terminal UI.
+> 输出机器友好的文本，而不是交互式终端 UI。
 
 **-n**, **--no-resolve**
-> Do not resolve IP addresses to hostnames.
+> 不将 IP 地址解析为主机名。
 
 **-s**, **--show-dns**
-> Show DNS queries in the output.
+> 在输出中显示 DNS 查询。
 
 **-d**, **--dns-server** _ip_
-> Use a custom DNS server for reverse lookups.
+> 使用自定义 DNS 服务器进行反向查询。
 
 **-p**, **--processes**
-> Show only the processes table.
+> 只显示进程表。
 
 **-c**, **--connections**
-> Show only the connections table.
+> 只显示连接表。
 
 **-a**, **--addresses**
-> Show only the remote addresses table.
+> 只显示远程地址表。
 
 **-t**, **--total-utilization**
-> Show cumulative usage statistics rather than per-second rates.
+> 显示累计用量统计而不是每秒速率。
 
 **-u**, **--unit-family** _family_
-> Unit format: bin-bytes, bin-bits, si-bytes, or si-bits.
+> 单位格式：bin-bytes、bin-bits、si-bytes 或 si-bits。
 
 # FEATURES
 
-- Real-time bandwidth monitoring
-- Per-process statistics
-- Connection details
-- Remote host identification
-- Interactive terminal UI
-- DNS query logging
+- 实时带宽监控
+- 按进程统计
+- 连接详情
+- 远程主机识别
+- 交互式终端 UI
+- DNS 查询日志
 
 # INTERFACE
 
-Display sections:
-- **Processes** - Bandwidth per process
-- **Connections** - Active connections
-- **Remote addresses** - Traffic by destination
-- **Total** - Aggregate statistics
+显示区域：
+- **Processes** - 各进程占用的带宽
+- **Connections** - 活动连接
+- **Remote addresses** - 按目的地统计的流量
+- **Total** - 汇总统计
 
 # CAVEATS
 
-Requires root/sudo for packet capture. May not capture all traffic types. Hostname resolution can slow display. Terminal must support required features. Some VPN traffic may not be attributed correctly.
+抓包需要 root/sudo 权限。可能无法捕获所有类型的流量。主机名解析会拖慢显示。终端必须支持所需特性。部分 VPN 流量可能无法正确归属到进程。
 
 # HISTORY
 
-**bandwhich** was created by Aram Drevekenin around **2019** as a modern, user-friendly alternative to tools like iftop and nethogs. It is written in Rust and is currently in passive maintenance.
+**bandwhich** 由 Aram Drevekenin 于 **2019** 年前后创建，是 iftop 和 nethogs 等工具的现代易用替代品。它使用 Rust 编写，目前处于低强度维护状态。
 
 # INSTALL
 

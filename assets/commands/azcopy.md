@@ -1,42 +1,42 @@
 # TAGLINE
 
-High-performance data transfer for Azure Storage
+面向 Azure Storage 的高性能数据传输工具
 
 # TLDR
 
-**Copy a local file** to Azure Blob Storage
+**将本地文件复制到** Azure Blob Storage
 
 ```azcopy copy [path/to/file] "https://[account].blob.core.windows.net/[container]/[blob]?[SAS_token]"```
 
-**Download a blob** to local filesystem
+**将 Blob 下载到**本地文件系统
 
 ```azcopy copy "https://[account].blob.core.windows.net/[container]/[blob]?[SAS_token]" [path/to/destination]```
 
-**Sync a local directory** to a container
+**将本地目录同步到**容器
 
 ```azcopy sync [path/to/directory] "https://[account].blob.core.windows.net/[container]?[SAS_token]"```
 
-**Copy between storage accounts**
+**在存储账户之间复制**
 
 ```azcopy copy "https://[source].blob.core.windows.net/[container]?[SAS]" "https://[dest].blob.core.windows.net/[container]?[SAS]" --recursive```
 
-**Copy with pattern matching**
+**按模式匹配复制**
 
 ```azcopy copy "https://[account].blob.core.windows.net/[container]/*.txt?[SAS]" [path/to/destination]```
 
-**List blobs** in a container
+**列出容器中的 Blob**
 
 ```azcopy list "https://[account].blob.core.windows.net/[container]?[SAS_token]"```
 
-**Login with Azure AD**
+**使用 Azure AD 登录**
 
 ```azcopy login```
 
-**Show transfer jobs**
+**显示传输作业**
 
 ```azcopy jobs list```
 
-**Benchmark** throughput against a container
+**针对容器做吞吐量基准测试**
 
 ```azcopy bench "https://[account].blob.core.windows.net/[container]?[SAS_token]"```
 
@@ -46,93 +46,93 @@ High-performance data transfer for Azure Storage
 
 # DESCRIPTION
 
-**AzCopy** is a command-line utility for high-performance data transfer to and from Azure Blob Storage, Azure Files, and Azure Data Lake Storage. It uses parallel connections and automatic retry logic for reliable transfers.
+**AzCopy** 是一个命令行实用工具，用于与 Azure Blob Storage、Azure Files 和 Azure Data Lake Storage 之间进行高性能数据传输。它利用并行连接和自动重试逻辑实现可靠的传输。
 
-AzCopy supports copying between local filesystems and Azure storage, between Azure storage accounts, and to/from AWS S3. Authentication can use SAS tokens, Azure AD, or service principals.
+AzCopy 支持在本地文件系统与 Azure 存储之间、不同 Azure 存储账户之间以及 AWS S3 与 Azure 之间复制数据。身份验证可使用 SAS 令牌、Azure AD 或服务主体。
 
-The sync command provides one-way synchronization, copying only new or modified files. Copy operations can preserve metadata, access tiers, and handle recursive directory structures.
+sync 命令提供单向同步，只复制新增或有修改的文件。复制操作可以保留元数据和访问层，并能处理递归的目录结构。
 
 # PARAMETERS
 
 **copy**
-> Copy files or blobs between locations.
+> 在位置之间复制文件或 Blob。
 
 **sync**
-> Synchronize source to destination.
+> 将源同步到目标。
 
 **list**
-> List blobs or files.
+> 列出 Blob 或文件。
 
 **login**
-> Authenticate with Azure AD.
+> 使用 Azure AD 进行身份验证。
 
 **logout**
-> Clear cached credentials.
+> 清除缓存的凭据。
 
 **jobs list**
-> Show transfer jobs.
+> 显示传输作业。
 
 **jobs show**
-> Get details of a specific job.
+> 获取特定作业的详情。
 
 **jobs resume**
-> Resume a failed transfer.
+> 恢复失败的传输。
 
 **remove**
-> Delete blobs or files.
+> 删除 Blob 或文件。
 
 **bench**
-> Run a throughput benchmark against a storage target.
+> 对存储目标运行吞吐量基准测试。
 
 **make**
-> Create a container or file share.
+> 创建容器或文件共享。
 
 **--recursive**
-> Include subdirectories (default false).
+> 包含子目录（默认 false）。
 
 **--include-pattern** _pattern_
-> Include files matching a semicolon-separated pattern list.
+> 只包含匹配分号分隔模式列表的文件。
 
 **--exclude-pattern** _pattern_
-> Exclude files matching a semicolon-separated pattern list.
+> 排除匹配分号分隔模式列表的文件。
 
 **--overwrite** _mode_
-> true, false, prompt, or ifSourceNewer (default true).
+> true、false、prompt 或 ifSourceNewer（默认 true）。
 
 **--put-md5**
-> Compute and store an MD5 hash with each uploaded blob (default false).
+> 为每个上传的 Blob 计算并存储 MD5 哈希（默认 false）。
 
 **--check-md5** _mode_
-> Verify MD5 on download: NoCheck, LogOnly, FailIfDifferent, or FailIfDifferentOrMissing (default FailIfDifferent).
+> 下载时校验 MD5：NoCheck、LogOnly、FailIfDifferent 或 FailIfDifferentOrMissing（默认 FailIfDifferent）。
 
 **--from-to** _value_
-> Force the transfer direction, for example LocalBlob or BlobLocal.
+> 强制指定传输方向，例如 LocalBlob 或 BlobLocal。
 
 **--as-subdir**
-> Place the source directory as a subdirectory at the destination (default true).
+> 将源目录作为子目录放到目标位置（默认 true）。
 
 **--preserve-permissions**
-> Preserve ACLs and permissions (SMB or POSIX).
+> 保留 ACL 和权限（SMB 或 POSIX）。
 
 **--block-size-mb** _size_
-> Block size in MiB used for uploads and downloads (default 0, auto).
+> 上传和下载使用的块大小，单位 MiB（默认 0，自动）。
 
 **--cap-mbps** _rate_
-> Cap the transfer rate in megabits per second (default 0, uncapped).
+> 以兆比特每秒为单位限制传输速率（默认 0，不限制）。
 
 **--dry-run**
-> Show what would be transferred without performing it.
+> 显示将要传输的内容但不实际执行。
 
 **--log-level** _level_
-> Logging verbosity: DEBUG, INFO, WARNING, ERROR, or NONE (default INFO).
+> 日志详细程度：DEBUG、INFO、WARNING、ERROR 或 NONE（默认 INFO）。
 
 # CAVEATS
 
-SAS tokens must have appropriate permissions (read, write, list, delete). URL must be quoted to prevent shell interpretation of special characters. Sync is one-way only and does not delete files at destination by default. Large files are automatically split into blocks. Performance depends on network bandwidth and storage account limits.
+SAS 令牌必须具备适当的权限（读取、写入、列出、删除）。URL 必须加引号，以防止 shell 解释特殊字符。同步是单向的，且默认不删除目标端的文件。大文件会自动分块传输。性能取决于网络带宽和存储账户的限制。
 
 # HISTORY
 
-**AzCopy v10** was released in **2018** as a complete rewrite from earlier versions, moving from .NET to Go for cross-platform support. It replaced the Windows-only AzCopy v8. The tool has gained features including Azure AD authentication, S3-to-Azure migration, benchmark command, and integration with Azure Storage lifecycle. It remains the recommended tool for bulk Azure storage operations.
+**AzCopy v10** 于 **2018** 年发布，是对早期版本的完全重写，从 .NET 迁移到 Go 以获得跨平台支持，取代了仅限 Windows 的 AzCopy v8。该工具陆续增加了 Azure AD 身份验证、S3 到 Azure 迁移、bench 基准测试命令以及与 Azure 存储生命周期的集成等功能。它仍是批量 Azure 存储操作的推荐工具。
 
 # INSTALL
 

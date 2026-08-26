@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI for managing Obsidian vaults and notes from the terminal
+在终端中管理 Obsidian 仓库和笔记的 TUI
 
 # TLDR
 
-**Launch basalt** to select and open an Obsidian vault
+**启动 basalt** 以选择并打开一个 Obsidian 仓库
 
 ```basalt```
 
-**Install via Cargo**
+**通过 Cargo 安装**
 
 ```cargo install basalt-tui```
 
@@ -18,54 +18,54 @@ TUI for managing Obsidian vaults and notes from the terminal
 
 # DESCRIPTION
 
-**basalt** is a cross-platform terminal user interface (TUI) for managing Obsidian vaults and notes directly from the command line. It provides a minimalist interface with rendered markdown preview, vim-inspired navigation, and an experimental built-in editor.
+**basalt** 是一款跨平台终端用户界面（TUI），可直接在命令行中管理 Obsidian 仓库和笔记。它提供极简界面，带有渲染后的 markdown 预览、受 vim 启发的导航以及实验性的内置编辑器。
 
-The interface consists of three main panes: the **Explorer** pane on the left for browsing notes and folders, the **Note Editor** pane in the center for reading notes with rendered markdown, and the **Outline** pane on the right for navigating headings within a note. Only one pane has focus at a time, indicated by a thicker border.
+界面由三个主窗格组成：左侧用于浏览笔记和文件夹的 **Explorer** 窗格、中间以渲染 markdown 阅读笔记的 **Note Editor** 窗格，以及右侧用于在笔记内导航标题的 **Outline** 窗格。同一时间只有一个窗格获得焦点，以更粗的边框表示。
 
-basalt renders CommonMark and GitHub Flavored Markdown including headings, lists, task lists, code blocks, block quotes, Obsidian-style callouts, wiki-links, and inline code. Navigation uses vim-style keybindings: **j**/**k** or arrow keys to move, **Tab**/**Shift+Tab** to switch panes, **Enter** to open a note, **t** to toggle the explorer, **Ctrl+O** to toggle the outline, **Ctrl+U**/**Ctrl+D** for half-page scrolling, **s** to toggle sort order, and **r** to rename notes or folders. When renaming a note, all wiki-links referencing it are automatically updated throughout the vault.
+basalt 渲染 CommonMark 和 GitHub Flavored Markdown，包括标题、列表、任务列表、代码块、引用块、Obsidian 风格的 callout、wiki 链接和行内代码。导航采用 vim 风格按键绑定：**j**/**k** 或方向键移动，**Tab**/**Shift+Tab** 切换窗格，**Enter** 打开笔记，**t** 切换资源管理器，**Ctrl+O** 切换大纲，**Ctrl+U**/**Ctrl+D** 半页滚动，**s** 切换排序方式，**r** 重命名笔记或文件夹。重命名笔记时，仓库中所有引用该笔记的 wiki 链接都会自动更新。
 
-Global shortcuts include **q** to quit, **?** to open the help modal, and **Ctrl+G** to open the vault selector for switching between Obsidian vaults. Custom commands can be configured to launch external editors or applications using the **exec:** and **spawn:** prefixes with dynamic variables **%vault**, **%note**, and **%note_path**.
+全局快捷键包括：**q** 退出，**?** 打开帮助弹窗，**Ctrl+G** 打开仓库选择器以便在不同 Obsidian 仓库间切换。可以配置自定义命令来启动外部编辑器或应用，使用 **exec:** 和 **spawn:** 前缀及动态变量 **%vault**、**%note**、**%note_path**。
 
-Built with Rust using ratatui for terminal rendering and pulldown-cmark for markdown parsing. The project is organized into three crates: **basalt-core** for domain logic, **basalt-widgets** for reusable TUI widgets, and **basalt-tui** for the main application.
+使用 Rust 构建，以 ratatui 进行终端渲染，pulldown-cmark 解析 markdown。项目分为三个 crate：负责领域逻辑的 **basalt-core**、可复用 TUI 组件库 **basalt-widgets**，以及主应用 **basalt-tui**。
 
 # CONFIGURATION
 
-Configuration uses TOML files. The first discovered file takes precedence:
+配置使用 TOML 文件。按发现顺序，第一个文件优先生效：
 
 **macOS/Linux:**
-> **$HOME/.basalt.toml** or **$XDG_CONFIG_HOME/basalt/config.toml**
+> **$HOME/.basalt.toml** 或 **$XDG_CONFIG_HOME/basalt/config.toml**
 
 **Windows:**
-> **%USERPROFILE%\\.basalt.toml** or **%APPDATA%\\basalt\\config.toml**
+> **%USERPROFILE%\\.basalt.toml** 或 **%APPDATA%\\basalt\\config.toml**
 
-**Top-level settings:**
-> **experimental_editor** = true/false -- Enable the experimental built-in editor (default: false)
-> **vim_mode** = true/false -- Activate vim-like keybinding preset (default: false)
+**顶层设置：**
+> **experimental_editor** = true/false -- 启用实验性内置编辑器（默认：false）
+> **vim_mode** = true/false -- 激活类 vim 按键绑定预设（默认：false）
 
-**Sections:**
-> **[global]** -- Universal keybindings applied across the application
-> **[explorer]** -- Explorer pane keybindings and behavior
-> **[outline]** -- Outline pane keybindings
-> **[note_editor]** -- Note editor pane keybindings
-> **[input_modal]** -- Input modal keybindings
-> **[help_modal]** -- Help modal keybindings
-> **[vault_selector_modal]** -- Vault selector keybindings
+**区段：**
+> **[global]** -- 应用于整个应用的通用按键绑定
+> **[explorer]** -- Explorer 窗格的按键绑定与行为
+> **[outline]** -- Outline 窗格的按键绑定
+> **[note_editor]** -- Note Editor 窗格的按键绑定
+> **[input_modal]** -- 输入弹窗的按键绑定
+> **[help_modal]** -- 帮助弹窗的按键绑定
+> **[vault_selector_modal]** -- 仓库选择器的按键绑定
 
-Each key mapping follows the format: **{ key = "binding", command = "action" }**. Custom commands use **exec:** for synchronous execution or **spawn:** for asynchronous launching.
+每个键映射遵循格式：**{ key = "binding", command = "action" }**。自定义命令使用 **exec:** 同步执行，或使用 **spawn:** 异步启动。
 
 # CAVEATS
 
-The application is in active development. Images, tables, horizontal rules, footnotes, and HTML content are not rendered. External links are not clickable. Syntax highlighting in code blocks is not supported. Inline text styling (bold, italic, strikethrough) is parsed but not visually rendered in the terminal.
+该应用仍在积极开发中。图片、表格、水平分割线、脚注和 HTML 内容不会被渲染。外部链接不可点击。代码块不支持语法高亮。行内文本样式（粗体、斜体、删除线）会被解析，但在终端中不会进行视觉渲染。
 
-File operations are limited: creating, deleting, moving, copying, and searching notes are not supported. Only renaming and sorting are available.
+文件操作有限：不支持创建、删除、移动、复制和搜索笔记。仅提供重命名和排序功能。
 
-The experimental editor has significant limitations including no undo/redo, no clipboard support, no text selection, no multi-line deletion, and non-customizable keybindings in edit mode. It operates on individual blocks rather than full documents.
+实验性编辑器有较大局限：无撤销/重做、无剪贴板支持、无文本选择、无法多行删除，且编辑模式的按键绑定不可自定义。它以单个块而非完整文档为单位进行操作。
 
-Shell features like pipes, redirects, and command substitution are not supported in custom commands. Obsidian plugins, graph view, and the backlinks panel are not available.
+自定义命令不支持管道、重定向和命令替换等 Shell 特性。Obsidian 插件、关系图谱和反向链接面板均不可用。
 
 # HISTORY
 
-**basalt** was created by **Erik Juhani Nylund** with the repository established in **September 2023**. The first public release (v0.3.7) was published in **May 2025**. The project is written in Rust and licensed under the MIT license. As of early 2026, it has over 30 releases and around 1000 GitHub stars.
+**basalt** 由 **Erik Juhani Nylund** 创建，仓库建立于 **2023 年 9 月**。首个公开发布版（v0.3.7）发布于 **2025 年 5 月**。项目用 Rust 编写，采用 MIT 许可证。截至 2026 年初，已有超过 30 个发行版本和约 1000 个 GitHub 星标。
 
 # INSTALL
 

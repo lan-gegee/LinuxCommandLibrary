@@ -1,38 +1,38 @@
 # TAGLINE
 
-Package manager for shell scripts
+Shell 脚本软件包管理器
 
 # TLDR
 
-**Install a package** from GitHub
+从 GitHub **安装软件包**
 
 ```basher install [username/repository]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```basher list```
 
-**Uninstall a package**
+**卸载软件包**
 
 ```basher uninstall [username/repository]```
 
-**Update a package**
+**更新软件包**
 
 ```basher upgrade [username/repository]```
 
-**Update all packages**
+**更新所有软件包**
 
 ```basher upgrade --all```
 
-**Link a local package** for development
+**链接本地软件包**用于开发
 
 ```basher link [path/to/directory] [package_name]```
 
-**Initialize basher** in shell config
+在 Shell 配置中**初始化 basher**
 
 ```basher init - [bash]```
 
-**Show package information**
+**显示软件包信息**
 
 ```basher package-path [username/repository]```
 
@@ -42,54 +42,54 @@ Package manager for shell scripts
 
 # DESCRIPTION
 
-**basher** is a package manager for shell scripts hosted on GitHub and other git repositories. It installs shell scripts and makes their commands available in your PATH without manual downloading or symlinking.
+**basher** 是面向托管在 GitHub 及其他 git 仓库上的 Shell 脚本的软件包管理器。它安装 Shell 脚本并使其命令直接出现在 PATH 中，无需手动下载或创建符号链接。
 
-Packages are installed to ~/.basher/cellar and linked to ~/.basher/bin. The package format expects executables in bin/ or the root directory, with optional man pages and completions.
+软件包安装到 ~/.basher/cellar 并链接到 ~/.basher/bin。包格式要求可执行文件位于 bin/ 目录或根目录下，man 手册页和补全脚本可选。
 
-Basher supports packages from GitHub, GitLab, Bitbucket, or any git URL. A package may include a **package.sh** file declaring binaries, dependencies (DEPS), and completions, and basher works with bash, zsh, and fish.
+Basher 支持 GitHub、GitLab、Bitbucket 或任意 git URL 的软件包。软件包可以包含一个 **package.sh** 文件，声明二进制文件、依赖（DEPS）和补全；basher 可与 bash、zsh 和 fish 协同工作。
 
 # PARAMETERS
 
 **install** _package_
-> Install a package from repository.
+> 从仓库安装软件包。
 
 **uninstall** _package_
-> Remove an installed package.
+> 移除已安装的软件包。
 
 **list**
-> Show all installed packages.
+> 显示所有已安装的软件包。
 
 **upgrade** _package_
-> Update a specific package.
+> 更新指定软件包。
 
 **upgrade --all**
-> Update all installed packages.
+> 更新所有已安装的软件包。
 
 **link** _directory_ _name_
-> Link local directory as package.
+> 将本地目录链接为软件包。
 
 **unlink** _name_
-> Remove linked package.
+> 移除已链接的软件包。
 
 **init -** _shell_
-> Output shell initialization code for bash, zsh, or fish (eval its output).
+> 输出 bash、zsh 或 fish 的初始化代码（对其输出执行 eval）。
 
 **commands** _package_
-> List commands provided by a package.
+> 列出软件包提供的命令。
 
 **package-path** _package_
-> Show installation path.
+> 显示安装路径。
 
 **outdated**
-> List packages with available updates.
+> 列出有可用更新的软件包。
 
 # CAVEATS
 
-Requires git for package installation. Shell configuration must source basher init output. Packages without proper structure may not work correctly. No built-in security verification; review package code before installing from untrusted sources. Works best with packages specifically designed for basher.
+安装软件包需要 git。Shell 配置必须 source basher init 的输出。结构不规范的软件包可能无法正常工作。没有内置的安全验证；从不可信来源安装前请先审查代码。对专为 basher 设计的软件包支持最好。
 
 # HISTORY
 
-**Basher** was created by **Juan Ibiapina** in **2013** as a simple package manager for bash scripts, inspired by tools like Homebrew and rbenv. It aimed to solve the problem of sharing and distributing shell scripts without complex installation procedures. The project remains actively maintained as an open-source tool on GitHub.
+**Basher** 由 **Juan Ibiapina** 于 **2013** 年创建，是一个简单的 bash 脚本软件包管理器，灵感来自 Homebrew 和 rbenv 等工具。它旨在解决无需复杂安装流程即可共享和分发 Shell 脚本的问题。该项目作为开源工具仍在 GitHub 上持续维护。
 
 # SEE ALSO
 

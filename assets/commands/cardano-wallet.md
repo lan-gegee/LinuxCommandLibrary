@@ -1,34 +1,34 @@
 # TAGLINE
 
-Wallet server and CLI for managing Cardano wallets
+用于管理 Cardano 钱包的钱包服务器与命令行工具
 
 # TLDR
 
-**Start the wallet server**
+**启动钱包服务器**
 
 ```cardano-wallet serve --port [8090] --node-socket [/path/to/node.socket] --database [/path/to/wallet-db] --mainnet```
 
-**Create a wallet** from recovery phrase
+**从助记词创建钱包**
 
 ```cardano-wallet wallet create from-recovery-phrase [wallet_name]```
 
-**List all wallets**
+**列出所有钱包**
 
 ```cardano-wallet wallet list```
 
-**Get wallet balance**
+**获取钱包余额**
 
 ```cardano-wallet wallet get --id [wallet_id]```
 
-**Generate a receiving address**
+**生成收款地址**
 
 ```cardano-wallet address list --id [wallet_id]```
 
-**Create a transaction**
+**创建交易**
 
 ```cardano-wallet transaction create --id [wallet_id] --payment [addr1...@amount]```
 
-**Submit a transaction**
+**提交交易**
 
 ```cardano-wallet transaction submit --id [wallet_id] --transaction [tx_binary]```
 
@@ -38,69 +38,69 @@ Wallet server and CLI for managing Cardano wallets
 
 # DESCRIPTION
 
-**cardano-wallet** is a HTTP server and CLI for managing Cardano wallets. It provides hierarchical deterministic (HD) wallet functionality with a RESTful API, enabling applications to create wallets, manage addresses, and submit transactions.
+**cardano-wallet** 是一个用于管理 Cardano 钱包的 HTTP 服务器和命令行工具。它提供带 RESTful API 的分层确定性（HD）钱包功能，使应用程序能够创建钱包、管理地址和提交交易。
 
-The wallet server connects to a cardano-node to query blockchain state and submit transactions. It maintains a local database of wallet state, tracking UTxOs and transaction history. The server supports multiple wallets and provides coin selection for transaction building.
+钱包服务器连接到 cardano-node，以查询区块链状态并提交交易。它在本地数据库中维护钱包状态，跟踪 UTxO 和交易历史。该服务器支持多个钱包，并为交易构建提供硬币选择功能。
 
-Wallets are restored from 15 or 24-word recovery phrases following BIP39/CIP11 standards. The CLI provides both interactive commands and script-friendly output formats.
+钱包通过遵循 BIP39/CIP11 标准的 15 或 24 个单词的助记词恢复。CLI 同时提供交互式命令和适合脚本的输出格式。
 
 # PARAMETERS
 
 **serve**
-> Start the wallet HTTP server.
+> 启动钱包 HTTP 服务器。
 
 **wallet create**
-> Create a new wallet.
+> 创建新钱包。
 
 **wallet list**
-> List all wallets.
+> 列出所有钱包。
 
 **wallet get**
-> Get wallet details.
+> 获取钱包详情。
 
 **wallet delete**
-> Delete a wallet.
+> 删除钱包。
 
 **address list**
-> List wallet addresses.
+> 列出钱包地址。
 
 **transaction create**
-> Build a transaction.
+> 构建交易。
 
 **transaction submit**
-> Submit a signed transaction.
+> 提交已签署的交易。
 
 **transaction list**
-> List wallet transactions.
+> 列出钱包交易。
 
 **stake-pool list**
-> List available stake pools.
+> 列出可用的权益池。
 
 **--port** _port_
-> HTTP server port.
+> HTTP 服务器端口。
 
 **--node-socket** _path_
-> Path to node socket.
+> 节点套接字路径。
 
 **--database** _path_
-> Wallet database directory.
+> 钱包数据库目录。
 
 **--mainnet**
-> Connect to mainnet.
+> 连接主网。
 
 **--testnet** _magic_
-> Connect to testnet.
+> 连接测试网。
 
 **--id** _wallet_id_
-> Wallet identifier.
+> 钱包标识符。
 
 # CAVEATS
 
-Requires a synced cardano-node. Database must be persisted for wallet recovery. Recovery phrase must be kept secure and offline. The server exposes sensitive operations, so should be properly secured. Syncing wallet state for restored wallets can take time.
+需要已同步的 cardano-node。数据库必须持久化保存以便恢复钱包。助记词必须安全离线保管。服务器会暴露敏感操作，因此应妥善加固。恢复钱包时同步钱包状态可能需要较长时间。
 
 # HISTORY
 
-**cardano-wallet** was developed by **Input Output Global (IOG)** as the official wallet backend for Cardano. It was introduced during the **Shelley era** in **2020** to provide a standard wallet implementation. The tool supports the evolving Cardano protocol including staking, native tokens, and smart contract interactions.
+**cardano-wallet** 由 **Input Output Global (IOG)** 开发，是 Cardano 的官方钱包后端。它于 **2020 年的 Shelley era** 期间推出，用于提供标准的钱包实现。该工具支持不断演进的 Cardano 协议，包括质押、原生代币和智能合约交互。
 
 # INSTALL
 

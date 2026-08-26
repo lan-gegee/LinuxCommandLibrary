@@ -1,22 +1,22 @@
 # TAGLINE
 
-File explorer TUI with cloud storage support
+支持云存储的文件浏览器 TUI
 
 # TLDR
 
-**Launch** in the current directory
+在当前目录**启动**
 
 ```browsr```
 
-**Browse** a specific directory
+浏览指定目录
 
 ```browsr [path/to/directory]```
 
-**Browse** a GitHub repository
+浏览 GitHub 仓库
 
 ```browsr [github://owner/repo]```
 
-**Browse** an S3 bucket
+浏览 S3 存储桶
 
 ```browsr [s3://bucket-name]```
 
@@ -27,24 +27,24 @@ File explorer TUI with cloud storage support
 # PARAMETERS
 
 **--theme** _THEME_
-> Set the color theme.
+> 设置配色主题。
 
 **--debug**
-> Enable debug mode.
+> 启用调试模式。
 
 # DESCRIPTION
 
-**browsr** is a terminal-based file explorer built with **Textual** (Python). It provides a rich TUI for browsing files and directories with syntax-highlighted file previews. Beyond local filesystems, it supports browsing remote sources including **GitHub repositories**, **AWS S3** buckets, and other cloud storage backends.
+**browsr** 是基于 **Textual**（Python）构建的终端文件浏览器。它提供丰富的 TUI，可浏览文件和目录并显示带语法高亮的文件预览。除本地文件系统外，它还支持浏览远程源，包括 **GitHub 仓库**、**AWS S3** 存储桶以及其他云存储后端。
 
-The interface features a directory tree panel and a file preview panel with syntax highlighting for source code files. It supports keyboard and mouse navigation.
+界面包含目录树面板和文件预览面板，后者对源码文件提供语法高亮。同时支持键盘和鼠标导航。
 
 # CAVEATS
 
-Cloud storage access requires appropriate credentials and authentication to be configured (e.g., AWS credentials for S3, GitHub token for private repos). Performance depends on network speed for remote sources. Large files may be slow to preview.
+访问云存储需要配置适当的凭证和身份验证（如 S3 需要 AWS 凭证，私有仓库需要 GitHub 令牌）。远程源的性能取决于网速。大文件的预览可能较慢。
 
 # HISTORY
 
-**browsr** was created by **Juftin** as a Textual-based file explorer with cloud storage integration. It was designed to bring rich file browsing with syntax highlighting to the terminal.
+**browsr** 由 **Juftin** 创建，是一款集成云存储的 Textual 文件浏览器，旨在把带语法高亮的丰富文件浏览体验带入终端。
 
 # INSTALL
 

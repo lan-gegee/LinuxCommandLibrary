@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove Azure CLI authentication credentials
+移除 Azure CLI 的身份验证凭证
 
 # TLDR
 
-**Logout** current user
+**登出**当前用户
 
 ```az logout```
 
-Logout **specific user**
+登出**特定用户**
 
 ```az logout --username [user@example.com]```
 
@@ -18,14 +18,14 @@ Logout **specific user**
 
 # DESCRIPTION
 
-**az logout** logs out to remove access to Azure subscriptions. It clears access tokens and refresh tokens for the account from the local credential cache.
+**az logout** 登出并移除对 Azure 订阅的访问。它会从本地凭证缓存中清除该账户的访问令牌和刷新令牌。
 
-The command is useful when switching between accounts or securing a shared system.
+在切换账户或保护共享系统时，此命令很有用。
 
 # PARAMETERS
 
 **--username** _user_
-> Account user to log out. If missing, log out the current active account.
+> 要登出的账户用户。若未指定，则登出当前活动账户。
 
 # WORKFLOW
 
@@ -39,11 +39,11 @@ az login
 
 # CAVEATS
 
-Does not revoke tokens on Azure side, only removes local cache. Service principal credentials in environment variables are not affected. Managed identity authentication persists.
+不会在 Azure 端吊销令牌，只移除本地缓存。环境变量中的服务主体凭证不受影响。托管标识的身份验证仍然保留。
 
 # HISTORY
 
-**az logout** has been available since Azure CLI 2.0 in **2017** as the companion to az login for credential management.
+**az logout** 自 **2017** 年的 Azure CLI 2.0 起可用，作为 az login 的配套命令用于凭证管理。
 
 # INSTALL
 

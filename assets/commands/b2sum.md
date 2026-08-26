@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compute and verify BLAKE2 cryptographic checksums.
+计算并校验 BLAKE2 加密校验和。
 
 # TLDR
 
-**Calculate** BLAKE2 checksum
+**计算** BLAKE2 校验和
 
 ```b2sum [file]```
 
-**Verify** checksums
+**校验**校验和
 
 ```b2sum -c [checksums.b2]```
 
-Use **specific length**
+使用**指定长度**
 
 ```b2sum -l [256] [file]```
 
-Calculate for **multiple files**
+计算**多个文件**的校验和
 
 ```b2sum [file1] [file2] [file3]```
 
@@ -26,51 +26,51 @@ Calculate for **multiple files**
 
 # DESCRIPTION
 
-**b2sum** computes and verifies BLAKE2b cryptographic checksums. BLAKE2 is a fast, secure hash function that outperforms MD5, SHA-1, and SHA-2 in software while providing at least as much security as SHA-3.
+**b2sum** 计算并校验 BLAKE2b 加密校验和。BLAKE2 是一种快速、安全的哈希函数，在软件实现中性能优于 MD5、SHA-1 和 SHA-2，同时提供不低于 SHA-3 的安全性。
 
-The tool is part of GNU coreutils and provides similar functionality to md5sum and sha256sum.
+该工具是 GNU coreutils 的一部分，提供与 md5sum 和 sha256sum 类似的功能。
 
 # PARAMETERS
 
 **-c**, **--check**
-> Read checksums from the file(s) and verify them.
+> 从文件读取校验和并进行校验。
 
 **-l**, **--length** _bits_
-> Digest length in bits, a multiple of 8 (default: 512). Ignored when verifying.
+> 摘要长度（位），必须为 8 的倍数（默认：512）。校验时忽略。
 
 **-b**, **--binary**
-> Read in binary mode.
+> 以二进制模式读取。
 
 **-t**, **--text**
-> Read in text mode (default).
+> 以文本模式读取（默认）。
 
 **--tag**
-> Create a BSD-style checksum line.
+> 创建 BSD 风格的校验和行。
 
 **-z**, **--zero**
-> End each output line with NUL, not newline.
+> 每行输出以 NUL 结尾，而不是换行符。
 
 **--ignore-missing**
-> When verifying, do not fail or report status for missing files.
+> 校验时，不对缺失的文件报错或报告状态。
 
 **--quiet**
-> When verifying, do not print OK for each successfully verified file.
+> 校验时，不为每个成功校验的文件打印 OK。
 
 **--status**
-> When verifying, print nothing; signal result only via exit status.
+> 校验时不打印任何内容；仅通过退出码表示结果。
 
 **-w**, **--warn**
-> When verifying, warn about improperly formatted checksum lines.
+> 校验时，对格式不当的校验和行发出警告。
 
 **--strict**
-> When verifying, exit non-zero for any improperly formatted checksum line.
+> 校验时，只要出现格式不当的校验和行就以非零状态退出。
 
 # FEATURES
 
-- Fast performance
-- Configurable output length (multiple of 8 bits)
-- Verification mode
-- Same interface as md5sum and sha256sum
+- 性能快
+- 可配置输出长度（8 位的倍数）
+- 校验模式
+- 与 md5sum 和 sha256sum 相同的接口
 
 # WORKFLOW
 
@@ -87,11 +87,11 @@ b2sum -l 256 file
 
 # CAVEATS
 
-Not as widely supported as SHA-256. Different tools may use BLAKE2b vs BLAKE2s. Length parameter affects compatibility. Relatively new compared to SHA family.
+支持范围不如 SHA-256 广泛。不同工具可能分别使用 BLAKE2b 或 BLAKE2s。长度参数会影响兼容性。相比 SHA 家族属于较新的算法。
 
 # HISTORY
 
-**b2sum** was added to GNU coreutils in version **8.26** (2016), providing BLAKE2 hashing support following the algorithm's publication in **2012**.
+**b2sum** 在 GNU coreutils **8.26** 版本（2016 年）中加入，在该算法于 **2012** 年发表后提供了 BLAKE2 哈希支持。
 
 # INSTALL
 

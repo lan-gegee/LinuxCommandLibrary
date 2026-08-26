@@ -1,46 +1,46 @@
 # TAGLINE
 
-Perl module dependency manager
+Perl 模块依赖管理器
 
 # TLDR
 
-**Install dependencies from cpanfile**
+**从 cpanfile 安装依赖**
 
 ```carton install```
 
-**Update all dependencies**
+**更新所有依赖**
 
 ```carton update```
 
-**Run a command with local dependencies**
+**以本地依赖环境运行命令**
 
 ```carton exec [perl script.pl]```
 
-**Run a Plack application with local dependencies**
+**以本地依赖环境运行 Plack 应用**
 
 ```carton exec plackup [app.psgi]```
 
-**Show installed modules**
+**显示已安装的模块**
 
 ```carton list```
 
-**Show dependency tree**
+**显示依赖树**
 
 ```carton tree```
 
-**Check if all dependencies are satisfied**
+**检查所有依赖是否满足**
 
 ```carton check```
 
-**Install exact versions from cpanfile.snapshot (deployment mode)**
+**从 cpanfile.snapshot 安装精确版本（部署模式）**
 
 ```carton install --deployment```
 
-**Install from cached archives (offline)**
+**从缓存的归档安装（离线）**
 
 ```carton install --cached```
 
-**Bundle dependencies into vendor/cache directory**
+**将依赖打包到 vendor/cache 目录**
 
 ```carton bundle```
 
@@ -51,58 +51,58 @@ Perl module dependency manager
 # PARAMETERS
 
 **install**
-> Install dependencies specified in cpanfile.
+> 安装 cpanfile 中声明的依赖。
 
 **update** [_modules_]
-> Update dependencies to latest versions.
+> 将依赖更新到最新版本。
 
 **exec** _command_
-> Execute command with local lib paths.
+> 以本地库路径执行命令。
 
 **list**
-> List installed modules.
+> 列出已安装的模块。
 
 **bundle**
-> Bundle dependencies into vendor/cache.
+> 将依赖打包到 vendor/cache。
 
 **check**
-> Verify dependencies are satisfied.
+> 验证依赖是否满足。
 
 **tree**
-> Display dependency tree.
+> 显示依赖树。
 
 **--deployment**
-> Install exact versions from cpanfile.snapshot.
+> 从 cpanfile.snapshot 安装精确版本。
 
 **--cached**
-> Install from cached archives (offline).
+> 从缓存的归档安装（离线）。
 
 **--path** _directory_
-> Specify local lib directory (default: local/).
+> 指定本地 lib 目录（默认：local/）。
 
 # DESCRIPTION
 
-**Carton** is a Perl module dependency manager, similar to Bundler for Ruby or npm for Node.js. It manages project-specific dependencies defined in a **cpanfile**, installing them into a local directory isolated from the system Perl.
+**Carton** 是一个 Perl 模块依赖管理器，类似于 Ruby 的 Bundler 或 Node.js 的 npm。它管理在 **cpanfile** 中定义的项目专属依赖，并将其安装到一个与系统 Perl 隔离的本地目录中。
 
-Dependencies are specified in a cpanfile using a simple DSL. Running **carton install** creates a cpanfile.snapshot that locks exact versions, ensuring reproducible installations across environments.
+依赖通过简单的 DSL 在 cpanfile 中声明。运行 **carton install** 会生成锁定精确版本的 cpanfile.snapshot，确保跨环境的可复现安装。
 
-The **carton exec** command runs programs with the correct library paths set, avoiding conflicts with system Perl modules. This enables multiple projects with different dependency versions to coexist on the same system.
+**carton exec** 命令在设置好正确库路径的情况下运行程序，避免与系统 Perl 模块冲突。这使得多个使用不同依赖版本的项目可以在同一系统上共存。
 
 # CONFIGURATION
 
 **cpanfile**
-> Declares project dependencies using a Perl DSL syntax.
+> 使用 Perl DSL 语法声明项目依赖。
 
 **cpanfile.snapshot**
-> Lockfile with exact resolved dependency versions for reproducible installations.
+> 记录精确解析出的依赖版本的锁定文件，用于可复现安装。
 
 # CAVEATS
 
-Carton requires a cpanfile; it cannot automatically detect dependencies. Large dependency trees may take significant time to resolve and install. XS modules require compilation tools. The snapshot format is not compatible between major Carton versions.
+Carton 需要 cpanfile，无法自动检测依赖。庞大的依赖树解析和安装可能耗时较长。XS 模块需要编译工具。快照格式在 Carton 主版本之间不兼容。
 
 # HISTORY
 
-Carton was created by **Tatsuhiko Miyagawa** (also creator of Plack/PSGI and cpanm) and released in **2011**. It was inspired by Bundler for Ruby and addressed the long-standing problem of managing Perl dependencies per-project rather than system-wide. The tool became an essential part of modern Perl development workflows.
+Carton 由 **Tatsuhiko Miyagawa**（同时也是 Plack/PSGI 和 cpanm 的作者）创建，于 **2011** 年发布。它受 Ruby 的 Bundler 启发，解决了长期以来 Perl 依赖只能按系统而非按项目管理的问题。该工具已成为现代 Perl 开发工作流的重要组成部分。
 
 # INSTALL
 

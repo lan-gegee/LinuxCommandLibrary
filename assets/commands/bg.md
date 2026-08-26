@@ -1,18 +1,18 @@
 # TAGLINE
 
-Resume suspended jobs in the background
+在后台恢复已暂停的作业
 
 # TLDR
 
-**Resume the most recently stopped job in the background**
+**在后台恢复最近停止的作业**
 
 ```bg```
 
-**Resume a specific job by number**
+**按编号恢复指定作业**
 
 ```bg %[1]```
 
-**Resume a job whose command begins with a string**
+**恢复命令以某字符串开头的作业**
 
 ```bg %[string]```
 
@@ -22,33 +22,33 @@ Resume suspended jobs in the background
 
 # DESCRIPTION
 
-**bg** resumes suspended jobs in the background. It is a shell built-in command that continues execution of jobs that were stopped (typically with Ctrl+Z) while allowing continued use of the terminal. If no job is specified, the most recently stopped job is resumed.
+**bg** 在后台恢复已挂起的作业。它是一个 shell 内建命令，用于继续执行已停止的作业（通常由 Ctrl+Z 触发），同时允许你继续使用终端。若未指定作业，则恢复最近停止的作业。
 
-The command is part of POSIX shell job control functionality and is available in bash, zsh, ksh, and other POSIX-compatible shells.
+该命令属于 POSIX shell 作业控制功能的一部分，在 bash、zsh、ksh 及其他 POSIX 兼容 Shell 中均可用。
 
 # PARAMETERS
 
 _job-spec_
-> Job identifier (%1, %2, etc.)
+> 作业标识符（%1、%2 等）
 
-If no job specified, bg operates on the most recently stopped job.
+如果未指定作业，bg 会作用于最近停止的作业。
 
 # JOB SPECIFICATIONS
 
 **%n**
-> Job number n
+> 编号为 n 的作业
 
 **%string**
-> Job whose command begins with string
+> 命令以 string 开头的作业
 
 **%?string**
-> Job whose command contains string
+> 命令包含 string 的作业
 
-**%%** or **%+**
-> Current job
+**%%** 或 **%+**
+> 当前作业
 
 **%-**
-> Previous job
+> 上一个作业
 
 # WORKFLOW
 
@@ -74,11 +74,11 @@ fg %1
 
 # CAVEATS
 
-Only works with job control enabled shells. Backgrounded jobs may stop if they try to read from terminal. Output still goes to terminal unless redirected. Jobs terminate when shell exits unless using nohup or disown.
+仅在启用了作业控制的 Shell 中有效。后台作业在尝试从终端读取时可能停止。除非重定向，输出仍会发送到终端。Shell 退出时作业会终止，除非使用 nohup 或 disown。
 
 # HISTORY
 
-**bg** has been part of job control in Unix shells since the C shell (csh) introduced the feature in the late **1970s**.
+自 C shell（csh）在 **1970 年代**末引入作业控制功能以来，**bg** 就一直是 Unix Shell 作业控制的一部分。
 
 # SEE ALSO
 

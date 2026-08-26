@@ -1,26 +1,26 @@
 # TAGLINE
 
-Directory bookmarking for the shell
+Shell 目录书签工具
 
 # TLDR
 
-**Save** current directory bookmark
+**保存**当前目录书签
 
 ```s [bookmark-name]```
 
-**Go** to bookmark
+**跳转**到书签
 
 ```g [bookmark-name]```
 
-**List** bookmarks
+**列出**书签
 
 ```l```
 
-**Print** bookmark path
+**打印**书签路径
 
 ```p [bookmark-name]```
 
-**Delete** bookmark
+**删除**书签
 
 ```d [bookmark-name]```
 
@@ -30,33 +30,33 @@ bashmarks directory bookmarking functions
 
 # DESCRIPTION
 
-**bashmarks** is a bash script that provides directory bookmarking functionality. It allows you to save frequently-used directory paths with short names and jump to them quickly.
+**bashmarks** 是一个提供目录书签功能的 bash 脚本。它允许你用简短名称保存常用目录路径，并快速跳转过去。
 
-The tool adds convenient shell functions for managing and navigating to bookmarked directories.
+该工具添加了一组便捷的 Shell 函数，用于管理和导航到已收藏的目录。
 
 # FUNCTIONS
 
 **s** _name_
-> Save current directory as bookmark
+> 将当前目录保存为书签
 
 **g** _name_
-> Go to bookmarked directory
+> 跳转到书签目录
 
 **l**
-> List all bookmarks
+> 列出所有书签
 
 **d** _name_
-> Delete bookmark
+> 删除书签
 
 **p** _name_
-> Print bookmark path
+> 打印书签路径
 
 # FEATURES
 
-- Simple bookmark management
-- Tab completion for bookmarks
-- Persistent storage
-- Integration with bash/zsh
+- 简单的书签管理
+- 书签 Tab 补全
+- 持久化存储
+- 与 bash/zsh 集成
 
 # WORKFLOW
 
@@ -77,11 +77,11 @@ d apache
 
 # CAVEATS
 
-Requires sourcing **~/.local/bin/bashmarks.sh** in your shell config. Bookmark names must be simple (no spaces or special chars). Bookmarks are stored in **~/.sdirs**. Different from z or autojump which rank directories by frequency. Must be installed separately.
+需要在 Shell 配置中 source **~/.local/bin/bashmarks.sh**。书签名必须简单（不含空格或特殊字符）。书签存储在 **~/.sdirs** 中。与按访问频率排序目录的 z 或 autojump 不同。必须单独安装。
 
 # HISTORY
 
-**bashmarks** was created by Huy Nguyen around **2010** to provide simple directory bookmarking for bash users.
+**bashmarks** 由 Huy Nguyen 于 **2010** 年前后创建，旨在为 bash 用户提供简单的目录书签功能。
 
 # SEE ALSO
 

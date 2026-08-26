@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage devices in a bcachefs filesystem
+管理 bcachefs 文件系统中的设备
 
 # TLDR
 
-**Evacuate** data from a device before removing it
+移除设备前先**迁出**其数据
 
 ```bcachefs device evacuate [path/to/device]```
 
-**Remove** a device from the filesystem permanently
+从文件系统中**永久移除**设备
 
 ```bcachefs device remove [path/to/device]```
 
-**Add and format** a new device with a label
+**添加并格式化**带标签的新设备
 
 ```sudo bcachefs device add --label [group].[name] [path/to/mountpoint] [path/to/device]```
 
@@ -22,62 +22,62 @@ Manage devices in a bcachefs filesystem
 
 # DESCRIPTION
 
-**bcachefs device** manages devices within a running bcachefs filesystem. It allows adding new devices to expand storage, evacuating data before removal, and permanently removing devices.
+**bcachefs device** 管理运行中的 bcachefs 文件系统内的设备。它支持添加新设备以扩展存储、在移除前迁出数据以及永久删除设备。
 
-Device labels organize storage into groups (like ssd or hdd) and individual device names, enabling tiered storage configurations.
+设备标签将存储划分为组（如 ssd 或 hdd）和单独的设备名，从而实现分层存储配置。
 
 # SUBCOMMANDS
 
 **add**
-> Add a device to an existing filesystem
+> 向现有文件系统添加设备
 
 **remove**
-> Remove a device from a filesystem
+> 从文件系统中移除设备
 
 **online**
-> Re-add a device to a running filesystem
+> 将设备重新加入运行中的文件系统
 
 **offline**
-> Take a device offline without removing it
+> 将设备下线但不移除
 
 **evacuate**
-> Move all data off of a given device
+> 将指定设备上的所有数据迁移出去
 
 **set-state** _new-state_ _device_
-> Set the device state to rw, ro, failed, or spare
+> 将设备状态设为 rw、ro、failed 或 spare
 
 **resize**
-> Resize the filesystem on a device
+> 调整设备上文件系统的大小
 
 # PARAMETERS
 
 **-l, --label** _label_
-> Assign a disk label to categorize the device (e.g., ssd.cache, hdd.bulk)
+> 为设备分配磁盘标签以便归类（如 ssd.cache、hdd.bulk）
 
 **--fs_size** _size_
-> Size of filesystem to use on the device (add)
+> 设备上要使用的文件系统大小（add）
 
 **--bucket** _size_
-> Set the bucket size (add)
+> 设置 bucket 大小（add）
 
 **--discard**
-> Enable discards on the device (add)
+> 在设备上启用 discard（add）
 
 **-f, --force**
-> Force the operation even if data redundancy would be degraded, or use a device that appears already formatted
+> 即使数据冗余度会降低也强制执行操作，或强制使用看起来已格式化的设备
 
 **-F, --force-metadata**
-> Force removal even if some metadata could not be migrated (remove)
+> 即使部分元数据无法迁移也强制移除（remove）
 
 **--force-if-data-lost**
-> Force a state change even if data will be lost (set-state)
+> 即使会丢失数据也强制更改状态（set-state）
 
 **-o, --offline**
-> Operate on an offline device (set-state)
+> 对离线设备执行操作（set-state）
 
 # CAVEATS
 
-Removing devices may take considerable time depending on data volume. Ensure sufficient free space on remaining devices before evacuating. Device operations require the filesystem to be mounted.
+移除设备可能耗时较长，取决于数据量。迁出数据前请确保剩余设备上有足够的空闲空间。设备操作要求文件系统处于挂载状态。
 
 # INSTALL
 

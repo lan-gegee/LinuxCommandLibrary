@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display reminders from a calendar file
+显示日历文件中的提醒
 
 # TLDR
 
-**Display today and tomorrow's reminders**
+**显示今天和明天的提醒**
 
 ```calendar```
 
-**Show reminders for the next N days**
+**显示接下来 N 天的提醒**
 
 ```calendar -A [7]```
 
-**Look back N days** for reminders
+**回看 N 天内**的提醒
 
 ```calendar -B [3]```
 
-**Use a specific calendar file**
+**使用指定的日历文件**
 
 ```calendar -f [path/to/calendar]```
 
-**Pretend today is a specific date**
+**假装今天是某个日期**
 
 ```calendar -t [1225]```
 
-**Process reminders for everyone** on the system (root, sends mail)
+为系统上**所有人处理提醒**（需 root，会发送邮件）
 
 ```calendar -a```
 
-**Use a specific calendar directory**
+**使用指定的日历目录**
 
 ```calendar -d [path/to/calendar_dir]```
 
@@ -39,43 +39,43 @@ Display reminders from a calendar file
 # PARAMETERS
 
 **-A** _days_
-> Look ahead the specified number of days (default: 1, showing today and tomorrow).
+> 向前查看指定的天数（默认：1，即今天和明天）。
 
 **-B** _days_
-> Look back the specified number of days.
+> 向后查看指定的天数。
 
 **-a**
-> Process calendar files for all users, sending mail (root only).
+> 为所有用户处理日历文件并发送邮件（仅 root）。
 
 **-f** _file_
-> Use the specified file instead of ~/.calendar/calendar.
+> 使用指定文件代替 ~/.calendar/calendar。
 
 **-d** _dir_
-> Use the specified directory for calendar files.
+> 使用指定目录存放日历文件。
 
 **-t** _date_
-> Pretend today is the specified date (format: [[[cc]yy]mm]dd).
+> 假装今天是指定日期（格式：[[[cc]yy]mm]dd）。
 
 **-w**
-> Print day of the week name.
+> 输出星期几的名称。
 
 # DESCRIPTION
 
-**calendar** is a traditional Unix utility that displays reminders from a calendar file. It reads entries from **~/.calendar/calendar** (or a specified file) and displays those matching today's date and optionally upcoming dates.
+**calendar** 是一款传统 Unix 工具，用于显示日历文件中的提醒。它从 **~/.calendar/calendar**（或指定文件）读取条目，并显示与今天日期匹配的内容，也可选择显示即将到来的日期。
 
-Calendar files contain one reminder per line in a simple format: a date followed by a tab and the reminder text. Dates can be specified in various formats including "Jan 1", "1/1", "*/15" (monthly), and day names. The program understands holidays and special date expressions.
+日历文件每行一条提醒，格式简单：日期后跟一个制表符和提醒文本。日期可用多种格式表示，如 "Jan 1"、"1/1"、"*/15"（每月）以及星期名称。程序还能理解节假日和特殊日期表达式。
 
-The tool was traditionally used for system-wide announcements and personal reminders. When run with **-a** by root, it processes all users' calendar files and sends email notifications. Many systems include pre-installed calendar files with historical dates, holidays, and astronomical events.
+该工具传统上用于系统级公告和个人提醒。root 用户以 **-a** 运行时，它会处理所有用户的日历文件并发送邮件通知。许多系统预装了包含历史日期、节假日和天文事件的日历文件。
 
-Common calendar file locations include system calendars in **/usr/share/calendar/** with files for holidays, history, music, and other categories. Users can include these system files in their personal calendars using **#include** directives.
+常见日历文件位置包括 **/usr/share/calendar/** 下的系统日历，其中含有节假日、历史、音乐等类别的文件。用户可以在个人日历中用 **#include** 指令引用这些系统文件。
 
 # CAVEATS
 
-Date formats vary between BSD and other implementations. The -a flag (mail to all users) requires root privileges. Some implementations have limited date parsing capabilities. Email functionality depends on a working mail system.
+BSD 与其他实现之间的日期格式有所差异。-a 标志（向所有用户发邮件）需要 root 权限。某些实现的日期解析能力有限。邮件功能依赖可正常工作的邮件系统。
 
 # HISTORY
 
-The **calendar** command originated in early Unix systems at Bell Labs in the 1970s. It was one of the original time-based utilities, predating cron for simple reminder functionality. The program has been included in BSD systems since the early days and remains part of many Unix-like operating systems, though its usage has declined with modern calendar applications.
+**calendar** 命令起源于 1970 年代贝尔实验室的早期 Unix 系统。它是最早的一批基于时间的工具之一，在简单的提醒功能上早于 cron 出现。该程序自早期起就包含在 BSD 系统中，如今仍是许多类 Unix 操作系统的一部分，不过随着现代日历应用的普及，其使用已有所减少。
 
 # INSTALL
 

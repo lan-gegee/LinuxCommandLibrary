@@ -1,26 +1,26 @@
 # TAGLINE
 
-Music library manager and metadata organizer
+音乐库管理器和元数据整理工具
 
 # TLDR
 
-**Import** music from a directory and tag from MusicBrainz
+从目录**导入**音乐并使用 MusicBrainz 打标签
 
 ```beet import [path/to/directory]```
 
-**Import a single song** to the library
+**导入单曲**到库中
 
 ```beet import -s [path/to/file]```
 
-**Query** the library
+**查询**音乐库
 
 ```beet list [query]```
 
-Show **entire library statistics**
+显示**整个音乐库的统计信息**
 
 ```beet stats```
 
-Show **statistics** for a specific query
+显示特定查询的**统计信息**
 
 ```beet stats [query]```
 
@@ -30,59 +30,59 @@ Show **statistics** for a specific query
 
 # DESCRIPTION
 
-**beet** (beets) is a command-line music library manager and metadata organizer. It automatically fetches metadata from MusicBrainz, organizes music files, and provides a powerful query interface.
+**beet**（beets）是一个命令行音乐库管理器和元数据整理工具。它会自动从 MusicBrainz 获取元数据、整理音乐文件，并提供强大的查询接口。
 
-Beets can fix tags, rename files based on metadata, fetch album art, and integrate with plugins for additional functionality like playback, web interface, and format conversion.
+Beets 可以修复标签、根据元数据重命名文件、抓取专辑封面，还能通过插件获得播放、Web 界面和格式转换等附加功能。
 
 # SUBCOMMANDS
 
 **import**
-> Add music to the library with automatic tagging
+> 将音乐添加到库中并自动打标签
 
-**list** (or **ls**)
-> Query the music library
+**list**（或 **ls**）
+> 查询音乐库
 
 **stats**
-> Display library statistics
+> 显示音乐库统计信息
 
 **update**
-> Update the library when files change
+> 文件变化后更新音乐库
 
-**remove** (or **rm**)
-> Remove items from the library
+**remove**（或 **rm**)
+> 从音乐库中移除条目
 
-**move** (or **mv**)
-> Move or rename files in the library
+**move**（或 **mv**）
+> 移动或重命名库中的文件
 
 **write**
-> Write metadata changes to files
+> 将元数据更改写入文件
 
 # PARAMETERS
 
 **-s, --singletons**
-> Import files as singletons (not as album tracks)
+> 将文件作为单曲导入（而非专辑曲目）
 
 **-A, --noautotag**
-> Do not attempt to automatically tag
+> 不尝试自动打标签
 
 **-l, --library** _path_
-> Specify the library database location
+> 指定音乐库数据库的位置
 
 **-c, --config** _path_
-> Specify the configuration file
+> 指定配置文件
 
 # CONFIGURATION
 
 **~/.config/beets/config.yaml**
-> Main configuration file for library paths, import behavior, plugins, and metadata preferences.
+> 主配置文件，控制库路径、导入行为、插件和元数据偏好。
 
 # CAVEATS
 
-Initial library import of large collections can be time-consuming. MusicBrainz queries have rate limits. Configuration file should be set up for optimal behavior.
+首次导入大量收藏可能耗时较长。MusicBrainz 查询有速率限制。应先配置好配置文件以获得最佳行为。
 
 # HISTORY
 
-**beets** was created by Adrian Sampson and first released in **2010**. It has grown into a comprehensive music library manager with an active plugin ecosystem.
+**beets** 由 Adrian Sampson 创建，于 **2010** 年首次发布。它已成长为一个拥有活跃插件生态的综合音乐库管理器。
 
 # INSTALL
 

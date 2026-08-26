@@ -1,30 +1,30 @@
 # TAGLINE
 
-Share Claude Code sessions through a git branch
+通过 git 分支共享 Claude Code 会话
 
 # TLDR
 
-**Publish your local sessions** to the shared branch
+**将本地会话发布**到共享分支
 
 ```ccgs push```
 
-**Push only a specific session** by id or name
+**只推送指定会话**（按 id 或名称）
 
 ```ccgs push [session_id]```
 
-**Fetch shared sessions** into the local project
+**拉取共享会话**到本地项目
 
 ```ccgs pull```
 
-**Run without installing** through npx
+**无需安装直接运行**（通过 npx）
 
 ```npx claude-git-sessions pull```
 
-**Delete a shared session** by name without a prompt
+**按名称删除共享会话**且不提示确认
 
 ```ccgs delete [name] --yes```
 
-**Share memory facts** with the team
+**与团队共享记忆事实**
 
 ```ccgs memory push```
 
@@ -34,48 +34,48 @@ Share Claude Code sessions through a git branch
 
 # DESCRIPTION
 
-**ccgs** (claude-git-sessions) shares **Claude Code** transcripts across a team by storing them on an **orphan git branch** (named @ccgs/<name>) inside an existing repository, with no server or extra infrastructure. Sessions are keyed by their Claude Code session UUID so authors do not collide.
+**ccgs**（claude-git-sessions）通过将 **Claude Code** 会话记录存储在现有仓库内的**孤儿 git 分支**（名为 @ccgs/<name>）上，实现团队间的会话共享，无需服务器或额外基础设施。会话以其 Claude Code 会话 UUID 为键，因此不同作者不会冲突。
 
-The tool uses low-level git plumbing (**hash-object**, **write-tree**, **commit-tree**, **push**) against a temporary index, so it never touches the working tree or current branch and works even on a dirty repository. On **pull** the cwd field of each transcript is rewritten so that **claude --resume** works from the repository root. The same mechanism stores shared memory facts.
+该工具针对临时索引使用底层 git 管道命令（**hash-object**、**write-tree**、**commit-tree**、**push**），因此绝不会触碰工作树或当前分支，即使仓库处于脏状态也能正常工作。在 **pull** 时，每份会话记录的 cwd 字段会被重写，以便 **claude --resume** 能从仓库根目录正常恢复。同一机制也用于存储共享的记忆事实。
 
 # COMMANDS
 
 **pull** [**--force**] [**--exclude-memory**]
-> Fetch sessions (and, by default, shared memory) from the branch into the local project. --force overwrites local sessions that are newer.
+> 从分支获取会话（默认还包括共享记忆）到本地项目。--force 会覆盖本地较新的会话。
 
 **push** [_targets ..._] [**--exclude-memory**]
-> Publish local sessions to the branch. Name specific sessions, or push all if no target is given. Creates the orphan branch on first push.
+> 将本地会话发布到分支。可以指定具体会话；不给目标则推送全部。首次推送时会创建孤儿分支。
 
 **delete** _id|name_ [**--yes**] [**--local**]
-> Remove a session by UUID, UUID prefix (4 or more chars) or unique name. Prompts unless --yes; affects only the shared branch unless --local is given.
+> 按 UUID、UUID 前缀（4 个以上字符）或唯一名称删除会话。除非给出 --yes 否则会提示确认；除非给出 --local，否则只影响共享分支。
 
 **memory push** [**--all**]
-> Publish memory facts; shares project and reference facts by default, --all also includes user and feedback facts.
+> 发布记忆事实；默认共享项目事实和参考事实，--all 还包括用户事实和反馈事实。
 
 **memory pull** [**--all**] [**--force**]
-> Fetch shared memory facts and merge them into the local memory directory.
+> 获取共享记忆事实并将其合并到本地记忆目录。
 
 # OPTIONS
 
 **-b**, **--branch** _name_
-> Select the session set / branch suffix (default: default).
+> 选择会话集 / 分支后缀（默认：default）。
 
 **--remote** _remote_
-> Git remote to use (default: origin).
+> 要使用的 Git 远程（默认：origin）。
 
 **-v**, **--version**
-> Print the version.
+> 打印版本。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # CAVEAT
 
-Requires **Node 20+** and **git 2.5+**. Sessions live on a branch that shares no history with the main branch; pushing publishes transcript content to the remote, so treat that remote as you would any shared store of conversation data.
+需要 **Node 20+** 和 **git 2.5+**。会话存放在一个与主分支没有任何共同历史的分支上；推送会将会话记录内容发布到远程，因此请像对待任何共享的对话数据存储一样对待该远程。
 
 # HISTORY
 
-**ccgs** is an open-source tool written in **TypeScript** by **Ingram Technologies**, distributed on npm as **claude-git-sessions** under the **MIT** license.
+**ccgs** 是一款开源工具，由 **Ingram Technologies** 用 **TypeScript** 编写，以 **claude-git-sessions** 之名发布于 npm，采用 **MIT** 许可证。
 
 # SEE ALSO
 

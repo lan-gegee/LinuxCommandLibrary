@@ -1,26 +1,26 @@
 # TAGLINE
 
-change the current working directory
+切换当前工作目录
 
 # TLDR
 
-**Change** to directory
+**切换**到目录
 
 ```cd [/path/to/directory]```
 
-**Go** to home directory
+**前往**主目录
 
 ```cd```
 
-**Go** to previous directory
+**前往上一个目录**
 
 ```cd -```
 
-**Go** up one directory
+**上移一级目录**
 
 ```cd ..```
 
-**Go** up two directories
+**上移两级目录**
 
 ```cd ../..```
 
@@ -30,68 +30,68 @@ change the current working directory
 
 # DESCRIPTION
 
-**cd** (change directory) is a shell built-in command that changes the current working directory. It updates the shell's current directory and the PWD environment variable.
+**cd**（change directory）是 Shell 内建命令，用于改变当前工作目录。它会更新 Shell 的当前目录和 PWD 环境变量。
 
-The command is fundamental for navigating the filesystem in shell sessions.
+该命令是在 Shell 会话中浏览文件系统的基础。
 
 # PARAMETERS
 
 _directory_
-> Path to change to (default: $HOME)
+> 要切换到的路径（默认：$HOME）
 
 **-**
-> Change to previous directory (OLDPWD)
+> 切换到上一个目录（OLDPWD）
 
 **-L**
-> Follow symbolic links (default)
+> 跟随符号链接（默认）
 
 **-P**
-> Use physical directory structure (don't follow symlinks)
+> 使用物理目录结构（不跟随符号链接）
 
 **-e**
-> With -P, exit with error if the current directory cannot be determined
+> 配合 -P 使用，当无法确定当前目录时以错误退出
 
 **-@**
-> Present extended attributes as a directory (on supported systems)
+> 将扩展属性呈现为目录（在支持的系统上）
 
 # SPECIAL DIRECTORIES
 
 **~**
-> Home directory ($HOME)
+> 主目录（$HOME）
 
 **~user**
-> Specified user's home directory
+> 指定用户的主目录
 
 **.**
-> Current directory
+> 当前目录
 
 **..**
-> Parent directory
+> 父目录
 
 **-**
-> Previous directory
+> 上一个目录
 
 # ENVIRONMENT VARIABLES
 
 **PWD**
-> Current working directory
+> 当前工作目录
 
 **OLDPWD**
-> Previous working directory
+> 上一个工作目录
 
 **HOME**
-> User's home directory
+> 用户的主目录
 
 **CDPATH**
-> Search path for cd command
+> cd 命令的搜索路径
 
 # CAVEATS
 
-Shell built-in (behavior varies by shell). Spaces in paths need quoting. Symbolic links can be confusing (-P vs -L). No cd command history by default. Cannot cd to files, only directories.
+Shell 内建命令（行为因 Shell 而异）。路径中的空格需要加引号。符号链接可能造成困扰（-P 与 -L 的区别）。默认没有 cd 命令历史。只能 cd 到目录，不能 cd 到文件。
 
 # HISTORY
 
-**cd** has been a shell built-in command since the earliest Unix shells in the **1970s**, essential for directory navigation.
+自 **20 世纪 70 年代**最早的 Unix Shell 起，**cd** 就一直是 Shell 内建命令，是目录导航的基础。
 
 # INSTALL
 

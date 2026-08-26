@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal multiplexer with enhanced status bar and keybindings
+带有增强状态栏和快捷键的终端复用器
 
 # TLDR
 
-**Start** byobu session
+**启动** byobu 会话
 
 ```byobu```
 
-**Create** new window
+**创建**新窗口
 
 ```Ctrl-A c```
 
-**Switch** windows
+**切换**窗口
 
 ```Ctrl-A n```
 
-**Detach** session
+**分离**会话
 
 ```Ctrl-A d```
 
-**List** sessions
+**列出**会话
 
 ```byobu-select-session```
 
@@ -30,61 +30,61 @@ Terminal multiplexer with enhanced status bar and keybindings
 
 # DESCRIPTION
 
-**byobu** is a text-based window manager and terminal multiplexer. It's a wrapper around tmux or screen that adds a status bar, keybindings, and configuration for easier terminal session management.
+**byobu** 是一个基于文本的窗口管理器和终端复用器。它是 tmux 或 screen 的封装，增加了状态栏、快捷键和配置，让终端会话管理更加轻松。
 
-The tool is popular on Ubuntu and provides an accessible interface for managing multiple terminal sessions.
+该工具在 Ubuntu 上颇受欢迎，为管理多个终端会话提供了易用的界面。
 
 # PARAMETERS
 
 **-S** _name_
-> Create named session
+> 创建命名会话
 
 **-ls**
-> List sessions
+> 列出会话
 
 **-r**
-> Reattach to session
+> 重新连接到会话
 
 **-d**
-> Detach session
+> 分离会话
 
 # KEYBINDINGS
 
-**F2** - New window
-**F3/F4** - Previous/next window
-**F6** - Detach
-**F7** - Scrollback mode
-**F8** - Rename window
-**F9** - Configuration menu
-**Shift-F2** - Horizontal split
-**Ctrl-F2** - Vertical split
+**F2** - 新建窗口
+**F3/F4** - 上一个/下一个窗口
+**F6** - 分离
+**F7** - 回滚模式
+**F8** - 重命名窗口
+**F9** - 配置菜单
+**Shift-F2** - 水平分割
+**Ctrl-F2** - 垂直分割
 
-**Ctrl-A** prefix:
-- **c** - Create window
-- **n/p** - Next/previous window
-- **d** - Detach
-- **[** - Copy mode
+**Ctrl-A** 前缀：
+- **c** - 创建窗口
+- **n/p** - 下一个/上一个窗口
+- **d** - 分离
+- **[** - 复制模式
 
 # FEATURES
 
-- Pre-configured tmux/screen
-- Informative status bar
-- F-key bindings
-- Session management
-- UTF-8 support
-- Color schemes
-- Notification system
+- 预配置的 tmux/screen
+- 信息丰富的状态栏
+- F 键绑定
+- 会话管理
+- UTF-8 支持
+- 配色方案
+- 通知系统
 
 # STATUS BAR
 
-Shows:
-- Hostname
-- Load average
-- Memory usage
-- CPU usage
-- Disk space
-- Network activity
-- Date/time
+显示：
+- 主机名
+- 负载平均值
+- 内存使用
+- CPU 使用
+- 磁盘空间
+- 网络活动
+- 日期/时间
 
 # WORKFLOW
 
@@ -103,28 +103,28 @@ byobu attach
 
 # CAVEATS
 
-F-keys may conflict with terminal emulator. Backend (tmux vs screen) affects features. Status bar uses some resources. Learning curve for advanced features. Default keybindings differ from plain tmux.
+F 键可能与终端模拟器冲突。后端（tmux 或 screen）会影响功能特性。状态栏占用一些资源。高级功能有学习曲线。默认快捷键与纯 tmux 不同。
 
 # HISTORY
 
-**Byobu** was created by Dustin Kirkland around **2008** to provide a more user-friendly interface to GNU screen, later adding tmux support.
+**Byobu** 由 Dustin Kirkland 在 **2008 年**前后创建，旨在为 GNU screen 提供更友好的界面，后来加入了对 tmux 的支持。
 
 # CONFIGURATION
 
 **~/.byobu/**
-> User configuration directory containing keybindings, status bar settings, and profile preferences
+> 用户配置目录，包含快捷键、状态栏设置和配置偏好
 
 **~/.byobu/keybindings**
-> Custom keybinding definitions
+> 自定义快捷键定义
 
 **~/.byobu/status**
-> Status bar configuration (which elements to display)
+> 状态栏配置（显示哪些元素）
 
 **~/.byobu/statusrc**
-> Status bar refresh rate and display options
+> 状态栏刷新频率和显示选项
 
 **~/.byobu/.tmux.conf**
-> Byobu-specific tmux configuration overrides
+> Byobu 特定的 tmux 配置覆盖
 
 # INSTALL
 

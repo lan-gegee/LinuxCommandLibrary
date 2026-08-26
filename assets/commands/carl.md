@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line calendar with color and iCal support
+支持颜色和 iCal 的命令行日历
 
 # TLDR
 
-**Display** the current month
+**显示**当前月份
 
 ```carl```
 
-**Display** a specific month and year
+**显示**指定的月份和年份
 
 ```carl -m [3] -y [2024]```
 
-**Display** the entire year
+**显示**整年
 
 ```carl -y [2024]```
 
-**Display** with week numbers
+**显示**周数
 
 ```carl -w```
 
-**Display** previous, current, and next month
+**显示**上月、当月和下月
 
 ```carl -3```
 
-**Display** with agenda listing events
+**显示**带事件议程的日历
 
 ```carl -a```
 
-**Display** Julian day numbers
+**显示**儒略日序号
 
 ```carl -j```
 
@@ -39,47 +39,47 @@ Command-line calendar with color and iCal support
 # PARAMETERS
 
 **-m** _MONTH_
-> Display a specific month (1-12).
+> 显示指定月份（1-12）。
 
 **-y** _YEAR_
-> Display a specific year.
+> 显示指定年份。
 
 **-w**
-> Show ISO week numbers.
+> 显示 ISO 周数。
 
 **-1, --one**
-> Display single month output (default).
+> 单月输出（默认）。
 
 **-3, --three**
-> Display previous, current, and next month.
+> 显示上月、当月和下月。
 
 **-n, --months** _NUMBER_
-> Display current and following months.
+> 显示当月及其后的月份。
 
 **-s, --sunday**
-> Display Sunday as first day of week.
+> 以星期日为一周的第一天。
 
 **-j, --julian**
-> Display Julian dates (days numbered from January 1).
+> 显示儒略日期（从 1 月 1 日起编号天数）。
 
 **-a, --agenda**
-> Display event agenda below the calendar.
+> 在日历下方显示事件议程。
 
 **--theme** _THEME_
-> Set the color theme.
+> 设置配色主题。
 
 **--themestyletype** _TYPE_
-> Use "dark" or "light" background theme styles.
+> 使用 "dark" 或 "light" 背景主题样式。
 
 # DESCRIPTION
 
-**carl** is a command-line calendar tool written in Rust that displays colorful, formatted calendars in the terminal. It tries to mimic various cal(1) implementations but adds enhanced features like colors and iCal support. The output uses colors and formatting for improved readability compared to the traditional **cal** command.
+**carl** 是一个用 Rust 编写的命令行日历工具，可在终端中显示彩色的格式化日历。它试图模仿各种 cal(1) 实现，同时增加了颜色和 iCal 支持等增强功能。与传统的 **cal** 命令相比，其输出使用颜色和排版来提升可读性。
 
-Carl can display single months, multiple months, full years, and highlight the current date. iCal files are configured via a config file (config.toml) using `[[ical]]` sections, and event dates are highlighted in the calendar view. The `--agenda` flag lists event summaries below the calendar.
+Carl 可以显示单月、多月、整年，并高亮当前日期。iCal 文件通过配置文件（config.toml）中的 `[[ical]]` 部分进行配置，事件日期会在日历视图中高亮显示。`--agenda` 标志会在日历下方列出事件摘要。
 
 # CAVEATS
 
-iCal support covers basic events but may not handle all recurrence rules or complex calendar features. Color output requires a terminal with ANSI color support.
+iCal 支持涵盖基本事件，但可能无法处理所有重复规则或复杂的日历特性。彩色输出需要支持 ANSI 颜色的终端。
 
 # INSTALL
 

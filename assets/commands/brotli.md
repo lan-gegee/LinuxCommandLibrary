@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compress and decompress files with the Brotli algorithm
+使用 Brotli 算法压缩和解压文件
 
 # TLDR
 
-**Compress** a file (keeps original by default)
+**压缩**文件（默认保留原文件）
 
 ```brotli [file.txt]```
 
-**Decompress** a file
+**解压**文件
 
 ```brotli -d [file.txt.br]```
 
-**Compress** and remove original file
+**压缩并删除**原文件
 
 ```brotli --rm [file.txt]```
 
-**Compress** to stdout
+**压缩到标准输出**
 
 ```brotli -c [file.txt] > [file.txt.br]```
 
-**Compress with fast quality level** (0=fast, 11=best)
+以较快的质量级别**压缩**（0=最快，11=最佳）
 
 ```brotli -q [4] [file.txt]```
 
-**Compress to a specific output file**
+**压缩到指定输出文件**
 
 ```brotli -o [output.br] [file.txt]```
 
-**Test compressed file integrity**
+测试压缩文件的完整性
 
 ```brotli -t [file.txt.br]```
 
@@ -38,55 +38,55 @@ Compress and decompress files with the Brotli algorithm
 
 # DESCRIPTION
 
-**brotli** is a compression tool using the Brotli algorithm developed by Google. It provides better compression ratios than gzip and deflate, particularly for web content, making it popular for HTTP compression. Unlike gzip, source files are preserved by default.
+**brotli** 是一款采用 Google 开发的 Brotli 算法的压缩工具。它的压缩率优于 gzip 和 deflate，对网页内容尤其有效，因此在 HTTP 压缩中广受欢迎。与 gzip 不同，它默认保留源文件。
 
-The tool supports compression levels from 0 (fast) to 11 (maximum compression).
+该工具支持 0（快速）到 11（最大压缩）的压缩级别。
 
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress file
+> 解压文件。
 
 **-c**, **--stdout**
-> Write to standard output
+> 写入标准输出。
 
 **-f**, **--force**
-> Overwrite existing files
+> 覆盖已有文件。
 
 **-j**, **--rm**
-> Remove source file(s) after processing
+> 处理后删除源文件。
 
 **-k**, **--keep**
-> Keep input files (default behavior)
+> 保留输入文件（默认行为）。
 
 **-o** _FILE_, **--output=**_FILE_
-> Write output to specified file
+> 输出到指定文件。
 
 **-q** _NUM_, **--quality=**_NUM_
-> Compression quality (0-11, default: 11)
+> 压缩质量（0-11，默认：11）。
 
 **-S** _SUFFIX_, **--suffix=**_SUFFIX_
-> Output filename suffix (default: .br)
+> 输出文件名后缀（默认：.br）。
 
 **-v**, **--verbose**
-> Display detailed status messages
+> 显示详细的状态信息。
 
 **-V**, **--version**
-> Display version
+> 显示版本。
 
 **-w** _NUM_, **--lgwin=**_NUM_
-> LZ77 window size (0, 10-24, default: 24)
+> LZ77 窗口大小（0、10-24，默认：24）。
 
 **-t**, **--test**
-> Test compressed file integrity
+> 测试压缩文件的完整性。
 
 # CAVEATS
 
-Slower than gzip at maximum compression. Not as widely supported on older systems. Quality 11 can be very slow. Some systems use brotli via `br` command instead.
+最大压缩时比 gzip 慢。在较老的系统上支持不够广泛。质量级别 11 可能非常慢。某些系统通过 `br` 命令使用 brotli。
 
 # HISTORY
 
-**Brotli** was developed by Jyrki Alakuijala and Zoltán Szabadka at Google, released in **2013** and standardized as RFC 7932 in **2016**.
+**Brotli** 由 Google 的 Jyrki Alakuijala 和 Zoltán Szabadka 开发，于 **2013** 年发布，并于 **2016** 年标准化为 RFC 7932。
 
 # INSTALL
 

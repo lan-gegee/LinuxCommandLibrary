@@ -1,26 +1,26 @@
 # TAGLINE
 
-Bluetooth system daemon
+蓝牙系统守护进程
 
 # TLDR
 
-**Start** the daemon
+**启动**守护进程
 
 ```bluetoothd```
 
-Start the daemon, **logging to stdout**
+启动守护进程并**将日志输出到 stdout**
 
 ```bluetoothd -n```
 
-Start with a **specific configuration** file
+以**指定的配置**文件启动
 
 ```bluetoothd -f [path/to/file]```
 
-Start with **verbose debug** output
+以**详细的调试**输出启动
 
 ```bluetoothd -d```
 
-Start with debug output from **specific source files**
+仅输出来自**指定源文件**的调试信息
 
 ```bluetoothd -d=[path/to/file1:path/to/file2]```
 
@@ -30,42 +30,42 @@ Start with debug output from **specific source files**
 
 # DESCRIPTION
 
-**bluetoothd** is the Bluetooth system daemon that manages Bluetooth devices, connections, and services. It handles device discovery, pairing, and connection management for all Bluetooth functionality on the system.
+**bluetoothd** 是蓝牙系统守护进程，负责管理蓝牙设备、连接和服务。它处理系统上所有蓝牙功能的设备发现、配对和连接管理。
 
-The daemon is typically started automatically by systemd. It reads configuration from **/etc/bluetooth/main.conf** and manages the Bluetooth adapter(s) and connected devices.
+该守护进程通常由 systemd 自动启动。它从 **/etc/bluetooth/main.conf** 读取配置，并管理蓝牙适配器和已连接的设备。
 
 # PARAMETERS
 
 **-n, --nodetach**
-> Run in the foreground; do not detach and become a daemon. Log goes to stdout.
+> 在前台运行；不分离为守护进程。日志输出到 stdout。
 
 **-f, --configfile** _file_
-> Use alternate configuration file instead of /etc/bluetooth/main.conf.
+> 使用备用配置文件代替 /etc/bluetooth/main.conf。
 
 **-d, --debug** [_files_]
-> Enable debug output, optionally limited to a colon-separated list of source files.
+> 启用调试输出，可选地限定为冒号分隔的源文件列表。
 
 **-E, --experimental**
-> Enable experimental D-Bus interfaces and features.
+> 启用实验性的 D-Bus 接口和特性。
 
 **-p, --plugin** _name_
-> Specify plugins to load
+> 指定要加载的插件。
 
 **-P, --noplugin** _name_
-> Specify plugins to exclude
+> 指定要排除的插件。
 
 # CONFIGURATION
 
 **/etc/bluetooth/main.conf**
-> Main configuration file controlling device class, name, pairing timeout, discoverable mode, and adapter defaults.
+> 主配置文件，控制设备类别、名称、配对超时、可发现模式以及适配器默认值。
 
 # CAVEATS
 
-Usually managed by systemd; manual invocation rarely needed. Requires root privileges. Configuration changes require daemon restart. Debug mode generates extensive output.
+通常由 systemd 管理，很少需要手动调用。需要 root 权限。配置更改需要重启守护进程。调试模式会产生大量输出。
 
 # HISTORY
 
-**bluetoothd** is part of **BlueZ**, the official Linux Bluetooth protocol stack maintained since the early **2000s**. It replaced the older per-profile daemons of BlueZ 4 with a single plugin-based daemon in BlueZ 5 (**2012**), exposing its functionality over D-Bus.
+**bluetoothd** 是 **BlueZ** 的一部分，BlueZ 是自 **2000 年代初**以来一直维护的 Linux 官方蓝牙协议栈。在 BlueZ 5（**2012 年**）中，它取代了 BlueZ 4 中旧的按配置文件划分的守护进程，成为单一的基于插件的守护进程，并通过 D-Bus 暴露其功能。
 
 # INSTALL
 

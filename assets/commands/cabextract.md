@@ -1,34 +1,34 @@
 # TAGLINE
 
-Extract Microsoft cabinet archives
+解压 Microsoft cabinet 归档
 
 # TLDR
 
-**Extract cabinet file**
+**解压** cabinet 文件
 
 ```cabextract [file.cab]```
 
-**List contents without extracting**
+**只列出内容不解压**
 
 ```cabextract -l [file.cab]```
 
-**Extract to specific directory**
+**解压到指定目录**
 
 ```cabextract -d [output_dir] [file.cab]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```cabextract -t [file.cab]```
 
-**Extract with filter pattern**
+**按过滤模式解压**
 
 ```cabextract -F "*.dll" [file.cab]```
 
-**Extract with lowercase filenames**
+**以小写文件名解压**
 
 ```cabextract -L [file.cab]```
 
-**Extract from embedded cabinet in exe**
+**从 exe 中内嵌的 cabinet 解压**
 
 ```cabextract [setup.exe]```
 
@@ -38,47 +38,47 @@ Extract Microsoft cabinet archives
 
 # DESCRIPTION
 
-**cabextract** extracts files from Microsoft cabinet (.cab) archives. It can also extract cabinets embedded in other files like executables. Supports all Microsoft cabinet formats and Windows CE installation files.
+**cabextract** 从 Microsoft cabinet（.cab）归档中提取文件。它还能从可执行文件等其他文件中提取内嵌的 cabinet。支持所有 Microsoft cabinet 格式以及 Windows CE 安装文件。
 
 # PARAMETERS
 
 **-l**, **--list**
-> List contents without extracting
+> 只列出内容，不解压
 
 **-t**, **--test**
-> Test integrity, show MD5 checksums
+> 测试完整性并显示 MD5 校验和
 
 **-d** _directory_, **--directory**=_directory_
-> Extract to specified directory
+> 解压到指定目录
 
 **-F** _pattern_, **--filter**=_pattern_
-> Extract only files matching shell pattern
+> 只解压匹配 shell 模式的文件
 
 **-f**, **--fix**
-> Attempt to salvage corrupted archives
+> 尝试修复损坏的归档
 
 **-L**, **--lowercase**
-> Convert filenames to lowercase
+> 将文件名转换为小写
 
 **-p**, **--pipe**
-> Pipe extracted files to stdout
+> 将解压出的文件通过管道输出到 stdout
 
 **-s**, **--single**
-> Don't follow multi-part cabinet links
+> 不跟随多分卷 cabinet 链接
 
 **-q**, **--quiet**
-> Suppress normal output
+> 抑制常规输出
 
 **-v**, **--version**
-> Show version
+> 显示版本
 
 # MULTI-PART CABINETS
 
-For multi-part cabinet archives, only specify the first file. cabextract automatically locates and processes remaining parts.
+对于多分卷 cabinet 归档，只需指定第一个文件。cabextract 会自动定位并处理其余分卷。
 
 # CAVEATS
 
-Can only extract archives, not create them. Use **gcab** to create cabinet files. Preserves internal directory structure, permissions, and dates.
+只能解压归档，不能创建归档。创建 cabinet 文件请使用 **gcab**。会保留内部目录结构、权限和日期。
 
 # INSTALL
 

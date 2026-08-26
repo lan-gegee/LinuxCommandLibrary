@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage btrfs copy-on-write filesystems
+管理 btrfs 写时复制文件系统
 
 # TLDR
 
-**Create** subvolume
+**创建**子卷
 
 ```sudo btrfs subvolume create path/to/subvolume```
 
-**List** subvolumes
+**列出**子卷
 
 ```sudo btrfs subvolume list path/to/mount```
 
-Show **space usage**
+显示**空间使用**情况
 
 ```sudo btrfs filesystem df path/to/mount```
 
-Enable **quota**
+启用**配额**
 
 ```sudo btrfs quota enable path/to/subvolume```
 
-Show **quota**
+显示**配额**
 
 ```sudo btrfs qgroup show path/to/subvolume```
 
@@ -30,40 +30,40 @@ Show **quota**
 
 # DESCRIPTION
 
-**btrfs** is the primary management tool for Btrfs (B-tree filesystem), a modern copy-on-write Linux filesystem with built-in support for snapshots, subvolumes, transparent compression, online resizing, multi-device pools, checksumming, and RAID0/1/10/5/6. The command dispatches to subcommand groups (**subvolume**, **filesystem**, **device**, **balance**, **scrub**, **send**, **receive**, **quota**, **qgroup**, **inspect-internal**, ...) that map directly to filesystem operations.
+**btrfs** 是 Btrfs（B-tree 文件系统）的主要管理工具。Btrfs 是一种现代的写时复制 Linux 文件系统，内置快照、子卷、透明压缩、在线扩缩容、多设备存储池、校验和以及 RAID0/1/10/5/6 支持。该命令分发给各子命令组（**subvolume**、**filesystem**、**device**、**balance**、**scrub**、**send**、**receive**、**quota**、**qgroup**、**inspect-internal** 等），它们与文件系统操作一一对应。
 
-Most subcommands operate on a mounted Btrfs path. The kernel does the heavy lifting; the **btrfs** binary issues IOCTLs to invoke balance, scrub, snapshot, defrag, and other operations. The **send** / **receive** pair enables efficient incremental replication of snapshots to remote hosts or backup volumes.
+大多数子命令作用于已挂载的 Btrfs 路径。繁重的工作由内核完成；**btrfs** 可执行文件通过发出 IOCTL 来调用 balance、scrub、快照、碎片整理等操作。**send** / **receive** 组合可以将快照高效地增量复制到远程主机或备份卷。
 
 # PARAMETERS
 
 **subvolume** (su)
-> Manage subvolumes and snapshots
+> 管理子卷和快照
 
 **filesystem** (fi)
-> Manage filesystem properties
+> 管理文件系统属性
 
 **device** (dev)
-> Manage devices in the filesystem
+> 管理文件系统中的设备
 
 **balance** (bal)
-> Balance data across devices
+> 在设备间平衡数据
 
 **scrub** (sc)
-> Verify data integrity
+> 校验数据完整性
 
 **quota** (qu)
-> Enable/disable quota support
+> 启用/禁用配额支持
 
 **qgroup** (qg)
-> Manage quota groups
+> 管理配额组
 
 # CAVEATS
 
-Btrfs is under active development. Some features like RAID5/6 may have stability concerns. Regular scrubs are recommended for data integrity verification. Snapshots share space with their source until modified.
+Btrfs 仍在积极开发中。RAID5/6 等部分功能在稳定性上可能存在隐患。建议定期运行 scrub 以校验数据完整性。快照在被修改前与其源共享空间。
 
 # HISTORY
 
-**btrfs** is the management tool for the **B-tree file system**, a modern Linux filesystem featuring advanced storage capabilities.
+**btrfs** 是 **B-tree 文件系统**的管理工具，后者是一种具备先进存储能力的现代 Linux 文件系统。
 
 # INSTALL
 

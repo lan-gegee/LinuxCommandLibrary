@@ -1,22 +1,22 @@
 # TAGLINE
 
-Encode and decode base32 data.
+编码和解码 base32 数据。
 
 # TLDR
 
-**Encode** to base32
+**编码**为 base32
 
 ```base32 [file]```
 
-**Decode** base32
+**解码** base32
 
 ```base32 -d [file.b32]```
 
-Encode **string**
+编码**字符串**
 
 ```echo [text] | base32```
 
-Decode **string**
+解码**字符串**
 
 ```echo [ENCODED] | base32 -d```
 
@@ -26,27 +26,27 @@ Decode **string**
 
 # DESCRIPTION
 
-**base32** encodes and decodes data using base32 encoding. Base32 represents binary data using 32 ASCII characters (A-Z and 2-7), making it suitable for case-insensitive systems and human-readable tokens.
+**base32** 使用 base32 编码对数据进行编码和解码。Base32 用 32 个 ASCII 字符（A-Z 和 2-7）表示二进制数据，适合大小写不敏感的系统以及需要人类可读令牌的场景。
 
-The tool is part of GNU coreutils and useful for encoding data in URLs, filenames, or other contexts where base64's case sensitivity or special characters are problematic.
+该工具是 GNU coreutils 的一部分，适用于在 URL、文件名或其他对 base64 大小写敏感或特殊字符有问题的场景中编码数据。
 
 # PARAMETERS
 
 **-d**, **--decode**
-> Decode base32 data
+> 解码 base32 数据
 
 **-i**, **--ignore-garbage**
-> Ignore non-alphabet characters when decoding
+> 解码时忽略非字母表字符
 
 **-w**, **--wrap=**_cols_
-> Wrap lines at specified width (default: 76, 0 = no wrap)
+> 按指定宽度换行（默认：76，0 = 不换行）
 
 # FEATURES
 
-- Case-insensitive encoding
-- No special characters (URL-safe)
-- Standard RFC 4648 implementation
-- Padding with = characters
+- 大小写不敏感的编码
+- 无特殊字符（URL 安全）
+- 符合 RFC 4648 标准的实现
+- 使用 = 字符填充
 
 # WORKFLOW
 
@@ -66,11 +66,11 @@ echo "JBSWY3DPEBLW64TMMQ======" | base32 -d
 
 # CAVEATS
 
-20% larger than base64 encoding. Less common than base64. Padding characters may need escaping in some contexts. Case-insensitive but output is uppercase.
+比 base64 编码体积大 20%。不如 base64 常见。填充字符在某些上下文中可能需要转义。大小写不敏感，但输出为大写。
 
 # HISTORY
 
-**base32** was added to GNU coreutils in version **8.25** (2016), implementing the base32 encoding specified in RFC 4648.
+**base32** 在 GNU coreutils 版本 **8.25**（2016）中加入，实现了 RFC 4648 规定的 base32 编码。
 
 # INSTALL
 

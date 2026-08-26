@@ -1,14 +1,14 @@
 # TAGLINE
 
-Graphical disk usage analyzer
+图形化磁盘用量分析器
 
 # TLDR
 
-**Analyze** disk usage
+**分析**磁盘用量
 
 ```baobab```
 
-Analyze **specific directory**
+分析**指定目录**
 
 ```baobab [/path/to/directory]```
 
@@ -18,34 +18,34 @@ Analyze **specific directory**
 
 # DESCRIPTION
 
-**baobab** (also known as GNOME Disk Usage Analyzer) is a graphical tool for visualizing disk space usage. It displays directory sizes in tree view and provides an interactive treemap or ring chart visualization.
+**baobab**（又名 GNOME Disk Usage Analyzer）是一款用于可视化磁盘空间占用的图形工具。它以树状视图显示目录大小，并提供交互式的矩形树图或环形图可视化。
 
-The application makes it easy to identify large files and directories consuming disk space.
+借助该应用，可以轻松找出占用磁盘空间的大文件和大目录。
 
 # FEATURES
 
-- Directory tree view
-- Treemap visualization
-- Ring chart (sunburst) view
-- File and folder sizes
-- Interactive navigation
-- Remote filesystem support
-- Scan history
+- 目录树状视图
+- 矩形树图可视化
+- 环形图（旭日图）视图
+- 文件与文件夹大小
+- 交互式导航
+- 远程文件系统支持
+- 扫描历史记录
 
 # INTERFACE
 
-Provides multiple visualization modes:
-- **List view** - Traditional directory tree
-- **Treemap** - Rectangular area chart
-- **Rings chart** - Concentric circles showing hierarchy
+提供多种可视化模式：
+- **List view** - 传统目录树
+- **Treemap** - 矩形面积图
+- **Rings chart** - 以同心圆展示层级关系
 
 # CAVEATS
 
-Scanning large filesystems can be slow. Remote filesystems require network access. Some directories require elevated permissions. May not reflect actual disk usage (sparse files, compression).
+扫描大文件系统可能较慢。远程文件系统需要网络访问。某些目录需要提升权限才能扫描。结果可能不反映真实磁盘占用（稀疏文件、压缩）。
 
 # HISTORY
 
-**Baobab** was created by Fabio Marzocca around **2005** and became GNOME's standard disk usage analyzer, named after the baobab tree.
+**Baobab** 由 Fabio Marzocca 于 **2005** 年前后创建，此后成为 GNOME 标准的磁盘用量分析器，名字来源于猴面包树。
 
 # INSTALL
 

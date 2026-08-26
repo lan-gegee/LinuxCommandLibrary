@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show ASCII art animation demos
+展示 ASCII 艺术动画演示
 
 # TLDR
 
-View a random **ASCII art animation**
+查看随机的 **ASCII 艺术动画**
 
 ```cacademo```
 
@@ -14,9 +14,9 @@ View a random **ASCII art animation**
 
 # DESCRIPTION
 
-**cacademo** displays random ASCII art animations in the terminal using the libcaca library. It showcases various text-mode graphics effects and serves as a demonstration of the library's capabilities.
+**cacademo** 使用 libcaca 库在终端中播放随机的 ASCII 艺术动画。它展示了多种文本模式图形效果，可作为该库功能的演示。
 
-The demo cycles through different animations including metaballs, matrix effects, and other visual displays.
+演示会循环播放多种动画，包括 metaballs、matrix 特效以及其他视觉效果。
 
 # INSTALL
 

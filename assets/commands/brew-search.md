@@ -1,34 +1,34 @@
 # TAGLINE
 
-Search for available Homebrew packages
+搜索可用的 Homebrew 软件包
 
 # TLDR
 
-**Search for formula or cask**
+**搜索** formula 或 cask
 
 ```brew search [text]```
 
-**Search formulae only**
+仅**搜索** formula
 
 ```brew search --formula [text]```
 
-**Search casks only**
+仅**搜索** cask
 
 ```brew search --cask [text]```
 
-**Search using regular expression**
+使用正则表达式**搜索**
 
 ```brew search /[regex]/```
 
-**List all available formulae**
+列出所有可用的 formula
 
 ```brew search```
 
-**Search and output as JSON**
+搜索并以 JSON 格式输出
 
 ```brew search --json [text]```
 
-**Search with descriptions**
+搜索时附带描述
 
 ```brew search --desc [text]```
 
@@ -38,44 +38,44 @@ Search for available Homebrew packages
 
 # DESCRIPTION
 
-**brew search** queries the local Homebrew repository for formulae and casks matching the search term. It searches package names, tokens, and descriptions. The search extends online to homebrew/core and homebrew/cask repositories.
+**brew search** 在本地 Homebrew 仓库中查询与搜索词匹配的 formula 和 cask。它搜索软件包名称、token 和描述。搜索还会在线扩展到 homebrew/core 和 homebrew/cask 仓库。
 
-Without arguments, it lists all locally available formulae.
+不带参数时，它会列出本地所有可用的 formula。
 
 # PARAMETERS
 
 **--formula**
-> Search only formulae (CLI packages)
+> 仅搜索 formula（命令行软件包）。
 
 **--cask**
-> Search only casks (GUI applications)
+> 仅搜索 cask（图形界面应用）。
 
 **--desc**
-> Include package descriptions in search
+> 搜索时包含软件包描述。
 
 **--json**
-> Output results in JSON format
+> 以 JSON 格式输出结果。
 
 **--pull-request**
-> Search for GitHub pull requests containing text
+> 搜索包含指定文本的 GitHub pull request。
 
 **--open**
-> Search only open pull requests
+> 仅搜索处于打开状态的 pull request。
 
 **--closed**
-> Search only closed pull requests
+> 仅搜索已关闭的 pull request。
 
 # REGULAR EXPRESSIONS
 
-Wrapping search term in slashes enables regex:
+将搜索词用斜杠包裹即可启用正则表达式：
 
 ```brew search /^python@/```
 
-Searches for packages starting with "python@"
+搜索以 "python@" 开头的软件包。
 
 # CAVEATS
 
-Search results include both installed and available packages. Use brew info for detailed information about specific packages. The search is case-insensitive by default.
+搜索结果同时包含已安装和可安装的软件包。要了解特定软件包的详细信息请使用 brew info。搜索默认不区分大小写。
 
 # SEE ALSO
 

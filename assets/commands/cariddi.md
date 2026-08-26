@@ -1,34 +1,34 @@
 # TAGLINE
 
-crawl URLs for endpoints, secrets, and sensitive data
+爬取 URL 以发现端点、机密和敏感数据
 
 # TLDR
 
-**Crawl domains from list**
+**从列表中爬取域名**
 
 ```cat [domains.txt] | cariddi```
 
-**Hunt for secrets**
+**搜寻机密信息**
 
 ```cat [domains.txt] | cariddi -s```
 
-**Hunt for endpoints**
+**搜寻端点**
 
 ```cat [domains.txt] | cariddi -e```
 
-**Intensive subdomain crawling**
+**密集爬取子域名**
 
 ```cat [urls.txt] | cariddi -intensive```
 
-**Hunt for file extensions**
+**搜寻文件扩展名**
 
 ```cat [domains.txt] | cariddi -ext [3]```
 
-**Use proxy**
+**使用代理**
 
 ```cat [domains.txt] | cariddi -proxy [http://127.0.0.1:8080]```
 
-**Random user agent**
+**随机 User Agent**
 
 ```cat [domains.txt] | cariddi -rua```
 
@@ -38,64 +38,64 @@ crawl URLs for endpoints, secrets, and sensitive data
 
 # DESCRIPTION
 
-**cariddi** is a reconnaissance tool that crawls URLs and scans for endpoints, secrets, API keys, file extensions, and tokens. It accepts domain lists via standard input, making it easy to chain with subdomain discovery tools in automated security assessment pipelines.
+**cariddi** 是一款侦察工具，可爬取 URL 并扫描端点、机密、API 密钥、文件扩展名和令牌。它通过标准输入接收域名列表，便于在自动化安全评估流水线中与子域名发现工具串联使用。
 
-The tool performs passive analysis of crawled pages, extracting sensitive data such as hardcoded credentials, authentication tokens, and API keys using pattern matching. It supports configurable crawl depth, concurrency, and proxy settings for thorough yet controlled scanning.
+该工具对爬取到的页面进行被动分析，通过模式匹配提取硬编码凭据、身份验证令牌和 API 密钥等敏感数据。它支持可配置的爬取深度、并发数和代理设置，既能深入扫描又可控。
 
-Designed for bug bounty hunting and authorized penetration testing, cariddi outputs results in plain text or JSON format for integration with other security tools.
+cariddi 面向漏洞赏金挖掘和授权渗透测试设计，结果可以纯文本或 JSON 格式输出，便于与其他安全工具集成。
 
 # PARAMETERS
 
 **-s**
-> Hunt for secrets
+> 搜寻机密信息
 
 **-e**
-> Hunt for endpoints
+> 搜寻端点
 
 **-info**
-> Hunt for useful information
+> 搜寻有用信息
 
 **-ext** _level_
-> Hunt for file extensions (1=juicy to 7=less juicy)
+> 搜寻文件扩展名（1=最有价值 到 7=价值较低）
 
 **-intensive**
-> Crawl subdomains (*.target.com)
+> 爬取子域名（*.target.com）
 
 **-proxy** _url_
-> HTTP or SOCKS5 proxy
+> HTTP 或 SOCKS5 代理
 
 **-rua**
-> Random browser user agent per request
+> 每个请求使用随机的浏览器 User Agent
 
 **-d** _depth_
-> Crawl depth limit
+> 爬取深度限制
 
 **-c** _n_
-> Concurrent requests
+> 并发请求数
 
 **-t** _seconds_
-> Request timeout
+> 请求超时时间
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-json**
-> JSON output format
+> JSON 输出格式
 
 **-plain**
-> Plain text output
+> 纯文本输出
 
 # DETECTION TARGETS
 
-- API keys and secrets
-- Authentication tokens
-- Sensitive file extensions
-- Hidden endpoints
-- Information disclosure
+- API 密钥与机密
+- 身份验证令牌
+- 敏感文件扩展名
+- 隐藏端点
+- 信息泄露
 
 # CAVEATS
 
-For authorized security testing only. Integrates well with subdomain discovery tools. GPL-3.0 licensed.
+仅用于授权的安全测试。与子域名发现工具配合良好。采用 GPL-3.0 许可证。
 
 # INSTALL
 

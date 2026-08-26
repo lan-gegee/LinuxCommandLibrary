@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display system and project diagnostic information
+显示系统和项目诊断信息
 
 # TLDR
 
-**Display system and project info**
+**显示系统与项目信息**
 
 ```bun info```
 
-**Display info** in JSON format
+以 JSON 格式**显示信息**
 
 ```bun info --json```
 
@@ -19,13 +19,13 @@ Display system and project diagnostic information
 # PARAMETERS
 
 **--json**
-> Output information in JSON format.
+> 以 JSON 格式输出信息。
 
 # DESCRIPTION
 
-**bun info** displays diagnostic information about your Bun installation, system environment, and current project. This includes Bun version, operating system, CPU architecture, memory, and project configuration.
+**bun info** 显示关于 Bun 安装、系统环境和当前项目的诊断信息，包括 Bun 版本、操作系统、CPU 架构、内存以及项目配置。
 
-Useful for troubleshooting issues or providing context when reporting bugs.
+可用于排查问题或在报告 bug 时提供上下文信息。
 
 # INSTALL
 

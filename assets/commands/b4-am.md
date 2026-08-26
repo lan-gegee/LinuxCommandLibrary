@@ -1,30 +1,30 @@
 # TAGLINE
 
-Download a patch series as a ready-to-apply mbox
+将补丁系列下载为可直接应用的 mbox
 
 # TLDR
 
-**Fetch a series** by message-id
+**按 message-id 获取系列**
 
 ```b4 am [message-id]```
 
-**Fetch a series** from an archive URL
+**从归档 URL 获取系列**
 
 ```b4 am [https://lore.kernel.org/.../message-id]```
 
-**Apply review trailers** collected from cover-letter replies
+**应用从 cover letter 回复中收集的评审 trailer**
 
 ```b4 am -t [message-id]```
 
-**Add a Link trailer** pointing back to the message archive
+**添加指回消息归档的 Link trailer**
 
 ```b4 am -l [message-id]```
 
-**Write the mbox** to a specific directory
+**将 mbox 写入指定目录**
 
 ```b4 am -o [path/to/dir] [message-id]```
 
-**Fetch a specific revision** of the series
+**获取系列的特定修订版**
 
 ```b4 am -v [3] [message-id]```
 
@@ -34,41 +34,41 @@ Download a patch series as a ready-to-apply mbox
 
 # DESCRIPTION
 
-**b4 am** retrieves a complete patch thread from a public-inbox archive, selects the newest revision of the series, and produces a clean mbox file that can be fed straight into **git am**. Along the way it gathers review trailers (Reviewed-by, Acked-by, Tested-by) that reviewers left in replies and applies them to the matching patches.
+**b4 am** 从 public-inbox 归档中取回完整的补丁线程，选出该系列的最新修订版，并生成一个干净的 mbox 文件，可以直接交给 **git am** 应用。过程中它会收集评审者在回复中留下的 trailer（Reviewed-by、Acked-by、Tested-by），并将其应用到对应的补丁上。
 
-The resulting mbox is named after the series and saved in the current directory by default. Unlike **b4 shazam**, this subcommand stops at writing the mbox and does not touch the working tree, leaving the actual application to the maintainer.
+生成的 mbox 以该系列命名，默认保存在当前目录。与 **b4 shazam** 不同，这个子命令只负责写出 mbox，不会触碰工作区，把实际应用补丁的工作留给维护者完成。
 
 # PARAMETERS
 
 **-o** _DIR_, **--outdir** _DIR_
-> Write the resulting mbox into _DIR_ instead of the current directory.
+> 将生成的 mbox 写入 _DIR_ 而不是当前目录。
 
 **-v** _VER_, **--use-version** _VER_
-> Retrieve a specific revision of the series rather than the latest.
+> 获取该系列的指定修订版，而不是最新修订版。
 
 **-t**, **--apply-cover-trailers**
-> Apply trailers found on the cover letter to every patch in the series.
+> 将 cover letter 上发现的 trailer 应用到系列中的每个补丁。
 
 **-T**, **--no-add-trailers**
-> Do not add or reorder any trailers.
+> 不添加也不重排任何 trailer。
 
 **-s**, **--add-my-sob**
-> Add your own Signed-off-by trailer to each patch.
+> 为每个补丁添加你自己的 Signed-off-by trailer。
 
 **-l**, **--add-link**
-> Add a Link trailer with the archive URL of each message.
+> 为每条消息添加包含其归档 URL 的 Link trailer。
 
 **-P** _RANGE_, **--cherry-pick** _RANGE_
-> Apply only a subset of patches from the series.
+> 只应用系列中的一个补丁子集。
 
 **-c**, **--check-newer-revisions**
-> Warn if a newer revision of the series exists on the list.
+> 若邮件列表上存在该系列的更新修订版则发出警告。
 
 **-m** _MBOX_, **--use-local-mbox** _MBOX_
-> Read the thread from a local mbox file instead of fetching it.
+> 从本地 mbox 文件读取线程，而不是联网获取。
 
 **-3**, **--prep-3way**
-> Prepare fall-back blobs so that **git am -3** can resolve conflicts.
+> 准备后备 blob，以便 **git am -3** 能够解决冲突。
 
 # INSTALL
 

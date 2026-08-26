@@ -1,26 +1,26 @@
 # TAGLINE
 
-Ethereum network bootstrap node
+以太坊网络引导节点
 
 # TLDR
 
-**Generate a node key**
+**生成节点密钥**
 
 ```bootnode -genkey [node.key]```
 
-**Run a bootnode** with existing key
+使用现有密钥**运行引导节点**
 
 ```bootnode -nodekey [node.key]```
 
-**Run on specific address** and port
+在**指定地址**和端口上运行
 
 ```bootnode -nodekey [node.key] -addr [192.168.1.1:30301]```
 
-**Write node URL** to file
+**将节点 URL 写入**文件
 
 ```bootnode -nodekey [node.key] -writeaddress```
 
-**Run with verbosity**
+以详细日志**运行**
 
 ```bootnode -nodekey [node.key] -verbosity [4]```
 
@@ -30,43 +30,43 @@ Ethereum network bootstrap node
 
 # DESCRIPTION
 
-**bootnode** runs a bootstrap node for the Ethereum Discovery Protocol. Bootstrap nodes help new nodes discover and connect to peers in the Ethereum network without being full nodes themselves.
+**bootnode** 运行以太坊发现协议的引导节点。引导节点帮助新节点发现并连接以太网网络中的对等节点，而自身不必成为全节点。
 
-The tool is part of the go-ethereum (geth) project and implements the Node Discovery Protocol v4 and v5, enabling peer-to-peer network formation.
+该工具是 go-ethereum（geth）项目的一部分，实现了节点发现协议 v4 和 v5，支撑点对点网络的组建。
 
 # PARAMETERS
 
 **-genkey** _file_
-> Generate a new node key and save to file
+> 生成新的节点密钥并保存到文件。
 
 **-nodekey** _file_
-> Path to the node's private key file
+> 节点私钥文件的路径。
 
 **-addr** _ip:port_
-> Listen address (default: :30301)
+> 监听地址（默认：:30301）。
 
 **-writeaddress**
-> Write the node's public key/URL to stdout
+> 将节点的公钥/URL 输出到 stdout。
 
 **-verbosity** _level_
-> Logging verbosity (0=silent, 5=detail)
+> 日志详细程度（0=静默，5=最详细）。
 
 **-nat** _method_
-> NAT port mapping mechanism (none, upnp, pmp, extip:IP)
+> NAT 端口映射机制（none、upnp、pmp、extip:IP）。
 
 **-netrestrict** _CIDR_
-> Restrict network communication to given CIDR
+> 将网络通信限制在给定的 CIDR 范围内。
 
 **-v5**
-> Enable Discovery v5 protocol
+> 启用 Discovery v5 协议。
 
 # CAVEATS
 
-Bootnodes should have stable, publicly reachable IP addresses. The node key must be kept secure as it identifies the node. Bootnodes do not participate in blockchain consensus or store chain data.
+引导节点应有稳定且可公开访问的 IP 地址。节点密钥标识着该节点，必须妥善保管。引导节点不参与区块链共识，也不存储链数据。
 
 # HISTORY
 
-bootnode was developed as part of the **go-ethereum** project by the Ethereum Foundation. It implements the Kademlia-like discovery protocol that enables Ethereum's peer-to-peer network to function without centralized coordination.
+bootnode 由以太坊基金会作为 **go-ethereum** 项目的一部分开发。它实现了类 Kademlia 的发现协议，使以太坊的点对点网络无需中心化协调即可运转。
 
 # SEE ALSO
 

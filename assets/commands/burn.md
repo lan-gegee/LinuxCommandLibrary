@@ -1,30 +1,30 @@
 # TAGLINE
 
-Console front-end for burning Data, Audio, ISO and copy CDs
+用于刻录数据光盘、音频 CD、ISO 和复制光盘的控制台前端
 
 # TLDR
 
-**Burn a data CD** from a directory tree
+**从目录树刻录数据 CD**
 
 ```burn -D -p [path/to/dir]```
 
-**Burn an ISO image** to disc
+**将 ISO 镜像刻录**到光盘
 
 ```burn -I -n [image.iso]```
 
-**Create an audio CD** from MP3, Ogg, or WAV files
+**从 MP3、Ogg 或 WAV 文件创建音频 CD**
 
 ```burn -A -a [track1.mp3] -a [track2.wav]```
 
-**Copy a CD** on the fly
+**即时复制一张 CD**
 
 ```burn -C```
 
-**Simulate** a burn without actually writing
+**模拟**刻录而不实际写入
 
 ```burn -D -s -p [path/to/dir]```
 
-**Burn a multisession data CD**
+**刻录多区段数据 CD**
 
 ```burn -D -m -p [path/to/dir]```
 
@@ -35,68 +35,68 @@ Console front-end for burning Data, Audio, ISO and copy CDs
 # PARAMETERS
 
 **-D**, **--data-cd**
-> Create a Data-CD from files and directories.
+> 从文件和目录创建数据 CD。
 
 **-I**, **--iso-cd**
-> Burn an existing ISO image to disc.
+> 将已有的 ISO 镜像刻录到光盘。
 
 **-C**, **--copy-cd**
-> Copy a CD, optionally on the fly.
+> 复制一张 CD，可选即时复制。
 
 **-A**, **--audio-cd**
-> Create an audio CD from MP3, Ogg, or WAV input files.
+> 从 MP3、Ogg 或 WAV 输入文件创建音频 CD。
 
 **-s**, **--simulate**
-> Perform a burn simulation (no laser write); useful for testing media and pipeline.
+> 执行刻录模拟（不进行激光写入）；可用于测试介质和流程。
 
 **-p**, **--path** _path_
-> Add the contents of _path_ to the CD root without wrapping the directory.
+> 将 _path_ 的内容添加到 CD 根目录，不包裹目录本身。
 
 **-r**, **--preserve-path** _path_
-> Add files while preserving the original directory structure.
+> 添加文件的同时保留原始目录结构。
 
 **-x**, **--exclude-path** _pattern_
-> Exclude files or directories matching _pattern_.
+> 排除匹配 _pattern_ 的文件或目录。
 
 **-c**, **--change-path** _from_=_to_
-> Rename a path on the CD during burning.
+> 在刻录时重命名 CD 上的路径。
 
 **-l**, **--follow-symlink**
-> Follow symbolic-link directories instead of recording the link.
+> 跟随符号链接目录，而不是只记录链接本身。
 
 **-m**, **--multisession**
-> Mark the session as appendable so further data can be added later.
+> 将区段标记为可追加，以便日后继续添加数据。
 
 **-n**, **--name** _file_
-> Name of the ISO image to burn (with **-I**).
+> 要刻录的 ISO 镜像名称（与 **-I** 一起使用）。
 
 **-a**, **--audio-file** _file_
-> Audio track to add (with **-A**); repeat for additional tracks.
+> 要添加的音轨（与 **-A** 一起使用）；重复使用可添加更多音轨。
 
 **--help**
-> Print built-in help and exit.
+> 打印内置帮助并退出。
 
 # DESCRIPTION
 
-**burn** is a console-driven wrapper around the standard CD-recording tool-chain (**cdrecord/wodim**, **mkisofs/genisoimage**, decoders for MP3 and Ogg) that exposes the common burning workflows through a single command. One of four mutually exclusive main modes selects whether to write data, an ISO image, a copy of another disc, or an audio CD assembled from compressed and uncompressed sources.
+**burn** 是标准 CD 刻录工具链（**cdrecord/wodim**、**mkisofs/genisoimage** 以及 MP3 和 Ogg 解码器）之上的控制台封装，通过单一命令暴露常见的刻录工作流。四个互斥的主模式之一决定是写入数据、ISO 镜像、另一张光盘的副本，还是由压缩与非压缩来源组合而成的音频 CD。
 
-The program decodes audio files transparently before writing, generates the necessary ISO9660 filesystem for data discs, and forwards the resulting track to the underlying burner. Burn parameters and recorder device are read from the user and system configuration; command-line options override them per invocation.
+程序会在写入前透明地解码音频文件，为数据光盘生成所需的 ISO9660 文件系统，并将生成的轨道交给底层刻录程序。刻录参数和刻录机设备从用户及系统配置中读取；命令行选项可在每次调用时覆盖它们。
 
 # CONFIGURATION
 
 **/etc/burn.conf**
-> System-wide configuration: device path, speed, default file system options.
+> 系统级配置：设备路径、速度、默认文件系统选项。
 
 **~/.burn/burn.conf**
-> Per-user override of the system configuration.
+> 每个用户对系统配置的覆盖。
 
 # CAVEATS
 
-Requires a working **cdrecord** or **wodim** plus **mkisofs**/**genisoimage** in **PATH**. Audio mode depends on external decoders (**lame**, **oggdec**) being installed for non-WAV input. Optical media is largely obsolete; consider USB images and **dd**, **xorriso**, or **growisofs** for modern workflows.
+需要在 **PATH** 中有可用的 **cdrecord** 或 **wodim** 以及 **mkisofs**/**genisoimage**。音频模式依赖外部解码器（**lame**、**oggdec**）来处理非 WAV 输入。光介质已基本过时；现代工作流建议考虑 USB 镜像以及 **dd**、**xorriso** 或 **growisofs**。
 
 # HISTORY
 
-**burn** was written by **Ben Finney** and **Gaetano Paolone** as a friendly Bash wrapper over the cdrtools suite, packaged in **Debian** since the early **2000s**. It is distributed under the **GNU GPL v2** or later.
+**burn** 由 **Ben Finney** 和 **Gaetano Paolone** 编写，是对 cdrtools 套件的友好 Bash 封装，自 **2000 年代初**起就被打包进 **Debian**。它以 **GNU GPL v2** 或更高版本许可分发。
 
 # SEE ALSO
 

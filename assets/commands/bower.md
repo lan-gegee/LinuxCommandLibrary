@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage front-end web dependencies.
+管理前端 Web 依赖。
 
 # TLDR
 
-**Install** package
+**安装**软件包
 
 ```bower install [jquery]```
 
-**Install** from bower.json
+从 bower.json **安装**
 
 ```bower install```
 
-**Search** for packages
+**搜索**软件包
 
 ```bower search [bootstrap]```
 
-**Update** packages
+**更新**软件包
 
 ```bower update```
 
-**List** installed packages
+**列出**已安装的软件包
 
 ```bower list```
 
@@ -30,38 +30,38 @@ Manage front-end web dependencies.
 
 # DESCRIPTION
 
-**bower** is a package manager for web development, managing front-end dependencies like JavaScript libraries, CSS frameworks, and web components. It downloads and installs packages from Git repositories.
+**bower** 是一款面向 Web 开发的包管理器，管理 JavaScript 库、CSS 框架和 Web 组件等前端依赖。它从 Git 仓库下载并安装软件包。
 
-The tool was popular for front-end dependency management but is now deprecated in favor of npm and yarn.
+该工具曾广泛用于前端依赖管理，但现已被弃用，由 npm 和 yarn 取代。
 
 # PARAMETERS
 
 **install** _package_
-> Install package
+> 安装软件包。
 
 **update** _package_
-> Update package
+> 更新软件包。
 
 **uninstall** _package_
-> Remove package
+> 移除软件包。
 
 **search** _query_
-> Search for packages
+> 搜索软件包。
 
 **list**
-> List installed packages
+> 列出已安装的软件包。
 
 **info** _package_
-> Show package information
+> 显示软件包信息。
 
 **init**
-> Create bower.json
+> 创建 bower.json。
 
 **--save**
-> Add to dependencies
+> 加入 dependencies。
 
 **--save-dev**
-> Add to devDependencies
+> 加入 devDependencies。
 
 # CONFIGURATION
 
@@ -94,11 +94,11 @@ bower update
 
 # CAVEATS
 
-**DEPRECATED** - No longer actively maintained. Use npm or yarn instead for new projects. Flat dependency tree can cause version conflicts. Requires .bowerrc for configuration. Most packages now available on npm.
+**已弃用**——不再积极维护。新项目请改用 npm 或 yarn。扁平的依赖树可能导致版本冲突。需要 .bowerrc 进行配置。大多数软件包现已迁移至 npm。
 
 # HISTORY
 
-**Bower** was created by Twitter in **2012** to manage front-end dependencies, but was officially deprecated in **2017** as npm adopted similar functionality.
+**Bower** 由 Twitter 于 **2012 年**创建，用于管理前端依赖，但随着 npm 具备了类似功能，它在 **2017 年**被正式弃用。
 
 # INSTALL
 

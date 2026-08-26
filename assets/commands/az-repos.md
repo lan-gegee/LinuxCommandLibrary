@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage Azure DevOps Git repositories and pull requests
+管理 Azure DevOps Git 仓库和拉取请求
 
 # TLDR
 
-**List all repositories** in a project
+**列出项目中的所有仓库**
 
 ```az repos list --project [MyProject]```
 
-**Show details** of a repository
+**显示**某个仓库的**详情**
 
 ```az repos show --repository [MyRepo] --project [MyProject]```
 
-**Create a new repository**
+**创建新仓库**
 
 ```az repos create --name [MyRepo] --project [MyProject]```
 
-**Get the clone URL** of a repository
+**获取仓库的克隆 URL**
 
 ```az repos show --repository [MyRepo] --project [MyProject] --query remoteUrl```
 
-**Delete a repository**
+**删除仓库**
 
 ```az repos delete --id [repo_id] --project [MyProject]```
 
-**List pull requests**
+**列出拉取请求**
 
 ```az repos pr list --project [MyProject]```
 
-**Create a pull request**
+**创建拉取请求**
 
 ```az repos pr create --repository [MyRepo] --source-branch [feature] --target-branch [main] --title [My PR]```
 
-**Show pull request details**
+**显示拉取请求详情**
 
 ```az repos pr show --id [pr_id]```
 
-**Complete (merge) a pull request**
+**完成（合并）拉取请求**
 
 ```az repos pr update --id [pr_id] --status completed```
 
@@ -47,76 +47,76 @@ Manage Azure DevOps Git repositories and pull requests
 # SUBCOMMANDS
 
 **list**
-> List repositories.
+> 列出仓库。
 
 **show**
-> Show repository details.
+> 显示仓库详情。
 
 **create**
-> Create a repository.
+> 创建仓库。
 
 **delete**
-> Delete a repository.
+> 删除仓库。
 
 **update**
-> Update a repository.
+> 更新仓库。
 
 **pr list**
-> List pull requests.
+> 列出拉取请求。
 
 **pr create**
-> Create a pull request.
+> 创建拉取请求。
 
 **pr show**
-> Get the details of a pull request.
+> 获取拉取请求的详情。
 
 **pr update**
-> Update a pull request (set title, description, status; complete by setting --status completed).
+> 更新拉取请求（设置标题、描述、状态；通过 --status completed 完成）。
 
 **pr checkout**
-> Check out the PR source branch locally.
+> 在本地检出 PR 的源分支。
 
 **pr set-vote**
-> Vote on a pull request (approve, reject, and so on).
+> 对拉取请求投票（approve、reject 等）。
 
 **pr reviewer**
-> Add, list, or remove pull request reviewers.
+> 添加、列出或移除拉取请求的评审者。
 
 **pr work-item**
-> Link or unlink work items to a pull request.
+> 将工作项与拉取请求关联或取消关联。
 
 **policy**
-> Manage branch policies (approver-count, build, comment-required, and more).
+> 管理分支策略（approver-count、build、comment-required 等）。
 
 **ref**
-> Manage Git references (create, delete, list, lock, unlock).
+> 管理 Git 引用（create、delete、list、lock、unlock）。
 
 **import create**
-> Create a Git import request.
+> 创建 Git 导入请求。
 
 # PARAMETERS
 
 **--org**, **--organization**
-> Azure DevOps organization URL, for example `https://dev.azure.com/MyOrg/`. Required unless set as a default with **az devops configure -d organization=URL** or detected from local git config.
+> Azure DevOps 组织 URL，例如 `https://dev.azure.com/MyOrg/`。除非已通过 **az devops configure -d organization=URL** 设为默认值，或可从本地 git 配置中检测到，否则必填。
 
 **--project**, **-p**
-> Name or ID of the project. Required unless set as a default with **az devops configure -d project=NAME**.
+> 项目名称或 ID。除非已通过 **az devops configure -d project=NAME** 设为默认值，否则必填。
 
 **--repository**, **-r**
-> Name or ID of the repository.
+> 仓库名称或 ID。
 
 **--detect**
-> Automatically detect the organization from local git context. Accepts **true** or **false**.
+> 从本地 git 上下文自动检测组织。接受 **true** 或 **false**。
 
 # DESCRIPTION
 
-**az repos** manages Azure Repos, the Git repository hosting service in Azure DevOps. It provides commands for managing repositories, pull requests, references, branch policies, and repository imports.
+**az repos** 管理 Azure Repos，即 Azure DevOps 中的 Git 仓库托管服务。它提供管理仓库、拉取请求、引用、分支策略和仓库导入的命令。
 
-This command group is part of the **azure-devops** extension and works with Azure DevOps Services.
+此命令组是 **azure-devops** 扩展的一部分，适用于 Azure DevOps Services。
 
 # CAVEATS
 
-Part of the **azure-devops** extension (Azure CLI 2.30.0 or higher). The extension installs automatically the first time an **az repos** command runs, or install it manually with **az extension add --name azure-devops**. Set persistent defaults with **az devops configure -d organization=URL project=NAME** to avoid repeating **--org** and **--project**.
+属于 **azure-devops** 扩展（需要 Azure CLI 2.30.0 或更高版本）。首次运行 **az repos** 命令时会自动安装该扩展，也可以用 **az extension add --name azure-devops** 手动安装。使用 **az devops configure -d organization=URL project=NAME** 设置持久默认值，避免重复输入 **--org** 和 **--project**。
 
 # INSTALL
 

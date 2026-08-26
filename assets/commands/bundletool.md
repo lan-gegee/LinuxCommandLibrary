@@ -1,46 +1,46 @@
 # TAGLINE
 
-Manipulate Android App Bundles and APKs
+操作 Android App Bundle 和 APK
 
 # TLDR
 
-**Build APK set from app bundle**
+**从 app bundle 构建 APK 集**
 
 ```bundletool build-apks --bundle=[app.aab] --output=[app.apks]```
 
-**Build APKs with signing**
+**带签名构建 APK**
 
 ```bundletool build-apks --bundle=[app.aab] --output=[app.apks] --ks=[keystore.jks] --ks-key-alias=[alias]```
 
-**Install APKs to connected device**
+**将 APK 安装到已连接的设备**
 
 ```bundletool install-apks --apks=[app.apks]```
 
-**Extract APKs for specific device**
+**为特定设备提取 APK**
 
 ```bundletool extract-apks --apks=[app.apks] --output-dir=[output] --device-spec=[device.json]```
 
-**Get device specification**
+**获取设备规格**
 
 ```bundletool get-device-spec --output=[device.json]```
 
-**Validate app bundle**
+**验证 app bundle**
 
 ```bundletool validate --bundle=[app.aab]```
 
-**Print bundle info**
+**打印 bundle 信息**
 
 ```bundletool dump manifest --bundle=[app.aab]```
 
-**Build universal APK** containing all configurations
+**构建包含所有配置的通用 APK**
 
 ```bundletool build-apks --mode=universal --bundle=[app.aab] --output=[app.apks]```
 
-**Build APKs for the connected device** only
+**仅为已连接的设备**构建 APK
 
 ```bundletool build-apks --connected-device --bundle=[app.aab] --output=[app.apks]```
 
-**Get APK size estimates**
+**获取 APK 大小估算**
 
 ```bundletool get-size total --apks=[app.apks]```
 
@@ -50,86 +50,86 @@ Manipulate Android App Bundles and APKs
 
 # DESCRIPTION
 
-**bundletool** is the command-line tool for manipulating Android App Bundles. It builds app bundles, generates APK sets for various device configurations, and installs APKs to connected devices.
+**bundletool** 是用于操作 Android App Bundle 的命令行工具。它可以构建 app bundle、为各种设备配置生成 APK 集合，以及将 APK 安装到已连接的设备上。
 
-The tool is used by Android Studio, the Android Gradle plugin, and Google Play to build and process Android App Bundles.
+Android Studio、Android Gradle 插件和 Google Play 都使用该工具来构建和处理 Android App Bundle。
 
 # COMMANDS
 
 **build-bundle**
-> Build Android App Bundle from module zip files
+> 从模块 zip 文件构建 Android App Bundle
 
 **build-apks**
-> Generate APK set from app bundle
+> 从 app bundle 生成 APK 集合
 
 **extract-apks**
-> Extract APKs for specific device configuration
+> 为特定设备配置提取 APK
 
 **install-apks**
-> Install APKs to connected device
+> 将 APK 安装到已连接的设备
 
 **get-device-spec**
-> Write device specification to JSON file
+> 将设备规格写入 JSON 文件
 
 **validate**
-> Verify app bundle validity
+> 验证 app bundle 的有效性
 
 **dump**
-> Print bundle information in human-readable form
+> 以人类可读的形式打印 bundle 信息
 
 **get-size**
-> Compute download size estimates
+> 计算下载大小估算
 
 **version**
-> Print bundletool version
+> 输出 bundletool 版本
 
 # PARAMETERS
 
 **--bundle** _file_
-> Path to Android App Bundle (.aab)
+> Android App Bundle（.aab）的路径
 
 **--output** _file_
-> Output file path
+> 输出文件路径
 
 **--apks** _file_
-> Path to APK set archive
+> APK 集合归档文件的路径
 
 **--device-spec** _file_
-> Device specification JSON file
+> 设备规格 JSON 文件
 
 **--ks** _file_
-> Path to keystore for signing
+> 用于签名的 keystore 路径
 
 **--ks-pass** _pass_
-> Keystore password (pass:password or file:/path)
+> Keystore 密码（pass:password 或 file:/path）
 
 **--ks-key-alias** _alias_
-> Key alias in keystore
+> Keystore 中的密钥别名
 
 **--key-pass** _pass_
-> Key password (pass:password or file:/path)
+> 密钥密码（pass:password 或 file:/path）
 
 **--connected-device**
-> Target only the currently connected Android device's configuration.
+> 仅针对当前连接的 Android 设备的配置。
 
 **--device-id** _serial_
-> Specify a device by ADB serial number.
+> 按 ADB 序列号指定设备。
 
 **--mode** _mode_
-> APK generation mode: _default_, _universal_, _system_, _persistent_, _instant_, _archive_.
+> APK 生成模式：_default_、_universal_、_system_、_persistent_、_instant_、_archive_。
 
 **--local-testing**
-> Add metadata for local feature module (dynamic delivery) testing.
+> 添加用于本地功能模块（动态交付）测试的元数据。
 
 **--overwrite**
-> Overwrite existing output file.
+> 覆盖已存在的输出文件。
 
 **--aapt2** _path_
-> Path to a custom AAPT2 binary.
+> 自定义 AAPT2 二进制文件的路径。
 
 # CAVEATS
 
-Requires Java Runtime Environment. Device installation requires ADB and a connected Android device. Signed APKs require keystore credentials. App bundles must be valid according to Android App Bundle specification.
+需要 Java 运行时环境。安装到设备需要 ADB 和已连接的 Android 设备。签名 APK 需要 keystore 凭据。app bundle 必须符合 Android App Bundle 规范。
 
 # INSTALL
 

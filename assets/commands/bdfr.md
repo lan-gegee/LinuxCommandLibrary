@@ -1,34 +1,34 @@
 # TAGLINE
 
-Bulk download submissions and media from Reddit
+批量下载 Reddit 的帖子和媒体内容
 
 # TLDR
 
-**Download posts from a subreddit**
+**从 subreddit 下载帖子**
 
 ```bdfr download [./output] --subreddit [Python] -L [10]```
 
-**Download a user's submitted posts**
+**下载用户发布的帖子**
 
 ```bdfr download [./output] --user [username] --submitted -L [100]```
 
-**Download your saved posts** (requires authentication)
+**下载你收藏的帖子**（需要身份验证）
 
 ```bdfr download [./output] --user me --saved --authenticate -L [25]```
 
-**Archive submission data** with comments
+**归档帖子数据**及评论
 
 ```bdfr archive [./output] --user [username] --submitted --all-comments```
 
-**Clone posts and data** (download + archive)
+**克隆帖子和数据**（下载 + 归档）
 
 ```bdfr clone [./output] --subreddit [Python] -L [10]```
 
-**Download from multiple subreddits**
+**从多个 subreddit 下载**
 
 ```bdfr download [./output] --subreddit "[Python, programming, linux]" -L [10]```
 
-**Search and download** matching posts
+**搜索并下载**匹配的帖子
 
 ```bdfr download [./output] --subreddit [Python] --search "[machine learning]" -L [20]```
 
@@ -38,92 +38,92 @@ Bulk download submissions and media from Reddit
 
 # DESCRIPTION
 
-**bdfr** (Bulk Downloader for Reddit) is a tool to download submissions, media, and data from Reddit. It can archive posts for research, backup saved content, or download media from subreddits.
+**bdfr**（Bulk Downloader for Reddit）是一款从 Reddit 下载帖子、媒体和数据的工具。它可以归档帖子供研究使用、备份收藏内容，或从 subreddit 下载媒体文件。
 
-The tool has three modes: **download** (downloads linked media like images and videos), **archive** (saves submission metadata, text, and comments in JSON/YAML/XML), and **clone** (performs both operations efficiently).
+该工具有三种模式：**download**（下载图片和视频等链接的媒体）、**archive**（以 JSON/YAML/XML 格式保存帖子元数据、正文和评论），以及 **clone**（高效地同时执行两种操作）。
 
 # SUBCOMMANDS
 
 **download**
-> Download media linked in Reddit submissions
+> 下载 Reddit 帖子中链接的媒体
 
 **archive**
-> Archive submission data, metadata, and comments
+> 归档帖子数据、元数据和评论
 
 **clone**
-> Perform both download and archive operations
+> 同时执行下载和归档操作
 
 # PARAMETERS
 
 **-s, --subreddit** _name_
-> Target subreddit(s); repeatable and comma-separated for multiple
+> 目标 subreddit；可重复指定，也可用逗号分隔多个
 
 **-u, --user** _name_
-> Target Reddit username; use "me" for authenticated user (repeatable)
+> 目标 Reddit 用户名；"me" 表示已认证的用户（可重复）
 
 **-m, --multireddit** _name_
-> Target a user's multireddit (requires --user; repeatable)
+> 目标为某用户的多版块聚合（multireddit）（需配合 --user；可重复）
 
 **-l, --link** _url_
-> Download a single submission by URL or ID (repeatable)
+> 按 URL 或 ID 下载单个帖子（可重复）
 
 **-L, --limit** _n_
-> Maximum number of submissions per source (default: roughly 1000, the Reddit API ceiling)
+> 每个来源的最大帖子数（默认约 1000，即 Reddit API 上限）
 
 **--submitted**
-> Download user's submitted posts
+> 下载用户发布的帖子
 
 **--saved**
-> Download user's saved posts (requires --authenticate)
+> 下载用户收藏的帖子（需要 --authenticate）
 
 **--upvoted**
-> Download user's upvoted posts (requires --authenticate)
+> 下载用户点赞过的帖子（需要 --authenticate）
 
 **--authenticate**
-> Use OAuth2 authentication for private content
+> 使用 OAuth2 身份验证以访问私有内容
 
 **--search** _query_
-> Search query to filter submissions
+> 用于过滤帖子的搜索查询
 
 **-S, --sort** _type_
-> Sort order: hot, top, new, controversial, rising, relevance
+> 排序方式：hot、top、new、controversial、rising、relevance
 
 **-t, --time** _period_
-> Time filter: all, hour, day, week, month, year
+> 时间过滤：all、hour、day、week、month、year
 
 **--all-comments**
-> Archive all of a user's comments (archive mode, with --user)
+> 归档某用户的全部评论（archive 模式，配合 --user）
 
 **-f, --format** _type_
-> Archive output format: json (default), xml, yaml
+> 归档输出格式：json（默认）、xml、yaml
 
 **--file-scheme** _format_
-> Custom filename template (placeholders: {POSTID}, {TITLE}, {REDDITOR}, {SUBREDDIT}, {DATE}, {FLAIR}, {UPVOTES})
+> 自定义文件名模板（占位符：{POSTID}、{TITLE}、{REDDITOR}、{SUBREDDIT}、{DATE}、{FLAIR}、{UPVOTES}）
 
 **--folder-scheme** _format_
-> Custom folder template using the same placeholders
+> 使用相同占位符的自定义文件夹模板
 
 **--skip** _ext_
-> Skip files with the given extension (download mode; repeatable)
+> 跳过具有指定扩展名的文件（download 模式；可重复）
 
 **--no-dupes**
-> Skip files already downloaded, detected by MD5 hash (download mode)
+> 跳过已下载的文件，通过 MD5 哈希检测（download 模式）
 
 **-v, --verbose**
-> Increase output verbosity (repeatable)
+> 提高输出详细程度（可重复）
 
 # CONFIGURATION
 
 **~/.config/bdfr/default_config.cfg**
-> Main configuration file (Linux) holding client_id, client_secret, scopes, and default options. On macOS it lives under ~/Library/Application Support/bdfr.
+> 主配置文件（Linux），保存 client_id、client_secret、scopes 和默认选项。macOS 上位于 ~/Library/Application Support/bdfr。
 
 # CAVEATS
 
-Requires Python 3.9 or above. Authentication is required for accessing saved posts, upvoted posts, and private multireddits. Reddit API rate limits apply. Some media hosts may block automated downloads.
+需要 Python 3.9 或更高版本。访问收藏帖子、点赞过的帖子和私有 multireddit 需要身份验证。受 Reddit API 速率限制约束。某些媒体托管方可能阻止自动下载。
 
 # HISTORY
 
-BDFR was created as a modernized fork of earlier Reddit downloading tools, developed by **Serene-Arc** starting around **2020**. It replaced the original Bulk Downloader for Reddit with improved architecture and maintained compatibility with Reddit's evolving API.
+BDFR 作为早期 Reddit 下载工具的现代化分支而创建，由 **Serene-Arc** 自 **2020** 年前后开始开发。它取代了最初的 Bulk Downloader for Reddit，架构得到改进，并持续适配不断变化的 Reddit API。
 
 # SEE ALSO
 

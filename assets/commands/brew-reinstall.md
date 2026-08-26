@@ -1,30 +1,30 @@
 # TAGLINE
 
-Uninstall and reinstall a Homebrew package
+卸载并重装 Homebrew 软件包
 
 # TLDR
 
-**Reinstall a formula**
+**重装** formula
 
 ```brew reinstall [formula]```
 
-**Reinstall a cask**
+**重装** cask
 
 ```brew reinstall --cask [cask]```
 
-**Reinstall with debug output**
+带调试输出进行**重装**
 
 ```brew reinstall --debug [formula]```
 
-**Reinstall and build from source**
+**重装并从源码构建**
 
 ```brew reinstall --build-from-source [formula]```
 
-**Reinstall without quarantine** (casks only)
+**重装且不加隔离标记**（仅限 cask）
 
 ```brew reinstall --no-quarantine [cask]```
 
-**Reinstall interactively**
+交互式**重装**
 
 ```brew reinstall --interactive [formula]```
 
@@ -35,38 +35,38 @@ Uninstall and reinstall a Homebrew package
 # PARAMETERS
 
 **--cask**
-> Treat all named arguments as casks.
+> 将所有命名参数视为 cask。
 
 **--formula**
-> Treat all named arguments as formulae.
+> 将所有命名参数视为 formula。
 
 **--build-from-source** **-s**
-> Compile formula from source even if a bottle exists.
+> 即使存在 bottle 也从源码编译 formula。
 
 **--debug** **-d**
-> Enable debugging mode during installation.
+> 在安装过程中启用调试模式。
 
 **--interactive** **-i**
-> Open an interactive shell for debugging the build.
+> 打开交互式 shell 以调试构建过程。
 
 **--no-quarantine**
-> Disable macOS quarantine for casks.
+> 对 cask 禁用 macOS 隔离属性。
 
 **--force**
-> Install without checking for previously installed versions.
+> 安装时不检查之前安装的版本。
 
 **--verbose** **-v**
-> Print detailed installation output.
+> 打印详细的安装输出。
 
 # DESCRIPTION
 
-**brew reinstall** uninstalls and then installs a formula or cask. This is useful for fixing broken installations, applying new build options, or refreshing a package to its current version.
+**brew reinstall** 先卸载再安装一个 formula 或 cask。它适用于修复损坏的安装、应用新的构建选项，或将软件包刷新到当前版本。
 
-The command preserves configuration files when reinstalling formulas that have linked kegs.
+在重装已链接 keg 的 formula 时，该命令会保留配置文件。
 
 # CAVEATS
 
-Reinstalling may interrupt services that depend on the formula. Running applications from reinstalled casks may need to be restarted.
+重装可能中断依赖该 formula 的服务。从重装后的 cask 运行的应用可能需要重启。
 
 # SEE ALSO
 

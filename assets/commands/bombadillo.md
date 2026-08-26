@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal browser for Gopher, Gemini, and Finger protocols
+支持 Gopher、Gemini 和 Finger 协议的终端浏览器
 
 # TLDR
 
-**Launch** Bombadillo
+**启动** Bombadillo
 
 ```bombadillo```
 
-**Open** a specific Gopher URL
+**打开**指定的 Gopher URL
 
 ```bombadillo [gopher://example.com]```
 
-**Open** a Gemini URL
+**打开** Gemini URL
 
 ```bombadillo [gemini://example.com]```
 
@@ -22,32 +22,32 @@ Terminal browser for Gopher, Gemini, and Finger protocols
 
 # DESCRIPTION
 
-**bombadillo** is a non-web browser designed for the terminal. It supports the **Gopher**, **Gemini**, and **Finger** protocols, as well as local file browsing. It provides a vim-like modal interface with command-line navigation for exploring the "small internet" — alternative protocols to the modern web.
+**bombadillo** 是一款专为终端设计的非 Web 浏览器。它支持 **Gopher**、**Gemini** 和 **Finger** 协议以及本地文件浏览。它提供类似 vim 的模式化界面和命令行导航，用于探索"小互联网"——现代 Web 之外的替代协议。
 
-The browser renders text content directly in the terminal, supports bookmarks, history navigation, and configurable settings. It can handle TLS connections for Gemini and provides a distraction-free reading experience.
+该浏览器直接在终端中渲染文本内容，支持书签、历史记录导航和可配置的设置。它可以处理 Gemini 的 TLS 连接，并提供不受干扰的阅读体验。
 
 # PARAMETERS
 
 **-v**
-> Display version information and exit
+> 显示版本信息并退出。
 
 **-t**
-> Set the terminal window title to "Bombadillo"
+> 将终端窗口标题设置为 "Bombadillo"。
 
 **-h**
-> Display usage help and exit
+> 显示用法帮助并退出。
 
 # CONFIGURATION
 
-Configuration is stored in **~/.config/bombadillo/config.ini**. Settings include default protocol, home URL, certificate handling, and display preferences. Settings can also be changed at runtime using the **:set** command.
+配置存储在 **~/.config/bombadillo/config.ini** 中。设置项包括默认协议、主页 URL、证书处理和显示偏好。也可以在运行时使用 **:set** 命令更改设置。
 
 # CAVEATS
 
-Does not support HTTP/HTTPS natively — it is specifically designed for alternative protocols, though HTTP/HTTPS can be opened via a configured external handler. Gemini TLS certificate handling uses trust-on-first-use (TOFU). Media files are passed to external handlers. Navigation uses vim-like keybindings: `j`/`k` scroll, `b` goes back, `f` goes forward, `g`/`G` jump to top/bottom, and `q` quits.
+不原生支持 HTTP/HTTPS——它是专为替代协议设计的，不过可以通过配置的外部处理器打开 HTTP/HTTPS 链接。Gemini TLS 证书处理采用首次使用即信任（TOFU）机制。媒体文件会交给外部处理器处理。导航使用类 vim 键绑定：`j`/`k` 滚动，`b` 后退，`f` 前进，`g`/`G` 跳转到顶部/底部，`q` 退出。
 
 # HISTORY
 
-**Bombadillo** was created by **sloum** (on tildegit) and first released around **2019**. Written in **Go**, it was developed as part of the growing interest in the Gemini protocol and the small-internet movement. The name references the character Tom Bombadil from Tolkien's works.
+**Bombadillo** 由 **sloum**（在 tildegit 上）创建，于 **2019 年**前后首次发布。它以 **Go** 编写，是人们对 Gemini 协议和小互联网运动日益浓厚的兴趣的产物。名字来源于托尔金作品中的角色 Tom Bombadil。
 
 # INSTALL
 

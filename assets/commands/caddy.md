@@ -1,26 +1,26 @@
 # TAGLINE
 
-Web server with automatic HTTPS
+支持自动 HTTPS 的 Web 服务器
 
 # TLDR
 
-**Start** web server
+**启动** Web 服务器
 
 ```caddy run```
 
-**Serve** current directory
+**提供**当前目录的文件服务
 
 ```caddy file-server```
 
-**Reverse** proxy
+**反向**代理
 
 ```caddy reverse-proxy --from [example.com] --to [localhost:8080]```
 
-**Validate** Caddyfile
+**校验** Caddyfile
 
 ```caddy validate```
 
-**Reload** configuration
+**重载**配置
 
 ```caddy reload```
 
@@ -30,42 +30,42 @@ Web server with automatic HTTPS
 
 # DESCRIPTION
 
-**caddy** is a modern web server with automatic HTTPS. It obtains and renews TLS certificates automatically via Let's Encrypt, provides HTTP/2 and HTTP/3 support, and uses a simple configuration format.
+**caddy** 是一款支持自动 HTTPS 的现代 Web 服务器。它通过 Let's Encrypt 自动获取并续期 TLS 证书，支持 HTTP/2 和 HTTP/3，并使用简单的配置格式。
 
-The server is designed for ease of use while maintaining high performance and security.
+该服务器在设计上注重易用性，同时保持高性能和安全性。
 
 # PARAMETERS
 
 **run**
-> Start Caddy server
+> 启动 Caddy 服务器
 
 **start**
-> Start Caddy in background
+> 在后台启动 Caddy
 
 **stop**
-> Stop Caddy server
+> 停止 Caddy 服务器
 
 **reload**
-> Reload configuration
+> 重载配置
 
 **validate**
-> Validate Caddyfile
+> 校验 Caddyfile
 
 **file-server**
-> Quick file server mode
+> 快速文件服务器模式
 
 **reverse-proxy**
-> Quick reverse proxy mode
+> 快速反向代理模式
 
 **--config** _file_
-> Configuration file (default: Caddyfile)
+> 配置文件（默认：Caddyfile）
 
 **--adapter** _name_
-> Config adapter (caddyfile, json)
+> 配置适配器（caddyfile、json）
 
 # CADDYFILE
 
-Simple configuration:
+简单配置：
 ```
 example.com {
     root * /var/www/html
@@ -73,7 +73,7 @@ example.com {
 }
 ```
 
-Reverse proxy:
+反向代理：
 ```
 example.com {
     reverse_proxy localhost:8080
@@ -82,14 +82,14 @@ example.com {
 
 # FEATURES
 
-- Automatic HTTPS (Let's Encrypt)
-- HTTP/2 and HTTP/3 support
-- Reverse proxy
-- Load balancing
-- File server
-- Template engine
-- Dynamic configuration via API
-- Plugin system
+- 自动 HTTPS（Let's Encrypt）
+- 支持 HTTP/2 和 HTTP/3
+- 反向代理
+- 负载均衡
+- 文件服务器
+- 模板引擎
+- 通过 API 动态配置
+- 插件系统
 
 # QUICK COMMANDS
 
@@ -113,15 +113,15 @@ caddy validate --config Caddyfile
 # CONFIGURATION
 
 **Caddyfile**
-> Default configuration file in the current directory, defining sites, routes, and server behavior
+> 当前目录下的默认配置文件，定义站点、路由和服务器行为
 
 # CAVEATS
 
-Automatic HTTPS requires port 80/443 access. Let's Encrypt rate limits apply. Certificate storage needs disk space. Memory usage higher than nginx. Plugin ecosystem smaller than alternatives. Version 2.x not compatible with v1 configs.
+自动 HTTPS 需要能访问 80/443 端口。受 Let's Encrypt 速率限制约束。证书存储需要磁盘空间。内存占用高于 nginx。插件生态比同类产品小。2.x 版本与 v1 配置不兼容。
 
 # HISTORY
 
-**Caddy** was created by Matt Holt in **2015** as a web server prioritizing ease of use with automatic HTTPS, with version 2.0 rewritten in **2019**.
+**Caddy** 由 Matt Holt 于 **2015** 年创建，是一款以易用性和自动 HTTPS 为优先的 Web 服务器，2.0 版本于 **2019** 年重写。
 
 # INSTALL
 

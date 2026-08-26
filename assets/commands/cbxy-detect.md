@@ -1,34 +1,34 @@
 # TAGLINE
 
-Detect comic panels and write a .cbxy sidecar
+检测漫画分格并写入 .cbxy 伴随文件
 
 # TLDR
 
-**Detect panels** in a CBZ and write a sibling .cbxy
+**检测** CBZ 中的分格并在旁边写入同名的 .cbxy
 
 ```cbxy-detect [path/to/book.cbz]```
 
-**Write output** to an explicit path
+**将输出写入**显式指定的路径
 
 ```cbxy-detect [path/to/book.cbz] -o [path/to/book.cbxy]```
 
-**Force OpenCV** detection (fast, no model download)
+**强制使用 OpenCV** 检测（快速，无需下载模型）
 
 ```cbxy-detect [path/to/book.cbz] --engine cv```
 
-**Force ML** detection for irregular layouts
+**对不规则版式强制使用 ML** 检测
 
 ```cbxy-detect [path/to/book.cbz] --engine ml```
 
-**Process only the first N pages**
+**只处理前 N 页**
 
 ```cbxy-detect [path/to/book.cbz] --limit [N]```
 
-**Write annotated preview JPEGs**
+**写出标注后的预览 JPEG**
 
 ```cbxy-detect [path/to/book.cbz] --preview-dir [dir]```
 
-**Install** the cbxy tools
+**安装** cbxy 工具
 
 ```pip install cbxy```
 
@@ -38,45 +38,45 @@ Detect comic panels and write a .cbxy sidecar
 
 # DESCRIPTION
 
-**cbxy-detect** finds comic panels in a book and writes a **.cbxy** sidecar archive beside it. A **.cbxy** file is a ZIP of per-page JSON (same idea as CBZ, but panel geometry instead of images). Coordinates are normalized fractions of the page (**0–1**), so they remain valid after resize; array order is reading order.
+**cbxy-detect** 在漫画书中查找分格，并在其旁写出一个 **.cbxy** 伴随归档。**.cbxy** 文件是一个按页存放 JSON 的 ZIP 包（思路与 CBZ 相同，只是内容是分格几何信息而非图像）。坐标采用页面的归一化比例（**0–1**），因此缩放后依然有效；数组顺序即为阅读顺序。
 
-Input can be a **.cbz**, **.cbr**, an image folder, or a single page image. Detection engines: **auto** (default) tries OpenCV first and falls back to ML when a page looks irregular (for example one huge panel); **cv** uses traditional gutter-based detection (fast, no model download); **ml** uses Ultralytics YOLO with pretrained comic-panel weights (**mosesb/best-comic-panel-detection** on Hugging Face), downloaded on first ML run.
+输入可以是 **.cbz**、**.cbr**、图片文件夹或单页图片。检测引擎：**auto**（默认）先尝试 OpenCV，当页面看起来不规则（例如出现一整块巨大的分格）时回退到 ML；**cv** 使用传统的基于装订留白的检测（快速，无需下载模型）；**ml** 使用带预训练漫画分格权重的 Ultralytics YOLO（Hugging Face 上的 **mosesb/best-comic-panel-detection**），首次运行 ML 时下载。
 
-Part of the **cbxy** Python package, which also ships **cbxy-reader** and **cbxy-editor**.
+属于 **cbxy** Python 软件包的一部分，该包还提供 **cbxy-reader** 和 **cbxy-editor**。
 
 # PARAMETERS
 
 _comic_
-> Path to a **.cbz**, **.cbr**, image folder, or single page image.
+> **.cbz**、**.cbr**、图片文件夹或单页图片的路径。
 
 **-o**, **--out** _path_
-> Output **.cbxy** path (default: same stem beside the comic).
+> 输出 **.cbxy** 的路径（默认：与漫画同名的文件放在其旁边）。
 
 **--engine** **auto**|**cv**|**ml**
-> Detection backend (default: **auto**).
+> 检测后端（默认：**auto**）。
 
 **--min-area** _fraction_
-> Minimum panel area as a fraction of the page (default: **0.03**).
+> 分格面积占页面比例的下限（默认：**0.03**）。
 
 **--gutter** _0-255_
-> Near-white gutter threshold for CV (default: **230**).
+> CV 模式的近白色留白阈值（默认：**230**）。
 
 **--conf** _threshold_
-> ML confidence threshold (default: **0.25**).
+> ML 置信度阈值（默认：**0.25**）。
 
 **--limit** _N_
-> Only process the first N pages.
+> 只处理前 N 页。
 
 **--preview-dir** _dir_
-> Write annotated preview JPEGs into this folder.
+> 将标注后的预览 JPEG 写入该文件夹。
 
 # CAVEATS
 
-OpenCV works best on traditional grids with clear white gutters; borderless or overlapping layouts often need **--engine ml**, which downloads a YOLO model on first use. Detection quality varies by scan quality and page design—review results with **cbxy-editor** when needed. Input archives must be readable; some CBR tools may need extra system libraries depending on platform packaging.
+OpenCV 最适合有清晰白色留白的传统网格版式；无边框或相互重叠的版式往往需要 **--engine ml**，它会在首次使用时下载一个 YOLO 模型。检测质量因扫描质量和页面设计而异——必要时请用 **cbxy-editor** 复查结果。输入归档必须可读；某些 CBR 工具可能需要额外的系统库，具体取决于平台打包方式。
 
 # HISTORY
 
-**cbxy** is a Python reference implementation of a comic panel geometry sidecar format by **ngafar**, published under the MIT license with **cbxy-detect**, **cbxy-reader**, and **cbxy-editor**.
+**cbxy** 是由 **ngafar** 编写的漫画分格几何伴随格式的 Python 参考实现，以 MIT 许可证发布，包含 **cbxy-detect**、**cbxy-reader** 和 **cbxy-editor**。
 
 # SEE ALSO
 

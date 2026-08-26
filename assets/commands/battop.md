@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive battery monitor
+交互式电池监控工具
 
 # TLDR
 
-Display **battery** information
+显示**电池**信息
 
 ```battop```
 
-Use **SI** units instead of human-readable values
+使用 **SI** 单位代替人类可读的数值
 
 ```battop -u si```
 
-Set the **refresh delay** to 5 seconds
+将**刷新间隔**设为 5 秒
 
 ```battop -d 5```
 
@@ -22,33 +22,33 @@ Set the **refresh delay** to 5 seconds
 
 # DESCRIPTION
 
-**battop** is an interactive viewer for system batteries. It displays real-time information about battery status, charge level, capacity, and power consumption in a terminal interface, drawing charts over time. Left and right arrow keys switch between batteries when more than one is present.
+**battop** 是一个系统电池的交互式查看器。它在终端界面中实时显示电池状态、电量、容量和功耗信息，并随时间绘制图表。当存在多块电池时，可用左右方向键在电池之间切换。
 
-It runs on Linux, macOS, FreeBSD, and DragonFlyBSD.
+它可运行于 Linux、macOS、FreeBSD 和 DragonFlyBSD。
 
 # PARAMETERS
 
 **-u, --units** _units_
-> Measurement units to display: **human** (default) or **si**.
+> 显示的度量单位：**human**（默认）或 **si**。
 
 **-d, --delay** _seconds_
-> Delay between updates, in seconds (default **1**).
+> 更新间隔，以秒为单位（默认 **1**）。
 
 **-v, --verbose**
-> Increase verbosity, may be repeated up to five times (**-vvvvv**). Log output goes to stderr.
+> 提高输出详细程度，最多可重复五次（**-vvvvv**）。日志输出到 stderr。
 
 # KEYBINDINGS
 
-- **Left / Right arrows** - Switch between batteries
-- **q** - Quit
+- **Left / Right arrows** - 在电池之间切换
+- **q** - 退出
 
 # CAVEATS
 
-On Linux it reads battery information from /sys/class/power_supply, so it only works on systems with a battery (laptops, tablets). Information accuracy depends on what the battery hardware reports.
+在 Linux 上，它从 /sys/class/power_supply 读取电池信息，因此只能在有电池的系统（笔记本、平板）上工作。信息准确性取决于电池硬件报告的内容。
 
 # HISTORY
 
-**battop** is written in Rust by svartalf and provides a modern, cross-platform battery monitoring interface.
+**battop** 由 svartalf 使用 Rust 编写，提供现代化的跨平台电池监控界面。
 
 # INSTALL
 

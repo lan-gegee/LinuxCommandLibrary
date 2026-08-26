@@ -1,26 +1,26 @@
 # TAGLINE
 
-Add third-party repositories to Homebrew
+向 Homebrew 添加第三方软件仓库
 
 # TLDR
 
-**List all tapped repositories**
+**列出所有已添加的仓库**
 
 ```brew tap```
 
-**Tap a repository from GitHub**
+从 GitHub **添加**仓库
 
 ```brew tap [user]/[repo]```
 
-**Tap repository from custom URL**
+从自定义 URL 添加仓库
 
 ```brew tap [user]/[repo] [https://example.com/repo.git]```
 
-**Untap a repository**
+**移除**已添加的仓库
 
 ```brew untap [user]/[repo]```
 
-**Create a new tap with template**
+用模板创建新 tap
 
 ```brew tap-new [user]/[repo]```
 
@@ -30,51 +30,51 @@ Add third-party repositories to Homebrew
 
 # DESCRIPTION
 
-**brew tap** adds third-party repositories to Homebrew, extending the available formulae and casks beyond the core repository. Tapped repositories are automatically updated when running **brew update**.
+**brew tap** 向 Homebrew 添加第三方仓库，将可用的 formula 和 cask 扩展到核心仓库之外。已添加的仓库会在运行 **brew update** 时自动更新。
 
-By default, tap assumes GitHub repositories, but any Git URL can be specified.
+默认情况下，tap 假定使用 GitHub 仓库，但也可以指定任意 Git URL。
 
 # USAGE
 
 **brew tap**
-> List all currently tapped repositories
+> 列出当前所有已添加的仓库。
 
 **brew tap user/repo**
-> Clone https://github.com/user/homebrew-repo
+> 克隆 https://github.com/user/homebrew-repo。
 
 **brew tap user/repo URL**
-> Clone repository from custom URL
+> 从自定义 URL 克隆仓库。
 
 # REPOSITORY NAMING
 
-GitHub repositories must be named **homebrew-something** to use the short form. The prefix is automatically added when needed:
+要使用简写形式，GitHub 仓库名必须为 **homebrew-something**。需要时会自动添加该前缀：
 
-- **brew tap user/foobar** clones **user/homebrew-foobar**
+- **brew tap user/foobar** 会克隆 **user/homebrew-foobar**
 
 # INSTALLING FROM TAPS
 
-After tapping, formulae are available directly:
+添加之后即可直接安装 formula：
 
 ```brew install formula```
 
-For explicit tap reference:
+显式指定 tap 来源：
 
 ```brew install user/repo/formula```
 
 # PARAMETERS
 
 **--full**
-> Clone repository as full Git repo (enables git operations)
+> 以完整 Git 仓库形式克隆（支持 git 操作）。
 
 **--force-auto-update**
-> Auto-update even if not from GitHub
+> 即使不来自 GitHub 也自动更新。
 
 **--shallow**
-> Clone with shallow depth
+> 使用浅克隆（shallow clone）。
 
 # CAVEATS
 
-Tapped formulae are updated automatically with **brew update**. When core and tap have same formula name, core takes precedence unless fully qualified. Private repositories require authentication.
+tap 的 formula 会随 **brew update** 自动更新。当核心仓库与 tap 中存在同名 formula 时，除非使用全限定名，否则以核心仓库优先。私有仓库需要身份验证。
 
 # SEE ALSO
 

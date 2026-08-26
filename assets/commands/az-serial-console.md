@@ -1,34 +1,34 @@
 # TAGLINE
 
-Access the serial console of Azure virtual machines
+访问 Azure 虚拟机的串行控制台
 
 # TLDR
 
-**Connect to a VM's serial console**
+**连接到 VM 的串行控制台**
 
 ```az serial-console connect --name [MyVM] --resource-group [MyResourceGroup]```
 
-**Connect to a VMSS instance**
+**连接到 VMSS 实例**
 
 ```az serial-console connect --name [MyVMSS] --resource-group [MyResourceGroup] --instance-id [2]```
 
-**Enable serial console** for the whole subscription
+**为整个订阅启用串行控制台**
 
 ```az serial-console enable```
 
-**Disable serial console** for the whole subscription
+**为整个订阅禁用串行控制台**
 
 ```az serial-console disable```
 
-**Send NMI** (Non-Maskable Interrupt) to a VM
+**向 VM 发送 NMI**（不可屏蔽中断）
 
 ```az serial-console send nmi --name [MyVM] --resource-group [MyResourceGroup]```
 
-**Send a SysRq sequence** to a VM
+**向 VM 发送 SysRq 序列**
 
 ```az serial-console send sysrq --input [b] --name [MyVM] --resource-group [MyResourceGroup]```
 
-**Hard-reset** a VM
+**硬重置 VM**
 
 ```az serial-console send reset --name [MyVM] --resource-group [MyResourceGroup]```
 
@@ -39,43 +39,43 @@ Access the serial console of Azure virtual machines
 # SUBCOMMANDS
 
 **connect**
-> Connect to the serial console of a VM or VMSS instance.
+> 连接到 VM 或 VMSS 实例的串行控制台。
 
 **enable**
-> Enable the serial console service for the entire subscription.
+> 为整个订阅启用串行控制台服务。
 
 **disable**
-> Disable the serial console service for the entire subscription.
+> 为整个订阅禁用串行控制台服务。
 
 **send nmi**
-> Send a Non-Maskable Interrupt (NMI) to a VM or VMSS instance.
+> 向 VM 或 VMSS 实例发送不可屏蔽中断（NMI）。
 
 **send sysrq**
-> Send a SysRq sequence to a VM or VMSS instance.
+> 向 VM 或 VMSS 实例发送 SysRq 序列。
 
 **send reset**
-> Perform a "hard" restart of a VM or VMSS instance.
+> 对 VM 或 VMSS 实例执行"硬"重启。
 
 # PARAMETERS
 
 **--name** **-n**
-> Name of the virtual machine or virtual machine scale set.
+> 虚拟机或虚拟机规模集的名称。
 
 **--resource-group** **-g**
-> Name of the resource group.
+> 资源组的名称。
 
 **--instance-id**
-> ID of the VMSS instance. Not needed when connecting to a single virtual machine.
+> VMSS 实例的 ID。连接单个虚拟机时不需要。
 
 # DESCRIPTION
 
-**az serial-console** provides text-based serial console access to Azure Linux and Windows VMs and VMSS instances for troubleshooting. The connection attaches to the ttyS0 serial port, working independently of network connectivity and the operating system state.
+**az serial-console** 提供对 Azure Linux 和 Windows VM 以及 VMSS 实例基于文本的串行控制台访问，用于故障排查。连接会附加到 ttyS0 串行端口，不依赖网络连通性和操作系统状态即可工作。
 
-This is useful for debugging boot issues, network misconfigurations, or when the VM is otherwise unreachable over SSH or RDP. While connected, type **Ctrl + ]** then **q** to quit, or **n**, **s**, or **r** to send an NMI, SysRq, or reset.
+这在调试启动问题、网络配置错误，或 VM 无法通过 SSH 或 RDP 访问时非常有用。连接期间，先输入 **Ctrl + ]** 再输入 **q** 即可退出；输入 **n**、**s** 或 **r** 可分别发送 NMI、SysRq 或执行重置。
 
 # CAVEATS
 
-Part of the **serial-console** extension (Azure CLI 2.15.0 or higher); it installs automatically the first time an **az serial-console** command runs, or install it manually with **az extension add --name serial-console**. Serial console access requires boot diagnostics to be enabled on the VM and appropriate RBAC permissions. The **enable** and **disable** commands toggle the service for the entire subscription, not per VM.
+属于 **serial-console** 扩展（要求 Azure CLI 2.15.0 或更高版本）；首次运行 **az serial-console** 命令时会自动安装，也可用 **az extension add --name serial-console** 手动安装。串行控制台访问要求 VM 已启用启动诊断，并且你具备相应的 RBAC 权限。**enable** 和 **disable** 命令作用于整个订阅的服务，而非单个 VM。
 
 # INSTALL
 

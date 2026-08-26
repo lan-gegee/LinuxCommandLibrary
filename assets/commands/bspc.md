@@ -1,30 +1,30 @@
 # TAGLINE
 
-Control the bspwm tiling window manager
+控制 bspwm 平铺式窗口管理器
 
 # TLDR
 
-Define **virtual desktops**
+定义**虚拟桌面**
 
 ```bspc monitor -d [desktop_name1] [desktop_name2]```
 
-**Focus** a specific desktop
+**聚焦**指定桌面
 
 ```bspc desktop -f [number]```
 
-**Close** the selected window
+**关闭**选中的窗口
 
 ```bspc node -c```
 
-**Send** a node to a desktop
+将节点**发送**到某个桌面
 
 ```bspc node -d [number]```
 
-Toggle **fullscreen** mode
+切换**全屏**模式
 
 ```bspc node -t ~fullscreen```
 
-**Set** a configuration value
+**设置**配置项的值
 
 ```bspc config [setting_name] [value]```
 
@@ -34,46 +34,46 @@ Toggle **fullscreen** mode
 
 # DESCRIPTION
 
-**bspc** is the control program for bspwm (Binary Space Partitioning Window Manager). It sends commands to the window manager to manipulate windows, desktops, monitors, and configuration settings.
+**bspc** 是 bspwm（二进制空间分区窗口管理器）的控制程序。它向窗口管理器发送命令，以操作窗口、桌面、显示器以及配置设置。
 
-The tool uses a domain-command structure where domains include node (windows), desktop, monitor, and config.
+该工具采用域-命令结构，域包括 node（窗口）、desktop、monitor 和 config。
 
 # DOMAINS
 
 **node**
-> Manipulate window nodes (focus, move, resize, close, state)
+> 操作窗口节点（聚焦、移动、调整大小、关闭、状态）
 
 **desktop**
-> Manage desktops (focus, rename, remove)
+> 管理桌面（聚焦、重命名、移除）
 
 **monitor**
-> Configure monitors and their desktops
+> 配置显示器及其桌面
 
 **config**
-> Get or set configuration options
+> 获取或设置配置选项
 
 **rule**
-> Manage window rules
+> 管理窗口规则
 
 **query**
-> Query tree state
+> 查询树状态
 
 **subscribe**
-> Subscribe to events
+> 订阅事件
 
 # PARAMETERS
 
 **-d, --to-desktop** _name_
-> Send node to specified desktop
+> 将节点发送到指定桌面
 
 **-f, --focus** _selector_
-> Focus the selected node/desktop
+> 聚焦选中的节点/桌面
 
 **-c, --close**
-> Close the selected node
+> 关闭选中的节点
 
 **-t, --state** _state_
-> Set node state (tiled, floating, fullscreen)
+> 设置节点状态（tiled、floating、fullscreen）
 
 # INSTALL
 

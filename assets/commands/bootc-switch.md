@@ -1,22 +1,22 @@
 # TAGLINE
 
-Switch the base OS to a different container image
+将基础操作系统切换为不同的容器镜像
 
 # TLDR
 
-Change base OS to a **container image from registry**
+将基础操作系统切换为**来自镜像仓库的容器镜像**
 
 ```sudo bootc switch [image]```
 
-Switch to a new image and **reboot immediately**
+切换到新镜像并**立即重启**
 
 ```sudo bootc switch --apply [image]```
 
-Change to image from **local container storage**
+切换为**本地容器存储**中的镜像
 
 ```sudo bootc switch --transport containers-storage [image]```
 
-Change to image from an **OCI archive**
+切换为 **OCI 归档**中的镜像
 
 ```sudo bootc switch --transport oci-archive [path/to/image.tar]```
 
@@ -26,33 +26,33 @@ Change to image from an **OCI archive**
 
 # DESCRIPTION
 
-**bootc switch** changes the base operating system to a different container image. This allows switching between different OS variants or versions while maintaining a transactional, rollback-capable system.
+**bootc switch** 将基础操作系统更换为另一个容器镜像。这样可以在不同的操作系统变体或版本之间切换，同时保持事务性和可回滚的系统。
 
-The new image is staged and becomes active on the next reboot. The previous deployment is retained for rollback if needed. This operation is similar to `bootc upgrade` but additionally changes the container image reference.
+新镜像会被暂存，并在下次重启时生效。先前的部署会被保留，以便在需要时回滚。此操作类似于 `bootc upgrade`，但还会更改容器镜像引用。
 
 # PARAMETERS
 
 **--transport** _type_
-> Image source type: registry (default), containers-storage, oci-archive
+> 镜像来源类型：registry（默认）、containers-storage、oci-archive。
 
 **--apply**
-> Restart or reboot into the new target image immediately after staging. Currently always performs a full reboot; future versions may use a userspace-only restart when no kernel changes are queued.
+> 暂存完成后立即重启进入新的目标镜像。目前总是执行完整重启；未来版本可能在没有内核变更排队时仅进行用户态重启。
 
 **--soft-reboot** _mode_
-> Controls soft reboot behaviour when used with --apply. Values: auto (use soft reboot if available, otherwise fall back to full reboot), required (fail if soft reboot is unavailable).
+> 与 --apply 配合使用时控制软重启行为。取值：auto（可用时使用软重启，否则回退到完整重启）、required（软重启不可用时失败）。
 
 **--enforce-container-sigpolicy**
-> Require that /etc/containers/policy.json includes a default policy enforcing image signatures.
+> 要求 /etc/containers/policy.json 包含强制镜像签名的默认策略。
 
 **--retain**
-> Retain a reference to the currently booted image.
+> 保留对当前已启动镜像的引用。
 
 **--quiet**
-> Suppress progress output.
+> 不显示进度输出。
 
 # CAVEATS
 
-Switching to incompatible images may result in a non-bootable system. Ensure the target image is compatible with the system's architecture and configuration. Requires root privileges.
+切换到不兼容的镜像可能导致系统无法启动。请确保目标镜像与系统架构和配置兼容。需要 root 权限。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-AI agent framework with built-in tools
+带内置工具的 AI 智能体框架
 
 # TLDR
 
-**Install** with pip
+使用 pip **安装**
 
 ```pip install bondai```
 
-**Start an interactive chat session**
+**启动交互式聊天会话**
 
 ```bondai```
 
-**Run BondAI in a Docker container** (recommended for code execution)
+**在 Docker 容器中运行 BondAI**（执行代码时推荐）
 
 ```docker run -it --rm -v ./agent-volume:/agent-volume -w /agent-volume -e OPENAI_API_KEY=[key] krohling/bondai:latest bondai```
 
-**Set the required API key** before running
+运行前**设置所需的 API 密钥**
 
 ```export OPENAI_API_KEY=[sk-XXXXXXXXXX]```
 
@@ -26,39 +26,39 @@ AI agent framework with built-in tools
 
 # DESCRIPTION
 
-**BondAI** is an open-source framework for building AI agent systems. The CLI provides an interactive chat interface where users can communicate with an AI agent that has access to a powerful set of built-in tools for search, file operations, code execution, and external integrations.
+**BondAI** 是一个用于构建 AI 智能体系统的开源框架。其 CLI 提供交互式聊天界面，用户可以与 AI 智能体对话，该智能体可使用一整套强大的内置工具，涵盖搜索、文件操作、代码执行和外部集成。
 
-The agent handles complex implementation details including memory and context management, error handling, and vector/semantic search. It can perform multi-step tasks autonomously, using tools as needed to accomplish goals.
+智能体会处理复杂的实现细节，包括记忆与上下文管理、错误处理以及向量/语义搜索。它可以自主执行多步骤任务，根据需要调用工具来完成目标。
 
-Built-in tools include **DuckDuckGoSearchTool** and **GoogleSearchTool** for web search, **WebsiteQueryTool** for querying webpage content, **FileWriteTool** for file operations, **PythonREPLTool** for Python code execution, and **ShellTool** for shell access. Additional integrations support PostgreSQL databases, Gmail, Alpaca Markets for trading, and Bland AI for phone calls.
+内置工具包括用于网络搜索的 **DuckDuckGoSearchTool** 和 **GoogleSearchTool**、用于查询网页内容的 **WebsiteQueryTool**、用于文件操作的 **FileWriteTool**、用于执行 Python 代码的 **PythonREPLTool**，以及用于访问 Shell 的 **ShellTool**。此外还支持 PostgreSQL 数据库、Gmail、用于交易的 Alpaca Markets 以及用于电话呼叫的 Bland AI 等集成。
 
 # TOOLS
 
 **DuckDuckGoSearchTool**
-> Web search without API key requirement.
+> 无需 API 密钥的网络搜索。
 
 **GoogleSearchTool**
-> Web search (requires Google API key).
+> 网络搜索（需要 Google API 密钥）。
 
 **WebsiteQueryTool**
-> Query and extract content from webpages.
+> 查询并提取网页内容。
 
 **FileWriteTool**
-> Create and write files.
+> 创建和写入文件。
 
 **PythonREPLTool**
-> Execute Python code (Docker recommended).
+> 执行 Python 代码（建议在 Docker 中使用）。
 
 **ShellTool**
-> Execute shell commands (Docker recommended).
+> 执行 Shell 命令（建议在 Docker 中使用）。
 
 # CAVEATS
 
-Requires an **OpenAI API key** set via the OPENAI_API_KEY environment variable (or Azure OpenAI credentials). Tools that execute arbitrary code (**PythonREPLTool**) or access your shell (**ShellTool**) can potentially damage your system. Running BondAI in a **Docker container** is highly recommended when using these tools. Mount a volume to share files between your system and the agent's working directory.
+需要通过 OPENAI_API_KEY 环境变量设置 **OpenAI API 密钥**（或 Azure OpenAI 凭据）。执行任意代码的工具（**PythonREPLTool**）或访问你的 Shell 的工具（**ShellTool**）可能会损坏系统。强烈建议在使用这些工具时将 BondAI 运行在 **Docker 容器**中。可挂载卷以便在系统和智能体的工作目录之间共享文件。
 
 # HISTORY
 
-BondAI was created by **Kevin Rohling** and released as an open-source project on GitHub. It emerged during the AI agent development wave of **2023-2024**, designed to simplify the creation of autonomous AI systems by handling common implementation challenges like memory management and tool integration. The project supports multiple LLM providers including OpenAI and Azure OpenAI.
+BondAI 由 **Kevin Rohling** 创建，并在 GitHub 上作为开源项目发布。它诞生于 **2023-2024 年**的 AI 智能体开发浪潮中，旨在通过处理记忆管理和工具集成等常见实现难题来简化自主 AI 系统的构建。该项目支持包括 OpenAI 和 Azure OpenAI 在内的多种 LLM 提供商。
 
 # SEE ALSO
 
@@ -71,4 +71,3 @@ BondAI was created by **Kevin Rohling** and released as an open-source project o
 ```[Homepage](https://bondai.dev)```
 
 <!-- verified: 2026-06-19 -->
-

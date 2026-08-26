@@ -1,22 +1,22 @@
 # TAGLINE
 
-Send files over Bluetooth via a graphical dialog
+通过图形对话框经蓝牙发送文件
 
 # TLDR
 
-**Open file transfer dialog to select device and files**
+**打开文件传输对话框以选择设备和文件**
 
 ```bluetooth-sendto```
 
-**Send a file to a specific Bluetooth device**
+**向特定蓝牙设备发送文件**
 
 ```bluetooth-sendto --device=[XX:XX:XX:XX:XX:XX] [path/to/file]```
 
-**Send a file to a device with a specified name**
+**向具有指定名称的设备发送文件**
 
 ```bluetooth-sendto --device=[XX:XX:XX:XX:XX:XX] --name="[Device Name]" [path/to/file]```
 
-**Send multiple files to a device**
+**向一个设备发送多个文件**
 
 ```bluetooth-sendto --device=[XX:XX:XX:XX:XX:XX] [file1] [file2] [file3]```
 
@@ -26,24 +26,24 @@ Send files over Bluetooth via a graphical dialog
 
 # DESCRIPTION
 
-**bluetooth-sendto** is a GTK application for transferring files over Bluetooth. It is part of the **gnome-bluetooth** package and provides a graphical dialog for selecting devices and files to transfer.
+**bluetooth-sendto** 是一款通过蓝牙传输文件的 GTK 应用程序。它是 **gnome-bluetooth** 软件包的一部分，提供用于选择设备和待传文件的图形对话框。
 
-When run without arguments, it displays a file chooser and device selection dialog. When a device address is specified, it connects directly to that device. Multiple files can be sent in a single operation.
+不带参数运行时会显示文件选择器和设备选择对话框。指定设备地址时则直接连接该设备。单次操作可发送多个文件。
 
 # PARAMETERS
 
 **--device=**_XX:XX:XX:XX:XX:XX_
-> Specify the Bluetooth MAC address of the target device. If omitted, a device chooser dialog is displayed
+> 指定目标设备的蓝牙 MAC 地址。省略时将显示设备选择对话框
 
 **--name=**_NAME_
-> Specify the device name. If omitted, the name is auto-detected from the device address
+> 指定设备名称。省略时名称会根据设备地址自动检测
 
 **file...**
-> One or more files to send. If omitted, a file chooser dialog is displayed
+> 要发送的一个或多个文件。省略时将显示文件选择对话框
 
 # CAVEATS
 
-Requires Bluetooth to be enabled and the target device to be paired and within range. The receiving device must accept the incoming file transfer request. Part of the GNOME Bluetooth stack, so a GTK environment is required.
+需要启用蓝牙，且目标设备已配对并在通信范围内。接收设备必须接受传入的文件传输请求。属于 GNOME Bluetooth 栈的一部分，因此需要 GTK 环境。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast multi-language build system
+快速的多语言构建系统
 
 # TLDR
 
-**Build a target**
+**构建目标**
 
 ```buck build //[path/to:target]```
 
-**Run a binary target**
+**运行二进制目标**
 
 ```buck run //[path/to:target]```
 
-**Run tests**
+**运行测试**
 
 ```buck test //[path/to:target]```
 
-**Query target dependencies**
+**查询目标依赖**
 
 ```buck query "deps(//[path/to:target])"```
 
-**List all targets** in a package
+**列出包中的所有目标**
 
 ```buck targets //[path/to/package]:```
 
-**Build with specific configuration**
+**以指定配置构建**
 
 ```buck build //[target] --config [section.option=value]```
 
-**Clean build artifacts**
+**清理构建产物**
 
 ```buck clean```
 
-**Show build output path**
+**显示构建输出路径**
 
 ```buck build //[target] --show-output```
 
@@ -44,77 +44,77 @@ Fast multi-language build system
 
 # DESCRIPTION
 
-**Buck** is a fast, multi-language build system developed by Facebook (Meta). It uses a dependency graph to determine which targets need rebuilding, enabling incremental builds. Buck2 is the rewritten successor with improved performance.
+**Buck** 是由 Facebook（Meta）开发的快速多语言构建系统。它利用依赖图判断哪些目标需要重新构建，从而支持增量构建。Buck2 是重写后的后继版本，性能更佳。
 
-Build rules are defined in BUCK files (or BUILD for Buck2) using a Python-like syntax. Targets are referenced using the //path/to/package:name convention. Buck caches build artifacts and can distribute builds across machines.
+构建规则定义在 BUCK 文件（Buck2 中为 BUILD 文件）中，使用类 Python 的语法。目标通过 //path/to/package:name 约定引用。Buck 会缓存构建产物，并可在多台机器间分发构建。
 
-Buck supports many languages including C++, Java, Python, Go, Rust, and others through its extensible rule system. It's designed for large monorepo codebases with complex dependency graphs.
+借助可扩展的规则系统，Buck 支持 C++、Java、Python、Go、Rust 等多种语言。它面向依赖图复杂的大型 monorepo 代码库而设计。
 
 # PARAMETERS
 
 **build** _targets_
-> Build specified targets.
+> 构建指定的目标。
 
 **run** _target_
-> Build and run a binary target.
+> 构建并运行二进制目标。
 
 **test** _targets_
-> Build and run tests.
+> 构建并运行测试。
 
 **clean**
-> Delete build artifacts.
+> 删除构建产物。
 
 **targets** _pattern_
-> List targets matching pattern.
+> 列出匹配模式的目标。
 
 **query** _expression_
-> Query the target graph.
+> 查询目标图。
 
 **audit** _subcommand_
-> Audit build configuration.
+> 审计构建配置。
 
 **install** _target_
-> Build and install (mobile apps).
+> 构建并安装（移动应用）。
 
 **--config** _key=value_
-> Override configuration values.
+> 覆盖配置值。
 
 **--show-output**
-> Show output file paths.
+> 显示输出文件路径。
 
 **--no-cache**
-> Ignore cached results.
+> 忽略缓存结果。
 
 **-j** _jobs_
-> Number of parallel jobs.
+> 并行任务数量。
 
 **-v** _verbosity_
-> Verbosity level (0-10).
+> 详细程度（0-10）。
 
 **--show-full-output**
-> Show full output paths including hash.
+> 显示包含哈希的完整输出路径。
 
 **--help**
-> Show help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **.buckconfig**
-> Project-level configuration for Buck1, specifying build settings, tool paths, and repository options.
+> Buck1 的项目级配置，指定构建设置、工具路径和仓库选项。
 
 **.buckroot**
-> Marker file indicating the root of a Buck project.
+> 标记 Buck 项目根目录的标记文件。
 
 **BUCK** / **BUILD**
-> Per-directory build files defining targets and rules (BUCK for Buck1, BUILD for Buck2).
+> 各目录下的构建文件，定义目标和规则（Buck1 用 BUCK，Buck2 用 BUILD）。
 
 # CAVEATS
 
-Requires Java runtime (Buck1) or standalone binary (Buck2). Build files must be in specific format. Large dependency graphs can cause slow initial analysis. Remote execution setup requires additional infrastructure. Buck2 is not fully backward compatible with Buck1.
+需要 Java 运行时（Buck1）或独立二进制文件（Buck2）。构建文件必须符合特定格式。庞大的依赖图可能导致初始分析缓慢。远程执行需要额外的基础设施。Buck2 与 Buck1 不完全向后兼容。
 
 # HISTORY
 
-**Buck** was developed at **Facebook** starting around **2013** to handle the company's large codebase. It was open-sourced and used by companies like Uber and Airbnb. **Buck2** was announced in **2022** as a complete rewrite in Rust, offering significant performance improvements. Buck2 was open-sourced in **April 2023** and is now the recommended version.
+**Buck** 由 **Facebook** 自 **2013 年**前后开始开发，用于应对公司庞大代码库的构建需求。它已开源，并被 Uber、Airbnb 等公司采用。**Buck2** 于 **2022 年**公布，是用 Rust 完全重写的版本，性能显著提升。Buck2 于 **2023 年 4 月**开源，现已成为推荐版本。
 
 # INSTALL
 

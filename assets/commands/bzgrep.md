@@ -1,22 +1,22 @@
 # TAGLINE
 
-Search bzip2 compressed files for patterns
+在 bzip2 压缩文件中搜索模式
 
 # TLDR
 
-**Search** in compressed file
+在压缩文件中**搜索**
 
 ```bzgrep ["pattern"] [file.bz2]```
 
-**Case-insensitive** search
+**不区分大小写**搜索
 
 ```bzgrep -i ["error"] [log.bz2]```
 
-**Count** matches
+**统计**匹配数
 
 ```bzgrep -c ["pattern"] [file.bz2]```
 
-**Show** line numbers
+**显示**行号
 
 ```bzgrep -n ["pattern"] [file.bz2]```
 
@@ -26,45 +26,45 @@ Search bzip2 compressed files for patterns
 
 # DESCRIPTION
 
-**bzgrep** invokes grep on bzip2-compressed files. If no file is specified, standard input is decompressed if necessary and fed to grep. Otherwise the given files are uncompressed if necessary and fed to grep.
+**bzgrep** 对 bzip2 压缩文件调用 grep。如果未指定文件，则在必要时解压标准输入并将其送入 grep。否则，在必要时解压给定文件并送入 grep。
 
-When invoked as **bzegrep** or **bzfgrep**, egrep or fgrep is used instead of grep. The grep program can also be overridden via the **GREP** environment variable.
+当以 **bzegrep** 或 **bzfgrep** 名称调用时，会分别使用 egrep 或 fgrep 代替 grep。也可以通过 **GREP** 环境变量覆盖 grep 程序。
 
 # PARAMETERS
 
-All options are passed directly to grep:
+所有选项都直接传递给 grep：
 
 **-i**
-> Case-insensitive search
+> 不区分大小写搜索
 
 **-v**
-> Invert match
+> 反转匹配
 
 **-n**
-> Show line numbers
+> 显示行号
 
 **-c**
-> Count matches
+> 统计匹配数
 
 **-l**
-> List matching files
+> 列出匹配的文件
 
 **-e** _pattern_
-> Use pattern as the search pattern (useful for patterns starting with -)
+> 使用 pattern 作为搜索模式（对以 - 开头的模式很有用）
 
 **-H**
-> Print filename
+> 打印文件名
 
 **-h**
-> Suppress filename
+> 不显示文件名
 
 # RELATED COMMANDS
 
 **bzegrep**
-> Extended regular expressions (egrep / grep -E)
+> 扩展正则表达式（egrep / grep -E）
 
 **bzfgrep**
-> Fixed strings (fgrep / grep -F)
+> 固定字符串（fgrep / grep -F）
 
 # WORKFLOW
 
@@ -90,11 +90,11 @@ GREP=fgrep bzgrep string files
 
 # CAVEATS
 
-Slower than searching uncompressed files. Must decompress entire file to search. Cannot use grep's parallel features. Limited to bzip2 files only.
+比搜索未压缩文件慢。必须解压整个文件才能搜索。无法利用 grep 的并行特性。仅限于 bzip2 文件。
 
 # HISTORY
 
-**bzgrep** has been part of the bzip2 utilities since the suite's creation in **1996**.
+自该工具集于 **1996 年**创建以来，**bzgrep** 就一直是 bzip2 实用工具的一部分。
 
 # INSTALL
 

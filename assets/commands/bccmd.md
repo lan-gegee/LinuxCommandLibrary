@@ -1,38 +1,38 @@
 # TAGLINE
 
-Issue BlueCore commands to CSR Bluetooth chips
+向 CSR 蓝牙芯片发送 BlueCore 命令
 
 # TLDR
 
-**Get chip revision**
+**获取芯片版本号**
 
 ```bccmd chiprev```
 
-**Get local Bluetooth clock**
+**获取本地蓝牙时钟**
 
 ```bccmd clock```
 
-**Get random number from device**
+**从设备获取随机数**
 
 ```bccmd rand```
 
-**Perform cold reset**
+**执行冷复位**
 
 ```bccmd coldreset```
 
-**Perform warm reset**
+**执行热复位**
 
 ```bccmd warmreset```
 
-**Get PS key value**
+**读取 PS 键值**
 
 ```bccmd psget [key]```
 
-**Set PS key value**
+**设置 PS 键值**
 
 ```bccmd psset [key] [value]```
 
-**Use specific transport**
+**指定传输方式**
 
 ```bccmd -t [HCI|USB|BCSP|H4] [command]```
 
@@ -42,89 +42,89 @@ Issue BlueCore commands to CSR Bluetooth chips
 
 # DESCRIPTION
 
-**bccmd** is a utility for the CSR BCCMD interface that issues BlueCore commands to Cambridge Silicon Radio (CSR) Bluetooth devices. It allows direct control of Bluetooth chipset parameters and persistent store values.
+**bccmd** 是 CSR BCCMD 接口的实用工具，用于向 Cambridge Silicon Radio（CSR）蓝牙设备发送 BlueCore 命令。它可以直接控制蓝牙芯片参数和持久存储（persistent store）的键值。
 
-The tool is part of the BlueZ Bluetooth stack and provides low-level access to CSR-based Bluetooth controllers.
+该工具是 BlueZ 蓝牙协议栈的一部分，提供对基于 CSR 的蓝牙控制器的底层访问。
 
 # PARAMETERS
 
 **-t** _transport_
-> Transport type: HCI (default), USB, BCSP, H4. 3WIRE is recognized but not implemented
+> 传输类型：HCI（默认）、USB、BCSP、H4。可识别 3WIRE 但未实现
 
 **-d** _device_
-> Device to use (default: first HCI device or /dev/ttyS0 for serial)
+> 要使用的设备（默认：第一个 HCI 设备，串口则为 /dev/ttyS0）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # COMMANDS
 
 **builddef**
-> Get build definitions
+> 获取构建定义
 
 **buildname**
-> Get build name string
+> 获取构建名称字符串
 
 **chiprev**
-> Get chip revision
+> 获取芯片版本号
 
 **memtypes**
-> Get memory types
+> 获取内存类型
 
 **clock**
-> Get local Bluetooth clock
+> 获取本地蓝牙时钟
 
 **rand**
-> Get random number
+> 获取随机数
 
 **keylen** _handle_
-> Get current crypt key length
+> 获取当前加密密钥长度
 
 **coldreset**
-> Perform cold reset
+> 执行冷复位
 
 **warmreset**
-> Perform warm reset
+> 执行热复位
 
 **disabletx**
-> Disable transmitter
+> 禁用发射器
 
 **enabletx**
-> Enable transmitter
+> 启用发射器
 
 **singlechan** _channel_
-> Lock radio on a specific channel
+> 将射频锁定在指定信道上
 
 **hoppingon**
-> Revert to channel hopping
+> 恢复跳频
 
 **radiotest** _test_
-> Run radio tests (tests 4, 6 and 7 are transmit tests)
+> 运行射频测试（测试 4、6 和 7 为发射测试）
 
 **psget** _key_
-> Get value for a PS key
+> 读取某个 PS 键的值
 
 **psset** _key_ _value_
-> Set value for a PS key
+> 设置某个 PS 键的值
 
 **psclr** _key_
-> Clear value for a PS key
+> 清除某个 PS 键的值
 
 **pslist**
-> List all PS keys
+> 列出所有 PS 键
 
 **psread**
-> Read all PS keys
+> 读取所有 PS 键
 
 **psload** _file_
-> Load all PS keys from a PSR file
+> 从 PSR 文件加载所有 PS 键
 
 **pscheck** _file_
-> Check the syntax of a PSR file
+> 检查 PSR 文件的语法
 
 # CAVEATS
 
-Only works with CSR-based Bluetooth chipsets. Modifying PS keys can alter device behavior including Bluetooth address. Some commands require specific transport connections. Changing device settings may void warranty.
+仅适用于基于 CSR 的蓝牙芯片组。修改 PS 键可能改变设备行为，包括蓝牙地址。部分命令需要特定的传输连接。更改设备设置可能导致保修失效。
 
 # SEE ALSO
 

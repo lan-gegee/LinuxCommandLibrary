@@ -1,14 +1,14 @@
 # TAGLINE
 
-Text-based science fiction adventure game
+基于文本的科幻冒险游戏
 
 # TLDR
 
-**Start a new Battlestar game**
+**开始新的 Battlestar 游戏**
 
 ```battlestar```
 
-**Restore a saved game from a file**
+**从文件恢复存档**
 
 ```battlestar -r [savefile]```
 
@@ -28,36 +28,36 @@ of broken instrumentation.
 
 # DESCRIPTION
 
-**battlestar** is a text adventure game from the BSD games collection. Set aboard a battlestar at the tail end of a fierce space battle, players must explore the wreckage, find essential items, and survive encounters while navigating through various locations including tropical islands.
+**battlestar** 是 BSD games 合集中的文字冒险游戏。故事发生在一艘刚经历惨烈太空战的战斗之星飞船上，玩家必须探索残骸、寻找关键物品，并在穿越热带岛屿等不同地点的过程中在各种遭遇中存活下来。
 
-The game uses a parser-based input system where players type natural language commands to interact with the environment. Navigation uses compass directions (when carrying a compass) or relative directions (right, left, ahead, back).
+游戏采用解析器式的输入系统，玩家输入自然语言命令与环境交互。导航使用罗盘方位（携带罗盘时）或相对方向（右、左、前方、后方）。
 
 # PARAMETERS
 
 **-r**
-> Restore a previously saved game.
+> 恢复之前保存的游戏。
 
 _file_
-> Name of saved game file to restore.
+> 要恢复的存档文件名。
 
 # COMMANDS
 
-- **take/drop** - Manage items
-- **wear/draw** - Equip items
-- **inven** - Display inventory
-- **score** - Show current game status
-- **save** - Save game
-- **!** - Shell escape
-- **N/S/E/W** - Compass directions (requires compass)
-- **R/L/A/B** - Right, left, ahead, back
+- **take/drop** - 管理物品
+- **wear/draw** - 装备物品
+- **inven** - 显示物品栏
+- **score** - 显示当前游戏状态
+- **save** - 保存游戏
+- **!** - 转义到 Shell
+- **N/S/E/W** - 罗盘方位（需要罗盘）
+- **R/L/A/B** - 右、左、前方、后方
 
 # CAVEATS
 
-Text-only interface. Requires understanding of adventure game conventions. Parser can be finicky about phrasing. Part of the bsd-games package, which may not be installed by default.
+纯文本界面。需要了解冒险游戏的惯例。解析器对措辞可能比较挑剔。属于 bsd-games 软件包，默认可能未安装。
 
 # HISTORY
 
-**battlestar** was written by **David Riggle** in **1979** as an experiment with the C programming language. It has been part of BSD games distributions since then.
+**battlestar** 由 **David Riggle** 于 **1979** 年编写，最初是一次 C 语言的编程实验。此后一直是 BSD games 发行版的一部分。
 
 # INSTALL
 

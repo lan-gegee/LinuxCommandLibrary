@@ -1,30 +1,30 @@
 # TAGLINE
 
-Control device brightness
+控制设备亮度
 
 # TLDR
 
-**List devices** with changeable brightness
+**列出**可调节亮度的设备
 
 ```brightnessctl -l```
 
-Print the **current brightness**
+打印**当前亮度**
 
 ```brightnessctl get```
 
-Print brightness of a **specific device**
+打印**指定设备**的亮度
 
 ```brightnessctl get -d '[device_name]'```
 
-**Set** brightness to a percentage
+将亮度**设置为**百分比
 
 ```brightnessctl set [50]%```
 
-**Increase** brightness by a percentage
+按百分比**增加**亮度
 
 ```brightnessctl set +[10]%```
 
-**Decrease** brightness by a percentage
+按百分比**降低**亮度
 
 ```brightnessctl set [10]%-```
 
@@ -34,44 +34,44 @@ Print brightness of a **specific device**
 
 # DESCRIPTION
 
-**brightnessctl** reads and controls device brightness on Linux systems. It supports display backlights, keyboard backlights, and other brightness-controllable devices through the sysfs interface.
+**brightnessctl** 在 Linux 系统上读取并控制设备的亮度。它通过 sysfs 接口支持显示屏背光、键盘背光以及其他可调亮度的设备。
 
-The tool can adjust brightness using absolute values or percentages, with support for increment and decrement operations.
+该工具可以使用绝对值或百分比调整亮度，并支持增减操作。
 
 # SUBCOMMANDS
 
-**list** (or **-l**)
-> List all devices with controllable brightness
+**list**（或 **-l**）
+> 列出所有可调节亮度的设备。
 
-**get** (or **g**)
-> Get current brightness value
+**get**（或 **g**）
+> 获取当前亮度值。
 
-**set** (or **s**)
-> Set brightness to a value or percentage
+**set**（或 **s**）
+> 将亮度设置为某个数值或百分比。
 
-**max** (or **m**)
-> Get maximum brightness value
+**max**（或 **m**）
+> 获取最大亮度值。
 
 # PARAMETERS
 
 **-d, --device** _name_
-> Specify device (supports wildcards)
+> 指定设备（支持通配符）。
 
 **-c, --class** _class_
-> Device class (backlight, leds)
+> 设备类别（backlight、leds）。
 
 **-s, --save**
-> Save state before change
+> 在更改前保存状态。
 
 **-r, --restore**
-> Restore saved state
+> 恢复已保存的状态。
 
 **-q, --quiet**
-> Suppress output
+> 不输出信息。
 
 # CAVEATS
 
-Requires appropriate permissions (often the video group membership). Not all devices support fine-grained brightness control. Minimum brightness may not be zero.
+需要相应权限（通常是加入 video 组）。并非所有设备都支持细粒度亮度控制。最小亮度可能不为零。
 
 # INSTALL
 

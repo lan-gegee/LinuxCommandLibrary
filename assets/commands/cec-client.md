@@ -1,30 +1,30 @@
 # TAGLINE
 
-HDMI-CEC device control client
+HDMI-CEC 设备控制客户端
 
 # TLDR
 
-**List** all CEC adapters
+**列出**所有 CEC 适配器
 
 ```cec-client -l```
 
-Start an **interactive** CEC session
+启动**交互式** CEC 会话
 
 ```sudo cec-client```
 
-Set the **On-Screen Display** name
+设置**屏幕显示（OSD）**名称
 
 ```sudo cec-client -o [name]```
 
-**Send a single command**
+**发送单条命令**
 
 ```echo [on 0] | sudo cec-client -s```
 
-Set a device to **standby** (interactive mode)
+让设备进入**待机**状态（交互模式）
 
 ```standby [0]```
 
-**Turn on** a device (interactive mode)
+**打开**设备（交互模式）
 
 ```on [0]```
 
@@ -34,43 +34,43 @@ Set a device to **standby** (interactive mode)
 
 # DESCRIPTION
 
-**cec-client** manages CEC (Consumer Electronics Control) connections over HDMI using the libCEC library. CEC is a feature of the HDMI specification that allows devices connected via HDMI to control each other, enabling actions like turning on a TV when a media player starts, or controlling volume across devices with a single remote.
+**cec-client** 基于 libCEC 库管理通过 HDMI 的 CEC（Consumer Electronics Control，消费电子控制）连接。CEC 是 HDMI 规范的一项功能，允许通过 HDMI 连接的设备相互控制，例如在媒体播放器启动时打开电视，或用单个遥控器控制多个设备的音量。
 
-The tool provides both interactive and scripted control of CEC-enabled devices. In interactive mode, you can send commands like `on`, `standby`, and `tx` (raw CEC frames) to any device on the HDMI bus. For automation, the `-s` flag processes a single command from stdin and exits, making it suitable for use in scripts and home automation setups.
+该工具既支持交互式控制，也支持脚本化控制 CEC 设备。在交互模式下，你可以向 HDMI 总线上的任意设备发送 `on`、`standby` 和 `tx`（原始 CEC 帧）等命令。对于自动化场景，`-s` 标志会处理来自 stdin 的单条命令然后退出，适合在脚本和家庭自动化方案中使用。
 
-Devices are addressed by logical address (0-15), where 0 is typically the TV, 1 is a recording device, and 5 is an audio system.
+设备通过逻辑地址（0-15）寻址，其中 0 通常是电视，1 是录制设备，5 是音频系统。
 
 # PARAMETERS
 
 **-l, --list-devices**
-> List available CEC adapters
+> 列出可用的 CEC 适配器
 
 **-o, --osd-name** _name_
-> Set the On-Screen Display name
+> 设置屏幕显示（OSD）名称
 
 **-s, --single-command**
-> Execute a single command from stdin and exit
+> 执行来自 stdin 的单条命令后退出
 
 **-d** _device_
-> Use specific CEC device
+> 使用指定的 CEC 设备
 
 # INTERACTIVE COMMANDS
 
 **on** _address_
-> Turn on device at address
+> 打开位于指定地址的设备
 
 **standby** _address_
-> Put device into standby
+> 让设备进入待机状态
 
 **tx** _bytes_
-> Transmit raw CEC frame
+> 发送原始 CEC 帧
 
 **scan**
-> Scan the CEC bus for devices
+> 扫描 CEC 总线上的设备
 
 # CAVEATS
 
-Requires a USB CEC adapter (like Pulse-Eight). Device addresses are 0-15 where 0 is typically the TV. Root privileges required for device access.
+需要 USB CEC 适配器（如 Pulse-Eight）。设备地址为 0-15，其中 0 通常是电视。访问设备需要 root 权限。
 
 # INSTALL
 

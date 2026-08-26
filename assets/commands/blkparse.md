@@ -1,30 +1,30 @@
 # TAGLINE
 
-Parse and display block I/O trace data
+解析并显示块 I/O 跟踪数据
 
 # TLDR
 
-**Parse and display blktrace output** for a device
+**解析并显示某设备的 blktrace 输出**
 
 ```blkparse [sda]```
 
-**Parse multiple devices**
+**解析多个设备**
 
 ```blkparse [sda] [sdb]```
 
-**Parse from stdin** (live mode with blktrace)
+**从标准输入解析**（与 blktrace 配合的实时模式）
 
 ```blktrace -d [/dev/sda] -o - | blkparse -i -```
 
-**Output to a file**
+**输出到文件**
 
 ```blkparse [sda] -o [output.txt]```
 
-**Show specific output fields**
+**显示指定的输出字段**
 
 ```blkparse -f "%D %a %S %n\n" [sda]```
 
-**Parse with quiet output** (summary only)
+**以安静模式解析**（仅摘要）
 
 ```blkparse -q [sda]```
 
@@ -34,69 +34,69 @@ Parse and display block I/O trace data
 
 # DESCRIPTION
 
-**blkparse** produces formatted output from event streams recorded by **blktrace**. It combines event streams from multiple CPUs and devices, converting machine-readable trace data into human-readable format.
+**blkparse** 对 **blktrace** 记录的事件流产生格式化输出。它合并来自多个 CPU 和设备的事件流，将机器可读的跟踪数据转换为人类可读的格式。
 
-The tool is essential for analyzing block I/O patterns, debugging storage performance issues, and understanding how the Linux I/O scheduler processes requests.
+该工具对分析块 I/O 模式、排查存储性能问题以及理解 Linux I/O 调度器如何处理请求至关重要。
 
 # PARAMETERS
 
 **-i** _file_
-> Base name for input files (default device.blktrace.cpu); use "-" for live stdin
+> 输入文件的基本名（默认 device.blktrace.cpu）；使用 "-" 表示实时标准输入
 
 **-o** _file_
-> Output file (default: stdout)
+> 输出文件（默认：stdout）
 
 **-D** _dir_
-> Prepend this directory to the input file names
+> 将此目录添加到输入文件名之前
 
 **-d** _file_
-> Dump a merged binary event stream to _file_
+> 将合并后的二进制事件流转储到 _file_
 
 **-f** _format_
-> Custom output format string for all events
+> 适用于所有事件的自定义输出格式字符串
 
 **-F** _typ,format_
-> Output format string for a specific event type
+> 针对特定事件类型的输出格式字符串
 
 **-q**
-> Quiet mode; only print summary at end
+> 安静模式；仅在最后打印摘要
 
 **-s**
-> Show per-program (per-process) statistics
+> 显示按程序（按进程）统计
 
 **-t**
-> Track I/O timing; display time deltas per I/O
+> 跟踪 I/O 计时；显示每个 I/O 的耗时差值
 
 **-w** _span_
-> Limit output to a time window; _end_ or _start:end_ in nanoseconds
+> 将输出限制在一个时间窗口内；_end_ 或 _start:end_，单位为纳秒
 
 **-a** _mask_
-> Add _mask_ to the current trace action filter
+> 将 _mask_ 加入当前的跟踪动作过滤器
 
 **-A** _hexmask_
-> Set the trace action filter to _hexmask_
+> 将跟踪动作过滤器设为 _hexmask_
 
 **-v**
-> More verbose output
+> 更详细的输出
 
 # TRACE ACTIONS
 
-**Q** - Queued: Intent to queue I/O noted
-**I** - Inserted: Request sent to I/O scheduler
-**D** - Issued: Request sent to driver
-**C** - Complete: Request completed
-**M** - Back merge: Request merged with existing
-**F** - Front merge: Request merged at front
-**P** - Plug: Queue plugged
-**U** - Unplug: Queue unplugged
+**Q** - 排队（Queued）：已记录排队 I/O 的意图
+**I** - 插入（Inserted）：请求已发送至 I/O 调度器
+**D** - 下发（Issued）：请求已发送至驱动程序
+**C** - 完成（Complete）：请求已完成
+**M** - 后端合并（Back merge）：请求与已有请求在尾部合并
+**F** - 前端合并（Front merge）：请求在头部合并
+**P** - 塞住（Plug）：队列被塞住
+**U** - 解塞（Unplug）：队列被解塞
 
 # CAVEATS
 
-Requires trace data from **blktrace** to function. Trace files can become very large for busy systems. Running blktrace requires root privileges. Output can be overwhelming; use format options to limit fields.
+需要 **blktrace** 的跟踪数据才能工作。繁忙系统上的跟踪文件可能非常大。运行 blktrace 需要 root 权限。输出可能过于庞杂；可使用格式选项限制字段。
 
 # HISTORY
 
-blkparse was written by **Jens Axboe**, **Alan D. Brunelle**, and **Nathan Scott** as part of the blktrace toolkit. It was developed to provide detailed I/O tracing capabilities for Linux storage subsystem analysis and debugging.
+blkparse 由 **Jens Axboe**、**Alan D. Brunelle** 和 **Nathan Scott** 编写，是 blktrace 工具集的一部分。其开发目的是为 Linux 存储子系统的分析与调试提供详细的 I/O 跟踪能力。
 
 # INSTALL
 

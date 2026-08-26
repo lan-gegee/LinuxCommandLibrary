@@ -1,22 +1,22 @@
 # TAGLINE
 
-Browse for VNC servers on the local network
+浏览本地网络中的 VNC 服务器
 
 # TLDR
 
-**Browse for VNC servers on local network**
+**浏览本地网络中的 VNC 服务器**
 
 ```bvnc```
 
-**Browse in specific domain**
+**在特定域中浏览**
 
 ```bvnc --domain [.local]```
 
-**Force VNC server browsing only**
+**强制只浏览 VNC 服务器**
 
 ```bvnc --vnc```
 
-**Browse both SSH and VNC servers**
+**同时浏览 SSH 和 VNC 服务器**
 
 ```bvnc --shell```
 
@@ -26,49 +26,49 @@ Browse for VNC servers on the local network
 
 # DESCRIPTION
 
-**bvnc** is an Avahi service browser that discovers VNC servers on the local network using mDNS/DNS-SD (Zeroconf). It displays found servers in a GUI and launches vncviewer when a server is selected.
+**bvnc** 是一个 Avahi 服务浏览器，使用 mDNS/DNS-SD（Zeroconf）发现本地网络中的 VNC 服务器。它以 GUI 显示找到的服务器，选中某个服务器时会启动 vncviewer。
 
-The tool is part of the Avahi Zeroconf suite for service discovery.
+该工具是用于服务发现的 Avahi Zeroconf 套件的一部分。
 
 # PARAMETERS
 
 **-v, --vnc**
-> Browse for VNC servers only
+> 只浏览 VNC 服务器
 
 **-s, --ssh**
-> Browse for SSH servers only
+> 只浏览 SSH 服务器
 
 **-S, --shell**
-> Browse for both SSH and VNC servers
+> 同时浏览 SSH 和 VNC 服务器
 
 **-d, --domain** _domain_
-> Browse in specified domain (default: .local)
+> 在指定域中浏览（默认：.local）
 
 **-h, --help**
-> Show help
+> 显示帮助
 
 # RELATED BINARIES
 
 **bvnc**
-> Browse VNC servers (default behavior)
+> 浏览 VNC 服务器（默认行为）
 
 **bssh**
-> Browse SSH servers
+> 浏览 SSH 服务器
 
 **bshell**
-> Browse both VNC and SSH servers
+> 同时浏览 VNC 和 SSH 服务器
 
 # REQUIREMENTS
 
-Requires Avahi daemon running and gtk3, python-dbus, python-gobject dependencies. UDP port 5353 must be open for mDNS.
+需要 Avahi 守护进程正在运行，并依赖 gtk3、python-dbus 和 python-gobject。UDP 端口 5353 必须开放以支持 mDNS。
 
 # PUBLISHING VNC SERVICE
 
-To advertise your VNC server, create a service file in /etc/avahi/services/ with service type **_rfb._tcp** and your VNC port number.
+要通告你的 VNC 服务器，请在 /etc/avahi/services/ 中创建一个服务文件，指定服务类型 **_rfb._tcp** 和你的 VNC 端口号。
 
 # CAVEATS
 
-Only discovers services advertised via mDNS on local network. Requires GUI environment and vncviewer installed.
+只能发现本地网络上通过 mDNS 通告的服务。需要 GUI 环境和已安装的 vncviewer。
 
 # INSTALL
 

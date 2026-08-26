@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI calendar and task manager
+TUI 日历与任务管理器
 
 # TLDR
 
-**Launch** the calendar TUI
+**启动**日历 TUI
 
 ```calcure```
 
-**Start** on a specific date
+**从指定日期**开始
 
 ```calcure --date [2024-01-15]```
 
-**Import** events from an iCal file
+**导入** iCal 文件中的事件
 
 ```calcure --import [path/to/file.ics]```
 
@@ -23,34 +23,34 @@ TUI calendar and task manager
 # PARAMETERS
 
 **--date** _DATE_
-> Start on a specific date (YYYY-MM-DD).
+> 从指定日期开始（YYYY-MM-DD）。
 
 **--import** _FILE_
-> Import events from an iCal (.ics) file.
+> 从 iCal（.ics）文件导入事件。
 
 **--config** _FILE_
-> Use a custom configuration file.
+> 使用自定义配置文件。
 
 **-p**, **--privacy**
-> Launch in privacy mode (hide event details).
+> 以隐私模式启动（隐藏事件详情）。
 
 # DESCRIPTION
 
-**calcure** is a terminal-based calendar and task manager with a modern TUI. It displays a monthly calendar view alongside task lists, supporting event creation, recurring events, and task management with priorities and deadlines.
+**calcure** 是一款基于终端的现代 TUI 日历和任务管理器。它以月历视图展示日程并配带任务列表，支持创建事件、周期性事件，以及带有优先级和截止日期的任务管理。
 
-The interface provides vim-like keybindings for navigation and supports color-coded categories, multiple calendars, and iCal import/export. Events and tasks are stored locally and can be synced through iCal-compatible services.
+界面提供类 vim 的导航键位，支持按颜色区分的类别、多个日历以及 iCal 导入/导出。事件和任务存储在本地，可通过兼容 iCal 的服务同步。
 
 # CONFIGURATION
 
-Configuration is stored in **~/.config/calcure/config.ini**. Options include color themes, keybindings, default views, calendar data paths, and privacy settings. The data directory defaults to **~/.config/calcure/**.
+配置存储在 **~/.config/calcure/config.ini**。选项包括配色主题、键位、默认视图、日历数据路径和隐私设置。数据目录默认为 **~/.config/calcure/**。
 
 # CAVEATS
 
-Does not provide built-in calendar sync — external tools are needed for CalDAV or Google Calendar integration. Recurring event support may not cover all iCal recurrence rules.
+不提供内置的日历同步——CalDAV 或 Google Calendar 集成需要借助外部工具。对周期性事件的支持可能无法覆盖所有 iCal 重复规则。
 
 # HISTORY
 
-**calcure** was created as a modern, visually appealing alternative to terminal calendar tools like **calcurse**. Written in **Python**, it focuses on a clean user interface with minimal dependencies.
+**calcure** 的定位是 **calcurse** 等终端日历工具的现代、美观替代品。它用 **Python** 编写，注重简洁的用户界面和最少的依赖。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control EFI firmware boot settings and systemd-boot
+控制 EFI 固件启动设置和 systemd-boot
 
 # TLDR
 
-Show **firmware and bootloader** information
+显示**固件和引导加载程序**信息
 
 ```bootctl```
 
-List available **bootloader entries**
+列出可用的**引导加载程序条目**
 
 ```bootctl list```
 
-Set flag to **boot into firmware** on next boot
+设置下次启动时**进入固件**的标志
 
 ```sudo bootctl reboot-to-firmware true```
 
-Specify **EFI system partition** path
+指定 **EFI 系统分区**路径
 
 ```bootctl --esp-path /boot/efi/```
 
-**Install** systemd-boot
+**安装** systemd-boot
 
 ```sudo bootctl install```
 
-**Update** systemd-boot
+**更新** systemd-boot
 
 ```sudo bootctl update```
 
-**Remove** systemd-boot
+**移除** systemd-boot
 
 ```sudo bootctl remove```
 
-Set **default boot entry**
+设置**默认启动条目**
 
 ```sudo bootctl set-default entry_id```
 
@@ -42,79 +42,79 @@ Set **default boot entry**
 
 # DESCRIPTION
 
-**bootctl** controls EFI firmware boot settings and manages the systemd-boot boot loader. It can install, update, and remove systemd-boot, and control boot entries and firmware settings.
+**bootctl** 控制 EFI 固件启动设置并管理 systemd-boot 引导加载程序。它可以安装、更新和移除 systemd-boot，并控制启动条目和固件设置。
 
 # COMMANDS
 
 **status**
-> Show firmware and bootloader status (default)
+> 显示固件和引导加载程序状态（默认）。
 
 **list**
-> List available boot entries
+> 列出可用的启动条目。
 
 **install**
-> Install systemd-boot to EFI system partition
+> 将 systemd-boot 安装到 EFI 系统分区。
 
 **update**
-> Update systemd-boot in EFI system partition
+> 更新 EFI 系统分区中的 systemd-boot。
 
 **remove**
-> Remove systemd-boot from EFI system partition
+> 从 EFI 系统分区移除 systemd-boot。
 
 **is-installed**
-> Check if systemd-boot is installed
+> 检查 systemd-boot 是否已安装。
 
 **random-seed**
-> Initialize random seed in ESP
+> 在 ESP 中初始化随机种子。
 
 **systemd-efi-options [STRING]**
-> Get/set systemd.* EFI options
+> 获取/设置 systemd.* EFI 选项。
 
 **reboot-to-firmware [BOOL]**
-> Get/set reboot-to-firmware flag
+> 获取/设置重启进入固件的标志。
 
 **set-default ID**
-> Set default boot entry
+> 设置默认启动条目。
 
 **set-oneshot ID**
-> Set one-time boot entry
+> 设置一次性启动条目。
 
 **set-timeout SECS**
-> Set boot menu timeout
+> 设置启动菜单超时时间。
 
 **set-timeout-oneshot SECS**
-> Set one-time boot menu timeout
+> 设置一次性启动菜单超时时间。
 
 # PARAMETERS
 
 **--esp-path PATH**
-> Path to EFI system partition
+> EFI 系统分区的路径。
 
 **--boot-path PATH**
-> Path to $BOOT partition
+> $BOOT 分区的路径。
 
 **-p, --print-esp-path**
-> Print ESP path and exit
+> 打印 ESP 路径并退出。
 
 **-x, --print-boot-path**
-> Print boot partition path and exit
+> 打印 boot 分区路径并退出。
 
 **--no-variables**
-> Do not touch EFI variables
+> 不改动 EFI 变量。
 
 **--graceful**
-> Ignore errors for operations
+> 忽略操作中的错误。
 
 **--make-entry-directory**
-> Create entry directory during install
+> 安装时创建条目目录。
 
 # CAVEATS
 
-Requires an EFI system partition. The default ESP paths checked are /efi/, /boot/, and /boot/efi/. On non-EFI systems, bootctl has limited functionality.
+需要 EFI 系统分区。检查的默认 ESP 路径为 /efi/、/boot/ 和 /boot/efi/。在非 EFI 系统上，bootctl 的功能有限。
 
 # HISTORY
 
-**bootctl** is part of **systemd**, managing the systemd-boot EFI boot loader as an alternative to GRUB.
+**bootctl** 是 **systemd** 的一部分，用于管理 systemd-boot 这个可替代 GRUB 的 EFI 引导加载程序。
 
 # INSTALL
 

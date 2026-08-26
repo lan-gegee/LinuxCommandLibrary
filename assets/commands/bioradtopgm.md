@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert Bio-Rad confocal microscope images to PGM format
+将 Bio-Rad 共聚焦显微镜图像转换为 PGM 格式
 
 # TLDR
 
-**Convert a Biorad confocal file** to PGM
+**将 Biorad 共聚焦文件转换为** PGM
 
 ```bioradtopgm [bioradfile.pic] > [output.pgm]```
 
-**Extract a specific image** from a multi-image file
+**从多图像文件中提取指定图像**
 
 ```bioradtopgm -imagenum [0] [bioradfile.pic] > [output.pgm]```
 
-**Preserve original intensity values** without scaling
+**保留原始强度值**而不进行缩放
 
 ```bioradtopgm -truegrayscale [bioradfile.pic] > [output.pgm]```
 
-**Read from stdin** and convert to JPEG
+**从 stdin 读取**并转换为 JPEG
 
 ```cat [bioimage.pic] | bioradtopgm | pnmtojpeg > [output.jpg]```
 
-**Show image info** without converting
+**显示图像信息**而不转换
 
 ```bioradtopgm [bioradfile.pic]```
 
@@ -31,29 +31,29 @@ Convert Bio-Rad confocal microscope images to PGM format
 # PARAMETERS
 
 **-imagenum** _n_
-> Select which image to extract from a multi-image file. Images are numbered starting at zero.
+> 从多图像文件中选择要提取的图像。图像编号从零开始。
 
 **-truegrayscale**
-> Preserve original intensity values without scaling. Important for scientific applications requiring photometric accuracy.
+> 保留原始强度值而不缩放。对要求光度准确性的科学应用非常重要。
 
 **-quiet**
-> Suppress informational messages on standard error.
+> 抑制标准错误上的提示信息。
 
 # DESCRIPTION
 
-**bioradtopgm** converts Biorad confocal microscope image files (PIC format) to PGM (Portable GrayMap) format. It is part of the Netpbm package of image manipulation utilities.
+**bioradtopgm** 将 Biorad 共聚焦显微镜图像文件（PIC 格式）转换为 PGM（Portable GrayMap）格式。它是 Netpbm 图像处理工具集的一部分。
 
-If no file argument is provided, the program reads from standard input. Output is written to standard output. For multi-image files, running without **-imagenum** displays information about the file's dimensions and image count.
+如果不提供文件参数，程序会从标准输入读取，输出写入标准输出。对于多图像文件，不带 **-imagenum** 运行会显示文件的尺寸和图像数量等信息。
 
-By default, intensity values are scaled to span the full 0-255 range for better visual contrast.
+默认情况下，强度值会被缩放到完整的 0-255 范围以获得更好的视觉对比度。
 
 # CAVEATS
 
-If the output image appears upside down, pipe it through **pamflip -tb** to correct orientation. Output is in PGM format; use additional Netpbm tools like **pnmtojpeg** or **pnmtopng** to convert to common formats.
+如果输出图像上下颠倒，可通过管道传给 **pamflip -tb** 纠正方向。输出为 PGM 格式；请使用 **pnmtojpeg** 或 **pnmtopng** 等其他 Netpbm 工具转换成常见格式。
 
 # HISTORY
 
-Part of the Netpbm toolkit, **bioradtopgm** was developed to enable conversion of proprietary Bio-Rad confocal microscope data into open, interchangeable formats for scientific and medical research workflows.
+**bioradtopgm** 是 Netpbm 工具集的一部分，开发目的是将专有的 Bio-Rad 共聚焦显微镜数据转换为开放、可交换的格式，服务于科研和医学工作流程。
 
 # INSTALL
 

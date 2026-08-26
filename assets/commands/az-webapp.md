@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure App Service web applications
+管理 Azure App Service Web 应用
 
 # TLDR
 
-**Create** web app
+**创建**Web 应用
 
 ```az webapp create --resource-group [MyRG] --plan [MyPlan] --name [MyApp]```
 
-**List** web apps
+**列出**Web 应用
 
 ```az webapp list```
 
-**Deploy** an artifact (zip, war, jar, static file)
+**部署**制品（zip、war、jar、静态文件）
 
 ```az webapp deploy --name [MyApp] --resource-group [MyRG] --src-path [app.zip]```
 
-**Enable** local git deployment
+**启用**本地 git 部署
 
 ```az webapp deployment source config-local-git --name [MyApp] --resource-group [MyRG]```
 
-**Browse** web app
+**在浏览器中打开**Web 应用
 
 ```az webapp browse --name [MyApp] --resource-group [MyRG]```
 
-**List** available runtime stacks
+**列出**可用的运行时堆栈
 
 ```az webapp list-runtimes --os-type [linux]```
 
-**Show** logs
+**查看**日志
 
 ```az webapp log tail --name [MyApp] --resource-group [MyRG]```
 
-**Restart** web app
+**重启**Web 应用
 
 ```az webapp restart --name [MyApp] --resource-group [MyRG]```
 
@@ -42,62 +42,62 @@ Manage Azure App Service web applications
 
 # DESCRIPTION
 
-**az webapp** manages Azure App Service web applications. It provides commands for creating, deploying, configuring, and monitoring web apps across multiple platforms including .NET, Node.js, Python, PHP, and Java.
+**az webapp** 管理 Azure App Service Web 应用。它提供用于创建、部署、配置和监控 Web 应用的命令，支持多种平台，包括 .NET、Node.js、Python、PHP 和 Java。
 
-The command group enables full web application lifecycle management without using the portal.
+该命令组让你无需使用门户即可完成 Web 应用的全生命周期管理。
 
 # PARAMETERS
 
 **create**
-> Create web app
+> 创建 Web 应用
 
 **list**
-> List web apps
+> 列出 Web 应用
 
 **delete**
-> Delete web app
+> 删除 Web 应用
 
 **restart**
-> Restart web app
+> 重启 Web 应用
 
 **stop**
-> Stop web app
+> 停止 Web 应用
 
 **start**
-> Start web app
+> 启动 Web 应用
 
 **show**
-> Show web app details
+> 显示 Web 应用详情
 
 **browse**
-> Open web app in browser
+> 在浏览器中打开 Web 应用
 
 **deploy**
-> Deploy an artifact (zip, war, jar, static file) to the app
+> 向应用部署制品（zip、war、jar、静态文件）
 
 **ssh**
-> Open an interactive SSH session to a Linux web app
+> 打开到 Linux Web 应用的交互式 SSH 会话
 
 **list-runtimes**
-> List supported runtime stacks
+> 列出受支持的运行时堆栈
 
 **up**
-> Create and deploy from the current local directory (deprecated; prefer create + deploy)
+> 从当前本地目录创建并部署（已弃用；建议改用 create + deploy）
 
 **--resource-group**, **-g** _name_
-> Resource group name
+> 资源组名称
 
 **--name**, **-n** _name_
-> Web app name (globally unique)
+> Web 应用名称（全局唯一）
 
 **--plan**, **-p** _name_
-> App Service plan name or resource ID
+> App Service 计划名称或资源 ID
 
 **--runtime**, **-r** _stack_
-> Runtime stack (e.g., "NODE:20LTS", "PYTHON:3.12", "JAVA:21-java21"). Run `az webapp list-runtimes` for current values.
+> 运行时堆栈（例如 "NODE:20LTS"、"PYTHON:3.12"、"JAVA:21-java21"）。运行 `az webapp list-runtimes` 查看当前可用值。
 
 **--deployment-container-image-name**, **-i** _image_
-> Container image to deploy (e.g., myregistry.azurecr.io/image:tag)
+> 要部署的容器镜像（例如 myregistry.azurecr.io/image:tag）
 
 # COMMON OPERATIONS
 
@@ -120,11 +120,11 @@ az webapp log tail -g MyRG -n MyApp
 
 # CAVEATS
 
-Web app names must be globally unique (used in the azurewebsites.net URL). Basic (SCM/publish-profile) authentication is disabled by default on new apps; enable it with `--basic-auth Enabled` or `az webapp auth` if your deployment tool needs it. Deployment slots require Standard tier or higher. Some runtimes are not available in all regions. Costs vary by App Service plan tier. `az webapp up` is deprecated; prefer `az webapp create` followed by `az webapp deploy`.
+Web 应用名称必须全局唯一（会用于 azurewebsites.net URL）。新应用默认禁用基本（SCM/发布配置文件）身份验证；如果你的部署工具需要，可以用 `--basic-auth Enabled` 或 `az webapp auth` 启用。部署槽位需要标准（Standard）层或更高。某些运行时并非在所有区域都可用。费用因 App Service 计划层级而异。`az webapp up` 已弃用；建议先用 `az webapp create` 再用 `az webapp deploy`。
 
 # HISTORY
 
-**az webapp** has been part of Azure CLI since version 2.0 in **2017**, replacing the older Azure CLI for managing App Service web apps.
+**az webapp** 自 **2017** 年的 Azure CLI 2.0 版本起就是其组成部分，取代了旧版 Azure CLI 中管理 App Service Web 应用的功能。
 
 # INSTALL
 

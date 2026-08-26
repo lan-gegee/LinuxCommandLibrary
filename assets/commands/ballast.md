@@ -1,18 +1,18 @@
 # TAGLINE
 
-Snapshot-based API load testing tool
+基于快照的 API 负载测试工具
 
 # TLDR
 
-**Run load tests** from the current directory using a ballast.json config
+使用 ballast.json 配置从当前目录**运行负载测试**
 
 ```ballast```
 
-**Run load tests** without writing a snapshot file
+不写入快照文件**运行负载测试**
 
 ```ballast --no-snapshot```
 
-**Run load tests** with a description for the snapshot
+为快照附加描述并**运行负载测试**
 
 ```ballast --desc "[initial baseline]"```
 
@@ -23,71 +23,71 @@ Snapshot-based API load testing tool
 # PARAMETERS
 
 **--no-snapshot**
-> Run load tests without writing a snapshot file. Useful for one-off tests where no baseline comparison is needed.
+> 运行负载测试时不写入快照文件。适用于无需基线对比的一次性测试。
 
 **--desc** _description_
-> Attach a description to the snapshot for identification purposes.
+> 为快照附加描述，便于识别。
 
 # DESCRIPTION
 
-**ballast** is a command-line tool for running snapshot-based performance tests against APIs. It applies the concept of snapshot testing, commonly used in UI testing frameworks, to API load testing. A performance baseline is captured as a snapshot and subsequent test runs are compared against it to detect performance regressions.
+**ballast** 是一款针对 API 运行基于快照的性能测试的命令行工具。它将 UI 测试框架中常用的快照测试概念应用到 API 负载测试中：性能基线被捕获为快照，后续的每次测试运行都会与之对比以检测性能退化。
 
-Tests are defined in a **ballast.json** configuration file that specifies a list of endpoints to test. For each endpoint, ballast sends a configurable number of concurrent requests across multiple cycles and measures response times. It then computes average, minimum, and maximum response times and compares them against the previous snapshot. If the average response time deviates beyond a configurable threshold (default 250ms), the test is marked as failed.
+测试在 **ballast.json** 配置文件中定义，其中指定要测试的端点列表。对每个端点，ballast 在多个周期内发送可配置数量的并发请求并测量响应时间。然后计算平均、最小和最大响应时间，并与上一次快照比较。如果平均响应时间超出可配置的阈值（默认 250ms），测试将被标记为失败。
 
-Beyond response time, ballast can validate expected HTTP status codes, response bodies, and response headers. A logarithmic ramp-up phase warms the target before the main test cycles begin. Results are displayed in the terminal with color-coded output: green for passing tests and improvements, red for failures and regressions, and yellow for warnings.
+除响应时间外，ballast 还可以校验预期的 HTTP 状态码、响应体和响应头。在主测试周期开始前，会有一个对数递增的热身阶段来预热目标。结果以彩色编码输出显示在终端中：绿色表示通过的测试与性能提升，红色表示失败与性能退化，黄色表示警告。
 
-Snapshots are stored in a **.ballast_snapshot.json** file in the current directory, maintaining a timestamped history of all previous test runs.
+快照存储在当前目录的 **.ballast_snapshot.json** 文件中，保留所有历史测试运行的带时间戳记录。
 
-Written in Rust, ballast uses tokio for async request execution and reqwest as its HTTP client.
+ballast 使用 Rust 编写，采用 tokio 执行异步请求，并使用 reqwest 作为 HTTP 客户端。
 
 # CONFIGURATION
 
 **ballast.json**
-> Configuration file defining the endpoints to test. Must be present in the working directory. Contains an **endpoints** array with the following fields per endpoint:
+> 定义要测试端点的配置文件。必须位于工作目录中。包含一个 **endpoints** 数组，每个端点具有以下字段：
 
 **name** _string_
-> Required. Identifier for the test.
+> 必需。测试的标识符。
 
 **url** _string_
-> Required. The target endpoint URL.
+> 必需。目标端点 URL。
 
 **method** _string_
-> Required. HTTP method: GET, POST, PUT, DELETE, PATCH, or OPTIONS.
+> 必需。HTTP 方法：GET、POST、PUT、DELETE、PATCH 或 OPTIONS。
 
 **concurrent_requests** _number_
-> Required. Number of parallel requests sent per cycle.
+> 必需。每周期发送的并行请求数。
 
 **cycles** _number_
-> Required. Number of test iterations to run.
+> 必需。要运行的测试迭代次数。
 
 **threshold** _number_
-> Acceptable response time deviation in milliseconds (default: 250).
+> 可接受的响应时间偏差（毫秒）（默认：250）。
 
 **headers** _object_
-> Custom HTTP headers as key-value pairs.
+> 自定义 HTTP 头，键值对形式。
 
 **body** _json_
-> JSON request payload for POST, PUT, or PATCH requests.
+> POST、PUT 或 PATCH 请求的 JSON 请求负载。
 
 **expected_status** _number_
-> Expected HTTP status code to validate against.
+> 用于校验的预期 HTTP 状态码。
 
 **expected_body** _json_
-> Expected response body to validate against.
+> 用于校验的预期响应体。
 
 **expected_headers** _object_
-> Expected response headers to validate against.
+> 用于校验的预期响应头。
 
 **ramp** _boolean_
-> Enable logarithmic ramp-up before test cycles (default: true).
+> 是否在测试周期前启用对数热身（默认：true）。
 
 # CAVEATS
 
-Ballast requires a **ballast.json** file in the current directory; there is no way to specify a different config file path. The tool is designed for testing local or development APIs and is not intended for production load testing at scale. A 100ms pause is inserted between cycles, which limits maximum request throughput.
+Ballast 要求当前目录存在 **ballast.json** 文件；无法指定其他配置文件路径。该工具面向本地或开发环境的 API 测试，不适合大规模的生产级负载测试。每个周期之间会插入 100ms 的暂停，这限制了最大请求吞吐量。
 
 # HISTORY
 
-**ballast** was created by **Teo Nys** (synoet) as an open-source Rust project under the MIT license. It is available on crates.io and its source code is hosted on GitHub.
+**ballast** 由 **Teo Nys** (synoet) 创建，是 MIT 许可证下的开源 Rust 项目。它发布于 crates.io，源代码托管在 GitHub 上。
 
 # SEE ALSO
 

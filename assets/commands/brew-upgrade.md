@@ -1,30 +1,30 @@
 # TAGLINE
 
-Upgrade installed Homebrew packages to newer versions
+将已安装的 Homebrew 软件包升级到新版本
 
 # TLDR
 
-**Upgrade all installed formulae and casks**
+**升级所有已安装的 formula 和 cask**
 
 ```brew upgrade```
 
-**Upgrade a specific formula**
+**升级指定的 formula**
 
 ```brew upgrade [formula]```
 
-**Upgrade a specific cask**
+**升级指定的 cask**
 
 ```brew upgrade --cask [cask]```
 
-**Dry run showing what would be upgraded without actually upgrading**
+预演显示将被升级的内容而不实际升级
 
 ```brew upgrade --dry-run```
 
-**Also upgrade casks that manage their own updates or track the latest version**
+同时升级自行管理更新或跟踪最新版本的 cask
 
 ```brew upgrade --greedy```
 
-**Upgrade with verbose output showing verification and post-install steps**
+以详细输出升级，显示校验与安装后步骤
 
 ```brew upgrade --verbose [formula]```
 
@@ -34,88 +34,88 @@ Upgrade installed Homebrew packages to newer versions
 
 # DESCRIPTION
 
-**brew upgrade** upgrades outdated casks and outdated, unpinned formulae using the same options they were originally installed with. Without arguments, it upgrades all installed packages. With arguments, it upgrades only the specified packages.
+**brew upgrade** 使用软件包最初安装时的相同选项，升级过时的 cask 以及过时且未被固定的 formula。不带参数时升级所有已安装软件包；带参数时只升级指定的软件包。
 
-Unless **$HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK** is set, **brew upgrade** or **brew reinstall** will be run for outdated dependents and dependents with broken linkage, respectively.
+除非设置了 **$HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK**，对链接损坏或过时的被依赖项，会分别运行 **brew upgrade** 或 **brew reinstall**。
 
-Unless **$HOMEBREW_NO_INSTALL_CLEANUP** is set, **brew cleanup** will then be run for the upgraded formulae or, every 30 days, for all formulae.
+除非设置了 **$HOMEBREW_NO_INSTALL_CLEANUP**，升级完成后会对其运行 **brew cleanup**，并且每 30 天对所有 formula 清理一次。
 
 # PARAMETERS
 
 **--formula**, **--formulae**
-> Treat all named arguments as formulae. If no named arguments are specified, upgrade only outdated formulae.
+> 将所有命名参数视为 formula。未指定命名参数时，仅升级过时的 formula。
 
 **--cask**, **--casks**
-> Treat all named arguments as casks. If no named arguments are specified, upgrade only outdated casks.
+> 将所有命名参数视为 cask。未指定命名参数时，仅升级过时的 cask。
 
 **-n**, **--dry-run**
-> Show what would be upgraded, but do not actually upgrade anything.
+> 显示将要升级的内容，但不实际升级任何东西。
 
 **-v**, **--verbose**
-> Print the verification and post-install steps.
+> 打印校验和安装后的步骤。
 
 **-q**, **--quiet**
-> Make some output more quiet.
+> 让部分输出更安静。
 
 **-d**, **--debug**
-> If brewing fails, open an interactive debugging session with access to IRB or a shell inside the temporary build directory.
+> 若构建失败，打开交互式调试会话，可访问 IRB 或临时构建目录中的 shell。
 
 **--display-times**
-> Print install times for each package at the end of the run. Enabled by default if **$HOMEBREW_DISPLAY_INSTALL_TIMES** is set.
+> 运行结束时打印每个软件包的安装耗时。若设置了 **$HOMEBREW_DISPLAY_INSTALL_TIMES** 则默认启用。
 
 **--ask**
-> Ask for confirmation before downloading and upgrading formulae. Print download, install and net install sizes of bottles and dependencies. Enabled by default if **$HOMEBREW_ASK** is set.
+> 在下载和升级 formula 前请求确认，并打印 bottle 及其依赖的下载大小、安装大小和净安装大小。若设置了 **$HOMEBREW_ASK** 则默认启用。
 
 **-f**, **--force**
-> Install formulae without checking for previously installed keg-only or non-migrated versions. When installing casks, overwrite existing files (binaries and symlinks are excluded, unless originally from the same cask).
+> 安装 formula 时不检查之前安装过的 keg-only 或未迁移版本。安装 cask 时覆盖现有文件（二进制文件和符号链接除外，除非原本来自同一 cask）。
 
 **-g**, **--greedy**
-> Also include casks with **auto_updates true** or **version :latest**. Enabled by default if **$HOMEBREW_UPGRADE_GREEDY** is set.
+> 同时包含 **auto_updates true** 或 **version :latest** 的 cask。若设置了 **$HOMEBREW_UPGRADE_GREEDY** 则默认启用。
 
 **--greedy-latest**
-> Also include casks with **version :latest**.
+> 同时包含 **version :latest** 的 cask。
 
 **--greedy-auto-updates**
-> Also include casks with **auto_updates true**.
+> 同时包含 **auto_updates true** 的 cask。
 
 **--fetch-HEAD**
-> Fetch the upstream repository to detect if the HEAD installation of the formula is outdated. Otherwise, the repository's HEAD will only be checked for updates when a new stable or development version has been released.
+> 拉取上游仓库，检测 formula 的 HEAD 安装是否过时。否则只有在新稳定版或开发版发布时才会检查仓库 HEAD 的更新。
 
 **-s**, **--build-from-source**
-> Compile formula from source even if a bottle is available.
+> 即使存在 bottle 也从源码编译 formula。
 
 **--force-bottle**
-> Install from a bottle if it exists for the current or newest version of macOS, even if it would not normally be used for installation.
+> 只要当前或最新的 macOS 版本有对应的 bottle 就从 bottle 安装，即使通常不会使用它安装。
 
 **--skip-cask-deps**
-> Skip installing cask dependencies.
+> 跳过安装 cask 依赖。
 
 **--overwrite**
-> Delete files that already exist in the prefix while linking.
+> 链接时删除 prefix 中已存在的文件。
 
 **--keep-tmp**
-> Retain the temporary files created during installation.
+> 保留安装过程中创建的临时文件。
 
 # ENVIRONMENT
 
 **HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK**
-> Skip upgrading outdated dependents and dependents with broken linkage.
+> 跳过升级过时及链接损坏的被依赖项。
 
 **HOMEBREW_NO_INSTALL_CLEANUP**
-> Skip automatic cleanup after upgrade.
+> 升级后跳过自动清理。
 
 **HOMEBREW_DISPLAY_INSTALL_TIMES**
-> Enables **--display-times** by default.
+> 默认启用 **--display-times**。
 
 **HOMEBREW_ASK**
-> Enables **--ask** by default.
+> 默认启用 **--ask**。
 
 **HOMEBREW_UPGRADE_GREEDY**
-> Enables **--greedy** by default.
+> 默认启用 **--greedy**。
 
 # CAVEATS
 
-Run **brew update** first to fetch the latest package definitions before upgrading. Cask upgrades may use an uninstall/reinstall or content replacement strategy depending on the cask. Pinned formulae are never upgraded; use **brew unpin** to allow upgrades.
+升级前先运行 **brew update** 以获取最新的软件包定义。cask 的升级可能采用卸载/重装或内容替换策略，具体取决于 cask 本身。被固定的 formula 永远不会被升级；使用 **brew unpin** 可解除固定。
 
 # SEE ALSO
 

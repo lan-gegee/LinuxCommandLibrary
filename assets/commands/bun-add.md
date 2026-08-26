@@ -1,38 +1,38 @@
 # TAGLINE
 
-Add packages to a Bun project
+向 Bun 项目添加软件包
 
 # TLDR
 
-**Add a dependency**
+**添加依赖**
 
 ```bun add [lodash]```
 
-**Add a dev dependency**
+**添加开发依赖**
 
 ```bun add -D [jest]```
 
-**Add multiple packages**
+**添加多个包**
 
 ```bun add [react] [react-dom]```
 
-**Add with exact version**
+**以精确版本添加**
 
 ```bun add --exact [typescript@5.0.0]```
 
-**Add globally**
+**全局安装**
 
 ```bun add -g [typescript]```
 
-**Add from git repository**
+**从 git 仓库添加**
 
 ```bun add git+https://github.com/[user]/[repo]```
 
-**Add as peer dependency**
+**作为 peer 依赖添加**
 
 ```bun add -P [react]```
 
-**Dry run without changes**
+**试运行，不实际修改**
 
 ```bun add --dry-run [package]```
 
@@ -42,50 +42,50 @@ Add packages to a Bun project
 
 # DESCRIPTION
 
-**bun add** adds packages to package.json and installs them into node_modules. It updates or creates bun.lockb for reproducible installs. The command is significantly faster than npm or yarn alternatives.
+**bun add** 将软件包添加到 package.json 并安装到 node_modules。它会更新或创建 bun.lockb，以保证安装可复现。该命令比 npm 或 yarn 的同类命令快得多。
 
 # PARAMETERS
 
 **-D, --dev**
-> Add to devDependencies
+> 添加到 devDependencies
 
 **-P, --peer**
-> Add to peerDependencies
+> 添加到 peerDependencies
 
 **-O, --optional**
-> Add to optionalDependencies
+> 添加到 optionalDependencies
 
 **-E, --exact**
-> Use exact version without ^ or ~ prefix
+> 使用精确版本，不加 ^ 或 ~ 前缀
 
 **-g, --global**
-> Install globally to Bun's global store
+> 全局安装到 Bun 的全局存储
 
 **--production**
-> Skip devDependencies
+> 跳过 devDependencies
 
 **--registry** _url_
-> Use custom npm registry
+> 使用自定义 npm registry
 
 **--lockfile-only**
-> Update lockfile without installing
+> 只更新锁文件而不安装
 
 **--dry-run**
-> Simulate without making changes
+> 模拟执行但不做实际修改
 
 **--force**
-> Force install despite warnings
+> 忽略警告强制安装
 
 **--trust**
-> Allow lifecycle scripts for added packages
+> 允许所添加的包运行生命周期脚本
 
 # PACKAGE SOURCES
 
-Supports npm registry packages, semver ranges, git URLs (git+https://...), local paths (file:../path), and workspace packages (workspace:*).
+支持 npm registry 包、semver 版本范围、git URL（git+https://...）、本地路径（file:../path）以及工作区包（workspace:*）。
 
 # CAVEATS
 
-Creates a binary bun.lockb lockfile (or bun.lock text lockfile in newer versions). Package versions default to caret (^) ranges unless --exact is specified. Global packages are stored in Bun's global store, not system-wide.
+会创建二进制的 bun.lockb 锁文件（新版本中为文本格式的 bun.lock）。除非指定 --exact，包版本默认采用插入符（^）范围。全局安装的包存放在 Bun 的全局存储中，而非系统级目录。
 
 # INSTALL
 

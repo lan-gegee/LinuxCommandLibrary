@@ -1,38 +1,36 @@
 # TAGLINE
 
-Manage Bicep files for Azure infrastructure as code
+管理用于 Azure 基础设施即代码的 Bicep 文件
 
 # TLDR
 
-**Build a Bicep file** to ARM template
+**将 Bicep 文件构建**为 ARM 模板
 
 ```az bicep build --file [main.bicep]```
 
-**Decompile an ARM template** to Bicep
+将 ARM 模板**反编译**为 Bicep
 
 ```az bicep decompile --file [template.json]```
 
-**Format a Bicep file**
+**格式化 Bicep 文件**
 
 ```az bicep format --file [main.bicep]```
 
-**Lint a Bicep file** for errors
+对 Bicep 文件进行**检查**以发现错误
 
 ```az bicep lint --file [main.bicep]```
 
-**Generate a parameters file** from Bicep
+从 Bicep **生成参数文件**
 
 ```az bicep generate-params --file [main.bicep]```
 
-**Install the Bicep CLI**
+**安装 Bicep CLI**
 
 ```az bicep install```
 
-**Upgrade Bicep** to the latest version
-
 ```az bicep upgrade```
 
-**Publish a module** to a registry
+**升级 Bicep** 到最新版本
 
 ```az bicep publish --file [main.bicep] --target "br:[registry.azurecr.io/bicep/modules/name:v1]"```
 
@@ -42,9 +40,9 @@ Manage Bicep files for Azure infrastructure as code
 
 # DESCRIPTION
 
-**az bicep** manages the Bicep CLI for Infrastructure as Code on Azure. Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources, serving as a transparent abstraction over ARM templates.
+**az bicep** 管理 Azure 上基础设施即代码所需的 Bicep CLI。Bicep 是一种领域特定语言（DSL），使用声明式语法部署 Azure 资源，是 ARM 模板的透明抽象。
 
-The command group provides tools for building, validating, formatting, and publishing Bicep files, as well as converting existing ARM templates to Bicep format. Requires Azure CLI version 2.20.0 or later; the Bicep CLI is automatically installed on first use if not present.
+该命令组提供构建、验证、格式化和发布 Bicep 文件的工具，并可将现有 ARM 模板转换为 Bicep 格式。需要 Azure CLI 2.20.0 或更高版本；如果不存在，Bicep CLI 会在首次使用时自动安装。
 
 # SUBCOMMANDS
 
@@ -66,30 +64,30 @@ The command group provides tools for building, validating, formatting, and publi
 # PARAMETERS
 
 **--file** _value_
-> Path to the Bicep file.
+> Bicep 文件路径。
 
 **--outdir** _value_
-> Output directory for built files.
+> 构建产物的输出目录。
 
 **--outfile** _value_
-> Output file path for the built result.
+> 构建结果的输出文件路径。
 
 **--stdout**
-> Output to stdout instead of file.
+> 输出到 stdout 而非文件。
 
 **--target** _value_
-> Module registry target for publishing.
+> 发布用的模块注册表目标。
 
 **--version** _value_
-> Specific Bicep CLI version to install.
+> 要安装的指定 Bicep CLI 版本。
 
 # CAVEATS
 
-Decompilation from ARM templates produces functionally equivalent Bicep but may require manual refinement for readability. Module publishing requires a container registry with appropriate permissions. Bicep parameters files require Azure CLI version 2.53.0 or later and Bicep CLI version 0.22.x or later.
+从 ARM 模板反编译得到的 Bicep 在功能上等价，但可能需要手动调整以提高可读性。发布模块需要具有相应权限的容器注册表。Bicep 参数文件需要 Azure CLI 2.53.0 或更高版本以及 Bicep CLI 0.22.x 或更高版本。
 
 # HISTORY
 
-Bicep was announced in **August 2020** as a new language for Azure deployments, reaching version 1.0 in **May 2021**. It was designed to simplify the ARM template authoring experience while maintaining full compatibility with the Azure Resource Manager.
+Bicep 于 **2020** 年 **8 月**作为面向 Azure 部署的新语言公布，并于 **2021** 年 **5 月**达到 1.0 版本。它的设计目标是在保持与 Azure Resource Manager 完全兼容的同时，简化 ARM 模板的编写体验。
 
 # INSTALL
 

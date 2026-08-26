@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bash-first CLI wrapper for OpenAI-compatible LLM APIs
+面向 OpenAI 兼容 LLM API 的 Bash 优先 CLI 封装
 
 # TLDR
 
-**Send a prompt** to the default Groq provider
+向默认的 Groq 提供方**发送提示词**
 
 ```bash4llm "[prompt]"```
 
-**Run a prompt from a file**
+**运行**文件中的提示词
 
 ```bash4llm -f [prompt.txt]```
 
-**Use a specific model** for one request
+单次请求**使用特定模型**
 
 ```bash4llm -m [llama-3.3-70b-versatile] "[prompt]"```
 
-**Start interactive chat** mode
+**启动交互式聊天**模式
 
 ```bash4llm --chat```
 
-**Refresh the model list** from the provider API
+从提供方 API **刷新模型列表**
 
 ```bash4llm --refresh-models```
 
-**Enable contextual memory** across turns in a named session
+在命名会话中跨轮次**启用上下文记忆**
 
 ```bash4llm --session [chat1] "[prompt]"```
 
@@ -35,118 +35,118 @@ Bash-first CLI wrapper for OpenAI-compatible LLM APIs
 # PARAMETERS
 
 **-f** _file_
-> Read prompt text from _file_.
+> 从 _file_ 读取提示词文本。
 
 **-m**, **--model** _model_
-> Use _model_ for this run only.
+> 仅本次运行使用 _model_。
 
 **--provider** _name_
-> Select an installed provider (for example **groq** or **gemini**).
+> 选择已安装的提供方（例如 **groq** 或 **gemini**）。
 
 **--system** _text_
-> Set the system prompt.
+> 设置系统提示词。
 
 **--temperature**, **--ture** _n_
-> Set sampling temperature between **0.0** and **2.0**.
+> 设置采样温度，范围 **0.0** 到 **2.0**。
 
 **--max** _n_
-> Limit maximum output tokens.
+> 限制最大输出 token 数。
 
 **--session** _id_
-> Enable session memory for contextual follow-up prompts.
+> 启用会话记忆，用于有上下文衔接的后续提问。
 
 **--session-window** [_n_]
-> Limit how many prior session turns are included (default **10**).
+> 限制纳入的先前会话轮次数（默认 **10**）。
 
 **--stream**, **--no-stream**
-> Enable or disable streaming output.
+> 启用或禁用流式输出。
 
 **--chat**
-> Start an interactive REPL chat session.
+> 启动交互式 REPL 聊天会话。
 
 **--dry-run**
-> Validate configuration without calling the API.
+> 只校验配置，不调用 API。
 
 **--json**, **--pretty**, **--text**, **--raw**
-> Control response output format.
+> 控制响应输出格式。
 
 **--save**, **--nosave**, **--out** _path_, **--threshold** _bytes_
-> Control automatic saving of long responses.
+> 控制长响应的自动保存行为。
 
 **--refresh-models**, **--list-models**, **--list-providers**
-> Manage and inspect provider model lists.
+> 管理和查看提供方模型列表。
 
 **--set-default** _model_
-> Persist the default model for the active provider.
+> 持久保存当前提供方的默认模型。
 
 **--install-extras** [_dir_]
-> Install optional provider packs, templates, and tools.
+> 安装可选的提供方扩展包、模板和工具。
 
 **--show-config**, **--diagnostics**
-> Print active configuration or run system checks.
+> 打印生效配置或运行系统检查。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**bash4llm** (Bash4LLM⁺) is a single self-contained Bash script that wraps OpenAI-compatible chat completion APIs, with Groq as the default provider. It is designed to be readable, auditable, and portable across Linux, macOS, WSL, Cygwin, Termux, and BSD systems.
+**bash4llm** (Bash4LLM⁺) 是一个自包含的单文件 Bash 脚本，封装了 OpenAI 兼容的 chat completion API，默认提供方为 Groq。它的设计目标是可读、可审计，并且可在 Linux、macOS、WSL、Cygwin、Termux 和 BSD 系统间移植。
 
-The script fetches model lists dynamically from the provider API rather than hardcoding them, supports streaming and non-streaming responses, and can pipe input from files or standard input. Optional extras add more providers such as Gemini, Hugging Face, and Mistral. Session support stores turn history in NDJSON files when **--session** is used, giving short-term contextual memory without keeping state by default.
+该脚本从提供方 API 动态获取模型列表而不是硬编码，支持流式与非流式响应，并可以从文件或标准输入管道读取内容。可选 extras 增加了 Gemini、Hugging Face、Mistral 等更多提供方。使用 **--session** 时，会话支持将轮次历史存储在 NDJSON 文件中，从而提供短期上下文记忆；默认情况下不保留任何状态。
 
-Security is a core design goal: the script avoids **eval**, never executes model output, does not use shared **/tmp** directories, and isolates temporary files with restrictive permissions. Provider modules are treated as trusted code and should live in directories owned by the user.
+安全是核心设计目标：脚本避免使用 **eval**，从不执行模型输出，不使用共享的 **/tmp** 目录，并以严格权限隔离临时文件。提供方模块被视为受信代码，应存放在用户拥有的目录中。
 
 # CONFIGURATION
 
 **$BASH4LLM_CONFIG_DIR/config**
-> Local settings such as model, temperature, max tokens, output format, and save threshold.
+> 本地设置，如模型、温度、最大 token 数、输出格式和保存阈值。
 
 **$BASH4LLM_CONFIG_DIR/model.$PROVIDER**
-> Persistent default model for a provider.
+> 提供方的持久化默认模型。
 
 **$BASH4LLM_CONFIG_DIR/ui_state/**
-> Atomic JSON metadata for external tools and optional GUI integrations.
+> 供外部工具和可选 GUI 集成使用的原子 JSON 元数据。
 
 **$BASH4LLM_HISTORY_DIR/sessions/<id>.ndjson**
-> Session conversation history when **--session** is enabled.
+> 启用 **--session** 时的会话对话历史。
 
 **GROQ_API_KEY**
-> API key for the default Groq provider.
+> 默认 Groq 提供方的 API 密钥。
 
 **BASH4LLM_TMPDIR**
-> Private temporary directory used instead of system **/tmp**.
+> 替代系统 **/tmp** 使用的私有临时目录。
 
-Model selection precedence is: **-m/--model**, then **model.$PROVIDER**, then provider auto-selection, then the first whitelisted model, then the legacy global config file.
+模型选择优先级为：**-m/--model**，其次 **model.$PROVIDER**，然后是提供方自动选择，再后是白名单中的第一个模型，最后是旧版全局配置文件。
 
 # CAVEATS
 
-Requires **bash**, **curl**, **jq**, **gawk**, and common coreutils on **PATH**. Contextual memory exists only when **--session** is supplied on every related call. Provider extras are executable shell code and must be kept in trusted directories. On Termux, file locking falls back to atomic directory locks because **flock** is often unreliable.
+需要 **PATH** 上存在 **bash**、**curl**、**jq**、**gawk** 及常用 coreutils 工具。只有每次相关调用都带上 **--session** 时，上下文记忆才存在。提供方 extras 是可执行的 Shell 代码，必须保存在可信目录中。在 Termux 上，由于 **flock** 通常不可靠，文件锁会退回到原子目录锁。
 
 # EXIT CODES
 
 **0**
-> Success.
+> 成功。
 
 **10**
-> Missing API key.
+> 缺少 API 密钥。
 
 **11**
-> Invalid or non-whitelisted model.
+> 模型无效或不在白名单内。
 
 **12**
-> Network or curl failure.
+> 网络或 curl 失败。
 
 **14**
-> No prompt provided.
+> 未提供提示词。
 
 **15**
-> Filesystem or temporary-file error.
+> 文件系统或临时文件错误。
 
 **16**
-> Provider HTTP or API error.
+> 提供方 HTTP 或 API 错误。
 
 # SEE ALSO
 

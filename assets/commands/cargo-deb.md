@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build Debian packages from Rust projects
+从 Rust 项目构建 Debian 软件包
 
 # TLDR
 
-**Create Debian package**
+**创建 Debian 软件包**
 
 ```cargo deb```
 
-**Build and install locally**
+**构建并在本地安装**
 
 ```cargo deb --install```
 
-**Specify output location**
+**指定输出位置**
 
 ```cargo deb --output [path/to/package.deb]```
 
-**Build for specific target**
+**为指定目标平台构建**
 
 ```cargo deb --target [x86_64-unknown-linux-gnu]```
 
-**Set package revision**
+**设置软件包修订号**
 
 ```cargo deb --deb-revision [2]```
 
-**Build without default features**
+**不带默认特性构建**
 
 ```cargo deb --no-default-features```
 
-**Verbose output**
+**详细输出**
 
 ```cargo deb --verbose```
 
@@ -38,45 +38,45 @@ Build Debian packages from Rust projects
 
 # DESCRIPTION
 
-**cargo deb** creates binary Debian packages (.deb) from Cargo projects automatically. Uses Cargo.toml metadata and optional [package.metadata.deb] configuration.
+**cargo deb** 自动从 Cargo 项目创建二进制 Debian 软件包（.deb）。它使用 Cargo.toml 元数据和可选的 [package.metadata.deb] 配置。
 
-Output placed in target/debian/<name>_<version>-<revision>_<arch>.deb
+输出位于 target/debian/<name>_<version>-<revision>_<arch>.deb
 
 # PARAMETERS
 
 **--install**
-> Build and install package immediately
+> 构建后立即安装软件包
 
 **-o**, **--output** _path_
-> Custom output file path
+> 自定义输出文件路径
 
 **--target** _triple_
-> Build for specified target
+> 为指定目标平台构建
 
 **--deb-revision** _rev_
-> Set Debian package revision
+> 设置 Debian 软件包修订号
 
 **--no-build**
-> Skip cargo build step
+> 跳过 cargo build 步骤
 
 **--no-strip**
-> Don't strip debug symbols
+> 不剥离调试符号
 
 **--separate-debug-symbols**
-> Create separate debug package
+> 创建独立的调试软件包
 
 **--fast**
-> Skip some optimizations for faster build
+> 跳过部分优化以加快构建
 
 **--variant** _name_
-> Use variant-specific configuration
+> 使用特定变体的配置
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 # CONFIGURATION
 
-Add to Cargo.toml:
+在 Cargo.toml 中添加：
 
 ```toml
 [package.metadata.deb]
@@ -93,11 +93,11 @@ assets = [
 
 ```cargo install cargo-deb```
 
-Requires Rust 1.76+. Optional: dpkg, dpkg-dev, liblzma-dev.
+需要 Rust 1.76+。可选依赖：dpkg、dpkg-dev、liblzma-dev。
 
 # CAVEATS
 
-Automatically uses Cargo fields for name, version, license, description. The $auto depends value auto-detects library dependencies on Debian systems.
+自动使用 Cargo 字段中的名称、版本、许可证和描述。$auto 依赖值会在 Debian 系统上自动检测库依赖。
 
 # INSTALL
 

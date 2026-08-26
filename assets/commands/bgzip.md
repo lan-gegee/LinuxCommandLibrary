@@ -1,22 +1,22 @@
 # TAGLINE
 
-Block compression with random access support for genomics data
+支持随机访问的基因组数据分块压缩工具
 
 # TLDR
 
-**Compress** file
+**压缩**文件
 
 ```bgzip [file.vcf]```
 
-**Decompress** file
+**解压**文件
 
 ```bgzip -d [file.vcf.gz]```
 
-**Compress** with specific threads
+**用指定线程数压缩**
 
 ```bgzip -@ [4] [file.vcf]```
 
-**Index** compressed file
+**为压缩文件建索引**
 
 ```bgzip -r [file.vcf.gz]```
 
@@ -26,41 +26,41 @@ Block compression with random access support for genomics data
 
 # DESCRIPTION
 
-**bgzip** is a block compression tool that creates gzip-compatible files with internal indexing support. Unlike standard gzip, bgzip compresses data in blocks, allowing random access to specific regions when combined with a .gzi index.
+**bgzip** 是一个分块压缩工具，可创建兼容 gzip 且带内部索引支持的文件。与标准 gzip 不同，bgzip 以块为单位压缩数据，配合 .gzi 索引即可随机访问特定区域。
 
-The tool is part of htslib and commonly used for genomics data files (VCF, SAM, BED) enabling indexed access.
+该工具是 htslib 的一部分，常用于基因组数据文件（VCF、SAM、BED），以启用索引访问。
 
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress file
+> 解压文件
 
 **-c**, **--stdout**
-> Write to standard output
+> 写入标准输出
 
 **-@**, **--threads** _n_
-> Number of threads
+> 线程数
 
 **-r**, **--reindex**
-> Rebuild .gzi index
+> 重建 .gzi 索引
 
 **-b**, **--offset** _n_
-> Virtual file offset for random access
+> 用于随机访问的虚拟文件偏移量
 
 **-s**, **--size** _n_
-> Size to extract (with -b)
+> 要提取的大小（配合 -b 使用）
 
 **-l**, **--compress-level** _n_
-> Compression level (0-9)
+> 压缩级别（0-9）
 
 # FEATURES
 
-- Block-based compression
-- Random access support
-- gzip-compatible format
-- Multi-threaded compression
-- Index generation (.gzi files)
-- Streaming support
+- 基于块的压缩
+- 随机访问支持
+- 兼容 gzip 的格式
+- 多线程压缩
+- 索引生成（.gzi 文件）
+- 流式处理支持
 
 # WORKFLOW
 
@@ -93,11 +93,11 @@ tabix file.vcf.gz chr1:1000-2000
 
 # CAVEATS
 
-Slightly larger files than maximum gzip compression. Requires .gzi index for random access. Not all gzip tools recognize block structure. Primarily useful for genomics applications.
+文件比最大压缩级别的 gzip 略大。随机访问需要 .gzi 索引。并非所有 gzip 工具都能识别块结构。主要用于基因组学应用。
 
 # HISTORY
 
-**bgzip** was developed as part of SAMtools/htslib around **2009** to enable efficient random access to compressed genomics data files.
+**bgzip** 约 **2009 年**作为 SAMtools/htslib 的一部分开发，用于高效地随机访问压缩的基因组数据文件。
 
 # INSTALL
 

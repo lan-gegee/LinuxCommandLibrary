@@ -1,26 +1,26 @@
 # TAGLINE
 
-Scaffold a new project
+搭建新项目脚手架
 
 # TLDR
 
-**Initialize new project interactively**
+**交互式初始化新项目**
 
 ```bun init```
 
-**Initialize with defaults (skip prompts)**
+**以默认值初始化（跳过提示）**
 
 ```bun init -y```
 
-**Initialize React project**
+**初始化 React 项目**
 
 ```bun init --react```
 
-**Initialize React with Tailwind**
+**初始化带 Tailwind 的 React 项目**
 
 ```bun init --react=tailwind```
 
-**Initialize React with shadcn/ui**
+**初始化带 shadcn/ui 的 React 项目**
 
 ```bun init --react=shadcn```
 
@@ -30,40 +30,40 @@ Scaffold a new project
 
 # DESCRIPTION
 
-**bun init** scaffolds a new Bun project with sensible defaults. It creates essential project files including package.json, tsconfig.json or jsconfig.json, entry point, README, and .gitignore.
+**bun init** 以合理的默认配置搭建新的 Bun 项目。它会创建必要的项目文件，包括 package.json、tsconfig.json 或 jsconfig.json、入口文件、README 和 .gitignore。
 
-The command is non-destructive when run multiple times and will not overwrite existing files.
+多次运行该命令不会造成破坏，也不会覆盖已有文件。
 
 # PARAMETERS
 
 **-y, --yes**
-> Accept defaults without prompting
+> 接受默认值，不进行提示
 
 **--react**
-> Scaffold React project (optionally: tailwind, shadcn)
+> 搭建 React 项目脚手架（可选值：tailwind、shadcn）
 
 **--cwd** _directory_
-> Initialize in different directory
+> 在其他目录中初始化
 
 # CREATED FILES
 
 **package.json**
-> Project manifest (name defaults to directory name)
+> 项目清单（名称默认取目录名）
 
 **tsconfig.json / jsconfig.json**
-> TypeScript/JavaScript configuration
+> TypeScript/JavaScript 配置
 
 **index.ts**
-> Entry point (or index.tsx, index.js, etc.)
+> 入口文件（或 index.tsx、index.js 等）
 
 **README.md**
-> Project documentation
+> 项目文档
 
 **.gitignore**
-> Git ignore patterns
+> Git 忽略规则
 
 **bun.lock**
-> Lockfile (after install)
+> 锁文件（安装后生成）
 
 # PROJECT STRUCTURE
 
@@ -79,7 +79,7 @@ my-project/
 
 # CAVEATS
 
-Automatically runs **bun install** to install @types/bun. Entry point defaults to index.ts unless other index files exist. TypeScript is preferred by default.
+会自动运行 **bun install** 安装 @types/bun。除非已存在其他 index 文件，入口文件默认为 index.ts。默认优先使用 TypeScript。
 
 # INSTALL
 

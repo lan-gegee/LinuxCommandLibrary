@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Azure Table Storage tables
+管理 Azure 表存储中的表
 
 # TLDR
 
-**Create a table**
+**创建表**
 
 ```az storage table create --name [mytable] --account-name [mystorageaccount]```
 
-**List all tables**
+**列出所有表**
 
 ```az storage table list --account-name [mystorageaccount]```
 
-**Delete a table**
+**删除表**
 
 ```az storage table delete --name [mytable] --account-name [mystorageaccount]```
 
-**Check if table exists**
+**检查表是否存在**
 
 ```az storage table exists --name [mytable] --account-name [mystorageaccount]```
 
-**Generate a SAS token** for a table
+**为表生成 SAS 令牌**
 
 ```az storage table generate-sas --name [mytable] --permissions [raud] --expiry [2026-12-31T00:00Z] --account-name [mystorageaccount]```
 
-**List stored access policies** for a table
+**列出表的存储访问策略**
 
 ```az storage table policy list --table-name [mytable] --account-name [mystorageaccount]```
 
@@ -35,55 +35,55 @@ Manage Azure Table Storage tables
 # SUBCOMMANDS
 
 **create**
-> Create a table.
+> 创建表。
 
 **delete**
-> Delete a table.
+> 删除表。
 
 **list**
-> List tables in a storage account.
+> 列出存储账户中的表。
 
 **exists**
-> Check if a table exists.
+> 检查表是否存在。
 
 **generate-sas**
-> Generate a shared access signature for a table.
+> 为表生成共享访问签名。
 
 **policy create / delete / list / show / update**
-> Manage stored access policies for a table.
+> 管理表的存储访问策略。
 
 **stats**
-> Retrieve replication statistics for the Table service (requires RA-GRS).
+> 获取表服务的复制统计信息（需要 RA-GRS）。
 
 # PARAMETERS
 
 **--name** **-n**
-> Name of the table.
+> 表的名称。
 
 **--account-name**
-> Storage account name.
+> 存储账户名。
 
 **--account-key**
-> Storage account key. Env: AZURE_STORAGE_KEY.
+> 存储账户密钥。环境变量：AZURE_STORAGE_KEY。
 
 **--auth-mode** _value_
-> Authentication mode: key (legacy account key) or login (Azure AD credentials).
+> 身份验证模式：key（旧式账户密钥）或 login（Azure AD 凭据）。
 
 **--permissions**
-> SAS permissions for generate-sas: (r)ead/query, (a)dd, (u)pdate, (d)elete. Combinable, for example raud.
+> generate-sas 使用的 SAS 权限：(r)ead/query、(a)dd、(u)pdate、(d)elete。可组合使用，例如 raud。
 
 **--start-pk** / **--end-pk** / **--start-rk** / **--end-rk**
-> Restrict a table SAS to a partition-key and row-key range.
+> 将表 SAS 限制在指定的分区键和行键范围内。
 
 # DESCRIPTION
 
-**az storage table** manages Azure Table Storage tables. Table Storage is a NoSQL key-value store suitable for storing structured, non-relational data. Tables contain entities (rows) with properties (columns).
+**az storage table** 管理 Azure 表存储中的表。表存储是一种 NoSQL 键值存储，适合存放结构化的非关系数据。表中包含实体（行），实体带有属性（列）。
 
-Use **az storage entity** commands to manage the data within tables.
+请使用 **az storage entity** 命令管理表内的数据。
 
 # CAVEATS
 
-Requires Azure CLI and valid storage credentials. Table names must follow Azure naming conventions. Tables cannot be renamed; must delete and recreate.
+需要 Azure CLI 和有效的存储凭据。表名必须遵循 Azure 命名约定。表无法重命名，只能删除后重建。
 
 # INSTALL
 

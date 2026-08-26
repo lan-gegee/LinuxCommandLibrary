@@ -1,26 +1,26 @@
 # TAGLINE
 
-Automated testing framework for bash scripts
+Bash 脚本自动化测试框架
 
 # TLDR
 
-**Run** test file
+**运行**测试文件
 
 ```bats [test.bats]```
 
-**Run** all tests in directory
+**运行**目录中的所有测试
 
 ```bats [tests/]```
 
-**Tap output**
+**TAP 格式**输出
 
 ```bats --tap [test.bats]```
 
-**Pretty** formatting
+**美观**格式化
 
 ```bats --pretty [test.bats]```
 
-**Filter** by test name
+**按测试名过滤**
 
 ```bats --filter ["pattern"] [test.bats]```
 
@@ -30,56 +30,56 @@ Automated testing framework for bash scripts
 
 # DESCRIPTION
 
-**bats** (Bash Automated Testing System) is a TAP-compliant testing framework for Bash scripts. It provides a simple syntax for writing tests and executing them with readable output.
+**bats**（Bash Automated Testing System）是一个符合 TAP 规范的 Bash 脚本测试框架。它提供简洁的语法来编写测试，并以可读性良好的输出执行它们。
 
-The tool enables test-driven development and continuous integration for shell scripts.
+该工具为 Shell 脚本实现测试驱动开发和持续集成提供了支持。
 
 # PARAMETERS
 
 **-c**, **--count**
-> Count tests without running
+> 只统计测试数量而不运行
 
 **-f**, **--filter** _pattern_
-> Filter tests by name pattern
+> 按名称模式过滤测试
 
 **-t**, **--tap**
-> Output in TAP format
+> 以 TAP 格式输出
 
 **-p**, **--pretty**
-> Pretty print output
+> 美观地打印输出
 
 **-r**, **--recursive**
-> Run tests recursively
+> 递归运行测试
 
 **-j**, **--jobs** _num_
-> Number of parallel jobs (requires GNU parallel)
+> 并行作业数（需要 GNU parallel）
 
 **-F**, **--formatter** _name_
-> Output formatter (pretty, tap, tap13, junit)
+> 输出格式化器（pretty、tap、tap13、junit）
 
 **-T**, **--timing**
-> Add timing information to tests
+> 为测试添加计时信息
 
 **-x**, **--trace**
-> Print test commands as they are executed (like set -x)
+> 在执行时打印测试命令（类似 set -x）
 
 **--filter-tags** _tags_
-> Only run tests matching all comma-separated tags
+> 只运行匹配所有逗号分隔标签的测试
 
 **--filter-status** _status_
-> Run tests by status from last run (failed, missed)
+> 按上次运行的状态运行测试（failed、missed）
 
 **-o**, **--output** _dir_
-> Directory to write report files
+> 报告文件的写入目录
 
 **--no-tempdir-cleanup**
-> Preserve test output temporary directory
+> 保留测试输出的临时目录
 
 **--print-output-on-failure**
-> Automatically print $output on failed tests
+> 测试失败时自动打印 $output
 
 **-v**, **--version**
-> Display version number
+> 显示版本号
 
 # TEST SYNTAX
 
@@ -98,29 +98,29 @@ The tool enables test-driven development and continuous integration for shell sc
 
 # ASSERTIONS
 
-Uses standard bash test operators:
-- **[ -f file ]** - File exists
-- **[ "$a" = "$b" ]** - String equality
-- **[ $n -eq 4 ]** - Numeric equality
+使用标准 bash 测试运算符：
+- **[ -f file ]** - 文件存在
+- **[ "$a" = "$b" ]** - 字符串相等
+- **[ $n -eq 4 ]** - 数值相等
 
 # HELPER FUNCTIONS
 
 **run** _command_
-> Run command and capture output/status
+> 运行命令并捕获输出/状态
 
 **load** _file_
-> Load helper library
+> 加载辅助库
 
 **skip** [_reason_]
-> Skip current test
+> 跳过当前测试
 
 # CAVEATS
 
-Tests run in subshells (limited side effects). No built-in assertion library (use test-helper). Parallel execution may have ordering issues. Debugging can be tricky.
+测试在子 shell 中运行（副作用受限）。没有内置断言库（需使用 test-helper）。并行执行可能出现顺序问题。调试可能比较棘手。
 
 # HISTORY
 
-**bats** was created by Sam Stephenson in **2011** to provide a simple testing framework for bash scripts, inspired by similar tools in other languages. The project was later forked and maintained as **bats-core** by the community.
+**bats** 由 Sam Stephenson 于 **2011** 年创建，借鉴了其他语言中类似工具的设计，旨在为 bash 脚本提供一个简单的测试框架。该项目后来被社区分叉并维护为 **bats-core**。
 
 # INSTALL
 

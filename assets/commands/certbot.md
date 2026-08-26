@@ -1,34 +1,34 @@
 # TAGLINE
 
-Let's Encrypt certificate management
+Let's Encrypt 证书管理
 
 # TLDR
 
-Obtain certificate via **webroot** authorization
+通过 **webroot** 方式验证获取证书
 
 ```sudo certbot certonly --webroot -w [path/to/webroot] -d [subdomain.example.com]```
 
-Obtain and install certificate for **nginx**
+为 **nginx** 获取并安装证书
 
 ```sudo certbot --nginx -d [subdomain.example.com]```
 
-Obtain and install certificate for **apache**
+为 **apache** 获取并安装证书
 
 ```sudo certbot --apache -d [subdomain.example.com]```
 
-**Renew** all certificates expiring soon
+**续期**所有即将过期的证书
 
 ```sudo certbot renew```
 
-**Dry run** to test without saving certificates
+进行**演练（dry run）**测试而不保存证书
 
 ```sudo certbot --webroot -w [path/to/webroot] -d [subdomain.example.com] --dry-run```
 
-**Obtain certificate** using standalone mode (no web server needed)
+使用 standalone 模式**获取证书**（无需 Web 服务器）
 
 ```sudo certbot certonly --standalone -d [subdomain.example.com]```
 
-**List all managed certificates**
+**列出所有受管理的证书**
 
 ```sudo certbot certificates```
 
@@ -38,83 +38,83 @@ Obtain and install certificate for **apache**
 
 # DESCRIPTION
 
-**certbot** is the official Let's Encrypt client for automatically obtaining and renewing free TLS/SSL certificates. It can configure web servers like Apache and Nginx automatically.
+**certbot** 是 Let's Encrypt 官方客户端，用于自动获取和续期免费的 TLS/SSL 证书。它可以自动配置 Apache 和 Nginx 等 Web 服务器。
 
-Certificates are valid for 90 days. The renew command should be run regularly (typically via cron) to maintain valid certificates.
+证书有效期为 90 天。应定期运行 renew 命令（通常通过 cron）以保持证书有效。
 
 # SUBCOMMANDS
 
 **certonly**
-> Obtain certificate without installing
+> 仅获取证书而不安装
 
 **run**
-> Obtain and install certificate
+> 获取并安装证书
 
 **renew**
-> Renew expiring certificates
+> 续期即将过期的证书
 
 **revoke**
-> Revoke a certificate
+> 吊销证书
 
 **delete**
-> Delete a certificate
+> 删除证书
 
 **certificates**
-> List installed certificates
+> 列出已安装的证书
 
 # PARAMETERS
 
 **-d, --domain** _domain_
-> Domain name for certificate
+> 证书的域名
 
 **-w, --webroot-path** _path_
-> Webroot path for validation
+> 用于验证的 webroot 路径
 
 **--nginx**
-> Use nginx plugin
+> 使用 nginx 插件
 
 **--apache**
-> Use apache plugin
+> 使用 apache 插件
 
 **--dry-run**
-> Test without saving
+> 测试而不保存
 
 **--standalone**
-> Use built-in web server for validation
+> 使用内置 Web 服务器进行验证
 
 **--test-cert**
-> Use staging server (untrusted certificates)
+> 使用 staging 服务器（不受信任的证书）
 
 **--non-interactive**
-> Run without user interaction
+> 无用户交互运行
 
 **--agree-tos**
-> Agree to terms of service
+> 同意服务条款
 
 **-m**, **--email** _email_
-> Email for account registration
+> 用于账户注册的邮箱
 
 **--preferred-challenges** _type_
-> Preferred challenge type: http-01, dns-01, or tls-alpn-01
+> 首选验证方式：http-01、dns-01 或 tls-alpn-01
 
 **--deploy-hook** _command_
-> Command to run after successful certificate deployment (e.g., reload web server)
+> 证书部署成功后运行的命令（如重载 Web 服务器）
 
 # CONFIGURATION
 
 **/etc/letsencrypt/renewal/**
-> Per-certificate renewal configuration files controlling automatic renewal behavior.
+> 每张证书的续期配置文件，控制自动续期行为。
 
 **/etc/letsencrypt/cli.ini**
-> Global certbot defaults for all certificate operations.
+> 所有证书操作共用的全局 certbot 默认设置。
 
 # CAVEATS
 
-Webroot validation requires web server to be running. Rate limits apply on Let's Encrypt production servers. Restart web server after renewal for new certificates to take effect.
+Webroot 验证要求 Web 服务器正在运行。Let's Encrypt 生产服务器有速率限制。续期后需重启 Web 服务器才能让新证书生效。
 
 # HISTORY
 
-**certbot** was developed by the Electronic Frontier Foundation (EFF) and originally known as the Let's Encrypt client. Let's Encrypt launched in **2016** to provide free, automated TLS certificates.
+**certbot** 由 Electronic Frontier Foundation (EFF) 开发，最初名为 Let's Encrypt client。Let's Encrypt 于 **2016 年**上线，提供免费、自动化的 TLS 证书。
 
 # INSTALL
 

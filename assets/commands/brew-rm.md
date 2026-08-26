@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove an installed Homebrew package
+移除已安装的 Homebrew 软件包
 
 # TLDR
 
-**Remove a formula**
+**移除** formula
 
 ```brew rm [formula]```
 
-**Remove a cask**
+**移除** cask
 
 ```brew rm --cask [cask]```
 
-**Force removal** of all installed versions
+**强制移除**所有已安装的版本
 
 ```brew rm --force [formula]```
 
-**Remove with zap** (thorough cask removal including preferences and caches)
+**带 zap 移除**（彻底移除 cask，包括偏好设置和缓存）
 
 ```brew rm --zap --cask [cask]```
 
-**Remove multiple formulae**
+移除多个 formula
 
 ```brew rm [formula1] [formula2] [formula3]```
 
-**Dry run** to see what would be removed
+**预演**将要移除的内容
 
 ```brew rm --dry-run [formula]```
 
@@ -35,38 +35,38 @@ Remove an installed Homebrew package
 # PARAMETERS
 
 **--cask**
-> Treat all named arguments as casks.
+> 将所有命名参数视为 cask。
 
 **--formula**
-> Treat all named arguments as formulae.
+> 将所有命名参数视为 formula。
 
 **-f**, **--force**
-> Delete all installed versions of a formula. For casks, also remove even if the cask is not installed.
+> 删除 formula 的所有已安装版本。对 cask 而言，即使未安装也一并移除。
 
 **--zap**
-> Remove all files associated with a cask, including preferences, caches, and other shared resources. Use with caution.
+> 移除与 cask 关联的所有文件，包括偏好设置、缓存和其他共享资源。请谨慎使用。
 
 **--ignore-dependencies**
-> Do not fail uninstall even if dependent formulae still exist.
+> 即使仍存在依赖它的 formula，卸载也不报错。
 
 **-n**, **--dry-run**
-> Show what would be removed without actually removing anything.
+> 只显示将移除的内容，不实际移除任何东西。
 
 **-d**, **--debug**
-> Display any debugging information.
+> 显示调试信息。
 
 **-v**, **--verbose**
-> Make some output more verbose.
+> 让部分输出更详细。
 
 # DESCRIPTION
 
-**brew rm** is an alias for **brew uninstall** and **brew remove**. It uninstalls a formula or cask from the system.
+**brew rm** 是 **brew uninstall** 和 **brew remove** 的别名。它从系统中卸载一个 formula 或 cask。
 
-All three commands (**rm**, **remove**, **uninstall**) are functionally identical. Removing a formula does not automatically remove its unused dependencies; use **brew autoremove** to clean those up.
+这三个命令（**rm**、**remove**、**uninstall**）在功能上完全相同。移除 formula 并不会自动移除其不再使用的依赖；请使用 **brew autoremove** 进行清理。
 
 # CAVEATS
 
-Removing a formula that other installed formulae depend on will fail unless **--ignore-dependencies** is used. The **--zap** option may remove shared resources used by other applications. Keg-only formulae unlinked from the prefix are still removed.
+如果其他已安装 formula 依赖于待移除的 formula，移除将失败，除非使用 **--ignore-dependencies**。**--zap** 选项可能移除其他应用使用的共享资源。已从 prefix 取消链接的 keg-only formula 同样会被移除。
 
 # SEE ALSO
 

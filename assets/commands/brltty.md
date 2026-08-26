@@ -1,38 +1,38 @@
 # TAGLINE
 
-Braille display daemon for console access
+供控制台访问使用的盲文显示守护进程
 
 # TLDR
 
-**Start brltty daemon**
+**启动 brltty 守护进程**
 
 ```brltty```
 
-**Start with specific braille driver**
+使用指定的盲文驱动启动
 
 ```brltty -b [driver]```
 
-**Start with specific device**
+使用指定设备启动
 
 ```brltty -d [usb:]```
 
-**Run in foreground (no daemon)**
+在前台运行（非守护进程）
 
 ```brltty -n```
 
-**Use specific text table**
+使用指定的文本表
 
 ```brltty -t [en-us-g2]```
 
-**Enable speech support**
+启用语音支持
 
 ```brltty -e```
 
-**Set verbosity level**
+设置详细程度
 
 ```brltty -v [5]```
 
-**Display help**
+显示帮助
 
 ```brltty -h```
 
@@ -42,55 +42,55 @@ Braille display daemon for console access
 
 # DESCRIPTION
 
-**brltty** is a background daemon that provides access to the Linux/Unix console for blind users via refreshable braille displays. It drives the braille display and provides complete screen review functionality with some speech capability.
+**brltty** 是一个后台守护进程，通过可刷新盲文显示器为视障用户提供对 Linux/Unix 控制台的访问。它驱动盲文显示器，提供完整的屏幕阅读功能，并具备部分语音能力。
 
-The daemon supports connections via serial port, USB, or Bluetooth and works with dozens of braille display models.
+该守护进程支持串口、USB 或蓝牙连接，兼容数十种型号的盲文显示器。
 
 # PARAMETERS
 
 **-b** _driver_
-> Braille display driver code
+> 盲文显示器驱动代码。
 
 **-d** _device_
-> Device specification (usb:, bluetooth:, serial port)
+> 设备规格（usb:、bluetooth:、串口）。
 
 **-t** _table_
-> Text translation table
+> 文本转换表。
 
 **-c** _table_
-> Contraction table
+> 缩写表。
 
 **-e**
-> Enable speech support
+> 启用语音支持。
 
 **-s** _driver_
-> Speech synthesizer driver
+> 语音合成器驱动。
 
 **-n**
-> Run in foreground (no daemonize)
+> 前台运行（不守护进程化）。
 
 **-f** _file_
-> Configuration file path
+> 配置文件路径。
 
 **-v** _level_
-> Verbosity level (0-9)
+> 详细程度（0-9）。
 
 **-l** _level_
-> Log level
+> 日志级别。
 
 **-V**
-> Print version information
+> 打印版本信息。
 
 **-h**
-> Display help summary
+> 显示帮助摘要。
 
 # CONFIGURATION
 
-Default configuration file is **/etc/brltty.conf**. Text tables are stored in **/etc/brltty/Text/**. The device specification format is **qualifier:data** with defaults of **usb:,bluetooth:**.
+默认配置文件为 **/etc/brltty.conf**。文本表保存在 **/etc/brltty/Text/** 中。设备规格格式为 **qualifier:data**，默认值为 **usb:,bluetooth:**。
 
 # CAVEATS
 
-Must be run as root or with appropriate permissions for device access. The braille display must be connected and powered on before starting. Supports 70+ braille display models from various manufacturers.
+必须以 root 身份或具备相应设备访问权限运行。启动前盲文显示器必须已连接并通电。支持来自多家厂商的 70 多种盲文显示器型号。
 
 # INSTALL
 

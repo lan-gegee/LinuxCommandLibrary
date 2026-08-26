@@ -1,38 +1,38 @@
 # TAGLINE
 
-Watch source files and run Cargo commands on changes
+监视源文件并在变更时运行 Cargo 命令
 
 # TLDR
 
-**Watch and rebuild** on changes
+**监视并在变更时重新构建**
 
 ```cargo watch```
 
-**Watch and run tests**
+**监视并运行测试**
 
 ```cargo watch -x test```
 
-**Watch and run a specific example**
+**监视并运行指定示例**
 
 ```cargo watch -x "run --example [example_name]"```
 
-**Watch and run multiple commands**
+**监视并运行多条命令**
 
 ```cargo watch -x check -x test -x run```
 
-**Watch with clear screen** before each run
+**每次运行前清屏**
 
 ```cargo watch -c```
 
-**Watch specific files or directories**
+**监视特定文件或目录**
 
 ```cargo watch -w [src/] -w [tests/]```
 
-**Ignore specific patterns**
+**忽略特定模式**
 
 ```cargo watch -i "*.txt" -i "target/"```
 
-**Watch with shell command**
+**监视并执行 Shell 命令**
 
 ```cargo watch -s "echo 'Changed!' && cargo build"```
 
@@ -42,65 +42,65 @@ Watch source files and run Cargo commands on changes
 
 # DESCRIPTION
 
-**cargo-watch** is a Cargo subcommand that watches project source files and runs Cargo commands when files change. It provides a convenient development workflow for continuous compilation, testing, or running.
+**cargo-watch** 是一个 Cargo 子命令，用于监视项目源文件，并在文件变更时运行 Cargo 命令。它为持续编译、测试或运行提供了便利的开发工作流。
 
-By default, cargo watch runs `cargo check` on changes. Multiple commands can be chained with `-x` flags and will run in sequence. The tool debounces rapid file changes to avoid excessive rebuilds.
+默认情况下，cargo watch 会在文件变更时运行 `cargo check`。可以用 `-x` 标志串联多条命令，它们将按顺序执行。该工具会对快速的连续文件变更进行去抖处理，以避免过度重建。
 
-It watches all files that Cargo considers part of the project, including src/, tests/, benches/, examples/, and Cargo.toml. Custom watch paths and ignore patterns can be specified.
+它会监视 Cargo 认为属于项目的所有文件，包括 src/、tests/、benches/、examples/ 和 Cargo.toml。也可以自定义监视路径和忽略模式。
 
 # PARAMETERS
 
 **-x** _command_
-> Cargo command to run (default: check).
+> 要运行的 Cargo 命令（默认：check）。
 
 **-s** _command_
-> Shell command to run.
+> 要运行的 Shell 命令。
 
 **-c**, **--clear**
-> Clear screen before each run.
+> 每次运行前清屏。
 
 **-w** _path_
-> Watch specific path (can repeat).
+> 监视特定路径（可重复）。
 
 **-i** _pattern_
-> Ignore files matching pattern.
+> 忽略匹配模式的文件。
 
 **-d** _delay_
-> Debounce delay in seconds.
+> 去抖延迟（秒）。
 
 **--poll**
-> Use polling instead of events.
+> 使用轮询而非事件通知。
 
 **--postpone**
-> Postpone first run until change.
+> 推迟首次运行，直到发生变更。
 
 **-q**, **--quiet**
-> Suppress output from watch itself.
+> 抑制 watch 自身的输出。
 
 **--no-gitignore**
-> Don't use .gitignore patterns.
+> 不使用 .gitignore 模式。
 
 **--why**
-> Show which file triggered the run.
+> 显示是哪个文件触发了本次运行。
 
 **-B** _cmd_
-> Run command before watched command.
+> 在被监视的命令之前先运行某命令。
 
 **-N**
-> Send desktop notification on finish.
+> 结束时发送桌面通知。
 
 # CONFIGURATION
 
 **.ignore**
-> Project-level ignore patterns for watched files (uses gitignore syntax).
+> 项目级的被监视文件忽略模式（采用 gitignore 语法）。
 
 # CAVEATS
 
-Requires installation via `cargo install cargo-watch`. File system events may not work in all environments (use --poll as fallback). Rapid consecutive saves may be debounced into single runs. Large projects may benefit from increased debounce delay.
+需要通过 `cargo install cargo-watch` 安装。并非所有环境都支持文件系统事件（可退回使用 --poll）。快速连续保存可能被去抖为单次运行。大型项目可适当增大去抖延迟。
 
 # HISTORY
 
-**cargo-watch** was created by **Félix Saparelli** (passcod) in **2015** to provide file watching functionality for Rust development. It built upon the notify crate for cross-platform file system events. The tool has become a standard part of many Rust developers' workflows, inspired by similar tools in other ecosystems like nodemon for Node.js.
+**cargo-watch** 由 **Félix Saparelli**（passcod）于 **2015** 年创建，旨在为 Rust 开发提供文件监视功能。它基于 notify crate 实现跨平台文件系统事件。受 Node.js 的 nodemon 等其他生态中类似工具的启发，该工具已成为许多 Rust 开发者工作流的标准组成部分。
 
 # INSTALL
 

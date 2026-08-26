@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage shell key bindings in Zsh and tcsh
+在 Zsh 和 tcsh 中管理 shell 按键绑定
 
 # TLDR
 
-**List all current key bindings**
+**列出当前所有按键绑定**
 
 ```bindkey```
 
-**List bindings in a format suitable for .zshrc**
+**以适合写入 .zshrc 的格式列出绑定**
 
 ```bindkey -L```
 
-**Use Emacs key bindings**
+**使用 Emacs 按键绑定**
 
 ```bindkey -e```
 
-**Use Vi key bindings**
+**使用 Vi 按键绑定**
 
 ```bindkey -v```
 
-**Bind a key sequence to a ZLE widget**
+**将按键序列绑定到 ZLE widget**
 
 ```bindkey '^[[H' beginning-of-line```
 
-**Bind a key sequence to a string**
+**将按键序列绑定到字符串**
 
 ```bindkey -s '^T' 'uptime\n'```
 
-**Remove a key binding**
+**移除一个按键绑定**
 
 ```bindkey -r '^l'```
 
@@ -38,53 +38,53 @@ Manage shell key bindings in Zsh and tcsh
 
 # DESCRIPTION
 
-**bindkey** is a builtin command in Zsh and tcsh shells for managing key bindings. In Zsh, it controls the Zsh Line Editor (ZLE), allowing users to map key sequences to editor widgets or macros. In tcsh, it provides similar functionality for customizing keyboard behavior.
+**bindkey** 是 Zsh 和 tcsh 中用于管理按键绑定的内建命令。在 Zsh 中，它控制 Zsh 行编辑器（ZLE），允许用户将按键序列映射到编辑器 widget 或宏。在 tcsh 中，它提供类似的功能来自定义键盘行为。
 
-Key bindings determine how the shell responds to keyboard input during command-line editing. By default, shells typically use Emacs-style bindings, but Vi-style bindings are also available.
+按键绑定决定了命令行编辑期间 Shell 对键盘输入的响应方式。默认情况下 Shell 通常使用 Emacs 风格的绑定，但也提供 Vi 风格绑定。
 
-To discover a key's escape sequence, press **Ctrl+v** followed by the key at the command line.
+要查看某个键的转义序列，可在命令行先按 **Ctrl+v** 再按该键。
 
 # PARAMETERS
 
 **-e**
-> Select Emacs key bindings (default keymap)
+> 选择 Emacs 按键绑定（默认 keymap）
 
 **-v**
-> Select Vi key bindings, starting in insert mode
+> 选择 Vi 按键绑定，从插入模式开始
 
 **-L**
-> List bindings as bindkey commands suitable for .zshrc
+> 以适合写入 .zshrc 的 bindkey 命令形式列出绑定
 
 **-l**
-> List available keymap names
+> 列出可用的 keymap 名称
 
 **-M** _keymap_
-> Specify keymap for binding operations (emacs, viins, vicmd)
+> 为绑定操作指定 keymap（emacs、viins、vicmd）
 
 **-s**
-> Bind key to a string instead of a widget
+> 将键绑定到字符串而不是 widget
 
 **-r** _key_
-> Remove binding for the specified key
+> 移除指定键的绑定
 
 **-p**
-> List bindings for prefix keys
+> 列出前缀键的绑定
 
 **-N** _newkeymap_ [_oldkeymap_]
-> Create a new keymap, optionally copying an existing one
+> 创建新的 keymap，可选择复制现有的一个
 
 **-A** _oldkeymap_ _newkeymap_
-> Create an alias _newkeymap_ that points to _oldkeymap_
+> 创建指向 _oldkeymap_ 的别名 _newkeymap_
 
 # CAVEATS
 
-Key sequences vary between terminal emulators. Test bindings in your specific terminal environment. Function keys and special keys like Home/End may have different escape sequences depending on the terminal.
+按键序列因终端模拟器而异。请在你的具体终端环境中测试绑定。功能键和 Home/End 等特殊键可能因终端不同而具有不同的转义序列。
 
-In Zsh, **bindkey** operates on keymaps. The active keymap depends on the current editing mode (Emacs vs Vi). Changes to one keymap do not affect others.
+在 Zsh 中，**bindkey** 作用于各个 keymap。活动 keymap 取决于当前的编辑模式（Emacs 还是 Vi）。对一个 keymap 的修改不会影响其他 keymap。
 
 # HISTORY
 
-The bindkey command originated in **tcsh** (TENEX C Shell) and was later adopted by **Zsh** with enhanced functionality through the Zsh Line Editor. Zsh's implementation provides more extensive customization options including multiple keymaps and user-defined widgets.
+bindkey 命令起源于 **tcsh**（TENEX C Shell），后来被 **Zsh** 借鉴并借助 Zsh 行编辑器增强了功能。Zsh 的实现提供了更丰富的自定义选项，包括多个 keymap 和用户自定义 widget。
 
 # SEE ALSO
 

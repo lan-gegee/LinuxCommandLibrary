@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove symbolic package links created by bun link
+移除 bun link 创建的软件包符号链接
 
 # TLDR
 
-**Unregister the current package** from the global link registry
+**从全局链接注册表中注销当前软件包**
 
 ```bun unlink```
 
-**Unlink a specific package** from the current project
+**从当前项目中取消链接特定软件包**
 
 ```bun unlink [package-name]```
 
@@ -18,9 +18,9 @@ Remove symbolic package links created by bun link
 
 # DESCRIPTION
 
-**bun unlink** removes symbolic links created by **bun link**. When run without arguments in a package directory, it unregisters the package from the global link registry. When run with a package name, it removes the symlink from the current project's node_modules.
+**bun unlink** 移除由 **bun link** 创建的符号链接。在软件包目录中不带参数运行时，它会从全局链接注册表中注销该软件包。带上软件包名称运行时，它会从当前项目的 node_modules 中移除该符号链接。
 
-This is the reverse of the `bun link` workflow used during local package development.
+这是本地软件包开发中 `bun link` 工作流的逆操作。
 
 # INSTALL
 

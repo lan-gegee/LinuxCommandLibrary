@@ -1,30 +1,30 @@
 # TAGLINE
 
-Browser automation CLI built for AI agents
+面向 AI 智能体打造的浏览器自动化 CLI
 
 # TLDR
 
-**Extract** content from a protected page (stealth)
+从受保护的页面**提取**内容（隐蔽模式）
 
 ```browser-act stealth-extract [https://example.com]```
 
-Open a page in a **session**
+在**会话**中打开页面
 
 ```browser-act --session [my-task] browser open [id] [https://example.com]```
 
-Read **indexed** page state
+读取带**索引**的页面状态
 
 ```browser-act --session [my-task] state```
 
-**Click** by element index
+按元素索引**点击**
 
 ```browser-act --session [my-task] click [3]```
 
-**Type** into a field by index
+按索引向输入框**输入文字**
 
 ```browser-act --session [my-task] input [2] "[text]"```
 
-Load agent **skills** snapshot
+加载智能体**技能**快照
 
 ```browser-act get-skills core --skill-version [2.0.2]```
 
@@ -35,45 +35,45 @@ Load agent **skills** snapshot
 # PARAMETERS
 
 **--session** _name_
-> Named session for multi-task isolation and concurrency
+> 命名会话，用于多任务隔离和并发执行。
 
 **stealth-extract** _url_
-> One-shot fetch of protected page content with stealth mode
+> 以隐蔽模式一次性抓取受保护页面的内容。
 
 **browser open** _id_ _url_
-> Open a URL in a browser instance
+> 在浏览器实例中打开 URL。
 
 **state**
-> Return indexed interactive elements (token-efficient for LLMs)
+> 返回带索引的可交互元素列表（对 LLM 而言更省 token）。
 
 **click** _index_
-> Click the element at the given index from `state`
+> 点击 `state` 中给定索引处的元素。
 
 **input** _index_ _text_
-> Type into the element at the given index
+> 向给定索引处的元素输入文字。
 
 **solve-captcha**
-> Auto-solve CAPTCHA challenges when available
+> 在可用时自动解决 CAPTCHA 验证码。
 
 **remote-assist**
-> Generate a live URL for human takeover, then resume the agent
+> 生成一个实时 URL 供人工接管，然后恢复智能体运行。
 
 **get-skills**
-> Return environment state, browser list, and available commands for agents
+> 返回环境状态、浏览器列表以及可供智能体使用的命令。
 
 # DESCRIPTION
 
-**browser-act** is a browser automation command-line tool designed for AI coding agents. It emphasizes anti-bot resilience (fingerprints, proxies, CAPTCHA helpers), multi-session concurrency without cookie cross-talk, and compact indexed text output so models can click `3` instead of parsing HTML.
+**browser-act** 是一款专为 AI 编程智能体设计的浏览器自动化命令行工具。它强调抗反爬能力（指纹、代理、CAPTCHA 辅助）、多会话并发且互不串 cookie，并输出紧凑的带索引文本，让模型只需点击 `3` 而不必解析 HTML。
 
-Modes include reusing local Chrome login state, stealth privacy sessions (fresh fingerprint), and fixed-identity stealth for multi-account workflows. Sensitive operations can require confirmation gating at the skill layer.
+其模式包括复用本地 Chrome 登录态、隐蔽隐私会话（全新指纹），以及适用于多账户工作流的固定身份隐蔽模式。敏感操作可在技能层要求确认把关。
 
 # CAVEATS
 
-Full install is agent-oriented (skill packages from the BrowserAct skills repo). Some stealth/proxy features need a free login or paid plan. Automating third-party sites may violate their terms of service—use responsibly.
+完整安装面向智能体设计（技能包来自 BrowserAct skills 仓库）。部分隐蔽/代理功能需要免费登录或付费方案。自动化第三方网站可能违反其服务条款——请负责任地使用。
 
 # HISTORY
 
-Open-source **BrowserAct Skills** project providing a browser layer for agentic tooling on Windows, macOS, and Linux.
+开源的 **BrowserAct Skills** 项目，为 Windows、macOS 和 Linux 上的智能体工具链提供浏览器层。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-View bzip2 compressed files with more pager
+使用 more 分页器查看 bzip2 压缩文件
 
 # TLDR
 
-**View** compressed file
+**查看**压缩文件
 
 ```bzmore [file.txt.bz2]```
 
@@ -14,23 +14,23 @@ View bzip2 compressed files with more pager
 
 # DESCRIPTION
 
-**bzmore** is a filter for viewing bzip2-compressed files page by page using the more pager. It decompresses files and displays them with basic paging functionality.
+**bzmore** 是一个用于逐页查看 bzip2 压缩文件的过滤器，基于 more 分页器。它会解压文件并以基本的分页功能显示内容。
 
-The tool is similar to bzless but uses the simpler more pager.
+该工具与 bzless 类似，但使用更简单的 more 分页器。
 
 # FEATURES
 
-- Page-by-page viewing
-- Basic search
-- Original file preserved
-- Multiple file support
+- 逐页查看
+- 基本搜索
+- 保留原始文件
+- 支持多个文件
 
 # KEYBINDINGS
 
-- **Space** - Next page
-- **/pattern** - Search
-- **q** - Quit
-- **h** - Help
+- **Space** - 下一页
+- **/pattern** - 搜索
+- **q** - 退出
+- **h** - 帮助
 
 # WORKFLOW
 
@@ -44,11 +44,11 @@ bzmore *.bz2
 
 # CAVEATS
 
-Less feature-rich than bzless. No backward navigation. Limited search capabilities. Consider using bzless instead for better functionality.
+功能不如 bzless 丰富。无法向后翻页。搜索能力有限。建议改用功能更好的 bzless。
 
 # HISTORY
 
-**bzmore** has been part of bzip2 utilities since **1996**, modeled after zmore.
+**bzmore** 自 **1996** 年起就是 bzip2 工具集的一部分，仿照 zmore 设计。
 
 # INSTALL
 

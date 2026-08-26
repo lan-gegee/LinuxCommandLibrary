@@ -1,30 +1,30 @@
 # TAGLINE
 
-Flash disk images efficiently using block maps
+使用块映射高效地写入磁盘镜像
 
 # TLDR
 
-**Copy an image to a device** using bmap
+使用 bmap **将镜像复制到设备**
 
 ```sudo bmaptool copy [image.img] [/dev/sdX]```
 
-**Copy a compressed image**
+**复制压缩镜像**
 
 ```sudo bmaptool copy [image.img.xz] [/dev/sdX]```
 
-**Copy with explicit bmap file**
+**显式指定 bmap 文件进行复制**
 
 ```sudo bmaptool copy --bmap [image.bmap] [image.img] [/dev/sdX]```
 
-**Copy without bmap** (falls back to dd-like behavior)
+**不使用 bmap 复制**（退化为类似 dd 的行为）
 
 ```sudo bmaptool copy --nobmap [image.img] [/dev/sdX]```
 
-**Create a bmap file** for an image
+为镜像**创建 bmap 文件**
 
 ```bmaptool create -o [image.bmap] [image.img]```
 
-**Copy from a URL**
+**从 URL 复制**
 
 ```sudo bmaptool copy [https://example.com/image.img.xz] [/dev/sdX]```
 
@@ -34,42 +34,42 @@ Flash disk images efficiently using block maps
 
 # DESCRIPTION
 
-**bmaptool** is a utility for creating block maps (bmap) and copying images to block devices efficiently. It only writes data blocks, skipping empty or zero-filled areas, making it significantly faster than **dd** for sparse images.
+**bmaptool** 是一个用于创建块映射（bmap）并高效地将镜像复制到块设备的实用工具。它只写入实际的数据块，跳过空白或全零区域，因此在处理稀疏镜像时比 **dd** 快得多。
 
-The tool provides integrity verification using SHA256 checksums and includes safety features to prevent accidental writes to mounted devices. It supports compressed images and can decompress on-the-fly during copy operations.
+该工具使用 SHA256 校验和提供完整性验证，并包含防止意外写入已挂载设备的安全机制。它支持压缩镜像，可在复制过程中即时解压。
 
 # SUBCOMMANDS
 
 **copy**
-> Copy an image file to a block device using bmap
+> 使用 bmap 将镜像文件复制到块设备。
 
 **create**
-> Generate a bmap file for an image
+> 为镜像生成 bmap 文件。
 
 # PARAMETERS
 
 **--bmap** _file_
-> Path to the bmap file (auto-detected if not specified)
+> bmap 文件的路径（未指定时自动检测）。
 
 **--nobmap**
-> Copy without using bmap (entire image is written)
+> 不使用 bmap 进行复制（整个镜像都会被写入）。
 
 **-o, --output** _file_
-> Output file for create command
+> create 命令的输出文件。
 
 **--no-verify**
-> Skip SHA256 checksum verification
+> 跳过 SHA256 校验和验证。
 
 **--no-sig-verify**
-> Skip OpenPGP signature verification
+> 跳过 OpenPGP 签名验证。
 
 # CAVEATS
 
-Requires root privileges for writing to block devices. The bmap file must match the image file; mismatches cause verification failures. Protection mechanisms prevent writing to mounted devices. Without a bmap file, the tool falls back to copying the entire image like dd.
+写入块设备需要 root 权限。bmap 文件必须与镜像文件匹配；不匹配会导致验证失败。保护机制会阻止向已挂载的设备写入。没有 bmap 文件时，该工具会退化为像 dd 一样复制整个镜像。
 
 # HISTORY
 
-bmaptool was originally developed by **Intel** for efficient embedded Linux image deployment, addressing the slow and unsafe nature of using **dd** for flashing large disk images, particularly those with significant empty space. The project moved to the **Yocto Project** in **2024**; the original Intel repository is now archived.
+bmaptool 最初由 **Intel** 开发，用于高效的嵌入式 Linux 镜像部署，解决了使用 **dd** 刷写大型磁盘镜像（尤其是包含大量空白区域的镜像）时速度慢且不安全的问题。该项目于 **2024 年**移交至 **Yocto Project**；Intel 的原始仓库现已归档。
 
 # INSTALL
 

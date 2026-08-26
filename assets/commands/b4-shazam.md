@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fetch a patch series and apply it to the current branch
+获取补丁系列并应用到当前分支
 
 # TLDR
 
-**Fetch and apply** a series to the current branch
+**获取系列并应用**到当前分支
 
 ```b4 shazam [message-id]```
 
-**Apply** from an archive URL
+**从归档 URL 应用**
 
 ```b4 shazam [https://lore.kernel.org/.../message-id]```
 
-**Merge the series** instead of applying it linearly
+**以合并方式引入系列**，而不是线性应用
 
 ```b4 shazam -M [message-id]```
 
-**Create a FETCH_HEAD** so you can merge or cherry-pick manually
+**创建 FETCH_HEAD**，以便之后手动 merge 或 cherry-pick
 
 ```b4 shazam -H [message-id]```
 
-**Apply review trailers** from the cover-letter replies
+**应用来自 cover letter 回复的评审 trailer**
 
 ```b4 shazam -t [message-id]```
 
@@ -30,39 +30,39 @@ Fetch a patch series and apply it to the current branch
 
 # DESCRIPTION
 
-**b4 shazam** does everything **b4 am** does (retrieve the thread, pick the latest revision, gather review trailers) and then applies the resulting series directly to the current git branch with **git am**. It is the one-step path from a message-id to applied commits in your working tree.
+**b4 shazam** 会完成 **b4 am** 所做的一切（取回线程、挑选最新修订版、收集评审 trailer），然后用 **git am** 将得到的系列直接应用到当前的 git 分支上。它是从 message-id 到工作区中已应用提交的一条龙路径。
 
-With **-M** the series is brought in as a merge, and with **-H** b4 prepares a FETCH_HEAD so you can decide how to integrate it yourself. The name is a nod to retrieving and "playing" a patch series in a single command.
+使用 **-M** 时，系列会以合并方式引入；使用 **-H** 时，b4 会准备一个 FETCH_HEAD，让你自行决定如何集成。这个名字意在致敬"用一条命令取回并'播放'补丁系列"。
 
 # PARAMETERS
 
 **-H**, **--make-fetch-head**
-> Apply the series to a throwaway ref and point FETCH_HEAD at it, so you can merge or cherry-pick manually.
+> 先将系列应用到一个临时 ref 并让 FETCH_HEAD 指向它，方便你随后手动 merge 或 cherry-pick。
 
 **-M**, **--merge**
-> Integrate the series as a merge commit instead of a linear **git am**.
+> 以合并提交的方式引入系列，而不是线性地执行 **git am**。
 
 **-v** _VER_, **--use-version** _VER_
-> Apply a specific revision of the series.
+> 应用该系列的特定修订版。
 
 **-t**, **--apply-cover-trailers**
-> Apply trailers found on the cover letter to every patch.
+> 将 cover letter 上发现的 trailer 应用到每个补丁。
 
 **-l**, **--add-link**
-> Add a Link trailer with the archive URL of each message.
+> 为每条消息添加包含其归档 URL 的 Link trailer。
 
 **-s**, **--add-my-sob**
-> Add your own Signed-off-by trailer to each patch.
+> 为每个补丁添加你自己的 Signed-off-by trailer。
 
 **-P** _RANGE_, **--cherry-pick** _RANGE_
-> Apply only a subset of patches from the series.
+> 只应用系列中的一个补丁子集。
 
 **-m** _MBOX_, **--use-local-mbox** _MBOX_
-> Read the thread from a local mbox file instead of fetching it.
+> 从本地 mbox 文件读取线程，而不是联网获取。
 
 # CAVEATS
 
-The series is applied to whatever branch is currently checked out, so make sure you are on the intended base commit before running it. b4 tries to find the right base, but a mismatched tree can still cause **git am** conflicts.
+系列会被应用到当前检出（checkout）的分支上，因此运行前请确保自己位于预期的基准提交。b4 会尽力找到正确的基础，但代码树不匹配时仍可能出现 **git am** 冲突。
 
 # INSTALL
 

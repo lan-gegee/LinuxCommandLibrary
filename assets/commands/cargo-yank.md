@@ -1,22 +1,22 @@
 # TAGLINE
 
-remove a pushed crate version from the registry
+从注册表中撤回（yank）已推送的 crate 版本
 
 # TLDR
 
-**Yank version from registry**
+**从注册表撤回某版本**
 
 ```cargo yank [crate@1.0.0]```
 
-**Yank with version flag**
+**使用版本标志撤回**
 
 ```cargo yank --version [1.0.0] [crate]```
 
-**Undo yank**
+**撤销撤回**
 
 ```cargo yank --undo [crate@1.0.0]```
 
-**Yank from alternate registry**
+**从其他注册表撤回**
 
 ```cargo yank --registry [my-registry] [crate@1.0.0]```
 
@@ -27,60 +27,60 @@ remove a pushed crate version from the registry
 
 # DESCRIPTION
 
-**cargo yank** marks a crate version as yanked on the registry. Yanked versions cannot be used as new dependencies but existing Cargo.lock files continue to work. Does not delete data.
+**cargo yank** 在注册表上将某个 crate 版本标记为已撤回。被撤回的版本不能作为新依赖使用，但已有的 Cargo.lock 文件仍可继续工作。它不会删除数据。
 
-Requires authentication via cargo login.
+需要先通过 cargo login 进行身份验证。
 
 # PARAMETERS
 
 **--version** _version_
-> Version to yank
+> 要撤回的版本
 
 **--undo**
-> Restore yanked version
+> 恢复被撤回的版本
 
 **--registry** _name_
-> Target registry
+> 目标注册表
 
 **--index** _url_
-> Registry index URL
+> 注册表索引 URL
 
 **--token** _token_
-> API token
+> API 令牌
 
 **-h**, **--help**
-> Print help information
+> 打印帮助信息
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 **--color** _WHEN_
-> Coloring: auto, always, never
+> 着色：auto、always、never
 
 # BEHAVIOR
 
-**Yanked versions**
-- Cannot be added as new dependencies
-- Existing Cargo.lock references still work
-- Not deleted from registry
+**被撤回的版本**
+- 不能作为新依赖添加
+- 已有 Cargo.lock 中的引用仍然有效
+- 不会从注册表中删除
 
 # WHEN TO YANK
 
-- Accidental publish
-- Unintentional semver breakage
-- Significantly broken functionality
-- Security issues (consider RustSec instead)
+- 意外发布
+- 无意的语义化版本破坏
+- 功能严重损坏
+- 安全问题（建议改用 RustSec）
 
 # BEST PRACTICE
 
-Publish a fixed version (e.g., 1.5.1) before yanking the broken version (1.5.0).
+在撤回损坏版本（1.5.0）之前，先发布修复后的版本（例如 1.5.1）。
 
 # CAVEATS
 
-crates.io is a permanent archive; yanking marks version unavailable but doesn't delete. For security issues, RustSec advisories are less disruptive.
+crates.io 是永久归档；撤回只是将版本标记为不可用，并不会删除。对于安全问题，RustSec 公告的影响更小。
 
 # INSTALL
 

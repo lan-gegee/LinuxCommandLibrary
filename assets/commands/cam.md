@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interact with cameras via libcamera
+通过 libcamera 与摄像头交互
 
 # TLDR
 
-**List** available cameras
+**列出**可用摄像头
 
 ```cam -l```
 
-List **controls** of a camera
+列出摄像头的**控制项**
 
 ```cam -c [camera_index] --list-controls```
 
-**Capture frames** to files
+将帧**捕获**到文件
 
 ```cam -c [camera_index] --capture=[frames] --file```
 
-Display camera feed in a **window**
+在**窗口**中显示摄像头画面
 
 ```cam -c [camera_index] --capture --sdl```
 
@@ -26,42 +26,42 @@ Display camera feed in a **window**
 
 # DESCRIPTION
 
-**cam** is a command-line tool for interacting with cameras through the libcamera framework. It can list cameras, display their controls, capture frames, and show live video in a window.
+**cam** 是一个通过 libcamera 框架与摄像头交互的命令行工具。它可以列出摄像头、显示其控制项、捕获帧，并在窗口中显示实时视频。
 
-libcamera provides a modern camera stack for Linux, replacing older V4L2-only approaches with a more flexible architecture.
+libcamera 为 Linux 提供了现代的摄像头栈，用更灵活的架构取代了仅依赖 V4L2 的旧方案。
 
 # PARAMETERS
 
 **-l, --list**
-> List available cameras
+> 列出可用摄像头
 
 **-c, --camera** _index_
-> Select camera by index
+> 按索引选择摄像头
 
 **--list-controls**
-> Show camera controls
+> 显示摄像头控制项
 
 **--capture** [_frames_]
-> Capture specified number of frames (0 for unlimited)
+> 捕获指定数量的帧（0 表示不限制）
 
 **--file**
-> Write captured frames to files
+> 将捕获的帧写入文件
 
 **--sdl**
-> Display video in SDL window
+> 在 SDL 窗口中显示视频
 
 **--list-properties**
-> Show camera properties
+> 显示摄像头属性
 
 **--stream** _config_
-> Configure stream parameters (e.g. width, height, pixelformat, role)
+> 配置流参数（如 width、height、pixelformat、role）
 
 **--monitor**
-> Monitor for camera hotplug and removal events
+> 监视摄像头的热插拔和移除事件
 
 # CAVEATS
 
-Requires libcamera support, which may not be available for all cameras. Some cameras work better with direct V4L2 access.
+需要 libcamera 支持，并非所有摄像头都可用。某些摄像头使用直接的 V4L2 访问效果更好。
 
 # INSTALL
 

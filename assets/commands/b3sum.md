@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compute and verify BLAKE3 cryptographic checksums.
+计算并校验 BLAKE3 加密校验和。
 
 # TLDR
 
-**Calculate** BLAKE3 checksum
+**计算** BLAKE3 校验和
 
 ```b3sum [file]```
 
-**Verify** checksums
+**校验**校验和
 
 ```b3sum -c [checksums.b3]```
 
-Calculate from **stdin**
+从 **stdin** 计算
 
 ```echo "data" | b3sum```
 
-**Multiple files**
+**多个文件**
 
 ```b3sum [file1] [file2] [file3]```
 
-Generate a **keyed hash** (32-byte key read from stdin)
+生成**带密钥的哈希**（从 stdin 读取 32 字节密钥）
 
 ```b3sum --keyed [file] < [keyfile]```
 
-**Derive a key** from a context string
+从上下文字符串**派生密钥**
 
 ```b3sum --derive-key "[app 2026-06-19 context]" [file]```
 
@@ -34,53 +34,53 @@ Generate a **keyed hash** (32-byte key read from stdin)
 
 # DESCRIPTION
 
-**b3sum** computes BLAKE3 cryptographic checksums. BLAKE3 is significantly faster than BLAKE2, MD5, SHA-1, and SHA-2, while maintaining high security. It's optimized for parallelism and can fully utilize modern CPU capabilities.
+**b3sum** 计算 BLAKE3 加密校验和。BLAKE3 明显快于 BLAKE2、MD5、SHA-1 和 SHA-2，同时保持很高的安全性。它针对并行化做了优化，能够充分利用现代 CPU 的能力。
 
-The tool provides similar interface to md5sum and sha256sum but with much better performance.
+该工具提供与 md5sum 和 sha256sum 类似的接口，但性能要好得多。
 
 # PARAMETERS
 
 **-c**, **--check**
-> Read BLAKE3 sums from the file(s) and verify them.
+> 从文件读取 BLAKE3 校验和并进行校验。
 
 **--keyed**
-> Keyed hashing mode; reads a 32-byte key from stdin.
+> 带密钥哈希模式；从 stdin 读取 32 字节密钥。
 
 **--derive-key** _context_
-> Key derivation mode using the given context string.
+> 密钥派生模式，使用给定的上下文字符串。
 
 **-l**, **--length** _bytes_
-> Output length in bytes before hex encoding (default: 32).
+> 十六进制编码之前的输出长度（字节）（默认：32）。
 
 **--seek** _offset_
-> Start output at the given byte offset (default: 0).
+> 从给定的字节偏移开始输出（默认：0）。
 
 **--num-threads** _n_
-> Maximum number of threads to use.
+> 可使用的最大线程数。
 
 **--no-mmap**
-> Disable memory mapping of input files.
+> 禁用对输入文件的内存映射。
 
 **--no-names**
-> Omit filenames; output the hash only.
+> 省略文件名，仅输出哈希值。
 
 **--raw**
-> Write the raw hash bytes to stdout instead of hex (single input only).
+> 将原始哈希字节而不是十六进制写入 stdout（仅限单个输入）。
 
 **--tag**
-> Produce BSD-style checksum lines.
+> 输出 BSD 风格的校验和行。
 
 **--quiet**
-> When verifying, do not print OK for each successfully verified file.
+> 校验时，不为每个成功校验的文件打印 OK。
 
 # FEATURES
 
-- Extremely fast (GBs per second)
-- Parallel processing
-- Unlimited output length
-- Tree hashing for verification
-- Keyed mode for authentication
-- Deterministic output
+- 极快（每秒可达数 GB）
+- 并行处理
+- 输出长度不受限制
+- 用于完整性校验的树形哈希
+- 用于身份验证的带密钥模式
+- 输出具有确定性
 
 # WORKFLOW
 
@@ -100,11 +100,11 @@ b3sum --num-threads 8 hugefile.bin
 
 # CAVEATS
 
-Relatively new algorithm (2020). Less widely adopted than SHA-256. Not suitable for password hashing (use argon2 instead). Requires recent software versions.
+算法相对较新（2020 年）。采用程度不如 SHA-256 广泛。不适合用于密码哈希（请改用 argon2）。需要较新的软件版本。
 
 # HISTORY
 
-**b3sum** was released in **2020** alongside the BLAKE3 specification, created by Jack O'Connor and Samuel Neves as an evolution of BLAKE2 optimized for speed and parallelism.
+**b3sum** 于 **2020** 年随 BLAKE3 规范一同发布，由 Jack O'Connor 和 Samuel Neves 开发，是 BLAKE2 的演进版本，针对速度和并行化做了优化。
 
 # INSTALL
 

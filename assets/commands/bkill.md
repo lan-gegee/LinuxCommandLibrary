@@ -1,38 +1,38 @@
 # TAGLINE
 
-Kill LSF batch jobs
+终止 LSF 批处理作业
 
 # TLDR
 
-**Kill a specific job**
+**终止特定作业**
 
 ```bkill [job_id]```
 
-**Kill all your jobs**
+**终止你的所有作业**
 
 ```bkill 0```
 
-**Kill a job by name**
+**按名称终止作业**
 
 ```bkill -J [job_name]```
 
-**Kill jobs in a specific queue**
+**终止特定队列中的作业**
 
 ```bkill -q [queue_name] 0```
 
-**Force kill a job** (no cleanup)
+**强制终止作业**（不执行清理）
 
 ```bkill -r [job_id]```
 
-**Send a specific signal** to a job
+**向作业发送指定信号**
 
 ```bkill -s [SIGTERM] [job_id]```
 
-**Kill jobs matching a pattern**
+**终止匹配某模式的作业**
 
 ```bkill -J "[pattern*]" 0```
 
-**Kill job array elements**
+**终止作业数组的元素**
 
 ```bkill "[job_id][1-10]"```
 
@@ -42,60 +42,60 @@ Kill LSF batch jobs
 
 # DESCRIPTION
 
-**bkill** terminates LSF (Load Sharing Facility) batch jobs. It sends a signal to running jobs or removes pending jobs from the queue. Using job ID 0 targets all of your own jobs.
+**bkill** 终止 LSF（Load Sharing Facility）批处理作业。它向运行中的作业发送信号，或将等待中的作业从队列中移除。使用作业 ID 0 会作用于你自己的所有作业。
 
-For running jobs, bkill first sends SIGINT, waits for a grace period, then sends SIGTERM, and finally SIGKILL if the job doesn't terminate. The -r option skips this sequence and forces immediate removal.
+对于运行中的作业，bkill 先发送 SIGINT，等待一个宽限期，然后发送 SIGTERM，若作业仍未终止则最后发送 SIGKILL。-r 选项会跳过这一序列并强制立即移除。
 
-bkill is part of IBM Spectrum LSF workload management system used in HPC environments.
+bkill 是 IBM Spectrum LSF 工作负载管理系统的一部分，用于 HPC 环境。
 
 # PARAMETERS
 
 **-r**
-> Force removal: remove the job from LSF immediately, mark it EXIT, and release monitored resources. Cannot be combined with **-s**.
+> 强制移除：立即从 LSF 中删除作业、将其标记为 EXIT 并释放受监控的资源。不能与 **-s** 组合使用。
 
 **-s** _signal_
-> Send a specific signal by name or number instead of the default SIGINT/SIGTERM/SIGKILL sequence.
+> 按名称或编号发送指定信号，而非默认的 SIGINT/SIGTERM/SIGKILL 序列。
 
 **-J** _name_
-> Kill jobs matching name or name pattern.
+> 终止名称或名称模式匹配的作业。
 
 **-q** _queue_
-> Kill jobs in specific queue.
+> 终止特定队列中的作业。
 
 **-m** _host_
-> Kill jobs on specific host or host group.
+> 终止特定主机或主机组上的作业。
 
 **-g** _group_
-> Kill jobs in specific job group.
+> 终止特定作业组中的作业。
 
 **-u** _user_
-> Kill jobs for specific user or user group (admin only).
+> 终止特定用户或用户组的作业（仅管理员）。
 
 **-app** _profile_
-> Kill jobs using specific application profile.
+> 终止使用特定应用配置文件的作业。
 
 **-sla** _class_
-> Kill jobs belonging to a specific service class.
+> 终止属于特定服务类的作业。
 
 **-b**
-> Kill jobs quickly; pending jobs are removed immediately without waiting.
+> 快速终止；等待中的作业被立即移除，无需等待。
 
 **-l**
-> Display the signal names supported by bkill on this platform.
+> 显示此平台上 bkill 支持的信号名称。
 
 **-V**
-> Display LSF version information.
+> 显示 LSF 版本信息。
 
 **0**
-> Target all of your jobs (combine with filters to scope by queue, host, etc.).
+> 作用于你所有的作业（可结合过滤器按队列、主机等缩小范围）。
 
 # CAVEATS
 
-Only administrators can kill other users' jobs. Force kill (-r) may leave orphan processes on execution hosts. Killing a job array master kills all elements. Pending jobs are removed immediately without signal sequence. Some jobs may not respond to signals and require force kill.
+只有管理员才能终止其他用户的作业。强制终止（-r）可能在执行主机上留下孤儿进程。终止作业数组的主作业会终止其所有元素。等待中的作业会被立即移除而不经过信号序列。某些作业可能不响应信号而需要强制终止。
 
 # HISTORY
 
-**bkill** is part of **IBM Spectrum LSF**, originally developed by **Platform Computing** in the **early 1990s**. The command follows Unix conventions with signal handling while integrating with the LSF scheduler. Platform Computing was acquired by IBM in **2012**, continuing development of the LSF suite for enterprise HPC workload management.
+**bkill** 是 **IBM Spectrum LSF** 的一部分，最初由 **Platform Computing** 于 **20 世纪 90 年代初**开发。该命令遵循 Unix 的信号处理惯例，同时与 LSF 调度器集成。Platform Computing 于 **2012 年**被 IBM 收购，继续为企业的 HPC 工作负载管理开发 LSF 套件。
 
 # SEE ALSO
 

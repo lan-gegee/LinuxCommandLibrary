@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage Azure Cache for Redis instances
+管理 Azure Cache for Redis 实例
 
 # TLDR
 
-**Create a Redis cache**
+**创建 Redis 缓存**
 
 ```az redis create --name [MyCache] --resource-group [MyResourceGroup] --location [eastus] --sku [Basic] --vm-size [c0]```
 
-**List all Redis caches** in a resource group
+**列出资源组中的所有 Redis 缓存**
 
 ```az redis list --resource-group [MyResourceGroup]```
 
-**Show details** of a Redis cache
+**显示**某个 Redis 缓存的**详情**
 
 ```az redis show --name [MyCache] --resource-group [MyResourceGroup]```
 
-**List access keys**
+**列出访问密钥**
 
 ```az redis list-keys --name [MyCache] --resource-group [MyResourceGroup]```
 
-**Regenerate access keys**
+**重新生成访问密钥**
 
 ```az redis regenerate-keys --name [MyCache] --resource-group [MyResourceGroup] --key-type [Primary]```
 
-**Update cache settings**
+**更新缓存设置**
 
 ```az redis update --name [MyCache] --resource-group [MyResourceGroup] --set redisConfiguration.maxmemory-policy=allkeys-lru```
 
-**Force reboot** specified Redis node(s)
+**强制重启**指定的 Redis 节点
 
 ```az redis force-reboot --name [MyCache] --resource-group [MyResourceGroup] --reboot-type [AllNodes]```
 
-**Flush all keys** in a Redis cache
+清空 Redis 缓存中的**所有键**
 
 ```az redis flush --name [MyCache] --resource-group [MyResourceGroup] --yes```
 
-**Delete a Redis cache**
+**删除 Redis 缓存**
 
 ```az redis delete --name [MyCache] --resource-group [MyResourceGroup] --yes```
 
@@ -47,91 +47,91 @@ Manage Azure Cache for Redis instances
 # SUBCOMMANDS
 
 **create**
-> Create a Redis cache.
+> 创建 Redis 缓存。
 
 **delete**
-> Delete a Redis cache.
+> 删除 Redis 缓存。
 
 **list**
-> List Redis caches.
+> 列出 Redis 缓存。
 
 **show**
-> Get details of a Redis cache.
+> 获取 Redis 缓存的详情。
 
 **update**
-> Update a Redis cache.
+> 更新 Redis 缓存。
 
 **list-keys**
-> Retrieve access keys.
+> 检索访问密钥。
 
 **regenerate-keys**
-> Regenerate access keys.
+> 重新生成访问密钥。
 
 **flush**
-> Delete all keys in a Redis cache.
+> 删除 Redis 缓存中的所有键。
 
 **force-reboot**
-> Reboot specified Redis node(s).
+> 重启指定的 Redis 节点。
 
 **import**
-> Import data into a Redis cache.
+> 向 Redis 缓存导入数据。
 
 **export**
-> Export data from a Redis cache.
+> 从 Redis 缓存导出数据。
 
 **firewall-rules**
-> Manage firewall rules.
+> 管理防火墙规则。
 
 **patch-schedule**
-> Manage patch schedules.
+> 管理修补计划。
 
 **server-link**
-> Manage Redis server links (requires Premium SKU).
+> 管理 Redis 服务器链接（需要 Premium SKU）。
 
 **identity**
-> Manage identity assigned to Azure Cache for Redis.
+> 管理分配给 Azure Cache for Redis 的标识。
 
 **access-policy**
-> Manage access policies for Redis cache.
+> 管理 Redis 缓存的访问策略。
 
 **access-policy-assignment**
-> Manage access policy assignments (Redis users).
+> 管理访问策略分配（Redis 用户）。
 
 # PARAMETERS
 
 **--name** **-n**
-> Name of the Redis cache.
+> Redis 缓存的名称。
 
 **--resource-group** **-g**
-> Name of resource group.
+> 资源组的名称。
 
 **--sku**
-> SKU tier: Basic, Standard, or Premium.
+> SKU 层级：Basic、Standard 或 Premium。
 
 **--vm-size**
-> Size of the Redis cache to deploy. Basic and Standard sizes start with c (c0-c6). Premium sizes start with p (p1-p5).
+> 要部署的 Redis 缓存大小。Basic 和 Standard 大小以 c 开头（c0-c6）。Premium 大小以 p 开头（p1-p5）。
 
 **--location** **-l**
-> Location of the cache.
+> 缓存的位置。
 
 **--minimum-tls-version**
-> Specifies the TLS version required by clients to connect to cache (1.0, 1.1, 1.2).
+> 指定客户端连接缓存所需的 TLS 版本（1.0、1.1、1.2）。
 
 **--redis-version**
-> Redis version in the form 'major[.minor]' or 'latest'. Default value is 'latest'.
+> Redis 版本，格式为 'major[.minor]' 或 'latest'。默认值为 'latest'。
 
 **--yes** **-y**
-> Do not prompt for confirmation (used with delete and flush).
+> 不提示确认（与 delete 和 flush 一起使用）。
 
 # DESCRIPTION
 
-**az redis** manages Azure Cache for Redis, a fully managed in-memory data store based on Redis. It provides low-latency, high-throughput caching for applications.
+**az redis** 管理 Azure Cache for Redis，这是一种基于 Redis 的完全托管内存数据存储。它为应用程序提供低延迟、高吞吐量的缓存。
 
-Available SKUs are Basic (single node), Standard (replicated), and Premium (clustering, persistence, virtual network support).
+可用的 SKU 有 Basic（单节点）、Standard（带副本）和 Premium（支持群集、持久化、虚拟网络）。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated. Cache creation can take several minutes. Premium features like clustering and geo-replication require Premium SKU.
+需要安装 Azure CLI 并已完成身份验证。缓存创建可能需要几分钟。群集和异地复制等 Premium 功能需要 Premium SKU。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Official command-line interface for bunny.net
+bunny.net 官方命令行界面
 
 # TLDR
 
-**Authenticate** the CLI with your bunny.net account
+**认证** CLI 并绑定你的 bunny.net 账户
 
 ```bunny login```
 
-**Deploy** the current project as a Magic Containers app
+**部署**当前项目为 Magic Containers 应用
 
 ```bunny apps deploy```
 
-**List** databases on your account
+**列出**你账户中的数据库
 
 ```bunny db list```
 
-**Install** the CLI via the shell installer
+**通过 shell 安装脚本安装** CLI
 
 ```curl -fsSL https://cli.bunny.net/install.sh | sh```
 
-**Install** the CLI globally via npm
+**通过 npm 全局安装** CLI
 
 ```npm install -g @bunny.net/cli```
 
-**Show** help and list available subcommands
+**显示**帮助并列出可用的子命令
 
 ```bunny --help```
 
@@ -35,37 +35,37 @@ Official command-line interface for bunny.net
 # PARAMETERS
 
 **login**
-> Authenticate the local CLI with a bunny.net account; tokens are stored locally for subsequent commands.
+> 将本地 CLI 与 bunny.net 账户进行认证；令牌会存储在本地供后续命令使用。
 
 **apps deploy**
-> Build and deploy the current project to **Magic Containers**. Automatically provisions infrastructure, scales globally, and routes traffic.
+> 构建当前项目并部署到 **Magic Containers**。自动预置基础设施、全球扩缩容并路由流量。
 
 **db list**
-> List databases (including bunny.net's edge database product) attached to the active account.
+> 列出活跃账户关联的数据库（包括 bunny.net 的边缘数据库产品）。
 
 **--help**, **-h**
-> Print help for the CLI or a specific subcommand.
+> 打印 CLI 或特定子命令的帮助信息。
 
 **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**bunny** is the official command-line client for **bunny.net**, providing terminal access to the platform's developer toolkit: **Magic Containers**, edge databases, storage buckets, edge scripts, DNS zones, and CDN pull zones. It is implemented in **TypeScript** and distributed both as a standalone binary and as the npm package **@bunny.net/cli**.
+**bunny** 是 **bunny.net** 的官方命令行客户端，提供对该平台开发者工具集的终端访问：**Magic Containers**、边缘数据库、存储桶、边缘脚本、DNS 区域和 CDN pull zone。它使用 **TypeScript** 实现，既以独立二进制文件分发，也以 npm 软件包 **@bunny.net/cli** 的形式发布。
 
-The CLI's primary workflows include logging in, deploying applications to Magic Containers (which auto-provisions globally distributed runtimes), and managing supporting resources such as databases. It is part of bunny.net's broader move toward a unified developer experience, alongside the **@bunny.net/api** type-safe SDK and one-click templates.
+该 CLI 的主要工作流包括登录、将应用部署到 Magic Containers（它会自动预置全球分布的运行时），以及管理数据库等配套资源。它是 bunny.net 迈向统一开发者体验的一部分，与之相伴的还有 **@bunny.net/api** 类型安全 SDK 和一键模板。
 
 # CAVEATS
 
-The CLI is comparatively new and still evolving - subcommands and flags may change between releases. **bunny** is the binary name shipped by **BunnyWay/cli**; several unrelated community projects also call themselves "bunny CLI" (for example **own3d/bunny-cli**, **straticus1/bunny-cli**, and **simplesurance/bunny-cli**), each with its own command surface. Confirm which package is installed before troubleshooting.
+该 CLI 相对较新且仍在演进中——子命令和标志可能在版本之间发生变化。**bunny** 是 **BunnyWay/cli** 发布的二进制名称；还有几个不相关的社区项目也称自己为 "bunny CLI"（例如 **own3d/bunny-cli**、**straticus1/bunny-cli** 和 **simplesurance/bunny-cli**），每个都有各自的命令集。在排查问题前请确认安装的是哪个软件包。
 
 # CONFIGURATION
 
-After **bunny login**, credentials are persisted to the user's home directory (typically under **$XDG_CONFIG_HOME/bunny** or **~/.config/bunny**). API tokens used for non-interactive automation can be supplied via environment variables defined per subcommand.
+执行 **bunny login** 后，凭据会被持久化到用户主目录（通常位于 **$XDG_CONFIG_HOME/bunny** 或 **~/.config/bunny** 下）。用于非交互式自动化的 API 令牌可通过各子命令定义的环境变量提供。
 
 # HISTORY
 
-**bunny** is published by **bunny.net** in the **BunnyWay/cli** monorepo on GitHub. It was introduced in **2024** to expose the company's developer platform - in particular the **Magic Containers** product - through a single, scriptable CLI.
+**bunny** 由 **bunny.net** 在 GitHub 的 **BunnyWay/cli** 单体仓库中发布。它于 **2024 年**推出，旨在通过单一的可脚本化 CLI 暴露公司的开发者平台——尤其是 **Magic Containers** 产品。
 
 # SEE ALSO
 

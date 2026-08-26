@@ -1,34 +1,34 @@
 # TAGLINE
 
-Bundle JavaScript and TypeScript for production
+将 JavaScript 和 TypeScript 打包用于生产环境
 
 # TLDR
 
-**Bundle JavaScript/TypeScript file**
+**打包 JavaScript/TypeScript 文件**
 
 ```bun build [./src/index.ts] --outdir [./dist]```
 
-**Create standalone executable**
+**创建独立可执行文件**
 
 ```bun build [./server.ts] --compile --outfile [server]```
 
-**Bundle with minification**
+**以压缩方式打包**
 
 ```bun build [./src/index.ts] --outdir [./dist] --minify```
 
-**Generate source maps**
+**生成 source map**
 
 ```bun build [./src/index.ts] --outdir [./dist] --sourcemap```
 
-**Bundle for Node.js target**
+**面向 Node.js 目标打包**
 
 ```bun build [./src/index.ts] --outdir [./dist] --target [node]```
 
-**Mark packages as external**
+**将包标记为外部依赖**
 
 ```bun build [./src/index.ts] --outdir [./dist] --external [react]```
 
-**Bundle multiple entrypoints**
+**打包多个入口文件**
 
 ```bun build [./src/index.ts] [./src/worker.ts] --outdir [./dist]```
 
@@ -38,44 +38,44 @@ Bundle JavaScript and TypeScript for production
 
 # DESCRIPTION
 
-**bun build** is Bun's fast native bundler for JavaScript and TypeScript. It bundles code for production, generates standalone executables, and supports both server and client code in a single command.
+**bun build** 是 Bun 的快速原生打包器，支持 JavaScript 和 TypeScript。它可以为生产环境打包代码、生成独立可执行文件，并用一条命令同时处理服务端和客户端代码。
 
-The bundler automatically performs tree-shaking to eliminate unused code. It can target multiple runtimes including browsers, Node.js, and Bun itself. The **--compile** flag creates self-contained executables with the Bun runtime embedded, enabling distribution without requiring users to install Bun. Code splitting, source maps, and minification are supported through command-line flags or the equivalent JavaScript API via **Bun.build()**.
+该打包器自动执行 tree-shaking 以剔除未使用的代码。它可以面向多种运行时，包括浏览器、Node.js 和 Bun 自身。**--compile** 标志会创建内嵌 Bun 运行时的自包含可执行文件，用户无需安装 Bun 即可分发运行。通过命令行标志或等效的 JavaScript API（**Bun.build()**）还可以使用代码分割、source map 和压缩等特性。
 
 # PARAMETERS
 
 **--outdir** _directory_
-> Output directory for bundled files
+> 打包文件的输出目录
 
 **--outfile** _file_
-> Output file path (for single output)
+> 输出文件路径（单一输出时）
 
 **--compile**
-> Create standalone executable with embedded Bun runtime
+> 创建内嵌 Bun 运行时的独立可执行文件
 
 **--minify**
-> Enable minification
+> 启用压缩
 
 **--sourcemap**
-> Generate source maps (external, inline, or none)
+> 生成 source map（external、inline 或 none）
 
 **--target** _runtime_
-> Target runtime: browser, bun, or node
+> 目标运行时：browser、bun 或 node
 
 **--external** _package_
-> Exclude package from bundle
+> 将包排除在打包之外
 
 **--splitting**
-> Enable code splitting
+> 启用代码分割
 
 **--format** _type_
-> Output format: esm or cjs
+> 输出格式：esm 或 cjs
 
 **--define** _key=value_
-> Define global constants
+> 定义全局常量
 
 **--loader** _ext:loader_
-> Configure file type loaders
+> 配置各文件类型的加载器
 
 # JAVASCRIPT API
 
@@ -89,7 +89,7 @@ await Bun.build({
 
 # CAVEATS
 
-Standalone executables include a copy of the Bun runtime, increasing file size. Tree-shaking is always enabled. Some npm packages may not bundle correctly due to dynamic imports.
+独立可执行文件包含一份 Bun 运行时副本，文件体积会增大。Tree-shaking 始终启用。由于动态导入的原因，某些 npm 包可能无法正确打包。
 
 # INSTALL
 

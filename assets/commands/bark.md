@@ -1,26 +1,26 @@
 # TAGLINE
 
-AI text-to-audio synthesis with expressive speech.
+具备表现力语音的 AI 文本转音频合成工具。
 
 # TLDR
 
-**Generate speech from text**
+**从文本生成语音**
 
 ```python -m bark --text "[Hello, how are you?]" --output_filename [output.wav]```
 
-**Use a specific speaker preset**
+**使用指定的说话人预设**
 
 ```python -m bark --text "[Hello]" --output_filename [output.wav] --history_prompt [v2/en_speaker_6]```
 
-**Generate with emotions/effects**
+**带情感/音效生成**
 
 ```python -m bark --text "[laughs] Oh that's funny! [sighs]" --output_filename [output.wav]```
 
-**Generate in another language**
+**用其他语言生成**
 
 ```python -m bark --text "[Bonjour le monde]" --output_filename [output.wav] --history_prompt [v2/fr_speaker_1]```
 
-**Generate with music notation**
+**带乐谱记号生成**
 
 ```python -m bark --text "[♪ La la la ♪]" --output_filename [output.wav]```
 
@@ -31,37 +31,37 @@ AI text-to-audio synthesis with expressive speech.
 # PARAMETERS
 
 **--text** _TEXT_
-> Input text to synthesize.
+> 要合成的输入文本。
 
 **--output_filename** _FILE_
-> Output audio file path (.wav).
+> 输出音频文件路径（.wav）。
 
 **--history_prompt** _PRESET_
-> Speaker voice preset (e.g., v2/en_speaker_0 through v2/en_speaker_9).
+> 说话人语音预设（如 v2/en_speaker_0 至 v2/en_speaker_9）。
 
 **--text_temp** _FLOAT_
-> Text generation temperature (default: 0.7).
+> 文本生成温度（默认：0.7）。
 
 **--waveform_temp** _FLOAT_
-> Waveform generation temperature (default: 0.7).
+> 波形生成温度（默认：0.7）。
 
 # DESCRIPTION
 
-**Bark** is a transformer-based text-to-audio model by **Suno AI**. Unlike traditional TTS, Bark generates highly expressive speech including laughter, sighs, breathing, crying, and even music.
+**Bark** 是 **Suno AI** 推出的基于 Transformer 的文本转音频模型。与传统 TTS 不同，Bark 可以生成极具表现力的语音，包括笑声、叹息、呼吸、哭声甚至音乐。
 
-Special tokens in the text control non-speech sounds: `[laughter]`, `[laughs]`, `[sighs]`, `[gasps]`, `[clears throat]`, and `[music]`. Musical notation with `♪` symbols can generate singing. Capitalizing words adds emphasis, and `...` adds hesitation. The `[MAN]` and `[WOMAN]` tokens bias the speaker's gender.
+文本中的特殊标记控制非语音声音：`[laughter]`、`[laughs]`、`[sighs]`、`[gasps]`、`[clears throat]` 和 `[music]`。用 `♪` 符号标记的乐谱可以生成歌唱。将单词大写可加强调语气，`...` 表示迟疑。`[MAN]` 和 `[WOMAN]` 标记会影响说话人的性别倾向。
 
-Speaker presets select voice characteristics. Presets are available for multiple languages: English, German, Spanish, French, Hindi, Italian, Japanese, Korean, Polish, Portuguese, Russian, Turkish, and Chinese.
+说话人预设决定嗓音特征。预设覆盖多种语言：英语、德语、西班牙语、法语、印地语、意大利语、日语、韩语、波兰语、葡萄牙语、俄语、土耳其语和中文。
 
-Install directly from the repository with `pip install git+https://github.com/suno-ai/bark.git` (do not use `pip install bark`, which is an unrelated package). Models are downloaded automatically on first use. GPU (CUDA) is strongly recommended for reasonable generation speed.
+直接从仓库安装：`pip install git+https://github.com/suno-ai/bark.git`（不要使用 `pip install bark`，那是另一个无关的软件包）。模型在首次使用时自动下载。强烈建议使用 GPU（CUDA）以获得合理的生成速度。
 
 # CAVEATS
 
-Slow on CPU (GPU strongly recommended). Large model downloads (~5GB). Output quality varies. Long text should be split into sentences. Not suitable for real-time synthesis. May produce unexpected audio artifacts.
+CPU 上速度缓慢（强烈建议使用 GPU）。模型下载体积大（约 5GB）。输出质量参差不齐。长文本应拆分为句子。不适合实时合成。可能产生意外的音频瑕疵。
 
 # HISTORY
 
-**Bark** was released by **Suno AI** in **April 2023** as an open-source text-to-audio model. Its ability to generate expressive speech with emotions and non-verbal sounds set it apart from conventional TTS systems. The model quickly gained popularity for creative audio generation.
+**Bark** 由 **Suno AI** 于 **2023 年 4 月**发布，是一个开源的文本转音频模型。它能生成带有情感和非语言声音的表现力语音，这一点使其有别于传统 TTS 系统。它在创意音频生成领域迅速走红。
 
 # INSTALL
 

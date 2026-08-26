@@ -1,30 +1,30 @@
 # TAGLINE
 
-Change a Rust package version in Cargo.toml
+修改 Cargo.toml 中 Rust 软件包的版本号
 
 # TLDR
 
-**Set** an exact version
+**设置**精确版本
 
 ```cargo set-version [1.0.0]```
 
-**Bump major** version
+**递增主版本**
 
 ```cargo set-version --bump major```
 
-**Bump minor** version
+**递增次版本**
 
 ```cargo set-version --bump minor```
 
-**Bump patch** version
+**递增修订号**
 
 ```cargo set-version --bump patch```
 
-**Apply to whole workspace**
+**应用到整个工作空间**
 
 ```cargo set-version --workspace --bump patch```
 
-**Dry-run**
+**试运行**
 
 ```cargo set-version -n --bump minor```
 
@@ -34,57 +34,57 @@ Change a Rust package version in Cargo.toml
 
 # DESCRIPTION
 
-**cargo set-version** (from **cargo-edit**) changes the **version** field in a local **Cargo.toml**. You can set an absolute version or bump major/minor/patch. Workspace-wide updates are supported.
+**cargo set-version**（来自 **cargo-edit**）修改本地 **Cargo.toml** 中的 **version** 字段。你可以设置绝对版本，或按 major/minor/patch 递增。支持整个工作空间的批量更新。
 
-Install with **cargo install cargo-edit**.
+使用 **cargo install cargo-edit** 安装。
 
 # PARAMETERS
 
 *TARGET*
 
-> Absolute version to set (for example **1.2.3**), when not using **--bump**.
+> 要设置的绝对版本（例如 **1.2.3**），在不使用 **--bump** 时生效。
 
 **--bump** major|minor|patch|...
 
-> Increment the corresponding semver component.
+> 递增相应的 semver 组成部分。
 
 **-m**, **--metadata** *METADATA*
 
-> Set the version metadata field (for example build metadata).
+> 设置版本元数据字段（例如构建元数据）。
 
 **-p**, **--package** *PKGID*
 
-> Select a package in a workspace.
+> 在工作空间中选择一个软件包。
 
 **--workspace**
 
-> Modify all packages in the workspace.
+> 修改工作空间中的所有软件包。
 
 **--exclude** *EXCLUDE*
 
-> Skip crates when using workspace mode.
+> 工作空间模式下跳过指定的 crate。
 
 **-n**, **--dry-run**
 
-> Print changes without writing files.
+> 打印更改但不写入文件。
 
 **--manifest-path** *PATH*
 
-> Path to the manifest to edit.
+> 要编辑的清单文件路径。
 
 **--offline**
 
-> Run without network access.
+> 不访问网络运行。
 
 **--locked**
 
-> Require Cargo.toml to be up to date with the lockfile as configured.
+> 要求 Cargo.toml 与锁文件的配置保持同步。
 
-See **cargo set-version --help** for the complete flag set.
+完整选项集请参见 **cargo set-version --help**。
 
 # CAVEATS
 
-Does not publish crates; it only edits manifests. Coordinate version bumps with tags and changelog process separately. Workspace bumps can touch many crates at once; use **--dry-run** first.
+不会发布 crate；只负责编辑清单。版本递增需要另行与标签和变更日志流程协调。工作空间级别的递增会同时影响许多 crate；建议先使用 **--dry-run**。
 
 # INSTALL
 

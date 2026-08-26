@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run plain-language `.babo` scripts compiled by Claude Code
+运行由 Claude Code 编译的纯自然语言 `.babo` 脚本
 
 # TLDR
 
-**Run** a Babo script (builds on first use, uses cache afterward)
+**运行**一个 Babo 脚本（首次使用时构建，之后使用缓存）
 
 ```babo hello.babo```
 
-**Force a rebuild** after editing the source description
+编辑源描述后**强制重新构建**
 
 ```babo build hello.babo```
 
-**Check** whether the cached build is still current
+**检查**缓存构建是否仍然有效
 
 ```babo check hello.babo```
 
-**Show** cache metadata for a script
+**显示**某个脚本的缓存元数据
 
 ```babo info hello.babo```
 
-**Remove** all cached builds
+**删除**所有缓存的构建
 
 ```babo clean```
 
@@ -32,41 +32,41 @@ Run plain-language `.babo` scripts compiled by Claude Code
 
 # DESCRIPTION
 
-**babo** is a Python CLI that turns `.babo` files — short natural-language program descriptions — into runnable Python programs. On first run it sends the description to **Claude Code** (`claude -p`), which generates an entry point, optional `requirements.txt`, and an isolated virtual environment under `.baboc/<name>.baboc/` next to the source file (similar in spirit to Python's `__pycache__`).
+**babo** 是一个 Python CLI，它将 `.babo` 文件——简短的自然语言程序描述——转换为可运行的 Python 程序。首次运行时，它会将描述发送给 **Claude Code**（`claude -p`），由后者生成入口点、可选的 `requirements.txt` 以及位于源文件旁 `.baboc/<name>.baboc/` 目录下的隔离虚拟环境（设计理念类似 Python 的 `__pycache__`）。
 
-Subsequent runs skip the build when the `.babo` file is older than its cache directory. Arguments after the script path are forwarded to the generated program. A shebang `#!/usr/bin/env babo` lets `.babo` files execute directly once **babo** is on **PATH**.
+当 `.babo` 文件比其缓存目录更旧时，后续运行会跳过构建。脚本路径之后的参数会被转发给生成的程序。添加 shebang `#!/usr/bin/env babo` 后，只要 **babo** 位于 **PATH** 中，`.babo` 文件即可直接执行。
 
-Babo scripts can call other `.babo` modules via a generated `runtime.call_babo()` helper, each module keeping its own venv so dependencies do not collide.
+Babo 脚本可以通过生成的 `runtime.call_babo()` 辅助函数调用其他 `.babo` 模块，每个模块保留自己的虚拟环境，以避免依赖冲突。
 
 # PARAMETERS
 
 **run**
 
-> Explicit run (default when the first argument is a `.babo` file).
+> 显式运行（当第一个参数是 `.babo` 文件时的默认行为）。
 
 **build**
 
-> Force regeneration from the `.babo` source, ignoring a fresh cache.
+> 强制从 `.babo` 源文件重新生成，忽略新鲜缓存。
 
 **check**
 
-> Print whether the cache is **FRESH** or **STALE**.
+> 打印缓存是 **FRESH** 还是 **STALE**。
 
 **info**
 
-> Show build metadata (paths, timestamps, package list).
+> 显示构建元数据（路径、时间戳、软件包列表）。
 
 **clean**
 
-> Delete every `.baboc/` cache directory under the current tree.
+> 删除当前目录树下所有 `.baboc/` 缓存目录。
 
 # CAVEATS
 
-Requires **Python** 3.10+, the **claude** CLI installed and authenticated, and network access during builds. Builds are not offline. The tool is experimental and depends on Claude Code API availability.
+需要 **Python** 3.10+、已安装并通过认证的 **claude** CLI，以及构建期间的网络访问。构建无法离线进行。该工具尚属实验性质，依赖 Claude Code API 的可用性。
 
 # CONFIGURATION
 
-No global config file. Each `.babo` file owns a `.baboc/<stem>.baboc/` cache with `venv/`, `requirements.txt`, `metadata.json`, and the generated `babo` executable entry point.
+没有全局配置文件。每个 `.babo` 文件拥有一个 `.baboc/<stem>.baboc/` 缓存目录，其中包含 `venv/`、`requirements.txt`、`metadata.json` 以及生成的 `babo` 可执行入口点。
 
 # SEE ALSO
 

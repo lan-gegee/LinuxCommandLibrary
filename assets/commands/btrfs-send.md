@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate a stream of btrfs subvolume changes for backup and replication
+生成用于备份和复制的 btrfs 子卷变更流
 
 # TLDR
 
-**Send a snapshot** to stdout
+将快照**发送到 stdout**
 
 ```btrfs send [/path/to/snapshot]```
 
-**Send to a file**
+**发送到文件**
 
 ```btrfs send [/path/to/snapshot] -f [backup.send]```
 
-**Send incremental** (only differences from parent)
+**增量发送**（只传输与父快照的差异）
 
 ```btrfs send -p [/path/to/parent] [/path/to/snapshot]```
 
-**Send with multiple clone sources**
+**使用多个克隆源发送**
 
 ```btrfs send -c [/path/to/clone1] -c [/path/to/clone2] [/path/to/snapshot]```
 
-**Send and receive** in one pipeline
+在一条管道中完成**发送与接收**
 
 ```btrfs send [/path/to/snapshot] | btrfs receive [/path/to/destination]```
 
-**Send incremental over SSH**
+**通过 SSH 增量发送**
 
 ```btrfs send -p [/snapshots/old] [/snapshots/new] | ssh [user@host] btrfs receive [/backup]```
 
-**Quiet mode** (no progress)
+**静默模式**（不显示进度）
 
 ```btrfs send -q [/path/to/snapshot]```
 
@@ -38,45 +38,45 @@ Generate a stream of btrfs subvolume changes for backup and replication
 
 # DESCRIPTION
 
-**btrfs send** generates a stream of instructions representing a btrfs subvolume or snapshot. This stream can be received by **btrfs receive** to recreate the subvolume on another filesystem, enabling backup and replication workflows.
+**btrfs send** 生成一个指令流，表示某个 btrfs 子卷或快照。该流可由 **btrfs receive** 接收，在另一个文件系统上重建子卷，从而实现备份和复制工作流。
 
-The send operation works on read-only snapshots and produces a binary stream containing file data, metadata, and structural information. When a parent snapshot is specified, only the differences (incremental send) are transmitted, dramatically reducing transfer size for regular backups.
+send 操作作用于只读快照，生成的二进制流包含文件数据、元数据和结构信息。指定父快照时，只传输差异（增量发送），可显著减小常规备份的传输量。
 
-The stream format is forward-compatible and can be piped directly, saved to a file, or transferred over network connections like SSH.
+流的格式具有前向兼容性，可以直接通过管道传输、保存到文件，或经由 SSH 等网络连接传送。
 
 # PARAMETERS
 
 **-f** _file_
-> Write stream to file instead of stdout.
+> 将流写入文件而非 stdout。
 
 **-p** _parent_
-> Parent subvolume for incremental send.
+> 用于增量发送的父子卷。
 
 **-c** _clone-src_
-> Clone source (additional reference for deduplication).
+> 克隆源（用于去重的额外参考）。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **-q**
-> Quiet mode (no progress).
+> 静默模式（不显示进度）。
 
 **--no-data**
-> Send without file data (metadata only).
+> 发送时不带文件数据（仅元数据）。
 
 **-e**
-> End stream after subvolume data.
+> 在子卷数据之后结束流。
 
 **--proto** _N_
-> Use send stream protocol version N.
+> 使用版本号为 N 的 send stream 协议。
 
 # CAVEATS
 
-Source subvolume must be read-only. Parent snapshot must exist on receive side for incremental restores. Stream is not human-readable. Interrupting send/receive may leave incomplete subvolumes. File permissions and ownership require appropriate privileges to restore. Compressed send streams require protocol version 2+.
+源子卷必须是只读的。接收端必须存在父快照才能进行增量恢复。流内容不是人类可读的。中断 send/receive 可能留下不完整的子卷。恢复文件权限和所有权需要相应权限。压缩的 send 流需要协议版本 2 及以上。
 
 # HISTORY
 
-**btrfs send/receive** was introduced in Linux kernel **3.6** (released **September 2012**) as part of btrfs development. It was designed to enable efficient snapshot-based backup and replication, similar to ZFS send/receive. The feature has been enhanced over time with compressed transfers (protocol v2) and improved performance for large filesystems.
+**btrfs send/receive** 于 Linux 内核 **3.6**（**2012 年 9 月**发布）中引入，是 btrfs 开发的一部分。其设计目标类似于 ZFS send/receive，实现高效的基于快照的备份与复制。该功能此后不断增强，增加了压缩传输（协议 v2）并提升了大文件系统场景下的性能。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-cast web video streams to a smart TV from the terminal
+从终端将网络视频流投屏到智能电视
 
 # TLDR
 
-**Discover** DLNA/UPnP cast targets on the local network
+**发现**局域网内的 DLNA/UPnP 投屏目标
 
 ```castor scan```
 
-**Cast interactively** (browse titles in the TUI; needs a TMDB API key)
+**交互式投屏**（在 TUI 中浏览片名；需要 TMDB API 密钥）
 
 ```castor cast```
 
-Cast a **movie by IMDB/TMDB id** via configured sources
+通过已配置的来源投屏**按 IMDB/TMDB id 指定的电影**
 
 ```castor cast movie tt12300742```
 
-Cast a TV **episode** by id
+按 id 投屏电视**剧集**
 
 ```castor cast episode tt2699128 --season 1 --episode 3```
 
-Cast the video playing on a **web page**
+投屏**网页**上正在播放的视频
 
 ```castor cast player https://example.com/watch/some-video```
 
-Cast a **raw stream URL**
+投屏**原始流 URL**
 
 ```castor cast url https://example.com/stream.m3u8```
 
-**Dry-run** a cast (print found URLs without sending to the TV)
+**试运行**投屏（只打印找到的 URL，不发送到电视）
 
 ```castor cast movie --dry-run tt33028778```
 
-Show **version / build** info
+显示**版本 / 构建**信息
 
 ```castor info```
 
@@ -42,47 +42,47 @@ Show **version / build** info
 
 # DESCRIPTION
 
-**castor** is a terminal tool that extracts a video stream from a web page (or a direct URL / media id), optionally transcodes it, and casts it in real time to a smart TV or networked media renderer on the same LAN. It launches headless Chrome, watches network traffic over the Chrome DevTools Protocol to locate the stream the page loads, then replays that stream to a DLNA/UPnP device (Chromecast support is experimental).
+**castor** 是一个终端工具，它从网页（或直接 URL / 媒体 id）中提取视频流，可选地进行转码，并实时投屏到同一局域网内的智能电视或联网媒体渲染设备。它会启动无头 Chrome，通过 Chrome DevTools Protocol 监听网络流量来定位页面加载的流，然后将该流转发给 DLNA/UPnP 设备（Chromecast 支持为实验性）。
 
-Unlike screen mirroring, Castor sends the real stream so resolution and quality are preserved. Optional whisper-based subtitles can be burned into the video. Castor ships **no** content catalog and **no** sources of its own; you configure authorized sources in `config.yaml` (or cast a page/URL you already have access to).
+与屏幕镜像不同，Castor 发送的是真实的视频流，因此分辨率和画质得以保留。可选地，基于 whisper 的字幕可以烧录进视频中。Castor 自身**不附带**任何内容目录和内容来源；你在 `config.yaml` 中配置自己有权访问的来源（或直接投屏你已有权访问的页面/URL）。
 
-Native binaries need **Chrome/Chromium**, **ffmpeg**, and **ffprobe** on `PATH`. Device discovery uses SSDP multicast, so the host must share a network with the TV.
+原生二进制文件需要在 `PATH` 中有 **Chrome/Chromium**、**ffmpeg** 和 **ffprobe**。设备发现使用 SSDP 多播，因此主机必须与电视处于同一网络。
 
 # COMMANDS
 
 **scan**
 
-> Discover DLNA/UPnP (and experimental Chromecast) devices on the local network.
+> 发现局域网内的 DLNA/UPnP（以及实验性的 Chromecast）设备。
 
 **cast**
 
-> Cast a title or stream. Subcommands / modes include interactive browse (`castor cast`), `movie`, `episode`, `player` (web page URL), and `url` (raw stream).
+> 投影片名或流。子命令 / 模式包括交互式浏览（`castor cast`）、`movie`、`episode`、`player`（网页 URL）和 `url`（原始流）。
 
 **info**
 
-> Print version and build information.
+> 打印版本和构建信息。
 
 # PARAMETERS
 
 **--config** _file_
 
-> Path to configuration file (default: `config.yaml` in the current directory).
+> 配置文件路径（默认：当前目录下的 `config.yaml`）。
 
 **--debug**
 
-> Enable verbose logging (global flag before the subcommand).
+> 启用详细日志（放在子命令之前的全局标志）。
 
 **--dry-run**
 
-> With `cast movie` / similar: resolve and print stream URLs without casting.
+> 配合 `cast movie` 等使用：解析并打印流 URL 而不实际投屏。
 
 **--season** _n_, **--episode** _n_
 
-> Season and episode numbers for `cast episode`.
+> `cast episode` 所需的季数和集数。
 
 # CONFIGURATION
 
-Castor requires a `config.yaml` in the working directory (or via **--config**). A minimal file names the target device and your own sources:
+Castor 要求工作目录中有 `config.yaml`（或通过 **--config** 指定）。一个最小配置文件需指明目标设备和自己的来源：
 
 ```
 device:
@@ -96,7 +96,7 @@ sources:
       episode: "/embed/tv/{itemID}/{season}-{episode}"
 ```
 
-Optional `tmdb.api_key` enables the interactive browser. Secrets can go in a sibling `config.local.yaml` that overlays the main file. Environment variables of the form `CASTOR_SECTION__FIELD` also override settings. Auto-generated burned-in subtitles:
+可选的 `tmdb.api_key` 用于启用交互式浏览器。机密信息可以放在同目录的 `config.local.yaml` 中，它会叠加覆盖主配置文件。形如 `CASTOR_SECTION__FIELD` 的环境变量同样可以覆盖设置。自动生成的烧录字幕：
 
 ```
 whisper:
@@ -105,7 +105,7 @@ whisper:
 
 # CAVEATS
 
-Device discovery and casting require the host to be on the same LAN as the TV. Docker only works with `--network host` on a real Linux host; Docker Desktop on macOS/Windows cannot reach the LAN for SSDP. Chromecast support is experimental. Castor is a proof of concept for stream extraction and casting engineering—it hosts no content; only cast material you are authorized to access.
+设备发现和投屏要求主机与电视处于同一局域网。Docker 只能在真实 Linux 主机上以 `--network host` 方式工作；macOS/Windows 上的 Docker Desktop 无法通过 SSDP 访问局域网。Chromecast 支持为实验性。Castor 是面向流提取与投屏工程的概念验证——它不托管任何内容；只投屏你有权访问的素材。
 
 # INSTALL
 

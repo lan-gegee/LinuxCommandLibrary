@@ -1,30 +1,30 @@
 # TAGLINE
 
-Audio ML pipeline to diagnose car faults from sound recordings
+通过声音录音诊断汽车故障的音频机器学习流水线
 
 # TLDR
 
-**Check prerequisites** and environment
+**检查前置条件**和环境
 
 ```cardiag doctor```
 
-**Train a model** using bundled fixtures (no external data)
+**使用内置样例数据训练模型**（无需外部数据）
 
 ```cardiag train --fixtures```
 
-**Diagnose a clip** and get fault verdict, zone, and ranked parts
+**诊断一段音频**并获得故障判定、部位区域和排序后的疑似零件列表
 
 ```cardiag diagnose clip.wav```
 
-**Run the web UI** for interactive analysis
+**运行 Web UI**进行交互式分析
 
 ```cardiag serve --model models```
 
-**Isolate mechanical sound** from a noisy recording (no model)
+**从嘈杂录音中分离机械声音**（不需要模型）
 
 ```cardiag clean clip.wav```
 
-**Triage engine vs running gear**
+**粗判是发动机还是行走机构的问题**
 
 ```cardiag triage clip.wav```
 
@@ -34,20 +34,20 @@ Audio ML pipeline to diagnose car faults from sound recordings
 
 # DESCRIPTION
 
-**cardiag** is an end-to-end audio machine-learning pipeline for triaging mechanical faults from audio recordings (e.g. phone clips or scraped social media). It isolates the relevant mechanical sound span, embeds it with a frozen CLAP model, and applies small calibrated linear classifiers.
+**cardiag** 是一条端到端的音频机器学习流水线，用于从音频录音（如手机片段或抓取的社交媒体内容）中初步判断机械故障。它会分离出相关的机械声音片段，用冻结的 CLAP 模型生成嵌入向量，然后应用小型校准过的线性分类器。
 
-The tool reports:
+该工具报告：
 
-- Whether something sounds wrong (fault vs normal)
-- Rough location in the car (6 zones)
-- Ranked shortlist of likely parts (12+ families)
-- Honest `UNCERTAIN` when the input does not support a confident call
+- 声音是否有异常（故障 vs 正常）
+- 汽车上大致的位置（6 个区域）
+- 排序后的疑似零件候选列表（12+ 个类别）
+- 当输入不足以支撑可信判断时给出诚实的 `UNCERTAIN`
 
-It is explicitly a **triage aid**, not a safety-critical or definitive diagnostic. All numbers are honest (grouped-by-video cross-validation) and the pipeline is designed to be inspectable.
+它明确是一个**辅助初判工具**，不是安全关键或决定性的诊断手段。所有指标都是诚实统计的（按视频分组的交叉验证），且整条流水线设计为可审查。
 
 # INSTALLATION
 
-Install from the repository:
+从仓库安装：
 
 ```bash
 git clone https://github.com/adam-s/car-diagnosis
@@ -56,31 +56,31 @@ uv venv && source .venv/bin/activate
 uv pip install -e ".[scrape,web,dev,viz]"
 ```
 
-Requires Python 3.11+ and (for full use) additional optional extras. Playback/visualization is optional.
+需要 Python 3.11+，（若要完整使用）还需额外的可选依赖。播放/可视化部分是可选的。
 
 # USAGE
 
-Run `cardiag --help` or `cardiag <subcommand> --help` for details.
+运行 `cardiag --help` 或 `cardiag <subcommand> --help` 查看详情。
 
-Common workflow for a new clip:
+处理新录音片段的常见工作流：
 
 1. `cardiag doctor`
 2. `cardiag diagnose my-recording.wav --json`
-3. `cardiag inspect my-recording.wav -o report.html` (visual + audio spans)
+3. `cardiag inspect my-recording.wav -o report.html`（可视化 + 音频区间）
 
-Training your own data:
+用你自己的数据训练：
 
 - `cardiag ingest ./my_clips --kind fault --cause wheel_bearing`
 - `cardiag scrape youtube|tiktok ...`
 - `cardiag train`
 
-The `serve` subcommand starts a local web UI for drag-and-drop or URL-based analysis. Add `--json` to inference commands for machine-readable output.
+`serve` 子命令启动本地 Web UI，支持拖拽上传或基于 URL 的分析。在推理命令中添加 `--json` 可获得机器可读的输出。
 
 # CAVEATS
 
-- Performance is modest on crude phone/social audio (literature ceiling for the problem). It reaches ~0.79 AUROC fault/normal and top-3 part accuracy 45-65 % in honest evaluation.
-- Models are joblib artifacts; only load ones you trust.
-- Not a replacement for professional diagnosis.
+- 对粗糙的手机/社交媒体音频表现有限（受该问题文献中的上限约束）。在诚实的评估下，故障/正常判断约为 ~0.79 AUROC，top-3 零件准确率为 45-65 %。
+- 模型是 joblib 工件；只加载你信任的模型。
+- 不能替代专业诊断。
 
 # RESOURCES
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display help for Cargo commands
+显示 Cargo 命令的帮助信息
 
 # TLDR
 
-**Show general help**
+**显示通用帮助**
 
 ```cargo help```
 
-**Show help for specific command**
+**显示特定命令的帮助**
 
 ```cargo help [build]```
 
-**List all installed commands**
+**列出所有已安装的命令**
 
 ```cargo --list```
 
-**Verbose command list**
+**详细的命令列表**
 
 ```cargo --list --verbose```
 
-**Explain error code**
+**解释错误代码**
 
 ```cargo --explain [E0004]```
 
@@ -32,21 +32,21 @@ Display help for Cargo commands
 
 # DESCRIPTION
 
-**cargo help** displays help information for Cargo commands. Use it to learn about available commands, their options, and usage patterns.
+**cargo help** 显示 Cargo 命令的帮助信息。可以用它了解可用命令、各命令的选项和用法模式。
 
 # PARAMETERS
 
 **--help**, **-h**
-> Show help message
+> 显示帮助消息
 
 **--list**
-> List all installed Cargo subcommands
+> 列出所有已安装的 Cargo 子命令
 
 **--verbose**, **-v**
-> Print extra information with --list
+> 与 --list 搭配时输出额外信息
 
 **--explain** _code_
-> Run rustc --explain for error code
+> 对错误代码运行 rustc --explain
 
 # COMMAND CATEGORIES
 
@@ -67,7 +67,7 @@ Display help for Cargo commands
 
 # CUSTOM COMMANDS
 
-Custom subcommands installed via cargo install are listed with --list. Any executable named cargo-* in PATH becomes a cargo subcommand.
+通过 cargo install 安装的自定义子命令会出现在 --list 的列表中。PATH 中任何名为 cargo-* 的可执行文件都会成为 cargo 子命令。
 
 # INSTALL
 

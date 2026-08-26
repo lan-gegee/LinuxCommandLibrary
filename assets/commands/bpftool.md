@@ -1,38 +1,38 @@
 # TAGLINE
 
-Inspect and manage eBPF programs and maps.
+检查和管理 eBPF 程序与映射。
 
 # TLDR
 
-List information about loaded **eBPF programs**
+列出已加载的 **eBPF 程序**信息
 
 ```bpftool prog list```
 
-List eBPF program attachments in the **networking subsystem**
+列出**网络子系统**中的 eBPF 程序挂接
 
 ```bpftool net list```
 
-List all **active links**
+列出所有**活动链接**
 
 ```bpftool link list```
 
-List all **tracepoint and kprobe** attachments
+列出所有 **tracepoint 和 kprobe** 挂接
 
 ```bpftool perf list```
 
-List **BPF Type Format (BTF)** data
+列出 **BPF Type Format (BTF)** 数据
 
 ```bpftool btf list```
 
-List information about loaded **maps**
+列出已加载的**映射（map）**信息
 
 ```bpftool map list```
 
-**Probe** a network device for supported eBPF features
+**探测**网络设备支持的 eBPF 特性
 
 ```bpftool feature probe dev [eth0]```
 
-Run commands in **batch mode** from a file
+以**批处理模式**从文件运行命令
 
 ```bpftool batch file [myfile]```
 
@@ -42,69 +42,69 @@ Run commands in **batch mode** from a file
 
 # DESCRIPTION
 
-**bpftool** inspects and manipulates eBPF (extended Berkeley Packet Filter) programs and maps. It provides visibility into loaded BPF programs, their attachments, and the data structures they use.
+**bpftool** 用于检查和操作 eBPF（extended Berkeley Packet Filter）程序和映射。它让你能够查看已加载的 BPF 程序、它们的挂接点以及所使用的数据结构。
 
-eBPF is a powerful Linux kernel technology used for networking, security, tracing, and performance analysis. bpftool is essential for debugging and managing eBPF-based tools.
+eBPF 是一项强大的 Linux 内核技术，用于网络、安全、跟踪和性能分析。bpftool 是调试和管理基于 eBPF 的工具的必备工具。
 
 # OBJECTS
 
 **prog**
-> Manage BPF programs
+> 管理 BPF 程序。
 
 **map**
-> Manage BPF maps
+> 管理 BPF 映射。
 
 **link**
-> Manage BPF links
+> 管理 BPF 链接。
 
 **net**
-> Inspect network-related BPF attachments
+> 检查与网络相关的 BPF 挂接。
 
 **perf**
-> Inspect perf-related BPF attachments
+> 检查与 perf 相关的 BPF 挂接。
 
 **btf**
-> Manage BTF (BPF Type Format) data
+> 管理 BTF（BPF Type Format）数据。
 
 **cgroup**
-> Show, attach, and detach BPF programs on cgroups
+> 在 cgroup 上显示、挂接和分离 BPF 程序。
 
 **feature**
-> Probe kernel/device for BPF feature support
+> 探测内核/设备对 BPF 特性的支持情况。
 
 **gen**
-> Generate skeleton C header files and BTF data from object files
+> 从目标文件生成骨架 C 头文件和 BTF 数据。
 
 **struct_ops**
-> Register, unregister, and introspect BPF struct_ops
+> 注册、注销并检视 BPF struct_ops。
 
 **iter**
-> Create and pin BPF iterators
+> 创建并固定（pin）BPF 迭代器。
 
 # OPTIONS
 
 **-j**, **--json**
-> Generate JSON output.
+> 生成 JSON 输出。
 
 **-p**, **--pretty**
-> Generate human-readable JSON output (implies **-j**).
+> 生成易读的 JSON 输出（隐含 **-j**）。
 
 **-d**, **--debug**
-> Print libbpf debug messages to stderr.
+> 将 libbpf 调试消息打印到 stderr。
 
 **-f**, **--bpffs**
-> When showing programs, show file names of pinned objects.
+> 显示程序时同时显示已固定对象的文件名。
 
 **-V**, **--version**
-> Print version number and supported features.
+> 打印版本号和支持的特性。
 
 # CAVEATS
 
-Requires root privileges or CAP_BPF capability. Output format may vary between kernel versions. Some features require specific kernel configuration options.
+需要 root 权限或 CAP_BPF 能力。输出格式可能因内核版本而异。某些特性需要特定的内核配置选项。
 
 # HISTORY
 
-**bpftool** is developed in the Linux kernel source tree under **tools/bpf/bpftool** and ships with the kernel. It is periodically synced to a stand-alone build mirror maintained by the libbpf project, which packages it independently of the full kernel tree.
+**bpftool** 在 Linux 内核源码树的 **tools/bpf/bpftool** 下开发，随内核一起发布。它会定期同步到由 libbpf 项目维护的独立构建镜像中，后者将其独立于完整内核树打包。
 
 # INSTALL
 

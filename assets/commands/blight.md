@@ -1,42 +1,42 @@
 # TAGLINE
 
-Control display backlight brightness
+控制显示屏背光亮度
 
 # TLDR
 
-**Set** display brightness to a percentage
+**将**屏幕亮度**设置**为百分比
 
 ```blight set [50]```
 
-**Show** current brightness status
+**显示**当前亮度状态
 
 ```blight status```
 
-**Increase** display brightness by percentage
+**增加**屏幕亮度百分比
 
 ```blight inc [5]```
 
-**Decrease** display brightness with smooth transition
+**降低**屏幕亮度并带平滑过渡
 
 ```blight dec [10] -s```
 
-**List** available backlight devices
+**列出**可用的背光设备
 
 ```blight list```
 
-**Set brightness** on a specific device
+**在指定设备上设置亮度**
 
 ```blight inc [2] -d [nvidia_0]```
 
-**Save** current brightness level for later restore
+**保存**当前亮度级别以便日后恢复
 
 ```blight save```
 
-**Restore** previously saved brightness level
+**恢复**之前保存的亮度级别
 
 ```blight restore```
 
-**Configure** permissions and udev rules
+**配置**权限和 udev 规则
 
 ```sudo blight setup```
 
@@ -46,47 +46,47 @@ Control display backlight brightness
 
 # DESCRIPTION
 
-**blight** is a hassle-free CLI utility to manage backlight brightness on Linux. It plays well with hybrid GPU configurations and proprietary drivers, intelligently detecting the active graphics device.
+**blight** 是一个省心的 Linux 背光亮度管理命令行工具。它能很好地兼容混合 GPU 配置和专有驱动，智能检测当前活动的图形设备。
 
-The utility prioritizes integrated graphics, followed by dedicated Nvidia GPU and ACPI kernel module, so you do not need to manually specify which device is active.
+该工具优先选择集成显卡，其次为独立 Nvidia GPU 和 ACPI 内核模块，因此你无需手动指定哪个设备处于活动状态。
 
 # SUBCOMMANDS
 
 **set** _value_
-> Set brightness to specified percentage
+> 将亮度设置为指定的百分比
 
 **status**
-> Display current brightness status
+> 显示当前亮度状态
 
 **list**
-> Show all available backlight devices
+> 显示所有可用的背光设备
 
 **inc** _value_
-> Increase brightness by percentage
+> 按百分比增加亮度
 
 **dec** _value_
-> Decrease brightness by percentage
+> 按百分比降低亮度
 
 **save**
-> Store current brightness setting
+> 保存当前亮度设置
 
 **restore**
-> Recover previously saved brightness
+> 恢复之前保存的亮度
 
 **setup**
-> Configure write permissions and udev rules (requires sudo)
+> 配置写权限和 udev 规则（需要 sudo）
 
 # PARAMETERS
 
 **-d**, **--device** _device_
-> Target a specific backlight device (e.g., nvidia_0, amdgpu_bl0)
+> 指定目标背光设备（如 nvidia_0、amdgpu_bl0）
 
 **-s**, **--sweep**
-> Enable smooth brightness transitions instead of instant changes
+> 启用平滑的亮度过渡而非瞬间变化
 
 # CAVEATS
 
-Requires write access to sysfs backlight files. Run `sudo blight setup` once to configure udev rules and permissions, or add your user to the video group manually. Only works with displays that expose backlight control through sysfs.
+需要对 sysfs 背光文件的写权限。运行一次 `sudo blight setup` 来配置 udev 规则和权限，或手动将你的用户加入 video 组。仅适用于通过 sysfs 暴露背光控制的显示器。
 
 # INSTALL
 

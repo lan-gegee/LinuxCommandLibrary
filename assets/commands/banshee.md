@@ -1,18 +1,18 @@
 # TAGLINE
 
-Music player and media manager
+音乐播放器与媒体管理器
 
 # TLDR
 
-**Start** Banshee music player
+**启动** Banshee 音乐播放器
 
 ```banshee```
 
-**Play** specific file
+**播放**指定文件
 
 ```banshee [music.mp3]```
 
-**Import** media
+**导入**媒体
 
 ```banshee --import [/path/to/music]```
 
@@ -22,51 +22,51 @@ Music player and media manager
 
 # DESCRIPTION
 
-**banshee** is a cross-platform music player and media management application for Linux. It supports audio and video playback, library management, podcasts, Internet radio, and syncing with portable media devices.
+**banshee** 是一款跨平台音乐播放器与媒体管理应用。它支持音频和视频播放、媒体库管理、播客、网络电台，以及与便携式媒体设备同步。
 
-The application uses Mono and GTK+ to provide a feature-rich media experience.
+该应用基于 Mono 和 GTK+ 构建，提供功能丰富的媒体体验。
 
 # PARAMETERS
 
 **--import** _path_
-> Import media from directory
+> 从目录导入媒体
 
 **--play**
-> Start playback
+> 开始播放
 
 **--pause**
-> Pause playback
+> 暂停播放
 
 **--next**
-> Skip to next track
+> 跳到下一曲
 
 **--previous**
-> Previous track
+> 上一曲
 
 **--volume** _level_
-> Set volume (0-100)
+> 设置音量（0-100）
 
 **--show-import-media**
-> Show import dialog
+> 显示导入对话框
 
 # FEATURES
 
-- Music library management
-- Smart playlists
-- Podcast subscriptions
-- Internet radio
-- iPod/Android sync
-- Album artwork
-- Last.fm scrobbling
-- Extensions support
+- 音乐库管理
+- 智能播放列表
+- 播客订阅
+- 网络电台
+- iPod/Android 同步
+- 专辑封面
+- Last.fm 记录（scrobbling）
+- 扩展支持
 
 # CAVEATS
 
-Development slowed significantly. Many distributions no longer package it. Mono dependency can be large. Some hardware sync features may not work. Consider alternatives like Rhythmbox or Clementine.
+开发已大幅放缓。许多发行版不再打包此软件。Mono 依赖可能体积较大。部分硬件同步功能可能无法使用。可以考虑 Rhythmbox 或 Clementine 等替代品。
 
 # HISTORY
 
-**Banshee** was created by Aaron Bockover in **2005** and became GNOME's default music player for several years before being replaced by GNOME Music.
+**Banshee** 由 Aaron Bockover 于 **2005** 年创建，曾连续数年担任 GNOME 的默认音乐播放器，后被 GNOME Music 取代。
 
 # SEE ALSO
 

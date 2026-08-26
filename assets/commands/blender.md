@@ -1,26 +1,26 @@
 # TAGLINE
 
-3D creation suite for modeling, animation, and rendering
+集建模、动画和渲染于一体的 3D 创作套件
 
 # TLDR
 
-**Start** Blender GUI
+**启动** Blender 图形界面
 
 ```blender```
 
-**Open** file
+**打开**文件
 
 ```blender [model.blend]```
 
-**Render** in background
+**在后台渲染**
 
 ```blender -b [scene.blend] -a```
 
-**Render** specific frame
+**渲染**指定帧
 
 ```blender -b [scene.blend] -f [10]```
 
-**Execute** Python script
+**执行** Python 脚本
 
 ```blender --python [script.py]```
 
@@ -30,61 +30,61 @@
 
 # DESCRIPTION
 
-**blender** is a free and open-source 3D creation suite. It supports the entire 3D pipeline: modeling, rigging, animation, simulation, rendering, compositing, motion tracking, and video editing.
+**blender** 是一套免费开源的 3D 创作套件。它覆盖完整的 3D 流程：建模、绑定、动画、模拟、渲染、合成、运动跟踪以及视频剪辑。
 
-The software is used for creating animated films, visual effects, games, and 3D printed models.
+该软件被用于制作动画电影、视觉特效、游戏和 3D 打印模型。
 
 # PARAMETERS
 
 **-b**, **--background**
-> Run in background (no GUI)
+> 在后台运行（无 GUI）
 
 **-a**, **--render-anim**
-> Render animation
+> 渲染动画
 
 **-f**, **--render-frame** _n_
-> Render specific frame
+> 渲染指定帧
 
 **-s** _n_ **-e** _n_
-> Set start and end frames
+> 设置起始帧和结束帧
 
 **-o** _path_
-> Set render output path
+> 设置渲染输出路径
 
 **--python** _file_
-> Execute Python script
+> 执行 Python 脚本
 
 **--python-expr** _expr_
-> Execute Python expression
+> 执行 Python 表达式
 
 **-x** _0|1_
-> Add the file format extension to render output names (use-extension)
+> 是否为渲染输出名添加文件格式扩展名（use-extension）
 
 **-E** _engine_
-> Render engine: CYCLES, BLENDER_EEVEE, or BLENDER_WORKBENCH (run `blender -E help` to list)
+> 渲染引擎：CYCLES、BLENDER_EEVEE 或 BLENDER_WORKBENCH（运行 `blender -E help` 可列出）
 
 **-P** _file_
-> Run the given Python script file (same as --python)
+> 运行指定的 Python 脚本文件（与 --python 相同）
 
 **--factory-startup**
-> Skip reading the user config and startup file for a clean session
+> 跳过读取用户配置和启动文件，以获得干净的会话
 
 **--version**
-> Print the Blender version and exit
+> 打印 Blender 版本并退出
 
 # BACKGROUND RENDERING
 
 ```bash
-# Render animation
+# 渲染动画
 blender -b scene.blend -a
 
-# Render frames 1-100
+# 渲染第 1-100 帧
 blender -b scene.blend -s 1 -e 100 -a
 
-# Render single frame to PNG
+# 将单帧渲染为 PNG
 blender -b scene.blend -o //output_#### -f 1
 
-# Use Cycles engine
+# 使用 Cycles 引擎
 blender -b scene.blend -E CYCLES -a
 ```
 
@@ -94,22 +94,22 @@ blender -b scene.blend -E CYCLES -a
 # script.py
 import bpy
 
-# Create cube
+# 创建立方体
 bpy.ops.mesh.primitive_cube_add()
 
-# Render
+# 渲染
 bpy.ops.render.render(write_still=True)
 ```
 
 # CAVEATS
 
-Heavy resource usage. Learning curve is steep. Background rendering requires all dependencies. GPU rendering needs compatible drivers. Python API version-specific.
+资源占用高。学习曲线陡峭。后台渲染需要所有依赖项。GPU 渲染需要兼容的驱动程序。Python API 与版本相关。
 
 # HISTORY
 
-**Blender** was originally created by Ton Roosendaal in **1995** as in-house software, open-sourced in **2002** under GPL and has since become one of the most popular 3D creation tools.
+**Blender** 由 Ton Roosendaal 于 **1995 年**作为公司内部软件创建，**2002 年**以 GPL 许可证开源，此后已成为最受欢迎的 3D 创作工具之一。
 
-Note that order matters: arguments are evaluated left to right, so the .blend file must be given before the render flags that act on it.
+注意参数顺序很重要：参数从左到右依次求值，因此 .blend 文件必须写在作用于它的渲染标志之前。
 
 # INSTALL
 

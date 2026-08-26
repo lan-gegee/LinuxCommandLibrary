@@ -1,42 +1,42 @@
 # TAGLINE
 
-Introspect and monitor the D-Bus message bus
+内省和监视 D-Bus 消息总线
 
 # TLDR
 
-Show all **peers on the bus**
+显示总线上的所有**对等端**
 
 ```busctl list```
 
-Show all peers on the **user session bus**
+显示**用户会话总线**上的所有对等端
 
 ```busctl --user list```
 
-Show **process information** for a service or PID
+显示服务或 PID 的**进程信息**
 
 ```busctl status [service|pid]```
 
-**Monitor** messages on the bus
+**监视**总线上的消息
 
 ```busctl monitor [service1] [service2] ...```
 
-**Capture** bus traffic in pcap format
+**捕获** pcap 格式的总线流量
 
 ```busctl capture [service] > [bus-traffic.pcap]```
 
-Show **object tree** of services
+显示服务的**对象树**
 
 ```busctl tree [service1] [service2] ...```
 
-**Introspect** an object's interfaces
+**内省**对象的接口
 
 ```busctl introspect [service] [path/to/object]```
 
-**Get property** value from an object
+从对象**获取属性**值
 
 ```busctl get-property [service] [path/to/object] [interface_name] [property_name]```
 
-**Call a method** on an object
+在对象上**调用方法**
 
 ```busctl call [service] [path/to/object] [interface_name] [method_name]```
 
@@ -46,85 +46,85 @@ Show **object tree** of services
 
 # DESCRIPTION
 
-**busctl** introspects and monitors the D-Bus message bus. D-Bus is an inter-process communication system used extensively in Linux for communication between system services and desktop applications.
+**busctl** 用于内省和监视 D-Bus 消息总线。D-Bus 是一种进程间通信系统，在 Linux 上被广泛用于系统服务和桌面应用之间的通信。
 
-The tool can list services, monitor message traffic, inspect object hierarchies, and invoke methods on D-Bus objects.
+该工具可以列出服务、监视消息流量、检查对象层级结构，以及调用 D-Bus 对象上的方法。
 
 # SUBCOMMANDS
 
 **list**
-> List all peers on the bus
+> 列出总线上的所有对等端
 
 **status**
-> Show process info for a service or PID
+> 显示服务或 PID 的进程信息
 
 **monitor**
-> Watch message traffic
+> 监视消息流量
 
 **capture**
-> Capture bus traffic in pcap format
+> 捕获 pcap 格式的总线流量
 
 **tree**
-> Show object hierarchy
+> 显示对象层级结构
 
 **introspect**
-> Examine object interfaces
+> 检查对象接口
 
 **get-property**
-> Read a property value
+> 读取属性值
 
 **set-property**
-> Set a property value
+> 设置属性值
 
 **call**
-> Invoke a method
+> 调用方法
 
 **emit**
-> Emit a signal
+> 发出信号
 
 **wait-signal**
-> Wait for a specific signal
+> 等待特定信号
 
 # PARAMETERS
 
 **--system**
-> Connect to system bus (default).
+> 连接到系统总线（默认）。
 
 **--user**
-> Connect to user session bus.
+> 连接到用户会话总线。
 
 **--address** _ADDRESS_
-> Connect to the bus specified by ADDRESS.
+> 连接到 ADDRESS 指定的总线。
 
 **-j**, **--json**=_MODE_
-> Output in JSON format. MODE is short, pretty, or off.
+> 以 JSON 格式输出。MODE 为 short、pretty 或 off。
 
 **--verbose**
-> Show verbose output for call or get-property commands.
+> 为 call 或 get-property 命令显示详细输出。
 
 **--expect-reply**=_BOOL_
-> Whether to wait for method call completion. Defaults to yes.
+> 是否等待方法调用完成。默认为 yes。
 
 **--auto-start**=_BOOL_
-> Whether method calls should auto-start the target service. Defaults to yes.
+> 方法调用是否应自动启动目标服务。默认为 yes。
 
 **--list**
-> Show a flat list instead of a tree with the tree command.
+> tree 命令时显示扁平列表而不是树形结构。
 
 **--unique**
-> Show only unique bus names (e.g., :1.42).
+> 只显示唯一的总线名称（如 :1.42）。
 
 **--acquired**
-> Show only well-known bus names.
+> 只显示广为人知的总线名称。
 
 **--activatable**
-> Show only activatable services not yet started.
+> 只显示尚未启动但可激活的服务。
 
 **--no-pager**
-> Disable pager.
+> 禁用分页器。
 
 **--no-legend**
-> Do not print column headers and footers.
+> 不打印列头和页脚信息。
 
 # INSTALL
 

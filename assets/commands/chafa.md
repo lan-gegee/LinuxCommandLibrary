@@ -1,34 +1,34 @@
 # TAGLINE
 
-terminal image viewer using character art
+使用字符画在终端中查看图片
 
 # TLDR
 
-**Display image in terminal**
+**在终端中显示图片**
 
 ```chafa [image.png]```
 
-**Specify output size**
+**指定输出尺寸**
 
 ```chafa -s [80x40] [image.jpg]```
 
-**Use sixel graphics**
+**使用 sixel 图形**
 
 ```chafa --format sixels [image.png]```
 
-**Use kitty graphics protocol**
+**使用 kitty 图形协议**
 
 ```chafa --format kitty [image.gif]```
 
-**Limit colors**
+**限制颜色数**
 
 ```chafa --colors [256] [image.png]```
 
-**Display animated GIF**
+**显示动画 GIF**
 
 ```chafa --animate [animation.gif]```
 
-**ASCII only output**
+**仅输出 ASCII**
 
 ```chafa --symbols ascii [image.jpg]```
 
@@ -38,46 +38,46 @@ terminal image viewer using character art
 
 # DESCRIPTION
 
-**chafa** converts images to character art for display directly in the terminal. It uses Unicode block characters, braille patterns, and ASCII art to approximate images at the resolution of the terminal grid.
+**chafa** 将图片转换为字符画，直接在终端中显示。它使用 Unicode 块字符、盲文图案和 ASCII 字符，以终端网格的分辨率来近似呈现图片。
 
-For terminals with advanced graphics support, chafa can output using the Sixel, Kitty, or iTerm2 graphics protocols, producing much higher fidelity results. It handles a wide range of image formats including JPEG, PNG, GIF (with animation), AVIF, SVG, WebP, TIFF, and JPEG XL.
+对于支持高级图形的终端，chafa 可以用 Sixel、Kitty 或 iTerm2 图形协议输出，获得更高的还原度。它支持多种图片格式，包括 JPEG、PNG、GIF（含动画）、AVIF、SVG、WebP、TIFF 和 JPEG XL。
 
-Output can be tuned by adjusting size, color depth, symbol sets, and animation speed. chafa automatically detects terminal capabilities and selects the best available output mode.
+输出效果可通过调整尺寸、颜色深度、符号集和动画速度来微调。chafa 会自动检测终端能力并选择最佳的可用输出模式。
 
 # PARAMETERS
 
 **-s**, **--size** _WxH_
-> Output size in characters
+> 以字符为单位的输出尺寸
 
 **-f**, **--format** _format_
-> Output format: symbols, sixels, kitty, iterm
+> 输出格式：symbols、sixels、kitty、iterm
 
 **-c**, **--colors** _n_
-> Color mode: none, 2, 8, 16, 256, full
+> 颜色模式：none、2、8、16、256、full
 
 **--symbols** _set_
-> Symbol set: all, ascii, block, braille
+> 符号集：all、ascii、block、braille
 
 **--fg** _color_
-> Foreground color
+> 前景色
 
 **--bg** _color_
-> Background color
+> 背景色
 
 **--animate**
-> Enable animation for GIFs
+> 启用 GIF 动画
 
 **--duration** _secs_
-> Animation duration
+> 动画时长
 
 **--speed** _factor_
-> Animation speed multiplier
+> 动画速度倍数
 
 **-w**, **--watch**
-> Watch file for changes
+> 监视文件变化
 
 **--font-ratio** _ratio_
-> Font width/height ratio
+> 字体宽高比
 
 # SUPPORTED FORMATS
 
@@ -85,7 +85,7 @@ JPEG, PNG, GIF, AVIF, SVG, TIFF, WebP, JPEG XL, QOI, XWD
 
 # CAVEATS
 
-Output quality depends on terminal capabilities. Sixels require compatible terminal. Best results with Truecolor support.
+输出质量取决于终端能力。Sixel 需要兼容的终端。Truecolor 支持下效果最佳。
 
 # INSTALL
 

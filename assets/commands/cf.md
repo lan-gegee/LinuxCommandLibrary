@@ -1,34 +1,34 @@
 # TAGLINE
 
-Cloud Foundry CLI for application deployment
+用于应用部署的 Cloud Foundry CLI
 
 # TLDR
 
-**Login to Cloud Foundry**
+**登录 Cloud Foundry**
 
 ```cf login -a [api.example.com]```
 
-**Push application**
+**推送应用**
 
 ```cf push [app-name]```
 
-**List applications**
+**列出应用**
 
 ```cf apps```
 
-**View application logs**
+**查看应用日志**
 
 ```cf logs [app-name]```
 
-**Scale application**
+**伸缩应用**
 
 ```cf scale [app-name] -i [3]```
 
-**Create service instance**
+**创建服务实例**
 
 ```cf create-service [service] [plan] [name]```
 
-**Bind service to app**
+**将服务绑定到应用**
 
 ```cf bind-service [app-name] [service-name]```
 
@@ -38,93 +38,93 @@ Cloud Foundry CLI for application deployment
 
 # DESCRIPTION
 
-**cf** is the Cloud Foundry CLI for managing applications and services on Cloud Foundry platforms. It handles the full application lifecycle including deployment, scaling, logging, and service binding across multiple cloud providers.
+**cf** 是 Cloud Foundry CLI，用于管理 Cloud Foundry 平台上的应用和服务。它处理应用的完整生命周期，包括部署、伸缩、日志以及跨多个云提供商的服务绑定。
 
-Cloud Foundry uses a push-based deployment model where developers run `cf push` to upload application code, which is then built, containerized, and deployed automatically. Applications are organized into organizations and spaces, providing multi-tenant isolation. The CLI manages the interaction between developers and the Cloud Foundry API.
+Cloud Foundry 采用推送式部署模型：开发者运行 `cf push` 上传应用代码，平台随后自动构建、容器化并部署。应用按组织和空间组织，提供多租户隔离。CLI 负责开发者与 Cloud Foundry API 之间的交互。
 
-Services such as databases, message queues, and caches are provisioned from a marketplace and bound to applications, with connection credentials injected via environment variables.
+数据库、消息队列和缓存等服务从服务市场开通并绑定到应用，连接凭证通过环境变量注入。
 
 # COMMANDS
 
 **login**
-> Authenticate with Cloud Foundry
+> 向 Cloud Foundry 认证
 
 **push**
-> Deploy application
+> 部署应用
 
 **apps**
-> List applications in space
+> 列出空间中的应用
 
 **logs**
-> View application logs
+> 查看应用日志
 
 **scale**
-> Scale application instances
+> 伸缩应用实例
 
 **start**, **stop**, **restart**
-> Manage application state
+> 管理应用状态
 
 **delete**
-> Delete application
+> 删除应用
 
 **services**
-> List service instances
+> 列出服务实例
 
 **create-service**
-> Create service instance
+> 创建服务实例
 
 **bind-service**
-> Bind service to application
+> 将服务绑定到应用
 
 **env**
-> Show environment variables
+> 显示环境变量
 
 **ssh**
-> SSH into application container
+> SSH 进入应用容器
 
 **orgs**, **spaces**
-> List organizations/spaces
+> 列出组织/空间
 
 # PARAMETERS
 
 **-a** _URL_
-> API endpoint URL
+> API 端点 URL
 
 **-u** _user_
-> Username
+> 用户名
 
 **-p** _pass_
-> Password
+> 密码
 
 **-o** _org_
-> Organization
+> 组织
 
 **-s** _space_
-> Space
+> 空间
 
 **-i** _num_
-> Number of instances
+> 实例数量
 
 **-m** _memory_
-> Memory limit (e.g., 256M)
+> 内存限制（如 256M）
 
 **-f** _manifest_
-> Path to manifest file
+> manifest 文件路径
 
 **--skip-ssl-validation**
-> Skip SSL certificate verification
+> 跳过 SSL 证书验证
 
 # CONFIGURATION
 
 **~/.cf/config.json**
-> CLI configuration including API endpoint, access tokens, and current org/space target.
+> CLI 配置文件，包括 API 端点、访问令牌以及当前的 org/space 目标。
 
 **manifest.yml**
-> Application deployment manifest defining memory, instances, routes, and service bindings.
+> 应用部署清单，定义内存、实例数、路由和服务绑定。
 
 # CAVEATS
 
-Use cf v8 (current supported version). Run `cf help -a` for all commands. Interactive password prompts have issues in Cygwin/Git Bash.
+请使用 cf v8（当前受支持的版本）。运行 `cf help -a` 可查看所有命令。交互式密码提示在 Cygwin/Git Bash 中存在问题。
 
 # INSTALL
 

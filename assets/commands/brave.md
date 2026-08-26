@@ -1,30 +1,30 @@
 # TAGLINE
 
-Privacy-focused web browser
+注重隐私的网络浏览器
 
 # TLDR
 
-**Open** Brave browser
+**打开** Brave 浏览器
 
 ```brave```
 
-**Open** a URL
+**打开**某个 URL
 
 ```brave [https://example.com]```
 
-**Open** in incognito mode
+以无痕模式**打开**
 
 ```brave --incognito [https://example.com]```
 
-**Open** in a new window
+在新窗口中**打开**
 
 ```brave --new-window [https://example.com]```
 
-**Open** a URL as a standalone app
+以独立应用方式**打开** URL
 
 ```brave --app=[https://example.com]```
 
-**Use** a specific profile directory
+**使用**指定的配置目录
 
 ```brave --user-data-dir=[~/.config/brave-profile2]```
 
@@ -34,69 +34,69 @@ Privacy-focused web browser
 
 # DESCRIPTION
 
-**brave** is a privacy-focused web browser built on Chromium. It blocks ads and trackers by default, includes a built-in cryptocurrency wallet, and rewards users with BAT tokens for viewing privacy-respecting ads.
+**brave** 是一款基于 Chromium 构建的关注隐私的网页浏览器。它默认拦截广告和跟踪器，内置加密货币钱包，并通过向用户发放 BAT 代币来奖励其观看尊重隐私的广告。
 
-The browser emphasizes speed, privacy, and security while maintaining compatibility with Chrome extensions.
+该浏览器强调速度、隐私与安全，同时保持与 Chrome 扩展的兼容性。
 
 # PARAMETERS
 
 **--incognito**
-> Open in incognito (private) mode
+> 以无痕（隐私）模式打开。
 
 **--new-window**
-> Open URL in a new window
+> 在新窗口中打开 URL。
 
 **--new-tab** _url_
-> Open URL in a new tab
+> 在新标签页中打开 URL。
 
 **--app=**_url_
-> Open URL in application mode without browser UI
+> 以应用模式打开 URL，不带浏览器界面。
 
 **--user-data-dir=**_dir_
-> Use a specific profile directory (default: ~/.config/brave-browser)
+> 使用指定的配置目录（默认：~/.config/brave-browser）。
 
 **--proxy-server=**_server_
-> Use specified HTTP/SOCKS4/SOCKS5 proxy server for requests
+> 为请求使用指定的 HTTP/SOCKS4/SOCKS5 代理服务器。
 
 **--disable-extensions**
-> Disable all browser extensions
+> 禁用所有浏览器扩展。
 
 **--no-proxy-server**
-> Don't use a proxy server, always make direct connections
+> 不使用代理服务器，始终直连。
 
 **--headless**
-> Run in headless mode without a visible window
+> 以无头模式运行，不显示窗口。
 
 # FEATURES
 
-- Built-in ad/tracker blocking (Brave Shields)
-- Automatic HTTPS upgrades
-- Script blocking
-- Fingerprint protection
-- BAT cryptocurrency integration
+- 内置广告/跟踪器拦截（Brave Shields）
+- 自动升级到 HTTPS
+- 脚本拦截
+- 指纹防护
+- BAT 加密货币集成
 - Brave Rewards
-- Private browsing with Tor
-- IPFS support
-- Chrome extension compatibility
+- 通过 Tor 进行私密浏览
+- IPFS 支持
+- Chrome 扩展兼容性
 
 # PRIVACY FEATURES
 
-- **Shields** - Block ads, trackers, scripts
-- **Private tabs with Tor** - Anonymous browsing
-- **No telemetry** - Privacy by default
-- **Fingerprint randomization**
+- **Shields**——拦截广告、跟踪器和脚本
+- **Tor 私密标签页**——匿名浏览
+- **无遥测数据**——默认保护隐私
+- **指纹随机化**
 
 # BRAVE REWARDS
 
-Opt-in system that rewards users with BAT (Basic Attention Token) for viewing privacy-respecting ads. Users can tip content creators.
+一种可选参与的机制，用户观看尊重隐私的广告可获得 BAT（Basic Attention Token）奖励。用户还可以给内容创作者打赏。
 
 # CAVEATS
 
-Some websites may not work with aggressive blocking. BAT rewards availability varies by region. Sync requires Brave account. Some find built-in crypto features unnecessary. Based on Chromium (Google project).
+部分网站在激进拦截下可能无法正常工作。BAT 奖励的可用性因地区而异。同步功能需要 Brave 账户。有人认为内置的加密货币功能没有必要。基于 Chromium（Google 项目）构建。
 
 # HISTORY
 
-**Brave** was created by Brendan Eich (JavaScript creator, Mozilla co-founder) and launched in **2016** to provide privacy-focused browsing with an alternative ad model.
+**Brave** 由 Brendan Eich（JavaScript 之父、Mozilla 联合创始人）创建，于 **2016** 年发布，旨在通过替代性的广告模式提供注重隐私的浏览体验。
 
 # INSTALL
 

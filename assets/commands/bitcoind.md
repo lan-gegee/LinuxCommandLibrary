@@ -1,22 +1,22 @@
 # TAGLINE
 
-Bitcoin Core full node daemon
+Bitcoin Core 全节点守护进程
 
 # TLDR
 
-**Start** Bitcoin daemon
+**启动**比特币守护进程
 
 ```bitcoind -daemon```
 
-**Start** with configuration
+**以指定配置启动**
 
 ```bitcoind -conf=[bitcoin.conf]```
 
-**Stop** daemon
+**停止**守护进程
 
 ```bitcoin-cli stop```
 
-**Run** in foreground
+**在前台运行**
 
 ```bitcoind```
 
@@ -26,99 +26,99 @@ Bitcoin Core full node daemon
 
 # DESCRIPTION
 
-**bitcoind** is the Bitcoin Core daemon. It maintains a full copy of the Bitcoin blockchain, validates transactions and blocks, and can serve as a wallet. The daemon provides RPC and REST interfaces for interaction.
+**bitcoind** 是 Bitcoin Core 守护进程。它维护区块链的完整副本，验证交易和区块，并可充当钱包。该守护进程提供 RPC 和 REST 接口供交互使用。
 
-Running a full node contributes to Bitcoin network decentralization and allows trustless validation of transactions.
+运行全节点有助于比特币网络的去中心化，并允许以无需信任的方式验证交易。
 
 # PARAMETERS
 
 **-daemon**
-> Run as background daemon
+> 作为后台守护进程运行
 
 **-conf=**_file_
-> Configuration file path
+> 配置文件路径
 
 **-datadir=**_dir_
-> Data directory
+> 数据目录
 
 **-chain=**_chain_
-> Select chain: main, testnet4, signet, regtest (default: main)
+> 选择链：main、testnet4、signet、regtest（默认：main）
 
 **-testnet4**
-> Use testnet4 network
+> 使用 testnet4 网络
 
 **-signet**
-> Use signet network
+> 使用 signet 网络
 
 **-regtest**
-> Regression test mode
+> 回归测试模式
 
 **-prune=**_n_
-> Enable pruning (keep only N MB)
+> 启用修剪（仅保留 N MB）
 
 **-txindex**
-> Maintain full transaction index
+> 维护完整的交易索引
 
 **-rpcuser=**_user_
-> RPC username
+> RPC 用户名
 
 **-rpcpassword=**_pass_
-> RPC password
+> RPC 密码
 
 **-rpcport=**_port_
-> RPC port
+> RPC 端口
 
 **-server**
-> Accept command line and JSON-RPC commands
+> 接受命令行和 JSON-RPC 命令
 
 **-blocksonly**
-> Reduce bandwidth by not relaying transactions
+> 不转发交易以降低带宽占用
 
 # CONFIGURATION
 
 **~/.bitcoin/bitcoin.conf**
-> Main configuration file for daemon mode, RPC credentials, network selection, pruning, and indexing options.
+> 主配置文件，用于守护进程模式、RPC 凭证、网络选择、修剪和索引选项。
 
 # SYSTEM REQUIREMENTS
 
-- **Disk**: ~600 GB+ (full blockchain)
-- **RAM**: 2 GB minimum, 4 GB recommended
-- **Network**: Unlimited or high cap
-- **Bandwidth**: ~20 GB/month upload
+- **磁盘**: 约 600 GB+（完整区块链）
+- **内存**: 最低 2 GB，建议 4 GB
+- **网络**: 无限制或高流量额度
+- **带宽**: 每月约 20 GB 上传
 
 # FEATURES
 
-- Full blockchain validation
-- Wallet functionality
-- Mining support (via external miners)
-- RPC/REST APIs
-- Pruning mode (reduced storage)
-- Testnet/regtest support
-- ZMQ notifications
+- 完整的区块链验证
+- 钱包功能
+- 挖矿支持（通过外部矿机）
+- RPC/REST API
+- 修剪模式（减少存储占用）
+- 支持 testnet/regtest
+- ZMQ 通知
 
 # WORKFLOW
 
 ```bash
-# Start daemon
+# 启动守护进程
 bitcoind -daemon
 
-# Check status
+# 检查状态
 bitcoin-cli getblockchaininfo
 
-# Wait for sync (can take days)
+# 等待同步完成（可能需要数天）
 bitcoin-cli getblockcount
 
-# Stop daemon
+# 停止守护进程
 bitcoin-cli stop
 ```
 
 # CAVEATS
 
-Initial sync takes days/weeks. Large disk space required (unless pruned). High bandwidth usage. Keep wallet backups secure. RPC should not be exposed to internet. The -testnet flag (testnet3) was deprecated in v28 and removed in v30; use -testnet4 or -signet instead.
+初始同步需要数天或数周。需要较大磁盘空间（除非启用修剪）。带宽占用高。请妥善保管钱包备份。RPC 不应暴露到互联网。-testnet 标志（testnet3）已在 v28 中弃用并在 v30 中移除；请改用 -testnet4 或 -signet。
 
 # HISTORY
 
-**bitcoind** was created by Satoshi Nakamoto as part of the original Bitcoin software in **2009**, serving as the reference implementation of the Bitcoin protocol.
+**bitcoind** 由中本聪于 **2009 年**作为原始比特币软件的一部分创建，是比特币协议的参考实现。
 
 # INSTALL
 

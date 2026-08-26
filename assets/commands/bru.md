@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run API requests from Bruno collections
+运行 Bruno 集合中的 API 请求
 
 # TLDR
 
-**Run a single API request**
+运行单个 API 请求
 
 ```bru run [request.bru]```
 
-**Run all requests** in a folder
+**运行一个文件夹中的所有请求**
 
 ```bru run [folder/]```
 
-**Run with a specific environment**
+使用指定的环境运行
 
 ```bru run [folder/] --env [production]```
 
-**Run with environment variables**
+附带环境变量运行
 
 ```bru run [request.bru] --env-var [API_KEY=secret]```
 
-**Generate JSON, JUnit, and HTML reports**
+生成 JSON、JUnit 和 HTML 报告
 
 ```bru run [folder/] --reporter-json [results.json] --reporter-junit [results.xml] --reporter-html [results.html]```
 
-**Import an OpenAPI spec** as a Bruno collection
+将 OpenAPI 规范导入为 Bruno 集合
 
 ```bru import openapi --source [api.yml] --output [~/collections] --collection-name [MyAPI]```
 
-**Run and stop on first failure**
+遇到第一个失败即停止运行
 
 ```bru run [folder/] --env [staging] --bail```
 
-**Run with custom CA certificate**
+使用自定义 CA 证书运行
 
 ```bru run [request.bru] --cacert [/path/to/ca.crt]```
 
@@ -45,63 +45,63 @@ Run API requests from Bruno collections
 # PARAMETERS
 
 **--env** _name_
-> Use a specific environment for the run.
+> 本次运行使用指定的环境。
 
 **--env-var** _key=value_
-> Set environment variables for the run.
+> 为本次运行设置环境变量。
 
 **--reporter-json** _file_
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **--reporter-junit** _file_
-> Output results in JUnit XML format.
+> 以 JUnit XML 格式输出结果。
 
 **--reporter-html** _file_
-> Output results in HTML format.
+> 以 HTML 格式输出结果。
 
 **--cacert** _path_
-> Path to a CA certificate file for HTTPS requests.
+> 用于 HTTPS 请求的 CA 证书文件路径。
 
 **--insecure**
-> Skip SSL certificate verification.
+> 跳过 SSL 证书校验。
 
 **-r**, **--recursive**
-> Recursively run requests in subfolders.
+> 递归运行子文件夹中的请求。
 
 **--bail**
-> Stop execution after a failed request, test, or assertion.
+> 在某个请求、测试或断言失败后停止执行。
 
 **--sandbox** _mode_
-> JavaScript execution mode: safe (default) or developer.
+> JavaScript 执行模式：safe（默认）或 developer。
 
 **--parallel**
-> Run requests in parallel instead of sequentially.
+> 并行而非顺序地运行请求。
 
 **--delay** _ms_
-> Delay between requests in milliseconds.
+> 请求之间的延迟毫秒数。
 
 **--tests-only**
-> Execute only requests containing tests or active assertions.
+> 只执行包含测试或有效断言的请求。
 
 **--csv-file-path** _file_
-> Run collection once for each row in a CSV file.
+> 对 CSV 文件中的每一行各运行一次集合。
 
 **--env-file** _file_
-> Path to an environment file (.bru or .json).
+> 环境文件（.bru 或 .json）的路径。
 
 # DESCRIPTION
 
-**bru** is the command-line interface for Bruno, an open-source API client similar to Postman or Insomnia. Bruno stores API collections directly in the filesystem using plain text .bru files, making them version-control friendly.
+**bru** 是 Bruno 的命令行界面。Bruno 是一款类似 Postman 或 Insomnia 的开源 API 客户端，直接以纯文本 .bru 文件的形式在文件系统中存储 API 集合，因此对版本控制非常友好。
 
-The CLI enables headless execution of API requests for CI/CD pipelines, automated testing, and scripted operations. Collections can be stored alongside code repositories for easy collaboration.
+该 CLI 支持无头执行 API 请求，可用于 CI/CD 流水线、自动化测试和脚本化操作。集合可以与代码仓库存放在一起，便于协作。
 
 # CAVEATS
 
-Requires Node.js runtime. Install with **npm install -g @usebruno/cli**. Starting from v3.0.0, the default runtime is Safe Mode; use **--sandbox=developer** to enable external npm packages and filesystem access. The CLI works with Bruno collection folders containing .bru files and optional environment configurations.
+需要 Node.js 运行时。使用 **npm install -g @usebruno/cli** 安装。从 v3.0.0 起，默认运行时为安全模式；使用 **--sandbox=developer** 可启用外部 npm 包和文件系统访问。该 CLI 用于包含 .bru 文件和可选环境配置的 Bruno 集合文件夹。
 
 # HISTORY
 
-Bruno was created as a lightweight, open-source alternative to proprietary API clients. The project emphasizes storing collections as code in plain text format for better Git integration and developer workflows.
+Bruno 作为专有 API 客户端的轻量开源替代品而创建。该项目强调以纯文本形式将集合存储为代码，从而获得更好的 Git 集成和开发工作流。
 
 # SEE ALSO
 

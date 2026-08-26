@@ -1,26 +1,26 @@
 # TAGLINE
 
-Recovery tools for damaged btrfs filesystems
+受损 btrfs 文件系统的恢复工具
 
 # TLDR
 
-**Rebuild** the filesystem metadata tree (very slow)
+**重建**文件系统元数据树（非常慢）
 
 ```sudo btrfs rescue chunk-recover [path/to/partition]```
 
-Fix **device size alignment** problems
+修复**设备大小对齐**问题
 
 ```sudo btrfs rescue fix-device-size [path/to/partition]```
 
-**Recover corrupted superblock** from copies
+从副本中**恢复损坏的超级块**
 
 ```sudo btrfs rescue super-recover [path/to/partition]```
 
-Recover from **interrupted transactions**
+从中断的**事务中恢复**
 
 ```sudo btrfs rescue zero-log [path/to/partition]```
 
-Create the **btrfs control device**
+创建 **btrfs 控制设备**
 
 ```sudo btrfs rescue create-control-device```
 
@@ -30,30 +30,30 @@ Create the **btrfs control device**
 
 # DESCRIPTION
 
-**btrfs rescue** provides recovery tools for damaged btrfs filesystems. These are last-resort commands when normal mounting or btrfs check fails.
+**btrfs rescue** 为受损的 btrfs 文件系统提供恢复工具。这些是正常挂载或 btrfs check 失败时的最后手段。
 
-Each subcommand addresses specific failure modes like corrupted metadata, superblock damage, or interrupted transactions. The filesystem must be unmounted for all operations.
+每个子命令针对特定的故障模式，例如元数据损坏、超级块损坏或事务中断。所有操作都要求文件系统处于卸载状态。
 
 # SUBCOMMANDS
 
 **chunk-recover**
-> Scan and rebuild chunk tree (very slow, hours to days)
+> 扫描并重建块组树（非常慢，可能需要数小时到数天）
 
 **fix-device-size**
-> Fix device size mismatches preventing mount
+> 修复导致无法挂载的设备大小不匹配问题
 
 **super-recover**
-> Restore superblock from backup copies
+> 从备份副本恢复超级块
 
 **zero-log**
-> Clear the transaction log to fix log replay failures
+> 清空事务日志以修复日志回放失败问题
 
 **create-control-device**
-> Create /dev/btrfs-control when mknod unavailable
+> 在 mknod 不可用时创建 /dev/btrfs-control
 
 # CAVEATS
 
-These are emergency recovery tools. Always backup any recoverable data first. chunk-recover can take extremely long on large filesystems. Some operations may cause data loss. The filesystem must be unmounted.
+这些是紧急恢复工具。务必先备份所有可恢复的数据。在大文件系统上 chunk-recover 可能耗时极长。某些操作可能导致数据丢失。文件系统必须处于卸载状态。
 
 # INSTALL
 

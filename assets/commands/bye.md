@@ -1,14 +1,14 @@
 # TAGLINE
 
-Exit the shell
+退出 Shell
 
 # TLDR
 
-**Exit the current shell** session
+**退出当前 shell** 会话
 
 ```bye```
 
-**Exit with a specific status** code
+**以特定状态码**退出
 
 ```bye [exit_code]```
 
@@ -18,17 +18,17 @@ Exit the shell
 
 # DESCRIPTION
 
-**bye** is a zsh builtin that terminates the current shell session. It is functionally identical to **exit**. When called, it runs any **EXIT** traps and zshexit hooks before closing the shell.
+**bye** 是一个 zsh 内置命令，用于终止当前 shell 会话。它在功能上与 **exit** 完全相同。调用时会先运行所有 **EXIT** trap 和 zshexit 钩子，然后关闭 shell。
 
-If an optional numeric argument is provided, it is used as the exit status returned to the parent process. Without an argument, the exit status of the last command executed is used.
+如果提供了可选的数字参数，它会作为返回给父进程的退出状态。不带参数时，使用最后执行的命令的退出状态。
 
 # CAVEATS
 
-**bye** is specific to zsh and not available in bash or other shells. For portability, use **exit** instead. If there are running background jobs, zsh may warn before exiting on the first attempt.
+**bye** 为 zsh 特有，在 bash 或其他 shell 中不可用。为了可移植性，请改用 **exit**。如果有正在运行的后台作业，zsh 在第一次尝试退出时可能会发出警告。
 
 # HISTORY
 
-**bye** was included in **zsh** as a convenience alias for **exit**, reflecting a common command used in interactive systems like FTP clients and some early Unix shells.
+**bye** 作为 **exit** 的便捷别名被包含在 **zsh** 中，反映了 FTP 客户端等交互式系统和一些早期 Unix shell 中常见的命令用法。
 
 # SEE ALSO
 

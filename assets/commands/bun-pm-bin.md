@@ -1,14 +1,14 @@
 # TAGLINE
 
-Print the bin directory path
+输出 bin 目录路径
 
 # TLDR
 
-**Print local bin directory** path
+**输出本地 bin 目录**路径
 
 ```bun pm bin```
 
-**Print global bin directory** path
+**输出全局 bin 目录**路径
 
 ```bun pm bin -g```
 
@@ -19,11 +19,11 @@ Print the bin directory path
 # PARAMETERS
 
 **-g**, **--global**
-> Print the global bin directory instead of local.
+> 输出全局 bin 目录而不是本地目录。
 
 # DESCRIPTION
 
-**bun pm bin** prints the path to the directory where package executables are installed. By default, it shows the local project's node_modules/.bin directory. With **-g**, it shows the global bin directory.
+**bun pm bin** 输出软件包可执行文件所在目录的路径。默认显示本地项目的 node_modules/.bin 目录。使用 **-g** 时，则显示全局 bin 目录。
 
 # SEE ALSO
 

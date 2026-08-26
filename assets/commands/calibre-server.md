@@ -1,34 +1,34 @@
 # TAGLINE
 
-Serve ebook libraries over the network
+通过网络提供电子书库服务
 
 # TLDR
 
-**Start content server with library**
+**启动内容服务器并加载书库**
 
 ```calibre-server [/path/to/library]```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```calibre-server --port [8080] [/path/to/library]```
 
-**Enable authentication**
+**启用身份验证**
 
 ```calibre-server --enable-auth --userdb [users.sqlite] [/path/to/library]```
 
-**Manage user accounts**
+**管理用户账户**
 
 ```calibre-server --manage-users --userdb [users.sqlite]```
 
-**Enable local write access**
+**启用本地写入权限**
 
 ```calibre-server --enable-local-write [/path/to/library]```
 
-**Serve multiple libraries**
+**提供多个书库**
 
 ```calibre-server [/library1] [/library2]```
 
-**Advertise via Bonjour**
+**通过 Bonjour 广播**
 
 ```calibre-server --enable-use-bonjour [/path/to/library]```
 
@@ -38,54 +38,54 @@ Serve ebook libraries over the network
 
 # DESCRIPTION
 
-**calibre-server** exposes Calibre ebook libraries over the network. Users can access, browse, and read books directly in a web browser. The server supports OPDS feeds, offline caching, and authentication.
+**calibre-server** 将 Calibre 电子书库发布到网络上。用户可以在网页浏览器中直接访问、浏览和阅读书籍。该服务器支持 OPDS 订阅源、离线缓存和身份验证。
 
 # PARAMETERS
 
 **--port**=_number_
-> Port to listen on (default: 8080)
+> 监听端口（默认：8080）
 
 **--listen-on**=_address_
-> Interface to bind to (default: all)
+> 绑定的网络接口（默认：全部）
 
 **--enable-auth**
-> Require password authentication
+> 要求密码验证
 
 **--userdb**=_path_
-> Path to SQLite user database
+> SQLite 用户数据库的路径
 
 **--manage-users**
-> Interactive user management mode
+> 交互式用户管理模式
 
 **--enable-local-write**
-> Allow local clients to modify library
+> 允许本地客户端修改书库
 
 **--enable-use-bonjour**
-> Advertise OPDS via Bonjour/mDNS
+> 通过 Bonjour/mDNS 广播 OPDS
 
 **--url-prefix**=_prefix_
-> URL path prefix for reverse proxy
+> 用于反向代理的 URL 路径前缀
 
 **--daemonize**
-> Run as background daemon
+> 以后台守护进程方式运行
 
 **--pidfile**=_path_
-> Write process ID to file
+> 将进程 ID 写入文件
 
 # FEATURES
 
-**OPDS Feeds**
-> Compatible with OPDS-based reading apps
+**OPDS 订阅源**
+> 与基于 OPDS 的阅读应用兼容
 
-**Offline Reading**
-> Browser caches books for offline access
+**离线阅读**
+> 浏览器会缓存书籍以便离线访问
 
-**Remote Access**
-> Access library from any device on network
+**远程访问**
+> 可从网络上的任意设备访问书库
 
 # CAVEATS
 
-Enable authentication before exposing to internet. On macOS, binary is inside calibre.app bundle. Use --enable-local-write for calibredb remote access.
+暴露到互联网前请先启用身份验证。macOS 上，可执行文件位于 calibre.app 包内。要让 calibredb 远程访问，需使用 --enable-local-write。
 
 # INSTALL
 

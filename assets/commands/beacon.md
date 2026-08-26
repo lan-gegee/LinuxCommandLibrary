@@ -1,34 +1,34 @@
 # TAGLINE
 
-Transmit periodic messages on an AX.25 port
+在 AX.25 端口上周期性发送消息
 
 # TLDR
 
-**Send a beacon** every 30 minutes (default) on a port
+在端口上每 30 分钟（默认）**发送一次信标**
 
 ```beacon [port] "[message text]"```
 
-**Set a custom interval** in minutes between transmissions
+以分钟为单位**自定义发送间隔**
 
 ```beacon -t [interval] [port] "[message text]"```
 
-**Send the message once** and exit
+**只发送一次**消息后退出
 
 ```beacon -s [port] "[message text]"```
 
-**Specify a source callsign** instead of the interface default
+**指定源呼号**而非接口默认值
 
 ```beacon -c [src_call] [port] "[message text]"```
 
-**Set the destination callsign** (and optional digipeaters)
+**设置目的呼号**（及可选的数字中继）
 
 ```beacon -d "[dest_call] [digi1] [digi2]" [port] "[message text]"```
 
-**Run in the foreground** without daemonising
+**在前台运行**，不转为守护进程
 
 ```beacon -f [port] "[message text]"```
 
-**Send a one-shot mail beacon** (destination set to MAIL)
+**发送一次性的邮件信标**（目的地址设为 MAIL）
 
 ```beacon -m [port] "[message text]"```
 
@@ -39,75 +39,75 @@ Transmit periodic messages on an AX.25 port
 # PARAMETERS
 
 **-c** _src_call_
-> Configure the source callsign for the beacon. Defaults to the AX.25 callsign of the interface.
+> 配置信标的源呼号。默认为接口的 AX.25 呼号。
 
 **-d** _dest_call_
-> Configure the destination callsign. Defaults to **IDENT**. Digipeaters may follow, separated by spaces, when the argument is quoted.
+> 配置目的呼号。默认为 **IDENT**。参数加引号时可后跟数字中继，以空格分隔。
 
 **-f**
-> Do not fork into the background; keep the process attached to the terminal.
+> 不转入后台；进程保持附着于终端。
 
 **-l**
-> Enable logging of errors to the system log. Disabled by default.
+> 启用向系统日志记录错误。默认禁用。
 
 **-m**
-> Send the message once with destination address set to **MAIL** instead of **IDENT**.
+> 只发送一次消息，目的地址设为 **MAIL** 而非 **IDENT**。
 
 **-s**
-> Send the message text only once and exit.
+> 只发送一次消息文本后退出。
 
 **-t** _interval_
-> Time interval between transmissions, in minutes. Default is **30**.
+> 发送间隔，以分钟为单位。默认为 **30**。
 
 **-v**
-> Display version information.
+> 显示版本信息。
 
 _port_
-> Name of the AX.25 port as defined in **/etc/ax25/axports**.
+> 在 **/etc/ax25/axports** 中定义的 AX.25 端口名。
 
 _message_
-> Text to transmit. Quote the string so spaces and special characters are passed unchanged.
+> 要发送的文本。请给字符串加引号，使空格和特殊字符原样传递。
 
 # DESCRIPTION
 
-**beacon** is part of the **ax25-tools** suite for amateur packet radio on Linux. It periodically transmits a UI (Unnumbered Information) frame containing a user-supplied text message on a configured AX.25 port. Beacons announce a station's presence, advertise services, or publish APRS-style position and status data on packet networks.
+**beacon** 是 Linux 业余分组无线电工具集 **ax25-tools** 的一部分。它在配置好的 AX.25 端口上周期性地发送一个包含用户指定文本消息的 UI（Unnumbered Information）帧。信标用于宣告电台的存在、宣传服务，或在分组网络上发布 APRS 风格的位置和状态数据。
 
-By default the destination address is **IDENT** and the message is sent every 30 minutes; both can be overridden. The program normally daemonises itself so it can keep running in the background while the operator continues other work. The **-s** and **-m** options turn it into a one-shot transmitter.
+默认目的地址为 **IDENT**，消息每 30 分钟发送一次；两者均可覆盖。程序通常会自我守护化，以便在操作员继续其他工作时保持在后台运行。**-s** 和 **-m** 选项会将其变为一次性发送器。
 
-The named _port_ must be a configured AX.25 interface (commonly a KISS TNC, a soundmodem, or a kernel AX.25 device) listed in **/etc/ax25/axports**.
+指定的 _port_ 必须是 **/etc/ax25/axports** 中列出的已配置 AX.25 接口（通常是 KISS TNC、声卡调制解调器或内核 AX.25 设备）。
 
 # EXAMPLES
 
-Announce a BBS every 15 minutes:
+每 15 分钟宣告一次 BBS：
 
 ```beacon -t 15 radio "Welcome to AB1CDE BBS, telnet bbs.example.org"```
 
-Send a single MAIL beacon and exit:
+发送单个 MAIL 信标后退出：
 
 ```beacon -m radio "QSL via email ab1cde@example.org"```
 
-Beacon through two digipeaters:
+经由两个数字中继发送信标：
 
 ```beacon -d "APRS WIDE1-1 WIDE2-1" radio "!4807.38N/01131.00E>Test station"```
 
 # CONFIGURATION
 
-AX.25 ports are defined in **/etc/ax25/axports** with one line per port:
+AX.25 端口在 **/etc/ax25/axports** 中定义，每个端口一行：
 
 ```
 # portname callsign  baudrate  paclen  window description
 radio      AB1CDE-1  1200      256     2      VHF packet on 144.39 MHz
 ```
 
-The port name passed to **beacon** must match the first column. The AX.25 networking stack and a TNC (kernel KISS, **kissattach**, **soundmodem**, or similar) must be active before invoking **beacon**.
+传给 **beacon** 的端口名必须与第一列匹配。调用 **beacon** 前，AX.25 网络协议栈和 TNC（内核 KISS、**kissattach**、**soundmodem** 等）必须已经就绪。
 
 # CAVEATS
 
-Requires the AX.25 kernel stack and an attached AX.25 interface; **beacon** will not start without a valid port. Frequent beaconing wastes shared radio channel capacity and is widely discouraged in amateur packet networks. Many operators recommend intervals of 30 minutes or longer outside of APRS use cases. Running **beacon** typically requires privileges that allow opening the AX.25 socket (often root or membership in an appropriate group).
+需要 AX.25 内核协议栈和已连接的 AX.25 接口；没有有效端口时 **beacon** 无法启动。频繁发送信标会浪费共享无线电信道容量，在业余分组网络中被普遍劝阻。除 APRS 场景外，许多操作员建议间隔设为 30 分钟或更长。运行 **beacon** 通常需要能打开 AX.25 套接字的权限（通常是 root 或属于相应组）。
 
 # HISTORY
 
-**beacon** ships with **ax25-tools**, the userspace utilities for the Linux AX.25 protocol stack. The Linux AX.25 implementation was started in the early **1990s** by **Alan Cox** and others to bring amateur packet radio to Linux, and **ax25-tools** has been maintained by the Linux AX.25 project ever since. The utility has remained largely unchanged for decades because the AX.25 link-layer protocol itself has been stable since its original 1984 specification.
+**beacon** 随 Linux AX.25 协议栈的用户态工具集 **ax25-tools** 一同发布。Linux 的 AX.25 实现于 **20 世纪 90 年代初**由 **Alan Cox** 等人启动，目的是把业余分组无线电带入 Linux，此后 **ax25-tools**一直由 Linux AX.25 项目维护。由于 AX.25 链路层协议自其 1984 年原始规范以来保持稳定，这个工具几十年来几乎没有变化。
 
 # INSTALL
 

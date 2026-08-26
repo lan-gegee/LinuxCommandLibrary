@@ -1,34 +1,34 @@
 # TAGLINE
 
-C and C++ type declaration translator
+C 和 C++ 类型声明翻译器
 
 # TLDR
 
-**Start interactive mode**
+**进入交互模式**
 
 ```cdecl```
 
-**Explain a C declaration**
+**解释一个 C 声明**
 
 ```cdecl explain "int *(*fp)(int)"```
 
-**Convert English to a C declaration**
+**将英文转换为 C 声明**
 
 ```cdecl declare "x as pointer to function returning int"```
 
-**Explain a complex function declaration**
+**解释一个复杂的函数声明**
 
 ```cdecl explain "void (*signal(int, void (*)(int)))(int)"```
 
-**Cast an expression**
+**构造强制类型转换表达式**
 
 ```cdecl cast "x into pointer to function returning int"```
 
-**Declare using English** via pipe
+**通过管道用英文声明**
 
 ```echo "declare argv as array of pointer to char" | cdecl```
 
-**Define a typedef**
+**定义一个 typedef**
 
 ```cdecl declare "str as typedef pointer to char"```
 
@@ -39,55 +39,55 @@ C and C++ type declaration translator
 # PARAMETERS
 
 **-+**
-> Use C++ syntax instead of C (same as -c).
+> 使用 C++ 语法而不是 C（同 -c）。
 
 **-c**
-> Use C++ syntax instead of C.
+> 使用 C++ 语法而不是 C。
 
 **-i**
-> Enter interactive mode (default if no command given).
+> 进入交互模式（未给出命令时默认）。
 
 **-V**
-> Display version information.
+> 显示版本信息。
 
 **explain** _declaration_
-> Convert C/C++ declaration to English.
+> 将 C/C++ 声明翻译为英文。
 
 **declare** _description_
-> Convert English description to C/C++ declaration.
+> 将英文描述转换为 C/C++ 声明。
 
 **cast** _expression_
-> Create a cast expression.
+> 生成强制类型转换表达式。
 
 **typedef** _declaration_
-> Create a typedef from a declaration.
+> 从声明创建 typedef。
 
 **set** _option_
-> Set options (e.g., cplusplus, preansi).
+> 设置选项（例如 cplusplus、preansi）。
 
 **help**
-> Display help in interactive mode.
+> 在交互模式中显示帮助。
 
 **quit**
-> Exit interactive mode.
+> 退出交互模式。
 
 # DESCRIPTION
 
-**cdecl** (C declaration) translates complex C and C++ type declarations between their cryptic syntax and plain English. It helps programmers understand and construct complicated declarations involving pointers, arrays, and functions.
+**cdecl**（C declaration）在复杂 C 和 C++ 类型声明晦涩的语法与平实的英文之间进行互译。它帮助程序员理解和构建涉及指针、数组和函数的复杂声明。
 
-The tool can explain existing declarations like function pointers, arrays of pointers, or pointers to arrays in understandable terms. Conversely, it can generate correct C syntax from English descriptions, helping avoid common declaration mistakes.
+该工具可以用易懂的措辞解释现有声明，如函数指针、指针数组或数组指针。反过来，它也能根据英文描述生成正确的 C 语法，帮助避免常见的声明错误。
 
-In interactive mode, cdecl provides a prompt where you can enter multiple explain or declare commands. It handles complex scenarios like pointers to functions returning pointers to arrays, signal handler declarations, and other notoriously confusing C constructs.
+在交互模式下，cdecl 提供一个提示符，你可以连续输入多条 explain 或 declare 命令。它能处理各种复杂场景，例如返回数组指针的函数指针、信号处理函数声明，以及其他出了名容易混淆的 C 构造。
 
-The C++ mode adds support for references and member pointers. The tool is particularly valuable when working with legacy code, signal handlers, callback functions, or any code with deeply nested type declarations.
+C++ 模式增加了对引用和成员指针的支持。在处理遗留代码、信号处理函数、回调函数或任何包含深层嵌套类型声明的代码时，该工具尤其有价值。
 
 # CAVEATS
 
-Some very complex or non-standard declarations may not be parsed correctly. The tool focuses on type declarations and does not handle full C/C++ syntax. Newer C++ features (concepts, auto, etc.) may not be supported. Different versions may have slightly different English phrasing.
+某些非常复杂或不标准的声明可能无法正确解析。该工具专注于类型声明，不处理完整的 C/C++ 语法。较新的 C++ 特性（concepts、auto 等）可能不受支持。不同版本之间的英文措辞可能略有差异。
 
 # HISTORY
 
-**cdecl** was originally written by Graham Ross and later enhanced by several contributors including David Wolverton. It emerged in the 1980s when C's declaration syntax was a frequent source of confusion and bugs. The phrase "declare x as..." became a teaching tool for understanding C's inside-out declaration reading. The tool remains useful today for complex declarations.
+**cdecl** 最初由 Graham Ross 编写，后来由 David Wolverton 等多位贡献者增强。它诞生于 20 世纪 80 年代，当时 C 的声明语法是困惑和 bug 的常见来源。"declare x as..." 这一短语成了理解 C 由内向外阅读声明规则的教学工具。如今该工具对复杂声明仍然很有用。
 
 # INSTALL
 

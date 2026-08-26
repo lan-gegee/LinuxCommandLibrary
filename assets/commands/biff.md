@@ -1,18 +1,18 @@
 # TAGLINE
 
-Toggle mail arrival notification at the terminal
+在终端切换邮件到达通知
 
 # TLDR
 
-**Enable mail notification** for the current terminal session
+为当前终端会话**启用邮件通知**
 
 ```biff y```
 
-**Disable mail notification** for the current terminal session
+为当前终端会话**禁用邮件通知**
 
 ```biff n```
 
-**Display the current notification status**
+**显示当前通知状态**
 
 ```biff```
 
@@ -22,33 +22,33 @@ Toggle mail arrival notification at the terminal
 
 # DESCRIPTION
 
-**biff** is a mail notification utility that informs you at the command line when new mail arrives during your terminal session. When enabled, it displays the sender, subject, and the first few lines of incoming messages along with a terminal beep.
+**biff** 是一个邮件通知工具，当你的终端会话期间有新邮件到达时在命令行上提醒你。启用后，它会显示来信的发件人、主题和前几行内容，并伴随一声终端蜂鸣。
 
-The notification works asynchronously through the **comsat**(8) service. If comsat is not enabled on the system, biff will have no effect. For synchronous notification, use the **MAIL** variable in **sh**(1) or the **mail** variable in **csh**(1) instead.
+通知通过 **comsat**(8) 服务异步实现。如果系统中 comsat 未启用，biff 将不起作用。若需要同步通知，请改用 **sh**(1) 中的 **MAIL** 变量或 **csh**(1) 中的 **mail** 变量。
 
-A common practice is to include **biff y** in **~/.login** or **~/.profile** to enable notifications at each login.
+常见做法是在 **~/.login** 或 **~/.profile** 中加入 **biff y**，以便每次登录时启用通知。
 
 # PARAMETERS
 
 **y**
-> Enable mail notification for the current terminal
+> 为当前终端启用邮件通知
 
 **n**
-> Disable mail notification for the current terminal
+> 为当前终端禁用邮件通知
 
-If no argument is given, biff displays the current notification status.
+如果不带参数，biff 会显示当前的通知状态。
 
 # CAVEATS
 
-The **biff** command requires the **comsat**(8) daemon to be running on the system. Without it, mail notifications will not work.
+**biff** 命令要求系统正在运行 **comsat**(8) 守护进程。没有它，邮件通知将无法工作。
 
-Using **su**(1) can cause permission issues with biff due to terminal ownership remaining with the original user, resulting in "Permission denied" errors when changing notification status.
+使用 **su**(1) 可能导致 biff 出现权限问题，因为终端所有权仍属于原始用户，从而在更改通知状态时出现 "Permission denied" 错误。
 
 # HISTORY
 
-The command appeared in **4.0BSD** (released 1980), written by **John Foderaro** at the University of California, Berkeley. It is named after **Biff**, a dog belonging to fellow Berkeley student Heidi Stettner. The popular story that Biff barked at the mail carrier is disputed by Stettner herself, but the name stuck as a fitting choice for a mail notification utility.
+该命令出现于 **4.0BSD**（1980 年发布），由加州大学伯克利分校的 **John Foderaro** 编写。它以同为伯克利学生的 Heidi Stettner 所养的狗 **Biff** 命名。"Biff 会冲邮递员吠叫"这一广为流传的说法被 Stettner 本人否认，但这个名字作为邮件通知工具的名称沿用至今，颇为贴切。
 
-On modern systems the notification daemon is part of **GNU inetutils** (as in.comsat), and the biff client typically ships in a dedicated **biff** package on Debian and Ubuntu.
+在现代系统中，通知守护进程是 **GNU inetutils** 的一部分（即 in.comsat），而 biff 客户端在 Debian 和 Ubuntu 上通常随专门的 **biff** 软件包发布。
 
 # INSTALL
 

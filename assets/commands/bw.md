@@ -1,30 +1,30 @@
 # TAGLINE
 
-Bitwarden password manager CLI
+Bitwarden 密码管理器命令行界面
 
 # TLDR
 
-**Login** to Bitwarden
+**登录** Bitwarden
 
 ```bw login```
 
-**Unlock** vault
+**解锁**密码库
 
 ```bw unlock```
 
-**List** items
+**列出**条目
 
 ```bw list items```
 
-**Get** password
+**获取**密码
 
 ```bw get password [example.com]```
 
-**Create** item
+**创建**条目
 
 ```bw create item```
 
-**Sync** vault
+**同步**密码库
 
 ```bw sync```
 
@@ -34,52 +34,52 @@ Bitwarden password manager CLI
 
 # DESCRIPTION
 
-**bw** is the official command-line interface for Bitwarden, an open-source password manager. It enables accessing and managing passwords, notes, and credentials from the terminal or in scripts.
+**bw** 是开源密码管理器 Bitwarden 的官方命令行界面。它支持从终端或脚本中访问和管理密码、笔记以及凭据。
 
-The tool provides full access to Bitwarden vaults for automation and integration purposes.
+该工具提供对 Bitwarden 密码库的完全访问，用于自动化和集成。
 
 # PARAMETERS
 
 **--session** _key_
-> Session key for authentication
+> 用于认证的会话密钥
 
 **--organizationid** _id_
-> Organization ID filter
+> 组织 ID 过滤器
 
 **--pretty**
-> Pretty-print JSON output
+> 美化输出 JSON
 
 **--raw**
-> Return raw value only
+> 只返回原始值
 
 # COMMON COMMANDS
 
 **login** [_email_]
-> Log in to account
+> 登录账户
 
 **unlock**
-> Unlock vault (returns session key)
+> 解锁密码库（返回会话密钥）
 
 **lock**
-> Lock vault
+> 锁定密码库
 
 **sync**
-> Sync vault with server
+> 与服务器同步密码库
 
 **list** _object_
-> List items, folders, collections
+> 列出条目、文件夹、集合
 
 **get** _object_ _id_
-> Get specific item
+> 获取特定条目
 
 **create** _object_ _encodedJson_
-> Create new item
+> 创建新条目
 
 **edit** _object_ _id_ _encodedJson_
-> Edit existing item
+> 编辑已有条目
 
 **delete** _object_ _id_
-> Delete item
+> 删除条目
 
 # WORKFLOW
 
@@ -112,21 +112,21 @@ echo '{"name":"My Login","username":"user","password":"pass"}' | \
 
 # FEATURES
 
-- Full vault access
-- Password generation
-- Secure note storage
-- Two-factor authentication
-- Organization support
-- Self-hosted server support
-- JSON output for scripting
+- 完整的密码库访问
+- 密码生成
+- 安全笔记存储
+- 双因素认证
+- 组织支持
+- 自托管服务器支持
+- 用于脚本的 JSON 输出
 
 # CAVEATS
 
-Session key needed for most operations. Store session key securely (environment variable). Output is JSON (requires parsing). CLI requires unlocking frequently. Self-hosted servers need configuration.
+大多数操作需要会话密钥。请安全地存储会话密钥（环境变量）。输出为 JSON（需要解析）。CLI 需要频繁解锁。自托管服务器需要额外配置。
 
 # HISTORY
 
-**Bitwarden CLI** was released around **2018** as part of the Bitwarden password manager to enable terminal and scripting access.
+**Bitwarden CLI** 于 **2018 年**前后发布，是 Bitwarden 密码管理器的组成部分，用于提供终端和脚本访问能力。
 
 # SEE ALSO
 

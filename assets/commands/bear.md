@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate compilation database for clang tooling
+为 clang 工具链生成编译数据库
 
 # TLDR
 
-**Generate** compilation database
+**生成**编译数据库
 
 ```bear -- make```
 
-**Append** to existing database
+**追加**到现有数据库
 
 ```bear --append -- make clean all```
 
-**Custom output** file
+**自定义输出**文件
 
 ```bear --output [compile_commands.json] -- ninja```
 
@@ -22,26 +22,26 @@ Generate compilation database for clang tooling
 
 # DESCRIPTION
 
-**bear** (Build EAR) generates a compilation database (compile_commands.json) by intercepting compiler calls during a build. This database enables tools like clangd, clang-tidy, and IDEs to understand the project structure without custom configuration.
+**bear**（Build EAR）通过拦截构建过程中的编译器调用生成编译数据库（compile_commands.json）。该数据库让 clangd、clang-tidy 和各类 IDE 等工具无需自定义配置即可理解项目结构。
 
-The tool works with any build system by recording actual compiler invocations. From version 3 onward, the build command must be separated from bear's own options by a `--`; older 2.4.x packages omit it.
+该工具通过记录实际的编译器调用来兼容任何构建系统。从版本 3 起，构建命令必须用 `--` 与 bear 自身的选项分隔；较早的 2.4.x 软件包则省略它。
 
 # PARAMETERS
 
 **-o** _file_, **--output** _file_
-> Output file (default: compile_commands.json)
+> 输出文件（默认：compile_commands.json）
 
 **-a**, **--append**
-> Append results to an existing database instead of overwriting it
+> 将结果追加到现有数据库而不是覆盖它
 
 **-c** _file_, **--config** _file_
-> Read settings (output formatting, compiler/source filters) from a configuration file
+> 从配置文件读取设置（输出格式化、编译器/源文件过滤器）
 
 **-h**, **--help**
-> Print help information
+> 打印帮助信息
 
 **-V**, **--version**
-> Print version information
+> 打印版本信息
 
 # WORKFLOW
 
@@ -61,15 +61,15 @@ bear --append -- make module
 
 # FEATURES
 
-- Build system agnostic
-- Intercepts compiler calls
-- Supports parallel builds
-- Works with make, ninja, etc.
-- No build system modification needed
+- 与构建系统无关
+- 拦截编译器调用
+- 支持并行构建
+- 兼容 make、ninja 等
+- 无需修改构建系统
 
 # COMPILATION DATABASE
 
-Generated compile_commands.json format:
+生成的 compile_commands.json 格式：
 ```json
 [
   {
@@ -82,11 +82,11 @@ Generated compile_commands.json format:
 
 # CAVEATS
 
-Requires running full build. May not capture all compilation units if cached. Some build systems have native support (CMake: -DCMAKE_EXPORT_COMPILE_COMMANDS=ON). Different interception methods on different platforms.
+需要运行完整构建。若使用了编译缓存，可能无法捕获所有编译单元。某些构建系统有原生支持（CMake: -DCMAKE_EXPORT_COMPILE_COMMANDS=ON）。不同平台采用不同的拦截方法。
 
 # HISTORY
 
-**bear** was created by László Nagy (rizsotto) around **2012** to generate compilation databases for C/C++ projects using any build system. Version 3 introduced the `--` separator syntax, and version 4 rewrote the tool in Rust.
+**bear** 由 László Nagy（rizsotto）于 **2012** 年前后创建，用于为使用任意构建系统的 C/C++ 项目生成编译数据库。版本 3 引入了 `--` 分隔符语法，版本 4 则用 Rust 重写了整个工具。
 
 # INSTALL
 

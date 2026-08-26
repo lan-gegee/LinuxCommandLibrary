@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line interface for Google Cloud Bigtable
+Google Cloud Bigtable 命令行界面
 
 # TLDR
 
-**List all tables in an instance**
+**列出实例中的所有表**
 
 ```cbt -project [project_id] -instance [instance_id] ls```
 
-**Read rows from a table**
+**读取表中的行**
 
 ```cbt -project [project_id] -instance [instance_id] read [table_name]```
 
-**Count rows in a table**
+**统计表中的行数**
 
 ```cbt -project [project_id] -instance [instance_id] count [table_name]```
 
-**Create a new table**
+**创建新表**
 
 ```cbt -project [project_id] -instance [instance_id] createtable [table_name]```
 
-**Create a column family**
+**创建列族**
 
 ```cbt -project [project_id] -instance [instance_id] createfamily [table_name] [family_name]```
 
-**Write a value to a cell**
+**向单元格写入值**
 
 ```cbt -project [project_id] -instance [instance_id] set [table_name] [row_key] [family]:[column]=[value]```
 
@@ -34,50 +34,50 @@ command-line interface for Google Cloud Bigtable
 
 # DESCRIPTION
 
-**cbt** is a command-line interface for Google Cloud Bigtable, a fully managed NoSQL database service. It allows performing administrative and data operations on Bigtable instances, tables, column families, and rows.
+**cbt** 是 Google Cloud Bigtable（一项全托管的 NoSQL 数据库服务）的命令行界面。它可以对 Bigtable 实例、表、列族和行执行管理和数据操作。
 
-The tool can be configured via a **~/.cbtrc** file containing project and instance defaults, or by passing flags directly.
+该工具可通过包含项目和实例默认值的 **~/.cbtrc** 文件进行配置，也可以直接传递标志。
 
 # PARAMETERS
 
 **-project** _project_id_
-> Google Cloud project ID. Uses gcloud default if unset
+> Google Cloud 项目 ID。未设置时使用 gcloud 默认值
 
 **-instance** _instance_id_
-> Cloud Bigtable instance name
+> Cloud Bigtable 实例名称
 
 **-creds** _file_
-> Path to credentials JSON file
+> 凭据 JSON 文件的路径
 
 **-timeout** _duration_
-> Operation timeout (e.g., 10s, 5m)
+> 操作超时时间（例如 10s、5m）
 
-**Common commands:**
+**常用命令：**
 
-**ls** - List tables
-**read** _table_ - Read rows from table
-**count** _table_ - Count rows in table
-**createtable** _table_ - Create a table
-**deletetable** _table_ - Delete a table
-**createfamily** _table_ _family_ - Create column family
-**set** _table_ _row_ _family:col=val_ - Write cell value
-**deleterow** _table_ _row_ - Delete a row
-**help** - Print help text
+**ls** - 列出表
+**read** _table_ - 读取表中的行
+**count** _table_ - 统计表中的行数
+**createtable** _table_ - 创建表
+**deletetable** _table_ - 删除表
+**createfamily** _table_ _family_ - 创建列族
+**set** _table_ _row_ _family:col=val_ - 写入单元格值
+**deleterow** _table_ _row_ - 删除一行
+**help** - 打印帮助文本
 
 # CONFIGURATION
 
 **~/.cbtrc**
-> Default project and instance settings, avoiding the need to pass -project and -instance flags on every invocation.
+> 默认的项目和实例设置，免去每次调用都传 -project 和 -instance 标志。
 
 # CAVEATS
 
-The cbt CLI does not implement smart retries or advanced error handling. For production environments, use a Bigtable client library or the Google Cloud console instead.
+cbt CLI 没有实现智能重试或高级错误处理。生产环境请改用 Bigtable 客户端库或 Google Cloud 控制台。
 
-Bash shell syntax rules apply: values with spaces or operators require quotes, and arbitrary byte values need dollar-sign prefix with single quotes.
+Bash Shell 的语法规则同样适用：包含空格或运算符的值需要加引号，任意字节值需要用美元符号前缀加单引号。
 
 # HISTORY
 
-The **cbt** tool was developed by Google as part of the Cloud Bigtable ecosystem, written in Go using the official Go client library for Bigtable. It provides a quick way to interact with Bigtable for development and debugging purposes.
+**cbt** 工具由 Google 作为 Cloud Bigtable 生态的一部分开发，使用 Go 语言编写，基于 Bigtable 官方 Go 客户端库。它为开发和调试目的提供了一种与 Bigtable 快速交互的方式。
 
 # SEE ALSO
 

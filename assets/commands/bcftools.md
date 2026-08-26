@@ -1,38 +1,38 @@
 # TAGLINE
 
-Variant calling and VCF/BCF file manipulation
+变异检测与 VCF/BCF 文件处理
 
 # TLDR
 
-**View a VCF/BCF file**
+**查看 VCF/BCF 文件**
 
 ```bcftools view [input.vcf.gz]```
 
-**Filter variants** by region
+**按区域过滤变异**
 
 ```bcftools view -r [chr1:1000000-2000000] [input.vcf.gz]```
 
-**Convert VCF to BCF**
+**将 VCF 转换为 BCF**
 
 ```bcftools view -Ob -o [output.bcf] [input.vcf.gz]```
 
-**Call variants** from aligned reads
+从比对后的读段**检测变异**
 
 ```bcftools mpileup -f [reference.fa] [aligned.bam] | bcftools call -mv -Oz -o [calls.vcf.gz]```
 
-**Merge multiple VCF files**
+**合并多个 VCF 文件**
 
 ```bcftools merge [file1.vcf.gz] [file2.vcf.gz] -Oz -o [merged.vcf.gz]```
 
-**Filter variants** by quality
+**按质量过滤变异**
 
 ```bcftools filter -i 'QUAL>30 && DP>10' [input.vcf.gz] -Oz -o [filtered.vcf.gz]```
 
-**Extract sample genotypes**
+**提取样本基因型**
 
 ```bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n' [input.vcf.gz]```
 
-**Index a VCF/BCF file**
+**为 VCF/BCF 文件建立索引**
 
 ```bcftools index [input.vcf.gz]```
 
@@ -42,90 +42,90 @@ Variant calling and VCF/BCF file manipulation
 
 # DESCRIPTION
 
-**bcftools** is a suite of utilities for variant calling and manipulating files in the Variant Call Format (VCF) and its binary counterpart BCF. It is part of the SAMtools/HTSlib project and is widely used in bioinformatics for genomic variant analysis.
+**bcftools** 是一套用于变异检测和处理 Variant Call Format（VCF）及其二进制格式 BCF 文件的实用工具集。它属于 SAMtools/HTSlib 项目，在生物信息学的基因组变异分析中应用广泛。
 
-All commands work transparently with both VCF and BCF files, compressed or uncompressed. The tools are designed to work in pipelines, reading from stdin and writing to stdout.
+所有命令都能透明地处理 VCF 和 BCF 文件，无论是否压缩。这些工具专为管道化工作流设计，从 stdin 读取并向 stdout 写出。
 
 # SUBCOMMANDS
 
-**Variant Calling**
+**变异检测**
 > mpileup, call
 
-**File Operations**
+**文件操作**
 > view, merge, concat, sort, index, convert
 
-**Filtering & Querying**
+**过滤与查询**
 > filter, query, norm
 
-**Statistics**
+**统计**
 > stats, roh, gtcheck
 
-**Annotation**
+**注释**
 > annotate, csq, fill-tags
 
-**Manipulation**
+**数据处理**
 > reheader, isec, head, cnv, polysomy
 
-**Consensus**
+**共识序列**
 > consensus
 
-**Plugins**
+**插件**
 > plugin (e.g. +split, +scatter, +fill-tags, +setGT)
 
 # PARAMETERS
 
 **-Ob**
-> Output compressed BCF
+> 输出压缩的 BCF
 
 **-Oz**
-> Output compressed VCF (bgzipped)
+> 输出压缩的 VCF（bgzip 压缩）
 
 **-Ov**
-> Output uncompressed VCF
+> 输出未压缩的 VCF
 
 **-Ou**
-> Output uncompressed BCF (fastest for piping)
+> 输出未压缩的 BCF（管道传输时最快）
 
 **-r** _region_
-> Restrict to comma-separated regions (chr:from-to format), requires an index
+> 限定到逗号分隔的区域（chr:from-to 格式），需要索引文件
 
 **-R** _file_
-> Restrict to regions listed in a file (VCF, BED, or tab-delimited)
+> 限定到文件中列出的区域（VCF、BED 或制表符分隔）
 
 **-t** _region_
-> Restrict to targets, streamed without an index
+> 限定到目标区域，流式处理无需索引
 
 **-T** _file_
-> Restrict to targets listed in a file
+> 限定到文件中列出的目标区域
 
 **-s** _samples_
-> Comma-separated list of samples to include (prefix ^ to exclude)
+> 要包含的样本列表，逗号分隔（加 ^ 前缀表示排除）
 
 **-S** _file_
-> Read the sample list from a file
+> 从文件读取样本列表
 
 **--threads** _int_
-> Number of extra worker threads used for output compression
+> 输出压缩所用的额外工作线程数
 
 **-W, --write-index** _[fmt]_
-> Automatically index the output (tbi or csi)
+> 自动为输出建立索引（tbi 或 csi）
 
 **-i** _expression_
-> Include sites matching filter expression
+> 保留匹配过滤表达式的位点
 
 **-e** _expression_
-> Exclude sites matching filter expression
+> 排除匹配过滤表达式的位点
 
 **-o** _file_
-> Output file name
+> 输出文件名
 
 # CAVEATS
 
-Use **-Ou** when piping between bcftools subcommands to avoid unnecessary compression overhead. Indexed files are required for random access and some operations. VCF/BCF files should be sorted by chromosome and position for most operations.
+在 bcftools 子命令之间用管道连接时，请使用 **-Ou** 以避免不必要的压缩开销。随机访问和某些操作需要已建索引的文件。大多数操作要求 VCF/BCF 文件按染色体和位置排好序。
 
 # HISTORY
 
-bcftools was developed as part of the **SAMtools** project, initially created by **Heng Li** at the Wellcome Sanger Institute. It became a separate project around **2014** with the HTSlib library rewrite, gaining significant functionality for variant analysis.
+bcftools 作为 **SAMtools** 项目的一部分开发，最初由 Wellcome Sanger 研究所的 **Heng Li** 创建。约 **2014** 年，随着 HTSlib 库的重写，它成为独立项目，并在变异分析方面获得了大量新功能。
 
 # INSTALL
 

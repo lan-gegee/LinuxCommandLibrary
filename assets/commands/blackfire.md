@@ -1,34 +1,34 @@
 # TAGLINE
 
-Profile PHP application performance
+分析 PHP 应用性能
 
 # TLDR
 
-**Profile a PHP script**
+**分析一个 PHP 脚本**
 
 ```blackfire run php [script.php]```
 
-**Profile with arguments**
+**带参数分析**
 
 ```blackfire run php [script.php] --arg1 [value]```
 
-**Profile an HTTP request** using curl
+**通过 curl 分析 HTTP 请求**
 
 ```blackfire curl [https://example.com/page]```
 
-**Profile to a specific environment**
+**分析到指定环境**
 
 ```blackfire --env=[ENV_UUID] run php [script.php]```
 
-**Get JSON output** of profile results
+**以 JSON 输出**分析结果
 
 ```blackfire --json run php [script.php]```
 
-**Profile with quiet output** (no URL displayed)
+**静默分析**（不显示 URL）
 
 ```blackfire -q run php [script.php]```
 
-**Profile a Symfony console command**
+**分析 Symfony 控制台命令**
 
 ```blackfire run php bin/console [command:name]```
 
@@ -38,65 +38,65 @@ Profile PHP application performance
 
 # DESCRIPTION
 
-**blackfire** is the CLI tool for the Blackfire profiler, a performance management solution for PHP applications. It profiles PHP scripts, HTTP requests, and web applications to identify performance bottlenecks.
+**blackfire** 是 Blackfire 性能分析器的 CLI 工具，后者是面向 PHP 应用的性能管理方案。它可分析 PHP 脚本、HTTP 请求和 Web 应用，找出性能瓶颈。
 
-The tool integrates with Blackfire.io cloud services to provide detailed flame graphs, call graphs, and performance recommendations. Profiles can be compared to track performance changes over time.
+该工具与 Blackfire.io 云服务集成，提供详细的火焰图、调用图和性能建议。可以对多次分析结果进行比较，跟踪性能随时间的变化。
 
 # SUBCOMMANDS
 
 **run**
-> Profile a PHP CLI script or command
+> 分析 PHP CLI 脚本或命令
 
 **curl**
-> Profile an HTTP request (uses system curl)
+> 分析 HTTP 请求（使用系统 curl）
 
 **upload**
-> Upload a profile to Blackfire.io
+> 将分析结果上传到 Blackfire.io
 
 **client:config**
-> Configure client credentials
+> 配置客户端凭证
 
 **agent:config**
-> Configure agent settings
+> 配置 agent 设置
 
 # PARAMETERS
 
 **--env** _uuid_
-> Target environment UUID for the profile
+> 分析结果所属的目标环境 UUID
 
 **--json**
-> Output profile results in JSON format
+> 以 JSON 格式输出分析结果
 
 **-q, --quiet**
-> Suppress output (do not display profile URL)
+> 抑制输出（不显示分析结果的 URL）
 
 **--samples** _n_
-> Number of samples to collect
+> 采集的样本数量
 
 **--title** _text_
-> Set a title for the profile
+> 为分析结果设置标题
 
 **--external-id** _id_
-> Set an external identifier for the profile
+> 为分析结果设置外部标识符
 
 **--ignore-exit-status**
-> Ignore non-zero exit status from profiled command
+> 忽略被分析命令的非零退出状态
 
 # CONFIGURATION
 
 **/etc/blackfire/agent**
-> Blackfire agent configuration including server credentials and socket settings.
+> Blackfire agent 配置，包括服务器凭证和套接字设置。
 
 **~/.blackfire.ini**
-> Client-side configuration with client ID and token for authentication.
+> 客户端配置，包含用于身份验证的客户端 ID 和令牌。
 
 # CAVEATS
 
-Requires a Blackfire account and properly configured credentials (BLACKFIRE_CLIENT_ID and BLACKFIRE_CLIENT_TOKEN). The Blackfire PHP extension must be installed for profiling to work. The **curl** subcommand requires curl to be installed on the system.
+需要 Blackfire 账户以及正确配置的凭证（BLACKFIRE_CLIENT_ID 和 BLACKFIRE_CLIENT_TOKEN）。必须安装 Blackfire PHP 扩展才能进行分析。**curl** 子命令要求系统已安装 curl。
 
 # HISTORY
 
-Blackfire was created by **SensioLabs** (the company behind Symfony) and launched in **2014** as a commercial profiling solution. It evolved from the open-source xhprof profiler and provides continuous performance monitoring for PHP applications.
+Blackfire 由 **SensioLabs**（Symfony 背后的公司）创建，于 **2014 年**作为商业性能分析方案发布。它由开源的 xhprof 分析器演化而来，为 PHP 应用提供持续的性能监控。
 
 # INSTALL
 

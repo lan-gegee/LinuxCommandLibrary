@@ -1,26 +1,26 @@
 # TAGLINE
 
-Simple TCP tunnel for exposing local ports
+用于暴露本地端口的简单 TCP 隧道
 
 # TLDR
 
-**Expose** a local port using the public bore.pub server
+使用公共 bore.pub 服务器**暴露**本地端口
 
 ```bore local [local_port] --to bore.pub```
 
-**Expose** a local port to your own remote Bore server
+将本地端口**暴露**到你自己的远程 Bore 服务器
 
 ```bore local [local_port] --to [remote_server_address]```
 
-**Start** a Bore server
+**启动** Bore 服务器
 
 ```bore server```
 
-**Start** a Bore server requiring a shared secret
+**启动**要求共享密钥的 Bore 服务器
 
 ```bore server --secret [your_secret]```
 
-Display **help**
+显示**帮助**
 
 ```bore -h```
 
@@ -30,41 +30,41 @@ Display **help**
 
 # DESCRIPTION
 
-**bore** is a modern, simple TCP tunnel that exposes local ports to a remote server for public access. It allows making local services accessible from the internet without complex port forwarding or firewall configuration.
+**bore** 是一个现代、简单的 TCP 隧道工具，可将本地端口暴露到远程服务器供公开访问。它让本地服务无需复杂的端口转发或防火墙配置即可从互联网访问。
 
-The tool consists of a client that connects local ports to a remote bore server, which then provides a public endpoint for incoming connections. A public server is available at **bore.pub**, or you can run your own with `bore server`. It is a single self-contained binary written in Rust.
+该工具由客户端组成：客户端将本地端口连接到远程 bore 服务器，由后者为传入连接提供公共端点。公共服务器位于 **bore.pub**，也可以用 `bore server` 运行自己的服务器。它是一个用 Rust 编写的单一自包含二进制文件。
 
 # SUBCOMMANDS
 
 **local**
-> Expose a local port to a remote server. Takes a positional local port plus **-t, --to** for the server address (see [bore-local](/man/bore-local)(1)).
+> 将本地端口暴露到远程服务器。接受位置参数形式的本地端口以及用于服务器地址的 **-t, --to**（参见 [bore-local](/man/bore-local)(1)）。
 
 **server**
-> Run a bore server that accepts client tunnels
+> 运行接受客户端隧道的 bore 服务器。
 
 # PARAMETERS
 
 **-t, --to** _address_
-> Remote bore server address (for **local**)
+> 远程 bore 服务器地址（用于 **local**）。
 
 **-s, --secret** _secret_
-> Shared secret for authentication (both **local** and **server**)
+> 用于认证的共享密钥（**local** 和 **server** 均适用）。
 
 **--min-port** _port_
-> Server: minimum TCP port number to accept (default: 1024)
+> 服务器：接受的最小 TCP 端口号（默认：1024）。
 
 **--max-port** _port_
-> Server: maximum TCP port number to accept (default: 65535)
+> 服务器：接受的最大 TCP 端口号（默认：65535）。
 
 **--bind-addr** _address_
-> Server: address to bind the control connection to (default: 0.0.0.0)
+> 服务器：控制连接绑定的地址（默认：0.0.0.0）。
 
 **-h, --help**
-> Display help information
+> 显示帮助信息。
 
 # CAVEATS
 
-Requires a bore server to be running and accessible. Traffic is tunneled through the remote server, adding latency. The shared secret only authenticates the tunnel control channel: forwarded traffic is not encrypted by bore, so use HTTPS or another layer for sensitive data. Not designed for high-bandwidth applications.
+需要有正在运行且可访问的 bore 服务器。流量经由远程服务器隧道传输，会增加延迟。共享密钥只认证隧道控制通道：转发的流量不由 bore 加密，因此敏感数据应使用 HTTPS 或其他加密层。不适合高带宽应用。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ Requires a bore server to be running and accessible. Traffic is tunneled through
 ```[Homepage](https://bore.pub)```
 
 <!-- verified: 2026-06-19 -->
-

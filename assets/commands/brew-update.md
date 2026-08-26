@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fetch the latest Homebrew and package definitions
+拉取最新的 Homebrew 与软件包定义
 
 # TLDR
 
-**Update Homebrew and package definitions**
+**更新 Homebrew 和软件包定义**
 
 ```brew update```
 
-**Update with verbose output**
+带详细输出进行更新
 
 ```brew update --verbose```
 
-**Update only if needed (for scripts)**
+仅在需要时更新（用于脚本）
 
 ```brew update --auto-update```
 
-**Force update from latest commit**
+从最新提交**强制**更新
 
 ```brew update --force```
 
-**Reset Homebrew and taps to origin**
+将 Homebrew 和各 tap 重置为上游状态
 
 ```brew update-reset```
 
@@ -30,38 +30,38 @@ Fetch the latest Homebrew and package definitions
 
 # DESCRIPTION
 
-**brew update** fetches the newest version of Homebrew and all formulae from GitHub using git, and performs any necessary migrations.
+**brew update** 使用 git 从 GitHub 拉取最新版本的 Homebrew 和全部 formula，并执行必要的迁移。
 
-This command does not upgrade installed packages - use **brew upgrade** for that.
+该命令不会升级已安装的软件包——请使用 **brew upgrade**。
 
-Aliases: **brew up**
+别名：**brew up**。
 
 # PARAMETERS
 
 **--verbose, -v**
-> Show detailed update information
+> 显示详细的更新信息。
 
 **--debug, -d**
-> Show debugging information
+> 显示调试信息。
 
 **--force**
-> Always do a slower full update
+> 总是执行较慢的完整更新。
 
 **--auto-update**
-> Run only when needed (fast no-op otherwise)
+> 仅在需要时运行（否则快速空操作）。
 
 **--merge**
-> Use git merge instead of git rebase
+> 使用 git merge 而不是 git rebase。
 
 # AUTO-UPDATE
 
-Homebrew auto-updates before **brew install** by default. Configure with:
+默认情况下，Homebrew 会在 **brew install** 之前自动更新。可通过以下变量配置：
 
 **HOMEBREW_AUTO_UPDATE_SECS**
-> Seconds between auto-updates
+> 自动更新的间隔秒数。
 
 **HOMEBREW_NO_AUTO_UPDATE=1**
-> Disable auto-update entirely
+> 完全禁用自动更新。
 
 # WORKFLOW
 
@@ -74,7 +74,7 @@ brew cleanup     # Remove old versions
 
 # CAVEATS
 
-Only updates definitions, not installed software. For installed packages, run **brew upgrade** after updating. Auto-update may slow down install commands; disable with environment variable if needed.
+只更新定义，不更新已安装的软件。对于已安装的软件包，更新后需运行 **brew upgrade**。自动更新可能拖慢安装命令；如有需要可用环境变量禁用。
 
 # SEE ALSO
 

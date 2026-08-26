@@ -1,14 +1,14 @@
 # TAGLINE
 
-Check for outdated dependencies
+检查过时的依赖
 
 # TLDR
 
-**Check for outdated packages**
+**检查过时的软件包**
 
 ```bun outdated```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```bun outdated --json```
 
@@ -19,13 +19,13 @@ Check for outdated dependencies
 # PARAMETERS
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**bun outdated** checks for packages in your project that have newer versions available. It compares installed versions against the latest available versions in the registry.
+**bun outdated** 检查项目中是否有可用更新版本的软件包。它会将已安装的版本与软件仓库中最新的可用版本进行比较。
 
-The output shows current version, wanted version (matching semver range), and latest version for each outdated package.
+输出内容显示每个过时软件包的当前版本、所需版本（匹配 semver 范围）以及最新版本。
 
 # SEE ALSO
 

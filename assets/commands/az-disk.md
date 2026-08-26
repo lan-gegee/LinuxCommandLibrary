@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage Azure managed disks
+管理 Azure 托管磁盘
 
 # TLDR
 
-**Create a managed disk with a specific size**
+**创建指定大小的托管磁盘**
 
 ```az disk create --name [MyDisk] --resource-group [MyResourceGroup] --size-gb [128]```
 
-**Create a disk from a snapshot**
+**从快照创建磁盘**
 
 ```az disk create --name [MyDisk] --resource-group [MyResourceGroup] --source [snapshot_id]```
 
-**Create a Premium SSD disk**
+**创建 Premium SSD 磁盘**
 
 ```az disk create --name [MyDisk] --resource-group [MyResourceGroup] --size-gb [128] --sku Premium_LRS```
 
-**List all managed disks in a resource group**
+**列出资源组中的所有托管磁盘**
 
 ```az disk list --resource-group [MyResourceGroup]```
 
-**Show details of a managed disk**
+**显示某个托管磁盘的详情**
 
 ```az disk show --name [MyDisk] --resource-group [MyResourceGroup]```
 
-**Update disk size**
+**更新磁盘大小**
 
 ```az disk update --name [MyDisk] --resource-group [MyResourceGroup] --size-gb [256]```
 
-**Grant read access to a managed disk for export**
+**授予托管磁盘的读取权限以供导出**
 
 ```az disk grant-access --name [MyDisk] --resource-group [MyResourceGroup] --duration-in-seconds [3600] --access-level Read```
 
-**Revoke access to a managed disk**
+**撤销对托管磁盘的访问**
 
 ```az disk revoke-access --name [MyDisk] --resource-group [MyResourceGroup]```
 
-**Delete a managed disk**
+**删除托管磁盘**
 
 ```az disk delete --name [MyDisk] --resource-group [MyResourceGroup] --yes```
 
@@ -47,74 +47,74 @@ Manage Azure managed disks
 # SUBCOMMANDS
 
 **create**
-> Create a managed disk.
+> 创建托管磁盘。
 
 **delete**
-> Delete a managed disk.
+> 删除托管磁盘。
 
 **list**
-> List managed disks.
+> 列出托管磁盘。
 
 **show**
-> Get information about a managed disk.
+> 获取托管磁盘的信息。
 
 **update**
-> Update a managed disk.
+> 更新托管磁盘。
 
 **grant-access**
-> Grant read or read-write access to a disk.
+> 授予磁盘读取或读写访问权限。
 
 **revoke-access**
-> Revoke access to a disk.
+> 撤销对磁盘的访问。
 
 **wait**
-> Wait for a disk to reach a specific state.
+> 等待磁盘达到特定状态。
 
 # PARAMETERS
 
 **--name** **-n**
-> The name of the managed disk.
+> 托管磁盘的名称。
 
 **--resource-group** **-g**
-> Name of resource group.
+> 资源组的名称。
 
 **--size-gb** **-z**
-> Size in GB of the managed disk.
+> 托管磁盘的大小，以 GB 为单位。
 
 **--source**
-> Source disk, snapshot, or URI to create the disk from.
+> 用于创建磁盘的源磁盘、快照或 URI。
 
 **--sku**
-> Storage type: Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, PremiumV2_LRS, Premium_ZRS, StandardSSD_ZRS.
+> 存储类型：Standard_LRS、Premium_LRS、StandardSSD_LRS、UltraSSD_LRS、PremiumV2_LRS、Premium_ZRS、StandardSSD_ZRS。
 
 **--location** **-l**
-> Location of the disk.
+> 磁盘的位置。
 
 **--zone**
-> Availability zone to create the disk in.
+> 创建磁盘所在的可用性区域。
 
 **--encryption-type**
-> Encryption type: EncryptionAtRestWithPlatformKey (default), EncryptionAtRestWithCustomerKey.
+> 加密类型：EncryptionAtRestWithPlatformKey（默认）、EncryptionAtRestWithCustomerKey。
 
 **--access-level**
-> Access level for grant-access: Read or Write.
+> grant-access 的访问级别：Read 或 Write。
 
 **--duration-in-seconds**
-> Time in seconds for which the SAS access URI is valid.
+> SAS 访问 URI 的有效期，以秒为单位。
 
 # DESCRIPTION
 
-**az disk** manages Azure managed disks. Managed disks are block-level storage volumes managed by Azure and used with Azure Virtual Machines. They simplify disk management by handling storage account management automatically.
+**az disk** 管理 Azure 托管磁盘。托管磁盘是由 Azure 管理的块级存储卷，与 Azure 虚拟机配合使用。它们自动处理存储账户管理，从而简化了磁盘管理。
 
-Supported storage types include Standard HDD (Standard_LRS), Standard SSD (StandardSSD_LRS), Premium SSD (Premium_LRS), Premium SSD v2 (PremiumV2_LRS), and Ultra Disk (UltraSSD_LRS). Zone-redundant options (Premium_ZRS, StandardSSD_ZRS) provide cross-zone replication.
+支持的存储类型包括标准 HDD（Standard_LRS）、标准 SSD（StandardSSD_LRS）、高级 SSD（Premium_LRS）、高级 SSD v2（PremiumV2_LRS）和超级磁盘（UltraSSD_LRS）。区域冗余选项（Premium_ZRS、StandardSSD_ZRS）提供跨区域复制。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated with **az login**. Disks can only be attached to VMs in the same region. Resizing a disk up requires the VM to be deallocated or the disk to be unattached; disks cannot be shrunk. Disk encryption defaults to platform-managed keys unless customer-managed keys are configured.
+需要安装 Azure CLI 并已通过 **az login** 完成身份验证。磁盘只能挂载到同一区域的虚拟机。扩容磁盘需要先解除虚拟机的分配或卸下磁盘；磁盘无法缩小。除非配置了客户管理的密钥，否则磁盘加密默认使用平台管理的密钥。
 
 # HISTORY
 
-**az disk** is part of the **Azure CLI** (`az`), developed by **Microsoft** for managing Azure resources from the command line. Managed disks were introduced in Azure to simplify disk management by eliminating the need to manage storage accounts separately.
+**az disk** 是 **Azure CLI**（`az`）的一部分，由 **Microsoft** 开发，用于从命令行管理 Azure 资源。Azure 引入托管磁盘是为了免去单独管理存储账户的需要，从而简化磁盘管理。
 
 # INSTALL
 

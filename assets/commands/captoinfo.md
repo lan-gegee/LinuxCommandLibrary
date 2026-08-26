@@ -1,30 +1,30 @@
 # TAGLINE
 
-Convert termcap descriptions to terminfo format
+将 termcap 描述转换为 terminfo 格式
 
 # TLDR
 
-**Convert a termcap file** to terminfo format
+**将 termcap 文件转换**为 terminfo 格式
 
 ```captoinfo [path/to/termcap_file]```
 
-**Convert and compile** to terminfo database in one step
+一步完成**转换并编译**进 terminfo 数据库
 
 ```captoinfo [path/to/termcap_file] | tic```
 
-**Convert with verbose output** for debugging
+带**详细输出**转换，便于调试
 
 ```captoinfo -v [path/to/termcap_file]```
 
-**Output fields one per line** instead of wrapped
+**每行输出一个字段**而不是自动换行
 
 ```captoinfo -1 [path/to/termcap_file]```
 
-**Convert with extended capabilities** support
+启用**扩展能力**支持进行转换
 
 ```captoinfo -x [path/to/termcap_file]```
 
-**Display version** information
+**显示版本**信息
 
 ```captoinfo -V```
 
@@ -35,35 +35,35 @@ Convert termcap descriptions to terminfo format
 # PARAMETERS
 
 **-v**_n_
-> Print verbose comments and debugging information to standard error. Higher values increase verbosity.
+> 将详细注释和调试信息输出到标准错误。数值越大越详细。
 
 **-V**
-> Display the version number of the ncurses library and exit.
+> 显示 ncurses 库的版本号并退出。
 
 **-1**
-> Output fields one per line instead of wrapping multiple fields to a maximum width of 60 characters.
+> 每行输出一个字段，而不是将多个字段折行到最多 60 字符宽度内。
 
 **-w** _width_
-> Set the maximum output width for wrapped fields.
+> 设置折行字段的最大输出宽度。
 
 **-x**
-> Enable parsing and emission of extended terminfo capabilities for modern terminal features.
+> 启用对现代终端特性的扩展 terminfo 能力的解析和输出。
 
 # DESCRIPTION
 
-**captoinfo** converts termcap terminal capability descriptions into the terminfo format. For each termcap entry found in the input file, an equivalent terminfo description is written to standard output. It also translates some obsolete, nonstandard capabilities into standard (SVr4/XSI Curses) terminfo capabilities.
+**captoinfo** 将 termcap 终端能力描述转换为 terminfo 格式。对于输入文件中的每个 termcap 条目，都会向标准输出写出等价的 terminfo 描述。它还会把一些过时的非标准能力翻译为标准（SVr4/XSI Curses）terminfo 能力。
 
-If no files are specified, captoinfo reads from the file named in the **TERMCAP** environment variable and extracts only the entry for the terminal named in **TERM**. If TERMCAP is not set, it reads from /etc/termcap by default.
+未指定文件时，captoinfo 读取 **TERMCAP** 环境变量所指定的文件，并只提取 **TERM** 所指定终端的条目。若 TERMCAP 未设置，则默认读取 /etc/termcap。
 
-The utility is implemented as a link to **tic**(1) with the **-I** option implied. Other tic options like **-1**, **-f**, **-v**, **-w**, and **-x** can be used.
+该工具实现为指向 **tic**(1) 的链接，隐含了 **-I** 选项。其他 tic 选项如 **-1**、**-f**、**-v**、**-w** 和 **-x** 均可使用。
 
 # CAVEATS
 
-Some termcap capabilities may not have direct terminfo equivalents. Complex or non-standard termcap entries may require manual adjustment after conversion. The output is terminfo source format and must be compiled with **tic** to be used by applications.
+某些 termcap 能力可能没有直接的 terminfo 对应项。复杂或非标准的 termcap 条目在转换后可能需要手动调整。输出为 terminfo 源格式，必须用 **tic** 编译后才能供应用使用。
 
 # HISTORY
 
-The termcap database was the original mechanism for terminal descriptions in Unix, widely used in the 1970s and early 1980s. Its limitations (fixed-size buffer, lack of strong typing) led to terminfo development in the mid-1980s. **captoinfo** was created as part of the ncurses project to facilitate migration from termcap to terminfo, allowing administrators to convert existing terminal definitions rather than rewriting them from scratch.
+termcap 数据库是 Unix 中最早的终端描述机制，在 1970 年代和 1980 年代初广泛使用。其局限（固定大小缓冲区、缺乏强类型）促成了 1980 年代中期 terminfo 的开发。**captoinfo** 作为 ncurses 项目的一部分被创建，用于简化从 termcap 到 terminfo 的迁移，让管理员可以转换现有的终端定义而不必从零重写。
 
 # INSTALL
 

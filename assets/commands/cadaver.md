@@ -1,26 +1,26 @@
 # TAGLINE
 
-Command-line WebDAV client
+命令行 WebDAV 客户端
 
 # TLDR
 
-**Connect to WebDAV server**
+**连接 WebDAV 服务器**
 
 ```cadaver [http://dav.example.com/]```
 
-**Connect with specific port**
+**通过指定端口连接**
 
 ```cadaver [http://example.com:8080/path/]```
 
-**Connect via HTTPS**
+**通过 HTTPS 连接**
 
 ```cadaver [https://secure.example.com/]```
 
-**Connect through proxy**
+**通过代理连接**
 
 ```cadaver -p [proxy:8080] [http://dav.example.com/]```
 
-**Use custom rcfile**
+**使用自定义 rcfile**
 
 ```cadaver -r [~/.myrc] [http://dav.example.com/]```
 
@@ -30,70 +30,70 @@ Command-line WebDAV client
 
 # DESCRIPTION
 
-**cadaver** is a command-line WebDAV client for Unix systems. It supports file upload, download, on-screen display, in-place editing, namespace operations, collection management, property manipulation, and resource locking.
+**cadaver** 是 Unix 系统上的命令行 WebDAV 客户端。它支持文件上传、下载、屏幕显示、就地编辑、命名空间操作、集合管理、属性操作和资源锁定。
 
-Operation is similar to ftp(1) and smbclient(1).
+操作方式类似于 ftp(1) 和 smbclient(1)。
 
 # PARAMETERS
 
 **-t**, **--tolerant**
-> Allow cd/open into non-WebDAV collections
+> 允许 cd/open 进入非 WebDAV 集合
 
 **-r** _file_, **--rcfile**=_file_
-> Use specified rcfile instead of ~/.cadaverrc
+> 使用指定的 rcfile 而不是 ~/.cadaverrc
 
 **-p** _host[:port]_, **--proxy**=_host[:port]_
-> Connect through proxy server
+> 通过代理服务器连接
 
 **-V**, **--version**
-> Show version
+> 显示版本
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 # INTERACTIVE COMMANDS
 
 **ls** [_path_]
-> List collection contents
+> 列出集合内容
 
 **cd** _path_
-> Change to collection
+> 切换到指定集合
 
 **pwd**
-> Show current collection
+> 显示当前集合
 
 **get** _file_
-> Download file
+> 下载文件
 
 **put** _file_
-> Upload file
+> 上传文件
 
 **mkcol** _name_
-> Create collection (directory)
+> 创建集合（目录）
 
 **delete** _file_
-> Delete resource
+> 删除资源
 
 **copy** _src_ _dest_
-> Copy resource
+> 复制资源
 
 **move** _src_ _dest_
-> Move resource
+> 移动资源
 
 **edit** _file_
-> Edit file in place
+> 就地编辑文件
 
 # CONFIGURATION
 
 **~/.cadaverrc**
-> User settings and scripts
+> 用户设置和脚本
 
 **~/.netrc**
-> Auto-login credentials
+> 自动登录凭据
 
 # CAVEATS
 
-URL must be absolute with http: or https: scheme. Some servers may have WebDAV compliance issues; use -t flag for tolerance.
+URL 必须是以 http: 或 https: 为 scheme 的绝对地址。某些服务器的 WebDAV 兼容性可能有问题；可使用 -t 标志提高容错性。
 
 # INSTALL
 

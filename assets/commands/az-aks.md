@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure Kubernetes Service clusters
+管理 Azure Kubernetes Service 集群
 
 # TLDR
 
-**Create a Kubernetes cluster**
+**创建 Kubernetes 集群**
 
 ```az aks create -g [resource-group] -n [cluster-name] --generate-ssh-keys```
 
-**Get credentials for kubectl**
+**获取 kubectl 凭证**
 
 ```az aks get-credentials -g [resource-group] -n [cluster-name]```
 
-**List all clusters in a resource group**
+**列出资源组中的所有集群**
 
 ```az aks list -g [resource-group] -o table```
 
-**Show cluster details**
+**显示集群详情**
 
 ```az aks show -g [resource-group] -n [cluster-name]```
 
-**Scale a node pool**
+**缩放节点池**
 
 ```az aks nodepool scale -g [resource-group] --cluster-name [cluster-name] --name [nodepool1] --node-count [5]```
 
-**Upgrade a cluster to a newer Kubernetes version**
+**将集群升级到更新的 Kubernetes 版本**
 
 ```az aks upgrade -g [resource-group] -n [cluster-name] --kubernetes-version [1.28.0]```
 
-**Stop a running cluster to save costs**
+**停止运行中的集群以节省成本**
 
 ```az aks stop -g [resource-group] -n [cluster-name]```
 
-**Start a stopped cluster**
+**启动已停止的集群**
 
 ```az aks start -g [resource-group] -n [cluster-name]```
 
@@ -42,9 +42,9 @@ Manage Azure Kubernetes Service clusters
 
 # DESCRIPTION
 
-**az aks** manages Azure Kubernetes Service (AKS) clusters, providing a managed Kubernetes environment that reduces the complexity of cluster deployment and management.
+**az aks** 管理 Azure Kubernetes Service（AKS）集群，提供一种托管的 Kubernetes 环境，降低集群部署与管理的复杂度。
 
-AKS handles critical tasks like health monitoring, maintenance, and upgrades. Azure manages the Kubernetes control plane, while you manage and pay only for the agent nodes.
+AKS 负责健康监视、维护和升级等关键任务。Azure 管理 Kubernetes 控制平面，而你只需管理和为代理节点付费。
 
 # SUBCOMMANDS
 
@@ -69,42 +69,42 @@ AKS handles critical tasks like health monitoring, maintenance, and upgrades. Az
 # PARAMETERS
 
 **-g**, **--resource-group** _VALUE_
-> Name of the resource group.
+> 资源组的名称。
 
 **-n**, **--name** _VALUE_
-> Name of the managed cluster.
+> 托管集群的名称。
 
 **--kubernetes-version** _VALUE_
-> Kubernetes version for the cluster.
+> 集群使用的 Kubernetes 版本。
 
 **--node-count** _VALUE_
-> Number of nodes in the default node pool.
+> 默认节点池中的节点数量。
 
 **--node-vm-size** _VALUE_
-> Size of virtual machines to create as Kubernetes nodes.
+> 作为 Kubernetes 节点创建的虚拟机大小。
 
 **--generate-ssh-keys**
-> Generate SSH key files if not present.
+> 若不存在则生成 SSH 密钥文件。
 
 **--network-plugin** _VALUE_
-> Kubernetes network plugin (azure, kubenet, none).
+> Kubernetes 网络插件（azure、kubenet、none）。
 
 **--admin**
-> Get cluster admin credentials instead of user credentials.
+> 获取集群管理员凭证而非用户凭证。
 
 **--overwrite-existing**
-> Overwrite any existing cluster entry in kubeconfig.
+> 覆盖 kubeconfig 中已有的集群条目。
 
 **-o**, **--output** _FORMAT_
-> Output format (json, jsonc, table, tsv, yaml, yamlc, none).
+> 输出格式（json、jsonc、table、tsv、yaml、yamlc、none）。
 
 # CAVEATS
 
-Stopping a cluster deallocates compute resources but retains cluster configuration; you are not charged for compute during this time. Upgrading Kubernetes version is a one-way operation. get-credentials overwrites existing kubeconfig entries by default; use **--overwrite-existing** or **--file** to control this. The **command invoke** subcommand can run commands on private clusters.
+停止集群会释放计算资源但保留集群配置；此期间不收取计算费用。升级 Kubernetes 版本是不可逆的单向操作。get-credentials 默认会覆盖已有的 kubeconfig 条目；使用 **--overwrite-existing** 或 **--file** 来控制这一行为。**command invoke** 子命令可在私有集群上运行命令。
 
 # HISTORY
 
-Azure Kubernetes Service (AKS) reached general availability in **June 2018**. It evolved from Azure Container Service (ACS) which supported multiple orchestrators. AKS focuses exclusively on Kubernetes with deep Azure integration.
+Azure Kubernetes Service（AKS）于 **2018** 年 **6** 月正式发布。它由支持多种编排器的 Azure Container Service（ACS）演变而来。AKS 专注于 Kubernetes，并与 Azure 深度集成。
 
 # INSTALL
 

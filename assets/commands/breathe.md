@@ -1,38 +1,38 @@
 # TAGLINE
 
-Paced resonance breathing pacer for the terminal
+终端里的节律共振呼吸引导器
 
 # TLDR
 
-**Start a session** with an automatic time-of-day preset
+按一天中的时段自动选择预设并**开始练习**
 
 ```breathe```
 
-**Use a named preset** (balanced, calm, extended)
+**使用命名预设**（balanced、calm、extended）
 
 ```breathe --preset calm```
 
-**Run a 5-minute custom session** with a 4 second inhale and 6 second exhale
+**进行 5 分钟自定义练习**，吸气 4 秒、呼气 6 秒
 
 ```breathe --duration 5 --ratio 4-6```
 
-**Silent mode**, no audio cues and no startup warnings
+**静音模式**，无音频提示且不显示启动警告
 
 ```breathe --no-sound --quiet```
 
-**Skip logging** the current session to the CSV log
+**跳过记录**本次会话，不写入 CSV 日志
 
 ```breathe --no-log```
 
-**List all built-in presets**
+**列出全部内置预设**
 
 ```breathe --list-presets```
 
-**Print the log file path** and exit
+**打印日志文件路径**后退出
 
 ```breathe --log```
 
-**Show safety information** before starting
+开始前**显示安全须知**
 
 ```breathe --safety```
 
@@ -43,75 +43,75 @@ Paced resonance breathing pacer for the terminal
 # PARAMETERS
 
 **-p**, **--preset** _NAME_
-> Use a named preset. Valid values: **balanced**, **calm**, **extended**.
+> 使用命名预设。有效值：**balanced**、**calm**、**extended**。
 
 **-d**, **--duration** _MINUTES_
-> Session length in minutes (1 to 60).
+> 会话时长，单位为分钟（1 到 60）。
 
 **-r**, **--ratio** _IN-EX_
-> Inhale and exhale timing in seconds, written as _IN-EX_ (for example **5-5** or **4-6**).
+> 吸气与呼气的秒数，写作 _IN-EX_（例如 **5-5** 或 **4-6**）。
 
 **-n**, **--no-sound**
-> Disable audio cues.
+> 禁用音频提示。
 
 **-q**, **--quiet**
-> Suppress startup warnings.
+> 不显示启动警告。
 
 **--no-log**
-> Do not append this session to the CSV log.
+> 不将本次会话追加到 CSV 日志。
 
 **--log**
-> Print the log file path and exit.
+> 打印日志文件路径后退出。
 
 **--safety**
-> Display safety information about paced breathing and exit.
+> 显示关于节律呼吸的安全信息后退出。
 
 **--list-presets**
-> Show the table of built-in presets and exit.
+> 显示内置预设表格后退出。
 
 **--version**
-> Display the version number.
+> 显示版本号。
 
 # PRESETS
 
 **balanced**
-> 10 minutes, 5 second inhale, 5 second exhale (6 breaths per minute).
+> 10 分钟，吸气 5 秒，呼气 5 秒（每分钟 6 次呼吸）。
 
 **calm**
-> 15 minutes, 4 second inhale, 6 second exhale (6 breaths per minute).
+> 15 分钟，吸气 4 秒，呼气 6 秒（每分钟 6 次呼吸）。
 
 **extended**
-> 20 minutes, 4 second inhale, 6 second exhale (6 breaths per minute).
+> 20 分钟，吸气 4 秒，呼气 6 秒（每分钟 6 次呼吸）。
 
 # DESCRIPTION
 
-**breathe** is a single-file Python terminal application that guides the user through paced resonance breathing exercises, targeting about 6 breaths per minute as a vagal-tone training rhythm. It draws a moving bar pacer using direct ANSI escape codes (no curses), plays optional audio cues, and logs each completed session to a CSV file.
+**breathe** 是一个单文件 Python 终端应用，引导用户完成节律共振呼吸练习，目标约为每分钟 6 次呼吸，以此作为迷走神经张力的训练节奏。它使用直接的 ANSI 转义码（不用 curses）绘制移动的进度条引导器，播放可选的音频提示，并把每次完成的会话记录到 CSV 文件。
 
-When run without arguments, **breathe** picks a preset based on the time of day. The **--preset**, **--duration**, and **--ratio** flags override the defaults so the user can configure session length and inhale-to-exhale ratio independently.
+不带参数运行时，**breathe** 会根据一天中的时段选择一个预设。**--preset**、**--duration** 和 **--ratio** 选项可覆盖默认值，让用户独立配置会话时长和吸呼比。
 
 # RUNTIME CONTROLS
 
 **space**
-> Pause and resume the current session.
+> 暂停和恢复当前会话。
 
 **s**
-> Toggle audio cues on or off.
+> 开关音频提示。
 
-**q**, **Ctrl+C**
-> Quit the current session.
+**q**、**Ctrl+C**
+> 退出当前会话。
 
 # CONFIGURATION
 
 **~/.breathe_log.csv**
-> Session log written after every completed session. Columns: date, time, preset, ratio, target duration, actual duration, breath count, completion percentage, and status.
+> 每次完成的会话之后写入的会话日志。列包括：日期、时间、预设、吸呼比、目标时长、实际时长、呼吸次数、完成百分比和状态。
 
 # CAVEATS
 
-Paced breathing is a wellness exercise, not a medical treatment. The bundled **--safety** screen warns against use while driving, operating machinery, or when light-headed. Audio cues require a working terminal bell or system audio; on minimal terminals **--no-sound** may be the only sensible mode.
+节律呼吸是一种健康练习，不是医疗手段。内置的 **--safety** 界面提醒：驾驶或操作机器时、以及感到头晕时不要使用。音频提示需要可用的终端响铃或系统音频；在极简终端上，**--no-sound** 可能是唯一合理的选择。
 
 # HISTORY
 
-**breathe** was written by **Marek Kowalczyk** and released in 2026 as an MIT-licensed, single-file Python tool. It is distributed through PyPI and a Homebrew tap, and can also be run directly as **breathe.py**.
+**breathe** 由 **Marek Kowalczyk** 编写，于 2026 年以 MIT 许可证发布，是一个单文件 Python 工具。它通过 PyPI 和 Homebrew tap 分发，也可以直接作为 **breathe.py** 运行。
 
 # SEE ALSO
 

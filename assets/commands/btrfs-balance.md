@@ -1,30 +1,30 @@
 # TAGLINE
 
-Redistribute data across btrfs devices
+在 btrfs 设备间重新分布数据
 
 # TLDR
 
-**Show balance status**
+**查看 balance 状态**
 
 ```sudo btrfs balance status [/mnt/data]```
 
-**Start a full balance**
+**开始完整的 balance 操作**
 
 ```sudo btrfs balance start [/mnt/data]```
 
-**Balance underused data chunks** (in background)
+**平衡利用率低的数据块组**（在后台进行）
 
 ```sudo btrfs balance start --bg -dusage=[15] [/mnt/data]```
 
-**Balance metadata with a chunk limit**
+**平衡元数据并限制块组数量**
 
 ```sudo btrfs balance start -musage=[20],limit=[10] [/mnt/data]```
 
-**Convert RAID profile**
+**转换 RAID 配置档**
 
 ```sudo btrfs balance start -dconvert=[raid6] -mconvert=[raid1c3] [/mnt/data]```
 
-**Cancel a running balance**
+**取消正在运行的 balance 操作**
 
 ```sudo btrfs balance cancel [/mnt/data]```
 
@@ -34,67 +34,67 @@ Redistribute data across btrfs devices
 
 # DESCRIPTION
 
-**btrfs balance** redistributes data and metadata across devices in a btrfs filesystem. It operates on block groups (chunks), moving their contents to achieve a more even distribution or to convert between RAID profiles.
+**btrfs balance** 在 btrfs 文件系统的各设备之间重新分布数据和元数据。它作用于块组（chunk），移动其中的内容，以实现更均匀的分布或在 RAID 配置档之间转换。
 
-Common use cases include rebalancing after adding or removing devices, converting from one RAID level to another, and reclaiming space by consolidating partially used chunks. Filters allow targeting specific chunk types (data, metadata, system) and usage thresholds to avoid unnecessary work.
+常见用例包括：添加或移除设备后重新平衡、从一种 RAID 级别转换为另一种，以及通过合并部分使用的块组来回收空间。过滤器可以针对特定的块组类型（数据、元数据、系统）和使用率阈值，避免不必要的工作。
 
 # PARAMETERS
 
 **start**
-> Start a balance operation
+> 开始一次 balance 操作
 
 **status**
-> Show status of running or paused balance
+> 显示正在运行或已暂停的 balance 的状态
 
 **cancel**
-> Cancel a running balance
+> 取消正在运行的 balance
 
 **pause**
-> Pause a running balance
+> 暂停正在运行的 balance
 
 **resume**
-> Resume a paused balance
+> 恢复已暂停的 balance
 
 **-d** _filters_
-> Apply filters to data block groups
+> 将过滤器应用于数据块组
 
 **-m** _filters_
-> Apply filters to metadata block groups
+> 将过滤器应用于元数据块组
 
 **-s** _filters_
-> Apply filters to system block groups
+> 将过滤器应用于系统块组
 
 **--bg, --background**
-> Run in background
+> 在后台运行
 
 **usage=** _percent_
-> Balance chunks with usage below percentage
+> 仅平衡使用率低于该百分比的块组
 
 **limit=** _count_
-> Process at most this many chunks
+> 最多处理这么多个块组
 
 **convert=** _profile_
-> Convert to specified RAID profile
+> 转换为指定的 RAID 配置档
 
 **soft**
-> Skip chunks already matching the target profile
+> 跳过已经符合目标配置档的块组
 
 **devid=** _id_
-> Balance only chunks on the given device
+> 仅平衡给定设备上的块组
 
 **drange=** _start..end_
-> Balance only chunks overlapping byte range
+> 仅平衡与该字节范围重叠的块组
 
 **-f**
-> Force reducing metadata integrity (e.g., raid1 to single)
+> 强制降低元数据冗余级别（例如 raid1 转为 single）
 
 # CAVEATS
 
-A full balance rewrites all data and is very slow. Use filters to target only necessary chunks. Balance requires free space to relocate data. Converting RAID profiles on a busy system may take a long time.
+完整的 balance 会重写所有数据，速度非常慢。应使用过滤器只处理必要的块组。balance 需要空闲空间来迁移数据。在繁忙的系统上转换 RAID 配置档可能耗时很久。
 
 # HISTORY
 
-**btrfs balance** is part of the **btrfs-progs** package for managing btrfs filesystems on Linux.
+**btrfs balance** 是 **btrfs-progs** 软件包的一部分，用于管理 Linux 上的 btrfs 文件系统。
 
 # INSTALL
 

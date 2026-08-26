@@ -1,34 +1,34 @@
 # TAGLINE
 
-Simple and fast work queue server
+简单快速的工作队列服务器
 
 # TLDR
 
-**Start beanstalkd** on the default port
+在默认端口**启动 beanstalkd**
 
 ```beanstalkd```
 
-**Start on a specific address** and port
+在指定地址和端口**启动**
 
 ```beanstalkd -l [127.0.0.1] -p [11300]```
 
-**Run with persistent storage** (binlog)
+以持久化存储方式**运行**（binlog）
 
 ```beanstalkd -b [/var/lib/beanstalkd]```
 
-**Run as a specific user** (drop privileges)
+**以特定用户身份运行**（放弃特权）
 
 ```beanstalkd -u [beanstalkd]```
 
-**Set maximum job size**
+**设置最大作业大小**
 
 ```beanstalkd -z [65535]```
 
-**Start in verbose mode** (use -VV for more detail)
+以详细模式**启动**（-VV 可获得更多信息）
 
 ```beanstalkd -V```
 
-**Print version** and exit
+**打印版本**并退出
 
 ```beanstalkd -v```
 
@@ -38,49 +38,49 @@ Simple and fast work queue server
 
 # DESCRIPTION
 
-**beanstalkd** is a simple, fast work queue server. It provides a generic interface for managing job queues, originally designed for reducing latency in high-volume web applications by running time-consuming tasks asynchronously.
+**beanstalkd** 是一个简单、快速的工作队列服务器。它提供了管理作业队列的通用接口，最初的设计目的是通过异步执行耗时的任务来降低高流量 Web 应用的延迟。
 
-Jobs are pushed to the queue by producers and reserved by workers (consumers) for processing. The protocol supports job priorities, delays, time-to-run limits, and multiple named tubes (queues).
+生产者将作业推入队列，工作者（消费者）取出（reserve）作业进行处理。协议支持作业优先级、延迟、最长运行时间限制以及多个命名管道（tube，即队列）。
 
 # PARAMETERS
 
 **-l** _addr_
-> Listen on address (IP or 0.0.0.0 for all interfaces). Default: 0.0.0.0
+> 监听地址（IP 或 0.0.0.0 表示所有接口）。默认：0.0.0.0
 
 **-p** _port_
-> Listen on TCP port. Default: 11300
+> 监听的 TCP 端口。默认：11300
 
 **-u** _user_
-> Drop privileges and run as specified user after binding to port
+> 绑定端口后放弃特权，以指定用户运行
 
 **-z** _bytes_
-> Maximum job size in bytes. Default: 65535 (64KB)
+> 最大作业大小（字节）。默认：65535（64KB）
 
 **-b** _path_
-> Enable binlog for job persistence in the specified directory
+> 启用 binlog，将作业持久化到指定目录
 
 **-f** _ms_
-> Sync binlog to disk every ms milliseconds (default 50ms, 0 for every write)
+> 每 ms 毫秒将 binlog 同步到磁盘一次（默认 50ms，0 表示每次写入都同步）
 
 **-s** _bytes_
-> Maximum binlog file size in bytes. Default: 10485760 (10MB)
+> binlog 文件的最大大小（字节）。默认：10485760（10MB）
 
 **-v**
-> Print version and exit
+> 打印版本并退出
 
 **-V**
-> Increase verbosity. Use once for basic, twice (-VV) for detailed logging
+> 提高输出详细程度。一次为基本日志，两次（-VV）为详细日志
 
 **-h**
-> Print help message with available options
+> 打印包含可用选项的帮助消息
 
 # CAVEATS
 
-By default, beanstalkd stores all jobs in memory; a restart loses all queued jobs unless **-b** binlog is enabled. There is no authentication mechanism built-in; secure access through firewall rules or bind to localhost only. Jobs exceeding the maximum size (**-z**) are rejected.
+默认情况下，beanstalkd 将所有作业存储在内存中；重启会丢失全部排队作业，除非启用了 **-b** binlog。没有内置的身份验证机制；请通过防火墙规则保护访问，或只绑定到 localhost。超过最大大小（**-z**）的作业会被拒绝。
 
 # HISTORY
 
-Beanstalkd was created by **Keith Rarick** in **2007** at Causes.com to handle background job processing. It gained popularity as a lightweight alternative to heavier message queue systems, known for its simplicity and sub-millisecond latency.
+Beanstalkd 由 **Keith Rarick** 于 **2007** 年在 Causes.com 创建，用于处理后台作业。它作为更重的消息队列系统的轻量替代品而广受欢迎，以其简洁性和亚毫秒级延迟著称。
 
 # INSTALL
 

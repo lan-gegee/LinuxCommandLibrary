@@ -1,30 +1,30 @@
 # TAGLINE
 
-Simple command-line time tracker with plain-text logs
+基于纯文本日志的简易命令行时间跟踪器
 
 # TLDR
 
-**Start** tracking a task with optional project
+**开始**跟踪任务，可选指定项目
 
 ```bartib start -d "[description]" -p "[project]"```
 
-**Stop** the current activity
+**停止**当前活动
 
 ```bartib stop```
 
-**Show** currently running activity
+**显示**正在运行的活动
 
 ```bartib current```
 
-**List** today's activities
+**列出**今天的活动
 
 ```bartib list --today```
 
-**Report** time spent today
+**报告**今天花费的时间
 
 ```bartib report --today```
 
-**Continue** the last task
+**继续**上一个任务
 
 ```bartib continue```
 
@@ -34,49 +34,49 @@ Simple command-line time tracker with plain-text logs
 
 # DESCRIPTION
 
-**bartib** is a lightweight time-tracking CLI written in Rust. Activities are stored in a plain-text log file (path via **BARTIB_FILE** or configuration), making the data easy to edit, backup, and version. Subcommands cover starting/stopping tasks, continuing previous work, listing history, and generating reports filtered by day, project, or date range.
+**bartib** 是一款用 Rust 编写的轻量级时间跟踪 CLI。活动记录存储在纯文本日志文件中（路径由 **BARTIB_FILE** 或配置指定），数据易于编辑、备份和版本管理。子命令涵盖任务的开始/停止、继续先前工作、列出历史记录，以及按天、项目或日期范围过滤生成报告。
 
-Ideal for freelancers and developers who want terminal-native tracking without a heavy GUI or cloud service.
+非常适合希望在终端内原生跟踪时间、又不想依赖笨重 GUI 或云服务的自由职业者和开发者。
 
 # PARAMETERS
 
 **start** **-d** *description* [**-p** *project*]
 
-> Begin a new activity.
+> 开始一个新活动。
 
 **stop**
 
-> Stop the running activity.
+> 停止正在运行的活动。
 
 **continue** [*number*]
 
-> Resume a previous activity (optionally by list index).
+> 恢复先前的活动（可选按列表索引指定）。
 
 **current**
 
-> Show the currently running activity.
+> 显示当前正在运行的活动。
 
 **list** [**--today**] [**--yesterday**] [**--date** *date*] [**--project** *name*]
 
-> List logged activities with filters.
+> 按过滤条件列出已记录的活动。
 
-**report** [same filters as **list**]
+**report** [与 **list** 相同的过滤条件]
 
-> Summarize time spent.
+> 汇总花费的时间。
 
 **edit** / **cancel** / **change**
 
-> Correct or cancel entries (see **bartib --help**).
+> 更正或取消条目（见 **bartib --help**）。
 
 **projects**
 
-> List known project names.
+> 列出已知的项目名称。
 
-Set **BARTIB_FILE** to choose the log path (default is under the home directory).
+设置 **BARTIB_FILE** 可选择日志路径（默认位于用户主目录下）。
 
 # CAVEATS
 
-All state lives in a local file—back it up if you depend on the history. Concurrent writers from multiple machines need external sync. Precision is wall-clock based; it is not a sampling profiler.
+所有状态都存放在本地文件中——如果依赖历史记录，请务必备份。多台机器并发写入需要外部同步。精度基于墙上时钟；它不是采样式性能分析器。
 
 # INSTALL
 

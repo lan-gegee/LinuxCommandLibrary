@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage persistent reservations on block devices
+管理块设备上的持久预留
 
 # TLDR
 
-**Register** reservation
+**注册**预留
 
 ```blkpr -c register -k reservation_key /dev/sda```
 
-**Reserve** exclusive access
+**保留**独占访问权
 
 ```blkpr -c reserve -k key -t exclusive-access /dev/sda```
 
-**Preempt** existing reservation
+**抢占**已有预留
 
 ```blkpr -c preempt -K old_key -k new_key -t write-exclusive /dev/sda```
 
-**Release** reservation
+**释放**预留
 
 ```blkpr -c release -k key -t type /dev/sda```
 
-**Clear** all reservations
+**清除**所有预留
 
 ```blkpr -c clear -k key /dev/sda```
 
@@ -30,29 +30,29 @@ Manage persistent reservations on block devices
 
 # DESCRIPTION
 
-**blkpr** manages persistent reservations on block devices that support SCSI Persistent Reservations. It allows registering, reserving, releasing, preempting, and clearing reservations for shared storage access control.
+**blkpr** 管理支持 SCSI 持久预留（Persistent Reservations）的块设备上的持久预留。它允许通过注册、保留、释放、抢占和清除预留来控制共享存储的访问。
 
 # PARAMETERS
 
 **-c, --command** _cmd_
-> Command: register, reserve, release, preempt, clear
+> 命令：register、reserve、release、preempt、clear
 
 **-k, --key** _key_
-> Reservation key
+> 预留密钥
 
 **-K, --oldkey** _key_
-> Old key for preempt operations
+> preempt 操作使用的旧密钥
 
 **-t, --type** _type_
-> Reservation type (exclusive-access, write-exclusive, etc.)
+> 预留类型（exclusive-access、write-exclusive 等）
 
 # CAVEATS
 
-Requires devices that support SCSI Persistent Reservations. Used in clustered storage environments to coordinate access. Keys are typically 64-bit values.
+需要支持 SCSI 持久预留的设备。用于集群存储环境中协调访问。密钥通常为 64 位值。
 
 # HISTORY
 
-**blkpr** is part of **util-linux**, providing block device persistent reservation management.
+**blkpr** 是 **util-linux** 的一部分，提供块设备持久预留管理功能。
 
 # INSTALL
 

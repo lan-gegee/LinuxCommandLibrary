@@ -1,30 +1,30 @@
 # TAGLINE
 
-Lightweight multi-connection download accelerator
+轻量级的多连接下载加速器
 
 # TLDR
 
-**Download** a file with multiple connections
+使用多个连接**下载**文件
 
 ```axel [https://example.com/file.zip]```
 
-Download with a **specific number of connections**
+以**指定数量的连接**下载
 
 ```axel -n [16] [https://example.com/file.zip]```
 
-**Save** with a different filename
+以其他文件名**保存**
 
 ```axel -o [output.zip] [https://example.com/file.zip]```
 
-**Limit speed** to a given number of bytes per second
+将速度**限制**为给定的每秒字节数
 
 ```axel -s [1024000] [https://example.com/file.zip]```
 
-Set a custom **user agent**
+设置自定义 **user agent**
 
 ```axel -U "[Mozilla/5.0]" [https://example.com/file.zip]```
 
-**Skip** the download if the file already exists
+若文件已存在则**跳过**下载
 
 ```axel -c [https://example.com/file.zip]```
 
@@ -34,75 +34,75 @@ Set a custom **user agent**
 
 # DESCRIPTION
 
-**axel** is a lightweight download accelerator that opens multiple HTTP/FTP connections to the same file. By downloading different parts of the file simultaneously, it can significantly speed up downloads compared to single-connection tools.
+**axel** 是一款轻量级的下载加速器，它会针对同一个文件打开多个 HTTP/FTP 连接。通过同时下载文件的不同部分，与单连接工具相比，它可以显著加快下载速度。
 
-The tool is particularly effective for large files on servers that don't rate-limit individual connections.
+对于未对单个连接限速的服务器上的大文件，该工具尤为有效。
 
 # PARAMETERS
 
 **--num-connections=**_num_, **-n** _num_
-> Number of connections to open.
+> 要打开的连接数。
 
 **--output=**_file_, **-o** _file_
-> Local filename to save to.
+> 保存到的本地文件名。
 
 **--max-speed=**_bytes_, **-s** _bytes_
-> Try to keep the average speed around this many bytes per second.
+> 尝试将平均速度保持在此每秒字节数左右。
 
 **--alternate**, **-a**
-> Show an alternate progress bar with per-thread status.
+> 显示带有各线程状态的备用进度条。
 
 **--quiet**, **-q**
-> No output to stdout.
+> 不向 stdout 输出任何内容。
 
 **--verbose**, **-v**
-> Show more status messages. Repeat for more detail.
+> 显示更多状态消息。重复使用可获得更多细节。
 
 **--header=**_header_, **-H** _header_
-> Add an HTTP header in the form 'Header: Value'.
+> 以 'Header: Value' 的形式添加 HTTP 头。
 
 **--user-agent=**_agent_, **-U** _agent_
-> Set the HTTP user agent.
+> 设置 HTTP user agent。
 
 **--no-proxy**, **-N**
-> Do not use any proxy server.
+> 不使用任何代理服务器。
 
 **--no-clobber**, **-c**
-> Skip the download if a file with the same name already exists.
+> 若同名文件已存在则跳过下载。
 
 **--insecure**, **-k**
-> Do not verify the SSL certificate.
+> 不验证 SSL 证书。
 
 **--timeout=**_secs_, **-T** _secs_
-> Set the I/O and connection timeout.
+> 设置 I/O 与连接超时。
 
 **--max-redirect=**_num_
-> Maximum redirects to follow (default: 20).
+> 最大重定向次数（默认：20）。
 
 # FEATURES
 
-- Multiple simultaneous connections
-- Resume interrupted downloads
-- Speed limiting
-- FTP and HTTP support
-- Progress indicators
-- Proxy support
+- 多个并发连接
+- 恢复被中断的下载
+- 速度限制
+- 支持 FTP 和 HTTP
+- 进度指示
+- 支持代理
 
 # CONFIGURATION
 
 **/etc/axelrc**
-> System-wide configuration file.
+> 系统级配置文件。
 
 **~/.axelrc**
-> Per-user configuration file for default settings like number of connections and speed limits.
+> 每用户配置文件，用于设置连接数和速度限制等默认值。
 
 # CAVEATS
 
-Some servers block multiple connections. May be considered aggressive by some sites. Not all servers support range requests. Can waste bandwidth if connection limit is too high. Less feature-rich than aria2.
+某些服务器会阻止多连接。可能被一些网站视为激进行为。并非所有服务器都支持范围请求。连接数上限设置过高可能浪费带宽。功能不如 aria2 丰富。
 
 # HISTORY
 
-**axel** was created by Wilmer van der Gaast around **2001** as a lightweight alternative to download managers, focusing on speed through parallel connections.
+**axel** 由 Wilmer van der Gaast 于 **2001** 年前后创建，作为下载管理器的轻量替代品，专注于通过并行连接提升速度。
 
 # INSTALL
 

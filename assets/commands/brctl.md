@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Ethernet bridge interfaces
+管理以太网网桥接口
 
 # TLDR
 
-**Show** all bridges
+**显示**所有网桥
 
 ```sudo brctl show```
 
-**Create** a bridge
+**创建**网桥
 
 ```sudo brctl addbr [bridge]```
 
-**Delete** a bridge
+**删除**网桥
 
 ```sudo brctl delbr [bridge]```
 
-**Add** an interface to a bridge
+将接口**添加**到网桥
 
 ```sudo brctl addif [bridge] [eth0]```
 
-**Remove** an interface from a bridge
+从网桥**移除**接口
 
 ```sudo brctl delif [bridge] [eth0]```
 
-**Enable** Spanning Tree Protocol on a bridge
+在网桥上**启用**生成树协议（STP）
 
 ```sudo brctl stp [bridge] on```
 
@@ -34,43 +34,43 @@ Manage Ethernet bridge interfaces
 
 # DESCRIPTION
 
-**brctl** manages Ethernet bridge interfaces on Linux. Bridges connect multiple network segments at Layer 2, allowing them to act as a single network. This is commonly used for virtualization, containers, and network infrastructure.
+**brctl** 用于管理 Linux 上的以太网网桥接口。网桥在二层连接多个网络段，使它们表现得像单一网络。这常用于虚拟化、容器和网络基础设施场景。
 
-It is part of the legacy **bridge-utils** package. No new features are added to it; modern setups should use **ip link** and the **bridge** command from iproute2 instead. For example, **brctl addbr br0** is equivalent to **ip link add br0 type bridge**, and **brctl addif br0 eth0** to **ip link set eth0 master br0**.
+它属于旧版的 **bridge-utils** 软件包，不再添加新功能；现代配置应改用 iproute2 的 **ip link** 和 **bridge** 命令。例如，**brctl addbr br0** 等价于 **ip link add br0 type bridge**，而 **brctl addif br0 eth0** 等价于 **ip link set eth0 master br0**。
 
 # PARAMETERS
 
 **show**
-> Display information about existing bridges
+> 显示现有网桥的信息。
 
 **addbr** _bridge_
-> Create a new bridge
+> 创建新网桥。
 
 **delbr** _bridge_
-> Delete a bridge
+> 删除网桥。
 
 **addif** _bridge_ _interface_
-> Add an interface to a bridge
+> 将接口加入网桥。
 
 **delif** _bridge_ _interface_
-> Remove an interface from a bridge
+> 将接口移出网桥。
 
 **stp** _bridge_ _on|off_
-> Enable/disable Spanning Tree Protocol
+> 启用/禁用生成树协议。
 
 **setageing** _bridge_ _time_
-> Set MAC address ageing time
+> 设置 MAC 地址老化时间。
 
 **setfd** _bridge_ _time_
-> Set forwarding delay
+> 设置转发延迟。
 
 # CAVEATS
 
-brctl is deprecated in favor of the ip and bridge commands from iproute2. Interfaces must be up to participate in bridging. STP should be enabled in complex topologies to prevent loops.
+brctl 已被弃用，建议使用 iproute2 的 ip 和 bridge 命令。接口必须处于启用（up）状态才能参与桥接。在复杂拓扑中应启用 STP 以防止环路。
 
 # HISTORY
 
-**brctl** is part of the **bridge-utils** package, being replaced by the iproute2 bridge command.
+**brctl** 是 **bridge-utils** 软件包的一部分，正被 iproute2 的 bridge 命令取代。
 
 # INSTALL
 

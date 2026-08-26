@@ -1,38 +1,38 @@
 # TAGLINE
 
-High-level tracing language for Linux eBPF.
+面向 Linux eBPF 的高级跟踪语言。
 
 # TLDR
 
-List all **available probes**
+列出所有**可用的探测点**
 
 ```sudo bpftrace -l```
 
-Run a **one-liner program**
+运行**单行程序**
 
 ```sudo bpftrace -e 'tracepoint:raw_syscalls:sys_enter { @[comm] = count(); }'```
 
-Run a **program from file**
+**从文件运行程序**
 
 ```sudo bpftrace [path/to/file]```
 
-Trace a program by **PID**
+按 **PID** 跟踪某个程序
 
 ```sudo bpftrace -e 'tracepoint:raw_syscalls:sys_enter /pid == 123/ { @[comm] = count(); }'```
 
-**Trace a child** command until it exits
+**跟踪子进程**命令直到其退出
 
 ```sudo bpftrace -c '[command]' -e 'tracepoint:raw_syscalls:sys_enter { @[comm] = count(); }'```
 
-**Dry run** to validate probes without executing
+进行**试运行**：只验证探测点而不执行
 
 ```sudo bpftrace --dry-run -e '[one_line_program]'```
 
-**Write output** to a file
+**将输出写入**文件
 
 ```sudo bpftrace -o [output.txt] -e '[one_line_program]'```
 
-Display **version**
+显示**版本**
 
 ```bpftrace -V```
 
@@ -42,64 +42,64 @@ Display **version**
 
 # DESCRIPTION
 
-**bpftrace** is a high-level tracing language for Linux eBPF. It provides a powerful scripting interface for kernel and userspace tracing, similar to DTrace on other Unix systems.
+**bpftrace** 是一种面向 Linux eBPF 的高级跟踪语言。它为内核和用户态跟踪提供强大的脚本接口，类似于其他 Unix 系统上的 DTrace。
 
-Programs can attach to tracepoints, kprobes, uprobes, and other probe types to collect and aggregate data about system behavior in real-time.
+程序可以挂接到 tracepoint、kprobe、uprobe 及其他类型的探测点，实时收集并聚合系统行为数据。
 
 # PARAMETERS
 
 **-l** [_SEARCH_]
-> List probes matching a search pattern (supports wildcards)
+> 列出匹配搜索模式的探测点（支持通配符）。
 
 **-e** _program_
-> Execute a one-liner program
+> 执行单行程序。
 
 **-d** _STAGE_
-> Produce debug output for a given compilation stage (ast, codegen, dis, verifier, etc.)
+> 为指定的编译阶段输出调试信息（ast、codegen、dis、verifier 等）。
 
 **--dry-run**
-> Validate and compile the program without attaching probes
+> 验证并编译程序，但不实际挂接探测点。
 
 **-p** _PID_
-> Attach to process or filter actions by PID
+> 挂接到某进程或按 PID 过滤动作。
 
 **-c** _COMMAND_
-> Run command as a child process; bpftrace exits when it terminates
+> 以子进程方式运行命令；子进程结束时 bpftrace 也退出。
 
 **-o** _FILENAME_
-> Write tracing output to file instead of stdout
+> 将跟踪输出写入文件而不是 stdout。
 
 **-f** _FORMAT_
-> Output format: `text` (default) or `json`
+> 输出格式：`text`（默认）或 `json`。
 
 **-B** _MODE_
-> Buffer mode for output: `none`, `line` (default), or `full`
+> 输出的缓冲模式：`none`、`line`（默认）或 `full`。
 
 **-I** _DIR_
-> Add directory to the C header search path (repeatable)
+> 将目录加入 C 头文件搜索路径（可重复使用）。
 
 **-v**
-> Verbose output
+> 详细输出。
 
 **-q**
-> Quiet mode; suppress non-error messages
+> 安静模式；不输出非错误消息。
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息。
 
 **--unsafe**
-> Allow unsafe operations like `system()` calls
+> 允许 `system()` 调用等不安全操作。
 
 **--info**
-> Print information about kernel features and bpftrace build
+> 打印内核特性和 bpftrace 构建的相关信息。
 
 # CAVEATS
 
-Requires root privileges. Kernel must have eBPF and BTF support enabled. Some probes may not be available on all kernel versions. Performance impact varies by probe type and frequency.
+需要 root 权限。内核必须启用 eBPF 和 BTF 支持。某些探测点可能并非在所有内核版本上都可用。性能影响因探测点类型和触发频率而异。
 
 # HISTORY
 
-**bpftrace** was created by Alastair Robertson and first released in **2018**. It was inspired by DTrace and aimed to bring similar high-level tracing capabilities to Linux using eBPF.
+**bpftrace** 由 Alastair Robertson 创建，于 **2018 年**首次发布。它受 DTrace 启发，旨在借助 eBPF 为 Linux 带来类似的高级跟踪能力。
 
 # INSTALL
 

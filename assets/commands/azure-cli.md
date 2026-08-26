@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure cloud resources from the command line.
+从命令行管理 Azure 云资源。
 
 # TLDR
 
-**Sign in** interactively (opens a browser)
+**交互式登录**（会打开浏览器）
 
 ```az login```
 
-**Verify** the installed version
+**验证**已安装的版本
 
 ```az --version```
 
-**List** your subscriptions
+**列出**你的订阅
 
 ```az account list --output table```
 
-**Set** the active subscription
+**设置**活动订阅
 
 ```az account set --subscription [name_or_id]```
 
-**Create** a resource group
+**创建**资源组
 
 ```az group create --name [name] --location [eastus]```
 
-**Query** output with JMESPath
+使用 JMESPath **查询**输出
 
 ```az vm list --query "[].{name:name, rg:resourceGroup}" --output table```
 
-**Install** via pip
+通过 pip **安装**
 
 ```pip install azure-cli```
 
-**Update** Azure CLI in place
+**就地更新** Azure CLI
 
 ```az upgrade```
 
@@ -42,57 +42,57 @@ Manage Azure cloud resources from the command line.
 
 # DESCRIPTION
 
-**azure-cli** is the cross-platform command-line interface for Microsoft Azure. It provides the `az` command, which manages Azure resources through a tree of command groups (for example `az vm`, `az storage`, `az group`, `az aks`, `az network`) and is distributed as a Python package with associated service modules.
+**azure-cli** 是 Microsoft Azure 的跨平台命令行界面。它提供 `az` 命令，通过命令组树来管理 Azure 资源（例如 `az vm`、`az storage`、`az group`、`az aks`、`az network`），并以 Python 软件包及配套服务模块的形式分发。
 
-Commands follow the pattern `az <group> <subgroup> <command>`. Output defaults to JSON but can be switched to a table, TSV, YAML, or none, and JMESPath `--query` expressions filter and reshape results. Additional functionality is added through extensions managed by `az extension`.
+命令遵循 `az <group> <subgroup> <command>` 模式。输出默认为 JSON，但可以切换为 table、TSV、YAML 或 none；JMESPath `--query` 表达式可筛选并重塑结果。更多功能可通过由 `az extension` 管理的扩展添加。
 
-The package can be installed via pip, OS package managers, or standalone installers.
+该软件包可以通过 pip、操作系统软件包管理器或独立安装程序安装。
 
 # PARAMETERS
 
 **-o**, **--output** _format_
-> Output format: json (default), jsonc, table, tsv, yaml, yamlc, or none.
+> 输出格式：json（默认）、jsonc、table、tsv、yaml、yamlc 或 none。
 
 **--query** _jmespath_
-> JMESPath query string to filter and project the response.
+> 用于筛选和投影响应的 JMESPath 查询字符串。
 
 **--subscription** _name_or_id_
-> Name or ID of the subscription to target for this command.
+> 此命令要使用的订阅的名称或 ID。
 
 **-h**, **--help**
-> Show help for the command or group.
+> 显示命令或命令组的帮助。
 
 **--verbose**
-> Increase logging verbosity.
+> 提高日志详细程度。
 
 **--debug**
-> Show full debug logs, useful when filing issues.
+> 显示完整的调试日志，提交问题反馈时很有用。
 
 **--only-show-errors**
-> Suppress warnings and show only errors.
+> 抑制警告，仅显示错误。
 
 # COMMON COMMANDS
 
 **az login** / **az logout**
-> Sign in to or out of Azure.
+> 登录或登出 Azure。
 
 **az account**
-> Manage subscriptions and the active context.
+> 管理订阅和活动上下文。
 
 **az group**
-> Manage resource groups.
+> 管理资源组。
 
 **az upgrade**
-> Update the CLI and installed extensions to the latest version.
+> 将 CLI 和已安装的扩展更新到最新版本。
 
 **az extension**
-> Install and manage CLI extensions.
+> 安装和管理 CLI 扩展。
 
 **az interactive**
-> Start an interactive shell with autocompletion and examples.
+> 启动带有自动补全和示例的交互式 Shell。
 
 **az config**
-> Manage persisted CLI defaults (replaces `az configure` for defaults).
+> 管理 CLI 的持久化默认值（在默认值管理上取代 `az configure`）。
 
 # INSTALLATION METHODS
 
@@ -112,7 +112,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
 **Windows**
-> Download MSI installer from Microsoft
+> 从微软官网下载 MSI 安装程序
 
 **Docker**
 ```bash
@@ -121,25 +121,25 @@ docker run -it mcr.microsoft.com/azure-cli
 
 # COMPONENTS
 
-The package includes:
-- Core CLI (`az` command)
-- All service modules
-- Extensions framework
-- Auto-completion support
-- Telemetry (can be disabled)
+该软件包包含：
+- 核心 CLI（`az` 命令）
+- 全部服务模块
+- 扩展框架
+- 自动补全支持
+- 遥测（可禁用）
 
 # CONFIGURATION
 
 **~/.azure/config**
-> User-specific Azure CLI configuration file for defaults, output format, and extension settings.
+> 用户专属的 Azure CLI 配置文件，用于保存默认值、输出格式和扩展设置。
 
 # CAVEATS
 
-Requires Python 3.8+. Large installation size (hundreds of MB). Regular updates needed for new features. Some older Linux distributions need manual dependency installation. Extensions installed separately.
+需要 Python 3.8+。安装体积较大（数百 MB）。需要定期更新才能获得新功能。一些较旧的 Linux 发行版需要手动安装依赖。扩展需要单独安装。
 
 # HISTORY
 
-**azure-cli** (version 2.0+) was released in **2017** as a complete rewrite in Python, replacing the Node.js-based version 1.0.
+**azure-cli**（2.0 及以上版本）于 **2017** 年发布，是以 Python 完全重写的版本，取代了基于 Node.js 的 1.0 版本。
 
 # INSTALL
 

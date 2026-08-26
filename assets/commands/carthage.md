@@ -1,34 +1,34 @@
 # TAGLINE
 
-decentralized dependency manager for Cocoa projects
+面向 Cocoa 项目的去中心化依赖管理器
 
 # TLDR
 
-**Update and build dependencies**
+**更新并构建依赖**
 
 ```carthage update```
 
-**Build XCFrameworks**
+**构建 XCFramework**
 
 ```carthage update --use-xcframeworks```
 
-**Bootstrap without updating**
+**不更新直接引导构建**
 
 ```carthage bootstrap```
 
-**Build specific dependency**
+**构建指定依赖**
 
 ```carthage build [dependency_name]```
 
-**Update without building**
+**只更新不构建**
 
 ```carthage update --no-build```
 
-**Build for specific platform**
+**针对特定平台构建**
 
 ```carthage update --platform [iOS]```
 
-**Check outdated dependencies**
+**检查过期的依赖**
 
 ```carthage outdated```
 
@@ -38,57 +38,57 @@ decentralized dependency manager for Cocoa projects
 
 # DESCRIPTION
 
-**carthage** is a decentralized dependency manager for Swift and Objective-C Cocoa projects. Unlike CocoaPods, it builds dependencies as binary frameworks without modifying your Xcode project files, workspace, or build settings, leaving full control of the project structure to the developer.
+**carthage** 是面向 Swift 和 Objective-C Cocoa 项目的去中心化依赖管理器。与 CocoaPods 不同，它将依赖构建为二进制框架，而不修改你的 Xcode 工程文件、工作区或构建设置，把项目结构的完全控制权留给开发者。
 
-Dependencies are declared in a **Cartfile** using a simple syntax that supports GitHub repositories, Git URLs, and binary-only frameworks. Running `carthage update` resolves versions, checks out sources, and builds frameworks into the Carthage/Build directory. A Cartfile.resolved lockfile ensures reproducible builds across team members.
+依赖在 **Cartfile** 中以简单语法声明，支持 GitHub 仓库、Git URL 和仅二进制的框架。运行 `carthage update` 会解析版本、检出源码，并把框架构建到 Carthage/Build 目录。Cartfile.resolved 锁定文件可确保团队成员之间的构建可复现。
 
-Since version 0.37.0, Carthage supports building XCFrameworks, which bundle binaries for multiple platforms and architectures into a single distributable package.
+自 0.37.0 版本起，Carthage 支持构建 XCFramework，它将多个平台和架构的二进制文件打包为单个可分发包。
 
 # COMMANDS
 
 **update**
-> Update and rebuild dependencies
+> 更新并重新构建依赖
 
 **bootstrap**
-> Build dependencies without updating
+> 不更新而直接构建依赖
 
 **build**
-> Build specific dependency
+> 构建指定依赖
 
 **outdated**
-> Check for outdated dependencies
+> 检查过期的依赖
 
 **archive**
-> Create archive of built frameworks
+> 创建已构建框架的归档
 
 **copy-frameworks**
-> Copy frameworks to app bundle
+> 将框架复制到应用 bundle
 
 **version**
-> Show version
+> 显示版本
 
 # PARAMETERS
 
 **--use-xcframeworks**
-> Build as XCFrameworks (recommended)
+> 构建为 XCFramework（推荐）
 
 **--platform** _name_
-> Build for specific platform (iOS, macOS, tvOS, watchOS)
+> 针对特定平台构建（iOS、macOS、tvOS、watchOS）
 
 **--no-build**
-> Skip building after checkout
+> 检出后跳过构建
 
 **--no-use-binaries**
-> Build from source, don't use prebuilt binaries
+> 从源码构建，不使用预编译二进制
 
 **--cache-builds**
-> Cache built frameworks
+> 缓存已构建的框架
 
 **--project-directory** _path_
-> Directory containing Cartfile
+> 包含 Cartfile 的目录
 
 **--verbose**
-> Show detailed output
+> 显示详细输出
 
 # CARTFILE FORMAT
 
@@ -101,17 +101,17 @@ git "https://example.com/repo.git" "branch-name"
 # CONFIGURATION
 
 **Cartfile**
-> Declares project dependencies with version constraints.
+> 以版本约束声明项目依赖。
 
 **Cartfile.resolved**
-> Lockfile with exact resolved versions for reproducible builds.
+> 记录精确解析版本的锁定文件，用于可复现构建。
 
 **Cartfile.private**
-> Dependencies needed only for development and testing.
+> 仅开发和测试所需的依赖。
 
 # CAVEATS
 
-Supports dynamic frameworks on iOS 8+. Static framework support since version 0.30.0. Consider Swift Package Manager for new projects. Frameworks go to Carthage/Build directory.
+在 iOS 8+ 上支持动态框架。静态框架自 0.30.0 版本起受支持。新项目建议考虑 Swift Package Manager。框架会输出到 Carthage/Build 目录。
 
 # INSTALL
 

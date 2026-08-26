@@ -1,18 +1,18 @@
 # TAGLINE
 
-Cross-platform terminal system monitor
+跨平台终端系统监视器
 
 # TLDR
 
-**Start** resource monitor
+**启动**资源监视器
 
 ```btm```
 
-**Basic** mode (less features)
+**基础**模式（功能较少）
 
 ```btm -b```
 
-**Specific** refresh rate
+**指定**刷新率
 
 ```btm -r [2000]```
 
@@ -22,65 +22,65 @@ Cross-platform terminal system monitor
 
 # DESCRIPTION
 
-**btm** (bottom) is a cross-platform graphical process/system monitor for the terminal. It provides information about CPU, memory, disk, network, and processes with a customizable interface.
+**btm**（bottom）是一个跨平台的终端图形化进程/系统监视器。它以可自定义的界面提供 CPU、内存、磁盘、网络和进程信息。
 
-The tool offers an alternative to htop and top with modern features and aesthetics.
+该工具凭借现代化的特性与外观，可作为 htop 和 top 的替代品。
 
 # PARAMETERS
 
 **-b**, **--basic**
-> Basic mode (disable graphs)
+> 基础模式（禁用图表）
 
 **-r**, **--rate** _ms_
-> Refresh rate in milliseconds (default: 1000)
+> 刷新率（毫秒，默认：1000）
 
 **-a**, **--hide_avg_cpu**
-> Hide average CPU usage
+> 隐藏平均 CPU 使用率
 
 **-m**, **--hide_time**
-> Hide time graph
+> 隐藏时间图
 
 **-t**, **--default_time_value** _ms_
-> Default time range
+> 默认时间范围
 
 **-c**, **--config** _path_
-> Configuration file
+> 配置文件
 
 # FEATURES
 
-- CPU usage per core
-- Memory and swap monitoring
-- Disk I/O and usage
-- Network I/O
-- Process list with sorting
-- Process tree view
-- Battery monitoring
-- Temperature sensors
-- Customizable widgets
-- Mouse support
+- 每个 CPU 核心的使用率
+- 内存与交换空间监控
+- 磁盘 I/O 与使用情况
+- 网络 I/O
+- 可排序的进程列表
+- 进程树视图
+- 电池监控
+- 温度传感器
+- 可自定义的组件
+- 支持鼠标
 
 # KEYBINDINGS
 
-- **q/Ctrl+C** - Quit
-- **/** - Filter
-- **dd** - Kill process
-- **e** - Expand widget
-- **+/-** - Zoom time graph
-- **Tab** - Switch widgets
-- **?** - Help
+- **q/Ctrl+C** - 退出
+- **/** - 过滤
+- **dd** - 杀死进程
+- **e** - 展开组件
+- **+/-** - 缩放时间图
+- **Tab** - 切换组件
+- **?** - 帮助
 
 # CONFIGURATION
 
 **~/.config/bottom/bottom.toml**
-> Main configuration file for flags, colors, layout, and widget settings.
+> 主配置文件，包含标志、颜色、布局和组件设置。
 
 # CAVEATS
 
-Requires modern terminal with Unicode support. Some features platform-specific. Higher resource usage than minimal tools. Configuration can be complex.
+需要支持 Unicode 的现代终端。部分功能与平台相关。资源占用比极简工具更高。配置可能比较复杂。
 
 # HISTORY
 
-**bottom** was created by Clement Tsang around **2019** as a modern, customizable system monitor written in Rust.
+**bottom** 由 Clement Tsang 于 **2019 年**前后创建，是一个用 Rust 编写的现代化、可自定义的系统监视器。
 
 # INSTALL
 

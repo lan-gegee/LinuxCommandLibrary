@@ -1,26 +1,26 @@
 # TAGLINE
 
-Bourne Shell interpreter
+Bourne Shell 解释器
 
 # TLDR
 
-**Start an interactive Bourne shell**
+**启动交互式 Bourne shell**
 
 ```bshell```
 
-**Execute a shell script**
+**执行 shell 脚本**
 
 ```bshell [path/to/script.sh]```
 
-**Execute a command**
+**执行一条命令**
 
 ```bshell -c "[command]"```
 
-**Run in debug mode showing executed commands**
+**以调试模式运行，显示已执行的命令**
 
 ```bshell -x [path/to/script.sh]```
 
-**Run as a restricted shell**
+**作为受限 shell 运行**
 
 ```bshell -r```
 
@@ -30,34 +30,34 @@ Bourne Shell interpreter
 
 # DESCRIPTION
 
-**bshell** is a Bourne Shell interpreter from the Schily-Tools collection, providing a traditional POSIX-compatible shell environment. It executes commands read from standard input, command strings, or script files.
+**bshell** 是 Schily-Tools 工具集中的 Bourne Shell 解释器，提供传统的 POSIX 兼容 shell 环境。它执行从标准输入、命令字符串或脚本文件中读取的命令。
 
-The Bourne Shell is the original Unix shell written by Stephen Bourne at Bell Labs. This implementation maintains compatibility with the classic shell behavior while running on modern systems.
+Bourne Shell 是 Stephen Bourne 在贝尔实验室编写的原始 Unix shell。此实现在现代系统上运行的同时，保持了与经典 shell 行为的兼容性。
 
 # PARAMETERS
 
 **-c** _command_
-> Execute the specified command string
+> 执行指定的命令字符串
 
 **-r**
-> Start as a restricted shell, limiting certain operations for security
+> 以受限 shell 模式启动，出于安全考虑限制某些操作
 
 **-u**
-> Treat unset variables as errors and exit
+> 将未设置的变量视为错误并退出
 
 **-v**
-> Print shell input lines as they are read (verbose mode)
+> 在读取 shell 输入行时将其打印出来（详细输出模式）
 
 **-x**
-> Print commands and arguments as they are executed (debug mode)
+> 在命令和参数被执行时将其打印出来（调试模式）
 
 # CAVEATS
 
-The **bshell** command is part of the Schily-Tools package and may not be installed by default on most Linux distributions. Most systems use **bash** or **dash** as **/bin/sh** for Bourne shell compatibility.
+**bshell** 命令是 Schily-Tools 软件包的一部分，在大多数 Linux 发行版上可能默认未安装。多数系统使用 **bash** 或 **dash** 作为 **/bin/sh** 来实现 Bourne shell 兼容性。
 
 # HISTORY
 
-The original Bourne Shell was developed by **Stephen Bourne** at Bell Labs and first appeared in **Version 7 Unix in 1979**. It replaced the Thompson shell and became the foundation for subsequent shells including **ksh**, **bash**, and **zsh**. The Schily-Tools implementation by Jörg Schilling provides a modern port of the classic Bourne Shell.
+最初的 Bourne Shell 由 **Stephen Bourne** 在贝尔实验室开发，首次出现于 **1979 年的 Version 7 Unix**。它取代了 Thompson shell，并成为后续各种 shell（包括 **ksh**、**bash** 和 **zsh**）的基础。Jörg Schilling 开发的 Schily-Tools 实现为经典 Bourne Shell 提供了现代化移植版本。
 
 # INSTALL
 

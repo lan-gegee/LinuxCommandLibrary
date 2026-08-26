@@ -1,22 +1,22 @@
 # TAGLINE
 
-Native Clojure interpreter for scripting
+用于脚本编写的原生 Clojure 解释器
 
 # TLDR
 
-**Build** Clojure project
+**运行** Clojure 项目脚本
 
 ```bb [script.clj]```
 
-**Run** REPL
+**启动** REPL
 
 ```bb repl```
 
-**Execute** expression
+**执行**表达式
 
 ```bb -e ["(println (+ 1 2 3))"]```
 
-**Install** task runner
+**使用**任务运行器
 
 ```bb tasks```
 
@@ -26,46 +26,46 @@ Native Clojure interpreter for scripting
 
 # DESCRIPTION
 
-**bb** (Babashka) is a native Clojure interpreter for scripting. It provides fast startup times and can run Clojure scripts without JVM overhead, making it suitable for shell scripting and task automation.
+**bb**（Babashka）是用于脚本编写的原生 Clojure 解释器。它启动速度极快，无需 JVM 开销即可运行 Clojure 脚本，适合 Shell 脚本编写和任务自动化。
 
-The tool enables using Clojure for tasks typically handled by bash or Python scripts.
+该工具让 Clojure 能够胜任通常由 bash 或 Python 脚本处理的任务。
 
 # PARAMETERS
 
 **-e**, **--eval** _expr_
-> Evaluate expression
+> 求值表达式
 
 **-f**, **--file** _file_
-> Run file
+> 运行文件
 
 **-m**, **--main** _ns_
-> Call main function in namespace
+> 调用命名空间中的 main 函数
 
 **--repl**
-> Start REPL
+> 启动 REPL
 
 **--nrepl-server**
-> Start nREPL server
+> 启动 nREPL 服务器
 
 **--classpath** _cp_
-> Set classpath
+> 设置类路径
 
 **--uberscript** _file_
-> Create standalone script
+> 创建独立脚本
 
 # FEATURES
 
-- Fast startup (milliseconds)
-- Most of Clojure core
-- Common libraries included
-- Task runner (bb.edn)
-- Pod system for native bindings
-- Compatible with Clojure syntax
-- Shell out capabilities
+- 启动迅速（毫秒级）
+- 覆盖大部分 Clojure 核心
+- 内置常用库
+- 任务运行器（bb.edn）
+- 用于原生绑定的 Pod 系统
+- 兼容 Clojure 语法
+- 支持调用外部 Shell 命令
 
 # TASK RUNNER
 
-Define tasks in bb.edn:
+在 bb.edn 中定义任务：
 ```clojure
 {:tasks
  {test {:doc "Run tests"
@@ -75,15 +75,15 @@ Define tasks in bb.edn:
 # CONFIGURATION
 
 **bb.edn**
-> Project configuration file for tasks, dependencies, and classpath settings.
+> 项目配置文件，用于定义任务、依赖和类路径设置。
 
 # CAVEATS
 
-Not full Clojure (some features missing). Not as fast as compiled code. Limited Java interop. Some libraries don't work. Pods add complexity.
+并非完整的 Clojure（缺少部分特性）。不如编译后的代码快。Java 互操作受限。部分库无法使用。Pod 会增加复杂度。
 
 # HISTORY
 
-**Babashka** was created by Michiel Borkent in **2019** to enable fast Clojure scripting without JVM startup overhead.
+**Babashka** 由 Michiel Borkent 于 **2019** 年创建，目的是让 Clojure 脚本摆脱 JVM 启动开销、实现快速运行。
 
 # INSTALL
 

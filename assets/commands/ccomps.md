@@ -1,30 +1,30 @@
 # TAGLINE
 
-decompose graphs into connected components
+将图分解为连通分量
 
 # TLDR
 
-**Print components**, each as a separate graph
+**打印各分量**，每个分量作为独立的图
 
 ```ccomps -x [input.dot]```
 
-**Write each component** to a numbered file derived from outfile
+**将每个分量写入**由 outfile 派生的带编号文件
 
 ```ccomps -x -o [out.dot] [input.dot]```
 
-**Print only the largest component**
+**只打印最大的分量**
 
 ```ccomps -z -x [input.dot]```
 
-**Count the components**, print only counts to stderr
+**统计分量数量**，仅向 stderr 输出计数
 
 ```ccomps -sv [input.dot]```
 
-**Extract the component containing a specific node**
+**提取包含指定节点的分量**
 
 ```ccomps -X [node_name] [input.dot]```
 
-**Output components by size range** (at least 5 nodes)
+**按大小范围输出分量**（至少 5 个节点）
 
 ```ccomps -x -X%5- [input.dot]```
 
@@ -34,57 +34,57 @@ decompose graphs into connected components
 
 # DESCRIPTION
 
-**ccomps** decomposes graphs into their connected components, printing the components to standard output. By default, every node ends up in some component; with **-C** the cluster subgraph structure is also used to determine connectivity.
+**ccomps** 将图分解为其连通分量，并把各分量打印到标准输出。默认情况下，每个节点都会归入某个分量；加上 **-C** 后，cluster 子图结构也会参与连通性的判定。
 
-For undirected graphs it computes connected components; for directed graphs it treats edges as undirected (weakly connected). The tool is useful for filtering disconnected subgraphs out of a graph, isolating the component containing a node of interest, or pre-processing graphs before layout with **dot**, **neato**, etc.
+对于无向图，它计算连通分量；对于有向图，它将边视为无向（弱连通）。该工具适合从图中过滤掉不相连的子图、分离出包含目标节点的分量，或在使用 **dot**、**neato** 等布局前对图进行预处理。
 
-If no input file is given, the graph is read from standard input.
+未给定输入文件时，图将从标准输入读取。
 
 # PARAMETERS
 
 **-s**
-> Silent: print no output graph; useful with **-v** to just check connectivity.
+> 静默：不输出图；配合 **-v** 可用于只检查连通性。
 
 **-x**
-> Print each connected component as a separate graph (instead of embedding them as subgraphs).
+> 将每个连通分量作为独立图打印（而不是作为子图嵌入）。
 
 **-X** _node_name_
-> Print only the component containing the named node.
+> 只打印包含指定节点的分量。
 
 **-X#** _index_[**-**[_last_]]
-> Print only the component(s) at the given index, or index range (last optional).
+> 只打印给定索引处的分量或索引范围（last 可选）。
 
 **-X%** _min_[**-**[_max_]]
-> Print only the component(s) whose node count falls in the given size range.
+> 只打印节点数落在给定大小范围内的分量。
 
 **-z**
-> Sort components by size, largest first. Only meaningful with **-x** or **-X#**.
+> 按大小对分量排序，最大者优先。仅在配合 **-x** 或 **-X#** 时有意义。
 
 **-C**
-> Use cluster subgraphs in addition to normal edge connectivity when computing components.
+> 计算分量时，除普通边连通性外还使用 cluster 子图。
 
 **-e**
-> Do not induce edges in the connected components.
+> 不在连通分量中诱导出边。
 
 **-n**
-> Do not project subgraph structure: components contain only relevant nodes and edges.
+> 不投影子图结构：分量只包含相关的节点和边。
 
 **-v**
-> Verbose: print counts of nodes, edges and components to stderr.
+> 详细模式：向 stderr 打印节点数、边数和分量数。
 
 **-o** _outfile_
-> Write output to _outfile_. With multiple components, files are numbered (_outfile_, _outfile_\_1, ...).
+> 将输出写到 _outfile_。有多个分量时文件会被编号（_outfile_、_outfile_\_1 等）。
 
 **-?**
-> Print usage information.
+> 打印用法信息。
 
 # CAVEATS
 
-Input must be in **DOT** format. For directed graphs only weakly connected components are computed. Memory usage scales with graph size. Node names must be unique for the **-X** _node_name_ form to work as expected. The **-X** flag is overloaded: a plain name, a **#**-prefixed index, or a **%**-prefixed size selector.
+输入必须为 **DOT** 格式。对有向图只计算弱连通分量。内存占用随图的规模增长。若要让 **-X** _node_name_ 形式按预期工作，节点名必须唯一。**-X** 标志有多重含义：普通名称、以 **#** 为前缀的索引，或以 **%** 为前缀的大小选择器。
 
 # HISTORY
 
-**ccomps** is part of the **Graphviz** suite, originally developed at **AT&T Labs Research** starting in the **early 1990s** by **Stephen North**, **Eleftherios Koutsofios**, **Emden Gansner** and others. Graphviz was open-sourced in **2004** and continues to be actively maintained.
+**ccomps** 是 **Graphviz** 套件的一部分，最初于 **20 世纪 90 年代初**在 **AT&T Labs Research** 由 **Stephen North**、**Eleftherios Koutsofios**、**Emden Gansner** 等人开发。Graphviz 于 **2004** 年开源，至今仍在积极维护。
 
 # INSTALL
 

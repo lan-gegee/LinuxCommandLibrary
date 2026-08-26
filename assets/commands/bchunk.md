@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert BIN/CUE CD images to ISO and audio tracks
+将 BIN/CUE 光盘镜像转换为 ISO 和音轨
 
 # TLDR
 
-**Convert** a binary CD image to ISO
+将二进制光盘镜像**转换**为 ISO
 
 ```bchunk [path/to/image.bin] [path/to/image.cue] [path/to/output]```
 
-Convert with **verbose mode**
+以**详细模式**转换
 
 ```bchunk -v [path/to/image.bin] [path/to/image.cue] [path/to/output]```
 
-Output audio files in **WAV format**
+以 **WAV 格式**输出音频文件
 
 ```bchunk -w [path/to/image.bin] [path/to/image.cue] [path/to/output]```
 
@@ -22,34 +22,34 @@ Output audio files in **WAV format**
 
 # DESCRIPTION
 
-**bchunk** converts CD images in BIN/CUE format to standard ISO 9660 images and audio tracks. It reads the CUE sheet to determine track layout and extracts each track to a separate file.
+**bchunk** 将 BIN/CUE 格式的光盘镜像转换为标准 ISO 9660 镜像和音轨。它读取 CUE 索引表来确定轨道布局，并将每条轨道提取为单独的文件。
 
-Data tracks are converted to ISO format, while audio tracks can be output as raw CDR audio or WAV files. The output files are named with the specified prefix and numbered sequentially.
+数据轨被转换为 ISO 格式，而音轨可以输出为原始 CDR 音频或 WAV 文件。输出文件以指定的前缀命名并顺序编号。
 
 # PARAMETERS
 
 **-v**
-> Verbose mode; display detailed progress information
+> 详细模式；显示详细的进度信息
 
 **-w**
-> Output audio tracks as WAV files instead of raw CDR
+> 将音轨输出为 WAV 文件而非原始 CDR
 
 **-r**
-> Raw mode; do not convert data tracks to ISO format
+> 原始模式；不将数据轨转换为 ISO 格式
 
 **-p**
-> Use PSX (PlayStation) mode for certain disc types
+> 对某些光盘类型使用 PSX（PlayStation）模式
 
 **-s**
-> Swap byte order in audio tracks
+> 交换音轨中的字节序
 
 # CAVEATS
 
-BIN files must match the layout described in the CUE sheet exactly. Multi-session discs may not convert correctly. Some protected or non-standard disc images may fail to convert.
+BIN 文件必须与 CUE 索引表描述的布局完全一致。多区段光盘可能无法正确转换。某些受保护或非标准的光盘镜像可能转换失败。
 
 # HISTORY
 
-**bchunk** (BIN/CUE CHunK) was developed as a tool to convert proprietary CD image formats to standard formats usable by CD burning software and emulators.
+**bchunk**（BIN/CUE CHunK）的开发初衷是将专有的光盘镜像格式转换为刻录软件和模拟器可用的标准格式。
 
 # INSTALL
 

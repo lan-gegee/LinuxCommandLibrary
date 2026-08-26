@@ -1,34 +1,34 @@
 # TAGLINE
 
-animated ASCII art bonsai tree generator
+动画 ASCII 盆景树生成器
 
 # TLDR
 
-**Generate random bonsai tree**
+**生成随机盆景树**
 
 ```cbonsai```
 
-**Live animation mode**
+**实时动画模式**
 
 ```cbonsai --live```
 
-**Screensaver mode**
+**屏幕保护模式**
 
 ```cbonsai --screensaver```
 
-**Infinite mode**
+**无限模式**
 
 ```cbonsai --infinite```
 
-**Add message**
+**添加消息**
 
 ```cbonsai -m "[Your message]"```
 
-**Set animation speed** (seconds per step in live mode)
+**设置动画速度**（实时模式下每步的秒数）
 
 ```cbonsai -l -t [0.05]```
 
-**Customize leaf characters**
+**自定义叶子字符**
 
 ```cbonsai -c "[&,*,o]"```
 
@@ -38,60 +38,60 @@ animated ASCII art bonsai tree generator
 
 # DESCRIPTION
 
-**cbonsai** generates procedurally created ASCII art bonsai trees in the terminal. Each run produces a unique tree using randomized growth algorithms, and a seed value can be specified for reproducibility.
+**cbonsai** 在终端中生成以程序化方式创建的 ASCII 艺术盆景树。每次运行都会使用随机生长算法生成一棵独一无二的树，也可以指定种子值以便复现。
 
-The tool supports live animation of tree growth, infinite mode for continuous tree regeneration, and a screensaver mode. Written in C using ncurses, it supports customizable leaf characters, colors, a plant base, and messages displayed alongside the tree.
+该工具支持树木生长的实时动画、持续重新生成树木的无限模式，以及屏幕保护模式。它使用 C 语言和 ncurses 编写，支持自定义叶子字符、颜色、植株底座，以及显示在树旁的消息。
 
 # PARAMETERS
 
 **-l**, **--live**
-> Live mode: show each step of growth
+> 实时模式：显示生长的每一步
 
 **-t** _TIME_, **--time** _TIME_
-> In live mode, seconds between growth steps (default 0.03)
+> 实时模式下两次生长步骤之间的秒数（默认 0.03）
 
 **-i**, **--infinite**
-> Infinite mode: keep growing trees
+> 无限模式：不断生成新的树木
 
 **-w** _TIME_, **--wait** _TIME_
-> In infinite mode, seconds between each tree (default 4.00)
+> 无限模式下每棵树之间的间隔秒数（默认 4.00）
 
 **-S**, **--screensaver**
-> Screensaver mode; equivalent to -liWC, quits on any keypress
+> 屏幕保护模式；等价于 -liWC，按任意键退出
 
 **-m** _MSG_, **--message** _MSG_
-> Attach a message next to the tree
+> 在树旁附加一条消息
 
 **-b** _N_, **--base** _N_
-> ASCII-art plant base to use; 0 is none
+> 要使用的 ASCII 艺术植株底座；0 表示无
 
 **-c** _LIST_, **--leaf** _LIST_
-> Comma-delimited strings randomly chosen for leaves (default &)
+> 用于随机选取叶子的逗号分隔字符串（默认 &）
 
 **-M** _MULT_, **--multiplier** _MULT_
-> Branch multiplier (0-20; default 5)
+> 分支倍率（0-20；默认 5）
 
 **-L** _LIFE_, **--life** _LIFE_
-> Starting life value (0-200; default 32)
+> 初始生命值（0-200；默认 32）
 
 **-s** _SEED_, **--seed** _SEED_
-> Seed the random number generator
+> 为随机数生成器设定种子
 
 **-W** _FILE_, **--save** _FILE_
-> Save progress to file (default ~/.cache/cbonsai)
+> 将进度保存到文件（默认 ~/.cache/cbonsai）
 
 **-C** _FILE_, **--load** _FILE_
-> Load progress from file
+> 从文件加载进度
 
 **-p**, **--print**
-> Print tree to terminal when finished
+> 完成后将树打印到终端
 
 **-v**, **--verbose**
-> Increase output verbosity
+> 增加输出详细程度
 
 # CAVEATS
 
-Requires ncurses library. Color support depends on terminal capabilities.
+需要 ncurses 库。颜色支持取决于终端能力。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Subprocess cache for expensive command output
+为开销较大的命令输出提供子进程缓存
 
 # TLDR
 
-**Cache** a command for 1 minute
+**缓存**某个命令 1 分钟
 
 ```bkt --ttl=1m -- [expensive-command]```
 
-**Include cwd** in the cache key
+**将当前目录**纳入缓存键
 
 ```bkt --ttl=5m --cwd -- [command]```
 
-**Force refresh**
+**强制刷新**
 
 ```bkt --ttl=1m --force -- [command]```
 
-**Discard stale cache and run**
+**丢弃过期缓存并运行**
 
 ```bkt --ttl=30s -- [command]```
 
@@ -26,37 +26,37 @@ Subprocess cache for expensive command output
 
 # DESCRIPTION
 
-**bkt** runs a command and caches its stdout/stderr/exit status for a time-to-live (**--ttl**). Later invocations with the same key reuse the cached result instead of re-running the process—useful for slow tests, network lookups, or prompt segments. Cache keys can incorporate working directory, environment subsets, and other scopes.
+**bkt** 运行一个命令并将其 stdout/stderr/退出状态缓存一段生存时间（**--ttl**）。之后以相同键发起的调用会复用缓存结果而不再重新运行进程——这对缓慢的测试、网络查询或提示符片段很有用。缓存键可以纳入工作目录、环境变量子集以及其他作用范围。
 
 # PARAMETERS
 
 **--ttl** *duration*
 
-> How long to keep a successful result (e.g. **30s**, **5m**, **1h**).
+> 成功结果的保留时长（如 **30s**、**5m**、**1h**）。
 
 **--** *command*...
 
-> Command and arguments to execute/cache (required separator).
+> 要执行/缓存的命令及参数（必需的分隔符）。
 
 **--force**
 
-> Ignore existing cache and refresh.
+> 忽略现有缓存并刷新。
 
 **--cwd**
 
-> Include current working directory in the cache key.
+> 将当前工作目录纳入缓存键。
 
 **--env** *name*
 
-> Include named environment variable(s) in the key.
+> 将指定的环境变量纳入缓存键。
 
-**--stale** *duration* / **--discard-failures** / related flags
+**--stale** *duration* / **--discard-failures** 及相关标志
 
-> Control stale-while-revalidate and failure caching (see **bkt --help**).
+> 控制 stale-while-revalidate 和失败结果缓存（见 **bkt --help**）。
 
 # CAVEATS
 
-Cached output can be wrong if external state changes within the TTL. Do not cache commands with required side effects unless you understand the implications. Cache location is under the user's cache directory.
+如果外部状态在 TTL 内发生变化，缓存的输出可能不再正确。除非你理解其影响，否则不要缓存有必须生效的副作用的命令。缓存位置位于用户缓存目录之下。
 
 # INSTALL
 

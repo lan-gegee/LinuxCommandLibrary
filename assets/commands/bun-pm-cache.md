@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage Bun's global package cache
+管理 Bun 的全局软件包缓存
 
 # TLDR
 
-**Print** the path to Bun's global module cache
+**输出** Bun 全局模块缓存的路径
 
 ```bun pm cache```
 
-**Clear** the entire global module cache
+**清空**整个全局模块缓存
 
 ```bun pm cache rm```
 
@@ -18,15 +18,15 @@ Manage Bun's global package cache
 
 # DESCRIPTION
 
-**bun pm cache** manages Bun's global module cache directory where all packages downloaded from npm registries are stored. Running without arguments prints the absolute path to the cache directory. The **rm** subcommand deletes the entire cache contents.
+**bun pm cache** 管理 Bun 的全局模块缓存目录，所有从 npm 软件仓库下载的软件包都存储在那里。不带参数运行时会输出缓存目录的绝对路径。**rm** 子命令会删除整个缓存内容。
 
-The default cache location is **~/.bun/install/cache**, where packages are stored in subdirectories named **\${name}@\${version}**. When **bun install** runs, it checks this global cache first and uses cached copies via hardlink, clonefile, or copy instead of fetching from the network.
+默认缓存位置是 **~/.bun/install/cache**，软件包存储在名为 **\${name}@\${version}** 的子目录中。当 **bun install** 运行时，它会先检查这个全局缓存，并通过硬链接、clonefile 或复制的方式使用缓存副本，而不是从网络获取。
 
-The cache location can be overridden via the **BUN_INSTALL_CACHE_DIR** environment variable or the **[install.cache]** section in **bunfig.toml**.
+缓存位置可以通过 **BUN_INSTALL_CACHE_DIR** 环境变量或 **bunfig.toml** 中的 **[install.cache]** 配置节来覆盖。
 
 # CONFIGURATION
 
-Cache settings in **bunfig.toml**
+**bunfig.toml** 中的缓存设置
 
 ```
 [install.cache]
@@ -35,11 +35,11 @@ disable = false
 disableManifest = false
 ```
 
-**dir** sets a custom cache directory. **disable** prevents loading from global cache. **disableManifest** forces resolving latest versions from the registry.
+**dir** 设置自定义缓存目录。**disable** 阻止从全局缓存加载。**disableManifest** 强制从软件仓库解析最新版本。
 
 # CAVEATS
 
-There is no selective cache clearing; **bun pm cache rm** is all-or-nothing and removes the entire global cache. To remove a specific package, manually delete its directory under **~/.bun/install/cache/\<package\>@\<version\>**. The command historically required being run inside a directory containing a **package.json**, even though it operates on the global cache.
+没有选择性清除缓存的功能；**bun pm cache rm** 是全有或全无的操作，会移除整个全局缓存。要删除特定的软件包，需手动删除 **~/.bun/install/cache/\<package\>@\<version\>** 下对应的目录。历史上该命令要求在包含 **package.json** 的目录中运行，即使它操作的是全局缓存。
 
 # INSTALL
 

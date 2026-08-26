@@ -1,22 +1,22 @@
 # TAGLINE
 
-Update the Azure CLI to the latest version
+将 Azure CLI 更新到最新版本
 
 # TLDR
 
-**Upgrade** Azure CLI and installed extensions
+**升级**Azure CLI 和已安装的扩展
 
 ```az upgrade```
 
-Upgrade **without prompting** to review release notes
+升级并**跳过提示**，不查看发行说明
 
 ```az upgrade --yes```
 
-Upgrade the **CLI only**, leaving extensions untouched
+仅升级 **CLI 本体**，扩展保持不变
 
 ```az upgrade --all false```
 
-Include **preview** extension packages when upgrading
+升级时包含**预览版**扩展包
 
 ```az upgrade --allow-preview true```
 
@@ -26,20 +26,20 @@ Include **preview** extension packages when upgrading
 
 # DESCRIPTION
 
-**az upgrade** upgrades the Azure CLI and, by default, its installed extensions to the latest available version. It checks for available updates and installs them, ensuring you have access to the newest features and bug fixes.
+**az upgrade** 将 Azure CLI 及其已安装的扩展（默认情况）升级到最新的可用版本。它会检查可用更新并加以安装，确保你能用上最新的功能和缺陷修复。
 
-The command handles the upgrade process automatically, including dependency updates. This command is in **preview**.
+该命令会自动处理整个升级过程，包括依赖项更新。此命令处于**预览**阶段。
 
 # PARAMETERS
 
 **-y**, **--yes**
-> Do not prompt for checking release notes.
+> 不提示检查发行说明。
 
 **--all** _{false, true}_
-> Enable updating extensions as well. Default: **true**.
+> 是否同时更新扩展。默认：**true**。
 
 **--allow-preview**, **--allow-preview-extensions** _{false, true}_
-> Include preview packages for extension installation, if any exist.
+> 安装扩展时包含预览版软件包（如果存在）。
 
 # WORKFLOW
 
@@ -56,11 +56,11 @@ az upgrade --all false
 
 # CAVEATS
 
-Requires sufficient permissions to modify the installation directory. May require restarting the shell for changes to take effect. The command works for installations done via the official installers (MSI, Homebrew, apt/yum, etc.); some system package managers handle updates separately and may not be supported. There is no flag to only check for updates without installing.
+需要有足够的权限修改安装目录。可能需要重启 Shell 才能让更改生效。该命令适用于通过官方安装程序（MSI、Homebrew、apt/yum 等）完成的安装；某些系统软件包管理器会自行处理更新，可能不受支持。没有提供只检查更新而不安装的选项。
 
 # HISTORY
 
-**az upgrade** was added to Azure CLI **2.11** in **August 2020** to provide a built-in update mechanism, replacing manual update procedures. It remains a preview command.
+**az upgrade** 于 **2020** 年 **8 月**随 Azure CLI **2.11** 引入，提供了内置的更新机制，取代了手动更新流程。它目前仍是预览命令。
 
 # INSTALL
 

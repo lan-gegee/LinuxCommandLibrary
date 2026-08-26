@@ -1,34 +1,34 @@
 # TAGLINE
 
-Explore and constrain Linux capabilities
+探索和限制 Linux 能力（capabilities）
 
 # TLDR
 
-**Display current capability state**
+**显示当前能力状态**
 
 ```capsh --print```
 
-**Show what a capability does**
+**说明某项能力的作用**
 
 ```capsh --explain=[cap_net_admin]```
 
-**Decode capability hex value**
+**解码能力的十六进制值**
 
 ```capsh --decode=[0x20]```
 
-**Drop all capabilities and run shell**
+**丢弃所有能力并运行 Shell**
 
 ```capsh --drop=all -- -c "[command]"```
 
-**Run command with specific capabilities**
+**以指定能力运行命令**
 
 ```capsh --caps="[cap_net_raw+ep]" -- -c "[command]"```
 
-**Check if capability is supported**
+**检查系统是否支持某项能力**
 
 ```capsh --supports=[cap_sys_admin]```
 
-**Chroot and run command**
+**chroot 后运行命令**
 
 ```capsh --chroot=[/path] -- -c "[command]"```
 
@@ -38,53 +38,53 @@ Explore and constrain Linux capabilities
 
 # DESCRIPTION
 
-**capsh** is a capability shell wrapper for exploring and constraining Linux capability support. It provides testing, debugging, and environment creation for Linux process capabilities. Part of the libcap package.
+**capsh** 是一个能力 shell 包装器，用于探索和约束 Linux 能力支持。它为 Linux 进程能力提供测试、调试和环境创建功能。属于 libcap 软件包。
 
 # PARAMETERS
 
 **--print**
-> Display prevailing capability and related state
+> 显示当前生效的能力及相关状态
 
 **--current**
-> Display capability state with 1e capabilities and IAB vector
+> 显示包含 1e 能力和 IAB 向量的能力状态
 
 **--explain**=_cap_xxx_
-> Describe what privileges a capability provides
+> 描述某项能力提供的特权
 
 **--decode**=_N_
-> Decode hex capability vector (as in /proc/1/status)
+> 解码十六进制能力向量（如 /proc/1/status 中的）
 
 **--supports**=_cap_xxx_
-> Verify capability exists on system
+> 验证系统上是否存在该能力
 
 **--drop**=_cap_xxx_
-> Remove capability from bounding set
+> 从边界集中移除某项能力
 
 **--caps**=_cap-set_
-> Set capabilities to specified text value
+> 将能力设置为指定的文本值
 
 **--inh**=_cap-set_
-> Set inheritable capabilities
+> 设置可继承能力
 
 **--chroot**=_path_
-> Change root directory (requires CAP_SYS_CHROOT)
+> 更改根目录（需要 CAP_SYS_CHROOT）
 
 **--uid**=_id_
-> Set real and effective user ID
+> 设置真实与有效用户 ID
 
 **--gid**=_id_
-> Set real and effective group ID
+> 设置真实与有效组 ID
 
 **--**
-> Execute /bin/bash with trailing arguments
+> 用后续参数执行 /bin/bash
 
 # EXIT STATUS
 
-Returns 0 on success, 1 on error.
+成功返回 0，出错返回 1。
 
 # CAVEATS
 
-Many operations require specific capabilities to perform. Understanding Linux capabilities is essential for effective use.
+许多操作需要具备特定能力才能执行。要有效使用本工具，必须理解 Linux 能力机制。
 
 # INSTALL
 

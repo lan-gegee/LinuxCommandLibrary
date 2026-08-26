@@ -1,22 +1,22 @@
 # TAGLINE
 
-Customizable lock screen using i3lock
+基于 i3lock 的可自定义锁屏工具
 
 # TLDR
 
-**Lock** screen
+**锁定**屏幕
 
 ```betterlockscreen -l```
 
-Set **background** image
+设置**背景**图片
 
 ```betterlockscreen -u path/to/image.png```
 
-Lock with **custom** text
+以**自定义**文本锁定
 
 ```betterlockscreen -l pixel --text "Custom text"```
 
-Lock with **monitor** timeout
+带**显示器**超时锁定
 
 ```betterlockscreen --off 5 -l```
 
@@ -26,45 +26,45 @@ Lock with **monitor** timeout
 
 # DESCRIPTION
 
-**betterlockscreen** is a lock screen wrapper for i3lock-color that provides visually appealing lock screens with customizable background effects. It supports dim, blur, dimblur, and pixel effects applied to a wallpaper image.
+**betterlockscreen** 是 i3lock-color 的锁屏包装器，通过可自定义的背景效果提供美观的锁屏界面。它支持对壁纸图片应用暗化（dim）、模糊（blur）、暗化模糊（dimblur）和像素化（pixel）效果。
 
-Before locking, the background image must be cached using the **-u** flag, which generates processed versions with each effect. This makes subsequent locks instant since the effects are pre-computed. The tool can also set the desktop wallpaper using the same cached images.
+锁定之前，必须先用 **-u** 标志缓存背景图片，它会为每种效果生成处理后的版本。由于效果已预先计算，之后的锁定即可瞬间完成。该工具还可以使用相同的缓存图片设置桌面壁纸。
 
 # PARAMETERS
 
 **-l**, **--lock** [_effect_]
-> Lock the screen (effects: dim, blur, dimblur, pixel)
+> 锁定屏幕（效果：dim、blur、dimblur、pixel）
 
 **-u**, **--update** _image_
-> Cache the lock screen background image, pre-generating all effect variants
+> 缓存锁屏背景图片，预生成所有效果变体
 
 **-t**, **--text** _text_
-> Display custom text on the lock screen
+> 在锁屏界面上显示自定义文本
 
 **--off** _seconds_
-> Turn off monitor after specified seconds when locked
+> 锁定后经过指定秒数关闭显示器
 
 **-w**, **--wall** [_effect_]
-> Set desktop wallpaper using the cached image
+> 使用缓存图片设置桌面壁纸
 
 **--display** _n_
-> Set the display number to draw the login box on (for multi-monitor setups)
+> 设置登录框绘制在哪个显示器上（用于多显示器环境）
 
 **--span**
-> Scale the image to span across multiple displays
+> 缩放图片使其横跨多个显示器
 
 # CONFIGURATION
 
 **~/.config/betterlockscreenrc**
-> Configuration file for default effects, colors, font settings, and lock screen appearance.
+> 配置文件，用于默认效果、颜色、字体设置和锁屏外观。
 
 # CAVEATS
 
-Requires i3lock-color and imagemagick. Background images are cached for faster locking. First-time setup requires running -u to generate cached images.
+需要 i3lock-color 和 imagemagick。背景图片会被缓存以加快锁定速度。首次使用需运行 -u 生成缓存图片。
 
 # HISTORY
 
-**betterlockscreen** was originally created by **Pavan Jadhaw** and is now maintained at the betterlockscreen GitHub organization. It is a Bash wrapper script that adds blur, dim, and pixel effects on top of i3lock-color.
+**betterlockscreen** 最初由 **Pavan Jadhaw** 创建，现由 betterlockscreen GitHub 组织维护。它是一个 Bash 包装脚本，在 i3lock-color 基础上增加模糊、暗化和像素化效果。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Demangle C++ and Java symbol names
+反解码（demangle）C++ 和 Java 符号名
 
 # TLDR
 
-**Demangle a C++ symbol**
+**反解码 C++ 符号**
 
 ```c++filt [_Z1fv]```
 
-**Demangle from stdin**
+**从 stdin 反解码**
 
 ```echo "[_Z3fooi]" | c++filt```
 
-**Demangle without function parameters**
+**不显示函数参数**的反解码
 
 ```c++filt -p [symbol]```
 
-**Demangle with types**
+**连同类型一起**反解码
 
 ```c++filt -t [symbol]```
 
-**Strip leading underscore**
+**去除前导下划线**
 
 ```c++filt -_ [symbol]```
 
-**Demangle dynamic symbols from ELF**
+**反解码 ELF 的动态符号**
 
 ```readelf -W --dyn-syms [binary] | c++filt```
 
@@ -34,35 +34,35 @@ Demangle C++ and Java symbol names
 
 # DESCRIPTION
 
-**c++filt** decodes (demangles) C++ and Java low-level symbol names into their original user-readable form. C++ compilers encode function names to handle overloading, and this tool reverses that process.
+**c++filt** 将 C++ 和 Java 的底层符号名解码（demangle）为用户可读的原始形式。C++ 编译器为支持重载会对函数名进行编码，此工具可逆转该过程。
 
-Without arguments, reads symbols from stdin. Can process entire assembler source files containing mangled names.
+不带参数时从 stdin 读取符号。可以处理包含编码名称的完整汇编源文件。
 
 # PARAMETERS
 
 **-_**, **--strip-underscore**
-> Remove initial underscore from symbols
+> 去除符号开头的下划线
 
 **-n**, **--no-strip-underscore**
-> Do not remove initial underscore
+> 不去除开头的下划线
 
 **-p**, **--no-params**
-> Don't display function parameter types
+> 不显示函数参数类型
 
 **-t**, **--types**
-> Demangle types as well as function names
+> 除函数名外也解码类型
 
 **-s** _format_, **--format**=_format_
-> Specify mangling format (gnu, lucid, arm, hp, edg, gnu-v3, java, gnat, dlang, rust)
+> 指定编码格式（gnu、lucid、arm、hp、edg、gnu-v3、java、gnat、dlang、rust）
 
 **-r**, **--no-recurse-limit**
-> Disable recursion limit (default: 2048 levels)
+> 禁用递归限制（默认：2048 层）
 
 **--help**
-> Display help
+> 显示帮助
 
 **--version**
-> Display version
+> 显示版本
 
 # EXAMPLES
 
@@ -76,7 +76,7 @@ Bar::baz()
 
 # CAVEATS
 
-Mangled names must be complete tokens - trailing punctuation prevents demangling. Different compilers use different mangling schemes; use -s to specify format.
+编码名必须是完整的词法单元——末尾的标点会导致无法解码。不同编译器使用不同的编码方案；可用 -s 指定格式。
 
 # INSTALL
 

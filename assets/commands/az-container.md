@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure Container Instances
+管理 Azure 容器实例
 
 # TLDR
 
-**Create a container instance**
+**创建容器实例**
 
 ```az container create -g [resource-group] --name [container-name] --image [image:tag] --cpu [1] --memory [1]```
 
-**Create with public IP** and DNS name
+使用公共 IP 和 DNS 名称**创建**
 
 ```az container create -g [resource-group] --name [container-name] --image [image:tag] --ports [80] --dns-name-label [myapp]```
 
-**List container groups** in a resource group
+**列出资源组中的容器组**
 
 ```az container list -g [resource-group]```
 
-**View container logs**
+**查看容器日志**
 
 ```az container logs -g [resource-group] --name [container-name]```
 
-**Execute a command** in a running container
+在运行中的容器内**执行命令**
 
 ```az container exec -g [resource-group] --name [container-name] --exec-command "[/bin/bash]"```
 
-**Show container details**
+**显示容器详情**
 
 ```az container show -g [resource-group] --name [container-name]```
 
-**Stop a container group**
+**停止容器组**
 
 ```az container stop -g [resource-group] --name [container-name]```
 
-**Delete a container group**
+**删除容器组**
 
 ```az container delete -g [resource-group] --name [container-name]```
 
@@ -42,9 +42,9 @@ Manage Azure Container Instances
 
 # DESCRIPTION
 
-**az container** manages Azure Container Instances (ACI), providing the fastest way to run containers in Azure without managing virtual machines or adopting orchestration services.
+**az container** 管理 Azure 容器实例（ACI），它是在 Azure 中运行容器的最快方式，无需管理虚拟机或引入编排服务。
 
-ACI is ideal for isolated containers, simple applications, task automation, and build jobs. For scenarios requiring full container orchestration, use Azure Kubernetes Service (AKS).
+ACI 适用于隔离容器、简单应用、任务自动化和构建作业。需要完整容器编排的场景请使用 Azure Kubernetes Service（AKS）。
 
 # SUBCOMMANDS
 
@@ -63,51 +63,51 @@ ACI is ideal for isolated containers, simple applications, task automation, and 
 # PARAMETERS
 
 **-g, --resource-group** _value_
-> Name of the resource group
+> 资源组的名称
 
 **--name** _value_
-> Name of the container group
+> 容器组的名称
 
 **--image** _value_
-> Container image (e.g., nginx:latest)
+> 容器镜像（例如 nginx:latest）
 
 **--cpu** _value_
-> Number of CPU cores (default: 1)
+> CPU 核心数（默认：1）
 
 **--memory** _value_
-> Memory in GB (default: 1.5)
+> 内存大小，以 GB 为单位（默认：1.5）
 
 **--ports** _value_
-> Space-separated list of ports to open
+> 要打开的端口列表，空格分隔
 
 **--dns-name-label** _value_
-> DNS name label for the public IP
+> 公共 IP 的 DNS 名称标签
 
 **--os-type** _value_
-> Operating system type: Linux or Windows (default: Linux)
+> 操作系统类型：Linux 或 Windows（默认：Linux）
 
 **--ip-address** _value_
-> IP address type: Public or Private
+> IP 地址类型：Public 或 Private
 
 **--restart-policy** _value_
-> Restart policy: Always, OnFailure, or Never (default: Always)
+> 重启策略：Always、OnFailure 或 Never（默认：Always）
 
 **-e**, **--environment-variables** _key=value_
-> Environment variables (space-separated key=value pairs)
+> 环境变量（空格分隔的 key=value 对）
 
 **--secure-environment-variables** _key=value_
-> Secure environment variables (not shown in logs or portal)
+> 安全环境变量（不会显示在日志或门户中）
 
 **--registry-login-server** _value_
-> Private container registry login server
+> 私有容器注册表的登录服务器
 
 # CAVEATS
 
-Container groups with public IPs are charged even when stopped; delete to avoid charges. Windows containers have limited image support and higher resource requirements. Environment variables containing secrets should use secure values. Maximum resource limits apply per region and subscription.
+带公共 IP 的容器组即使停止也会计费；请删除以免产生费用。Windows 容器支持的镜像有限且资源需求更高。包含机密信息的环境变量应使用安全值。每个区域和订阅都有最大资源限制。
 
 # HISTORY
 
-Azure Container Instances launched in **July 2017** as the first serverless container service on any public cloud. It enabled running containers without managing infrastructure, bridging the gap between VMs and full orchestration platforms.
+Azure 容器实例于 **2017** 年 **7 月**推出，是所有公有云中首个无服务器容器服务。它让运行容器无需管理基础设施，填补了虚拟机与完整编排平台之间的空白。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-set cgroup parameters
+设置 cgroup 参数
 
 # TLDR
 
-**Set CPU quota** for a cgroup
+为 cgroup **设置 CPU 配额**
 
 ```cgset -r cpu.cfs_quota_us=[50000] [/mygroup]```
 
-**Set memory limit** for a cgroup
+为 cgroup **设置内存限制**
 
 ```cgset -r memory.limit_in_bytes=[512M] [/mygroup]```
 
-**Set multiple parameters** at once
+一次**设置多个参数**
 
 ```cgset -r cpu.shares=[512] -r memory.limit_in_bytes=[1G] [/mygroup]```
 
-**Copy settings** from one cgroup to another
+将一个 cgroup 的**配置复制**到另一个
 
 ```cgset --copy-from [/source_group] [/dest_group]```
 
@@ -28,30 +28,30 @@ set cgroup parameters
 
 # DESCRIPTION
 
-**cgset** modifies parameters of existing control groups (cgroups). It allows setting resource limits and controls for CPU, memory, I/O, and other subsystems on groups of processes.
+**cgset** 修改已有控制组（cgroups）的参数。它可以为进程组设置 CPU、内存、I/O 及其他子系统的资源限制和控制。
 
-Common parameters include CPU shares (relative priority), CPU quotas (hard limits), memory limits, and I/O weights. The available parameters depend on which controllers are mounted and the cgroup version.
+常见参数包括 CPU shares（相对优先级）、CPU 配额（硬限制）、内存限制和 I/O 权重。可用参数取决于挂载了哪些控制器以及 cgroup 版本。
 
-cgset is part of libcgroup-tools for managing cgroups v1. For cgroups v2, systemd or direct filesystem writes are typically used instead.
+cgset 属于管理 cgroups v1 的 libcgroup-tools。对于 cgroups v2，通常改用 systemd 或直接写文件系统。
 
 # PARAMETERS
 
 **-r** _name=value_
-> Set a parameter to a value.
+> 将参数设置为指定值。
 
 **--copy-from** _cgroup_
-> Copy parameters from another cgroup.
+> 从另一个 cgroup 复制参数。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Requires appropriate permissions (typically root). Parameter names and values are controller-specific. Invalid values may be rejected by the kernel. Only works with cgroups v1 hierarchy. Some parameters cannot be changed while processes are in the cgroup.
+需要相应权限（通常是 root）。参数名和取值因控制器而异。无效的值可能被内核拒绝。仅适用于 cgroups v1 层级。某些参数在 cgroup 中仍有进程时无法更改。
 
 # HISTORY
 
-**cgset** is part of **libcgroup**, developed by **Red Hat** starting around **2008** to provide user-space cgroup management. The tool provided a way to configure resource limits without direct filesystem manipulation. As cgroups v2 and systemd became prevalent, direct management through these tools became less common.
+**cgset** 是 **libcgroup** 的一部分，后者由 **Red Hat** 自 **2008 年**前后开发，提供用户态的 cgroup 管理。该工具提供了一种无需直接操作文件系统即可配置资源限制的方式。随着 cgroups v2 和 systemd 的普及，直接使用这些工具进行管理的情况已越来越少。
 
 # INSTALL
 

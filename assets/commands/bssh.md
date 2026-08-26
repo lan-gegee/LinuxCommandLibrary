@@ -1,22 +1,22 @@
 # TAGLINE
 
-Browse for SSH and VNC servers on the local network
+在本地网络中浏览查找 SSH 和 VNC 服务器
 
 # TLDR
 
-**Browse for SSH servers on local network**
+**在本地网络中浏览查找 SSH 服务器**
 
 ```bssh```
 
-**Browse in specific domain**
+**在指定域中浏览**
 
 ```bssh --domain [.local]```
 
-**Force SSH server browsing only**
+**强制仅浏览 SSH 服务器**
 
 ```bssh --ssh```
 
-**Browse both SSH and VNC servers**
+**同时浏览 SSH 和 VNC 服务器**
 
 ```bssh --shell```
 
@@ -26,54 +26,54 @@ Browse for SSH and VNC servers on the local network
 
 # DESCRIPTION
 
-**bssh** is an Avahi service browser that discovers SSH servers on the local network using mDNS/DNS-SD (Zeroconf). It displays found servers in a GUI and launches ssh when a server is selected.
+**bssh** 是一个 Avahi 服务浏览器，使用 mDNS/DNS-SD（Zeroconf）在本地网络中发现 SSH 服务器。它以图形界面显示找到的服务器，并在选中某个服务器时启动 ssh。
 
-The tool is part of the Avahi Zeroconf suite for service discovery.
+该工具是用于服务发现的 Avahi Zeroconf 套件的一部分。
 
 # PARAMETERS
 
 **-s, --ssh**
-> Browse for SSH servers only
+> 仅浏览 SSH 服务器
 
 **-v, --vnc**
-> Browse for VNC servers only
+> 仅浏览 VNC 服务器
 
 **-S, --shell**
-> Browse for both SSH and VNC servers
+> 同时浏览 SSH 和 VNC 服务器
 
 **-d, --domain** _domain_
-> Browse in specified domain (default: .local)
+> 在指定域中浏览（默认：.local）
 
 **-h, --help**
-> Show help
+> 显示帮助
 
 **-V, --version**
-> Show version
+> 显示版本
 
 # RELATED BINARIES
 
 **bssh**
-> Browse SSH servers (default behavior)
+> 浏览 SSH 服务器（默认行为）
 
 **bvnc**
-> Browse VNC servers
+> 浏览 VNC 服务器
 
 **bshell**
-> Browse both SSH and VNC servers
+> 同时浏览 SSH 和 VNC 服务器
 
 # REQUIREMENTS
 
-Requires Avahi daemon running and gtk3, python-dbus, python-gobject dependencies. UDP port 5353 must be open for mDNS.
+需要 Avahi 守护进程正在运行，以及 gtk3、python-dbus、python-gobject 依赖。UDP 端口 5353 必须开放以供 mDNS 使用。
 
 # PUBLISHING SSH SERVICE
 
-To advertise your SSH server:
+要发布你的 SSH 服务器：
 
 ```cp /usr/share/doc/avahi/ssh.service /etc/avahi/services/```
 
 # CAVEATS
 
-Only discovers services advertised via mDNS on local network. Requires GUI environment. The "B" stands for "Browse", not Bluetooth.
+只能发现在本地网络中通过 mDNS 发布的服务。需要图形界面环境。"B" 代表 "Browse"，而非 Bluetooth。
 
 # INSTALL
 

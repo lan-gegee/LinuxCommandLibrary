@@ -1,42 +1,42 @@
 # TAGLINE
 
-Add dependencies to a Rust project
+向 Rust 项目添加依赖
 
 # TLDR
 
-**Add dependency**
+**添加依赖**
 
 ```cargo add [serde]```
 
-**Add with specific version**
+**添加指定版本的依赖**
 
 ```cargo add [serde@1.0]```
 
-**Add with features**
+**添加带特性的依赖**
 
 ```cargo add [tokio] --features [full]```
 
-**Add as dev dependency**
+**添加为开发依赖**
 
 ```cargo add [mockall] --dev```
 
-**Add as build dependency**
+**添加为构建依赖**
 
 ```cargo add [cc] --build```
 
-**Add from git repository**
+**从 git 仓库添加**
 
 ```cargo add --git [https://github.com/user/repo]```
 
-**Add from local path**
+**从本地路径添加**
 
 ```cargo add --path [../my-crate]```
 
-**Add as optional dependency**
+**添加为可选依赖**
 
 ```cargo add [feature-crate] --optional```
 
-**Rename dependency**
+**重命名依赖**
 
 ```cargo add [serde] --rename [my_serde]```
 
@@ -48,59 +48,59 @@ Add dependencies to a Rust project
 
 # DESCRIPTION
 
-**cargo add** adds or modifies dependencies in Cargo.toml. It fetches crate information from the registry and updates the manifest with the correct version constraints. Built into Cargo since v1.62.
+**cargo add** 在 Cargo.toml 中添加或修改依赖。它会从注册表获取 crate 信息，并以正确的版本约束更新清单文件。自 v1.62 起内置于 Cargo。
 
 # PARAMETERS
 
 **--dev**, **-D**
-> Add as development dependency
+> 添加为开发依赖
 
 **--build**, **-B**
-> Add as build dependency
+> 添加为构建依赖
 
 **--optional**
-> Mark dependency as optional
+> 将依赖标记为可选
 
 **--rename** _name_
-> Rename the dependency
+> 重命名该依赖
 
 **--features** _features_
-> Enable specific features
+> 启用指定的特性
 
 **--no-default-features**
-> Disable default features
+> 禁用默认特性
 
 **--default-features**
-> Re-enable default features
+> 重新启用默认特性
 
 **--path** _path_
-> Add dependency from local path
+> 从本地路径添加依赖
 
 **--git** _url_
-> Add dependency from git repository
+> 从 git 仓库添加依赖
 
 **--branch** _branch_
-> Git branch to use
+> 要使用的 git 分支
 
 **--tag** _tag_
-> Git tag to use
+> 要使用的 git 标签
 
 **--rev** _sha_
-> Git commit to use
+> 要使用的 git 提交
 
 **-p**, **--package** _spec_
-> Package to modify
+> 要修改的软件包
 
 **--dry-run**
-> Show changes without modifying files
+> 显示更改但不修改文件
 
 # OUTPUT
 
-Lists enabled (+) and disabled (-) features of added dependencies.
+列出所添加依赖已启用（+）和已禁用（-）的特性。
 
 # CAVEATS
 
-Updates existing entries with specified flags. For Cargo versions before 1.62, install cargo-edit for this functionality.
+会按指定选项更新已有条目。对于 1.62 之前的 Cargo 版本，需安装 cargo-edit 才有此功能。
 
 # INSTALL
 

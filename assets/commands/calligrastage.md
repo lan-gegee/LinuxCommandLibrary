@@ -1,22 +1,22 @@
 # TAGLINE
 
-Presentation application from Calligra suite
+Calligra 套件中的演示文稿应用
 
 # TLDR
 
-**Launch Calligra Stage**
+**启动 Calligra Stage**
 
 ```calligrastage```
 
-**Open a presentation file**
+**打开**演示文稿文件
 
 ```calligrastage [presentation.odp]```
 
-**Show version information**
+**显示版本信息**
 
 ```calligrastage --version```
 
-**Show all available options**
+**显示所有可用选项**
 
 ```calligrastage --help-all```
 
@@ -27,31 +27,31 @@ Presentation application from Calligra suite
 # PARAMETERS
 
 **--help**
-> Show help about options.
+> 显示选项相关的帮助。
 
 **--help-qt**
-> Show Qt-specific options.
+> 显示 Qt 特有选项。
 
 **--help-kde**
-> Show KDE-specific options.
+> 显示 KDE 特有选项。
 
 **--help-all**
-> Show all options.
+> 显示所有选项。
 
 **--author**
-> Show author information.
+> 显示作者信息。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 **--license**
-> Show license information.
+> 显示许可证信息。
 
 # DESCRIPTION
 
-**calligrastage** is a presentation application from the Calligra office suite. It creates and displays slide presentations with support for transitions, animations, and multimedia.
+**calligrastage** 是 Calligra 办公套件中的演示文稿应用。它用于创建和展示幻灯片演示，支持切换效果、动画和多媒体。
 
-The application uses ODF (Open Document Format) and is comparable to Microsoft PowerPoint or LibreOffice Impress.
+该应用使用 ODF（开放文档格式），可与 Microsoft PowerPoint 或 LibreOffice Impress 相媲美。
 
 # INSTALL
 

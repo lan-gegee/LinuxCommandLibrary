@@ -1,30 +1,30 @@
 # TAGLINE
 
-Cat clone with syntax highlighting and Git integration
+支持语法高亮和 Git 集成的 cat 克隆
 
 # TLDR
 
-**View** file with syntax highlighting
+**查看**文件并显示语法高亮
 
 ```bat [file.js]```
 
-**Show** line numbers
+**显示**行号
 
 ```bat -n [file.py]```
 
-**Show** non-printable characters
+**显示**不可打印字符
 
 ```bat -A [file.txt]```
 
-**Plain** output (no decorations)
+**纯文本**输出（无装饰）
 
 ```bat -p [file.log]```
 
-**Multiple files**
+**多个文件**
 
 ```bat [file1.rs] [file2.rs]```
 
-**Specific language**
+**指定语言**
 
 ```bat -l [python] [script]```
 
@@ -34,65 +34,65 @@ Cat clone with syntax highlighting and Git integration
 
 # DESCRIPTION
 
-**bat** is a cat clone with syntax highlighting and Git integration. It displays file contents with automatic language detection, line numbers, and Git diff indicators in the margin.
+**bat** 是一个支持语法高亮和 Git 集成的 cat 克隆。它能自动检测语言来显示文件内容，并带有行号和边栏中的 Git diff 指示标记。
 
-The tool provides a more user-friendly file viewing experience for developers and system administrators.
+该工具为开发者和系统管理员提供了更友好的文件查看体验。
 
 # PARAMETERS
 
 **-n**, **--number**
-> Show line numbers
+> 显示行号
 
 **-A**, **--show-all**
-> Show non-printable characters
+> 显示不可打印字符
 
 **-p**, **--plain**
-> Plain mode (no decorations)
+> 纯文本模式（无装饰）
 
 **-l**, **--language** _lang_
-> Specify language for syntax highlighting
+> 指定语法高亮的语言
 
 **-H**, **--highlight-line** _n_
-> Highlight specific lines
+> 高亮指定行
 
 **--paging** _when_
-> When to use pager (auto, always, never)
+> 何时使用分页器（auto、always、never）
 
 **--style** _components_
-> Configure output style
+> 配置输出样式
 
 **--theme** _name_
-> Color theme
+> 配色主题
 
 **--list-languages**
-> List supported languages
+> 列出支持的语言
 
 **--list-themes**
-> List available themes
+> 列出可用的主题
 
 # FEATURES
 
-- Syntax highlighting for 200+ languages
-- Git integration (shows modifications)
-- Line numbers
-- Non-printable character display
-- Automatic paging
-- File concatenation
-- Themes support
-- Integrates with less pager
+- 支持 200 多种语言的语法高亮
+- Git 集成（显示修改状态）
+- 行号
+- 不可打印字符显示
+- 自动分页
+- 文件拼接
+- 主题支持
+- 与 less 分页器集成
 
 # CONFIGURATION
 
 **~/.config/bat/config**
-> Default command-line options applied automatically. One option per line (e.g. --theme, --style).
+> 自动应用的默认命令行选项。每行一个选项（如 --theme、--style）。
 
 # CAVEATS
 
-Not a drop-in cat replacement for scripts (use cat for pipelines). Slower than cat on large files. Themes require true color terminal. On Debian/Ubuntu, the binary is installed as **batcat** due to a naming conflict with another package.
+在脚本中并非 cat 的即插即用替代品（管道中请使用 cat）。处理大文件时比 cat 慢。主题需要真彩色终端。在 Debian/Ubuntu 上，由于与其他软件包命名冲突，二进制文件安装为 **batcat**。
 
 # HISTORY
 
-**bat** was created by David Peter (sharkdp) in **2018** as a modern replacement for cat with syntax highlighting and Git awareness.
+**bat** 由 David Peter（sharkdp）于 **2018** 年创建，作为 cat 的现代替代品，提供语法高亮和 Git 感知能力。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-ASCII Boulder Dash clone
+ASCII 版 Boulder Dash 克隆游戏
 
 # TLDR
 
-**Start a game**
+**开始游戏**
 
 ```phear```
 
@@ -25,17 +25,17 @@ ASCII Boulder Dash clone
 
 # DESCRIPTION
 
-**cavezofphear** (phear) is an ASCII Boulder Dash clone. The player navigates through cave levels, collecting diamonds while avoiding falling boulders and enemies. Pushing boulders and timing movements are key to completing each level.
+**cavezofphear**（phear）是一个 ASCII 版 Boulder Dash 克隆游戏。玩家在洞穴关卡中穿行，收集钻石，同时躲避滚落的巨石和敌人。推动巨石和把握移动时机是通关每个关卡的关键。
 
-Use arrow keys to move. Collect all diamonds to open the exit and advance to the next level.
+使用方向键移动。收集所有钻石以打开出口并进入下一关。
 
 # CAVEATS
 
-Requires ncurses support. The command name is **phear**, not cavezofphear.
+需要 ncurses 支持。命令名是 **phear**，而不是 cavezofphear。
 
 # HISTORY
 
-**cavezofphear** is inspired by **Boulder Dash**, a classic computer game created by **Peter Liepa** and **Chris Gray** in **1984**.
+**cavezofphear** 的灵感来自 **Boulder Dash**，这是由 **Peter Liepa** 和 **Chris Gray** 于 **1984** 年创作的经典电脑游戏。
 
 # SEE ALSO
 

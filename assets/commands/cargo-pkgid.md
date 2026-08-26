@@ -1,26 +1,26 @@
 # TAGLINE
 
-Print a fully qualified package specification
+输出完整限定的软件包标识
 
 # TLDR
 
-**Show package ID for current package**
+**显示当前软件包的包 ID**
 
 ```cargo pkgid```
 
-**Show package ID for a dependency**
+**显示某个依赖的包 ID**
 
 ```cargo pkgid [serde]```
 
-**Show package ID for a specific version of a dependency**
+**显示某依赖特定版本的包 ID**
 
 ```cargo pkgid [serde@1.0.0]```
 
-**Show package ID using a specific Cargo.toml**
+**使用指定的 Cargo.toml 显示包 ID**
 
 ```cargo pkgid --manifest-path [path/to/Cargo.toml] [serde]```
 
-**Show package ID from a URL**
+**从 URL 显示包 ID**
 
 ```cargo pkgid [https://github.com/rust-lang/crates.io-index#serde]```
 
@@ -30,35 +30,35 @@ Print a fully qualified package specification
 
 # DESCRIPTION
 
-**cargo pkgid** prints the fully qualified package ID specification for a package in the dependency graph. The output includes the source URL, package name, and version in a canonical format that can be used with other Cargo commands like `cargo update -p`.
+**cargo pkgid** 输出依赖图中某个软件包的完整限定包 ID 标识。输出的规范格式包括源 URL、软件包名称和版本，可与其他 Cargo 命令（如 `cargo update -p`）配合使用。
 
-This command is primarily useful when multiple versions of the same package exist in the dependency tree and disambiguation is needed. It accepts partial specifications such as just the name or name with version, and resolves them against the lockfile. The Cargo.lock file must exist and dependencies must be fetched before this command can be used.
+当依赖树中存在同一软件包的多个版本、需要消歧时，此命令最为有用。它接受部分形式的标识（如仅名称或名称加版本），并根据锁文件进行解析。使用此命令前必须存在 Cargo.lock 文件且依赖已获取。
 
 # PARAMETERS
 
 **-p**, **--package** _spec_
-> Package to query
+> 要查询的软件包
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **--locked**
-> Assert that the exact same dependencies and versions are used as when the existing Cargo.lock was generated
+> 断言使用的依赖及版本与生成现有 Cargo.lock 时完全一致
 
 **--offline**
-> Prevent Cargo from accessing the network
+> 阻止 Cargo 访问网络
 
 **--frozen**
-> Equivalent to specifying both --locked and --offline
+> 等价于同时指定 --locked 和 --offline
 
 **--color** _when_
-> Control colored output: auto (default), always, or never
+> 控制彩色输出：auto（默认）、always 或 never
 
 **-v**, **--verbose**
-> Verbose output. Specify twice for very verbose output.
+> 详细输出。指定两次可获得非常详细的输出。
 
 **-q**, **--quiet**
-> Do not print cargo log messages
+> 不打印 cargo 日志消息
 
 # SPEC FORMATS
 
@@ -88,7 +88,7 @@ registry+https://github.com/rust-lang/crates.io-index#regex@1.4.3
 
 # CAVEATS
 
-Errors if specification is ambiguous. Add version qualifier to disambiguate multiple versions. Requires lockfile and fetched dependencies.
+标识有歧义时会报错。存在多个版本时可添加版本限定符来消歧。需要锁文件且依赖已获取。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Azure API Management services
+管理 Azure API Management 服务
 
 # TLDR
 
-**Create a new API Management** service instance
+**创建新的 API Management** 服务实例
 
 ```az apim create --name [MyApim] --resource-group [MyResourceGroup] --publisher-email [email@domain.com] --publisher-name [MyCompany] --location [eastus]```
 
-**List all API Management** services in a resource group
+**列出资源组中的所有 API Management** 服务
 
 ```az apim list --resource-group [MyResourceGroup]```
 
-**Show details** of an API Management service
+**显示**某个 API Management 服务的**详情**
 
 ```az apim show --name [MyApim] --resource-group [MyResourceGroup]```
 
-**Import an API** from OpenAPI specification
+从 OpenAPI 规范**导入 API**
 
 ```az apim api import --service-name [MyApim] --resource-group [MyResourceGroup] --path [myapi] --specification-format OpenAPI --specification-url [https://example.com/swagger.json]```
 
-**List all APIs** in a service
+**列出服务中的所有 API**
 
 ```az apim api list --service-name [MyApim] --resource-group [MyResourceGroup]```
 
-**Create a backup** of the service
+为服务**创建备份**
 
 ```az apim backup --name [MyApim] --resource-group [MyResourceGroup] --backup-name [myBackup] --storage-account-name [mystorageaccount] --storage-account-container [backups]```
 
-**Delete an API Management** service
+**删除某个 API Management** 服务
 
 ```az apim delete --name [MyApim] --resource-group [MyResourceGroup] --yes```
 
@@ -39,56 +39,56 @@ Manage Azure API Management services
 # SUBCOMMANDS
 
 **create**
-> Create a new API Management service instance.
+> 创建新的 API Management 服务实例。
 
 **show**
-> Get details of an API Management service.
+> 获取某个 API Management 服务的详情。
 
 **list**
-> List API Management service instances.
+> 列出 API Management 服务实例。
 
 **update**
-> Update an API Management service instance.
+> 更新 API Management 服务实例。
 
 **delete**
-> Delete an API Management service instance.
+> 删除 API Management 服务实例。
 
 **backup**
-> Create a backup of the API Management service.
+> 为 API Management 服务创建备份。
 
 **restore**
-> Restore an API Management service from a backup.
+> 从备份恢复 API Management 服务。
 
 **api create**
-> Create a new API.
+> 创建新 API。
 
 **api import**
-> Import an API from a specification.
+> 从规范导入 API。
 
 **api list**
-> List APIs in a service.
+> 列出服务中的 API。
 
 **api operation**
-> Manage API operations.
+> 管理 API 操作。
 
 **product**
-> Manage API products.
+> 管理 API 产品。
 
 **nv**
-> Manage Named Values for configuration.
+> 管理用于配置的命名值。
 
 **apply-network-updates**
-> Update virtual network settings of the API Management service.
+> 更新 API Management 服务的虚拟网络设置。
 
 # DESCRIPTION
 
-**az apim** manages Azure API Management services, which provide a way to create consistent and modern API gateways for existing back-end services. It handles API creation, versioning, documentation, security policies, rate limiting, and developer portal management.
+**az apim** 管理 Azure API Management 服务，它为现有后端服务提供创建一致且现代化 API 网关的方式。它负责 API 的创建、版本管理、文档、安全策略、速率限制以及开发人员门户管理。
 
-API Management supports multiple SKU tiers: Basic, Consumption, Developer, Isolated, Premium, and Standard, each offering different capabilities and scale options.
+API Management 支持多个 SKU 层级：Basic、Consumption、Developer、Isolated、Premium 和 Standard，各自提供不同的能力和规模选项。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated with **az login**. Creating API Management services can take 30-40 minutes for non-Consumption tiers. Use **--no-wait** for long-running operations.
+需要安装 Azure CLI 并已通过 **az login** 完成身份验证。非 Consumption 层级的 API Management 服务创建可能需要 30-40 分钟。长时间运行的操作请使用 **--no-wait**。
 
 # INSTALL
 

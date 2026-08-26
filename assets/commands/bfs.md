@@ -1,30 +1,30 @@
 # TAGLINE
 
-Breadth-first file search
+广度优先文件搜索
 
 # TLDR
 
-**Find** all files
+**查找**所有文件
 
 ```bfs [/path]```
 
-**Find** by name
+**按名称查找**
 
 ```bfs [/path] -name ["*.txt"]```
 
-**Find** only regular files
+**仅查找**普通文件
 
 ```bfs [/path] -type f```
 
-**Search** in parallel with N threads
+**用 N 个线程并行搜索**
 
 ```bfs [/path] -j [8] -name ["*.c"]```
 
-**Exclude** a subtree from the search
+**从搜索中排除**子树
 
 ```bfs [/path] -exclude -name [node_modules]```
 
-**Execute** command
+**执行**命令
 
 ```bfs [/path] -name ["*.log"] -delete```
 
@@ -34,74 +34,74 @@ Breadth-first file search
 
 # DESCRIPTION
 
-**bfs** is a breadth-first variant of the Unix find command. It traverses directories in breadth-first order rather than depth-first, which can be faster for certain operations and more intuitive when printing results.
+**bfs** 是 Unix find 命令的广度优先变体。它以广度优先而非深度优先的方式遍历目录，这对某些操作更快，且打印结果时更直观。
 
-The tool is compatible with GNU find but uses a different traversal strategy.
+该工具与 GNU find 兼容，但采用不同的遍历策略。
 
 # PARAMETERS
 
 **-name** _pattern_
-> Match filename pattern
+> 匹配文件名模式
 
 **-type** _type_
-> File type (f, d, l, etc.)
+> 文件类型（f、d、l 等）
 
 **-size** _n_
-> File size
+> 文件大小
 
 **-mtime** _n_
-> Modification time
+> 修改时间
 
 **-exec** _command_ **;**
-> Execute command
+> 执行命令
 
 **-delete**
-> Delete matched files
+> 删除匹配的文件
 
 **-depth**
-> Process directory contents before directory
+> 先处理目录内容再处理目录本身
 
 **-maxdepth** _n_
-> Maximum depth to descend
+> 最大下探深度
 
 # BFS-SPECIFIC FLAGS
 
 **-j** _n_
-> Search with N threads in parallel (default: number of CPUs, up to 8)
+> 用 N 个线程并行搜索（默认：CPU 数量，最多 8）
 
 **-S** _bfs|dfs|ids|eds_
-> Select the search strategy: breadth-first (default), depth-first, iterative deepening, or exponential deepening
+> 选择搜索策略：广度优先（默认）、深度优先、迭代加深或指数加深
 
 **-color** / **-nocolor**
-> Turn colors on or off (default: -color when output is a terminal)
+> 开启或关闭彩色输出（输出为终端时默认 -color）
 
 **-hidden** / **-nohidden**
-> Include or exclude hidden files (those beginning with .)
+> 包含或排除隐藏文件（以 . 开头的文件）
 
 **-exclude** _expression_
-> Exclude all paths matching the expression from the search
+> 从搜索中排除所有匹配表达式的路径
 
 **-unique**
-> Skip files that have already been seen (useful with -L)
+> 跳过已经见过的文件（配合 -L 使用很有用）
 
 **-x**
-> Do not descend into other mount points (same as -xdev)
+> 不下探到其他挂载点（与 -xdev 相同）
 
 **-status**
-> Display a status bar while searching
+> 搜索时显示状态栏
 
 **-files0-from** _file_
-> Read NUL-separated starting paths from a file
+> 从文件中读取以 NUL 分隔的起始路径
 
 **-D** _flag_
-> Turn on a debugging flag
+> 打开某个调试标志
 
 # DIFFERENCES FROM FIND
 
-- **Breadth-first** traversal order
-- Generally faster for -quit operations
-- More intuitive output ordering
-- Compatible command-line syntax
+- **广度优先**的遍历顺序
+- 对 -quit 操作通常更快
+- 输出顺序更直观
+- 命令行语法兼容
 
 # WORKFLOW
 
@@ -121,11 +121,11 @@ bfs /var/log -mtime -1
 
 # CAVEATS
 
-Less widely available than find. Different traversal order may affect some operations. Not installed by default on most systems. For complex queries, behavior differences possible.
+不如 find 普遍可用。不同的遍历顺序可能影响某些操作。大多数系统默认未安装。复杂查询可能出现行为差异。
 
 # HISTORY
 
-**bfs** was created by Tavian Barnes in **2015** as an optimized, breadth-first alternative to the traditional find command.
+**bfs** 由 Tavian Barnes 于 **2015 年**创建，作为传统 find 命令的优化广度优先替代品。
 
 # INSTALL
 

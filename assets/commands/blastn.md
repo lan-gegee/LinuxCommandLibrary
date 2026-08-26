@@ -1,30 +1,30 @@
 # TAGLINE
 
-Nucleotide-to-nucleotide sequence alignment search
+核酸对核酸的序列比对搜索
 
 # TLDR
 
-**Align sequences** using megablast with e-value threshold
+**比对序列**，使用 megablast 并设置 E 值阈值
 
 ```blastn -query [query.fa] -subject [subject.fa] -evalue [1e-9]```
 
-Align sequences using **standard blastn**
+使用**标准 blastn** 比对序列
 
 ```blastn -task blastn -query [query.fa] -subject [subject.fa]```
 
-Align with **custom tabular output** to file
+以**自定义表格输出**比对并写入文件
 
 ```blastn -query [query.fa] -subject [subject.fa] -outfmt '6 qseqid qlen qstart qend sseqid slen sstart send bitscore evalue pident' -out [output.tsv]```
 
-Search **nucleotide databases** with multiple threads
+多线程搜索**核酸数据库**
 
 ```blastn -query [query.fa] -db [path/to/blast_db] -num_threads [16] -max_target_seqs [10]```
 
-Search the **remote non-redundant** nucleotide database
+搜索**远程非冗余**核酸数据库
 
 ```blastn -query [query.fa] -db nt -remote```
 
-Display **help**
+显示**帮助**
 
 ```blastn -h```
 
@@ -34,55 +34,55 @@ Display **help**
 
 # DESCRIPTION
 
-**blastn** performs nucleotide-to-nucleotide BLAST (Basic Local Alignment Search Tool) searches. It finds regions of similarity between nucleotide sequences, which can indicate functional, structural, or evolutionary relationships.
+**blastn** 执行核酸对核酸的 BLAST（Basic Local Alignment Search Tool）搜索。它查找核酸序列之间的相似区域，这些区域可能指示功能、结构或进化上的关系。
 
-The tool supports multiple search algorithms including megablast (default, for highly similar sequences), discontiguous megablast, and standard blastn. Results can help identify genes, compare genomes, or find homologous sequences.
+该工具支持多种搜索算法，包括 megablast（默认，适合高度相似的序列）、不连续 megablast（discontiguous megablast）和标准 blastn。结果可用于鉴定基因、比较基因组或查找同源序列。
 
 # PARAMETERS
 
 **-query** _file_
-> Input file with query sequences in FASTA format
+> 包含 FASTA 格式查询序列的输入文件
 
 **-subject** _file_
-> Subject sequence file for direct comparison
+> 用于直接比较的目标序列文件
 
 **-db** _name_
-> BLAST database name for searching
+> 用于搜索的 BLAST 数据库名称
 
 **-evalue** _threshold_
-> Expectation value (E) threshold for reporting matches
+> 报告匹配的期望值（E）阈值
 
 **-task** _name_
-> Algorithm variant: megablast (default), dc-megablast, blastn, blastn-short, or rmblastn
+> 算法变体：megablast（默认）、dc-megablast、blastn、blastn-short 或 rmblastn
 
 **-word_size** _n_
-> Length of initial exact match seed (smaller finds more divergent hits)
+> 初始精确匹配种子的长度（越小能找到差异越大的命中）
 
 **-perc_identity** _n_
-> Report only alignments at or above this percent identity
+> 仅报告一致度达到或超过此百分比的比对
 
 **-outfmt** _format_
-> Output format (0=pairwise, 6=tabular, 7=tabular with headers, 11=BLAST archive)
+> 输出格式（0=成对，6=表格，7=带表头的表格，11=BLAST 归档）
 
 **-out** _file_
-> Output file name
+> 输出文件名
 
 **-num_threads** _n_
-> Number of CPU threads to use
+> 使用的 CPU 线程数
 
 **-max_target_seqs** _n_
-> Maximum number of aligned sequences to keep
+> 保留的最大比对序列数
 
 **-remote**
-> Execute search on NCBI servers
+> 在 NCBI 服务器上执行搜索
 
 # CAVEATS
 
-Large database searches require significant memory and time. Remote searches are rate-limited. Local database searches require pre-formatted BLAST databases created with **makeblastdb**.
+大型数据库搜索需要大量内存和时间。远程搜索有速率限制。本地数据库搜索需要用 **makeblastdb** 创建的预格式化 BLAST 数据库。
 
 # HISTORY
 
-BLAST was developed at NCBI (National Center for Biotechnology Information) with the original algorithm published in **1990** by Altschul et al. It has become one of the most widely used bioinformatics tools.
+BLAST 由 NCBI（美国国家生物技术信息中心）开发，原始算法由 Altschul 等人于 **1990 年**发表。它已成为使用最广泛的生物信息学工具之一。
 
 # INSTALL
 

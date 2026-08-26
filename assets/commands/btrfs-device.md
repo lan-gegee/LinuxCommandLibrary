@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage devices in a btrfs filesystem
+管理 btrfs 文件系统中的设备
 
 # TLDR
 
-**Add** devices
+**添加**设备
 
 ```sudo btrfs device add /dev/sdb /dev/sdc path/to/filesystem```
 
-**Remove** devices
+**移除**设备
 
 ```sudo btrfs device remove /dev/sdb path/to/filesystem```
 
-Show error **statistics**
+显示错误**统计**信息
 
 ```sudo btrfs device stats path/to/filesystem```
 
-**Scan** all disks
+**扫描**所有磁盘
 
 ```sudo btrfs device scan --all-devices```
 
-Show **usage** per device
+显示每个设备的**使用**情况
 
 ```sudo btrfs device usage path/to/filesystem```
 
@@ -30,41 +30,41 @@ Show **usage** per device
 
 # DESCRIPTION
 
-**btrfs device** manages devices in a btrfs filesystem. It can add or remove devices, display statistics, and scan for btrfs filesystems. This enables dynamic resizing and RAID configuration changes.
+**btrfs device** 管理 btrfs 文件系统中的设备。它可以添加或移除设备、显示统计信息，以及扫描 btrfs 文件系统。这使得动态调整容量和更改 RAID 配置成为可能。
 
 # PARAMETERS
 
 **add**
-> Add one or more devices to the filesystem
+> 向文件系统添加一个或多个设备
 
 **remove**
-> Remove a device from the filesystem
+> 从文件系统中移除设备
 
 **delete**
-> Alias for remove
+> remove 的别名
 
 **stats**
-> Show device error statistics
+> 显示设备错误统计信息
 
 **scan**
-> Scan devices for btrfs filesystems
+> 扫描设备上的 btrfs 文件系统
 
 **usage**
-> Show detailed per-device allocation statistics
+> 显示详细的每设备分配统计
 
 **ready**
-> Check if a device is ready
+> 检查设备是否就绪
 
 **-d, --all-devices**
-> Scan all devices for btrfs filesystems
+> 扫描所有设备以查找 btrfs 文件系统
 
 # CAVEATS
 
-Removing a device requires enough space on remaining devices to hold relocated data. The filesystem must be mounted to add or remove devices. Adding devices does not automatically balance data.
+移除设备时，其余设备上必须有足够空间容纳被迁移的数据。添加或移除设备时文件系统必须已挂载。添加设备不会自动平衡数据。
 
 # HISTORY
 
-**btrfs device** is part of the **btrfs-progs** package for managing btrfs filesystems on Linux.
+**btrfs device** 是 **btrfs-progs** 软件包的一部分，用于管理 Linux 上的 btrfs 文件系统。
 
 # INSTALL
 

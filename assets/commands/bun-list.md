@@ -1,14 +1,14 @@
 # TAGLINE
 
-List installed packages in a Bun project
+列出 Bun 项目中已安装的软件包
 
 # TLDR
 
-**List installed packages** (top-level)
+**列出已安装的包**（顶层）
 
 ```bun pm ls```
 
-**List all packages** including nested dependencies
+**列出所有包**，包括嵌套依赖
 
 ```bun pm ls --all```
 
@@ -19,13 +19,13 @@ List installed packages in a Bun project
 # PARAMETERS
 
 **--all**
-> Show the full dependency tree, including transitive dependencies.
+> 显示完整的依赖树，包括传递性依赖。
 
 # DESCRIPTION
 
-**bun pm ls** (sometimes invoked as **bun list**) prints the packages installed in the current project's **node_modules** directory. By default it shows only the direct dependencies declared in **package.json**; pass **--all** to see the complete resolved dependency tree.
+**bun pm ls**（有时以 **bun list** 调用）打印当前项目 **node_modules** 目录中安装的软件包。默认只显示 **package.json** 中声明的直接依赖；传入 **--all** 可查看完整解析后的依赖树。
 
-The output includes each package's resolved version and location and is intended for quick auditing of what is installed. For machine-readable output, inspect **bun.lockb** with **bun pm** subcommands.
+输出包含每个包解析后的版本和位置，便于快速审计已安装的内容。若需要机器可读的输出，请通过 **bun pm** 子命令检查 **bun.lockb**。
 
 # INSTALL
 

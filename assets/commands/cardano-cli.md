@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line interface for the Cardano blockchain
+Cardano 区块链的命令行界面
 
 # TLDR
 
-**Query tip** (latest block info)
+**查询 tip**（最新区块信息）
 
 ```cardano-cli query tip --mainnet```
 
-**Generate payment keys**
+**生成支付密钥**
 
 ```cardano-cli address key-gen --verification-key-file [payment.vkey] --signing-key-file [payment.skey]```
 
-**Build a payment address**
+**构建支付地址**
 
 ```cardano-cli address build --payment-verification-key-file [payment.vkey] --out-file [payment.addr] --mainnet```
 
-**Query UTxOs** for an address
+**查询某地址的 UTxO**
 
 ```cardano-cli query utxo --address [addr1...] --mainnet```
 
-**Build a transaction**
+**构建交易**
 
 ```cardano-cli transaction build --tx-in [txhash#index] --tx-out [addr]+[lovelace] --change-address [addr] --mainnet --out-file [tx.raw]```
 
-**Sign a transaction**
+**签署交易**
 
 ```cardano-cli transaction sign --tx-body-file [tx.raw] --signing-key-file [payment.skey] --mainnet --out-file [tx.signed]```
 
-**Submit a transaction**
+**提交交易**
 
 ```cardano-cli transaction submit --tx-file [tx.signed] --mainnet```
 
@@ -38,69 +38,69 @@ Command-line interface for the Cardano blockchain
 
 # DESCRIPTION
 
-**cardano-cli** is the command-line interface for interacting with the Cardano blockchain. It provides functionality for key generation, address creation, transaction building, and querying the blockchain state.
+**cardano-cli** 是用于与 Cardano 区块链交互的命令行界面。它提供密钥生成、地址创建、交易构建以及查询区块链状态等功能。
 
-The tool interfaces with a running cardano-node to query blockchain data and submit transactions. It supports both mainnet and various test networks (preprod, preview). Operations include managing stake keys, delegating to stake pools, minting native tokens, and participating in on-chain governance (Conway era).
+该工具与运行中的 cardano-node 交互，以查询区块链数据并提交交易。它同时支持主网和多种测试网（preprod、preview）。操作范围包括管理权益密钥、向权益池委托、铸造原生代币，以及参与链上治理（Conway era）。
 
-Cardano uses an extended UTxO (EUTxO) model where transactions consume and produce unspent transaction outputs. The CLI handles the complexity of building valid transactions with proper fees and balancing. As of version 10.11, the default era is Conway.
+Cardano 采用扩展 UTxO（EUTxO）模型，交易会消耗并产生未花费的交易输出。CLI 负责处理构建有效交易时涉及的手续费计算和余额平衡等复杂问题。自版本 10.11 起，默认 era 为 Conway。
 
 # PARAMETERS
 
 **query**
-> Query blockchain state (tip, utxo, protocol-parameters).
+> 查询区块链状态（tip、utxo、protocol-parameters）。
 
 **address**
-> Address commands (key-gen, build).
+> 地址相关命令（key-gen、build）。
 
 **transaction**
-> Transaction commands (build, sign, submit).
+> 交易相关命令（build、sign、submit）。
 
 **stake-address**
-> Stake address and delegation commands.
+> 权益地址与委托相关命令。
 
 **stake-pool**
-> Stake pool operations.
+> 权益池操作。
 
 **governance**
-> Governance commands: actions, DRep registration, committee, and voting (Conway era).
+> 治理命令：行动、DRep 注册、委员会和投票（Conway era）。
 
 **key**
-> Key utility commands.
+> 密钥工具命令。
 
 **node**
-> Node operational certificate and key-evolving signature commands.
+> 节点操作证书及密钥演进签名相关命令。
 
 **hash**
-> Hashing utilities for files and scripts.
+> 针对文件和脚本的哈希工具。
 
 **genesis**
-> Genesis block commands.
+> 创世区块相关命令。
 
 **--mainnet**
-> Use mainnet network magic.
+> 使用主网网络魔数。
 
 **--testnet-magic** _num_
-> Use testnet with specific magic number.
+> 使用具有指定魔数的测试网。
 
 **--socket-path** _path_
-> Path to node socket (or CARDANO_NODE_SOCKET_PATH env).
+> 节点套接字路径（或使用 CARDANO_NODE_SOCKET_PATH 环境变量）。
 
 **--out-file** _file_
-> Output file for results.
+> 结果的输出文件。
 
 **--signing-key-file** _file_
-> Private key for signing.
+> 用于签署的私钥。
 
 **--verification-key-file** _file_
-> Public key file.
+> 公钥文件。
 
 # CAVEATS
 
-Requires a running and synced cardano-node. Socket path must be accessible. Transactions require correct fee calculation and change output. Keys should be stored securely; loss means loss of funds. Testnet tokens have no real value.
+需要运行中且已同步的 cardano-node。套接字路径必须可访问。交易需要正确的手续费计算和找零输出。密钥应妥善安全保存；一旦丢失即意味着资金丢失。测试网代币没有实际价值。
 
 # HISTORY
 
-**cardano-cli** is developed by **Input Output Global (IOG)** as part of the Cardano blockchain project founded by **Charles Hoskinson**. Cardano mainnet launched in **September 2017** (Byron era). The Shelley era in **2020** introduced staking. The Alonzo upgrade in **September 2021** added smart contract support. The tool continues to evolve with each protocol upgrade.
+**cardano-cli** 由 **Input Output Global (IOG)** 开发，属于 **Charles Hoskinson** 创立的 Cardano 区块链项目的一部分。Cardano 主网于 **2017 年 9 月**上线（Byron era）。**2020 年**的 Shelley era 引入了质押功能。**2021 年 9 月**的 Alonzo 升级增加了智能合约支持。该工具随每次协议升级持续演进。
 
 # SEE ALSO
 

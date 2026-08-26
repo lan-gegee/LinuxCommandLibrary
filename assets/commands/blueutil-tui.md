@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for managing macOS Bluetooth devices via blueutil
+通过 blueutil 管理 macOS 蓝牙设备的 TUI
 
 # TLDR
 
-**Launch** the Bluetooth manager TUI
+**启动**蓝牙管理器 TUI
 
 ```blueutil-tui```
 
@@ -14,17 +14,17 @@ TUI for managing macOS Bluetooth devices via blueutil
 
 # DESCRIPTION
 
-**blueutil-tui** is a terminal user interface for managing Bluetooth devices on macOS. It provides an interactive interface built on top of **blueutil**, allowing users to view paired devices, connect/disconnect devices, and discover new devices.
+**blueutil-tui** 是一个用于管理 macOS 蓝牙设备的终端用户界面。它构建在 **blueutil** 之上，提供交互式界面，让用户可以查看已配对的设备、连接/断开设备以及发现新设备。
 
-The TUI displays a list of paired Bluetooth devices with their connection status and supports device search and refresh through keyboard shortcuts.
+该 TUI 显示已配对蓝牙设备的列表及其连接状态，并支持通过键盘快捷键进行设备搜索和刷新。
 
 # CAVEATS
 
-Only works on **macOS** as it depends on the **blueutil** command-line utility, which must be installed separately via **brew install blueutil**. Install with **pipx install blueutil-tui** or **uv tool install blueutil-tui**.
+仅适用于 **macOS**，因为它依赖命令行工具 **blueutil**，后者必须通过 **brew install blueutil** 单独安装。可使用 **pipx install blueutil-tui** 或 **uv tool install blueutil-tui** 安装。
 
 # HISTORY
 
-**blueutil-tui** is a community-developed Python-based TUI wrapper around the **blueutil** CLI tool. It uses the **Textual** framework for terminal rendering.
+**blueutil-tui** 是社区开发的基于 Python 的 TUI 封装，围绕 **blueutil** 命令行工具构建。它使用 **Textual** 框架进行终端渲染。
 
 # SEE ALSO
 

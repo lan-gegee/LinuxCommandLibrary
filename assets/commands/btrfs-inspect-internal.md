@@ -1,34 +1,34 @@
 # TAGLINE
 
-Debug and inspect btrfs filesystem internals
+调试和检查 btrfs 文件系统内部结构
 
 # TLDR
 
-Print **superblock** information
+打印**超级块**信息
 
 ```sudo btrfs inspect-internal dump-super [path/to/partition]```
 
-Print **all superblock copies**
+打印**所有超级块副本**
 
 ```sudo btrfs inspect-internal dump-super -a [path/to/partition]```
 
-Print filesystem **metadata** information
+打印文件系统**元数据**信息
 
 ```sudo btrfs inspect-internal dump-tree [path/to/partition]```
 
-Print list of files in **inode** number
+按 **inode** 号打印文件列表
 
 ```sudo btrfs inspect-internal inode-resolve [inode_number] [path/to/btrfs_mount]```
 
-Print list of files at a **logical address**
+在**逻辑地址**处打印文件列表
 
 ```sudo btrfs inspect-internal logical-resolve [logical_address] [path/to/btrfs_mount]```
 
-Print **tree stats** for a filesystem
+打印文件系统的**树统计**信息
 
 ```sudo btrfs inspect-internal tree-stats [path/to/partition]```
 
-Calculate **minimum device size** for shrinking
+计算收缩时的**最小设备容量**
 
 ```sudo btrfs inspect-internal min-dev-size [path/to/btrfs_mount]```
 
@@ -38,41 +38,41 @@ Calculate **minimum device size** for shrinking
 
 # DESCRIPTION
 
-**btrfs inspect-internal** provides low-level access to btrfs filesystem internal structures. It is primarily used for debugging, forensics, and advanced troubleshooting.
+**btrfs inspect-internal** 提供对 btrfs 文件系统内部结构的底层访问。它主要用于调试、取证和高级故障排查。
 
-The command can dump superblock data, metadata trees, and resolve inodes to file paths or logical addresses to physical locations.
+该命令可以转储超级块数据、元数据树，并将 inode 解析为文件路径，或将逻辑地址解析为物理位置。
 
 # SUBCOMMANDS
 
 **dump-super**
-> Print superblock information
+> 打印超级块信息
 
 **dump-tree**
-> Print metadata tree structure
+> 打印元数据树结构
 
 **inode-resolve**
-> Find file paths from inode number
+> 根据 inode 号查找文件路径
 
 **logical-resolve**
-> Find files at logical address
+> 在逻辑地址处查找文件
 
 **tree-stats**
-> Print tree statistics
+> 打印树统计信息
 
 **min-dev-size**
-> Calculate minimum device size for shrinking
+> 计算收缩时的最小设备容量
 
 # PARAMETERS
 
 **-a, --all**
-> Dump all superblock copies
+> 转储所有超级块副本
 
 **-f**
-> Force output even with warnings
+> 即使有警告也强制输出
 
 # CAVEATS
 
-Output is technical and intended for developers or advanced users. Some commands require unmounted filesystem while others need mounted. Incorrect use won't damage data but output interpretation requires btrfs internals knowledge.
+输出内容偏技术性，面向开发者或高级用户。部分命令要求文件系统处于卸载状态，另一些则要求已挂载。错误使用不会损坏数据，但解读输出需要了解 btrfs 内部结构。
 
 # SEE ALSO
 

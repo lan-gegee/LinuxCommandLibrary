@@ -1,26 +1,26 @@
 # TAGLINE
 
-Scaffold new projects from templates
+基于模板搭建新项目脚手架
 
 # TLDR
 
-**Create project from template**
+**从模板创建项目**
 
 ```bun create [template] [project-name]```
 
-**Create Hono project**
+**创建 Hono 项目**
 
 ```bun create hono@latest [my-app]```
 
-**Create Elysia project**
+**创建 Elysia 项目**
 
 ```bun create elysia [my-app]```
 
-**Create from GitHub template**
+**从 GitHub 模板创建**
 
 ```bun create [github-user/repo] [project-name]```
 
-**Create from local template**
+**从本地模板创建**
 
 ```bun create [./path/to/template] [project-name]```
 
@@ -30,17 +30,17 @@ Scaffold new projects from templates
 
 # DESCRIPTION
 
-**bun create** scaffolds new projects from templates. It supports templates from npm, GitHub repositories, and local directories. After cloning, it automatically installs dependencies and initializes the project.
+**bun create** 基于模板搭建新项目脚手架。它支持来自 npm、GitHub 仓库和本地目录的模板。克隆完成后，它会自动安装依赖并初始化项目。
 
-For basic project initialization without templates, use **bun init** instead.
+若只是进行基本的项目初始化而不使用模板，请改用 **bun init**。
 
 # PARAMETERS
 
 _template_
-> Template source: npm package, GitHub repo (user/repo), or local path
+> 模板来源：npm 包、GitHub 仓库（user/repo）或本地路径
 
 _destination_
-> Project directory name (defaults to template name)
+> 项目目录名（默认为模板名）
 
 # TEMPLATES
 
@@ -56,20 +56,20 @@ _destination_
 # RELATED COMMANDS
 
 **bun init**
-> Initialize blank project in current directory
+> 在当前目录初始化空白项目
 
 **bun init --react**
-> Scaffold React project
+> 搭建 React 项目脚手架
 
 **bun init --react=tailwind**
-> Scaffold React with Tailwind CSS
+> 搭建带 Tailwind CSS 的 React 项目
 
 **bun init --react=shadcn**
-> Scaffold React with shadcn/ui
+> 搭建带 shadcn/ui 的 React 项目
 
 # CAVEATS
 
-Template availability depends on the source. GitHub templates require network access. Some templates may have additional setup steps documented in their README.
+模板可用性取决于其来源。GitHub 模板需要网络访问。某些模板可能有额外的设置步骤，详见其 README。
 
 # INSTALL
 

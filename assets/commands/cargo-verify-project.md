@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check correctness of a Cargo.toml manifest
+检查 Cargo.toml 清单的正确性
 
 # TLDR
 
-**Verify current project manifest**
+**校验当前项目的清单**
 
 ```cargo verify-project```
 
-**Verify specific manifest**
+**校验指定清单**
 
 ```cargo verify-project --manifest-path [path/to/Cargo.toml]```
 
-**Verify with locked dependencies**
+**在依赖锁定状态下校验**
 
 ```cargo verify-project --locked```
 
-**Verify offline** (no network access)
+**离线校验**（不访问网络）
 
 ```cargo verify-project --frozen```
 
@@ -26,44 +26,44 @@ Check correctness of a Cargo.toml manifest
 
 # DESCRIPTION
 
-**cargo verify-project** parses and validates the local Cargo.toml manifest file. It outputs a JSON object indicating whether the manifest is syntactically correct and contains all required fields, along with error details on failure.
+**cargo verify-project** 解析并验证本地 Cargo.toml 清单文件。它输出一个 JSON 对象，指示清单在语法上是否正确且包含所有必需字段，失败时附带错误详情。
 
-This command is useful in CI/CD pipelines and pre-commit hooks for catching manifest errors early. It checks syntax correctness, valid dependency specifications, proper metadata formatting, and required fields. It does not verify that dependencies actually exist on a registry, only that the manifest itself is well-formed. The exit status is 0 for valid manifests and 1 for invalid ones.
+该命令适用于 CI/CD 流水线和 pre-commit 钩子，以便尽早发现清单错误。它检查语法正确性、有效的依赖声明、规范的元数据格式以及必需字段。它不会验证依赖是否真的存在于注册表中，只检查清单本身格式是否良好。清单有效时退出状态为 0，无效时为 1。
 
 # PARAMETERS
 
 **--manifest-path** _path_
-> Path to Cargo.toml file.
+> Cargo.toml 文件的路径。
 
 **--locked**
-> Assert that Cargo.lock is up-to-date.
+> 断言 Cargo.lock 是最新的。
 
 **--frozen**
-> Assert that Cargo.lock is up-to-date and prevent network access.
+> 断言 Cargo.lock 是最新的，并禁止访问网络。
 
 **--offline**
-> Run without accessing the network.
+> 不访问网络运行。
 
 **-v**, **--verbose**
-> Use verbose output.
+> 使用详细输出。
 
 **-q**, **--quiet**
-> Suppress cargo output messages.
+> 抑制 cargo 的输出消息。
 
 **--config** _KEY=VALUE_
-> Override a Cargo configuration value.
+> 覆盖某个 Cargo 配置项。
 
 **-C** _path_
-> Change to directory before executing.
+> 执行前先切换到指定目录。
 
 # OUTPUT
 
-**Success**
+**成功**
 ```json
 {"success":"true"}
 ```
 
-**Failure**
+**失败**
 ```json
 {"invalid":"error message"}
 ```
@@ -71,14 +71,14 @@ This command is useful in CI/CD pipelines and pre-commit hooks for catching mani
 # EXIT STATUS
 
 **0**
-> Manifest is valid.
+> 清单有效。
 
 **1**
-> Manifest is invalid.
+> 清单无效。
 
 # CAVEATS
 
-Does not verify that dependencies actually exist on a registry, only that the manifest syntax is well-formed. Useful for CI/CD pipelines and pre-commit hooks.
+不验证依赖是否真的存在于注册表中，只检查清单语法是否良好。适用于 CI/CD 流水线和 pre-commit 钩子。
 
 # INSTALL
 

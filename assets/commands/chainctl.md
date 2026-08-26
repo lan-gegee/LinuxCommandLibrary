@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage Chainguard container images and resources
+管理 Chainguard 容器镜像和资源
 
 # TLDR
 
-**Authenticate with Chainguard**
+**向 Chainguard 认证**
 
 ```chainctl auth login```
 
-**List available container images**
+**列出可用的容器镜像**
 
 ```chainctl images list```
 
-**List image tags**
+**列出镜像标签**
 
 ```chainctl images tags list [image_name]```
 
-**Get image details**
+**获取镜像详情**
 
 ```chainctl images describe [image_name]```
 
-**List organizations**
+**列出组织**
 
 ```chainctl iam organizations list```
 
-**Configure chainctl settings**
+**配置 chainctl 设置**
 
 ```chainctl config set [key] [value]```
 
@@ -34,47 +34,47 @@ manage Chainguard container images and resources
 
 # DESCRIPTION
 
-**chainctl** (Chainguard Control) is the command-line interface for managing Chainguard resources, including security-hardened container images, identity management, and platform configurations.
+**chainctl**（Chainguard Control）是管理 Chainguard 资源的命令行界面，包括安全加固的容器镜像、身份管理和平台配置。
 
-The CLI follows the **context noun verb** style of interaction, allowing users to discover available images, analyze security metadata, manage organizations, and control access to Chainguard resources.
+该 CLI 采用 **context noun verb**（上下文 名词 动词）的交互风格，让用户可以发现可用镜像、分析安全元数据、管理组织以及控制对 Chainguard 资源的访问。
 
 # PARAMETERS
 
 **--api** _url_
-> Chainguard platform API URL (default: https://console-api.enforce.dev)
+> Chainguard 平台 API URL（默认：https://console-api.enforce.dev）
 
 **--config** _file_
-> Path to chainctl config file (or set CHAINCTL_CONFIG)
+> chainctl 配置文件路径（或设置 CHAINCTL_CONFIG）
 
 **-o, --output** _format_
-> Output format: csv, json, table, tree, wide, markdown, yaml, or go-template
+> 输出格式：csv、json、table、tree、wide、markdown、yaml 或 go-template
 
 **--log-level** _level_
-> Log level: debug, info (default: ERROR)
+> 日志级别：debug、info（默认：ERROR）
 
 **--force-color**
-> Force color output
+> 强制彩色输出
 
 **Main commands:**
 
-**auth** - Authentication commands (login, logout, token)
-**images** - Manage container images (list, describe, tags)
-**iam** - Identity and access management
-**packages** - Interact with Chainguard packages
-**config** - Manage chainctl configuration
+**auth** - 认证相关命令（login、logout、token）
+**images** - 管理容器镜像（list、describe、tags）
+**iam** - 身份与访问管理
+**packages** - 与 Chainguard 软件包交互
+**config** - 管理 chainctl 配置
 
 # CONFIGURATION
 
 **CHAINCTL_CONFIG**
-> Environment variable specifying an alternate configuration file location.
+> 指定备用配置文件位置的环境变量。
 
 # CAVEATS
 
-Requires a Chainguard account for authentication. Some commands require appropriate IAM permissions within your organization.
+需要 Chainguard 账户进行认证。某些命令需要你所在组织内的相应 IAM 权限。
 
 # HISTORY
 
-**chainctl** was developed by **Chainguard** as part of their secure software supply chain platform. Chainguard focuses on providing minimal, hardened container images with reduced attack surfaces and continuous security updates.
+**chainctl** 由 **Chainguard** 开发，是其安全软件供应链平台的一部分。Chainguard 专注于提供攻击面更小、可持续安全更新的最小化加固容器镜像。
 
 # SEE ALSO
 

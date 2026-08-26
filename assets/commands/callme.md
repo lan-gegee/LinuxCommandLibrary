@@ -1,30 +1,30 @@
 # TAGLINE
 
-Ring or text your iPhone from AI agents and scripts
+让 AI 代理和脚本拨打或发短信到你的 iPhone
 
 # TLDR
 
-**Pair** once with the number from the Call Me app
+用 Call Me 应用提供的号码**配对**一次
 
 ```callme pair [5551234567]```
 
-**Call** and wait for a spoken answer (transcribed)
+**拨打**电话并等待语音回答（转写为文字）
 
 ```callme call "[Deploy staging or prod first?]"```
 
-Send a **text** / push notification
+发送**短信**/推送通知
 
 ```callme text "[Build green, PR merged.]"```
 
-Print **setup** instructions
+输出**设置**说明
 
 ```callme setup```
 
-Show a **QR** for the App Store link
+显示 App Store 链接的**二维码**
 
 ```callme qr```
 
-Read the paired **number**
+读取已配对的**号码**
 
 ```callme number```
 
@@ -35,39 +35,39 @@ Read the paired **number**
 # PARAMETERS
 
 **pair** _number_
-> Store the 10-digit Call Me number from the iOS app in `~/.aiphone/config.json`
+> 将 iOS 应用中的 10 位 Call Me 号码保存到 `~/.aiphone/config.json`
 
 **call** _message_
-> Place a CallKit call; TTS speaks the question; blocks until voice reply is transcribed
+> 发起 CallKit 通话；TTS 读出问题；阻塞直到语音回答被转写完成
 
 **text** _message_
-> Send a push-notification style message to the phone
+> 向手机发送推送通知风格的消息
 
 **listen** / **events**
-> Fetch replies for non-plugin agent sessions
+> 为非插件形式的代理会话获取回复
 
 **setup**
-> Print pairing and usage steps
+> 输出配对和使用步骤
 
 **qr**
-> Print a scannable QR code for the app download link
+> 输出应用下载链接的可扫描二维码
 
 **number**
-> Print the currently paired number
+> 输出当前已配对的号码
 
 # DESCRIPTION
 
-**callme** is a small bash+curl CLI that connects terminal agents and scripts to the **Call Me** iOS app (formerly AI Phone). After pairing, agents can ring your real iPhone, speak a question via TTS, and receive your spoken answer as text, or send asynchronous texts.
+**callme** 是一个小型的 bash+curl CLI，将终端代理和脚本连接到 **Call Me** iOS 应用（前身为 AI Phone）。配对后，代理可以拨打你的真实 iPhone、通过 TTS 说出问题并收到转写为文本的语音回答，也可以发送异步短信。
 
-Credentials live in `~/.aiphone/config.json` (mode 0600), not in agent instruction files. A Claude Code plugin variant installs the same flow into interactive sessions.
+凭据保存在 `~/.aiphone/config.json`（权限 0600）中，而不是放在代理指令文件里。还有一个 Claude Code 插件变体，可将同样的流程安装到交互式会话中。
 
 # CAVEATS
 
-Requires the Call Me iOS app and network access to the Call Me service. Calls block until answered—unsuitable for unattended automation without timeouts. Phone numbers are credentials; do not commit config files.
+需要 Call Me iOS 应用以及能访问 Call Me 服务。通话会一直阻塞直到被接听——没有超时机制不适合无人值守的自动化场景。电话号码属于凭据；不要提交配置文件。
 
 # HISTORY
 
-Agent integration for the **Call Me** iPhone app by radres; standalone skill under `skill/callme` in the open-source repo.
+这是 radres 开发的 **Call Me** iPhone 应用的代理集成方案；独立技能位于开源仓库的 `skill/callme` 目录下。
 
 # SEE ALSO
 

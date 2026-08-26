@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Azure resource providers
+管理 Azure 资源提供程序
 
 # TLDR
 
-**List all resource providers**
+**列出所有资源提供程序**
 
 ```az provider list```
 
-**List registered providers** only
+仅**列出已注册的提供程序**
 
 ```az provider list --query "[?registrationState=='Registered']"```
 
-**Show details** of a specific provider
+**显示**特定提供程序的**详情**
 
 ```az provider show --namespace [Microsoft.Compute]```
 
-**Register a resource provider** and wait for it to finish
+**注册资源提供程序**并等待完成
 
 ```az provider register --namespace [Microsoft.ContainerService] --wait```
 
-**Unregister a resource provider**
+**取消注册资源提供程序**
 
 ```az provider unregister --namespace [Microsoft.ContainerService]```
 
-**Show operations** for a specific provider
+**显示**特定提供程序的**操作**
 
 ```az provider operation show --namespace [Microsoft.Compute]```
 
@@ -35,55 +35,55 @@ Manage Azure resource providers
 # SUBCOMMANDS
 
 **list**
-> List resource providers for a subscription.
+> 列出订阅的资源提供程序。
 
 **show**
-> Get details about a resource provider.
+> 获取某个资源提供程序的详情。
 
 **register**
-> Register a resource provider.
+> 注册资源提供程序。
 
 **unregister**
-> Unregister a resource provider.
+> 取消注册资源提供程序。
 
 **operation list**
-> Get operations from all providers.
+> 获取所有提供程序的操作。
 
 **operation show**
-> Get an individual provider's operations.
+> 获取单个提供程序的操作。
 
 **permission list**
-> List permissions for a provider.
+> 列出某个提供程序的权限。
 
 # PARAMETERS
 
 **--namespace** **-n**
-> The resource provider namespace (e.g., Microsoft.Compute).
+> 资源提供程序命名空间（例如 Microsoft.Compute）。
 
 **--wait**
-> Wait for the registration to finish. Default: false.
+> 等待注册完成。默认：false。
 
 **--management-group-id** **-m**
-> The management group id to register the provider against.
+> 用于注册提供程序的管理组 ID。
 
 **--consent-to-permissions** **-c**
-> Indicate whether authorization is consented (used by register). Default: false.
+> 指示是否同意授权（register 使用）。默认：false。
 
 **--accept-terms**
-> Accept terms when registering an RPaaS (Resource Provider as a Service) provider.
+> 注册 RPaaS（Resource Provider as a Service）提供程序时接受条款。
 
 **--expand**
-> Properties to include in list/show results, e.g. resourceTypes/aliases.
+> 要包含在 list/show 结果中的属性，例如 resourceTypes/aliases。
 
 # DESCRIPTION
 
-**az provider** manages Azure resource providers. Resource providers are services that supply Azure resources (VMs, storage accounts, databases, etc.). Before using a resource type, the provider must be registered in your subscription.
+**az provider** 管理 Azure 资源提供程序。资源提供程序是提供 Azure 资源（虚拟机、存储账户、数据库等）的服务。在使用某种资源类型之前，必须在你的订阅中注册相应的提供程序。
 
-Common providers include Microsoft.Compute (VMs), Microsoft.Storage (storage accounts), Microsoft.Network (networking), and Microsoft.ContainerService (AKS).
+常见提供程序包括 Microsoft.Compute（虚拟机）、Microsoft.Storage（存储账户）、Microsoft.Network（网络）和 Microsoft.ContainerService（AKS）。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated. Some providers auto-register when creating resources. Unregistering a provider does not delete existing resources but prevents creating new ones.
+需要安装 Azure CLI 并已完成身份验证。某些提供程序会在创建资源时自动注册。取消注册提供程序不会删除现有资源，但会阻止创建新资源。
 
 # INSTALL
 

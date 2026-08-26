@@ -1,22 +1,22 @@
 # TAGLINE
 
-Text-based web browser using headless Firefox
+基于无头 Firefox 的文本网页浏览器
 
 # TLDR
 
-**Launch browsh**
+**启动 browsh**
 
 ```browsh```
 
-**Open a specific URL**
+打开指定的 URL
 
 ```browsh --startup-url [https://example.com]```
 
-**Run in HTTP server mode**
+以 HTTP 服务器模式运行
 
 ```browsh --http-server-mode --port [4333]```
 
-**Use a specific Firefox binary**
+使用指定的 Firefox 可执行文件
 
 ```browsh --firefox.path [/path/to/firefox]```
 
@@ -27,33 +27,33 @@ Text-based web browser using headless Firefox
 # PARAMETERS
 
 **--startup-url** _URL_
-> Open a specific URL on launch.
+> 启动时打开指定 URL。
 
 **--http-server-mode**
-> Run as an HTTP server that renders pages as text.
+> 以 HTTP 服务器方式运行，将页面渲染为文本。
 
 **--port** _PORT_
-> Set the port for HTTP server mode (default: 4333).
+> 设置 HTTP 服务器模式的端口（默认：4333）。
 
 **--firefox.path** _PATH_
-> Path to the Firefox binary.
+> Firefox 可执行文件的路径。
 
 **--time-limit** _SECONDS_
-> Limit session duration.
+> 限制会话时长。
 
 # DESCRIPTION
 
-**browsh** is a fully modern text-based web browser. It renders web pages by running a headless **Firefox** instance in the background and translating the visual output into text and ANSI art for display in a terminal. This means it supports JavaScript, CSS, video, and virtually all modern web standards.
+**browsh** 是一款完全现代化的文本网页浏览器。它在后台运行无头 **Firefox** 实例来渲染网页，并将视觉输出转换为文本和 ANSI 字符画以便在终端中显示。这意味着它支持 JavaScript、CSS、视频以及几乎所有现代 Web 标准。
 
-The browser provides both interactive terminal mode and an HTTP server mode that can serve text-rendered versions of web pages to any client. It supports tabs, scrolling, link navigation, and text input.
+该浏览器提供交互式终端模式和 HTTP 服务器模式，后者可将文本渲染的网页提供给任意客户端。它支持标签页、滚动、链接导航和文本输入。
 
 # CAVEATS
 
-Requires a full **Firefox** installation (version 57+) as a backend, making it resource-intensive compared to traditional text browsers. Rendering quality depends on terminal capabilities and font support. Startup time is slower due to Firefox initialization.
+需要完整的 **Firefox** 安装（版本 57+）作为后端，因此与传统的文本浏览器相比资源占用较高。渲染质量取决于终端能力和字体支持。由于需要初始化 Firefox，启动速度较慢。
 
 # HISTORY
 
-**browsh** was created by **Thomas Sherwood** and released in **2018**. It gained significant attention for its novel approach of using a real browser engine to power a terminal interface, enabling full web compatibility that traditional text browsers like Lynx cannot achieve.
+**browsh** 由 **Thomas Sherwood** 创建，于 **2018** 年发布。它因使用真实浏览器引擎驱动终端界面的新颖思路而备受关注，实现了 Lynx 等传统文本浏览器无法达到的完整 Web 兼容性。
 
 # INSTALL
 

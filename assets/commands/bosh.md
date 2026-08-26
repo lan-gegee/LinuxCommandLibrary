@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage distributed system deployments and lifecycle operations.
+管理分布式系统的部署与生命周期操作。
 
 # TLDR
 
-**Deploy** release
+**部署** release
 
 ```bosh -d [deployment] deploy [manifest.yml]```
 
-**List** deployments
+**列出**部署
 
 ```bosh deployments```
 
-**SSH** into instance
+**SSH** 进入实例
 
 ```bosh -d [deployment] ssh [instance]```
 
-**View** logs
+**查看**日志
 
 ```bosh -d [deployment] logs [instance]```
 
-**Update** cloud config
+**更新** cloud config
 
 ```bosh update-cloud-config [cloud-config.yml]```
 
@@ -30,52 +30,52 @@ Manage distributed system deployments and lifecycle operations.
 
 # DESCRIPTION
 
-**bosh** is the command-line interface for BOSH, a tool for release engineering, deployment, and lifecycle management of distributed systems. It's commonly used for deploying Cloud Foundry and other complex distributed applications.
+**bosh** 是 BOSH 的命令行界面。BOSH 是一款用于分布式系统的版本工程、部署和生命周期管理的工具。它常被用于部署 Cloud Foundry 及其他复杂的分布式应用。
 
-The tool manages infrastructure provisioning, software deployment, and operational concerns across multiple cloud providers.
+该工具管理基础设施供给、软件部署，并处理跨多个云提供商的运维事务。
 
 # PARAMETERS
 
 **-d**, **--deployment** _name_
-> Deployment name
+> 部署名称。
 
 **-e**, **--environment** _alias_
-> Environment alias
+> 环境别名。
 
 **-n**, **--non-interactive**
-> Non-interactive mode
+> 非交互模式。
 
 **--json**
-> JSON output
+> JSON 输出。
 
 **--column** _header_
-> Filter output columns
+> 过滤输出列。
 
 # COMMON COMMANDS
 
 **deployments**
-> List all deployments
+> 列出所有部署。
 
 **deploy** _manifest_
-> Create or update deployment
+> 创建或更新部署。
 
 **delete-deployment**
-> Delete deployment
+> 删除部署。
 
 **ssh** _instance_
-> SSH into VM
+> SSH 进入虚拟机。
 
 **logs** _instance_
-> Fetch logs
+> 获取日志。
 
 **vms**
-> List VMs
+> 列出虚拟机。
 
 **tasks**
-> List tasks
+> 列出任务。
 
 **cloud-config**
-> Show cloud configuration
+> 显示云端配置。
 
 # WORKFLOW
 
@@ -104,21 +104,21 @@ bosh -e prod -d myapp ssh instance/0
 
 # FEATURES
 
-- Multi-cloud support (AWS, GCP, Azure, vSphere)
-- Automated health monitoring
-- Rolling updates
-- Resurrection (automatic VM recovery)
-- Snapshots and backups
-- Configuration management
-- Network isolation
+- 多云支持（AWS、GCP、Azure、vSphere）
+- 自动健康监控
+- 滚动更新
+- 自动复活（虚拟机自动恢复）
+- 快照与备份
+- 配置管理
+- 网络隔离
 
 # CAVEATS
 
-Steep learning curve. Complex configuration. Requires dedicated infrastructure. Best suited for large deployments. Manifest syntax can be intricate. Debugging difficult without experience.
+学习曲线陡峭。配置复杂。需要专用基础设施。最适合大规模部署。Manifest 语法可能相当繁琐。缺乏经验时调试困难。
 
 # HISTORY
 
-**BOSH** was created by VMware around **2010** for Cloud Foundry deployment, becoming an open-source project for managing complex distributed systems.
+**BOSH** 由 VMware 在 **2010 年**前后为 Cloud Foundry 部署而创建，后来成为管理复杂分布式系统的开源项目。
 
 # INSTALL
 

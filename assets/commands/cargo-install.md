@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build and install Rust binary crates
+构建并安装 Rust 二进制 crate
 
 # TLDR
 
-**Install from crates.io**
+**从 crates.io 安装**
 
 ```cargo install [ripgrep]```
 
-**Install specific version**
+**安装指定版本**
 
 ```cargo install [tokei@12.1.0]```
 
-**Install from git repository**
+**从 git 仓库安装**
 
 ```cargo install --git [https://github.com/user/repo]```
 
-**Install from local path**
+**从本地路径安装**
 
 ```cargo install --path [.]```
 
-**Force reinstall**
+**强制重新安装**
 
 ```cargo install --force [package]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```cargo install --list```
 
-**Install to custom location**
+**安装到自定义位置**
 
 ```cargo install --root [~/.local] [package]```
 
@@ -38,77 +38,77 @@ Build and install Rust binary crates
 
 # DESCRIPTION
 
-**cargo install** builds and installs Rust binary crates from crates.io, git repositories, or local paths. Binaries are installed to ~/.cargo/bin/ by default. Only packages with [[bin]] or [[example]] targets can be installed.
+**cargo install** 从 crates.io、git 仓库或本地路径构建并安装 Rust 二进制 crate。二进制文件默认安装到 ~/.cargo/bin/。只有包含 [[bin]] 或 [[example]] 目标的软件包才能被安装。
 
 # PARAMETERS
 
 **--version** _version_
-> Version requirement (e.g., ~1.2, ^1.0)
+> 版本要求（例如 ~1.2、^1.0）
 
 **--git** _url_
-> Install from git repository
+> 从 git 仓库安装
 
 **--branch** _branch_
-> Git branch
+> git 分支
 
 **--tag** _tag_
-> Git tag
+> git 标签
 
 **--rev** _sha_
-> Git commit
+> git 提交
 
 **--path** _path_
-> Install from local path
+> 从本地路径安装
 
 **--root** _dir_
-> Installation directory
+> 安装目录
 
 **-f**, **--force**
-> Overwrite existing binaries
+> 覆盖已有的二进制文件
 
 **--list**
-> List installed packages
+> 列出已安装的软件包
 
 **--bins**
-> Install all binaries
+> 安装所有二进制文件
 
 **--examples**
-> Install all examples
+> 安装所有示例
 
 **--no-track**
-> Don't save tracking information
+> 不保存跟踪信息
 
 **--locked**
-> Use Cargo.lock versions
+> 使用 Cargo.lock 中的版本
 
 **-j**, **--jobs** _n_
-> Parallel build jobs
+> 并行构建任务数
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 **--no-default-features**
-> Disable the package's default feature set.
+> 禁用该软件包的默认特性集。
 
 **--target** _TRIPLE_
-> Cross-compile binaries for the specified target triple.
+> 为指定的目标三元组交叉编译二进制文件。
 
 **--profile** _NAME_
-> Build with the named profile (e.g., _release_, _dev_).
+> 以指定名称的 profile 构建（如 _release_、_dev_）。
 
 **--debug**
-> Build with the dev profile (faster compile, slower binary).
+> 以 dev profile 构建（编译更快，运行更慢）。
 
 # INSTALLATION ROOT
 
-Determined by (in order): --root, CARGO_INSTALL_ROOT, install.root config, CARGO_HOME, ~/.cargo
+按以下顺序确定：--root、CARGO_INSTALL_ROOT、install.root 配置项、CARGO_HOME、~/.cargo
 
 # CAVEATS
 
-Compiles from source (slow). For prebuilt binaries, use cargo-binstall. Updates require reinstalling with --force.
+从源码编译（较慢）。如需预构建的二进制文件，请使用 cargo-binstall。更新需要用 --force 重新安装。
 
 # INSTALL
 

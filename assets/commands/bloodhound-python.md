@@ -1,34 +1,34 @@
 # TAGLINE
 
-Collect Active Directory data for BloodHound analysis
+为 BloodHound 分析收集 Active Directory 数据
 
 # TLDR
 
-**Collect all Active Directory data**
+**收集所有 Active Directory 数据**
 
 ```bloodhound-python -d [domain.local] -u [username] -p [password] -ns [dc_ip] -c all```
 
-**Collect specific data** (comma-separated methods)
+**收集特定数据**（逗号分隔的方法）
 
 ```bloodhound-python -d [domain.local] -u [username] -p [password] -c [Group,LocalAdmin,Session]```
 
-**Use NTLM hash** for authentication
+**使用 NTLM 哈希**进行身份验证
 
 ```bloodhound-python -d [domain.local] -u [username] --hashes [LM:NT] -ns [dc_ip] -c all```
 
-**Output to zip file**
+**输出到 zip 文件**
 
 ```bloodhound-python -d [domain.local] -u [username] -p [password] -c all --zip```
 
-**Use Kerberos authentication**
+**使用 Kerberos 身份验证**
 
 ```bloodhound-python -d [domain.local] -u [username] -p [password] -k -c all```
 
-**Specify DNS server**
+**指定 DNS 服务器**
 
 ```bloodhound-python -d [domain.local] -u [username] -p [password] -ns [dns_server] -c all```
 
-**Collect against BloodHound CE** (use the CE ingestor)
+**针对 BloodHound CE 收集**（使用 CE 版采集器）
 
 ```bloodhound-ce-python -d [domain.local] -u [username] -p [password] -ns [dc_ip] -c all --zip```
 
@@ -38,73 +38,73 @@ Collect Active Directory data for BloodHound analysis
 
 # DESCRIPTION
 
-**bloodhound-python** is a Python-based ingestor for BloodHound, an Active Directory security analysis tool. It collects information about AD objects (users, computers, groups) and their relationships, outputting JSON files for import into the BloodHound graph database.
+**bloodhound-python** 是 BloodHound（一款 Active Directory 安全分析工具）的 Python 采集器。它收集 AD 对象（用户、计算机、组）及其关系的信息，输出 JSON 文件以导入 BloodHound 图数据库。
 
-The tool uses graph theory to identify attack paths in Active Directory environments that would be difficult to detect manually, helping both attackers and defenders understand domain security.
+该工具利用图论识别 Active Directory 环境中难以人工发现的攻击路径，帮助攻击者和防御者理解域安全态势。
 
 # PARAMETERS
 
 **-d, --domain** _domain_
-> Target Active Directory domain
+> 目标 Active Directory 域
 
 **-u, --username** _user_
-> Username for authentication
+> 用于身份验证的用户名
 
 **-p, --password** _pass_
-> Password for authentication
+> 用于身份验证的密码
 
 **--hashes** _LMHASH:NTHASH_
-> NTLM hashes for pass-the-hash authentication. The LM portion may be left blank
+> 用于哈希传递（pass-the-hash）身份验证的 NTLM 哈希。LM 部分可以留空
 
 **--auth-method** _auto|ntlm|kerberos_
-> Authentication method to use (default: auto)
+> 使用的身份验证方法（默认：auto）
 
 **-aesKey** _hexkey_
-> AES key for Kerberos authentication (128 or 256 bit)
+> 用于 Kerberos 身份验证的 AES 密钥（128 或 256 位）
 
 **-no-pass**
-> Do not prompt for a password (use with -k and a ccache, or -no-pass for null sessions)
+> 不提示输入密码（配合 -k 和 ccache 使用；单独使用则为空会话）
 
 **-ns, --nameserver** _ip_
-> DNS server to query, usually a Domain Controller in the target domain
+> 要查询的 DNS 服务器，通常是目标域中的域控制器
 
 **-dc** _host_
-> Override the Domain Controller hostname to query (default: detected via DNS)
+> 覆盖要查询的域控制器主机名（默认：通过 DNS 检测）
 
 **-gc** _host_
-> Override the Global Catalog hostname to query
+> 覆盖要查询的全局编录（Global Catalog）主机名
 
 **-c, --collectionmethod** _method_
-> Comma-separated collection methods: Default, Group, LocalAdmin, RDP, DCOM, PSRemote, Session, LoggedOn, Trusts, ACL, Container, ObjectProps, DCOnly, All
+> 逗号分隔的收集方法：Default、Group、LocalAdmin、RDP、DCOM、PSRemote、Session、LoggedOn、Trusts、ACL、Container、ObjectProps、DCOnly、All
 
 **-k, --kerberos**
-> Use Kerberos authentication. Grabs credentials from the ccache file (KRB5CCNAME environment variable)
+> 使用 Kerberos 身份验证。从 ccache 文件获取凭证（KRB5CCNAME 环境变量）
 
 **--zip**
-> Compress the JSON output into a single zip file
+> 将 JSON 输出压缩为单个 zip 文件
 
 **-o, --outputdir** _dir_
-> Output directory for JSON files
+> JSON 文件的输出目录
 
 **-w** _workers_
-> Number of computer enumeration workers (default: 10)
+> 计算机枚举工作线程数（默认：10）
 
 **--dns-tcp**
-> Use TCP instead of UDP for DNS queries
+> DNS 查询使用 TCP 而非 UDP
 
 **--use-ldaps**
-> Use LDAP over TLS (port 636) for the connection
+> 连接时使用基于 TLS 的 LDAP（端口 636）
 
 **-v**
-> Enable verbose output
+> 启用详细输出
 
 # CAVEATS
 
-Requires valid domain credentials. Some collection methods (like Session and LoggedOn) require local administrator rights on the target hosts. The **bloodhound-python** command (legacy ingestor) targets BloodHound 4.2 and 4.3, while the separate **bloodhound-ce-python** command produces output for BloodHound Community Edition. Do not mix legacy and CE collector output. Use responsibly and only on systems you are authorized to test.
+需要有效的域凭证。某些收集方法（如 Session 和 LoggedOn）需要目标主机上的本地管理员权限。**bloodhound-python** 命令（旧版采集器）面向 BloodHound 4.2 和 4.3，而单独的 **bloodhound-ce-python** 命令产出适用于 BloodHound Community Edition 的数据。不要混用旧版与 CE 版采集器的输出。请负责任地使用，仅在你获得授权的系统上进行测试。
 
 # HISTORY
 
-BloodHound was created by **@_wald0**, **@CptJesus**, and **@harmj0y** at **SpecterOps**, released in **2016**. The Python ingestor (bloodhound-python) was developed by **Dirk-jan Mollema** as a cross-platform alternative to the C# SharpHound collector.
+BloodHound 由 **SpecterOps** 的 **@_wald0**、**@CptJesus** 和 **@harmj0y** 创建，于 **2016 年**发布。Python 采集器（bloodhound-python）由 **Dirk-jan Mollema** 开发，作为 C# SharpHound 采集器的跨平台替代方案。
 
 # INSTALL
 

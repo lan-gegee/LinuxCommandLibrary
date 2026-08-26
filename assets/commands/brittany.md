@@ -1,30 +1,30 @@
 # TAGLINE
 
-Format Haskell source code
+格式化 Haskell 源代码
 
 # TLDR
 
-**Format file and output to stdout**
+**格式化文件并输出到标准输出**
 
 ```brittany [source.hs]```
 
-**Format from stdin**
+从标准输入**格式化**
 
 ```cat [source.hs] | brittany```
 
-**Format files in place**
+**就地格式化**文件
 
 ```brittany --write-mode=inplace [*.hs]```
 
-**Check formatting without modifying**
+只检查格式而不修改
 
 ```brittany --check-mode [source.hs]```
 
-**Use specific config file**
+使用指定的配置文件
 
 ```brittany --config-file [brittany.yaml] [source.hs]```
 
-**Set column limit**
+设置列数上限
 
 ```brittany --columns [100] [source.hs]```
 
@@ -34,37 +34,37 @@ Format Haskell source code
 
 # DESCRIPTION
 
-**brittany** is a Haskell source code formatter that focuses on horizontal space utilization. It reformats code to make maximal use of available width while avoiding lines that are too long.
+**brittany** 是一款注重水平空间利用的 Haskell 源码格式化工具。它重新编排代码，在避免行过长的前提下最大化利用可用宽度。
 
-The formatter uses ghc-exactprint as the parser, supporting full GHC Haskell including extensions.
+该格式化工具以 ghc-exactprint 作为解析器，支持包括扩展在内的完整 GHC Haskell。
 
 # PARAMETERS
 
 **--write-mode** _mode_
-> Output mode: stdout, inplace, or display
+> 输出模式：stdout、inplace 或 display。
 
 **--check-mode**
-> Exit with error if formatting would change
+> 若格式化会产生变化则以错误退出。
 
 **--columns** _n_
-> Maximum line width (default: 80)
+> 最大行宽（默认：80）。
 
 **--indent** _n_
-> Indentation width (default: 2)
+> 缩进宽度（默认：2）。
 
 **--config-file** _file_
-> Use specific configuration file
+> 使用指定的配置文件。
 
 **--no-user-config**
-> Ignore user configuration file
+> 忽略用户配置文件。
 
 # CONFIGURATION
 
-Default user config: **~/.config/brittany/config.yaml**
+默认用户配置：**~/.config/brittany/config.yaml**。
 
-Project config: First **brittany.yaml** found in current or parent directories.
+项目配置：当前目录或父目录中找到的第一个 **brittany.yaml**。
 
-GHC extensions can be enabled in config:
+可在配置中启用 GHC 扩展：
 ```yaml
 conf_forward:
   options_ghc:
@@ -74,7 +74,7 @@ conf_forward:
 
 # CAVEATS
 
-Some less common Haskell syntax elements are not fully supported. In-source comments may occasionally be moved or lost. This project is effectively unmaintained; consider using Ormolu or Fourmolu instead.
+部分不常见的 Haskell 语法元素未获完整支持。源码内注释偶尔会被移动或丢失。该项目实际上已停止维护；可考虑改用 Ormolu 或 Fourmolu。
 
 # INSTALL
 

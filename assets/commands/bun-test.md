@@ -1,38 +1,38 @@
 # TAGLINE
 
-Bun's built-in Jest-compatible test runner
+Bun 内置的 Jest 兼容测试运行器
 
 # TLDR
 
-**Run all tests**
+**运行所有测试**
 
 ```bun test```
 
-**Run tests in specific file**
+**运行特定文件中的测试**
 
 ```bun test [path/to/test.ts]```
 
-**Run tests matching pattern**
+**运行匹配模式的测试**
 
 ```bun test --test-name-pattern "[pattern]"```
 
-**Run tests in watch mode**
+**以监视模式运行测试**
 
 ```bun test --watch```
 
-**Update snapshots**
+**更新快照**
 
 ```bun test --update-snapshots```
 
-**Run with coverage**
+**运行并统计覆盖率**
 
 ```bun test --coverage```
 
-**Output JUnit XML report**
+**输出 JUnit XML 报告**
 
 ```bun test --reporter=junit --reporter-outfile=[results.xml]```
 
-**Run with timeout**
+**使用超时时间运行**
 
 ```bun test --timeout [5000]```
 
@@ -42,48 +42,48 @@ Bun's built-in Jest-compatible test runner
 
 # DESCRIPTION
 
-**bun test** is Bun's built-in test runner with a Jest-compatible API. It provides TypeScript and JSX support, snapshot testing, mocks, lifecycle hooks, and watch mode out of the box.
+**bun test** 是 Bun 内置的测试运行器，提供 Jest 兼容的 API。它开箱即用地支持 TypeScript 和 JSX、快照测试、mock、生命周期钩子以及监视模式。
 
-Tests execute with the Bun runtime, providing significantly improved performance over traditional JavaScript test runners.
+测试在 Bun 运行时中执行，性能明显优于传统的 JavaScript 测试运行器。
 
 # PARAMETERS
 
 **--watch**
-> Re-run tests on file changes
+> 文件变化时重新运行测试
 
 **--update-snapshots**
-> Update snapshot files
+> 更新快照文件
 
 **--coverage**
-> Enable code coverage reporting
+> 启用代码覆盖率报告
 
 **--test-name-pattern** _pattern_
-> Only run tests matching pattern
+> 只运行匹配模式的测试
 
 **--timeout** _ms_
-> Test timeout in milliseconds
+> 测试超时时间（毫秒）
 
 **--reporter** _type_
-> Output format (default, junit, etc.)
+> 输出格式（default、junit 等）
 
 **--reporter-outfile** _file_
-> Write reporter output to file
+> 将报告输出写入文件
 
 **--bail** _n_
-> Stop after n test failures
+> 在 n 个测试失败后停止
 
 **--rerun-each** _n_
-> Run each test n times.
+> 将每个测试运行 n 次。
 
 **--preload** _module_
-> Preload a module before tests run.
+> 在测试运行前预加载一个模块。
 
 **--only**
-> Only run tests marked with `test.only`.
+> 只运行标记了 `test.only` 的测试。
 
 # TEST FILE PATTERNS
 
-The test runner searches for files matching:
+测试运行器搜索匹配以下模式的文件：
 - *.test.{js,jsx,ts,tsx}
 - *_test.{js,jsx,ts,tsx}
 - *.spec.{js,jsx,ts,tsx}
@@ -91,11 +91,11 @@ The test runner searches for files matching:
 
 # API
 
-Tests use **describe**, **test/it**, **expect**, **beforeAll**, **beforeEach**, **afterEach**, **afterAll**, and **mock** functions from bun:test module.
+测试使用来自 bun:test 模块的 **describe**、**test/it**、**expect**、**beforeAll**、**beforeEach**、**afterEach**、**afterAll** 和 **mock** 函数。
 
 # CAVEATS
 
-While aiming for Jest compatibility, not all Jest features are implemented. GitHub Actions annotations are automatically enabled when running in CI. Some Jest-specific plugins may not work.
+虽然以 Jest 兼容为目标，但并非所有 Jest 特性都已实现。在 CI 中运行时会自动启用 GitHub Actions 注解。某些 Jest 特有的插件可能无法工作。
 
 # INSTALL
 

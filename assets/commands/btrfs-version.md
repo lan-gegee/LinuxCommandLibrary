@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display btrfs-progs version information
+显示 btrfs-progs 版本信息
 
 # TLDR
 
-Display the **btrfs-progs version**
+显示 **btrfs-progs 版本**
 
 ```btrfs version```
 
-Display **help** for the subcommand
+显示该子命令的**帮助**
 
 ```btrfs version --help```
 
-Equivalent **global flag**
+等效的**全局标志**
 
 ```btrfs --version```
 
@@ -22,13 +22,13 @@ Equivalent **global flag**
 
 # DESCRIPTION
 
-**btrfs version** prints the version of the userspace **btrfs-progs** package providing the `btrfs` command. The kernel module version is independent and can be inspected via `/sys/module/btrfs/version` or `modinfo btrfs`.
+**btrfs version** 打印提供 `btrfs` 命令的用户态 **btrfs-progs** 软件包的版本。内核模块版本是独立的，可通过 `/sys/module/btrfs/version` 或 `modinfo btrfs` 查看。
 
-The output is useful when reporting bugs, comparing features against the documented changelog, or scripting feature detection. Recent releases (6.x) also expose built-in features through `mkfs.btrfs --version`, `btrfs-convert --version`, and similar per-tool flags.
+该输出在报告 bug、对照变更日志比较功能特性，或在脚本中进行功能探测时很有用。较新的发行版（6.x）还通过 `mkfs.btrfs --version`、`btrfs-convert --version` 以及类似的各工具专属标志暴露内置功能。
 
 # CAVEATS
 
-Reports the userspace tools version only, not the running kernel's btrfs implementation. Mismatched userspace and kernel versions are supported but some on-disk features may be unavailable.
+只报告用户态工具版本，而非运行中内核的 btrfs 实现。用户态与内核版本不一致是受支持的，但某些磁盘格式特性可能不可用。
 
 # INSTALL
 

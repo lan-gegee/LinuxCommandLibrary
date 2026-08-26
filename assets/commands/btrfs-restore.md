@@ -1,26 +1,26 @@
 # TAGLINE
 
-Salvage files from a damaged btrfs filesystem
+从受损的 btrfs 文件系统中抢救文件
 
 # TLDR
 
-**Restore** all files from a btrfs device
+从 btrfs 设备**恢复**所有文件
 
 ```sudo btrfs restore [path/to/btrfs_device] [path/to/target_directory]```
 
-**List files** (dry run) without writing
+**列出文件**（试运行）而不实际写入
 
 ```sudo btrfs restore -D [path/to/btrfs_device] [path/to/target_directory]```
 
-Restore files matching a **regex pattern**
+恢复匹配**正则表达式模式**的文件
 
 ```sudo btrfs restore --path-regex [regex] -c [path/to/btrfs_device] [path/to/target_directory]```
 
-Restore using a specific **root tree**
+使用指定的**根树**恢复
 
 ```sudo btrfs restore -t [bytenr] [path/to/btrfs_device] [path/to/target_directory]```
 
-Restore with **metadata, xattrs, and symlinks**
+恢复时包含**元数据、扩展属性和符号链接**
 
 ```sudo btrfs restore -m -x -S -o [path/to/btrfs_device] [path/to/target_directory]```
 
@@ -30,42 +30,42 @@ Restore with **metadata, xattrs, and symlinks**
 
 # DESCRIPTION
 
-**btrfs restore** attempts to salvage files from a damaged btrfs filesystem that cannot be mounted normally. It reads filesystem structures directly from the device and copies recoverable files to a target directory.
+**btrfs restore** 尝试从无法正常挂载的受损 btrfs 文件系统中抢救文件。它直接从设备读取文件系统结构，并将可恢复的文件复制到目标目录。
 
-This is a data recovery tool for when other methods fail. It does not repair the filesystem; it extracts data to a healthy location.
+这是一个在其他方法失败后使用的数据恢复工具。它不会修复文件系统，而是将数据提取到健康的位置。
 
 # PARAMETERS
 
 **-D, --dry-run**
-> List files without extracting
+> 仅列出文件而不提取
 
 **--path-regex** _regex_
-> Only restore files matching pattern
+> 只恢复匹配该模式的文件
 
 **-c**
-> Case-insensitive regex matching
+> 正则表达式匹配不区分大小写
 
 **-t** _bytenr_
-> Use specific root tree (see btrfs-find-root)
+> 使用指定的根树（参见 btrfs-find-root）
 
 **-m, --metadata**
-> Restore metadata (permissions, times)
+> 恢复元数据（权限、时间戳）
 
 **-x, --xattr**
-> Restore extended attributes
+> 恢复扩展属性
 
 **-S, --symlinks**
-> Restore symbolic links
+> 恢复符号链接
 
 **-o, --overwrite**
-> Overwrite existing files in target
+> 覆盖目标目录中已存在的文件
 
 **-v**
-> Verbose output
+> 详细输出
 
 # CAVEATS
 
-Does not fix the filesystem; only extracts data. May not recover all files from severely damaged filesystems. Regex must match full path including parent directories. Target directory should be on a different filesystem.
+不会修复文件系统，只提取数据。严重损坏的文件系统可能无法恢复全部文件。正则表达式必须匹配完整路径，包括父目录。目标目录应位于不同的文件系统上。
 
 # INSTALL
 

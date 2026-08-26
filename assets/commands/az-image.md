@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage custom virtual machine images in Azure
+管理 Azure 中的自定义虚拟机镜像
 
 # TLDR
 
-**Create a managed image** from a VM
+从虚拟机**创建托管镜像**
 
 ```az image create --name [MyImage] --resource-group [MyResourceGroup] --source [MyVM]```
 
-**Create an image** from a managed disk
+从托管磁盘**创建镜像**
 
 ```az image create --name [MyImage] --resource-group [MyResourceGroup] --os-disk [disk-id] --os-type [Linux]```
 
-**List all images** in a resource group
+**列出资源组中的所有镜像**
 
 ```az image list --resource-group [MyResourceGroup]```
 
-**Show details** of an image
+**显示**某个镜像的**详情**
 
 ```az image show --name [MyImage] --resource-group [MyResourceGroup]```
 
-**Update image tags**
+**更新镜像标签**
 
 ```az image update --name [MyImage] --resource-group [MyResourceGroup] --tags [env=prod]```
 
-**Delete an image**
+**删除镜像**
 
 ```az image delete --name [MyImage] --resource-group [MyResourceGroup]```
 
@@ -35,64 +35,64 @@ Manage custom virtual machine images in Azure
 # SUBCOMMANDS
 
 **copy**
-> Copy a managed image to other regions (requires extension).
+> 将托管镜像复制到其他区域（需要扩展）。
 
 **create**
-> Create a custom virtual machine image from managed disks or snapshots.
+> 从托管磁盘或快照创建自定义虚拟机镜像。
 
 **delete**
-> Delete an image.
+> 删除镜像。
 
 **list**
-> List images in a resource group or subscription.
+> 列出资源组或订阅中的镜像。
 
 **show**
-> Get information about an image.
+> 获取镜像的信息。
 
 **update**
-> Update custom VM images.
+> 更新自定义 VM 镜像。
 
 **wait**
-> Place the CLI in a waiting state until a condition is met.
+> 让 CLI 进入等待状态，直到满足条件。
 
 # PARAMETERS
 
 **--name** **-n**
-> The name of the image.
+> 镜像的名称。
 
 **--resource-group** **-g**
-> Name of resource group.
+> 资源组的名称。
 
 **--source**
-> Source VM, managed disk, or snapshot to create the image from.
+> 用于创建镜像的源虚拟机、托管磁盘或快照。
 
 **--os-disk**
-> Source managed disk for OS disk.
+> 作为 OS 磁盘的源托管磁盘。
 
 **--os-type**
-> Operating system type: Linux or Windows.
+> 操作系统类型：Linux 或 Windows。
 
 **--location** **-l**
-> Location for the image.
+> 镜像的位置。
 
 **--hyper-v-generation**
-> Hypervisor generation of the VM: V1 or V2.
+> 虚拟机的虚拟机监控程序代次：V1 或 V2。
 
 **--tags**
-> Space-separated tags: key[=value].
+> 空格分隔的标签：key[=value]。
 
 **--data-disk-sources**
-> Managed disks or snapshots for data disks.
+> 用作数据磁盘的托管磁盘或快照。
 
 # DESCRIPTION
 
-**az image** manages custom virtual machine images in Azure. Custom images can be created from generalized VMs, managed disks, or snapshots. These images can then be used to create new VMs with your custom configuration.
+**az image** 管理 Azure 中的自定义虚拟机镜像。自定义镜像可以从已通用化的虚拟机、托管磁盘或快照创建。之后可以用这些镜像创建带有自定义配置的新虚拟机。
 
-Custom images are different from marketplace images (managed via **az vm image**) as they contain your specific software and configurations.
+自定义镜像不同于市场镜像（通过 **az vm image** 管理），因为它们包含你特定的软件和配置。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated with **az login**. The source VM must be generalized (sysprep on Windows, waagent -deprovision on Linux) before creating an image. Images can only create VMs in the same region.
+需要安装 Azure CLI 并已通过 **az login** 完成身份验证。创建镜像前，源虚拟机必须已通用化（Windows 上运行 sysprep，Linux 上运行 waagent -deprovision）。镜像只能在同一区域创建虚拟机。
 
 # INSTALL
 

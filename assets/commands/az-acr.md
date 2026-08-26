@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure Container Registries
+管理 Azure 容器注册表
 
 # TLDR
 
-**Create a container registry**
+**创建容器注册表**
 
 ```az acr create -n [registry-name] -g [resource-group] --sku [Standard]```
 
-**Log in** to a registry
+**登录**到注册表
 
 ```az acr login -n [registry-name]```
 
-**List all registries** in the subscription
+**列出订阅中的所有注册表**
 
 ```az acr list -o table```
 
-**Build and push an image**
+**构建并推送镜像**
 
 ```az acr build -t [image:tag] -r [registry-name] [./source-directory]```
 
-**Import an image** from another registry
+从另一个注册表**导入镜像**
 
 ```az acr import -n [registry-name] --source [source-registry.azurecr.io/repo:tag]```
 
-**List repositories** in a registry
+**列出注册表中的仓库**
 
 ```az acr repository list -n [registry-name] -o table```
 
-**Show registry details**
+**显示注册表详情**
 
 ```az acr show -n [registry-name]```
 
-**Check registry health**
+**检查注册表健康状况**
 
 ```az acr check-health -n [registry-name]```
 
@@ -42,9 +42,9 @@ Manage Azure Container Registries
 
 # DESCRIPTION
 
-**az acr** manages Azure Container Registries (ACR), a private Docker registry service for storing and managing container images. ACR integrates with Azure Kubernetes Service, App Service, and other Azure services.
+**az acr** 管理 Azure 容器注册表（ACR），一种用于存储和管理容器镜像的私有 Docker 注册表服务。ACR 与 Azure Kubernetes Service、App Service 及其他 Azure 服务集成。
 
-The command group supports registry creation, image management, authentication, geo-replication, automated builds with ACR Tasks, and advanced features like artifact streaming and supply chain security.
+该命令组支持注册表创建、镜像管理、身份验证、异地复制、通过 ACR Tasks 进行自动构建，以及制品流式传输和供应链安全等高级功能。
 
 # SUBCOMMANDS
 
@@ -69,30 +69,30 @@ The command group supports registry creation, image management, authentication, 
 # PARAMETERS
 
 **-n, --name** _value_
-> Name of the container registry
+> 容器注册表的名称
 
 **-g, --resource-group** _value_
-> Name of the resource group
+> 资源组的名称
 
 **--sku** _value_
-> Registry SKU: Basic, Standard, or Premium
+> 注册表 SKU：Basic、Standard 或 Premium
 
 **--admin-enabled** _{true,false}_
-> Enable the admin user (username and password login). Disabled by default.
+> 启用管理员用户（用户名和密码登录）。默认禁用。
 
 **-t, --image** _value_
-> Image name and tag (name:tag format)
+> 镜像名称和标签（name:tag 格式）
 
 **-r, --registry** _value_
-> Registry name for build operations
+> 构建操作使用的注册表名称
 
 # CAVEATS
 
-Registry names must be globally unique and 5-50 characters. The **Premium** SKU is required for geo-replication and private endpoints. ACR Tasks pricing is based on compute time. Log in tokens expire after a period; use **az acr login** to refresh.
+注册表名称必须全局唯一，长度为 5-50 个字符。异地复制和专用终结点需要 **Premium** SKU。ACR Tasks 按计算时间计费。登录令牌会在一段时间后过期；使用 **az acr login** 刷新。
 
 # HISTORY
 
-Azure Container Registry launched in **2017** as a managed Docker registry service. It has expanded to support Helm charts, OCI artifacts, and integrated security scanning with Microsoft Defender for Cloud.
+Azure 容器注册表于 **2017** 年作为托管的 Docker 注册表服务推出。此后它扩展到支持 Helm chart、OCI 制品，并与 Microsoft Defender for Cloud 集成了安全扫描。
 
 # INSTALL
 

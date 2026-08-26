@@ -1,14 +1,14 @@
 # TAGLINE
 
-Rust debugger for Linux x86-64
+面向 Linux x86-64 的 Rust 调试器
 
 # TLDR
 
-**Debug** a Rust binary
+**调试** Rust 二进制程序
 
 ```bs [path/to/binary]```
 
-**Debug** with arguments
+带参数进行**调试**
 
 ```bs [path/to/binary] -- [arg1] [arg2]```
 
@@ -18,17 +18,17 @@ Rust debugger for Linux x86-64
 
 # DESCRIPTION
 
-**bugstalker** (binary name **bs**) is a debugger specifically designed for **Rust** programs on **Linux x86-64** systems. It provides a terminal user interface for debugging with Rust-aware features such as understanding Rust types, enums, and data structures natively.
+**bugstalker**（二进制名为 **bs**）是专为 **Linux x86-64** 系统上的 **Rust** 程序设计的调试器。它提供终端用户界面进行调试，并具备 Rust 感知能力，可原生理解 Rust 类型、枚举和数据结构。
 
-The debugger supports setting breakpoints, stepping through code, inspecting variables with Rust-specific formatting, viewing backtraces, and navigating through threads. Its TUI provides a source code view alongside debug controls.
+该调试器支持设置断点、单步执行代码、以 Rust 专属格式检查变量、查看回溯以及在多线程间导航。其 TUI 在调试控制旁提供源码视图。
 
 # CAVEATS
 
-Only supports **Linux x86-64** targets. Requires debug symbols in the binary (compile with `cargo build` without `--release`, or with `debug = true` in the release profile). Limited to Rust and C programs — not a general-purpose debugger for all languages.
+仅支持 **Linux x86-64** 目标。需要二进制文件中包含调试符号（用 `cargo build` 编译且不带 `--release`，或在 release profile 中设置 `debug = true`）。仅限于 Rust 和 C 程序——并非适用于所有语言的通用调试器。
 
 # HISTORY
 
-**bugstalker** was developed as a modern Rust-native debugging tool, aiming to provide a better debugging experience for Rust developers compared to using GDB or LLDB with Rust pretty-printers.
+**bugstalker** 作为一款现代的 Rust 原生调试工具而开发，旨在为 Rust 开发者提供比配合 pretty-printer 使用 GDB 或 LLDB 更好的调试体验。
 
 # INSTALL
 

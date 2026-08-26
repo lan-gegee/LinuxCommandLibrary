@@ -1,26 +1,26 @@
 # TAGLINE
 
-Dynamic tracing tool for Java applications
+Java 应用动态跟踪工具
 
 # TLDR
 
-**Trace method calls** in a running Java application
+在运行中的 Java 应用里**跟踪方法调用**
 
 ```btrace [pid] [script.java]```
 
-**Trace with classpath**
+**带类路径进行跟踪**
 
 ```btrace -cp [/path/to/classes] [pid] [script.java]```
 
-**Trace with unsafe mode** (allows more operations)
+**以不安全模式跟踪**（允许更多操作）
 
 ```btrace -u [pid] [script.java]```
 
-**Compile a BTrace script**
+**编译 BTrace 脚本**
 
 ```btracec [script.java]```
 
-**Run with debug output**
+**以调试输出运行**
 
 ```btrace -v [pid] [script.java]```
 
@@ -32,51 +32,51 @@ Dynamic tracing tool for Java applications
 
 # DESCRIPTION
 
-**BTrace** is a safe, dynamic tracing tool for the Java platform. It allows attaching tracing scripts to running Java applications without restarting them. BTrace scripts are written in Java with annotations defining trace points.
+**BTrace** 是一个面向 Java 平台的安全动态跟踪工具。它可以将跟踪脚本附加到运行中的 Java 应用上，而无需重启应用。BTrace 脚本用 Java 编写，并通过注解定义跟踪点。
 
-BTrace works by instrumenting bytecode of the target application. Scripts can intercept method entries, exits, exceptions, and other events. The tracing is designed to be safe, preventing scripts from modifying application state or causing deadlocks.
+BTrace 通过对目标应用的字节码插桩来工作。脚本可以拦截方法进入、退出、异常等事件。其跟踪机制在设计上注重安全，防止脚本修改应用状态或引发死锁。
 
-Common use cases include performance profiling, debugging production issues, monitoring method call patterns, and tracking memory allocations without application restarts.
+常见用例包括性能剖析、调试生产问题、监控方法调用模式，以及在不重启应用的情况下追踪内存分配。
 
 # PARAMETERS
 
 **pid**
-> Process ID of target Java application.
+> 目标 Java 应用的进程 ID。
 
 **script**
-> BTrace script file (.java).
+> BTrace 脚本文件（.java）。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **-u**
-> Unsafe mode (enables more operations).
+> 不安全模式（启用更多操作）。
 
 **-d** _path_
-> Dump instrumented classes to path.
+> 将插桩后的类转储到指定路径。
 
 **-pd** _path_
-> Probe descriptor search path.
+> 探针描述符搜索路径。
 
 **-cp** _classpath_
-> Classpath for script compilation.
+> 用于脚本编译的类路径。
 
 **-I** _path_
-> Preprocessor include path.
+> 预处理器包含路径。
 
 **-p** _port_
-> Agent server port.
+> 代理服务器端口。
 
 **-statsd** _host:port_
-> Send metrics to StatsD server.
+> 将指标发送到 StatsD 服务器。
 
 # CAVEATS
 
-Target JVM must have similar or compatible Java version. Some operations are restricted in safe mode to prevent application harm. Cannot trace native methods. May have performance overhead on high-frequency methods. Requires write access to target application's process.
+目标 JVM 的 Java 版本必须相近或兼容。为避免损害应用，安全模式限制了某些操作。无法跟踪本地方法。在高频调用的方法上可能带来性能开销。需要对目标应用进程的写权限。
 
 # HISTORY
 
-**BTrace** was created by **A. Sundararajan** at Sun Microsystems around **2007-2008** as a DTrace-inspired tool for Java. After Oracle's acquisition of Sun, the project became open source and community-maintained. It has been used extensively for production debugging and performance analysis of Java applications, filling a gap for dynamic instrumentation in the JVM ecosystem.
+**BTrace** 由 Sun Microsystems 的 **A. Sundararajan** 于 **2007-2008 年**前后创建，是一个受 DTrace 启发的 Java 工具。Oracle 收购 Sun 之后，该项目转为开源并由社区维护。它被广泛用于 Java 应用的生产环境调试和性能分析，填补了 JVM 生态中动态插桩的空白。
 
 # INSTALL
 

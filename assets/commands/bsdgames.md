@@ -1,115 +1,115 @@
 # TAGLINE
 
-Collection of classic BSD Unix text-based games
+源自经典 BSD Unix 的文本游戏合集
 
 # TLDR
 
-**Play the Colossal Cave text adventure**
+游玩巨洞冒险文字游戏
 
 ```bsdgames-adventure```
 
-**Play Tetris clone**
+玩俄罗斯方块克隆版
 
 ```tetris-bsd```
 
-**Play Snake game**
+玩贪吃蛇
 
 ```snake```
 
-**Play Worm (snake variant)**
+玩 Worm（贪吃蛇变体）
 
 ```worm```
 
-**Play hangman**
+玩猜单词（hangman）
 
 ```hangman```
 
-**Play text-based dungeon crawler**
+玩文字地牢探险
 
 ```hack```
 
-**Play backgammon against computer**
+与计算机对弈双陆棋
 
 ```backgammon```
 
-**Show the answer to "wtf"** (abbreviation lookup)
+**查询 "wtf" 缩写的含义**（缩写查询）
 
 ```wtf [lol]```
 
 # INCLUDED GAMES
 
 **bsdgames-adventure**
-> Classic Colossal Cave text adventure (renamed from **adventure** to avoid clashes).
+> 经典的 Colossal Cave 文字冒险游戏（从 **adventure** 更名以避免命名冲突）。
 
 **tetris-bsd**
-> Terminal-based Tetris clone.
+> 终端版俄罗斯方块克隆。
 
 **snake** / **worm**
-> Classic snake games.
+> 经典贪吃蛇游戏。
 
 **hangman**
-> Word guessing game.
+> 猜单词游戏。
 
 **hack**
-> Precursor to NetHack roguelike.
+> NetHack 类 Rogue 游戏的前身。
 
 **backgammon**
-> Classic board game.
+> 经典双陆棋。
 
 **battlestar**
-> Space-themed text adventure.
+> 太空题材的文字冒险游戏。
 
 **boggle**
-> Word search puzzle game.
+> 找词拼图游戏。
 
 **canfield** / **cribbage**
-> Card games.
+> 纸牌游戏。
 
 **gomoku**
-> Five-in-a-row strategy game.
+> 五子棋策略游戏。
 
 **mille**
-> Card-based racing game.
+> 纸牌赛车游戏。
 
 **phantasia**
-> Multiplayer fantasy game.
+> 多人奇幻游戏。
 
 **quiz**
-> Educational trivia game.
+> 教育问答游戏。
 
 **robots**
-> Strategy game escaping from robots.
+> 躲避机器人的策略游戏。
 
 **sail**
-> Age of sail naval combat.
+> 帆船时代的海战游戏。
 
 **trek**
-> Star Trek themed strategy game.
+> 星际迷航主题的策略游戏。
 
 **wtf**
-> Look up common internet abbreviations.
+> 查询常见的网络缩写。
 
 **wargames**
-> Nod to the 1983 film; prints a classic prompt on launch.
+> 致敬 1983 年同名电影；启动时打印一句经典提示语。
 
 **morse**, **caesar**, **rot13**, **primes**, **arithmetic**, **bcd**, **ppt**
-> Classic tiny Unix utilities shipped alongside the games.
+> 随游戏一同提供的经典小型 Unix 工具。
 
 # DESCRIPTION
 
-**bsdgames** is a collection of classic text-based games originating from BSD Unix systems. These games represent decades of Unix gaming history, ranging from the earliest text adventures to terminal-based arcade games.
+**bsdgames** 是一组源自 BSD Unix 系统的经典文本游戏合集。这些游戏承载了数十年的 Unix 游戏历史，从最早的文字冒险到终端街机游戏，应有尽有。
 
-The collection includes puzzle games, card games, board games, text adventures, and action games - all playable in a terminal. Many influenced later games: Adventure pioneered interactive fiction, Hack led to NetHack and roguelikes, and Worm was an early snake game.
+该合集包含解谜、纸牌、棋盘、文字冒险和动作游戏——全部可以在终端中游玩。其中许多影响了后来的游戏：Adventure 开创了互动小说，Hack 催生了 NetHack 和类 Rogue 游戏，Worm 则是早期的贪吃蛇游戏。
 
-Games typically use keyboard controls and ASCII graphics. Most include built-in help accessible via **?** or man pages. Configuration and high scores are often stored in the user's home directory.
+这些游戏通常使用键盘操作和 ASCII 图形。大多数游戏可通过 **?** 或 man 页面访问内置帮助。配置和高分记录通常保存在用户主目录中。
 
 # CAVEATS
 
-Some games require a capable terminal emulator. Multiplayer games may not work without additional configuration. The exact games included vary by distribution packaging. Some games have different names on different systems (tetris vs tetris-bsd).
+部分游戏需要功能完备的终端模拟器。多人游戏在缺少额外配置时可能无法运行。具体收录的游戏因发行版打包而异。有些游戏在不同系统上名称不同（tetris 与 tetris-bsd）。
 
 # HISTORY
 
-The BSD games collection evolved alongside Unix at **UC Berkeley** from the **1970s** onward. Many games were contributed by students and staff, becoming part of BSD Unix distributions. The collection represents a snapshot of early computer gaming when terminals were the primary interface. These games were open source before the term existed and have been preserved by the Linux community.
+BSD 游戏合集自 **1970** 年代起随 Unix 在 **UC Berkeley** 一同演进。许多游戏由学生和教职员贡献，成为 BSD Unix 发行版的一部分。该合集记录了终端作为主要交互界面时代早期计算机游戏的样貌。这些游戏早在"开源"一词出现之前就已开放源码，并由 Linux 社区保存至今。
 
 # INSTALL
 

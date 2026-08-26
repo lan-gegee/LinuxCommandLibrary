@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run a dedicated multiplayer game server.
+运行专用多人游戏服务器。
 
 # TLDR
 
-**Start** the dedicated server in the foreground
+在前台**启动**专用服务器
 
 ```[path/to]/DedicatedServer```
 
-**Run on a custom port** (configured in serversettings.xml beforehand)
+在自定义端口上**运行**（需事先在 serversettings.xml 中配置）
 
 ```[path/to]/DedicatedServer -port [27015]```
 
-**Install or update** the server via SteamCMD
+通过 SteamCMD **安装或更新**服务器
 
 ```steamcmd +login anonymous +app_update [1026340] validate +quit```
 
@@ -22,28 +22,28 @@ Run a dedicated multiplayer game server.
 
 # DESCRIPTION
 
-**DedicatedServer** is the headless game server distributed by **Undertow Games** for **Barotrauma**, a 2D co-op submarine survival game set on Jupiter's moon Europa. The binary listens for incoming player connections, runs the simulation, and acts as the authoritative host for round state.
+**DedicatedServer** 是 **Undertow Games** 为 **Barotrauma** 发行的无头游戏服务器；Barotrauma 是一款设定在木星卫星欧罗巴上的 2D 合作潜艇生存游戏。该二进制程序监听玩家连接、运行模拟，并充当回合状态的权威主机。
 
-Server behaviour is driven almost entirely by **serversettings.xml** in the game directory: player slot count, password, allowed mods, game mode (campaign, sandbox, mission, PvP), and karma settings. Workshop content downloaded by the server lives under **WorkshopMods/**. The server can also be controlled at runtime through the in-game console (commands prefixed with **/**).
+服务器行为几乎完全由游戏目录中的 **serversettings.xml** 驱动：玩家槽位数、密码、允许的模组、游戏模式（战役、沙盒、任务、PvP）以及 karma 设置。服务器下载的创意工坊内容位于 **WorkshopMods/** 下。还可以在运行时通过游戏内控制台（以 **/** 为前缀的命令）控制服务器。
 
 # CONFIGURATION
 
 **serversettings.xml**
-> Main server configuration file. Controls game settings, player slots, password, allowed mods, and most runtime parameters.
+> 主服务器配置文件。控制游戏设置、玩家槽位、密码、允许的模组以及大多数运行时参数。
 
 **config_player.xml**
-> Server-side player configuration (admin list, banned IPs are persisted alongside).
+> 服务器端玩家配置（管理员列表、被封禁 IP 也保存在此）。
 
 **servermessages.txt**
-> Optional rotating message-of-the-day file shown to connecting players.
+> 可选的每日轮播消息文件，向连接的玩家显示。
 
 # CAVEATS
 
-Requires the Barotrauma dedicated server files (Steam app ID **1026340**). Settings must be authored before launch; the server does not currently expose a rich CLI. Internet-facing deployments need UDP port forwarding for the configured port (default **27015**) and may require Steam authentication for clients to join.
+需要 Barotrauma 专用服务器文件（Steam 应用 ID **1026340**）。设置必须在启动前编写完成；目前服务器没有提供丰富的 CLI。面向互联网的部署需要对配置端口（默认 **27015**）进行 UDP 端口转发，客户端加入时可能还需要 Steam 认证。
 
 # HISTORY
 
-**Barotrauma** was released for early access in **2019** and reached version **1.0** in **2023**. The dedicated server binary has shipped alongside the game client throughout the game's life and is freely redistributable through Steam.
+**Barotrauma** 于 **2019** 年开启抢先体验，并于 **2023** 年达到 **1.0** 版本。专用服务器二进制程序在整个游戏生命周期中都与游戏客户端一同发行，并可通过 Steam 自由再分发。
 
 # SEE ALSO
 

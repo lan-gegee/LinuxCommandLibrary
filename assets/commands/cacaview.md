@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display images as ASCII art in the terminal
+在终端中将图片显示为 ASCII 艺术
 
 # TLDR
 
-Display an **image** as ASCII art
+将**图片**显示为 ASCII 艺术
 
 ```cacaview [path/to/image]```
 
@@ -14,32 +14,32 @@ Display an **image** as ASCII art
 
 # DESCRIPTION
 
-**cacaview** displays images in the terminal as ASCII art using the libcaca library. It converts image files into colored text characters for viewing in text-mode environments.
+**cacaview** 使用 libcaca 库在终端中以 ASCII 艺术形式显示图片。它将图像文件转换为彩色文本字符，以便在文本模式环境中查看。
 
-The viewer supports navigation and zooming within the displayed image.
+该查看器支持在显示的图像内导航和缩放。
 
 # KEY BINDINGS
 
-**n** / **p** or **PageDown** / **PageUp**
-> Next / previous image.
+**n** / **p** 或 **PageDown** / **PageUp**
+> 下一张 / 上一张图片。
 
 **+** / **-**
-> Zoom in / out.
+> 放大 / 缩小。
 
 **x**
-> Reset the view.
+> 重置视图。
 
 **f**
-> Toggle fullscreen.
+> 切换全屏。
 
 **d**
-> Cycle dithering mode.
+> 切换抖动（dithering）模式。
 
 **a**
-> Cycle antialiasing mode.
+> 切换抗锯齿模式。
 
-**q** or **Esc**
-> Quit.
+**q** 或 **Esc**
+> 退出。
 
 # INSTALL
 

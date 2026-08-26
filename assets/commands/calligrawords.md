@@ -1,14 +1,14 @@
 # TAGLINE
 
-Word processor from Calligra suite
+Calligra 套件中的文字处理应用
 
 # TLDR
 
-**Launch Calligra Words**
+**启动 Calligra Words**
 
 ```calligrawords```
 
-**Open a document file**
+**打开**文档文件
 
 ```calligrawords [document.odt]```
 
@@ -18,9 +18,9 @@ Word processor from Calligra suite
 
 # DESCRIPTION
 
-**calligrawords** is a word processor from the Calligra office suite. It provides document creation and editing with support for styles, tables, images, and advanced formatting.
+**calligrawords** 是 Calligra 办公套件中的文字处理应用。它支持创建和编辑文档，包括样式、表格、图片和高级排版。
 
-The application uses ODF (Open Document Format) and is comparable to Microsoft Word or LibreOffice Writer.
+该应用使用 ODF（开放文档格式），可与 Microsoft Word 或 LibreOffice Writer 相媲美。
 
 # INSTALL
 

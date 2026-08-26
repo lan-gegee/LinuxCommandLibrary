@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert BMP images to PNM format
+将 BMP 图像转换为 PNM 格式
 
 # TLDR
 
-**Convert a BMP image** to PNM format
+**将 BMP 图像转换**为 PNM 格式
 
 ```bmptopnm [image.bmp] > [output.pnm]```
 
-**Convert from stdin** to stdout
+**从 stdin 转换**到 stdout
 
 ```cat [image.bmp] | bmptopnm > [output.pnm]```
 
-**Convert BMP to PNG** via pipe
+通过管道**将 BMP 转换为 PNG**
 
 ```bmptopnm [image.bmp] | pnmtopng > [output.png]```
 
@@ -23,17 +23,17 @@ Convert BMP images to PNM format
 # PARAMETERS
 
 **-verbose**
-> Print additional information about the input file.
+> 输出关于输入文件的额外信息。
 
 # DESCRIPTION
 
-**bmptopnm** reads a Microsoft Windows or OS/2 BMP file as input and produces a PNM (Portable aNyMap) image as output. The output format (PBM, PGM, or PPM) depends on the input: grayscale images produce PGM, color images produce PPM, and monochrome images produce PBM.
+**bmptopnm** 读取 Microsoft Windows 或 OS/2 的 BMP 文件作为输入，并输出 PNM（Portable aNyMap）图像。输出格式（PBM、PGM 或 PPM）取决于输入内容：灰度图像生成 PGM，彩色图像生成 PPM，单色图像生成 PBM。
 
-This is part of the Netpbm package of image manipulation utilities. Input can be from a file or standard input; output is to standard output.
+它是 Netpbm 图像处理实用工具包的一部分。输入可以来自文件或标准输入；输出到标准输出。
 
 # CAVEATS
 
-Some BMP variants may not be fully supported. For compressed BMP files, decompression is handled automatically for RLE-encoded images. Very old or non-standard BMP formats may cause errors.
+某些 BMP 变体可能不受完全支持。对于压缩的 BMP 文件，RLE 编码的图像会自动解压。非常老旧或非标准的 BMP 格式可能导致错误。
 
 # INSTALL
 

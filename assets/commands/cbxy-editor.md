@@ -1,22 +1,22 @@
 # TAGLINE
 
-Browser UI to create or edit comic panel boxes
+用于创建或编辑漫画分格框的浏览器界面
 
 # TLDR
 
-**Edit panel boxes** for a comic in the browser
+**在浏览器中编辑**漫画的分格框
 
 ```cbxy-editor [path/to/book.cbz]```
 
-**Bind** to a specific host and port
+**绑定**到指定的主机和端口
 
 ```cbxy-editor [path/to/book.cbz] --host [127.0.0.1] --port [8766]```
 
-**Do not open** a browser window automatically
+**不自动打开**浏览器窗口
 
 ```cbxy-editor [path/to/book.cbz] --no-open```
 
-**Install** the cbxy tools
+**安装** cbxy 工具
 
 ```pip install cbxy```
 
@@ -26,31 +26,31 @@ Browser UI to create or edit comic panel boxes
 
 # DESCRIPTION
 
-**cbxy-editor** starts a local web UI to create or correct panel rectangles and save a **.cbxy** sidecar beside the comic. Use it after automatic detection with **cbxy-detect**, or to author panel geometry from scratch. Coordinates are stored as normalized page fractions in per-page JSON inside the **.cbxy** ZIP.
+**cbxy-editor** 启动一个本地 Web 界面，用于创建或修正分格矩形，并在漫画旁保存 **.cbxy** 伴随文件。可在用 **cbxy-detect** 完成自动检测之后使用，也可以用来从头编写分格几何信息。坐标以归一化的页面比例存储在 **.cbxy** ZIP 内按页组织的 JSON 中。
 
-Input can be a **.cbz**, **.cbr**, an image folder, or a single page image. Default bind address is **127.0.0.1** on port **8766** (distinct from **cbxy-reader**'s default **8765**). Part of the **cbxy** Python package.
+输入可以是 **.cbz**、**.cbr**、图片文件夹或单页图片。默认绑定地址为端口 **8766** 上的 **127.0.0.1**（与 **cbxy-reader** 默认的 **8765** 不同）。属于 **cbxy** Python 软件包的一部分。
 
 # PARAMETERS
 
 _comic_
-> Path to a **.cbz**, **.cbr**, image folder, or single page image.
+> **.cbz**、**.cbr**、图片文件夹或单页图片的路径。
 
 **--host** _address_
-> Bind address (default: **127.0.0.1**).
+> 绑定地址（默认：**127.0.0.1**）。
 
 **--port** _port_
-> Listen port (default: **8766**).
+> 监听端口（默认：**8766**）。
 
 **--no-open**
-> Do not open a browser window automatically.
+> 不自动打开浏览器窗口。
 
 # CAVEATS
 
-The editor is a local browser UI, not a headless batch tool—use **cbxy-detect** for automated pipelines. Binding beyond loopback exposes the editor on the network. Saved **.cbxy** files should stay paired with the matching comic archive for **cbxy-reader** guided mode.
+该编辑器是本地浏览器界面，不是无头批处理工具——自动化流水线请使用 **cbxy-detect**。绑定到回环地址之外会将编辑器暴露在网络中。保存的 **.cbxy** 文件应始终与对应的漫画归档配对存放，以便 **cbxy-reader** 的引导模式使用。
 
 # HISTORY
 
-**cbxy** is a Python reference implementation of a comic panel geometry sidecar format by **ngafar**, published under the MIT license with **cbxy-detect**, **cbxy-reader**, and **cbxy-editor**.
+**cbxy** 是由 **ngafar** 编写的漫画分格几何伴随格式的 Python 参考实现，以 MIT 许可证发布，包含 **cbxy-detect**、**cbxy-reader** 和 **cbxy-editor**。
 
 # SEE ALSO
 

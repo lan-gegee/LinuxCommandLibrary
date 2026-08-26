@@ -1,22 +1,22 @@
 # TAGLINE
 
-High-performance file compressor with improved ratios over bzip2
+高性能文件压缩器，压缩比优于 bzip2
 
 # TLDR
 
-**Compress** file
+**压缩**文件
 
 ```bzip3 [file.txt]```
 
-**Decompress** file
+**解压**文件
 
 ```bzip3 -d [file.txt.bz3]```
 
-**Keep** original file
+**保留**原文件
 
 ```bzip3 -k [file.txt]```
 
-**Set** block size
+**设置**块大小
 
 ```bzip3 -b [256] [file.txt]```
 
@@ -26,41 +26,41 @@ High-performance file compressor with improved ratios over bzip2
 
 # DESCRIPTION
 
-**bzip3** is a compression tool offering better compression ratios than bzip2, gzip, and zstd while maintaining reasonable speed. It uses a more modern algorithm than bzip2 with improved performance.
+**bzip3** 是一款压缩工具，压缩比优于 bzip2、gzip 和 zstd，同时保持合理的速度。它使用比 bzip2 更现代的算法，性能有所提升。
 
-The tool is backward incompatible with bzip2 but provides significantly better compression for most data types.
+该工具与 bzip2 向后不兼容，但对大多数数据类型能提供显著更好的压缩效果。
 
 # PARAMETERS
 
 **-d**, **--decompress**
-> Decompress file
+> 解压文件
 
 **-k**, **--keep**
-> Keep original files
+> 保留原始文件
 
 **-f**, **--force**
-> Overwrite existing files
+> 覆盖已存在的文件
 
 **-c**, **--stdout**
-> Write to standard output
+> 写入标准输出
 
 **-b**, **--block** _size_
-> Block size in MiB (1-511, default 16)
+> 块大小，单位为 MiB（1-511，默认 16）
 
 **-j**, **--jobs** _n_
-> Number of threads
+> 线程数
 
 **-v**, **--verbose**
-> Verbose mode
+> 详细输出模式
 
 # FEATURES
 
-- Better compression than bzip2
-- Multi-threaded compression
-- Configurable block sizes
-- Fast decompression
-- Low memory usage
-- Modern algorithm
+- 压缩比优于 bzip2
+- 多线程压缩
+- 可配置的块大小
+- 解压速度快
+- 内存占用低
+- 现代算法
 
 # WORKFLOW
 
@@ -84,20 +84,20 @@ bzip3 -b 128 file.txt
 
 # COMPARISON
 
-Typical compression ratios:
-- **bzip3** - Best
-- **xz/lzma** - Excellent but slower
-- **bzip2** - Good
-- **gzip** - Moderate but fast
-- **lz4** - Fast but lower compression
+典型压缩比：
+- **bzip3** - 最佳
+- **xz/lzma** - 极佳但较慢
+- **bzip2** - 良好
+- **gzip** - 中等但快速
+- **lz4** - 快速但压缩率较低
 
 # CAVEATS
 
-Not compatible with bzip2 (.bz2 files). Less widely supported than gzip/bzip2. Relatively new (may have bugs). Not installed by default on most systems. Some features require recent versions.
+与 bzip2（.bz2 文件）不兼容。支持范围不如 gzip/bzip2 广泛。相对较新（可能存在 bug）。大多数系统默认不安装。部分功能需要较新版本。
 
 # HISTORY
 
-**bzip3** was created by Kamila Szewczyk in **2022** as a modern successor to bzip2, using improved algorithms for better compression.
+**bzip3** 由 Kamila Szewczyk 于 **2022** 年创建，作为 bzip2 的现代化后继者，采用改进的算法以获得更好的压缩效果。
 
 # INSTALL
 

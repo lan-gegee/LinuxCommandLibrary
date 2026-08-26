@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI personal finance manager for ledger journals
+面向 ledger 账本的 TUI 个人财务管理器
 
 # TLDR
 
-**Launch** with a ledger file
+**以账本文件启动**
 
 ```cashd [path/to/journal.ledger]```
 
-**Launch** with default journal
+**以默认账本启动**
 
 ```cashd```
 
@@ -18,13 +18,13 @@ TUI personal finance manager for ledger journals
 
 # DESCRIPTION
 
-**cashd** is a terminal user interface for personal finance management that works with **ledger**-format plain-text accounting journals. It provides an interactive interface for viewing accounts, balances, and transactions stored in double-entry bookkeeping format.
+**cashd** 是一个用于个人财务管理的终端用户界面，配合 **ledger** 格式的纯文本记账账本使用。它提供交互式界面，用于查看以复式记账格式存储的账户、余额和交易。
 
-The TUI displays account hierarchies, transaction lists, and balance summaries. Users can navigate through accounts and time periods to analyze their financial data. The underlying data format is compatible with **ledger**, **hledger**, and other plain-text accounting tools.
+该 TUI 显示账户层级、交易列表和余额汇总。用户可以在账户和时间周期之间导航来分析自己的财务数据。底层数据格式与 **ledger**、**hledger** 及其他纯文本记账工具兼容。
 
 # CAVEATS
 
-Expects journal files in ledger-compatible format. Does not provide transaction entry — use a text editor or ledger CLI to add new transactions. Complex ledger features like automated transactions or commodity conversions may not be fully supported in the TUI view.
+要求账本文件采用 ledger 兼容格式。不提供交易录入功能——请使用文本编辑器或 ledger CLI 添加新交易。自动交易或商品换算等复杂的 ledger 特性在 TUI 视图中可能不受完整支持。
 
 # SEE ALSO
 

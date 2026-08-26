@@ -1,34 +1,34 @@
 # TAGLINE
 
-Natural language interface for the command line
+命令行的自然语言界面
 
 # TLDR
 
-**Ask Betty a question**
+**向 Betty 提问**
 
 ```betty [whats my username]```
 
-**Count words in directory**
+**统计目录中的字数**
 
 ```betty [how many words are in this directory]```
 
-**Find files containing text**
+**查找包含文本的文件**
 
 ```betty [find me all files that contain california]```
 
-**Check current time**
+**查看当前时间**
 
 ```betty [what time is it]```
 
-**Count lines in file**
+**统计文件行数**
 
 ```betty [count lines in myfile.txt]```
 
-**Compress files**
+**压缩文件**
 
 ```betty [compress this directory]```
 
-**Download file**
+**下载文件**
 
 ```betty [download https://example.com/file.zip]```
 
@@ -38,36 +38,36 @@ Natural language interface for the command line
 
 # DESCRIPTION
 
-**betty** is a friendly English-like interface for the command line, written in Ruby. It translates natural language phrases into executable commands so you do not have to leave the terminal to look up obscure syntax. When you forget a command, ask Betty in plain English.
+**betty** 是一个友好的类英语命令行接口，使用 Ruby 编写。它将自然语言短语翻译成可执行的命令，让你不必离开终端去查询晦涩的语法。当你忘记某个命令时，直接用平实的英语问 Betty 即可。
 
-Betty displays the command it inferred before running it. If multiple interpretations exist, it presents numbered options and asks you to select the appropriate one, providing learning opportunities along the way.
+Betty 会在运行前显示它推断出的命令。如果存在多种解释，它会给出带编号的选项并请你选择合适的一项，在此过程中也提供了学习机会。
 
 # CAPABILITIES
 
-**File operations**
-> Find, count, compress, decompress files
+**文件操作**
+> 查找、计数、压缩、解压文件
 
-**System queries**
-> Username, real name, IP address, date/time, disk usage
+**系统查询**
+> 用户名、真实姓名、IP 地址、日期/时间、磁盘用量
 
-**Process management**
-> List, find, kill processes
+**进程管理**
+> 列出、查找、杀死进程
 
-**Text processing**
-> Count words, lines, characters
+**文本处理**
+> 统计单词数、行数、字符数
 
-**Networking**
-> Download files, web queries, weather
+**网络**
+> 下载文件、网页查询、天气
 
-**Permissions**
-> Change file ownership and permissions
+**权限**
+> 更改文件所有者和权限
 
-**Media control**
-> Control iTunes and Spotify (play, pause, next track)
+**媒体控制**
+> 控制 iTunes 和 Spotify（播放、暂停、下一曲）
 
 # INSTALLATION
 
-Requires Ruby. Clone the repository and run the installer (or add the alias manually).
+需要 Ruby。克隆仓库并运行安装器（或手动添加别名）。
 
 ```
 git clone https://github.com/pickhardt/betty
@@ -79,7 +79,7 @@ source ~/.bashrc
 
 # CAVEATS
 
-Requires Ruby runtime. Limited to predefined command patterns. Not suitable for complex or unusual commands.
+需要 Ruby 运行时。仅限于预定义的命令模式。不适合复杂或非常规的命令。
 
 # INSTALL
 

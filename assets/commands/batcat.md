@@ -1,36 +1,36 @@
 # TAGLINE
 
-Debian/Ubuntu name for the bat file viewer
+bat 文件查看器在 Debian/Ubuntu 上的名称
 
 # TLDR
 
-> On Debian and Ubuntu the **bat** binary is installed as **batcat**. All options below are **bat** options.
+> 在 Debian 和 Ubuntu 上，**bat** 二进制文件安装为 **batcat**。以下所有选项均为 **bat** 的选项。
 
-**Print** a file with syntax highlighting and line numbers
+**打印**文件并显示语法高亮和行号
 
 ```batcat [path/to/file]```
 
-**Concatenate** multiple files (like **cat**)
+**拼接**多个文件（类似 **cat**）
 
 ```batcat [file1] [file2]```
 
-**Print** without decorations (no line numbers, headers, or grid)
+**打印**纯文本（无行号、文件头或边框）
 
 ```batcat --plain [path/to/file]```
 
-**Show** non-printable characters
+**显示**不可打印字符
 
 ```batcat --show-all [path/to/file]```
 
-**Highlight** a specific line range
+**高亮**指定的行范围
 
 ```batcat --line-range [40:60] [path/to/file]```
 
-**Force** a language for highlighting
+**强制**指定高亮语言
 
 ```batcat --language [json] [path/to/file]```
 
-**Make** the bat alias permanent in your shell config
+**让** bat 别名在你的 Shell 配置中永久生效
 
 ```alias bat=batcat```
 
@@ -40,27 +40,27 @@ Debian/Ubuntu name for the bat file viewer
 
 # DESCRIPTION
 
-**batcat** is the command name used by the **bat** binary on Debian and Ubuntu. The package ships the program as **batcat** because the name **bat** is already taken by the unrelated **bacula-console-qt** package. Functionally it is identical to **bat**: a **cat** clone with syntax highlighting, Git integration, automatic paging, and file headers.
+**batcat** 是 **bat** 二进制程序在 Debian 和 Ubuntu 上使用的命令名。该软件包以 **batcat** 的名义发布此程序，因为 **bat** 这个名字已被无关的 **bacula-console-qt** 软件包占用。其功能与 **bat** 完全相同：一个支持语法高亮、Git 集成、自动分页和文件头的 **cat** 克隆。
 
-Many distributions other than Debian/Ubuntu install it as **bat**. To use the **bat** name on Debian-based systems, add `alias bat=batcat` to your shell configuration, or create a symlink such as `~/.local/bin/bat`.
+除 Debian/Ubuntu 外的许多发行版都将其安装为 **bat**。要在基于 Debian 的系统上使用 **bat** 这个名字，可以在 Shell 配置中添加 `alias bat=batcat`，或创建诸如 `~/.local/bin/bat` 的符号链接。
 
-See **bat** for the full set of options and configuration. Common flags include **-p**/**--plain**, **-A**/**--show-all**, **-n**/**--number**, **--language**, **--theme**, **--style**, **--paging**, **--line-range**, and **--diff**.
+完整选项和配置请参阅 **bat**。常用选项包括 **-p**/**--plain**、**-A**/**--show-all**、**-n**/**--number**、**--language**、**--theme**、**--style**、**--paging**、**--line-range** 和 **--diff**。
 
 # ENVIRONMENT
 
 **BAT_THEME**
-> Default syntax-highlighting theme.
+> 默认语法高亮主题。
 
 **BAT_PAGER**
-> Pager command used by bat (defaults to **less**).
+> bat 使用的分页器命令（默认为 **less**）。
 
 **BAT_STYLE**
-> Default value for the **--style** option.
+> **--style** 选项的默认值。
 
 # CONFIGURATION
 
 **~/.config/bat/config**
-> Default command-line options applied automatically. Shared with bat. Run `batcat --config-file` to print the active path.
+> 自动应用的默认命令行选项。与 bat 共用。运行 `batcat --config-file` 可查看当前生效的路径。
 
 # INSTALL
 

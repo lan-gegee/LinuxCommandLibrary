@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal-based resource monitor with graphs
+带图表的终端资源监视器
 
 # TLDR
 
-**Start** resource monitor
+**启动**资源监视器
 
 ```bpytop```
 
-**Start** with a low update interval (milliseconds)
+以较低更新间隔（毫秒）**启动**
 
 ```bpytop --update [1000]```
 
-**Force** the TTY-friendly box-drawing mode
+**强制**使用对 TTY 友好的制表符边框模式
 
 ```bpytop --low-color```
 
-**Open** the in-app help
+**打开**应用内帮助
 
 ```bpytop --help```
 
@@ -26,53 +26,53 @@ Terminal-based resource monitor with graphs
 
 # DESCRIPTION
 
-**bpytop** is a resource monitor written in Python showing CPU, memory, disks, network, and processes in a visually appealing terminal UI. It's a Python rewrite of bashtop with improved performance and additional features.
+**bpytop** 是一款用 Python 编写的资源监视器，以美观的终端界面显示 CPU、内存、磁盘、网络和进程信息。它是 bashtop 的 Python 重写版，性能更佳且功能更多。
 
-The tool provides comprehensive system monitoring with mouse support and customizable themes.
+该工具提供全面的系统监控，支持鼠标操作和可自定义的主题。
 
 # FEATURES
 
-- CPU usage per core with graphs
-- Memory and swap statistics
-- Disk I/O and usage
-- Network bandwidth monitoring
-- Process management
-- Mouse support
-- Customizable themes
-- Configuration menu (ESC)
-- Process filtering and sorting
-- Tree view for processes
+- 每个 CPU 核心的使用率图表
+- 内存与交换分区统计
+- 磁盘 I/O 和空间占用
+- 网络带宽监控
+- 进程管理
+- 鼠标支持
+- 可自定义主题
+- 配置菜单（ESC）
+- 进程过滤和排序
+- 进程树视图
 
 # INTERFACE SECTIONS
 
 **CPU**
-> Usage graphs per core, temperature
+> 每个核心的使用率图表、温度。
 
 **Memory**
-> RAM and swap with graphs
+> RAM 和交换分区及图表。
 
 **Disks**
-> I/O activity and space usage
+> I/O 活动和空间占用。
 
 **Network**
-> Bandwidth by interface
+> 按接口统计的带宽。
 
 **Processes**
-> Detailed process list
+> 详细的进程列表。
 
 # KEYBINDINGS
 
-- **ESC** - Configuration menu
-- **q** - Quit
-- **f** - Filter processes
-- **t** - Tree view toggle
-- **+/-** - Adjust update speed
-- **Mouse** - Click to interact
-- **Arrow keys** - Navigate
+- **ESC** - 配置菜单
+- **q** - 退出
+- **f** - 过滤进程
+- **t** - 切换树视图
+- **+/-** - 调整更新速度
+- **Mouse** - 点击交互
+- **Arrow keys** - 导航
 
 # THEMES
 
-Built-in themes:
+内置主题：
 - Default
 - Default-light
 - Gruvbox dark/light
@@ -82,15 +82,15 @@ Built-in themes:
 # CONFIGURATION
 
 **~/.config/bpytop/bpytop.conf**
-> Main configuration file for themes, update interval, process sorting, and display options.
+> 主配置文件，控制主题、更新间隔、进程排序和显示选项。
 
 # CAVEATS
 
-Requires Python 3.6+. Higher CPU usage than native tools. Superseded by btop++ (C++ rewrite). May not show all metrics on all systems. GPU monitoring limited.
+需要 Python 3.6+。CPU 占用高于原生工具。已被 btop++（C++ 重写版）取代。并非所有系统都能显示所有指标。GPU 监控功能有限。
 
 # HISTORY
 
-**bpytop** was created by Jakob P. Liljenberg (aristocratos) in **2020** as a Python rewrite of bashtop. The same author later began btop++ (a C++ rewrite, btop) in **2021**, which is now the actively developed successor; bpytop receives little ongoing development.
+**bpytop** 由 Jakob P. Liljenberg（aristocratos）于 **2020 年**创建，是 bashtop 的 Python 重写版。同一作者后来在 **2021 年**开始开发 btop++（C++ 重写版，即 btop），它现在是积极开发的继任者；bpytop 基本不再更新。
 
 # INSTALL
 

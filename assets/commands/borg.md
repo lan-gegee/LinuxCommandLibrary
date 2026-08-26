@@ -1,38 +1,38 @@
 # TAGLINE
 
-Deduplicating backup with compression and encryption
+支持压缩和加密的去重备份工具
 
 # TLDR
 
-**Initialize** repository
+**初始化**仓库
 
 ```borg init --encryption=[repokey] [/path/to/repo]```
 
-**Create** backup
+**创建**备份
 
 ```borg create [/path/to/repo::backup-{now}] [/path/to/data]```
 
-**List** archives
+**列出**归档
 
 ```borg list [/path/to/repo]```
 
-**Extract** backup
+**解压**备份
 
 ```borg extract [/path/to/repo::backup-name]```
 
-**Check** repository
+**检查**仓库
 
 ```borg check [/path/to/repo]```
 
-**Prune** old backups
+**修剪**旧备份
 
 ```borg prune --keep-daily [7] --keep-weekly [4] [/path/to/repo]```
 
-**Compact** the repository to actually free pruned space
+**压缩整理**仓库以真正释放被修剪的空间
 
 ```borg compact [/path/to/repo]```
 
-**Mount** an archive to browse it as a filesystem
+**挂载**归档以便像文件系统一样浏览
 
 ```borg mount [/path/to/repo::backup-name] [/mnt/point]```
 
@@ -42,58 +42,58 @@ Deduplicating backup with compression and encryption
 
 # DESCRIPTION
 
-**borg** (BorgBackup) is a deduplicating backup program with compression and authenticated encryption. It efficiently stores multiple backups by sharing common data blocks, making it ideal for frequent backups of large datasets.
+**borg**（BorgBackup）是一款带压缩和认证加密的去重备份程序。它通过共享相同的数据块来高效存储多个备份，非常适合对大型数据集进行频繁备份。
 
-The tool provides security, efficiency, and reliability for local and remote backups.
+该工具为本地和远程备份提供安全性、效率和可靠性。
 
 # PARAMETERS
 
 **init**
-> Initialize repository
+> 初始化仓库。
 
 **create**
-> Create new archive
+> 创建新归档。
 
 **extract**
-> Extract archive contents
+> 解压归档内容。
 
 **list**
-> List archives or contents
+> 列出归档或内容。
 
 **diff**
-> Compare archives
+> 比较归档。
 
 **delete**
-> Delete archive
+> 删除归档。
 
 **prune**
-> Delete old archives by retention policy
+> 按保留策略删除旧归档。
 
 **compact**
-> Free repository space freed by prune or delete (run after pruning)
+> 释放由 prune 或 delete 腾出的仓库空间（在修剪之后运行）。
 
 **info**
-> Show archive/repository information
+> 显示归档/仓库信息。
 
 **mount**
-> Mount archive as filesystem
+> 将归档挂载为文件系统。
 
 **check**
-> Verify repository consistency
+> 验证仓库一致性。
 
 # ENCRYPTION MODES
 
 **repokey**
-> Key stored in repository
+> 密钥存储在仓库中。
 
 **keyfile**
-> Key stored locally
+> 密钥存储在本地。
 
 **none**
-> No encryption
+> 不加密。
 
 **authenticated**
-> Authenticated only (no encryption)
+> 仅认证（不加密）。
 
 # WORKFLOW
 
@@ -125,28 +125,28 @@ borg compact /backup/repo
 
 # FEATURES
 
-**Deduplication**
-> Chunk-level deduplication shares common data across archives
+**去重**
+> 块级去重可在多个归档之间共享相同数据。
 
-**Compression**
-> Supports lz4, zstd, zlib, and lzma
+**压缩**
+> 支持 lz4、zstd、zlib 和 lzma。
 
-**Encryption**
-> Authenticated AES encryption with repokey or keyfile modes
+**加密**
+> 基于 repokey 或 keyfile 模式的认证 AES 加密。
 
-**Remote backups**
-> Push backups to a remote repository over SSH
+**远程备份**
+> 通过 SSH 将备份推送到远程仓库。
 
-**Other**
-> Sparse file support, archive mounting via FUSE, data verification, and efficient storage
+**其他**
+> 稀疏文件支持、基于 FUSE 的归档挂载、数据验证和高效存储。
 
 # CAVEATS
 
-Repository corruption can lose all backups (keep offsite copies). Encryption key loss means permanent data loss. Large repos need significant RAM for cache. SSH connection required for remote repos. Check operations can be slow.
+仓库损坏可能导致所有备份丢失（请保留异地副本）。加密密钥丢失意味着数据永久丢失。大型仓库需要大量内存用于缓存。远程仓库需要 SSH 连接。检查操作可能较慢。
 
 # HISTORY
 
-**BorgBackup** was created by Thomas Waldmann in **2015** as a fork of Attic backup, focusing on performance, security, and reliability.
+**BorgBackup** 由 Thomas Waldmann 于 **2015 年**作为 Attic 备份的分支创建，专注于性能、安全性和可靠性。
 
 # INSTALL
 
@@ -179,4 +179,3 @@ Repository corruption can lose all backups (keep offsite copies). Encryption key
 ```[Documentation](https://borgbackup.readthedocs.io)```
 
 <!-- verified: 2026-06-19 -->
-

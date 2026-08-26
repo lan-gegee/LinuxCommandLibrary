@@ -1,34 +1,34 @@
 # TAGLINE
 
-Versatile checksum file verifier and creator
+多功能的校验和文件校验与生成工具
 
 # TLDR
 
-**Verify files** against a checksum file in the current directory
+对照当前目录下的校验和文件**校验文件**
 
 ```cfv```
 
-**Create an SFV** checksum file for all files in a directory
+为目录中的所有文件**创建 SFV** 校验和文件
 
 ```cfv -C -t sfv -f [checksum.sfv] [path/to/directory/*]```
 
-**Create an MD5** checksum file
+**创建 MD5** 校验和文件
 
 ```cfv -C -t md5 -f [checksum.md5] [path/to/files/*]```
 
-**Create a SHA1** checksum file
+**创建 SHA1** 校验和文件
 
 ```cfv -C -t sha1 -f [checksum.sha1] [path/to/files/*]```
 
-**Verify and show status** for each file
+**校验并显示**每个文件的**状态**
 
 ```cfv -v [path/to/checksum.sfv]```
 
-**Recursively verify** all checksum files in subdirectories
+**递归校验**子目录中的所有校验和文件
 
 ```cfv -r```
 
-**Search for misnamed files** when verification fails
+当校验失败时**搜索名称有误的文件**
 
 ```cfv -s [path/to/checksum.sfv]```
 
@@ -39,91 +39,91 @@ Versatile checksum file verifier and creator
 # PARAMETERS
 
 **-C**
-> Create mode: generate a new checksum file.
+> 创建模式：生成新的校验和文件。
 
 **-T**
-> Test mode (default): verify files against a checksum file.
+> 测试模式（默认）：对照校验和文件验证文件。
 
 **-t** _type_
-> Checksum type: **sfv**, **md5**, **bsdmd5**, **sha1**, **sha256**, **sha512**, **csv**, **csv2**, **csv4**, **crc**, **par**, **par2**, **torrent**, **auto** (default, auto-detect).
+> 校验和类型：**sfv**、**md5**、**bsdmd5**、**sha1**、**sha256**、**sha512**、**csv**、**csv2**、**csv4**、**crc**、**par**、**par2**、**torrent**、**auto**（默认，自动检测）。
 
 **-f** _file_
-> Specify the checksum file to read or write.
+> 指定要读取或写入的校验和文件。
 
 **-r**
-> Recurse into directories. Use **-rr** to recurse into both files and checksum files.
+> 递归进入目录。使用 **-rr** 可同时对文件和校验和文件递归。
 
 **-v**
-> Verbose: print status for every file, not just errors.
+> 详细输出：打印每个文件的状态，而不仅是错误。
 
 **-V**
-> Disable verbose output (default). Use **-VV** to also suppress the status line.
+> 禁用详细输出（默认）。使用 **-VV** 可连状态行也一并隐藏。
 
 **-q**
-> Quiet mode: suppress all output including error messages. Check exit status only.
+> 安静模式：隐藏包括错误信息在内的所有输出。只看退出状态即可。
 
 **-Q**
-> Print only status lines, not individual errors.
+> 只打印状态行，不打印单个错误。
 
 **-n**
-> Rename files with bad checksums to filename.bad.
+> 将校验和不符的文件重命名为 filename.bad。
 
 **-N**
-> Disable renaming (default).
+> 禁用重命名（默认）。
 
 **-m**
-> Check only for missing files without comparing checksums.
+> 只检查缺失的文件，不比较校验和。
 
 **-s**
-> Search for misnamed files when a file is not found.
+> 找不到文件时搜索名称有误的文件。
 
 **-S**
-> Disable search for misnamed files (default).
+> 禁用对名称有误文件的搜索（默认）。
 
 **-u**
-> Show unverified files. Use **-uu** to show unverified files in subdirectories.
+> 显示未验证的文件。使用 **-uu** 可显示子目录中未验证的文件。
 
 **-U**
-> Do not show unverified files (default).
+> 不显示未验证的文件（默认）。
 
 **-i**
-> Ignore case when matching filenames.
+> 匹配文件名时忽略大小写。
 
 **-l**
-> Follow directory symlinks in recursive mode (default).
+> 递归模式下跟随目录符号链接（默认）。
 
 **-L**
-> Do not follow directory symlinks in recursive mode.
+> 递归模式下不跟随目录符号链接。
 
 **-z**
-> Support gzip-compressed checksum files. Use **-zz** to force gzip on all checksum files.
+> 支持 gzip 压缩的校验和文件。使用 **-zz** 强制对所有校验和文件应用 gzip。
 
 **-p** _dir_
-> Change to directory before processing.
+> 处理前先切换到指定目录。
 
 **--strippaths** _n_
-> Strip leading path components from filenames in test mode.
+> 测试模式下从文件名中去掉开头的路径组件。
 
 **--progress** _val_
-> Control progress bar display: no, auto (default), or yes.
+> 控制进度条显示：no、auto（默认）或 yes。
 
 # DESCRIPTION
 
-**cfv** is a utility for testing and creating checksum verification files. It automatically detects the checksum format when verifying, and supports a wide range of formats including SFV, MD5, SHA1, SHA256, SHA512, CSV, PAR/PAR2, and BitTorrent metainfo files.
+**cfv** 是一款用于测试和创建校验和验证文件的工具。它在验证时会自动检测校验和格式，并支持多种格式，包括 SFV、MD5、SHA1、SHA256、SHA512、CSV、PAR/PAR2 以及 BitTorrent 元信息文件。
 
-In test mode (default), cfv reads a checksum file and verifies that each listed file matches its recorded checksum. In create mode (**-C**), it generates a new checksum file from the specified input files. The tool can search for misnamed files, rename corrupted files, and recursively process directory trees.
+在测试模式（默认）下，cfv 读取校验和文件并验证其中列出的每个文件是否与记录的校验和一致。在创建模式（**-C**）下，它根据指定的输入文件生成新的校验和文件。该工具还能搜索名称有误的文件、重命名损坏的文件以及递归处理目录树。
 
 # CONFIGURATION
 
-Configuration file at **~/.cfvrc** contains default options (one per line, same syntax as command-line flags). Options on the command line override the config file.
+配置文件位于 **~/.cfvrc**，包含默认选项（每行一条，语法与命令行标志相同）。命令行选项会覆盖配置文件中的设置。
 
 # CAVEATS
 
-PAR and PAR2 formats are supported for verification only, not creation. BitTorrent verification requires the original directory structure. Exit codes are bitwise-ORed: 2 (bad checksum), 4 (size mismatch), 8 (not found), 16 (file error), 32 (unverified), 64 (checksum file error).
+PAR 和 PAR2 格式仅支持验证，不支持创建。BitTorrent 验证要求原始目录结构。退出码按位或运算：2（校验和不符）、4（大小不一致）、8（未找到）、16（文件错误）、32（未验证）、64（校验和文件错误）。
 
 # HISTORY
 
-**cfv** was originally written in **Python** as an open-source checksum verification tool. It gained popularity in the file-sharing community for its broad format support, particularly SFV and MD5. The project was later forked as **cfv2** to maintain Python 3 compatibility after the original project became unmaintained.
+**cfv** 最初用 **Python** 编写，是一款开源的校验和验证工具。它凭借广泛的格式支持（尤其是 SFV 和 MD5）在文件共享社区流行开来。原项目停止维护后，该项目被分叉为 **cfv2** 以保持 Python 3 兼容性。
 
 # INSTALL
 

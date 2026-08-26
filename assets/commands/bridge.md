@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage Linux bridge devices and VLANs
+管理 Linux 网桥设备和 VLAN
 
 # TLDR
 
-**List** bridges and interfaces
+**列出**网桥和接口
 
 ```bridge link```
 
-Show **VLAN** info
+显示 **VLAN** 信息
 
 ```bridge vlan```
 
-**Add** VLAN to port
+将 VLAN **添加**到端口
 
 ```sudo bridge vlan add dev lan0 vid 100 pvid untagged```
 
-**Remove** VLAN from port
+从端口**移除** VLAN
 
 ```sudo bridge vlan delete dev lan0 vid 100```
 
-**Monitor** changes
+**监视**变更
 
 ```bridge monitor```
 
@@ -30,47 +30,47 @@ Show **VLAN** info
 
 # DESCRIPTION
 
-**bridge** shows and manipulates Linux bridge devices and their forwarding database. It manages bridge ports, VLANs, and FDB entries for Layer 2 switching functionality.
+**bridge** 用于查看和操作 Linux 网桥设备及其转发表。它管理网桥端口、VLAN 和 FDB 条目，实现二层交换功能。
 
 # PARAMETERS
 
 **link**
-> List bridge interfaces and ports
+> 列出网桥接口和端口。
 
 **vlan**
-> Show or manage VLAN configuration
+> 显示或管理 VLAN 配置。
 
 **fdb**
-> Forwarding database management
+> 转发数据库（FDB）管理。
 
 **mdb**
-> Multicast group database management
+> 组播组数据库管理。
 
 **monitor**
-> Watch for changes in bridge configuration
+> 监视网桥配置的变化。
 
 **add**
-> Add VLAN or FDB entry
+> 添加 VLAN 或 FDB 条目。
 
 **delete**
-> Remove VLAN or FDB entry
+> 移除 VLAN 或 FDB 条目。
 
 **vid** _vlan-id_
-> VLAN identifier (1-4094)
+> VLAN 标识符（1-4094）。
 
 **pvid**
-> Set as port VLAN ID
+> 设为端口 VLAN ID。
 
 **tagged/untagged**
-> VLAN tagging mode
+> VLAN 打标签模式。
 
 # CAVEATS
 
-VLANs require VLAN filtering to be enabled on the bridge. Changes may disrupt existing connections. Requires root privileges for modifications.
+使用 VLAN 需要在网桥上启用 VLAN 过滤。更改可能中断现有连接。修改操作需要 root 权限。
 
 # HISTORY
 
-**bridge** is part of **iproute2**, providing Linux bridge management functionality complementing brctl.
+**bridge** 是 **iproute2** 的一部分，提供 Linux 网桥管理功能，是对 brctl 的补充。
 
 # INSTALL
 

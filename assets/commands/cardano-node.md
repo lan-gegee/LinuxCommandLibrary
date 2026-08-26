@@ -1,26 +1,26 @@
 # TAGLINE
 
-Core node software for the Cardano blockchain network
+Cardano 区块链网络的核心节点软件
 
 # TLDR
 
-**Run a Cardano node** on mainnet
+**在主网上运行 Cardano 节点**
 
 ```cardano-node run --topology [path/to/topology.json] --database-path [path/to/db] --socket-path [path/to/node.socket] --config [path/to/config.json]```
 
-**Run a node** with specific host and port
+**以指定的主机和端口运行节点**
 
 ```cardano-node run --topology [topology.json] --database-path [db/] --socket-path [node.socket] --host-addr [127.0.0.1] --port [3001] --config [config.json]```
 
-**Run a block-producing node** with keys
+**带密钥运行出块节点**
 
 ```cardano-node run --topology [topology.json] --database-path [db/] --socket-path [node.socket] --config [config.json] --shelley-kes-key [kes.skey] --shelley-vrf-key [vrf.skey] --shelley-operational-certificate [node.cert]```
 
-**Run as a relay node** (non-producing)
+**作为中继节点运行**（不出块）
 
 ```cardano-node run --non-producing-node --topology [topology.json] --database-path [db/] --socket-path [node.socket] --config [config.json]```
 
-**Validate the database** before running
+**运行前校验数据库**
 
 ```cardano-node run --validate-db --topology [topology.json] --database-path [db/] --socket-path [node.socket] --config [config.json]```
 
@@ -35,79 +35,79 @@ Core node software for the Cardano blockchain network
 # PARAMETERS
 
 **--topology** _FILEPATH_
-> Path to the topology.json file describing network peers
+> 描述网络对等节点的 topology.json 文件路径
 
 **--database-path** _FILEPATH_
-> Directory where blockchain state is stored
+> 存储区块链状态的目录
 
 **--socket-path** _FILEPATH_
-> Path to the Unix domain socket for IPC communication
+> 用于 IPC 通信的 Unix 域套接字路径
 
 **--config** _FILEPATH_
-> Path to the node configuration JSON file
+> 节点配置 JSON 文件路径
 
 **--host-addr** _IPV4_
-> IPv4 address to bind for incoming connections
+> 绑定以接受传入连接的 IPv4 地址
 
 **--host-ipv6-addr** _IPV6_
-> IPv6 address to bind for incoming connections
+> 绑定以接受传入连接的 IPv6 地址
 
 **--port** _PORT_
-> Port number for listening to peer connections
+> 监听对等连接的端口号
 
 **--shelley-kes-key** _FILEPATH_
-> Path to the KES (Key Evolving Signature) signing key for block production
+> 用于出块的 KES（Key Evolving Signature）签名密钥路径
 
 **--shelley-vrf-key** _FILEPATH_
-> Path to the VRF (Verifiable Random Function) signing key
+> VRF（Verifiable Random Function）签名密钥路径
 
 **--shelley-operational-certificate** _FILEPATH_
-> Path to the operational certificate for stake pool
+> 权益池操作证书路径
 
 **--non-producing-node**
-> Start as a relay node even if credentials are specified
+> 即使指定了凭证也作为中继节点启动
 
 **--validate-db**
-> Validate all database files on startup
+> 启动时校验所有数据库文件
 
 **--shutdown-on-slot-synced** _SLOT_
-> Shut down after syncing to the specified slot number
+> 同步到指定槽位号后关机
 
 **--shutdown-on-block-synced** _BLOCK_
-> Shut down after syncing to the specified block number
+> 同步到指定区块号后关机
 
 **--shutdown-ipc** _FD_
-> Shut down when the inherited file descriptor reaches EOF
+> 当继承的文件描述符到达 EOF 时关机
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**cardano-node** is the core component of the Cardano blockchain network, implementing the Ouroboros consensus protocol. It maintains a local copy of the blockchain, validates transactions, and participates in the peer-to-peer network.
+**cardano-node** 是 Cardano 区块链网络的核心组件，实现了 Ouroboros 共识协议。它维护区块链的本地副本，验证交易，并参与点对点网络。
 
-The node can operate in two modes: as a relay node that forwards transactions and blocks, or as a block-producing node (stake pool) that creates new blocks when selected by the protocol. Block producers require KES keys, VRF keys, and an operational certificate.
+节点可以两种模式运行：作为转发交易和区块的中继节点，或者作为按协议被选中时创建新区块的出块节点（权益池）。出块节点需要 KES 密钥、VRF 密钥和操作证书。
 
-Communication with the node happens through a Unix domain socket specified by **--socket-path**. The **cardano-cli** tool and other applications use the **CARDANO_NODE_SOCKET_PATH** environment variable to locate this socket for queries and transaction submission.
+与节点的通信通过 **--socket-path** 指定的 Unix 域套接字进行。**cardano-cli** 工具和其他应用程序使用 **CARDANO_NODE_SOCKET_PATH** 环境变量来定位该套接字，以进行查询和提交交易。
 
 # CONFIGURATION
 
 **config.json**
-> Main node configuration file specifying protocol parameters, logging, tracing, and network settings.
+> 主节点配置文件，指定协议参数、日志记录、追踪和网络设置。
 
 **topology.json**
-> Defines network peers the node connects to, including relay nodes and block producers.
+> 定义节点要连接的网络对等节点，包括中继节点和出块节点。
 
 # CAVEATS
 
-Running a full node requires significant disk space (over 100GB for mainnet) and memory. Initial synchronization can take many hours depending on hardware and network speed. The node must remain running and connected for stake pool operation. Configuration files must match the network (mainnet, preprod, preview) you intend to connect to.
+运行完整节点需要大量磁盘空间（主网超过 100GB）和内存。初始同步可能耗费数小时，取决于硬件和网络速度。运营权益池期间节点必须保持运行并联网。配置文件必须与你打算连接的网络（mainnet、preprod、preview）相匹配。
 
 # HISTORY
 
-Cardano-node was developed by **Input Output Global (IOG)**, formerly IOHK, as part of the Cardano blockchain project founded by Charles Hoskinson. The project launched its mainnet in **September 2017** with the Byron era. Major upgrades include the **Shelley** era in **2020** introducing staking and decentralization, **Alonzo** in **2021** adding smart contracts, and continued development through the Basho and Voltaire eras. The node is written in **Haskell** and implements peer-reviewed cryptographic protocols.
+cardano-node 由 **Input Output Global (IOG)**（前身 IOHK）开发，属于 Charles Hoskinson 创立的 Cardano 区块链项目的一部分。该项目于 **2017 年 9 月**以 Byron era 启动主网。主要升级包括 **2020 年**引入质押与去中心化的 **Shelley** era、**2021 年**加入智能合约的 **Alonzo**，以及延续至 Basho 和 Voltaire eras 的持续开发。该节点用 **Haskell** 编写，实现了经过同行评审的密码学协议。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Automated WiFi security auditing tool
+自动化 WiFi 安全审计工具
 
 # TLDR
 
-**Auto-crack all WEP networks and log WPA handshakes**
+**自动破解所有 WEP 网络并记录 WPA 握手**
 
 ```besside-ng [wlan0mon]```
 
-**Target specific access point**
+**针对指定接入点**
 
 ```besside-ng -b [AA:BB:CC:DD:EE:FF] [wlan0mon]```
 
-**Lock to specific channel**
+**锁定到指定信道**
 
 ```besside-ng -c [6] [wlan0mon]```
 
-**WPA handshakes only**
+**仅抓取 WPA 握手**
 
 ```besside-ng -W [wlan0mon]```
 
-**Upload captured handshakes to a cracking server**
+**将捕获的握手上传到破解服务器**
 
 ```besside-ng -s [wpa.darkircop.org] [wlan0mon]```
 
-**Set flood rate**
+**设置泛洪速率**
 
 ```besside-ng -p [300] [wlan0mon]```
 
@@ -34,47 +34,47 @@ Automated WiFi security auditing tool
 
 # DESCRIPTION
 
-**besside-ng** is an automated WiFi security auditing tool from the Aircrack-ng suite. It automatically cracks all WEP networks in range and captures WPA handshakes for later cracking.
+**besside-ng** 是 Aircrack-ng 套件中的自动化 WiFi 安全审计工具。它会自动破解范围内所有的 WEP 网络，并捕获 WPA 握手以供后续破解。
 
-The tool requires a wireless interface in monitor mode. Captured WPA handshakes are saved to wpa.cap for use with aircrack-ng or online cracking services.
+该工具需要处于监听模式的无线接口。捕获的 WPA 握手会保存到 wpa.cap，供 aircrack-ng 或在线破解服务使用。
 
 # PARAMETERS
 
 **-b** _bssid_
-> Target specific access point by MAC address
+> 通过 MAC 地址针对指定的接入点
 
 **-c** _channel_
-> Lock to specific channel (otherwise hops across channels)
+> 锁定到指定信道（否则在各信道间跳频）
 
 **-s** _server_
-> Upload the capture file to a WPA cracking server (e.g. wpa.darkircop.org)
+> 将抓包文件上传到 WPA 破解服务器（例如 wpa.darkircop.org）
 
 **-p** _pps_
-> Packets per second to send (flood rate)
+> 每秒发送的数据包数（泛洪速率）
 
 **-W**
-> Crack only WPA networks (skip WEP)
+> 仅破解 WPA 网络（跳过 WEP）
 
 **-v**
-> Verbose mode; repeat (-vv, -vvv) for more detail
+> 详细输出模式；重复使用（-vv、-vvv）可获得更多细节
 
 **-h**
-> Show the help screen
+> 显示帮助界面
 
 # OUTPUT FILES
 
 **wpa.cap**
-> Captured WPA handshakes, ready for aircrack-ng
+> 捕获的 WPA 握手，可供 aircrack-ng 直接使用
 
 **wep.cap**
-> Captured WEP traffic
+> 捕获的 WEP 流量
 
 **besside.log**
-> Log of cracked networks and handshake status
+> 已破解网络和握手状态的日志
 
 # CAVEATS
 
-Requires wireless interface in monitor mode. Only use on networks you own or have explicit authorization to test. WPA cracking requires dictionary attack after handshake capture. Some access points may detect and block flooding attacks.
+需要处于监听模式的无线接口。只能在你拥有或已获明确授权测试的网络上使用。WPA 破解需要在捕获握手后进行字典攻击。某些接入点可能会检测并阻止泛洪攻击。
 
 # INSTALL
 

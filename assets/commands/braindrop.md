@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI client for Raindrop.io bookmarks
+Raindrop.io 书签的 TUI 客户端
 
 # TLDR
 
-**Launch** the Raindrop.io TUI
+**启动** Raindrop.io TUI
 
 ```braindrop```
 
-**Specify API token**
+**指定 API 令牌**
 
 ```braindrop --api-key [YOUR_TOKEN]```
 
-**Use a custom theme**
+**使用自定义主题**
 
 ```braindrop --theme [textual-dark]```
 
@@ -22,17 +22,17 @@ TUI client for Raindrop.io bookmarks
 
 # DESCRIPTION
 
-**braindrop** is a terminal user interface client for **Raindrop.io**, a popular cloud bookmark manager. It allows users to browse, search, and manage their Raindrop.io bookmark collections directly from the terminal.
+**braindrop** 是 **Raindrop.io**（一款流行的云书签管理器）的终端用户界面客户端。它让用户可以直接在终端中浏览、搜索和管理自己的 Raindrop.io 书签收藏。
 
-The TUI provides keyboard-driven navigation through collections, searching across bookmarks, and opening saved links in a browser. It communicates with the Raindrop.io API to sync and display bookmark data.
+该 TUI 提供基于键盘的导航，可以遍历收藏夹、跨书签搜索，并在浏览器中打开已保存的链接。它与 Raindrop.io API 通信以同步并显示书签数据。
 
 # CONFIGURATION
 
-Requires a **Raindrop.io API token** for authentication. The token is typically configured on first launch or via a configuration file.
+需要 **Raindrop.io API 令牌**进行身份验证。令牌通常在首次启动时配置，或通过配置文件设置。
 
 # CAVEATS
 
-Requires an active **Raindrop.io** account and API access. Bookmark changes are synced to the cloud service. Internet connectivity is required for all operations.
+需要有有效的 **Raindrop.io** 账户和 API 访问权限。书签变更会同步到云服务。所有操作都需要联网。
 
 # SEE ALSO
 

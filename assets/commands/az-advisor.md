@@ -1,30 +1,30 @@
 # TAGLINE
 
-View and manage Azure best-practice recommendations
+查看和管理 Azure 最佳实践建议
 
 # TLDR
 
-**List all Azure Advisor recommendations**
+**列出所有 Azure Advisor 建议**
 
 ```az advisor recommendation list```
 
-**List recommendations** for a specific category
+针对特定类别**列出建议**
 
 ```az advisor recommendation list --category [Cost|Security|HighAvailability|Performance|OperationalExcellence]```
 
-**Show Advisor configuration** for the subscription
+**显示订阅的 Advisor 配置**
 
 ```az advisor configuration show```
 
-**List configuration** for the entire subscription
+**列出整个订阅的配置**
 
 ```az advisor configuration list```
 
-**Disable a recommendation**
+**禁用一条建议**
 
 ```az advisor recommendation disable --name [recommendation-name] --resource-group [rg-name]```
 
-**Enable a previously disabled** recommendation
+**启用之前被禁用的**建议
 
 ```az advisor recommendation enable --name [recommendation-name] --resource-group [rg-name]```
 
@@ -35,32 +35,32 @@ View and manage Azure best-practice recommendations
 # SUBCOMMANDS
 
 **configuration list**
-> List Azure Advisor configuration for the entire subscription.
+> 列出整个订阅的 Azure Advisor 配置。
 
 **configuration show**
-> Show Azure Advisor configuration for the given subscription or resource group.
+> 显示给定订阅或资源组的 Azure Advisor 配置。
 
 **configuration update**
-> Update Azure Advisor configuration.
+> 更新 Azure Advisor 配置。
 
 **recommendation list**
-> List Azure Advisor recommendations.
+> 列出 Azure Advisor 建议。
 
 **recommendation disable**
-> Dismiss Azure Advisor recommendations.
+> 忽略 Azure Advisor 建议。
 
 **recommendation enable**
-> Enable Azure Advisor recommendations.
+> 启用 Azure Advisor 建议。
 
 # DESCRIPTION
 
-**az advisor** manages Azure Advisor, a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Advisor analyzes resource configuration and usage telemetry, then recommends solutions to improve cost effectiveness, performance, reliability, and security.
+**az advisor** 管理 Azure Advisor——一个个性化的云顾问，帮助你遵循最佳实践来优化 Azure 部署。Azure Advisor 会分析资源配置和使用遥测数据，然后推荐能提升成本效益、性能、可靠性和安全性的解决方案。
 
-Recommendations are categorized into: Cost, Security, HighAvailability (Reliability), Performance, and OperationalExcellence.
+建议分为以下类别：Cost、Security、HighAvailability（可靠性）、Performance 和 OperationalExcellence。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated with **az login**. Appropriate Azure RBAC permissions are needed to view and manage Advisor recommendations.
+需要安装 Azure CLI 并已通过 **az login** 完成身份验证。查看和管理 Advisor 建议需要相应的 Azure RBAC 权限。
 
 # INSTALL
 

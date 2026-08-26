@@ -1,34 +1,34 @@
 # TAGLINE
 
-Dynamic menu for Wayland and X11
+面向 Wayland 和 X11 的动态菜单
 
 # TLDR
 
-**Display a menu** and output selected item
+**显示菜单**并输出选中的条目
 
 ```echo -e "option1\noption2\noption3" | bemenu```
 
-**Display a menu with a prompt**
+**显示带提示语的菜单**
 
 ```echo -e "firefox\nchromium\nvivaldi" | bemenu -p "Browser:"```
 
-**Run selected command**
+**运行选中的命令**
 
 ```echo -e "firefox\nchromium" | bemenu | xargs -r swaymsg exec --```
 
-**Use as a program launcher** (with dmenu_path)
+**用作程序启动器**（配合 dmenu_path）
 
 ```dmenu_path | bemenu | sh```
 
-**Customize appearance**
+**自定义外观**
 
 ```bemenu --fn "monospace 12" --tb "#285577" --tf "#ffffff"```
 
-**List installed applications**
+**列出已安装的应用程序**
 
 ```compgen -c | sort -u | bemenu```
 
-**Password prompt** (hidden input)
+**密码输入提示**（隐藏输入内容）
 
 ```bemenu --password -p "Password:"```
 
@@ -40,75 +40,75 @@ Dynamic menu for Wayland and X11
 
 # DESCRIPTION
 
-**bemenu** is a dynamic menu library and client program inspired by dmenu. It reads items from stdin, presents them in a menu, and outputs the selected item to stdout. It supports multiple backends including Wayland, X11, and curses.
+**bemenu** 是一个受 dmenu 启发的动态菜单库和客户端程序。它从 stdin 读取条目并以菜单形式呈现，再将选中的条目输出到 stdout。它支持多种后端，包括 Wayland、X11 和 curses。
 
-Unlike dmenu which only works on X11, bemenu provides native Wayland support, making it ideal for Sway and other Wayland compositors. The rendering is handled through backend libraries, allowing the same interface across different display servers.
+与只能工作在 X11 上的 dmenu 不同，bemenu 提供原生的 Wayland 支持，因此非常适合 Sway 及其他 Wayland 合成器。渲染由各后端库处理，使同一界面可以跨不同显示服务器使用。
 
-**bemenu-run** is a wrapper that lists executables from PATH and runs the selected one, functioning as a simple application launcher.
+**bemenu-run** 是一个包装器，它会列出 PATH 中的可执行文件并运行选中的那个，可当作简单的应用启动器。
 
 # PARAMETERS
 
 **-p**, **--prompt** _text_
-> Set the prompt text.
+> 设置提示语文本。
 
 **-i**
-> Case-insensitive matching.
+> 不区分大小写匹配。
 
 **-l**, **--list** _lines_
-> Show items in a vertical list.
+> 以垂直列表显示条目。
 
 **-b**, **--bottom**
-> Display at bottom of screen.
+> 显示在屏幕底部。
 
 **-m**, **--monitor** _index_
-> Show on specific monitor.
+> 显示在指定显示器上。
 
 **-H**, **--line-height** _height_
-> Set item height in pixels.
+> 设置条目高度（像素）。
 
 **--password**
-> Hide input (password mode).
+> 隐藏输入内容（密码模式）。
 
 **-w**, **--wrap**
-> Wrap cursor selection.
+> 光标选择循环换行。
 
 **-f**, **--filter** _text_
-> Filter items for given text.
+> 按给定文本过滤条目。
 
 **--fn** _font_
-> Set font (Pango format, e.g., "monospace 12").
+> 设置字体（Pango 格式，如 "monospace 12"）。
 
 **--tb** _color_
-> Title bar background color.
+> 标题栏背景色。
 
 **--tf** _color_
-> Title bar foreground color.
+> 标题栏前景色。
 
 **--fb** _color_
-> Filter background color.
+> 过滤区域背景色。
 
 **--ff** _color_
-> Filter foreground color.
+> 过滤区域前景色。
 
 **--nb** _color_
-> Normal item background.
+> 普通条目背景色。
 
 **--nf** _color_
-> Normal item foreground.
+> 普通条目前景色。
 
 **--hb** _color_
-> Highlighted item background.
+> 高亮条目背景色。
 
 **--hf** _color_
-> Highlighted item foreground.
+> 高亮条目前景色。
 
 # CAVEATS
 
-Requires appropriate backend library for the display server (wayland, x11, or curses). Colors are specified in #RRGGBB format. Font specification follows Pango format. On Wayland, bemenu needs the layer-shell protocol support from the compositor.
+需要与显示服务器对应的适当后端库（wayland、x11 或 curses）。颜色采用 #RRGGBB 格式。字体规格遵循 Pango 格式。在 Wayland 上，bemenu 需要合成器支持 layer-shell 协议。
 
 # HISTORY
 
-**bemenu** was created as a cross-platform replacement for **dmenu** that could work on Wayland compositors. It was developed as part of the effort to bring traditional X11 utilities to the Wayland ecosystem. The project provides library bindings allowing integration into other applications, following a more modular design than the original dmenu.
+**bemenu** 的创建目的是成为能在 Wayland 合成器上运行的 **dmenu** 跨平台替代品。它作为把传统 X11 工具带入 Wayland 生态的努力的一部分而开发。该项目提供可供其他应用集成的库绑定，采用了比最初的 dmenu 更模块化的设计。
 
 # INSTALL
 

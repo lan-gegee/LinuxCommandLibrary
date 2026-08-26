@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fast local bookmark manager with CLI and TUI
+带 CLI 和 TUI 的快速本地书签管理器
 
 # TLDR
 
-**Launch** the interactive TUI
+**启动**交互式 TUI
 
 ```bmm```
 
-**Add** a new bookmark
+**添加**新书签
 
 ```bmm add "[url]" --title "[title]" --tags "[tag1,tag2]"```
 
-**Search** bookmarks by keyword
+按关键词**搜索**书签
 
 ```bmm search "[query]"```
 
-**List** all bookmarks
+**列出**所有书签
 
 ```bmm list```
 
-**Delete** a bookmark by ID
+按 ID **删除**书签
 
 ```bmm delete [id]```
 
-**Import** bookmarks from a file
+从文件**导入**书签
 
 ```bmm import [path/to/file]```
 
@@ -35,38 +35,38 @@ Fast local bookmark manager with CLI and TUI
 # PARAMETERS
 
 **add** _URL_
-> Add a new bookmark with optional title and tags.
+> 添加新书签，可选设置标题和标签。
 
 **search** _QUERY_
-> Search bookmarks by title, URL, or tags.
+> 按标题、URL 或标签搜索书签。
 
 **list**
-> List all saved bookmarks.
+> 列出所有已保存的书签。
 
 **delete** _ID_
-> Delete a bookmark by its ID.
+> 按 ID 删除书签。
 
 **import** _FILE_
-> Import bookmarks from a file.
+> 从文件导入书签。
 
 **export** _FILE_
-> Export bookmarks to a file.
+> 将书签导出到文件。
 
 **--title** _TEXT_
-> Set the title for a bookmark.
+> 设置书签标题。
 
 **--tags** _TAGS_
-> Comma-separated tags for a bookmark.
+> 书签的标签，以逗号分隔。
 
 # DESCRIPTION
 
-**bmm** is a fast, local-first bookmark manager that provides both a command-line interface and an interactive terminal user interface. Bookmarks are stored locally, enabling quick searching, tagging, and organization without relying on cloud services or browsers.
+**bmm** 是一款快速的本地优先书签管理器，同时提供命令行界面和交互式终端用户界面。书签存储在本地，无需依赖云服务或浏览器即可快速搜索、打标签和组织。
 
-The TUI mode provides an interactive fuzzy-search interface for browsing and managing bookmarks. Bookmarks can be tagged for categorization and exported for backup or sharing.
+TUI 模式提供交互式的模糊搜索界面，用于浏览和管理书签。书签可以添加标签以便分类，也可以导出用于备份或分享。
 
 # CAVEATS
 
-Bookmarks are stored locally and not synced across devices by default. Import formats may be limited to specific file types.
+书签存储在本地，默认不在多台设备间同步。导入格式可能仅限特定文件类型。
 
 # INSTALL
 

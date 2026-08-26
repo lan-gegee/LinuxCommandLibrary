@@ -1,30 +1,30 @@
 # TAGLINE
 
-Haskell package manager and build system
+Haskell 软件包管理器与构建系统
 
 # TLDR
 
-**Build** project
+**构建**项目
 
 ```cabal build```
 
-**Run** executable
+**运行**可执行文件
 
 ```cabal run```
 
-**Install** package
+**安装**软件包
 
 ```cabal install [package]```
 
-**Create** new project
+**创建**新项目
 
 ```cabal init```
 
-**Test** project
+**测试**项目
 
 ```cabal test```
 
-**Update** package list
+**更新**软件包列表
 
 ```cabal update```
 
@@ -34,55 +34,55 @@ Haskell package manager and build system
 
 # DESCRIPTION
 
-**cabal** (Common Architecture for Building Applications and Libraries) is the package manager and build system for Haskell. It handles dependency resolution, building, testing, and distributing Haskell packages. Cabal uses Nix-style local builds by default, isolating dependencies per project to avoid conflicts.
+**cabal**（Common Architecture for Building Applications and Libraries）是 Haskell 的软件包管理器和构建系统。它负责依赖解析、构建、测试和分发 Haskell 软件包。Cabal 默认使用 Nix 风格的本地构建，将每个项目的依赖隔离开以避免冲突。
 
 # PARAMETERS
 
 **build**
-> Build project
+> 构建项目
 
 **run** [_target_]
-> Build and run executable
+> 构建并运行可执行文件
 
 **install** _package_
-> Install package
+> 安装软件包
 
 **update**
-> Update package index
+> 更新软件包索引
 
 **test**
-> Run test suite
+> 运行测试套件
 
 **repl**
-> Start GHCi with project loaded
+> 启动已加载项目的 GHCi
 
 **clean**
-> Remove build artifacts
+> 删除构建产物
 
 **sdist**
-> Create source distribution
+> 创建源代码发行包
 
 **init**
-> Create a new Cabal package interactively
+> 交互式创建新的 Cabal 软件包
 
 **bench**
-> Run benchmarks
+> 运行基准测试
 
 **haddock**
-> Build Haddock documentation
+> 构建 Haddock 文档
 
 **upload**
-> Upload package to Hackage
+> 将软件包上传到 Hackage
 
 **freeze**
-> Freeze dependencies to exact versions
+> 将依赖冻结到精确版本
 
 **outdated**
-> Check for outdated dependencies
+> 检查过时的依赖
 
 # PROJECT FILE
 
-myproject.cabal example:
+myproject.cabal 示例：
 ```
 cabal-version: 2.4
 name: myproject
@@ -122,26 +122,26 @@ cabal repl
 
 # FEATURES
 
-- Dependency resolution
-- Sandboxed builds
-- Multiple build targets
-- Test framework integration
-- Benchmarking support
-- Documentation generation
-- Package publishing to Hackage
+- 依赖解析
+- 沙盒化构建
+- 多个构建目标
+- 测试框架集成
+- 基准测试支持
+- 文档生成
+- 向 Hackage 发布软件包
 
 # CAVEATS
 
-Dependency resolution can be slow. "Cabal hell" (dependency conflicts) historically problematic (improved with Nix-style builds). Large download sizes. Compilation times can be long. GHC version compatibility important.
+依赖解析可能较慢。“Cabal hell”（依赖冲突）在历史上一直是问题（Nix 风格的构建已有所改善）。下载体积较大。编译耗时可能较长。需注意 GHC 版本兼容性。
 
 # HISTORY
 
-**Cabal** was developed for Haskell starting around **2003**, with major improvements in Cabal 2.0 (2017) introducing Nix-style local builds.
+**Cabal** 从 **2003** 年前后开始为 Haskell 开发，Cabal 2.0（2017 年）带来重大改进，引入了 Nix 风格的本地构建。
 
 # CONFIGURATION
 
 **~/.cabal/config**
-> Global configuration for package repositories, install directories, and build settings
+> 全局配置，包括软件仓库、安装目录和构建设置
 
 # INSTALL
 

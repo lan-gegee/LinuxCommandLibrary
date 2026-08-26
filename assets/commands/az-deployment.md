@@ -1,42 +1,42 @@
 # TAGLINE
 
-Deploy Azure resources using ARM templates and Bicep
+使用 ARM 模板和 Bicep 部署 Azure 资源
 
 # TLDR
 
-**Create a resource group deployment** from a template
+从模板**创建资源组部署**
 
 ```az deployment group create --resource-group [rg_name] --template-file [template.json]```
 
-**Deploy with parameters file**
+使用参数文件**部署**
 
 ```az deployment group create --resource-group [rg_name] --template-file [template.json] --parameters [parameters.json]```
 
-**Deploy a Bicep file**
+**部署 Bicep 文件**
 
 ```az deployment group create --resource-group [rg_name] --template-file [main.bicep]```
 
-**Validate a deployment** without executing
+**验证部署**而不实际执行
 
 ```az deployment group validate --resource-group [rg_name] --template-file [template.json]```
 
-**Preview changes** with what-if before deploying
+部署前用 what-if **预览变更**
 
 ```az deployment group what-if --resource-group [rg_name] --template-file [template.json]```
 
-**Show deployment details**
+**显示部署详情**
 
 ```az deployment group show --resource-group [rg_name] --name [deployment_name]```
 
-**List deployments** in a resource group
+**列出资源组中的部署**
 
 ```az deployment group list --resource-group [rg_name]```
 
-**Delete a deployment**
+**删除某个部署**
 
 ```az deployment group delete --resource-group [rg_name] --name [deployment_name]```
 
-**Deploy at subscription scope**
+在订阅范围**部署**
 
 ```az deployment sub create --location [eastus] --template-file [template.json]```
 
@@ -46,75 +46,75 @@ Deploy Azure resources using ARM templates and Bicep
 
 # DESCRIPTION
 
-**az deployment** is a subcommand of the Azure CLI that manages Azure Resource Manager (ARM) deployments. It deploys infrastructure as code using ARM templates (JSON) or Bicep files to create and update Azure resources.
+**az deployment** 是 Azure CLI 的一个子命令，用于管理 Azure Resource Manager（ARM）部署。它通过 ARM 模板（JSON）或 Bicep 文件以基础设施即代码的方式创建和更新 Azure 资源。
 
-Deployments can target different scopes: resource group, subscription, management group, or tenant. The template defines resources to create, their properties, and dependencies. Parameters allow customization without modifying templates.
+部署可以面向不同的作用域：资源组、订阅、管理组或租户。模板定义要创建的资源、其属性和依赖关系。参数允许在不修改模板的情况下进行自定义。
 
-Deployment modes include incremental (add/update resources) and complete (remove resources not in template). What-if operations preview changes before deployment.
+部署模式包括增量（添加/更新资源）和完全（删除不在模板中的资源）。what-if 操作可在部署前预览变更。
 
 # PARAMETERS
 
 **group create**
-> Deploy at resource group scope.
+> 在资源组范围部署。
 
 **group validate**
-> Validate template without deploying.
+> 验证模板而不部署。
 
 **group show**
-> Show deployment details.
+> 显示部署详情。
 
 **group list**
-> List deployments in a resource group.
+> 列出资源组中的部署。
 
 **group delete**
-> Remove deployment history entry.
+> 移除部署历史条目。
 
 **group what-if**
-> Preview deployment changes.
+> 预览部署变更。
 
 **sub create**
-> Deploy at subscription scope.
+> 在订阅范围部署。
 
 **mg create**
-> Deploy at management group scope.
+> 在管理组范围部署。
 
 **tenant create**
-> Deploy at tenant scope.
+> 在租户范围部署。
 
 **--resource-group** _rg_
-> Target resource group.
+> 目标资源组。
 
 **--template-file** _file_
-> Path to ARM template or Bicep file.
+> ARM 模板或 Bicep 文件路径。
 
 **--template-uri** _uri_
-> URL to template file.
+> 模板文件的 URL。
 
 **--parameters** _params_
-> Parameter values (file path or inline).
+> 参数值（文件路径或内联）。
 
 **--name** _name_
-> Deployment name.
+> 部署名称。
 
 **--mode** _mode_
-> Incremental or Complete.
+> Incremental 或 Complete。
 
 **--location** _region_
-> Required for subscription-scope deployments.
+> 订阅范围的部署必填。
 
 **--confirm-with-what-if**, **-c**
-> Show what-if results and prompt for confirmation before deploying.
+> 部署前显示 what-if 结果并提示确认。
 
 **--no-wait**
-> Do not wait for the long-running deployment to finish.
+> 不等待长时间运行的部署完成。
 
 # CAVEATS
 
-Complete mode deletes resources not in the template; use with caution. Deployment history is limited to 800 entries per resource group (auto-deleted oldest). Template file size limit is 4 MB. Nested templates require linked deployments or template specs for larger infrastructures. Bicep files are compiled to ARM JSON before deployment.
+Complete 模式会删除不在模板中的资源；请谨慎使用。每个资源组的部署历史最多 800 条（最旧的会被自动删除）。模板文件大小上限为 4 MB。更大的基础设施需要用嵌套模板的链接部署或模板规格。Bicep 文件会在部署前编译为 ARM JSON。
 
 # HISTORY
 
-**Azure Resource Manager** templates launched in **2014** as Azure's infrastructure as code solution. The deployment commands evolved through several CLI versions. **What-if** preview functionality was added in **2020**. **Bicep**, a domain-specific language that compiles to ARM templates, reached version 1.0 in **May 2021** and has become the recommended authoring experience. Template specs for versioned, shareable templates were introduced in **2020**.
+**Azure Resource Manager** 模板于 **2014** 年推出，作为 Azure 的基础设施即代码解决方案。部署命令随多个 CLI 版本不断演进。**What-if** 预览功能于 **2020** 年加入。可编译为 ARM 模板的领域特定语言 **Bicep** 于 **2021** 年 **5 月**达到 1.0 版本，现已成为推荐的编写方式。用于版本化、可共享模板的 Template Specs 于 **2020** 年引入。
 
 # INSTALL
 

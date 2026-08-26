@@ -1,26 +1,26 @@
 # TAGLINE
 
-Shell function for interactive directory navigation
+用于交互式目录导航的 Shell 函数
 
 # TLDR
 
-Start **interactive** navigation
+开始**交互式**导航
 
 ```br```
 
-Show file **sizes**
+显示文件**大小**
 
 ```br -s```
 
-Show **hidden** files
+显示**隐藏**文件
 
 ```br -h```
 
-Show **only directories**
+**仅显示目录**
 
 ```br -f```
 
-**Install** or reinstall the br shell function
+**安装**或重新安装 br shell 函数
 
 ```broot --install```
 
@@ -30,33 +30,33 @@ Show **only directories**
 
 # DESCRIPTION
 
-**br** is a shell function that wraps **broot**, providing interactive directory tree navigation with the ability to change the shell's working directory. It is the recommended way to use broot for shell integration. Supported shells are bash, zsh, fish, and nushell.
+**br** 是封装了 **broot** 的 shell 函数，提供交互式目录树导航，并支持更改 shell 的当前工作目录。它是 broot 进行 shell 集成的推荐方式。支持的 shell 有 bash、zsh、fish 和 nushell。
 
-On first run, broot offers to register the **br** function in your shell config. You can also install it manually with **broot --install**, or print the function with **broot --print-shell-function** _shell_.
+首次运行时，broot 会提议在 shell 配置中注册 **br** 函数。你也可以用 **broot --install** 手动安装，或用 **broot --print-shell-function** _shell_ 打印该函数的定义。
 
 # PARAMETERS
 
-See **broot** for all available options. Common options:
+所有可用选项参见 **broot**。常用选项：
 
 **-s, --sizes**
-> Display file and directory sizes
+> 显示文件和目录的大小。
 
 **-h, --hidden**
-> Show hidden files and directories
+> 显示隐藏文件和目录。
 
 **-f, --only-folders**
-> Show only directories
+> 仅显示目录。
 
 **-p, --permissions**
-> Display file permissions
+> 显示文件权限。
 
 # CAVEATS
 
-The br function must be installed using "broot --install" for proper shell integration. Unlike calling broot directly, br allows changing the shell's current directory.
+必须通过 "broot --install" 安装 br 函数才能正确进行 shell 集成。与直接调用 broot 不同，br 允许更改 shell 的当前目录。
 
 # HISTORY
 
-**br** is the shell function component of **broot**, installed to enable directory navigation and shell integration features.
+**br** 是 **broot** 的 shell 函数组件，安装后可启用目录导航与 shell 集成功能。
 
 # INSTALL
 

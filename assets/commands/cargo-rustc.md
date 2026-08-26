@@ -1,26 +1,26 @@
 # TAGLINE
 
-Compile a package with extra rustc flags
+使用额外的 rustc 标志编译软件包
 
 # TLDR
 
-**Compile with extra rustc flags**
+**带额外 rustc 标志编译**
 
 ```cargo rustc -- [rustc_flags]```
 
-**Compile specific binary with flags**
+**带标志编译指定二进制**
 
 ```cargo rustc --bin [name] -- [flags]```
 
-**Compile library with flags**
+**带标志编译库**
 
 ```cargo rustc --lib -- [-C opt-level=3]```
 
-**Enable specific codegen option**
+**启用特定的代码生成选项**
 
 ```cargo rustc -- -C [target-cpu=native]```
 
-**Add link arguments**
+**添加链接参数**
 
 ```cargo rustc -- -C [link-arg=-fuse-ld=lld]```
 
@@ -30,67 +30,67 @@ Compile a package with extra rustc flags
 
 # DESCRIPTION
 
-**cargo rustc** compiles the current package and passes extra options directly to the Rust compiler. Unlike `RUSTFLAGS`, which applies flags to all crates in the build, arguments after `--` are passed only to the final compiler invocation for the specified target, not to its dependencies.
+**cargo rustc** 编译当前软件包，并将额外选项直接传递给 Rust 编译器。与作用于构建中所有 crate 的 `RUSTFLAGS` 不同，`--` 之后的参数只传递给指定目标的最后一次编译器调用，而不会传给它的依赖。
 
-This command is useful for enabling specific codegen options, changing optimization levels, emitting intermediate representations like LLVM IR or assembly, or passing custom linker arguments for a single crate without affecting the rest of the dependency graph.
+此命令适用于为单个 crate 启用特定的代码生成选项、更改优化级别、输出 LLVM IR 或汇编等中间表示，或传入自定义链接器参数，而不影响依赖图的其他部分。
 
 # PARAMETERS
 
 **--lib**
-> Compile library only
+> 只编译库
 
 **--bin** _name_
-> Compile specified binary
+> 编译指定的二进制文件
 
 **--bins**
-> Compile all binaries
+> 编译所有二进制文件
 
 **--example** _name_
-> Compile specified example
+> 编译指定的示例
 
 **--test** _name_
-> Compile specified test
+> 编译指定的测试
 
 **--bench** _name_
-> Compile specified benchmark
+> 编译指定的基准测试
 
 **-r**, **--release**
-> Use release profile
+> 使用 release profile
 
 **--profile** _name_
-> Use specified profile
+> 使用指定的 profile
 
 **-p**, **--package** _spec_
-> Package to compile
+> 要编译的软件包
 
 **--target** _triple_
-> Target platform
+> 目标平台
 
 **-j**, **--jobs** _n_
-> Parallel jobs
+> 并行任务数
 
 **--features** _features_
-> Enable features
+> 启用特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 # RUSTC OPTIONS
 
-Common rustc flags:
-- **-C opt-level=N**: Optimization level
-- **-C target-cpu=NAME**: Target CPU
-- **-C link-arg=ARG**: Linker argument
-- **--emit=TYPE**: Output type (asm, llvm-ir, obj)
+常用的 rustc 标志：
+- **-C opt-level=N**: 优化级别
+- **-C target-cpu=NAME**: 目标 CPU
+- **-C link-arg=ARG**: 链接器参数
+- **--emit=TYPE**: 输出类型（asm、llvm-ir、obj）
 
 # ENVIRONMENT
 
 **RUSTFLAGS**
-> Pass flags to all rustc invocations
+> 将标志传递给所有 rustc 调用
 
 # CAVEATS
 
-Only one target can be compiled when passing extra arguments. Use filters (--lib, --bin) to select target.
+传入额外参数时只能编译一个目标。请使用过滤器（--lib、--bin）选择目标。
 
 # INSTALL
 

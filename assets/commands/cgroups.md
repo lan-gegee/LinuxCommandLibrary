@@ -1,50 +1,50 @@
 # TAGLINE
 
-Linux kernel resource control and isolation
+Linux 内核资源控制与隔离
 
 # TLDR
 
-This page is an index — see **cgcreate** for creating control groups
+本页是索引页——创建控制组请见 **cgcreate**
 
 ```cgcreate -g [controllers]:[path]```
 
-Run a process in a cgroup with **cgexec**
+使用 **cgexec** 在 cgroup 中运行进程
 
 ```cgexec -g [controllers]:[path] [command]```
 
-Move a running process with **cgclassify**
+使用 **cgclassify** 移动运行中的进程
 
 ```cgclassify -g [controllers]:[path] [pid]```
 
 # DESCRIPTION
 
-**cgroups** (control groups) is a Linux kernel feature for limiting, measuring, and controlling resource usage by processes. It is not a single command but a collection of tools and kernel interfaces.
+**cgroups**（control groups，控制组）是 Linux 内核的一项特性，用于限制、度量和控制进程的资源使用。它不是单个命令，而是一组工具和内核接口的集合。
 
-Cgroups can limit CPU, memory, I/O, and network resources. They are fundamental to container technologies like Docker and systemd resource management.
+cgroups 可以限制 CPU、内存、I/O 和网络资源。它是 Docker 等容器技术和 systemd 资源管理的基础。
 
 # RELATED COMMANDS
 
 **cgclassify**
-> Move running processes to a cgroup
+> 将运行中的进程移入 cgroup
 
 **cgcreate**
-> Create new cgroups
+> 创建新的 cgroup
 
 **cgexec**
-> Run a command in a cgroup
+> 在 cgroup 中运行命令
 
 **cgget**
-> Get cgroup parameters
+> 获取 cgroup 参数
 
 **cgset**
-> Set cgroup parameters
+> 设置 cgroup 参数
 
 **cgdelete**
-> Remove cgroups
+> 删除 cgroup
 
 # CAVEATS
 
-Linux has two versions of cgroups (v1 and v2) with different interfaces. Modern systems often use cgroups v2 unified hierarchy. The libcgroup tools work with v1; systemd manages v2 natively.
+Linux 有两个版本的 cgroups（v1 和 v2），接口不同。现代系统通常使用 cgroups v2 统一层级。libcgroup 工具适用于 v1；systemd 原生管理 v2。
 
 # SEE ALSO
 

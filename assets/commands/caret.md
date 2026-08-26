@@ -1,22 +1,22 @@
 # TAGLINE
 
-Shell history substitution and regex anchor character
+Shell 历史替换和正则表达式锚点字符
 
 # TLDR
 
-**Quick substitution on last command**
+**快速替换上一条命令中的文本**
 
 ```^[old]^[new]```
 
-**Repeat last command replacing text**
+**重复上一条命令并替换其中的文本**
 
 ```^typo^fixed```
 
-**Start of line anchor (regex)**
+**行首锚点（正则表达式）**
 
 ```grep "^start" [file]```
 
-**Negation in character class (regex)**
+**字符类取反（正则表达式）**
 
 ```grep "[^0-9]" [file]```
 
@@ -27,36 +27,36 @@ Shell history substitution and regex anchor character
 # PARAMETERS
 
 **^**_old_**^**_new_
-> Replace first occurrence of _old_ with _new_ in the previous command and execute it.
+> 将上一条命令中第一次出现的 _old_ 替换为 _new_ 并执行。
 
 **^**_old_**^**_new_**^**
-> Same substitution; the trailing **^** is optional unless appending additional text.
+> 同样的替换；末尾的 **^** 是可选的，除非还要追加额外文本。
 
 **!!:s/**_old_**/**_new_**/**
-> Equivalent long-form history substitution syntax.
+> 等价的完整形式历史替换语法。
 
 **!!:gs/**_old_**/**_new_**/**
-> Replace all occurrences of _old_ with _new_ in the previous command.
+> 替换上一条命令中所有出现的 _old_ 为 _new_。
 
 # DESCRIPTION
 
-**^** in shell has multiple meanings:
+**^** 在 shell 中有多种含义：
 
-**History substitution**: **^old^new** is a shortcut for **!!:s/old/new/**, replacing text in the previous command. Quick fix for typos without retyping.
+**历史替换**：**^old^new** 是 **!!:s/old/new/** 的快捷方式，用于替换上一条命令中的文本。无需重新输入即可快速修正笔误。
 
-**Regular expression anchor**: **^** matches the start of a line. **^hello** matches lines starting with "hello".
+**正则表达式锚点**：**^** 匹配行首。**^hello** 匹配以 "hello" 开头的行。
 
-**Character class negation**: **[^abc]** matches any character except a, b, or c.
+**字符类取反**：**[^abc]** 匹配除 a、b、c 以外的任意字符。
 
-**Exponentiation**: In **$((...))** and some languages, **^** may be XOR or exponent (use ******** in bash for exponent).
+**幂运算**：在 **$((...))** 和某些语言中，**^** 可能表示异或或幂运算（bash 中用 ******** 表示幂运算）。
 
 # CAVEATS
 
-**^old^new** only replaces the first occurrence. For global replacement, use **!!:gs/old/new/**.
+**^old^new** 只替换第一次出现。要全局替换，请使用 **!!:gs/old/new/**。
 
-In some shells/contexts, **^** may need escaping or behave differently.
+在某些 shell 或上下文中，**^** 可能需要转义或行为不同。
 
-The caret substitution must be at the start of the command line.
+脱字符替换必须位于命令行的开头。
 
 # SEE ALSO
 

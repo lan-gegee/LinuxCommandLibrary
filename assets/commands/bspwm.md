@@ -1,10 +1,10 @@
 # TAGLINE
 
-Tiling window manager based on binary space partitioning
+基于二进制空间分区的平铺式窗口管理器
 
 # TLDR
 
-**Start** bspwm with a configuration file
+使用配置文件**启动** bspwm
 
 ```bspwm -c [path/to/config]```
 
@@ -14,38 +14,38 @@ Tiling window manager based on binary space partitioning
 
 # DESCRIPTION
 
-**bspwm** is a tiling window manager based on binary space partitioning. It organizes windows in a full binary tree structure, recursively splitting the screen into regions.
+**bspwm** 是一个基于二进制空间分区的平铺式窗口管理器。它以完整二叉树的结构组织窗口，递归地将屏幕切分为多个区域。
 
-The window manager is controlled entirely through **bspc**, which sends commands via a socket. Configuration is done through shell scripts that run bspc commands, typically at **~/.config/bspwm/bspwmrc**.
+该窗口管理器完全通过 **bspc** 控制，后者经由套接字发送命令。配置通过运行 bspc 命令的 shell 脚本完成，通常位于 **~/.config/bspwm/bspwmrc**。
 
-Hotkey binding is handled separately by tools like **sxhkd** (Simple X Hotkey Daemon).
+快捷键绑定由 **sxhkd**（Simple X Hotkey Daemon）等工具单独处理。
 
 # PARAMETERS
 
 **-c** _config_
-> Path to configuration file (default: ~/.config/bspwm/bspwmrc)
+> 配置文件的路径（默认：~/.config/bspwm/bspwmrc）
 
 **-s** _socket_
-> Path to the socket file
+> 套接字文件的路径
 
 **-o** _count_
-> Number of monitors
+> 显示器数量
 
 # CONFIGURATION
 
 **~/.config/bspwm/bspwmrc**
-> Shell script executed at startup to configure bspwm via bspc commands.
+> 启动时执行的 shell 脚本，通过 bspc 命令配置 bspwm。
 
 **~/.config/sxhkd/sxhkdrc**
-> Hotkey configuration for sxhkd, the companion hotkey daemon.
+> sxhkd 的快捷键配置，sxhkd 是配套的快捷键守护进程。
 
 # CAVEATS
 
-Must not be started when another window manager is running. Requires a separate hotkey daemon (sxhkd) for keyboard shortcuts. Configuration is shell scripts, not config files.
+在其他窗口管理器运行时不得启动。需要单独的快捷键守护进程（sxhkd）来处理键盘快捷键。其配置是 shell 脚本，而非配置文件。
 
 # HISTORY
 
-**bspwm** was created by Bastien Dejean and follows the Unix philosophy of doing one thing well. It delegates hotkey handling and bar display to separate programs.
+**bspwm** 由 Bastien Dejean 创建，遵循"做好一件事"的 Unix 哲学。它将快捷键处理和状态栏显示交给独立的程序完成。
 
 # INSTALL
 

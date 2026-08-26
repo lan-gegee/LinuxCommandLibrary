@@ -1,34 +1,34 @@
 # TAGLINE
 
-Fast, scalable multi-language build system
+快速、可扩展的多语言构建系统
 
 # TLDR
 
-**Build** target
+**构建**目标
 
 ```bazel build [//path/to:target]```
 
-**Run** binary
+**运行**二进制文件
 
 ```bazel run [//path/to:binary]```
 
-**Test** targets
+**测试**目标
 
 ```bazel test [//path/to:tests]```
 
-**Query** dependencies
+**查询**依赖
 
 ```bazel query "deps([//path/to:target])"```
 
-**Clean** build artifacts
+**清理**构建产物
 
 ```bazel clean```
 
-Build **all** targets recursively
+递归构建**所有**目标
 
 ```bazel build //...```
 
-**Info** about build environment
+显示构建环境的**信息**
 
 ```bazel info```
 
@@ -38,89 +38,89 @@ Build **all** targets recursively
 
 # DESCRIPTION
 
-**bazel** is a fast, scalable build system that supports multi-language projects and massive codebases. Developed by Google based on their internal Blaze system, it provides reproducible builds, remote caching, and distributed execution.
+**bazel** 是一个快速、可扩展的构建系统，支持多语言项目和超大规模代码库。它由 Google 基于其内部的 Blaze 系统开发，提供可重现的构建、远程缓存和分布式执行。
 
-The tool is designed for monorepos and projects requiring strict dependency management and incremental builds.
+该工具专为 monorepo 以及需要严格依赖管理和增量构建的项目而设计。
 
 # PARAMETERS
 
 **build** _target_
-> Build specified targets
+> 构建指定目标
 
 **run** _target_
-> Build and run executable target
+> 构建并运行可执行目标
 
 **test** _target_
-> Build and run tests
+> 构建并运行测试
 
 **query** _expression_
-> Query build graph
+> 查询构建图
 
 **cquery** _expression_
-> Query configured build graph (post-analysis)
+> 查询已配置的构建图（分析之后）
 
 **aquery** _expression_
-> Query action graph
+> 查询动作图
 
 **clean**
-> Remove build artifacts
+> 删除构建产物
 
 **fetch** _target_
-> Fetch external dependencies
+> 拉取外部依赖
 
 **coverage** _target_
-> Generate code coverage report for tests
+> 为测试生成代码覆盖率报告
 
 **version**
-> Print Bazel version
+> 打印 Bazel 版本
 
 **shutdown**
-> Stop the Bazel server
+> 停止 Bazel 服务器
 
 **info**
-> Show build environment info
+> 显示构建环境信息
 
 **--jobs** _n_
-> Number of parallel jobs
+> 并行作业数
 
 **--config** _name_
-> Use configuration from .bazelrc
+> 使用 .bazelrc 中的配置
 
 **--remote_cache** _url_
-> Remote cache URL
+> 远程缓存 URL
 
 **--disk_cache** _path_
-> Disk cache location
+> 磁盘缓存位置
 
 **--compilation_mode** (_-c_) _mode_
-> Compilation mode: fastbuild, dbg, or opt
+> 编译模式：fastbuild、dbg 或 opt
 
 **--keep_going** (_-k_)
-> Continue building after errors
+> 出错后继续构建
 
 **--verbose_failures**
-> Show full command line for failed commands
+> 显示失败命令的完整命令行
 
 # TARGET SYNTAX
 
-- **//path/to:target** - Specific target
-- **//path/to:all** - All targets in package
-- **//...** - All targets recursively
-- **@repo//path:target** - External repository
+- **//path/to:target** - 特定目标
+- **//path/to:all** - 软件包中的所有目标
+- **//...** - 递归的所有目标
+- **@repo//path:target** - 外部仓库
 
 # FEATURES
 
-- Incremental builds
-- Remote caching
-- Distributed execution
-- Hermetic builds
-- Multi-language support (Java, C++, Go, Python, etc.)
-- Dependency analysis
-- Reproducible builds
+- 增量构建
+- 远程缓存
+- 分布式执行
+- 密封构建
+- 多语言支持（Java、C++、Go、Python 等）
+- 依赖分析
+- 可重现构建
 
 # BUILD FILES
 
-BUILD or BUILD.bazel files define targets:
+BUILD 或 BUILD.bazel 文件定义目标：
 ```python
 cc_binary(
     name = "hello",
@@ -131,21 +131,21 @@ cc_binary(
 # CONFIGURATION
 
 **~/.bazelrc**
-> User-level build options and configuration flags.
+> 用户级构建选项和配置标志。
 
-**WORKSPACE** or **WORKSPACE.bazel** (or **MODULE.bazel** for Bzlmod)
-> Root file that defines external dependencies and the project boundary.
+**WORKSPACE** 或 **WORKSPACE.bazel**（Bzlmod 则为 **MODULE.bazel**）
+> 定义外部依赖和项目边界的根文件。
 
 **.bazelrc**
-> Project-level build options, config groups, and default flags.
+> 项目级构建选项、配置组和默认标志。
 
 # CAVEATS
 
-Steep learning curve. Requires BUILD files throughout project. Initial setup complex. Can be overkill for small projects. Build times include analysis phase. JVM-based (high memory usage).
+学习曲线陡峭。项目中处处需要 BUILD 文件。初始配置复杂。对小型项目而言可能大材小用。构建耗时包含分析阶段。基于 JVM（内存占用高）。
 
 # HISTORY
 
-**Bazel** was released by Google in **2015** as an open-source version of their internal Blaze build system, designed to handle massive multi-language monorepos.
+**Bazel** 由 Google 于 **2015** 年作为其内部 Blaze 构建系统的开源版本发布，旨在处理大规模的多语言 monorepo。
 
 # INSTALL
 

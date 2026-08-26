@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast command-line audio player and converter with VGM chip emulation
+支持 VGM 芯片仿真的快速命令行音频播放器与转换器
 
 # TLDR
 
-**Play a single audio file**
+**播放单个音频文件**
 
 ```benben [path/to/song.mp3]```
 
-**Play all files in a directory**
+**播放一个目录中的所有文件**
 
 ```benben [path/to/album/]```
 
-**Play a VGM file** with looping
+**循环播放 VGM 文件**
 
 ```benben --loop [2] [path/to/song.vgz]```
 
-**Render files to WAV** in parallel
+**并行渲染文件为 WAV**
 
 ```benben --render [*.ogg] [*.flac]```
 
-**Render to a specific output directory** with normalization
+**渲染到指定输出目录**并做响度归一化
 
 ```benben --render --normalize --outdir [path/to/output] [*.vgm]```
 
-**Play with a specific audio driver** and sample rate
+**使用指定的音频驱动和采样率播放**
 
 ```benben --driver [alsa] --sample-rate [48000] [path/to/file]```
 
-**Play a SID file** selecting specific songs
+**播放 SID 文件**并选择指定曲目
 
 ```benben [path/to/file.sid@2,4,7]```
 
-**Shuffle and repeat** a directory
+**随机乱序并重复播放**一个目录
 
 ```benben --shuffle --repeat [path/to/music/]```
 
@@ -43,207 +43,207 @@ Fast command-line audio player and converter with VGM chip emulation
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information and exit
+> 显示帮助信息并退出
 
 **-v**, **--version**
-> Show brief version details and exit
+> 显示简短版本信息并退出
 
 **--long-version**
-> Display verbose version information and exit
+> 显示详细版本信息并退出
 
 **--scan-only**
-> Scan files only, then terminate
+> 仅扫描文件，然后终止
 
 **--recurse**
-> Search subdirectories recursively
+> 递归搜索子目录
 
 **--no-recurse**
-> Disable recursive subdirectory searching
+> 禁用递归子目录搜索
 
 **--dump-config**
-> Generate a fresh configuration and output to stdout
+> 生成一份全新配置并输出到 stdout
 
 **--basedir** _path_
-> Load configuration and themes from an alternate directory
+> 从备用目录加载配置和主题
 
 **--remote**
-> Enable UNIX domain socket for remote control
+> 启用 UNIX 域套接字以进行远程控制
 
 **--remote-socket** _path_
-> Specify alternate socket location for remote control
+> 为远程控制指定备用的套接字位置
 
 **--list-themes**
-> Display all available themes
+> 显示所有可用主题
 
 **-T** _name_, **--theme** _name_
-> Use the specified theme
+> 使用指定的主题
 
 **--ui** _type_
-> Select user interface: original or minimal
+> 选择用户界面：original 或 minimal
 
 **-L**, **--no-listenbrainz**
-> Disable ListenBrainz submission
+> 禁用 ListenBrainz 提交
 
 **-d** _driver_, **--driver** _driver_
-> Select audio driver (alsa, out123, ao, any)
+> 选择音频驱动（alsa、out123、ao、any）
 
 **--alsa-device** _name_
-> Use a specific ALSA device (default: default)
+> 使用指定的 ALSA 设备（默认：default）
 
 **--volume** _x_
-> Set output volume from 0.0 to 3.0 (default: 1.0)
+> 设置输出音量，范围 0.0 到 3.0（默认：1.0）
 
 **-S** _hz_, **--sample-rate** _hz_
-> Set output sample rate in Hz from 8000 to 48000 (default: 44100)
+> 设置输出采样率（Hz），范围 8000 到 48000（默认：44100）
 
 **--replay-gain** _mode_
-> Set ReplayGain mode: disabled, mix, or album
+> 设置 ReplayGain 模式：disabled、mix 或 album
 
 **--resampler** _mode_
-> Set resampler mode
+> 设置重采样器模式
 
 **-e**, **--no-eq**
-> Start with equalizer disabled
+> 以均衡器禁用状态启动
 
 **-c**, **--soft-clipping**
-> Start with soft clipping enabled
+> 以软削波启用状态启动
 
 **-C**, **--no-soft-clipping**
-> Start with soft clipping disabled
+> 以软削波禁用状态启动
 
 **--soft-clipping-oversampling** _n_
-> Oversampling amount when soft clipping is enabled (default: 1)
+> 软削波启用时的过采样倍数（默认：1）
 
 **-t**, **--stereo-enhancer**
-> Enable stereo enhancer effect
+> 启用立体声增强效果
 
 **-E** _amount_, **--stereo-enhancement** _amount_
-> Set stereo enhancement amount from 0.0 to 1.5 (default: 0.5)
+> 设置立体声增强强度，范围 0.0 到 1.5（默认：0.5）
 
 **--dc-filter**
-> Enable DC offset filter
+> 启用直流偏移滤波器
 
 **--no-dc-filter**
-> Disable DC offset filter
+> 禁用直流偏移滤波器
 
 **-r**, **--reverb**
-> Enable reverb effect
+> 启用混响效果
 
 **-R**, **--no-reverb**
-> Disable reverb effect
+> 禁用混响效果
 
 **--reverb-type** _type_
-> Set reverb unit type: mverb or zita
+> 设置混响单元类型：mverb 或 zita
 
 **--reverb-preset** _name_
-> Use an alternate reverb preset (default: gm-default)
+> 使用备用的混响预设（默认：gm-default）
 
 **--reverb-amount** _x_
-> Set reverb amount from 0.0 to 1.0 (default: 0.5)
+> 设置混响强度，范围 0.0 到 1.0（默认：0.5）
 
 **-l** _n_, **--loop** _n_
-> Loop count; 0 for infinite looping (default: 1)
+> 循环次数；0 表示无限循环（默认：1）
 
 **-p**, **--repeat**
-> Loop entire queue when finished
+> 播放完毕后循环整个队列
 
 **-P**, **--no-repeat**
-> Disable queue looping
+> 禁用队列循环
 
 **--shuffle**
-> Randomize playback queue
+> 随机打乱播放队列
 
 **--start-paused**
-> Begin playback in a paused state
+> 以暂停状态开始播放
 
 **--fadeout-seconds** _n_
-> Fade-out duration in seconds (default: 5)
+> 淡出时长（秒）（默认：5）
 
 **--vgm-chip-info**
-> Display supported VGM chip emulators and exit
+> 显示受支持的 VGM 芯片仿真器并退出
 
 **--vgm-strict-gd3-loading**
-> Be strict with GD3 tags during VGM loading
+> 在加载 VGM 时严格校验 GD3 标签
 
 **--vgm-ym2612-pseudo-stereo**
-> Enable pseudo-stereo for YM2612 emulator
+> 为 YM2612 仿真器启用伪立体声
 
 **--sid-mono**
-> Force 2SID/3SID playback as monaural
+> 强制以单声道播放 2SID/3SID
 
 **--sid-def-length** _seconds_
-> Default SID song length in seconds (default: 180)
+> SID 曲目的默认长度（秒）（默认：180）
 
 **--midi-soundfont** _path_
-> Specify SoundFont file for MIDI playback
+> 为 MIDI 播放指定 SoundFont 文件
 
 **-n**, **--render**
-> Render files to WAV or Au format instead of playing
+> 将文件渲染为 WAV 或 Au 格式而不是播放
 
 **-Q**, **--quiet**
-> Suppress non-error messages during rendering
+> 渲染期间抑制非错误消息
 
 **-N**, **--normalize**
-> Normalize rendered files to 0 dBFS peak
+> 将渲染出的文件归一化到 0 dBFS 峰值
 
 **-A**, **--au**
-> Render to Au format instead of WAV
+> 渲染为 Au 格式而不是 WAV
 
 **-F**, **--float**
-> Output IEEE floating-point data when rendering
+> 渲染时输出 IEEE 浮点数据
 
 **-b** _depth_, **--bit-depth** _depth_
-> Set bit depth: 8, 16, 24, 32, or 64 (default: 16 for PCM, 32 for float)
+> 设置位深：8、16、24、32 或 64（PCM 默认 16，浮点默认 32）
 
 **-o** _dir_, **--outdir** _dir_
-> Output directory for rendered files
+> 渲染文件的输出目录
 
 **--overwrite**
-> Overwrite existing rendered files
+> 覆盖已存在的渲染文件
 
 **--jobs** _n_
-> Number of parallel rendering jobs (default: CPU core count)
+> 并行渲染任务数（默认：CPU 核心数）
 
 **--tcp-driver-host** _host_
-> TCP host to connect to (default: localhost)
+> 要连接的 TCP 主机（默认：localhost）
 
 **--tcp-driver-port** _port_
-> TCP port to connect to (default: 6969)
+> 要连接的 TCP 端口（默认：6969）
 
 **--tcp-driver-format** _format_
-> Audio format for TCP transmission (default: float32)
+> TCP 传输使用的音频格式（默认：float32）
 
 # DESCRIPTION
 
-**benben** is a fast and efficient command-line audio player and audio converter for Linux and other Unix-like systems with an oldschool-inspired terminal interface. It is written almost entirely in Common Lisp and is designed for users who organize their music in folders and prefer terminal-based tools over graphical interfaces.
+**benben** 是一款面向 Linux 及其他类 Unix 系统、快速高效的命令行音频播放器和音频转换器，拥有复古风格（oldschool）的终端界面。它几乎完全使用 Common Lisp 编写，面向那些按文件夹整理音乐、偏好终端工具而非图形界面的用户。
 
-benben supports a wide range of audio formats including MP3, Ogg Vorbis, Opus, FLAC, WavPack, WAV, QOA, Sun Au, General MIDI, MUS, Commodore 64 SID, Doom WAD files, and all module/tracker formats supported by libxmp. It has extensive VGM (Video Game Music) format support with chip emulation for over 30 sound chips including YM2612, YM2151, YM2610, NES APU, HuC6280, QSound, and Sega MultiPCM, powered by the SatouSynth library.
+benben 支持多种音频格式，包括 MP3、Ogg Vorbis、Opus、FLAC、WavPack、WAV、QOA、Sun Au、General MIDI、MUS、Commodore 64 SID、Doom WAD 文件，以及 libxmp 支持的所有 module/tracker 格式。它对 VGM（Video Game Music）格式有广泛支持，依托 SatouSynth 库提供对 30 多种声音芯片的仿真，包括 YM2612、YM2151、YM2610、NES APU、HuC6280、QSound 和 Sega MultiPCM。
 
-The player provides multiple audio output backends (ALSA, libout123, libao) and supports TCP audio streaming. Built-in audio effects include soft clipping with configurable oversampling, a parametric equalizer with arbitrary band count, stereo enhancement, reverb (mverb and zita types with presets), and a DC offset filter. It supports ReplayGain/RVA for volume normalization.
+该播放器提供多个音频输出后端（ALSA、libout123、libao），并支持 TCP 音频流传输。内置音频效果包括可配置过采样的软削波、任意频段数的参数均衡器、立体声增强、混响（mverb 与 zita 类型，带预设）以及直流偏移滤波器。它还支持 ReplayGain/RVA 音量归一化。
 
-The rendering mode can convert audio files to WAV or Au format in parallel using multiple CPU cores, with options for normalization, configurable bit depth, and floating-point output. XSPF and JSPF playlists are supported, along with ListenBrainz scrobbling and Matrix protocol integration for now-playing updates.
+渲染模式可以利用多个 CPU 核心并行将音频文件转换为 WAV 或 Au 格式，并提供响度归一化、可配置位深和浮点输出等选项。它支持 XSPF 和 JSPF 播放列表，同时支持 ListenBrainz scrobbling 以及用于正在播放更新的 Matrix 协议集成。
 
-The multi-threaded UI is built on S-Lang and features customizable themes, banner animations, a VU meter, and full keyboard controls. A minimal headless UI is also available for resource-constrained systems or remote control via the companion **remote-benben** tool over UNIX domain sockets. SID files support song selection syntax using the @ notation (e.g., file.sid@1-3).
+多线程 UI 基于 S-Lang 构建，具有可自定义的主题、横幅动画、VU 电平表和完整的键盘控制。此外还提供一个极简无界面（headless）UI，适用于资源受限的系统，或通过 UNIX 域套接字配合配套工具 **remote-benben** 进行远程控制。SID 文件支持使用 @ 记法的曲目选择语法（如 file.sid@1-3）。
 
-benben is command-line only with no file browser by design; users specify files, directories, or playlists as arguments.
+benben 仅提供命令行界面，设计上不带文件浏览器；用户需以参数形式指定文件、目录或播放列表。
 
 # CONFIGURATION
 
-Configuration is stored in **$XDG_CONFIG_HOME/benben/benben.yaml** (typically ~/.config/benben/benben.yaml) in YAML format. Command-line options override configuration file settings.
+配置以 YAML 格式存储在 **$XDG_CONFIG_HOME/benben/benben.yaml**（通常是 ~/.config/benben/benben.yaml）。命令行选项会覆盖配置文件中的设置。
 
-Key configuration sections include audio driver and buffer settings, playback defaults (volume, sample rate, loop count, fade-out), audio effects (equalizer bands, soft clipping, stereo enhancer, reverb type and presets, DC filter), VGM emulator preferences (chip cores, GD3 language, pseudo-stereo), MIDI settings (soundfont path, reverb, chorus, voice filter type), C64/SID settings (ROM paths, chip model, songlength database), UI customization (theme, banner style and animation, display preferences), and integration tokens for ListenBrainz and Matrix.
+关键配置部分包括：音频驱动与缓冲设置、播放默认值（音量、采样率、循环次数、淡出）、音频效果（均衡器频段、软削波、立体声增强、混响类型与预设、直流滤波）、VGM 仿真器偏好（芯片核心、GD3 语言、伪立体声）、MIDI 设置（soundfont 路径、混响、合唱、声部滤波器类型）、C64/SID 设置（ROM 路径、芯片型号、曲长数据库）、UI 自定义（主题、横幅样式与动画、显示偏好），以及 ListenBrainZ 和 Matrix 的集成令牌。
 
-Song-specific configuration files can be placed in **$XDG_CONFIG_HOME/benben/song-configs/** as **song-config-*.yaml** files, each containing a **match** key with glob patterns to apply settings to particular files.
+针对特定歌曲的配置文件可以放在 **$XDG_CONFIG_HOME/benben/song-configs/** 目录下，命名为 **song-config-*.yaml**，每个文件包含一个 **match** 键，其值为 glob 模式，用于将设置应用到特定文件。
 
-Themes are stored in **$XDG_CONFIG_HOME/benben/themes/** as **theme-\<name\>.yaml** files and support 8-bit ANSI, 24-bit RGB, and hex color notation.
+主题存储在 **$XDG_CONFIG_HOME/benben/themes/** 目录下，命名为 **theme-\<name\>.yaml**，支持 8 位 ANSI、24 位 RGB 以及十六进制颜色表示法。
 
 # CAVEATS
 
-The configuration file format is considered unstable and may change until version 1.0. MIDI playback requires a SoundFont file to be specified. SID song length accuracy depends on having the HVSC songlength database configured; without it, songs default to 180 seconds. The sample rate is limited to a range of 8000 to 48000 Hz. benben has no built-in file browser and requires explicit file or directory arguments. For 24-bit terminal color support, the COLORTERM environment variable may need to be set to truecolor.
+配置文件格式在 1.0 版本之前被视为不稳定，可能会有变动。MIDI 播放需要指定 SoundFont 文件。SID 曲目长度的准确性依赖已配置的 HVSC 曲长数据库；未配置时曲目默认长度为 180 秒。采样率被限制在 8000 到 48000 Hz 范围内。benben 没有内置文件浏览器，需要显式给出文件或目录参数。要使用 24 位终端色彩，可能需要将 COLORTERM 环境变量设置为 truecolor。
 
 # HISTORY
 
-**benben** was created by **Remilia Scarlet** as a personal project, originally written in the **Crystal** programming language. Development began around **2023**, with the v0.4.0 release announced on **March 7, 2024** at VGMRips. The VGM chip emulation was built on the author's **YunoSynth** library, an OOP rewrite of VGMPlay's sound emulator code. In **January 2025**, work began on porting benben from Crystal to **Common Lisp**, with the Lisp-based **v0.7.0** becoming the author's daily music player by **April 2025**. The VGM library was rewritten as **SatouSynth** for the Lisp version. Version **0.7.1** was released on **November 6, 2025**. The project is licensed under the **GNU Affero General Public License v3** and hosted in a Fossil repository.
+**benben** 由 **Remilia Scarlet** 作为个人项目创建，最初使用 **Crystal** 编程语言编写。开发始于约 **2023** 年，v0.4.0 版本于 **2024 年 3 月 7 日**在 VGMRips 上发布。VGM 芯片仿真构建于作者的 **YunoSynth** 库之上，该库是对 VGMPlay 声音仿真器代码的面向对象重写。**2025 年 1 月**，作者开始将 benben 从 Crystal 移植到 **Common Lisp**，到 **2025 年 4 月**，基于 Lisp 的 **v0.7.0** 已成为作者日常使用的音乐播放器。VGM 库也在 Lisp 版本中被重写为 **SatouSynth**。版本 **0.7.1** 于 **2025 年 11 月 6 日**发布。该项目采用 **GNU Affero General Public License v3** 许可证，托管在一个 Fossil 仓库中。
 
 # INSTALL
 

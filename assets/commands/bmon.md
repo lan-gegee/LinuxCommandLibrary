@@ -1,22 +1,22 @@
 # TAGLINE
 
-Monitor network bandwidth in real time
+实时监视网络带宽
 
 # TLDR
 
-Display **all interfaces**
+显示**所有接口**
 
 ```bmon -a```
 
-Display data transfer rates in **bits per second**
+以**比特每秒**显示数据传输速率
 
 ```bmon -b```
 
-Specify which **interfaces** to display
+指定要显示的**接口**
 
 ```bmon -p [interface_1,interface_2,interface_3,...]```
 
-Specify the **rate calculation interval** in seconds
+指定**速率计算间隔**（秒）
 
 ```bmon -R [2.0]```
 
@@ -26,38 +26,38 @@ Specify the **rate calculation interval** in seconds
 
 # DESCRIPTION
 
-**bmon** is a bandwidth monitor and rate estimator that displays network interface statistics in a visual format. It shows real-time throughput, packets per second, and error rates for network interfaces.
+**bmon** 是一个带宽监视器和速率估算器，以可视化方式显示网络接口统计信息。它实时展示网络接口的吞吐量、每秒数据包数和错误率。
 
-The tool provides both a graphical TUI display and text output options suitable for scripting and logging.
+该工具既提供图形化 TUI 显示，也提供适合脚本和日志记录的文本输出选项。
 
 # PARAMETERS
 
 **-a, --show-all**
-> Show all interfaces, including those with no traffic
+> 显示所有接口，包括没有流量的接口。
 
 **-b, --use-bit**
-> Display rates in bits per second instead of bytes
+> 以比特每秒而非字节显示速率。
 
 **-p, --policy** _interfaces_
-> Comma-separated list of interfaces to display
+> 要显示的接口列表，以逗号分隔。
 
 **-R, --rate-interval** _seconds_
-> Interval for rate calculations (default: 1.0)
+> 速率计算间隔（默认：1.0）。
 
 **-r, --read** _file_
-> Read input from file instead of live data
+> 从文件而不是实时数据读取输入。
 
 **-o, --output** _format_
-> Output format: ascii, curses, format, null
+> 输出格式：ascii、curses、format、null。
 
 **-i, --input** _module_
-> Specify the input module (e.g., netlink, proc, dummy)
+> 指定输入模块（如 netlink、proc、dummy）。
 
 **-f, --configfile** _file_
-> Load configuration from the given file
+> 从给定文件加载配置。
 
 **-U, --unit** _unit_
-> Force a specific unit for rates (e.g., B, KiB, MiB)
+> 强制使用特定单位显示速率（如 B、KiB、MiB）。
 
 # INSTALL
 

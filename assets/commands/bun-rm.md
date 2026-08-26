@@ -1,18 +1,18 @@
 # TAGLINE
 
-Alias for removing packages from a project
+从项目中移除软件包的别名
 
 # TLDR
 
-**Remove a package**
+**移除一个软件包**
 
 ```bun rm [package]```
 
-**Remove multiple packages**
+**移除多个软件包**
 
 ```bun rm [package1] [package2]```
 
-**Remove a global package**
+**移除全局软件包**
 
 ```bun rm -g [package]```
 
@@ -23,11 +23,11 @@ Alias for removing packages from a project
 # PARAMETERS
 
 **-g**, **--global**
-> Remove from global packages.
+> 从全局软件包中移除。
 
 # DESCRIPTION
 
-**bun rm** is an alias for **bun remove**. It uninstalls packages from the project and removes them from package.json.
+**bun rm** 是 **bun remove** 的别名。它从项目中卸载软件包并将其从 package.json 中移除。
 
 # INSTALL
 

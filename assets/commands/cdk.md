@@ -1,34 +1,34 @@
 # TAGLINE
 
-AWS Cloud Development Kit CLI
+AWS Cloud Development Kit 命令行工具
 
 # TLDR
 
-**Initialize new CDK project**
+**初始化新的 CDK 项目**
 
 ```cdk init app --language [typescript]```
 
-**List stacks in app**
+**列出应用中的堆栈**
 
 ```cdk list```
 
-**Synthesize CloudFormation template**
+**合成 CloudFormation 模板**
 
 ```cdk synth```
 
-**Deploy stack**
+**部署堆栈**
 
 ```cdk deploy [StackName]```
 
-**Deploy all stacks**
+**部署所有堆栈**
 
 ```cdk deploy --all```
 
-**Show diff with deployed stack**
+**显示与已部署堆栈的差异**
 
 ```cdk diff [StackName]```
 
-**Destroy stack**
+**销毁堆栈**
 
 ```cdk destroy [StackName]```
 
@@ -38,75 +38,75 @@ AWS Cloud Development Kit CLI
 
 # DESCRIPTION
 
-**cdk** is the AWS Cloud Development Kit CLI for defining cloud infrastructure as code using familiar programming languages. It synthesizes CloudFormation templates from TypeScript, Python, Java, C#, or Go code and deploys them to AWS.
+**cdk** 是 AWS Cloud Development Kit 的命令行工具，用于使用熟悉的编程语言以代码方式定义云基础设施。它从 TypeScript、Python、Java、C# 或 Go 代码合成 CloudFormation 模板并部署到 AWS。
 
-Instead of writing CloudFormation YAML or JSON by hand, developers define infrastructure using constructs -- reusable, composable classes that represent AWS resources. The CDK synthesizes these constructs into CloudFormation templates, which are then deployed to create and manage the actual AWS resources.
+开发者无需手写 CloudFormation YAML 或 JSON，而是使用 construct——可复用、可组合的类来定义基础设施，每个 construct 代表 AWS 资源。CDK 将这些 construct 合成为 CloudFormation 模板，随后部署以创建和管理实际的 AWS 资源。
 
-The workflow typically involves initializing a project with `cdk init`, writing infrastructure code, previewing changes with `cdk diff`, and deploying with `cdk deploy`. The `cdk watch` command enables hot-reloading during development.
+典型工作流包括：用 `cdk init` 初始化项目、编写基础设施代码、用 `cdk diff` 预览更改、再用 `cdk deploy` 部署。`cdk watch` 命令可在开发期间实现热重载。
 
 # COMMANDS
 
 **init**
-> Create new CDK project from template
+> 从模板创建新的 CDK 项目
 
 **list** (ls)
-> List stacks in CDK app
+> 列出 CDK 应用中的堆栈
 
 **synth**
-> Synthesize CloudFormation template
+> 合成 CloudFormation 模板
 
 **deploy**
-> Deploy stacks to AWS
+> 将堆栈部署到 AWS
 
 **destroy**
-> Delete stacks from AWS
+> 从 AWS 删除堆栈
 
 **diff**
-> Show differences between stacks
+> 显示堆栈之间的差异
 
 **bootstrap**
-> Deploy CDK bootstrap stack
+> 部署 CDK 引导堆栈
 
 **watch**
-> Watch for changes and deploy
+> 监视变更并部署
 
 **context**
-> Manage cached context values
+> 管理缓存的上下文值
 
 **docs**
-> Open CDK documentation
+> 打开 CDK 文档
 
 # PARAMETERS
 
 **--all**
-> Deploy/destroy all stacks
+> 部署/销毁所有堆栈
 
 **--hotswap**
-> Fast deployment when possible
+> 尽可能使用快速部署
 
 **--require-approval** _level_
-> Approval level: never, any-change, broadening
+> 审批级别：never、any-change、broadening
 
 **--profile** _name_
-> AWS profile to use
+> 要使用的 AWS profile
 
 **--region** _region_
-> AWS region
+> AWS 区域
 
 **--output** _dir_
-> Output directory for synthesized templates
+> 合成模板的输出目录
 
 **--verbose**, **-v**
-> Verbose output
+> 详细输出
 
 # CONFIGURATION
 
 **cdk.json**
-> Project configuration including app entry point, context values, and feature flags.
+> 项目配置，包括应用入口点、上下文值和特性开关。
 
 # CAVEATS
 
-Requires Node.js and AWS credentials configured. Run `cdk bootstrap` once per account/region before first deploy.
+需要 Node.js 和已配置的 AWS 凭据。首次部署前需对每个账户/区域运行一次 `cdk bootstrap`。
 
 # INSTALL
 

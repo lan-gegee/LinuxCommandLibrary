@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build and execute a local package binary
+构建并执行本地软件包的二进制文件
 
 # TLDR
 
-**Build and run project**
+**构建并运行项目**
 
 ```cargo run```
 
-**Run with release optimizations**
+**以 release 优化运行**
 
 ```cargo run --release```
 
-**Run specific binary**
+**运行指定的二进制文件**
 
 ```cargo run --bin [binary_name]```
 
-**Run example**
+**运行示例**
 
 ```cargo run --example [example_name]```
 
-**Pass arguments to binary**
+**向二进制传递参数**
 
 ```cargo run -- [arg1] [arg2]```
 
-**Run with features enabled**
+**启用特性后运行**
 
 ```cargo run --features [feature1,feature2]```
 
-**Run specific package**
+**运行指定软件包**
 
 ```cargo run -p [package]```
 
@@ -38,56 +38,56 @@ Build and execute a local package binary
 
 # DESCRIPTION
 
-**cargo run** builds and executes a binary target of the current package. It automatically recompiles the project when source files have changed, then runs the resulting executable. Any arguments placed after `--` are forwarded directly to the binary rather than being interpreted by Cargo.
+**cargo run** 构建并执行当前软件包的一个二进制目标。当源文件有改动时它会自动重新编译项目，然后运行生成的可执行文件。`--` 之后的所有参数都会直接转发给二进制文件，而不会被 Cargo 解析。
 
-If the package contains multiple binary targets, a specific one must be selected with `--bin` or `--example`, or a default can be configured via the `default-run` field in Cargo.toml. The binary's working directory is set to the current shell directory.
+如果软件包包含多个二进制目标，必须用 `--bin` 或 `--example` 选择其中一个，也可以通过 Cargo.toml 中的 `default-run` 字段配置默认值。二进制的工作目录被设置为当前 shell 目录。
 
 # PARAMETERS
 
 **--bin** _name_
-> Run specified binary
+> 运行指定的二进制文件
 
 **--example** _name_
-> Run specified example
+> 运行指定的示例
 
 **-r**, **--release**
-> Run with release profile optimizations
+> 以 release profile 的优化运行
 
 **--profile** _name_
-> Build with specific profile
+> 以指定 profile 构建
 
 **-p**, **--package** _spec_
-> Run from specified package
+> 运行指定软件包中的目标
 
 **--target** _triple_
-> Run for target platform
+> 为目标平台运行
 
 **-j**, **--jobs** _n_
-> Parallel build jobs
+> 并行构建任务数
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 **--no-default-features**
-> Disable default features
+> 禁用默认特性
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 # WORKING DIRECTORY
 
-Sets binary working directory to current directory (same as shell execution).
+将二进制的工作目录设为当前目录（与在 shell 中执行相同）。
 
 # DEFAULT BINARY
 
-Set default-run in Cargo.toml [package] section to choose default binary.
+在 Cargo.toml 的 [package] 区块中设置 default-run 以选择默认二进制。
 
 # CAVEATS
 
-Errors if multiple binaries exist without --bin flag. Use default-run manifest key to set default.
+存在多个二进制且未使用 --bin 时会报错。可使用清单中的 default-run 键设置默认值。
 
 # INSTALL
 

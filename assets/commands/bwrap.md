@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create lightweight unprivileged sandboxes
+创建轻量级的无特权沙箱
 
 # TLDR
 
-Run a program in a **read-only environment**
+在**只读环境**中运行程序
 
 ```bwrap --ro-bind / / [/bin/bash]```
 
-Give access to **devices, process info, and tmpfs**
+允许访问**设备、进程信息和 tmpfs**
 
 ```bwrap --dev-bind /dev /dev --proc /proc --ro-bind / / --tmpfs /tmp [/bin/bash]```
 
-**Run with no network access**
+**在没有网络访问的情况下运行**
 
 ```bwrap --unshare-net --ro-bind / / --dev /dev --proc /proc [/bin/bash]```
 
-**Run isolated process** that dies when parent exits
+**运行隔离进程**，父进程退出时随之终止
 
 ```bwrap --unshare-all --die-with-parent --ro-bind / / --dev /dev --proc /proc [command]```
 
@@ -26,87 +26,87 @@ Give access to **devices, process info, and tmpfs**
 
 # DESCRIPTION
 
-**bwrap** (bubblewrap) creates lightweight sandboxes using Linux namespaces. It provides unprivileged containers for running applications with restricted access to the filesystem, network, and other system resources.
+**bwrap**（bubblewrap）使用 Linux 命名空间创建轻量级沙箱。它提供无特权的容器，以受限制的方式运行应用程序，限制其对文件系统、网络和其他系统资源的访问。
 
-The tool is commonly used by Flatpak and other sandboxing systems to isolate applications from the host system.
+Flatpak 和其他沙箱系统常用该工具将应用与宿主系统隔离。
 
 # PARAMETERS
 
 **--ro-bind** _src_ _dest_
-> Bind mount source read-only at destination
+> 将源路径以只读方式绑定挂载到目标位置
 
 **--bind** _src_ _dest_
-> Bind mount source read-write at destination
+> 将源路径以读写方式绑定挂载到目标位置
 
 **--dev-bind** _src_ _dest_
-> Bind mount source with device access
+> 以设备访问权限绑定挂载源路径
 
 **--proc** _dest_
-> Mount procfs at destination
+> 在目标位置挂载 procfs
 
 **--tmpfs** _dest_
-> Mount tmpfs at destination
+> 在目标位置挂载 tmpfs
 
 **--unshare-pid**
-> Create new PID namespace
+> 创建新的 PID 命名空间
 
 **--unshare-net**
-> Create new network namespace
+> 创建新的网络命名空间
 
 **--unshare-user**
-> Create new user namespace
+> 创建新的用户命名空间
 
 **--unshare-all**
-> Unshare all available namespaces
+> 隔离所有可用的命名空间
 
 **--unshare-ipc**
-> Create new IPC namespace
+> 创建新的 IPC 命名空间
 
 **--unshare-uts**
-> Create new UTS namespace
+> 创建新的 UTS 命名空间
 
 **--unshare-cgroup**
-> Create new cgroup namespace
+> 创建新的 cgroup 命名空间
 
 **--symlink** _SRC_ _DEST_
-> Create a symbolic link
+> 创建符号链接
 
 **--dev** _DEST_
-> Mount new devtmpfs at destination
+> 在目标位置挂载新的 devtmpfs
 
 **--dir** _DEST_
-> Create a directory
+> 创建目录
 
 **--setenv** _VAR_ _VALUE_
-> Set environment variable
+> 设置环境变量
 
 **--unsetenv** _VAR_
-> Remove environment variable
+> 移除环境变量
 
 **--chdir** _DIR_
-> Change working directory
+> 更改工作目录
 
 **--hostname** _HOSTNAME_
-> Set custom hostname (requires --unshare-uts)
+> 设置自定义主机名（需要 --unshare-uts）
 
 **--die-with-parent**
-> Kill sandbox when parent process dies
+> 父进程死亡时杀死沙箱
 
 **--new-session**
-> Create new terminal session via setsid()
+> 通过 setsid() 创建新的终端会话
 
 **--cap-add** _CAP_
-> Add Linux capability
+> 添加 Linux capability
 
 **--cap-drop** _CAP_
-> Drop Linux capability
+> 移除 Linux capability
 
 **--seccomp** _FD_
-> Load seccomp rules from file descriptor
+> 从文件描述符加载 seccomp 规则
 
 # CAVEATS
 
-Requires user namespaces to be enabled in the kernel. Not a complete security boundary; some attack vectors may still exist. Complex sandboxing requires careful bind mount configuration.
+需要内核启用用户命名空间。并非完整的安全边界；某些攻击途径可能仍然存在。复杂的沙箱配置需要仔细设置绑定挂载。
 
 # INSTALL
 

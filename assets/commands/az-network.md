@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Azure networking resources
+管理 Azure 网络资源
 
 # TLDR
 
-**Create a DNS zone**
+**创建 DNS 区域**
 
 ```az network dns zone create -g [resource-group] --name [example.com]```
 
-**Add an A record** to a DNS zone
+向 DNS 区域**添加 A 记录**
 
 ```az network dns record-set a add-record -g [resource-group] --zone-name [example.com] --record-set-name [www] --ipv4-address [1.2.3.4]```
 
-**Create an application security group**
+**创建应用程序安全组**
 
 ```az network asg create -g [resource-group] --name [myASG]```
 
-**Create an application gateway**
+**创建应用程序网关**
 
 ```az network application-gateway create --name [myAppGateway] -g [resource-group] --sku [Standard_v2]```
 
-**List virtual networks** in a resource group
+**列出资源组中的虚拟网络**
 
 ```az network vnet list -g [resource-group]```
 
-**Create a virtual network**
+**创建虚拟网络**
 
 ```az network vnet create -g [resource-group] --name [myVNet] --address-prefix [10.0.0.0/16]```
 
-**Create a network security group**
+**创建网络安全组**
 
 ```az network nsg create -g [resource-group] --name [myNSG]```
 
@@ -38,9 +38,9 @@ Manage Azure networking resources
 
 # DESCRIPTION
 
-**az network** manages Azure Network resources including virtual networks, DNS zones, load balancers, application gateways, VPN gateways, ExpressRoute circuits, and network security groups.
+**az network** 管理 Azure 网络资源，包括虚拟网络、DNS 区域、负载均衡器、应用程序网关、VPN 网关、ExpressRoute 线路和网络安全组。
 
-Azure networking provides the foundation for cloud infrastructure, enabling secure connectivity between Azure resources, on-premises environments, and the internet.
+Azure 网络为云基础设施提供基础，实现 Azure 资源之间、本地环境与互联网之间的安全连接。
 
 # SUBCOMMANDS
 
@@ -64,11 +64,11 @@ Azure networking provides the foundation for cloud infrastructure, enabling secu
 
 # CAVEATS
 
-Many network resources have dependencies; for example, deleting a virtual network requires removing all associated subnets and connected resources first. DNS record changes may take time to propagate globally. Application gateways incur charges even when stopped; delete unused gateways.
+许多网络资源存在依赖关系；例如，删除虚拟网络前需要先移除所有关联的子网和已连接的资源。DNS 记录变更可能需要时间才能在全球传播。应用程序网关即使停止也会产生费用；请删除不再使用的网关。
 
 # HISTORY
 
-Azure Virtual Network was one of the earliest Azure services, launching with Azure's general availability in **2010**. The networking capabilities have expanded significantly to include Azure DNS (2015), Application Gateway, ExpressRoute, and advanced security features.
+Azure 虚拟网络是最早的 Azure 服务之一，随 **2010** 年 Azure 正式发布一同推出。网络能力此后大幅扩展，包括 Azure DNS（2015）、Application Gateway、ExpressRoute 和高级安全功能。
 
 # INSTALL
 

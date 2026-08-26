@@ -1,34 +1,34 @@
 # TAGLINE
 
-List installed Homebrew packages
+列出已安装的 Homebrew 软件包
 
 # TLDR
 
-**List all installed packages**
+**列出所有已安装的软件包**
 
 ```brew list```
 
-**List installed formulae only**
+**仅列出已安装的 formula**
 
 ```brew list --formula```
 
-**List installed casks only**
+**仅列出已安装的 cask**
 
 ```brew list --cask```
 
-**List with versions**
+**列出版本信息**
 
 ```brew list --versions```
 
-**Check if specific package is installed**
+**检查**特定软件包是否已安装
 
 ```brew list [package]```
 
-**List with verbose file information**
+**列出**详细的文件信息
 
 ```brew list --verbose [package]```
 
-**List top-level packages (not dependencies)**
+**列出顶层软件包（非依赖）**
 
 ```brew leaves```
 
@@ -38,53 +38,53 @@ List installed Homebrew packages
 
 # DESCRIPTION
 
-**brew list** displays all installed formulae and casks. Without arguments, it lists all packages. With a package name, it shows the installed files for that package.
+**brew list** 显示所有已安装的 formula 和 cask。不带参数时列出全部软件包；带软件包名时显示该包所安装的文件。
 
-Aliases: **brew ls**
+别名：**brew ls**。
 
 # PARAMETERS
 
 **--formula**
-> List installed formulae only
+> 仅列出已安装的 formula。
 
 **--cask**
-> List installed casks only
+> 仅列出已安装的 cask。
 
 **--versions**
-> Show version numbers alongside packages
+> 在软件包旁边显示版本号。
 
 **--verbose**
-> Display installed files for each package
+> 显示每个软件包安装的文件。
 
 **--pinned**
-> List pinned formulae only
+> 仅列出已固定（pin）的 formula。
 
 **--multiple**
-> Only show formulae with multiple versions installed
+> 只显示安装了多个版本的 formula。
 
 **-1**
-> Force output to one entry per line
+> 强制每行输出一个条目。
 
 **-l**
-> List formulae and casks in long format
+> 以长格式列出 formula 和 cask。
 
 **-r**
-> Reverse the sort order, listing the oldest entries first
+> 反转排序顺序，最旧的条目排在前面。
 
 **-t**
-> Sort by time modified, listing most recently modified first
+> 按修改时间排序，最近修改的排在前面。
 
 # RELATED COMMANDS
 
 **brew leaves**
-> Show top-level packages that are not dependencies
+> 显示非依赖的顶层软件包。
 
 **brew deps --tree --installed**
-> Show installed packages with dependency tree
+> 显示已安装软件包及其依赖树。
 
 # CAVEATS
 
-Output format varies based on terminal capabilities and flags. Use --versions to distinguish between multiple installed versions of the same package.
+输出格式取决于终端能力和标志。使用 --versions 可区分同一软件包的多个已安装版本。
 
 # SEE ALSO
 

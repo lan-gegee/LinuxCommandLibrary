@@ -1,18 +1,18 @@
 # TAGLINE
 
-Save a registry API token for authentication
+保存用于认证的注册表 API 令牌
 
 # TLDR
 
-**Login to crates.io** (token read from stdin)
+**登录 crates.io**（令牌从标准输入读取）
 
 ```cargo login```
 
-**Login with a token provided as argument**
+**以参数形式提供令牌登录**
 
 ```cargo login [token]```
 
-**Login to a specific registry**
+**登录指定的注册表**
 
 ```cargo login --registry [my-registry]```
 
@@ -22,33 +22,33 @@ Save a registry API token for authentication
 
 # DESCRIPTION
 
-**cargo login** runs a credential provider to save a token for registry authentication. Required for publishing crates with `cargo publish`. The token is read from stdin. Tokens are stored in `$CARGO_HOME/credentials.toml` by default.
+**cargo login** 运行一个凭据提供程序来保存用于注册表认证的令牌。使用 `cargo publish` 发布 crate 时必须先登录。令牌从标准输入读取。默认情况下，令牌存储在 `$CARGO_HOME/credentials.toml` 中。
 
-For crates.io, obtain your token from https://crates.io/me
+对于 crates.io，可在 https://crates.io/me 获取你的令牌
 
 # PARAMETERS
 
 **--registry** _name_
-> Registry to authenticate with (default: crates-io)
+> 要认证的注册表（默认：crates-io）
 
 **-v**, **--verbose**
-> Verbose output. May be specified twice for extra detail.
+> 详细输出。指定两次可获得更多细节。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--color** _when_
-> Control colored output (auto, always, never).
+> 控制彩色输出（auto、always、never）。
 
 **--config** _KEY=VALUE_
-> Override a Cargo configuration value.
+> 覆盖某个 Cargo 配置项。
 
 # TOKEN STORAGE
 
-**Default location**
+**默认位置**
 > ~/.cargo/credentials.toml
 
-**Format**
+**格式**
 ```toml
 [registry]
 token = "your-api-token"
@@ -56,7 +56,7 @@ token = "your-api-token"
 
 # CREDENTIAL PROVIDERS
 
-Configure in ~/.cargo/config.toml:
+在 ~/.cargo/config.toml 中配置：
 
 ```toml
 [registry]
@@ -71,14 +71,14 @@ global-credential-providers = [
 # ENVIRONMENT
 
 **CARGO_REGISTRIES_<NAME>_TOKEN**
-> Token via environment variable
+> 通过环境变量提供令牌
 
 **CARGO_REGISTRY_TOKEN**
-> Default registry token
+> 默认注册表的令牌
 
 # CAVEATS
 
-Keep tokens secret. The cargo:token provider stores tokens unencrypted. For enhanced security, use system keychain providers.
+务必保管好令牌。cargo:token 提供程序以未加密方式存储令牌。如需更高的安全性，请使用系统钥匙串提供程序。
 
 # INSTALL
 

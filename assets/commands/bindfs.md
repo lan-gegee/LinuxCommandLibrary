@@ -1,30 +1,30 @@
 # TAGLINE
 
-Mount directories with altered ownership and permissions via FUSE
+通过 FUSE 以不同的所有者和权限挂载目录
 
 # TLDR
 
-**Mount** a directory to another location
+**将目录挂载**到另一个位置
 
 ```sudo bindfs /path/to/source /path/to/mount```
 
-Mount with **user mapping**
+以**用户映射**方式挂载
 
 ```sudo bindfs --map=user1/user2 /path/to/source /path/to/mount```
 
-Force all files to appear owned by a specific **user and group**
+强制所有文件显示为属于指定的**用户和组**
 
 ```sudo bindfs --force-user=user --force-group=group /path/to/source /path/to/mount```
 
-Mount with modified **permissions**
+以修改过的**权限**挂载
 
 ```sudo bindfs --perms=0755 /path/to/source /path/to/mount```
 
-Mount as **read-only**
+以**只读**方式挂载
 
 ```bindfs -o ro /path/to/source /path/to/mount```
 
-**Unmount**
+**卸载**
 
 ```sudo umount /path/to/mount```
 
@@ -34,47 +34,47 @@ Mount as **read-only**
 
 # DESCRIPTION
 
-**bindfs** mounts a directory to another location with different ownership and permissions. It uses FUSE to create a view of a directory tree with modified permissions.
+**bindfs** 将一个目录挂载到另一位置，并赋予不同的所有者和权限。它使用 FUSE 创建一个经过权限修改的目录树视图。
 
 # PARAMETERS
 
 **--map=** _user1/user2_
-> Map ownership from user1 to user2.
+> 将所有权从 user1 映射为 user2。
 
 **--force-user=** _user_
-> Force all files to appear owned by user.
+> 强制所有文件显示为属于 user。
 
 **--force-group=** _group_
-> Force all files to appear owned by group.
+> 强制所有文件显示为属于 group。
 
 **--perms=** _mode_
-> Set permission bits for all files (octal or symbolic).
+> 为所有文件设置权限位（八进制或符号形式）。
 
 **--create-as-user**
-> Change owner/group of new files to the caller's uid/gid.
+> 将新文件的所有者/组改为调用者的 uid/gid。
 
 **--resolve-symlinks**
-> Resolve symbolic links in the source directory.
+> 解析源目录中的符号链接。
 
 **--enable-ioctl**
-> Forward ioctl calls to the underlying filesystem.
+> 将 ioctl 调用转发到底层文件系统。
 
 **-r**, **-o ro**
-> Mount as read-only.
+> 以只读方式挂载。
 
 **-o** _options_
-> Pass FUSE mount options.
+> 传递 FUSE 挂载选项。
 
 **--multithreaded**
-> Run bindfs in multithreaded mode.
+> 以多线程模式运行 bindfs。
 
 # CAVEATS
 
-Changes to ownership mapping are bidirectional - newly created files are mapped back. Requires FUSE support. Use umount to unmount the bindfs filesystem.
+所有权映射的更改是双向的——新创建的文件会被映射回原状。需要 FUSE 支持。使用 umount 卸载 bindfs 文件系统。
 
 # HISTORY
 
-**bindfs** is a FUSE filesystem for mounting directories with altered permissions.
+**bindfs** 是一个 FUSE 文件系统，用于以修改后的权限挂载目录。
 
 # INSTALL
 

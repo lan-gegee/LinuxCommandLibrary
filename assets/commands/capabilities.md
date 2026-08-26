@@ -1,34 +1,34 @@
 # TAGLINE
 
-Linux process privilege capabilities system
+Linux 进程特权能力（capabilities）系统
 
 # TLDR
 
-**View capabilities of an executable**
+**查看**可执行文件的能力
 
 ```getcap [/path/to/binary]```
 
-**View capabilities recursively in a directory**
+**递归查看目录中**文件的能力
 
 ```getcap -r [/path/to/directory]```
 
-**Set a capability on an executable**
+**为可执行文件设置能力**
 
 ```sudo setcap cap_net_bind_service=+ep [/path/to/binary]```
 
-**Remove all capabilities from an executable**
+**移除可执行文件上的所有能力**
 
 ```sudo setcap -r [/path/to/binary]```
 
-**View current process capabilities**
+**查看当前进程能力**
 
 ```grep Cap /proc/self/status```
 
-**Decode capability hex values**
+**解码能力的十六进制值**
 
 ```capsh --decode=[hex_value]```
 
-**Print current shell capabilities**
+**打印当前 Shell 的能力**
 
 ```capsh --print```
 
@@ -43,65 +43,65 @@ Linux process privilege capabilities system
 # PARAMETERS
 
 **getcap -r** _directory_
-> Recursively search for files with capabilities.
+> 递归搜索具有能力标志的文件。
 
 **getcap -v**
-> Verbose output, display all searched files even without capabilities.
+> 详细输出，显示所有被搜索的文件（包括没有能力的）。
 
 **setcap** _cap=flags_ _file_
-> Set capability (flags: e=effective, p=permitted, i=inheritable). Use + to add, - to remove.
+> 设置能力（flags：e=effective、p=permitted、i=inheritable）。用 + 添加，用 - 移除。
 
 **setcap -r** _file_
-> Remove all capabilities from a file.
+> 移除文件上的所有能力。
 
 **setcap -q**
-> Quiet mode, suppress warnings.
+> 安静模式，抑制警告。
 
 **capsh --print**
-> Print current capabilities and securebits.
+> 打印当前能力和 securebits。
 
 **capsh --decode** _hex_
-> Decode capability bitmask into human-readable names.
+> 将能力位掩码解码为人类可读的名称。
 
 **capsh --drop** _cap_
-> Drop a capability from the bounding set.
+> 从边界集（bounding set）中丢弃一项能力。
 
 **capsh --caps**=_cap-set_
-> Set the prevailing process capabilities.
+> 设置进程当前生效的能力。
 
 **capsh --keep**=_0|1_
-> Set the keep-capabilities flag (0=off, 1=on).
+> 设置 keep-capabilities 标志（0=关，1=开）。
 
 # COMMON CAPABILITIES
 
-**cap_net_bind_service**: Bind to ports below 1024
-**cap_net_raw**: Use raw sockets (e.g., ping)
-**cap_net_admin**: Network administration (interfaces, firewall, routing)
-**cap_sys_admin**: Broad system administration (mount, sethostname, etc.)
-**cap_sys_ptrace**: Trace arbitrary processes with ptrace
-**cap_dac_override**: Bypass file read, write, and execute permission checks
-**cap_setuid/cap_setgid**: Change UID/GID of a process
-**cap_chown**: Change file ownership arbitrarily
-**cap_kill**: Send signals to any process
-**cap_fowner**: Bypass permission checks on operations that require file owner
+**cap_net_bind_service**：绑定 1024 以下端口
+**cap_net_raw**：使用原始套接字（如 ping）
+**cap_net_admin**：网络管理（接口、防火墙、路由）
+**cap_sys_admin**：广泛的系统管理（mount、sethostname 等）
+**cap_sys_ptrace**：用 ptrace 跟踪任意进程
+**cap_dac_override**：绕过文件的读、写、执行权限检查
+**cap_setuid/cap_setgid**：更改进程的 UID/GID
+**cap_chown**:任意更改文件所有者
+**cap_kill**：向任意进程发送信号
+**cap_fowner**：绕过要求文件所有者的操作权限检查
 
 # DESCRIPTION
 
-**Linux capabilities** divide the privileges traditionally held by root into distinct units that can be independently granted to executables. Starting with kernel 2.2, instead of running an entire program as root, specific capabilities allow granting only the permissions needed.
+**Linux capabilities** 将传统上由 root 持有的特权划分为若干独立单元，可分别授予可执行文件。从内核 2.2 起，不必让整个程序以 root 运行，而是通过特定能力只授予所需的权限。
 
-For example, a web server that needs to bind to port 80 can be given only **cap_net_bind_service** instead of full root access. This follows the principle of least privilege, limiting damage from security vulnerabilities.
+例如，需要绑定 80 端口的 Web 服务器可以只获得 **cap_net_bind_service**，而不必拥有完整的 root 权限。这遵循最小权限原则，限制安全漏洞可能造成的破坏。
 
-Capabilities exist in three sets per thread: **permitted** (maximum capabilities available), **effective** (currently active for permission checks), and **inheritable** (preserved across execve). File capabilities are stored in extended attributes and control which capabilities are gained when a binary is executed.
+每个线程的能力存在于三个集合中：**permitted**（可用能力的上限）、**effective**（当前在权限检查中生效）和 **inheritable**（跨 execve 保留）。文件能力存储在扩展属性中，控制二进制执行时获得哪些能力。
 
-The **libcap** library provides user-space tools and APIs for managing capabilities, including **getcap**, **setcap**, and **capsh**.
+**libcap** 库提供管理能力的用户空间工具和 API，包括 **getcap**、**setcap** 和 **capsh**。
 
 # CAVEATS
 
-Capabilities are Linux-specific and not portable to other Unix systems. Not all filesystems support capability extended attributes (e.g., NFS, FAT). Some applications check for UID 0 explicitly rather than capabilities. Capability inheritance rules are complex and easy to misconfigure. Docker and containers manage capabilities separately via their runtime configuration. **cap_sys_admin** is intentionally overloaded and grants a wide range of privileges.
+能力是 Linux 特有的，无法移植到其他 Unix 系统。并非所有文件系统都支持能力扩展属性（如 NFS、FAT）。某些应用程序显式检查 UID 0 而非能力。能力继承规则复杂且容易配置错误。Docker 和容器通过运行时配置单独管理能力。**cap_sys_admin** 被有意设计得职责宽泛，会授予大范围特权。
 
 # HISTORY
 
-POSIX capabilities were proposed in the POSIX.1e draft standard in the **1990s**, though the standard was never finalized. Linux implemented capabilities starting in kernel **2.2** (1999), with significant improvements in **2.6.24** (2008) adding file capabilities. The feature has become increasingly important for containerization and security-conscious system administration.
+POSIX 能力在 **1990 年代**的 POSIX.1e 标准草案中被提出，但该标准最终未定稿。Linux 从内核 **2.2**（1999 年）开始实现能力，并在 **2.6.24**（2008 年）中加入文件能力这一重大改进。随着容器化和注重安全的系统管理的发展，该特性变得日益重要。
 
 # SEE ALSO
 

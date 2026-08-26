@@ -1,18 +1,18 @@
 # TAGLINE
 
-Companion server for easside-ng WEP attacks
+easside-ng WEP 攻击的配套服务器
 
 # TLDR
 
-**Start buddy-ng server**
+**启动 buddy-ng 服务器**
 
 ```buddy-ng```
 
-**Start without dropping privileges**
+**启动后不放弃特权**
 
 ```buddy-ng -p```
 
-**Show help**
+**显示帮助**
 
 ```buddy-ng -h```
 
@@ -22,41 +22,41 @@ Companion server for easside-ng WEP attacks
 
 # DESCRIPTION
 
-**buddy-ng** is a companion tool for easside-ng that runs on a remote computer with Internet access. It receives and echoes back decrypted packets, allowing easside-ng to access WEP-protected wireless networks without knowing the key.
+**buddy-ng** 是 easside-ng 的配套工具，运行在可访问互联网的远程计算机上。它接收解密后的数据包并回传，使 easside-ng 无需知道密钥即可访问受 WEP 保护的无线网络。
 
-The tool works by having the access point itself decrypt the packets, then forwarding them through buddy-ng.
+其原理是让接入点自身解密数据包，然后通过 buddy-ng 转发。
 
 # PARAMETERS
 
 **-h**
-> Display help screen
+> 显示帮助界面
 
 **-p**
-> Don't drop privileges after starting
+> 启动后不放弃特权
 
 # NETWORK
 
-Buddy-ng listens on port **6969** by default, which is the standard port used by easside-ng for communication.
+Buddy-ng 默认监听端口 **6969**，这是 easside-ng 通信使用的标准端口。
 
 # WORKFLOW
 
-1. Start buddy-ng on a remote server with Internet access
-2. Run easside-ng on the attacking machine, specifying the buddy-ng server
-3. Easside-ng establishes TCP connection with buddy-ng
-4. Packets are decrypted by the AP and forwarded through buddy-ng
-5. Internet access is achieved without knowing the WEP key
+1. 在可访问互联网的远程服务器上启动 buddy-ng
+2. 在攻击机上运行 easside-ng，指定 buddy-ng 服务器
+3. Easside-ng 与 buddy-ng 建立 TCP 连接
+4. 数据包由 AP 解密并经 buddy-ng 转发
+5. 无需知道 WEP 密钥即可实现互联网访问
 
 # COMPILATION
 
-Building buddy-ng requires the **--with-experimental** flag when compiling aircrack-ng:
+构建 buddy-ng 需要在编译 aircrack-ng 时加上 **--with-experimental** 标志：
 
 ```./configure --with-experimental```
 
-Also requires the libpcap development package.
+还需要 libpcap 开发包。
 
 # CAVEATS
 
-Only useful with easside-ng for WEP network attacks. Requires a publicly accessible server to run buddy-ng. Only use on networks you own or have explicit authorization to test. WEP is deprecated and should not be used for security.
+仅配合 easside-ng 用于 WEP 网络攻击时有用。需要一台可公开访问的服务器来运行 buddy-ng。只能在你拥有所有权或获得明确授权的网络上使用。WEP 已被弃用，不应再用于安全防护。
 
 # INSTALL
 

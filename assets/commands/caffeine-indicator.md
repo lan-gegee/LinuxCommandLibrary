@@ -1,10 +1,10 @@
 # TAGLINE
 
-System tray toggle to prevent idle sleep
+系统托盘开关，用于阻止空闲休眠
 
 # TLDR
 
-Start the **caffeine indicator** applet
+启动 **caffeine indicator** 小程序
 
 ```caffeine-indicator```
 
@@ -14,9 +14,9 @@ Start the **caffeine indicator** applet
 
 # DESCRIPTION
 
-**caffeine-indicator** provides a system tray indicator that allows manual control over desktop idleness inhibition. Clicking the indicator toggles prevention of screen saver, suspend, and other idle actions.
+**caffeine-indicator** 提供一个系统托盘指示器，可手动控制桌面空闲抑制。点击该指示器即可切换是否阻止屏幕保护程序、挂起及其他空闲动作。
 
-Unlike the automatic caffeine daemon, this provides manual toggle control.
+与自动工作的 caffeine 守护进程不同，它提供的是手动开关控制。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage and switch between Neovim versions
+管理并切换 Neovim 版本
 
 # TLDR
 
-**Install a Neovim version**
+**安装 Neovim 版本**
 
 ```bob install [stable]```
 
-**Install nightly build**
+**安装 nightly 构建版本**
 
 ```bob install nightly```
 
-**Switch to a version**
+**切换到某个版本**
 
 ```bob use [stable]```
 
-**List installed versions**
+**列出已安装的版本**
 
 ```bob list```
 
-**List available remote versions**
+**列出可用的远程版本**
 
 ```bob list-remote```
 
-**Uninstall a version**
+**卸载某个版本**
 
 ```bob uninstall [nightly]```
 
-**Run a specific version** without switching
+不切换的情况下**运行指定版本**
 
 ```bob run [stable] [file.txt]```
 
-**Sync version** from config file
+从配置文件**同步版本**
 
 ```bob sync```
 
-**Erase all bob data** and installations
+**清除所有 bob 数据**及已安装的版本
 
 ```bob erase```
 
@@ -46,73 +46,73 @@ Manage and switch between Neovim versions
 
 # DESCRIPTION
 
-**bob** is a cross-platform Neovim version manager that allows easy switching between different Neovim versions from the command line. It can install stable releases, nightly builds, specific versions, or even build from commit hashes.
+**bob** 是一个跨平台的 Neovim 版本管理器，可以从命令行轻松切换不同的 Neovim 版本。它可以安装稳定版、nightly 构建版、特定版本，甚至可以从 commit 哈希构建。
 
-The tool manages multiple Neovim installations, automatically downloading and setting up the appropriate binaries for your platform.
+该工具管理多个 Neovim 安装，自动下载并为你的平台设置相应的二进制文件。
 
 # SUBCOMMANDS
 
 **install**
-> Install a specific Neovim version
+> 安装指定的 Neovim 版本。
 
 **use**
-> Switch to a version (auto-installs if needed)
+> 切换到某个版本（必要时自动安装）。
 
 **run**
-> Run a specific version with arguments
+> 使用参数运行指定版本。
 
 **uninstall**
-> Remove an installed version
+> 移除已安装的版本。
 
 **list**
-> Show installed and active versions
+> 显示已安装和当前激活的版本。
 
 **list-remote**
-> Show available versions for download
+> 显示可供下载的版本。
 
 **sync**
-> Install the version pinned in the config file
+> 安装配置文件中固定的版本。
 
 **update**
-> Update an installed version (use **--all** to update every version)
+> 更新已安装的版本（使用 **--all** 更新所有版本）。
 
 **rollback**
-> Roll back to a previously installed nightly build
+> 回滚到先前安装的 nightly 构建版本。
 
 **erase**
-> Remove all bob data and installations
+> 移除所有 bob 数据和安装。
 
 **complete**
-> Generate a shell completion script
+> 生成 Shell 补全脚本。
 
 # VERSION SPECIFIERS
 
 **stable**
-> Latest stable release
+> 最新稳定版。
 
 **nightly**
-> Latest nightly build
+> 最新 nightly 构建。
 
 **latest**
-> Most recent version
+> 最新版本。
 
 **v0.9.0**
-> Specific version string
+> 特定的版本字符串。
 
 **commit-hash**
-> Build from specific commit
+> 从特定 commit 构建。
 
 # PARAMETERS
 
-Configuration is read from a JSON or TOML file under the platform config directory (on Linux **~/.config/bob/config.json** or **config.toml**). The **$BOB_CONFIG** environment variable overrides this location.
+配置从平台配置目录下的 JSON 或 TOML 文件读取（Linux 上为 **~/.config/bob/config.json** 或 **config.toml**）。环境变量 **$BOB_CONFIG** 可覆盖此位置。
 
 # CAVEATS
 
-Requires internet access for downloading versions. GitHub API rate limits may apply; set **GITHUB_TOKEN** environment variable to increase limits. The erase command permanently removes all bob data including downloaded versions.
+下载版本需要联网。GitHub API 可能受速率限制；可设置 **GITHUB_TOKEN** 环境变量以提高限额。erase 命令会永久移除所有 bob 数据，包括已下载的版本。
 
 # HISTORY
 
-Bob was created by **Mordechai Hadad** as a modern, cross-platform solution for managing multiple Neovim installations, similar to how nvm manages Node.js versions or pyenv manages Python versions.
+Bob 由 **Mordechai Hadad** 创建，是一个用于管理多个 Neovim 安装的现代跨平台方案，类似于 nvm 管理 Node.js 版本或 pyenv 管理 Python 版本的方式。
 
 # INSTALL
 

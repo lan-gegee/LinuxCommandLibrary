@@ -1,22 +1,22 @@
 # TAGLINE
 
-Arbitrary precision calculator
+任意精度计算器
 
 # TLDR
 
-**Calculate** expression
+**计算**表达式
 
 ```calc ["2 + 2"]```
 
-**Interactive** mode
+**交互式**模式
 
 ```calc```
 
-**Define** variables
+**定义**变量
 
 ```calc ["x = 5; y = 3; x * y"]```
 
-**Use** functions
+**使用**函数
 
 ```calc ["sqrt(16)"]```
 
@@ -26,53 +26,53 @@ Arbitrary precision calculator
 
 # DESCRIPTION
 
-**calc** is an arbitrary precision calculator. It provides interactive calculation and scripting with support for complex arithmetic, trigonometry, statistics, and user-defined functions.
+**calc** 是一个任意精度计算器。它提供交互式计算和脚本功能，支持复数运算、三角函数、统计以及用户自定义函数。
 
-The tool offers more features than bc while maintaining ease of use.
+该工具比 bc 功能更丰富，同时保持了易用性。
 
 # PARAMETERS
 
 **-c**
-> Continue after errors
+> 出错后继续执行
 
 **-d**
-> Disable readline editing
+> 禁用 readline 编辑
 
 **-p**
-> Pipe mode (no prompts)
+> 管道模式（无提示符）
 
 **-q**
-> Quiet mode (no startup message)
+> 安静模式（不显示启动消息）
 
 **-s**
-> Enforce strict mode
+> 强制严格模式
 
 # FEATURES
 
-- Arbitrary precision arithmetic
-- Complex numbers
-- Trigonometric functions
-- Statistical functions
-- User-defined functions
-- Variable assignment
-- Matrix operations
-- Fractions and rationals
+- 任意精度算术
+- 复数
+- 三角函数
+- 统计函数
+- 用户自定义函数
+- 变量赋值
+- 矩阵运算
+- 分数与有理数
 
 # FUNCTIONS
 
-**Arithmetic:**
-- **sqrt(x)** - Square root
-- **abs(x)** - Absolute value
-- **gcd(a,b)** - Greatest common divisor
+**算术：**
+- **sqrt(x)** - 平方根
+- **abs(x)** - 绝对值
+- **gcd(a,b)** - 最大公约数
 
-**Trigonometry:**
+**三角函数：**
 - **sin(x), cos(x), tan(x)**
 - **asin(x), acos(x), atan(x)**
 
-**Other:**
-- **ln(x)** - Natural log
-- **exp(x)** - Exponential
-- **rand()** - Random number
+**其他：**
+- **ln(x)** - 自然对数
+- **exp(x)** - 指数
+- **rand()** - 随机数
 
 # WORKFLOW
 
@@ -103,11 +103,11 @@ calc "pi(100)"  # Pi with 100 digits
 
 # CAVEATS
 
-Different syntax than bc. Less commonly installed. Some functions require understanding of calc's type system. Error messages can be cryptic. Large computations use memory.
+语法与 bc 不同。预装率较低。某些函数需要理解 calc 的类型系统。错误信息可能难以理解。大型计算会消耗内存。
 
 # HISTORY
 
-**calc** was originally developed around **1984** and has been maintained as a feature-rich alternative to bc.
+**calc** 最初开发于 **1984** 年前后，此后一直作为功能丰富 bc 替代品维护至今。
 
 # INSTALL
 

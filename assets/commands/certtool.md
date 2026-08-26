@@ -1,26 +1,26 @@
 # TAGLINE
 
-GnuTLS certificate and key generation tool
+GnuTLS 证书与密钥生成工具
 
 # TLDR
 
-Generate a **private key**
+生成**私钥**
 
 ```certtool -p --outfile [path/to/private.key]```
 
-Generate a **self-signed certificate**
+生成**自签名证书**
 
 ```certtool -s --load-privkey [path/to/private.key] --template [path/to/info.template] --outfile [path/to/certificate.crt]```
 
-Generate a **certificate signing request** (CSR)
+生成**证书签名请求**（CSR）
 
 ```certtool -q --load-privkey [path/to/private.key] --template [path/to/info.template] --outfile [path/to/request.csr]```
 
-Generate a **CA certificate**
+生成 **CA 证书**
 
 ```certtool -s --load-privkey [path/to/ca.key] --template [path/to/ca.template] --outfile [path/to/ca.crt]```
 
-**Verify** a certificate against a CA
+对照 CA **校验**证书
 
 ```certtool --verify --infile [path/to/certificate.crt] --load-ca-certificate [path/to/ca.crt]```
 
@@ -30,44 +30,44 @@ Generate a **CA certificate**
 
 # DESCRIPTION
 
-**certtool** generates and manages X.509 certificates, private keys, certificate signing requests, and other PKI structures using the GnuTLS library. It serves as an alternative to OpenSSL's certificate tools with a distinct command-line interface and template-based workflow.
+**certtool** 基于 GnuTLS 库生成和管理 X.509 证书、私钥、证书签名请求及其他 PKI 结构。它是 OpenSSL 证书工具的替代品，拥有独特的命令行界面和基于模板的工作流程。
 
-Certificate attributes such as organization name, common name, validity period, key usage, and extensions are defined in template files rather than passed as command-line arguments. This makes complex certificate configurations reproducible and scriptable. The template syntax uses simple key-value pairs.
+组织名、通用名（common name）、有效期、密钥用途和扩展项等证书属性在模板文件中定义，而不是作为命令行参数传入。这使得复杂的证书配置可复现、可脚本化。模板语法采用简单的键值对。
 
-The tool supports the full PKI workflow: generating private keys, creating self-signed CA certificates, issuing certificate signing requests, signing certificates with a CA, and verifying certificate chains.
+该工具支持完整的 PKI 工作流程：生成私钥、创建自签名 CA 证书、签发证书签名请求、用 CA 签署证书以及验证证书链。
 
 # PARAMETERS
 
 **-p, --generate-privkey**
-> Generate a private key
+> 生成私钥
 
 **-s, --generate-self-signed**
-> Generate a self-signed certificate
+> 生成自签名证书
 
 **-q, --generate-request**
-> Generate a certificate signing request
+> 生成证书签名请求
 
 **--generate-certificate**
-> Generate a certificate from CSR
+> 从 CSR 生成证书
 
 **--load-privkey** _file_
-> Load private key from file
+> 从文件加载私钥
 
 **--template** _file_
-> Use template file for certificate info
+> 使用模板文件提供证书信息
 
 **--outfile** _file_
-> Output file path
+> 输出文件路径
 
 **--verify**
-> Verify certificate chain
+> 验证证书链
 
 **-i, --certificate-info**
-> Display certificate information
+> 显示证书信息
 
 # CAVEATS
 
-Template file format differs from OpenSSL configuration. Some features may require specific GnuTLS version. Certificate templates must specify all required fields.
+模板文件格式与 OpenSSL 配置不同。某些功能可能需要特定的 GnuTLS 版本。证书模板必须指定所有必填字段。
 
 # INSTALL
 

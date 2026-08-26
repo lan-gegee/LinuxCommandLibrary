@@ -1,34 +1,34 @@
 # TAGLINE
 
-Backup tool for btrfs snapshots and subvolumes
+btrfs 快照与子卷备份工具
 
 # TLDR
 
-Print **statistics** about subvolumes and snapshots
+打印子卷和快照的**统计**信息
 
 ```sudo btrbk stats```
 
-**List** configured subvolumes and snapshots
+**列出**已配置的子卷和快照
 
 ```sudo btrbk list```
 
-Print what would happen in a **dry run**
+以**试运行（dry run）**方式打印将要执行的操作
 
 ```sudo btrbk -v dryrun```
 
-**Run backup** routines with progress
+**执行备份**流程并显示进度
 
 ```sudo btrbk --progress -v run```
 
-Only create **snapshots** for configured subvolumes
+仅为已配置的子卷创建**快照**
 
 ```sudo btrbk snapshot```
 
-**Resume** incomplete backups
+**续传**未完成的备份
 
 ```sudo btrbk resume```
 
-Use a specific **config** file
+使用指定的**配置**文件
 
 ```sudo btrbk -c [/path/to/btrbk.conf] run```
 
@@ -38,76 +38,76 @@ Use a specific **config** file
 
 # DESCRIPTION
 
-**btrbk** is a backup tool for btrfs filesystems that creates and manages snapshots and remote backups. It uses btrfs send/receive for efficient incremental backups and supports complex retention policies.
+**btrbk** 是一个面向 btrfs 文件系统的备份工具，用于创建和管理快照及远程备份。它利用 btrfs send/receive 实现高效的增量备份，并支持复杂的保留策略。
 
-Configuration is defined in **/etc/btrbk/btrbk.conf**, specifying source subvolumes, snapshot locations, and backup targets including remote hosts via SSH.
+配置定义在 **/etc/btrbk/btrbk.conf** 中，指定源子卷、快照位置以及备份目标，包括通过 SSH 访问的远程主机。
 
 # SUBCOMMANDS
 
 **run**
-> Create snapshots and run backup routines
+> 创建快照并执行备份流程
 
 **snapshot**
-> Only create snapshots (no backups)
+> 仅创建快照（不做备份）
 
 **resume**
-> Resume incomplete backups
+> 续传未完成的备份
 
 **dryrun**
-> Show what would be done without making changes
+> 只显示将要执行的操作，不实际修改
 
 **stats**
-> Display statistics
+> 显示统计信息
 
 **list**
-> List configured items
+> 列出已配置的项目
 
 **prune**
-> Delete outdated backups and snapshots according to retention policy
+> 按保留策略删除过期的备份和快照
 
 **clean**
-> Delete incomplete (garbled) backups
+> 删除不完整（损坏）的备份
 
 **archive** _source_ _target_
-> Consolidate backups into a single target directory
+> 将备份整合到单个目标目录
 
 # PARAMETERS
 
 **-v**, **--verbose**
-> Increase verbosity
+> 增加详细输出
 
 **-q**, **--quiet**
-> Suppress non-error output
+> 抑制非错误输出
 
 **--progress**
-> Show progress during send/receive transfers
+> 在 send/receive 传输期间显示进度
 
 **-n**, **--dry-run**
-> Same as dryrun command
+> 与 dryrun 命令相同
 
 **-c** _file_
-> Use alternate configuration file
+> 使用其他配置文件
 
 **-p**, **--preserve**
-> Preserve all snapshots and backups (no cleanup)
+> 保留所有快照和备份（不清理）
 
 **-t**, **--table**
-> Print output in table format
+> 以表格形式打印输出
 
 **-l**, **--loglevel** _level_
-> Set log verbosity level
+> 设置日志详细程度
 
 **-h**, **--help**
-> Print synopsis and list of commands
+> 打印用法概要和命令列表
 
 # CONFIGURATION
 
 **/etc/btrbk/btrbk.conf**
-> Main configuration file defining source subvolumes, snapshot locations, backup targets, and retention policies.
+> 主配置文件，定义源子卷、快照位置、备份目标和保留策略。
 
 # CAVEATS
 
-Only works with btrfs filesystems. Remote backups require SSH access and btrfs on the remote host. Retention policies should be tested with dryrun first.
+仅适用于 btrfs 文件系统。远程备份需要 SSH 访问权限，且远程主机上也要有 btrfs。保留策略应先用 dryrun 测试。
 
 # INSTALL
 

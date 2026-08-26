@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure Blob Storage objects
+管理 Azure Blob 存储对象
 
 # TLDR
 
-**Upload a file** to blob storage
+**将文件上传到 Blob 存储**
 
 ```az storage blob upload -f [/path/to/file] -c [container-name] -n [blob-name] --account-name [account]```
 
-**Download a blob** to local filesystem
+**将 Blob 下载到本地文件系统**
 
 ```az storage blob download -f [/path/to/file] -c [container-name] -n [blob-name] --account-name [account]```
 
-**List blobs** in a container
+**列出容器中的 Blob**
 
 ```az storage blob list -c [container-name] --account-name [account] -o table```
 
-**Delete a blob**
+**删除 Blob**
 
 ```az storage blob delete -c [container-name] -n [blob-name] --account-name [account]```
 
-**Upload multiple files** from a directory
+**从目录上传多个文件**
 
 ```az storage blob upload-batch -d [container-name] -s [/path/to/directory] --account-name [account]```
 
-**Download multiple blobs** matching a pattern
+**按模式下载多个 Blob**
 
 ```az storage blob download-batch -d [./local-dir] -s [container-name] --pattern "*.txt" --account-name [account]```
 
-**Generate a SAS token** for a blob
+**为 Blob 生成 SAS 令牌**
 
 ```az storage blob generate-sas -c [container-name] -n [blob-name] --permissions [r] --expiry [2024-12-31T00:00Z] --account-name [account]```
 
-**Set blob access tier**
+**设置 Blob 访问层**
 
 ```az storage blob set-tier -c [container-name] -n [blob-name] --tier [Cool] --account-name [account]```
 
@@ -42,65 +42,65 @@ Manage Azure Blob Storage objects
 
 # DESCRIPTION
 
-**az storage blob** manages object storage for unstructured data in Azure Blob Storage. Blobs can store any type of text or binary data including documents, media files, and application data.
+**az storage blob** 管理 Azure Blob Storage 中面向非结构化数据的对象存储。Blob 可以存储任何类型的文本或二进制数据，包括文档、媒体文件和应用程序数据。
 
-The command group supports uploading, downloading, copying, and managing blob properties, metadata, access tiers, and security settings.
+该命令组支持上传、下载、复制，以及管理 Blob 的属性、元数据、访问层和安全设置。
 
 # SUBCOMMANDS
 
-**Transfer Operations**
+**传输操作**
 > upload, upload-batch, download, download-batch, copy start, copy cancel
 
-**Blob Management**
+**Blob 管理**
 > list, delete, delete-batch, exists, show, snapshot, restore
 
-**Properties & Metadata**
+**属性与元数据**
 > metadata show, metadata update, update, set-tier, tag list, tag set
 
-**Security**
+**安全**
 > generate-sas, lease acquire, lease break, lease release, lease renew
 
-**Queries**
-> query (SQL queries on blob data)
+**查询**
+> query（对 Blob 数据执行 SQL 查询）
 
 # PARAMETERS
 
 **-c, --container-name** _value_
-> Name of the blob container
+> Blob 容器的名称
 
 **-n, --name** _value_
-> Name of the blob
+> Blob 的名称
 
 **-f, --file** _value_
-> Path to the local file for upload/download
+> 用于上传/下载的本地文件路径
 
 **--account-name** _value_
-> Storage account name
+> 存储账户名
 
 **--account-key** _value_
-> Storage account key
+> 存储账户密钥
 
 **--sas-token** _value_
-> Shared Access Signature token
+> 共享访问签名（SAS）令牌
 
 **--tier** _value_
-> Access tier: Hot, Cool, Cold, Archive
+> 访问层：Hot、Cool、Cold、Archive
 
 **--pattern** _value_
-> Glob pattern for batch operations
+> 批量操作使用的 glob 模式
 
 **--overwrite**
-> Overwrite existing blob on upload (default: false)
+> 上传时覆盖现有 Blob（默认：false）
 
 **--auth-mode** _value_
-> Authentication mode: login (Azure AD) or key
+> 身份验证模式：login（Azure AD）或 key
 
 **-o**, **--output** _value_
-> Output format: json, table, tsv, yaml, jsonc, none
+> 输出格式：json、table、tsv、yaml、jsonc、none
 
 # CAVEATS
 
-Authentication is required via **--account-key**, **--sas-token**, **--connection-string**, or **--auth-mode login**. Archive tier blobs must be rehydrated before access. Batch operations respect patterns but do not recursively traverse virtual directories by default. Delete operations mark blobs for deletion; soft-delete policies may allow recovery.
+需要通过 **--account-key**、**--sas-token**、**--connection-string** 或 **--auth-mode login** 进行身份验证。Archive 层的 Blob 必须先解除冻结（rehydrate）才能访问。批量操作遵循模式匹配，但默认不会递归遍历虚拟目录。删除操作只是将 Blob 标记为待删除；软删除策略可能允许恢复。
 
 # INSTALL
 

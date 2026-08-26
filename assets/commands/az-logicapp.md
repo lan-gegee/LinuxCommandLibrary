@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Azure Logic Apps
+管理 Azure Logic Apps
 
 # TLDR
 
-**Create a Logic App** on an App Service plan
+在 App Service 计划上**创建 Logic App**
 
 ```az logicapp create --name [MyLogicApp] --resource-group [MyResourceGroup] --storage-account [MyStorageAccount] --plan [MyPlan]```
 
-**List all Logic Apps** in a resource group
+**列出资源组中的所有 Logic Apps**
 
 ```az logicapp list --resource-group [MyResourceGroup]```
 
-**Show details** of a Logic App
+**显示**某个 Logic App 的**详情**
 
 ```az logicapp show --name [MyLogicApp] --resource-group [MyResourceGroup]```
 
-**Start a Logic App**
+**启动 Logic App**
 
 ```az logicapp start --name [MyLogicApp] --resource-group [MyResourceGroup]```
 
-**Stop a Logic App**
+**停止 Logic App**
 
 ```az logicapp stop --name [MyLogicApp] --resource-group [MyResourceGroup]```
 
-**Delete a Logic App**
+**删除 Logic App**
 
 ```az logicapp delete --name [MyLogicApp] --resource-group [MyResourceGroup] --yes```
 
@@ -35,70 +35,70 @@ Manage Azure Logic Apps
 # SUBCOMMANDS
 
 **create**
-> Create a Logic App.
+> 创建 Logic App。
 
 **delete**
-> Delete a Logic App.
+> 删除 Logic App。
 
 **list**
-> List Logic Apps.
+> 列出 Logic Apps。
 
 **show**
-> Get details of a Logic App.
+> 获取 Logic App 的详情。
 
 **start**
-> Start a Logic App.
+> 启动 Logic App。
 
 **stop**
-> Stop a Logic App.
+> 停止 Logic App。
 
 **restart**
-> Restart a Logic App.
+> 重启 Logic App。
 
 **deployment**
-> Manage Logic App deployments.
+> 管理 Logic App 部署。
 
 **config**
-> Configure Logic App settings.
+> 配置 Logic App 设置。
 
 # COMMON PARAMETERS
 
 **--name**, **-n** _NAME_
-> Name of the Logic App.
+> Logic App 的名称。
 
 **--resource-group**, **-g** _RG_
-> Resource group containing the Logic App.
+> 包含该 Logic App 的资源组。
 
 **--storage-account** _ACCOUNT_
-> Storage account (name or resource ID) used by the Logic App (Standard tier, required on create).
+> Logic App 使用的存储账户（名称或资源 ID）（Standard 层级，创建时必填）。
 
 **--plan** _PLAN_
-> App Service plan name or resource ID to host the Logic App.
+> 承载 Logic App 的 App Service 计划名称或资源 ID。
 
 **--functions-version** _VERSION_
-> Functions runtime version (e.g. 4).
+> Functions 运行时版本（例如 4）。
 
 **--runtime-version** _VERSION_
-> Runtime version (e.g. ~14, ~16, ~18).
+> 运行时版本（例如 ~14、~16、~18）。
 
 **--https-only** {false,true}
-> Redirect all traffic to HTTPS.
+> 将所有流量重定向到 HTTPS。
 
 **--tags** _TAGS_
-> Space-separated `key=value` tags.
+> 空格分隔的 `key=value` 标签。
 
 **--yes**
-> Skip confirmation prompts (used by `delete`).
+> 跳过确认提示（由 `delete` 使用）。
 
 # DESCRIPTION
 
-**az logicapp** manages Azure Logic Apps (Standard), which are serverless workflows that integrate apps, data, services, and systems. Logic Apps provide visual designers and prebuilt connectors for enterprise integration scenarios.
+**az logicapp** 管理 Azure Logic Apps（Standard），这是一种集成应用、数据、服务和系统的无服务器工作流。Logic Apps 为企业集成场景提供可视化设计器和预构建的连接器。
 
-This command group manages Standard tier Logic Apps. For Consumption tier Logic Apps, use the Azure portal or ARM templates.
+此命令组管理 Standard 层级的 Logic Apps。对于 Consumption 层级的 Logic Apps，请使用 Azure 门户或 ARM 模板。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated. Standard tier Logic Apps require a storage account. Some features require specific Azure regions.
+需要安装 Azure CLI 并已完成身份验证。Standard 层级 Logic Apps 需要存储账户。某些功能需要特定的 Azure 区域。
 
 # INSTALL
 

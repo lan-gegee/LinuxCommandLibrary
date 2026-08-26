@@ -1,26 +1,26 @@
 # TAGLINE
 
-Play desktop sound events
+播放桌面声音事件
 
 # TLDR
 
-**Play a sound event by identifier**
+**按标识符播放声音事件**
 
 ```canberra-gtk-play --id [desktop-login]```
 
-**Play a specific audio file**
+**播放指定的音频文件**
 
 ```canberra-gtk-play --file [path/to/sound.ogg]```
 
-**Play a sound event with a description**
+**播放带描述的声音事件**
 
 ```canberra-gtk-play --id [bell] --description "[Alert sound]"```
 
-**Play a sound multiple times**
+**多次播放同一声音**
 
 ```canberra-gtk-play --file [path/to/sound.ogg] --loop [3]```
 
-**Play with permanent caching for frequently used sounds**
+**对常用声音使用永久缓存**
 
 ```canberra-gtk-play --id [message] --cache-control permanent```
 
@@ -30,40 +30,40 @@ Play desktop sound events
 
 # DESCRIPTION
 
-**canberra-gtk-play** plays sound events conforming to the XDG Sound Theme and Name Specification. It interfaces with the system sound server (PulseAudio or PipeWire) through **libcanberra** to play contextual sounds for desktop events.
+**canberra-gtk-play** 播放符合 XDG 声音主题与命名规范的声音事件。它通过 **libcanberra** 与系统声音服务器（PulseAudio 或 PipeWire）交互，为桌面事件播放情境化音效。
 
-The utility can play predefined event sounds by identifier (e.g., "window-close", "dialog-information", "bell") or specific audio files. It passes metadata to the sound server for context-aware volume control and routing.
+该工具可按标识符（如 "window-close"、"dialog-information"、"bell"）播放预定义的事件声音，也可以播放具体的音频文件。它会把元数据传递给声音服务器，以实现感知上下文的音量控制和路由。
 
 # PARAMETERS
 
 **-i, --id=**_identifier_
-> Play the sound event with the specified XDG identifier
+> 播放具有指定 XDG 标识符的声音事件
 
 **-f, --file=**_file_
-> Play the specified audio file
+> 播放指定的音频文件
 
 **-d, --description=**_description_
-> Provide a description for the sound event
+> 为声音事件提供描述
 
 **-l, --loop=**_times_
-> Number of times to play (default: 1)
+> 播放次数（默认：1）
 
 **-c, --cache-control=**_mode_
-> Cache mode: "permanent" for frequent sounds, "volatile" for temporary caching
+> 缓存模式："permanent" 用于常用声音，"volatile" 用于临时缓存
 
 **--media-role=**_role_
-> Set media role: event, feedback, notification, alarm
+> 设置媒体角色：event、feedback、notification、alarm
 
 **--display=**_display_
-> Specify X display to use
+> 指定要使用的 X display
 
 # CAVEATS
 
-Requires a running sound server (PulseAudio or PipeWire) with libcanberra support. Sound theme event identifiers depend on installed sound themes and may vary between systems.
+需要正在运行且支持 libcanberra 的声音服务器（PulseAudio 或 PipeWire）。声音主题事件标识符取决于已安装的声音主题，不同系统之间可能不同。
 
 # HISTORY
 
-The **libcanberra** project, which includes canberra-gtk-play, was initiated around **2007-2008** to implement the FreeDesktop.org Sound Theme Specification on Linux desktops. It provides an abstract interface for playing event sounds across different sound servers.
+包含 canberra-gtk-play 的 **libcanberra** 项目于 **2007-2008 年前后**启动，旨在 Linux 桌面上实现 FreeDesktop.org 的声音主题规范。它为在不同声音服务器之间播放事件声音提供了抽象接口。
 
 # INSTALL
 

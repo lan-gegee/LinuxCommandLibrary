@@ -1,30 +1,30 @@
 # TAGLINE
 
-Upload a package to a registry
+将软件包上传到注册表
 
 # TLDR
 
-**Publish to crates.io**
+**发布到 crates.io**
 
 ```cargo publish```
 
-**Dry run without uploading**
+**试运行而不上传**
 
 ```cargo publish --dry-run```
 
-**Publish without verification**
+**不经验证发布**
 
 ```cargo publish --no-verify```
 
-**Allow uncommitted changes**
+**允许未提交的更改**
 
 ```cargo publish --allow-dirty```
 
-**Publish to alternate registry**
+**发布到备用注册表**
 
 ```cargo publish --registry [my-registry]```
 
-**Publish specific package**
+**发布指定软件包**
 
 ```cargo publish -p [crate_name]```
 
@@ -34,66 +34,66 @@ Upload a package to a registry
 
 # DESCRIPTION
 
-**cargo publish** uploads a package to crates.io or another registry. It creates a `.crate` archive, verifies that the archive builds successfully, and then uploads it to the registry. Authentication is required and is typically set up via `cargo login`.
+**cargo publish** 将软件包上传到 crates.io 或其他注册表。它会创建 `.crate` 归档，验证归档能否成功构建，然后上传到注册表。需要认证，通常通过 `cargo login` 完成。
 
-Publishes are permanent and cannot be deleted or overwritten. Once a version is published, that exact version number can never be reused. The `cargo yank` command can mark a version as deprecated to prevent new projects from depending on it, but it remains available for existing users. Before publishing, ensure the version number in Cargo.toml has been incremented according to semver conventions.
+发布是永久性的，无法删除或覆盖。某个版本一旦发布，该确切的版本号就永远不能再次使用。`cargo yank` 命令可将某版本标记为弃用，阻止新项目依赖它，但对现有用户仍然可用。发布前，请确保 Cargo.toml 中的版本号已按 semver 惯例递增。
 
 # PARAMETERS
 
 **--dry-run**
-> Perform checks without uploading
+> 执行各项检查但不上传
 
 **--no-verify**
-> Skip build verification
+> 跳过构建验证
 
 **--allow-dirty**
-> Allow uncommitted VCS changes
+> 允许未提交的 VCS 更改
 
 **--registry** _name_
-> Target registry
+> 目标注册表
 
 **--index** _url_
-> Registry index URL
+> 注册表索引 URL
 
 **--token** _token_
-> API token
+> API 令牌
 
 **-p**, **--package** _spec_
-> Package to publish
+> 要发布的软件包
 
 **--target** _triple_
-> Build target for verification
+> 用于验证的构建目标
 
 **-j**, **--jobs** _n_
-> Parallel jobs
+> 并行任务数
 
 **--features** _features_
-> Enable features for verification
+> 为验证启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 # CONFIGURATION
 
 **~/.cargo/credentials.toml**
-> Stores API tokens for crates.io and other registries. Created by `cargo login`.
+> 存储 crates.io 及其他注册表的 API 令牌。由 `cargo login` 创建。
 
 # PREPARATION
 
-1. Create account on crates.io
-2. Verify email address
-3. Generate API token
-4. Run cargo login
+1. 在 crates.io 创建账户
+2. 验证邮箱地址
+3. 生成 API 令牌
+4. 运行 cargo login
 
 # RELEASING NEW VERSIONS
 
-1. Update version in Cargo.toml
-2. Optionally run cargo package
-3. Run cargo publish
+1. 更新 Cargo.toml 中的版本号
+2. 可选：运行 cargo package
+3. 运行 cargo publish
 
 # CAVEATS
 
-Publishes are permanent. Use cargo yank to mark versions as deprecated but not delete them. Follow semver for version changes.
+发布不可撤销。使用 cargo yank 可将版本标记为弃用但无法删除。版本变更请遵循 semver。
 
 # INSTALL
 

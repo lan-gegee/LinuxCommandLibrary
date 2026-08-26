@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compare bzip2 compressed files
+比较 bzip2 压缩文件
 
 # TLDR
 
-**Compare two bzip2 compressed files**
+**比较两个 bzip2 压缩文件**
 
 ```bzdiff [file1.bz2] [file2.bz2]```
 
-**Compare compressed file with uncompressed version**
+**将压缩文件与未压缩版本进行比较**
 
 ```bzdiff [file.bz2]```
 
-**Compare with diff options**
+**带 diff 选项进行比较**
 
 ```bzdiff -u [file1.bz2] [file2.bz2]```
 
-**Compare using cmp instead of diff**
+**改用 cmp 进行比较**
 
 ```bzcmp [file1.bz2] [file2.bz2]```
 
@@ -28,44 +28,44 @@ Compare bzip2 compressed files
 
 # DESCRIPTION
 
-**bzdiff** compares bzip2 compressed files by decompressing them and passing the content to diff. All options are passed directly to the underlying diff command.
+**bzdiff** 通过解压 bzip2 压缩文件并将内容传给 diff 来进行比较。所有选项都会直接传递给底层的 diff 命令。
 
-**bzcmp** works similarly but uses cmp instead of diff for byte-by-byte comparison.
+**bzcmp** 的工作方式类似，但使用 cmp 而不是 diff 进行逐字节比较。
 
 # PARAMETERS
 
-All parameters are passed directly to **diff** or **cmp**:
+所有参数都直接传递给 **diff** 或 **cmp**：
 
 **-u**
-> Unified diff format
+> Unified diff 格式
 
 **-c**
-> Context diff format
+> Context diff 格式
 
 **-i**
-> Ignore case differences
+> 忽略大小写差异
 
 **-w**
-> Ignore whitespace
+> 忽略空白字符
 
 **-q**
-> Report only whether files differ
+> 只报告文件是否不同
 
 # BEHAVIOR
 
-**Single file**
-> Compares file1 with file1.bz2 (uncompressed version)
+**单个文件**
+> 将 file1 与 file1.bz2（未压缩版本）进行比较
 
-**Two files**
-> Decompresses both if needed and compares
+**两个文件**
+> 如有需要则先解压再比较
 
 # EXIT STATUS
 
-Returns the exit status from diff or cmp, preserving the comparison result.
+返回 diff 或 cmp 的退出状态，保留比较结果。
 
 # CAVEATS
 
-Error messages refer to temporary filenames instead of original filenames. Files are decompressed to temporary storage during comparison.
+错误消息引用的是临时文件名而不是原始文件名。比较期间文件会被解压到临时存储。
 
 # INSTALL
 

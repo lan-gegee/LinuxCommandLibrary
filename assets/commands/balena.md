@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage IoT device fleets
+管理 IoT 设备机群
 
 # TLDR
 
-**Login** to Balena Cloud
+**登录** Balena Cloud
 
 ```balena login```
 
-**List** devices
+**列出**设备
 
 ```balena devices```
 
-**Push** code to device
+向设备**推送**代码
 
 ```balena push [myApp]```
 
-**SSH** into device
+通过 **SSH** 连接设备
 
 ```balena ssh [device-uuid]```
 
-**View** logs
+**查看**日志
 
 ```balena logs [device-uuid]```
 
-Create **new application**
+创建**新应用**
 
 ```balena app create [myApp]```
 
@@ -34,50 +34,50 @@ Create **new application**
 
 # DESCRIPTION
 
-**balena** is the command-line interface for Balena (formerly Resin.io), a platform for deploying and managing IoT device fleets. It enables building, deploying, and monitoring containerized applications on edge devices.
+**balena** 是 Balena（原 Resin.io）的命令行界面；Balena 是一个用于部署和管理 IoT 设备机群的平台。它支持在边缘设备上构建、部署和监控容器化应用。
 
-The CLI provides tools for device provisioning, application deployment, remote access, and fleet management.
+该 CLI 提供设备配置、应用部署、远程访问和机群管理等工具。
 
 # PARAMETERS
 
 **login**
-> Authenticate with Balena Cloud
+> 向 Balena Cloud 认证
 
 **push** _application_
-> Deploy code to application
+> 将代码部署到应用
 
 **devices**
-> List devices
+> 列出设备
 
 **ssh** _device_
-> SSH into device
+> 通过 SSH 连接设备
 
 **logs** _device_
-> View device logs
+> 查看设备日志
 
 **scan**
-> Scan for local Balena devices
+> 扫描本地网络中的 Balena 设备
 
 **os**
-> OS image management commands
+> 操作系统镜像管理命令
 
 **env**
-> Environment variable management
+> 环境变量管理
 
 **--application**, **-a** _name_
-> Application name
+> 应用名称
 
 **--device**, **-d** _uuid_
-> Device UUID
+> 设备 UUID
 
 # FEATURES
 
-- Container-based deployments
-- Over-the-air updates
-- Remote device access
-- Environment variable management
-- Multi-architecture support
-- Device fleet management
+- 基于容器的部署
+- 空中（OTA）更新
+- 远程设备访问
+- 环境变量管理
+- 多架构支持
+- 设备机群管理
 
 # WORKFLOW
 
@@ -98,11 +98,11 @@ balena logs <device>
 
 # CAVEATS
 
-Requires Balena account. Device must run BalenaOS. Internet connectivity needed for cloud features. Some operations require payment plan. Local mode available for offline development.
+需要 Balena 账户。设备必须运行 BalenaOS。云端功能需要联网。部分操作需要付费方案。本地模式可用于离线开发。
 
 # HISTORY
 
-**Balena CLI** was developed by Balena (formerly Resin.io) starting around **2013** as a platform for IoT fleet management and edge computing.
+**Balena CLI** 由 Balena（原 Resin.io）自 **2013** 年前后开始开发，是一个面向 IoT 机群管理与边缘计算的平台。
 
 # SEE ALSO
 

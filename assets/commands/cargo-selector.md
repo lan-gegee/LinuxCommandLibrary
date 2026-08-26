@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive Cargo target selector
+交互式 Cargo 目标选择器
 
 # TLDR
 
-**Interactively select** and run a binary target
+**交互式选择**并运行一个二进制目标
 
 ```cargo selector run```
 
-**Interactively select** and run a test
+**交互式选择**并运行一个测试
 
 ```cargo selector test```
 
-**Interactively select** and run a benchmark
+**交互式选择**并运行一个基准测试
 
 ```cargo selector bench```
 
-**Interactively select** and run an example
+**交互式选择**并运行一个示例
 
 ```cargo selector example```
 
@@ -26,13 +26,13 @@ Interactive Cargo target selector
 
 # DESCRIPTION
 
-**cargo-selector** is a Cargo subcommand that provides an interactive fuzzy-search interface for selecting and running targets in a Rust project. Instead of typing exact target names, it presents a searchable list of available binaries, tests, examples, or benchmarks and runs the selected one.
+**cargo-selector** 是一个 Cargo 子命令，提供交互式模糊搜索界面，用于在 Rust 项目中选择并运行目标。它不需要输入确切的目标名称，而是展示可用的二进制、测试、示例或基准测试的可搜索列表，并运行选中的那一项。
 
-This is particularly useful in workspaces or projects with many targets, where remembering exact names is impractical. The selector uses a fuzzy finder interface for quick filtering.
+对于目标众多的大型工作空间或项目，记住确切的名称并不现实，此时尤为实用。该选择器使用模糊搜索界面实现快速过滤。
 
 # CAVEATS
 
-Requires a valid Cargo project with defined targets. Additional arguments to the underlying cargo command may need to be passed after the target selection.
+需要一个已定义目标的合法 Cargo 项目。对底层 cargo 命令的额外参数可能需要在选定目标之后再传入。
 
 # INSTALL
 

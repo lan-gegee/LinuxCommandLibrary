@@ -1,30 +1,30 @@
 # TAGLINE
 
-create new control groups
+创建新的控制组
 
 # TLDR
 
-Create a **cgroup** with specific controller
+创建带特定控制器的 **cgroup**
 
 ```cgcreate -g cpu:mygroup```
 
-Create cgroup with **multiple controllers**
+创建带**多个控制器**的 cgroup
 
 ```cgcreate -g cpu,memory:mygroup```
 
-Create cgroup with all **mounted controllers**
+创建带所有已**挂载控制器**的 cgroup
 
 ```cgcreate -g *:mygroup```
 
-Set **tasks file** ownership
+设置 **tasks 文件**的所有权
 
 ```cgcreate -t user:group -g cpu:mygroup```
 
-Set **control files** ownership
+设置**控制文件**的所有权
 
 ```cgcreate -a user:group -g cpu:mygroup```
 
-Set **directory permissions**
+设置**目录权限**
 
 ```cgcreate -d 755 -g cpu:mygroup```
 
@@ -34,38 +34,38 @@ Set **directory permissions**
 
 # DESCRIPTION
 
-**cgcreate** creates new cgroups (control groups) used to limit, measure, and control resources used by processes. Cgroup controllers include memory, cpu, cpuset, blkio, net_cls, and others.
+**cgcreate** 创建新的 cgroup（控制组），用于限制、度量并控制进程使用的资源。cgroup 控制器包括 memory、cpu、cpuset、blkio、net_cls 等。
 
 # PARAMETERS
 
 **-g CONTROLLERS:PATH**
-> Specify controllers and path for the cgroup (required). Controllers can be comma-separated or "*" for all mounted controllers
+> 指定 cgroup 的控制器和路径（必需）。控制器可用逗号分隔，或用 "*" 表示所有已挂载的控制器
 
 **-t TUID:TGID**
-> Set ownership of the tasks file (determines who can add processes)
+> 设置 tasks 文件的所有权（决定谁可以添加进程）
 
 **-a AUID:AGID**
-> Set ownership of control files (determines who can modify parameters)
+> 设置控制文件的所有权（决定谁可以修改参数）
 
 **-d, --dperm=MODE**
-> Set directory permissions in octal notation (e.g., 755)
+> 以八进制表示法设置目录权限（如 755）
 
 **-f, --fperm=MODE**
-> Set parameter file permissions in octal notation
+> 以八进制表示法设置参数文件权限
 
 **-s, --tperm=MODE**
-> Set tasks file permissions in octal notation
+> 以八进制表示法设置 tasks 文件权限
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Cgroups v1 and v2 have different hierarchies and features. On cgroups v2 systems, the syntax and available controllers may differ. Created cgroups persist until deleted with cgdelete or system reboot.
+Cgroups v1 和 v2 的层级结构与功能不同。在 cgroups v2 系统上，语法和可用控制器可能有所差异。创建的 cgroup 会一直存在，直到用 cgdelete 删除或系统重启。
 
 # HISTORY
 
-**cgcreate** is part of **libcgroup**, providing user-space tools for managing Linux control groups which were introduced in kernel 2.6.24.
+**cgcreate** 是 **libcgroup** 的一部分，后者为管理 Linux 控制组提供用户态工具。控制组在内核 2.6.24 中引入。
 
 # INSTALL
 

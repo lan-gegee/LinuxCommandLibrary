@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove a saved registry API token
+删除已保存的注册表 API 令牌
 
 # TLDR
 
-**Logout from crates.io**
+**从 crates.io 登出**
 
 ```cargo logout```
 
-**Logout from specific registry**
+**从指定注册表登出**
 
 ```cargo logout --registry [my-registry]```
 
@@ -18,26 +18,26 @@ Remove a saved registry API token
 
 # DESCRIPTION
 
-**cargo logout** removes the API token for a registry from local storage. This revokes the token saved by cargo login.
+**cargo logout** 从本地存储中删除注册表的 API 令牌，即撤销 cargo login 保存的令牌。
 
 # PARAMETERS
 
 **--registry** _name_
-> Registry to logout from (default: crates-io)
+> 要登出的注册表（默认：crates-io）
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # BEHAVIOR
 
-Removes the token entry from ~/.cargo/credentials.toml for the specified registry. Does not revoke the token on the server side.
+从 ~/.cargo/credentials.toml 中删除指定注册表的令牌条目。不会在服务器端撤销该令牌。
 
 # CAVEATS
 
-To fully revoke access, also regenerate the token on the registry website (e.g., https://crates.io/me for crates.io). Only removes local credentials.
+要完全吊销访问权限，还需在注册表网站上重新生成令牌（crates.io 对应 https://crates.io/me）。此命令只删除本地凭据。
 
 # INSTALL
 

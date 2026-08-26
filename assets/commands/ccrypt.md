@@ -1,30 +1,30 @@
 # TAGLINE
 
-AES-based file encryption and decryption
+基于 AES 的文件加密与解密
 
 # TLDR
 
-**Encrypt a file**
+**加密文件**
 
 ```ccrypt [file.txt]```
 
-**Decrypt a file**
+**解密文件**
 
 ```ccrypt -d [file.txt.cpt]```
 
-**Decrypt to stdout**
+**解密到 stdout**
 
 ```ccat [file.txt.cpt]```
 
-**Change encryption key**
+**更换加密密钥**
 
 ```ccrypt -x [file.cpt]```
 
-**Encrypt with key from file**
+**使用文件中的密钥加密**
 
 ```ccrypt -k [keyfile] [file.txt]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```ccrypt -f [file.txt]```
 
@@ -40,61 +40,61 @@ AES-based file encryption and decryption
 
 # DESCRIPTION
 
-**ccrypt** encrypts and decrypts files and streams using the Rijndael cipher (AES) with 256-bit keys. It replaces the original file with an encrypted version bearing a `.cpt` extension, and the original is securely overwritten rather than simply deleted.
+**ccrypt** 使用 Rijndael 密码（AES）和 256 位密钥对文件和数据流进行加解密。它会用带 `.cpt` 扩展名的加密版本替换原文件，并且原文件会被安全覆写而不是简单删除。
 
-The tool provides three modes of operation through separate command names: **ccencrypt** for encryption, **ccdecrypt** for decryption, and **ccat** for decrypting to standard output without modifying the file. All three are functionally equivalent to invoking ccrypt with the appropriate flag.
+该工具通过独立的命令名提供三种操作模式：**ccencrypt** 用于加密，**ccdecrypt** 用于解密，**ccat** 用于解密到标准输出而不修改文件。这三者与调用 ccrypt 加上相应标志在功能上完全等价。
 
-Keys are prompted interactively by default and must be entered twice for encryption to prevent typos. For automated workflows, keys can be read from a file with the `-k` option.
+默认情况下密钥以交互方式提示输入，加密时必须输入两次以防打错。对于自动化流程，可以使用 `-k` 选项从文件读取密钥。
 
 # PARAMETERS
 
 **-e**, **--encrypt**
-> Encrypt mode
+> 加密模式
 
 **-d**, **--decrypt**
-> Decrypt mode
+> 解密模式
 
 **-c**, **--cat**
-> Decrypt to stdout
+> 解密到 stdout
 
 **-x**, **--keychange**
-> Change encryption key
+> 更换加密密钥
 
 **-k** _file_, **--keyfile** _file_
-> Read key from file
+> 从文件读取密钥
 
 **-K** _key_, **--key** _key_
-> Specify key on command line (unsafe)
+> 在命令行指定密钥（不安全）
 
 **-f**, **--force**
-> Overwrite without asking
+> 不询问直接覆盖
 
 **-v**, **--verbose**
-> Print progress info
+> 打印进度信息
 
 **-q**, **--quiet**
-> Suppress warnings
+> 抑制警告
 
 **-b**, **--brave**
-> Ask for key only once
+> 只要求输入一次密钥
 
 **-S** _suf_, **--suffix** _suf_
-> Use suffix instead of .cpt
+> 使用指定后缀而不是 .cpt
 
 **-l**, **--symlinks**
-> Process symbolic links
+> 处理符号链接
 
 # COMMANDS
 
-**ccencrypt**: Equivalent to ccrypt -e
+**ccencrypt**：等价于 ccrypt -e
 
-**ccdecrypt**: Equivalent to ccrypt -d
+**ccdecrypt**：等价于 ccrypt -d
 
-**ccat**: Equivalent to ccrypt -c
+**ccat**：等价于 ccrypt -c
 
 # CAVEATS
 
-Using -K on command line exposes key in process list. Use -k with keyfile or stdin for security. Based on AES/Rijndael cipher.
+在命令行使用 -K 会让密钥暴露在进程列表中。出于安全考虑请使用 -k 配合密钥文件或标准输入。基于 AES/Rijndael 密码算法。
 
 # INSTALL
 

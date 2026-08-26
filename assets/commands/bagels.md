@@ -1,26 +1,26 @@
 # TAGLINE
 
-terminal-based expense tracker with budgeting and insights
+基于终端的记账工具，支持预算管理与消费洞察
 
 # TLDR
 
-**Start the application**
+**启动应用**
 
 ```bagels```
 
-**Start with data stored** in a specific directory
+以指定目录存储数据并**启动**
 
 ```bagels --at [path/to/directory]```
 
-**Locate the database** file
+**定位数据库**文件
 
 ```bagels locate database```
 
-**Locate the configuration** file
+**定位配置**文件
 
 ```bagels locate config```
 
-**Migrate data** from Actual Budget
+从 Actual Budget **迁移数据**
 
 ```bagels --migrate actualbudget --source [path/to/source.db]```
 
@@ -33,139 +33,139 @@ terminal-based expense tracker with budgeting and insights
 # PARAMETERS
 
 **--at** _path_
-> Specify a custom directory for storing the database and configuration files. Defaults to XDG base directories.
+> 指定存储数据库和配置文件的自定义目录。默认使用 XDG 基础目录。
 
 **--migrate** _type_
-> Run a data migration from another application. Currently supports **actualbudget**.
+> 从其他应用执行数据迁移。目前支持 **actualbudget**。
 
 **--source** _path_
-> Path to the source database file when using **--migrate**.
+> 使用 **--migrate** 时源数据库文件的路径。
 
 **locate config**
-> Display the path to the configuration YAML file.
+> 显示配置 YAML 文件的路径。
 
 **locate database**
-> Display the path to the SQLite database file.
+> 显示 SQLite 数据库文件的路径。
 
 # CONTROLS
 
 **a**
-> Add a new record, account, or category (context-dependent)
+> 添加新记录、账户或类别（取决于上下文）
 
 **e**
-> Edit selected item
+> 编辑选中项
 
 **d**
-> Delete selected item
+> 删除选中项
 
 **v**
-> Toggle jump mode for quick navigation between UI panels
+> 切换跳转模式，在 UI 各面板间快速导航
 
 **c**
-> Cycle between Home and Manager tabs
+> 在 Home 和 Manager 标签页之间切换
 
 **t**
-> Create a new transfer between accounts
+> 创建账户间的新转账
 
 **b**
-> Open budgets view
+> 打开预算视图
 
 **s**
-> Toggle transaction splits display
+> 切换交易拆分显示
 
 **q** / **w**
-> Display records by date / by person
+> 按日期 / 按人员显示记录
 
 **f**
-> Open advanced filter
+> 打开高级筛选
 
 **.**
-> Cycle time offset type (day, week, month, year)
+> 循环切换时间偏移类型（日、周、月、年）
 
 **/**
-> Toggle between income and expense mode
+> 在收入与支出模式之间切换
 
 **[** / **]**
-> Select previous / next account
+> 选择上一个 / 下一个账户
 
 **\\**
-> Toggle account-based record filtering
+> 切换基于账户的记录过滤
 
 **Left** / **Right**
-> Navigate to previous / next time period
+> 导航到上一个 / 下一个时间段
 
 **1-9**
-> Quick-apply a transaction template by its number
+> 按编号快速应用交易模板
 
 **ctrl+a**
-> Add a new split to a record (in record modal)
+> 为记录添加新拆分（在记录弹窗中）
 
 **ctrl+d**
-> Delete the last split (in record modal)
+> 删除最后一个拆分（在记录弹窗中）
 
 **ctrl+t**
-> Submit and save as template (in record modal)
+> 提交并保存为模板（在记录弹窗中）
 
 **ctrl+q**
-> Quit the application
+> 退出应用
 
 # DESCRIPTION
 
-**bagels** is a terminal user interface (TUI) application for tracking personal expenses and income. It stores all financial data locally in a SQLite database and presents an interactive interface built on the Textual framework.
+**bagels** 是一款用于记录个人收支的终端用户界面（TUI）应用。它将所有财务数据存储在本地的 SQLite 数据库中，并提供基于 Textual 框架构建的交互式界面。
 
-The application is organized into two main views: Home and Manager. The Home view displays transaction records, account balances, spending insights with graphs, income/expense mode toggles, and quick-access templates. The Manager view provides tools for configuring accounts, categories with subcategories, budgets, and people for split tracking.
+应用分为两个主视图：Home 和 Manager。Home 视图显示交易记录、账户余额、带图表的消费洞察、收入/支出模式切换以及快速访问模板。Manager 视图提供管理账户、含子类别的类别、预算以及用于拆分记录的人员的工具。
 
-Key features include split transactions across multiple categories, transfers between tracked accounts and external accounts, recurring transaction templates accessible via number keys, and a jump mode system for keyboard-driven navigation between UI panels. The insights module provides spending analysis with visual graphs, estimated projections, and budget tracking against configurable limits.
+主要功能包括跨多个类别的拆分交易、被跟踪账户与外部账户之间的转账、可通过数字键访问的周期性交易模板，以及在 UI 各面板之间进行键盘导航的跳转模式系统。洞察模块通过可视化图表提供消费分析、预估趋势以及针对可配置上限的预算跟踪。
 
-Bagels supports budgeting with configurable income assessment policies, savings percentage targets, and wants-versus-needs spending ratios. Records can be filtered by label, amount, category, and time period (day, week, month, or year).
+Bagels 支持预算管理，可配置收入评估政策、储蓄百分比目标以及"想要与必需"支出比例。记录可以按标签、金额、类别和时间段（日、周、月或年）过滤。
 
-All data remains local on the user's machine, following XDG base directory conventions for file storage. The database and configuration can optionally be placed in a custom directory using the **--at** flag.
+所有数据都保存在用户本机上，文件存储遵循 XDG 基础目录规范。可以使用 **--at** 标志将数据库和配置放置在自定义目录中。
 
 # CONFIGURATION
 
-Configuration is stored in a **config.yaml** file at the XDG config directory (typically **~/.config/bagels/config.yaml**). The file is auto-generated on first run and uses YAML format.
+配置存储在 XDG 配置目录下的 **config.yaml** 文件中（通常为 **~/.config/bagels/config.yaml**）。该文件在首次运行时自动生成，采用 YAML 格式。
 
 **defaults.period**
-> Default time period for the home view. Options: **day**, **week**, **month**, **year**. Default: **week**.
+> Home 视图的默认时间段。可选值：**day**、**week**、**month**、**year**。默认：**week**。
 
 **defaults.first_day_of_week**
-> First day of the week (0 = Monday, 6 = Sunday). Default: **6**.
+> 每周的第一天（0 = 周一，6 = 周日）。默认：**6**。
 
 **defaults.date_format**
-> Date display format string. Default: **%d/%m**.
+> 日期显示格式字符串。默认：**%d/%m**。
 
 **defaults.round_decimals**
-> Number of decimal places for amounts. Default: **2**.
+> 金额的小数位数。默认：**2**。
 
 **defaults.plot_marker**
-> Graph plot marker style. Options: **braille**, **fhd**, **hd**, **dot**. Default: **braille**.
+> 图表绘制标记样式。可选值：**braille**、**fhd**、**hd**、**dot**。默认：**braille**。
 
 **state.theme**
-> Color theme. Available themes include **tokyo-night**, **nord**, **gruvbox**, **catppuccin-mocha**, **dracula**, **galaxy**, **alpine**, **cobalt**, **hacker**, **flexoki**, and **dark**. Default: **tokyo-night**.
+> 配色主题。可用主题包括 **tokyo-night**、**nord**、**gruvbox**、**catppuccin-mocha**、**dracula**、**galaxy**、**alpine**、**cobalt**、**hacker**、**flexoki** 和 **dark**。默认：**tokyo-night**。
 
 **state.check_for_updates**
-> Check PyPI for new versions on startup. Default: **true**.
+> 启动时检查 PyPI 是否有新版本。默认：**true**。
 
 **state.budgeting**
-> Budgeting parameters including income assessment policy, savings percentage, and wants spending ratio.
+> 预算参数，包括收入评估政策、储蓄百分比和"想要"支出比例。
 
 **hotkeys**
-> All keyboard shortcuts are fully configurable under the **hotkeys** section.
+> 所有键盘快捷键均可在 **hotkeys** 区段下完全自定义。
 
 **symbols**
-> Customizable display symbols for lines, split indicators, category markers, and amount signs.
+> 可自定义的显示符号，包括线条、拆分指示符、类别标记和金额符号。
 
 # CAVEATS
 
-Requires Python 3.13 or later. For best rendering, use a modern terminal emulator; macOS users should consider Ghostty, and Windows users should use Windows Terminal.
+需要 Python 3.13 或更高版本。为获得最佳渲染效果，请使用现代终端模拟器；macOS 用户建议使用 Ghostty，Windows 用户应使用 Windows Terminal。
 
-The **--migrate** option currently only supports importing from Actual Budget. The **--source** flag is required when using migration.
+**--migrate** 选项目前仅支持从 Actual Budget 导入。使用迁移时必须提供 **--source** 标志。
 
-All data is stored locally with no cloud synchronization. Backup the database file (located via **bagels locate database**) to prevent data loss.
+所有数据均本地存储，没有云同步。请备份数据库文件（通过 **bagels locate database** 定位）以防数据丢失。
 
 # HISTORY
 
-**Bagels** was created by **Jax (EnhancedJax)** and first released in **2024** as an open-source terminal expense tracker. The project is built on the **Textual** TUI framework and was inspired by the **Posting** terminal application. It gained popularity in the terminal tooling community, accumulating over 2,700 GitHub stars. The project is licensed under **GPL-3.0**.
+**Bagels** 由 **Jax (EnhancedJax)** 创建，于 **2024** 年首次发布，是一款开源的终端记账工具。该项目基于 **Textual** TUI 框架构建，灵感来自 **Posting** 终端应用。它在终端工具社区颇受欢迎，累计获得超过 2,700 个 GitHub 星标。项目采用 **GPL-3.0** 许可证。
 
 # INSTALL
 

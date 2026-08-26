@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display version information for Cargo
+显示 Cargo 的版本信息
 
 # TLDR
 
-**Show Cargo version**
+**显示 Cargo 版本**
 
 ```cargo version```
 
-**Show verbose version info**
+**显示详细版本信息**
 
 ```cargo version --verbose```
 
-**Short form**
+**短格式**
 
 ```cargo -V```
 
-**Verbose short form**
+**详细短格式**
 
 ```cargo -Vv```
 
@@ -28,26 +28,26 @@ Display version information for Cargo
 
 # DESCRIPTION
 
-**cargo version** displays the version of Cargo along with build metadata. The default output shows the version number, git commit hash, and build date. With the `--verbose` flag, additional details are shown including the host triple, linked library versions (libgit2, libcurl, SSL), and operating system information.
+**cargo version** 显示 Cargo 的版本及构建元数据。默认输出包含版本号、git 提交哈希和构建日期。加上 `--verbose` 标志后，还会显示更多细节，包括主机三元组、所链接库的版本（libgit2、libcurl、SSL）以及操作系统信息。
 
-This command is useful for diagnosing build issues, verifying toolchain installations, and including version information in CI/CD logs and bug reports. It operates entirely offline with no side effects.
+该命令适用于诊断构建问题、验证工具链安装，以及在 CI/CD 日志和错误报告中附上版本信息。它完全离线运行，没有任何副作用。
 
 # PARAMETERS
 
 **-v**, **--verbose**
-> Show additional build metadata
+> 显示额外的构建元数据
 
 **--format-version** _n_
-> Output format: 1 (legacy JSON), 2 (human-readable, default)
+> 输出格式：1（旧式 JSON）、2（人类可读，默认）
 
 # OUTPUT
 
-**Default**
+**默认**
 ```
 cargo 1.75.0 (1d8b05cdd 2023-11-20)
 ```
 
-**Verbose**
+**详细**
 ```
 cargo 1.75.0 (1d8b05cdd 2023-11-20)
 release: 1.75.0
@@ -63,14 +63,14 @@ os: Linux [kernel 6.1.0]
 # RELATED COMMANDS
 
 **rustc --version**
-> Show Rust compiler version
+> 显示 Rust 编译器版本
 
 **rustup show**
-> Show installed toolchains
+> 显示已安装的工具链
 
 # CAVEATS
 
-Operates offline with no side effects. Useful for CI/CD and build script checks.
+离线运行，无副作用。适用于 CI/CD 和构建脚本检查。
 
 # INSTALL
 

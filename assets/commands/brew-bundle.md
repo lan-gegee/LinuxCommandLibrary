@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Homebrew packages declaratively with a Brewfile
+用 Brewfile 以声明式方式管理 Homebrew 软件包
 
 # TLDR
 
-**Install all dependencies** from Brewfile
+从 Brewfile **安装所有依赖**
 
 ```brew bundle install```
 
-**Install from a specific Brewfile**
+从指定的 Brewfile **安装**
 
 ```brew bundle --file=[path/to/Brewfile]```
 
-**Dump installed packages** to Brewfile
+将已安装的软件包**导出**到 Brewfile
 
 ```brew bundle dump```
 
-**Dump with descriptions** as comments
+导出时以注释形式附带**描述**
 
 ```brew bundle dump --describe```
 
-**Check if all dependencies** are installed
+**检查所有依赖**是否已安装
 
 ```brew bundle check```
 
-**Uninstall packages** not in Brewfile
+**卸载**不在 Brewfile 中的软件包
 
 ```brew bundle cleanup```
 
-**Preview cleanup** without removing
+**预览清理结果**而不实际移除
 
 ```brew bundle cleanup --dry-run```
 
-**Use global Brewfile** (~/.Brewfile)
+**使用全局 Brewfile**（~/.Brewfile）
 
 ```brew bundle --global```
 
@@ -42,52 +42,52 @@ Manage Homebrew packages declaratively with a Brewfile
 
 # DESCRIPTION
 
-**brew bundle** provides a declarative interface for managing Homebrew packages using a Brewfile. It can install, upgrade, and track packages from Homebrew formulae, Casks, Mac App Store, taps, and other sources.
+**brew bundle** 提供一个声明式接口，通过 Brewfile 管理 Homebrew 软件包。它可以从 Homebrew formula、Cask、Mac App Store、tap 以及其他来源安装、升级并跟踪软件包。
 
-Brewfiles specify the desired state of installed packages, making it easy to replicate development environments or maintain consistent setups across machines.
+Brewfile 描述了已安装软件包的期望状态，便于复制开发环境或在多台机器间保持一致的配置。
 
 # SUBCOMMANDS
 
 **install**
-> Install/upgrade all dependencies from Brewfile (default)
+> 从 Brewfile 安装/升级所有依赖（默认）。
 
 **dump**
-> Write installed packages to a Brewfile
+> 将已安装的软件包写入 Brewfile。
 
 **cleanup**
-> Uninstall packages not in Brewfile
+> 卸载不在 Brewfile 中的软件包。
 
 **check**
-> Verify Brewfile matches installed packages
+> 校验 Brewfile 是否与已安装的软件包一致。
 
 **list**
-> List all dependencies from Brewfile
+> 列出 Brewfile 中的全部依赖。
 
 **exec**
-> Run command in isolated Brewfile environment
+> 在隔离的 Brewfile 环境中运行命令。
 
 # PARAMETERS
 
 **--file** _path_
-> Use specified Brewfile location
+> 使用指定的 Brewfile 位置。
 
 **--global**
-> Use global Brewfile (~/.Brewfile or XDG location)
+> 使用全局 Brewfile（~/.Brewfile 或 XDG 位置）。
 
 **--describe**
-> Add description comments when dumping
+> 导出时添加描述性注释。
 
 **--force**
-> Force cleanup/dump even if dependencies exist
+> 即使存在依赖也强制执行 cleanup/dump。
 
 **--dry-run**
-> Show what would happen without making changes
+> 只显示将要发生的操作，不做更改。
 
 **--verbose**
-> Print detailed output
+> 输出详细信息。
 
 **--no-upgrade**
-> Don't upgrade already-installed packages
+> 不升级已安装的软件包。
 
 # BREWFILE SYNTAX
 
@@ -102,7 +102,7 @@ vscode "ms-python.python"
 
 # CAVEATS
 
-Mac App Store packages (mas) require the mas CLI and being signed into the App Store. Cleanup removes packages not in Brewfile; use **--dry-run** first. Some casks may require administrator privileges.
+Mac App Store 软件包（mas）需要 mas CLI 并已登录 App Store。cleanup 会移除不在 Brewfile 中的软件包；请先使用 **--dry-run**。部分 cask 可能需要管理员权限。
 
 # SEE ALSO
 

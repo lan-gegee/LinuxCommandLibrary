@@ -1,38 +1,38 @@
 # TAGLINE
 
-Build custom immutable Linux images
+构建自定义不可变 Linux 镜像
 
 # TLDR
 
-**Build a custom image** from a recipe file
+**从配方文件构建自定义镜像**
 
 ```bluebuild build [recipe.yml]```
 
-**Build and push** to a container registry
+**构建并推送**到容器仓库（registry）
 
 ```bluebuild build --push [recipe.yml]```
 
-**Generate a Containerfile** from the recipe
+**从配方生成 Containerfile**
 
 ```bluebuild generate [recipe.yml]```
 
-**Start a new BlueBuild project** in a new directory
+在新目录中**创建新的 BlueBuild 项目**
 
 ```bluebuild new [project-name]```
 
-**Initialize a BlueBuild project** in the current empty directory
+在当前的空目录中**初始化 BlueBuild 项目**
 
 ```bluebuild init```
 
-**Validate a recipe file** for errors
+**校验配方文件**是否有错误
 
 ```bluebuild validate [recipe.yml]```
 
-**Build locally and rebase** the running system onto the image
+**本地构建并将运行中的系统 rebase 到该镜像**
 
 ```bluebuild switch [recipe.yml]```
 
-**Upgrade the running system** to the latest BlueBuild image
+**将运行中的系统升级**到最新的 BlueBuild 镜像
 
 ```bluebuild upgrade```
 
@@ -43,70 +43,70 @@ Build custom immutable Linux images
 # PARAMETERS
 
 **build** _recipe_
-> Template out the files and build the image with Docker, Podman, or Buildah.
+> 生成模板文件并使用 Docker、Podman 或 Buildah 构建镜像。
 
 **generate** _recipe_
-> Generate the Containerfile used to build the recipe and print or write it out.
+> 生成用于构建配方的 Containerfile，并打印或写出。
 
 **new** _name_
-> Create a new BlueBuild project in a new directory, based on the official template.
+> 基于官方模板在新目录中创建新的 BlueBuild 项目。
 
 **init**
-> Set up a new BlueBuild project in the current empty directory.
+> 在当前空目录中搭建新的 BlueBuild 项目。
 
 **validate** _recipe_
-> Check a recipe and its modules for errors before building.
+> 在构建前检查配方及其模块是否有错误。
 
 **switch** _recipe_
-> Build the image locally, export it as an oci-archive tarball, and rebase or upgrade the running system onto it. Runs as a normal user, asking for sudo only when needed.
+> 在本地构建镜像，将其导出为 oci-archive tar 包，然后将运行中的系统 rebase 或 upgrade 到它。以普通用户身份运行，仅在需要时请求 sudo。
 
 **rebase** _recipe_
-> Build locally and rebase the current rpm-ostree system onto the resulting image.
+> 本地构建并将当前 rpm-ostree 系统 rebase 到生成的镜像。
 
 **upgrade** _recipe_
-> Build locally and upgrade the current rpm-ostree system to the resulting image.
+> 本地构建并将当前 rpm-ostree 系统升级到生成的镜像。
 
 **generate-iso** _recipe_
-> Generate an offline ISO installation image from the recipe.
+> 从配方生成离线的 ISO 安装镜像。
 
 **completions** _shell_
-> Print shell completions for bash, zsh, fish, and others to stdout.
+> 将 bash、zsh、fish 等 shell 的补全脚本打印到标准输出。
 
-**upgrade** (no recipe)
-> Upgrade the bluebuild CLI itself to the latest version.
+**upgrade**（不带配方）
+> 将 bluebuild CLI 自身升级到最新版本。
 
 **--push**
-> Push the built image to the configured container registry (build command).
+> 将构建好的镜像推送到已配置的容器仓库（build 命令）。
 
 **--registry** _url_
-> Override the container registry to push to (build command).
+> 覆盖要推送到的容器仓库（build 命令）。
 
 **--rechunk**
-> Rechunk the image layers for more efficient updates (build command).
+> 对镜像层重新分块（rechunk），使更新更高效（build 命令）。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**BlueBuild** is a tool for creating custom immutable Linux images based on Universal Blue and Fedora Atomic. It uses YAML recipe files to declaratively define image customizations including packages, scripts, and system configurations.
+**BlueBuild** 是一款基于 Universal Blue 和 Fedora Atomic 创建自定义不可变 Linux 镜像的工具。它使用 YAML 配方文件以声明式方式定义镜像定制内容，包括软件包、脚本和系统配置。
 
-The tool simplifies the process of building custom rpm-ostree images that can be deployed on Fedora Silverblue, Kinoite, or other atomic Fedora variants. Recipes can specify base images, add/remove packages, include custom scripts, and configure system settings.
+该工具简化了构建自定义 rpm-ostree 镜像的过程，这些镜像可部署在 Fedora Silverblue、Kinoite 或其他 Fedora atomic 变体上。配方可以指定基础镜像、添加/移除软件包、包含自定义脚本以及配置系统设置。
 
-BlueBuild integrates with GitHub Actions for automated CI/CD builds via a reusable GitHub Action; the **generate** command produces the Containerfile that the build uses. Images are typically hosted on GitHub Container Registry (ghcr.io).
+BlueBuild 通过一个可复用的 GitHub Action 与 GitHub Actions 集成实现自动化 CI/CD 构建；**generate** 命令产出构建所用的 Containerfile。镜像通常托管在 GitHub Container Registry（ghcr.io）上。
 
-Users can switch their existing Fedora Atomic system onto a locally built image with **bluebuild switch**, or onto a published image with **rebase** and **upgrade**. The project provides a library of reusable modules for common customizations like adding Flatpak repositories, configuring fonts, or setting up development tools.
+用户可以使用 **bluebuild switch** 将现有的 Fedora Atomic 系统切换到本地构建的镜像，或通过 **rebase** 和 **upgrade** 切换到已发布的镜像。该项目提供了一个可复用模块库，覆盖常见定制需求，如添加 Flatpak 仓库、配置字体或安装开发工具。
 
 # CAVEATS
 
-Requires Podman or Docker for local builds. GitHub Actions integration requires repository write access and container registry credentials. Recipe changes may require complete image rebuilds. Images built locally may differ from CI-built images due to architecture or environment differences.
+本地构建需要 Podman 或 Docker。GitHub Actions 集成需要仓库写权限和容器仓库凭证。配方更改可能需要完整重建镜像。由于架构或环境差异，本地构建的镜像可能与 CI 构建的镜像不同。
 
 # HISTORY
 
-**BlueBuild** emerged from the Universal Blue community in **2023** as a way to simplify custom image creation for Fedora Atomic desktops. It was inspired by the growing interest in immutable Linux distributions and the need for user-friendly customization tools. The project provides a higher-level abstraction over raw Containerfile/Dockerfile builds.
+**BlueBuild** 于 **2023 年**从 Universal Blue 社区中兴起，旨在简化 Fedora Atomic 桌面的自定义镜像创建。它的诞生源于人们对不可变 Linux 发行版日益增长的兴趣以及对易用定制工具的需求。该项目在原始的 Containerfile/Dockerfile 构建之上提供了更高层次的抽象。
 
 # SEE ALSO
 

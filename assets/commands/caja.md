@@ -1,26 +1,26 @@
 # TAGLINE
 
-File manager for the MATE desktop
+MATE 桌面的文件管理器
 
 # TLDR
 
-Open the **home directory**
+打开**主目录**
 
 ```caja```
 
-Open **specific directories** in separate windows
+在单独的窗口中打开**指定目录**
 
 ```caja [path/to/directory1] [path/to/directory2] ...```
 
-Open directories in **tabs**
+以**标签页**方式打开目录
 
 ```caja -t [path/to/directory1] [path/to/directory2] ...```
 
-Open with a **specific window size**
+以**指定的窗口大小**打开
 
 ```caja -g [600]x[400] [path/to/directory]```
 
-**Close** all windows
+**关闭**所有窗口
 
 ```caja -q```
 
@@ -30,26 +30,26 @@ Open with a **specific window size**
 
 # DESCRIPTION
 
-**caja** is the default file manager for the MATE desktop environment. It provides a graphical interface for browsing files and directories, managing file operations, and accessing network locations.
+**caja** 是 MATE 桌面环境的默认文件管理器。它提供图形界面，用于浏览文件和目录、管理文件操作以及访问网络位置。
 
-Caja is a fork of GNOME's Nautilus file manager, maintaining a traditional desktop file management experience.
+Caja 是 GNOME 的 Nautilus 文件管理器的一个分支，保留了传统的桌面文件管理体验。
 
 # PARAMETERS
 
 **-t, --tabs**
-> Open directories in tabs instead of windows
+> 以标签页而非窗口的方式打开目录
 
 **-g, --geometry** _WxH_
-> Set window size in pixels
+> 以像素为单位设置窗口大小
 
 **-q, --quit**
-> Close all Caja windows
+> 关闭所有 Caja 窗口
 
 **-n, --no-default-window**
-> Only create windows for explicitly specified paths
+> 仅为显式指定的路径创建窗口
 
 **--browser**
-> Open browser window
+> 打开浏览器窗口
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Symlink local packages for development
+为本地开发创建包的符号链接
 
 # TLDR
 
-**Register the current package** as a globally linked package
+**将当前包注册**为全局链接的包
 
 ```bun link```
 
-**Link a globally registered package** into the current project
+**将全局注册的包链接**到当前项目
 
 ```bun link [package-name]```
 
@@ -18,16 +18,16 @@ Symlink local packages for development
 
 # DESCRIPTION
 
-**bun link** creates symbolic links for local package development. The workflow has two steps:
+**bun link** 为本地包开发创建符号链接。工作流分为两步：
 
-1. In the package directory, run **bun link** (without arguments) to register it as a globally available linked package.
-2. In the consuming project, run **bun link [package-name]** to create a symlink from node_modules to the registered package.
+1. 在包目录中运行 **bun link**（不带参数），将其注册为全局可用的链接包。
+2. 在使用该包的项目中运行 **bun link [package-name]**，创建从 node_modules 指向已注册包的符号链接。
 
-This is useful for developing and testing local packages without publishing them to a registry. Changes to the source package are immediately reflected in any project that links to it.
+这适用于开发和测试本地包而无需发布到 registry。对源包的修改会立即反映在所有链接它的项目中。
 
 # CAVEATS
 
-Linked packages must be built before linking if they require a build step. Changes to the linked package are immediately reflected in projects using it. Links are specific to the Bun package manager and are not shared with npm or yarn link registrations.
+如果被链接的包需要构建步骤，则必须在链接前完成构建。对被链接包的修改会立即反映在使用它的项目中。这种链接是 Bun 包管理器特有的，与 npm 或 yarn 的 link 注册不互通。
 
 # INSTALL
 

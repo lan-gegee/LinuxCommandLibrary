@@ -1,10 +1,10 @@
 # TAGLINE
 
-Print the package manager version
+输出包管理器版本
 
 # TLDR
 
-**Show package manager version**
+**显示包管理器版本**
 
 ```bun pm version```
 
@@ -14,7 +14,7 @@ Print the package manager version
 
 # DESCRIPTION
 
-**bun pm version** prints the version of Bun's built-in package manager. The package manager version matches the Bun runtime version since the package manager is bundled with the runtime.
+**bun pm version** 输出 Bun 内置包管理器的版本。包管理器版本与 Bun 运行时版本一致，因为包管理器是随运行时一起捆绑的。
 
 # INSTALL
 

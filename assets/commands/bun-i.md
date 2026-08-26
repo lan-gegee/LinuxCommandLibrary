@@ -1,30 +1,30 @@
 # TAGLINE
 
-Install packages (alias for bun install)
+安装软件包（bun install 的别名）
 
 # TLDR
 
-**Install all dependencies** from package.json
+**安装 package.json 中的全部依赖**
 
 ```bun i```
 
-**Install a specific package**
+**安装指定的包**
 
 ```bun i [package]```
 
-**Install a package** as a dev dependency
+将包**作为开发依赖安装**
 
 ```bun i -d [package]```
 
-**Install a specific version**
+**安装指定版本**
 
 ```bun i [package]@[version]```
 
-**Install packages globally**
+**全局安装包**
 
 ```bun i -g [package]```
 
-**Install without updating lockfile**
+**安装时不更新锁文件**
 
 ```bun i --frozen-lockfile```
 
@@ -35,25 +35,25 @@ Install packages (alias for bun install)
 # PARAMETERS
 
 **-d**, **--dev**
-> Install as a development dependency.
+> 作为开发依赖安装。
 
 **-g**, **--global**
-> Install packages globally.
+> 全局安装软件包。
 
 **--frozen-lockfile**
-> Don't update the lockfile.
+> 不更新锁文件。
 
 **--no-save**
-> Don't save to package.json.
+> 不写入 package.json。
 
 **--production**
-> Don't install devDependencies.
+> 不安装 devDependencies。
 
 # DESCRIPTION
 
-**bun i** is an alias for **bun install**. It installs dependencies for a project from package.json, or adds new packages to the project.
+**bun i** 是 **bun install** 的别名。它根据 package.json 为项目安装依赖，或向项目添加新包。
 
-Bun's package manager is significantly faster than npm or yarn due to its native implementation and efficient caching.
+Bun 的包管理器凭借原生实现和高效的缓存机制，速度显著快于 npm 或 yarn。
 
 # INSTALL
 

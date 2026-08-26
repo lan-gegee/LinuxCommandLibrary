@@ -1,14 +1,14 @@
 # TAGLINE
 
-Execute a shell built-in command directly
+直接执行 shell 内建命令
 
 # TLDR
 
-**Run** built-in command
+**运行**内建命令
 
 ```builtin cd [/path]```
 
-**Check** if command is built-in
+**检查**命令是否为内建命令
 
 ```type cd```
 
@@ -18,9 +18,9 @@ Execute a shell built-in command directly
 
 # DESCRIPTION
 
-**builtin** forces the shell to run a built-in command even if a function or alias with the same name exists. It's a bash built-in command used to bypass shell functions and aliases to access the original built-in implementation.
+**builtin** 强制 shell 执行内建命令，即使存在同名的函数或别名。它是 bash 的一个内建命令，用于绕过 shell 函数和别名，访问原始的内建实现。
 
-The command is useful when functions or aliases shadow built-in commands.
+当函数或别名遮蔽了内建命令时，该命令很有用。
 
 # USAGE
 
@@ -39,14 +39,14 @@ builtin cd /tmp  # Bypasses any cd function
 
 # COMMON BUILT-INS
 
-- **cd** - Change directory
-- **echo** - Print text
-- **read** - Read input
-- **test** - Conditional evaluation
-- **export** - Set environment variables
-- **source** - Execute script
-- **alias** - Create aliases
-- **set** - Set shell options
+- **cd** - 切换目录
+- **echo** - 打印文本
+- **read** - 读取输入
+- **test** - 条件求值
+- **export** - 设置环境变量
+- **source** - 执行脚本
+- **alias** - 创建别名
+- **set** - 设置 shell 选项
 
 # WORKFLOW
 
@@ -66,11 +66,11 @@ builtin cd /tmp  # Just changes directory
 
 # CAVEATS
 
-Only works with shell built-in commands. No effect on external commands. Behavior varies between shells (bash, zsh, etc.). Not needed unless functions/aliases shadow built-ins.
+只对 shell 内建命令有效，对外部命令无效。不同 shell（bash、zsh 等）之间行为有所差异。除非函数/别名遮蔽了内建命令，否则不需要使用它。
 
 # HISTORY
 
-**builtin** has been part of bash and other shells since the late **1980s** to provide access to built-in commands when shadowed.
+自 **20 世纪 80 年代末**起，**builtin** 就是 bash 及其他 shell 的一部分，用于在内建命令被遮蔽时仍可访问它们。
 
 # SEE ALSO
 

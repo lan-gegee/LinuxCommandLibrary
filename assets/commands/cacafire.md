@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display ASCII fire animation in the terminal
+在终端中显示 ASCII 火焰动画
 
 # TLDR
 
-Display an **ASCII fire animation**
+显示 **ASCII 火焰动画**
 
 ```cacafire```
 
@@ -14,9 +14,9 @@ Display an **ASCII fire animation**
 
 # DESCRIPTION
 
-**cacafire** displays an animated ASCII art fire in the terminal using the libcaca library. It renders a realistic-looking fire effect using colored text characters.
+**cacafire** 使用 libcaca 库在终端中播放 ASCII 艺术火焰动画。它用彩色文本字符渲染出逼真的火焰效果。
 
-Press **Space** to pause/resume, **Esc** to exit, or interrupt with Ctrl+C.
+按 **Space** 暂停/继续，按 **Esc** 退出，或用 Ctrl+C 中断。
 
 # INSTALL
 

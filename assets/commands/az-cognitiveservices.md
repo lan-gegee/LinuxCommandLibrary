@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure AI and Cognitive Services accounts
+管理 Azure AI 与认知服务账户
 
 # TLDR
 
-**Create a Cognitive Services account**
+**创建认知服务账户**
 
 ```az cognitiveservices account create --name [myaccount] --resource-group [myRG] --kind [TextAnalytics] --sku [S1] --location [eastus]```
 
-**List all Cognitive Services accounts**
+**列出所有认知服务账户**
 
 ```az cognitiveservices account list```
 
-**Show account details**
+**显示账户详情**
 
 ```az cognitiveservices account show --name [myaccount] --resource-group [myRG]```
 
-**List API access keys**
+**列出 API 访问密钥**
 
 ```az cognitiveservices account keys list --name [myaccount] --resource-group [myRG]```
 
-**Regenerate an API key**
+**重新生成 API 密钥**
 
 ```az cognitiveservices account keys regenerate --name [myaccount] --resource-group [myRG] --key-name [key1]```
 
-**List available account kinds**
+**列出可用的账户类型**
 
 ```az cognitiveservices account list-kinds```
 
-**List available SKUs** for a specific kind and location
+针对特定类型和位置**列出可用的 SKU**
 
 ```az cognitiveservices account list-skus --kind [TextAnalytics] --location [eastus]```
 
-**Delete an account**
+**删除账户**
 
 ```az cognitiveservices account delete --name [myaccount] --resource-group [myRG]```
 
@@ -43,45 +43,45 @@ Manage Azure AI and Cognitive Services accounts
 # SUBCOMMANDS
 
 **account create**
-> Create a Cognitive Services account.
+> 创建认知服务账户。
 
 **account delete**
-> Delete a Cognitive Services account.
+> 删除认知服务账户。
 
 **account list**
-> List all Cognitive Services accounts.
+> 列出所有认知服务账户。
 
 **account show**
-> Show details of a specific account.
+> 显示特定账户的详情。
 
 **account keys list**
-> List account access keys.
+> 列出账户访问密钥。
 
 **account keys regenerate**
-> Regenerate account keys.
+> 重新生成账户密钥。
 
 **account deployment**
-> Manage model deployments.
+> 管理模型部署。
 
 **account commitment-plan**
-> Manage commitment plans.
+> 管理承诺计划。
 
 **account network-rule**
-> Manage network rules.
+> 管理网络规则。
 
 **account list-kinds**
-> List available account kinds.
+> 列出可用的账户类型。
 
 **account list-skus**
-> List available SKUs for a service kind and location.
+> 列出某种服务类型和位置可用的 SKU。
 
 # DESCRIPTION
 
-**az cognitiveservices** manages Azure Cognitive Services accounts, which provide AI capabilities including vision, speech, language, and decision APIs. It handles account creation, configuration, deployments, and subscription management for services like Text Analytics, Computer Vision, Speech Services, and OpenAI.
+**az cognitiveservices** 管理 Azure 认知服务账户，这些服务提供视觉、语音、语言和决策等 AI 能力的 API。它负责 Text Analytics、Computer Vision、Speech Services 和 OpenAI 等服务的账户创建、配置、部署和订阅管理。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated with **az login**. Different service kinds have different SKU availability and pricing. Some services require accepting responsible AI terms before creation.
+需要安装 Azure CLI 并已通过 **az login** 完成身份验证。不同的服务类型有不同的 SKU 可用性和定价。某些服务在创建前需要接受负责任的 AI 使用条款。
 
 # INSTALL
 

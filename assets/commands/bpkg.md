@@ -1,38 +1,38 @@
 # TAGLINE
 
-Package manager for bash scripts.
+bash 脚本包管理器。
 
 # TLDR
 
-**Install a package globally**
+全局**安装软件包**
 
 ```bpkg install [package-name] -g```
 
-**Install a specific version**
+**安装指定版本**
 
 ```bpkg install [package-name]@[version]```
 
-**Install package locally** (in ./deps/)
+本地**安装软件包**（安装到 ./deps/）
 
 ```bpkg install [package-name]```
 
-**Install dependencies** from bpkg.json
+从 bpkg.json **安装依赖**
 
 ```bpkg getdeps```
 
-**Run a package script**
+**运行软件包脚本**
 
 ```bpkg run [script-name]```
 
-**Run a script with arguments**
+**带参数运行脚本**
 
 ```bpkg run [script-name] "[arg1]" "[arg2]"```
 
-**List available scripts**
+**列出可用脚本**
 
 ```bpkg run --list```
 
-**Get package info**
+**获取软件包信息**
 
 ```bpkg package```
 
@@ -42,72 +42,72 @@ Package manager for bash scripts.
 
 # DESCRIPTION
 
-**bpkg** is a lightweight bash package manager that fetches and installs shell scripts from GitHub repositories. It handles downloading, setting permissions, and organizing scripts either globally or on a per-project basis.
+**bpkg** 是一个轻量级的 bash 包管理器，用于从 GitHub 仓库获取和安装 Shell 脚本。它负责下载、设置权限和组织脚本，既可以全局安装，也可以按项目安装。
 
-Packages are configured using a **bpkg.json** file that defines metadata, dependencies, and executable scripts. The tool works similarly to npm for Node.js or pip for Python.
+软件包通过 **bpkg.json** 文件配置，其中定义了元数据、依赖和可执行脚本。该工具的工作方式类似 Node.js 的 npm 或 Python 的 pip。
 
 # SUBCOMMANDS
 
 **install**
-> Install a package (globally with -g, locally without)
+> 安装软件包（加 -g 全局安装，不加则本地安装）。
 
 **getdeps**
-> Install dependencies defined in bpkg.json
+> 安装 bpkg.json 中定义的依赖。
 
 **run**
-> Execute a script defined in the package
+> 执行软件包中定义的脚本。
 
 **package**
-> Display package metadata
+> 显示软件包元数据。
 
 **update**
-> Update the local bpkg index of available packages
+> 更新本地可用软件包的索引。
 
 **source**
-> Source a package's bash files into the current shell
+> 将软件包的 bash 文件 source 到当前 Shell 中。
 
 **init**
-> Interactively create a bpkg.json file
+> 以交互方式创建 bpkg.json 文件。
 
 **json**
-> Parse and query JSON (used internally)
+> 解析和查询 JSON（内部使用）。
 
 **show**
-> Show package readme or details from the index
+> 显示软件包 readme 或索引中的详情。
 
 **list**
-> List packages available in the local index
+> 列出本地索引中可用的软件包。
 
 **term**
-> Terminal utilities
+> 终端实用工具。
 
 # PARAMETERS
 
 **-g, --global**
-> Install package globally to ${PREFIX:-/usr/local/bin}
+> 全局安装软件包到 ${PREFIX:-/usr/local/bin}。
 
 **-d, --dev**
-> Install development dependencies as well
+> 同时安装开发依赖。
 
 **-l, --list**
-> List available commands (with run)
+> 列出可用命令（与 run 配合使用）。
 
 **-h, --help**
-> Show help message
+> 显示帮助消息。
 
 **-V, --version**
-> Show version information
+> 显示版本信息。
 
 **@version**
-> Specify package version (e.g., package@1.0.0)
+> 指定软件包版本（如 package@1.0.0）。
 
 # CAVEATS
 
-Packages must have a valid **bpkg.json** or **package.json** file. Global installation requires appropriate write permissions to the target directory. Dependencies are installed recursively in deps/ subdirectories.
+软件包必须包含有效的 **bpkg.json** 或 **package.json** 文件。全局安装需要对目标目录有相应的写权限。依赖会递归安装在 deps/ 子目录中。
 
 # HISTORY
 
-bpkg was created as a simple package manager specifically for bash scripts, inspired by package managers like npm. It provides a standardized way to share and reuse shell script utilities across projects.
+bpkg 是专为 bash 脚本设计的简单包管理器，灵感来自 npm 等包管理器。它提供了一种标准化的方式，便于在多个项目之间共享和复用 Shell 脚本工具。
 
 # INSTALL
 

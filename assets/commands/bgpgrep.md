@@ -1,34 +1,34 @@
 # TAGLINE
 
-Filter and search BGP routing data in MRT format
+过滤和搜索 MRT 格式的 BGP 路由数据
 
 # TLDR
 
-**Filter routes** matching a specific subnet from MRT dumps
+**从 MRT 转储中过滤**匹配指定子网的路由
 
 ```bgpgrep [path/to/rib.mrt.gz] -subnet [192.0.2.0/24]```
 
-**Filter routes** by AS path pattern
+**按 AS 路径模式过滤路由**
 
 ```bgpgrep [path/to/rib.mrt.gz] -aspath "[64496 64497]"```
 
-**List routes** from a specific peer
+**列出**来自指定对等体的路由
 
 ```bgpgrep [path/to/rib.mrt.gz] -peer [198.51.100.1]```
 
-**Find routes** that lead to a specific address
+**查找**通往指定地址的路由
 
 ```bgpgrep [path/to/rib.mrt.gz] -supernet [8.8.8.8/32]```
 
-**Detect bogon ASNs** in routing data
+**检测路由数据中的 bogon ASN**
 
 ```bgpgrep [path/to/rib.mrt.gz] -bogon-asn```
 
-**Combine filters** with logical operators
+**用逻辑运算符组合过滤器**
 
 ```bgpgrep [path/to/rib.mrt.gz] -bogon-asn -or -subnet [fullbogons.txt]```
 
-**Filter by timestamp** range
+**按时间戳范围过滤**
 
 ```bgpgrep [path/to/updates.mrt.gz] -timestamp "[>=2021-07-01]" -and -timestamp "[<2021-07-08]"```
 
@@ -39,49 +39,49 @@ Filter and search BGP routing data in MRT format
 # PARAMETERS
 
 **-peer** _address|asn_
-> Match routes received from a specific peer, identified by IP address or AS number.
+> 匹配从指定对等体（以 IP 地址或 AS 号标识）收到的路由。
 
 **-aspath** _pattern_
-> Match routes whose AS path matches the given pattern. Supports AS number sequences and regular expression-like syntax.
+> 匹配 AS 路径符合给定模式（pattern）的路由。支持 AS 号序列以及类似正则表达式的语法。
 
 **-supernet** _prefix_
-> Match routes that are supernets of (or equal to) the specified prefix.
+> 匹配是指定前缀的超网（或与之相等）的路由。
 
 **-subnet** _prefix|file_
-> Match routes that are subnets of the specified prefix, or match against a prefix list from a file.
+> 匹配是指定前缀子网的路由，或针对文件中的前缀列表进行匹配。
 
 **-communities** _expression_
-> Match routes with specific BGP community values. Supports wildcard patterns.
+> 匹配具有特定 BGP community 值的路由。支持通配符模式。
 
 **-bogon-asn**
-> Match routes containing bogon (reserved/unallocated) AS numbers in the AS path.
+> 匹配 AS 路径中包含 bogon（保留/未分配）AS 号的路由。
 
 **-loops**
-> Detect AS path loops.
+> 检测 AS 路径环路。
 
 **-timestamp** _condition_
-> Filter by timestamp using comparison operators (e.g., ">=2021-07-01").
+> 使用比较运算符按时间戳过滤（例如 ">=2021-07-01"）。
 
 **-and**
-> Logical AND between filter conditions (default when combining filters).
+> 过滤条件之间的逻辑与（组合多个过滤器时的默认行为）。
 
 **-or**
-> Logical OR between filter conditions.
+> 过滤条件之间的逻辑或。
 
 **-not**
-> Negate the following filter condition.
+> 取反其后的过滤条件。
 
 # DESCRIPTION
 
-**bgpgrep** is part of the Micro BGP Suite, a set of shell tools for filtering and analyzing BGP routing data stored in MRT (Multi-threaded Routing Toolkit) format. It processes BGP table dumps and update files from route collectors like RIPE RIS and RouteViews.
+**bgpgrep** 是 Micro BGP Suite 的一部分，这是一组用于过滤和分析 MRT（Multi-threaded Routing Toolkit）格式 BGP 路由数据的 shell 工具。它可以处理来自 RIPE RIS、RouteViews 等路由采集器的 BGP 表转储和更新文件。
 
-Each line of output is prefixed with a character indicating the message type: `=` for RIB snapshot, `+` for announcement, `-` for withdrawal, and `#` for BGP state change. The output uses a pipe-delimited format where the 9th field contains the peer address and ASN, enabling easy integration with standard command-line tools like `cut` and `awk`.
+输出的每一行都以一个字符作为前缀来指示消息类型：`=` 表示 RIB 快照，`+` 表示宣告，`-` 表示撤回，`#` 表示 BGP 状态变化。输出采用竖线分隔的格式，第 9 个字段包含对等体地址和 ASN，便于与 `cut`、`awk` 等标准命令行工具集成。
 
-The tool supports filtering by prefix, AS path patterns, peer, communities, and timestamp. Multiple filters can be combined using boolean operators (`-and`, `-or`, `-not`) with parentheses for grouping. It handles both IPv4 and IPv6 prefixes and supports compressed MRT files (gzip, bzip2).
+该工具支持按前缀、AS 路径模式、对等体、community 和时间戳过滤。多个过滤器可以使用布尔运算符（`-and`、`-or`、`-not`）组合，并支持用括号分组。它同时处理 IPv4 和 IPv6 前缀，并支持压缩的 MRT 文件（gzip、bzip2）。
 
 # CAVEATS
 
-Input must be in MRT format (common BGP dump format). Filter option names use single-dash long form (e.g., `-peer`, not `--peer`). AS path matching patterns use bgpgrep-specific syntax that differs from standard regular expressions.
+输入必须是 MRT 格式（常见的 BGP 转储格式）。过滤选项名采用单横线长格式（例如 `-peer`，而不是 `--peer`）。AS 路径匹配模式使用 bgpgrep 特有的语法，与标准正则表达式不同。
 
 # SEE ALSO
 

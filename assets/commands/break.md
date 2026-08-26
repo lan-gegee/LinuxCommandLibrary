@@ -1,14 +1,14 @@
 # TAGLINE
 
-Exit from a loop in shell scripts
+在 Shell 脚本中跳出循环
 
 # TLDR
 
-**Break** from loop
+从循环中**跳出**
 
 ```break```
 
-Break **multiple levels**
+**跳出多层**循环
 
 ```break [2]```
 
@@ -18,14 +18,14 @@ Break **multiple levels**
 
 # DESCRIPTION
 
-**break** is a bash built-in command that exits from a for, while, or until loop. It can optionally break out of multiple nested loops by specifying the number of levels.
+**break** 是 bash 的内置命令，用于退出 for、while 或 until 循环。它还可以通过指定层数一次跳出多个嵌套循环。
 
-The command is essential for loop control in shell scripts.
+该命令是 shell 脚本中控制循环的关键工具。
 
 # PARAMETERS
 
 _n_
-> Number of loop levels to break (default: 1)
+> 要跳出的循环层数（默认：1）。
 
 # WORKFLOW
 
@@ -59,11 +59,11 @@ done < file.txt
 
 # CAVEATS
 
-Only works within loops (for, while, until). Breaking more levels than exist exits all loops. Not the same as exit (which exits entire script). Continue skips to next iteration instead of exiting.
+只能在循环（for、while、until）内使用。指定的层数超过实际嵌套层数时会退出所有循环。与 exit 不同（exit 会退出整个脚本）。continue 则是跳过当前迭代继续下一轮，而不是退出。
 
 # HISTORY
 
-**break** has been a standard shell built-in command since the Bourne shell in the late **1970s**.
+**break** 自 **1970** 年代末的 Bourne shell 起就是标准的 shell 内置命令。
 
 # SEE ALSO
 

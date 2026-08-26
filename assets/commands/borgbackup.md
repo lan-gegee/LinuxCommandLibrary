@@ -1,42 +1,42 @@
 # TAGLINE
 
-Deduplicating backup with compression and encryption
+支持压缩和加密的去重备份工具
 
 # TLDR
 
-**Initialize a new backup repository**
+**初始化新的备份仓库**
 
 ```borg init --encryption=repokey [/path/to/repo]```
 
-**Create a backup**
+**创建备份**
 
 ```borg create [/path/to/repo]::[archive_name] [/path/to/source]```
 
-**Create backup with compression and statistics**
+**创建带压缩和统计信息的备份**
 
 ```borg create --stats --compression lz4 [/path/to/repo]::[archive_name] [/path/to/source]```
 
-**List archives in a repository**
+**列出仓库中的归档**
 
 ```borg list [/path/to/repo]```
 
-**List contents of an archive**
+**列出归档的内容**
 
 ```borg list [/path/to/repo]::[archive_name]```
 
-**Extract an archive**
+**解压归档**
 
 ```borg extract [/path/to/repo]::[archive_name]```
 
-**Show repository info** including storage usage and encryption details
+**显示仓库信息**，包括存储用量和加密细节
 
 ```borg info [/path/to/repo]```
 
-**Delete old archives** keeping the last 7 daily and 4 weekly
+**删除旧归档**，保留最近 7 个每日备份和 4 个每周备份
 
 ```borg prune --keep-daily=7 --keep-weekly=4 [/path/to/repo]```
 
-**Mount archive as filesystem**
+**将归档挂载为文件系统**
 
 ```borg mount [/path/to/repo]::[archive_name] [/mnt/point]```
 
@@ -47,74 +47,74 @@ Deduplicating backup with compression and encryption
 # PARAMETERS
 
 **init**
-> Initialize a new backup repository.
+> 初始化新的备份仓库。
 
 **create**
-> Create a new backup archive.
+> 创建新的备份归档。
 
 **list**
-> List repository contents or archive files.
+> 列出仓库内容或归档中的文件。
 
 **extract**
-> Extract files from an archive.
+> 从归档中提取文件。
 
 **delete**
-> Delete archives.
+> 删除归档。
 
 **prune**
-> Delete archives according to retention policy.
+> 根据保留策略删除归档。
 
 **mount** / **umount**
-> Mount/unmount archive as FUSE filesystem.
+> 将归档挂载/卸载为 FUSE 文件系统。
 
 **info**
-> Show archive or repository information.
+> 显示归档或仓库信息。
 
 **check**
-> Verify repository consistency.
+> 验证仓库一致性。
 
 **--encryption** _mode_
-> Encryption mode: none, repokey, keyfile.
+> 加密模式：none、repokey、keyfile。
 
 **--compression** _algo_
-> Compression: none, lz4, zstd, zlib, lzma.
+> 压缩算法：none、lz4、zstd、zlib、lzma。
 
 **--exclude** _pattern_
-> Exclude files matching pattern.
+> 排除匹配模式的文件。
 
 **--progress**
-> Show progress during operations.
+> 在操作过程中显示进度。
 
 **-v**, **--verbose**
-> Increase output verbosity.
+> 提高输出详细程度。
 
 **--stats**
-> Print statistics about the created archive (file count, size, dedup ratio).
+> 打印所创建归档的统计信息（文件数、大小、去重率）。
 
 **--list**
-> Output a list of files as they are processed during create or extract.
+> 在 create 或 extract 处理过程中输出文件列表。
 
 **--dry-run**
-> Perform a trial run with no changes made (supported by create, prune, delete).
+> 执行试运行，不做任何更改（create、prune、delete 支持）。
 
 **--remote-path** _path_
-> Set the path to the borg executable on the remote host.
+> 设置远程主机上 borg 可执行文件的路径。
 
 # DESCRIPTION
 
-**Borg** (BorgBackup) is a deduplicating backup program with compression and encryption. It efficiently stores multiple backups by identifying and reusing duplicate data blocks, dramatically reducing storage requirements for incremental backups.
+**Borg**（BorgBackup）是一款带压缩和加密功能的去重备份程序。它通过识别并复用重复的数据块来高效存储多个备份，大幅减少增量备份所需的存储空间。
 
-Key features include **client-side encryption** ensuring only you can read your data, **efficient deduplication** that stores each unique data chunk only once across all archives, and **compression** to further reduce storage needs.
+主要特性包括确保只有你能读取数据的**客户端加密**、在每个归档中只存储一次唯一数据块的**高效去重**，以及进一步降低存储需求的**压缩**。
 
-Borg can backup to local directories, remote hosts via SSH, or cloud storage through rclone. Archives can be mounted via FUSE for easy browsing and selective restoration. Retention policies automatically prune old archives.
+Borg 可以备份到本地目录、通过 SSH 备份到远程主机，或通过 rclone 备份到云存储。归档可以通过 FUSE 挂载，便于浏览和选择性恢复。保留策略会自动修剪旧归档。
 
 # CAVEATS
 
-The repository format is Borg-specific; archives cannot be read with other tools. The encryption key must be backed up separately - losing it means losing access to backups. Remote backups require SSH access and Borg installed on both sides. Deduplication happens across all archives in a repository, not across repositories.
+仓库格式是 Borg 专有的；其他工具无法读取这些归档。加密密钥必须单独备份——丢失密钥意味着无法再访问备份。远程备份需要 SSH 访问权限且两端都安装 Borg。去重在同一个仓库内的所有归档之间进行，而不是跨仓库进行。
 
 # HISTORY
 
-BorgBackup was forked from **Attic** in **2015** after Attic development stalled. The name "Borg" references Star Trek's Borg, known for assimilating and efficiently organizing. Development accelerated after the fork, adding features like authenticated encryption, improved compression, and macOS/Windows support. Borg has become one of the most popular open-source backup solutions.
+BorgBackup 于 **2015 年**从 **Attic** 分叉而来，当时 Attic 的开发已陷入停滞。"Borg" 这个名字致敬《星际迷航》中以同化和高效组织著称的博格人。分叉后开发加速，陆续加入了认证加密、改进的压缩以及 macOS/Windows 支持等特性。Borg 已成为最受欢迎的开源备份方案之一。
 
 # INSTALL
 

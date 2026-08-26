@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display build reports and diagnostics
+显示构建报告和诊断信息
 
 # TLDR
 
-**Show future incompatibility report**
+**显示未来不兼容性报告**
 
 ```cargo report future-incompatibilities --id [1]```
 
-**Show report after build**
+**构建后显示报告**
 
 ```cargo build --future-incompat-report```
 
@@ -18,52 +18,52 @@ Display build reports and diagnostics
 
 # DESCRIPTION
 
-**cargo report** generates diagnostic reports about the project. Currently its primary subcommand is `future-incompatibilities`, which displays warnings about code patterns in dependencies that will be rejected in future Rust versions.
+**cargo report** 生成关于项目的诊断报告。目前其主要子命令是 `future-incompatibilities`，用于显示依赖中将在未来 Rust 版本中被拒绝的代码模式相关的警告。
 
-When Cargo detects future-incompatible warnings during a build, it stores a report and displays a notification with instructions to view the full details. These warnings indicate patterns that may exhibit undefined behavior, are scheduled for removal, or lack well-defined semantics. Reviewing these reports helps maintainers proactively update their dependencies before breaking changes land.
+当 Cargo 在构建期间检测到未来不兼容警告时，会保存一份报告并显示通知，提示如何查看完整详情。这些警告表明某些代码模式可能表现出未定义行为、已被安排从 Rust 中移除，或缺乏明确定义的语义。查看这些报告有助于维护者在破坏性变更落地之前主动更新依赖。
 
 # SUBCOMMANDS
 
 **future-incompatibilities**
-> Display future incompatibility report
+> 显示未来不兼容性报告
 
 # PARAMETERS
 
 **--id** _id_
-> Report ID from previous build
+> 之前构建的报告 ID
 
 **--package** _spec_
-> Package to report on
+> 要报告的软件包
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # FUTURE INCOMPATIBILITIES
 
-Cargo checks dependencies for patterns that:
-- May exhibit undefined behavior
-- Are scheduled for removal from Rust
-- Do not have well-defined semantics
+Cargo 会检查依赖中是否存在以下模式：
+- 可能表现出未定义行为
+- 已被安排从 Rust 中移除
+- 缺乏明确定义的语义
 
-When detected, a warning appears after build with instructions to view the full report.
+一旦检测到，构建结束后会出现一条警告，提示如何查看完整报告。
 
 # CONFIGURATION
 
 **.cargo/config.toml**
-> Controls report frequency via `[future-incompat-report]` section (e.g., `frequency = "always"`).
+> 通过 `[future-incompat-report]` 区块控制报告频率（例如 `frequency = "always"`）。
 
 # RESOLVING ISSUES
 
-1. Update dependencies to versions with fixes
-2. Work with dependency maintainers
-3. Consider alternatives if unmaintained
+1. 将依赖更新为已修复的版本
+2. 与依赖的维护者协作
+3. 若已无人维护则考虑替代方案
 
 # CAVEATS
 
-Report is not a lint and doesn't interact with -Dwarnings. These warnings don't fail builds but indicate future breakage.
+该报告不是 lint，也不与 -Dwarnings 交互。这些警告不会使构建失败，但预示着未来会出现问题。
 
 # INSTALL
 

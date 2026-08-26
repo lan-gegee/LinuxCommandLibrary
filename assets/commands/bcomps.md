@@ -1,30 +1,30 @@
 # TAGLINE
 
-Decompose graphs into biconnected components
+将图分解为双连通分量
 
 # TLDR
 
-**Decompose graph into biconnected components**
+**将图分解为双连通分量**
 
 ```bcomps [input.gv] > [output.gv]```
 
-**Print number of blocks and cutvertices**
+**打印块和割点的数量**
 
 ```bcomps -v [input.gv]```
 
-**Print each component as separate graph**
+**将每个分量打印为独立的图**
 
 ```bcomps -x [input.gv]```
 
-**Print block-cutvertex tree**
+**打印块-割点树**
 
 ```bcomps -t [input.gv]```
 
-**Write components to separate files**
+**将各分量写入单独的文件**
 
 ```bcomps -o [output.gv] [input.gv]```
 
-**Silent mode with statistics only**
+**静默模式，仅显示统计信息**
 
 ```bcomps -sv [input.gv]```
 
@@ -34,47 +34,47 @@ Decompose graphs into biconnected components
 
 # DESCRIPTION
 
-**bcomps** decomposes graphs into their biconnected components, printing the components to standard output. A biconnected component is a maximal subgraph that remains connected after removal of any single vertex.
+**bcomps** 将图分解为其双连通分量，并把分量打印到标准输出。双连通分量是指移除任意单个顶点后仍然保持连通的极大子图。
 
-The tool is part of the Graphviz graph visualization suite and works with DOT language graph files.
+该工具是 Graphviz 图可视化套件的一部分，处理 DOT 语言图文件。
 
 # PARAMETERS
 
 **-s**
-> Silent mode; no output graph printed (implies -v)
+> 静默模式；不打印输出的图（隐含 -v）
 
 **-t**
-> Print the underlying block-cutvertex tree
+> 打印底层的块-割点树
 
 **-v**
-> Print number of blocks and cutvertices
+> 打印块和割点的数量
 
 **-x**
-> Print each biconnected component as separate root graph
+> 将每个双连通分量作为独立的根图打印
 
 **-o** _outfile_
-> Write each root graph to different file derived from outfile
+> 将每个根图写入由 outfile 派生的不同文件
 
 **-?**
-> Display help information
+> 显示帮助信息
 
 # OUTPUT FORMAT
 
-By default, each input graph is printed with blocks as subgraphs. Subgraph names concatenate the input graph name, "_bcc_", and the block number.
+默认情况下，每个输入图会连同作为子图的块一起打印。子图名称由输入图名、"_bcc_" 和块编号拼接而成。
 
-When both -o and -x are used, each block is written to a separate file. If _outfile_ does not have a suffix, the nth block of the ith graph is written to outfile_n_i (the 0th block of the 0th graph is written to _outfile_ itself). If _outfile_ has a suffix (e.g., base.sfx), the files follow the same pattern with .sfx appended. Block-cutvertex trees are written to outfile_n_T.
+同时使用 -o 和 -x 时，每个块会被写入单独的文件。如果 _outfile_ 没有后缀，第 i 个图的第 n 个块写入 outfile_n_i（第 0 个图的第 0 个块直接写入 _outfile_ 本身）。如果 _outfile_ 带后缀（如 base.sfx），文件遵循相同模式并附加 .sfx。块-割点树写入 outfile_n_T。
 
 # RETURN VALUES
 
 **0**
-> All input graphs are biconnected
+> 所有输入图都是双连通的
 
-**non-zero**
-> Any graph has multiple blocks or an error occurred
+**非零**
+> 任意图有多个块，或发生了错误
 
 # CAVEATS
 
-Input files must be in Graphviz DOT format. The tool identifies articulation points (cutvertices) that separate components. Large graphs may require significant processing time.
+输入文件必须为 Graphviz DOT 格式。该工具用于识别分隔各个分量的关节点（割点）。大图可能需要较长的处理时间。
 
 # INSTALL
 

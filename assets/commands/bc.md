@@ -1,30 +1,30 @@
 # TAGLINE
 
-Arbitrary precision calculator language
+任意精度计算器语言
 
 # TLDR
 
-**Calculate** expression
+**计算**表达式
 
 ```echo ["2+2"] | bc```
 
-**Division** with decimals
+带小数的**除法**
 
 ```echo ["scale=2; 10/3"] | bc```
 
-**Run** bc script
+**运行** bc 脚本
 
 ```bc [script.bc]```
 
-**Math library**
+**数学库**
 
 ```bc -l```
 
-**Evaluate an expression** directly
+直接**求值表达式**
 
 ```bc -e "[scale=2; 100/3]"```
 
-**Interactive** calculator
+**交互式**计算器
 
 ```bc```
 
@@ -34,61 +34,61 @@ Arbitrary precision calculator language
 
 # DESCRIPTION
 
-**bc** is an arbitrary precision calculator language. It supports interactive calculation, scripting, and mathematical operations with user-definable precision for decimal calculations.
+**bc** 是一种任意精度计算器语言。它支持交互式计算、脚本编写和数学运算，小数计算精度可由用户定义。
 
-The tool has been a Unix standard for decades and is widely used in shell scripts for arithmetic.
+该工具几十年来一直是 Unix 标准的一部分，广泛用于 Shell 脚本中的算术运算。
 
 # PARAMETERS
 
 **-l**, **--mathlib**
-> Load math library (includes functions like s, c, a, l, e, and sets scale to 20)
+> 加载数学库（包含 s、c、a、l、e 等函数，并将 scale 设为 20）
 
 **-s**, **--standard**
-> POSIX standard mode; error on any non-POSIX extensions
+> POSIX 标准模式；遇到任何非 POSIX 扩展即报错
 
 **-q**, **--quiet**
-> Don't print the normal GNU bc welcome banner
+> 不打印 GNU bc 常规的欢迎横幅
 
 **-i**, **--interactive**
-> Force interactive mode
+> 强制交互模式
 
 **-w**, **--warn**
-> Warn about POSIX non-compliance
+> 对不符合 POSIX 的用法发出警告
 
 **-e** _expression_, **--expression** _expression_
-> Evaluate expression; multiple -e options are processed in order
+> 求值表达式；多个 -e 选项按顺序处理
 
 **-v**, **--version**
-> Print version number and exit
+> 打印版本号并退出
 
 # SPECIAL VARIABLES
 
 **scale**
-> Number of decimal places (default: 0)
+> 小数位数（默认：0）
 
 **ibase**
-> Input base (default: 10)
+> 输入进制（默认：10）
 
 **obase**
-> Output base (default: 10)
+> 输出进制（默认：10）
 
 # OPERATORS
 
-- **+, -, *, /** - Basic arithmetic
-- **%** - Modulo
-- **^** - Exponentiation
-- **++, --** - Increment/decrement
-- **==, !=, <, >** - Comparisons
+- **+, -, *, /** - 基本算术
+- **%** - 取模
+- **^** - 幂运算
+- **++, --** - 自增/自减
+- **==, !=, <, >** - 比较
 
 # FUNCTIONS
 
-With -l flag (also sets scale to 20):
-- **s(x)** - Sine (x in radians)
-- **c(x)** - Cosine (x in radians)
-- **a(x)** - Arctangent (returns radians)
-- **l(x)** - Natural logarithm
-- **e(x)** - Exponential (e raised to x)
-- **sqrt(x)** - Square root (available without -l)
+使用 -l 时可用（同时将 scale 设为 20）：
+- **s(x)** - 正弦（x 为弧度）
+- **c(x)** - 余弦（x 为弧度）
+- **a(x)** - 反正切（返回弧度）
+- **l(x)** - 自然对数
+- **e(x)** - 指数（e 的 x 次方）
+- **sqrt(x)** - 平方根（无需 -l 即可使用）
 
 # WORKFLOW
 
@@ -116,11 +116,11 @@ x / y
 
 # CAVEATS
 
-Unusual syntax for programmers. Default integer division (set scale). Variables persist in interactive mode. Limited string handling. For modern scripts, consider awk or programming languages.
+对程序员来说语法较为特别。默认为整数除法（需设置 scale）。交互模式下变量会保留。字符串处理能力有限。现代脚本可考虑改用 awk 或编程语言。
 
 # HISTORY
 
-**bc** was developed at Bell Labs for Unix in **1975** by Robert Morris and Lorinda Cherry, based on the earlier **dc** calculator. The GNU version, which is the most widely used today, was written by Philip A. Nelson.
+**bc** 由 Robert Morris 和 Lorinda Cherry 于 **1975** 年在贝尔实验室为 Unix 开发，基于更早的 **dc** 计算器。如今使用最广泛的 GNU 版本由 Philip A. Nelson 编写。
 
 # INSTALL
 

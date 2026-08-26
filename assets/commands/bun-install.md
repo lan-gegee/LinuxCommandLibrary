@@ -1,34 +1,34 @@
 # TAGLINE
 
-Install project dependencies
+安装项目依赖
 
 # TLDR
 
-**Install all dependencies**
+**安装全部依赖**
 
 ```bun install```
 
-**Add a dependency**
+**添加依赖**
 
 ```bun add [package]```
 
-**Add a dev dependency**
+**添加开发依赖**
 
 ```bun add -d [package]```
 
-**Add with exact version**
+**以精确版本添加**
 
 ```bun add --exact [package]```
 
-**Remove a dependency**
+**移除依赖**
 
 ```bun remove [package]```
 
-**Install without running lifecycle scripts**
+**安装时不运行生命周期脚本**
 
 ```bun install --ignore-scripts```
 
-**Install for production only**
+**仅为生产环境安装**
 
 ```bun install --production```
 
@@ -42,44 +42,44 @@ Install project dependencies
 
 # DESCRIPTION
 
-**bun install** is Bun's built-in package manager, a fast alternative to npm, yarn, and pnpm. It installs dependencies from package.json into a node_modules folder compatible with Node.js.
+**bun install** 是 Bun 内置的包管理器，是 npm、yarn 和 pnpm 的快速替代品。它将 package.json 中的依赖安装到与 Node.js 兼容的 node_modules 文件夹中。
 
-The package manager uses a global cache to avoid re-downloading packages and employs the fastest system calls available for writing files.
+该包管理器使用全局缓存避免重复下载软件包，并采用系统上最快的文件写入系统调用。
 
 # PARAMETERS
 
 **-d, --dev**
-> Add as development dependency
+> 作为开发依赖添加
 
 **--exact**
-> Pin package to exact version
+> 将包版本固定为精确版本
 
 **--production**
-> Install only production dependencies
+> 只安装生产依赖
 
 **--ignore-scripts**
-> Skip running lifecycle scripts
+> 跳过运行生命周期脚本
 
 **--frozen-lockfile**
-> Error if lockfile needs update
+> 若锁文件需要更新则报错
 
 **--force**
-> Force re-download of all packages
+> 强制重新下载所有包
 
 **--global**
-> Install package globally
+> 全局安装软件包
 
 # LOCKFILE
 
-Bun uses **bun.lock** (text-based) as the default lockfile since v1.2. Remove other lockfiles (package-lock.json, yarn.lock, pnpm-lock.yaml) before first install to avoid conflicts.
+自 v1.2 起，Bun 默认使用 **bun.lock**（文本格式）作为锁文件。首次安装前请删除其他锁文件（package-lock.json、yarn.lock、pnpm-lock.yaml），以免产生冲突。
 
 # TRUSTED DEPENDENCIES
 
-Bun does not run dependency lifecycle scripts by default for security. Allow-list trusted packages using **trustedDependencies** in package.json.
+出于安全考虑，Bun 默认不运行依赖的生命周期脚本。可通过 package.json 中的 **trustedDependencies** 为可信包设置白名单。
 
 # CAVEATS
 
-Compatible with existing package.json files. Supports workspaces, git/http/tarball dependencies, and custom registries. Some npm-specific features may behave differently.
+与现有的 package.json 文件兼容。支持 workspaces、git/http/tarball 依赖以及自定义 registry。某些 npm 特有功能的行为可能有所不同。
 
 # INSTALL
 

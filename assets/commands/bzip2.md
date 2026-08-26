@@ -1,26 +1,26 @@
 # TAGLINE
 
-Block-sorting file compressor
+块排序文件压缩器
 
 # TLDR
 
-**Compress** file
+**压缩**文件
 
 ```bzip2 [file.txt]```
 
-**Decompress** file
+**解压**文件
 
 ```bzip2 -d [file.txt.bz2]```
 
-**Keep** original file
+**保留**原始文件
 
 ```bzip2 -k [file.txt]```
 
-**Compress** to stdout
+**压缩**到 stdout
 
 ```bzip2 -c [file.txt] > [file.txt.bz2]```
 
-Set **compression** level
+设置**压缩**级别
 
 ```bzip2 -9 [file.txt]```
 
@@ -30,50 +30,50 @@ Set **compression** level
 
 # DESCRIPTION
 
-**bzip2** compresses files using the Burrows-Wheeler block-sorting compression algorithm. It typically achieves better compression ratios than gzip but is slower. By default, it replaces the original file with a compressed .bz2 file.
+**bzip2** 使用 Burrows-Wheeler 块排序压缩算法压缩文件。它通常比 gzip 获得更好的压缩率，但速度较慢。默认情况下，它会用压缩后的 .bz2 文件替换原始文件。
 
-The tool is commonly used for compressing tarballs and large files.
+该工具常用于压缩 tarball 和大文件。
 
 # PARAMETERS
 
 **-z**, **--compress**
-> Force compression (default behavior)
+> 强制压缩（默认行为）
 
 **-d**, **--decompress**
-> Decompress file
+> 解压文件
 
 **-k**, **--keep**
-> Keep original files
+> 保留原始文件
 
 **-f**, **--force**
-> Overwrite existing files
+> 覆盖已有文件
 
 **-c**, **--stdout**
-> Write to standard output
+> 写入标准输出
 
 **-t**, **--test**
-> Test compressed file integrity
+> 测试压缩文件的完整性
 
 **-v**, **--verbose**
-> Verbose mode (repeat for more detail)
+> 详细模式（重复使用可显示更多细节）
 
-**-1** to **-9**
-> Compression level (1=fast, 9=best, default: 9)
+**-1** 到 **-9**
+> 压缩级别（1=最快，9=最佳，默认：9）
 
 **--fast**
-> Alias for -1
+> -1 的别名
 
 **--best**
-> Alias for -9
+> -9 的别名
 
 **-s**, **--small**
-> Use less memory for compression/decompression (at most 2500 KB)
+> 压缩/解压时使用更少内存（至多 2500 KB）
 
 **-q**, **--quiet**
-> Suppress non-critical warnings
+> 抑制非关键警告
 
 **-L**, **--license**
-> Display license and version information
+> 显示许可和版本信息
 
 # WORKFLOW
 
@@ -99,17 +99,17 @@ tar -cjf archive.tar.bz2 directory/
 
 # COMPRESSION
 
-Block size affects memory usage and compression:
-- **-1** - 100 KB blocks (fast, lower compression)
-- **-9** - 900 KB blocks (slow, better compression, default)
+块大小影响内存占用和压缩效果：
+- **-1** - 100 KB 块（快速，压缩率较低）
+- **-9** - 900 KB 块（较慢，压缩率更高，默认值）
 
 # CAVEATS
 
-Slower than gzip. Default removes original file (use -k to keep). Single-threaded (use **pbzip2** or **lbzip2** for parallel compression). Memory usage proportional to block size. .bz2 files are typically larger than .xz but smaller than .gz.
+比 gzip 慢。默认删除原始文件（用 -k 保留）。单线程（并行压缩请使用 **pbzip2** 或 **lbzip2**）。内存占用与块大小成正比。.bz2 文件通常比 .xz 大但比 .gz 小。
 
 # HISTORY
 
-**bzip2** was created by Julian Seward in **1996** as a replacement for the earlier bzip, using improved algorithms for better compression.
+**bzip2** 由 Julian Seward 于 **1996 年**创建，作为早期 bzip 的替代品，采用改进的算法获得更好的压缩效果。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Thunderbolt device management daemon
+Thunderbolt 设备管理守护进程
 
 # TLDR
 
-**Start the bolt daemon**
+**启动 bolt 守护进程**
 
 ```boltd```
 
-**Start in foreground** with debug output
+以前台方式**启动**并输出调试信息
 
 ```boltd --replace```
 
-**Check bolt daemon version**
+**查看 bolt 守护进程版本**
 
 ```boltctl --version```
 
-**List connected Thunderbolt devices**
+**列出已连接的 Thunderbolt 设备**
 
 ```boltctl list```
 
-**Authorize a device**
+**授权一台设备**
 
 ```boltctl authorize [device_uuid]```
 
@@ -30,27 +30,27 @@ Thunderbolt device management daemon
 
 # DESCRIPTION
 
-**boltd** is the system daemon that manages Thunderbolt 3 and USB4 devices on Linux. It handles device authorization, security policies, and stores information about known devices to enable automatic authorization on reconnection.
+**boltd** 是管理 Linux 上 Thunderbolt 3 和 USB4 设备的系统守护进程。它负责设备授权和安全策略，并存储已知设备的信息，以便重新连接时自动授权。
 
-Thunderbolt security levels range from allowing all connections to requiring user authorization for each device. boltd interfaces with the kernel's Thunderbolt subsystem and provides a D-Bus API for device management.
+Thunderbolt 安全级别从允许所有连接到要求对每台设备逐一授权不等。boltd 与内核的 Thunderbolt 子系统交互，并提供用于设备管理的 D-Bus API。
 
-The daemon is typically started automatically by systemd. Users interact with it through **boltctl**, the command-line interface for managing Thunderbolt devices.
+该守护进程通常由 systemd 自动启动。用户通过 **boltctl**（管理 Thunderbolt 设备的命令行界面）与它交互。
 
 # PARAMETERS
 
 **--replace**
-> Replace existing daemon instance.
+> 替换现有的守护进程实例。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 # CAVEATS
 
-Requires appropriate kernel support for Thunderbolt. Security level is set in BIOS/UEFI and may restrict what boltd can authorize. Devices must be physically connected before authorization. Some systems may need Thunderbolt enabled in BIOS.
+需要内核提供相应的 Thunderbolt 支持。安全级别在 BIOS/UEFI 中设置，可能限制 boltd 能授权的范围。设备必须先物理连接才能授权。某些系统可能需要在 BIOS 中启用 Thunderbolt。
 
 # HISTORY
 
-**boltd** was developed by **Christian Kellner** at **Red Hat** starting in **2017** to provide Thunderbolt device management on Linux. It was created in response to the introduction of Thunderbolt 3 and its security model that requires explicit device authorization. The project is part of the freedesktop.org ecosystem and has been integrated into major Linux distributions.
+**boltd** 由 **Red Hat** 的 **Christian Kellner** 于 **2017 年**开始开发，旨在为 Linux 提供 Thunderbolt 设备管理。它的诞生源于 Thunderbolt 3 的推出及其要求显式设备授权的安全模型。该项目是 freedesktop.org 生态的一部分，已被主流 Linux 发行版集成。
 
 # SEE ALSO
 

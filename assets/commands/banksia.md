@@ -1,32 +1,32 @@
 # TAGLINE
 
-CLI for accountable multi-agent AI teams with a local web console
+面向可问责多智能体 AI 团队的 CLI，附带本地 Web 控制台
 
 # TLDR
 
-**Install** with pipx and initialize
+使用 pipx **安装**并初始化
 
 ```pipx install banksia```
 
 ```banksia init```
 
-**Start** the local controller and open the console
+**启动**本地控制器并打开控制台
 
 ```banksia serve```
 
-**Show** status (also the default with no subcommand)
+**显示**状态（无子命令时也是默认行为）
 
 ```banksia```
 
 ```banksia status```
 
-**Configure** a Task provider
+**配置**一个 Task 提供方
 
 ```banksia setup```
 
 ```banksia providers list```
 
-**Optional PostgreSQL** install path
+**可选的 PostgreSQL** 安装路径
 
 ```pipx install "banksia[postgres]"```
 
@@ -38,68 +38,68 @@ CLI for accountable multi-agent AI teams with a local web console
 
 # DESCRIPTION
 
-**banksia** is a command-line application and local runtime for building and running **accountable AI teams** on complex work. Workflows define a responsibility tree (not a fixed script). Managers can replan, parallelize, or iterate; progress and the lead's final Result are durable controller state, with deliverables kept as ordinary workspace files.
+**banksia** 是一个命令行应用与本地运行时，用于在复杂工作上构建和运行**可问责的 AI 团队**。工作流定义的是一棵职责树（而非固定脚本）。管理者可以重新规划、并行化或迭代；进度和负责人的最终 Result 是持久的控制器状态，交付物则作为普通的工作区文件保存。
 
-The package ships a visual **Console** (browser UI). After **banksia init** and **banksia serve**, open **http://127.0.0.1:18125/** (default). Initialization can configure a Task provider and an optional conversational **Operator** that uses the same controller operations as the UI. Default storage is **SQLite**; PostgreSQL is optional via **banksia[postgres]**.
+该包自带可视化**控制台**（浏览器 UI）。完成 **banksia init** 和 **banksia serve** 后，打开 **http://127.0.0.1:18125/**（默认地址）。初始化时可以配置一个 Task 提供方和一个可选的对话式 **Operator**，后者使用与 UI 相同的控制器操作。默认存储为 **SQLite**；通过 **banksia[postgres]** 可选配 PostgreSQL。
 
-Managed providers include Codex and Claude. Requires **Python 3.12+**; Linux and macOS are supported (native Windows is not; WSL2 uses the Linux path). Install with **pipx install banksia**.
+托管的提供方包括 Codex 和 Claude。需要 **Python 3.12+**；支持 Linux 和 macOS（不支持原生 Windows；WSL2 走 Linux 路径）。使用 **pipx install banksia** 安装。
 
 # PARAMETERS
 
 **(no subcommand)** / **status**
-> Print controller status (default when no subcommand is given).
+> 打印控制器状态（未给出子命令时的默认行为）。
 
 **init** [**--data-dir** _dir_] [**--database-url** _url_] [**--workspace** _dir_] [**--host** _addr_] [**--port** _n_] [**--log-level** _level_] [**--force**] [**--skip-db-upgrade**] [**--non-interactive**] …
-> Initialize local controller state; optionally configure Task provider and Operator.
+> 初始化本地控制器状态；可选配置 Task 提供方和 Operator。
 
 **serve**
-> Start the local API/controller process that serves the Console and runtime.
+> 启动为控制台和运行时提供服务的本地 API/控制器进程。
 
 **setup**
-> Guided provider setup for Task work.
+> 面向 Task 工作的引导式提供方配置。
 
 **providers** **list**|**status**|**check**|**configure**|**identity**|**set-default** …
-> Inspect and configure LLM/providers.
+> 查看和配置 LLM/提供方。
 
 **operator** **setup**|**status**|**disable** …
-> Manage the conversational Operator agent.
+> 管理对话式 Operator 智能体。
 
 **config** **show**|**path** …
-> Show configuration or its path.
+> 显示配置或其路径。
 
 **workflow** **import**|**export** …
-> Import or export Workflow definitions.
+> 导入或导出 Workflow 定义。
 
 **task** **start** …
-> Start a Task/run from the CLI.
+> 从 CLI 启动 Task/运行。
 
 **--debug**
-> Include a traceback when a command fails.
+> 命令失败时附带回溯信息。
 
 **-V**, **--version**
-> Print package version.
+> 打印软件包版本。
 
 # CONFIGURATION
 
-**Local data directory** (set during **init** / **--data-dir**)
-> Controller state, SQLite database by default, and runtime files.
+**本地数据目录**（在 **init** 时通过 **--data-dir** 设置）
+> 存放控制器状态、默认的 SQLite 数据库以及运行时文件。
 
 **--database-url**
-> SQLAlchemy URL for PostgreSQL (e.g. **postgresql+asyncpg://…**). Requires the **postgres** extra.
+> PostgreSQL 的 SQLAlchemy URL（如 **postgresql+asyncpg://…**）。需要 **postgres** extra。
 
 **--host** / **--port**
-> Bind address for the local API (default loopback and project default port **18125**).
+> 本地 API 的绑定地址（默认绑定环回地址，端口为项目默认值 **18125**）。
 
-**Default workspace**
-> Directory visible to Task members for files and managed actions.
+**默认工作区**
+> 供 Task 成员进行文件操作和受管操作的目录。
 
 # CAVEATS
 
-Intended for a trusted local machine; the controller binds to loopback by default. Task members in a run share one provider-visible workspace. Console assets under **console/** use a Sustainable Use License (not pure MIT). Not a multi-tenant hosted service. Provider CLIs/SDKs and API credentials must be available for real runs.
+设计用于可信的本地机器；控制器默认只绑定环回地址。一次运行中的 Task 成员共享同一个对提供方可见的工作区。**console/** 下的控制台资源采用 Sustainable Use License（并非纯 MIT）。它不是多租户托管服务。真实运行必须能访问提供方的 CLI/SDK 和 API 凭据。
 
 # HISTORY
 
-**Banksia** is an open-source accountable multi-agent runtime (MIT for the core; Console derived material under Sustainable Use License). Upstream: **github.com/ringlochid/banksia**. Distributed on PyPI as **banksia**.
+**Banksia** 是一个开源的可问责多智能体运行时（核心采用 MIT 许可证；控制台的衍生内容采用 Sustainable Use License）。上游仓库：**github.com/ringlochid/banksia**。以 **banksia** 为名发布于 PyPI。
 
 # SEE ALSO
 

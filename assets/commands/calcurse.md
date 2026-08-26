@@ -1,38 +1,38 @@
 # TAGLINE
 
-Text-based calendar and scheduling application
+基于文本的日历与日程安排应用
 
 # TLDR
 
-Start calcurse in **interactive mode**
+以**交互模式**启动 calcurse
 
 ```calcurse```
 
-Print **appointments and events** for today
+输出今天的**约会与事件**
 
 ```calcurse -a```
 
-Print **todo list**
+输出**待办清单**
 
 ```calcurse -t```
 
-Print **next upcoming appointment**
+输出**下一个即将到来的约会**
 
 ```calcurse -n```
 
-Print appointments for a **specific date**
+输出**指定日期**的约会
 
 ```calcurse -d [MM/DD/YYYY]```
 
-Print appointments for the **next N days**
+输出**接下来 N 天**的约会
 
 ```calcurse -r [7]```
 
-**Import** an iCal file
+**导入** iCal 文件
 
 ```calcurse -i [calendar.ics]```
 
-**Export** data to iCal format
+将数据**导出**为 iCal 格式
 
 ```calcurse -x ical > [calendar.ics]```
 
@@ -42,52 +42,52 @@ Print appointments for the **next N days**
 
 # DESCRIPTION
 
-**calcurse** is a text-based calendar and scheduling application. It provides a curses-based interface for managing appointments, todos, and notes with support for CalDAV synchronization.
+**calcurse** 是一款基于文本的日历和日程应用。它提供基于 curses 的界面来管理约会、待办事项和笔记，并支持 CalDAV 同步。
 
-The interactive interface shows a monthly calendar, appointments list, and todo list simultaneously.
+交互式界面同时显示月历、约会列表和待办列表。
 
 # PARAMETERS
 
 **-a, --appointment**
-> Print appointments and events for today and exit
+> 输出今天的约会与事件后退出
 
 **-t, --todo**
-> Print todo list and exit
+> 输出待办清单后退出
 
 **-d** _date_
-> Print appointments for specified date
+> 输出指定日期的约会
 
 **-n, --next**
-> Print next appointment
+> 输出下一个约会
 
 **-r, --range** _days_
-> Print appointments within range of days
+> 输出指定天数范围内的约会
 
 **-i** _file_
-> Import iCal (.ics) data from file
+> 从文件导入 iCal（.ics）数据
 
 **-x** _format_
-> Export data (ical or pcal format)
+> 导出数据（ical 或 pcal 格式）
 
 **-c** _file_
-> Use alternate calendar file
+> 使用备用的日历文件
 
 **-D, --directory** _dir_
-> Use alternate data directory
+> 使用备用的数据目录
 
 # SUBCOMMANDS
 
 **calcurse-caldav**
-> Synchronize with CalDAV server
+> 与 CalDAV 服务器同步
 
 # CONFIGURATION
 
 **~/.calcurse/conf**
-> Main configuration file for display settings, key bindings, and general options
+> 主配置文件，包含显示设置、键位绑定和常规选项
 
 # CAVEATS
 
-CalDAV synchronization requires configuration in ~/.calcurse/caldav/config. First sync should specify initialization mode to resolve conflicts.
+CalDAV 同步需要在 ~/.calcurse/caldav/config 中进行配置。首次同步应指定初始化模式以解决冲突。
 
 # INSTALL
 

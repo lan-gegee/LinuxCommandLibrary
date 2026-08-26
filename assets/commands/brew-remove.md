@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove an installed Homebrew package
+移除已安装的 Homebrew 软件包
 
 # TLDR
 
-**Remove a formula**
+**移除** formula
 
 ```brew remove [formula]```
 
-**Remove a cask**
+**移除** cask
 
 ```brew remove --cask [cask]```
 
-**Remove all files associated with a cask** including preferences and caches
+移除与 cask 关联的所有文件（包括偏好设置和缓存）
 
 ```brew remove --zap [cask]```
 
-**Force removal** even if other formulae depend on it
+即使有其他 formula 依赖它也**强制移除**
 
 ```brew remove --force [formula]```
 
-**Remove and ignore dependencies**
+移除并忽略依赖关系
 
 ```brew remove --ignore-dependencies [formula]```
 
@@ -31,29 +31,29 @@ Remove an installed Homebrew package
 # PARAMETERS
 
 **--cask**
-> Treat all named arguments as casks.
+> 将所有命名参数视为 cask。
 
 **--formula**
-> Treat all named arguments as formulae.
+> 将所有命名参数视为 formula。
 
 **--force**, **-f**
-> Delete all installed versions of a formula. For casks, uninstall even if not installed, overwrite existing files, and ignore errors.
+> 删除 formula 的所有已安装版本。对 cask 而言，即使未安装也执行卸载、覆盖现有文件并忽略错误。
 
 **--zap**
-> Remove all files associated with a cask. May remove files which are shared between applications.
+> 移除与 cask 关联的所有文件。可能删除应用程序之间共享的文件。
 
 **--ignore-dependencies**
-> Do not fail uninstall if dependent formulae exist.
+> 存在依赖它的 formula 时卸载也不报错。
 
 # DESCRIPTION
 
-**brew remove** uninstalls a formula or cask. This is an alias for **brew uninstall**. It removes the installed files but by default preserves configuration files and does not remove dependencies.
+**brew remove** 卸载一个 formula 或 cask。它是 **brew uninstall** 的别名。它移除已安装的文件，但默认保留配置文件，也不会移除依赖。
 
-For casks, use **--zap** to perform a more thorough removal including application preferences and caches.
+对于 cask，使用 **--zap** 可进行更彻底的移除，包括应用偏好设置和缓存。
 
 # CAVEATS
 
-Removing a formula that other formulae depend on will fail unless **--ignore-dependencies** is used. The **--zap** option for casks may remove user data.
+如果其他 formula 依赖于待移除的 formula，移除将失败，除非使用 **--ignore-dependencies**。cask 的 **--zap** 选项可能删除用户数据。
 
 # SEE ALSO
 

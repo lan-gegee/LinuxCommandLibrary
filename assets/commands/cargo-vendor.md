@@ -1,26 +1,26 @@
 # TAGLINE
 
-Vendor all dependencies locally
+将所有依赖 vendoring 到本地
 
 # TLDR
 
-**Vendor dependencies**
+**Vendor 依赖**
 
 ```cargo vendor```
 
-**Vendor to specific directory**
+**Vendor 到指定目录**
 
 ```cargo vendor [vendor/]```
 
-**Vendor and save config**
+**Vendor 并保存配置**
 
 ```cargo vendor > .cargo/config.toml```
 
-**Vendor with versioned directories**
+**Vendor 时使用带版本号的目录**
 
 ```cargo vendor --versioned-dirs```
 
-**Vendor specific package**
+**Vendor 指定软件包**
 
 ```cargo vendor -s [package/Cargo.toml]```
 
@@ -30,48 +30,48 @@ Vendor all dependencies locally
 
 # DESCRIPTION
 
-**cargo vendor** downloads and copies all crates.io and git dependencies into a local directory (default: `vendor/`). It outputs the Cargo configuration needed to redirect dependency resolution to the vendored sources.
+**cargo vendor** 将所有 crates.io 与 git 依赖下载并复制到本地目录（默认：`vendor/`）。它会输出将依赖解析重定向到这些 vendored 来源所需的 Cargo 配置。
 
-This is primarily used for offline builds, air-gapped environments, and reproducible build systems where network access during compilation is not available or not desired. The vendored sources are read-only; to modify a vendored crate, use the `[patch]` section in Cargo.toml instead of editing files directly in the vendor directory.
+这主要用于离线构建、隔离（air-gapped）环境，以及编译期间无法或不宜访问网络的可复现构建系统。Vendored 的来源是只读的；要修改某个 vendored crate，请使用 Cargo.toml 中的 `[patch]` 部分，而不是直接编辑 vendor 目录中的文件。
 
 # PARAMETERS
 
 **-s**, **--sync** _path_
-> Additional Cargo.toml to sync
+> 需要一并同步的其他 Cargo.toml
 
 **--no-delete**
-> Don't delete existing vendor directory
+> 不删除已有的 vendor 目录
 
 **--versioned-dirs**
-> Use versioned directory names
+> 使用带版本号的目录名
 
 **--respect-source-config**
-> Respect [source] config when vendoring
+> Vendor 时遵循 [source] 配置
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # CONFIGURATION
 
 **.cargo/config.toml**
-> Source replacement settings that redirect dependency resolution to the vendored directory. The output of `cargo vendor` provides the exact configuration to add.
+> 将依赖解析重定向到 vendor 目录的来源替换设置。`cargo vendor` 的输出给出了需要添加的确切配置。
 
 # OFFLINE BUILDS
 
-After vendoring:
+Vendor 完成后：
 ```
 cargo build --offline
 ```
 
 # CAVEATS
 
-Vendored sources are read-only. Use [patch] for modifications. Resolution may differ from online mode. Run cargo fetch first for complete dependency download.
+Vendored 来源是只读的。修改请使用 [patch]。解析结果可能与在线模式不同。请先运行 cargo fetch 以完整下载依赖。
 
 # INSTALL
 

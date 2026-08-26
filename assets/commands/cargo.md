@@ -1,30 +1,30 @@
 # TAGLINE
 
-rust package manager and build system
+Rust 软件包管理器和构建系统
 
 # TLDR
 
-**Build** project
+**构建**项目
 
 ```cargo build```
 
-**Run** project
+**运行**项目
 
 ```cargo run```
 
-**Test** project
+**测试**项目
 
 ```cargo test```
 
-**Create** new project
+**创建**新项目
 
 ```cargo new [project-name]```
 
-**Add** dependency
+**添加**依赖
 
 ```cargo add [dependency]```
 
-**Update** dependencies
+**更新**依赖
 
 ```cargo update```
 
@@ -34,64 +34,64 @@ rust package manager and build system
 
 # DESCRIPTION
 
-**cargo** is the Rust package manager and build system. It handles dependency management, compiling packages, running tests, generating documentation, and publishing crates to crates.io.
+**cargo** 是 Rust 的软件包管理器和构建系统。它负责依赖管理、编译软件包、运行测试、生成文档，以及向 crates.io 发布 crate。
 
-The tool is essential for Rust development and comes bundled with Rust.
+该工具是 Rust 开发必不可少的组成部分，随 Rust 一同捆绑提供。
 
 # PARAMETERS
 
 **new** _name_
-> Create new project
+> 创建新项目
 
 **build** [**--release**]
-> Compile project
+> 编译项目
 
 **run**
-> Build and run
+> 构建并运行
 
 **test**
-> Run tests
+> 运行测试
 
 **check**
-> Check compilation without building
+> 检查可编译性而不实际构建
 
 **add** _crate_
-> Add dependency
+> 添加依赖
 
 **install** _crate_
-> Install binary crate
+> 安装二进制 crate
 
 **publish**
-> Publish to crates.io
+> 发布到 crates.io
 
 **doc** [**--open**]
-> Build documentation
+> 构建文档
 
 **clean**
-> Remove build artifacts
+> 删除构建产物
 
 **update**
-> Update dependencies
+> 更新依赖
 
 **bench**
-> Run benchmarks (nightly or harness-provided).
+> 运行基准测试（nightly 或由测试框架提供）。
 
 **fmt**
-> Format code via `rustfmt` (component).
+> 通过 `rustfmt`（组件）格式化代码。
 
 **clippy**
-> Run the Clippy linter (component).
+> 运行 Clippy 代码检查器（组件）。
 
 # FEATURES
 
-- Dependency resolution
-- Build management
-- Test runner
-- Documentation generator
-- Benchmarking
-- Publishing to crates.io
-- Workspace support
-- Custom build scripts
+- 依赖解析
+- 构建管理
+- 测试运行器
+- 文档生成器
+- 基准测试
+- 发布到 crates.io
+- 工作区支持
+- 自定义构建脚本
 
 # PROJECT STRUCTURE
 
@@ -146,11 +146,11 @@ cargo doc --open
 
 # CAVEATS
 
-First build downloads dependencies (slow). Release builds significantly slower than debug. Cargo.lock should be committed for binaries (not libraries). Large projects have long compile times. Target directory can grow large.
+首次构建需要下载依赖（较慢）。发布版构建明显慢于调试版。二进制项目应提交 Cargo.lock（库项目则不必）。大型项目编译耗时长。target 目录可能变得很大。
 
 # HISTORY
 
-**Cargo** was developed alongside Rust starting around **2013**, becoming the standard build tool and package manager for the Rust ecosystem.
+**Cargo** 自 **2013** 年前后起与 Rust 同步开发，逐渐成为 Rust 生态的标准构建工具和软件包管理器。
 
 # INSTALL
 

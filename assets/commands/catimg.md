@@ -1,22 +1,22 @@
 # TAGLINE
 
-display images in the terminal using Unicode characters
+使用 Unicode 字符在终端中显示图片
 
 # TLDR
 
-**Display image in terminal**
+**在终端中显示图片**
 
 ```catimg [image.png]```
 
-**Set custom width**
+**设置自定义宽度**
 
 ```catimg -w [80] [image.jpg]```
 
-**Double resolution**
+**双倍分辨率**
 
 ```catimg -r 2 [image.png]```
 
-**Disable 24-bit color**
+**禁用 24 位色彩**
 
 ```catimg -t [image.gif]```
 
@@ -26,26 +26,26 @@ display images in the terminal using Unicode characters
 
 # DESCRIPTION
 
-**catimg** renders images directly in the terminal using Unicode block characters and ANSI color codes. It supports JPEG, PNG, and GIF formats, with animated GIF playback via configurable loop counts.
+**catimg** 使用 Unicode 方块字符和 ANSI 颜色代码直接在终端中渲染图片。它支持 JPEG、PNG 和 GIF 格式，动画 GIF 可通过可配置的循环次数播放。
 
-The tool requires no external dependencies and works over SSH connections, making it useful for previewing images on remote servers or in minimal environments without a graphical display. Image resolution can be adjusted with width, height, and resolution multiplier options to balance detail against terminal size.
+该工具无需外部依赖，并且可以通过 SSH 连接工作，因此适合在远程服务器上预览图片，或在没有图形显示的最小化环境中使用。可以通过宽度、高度和分辨率倍率选项调整图像分辨率，在细节与终端尺寸之间取得平衡。
 
 # PARAMETERS
 
 **-w** _width_
-> Display width (default: terminal width)
+> 显示宽度（默认：终端宽度）
 
 **-r** _factor_
-> Resolution multiplier (e.g., 2 for double)
+> 分辨率倍率（例如 2 表示两倍）
 
 **-t**
-> Disable 24-bit color (use 256 colors)
+> 禁用 24 位色彩（改用 256 色）
 
 **-H** _height_
-> Set display height
+> 设置显示高度
 
 **-l** _loops_
-> GIF animation loops (0 for infinite)
+> GIF 动画循环次数（0 表示无限）
 
 # INSTALLATION
 
@@ -59,20 +59,20 @@ sudo make install
 # SIMILAR TOOLS
 
 **chafa**
-> Advanced terminal graphics
+> 高级终端图形
 
 **timg**
-> Terminal image/video viewer
+> 终端图片/视频查看器
 
 **tiv**
-> Terminal image viewer
+> 终端图片查看器
 
 **imcat**
-> Image to terminal
+> 将图片输出到终端
 
 # CAVEATS
 
-Uses Unicode block characters for rendering. Quality depends on terminal font and color support. Works best in terminals with 24-bit color support.
+使用 Unicode 方块字符进行渲染。画质取决于终端字体和颜色支持。在支持 24 位色彩的终端中效果最佳。
 
 # INSTALL
 

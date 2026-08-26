@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert deskjet brush files to PBM images
+将 deskjet 笔刷文件转换为 PBM 图像
 
 # TLDR
 
-**Convert a deskjet brush file** to PBM
+将 **deskjet 笔刷文件**转换为 PBM
 
 ```brushtopbm [brushfile] > [output.pbm]```
 
-**Convert from stdin**
+从标准输入**转换**
 
 ```cat [brushfile] | brushtopbm > [output.pbm]```
 
-**Convert brush to PNG** via pipe
+通过管道将笔刷**转换为 PNG**
 
 ```brushtopbm [brushfile] | pnmtopng > [output.png]```
 
@@ -22,15 +22,15 @@ Convert deskjet brush files to PBM images
 
 # DESCRIPTION
 
-**brushtopbm** reads a deskjet brush file and produces a PBM (Portable BitMap) image as output. This is part of the Netpbm package of image manipulation utilities.
+**brushtopbm** 读取一个 deskjet 笔刷文件并输出 PBM（Portable BitMap）图像。它是 Netpbm 图像处理工具集的一部分。
 
-Brush files were used by certain HP DeskJet printer utilities for custom brush patterns. This converter allows extracting these patterns as standard bitmap images.
+笔刷文件曾被某些 HP DeskJet 打印机实用程序用于自定义笔刷图案。该转换器可将这些图案提取为标准位图图像。
 
-If no file is specified, the program reads from standard input. Output is written to standard output.
+未指定文件时，程序从标准输入读取。输出写入标准输出。
 
 # CAVEATS
 
-This tool handles a specific legacy format. The brush file format is rarely used in modern systems. Output is monochrome PBM; convert using other Netpbm tools if color output is needed.
+该工具处理的是一种特定的遗留格式。现代系统已很少使用笔刷文件格式。输出为单色 PBM；如需彩色输出，请用其他 Netpbm 工具转换。
 
 # INSTALL
 

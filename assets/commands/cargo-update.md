@@ -1,30 +1,30 @@
 # TAGLINE
 
-Update dependencies in Cargo.lock
+更新 Cargo.lock 中的依赖
 
 # TLDR
 
-**Update all dependencies**
+**更新所有依赖**
 
 ```cargo update```
 
-**Update specific package**
+**更新指定软件包**
 
 ```cargo update -p [package]```
 
-**Update to specific version**
+**更新到指定版本**
 
 ```cargo update -p [package] --precise [1.2.3]```
 
-**Update workspace packages only**
+**只更新工作空间内的软件包**
 
 ```cargo update --workspace```
 
-**Preview updates**
+**预览更新**
 
 ```cargo update --dry-run```
 
-**Update package and its dependencies**
+**更新软件包及其依赖**
 
 ```cargo update -p [package] --recursive```
 
@@ -34,53 +34,53 @@ Update dependencies in Cargo.lock
 
 # DESCRIPTION
 
-**cargo update** updates dependencies recorded in Cargo.lock to the latest versions compatible with the version requirements specified in Cargo.toml. If Cargo.lock does not exist, it is created. Without the `-p` flag, all dependencies are updated.
+**cargo update** 将 Cargo.lock 中记录的依赖更新为满足 Cargo.toml 版本要求的最新版本。若 Cargo.lock 不存在，则会创建。不带 `-p` 标志时，会更新所有依赖。
 
-When used with `-p`, only the specified package is updated conservatively. The `--precise` flag can pin a package to an exact version. The lockfile ensures reproducible builds across environments; running `cargo update` is the standard way to pull in bug fixes and minor updates from dependencies while respecting semver constraints.
+配合 `-p` 使用时，只保守地更新指定软件包。`--precise` 标志可将软件包固定到确切版本。锁文件保证了跨环境的可复现构建；在遵循 semver 约束的前提下拉取依赖的 bug 修复和次要更新，运行 `cargo update` 是标准做法。
 
 # PARAMETERS
 
 **-p**, **--package** _spec_
-> Update only specified package
+> 只更新指定软件包
 
 **--precise** _version_
-> Set exact version (with -p)
+> 设置精确版本（与 -p 搭配）
 
 **--recursive**
-> Update package and transitive dependencies (with -p)
+> 更新软件包及其传递依赖（与 -p 搭配）
 
 **--workspace**
-> Update only workspace packages
+> 只更新工作空间内的软件包
 
 **--dry-run**
-> Show updates without writing lockfile
+> 显示更新内容但不写入锁文件
 
 **--locked**
-> Assert lockfile doesn't need updating
+> 断言锁文件无需更新
 
 **--offline**
-> Don't access network
+> 不访问网络
 
 **--frozen**
-> Equivalent to --locked --offline
+> 等价于 --locked --offline
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # BEHAVIOR
 
-**With -p**
-> Conservative update: only specified package
+**带 -p**
+> 保守更新：仅更新指定软件包
 
-**Without -p**
-> Full update: all dependencies to latest
+**不带 -p**
+> 完整更新：将所有依赖更新到最新
 
 # CAVEATS
 
-Cargo.lock is auto-maintained. Update when you want newer compatible versions. Lockfile ensures reproducible builds.
+Cargo.lock 由 Cargo 自动维护。想要更新的兼容版本时执行更新即可。锁文件确保构建可复现。
 
 # INSTALL
 

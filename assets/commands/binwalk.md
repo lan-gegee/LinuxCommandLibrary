@@ -1,30 +1,30 @@
 # TAGLINE
 
-Analyze and extract firmware images
+分析并提取固件镜像
 
 # TLDR
 
-**Scan** firmware for signatures
+**扫描**固件中的签名
 
 ```binwalk [firmware.bin]```
 
-**Extract** embedded files
+**提取**内嵌文件
 
 ```binwalk -e [firmware.bin]```
 
-**Entropy** analysis
+**熵**分析
 
 ```binwalk -E [firmware.bin]```
 
-**Recursive** extraction
+**递归**提取
 
 ```binwalk -Me [firmware.bin]```
 
-**Carve** known and unknown contents to disk
+**将**已知和未知内容**提取到磁盘**
 
 ```binwalk -c [firmware.bin]```
 
-**List** supported signatures and extractors
+**列出**受支持的签名和提取器
 
 ```binwalk -L```
 
@@ -34,68 +34,68 @@ Analyze and extract firmware images
 
 # DESCRIPTION
 
-**binwalk** is a firmware analysis tool for searching binary images for embedded files and executable code. It identifies file signatures, compressed data, filesystems, and other patterns commonly found in firmware images.
+**binwalk** 是一款固件分析工具，用于在二进制镜像中搜索内嵌文件和可执行代码。它可以识别文件签名、压缩数据、文件系统以及固件镜像中常见的其他模式。
 
-The tool is essential for reverse engineering, security research, and firmware modification.
+该工具是逆向工程、安全研究和固件修改的必备工具。
 
-As of version 3 (released 2024), binwalk was completely rewritten in Rust for greatly improved scanning speed, fewer false positives, and more built-in extractors. Several options from the older Python implementation (such as **--dd**, **--hexdump**, **--raw**, and **--disasm**) were removed or replaced.
+自版本 3（2024 年发布）起，binwalk 已完全用 Rust 重写，扫描速度大幅提升、误报更少，内置的提取器也更多。旧 Python 实现的一些选项（如 **--dd**、**--hexdump**、**--raw** 和 **--disasm**）已被移除或替换。
 
 # PARAMETERS
 
 **-e**, **--extract**
-> Automatically extract known file types
+> 自动提取已识别的文件类型
 
 **-M**, **--matryoshka**
-> Recursively scan extracted files
+> 递归扫描提取出的文件
 
 **-c**, **--carve**
-> Carve both known and unknown file contents to disk
+> 将已知和未知的文件内容都提取到磁盘
 
 **-E**, **--entropy**
-> Generate an entropy graph (rendered with Plotly)
+> 生成熵曲线图（使用 Plotly 渲染）
 
 **-p**, **--png**
-> Save the entropy graph as a PNG file
+> 将熵曲线图保存为 PNG 文件
 
 **-a**, **--search-all**
-> Search for all signatures at all offsets
+> 在所有偏移量处搜索所有签名
 
 **-d**, **--directory** _path_
-> Extract files and folders to a custom directory
+> 将文件和文件夹提取到自定义目录
 
 **-t**, **--threads** _count_
-> Manually specify the number of threads to use
+> 手动指定使用的线程数
 
 **-y**, **--include** _signatures_
-> Only scan for the given signatures
+> 只扫描给定的签名
 
 **-x**, **--exclude** _signatures_
-> Do not scan for the given signatures
+> 不扫描给定的签名
 
 **-l**, **--log** _file_
-> Log JSON results to a file ('-' for stdout)
+> 将 JSON 结果记录到文件（'-' 表示 stdout）
 
 **-L**, **--list**
-> List supported signatures and extractors
+> 列出受支持的签名和提取器
 
 **-s**, **--stdin**
-> Read data from standard input
+> 从标准输入读取数据
 
 **-q**, **--quiet**
-> Suppress normal stdout output
+> 抑制常规 stdout 输出
 
 **-v**, **--verbose**
-> During recursive extraction, display all results
+> 递归提取时显示所有结果
 
 # FEATURES
 
-- File signature identification
-- Embedded filesystem detection
-- Compression detection
-- Entropy visualization
-- Automatic extraction
-- Custom signature support
-- Plugin system
+- 文件签名识别
+- 内嵌文件系统检测
+- 压缩数据检测
+- 熵可视化
+- 自动提取
+- 自定义签名支持
+- 插件系统
 
 # WORKFLOW
 
@@ -118,19 +118,19 @@ binwalk -e -d extracted/ firmware.bin
 
 # COMMON FINDINGS
 
-- **Filesystem images** (squashfs, cramfs, jffs2)
-- **Bootloaders** (U-Boot, LILO)
-- **Kernels** (Linux, VxWorks)
-- **Compressed data** (gzip, lzma, zlib)
-- **Certificates and keys**
+- **文件系统镜像**（squashfs、cramfs、jffs2）
+- **引导加载程序**（U-Boot、LILO）
+- **内核**（Linux、VxWorks）
+- **压缩数据**（gzip、lzma、zlib）
+- **证书与密钥**
 
 # CAVEATS
 
-Extraction may not work for custom formats. Encrypted sections appear as high entropy. Some signatures produce false positives. Requires appropriate tools for extraction (sasquatch, jefferson, etc.). Large firmware images slow to process.
+对自定义格式的提取可能不奏效。加密区段表现为高熵。某些签名会产生误报。需要相应的提取工具（sasquatch、jefferson 等）。大型固件镜像处理较慢。
 
 # HISTORY
 
-**binwalk** was created by Craig Heffner around **2010** for reverse engineering and analyzing firmware images from embedded devices. It is now maintained by ReFirmLabs. Version 3, a full rewrite in Rust, debuted in 2024.
+**binwalk** 由 Craig Heffner 于约 **2010 年**创建，用于逆向工程和分析嵌入式设备的固件镜像，现由 ReFirmLabs 维护。版本 3 于 2024 年首次亮相，是一次基于 Rust 的完全重写。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-All-in-one JavaScript runtime and toolkit
+一体化的 JavaScript 运行时和工具链
 
 # TLDR
 
-**Run** JavaScript file
+**运行** JavaScript 文件
 
 ```bun [script.js]```
 
-**Install** dependencies
+**安装**依赖
 
 ```bun install```
 
-**Add** package
+**添加**软件包
 
 ```bun add [react]```
 
-**Run** script from package.json
+**运行** package.json 中的脚本
 
 ```bun run [dev]```
 
-**Create** new project
+**创建**新项目
 
 ```bun create [react] [my-app]```
 
-**Test** files
+**测试**文件
 
 ```bun test```
 
@@ -34,52 +34,52 @@ All-in-one JavaScript runtime and toolkit
 
 # DESCRIPTION
 
-**bun** is an all-in-one JavaScript runtime, package manager, bundler, and test runner. It's designed as a drop-in replacement for Node.js with significantly faster startup times and package installation.
+**bun** 是一个集 JavaScript 运行时、包管理器、打包器和测试运行器于一体的工具。它被设计为 Node.js 的即插即用替代品，启动时间和软件包安装速度都显著更快。
 
-The tool aims to be a complete toolkit for JavaScript/TypeScript development with performance as a priority.
+该工具以性能为优先，目标是成为 JavaScript/TypeScript 开发的完整工具链。
 
 # PARAMETERS
 
 **run** _file_
-> Execute JavaScript/TypeScript file
+> 执行 JavaScript/TypeScript 文件
 
 **install**
-> Install dependencies from package.json
+> 从 package.json 安装依赖
 
 **add** _package_
-> Add package to dependencies
+> 将软件包添加到依赖中
 
 **remove** _package_
-> Remove package
+> 移除软件包
 
 **test**
-> Run tests
+> 运行测试
 
 **build** _file_
-> Bundle for production
+> 为生产环境打包
 
 **create** _template_
-> Create new project
+> 创建新项目
 
 **upgrade**
-> Upgrade Bun itself
+> 升级 Bun 本身
 
 # FEATURES
 
-- Fast JavaScript runtime (using JavaScriptCore)
-- Built-in TypeScript support
-- Package manager (npm-compatible)
-- Bundler (esbuild-compatible)
-- Test runner
-- Native web APIs
-- Hot reloading
-- SQLite support
+- 快速的 JavaScript 运行时（使用 JavaScriptCore）
+- 内置 TypeScript 支持
+- 包管理器（与 npm 兼容）
+- 打包器（与 esbuild 兼容）
+- 测试运行器
+- 原生 Web API
+- 热重载
+- SQLite 支持
 
 # PERFORMANCE
 
-- 4x faster npm install
-- 2-3x faster script execution vs Node.js
-- Near-instant startup
+- npm install 快 4 倍
+- 脚本执行比 Node.js 快 2-3 倍
+- 近乎即时的启动
 
 # WORKFLOW
 
@@ -106,23 +106,23 @@ bun build ./src/index.ts --outdir ./dist
 
 # COMPATIBILITY
 
-- Drop-in Node.js replacement (most APIs)
-- npm package ecosystem
-- Jest-compatible test runner
-- ESM and CommonJS support
+- 可直接替换 Node.js（大多数 API）
+- npm 软件包生态
+- Jest 兼容的测试运行器
+- 支持 ESM 和 CommonJS
 
 # CONFIGURATION
 
 **bunfig.toml**
-> Project-level and global configuration for Bun. Controls package installation behavior, runtime settings, test runner options, and bundler defaults. Searched in the project root directory, or globally at ~/.bunfig.toml.
+> Bun 的项目级和全局配置文件。控制软件包安装行为、运行时设置、测试运行器选项以及打包器默认值。在项目根目录中查找，或全局使用 ~/.bunfig.toml。
 
 # CAVEATS
 
-Not 100% Node.js compatible. Some native modules don't work. Not all npm packages tested. Windows is supported natively since v1.1 (April 2024).
+并非 100% 兼容 Node.js。某些原生模块无法工作。并非所有 npm 软件包都经过测试。自 v1.1（2024 年 4 月）起原生支持 Windows。
 
 # HISTORY
 
-**Bun** was created by Jarred Sumner and first released in **2021** as a fast all-in-one JavaScript toolkit built on Zig and JavaScriptCore.
+**Bun** 由 Jarred Sumner 创建，于 **2021 年**首次发布，是一个基于 Zig 和 JavaScriptCore 构建的快速一体化 JavaScript 工具链。
 
 # INSTALL
 

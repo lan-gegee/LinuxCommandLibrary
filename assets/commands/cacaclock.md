@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display time as ASCII art in the terminal
+在终端中以 ASCII 艺术形式显示时间
 
 # TLDR
 
-Display the **time** as ASCII art
+以 ASCII 艺术形式显示**时间**
 
 ```cacaclock```
 
-Change the **font**
+更改**字体**
 
 ```cacaclock -f [font]```
 
-Change the time **format**
+更改时间**格式**
 
 ```cacaclock -d "[strftime_arguments]"```
 
@@ -22,17 +22,17 @@ Change the time **format**
 
 # DESCRIPTION
 
-**cacaclock** displays the current time as ASCII art in the terminal using the libcaca library. It provides a visually distinctive clock display using text characters.
+**cacaclock** 使用 libcaca 库在终端中以 ASCII 艺术形式显示当前时间。它用文本字符呈现出视觉效果独特的时钟。
 
-The display format can be customized using strftime format specifiers.
+显示格式可通过 strftime 格式说明符自定义。
 
 # PARAMETERS
 
 **-f, --font** _font_
-> Use specified font for display
+> 使用指定的字体显示
 
 **-d, --dateformat** _format_
-> Time format using strftime specifiers (e.g., %H:%M:%S)
+> 时间格式，使用 strftime 说明符（如 %H:%M:%S）
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive multi-base calculator with bit manipulation
+支持位操作的交互式多进制计算器
 
 # TLDR
 
-**Interactive** mode
+**交互式**模式
 
 ```bitwise```
 
-Convert **decimal**
+转换**十进制**数
 
 ```bitwise 12345```
 
-Convert **hexadecimal**
+转换**十六进制**数
 
 ```bitwise 0x563d```
 
-**Calculate** expression
+**计算**表达式
 
 ```bitwise "0x123 + 0x20 - 30"```
 
@@ -26,40 +26,40 @@ Convert **hexadecimal**
 
 # DESCRIPTION
 
-**bitwise** is a multi-base interactive calculator supporting dynamic base conversion and bit manipulation. It displays values in decimal, hexadecimal, octal, and binary simultaneously.
+**bitwise** 是一个多进制交互式计算器，支持动态进制转换和位操作。它同时以十进制、十六进制、八进制和二进制显示数值。
 
 # PARAMETERS
 
 **-i, --interactive**
-> Force interactive mode (the default when no value or expression is given)
+> 强制进入交互模式（未给定数值或表达式时的默认行为）
 
 **-w, --width** _b8|b16|b32|b64_
-> Set the bit width of the calculation
+> 设置计算的位宽
 
 **--no-color**
-> Disable colored output
+> 禁用彩色输出
 
 **-v, --version**
-> Print version information
+> 显示版本信息
 
 **-h, --help**
-> Show help message
+> 显示帮助信息
 
-Values can be specified in different bases:
-> Decimal: plain numbers (123)
-> Hexadecimal: 0x prefix (0x7B)
-> Octal: 0 prefix (0173)
-> Binary: 0b prefix (0b1111011)
+数值可以用不同进制指定：
+> 十进制：普通数字（123）
+> 十六进制：0x 前缀（0x7B）
+> 八进制：0 前缀（0173）
+> 二进制：0b 前缀（0b1111011）
 
-Supports C-style arithmetic and bitwise operators (NOT, OR, AND, XOR, and shifts). In command-line mode the result is printed in all bases at once.
+支持 C 语言风格的算术和位运算符（NOT、OR、AND、XOR 以及移位）。在命令行模式下，结果会同时以所有进制打印。
 
 # CAVEATS
 
-Interactive mode provides a visual bit toggle interface. Expressions with special shell characters need quoting. Useful for low-level programming and debugging.
+交互模式提供可视化的位翻转界面。含特殊 shell 字符的表达式需要加引号。适合底层编程和调试使用。
 
 # HISTORY
 
-**bitwise** is an open-source (GPL-3.0) ncurses-based calculator written by **Ramon Fried** (mellowcandle). It targets low-level developers such as kernel and device-driver programmers who frequently work across number bases.
+**bitwise** 是由 **Ramon Fried**（mellowcandle）编写的基于 ncurses 的开源（GPL-3.0）计算器。它面向经常需要在不同进制间切换的底层开发者，如内核和设备驱动程序员。
 
 # INSTALL
 

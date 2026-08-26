@@ -1,26 +1,26 @@
 # TAGLINE
 
-Bittensor blockchain CLI tool
+Bittensor 区块链 CLI 工具
 
 # TLDR
 
-**Check wallet balance**
+**查看钱包余额**
 
 ```btcli wallet balance --wallet.name [default]```
 
-**List** available subnets
+**列出**可用子网
 
 ```btcli subnets list```
 
-**Register** on a subnet
+**注册**到某个子网
 
 ```btcli subnets register --netuid [1] --wallet.name [default]```
 
-**View** stake information
+**查看**质押信息
 
 ```btcli stake show --wallet.name [default]```
 
-**Transfer** TAO tokens
+**转账** TAO 代币
 
 ```btcli wallet transfer --dest [address] --amount [1.0]```
 
@@ -30,13 +30,13 @@ Bittensor blockchain CLI tool
 
 # DESCRIPTION
 
-**btcli** is the command-line interface for the **Bittensor** decentralized machine learning network. It provides tools for managing wallets, staking TAO tokens, registering on subnets, and interacting with the Bittensor blockchain.
+**btcli** 是 **Bittensor** 去中心化机器学习网络的命令行界面。它提供管理钱包、质押 TAO 代币、注册子网以及与 Bittensor 区块链交互的工具。
 
-Bittensor is a protocol that creates a decentralized marketplace for machine intelligence, where miners provide computational resources and validators assess quality. The CLI is the primary tool for participants to manage their involvement in the network.
+Bittensor 是一个为机器智能创建去中心化市场的协议，其中矿工提供计算资源，验证者评估质量。该 CLI 是参与者管理其网络参与的主要工具。
 
 # CAVEATS
 
-Requires a Bittensor wallet to be created before most operations. Blockchain operations involve real cryptocurrency and transaction fees. Network registration may require proof-of-work or recycled TAO. Always verify transaction details before confirming.
+大多数操作前需要先创建 Bittensor 钱包。区块链操作涉及真实的加密货币和交易费用。网络注册可能需要工作量证明或回收 TAO。确认前务必核实交易详情。
 
 # INSTALL
 

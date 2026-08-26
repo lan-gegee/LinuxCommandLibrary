@@ -1,26 +1,26 @@
 # TAGLINE
 
-Output workspace and dependency metadata as JSON
+以 JSON 形式输出工作空间和依赖元数据
 
 # TLDR
 
-**Output project metadata**
+**输出项目元数据**
 
 ```cargo metadata```
 
-**Output with format version**
+**带格式版本输出**
 
 ```cargo metadata --format-version 1```
 
-**Without dependencies**
+**不包含依赖**
 
 ```cargo metadata --no-deps```
 
-**Filter to specific features**
+**过滤到指定特性**
 
 ```cargo metadata --features [feature1,feature2]```
 
-**Pretty print JSON**
+**美化打印 JSON**
 
 ```cargo metadata --format-version 1 | jq .```
 
@@ -30,60 +30,60 @@ Output workspace and dependency metadata as JSON
 
 # DESCRIPTION
 
-**cargo metadata** outputs JSON to stdout containing information about workspace members, resolved dependencies, and build configuration. Useful for tooling and IDE integration.
+**cargo metadata** 向标准输出 JSON，内容涵盖工作空间成员、解析后的依赖以及构建配置等信息。对工具链开发和 IDE 集成非常有用。
 
 # PARAMETERS
 
 **--format-version** _version_
-> Schema version (use 1 for stability)
+> 模式版本（为保证稳定性请使用 1）
 
 **--no-deps**
-> Skip dependency resolution (faster, workspace only)
+> 跳过依赖解析（更快，仅限工作空间本身）
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 **--no-default-features**
-> Disable default features
+> 禁用默认特性
 
 **--filter-platform** _triple_
-> Filter to specified platform
+> 过滤到指定平台
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress log messages
+> 抑制日志消息
 
 # OUTPUT FIELDS
 
 **packages**
-> Array of all packages and dependencies
+> 所有软件包及依赖的数组
 
 **workspace_members**
-> Package IDs of workspace members
+> 工作空间成员的软件包 ID
 
 **workspace_root**
-> Absolute path to workspace root
+> 工作空间根目录的绝对路径
 
 **target_directory**
-> Path to build output directory
+> 构建输出目录的路径
 
 **resolve**
-> Dependency resolution graph
+> 依赖解析图
 
 **version**
-> Schema version number
+> 模式版本号
 
 # CAVEATS
 
-Output format may change between Cargo versions. Always use --format-version for scripts. The cargo_metadata crate provides Rust parsing.
+输出格式可能随 Cargo 版本变化。在脚本中务必使用 --format-version。cargo_metadata crate 提供 Rust 解析支持。
 
 # INSTALL
 

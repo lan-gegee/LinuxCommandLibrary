@@ -1,18 +1,18 @@
 # TAGLINE
 
-Navigate to parent directories by name
+按名称跳转到父目录
 
 # TLDR
 
-**Go back** to a parent directory by name (or its first few letters)
+**按名称**（或名称前几个字母）**跳回**父目录
 
 ```bd [name]```
 
-**Case-sensitive** match
+**区分大小写**匹配
 
 ```bd -s [name]```
 
-**Run a command** in a parent directory without changing to it
+在父目录中**执行命令**而不切换过去
 
 ```ls `bd [name]` ```
 
@@ -22,19 +22,19 @@ Navigate to parent directories by name
 
 # DESCRIPTION
 
-**bd** (back directory) is a bash utility for quickly navigating to a parent directory by name instead of typing multiple `cd ../../../` commands. It searches upward in the current path for a directory whose name matches (matching on the first few letters is enough).
+**bd**（back directory）是一个 bash 工具，用于按名称快速跳转到父目录，免去输入多个 `cd ../../../` 的麻烦。它会沿着当前路径向上查找名称匹配的目录（匹配前几个字母即可）。
 
-If several ancestors share the same name, bd jumps to the closest one (the immediate parent is not considered a match). It is installed as a shell alias so the directory change persists in your shell:
+如果多个祖先目录同名，bd 会跳到最近的一个（直接父目录不算匹配）。它以 shell 别名的方式安装，这样目录切换才能在你的 shell 中生效：
 
 ```alias bd=". bd -si"```
 
 # PARAMETERS
 
 **-s**
-> Case-sensitive matching (the default alias uses **-si** for case-insensitive).
+> 区分大小写匹配（默认别名使用 **-si** 表示不区分大小写）。
 
 **-i**
-> Case-insensitive matching (no-op when already the default).
+> 不区分大小写匹配（若本就是默认则无效果）。
 
 # WORKFLOW
 
@@ -53,17 +53,17 @@ cp file.txt `bd projects`
 
 # FEATURES
 
-- Prefix matching on parent directory names
-- Bash completion support (via the bundled completion file)
-- Closest-match resolution when names repeat in the path
+- 对父目录名进行前缀匹配
+- 支持 Bash 补全（通过附带的补全文件）
+- 路径中出现重名时选择最近的匹配
 
 # CAVEATS
 
-Requires installation and an alias in your shell config (the alias sources the script so the `cd` sticks). Only walks upward through the current path, not into sibling trees. Built for bash; separate ports exist for zsh and fish. Not available by default on most systems.
+需要安装并在 shell 配置中设置别名（别名通过 source 加载脚本，使 `cd` 生效）。只沿当前路径向上遍历，不会进入兄弟目录树。为 bash 设计；zsh 和 fish 有各自的移植版本。大多数系统默认不带此工具。
 
 # HISTORY
 
-**bd** was created by Vigneshwaran Raveendran (vigneshwaranr) to simplify navigating up directory trees by name.
+**bd** 由 Vigneshwaran Raveendran（vigneshwaranr）创建，目的是简化按名称向上遍历目录树的操作。
 
 # INSTALL
 

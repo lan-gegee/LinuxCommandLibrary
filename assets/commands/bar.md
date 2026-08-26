@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display progress bars for data transfers.
+为数据传输显示进度条。
 
 # TLDR
 
-**Copy a file with a progress bar**
+**带进度条复制文件**
 
 ```bar -if [input_file] -of [output_file]```
 
-**Show progress while piping data**
+管道传输数据时**显示进度**
 
 ```cat [large_file] | bar > [output_file]```
 
-**Specify expected size for accurate progress**
+**指定预期大小**以获得准确的进度
 
 ```bar -s [1000000000] -if [input_file] -of [output_file]```
 
-**Set a custom title on the progress bar**
+**为进度条设置自定义标题**
 
 ```bar -ti "[Backup]" -if [input_file] -of [output_file]```
 
-**Throttle transfer to a fixed rate**
+**限速传输**至固定速率
 
 ```bar -th [1M] -if [input_file] -of [output_file]```
 
-**Update the display every 2 seconds**
+每 2 秒**刷新显示**
 
 ```bar -i [2] -if [input_file] -of [output_file]```
 
@@ -35,68 +35,68 @@ Display progress bars for data transfers.
 # PARAMETERS
 
 **-if**, **--in-file** _FILE_
-> Read input from FILE (default: stdin).
+> 从 FILE 读取输入（默认：stdin）。
 
 **-of**, **--out-file** _FILE_
-> Write output to FILE (default: stdout).
+> 将输出写入 FILE（默认：stdout）。
 
 **-s**, **--size** _bytes_
-> Expected data size for accurate percentage display.
+> 用于准确显示百分比的预期数据量。
 
 **-c**, **--completed** _bytes_
-> Bytes already copied (for resumed transfers).
+> 已复制的字节数（用于续传）。
 
 **-bs**, **--buffer-size** _size_
-> I/O buffer allocation size.
+> I/O 缓冲区分配大小。
 
 **-th**, **--throttle** _rate_
-> Limit throughput to the specified rate.
+> 将吞吐量限制在指定速率内。
 
 **-i**, **--interval** _seconds_
-> Display update frequency in seconds (default: 1).
+> 显示刷新频率，单位秒（默认：1）。
 
 **-ti**, **--title** _text_
-> Set a custom title for the progress bar.
+> 为进度条设置自定义标题。
 
 **-sw**, **--screen-width** _cols_
-> Assume a fixed terminal width of _cols_ characters.
+> 假定终端宽度固定为 _cols_ 个字符。
 
 **-db**, **-nb**, **--display-bar**, **--no-bar**
-> Toggle the progress bar display.
+> 切换进度条显示。
 
 **-dp**, **-np**, **--display-percent**, **--no-percent**
-> Toggle the percentage display.
+> 切换百分比显示。
 
 **-dth**, **-nth**, **--display-throughput**, **--no-throughput**
-> Toggle the throughput display.
+> 切换吞吐量显示。
 
 **-dt**, **-nt**, **--display-time**, **--no-time**
-> Toggle the elapsed time / ETA display.
+> 切换已用时间 / 预计剩余时间显示。
 
 **-ds**, **-ns**, **--display-summary**, **--no-summary**
-> Toggle the completion summary.
+> 切换完成摘要显示。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display program version.
+> 显示程序版本。
 
 # DESCRIPTION
 
-**bar** (clpbar) copies a stream of data and prints a display on stderr showing the amount of data passed, the throughput, and the transfer time. It was originally developed to estimate transfer duration for large data movements through SSH/tar pipes.
+**bar** (clpbar) 复制数据流，并在 stderr 上打印显示信息，包括已传输的数据量、吞吐量和传输时间。它最初用于估算通过 SSH/tar 管道移动大量数据所需的时间。
 
-The tool is useful for monitoring long-running data transfers, such as disk imaging, large file copies, or data streaming operations where visual feedback is desired. When reading from a regular file, it extracts the total size on its own.
+该工具适用于监控长时间运行的数据传输，例如磁盘镜像、大文件复制或需要视觉反馈的数据流操作。从普通文件读取时，它会自行获取总大小。
 
-For piped input where size is unknown, the **-s** option allows specifying the expected size manually. Without size information, **bar** displays bytes transferred and transfer rate without a percentage. Configuration defaults can be placed in _/etc/clpbarrc_, _~/.barrc_, or _./.barrc_.
+对于大小未知、来自管道的输入，可以使用 **-s** 选项手动指定预期大小。没有大小信息时，**bar** 只显示已传输字节和传输速率，不显示百分比。配置默认值可以放在 _/etc/clpbarrc_、_~/.barrc_ 或 _./.barrc_ 中。
 
 # CAVEATS
 
-The **bar** command name conflicts with various system utilities on different distributions. The more widely available **pv** (pipe viewer) provides similar functionality with broader adoption. Progress percentage requires knowing total size in advance. Performance impact is minimal but measurable on very high-speed transfers.
+**bar** 这个命令名在不同发行版上会与多种系统工具冲突。更普遍可用、应用更广的 **pv**（pipe viewer）提供了类似功能。显示百分比需要事先知道总大小。性能影响很小，但在极高速传输时可测量。
 
 # HISTORY
 
-Various "bar" utilities have existed in Unix ecosystems for displaying transfer progress. The concept predates graphical interfaces, providing feedback for operations that would otherwise run silently. **pv** (pipe viewer) by Andrew Wood became the de facto standard for this purpose, first released in **2002**, though simpler implementations under various names continue to exist.
+Unix 生态中存在过各种名为 "bar" 的传输进度显示工具。这一概念早于图形界面，为原本静默运行的操作提供反馈。Andrew Wood 开发的 **pv**（pipe viewer）于 **2002** 年首次发布，成为这一用途的事实标准，不过以其他名称存在的更简单实现仍在延续。
 
 # INSTALL
 

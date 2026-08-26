@@ -1,30 +1,30 @@
 # TAGLINE
 
-multi-threaded cryptocurrency miner for ASIC devices
+面向 ASIC 设备的多线程加密货币挖矿程序
 
 # TLDR
 
-**Mine Bitcoin** using a pool with username and password
+使用矿池**挖掘比特币**，附带用户名和密码
 
 ```cgminer -o [stratum+tcp://pool:port] -u [username] -p [password]```
 
-**Solo mine** to a local Bitcoin node
+对接本地比特币节点**单独挖矿**
 
 ```cgminer -o [http://localhost:8332] -u [rpcuser] -p [rpcpassword] --btc-address [your_address]```
 
-**Run in benchmark mode** without submitting shares
+以**基准测试模式运行**而不提交份额
 
 ```cgminer --benchmark```
 
-**Enable the API** on a specific port
+在指定端口**启用 API**
 
 ```cgminer -o [stratum+tcp://pool:port] -u [username] -p [password] --api-listen --api-port [4028]```
 
-**Load configuration from file**
+**从文件加载配置**
 
 ```cgminer -c [path/to/config.json]```
 
-**Mine with multiple pools** using load balancing
+使用**多个矿池**进行负载均衡挖矿
 
 ```cgminer -o [pool1:port] -u [user1] -p [pass1] -o [pool2:port] -u [user2] -p [pass2] --load-balance```
 
@@ -35,97 +35,97 @@ multi-threaded cryptocurrency miner for ASIC devices
 # PARAMETERS
 
 **-o**, **--url** _URL_
-> URL for bitcoin JSON-RPC server (pool or local node)
+> 比特币 JSON-RPC 服务器 URL（矿池或本地节点）
 
 **-u**, **--user** _USERNAME_
-> Username for JSON-RPC server
+> JSON-RPC 服务器的用户名
 
 **-p**, **--pass** _PASSWORD_
-> Password for JSON-RPC server
+> JSON-RPC 服务器的密码
 
 **-O**, **--userpass** _USER:PASS_
-> Username:password pair for server
+> 服务器的用户名:密码对
 
 **-c**, **--config** _FILE_
-> Load a JSON-formatted configuration file
+> 加载 JSON 格式的配置文件
 
 **--benchmark**
-> Run in benchmark mode producing no actual shares
+> 以基准测试模式运行，不产生实际份额
 
 **--shares** _NUMBER_
-> Quit after mining the specified number of shares
+> 挖到指定数量的份额后退出
 
 **--no-submit-stale**
-> Do not submit shares if they are detected as stale
+> 若份额被检测为过期则不提交
 
 **--btc-address** _ADDRESS_
-> Bitcoin address for solo mining coinbase rewards
+> 单独挖矿时接收 coinbase 奖励的比特币地址
 
 **--balance**
-> Change pool strategy to even share balance
+> 将矿池策略改为均衡份额分配
 
 **--load-balance**
-> Change pool strategy to quota based balance
+> 将矿池策略改为基于配额的均衡
 
 **--rotate** _MINUTES_
-> Rotate between pools every N minutes
+> 每 N 分钟在矿池之间轮换
 
 **--failover-only**
-> Do not leak work to backup pools when primary is active
+> 主矿池活跃时不向备用矿池泄漏工作
 
 **--api-listen**
-> Enable the miner API (disabled by default)
+> 启用挖矿 API（默认禁用）
 
 **--api-port** _PORT_
-> Port number for API (default: 4028)
+> API 端口号（默认：4028）
 
 **--api-allow** _[G:]IP[/PREFIX]_
-> Allow API access only to the given addresses
+> 仅允许给定地址访问 API
 
 **-D**, **--debug**
-> Enable debug output
+> 启用调试输出
 
 **-l**, **--log** _INTERVAL_
-> Interval in seconds between log output (default: 5)
+> 日志输出间隔，单位为秒（默认：5）
 
 **-q**, **--quiet**
-> Disable logging output, display status and errors only
+> 禁用日志输出，仅显示状态和错误
 
 **-T**, **--text-only**
-> Disable ncurses formatted screen output
+> 禁用 ncurses 格式化的屏幕输出
 
 **--temp-cutoff** _TEMP_
-> Temperature where devices will be disabled
+> 设备将被停用的温度阈值
 
 **--usb** _DEVICES_
-> USB device selection (e.g., 1:2,1:3 or BAS:1,BFL:1)
+> USB 设备选择（如 1:2,1:3 或 BAS:1,BFL:1）
 
 **-h**, **--help**
-> Print help message and exit
+> 打印帮助信息并退出
 
 **-V**, **--version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**cgminer** is a multi-threaded multi-pool miner for Bitcoin and other SHA256d cryptocurrencies. Originally supporting CPU, GPU, FPGA, and ASIC mining, modern versions focus exclusively on ASIC devices as GPU mining is no longer economically viable for Bitcoin.
+**cgminer** 是一款用于比特币及其他 SHA256d 加密货币的多线程多矿池挖矿程序。它最初同时支持 CPU、GPU、FPGA 和 ASIC 挖矿；由于 GPU 挖掘比特币已不再有经济可行性，现代版本专注于 ASIC 设备。
 
-The miner supports multiple pools with configurable failover, load-balancing, and rotation strategies. It connects using the stratum protocol or JSON-RPC and submits proof-of-work solutions. The built-in API allows remote monitoring and control of mining operations.
+该程序支持多个矿池，并提供可配置的故障转移、负载均衡和轮换策略。它通过 stratum 协议或 JSON-RPC 连接并提交工作量证明解。内置 API 支持远程监控和控制挖矿操作。
 
-CGMiner supports various ASIC hardware including Avalon, AntMiner, BitFury, Cointerra, Drillbit, HashFast, Icarus, and Klondike devices. On Linux, direct USB support requires no additional drivers, though udev rules may be needed for non-root access.
+CGMiner 支持多种 ASIC 硬件，包括 Avalon、AntMiner、BitFury、Cointerra、Drillbit、HashFast、Icarus 和 Klondike 设备。在 Linux 上直接支持 USB 而无需额外驱动，不过非 root 访问可能需要配置 udev 规则。
 
 # CONFIGURATION
 
 **cgminer.conf**
-> JSON configuration file with pool URLs, credentials, device settings, and mining parameters. Loaded with -c flag or auto-loaded from the working directory.
+> JSON 配置文件，包含矿池 URL、凭证、设备设置和挖矿参数。可通过 -c 标志加载，或从工作目录自动加载。
 
 # CAVEATS
 
-GPU mining support has been removed in recent versions as it is no longer profitable for Bitcoin. On Linux, USB device permissions may require adding the user to the **plugdev** group or installing udev rules from the cgminer distribution. High hash rates generate significant heat and power consumption. Pool URLs must use the correct protocol prefix (**http://** for solo mining, **stratum+tcp://** for pool mining).
+由于对比特币而言已无利可图，近期版本移除了 GPU 挖矿支持。在 Linux 上，USB 设备权限可能需要将用户加入 **plugdev** 组或安装 cgminer 发行版附带的 udev 规则。高算力会产生大量热量和功耗。矿池 URL 必须使用正确的协议前缀（单独挖矿用 **http://**，矿池挖矿用 **stratum+tcp://**）。
 
 # HISTORY
 
-CGMiner was created by **Con Kolivas** (ckolivas) and first released in **2011**. It began as a fork of the CPU miner **cpuminer** by Jeff Garzik. The name stands for **Con's GPU Miner**, though it later expanded to support FPGAs and ASICs. It became one of the most widely used Bitcoin mining programs during the GPU and early ASIC mining eras. BFGMiner was later forked from CGMiner in 2012 with a focus on FPGA/ASIC modularity.
+CGMiner 由 **Con Kolivas** (ckolivas) 开发，首发于 **2011 年**。它最初是 Jeff Garzik 的 CPU 挖矿程序 **cpuminer** 的分支。名字意为 **Con's GPU Miner**，后来扩展支持 FPGA 和 ASIC。在 GPU 挖矿和早期 ASIC 挖矿时代，它是最广泛使用的比特币挖矿程序之一。BFGMiner 于 2012 年从 CGMiner 分叉而来，专注于 FPGA/ASIC 的模块化。
 
 # INSTALL
 

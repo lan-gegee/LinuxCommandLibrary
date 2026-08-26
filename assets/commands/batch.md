@@ -1,22 +1,22 @@
 # TAGLINE
 
-Execute commands when system load permits
+在系统负载允许时执行命令
 
 # TLDR
 
-Enter commands **interactively**, then press Ctrl-D to queue them
+**交互式**输入命令，然后按 Ctrl-D 将其加入队列
 
 ```batch```
 
-Queue a **command** read from stdin
+将从标准输入读取的一条**命令**加入队列
 
 ```echo "./backup.sh" | batch```
 
-Queue commands from a **file**
+将**文件**中的命令加入队列
 
 ```batch -f [path/to/script.sh]```
 
-Send **mail** when the job finishes, even with no output
+任务结束时发送**邮件**，即使没有任何输出
 
 ```echo "./backup.sh" | batch -m```
 
@@ -26,33 +26,33 @@ Send **mail** when the job finishes, even with no output
 
 # DESCRIPTION
 
-**batch** executes commands when system load levels permit. It queues jobs to run once the system load average drops below **1.5** (or the value specified when **atd** was started with **-l**), making it useful for scheduling non-urgent or resource-intensive tasks during low-usage periods.
+**batch** 在系统负载允许时执行命令。它将作业排入队列，待系统平均负载降至 **1.5** 以下（或启动 **atd** 时通过 **-l** 指定的值）后运行，适合把非紧急或资源密集型任务安排到低负载时段执行。
 
-Unlike **at**, which runs commands at a specific time, **batch** waits for favorable system conditions and runs jobs as soon as they are met. **batch** is equivalent to `at -q b -m now`. Commands are read from standard input or from the file given with **-f**, and any output is mailed to the user upon completion. The **atd** daemon must be running to process queued jobs.
+与在特定时间运行命令的 **at** 不同，**batch** 会等待有利的系统条件，一旦满足就立即运行作业。**batch** 等价于 `at -q b -m now`。命令从标准输入或 **-f** 指定的文件读取，任何输出都会在完成后以邮件形式发送给用户。必须运行 **atd** 守护进程才能处理队列中的作业。
 
 # PARAMETERS
 
 **-f** _file_
-> Read the job from _file_ rather than from standard input.
+> 从 _file_ 而非标准输入读取作业。
 
 **-m**
-> Send mail to the user when the job has completed, even if there was no output.
+> 任务完成时向用户发送邮件，即使没有输出。
 
 **-q** _queue_
-> Use the specified queue (a single letter). batch defaults to queue **b**.
+> 使用指定的队列（单个字母）。batch 默认使用队列 **b**。
 
 **-V**
-> Print the version number to standard error and exit.
+> 将版本号输出到标准错误并退出。
 
-When no **-f** file is given, commands are read from standard input. Press Ctrl-D to end input when entering commands interactively.
+未给出 **-f** 文件时，命令从标准输入读取。交互式输入命令时，按 Ctrl-D 结束输入。
 
 # CAVEATS
 
-The **atd** daemon must be running for batch to work. Results are sent to the user's mail. The load-average threshold defaults to 1.5 and can be changed by starting **atd** with the **-l** option.
+batch 要正常工作必须运行 **atd** 守护进程。结果会发送到用户的邮箱。负载阈值默认为 1.5，可通过 **-l** 选项启动 **atd** 来修改。
 
 # HISTORY
 
-**batch** is part of the **at** package, providing job scheduling utilities for Unix systems.
+**batch** 是 **at** 软件包的一部分，为 Unix 系统提供作业调度工具。
 
 # INSTALL
 

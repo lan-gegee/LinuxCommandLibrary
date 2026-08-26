@@ -1,26 +1,26 @@
 # TAGLINE
 
-Execute package binaries
+执行软件包的二进制程序
 
 # TLDR
 
-**Run a package binary**, auto-installing if not present
+**运行包的二进制程序**，若不存在则自动安装
 
 ```bun exec [package]```
 
-**Run a specific version** of a package binary
+**运行指定版本**的包二进制程序
 
 ```bun exec [package]@[version]```
 
-**Force execution with Bun runtime** instead of Node.js
+**强制使用 Bun 运行时执行**，而非 Node.js
 
 ```bun exec --bun [package]```
 
-**Specify package when binary name differs** from package name
+**当二进制名与包名不同时指定包**
 
 ```bun exec -p [package] [binary] [args...]```
 
-**Run without installing** if package is not already available
+**在包不可用时直接运行而不安装**
 
 ```bun exec --no-install [binary]```
 
@@ -30,28 +30,28 @@ Execute package binaries
 
 # DESCRIPTION
 
-**bun exec** auto-installs and runs a package binary from npm. It is an alias for **bun x** and **bunx**, Bun's equivalent of **npx**.
+**bun exec** 自动安装并运行来自 npm 的包二进制程序。它是 **bun x** 和 **bunx** 的别名，相当于 Bun 版的 **npx**。
 
-If the package binary is found in the local **node_modules/.bin**, that version is used. Otherwise, the package is downloaded into a global shared cache and executed from there.
+如果包的二进制程序存在于本地的 **node_modules/.bin**，则使用该版本。否则，该包会被下载到全局共享缓存中并从那里执行。
 
-By default, Bun respects **#!/usr/bin/env node** shebangs in executables and runs them with Node.js. Use **--bun** to override this and run with Bun's runtime instead.
+默认情况下，Bun 会尊重可执行文件中的 **#!/usr/bin/env node** shebang，用 Node.js 运行它们。使用 **--bun** 可以覆盖这一行为，改用 Bun 的运行时。
 
 # PARAMETERS
 
 **--bun**
-> Force the executable to run with Bun's runtime instead of Node.js, even if it contains a Node shebang. Must appear before the package name.
+> 强制可执行文件使用 Bun 运行时而非 Node.js 运行，即使它带有 Node shebang。必须放在包名之前。
 
 **-p**, **--package** _name_
-> Specify the package to install when the binary name differs from the package name.
+> 当二进制名与包名不同时，指定要安装的包。
 
 **--no-install**
-> Do not auto-install the package; exit with an error if it is not already available.
+> 不自动安装包；若其不可用则报错退出。
 
 **--silent**
-> Suppress installation output.
+> 抑制安装过程的输出。
 
 **--verbose**
-> Enable verbose output during installation.
+> 安装过程中启用详细输出。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Discard sectors on a storage device
+丢弃存储设备上的扇区
 
 # TLDR
 
-**Discard** all sectors
+**丢弃**全部扇区
 
 ```blkdiscard /dev/device```
 
-**Secure** discard
+**安全**丢弃
 
 ```blkdiscard -s /dev/device```
 
-Discard first **100 MiB**
+丢弃前 **100 MiB**
 
 ```blkdiscard -l 100M /dev/device```
 
-Discard in **512 MiB** steps (avoids long uninterruptible operations)
+以 **512 MiB** 为步长分次丢弃（避免长时间不可中断的操作）
 
 ```blkdiscard -p 512M /dev/device```
 
@@ -26,41 +26,41 @@ Discard in **512 MiB** steps (avoids long uninterruptible operations)
 
 # DESCRIPTION
 
-**blkdiscard** sends TRIM/DISCARD commands to a block device to mark sectors as unused. Unlike **fstrim**(8), it operates directly on the block device rather than a mounted filesystem. This is particularly useful for SSDs and thinly-provisioned storage. All data in the discarded region will be lost.
+**blkdiscard** 向块设备发送 TRIM/DISCARD 命令，将扇区标记为未使用。与 **fstrim**(8) 不同，它直接作用于块设备而非已挂载的文件系统。这对 SSD 和精简配置（thinly-provisioned）存储尤其有用。被丢弃区域中的所有数据都会丢失。
 
 # PARAMETERS
 
 **-o, --offset** _offset_
-> Byte offset into the device to start discarding. Must be aligned to the device sector size. Default is 0.
+> 开始丢弃的字节偏移量。必须按设备扇区大小对齐。默认为 0。
 
 **-l, --length** _size_
-> Number of bytes to discard from the offset. Must be aligned to the device sector size.
+> 从偏移量起要丢弃的字节数。必须按设备扇区大小对齐。
 
 **-p, --step** _size_
-> Discard this many bytes per iteration instead of all at once. Useful for avoiding long uninterruptible operations on large devices.
+> 每次迭代只丢弃这么多字节，而非一次性完成。有助于避免在大设备上出现长时间不可中断的操作。
 
 **-s, --secure**
-> Perform a secure discard. This tells the device to also erase any copies of the discarded data (e.g. in garbage collection). Requires device support.
+> 执行安全丢弃。这会让设备同时擦除被弃数据的任何副本（例如垃圾回收中的副本）。需要设备支持。
 
 **-z, --zeroout**
-> Zero-fill the specified region rather than discarding it.
+> 将指定区域填零，而不是丢弃。
 
 **-f, --force**
-> Disable exclusive-open check, allowing operation on mounted devices. Use with caution.
+> 禁用独占打开检查，允许对已挂载的设备操作。请谨慎使用。
 
 **-q, --quiet**
-> Suppress warning messages.
+> 抑制警告消息。
 
 **-v, --verbose**
-> Print aligned offset and length values and progress information.
+> 打印对齐后的偏移量和长度值以及进度信息。
 
 # CAVEATS
 
-This operation destroys data and is irreversible. All data in the discarded region is lost. Not all devices support discard operations; on unsupported devices, blkdiscard exits with status 2 (since util-linux 2.39). Secure discard requires explicit hardware support and may not provide stronger guarantees than regular discard on all devices.
+此操作会破坏数据且不可逆。被丢弃区域中的所有数据都将丢失。并非所有设备都支持丢弃操作；在不支持的设备上，blkdiscard 以状态码 2 退出（自 util-linux 2.39 起）。安全丢弃需要明确的硬件支持，并且在某些设备上未必比普通丢弃提供更强的保证。
 
 # HISTORY
 
-**blkdiscard** is part of the **util-linux** package, providing SSD optimization and secure erase functionality.
+**blkdiscard** 是 **util-linux** 软件包的一部分，提供 SSD 优化和安全擦除功能。
 
 # INSTALL
 

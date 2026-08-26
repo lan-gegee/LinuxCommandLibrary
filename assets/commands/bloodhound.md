@@ -1,22 +1,22 @@
 # TAGLINE
 
-Visualize Active Directory attack paths
+可视化 Active Directory 攻击路径
 
 # TLDR
 
-**Start the BloodHound GUI** (legacy Electron app)
+**启动 BloodHound 图形界面**（旧版 Electron 应用）
 
 ```bloodhound```
 
-**Start without the Chromium sandbox** (common workaround on modern Linux)
+**禁用 Chromium 沙箱启动**（现代 Linux 上的常见变通方法）
 
 ```bloodhound --no-sandbox```
 
-**Disable GPU acceleration** if the window renders incorrectly
+窗口渲染异常时**禁用 GPU 加速**
 
 ```bloodhound --no-sandbox --disable-gpu```
 
-After launch, log in to the Neo4j database and use the GUI "Upload Data" button to import the JSON or zip produced by a collector.
+启动后，登录 Neo4j 数据库，并使用 GUI 的"Upload Data"按钮导入采集器生成的 JSON 或 zip 文件。
 
 # SYNOPSIS
 
@@ -24,21 +24,21 @@ After launch, log in to the Neo4j database and use the GUI "Upload Data" button 
 
 # DESCRIPTION
 
-**BloodHound** is a security tool that uses graph theory to reveal hidden relationships and attack paths within Active Directory and Azure environments. It visualizes complex trust relationships, group memberships, and permissions that attackers could exploit to compromise domain administrators.
+**BloodHound** 是一款安全工具，利用图论揭示 Active Directory 和 Azure 环境中隐藏的关系与攻击路径。它将复杂的信任关系、组成员身份和权限可视化——攻击者可利用这些来攻陷域管理员。
 
-The tool consists of two parts: collectors (SharpHound for Windows, bloodhound-python for Linux) that enumerate directory objects, and the BloodHound application that imports this data into a Neo4j graph database for analysis.
+该工具由两部分组成：枚举目录对象的采集器（Windows 上的 SharpHound、Linux 上的 bloodhound-python），以及将这些数据导入 Neo4j 图数据库以供分析的 BloodHound 应用程序。
 
-The **bloodhound** command described here launches the legacy Electron desktop GUI. It is a graphical client and takes no BloodHound-specific command-line flags: databases and credentials are configured in the login screen, and collected data is imported through the GUI. The legacy edition is deprecated. The actively maintained successor, BloodHound Community Edition (BHCE), ships as a web application deployed with Docker Compose (or the bloodhound-cli helper) rather than as a standalone command.
+这里描述的 **bloodhound** 命令启动的是旧版 Electron 桌面 GUI。它是图形客户端，不接受任何 BloodHound 特有的命令行标志：数据库和凭证在登录界面配置，采集的数据也通过 GUI 导入。旧版已被弃用。仍在积极维护的后续版本 BloodHound Community Edition（BHCE）以 Web 应用形式发布，通过 Docker Compose（或 bloodhound-cli 辅助工具）部署，而非独立命令。
 
-Security teams use BloodHound to identify and remediate dangerous configurations, while penetration testers use it to find privilege escalation paths. Built-in queries find common attack paths like "Shortest Path to Domain Admin" or "Kerberoastable Users."
+安全团队用 BloodHound 识别并修复危险配置，渗透测试人员则用它寻找提权路径。内置查询可以发现常见攻击路径，如"Shortest Path to Domain Admin"或"Kerberoastable Users"。
 
 # CAVEATS
 
-BloodHound is a powerful security tool that requires proper authorization before use. Collecting data from Active Directory may trigger security alerts. The tool shows theoretical attack paths; actual exploitation requires additional steps. The legacy GUI requires a running Neo4j instance, configured at the login screen. On modern Linux desktops the Electron app often needs **--no-sandbox** to start. Large environments may require significant memory for analysis. The legacy edition is no longer maintained; new deployments should use BloodHound Community Edition.
+BloodHound 是一款强大的安全工具，使用前必须获得适当授权。从 Active Directory 收集数据可能触发安全警报。该工具展示的是理论上的攻击路径；实际利用还需要额外步骤。旧版 GUI 需要一个正在运行的 Neo4j 实例，在登录界面进行配置。在现代 Linux 桌面上，Electron 应用通常需要 **--no-sandbox** 才能启动。大型环境进行分析可能需要大量内存。旧版已不再维护；新部署应使用 BloodHound Community Edition。
 
 # HISTORY
 
-BloodHound was created by **Andy Robbins**, **Rohan Vazarkar**, and **Will Schroeder** at SpecterOps and first presented at **DEF CON 24** in **2016**. It revolutionized Active Directory security assessments by visualizing complex relationships that were previously difficult to analyze manually. The tool is open source and has become an industry standard for AD security assessment.
+BloodHound 由 SpecterOps 的 **Andy Robbins**、**Rohan Vazarkar** 和 **Will Schroeder** 创建，于 **2016 年**在 **DEF CON 24** 上首次亮相。它将以前难以手工分析的复杂关系可视化，革新了 Active Directory 安全评估。该工具开源，已成为 AD 安全评估的行业标准。
 
 # INSTALL
 

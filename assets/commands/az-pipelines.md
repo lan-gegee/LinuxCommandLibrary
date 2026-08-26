@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure DevOps CI/CD pipelines
+管理 Azure DevOps CI/CD 管道
 
 # TLDR
 
-**List all pipelines** in a project
+**列出项目中的所有管道**
 
 ```az pipelines list --project [MyProject]```
 
-**Show details** of a pipeline
+**显示**某条管道的**详情**
 
 ```az pipelines show --name [MyPipeline] --project [MyProject]```
 
-**Create a new YAML pipeline**
+**创建新的 YAML 管道**
 
 ```az pipelines create --name [MyPipeline] --repository [MyRepo] --branch [main] --yml-path [azure-pipelines.yml]```
 
-**Run a pipeline** (queue a run)
+**运行管道**（排队一次运行）
 
 ```az pipelines run --name [MyPipeline] --project [MyProject]```
 
-**Run a pipeline** with parameters and variables
+带参数和变量**运行管道**
 
 ```az pipelines run --name [MyPipeline] --parameters [env=prod] --variables [tag=v1]```
 
-**Delete a pipeline**
+**删除管道**
 
 ```az pipelines delete --id [pipeline_id] --project [MyProject]```
 
-**List pipeline runs**
+**列出管道运行记录**
 
 ```az pipelines runs list --project [MyProject]```
 
-**Show details** of a pipeline run
+**显示**某次管道运行的**详情**
 
 ```az pipelines runs show --id [run_id] --project [MyProject]```
 
@@ -43,70 +43,70 @@ Manage Azure DevOps CI/CD pipelines
 # SUBCOMMANDS
 
 **list**
-> List pipelines.
+> 列出管道。
 
 **show**
-> Show pipeline details.
+> 显示管道详情。
 
 **create**
-> Create a pipeline.
+> 创建管道。
 
 **delete**
-> Delete a pipeline.
+> 删除管道。
 
 **run**
-> Queue (run) a pipeline.
+> 排队（运行）一条管道。
 
 **update**
-> Update a pipeline.
+> 更新管道。
 
 **runs**
-> Manage pipeline runs (list, show, artifact, tag).
+> 管理管道运行（list、show、artifact、tag）。
 
 **build**
-> Manage builds and build definitions.
+> 管理构建和构建定义。
 
 **release**
-> Manage releases and release definitions.
+> 管理发布和发布定义。
 
 **variable**
-> Manage pipeline variables.
+> 管理管道变量。
 
 **variable-group**
-> Manage variable groups.
+> 管理变量组。
 
 **folder**
-> Manage folders for organizing pipelines.
+> 管理用于组织管道的文件夹。
 
 **agent**
-> Manage agents.
+> 管理代理。
 
 **pool**
-> Manage agent pools.
+> 管理代理池。
 
 **queue**
-> Manage agent queues.
+> 管理代理队列。
 
 # PARAMETERS
 
 **--org**, **--organization**
-> Azure DevOps organization URL, for example `https://dev.azure.com/MyOrg/`. Required unless set as a default with **az devops configure -d organization=URL** or detected from local git config.
+> Azure DevOps 组织 URL，例如 `https://dev.azure.com/MyOrg/`。除非已通过 **az devops configure -d organization=URL** 设为默认值，或可从本地 git 配置中检测到，否则必填。
 
 **--project**, **-p**
-> Name or ID of the project. Required unless set as a default with **az devops configure -d project=NAME**.
+> 项目名称或 ID。除非已通过 **az devops configure -d project=NAME** 设为默认值，否则必填。
 
 **--detect**
-> Automatically detect the organization from local git context. Accepts **true** or **false**.
+> 从本地 git 上下文自动检测组织。接受 **true** 或 **false**。
 
 # DESCRIPTION
 
-**az pipelines** manages Azure Pipelines, the CI/CD service in Azure DevOps. It provides commands to create, run, and manage YAML pipelines, builds, and releases, as well as agents, pools, queues, variables, and variable groups.
+**az pipelines** 管理 Azure Pipelines，即 Azure DevOps 中的 CI/CD 服务。它提供创建、运行和管理 YAML 管道、构建与发布的命令，也管理代理、代理池、队列、变量和变量组。
 
-This command group is part of the **azure-devops** extension and works with Azure DevOps Services.
+此命令组是 **azure-devops** 扩展的一部分，适用于 Azure DevOps Services。
 
 # CAVEATS
 
-Part of the **azure-devops** extension (Azure CLI 2.30.0 or higher). The extension installs automatically the first time an **az pipelines** command runs, or install it manually with **az extension add --name azure-devops**. Set persistent defaults with **az devops configure -d organization=URL project=NAME** to avoid repeating **--org** and **--project**.
+属于 **azure-devops** 扩展（需要 Azure CLI 2.30.0 或更高版本）。首次运行 **az pipelines** 命令时会自动安装该扩展，也可以用 **az extension add --name azure-devops** 手动安装。使用 **az devops configure -d organization=URL project=NAME** 设置持久默认值，避免重复输入 **--org** 和 **--project**。
 
 # INSTALL
 

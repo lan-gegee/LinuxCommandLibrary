@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create a tarball of the package
+创建软件包的 tarball
 
 # TLDR
 
-**Pack the current package** into a .tgz archive
+**将当前软件包打包**为 .tgz 归档
 
 ```bun pm pack```
 
-**Pack without writing** to disk (dry run)
+**打包但不写入磁盘**（试运行）
 
 ```bun pm pack --dry-run```
 
-**Pack to a specific directory**
+**打包到指定目录**
 
 ```bun pm pack --destination [path/to/dir]```
 
-**Pack with a custom filename**
+**使用自定义文件名打包**
 
 ```bun pm pack --filename [package.tgz]```
 
-**Pack with minimal output** (only print tarball name)
+**以最简输出打包**（只打印 tarball 名称）
 
 ```bun pm pack --quiet```
 
@@ -31,28 +31,28 @@ Create a tarball of the package
 # PARAMETERS
 
 **--dry-run**
-> Perform all tasks except writing the tarball to disk.
+> 执行所有任务，但不把 tarball 写入磁盘。
 
 **--destination** _dir_
-> Specify an output directory for the tarball. Cannot be combined with **--filename**.
+> 指定 tarball 的输出目录。不能与 **--filename** 同时使用。
 
 **--filename** _name_
-> Set the exact filename for the tarball. Cannot be combined with **--destination**.
+> 设置 tarball 的确切文件名。不能与 **--destination** 同时使用。
 
 **--ignore-scripts**
-> Skip running prepack, postpack, and prepare scripts.
+> 跳过运行 prepack、postpack 和 prepare 脚本。
 
 **--gzip-level** _0-9_
-> Set gzip compression level. Default is **9** (maximum compression).
+> 设置 gzip 压缩级别。默认为 **9**（最高压缩）。
 
 **--quiet**
-> Only output the tarball filename, suppressing verbose output.
+> 只输出 tarball 文件名，抑制详细输出。
 
 # DESCRIPTION
 
-**bun pm pack** creates a compressed .tgz archive containing all files that would be published to npm, following the same inclusion and exclusion rules as npm pack. This is useful for inspecting what will be published before running **bun publish**, testing local packages, or sharing packages without a registry.
+**bun pm pack** 创建一个压缩的 .tgz 归档，其中包含所有将要发布到 npm 的文件，遵循与 npm pack 相同的包含与排除规则。这对于在运行 **bun publish** 之前检查将要发布的内容、测试本地软件包，或在没有软件仓库的情况下共享软件包很有用。
 
-The command respects the **files** field in package.json, **.npmignore**, and **.gitignore** when determining which files to include.
+该命令在确定要包含哪些文件时会遵循 package.json 中的 **files** 字段、**.npmignore** 和 **.gitignore**。
 
 # SEE ALSO
 

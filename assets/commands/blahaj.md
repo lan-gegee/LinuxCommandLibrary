@@ -1,38 +1,38 @@
 # TAGLINE
 
-Colorize text and print sharks with pride flag colors
+用骄傲旗配色为文本着色并打印鲨鱼
 
 # TLDR
 
-**Display a colorful shark**
+**显示一只彩色鲨鱼**
 
 ```blahaj --shark```
 
-**Display a pride flag**
+**显示一面骄傲旗**
 
 ```blahaj --flag```
 
-**Colorize text input** with trans colors
+**为输入文本着色**（跨性别旗配色）
 
 ```echo "[text]" | blahaj```
 
-**Colorize with a specific flag**
+**用指定的旗帜配色**着色
 
 ```echo "[text]" | blahaj --colors [rainbow]```
 
-**Color individual words**
+**为单个单词**着色
 
 ```echo "[text]" | blahaj --words```
 
-**Color the background** instead of text
+**为背景着色**而非文字
 
 ```echo "[text]" | blahaj --background```
 
-**List all available flags**
+**列出所有可用旗帜**
 
 ```blahaj --flags```
 
-**Use a random color scheme**
+**使用随机配色方案**
 
 ```echo "[text]" | blahaj --random```
 
@@ -42,53 +42,53 @@ Colorize text and print sharks with pride flag colors
 
 # DESCRIPTION
 
-**blahaj** is a lolcat-like CLI tool that colorizes text input using pride flag colors and displays ASCII art sharks. Named after the popular IKEA shark plushie, it brings colorful output to your terminal.
+**blahaj** 是一个类似 lolcat 的命令行工具，使用骄傲旗配色为文本输入着色，并可显示 ASCII 艺术鲨鱼。它以宜家（IKEA）广受欢迎的鲨鱼玩偶命名，为你的终端带来缤纷色彩。
 
-The tool can colorize text by character, word, or line using various pride flag color schemes, and can also display the beloved BLAHAJ shark in ASCII art.
+该工具可以使用各种骄傲旗配色方案按字符、单词或行为文本着色，还可以用 ASCII 艺术展示深受喜爱的 BLAHAJ 鲨鱼。
 
 # PARAMETERS
 
 **-s, --shark**
-> Display the BLAHAJ shark ASCII art
+> 显示 BLAHAJ 鲨鱼 ASCII 艺术
 
 **-f, --flag**
-> Display a pride flag
+> 显示一面骄傲旗
 
 **-c, --colors** _flag_
-> Color scheme to use (default: trans)
+> 使用的配色方案（默认：trans）
 
 **-r, --random**
-> Use a random color scheme
+> 使用随机配色方案
 
 **-i, --individual**
-> Color individual characters
+> 为单个字符着色
 
 **-w, --words**
-> Color individual words
+> 为单个单词着色
 
 **-b, --background**
-> Color the background instead of text
+> 为背景着色而非文字
 
 **-m, --multiplier** _n_
-> Multiplier for flag size
+> 旗帜尺寸的倍率
 
 **--flags**
-> List all available color schemes/flags
+> 列出所有可用的配色方案/旗帜
 
 **-h, --help**
-> Show help message
+> 显示帮助信息
 
 # AVAILABLE FLAGS
 
-Common color schemes include: trans, rainbow, gay, lesbian, bi, pan, nonbinary, ace, aro, genderqueer, genderfluid, and many more.
+常见配色方案包括：trans、rainbow、gay、lesbian、bi、pan、nonbinary、ace、aro、genderqueer、genderfluid 等等。
 
 # CAVEATS
 
-Output requires a terminal that supports ANSI color codes. Some color schemes may not display correctly on terminals with limited color support. The tool is primarily for entertainment and terminal customization.
+输出需要支持 ANSI 颜色代码的终端。某些配色方案在颜色支持有限的终端上可能无法正确显示。该工具主要用于娱乐和终端个性化。
 
 # HISTORY
 
-BLAHAJ was created by **GeopJr** as a fun terminal tool inspired by lolcat and the viral popularity of the IKEA BLAHAJ shark plushie, particularly within LGBTQ+ communities. Multiple implementations exist in Crystal, Node.js, and Rust.
+BLAHAJ 由 **GeopJr** 创建，是一个有趣的终端工具，灵感来自 lolcat 以及宜家 BLAHAJ 鲨鱼玩偶的爆红人气，尤其在 LGBTQ+ 社群中。目前存在 Crystal、Node.js 和 Rust 等多种实现。
 
 # INSTALL
 

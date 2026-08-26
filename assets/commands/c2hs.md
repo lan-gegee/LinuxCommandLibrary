@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate Haskell FFI bindings from C headers
+从 C 头文件生成 Haskell FFI 绑定
 
 # TLDR
 
-**Generate Haskell bindings from C header**
+**从 C 头文件生成** Haskell 绑定
 
 ```c2hs [header.h] [bindings.chs]```
 
-**Specify include path**
+**指定包含路径**
 
 ```c2hs -C -I[/path/to/includes] [bindings.chs]```
 
-**Pass preprocessor defines**
+**传递预处理器宏定义**
 
 ```c2hs -C -D[MACRO=value] [bindings.chs]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```c2hs -o [output_dir] [bindings.chs]```
 
-**Show help**
+**显示帮助**
 
 ```c2hs --help```
 
@@ -30,49 +30,49 @@ Generate Haskell FFI bindings from C headers
 
 # DESCRIPTION
 
-**c2hs** is a C to Haskell interface generator that simplifies creating FFI bindings to C libraries. It extracts interface information from C header files and generates Haskell code with foreign imports and correct type marshaling.
+**c2hs** 是一个 C 到 Haskell 的接口生成器，可简化为 C 库创建 FFI 绑定的过程。它从 C 头文件中提取接口信息，并生成包含外部导入（foreign import）和正确类型编组的 Haskell 代码。
 
-The tool processes .chs files containing Haskell code with embedded hooks that reference C structures and functions.
+该工具处理 .chs 文件，这类文件包含带有内嵌钩子（hook）的 Haskell 代码，用于引用 C 结构和函数。
 
 # PARAMETERS
 
 **-C** _options_
-> Pass options to C preprocessor (-I, -D, etc.)
+> 向 C 预处理器传递选项（-I、-D 等）
 
 **-o** _directory_
-> Output directory for generated files
+> 生成文件的输出目录
 
 **-c** _compiler_
-> Use specific C compiler
+> 使用指定的 C 编译器
 
 **--cppopts**=_options_
-> C preprocessor options
+> C 预处理器选项
 
 **-d** _type_
-> Dump internal information (trace, genbind, ctrav, chs)
+> 转储内部信息（trace、genbind、ctrav、chs）
 
 **-k**
-> Keep intermediate files
+> 保留中间文件
 
 **--help**
-> Show help
+> 显示帮助
 
 **--version**
-> Show version
+> 显示版本
 
 # WORKFLOW
 
-1. Write .chs file with Haskell code and C hooks
-2. Run c2hs to generate .hs file
-3. Compile generated Haskell module
+1. 编写包含 Haskell 代码和 C 钩子的 .chs 文件
+2. 运行 c2hs 生成 .hs 文件
+3. 编译生成的 Haskell 模块
 
 # CABAL INTEGRATION
 
-Cabal automatically processes .chs files and runs c2hs with appropriate flags.
+Cabal 会自动处理 .chs 文件，并以适当的标志运行 c2hs。
 
 # CAVEATS
 
-Generated code is BSD licensed. Requires C header files to be accessible. Complex C constructs may need manual binding.
+生成的代码采用 BSD 许可证。需要能够访问 C 头文件。复杂的 C 构造可能需要手动编写绑定。
 
 # INSTALL
 

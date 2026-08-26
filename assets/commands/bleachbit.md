@@ -1,34 +1,34 @@
 # TAGLINE
 
-Clean disk space and maintain privacy
+清理磁盘空间并保护隐私
 
 # TLDR
 
-Launch **GUI**
+启动**图形界面**
 
 ```bleachbit --gui```
 
-**Shred** a file
+**粉碎**一个文件
 
 ```bleachbit -s path/to/file```
 
-List **cleaners**
+列出**清理器**
 
 ```bleachbit -l```
 
-**Preview** cleanup for specific cleaners
+**预览**指定清理器的清理效果
 
 ```bleachbit -p [system.cache] [system.tmp]```
 
-**Perform** cleanup for specific cleaners
+**执行**指定清理器的清理
 
 ```bleachbit -c [system.cache] [system.tmp]```
 
-**Clean all** presets configured in the GUI
+**清理所有**在 GUI 中配置的预设项
 
 ```bleachbit -c --preset```
 
-**Wipe free disk space** on a partition
+**擦除分区上的空闲磁盘空间**
 
 ```bleachbit --wipe-free-space [path/to/mount_point]```
 
@@ -38,61 +38,61 @@ List **cleaners**
 
 # DESCRIPTION
 
-**bleachbit** frees disk space and maintains privacy by cleaning cache, cookies, temporary files, logs, and other junk. It supports hundreds of applications through its cleaner system, which identifies and removes unnecessary files specific to each program.
+**bleachbit** 通过清理缓存、cookie、临时文件、日志和其他垃圾文件来释放磁盘空间并保护隐私。它通过清理器系统支持数百种应用，可识别并移除各程序特有的不必要文件。
 
-The tool can also securely shred individual files to prevent recovery. It provides both a graphical interface and command-line mode for scripted or scheduled cleanups.
+该工具还能安全粉碎单个文件以防止恢复。它同时提供图形界面和命令行模式，便于脚本化或定时清理。
 
 # PARAMETERS
 
 **--gui**
-> Start graphical user interface
+> 启动图形用户界面
 
 **-s, --shred** _file_
-> Securely delete file
+> 安全删除文件
 
 **-l, --list-cleaners**
-> List available cleaner options
+> 列出可用的清理器选项
 
 **-p, --preview**
-> Preview files that would be deleted
+> 预览将被删除的文件
 
 **-c, --clean**
-> Perform cleanup operation
+> 执行清理操作
 
 **--preset**
-> Use cleaner options configured in the graphical interface
+> 使用图形界面中配置的清理器选项
 
 **-o, --overwrite**
-> Overwrite files to hide contents
+> 覆写文件内容以隐藏其痕迹
 
 **--wipe-free-space** _path_
-> Wipe free disk space in the given path's partition
+> 擦除给定路径所在分区的空闲磁盘空间
 
 **--sysinfo**
-> Show system information
+> 显示系统信息
 
 **--all-but-warning**
-> Enable all cleaners except those with warnings
+> 启用除带警告者之外的所有清理器
 
 **--except** _cleaner.option_
-> Exclude specific cleaner options from the operation
+> 将指定的清理器选项排除在操作之外
 
 **--no-uac**
-> Don't prompt for UAC elevation (Windows only)
+> 不提示 UAC 提权（仅限 Windows）
 
 **--exit**
-> Exit after performing the operation
+> 执行操作后退出
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # CAVEATS
 
-Preview before cleaning to avoid deleting important data. Shredding files is slow but more secure than regular deletion. Some cleaners may affect application settings.
+清理前先预览，以免删除重要数据。粉碎文件较慢但比普通删除更安全。某些清理器可能影响应用程序设置。
 
 # HISTORY
 
-**bleachbit** was created by **Andrew Ziem** and first released in **2008**. It is an open-source disk cleanup tool, often compared to CCleaner on Windows. Written in Python, it runs on Linux and Windows.
+**bleachbit** 由 **Andrew Ziem** 创建，于 **2008 年**首次发布。它是一款开源磁盘清理工具，常被拿来与 Windows 上的 CCleaner 比较。它使用 Python 编写，可在 Linux 和 Windows 上运行。
 
 # INSTALL
 

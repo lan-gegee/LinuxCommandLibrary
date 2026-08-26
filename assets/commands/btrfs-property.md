@@ -1,26 +1,26 @@
 # TAGLINE
 
-Get and set properties on btrfs filesystem objects
+获取和设置 btrfs 文件系统对象的属性
 
 # TLDR
 
-**List** available properties for a btrfs object
+**列出** btrfs 对象的可用属性
 
 ```sudo btrfs property list [path/to/btrfs_object]```
 
-**Get** all properties for a btrfs object
+**获取** btrfs 对象的所有属性
 
 ```sudo btrfs property get [path/to/btrfs_object]```
 
-Get the **label** property for a filesystem
+获取文件系统的 **label** 属性
 
 ```sudo btrfs property get [path/to/btrfs_filesystem] label```
 
-Get properties for a **specific object type**
+获取**特定对象类型**的属性
 
 ```sudo btrfs property get -t [subvol|filesystem|inode|device] [path/to/btrfs_filesystem]```
 
-**Set compression** for a file or directory
+为文件或目录**设置压缩**
 
 ```sudo btrfs property set [path/to/btrfs_inode] compression [zstd|zlib|lzo|none]```
 
@@ -30,40 +30,40 @@ Get properties for a **specific object type**
 
 # DESCRIPTION
 
-**btrfs property** manages properties on btrfs filesystem objects including files, directories, subvolumes, filesystems, and devices. Properties control behavior like compression, read-only status, and labels.
+**btrfs property** 管理 btrfs 文件系统对象的属性，对象包括文件、目录、子卷、文件系统和设备。属性控制压缩、只读状态和标签等行为。
 
-Different object types support different properties. The list command shows what properties are available for each object.
+不同的对象类型支持不同的属性。list 命令可以显示每个对象可用的属性。
 
 # SUBCOMMANDS
 
 **list**
-> List available properties and descriptions
+> 列出可用的属性及其说明
 
 **get**
-> Get property values
+> 获取属性值
 
 **set**
-> Set a property value
+> 设置属性值
 
 # PARAMETERS
 
 **-t** _type_
-> Object type: subvol, filesystem, inode, or device
+> 对象类型：subvol、filesystem、inode 或 device
 
 # PROPERTIES
 
 **compression**
-> Compression algorithm for files: zstd, zlib, lzo, none
+> 文件的压缩算法：zstd、zlib、lzo、none
 
 **label**
-> Filesystem label (filesystem property)
+> 文件系统标签（filesystem 属性）
 
 **ro**
-> Read-only status (subvolume property)
+> 只读状态（subvolume 属性）
 
 # CAVEATS
 
-Setting compression on a directory only affects new files; existing files need explicit recompression. Not all properties are writable. Some operations require root privileges.
+对目录设置压缩只影响新文件；已有文件需要显式重新压缩。并非所有属性都可写。某些操作需要 root 权限。
 
 # INSTALL
 

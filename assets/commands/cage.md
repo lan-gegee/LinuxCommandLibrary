@@ -1,26 +1,26 @@
 # TAGLINE
 
-Wayland kiosk compositor for single applications
+面向单一应用的 Wayland kiosk 合成器
 
 # TLDR
 
-**Run** an application in kiosk mode
+以 kiosk 模式**运行**应用
 
 ```cage application```
 
-Run with **arguments**
+带**参数**运行
 
 ```cage -- application arguments```
 
-**Hide** window decorations
+**隐藏**窗口装饰
 
 ```cage -d application```
 
-Allow **terminal switching**
+允许**切换终端**
 
 ```cage -s application```
 
-Display **help**
+显示**帮助**
 
 ```cage -h```
 
@@ -30,35 +30,35 @@ Display **help**
 
 # DESCRIPTION
 
-**cage** is a Wayland kiosk compositor that runs a single application in fullscreen mode. It is designed for kiosk deployments, digital signage, or any situation where you want to run a single application without a full desktop environment.
+**cage** 是一个 Wayland kiosk 合成器，以全屏模式运行单个应用。它专为 kiosk 部署、数字标牌或任何只需运行单个应用而无需完整桌面环境的场景设计。
 
 # PARAMETERS
 
 **-d**
-> Disable window decorations (can lock you out of terminal)
+> 禁用窗口装饰（可能导致你无法进入终端）
 
 **-s**
-> Allow switching virtual terminals with Ctrl+Alt+F2, etc.
+> 允许用 Ctrl+Alt+F2 等快捷键切换虚拟终端
 
 **-r**
-> Rotate the output (0, 90, 180, 270 degrees)
+> 旋转输出画面（0、90、180、270 度）
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 **-v**
-> Display version information
+> 显示版本信息
 
 **--**
-> Separator for application arguments
+> 应用参数的分隔符
 
 # CAVEATS
 
-Without the -s option, you cannot switch to other virtual terminals. Using -d without a way to exit the application can lock you out. Cage requires a working Wayland environment.
+不使用 -s 选项时，无法切换到其他虚拟终端。使用 -d 又没有退出应用的途径时，可能会把自己锁在外面。Cage 需要可用的 Wayland 环境。
 
 # HISTORY
 
-**cage** was developed as a lightweight kiosk compositor for Wayland, named after the caged display concept in kiosk mode deployments.
+**cage** 是为 Wayland 开发的轻量级 kiosk 合成器，得名于 kiosk 模式部署中“笼中显示屏”的概念。
 
 # INSTALL
 

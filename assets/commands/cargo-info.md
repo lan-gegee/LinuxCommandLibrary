@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display information about a Rust crate
+显示 Rust crate 的信息
 
 # TLDR
 
-**Show package information**
+**显示软件包信息**
 
 ```cargo info [serde]```
 
-**Show specific version info**
+**显示指定版本的信息**
 
 ```cargo info [serde@1.0]```
 
-**Show info for local package**
+**显示本地软件包信息**
 
 ```cargo info```
 
-**Show info with features**
+**带特性显示信息**
 
 ```cargo info [tokio]```
 
@@ -26,41 +26,41 @@ Display information about a Rust crate
 
 # DESCRIPTION
 
-**cargo info** displays information about a package from crates.io or the local workspace. Shows metadata from Cargo.toml including name, version, description, license, dependencies, and features.
+**cargo info** 显示来自 crates.io 或本地工作空间的软件包信息。展示 Cargo.toml 中的元数据，包括名称、版本、描述、许可证、依赖和特性。
 
-For local workspace packages, displays information from the local manifest. Creates Cargo.lock if it doesn't exist.
+对于本地工作空间的软件包，则显示本地清单中的信息。若 Cargo.lock 不存在会自动创建。
 
 # PARAMETERS
 
 **--registry** _name_
-> Use specified registry
+> 使用指定的注册表
 
 **--index** _url_
-> Use specified registry index
+> 使用指定的注册表索引
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # OUTPUT
 
-Displays:
-- Package name and version
-- Description
-- License
-- Documentation and repository links
-- Dependencies
-- Features
-- Recent versions
+显示内容：
+- 软件包名称与版本
+- 描述
+- 许可证
+- 文档与仓库链接
+- 依赖
+- 特性
+- 近期版本
 
 # CAVEATS
 
-Without version specification, selects version based on Minimum Supported Rust Version (MSRV). For more detailed crate queries, consider cargo-crate or cargo-information.
+未指定版本时，将基于最低支持的 Rust 版本（MSRV）选择版本。如需更详细的 crate 查询，可考虑 cargo-crate 或 cargo-information。
 
 # INSTALL
 

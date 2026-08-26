@@ -1,34 +1,34 @@
 # TAGLINE
 
-create a macOS power-management assertion to keep the system awake
+创建 macOS 电源管理声明（assertion），防止系统休眠
 
 # TLDR
 
-**Prevent idle sleep** indefinitely (press Ctrl-C to stop)
+**无限期阻止空闲休眠**（按 Ctrl-C 停止）
 
 ```caffeinate```
 
-**Prevent the display from sleeping**
+**防止显示器休眠**
 
 ```caffeinate -d```
 
-**Prevent idle sleep for a duration** (in seconds)
+**在一段时间内阻止空闲休眠**（单位为秒）
 
 ```caffeinate -t [3600]```
 
-**Prevent sleep while a command runs**
+**在命令运行期间阻止休眠**
 
 ```caffeinate -i [make]```
 
-**Combine flags** — keep display and disk awake for 1 hour
+**组合标志** — 让显示器和磁盘保持唤醒 1 小时
 
 ```caffeinate -dim -t [3600]```
 
-**Hold the assertion until a process** (by PID) exits
+**持有声明直到某个进程**（按 PID）退出
 
 ```caffeinate -w [pid]```
 
-**Prevent system sleep** (stronger, only effective on AC power)
+**阻止系统休眠**（更强，仅在使用交流电源时有效）
 
 ```caffeinate -s```
 
@@ -39,44 +39,44 @@ create a macOS power-management assertion to keep the system awake
 # PARAMETERS
 
 **-d**
-> Prevent the display from sleeping.
+> 防止显示器休眠。
 
 **-i**
-> Prevent the system from idle sleeping. (default when no assertion flag is given)
+> 防止系统因空闲而休眠。（未指定任何声明标志时为默认行为）
 
 **-m**
-> Prevent the disk from idle sleeping.
+> 防止磁盘因空闲而休眠。
 
 **-s**
-> Prevent the system from sleeping. Only effective when plugged into AC power on a laptop.
+> 防止系统休眠。仅在笔记本电脑接入交流电源时有效。
 
 **-u**
-> Declare that the user is active. The assertion is released automatically after 5 seconds (or sooner if cancelled) — useful to bump activity without holding it indefinitely.
+> 声明用户处于活动状态。该声明会在 5 秒后自动释放（若被取消则更早）——适用于短暂刷新活动状态而不无限期保持的场景。
 
 **-t** _timeout_
-> Release the assertion after _timeout_ seconds. Without this flag the assertion holds until caffeinate is terminated or the wrapped utility exits.
+> 在 _timeout_ 秒后释放声明。不带此标志时，声明会一直保持，直到 caffeinate 被终止或所包裹的工具退出。
 
 **-w** _pid_
-> Hold the assertion until the process with the given PID exits.
+> 持有声明，直到给定 PID 的进程退出。
 
 _utility_ [_arguments_]
-> If a utility is given, caffeinate runs it and holds the assertion until it exits. `caffeinate -i make` is the idiomatic pattern.
+> 如果给定了工具，caffeinate 会运行它并持有声明直到其退出。`caffeinate -i make` 是惯用模式。
 
 # DESCRIPTION
 
-**caffeinate** creates one or more **IOKit power-management assertions** to suppress different kinds of sleep. It is the supported way to prevent macOS from entering display, idle, disk, or system sleep for the duration of a task.
+**caffeinate** 创建一个或多个 **IOKit 电源管理声明（assertion）**来抑制不同类型的休眠。它是让 macOS 在任务执行期间不进入显示休眠、空闲休眠、磁盘休眠或系统休眠的受支持方式。
 
-When invoked with a utility, caffeinate forks and runs the utility with the assertion(s) held until the utility exits. Without a utility, it runs until it receives a signal (e.g. Ctrl-C) or until `-t` expires. Multiple flags may be combined; each adds its own assertion.
+带工具调用时，caffeinate 会派生并运行该工具，同时持有声明直到工具退出。不带工具时，它会一直运行，直到收到信号（如 Ctrl-C）或 `-t` 超时。多个标志可以组合使用；每个标志各自添加一条声明。
 
 # CAVEATS
 
-macOS only (shipped in `/usr/bin/caffeinate` since OS X 10.8 Mountain Lion). On battery, `-s` may be ignored — `-i` is the reliable choice for laptops. `-u` gives only a brief nudge; use `-d -i` for longer guarantees. Creating an assertion does not override closing the laptop lid (clamshell) — for that, use `pmset`.
+仅限 macOS（自 OS X 10.8 Mountain Lion 起随系统提供于 `/usr/bin/caffeinate`）。使用电池时 `-s` 可能被忽略——笔记本电脑上 `-i` 是可靠的选择。`-u` 只带来短暂的活动提示；需要更长久的保证请用 `-d -i`。创建声明不能覆盖合上笔记本盖子（clamshell）的休眠行为——那种情况请使用 `pmset`。
 
-For Linux, the equivalent is `systemd-inhibit` or `caffeine` (GNOME applet). For X11, `xset s off -dpms` controls screensaver and DPMS.
+Linux 上的等价工具是 `systemd-inhibit` 或 `caffeine`（GNOME 小程序）。X11 下可用 `xset s off -dpms` 控制屏幕保护程序和 DPMS。
 
 # HISTORY
 
-**caffeinate** was introduced in **Mac OS X 10.8 (Mountain Lion, 2012)** by Apple as the supported CLI replacement for ad-hoc scripts that poked mouse events to keep the Mac awake. It wraps the IOKit `IOPMAssertion` API.
+**caffeinate** 由 Apple 在 **Mac OS X 10.8（Mountain Lion，2012 年）**中引入，作为替代“向系统注入鼠标事件以保持 Mac 唤醒”这类临时脚本的官方 CLI 方案。它封装了 IOKit 的 `IOPMAssertion` API。
 
 # INSTALL
 

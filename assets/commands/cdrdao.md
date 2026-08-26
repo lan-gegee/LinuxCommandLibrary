@@ -1,30 +1,30 @@
 # TAGLINE
 
-disc-at-once CD recording and reading
+整盘（disc-at-once）模式刻录与读取 CD
 
 # TLDR
 
-**Read** a CD and write contents to a file
+**读取** CD 并将内容写入文件
 
 ```cdrdao read-cd --device [/dev/cdrom] --read-raw [image.toc]```
 
-**Write** a disc image to CD-R
+**将**光盘镜像**写入** CD-R
 
 ```cdrdao write --device [/dev/cdrom] --speed [8] [image.toc]```
 
-**Simulate** a write without actually burning
+**模拟**刻录而不实际烧录
 
 ```cdrdao simulate --device [/dev/cdrom] [image.toc]```
 
-**Copy** a CD directly
+直接**复制**一张 CD
 
 ```cdrdao copy --source-device [/dev/cdrom] --device [/dev/cdrw] [image.toc]```
 
-**Blank** a CD-RW disc
+**擦除** CD-RW 光盘
 
 ```cdrdao blank --device [/dev/cdrw] --blank-mode minimal```
 
-**Show** the table of contents
+**显示**目录表
 
 ```cdrdao show-toc [image.toc]```
 
@@ -34,70 +34,70 @@ disc-at-once CD recording and reading
 
 # DESCRIPTION
 
-**cdrdao** reads and writes CDs in disc-at-once (DAO) mode. Unlike track-at-once recording, DAO writes the entire disc in a single pass without gaps between tracks, preserving exact sector timing and sub-channel data. This makes it the preferred tool for creating accurate copies of audio CDs where track transitions matter.
+**cdrdao** 以整盘（disc-at-once，DAO）模式读写 CD。与逐轨（track-at-once）刻录不同，DAO 一次性写完整张光盘，音轨之间没有间隙，保留精确的扇区时序和子通道数据。因此它是制作音频 CD 精确副本的首选工具——在这类场景中音轨衔接非常重要。
 
-The tool uses TOC (Table of Contents) files to describe disc layout, which can represent complex disc structures including multi-session discs, mixed-mode discs, and CDs with hidden tracks or non-standard gaps. The TOC format provides more control over disc layout than cue sheets.
+该工具使用 TOC（Table of Contents，目录表）文件来描述光盘布局，可以表示复杂的光盘结构，包括多区段光盘、混合模式光盘以及带隐藏音轨或非标准间隙的 CD。相比 cue sheet，TOC 格式对光盘布局的控制更精细。
 
-A typical workflow involves reading a disc with `read-cd` to create a TOC file and binary image, then writing the image back with `write`. The `simulate` command performs a dry run without actually burning.
+典型工作流程是：先用 `read-cd` 读取光盘生成 TOC 文件和二进制镜像，再用 `write` 将镜像写回。`simulate` 命令执行一次不实际烧录的演练。
 
 # COMMANDS
 
 **read-cd**
-> Read a CD to image and TOC files
+> 将 CD 读取为镜像和 TOC 文件
 
 **write**
-> Write image to disc
+> 将镜像写入光盘
 
 **copy**
-> Copy disc to disc
+> 光盘对拷
 
 **simulate**
-> Simulate write operation
+> 模拟刻录操作
 
 **show-toc**
-> Display TOC file contents
+> 显示 TOC 文件内容
 
 **read-toc**
-> Analyze each track and create a TOC file without reading audio/data
+> 分析每条音轨并创建 TOC 文件，而不读取音频/数据
 
 **blank**
-> Blank a CD-RW disc
+> 擦除 CD-RW 光盘
 
 **unlock**
-> Unlock the recorder device after a failed write or simulation
+> 在刻录或模拟失败后解锁刻录机设备
 
 # PARAMETERS
 
 **--device** _device_
-> CD/DVD device path
+> CD/DVD 设备路径
 
 **--read-raw**
-> Read in raw mode (preserves all data)
+> 以原始模式读取（保留全部数据）
 
 **--driver** _name_
-> Use specific device driver
+> 使用指定的设备驱动
 
 **--speed** _n_
-> Set write speed
+> 设置刻录速度
 
 **--source-device** _device_
-> Source CD device path (for copy command)
+> 源 CD 设备路径（用于 copy 命令）
 
 **--eject**
-> Eject disc after operation
+> 操作完成后弹出光盘
 
 **--overburn**
-> Allow writing more data than the medium capacity
+> 允许写入超过介质容量的数据
 
 **--multi**
-> Do not close the session after writing, allowing additional sessions
+> 写入后不关闭区段，以便追加更多区段
 
 **--blank-mode** _mode_
-> Blanking mode for CD-RW (minimal or full)
+> CD-RW 的擦除模式（minimal 或 full）
 
 # CAVEATS
 
-Requires a CD/DVD writer for write operations. Raw read mode may not work with all drives. Copy protection may prevent reading some discs.
+写入操作需要 CD/DVD 刻录机。原始读取模式并非对所有光驱都有效。复制保护可能阻止读取某些光盘。
 
 # INSTALL
 

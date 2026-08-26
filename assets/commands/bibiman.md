@@ -1,38 +1,38 @@
 # TAGLINE
 
-TUI for managing BibLaTeX databases with Vim-like keybindings
+带 Vim 风格键位、用于管理 BibLaTeX 数据库的 TUI
 
 # TLDR
 
-Browse entries in a **bibliography file**
+浏览**参考文献文件**中的条目
 
 ```bibiman [path/to/references.bib]```
 
-Open **multiple bibliography files** simultaneously
+同时打开**多个参考文献文件**
 
 ```bibiman [file1.bib] [file2.bib]```
 
-Recursively load all **.bib files** from a directory
+递归加载目录下的所有 **.bib 文件**
 
 ```bibiman [path/to/directory]```
 
-Use a **custom configuration** file
+使用**自定义配置**文件
 
 ```bibiman -c [path/to/bibiman.toml] [path/to/file.bib]```
 
-Load **only CLI-specified files**, ignoring the config
+仅加载**命令行指定的文件**，忽略配置
 
 ```bibiman -C [path/to/file.bib]```
 
-Enable colors optimized for **light terminal** backgrounds
+启用针对**浅色终端**背景优化的配色
 
 ```bibiman --light-terminal [path/to/file.bib]```
 
-**Set a custom PDF directory** for matching PDFs to entries
+**设置自定义 PDF 目录**以便将 PDF 与条目匹配
 
 ```bibiman --pdf-path [path/to/pdfs] [path/to/file.bib]```
 
-**Format citekeys** in a bibliography file
+**格式化参考文献文件中的 citekey**
 
 ```bibiman format-citekeys [path/to/file.bib]```
 
@@ -45,48 +45,48 @@ Enable colors optimized for **light terminal** backgrounds
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information and exit
+> 显示帮助信息并退出
 
 **-v**, **--version**
-> Print the installed version and exit
+> 打印已安装的版本并退出
 
 **-c**, **--config-file** _path_
-> Specify a custom configuration file location
+> 指定自定义配置文件位置
 
 **-l**, **--log-file** _path_
-> Specify a custom log file location
+> 指定自定义日志文件位置
 
 **--pdf-path** _path_
-> Set the directory path for PDF file discovery during the session
+> 设置本次会话中查找 PDF 文件时使用的目录路径
 
 **--light-terminal**
-> Enable color scheme optimized for light terminal backgrounds
+> 启用针对浅色终端背景优化的配色方案
 
 **-C**, **--cli-only**
-> Load only files specified on the command line, ignoring any files defined in the configuration
+> 仅加载命令行上指定的文件，忽略配置中定义的任何文件
 
 **format-citekeys**
-> Subcommand to reformat citekeys in a bibliography file using pattern syntax
+> 子命令，使用模式语法重新格式化参考文献文件中的 citekey
 
 # DESCRIPTION
 
-**bibiman** is a terminal user interface for managing BibLaTeX bibliographic databases as part of a terminal-based scientific workflow. Written in Rust, it provides fast, keyboard-driven interaction with .bib files.
+**bibiman** 是一个终端用户界面（TUI），用于管理 BibLaTeX 文献数据库，可作为基于终端的科研工作流的一部分。它以 Rust 编写，提供快速、键盘驱动的 .bib 文件交互方式。
 
-The interface uses Vim-like keybindings for navigation: **j**/**k** or arrow keys to move between entries, **Ctrl-d**/**Ctrl-u** to jump by five entries, **g**/**G** to jump to the first or last entry, and **h**/**l** to select columns. Pressing **?** opens a help popup with the full keybinding reference.
+界面采用 Vim 风格键位进行导航：**j**/**k** 或方向键在条目间移动，**Ctrl-d**/**Ctrl-u** 按五个条目跳转，**g**/**G** 跳到第一条或最后一条，**h**/**l** 选择列。按 **?** 会弹出包含完整键位参考的帮助窗口。
 
-Entries can be searched with **/** or **Ctrl-f** for fuzzy search across all fields, or **Alt-/** to search a specific field. Fuzzy matching is provided by the nucleo-matcher engine. Special prefixes modify matching behavior: **^** anchors to the beginning, **$** anchors to the end, and **'** forces literal matching. Pressing **TAB** switches between entry and keyword views, allowing filtering by keywords.
+可以用 **/** 或 **Ctrl-f** 对所有字段进行模糊搜索，或用 **Alt-/** 搜索特定字段。模糊匹配由 nucleo-matcher 引擎提供。特殊前缀可修改匹配行为：**^** 锚定到开头，**$** 锚定到结尾，**'** 强制字面匹配。按 **TAB** 可在条目视图和关键词视图之间切换，从而按关键词过滤。
 
-Pressing **e** opens the current entry in a terminal editor at the correct line. The editor is determined by the config file, then the **VISUAL** environment variable, then **EDITOR**, falling back to **vi**. Pressing **y** copies the citekey to the system clipboard, **o** opens an associated PDF, URL, or DOI link, and **n** creates or opens a note file linked to the entry. Entries can be added via DOI lookup with **a**.
+按 **e** 会在终端编辑器中打开当前条目并定位到正确的行。编辑器依次由配置文件、**VISUAL** 环境变量、**EDITOR** 决定，最后回退到 **vi**。按 **y** 将 citekey 复制到系统剪贴板，**o** 打开关联的 PDF、URL 或 DOI 链接，**n** 创建或打开与该条目关联的笔记文件。可以通过 **a** 经 DOI 查询添加条目。
 
-Sorting is available by pressing **s** to cycle through author, title, and year columns, or **S** to restore the original file position order. A custom column can display additional metadata such as journal title, publisher, institution, series, or publication type.
+排序方面：按 **s** 可在作者、标题和年份列之间循环切换排序，或按 **S** 恢复文件中的原始顺序。自定义列可以显示额外元数据，如期刊名、出版商、机构、丛书或出版物类型。
 
-Multiple .bib files can be loaded in a single session by passing several file arguments or a directory path. When a directory is given, bibiman recursively searches for all .bib files within it. PDF files are matched to entries either through the BibTeX **file** field or by matching the citekey against filenames in the configured PDF directory.
+通过传入多个文件参数或一个目录路径，可在单个会话中加载多个 .bib 文件。若给定目录，bibiman 会递归搜索其中的所有 .bib 文件。PDF 文件可通过 BibTeX 的 **file** 字段匹配到条目，也可通过将 citekey 与配置的 PDF 目录中的文件名匹配来关联。
 
-The **format-citekeys** subcommand provides batch citekey reformatting via the command line using a configurable pattern syntax, without launching the TUI.
+**format-citekeys** 子命令允许在不启动 TUI 的情况下，通过命令行使用可配置的模式语法批量重排 citekey。
 
 # CONFIGURATION
 
-The configuration file is located at **$XDG_CONFIG_HOME/bibiman/bibiman.toml** (typically ~/.config/bibiman/bibiman.toml).
+配置文件位于 **$XDG_CONFIG_HOME/bibiman/bibiman.toml**（通常是 ~/.config/bibiman/bibiman.toml）。
 
 ```[general]
 bibfiles = ["/path/to/references.bib"]
@@ -99,19 +99,19 @@ note_extensions = ["md", "txt"]
 custom_column = "pubtype"
 clipboard = "wayland"```
 
-The **editor** field accepts either a simple string or a table with **command** and **args** keys. The **custom_column** field controls what extra metadata appears in the entry list and can be set to **journaltitle**, **organization**, **institution**, **series**, **publisher**, or **pubtype**. The **clipboard** field selects the clipboard provider: **wayland**, **x-clip**, **x-sel**, **pasteboard**, **tmux**, or **win32-yank**.
+**editor** 字段既接受简单字符串，也接受含 **command** 和 **args** 键的表。**custom_column** 字段控制条目列表中显示哪些额外元数据，可设置为 **journaltitle**、**organization**、**institution**、**series**、**publisher** 或 **pubtype**。**clipboard** 字段选择剪贴板提供者：**wayland**、**x-clip**、**x-sel**、**pasteboard**、**tmux** 或 **win32-yank**。
 
-Colors are configured in a **[colors]** section using ANSI color names, 256-color indices, or hex codes for elements such as **main_text_color**, **highlight_text_color**, **entry_color**, **keyword_color**, and **popup_bg_color**.
+颜色在一个 **[colors]** 小节中配置，可使用 ANSI 颜色名、256 色索引或十六进制码，作用于 **main_text_color**、**highlight_text_color**、**entry_color**、**keyword_color** 和 **popup_bg_color** 等元素。
 
-Citekey formatting rules are defined in a **[citekey_formatter]** section with options for **fields**, **ascii_only**, and **case**.
+citekey 格式化规则定义于 **[citekey_formatter]** 小节，选项包括 **fields**、**ascii_only** 和 **case**。
 
 # CAVEATS
 
-Citekeys cannot contain the special characters **/ | # * \ " ' ; !** as these interfere with note file creation and other operations. The editor must support the **+line** argument syntax for jumping to a specific line. Windows support for opening PDF files and URLs is untested. LaTeX macros are hidden in the display for readability but are preserved in the underlying .bib file.
+citekey 不能包含特殊字符 **/ | # * \ " ' ; !**，因为它们会干扰笔记文件的创建和其他操作。编辑器必须支持 **+line** 参数语法以跳转到指定行。Windows 上对打开 PDF 文件和 URL 的支持未经测试。为了可读性，LaTeX 宏在显示时被隐藏，但在底层 .bib 文件中保持不变。
 
 # HISTORY
 
-**bibiman** was created by **lukeflo** and first published to crates.io as version 0.7.0 in **November 2024**. The first official Codeberg release (v0.15.0) followed in **October 2025**. The project is written in Rust without AI-generated code, licensed under GPL-3.0-or-later, and hosted on Codeberg. As of early 2026, development remains active with version 0.19.3 released in January 2026 and over 376 commits in the repository.
+**bibiman** 由 **lukeflo** 创建，**2024 年 11 月**首次以 0.7.0 版本发布到 crates.io。首个正式 Codeberg 发布版（v0.15.0）随后于 **2025 年 10 月**推出。该项目以 Rust 编写且不含 AI 生成的代码，采用 GPL-3.0-or-later 许可证，托管在 Codeberg 上。截至 2026 年初，开发仍然活跃：2026 年 1 月发布了 0.19.3 版本，仓库已有超过 376 次提交。
 
 # SEE ALSO
 

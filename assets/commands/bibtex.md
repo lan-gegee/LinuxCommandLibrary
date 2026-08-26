@@ -1,22 +1,22 @@
 # TAGLINE
 
-Process bibliography references for LaTeX documents
+为 LaTeX 文档处理参考文献引用
 
 # TLDR
 
-**Process the bibliography** for a document (pass the basename, without the .aux extension)
+**处理文档的参考文献**（传入不含 .aux 扩展名的基本名）
 
 ```bibtex [document]```
 
-**Process a specific** .aux file
+**处理指定的** .aux 文件
 
 ```bibtex [document.aux]```
 
-**Operate silently**, printing only error messages
+**静默运行**，仅打印错误消息
 
 ```bibtex -terse [document]```
 
-**Set the minimum** number of cross references for automatic inclusion
+**设置自动收录所需的交叉引用最小数量**
 
 ```bibtex -min-crossrefs=[number] [document]```
 
@@ -26,23 +26,23 @@ Process bibliography references for LaTeX documents
 
 # DESCRIPTION
 
-**bibtex** processes bibliography information for LaTeX documents. It reads .aux files produced by LaTeX, looks up citations in .bib bibliography databases, formats them according to a bibliography style (.bst), and generates a .bbl file that LaTeX includes in the final document.
+**bibtex** 为 LaTeX 文档处理参考文献信息。它读取 LaTeX 生成的 .aux 文件，在 .bib 文献数据库中查找被引条目，按文献样式（.bst）排版，并生成一个由 LaTeX 包含进最终文档的 .bbl 文件。
 
-The tool is essential for academic writing and managing citations in LaTeX.
+该工具对学术写作和 LaTeX 中的引用管理至关重要。
 
 # PARAMETERS
 
 **-terse**
-> Operate silently, printing only error messages.
+> 静默运行，仅打印错误消息。
 
 **-min-crossrefs=**_number_
-> Minimum number of cross references required before a crossref base entry is automatically included in the bibliography (default: 2). Set a large value to disable automatic inclusion.
+> crossref 基础条目被自动收录进参考文献所需的最小交叉引用数（默认：2）。设为很大的值可禁用自动收录。
 
 **-help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # WORKFLOW
 
@@ -61,38 +61,38 @@ pdflatex document.tex
 # FILES
 
 **document.tex**
-> LaTeX source with \cite commands
+> 含 \cite 命令的 LaTeX 源文件
 
 **refs.bib**
-> Bibliography database
+> 文献数据库
 
 **document.aux**
-> Auxiliary file (LaTeX output)
+> 辅助文件（LaTeX 的输出）
 
 **document.bbl**
-> Formatted bibliography (BibTeX output)
+> 排版后的参考文献（BibTeX 的输出）
 
 **document.blg**
-> BibTeX log file
+> BibTeX 日志文件
 
 # BIBLIOGRAPHY STYLE
 
-Common styles:
+常用样式：
 
 **plain**
-> Numeric citations, sorted alphabetically.
+> 数字编号引用，按字母排序。
 
 **alpha**
-> Alpha-numeric citation labels.
+> 字母数字混合的引用标签。
 
 **abbrv**
-> Like plain, but with abbreviated first names, months, and journal names.
+> 类似 plain，但名字、月份和期刊名使用缩写。
 
 **unsrt**
-> Like plain, but entries appear in citation order.
+> 类似 plain，但条目按引用顺序排列。
 
 **ieeetr**
-> IEEE Transactions style.
+> IEEE Transactions 样式。
 
 # BIB FORMAT
 
@@ -109,11 +109,11 @@ Common styles:
 
 # CAVEATS
 
-Requires multiple LaTeX/BibTeX runs. Error messages can be cryptic. BibTeX syntax strict. Modern alternative: biblatex/biber. Unicode support limited (use biber for full Unicode).
+需要多次运行 LaTeX/BibTeX。错误信息可能晦涩难懂。BibTeX 语法严格。现代替代方案：biblatex/biber。Unicode 支持有限（完整 Unicode 支持请使用 biber）。
 
 # HISTORY
 
-**BibTeX** was created by Oren Patashnik in **1985** as part of the LaTeX document preparation system to manage bibliographies.
+**BibTeX** 由 Oren Patashnik 于 **1985 年**创建，作为 LaTeX 文档制备系统的一部分，用于管理参考文献。
 
 # INSTALL
 

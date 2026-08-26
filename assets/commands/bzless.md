@@ -1,10 +1,10 @@
 # TAGLINE
 
-View bzip2 compressed files with less pager
+使用 less 分页器查看 bzip2 压缩文件
 
 # TLDR
 
-**View** compressed file
+**查看**压缩文件
 
 ```bzless [file.txt.bz2]```
 
@@ -14,26 +14,26 @@ View bzip2 compressed files with less pager
 
 # DESCRIPTION
 
-**bzless** is a filter for viewing bzip2-compressed files using the less pager. It decompresses files on-the-fly and provides the full functionality of less for navigation, searching, and viewing.
+**bzless** 是一个用于查看 bzip2 压缩文件的过滤器，基于 less 分页器。它会即时解压文件，并提供 less 的全部功能，可用于导航、搜索和查看。
 
-The tool combines bzcat with less for comfortable viewing of compressed files.
+该工具将 bzcat 与 less 结合，方便地查看压缩文件。
 
 # FEATURES
 
-- Full less navigation
-- Search within compressed files
-- No disk decompression needed
-- Multiple file support
-- Original file preserved
+- 完整的 less 导航功能
+- 在压缩文件内搜索
+- 无需解压到磁盘
+- 支持多个文件
+- 保留原始文件
 
 # LESS KEYBINDINGS
 
-- **Space/f** - Page down
-- **b** - Page up
-- **/pattern** - Search forward
-- **?pattern** - Search backward
-- **n** - Next match
-- **q** - Quit
+- **Space/f** - 向下翻页
+- **b** - 向上翻页
+- **/pattern** - 向前搜索
+- **?pattern** - 向后搜索
+- **n** - 下一个匹配
+- **q** - 退出
 
 # WORKFLOW
 
@@ -51,11 +51,11 @@ bzless logfile.bz2
 
 # CAVEATS
 
-Decompresses entire file for navigation. Cannot edit files. Slower than viewing uncompressed files. Large compressed files may be slow to load.
+为便于浏览会解压整个文件。无法编辑文件。比查看未压缩文件慢。较大的压缩文件加载可能较慢。
 
 # HISTORY
 
-**bzless** has been part of bzip2 utilities since **1996**, modeled after zless for gzip files.
+**bzless** 自 **1996** 年起就是 bzip2 工具集的一部分，仿照针对 gzip 文件的 zless 设计。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Rust linter for catching common mistakes
+用于捕获常见错误的 Rust 代码检查器
 
 # TLDR
 
-**Run clippy lints**
+**运行 clippy 检查**
 
 ```cargo clippy```
 
-**Lint all targets**
+**检查所有目标**
 
 ```cargo clippy --all-targets```
 
-**Lint with all features**
+**以所有特性进行检查**
 
 ```cargo clippy --all-features```
 
-**Fail on warnings (for CI)**
+**出现警告即失败（用于 CI）**
 
 ```cargo clippy -- -D warnings```
 
-**Allow specific lint**
+**允许特定 lint**
 
 ```cargo clippy -- -A clippy::[lint_name]```
 
-**Warn on specific lint**
+**对特定 lint 发出警告**
 
 ```cargo clippy -- -W clippy::[lint_name]```
 
-**Automatically fix issues**
+**自动修复问题**
 
 ```cargo clippy --fix```
 
-**Full CI check**
+**完整的 CI 检查**
 
 ```cargo clippy --all-targets --all-features -- -D warnings```
 
@@ -42,63 +42,63 @@ Rust linter for catching common mistakes
 
 # DESCRIPTION
 
-**cargo clippy** is the Rust linter that catches common mistakes and suggests improvements. Part of the Rust toolchain via rustup. Runs the default clippy::all lint group.
+**cargo clippy** 是 Rust 的代码检查器（linter），能够捕获常见错误并提出改进建议。它通过 rustup 随 Rust 工具链提供。默认运行 clippy::all lint 组。
 
 # PARAMETERS
 
 **--all-targets**
-> Lint all targets (lib, bin, tests, examples, benches)
+> 检查所有目标（lib、bin、tests、examples、benches）
 
 **--all-features**
-> Enable all available features
+> 启用所有可用特性
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--release**
-> Lint in release mode
+> 以 release 模式检查
 
 **--workspace**
-> Lint all workspace members
+> 检查所有工作空间成员
 
 **--fix**
-> Automatically apply suggested fixes
+> 自动应用建议的修复
 
 **-- -A** _lint_
-> Allow specified lint
+> 允许指定的 lint
 
 **-- -W** _lint_
-> Warn on specified lint
+> 对指定的 lint 发出警告
 
 **-- -D** _lint_
-> Deny specified lint (treat as error)
+> 禁止指定的 lint（视为错误）
 
 # LINT GROUPS
 
 **clippy::correctness**
-> Deny-by-default, catches outright bugs
+> 默认禁止，捕获明显的 bug
 
 **clippy::style**
-> Idiomatic code suggestions
+> 惯用写法建议
 
 **clippy::complexity**
-> Simplification suggestions
+> 简化代码建议
 
 **clippy::perf**
-> Performance improvements
+> 性能改进建议
 
 **clippy::pedantic**
-> Stricter, more opinionated lints
+> 更严格、更主观武断的 lint
 
 # INSTALLATION
 
-Included with Rust toolchain. Install/update via:
+随 Rust 工具链附带。安装/更新方式：
 
 ```rustup component add clippy```
 
 # CAVEATS
 
-Some lints are opinionated. Use lint configuration to customize for your project. The --fix option modifies files in place.
+部分 lint 较为主观。可通过 lint 配置按项目需求定制。--fix 选项会直接修改文件。
 
 # INSTALL
 

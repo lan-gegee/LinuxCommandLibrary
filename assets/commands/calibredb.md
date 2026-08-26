@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line interface to the Calibre ebook database
+Calibre 电子书数据库的命令行接口
 
 # TLDR
 
-**List all books**
+**列出所有图书**
 
 ```calibredb list```
 
-**Add book to library**
+**向书库添加图书**
 
 ```calibredb add [book.epub]```
 
-**Remove book by ID**
+**按 ID 删除图书**
 
 ```calibredb remove [23]```
 
-**Search for books**
+**搜索图书**
 
 ```calibredb search "[title:keyword]"```
 
-**Show book metadata**
+**显示图书元数据**
 
 ```calibredb show_metadata [42]```
 
-**Set book metadata**
+**设置图书元数据**
 
 ```calibredb set_metadata [42] -f [title:"New Title"]```
 
-**Export books**
+**导出图书**
 
 ```calibredb export [23,45] --to-dir [output/]```
 
-**Add format to existing book**
+**为已有图书添加格式**
 
 ```calibredb add_format [42] [book.mobi]```
 
@@ -42,94 +42,94 @@ Command-line interface to the Calibre ebook database
 
 # DESCRIPTION
 
-**calibredb** is the command-line interface to the Calibre ebook database. It manages ebook libraries, adds/removes books, modifies metadata, and can connect to local or remote Calibre Content servers.
+**calibredb** 是 Calibre 电子书数据库的命令行接口。它可管理电子书库、添加/删除图书、修改元数据，还能连接本地或远程的 Calibre 内容服务器。
 
 # COMMANDS
 
 **list**
-> List books in database with customizable fields and filtering.
+> 列出数据库中的图书，支持自定义字段和过滤。
 
 **add**
-> Import book files into the library.
+> 将图书文件导入书库。
 
 **remove**
-> Remove books by ID.
+> 按 ID 删除图书。
 
 **search**
-> Query library using calibre's search syntax.
+> 使用 calibre 的搜索语法查询书库。
 
 **show_metadata**
-> Display stored metadata for a book.
+> 显示某本书已存储的元数据。
 
 **set_metadata**
-> Update book metadata from OPF file or individual fields.
+> 从 OPF 文件或单个字段更新图书元数据。
 
 **export**
-> Export books to the filesystem with associated files.
+> 将图书及其关联文件导出到文件系统。
 
 **add_format**
-> Attach an ebook file format to an existing book.
+> 为已有图书附加一个电子书文件格式。
 
 **remove_format**
-> Remove a specific format from a book.
+> 从图书中移除指定格式。
 
 **catalog**
-> Generate a formatted catalog of the library.
+> 生成格式化的书库目录。
 
 **backup_metadata**
-> Export metadata to individual OPF files.
+> 将元数据导出为单独的 OPF 文件。
 
 **restore_database**
-> Rebuild the database from OPF metadata files.
+> 从 OPF 元数据文件重建数据库。
 
 **check_library**
-> Validate library filesystem integrity.
+> 校验书库文件系统的完整性。
 
 **clone**
-> Create a new empty library with identical custom columns and settings.
+> 创建一个具有相同自定义列和设置的空书库。
 
 **embed_metadata**
-> Update book file metadata from database records.
+> 根据数据库记录更新书籍文件的元数据。
 
 **fts_index**
-> Manage full-text search indexing.
+> 管理全文搜索索引。
 
 **fts_search**
-> Perform full-text searches across library content.
+> 在书库内容中执行全文搜索。
 
 # PARAMETERS
 
 **--library-path** _path_
-> Path to Calibre library (directory containing metadata.db).
+> Calibre 书库路径（包含 metadata.db 的目录）。
 
 **--with-library** _url_
-> Connect to a Calibre Content server (e.g., http://localhost:8080).
+> 连接到 Calibre 内容服务器（如 http://localhost:8080）。
 
 **--username** _user_
-> Username for Content server authentication.
+> 内容服务器验证用的用户名。
 
 **--password** _pass_
-> Password for Content server authentication.
+> 内容服务器验证用的密码。
 
 **--timeout** _seconds_
-> Network connection timeout in seconds (default: 120).
+> 网络连接超时时间，单位秒（默认：120）。
 
 **-f**, **--field** _name:value_
-> Set metadata field (used with set_metadata).
+> 设置元数据字段（与 set_metadata 配合使用）。
 
 **--as-opf**
-> Output metadata as OPF XML.
+> 以 OPF XML 格式输出元数据。
 
 **--for-machine**
-> Output in JSON format (machine-readable).
+> 以 JSON 格式输出（便于机器读取）。
 
 # CAVEATS
 
-Book IDs can be found using the **list** or **search** commands. Arguments with spaces must be quoted. On macOS, command-line tools are inside the calibre.app bundle at `/Applications/calibre.app/Contents/MacOS/`. The Calibre GUI should not be running when using calibredb on a local library, or use **--with-library** to connect via the Content server instead.
+图书 ID 可通过 **list** 或 **search** 命令查找。含空格的参数必须加引号。macOS 上，命令行工具位于 calibre.app 包内的 `/Applications/calibre.app/Contents/MacOS/`。在本地书库上使用 calibredb 时不应同时运行 Calibre 图形界面，或者改用 **--with-library** 通过内容服务器连接。
 
 # HISTORY
 
-**calibredb** is part of **calibre**, an ebook management application created by **Kovid Goyal** and first released in **2006**.
+**calibredb** 是 **calibre** 的一部分。calibre 是由 **Kovid Goyal** 创建的电子书管理应用，首次发布于 **2006** 年。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modern Git CLI wrapper with simplified commands
+带简化命令的现代 Git CLI 包装器
 
 # TLDR
 
-**Save changes** to the current branch
+**将更改保存到当前分支**
 
 ```bit save```
 
-**Sync with remote** and push changes
+**与远程同步**并推送更改
 
 ```bit sync```
 
-**Sync with a specific branch**
+**与指定分支同步**
 
 ```bit sync origin [master]```
 
-**Switch to a branch** (creates if doesn't exist)
+**切换分支**（不存在则创建）
 
 ```bit switch [branch-name]```
 
-**Interactive checkout** with branch selection
+带分支选择的**交互式 checkout**
 
 ```bit checkout```
 
-**Add files** with interactive selection
+以交互选择方式**添加文件**
 
 ```bit add```
 
-**Commit with a message** (standard git)
+**带消息提交**（标准 git）
 
 ```bit commit -m "[message]"```
 
@@ -38,67 +38,67 @@ Modern Git CLI wrapper with simplified commands
 
 # DESCRIPTION
 
-**bit** is a modern Git CLI wrapper that provides simplified commands, intelligent defaults, and interactive prompts. It's built on top of git and maintains full compatibility with standard git commands.
+**bit** 是一个现代 Git CLI 包装器，提供简化的命令、智能默认值和交互式提示。它构建于 git 之上，与标准 git 命令保持完全兼容。
 
-The tool reduces common git workflows to simpler commands while providing suggestions, autocompletion for files and branches, and automatic fetch/fast-forwarding to reduce merge conflicts.
+该工具将常见的 git 工作流简化为更简单的命令，同时提供建议、文件和分支的自动补全，以及自动 fetch/快进以减少合并冲突。
 
 # SUBCOMMANDS
 
 **save**
-> Save changes to current branch (smart commit with optional amend)
+> 将更改保存到当前分支（智能提交，可选 amend）
 
 **sync**
-> Pull with rebase and push; optionally sync with another branch
+> 以 rebase 方式拉取并推送；可选择与其他分支同步
 
 **switch**
-> Switch branches with prompt to create if non-existent
+> 切换分支，若分支不存在会提示创建
 
 **checkout**
-> Interactive branch/file checkout
+> 交互式分支/文件检出
 
 **add**
-> Interactive file staging
+> 交互式暂存文件
 
 **pr**
-> View and check out GitHub pull requests interactively
+> 以交互方式查看和检出 GitHub 拉取请求
 
 **release**
-> Bump tags and create a release
+> 更新标签并创建发布
 
 **info**
-> Display git statistics and configuration
+> 显示 git 统计信息和配置
 
 **update**
-> Update the bit CLI itself to the latest version
+> 将 bit CLI 自身更新到最新版本
 
 **complete**
-> Generate shell completion
+> 生成 shell 补全
 
-All standard **git** commands are also available through bit.
+所有标准 **git** 命令也都可以通过 bit 使用。
 
 # PARAMETERS
 
-All git parameters work with bit. Common ones include:
+所有 git 参数均可用于 bit。常用的包括：
 
 **-m** _message_
-> Commit message (with bit commit)
+> 提交消息（配合 bit commit）
 
 **-a**
-> Stage all modified files
+> 暂存所有已修改的文件
 
 **--amend**
-> Amend the previous commit
+> 修订上一次提交
 
 **-r**
-> Rebase when pulling
+> 拉取时进行变基（rebase）
 
 # CAVEATS
 
-Requires Go environment with GOPATH and GOBIN set for installation. The **save** command may amend commits which rewrites history; use with caution on shared branches. Bit is experimental software and may have unexpected behavior in edge cases.
+安装需要配置好 GOPATH 和 GOBIN 的 Go 环境。**save** 命令可能通过修订提交重写历史；在共享分支上使用需谨慎。Bit 是实验性软件，在边缘情况下可能出现意外行为。
 
 # HISTORY
 
-bit was created by **Chris Walz** in **2020** as an experiment to modernize the git CLI experience. It aimed to reduce the complexity of common git operations while maintaining full git compatibility for power users.
+bit 由 **Chris Walz** 于 **2020 年**创建，是一项现代化 git CLI 体验的实验。它的目标是在为高级用户保留完整 git 兼容性的前提下，降低常见 git 操作的复杂度。
 
 # INSTALL
 

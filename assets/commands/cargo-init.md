@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create a new Rust package in an existing directory
+在现有目录中创建新的 Rust 软件包
 
 # TLDR
 
-**Initialize in current directory**
+**在当前目录中初始化**
 
 ```cargo init```
 
-**Initialize binary project**
+**初始化二进制项目**
 
 ```cargo init --bin```
 
-**Initialize library**
+**初始化库**
 
 ```cargo init --lib```
 
-**Initialize without git**
+**不使用 git 初始化**
 
 ```cargo init --vcs none```
 
-**Initialize with specific name**
+**以指定名称初始化**
 
 ```cargo init --name [myproject]```
 
-**Initialize with specific edition**
+**以指定 edition 初始化**
 
 ```cargo init --edition [2021]```
 
-**Initialize in a specific directory**
+**在指定目录中初始化**
 
 ```cargo init [path/to/dir]```
 
@@ -38,36 +38,36 @@ Create a new Rust package in an existing directory
 
 # DESCRIPTION
 
-**cargo init** creates a new Cargo package in an existing directory. Generates Cargo.toml and src/ with either main.rs (binary) or lib.rs (library). Unlike cargo new, does not create a new directory.
+**cargo init** 在现有目录中创建新的 Cargo 软件包。它会生成 Cargo.toml 和 src/ 目录，其中包含 main.rs（二进制）或 lib.rs（库）。与 cargo new 不同，它不会创建新目录。
 
 # PARAMETERS
 
 **--bin**
-> Create binary target with src/main.rs (default).
+> 创建带 src/main.rs 的二进制目标（默认）。
 
 **--lib**
-> Create library target with src/lib.rs.
+> 创建带 src/lib.rs 的库目标。
 
 **--name** _name_
-> Set package name (defaults to directory name).
+> 设置软件包名称（默认为目录名）。
 
 **--edition** _year_
-> Rust edition (2015, 2018, 2021, 2024).
+> Rust edition（2015、2018、2021、2024）。
 
 **--vcs** _type_
-> Initialize version control (git, hg, pijul, fossil, none).
+> 初始化版本控制（git、hg、pijul、fossil、none）。
 
 **--registry** _name_
-> Registry for publishing.
+> 用于发布的注册表。
 
 **--force**
-> Force overwrite of existing Cargo.toml or src directory.
+> 强制覆盖已有的 Cargo.toml 或 src 目录。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # GENERATED FILES
 
@@ -81,7 +81,7 @@ Create a new Rust package in an existing directory
 
 # CAVEATS
 
-Default edition is 2024 in recent Rust versions. Initializes git repository by default if not already in one.
+近期 Rust 版本中的默认 edition 为 2024。若尚未处于某个 git 仓库中，默认会初始化一个 git 仓库。
 
 # INSTALL
 

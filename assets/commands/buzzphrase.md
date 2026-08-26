@@ -1,14 +1,14 @@
 # TAGLINE
 
-Generate random corporate buzzword phrases
+生成随机的企业流行语短语
 
 # TLDR
 
-**Generate a random buzzphrase**
+**生成一个随机的流行语短语**
 
 ```buzzphrase```
 
-**Generate multiple buzzphrases**
+**生成多个流行语短语**
 
 ```buzzphrase [5]```
 
@@ -18,9 +18,9 @@ Generate random corporate buzzword phrases
 
 # DESCRIPTION
 
-**buzzphrase** generates random corporate buzzword phrases, combining jargon terms to create meaningless but official-sounding business speak. Useful for humor, parody documents, or testing text fields.
+**buzzphrase** 生成随机的企业流行语短语，将行话术语组合成听起来很正式却毫无意义的商业用语。可用于幽默、恶搞文档或测试文本输入框。
 
-The generated phrases combine adjectives, verbs, and nouns from a predefined list of corporate jargon.
+生成的短语从预定义的企业行话列表中组合形容词、动词和名词。
 
 # SEE ALSO
 

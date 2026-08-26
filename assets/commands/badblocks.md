@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scan devices for bad disk blocks
+扫描设备上的磁盘坏块
 
 # TLDR
 
-**Check** device for bad blocks (read-only)
+**检查**设备坏块（只读）
 
 ```badblocks -v [/dev/sdb]```
 
-**Destructive** write test
+**破坏性**写入测试
 
 ```badblocks -wsv [/dev/sdb]```
 
-**Non-destructive** read-write test
+**非破坏性**读写测试
 
 ```badblocks -nsv [/dev/sdb]```
 
-Save **bad block list**
+保存**坏块列表**
 
 ```badblocks -o [badblocks.txt] [/dev/sdb]```
 
@@ -26,55 +26,55 @@ Save **bad block list**
 
 # DESCRIPTION
 
-**badblocks** searches a device for bad blocks by performing read, write, or non-destructive read-write tests. It's used to verify disk integrity and create lists of bad blocks for filesystem tools.
+**badblocks** 通过只读、写入或非破坏性读写测试来搜索设备上的坏块。它用于验证磁盘完整性，并为文件系统工具生成坏块列表。
 
-The tool is particularly useful for testing new drives or diagnosing failing storage devices.
+该工具特别适合测试新硬盘或诊断出现故障的存储设备。
 
 # PARAMETERS
 
 **-v**
-> Verbose mode
+> 详细输出模式
 
 **-w**
-> Destructive write test (erases data)
+> 破坏性写入测试（会抹除数据）
 
 **-n**
-> Non-destructive read-write test
+> 非破坏性读写测试
 
 **-s**
-> Show progress
+> 显示进度
 
 **-o** _file_
-> Output bad blocks to file
+> 将坏块输出到文件
 
 **-b** _size_
-> Block size in bytes (default: 1024)
+> 以字节为单位的块大小（默认：1024）
 
 **-c** _blocks_
-> Number of blocks to test at once (default: 64)
+> 单次测试的块数（默认：64）
 
 **-p** _passes_
-> Number of test passes (default: 0, meaning single pass)
+> 测试遍数（默认：0，即单次）
 
 **-t** _pattern_
-> Test pattern (use `random` for random data, or a numeric value 0-255)
+> 测试模式（使用 `random` 表示随机数据，或取 0-255 的数值）
 
 **-i** _file_
-> Read existing bad blocks list from file (skip retesting known blocks)
+> 从文件读取已有的坏块列表（跳过已知块的重新测试）
 
 **-f**
-> Force testing on a mounted device (dangerous, normally prevented)
+> 强制对已挂载的设备进行测试（危险，通常会被阻止）
 
 # TEST MODES
 
-**Read-only** (default)
-> Safe, detects existing bad blocks
+**Read-only**（默认）
+> 安全，检测已存在的坏块
 
 **Write** (-w)
-> Destructive, thorough testing, erases all data
+> 破坏性、彻底的测试，会抹除所有数据
 
 **Non-destructive** (-n)
-> Safe, reads then writes back original data
+> 安全，先读取再将原始数据写回
 
 # WORKFLOW
 
@@ -92,11 +92,11 @@ sudo badblocks -wsv /dev/sdb
 
 # CAVEATS
 
-Write modes DESTROY all data on the device. Requires root privileges. Very slow on large drives (hours or days). Modern drives remap bad sectors automatically. Non-destructive mode still carries small risk of data loss. SMR drives may show poor performance during testing.
+写入模式会销毁设备上的所有数据。需要 root 权限。在大容量硬盘上非常缓慢（可能需要数小时或数天）。现代硬盘会自动重映射坏扇区。非破坏性模式仍有较小的数据丢失风险。SMR 硬盘在测试期间可能表现不佳。
 
 # HISTORY
 
-**badblocks** has been part of e2fsprogs since the early **1990s**, created as a companion tool for ext2 filesystem management.
+**badblocks** 自 **20 世纪 90 年代初**起就是 e2fsprogs 的一部分，最初作为 ext2 文件系统管理的配套工具而创建。
 
 # INSTALL
 

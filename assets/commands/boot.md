@@ -1,49 +1,49 @@
 # TAGLINE
 
-Linux system startup process documentation
+Linux 系统启动流程文档
 
 # TLDR
 
-**View the boot process documentation**
+**查看启动流程文档**
 
 ```man 7 boot```
 
-**View systemd boot process documentation**
+**查看 systemd 启动流程文档**
 
 ```man 7 bootup```
 
 # SYNOPSIS
 
-This is a documentation page describing the Linux boot sequence, not an executable command.
+这是一个描述 Linux 启动过程的文档页，不是可执行命令。
 
 # DESCRIPTION
 
-The **boot**(7) man page documents the Linux system startup process based on UNIX System V Release 4. The boot sequence consists of several phases:
+**boot**(7) man page 基于UNIX System V Release 4 记录了 Linux 系统的启动过程。启动序列包括以下几个阶段：
 
-**Hardware Boot (BIOS/UEFI)**
-> POST (Power-On Self-Test) runs, hardware is initialized, and firmware locates the bootloader
+**硬件启动（BIOS/UEFI）**
+> POST（加电自检）运行，硬件初始化，固件定位引导加载程序。
 
-**OS Loader (GRUB/LILO)**
-> The bootloader locates and loads the kernel into memory
+**OS 加载器（GRUB/LILO）**
+> 引导加载程序找到内核并将其载入内存。
 
-**Kernel Startup**
-> The kernel initializes devices, starts the swapper process (kswapd), and mounts the root filesystem
+**内核启动**
+> 内核初始化设备，启动 swapper 进程（kswapd），并挂载根文件系统。
 
-**Init Process**
-> The first userspace process (PID 1) starts. Modern systems use **systemd**, older systems use **SysVinit**
+**Init 进程**
+> 第一个用户态进程（PID 1）启动。现代系统使用 **systemd**，较旧的系统使用 **SysVinit**。
 
-**Boot Scripts**
-> System services are started according to the configured runlevel or systemd target
+**启动脚本**
+> 系统服务按照配置的运行级别或 systemd target 启动。
 
 # CAVEATS
 
-This documentation primarily describes the traditional SysV init boot process. Most modern Linux distributions use **systemd**, which has a different boot architecture documented in **bootup**(7).
+此文档主要描述传统的 SysV init 启动过程。大多数现代 Linux 发行版使用 **systemd**，其启动架构不同，记录在 **bootup**(7) 中。
 
-The exact boot sequence varies between distributions, hardware platforms, and init systems in use.
+确切的启动顺序因发行版、硬件平台和所用 init 系统而异。
 
 # HISTORY
 
-The System V init process originated in **AT&T Unix System V** released in 1983. Linux distributions historically adopted this model before the transition to **systemd** beginning around 2010-2011. Systemd became the default init system in most major distributions by 2015.
+System V init 进程起源于 1983 年发布的 **AT&T Unix System V**。Linux 发行版历史上采用了这一模型，之后从 2010-2011 年前后开始向 **systemd** 过渡。到 2015 年，systemd 已成为大多数主流发行版的默认 init 系统。
 
 # INSTALL
 

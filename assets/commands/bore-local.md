@@ -1,26 +1,26 @@
 # TAGLINE
 
-Expose local ports through a remote tunnel
+通过远程隧道暴露本地端口
 
 # TLDR
 
-**Expose** a local port using the public bore.pub server
+使用公共 bore.pub 服务器**暴露**本地端口
 
 ```bore local [local_port] --to bore.pub```
 
-**Expose** a local port to your own remote Bore server
+将本地端口**暴露**到你自己的远程 Bore 服务器
 
 ```bore local [local_port] --to [remote_server_address]```
 
-Expose a **specific local host** instead of localhost
+暴露**指定的本地主机**而非 localhost
 
 ```bore local [local_port] --local-host [host] --to [remote_server_address]```
 
-Request a **specific remote port** explicitly
+显式请求**指定的远程端口**
 
 ```bore local [local_port] --to [remote_server_address] --port [remote_port]```
 
-Use a **secret for authentication**
+使用**密钥进行认证**
 
 ```bore local [local_port] --to [remote_server_address] --secret [your_secret]```
 
@@ -30,30 +30,30 @@ Use a **secret for authentication**
 
 # DESCRIPTION
 
-**bore local** creates a tunnel from a local port to a remote bore server, making the local service accessible via the remote server's public address. This is useful for exposing development servers, webhooks, or other local services.
+**bore local** 创建从本地端口到远程 bore 服务器的隧道，使本地服务可以通过远程服务器的公共地址访问。这适用于暴露开发服务器、Webhook 或其他本地服务。
 
-The connection is maintained as long as the command runs, and traffic is forwarded bidirectionally.
+只要命令在运行，连接就会保持，流量会双向转发。
 
 # PARAMETERS
 
 **-t, --to** _address_
-> Remote bore server address (required)
+> 远程 bore 服务器地址（必填）。
 
 **-l, --local-host** _host_
-> Local host to forward from (default: localhost)
+> 要转发的本地主机（默认：localhost）。
 
 **-p, --port** _port_
-> Remote port to request on the server (default: 0, meaning the server assigns a random available port)
+> 向服务器请求的远程端口（默认：0，表示由服务器分配一个随机的可用端口）。
 
 **-s, --secret** _secret_
-> Authentication secret for the server
+> 服务器的认证密钥。
 
 **-h, --help**
-> Display help information
+> 显示帮助信息。
 
 # CAVEATS
 
-When **--port** is 0 (the default), the server assigns a random available port and prints the resulting public address on startup. Connection stability depends on network conditions. The secret must match the server's configured secret if authentication is required. Forwarded traffic is not encrypted by bore itself.
+当 **--port** 为 0（默认值）时，服务器会分配一个随机的可用端口，并在启动时打印生成的公共地址。连接稳定性取决于网络状况。如果服务器要求认证，密钥必须与服务器配置的密钥一致。转发的流量不会由 bore 加密。
 
 # INSTALL
 
@@ -74,4 +74,3 @@ When **--port** is 0 (the default), the server assigns a random available port a
 ```[Homepage](https://bore.pub)```
 
 <!-- verified: 2026-06-19 -->
-

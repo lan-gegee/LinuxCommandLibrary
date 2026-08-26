@@ -1,46 +1,46 @@
 # TAGLINE
 
-Manage Azure Functions serverless apps
+管理 Azure Functions 无服务器应用
 
 # TLDR
 
-**List all function apps**
+**列出所有函数应用**
 
 ```az functionapp list```
 
-**Create a function app** (consumption plan)
+**创建函数应用**（消耗计划）
 
 ```az functionapp create --resource-group [rg_name] --consumption-plan-location [eastus] --runtime [node] --functions-version [4] --name [app_name] --storage-account [storage_name]```
 
-**Create a function app** on a Flex Consumption plan
+在 Flex Consumption 计划上**创建函数应用**
 
 ```az functionapp create --resource-group [rg_name] --flexconsumption-location [northeurope] --runtime [java] --name [app_name] --storage-account [storage_name]```
 
-**Create a function app** on an App Service plan
+在 App Service 计划上**创建函数应用**
 
 ```az functionapp create --resource-group [rg_name] --plan [plan_name] --runtime [python] --runtime-version [3.11] --functions-version [4] --name [app_name] --storage-account [storage_name]```
 
-**Show function app details**
+**显示函数应用详情**
 
 ```az functionapp show --name [app_name] --resource-group [rg_name]```
 
-**Deploy code** from a zip file
+从 zip 文件**部署代码**
 
 ```az functionapp deployment source config-zip --name [app_name] --resource-group [rg_name] --src [function.zip]```
 
-**Restart a function app**
+**重启函数应用**
 
 ```az functionapp restart --name [app_name] --resource-group [rg_name]```
 
-**View application settings**
+**查看应用程序设置**
 
 ```az functionapp config appsettings list --name [app_name] --resource-group [rg_name]```
 
-**Set an application setting**
+**设置某个应用程序设置**
 
 ```az functionapp config appsettings set --name [app_name] --resource-group [rg_name] --settings "[KEY=value]"```
 
-**List functions** in an app
+**列出应用中的函数**
 
 ```az functionapp function list --name [app_name] --resource-group [rg_name]```
 
@@ -50,84 +50,84 @@ Manage Azure Functions serverless apps
 
 # DESCRIPTION
 
-**az functionapp** is a subcommand of the Azure CLI that manages Azure Functions apps. Azure Functions is a serverless compute service that runs event-triggered code without managing infrastructure.
+**az functionapp** 是 Azure CLI 的一个子命令，用于管理 Azure Functions 应用。Azure Functions 是一种无服务器计算服务，无需管理基础设施即可运行事件触发的代码。
 
-Function apps host one or more functions that share configuration, deployment, and scaling. They can run on consumption plans (pay per execution, auto-scale), premium plans (pre-warmed instances, VNet integration), or dedicated App Service plans.
+函数应用承载一个或多个共享配置、部署和缩放的函数。它们可以运行在消耗计划（按执行付费、自动缩放）、高级计划（预热的实例、VNet 集成）或专用 App Service 计划上。
 
-Supported runtimes include .NET, Node.js, Python, Java, PowerShell, and custom handlers. Functions can be triggered by HTTP requests, timers, queues, blobs, Event Grid, and other Azure services.
+支持的运行时包括 .NET、Node.js、Python、Java、PowerShell 和自定义处理程序。函数可由 HTTP 请求、计时器、队列、Blob、Event Grid 及其他 Azure 服务触发。
 
 # PARAMETERS
 
 **list**
-> List all function apps.
+> 列出所有函数应用。
 
 **create**
-> Create a new function app.
+> 创建新的函数应用。
 
 **delete**
-> Remove a function app.
+> 移除某个函数应用。
 
 **show**
-> Get function app details.
+> 获取函数应用详情。
 
 **restart**
-> Restart the function app.
+> 重启函数应用。
 
 **start**
-> Start a stopped function app.
+> 启动已停止的函数应用。
 
 **stop**
-> Stop a running function app.
+> 停止运行中的函数应用。
 
 **deployment source config-zip**
-> Deploy from zip file.
+> 从 zip 文件部署。
 
 **config appsettings list**
-> List application settings.
+> 列出应用程序设置。
 
 **config appsettings set**
-> Set application settings.
+> 设置应用程序设置。
 
 **function list**
-> List functions in the app.
+> 列出应用中的函数。
 
 **--name** _name_
-> Function app name (globally unique).
+> 函数应用名称（全局唯一）。
 
 **--resource-group** _rg_
-> Resource group name.
+> 资源组名称。
 
 **--consumption-plan-location** _location_
-> Region for consumption plan.
+> 消耗计划的区域。
 
 **--plan** _plan_
-> App Service plan name.
+> App Service 计划名称。
 
 **--runtime** _runtime_
-> Functions runtime stack (e.g. node, python, dotnet, dotnet-isolated, java, powershell, custom). Run `az functionapp list-runtimes` for supported values.
+> Functions 运行时栈（例如 node、python、dotnet、dotnet-isolated、java、powershell、custom）。运行 `az functionapp list-runtimes` 查看支持的值。
 
 **--runtime-version** _version_
-> Version of the runtime stack. Run `az functionapp list-runtimes` to check compatibility.
+> 运行时栈版本。运行 `az functionapp list-runtimes` 检查兼容性。
 
 **--functions-version** _version_
-> Azure Functions runtime major version (currently 4).
+> Azure Functions 运行时主版本（当前为 4）。
 
 **--os-type** _{Linux, Windows}_
-> Operating system for the app.
+> 应用使用的操作系统。
 
 **--flexconsumption-location** _location_
-> Region for a Flex Consumption plan app.
+> Flex Consumption 计划应用的区域。
 
 **--storage-account** _storage_, **-s**
-> Storage account name (or resource ID) for function state. Required.
+> 用于存储函数状态的存储账户名称（或资源 ID）。必填。
 
 # CAVEATS
 
-Function app names must be globally unique. Consumption plan has cold start latency. Storage account is required for triggers and state. Some features like VNet integration require Premium or App Service plans. Linux consumption plan has limited region availability. Functions version 4 requires runtime-specific version compatibility.
+函数应用名称必须全局唯一。消耗计划存在冷启动延迟。触发器和状态需要存储账户。VNet 集成等功能需要 Premium 或 App Service 计划。Linux 消耗计划可用区域有限。Functions 版本 4 要求与运行时特定版本兼容。
 
 # HISTORY
 
-**Azure Functions** launched in **March 2016** as Microsoft's serverless compute platform, inspired by AWS Lambda. **Durable Functions** for stateful workflows was added in **2017**. **Premium plan** was introduced in **2019** for enterprise scenarios. **Functions 4.0** with .NET 6 support released in **November 2021**. The service has expanded to support containers, Kubernetes via KEDA, and Azure Arc for hybrid deployments.
+**Azure Functions** 于 **2016** 年 **3 月**作为 Microsoft 的无服务器计算平台推出，灵感来自 AWS Lambda。面向有状态工作流的 **Durable Functions** 于 **2017** 年加入。面向企业场景的 **Premium 计划**于 **2019** 年推出。支持 .NET 6 的 **Functions 4.0** 于 **2021** 年 **11 月**发布。该服务已扩展到支持容器、通过 KEDA 的 Kubernetes，以及面向混合部署的 Azure Arc。
 
 # INSTALL
 

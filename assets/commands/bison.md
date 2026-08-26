@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate parsers from grammar descriptions
+从语法描述生成解析器
 
 # TLDR
 
-**Generate** parser
+**生成**解析器
 
 ```bison [grammar.y]```
 
-Generate with **verbose output**
+以**详细输出**生成
 
 ```bison -v [grammar.y]```
 
-**Specify** output file
+**指定**输出文件
 
 ```bison -o [parser.c] [grammar.y]```
 
-Generate **header** file
+生成**头文件**
 
 ```bison -d [grammar.y]```
 
@@ -26,44 +26,44 @@ Generate **header** file
 
 # DESCRIPTION
 
-**bison** is a general-purpose parser generator that converts grammar descriptions (in .y files) into C, C++, or Java parsers. It's compatible with yacc and used for building compilers, interpreters, and other language processors.
+**bison** 是一个通用解析器生成器，可将语法描述（.y 文件）转换为 C、C++ 或 Java 解析器。它与 yacc 兼容，用于构建编译器、解释器和其他语言处理器。
 
-The tool is a GNU replacement for yacc with additional features and better error handling.
+该工具是 yacc 的 GNU 替代品，具有更多特性和更好的错误处理。
 
 # PARAMETERS
 
 **-o**, **--output=**_file_
-> Output file name
+> 输出文件名
 
 **-d**, **--defines**
-> Generate a header file with token definitions (also spelled **--header**)
+> 生成包含 token 定义的头部文件（也写作 **--header**）
 
 **-H**, **--header**[**=**_file_]
-> Generate the token-definitions header, optionally at a given path
+> 生成 token 定义头文件，可指定路径
 
 **-v**, **--verbose**
-> Create .output file with parser states
+> 创建包含解析器状态的 .output 文件
 
 **-t**, **--debug**
-> Enable debug output in parser
+> 在解析器中启用调试输出
 
 **-g**, **--graph**
-> Generate VCG graph of parser
+> 生成解析器的 VCG 图形
 
 **-r**, **--report=**_things_
-> Generate report (state, itemset, lookahead)
+> 生成报告（state、itemset、lookahead）
 
 **-W**, **--warnings**
-> Enable warnings
+> 启用警告
 
 **-l**, **--no-lines**
-> Don't generate #line directives
+> 不生成 #line 指令
 
 **-L**, **--language=**_lang_
-> Target output language: c, c++, or java
+> 目标输出语言：c、c++ 或 java
 
 **-y**, **--yacc**
-> Emulate POSIX yacc (default output names y.tab.c, y.tab.h)
+> 模拟 POSIX yacc（默认输出名 y.tab.c、y.tab.h）
 
 # GRAMMAR FILE FORMAT
 
@@ -83,13 +83,13 @@ expr: NUMBER '+' NUMBER { $$ = $1 + $3; }
 
 # FEATURES
 
-- LALR(1) parser generation
-- GLR parsing support
-- C++, Java output
-- Location tracking
-- Error recovery
-- Precedence declarations
-- Semantic actions
+- LALR(1) 解析器生成
+- GLR 解析支持
+- C++、Java 输出
+- 位置追踪
+- 错误恢复
+- 优先级声明
+- 语义动作
 
 # WORKFLOW
 
@@ -108,11 +108,11 @@ cat grammar.output
 
 # CAVEATS
 
-Learning curve for grammar syntax. Shift/reduce and reduce/reduce conflicts possible. Generated code can be large. Error messages sometimes cryptic. Usually paired with flex for lexical analysis.
+语法学习曲线存在。可能出现移进/归约和归约/归约冲突。生成的代码可能很大。错误信息有时晦涩难懂。通常与 flex 配合进行词法分析。
 
 # HISTORY
 
-**Bison** was written by Robert Corbett in **1985** as a free replacement for Unix yacc. Richard Stallman made it yacc-compatible, and it became part of the GNU Project. It is now maintained by Akim Demaille and others.
+**Bison** 由 Robert Corbett 于 **1985 年**编写，作为 Unix yacc 的自由替代品。Richard Stallman 使其与 yacc 兼容，它由此成为 GNU 计划的一部分。现由 Akim Demaille 等人维护。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Unicode character map browser
+Unicode 字符映射表浏览器
 
 # TLDR
 
-**Open character map**
+**打开字符映射表**
 
 ```charmap```
 
-**Search for character** by name
+按名称**搜索字符**
 
 ```charmap --search "[heart]"```
 
-**Copy character to clipboard**
+**复制字符到剪贴板**
 
 ```charmap --copy "[character]"```
 
@@ -22,31 +22,31 @@ Unicode character map browser
 
 # DESCRIPTION
 
-**charmap** is a Unicode character map application, typically part of GNOME desktop. It allows browsing and searching through all Unicode characters, viewing character details, and copying characters to the clipboard.
+**charmap** 是一款 Unicode 字符映射表应用，通常是 GNOME 桌面的一部分。它可以浏览和搜索所有 Unicode 字符、查看字符详情以及把字符复制到剪贴板。
 
-The application displays characters organized by Unicode block, with options to filter by script, language, or search term. Each character shows its code point, official name, and related information.
+该应用按 Unicode 区块组织显示字符，并支持按文字系统（script）、语言或搜索词过滤。每个字符都会显示其码点、官方名称及相关信息。
 
 # PARAMETERS
 
 **--search** _text_
-> Search for characters by name.
+> 按名称搜索字符。
 
 **--copy** _char_
-> Copy character to clipboard.
+> 复制字符到剪贴板。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # CAVEATS
 
-Requires a graphical environment. Character availability depends on installed fonts. Some characters may display as boxes if fonts don't include them.
+需要图形环境。字符能否显示取决于已安装的字体。如果字体不包含某些字符，它们可能显示为方框。
 
 # HISTORY
 
-**charmap** is part of the **GNOME** desktop environment. Character map utilities have existed since early GUI systems, helping users access characters not on their keyboard. The GNOME version, known as **gucharmap**, was created in the early 2000s.
+**charmap** 是 **GNOME** 桌面环境的一部分。字符映射工具自早期图形界面时代就已存在，帮助用户输入键盘上没有的字符。GNOME 版本名为 **gucharmap**，创建于 2000 年代初。
 
 # INSTALL
 

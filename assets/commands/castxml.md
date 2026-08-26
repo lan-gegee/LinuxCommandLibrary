@@ -1,26 +1,26 @@
 # TAGLINE
 
-generate XML descriptions of C/C++ declarations
+生成 C/C++ 声明的 XML 描述
 
 # TLDR
 
-**Generate XML from C++ header**
+**从 C++ 头文件生成 XML**
 
 ```castxml --castxml-output=1 [header.hpp] -o [output.xml]```
 
-**Generate gccxml-compatible output**
+**生成 gccxml 兼容的输出**
 
 ```castxml --castxml-gccxml [header.hpp] -o [output.xml]```
 
-**Configure for GNU compiler**
+**针对 GNU 编译器进行配置**
 
 ```castxml --castxml-cc-gnu [g++] [header.hpp] -o [output.xml]```
 
-**Start traversal at specific declaration**
+**从指定声明开始遍历 AST**
 
 ```castxml --castxml-start [ClassName] [header.hpp] -o [output.xml]```
 
-**Include path and defines**
+**包含路径与宏定义**
 
 ```castxml -I[/include/path] -D[MACRO] [header.hpp] -o [output.xml]```
 
@@ -30,61 +30,61 @@ generate XML descriptions of C/C++ declarations
 
 # DESCRIPTION
 
-**castxml** creates an XML representation of C and C++ declarations from source files. It uses the Clang compiler frontend to parse C-family source code and produces a structured XML output describing types, functions, classes, and other declarations.
+**castxml** 从源文件创建 C 和 C++ 声明的 XML 表示。它使用 Clang 编译器前端解析 C 系源代码，并输出结构化的 XML，描述类型、函数、类和其他声明。
 
-The tool is commonly used as a foundation for generating language bindings, enabling projects like pygccxml to automatically create Python wrappers for C++ libraries. It also serves as a code analysis backend where machine-readable representations of header files are needed.
+该工具常被用作生成语言绑定的基础，让 pygccxml 之类的项目能够自动为 C++ 库创建 Python 封装。它也可作为代码分析后端，用于需要头文件的机器可读表示的场景。
 
-CastXML was created as a replacement for the deprecated GCC-XML tool, providing a modern Clang-based alternative with compatible output formats for backward compatibility.
+CastXML 的诞生是为了取代已废弃的 GCC-XML 工具，提供一个基于 Clang 的现代替代品，同时提供兼容的输出格式以保持向后兼容。
 
 # PARAMETERS
 
 **--castxml-output**=_version_
-> Generate castxml-format output (version must be '1')
+> 生成 castxml 格式的输出（版本必须为 '1'）
 
 **--castxml-gccxml**
-> Generate gccxml-compatible output format
+> 生成 gccxml 兼容的输出格式
 
 **--castxml-cc-gnu** _compiler_
-> Configure preprocessor/target for GNU compiler
+> 为 GNU 编译器配置预处理器/目标
 
 **--castxml-cc-msvc** _compiler_
-> Configure preprocessor/target for MSVC compiler
+> 为 MSVC 编译器配置预处理器/目标
 
 **--castxml-cc-gnu-c** _compiler_
-> Configure for GNU C compiler
+> 针对 GNU C 编译器进行配置
 
 **--castxml-cc-msvc-c** _compiler_
-> Configure for MSVC C compiler
+> 针对 MSVC C 编译器进行配置
 
 **--castxml-start** _name_
-> Start AST traversal at named declaration
+> 从指定名称的声明开始遍历 AST
 
 **-o** _file_
-> Output file path
+> 输出文件路径
 
 **-I** _path_
-> Add include search path
+> 添加包含搜索路径
 
 **-D** _macro_
-> Define preprocessor macro
+> 定义预处理器宏
 
 **-std**=_standard_
-> C++ standard (c++11, c++14, c++17, etc.)
+> C++ 标准（c++11、c++14、c++17 等）
 
 # USE CASES
 
-**Language bindings**
-> Generate bindings for Python, Rust, etc.
+**语言绑定**
+> 为 Python、Rust 等语言生成绑定。
 
-**Code analysis**
-> Parse and analyze C++ codebases
+**代码分析**
+> 解析并分析 C++ 代码库。
 
-**Documentation**
-> Extract API information
+**文档**
+> 提取 API 信息。
 
 # CAVEATS
 
-Output format depends on selected option. GCCXML format provided for legacy compatibility. Use with pygccxml for Python-based analysis.
+输出格式取决于所选选项。GCCXML 格式仅为旧版兼容而提供。配合 pygccxml 可进行基于 Python 的分析。
 
 # INSTALL
 

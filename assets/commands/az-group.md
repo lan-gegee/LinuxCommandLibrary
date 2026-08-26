@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure resource groups
+管理 Azure 资源组
 
 # TLDR
 
-**Create a resource group**
+**创建资源组**
 
 ```az group create -l [westus] -n [MyResourceGroup]```
 
-**List all resource groups**
+**列出所有资源组**
 
 ```az group list -o table```
 
-**Show details** of a resource group
+**显示**某个资源组的**详情**
 
 ```az group show -n [MyResourceGroup]```
 
-**Check if a resource group exists**
+**检查资源组是否存在**
 
 ```az group exists -n [MyResourceGroup]```
 
-**Delete a resource group** and all its resources
+**删除资源组**及其所有资源
 
 ```az group delete -n [MyResourceGroup] --yes```
 
-**Update tags** on a resource group
+**更新**资源组上的**标签**
 
 ```az group update -n [MyResourceGroup] --tags [Dept=IT] [Env=Test]```
 
-**Export a resource group** as a template
+将资源组**导出为模板**
 
 ```az group export -n [MyResourceGroup]```
 
-**List resource groups** in a specific location
+在特定位置**列出资源组**
 
 ```az group list --query "[?location=='westus']"```
 
@@ -42,9 +42,9 @@ Manage Azure resource groups
 
 # DESCRIPTION
 
-**az group** manages Azure resource groups, which are logical containers for Azure resources. All resources in Azure must belong to a resource group, and groups provide a way to organize, manage, and apply policies to related resources.
+**az group** 管理 Azure 资源组——Azure 资源的逻辑容器。Azure 中的所有资源都必须属于某个资源组，资源组提供组织、管理相关资源以及对其应用策略的方式。
 
-Resource groups define the lifecycle scope for resources; deleting a group deletes all contained resources. Groups also provide a scope for role-based access control (RBAC) and policy assignments.
+资源组定义了资源的生命周期范围；删除组会删除其中所有资源。资源组还提供基于角色的访问控制（RBAC）和策略分配的作用域。
 
 # SUBCOMMANDS
 
@@ -63,36 +63,36 @@ Resource groups define the lifecycle scope for resources; deleting a group delet
 # PARAMETERS
 
 **-n, --name** _value_
-> Name of the resource group
+> 资源组的名称
 
 **-l, --location** _value_
-> Location for the resource group (e.g., westus, eastus)
+> 资源组的位置（例如 westus、eastus）
 
 **--tags** _value_
-> Space-separated tags in key[=value] format. Use "" to clear existing tags
+> 空格分隔的标签，格式为 key[=value]。使用 "" 清除现有标签
 
 **--set** _value_
-> On update, set a property by path, e.g. --set tags.Dept=IT
+> 更新时按路径设置属性，例如 --set tags.Dept=IT
 
 **-y, --yes**
-> Do not prompt for confirmation (delete)
+> 不提示确认（删除时）
 
 **--no-wait**
-> Do not wait for the long-running delete to finish
+> 不等待长时间运行的删除操作完成
 
 **-f, --force-deletion-types** _value_
-> Resource types to force delete (e.g. Microsoft.Compute/virtualMachines)
+> 要强制删除的资源类型（例如 Microsoft.Compute/virtualMachines）
 
 **--export-format** _value_
-> Format of the exported template: json (default), bicep, or arm
+> 导出模板的格式：json（默认）、bicep 或 arm
 
 # CAVEATS
 
-Resource group names must be unique within a subscription and can contain only alphanumeric characters, periods, underscores, hyphens, and parentheses. Deleting a resource group is irreversible and removes all contained resources. The group's location is metadata only; resources can be in different regions.
+资源组名称在订阅内必须唯一，且只能包含字母数字字符、句点、下划线、连字符和圆括号。删除资源组不可逆，会移除其中所有资源。组的位置仅是元数据；资源可以位于不同区域。
 
 # HISTORY
 
-Resource groups have been fundamental to Azure Resource Manager (ARM) since its introduction in **2014**, replacing the classic deployment model. They provide the organizational foundation for Azure's role-based access control and policy management.
+自 **2014** 年推出以来，资源组一直是 Azure Resource Manager（ARM）的基础，取代了经典部署模型。它们为 Azure 基于角色的访问控制和策略管理提供了组织基础。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Low-level Bluetooth adapter management tool
+底层蓝牙适配器管理工具
 
 # TLDR
 
-**Start interactive mode**
+**启动交互模式**
 
 ```btmgmt```
 
-**List Bluetooth adapters**
+**列出蓝牙适配器**
 
 ```btmgmt info```
 
-**Use specific adapter**
+**使用指定适配器**
 
 ```btmgmt -i [hci0] info```
 
-**Power on adapter**
+**开启适配器电源**
 
 ```btmgmt power on```
 
-**Power off adapter**
+**关闭适配器电源**
 
 ```btmgmt power off```
 
-**Start discovery**
+**开始发现设备**
 
 ```btmgmt find```
 
-**Enable monitor mode**
+**启用监听输出模式**
 
 ```btmgmt -m```
 
-**Run command with timeout**
+**以超时方式运行命令**
 
 ```btmgmt -t [10] find```
 
@@ -42,56 +42,56 @@ Low-level Bluetooth adapter management tool
 
 # DESCRIPTION
 
-**btmgmt** is an interactive Bluetooth management tool that issues commands to the kernel using the Bluetooth Management socket. It provides low-level control of Bluetooth adapter settings, discovery, and pairing functionality.
+**btmgmt** 是一个交互式蓝牙管理工具，通过蓝牙管理（Management）套接字向内核发送命令。它提供对蓝牙适配器设置、设备发现和配对功能的底层控制。
 
-The tool is part of the BlueZ Bluetooth stack and uses the management interface available since Linux kernel 3.4.
+该工具是 BlueZ 蓝牙协议栈的一部分，使用 Linux 内核 3.4 起提供的管理接口。
 
 # PARAMETERS
 
 **-i, --index** _adapter_
-> Specify adapter index (e.g., hci0)
+> 指定适配器索引（例如 hci0）
 
 **-m, --monitor**
-> Enable monitor output
+> 启用监听输出
 
 **-t, --timeout** _seconds_
-> Timeout for non-interactive mode
+> 非交互模式的超时时间
 
 **-v, --version**
-> Display version
+> 显示版本
 
 **--init-script** _file_
-> Run commands from init script
+> 从初始化脚本运行命令
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 # COMMANDS
 
 **info**
-> Show adapter information
+> 显示适配器信息
 
 **power** _on|off_
-> Control adapter power state
+> 控制适配器电源状态
 
 **find**
-> Start device discovery
+> 开始设备发现
 
 **pair** _address_
-> Pair with device
+> 与设备配对
 
 **unpair** _address_
-> Remove pairing
+> 移除配对
 
 **disconnect** _address_
-> Disconnect device
+> 断开设备连接
 
 **con**
-> List connections
+> 列出连接
 
 # CAVEATS
 
-Some commands require net-admin capability or root privileges. This is a low-level interface meant for bluetoothd; applications should use D-Bus APIs instead. Direct use may cause unexpected behavior with the Bluetooth daemon.
+某些命令需要 net-admin 能力或 root 权限。这是一个为 bluetoothd 设计的底层接口；应用程序应改用 D-Bus API。直接使用可能导致与蓝牙守护进程交互时出现意外行为。
 
 # INSTALL
 

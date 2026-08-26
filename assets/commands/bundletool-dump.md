@@ -1,30 +1,30 @@
 # TAGLINE
 
-Inspect Android App Bundle contents
+检查 Android App Bundle 内容
 
 # TLDR
 
-**Dump the AndroidManifest.xml** from an app bundle
+**从 app bundle 中导出 AndroidManifest.xml**
 
 ```bundletool dump manifest --bundle=[app.aab]```
 
-**Get a specific manifest value** using XPath
+**使用 XPath 获取特定的清单值**
 
 ```bundletool dump manifest --bundle=[app.aab] --xpath=/manifest/@versionCode```
 
-**Dump all resources** from an app bundle
+**导出 app bundle 中的所有资源**
 
 ```bundletool dump resources --bundle=[app.aab]```
 
-**Dump a specific resource** by ID
+**按 ID 导出特定资源**
 
 ```bundletool dump resources --bundle=[app.aab] --resource=[0x7f0e013a] --values```
 
-**Dump bundle configuration**
+**导出 bundle 配置**
 
 ```bundletool dump config --bundle=[app.aab]```
 
-**Dump signature information**
+**导出签名信息**
 
 ```bundletool dump signatures --bundle=[app.aab]```
 
@@ -35,46 +35,46 @@ Inspect Android App Bundle contents
 # SUBCOMMANDS
 
 **manifest**
-> Dump the parsed AndroidManifest.xml content.
+> 导出解析后的 AndroidManifest.xml 内容。
 
 **resources**
-> Dump detailed information about the app's resources.
+> 导出应用资源的详细信息。
 
 **config**
-> Dump bundle configuration (SDK versions, ABIs, screen densities).
+> 导出 bundle 配置（SDK 版本、ABI、屏幕密度）。
 
 **signatures**
-> Dump digital signature information.
+> 导出数字签名信息。
 
 # PARAMETERS
 
 **--bundle** _path_
-> Path to the Android App Bundle (.aab) file.
+> Android App Bundle（.aab）文件的路径。
 
 **--xpath** _expression_
-> XPath expression to extract specific manifest values.
+> 用于提取特定清单值的 XPath 表达式。
 
 **--resource** _id_
-> Specific resource ID to dump.
+> 要导出的具体资源 ID。
 
 **--values**
-> Include resource values in output.
+> 在输出中包含资源值。
 
 **--module** _name_
-> Specify a module in the bundle to dump from.
+> 指定 bundle 中要导出的模块。
 
 **--output-file** _path_
-> Write output to a file instead of stdout.
+> 将输出写入文件而不是 stdout。
 
 # DESCRIPTION
 
-**bundletool dump** analyzes the internal structure and metadata of Android App Bundles (.aab) and APK files. It's part of Google's bundletool, the underlying tool used by Android Studio and Google Play to build and process App Bundles.
+**bundletool dump** 分析 Android App Bundle（.aab）和 APK 文件的内部结构和元数据。它是 Google bundletool 的一部分，Android Studio 和 Google Play 就是用这个底层工具来构建和处理 App Bundle 的。
 
-Use cases include build verification, security analysis of signing certificates, resource management inspection, and debugging manifest issues.
+用例包括构建验证、签名证书的安全分析、资源管理检查以及调试清单问题。
 
 # CAVEATS
 
-Requires Java Runtime Environment (JRE) version 11 or higher. Not typically pre-installed on Linux systems.
+需要 Java 运行时环境（JRE）11 或更高版本。Linux 系统通常不预装。
 
 # INSTALL
 

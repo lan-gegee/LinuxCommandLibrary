@@ -1,38 +1,38 @@
 # TAGLINE
 
-simple utility for creating backups of files and directories
+用于创建文件和目录备份的简单工具
 
 # TLDR
 
-Create a **backup** of a file
+为一个文件创建**备份**
 
 ```bkp [path/to/file]```
 
-Create a **backup** of a directory
+为一个目录创建**备份**
 
 ```bkp [path/to/directory]```
 
-Create a **TAR archive** backup with a message
+创建带消息的 **TAR 归档**备份
 
 ```bkp -a -m "[initial version]" [path/to/file]```
 
-**Restore** a file from a backup
+从备份**恢复**文件
 
 ```bkp -r [path/to/file.b01]```
 
-Restore a backup and **delete** the backup file afterwards
+恢复备份并在之后**删除**备份文件
 
 ```bkp -r -d [path/to/file.b01]```
 
-View **metadata** of an archive backup
+查看归档备份的**元数据**
 
 ```bkp -i [path/to/file.b01]```
 
-Create a backup and **delete** the original
+创建备份并**删除**原文件
 
 ```bkp -d [path/to/file]```
 
-Create a backup, answering **yes** to all prompts
+创建备份并对所有提示回答 **yes**
 
 ```bkp -y [path/to/file]```
 
@@ -43,58 +43,58 @@ Create a backup, answering **yes** to all prompts
 # PARAMETERS
 
 **-r**, **--restore**
-> Restore resources from backup(s).
+> 从备份中恢复资源。
 
 **-d**, **--delete**
-> Delete the source file or directory after the operation.
+> 操作完成后删除源文件或目录。
 
 **-a**, **--archive**
-> Create a TAR archive instead of a simple copy.
+> 创建 TAR 归档而非简单副本。
 
 **-y**, **--yes**
-> Answer yes to all confirmation prompts.
+> 对所有确认提示回答 yes。
 
 **-m** _TEXT_, **--message** _TEXT_
-> Message to be included in the archive metadata. Requires **-a**.
+> 要包含在归档元数据中的消息。需要配合 **-a** 使用。
 
 **-M**, **--message-edit**
-> Open a text editor to compose the message. Requires **-a**.
+> 打开文本编辑器撰写消息。需要配合 **-a** 使用。
 
 **-i**, **--info**
-> Read and display metadata from an archive backup.
+> 读取并显示归档备份中的元数据。
 
 **--version**
-> Print version information.
+> 显示版本信息。
 
 **--help**
-> Show usage information and exit.
+> 显示用法信息并退出。
 
 # DESCRIPTION
 
-**bkp** is a Python-based command-line utility that creates sequentially numbered backups of files and directories. Running **bkp** on a file **foo** produces **foo.b01**, and subsequent invocations produce **foo.b02**, **foo.b03**, and so on. Backup files are always created in the same directory as the source.
+**bkp** 是一个基于 Python 的命令行工具，为文件和目录创建按序编号的备份。对文件 **foo** 运行 **bkp** 会生成 **foo.b01**，再次运行则生成 **foo.b02**、**foo.b03**，依此类推。备份文件总是与源文件创建在同一目录下。
 
-Two backup modes are supported. By default, **bkp** creates a simple file copy (or directory tree copy). With the **-a** flag, it produces a TAR archive that can embed metadata including the author (current user), timestamp, and an optional commit message.
+支持两种备份模式。默认情况下，**bkp** 创建简单的文件副本（或目录树副本）。使用 **-a** 标志时，它会生成一个 TAR 归档，其中可嵌入元数据，包括作者（当前用户）、时间戳和可选的提交消息。
 
-The **-r** flag restores a backup to its original name by stripping the **.bNN** suffix. If the original file already exists, the user is prompted for confirmation unless **-y** is specified. The **-d** flag can be combined with either backup or restore to remove the source after the operation completes.
+**-r** 标志通过去掉 **.bNN** 后缀将备份恢复为其原始名称。如果原文件已存在，除非指定 **-y**，否则会提示用户确认。-d 标志可与备份或恢复组合使用，在操作完成后删除源文件。
 
-Archive metadata can be inspected with **-i**, which displays the author, creation time, and any message stored in the archive.
+归档元数据可通过 **-i** 查看，它会显示作者、创建时间以及存储在归档中的任何消息。
 
-Multiple paths can be specified in a single invocation, and each will be processed in sequence.
+一次调用可以指定多个路径，每个路径会依次处理。
 
 # CONFIGURATION
 
 **EDITOR**
-> Environment variable used to determine which text editor to open when the **-M** flag is given. Defaults to **vi** if not set.
+> 环境变量，用于指定给出 **-M** 标志时打开哪个文本编辑器。未设置时默认为 **vi**。
 
 # CAVEATS
 
-The **-m** and **-M** options are only valid in combination with **-a**. Using them without **-a** produces an error.
+**-m** 和 **-M** 选项仅在配合 **-a** 时有效。不与 **-a** 一起使用会产生错误。
 
-Backup numbering is determined by scanning existing files in the same directory. If backup files are manually renamed or removed, numbering may produce unexpected results.
+备份编号通过扫描同一目录下的现有文件确定。如果备份文件被手动重命名或移除，编号可能出现意外的结果。
 
-The tool is primarily tested on Linux. Behavior on other platforms may vary.
+该工具主要在 Linux 上测试。在其他平台上的行为可能有所不同。
 
-The author disclaims responsibility for any data loss resulting from use of this utility.
+作者对因使用本工具导致的任何数据损失概不负责。
 
 # SEE ALSO
 

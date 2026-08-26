@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display Azure CLI version information
+显示 Azure CLI 版本信息
 
 # TLDR
 
-**Show** Azure CLI version
+**显示**Azure CLI 版本
 
 ```az version```
 
-Show version in **JSON** format
+以 **JSON** 格式显示版本
 
 ```az version -o json```
 
-Show version in **table** format
+以 **table** 格式显示版本
 
 ```az version --output table```
 
@@ -23,20 +23,20 @@ Show version in **table** format
 # PARAMETERS
 
 **-o**, **--output** _format_
-> Output format. Accepted values: **json**, **jsonc**, **none**, **table**, **tsv**, **yaml**, **yamlc**. Default: **json**.
+> 输出格式。接受值：**json**, **jsonc**, **none**, **table**, **tsv**, **yaml**, **yamlc**。默认：**json**。
 
 # DESCRIPTION
 
-**az version** displays version information for the Azure CLI and all installed extensions. It shows the core CLI version, Python version, and individual extension versions.
+**az version** 显示 Azure CLI 及所有已安装扩展的版本信息。它会显示 CLI 核心版本、Python 版本以及各个扩展的版本。
 
-The command is useful for troubleshooting and verifying installations.
+该命令可用于故障排查和验证安装。
 
 # OUTPUT
 
-Information displayed:
-- Azure CLI core version
-- Python version and platform
-- Installed extensions and their versions
+显示的信息：
+- Azure CLI 核心版本
+- Python 版本与平台
+- 已安装的扩展及其版本
 
 # WORKFLOW
 
@@ -53,11 +53,11 @@ az version -o json | jq '.extensions."some-extension"'
 
 # CAVEATS
 
-Output format may vary between Azure CLI versions. Extension versions are listed separately from the core CLI version. The default output format is JSON.
+输出格式可能因 Azure CLI 版本而异。扩展版本与 CLI 核心版本分开列出。默认输出格式为 JSON。
 
 # HISTORY
 
-**az version** has been available since Azure CLI 2.0 in **2017** as a diagnostic command for version information.
+**az version** 自 **2017** 年的 Azure CLI 2.0 起即可用，是一个用于查看版本信息的诊断命令。
 
 # INSTALL
 

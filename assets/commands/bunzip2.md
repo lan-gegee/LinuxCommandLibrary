@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decompress bzip2 compressed files
+解压 bzip2 压缩文件
 
 # TLDR
 
-**Decompress** a file (removes the .bz2 original)
+**解压**文件（删除 .bz2 原文件）
 
 ```bunzip2 [file.txt.bz2]```
 
-**Decompress** keeping the compressed file
+**解压**时保留压缩文件
 
 ```bunzip2 -k [file.txt.bz2]```
 
-**Decompress** to stdout (useful for piping)
+**解压**到 stdout（便于管道使用）
 
 ```bunzip2 -c [file.txt.bz2] > [file.txt]```
 
-**Test** file integrity without decompressing
+**测试**文件完整性而不解压
 
 ```bunzip2 -t [file.txt.bz2]```
 
-**Force** overwrite of existing output files
+**强制**覆盖已有的输出文件
 
 ```bunzip2 -f [file.txt.bz2]```
 
@@ -30,40 +30,40 @@ Decompress bzip2 compressed files
 
 # DESCRIPTION
 
-**bunzip2** decompresses files compressed with bzip2. It's equivalent to `bzip2 -d` and removes the .bz2 file after successful decompression.
+**bunzip2** 解压用 bzip2 压缩的文件。它等同于 `bzip2 -d`，并在成功解压后删除 .bz2 文件。
 
-The tool is a companion to bzip2 for extracting compressed files.
+该工具是 bzip2 的配套程序，用于提取压缩文件。
 
 # PARAMETERS
 
 **-k**, **--keep**
-> Keep compressed file
+> 保留压缩文件
 
 **-f**, **--force**
-> Overwrite existing files
+> 覆盖已有文件
 
 **-c**, **--stdout**
-> Write to standard output
+> 写入标准输出
 
 **-t**, **--test**
-> Test file integrity
+> 测试文件完整性
 
 **-v**, **--verbose**
-> Verbose mode
+> 详细模式
 
 **-q**, **--quiet**
-> Suppress warnings
+> 抑制警告
 
 **-s**, **--small**
-> Reduce memory usage at the cost of speed (uses about 2.5 MB per file)
+> 降低内存占用但牺牲速度（每个文件约使用 2.5 MB 内存）
 
 # CAVEATS
 
-Removes original .bz2 file unless -k used. Requires memory proportional to compression block size. Cannot decompress corrupted files.
+除非使用 -k，否则会删除原始 .bz2 文件。所需内存与压缩块大小成正比。无法解压损坏的文件。
 
 # HISTORY
 
-**bunzip2** was included with bzip2 since its creation by Julian Seward in **1996**.
+自 Julian Seward 于 **1996 年**创建 bzip2 起，**bunzip2** 就作为其组成部分一同发布。
 
 # INSTALL
 

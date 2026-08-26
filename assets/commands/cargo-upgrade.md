@@ -1,26 +1,26 @@
 # TAGLINE
 
-Upgrade dependency versions in Cargo.toml
+升级 Cargo.toml 中的依赖版本
 
 # TLDR
 
-**Upgrade all** dependencies to latest compatible versions
+**将所有依赖升级**到最新的兼容版本
 
 ```cargo upgrade```
 
-**Upgrade specific** crates to version requirements
+**升级指定** crate 到目标版本要求
 
 ```cargo upgrade -p [docopt@~0.9] -p [serde@>=0.9,<2.0]```
 
-**Upgrade all except** listed crates
+**升级所有但排除**列出的 crate
 
 ```cargo upgrade --exclude [docopt] --exclude [serde]```
 
-**Dry-run** without writing Cargo.toml
+**试运行**，不写入 Cargo.toml
 
 ```cargo upgrade -n```
 
-**Allow incompatible** (breaking) upgrades
+**允许不兼容的**（破坏性）升级
 
 ```cargo upgrade --incompatible allow```
 
@@ -30,53 +30,53 @@ Upgrade dependency versions in Cargo.toml
 
 # DESCRIPTION
 
-**cargo upgrade** (from the **cargo-edit** project) updates version *requirements* in **Cargo.toml** to newer releases. It differs from **cargo update**, which only refreshes **Cargo.lock** within existing requirements.
+**cargo upgrade**（来自 **cargo-edit** 项目）将 **Cargo.toml** 中的版本*要求*更新到更新的发行版。它与 **cargo update** 不同，后者只在现有要求范围内刷新 **Cargo.lock**。
 
-Install with **cargo install cargo-edit**. Note that **cargo add** and **cargo rm** were integrated into Cargo itself (1.62 and 1.66+); **upgrade** and **set-version** remain cargo-edit subcommands.
+使用 **cargo install cargo-edit** 安装。注意 **cargo add** 和 **cargo rm** 已集成进 Cargo 本身（分别为 1.62 和 1.66+）；**upgrade** 和 **set-version** 仍是 cargo-edit 的子命令。
 
 # PARAMETERS
 
 **-n**, **--dry-run**
 
-> Print planned changes without modifying manifests.
+> 打印计划的更改，而不修改清单文件。
 
 **-p**, **--package** *PKGID[@VERSION]*
 
-> Limit upgrade to a crate, optionally with a target version requirement.
+> 将升级限制在某个 crate，可附带目标版本要求。
 
 **--exclude** *PKGID*
 
-> Skip a crate.
+> 跳过某个 crate。
 
 **--compatible** allow|ignore
 
-> Whether to upgrade within compatible versions (default **allow**).
+> 是否在兼容版本范围内升级（默认 **allow**）。
 
 **-i**, **--incompatible** allow|ignore
 
-> Whether to bump to latest incompatible versions (default **ignore**).
+> 是否升级到最新的不兼容版本（默认 **ignore**）。
 
 **--pinned** allow|ignore
 
-> Whether to upgrade pinned requirements to latest incompatible (default **ignore**).
+> 是否将固定的版本要求升级到最新的不兼容版本（默认 **ignore**）。
 
 **--manifest-path** *PATH*
 
-> Path to the Cargo.toml to edit.
+> 要编辑的 Cargo.toml 的路径。
 
 **--recursive** true|false
 
-> Recursively update locked dependencies.
+> 递归更新锁定的依赖。
 
 **-v** / **-q**
 
-> Increase / decrease verbosity.
+> 增加 / 降低输出详细程度。
 
-See **cargo upgrade --help** for the full option list.
+完整选项列表见 **cargo upgrade --help**。
 
 # CAVEATS
 
-Incompatible upgrades can break builds; review the diff and run tests. Requires network access to the crate registry unless offline flags apply. Workspace members may need **--manifest-path** or package selection.
+不兼容的升级可能破坏构建；请检查差异并运行测试。除非适用离线标志，否则需要访问 crate 注册表的网络。工作区成员可能需要 **--manifest-path** 或包选择参数。
 
 # INSTALL
 

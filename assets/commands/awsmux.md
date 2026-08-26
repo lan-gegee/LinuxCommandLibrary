@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run one AWS CLI command across many accounts in parallel
+跨多个账户并行运行一条 AWS CLI 命令
 
 # TLDR
 
-**Check** environment, aws CLI, and profile discovery
+**检查**环境、aws CLI 与 profile 发现情况
 
 ```awsmux doctor```
 
-**List verified targets** (profiles/regions with STS identity)
+**列出已验证的目标**（带 STS 身份的 profile/区域）
 
 ```awsmux targets --regions [us-east-1,us-west-2]```
 
-**Run a read-only command** across matching profiles
+在匹配的 profile 上**执行只读命令**
 
 ```awsmux run --profiles '[prod-*]' --format jsonl -- ec2 describe-instances --query 'Reservations[].Instances[].InstanceId'```
 
-**Fan out** with concurrency and exclude patterns
+以并发数和排除模式进行**批量展开**
 
 ```awsmux run --profiles '[prod-*]' --exclude '[*-sandbox]' --concurrency [100] -- ec2 describe-vpcs```
 
-**Plan a mutating/destructive change** (does not execute)
+**为变更/破坏性操作制定计划**（不实际执行）
 
 ```awsmux plan -- ssm put-parameter --name [/app/flag] --value [on] --type String```
 
-**Approve a plan** (prints a one-time token)
+**批准一个计划**（输出一次性令牌）
 
 ```awsmux approve [plan-01k...]```
 
-**Apply an approved plan** with the token
+使用令牌**应用已批准的计划**
 
 ```awsmux apply [plan-01k...] --approval-token [token]```
 
-**Serve MCP** for AI agents over stdio
+通过 stdio 为 AI 代理**提供 MCP 服务**
 
 ```awsmux mcp```
 
@@ -44,93 +44,93 @@ Run one AWS CLI command across many accounts in parallel
 
 **doctor**
 
-> Verify aws CLI presence, shared config/credentials files, and profile discovery.
+> 检查 aws CLI 是否存在、共享配置/凭证文件以及 profile 的发现情况。
 
 **targets**
 
-> List STS-verified account/region targets selected by profile and region filters.
+> 列出由 profile 和区域筛选条件选出的、经 STS 验证的账户/区域目标。
 
 **run**
 
-> Execute an aws CLI invocation across selected targets in parallel. Read-only operations run freely; mutating and destructive ops require confirmation, **--yes** (mutating only), or a plan.
+> 在选定的目标上并行执行 aws CLI 调用。只读操作可直接运行；变更和破坏性操作需要确认、**--yes**（仅限变更操作）或计划。
 
 **plan**
 
-> Build an immutable plan for a mutating or destructive aws CLI operation without executing it.
+> 为变更或破坏性的 aws CLI 操作构建不可变计划，但不执行它。
 
 **approve** _PLAN_ID_
 
-> Approve a plan and print a one-time approval token (never stored).
+> 批准计划并打印一次性批准令牌（从不存储）。
 
 **apply** _PLAN_ID_ **--approval-token** _TOKEN_
 
-> Execute an approved plan. Token is bound to the plan’s SHA-256 hash; tampering refuses apply.
+> 执行已批准的计划。令牌与计划的 SHA-256 哈希绑定；若被篡改则拒绝应用。
 
 **replay**
 
-> Re-run a past execution from **history**, re-selecting its targets.
+> 从 **history** 中重新执行过去的一次运行，并重新选定其目标。
 
 **history**
 
-> Show past runs and results.
+> 显示过去的运行及结果。
 
 **mcp**
 
-> Serve the agent interface over stdio (Model Context Protocol). No extra credentials; uses the same AWS profiles as the shell.
+> 通过 stdio 提供代理接口服务（Model Context Protocol）。不需要额外凭证；使用与 Shell 相同的 AWS profile。
 
-Common selection and execution flags (on **run**, **plan**, **targets**, and related commands):
+常用选择与执行选项（用于 **run**、**plan**、**targets** 及相关命令）：
 
 **--profiles** _GLOB_
 
-> Include profiles matching shell-style globs (comma-separated).
+> 包含匹配 shell 风格通配符的 profile（逗号分隔）。
 
 **--exclude** _GLOB_
 
-> Exclude matching profiles.
+> 排除匹配的 profile。
 
 **--regions** _LIST_
 
-> Comma-separated regions to fan out into.
+> 要展开到的区域，逗号分隔。
 
 **--dedupe**
 
-> Collapse targets that resolve to the same account, principal, and region (runs STS preflight).
+> 合并解析到相同账户、主体和区域的目标（会运行 STS 预检）。
 
 **--concurrency** _N_
 
-> Parallel aws CLI workers (default **100**).
+> 并行的 aws CLI 工作进程数（默认 **100**）。
 
 **--timeout** _DURATION_
 
-> Per-target timeout (e.g. **30s**).
+> 每个目标的超时时间（例如 **30s**）。
 
 **--format** _jsonl_|_table_
 
-> Result stream format.
+> 结果流格式。
 
 **--output-dir** _DIR_
 
-> Write one result file per target.
+> 为每个目标写入一个结果文件。
 
 **--interactive**
 
-> Checkbox picker for targets (**run** only).
+> 目标的复选框选择器（仅限 **run**）。
 
 **--max-errors** _N_ / **--stop-on-access-denied**
 
-> Stop the fan-out when error thresholds are hit.
+> 达到错误阈值时停止展开。
 
 # DESCRIPTION
 
-**awsmux** fans a single **aws** CLI command out across many accounts and regions in parallel. It discovers profiles from the standard shared config and credentials files (**~/.aws/config**, **~/.aws/credentials**, and **AWS_CONFIG_FILE** / **AWS_SHARED_CREDENTIALS_FILE**), supports SSO, static keys, and **credential_process** profiles unchanged, and always executes through the installed **aws** CLI. Every target is identity-checked with STS before work runs.
+**awsmux** 将单条 **aws** CLI 命令并行展开到多个账户和区域。它会从标准的共享配置和凭证文件（**~/.aws/config**、**~/.aws/credentials** 以及 **AWS_CONFIG_FILE** / **AWS_SHARED_CREDENTIALS_FILE**）发现 profile，原样支持 SSO、静态密钥和 **credential_process** 类型的 profile，并且始终通过已安装的 **aws** CLI 执行。每个目标在工作开始前都会经过 STS 身份校验。
 
-Operations are classified into **read_only**, **mutating**, **destructive**, and **unknown** (treated as mutating). Read-only work (e.g. describe/list/get, **s3 ls**) runs freely. Mutating work needs **--yes**, interactive confirm, or an approved plan. Destructive work (delete/terminate/revoke, **s3 rm**, **s3 mv**, **s3 sync --delete**, etc.) never accepts **--yes**; it requires a typed confirm or the plan/approve/apply flow. Some verbs that look read-only are forced mutating (credential-minting STS calls, **s3 presign**, s3api get-object to a local outfile).
+操作会被分类为 **read_only**、**mutating**、**destructive** 和 **unknown**（按变更处理）。只读操作（如 describe/list/get、**s3 ls**）可以直接运行。变更操作需要 **--yes**、交互式确认或已批准的计划。破坏性操作（delete/terminate/revoke、**s3 rm**、**s3 mv**、**s3 sync --delete** 等）绝不接受 **--yes**；必须输入确认文本或走 plan/approve/apply 流程。某些看似只读的操作会被强制归为变更操作（铸造凭证的 STS 调用、**s3 presign**、将 s3api get-object 输出到本地 outfile）。
 
-Exit codes are stable for automation: **0** all succeeded, **1** some failed, **2** selection/config error, **3** approval required or rejected, **4** stopped by threshold. **awsmux mcp** exposes the same safety model to AI agents over MCP; agents can list targets and run reads, but mutating work returns a plan the human must approve in a real terminal.
+退出码对自动化是稳定的：**0** 全部成功，**1** 部分失败，**2** 选择/配置错误，**3** 需要批准或批准被拒绝，**4** 因达到阈值而停止。**awsmux mcp** 通过 MCP 将同样的安全模型暴露给 AI 代理；代理可以列出目标并执行只读操作，但变更操作会返回一个必须由人在真实终端中批准的计划。
 
 # CAVEATS
 
-Requires a working **aws** CLI on **PATH** (or a well-known install path for MCP clients with a sparse GUI PATH). awsmux does not replace credential tools such as **aws-vault**; it runs through the profiles those tools manage. Destructive commands cannot be forced with **--yes**. Plan tokens bind to plan content: editing a plan file after approve invalidates apply. Default concurrency of 100 spawns many aws subprocesses — tune for rate limits and local resources.
+需要在 **PATH** 中有可用的 **aws** CLI（或对于 GUI 环境下 PATH 不完整的 MCP 客户端，需要位于已知安装路径）。awsmux 不取代 **aws-vault** 之类的凭证工具；它通过这些工具管理的 profile 运行。破坏性命令无法用 **--yes** 强制执行。计划令牌与计划内容绑定：批准之后修改计划文件会使 apply 失效。默认并发数 100 会派生大量 aws 子进程——请根据速率限制和本地资源进行调整。
 
 # SEE ALSO
 

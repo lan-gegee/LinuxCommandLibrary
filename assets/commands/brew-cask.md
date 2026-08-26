@@ -1,42 +1,42 @@
 # TAGLINE
 
-Install and manage macOS GUI applications via Homebrew
+通过 Homebrew 安装和管理 macOS 图形界面应用
 
 # TLDR
 
-**Install an application**
+**安装应用**
 
 ```brew install --cask [firefox]```
 
-**List installed casks**
+**列出**已安装的 cask
 
 ```brew list --cask```
 
-**Search for a cask**
+**搜索** cask
 
 ```brew search --cask [application-name]```
 
-**Get information** about a cask
+获取某个 cask 的**信息**
 
 ```brew info --cask [firefox]```
 
-**Upgrade a cask**
+**升级** cask
 
 ```brew upgrade --cask [firefox]```
 
-**Upgrade all casks** including self-updating apps
+**升级全部 cask**，包括会自行更新的应用
 
 ```brew upgrade --cask --greedy```
 
-**Uninstall a cask**
+**卸载** cask
 
 ```brew uninstall --cask [firefox]```
 
-**Uninstall and remove** all associated files
+**卸载并删除**所有关联文件
 
 ```brew uninstall --cask --zap [firefox]```
 
-**Install to custom directory**
+**安装到自定义目录**
 
 ```brew install --cask --appdir=[~/Applications] [firefox]```
 
@@ -46,60 +46,60 @@ Install and manage macOS GUI applications via Homebrew
 
 # DESCRIPTION
 
-**brew --cask** (formerly Homebrew Cask) manages the installation of macOS applications distributed as binary packages (.dmg, .pkg, .app). It automates downloading, installing to /Applications, and removing GUI applications.
+**brew --cask**（前身为 Homebrew Cask）管理以二进制包（.dmg、.pkg、.app）分发的 macOS 应用程序的安装。它自动完成下载、安装到 /Applications 以及移除图形界面应用的流程。
 
-Cask extends Homebrew's command-line workflow to desktop applications like browsers, editors, and utilities that would normally require manual drag-and-drop installation.
+Cask 将 Homebrew 的命令行工作流程扩展到了浏览器、编辑器和实用工具等桌面应用，这些应用通常需要手动拖拽安装。
 
 # COMMANDS
 
 **install --cask**
-> Install a cask application
+> 安装 cask 应用。
 
 **uninstall --cask**
-> Remove a cask application
+> 移除 cask 应用。
 
 **upgrade --cask**
-> Upgrade installed casks
+> 升级已安装的 cask。
 
 **list --cask**
-> List installed casks
+> 列出已安装的 cask。
 
 **info --cask**
-> Show information about a cask
+> 显示某个 cask 的信息。
 
 **search --cask**
-> Search available casks
+> 搜索可用的 cask。
 
 **outdated --cask**
-> List casks with available updates
+> 列出有可用更新的 cask。
 
 # PARAMETERS
 
 **--appdir** _path_
-> Install applications to specified directory (default: /Applications)
+> 将应用安装到指定目录（默认：/Applications）。
 
 **--fontdir** _path_
-> Install fonts to specified directory
+> 将字体安装到指定目录。
 
 **--greedy**
-> Include self-updating apps in upgrade
+> 在升级时包含会自行更新的应用。
 
 **--zap**
-> Remove all files associated with cask (including preferences)
+> 删除与该 cask 关联的所有文件（包括偏好设置）。
 
 **--force**
-> Force install even if already installed
+> 即使已安装也强制安装。
 
 **--no-quarantine**
-> Disable macOS quarantine attribute
+> 禁用 macOS 隔离属性。
 
 # CAVEATS
 
-Many applications auto-update and are excluded from **brew upgrade** by default; use **--greedy** to include them. The **--zap** option may remove files shared with other applications. Some casks require administrator privileges for installation.
+许多应用会自行更新，默认情况下被 **brew upgrade** 排除在外；使用 **--greedy** 可将它们包含进来。**--zap** 选项可能删除与其他应用共享的文件。部分 cask 安装时需要管理员权限。
 
 # HISTORY
 
-Homebrew Cask was created as a separate project in **2012** by **phinze** (Alfred Perlstein) to extend Homebrew to macOS GUI applications. It was integrated into core Homebrew in **2020**, changing the command from **brew cask install** to **brew install --cask**.
+Homebrew Cask 由 **phinze** 于 **2012** 年作为独立项目创建，用于将 Homebrew 扩展到 macOS 图形界面应用。它在 **2020** 年被并入 Homebrew 核心，命令形式也从 **brew cask install** 改为 **brew install --cask**。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-blink(1) USB RGB LED controller command-line tool
+blink(1) USB RGB LED 控制器命令行工具
 
 # TLDR
 
-Set the **blink(1) to red**
+将 **blink(1) 设置为红色**
 
 ```blink1-tool --red```
 
-Set to a specific **hex color**
+设置为指定的**十六进制颜色**
 
 ```blink1-tool --rgb [ff00ff]```
 
-**Blink** the LED a number of times
+**闪烁** LED 若干次
 
 ```blink1-tool --blink [3]```
 
-**Fade** to a color over a duration in milliseconds
+在指定毫秒时长内**渐变**到某个颜色
 
 ```blink1-tool --rgb [00ff00] --fade [500]```
 
-**Turn off** the LED
+**关闭** LED
 
 ```blink1-tool --off```
 
-Set LED **pattern** to play
+设置要播放的 LED **图案**
 
 ```blink1-tool --play [1]```
 
-List **connected blink(1) devices**
+列出**已连接的 blink(1) 设备**
 
 ```blink1-tool --list```
 
@@ -39,59 +39,59 @@ List **connected blink(1) devices**
 # PARAMETERS
 
 **--rgb** _RRGGBB_
-> Set color by hex RGB value.
+> 按十六进制 RGB 值设置颜色。
 
 **--red**
-> Set LED to red.
+> 将 LED 设为红色。
 
 **--green**
-> Set LED to green.
+> 将 LED 设为绿色。
 
 **--blue**
-> Set LED to blue.
+> 将 LED 设为蓝色。
 
 **--off**
-> Turn off the LED.
+> 关闭 LED。
 
 **--blink** _N_
-> Blink the LED _N_ times.
+> 让 LED 闪烁 _N_ 次。
 
 **--fade** _MILLIS_
-> Fade to color over _MILLIS_ milliseconds.
+> 在 _MILLIS_ 毫秒内渐变到目标颜色。
 
 **--play** _N_
-> Play stored pattern _N_.
+> 播放存储的图案 _N_。
 
 **--list**
-> List connected blink(1) devices.
+> 列出已连接的 blink(1) 设备。
 
 **--savergb** _RRGGBB_,_POS_
-> Save RGB color to position in pattern.
+> 将 RGB 颜色保存到图案中的指定位置。
 
 **--savepattern**
-> Save the current pattern to the device.
+> 将当前图案保存到设备。
 
 **-l** _N_, **--led** _N_
-> Select which LED to address (0=all, 1=top, 2=bottom) on blink(1) mk2+.
+> 选择要控制的 LED（0=全部，1=顶部，2=底部），适用于 blink(1) mk2 及以上。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**blink1-tool** is the command-line interface for controlling **blink(1)** USB RGB LED indicator lights made by ThingM. It can set colors, create blink patterns, fade between colors, and manage stored light patterns on the device.
+**blink1-tool** 是控制 ThingM 出品的 **blink(1)** USB RGB LED 指示灯的命令行界面。它可以设置颜色、创建闪烁模式、在颜色之间渐变，并管理设备上存储的灯光图案。
 
-The blink(1) device is a small USB dongle containing a programmable RGB LED. It is commonly used for build status indicators, notification lights, ambient information displays, and visual alerts triggered by scripts or monitoring systems.
+blink(1) 是一个内置可编程 RGB LED 的小型 USB 加密狗。它常被用作构建状态指示灯、通知灯、环境信息显示，以及由脚本或监控系统触发的可视化警报。
 
-The tool communicates directly with the blink(1) hardware over USB HID, requiring no special drivers. Multiple devices can be addressed independently.
+该工具通过 USB HID 直接与 blink(1) 硬件通信，无需特殊驱动。多个设备可以被独立寻址。
 
 # CAVEATS
 
-Requires a physical blink(1) USB device to be connected. On Linux, udev rules may need to be configured for non-root access. The mk1 hardware supports only a single LED, while mk2 and later support two independently addressable LEDs.
+需要连接物理 blink(1) USB 设备。在 Linux 上，可能需要配置 udev 规则以允许非 root 用户访问。mk1 硬件仅支持单个 LED，而 mk2 及之后版本支持两个可独立寻址的 LED。
 
 # HISTORY
 
-The **blink(1)** was created by **Tod Kurt** of **ThingM** and successfully funded on **Kickstarter in 2012**. The blink1-tool command-line utility is part of the open-source blink1 software suite hosted on GitHub, supporting Linux, macOS, and Windows.
+**blink(1)** 由 **ThingM** 的 **Tod Kurt** 设计，于 **2012 年**在 Kickstarter 上成功众筹。blink1-tool 命令行工具是托管在 GitHub 上的开源 blink1 软件套件的一部分，支持 Linux、macOS 和 Windows。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Analyze and manipulate genomic interval data
+分析和操作基因组区间数据
 
 # TLDR
 
-**Intersect** genomic intervals
+对基因组区间**求交集**
 
 ```bedtools intersect -a [file1.bed] -b [file2.bed]```
 
-**Merge** overlapping intervals
+**合并**重叠区间
 
 ```bedtools merge -i [sorted.bed]```
 
-**Sort** BED file
+**排序** BED 文件
 
 ```bedtools sort -i [unsorted.bed]```
 
-**Get coverage**
+**计算覆盖度**
 
 ```bedtools coverage -a [regions.bed] -b [reads.bam]```
 
-**Subtract** intervals
+**减去**区间
 
 ```bedtools subtract -a [all.bed] -b [exclude.bed]```
 
-**Find closest** features
+**查找最近的**特征
 
 ```bedtools closest -a [query.bed] -b [reference.bed]```
 
-**Extract FASTA sequences** for intervals
+为区间**提取 FASTA 序列**
 
 ```bedtools getfasta -fi [genome.fa] -bed [regions.bed]```
 
@@ -38,82 +38,82 @@ Analyze and manipulate genomic interval data
 
 # DESCRIPTION
 
-**bedtools** is a suite of utilities for analyzing genomic intervals in BED, BAM, VCF, and GFF formats. It provides fast operations on genome annotations including intersection, merging, counting, and statistical analysis.
+**bedtools** 是一套用于分析 BED、BAM、VCF 和 GFF 格式基因组区间的实用工具集。它提供针对基因组注释的快速操作，包括交集、合并、计数和统计分析。
 
-The tool is essential for genomics research and comparative analysis of genomic features.
+该工具是基因组学研究和基因组特征比较分析的必备工具。
 
 # COMMANDS
 
 **intersect**
-> Find overlapping intervals
+> 查找重叠区间
 
 **merge**
-> Combine overlapping intervals
+> 合并重叠区间
 
 **coverage**
-> Compute coverage statistics
+> 计算覆盖度统计
 
 **subtract**
-> Remove overlapping intervals
+> 移除重叠区间
 
 **closest**
-> Find nearest intervals
+> 查找最近的区间
 
 **window**
-> Find nearby intervals within window
+> 在窗口范围内查找邻近区间
 
 **sort**
-> Sort BED/GFF/VCF files
+> 排序 BED/GFF/VCF 文件
 
 **genomecov**
-> Compute genome-wide coverage
+> 计算全基因组覆盖度
 
 **getfasta**
-> Extract sequences from FASTA
+> 从 FASTA 提取序列
 
 **bamtobed**
-> Convert BAM to BED
+> 将 BAM 转换为 BED
 
 **slop**
-> Extend intervals by a specified number of bases
+> 将区间扩展指定的碱基数
 
 **flank**
-> Create flanking intervals for each feature
+> 为每个特征创建侧翼区间
 
 **complement**
-> Return intervals not covered by features
+> 返回未被特征覆盖的区间
 
 # COMMON PARAMETERS
 
 **-a** _file_
-> First input file
+> 第一个输入文件
 
 **-b** _file_
-> Second input file
+> 第二个输入文件
 
 **-wa**
-> Write original A entry
+> 输出原始 A 条目
 
 **-wb**
-> Write original B entry
+> 输出原始 B 条目
 
 **-f** _fraction_
-> Minimum overlap fraction
+> 最小重叠比例
 
 **-v**
-> Report A entries without B overlap
+> 报告与 B 无重叠的 A 条目
 
 **-s**
-> Require same strand
+> 要求位于同一条链上
 
 **-S**
-> Require opposite strand
+> 要求位于相反的链上
 
 **-sorted**
-> Use sorted algorithm for large files (lower memory)
+> 对大文件使用已排序算法（内存占用更低）
 
 **-i** _file_
-> Input file (used by merge, sort, etc.)
+> 输入文件（merge、sort 等子命令使用）
 
 # WORKFLOW
 
@@ -133,11 +133,11 @@ bedtools flank -i genes.bed -g genome.txt -l 2000 -r 0
 
 # CAVEATS
 
-Some operations require sorted input. Large files consume significant memory. Coordinate systems (0-based vs 1-based) can cause off-by-one errors. Performance depends on file size and operation.
+某些操作要求输入已排序。大文件会占用大量内存。坐标系差异（0-based 与 1-based）可能导致差一错误。性能取决于文件大小和具体操作。
 
 # HISTORY
 
-**bedtools** was created by Aaron Quinlan and Ira Hall, first released in **2010** as a comprehensive toolkit for genomic interval analysis.
+**bedtools** 由 Aaron Quinlan 和 Ira Hall 创建，于 **2010** 年首次发布，是一套功能全面的基因组区间分析工具箱。
 
 # INSTALL
 

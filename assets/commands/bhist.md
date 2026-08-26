@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display historical information about LSF batch jobs
+显示 LSF 批处理作业的历史信息
 
 # TLDR
 
-**Show history** of your own jobs
+**显示**自己作业的**历史**
 
 ```bhist```
 
-**Show history** of a specific job
+**显示**指定作业的**历史**
 
 ```bhist [job_id]```
 
-**Show history** for all users
+**显示**所有用户的**历史**
 
 ```bhist -a```
 
-**Show detailed history**
+**显示详细历史**
 
 ```bhist -l [job_id]```
 
-**Show history** for jobs in a specific queue
+**显示**特定队列中作业的**历史**
 
 ```bhist -q [queue_name]```
 
-**Show history** for a specific time range
+**显示**指定时间范围内的**历史**
 
 ```bhist -t -b [12/01/08:00] -e [12/01/18:00]```
 
-**Show jobs with specific status**
+**显示具有特定状态的作业**
 
 ```bhist -d```
 
@@ -38,60 +38,60 @@ Display historical information about LSF batch jobs
 
 # DESCRIPTION
 
-**bhist** displays historical information about LSF (Load Sharing Facility) jobs. It shows job history including submission time, start time, completion time, exit status, and resource usage from job event logs.
+**bhist** 显示 LSF（Load Sharing Facility）作业的历史信息。它根据作业事件日志展示作业历史，包括提交时间、开始时间、完成时间、退出状态和资源使用情况。
 
-The command queries the LSF job event log files (lsb.events) to reconstruct job history. By default, it shows only your own jobs, but administrators can view all jobs.
+该命令查询 LSF 作业事件日志文件（lsb.events）来重建作业历史。默认只显示你自己的作业，管理员则可查看所有作业。
 
-bhist is part of IBM Spectrum LSF, a workload management platform used in HPC (High Performance Computing) environments for scheduling and managing batch jobs across compute clusters.
+bhist 是 IBM Spectrum LSF 的一部分。LSF 是一个工作负载管理平台，在 HPC（高性能计算）环境中用于调度和管理计算集群上的批处理作业。
 
 # PARAMETERS
 
 **-a**
-> Show all users' job history.
+> 显示所有用户的作业历史。
 
 **-d**
-> Show jobs that have finished (DONE/EXIT).
+> 显示已完成的作业（DONE/EXIT）。
 
 **-l**
-> Long format with detailed information.
+> 长格式，包含详细信息。
 
 **-p**
-> Show pending jobs history.
+> 显示挂起作业的历史。
 
 **-r**
-> Show running jobs history.
+> 显示运行中作业的历史。
 
 **-q** _queue_
-> Show jobs from specific queue.
+> 显示来自指定队列的作业。
 
 **-u** _user_
-> Show jobs for specific user.
+> 显示指定用户的作业。
 
 **-m** _host_
-> Show jobs on specific host.
+> 显示指定主机上的作业。
 
 **-t**
-> Show time-based job history.
+> 显示基于时间的作业历史。
 
 **-b** _time_
-> Begin time for history search.
+> 历史搜索的开始时间。
 
 **-e** _time_
-> End time for history search.
+> 历史搜索的结束时间。
 
 **-n** _num_
-> Limit to most recent num jobs.
+> 限制为最近的 num 个作业。
 
 **-J** _name_
-> Show jobs with matching name.
+> 显示名称匹配的作业。
 
 # CAVEATS
 
-Requires access to LSF job event logs. Historical data availability depends on log retention policy. Very old jobs may not be available if logs have been archived or purged. Time-based searches may be slow on large clusters with extensive history.
+需要能访问 LSF 作业事件日志。历史数据的可用性取决于日志保留策略。如果日志已归档或清除，很早以前的作业可能无法查询。在历史数据庞大的大型集群上，基于时间的搜索可能较慢。
 
 # HISTORY
 
-**bhist** is part of **IBM Spectrum LSF** (formerly Platform LSF), originally developed by **Platform Computing** in the **early 1990s**. LSF became one of the leading workload management systems for HPC clusters. Platform Computing was acquired by IBM in **2012**, and the product was rebranded to IBM Spectrum LSF. It remains widely used in academic research, financial services, and life sciences.
+**bhist** 属于 **IBM Spectrum LSF**（前身为 Platform LSF），最初由 **Platform Computing** 于 **1990 年代初**开发。LSF 成为 HPC 集群领先的工作负载管理系统之一。Platform Computing 于 **2012 年**被 IBM 收购，产品更名为 IBM Spectrum LSF。它至今仍广泛应用于学术研究、金融服务和生命科学领域。
 
 # SEE ALSO
 

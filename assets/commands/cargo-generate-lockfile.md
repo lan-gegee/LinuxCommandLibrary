@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create or regenerate Cargo.lock for a Rust project
+为 Rust 项目创建或重新生成 Cargo.lock
 
 # TLDR
 
-**Generate lock file**
+**生成锁文件**
 
 ```cargo generate-lockfile```
 
-**Regenerate with latest versions**
+**以最新版本重新生成**
 
 ```cargo generate-lockfile```
 
-**Generate with specific manifest**
+**使用指定的清单文件生成**
 
 ```cargo generate-lockfile --manifest-path [path/to/Cargo.toml]```
 
-**Generate with custom lockfile path**
+**使用自定义锁文件路径生成**
 
 ```cargo generate-lockfile --lockfile-path [/tmp/Cargo.lock]```
 
@@ -26,38 +26,38 @@ Create or regenerate Cargo.lock for a Rust project
 
 # DESCRIPTION
 
-**cargo generate-lockfile** creates or rebuilds Cargo.lock for the current package or workspace. If lockfile exists, rebuilds with latest available versions of all packages.
+**cargo generate-lockfile** 为当前软件包或工作空间创建或重建 Cargo.lock。若锁文件已存在，则以所有软件包的最新可用版本重新构建。
 
 # PARAMETERS
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **--lockfile-path** _path_
-> Custom lockfile path (must end with Cargo.lock)
+> 自定义锁文件路径（必须以 Cargo.lock 结尾）
 
 **--locked**
-> Assert exact same dependencies as original lockfile
+> 断言依赖与原锁文件完全一致
 
 **--offline**
-> Don't access network
+> 不访问网络
 
 **--frozen**
-> Equivalent to --locked and --offline
+> 等价于 --locked 和 --offline
 
 **-v**, **--verbose**
-> Verbose output (use twice for very verbose)
+> 详细输出（指定两次可获得非常详细的输出）
 
 **-q**, **--quiet**
-> Suppress log messages
+> 抑制日志消息
 
 # BEHAVIOR
 
-Creates new Cargo.lock if none exists. Rebuilds existing lockfile with newest compatible versions. Use cargo update for more control over version updates.
+不存在 Cargo.lock 时创建新的。以最新的兼容版本重建已有锁文件。如需对版本更新做更精细的控制，请使用 cargo update。
 
 # CAVEATS
 
-Ensures reproducible builds by locking dependency versions. Useful in CI pipelines for deterministic builds. Consider committing Cargo.lock for applications, not libraries.
+通过锁定依赖版本来保证构建可复现。在 CI 流水线中可用于实现确定性构建。对于应用程序（而非库），建议将 Cargo.lock 提交到版本控制。
 
 # INSTALL
 

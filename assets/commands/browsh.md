@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modern text-based web browser for terminals
+面向终端的现代文本网页浏览器
 
 # TLDR
 
-**Start browsh**
+**启动 browsh**
 
 ```browsh```
 
-**Open a specific** URL
+**打开指定的** URL
 
 ```browsh [https://example.com]```
 
-**Run with a visible** Firefox **GUI** window instead of headless mode
+以可见的 Firefox **图形界面窗口**运行而非无头模式
 
 ```browsh --firefox.with-gui```
 
-**Use a custom** Firefox **binary** path
+**使用自定义的** Firefox **可执行文件路径**
 
 ```browsh --firefox.path [/path/to/firefox]```
 
-**Run in HTTP server** mode for browser-based access
+以 HTTP 服务器模式运行，供浏览器访问
 
 ```browsh --http-server-mode```
 
-**Connect to an already running** Firefox instance
+连接到已在运行的 Firefox 实例
 
 ```browsh --firefox.use-existing```
 
@@ -34,61 +34,61 @@ Modern text-based web browser for terminals
 
 # DESCRIPTION
 
-**browsh** is a fully modern text-based browser that renders to TTY terminals. It uses a headless Mozilla Firefox to fetch and render web pages, then converts the output into ANSI or Unicode characters for terminal display.
+**browsh** 是一款完全现代化的文本浏览器，可渲染到 TTY 终端。它使用无头的 Mozilla Firefox 获取并渲染网页，然后将输出转换为 ANSI 或 Unicode 字符以便在终端显示。
 
-The browser supports HTML5, CSS3, JavaScript, images, WebGL content, and video playback within the terminal.
+该浏览器支持 HTML5、CSS3、JavaScript、图片、WebGL 内容以及在终端内播放视频。
 
 # PARAMETERS
 
 **--firefox.path** _path_
-> Path to Firefox executable. Default is "firefox".
+> Firefox 可执行文件的路径。默认为 "firefox"。
 
 **--firefox.use-existing**
-> Connect to an already running Firefox instance instead of launching a new one. Firefox must have been started with the --marionette flag.
+> 连接到已在运行的 Firefox 实例而不是启动新实例。Firefox 必须已用 --marionette 标志启动。
 
 **--firefox.with-gui**
-> Run Firefox with a visible GUI window instead of headless mode.
+> 以可见的图形界面窗口运行 Firefox，而非无头模式。
 
 **--http-server-mode**
-> Run as an HTTP server for browser access.
+> 以 HTTP 服务器模式运行，供浏览器访问。
 
 **--startup-url** _url_
-> URL to open on startup. Default is "https://google.com".
+> 启动时打开的 URL。默认为 "https://google.com"。
 
 **--time-limit** _seconds_
-> Kill browsh after the specified number of seconds.
+> 在指定秒数后终止 browsh。
 
 **--debug**
-> Enable debug logging to ./debug.log.
+> 启用调试日志，输出到 ./debug.log。
 
 # KEY BINDINGS
 
 **ALT+SHIFT+p**
-> Take screenshot
+> 截取屏幕截图。
 
 **ALT+m**
-> Toggle monochrome mode (helps with rendering issues)
+> 切换单色模式（有助于解决渲染问题）。
 
 **ALT+u**
-> Toggle user agent between desktop and mobile
+> 在桌面版和移动版用户代理之间切换。
 
 **CTRL+q**
-> Quit browsh
+> 退出 browsh。
 
 **F1**
-> Display help
+> 显示帮助。
 
 # REQUIREMENTS
 
-Requires Firefox 57 or newer installed on the system. The browser runs Firefox in headless mode with a webextension that captures and converts rendered output.
+系统需安装 Firefox 57 或更新版本。浏览器以无头模式运行 Firefox，并通过一个 webextension 捕获并转换渲染输出。
 
 # CAVEATS
 
-Resource intensive due to running a full Firefox instance. Best used for bandwidth reduction over SSH connections. Sessions on the public demo server (ssh brow.sh) are limited to 5 minutes and logged.
+由于要运行完整的 Firefox 实例，资源占用较高。最适合在 SSH 连接中用于节省带宽。公共演示服务器（ssh brow.sh）上的会话限制为 5 分钟且会被记录。
 
 # HISTORY
 
-Browsh was created as a modern replacement for text browsers like Lynx, capable of rendering modern websites that rely heavily on JavaScript and CSS.
+Browsh 的诞生是为了替代 Lynx 等文本浏览器，能够渲染重度依赖 JavaScript 和 CSS 的现代网站。
 
 # INSTALL
 

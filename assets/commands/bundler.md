@@ -1,38 +1,38 @@
 # TAGLINE
 
-Ruby dependency manager
+Ruby 依赖管理器
 
 # TLDR
 
-**Install dependencies from Gemfile**
+**从 Gemfile 安装依赖**
 
 ```bundle install```
 
-**Add a gem to Gemfile**
+**将 gem 添加到 Gemfile**
 
 ```bundle add [gem]```
 
-**Update all gems**
+**更新所有 gem**
 
 ```bundle update```
 
-**Update specific gem**
+**更新特定 gem**
 
 ```bundle update [gem]```
 
-**Execute command with bundled gems**
+**使用捆绑的 gem 执行命令**
 
 ```bundle exec [command]```
 
-**Initialize new Gemfile**
+**初始化新的 Gemfile**
 
 ```bundle init```
 
-**Show installed gems**
+**显示已安装的 gem**
 
 ```bundle list```
 
-**List gems with newer versions available**
+**列出有更新版本可用的 gem**
 
 ```bundle outdated```
 
@@ -42,79 +42,79 @@ Ruby dependency manager
 
 # DESCRIPTION
 
-**bundler** manages Ruby application dependencies by tracking and installing exact gem versions needed. It ensures consistent environments across development, staging, and production by using a Gemfile and Gemfile.lock.
+**bundler** 通过跟踪并安装所需的确切 gem 版本来管理 Ruby 应用的依赖。它通过 Gemfile 和 Gemfile.lock 确保开发、预发布和生产环境的一致性。
 
-Since Ruby 2.6, Bundler is part of Ruby's standard library.
+自 Ruby 2.6 起，Bundler 已成为 Ruby 标准库的一部分。
 
 # COMMANDS
 
 **install**
-> Install gems specified in Gemfile
+> 安装 Gemfile 中指定的 gem
 
 **update**
-> Update gems to latest versions within constraints
+> 在约束范围内将 gem 更新到最新版本
 
 **exec**
-> Execute command in context of bundle
+> 在 bundle 上下文中执行命令
 
 **add**
-> Add gem to Gemfile and install
+> 将 gem 添加到 Gemfile 并安装
 
 **remove**
-> Remove gem from Gemfile
+> 从 Gemfile 中移除 gem
 
 **init**
-> Generate a simple Gemfile
+> 生成一个简单的 Gemfile
 
 **list**
-> Show all installed gems
+> 显示所有已安装的 gem
 
 **show**
-> Show gem installation location
+> 显示 gem 的安装位置
 
 **check**
-> Verify all dependencies are installed
+> 验证所有依赖是否已安装
 
 **clean**
-> Remove unused gems
+> 移除未使用的 gem
 
 **doctor**
-> Display warnings about common problems
+> 显示常见问题的警告信息
 
 **gem**
-> Create a simple gem skeleton
+> 创建一个简单的 gem 骨架
 
 **platform**
-> Display platform compatibility information
+> 显示平台兼容性信息
 
 # PARAMETERS
 
 **--no-color**
-> Disable colored output
+> 禁用彩色输出
 
 **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--path** _directory_
-> Install gems to specified directory
+> 将 gem 安装到指定目录
 
 **--without** _groups_
-> Exclude gem groups from installation
+> 安装时排除指定的 gem 分组
 
 **--deployment**
-> Install in deployment mode
+> 以部署模式安装
 
 # CONFIGURATION
 
 **Gemfile**
-> Specifies Ruby gem dependencies for the project. Located in the project root directory.
+> 指定项目的 Ruby gem 依赖。位于项目根目录。
 
 **.bundle/config**
-> Per-project Bundler configuration including install paths, without groups, and deployment settings. Also reads from ~/.bundle/config for global defaults.
+> 每个项目的 Bundler 配置，包括安装路径、排除的分组以及部署设置。也会读取 ~/.bundle/config 作为全局默认值。
 
 # CAVEATS
 
-Always use **bundle exec** when running gem executables to ensure correct versions. The Gemfile.lock should be committed to version control. Running bundle update without arguments may introduce breaking changes.
+运行 gem 可执行文件时应始终使用 **bundle exec**，以确保版本正确。Gemfile.lock 应提交到版本控制。不带参数运行 bundle update 可能引入破坏性变更。
 
 # INSTALL
 

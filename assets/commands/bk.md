@@ -1,38 +1,38 @@
 # TAGLINE
 
-Distributed version control system
+分布式版本控制系统
 
 # TLDR
 
-**Clone a repository**
+**克隆一个仓库**
 
 ```bk clone [bk://server/repository]```
 
-**Add new files** to version control
+**将新文件**纳入版本控制
 
 ```bk new [file1] [file2]```
 
-**Commit changes**
+**提交更改**
 
 ```bk commit -y"[commit message]"```
 
-**Push changes** to remote
+**将更改推送**到远端
 
 ```bk push```
 
-**Pull changes** from remote
+**从远端拉取更改**
 
 ```bk pull```
 
-**Show change history**
+**显示变更历史**
 
 ```bk changes```
 
-**Get all user files**
+**获取所有用户文件**
 
 ```bk -U get```
 
-**Show repository status**
+**显示仓库状态**
 
 ```bk status```
 
@@ -42,63 +42,63 @@ Distributed version control system
 
 # DESCRIPTION
 
-**bk** (BitKeeper) is a distributed version control system that pioneered many concepts later adopted by Git. It features nested repositories (submodules), atomic commits, and efficient handling of large codebases.
+**bk**（BitKeeper）是一个分布式版本控制系统，率先引入了许多后来被 Git 采用的概念。它支持嵌套仓库（子模块）、原子提交，并能高效处理大型代码库。
 
-BitKeeper provides a simple command-line interface for managing source code history, branching, merging, and collaboration across distributed teams.
+BitKeeper 提供简单的命令行界面，用于管理源代码历史、分支、合并以及跨分布式团队的协作。
 
 # SUBCOMMANDS
 
 **clone**
-> Create a copy of a repository
+> 创建仓库的副本
 
 **new**
-> Add new files to version control
+> 将新文件纳入版本控制
 
 **commit**
-> Record changes to the repository
+> 将更改记录到仓库
 
 **push**
-> Send changes to a remote repository
+> 将更改发送到远程仓库
 
 **pull**
-> Fetch and merge changes from a remote
+> 从远端获取并合并更改
 
 **changes**
-> Show commit history
+> 显示提交历史
 
 **status**
-> Show working tree status
+> 显示工作树状态
 
 **diff**
-> Show differences between revisions
+> 显示修订版本之间的差异
 
 **get**
-> Check out files from repository
+> 从仓库检出文件
 
 **import**
-> Import files from non-BitKeeper sources
+> 从非 BitKeeper 来源导入文件
 
 # PARAMETERS
 
 **-y** _message_
-> Commit message (with commit command)
+> 提交消息（配合 commit 命令）
 
 **-U**
-> Operate on user files only
+> 仅对用户文件进行操作
 
 **-A**
-> Operate on all files including metadata
+> 对包括元数据在内的所有文件进行操作
 
 **-r** _rev_
-> Specify revision
+> 指定修订版本
 
 # CAVEATS
 
-BitKeeper was proprietary until **2016** when it was released under the Apache 2.0 license. Development has since ceased; the final release was **7.3.3** in **2018**. Most projects have migrated to Git. Some commands differ from Git equivalents despite similar functionality.
+BitKeeper 在 **2016 年**之前为专有软件，之后以 Apache 2.0 许可证开源。此后开发已停止；最终版本是 **2018 年**的 **7.3.3**。大多数项目已迁移到 Git。尽管功能相似，部分命令与 Git 中的对应命令有所不同。
 
 # HISTORY
 
-BitKeeper was created by **Larry McVoy** in **1998** and became famous as the version control system used for Linux kernel development from **2002 to 2005**. When licensing disputes led to restrictions on free use, Linus Torvalds created **Git** as a replacement. BitKeeper was open-sourced in **2016**.
+BitKeeper 由 **Larry McVoy** 于 **1998 年**创建，因在 **2002 至 2005 年**间被用于 Linux 内核开发而闻名。当许可纠纷导致自由使用受限后，Linus Torvalds 创建了 **Git** 作为替代品。BitKeeper 于 **2016 年**开源。
 
 # INSTALL
 

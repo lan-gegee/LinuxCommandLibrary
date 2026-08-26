@@ -1,34 +1,34 @@
 # TAGLINE
 
-Find and manage the minimum supported Rust version
+查找并管理最低支持的 Rust 版本
 
 # TLDR
 
-**Find minimum supported Rust version**
+**查找最低支持的 Rust 版本**
 
 ```cargo msrv find```
 
-**Find using linear search**
+**使用线性搜索查找**
 
 ```cargo msrv find --linear```
 
-**Verify current MSRV works**
+**验证当前 MSRV 可用**
 
 ```cargo msrv verify```
 
-**Show declared MSRV**
+**显示已声明的 MSRV**
 
 ```cargo msrv show```
 
-**Set MSRV in Cargo.toml**
+**在 Cargo.toml 中设置 MSRV**
 
 ```cargo msrv set [1.56.0]```
 
-**List dependency MSRVs**
+**列出各依赖的 MSRV**
 
 ```cargo msrv list```
 
-**Find for specific path**
+**为指定路径查找**
 
 ```cargo msrv --path [/path/to/project] find```
 
@@ -38,60 +38,60 @@ Find and manage the minimum supported Rust version
 
 # DESCRIPTION
 
-**cargo msrv** finds and manages the Minimum Supported Rust Version (MSRV) for Rust projects. It determines the oldest Rust compiler version that can successfully build a crate by testing against available toolchains. By default it uses binary search to efficiently narrow down the compatible version range.
+**cargo msrv** 为 Rust 项目查找并管理最低支持的 Rust 版本（MSRV）。它通过在可用工具链上逐一测试，确定能够成功构建 crate 的最老 Rust 编译器版本。默认采用二分搜索来高效缩小兼容版本范围。
 
-Maintaining an accurate MSRV is important for library authors who want to support users on older Rust versions. The tool can automatically set the `rust-version` field in Cargo.toml after finding the minimum version, and verify that the declared MSRV remains valid as the codebase evolves.
+对于希望支持较旧 Rust 版本用户的库作者而言，维护准确的 MSRV 非常重要。该工具可在找到最小版本后自动设置 Cargo.toml 中的 `rust-version` 字段，并随着代码库演进而验证已声明的 MSRV 是否仍然有效。
 
 # COMMANDS
 
 **find**
-> Discover the MSRV by testing versions
+> 通过测试各版本来发现 MSRV
 
 **verify**
-> Check if project works with declared MSRV
+> 检查项目能否用已声明的 MSRV 构建
 
 **show**
-> Display MSRV from Cargo.toml
+> 显示 Cargo.toml 中的 MSRV
 
 **set** _version_
-> Update rust-version in Cargo.toml
+> 更新 Cargo.toml 中的 rust-version
 
 **list**
-> Show MSRVs of dependencies
+> 显示各依赖的 MSRV
 
 # PARAMETERS
 
 **--path** _dir_
-> Project directory path
+> 项目目录路径
 
 **--linear**
-> Use linear search instead of binary
+> 使用线性搜索而非二分搜索
 
 **--min** _version_
-> Minimum version to consider
+> 要考虑的最小版本
 
 **--max** _version_
-> Maximum version to consider
+> 要考虑的最大版本
 
 **--target** _triple_
-> Target platform
+> 目标平台
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **--write-msrv**
-> Write found MSRV to Cargo.toml after find
+> find 结束后将找到的 MSRV 写入 Cargo.toml
 
 **--ignore-lockfile**
-> Ignore the lockfile during MSRV determination
+> 确定 MSRV 时忽略锁文件
 
 # REQUIREMENTS
 
-Requires rustup for toolchain management.
+工具链管理需要 rustup。
 
 # CAVEATS
 
-Binary search is much faster than linear for the many Rust minor versions. Requires rustup for downloading and managing toolchains. The `find` command compiles the project with each candidate version, which can be slow for large projects. The `rust-version` field in Cargo.toml only supports two-component versions (e.g., 1.56) since Rust 1.56.
+面对众多的 Rust 小版本，二分搜索比线性搜索快得多。下载和管理工具链需要 rustup。`find` 命令会用每个候选版本编译项目，大型项目可能较慢。自 Rust 1.56 起，Cargo.toml 中的 `rust-version` 字段只支持两段式版本号（如 1.56）。
 
 # INSTALL
 

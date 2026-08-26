@@ -1,30 +1,30 @@
 # TAGLINE
 
-convert images to AVIF format
+将图片转换为 AVIF 格式
 
 # TLDR
 
-**Convert an image to AVIF format**
+**将图片转换为 AVIF 格式**
 
 ```cavif [path/to/image.png]```
 
-**Convert with specific quality (1-100)**
+**以指定质量转换（1-100）**
 
 ```cavif --quality [80] [path/to/image.jpg]```
 
-**Convert with faster encoding speed (1-10)**
+**以更快的编码速度转换（1-10）**
 
 ```cavif --speed [6] [path/to/image.png]```
 
-**Convert and specify output path**
+**转换并指定输出路径**
 
 ```cavif -o [path/to/output.avif] [path/to/image.png]```
 
-**Convert multiple images to a directory**
+**将多张图片转换到某个目录**
 
 ```cavif -o [path/to/output_dir/] [image1.png] [image2.jpg]```
 
-**Overwrite existing AVIF files**
+**覆盖已有的 AVIF 文件**
 
 ```cavif --overwrite [path/to/image.png]```
 
@@ -34,47 +34,47 @@ convert images to AVIF format
 
 # DESCRIPTION
 
-**cavif** is a command-line tool written in Rust for converting PNG and JPEG images to AVIF (AV1 Image File Format). AVIF uses AV1 video codec compression, offering superior compression ratios compared to JPEG while maintaining image quality.
+**cavif** 是一个用 Rust 编写的命令行工具，用于将 PNG 和 JPEG 图片转换为 AVIF（AV1 Image File Format）。AVIF 采用 AV1 视频编解码器的压缩技术，在保持画质的同时提供优于 JPEG 的压缩率。
 
-By default, output files are saved with the same name but with an **.avif** extension. Existing files are not overwritten unless **--overwrite** is specified.
+默认情况下，输出文件使用相同的文件名，但扩展名为 **.avif**。除非指定 **--overwrite**，否则不会覆盖已有文件。
 
 # PARAMETERS
 
 **--quality** _1-100_
-> Output quality level. Higher values mean better quality and larger files. Default: 80
+> 输出质量等级。数值越高画质越好、文件越大。默认：80
 
 **--speed** _1-10_
-> Encoding speed. 1 is slowest with best compression, 10 is fastest but lower quality. Default: 4
+> 编码速度。1 最慢但压缩率最好，10 最快但质量较低。默认：4
 
 **-o** _path_
-> Output path. For multiple inputs, treated as a directory
+> 输出路径。有多个输入时视为目录
 
 **--overwrite**
-> Replace existing .avif files instead of skipping them
+> 替换已有的 .avif 文件而不是跳过它们
 
 **--quiet**
-> Suppress output during conversion
+> 转换过程中抑制输出
 
 **--dirty-alpha**
-> Preserve RGB values of fully transparent pixels (increases file size)
+> 保留全透明像素的 RGB 值（会增大文件体积）
 
 **--color=rgb**
-> Encode in RGB color space instead of YCbCr. Avoids color shifts but produces larger files
+> 以 RGB 色彩空间而不是 YCbCr 编码。避免色彩偏移但生成的文件更大
 
 **--depth=**_8_
-> Encode using 8-bit color depth instead of default 10-bit for wider compatibility
+> 使用 8 位色深编码而不是默认的 10 位，以获得更好的兼容性
 
 # CAVEATS
 
-Speeds 1-2 are extremely slow but produce ~3-5% smaller files. Speeds 7+ significantly degrade compression and are not recommended.
+速度 1-2 极慢，但生成的文件小约 3-5%。速度 7 及以上会明显降低压缩效果，不建议使用。
 
-There is no lossless compression mode; quality 100 produces unreasonably large files without being truly lossless.
+没有无损压缩模式；quality 100 会产生大得离谱的文件，而且并非真正无损。
 
-Requires Rust 1.67 or later if building from source.
+从源码构建需要 Rust 1.67 或更高版本。
 
 # HISTORY
 
-**cavif** was created by Kornel Lesinski as a pure Rust implementation of an AVIF encoder. AVIF itself was standardized in **2019** by the Alliance for Open Media, leveraging the AV1 video codec for still image compression.
+**cavif** 由 Kornel Lesinski 创建，是 AVIF 编码器的纯 Rust 实现。AVIF 本身由开放媒体联盟（Alliance for Open Media）于 **2019** 年标准化，利用 AV1 视频编解码器进行静态图像压缩。
 
 # INSTALL
 

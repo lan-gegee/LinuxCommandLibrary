@@ -1,34 +1,34 @@
 # TAGLINE
 
-read cgroup parameters
+读取 cgroup 参数
 
 # TLDR
 
-**Display all parameters for a cgroup**
+**显示某个 cgroup 的全部参数**
 
 ```cgget -a [path/to/cgroup]```
 
-**Display a specific parameter for a cgroup**
+**显示某个 cgroup 的特定参数**
 
 ```cgget -r [cpu.shares] [path/to/cgroup]```
 
-**Display multiple parameters**
+**显示多个参数**
 
 ```cgget -r [cpuset.cpus] -r [cpuset.mems] [path/to/cgroup]```
 
-**Display parameters for a specific controller**
+**显示特定控制器的参数**
 
 ```cgget -g [cpu]:[path/to/cgroup]```
 
-**Display values only without parameter names**
+**只显示值而不显示参数名**
 
 ```cgget -v -r [memory.limit_in_bytes] [path/to/cgroup]```
 
-**Display without group headers**
+**显示时不带组标题**
 
 ```cgget -n -g [cpu] /```
 
-**Show current cgroups setup mode**
+**显示当前 cgroups 设置模式**
 
 ```cgget -m```
 
@@ -40,44 +40,44 @@ read cgroup parameters
 
 # DESCRIPTION
 
-**cgget** prints parameters of Linux control groups (cgroups). Cgroups are a kernel mechanism for organizing processes and managing resource allocation including CPU, memory, and I/O.
+**cgget** 打印 Linux 控制组（cgroups）的参数。cgroups 是一种内核机制，用于组织进程和管理资源分配，包括 CPU、内存和 I/O。
 
-If no controller or variable is specified, values for all available parameters are displayed. The command supports both cgroup v1 (legacy) and v2 (unified) hierarchies.
+如果未指定控制器或变量，将显示所有可用参数的值。该命令同时支持 cgroup v1（旧式）和 v2（统一）层级。
 
 # PARAMETERS
 
 **-a, --all**
-> Print variables for all controllers in the given cgroup
+> 打印给定 cgroup 中所有控制器的变量
 
 **-g** _controller_[**:**_path_]
-> Specify controller and optionally path to display
+> 指定要显示的控制器，可选路径
 
 **-r, --variable** _name_
-> Display specific parameter (can be used multiple times)
+> 显示特定参数（可多次使用）
 
 **-n**
-> Do not print group name headers
+> 不打印组名标题
 
 **-v, --values-only**
-> Print only values without parameter names
+> 只打印值，不打印参数名
 
 **-m**
-> Display current cgroups setup mode (legacy, unified, or hybrid)
+> 显示当前的 cgroups 设置模式（legacy、unified 或 hybrid）
 
 **-b**
-> Ignore default systemd delegated hierarchy path; construct paths relative to root hierarchy
+> 忽略默认的 systemd 委派层级路径；改为相对根层级构造路径
 
 **-c**
-> Display controllers and their versions (can combine with -m)
+> 显示控制器及其版本（可与 -m 组合）
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # CAVEATS
 
-The **CGROUP_LOGLEVEL** environment variable controls verbosity (DEBUG, INFO, WARNING, ERROR).
+**CGROUP_LOGLEVEL** 环境变量控制日志详细程度（DEBUG、INFO、WARNING、ERROR）。
 
-Requires appropriate permissions to read cgroup parameters. Some parameters may only be available with root access.
+读取 cgroup 参数需要相应权限。某些参数可能只有 root 才能访问。
 
 # INSTALL
 

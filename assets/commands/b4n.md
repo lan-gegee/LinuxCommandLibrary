@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal user interface (TUI) for Kubernetes API inspired by k9s
+受 k9s 启发的 Kubernetes API 终端用户界面（TUI）
 
 # TLDR
 
-**Launch b4n** with the default kubeconfig and context
+使用默认 kubeconfig 和上下文**启动 b4n**
 
 ```b4n```
 
-**Start with a specific resource** kind
+以指定的资源类型**启动**
 
 ```b4n [pods]```
 
-**Use a specific kubeconfig** context
+使用指定的 kubeconfig 上下文
 
 ```b4n --context [my-cluster]```
 
-**Focus on a specific namespace** at startup
+启动时**聚焦指定的命名空间**
 
 ```b4n --namespace [kube-system]```
 
-**Start with a cluster-wide view** across all namespaces
+以覆盖所有命名空间的**集群级视图**启动
 
 ```b4n --all-namespaces```
 
-**Use a custom kubeconfig** file
+使用自定义的 kubeconfig 文件
 
 ```b4n --kube-config [path/to/kubeconfig]```
 
-**Skip TLS certificate verification**
+**跳过 TLS 证书校验**
 
 ```b4n --insecure```
 
@@ -39,57 +39,57 @@ Terminal user interface (TUI) for Kubernetes API inspired by k9s
 # PARAMETERS
 
 **--kube-config** _path_
-> Path to the kubeconfig file. Defaults to **$HOME/.kube/config**. Can also be set via the **KUBECONFIG** environment variable.
+> kubeconfig 文件的路径。默认为 **$HOME/.kube/config**。也可以通过 **KUBECONFIG** 环境变量设置。
 
 **--context** _name_
-> Kubernetes context to use from the kubeconfig file.
+> 要使用的 kubeconfig 文件中的 Kubernetes 上下文。
 
 **-n**, **--namespace** _name_
-> Namespace to focus on at startup.
+> 启动时聚焦的命名空间。
 
 **-A**, **--all-namespaces**
-> Start with a cluster-wide view showing resources across all namespaces.
+> 以显示所有命名空间资源的集群级视图启动。
 
 **--insecure**
-> Skip TLS certificate verification when connecting to the cluster.
+> 连接集群时跳过 TLS 证书校验。
 
 **-V**, **--version**
-> Print version information.
+> 输出版本信息。
 
 **-h**, **--help**
-> Print help information.
+> 输出帮助信息。
 
 # DESCRIPTION
 
-**b4n** is an interactive terminal user interface for managing Kubernetes clusters, written in Rust using the **kube-rs** and **ratatui** libraries. It provides a keyboard-driven interface for performing common Kubernetes operations without leaving the terminal.
+**b4n** 是一个用于管理 Kubernetes 集群的交互式终端用户界面，使用 Rust 编写，基于 **kube-rs** 和 **ratatui** 库。它提供键盘驱动的界面，让你无需离开终端就能执行常见的 Kubernetes 操作。
 
-The TUI supports full CRUD operations on Kubernetes resources. Users can list, create, edit, and delete resources through the interactive interface. Additional capabilities include viewing resource events with **e**, streaming pod and container logs with **l**, launching interactive shell sessions in containers with **s**, inspecting resource YAML with **y**, decoding secrets with **x**, and configuring port forwarding with **f**.
+TUI 支持对 Kubernetes 资源的完整 CRUD 操作。用户可以通过交互式界面列出、创建、编辑和删除资源。其他能力包括：用 **e** 查看资源事件、用 **l** 流式查看 Pod 和容器日志、用 **s** 在容器内启动交互式 shell 会话、用 **y** 查看资源 YAML、用 **x** 解码 Secret、用 **f** 配置端口转发。
 
-Navigation uses a command palette accessible via **:** or **>**, along with dedicated keys for namespace selection (**left arrow**) and resource kind selection (**right arrow**). Resources can be filtered with **/**, and columns can be sorted with **Alt+[0-9]**. Resources are selected with **Space** and deleted with **Ctrl+D** after confirmation. Mouse support can be toggled with **Ctrl+N**.
+导航依靠通过 **:** 或 **>** 唤出的命令面板，此外还有专用按键用于选择命名空间（**左方向键**）和资源类型（**右方向键**）。可以用 **/** 过滤资源，用 **Alt+[0-9]** 对列排序。用 **Space** 选中资源，确认后按 **Ctrl+D** 删除。鼠标支持可通过 **Ctrl+N** 开关。
 
-The command palette supports configurable aliases for quick resource access. Default aliases include **pp** for pods, **svc** for services, **cm** for configmaps, **ds** for daemonsets, **ns** for namespaces, **pvc** for persistentvolumeclaims, and **sts** for statefulsets, among others.
+命令面板支持配置别名以便快速访问资源。默认别名包括 **pp** 对应 pods、**svc** 对应 services、**cm** 对应 configmaps、**ds** 对应 daemonsets、**ns** 对应 namespaces、**pvc** 对应 persistentvolumeclaims、**sts** 对应 statefulsets 等。
 
 # CONFIGURATION
 
-Configuration is stored in **$HOME/.b4n/** with the following structure:
+配置存储在 **$HOME/.b4n/** 中，结构如下：
 
 **config.yaml**
-> Main application settings including log preferences, mouse support, active theme, context-specific highlight colors, resource aliases, and custom key bindings. Auto-generated with defaults if missing.
+> 主应用设置，包括日志偏好、鼠标支持、活动主题、各上下文专属的高亮颜色、资源别名以及自定义键绑定。若文件缺失会自动生成默认值。
 
 **themes/**
-> Directory containing TUI theme files in YAML format. A default theme is auto-generated on first run.
+> 存放 YAML 格式 TUI 主题文件的目录。首次运行时会自动生成默认主题。
 
 **history.yaml**
-> Stores filter and search history per Kubernetes context, as well as the last used namespace and resource kind.
+> 按 Kubernetes 上下文保存过滤和搜索历史，以及最近使用的命名空间和资源类型。
 
 **logs/**
-> Daily application log files for debugging.
+> 用于调试的每日应用日志文件。
 
-Key configuration options in **config.yaml** include **logs.lines** (number of retrieved log lines, default 800), **logs.timestamps** (show timestamps in logs, default true), **mouse** (enable mouse support, default true), **theme** (active theme name), **contexts** (per-cluster highlight colors), **aliases** (command palette shortcuts), and **key_bindings** (custom key mappings supporting Ctrl, Alt, and function keys).
+**config.yaml** 中的关键配置项包括 **logs.lines**（获取的日志行数，默认 800）、**logs.timestamps**（日志中显示时间戳，默认 true）、**mouse**（启用鼠标支持，默认 true）、**theme**（活动主题名称）、**contexts**（各集群的高亮颜色）、**aliases**（命令面板快捷方式）和 **key_bindings**（自定义键位映射，支持 Ctrl、Alt 和功能键）。
 
 # CAVEATS
 
-Requires a valid kubeconfig file and network access to a Kubernetes cluster. A terminal font with Nerd Font symbols (such as Cascadia Code) is recommended for proper UI rendering. Building from source requires Rust 1.88 or newer. The project is under active development and was created primarily as a Rust learning exercise.
+需要有效的 kubeconfig 文件以及到 Kubernetes 集群的网络访问。为了 UI 渲染正常，建议使用带有 Nerd Font 符号的终端字体（如 Cascadia Code）。从源码构建需要 Rust 1.88 或更新版本。该项目正在积极开发中，最初主要是作为一个 Rust 学习练习而创建。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-concatenate and display file contents
+连接并显示文件内容
 
 # TLDR
 
-Print the contents of a file to **stdout**
+将文件内容输出到 **stdout**
 
 ```cat [path/to/file]```
 
-**Concatenate** several files into an output file
+**连接**多个文件并写入输出文件
 
 ```cat [file1] [file2] > [output_file]```
 
-**Append** several files to an output file
+**追加**多个文件到输出文件
 
 ```cat [file1] [file2] >> [output_file]```
 
-**Number** all output lines
+为所有输出行**编号**
 
 ```cat -n [path/to/file]```
 
-Display **all characters** including tabs and line endings
+显示**所有字符**，包括制表符和行尾符
 
 ```cat -A [path/to/file]```
 
-Pass file contents to another program through **stdin**
+通过 **stdin** 将文件内容传给另一个程序
 
 ```cat [path/to/file] | [program]```
 
@@ -34,46 +34,46 @@ Pass file contents to another program through **stdin**
 
 # DESCRIPTION
 
-**cat** (concatenate) reads files sequentially and writes their contents to standard output. It is one of the most frequently used Unix utilities, serving as the standard way to display file contents, combine multiple files, and pipe data to other commands in shell pipelines.
+**cat**（concatenate）按顺序读取文件并将其内容写到标准输出。它是最常用的 Unix 工具之一，是显示文件内容、合并多个文件以及在 Shell 管道中把数据传递给其他命令的标准方式。
 
-When given multiple file arguments, cat concatenates them in order, making it useful for joining split files or appending content. With no file arguments or a dash (-), it reads from standard input, which allows it to function as a simple pass-through in pipelines. Various flags control output formatting, including line numbering and display of non-printing characters.
+给定多个文件参数时，cat 会按顺序连接它们，适合拼接分卷文件或追加内容。不带文件参数或使用连字符（-）时，它会从标准输入读取，因此可以在管道中充当简单的直通环节。各种标志可以控制输出格式，包括行号和非打印字符的显示。
 
 # PARAMETERS
 
 **-n, --number**
-> Number all output lines
+> 为所有输出行编号
 
 **-b, --number-nonblank**
-> Number non-blank output lines only
+> 仅为非空输出行编号
 
 **-s, --squeeze-blank**
-> Suppress repeated empty output lines
+> 压缩连续的空输出行
 
 **-A, --show-all**
-> Equivalent to -vET; show all characters
+> 等价于 -vET；显示所有字符
 
 **-E, --show-ends**
-> Display $ at end of each line
+> 在每行末尾显示 $
 
 **-T, --show-tabs**
-> Display TAB characters as ^I
+> 将 TAB 字符显示为 ^I
 
 **-v, --show-nonprinting**
-> Use ^ and M- notation for non-printing characters
+> 对非打印字符使用 ^ 和 M- 记法
 
 **-e**
-> Equivalent to -vE
+> 等价于 -vE
 
 **-t**
-> Equivalent to -vT
+> 等价于 -vT
 
 # CAVEATS
 
-For large files, consider using **less** or **head/tail** instead. Using cat to pipe a single file to another command (UUOC - Useless Use of Cat) is often unnecessary.
+对于大文件，建议改用 **less** 或 **head/tail**。用 cat 把单个文件通过管道传给另一条命令（UUOC - Useless Use of Cat）通常没有必要。
 
 # HISTORY
 
-Part of **GNU Coreutils**. Originated in **1971** for first Edition Unix by Ken Thompson at Bell Labs. One of the oldest and most fundamental Unix utilities.
+属于 **GNU Coreutils**。起源于 **1971** 年贝尔实验室 Ken Thompson 编写的第一版 Unix。是最古老、最基础的 Unix 工具之一。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage SSH public key resources in Azure
+管理 Azure 中的 SSH 公钥资源
 
 # TLDR
 
-**Create an SSH key resource** (auto-generates a key pair)
+**创建 SSH 密钥资源**（自动生成密钥对）
 
 ```az sshkey create --name [MySSHKey] --resource-group [MyResourceGroup]```
 
-**Create an SSH key from an existing public key**
+**从现有公钥创建 SSH 密钥**
 
 ```az sshkey create --name [MySSHKey] --resource-group [MyResourceGroup] --public-key "@[~/.ssh/id_rsa.pub]"```
 
-**Create an Ed25519 SSH key resource**
+**创建 Ed25519 SSH 密钥资源**
 
 ```az sshkey create --name [MySSHKey] --resource-group [MyResourceGroup] --encryption-type [Ed25519]```
 
-**List all SSH key resources**
+**列出所有 SSH 密钥资源**
 
 ```az sshkey list --resource-group [MyResourceGroup]```
 
-**Show SSH key details**
+**显示 SSH 密钥详情**
 
 ```az sshkey show --name [MySSHKey] --resource-group [MyResourceGroup]```
 
-**Delete an SSH key resource**
+**删除 SSH 密钥资源**
 
 ```az sshkey delete --name [MySSHKey] --resource-group [MyResourceGroup]```
 
@@ -35,46 +35,46 @@ Manage SSH public key resources in Azure
 # SUBCOMMANDS
 
 **create**
-> Create a new SSH public key resource.
+> 创建新的 SSH 公钥资源。
 
 **delete**
-> Delete an SSH public key resource.
+> 删除 SSH 公钥资源。
 
 **list**
-> List SSH public key resources.
+> 列出 SSH 公钥资源。
 
 **show**
-> Get information about an SSH public key resource.
+> 获取 SSH 公钥资源的信息。
 
 **update**
-> Update an SSH public key resource.
+> 更新 SSH 公钥资源。
 
 # PARAMETERS
 
 **--name** **--ssh-public-key-name** **-n**
-> Name of the SSH public key resource.
+> SSH 公钥资源的名称。
 
 **--resource-group** **-g**
-> Name of the resource group.
+> 资源组的名称。
 
 **--public-key**
-> SSH public key content, or `@filename` to read from a file. If omitted on create, a key pair is generated. A provided key must be at least 2048-bit and in ssh-rsa format.
+> SSH 公钥内容，或用 `@filename` 表示从文件读取。创建时若省略此参数，将自动生成密钥对。提供的密钥必须至少为 2048 位且采用 ssh-rsa 格式。
 
 **--encryption-type**
-> Algorithm for a generated key. Accepts **RSA** (default) or **Ed25519**.
+> 生成密钥时使用的算法。接受 **RSA**（默认）或 **Ed25519**。
 
 **--location** **-l**
-> Azure region for the resource.
+> 资源所在的 Azure 区域。
 
 # DESCRIPTION
 
-**az sshkey** manages Azure SSH public key resources, which store SSH public keys in Azure for reuse when creating VMs. This simplifies deployment by referencing a stored key rather than providing the key each time.
+**az sshkey** 管理 Azure 的 SSH 公钥资源。这类资源将 SSH 公钥存储在 Azure 中，以便创建 VM 时重复使用。通过引用已存储的密钥而不必每次都提供密钥，可以简化部署。
 
-When **--public-key** is omitted on **create**, Azure generates a new key pair and returns the private key in the command output. Save it immediately, as it cannot be retrieved later.
+在 **create** 时若省略 **--public-key**，Azure 会生成新的密钥对，并在命令输出中返回私钥。请立即保存该私钥，因为之后无法再获取。
 
 # CAVEATS
 
-Requires Azure CLI to be installed and authenticated; this is a core command, so no extension is needed. Only the public key is stored in Azure. When a key is auto-generated, capture the returned private key right away.
+需要已安装并完成身份验证的 Azure CLI；这是核心命令，无需额外扩展。Azure 中只存储公钥。自动生成密钥时，请立即保存返回的私钥。
 
 # INSTALL
 

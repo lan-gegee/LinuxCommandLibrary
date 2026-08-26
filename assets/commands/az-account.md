@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure subscriptions and access tokens
+管理 Azure 订阅和访问令牌
 
 # TLDR
 
-**List all subscriptions** for the logged-in account (enabled only by default)
+**列出已登录账户的所有订阅**（默认仅显示启用的）
 
 ```az account list```
 
-**Show the current subscription**
+**显示当前订阅**
 
 ```az account show```
 
-**Set the active subscription**
+**设置活动订阅**
 
 ```az account set --subscription [subscription-id-or-name]```
 
-**Get an access token** for the current account
+为当前账户**获取访问令牌**
 
 ```az account get-access-token```
 
-**Get an access token** for Microsoft Graph
+为 Microsoft Graph **获取访问令牌**
 
 ```az account get-access-token --resource-type ms-graph```
 
-**List all subscriptions** including disabled ones across all clouds
+跨所有云**列出所有订阅**，包括禁用的
 
 ```az account list --all```
 
-**List supported regions** for the current subscription
+**列出当前订阅支持的区域**
 
 ```az account list-locations```
 
-**Clear all cached subscriptions**
+**清除所有缓存的订阅**
 
 ```az account clear```
 
@@ -42,9 +42,9 @@ Manage Azure subscriptions and access tokens
 
 # DESCRIPTION
 
-**az account** manages Azure subscription information and access tokens. It allows you to list, select, and manage subscriptions associated with your Azure account, as well as obtain access tokens for programmatic access to Azure resources.
+**az account** 管理 Azure 订阅信息和访问令牌。它可以列出、选择和管理与你的 Azure 账户关联的订阅，并获取用于以编程方式访问 Azure 资源的访问令牌。
 
-This command group is essential for working with multiple Azure subscriptions and switching between them during CLI sessions.
+在使用多个 Azure 订阅并在 CLI 会话中切换时，这个命令组必不可少。
 
 # SUBCOMMANDS
 
@@ -69,29 +69,29 @@ This command group is essential for working with multiple Azure subscriptions an
 # PARAMETERS
 
 **--subscription**, **-s** _value_
-> Name or ID of the subscription to use (accepted by `set`, `show`, `get-access-token`)
+> 要使用的订阅名称或 ID（`set`、`show`、`get-access-token` 接受）
 
 **--all**
-> (`list`) Include subscriptions from all clouds and all states, not just enabled ones.
+> （`list`）包含所有云、所有状态的订阅，而不仅是启用的。
 
 **--refresh**
-> (`list`) Retrieve up-to-date subscriptions from the server rather than local cache.
+> （`list`）从服务器获取最新订阅，而非本地缓存。
 
 **--resource-type** _value_
-> Type of resource for access token. Accepted values: **aad-graph**, **arm**, **batch**, **data-lake**, **media**, **ms-graph**, **oss-rdbms**.
+> 访问令牌的资源类型。可接受的值：**aad-graph**、**arm**、**batch**、**data-lake**、**media**、**ms-graph**、**oss-rdbms**。
 
 **--resource** _uri_
-> Azure resource endpoint URI for access token (Microsoft Entra v1.0).
+> 访问令牌的 Azure 资源终结点 URI（Microsoft Entra v1.0）。
 
 **--scope** _value_
-> Space-separated scopes for the access token (Microsoft Entra v2.0). Defaults to Azure Resource Manager.
+> 访问令牌的作用域，空格分隔（Microsoft Entra v2.0）。默认为 Azure Resource Manager。
 
 **--tenant**, **-t** _value_
-> Tenant ID for cross-tenant token requests. Only available for user and service principal accounts.
+> 跨租户令牌请求使用的租户 ID。仅适用于用户账户和服务主体账户。
 
 # CAVEATS
 
-Access tokens are valid for a minimum of 5 minutes up to a maximum of 60 minutes. The **expires_on** field in token output is a POSIX timestamp (UTC), while **expiresOn** is local datetime. Starting in September 2025, Microsoft requires MFA for user identities; scripts should migrate to service principals or managed identities.
+访问令牌的有效期最短 5 分钟，最长 60 分钟。令牌输出中的 **expires_on** 字段是 POSIX 时间戳（UTC），而 **expiresOn** 是本地日期时间。自 2025 年 9 月起，Microsoft 要求用户身份启用 MFA；脚本应迁移到服务主体或托管标识。
 
 # INSTALL
 

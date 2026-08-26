@@ -1,30 +1,30 @@
 # TAGLINE
 
-Install prebuilt Rust binaries from crates.io
+从 crates.io 安装预构建的 Rust 二进制文件
 
 # TLDR
 
-**Install package binary**
+**安装软件包的二进制文件**
 
 ```cargo binstall [ripgrep]```
 
-**Install specific version**
+**安装指定版本**
 
 ```cargo binstall [tokei@12.1.0]```
 
-**Only install if signed**
+**只安装已签名的软件包**
 
 ```cargo binstall --only-signed [package]```
 
-**Install without confirmation**
+**无需确认直接安装**
 
 ```cargo binstall -y [package]```
 
-**Upgrade cargo-binstall itself**
+**升级 cargo-binstall 自身**
 
 ```cargo binstall cargo-binstall```
 
-**Install from specific target**
+**从指定目标平台安装**
 
 ```cargo binstall --targets [x86_64-unknown-linux-gnu] [package]```
 
@@ -34,53 +34,53 @@ Install prebuilt Rust binaries from crates.io
 
 # DESCRIPTION
 
-**cargo binstall** installs Rust binaries by downloading prebuilt releases instead of compiling from source. It fetches crate info from crates.io, searches for matching releases, and falls back to cargo install if no binary is found.
+**cargo binstall** 通过下载预构建发行版来安装 Rust 二进制文件，而不是从源码编译。它会从 crates.io 获取 crate 信息，搜索匹配的发行版；若找不到二进制文件则回退到 cargo install。
 
-Much faster than cargo install on constrained devices.
+在性能受限的设备上比 cargo install 快得多。
 
 # PARAMETERS
 
 **-y**, **--no-confirm**
-> Skip confirmation prompt
+> 跳过确认提示
 
 **--only-signed**
-> Only install signed packages
+> 只安装已签名的软件包
 
 **--targets** _targets_
-> Override target platform
+> 覆盖目标平台
 
 **--install-path** _path_
-> Custom installation directory
+> 自定义安装目录
 
 **--roots** _path_
-> Root directory for package info
+> 包信息的根目录
 
 **--force**
-> Force reinstallation
+> 强制重新安装
 
 **--no-symlinks**
-> Don't create symlinks
+> 不创建符号链接
 
 **--dry-run**
-> Show what would be installed
+> 显示将要安装的内容
 
 **--log-level** _level_
-> Set log verbosity
+> 设置日志详细程度
 
 # FALLBACK ORDER
 
-1. Linked repository releases
-2. quickinstall artifact host
-3. Alternate supported targets
-4. cargo install (source build)
+1. 关联仓库的发行版
+2. quickinstall 制品托管服务
+3. 其他受支持的目标平台
+4. cargo install（源码构建）
 
 # SIGNATURE VERIFICATION
 
-Maintainers can specify signing keys in Cargo.toml. Binstall downloads and verifies signatures when available.
+维护者可在 Cargo.toml 中指定签名密钥。Binstall 在有签名可用时会下载并校验签名。
 
 # CAVEATS
 
-Package must have prebuilt binaries or binstall metadata. Falls back to cargo install when no binary found.
+软件包必须有预构建的二进制文件或 binstall 元数据。找不到二进制文件时回退到 cargo install。
 
 # INSTALL
 

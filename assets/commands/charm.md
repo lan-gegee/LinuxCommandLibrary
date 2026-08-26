@@ -1,42 +1,42 @@
 # TAGLINE
 
-Encrypted cloud storage and key-value database
+加密云存储与键值数据库
 
 # TLDR
 
-**Store a key-value pair**
+**存储一个键值对**
 
 ```charm kv set [key] [value]```
 
-**Retrieve a value**
+**取回一个值**
 
 ```charm kv get [key]```
 
-**List all keys**
+**列出所有键**
 
 ```charm kv list```
 
-**Delete a key**
+**删除一个键**
 
 ```charm kv delete [key]```
 
-**Encrypt** a file using Charm keys
+使用 Charm 密钥**加密**文件
 
 ```charm crypt encrypt [path/to/file]```
 
-**Decrypt** a file encrypted with Charm keys
+**解密**用 Charm 密钥加密的文件
 
 ```charm crypt decrypt [path/to/file.enc]```
 
-**Sync** local data to Charm Cloud
+将本地数据**同步**到 Charm Cloud
 
 ```charm sync```
 
-**Show** account identity and linked devices
+**显示**账户身份和已关联的设备
 
 ```charm id```
 
-**Back up** encryption keys to a file
+将加密密钥**备份**到文件
 
 ```charm backup-keys```
 
@@ -47,56 +47,56 @@ Encrypted cloud storage and key-value database
 # PARAMETERS
 
 **kv set** _key_ _value_
-> Store a key-value pair.
+> 存储一个键值对。
 
 **kv get** _key_
-> Retrieve value for key.
+> 取回键对应的值。
 
 **kv list**
-> List all stored keys.
+> 列出所有已存储的键。
 
 **kv delete** _key_
-> Delete a key-value pair.
+> 删除一个键值对。
 
 **crypt encrypt** _file_
-> Encrypt a file.
+> 加密文件。
 
 **crypt decrypt** _file_
-> Decrypt a file.
+> 解密文件。
 
 **sync**
-> Synchronize with Charm Cloud.
+> 与 Charm Cloud 同步。
 
 **id**
-> Show or manage account identity.
+> 显示或管理账户身份。
 
 **link**
-> Link a new device to account.
+> 将新设备关联到账户。
 
 **backup-keys**
-> Export encryption keys.
+> 导出加密密钥。
 
 **fs**
-> Access Charm file system.
+> 访问 Charm 文件系统。
 
 **-o**, **--output** _file_
-> Output file for operations.
+> 操作的输出文件。
 
 # DESCRIPTION
 
-**charm** is a command-line tool from Charmbracelet providing end-to-end encrypted cloud storage, key-value database, and file encryption. It enables syncing data securely across devices without managing your own server.
+**charm** 是来自 Charmbracelet 的命令行工具，提供端到端加密的云存储、键值数据库和文件加密。它让你无需自建服务器即可在设备间安全地同步数据。
 
-The **kv** commands provide a simple key-value store useful for configuration, secrets, and application state. All data is encrypted client-side before syncing to Charm Cloud, ensuring privacy.
+**kv** 命令提供简单的键值存储，适合保存配置、密钥和应用状态。所有数据在同步到 Charm Cloud 之前都会在客户端加密，确保隐私。
 
-File encryption via **charm crypt** uses your Charm keys to encrypt any file. The **fs** command provides a virtual file system stored in the cloud. Device linking allows accessing the same data from multiple machines.
+通过 **charm crypt** 进行文件加密时，会使用你的 Charm 密钥加密任意文件。**fs** 命令提供存储在云端的一个虚拟文件系统。设备关联让你可以从多台机器访问相同的数据。
 
 # CAVEATS
 
-Data is encrypted, but requires trusting Charm Cloud infrastructure. The free tier has storage limits. Key backup is essential - losing keys means losing access to data. Self-hosting is possible but requires more setup.
+数据是加密的，但仍需信任 Charm Cloud 基础设施。免费层有存储限制。务必备份密钥——丢失密钥就意味着无法访问数据。可以自托管，但需要更多配置。
 
 # HISTORY
 
-Charm was created by **Charmbracelet**, a company focused on making the command line more delightful, founded in **2020**. Known for TUI libraries like Bubble Tea and Lip Gloss, they developed Charm Cloud as infrastructure for CLI tools needing cloud sync. The service launched to provide developers with easy, encrypted cloud storage without complex setup.
+Charm 由 **Charmbracelet** 开发，这是一家成立于 **2020 年**、致力于让命令行更愉悦的公司。他们以 Bubble Tea 和 Lip Gloss 等 TUI 库闻名，并开发了 Charm Cloud 作为需要云同步功能的 CLI 工具的基础设施。该服务的目标是让开发者无需复杂配置即可获得易用的加密云存储。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Shell syntax for grouping and expansion
+用于分组与展开的 Shell 语法
 
 # TLDR
 
-**Command grouping (current shell)**
+**命令分组（当前 Shell）**
 
 ```{ [command1]; [command2]; }```
 
-**Brace expansion**
+**花括号展开**
 
 ```echo {a,b,c}```
 
-**Sequence expansion**
+**序列展开**
 
 ```echo {1..10}```
 
-**Sequence with a step/increment**
+**带步长的序列展开**
 
 ```echo {0..20..5}```
 
-**Parameter expansion**
+**参数展开**
 
 ```echo ${var}```
 
-**Create multiple files**
+**创建多个文件**
 
 ```touch file{1,2,3}.txt```
 
@@ -40,21 +40,21 @@ Shell syntax for grouping and expansion
 
 # DESCRIPTION
 
-**{ }** (braces/curly brackets) serve multiple purposes in shell:
+**{ }**（花括号）在 shell 中有多种用途：
 
-**Command grouping**: **{ cmd1; cmd2; }** groups commands to run in the current shell (unlike **(...)** which uses a subshell). Requires spaces after **{** and **;** before **}**.
+**命令分组**：**{ cmd1; cmd2; }** 将命令组合起来在当前 shell 中运行（不同于会启用子 shell 的 **(...)**）。要求 **{** 后有空格，且 **}** 前有分号。
 
-**Brace expansion**: **{a,b,c}** expands to **a b c**. Useful for generating lists:
+**花括号展开**：**{a,b,c}** 展开为 **a b c**。适合生成列表：
 - **file{1,2,3}** → **file1 file2 file3**
-- **{a..z}** → alphabet
-- **{1..10}** → numbers 1-10
-- **{01..10}** → zero-padded: 01 02 ... 10
-- **{0..20..5}** → step/increment (bash 4.0+): 0 5 10 15 20
+- **{a..z}** → 字母表
+- **{1..10}** → 数字 1 到 10
+- **{01..10}** → 零填充形式：01 02 ... 10
+- **{0..20..5}** → 步长/增量（bash 4.0+）：0 5 10 15 20
 
-**Parameter expansion**: **${var}** accesses variables, required for:
-- Array access: **${array[0]}**
-- Modifiers: **${var:-default}**
-- Disambiguation: **${var}text**
+**参数展开**：**${var}** 访问变量，以下场景必须使用：
+- 数组访问：**${array[0]}**
+- 修饰符：**${var:-default}**
+- 消除歧义：**${var}text**
 
 # EXAMPLES
 
@@ -75,11 +75,11 @@ echo {a,b}{1,2}  # a1 a2 b1 b2
 
 # CAVEATS
 
-Command grouping requires space after **{** and semicolon before **}**: **{ cmd; }** not **{cmd}**.
+命令分组要求 **{** 后有空格且 **}** 前有分号：应写成 **{ cmd; }** 而不是 **{cmd}**。
 
-Brace expansion is not glob expansion - it happens before other expansions and doesn't check if files exist.
+花括号展开不是通配符展开——它发生在其他展开之前，并且不会检查文件是否存在。
 
-**{}** in find commands is the replacement string, not brace expansion.
+find 命令中的 **{}** 是替换字符串，不是花括号展开。
 
 # SEE ALSO
 

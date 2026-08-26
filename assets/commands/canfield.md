@@ -1,22 +1,22 @@
 # TAGLINE
 
-Text-based solitaire card game
+基于文本的纸牌接龙游戏
 
 # TLDR
 
-**Start a game of Canfield solitaire**
+**开始一局 Canfield 接龙**
 
 ```canfield```
 
-**View your canfield score history**
+**查看**你的 canfield 得分历史
 
 ```cfscores```
 
-**View another user's canfield scores**
+**查看其他用户**的 canfield 得分
 
 ```cfscores [username]```
 
-**View all users' canfield scores**
+**查看所有用户**的 canfield 得分
 
 ```cfscores -a```
 
@@ -36,33 +36,33 @@ Text-based solitaire card game
 
 # DESCRIPTION
 
-**canfield** is a text-based implementation of the Canfield solitaire card game (also known as Demon Solitaire) from the BSD games collection. Cards are displayed using ASCII characters in the terminal.
+**canfield** 是 BSD 游戏合集中 Canfield 纸牌接龙（又称 Demon Solitaire）的文本版实现。卡牌以 ASCII 字符显示在终端中。
 
-**Gameplay:** Build tableau piles downward in alternating colors. Entire piles must be moved as units. Top cards are available for foundation play but cannot fill empty tableau spaces, which must be filled from the stock. Cards are dealt from hand to talon in groups of three.
+**玩法：** 按红黑交替的颜色规则将牌堆向下叠放。整叠牌必须作为一个整体移动。顶牌可用于基础堆，但不能填入空置的牌列位置，空位必须从库存牌补入。手牌每次三张一组发到弃牌堆。
 
-**Commands during play:**
-- Type **ht** to deal cards to the talon
-- Single-letter commands with numbers for moves
+**游戏中的命令：**
+- 输入 **ht** 将手牌发到弃牌堆
+- 单字母命令加数字表示移动
 
-**Scoring:** Inspection costs $13, final play costs $26. Each foundation card earns $5. Each pass through the hand after the first costs $5. Playing time costs $1 per minute.
+**计分：** 观察牌面花费 $13，最终结算花费 $26。每张进入基础堆的牌赢得 $5。第一次之后每过一遍手牌花费 $5。游玩时间每分钟花费 $1。
 
 # PARAMETERS
 
-**cfscores** options:
+**cfscores** 选项：
 
 **-a**
-> Display canfield accounts for all users
+> 显示所有用户的 canfield 账户
 
 **user**
-> Display scores for specified username
+> 显示指定用户名的得分
 
 # CAVEATS
 
-The game maintains a scoring database that tracks your gambling-style account balance. The scoring system simulates the casino version of the game where players would pay to play and win money for cards placed on foundations.
+该游戏维护一个记录你赌博式账户余额的得分数据库。其计分系统模拟了这款接龙的赌场版本：玩家需要付费游玩，放入基础堆的牌可赢取奖金。
 
 # HISTORY
 
-Canfield solitaire is named after **Richard A. Canfield**, a 19th-century American casino owner who popularized this version of solitaire in his gambling houses. The BSD games implementation was originally written by Steve Levine with contributions from Steve Feldman, Kirk McKusick, Mikey Olson, and Eric Allman.
+Canfield 接龙得名于 **Richard A. Canfield**，他是 19 世纪的一位美国赌场老板，曾在其赌场推广这种接龙玩法。BSD 游戏的实现最初由 Steve Levine 编写，Steve Feldman、Kirk McKusick、Mikey Olson 和 Eric Allman 也做出了贡献。
 
 # SEE ALSO
 

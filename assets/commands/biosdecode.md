@@ -1,18 +1,18 @@
 # TAGLINE
 
-Decode and display BIOS data structures
+解码并显示 BIOS 数据结构
 
 # TLDR
 
-**Display all BIOS information**
+**显示所有 BIOS 信息**
 
 ```sudo biosdecode```
 
-**Read BIOS data from a binary dump file**
+**从二进制转储文件读取 BIOS 数据**
 
 ```sudo biosdecode --dev-mem [bios.bin]```
 
-**Display version information**
+**显示版本信息**
 
 ```biosdecode --version```
 
@@ -22,28 +22,28 @@ Decode and display BIOS data structures
 
 # DESCRIPTION
 
-**biosdecode** parses the BIOS memory and prints information about all structures it knows of, including SMBIOS (System Management BIOS), DMI (Desktop Management Interface), ACPI, PNP (Plug and Play), BIOS32, PIR (PCI IRQ Routing), and vendor-specific structures (Compaq, IBM, Fujitsu, Sony).
+**biosdecode** 解析 BIOS 内存，并打印它所识别的所有结构的信息，包括 SMBIOS（System Management BIOS）、DMI（Desktop Management Interface）、ACPI、PNP（即插即用）、BIOS32、PIR（PCI IRQ Routing）以及厂商专属结构（Compaq、IBM、Fujitsu、Sony）。
 
-For more detailed SMBIOS/DMI output, use **dmidecode** instead.
+如需更详细的 SMBIOS/DMI 输出，请改用 **dmidecode**。
 
 # PARAMETERS
 
 **-d**, **--dev-mem** _FILE_
-> Read memory from device FILE instead of default /dev/mem
+> 从设备文件 FILE 读取内存，而不是默认的 /dev/mem
 
 **-V**, **--version**
-> Display version information and exit
+> 显示版本信息并退出
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # CAVEATS
 
-Requires root privileges to access /dev/mem where BIOS data is stored. On modern Linux systems, **dmidecode** is preferred as it provides more comprehensive and detailed output. Some systems with restricted memory access may not allow biosdecode to function properly.
+需要 root 权限才能访问存储 BIOS 数据的 /dev/mem。在现代 Linux 系统上，更推荐使用 **dmidecode**，因为它提供更全面详细的输出。某些限制内存访问的系统可能无法让 biosdecode 正常工作。
 
 # HISTORY
 
-biosdecode is part of the **dmidecode** package, originally written by **Alan Cox** and maintained by **Jean Delvare**. It was created to provide a simple tool for extracting BIOS information on Linux systems, predating the more feature-rich dmidecode utility.
+biosdecode 是 **dmidecode** 软件包的一部分，最初由 **Alan Cox** 编写并由 **Jean Delvare** 维护。它的诞生是为了提供一个在 Linux 系统上提取 BIOS 信息的简单工具，比功能更丰富的 dmidecode 更早出现。
 
 # INSTALL
 

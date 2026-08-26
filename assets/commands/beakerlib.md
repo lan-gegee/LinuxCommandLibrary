@@ -1,99 +1,99 @@
 # TAGLINE
 
-Shell-level integration testing library
+Shell 层级的集成测试库
 
 # TLDR
 
-**Create a basic test script**
+**创建基础测试脚本**
 
 ```rlJournalStart && rlPhaseStart FAIL "Setup" && rlRun "command" && rlPhaseEnd && rlJournalEnd```
 
-**Run a command and assert success**
+**运行命令并断言成功**
 
 ```rlRun "[command]" 0 "Command should succeed"```
 
-**Run a command and expect failure**
+**运行命令并预期失败**
 
 ```rlRun "[command]" 1 "Command should fail with exit code 1"```
 
-**Assert a file exists**
+**断言文件存在**
 
 ```rlAssertExists [path/to/file]```
 
-**Assert strings are equal**
+**断言字符串相等**
 
 ```rlAssertEquals "Test value" "[actual]" "[expected]"```
 
-**Log informational message**
+**记录信息性消息**
 
 ```rlLog "Informational message"```
 
-**Backup and restore a file**
+**备份和恢复文件**
 
 ```rlFileBackup [path/to/file] && rlRun "[modify file]" && rlFileRestore```
 
 # SYNOPSIS
 
-Test scripts source BeakerLib and use its functions:
+测试脚本 source BeakerLib 并使用其函数：
 
 ```source /usr/share/beakerlib/beakerlib.sh```
 
 # FUNCTIONS
 
 **rlJournalStart**
-> Initialize test journal; must be called first.
+> 初始化测试日志；必须最先调用。
 
 **rlJournalEnd**
-> Finalize journal and generate report.
+> 结束日志并生成报告。
 
 **rlPhaseStart** _type_ _name_
-> Start a test phase (FAIL, WARN, or pass type).
+> 开始一个测试阶段（FAIL、WARN 或 pass 类型）。
 
 **rlPhaseEnd**
-> End the current test phase.
+> 结束当前测试阶段。
 
 **rlRun** _command_ [_expected_exit_] [_comment_]
-> Run command and check exit code.
+> 运行命令并检查退出码。
 
 **rlAssertEquals** _comment_ _value1_ _value2_
-> Assert two values are equal.
+> 断言两个值相等。
 
 **rlAssertExists** _path_
-> Assert file or directory exists.
+> 断言文件或目录存在。
 
 **rlAssertNotExists** _path_
-> Assert file or directory does not exist.
+> 断言文件或目录不存在。
 
 **rlAssertGrep** _pattern_ _file_
-> Assert pattern exists in file.
+> 断言文件中存在匹配模式的内容。
 
 **rlLog** _message_
-> Log an informational message.
+> 记录一条信息性消息。
 
 **rlFileBackup** _file_...
-> Backup files for later restoration.
+> 备份文件以便日后恢复。
 
 **rlFileRestore**
-> Restore previously backed up files.
+> 恢复之前备份的文件。
 
 **rlServiceStart** / **rlServiceStop**
-> Start or stop a system service.
+> 启动或停止系统服务。
 
 # DESCRIPTION
 
-**BeakerLib** is a shell-level integration testing library used primarily for testing RPM packages and system components. It provides functions for organizing tests into phases, running commands with assertions, managing files and services, and generating structured test reports.
+**BeakerLib** 是一个 Shell 层级的集成测试库，主要用于测试 RPM 软件包和系统组件。它提供了一系列函数，可将测试组织为阶段、运行带断言的命令、管理文件和服务，以及生成结构化的测试报告。
 
-Tests are organized as journals containing phases. Each phase groups related assertions and logs. The library handles setup/cleanup, result collection, and report generation automatically.
+测试组织为包含多个阶段的日志（journal）。每个阶段将相关的断言和日志归为一组。该库自动处理准备/清理、结果收集和报告生成。
 
-BeakerLib is designed for the **Beaker** test framework used in Red Hat and Fedora quality assurance, but can be used standalone for any shell-based integration testing. Tests produce logs in multiple formats including HTML and JUnit XML.
+BeakerLib 为 Red Hat 和 Fedora 质量保证体系所用的 **Beaker** 测试框架设计，但也可以独立用于任何基于 Shell 的集成测试。测试可生成多种格式的日志，包括 HTML 和 JUnit XML。
 
 # CAVEATS
 
-BeakerLib is primarily designed for RHEL/Fedora ecosystem; availability varies on other distributions. The shell-based approach can be slower than compiled test frameworks. Complex assertions require multiple function calls. The library must be sourced at the start of each test script.
+BeakerLib 主要面向 RHEL/Fedora 生态，在其他发行版上的可用性不一。基于 Shell 的方式可能比编译型测试框架慢。复杂断言需要多次函数调用。每个测试脚本开头都必须 source 该库。
 
 # HISTORY
 
-BeakerLib was developed at **Red Hat** as part of the **Beaker** integration testing infrastructure, originally designed for testing RHEL packages and system components. It grew from internal tools in the **mid-2000s** and was open-sourced along with Beaker. The library continues to be maintained as part of Red Hat's quality engineering toolchain.
+BeakerLib 由 **Red Hat** 开发，是 **Beaker** 集成测试基础设施的一部分，最初为测试 RHEL 软件包和系统组件而设计。它从 **2000 年代中期**的内部工具发展而来，随 Beaker 一起开源。该库作为 Red Hat 质量工程工具链的一部分持续维护至今。
 
 # INSTALL
 

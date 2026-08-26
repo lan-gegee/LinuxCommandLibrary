@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check and repair btrfs filesystem integrity
+检查并修复 btrfs 文件系统完整性
 
 # TLDR
 
-**Check** a btrfs filesystem
+**检查** btrfs 文件系统
 
 ```sudo btrfs check [path/to/partition]```
 
-Check and **repair** a btrfs filesystem (dangerous)
+检查并**修复** btrfs 文件系统（危险）
 
 ```sudo btrfs check --repair [path/to/partition]```
 
-Show the **progress** of the check
+显示检查的**进度**
 
 ```sudo btrfs check -p [path/to/partition]```
 
-Verify the **checksum** of each data block
+校验每个数据块的**校验和**
 
 ```sudo btrfs check --check-data-csum [path/to/partition]```
 
-Use a specific **superblock** (0, 1, or 2)
+使用指定的**超级块**（0、1 或 2）
 
 ```sudo btrfs check -s [n] [path/to/partition]```
 
-**Rebuild** the checksum tree
+**重建**校验和树
 
 ```sudo btrfs check --repair --init-csum-tree [path/to/partition]```
 
-**Rebuild** the extent tree
+**重建** extent 树
 
 ```sudo btrfs check --repair --init-extent-tree [path/to/partition]```
 
@@ -38,36 +38,36 @@ Use a specific **superblock** (0, 1, or 2)
 
 # DESCRIPTION
 
-**btrfs check** examines btrfs filesystem structures for consistency errors and can optionally repair certain types of damage. It operates on unmounted filesystems only.
+**btrfs check** 检查 btrfs 文件系统结构的一致性错误，并可选择性地修复某些类型的损坏。它只能对未挂载的文件系统操作。
 
-The check mode is non-destructive and reports issues. The repair mode attempts fixes but carries risk of data loss if used incorrectly.
+检查模式是非破坏性的，只报告问题。修复模式会尝试修复，但若使用不当存在数据丢失风险。
 
 # PARAMETERS
 
 **--repair**
-> Attempt to fix detected errors (dangerous, backup first)
+> 尝试修复检测到的错误（危险，请先备份）
 
 **-p, --progress**
-> Show progress during the check
+> 在检查过程中显示进度
 
 **--check-data-csum**
-> Verify data block checksums
+> 校验数据块的校验和
 
 **-s, --super** _num_
-> Use the specified superblock copy (0, 1, or 2)
+> 使用指定的超级块副本（0、1 或 2）
 
 **--init-csum-tree**
-> Rebuild the checksum tree from scratch
+> 从头重建校验和树
 
 **--init-extent-tree**
-> Rebuild the extent tree from scratch
+> 从头重建 extent 树
 
 **--readonly**
-> Run in read-only mode (default)
+> 以只读模式运行（默认）
 
 # CAVEATS
 
-The filesystem must be unmounted. Repair operations are dangerous and can cause data loss; always backup first. Running check on a mounted filesystem may report false errors. Tree rebuild operations are last-resort options.
+文件系统必须处于卸载状态。修复操作很危险，可能导致数据丢失；务必先备份。对已挂载的文件系统运行检查可能报告虚假错误。树重建操作是最后的补救手段。
 
 # INSTALL
 

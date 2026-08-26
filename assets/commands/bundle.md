@@ -1,26 +1,26 @@
 # TAGLINE
 
-Ruby dependency manager
+Ruby 依赖管理器
 
 # TLDR
 
-**Install** dependencies
+**安装**依赖
 
 ```bundle install```
 
-**Update** gems
+**更新** gem
 
 ```bundle update```
 
-**Execute** in bundle context
+**在 bundle 环境中执行**命令
 
 ```bundle exec [rake test]```
 
-**Show** gem location
+**显示** gem 的位置
 
 ```bundle show [rails]```
 
-**Create** new gem
+**创建**新 gem
 
 ```bundle gem [my_gem]```
 
@@ -30,42 +30,42 @@ Ruby dependency manager
 
 # DESCRIPTION
 
-**bundle** (Bundler) is a dependency manager for Ruby. It ensures that the exact gem versions specified in a Gemfile are installed and loaded, preventing version conflicts and ensuring consistent environments.
+**bundle**（Bundler）是 Ruby 的依赖管理器。它确保 Gemfile 中指定的确切 gem 版本被安装和加载，防止版本冲突并保证环境一致。
 
-The tool is essential for Ruby development and comes bundled with Ruby since version 2.6.
+该工具对 Ruby 开发至关重要，自 Ruby 2.6 起随 Ruby 捆绑提供。
 
 # PARAMETERS
 
 **install**
-> Install gems from Gemfile
+> 从 Gemfile 安装 gem
 
 **update** [_gems_]
-> Update gems
+> 更新 gem
 
 **exec** _command_
-> Execute command with bundle environment
+> 在 bundle 环境中执行命令
 
 **show** _gem_
-> Show gem installation path
+> 显示 gem 的安装路径
 
 **list**
-> List installed gems
+> 列出已安装的 gem
 
 **outdated**
-> Show outdated gems
+> 显示过时的 gem
 
 **clean**
-> Remove unused gems
+> 移除未使用的 gem
 
 **lock**
-> Create/update Gemfile.lock
+> 创建/更新 Gemfile.lock
 
 **gem** _name_
-> Create new gem scaffold
+> 创建新的 gem 骨架
 
 # GEMFILE
 
-Gemfile specifies dependencies:
+Gemfile 用于指定依赖：
 ```ruby
 source 'https://rubygems.org'
 
@@ -100,28 +100,28 @@ bundle clean
 
 # FEATURES
 
-- Dependency resolution
-- Version locking (Gemfile.lock)
-- Isolated gem environments
-- Gem groups (development, test, production)
-- Local gem path override
-- Git repository gems
+- 依赖解析
+- 版本锁定（Gemfile.lock）
+- 隔离的 gem 环境
+- gem 分组（development、test、production）
+- 本地 gem 路径覆盖
+- Git 仓库形式的 gem
 
 # CONFIGURATION
 
 **Gemfile**
-> Specifies Ruby gem dependencies for the project. Located in the project root directory.
+> 指定项目的 Ruby gem 依赖。位于项目根目录。
 
 **.bundle/config**
-> Per-project Bundler configuration including install paths, without groups, and deployment settings. Also reads from ~/.bundle/config for global defaults.
+> 每个项目的 Bundler 配置，包括安装路径、排除的分组以及部署设置。也会读取 ~/.bundle/config 作为全局默认值。
 
 # CAVEATS
 
-Gemfile.lock should be committed for apps (not gems). bundle exec needed to use correct versions. Local gem modifications lost on bundle install. Conflicts possible with system gems. Large projects have slow resolution.
+应用程序（而非 gem）应提交 Gemfile.lock。需要使用 bundle exec 才能以正确的版本运行。本地对 gem 的修改会在 bundle install 时丢失。可能与系统 gem 冲突。大型项目解析速度较慢。
 
 # HISTORY
 
-**Bundler** was created by Carl Lerche, Yehuda Katz, and André Arko around **2009** to solve Ruby's dependency management problems, becoming the standard in **2010**.
+**Bundler** 由 Carl Lerche、Yehuda Katz 和 André Arko 在 **2009 年**前后创建，用于解决 Ruby 的依赖管理问题，并在 **2010 年**成为事实标准。
 
 # INSTALL
 

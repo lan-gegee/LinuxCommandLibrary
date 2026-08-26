@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage btrfs filesystem properties and operations
+管理 btrfs 文件系统的属性和操作
 
 # TLDR
 
-Show **usage** statistics
+显示空间**使用**统计
 
 ```btrfs filesystem usage path/to/mount```
 
-Show **device** usage
+显示**设备**使用情况
 
 ```sudo btrfs filesystem show path/to/mount```
 
-**Defragment** a file
+对文件进行**碎片整理**
 
 ```sudo btrfs filesystem defragment -v path/to/file```
 
-**Defragment** directory recursively
+递归地对目录进行**碎片整理**
 
 ```sudo btrfs filesystem defragment -v -r path/to/dir```
 
-**Sync** to disk
+**同步**到磁盘
 
 ```sudo btrfs filesystem sync path/to/mount```
 
-Show **disk usage** for directory
+显示目录的**磁盘占用**
 
 ```sudo btrfs filesystem du -s path/to/dir```
 
-Create **swap file**
+创建**交换文件**
 
 ```sudo btrfs filesystem mkswapfile --size 8g path/to/swapfile```
 
@@ -38,47 +38,47 @@ Create **swap file**
 
 # DESCRIPTION
 
-**btrfs filesystem** manages btrfs filesystem properties and operations including usage statistics, defragmentation, synchronization, and device information display.
+**btrfs filesystem** 管理 btrfs 文件系统的属性和操作，包括使用统计、碎片整理、同步以及设备信息的显示。
 
 # PARAMETERS
 
 **usage**
-> Show detailed filesystem space usage
+> 显示详细的文件系统空间使用情况
 
 **show**
-> Display filesystem information and device usage
+> 显示文件系统信息和设备使用情况
 
 **df**
-> Show disk space usage similar to df command
+> 以类似 df 命令的方式显示磁盘空间使用情况
 
 **defragment**
-> Defragment files or directories
+> 对文件或目录进行碎片整理
 
 **sync**
-> Force sync unwritten data to disk
+> 强制将未写入的数据同步到磁盘
 
 **du**
-> Calculate disk usage for files and directories
+> 计算文件和目录的磁盘占用
 
 **mkswapfile**
-> Create a swap file properly formatted for btrfs
+> 创建为 btrfs 正确格式化的交换文件
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-r**
-> Recursive operation for defragment and du
+> 对 defragment 和 du 进行递归操作
 
 **-s, --summarize**
-> Show only summary for du command
+> du 命令仅显示汇总结果
 
 # CAVEATS
 
-Defragmentation may break reflinks and reduce deduplication benefits. Running defragment while deduplication is active can cause issues. The df command may show different values than standard df due to btrfs's space accounting.
+碎片整理可能破坏 reflink 并削弱去重的效果。在去重活动进行时运行碎片整理可能引发问题。由于 btrfs 的空间核算方式不同，其 df 命令的输出可能与标准 df 不同。
 
 # HISTORY
 
-**btrfs filesystem** is part of the **btrfs-progs** package for managing btrfs filesystems on Linux.
+**btrfs filesystem** 是 **btrfs-progs** 软件包的一部分，用于管理 Linux 上的 btrfs 文件系统。
 
 # INSTALL
 

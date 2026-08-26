@@ -1,38 +1,38 @@
 # TAGLINE
 
-Compile a Rust package and its dependencies
+编译 Rust 软件包及其依赖
 
 # TLDR
 
-**Build project**
+**构建项目**
 
 ```cargo build```
 
-**Build with release optimizations**
+**以 release 优化构建**
 
 ```cargo build --release```
 
-**Build specific package**
+**构建指定软件包**
 
 ```cargo build -p [package]```
 
-**Build all workspace members**
+**构建所有工作空间成员**
 
 ```cargo build --workspace```
 
-**Build with specific features**
+**以指定特性构建**
 
 ```cargo build --features [feature1,feature2]```
 
-**Build all features**
+**启用所有特性构建**
 
 ```cargo build --all-features```
 
-**Build for specific target**
+**为指定目标平台构建**
 
 ```cargo build --target [x86_64-unknown-linux-gnu]```
 
-**Build offline**
+**离线构建**
 
 ```cargo build --offline```
 
@@ -42,71 +42,71 @@ Compile a Rust package and its dependencies
 
 # DESCRIPTION
 
-**cargo build** compiles a local package and all its dependencies. Creates executable in target/debug/ by default, or target/release/ with --release flag.
+**cargo build** 编译本地软件包及其全部依赖。默认在 target/debug/ 中生成可执行文件，使用 --release 选项时则在 target/release/ 中生成。
 
-Debug builds compile faster but run slower. Release builds are optimized but take longer to compile.
+Debug 构建编译更快但运行较慢。Release 构建经过优化但编译耗时更长。
 
 # PARAMETERS
 
 **-r**, **--release**
-> Build with optimizations (release profile)
+> 以优化方式构建（release profile）
 
 **--profile** _name_
-> Build with specific profile
+> 以指定 profile 构建
 
 **-p**, **--package** _spec_
-> Build only specified packages
+> 只构建指定的软件包
 
 **--workspace**
-> Build all workspace members
+> 构建所有工作空间成员
 
 **--all-targets**
-> Build all targets (lib, bins, tests, benches, examples)
+> 构建所有目标（lib、bins、tests、benches、examples）
 
 **--lib**
-> Build library only
+> 只构建库
 
 **--bins**
-> Build all binaries
+> 构建所有二进制文件
 
 **--examples**
-> Build all examples
+> 构建所有示例
 
 **--target** _triple_
-> Build for target platform
+> 为目标平台构建
 
 **--target-dir** _dir_
-> Output directory
+> 输出目录
 
 **-j**, **--jobs** _n_
-> Parallel build jobs
+> 并行构建任务数
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 **--no-default-features**
-> Disable default features
+> 禁用默认特性
 
 **--offline**
-> Build without network access
+> 不访问网络进行构建
 
 **--timings**
-> Output build timing info
+> 输出构建耗时信息
 
 # OUTPUT LOCATIONS
 
 **target/debug/**
-> Debug builds (default)
+> Debug 构建（默认）
 
 **target/release/**
-> Release builds (--release)
+> Release 构建（--release）
 
 # CAVEATS
 
-Same commands work across all operating systems. First build downloads and compiles dependencies.
+相同的命令在所有操作系统上均可使用。首次构建会下载并编译依赖。
 
 # INSTALL
 

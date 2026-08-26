@@ -1,26 +1,26 @@
 # TAGLINE
 
-Ebook management and format conversion suite
+电子书管理与格式转换套件
 
 # TLDR
 
-**Start** Calibre GUI
+**启动** Calibre 图形界面
 
 ```calibre```
 
-**Add** book to library
+向书库**添加**图书
 
 ```calibredb add [book.epub]```
 
-**Convert** ebook format
+**转换**电子书格式
 
 ```ebook-convert [input.epub] [output.mobi]```
 
-**Start** content server
+**启动**内容服务器
 
 ```calibre-server```
 
-**Edit** ebook
+**编辑**电子书
 
 ```ebook-edit [book.epub]```
 
@@ -30,46 +30,46 @@ Ebook management and format conversion suite
 
 # DESCRIPTION
 
-**calibre** is a comprehensive ebook management application. It provides ebook library organization, format conversion, metadata editing, ebook syncing to devices, and a built-in reader and editor.
+**calibre** 是一款功能全面的电子书管理应用。它提供书库整理、格式转换、元数据编辑、电子书同步到设备等功能，并内置阅读器和编辑器。
 
-The application supports virtually all ebook formats and most ebook readers.
+该应用支持几乎所有电子书格式和大多数电子阅读器。
 
 # COMPONENTS
 
 **calibre**
-> Main GUI application
+> 主图形界面应用
 
 **calibredb**
-> Command-line library management
+> 命令行书库管理
 
 **ebook-convert**
-> Format conversion
+> 格式转换
 
 **ebook-edit**
-> EPUB editor
+> EPUB 编辑器
 
 **calibre-server**
-> Web-based library access
+> 基于 Web 的书库访问
 
 **ebook-viewer**
-> Ebook reader
+> 电子书阅读器
 
 # FEATURES
 
-- Library management
-- Format conversion (25+ formats)
-- Metadata editing and download
-- News downloading from websites
-- Ebook editing
-- Device syncing
-- Content server (web access)
-- Search and filtering
-- Custom columns and tags
+- 书库管理
+- 格式转换（25 种以上格式）
+- 元数据编辑与下载
+- 从网站下载新闻
+- 电子书编辑
+- 设备同步
+- 内容服务器（Web 访问）
+- 搜索与过滤
+- 自定义列和标签
 
 # SUPPORTED FORMATS
 
-**Input:** EPUB, MOBI, AZW, PDF, HTML, TXT, and 20+ more
-**Output:** EPUB, MOBI, AZW3, PDF, TXT, and more
+**输入：** EPUB、MOBI、AZW、PDF、HTML、TXT 等 20 多种
+**输出：** EPUB、MOBI、AZW3、PDF、TXT 等
 
 # COMMAND-LINE USAGE
 
@@ -93,15 +93,15 @@ fetch-ebook-metadata --isbn 9780123456789
 # CONFIGURATION
 
 **~/.config/calibre/**
-> Configuration directory containing preferences, plugins, and library settings
+> 配置目录，包含首选项、插件和书库设置
 
 # CAVEATS
 
-Large library can be slow. DRM removal not included (requires plugins). Qt-based (larger footprint). Some conversions imperfect. Kindle's AZW3 support requires Amazon account for some features.
+大型书库可能较慢。不含 DRM 移除功能（需要插件）。基于 Qt（占用较大）。某些转换效果不完美。Kindle 的 AZW3 支持在部分功能上需要 Amazon 账户。
 
 # HISTORY
 
-**Calibre** was created by Kovid Goyal in **2006** to manage ebooks and became the de facto standard for ebook management and conversion.
+**Calibre** 由 Kovid Goyal 于 **2006** 年创建，用于管理电子书，后来成为电子书管理与转换领域的事实标准。
 
 # INSTALL
 

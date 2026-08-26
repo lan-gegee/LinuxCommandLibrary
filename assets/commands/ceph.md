@@ -1,34 +1,34 @@
 # TAGLINE
 
-distributed storage cluster management
+分布式存储集群管理
 
 # TLDR
 
-Check cluster **health status**
+检查集群**健康状况**
 
 ```ceph status```
 
-Check cluster **usage stats**
+查看集群**使用统计**
 
 ```ceph df```
 
-Get **placement group** statistics
+获取**归置组（placement group）**统计信息
 
 ```ceph pg dump --format [plain]```
 
-**Create** a storage pool
+**创建**存储池
 
 ```ceph osd pool create [pool_name] [pg_num]```
 
-**Delete** a storage pool
+**删除**存储池
 
 ```ceph osd pool delete [pool_name]```
 
-**Rename** a storage pool
+**重命名**存储池
 
 ```ceph osd pool rename [current_name] [new_name]```
 
-**Self-repair** pool storage
+对池存储进行**自修复**
 
 ```ceph pg repair [pool_name]```
 
@@ -38,57 +38,57 @@ Get **placement group** statistics
 
 # DESCRIPTION
 
-**ceph** is the command-line interface for managing Ceph distributed storage clusters. Ceph provides unified object, block, and file storage with automatic data replication, self-healing, and no single point of failure.
+**ceph** 是管理 Ceph 分布式存储集群的命令行界面。Ceph 提供统一的对象、块和文件存储，具备自动数据复制、自愈能力，且没有单点故障。
 
-The command communicates with the Ceph monitor daemons to perform cluster administration tasks including checking health status, managing OSDs (Object Storage Daemons), configuring placement groups, and handling authentication. It serves as the primary tool for day-to-day cluster operations and troubleshooting.
+该命令与 Ceph monitor 守护进程通信，执行集群管理任务，包括检查健康状况、管理 OSD（Object Storage Daemon，对象存储守护进程）、配置归置组以及处理认证。它是日常集群运维和故障排查的主要工具。
 
-Ceph organizes data into pools, which contain placement groups that map to OSDs across the cluster. The `ceph status` command provides a quick overview of cluster health, while more specific subcommands allow fine-grained control over individual components.
+Ceph 将数据组织到池（pool）中，池包含归置组（placement group），归置组再映射到集群中的各 OSD。`ceph status` 命令提供集群健康的快速概览，而更具体的子命令则允许对单个组件进行细粒度控制。
 
 # SUBCOMMANDS
 
 **status**
-> Show cluster health and status
+> 显示集群健康与状态
 
 **df**
-> Show cluster disk usage
+> 显示集群磁盘使用情况
 
 **osd**
-> Manage Object Storage Daemons
+> 管理对象存储守护进程（OSD）
 
 **pg**
-> Manage placement groups
+> 管理归置组
 
 **mon**
-> Manage monitor daemons
+> 管理 monitor 守护进程
 
 **mds**
-> Manage metadata servers
+> 管理元数据服务器
 
 **auth**
-> Manage authentication
+> 管理认证
 
 # PARAMETERS
 
 **-s, --status**
-> Show cluster status
+> 显示集群状态
 
 **--format** _format_
-> Output format: json, plain
+> 输出格式：json、plain
 
 **-c** _file_
-> Use alternate config file
+> 使用备用配置文件
 
 # CONFIGURATION
 
 **/etc/ceph/ceph.conf**
-> Main cluster configuration including monitor addresses, authentication settings, and OSD parameters.
+> 集群主配置文件，包括 monitor 地址、认证设置和 OSD 参数。
 
 **/etc/ceph/ceph.client.admin.keyring**
-> Admin authentication keyring for cluster access.
+> 用于访问集群的管理员认证密钥环。
 
 # CAVEATS
 
-Requires proper Ceph configuration and authentication. Cluster operations may take time to complete. Some commands require specific permissions.
+需要正确的 Ceph 配置和认证。集群操作可能需要一些时间才能完成。某些命令需要特定权限。
 
 # INSTALL
 

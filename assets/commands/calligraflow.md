@@ -1,14 +1,14 @@
 # TAGLINE
 
-Diagramming and flowcharting application
+图表与流程图绘制应用
 
 # TLDR
 
-**Launch Calligra Flow**
+**启动 Calligra Flow**
 
 ```calligraflow```
 
-**Open a diagram file**
+**打开**图表文件
 
 ```calligraflow [diagram.odg]```
 
@@ -19,26 +19,26 @@ Diagramming and flowcharting application
 # PARAMETERS
 
 **--help**
-> Show help about options.
+> 显示选项相关的帮助。
 
 **--help-all**
-> Show all options including Qt and KDE specific.
+> 显示所有选项，包括 Qt 和 KDE 特有选项。
 
 **--author**
-> Show author information.
+> 显示作者信息。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**calligraflow** is a diagramming and flowcharting application from the Calligra office suite, formerly known as Kivio. It creates and edits diagrams, flowcharts, organization charts, and network diagrams.
+**calligraflow** 是 Calligra 办公套件中的图表与流程图应用，前身为 Kivio。它用于创建和编辑示意图、流程图、组织结构图和网络图。
 
-Calligra Flow supports ODF (Open Document Format) for vector graphics and is the KDE equivalent of Microsoft Visio.
+Calligra Flow 支持矢量图形的 ODF（开放文档格式），相当于 KDE 版的 Microsoft Visio。
 
 # HISTORY
 
-Calligra Flow was originally named **Kivio**. It is part of the **Calligra Suite**, a free and open source office suite by KDE.
+Calligra Flow 最初名为 **Kivio**。它是 **Calligra Suite** 的组成部分，后者是 KDE 出品的自由开源办公套件。
 
 # SEE ALSO
 

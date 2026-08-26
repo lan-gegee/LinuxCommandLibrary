@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert BDF bitmap fonts to PCF format
+将 BDF 位图字体转换为 PCF 格式
 
 # TLDR
 
-**Convert BDF font to PCF**
+**将 BDF 字体转换为 PCF**
 
 ```bdftopcf [font.bdf] > [font.pcf]```
 
-**Convert with output file**
+**转换并指定输出文件**
 
 ```bdftopcf -o [font.pcf] [font.bdf]```
 
-**Create terminal font**
+**创建终端字体**
 
 ```bdftopcf -t [font.bdf] > [font.pcf]```
 
-**Set MSB first bit order**
+**设置 MSB 在前的位序**
 
 ```bdftopcf -m [font.bdf] > [font.pcf]```
 
-**Set glyph padding**
+**设置字形填充**
 
 ```bdftopcf -p4 [font.bdf] > [font.pcf]```
 
@@ -30,40 +30,40 @@ Convert BDF bitmap fonts to PCF format
 
 # DESCRIPTION
 
-**bdftopcf** is an X11 font compiler that converts fonts from Bitmap Distribution Format (BDF) to Portable Compiled Format (PCF). PCF fonts can be read by any architecture while allowing fast reading on the target machine.
+**bdftopcf** 是一个 X11 字体编译器，用于将 Bitmap Distribution Format（BDF）字体转换为 Portable Compiled Format（PCF）。PCF 字体可被任何架构读取，同时在目标机器上能快速加载。
 
 # PARAMETERS
 
 **-o** _outputfile_
-> Write output to file instead of stdout
+> 将输出写入文件而非标准输出
 
 **-t**
-> Create terminal font with uniform glyph sizes for faster rendering
+> 创建字形尺寸统一的终端字体，以加快渲染速度
 
 **-i**
-> Inhibit ink metrics computation
+> 不计算 ink metrics（着墨度量）
 
 **-p**_n_
-> Set glyph padding to n bytes (1, 2, 4, or 8)
+> 将字形填充设为 n 字节（1、2、4 或 8）
 
 **-u**_n_
-> Set scanline unit to n bytes (1, 2, or 4)
+> 将扫描线单位设为 n 字节（1、2 或 4）
 
 **-m**
-> Set font bit order to MSB first
+> 将字体的位序设为 MSB 在前
 
 **-l**
-> Set font bit order to LSB first
+> 将字体的位序设为 LSB 在前
 
 **-M**
-> Set font byte order to MSB first
+> 将字体的字节序设为 MSB 在前
 
 **-L**
-> Set font byte order to LSB first
+> 将字体的字节序设为 LSB 在前
 
 # CAVEATS
 
-Part of the X.Org font utilities. Output fonts are portable but read faster on matching architectures. Terminal fonts (-t) render faster but require uniform glyph sizing.
+属于 X.Org 字体工具集。输出字体是可移植的，但在架构匹配的机器上读取更快。终端字体（-t）渲染更快，但要求字形尺寸统一。
 
 # INSTALL
 

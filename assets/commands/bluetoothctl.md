@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control Bluetooth devices from the command line
+从命令行控制蓝牙设备
 
 # TLDR
 
-Enter **interactive** shell
+进入**交互式** Shell
 
 ```bluetoothctl```
 
-List **devices**
+列出**设备**
 
 ```bluetoothctl devices```
 
-**Power** controller on/off
+打开/关闭控制器的**电源**
 
 ```bluetoothctl power on```
 
-**Pair** with device
+与设备**配对**
 
 ```bluetoothctl pair AA:BB:CC:DD:EE:FF```
 
-**Connect** to device
+**连接**到设备
 
 ```bluetoothctl connect AA:BB:CC:DD:EE:FF```
 
-**Disconnect** device
+**断开**设备连接
 
 ```bluetoothctl disconnect AA:BB:CC:DD:EE:FF```
 
-**Remove** device
+**移除**设备
 
 ```bluetoothctl remove AA:BB:CC:DD:EE:FF```
 
@@ -38,89 +38,89 @@ List **devices**
 
 # DESCRIPTION
 
-**bluetoothctl** manages Bluetooth devices on Linux. It provides an interactive shell for discovering, pairing, connecting, and managing Bluetooth devices.
+**bluetoothctl** 用于管理 Linux 上的蓝牙设备。它提供一个交互式 Shell，用于发现、配对、连接和管理蓝牙设备。
 
 # PARAMETERS
 
 **-a**, **--agent** _capability_
-> Register an agent handler with the specified capability.
+> 以指定的能力注册代理处理程序。
 
 **-e**, **--endpoints**
-> Register media endpoints.
+> 注册媒体端点。
 
 **-m**, **--monitor**
-> Enable monitor output.
+> 启用监视输出。
 
 **-t**, **--timeout** _seconds_
-> Timeout for non-interactive mode.
+> 非交互模式的超时时间。
 
 **-v**, **--version**
-> Display version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **list**
-> List available controllers
+> 列出可用的控制器。
 
 **show** [_ctrl_]
-> Show controller information
+> 显示控制器信息。
 
 **select** _ctrl_
-> Set the default controller
+> 设置默认控制器。
 
 **devices** [_filter_]
-> List known devices (filter: Paired, Bonded, Trusted, Connected)
+> 列出已知设备（过滤条件：Paired、Bonded、Trusted、Connected）。
 
 **power** _on|off_
-> Turn Bluetooth controller on or off
+> 打开或关闭蓝牙控制器电源。
 
 **scan** _on|off_
-> Start or stop device discovery
+> 启动或停止设备发现。
 
 **pair** _address_
-> Pair with device by MAC address
+> 按 MAC 地址与设备配对。
 
 **connect** _address_
-> Connect to paired device
+> 连接到已配对的设备。
 
 **disconnect** _address_
-> Disconnect from device
+> 断开与设备的连接。
 
 **remove** _address_
-> Remove device from known list
+> 从已知列表中移除设备。
 
 **trust** _address_
-> Mark device as trusted
+> 将设备标记为受信任。
 
 **untrust** _address_
-> Remove trust from device
+> 取消设备的受信任状态。
 
 **info** _address_
-> Show device information
+> 显示设备信息。
 
 **block** _address_
-> Block a device from connecting
+> 阻止某台设备连接。
 
 **unblock** _address_
-> Unblock a previously blocked device
+> 解除对先前被阻止设备的阻止。
 
 **discoverable** _on|off_
-> Set controller discoverability
+> 设置控制器是否可被发现。
 
 **agent** _on|off|capability_
-> Register or unregister agent
+> 注册或注销代理。
 
 **help**
-> Show available commands
+> 显示可用命令。
 
 # CAVEATS
 
-Requires the bluetooth service to be running. Some operations require devices to be in pairing mode. MAC addresses are in format AA:BB:CC:DD:EE:FF.
+需要蓝牙服务正在运行。某些操作要求设备处于配对模式。MAC 地址格式为 AA:BB:CC:DD:EE:FF。
 
 # HISTORY
 
-**bluetoothctl** is part of **BlueZ**, the official Linux Bluetooth protocol stack.
+**bluetoothctl** 是 Linux 官方蓝牙协议栈 **BlueZ** 的一部分。
 
 # INSTALL
 

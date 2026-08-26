@@ -1,14 +1,14 @@
 # TAGLINE
 
-Write disk images to USB drives safely
+安全地将磁盘镜像写入 USB 驱动器
 
 # TLDR
 
-**Flash** an ISO to a drive
+将 ISO **烧录**到驱动器
 
 ```caligula burn [path/to/image.iso]```
 
-Flash an ISO with a **pre-specified hash**
+以**预先指定的哈希值**烧录 ISO
 
 ```caligula burn [path/to/image.iso] -s [hash]```
 
@@ -18,23 +18,23 @@ Flash an ISO with a **pre-specified hash**
 
 # DESCRIPTION
 
-**caligula** is a user-friendly TUI (Text User Interface) application for writing disk images to USB drives and other storage devices. It provides a safer, more interactive alternative to dd for creating bootable media.
+**caligula** 是一款易用的 TUI（文本用户界面）应用，用于将磁盘镜像写入 USB 驱动器和其他存储设备。相比 dd，它为制作启动介质提供了更安全、更具交互性的选择。
 
-The tool verifies image integrity through hash checking and confirms target device selection to prevent accidental data loss.
+该工具通过哈希校验来验证镜像完整性，并要求确认目标设备的选择，以防止意外的数据丢失。
 
 # SUBCOMMANDS
 
 **burn**
-> Write an image to a device
+> 将镜像写入设备
 
 # PARAMETERS
 
 **-s, --hash** _hash_
-> Verify image against specified hash
+> 用指定的哈希值校验镜像
 
 # CAVEATS
 
-Requires root privileges for writing to devices. Always verify the target device before writing. All data on the target device will be destroyed.
+写入设备需要 root 权限。写入前务必确认目标设备。目标设备上的所有数据都将被销毁。
 
 # INSTALL
 

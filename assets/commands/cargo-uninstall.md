@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove a Rust binary installed by cargo install
+卸载由 cargo install 安装的 Rust 二进制文件
 
 # TLDR
 
-**Uninstall package**
+**卸载软件包**
 
 ```cargo uninstall [package]```
 
-**Uninstall specific binary**
+**卸载指定的二进制文件**
 
 ```cargo uninstall [package] --bin [binary]```
 
-**Uninstall from custom root**
+**从自定义根目录卸载**
 
 ```cargo uninstall [package] --root [~/.local]```
 
-**Uninstall multiple packages**
+**卸载多个软件包**
 
 ```cargo uninstall [pkg1] [pkg2]```
 
@@ -26,45 +26,45 @@ Remove a Rust binary installed by cargo install
 
 # DESCRIPTION
 
-**cargo uninstall** removes packages that were previously installed with `cargo install`. By default it removes all binaries associated with the package. The `--bin` flag can be used to remove only a specific binary while leaving others from the same package in place.
+**cargo uninstall** 移除之前通过 `cargo install` 安装的软件包。默认会移除与该软件包关联的所有二进制文件。`--bin` 标志可用于只移除某个特定的二进制文件，同时保留同一软件包的其他文件。
 
-The installation root is determined by the `--root` flag, the `CARGO_INSTALL_ROOT` environment variable, the `install.root` configuration value, or `$CARGO_HOME` (defaulting to `~/.cargo`). Only the installed binaries are removed; cached build artifacts in the target directory are not cleaned up.
+安装根目录由 `--root` 标志、`CARGO_INSTALL_ROOT` 环境变量、`install.root` 配置项或 `$CARGO_HOME`（默认为 `~/.cargo`）决定。此命令只移除已安装的二进制文件；target 目录中缓存的构建产物不会被清理。
 
 # PARAMETERS
 
 **-p**, **--package** _spec_
-> Package to uninstall
+> 要卸载的软件包
 
 **--bin** _name_
-> Only uninstall specified binary
+> 只卸载指定的二进制文件
 
 **--example** _name_
-> Only uninstall specified example
+> 只卸载指定的示例
 
 **--root** _dir_
-> Directory to uninstall from
+> 要从中卸载的目录
 
 **-v**, **--verbose**
-> Verbose output (use twice for very verbose)
+> 详细输出（指定两次可获得非常详细的输出）
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 **--color** _when_
-> Control colored output: auto, always, or never
+> 控制彩色输出：auto、always 或 never
 
 # INSTALLATION ROOT
 
-Determined by (in order):
-1. --root option
-2. CARGO_INSTALL_ROOT environment variable
-3. install.root config value
-4. CARGO_HOME environment variable
+按以下顺序确定：
+1. --root 选项
+2. CARGO_INSTALL_ROOT 环境变量
+3. install.root 配置项
+4. CARGO_HOME 环境变量
 5. ~/.cargo
 
 # CAVEATS
 
-Only removes binaries, not cached build artifacts. Package spec can be name or name@version.
+只移除二进制文件，不清理缓存的构建产物。软件包标识可以是名称或 name@version。
 
 # INSTALL
 

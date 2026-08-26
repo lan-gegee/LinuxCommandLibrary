@@ -1,40 +1,40 @@
 # TAGLINE
 
-Control keyboard backlight brightness on Linux
+控制 Linux 键盘背光亮度
 
 # TLDR
 
-**Show current backlight** state and device info
+**显示当前背光**状态及设备信息
 
 ```backlit-kbd info```
 
-**Set brightness** by percentage (0-100)
+按百分比**设置亮度**（0-100）
 
 ```backlit-kbd percent [75]```
 
-**Set brightness** by raw level value
+按原始电平值**设置亮度**
 
 ```backlit-kbd set [value]```
 
-**Increase or decrease** brightness by a step
+按步长**增加或减少**亮度
 
 ```backlit-kbd inc [step]```
 
 ```backlit-kbd dec [step]```
 
-**Turn backlight on** at a specific percentage
+以特定百分比**打开背光**
 
 ```backlit-kbd on --percent [40]```
 
-**Turn backlight off**
+**关闭背光**
 
 ```backlit-kbd off```
 
-**Blink the keyboard** as a visual notification
+让键盘**闪烁**作为视觉通知
 
 ```backlit-kbd blink --count [4] --on-ms [100] --off-ms [100]```
 
-**Test without hardware** using the mock backend
+使用 mock 后端在**无硬件情况下测试**
 
 ```backlit-kbd --mock percent [50]```
 
@@ -45,70 +45,70 @@ Control keyboard backlight brightness on Linux
 # PARAMETERS
 
 **info**
-> Display current backlight state and detected device information.
+> 显示当前背光状态和检测到的设备信息。
 
 **set** _value_
-> Set the brightness to a raw level value supported by the device.
+> 将亮度设置为设备支持的原始电平值。
 
 **percent** _value_
-> Set the brightness as a percentage between 0 and 100.
+> 以 0 到 100 之间的百分比设置亮度。
 
 **inc** [_step_]
-> Increase brightness by _step_ (default: 1).
+> 将亮度增加 _step_（默认：1）。
 
 **dec** [_step_]
-> Decrease brightness by _step_ (default: 1).
+> 将亮度降低 _step_（默认：1）。
 
 **on** [**--percent** _N_]
-> Turn the backlight on, optionally at a given percentage.
+> 打开背光，可选指定百分比。
 
 **off**
-> Turn the backlight off.
+> 关闭背光。
 
 **blink** [_options_]
-> Run a synchronous blink pattern on the keyboard.
+> 在键盘上运行同步闪烁模式。
 
 **notify** [_options_]
-> Run an asynchronous notification blink without blocking the shell.
+> 运行异步通知闪烁，不阻塞 Shell。
 
 **--mock**
-> Use an in-memory backend for safe testing without writing to hardware.
+> 使用内存中的后端进行安全测试，不写入硬件。
 
 **--device-path** _PATH_
-> Target a specific sysfs device path instead of auto-discovery.
+> 指定特定的 sysfs 设备路径，而不自动发现。
 
 **--count** _N_
-> Number of blink cycles (used with _blink_ / _notify_).
+> 闪烁循环次数（配合 _blink_ / _notify_ 使用）。
 
 **--on-ms** _N_
-> Duration in milliseconds for the on state during blink.
+> 闪烁期间亮起状态的持续时间（毫秒）。
 
 **--off-ms** _N_
-> Duration in milliseconds for the off state during blink.
+> 闪烁期间熄灭状态的持续时间（毫秒）。
 
 **--level-percent** _N_
-> Brightness level during blink cycles.
+> 闪烁循环期间的亮度等级。
 
 **--name** _NAME_
-> Notification identifier (used with _notify_).
+> 通知标识符（配合 _notify_ 使用）。
 
 # DESCRIPTION
 
-**backlit-kbd** is a Python command-line utility for controlling the keyboard backlight on Linux. It auto-discovers compatible LED devices exposed by the kernel under **/sys/class/leds/**, typically vendor-specific paths such as **tpacpi::kbd_backlight** (Lenovo ThinkPad), **asus::kbd_backlight** (ASUS), or **dell::kbd_backlight** (Dell).
+**backlit-kbd** 是一个用于控制 Linux 键盘背光的 Python 命令行工具。它会自动发现内核在 **/sys/class/leds/** 下暴露的兼容 LED 设备，通常是一些厂商特定的路径，例如 **tpacpi::kbd_backlight**（联想 ThinkPad）、**asus::kbd_backlight**（华硕）或 **dell::kbd_backlight**（戴尔）。
 
-The tool exposes high-level commands (_set_, _percent_, _inc_, _dec_, _on_, _off_) for everyday brightness control and a pair of _blink_ / _notify_ commands for producing visual notifications via the keyboard LEDs. A **--mock** flag swaps the backend for an in-memory simulator, making it safe to experiment or integrate into scripts on machines without a real backlight device.
+该工具提供面向日常亮度控制的高层命令（_set_、_percent_、_inc_、_dec_、_on_、_off_），并提供一对 _blink_ / _notify_ 命令，通过键盘 LED 产生视觉通知。**--mock** 标志可将后端替换为内存模拟器，从而在没有真实背光设备的机器上也能安全地进行实验或集成到脚本中。
 
 # CONFIGURATION
 
-Installed via **pip install backlit-kbd**. The tool reads brightness paths from **/sys/class/leds/*kbd_backlight*** and usually requires root permissions (or a udev rule granting write access) to change brightness levels. Use **--device-path** to override device auto-discovery.
+通过 **pip install backlit-kbd** 安装。该工具从 **/sys/class/leds/*kbd_backlight*** 读取亮度路径，通常需要 root 权限（或授予写权限的 udev 规则）才能更改亮度等级。可使用 **--device-path** 覆盖设备自动发现。
 
 # CAVEATS
 
-Writing to sysfs brightness files typically requires **root** privileges. Not all laptops expose a keyboard backlight LED; on unsupported hardware the tool will fail to discover a device unless **--mock** is used. Raw level ranges differ per device, so percentage mode is more portable across machines.
+写入 sysfs 亮度文件通常需要 **root** 权限。并非所有笔记本都有键盘背光 LED；在不支持的硬件上，除非使用 **--mock**，否则工具将无法发现设备。各设备的原始电平范围不同，因此百分比模式在不同机器间的可移植性更好。
 
 # HISTORY
 
-**backlit-kbd** is an open-source Python package hosted on GitHub and published to PyPI, aimed at providing a beginner-friendly CLI for keyboard backlight control on Linux laptops.
+**backlit-kbd** 是一个托管在 GitHub 并发布到 PyPI 的开源 Python 包，旨在为 Linux 笔记本提供一款对新手友好的键盘背光控制 CLI。
 
 # SEE ALSO
 

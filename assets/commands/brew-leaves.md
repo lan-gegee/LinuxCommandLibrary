@@ -1,22 +1,22 @@
 # TAGLINE
 
-List top-level installed packages that are not dependencies
+列出已安装且不是依赖的顶层软件包
 
 # TLDR
 
-**List top-level packages (not dependencies)**
+**列出顶层软件包（非依赖）**
 
 ```brew leaves```
 
-**List only manually installed leaves**
+**仅列出手动安装的叶子包**
 
 ```brew leaves -r```
 
-**List only dependency-installed leaves**
+**仅列出作为依赖安装的叶子包**
 
 ```brew leaves -p```
 
-**Show dependency tree of leaves**
+**显示叶子包的依赖树**
 
 ```brew deps --tree $(brew leaves)```
 
@@ -26,21 +26,21 @@ List top-level installed packages that are not dependencies
 
 # DESCRIPTION
 
-**brew leaves** lists installed formulae that are not dependencies of any other installed formula or cask. These are your "top-level" packages that you explicitly installed.
+**brew leaves** 列出那些不被任何其他已安装 formula 或 cask 依赖的 formula。这些就是你显式安装的"顶层"软件包。
 
-This command shows the leaves of Homebrew's dependency graph - packages that can be safely uninstalled without breaking other packages.
+该命令显示 Homebrew 依赖图的叶子节点——即可以安全卸载而不会破坏其他软件包的包。
 
 # PARAMETERS
 
 **-r**, **--installed-on-request**
-> Only list leaves that were manually installed by the user
+> 仅列出用户手动安装的叶子包。
 
 **-p**, **--installed-as-dependency**
-> Only list leaves that were installed as dependencies of another formula
+> 仅列出作为其他 formula 的依赖安装的叶子包。
 
 # CAVEATS
 
-Not the same as "manually installed" - shows packages with no dependents. A manually installed package might have dependents and won't appear. Use -r flag for truly manual installations.
+与"手动安装"不完全等同——它显示的是没有被其他包依赖的软件包。某个手动安装的包可能被别的包依赖，因此不会出现。要查看真正手动安装的包，请使用 -r 标志。
 
 # SEE ALSO
 

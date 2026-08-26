@@ -1,22 +1,22 @@
 # TAGLINE
 
-Draw ASCII art boxes around text.
+围绕文本绘制 ASCII 字符画边框。
 
 # TLDR
 
-**Create** box around text
+为文本**创建**边框
 
 ```echo ["Hello World"] | boxes```
 
-**Specific** design
+使用**指定**样式
 
 ```echo ["Text"] | boxes -d [stone]```
 
-**List** available designs
+**列出**可用样式
 
 ```boxes -l```
 
-**Remove** box
+**移除**边框
 
 ```cat [boxed.txt] | boxes -r```
 
@@ -26,67 +26,67 @@ Draw ASCII art boxes around text.
 
 # DESCRIPTION
 
-**boxes** is a text filter that draws ASCII art boxes around text. It supports numerous box designs and can both add and remove boxes, making it useful for creating eye-catching comments, headers, or decorative text in source code and documentation.
+**boxes** 是一个文本过滤器，可以在文本周围绘制 ASCII 字符画边框。它支持大量边框样式，既能添加也能移除边框，适合在源代码和文档中创建醒目的注释、标题或装饰性文本。
 
-The tool provides over 50 predefined box styles with customization options.
+该工具提供 50 多种预定义的边框样式，并支持自定义选项。
 
 # PARAMETERS
 
 **-d** _design_
-> Box design to use.
+> 要使用的边框样式。
 
 **-l**
-> List available designs with samples.
+> 列出可用样式及示例。
 
 **-r**
-> Remove an existing box (design auto-detected; combine with -d to hint).
+> 移除已有的边框（自动检测样式；可与 -d 结合以提示样式）。
 
 **-a** _format_
-> Alignment/positioning of text inside box (e.g., `hcvc` for horizontally and vertically centered).
+> 文本在边框内的对齐/定位方式（如 `hcvc` 表示水平和垂直居中）。
 
 **-s** _WxH_
-> Desired box size in columns (width) and lines (height).
+> 所需的边框尺寸：列数（宽）× 行数（高）。
 
 **-p** _format_
-> Padding around input (e.g., `a1l3` = 1 space all around plus 3 extra on the left).
+> 输入周围的填充（如 `a1l3` = 四周各 1 个空格，左侧再加 3 个空格）。
 
 **-f** _file_
-> Use alternate config file.
+> 使用备用配置文件。
 
 **-i** _indent_
-> Indentation mode for input (`box`, `text`, or `none`).
+> 输入内容的缩进模式（`box`、`text` 或 `none`）。
 
 **-n** _encoding_
-> Input/output character encoding.
+> 输入/输出的字符编码。
 
 **-t** _tabopts_
-> Tab handling options (expand/keep/unexpand).
+> 制表符处理选项（展开/保留/还原）。
 
 **-k** _bool_
-> Leading/trailing blank lines in input handling.
+> 处理输入中首尾空行的方式。
 
 **-e** _eol_
-> Force end-of-line style (`unix`, `dos`, `mac`).
+> 强制指定换行风格（`unix`、`dos`、`mac`）。
 
 **-c** _string_
-> Shortcut to create a basic box with the given character(s) as border.
+> 快捷方式：用给定字符作为边框创建一个基本边框。
 
 **-h**
-> Print usage information.
+> 打印用法信息。
 
 **-v**
-> Print version information.
+> 打印版本信息。
 
 # POPULAR DESIGNS
 
-- **stone** - Stone wall style
-- **dog** - ASCII dog
-- **cat** - ASCII cat
-- **parchment** - Scroll/parchment
-- **spring** - Spring/coil
-- **santa** - Santa Claus
-- **c-cmt** - C comment block
-- **java-cmt** - Java comment block
+- **stone** - 石墙风格
+- **dog** - ASCII 小狗
+- **cat** - ASCII 小猫
+- **parchment** - 卷轴/羊皮纸
+- **spring** - 弹簧/线圈
+- **santa** - 圣诞老人
+- **c-cmt** - C 注释块
+- **java-cmt** - Java 注释块
 
 # WORKFLOW
 
@@ -109,11 +109,11 @@ echo "Centered" | boxes -a c
 
 # CAVEATS
 
-Wide text may not fit terminal. Some designs require monospace font. Configuration file syntax complex for custom designs. Removing boxes not perfect for modified boxes.
+过宽的文本可能超出终端宽度。某些样式需要等宽字体。自定义样式的配置文件语法较为复杂。对已被修改过的边框，移除效果并不完美。
 
 # HISTORY
 
-**boxes** was created by Thomas Jensen in **1999** to provide decorative ASCII boxes for text, inspired by similar DOS utilities.
+**boxes** 由 Thomas Jensen 于 **1999 年**创建，受类似 DOS 实用工具的启发，用于为文本绘制装饰性 ASCII 边框。
 
 # INSTALL
 

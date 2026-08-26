@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interactive directory tree navigator
+交互式目录树导航器
 
 # TLDR
 
-**Install** the br shell function
+**安装** br shell 函数
 
 ```broot --install```
 
-Start **interactive** navigation
+开始**交互式**导航
 
 ```broot```
 
-Show file **sizes**
+显示文件**大小**
 
 ```broot -s```
 
-Show **permissions**
+显示**权限**
 
 ```broot -p```
 
-Show **only directories**
+**仅显示目录**
 
 ```broot -f```
 
-Show **hidden** files
+显示**隐藏**文件
 
 ```broot -h```
 
-Start in **specific directory**
+在**指定目录**中启动
 
 ```broot path/to/directory```
 
@@ -38,58 +38,58 @@ Start in **specific directory**
 
 # DESCRIPTION
 
-**broot** is an interactive directory tree navigator that provides a better way to navigate directories. It offers fuzzy searching, file previews, and can integrate with the shell via the br function.
+**broot** 是一款交互式目录树导航器，提供了更好的目录浏览方式。它支持模糊搜索、文件预览，并可通过 br 函数与 shell 集成。
 
 # PARAMETERS
 
 **--install**
-> Install or reinstall the br shell function
+> 安装或重新安装 br shell 函数。
 
 **-s, --sizes**
-> Display file and directory sizes
+> 显示文件和目录的大小。
 
 **-p, --permissions**
-> Display file permissions
+> 显示文件权限。
 
 **-f, --only-folders**
-> Show only directories (no files)
+> 仅显示目录（不显示文件）。
 
 **-h, --hidden**
-> Show hidden files and directories
+> 显示隐藏文件和目录。
 
 **-d, --dates**
-> Display file modification dates
+> 显示文件的修改日期。
 
 **-g, --git-status**
-> Show git status of files
+> 显示文件的 git 状态。
 
 **-w, --whale-hierarchical**
-> Show hierarchical directory sizes
+> 显示分层的目录大小。
 
 **--cmd COMMAND**
-> Execute command on startup
+> 启动时执行命令。
 
 **-c, --conf PATH**
-> Use specified configuration file
+> 使用指定的配置文件。
 
 **--outcmd PATH**
-> Write command to file for shell integration
+> 将命令写入文件以供 shell 集成使用。
 
 # CONFIGURATION
 
 **~/.config/broot/conf.hjson**
-> Main configuration file in Hjson format. Controls key bindings, verbs, skin, and display settings.
+> Hjson 格式的主配置文件。控制按键绑定、动词（verb）、皮肤和显示设置。
 
 **~/.config/broot/conf.toml**
-> Alternative configuration file in TOML format. Used instead of conf.hjson if present.
+> TOML 格式的备选配置文件。若存在则替代 conf.hjson 使用。
 
 # CAVEATS
 
-The br shell function is recommended over direct broot invocation for changing directories. Install it with --install and use br instead of broot for full shell integration.
+要切换目录，推荐使用 br shell 函数而不是直接调用 broot。用 --install 安装后，请用 br 代替 broot 以获得完整的 shell 集成体验。
 
 # HISTORY
 
-**broot** was created as a modern alternative to tree and cd, providing fuzzy search, visual navigation, and efficient handling of large directory trees.
+**broot** 作为 tree 和 cd 的现代替代品而创建，提供模糊搜索、可视化导航以及对大型目录树的高效处理。
 
 # INSTALL
 

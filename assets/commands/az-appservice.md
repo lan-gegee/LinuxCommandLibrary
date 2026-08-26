@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Azure App Service plans and environments
+管理 Azure App Service 计划和环境
 
 # TLDR
 
-**List all App Service plans**
+**列出所有 App Service 计划**
 
 ```az appservice plan list```
 
-**Show an App Service plan** details
+**显示某个 App Service 计划**的详情
 
 ```az appservice plan show --name [plan_name] --resource-group [rg_name]```
 
-**Create an App Service plan**
+**创建 App Service 计划**
 
 ```az appservice plan create --name [plan_name] --resource-group [rg_name] --sku [B1] --is-linux```
 
-**Scale an App Service plan** tier
+**缩放 App Service 计划**层级
 
 ```az appservice plan update --name [plan_name] --resource-group [rg_name] --sku [S1]```
 
-**Delete an App Service plan**
+**删除 App Service 计划**
 
 ```az appservice plan delete --name [plan_name] --resource-group [rg_name]```
 
-**List available locations** for App Service
+**列出 App Service 可用的位置**
 
 ```az appservice list-locations --sku [S1]```
 
-**Show ASE (App Service Environment)** details
+**显示 ASE（App Service Environment）**详情
 
 ```az appservice ase show --name [ase_name] --resource-group [rg_name]```
 
@@ -38,69 +38,69 @@ Manage Azure App Service plans and environments
 
 # DESCRIPTION
 
-**az appservice** is a subcommand of the Azure CLI that manages Azure App Service plans and environments. App Service plans define the compute resources and pricing tier for hosting web apps, API apps, mobile backends, and function apps.
+**az appservice** 是 Azure CLI 的一个子命令，用于管理 Azure App Service 计划和环境。App Service 计划定义了托管 Web 应用、API 应用、移动后端和函数应用所需的计算资源和定价层级。
 
-Plans determine the region, number of VM instances, instance size, and pricing tier (Free, Shared, Basic, Standard, PremiumV2, PremiumV3, Isolated). Multiple apps can share the same plan, sharing the allocated compute resources.
+计划决定了区域、VM 实例数量、实例大小和定价层级（Free、Shared、Basic、Standard、PremiumV2、PremiumV3、Isolated）。多个应用可以共享同一个计划，共用分配的计算资源。
 
-App Service Environments (ASE) provide fully isolated, dedicated environments for running App Service apps at high scale, with direct VNet integration and private endpoints.
+App Service 环境（ASE）提供完全隔离的专用环境，可大规模运行 App Service 应用，并直接集成 VNet 和专用终结点。
 
 # PARAMETERS
 
 **plan list**
-> List all App Service plans.
+> 列出所有 App Service 计划。
 
 **plan show**
-> Get details of a plan.
+> 获取某个计划的详情。
 
 **plan create**
-> Create a new App Service plan.
+> 创建新的 App Service 计划。
 
 **plan update**
-> Modify plan settings or scale tier.
+> 修改计划设置或缩放层级。
 
 **plan delete**
-> Remove an App Service plan.
+> 移除某个 App Service 计划。
 
 **list-locations**
-> List regions supporting App Service.
+> 列出支持 App Service 的区域。
 
 **ase list**
-> List App Service Environments.
+> 列出 App Service 环境。
 
 **ase show**
-> Get ASE details.
+> 获取 ASE 详情。
 
 **ase create**
-> Create an App Service Environment.
+> 创建 App Service 环境。
 
 **--name** _name_
-> Plan or ASE name.
+> 计划或 ASE 的名称。
 
 **--resource-group** _rg_
-> Resource group containing the resource.
+> 包含该资源的资源组。
 
 **--sku** _sku_
-> Pricing tier: F1 (Free), D1 (Shared), B1/B2/B3 (Basic), S1/S2/S3 (Standard), P1V2/P2V2/P3V2 (Premium V2), P0V3/P1V3/P2V3/P3V3 (Premium V3), I1V2/I2V2/I3V2 (Isolated V2), and others.
+> 定价层级：F1（Free）、D1（Shared）、B1/B2/B3（Basic）、S1/S2/S3（Standard）、P1V2/P2V2/P3V2（Premium V2）、P0V3/P1V3/P2V3/P3V3（Premium V3）、I1V2/I2V2/I3V2（Isolated V2）等。
 
 **--is-linux**
-> Create a Linux plan. Linux and Windows apps cannot share a plan.
+> 创建 Linux 计划。Linux 与 Windows 应用不能共用同一个计划。
 
 **--number-of-workers** _count_
-> Number of instances (workers) to allocate.
+> 要分配的实例（工作进程）数量。
 
 **--zone-redundant**
-> Enable zone redundancy for high availability (Premium and Isolated SKUs only).
+> 启用区域冗余以实现高可用（仅限 Premium 和 Isolated SKU）。
 
 **--location** _region_
-> Azure region.
+> Azure 区域。
 
 # CAVEATS
 
-Deleting a plan fails if it still contains apps. Free and Shared tiers cannot scale out. Linux and Windows apps cannot share the same plan. App Service plans in different tiers have different feature availability (custom domains, SSL, deployment slots). Scaling operations may take several minutes.
+如果计划中仍包含应用，则无法删除。Free 和 Shared 层级无法横向扩展。Linux 与 Windows 应用不能共用同一个计划。不同层级的 App Service 计划功能可用性不同（自定义域名、SSL、部署槽位）。缩放操作可能需要几分钟。
 
 # HISTORY
 
-**Azure App Service** evolved from **Azure Web Sites**, which launched in **June 2012** as Microsoft's first PaaS web hosting service. It was renamed to **Azure App Service** in **March 2015** when it unified Web Apps, Mobile Apps, Logic Apps, and API Apps. **App Service on Linux** was introduced in **2017**. **App Service Environment v3** launched in **2021** with improved performance and simplified networking.
+**Azure App Service** 由 **Azure Web Sites** 演变而来，后者于 **2012** 年 **6** 月作为 Microsoft 首个 PaaS Web 托管服务推出。**2015** 年 **3 月**，它统一了 Web Apps、Mobile Apps、Logic Apps 和 API Apps，更名为 **Azure App Service**。**Linux 版 App Service** 于 **2017** 年推出。**App Service Environment v3** 于 **2021** 年发布，性能更佳且网络配置更简化。
 
 # INSTALL
 

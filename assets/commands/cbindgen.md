@@ -1,30 +1,30 @@
 # TAGLINE
 
-generate C/C++ headers from Rust FFI libraries
+从 Rust FFI 库生成 C/C++ 头文件
 
 # TLDR
 
-**Generate C header from Rust library**
+**从 Rust 库生成 C 头文件**
 
 ```cbindgen -o [header.h]```
 
-**Generate C++ header**
+**生成 C++ 头文件**
 
 ```cbindgen --lang c++ -o [header.hpp]```
 
-**Generate C header explicitly**
+**显式生成 C 头文件**
 
 ```cbindgen --lang c -o [header.h]```
 
-**Use specific config file**
+**使用指定配置文件**
 
 ```cbindgen --config [cbindgen.toml] -o [header.h]```
 
-**Generate from specific crate**
+**从指定 crate 生成**
 
 ```cbindgen --crate [crate_name] -o [header.h]```
 
-**Show help**
+**显示帮助**
 
 ```cbindgen --help```
 
@@ -34,51 +34,51 @@ generate C/C++ headers from Rust FFI libraries
 
 # DESCRIPTION
 
-**cbindgen** generates C and C++11 headers from Rust libraries that expose a public C API. It parses Rust source code and creates corresponding C declarations for FFI-exported types and functions.
+**cbindgen** 从暴露公开 C API 的 Rust 库生成 C 和 C++11 头文件。它解析 Rust 源代码，为 FFI 导出的类型和函数创建对应的 C 声明。
 
-Developed by Mozilla, it ensures generated headers match Rust's type layout and ABI guarantees.
+该工具由 Mozilla 开发，确保生成的头文件与 Rust 的类型布局和 ABI 保证相匹配。
 
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output header file path
+> 输出头文件的路径
 
 **--lang** _language_
-> Output language: c or c++ (default: c++)
+> 输出语言：c 或 c++（默认：c++）
 
 **--config** _file_
-> Path to cbindgen.toml configuration
+> cbindgen.toml 配置的路径
 
 **--crate** _name_
-> Crate name to generate bindings for
+> 要为其生成绑定的 crate 名称
 
 **--profile** _name_
-> Cargo profile to use
+> 要使用的 Cargo profile
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 **--verify**
-> Verify existing header matches generated
+> 校验已有头文件是否与生成结果一致
 
 **--help**
-> Show help
+> 显示帮助
 
 # CONFIGURATION
 
 **cbindgen.toml**
-> Controls output language, header guards, include directives, formatting style, and type renaming rules.
+> 控制输出语言、头文件保护宏、include 指令、格式化风格以及类型重命名规则。
 
 # BUILD SCRIPT USAGE
 
-Add to build.rs for automatic generation on build.
+添加到 build.rs 中，即可在构建时自动生成。
 
 # CAVEATS
 
-Only generates headers for pub extern "C" functions and #[repr(C)] types. Requires proper FFI annotations in Rust code. Configuration file customizes output format.
+只为 pub extern "C" 函数和 #[repr(C)] 类型生成头文件。要求 Rust 代码中有正确的 FFI 注解。可通过配置文件自定义输出格式。
 
 # INSTALL
 

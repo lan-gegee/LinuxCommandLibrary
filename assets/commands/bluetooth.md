@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage Bluetooth devices interactively
+以交互方式管理蓝牙设备
 
 # TLDR
 
-**Start Bluetooth interactive mode**
+**启动蓝牙交互模式**
 
 ```bluetoothctl```
 
-**Power on the Bluetooth adapter**
+**开启蓝牙适配器电源**
 
 ```bluetoothctl power on```
 
-**Scan for devices**
+**扫描设备**
 
 ```bluetoothctl scan on```
 
-**List discovered devices**
+**列出发现的设备**
 
 ```bluetoothctl devices```
 
-**Pair with a device**
+**与设备配对**
 
 ```bluetoothctl pair [MAC_address]```
 
-**Connect to a paired device**
+**连接已配对的设备**
 
 ```bluetoothctl connect [MAC_address]```
 
-**Trust a device** (auto-connect)
+**信任设备**（自动连接）
 
 ```bluetoothctl trust [MAC_address]```
 
-**Disconnect a device**
+**断开设备连接**
 
 ```bluetoothctl disconnect [MAC_address]```
 
-**Remove a paired device**
+**移除已配对的设备**
 
 ```bluetoothctl remove [MAC_address]```
 
@@ -47,62 +47,62 @@ Manage Bluetooth devices interactively
 # PARAMETERS
 
 **power** _on_|_off_
-> Turn Bluetooth adapter on or off.
+> 开启或关闭蓝牙适配器。
 
 **scan** _on_|_off_
-> Start or stop device discovery.
+> 开始或停止设备发现。
 
 **devices**
-> List discovered devices.
+> 列出发现的设备。
 
 **paired-devices**
-> List devices that are paired.
+> 列出已配对的设备。
 
 **pair** _MAC_
-> Initiate pairing with device.
+> 发起与设备的配对。
 
 **trust** _MAC_
-> Mark device as trusted (auto-connect).
+> 将设备标记为受信任（自动连接）。
 
 **untrust** _MAC_
-> Remove trusted status from device.
+> 移除设备的受信任状态。
 
 **connect** _MAC_
-> Connect to a paired device.
+> 连接到已配对的设备。
 
 **disconnect** _MAC_
-> Disconnect from device.
+> 断开与设备的连接。
 
 **remove** _MAC_
-> Remove device from known devices.
+> 将设备从已知设备中移除。
 
 **info** _MAC_
-> Show detailed device information.
+> 显示详细的设备信息。
 
 **block** / **unblock** _MAC_
-> Block or unblock a device.
+> 屏蔽或取消屏蔽一个设备。
 
 **discoverable** _on_|_off_
-> Make adapter visible to other devices.
+> 让适配器对其他设备可见。
 
 **agent** _capability_
-> Set agent for pairing (NoInputNoOutput, DisplayOnly, etc.).
+> 设置配对代理（NoInputNoOutput、DisplayOnly 等）。
 
 # DESCRIPTION
 
-**bluetoothctl** is the command-line interface for managing Bluetooth devices on Linux systems using BlueZ, the official Linux Bluetooth protocol stack. It provides complete control over Bluetooth adapters, device discovery, pairing, and connections.
+**bluetoothctl** 是 Linux 系统上管理蓝牙设备的命令行界面，基于官方 Linux 蓝牙协议栈 BlueZ。它提供对蓝牙适配器、设备发现、配对和连接的完整控制。
 
-In interactive mode (run without arguments), bluetoothctl provides a shell with tab completion for exploring commands and devices. Commands can also be executed directly from the shell for scripting.
+在交互模式下（不带参数运行），bluetoothctl 提供带 Tab 补全的 shell，便于探索命令和设备。命令也可以直接从 shell 执行，便于脚本化。
 
-The tool manages the full device lifecycle: scanning discovers nearby devices, pairing establishes a secure relationship, trusting enables automatic reconnection, and connecting activates the device for use. Multiple adapters are supported via the **select** command.
+该工具管理设备的完整生命周期：扫描发现附近设备、配对建立安全关系、信任启用自动重连、连接激活设备供使用。可通过 **select** 命令支持多个适配器。
 
 # CAVEATS
 
-Requires the BlueZ stack and bluetoothd daemon running. Some devices require specific pairing agents or PIN codes. Audio devices need PulseAudio/PipeWire Bluetooth modules configured separately. Not all Bluetooth profiles are supported equally; check device compatibility.
+需要 BlueZ 协议栈和 bluetoothd 守护进程正在运行。某些设备需要特定的配对代理或 PIN 码。音频设备需要单独配置 PulseAudio/PipeWire 的蓝牙模块。并非所有蓝牙协议都获得同等支持；请检查设备兼容性。
 
 # HISTORY
 
-**BlueZ** is the official Linux Bluetooth protocol stack, originally written by Max Krasnyansky at **Qualcomm** and maintained as an open-source project since the early **2000s**. The **bluetoothctl** utility was introduced with BlueZ 5 (released **2012**) as a replacement for the older hcitool and various other command-line utilities, consolidating Bluetooth management into a single modern interface.
+**BlueZ** 是官方的 Linux 蓝牙协议栈，最初由 **Qualcomm** 的 Max Krasnyansky 编写，自 **21 世纪初**起作为开源项目维护。**bluetoothctl** 工具随 BlueZ 5（**2012 年**发布）引入，用于取代较旧的 hcitool 及其他各种命令行工具，将蓝牙管理整合到单一的现代化界面中。
 
 # INSTALL
 

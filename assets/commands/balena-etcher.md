@@ -1,22 +1,22 @@
 # TAGLINE
 
-Flash OS images to SD cards and USB drives
+将操作系统镜像烧录到 SD 卡和 U 盘
 
 # TLDR
 
-**Launch Balena Etcher** graphical interface
+**启动 Balena Etcher** 图形界面
 
 ```balena-etcher```
 
-**Flash an image** to a specific drive in CLI mode
+以 CLI 模式将镜像**烧录**到指定驱动器
 
 ```balena-etcher [image.img] --drive [/dev/sdX] --yes```
 
-**Flash an image** to multiple drives simultaneously
+同时向多个驱动器**烧录镜像**
 
 ```balena-etcher [image.img] --drive [/dev/sdb] --drive [/dev/sdc]```
 
-**Flash and validate** the write after flashing
+烧录后进行**校验**
 
 ```balena-etcher [image.img] --drive [/dev/sdX] --check --yes```
 
@@ -26,41 +26,41 @@ Flash OS images to SD cards and USB drives
 
 # DESCRIPTION
 
-**Balena Etcher** is a cross-platform graphical application for flashing OS images to SD cards and USB drives. It provides a simple three-step process: select image, select drive, and flash.
+**Balena Etcher** 是一款跨平台图形应用，用于将操作系统镜像烧录到 SD 卡和 U 盘。它提供简单的三步流程：选择镜像、选择驱动器、烧录。
 
-When launched without arguments, it opens the GUI. When given command-line arguments specifying an image and drive, it operates in CLI mode.
+不带参数启动时会打开 GUI。当命令行参数指定了镜像和驱动器时，则以 CLI 模式运行。
 
-The application validates writes by reading back and comparing checksums, ensuring reliable image flashing. It supports raw images (.img, .iso), compressed images (.zip, .gz, .xz, .bz2), and can flash directly from URLs.
+应用会通过回读数据并比较校验和来验证写入，确保镜像烧录可靠。它支持原始镜像（.img、.iso）、压缩镜像（.zip、.gz、.xz、.bz2），还可以直接从 URL 烧录。
 
-Etcher automatically detects removable drives and prevents accidental selection of system drives. It supports a multi-write feature to flash multiple drives simultaneously.
+Etcher 会自动检测可移动驱动器，防止误选系统盘。它支持多路写入功能，可同时烧录多个驱动器。
 
 # PARAMETERS
 
 **-d**, **--drive** _device_
-> Specify the target drive to flash (repeatable for multiple drives).
+> 指定要烧录的目标驱动器（可重复使用以指定多个驱动器）。
 
 **-y**, **--yes**
-> Confirm automatically without prompting.
+> 自动确认，无需提示。
 
 **-c**, **--check**
-> Validate the write by reading back and comparing checksums after flashing.
+> 烧录后通过回读并比较校验和来验证写入。
 
 **-u**, **--unmount**
-> Unmount drives before flashing.
+> 烧录前卸载驱动器。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Show version number.
+> 显示版本号。
 
 # CAVEATS
 
-Etcher is primarily a GUI application and has limited command-line functionality. It requires elevated privileges to write to devices. The application prevents selection of system drives but users should still verify target selection carefully. Large images may require significant time to flash and verify.
+Etcher 主要是一款 GUI 应用，命令行功能有限。写入设备需要提升的权限。应用虽会阻止选择系统盘，但用户仍应仔细核对目标选择。大型镜像可能需要较长时间来完成烧录和校验。
 
 # HISTORY
 
-**Etcher** was created by **Balena** (formerly Resin.io) and released in **2016** as an open-source tool to simplify the process of flashing OS images for IoT devices and single-board computers like Raspberry Pi. The name changed from "Etcher" to "Balena Etcher" when the company rebranded. It has become one of the most popular image flashing tools, known for its user-friendly interface and cross-platform support.
+**Etcher** 由 **Balena**（原 Resin.io）创建，于 **2016** 年发布，是一款旨在简化为 IoT 设备和树莓派等单板计算机烧录操作系统镜像流程的开源工具。公司更名时，软件名称也从 "Etcher" 改为 "Balena Etcher"。它已成为最受欢迎的镜像烧录工具之一，以友好的用户界面和跨平台支持著称。
 
 # INSTALL
 

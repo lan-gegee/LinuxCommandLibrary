@@ -1,26 +1,26 @@
 # TAGLINE
 
-display Unicode character information
+显示 Unicode 字符信息
 
 # TLDR
 
-**Display character information**
+**显示字符信息**
 
 ```chars [character]```
 
-**Look up by Unicode codepoint**
+**按 Unicode 码点查找**
 
 ```chars [U+1F63C]```
 
-**Look up by numeric code** (ambiguous match)
+**按数字编码查找**（匹配可能有歧义）
 
 ```chars [10]```
 
-**Look up a control character**
+**查找控制字符**
 
 ```chars "[^C]"```
 
-**Search for characters** by name
+**按名称搜索字符**
 
 ```chars [query]```
 
@@ -31,21 +31,21 @@ display Unicode character information
 # PARAMETERS
 
 _CHARACTER_
-> Character literal, Unicode codepoint (e.g. U+1F63C), numeric code, or control character notation (e.g. ^C).
+> 字符字面量、Unicode 码点（如 U+1F63C）、数字编码或控制字符记号（如 ^C）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**chars** is a command-line tool for displaying detailed information about ASCII and Unicode characters and code points. Inspired by `ascii(1)` and `unicode.py`, it supports whitespace and control characters.
+**chars** 是一款显示 ASCII 和 Unicode 字符及码点详细信息的命令行工具。它受 `ascii(1)` 和 `unicode.py` 启发，支持空白字符和控制字符。
 
-For each character it prints the Unicode codepoint, encoding representations (hex, octal, UTF-8, UTF-16), display width, Unicode name and aliases, case variants, and escape sequences. Characters can be looked up by literal form, by `U+` codepoint, by numeric code, or by control-character notation.
+对每个字符，它会打印 Unicode 码点、各种编码表示（十六进制、八进制、UTF-8、UTF-16）、显示宽度、Unicode 名称和别名、大小写变体以及转义序列。字符可以通过字面形式、`U+` 码点、数字编码或控制字符记号来查找。
 
-It is written in Rust and useful for developers working with Unicode text or debugging encoding issues.
+它用 Rust 编写，适合处理 Unicode 文本或调试编码问题的开发者使用。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Package manager for macOS and Linux
+macOS 和 Linux 的软件包管理器
 
 # TLDR
 
-**Install** package
+**安装**软件包
 
 ```brew install [wget]```
 
-**Search** for packages
+**搜索**软件包
 
 ```brew search [node]```
 
-**Update** Homebrew
+**更新** Homebrew
 
 ```brew update```
 
-**Upgrade** packages
+**升级**软件包
 
 ```brew upgrade```
 
-**List** installed packages
+**列出**已安装的软件包
 
 ```brew list```
 
-**Uninstall** package
+**卸载**软件包
 
 ```brew uninstall [package]```
 
-**Show** package info
+**显示**软件包信息
 
 ```brew info [package]```
 
@@ -38,52 +38,52 @@ Package manager for macOS and Linux
 
 # DESCRIPTION
 
-**brew** (Homebrew) is a package manager for macOS and Linux. It installs software from source or pre-compiled binaries, managing dependencies and versions. Homebrew has become the de facto standard package manager for macOS.
+**brew**（Homebrew）是一款面向 macOS 和 Linux 的软件包管理器。它从源码或预编译二进制文件安装软件，并管理依赖和版本。Homebrew 已成为 macOS 事实上的标准包管理器。
 
-The tool simplifies software installation and maintenance on Unix-like systems.
+该工具简化了类 Unix 系统上的软件安装与维护。
 
 # PARAMETERS
 
 **install** _formula_
-> Install package
+> 安装软件包。
 
 **uninstall** _formula_
-> Remove package
+> 移除软件包。
 
 **update**
-> Update Homebrew itself
+> 更新 Homebrew 本身。
 
 **upgrade** [_formula_]
-> Upgrade packages
+> 升级软件包。
 
 **search** _query_
-> Search for packages
+> 搜索软件包。
 
 **list**
-> List installed packages
+> 列出已安装的软件包。
 
 **info** _formula_
-> Show package information
+> 显示软件包信息。
 
 **doctor**
-> Check system for problems
+> 检查系统问题。
 
 **cleanup**
-> Remove old versions
+> 移除旧版本。
 
 # CONCEPTS
 
 **Formula**
-> Package definition (e.g., wget, node)
+> 软件包定义（如 wget、node）。
 
 **Cask**
-> macOS GUI application (e.g., firefox, slack)
+> macOS 图形界面应用（如 firefox、slack）。
 
 **Tap**
-> Third-party repository
+> 第三方仓库。
 
 **Cellar**
-> Where packages are installed (/usr/local/Cellar)
+> 软件包的安装位置（/usr/local/Cellar）。
 
 # COMMON OPERATIONS
 
@@ -125,11 +125,11 @@ brew services stop redis
 
 # CAVEATS
 
-macOS system updates can break Homebrew. Requires Xcode Command Line Tools on macOS. Can conflict with system Python. Upgrades all dependencies (not minimal updates). Large download sizes for some packages.
+macOS 的系统更新可能破坏 Homebrew。在 macOS 上需要 Xcode Command Line Tools。可能与系统 Python 冲突。会升级所有依赖（而非最小化更新）。部分软件包下载体积较大。
 
 # HISTORY
 
-**Homebrew** was created by Max Howell in **2009** to provide a simple, Git-based package manager for macOS, becoming the most popular macOS package manager.
+**Homebrew** 由 Max Howell 于 **2009** 年创建，旨在为 macOS 提供一个基于 Git 的简单包管理器，现已成为最受欢迎的 macOS 包管理器。
 
 # SEE ALSO
 

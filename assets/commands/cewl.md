@@ -1,30 +1,30 @@
 # TAGLINE
 
-custom wordlist generator from website content
+从网站内容生成自定义字典的工具
 
 # TLDR
 
-Create a **wordlist** from URL with 2 links depth
+从 URL 创建**字典**，链接深度为 2
 
 ```cewl -d 2 -w [path/to/wordlist.txt] [url]```
 
-Output **alphanumeric** wordlist with minimum 5 characters
+输出包含**字母和数字**、最少 5 个字符的字典
 
 ```cewl --with-numbers -m 5 [url]```
 
-Output wordlist with **verbose** output and **email** addresses
+以**详细**模式输出字典并列出**邮箱**地址
 
 ```cewl -v -e [url]```
 
-Use HTTP **authentication**
+使用 HTTP **认证**
 
 ```cewl --auth_type [basic|digest] --auth_user [username] --auth_pass [password] [url]```
 
-Output wordlist with **word count**
+输出带**词频统计**的字典
 
 ```cewl -c [url]```
 
-Use a **proxy**
+使用**代理**
 
 ```cewl --proxy_host [host] --proxy_port [port] [url]```
 
@@ -34,57 +34,57 @@ Use a **proxy**
 
 # DESCRIPTION
 
-**cewl** (Custom Word List generator) spiders a website and creates a wordlist from the content found. This wordlist can be used for password cracking, especially when targeting organizations where passwords may be based on company-specific terms.
+**cewl**（Custom Word List generator）会爬取网站并根据找到的内容生成字典。该字典可用于密码破解，尤其适合目标组织的密码可能基于公司专有词汇的场景。
 
-The tool follows links to a configurable depth and extracts unique words meeting length requirements.
+该工具按可配置的深度跟踪链接，并提取满足长度要求的去重单词。
 
 # PARAMETERS
 
 **-d**, **--depth** _n_
-> Spider to link depth n (default: 2)
+> 爬取链接至深度 n（默认：2）
 
 **-w**, **--write** _file_
-> Write wordlist to file
+> 将字典写入文件
 
 **-m**, **--min_word_length** _n_
-> Minimum word length (default: 3)
+> 最小单词长度（默认：3）
 
 **--with-numbers**
-> Include words with numbers
+> 包含带数字的单词
 
 **-c**, **--count**
-> Show the count for each word found
+> 显示每个单词出现的次数
 
 **-e**, **--email**
-> Include email addresses found in the page
+> 包含页面中发现的邮箱地址
 
 **-a**, **--meta**
-> Include metadata from the page
+> 包含页面的元数据
 
 **-u**, **--ua** _AGENT_
-> Set the user agent string
+> 设置 user agent 字符串
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--auth_type** _type_
-> Authentication type: basic or digest
+> 认证类型：basic 或 digest
 
 **--auth_user** _user_
-> Authentication username
+> 认证用户名
 
 **--auth_pass** _pass_
-> Authentication password
+> 认证密码
 
 **--proxy_host** _host_
-> Proxy host
+> 代理主机
 
 **--proxy_port** _port_
-> Proxy port
+> 代理端口
 
 # CAVEATS
 
-Only use on websites you have authorization to spider. Aggressive spidering may trigger rate limiting or blocking. Large sites may produce very large wordlists.
+仅可用于你已获得爬取授权的网站。激进的爬取可能触发限流或封禁。大型网站可能生成非常庞大的字典。
 
 # INSTALL
 

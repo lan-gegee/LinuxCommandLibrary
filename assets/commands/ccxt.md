@@ -1,38 +1,38 @@
 # TAGLINE
 
-cryptocurrency exchange trading CLI
+加密货币交易所交易 CLI
 
 # TLDR
 
-**Fetch the order book** for a trading pair
+**获取**交易对的**订单簿**
 
 ```ccxt [binance] fetchOrderBook [BTC/USDT]```
 
-**Fetch recent trades** for a market
+**获取市场最近的成交记录**
 
 ```ccxt [okx] fetchTrades [ETH/USDT]```
 
-**Fetch all tickers** in table format
+**以表格格式获取所有行情**
 
 ```ccxt [bitget] fetchTickers --table```
 
-**Fetch account balance** (requires API keys)
+**获取账户余额**（需要 API 密钥）
 
 ```ccxt [bybit] fetchBalance```
 
-**Display available markets** on an exchange
+**显示交易所的可用市场**
 
 ```ccxt [gate] markets```
 
-**Create a limit order** (requires API keys)
+**创建限价单**（需要 API 密钥）
 
 ```ccxt [binance] createOrder [BTC/USDT] limit buy [0.001] [50000]```
 
-**Use sandbox mode** for testing
+**使用沙箱模式**进行测试
 
 ```ccxt [okx] fetchTicker [BTC/USDT] --sandbox```
 
-**Get help on a method**
+**查看某方法的帮助**
 
 ```ccxt explain createOrder```
 
@@ -43,66 +43,66 @@ cryptocurrency exchange trading CLI
 # PARAMETERS
 
 **--table**
-> Format output as a readable table instead of JSON.
+> 将输出格式化为易读的表格而不是 JSON。
 
 **--raw**
-> Output raw JSON without formatting.
+> 输出未经格式化的原始 JSON。
 
 **--sandbox**
-> Use the exchange's sandbox/testnet environment.
+> 使用交易所的沙箱/测试网环境。
 
 # COMMANDS
 
 _exchange_id_
-> The exchange to connect to (e.g., binance, okx, bybit, kraken, coinbase).
+> 要连接的交易所（例如 binance、okx、bybit、kraken、coinbase）。
 
 _exchange_id_ **markets**
-> List all available markets on the exchange.
+> 列出交易所上所有可用的市场。
 
 _exchange_id_ **currencies**
-> Show available currencies and their properties.
+> 显示可用的币种及其属性。
 
 _exchange_id_ **fetchTicker** _symbol_
-> Fetch current ticker data for a trading pair.
+> 获取某个交易对的当前行情数据。
 
 _exchange_id_ **fetchOrderBook** _symbol_
-> Fetch the order book for a trading pair.
+> 获取某个交易对的订单簿。
 
 _exchange_id_ **fetchTrades** _symbol_
-> Fetch recent trades for a market.
+> 获取某个市场的最近成交记录。
 
 _exchange_id_ **fetchOHLCV** _symbol_ _timeframe_
-> Fetch candlestick/OHLCV data.
+> 获取 K 线/OHLCV 数据。
 
 _exchange_id_ **fetchBalance**
-> Fetch account balance (requires authentication).
+> 获取账户余额（需要身份验证）。
 
 _exchange_id_ **createOrder** _symbol_ _type_ _side_ _amount_ [_price_]
-> Create a new order (requires authentication).
+> 创建新订单（需要身份验证）。
 
 **explain** _method_
-> Show required arguments for a method.
+> 显示某个方法所需的参数。
 
 # DESCRIPTION
 
-**CCXT** (CryptoCurrency eXchange Trading) CLI is a command-line interface for interacting with over 100 cryptocurrency exchanges using the CCXT library. It allows fetching market data, checking balances, placing orders, and more without writing code.
+**CCXT**（CryptoCurrency eXchange Trading）CLI 是一个命令行界面，基于 CCXT 库与 100 多家加密货币交易所交互。它让你无需编写代码即可获取行情数据、查询余额、下单等。
 
-The CLI supports both public APIs (no authentication needed) and private APIs (requiring API keys). Credentials can be provided via environment variables (e.g., BINANCE_APIKEY, BINANCE_SECRET) or a keys.local.json configuration file.
+该 CLI 同时支持公共 API（无需身份验证）和私有 API（需要 API 密钥）。凭据可通过环境变量（例如 BINANCE_APIKEY、BINANCE_SECRET）或 keys.local.json 配置文件提供。
 
-Output is JSON by default and can be piped to tools like **jq** for processing. The **--table** option provides human-readable formatted output.
+输出默认为 JSON，可以通过管道传给 **jq** 等工具处理。**--table** 选项提供人类可读的格式化输出。
 
 # CONFIGURATION
 
 **keys.local.json**
-> Stores API keys and secrets for exchange authentication. Located in the working directory.
+> 存储用于交易所身份验证的 API 密钥和私钥。位于工作目录中。
 
 # CAVEATS
 
-The CLI executes commands immediately without confirmation. Confusing amounts with prices can cause loss of funds. CCXT is non-custodian software—it does not hold funds but provides direct API access to exchanges. Always test with sandbox mode or small amounts first. Rate limits and API restrictions vary by exchange.
+CLI 会立即执行命令而不做确认。将数量误当作价格可能导致资金损失。CCXT 是非托管软件——它不持有资金，只提供对交易所的直接 API 访问。务必先用沙箱模式或小额资金测试。速率限制和 API 限制因交易所而异。
 
 # HISTORY
 
-CCXT was created to provide a unified API across cryptocurrency exchanges, abstracting away differences between exchange APIs. The project started around **2017** and has grown to support over 100 exchanges. It is available as a library for JavaScript, TypeScript, Python, C#, PHP, and Go, with the CLI providing command-line access to the same functionality.
+CCXT 的创建目的是为各加密货币交易所提供统一的 API，屏蔽不同交易所 API 之间的差异。该项目始于约 **2017** 年，如今已支持 100 多家交易所。它提供了 JavaScript、TypeScript、Python、C#、PHP 和 Go 的库版本，而 CLI 则通过命令行提供同样的功能。
 
 # SEE ALSO
 

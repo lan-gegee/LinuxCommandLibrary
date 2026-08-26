@@ -1,30 +1,30 @@
 # TAGLINE
 
-NSS certificate database management
+NSS 证书数据库管理
 
 # TLDR
 
-**List certificates in database**
+**列出数据库中的证书**
 
 ```certutil -L -d [~/.pki/nssdb]```
 
-**Add certificate to database**
+**向数据库添加证书**
 
 ```certutil -A -n "[alias]" -t "CT,," -d [~/.pki/nssdb] -i [cert.pem]```
 
-**Generate key pair**
+**生成密钥对**
 
 ```certutil -G -d [~/.pki/nssdb] -n "[keyname]"```
 
-**Delete certificate**
+**删除证书**
 
 ```certutil -D -n "[alias]" -d [~/.pki/nssdb]```
 
-**Create self-signed certificate**
+**创建自签名证书**
 
 ```certutil -S -n "[alias]" -x -t "CT,," -d [~/.pki/nssdb] -s "CN=[hostname]"```
 
-**Display certificate details**
+**显示证书详情**
 
 ```certutil -L -d [~/.pki/nssdb] -n "[alias]"```
 
@@ -34,81 +34,81 @@ NSS certificate database management
 
 # DESCRIPTION
 
-**certutil** manages keys and certificates in NSS (Network Security Services) databases. It creates, modifies, lists, and deletes certificates and key pairs used by applications built on the NSS library, including Firefox, Thunderbird, and Chromium-based browsers.
+**certutil** 管理 NSS（Network Security Services）数据库中的密钥和证书。它可以创建、修改、列出和删除基于 NSS 库构建的应用程序所使用的证书与密钥对，这些应用包括 Firefox、Thunderbird 和 Chromium 系浏览器。
 
-NSS databases store certificates in a directory-based format, with modern versions using SQLite (specified with the `sql:` prefix). The tool handles the full certificate lifecycle including generating key pairs, creating self-signed certificates, importing CA certificates, and managing trust flags that control how certificates are used for SSL, email signing, and code signing.
+NSS 数据库以目录形式存储证书，现代版本使用 SQLite（通过 `sql:` 前缀指定）。该工具处理完整的证书生命周期，包括生成密钥对、创建自签名证书、导入 CA 证书以及管理信任标志——后者控制证书在 SSL、电子邮件签名和代码签名中的使用方式。
 
-Trust flags follow the format "SSL,Email,Object Signing" where `C` marks a trusted CA and `T` marks a certificate trusted for client authentication.
+信任标志的格式为 "SSL,Email,Object Signing"，其中 `C` 表示受信任的 CA，`T` 表示可用于客户端认证的可信证书。
 
 # PARAMETERS
 
 **-A**
-> Add certificate to database
+> 向数据库添加证书
 
 **-D**
-> Delete certificate from database
+> 从数据库删除证书
 
 **-L**
-> List certificates
+> 列出证书
 
 **-G**
-> Generate new key pair
+> 生成新的密钥对
 
 **-S**
-> Create and add self-signed certificate
+> 创建并添加自签名证书
 
 **-R**
-> Generate certificate request
+> 生成证书请求
 
 **-C**
-> Create certificate from request
+> 根据请求创建证书
 
 **-K**
-> List keys in database
+> 列出数据库中的密钥
 
 **-d** _dir_
-> Database directory (use sql: prefix for SQLite)
+> 数据库目录（SQLite 需加 sql: 前缀）
 
 **-n** _name_
-> Certificate nickname/alias
+> 证书昵称/别名
 
 **-t** _trust_
-> Trust flags (e.g., "CT,,")
+> 信任标志（如 "CT,,"）
 
 **-i** _file_
-> Input file
+> 输入文件
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-x**
-> Self-sign certificate
+> 自签名证书
 
 **-s** _subject_
-> Subject DN string
+> 主题 DN 字符串
 
 **-v** _months_
-> Validity period in months
+> 有效期（月）
 
 # DATABASE TYPES
 
-**sql:dir**: SQLite database (preferred)
+**sql:dir**: SQLite 数据库（推荐）
 
-**dbm:dir**: Legacy BerkeleyDB format
+**dbm:dir**: 旧式 BerkeleyDB 格式
 
 # TRUST FLAGS
 
-Format: "SSL,Email,Object Signing" (e.g., "CT,,")
+格式："SSL,Email,Object Signing"（如 "CT,,"）
 
-**C**: Trusted CA
+**C**: 受信任的 CA
 
-**T**: Trusted for client auth
+**T**: 可用于客户端认证
 
-**p**: Valid peer
+**p**: 有效对等方
 
 # CAVEATS
 
-Requires nss-tools package. Use sql: prefix for modern databases. Handles sensitive keys; run with minimal privileges.
+需要 nss-tools 软件包。现代数据库请使用 sql: 前缀。该工具会处理敏感密钥；请以最小权限运行。
 
 # INSTALL
 

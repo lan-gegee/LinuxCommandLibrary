@@ -1,18 +1,18 @@
 # TAGLINE
 
-Type-safe SQL code generator for Bun
+面向 Bun 的类型安全 SQL 代码生成器
 
 # TLDR
 
-**Add** bun-sqlgen to a project
+**将** bun-sqlgen 添加到项目
 
 ```bun add @ilbertt/bun-sqlgen```
 
-**Generate** type definitions for tagged SQL queries found in a set of files
+**为**一组文件中找到的带标签 SQL 查询**生成**类型定义
 
 ```bun bun-sqlgen generate '[src/**/*.ts]' --migrations [db/migrations]```
 
-**Point** at the database used to validate queries via an environment variable
+**通过环境变量指定**用于验证查询的数据库
 
 ```DATABASE_URL=[postgres://localhost/app] bun bun-sqlgen generate '[src/**/*.ts]' --migrations [db/migrations]```
 
@@ -22,35 +22,35 @@ Type-safe SQL code generator for Bun
 
 # DESCRIPTION
 
-**bun-sqlgen** is a code generation tool for **Bun**'s native SQL client (**Bun.sql**, the **bun:sql** module). It lets you write raw SQL with full type safety and without an ORM.
+**bun-sqlgen** 是一个面向 **Bun** 原生 SQL 客户端（**Bun.sql**，即 **bun:sql** 模块）的代码生成工具。它让你在无需 ORM 的情况下编写具有完整类型安全的原始 SQL。
 
-The **generate** subcommand scans the TypeScript source files matching the supplied glob pattern, extracts the tagged SQL template literals it finds, and validates each query against a real **PostgreSQL** or **SQLite** database whose schema is defined by your migration files. It then writes a **src/queries.gen.d.ts** file containing precise parameter and result types for every query, so that mistakes in column names, types, or query shape become compile-time errors.
+**generate** 子命令扫描与给定 glob 模式匹配的 TypeScript 源文件，提取其中的带标签 SQL 模板字面量，并根据由迁移文件定义模式的真实 **PostgreSQL** 或 **SQLite** 数据库验证每个查询。随后它会写出一个 **src/queries.gen.d.ts** 文件，包含每个查询精确的参数和结果类型，使列名、类型或查询结构上的错误变成编译期错误。
 
-Because checking happens against a live database rather than a parsed model, the generated types stay accurate to the actual schema. No Docker or separate type-definition language is required.
+由于检查是针对真实数据库而非解析出的模型进行的，生成的类型始终与实际模式保持一致。不需要 Docker 或独立的类型定义语言。
 
 # PARAMETERS
 
 **generate** _GLOB_
 
-> Process the source files matching the quoted glob pattern (for example **'src/\*\*/\*.ts'**), emitting type definitions for the SQL queries they contain. Quote the glob so the shell does not expand it.
+> 处理与加引号的 glob 模式匹配的源文件（例如 **'src/\*\*/\*.ts'**），为其包含的 SQL 查询生成类型定义。请给 glob 加引号，以免被 shell 展开。
 
 **--migrations** _DIR_
 
-> Directory holding the SQL migration files that act as the schema source of truth. The migrations are applied to derive the schema the queries are checked against.
+> 存放 SQL 迁移文件的目录，作为模式的唯一事实来源。会应用这些迁移来派生出用于校验查询的模式。
 
 # CONFIGURATION
 
 **DATABASE_URL**
 
-> Connection string for the PostgreSQL or SQLite database used to validate queries during generation. Code generation runs against this real database instance.
+> 用于在生成期间验证查询的 PostgreSQL 或 SQLite 数据库的连接字符串。代码生成将针对这个真实数据库实例运行。
 
 # CAVEATS
 
-Requires the **Bun** runtime and a reachable PostgreSQL or SQLite database at generation time; it is not a standalone binary. It targets only **Bun.sql**, so it is not useful with other database clients or runtimes.
+生成时需要 **Bun** 运行时以及一个可连接的 PostgreSQL 或 SQLite 数据库；它不是独立二进制程序。它只支持 **Bun.sql**，对其他数据库客户端或运行时没有用处。
 
 # HISTORY
 
-Created by **ilbertt** and first released in **2026** as part of the growing Bun ecosystem, offering a no-ORM alternative to schema-aware query builders. It is distributed on npm as **@ilbertt/bun-sqlgen** under the Unlicense.
+由 **ilbertt** 创建，于 **2026 年**首次发布，属于不断壮大的 Bun 生态系统的一部分，为模式感知的查询构建器提供了一种无 ORM 的替代方案。它以 **@ilbertt/bun-sqlgen** 的名义发布在 npm 上，采用 Unlicense 许可证。
 
 # SEE ALSO
 

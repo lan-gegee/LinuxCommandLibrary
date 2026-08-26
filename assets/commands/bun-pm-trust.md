@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage trusted dependencies in Bun projects
+管理 Bun 项目中受信任的依赖
 
 # TLDR
 
-**Run blocked lifecycle scripts** for specific packages and add them to trusted dependencies
+**运行被阻止的生命周期脚本**（针对指定软件包）并将其添加到受信任的依赖中
 
 ```bun pm trust [package1] [package2]```
 
-**Trust all** currently untrusted dependencies at once
+**一次性信任所有**当前不受信任的依赖
 
 ```bun pm trust --all```
 
-**List** all dependencies that had their lifecycle scripts blocked
+**列出**所有生命周期脚本被阻止的依赖
 
 ```bun pm untrusted```
 
-**Install** a package and trust it in one step
+**安装**软件包并在一步中信任它
 
 ```bun add --trust [package]```
 
@@ -27,23 +27,23 @@ Manage trusted dependencies in Bun projects
 # PARAMETERS
 
 **--all**
-> Trust all currently untrusted dependencies at once, running all their blocked lifecycle scripts and adding them to **trustedDependencies** in **package.json**
+> 一次性信任所有当前不受信任的依赖，运行它们所有被阻止的生命周期脚本，并将它们添加到 **package.json** 的 **trustedDependencies** 中
 
 # DESCRIPTION
 
-**bun pm trust** runs blocked lifecycle scripts (such as **postinstall**, **preinstall**, and **node-gyp** builds) for specified untrusted dependencies and adds those packages to the **trustedDependencies** array in **package.json**.
+**bun pm trust** 为指定的不受信任的依赖运行被阻止的生命周期脚本（如 **postinstall**、**preinstall** 和 **node-gyp** 构建），并将这些软件包添加到 **package.json** 的 **trustedDependencies** 数组中。
 
-Unlike npm, Bun blocks arbitrary lifecycle script execution for installed dependencies by default as a security measure. When Bun blocks a script, it installs the package but silently skips its lifecycle scripts. The **bun pm trust** command is the mechanism for explicitly opting in to running those scripts for packages you have reviewed and trust.
+与 npm 不同，作为安全措施，Bun 默认会阻止已安装依赖执行任意生命周期脚本。当 Bun 阻止一个脚本时，它仍会安装该软件包，但会静默跳过其生命周期脚本。**bun pm trust** 命令就是你经过审查并信任某些软件包后，显式选择运行这些脚本的机制。
 
-Bun maintains a default allowlist of popular packages known to have safe postinstall scripts. This default list only applies to packages sourced from npm; packages from **file:**, **link:**, **git:**, or **github:** sources require explicit **trustedDependencies** entries.
+Bun 维护着一个已知 postinstall 脚本安全的流行软件包的默认允许列表。此默认列表仅适用于来自 npm 的软件包；来自 **file:**、**link:**、**git:** 或 **github:** 来源的软件包需要显式的 **trustedDependencies** 条目。
 
 # CAVEATS
 
-Trusting a package only permits lifecycle scripts for that specific package, not for the dependencies of that dependency. Each package that needs to run lifecycle scripts must be listed individually. There is no **bun pm untrust** command; to revoke trust you must manually edit **trustedDependencies** in **package.json**. Because Bun blocks lifecycle scripts silently, packages that depend on postinstall steps (like **esbuild**, **sharp**, **@biomejs/biome**) may appear to install successfully but fail at runtime.
+信任一个软件包只允许该特定软件包的生命周期脚本，不包括其依赖的依赖。每个需要运行生命周期脚本的软件包都必须单独列出。没有 **bun pm untrust** 命令；要撤销信任，你必须手动编辑 **package.json** 中的 **trustedDependencies**。由于 Bun 会静默阻止生命周期脚本，依赖 postinstall 步骤的软件包（如 **esbuild**、**sharp**、**@biomejs/biome**）可能看似安装成功，但在运行时失败。
 
 # HISTORY
 
-The trusted dependencies workflow was introduced in **Bun v1.0.31** (March 2024) with the **bun add --trust** flag and the **bun pm trust** command. Early versions had bugs on Windows where **bun pm trust** could panic, which were fixed in **v1.1.18** (July 2024).
+受信任依赖的工作流在 **Bun v1.0.31**（2024 年 3 月）中随 **bun add --trust** 标志和 **bun pm trust** 命令引入。早期版本在 Windows 上存在 **bun pm trust** 可能崩溃的错误，已在 **v1.1.18**（2024 年 7 月）修复。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build OCI and Docker container images without a daemon
+无需守护进程构建 OCI 和 Docker 容器镜像
 
 # TLDR
 
-**Build** container from Containerfile/Dockerfile
+从 Containerfile/Dockerfile **构建**容器
 
 ```buildah build -t [myimage] [.]```
 
-**Create** working container
+**创建**工作容器
 
 ```buildah from [fedora]```
 
-**Run** command in container
+在容器中**运行**命令
 
 ```buildah run [container-id] -- [dnf install -y httpd]```
 
-**Copy** files into container
+向容器中**复制**文件
 
 ```buildah copy [container-id] [local/path] [/container/path]```
 
-**Commit** container to image
+将容器**提交**为镜像
 
 ```buildah commit [container-id] [myimage]```
 
-**List** local images
+**列出**本地镜像
 
 ```buildah images```
 
-**Push** image to a registry
+将镜像**推送**到仓库（registry）
 
 ```buildah push [myimage] [docker://registry.example.com/myimage:tag]```
 
@@ -38,56 +38,56 @@ Build OCI and Docker container images without a daemon
 
 # DESCRIPTION
 
-**buildah** is a tool for building OCI and Docker container images without requiring a daemon. It provides fine-grained control over image layers and can build from Dockerfiles or through direct manipulation of containers.
+**buildah** 是一个无需守护进程即可构建 OCI 和 Docker 容器镜像的工具。它提供对镜像层的细粒度控制，既可以从 Dockerfile 构建，也可以通过直接操作容器来构建。
 
-Unlike Docker, buildah does not require a background daemon process, making it well-suited for CI/CD pipelines and restricted environments. It supports rootless builds, where the entire build process runs without elevated privileges. As part of the Podman ecosystem, it shares storage and image formats with podman and skopeo, allowing seamless interoperation between the tools.
+与 Docker 不同，buildah 不需要后台守护进程，因此非常适合 CI/CD 流水线和受限环境。它支持无 root 构建，整个构建过程无需提升权限。作为 Podman 生态的一部分，它与 podman 和 skopeo 共享存储和镜像格式，实现工具间的无缝互操作。
 
 # PARAMETERS
 
-**build** (formerly **bud**)
-> Build image using Containerfile/Dockerfile
+**build**（原 **bud**）
+> 使用 Containerfile/Dockerfile 构建镜像
 
 **from** _image_
-> Create working container
+> 创建工作容器
 
 **run** _container_ _cmd_
-> Run command in container
+> 在容器中运行命令
 
 **commit** _container_ _image_
-> Save container as image
+> 将容器保存为镜像
 
 **push** _image_ _destination_
-> Push image to registry
+> 将镜像推送到 registry
 
 **pull** _image_
-> Pull image from registry
+> 从 registry 拉取镜像
 
 **images**
-> List images
+> 列出镜像
 
 **containers**
-> List working containers
+> 列出工作容器
 
 **copy** _container_ _src_ _dest_
-> Copy files into container
+> 向容器中复制文件
 
 **config** [_options_] _container_
-> Set image configuration (cmd, entrypoint, env, labels, etc.)
+> 设置镜像配置（cmd、entrypoint、env、labels 等）
 
 **rm** _container_
-> Remove container
+> 移除容器
 
 **rmi** _image_
-> Remove image
+> 移除镜像
 
 **inspect** _container|image_
-> Display detailed information
+> 显示详细信息
 
 **mount** _container_
-> Mount container filesystem
+> 挂载容器文件系统
 
 **umount** _container_
-> Unmount container filesystem
+> 卸载容器文件系统
 
 # BUILDING IMAGES
 
@@ -116,32 +116,32 @@ buildah commit $ctr myapp:latest
 
 # FEATURES
 
-- Daemonless operation
-- Rootless builds
-- Dockerfile compatibility
-- Fine-grained layer control
-- OCI image format
-- Multiple storage backends
-- Script-friendly
+- 无守护进程运行
+- 无 root 构建
+- 兼容 Dockerfile
+- 细粒度的层控制
+- OCI 镜像格式
+- 多种存储后端
+- 对脚本友好
 
 # CONFIGURATION
 
 **/etc/containers/registries.conf**
-> Registry configuration including mirrors, insecure registries, and search order.
+> 仓库配置，包括镜像源、不安全 registry 和搜索顺序。
 
 **/etc/containers/storage.conf**
-> Storage driver and location settings for images and containers.
+> 镜像和容器的存储驱动与存储位置设置。
 
 **/etc/containers/policy.json**
-> Image signature verification policy.
+> 镜像签名验证策略。
 
 # CAVEATS
 
-Different from Docker workflow (learning curve). Some Docker features not supported. Rootless mode has kernel and filesystem limitations. Storage configuration important. The **bud** subcommand is deprecated in favor of **build**.
+工作流与 Docker 不同（有学习成本）。部分 Docker 功能不受支持。无 root 模式受内核和文件系统限制。存储配置很重要。**bud** 子命令已被弃用，应改用 **build**。
 
 # HISTORY
 
-**buildah** was created by Red Hat around **2017** as a component of their container tooling suite, focusing on building without daemons.
+**buildah** 由 Red Hat 于 **2017 年**前后创建，是其容器工具套件的组件之一，专注于无守护进程的镜像构建。
 
 # INSTALL
 

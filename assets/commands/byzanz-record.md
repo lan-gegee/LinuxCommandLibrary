@@ -1,22 +1,22 @@
 # TAGLINE
 
-Record screen sessions as animated GIFs or videos
+将屏幕录制为动画 GIF 或视频
 
 # TLDR
 
-**Record** the screen to a file (default 10 seconds)
+将屏幕**录制**到文件（默认 10 秒）
 
 ```byzanz-record [path/to/file.gif]```
 
-Show **verbose** information during recording
+录制期间显示**详细**信息
 
 ```byzanz-record -v [path/to/file.gif]```
 
-Record for a **specific duration**
+按**指定时长**录制
 
 ```byzanz-record -d 60 [path/to/file.gif]```
 
-**Delay** before starting recording
+开始录制前**延迟**
 
 ```byzanz-record --delay 10 [path/to/file.gif]```
 
@@ -26,53 +26,53 @@ Record for a **specific duration**
 
 # DESCRIPTION
 
-**byzanz-record** captures screen recordings and saves them in various formats including GIF, WebM, OGV, and FLV. It is designed for creating short screencasts and animated GIFs for documentation or demonstrations.
+**byzanz-record** 捕获屏幕录像并以多种格式保存，包括 GIF、WebM、OGV 和 FLV。它专为制作简短的屏幕演示和用于文档或演示的动画 GIF 而设计。
 
-By default, recording lasts 10 seconds. The tool supports recording specific windows or screen regions.
+默认录制时长为 10 秒。该工具支持录制特定窗口或屏幕区域。
 
 # PARAMETERS
 
 **-d, --duration** _seconds_
-> Recording duration in seconds
+> 录制时长（秒）
 
 **--delay** _seconds_
-> Delay before starting recording
+> 开始录制前的延迟时间
 
 **-v, --verbose**
-> Show information during and after recording
+> 在录制期间和结束后显示信息
 
 **-x, -y** _pixels_
-> X and Y position of recording area
+> 录制区域的 X 和 Y 坐标
 
 **-w, --width** _pixels_
-> Width of recording area
+> 录制区域宽度
 
 **-h, --height** _pixels_
-> Height of recording area
+> 录制区域高度
 
 **-c, --cursor**
-> Record cursor movements
+> 录制光标移动
 
 **-a, --audio**
-> Record audio along with video (when supported by output format).
+> 随视频一起录制音频（当输出格式支持时）。
 
 **--exec** _command_
-> Run the specified command and record until it exits (overrides duration).
+> 运行指定命令并录制直到其退出（覆盖时长设置）。
 
 **--display** _DISPLAY_
-> Specify the X display to record.
+> 指定要录制的 X display。
 
 # OUTPUT FORMATS
 
-- **.gif** - Animated GIF
-- **.webm** - WebM video
-- **.ogv/.ogg** - Ogg Theora video
-- **.flv** - Flash video
-- **.byzanz** - Native format
+- **.gif** - 动画 GIF
+- **.webm** - WebM 视频
+- **.ogv/.ogg** - Ogg Theora 视频
+- **.flv** - Flash 视频
+- **.byzanz** - 原生格式
 
 # CAVEATS
 
-GIF output can produce large files for long recordings. Works only with X11, not Wayland. Recording high-resolution screens may be resource-intensive.
+长时间录制时 GIF 输出可能产生很大的文件。仅支持 X11，不支持 Wayland。录制高分辨率屏幕可能消耗大量资源。
 
 # INSTALL
 

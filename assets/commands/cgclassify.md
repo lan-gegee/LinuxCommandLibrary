@@ -1,18 +1,18 @@
 # TAGLINE
 
-move running processes to a cgroup
+将运行中的进程移入 cgroup
 
 # TLDR
 
-Move a process to the **CPU cgroup** "student"
+将进程移入 **CPU cgroup** "student"
 
 ```cgclassify -g [cpu:student] [1234]```
 
-Move a process based on **/etc/cgrules.conf**
+根据 **/etc/cgrules.conf** 移动进程
 
 ```cgclassify [1234]```
 
-Move to cgroup with **sticky** mode
+以 **sticky** 模式移入 cgroup
 
 ```cgclassify --sticky -g [cpu:/student] [1234]```
 
@@ -22,32 +22,32 @@ Move to cgroup with **sticky** mode
 
 # DESCRIPTION
 
-**cgclassify** moves running processes to control groups (cgroups). This allows changing resource limits and accounting for already-running processes without restarting them.
+**cgclassify** 将运行中的进程移动到控制组（cgroups）。这样可以在不重启进程的情况下，改变已在运行的进程的资源限制和统计。
 
-When used without the -g option, processes are classified according to rules in **/etc/cgrules.conf**.
+不带 -g 选项使用时，进程会按照 **/etc/cgrules.conf** 中的规则进行分类。
 
 # PARAMETERS
 
 **-g** _controllers:path_
-> Move process to specified cgroup hierarchy
+> 将进程移入指定的 cgroup 层级
 
 **--sticky**
-> Prevent cgred daemon from reclassifying the process
+> 阻止 cgred 守护进程重新分类该进程
 
 **--cancel-sticky**
-> Allow cgred to manage the process again
+> 允许 cgred 再次管理该进程
 
 # CONFIGURATION
 
 **/etc/cgrules.conf**
-> Rules for automatic cgroup classification when -g is not specified.
+> 未指定 -g 时用于自动 cgroup 分类的规则。
 
 **/etc/cgconfig.conf**
-> Cgroup hierarchy and controller configuration.
+> cgroup 层级与控制器配置。
 
 # CAVEATS
 
-Requires cgroups v1 tools (libcgroup). For cgroups v2, use different tools. Moving processes between cgroups may affect their resource access immediately.
+需要 cgroups v1 工具（libcgroup）。cgroups v2 请使用其他工具。在 cgroup 之间移动进程可能立即影响其对资源的访问。
 
 # INSTALL
 

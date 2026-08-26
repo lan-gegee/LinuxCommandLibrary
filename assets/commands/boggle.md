@@ -1,26 +1,26 @@
 # TAGLINE
 
-Word search game on a grid of letter cubes
+在字母方块网格上进行的找词游戏
 
 # TLDR
 
-**Start a game of Boggle**
+**开始一局 Boggle 游戏**
 
 ```boggle```
 
-**Play with a custom time limit in seconds**
+**以自定义时限（秒）进行游戏**
 
 ```boggle -t [180]```
 
-**Set minimum word length**
+**设置最小单词长度**
 
 ```boggle -w [4]```
 
-**Start with a specific board configuration**
+**以指定的棋盘布局开始**
 
 ```boggle [abcdefghijklmnop]```
 
-**Allow cubes to be reused (not in succession)**
+**允许方块重复使用（但不能连续使用）**
 
 ```boggle +```
 
@@ -39,41 +39,41 @@ Word search game on a grid of letter cubes
 
 # DESCRIPTION
 
-**boggle** is a word search game from the BSD games collection. The objective is to find as many words as possible on a 4x4 grid of letter cubes within a three-minute time limit.
+**boggle** 是 BSD games 合集中的找词游戏。目标是在三分钟时限内，在 4x4 的字母方块网格中找出尽可能多的单词。
 
-Words are formed by connecting adjacent cubes horizontally, vertically, or diagonally. Each cube can only be used once per word, and words must be at least 3 letters long. The game checks found words against its dictionary.
+单词由水平、垂直或对角相邻的方块连接而成。每个方块在同一个单词中只能使用一次，且单词长度至少为 3 个字母。游戏会用词典检查找到的单词。
 
-Type **?** during play for help. Words containing 'q' must have 'u' immediately following.
+游戏过程中输入 **?** 可获取帮助。包含 'q' 的单词后面必须紧跟 'u'。
 
 # PARAMETERS
 
 **-b**
-> Batch mode. Requires a boardspec. Reads dictionary from stdin and outputs matching words to stdout
+> 批处理模式。需要提供 boardspec。从 stdin 读取词典，并将匹配的单词输出到 stdout。
 
 **-d**
-> Enable debugging output
+> 启用调试输出。
 
 **-s** _seed_
-> Use specified random seed instead of current time
+> 使用指定的随机种子而不是当前时间。
 
 **-t** _time_
-> Set time limit in seconds (default: 180)
+> 设置时间限制（秒）（默认：180）。
 
 **-w** _length_
-> Set minimum word length (default: 3)
+> 设置最小单词长度（默认：3）。
 
 **+**
-> Allow cubes to be reused, but not consecutively
+> 允许方块重复使用，但不能连续使用。
 
 **++**
-> Allow cubes to be considered adjacent to themselves
+> 允许将方块视为与其自身相邻。
 
 **boardspec**
-> Specify starting board as 16 letters, left-to-right, top-to-bottom
+> 以 16 个字母指定起始棋盘，按从左到右、从上到下的顺序排列。
 
 # HISTORY
 
-Boggle is a word game originally published by Parker Brothers in **1972**. The BSD games version is a terminal implementation included in the classic Unix games collection that originated from Berkeley Software Distribution.
+Boggle 是一款字词游戏，最初由 Parker Brothers 于 **1972 年**发行。BSD games 版本是其终端实现，收录在源自 Berkeley Software Distribution 的经典 Unix 游戏合集中。
 
 # SEE ALSO
 

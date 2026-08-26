@@ -1,18 +1,18 @@
 # TAGLINE
 
-Prevent idle sleep for fullscreen applications
+在全屏应用运行时阻止空闲休眠
 
 # TLDR
 
-Start a **caffeine server**
+启动 **caffeine 服务器**
 
 ```caffeine```
 
-Display **help**
+显示**帮助**
 
 ```caffeine -h```
 
-Display **version**
+显示**版本**
 
 ```caffeine -V```
 
@@ -22,17 +22,17 @@ Display **version**
 
 # DESCRIPTION
 
-**caffeine** prevents the desktop from becoming idle when running full-screen applications. It monitors for full-screen windows and automatically inhibits screensavers and suspend during that time.
+**caffeine** 在全屏应用运行时防止桌面进入空闲状态。它会监测全屏窗口，并在此期间自动抑制屏幕保护程序和挂起。
 
-Unlike manual inhibition, caffeine works automatically based on window state.
+与手动抑制不同，caffeine 会根据窗口状态自动工作。
 
 # PARAMETERS
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # INSTALL
 

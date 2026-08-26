@@ -1,14 +1,14 @@
 # TAGLINE
 
-Spreadsheet application from Calligra suite
+Calligra 套件中的电子表格应用
 
 # TLDR
 
-**Launch Calligra Sheets**
+**启动 Calligra Sheets**
 
 ```calligrasheets```
 
-**Open a spreadsheet file**
+**打开**电子表格文件
 
 ```calligrasheets [spreadsheet.ods]```
 
@@ -18,9 +18,9 @@ Spreadsheet application from Calligra suite
 
 # DESCRIPTION
 
-**calligrasheets** is a spreadsheet application from the Calligra office suite. It supports formulas, charts, and data analysis features similar to Microsoft Excel or LibreOffice Calc.
+**calligrasheets** 是 Calligra 办公套件中的电子表格应用。它支持公式、图表和数据分析功能，类似于 Microsoft Excel 或 LibreOffice Calc。
 
-The application uses ODF (Open Document Format) and can import/export various spreadsheet formats.
+该应用使用 ODF（开放文档格式），并可导入/导出多种电子表格格式。
 
 # INSTALL
 

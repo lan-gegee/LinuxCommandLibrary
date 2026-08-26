@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage crate owners on a registry
+管理注册表上 crate 的所有者
 
 # TLDR
 
-**List crate owners**
+**列出 crate 所有者**
 
 ```cargo owner --list [crate_name]```
 
-**Add owner by username**
+**按用户名添加所有者**
 
 ```cargo owner --add [username] [crate_name]```
 
-**Remove owner**
+**移除所有者**
 
 ```cargo owner --remove [username] [crate_name]```
 
-**Add GitHub team as owner**
+**添加 GitHub 团队作为所有者**
 
 ```cargo owner --add github:[org]:[team] [crate_name]```
 
@@ -26,48 +26,48 @@ Manage crate owners on a registry
 
 # DESCRIPTION
 
-**cargo owner** manages the owners of a crate on crates.io or another registry. Owners have the ability to publish new versions, yank existing releases, and add or remove other owners. All ownership modifications require authentication via an API token.
+**cargo owner** 管理 crate 在 crates.io 或其他注册表上的所有者。所有者可以发布新版本、撤回（yank）已有发行版，以及添加或移除其他所有者。所有所有权变更都需要通过 API 令牌进行认证。
 
-There are two types of owners: named users and teams. Named users have full rights including managing other owners, while teams can only publish and yank versions. GitHub teams can be added as owners using the `github:org:team` syntax, but only by a member of that team.
+所有者分为两类：具名用户和团队。具名用户拥有完整权限，包括管理其他所有者；而团队只能发布和撤回版本。可以使用 `github:org:team` 语法添加 GitHub 团队作为所有者，但只有该团队的成员才能执行此操作。
 
 # PARAMETERS
 
 **-a**, **--add** _login_
-> Add user or team as owner
+> 添加用户或团队作为所有者
 
 **-r**, **--remove** _login_
-> Remove user or team as owner
+> 移除用户或团队的所有者身份
 
 **-l**, **--list**
-> List current owners
+> 列出当前所有者
 
 **--registry** _name_
-> Registry to use
+> 要使用的注册表
 
 **--index** _url_
-> Registry index URL
+> 注册表索引 URL
 
 **--token** _token_
-> API token for authentication
+> 用于认证的 API 令牌
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # CONFIGURATION
 
 **~/.cargo/credentials.toml**
-> Stores API tokens for registry authentication. Created by `cargo login`.
+> 存储用于注册表认证的 API 令牌。由 `cargo login` 创建。
 
 # OWNER TYPES
 
-**Named owners (users)**
-> Full rights: publish, yank, add/remove owners
+**具名所有者（用户）**
+> 完整权限：发布、撤回、添加/移除所有者
 
-**Team owners**
-> Limited rights: publish and yank only
+**团队所有者**
+> 受限权限：仅能发布和撤回
 
 # TEAM SYNTAX
 
@@ -75,16 +75,16 @@ There are two types of owners: named users and teams. Named users have full righ
 github:organization:team-name
 ```
 
-Must be a member of the team to add it.
+必须是该团队的成员才能添加它。
 
 # ENVIRONMENT
 
 **CARGO_REGISTRY_TOKEN**
-> API token for authentication
+> 用于认证的 API 令牌
 
 # CAVEATS
 
-Only existing owners can modify ownership. Users must have logged into crates.io. Teams cannot add or remove other owners.
+只有现有的所有者才能修改所有权。用户必须已登录 crates.io。团队无法添加或移除其他所有者。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-curses-based disk partition editor
+基于 curses 的磁盘分区编辑器
 
 # TLDR
 
-Start the partition manager for a **specific device**
+为**指定设备**启动分区管理器
 
 ```sudo cfdisk [/dev/sdX]```
 
-Create a **new partition table** and manage it
+创建**新分区表**并进行管理
 
 ```sudo cfdisk -z [/dev/sdX]```
 
@@ -18,48 +18,48 @@ Create a **new partition table** and manage it
 
 # DESCRIPTION
 
-**cfdisk** is a curses-based disk partition table editor from the util-linux package. It provides a user-friendly text interface for creating, deleting, resizing, and changing the type of disk partitions, making it more approachable than the command-driven fdisk.
+**cfdisk** 是 util-linux 软件包中基于 curses 的磁盘分区表编辑器。它提供友好的文本界面来创建、删除、调整大小和更改磁盘分区类型，比命令驱动的 fdisk 更容易上手。
 
-The tool supports both MBR (DOS) and GPT partition tables and displays partition layout in an interactive menu-driven format. Navigation uses arrow keys to select partitions and operations, with changes held in memory until explicitly written with the "Write" command.
+该工具同时支持 MBR (DOS) 和 GPT 分区表，并以交互式菜单形式显示分区布局。使用方向键选择分区和操作，所有改动先保存在内存中，直到显式执行 "Write" 命令才写入磁盘。
 
-The `-z` flag starts with a zeroed partition table, which is useful when setting up a new disk or switching between MBR and GPT schemes.
+`-z` 标志从清零的分区表开始，适用于初始化新磁盘或在 MBR 和 GPT 方案之间切换。
 
 # PARAMETERS
 
 **-z, --zero**
-> Start with an empty partition table (useful for new disks)
+> 从空分区表开始（适用于新磁盘）
 
 **-L, --color**
-> Colorize output
+> 输出带颜色
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 # INTERACTIVE COMMANDS
 
-Use arrow keys to navigate, Enter to select:
+用方向键导航，按 Enter 选择：
 
 **New**
-> Create a new partition
+> 创建新分区
 
 **Delete**
-> Delete selected partition
+> 删除选中的分区
 
 **Type**
-> Change partition type
+> 更改分区类型
 
 **Write**
-> Write changes to disk
+> 将改动写入磁盘
 
 **Quit**
-> Exit without writing
+> 不写入直接退出
 
 **Sort**
-> Sort partitions by start sector
+> 按起始扇区排序分区
 
 # CAVEATS
 
-Changes are only written when explicitly choosing "Write". Incorrectly modifying partitions can cause data loss. Unmount partitions before modifying. Requires root privileges.
+只有显式选择 "Write" 才会写入改动。错误地修改分区可能导致数据丢失。修改前请先卸载相关分区。需要 root 权限。
 
 # INSTALL
 

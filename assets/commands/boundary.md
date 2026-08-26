@@ -1,38 +1,38 @@
 # TAGLINE
 
-Secure identity-based remote access to infrastructure.
+基于身份的安全基础设施远程访问工具。
 
 # TLDR
 
-**Authenticate to Boundary**
+**向 Boundary 认证**
 
 ```boundary authenticate```
 
-**Connect to a target**
+**连接到目标**
 
 ```boundary connect -target-id [ttcp_1234567890]```
 
-**Connect using SSH helper**
+**使用 SSH 辅助器连接**
 
 ```boundary connect ssh -target-id [ttcp_1234567890]```
 
-**List available targets**
+**列出可用目标**
 
 ```boundary targets list -recursive```
 
-**List active sessions**
+**列出活动会话**
 
 ```boundary sessions list -recursive```
 
-**Read target details**
+**读取目标详情**
 
 ```boundary targets read -id [ttcp_1234567890]```
 
-**Cancel a session**
+**取消一个会话**
 
 ```boundary sessions cancel -id [s_1234567890]```
 
-**Start a local proxy**
+**启动本地代理**
 
 ```boundary connect -target-id [ttcp_1234567890] -listen-port [2222]```
 
@@ -43,104 +43,104 @@ Secure identity-based remote access to infrastructure.
 # COMMANDS
 
 **authenticate**
-> Authenticate to a Boundary controller.
+> 向 Boundary 控制器认证。
 
 **connect** [_helper_]
-> Establish connection to a target. Helpers: ssh, postgres, rdp, http, kube.
+> 建立与目标的连接。辅助器：ssh、postgres、rdp、http、kube。
 
 **targets** list|read
-> List or inspect targets.
+> 列出或查看目标。
 
 **sessions** list|read|cancel
-> Manage active sessions.
+> 管理活动会话。
 
 **hosts** list|read
-> View hosts in host catalogs.
+> 查看主机目录中的主机。
 
 **host-catalogs** list|read
-> View host catalogs.
+> 查看主机目录。
 
 **scopes** list|read
-> View organizational scopes.
+> 查看组织作用域。
 
 **accounts** list|read|create|update|delete
-> Manage accounts.
+> 管理账户。
 
 **auth-methods** list|read
-> View authentication methods.
+> 查看认证方式。
 
 **roles** list|read
-> View roles and permissions.
+> 查看角色和权限。
 
 **groups** list|read
-> View groups.
+> 查看组。
 
 **users** list|read
-> View users.
+> 查看用户。
 
 **logout**
-> Clear stored credentials.
+> 清除存储的凭据。
 
 **version**
-> Show version information.
+> 显示版本信息。
 
 # PARAMETERS
 
 **-target-id** _id_
-> Target ID to connect to.
+> 要连接的目标 ID。
 
 **-target-name** _name_
-> Target name (requires scope).
+> 目标名称（需要指定作用域）。
 
 **-target-scope-id** _id_
-> Scope containing target.
+> 包含目标的作用域。
 
 **-target-scope-name** _name_
-> Scope name containing target.
+> 包含目标的作用域名称。
 
 **-listen-port** _port_
-> Local port for proxy connection.
+> 代理连接使用的本地端口。
 
 **-addr** _address_
-> Boundary controller address.
+> Boundary 控制器地址。
 
 **-token** _token_
-> Authentication token.
+> 认证令牌。
 
 **-token-name** _name_
-> Token name for storage.
+> 用于存储的令牌名称。
 
 **-scope-id** _id_
-> Scope ID for operations.
+> 操作所针对的作用域 ID。
 
 **-recursive**
-> List resources recursively across scopes.
+> 递归列出所有作用域中的资源。
 
 **-format** _format_
-> Output format: table, json.
+> 输出格式：table、json。
 
 **-keyring-type** _type_
-> Keyring type for credential storage.
+> 凭据存储使用的密钥环类型。
 
 # DESCRIPTION
 
-**boundary** is the CLI for HashiCorp Boundary, a tool for secure remote access to infrastructure. It provides identity-based access to hosts and services without exposing networks or managing credentials directly.
+**boundary** 是 HashiCorp Boundary 的 CLI。Boundary 是一款基础设施安全远程访问工具，提供基于身份的主机和服务访问，无需暴露网络或直接管理凭据。
 
-The **connect** command establishes sessions to targets. Protocol-specific helpers (ssh, postgres, rdp, http, kube) automatically configure client tools with proper credentials. For SSH, it spawns an ssh process with injected credentials; for databases, it provides connection strings.
+**connect** 命令建立与目标的会话。特定协议的辅助器（ssh、postgres、rdp、http、kube）会自动为客户端工具配置正确的凭据。对 SSH 而言，它会生成一个注入了凭据的 ssh 进程；对数据库而言，它会提供连接字符串。
 
-Authentication methods include password, OIDC, and LDAP. Credentials are stored in the system keyring or specified location. Use **authenticate** to log in and **logout** to clear credentials.
+认证方式包括密码、OIDC 和 LDAP。凭据存储在系统密钥环或指定的位置。使用 **authenticate** 登录，使用 **logout** 清除凭据。
 
-Boundary uses a hierarchical scope model with global, organization, and project scopes. Use **-recursive** to list resources across all accessible scopes.
+Boundary 采用分层作用域模型，包含全局（global）、组织（organization）和项目（project）三级作用域。使用 **-recursive** 可列出所有可访问作用域中的资源。
 
-Sessions maintain the connection state between client and target. Active sessions can be listed and canceled. Session recordings enable audit and compliance when configured.
+会话维护客户端与目标之间的连接状态。可以列出并取消活动会话。配置后，会话录制可用于审计与合规。
 
 # CAVEATS
 
-Requires access to a Boundary controller. Targets must be configured by administrators with proper permissions. Connect helpers require their respective client tools installed (ssh, psql, etc.). Some features require Boundary Enterprise or HCP Boundary.
+需要能访问 Boundary 控制器。目标必须由具有相应权限的管理员预先配置。连接辅助器要求安装对应的客户端工具（ssh、psql 等）。部分功能需要 Boundary Enterprise 或 HCP Boundary。
 
 # HISTORY
 
-Boundary was announced by **HashiCorp** in **October 2020** as part of their security product line alongside Vault. It addresses modern identity-based access patterns, replacing traditional VPNs and bastion hosts. Version 0.1 was released in **October 2020**. The project reached 1.0 GA status in **2022**. Boundary integrates with Vault for credential brokering and injection, providing just-in-time access to infrastructure.
+Boundary 由 **HashiCorp** 于 **2020 年 10 月**发布，是与 Vault 并列的安全产品线成员。它面向现代的基于身份的访问模式，用以取代传统 VPN 和堡垒机。0.1 版于 **2020 年 10 月**发布。项目在 **2022 年**达到 1.0 GA 状态。Boundary 与 Vault 集成实现凭据代理和注入，为基础设施提供即时访问能力。
 
 # INSTALL
 

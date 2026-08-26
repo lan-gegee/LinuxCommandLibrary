@@ -1,42 +1,42 @@
 # TAGLINE
 
-compiler cache for faster recompilation
+用于加速重新编译的编译器缓存
 
 # TLDR
 
-**Show cache statistics**
+**显示缓存统计信息**
 
 ```ccache -s```
 
-**Show verbose cache statistics** including hit rates
+**显示详细缓存统计**，包括命中率
 
 ```ccache -sv```
 
-**Clear the cache**
+**清空缓存**
 
 ```ccache -C```
 
-**Set maximum cache size**
+**设置最大缓存大小**
 
 ```ccache -M [5G]```
 
-**Show current configuration**
+**显示当前配置**
 
 ```ccache -p```
 
-**Zero statistics counters**
+**统计计数器归零**
 
 ```ccache -z```
 
-**Run compiler through ccache**
+**通过 ccache 运行编译器**
 
 ```ccache [gcc] -c [file.c]```
 
-**Set a configuration value**
+**设置一个配置项**
 
 ```ccache -o [max_size=10G]```
 
-**Show the cache directory path**
+**显示缓存目录路径**
 
 ```ccache -k cache_dir```
 
@@ -48,60 +48,60 @@ compiler cache for faster recompilation
 
 # DESCRIPTION
 
-**ccache** is a compiler cache that speeds up recompilation by caching previous compilations. When the same compilation is detected, it returns the cached result instead of recompiling.
+**ccache** 是一个编译器缓存，通过缓存先前的编译结果来加速重新编译。当检测到相同的编译时，它会返回缓存的结果而不是重新编译。
 
-Supports GCC, Clang, MSVC and similar compilers for C, C++, Objective-C, CUDA, and assembler.
+支持 GCC、Clang、MSVC 及类似编译器，涵盖 C、C++、Objective-C、CUDA 和汇编。
 
 # PARAMETERS
 
 **-s**, **--show-stats**
-> Show cache statistics summary.
+> 显示缓存统计摘要。
 
 **-sv**
-> Show verbose statistics including hit/miss details.
+> 显示详细统计，包括命中/未命中详情。
 
 **-z**, **--zero-stats**
-> Zero statistics counters.
+> 将统计计数器归零。
 
 **-C**, **--clear**
-> Clear entire cache.
+> 清空整个缓存。
 
 **-M**, **--max-size** _size_
-> Set maximum cache size (e.g., 5G, 500M).
+> 设置最大缓存大小（例如 5G、500M）。
 
 **-F**, **--max-files** _count_
-> Set maximum number of files in the cache.
+> 设置缓存中的最大文件数。
 
 **-p**, **--show-config**
-> Show current configuration with origins.
+> 显示当前配置及其来源。
 
 **-k**, **--get-config** _key_
-> Get a single configuration value.
+> 获取单个配置项的值。
 
 **-o**, **--set-config** _key=value_
-> Set a configuration value persistently.
+> 持久地设置一个配置项。
 
 **-d**, **--directory** _path_
-> Operate on specified cache directory instead of the default.
+> 操作指定的缓存目录而非默认目录。
 
 **--cleanup**
-> Clean up cache to stay within size limit.
+> 清理缓存使其保持在大小限制内。
 
 **--evict-older-than** _age_
-> Remove files older than given age (e.g., 30d, 24h).
+> 删除早于指定时间的文件（例如 30d、24h）。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 # SETUP
 
-**Symlink method:**
+**符号链接方法：**
 ```
 ln -s /usr/bin/ccache /usr/local/bin/gcc
 ln -s /usr/bin/ccache /usr/local/bin/g++
 ```
 
-**Environment variable:**
+**环境变量方法：**
 ```
 export CC="ccache gcc"
 export CXX="ccache g++"
@@ -110,32 +110,32 @@ export CXX="ccache g++"
 # CONFIGURATION
 
 **~/.config/ccache/ccache.conf**
-> Primary configuration file controlling cache size, compression, compiler settings, and remote storage.
+> 主配置文件，控制缓存大小、压缩、编译器设置和远程存储。
 
 **/etc/ccache.conf**
-> System-wide configuration defaults.
+> 系统级配置默认值。
 
 # ENVIRONMENT
 
 **CCACHE_DIR**
-> Path to the cache directory (default: ~/.cache/ccache or ~/.ccache).
+> 缓存目录路径（默认：~/.cache/ccache 或 ~/.ccache）。
 
 **CCACHE_CONFIGPATH**
-> Path to the configuration file.
+> 配置文件的路径。
 
 **CCACHE_MAXSIZE**
-> Maximum cache size (overrides config file).
+> 最大缓存大小（覆盖配置文件）。
 
 **CCACHE_DISABLE** / **CCACHE_NODISABLE**
-> Disable or re-enable ccache.
+> 禁用或重新启用 ccache。
 
 # REMOTE CACHING
 
-Supports remote caching via HTTP, Redis, or NFS for sharing across build machines.
+支持通过 HTTP、Redis 或 NFS 进行远程缓存，便于在多台构建机器之间共享。
 
 # CAVEATS
 
-Only caches single-file compilations. Multi-file compilation and linking fall back to the real compiler. Produces identical output to direct compilation. Precompiled headers require special configuration.
+只缓存单文件编译。多文件编译和链接会回退到真实编译器。其输出与直接编译完全一致。预编译头文件需要特殊配置。
 
 # INSTALL
 

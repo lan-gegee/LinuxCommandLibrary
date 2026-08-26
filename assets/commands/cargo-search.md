@@ -1,18 +1,18 @@
 # TAGLINE
 
-Search for crates on a registry
+在注册表中搜索 crate
 
 # TLDR
 
-**Search for crate**
+**搜索 crate**
 
 ```cargo search [serde]```
 
-**Search with more results**
+**返回更多搜索结果**
 
 ```cargo search [async] --limit [50]```
 
-**Search specific registry**
+**搜索指定注册表**
 
 ```cargo search [package] --registry [my-registry]```
 
@@ -22,39 +22,39 @@ Search for crates on a registry
 
 # DESCRIPTION
 
-**cargo search** performs a textual search for crates on crates.io or another registry. Results are displayed in a TOML-compatible format showing the package name, latest version, and description, making them easy to copy directly into a Cargo.toml dependencies section.
+**cargo search** 在 crates.io 或其他注册表上对 crate 进行文本搜索。结果以 TOML 兼容格式显示，包含软件包名称、最新版本和描述，便于直接复制到 Cargo.toml 的 dependencies 区块中。
 
-By default, up to 10 results are returned, sorted by relevance. The `--limit` flag can increase this up to 100. For more advanced browsing, the crates.io website or tools like `cargo-seek` provide richer filtering and categorization.
+默认最多返回 10 条结果，按相关性排序。`--limit` 标志最多可将此数值提高到 100。如需更高级的浏览方式，crates.io 网站或 `cargo-seek` 等工具提供更丰富的过滤和分类功能。
 
 # PARAMETERS
 
 **--limit** _n_
-> Number of results (default: 10, max: 100)
+> 结果数量（默认：10，最大：100）
 
 **--registry** _name_
-> Registry to search
+> 要搜索的注册表
 
 **--index** _url_
-> Registry index URL
+> 注册表索引 URL
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 **--color** _when_
-> Color output: auto, always, never.
+> 彩色输出：auto、always、never。
 
 **--config** _KEY=VALUE_
-> Override Cargo configuration values.
+> 覆盖 Cargo 配置项。
 
 **--frozen**, **--locked**, **--offline**
-> Network/lockfile behavior; **--offline** prevents Cargo from contacting the registry index.
+> 网络/锁文件行为；**--offline** 会阻止 Cargo 联系注册表索引。
 
 # OUTPUT FORMAT
 
-Results display package name, version, and description:
+结果显示软件包名称、版本和描述：
 
 ```
 serde = "1.0.130"     # A generic serialization/deserialization framework
@@ -63,7 +63,7 @@ serde_json = "1.0.68" # JSON serialization format
 
 # CAVEATS
 
-Searches crates.io by default. For interactive TUI search, consider cargo-seek. Results sorted by relevance.
+默认搜索 crates.io。若需要交互式 TUI 搜索，可考虑 cargo-seek。结果按相关性排序。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check a Rust package for errors without compiling
+检查 Rust 软件包的错误而不生成代码
 
 # TLDR
 
-**Check project for errors**
+**检查项目错误**
 
 ```cargo check```
 
-**Check with release profile**
+**以 release profile 检查**
 
 ```cargo check --release```
 
-**Check all workspace members**
+**检查所有工作空间成员**
 
 ```cargo check --workspace```
 
-**Check specific package**
+**检查指定软件包**
 
 ```cargo check -p [package]```
 
-**Check all targets**
+**检查所有目标**
 
 ```cargo check --all-targets```
 
-**Check including tests**
+**连同测试一起检查**
 
 ```cargo check --profile test```
 
-**Check with specific features**
+**以指定特性检查**
 
 ```cargo check --features [feature1,feature2]```
 
@@ -38,58 +38,58 @@ Check a Rust package for errors without compiling
 
 # DESCRIPTION
 
-**cargo check** checks a package and dependencies for errors without performing code generation. Faster than cargo build because it skips the final compilation step. Saves metadata for incremental compilation.
+**cargo check** 检查软件包及其依赖中的错误，但不执行代码生成。由于跳过了最后的编译步骤，比 cargo build 更快。它还会保存元数据以支持增量编译。
 
 # PARAMETERS
 
 **-r**, **--release**
-> Check with release profile optimizations
+> 以 release profile 的优化进行检查
 
 **--profile** _name_
-> Check with specific profile
+> 以指定 profile 检查
 
 **-p**, **--package** _spec_
-> Check only specified packages
+> 只检查指定的软件包
 
 **--workspace**
-> Check all workspace members
+> 检查所有工作空间成员
 
 **--all-targets**
-> Check all targets (lib, bins, tests, benches, examples)
+> 检查所有目标（lib、bins、tests、benches、examples）
 
 **--lib**
-> Check library only
+> 只检查库
 
 **--bins**
-> Check all binaries
+> 检查所有二进制文件
 
 **--tests**
-> Check test targets
+> 检查测试目标
 
 **--target** _triple_
-> Check for target platform
+> 为目标平台进行检查
 
 **-j**, **--jobs** _n_
-> Parallel jobs
+> 并行任务数
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 **--no-default-features**
-> Disable default features
+> 禁用默认特性
 
 **--message-format** _FMT_
-> Error format: human, json, short
+> 错误格式：human、json、short
 
 **--future-incompat-report**
-> Output future incompatibility report
+> 输出未来不兼容性报告
 
 # CAVEATS
 
-Some errors only appear during full code generation and won't be caught by cargo check. For complete error checking, use `cargo build`. The `--profile test` enables test cfg and checks test code. Significantly faster than `cargo build` for quick iteration.
+有些错误只会在完整代码生成时出现，cargo check 无法捕获。要彻底检查错误，请使用 `cargo build`。`--profile test` 会启用 test cfg 并检查测试代码。对于快速迭代，它比 `cargo build` 快得多。
 
 # INSTALL
 

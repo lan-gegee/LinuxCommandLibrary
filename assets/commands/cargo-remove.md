@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove dependencies from a Cargo.toml manifest
+从 Cargo.toml 清单中移除依赖
 
 # TLDR
 
-**Remove dependency**
+**移除依赖**
 
 ```cargo remove [serde]```
 
-**Remove dev dependency**
+**移除开发依赖**
 
 ```cargo remove --dev [mockall]```
 
-**Remove build dependency**
+**移除构建依赖**
 
 ```cargo remove --build [cc]```
 
-**Remove multiple dependencies**
+**移除多个依赖**
 
 ```cargo remove [serde] [tokio] [regex]```
 
-**Remove target-specific dependency**
+**移除针对特定平台的依赖**
 
 ```cargo remove --target [x86_64-pc-windows-gnu] [winapi]```
 
-**Dry run**
+**试运行**
 
 ```cargo remove --dry-run [package]```
 
@@ -34,39 +34,39 @@ Remove dependencies from a Cargo.toml manifest
 
 # DESCRIPTION
 
-**cargo remove** removes one or more dependencies from the Cargo.toml manifest file. It can target regular dependencies, dev-dependencies, build-dependencies, or platform-specific dependency sections.
+**cargo remove** 从 Cargo.toml 清单文件中移除一个或多个依赖。它可以作用于常规依赖、dev-dependencies、build-dependencies 或特定平台的依赖区块。
 
-The command modifies Cargo.toml directly but does not update Cargo.lock until the next build or `cargo update`. Multiple dependencies can be removed in a single invocation. Use `--dry-run` to preview changes before applying them.
+该命令直接修改 Cargo.toml，但在下一次构建或执行 `cargo update` 之前不会更新 Cargo.lock。一次调用可以移除多个依赖。可先用 `--dry-run` 预览更改再实际应用。
 
 # PARAMETERS
 
 **--dev**, **-D**
-> Remove from dev-dependencies
+> 从 dev-dependencies 中移除
 
 **--build**, **-B**
-> Remove from build-dependencies
+> 从 build-dependencies 中移除
 
 **--target** _triple_
-> Remove from target-specific dependencies
+> 从特定平台的依赖中移除
 
 **-p**, **--package** _spec_
-> Package to modify
+> 要修改的软件包
 
 **--dry-run**
-> Show changes without modifying manifest
+> 显示更改但不修改清单
 
 **--manifest-path** _path_
-> Path to Cargo.toml
+> Cargo.toml 的路径
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # CAVEATS
 
-Does not remove dependencies from Cargo.lock until next build. Use cargo-machete to detect unused dependencies.
+在下一次构建之前不会从 Cargo.lock 中移除依赖。可使用 cargo-machete 检测未使用的依赖。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line interface for OpenAI language models
+OpenAI 语言模型的命令行界面
 
 # TLDR
 
-**Start an interactive chat** session
+**启动交互式聊天**会话
 
 ```chatgpt```
 
-**Send a single prompt** and get a response
+**发送单条提示词**并获取响应
 
 ```chatgpt "[What is the capital of France?]"```
 
-**Pipe input** to ChatGPT
+**将输入通过管道传给** ChatGPT
 
 ```cat [file.txt] | chatgpt "[Summarize this text]"```
 
-**Use a specific model**
+**使用指定模型**
 
 ```chatgpt --model [gpt-4] "[prompt]"```
 
-**Continue a previous conversation**
+**继续上一次对话**
 
 ```chatgpt --continue "[follow-up question]"```
 
-**Set system prompt** for context
+**设置系统提示词**提供上下文
 
 ```chatgpt --system "[You are a helpful coding assistant]" "[prompt]"```
 
-**Output response to a file**
+**将响应输出到文件**
 
 ```chatgpt "[prompt]" > [response.txt]```
 
-**Set temperature** for response creativity
+**设置温度**控制响应创造性
 
 ```chatgpt --temperature [0.7] "[prompt]"```
 
@@ -43,61 +43,61 @@ command-line interface for OpenAI language models
 # PARAMETERS
 
 **--model**, **-m** _model_
-> Specify the model to use (gpt-4, gpt-3.5-turbo, etc.).
+> 指定要使用的模型（gpt-4、gpt-3.5-turbo 等）。
 
 **--system**, **-s** _prompt_
-> Set a system prompt to define assistant behavior.
+> 设置系统提示词以定义助手行为。
 
 **--continue**, **-c**
-> Continue the previous conversation.
+> 继续上一次对话。
 
 **--temperature**, **-t** _value_
-> Control randomness (0.0-2.0, default: 1.0).
+> 控制随机性（0.0-2.0，默认：1.0）。
 
 **--max-tokens** _n_
-> Maximum tokens in the response.
+> 响应的最大 token 数。
 
 **--top-p** _value_
-> Nucleus sampling parameter.
+> 核采样（nucleus sampling）参数。
 
 **--stream**
-> Stream the response as it's generated.
+> 在生成过程中流式输出响应。
 
 **--no-stream**
-> Wait for complete response before displaying.
+> 等待完整响应后再显示。
 
 **--api-key** _key_
-> OpenAI API key (or set OPENAI_API_KEY environment variable).
+> OpenAI API 密钥（或设置 OPENAI_API_KEY 环境变量）。
 
 **--config** _file_
-> Path to configuration file.
+> 配置文件路径。
 
 **--list-models**
-> List available models.
+> 列出可用模型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**chatgpt** is a command-line interface for interacting with OpenAI's ChatGPT models. It provides terminal-based access to the GPT language models for text generation, coding assistance, analysis, and general conversation.
+**chatgpt** 是与 OpenAI ChatGPT 模型交互的命令行界面。它通过终端访问 GPT 语言模型，可用于文本生成、编程辅助、分析和一般性对话。
 
-The tool supports both interactive mode for back-and-forth conversation and single-prompt mode for quick queries. Input can be piped from other commands or files, making it useful in shell pipelines for text processing tasks.
+该工具同时支持来回对话的交互模式和快速查询的单提示词模式。输入可以通过管道来自其他命令或文件，因此适合在 shell 管道中处理文本任务。
 
-Configuration can be set via command-line flags, environment variables, or a config file. The **OPENAI_API_KEY** environment variable is the standard way to provide credentials. Different models offer varying capabilities, speed, and pricing.
+配置可以通过命令行标志、环境变量或配置文件设置。**OPENAI_API_KEY** 环境变量是提供凭证的标准方式。不同模型在能力、速度和价格上各有差异。
 
-System prompts allow customizing the assistant's behavior and expertise area. Temperature controls response creativity — lower values produce more focused responses while higher values increase variety. The streaming option displays responses token-by-token as they're generated.
+系统提示词可以自定义助手的行为和专长领域。温度控制响应的创造性——值越低响应越聚焦，值越高变化越多。流式选项会在生成过程中逐 token 显示响应。
 
 # CAVEATS
 
-Requires an OpenAI API key with active billing. API usage incurs costs based on token consumption. Response quality and capabilities vary by model. Network connectivity required. Context length is limited by model constraints. Sensitive data should not be sent without considering privacy implications.
+需要已开通计费的 OpenAI API 密钥。API 使用按 token 消耗计费。响应质量和能力因模型而异。需要网络连接。上下文长度受模型限制。发送敏感数据前应考虑隐私影响。
 
 # HISTORY
 
-Command-line interfaces for ChatGPT emerged shortly after OpenAI released the ChatGPT API in **March 2023**. Multiple CLI implementations exist across languages (Python, Go, Rust, etc.) with varying feature sets. These tools brought GPT capabilities to terminal-centric workflows, enabling integration with shell scripts and development pipelines.
+OpenAI 于 **2023 年 3 月** 发布 ChatGPT API 后不久，各种 ChatGPT 命令行界面便相继出现。多种语言的 CLI 实现并存（Python、Go、Rust 等），功能集各不相同。这些工具把 GPT 能力带入了以终端为中心的工作流，使其能与 shell 脚本和开发流水线集成。
 
 # INSTALL
 

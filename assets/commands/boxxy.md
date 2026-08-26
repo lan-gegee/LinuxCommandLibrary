@@ -1,26 +1,26 @@
 # TAGLINE
 
-Redirect application file paths using Linux namespaces.
+利用 Linux 命名空间重定向应用的文件路径。
 
 # TLDR
 
-**Run application with file redirection rules**
+**带文件重定向规则运行应用**
 
 ```boxxy [application]```
 
-**Use custom configuration file**
+**使用自定义配置文件**
 
 ```boxxy --config [boxxy.yaml] [application]```
 
-**Add rule at command line**
+**在命令行添加规则**
 
 ```boxxy --rule "[rule_name]:~/.config/app:~/.local/share/app" [application]```
 
-**Scan homedir for rule suggestions**
+**扫描主目录以获取规则建议**
 
 ```boxxy --scan```
 
-**Run without loading config files**
+**不加载配置文件运行**
 
 ```boxxy --no-config [application]```
 
@@ -30,52 +30,52 @@ Redirect application file paths using Linux namespaces.
 
 # DESCRIPTION
 
-**boxxy** puts misbehaving Linux applications in a box, forcing them to put their files and directories in the right place without symlinks. It uses Linux namespaces to redirect file operations transparently.
+**boxxy** 会把行为不端的 Linux 应用"关进盒子"，迫使它们把文件和目录放到正确的位置，而无需符号链接。它利用 Linux 命名空间透明地重定向文件操作。
 
-The tool is designed to manage applications that create dotfiles or directories in unwanted locations, redirecting them to XDG-compliant paths or other preferred locations.
+该工具旨在管理那些在不合适的位置创建点文件或目录的应用，将它们重定向到符合 XDG 规范的路径或其他首选位置。
 
 # PARAMETERS
 
 **--config** _file_
-> Use specified configuration file
+> 使用指定的配置文件。
 
 **--rule** _rule_
-> Add rule at command line (format: name:target:rewrite)
+> 在命令行添加规则（格式：name:target:rewrite）。
 
 **--no-config**
-> Disable loading configuration files
+> 禁止加载配置文件。
 
 **--scan**
-> Scan home directory and suggest rules
+> 扫描主目录并给出规则建议。
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出。
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出。
 
 # CONFIGURATION
 
-Rules in boxxy.yaml include:
+boxxy.yaml 中的规则包括：
 
 **name**
-> User-friendly rule identifier
+> 易于辨识的规则标识符。
 
 **target**
-> File or directory to shadow
+> 要遮蔽的文件或目录。
 
 **rewrite**
-> Replacement file or directory
+> 替代用的文件或目录。
 
 **mode**
-> Either "directory" or "file" (default: directory)
+> "directory" 或 "file"（默认：directory）。
 
 **commands**
-> Optional list of commands the rule applies to
+> 可选，规则适用的命令列表。
 
 # CAVEATS
 
-Requires Linux namespaces support (Linux kernel). Rules must specify mode when the target is a file, especially if the target doesn't exist yet. Project-local boxxy.yaml files and .env files can be loaded automatically.
+需要 Linux 内核的命名空间支持。当目标是一个文件时，规则必须指定 mode，尤其是目标尚不存在时。项目本地的 boxxy.yaml 文件和 .env 文件可以自动加载。
 
 # INSTALL
 

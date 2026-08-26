@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage passwords and secrets from the terminal
+在终端中管理密码与机密信息
 
 # TLDR
 
-**Log in to Bitwarden**
+**登录 Bitwarden**
 
 ```bw login [email]```
 
-**Unlock the vault**
+**解锁密码库**
 
 ```bw unlock```
 
-**List all items**
+**列出所有条目**
 
 ```bw list items```
 
-**Search for a password**
+**搜索某个密码**
 
 ```bw list items --search [query]```
 
-**Get a specific item** by ID
+**按 ID 获取指定条目**
 
 ```bw get item [item_id]```
 
-**Get password for an item**
+**获取某条目的密码**
 
 ```bw get password [item_id]```
 
-**Create a new login item**
+**创建新的登录条目**
 
 ```echo '[json]' | bw create item```
 
-**Generate a password**
+**生成一个密码**
 
 ```bw generate -ulns --length [20]```
 
-**Sync the vault**
+**同步密码库**
 
 ```bw sync```
 
@@ -47,95 +47,95 @@ Manage passwords and secrets from the terminal
 # PARAMETERS
 
 **login** [_email_]
-> Authenticate with Bitwarden server.
+> 向 Bitwarden 服务器进行身份验证。
 
 **unlock**
-> Unlock the vault with master password.
+> 用主密码解锁密码库。
 
 **lock**
-> Lock the vault.
+> 锁定密码库。
 
 **sync**
-> Synchronize with the Bitwarden server.
+> 与 Bitwarden 服务器同步。
 
 **list** _object_
-> List items (items, folders, collections, organizations, org-members, org-collections, send).
+> 列出对象（items、folders、collections、organizations、org-members、org-collections、send）。
 
 **get** _object_ _id_
-> Get a specific object (item, password, username, uri, totp, notes, exposed, attachment, folder, template).
+> 获取指定对象（item、password、username、uri、totp、notes、exposed、attachment、folder、template）。
 
 **create** _object_
-> Create a new item (item, folder, attachment, org-collection); accepts base64-encoded JSON.
+> 创建新对象（item、folder、attachment、org-collection）；接受 base64 编码的 JSON。
 
 **edit** _object_ _id_
-> Edit an existing item (item, folder, org-collection).
+> 编辑已有对象（item、folder、org-collection）。
 
 **delete** _object_ _id_
-> Delete an item. Use **--permanent** to bypass the trash.
+> 删除对象。使用 **--permanent** 可跳过回收站直接永久删除。
 
 **restore** _object_ _id_
-> Restore an item from the trash.
+> 从回收站恢复对象。
 
 **import** _format_ _path_
-> Import data from a third-party format or JSON export.
+> 从第三方格式或 JSON 导出文件导入数据。
 
 **export**
-> Export the vault. Options: **--format** json|csv|encrypted_json, **--output** _path_.
+> 导出密码库。选项：**--format** json|csv|encrypted_json，**--output** _path_。
 
 **generate**
-> Generate a password or passphrase.
+> 生成密码或口令短语（passphrase）。
 
 **encode**
-> Base64-encode stdin (commonly used to pipe JSON into create/edit).
+> 对标准输入进行 Base64 编码（常用于将 JSON 管道传给 create/edit）。
 
 **status**
-> Show status (server URL, last sync, email, vault state) as JSON.
+> 以 JSON 显示状态（服务器 URL、上次同步时间、邮箱、密码库状态）。
 
 **serve**
-> Start a local REST API server (**--port**, **--hostname**).
+> 启动本地 REST API 服务器（**--port**，**--hostname**）。
 
 **config** _setting_ _value_
-> Configure CLI settings (e.g. `bw config server <url>`).
+> 配置 CLI 设置（如 `bw config server <url>`）。
 
 **--session** _key_
-> Session key from unlock (or set BW_SESSION env var).
+> unlock 返回的会话密钥（或设置 BW_SESSION 环境变量）。
 
 **--search** _query_
-> Search filter for list commands.
+> list 命令的搜索过滤条件。
 
 **--pretty**
-> Pretty-print JSON output.
+> 格式化输出 JSON。
 
 **--raw**
-> Output raw value instead of JSON.
+> 输出原始值而非 JSON。
 
 **--nointeraction**
-> Do not prompt for input (for scripts).
+> 不提示输入（用于脚本）。
 
 **-u**, **-l**, **-n**, **-s**
-> Password generation: uppercase, lowercase, numbers, special.
+> 密码生成选项：大写字母、小写字母、数字、特殊字符。
 
 **--length** _n_
-> Password length for generation (minimum 5).
+> 生成密码的长度（最小为 5）。
 
 **--passphrase**
-> Generate a passphrase instead of a password (use with **--words**, **--separator**, **--capitalize**).
+> 生成口令短语而非密码（配合 **--words**、**--separator**、**--capitalize** 使用）。
 
 # DESCRIPTION
 
-**bw** is the official command-line interface for Bitwarden, an open-source password manager. It provides full access to your encrypted vault from the terminal, enabling password retrieval, item management, and integration with scripts and automation.
+**bw** 是开源密码管理器 Bitwarden 的官方命令行接口。它让你从终端完全访问加密的密码库，可用于取回密码、管理条目以及与脚本和自动化集成。
 
-After login, the vault must be unlocked with your master password. This returns a session key that must be provided to subsequent commands via **--session** or the **BW_SESSION** environment variable. The vault locks automatically after a timeout.
+登录后必须用主密码解锁密码库。解锁会返回一个会话密钥，后续命令需通过 **--session** 或 **BW_SESSION** 环境变量提供该密钥。密码库会在超时后自动锁定。
 
-Items are represented as JSON, making the CLI suitable for scripting and integration with other tools. The generate command creates secure passwords without storing them.
+条目以 JSON 形式表示，因此该 CLI 非常适合脚本编写和与其他工具集成。generate 命令可创建安全密码且不会存储它们。
 
 # CAVEATS
 
-The session key provides full access to your vault; protect it accordingly. Commands output JSON by default, which may require parsing with jq. The vault must be unlocked before most operations. API rate limits may apply to self-hosted instances.
+会话密钥可完全访问你的密码库，务必妥善保护。命令默认输出 JSON，可能需要用 jq 解析。大多数操作前必须先解锁密码库。自托管实例可能受 API 速率限制。
 
 # HISTORY
 
-Bitwarden was founded by **Kyle Spearrin** and launched in **2016** as an open-source alternative to proprietary password managers. The CLI was introduced to complement the web, desktop, and mobile applications. Bitwarden has grown to become one of the most popular password managers, valued for its transparent open-source model and affordable pricing.
+Bitwarden 由 **Kyle Spearrin** 创立，于 **2016 年**发布，作为专有密码管理器的开源替代品。CLI 的推出是为了补充网页端、桌面端和移动端应用。Bitwarden 已成长为最受欢迎的密码管理器之一，以其透明的开源模式和实惠的价格著称。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Extract sequences from BLAST databases
+从 BLAST 数据库中提取序列
 
 # TLDR
 
-**Get database information**
+**获取数据库信息**
 
 ```blastdbcmd -db [nr] -info```
 
-**List available databases** in a path
+**列出某路径下可用的数据库**
 
 ```blastdbcmd -list [/path/to/databases] -recursive```
 
-**Extract a sequence** by accession
+**按登录号提取序列**
 
 ```blastdbcmd -db [nr] -entry [NP_001234] -out [sequence.fasta]```
 
-**Extract all sequences** from database
+**提取数据库中的全部序列**
 
 ```blastdbcmd -db [swissprot] -entry all -out [swissprot.fasta]```
 
-**Extract sequences** from a list file
+**从列表文件提取序列**
 
 ```blastdbcmd -db [nr] -entry_batch [ids.txt] -out [sequences.fasta]```
 
-**Get sequence in specific format**
+**以指定格式输出序列**
 
 ```blastdbcmd -db [nr] -entry [NP_001234] -outfmt "%a %t %s"```
 
-**Show BLAST database search path**
+**显示 BLAST 数据库搜索路径**
 
 ```blastdbcmd -show_blastdb_search_path```
 
-**Get taxonomy information**
+**获取分类信息**
 
 ```blastdbcmd -db [nr] -entry [NP_001234] -outfmt "%a %S %T"```
 
@@ -42,83 +42,83 @@ Extract sequences from BLAST databases
 
 # DESCRIPTION
 
-**blastdbcmd** is a utility for extracting sequences and metadata from BLAST databases. It can retrieve individual sequences by accession, extract all sequences, display database statistics, and generate custom reports.
+**blastdbcmd** 是一个用于从 BLAST 数据库中提取序列和元数据的工具。它可以按登录号检索单个序列、提取全部序列、显示数据库统计信息，并生成自定义报告。
 
-The tool is part of the NCBI BLAST+ suite and works with databases created by **makeblastdb** or downloaded from NCBI.
+该工具是 NCBI BLAST+ 套件的一部分，适用于由 **makeblastdb** 创建或从 NCBI 下载的数据库。
 
 # PARAMETERS
 
 **-db** _name_
-> BLAST database name or path
+> BLAST 数据库名称或路径
 
 **-entry** _id_
-> Sequence identifier(s) to retrieve; use "all" for entire database
+> 要检索的序列标识符；使用 "all" 表示整个数据库
 
 **-entry_batch** _file_
-> File containing list of sequence identifiers
+> 包含序列标识符列表的文件
 
 **-out** _file_
-> Output file (default: stdout).
+> 输出文件（默认：stdout）。
 
 **-outfmt** _format_
-> Custom output format string using % tokens.
+> 使用 % 标记的自定义输出格式字符串。
 
 **-info**
-> Display database information (type, number of sequences, total length, date).
+> 显示数据库信息（类型、序列数量、总长度、日期）。
 
 **-list** _path_
-> List databases in specified path.
+> 列出指定路径中的数据库。
 
 **-recursive**
-> Search directories recursively (with -list).
+> 递归搜索目录（配合 -list 使用）。
 
 **-show_blastdb_search_path**
-> Display BLAST database search paths.
+> 显示 BLAST 数据库的搜索路径。
 
 **-dbtype** _type_
-> Database type: nucl (nucleotide) or prot (protein). Needed when both types share a name.
+> 数据库类型：nucl（核酸）或 prot（蛋白质）。当两种类型同名时需要指定。
 
 **-target_only**
-> Retrieve only target sequences (no redundant group members).
+> 仅检索目标序列（不含冗余组成员）。
 
 **-tax_info**
-> Display taxonomy information (requires taxonomy database).
+> 显示分类学信息（需要分类数据库）。
 
 **-range** _start-stop_
-> Extract subsequence range (1-based, inclusive).
+> 提取子序列范围（1 起始、含端点）。
 
 **-strand** _strand_
-> Strand to retrieve: plus or minus (nucleotide only).
+> 要检索的链：plus 或 minus（仅限核酸）。
 
 **-line_length** _N_
-> Line length for FASTA output (default: 80). Use 0 for single-line sequences.
+> FASTA 输出的行长度（默认：80）。设为 0 表示单行序列。
 
 **-long_seqids**
-> Use long sequence identifiers including database and accession.version.
+> 使用包含数据库名和 accession.version 的长序列标识符。
 
 # OUTPUT FORMAT TOKENS
 
-**%a** - Accession
-**%g** - GI number
-**%o** - OID (ordinal ID)
-**%t** - Title (definition line)
-**%s** - Sequence data
-**%l** - Sequence length
-**%T** - Taxonomy ID
-**%S** - Scientific name
-**%L** - Common name
-**%m** - Masking data
-**%h** - Hash value
-**%e** - Membership integer
+**%a** - 登录号
+**%g** - GI 号
+**%o** - OID（顺序 ID）
+**%t** - 标题（定义行）
+**%s** - 序列数据
+**%l** - 序列长度
+**%T** - 分类 ID
+**%S** - 学名
+**%L** - 常用名
+**%m** - 屏蔽数据
+**%h** - 哈希值
+**%e** - 成员关系整数
 
 # ENVIRONMENT
 
 **BLASTDB**
-> Colon-separated list of directories to search for BLAST databases.
+> 用于搜索 BLAST 数据库的目录列表，以冒号分隔。
 
 # CAVEATS
 
-Requires pre-formatted BLAST databases created by **makeblastdb** or downloaded from NCBI. Taxonomy information requires the BLAST taxonomy database (taxdb.btd/bti) to be installed. Large extractions may require significant time and disk space. The **-range** option uses 1-based inclusive coordinates.
+需要有由 **makeblastdb** 创建或从 NCBI 下载的预格式化 BLAST 数据库。分类信息需要安装 BLAST 分类数据库（taxdb.btd/bti）。大规模提取可能耗费大量时间和磁盘空间。**-range** 选项使用 1 起始且含端点的坐标。
 
 # INSTALL
 

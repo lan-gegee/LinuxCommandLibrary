@@ -1,26 +1,26 @@
 # TAGLINE
 
-Patch installed packages locally
+在本地为已安装的软件包打补丁
 
 # TLDR
 
-**Prepare a package for patching**
+**准备一个待打补丁的软件包**
 
 ```bun patch [package-name]```
 
-**Prepare a specific version** for patching
+**准备特定版本**以待修补
 
 ```bun patch [package-name]@[1.2.3]```
 
-**Commit patches** after making modifications
+**修改完成后提交补丁**
 
 ```bun patch --commit [package-name]```
 
-**Commit with a custom patches directory**
+**使用自定义的补丁目录提交**
 
 ```bun patch --commit [package-name] --patches-dir=[mypatches]```
 
-**Patch using the path** to the package in node_modules
+**使用 node_modules 中软件包的路径**打补丁
 
 ```bun patch --commit node_modules/[package-name]```
 
@@ -31,40 +31,40 @@ Patch installed packages locally
 # PARAMETERS
 
 **--commit** _path-or-pkg_
-> Generate a .patch file from modifications. Accepts package name, name@version, or path to patched package.
+> 根据修改生成 .patch 文件。接受软件包名、name@version 或已修补软件包的路径。
 
 **--patches-dir** _dir_
-> Directory to store patch files (only with --commit). Default: patches.
+> 存储补丁文件的目录（仅与 --commit 一起使用）。默认：patches。
 
 **-p, --production**
-> Don't install devDependencies
+> 不安装 devDependencies
 
 **--frozen-lockfile**
-> Disallow changes to the lockfile
+> 不允许更改 lockfile
 
 **--dry-run**
-> Don't install anything, only show what would be done
+> 不安装任何东西，只显示将要执行的操作
 
 **--ignore-scripts**
-> Skip lifecycle scripts in the project's package.json
+> 跳过项目 package.json 中的生命周期脚本
 
 **-f, --force**
-> Always request the latest versions from the registry and reinstall all dependencies
+> 始终从软件仓库请求最新版本并重新安装所有依赖
 
 **--verbose**
-> Enable verbose logging output
+> 启用详细日志输出
 
 # DESCRIPTION
 
-**bun patch** allows you to persistently patch node_modules in a maintainable, git-friendly way. It extracts a package for editing, and after making changes, **--commit** creates a .patch file that is applied on future installs.
+**bun patch** 允许你以可维护、对 Git 友好的方式持久地为 node_modules 打补丁。它会提取一个软件包供编辑，修改完成后，**--commit** 会创建一个 .patch 文件，该文件会在以后的安装中被应用。
 
-Patch files are stored in a patches directory and tracked via "patchedDependencies" in package.json. They can be committed to your repository and reused across multiple installs, projects, and machines.
+补丁文件存储在一个 patches 目录中，并通过 package.json 中的 "patchedDependencies" 进行跟踪。它们可以提交到你的仓库中，并在多次安装、多个项目和多台机器上重复使用。
 
-You can supply a package name, a precise version (if multiple versions are installed), or the path to the package in node_modules.
+你可以提供软件包名称、精确版本（如果安装了多个版本），或者 node_modules 中该软件包的路径。
 
 # CAVEATS
 
-Patches are stored in a patches directory and must be committed to version control. Patches may break when the package is updated.
+补丁存储在 patches 目录中，必须提交到版本控制。软件包更新时补丁可能会失效。
 
 # SEE ALSO
 

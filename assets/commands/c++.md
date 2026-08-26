@@ -1,26 +1,26 @@
 # TAGLINE
 
-Compile C++ source code into executables
+将 C++ 源代码编译为可执行文件
 
 # TLDR
 
-**Compile** C++ program
+**编译** C++ 程序
 
 ```c++ [program.cpp] -o [program]```
 
-**Compile** with optimization
+**开启优化**编译
 
 ```c++ -O2 [program.cpp] -o [program]```
 
-**Compile** with debugging
+**附带调试信息**编译
 
 ```c++ -g [program.cpp] -o [program]```
 
-**Specify** C++ standard
+**指定** C++ 标准
 
 ```c++ -std=c++17 [program.cpp] -o [program]```
 
-**Link** library
+**链接**库
 
 ```c++ [program.cpp] -o [program] -l[library]```
 
@@ -30,50 +30,50 @@ Compile C++ source code into executables
 
 # DESCRIPTION
 
-**c++** is typically a symlink to the system's C++ compiler (g++ or clang++). It compiles C++ source code into executable programs or object files, handling preprocessing, compilation, and linking.
+**c++** 通常是系统 C++ 编译器（g++ 或 clang++）的符号链接。它将 C++ 源代码编译为可执行程序或目标文件，处理预处理、编译和链接。
 
-The command provides access to the C++ compiler with standard naming convention.
+该命令以标准命名约定提供对 C++ 编译器的访问。
 
 # PARAMETERS
 
 **-o** _file_
-> Output file name
+> 输出文件名
 
 **-c**
-> Compile without linking
+> 只编译不链接
 
 **-g**
-> Include debug information
+> 包含调试信息
 
 **-O**[_level_]
-> Optimization level (0, 1, 2, 3, s)
+> 优化级别（0、1、2、3、s）
 
 **-std=**_standard_
-> C++ standard (c++11, c++14, c++17, c++20, c++23)
+> C++ 标准（c++11、c++14、c++17、c++20、c++23）
 
 **-Wall**
-> Enable all warnings
+> 启用所有警告
 
 **-Werror**
-> Treat warnings as errors
+> 将警告视为错误
 
 **-I** _dir_
-> Add include directory
+> 添加头文件目录
 
 **-L** _dir_
-> Add library directory
+> 添加库目录
 
 **-l** _lib_
-> Link library
+> 链接库
 
 # C++ STANDARDS
 
-- **c++98** / **c++03** - Classic C++
-- **c++11** - Modern C++ (auto, lambdas, etc.)
-- **c++14** - Minor improvements
-- **c++17** - Major update (filesystem, etc.)
-- **c++20** - Concepts, ranges, modules
-- **c++23** - Latest standard
+- **c++98** / **c++03** - 经典 C++
+- **c++11** - 现代 C++（auto、lambda 等）
+- **c++14** - 小幅改进
+- **c++17** - 重大更新（filesystem 等）
+- **c++20** - Concepts、ranges、模块
+- **c++23** - 最新标准
 
 # WORKFLOW
 
@@ -99,11 +99,11 @@ c++ main.cpp utils.cpp -o program
 
 # CAVEATS
 
-Actual compiler depends on system (g++, clang++, etc.). Behavior may vary between compilers. C++ compilation slower than C. Template errors can be cryptic. ABI compatibility between compiler versions.
+实际使用的编译器取决于系统（g++、clang++ 等）。不同编译器之间的行为可能有差异。C++ 编译比 C 慢。模板错误可能难以理解。需注意编译器版本间的 ABI 兼容性。
 
 # HISTORY
 
-The **c++** command name has been a standard convention since C++ compilers became common in the **1980s**, typically symlinking to the system's C++ compiler.
+自 **1980 年代** C++ 编译器普及以来，**c++** 命令名一直是标准惯例，通常是指向系统 C++ 编译器的符号链接。
 
 # INSTALL
 

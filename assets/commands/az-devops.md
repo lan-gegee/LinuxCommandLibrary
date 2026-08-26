@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage Azure DevOps organizations and projects
+管理 Azure DevOps 组织和项目
 
 # TLDR
 
-**Configure default organization** and project
+**配置默认组织**和项目
 
 ```az devops configure --defaults organization=[https://dev.azure.com/contoso] project=[ContosoWebApp]```
 
-**List team projects** in the organization
+**列出组织中的团队项目**
 
 ```az devops project list```
 
-**Show details** of a project
+**显示**某个项目的**详情**
 
 ```az devops project show --project [MyProject]```
 
-**Create a new project**
+**创建新项目**
 
 ```az devops project create --name [MyProject] --org [https://dev.azure.com/contoso]```
 
-**Delete a project**
+**删除项目**
 
 ```az devops project delete --id [project-id] --yes```
 
-**Open a project** in the web browser
+在 Web 浏览器中**打开项目**
 
 ```az devops project show --project [MyProject] --open```
 
-**Login to Azure DevOps** with a personal access token
+使用个人访问令牌**登录 Azure DevOps**
 
 ```az devops login --organization [https://dev.azure.com/contoso]```
 
-**Logout from Azure DevOps**
+**登出 Azure DevOps**
 
 ```az devops logout```
 
-**Invoke a DevOps REST API** endpoint directly
+直接**调用 DevOps REST API** 终结点
 
 ```az devops invoke --area core --resource projects --api-version 6.0```
 
@@ -47,59 +47,59 @@ Manage Azure DevOps organizations and projects
 # SUBCOMMANDS
 
 **configure**
-> Configure Azure DevOps CLI or view configuration.
+> 配置 Azure DevOps CLI 或查看配置。
 
 **project list**
-> List team projects.
+> 列出团队项目。
 
 **project show**
-> Show project details.
+> 显示项目详情。
 
 **project create**
-> Create a team project.
+> 创建团队项目。
 
 **project delete**
-> Delete a team project.
+> 删除团队项目。
 
 **admin**
-> Manage administration operations.
+> 管理管理操作。
 
 **extension**
-> Manage extensions.
+> 管理扩展。
 
 **security**
-> Manage security related operations.
+> 管理与安全相关的操作。
 
 **service-endpoint**
-> Manage service endpoints/connections.
+> 管理服务终结点/连接。
 
 **team**
-> Manage teams.
+> 管理团队。
 
 **user**
-> Manage users.
+> 管理用户。
 
 **wiki**
-> Manage wikis.
+> 管理 Wiki。
 
 **login**
-> Set credentials for a particular organization.
+> 为特定组织设置凭证。
 
 **logout**
-> Clear credentials for a particular organization.
+> 清除特定组织的凭证。
 
 **invoke**
-> Invoke a request for any DevOps REST API.
+> 对任意 DevOps REST API 发起请求。
 
 # DESCRIPTION
 
-**az devops** manages Azure DevOps organization level operations. It provides CLI access to manage projects, teams, users, security, and extensions within Azure DevOps Services.
+**az devops** 管理 Azure DevOps 组织级别的操作。它提供 CLI 方式来管理 Azure DevOps Services 中的项目、团队、用户、安全和扩展。
 
-Related command groups include **az pipelines** for CI/CD pipelines, **az boards** for work items, **az repos** for Git repositories, and **az artifacts** for package feeds.
+相关命令组包括用于 CI/CD 管道的 **az pipelines**、管理工作项的 **az boards**、管理 Git 仓库的 **az repos**，以及管理包源的 **az artifacts**。
 
 # CAVEATS
 
-Requires the Azure DevOps CLI extension to be installed with **az extension add --name azure-devops**. Only available for Azure DevOps Services (cloud), not Azure DevOps Server (on-premises). Requires Azure CLI v2.0.69 or later.
+需要先用 **az extension add --name azure-devops** 安装 Azure DevOps CLI 扩展。仅适用于 Azure DevOps Services（云），不适用于 Azure DevOps Server（本地部署）。需要 Azure CLI v2.0.69 或更高版本。
 
 # INSTALL
 

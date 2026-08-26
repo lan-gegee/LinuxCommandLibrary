@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display details about a Homebrew package
+显示 Homebrew 软件包的详细信息
 
 # TLDR
 
-**Display information about a formula**
+**显示**某个 formula 的**信息**
 
 ```brew info [formula]```
 
-**Display information about a cask**
+**显示**某个 cask 的**信息**
 
 ```brew info --cask [cask]```
 
-**Output formula info as JSON**
+以 JSON 格式**输出** formula 信息
 
 ```brew info --json=v2 [formula]```
 
-**Show info for all installed formulae**
+显示所有已安装 formula 的信息
 
 ```brew info --installed```
 
-**Show verbose analytics data**
+显示详细的使用统计数据
 
 ```brew info --analytics [formula]```
 
-**Show installed formula sizes**
+显示已安装 formula 的大小
 
 ```brew info --sizes [formula]```
 
-**Open the formula source page on GitHub**
+在 GitHub 上打开 formula 源码页面
 
 ```brew info --github [formula]```
 
@@ -38,42 +38,42 @@ Display details about a Homebrew package
 
 # DESCRIPTION
 
-**brew info** displays information about a formula or cask including name, version, description, homepage, dependencies, installation status, and available options.
+**brew info** 显示某个 formula 或 cask 的信息，包括名称、版本、描述、主页、依赖、安装状态和可用选项。
 
-For disabled and deprecated formulae, it also provides an explanation of the status.
+对于已禁用（disabled）和已弃用（deprecated）的 formula，它还会给出状态说明。
 
 # PARAMETERS
 
 **--json** _version_
-> Print a JSON representation. The default version is v1 for formula, use v2 for formula and cask
+> 输出 JSON 表示。默认版本为 v1（仅 formula），使用 v2 可同时包含 formula 和 cask。
 
 **--installed**
-> Output a human-readable inventory of installed formulae and casks
+> 以人类可读的方式列出已安装的 formula 和 cask。
 
 **--formula**
-> Treat all arguments as formulae
+> 将所有参数视为 formula。
 
 **--cask**
-> Treat all arguments as casks
+> 将所有参数视为 cask。
 
 **--analytics**
-> Show global analytics data instead of formula or cask info
+> 显示全局使用统计而非 formula 或 cask 信息。
 
 **--days** _count_
-> Show analytics over the given period, one of 30, 90 or 365 days
+> 显示指定周期的统计数据，可选 30、90 或 365 天。
 
 **--github**
-> Open the GitHub source page for the formula or cask in a browser
+> 在浏览器中打开该 formula 或 cask 的 GitHub 源码页面。
 
 **--sizes**
-> Show the size of installed formulae and casks
+> 显示已安装 formula 和 cask 占用的空间大小。
 
 **--variations**
-> Include the variations hash in each formula's JSON output
+> 在每个 formula 的 JSON 输出中包含 variations 哈希。
 
 # CAVEATS
 
-JSON output format may vary between Homebrew versions. Analytics data requires network access to GitHub. Some information may not be available for all formulae.
+JSON 输出格式可能随 Homebrew 版本而变化。使用统计数据需要访问 GitHub 网络。某些信息并非对所有 formula 可用。
 
 # SEE ALSO
 

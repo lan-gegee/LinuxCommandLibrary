@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compress executables into self-extracting archives
+将可执行文件压缩为自解压归档
 
 # TLDR
 
-**Compress an executable file in place**
+**就地压缩可执行文件**
 
 ```bzexe [path/to/executable]```
 
-**Compress multiple executables**
+**压缩多个可执行文件**
 
 ```bzexe [executable1] [executable2]```
 
-**Decompress a previously compressed executable**
+**解压之前压缩过的可执行文件**
 
 ```bzexe -d [path/to/executable]```
 
@@ -22,26 +22,26 @@ Compress executables into self-extracting archives
 
 # DESCRIPTION
 
-**bzexe** compresses executable files in place, creating self-extracting executables that automatically decompress and run when executed. The original file is saved with a tilde (~) suffix as a backup.
+**bzexe** 就地压缩可执行文件，创建自解压的可执行文件，在运行时会自动解压并执行。原始文件会以波浪号（~）后缀保存作为备份。
 
-When a compressed executable is run, it transparently decompresses itself to a temporary location and executes. This trades execution speed for disk space savings, making it useful on systems with limited storage.
+运行压缩后的可执行文件时，它会将自身透明地解压到临时位置再执行。这是用执行速度换取磁盘空间，对存储空间有限的系统很有用。
 
-For example, compressing **/bin/cat** creates:
-- **/bin/cat** - the self-decompressing executable
-- **/bin/cat~** - the original uncompressed binary (backup)
+例如，压缩 **/bin/cat** 会创建：
+- **/bin/cat** - 自解压的可执行文件
+- **/bin/cat~** - 原始未压缩的二进制文件（备份）
 
 # PARAMETERS
 
 **-d**
-> Decompress the specified executables instead of compressing them
+> 解压指定的可执行文件而不是压缩它们
 
 # CAVEATS
 
-The compressed executable is implemented as a shell script, which may create security concerns. It relies on the **PATH** environment variable to find **bzip2** and utilities like **tail**, **chmod**, **ln**, and **sleep**.
+压缩后的可执行文件以 shell 脚本实现，可能带来安全问题。它依赖 **PATH** 环境变量来查找 **bzip2** 以及 **tail**、**chmod**、**ln** 和 **sleep** 等工具。
 
-File attributes may not be perfectly preserved. You may need to manually fix permissions using **chmod** or ownership using **chown** after compression.
+文件属性可能无法完全保留。压缩后你可能需要手动使用 **chmod** 修复权限或使用 **chown** 修复所有者。
 
-The backup file (with ~ suffix) can be removed once the compressed executable is verified to work correctly.
+确认压缩后的可执行文件能正常工作后，即可删除备份文件（带 ~ 后缀）。
 
 # INSTALL
 

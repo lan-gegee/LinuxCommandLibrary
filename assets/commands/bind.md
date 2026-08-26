@@ -1,34 +1,34 @@
 # TAGLINE
 
-Set Readline key bindings and variables in Bash
+在 Bash 中设置 Readline 按键绑定和变量
 
 # TLDR
 
-**List all Readline key bindings**
+**列出所有 Readline 按键绑定**
 
 ```bind -P```
 
-**List key bindings in reusable format**
+**以可复用格式列出按键绑定**
 
 ```bind -p```
 
-**Bind a key sequence to a Readline function**
+**将按键序列绑定到 Readline 函数**
 
 ```bind '"\e[24~": end-of-line'```
 
-**Bind a key sequence to execute a shell command**
+**将按键序列绑定到 shell 命令**
 
 ```bind -x '"\C-l": clear'```
 
-**Remove binding for a key sequence**
+**移除按键序列的绑定**
 
 ```bind -r '\e[24~'```
 
-**Read key bindings from a file**
+**从文件读取按键绑定**
 
 ```bind -f [~/.inputrc]```
 
-**Query which keys invoke a specific function**
+**查询哪些键调用指定函数**
 
 ```bind -q [complete]```
 
@@ -38,61 +38,61 @@ Set Readline key bindings and variables in Bash
 
 # DESCRIPTION
 
-**bind** is a Bash shell builtin that sets Readline key bindings and variables. It controls how Bash responds to keyboard input by mapping key sequences to Readline functions, macros, or shell commands.
+**bind** 是 Bash 的内建命令，用于设置 Readline 按键绑定和变量。它通过将按键序列映射到 Readline 函数、宏或 shell 命令，控制 Bash 对键盘输入的响应方式。
 
-By default, Bash uses Emacs-style key bindings, but bind allows customization to any preferred scheme. Key bindings can be set interactively or loaded from configuration files like **~/.inputrc**.
+默认情况下 Bash 使用 Emacs 风格的按键绑定，但 bind 允许自定义成任何偏好的方案。按键绑定可以交互式设置，也可以从 **~/.inputrc** 等配置文件加载。
 
-To discover the escape sequence for a key, press **Ctrl+v** at the command line followed by the key, or use the **read** builtin and press the desired key combination.
+要查看某个键的转义序列，可在命令行先按 **Ctrl+v** 再按该键，或使用 **read** 内建命令并按下想要的组合键。
 
 # PARAMETERS
 
 **-l**
-> List names of all Readline functions
+> 列出所有 Readline 函数的名称
 
 **-P**
-> List function names and their current bindings
+> 列出函数名及其当前绑定
 
 **-p**
-> List bindings in a format suitable for reuse as input
+> 以适合作为输入复用的格式列出绑定
 
 **-S**
-> List key sequences that invoke macros and their values
+> 列出调用宏的按键序列及其值
 
 **-s**
-> List macro bindings in reusable format
+> 以可复用格式列出宏绑定
 
 **-V**
-> List Readline variable names and values
+> 列出 Readline 变量名及其值
 
 **-v**
-> List Readline variables in reusable format
+> 以可复用格式列出 Readline 变量
 
 **-X**
-> List key sequences bound to shell commands in reusable format
+> 以可复用格式列出绑定到 shell 命令的按键序列
 
 **-m** _keymap_
-> Use specified keymap: emacs, emacs-standard, emacs-meta, emacs-ctlx, vi, vi-move, vi-command, vi-insert
+> 使用指定的 keymap：emacs、emacs-standard、emacs-meta、emacs-ctlx、vi、vi-move、vi-command、vi-insert
 
 **-f** _filename_
-> Read key bindings from file
+> 从文件读取按键绑定
 
 **-q** _function_
-> Query which keys invoke the named function
+> 查询哪些键调用了指定函数
 
 **-u** _function_
-> Unbind all keys bound to the named function
+> 解除所有绑定到该函数的键
 
 **-r** _keyseq_
-> Remove binding for key sequence
+> 移除按键序列的绑定
 
 **-x** _keyseq:shell-command_
-> Execute shell command when key sequence is entered
+> 输入该按键序列时执行 shell 命令
 
 # CAVEATS
 
-When using **-x** to bind shell commands, the shell sets **READLINE_LINE** and **READLINE_POINT** variables to the current line buffer contents and cursor position. Modifying these variables in the command affects the editing state.
+使用 **-x** 绑定 shell 命令时，Shell 会把 **READLINE_LINE** 和 **READLINE_POINT** 变量设为当前行缓冲区内容和光标位置。在该命令中修改这些变量会影响编辑状态。
 
-Key binding syntax must be passed as a single argument, matching the format used in **~/.inputrc**.
+按键绑定语法必须作为单个参数传入，与 **~/.inputrc** 中使用的格式一致。
 
 # INSTALL
 

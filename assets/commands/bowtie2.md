@@ -1,34 +1,34 @@
 # TAGLINE
 
-Align sequencing reads to reference genomes.
+将测序读段比对到参考基因组。
 
 # TLDR
 
-**Align reads** to a reference genome
+**将读段比对**到参考基因组
 
 ```bowtie2 -x [genome_index] -1 [reads_1.fq] -2 [reads_2.fq] -S [output.sam]```
 
-**Align single-end reads**
+**比对单端读段**
 
 ```bowtie2 -x [genome_index] -U [reads.fq] -S [output.sam]```
 
-**Use multiple threads** for faster alignment
+**使用多线程**加快比对速度
 
 ```bowtie2 -p [8] -x [genome_index] -1 [reads_1.fq] -2 [reads_2.fq] -S [output.sam]```
 
-**Build an index** from a reference genome
+从参考基因组**构建索引**
 
 ```bowtie2-build [reference.fa] [index_base]```
 
-**Align with local** (soft-clipping) mode
+以**局部**（软截断）模式比对
 
 ```bowtie2 --local -x [genome_index] -U [reads.fq] -S [output.sam]```
 
-**Very sensitive alignment**
+**高灵敏度比对**
 
 ```bowtie2 --very-sensitive -x [genome_index] -1 [r1.fq] -2 [r2.fq] -S [out.sam]```
 
-**Output unaligned reads** to a file
+**将未比对的读段输出**到文件
 
 ```bowtie2 -x [genome_index] -U [reads.fq] -S [output.sam] --un [unaligned.fq]```
 
@@ -40,66 +40,66 @@ Align sequencing reads to reference genomes.
 
 # DESCRIPTION
 
-**bowtie2** is a fast and memory-efficient tool for aligning sequencing reads to long reference sequences. It is particularly good at aligning reads of about 50 to 1000 base pairs to relatively large genomes like the human genome.
+**bowtie2** 是一款快速且节省内存的工具，用于将测序读段比对到较长的参考序列。它特别擅长将约 50 到 1000 个碱基对的读段比对到人类基因组这类较大的基因组上。
 
-Bowtie2 uses an FM Index (based on the Burrows-Wheeler transform) for the reference genome, enabling fast alignment while maintaining low memory usage. It supports gapped, local, and paired-end alignment modes.
+Bowtie2 对参考基因组使用 FM 索引（基于 Burrows-Wheeler 变换），在保持低内存占用的同时实现快速比对。它支持有缺口（gapped）、局部（local）和双端（paired-end）比对模式。
 
-The alignment output is SAM format, which can be processed by samtools and other downstream tools for variant calling, expression analysis, and other genomics workflows.
+比对结果为 SAM 格式，可由 samtools 和其他下游工具进一步处理，用于变异检测、表达分析等基因组学工作流程。
 
 # PARAMETERS
 
 **-x** _index_
-> Index filename prefix (built with bowtie2-build).
+> 索引文件名前缀（用 bowtie2-build 构建）。
 
 **-1** _reads_
-> Comma-separated files with #1 mates.
+> 包含 #1 配对读段的文件，逗号分隔。
 
 **-2** _reads_
-> Comma-separated files with #2 mates.
+> 包含 #2 配对读段的文件，逗号分隔。
 
 **-U** _reads_
-> Comma-separated files with unpaired reads.
+> 包含非配对读段的文件，逗号分隔。
 
 **-S** _sam_
-> Output SAM file.
+> 输出的 SAM 文件。
 
 **-p** _threads_
-> Number of parallel threads.
+> 并行线程数。
 
 **--local**
-> Local alignment mode (soft-clipping).
+> 局部比对模式（软截断）。
 
 **--end-to-end**
-> End-to-end alignment (default).
+> 端到端比对（默认）。
 
 **--very-fast**
-> Preset for very fast alignment.
+> 极快比对预设。
 
 **--sensitive**
-> Preset for sensitive alignment (default).
+> 高灵敏度比对预设（默认）。
 
 **--very-sensitive**
-> Preset for very sensitive alignment.
+> 极高灵敏度比对预设。
 
 **--un** _file_
-> Write unaligned reads to file.
+> 将未比对的读段写入文件。
 
 **--al** _file_
-> Write aligned reads to file.
+> 将已比对的读段写入文件。
 
 **-q**
-> Input files are FASTQ (default).
+> 输入文件为 FASTQ（默认）。
 
 **-f**
-> Input files are FASTA.
+> 输入文件为 FASTA。
 
 # CAVEATS
 
-Index must be built before alignment using bowtie2-build. Memory usage scales with genome size. Very sensitive mode is significantly slower. Paired-end alignment requires coordinated mate files. Output needs sorting for many downstream applications.
+比对之前必须先用 bowtie2-build 构建索引。内存占用随基因组大小增长。very-sensitive 模式明显更慢。双端比对要求配对文件相互对应。许多下游应用需要先对输出进行排序。
 
 # HISTORY
 
-**Bowtie2** was developed by **Ben Langmead** and **Steven Salzberg** at Johns Hopkins University, published in **2012** in Nature Methods. It succeeded the original Bowtie aligner with improved handling of longer reads and gapped alignments. Bowtie2 has become one of the most widely used aligners in genomics research, particularly for DNA-seq and ChIP-seq analysis.
+**Bowtie2** 由约翰斯·霍普金斯大学的 **Ben Langmead** 和 **Steven Salzberg** 开发，于 **2012 年**发表在 Nature Methods 上。它取代了初代 Bowtie 比对器，改进了对更长读段和有缺口比对的处理。Bowtie2 已成为基因组学研究中最广泛使用的比对工具之一，尤其常用于 DNA-seq 和 ChIP-seq 分析。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display mail sender information from a mailbox
+显示邮箱中邮件的发件人信息
 
 # TLDR
 
-**Show who has sent mail to your mailbox**
+**显示谁给你发过邮件**
 
 ```bsd-from```
 
-**Show only a count of messages**
+只显示邮件数量
 
 ```bsd-from -c```
 
-**Show mail from a specific sender**
+显示来自特定发件人的邮件
 
 ```bsd-from -s [sender]```
 
-**Examine a different mailbox file**
+查看其他邮箱文件
 
 ```bsd-from -f [path/to/mailbox]```
 
-**Check another user's mailbox**
+检查其他用户的邮箱
 
 ```bsd-from [username]```
 
@@ -30,33 +30,33 @@ Display mail sender information from a mailbox
 
 # DESCRIPTION
 
-**bsd-from** (also known as **from**) prints the mail header lines from a mailbox, showing the names of people who have sent mail. By default, it examines the invoker's mailbox.
+**bsd-from**（也称为 **from**）打印邮箱中的邮件头信息行，显示发过邮件的人名。默认情况下，它检查调用者的邮箱。
 
-The command provides a quick way to see pending mail without opening a full mail client. It displays the "From" lines of messages, giving an overview of who has sent mail.
+该命令提供了一种快速查看待处理邮件的方式，无需打开完整的邮件客户端。它显示各封邮件的 "From" 行，让人一目了然地了解谁发来过邮件。
 
 # PARAMETERS
 
 **-c**
-> Print only a count of messages and exit
+> 只打印邮件数量后退出。
 
 **-f** _file_
-> Examine the specified file instead of the default mailbox. Use **-** to read from standard input
+> 检查指定文件而非默认邮箱。使用 **-** 可从标准输入读取。
 
 **-s** _sender_
-> Only print mail from addresses containing the specified string
+> 只打印地址包含指定字符串的邮件。
 
 **user**
-> Examine the specified user's mailbox instead of the invoker's (requires appropriate privileges)
+> 检查指定用户的邮箱而非调用者自己的（需要相应权限）。
 
 # CAVEATS
 
-When using the **-f** option, the user argument should not be specified. Examining other users' mailboxes requires elevated privileges.
+使用 **-f** 选项时不应指定 user 参数。检查其他用户的邮箱需要更高权限。
 
-The default mailbox location is determined by the **MAIL** environment variable, or **/var/mail** if not set.
+默认邮箱位置由 **MAIL** 环境变量决定；未设置时为 **/var/mail**。
 
 # HISTORY
 
-The **from** command first appeared in **BSD 3.0** in 1979 as part of the Berkeley Software Distribution mail utilities.
+**from** 命令最早出现于 **1979** 年的 **BSD 3.0**，是 Berkeley Software Distribution 邮件工具集的一部分。
 
 # SEE ALSO
 

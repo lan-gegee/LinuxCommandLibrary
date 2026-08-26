@@ -1,22 +1,22 @@
 # TAGLINE
 
-Text-based backgammon board game
+文字版西洋双陆棋盘游戏
 
 # TLDR
 
-**Start** backgammon game
+**开始**西洋双陆棋游戏
 
 ```backgammon```
 
-Start as **red** player (skip instructions)
+以**红方**玩家开始（跳过说明）
 
 ```backgammon -r```
 
-Start a **two-player** game
+开始**双人**游戏
 
 ```backgammon -b```
 
-**Restore** a saved game
+**恢复**已保存的游戏
 
 ```backgammon -s [savefile]```
 
@@ -35,65 +35,65 @@ Start a **two-player** game
 
 # DESCRIPTION
 
-**backgammon** is a classic text-based backgammon game from the BSD games collection. It provides a text-based interface for playing backgammon against the computer or another player. Players move checkers based on dice rolls, attempting to bear off all pieces before their opponent.
+**backgammon** 是 BSD games 合集中经典的文字版西洋双陆棋游戏。它提供基于文本的界面，可以与计算机或其他玩家对弈西洋双陆棋。玩家根据掷骰结果移动棋子，力争在对手之前将所有棋子移出棋盘。
 
-The companion program **teachgammon** teaches the rules and strategy of backgammon.
+配套程序 **teachgammon** 用于讲授西洋双陆棋的规则与策略。
 
 # PARAMETERS
 
 **-n**
-> Don't ask for rules or instructions
+> 不询问规则或说明
 
 **-r**
-> Player is red (implies -n)
+> 玩家为红方（隐含 -n）
 
 **-w**
-> Player is white (implies -n)
+> 玩家为白方（隐含 -n）
 
 **-b**
-> Two-player mode, red and white (implies -n)
+> 双人模式，红白双方（隐含 -n）
 
 **-pr**
-> Print board before red's turn
+> 在红方回合前打印棋盘
 
 **-pw**
-> Print board before white's turn
+> 在白方回合前打印棋盘
 
 **-pb**
-> Print board before both players' turns
+> 在双方每个回合前都打印棋盘
 
 **-t** _term_
-> Specify terminal type
+> 指定终端类型
 
 **-s** _file_
-> Restore a saved game from file
+> 从文件恢复已保存的游戏
 
 # CONTROLS
 
 **space** / **return**
-> Roll dice
+> 掷骰子
 
 **d**
-> Double
+> 加倍
 
 **p**
-> Print board
+> 打印棋盘
 
 **q**
-> Quit game
+> 退出游戏
 
 **s**
-> Save game
+> 保存游戏
 
-Moves are expressed as source-destination (e.g., 3-5).
+走法用"起点-终点"表示（如 3-5）。
 
 # CAVEATS
 
-Text-based interface only. Part of the bsd-games package on most systems.
+仅有文字界面。在多数系统上属于 bsd-games 软件包的一部分。
 
 # HISTORY
 
-**backgammon** was written by **Alan Char** in **1980** at UC Berkeley and has been part of BSD games distributions since then.
+**backgammon** 由 **Alan Char** 于 **1980** 年在加州大学伯克利分校编写，此后一直是 BSD games 发行版的一部分。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove orphaned Homebrew dependencies
+移除 Homebrew 的孤立依赖
 
 # TLDR
 
-**Remove unused dependencies**
+**移除**不再使用的依赖
 
 ```brew autoremove```
 
-**Preview what would be removed**
+**预览**将被移除的内容
 
 ```brew autoremove --dry-run```
 
@@ -18,16 +18,16 @@ Remove orphaned Homebrew dependencies
 
 # DESCRIPTION
 
-**brew autoremove** uninstalls formulae that were only installed as dependencies and are no longer needed by any installed formula. It cleans up orphaned dependencies left behind after uninstalling packages.
+**brew autoremove** 会卸载那些仅作为依赖安装、且不再被任何已安装 formula 需要的 formula。它可以清理卸载软件包后遗留的孤立依赖。
 
 # PARAMETERS
 
 **--dry-run, -n**
-> List what would be removed without removing
+> 仅列出将被移除的内容，而不实际移除。
 
 # HOW IT WORKS
 
-When you install a package like **git**, dependencies (gettext, pcre2) are installed automatically. When you uninstall **git**, those dependencies remain. Running **brew autoremove** removes these orphaned dependencies.
+当你安装 **git** 这类软件包时，其依赖（gettext、pcre2）会被自动安装。卸载 **git** 后，这些依赖仍然保留。运行 **brew autoremove** 即可清除这些孤立的依赖。
 
 # EXAMPLE WORKFLOW
 
@@ -39,26 +39,26 @@ brew cleanup                # Remove cached downloads
 
 # PREVENTING REMOVAL
 
-To prevent a formula from being removed by autoremove, reinstall it explicitly to mark it as "installed on request":
+要防止某个 formula 被 autoremove 移除，可将其显式重装一次，使其状态变为"按需安装"：
 
 ```brew install formula```
 
-This changes the formula's status from dependency to explicitly installed.
+这会把该 formula 的状态从依赖改为显式安装。
 
 # RELATED COMMANDS
 
 **brew leaves**
-> Show top-level packages (not dependencies)
+> 显示顶层软件包（非依赖）。
 
 **brew deps --installed**
-> Show dependency tree
+> 显示依赖树。
 
 **brew cleanup**
-> Remove cached downloads and old versions
+> 清理缓存的下载和旧版本。
 
 # CAVEATS
 
-Only removes formulae installed as dependencies, not those explicitly installed. Safe to run regularly after uninstalling packages. Does not remove casks.
+只移除作为依赖安装的 formula，不移除显式安装的 formula。可在卸载软件包后定期安全运行。不会移除 cask。
 
 # SEE ALSO
 

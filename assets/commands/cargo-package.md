@@ -1,26 +1,26 @@
 # TAGLINE
 
-Assemble a local package into a distributable archive
+将本地软件包打包为可分发的归档
 
 # TLDR
 
-**Create package archive**
+**创建软件包归档**
 
 ```cargo package```
 
-**Package without verification**
+**不经验证打包**
 
 ```cargo package --no-verify```
 
-**List files in package**
+**列出包内文件**
 
 ```cargo package --list```
 
-**Allow uncommitted changes**
+**允许未提交的更改**
 
 ```cargo package --allow-dirty```
 
-**Package specific workspace member**
+**打包指定的工作空间成员**
 
 ```cargo package -p [crate_name]```
 
@@ -30,53 +30,53 @@ Assemble a local package into a distributable archive
 
 # DESCRIPTION
 
-**cargo package** creates a distributable `.crate` archive from the source code. The archive is placed in `target/package/` and contains the source files, a normalized Cargo.toml, and optionally the Cargo.lock file. By default, the package is verified by extracting and building it in a temporary directory.
+**cargo package** 从源代码创建可分发的 `.crate` 归档。归档位于 `target/package/`，包含源文件、规范化后的 Cargo.toml，以及可选的 Cargo.lock 文件。默认情况下，会通过在临时目录中解压并构建该归档来验证软件包。
 
-During packaging, the Cargo.toml manifest is normalized: workspace inheritance is resolved, `[patch]`, `[replace]`, and `[workspace]` sections are removed, and path dependencies must include a version key. The `include` and `exclude` fields in Cargo.toml control which files are packaged. This command is equivalent to `cargo publish --dry-run` and is useful for inspecting what would be uploaded to a registry.
+打包过程中会对 Cargo.toml 清单进行规范化：解析工作空间继承、移除 `[patch]`、`[replace]` 和 `[workspace]` 区块，并且路径依赖必须带有 version 键。Cargo.toml 中的 `include` 和 `exclude` 字段控制哪些文件被打包。此命令等价于 `cargo publish --dry-run`，可用于检查将要上传到注册表的内容。
 
 # PARAMETERS
 
 **-l**, **--list**
-> List files that would be included
+> 列出将被包含的文件
 
 **--no-verify**
-> Skip extraction and build verification
+> 跳过解压和构建验证
 
 **--allow-dirty**
-> Allow uncommitted VCS changes
+> 允许未提交的 VCS 更改
 
 **--no-metadata**
-> Ignore warnings about missing metadata
+> 忽略关于缺少元数据的警告
 
 **--exclude-lockfile**
-> Don't include Cargo.lock
+> 不包含 Cargo.lock
 
 **--target** _triple_
-> Build for target platform (verification)
+> 为目标平台构建（用于验证）
 
 **-p**, **--package** _spec_
-> Package specific workspace member
+> 打包指定的工作空间成员
 
 **--workspace**
-> Package all workspace members
+> 打包所有工作空间成员
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 # MANIFEST PROCESSING
 
-The Cargo.toml is normalized:
-- [patch], [replace], [workspace] sections removed
-- Path dependencies require version key
-- Cargo.lock included by default
+Cargo.toml 会被规范化：
+- 移除 [patch]、[replace]、[workspace] 区块
+- 路径依赖必须带 version 键
+- 默认包含 Cargo.lock
 
 # FILE CONTROL
 
-Use include/exclude fields in Cargo.toml to control packaged files.
+使用 Cargo.toml 中的 include/exclude 字段控制打包的文件。
 
 # CAVEATS
 
-crates.io has 10MB size limit. Path dependencies without version keys are not allowed. Equivalent to cargo publish --dry-run.
+crates.io 有 10MB 的大小限制。不允许缺少 version 键的路径依赖。等价于 cargo publish --dry-run。
 
 # INSTALL
 

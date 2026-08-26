@@ -1,26 +1,26 @@
 # TAGLINE
 
-Command-line interface for Bitcoin Core
+Bitcoin Core 的命令行界面
 
 # TLDR
 
-**Get** blockchain info
+**获取**区块链信息
 
 ```bitcoin-cli getblockchaininfo```
 
-**Get** wallet balance
+**获取**钱包余额
 
 ```bitcoin-cli getbalance```
 
-**Send** Bitcoin
+**发送**比特币
 
 ```bitcoin-cli sendtoaddress [address] [amount]```
 
-**Get** new address
+**获取**新地址
 
 ```bitcoin-cli getnewaddress```
 
-**List** transactions
+**列出**交易
 
 ```bitcoin-cli listtransactions```
 
@@ -30,95 +30,95 @@ Command-line interface for Bitcoin Core
 
 # DESCRIPTION
 
-**bitcoin-cli** is the command-line interface for Bitcoin Core. It connects to a running bitcoind daemon via RPC and allows querying blockchain data, managing wallets, and performing transactions.
+**bitcoin-cli** 是 Bitcoin Core 的命令行接口。它通过 RPC 连接到正在运行的 bitcoind 守护进程，可用于查询区块链数据、管理钱包和执行交易。
 
-The tool is essential for interacting with Bitcoin Core nodes programmatically or from scripts.
+该工具对于以编程方式或从脚本与 Bitcoin Core 节点交互至关重要。
 
 # PARAMETERS
 
 **-conf=**_file_
-> Configuration file
+> 配置文件
 
 **-datadir=**_dir_
-> Data directory
+> 数据目录
 
 **-rpcuser=**_user_
-> RPC username
+> RPC 用户名
 
 **-rpcpassword=**_pass_
-> RPC password
+> RPC 密码
 
 **-rpcconnect=**_host_
-> RPC host (default: localhost)
+> RPC 主机（默认：localhost）
 
 **-rpcport=**_port_
-> RPC port (default: 8332)
+> RPC 端口（默认：8332）
 
 **-testnet**
-> Use testnet
+> 使用测试网络
 
 **-regtest**
-> Use regression test network
+> 使用回归测试网络
 
 **-named**
-> Pass named arguments instead of positional ones
+> 使用命名参数而非位置参数
 
 **-getinfo**
-> Get general information from the remote server in a single call
+> 通过单次调用从远程服务器获取常规信息
 
 **-stdin**
-> Read extra arguments from standard input, one per line (useful for passphrases)
+> 从标准输入读取额外参数，每行一个（适合输入密码短语）
 
 # COMMON COMMANDS
 
 **Blockchain:**
-- **getblockchaininfo** - Chain information
-- **getblock** - Get block data
-- **getblockhash** - Get block hash by height
+- **getblockchaininfo** - 链信息
+- **getblock** - 获取区块数据
+- **getblockhash** - 按高度获取区块哈希
 
 **Wallet:**
-- **getbalance** - Wallet balance
-- **getnewaddress** - Generate new address
-- **sendtoaddress** - Send Bitcoin
-- **listtransactions** - List transactions
+- **getbalance** - 钱包余额
+- **getnewaddress** - 生成新地址
+- **sendtoaddress** - 发送比特币
+- **listtransactions** - 列出交易
 
 **Network:**
-- **getpeerinfo** - Connected peers
-- **getnetworkinfo** - Network information
-- **getmempoolinfo** - Memory pool state
-- **help** - List all commands or get help for one command
+- **getpeerinfo** - 已连接的对等节点
+- **getnetworkinfo** - 网络信息
+- **getmempoolinfo** - 内存池状态
+- **help** - 列出所有命令或获取某个命令的帮助
 
 # WORKFLOW
 
 ```bash
-# Check blockchain sync status
+# 检查区块链同步状态
 bitcoin-cli getblockchaininfo
 
-# Get balance
+# 获取余额
 bitcoin-cli getbalance
 
-# Generate new receiving address
+# 生成新的接收地址
 bitcoin-cli getnewaddress
 
-# Send Bitcoin
+# 发送比特币
 bitcoin-cli sendtoaddress "1ABC..." 0.1
 
-# List recent transactions
+# 列出最近的交易
 bitcoin-cli listtransactions "*" 10
 ```
 
 # CONFIGURATION
 
 **~/.bitcoin/bitcoin.conf**
-> Bitcoin Core configuration file for RPC credentials, network settings, and daemon options.
+> Bitcoin Core 配置文件，用于 RPC 凭证、网络设置和守护进程选项。
 
 # CAVEATS
 
-Requires bitcoind running. RPC credentials needed. Transactions are irreversible. Testnet for testing only. Wallet operations can lose funds if misconfigured. Keep RPC credentials secure.
+需要 bitcoind 正在运行。需要 RPC 凭证。交易不可撤销。测试网仅用于测试。钱包操作若配置不当可能造成资金损失。请妥善保管 RPC 凭证。
 
 # HISTORY
 
-**bitcoin-cli** has been part of Bitcoin Core since the project's creation by Satoshi Nakamoto in **2009**, providing command-line access to the node.
+**bitcoin-cli** 自中本聪于 **2009 年**创建该项目以来一直是 Bitcoin Core 的组成部分，提供对节点的命令行访问。
 
 # INSTALL
 

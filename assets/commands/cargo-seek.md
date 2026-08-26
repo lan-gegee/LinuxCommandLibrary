@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for searching, adding, and installing cargo crates
+用于搜索、添加和安装 cargo crate 的 TUI 工具
 
 # TLDR
 
-**Launch the TUI**
+**启动 TUI**
 
 ```cargo seek```
 
-**Start with a search term**
+**以搜索词启动**
 
 ```cargo seek -s [query]```
 
-**Search within a specific project directory**
+**在指定的项目目录内搜索**
 
 ```cargo seek [path/to/project]```
 
@@ -23,17 +23,17 @@ TUI for searching, adding, and installing cargo crates
 # PARAMETERS
 
 **-s**, **--search** _term_
-> Begin a search automatically on startup
+> 启动时自动开始一次搜索
 
 **-f**, **--fps** _float_
-> Set frame rate in frames per second (default: 30)
+> 设置帧率（每秒帧数，默认：30）
 
 **-t**, **--tps** _float_
-> Set tick rate in ticks per second (default: 4)
+> 设置逻辑帧率（每秒 tick 数，默认：4）
 
 # DESCRIPTION
 
-**cargo-seek** is a Cargo subcommand that provides a terminal user interface for searching, adding, and installing crates from the crates.io registry. It supports searching in Online, Project, Installed, or All scopes, visually labels project dependencies and installed binaries, and allows adding/removing crates, installing/uninstalling binaries, and opening documentation. Results can be sorted by relevance, name, downloads, or recency.
+**cargo-seek** 是一个 Cargo 子命令，提供终端用户界面，用于从 crates.io 注册表搜索、添加和安装 crate。它支持在 Online、Project、Installed 或 All 等范围内搜索，可视化标注项目依赖和已安装的二进制文件，并支持添加/移除 crate、安装/卸载二进制以及打开文档。结果可按相关性、名称、下载量或更新时间排序。
 
 # INSTALL
 

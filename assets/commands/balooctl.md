@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control KDE Baloo file indexing
+控制 KDE Baloo 文件索引
 
 # TLDR
 
-Show indexer **status**
+显示索引器**状态**
 
 ```balooctl status```
 
-**Enable** file indexer
+**启用**文件索引器
 
 ```balooctl enable```
 
-**Disable** file indexer
+**禁用**文件索引器
 
 ```balooctl disable```
 
-**Purge** index database
+**清空**索引数据库
 
 ```balooctl purge```
 
-**Suspend** indexing
+**挂起**索引进程
 
 ```balooctl suspend```
 
-Show **disk** space used
+显示占用的**磁盘**空间
 
 ```balooctl indexSize```
 
-**Check** for unindexed files
+**检查**未建立索引的文件
 
 ```balooctl check```
 
@@ -38,63 +38,63 @@ Show **disk** space used
 
 # DESCRIPTION
 
-**balooctl** is the control utility for Baloo, the file indexing and search framework used in KDE Plasma. It manages the file indexer daemon that powers fast desktop file search, allowing users to enable, disable, suspend, and monitor the indexing process.
+**balooctl** 是 Baloo 的控制工具；Baloo 是 KDE Plasma 中使用的文件索引与搜索框架。它管理为快速桌面文件搜索提供支撑的文件索引守护进程，允许用户启用、禁用、挂起并监视索引过程。
 
-The tool is useful for troubleshooting search issues, reclaiming disk space used by the index, and checking which files have been indexed.
+该工具适用于排查搜索问题、回收索引占用的磁盘空间，以及检查哪些文件已被索引。
 
 # PARAMETERS
 
 **status**
-> Display current indexer status
+> 显示当前索引器状态
 
 **enable**
-> Enable the file indexer
+> 启用文件索引器
 
 **disable**
-> Disable the file indexer
+> 禁用文件索引器
 
 **purge**
-> Delete the index database
+> 删除索引数据库
 
 **suspend**
-> Temporarily suspend indexing
+> 暂时挂起索引进程
 
 **resume**
-> Resume suspended indexing
+> 恢复已挂起的索引进程
 
 **indexSize**
-> Show disk space used by index
+> 显示索引占用的磁盘空间
 
 **check**
-> Find and index unindexed files
+> 查找并为未建立索引的文件建立索引
 
 **index** _file..._
-> Manually index specific files
+> 手动为指定文件建立索引
 
 **clear** _file..._
-> Remove specific files from the index
+> 从索引中移除指定文件
 
 **config**
-> Modify Baloo configuration
+> 修改 Baloo 配置
 
 **monitor**
-> Monitor indexer activity
+> 监视索引器活动
 
 **failed**
-> List files that could not be indexed
+> 列出无法建立索引的文件
 
 # CONFIGURATION
 
 **~/.config/baloofilerc**
-> Controls which directories to index, file types to exclude, and indexing behavior.
+> 控制要索引哪些目录、排除哪些文件类型以及索引行为。
 
 # CAVEATS
 
-Purging the index requires re-indexing all files which can take time. The indexer respects KDE settings for which directories to index. High CPU usage during indexing is normal.
+清空索引后需要重新索引所有文件，可能耗时较长。索引器遵循 KDE 设置中关于索引目录的规定。索引期间 CPU 占用较高属于正常现象。
 
 # HISTORY
 
-**balooctl** is part of **Baloo**, the file indexing and search framework for KDE Plasma desktop.
+**balooctl** 是 **Baloo** 的一部分；Baloo 是 KDE Plasma 桌面的文件索引与搜索框架。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Validate Android App Bundle files
+验证 Android App Bundle 文件
 
 # TLDR
 
-**Validate an Android App Bundle**
+**验证一个 Android App Bundle**
 
 ```bundletool validate --bundle=[app.aab]```
 
@@ -15,17 +15,17 @@ Validate Android App Bundle files
 # PARAMETERS
 
 **--bundle** _path_
-> Path to the Android App Bundle (.aab) file to validate.
+> 要验证的 Android App Bundle（.aab）文件的路径。
 
 # DESCRIPTION
 
-**bundletool validate** checks if an Android App Bundle (.aab) file is structurally valid and conforms to the App Bundle format specification. It verifies the bundle's internal structure, manifest, and configuration.
+**bundletool validate** 检查 Android App Bundle（.aab）文件在结构上是否有效，是否符合 App Bundle 格式规范。它会验证 bundle 的内部结构、清单文件和配置。
 
-This is useful for catching issues before uploading to Google Play or other app distribution stores.
+这有助于在上传到 Google Play 或其他应用分发商店之前发现问题。
 
 # CAVEATS
 
-Requires Java Runtime Environment (JRE) version 11 or higher. Validation is structural; it does not verify runtime behavior or business logic.
+需要 Java 运行时环境（JRE）11 或更高版本。验证仅针对结构；它不会验证运行时行为或业务逻辑。
 
 # INSTALL
 

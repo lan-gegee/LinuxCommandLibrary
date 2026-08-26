@@ -1,10 +1,10 @@
 # TAGLINE
 
-Open the feedback page in a browser
+在浏览器中打开反馈页面
 
 # TLDR
 
-**Open the feedback page** for Bun
+**打开 Bun 的反馈页面**
 
 ```bun feedback```
 
@@ -14,7 +14,7 @@ Open the feedback page in a browser
 
 # DESCRIPTION
 
-**bun feedback** opens the Bun feedback page in your default web browser, allowing you to submit bug reports, feature requests, or general feedback to the Bun development team.
+**bun feedback** 在默认浏览器中打开 Bun 反馈页面，你可以在此向 Bun 开发团队提交 bug 报告、功能请求或一般性反馈。
 
 # SEE ALSO
 

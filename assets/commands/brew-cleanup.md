@@ -1,34 +1,34 @@
 # TAGLINE
 
-Remove outdated downloads and old package versions
+清理过期下载和旧的软件包版本
 
 # TLDR
 
-**Remove outdated downloads and old versions**
+**移除过期的下载和旧版本**
 
 ```brew cleanup```
 
-**Preview what would be removed**
+**预览**将被移除的内容
 
 ```brew cleanup --dry-run```
 
-**Clean specific formula**
+**清理**指定的 formula
 
 ```brew cleanup [formula]```
 
-**Remove cache files older than specified days**
+**移除超过指定天数的缓存文件**
 
 ```brew cleanup --prune=[30]```
 
-**Remove all cached downloads**
+**移除所有缓存的下载文件**
 
 ```brew cleanup --prune=all```
 
-**Scrub cache including latest versions**
+**深度清理缓存**（含最新版本的下载）
 
 ```brew cleanup -s```
 
-**Delete entire cache**
+**删除整个缓存目录**
 
 ```rm -rf "$(brew --cache)"```
 
@@ -38,49 +38,49 @@ Remove outdated downloads and old package versions
 
 # DESCRIPTION
 
-**brew cleanup** removes stale lock files and outdated downloads for formulae and casks, and removes old versions of installed formulae. It cleans the Cellar and the download cache, freeing disk space.
+**brew cleanup** 移除失效的锁文件、formula 和 cask 的过期下载，以及已安装 formula 的旧版本。它会清理 Cellar 和下载缓存，释放磁盘空间。
 
-By default, downloads older than 120 days are removed. This threshold can be changed with HOMEBREW_CLEANUP_MAX_AGE_DAYS.
+默认情况下，超过 120 天的下载文件会被移除。该阈值可通过 HOMEBREW_CLEANUP_MAX_AGE_DAYS 更改。
 
-Homebrew automatically performs cleanup after upgrades and periodically every 30 days unless HOMEBREW_NO_INSTALL_CLEANUP is set.
+除非设置了 HOMEBREW_NO_INSTALL_CLEANUP，否则 Homebrew 会在升级后以及每 30 天自动执行一次清理。
 
 # PARAMETERS
 
 **--dry-run, -n**
-> Show what would be removed without removing
+> 显示将被移除的内容，但不实际移除。
 
 **--prune** _days_
-> Remove all cache files older than specified days. Use --prune=all to remove everything
+> 移除超过指定天数的所有缓存文件。使用 --prune=all 移除全部内容。
 
 **-s, --scrub**
-> Scrub the cache, including downloads for even the latest versions
+> 深度清理缓存，包括最新版本的下载文件。
 
 **--prune-prefix**
-> Only prune the symlinks and directories from the prefix, removing no other files
+> 只修剪 prefix 中的符号链接和目录，不移除其他文件。
 
 **--formula**
-> Treat all arguments as formulae
+> 将所有参数视为 formula。
 
 **--cask**
-> Treat all arguments as casks
+> 将所有参数视为 cask。
 
 # CACHE LOCATION
 
-Default cache location: **~/Library/Caches/Homebrew** (macOS)
+默认缓存位置：**~/Library/Caches/Homebrew**（macOS）。
 
-View cache path: **brew --cache**
+查看缓存路径：**brew --cache**。
 
 # RELATED COMMANDS
 
 **brew autoremove**
-> Remove unused dependencies
+> 移除不再使用的依赖。
 
 **brew upgrade**
-> Should be followed by cleanup
+> 升级后应执行 cleanup。
 
 # CAVEATS
 
-Old versions are automatically removed during **brew upgrade**. The -s flag removes even current version downloads which may need re-downloading later. Running without arguments cleans all installed packages.
+旧版本会在 **brew upgrade** 过程中自动移除。-s 标志连当前版本的下载文件也会清除，之后可能需要重新下载。不带参数运行时会清理所有已安装软件包。
 
 # SEE ALSO
 

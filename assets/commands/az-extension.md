@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure CLI extensions
+管理 Azure CLI 扩展
 
 # TLDR
 
-**List installed extensions**
+**列出已安装的扩展**
 
 ```az extension list```
 
-**List available extensions**
+**列出可用的扩展**
 
 ```az extension list-available```
 
-**Install an extension** by name
+按名称**安装扩展**
 
 ```az extension add --name [extension_name]```
 
-**Install a specific version** of an extension
+**安装扩展的特定版本**
 
 ```az extension add --name [extension_name] --version [1.2.3]```
 
-**Update an extension**
+**更新扩展**
 
 ```az extension update --name [extension_name]```
 
-**Remove an extension**
+**移除扩展**
 
 ```az extension remove --name [extension_name]```
 
-**Install from a local wheel file**
+**从本地 wheel 文件安装**
 
 ```az extension add --source [path/to/extension.whl]```
 
-**Show extension details**
+**显示扩展详情**
 
 ```az extension show --name [extension_name]```
 
@@ -42,69 +42,69 @@ Manage Azure CLI extensions
 
 # DESCRIPTION
 
-**az extension** is a subcommand of the Azure CLI that manages CLI extensions. Extensions add new command groups and capabilities to the Azure CLI without updating the core installation.
+**az extension** 是 Azure CLI 的一个子命令，用于管理 CLI 扩展。扩展为 Azure CLI 添加新的命令组和功能，而无需更新核心安装。
 
-Extensions are Python packages distributed as wheel files. They can be installed from the official Azure extension index, URLs, or local files. Some Azure services require extensions before their commands are available.
+扩展是以 wheel 文件形式分发的 Python 软件包。可以从官方 Azure 扩展索引、URL 或本地文件安装。某些 Azure 服务需要先安装对应扩展才能使用其命令。
 
-Extensions are installed per-user and can have different versions than what is bundled with the CLI. Dynamic installation can be enabled to automatically prompt for extension installation when using unavailable commands.
+扩展按用户安装，其版本可以不同于 CLI 自带的版本。可以启用动态安装功能，在使用不可用命令时自动提示安装相应扩展。
 
 # PARAMETERS
 
 **list**
-> Show currently installed extensions.
+> 显示当前已安装的扩展。
 
 **list-available**
-> Show extensions available for installation.
+> 显示可安装的扩展。
 
 **add**
-> Install an extension.
+> 安装扩展。
 
 **update**
-> Update an extension to latest version.
+> 将扩展更新到最新版本。
 
 **remove**
-> Uninstall an extension.
+> 卸载扩展。
 
 **show**
-> Display details about an installed extension.
+> 显示已安装扩展的详情。
 
 **list-versions**
-> List available versions of an extension.
+> 列出扩展的可用版本。
 
 **--name** _name_
-> Extension name.
+> 扩展名称。
 
 **--source** _path_
-> Path or URL to wheel file.
+> wheel 文件的路径或 URL。
 
 **--version** _version_
-> Specific version to install.
+> 要安装的特定版本。
 
 **--yes**
-> Do not prompt for confirmation.
+> 不提示确认。
 
 **--upgrade**
-> Update if already installed.
+> 若已安装则更新。
 
 **--allow-preview** _{false, true}_
-> Include preview packages for installation, if they exist.
+> 若存在预览包则将其纳入安装范围。
 
 **--system**
-> Install into a system directory shared by all users instead of the per-user directory.
+> 安装到所有用户共享的系统目录而非每用户目录。
 
 **--pip-extra-index-urls** _urls_
-> Space-separated extra package index URLs (PEP 503 compliant).
+> 额外的软件包索引 URL，空格分隔（符合 PEP 503）。
 
 **--pip-proxy** _proxy_
-> Proxy for pip to use for extension dependencies, as [user:passwd@]proxy.server:port.
+> pip 为扩展依赖使用的代理，格式为 [user:passwd@]proxy.server:port。
 
 # CAVEATS
 
-Extensions may have version compatibility requirements with the Azure CLI. Updating the CLI may require updating extensions. Some extensions are in preview and may have breaking changes. Extensions installed from third-party sources should be verified for security. Installing from source requires the wheel to match Python version.
+扩展可能对 Azure CLI 有版本兼容性要求。升级 CLI 可能需要同时更新扩展。某些扩展处于预览阶段，可能有破坏性变更。从第三方来源安装的扩展应经过安全验证。从本地源安装时要求 wheel 与 Python 版本匹配。
 
 # HISTORY
 
-The Azure CLI extension system was introduced with **Azure CLI 2.0** in **2017** to enable modular functionality without bloating the core installation. The extension index has grown to include hundreds of extensions covering preview services, experimental features, and partner integrations. **Dynamic install** was added to automatically suggest extensions when commands are not found.
+Azure CLI 扩展系统随 **2017** 年的 **Azure CLI 2.0** 推出，旨在提供模块化功能而不让核心安装变得臃肿。扩展索引已增长到包含数百个扩展，涵盖预览服务、实验性功能和合作伙伴集成。**动态安装**功能可在找不到命令时自动建议相应扩展。
 
 # INSTALL
 

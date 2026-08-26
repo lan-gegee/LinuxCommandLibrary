@@ -1,30 +1,30 @@
 # TAGLINE
 
-Unix shell and command language interpreter
+Unix Shell 与命令语言解释器
 
 # TLDR
 
-**Run** script
+**运行**脚本
 
 ```bash [script.sh]```
 
-**Execute** command
+**执行**命令
 
 ```bash -c ["echo hello"]```
 
-**Interactive** login shell
+**交互式**登录 Shell
 
 ```bash -l```
 
-**Read** from stdin
+从标准输入**读取**
 
 ```echo "ls -la" | bash```
 
-**Debug** script
+**调试**脚本
 
 ```bash -x [script.sh]```
 
-Check **syntax** only
+仅检查**语法**
 
 ```bash -n [script.sh]```
 
@@ -34,64 +34,64 @@ Check **syntax** only
 
 # DESCRIPTION
 
-**bash** (Bourne Again SHell) is a Unix shell and command language interpreter. It's the default shell on most Linux distributions and macOS, providing command execution, scripting, job control, and extensive programming features.
+**bash**（Bourne Again SHell）是 Unix Shell 和命令语言解释器。它是大多数 Linux 发行版和 macOS 的默认 Shell，提供命令执行、脚本编写、作业控制以及丰富的编程特性。
 
-Bash is backward-compatible with the original Bourne shell (sh) while adding numerous improvements and modern features.
+Bash 向后兼容最初的 Bourne shell (sh)，同时增加了大量改进和现代功能。
 
 # PARAMETERS
 
 **-c** _string_
-> Execute command from string
+> 从字符串执行命令
 
 **-l**, **--login**
-> Login shell (sources profile files)
+> 登录 Shell（读取 profile 文件）
 
 **-i**
-> Interactive mode
+> 交互模式
 
 **-x**
-> Print commands before execution (debug mode)
+> 执行前打印命令（调试模式）
 
 **-n**
-> Syntax check only (no execution)
+> 仅检查语法（不执行）
 
 **-e**
-> Exit on first error
+> 首个错误即退出
 
 **-u**
-> Error on undefined variables
+> 未定义变量时报错
 
 **-v**
-> Verbose mode (print input lines)
+> 详细输出模式（打印输入行）
 
 **--noprofile**
-> Don't read profile files
+> 不读取 profile 文件
 
 **--norc**
-> Don't read ~/.bashrc
+> 不读取 ~/.bashrc
 
 **--posix**
-> Behave according to POSIX standard
+> 按 POSIX 标准行为运作
 
 **-r**, **--restricted**
-> Start a restricted shell
+> 启动受限 Shell
 
 **--version**
-> Display bash version
+> 显示 bash 版本
 
 # FEATURES
 
-- Command history (readline)
-- Tab completion
-- Job control (fg, bg, jobs)
-- Arithmetic evaluation
-- Arrays and associative arrays
-- Functions
-- Pattern matching and globbing
-- Process substitution
-- Here documents
-- Conditional execution
-- Loops and flow control
+- 命令历史（readline）
+- Tab 补全
+- 作业控制（fg、bg、jobs）
+- 算术求值
+- 数组与关联数组
+- 函数
+- 模式匹配与通配符展开
+- 进程替换
+- Here 文档
+- 条件执行
+- 循环与流程控制
 
 # STARTUP FILES
 
@@ -106,38 +106,38 @@ Bash is backward-compatible with the original Bourne shell (sh) while adding num
 
 # SPECIAL VARIABLES
 
-**$0** - Script name
-**$1, $2, ...** - Positional parameters
-**$@** - All parameters
-**$#** - Parameter count
-**$?** - Exit status of last command
-**$$** - Process ID
-**$!** - PID of last background job
+**$0** - 脚本名称
+**$1, $2, ...** - 位置参数
+**$@** - 所有参数
+**$#** - 参数个数
+**$?** - 上一个命令的退出状态
+**$$** - 进程 ID
+**$!** - 最后一个后台作业的 PID
 
 # CONFIGURATION
 
 **~/.bashrc**
-> Per-user configuration for interactive non-login shells. Aliases, functions, prompt customization.
+> 面向交互式非登录 Shell 的每用户配置。别名、函数、提示符定制。
 
 **~/.bash_profile**
-> Per-user configuration for login shells. Typically sources ~/.bashrc.
+> 面向登录 Shell 的每用户配置。通常会 source ~/.bashrc。
 
 **~/.bash_logout**
-> Executed when a login shell exits.
+> 登录 Shell 退出时执行。
 
 **/etc/bash.bashrc**
-> System-wide configuration for interactive shells.
+> 面向交互式 Shell 的系统级配置。
 
 **/etc/profile**
-> System-wide configuration for login shells.
+> 面向登录 Shell 的系统级配置。
 
 # CAVEATS
 
-Bash-specific features not portable to POSIX sh. Scripts should use `#!/bin/bash` not `#!/bin/sh`. Unquoted variables can cause word splitting. Use `shellcheck` to validate scripts.
+Bash 特有功能无法移植到 POSIX sh。脚本应使用 `#!/bin/bash` 而不是 `#!/bin/sh`。未加引号的变量可能导致分词问题。建议用 `shellcheck` 校验脚本。
 
 # HISTORY
 
-**Bash** was created by Brian Fox for the GNU Project in **1989** as a free replacement for the Bourne shell, first released as version 0.99. Version 5.0 was released in **2019**.
+**Bash** 由 Brian Fox 为 GNU 项目于 **1989** 年创建，作为 Bourne shell 的自由替代品，首个发布版本为 0.99。5.0 版于 **2019** 年发布。
 
 # INSTALL
 

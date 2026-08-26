@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display a calendar in the terminal
+在终端中显示日历
 
 # TLDR
 
-Display calendar for the **current month**
+显示**当前月份**的日历
 
 ```cal```
 
-Display **3 months** spanning the current date
+显示跨越当前日期的 **3 个月**
 
 ```cal -3```
 
-Display the **whole year**
+显示**整年**日历
 
 ```cal -y```
 
-Display the **next twelve months**
+显示**接下来的 12 个月**
 
 ```cal -Y```
 
-Use **Monday** as the first day of the week
+以**周一**作为每周第一天
 
 ```cal -m```
 
-Display a calendar for a **specific year**
+显示**指定年份**的日历
 
 ```cal [year]```
 
-Display a calendar for a **specific month and year**
+显示**指定月份和年份**的日历
 
 ```cal [month] [year]```
 
@@ -38,32 +38,32 @@ Display a calendar for a **specific month and year**
 
 # DESCRIPTION
 
-**cal** displays a calendar in the terminal with the current day highlighted. It can show single months, multiple months, or entire years.
+**cal** 在终端中显示日历，并高亮当天。它可以显示单个月、多个月或整年。
 
-By default, Sunday is shown as the first day of the week. Use **-m** to start weeks on Monday.
+默认以周日作为每周第一天。使用 **-m** 可改为以周一开始。
 
 # PARAMETERS
 
 **-3, --three**
-> Display previous, current, and next month
+> 显示上个月、当前月和下个月
 
 **-y, --year**
-> Display calendar for the current year
+> 显示当前年份的日历
 
 **-Y, --twelve**
-> Display the next twelve months
+> 显示接下来的 12 个月
 
 **-m, --monday**
-> Use Monday as the first day of the week
+> 以周一作为每周第一天
 
 **-s, --sunday**
-> Use Sunday as the first day of the week (default)
+> 以周日作为每周第一天（默认）
 
 **-j, --julian**
-> Display Julian days (day of year)
+> 显示儒略日（一年中的第几天）
 
 **-n** _num_
-> Display _num_ months starting from current
+> 从当前月开始显示 _num_ 个月的日历
 
 # INSTALL
 

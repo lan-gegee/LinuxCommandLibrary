@@ -1,18 +1,18 @@
 # TAGLINE
 
-Read and modify package.json fields
+读取和修改 package.json 字段
 
 # TLDR
 
-**Get a package.json field**
+**获取 package.json 字段**
 
 ```bun pm pkg get [field]```
 
-**Set a package.json field**
+**设置 package.json 字段**
 
 ```bun pm pkg set [field]=[value]```
 
-**Delete a package.json field**
+**删除 package.json 字段**
 
 ```bun pm pkg delete [field]```
 
@@ -23,17 +23,17 @@ Read and modify package.json fields
 # SUBCOMMANDS
 
 **get** _field_
-> Get the value of a package.json field.
+> 获取 package.json 字段的值。
 
 **set** _field=value_
-> Set a package.json field.
+> 设置 package.json 字段。
 
 **delete** _field_
-> Delete a package.json field.
+> 删除 package.json 字段。
 
 # DESCRIPTION
 
-**bun pm pkg** provides commands to read and modify package.json fields programmatically. This is useful for scripting and automation.
+**bun pm pkg** 提供以编程方式读取和修改 package.json 字段的命令。这对脚本编写和自动化很有用。
 
 # INSTALL
 

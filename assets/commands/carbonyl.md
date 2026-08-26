@@ -1,22 +1,22 @@
 # TAGLINE
 
-Chromium-based browser for the terminal
+基于 Chromium 的终端浏览器
 
 # TLDR
 
-**Open a URL**
+**打开一个 URL**
 
 ```carbonyl [https://example.com]```
 
-**Run inside Docker** without a local install
+**无需本地安装，在 Docker 中运行**
 
 ```docker run --rm -ti fathyb/carbonyl [https://youtube.com]```
 
-**Install globally via npm**
+**通过 npm 全局安装**
 
 ```npm install --global carbonyl```
 
-**Quit** the running browser
+**退出**正在运行的浏览器
 
 ```press [q]```
 
@@ -26,17 +26,17 @@ Chromium-based browser for the terminal
 
 # DESCRIPTION
 
-**carbonyl** is a Chromium-based browser that runs entirely in the terminal. It is a fork of Chromium whose rendering pipeline has been rerouted to output Unicode block characters and ANSI color escapes instead of pushing pixels to a window server. This lets it run audio, video, WebGL, WebGPU, JavaScript, and animations at 60 FPS over an SSH session or in a kiosk-mode console where no graphical display is available.
+**carbonyl** 是一款完全运行在终端中的基于 Chromium 的浏览器。它是 Chromium 的一个分支，其渲染管线被改造为输出 Unicode 方块字符和 ANSI 颜色转义序列，而不是把像素推送到窗口服务器。这使它能够通过 SSH 会话或在无图形显示的 kiosk 模式控制台中，以 60 FPS 运行音频、视频、WebGL、WebGPU、JavaScript 和动画。
 
-Unlike traditional text browsers (lynx, w3m, elinks), carbonyl renders the full DOM and CSS just as Chromium would, so layouts behave the same as on a desktop browser. Each terminal cell encodes two stacked pixels using U+2584 (lower half block) with foreground and background colors, giving an effective resolution of (columns x 2) by (rows x 2) pixels.
+与传统文本浏览器（lynx、w3m、elinks）不同，carbonyl 会像 Chromium 一样完整渲染 DOM 和 CSS，因此页面布局的表现与桌面浏览器一致。每个终端单元格使用 U+2584（下半方块）配合前景色和背景色编码两个上下堆叠的像素，从而实现（列数 x 2）乘以（行数 x 2）像素的有效分辨率。
 
 # CAVEATS
 
-Does not yet support browser extensions or downloading files directly. Ad blocking and password management must be handled by external proxies or a side-channel browser. CPU usage scales with FPS and page complexity; pages with constant animations will keep the terminal busy redrawing.
+尚不支持浏览器扩展或直接下载文件。广告拦截和密码管理需借助外部代理或其他浏览器完成。CPU 占用随 FPS 和页面复杂度而变化；包含持续动画的页面会让终端不断重绘而持续忙碌。
 
 # HISTORY
 
-**carbonyl** was released by **Fathy Boundjadj** in **2022** as an experimental Chromium fork. It generated wide interest as a proof of concept for running modern web applications, including videos and games, in a terminal emulator.
+**carbonyl** 由 **Fathy Boundjadj** 于 **2022 年**发布，是一个实验性的 Chromium 分支。作为在终端模拟器中运行现代 Web 应用（包括视频和游戏）的概念验证，它引起了广泛关注。
 
 # INSTALL
 

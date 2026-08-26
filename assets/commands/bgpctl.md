@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control and query the OpenBGPD routing daemon
+控制和查询 OpenBGPD 路由守护进程
 
 # TLDR
 
-**Show BGP summary** (neighbor status)
+**显示 BGP 摘要**（邻居状态）
 
 ```bgpctl show summary```
 
-**Show all BGP neighbors**
+**显示所有 BGP 邻居**
 
 ```bgpctl show neighbor```
 
-**Show RIB** (Routing Information Base)
+**显示 RIB**（路由信息库）
 
 ```bgpctl show rib```
 
-**Show routes from a specific neighbor**
+**显示来自指定邻居的路由**
 
 ```bgpctl show rib neighbor [192.168.1.1]```
 
-**Show routes for a specific prefix**
+**显示指定前缀的路由**
 
 ```bgpctl show rib [10.0.0.0/8]```
 
-**Soft reset a neighbor** session
+**软重置邻居**会话
 
 ```bgpctl neighbor [192.168.1.1] refresh```
 
-**Clear a neighbor** session
+**清除邻居**会话
 
 ```bgpctl neighbor [192.168.1.1] clear```
 
-**Show BGP network statements**
+**显示 BGP network 声明**
 
 ```bgpctl show network```
 
@@ -42,60 +42,60 @@ Control and query the OpenBGPD routing daemon
 
 # DESCRIPTION
 
-**bgpctl** is the control program for OpenBGPD, an implementation of the Border Gateway Protocol version 4. It communicates with the running bgpd daemon to display routing information and control BGP sessions.
+**bgpctl** 是 OpenBGPD（边界网关协议版本 4 的一个实现）的控制程序。它与运行中的 bgpd 守护进程通信，以显示路由信息并控制 BGP 会话。
 
-The command provides visibility into the BGP Routing Information Base (RIB), neighbor session states, and allows administrative actions like resetting sessions or injecting routes. It connects to bgpd via a Unix socket.
+该命令可查看 BGP 路由信息库（RIB）、邻居会话状态，并允许执行管理操作，如重置会话或注入路由。它通过 Unix 套接字连接到 bgpd。
 
-bgpctl is part of the OpenBGPD project, which originated in OpenBSD and has been ported to other operating systems.
+bgpctl 是 OpenBGPD 项目的一部分，该项目起源于 OpenBSD，已被移植到其他操作系统。
 
 # PARAMETERS
 
 **show summary**
-> Display neighbor status overview.
+> 显示邻居状态概览。
 
 **show neighbor** [_peer_]
-> Show detailed neighbor information.
+> 显示详细的邻居信息。
 
 **show rib** [_options_]
-> Display routing information base.
+> 显示路由信息库。
 
 **show network**
-> Show configured network statements.
+> 显示已配置的 network 声明。
 
 **show fib** [_options_]
-> Show forwarding information base.
+> 显示转发信息库。
 
 **neighbor** _peer_ **up**
-> Bring up a neighbor session.
+> 启动邻居会话。
 
 **neighbor** _peer_ **down**
-> Bring down a neighbor session.
+> 关闭邻居会话。
 
 **neighbor** _peer_ **clear**
-> Clear and reset a session.
+> 清除并重置会话。
 
 **neighbor** _peer_ **refresh**
-> Request route refresh.
+> 请求路由刷新。
 
 **network add** _prefix_
-> Add a network to advertise.
+> 添加要通告的网络。
 
 **network delete** _prefix_
-> Remove a network advertisement.
+> 移除网络通告。
 
 **-n**
-> Show IP addresses instead of names.
+> 显示 IP 地址而不是名称。
 
 **-s** _socket_
-> Connect to alternate control socket.
+> 连接到备用的控制套接字。
 
 # CAVEATS
 
-Requires appropriate permissions to access bgpd control socket. Some commands may disrupt BGP sessions and cause routing changes. The clear command tears down the TCP session while refresh performs a soft reset. Route changes may take time to propagate through the network.
+需要适当的权限才能访问 bgpd 控制套接字。某些命令可能中断 BGP 会话并导致路由变化。clear 命令会拆除 TCP 会话，而 refresh 执行的是软重置。路由变化可能需要时间才能在整个网络中传播。
 
 # HISTORY
 
-**bgpctl** is part of **OpenBGPD**, which was developed by Henning Brauer and Claudio Jeker for **OpenBSD** starting in **2003**. It was designed as a clean, secure implementation of BGP after concerns about other implementations. The portable version for Linux and other systems has been available since **2016**. OpenBGPD is known for its simplicity and security focus.
+**bgpctl** 是 **OpenBGPD** 的一部分，后者由 Henning Brauer 和 Claudio Jeker 自 **2003 年**起为 **OpenBSD** 开发。在对其他 BGP 实现的安全性产生担忧之后，它被设计为一个干净、安全的 BGP 实现。面向 Linux 和其他系统的可移植版本自 **2016 年**起可用。OpenBGPD 以简洁和对安全的专注而闻名。
 
 # INSTALL
 

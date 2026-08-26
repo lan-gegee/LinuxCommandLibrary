@@ -1,14 +1,14 @@
 # TAGLINE
 
-List installed packages
+列出已安装的软件包
 
 # TLDR
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```bun pm ls```
 
-**List all packages** including nested dependencies
+**列出所有软件包**包括嵌套的依赖
 
 ```bun pm ls --all```
 
@@ -19,13 +19,13 @@ List installed packages
 # PARAMETERS
 
 **--all**
-> Show all dependencies including nested.
+> 显示所有依赖，包括嵌套依赖。
 
 # DESCRIPTION
 
-**bun pm ls** lists packages installed in the current project. By default it shows top-level dependencies. Use **--all** to display the full dependency tree including transitive dependencies.
+**bun pm ls** 列出当前项目中安装的软件包。默认显示顶层依赖。使用 **--all** 可显示完整的依赖树，包括传递依赖。
 
-This command is equivalent to **bun list**.
+此命令等同于 **bun list**。
 
 # INSTALL
 

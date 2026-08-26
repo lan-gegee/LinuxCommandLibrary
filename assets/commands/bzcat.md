@@ -1,18 +1,18 @@
 # TAGLINE
 
-Decompress bzip2 files to standard output
+将 bzip2 文件解压到标准输出
 
 # TLDR
 
-**View** compressed file
+**查看**压缩文件
 
 ```bzcat [file.txt.bz2]```
 
-**View** multiple files
+**查看**多个文件
 
 ```bzcat [file1.bz2] [file2.bz2]```
 
-**Pipe** to less
+通过管道输出到 **less**
 
 ```bzcat [file.txt.bz2] | less```
 
@@ -22,9 +22,9 @@ Decompress bzip2 files to standard output
 
 # DESCRIPTION
 
-**bzcat** decompresses bzip2 files to standard output without modifying the original compressed file. It's equivalent to `bzip2 -dc` and useful for viewing or piping compressed content.
+**bzcat** 将 bzip2 文件解压到标准输出，而不修改原始压缩文件。它等同于 `bzip2 -dc`，适用于查看或以管道方式处理压缩内容。
 
-The tool allows working with compressed files without extracting them to disk.
+该工具让你无需先将压缩文件解压到磁盘即可对其进行操作。
 
 # WORKFLOW
 
@@ -47,18 +47,18 @@ bzcat data.txt.bz2 | wc -l
 
 # FEATURES
 
-- Preserves original compressed file
-- Streams output (low memory)
-- Supports multiple files
-- Pipeline-friendly
+- 保留原始压缩文件
+- 流式输出（内存占用低）
+- 支持多个文件
+- 对管道友好
 
 # CAVEATS
 
-Output is always to stdout. No options for compression level. For viewing only, consider bzless. Cannot handle corrupted files.
+输出总是发送到 stdout。没有压缩级别选项。仅查看时可考虑 bzless。无法处理损坏的文件。
 
 # HISTORY
 
-**bzcat** has been part of the bzip2 suite since its creation in **1996**.
+自 bzip2 于 **1996 年**创建起，**bzcat** 就一直是 bzip2 工具集的一部分。
 
 # INSTALL
 

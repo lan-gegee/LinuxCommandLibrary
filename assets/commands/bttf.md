@@ -1,18 +1,18 @@
 # TAGLINE
 
-Date/time arithmetic, parsing, and formatting CLI
+日期/时间运算、解析与格式化 CLI
 
 # TLDR
 
-**Show** current time helpers / default output
+**显示**当前时间辅助信息 / 默认输出
 
 ```bttf```
 
-**Get help** for subcommands
+**获取子命令帮助**
 
 ```bttf --help```
 
-**Subcommand help**
+**子命令的帮助**
 
 ```bttf [command] --help```
 
@@ -22,15 +22,15 @@ Date/time arithmetic, parsing, and formatting CLI
 
 # DESCRIPTION
 
-**bttf** (formerly **biff**) is BurntSushi’s command-line toolkit for datetime parsing, formatting, arithmetic, and timezone-aware calculations. Designed as a script-friendly companion when **date** alone is awkward. See the upstream user guide for locale configuration tips.
+**bttf**（前身为 **biff**）是 BurntSushi 的命令行工具集，用于 datetime 解析、格式化、算术运算以及带时区的计算。当单用 **date** 不够顺手时，它是一个对脚本友好的补充。locale 配置技巧参见上游用户指南。
 
 # PARAMETERS
 
-Commands cover parse/format/add/duration-style operations—the surface is intentionally broad. Use **bttf --help** and per-subcommand help as the source of truth for your version.
+命令涵盖 parse/format/add/duration 类操作——功能面有意做得较宽。请以 **bttf --help** 和各子命令的帮助信息作为你所用版本的权威参考。
 
 # CAVEATS
 
-Locale support may need explicit configuration for some environments. Previously named **biff**; update scripts after the rename.
+在某些环境中可能需要显式配置 locale 支持。此工具曾名为 **biff**；重命名后请更新脚本。
 
 # INSTALL
 

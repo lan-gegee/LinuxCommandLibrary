@@ -1,30 +1,30 @@
 # TAGLINE
 
-Framework for managing Bash plugins, aliases, and themes.
+管理 Bash 插件、别名和主题的框架。
 
 # TLDR
 
-**Enable** plugin
+**启用**插件
 
 ```bash-it enable plugin [git]```
 
-**Disable** plugin
+**禁用**插件
 
 ```bash-it disable plugin [git]```
 
-**Enable** alias
+**启用**别名
 
 ```bash-it enable alias [git]```
 
-**Show** available plugins
+**显示**可用插件
 
 ```bash-it show plugins```
 
-**Search** for component
+**搜索**组件
 
 ```bash-it search [docker]```
 
-**Update** Bash-it
+**更新** Bash-it
 
 ```bash-it update```
 
@@ -34,64 +34,64 @@ Framework for managing Bash plugins, aliases, and themes.
 
 # DESCRIPTION
 
-**bash-it** is a collection of community bash commands and scripts for bash 3.2+. It provides a framework for managing bash aliases, completions, plugins, and themes, similar to oh-my-zsh but for bash.
+**bash-it** 是面向 bash 3.2+ 的社区 Bash 命令与脚本合集。它提供管理 Bash 别名、补全、插件和主题的框架，类似于 oh-my-zsh，但面向 bash。
 
-The tool helps organize and enable/disable bash customizations modularly.
+该工具帮助以模块化方式组织并启用/禁用各种 bash 定制。
 
 # PARAMETERS
 
 **enable** _type_ _name_
-> Enable alias, plugin, or completion
+> 启用别名、插件或补全
 
 **disable** _type_ _name_
-> Disable alias, plugin, or completion
+> 禁用别名、插件或补全
 
 **show** _type_
-> Show available or enabled items
+> 显示可用或已启用的条目
 
 **search** _term_
-> Search for components
+> 搜索组件
 
 **update**
-> Update Bash-it framework
+> 更新 Bash-it 框架
 
 **reload**
-> Reload bash profile.
+> 重新加载 bash 配置。
 
 **doctor**
-> Run diagnostics.
+> 运行诊断。
 
 **help** _type_
-> Show help for installed aliases, plugins, or completions.
+> 显示已安装别名、插件或补全的帮助。
 
 **migrate**
-> Migrate Bash-it structure to the latest version.
+> 将 Bash-it 结构迁移到最新版。
 
 **profile**
-> Manage Bash-it profiles.
+> 管理 Bash-it profile。
 
 # COMPONENT TYPES
 
 **aliases**
-> Command shortcuts
+> 命令快捷方式
 
 **plugins**
-> Additional functionality
+> 额外功能
 
 **completions**
-> Tab completion scripts
+> Tab 补全脚本
 
 **themes**
-> Prompt themes
+> 提示符主题
 
 # FEATURES
 
-- Modular plugin system
-- Theme support
-- Git integration
-- Auto-completion
-- Aliases for common commands
-- Easy enable/disable
+- 模块化插件系统
+- 主题支持
+- Git 集成
+- 自动补全
+- 常用命令的别名
+- 轻松启用/禁用
 
 # WORKFLOW
 
@@ -113,21 +113,21 @@ bash-it update
 # CONFIGURATION
 
 **~/.bash_it/**
-> Main Bash-it installation directory containing all plugins, aliases, completions, and themes.
+> Bash-it 主安装目录，包含所有插件、别名、补全和主题。
 
 **~/.bash_it/custom/**
-> User custom scripts, aliases, and plugins loaded automatically.
+> 用户自定义脚本、别名和插件，会自动加载。
 
 **~/.bashrc**
-> Must source the Bash-it loader script to activate the framework.
+> 必须 source Bash-it 的加载脚本才能激活框架。
 
 # CAVEATS
 
-Requires manual installation and configuration. Can slow shell startup if too many plugins enabled. May conflict with existing bash configuration. Plugins quality varies.
+需要手动安装和配置。启用的插件过多可能拖慢 Shell 启动。可能与现有 bash 配置冲突。插件质量参差不齐。
 
 # HISTORY
 
-**Bash-it** was created by Bobby Brito around **2010** as a bash equivalent to oh-my-zsh, providing modular bash customization.
+**Bash-it** 由 Bobby Brito 于 **2010** 年前后创建，作为 oh-my-zsh 的 bash 对应品，提供模块化的 bash 定制能力。
 
 # SEE ALSO
 

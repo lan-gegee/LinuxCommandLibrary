@@ -1,38 +1,38 @@
 # TAGLINE
 
-Graphical interface for Bitcoin Core
+Bitcoin Core 的图形界面
 
 # TLDR
 
-**Start Bitcoin Core** with graphical interface
+**启动 Bitcoin Core** 图形界面
 
 ```bitcoin-qt```
 
-**Start on testnet**
+**在测试网上启动**
 
 ```bitcoin-qt -testnet```
 
-**Start with specific data directory**
+**以指定的数据目录启动**
 
 ```bitcoin-qt -datadir=[/path/to/data]```
 
-**Start with limited connections**
+**限制连接数启动**
 
 ```bitcoin-qt -maxconnections=[8]```
 
-**Start in prune mode** to save disk space
+**以修剪模式启动**以节省磁盘空间
 
 ```bitcoin-qt -prune=[550]```
 
-**Start minimized** to system tray
+**最小化启动**到系统托盘
 
 ```bitcoin-qt -min```
 
-**Start without splash screen**
+**不显示启动画面**
 
 ```bitcoin-qt -splash=0```
 
-**Reset GUI settings**
+**重置 GUI 设置**
 
 ```bitcoin-qt -resetguisettings```
 
@@ -42,74 +42,74 @@ Graphical interface for Bitcoin Core
 
 # DESCRIPTION
 
-**bitcoin-qt** is the graphical user interface for Bitcoin Core, the reference implementation of the Bitcoin protocol. It provides a full Bitcoin node with wallet functionality and a user-friendly interface for sending, receiving, and managing Bitcoin.
+**bitcoin-qt** 是 Bitcoin Core（比特币协议的参考实现）的图形用户界面。它提供一个带钱包功能的完整比特币节点，以及用于发送、接收和管理比特币的友好界面。
 
-Running bitcoin-qt downloads and verifies the entire Bitcoin blockchain (several hundred gigabytes). It connects to the Bitcoin peer-to-peer network, validates transactions and blocks, and relays them to other nodes.
+运行 bitcoin-qt 会下载并验证整个比特币区块链（数百 GB）。它连接到比特币点对点网络，验证交易和区块，并将其转发给其他节点。
 
-The wallet features include address generation, transaction history, coin control, and fee estimation. It supports multiple wallets, watch-only addresses, and hardware wallet integration.
+钱包功能包括地址生成、交易历史、币种控制（coin control）和手续费估算。它支持多钱包、只读监视地址和硬件钱包集成。
 
 # PARAMETERS
 
 **-datadir=** _path_
-> Specify data directory.
+> 指定数据目录。
 
 **-testnet**
-> Use the test network.
+> 使用测试网络。
 
 **-regtest**
-> Enter regression test mode.
+> 进入回归测试模式。
 
 **-prune=** _n_
-> Reduce storage by deleting old blocks (MB).
+> 通过删除旧区块减少存储占用（单位 MB）。
 
 **-maxconnections=** _n_
-> Limit peer connections.
+> 限制对等节点连接数。
 
 **-proxy=** _ip:port_
-> Connect through SOCKS5 proxy.
+> 通过 SOCKS5 代理连接。
 
 **-onion=** _ip:port_
-> Use separate proxy for Tor.
+> 为 Tor 使用单独的代理。
 
 **-listen**
-> Accept incoming connections.
+> 接受传入连接。
 
 **-server**
-> Accept JSON-RPC commands.
+> 接受 JSON-RPC 命令。
 
 **-rpcuser=** _user_
-> RPC username.
+> RPC 用户名。
 
 **-rpcpassword=** _pass_
-> RPC password.
+> RPC 密码。
 
 **-min**
-> Start minimized.
+> 最小化启动。
 
 **-splash=** _0|1_
-> Show splash screen on startup.
+> 启动时显示启动画面。
 
 **-resetguisettings**
-> Reset GUI settings to defaults.
+> 将 GUI 设置重置为默认值。
 
 **-choosedatadir**
-> Show data directory chooser on startup.
+> 启动时显示数据目录选择器。
 
 **-lang=** _lang_
-> Set interface language.
+> 设置界面语言。
 
 # CONFIGURATION
 
 **~/.bitcoin/bitcoin.conf**
-> Bitcoin Core configuration file for network, RPC, wallet, and GUI settings.
+> Bitcoin Core 配置文件，用于网络、RPC、钱包和 GUI 设置。
 
 # CAVEATS
 
-Initial blockchain sync takes hours to days depending on hardware and network. Full node requires 500+ GB disk space (or use pruning). High bandwidth usage during sync and operation. Wallet file (wallet.dat) should be backed up securely. Running on mainnet involves real money.
+初始区块链同步需要数小时至数天，取决于硬件和网络。完整节点需要 500+ GB 磁盘空间（或使用修剪模式）。同步和运行期间带宽占用较高。钱包文件（wallet.dat）应安全备份。在主网上运行涉及真实资金。
 
 # HISTORY
 
-**Bitcoin Core** was originally written by **Satoshi Nakamoto** and released in **January 2009** as the first Bitcoin implementation. The graphical interface (bitcoin-qt) was added later using the Qt framework. After Satoshi's departure, development continued under lead maintainers including Gavin Andresen, Wladimir van der Laan, and others. It remains the reference implementation that defines Bitcoin protocol rules.
+**Bitcoin Core** 最初由 **中本聪（Satoshi Nakamoto）** 编写，于 **2009 年 1 月**作为第一个比特币实现发布。图形界面（bitcoin-qt）后来使用 Qt 框架添加。中本聪离开后，开发由 Gavin Andresen、Wladimir van der Laan 等首席维护者接续进行。它至今仍是定义比特币协议规则的参考实现。
 
 # INSTALL
 

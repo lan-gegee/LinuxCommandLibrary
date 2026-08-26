@@ -124,17 +124,23 @@ def validate(path: str) -> list[str]:
         if o_lvls != n_lvls:
             errs.append(f"{path}: 标题层级结构被改动\n  原: {o_h}\n  新: {n_h}")
     else:
-        if [t for _, t in o_h] != [t for _, t in n_h]:
-            errs.append(f"{path}: section 标题被改动\n  原: {[t for _, t in o_h]}\n  新: {[t for _, t in n_h]}")
+        # man page: H1 序列必须逐字一致；H2+ 属于内容可译，但层级数量须一致
+        if [t for lv, t in o_h if lv == 1] != [t for lv, t in n_h if lv == 1]:
+            errs.append(f"{path}: H1 section 标题被改动\n  原: {[t for lv, t in o_h if lv==1]}\n  新: {[t for lv, t in n_h if lv==1]}")
+        elif [lv for lv, _ in o_h] != [lv for lv, _ in n_h]:
+            errs.append(f"{path}: 标题层级数量不一致")
 
-    # 2. 多行代码块数量与内容必须一致（允许歧义区域内散文被译为中文）
+    # 2. 多行代码块数量与内容必须一致（允许歧义区域内散文被译为中文；
+    #    两侧同为未闭合围栏时也逐行比较——部分上游文件本身即如此）
     ob, op, os_ = split_code_blocks(orig)
     nb, np_, ns_ = split_code_blocks(new)
-    if len(ob) != len(nb) or any(b is None for b in nb) or any(a is None for a in ob):
-        errs.append(f"{path}: 代码块数量或闭合不一致 原{len(ob)} 新{len(nb)}")
+    if len(ob) != len(nb):
+        errs.append(f"{path}: 代码块数量不一致 原{len(ob)} 新{len(nb)}")
+    elif any((a is None) != (b is None) for a, b in zip(ob, nb)):
+        errs.append(f"{path}: 代码块闭合状态不一致")
     else:
         for i, (a, b) in enumerate(zip(ob, nb)):
-            if not block_equivalent(normalize_code(a), normalize_code(b)):
+            if not block_equivalent(normalize_code(a or ""), normalize_code(b or "")):
                 errs.append(f"{path}: 第{i+1}个代码块内容被改动")
                 break
 

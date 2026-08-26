@@ -1,42 +1,42 @@
 # TAGLINE
 
-Query and set block device parameters
+查询和设置块设备参数
 
 # TLDR
 
-**Report** all devices
+**报告**所有设备
 
 ```sudo blockdev --report```
 
-Report **specific** device
+报告**特定**设备
 
 ```sudo blockdev --report /dev/sda1```
 
-Get **size** in sectors
+获取以扇区计的**大小**
 
 ```sudo blockdev --getsz /dev/sda1```
 
-Set **read-only**
+设置**只读**
 
 ```sudo blockdev --setro /dev/sda1```
 
-Set **read-write**
+设置**读写**
 
 ```sudo blockdev --setrw /dev/sda1```
 
-**Flush** buffers
+**刷新**缓冲区
 
 ```sudo blockdev --flushbufs /dev/sda1```
 
-Get **physical sector size**
+获取**物理扇区大小**
 
 ```sudo blockdev --getpbsz /dev/sda1```
 
-Set **read-ahead** in 512-byte sectors
+以 512 字节扇区为单位设置**预读**
 
 ```sudo blockdev --setra 128 /dev/sda1```
 
-**Reread** the partition table
+**重新读取**分区表
 
 ```sudo blockdev --rereadpt /dev/sda```
 
@@ -48,68 +48,68 @@ Set **read-ahead** in 512-byte sectors
 
 # DESCRIPTION
 
-**blockdev** queries and manipulates block device properties from the command line. It can report device sizes, set read-only/read-write modes, flush buffers, and configure performance parameters like read-ahead.
+**blockdev** 在命令行上查询和操作块设备的属性。它可以报告设备大小、设置只读/读写模式、刷新缓冲区，以及配置预读（read-ahead）等性能参数。
 
 # PARAMETERS
 
 **--report**
-> Print a report for specified devices or all devices
+> 打印指定设备或所有设备的报告
 
 **--getsz**
-> Get size in 512-byte sectors
+> 获取以 512 字节扇区计的大小
 
 **--getsize64**
-> Print device size in bytes
+> 以字节为单位打印设备大小
 
 **--getss**
-> Print logical sector size in bytes, usually 512
+> 打印逻辑扇区大小（字节），通常为 512
 
 **--getpbsz**
-> Get physical block (sector) size
+> 获取物理块（扇区）大小
 
 **--getbsz**
-> Print the blocksize in bytes (the value the kernel uses internally, file-descriptor specific)
+> 打印块大小（字节）（内核内部使用的值，与文件描述符相关）
 
 **--getiomin**
-> Get minimum I/O size
+> 获取最小 I/O 大小
 
 **--getioopt**
-> Get optimal I/O size
+> 获取最优 I/O 大小
 
 **--getro**
-> Get read-only state. Prints 1 if read-only, 0 otherwise
+> 获取只读状态。只读时打印 1，否则打印 0
 
 **--setro**
-> Set device to read-only
+> 将设备设为只读
 
 **--setrw**
-> Set device to read-write
+> 将设备设为读写
 
 **--flushbufs**
-> Flush buffers
+> 刷新缓冲区
 
 **--setra** _sectors_
-> Set read-ahead value in 512-byte sectors
+> 以 512 字节扇区为单位设置预读值
 
 **--getra**
-> Get current read-ahead value
+> 获取当前预读值
 
 **--rereadpt**
-> Reread the partition table
+> 重新读取分区表
 
 **-q**
-> Be quiet
+> 安静模式
 
 **-v**
-> Be verbose
+> 详细输出
 
 # CAVEATS
 
-Requires root privileges. Setting a device read-only while mounted may cause issues. Changes to read-ahead affect I/O performance and may not be beneficial for all workloads.
+需要 root 权限。对已挂载的设备设置只读可能引发问题。更改预读会影响 I/O 性能，并非对所有负载都有益。
 
 # HISTORY
 
-**blockdev** is part of the **util-linux** package, providing low-level block device management on Linux systems.
+**blockdev** 是 **util-linux** 软件包的一部分，在 Linux 系统上提供底层的块设备管理。
 
 # INSTALL
 

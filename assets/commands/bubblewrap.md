@@ -1,30 +1,30 @@
 # TAGLINE
 
-Unprivileged sandboxing using Linux namespaces
+基于 Linux 命名空间的无特权沙箱
 
 # TLDR
 
-**Run a command** in a minimal sandbox
+在最小沙箱中**运行命令**
 
 ```bwrap --ro-bind /usr /usr --symlink usr/lib64 /lib64 --proc /proc --dev /dev --unshare-pid [command]```
 
-**Create isolated home directory**
+**创建隔离的主目录**
 
 ```bwrap --ro-bind / / --bind [/tmp/fakehome] /home/user --unshare-all [command]```
 
-**Run with network isolation**
+**在网络隔离下运行**
 
 ```bwrap --ro-bind /usr /usr --unshare-net [command]```
 
-**Mount tmpfs** for temporary storage
+为临时存储**挂载 tmpfs**
 
 ```bwrap --ro-bind / / --tmpfs /tmp --unshare-all [command]```
 
-**Bind mount current directory** read-write
+以读写方式**绑定挂载当前目录**
 
 ```bwrap --ro-bind / / --bind $(pwd) $(pwd) --chdir $(pwd) [command]```
 
-**Run as fake root** (user namespace)
+**以伪 root 运行**（用户命名空间）
 
 ```bwrap --ro-bind / / --unshare-user --uid 0 --gid 0 [command]```
 
@@ -34,72 +34,72 @@ Unprivileged sandboxing using Linux namespaces
 
 # DESCRIPTION
 
-**bubblewrap** (bwrap) is an unprivileged sandboxing tool that uses Linux namespaces to create isolated environments. Unlike traditional containers, it can run without root privileges by using user namespaces.
+**bubblewrap**（bwrap）是一个无特权沙箱工具，使用 Linux 命名空间创建隔离环境。与传统容器不同，它可以借助用户命名空间在无 root 权限的情况下运行。
 
-The tool creates a new mount namespace with only explicitly specified bindings from the host. This allows fine-grained control over what the sandboxed process can access. It can also isolate network, PID, IPC, and user namespaces.
+该工具创建一个新的挂载命名空间，其中仅包含从主机显式指定的绑定挂载。这允许对沙箱内进程可访问的内容进行细粒度控制。它还可以隔离网络、PID、IPC 和用户命名空间。
 
-Bubblewrap is used as the foundation for Flatpak's sandboxing and can be used directly for custom application isolation. It focuses on security and minimalism.
+Bubblewrap 是 Flatpak 沙箱机制的基础，也可直接用于自定义的应用隔离。其设计注重安全与极简。
 
 # PARAMETERS
 
 **--ro-bind** _src_ _dest_
-> Read-only bind mount from src to dest.
+> 将 src 以只读方式绑定挂载到 dest。
 
 **--bind** _src_ _dest_
-> Read-write bind mount.
+> 读写方式的绑定挂载。
 
 **--dev-bind** _src_ _dest_
-> Bind mount with device access.
+> 带设备访问权限的绑定挂载。
 
 **--tmpfs** _dest_
-> Mount tmpfs at destination.
+> 在目标位置挂载 tmpfs。
 
 **--proc** _dest_
-> Mount procfs at destination.
+> 在目标位置挂载 procfs。
 
 **--dev** _dest_
-> Create new devtmpfs at destination.
+> 在目标位置创建新的 devtmpfs。
 
 **--symlink** _src_ _dest_
-> Create symbolic link.
+> 创建符号链接。
 
 **--unshare-all**
-> Unshare all possible namespaces.
+> 隔离所有可用的命名空间。
 
 **--unshare-user**
-> Create new user namespace.
+> 创建新的用户命名空间。
 
 **--unshare-pid**
-> Create new PID namespace.
+> 创建新的 PID 命名空间。
 
 **--unshare-net**
-> Create new network namespace.
+> 创建新的网络命名空间。
 
 **--unshare-ipc**
-> Create new IPC namespace.
+> 创建新的 IPC 命名空间。
 
 **--uid** _uid_
-> Set user ID in sandbox.
+> 设置沙箱内的用户 ID。
 
 **--gid** _gid_
-> Set group ID in sandbox.
+> 设置沙箱内的组 ID。
 
 **--chdir** _dir_
-> Change to directory before running.
+> 运行前切换到指定目录。
 
 **--die-with-parent**
-> Kill sandbox when parent exits.
+> 父进程退出时终止沙箱。
 
 **--new-session**
-> Create new terminal session.
+> 创建新的终端会话。
 
 # CAVEATS
 
-Requires kernel support for user namespaces (may be disabled on some systems). Not all system calls can be sandboxed without seccomp. Complex setups may require careful mount ordering. Some applications may not function correctly in restricted environments.
+需要内核支持用户命名空间（在某些系统上可能被禁用）。没有 seccomp 时并非所有系统调用都能被沙箱化。复杂的设置可能需要仔细安排挂载顺序。某些应用在受限环境中可能无法正常运行。
 
 # HISTORY
 
-**Bubblewrap** was created by **Alexander Larsson** at **Red Hat** in **2016** as a minimal, unprivileged sandboxing tool. It was extracted from the Flatpak project to provide a standalone sandboxing solution. The design focuses on being simple, secure, and usable without root privileges, making it suitable for desktop application isolation.
+**Bubblewrap** 由 **Red Hat** 的 **Alexander Larsson** 于 **2016 年**创建，是一个极简的无特权沙箱工具。它从 Flatpak 项目中抽离出来，提供独立的沙箱解决方案。其设计专注于简单、安全且无需 root 权限即可使用，因此适合桌面应用的隔离场景。
 
 # INSTALL
 

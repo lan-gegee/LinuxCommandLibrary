@@ -1,22 +1,22 @@
 # TAGLINE
 
-HTTP proxy and network traffic monitor
+HTTP 代理与网络流量监视器
 
 # TLDR
 
-**Start Charles Proxy**
+**启动 Charles Proxy**
 
 ```charles```
 
-**Start in headless mode** (no GUI)
+**以无头模式启动**（无 GUI）
 
 ```charles -headless```
 
-**Start with a custom configuration file**
+**使用自定义配置文件启动**
 
 ```charles -headless -config [config.xml]```
 
-**Start with throttling enabled**
+**启用限速后启动**
 
 ```charles -throttling```
 
@@ -27,45 +27,45 @@ HTTP proxy and network traffic monitor
 # PARAMETERS
 
 **-config** _file_
-> Load configuration from specified file.
+> 从指定文件加载配置。
 
 **-headless**
-> Run without GUI. Use the web interface at http://control.charles/ for control.
+> 无 GUI 运行。通过 http://control.charles/ 的 Web 界面进行控制。
 
 **-throttling**
-> Start with bandwidth throttling enabled.
+> 启动时开启带宽限速。
 
 # PROXY CONFIGURATION
 
-Default HTTP proxy: **localhost:8888**
+默认 HTTP 代理：**localhost:8888**
 
-For HTTPS inspection:
-1. Configure SSL Proxying in Charles settings
-2. Install Charles Root Certificate on device
-3. Trust certificate in system/browser
+HTTPS 抓包步骤：
+1. 在 Charles 设置中配置 SSL Proxying
+2. 在设备上安装 Charles 根证书
+3. 在系统/浏览器中信任该证书
 
-iOS/Android: Configure WiFi proxy to point to Charles IP:8888
+iOS/Android：将 WiFi 代理配置指向 Charles 的 IP:8888
 
 # DESCRIPTION
 
-**Charles** is a cross-platform HTTP proxy and monitor that enables developers to view HTTP/HTTPS traffic between their machine and the Internet. It is particularly useful for debugging web applications, APIs, and mobile app network communication.
+**Charles** 是一款跨平台的 HTTP 代理和监控工具，可让开发者查看本机与互联网之间的 HTTP/HTTPS 流量。它对调试 Web 应用、API 以及移动应用的网络通信尤为有用。
 
-Key features include SSL proxying for decrypting HTTPS traffic, bandwidth throttling to simulate slow connections, request/response modification, breakpoints for intercepting requests, and automated testing support.
+主要功能包括用于解密 HTTPS 流量的 SSL 代理、模拟慢速网络的带宽限速、请求/响应修改、拦截请求的断点以及自动化测试支持。
 
-Charles presents traffic in a tree view organized by host, with detailed inspection of headers, cookies, request/response bodies, and timing information. Sessions can be saved for later analysis or sharing.
+Charles 以按主机组织的树状视图展示流量，可详细检查头部、Cookie、请求/响应正文和计时信息。会话可以保存以便后续分析或分享。
 
 # CONFIGURATION
 
 **config.xml**
-> Charles configuration file with proxy settings, SSL certificates, and recording options. Loaded with -config flag.
+> Charles 配置文件，包含代理设置、SSL 证书和录制选项。通过 -config 标志加载。
 
 # CAVEATS
 
-Charles is commercial software requiring a license after the trial period. HTTPS inspection requires installing Charles' root certificate, which has security implications. Some applications with certificate pinning may not work with Charles SSL proxying. Mobile device configuration requires network access to the Charles host.
+Charles 是商业软件，试用期结束后需要许可证。HTTPS 抓包需要安装 Charles 的根证书，这存在安全影响。某些采用证书锁定（certificate pinning）的应用可能无法配合 Charles 的 SSL 代理工作。移动设备配置要求能够通过网络访问 Charles 主机。
 
 # HISTORY
 
-Charles Proxy was created by **Karl von Randow** and first released in **2002**. Originally developed for macOS, it expanded to Windows and Linux. The tool became widely adopted by mobile and web developers for debugging network traffic, particularly as mobile development grew and tools like browser developer tools were insufficient for native app debugging.
+Charles Proxy 由 **Karl von Randow** 开发，首发于 **2002 年**。它最初面向 macOS，后来扩展到 Windows 和 Linux。随着移动开发的兴起——浏览器开发者工具已不足以调试原生应用——该工具被移动和 Web 开发者广泛用于调试网络流量。
 
 # INSTALL
 

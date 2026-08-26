@@ -1,30 +1,30 @@
 # TAGLINE
 
-CD audio ripper with error correction
+带纠错功能的 CD 音频抓轨工具
 
 # TLDR
 
-**Rip entire CD to WAV files**
+**将整张 CD 抓取为 WAV 文件**
 
 ```cdparanoia -B```
 
-**Rip specific track**
+**抓取指定音轨**
 
 ```cdparanoia [5] [track05.wav]```
 
-**Rip track range**
+**抓取音轨范围**
 
 ```cdparanoia [1-5]```
 
-**Query CD table of contents**
+**查询 CD 目录表**
 
 ```cdparanoia -Q```
 
-**Output raw PCM data**
+**输出原始 PCM 数据**
 
 ```cdparanoia -r [1] [track.raw]```
 
-**Verbose output**
+**详细输出**
 
 ```cdparanoia -v [1]```
 
@@ -34,93 +34,93 @@ CD audio ripper with error correction
 
 # DESCRIPTION
 
-**cdparanoia** is a CD digital audio extraction tool with advanced error correction and jitter handling. It reads audio tracks from CDDA-capable drives and performs verification, synchronization, and scratch reconstruction to produce bit-perfect rips whenever possible.
+**cdparanoia** 是一款具备高级纠错和抖动（jitter）处理能力的 CD 数字音频提取工具。它从支持 CDDA 的光驱中读取音频轨道，并执行校验、同步和划痕重建，尽可能产生逐位精确（bit-perfect）的抓取结果。
 
-Unlike simple CD rippers, cdparanoia uses multiple read passes and cross-correlates data to detect and correct errors caused by scratches, smudges, or drive imperfections. The progress display shows smiley faces indicating read quality, from normal operation to scratch detection and correction failures.
+与简单的 CD 抓轨器不同，cdparanoia 通过多次读取并对数据做互相关分析，来检测并纠正由划痕、污渍或光驱缺陷造成的错误。进度显示用笑脸表示读取质量，从正常运行到划痕检测乃至纠正失败都有对应符号。
 
-Output formats include WAV (default), AIFF, AIFF-C, and raw 16-bit PCM. Batch mode (`-B`) splits output into one file per track automatically.
+输出格式包括 WAV（默认）、AIFF、AIFF-C 以及原始 16 位 PCM。批量模式（`-B`）会自动按音轨边界把输出拆分为多个文件。
 
 # PARAMETERS
 
 **-B**, **--batch**
-> Batch mode, split output at track boundaries
+> 批量模式，在音轨边界处拆分输出
 
 **-Q**, **--query**
-> Query and print CD table of contents
+> 查询并打印 CD 目录表
 
 **-d** _device_, **--force-cdrom-device** _device_
-> Specify CD-ROM device
+> 指定 CD-ROM 设备
 
 **-v**, **--verbose**
-> Verbose output for debugging
+> 详细输出，用于调试
 
 **-q**, **--quiet**
-> Quiet operation
+> 安静模式运行
 
 **-w**, **--output-wav**
-> Output WAV format (default)
+> 输出 WAV 格式（默认）
 
 **-a**, **--output-aiff**
-> Output AIFF format
+> 输出 AIFF 格式
 
 **-r**, **--output-raw**
-> Output raw 16-bit PCM
+> 输出原始 16 位 PCM
 
 **-R**, **--output-raw-big-endian**
-> Output raw big-endian PCM
+> 输出大端序原始 PCM
 
 **-c**, **--output-aifc**
-> Output AIFF-C format
+> 输出 AIFF-C 格式
 
 **-f**, **--force-cdrom-little-endian**
-> Force treating the drive as little endian.
+> 强制将光驱视为小端序。
 
 **-F**, **--force-cdrom-big-endian**
-> Force treating the drive as big endian.
+> 强制将光驱视为大端序。
 
 **-g** _device_, **--force-generic-device** _device_
-> Force use of the old generic SCSI (sg) interface with the specified device.
+> 强制对指定设备使用旧的通用 SCSI（sg）接口。
 
 **-S** _speed_, **--force-read-speed** _speed_
-> Set the read speed of the CD drive (where supported).
+> 设置光驱的读取速度（在支持的情况下）。
 
 **-A**, **--analyze-drive**
-> Run and log a complete analysis of drive caching, timing and reading behavior.
+> 对光驱的缓存、时序和读取行为进行完整分析并记录日志。
 
 **-z**, **--never-skip**
-> Never skip failed reads, retry indefinitely.
+> 从不跳过读取失败的区块，无限重试。
 
 **-Z**, **--disable-paranoia**
-> Disable all data verification and correction features.
+> 禁用所有数据校验和纠错功能。
 
 **-X**, **--abort-on-skip**
-> If a read is skipped due to imperfect data, abort reading the track.
+> 若因数据不完美而跳过读取，则中止该音轨的读取。
 
 # SPAN FORMAT
 
-**N**: Track N
+**N**: 第 N 条音轨
 
-**N-M**: Tracks N through M
+**N-M**: 第 N 到第 M 条音轨
 
-**N-**: Track N to end
+**N-**: 第 N 条音轨到最后
 
-**-M**: Beginning to track M
+**-M**: 开头到第 M 条音轨
 
 # PROGRESS SYMBOLS
 
-**:-)** Normal operation, low jitter
+**:-)** 正常运行，抖动较小
 
-**:-|** Considerable jitter
+**:-|** 抖动明显
 
-**:-(** Scratch detected
+**:-(** 检测到划痕
 
-**;-(** Gave up correction
+**;-(** 放弃纠正
 
-**:^D** Finished
+**:^D** 完成
 
 # CAVEATS
 
-Requires CDDA-capable drive. Works best with Accurate Stream drives that don't cache audio. Scratched discs may cause long read times.
+需要支持 CDDA 的光驱。对不缓存音频、支持 Accurate Stream 的光驱效果最佳。有划痕的光盘可能导致读取时间过长。
 
 # INSTALL
 

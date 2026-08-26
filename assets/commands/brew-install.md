@@ -1,38 +1,38 @@
 # TAGLINE
 
-Install packages via Homebrew
+通过 Homebrew 安装软件包
 
 # TLDR
 
-**Install a formula**
+**安装** formula
 
 ```brew install [formula]```
 
-**Install a cask**
+**安装** cask
 
 ```brew install --cask [cask]```
 
-**Install without upgrading existing version**
+**安装**而不升级已有版本
 
 ```HOMEBREW_NO_INSTALL_UPGRADE=1 brew install [formula]```
 
-**Install with debug session on failure**
+失败时进入调试会话进行安装
 
 ```brew install --debug [formula]```
 
-**Force install without checking existing versions**
+强制安装而不检查现有版本
 
 ```brew install --force [formula]```
 
-**Install and display install times**
+**安装并显示**安装耗时
 
 ```brew install --display-times [formula]```
 
-**Install the latest development (HEAD) version**
+**安装最新的开发（HEAD）版本**
 
 ```brew install --HEAD [formula]```
 
-**Preview what would be installed without installing**
+**预览**将安装的内容而不实际安装
 
 ```brew install --dry-run [formula]```
 
@@ -42,62 +42,62 @@ Install packages via Homebrew
 
 # DESCRIPTION
 
-**brew install** installs a formula or cask. If the formula is already installed but outdated, it will be upgraded unless HOMEBREW_NO_INSTALL_UPGRADE is set.
+**brew install** 安装一个 formula 或 cask。如果该 formula 已安装但已过时，除非设置了 HOMEBREW_NO_INSTALL_UPGRADE，否则它会被升级。
 
-After installation, cleanup runs automatically for installed formulae or every 30 days for all formulae unless HOMEBREW_NO_INSTALL_CLEANUP is set.
+安装完成后会自动对已安装的 formula 执行清理；除非设置了 HOMEBREW_NO_INSTALL_CLEANUP，否则也会每 30 天对所有 formula 清理一次。
 
 # PARAMETERS
 
 **--cask**
-> Treat all arguments as casks
+> 将所有参数视为 cask。
 
 **--formula**
-> Treat all arguments as formulae
+> 将所有参数视为 formula。
 
 **--force**
-> Install without checking for previously installed keg-only or non-migrated versions
+> 安装时不检查之前安装过的 keg-only 或未迁移版本。
 
 **--debug**
-> Open interactive debugging session if brewing fails
+> 若构建失败则打开交互式调试会话。
 
 **--display-times**
-> Print install times for each package
+> 打印每个软件包的安装耗时。
 
 **--verbose**
-> Print detailed build information
+> 打印详细的构建信息。
 
 **-s, --build-from-source**
-> Compile formula from source instead of using a bottle
+> 从源码编译 formula 而不是使用 bottle。
 
 **--force-bottle**
-> Install from a bottle even if it would not normally be used
+> 即使通常不会使用 bottle 也从 bottle 安装。
 
 **--HEAD**
-> Install the HEAD version, fetching the latest commit from the upstream repository
+> 安装 HEAD 版本，从上游仓库拉取最新提交。
 
 **-n, --dry-run**
-> Show what would be installed without actually installing anything
+> 只显示将安装的内容，不实际安装任何东西。
 
 **--keep-tmp**
-> Retain temporary build files after installation
+> 安装后保留临时构建文件。
 
 **--include-test**
-> Install test dependencies required to run brew test
+> 安装运行 brew test 所需的测试依赖。
 
 # ENVIRONMENT
 
 **HOMEBREW_NO_INSTALL_UPGRADE**
-> Prevent automatic upgrade of outdated formulae
+> 阻止自动升级过时的 formula。
 
 **HOMEBREW_NO_INSTALL_CLEANUP**
-> Prevent automatic cleanup after installation
+> 阻止安装后自动清理。
 
 **HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK**
-> Skip checking outdated dependents
+> 跳过对过时被依赖项的检查。
 
 # CAVEATS
 
-Formula-specific options can be appended to the command. Bottles (precompiled binaries) are used when available. Building from source requires Xcode Command Line Tools on macOS.
+可以在命令后追加特定 formula 专属选项。有 bottle（预编译二进制）时会优先使用。在 macOS 上从源码构建需要 Xcode Command Line Tools。
 
 # SEE ALSO
 

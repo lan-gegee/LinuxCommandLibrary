@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage btrfs subvolumes and snapshots
+管理 btrfs 子卷和快照
 
 # TLDR
 
-**Create** subvolume
+**创建**子卷
 
 ```sudo btrfs subvolume create path/to/new_subvolume```
 
-**List** subvolumes
+**列出**子卷
 
 ```sudo btrfs subvolume list path/to/filesystem```
 
-**Delete** subvolume
+**删除**子卷
 
 ```sudo btrfs subvolume delete path/to/subvolume```
 
-Create **read-only** snapshot
+创建**只读**快照
 
 ```sudo btrfs subvolume snapshot -r path/to/source path/to/target```
 
-Create **read-write** snapshot
+创建**可读写**快照
 
 ```sudo btrfs subvolume snapshot path/to/source path/to/target```
 
-**Show** subvolume details
+**显示**子卷详情
 
 ```sudo btrfs subvolume show path/to/subvolume```
 
@@ -34,41 +34,41 @@ Create **read-write** snapshot
 
 # DESCRIPTION
 
-**btrfs subvolume** manages btrfs subvolumes and snapshots. Subvolumes are separately mountable filesystem trees that can have independent snapshot and quota policies. Snapshots are point-in-time copies that initially share all data with their source.
+**btrfs subvolume** 管理 btrfs 子卷和快照。子卷是可单独挂载的文件系统树，可以拥有独立的快照和配额策略。快照是某一时刻的副本，初始时与其源共享全部数据。
 
 # PARAMETERS
 
 **create**
-> Create a new empty subvolume
+> 创建一个新的空子卷
 
 **list**
-> List all subvolumes in the filesystem
+> 列出文件系统中的所有子卷
 
 **delete**
-> Delete a subvolume or snapshot
+> 删除子卷或快照
 
 **snapshot**
-> Create a snapshot of an existing subvolume
+> 为现有子卷创建快照
 
 **show**
-> Display detailed information about a subvolume
+> 显示子卷的详细信息
 
 **-r, --readonly**
-> Create a read-only snapshot
+> 创建只读快照
 
 **get-default**
-> Get the default subvolume
+> 获取默认子卷
 
 **set-default**
-> Set the default subvolume
+> 设置默认子卷
 
 # CAVEATS
 
-Deleting a subvolume does not immediately free space; asynchronous cleanup runs in the background. Snapshots are not recursive - nested subvolumes must be snapshotted separately.
+删除子卷不会立即释放空间；异步清理在后台进行。快照不是递归的 - 嵌套的子卷必须单独做快照。
 
 # HISTORY
 
-**btrfs subvolume** is part of the **btrfs-progs** package for managing btrfs filesystems on Linux.
+**btrfs subvolume** 是 **btrfs-progs** 软件包的一部分，用于管理 Linux 上的 btrfs 文件系统。
 
 # INSTALL
 

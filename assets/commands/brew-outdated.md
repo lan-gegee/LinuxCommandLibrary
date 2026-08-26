@@ -1,34 +1,34 @@
 # TAGLINE
 
-List Homebrew packages with available updates
+列出有可用更新的 Homebrew 软件包
 
 # TLDR
 
-**List outdated packages**
+**列出过时的软件包**
 
 ```brew outdated```
 
-**List outdated formulae only**
+**仅列出过时的 formula**
 
 ```brew outdated --formula```
 
-**List outdated casks only**
+**仅列出过时的 cask**
 
 ```brew outdated --cask```
 
-**Show verbose version information**
+**显示详细的版本信息**
 
 ```brew outdated --verbose```
 
-**Output as JSON**
+以 JSON 格式**输出**
 
 ```brew outdated --json```
 
-**Include auto-updating casks**
+**包含**会自动更新的 cask
 
 ```brew outdated --greedy```
 
-**Quiet mode (names only)**
+**安静模式**（只显示名称）
 
 ```brew outdated --quiet```
 
@@ -38,50 +38,50 @@ List Homebrew packages with available updates
 
 # DESCRIPTION
 
-**brew outdated** lists installed formulae and casks that have newer versions available. By default, version information is shown in interactive shells.
+**brew outdated** 列出有更新版本可用的已安装 formula 和 cask。默认情况下，在交互式 shell 中会显示版本信息。
 
-The command uses locally cached package information. Run **brew update** first to ensure accurate results.
+该命令使用本地缓存的软件包信息。请先运行 **brew update** 以确保结果准确。
 
 # PARAMETERS
 
 **--formula**
-> List outdated formulae only
+> 仅列出过时的 formula。
 
 **--cask**
-> List outdated casks only
+> 仅列出过时的 cask。
 
 **--verbose, -v**
-> Show detailed version information
+> 显示详细的版本信息。
 
 **--quiet, -q**
-> List names only (takes precedence over --verbose)
+> 仅列出名称（优先级高于 --verbose）。
 
 **--json**
-> Output in JSON format (v2 includes both formulae and casks)
+> 以 JSON 格式输出（v2 同时包含 formula 和 cask）。
 
 **-g, --greedy**
-> Also include outdated casks with version :latest or auto_updates true
+> 同时包含版本为 :latest 或 auto_updates 为 true 的过时 cask。
 
 **--greedy-latest**
-> Also include outdated casks including those with version :latest
+> 同时包含版本为 :latest 的过时 cask。
 
 **--greedy-auto-updates**
-> Also include outdated casks including those with auto_updates true
+> 同时包含 auto_updates 为 true 的过时 cask。
 
 **--fetch-HEAD**
-> Fetch the upstream repository to detect outdated HEAD installations
+> 拉取上游仓库，检测过时的 HEAD 安装。
 
 # OUTPUT FORMAT
 
-Default: package_name (installed_version) != available_version
+默认：package_name (installed_version) != available_version
 
-Quiet mode: package_name only
+安静模式：仅 package_name
 
-JSON: Full metadata including versions and timestamps
+JSON：完整元数据，包括版本和时间戳
 
 # CAVEATS
 
-Does not perform network requests; relies on local cache from brew update. Casks with auto_updates are excluded unless --greedy is specified. Some casks use :latest version which cannot be compared.
+不执行网络请求；依赖 brew update 的本地缓存。除非指定 --greedy，否则会排除带 auto_updates 的 cask。部分 cask 使用无法比较的 :latest 版本。
 
 # SEE ALSO
 

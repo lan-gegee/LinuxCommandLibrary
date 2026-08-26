@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Thunderbolt device authorization
+管理 Thunderbolt 设备授权
 
 # TLDR
 
-List **connected and authorized** devices
+列出**已连接且已授权**的设备
 
 ```boltctl```
 
-List connected devices including **unauthorized** ones
+列出已连接设备，包括**未授权**的设备
 
 ```boltctl list```
 
-**Authorize** a device temporarily
+临时**授权**一台设备
 
 ```boltctl authorize [device_uuid]```
 
-**Authorize and remember** a device
+**授权并记住**一台设备
 
 ```boltctl enroll [device_uuid]```
 
-**Enroll** a device with automatic authorization on every connect
+**注册**一台设备，每次连接时自动授权
 
 ```boltctl enroll --policy auto [device_uuid]```
 
-**Revoke** a previously authorized device
+**撤销**先前授权过的设备
 
 ```boltctl forget [device_uuid]```
 
-Show **detailed information** about a device
+显示设备的**详细信息**
 
 ```boltctl info [device_uuid]```
 
-**Monitor** the daemon for device changes
+**监视**守护进程的设备变化
 
 ```boltctl monitor```
 
@@ -42,46 +42,46 @@ Show **detailed information** about a device
 
 # DESCRIPTION
 
-**boltctl** manages Thunderbolt devices and their security levels. It controls which Thunderbolt devices are authorized to connect to the system, providing protection against malicious devices (Thunderclap attacks).
+**boltctl** 用于管理 Thunderbolt 设备及其安全级别。它控制哪些 Thunderbolt 设备被授权连接到系统，从而防范恶意设备（Thunderclap 攻击）。
 
-The tool works with the boltd daemon to enforce security policies for Thunderbolt/USB4 ports.
+该工具与 boltd 守护进程协作，为 Thunderbolt/USB4 端口实施安全策略。
 
 # SUBCOMMANDS
 
 **list**
-> List all connected devices
+> 列出所有已连接的设备。
 
 **authorize**
-> Temporarily authorize a device for this session
+> 仅为当前会话临时授权一台设备。
 
 **enroll**
-> Authorize and remember a device for future connections. Accepts **--policy** (_default_, _auto_, or _manual_) to control how the device is authorized on later connects, and **--chain** to authorize parent devices if necessary.
+> 授权并记住一台设备，以便后续连接。可使用 **--policy**（_default_、_auto_ 或 _manual_）控制设备在后续连接时如何被授权，并可用 **--chain** 在必要时同时授权父设备。
 
 **forget**
-> Remove a device from the authorized list (revoke a stored key)
+> 将设备从授权列表中移除（撤销存储的密钥）。
 
 **info**
-> Display detailed device information
+> 显示详细的设备信息。
 
 **monitor**
-> Listen for and print device and daemon state changes
+> 监听并打印设备和守护进程的状态变化。
 
 **config**
-> Get or set device and global daemon configuration values
+> 获取或设置设备及守护进程的全局配置值。
 
 **domains**
-> List the Thunderbolt domains (controllers) known to the daemon
+> 列出守护进程已知的 Thunderbolt 域（控制器）。
 
 **power**
-> Control force power state
+> 控制强制供电状态。
 
 # CAVEATS
 
-Thunderbolt security levels are set in BIOS/UEFI. Not all systems support all security levels. Unauthorized devices may have limited or no functionality.
+Thunderbolt 安全级别在 BIOS/UEFI 中设置。并非所有系统都支持所有安全级别。未授权设备的功能可能受限或完全不可用。
 
 # HISTORY
 
-Thunderbolt security became important with the discovery of DMA attacks through Thunderbolt ports. The bolt project was developed to provide user-space security controls for Linux systems.
+随着通过 Thunderbolt 端口发起 DMA 攻击的手段被发现，Thunderbolt 安全变得日益重要。bolt 项目正是为了给 Linux 系统提供用户态安全控制而开发的。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ Thunderbolt security became important with the discovery of DMA attacks through 
 ```[Documentation](https://man.archlinux.org/man/boltctl.1)```
 
 <!-- verified: 2026-06-19 -->
-

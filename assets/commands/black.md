@@ -1,26 +1,26 @@
 # TAGLINE
 
-Opinionated Python code formatter
+固执己见的 Python 代码格式化工具
 
 # TLDR
 
-**Format** Python file
+**格式化** Python 文件
 
 ```black [script.py]```
 
-Format **entire project**
+格式化**整个项目**
 
 ```black [src/]```
 
-**Check** without modifying
+**检查**而不修改
 
 ```black --check [script.py]```
 
-**Diff** instead of rewriting
+以 **diff** 显示而不重写文件
 
 ```black --diff [script.py]```
 
-Set **line length**
+设置**行长度**
 
 ```black -l [100] [script.py]```
 
@@ -30,51 +30,51 @@ Set **line length**
 
 # DESCRIPTION
 
-**black** is an opinionated Python code formatter. It enforces a consistent style by reformatting code automatically with minimal configuration. Black's approach is to eliminate debate about formatting by providing one correct way.
+**black** 是一个固执己见的 Python 代码格式化工具。它通过以极少的配置自动重新排版代码来强制统一风格。Black 的理念是提供唯一正确的方式，从而消除关于格式的争论。
 
-The tool integrates with editors and CI pipelines to ensure consistent Python code style.
+该工具可与编辑器和 CI 管道集成，确保 Python 代码风格的一致性。
 
 # PARAMETERS
 
 **--check**
-> Check if files would be reformatted (exit 1 if yes)
+> 检查文件是否会被重新排版（若会则退出码为 1）
 
 **--diff**
-> Show diff instead of rewriting
+> 显示 diff 而不重写文件
 
 **-l**, **--line-length** _n_
-> Line length (default: 88)
+> 行长度（默认：88）
 
 **--target-version** _py_
-> Python version (py37, py38, py39, etc.)
+> Python 版本（py37、py38、py39 等）
 
 **--exclude** _pattern_
-> Files/directories to exclude
+> 要排除的文件/目录
 
 **--include** _pattern_
-> Files/directories to include
+> 要包含的文件/目录
 
 **--quiet**
-> Minimal output
+> 最少输出
 
 **--verbose**
-> Verbose output
+> 详细输出
 
 **--color**/**--no-color**
-> Colored output
+> 彩色输出
 
 # CONFIGURATION
 
 **pyproject.toml**
-> Project-level configuration under `[tool.black]` section. Supports `line-length`, `target-version`, `include`, and `exclude` settings.
+> 项目级配置，位于 `[tool.black]` 部分。支持 `line-length`、`target-version`、`include` 和 `exclude` 设置。
 
 # CAVEATS
 
-Opinionated (limited configuration). May conflict with other formatters. 88 character default line length differs from PEP 8's 79. Some formatting choices controversial. Requires Python 3.6+.
+风格固定（配置选项有限）。可能与其他格式化工具冲突。默认 88 字符的行长与 PEP 8 的 79 不同。某些排版选择存在争议。需要 Python 3.6+。
 
 # HISTORY
 
-**Black** was created by Łukasz Langa in **2018** to provide deterministic Python formatting, eliminating formatting debates and reducing diff noise.
+**Black** 由 Łukasz Langa 于 **2018 年**创建，旨在提供确定性的 Python 排版，消除格式之争并减少 diff 噪音。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Azure virtual machines
+管理 Azure 虚拟机
 
 # TLDR
 
-**Create** virtual machine
+**创建**虚拟机
 
 ```az vm create --resource-group [MyRG] --name [MyVM] --image [Ubuntu2204]```
 
-**List** VMs
+**列出**VM
 
 ```az vm list```
 
-**Start** VM
+**启动**VM
 
 ```az vm start --resource-group [MyRG] --name [MyVM]```
 
-**Stop** VM
+**停止**VM
 
 ```az vm stop --resource-group [MyRG] --name [MyVM]```
 
-**Deallocate** VM (stop compute billing)
+**解除分配**VM（停止计算计费）
 
 ```az vm deallocate --resource-group [MyRG] --name [MyVM]```
 
-**Delete** VM
+**删除**VM
 
 ```az vm delete --resource-group [MyRG] --name [MyVM]```
 
-**Get** VM details
+**获取** VM 详情
 
 ```az vm show --resource-group [MyRG] --name [MyVM]```
 
@@ -38,56 +38,56 @@ Manage Azure virtual machines
 
 # DESCRIPTION
 
-**az vm** manages Azure virtual machines. It provides commands for creating, starting, stopping, configuring, and deleting VMs, as well as managing disks, network interfaces, and extensions.
+**az vm** 管理 Azure 虚拟机。它提供创建、启动、停止、配置和删除 VM 的命令，还可管理磁盘、网络接口和扩展。
 
-The command group enables full lifecycle management of Azure compute resources.
+该命令组支持对 Azure 计算资源进行全面的生命周期管理。
 
 # PARAMETERS
 
 **create**
-> Create new virtual machine
+> 创建新的虚拟机
 
 **list**
-> List virtual machines
+> 列出虚拟机
 
 **start**
-> Start VM
+> 启动 VM
 
 **stop**
-> Stop VM (still incurs compute charges)
+> 停止 VM（仍会产生计算费用）
 
 **deallocate**
-> Deallocate VM (stops billing for compute)
+> 解除分配 VM（停止计算计费）
 
 **restart**
-> Restart VM
+> 重启 VM
 
 **delete**
-> Delete VM
+> 删除 VM
 
 **show**
-> Get VM details
+> 获取 VM 详情
 
 **--resource-group**, **-g** _name_
-> Resource group name
+> 资源组名称
 
 **--name**, **-n** _name_
-> VM name
+> VM 名称
 
 **--image**
-> OS image (Ubuntu2204, Win2022Datacenter, etc.)
+> 操作系统镜像（Ubuntu2204、Win2022Datacenter 等）
 
 **--size**
-> VM size (Standard_B2s, Standard_D2s_v3, etc.)
+> VM 大小（Standard_B2s、Standard_D2s_v3 等）
 
 **--admin-username**
-> Admin username
+> 管理员用户名
 
 **--admin-password**
-> Admin password
+> 管理员密码
 
 **--ssh-key-values**
-> SSH public key(s)
+> SSH 公钥（一个或多个）
 
 # COMMON OPERATIONS
 
@@ -107,11 +107,11 @@ az vm run-command invoke -g MyRG -n MyVM --command-id RunShellScript --scripts "
 
 # CAVEATS
 
-Creating VMs incurs costs. **az vm stop** does not deallocate -- use **az vm deallocate** to stop billing for compute. Some VM sizes are not available in all regions. Deleting a VM does not delete associated resources (disks, NICs) by default. The **UbuntuLTS** image alias was deprecated in 2023; use **Ubuntu2204** or similar instead.
+创建 VM 会产生费用。**az vm stop** 并不会解除分配——请使用 **az vm deallocate** 停止计算计费。某些 VM 大小并非在所有区域都可用。默认情况下，删除 VM 不会删除关联的资源（磁盘、NIC）。**UbuntuLTS** 镜像别名已于 2023 年弃用；请改用 **Ubuntu2204** 或类似别名。
 
 # HISTORY
 
-**az vm** has been part of Azure CLI since version 2.0 in **2017**, providing comprehensive VM management capabilities.
+**az vm** 自 **2017** 年的 Azure CLI 2.0 版本起就是其一部分，提供全面的 VM 管理能力。
 
 # INSTALL
 

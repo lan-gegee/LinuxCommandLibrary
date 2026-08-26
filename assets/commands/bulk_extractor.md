@@ -1,38 +1,38 @@
 # TAGLINE
 
-High-performance digital forensics data extraction tool
+高性能数字取证数据提取工具
 
 # TLDR
 
-**Extract data from disk image**
+**从磁盘镜像中提取数据**
 
 ```bulk_extractor -o [output_dir] [image.dd]```
 
-**Scan with multiple threads**
+**使用多线程扫描**
 
 ```bulk_extractor -o [output_dir] -j [8] [image.dd]```
 
-**Enable specific scanner**
+**启用指定扫描器**
 
 ```bulk_extractor -o [output_dir] -e [exif] [image.dd]```
 
-**Disable specific scanner**
+**禁用指定扫描器**
 
 ```bulk_extractor -o [output_dir] -x [email] [image.dd]```
 
-**Scan specific byte range**
+**扫描指定字节范围**
 
 ```bulk_extractor -o [output_dir] -Y [0-1000000000] [image.dd]```
 
-**Recursively scan directory**
+**递归扫描目录**
 
 ```bulk_extractor -o [output_dir] -R [directory]```
 
-**Search for specific pattern**
+**搜索特定模式**
 
 ```bulk_extractor -o [output_dir] -f "[pattern]" [image.dd]```
 
-**List available scanners**
+**列出可用的扫描器**
 
 ```bulk_extractor -H```
 
@@ -42,65 +42,65 @@ High-performance digital forensics data extraction tool
 
 # DESCRIPTION
 
-**bulk_extractor** is a high-performance digital forensics tool that scans disk images, files, or directories and extracts structured information without parsing file system structures. It extracts email addresses, credit card numbers, URLs, EXIF metadata, and other artifacts directly from raw data streams.
+**bulk_extractor** 是一款高性能数字取证工具，可扫描磁盘镜像、文件或目录，在不解析文件系统结构的情况下提取结构化信息。它直接从原始数据流中提取电子邮件地址、信用卡号、URL、EXIF 元数据等痕迹。
 
-The tool processes data in parallel across multiple CPU cores, making it significantly faster than traditional forensic tools. It operates on raw bytes rather than file system metadata, allowing it to find data in unallocated space, slack space, and within compressed or encoded content. Each scanner plugin generates a separate feature file in the output directory, making results easy to filter and analyze.
+该工具可在多个 CPU 核心上并行处理数据，速度显著快于传统取证工具。它处理的是原始字节而非文件系统元数据，因此能够在未分配空间、slack space 以及压缩或编码内容中发现数据。每个扫描器插件会在输出目录生成单独的特征文件，便于对结果进行过滤和分析。
 
 # PARAMETERS
 
 **-o** _directory_
-> Output directory (required)
+> 输出目录（必需）
 
 **-e** _scanner_
-> Enable specific scanner
+> 启用指定扫描器
 
 **-x** _scanner_
-> Disable specific scanner
+> 禁用指定扫描器
 
 **-j** _threads_
-> Number of threads to use
+> 使用的线程数
 
 **-G** _bytes_
-> Page size (default: 16777216)
+> 页大小（默认：16777216）
 
 **-M** _depth_
-> Maximum recursion depth (default: 7)
+> 最大递归深度（默认：7）
 
 **-R**
-> Recursively scan directory
+> 递归扫描目录
 
 **-f** _pattern_
-> Search for specific pattern
+> 搜索特定模式
 
 **-F** _file_
-> Read patterns from file
+> 从文件读取模式
 
 **-Y** _start-end_
-> Scan specific byte range
+> 扫描指定字节范围
 
 **-z** _pagestart_
-> Start processing at a specific page number
+> 从指定的页码开始处理
 
 **-Z**
-> Wipe output directory before starting
+> 开始前清空输出目录
 
 **-q**
-> Quiet mode (no status output)
+> 静默模式（不输出状态信息）
 
 **-H**
-> List available scanners with info
+> 列出可用扫描器及其说明
 
 # OUTPUT
 
-Creates **report.xml** with Digital Forensics XML metadata about the run. Individual feature files contain extracted data types (emails.txt, ccn.txt, urls.txt, etc.).
+生成包含本次运行的数字取证 XML 元数据的 **report.xml**。各个特征文件包含提取出的不同类型数据（emails.txt、ccn.txt、urls.txt 等）。
 
 # CAVEATS
 
-Output directory must not exist or use -Z to wipe. Processing large images requires significant disk space for output. Some scanners may produce false positives requiring manual review.
+输出目录必须不存在，或者用 -Z 清空。处理大型镜像时，输出需要大量磁盘空间。某些扫描器可能产生误报，需要人工复核。
 
 # HISTORY
 
-**bulk_extractor** was created by **Simson Garfinkel** at the Naval Postgraduate School, first released around **2011**. It is widely used in law enforcement and incident response for forensic data extraction.
+**bulk_extractor** 由海军研究生院的 **Simson Garfinkel** 创建，于 **2011 年**前后首次发布。它被广泛用于执法和事件响应中的取证数据提取。
 
 # INSTALL
 

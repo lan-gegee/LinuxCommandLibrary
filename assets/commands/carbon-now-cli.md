@@ -1,38 +1,38 @@
 # TAGLINE
 
-Generate beautiful images of source code
+生成精美的源代码图片
 
 # TLDR
 
-**Create code image from file**
+**从文件创建代码图片**
 
 ```carbon-now [file.js]```
 
-**Create image from clipboard**
+**从剪贴板创建图片**
 
 ```carbon-now --from-clipboard```
 
-**Create image from stdin**
+**从 stdin 创建图片**
 
 ```echo "const x = 1;" | carbon-now```
 
-**Use interactive mode to customize everything**
+**使用交互模式自定义所有设置**
 
 ```carbon-now [file.js] --interactive```
 
-**Use a saved preset configuration**
+**使用已保存的预设配置**
 
 ```carbon-now [file.js] -p [dracula]```
 
-**Specify output location**
+**指定输出位置**
 
 ```carbon-now [file.js] --save-to [~/Pictures]```
 
-**Open in browser instead of saving**
+**在浏览器中打开而不保存**
 
 ```carbon-now [file.js] --open-in-browser```
 
-**Create image and copy to clipboard**
+**创建图片并复制到剪贴板**
 
 ```carbon-now [file.js] --to-clipboard```
 
@@ -43,64 +43,64 @@ Generate beautiful images of source code
 # PARAMETERS
 
 **-i**, **--interactive**
-> Launch interactive mode to customize theme, font, padding, and other settings before generating the image.
+> 启动交互模式，在生成图片前自定义主题、字体、内边距等设置。
 
 **-p**, **--preset** _name_
-> Apply a saved preset from `~/.carbon-now.json`. Defaults to `latest-preset`, which automatically reuses the previous run's settings.
+> 应用 `~/.carbon-now.json` 中保存的预设。默认为 `latest-preset`，它会自动复用上一次运行的设置。
 
 **--save-to** _path_
-> Directory to save the image. Defaults to current working directory.
+> 保存图片的目录。默认为当前工作目录。
 
 **--save-as** _name_
-> Image filename without extension. Defaults to the source filename with a hash suffix.
+> 不带扩展名的图片文件名。默认为源文件名加哈希后缀。
 
 **--from-clipboard**
-> Read code from clipboard instead of a file or stdin.
+> 从剪贴板读取代码，而不是文件或 stdin。
 
 **--to-clipboard**
-> Copy the resulting image to clipboard instead of saving to disk.
+> 将生成的图片复制到剪贴板，而不是保存到磁盘。
 
 **--open-in-browser**
-> Open the Carbon URL in a browser for manual finishing instead of downloading the image.
+> 在浏览器中打开 Carbon URL 手动完成收尾，而不是下载图片。
 
 **-s**, **--start** _line_
-> Starting line number of input to use. Default: `1`.
+> 输入内容的起始行号。默认：`1`。
 
 **-e**, **--end** _line_
-> Ending line number of input to use. Default: `1000`.
+> 输入内容的结束行号。默认：`1000`。
 
 **--settings** _json_
-> Override specific settings for this run as a JSON string (highest priority, overrides preset and interactive).
+> 以 JSON 字符串覆盖本次运行的部分设置（优先级最高，会覆盖预设和交互模式）。
 
 **--config** _file_
-> Use a custom local config file instead of `~/.carbon-now.json` (read-only, changes are not persisted).
+> 使用自定义本地配置文件代替 `~/.carbon-now.json`（只读，更改不会被保存）。
 
 **--engine** _name_
-> Rendering engine to use: `chromium` (default), `firefox`, or `webkit`.
+> 要使用的渲染引擎：`chromium`（默认）、`firefox` 或 `webkit`。
 
 **--skip-display**
-> Do not display the image inline in the terminal after generation.
+> 生成后不在终端中内联显示图片。
 
 **--disable-headless**
-> Run the Playwright browser in headful (visible) mode instead of headless.
+> 以有头（可见）模式运行 Playwright 浏览器，而不是无头模式。
 
 # DESCRIPTION
 
-**carbon-now-cli** generates beautiful images of source code using the Carbon service (carbon.now.sh). It automates the download of high-quality PNG or SVG code images with syntax highlighting, customizable themes, fonts, and backgrounds — all from the terminal.
+**carbon-now-cli** 使用 Carbon 服务（carbon.now.sh）生成精美的源代码图片。它可以从终端自动下载带语法高亮的高质量 PNG 或 SVG 代码图片，主题、字体和背景均可自定义。
 
-Input can be a file, piped stdin, or clipboard content. The file type is detected automatically for syntax highlighting. Use `--interactive` mode to be prompted for all visual settings, or save those settings as a named preset in `~/.carbon-now.json` for reuse with `--preset`.
+输入可以是文件、管道传入的 stdin 或剪贴板内容。文件类型会被自动检测以应用语法高亮。使用 `--interactive` 模式可逐项确认所有视觉设置，或将这些设置保存为 `~/.carbon-now.json` 中的具名预设，之后用 `--preset` 复用。
 
-Each run's settings are automatically saved as `latest-preset`, so subsequent runs reuse the previous configuration without any extra flags. Named presets persist until manually deleted from `~/.carbon-now.json`.
+每次运行的设置都会自动保存为 `latest-preset`，因此后续运行无需任何额外标志即可复用上一次的配置。具名预设会一直保留，直到从 `~/.carbon-now.json` 中手动删除。
 
-The `--settings` flag accepts a JSON string and has the highest override priority, after `--interactive`. Export size (`1x`, `2x`, `4x`), export type (`png`, `svg`), line numbers, drop shadow, padding, and custom per-token theme colors are all configurable through presets.
+`--settings` 标志接受 JSON 字符串，其覆盖优先级仅次于 `--interactive`。导出尺寸（`1x`、`2x`、`4x`）、导出类型（`png`、`svg`）、行号、投影、内边距以及自定义的逐语法元素主题颜色都可以通过预设配置。
 
 # CAVEATS
 
-Requires internet connectivity to reach the Carbon rendering service. Custom theme colors set via the `custom` preset key are not applied when using `--open-in-browser` because they rely on `localStorage` inside the Playwright instance. Image generation depends on external service availability.
+需要联网才能访问 Carbon 渲染服务。通过 `custom` 预设键设置的自定义主题颜色在使用 `--open-in-browser` 时不会生效，因为它们依赖 Playwright 实例内部的 `localStorage`。图片生成依赖外部服务的可用性。
 
 # HISTORY
 
-Carbon was created by **Dawn Labs** and launched in **2017** as a web application for creating beautiful code images. The carbon-now-cli was developed as a community project to provide command-line access to the service. It became popular among developers for quickly generating code images for documentation, tweets, and presentations without opening a browser.
+Carbon 由 **Dawn Labs** 创建，于 **2017** 年作为生成精美代码图片的 Web 应用上线。carbon-now-cli 是一个社区项目，为该服务提供命令行访问方式。它因能快速生成用于文档、推文和演示的代码图片而无需打开浏览器，深受开发者欢迎。
 
 # INSTALL
 

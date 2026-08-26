@@ -1,26 +1,26 @@
 # TAGLINE
 
-C source code beautifier
+C 源代码美化器
 
 # TLDR
 
-**Beautify C code from a file**
+**美化文件中的 C 代码**
 
 ```cb < [path/to/source.c] > [path/to/output.c]```
 
-**Format using Kernighan & Ritchie style**
+**按 Kernighan & Ritchie 风格格式化**
 
 ```cb -s < [path/to/source.c]```
 
-**Set maximum line length**
+**设置最大行宽**
 
 ```cb -l [80] < [path/to/source.c]```
 
-**Join case labels onto single lines**
+**将 case 标签合并到单行**
 
 ```cb -j < [path/to/source.c]```
 
-**Display version information**
+**显示版本信息**
 
 ```cb -V```
 
@@ -30,33 +30,33 @@ C source code beautifier
 
 # DESCRIPTION
 
-**cb** (C Beautifier) is a classic Unix utility that reformats C source code for improved readability. It reads from its arguments or standard input and writes beautified code to standard output, making it suitable for use in pipelines.
+**cb**（C Beautifier）是一个经典的 Unix 工具，用于重新排版 C 源代码以提升可读性。它从参数或标准输入读取，将美化后的代码写到标准输出，因此适合在管道中使用。
 
-The tool performs lexical formatting without full syntactic analysis, adjusting indentation, spacing, and line breaks to display the structure of the code.
+该工具只进行词法层面的排版而不做完整的语法分析，通过调整缩进、空格和换行来呈现代码结构。
 
 # PARAMETERS
 
 **-s**
-> Write code in Kernighan & Ritchie style from The C Programming Language
+> 按《The C Programming Language》中 Kernighan & Ritchie 的风格输出代码
 
 **-j**
-> Put split lines back together
+> 把被拆开的行重新拼合
 
 **-l** _length_
-> Split lines that are longer than _length_
+> 拆分超过 _length_ 的行
 
 **-V**
-> Print version information to standard error
+> 将版本信息打印到标准错误
 
 # CAVEATS
 
-The **cb** command performs only lexical analysis and may produce incorrect formatting with complex preprocessor macros that alter code structure. It supports only C code, not C++ or other languages.
+**cb** 命令只做词法分析，对于会改变代码结构的复杂预处理器宏可能产生错误的格式。它只支持 C 代码，不支持 C++ 或其他语言。
 
-On modern Linux distributions, **cb** is often not installed by default and is considered largely obsolete.
+在现代 Linux 发行版中，**cb** 通常不再默认安装，基本上已被视为过时。
 
 # HISTORY
 
-The **cb** command originated in early Unix systems at Bell Labs as a simple tool for standardizing C code formatting. It has since been superseded by more sophisticated formatters like **indent**, **astyle**, and **clang-format** that provide fuller syntactic understanding and greater configurability.
+**cb** 命令起源于贝尔实验室的早期 Unix 系统，是用于统一 C 代码格式的简单工具。如今它已被 **indent**、**astyle** 和 **clang-format** 等更完善的格式化工具取代，后者具备更完整的语法理解能力和更高的可配置性。
 
 # INSTALL
 

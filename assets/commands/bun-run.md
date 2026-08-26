@@ -1,34 +1,34 @@
 # TAGLINE
 
-Execute files and package scripts
+执行文件和软件包脚本
 
 # TLDR
 
-**Run a JavaScript/TypeScript file**
+**运行 JavaScript/TypeScript 文件**
 
 ```bun run [script.ts]```
 
-**Run a package.json script**
+**运行 package.json 脚本**
 
 ```bun run [start]```
 
-**Run file in watch mode**
+**以监视模式运行文件**
 
 ```bun --watch run [script.ts]```
 
-**List available scripts**
+**列出可用脚本**
 
 ```bun run```
 
-**Evaluate code string**
+**求值代码字符串**
 
 ```bun run --eval "[console.log('hello')]"```
 
-**Evaluate and print result**
+**求值并打印结果**
 
 ```bun run --print "[1 + 2]"```
 
-**Run with environment file**
+**使用环境文件运行**
 
 ```bun run --env-file [.env] [script.ts]```
 
@@ -40,63 +40,63 @@ Execute files and package scripts
 
 # DESCRIPTION
 
-**bun run** executes JavaScript, TypeScript, and JSX files using Bun's fast native transpiler. It can also run package.json scripts with lifecycle hook support.
+**bun run** 使用 Bun 快速的原生转译器执行 JavaScript、TypeScript 和 JSX 文件。它还可以在支持生命周期钩子的情况下运行 package.json 脚本。
 
-The command can be shortened to just **bun** followed by the file or script name, though built-in commands take precedence.
+该命令可以简写为 **bun** 后跟文件或脚本名称，但内置命令具有更高的优先级。
 
 # PARAMETERS
 
 **--watch**
-> Re-run on file changes. Must be placed before `run` in the command.
+> 文件变化时重新运行。必须放在命令中 `run` 之前。
 
 **--hot**
-> Enable hot reloading instead of full restart on file changes.
+> 启用热重载，而不是在文件变化时完全重启。
 
 **--eval, -e** _code_
-> Evaluate argument as script
+> 将参数作为脚本求值
 
 **--print, -p** _code_
-> Evaluate and print result
+> 求值并打印结果
 
 **--env-file** _file_
-> Load environment variables from file
+> 从文件加载环境变量
 
 **--cwd** _directory_
-> Set working directory
+> 设置工作目录
 
 **--silent**
-> Suppress script output
+> 抑制脚本输出
 
 **--smol**
-> Reduce memory usage at the cost of performance by running the garbage collector more frequently.
+> 通过更频繁地运行垃圾回收器来降低内存使用，代价是性能下降。
 
 **--if-present**
-> Exit without error if the entrypoint or script does not exist.
+> 如果入口点或脚本不存在，则无错误退出。
 
 **--filter** _pattern_
-> Run scripts in matching workspace packages by name pattern.
+> 按名称模式在匹配的工作区软件包中运行脚本。
 
 **--bun**
-> Force the script to run through Bun's runtime, overriding shebang lines.
+> 强制脚本通过 Bun 的运行时运行，覆盖 shebang 行。
 
 # BEHAVIOR
 
-**Source files**
-> Paths starting with ./ or absolute paths run as source files
+**源文件**
+> 以 ./ 开头或绝对路径的路径作为源文件运行
 
-**Package scripts**
-> Scripts defined in package.json are executed with lifecycle hooks (pre/post)
+**软件包脚本**
+> package.json 中定义的脚本会连同生命周期钩子（pre/post）一起执行
 
-**Resolution**
-> With bun run, package.json scripts take precedence over files with same name
+**解析规则**
+> 使用 bun run 时，package.json 脚本优先于同名文件
 
 # LIFECYCLE HOOKS
 
-Bun respects pre and post lifecycle hooks. Running **bun run build** will execute **prebuild**, **build**, and **postbuild** in order. If a pre-script fails, the main script is not executed.
+Bun 支持 pre 和 post 生命周期钩子。运行 **bun run build** 会依次执行 **prebuild**、**build** 和 **postbuild**。如果 pre 脚本失败，主脚本将不会执行。
 
 # CAVEATS
 
-TypeScript and JSX are transpiled on-the-fly without configuration. Startup time is significantly faster than npm run. Some Node.js-specific APIs may not be available.
+TypeScript 和 JSX 无需配置即可即时转译。启动时间明显快于 npm run。某些 Node.js 特有的 API 可能不可用。
 
 # INSTALL
 

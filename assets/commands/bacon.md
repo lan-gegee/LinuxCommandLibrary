@@ -1,34 +1,34 @@
 # TAGLINE
 
-Background Rust code checker
+后台 Rust 代码检查器
 
 # TLDR
 
-**Run the default check job in the current project**
+**在当前项目中运行默认的检查任务**
 
 ```bacon```
 
-**Run a specific job**
+**运行指定任务**
 
 ```bacon [test]```
 
-**Run clippy lints**
+**运行 clippy 检查**
 
 ```bacon --job [clippy]```
 
-**List available jobs**
+**列出可用任务**
 
 ```bacon --list-jobs```
 
-**Run in a specific project directory**
+**在指定的项目目录中运行**
 
 ```bacon --path [path/to/project]```
 
-**Initialize a bacon.toml configuration file**
+**初始化 bacon.toml 配置文件**
 
 ```bacon --init```
 
-**Open the preferences file path**
+**打开偏好设置文件路径**
 
 ```bacon --prefs```
 
@@ -39,53 +39,53 @@ Background Rust code checker
 # PARAMETERS
 
 **-j**, **--job** _name_
-> Run the specified job. Can also be passed as a positional argument without the flag when unambiguous.
+> 运行指定任务。无歧义时也可以不带该选项，直接作为位置参数传入。
 
 **--list-jobs**
-> List all available jobs and exit.
+> 列出所有可用任务并退出。
 
 **--path** _dir_
-> Set the project directory (default is current directory).
+> 设置项目目录（默认为当前目录）。
 
 **--config** _file_
-> Use a specific bacon.toml configuration file.
+> 使用特定的 bacon.toml 配置文件。
 
 **-w**, **--watch** _path_
-> Additional paths to watch for changes.
+> 额外监视变更的路径。
 
 **--init**
-> Create a bacon.toml configuration file in the current project if one does not exist.
+> 若当前项目不存在 bacon.toml 配置文件则创建一个。
 
 **--prefs**
-> Create the preferences file if it does not exist and print its path.
+> 偏好设置文件不存在时创建它，并打印其路径。
 
 **-s**, **--summary**
-> Show a summary of results when finishing.
+> 完成时显示结果摘要。
 
 **--no-default-features**
-> Disable default cargo features.
+> 禁用 cargo 默认特性。
 
 **--features** _features_
-> Comma-separated list of cargo features to enable.
+> 要启用的 cargo 特性列表，逗号分隔。
 
 **--all-features**
-> Enable all available cargo features.
+> 启用所有可用的 cargo 特性。
 
 # DESCRIPTION
 
-**bacon** is a background Rust code checker that runs cargo commands in watch mode. It continuously checks your code for compilation errors, warnings, and clippy lints, displaying results in a terminal UI.
+**bacon** 是一款后台 Rust 代码检查器，以监视模式运行 cargo 命令。它会持续检查代码中的编译错误、警告和 clippy 提示，并在终端 UI 中显示结果。
 
-The tool provides immediate feedback during development without manually running cargo commands. When no ambiguity exists, the job name can be passed directly as a positional argument (e.g. `bacon clippy` instead of `bacon --job clippy`).
+该工具能在开发过程中提供即时反馈，无需手动运行 cargo 命令。当不存在歧义时，任务名可以直接作为位置参数传入（例如 `bacon clippy` 而不是 `bacon --job clippy`）。
 
-Default jobs include **check** (cargo check), **clippy** (clippy lints), **test** (run tests), **doc** (generate documentation), and **run** (build and run). Custom jobs can be defined in bacon.toml.
+默认任务包括 **check**（cargo check）、**clippy**（clippy 检查）、**test**（运行测试）、**doc**（生成文档）以及 **run**（构建并运行）。自定义任务可在 bacon.toml 中定义。
 
 # CAVEATS
 
-Requires the Rust toolchain to be installed. Continuous checking may cause high CPU usage on large projects. The terminal UI requires a compatible terminal emulator.
+需要已安装 Rust 工具链。持续检查可能导致大型项目的 CPU 占用偏高。终端 UI 需要兼容的终端模拟器。
 
 # HISTORY
 
-**bacon** was created by Denys Séguret (Canop) around **2021** to provide a better development experience for Rust projects with continuous feedback.
+**bacon** 由 Denys Séguret (Canop) 于 **2021** 年前后创建，旨在通过持续反馈为 Rust 项目提供更好的开发体验。
 
 # INSTALL
 

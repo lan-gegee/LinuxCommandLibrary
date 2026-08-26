@@ -1,42 +1,42 @@
 # TAGLINE
 
-Ethereum blockchain interaction tool from Foundry
+来自 Foundry 的以太坊区块链交互工具
 
 # TLDR
 
-**Get the balance** of an address
+**查询地址的余额**
 
 ```cast balance [0x...address] --rpc-url [https://eth-mainnet.g.alchemy.com/v2/key]```
 
-**Call a contract function** (read-only)
+**调用合约函数**（只读）
 
 ```cast call [0x...contract] "balanceOf(address)" [0x...holder] --rpc-url [rpc_url]```
 
-**Send a transaction**
+**发送交易**
 
 ```cast send [0x...contract] "transfer(address,uint256)" [0x...to] [amount] --rpc-url [rpc_url] --private-key [0x...]```
 
-**Decode transaction input data**
+**解码交易输入数据**
 
 ```cast 4byte-decode [0x23b872dd...]```
 
-**Convert wei to ether**
+**将 wei 转换为 ether**
 
 ```cast from-wei [1000000000000000000]```
 
-**Convert ether to wei**
+**将 ether 转换为 wei**
 
 ```cast to-wei [1.5]```
 
-**Get current gas price**
+**查询当前 gas 价格**
 
 ```cast gas-price --rpc-url [rpc_url]```
 
-**Decode ABI-encoded data**
+**解码 ABI 编码的数据**
 
 ```cast abi-decode "transfer(address,uint256)" [0x...]```
 
-**Lookup function signature**
+**查询函数签名**
 
 ```cast sig "transfer(address,uint256)"```
 
@@ -46,74 +46,74 @@ Ethereum blockchain interaction tool from Foundry
 
 # DESCRIPTION
 
-**cast** is a command-line tool for interacting with Ethereum and EVM-compatible blockchains. It's part of the Foundry toolkit and provides utilities for querying blockchain state, sending transactions, encoding/decoding data, and performing conversions.
+**cast** 是一个用于与以太坊及 EVM 兼容区块链交互的命令行工具。它是 Foundry 工具集的一部分，提供查询链上状态、发送交易、编码/解码数据以及执行单位换算等实用功能。
 
-Cast can interact with deployed contracts by calling view functions or sending state-changing transactions. It handles ABI encoding/decoding, making it easy to work with smart contracts from the command line.
+Cast 可以通过调用 view 函数或发送改变状态的交易来与已部署的合约交互。它负责 ABI 编码/解码，让你可以方便地在命令行中操作智能合约。
 
-The tool also provides utilities for working with Ethereum data formats, including conversions between wei/ether, hex/decimal, and various encoding schemes. It integrates with Etherscan-like services for signature lookups.
+该工具还提供处理以太坊数据格式的实用程序，包括 wei/ether 之间、十六进制/十进制之间的换算，以及各种编码方案。它还集成了类 Etherscan 服务用于签名查询。
 
 # PARAMETERS
 
 **call** _contract_ _sig_ [_args_]
-> Call a contract function (read-only).
+> 调用合约函数（只读）。
 
 **send** _contract_ _sig_ [_args_]
-> Send a transaction to a contract.
+> 向合约发送交易。
 
 **balance** _address_
-> Get ETH balance of address.
+> 查询地址的 ETH 余额。
 
 **block** [_number_]
-> Get block information.
+> 获取区块信息。
 
 **tx** _hash_
-> Get transaction details.
+> 获取交易详情。
 
 **receipt** _hash_
-> Get transaction receipt.
+> 获取交易回执。
 
 **gas-price**
-> Get current gas price.
+> 获取当前 gas 价格。
 
 **abi-encode** _sig_ [_args_]
-> ABI encode function call data.
+> 对函数调用数据进行 ABI 编码。
 
 **abi-decode** _sig_ _data_
-> Decode ABI-encoded data.
+> 解码 ABI 编码的数据。
 
 **sig** _signature_
-> Get function selector (4 bytes).
+> 获取函数选择器（4 字节）。
 
 **4byte-decode** _selector_
-> Look up function signature.
+> 查询函数签名。
 
 **to-wei** _amount_
-> Convert ether to wei.
+> 将 ether 转换为 wei。
 
 **from-wei** _amount_
-> Convert wei to ether.
+> 将 wei 转换为 ether。
 
 **--rpc-url** _url_
-> Ethereum RPC endpoint.
+> 以太坊 RPC 端点。
 
 **--private-key** _key_
-> Private key for signing.
+> 用于签名的私钥。
 
 **--chain** _chain_
-> Chain name or ID.
+> 链名称或 ID。
 
 # CONFIGURATION
 
 **foundry.toml**
-> Project-level Foundry configuration including default RPC URLs, chain settings, and etherscan API keys.
+> 项目级 Foundry 配置，包括默认 RPC URL、链设置和 Etherscan API 密钥。
 
 # CAVEATS
 
-Requires access to an Ethereum RPC endpoint. Private keys should be handled securely (use environment variables or keystore). Gas estimation may be inaccurate for complex transactions. Some functions require an Etherscan API key for signature lookups.
+需要访问以太坊 RPC 端点。私钥应妥善保管（使用环境变量或 keystore）。复杂交易的 gas 估算可能不准确。部分函数在签名查询时需要 Etherscan API 密钥。
 
 # HISTORY
 
-**cast** is part of **Foundry**, developed by **Georgios Konstantopoulos** and the **Paradigm** team, announced in **December 2021**. Foundry was created as a fast, portable Ethereum development toolkit written in Rust, inspired by DappTools. Cast provides the CLI utilities while Forge handles testing and Anvil provides local nodes.
+**cast** 是 **Foundry** 的组成部分，由 **Georgios Konstantopoulos** 和 **Paradigm** 团队开发，于 **2021 年 12 月**发布。Foundry 是一个用 Rust 编写的快速、可移植的以太坊开发工具包，灵感来自 DappTools。Cast 提供命令行实用工具，Forge 负责测试，Anvil 提供本地节点。
 
 # SEE ALSO
 

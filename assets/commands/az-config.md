@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Azure CLI configuration settings
+管理 Azure CLI 配置设置
 
 # TLDR
 
-**Get all configurations**
+**获取所有配置**
 
 ```az config get```
 
-**Get a specific configuration** section
+**获取特定配置**节
 
 ```az config get [core]```
 
-**Get a specific configuration** key
+**获取特定配置**键
 
 ```az config get [core.no_color]```
 
-**Disable color output**
+**禁用彩色输出**
 
 ```az config set core.no_color=true```
 
-**Set default resource group** and location
+**设置默认资源组**和位置
 
 ```az config set defaults.group=[MyResourceGroup] defaults.location=[westus2]```
 
-**Enable logging** to file
+**启用日志记录**到文件
 
 ```az config set logging.enable_log_file=true```
 
-**Unset a configuration**
+**取消某个配置**
 
 ```az config unset [core.no_color]```
 
-**Set local configuration** for current directory
+为当前目录**设置本地配置**
 
 ```az config set defaults.group=[myRG] --local```
 
@@ -43,51 +43,51 @@ Manage Azure CLI configuration settings
 # SUBCOMMANDS
 
 **get**
-> Get a configuration value.
+> 获取配置值。
 
 **set**
-> Set a configuration value.
+> 设置配置值。
 
 **unset**
-> Unset a configuration value.
+> 取消配置值。
 
 **param-persist**
-> Manage parameter persistence.
+> 管理参数持久化。
 
 **param-persist on**
-> Enable parameter persistence.
+> 启用参数持久化。
 
 **param-persist off**
-> Disable parameter persistence.
+> 禁用参数持久化。
 
 **param-persist show**
-> Show parameter persistence data.
+> 显示参数持久化数据。
 
 **param-persist delete**
-> Delete parameter persistence data.
+> 删除参数持久化数据。
 
 # PARAMETERS
 
 **--local**
-> Apply configuration to local scope (working directory) instead of global.
+> 将配置应用到本地作用域（工作目录）而非全局。
 
 # DESCRIPTION
 
-**az config** manages Azure CLI configuration settings. It allows customizing CLI behavior including output formatting, default values, telemetry, logging, and error display. Configuration can be set globally or locally per directory.
+**az config** 管理 Azure CLI 的配置设置。它可以自定义 CLI 行为，包括输出格式化、默认值、遥测、日志记录和错误显示。配置可以全局设置，也可以按目录本地设置。
 
-The default configuration file is stored at ~/.azure/config.
+默认配置文件存储在 ~/.azure/config。
 
 # CONFIGURATION
 
 **~/.azure/config**
-> Global Azure CLI configuration file with INI-format sections for core, defaults, logging, and other settings.
+> 全局 Azure CLI 配置文件，采用 INI 格式分节，包含 core、defaults、logging 等设置。
 
 **.azure/config**
-> Local directory-scoped configuration file, created with the --local flag, overriding global settings for the current project.
+> 本地目录作用域的配置文件，通过 --local 标志创建，会覆盖当前项目的全局设置。
 
 # CAVEATS
 
-This command group is marked **experimental** and under development (not deprecated); behavior and options may change. It has been available since Azure CLI 2.10.0. Local configurations are stored in the current working directory and take precedence over the global config.
+该命令组标记为**实验性**且仍在开发中（并非已弃用）；行为和选项可能变化。自 Azure CLI 2.10.0 起可用。本地配置存储在当前工作目录中，优先级高于全局配置。
 
 # INSTALL
 

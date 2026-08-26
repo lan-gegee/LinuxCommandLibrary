@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate documentation for a Rust package
+为 Rust 软件包生成文档
 
 # TLDR
 
-**Build documentation**
+**构建文档**
 
 ```cargo doc```
 
-**Build and open in browser**
+**构建并在浏览器中打开**
 
 ```cargo doc --open```
 
-**Build without dependencies**
+**不包含依赖地构建**
 
 ```cargo doc --no-deps```
 
-**Include private items**
+**包含私有条目**
 
 ```cargo doc --document-private-items```
 
-**Build for all workspace members**
+**为所有工作空间成员构建**
 
 ```cargo doc --workspace```
 
-**Build with release profile**
+**以 release profile 构建**
 
 ```cargo doc --release```
 
-**Build with all features**
+**以所有特性构建**
 
 ```cargo doc --all-features```
 
@@ -38,64 +38,64 @@ Generate documentation for a Rust package
 
 # DESCRIPTION
 
-**cargo doc** builds documentation for the local package and all dependencies using rustdoc. Output placed in target/doc/ in HTML format.
+**cargo doc** 使用 rustdoc 为本地软件包及所有依赖构建文档。输出为 HTML 格式，位于 target/doc/ 中。
 
 # PARAMETERS
 
 **--open**
-> Open documentation in browser after building
+> 构建后在浏览器中打开文档
 
 **--no-deps**
-> Don't build documentation for dependencies
+> 不为依赖构建文档
 
 **--document-private-items**
-> Include non-public items (default for binaries)
+> 包含非公开条目（对二进制文件是默认行为）
 
 **-r**, **--release**
-> Build with release profile
+> 以 release profile 构建
 
 **--workspace**
-> Document all workspace members
+> 为所有工作空间成员生成文档
 
 **--exclude** _spec_
-> Exclude packages (with --workspace)
+> 排除软件包（与 --workspace 搭配使用）
 
 **-p**, **--package** _spec_
-> Document specific packages
+> 为指定软件包生成文档
 
 **--lib**
-> Document library only
+> 只为库生成文档
 
 **--bins**
-> Document all binaries
+> 为所有二进制文件生成文档
 
 **--target** _triple_
-> Document for target architecture
+> 为目标架构生成文档
 
 **-j**, **--jobs** _n_
-> Parallel jobs (default: CPU count)
+> 并行任务数（默认：CPU 核心数）
 
 **--features** _features_
-> Enable specified features
+> 启用指定的特性
 
 **--all-features**
-> Enable all features
+> 启用所有特性
 
 **--no-default-features**
-> Disable default features
+> 禁用默认特性
 
 # ENVIRONMENT
 
 **BROWSER**
-> Browser to use with --open
+> 与 --open 配合使用的浏览器
 
 # OUTPUT
 
-Documentation generated in target/doc/<crate_name>/index.html
+文档生成于 target/doc/<crate_name>/index.html
 
 # CAVEATS
 
-Skips binaries with same name as library. Skips binaries with missing required features.
+跳过与库同名的二进制文件。跳过缺少必需特性的二进制文件。
 
 # INSTALL
 

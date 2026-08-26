@@ -1,26 +1,26 @@
 # TAGLINE
 
-Web application security testing platform
+Web 应用安全测试平台
 
 # TLDR
 
-**Start** Burp Suite
+**启动** Burp Suite
 
 ```burpsuite```
 
-Start using **default configuration**
+使用**默认配置**启动
 
 ```burpsuite --use-defaults```
 
-Open a specific **project file**
+打开特定的**项目文件**
 
 ```burpsuite --project-file=[path/to/file]```
 
-Load a specific **configuration file**
+加载特定的**配置文件**
 
 ```burpsuite --config-file=[path/to/file]```
 
-Start **without extensions**
+**不加载扩展**启动
 
 ```burpsuite --disable-extensions```
 
@@ -30,34 +30,34 @@ Start **without extensions**
 
 # DESCRIPTION
 
-**Burp Suite** is a graphical web application security testing platform developed by PortSwigger. It provides tools for intercepting HTTP traffic, scanning for vulnerabilities, and manually testing web applications.
+**Burp Suite** 是由 PortSwigger 开发的图形化 Web 应用安全测试平台。它提供了拦截 HTTP 流量、扫描漏洞和手动测试 Web 应用的工具。
 
-The tool includes a proxy for traffic interception, scanner for automated vulnerability detection, repeater for manual request manipulation, and intruder for automated attacks.
+该工具包括用于流量拦截的代理、自动化漏洞检测的扫描器、手动操作请求的 Repeater 以及自动化攻击的 Intruder。
 
 # PARAMETERS
 
 **--use-defaults**
-> Start with default configuration settings
+> 以默认配置设置启动
 
 **--project-file** _file_
-> Open a specific project file
+> 打开特定的项目文件
 
 **--config-file** _file_
-> Load configuration from file
+> 从文件加载配置
 
 **--disable-extensions**
-> Start without loading extensions
+> 启动时不加载扩展
 
 **--user-config-file** _file_
-> Load user options from file
+> 从文件加载用户选项
 
 # CAVEATS
 
-The free Community Edition has limited functionality; Professional Edition is paid. Requires Java Runtime Environment. Only use on applications you have authorization to test. Intercepting traffic may break TLS/SSL validation.
+免费的 Community Edition 功能有限；Professional Edition 需要付费。需要 Java 运行时环境。只能在你获得授权的应用上进行测试。拦截流量可能会破坏 TLS/SSL 校验。
 
 # HISTORY
 
-**Burp Suite** was created by Dafydd Stuttard (PortSwigger) and first released in **2003**. It has become one of the most widely used tools for web application security testing.
+**Burp Suite** 由 Dafydd Stuttard（PortSwigger）创建，于 **2003 年**首次发布。它已成为使用最广泛的 Web 应用安全测试工具之一。
 
 # INSTALL
 

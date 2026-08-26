@@ -1,30 +1,30 @@
 # TAGLINE
 
-cancel CUPS print jobs
+取消 CUPS 打印任务
 
 # TLDR
 
-**Cancel the current print job on the default printer**
+**取消默认打印机上当前正在打印的任务**
 
 ```cancel```
 
-**Cancel a specific print job by ID**
+**按 ID 取消指定打印任务**
 
 ```cancel [job_id]```
 
-**Cancel a print job on a specific printer**
+**取消指定打印机上的打印任务**
 
 ```cancel [printer_name]-[job_id]```
 
-**Cancel all print jobs on a specific printer**
+**取消指定打印机上的所有打印任务**
 
 ```cancel -a [printer_name]```
 
-**Cancel all print jobs on all printers**
+**取消所有打印机上的所有打印任务**
 
 ```cancel -a```
 
-**Cancel all jobs owned by a specific user**
+**取消指定用户拥有的所有任务**
 
 ```cancel -u [username]```
 
@@ -34,43 +34,43 @@ cancel CUPS print jobs
 
 # DESCRIPTION
 
-**cancel** is a CUPS command that cancels print jobs. Without arguments, it cancels the currently printing job on the default destination. Jobs can be specified by job ID, destination printer, or both.
+**cancel** 是一个用于取消打印任务的 CUPS 命令。不带参数时，它会取消默认目标上当前正在打印的任务。可以通过任务 ID、目标打印机或两者同时指定要取消的任务。
 
-Job IDs are assigned by the print system and can be viewed with **lpstat**. The destination-id format combines the printer name and job ID (e.g., "myprinter-42").
+任务 ID 由打印系统分配，可用 **lpstat** 查看。destination-id 格式由打印机名和任务 ID 组合而成（如 "myprinter-42"）。
 
 # PARAMETERS
 
 **-a**
-> Cancel all jobs on the specified destination, or all destinations if none specified
+> 取消指定目标上的所有任务；未指定目标时取消所有目标上的任务
 
 **-E**
-> Force encryption when connecting to the server
+> 连接服务器时强制加密
 
 **-h** _hostname_[**:**_port_]
-> Specify alternate server
+> 指定备用服务器
 
 **-u** _username_
-> Cancel jobs owned by the specified user
+> 取消指定用户拥有的任务
 
 **-U** _username_
-> Specify the username for authentication
+> 指定用于身份验证的用户名
 
 **-x**
-> Delete job data files in addition to canceling
+> 除取消外还删除任务数据文件
 
 # CONFIGURATION
 
 **/etc/cups/cupsd.conf**
-> CUPS server configuration including operation policies that control Cancel-Jobs and Cancel-My-Jobs permissions.
+> CUPS 服务器配置，包括控制 Cancel-Jobs 和 Cancel-My-Jobs 权限的操作策略。
 
 **/etc/cups/printers.conf**
-> Printer definitions and queue settings.
+> 打印机定义和队列设置。
 
 # CAVEATS
 
-The **-a** and **-u** options require administrative privileges. These restrictions are controlled by operation policies in **cupsd.conf** for "Cancel-Jobs" and "Cancel-My-Jobs" operations.
+**-a** 和 **-u** 选项需要管理员权限。这些限制由 **cupsd.conf** 中针对 "Cancel-Jobs" 和 "Cancel-My-Jobs" 操作的操作策略控制。
 
-CUPS printer names can contain any printable character except SPACE, TAB, "/", or "#", and are case-insensitive.
+CUPS 打印机名可包含除空格、制表符、"/" 或 "#" 以外的任意可打印字符，且不区分大小写。
 
 # INSTALL
 

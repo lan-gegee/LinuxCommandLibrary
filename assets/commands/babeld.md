@@ -1,22 +1,22 @@
 # TAGLINE
 
-Loop-avoiding distance-vector routing protocol daemon.
+避免环路的距离向量路由协议守护进程。
 
 # TLDR
 
-**Start** Babel routing daemon
+**启动**Babel 路由守护进程
 
 ```babeld [eth0]```
 
-Start with **configuration file**
+使用**配置文件**启动
 
 ```babeld -c [/etc/babeld.conf] [eth0]```
 
-Run in **foreground**
+以**前台**方式运行
 
 ```babeld -d [1] [eth0]```
 
-**Multiple interfaces**
+**多个接口**
 
 ```babeld [eth0] [eth1] [wlan0]```
 
@@ -26,90 +26,90 @@ Run in **foreground**
 
 # DESCRIPTION
 
-**babeld** is a loop-avoiding distance-vector routing protocol daemon. Babel is designed for IPv6 and IPv4 networks, particularly wireless mesh networks, providing fast convergence and low overhead.
+**babeld** 是一个避免环路的距离向量路由协议守护进程。Babel 面向 IPv6 和 IPv4 网络设计，特别适合无线网状网络，收敛速度快且开销低。
 
-The daemon implements the Babel routing protocol (RFC 8966) and is suitable for small to medium-sized networks.
+该守护进程实现了 Babel 路由协议（RFC 8966），适用于中小型网络。
 
 # PARAMETERS
 
 **-c** _file_
-> Configuration file (repeatable).
+> 配置文件（可重复指定）。
 
 **-C** _statement_
-> Provide configuration via command line.
+> 通过命令行提供配置语句。
 
 **-d** _level_
-> Debug level (0-3).
+> 调试级别（0-3）。
 
 **-D**
-> Daemonize at startup.
+> 启动时转为守护进程运行。
 
 **-L** _file_
-> Log file location.
+> 日志文件位置。
 
 **-I** _file_
-> PID file location.
+> PID 文件位置。
 
 **-S** _file_
-> State file for preserving long-term information between invocations.
+> 状态文件，用于在多次运行之间保留长期信息。
 
 **-h** _seconds_
-> Hello packet interval for wireless interfaces (default: 4s).
+> 无线接口的 Hello 包发送间隔（默认：4s）。
 
 **-H** _seconds_
-> Hello packet interval for wired interfaces (default: 4s).
+> 有线接口的 Hello 包发送间隔（默认：4s）。
 
 **-m** _address_
-> Link-local multicast address (default: ff02:0:0:0:0:0:1:6).
+> 链路本地多播地址（默认：ff02:0:0:0:0:0:1:6）。
 
 **-p** _port_
-> UDP port number (default: 6696).
+> UDP 端口号（默认：6696）。
 
 **-k** _priority_
-> Kernel route installation priority (default: 0).
+> 内核路由安装优先级（默认：0）。
 
 **-g** _port|path_
-> Enable read-only configuration server.
+> 启用只读配置服务器。
 
 **-G** _port|path_
-> Enable read-write configuration server.
+> 启用读写配置服务器。
 
 **-t** _table_
-> Kernel routing table for route insertion.
+> 用于插入路由的内核路由表。
 
 **-w**
-> Treat all interfaces as wireless by default.
+> 默认将所有接口视为无线接口。
 
 **-s**
-> Disable split-horizon on wired interfaces.
+> 在有线接口上禁用水平分割（split-horizon）。
 
 **-r**
-> Use random router-id instead of deriving from MAC address.
+> 使用随机 router-id，而不是从 MAC 地址推导。
 
 **-l**
-> Use IFF_RUNNING to detect interface availability.
+> 使用 IFF_RUNNING 来检测接口可用性。
 
 # FEATURES
 
-- Loop-free routing
-- Fast convergence
-- IPv4 and IPv6 support
-- Link quality sensing
-- Multiple routing metrics
-- Extensible through configuration
+- 无环路由
+- 快速收敛
+- 支持 IPv4 和 IPv6
+- 链路质量感知
+- 多种路由度量
+- 可通过配置进行扩展
 
 # CONFIGURATION
 
 **/etc/babeld.conf**
-> Main configuration file for interface settings, filters, and redistribution rules.
+> 主配置文件，用于接口设置、过滤器和路由重分发规则。
 
 # CAVEATS
 
-Requires proper network configuration. All nodes must run compatible Babel implementation. Wireless networks need link quality extensions. Not suitable for large-scale networks (use BGP/OSPF). Configuration errors can cause routing loops.
+需要正确的网络配置。所有节点必须运行兼容的 Babel 实现。无线网络需要启用链路质量扩展。不适合大规模网络（请使用 BGP/OSPF）。配置错误可能导致路由环路。
 
 # HISTORY
 
-**Babel** was designed by Juliusz Chroboczek around **2008** as an improved distance-vector protocol for mesh networks, later standardized as RFC 6126 and updated to RFC 8966.
+**Babel** 由 Juliusz Chroboczek 于 **2008** 年前后设计，是为网状网络打造的一种改进型距离向量协议，后来标准化为 RFC 6126，随后更新为 RFC 8966。
 
 # INSTALL
 

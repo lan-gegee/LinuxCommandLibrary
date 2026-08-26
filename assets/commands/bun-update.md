@@ -1,18 +1,18 @@
 # TAGLINE
 
-Update installed packages
+更新已安装的软件包
 
 # TLDR
 
-**Update all packages** to latest compatible versions
+**将所有软件包更新**到最新的兼容版本
 
 ```bun update```
 
-**Update a specific package**
+**更新特定软件包**
 
 ```bun update [package]```
 
-**Update to latest versions** ignoring semver ranges
+**忽略 semver 范围**更新到最新版本
 
 ```bun update --latest```
 
@@ -23,35 +23,35 @@ Update installed packages
 # PARAMETERS
 
 **--latest**
-> Update to latest versions, ignoring version ranges in package.json (also rewrites the manifest).
+> 更新到最新版本，忽略 package.json 中的版本范围（同时重写清单文件）。
 
 **--no-save**
-> Update installed packages without modifying `package.json` or `bun.lockb`.
+> 更新已安装的软件包，但不修改 `package.json` 或 `bun.lockb`。
 
 **--save-text-lockfile**
-> Generate the human-readable `bun.lock` text lockfile alongside the binary one.
+> 在二进制 lockfile 之外生成人类可读的 `bun.lock` 文本 lockfile。
 
 **-d**, **--dev**
-> Limit the update to `devDependencies`.
+> 将更新限制在 `devDependencies`。
 
 **--production**
-> Limit the update to non-dev dependencies.
+> 将更新限制在非 dev 依赖。
 
 **--frozen-lockfile**
-> Fail if the lockfile would need to change (CI safety check).
+> 如果 lockfile 需要变更则失败（CI 安全检查）。
 
 **--dry-run**
-> Show what would change without writing to disk.
+> 显示将要发生的更改，而不写入磁盘。
 
 # DESCRIPTION
 
-**bun update** upgrades installed packages to newer versions, refreshing `node_modules` and the lockfile. By default it respects the semver ranges declared in `package.json`; **--latest** lifts that restriction and writes the newest available version back to the manifest.
+**bun update** 将已安装的软件包升级到更新的版本，并刷新 `node_modules` 和 lockfile。默认它会遵循 `package.json` 中声明的 semver 范围；**--latest** 会解除该限制，并将最新的可用版本写回清单文件。
 
-When called without package names, every dependency is considered. Naming one or more packages limits the operation to those entries (and their transitive graph).
+不带软件包名称调用时，会考虑所有依赖。指定一个或多个软件包则将操作限制在这些条目（及其传递依赖图）上。
 
 # CAVEATS
 
-**--latest** can pull in major-version bumps and break the project. The binary `bun.lockb` is not human-diffable; use `--save-text-lockfile` (or `bun install --save-text-lockfile`) to maintain a `bun.lock` file for code review.
+**--latest** 可能引入主版本升级并破坏项目。二进制的 `bun.lockb` 不便于人工比对；请使用 `--save-text-lockfile`（或 `bun install --save-text-lockfile`）维护一个 `bun.lock` 文件以便代码审查。
 
 # INSTALL
 

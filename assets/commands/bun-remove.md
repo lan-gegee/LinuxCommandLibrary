@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove packages from a project
+从项目中移除软件包
 
 # TLDR
 
-**Remove a package**
+**移除一个软件包**
 
 ```bun remove [package]```
 
-**Remove multiple packages**
+**移除多个软件包**
 
 ```bun remove [package1] [package2]```
 
-**Remove a global package**
+**移除全局软件包**
 
 ```bun remove -g [package]```
 
@@ -23,14 +23,14 @@ Remove packages from a project
 # PARAMETERS
 
 **-g**, **--global**
-> Remove from global packages.
+> 从全局软件包中移除。
 
 **-d**, **--dev**
-> Remove from devDependencies.
+> 从 devDependencies 中移除。
 
 # DESCRIPTION
 
-**bun remove** uninstalls packages from the project and removes them from package.json. This is equivalent to **npm uninstall** or **yarn remove**.
+**bun remove** 从项目中卸载软件包并将其从 package.json 中移除。这等同于 **npm uninstall** 或 **yarn remove**。
 
 # INSTALL
 

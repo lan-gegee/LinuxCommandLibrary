@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Azure resource locks
+管理 Azure 资源锁
 
 # TLDR
 
-**Create a read-only lock** on a resource group
+在资源组上**创建只读锁**
 
 ```az lock create --name [MyLock] --resource-group [MyResourceGroup] --lock-type ReadOnly```
 
-**Create a delete lock** to prevent accidental deletion
+创建删除锁以防止意外删除
 
 ```az lock create --name [MyLock] --resource-group [MyResourceGroup] --lock-type CanNotDelete```
 
-**List all locks** in a resource group
+**列出资源组中的所有锁**
 
 ```az lock list --resource-group [MyResourceGroup]```
 
-**Show details** of a lock
+**显示**某个锁的**详情**
 
 ```az lock show --name [MyLock] --resource-group [MyResourceGroup]```
 
-**Delete a lock**
+**删除锁**
 
 ```az lock delete --name [MyLock] --resource-group [MyResourceGroup]```
 
-**Create a lock** on a specific resource
+对特定资源**创建锁**
 
 ```az lock create --name [MyLock] --resource-group [MyResourceGroup] --resource-name [MyResource] --resource-type [Microsoft.Storage/storageAccounts] --lock-type CanNotDelete```
 
@@ -35,58 +35,58 @@ Manage Azure resource locks
 # SUBCOMMANDS
 
 **create**
-> Create a lock.
+> 创建锁。
 
 **delete**
-> Delete a lock.
+> 删除锁。
 
 **list**
-> List locks.
+> 列出锁。
 
 **show**
-> Show details of a lock.
+> 显示某个锁的详情。
 
 **update**
-> Update a lock.
+> 更新锁。
 
 # PARAMETERS
 
 **--name** **-n**
-> Name of the lock.
+> 锁的名称。
 
 **--lock-type** **-t**
-> Type of lock: CanNotDelete or ReadOnly.
+> 锁的类型：CanNotDelete 或 ReadOnly。
 
 **--resource-group** **-g**
-> Name of resource group.
+> 资源组的名称。
 
 **--resource-name** **--resource**
-> Name of the resource being locked.
+> 被锁定资源的名称。
 
 **--resource-type**
-> The type of the resource being locked (e.g., Microsoft.Network/subnets).
+> 被锁定资源的类型（例如 Microsoft.Network/subnets）。
 
 **--namespace**
-> Provider namespace (e.g., Microsoft.Provider).
+> 提供程序命名空间（例如 Microsoft.Provider）。
 
 **--parent**
-> Parent path for nested resources (e.g., resA/myA/resB/myB).
+> 嵌套资源的父路径（例如 resA/myA/resB/myB）。
 
 **--notes**
-> Notes about the lock.
+> 关于该锁的备注。
 
 **--ids**
-> One or more resource IDs. Used with delete/show/update instead of --name.
+> 一个或多个资源 ID。用于 delete/show/update，代替 --name。
 
 # DESCRIPTION
 
-**az lock** manages Azure resource locks. Locks prevent accidental deletion or modification of critical resources. Two lock types are available: **CanNotDelete** allows read and modify operations but prevents deletion, while **ReadOnly** allows only read operations.
+**az lock** 管理 Azure 资源锁。锁可以防止关键资源被意外删除或修改。有两种锁类型：**CanNotDelete** 允许读取和修改操作但禁止删除，而 **ReadOnly** 只允许读取操作。
 
-Locks can be applied at subscription, resource group, or individual resource level. Child resources inherit locks from parent resources.
+锁可以应用于订阅、资源组或单个资源级别。子资源会继承父资源上的锁。
 
 # CAVEATS
 
-Requires Azure CLI and appropriate RBAC permissions (Owner or User Access Administrator). Locks do not restrict actions performed by the Azure platform itself. A ReadOnly lock on a resource group affects all resources within it.
+需要 Azure CLI 和相应的 RBAC 权限（Owner 或 User Access Administrator）。锁不会限制 Azure 平台自身执行的操作。资源组上的 ReadOnly 锁会影响其中的所有资源。
 
 # INSTALL
 

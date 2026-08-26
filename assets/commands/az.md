@@ -1,30 +1,30 @@
 # TAGLINE
 
-Unified command-line interface for Microsoft Azure
+Microsoft Azure 的统一命令行界面
 
 # TLDR
 
-**Login** to Azure
+**登录**Azure
 
 ```az login```
 
-**List** resource groups
+**列出**资源组
 
 ```az group list```
 
-**Create** resource group
+**创建**资源组
 
 ```az group create --name [MyResourceGroup] --location [eastus]```
 
-**List** virtual machines
+**列出**虚拟机
 
 ```az vm list```
 
-**Get** account information
+**获取**账户信息
 
 ```az account show```
 
-Use **specific subscription**
+使用**指定的订阅**
 
 ```az account set --subscription [subscription-id]```
 
@@ -34,53 +34,53 @@ Use **specific subscription**
 
 # DESCRIPTION
 
-**az** is the unified command-line interface for Microsoft Azure. It provides access to Azure services including virtual machines, storage, databases, Kubernetes, and hundreds of other cloud resources through a consistent cross-platform interface.
+**az** 是 Microsoft Azure 的统一命令行界面。它通过一致的跨平台接口提供对各类 Azure 服务的访问，包括虚拟机、存储、数据库、Kubernetes 以及数百种其他云资源。
 
-The CLI enables automation, scripting, and management of Azure resources without using the web portal.
+借助该 CLI，无需使用 Web 门户即可实现 Azure 资源的自动化、脚本化和集中管理。
 
 # PARAMETERS
 
 **--output**, **-o** _format_
-> Output format (json, jsonc, table, tsv, yaml, none)
+> 输出格式（json、jsonc、table、tsv、yaml、none）
 
 **--query**
-> JMESPath query to filter output
+> 用于筛选输出的 JMESPath 查询
 
 **--subscription** _id_
-> Subscription name or ID
+> 订阅名称或 ID
 
 **--resource-group**, **-g** _name_
-> Resource group name
+> 资源组名称
 
 **--location**, **-l** _region_
-> Azure region
+> Azure 区域
 
 **--verbose**
-> Increase logging verbosity
+> 提高日志详细程度
 
 **--debug**
-> Enable debug logging
+> 启用调试日志
 
 **--only-show-errors**
-> Only show errors
+> 仅显示错误
 
 # COMMON SERVICES
 
-- **vm** - Virtual machines
-- **storage** - Storage accounts
+- **vm** - 虚拟机
+- **storage** - 存储账户
 - **aks** - Azure Kubernetes Service
-- **webapp** - Web apps
-- **sql** - SQL databases
+- **webapp** - Web 应用
+- **sql** - SQL 数据库
 - **cosmosdb** - Cosmos DB
 - **keyvault** - Key Vault
-- **network** - Networking resources
-- **group** - Resource groups
-- **account** - Account management
+- **network** - 网络资源
+- **group** - 资源组
+- **account** - 账户管理
 
 # CONFIGURATION
 
 **~/.azure/config**
-> INI-format configuration file for defaults and settings. Sections include [core], [defaults], and [cloud]. Managed via `az config set`.
+> INI 格式的配置文件，保存默认值和设置。包含 [core]、[defaults] 和 [cloud] 等节。可通过 `az config set` 管理。
 
 ```bash
 # Set default output format
@@ -92,11 +92,11 @@ az config set defaults.location=eastus
 
 # CAVEATS
 
-Requires an active Azure subscription and prior `az login`. Some operations are destructive and have no undo. API throttling can affect large bulk scripts. New Azure services may take weeks or months to gain full CLI parity. Prefer **--query** with JMESPath over piping through shell tools for reliable scripting.
+需要有效的 Azure 订阅，并且事先执行过 `az login`。某些操作具有破坏性且无法撤销。API 限流可能影响大规模批量脚本。新的 Azure 服务可能需要数周甚至数月才能获得功能对等的 CLI 支持。为了脚本可靠性，建议使用 **--query** 配合 JMESPath，而不是通过 shell 工具管道处理输出。
 
 # HISTORY
 
-The **Azure CLI 2.0** was released by Microsoft in **2017** as a complete rewrite of the original Azure CLI, built in Python with focus on usability and cross-platform support.
+**Azure CLI 2.0** 由微软于 **2017** 年发布，是对最初 Azure CLI 的完全重写，采用 Python 构建，注重易用性和跨平台支持。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Python deterministic profiler
+Python 确定性性能分析器
 
 # TLDR
 
-**Profile a Python script**
+**分析** Python 脚本的性能
 
 ```python -m cProfile [script.py]```
 
-**Profile and sort by cumulative time**
+**分析并按累计时间排序**
 
 ```python -m cProfile -s cumtime [script.py]```
 
-**Profile and save to file**
+**分析并保存到文件**
 
 ```python -m cProfile -o [profile.prof] [script.py]```
 
-**Sort by total time in function**
+**按函数自身耗时排序**
 
 ```python -m cProfile -s tottime [script.py]```
 
-**Profile specific function in code**
+**分析代码中的特定函数**
 
 ```import cProfile; cProfile.run('[function_call()]')```
 
-**View saved profile with pstats**
+**用 pstats 查看已保存的分析结果**
 
 ```python -c "import pstats; p = pstats.Stats('[profile.prof]'); p.sort_stats('cumtime').print_stats(20)"```
 
-**Visualize with snakeviz**
+**用 snakeviz 可视化**
 
 ```snakeviz [profile.prof]```
 
@@ -39,33 +39,33 @@ Python deterministic profiler
 # PARAMETERS
 
 **-o** _file_
-> Save profile statistics to file for later analysis.
+> 将分析统计数据保存到文件，供以后分析。
 
 **-s** _sort_
-> Sort output by specified column.
+> 按指定列排序输出。
 
 **-m** _module_
-> Profile a module run as a script (passed to python -m).
+> 分析以脚本方式运行的模块（传递给 python -m）。
 
 # SORT OPTIONS
 
-**calls** / **ncalls**: Number of calls
-**cumulative** / **cumtime**: Cumulative time (including subcalls)
-**tottime** / **time**: Total time in function (excluding subcalls)
-**filename**: File name
-**module**: Module name
-**name** / **nfl**: Function name (name/file/line)
-**pcalls**: Primitive call count
-**stdname**: Standard name
-**line**: Line number
+**calls** / **ncalls**：调用次数
+**cumulative** / **cumtime**：累计时间（含子调用）
+**tottime** / **time**：函数自身总耗时（不含子调用）
+**filename**：文件名
+**module**：模块名
+**name** / **nfl**：函数名（name/file/line）
+**pcalls**：原生调用次数
+**stdname**：标准名
+**line**：行号
 
 # DESCRIPTION
 
-**cProfile** is Python's built-in deterministic profiler that measures how much time is spent in each function. It's implemented in C for low overhead, making it suitable for profiling production code.
+**cProfile** 是 Python 内置的确定性性能分析器，用于测量每个函数耗费了多少时间。它以 C 实现，开销很低，因此适合对生产代码进行性能分析。
 
-The profiler tracks every function call and return, recording the number of calls and time spent. Output shows each function with call count, total time, time per call, cumulative time, and cumulative time per call.
+该分析器跟踪每一次函数调用和返回，记录调用次数与耗时。输出会显示每个函数的调用次数、总时间、单次调用时间、累计时间以及单次累计时间。
 
-Profile data can be saved for later analysis with the **pstats** module or visualized with tools like **snakeviz**, **pyprof2calltree**, or **gprof2dot**. This enables detailed investigation of performance bottlenecks.
+分析数据可以保存下来，之后用 **pstats** 模块分析，或用 **snakeviz**、**pyprof2calltree**、**gprof2dot** 等工具可视化，便于深入排查性能瓶颈。
 
 # PROGRAMMATIC USAGE
 
@@ -85,11 +85,11 @@ stats.print_stats(10)
 
 # CAVEATS
 
-Profiling adds overhead that can affect measurements, especially for fast functions. The profiler is deterministic, not statistical, so it captures every call but may impact performance. Use **line_profiler** for line-by-line profiling or **py-spy** for sampling-based profiling with lower overhead.
+性能分析本身会增加开销，可能影响测量结果，尤其是对执行很快的函数。该分析器是确定性的而非统计性的，会捕获每次调用，但可能影响性能。如需逐行分析可使用 **line_profiler**，如需开销更低的采样式分析可使用 **py-spy**。
 
 # HISTORY
 
-cProfile was added to Python in version **2.5** (2006) as a faster alternative to the pure-Python **profile** module. It was based on **lsprof** contributed by **Armin Rigo**. The C implementation provides roughly 10x less overhead than the original profiler while maintaining the same interface.
+cProfile 在 Python **2.5** 版（2006 年）中加入，作为纯 Python 实现的 **profile** 模块的更快替代品。它基于 **Armin Rigo** 贡献的 **lsprof**。其 C 实现的开销比原来的 profiler 低约 10 倍，同时保持相同的接口。
 
 # SEE ALSO
 

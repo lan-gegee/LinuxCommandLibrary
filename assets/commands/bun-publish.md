@@ -1,22 +1,22 @@
 # TAGLINE
 
-Publish packages to the npm registry
+发布软件包到 npm 软件仓库
 
 # TLDR
 
-**Publish a package** to npm registry
+**发布软件包**到 npm 软件仓库
 
 ```bun publish```
 
-**Publish with a specific tag**
+**使用特定标签发布**
 
 ```bun publish --tag [beta]```
 
-**Publish with public access** (scoped packages)
+**以公开访问权限发布**（带作用域的软件包）
 
 ```bun publish --access public```
 
-**Dry run** without actually publishing
+**试运行**而不实际发布
 
 ```bun publish --dry-run```
 
@@ -27,26 +27,26 @@ Publish packages to the npm registry
 # PARAMETERS
 
 **--tag** _tag_
-> Publish with a specific dist-tag (default: latest).
+> 使用特定的 dist-tag 发布（默认：latest）。
 
 **--access** _public|restricted_
-> Set access level for scoped packages.
+> 设置带作用域软件包的访问级别。
 
 **--dry-run**
-> Show what would be published without actually publishing.
+> 显示将要发布的内容，而不实际发布。
 
 **--otp** _code_
-> One-time password for 2FA.
+> 用于双因素认证（2FA）的一次性密码。
 
 # DESCRIPTION
 
-**bun publish** publishes the current package to the npm registry. It reads package configuration from package.json and uploads the package tarball.
+**bun publish** 将当前软件包发布到 npm 软件仓库。它从 package.json 读取软件包配置并上传软件包 tarball。
 
-Before publishing, ensure you're logged in with **bun login** or have appropriate credentials configured.
+发布前，请确保你已通过 **bun login** 登录或已配置好相应的凭据。
 
 # CAVEATS
 
-Requires authentication to the npm registry. Scoped packages (@org/name) are private by default; use **--access public** for public scoped packages.
+需要 npm 软件仓库的身份验证。带作用域的软件包（@org/name）默认为私有；公开的作用域软件包请使用 **--access public**。
 
 # SEE ALSO
 

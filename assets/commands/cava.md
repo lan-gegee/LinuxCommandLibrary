@@ -1,18 +1,18 @@
 # TAGLINE
 
-cross-platform audio spectrum visualizer for the terminal
+跨平台终端音频频谱可视化器
 
 # TLDR
 
-**Start audio visualizer**
+**启动音频可视化器**
 
 ```cava```
 
-**Use custom config file**
+**使用自定义配置文件**
 
 ```cava -p [/path/to/config]```
 
-**Show version**
+**显示版本**
 
 ```cava -v```
 
@@ -22,30 +22,30 @@ cross-platform audio spectrum visualizer for the terminal
 
 # DESCRIPTION
 
-**cava** (Console Audio Visualizer for ALSA) is a bar spectrum audio visualizer that displays real-time frequency analysis as animated bars in the terminal or on the desktop. It captures audio from the system and renders it as a colorful equalizer-style display.
+**cava**（Console Audio Visualizer for ALSA）是一个条形频谱音频可视化器，在终端或桌面上以动画条形显示实时频率分析。它从系统捕获音频，并将其渲染成彩色的均衡器风格画面。
 
-The visualizer supports multiple audio backends including ALSA, PulseAudio, PipeWire, JACK, sndio, and PortAudio. Output can be rendered through ncurses for terminal display, SDL for a desktop window, or raw data for piping to other programs. All visual and audio settings are controlled through a configuration file.
+该可视化器支持多种音频后端，包括 ALSA、PulseAudio、PipeWire、JACK、sndio 和 PortAudio。输出可以通过 ncurses 渲染到终端，通过 SDL 渲染为桌面窗口，或者输出原始数据供管道传给其他程序。所有视觉和音频设置均通过配置文件控制。
 
 # PARAMETERS
 
 **-p** _path_
-> Path to configuration file
+> 配置文件路径
 
 **-v**
-> Print version
+> 打印版本
 
 # CONTROLS
 
 **q** / **Ctrl+C**
-> Quit
+> 退出
 
 **r**
-> Reload configuration
+> 重新加载配置
 
 # CONFIGURATION
 
 **~/.config/cava/config**
-> Controls bar width, spacing, colors, gradients, audio source, sensitivity, smoothing, and output mode.
+> 控制条形宽度、间距、颜色、渐变、音频源、灵敏度、平滑度以及输出模式。
 
 # AUDIO SOURCES
 
@@ -55,16 +55,16 @@ The visualizer supports multiple audio backends including ALSA, PulseAudio, Pipe
 - JACK
 - sndio
 - PortAudio
-- FIFO buffer
+- FIFO 缓冲区
 
 # SIGNALS
 
 **SIGUSR1**
-> Force config reload
+> 强制重新加载配置
 
 # CAVEATS
 
-Requires audio capture permissions. Different audio backends need corresponding dev libraries. Works best with music playback.
+需要音频捕获权限。不同的音频后端需要相应的开发库。播放音乐时效果最佳。
 
 # INSTALL
 

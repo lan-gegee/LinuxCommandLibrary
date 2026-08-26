@@ -1,34 +1,34 @@
 # TAGLINE
 
-Cross-platform build automation using C#
+基于 C# 的跨平台构建自动化工具
 
 # TLDR
 
-**Run default build script**
+**运行默认构建脚本**
 
 ```dotnet cake```
 
-**Run specific build script**
+**运行指定构建脚本**
 
 ```dotnet cake [build.cake]```
 
-**Run specific target**
+**运行指定目标**
 
 ```dotnet cake --target=[Clean]```
 
-**Run with verbosity**
+**以详细输出运行**
 
 ```dotnet cake --verbosity=[diagnostic]```
 
-**Show available tasks**
+**显示可用任务**
 
 ```dotnet cake --showdescription```
 
-**Dry run without executing**
+**试运行而不实际执行**
 
 ```dotnet cake --dryrun```
 
-**Run with custom argument**
+**带自定义参数运行**
 
 ```dotnet cake --configuration=[Release]```
 
@@ -38,36 +38,36 @@ Cross-platform build automation using C#
 
 # DESCRIPTION
 
-**Cake** (C# Make) is a cross-platform build automation system with a C# DSL. It compiles code, copies files, runs tests, compresses files, and builds NuGet packages. Scripts are written in C# and executed via Roslyn.
+**Cake**（C# Make）是一个使用 C# DSL 的跨平台构建自动化系统。它可以编译代码、复制文件、运行测试、压缩文件以及构建 NuGet 软件包。脚本用 C# 编写，通过 Roslyn 执行。
 
 # PARAMETERS
 
 **--target**=_name_
-> Target task to run
+> 要运行的目标任务
 
 **--verbosity**=_level_
-> Output verbosity (quiet, minimal, normal, verbose, diagnostic)
+> 输出详细程度（quiet、minimal、normal、verbose、diagnostic）
 
 **--dryrun**
-> Show tasks without executing
+> 只显示任务而不执行
 
 **--showdescription**
-> Show task descriptions
+> 显示任务描述
 
 **--showtree**
-> Show task dependency tree
+> 显示任务依赖树
 
 **--configuration**=_config_
-> Build configuration (Debug, Release)
+> 构建配置（Debug、Release）
 
 **--exclusive**
-> Execute only target task without dependencies
+> 只执行目标任务，不含依赖任务
 
 **--version**
-> Show version
+> 显示版本
 
 **--help**
-> Show help
+> 显示帮助
 
 # INSTALLATION
 
@@ -78,7 +78,7 @@ dotnet tool install Cake.Tool
 
 # CAVEATS
 
-Requires .NET SDK installed. By convention, executes build.cake in current directory. Supports MSBuild, .NET CLI, NuGet, and many other tools through addins.
+需要已安装 .NET SDK。按惯例会执行当前目录下的 build.cake。通过插件（addin）支持 MSBuild、.NET CLI、NuGet 等众多工具。
 
 # INSTALL
 

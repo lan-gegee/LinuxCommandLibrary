@@ -1,26 +1,26 @@
 # TAGLINE
 
-Dynamic IP routing daemon
+动态 IP 路由守护进程
 
 # TLDR
 
-**Start** BIRD with a specific configuration file
+**以指定配置文件启动** BIRD
 
 ```bird -c [/etc/bird/bird.conf]```
 
-**Parse configuration** and check for errors
+**解析配置**并检查错误
 
 ```bird -p```
 
-**Run** in foreground with debug messages
+以前台方式**运行**并输出调试消息
 
 ```bird -d```
 
-**Run** in foreground as a specific user
+以指定用户在前台**运行**
 
 ```bird -f -u [bird] -g [bird]```
 
-**Start** with a custom control socket path
+**以自定义控制套接字路径启动**
 
 ```bird -s [/run/bird/bird.ctl]```
 
@@ -30,70 +30,70 @@ Dynamic IP routing daemon
 
 # DESCRIPTION
 
-**bird** (BIRD Internet Routing Daemon) is a dynamic IP routing daemon supporting multiple routing protocols including BGP, OSPF, RIP, and Babel. It's designed for high-performance routing on Unix-like systems.
+**bird**（BIRD Internet Routing Daemon）是一个动态 IP 路由守护进程，支持 BGP、OSPF、RIP、Babel 等多种路由协议。它为类 Unix 系统上的高性能路由而设计。
 
-The daemon is widely used for internet routing, particularly by ISPs and in data centers.
+该守护进程被广泛用于互联网路由，尤其受到 ISP 和数据中心的青睐。
 
 # PARAMETERS
 
 **-c** _file_
-> Use given configuration file instead of the default /etc/bird/bird.conf.
+> 使用给定的配置文件而不是默认的 /etc/bird/bird.conf。
 
 **-d**
-> Enable debug messages to stderr and run in foreground.
+> 启用输出到 stderr 的调试消息，并以前台方式运行。
 
 **-D** _file_
-> Log debugging information to given file instead of stderr.
+> 将调试信息记录到给定文件而不是 stderr。
 
 **-f**
-> Run in foreground (without debug messages).
+> 以前台方式运行（不带调试消息）。
 
 **-p**
-> Just parse the configuration file and exit. Returns zero if valid.
+> 仅解析配置文件然后退出。有效则返回零。
 
 **-s** _socket_
-> Use given filename for the control socket (default: /run/bird/bird.ctl).
+> 使用给定的文件名作为控制套接字（默认：/run/bird/bird.ctl）。
 
 **-P** _file_
-> Create a PID file with the given filename.
+> 以给定的文件名创建 PID 文件。
 
 **-u** _user_
-> Drop privileges and run as given user instead of root.
+> 放弃特权，以给定用户身份运行而不是 root。
 
 **-g** _group_
-> Run with given group ID.
+> 以给定的组 ID 运行。
 
 **-l**
-> Look for configuration file and control socket in the current working directory.
+> 在当前工作目录中查找配置文件和控制套接字。
 
 **-R**
-> Apply graceful restart recovery after start.
+> 启动后应用优雅重启恢复。
 
 **--help**
-> Display command-line options.
+> 显示命令行选项。
 
 **--version**
-> Display BIRD version.
+> 显示 BIRD 版本。
 
 # SUPPORTED PROTOCOLS
 
 **BGP** - Border Gateway Protocol
-**OSPF** - Open Shortest Path First (v2 and v3)
+**OSPF** - Open Shortest Path First（v2 和 v3）
 **RIP** - Routing Information Protocol
-**Babel** - Babel routing protocol
+**Babel** - Babel 路由协议
 **BFD** - Bidirectional Forwarding Detection
-**Static** - Static routes
-**Kernel** - Kernel routing table sync
-**Pipe** - Route copying between tables
+**Static** - 静态路由
+**Kernel** - 内核路由表同步
+**Pipe** - 表间路由复制
 
 # CONFIGURATION
 
 **/etc/bird/bird.conf**
-> Main configuration file defining routing protocols, filters, and network interfaces.
+> 主配置文件，定义路由协议、过滤器和网络接口。
 
 # CONTROL
 
-Use `birdc` (BIRD client) to interact with running daemon:
+使用 `birdc`（BIRD 客户端）与运行中的守护进程交互：
 ```bash
 birdc show protocols
 birdc show route
@@ -102,11 +102,11 @@ birdc configure
 
 # CAVEATS
 
-Complex configuration for advanced setups. Requires root or network admin privileges (uses CAP_NET_ADMIN when run with **-u**). Misconfiguration can disrupt routing. In BIRD 1.x, IPv4 and IPv6 used separate daemons (bird/bird6); BIRD 2.x unified them into a single daemon.
+高级场景下配置较为复杂。需要 root 或网络管理权限（配合 **-u** 运行时使用 CAP_NET_ADMIN）。配置错误可能扰乱路由。在 BIRD 1.x 中，IPv4 与 IPv6 使用独立的守护进程（bird/bird6）；BIRD 2.x 已将它们统一为单一守护进程。
 
 # HISTORY
 
-**BIRD** was developed at Charles University in Prague starting in **1998**, becoming a popular open-source routing daemon for Unix systems.
+**BIRD** 自 **1998 年**起由布拉格查理大学开发，逐渐成为 Unix 系统上流行的开源路由守护进程。
 
 # INSTALL
 

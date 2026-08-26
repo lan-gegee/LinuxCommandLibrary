@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert BMP images to PPM format
+将 BMP 图像转换为 PPM 格式
 
 # TLDR
 
-**Convert a BMP image** to PPM format
+**将 BMP 图像转换**为 PPM 格式
 
 ```bmptoppm [image.bmp] > [output.ppm]```
 
-**Convert from stdin**
+**从 stdin 转换**
 
 ```cat [image.bmp] | bmptoppm > [output.ppm]```
 
-**Convert BMP to JPEG** via pipe
+通过管道**将 BMP 转换为 JPEG**
 
 ```bmptoppm [image.bmp] | pnmtojpeg > [output.jpg]```
 
@@ -22,15 +22,15 @@ Convert BMP images to PPM format
 
 # DESCRIPTION
 
-**bmptoppm** reads a Microsoft Windows or OS/2 BMP file as input and produces a PPM (Portable PixMap) color image as output. This is part of the Netpbm package.
+**bmptoppm** 读取 Microsoft Windows 或 OS/2 的 BMP 文件作为输入，并输出 PPM（Portable PixMap）彩色图像。它是 Netpbm 软件包的一部分。
 
-This command was replaced in Netpbm 9.25 (**March 2002**) by **bmptopnm**, which automatically determines the appropriate output format (PBM, PGM, or PPM) based on the input image characteristics. **bmptoppm** is retained only for backward compatibility and takes no options of its own.
+该命令在 Netpbm 9.25（**2002 年 3 月**）中被 **bmptopnm** 取代，后者根据输入图像的特征自动确定合适的输出格式（PBM、PGM 或 PPM）。**bmptoppm** 仅出于向后兼容的目的而保留，本身不接受任何选项。
 
-Input can be from a file or standard input; output is to standard output.
+输入可以来自文件或标准输入；输出到标准输出。
 
 # CAVEATS
 
-For grayscale BMP images, consider using **bmptopnm** instead, which will produce more appropriate PGM output. This command always outputs PPM regardless of the input color depth.
+对于灰度 BMP 图像，建议改用 **bmptopnm**，它会输出更合适的 PGM 格式。无论输入颜色深度如何，此命令总是输出 PPM。
 
 # INSTALL
 

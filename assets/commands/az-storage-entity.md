@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage entities in Azure Table Storage
+管理 Azure 表存储中的实体
 
 # TLDR
 
-**Insert an entity** into a table
+**向表中插入实体**
 
 ```az storage entity insert --table-name [MyTable] --entity PartitionKey=[pk] RowKey=[rk] Property=[value] --account-name [mystorageaccount]```
 
-**Insert with conflict handling** (fail, merge, or replace)
+**插入并处理冲突**（fail、merge 或 replace）
 
 ```az storage entity insert --table-name [MyTable] --entity PartitionKey=[pk] RowKey=[rk] Property=[value] --if-exists [merge] --connection-string [$CS]```
 
-**Query entities** from a table
+**从表中查询实体**
 
 ```az storage entity query --table-name [MyTable] --account-name [mystorageaccount]```
 
-**Query with OData filter**
+**使用 OData 筛选器查询**
 
 ```az storage entity query --table-name [MyTable] --filter "PartitionKey eq 'pk'" --account-name [mystorageaccount]```
 
-**Show a specific entity**
+**显示特定实体**
 
 ```az storage entity show --table-name [MyTable] --partition-key [pk] --row-key [rk] --account-name [mystorageaccount]```
 
-**Merge entity properties**
+**合并实体属性**
 
 ```az storage entity merge --table-name [MyTable] --entity PartitionKey=[pk] RowKey=[rk] Property=[newvalue] --account-name [mystorageaccount]```
 
-**Replace an entity**
+**替换实体**
 
 ```az storage entity replace --table-name [MyTable] --entity PartitionKey=[pk] RowKey=[rk] Property=[newvalue] --account-name [mystorageaccount]```
 
-**Delete an entity**
+**删除实体**
 
 ```az storage entity delete --table-name [MyTable] --partition-key [pk] --row-key [rk] --account-name [mystorageaccount]```
 
@@ -43,82 +43,82 @@ Manage entities in Azure Table Storage
 # SUBCOMMANDS
 
 **insert**
-> Insert an entity into a table.
+> 向表中插入实体。
 
 **delete**
-> Delete an entity from a table.
+> 从表中删除实体。
 
 **merge**
-> Update an entity by merging properties.
+> 通过合并属性来更新实体。
 
 **replace**
-> Update an entity by replacing it entirely.
+> 通过整体替换来更新实体。
 
 **query**
-> List entities matching a query.
+> 列出匹配查询条件的实体。
 
 **show**
-> Get a single entity from a table.
+> 从表中获取单个实体。
 
 # PARAMETERS
 
 **-t**, **--table-name** _NAME_
-> Name of the table.
+> 表的名称。
 
 **-e**, **--entity** _KEY=VAL ..._
-> Space-separated `key=value` pairs. Must include `PartitionKey` and `RowKey`. Append `key@odata.type=<EdmType>` to set explicit Edm types (Edm.String, Edm.Int32, Edm.Int64, Edm.Double, Edm.Boolean, Edm.DateTime, Edm.Guid, Edm.Binary).
+> 以空格分隔的 `key=value` 对。必须包含 `PartitionKey` 和 `RowKey`。可追加 `key@odata.type=<EdmType>` 来显式指定 Edm 类型（Edm.String、Edm.Int32、Edm.Int64、Edm.Double、Edm.Boolean、Edm.DateTime、Edm.Guid、Edm.Binary）。
 
 **--partition-key** _PK_
-> Partition key of the entity.
+> 实体的分区键。
 
 **--row-key** _RK_
-> Row key of the entity.
+> 实体的行键。
 
 **--filter** _EXPR_
-> OData filter expression for `query`.
+> 用于 `query` 的 OData 筛选表达式。
 
 **--select** _PROPS_
-> Space-separated list of properties to return.
+> 要返回的属性列表，以空格分隔。
 
 **--num-results** _N_
-> Number of entities returned per service request.
+> 每个服务请求返回的实体数量。
 
 **--marker** _NEXTPK=... NEXTRK=..._
-> Continuation marker for paged queries.
+> 分页查询的续接标记。
 
 **--if-exists** _BEHAVIOR_
-> Behavior when an entity already exists: `fail` (default), `merge`, or `replace` (insert only).
+> 实体已存在时的处理方式：`fail`（默认）、`merge` 或 `replace`（仅限 insert）。
 
 **--if-match** _ETAG_
-> Perform the operation only if the entity's ETag matches. Default `*`.
+> 仅当实体的 ETag 匹配时才执行操作。默认 `*`。
 
 **--account-name** _NAME_
-> Storage account name. Env: `AZURE_STORAGE_ACCOUNT`.
+> 存储账户名。环境变量：`AZURE_STORAGE_ACCOUNT`。
 
 **--account-key** _KEY_
-> Storage account key. Env: `AZURE_STORAGE_KEY`.
+> 存储账户密钥。环境变量：`AZURE_STORAGE_KEY`。
 
 **--connection-string** _CS_
-> Storage account connection string. Env: `AZURE_STORAGE_CONNECTION_STRING`.
+> 存储账户连接字符串。环境变量：`AZURE_STORAGE_CONNECTION_STRING`。
 
 **--sas-token** _TOKEN_
-> Shared Access Signature token. Env: `AZURE_STORAGE_SAS_TOKEN`.
+> 共享访问签名令牌。环境变量：`AZURE_STORAGE_SAS_TOKEN`。
 
 **--auth-mode** _MODE_
-> Authentication mode: `key` (legacy) or `login` (Azure AD).
+> 身份验证模式：`key`（旧式）或 `login`（Azure AD）。
 
 **--table-endpoint** _URL_
-> Custom service endpoint, useful for Cosmos DB Table API.
+> 自定义服务端点，适用于 Cosmos DB Table API。
 
 # DESCRIPTION
 
-**az storage entity** manages entities in Azure Table Storage. Table Storage is a NoSQL key-value store for structured data. Entities are items stored in tables, similar to rows in a database, uniquely identified by `PartitionKey` and `RowKey`.
+**az storage entity** 管理 Azure 表存储中的实体。表存储是一种面向结构化数据的 NoSQL 键值存储。实体是存储在表中的条目，类似于数据库中的行，由 `PartitionKey` 和 `RowKey` 唯一标识。
 
-This command works with both Azure Storage accounts and Azure Cosmos DB Table API (via `--table-endpoint`).
+该命令既适用于 Azure 存储账户，也适用于 Azure Cosmos DB Table API（通过 `--table-endpoint`）。
 
 # CAVEATS
 
-Requires Azure CLI and valid storage credentials. Property types are limited to the Edm type system. Queries return up to 1000 entities per request; use `--marker` for pagination. The PartitionKey and RowKey may be up to 64KB each.
+需要 Azure CLI 和有效的存储凭据。属性类型仅限于 Edm 类型系统。每次请求最多返回 1000 个实体；分页请使用 `--marker`。PartitionKey 和 RowKey 各自最长可达 64KB。
 
 # INSTALL
 

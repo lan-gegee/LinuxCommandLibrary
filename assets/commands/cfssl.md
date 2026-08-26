@@ -1,34 +1,34 @@
 # TAGLINE
 
-PKI/TLS certificate authority toolkit
+PKI/TLS 证书颁发机构工具集
 
 # TLDR
 
-**Initialize a new CA**
+**初始化新的 CA**
 
 ```cfssl gencert -initca [ca-csr.json] | cfssljson -bare [ca]```
 
-**Generate certificate signed by CA**
+**生成由 CA 签署的证书**
 
 ```cfssl gencert -ca [ca.pem] -ca-key [ca-key.pem] [csr.json] | cfssljson -bare [cert]```
 
-**Sign a CSR**
+**签署 CSR**
 
 ```cfssl sign -ca [ca.pem] -ca-key [ca-key.pem] [request.csr]```
 
-**Generate self-signed certificate**
+**生成自签名证书**
 
 ```cfssl selfsign [hostname] [csr.json] | cfssljson -bare [cert]```
 
-**Start API server**
+**启动 API 服务器**
 
 ```cfssl serve -ca [ca.pem] -ca-key [ca-key.pem]```
 
-**Bundle certificates**
+**打包证书捆绑包**
 
 ```cfssl bundle -cert [cert.pem]```
 
-**Print default configuration**
+**打印默认配置**
 
 ```cfssl print-defaults config```
 
@@ -38,89 +38,89 @@ PKI/TLS certificate authority toolkit
 
 # DESCRIPTION
 
-**cfssl** is CloudFlare's PKI/TLS toolkit for signing, verifying, and bundling TLS certificates. It provides both a command-line tool and an HTTP API server for running a complete certificate authority.
+**cfssl** 是 CloudFlare 的 PKI/TLS 工具集，用于签署、验证和捆绑 TLS 证书。它既提供命令行工具，也提供用于运行完整证书颁发机构（CA）的 HTTP API 服务器。
 
-The toolkit handles the full certificate lifecycle: generating root and intermediate CAs, signing certificate requests, creating self-signed certificates, and building certificate bundles for deployment. Configuration files define signing profiles with specific expiry periods, key usages, and authentication requirements.
+该工具集处理完整的证书生命周期：生成根 CA 和中间 CA、签署证书请求、创建自签名证书以及构建用于部署的证书捆绑包。配置文件定义签名配置文件（signing profile），其中包含特定的有效期、密钥用途和认证要求。
 
-The companion tool cfssljson extracts certificates and keys from cfssl's JSON output into PEM files. The multirootca component allows running a CA server with multiple signing keys for different purposes.
+配套工具 cfssljson 将 cfssl 的 JSON 输出提取为 PEM 文件。multirootca 组件允许运行一个持有多个签名密钥、用于不同用途的 CA 服务器。
 
 # COMMANDS
 
 **gencert**
-> Generate new key and signed certificate
+> 生成新密钥和已签署的证书
 
 **sign**
-> Sign a certificate signing request
+> 签署证书签名请求
 
 **selfsign**
-> Generate self-signed certificate
+> 生成自签名证书
 
 **bundle**
-> Build certificate bundle
+> 构建证书捆绑包
 
 **genkey**
-> Generate private key and CSR
+> 生成私钥和 CSR
 
 **serve**
-> Start HTTP API server
+> 启动 HTTP API 服务器
 
 **info**
-> Get info about remote signer
+> 获取远程签名服务器的信息
 
 **print-defaults**
-> Print default configurations
+> 打印默认配置
 
 **version**
-> Print version
+> 打印版本号
 
 # PARAMETERS
 
 **-ca** _file_
-> CA certificate file (default: ca.pem)
+> CA 证书文件（默认：ca.pem）
 
 **-ca-key** _file_
-> CA private key file (default: ca_key.pem)
+> CA 私钥文件（默认：ca_key.pem）
 
 **-config** _file_
-> Path to configuration file
+> 配置文件路径
 
 **-hostname** _names_
-> Comma-separated hostnames for SAN
+> SAN 所用的逗号分隔主机名列表
 
 **-initca**
-> Initialize new CA
+> 初始化新 CA
 
 **-remote** _host_
-> Remote CFSSL server address
+> 远程 CFSSL 服务器地址
 
 # API SERVER
 
-Default address: 127.0.0.1:8888
+默认地址：127.0.0.1:8888
 
 ```cfssl serve -address [0.0.0.0] -port [8888] -ca [ca.pem] -ca-key [ca-key.pem]```
 
 # COMPANION TOOLS
 
 **cfssljson**
-> Write certificates/keys from JSON output
+> 从 JSON 输出写入证书/密钥
 
 **multirootca**
-> Multi-signing-key CA server
+> 多签名密钥的 CA 服务器
 
 **mkbundle**
-> Build certificate bundles
+> 构建证书捆绑包
 
 # CONFIGURATION
 
 **ca-csr.json**
-> Certificate Signing Request defaults (key algorithm, size, names, hosts).
+> 证书签名请求（CSR）的默认值（密钥算法、长度、名称、hosts）。
 
 **config.json**
-> Signing profiles defining certificate expiry, usages, and auth keys for the CA.
+> 签名配置文件，定义 CA 的证书有效期、用途和认证密钥。
 
 # CAVEATS
 
-Requires Go 1.20+ to build from source. Private keys should be protected. Use configuration files for complex signing policies.
+从源码构建需要 Go 1.20+。私钥应妥善保护。复杂的签名策略请使用配置文件。
 
 # INSTALL
 

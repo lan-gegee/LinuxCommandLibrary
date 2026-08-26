@@ -1,30 +1,30 @@
 # TAGLINE
 
-Auto-install and run package executables
+自动安装并运行软件包可执行文件
 
 # TLDR
 
-**Run package executable**
+**运行软件包可执行文件**
 
 ```bunx [prisma] migrate```
 
-**Run specific package version**
+**运行特定版本的软件包**
 
 ```bunx [email protected] [app.js]```
 
-**Run when binary name differs from package**
+**在二进制名与包名不同的情况下运行**
 
 ```bunx -p @angular/cli ng new [my-app]```
 
-**Force run with Bun runtime**
+**强制使用 Bun 运行时运行**
 
 ```bunx --bun vite dev```
 
-**Run prettier on file**
+**对文件运行 prettier**
 
 ```bunx prettier [file.js]```
 
-**Run create-react-app**
+**运行 create-react-app**
 
 ```bunx create-react-app [my-app]```
 
@@ -34,38 +34,38 @@ Auto-install and run package executables
 
 # DESCRIPTION
 
-**bunx** auto-installs and runs executables from npm packages. It's Bun's equivalent of npx, roughly 100x faster for locally installed packages due to Bun's fast startup times.
+**bunx** 自动安装并运行来自 npm 软件包的可执行文件。它相当于 Bun 版的 npx，得益于 Bun 快速的启动速度，对本地已安装的软件包大约快 100 倍。
 
-Packages not found in local node_modules are automatically installed into a global shared cache.
+在本地 node_modules 中找不到的软件包会被自动安装到全局共享缓存中。
 
 # PARAMETERS
 
 **-p**, **--package** _name_
-> Specify the package to install when the binary name differs from the package name.
+> 当二进制名与包名不同时，指定要安装的软件包。
 
 **--bun**
-> Force running with Bun even if the executable carries a Node shebang.
+> 即使可执行文件带有 Node shebang，也强制使用 Bun 运行。
 
 **--no-install**
-> Fail instead of fetching when the package is not already cached.
+> 当软件包尚未缓存时直接失败，而不是去获取。
 
 **--silent**
-> Suppress installation-related output.
+> 抑制与安装相关的输出。
 
 **--verbose**
-> Print extra detail during installation.
+> 在安装期间打印更多细节。
 
 # BEHAVIOR
 
-By default, bunx respects **#!/usr/bin/env node** shebangs in scripts. Use **--bun** to override and run with Bun runtime.
+默认情况下，bunx 会遵循脚本中的 **#!/usr/bin/env node** shebang。使用 **--bun** 可覆盖此行为并以 Bun 运行时运行。
 
 # WINDOWS
 
-On Windows, bunx uses a special **.bunx** file format for cross-filesystem symlinks that works with both Bun and Node.js.
+在 Windows 上，bunx 使用特殊的 **.bunx** 文件格式来实现跨文件系统的符号链接，可同时兼容 Bun 和 Node.js。
 
 # CAVEATS
 
-Packages are cached globally after first use. Use **--bun** flag when you specifically need Bun's runtime features. Some packages may expect Node.js-specific APIs.
+软件包在首次使用后会被全局缓存。当你确实需要 Bun 运行时特性时，请使用 **--bun** 标志。某些软件包可能依赖 Node.js 特有的 API。
 
 # SEE ALSO
 

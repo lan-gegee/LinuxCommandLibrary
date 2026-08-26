@@ -1,30 +1,30 @@
 # TAGLINE
 
-Programmable tab completion for Bash commands.
+Bash 命令的可编程 Tab 补全。
 
 # TLDR
 
-**Load bash completions** in current session
+在当前会话中**加载 bash 补全**
 
 ```source /usr/share/bash-completion/bash_completion```
 
-**Install completions** for a command (copy to system directory)
+为命令**安装补全**（复制到系统目录）
 
 ```sudo cp [command_completion.bash] /usr/share/bash-completion/completions/[command]```
 
-**Install completions** for current user only
+仅为当前用户**安装补全**
 
 ```cp [command_completion.bash] ~/.local/share/bash-completion/completions/[command]```
 
-**List loaded completions**
+**列出已加载的补全**
 
 ```complete -p```
 
-**Remove a completion**
+**移除一个补全**
 
 ```complete -r [command]```
 
-**Create a simple completion** for a command
+为命令**创建简单补全**
 
 ```complete -W "[option1 option2 option3]" [command]```
 
@@ -35,55 +35,55 @@ Programmable tab completion for Bash commands.
 # PARAMETERS
 
 **complete -p** [_command_]
-> Print current completion specification for command(s).
+> 打印命令当前的补全规格。
 
 **complete -r** _command_
-> Remove completion specification for command.
+> 移除命令的补全规格。
 
 **complete -W** _wordlist_ _command_
-> Define completion using a word list.
+> 使用单词列表定义补全。
 
 **complete -F** _function_ _command_
-> Use a shell function for completion.
+> 使用 Shell 函数进行补全。
 
 **complete -C** _command_ _command_
-> Use a command's output for completion.
+> 使用某个命令的输出进行补全。
 
 **complete -o** _option_ _command_
-> Enable completion options (filenames, dirnames, default, etc.).
+> 启用补全选项（filenames、dirnames、default 等）。
 
 **compgen**
-> Generate completions programmatically in completion functions.
+> 在补全函数中以编程方式生成候选。
 
 # DESCRIPTION
 
-**bash-completion** is a collection of shell functions that provide programmable command-line completion for Bash. When you press Tab, it completes not just filenames but command options, subcommands, hostnames, and other context-specific values.
+**bash-completion** 是一组 Shell 函数集合，为 Bash 提供可编程的命令行补全。按下 Tab 时，它不仅补全文件名，还能补全命令选项、子命令、主机名以及其他与上下文相关的值。
 
-The system works by defining completion specifications that tell Bash how to generate suggestions for specific commands. Specifications can use word lists, functions, or external commands to generate completions dynamically.
+其工作原理是定义补全规格，告诉 Bash 如何为特定命令生成候选项。规格可以使用单词列表、函数或外部命令来动态生成补全。
 
-Completions are stored in **/usr/share/bash-completion/completions/** (or **/etc/bash_completion.d/** on older systems). They are loaded on-demand when Tab is first pressed for a command, improving shell startup time.
+补全脚本存储在 **/usr/share/bash-completion/completions/**（旧系统上是 **/etc/bash_completion.d/**）。它们会在首次对某命令按 Tab 时按需加载，从而缩短 Shell 启动时间。
 
 # CONFIGURATION
 
 **/etc/bash_completion**
-> System-wide bash-completion configuration sourced at shell startup.
+> 系统级 bash-completion 配置，在 Shell 启动时 source。
 
 **/usr/share/bash-completion/completions/**
-> System-wide per-command completion scripts, loaded on demand.
+> 系统级逐命令补全脚本，按需加载。
 
 **/etc/bash_completion.d/**
-> Legacy directory for system-wide completion scripts, loaded eagerly at startup.
+> 旧式系统级补全脚本目录，启动时立即全部加载。
 
 **~/.local/share/bash-completion/completions/**
-> User-specific per-command completion scripts.
+> 用户级逐命令补全脚本。
 
 # CAVEATS
 
-Completions are Bash-specific and won't work in other shells (Zsh has its own system). The bash-completion package must be installed and sourced in your profile. Completion functions can slow down Tab completion for commands with complex completions. Not all commands have completion scripts available.
+补全是 Bash 专用的，在其他 Shell 中无法使用（Zsh 有自己的体系）。必须安装 bash-completion 软件包并在 profile 中 source。对于补全逻辑复杂的命令，补全函数可能拖慢 Tab 补全速度。并非所有命令都有可用的补全脚本。
 
 # HISTORY
 
-Bash programmable completion was added to Bash in version **2.04** (2000). The bash-completion project, which provides a collection of completions for common commands, was started by **Ian Macdonald** around **2000** and has been maintained by various contributors since. It is now included by default in most Linux distributions and macOS Homebrew.
+Bash 可编程补全在版本 **2.04**（2000）中加入 Bash。为常用命令提供补全集合的 bash-completion 项目由 **Ian Macdonald** 于 **2000** 年前后发起，此后由多位贡献者维护。如今大多数 Linux 发行版和 macOS Homebrew 都默认包含它。
 
 # INSTALL
 

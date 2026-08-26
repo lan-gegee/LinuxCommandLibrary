@@ -1,38 +1,38 @@
 # TAGLINE
 
-burn data to CD, DVD, and Blu-ray discs
+向 CD、DVD 和蓝光盘刻录数据
 
 # TLDR
 
-**Burn an ISO image** to CD/DVD
+**将 ISO 镜像刻录**到 CD/DVD
 
 ```cdrecord -v dev=[/dev/sr0] [image.iso]```
 
-**Burn with specific speed**
+**以指定速度刻录**
 
 ```cdrecord -v speed=[16] dev=[/dev/sr0] [image.iso]```
 
-**Burn audio CD** from WAV files
+**从 WAV 文件刻录音频 CD**
 
 ```cdrecord -v -audio dev=[/dev/sr0] [track1.wav] [track2.wav]```
 
-**Scan for available devices**
+**扫描可用设备**
 
 ```cdrecord -scanbus```
 
-**Erase a CD-RW**
+**擦除 CD-RW**
 
 ```cdrecord -v blank=fast dev=[/dev/sr0]```
 
-**Burn multi-session disc**
+**刻录多区段光盘**
 
 ```cdrecord -v -multi dev=[/dev/sr0] [image.iso]```
 
-**Test burn** without writing (simulation)
+**测试刻录**而不实际写入（模拟）
 
 ```cdrecord -v -dummy dev=[/dev/sr0] [image.iso]```
 
-**Burn with buffer underrun protection**
+**启用缓冲区欠载保护刻录**
 
 ```cdrecord -v driveropts=burnfree dev=[/dev/sr0] [image.iso]```
 
@@ -42,72 +42,72 @@ burn data to CD, DVD, and Blu-ray discs
 
 # DESCRIPTION
 
-**cdrecord** is a command-line tool for burning data to CD, DVD, and Blu-ray discs. It supports various disc formats including CD-R, CD-RW, DVD-R, DVD+R, DVD-RW, DVD+RW, and dual-layer variants.
+**cdrecord** 是一款向 CD、DVD 和蓝光盘刻录数据的命令行工具。它支持多种光盘格式，包括 CD-R、CD-RW、DVD-R、DVD+R、DVD-RW、DVD+RW 以及双层变体。
 
-The tool can write ISO images, audio CDs from WAV files, and multi-session discs. It includes features like burn-free (buffer underrun protection), FIFO buffering, and SCSI/ATAPI device support.
+该工具可以写入 ISO 镜像、从 WAV 文件制作音频 CD，以及刻录多区段光盘。它提供 burn-free（缓冲区欠载保护）、FIFO 缓冲以及 SCSI/ATAPI 设备支持等功能。
 
-Note that on many Linux systems, cdrecord has been replaced or supplemented by wodim from the cdrkit project, which provides compatible functionality.
+注意，在许多 Linux 系统上，cdrecord 已被 cdrkit 项目中的 wodim 取代或补充，后者提供兼容的功能。
 
 # PARAMETERS
 
 **dev=** _device_
-> Recording device (e.g., /dev/sr0 or SCSI address).
+> 刻录设备（如 /dev/sr0 或 SCSI 地址）。
 
 **speed=** _n_
-> Recording speed multiplier.
+> 刻录速度倍数。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-audio**
-> Write audio CD from WAV files.
+> 从 WAV 文件写入音频 CD。
 
 **-data**
-> Write data track (default).
+> 写入数据轨道（默认）。
 
 **-multi**
-> Enable multi-session recording.
+> 启用多区段刻录。
 
 **-dummy**
-> Simulation mode, don't actually write.
+> 模拟模式，不实际写入。
 
 **-eject**
-> Eject disc after recording.
+> 刻录完成后弹出光盘。
 
 **blank=** _type_
-> Blank a CD-RW (fast, all, session).
+> 擦除 CD-RW（fast、all、session）。
 
 **-scanbus**
-> Scan for available SCSI devices.
+> 扫描可用的 SCSI 设备。
 
 **-toc**
-> Show table of contents.
+> 显示目录表。
 
 **-dao**
-> Write in Disc At Once mode with no gaps between tracks.
+> 以 Disc At Once 模式写入，音轨之间没有间隙。
 
 **-checkdrive**
-> Check drive capabilities.
+> 检查光驱能力。
 
 **-immed**
-> Set SCSI IMMED flag for background operation during load/eject/blank.
+> 设置 SCSI IMMED 标志，使装载/弹出/擦除期间可在后台操作。
 
 **driveropts=** _opts_
-> Driver-specific options (e.g., burnfree for buffer underrun protection).
+> 驱动特定选项（如 burnfree 用于缓冲区欠载保护）。
 
 **fs=** _size_
-> FIFO buffer size (default 4 MB).
+> FIFO 缓冲区大小（默认 4 MB）。
 
 **gracetime=** _secs_
-> Wait time in seconds before starting burn (default 2).
+> 开始刻录前的等待时间，单位为秒（默认 2）。
 
 # CAVEATS
 
-Requires write access to the optical device (usually root or cdrom group membership). Buffer underruns can ruin discs without burnfree support. CD-R discs cannot be erased. Audio CDs require specific WAV format (44.1kHz, 16-bit, stereo). Device naming varies by system.
+需要对光学设备的写权限（通常是 root 或属于 cdrom 组）。在不支持 burnfree 的情况下，缓冲区欠载可能毁掉光盘。CD-R 光盘无法擦除。音频 CD 需要特定的 WAV 格式（44.1kHz、16 位、立体声）。设备命名因系统而异。
 
 # HISTORY
 
-**cdrecord** was developed by **J\u00f6rg Schilling** starting in **1995**. It became the standard Unix CD burning tool. In **2006**, licensing disputes led to the creation of **cdrkit**, a fork that includes **wodim** as a cdrecord replacement. Most Linux distributions switched to cdrkit/wodim, though some still include original cdrecord. The tools remain largely command-compatible.
+**cdrecord** 由 **J\u00f6rg Schilling** 自 **1995 年** 起开发，成为 Unix 上标准的 CD 刻录工具。**2006 年**，许可证纠纷催生了 **cdrkit** 分支项目，其中包含作为 cdrecord 替代品的 **wodim**。大多数 Linux 发行版改用 cdrkit/wodim，但有些仍包含原始的 cdrecord。这些工具在很大程度上保持命令兼容。
 
 # INSTALL
 
