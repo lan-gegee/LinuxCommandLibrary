@@ -1,38 +1,38 @@
 # TAGLINE
 
-Record terminal sessions as GIF
+将终端会话录制为 GIF
 
 # TLDR
 
-**Start recording** to a YAML file
+**开始录制**到 YAML 文件
 
 ```terminalizer record [filename]```
 
-**Record with a custom config** file
+**使用自定义配置**文件录制
 
 ```terminalizer record [filename] -c [config.yml]```
 
-**Record with a custom command** instead of the default shell
+**使用自定义命令**录制，而非默认 Shell
 
 ```terminalizer record [filename] -d "[bash -l]"```
 
-**Play a recording**
+**播放录制**
 
 ```terminalizer play [filename.yml]```
 
-**Render recording** to an animated GIF
+**把录制渲染**为动画 GIF
 
 ```terminalizer render [filename.yml] -o [output.gif]```
 
-**Generate global config** file
+**生成全局配置**文件
 
 ```terminalizer init```
 
-**Share recording online**
+**在线分享录制**
 
 ```terminalizer share [filename.yml]```
 
-**Generate a web player** page for the recording
+**为录制生成网页播放器**页面
 
 ```terminalizer generate [filename.yml]```
 
@@ -43,63 +43,63 @@ Record terminal sessions as GIF
 # PARAMETERS
 
 **record** _FILE_
-> Record a terminal session into a YAML file.
+> 将终端会话录制到 YAML 文件。
 
 **play** _FILE_
-> Replay a recorded session in the terminal.
+> 在终端中回放已录制的会话。
 
 **render** _FILE_
-> Render a recording to an animated GIF.
+> 把录制渲染为动画 GIF。
 
 **generate** _FILE_
-> Generate a shareable HTML web player link.
+> 生成可分享的 HTML 网页播放器链接。
 
 **share** _FILE_
-> Upload the recording and share it on terminalizer.com.
+> 上传录制并分享到 terminalizer.com。
 
 **init**
-> Create a global config file at `~/.terminalizer/config.yml`.
+> 在 `~/.terminalizer/config.yml` 创建全局配置文件。
 
 **config**
-> Print the default config to stdout.
+> 将默认配置打印到 stdout。
 
 **-c** _FILE_, **--config** _FILE_
-> Use a custom config file.
+> 使用自定义配置文件。
 
 **-d** _COMMAND_, **--command** _COMMAND_
-> Command to run instead of the default shell (record).
+> 运行指定命令而非默认 Shell（record）。
 
 **-k**, **--skip-sharing**
-> Skip the sharing prompt after recording.
+> 录制后跳过分享提示。
 
 **-o** _FILE_, **--output** _FILE_
-> Output file path (render).
+> 输出文件路径（render）。
 
 **-q** _NUM_, **--quality** _NUM_
-> GIF quality 1-100 (render).
+> GIF 质量 1-100（render）。
 
 **-s** _NUM_, **--step** _NUM_
-> Frame step count; higher values reduce GIF size (render).
+> 帧步长；数值越大 GIF 体积越小（render）。
 
 **-r** _NUM_, **--real-timing**
-> Play using original recording speeds (play).
+> 按原始录制速度播放（play）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**terminalizer** records terminal sessions and renders them as animated GIFs for sharing in documentation, README files, and tutorials. It captures both keystrokes and terminal output, storing recordings in an editable YAML format.
+**terminalizer** 录制终端会话并将其渲染为动画 GIF，方便在文档、README 和教程中分享。它同时捕获按键和终端输出，并以可编辑的 YAML 格式保存录制内容。
 
-Recordings can be played back in the terminal, rendered to GIF locally, or shared online via terminalizer.com. The YAML format allows editing timing, removing mistakes, and customizing the appearance including colors, fonts, window frame style, and dimensions before rendering the final animation.
+录制内容可以在终端中回放、在本地渲染成 GIF，或通过 terminalizer.com 在线分享。YAML 格式允许在渲染最终动画之前编辑时间轴、删除误操作以及自定义外观，包括颜色、字体、窗口边框样式和尺寸。
 
 # CAVEATS
 
-Requires **Node.js** (installed via `npm install -g terminalizer`). GIF rendering uses Electron and can be CPU- and memory-intensive. Resulting GIFs may be large; tune `quality` and `step` in the config or via flags to balance size and smoothness.
+需要 **Node.js**（通过 `npm install -g terminalizer` 安装）。GIF 渲染依赖 Electron，可能占用大量 CPU 和内存。生成的 GIF 可能体积较大；可通过配置中的 `quality` 和 `step` 或命令行标志来平衡大小与流畅度。
 
 # HISTORY
 
-**Terminalizer** was created by **Mohammad Fares (faressoft)** and first released in **2017** as an npm package. It provides an alternative to asciinema with the benefit of producing shareable GIF animations without needing a dedicated player.
+**Terminalizer** 由 **Mohammad Fares（faressoft）** 创建，于 **2017 年**首次作为 npm 包发布。它是 asciinema 的替代方案，优点是无需专用播放器即可生成可分享的 GIF 动画。
 
 # SEE ALSO
 

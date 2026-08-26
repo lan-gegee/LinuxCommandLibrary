@@ -1,18 +1,18 @@
 # TAGLINE
 
-Alias for systemd-mount --umount
+systemd-mount --umount 的别名
 
 # TLDR
 
-**Unmount** a filesystem by mount point
+按挂载点**卸载**文件系统
 
 ```systemd-umount [/mnt/usb]```
 
-**Unmount** a filesystem by device path
+按设备路径**卸载**文件系统
 
 ```systemd-umount [/dev/sdb1]```
 
-**Unmount** and discover the mount point automatically
+自动发现挂载点后**卸载**
 
 ```systemd-umount --discover [/dev/sdb1]```
 
@@ -22,17 +22,17 @@ Alias for systemd-mount --umount
 
 # DESCRIPTION
 
-**systemd-umount** is equivalent to **systemd-mount --umount**. It unmounts filesystems by creating transient systemd `.mount` units that handle the unmount operation. It can unmount by mount point path or device path.
+**systemd-umount** 等价于 **systemd-mount --umount**。它通过创建处理卸载操作的临时 systemd `.mount` 单元来卸载文件系统。既可按挂载点路径卸载，也可按设备路径卸载。
 
-See the **systemd-mount** documentation for full details on options.
+选项的完整细节请参阅 **systemd-mount** 文档。
 
 # PARAMETERS
 
 **--discover**
-> Discover the mount point for a device automatically
+> 自动发现设备的挂载点
 
 **--no-block**
-> Do not wait for the unmount operation to complete
+> 不等待卸载操作完成
 
 # INSTALL
 

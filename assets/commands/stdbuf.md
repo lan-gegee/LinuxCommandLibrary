@@ -1,30 +1,30 @@
 # TAGLINE
 
-Adjust stream buffering of commands
+调整命令的流缓冲
 
 # TLDR
 
-**Line buffered stdout**
+**stdout 按行缓冲**
 
 ```stdbuf -oL [command]```
 
-**Unbuffered stdout**
+**stdout 不缓冲**
 
 ```stdbuf -o0 [command]```
 
-**Unbuffered stderr**
+**stderr 不缓冲**
 
 ```stdbuf -e0 [command]```
 
-**Fully buffered stdin**
+**stdin 完全缓冲**
 
 ```stdbuf -i[1M] [command]```
 
-**Line buffered all streams**
+**所有流都按行缓冲**
 
 ```stdbuf -oL -eL [command]```
 
-**Combine with grep**
+**与 grep 组合使用**
 
 ```stdbuf -oL [command] | grep [pattern]```
 
@@ -35,33 +35,33 @@ Adjust stream buffering of commands
 # PARAMETERS
 
 **-i** _MODE_
-> stdin buffering.
+> stdin 缓冲方式。
 
 **-o** _MODE_
-> stdout buffering.
+> stdout 缓冲方式。
 
 **-e** _MODE_
-> stderr buffering.
+> stderr 缓冲方式。
 
 # MODES
 
-**L** - Line buffered
-**0** - Unbuffered
-**SIZE** - Buffer size (e.g., 1K, 1M)
+**L** - 按行缓冲
+**0** - 不缓冲
+**SIZE** - 缓冲区大小（如 1K、1M）
 
 # DESCRIPTION
 
-**stdbuf** runs a command with modified standard stream buffering. When programs detect their output is going to a pipe rather than a terminal, they typically switch from line-buffered to fully-buffered output, which delays output. stdbuf overrides this behavior using LD_PRELOAD to intercept buffering calls.
+**stdbuf** 以修改后的标准流缓冲方式运行命令。当程序检测到输出流向管道而非终端时，通常会从行缓冲切换为全缓冲，从而延迟输出。stdbuf 使用 LD_PRELOAD 拦截缓冲调用，覆盖这一行为。
 
-The three modes are: line-buffered (**L**) which flushes after each newline, unbuffered (**0**) which flushes immediately, and a specific buffer size. This is particularly useful when piping output through filters like **grep** or **awk** where real-time output is needed rather than waiting for the buffer to fill.
+三种模式分别是：行缓冲（**L**），每次换行后刷新；不缓冲（**0**），立即刷新；以及特定的缓冲区大小。当需要通过 **grep** 或 **awk** 等过滤器管道传输输出并获得实时结果，而不是等待缓冲区填满时，这尤其有用。
 
 # CAVEATS
 
-Doesn't work with all programs. Statically linked programs unaffected. Some use internal buffering.
+并非对所有程序有效。静态链接的程序不受影响。有些程序使用内部缓冲。
 
 # HISTORY
 
-**stdbuf** is part of GNU coreutils. It uses LD_PRELOAD to intercept buffering calls.
+**stdbuf** 是 GNU coreutils 的一部分。它使用 LD_PRELOAD 来拦截缓冲调用。
 
 # INSTALL
 

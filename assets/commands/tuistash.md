@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal user interface for Logstash monitoring
+用于 Logstash 监控的终端用户界面
 
 # TLDR
 
-**Connect to local Logstash instance**
+**连接本地 Logstash 实例**
 
 ```tuistash```
 
-**Connect to a specific Logstash API**
+**连接指定的 Logstash API**
 
 ```tuistash --api [http://localhost:9600]```
 
-**Set custom refresh interval** in seconds
+以秒为单位**设置自定义刷新间隔**
 
 ```tuistash --refresh-interval [5]```
 
-**Connect with API authentication**
+**使用 API 身份验证连接**
 
 ```tuistash --api [http://localhost:9600] --username [admin] --password [secret]```
 
@@ -27,30 +27,30 @@ Terminal user interface for Logstash monitoring
 # PARAMETERS
 
 **--api** _URL_
-> Logstash monitoring API URL (default: http://localhost:9600).
+> Logstash 监控 API 的 URL（默认：http://localhost:9600）。
 
 **--refresh-interval** _SECONDS_
-> Data refresh interval in seconds (default: 5).
+> 数据刷新间隔（秒）（默认：5）。
 
 **--username** _USER_
-> Username for API authentication.
+> API 身份验证的用户名。
 
 **--password** _PASS_
-> Password for API authentication.
+> API 身份验证的密码。
 
 # DESCRIPTION
 
-**tuistash** provides a TUI for monitoring Logstash nodes, pipelines, threads, flows, and more. It connects to the Logstash monitoring API and displays real-time statistics including CPU usage, JVM heap, throughput, and queue data as graphs.
+**tuistash** 提供一个 TUI，用于监控 Logstash 节点、管道、线程、数据流等。它连接到 Logstash 监控 API，并以图形方式实时显示 CPU 使用率、JVM 堆、吞吐量和队列数据等统计信息。
 
-The interface supports keyboard navigation with Tab to switch between panels and q to quit.
+界面支持键盘导航：用 Tab 在面板间切换，用 q 退出。
 
 # CAVEATS
 
-Requires a running Logstash instance with the monitoring API enabled (enabled by default on port 9600). The API must be reachable from the machine running tuistash.
+需要一个已启用监控 API 的运行中 Logstash 实例（默认在端口 9600 启用）。运行 tuistash 的机器必须能够访问该 API。
 
 # HISTORY
 
-**tuistash** was created by **Edmo Vamerlatti Costa** (edmocosta) and is written in **Rust**.
+**tuistash** 由 **Edmo Vamerlatti Costa**（edmocosta）创建，用 **Rust** 编写。
 
 # INSTALL
 

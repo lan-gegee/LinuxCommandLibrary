@@ -1,34 +1,34 @@
 # TAGLINE
 
-Send macOS notifications from command line
+从命令行发送 macOS 通知
 
 # TLDR
 
-**Send a basic notification**
+**发送基本通知**
 
 ```terminal-notifier -message "[Task completed]"```
 
-**Send with title and subtitle**
+**带标题和副标题发送**
 
 ```terminal-notifier -title "[Build]" -subtitle "[Success]" -message "[All tests passed]"```
 
-**Send with a sound**
+**带提示音发送**
 
 ```terminal-notifier -message "[Done]" -sound default```
 
-**Send and open URL on click**
+**发送并点击后打开 URL**
 
 ```terminal-notifier -message "[New issue]" -open "[https://github.com]"```
 
-**Send and activate an app on click**
+**发送并点击后激活应用**
 
 ```terminal-notifier -message "[Sync complete]" -activate [com.apple.AddressBook]```
 
-**Send from piped input**
+**从管道输入发送**
 
 ```echo "[Build finished]" | terminal-notifier```
 
-**Group notifications** (replace previous)
+**对通知分组**（替换之前的通知）
 
 ```terminal-notifier -group "[build]" -message "[Completed]"```
 
@@ -39,47 +39,47 @@ Send macOS notifications from command line
 # PARAMETERS
 
 **-message** _text_
-> The notification message body (required unless piping)
+> 通知的消息正文（除非使用管道输入，否则必填）
 
 **-title** _text_
-> The notification title (default: "Terminal")
+> 通知标题（默认为 "Terminal"）
 
 **-subtitle** _text_
-> The notification subtitle
+> 通知副标题
 
 **-sound** _name_
-> Play a sound from /System/Library/Sounds; use "default" for system default
+> 播放 /System/Library/Sounds 中的声音；"default" 为系统默认
 
 **-group** _id_
-> Group identifier; only one notification per group shown at a time
+> 分组标识；同一分组同一时间只显示一条通知
 
 **-activate** _bundleid_
-> Activate specified app when notification is clicked
+> 点击通知时激活指定的应用
 
 **-open** _url_
-> Open URL when notification is clicked
+> 点击通知时打开 URL
 
 **-remove** _id_
-> Remove notification with specified group ID
+> 移除具有指定分组 ID 的通知
 
 **-list** _id_
-> List notifications with specified group ID
+> 列出具有指定分组 ID 的通知
 
 # DESCRIPTION
 
-**terminal-notifier** sends macOS User Notifications from the command line. It enables scripts and terminal commands to display native system notifications with customizable content, sounds, and click actions.
+**terminal-notifier** 可以从命令行发送 macOS 用户通知。它让脚本和终端命令能够显示原生系统通知，并自定义内容、声音和点击动作。
 
-Notifications can include titles, subtitles, message bodies, and sounds. Click actions can open URLs, activate applications, or execute callbacks. Group identifiers allow replacing previous notifications instead of stacking them.
+通知可以包含标题、副标题、消息正文和声音。点击动作可以打开 URL、激活应用或执行回调。分组标识允许替换先前的通知而不是不断叠加。
 
-The tool is useful for alerting when long-running processes complete, such as builds, downloads, or scheduled tasks.
+该工具适用于在长时间运行的进程（如构建、下载或计划任务）完成时发出提醒。
 
 # CAVEATS
 
-Sticky notifications (alerts) require manual configuration in System Settings > Notifications > terminal-notifier. Action buttons are not supported; use **alerter** for that functionality. Requires macOS 10.10 or higher.
+常驻通知（警报样式）需要在系统设置 > 通知 > terminal-notifier 中手动配置。不支持动作按钮；需要此功能请使用 **alerter**。需要 macOS 10.10 或更高版本。
 
 # HISTORY
 
-terminal-notifier was created by **Eloy Durán** (julienXX) as an open-source tool to bring macOS notifications to command-line workflows. It became popular for integrating native notifications into development toolchains.
+terminal-notifier 由 **Eloy Durán**（julienXX）创建，是一个把 macOS 通知引入命令行工作流的开源工具。它在将原生通知集成到开发工具链方面广受欢迎。
 
 # INSTALL
 

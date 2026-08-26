@@ -1,26 +1,26 @@
 # TAGLINE
 
-Select SteamOS update release channel
+选择 SteamOS 更新发布通道
 
 # TLDR
 
-View **current** branch
+查看**当前**分支
 
 ```steamos-select-branch -c```
 
-**List** available branches
+**列出**可用分支
 
 ```steamos-select-branch -l```
 
-Switch to **beta** branch
+切换到 **beta** 分支
 
 ```steamos-select-branch beta```
 
-Switch to **stable** release
+切换到 **stable** 版本
 
 ```steamos-select-branch stable```
 
-Switch to **bleeding edge**
+切换到**最新开发版**
 
 ```steamos-select-branch main```
 
@@ -31,35 +31,35 @@ Switch to **bleeding edge**
 # PARAMETERS
 
 **-c**
-> View current branch
+> 查看当前分支
 
 **-l**
-> List all available branches
+> 列出所有可用分支
 
 # BRANCHES
 
 **stable**
-> Stable release channel (default, recommended)
+> 稳定版通道（默认，推荐）
 
 **beta**
-> Beta testing channel with newer features
+> 带有较新功能的 Beta 测试通道
 
 **main**
-> Bleeding edge development channel
+> 最新开发版通道
 
 # DESCRIPTION
 
-**steamos-select-branch** selects a SteamOS system release branch, controlling which update channel the system uses. The stable branch receives well-tested updates, beta provides preview releases, and main offers the latest development builds.
+**steamos-select-branch** 选择 SteamOS 的系统发布分支，控制系统使用的更新通道。stable 分支接收经过充分测试的更新，beta 提供预览版本，main 则提供最新的开发构建。
 
-After switching branches, run `steamos-update` to update to the selected branch's latest version.
+切换分支后，请运行 `steamos-update` 更新到所选分支的最新版本。
 
 # CAVEATS
 
-Beta and main branches may contain bugs and instability. Switching to older branches may require a factory reset. Updates on non-stable branches may occur more frequently.
+beta 和 main 分支可能包含 bug 且不够稳定。切换到较旧的分支可能需要恢复出厂设置。非稳定分支的更新可能更频繁。
 
 # HISTORY
 
-**steamos-select-branch** is part of the **SteamOS** utilities developed by **Valve**. The branch system allows users to opt into testing newer features before stable release.
+**steamos-select-branch** 是 **Valve** 开发的 **SteamOS** 工具的一部分。分支系统让用户可以在稳定版发布前选择体验较新的功能。
 
 # SEE ALSO
 

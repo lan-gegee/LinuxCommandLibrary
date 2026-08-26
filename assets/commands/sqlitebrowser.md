@@ -1,26 +1,26 @@
 # TAGLINE
 
-GUI editor for SQLite databases
+SQLite 数据库的图形界面编辑器
 
 # TLDR
 
-**Open a database file**
+**打开数据库文件**
 
 ```sqlitebrowser [database.db]```
 
-**Open a database in read-only mode**
+**以只读模式打开数据库**
 
 ```sqlitebrowser -R [database.db]```
 
-**Execute a SQL file after opening**
+**打开后执行 SQL 文件**
 
 ```sqlitebrowser -s [script.sql] [database.db]```
 
-**Import a CSV file**
+**导入 CSV 文件**
 
 ```sqlitebrowser --import-csv [data.csv] [database.db]```
 
-**Open to a specific table**
+**直接打开特定表**
 
 ```sqlitebrowser -t [tablename] [database.db]```
 
@@ -31,44 +31,44 @@ GUI editor for SQLite databases
 # PARAMETERS
 
 **-h**, **--help**
-> Show command-line options.
+> 显示命令行选项。
 
 **-v**, **--version**
-> Display version.
+> 显示版本。
 
 **-q**, **--quit**
-> Exit after executing scripts.
+> 执行完脚本后退出。
 
 **-s** _FILE_, **--sql** _FILE_
-> Execute SQL file after opening database.
+> 打开数据库后执行 SQL 文件。
 
 **--import-csv** _FILE_
-> Import CSV file into database.
+> 将 CSV 文件导入数据库。
 
 **-t** _TABLE_, **--table** _TABLE_
-> Browse a specific table on startup.
+> 启动时浏览特定表。
 
 **-R**, **--read-only**
-> Open database in read-only mode.
+> 以只读模式打开数据库。
 
 **-S** _FILE_, **--settings** _FILE_
-> Use specified settings file.
+> 使用指定的设置文件。
 
 **-o** _SETTING_, **--option** _SETTING_
-> Temporarily set a setting (group/setting=value).
+> 临时设置某个选项（group/setting=value）。
 
 **--in-memory**
-> Start with an in-memory database.
+> 以内存数据库启动。
 
 # DESCRIPTION
 
-**sqlitebrowser** (DB Browser for SQLite) is a visual, open-source tool for creating, designing, and editing SQLite database files. It provides a spreadsheet-like interface for browsing data, an SQL editor for running queries, and tools for managing tables, indexes, and triggers.
+**sqlitebrowser**（DB Browser for SQLite）是一个用于创建、设计和编辑 SQLite 数据库文件的可视化开源工具。它提供类似电子表格的数据浏览界面、用于运行查询的 SQL 编辑器，以及管理表、索引和触发器的工具。
 
-Despite being a graphical application, it supports useful command-line options for automation, such as importing CSV files, executing SQL scripts, and opening specific tables.
+尽管是图形应用程序，它也支持实用的命令行选项以便自动化操作，例如导入 CSV 文件、执行 SQL 脚本和打开特定表。
 
 # CAVEATS
 
-This is a GUI application that requires a display server. The command-line options configure how the graphical window launches. Not a replacement for the **sqlite3** command-line shell.
+这是一个 GUI 应用，需要显示服务器。命令行选项只决定图形窗口如何启动。它不能替代 **sqlite3** 命令行 Shell。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ This is a GUI application that requires a display server. The command-line optio
 # SEE ALSO
 
 [sqlite3](/man/sqlite3)(1), [mdb-sql](/man/mdb-sql)(1)
-

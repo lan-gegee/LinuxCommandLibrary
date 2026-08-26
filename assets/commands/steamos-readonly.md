@@ -1,14 +1,14 @@
 # TAGLINE
 
-Toggle SteamOS filesystem write protection
+切换 SteamOS 文件系统写保护
 
 # TLDR
 
-**Disable** read-only mode (make filesystem writable)
+**禁用**只读模式（使文件系统可写）
 
 ```sudo steamos-readonly disable```
 
-**Enable** read-only mode
+**启用**只读模式
 
 ```sudo steamos-readonly enable```
 
@@ -19,24 +19,24 @@ Toggle SteamOS filesystem write protection
 # COMMANDS
 
 **enable**
-> Set filesystem to read-only mode
+> 将文件系统设为只读模式
 
 **disable**
-> Set filesystem to writable mode
+> 将文件系统设为可写模式
 
 # DESCRIPTION
 
-**steamos-readonly** controls the read-only status of the SteamOS root filesystem on the Steam Deck. By default, SteamOS uses an immutable root filesystem to maintain system integrity and simplify updates. This command allows temporarily disabling that protection for system modifications.
+**steamos-readonly** 控制 Steam Deck 上 SteamOS 根文件系统的只读状态。默认情况下，SteamOS 使用不可变的根文件系统来维护系统完整性并简化更新。此命令允许在进行系统修改时临时禁用该保护。
 
-Disabling read-only mode allows installing packages, modifying configuration files, and making other system-level changes that would otherwise be blocked.
+禁用只读模式后，可以安装软件包、修改配置文件以及进行其他原本会被阻止的系统级更改。
 
 # CAVEATS
 
-Changes to the filesystem may be overwritten by system updates. Disabling read-only mode can affect system stability if misused. Should be re-enabled after making changes. Consider using Flatpak or other containerized solutions when possible. Requires root privileges.
+对文件系统的更改可能被系统更新覆盖。滥用只读模式的禁用功能可能影响系统稳定性。完成更改后应重新启用。尽可能考虑使用 Flatpak 或其他容器化方案。需要 root 权限。
 
 # HISTORY
 
-**steamos-readonly** is part of **SteamOS 3.0**, developed by **Valve** for the **Steam Deck** released in **February 2022**. The immutable filesystem design is inspired by other modern Linux distributions like Fedora Silverblue, providing reliability while allowing advanced users to opt-out when needed.
+**steamos-readonly** 属于 **SteamOS 3.0**，由 **Valve** 为 **2022 年 2 月**发布的 **Steam Deck** 开发。这种不可变文件系统的设计受到 Fedora Silverblue 等其他现代 Linux 发行版的启发，在提供可靠性的同时允许高级用户在需要时选择退出。
 
 # SEE ALSO
 

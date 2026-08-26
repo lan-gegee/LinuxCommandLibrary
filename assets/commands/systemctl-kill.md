@@ -1,22 +1,22 @@
 # TAGLINE
 
-Send signals to unit processes
+向单元的进程发送信号
 
 # TLDR
 
-Send **SIGTERM** to unit
+向单元发送 **SIGTERM**
 
 ```systemctl kill [unit]```
 
-Send **specific signal**
+发送**指定信号**
 
 ```systemctl kill -s [SIGNAL] [unit]```
 
-Send signal to **main process** only
+只向**主进程**发送信号
 
 ```systemctl kill --kill-whom=main -s SIGHUP [unit]```
 
-Kill processes of a **user** service
+终止某个**用户**服务的进程
 
 ```systemctl --user kill [unit]```
 
@@ -27,27 +27,27 @@ Kill processes of a **user** service
 # PARAMETERS
 
 **-s, --signal=** _SIGNAL_
-> Signal to send (name or number, default: SIGTERM)
+> 要发送的信号（名称或编号，默认：SIGTERM）
 
 **--kill-whom=** _WHO_
-> Which processes to kill: main, control, or all (default: all). Older systemd versions use `--kill-who`.
+> 要杀掉哪些进程：main、control 或 all（默认：all）。较旧的 systemd 版本使用 `--kill-who`。
 
 **--user**
-> Kill user service processes
+> 终止用户服务的进程
 
 # DESCRIPTION
 
-**systemctl kill** sends a signal to one or more processes of a unit. By default, it sends SIGTERM to all processes in the unit's cgroup. This provides more control than `systemctl stop`, which follows the unit's configured stop behavior.
+**systemctl kill** 向一个单元的一个或多个进程发送信号。默认情况下，它会向该单元 cgroup 中的所有进程发送 SIGTERM。这比 `systemctl stop` 提供更精细的控制，后者会遵循单元配置的停止行为。
 
-The `--kill-whom` option controls which processes receive the signal: main (the main process), control (control processes), or all (every process in the cgroup).
+`--kill-whom` 选项控制哪些进程接收信号：main（主进程）、control（控制进程）或 all（cgroup 中的每个进程）。
 
 # CAVEATS
 
-Bypasses the unit's configured ExecStop commands. Killing main process may leave child processes orphaned depending on unit configuration. SIGKILL cannot be caught or ignored by processes.
+会绕过单元配置的 ExecStop 命令。终止主进程后，子进程是否变成孤儿取决于单元的配置。SIGKILL 无法被进程捕获或忽略。
 
 # HISTORY
 
-The **kill** subcommand provides direct signal delivery to unit processes, useful when the normal stop procedure is insufficient or when specific signals are needed (like SIGHUP for config reload).
+**kill** 子命令提供向单元进程直接发送信号的能力，适用于正常停止流程不够用或需要特定信号的场景（例如用 SIGHUP 重新加载配置）。
 
 # INSTALL
 

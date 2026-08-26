@@ -1,18 +1,18 @@
 # TAGLINE
 
-Record Terraform runs with git context and timing
+记录 Terraform 运行，附带 git 上下文和耗时信息
 
 # TLDR
 
-**Record a Terraform apply**
+**记录一次 Terraform apply**
 
 ```tfjournal -- terraform apply```
 
-**Record with a workspace label**
+**记录时附加 workspace 标签**
 
 ```tfjournal -w [prod] -- tofu plan```
 
-**List recent failed runs**
+**列出最近的失败运行**
 
 ```tfjournal list --since 7d --status failed```
 
@@ -22,11 +22,11 @@ Record Terraform runs with git context and timing
 
 # DESCRIPTION
 
-**tfjournal** wraps terraform, tofu, and terragrunt commands to capture output, timing, exit codes, and git context (commit, branch, user, CI provider). It parses resource-level events and can display them as Gantt charts, with an optional S3 backend for sharing run history across teams.
+**tfjournal** 包装 terraform、tofu 和 terragrunt 命令，以捕获输出、耗时、退出码和 git 上下文（提交、分支、用户、CI 提供商）。它解析资源级事件并能将其显示为甘特图，还可选用 S3 后端在团队间共享运行历史。
 
 # HISTORY
 
-**tfjournal** was created by **Owloops** and is written in **Go**.
+**tfjournal** 由 **Owloops** 创建，使用 **Go** 编写。
 
 # SEE ALSO
 

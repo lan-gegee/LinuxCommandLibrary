@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal UI OS and window manager multiplexer
+终端 UI 操作系统与窗口管理复用器
 
 # TLDR
 
-**Launch the terminal multiplexer**
+**启动终端复用器**
 
 ```tuios```
 
-**Start in SSH server mode**
+**以 SSH 服务器模式启动**
 
 ```tuios --ssh```
 
-**Play back a tape recording**
+**回放 tape 录制文件**
 
 ```tuios play [recording.tape]```
 
@@ -22,11 +22,11 @@ Terminal UI OS and window manager multiplexer
 
 # DESCRIPTION
 
-**tuios** is a terminal-based window manager built with Go using Bubble Tea. It provides a Vim-like modal interface, 9 independent workspaces, automatic tiling, mouse support, SSH server mode, tape scripting for automation, and 60Hz real-time updates.
+**tuios** 是一个基于终端的窗口管理器，使用 Go 和 Bubble Tea 构建。它提供类 Vim 的模态界面、9 个独立工作区、自动平铺、鼠标支持、SSH 服务器模式、用于自动化的 tape 脚本以及 60Hz 实时更新。
 
 # HISTORY
 
-**tuios** was created by **Gaurav Gosain** (Gaurav-Gosain) and is written in **Go**.
+**tuios** 由 **Gaurav Gosain**（Gaurav-Gosain）创建，用 **Go** 编写。
 
 # INSTALL
 

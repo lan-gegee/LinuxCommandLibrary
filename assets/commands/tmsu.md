@@ -1,38 +1,38 @@
 # TAGLINE
 
-Tag-based file organization system
+基于标签的文件组织系统
 
 # TLDR
 
-**Tag files**
+**为文件打标签**
 
 ```tmsu tag [file] [tag1] [tag2]```
 
-**List tags**
+**列出标签**
 
 ```tmsu tags```
 
-**Find by tag**
+**按标签查找**
 
 ```tmsu files [tag]```
 
-**Find by multiple tags** (boolean query)
+**按多个标签查找**（布尔查询）
 
 ```tmsu files [tag1] and [tag2]```
 
-**Untag file**
+**移除文件的标签**
 
 ```tmsu untag [file] [tag]```
 
-**Mount virtual filesystem** organized by tags
+**挂载按标签组织的虚拟文件系统**
 
 ```tmsu mount [mountpoint]```
 
-**Show tags** for a specific file
+**显示特定文件**的标签
 
 ```tmsu tags [file]```
 
-**Check status** of tagged files
+**检查**已标记文件的**状态**
 
 ```tmsu status```
 
@@ -43,45 +43,45 @@ Tag-based file organization system
 # PARAMETERS
 
 **tag**
-> Add tags to files or directories.
+> 为文件或目录添加标签。
 
 **tags** [_file_]
-> List all tags, or list tags for a specific file.
+> 列出所有标签，或列出特定文件的标签。
 
 **files** _query_
-> Query files matching tag expressions (supports and, or, not).
+> 查询匹配标签表达式的文件（支持 and、or、not）。
 
 **untag**
-> Remove tags from files.
+> 移除文件的标签。
 
 **mount** _mountpoint_
-> Mount a FUSE virtual filesystem organized by tags.
+> 挂载一个按标签组织的 FUSE 虚拟文件系统。
 
 **rename** _old_ _new_
-> Rename a tag.
+> 重命名标签。
 
 **delete** _tag_
-> Delete a tag and all its file associations.
+> 删除标签及其所有文件关联。
 
 **merge** _tags_ _target_
-> Merge multiple tags into a single tag.
+> 将多个标签合并为一个标签。
 
 **status**
-> List file tagging status (tagged, modified, missing).
+> 列出文件的标记状态（已标记、已修改、缺失）。
 
 # DESCRIPTION
 
-**tmsu** (Tag My Stuff Unix) is a file tagging tool that lets you organize files by assigning arbitrary tags rather than relying solely on directory hierarchies. Tags and file associations are stored in a local SQLite database, keeping the actual files untouched.
+**tmsu**（Tag My Stuff Unix）是一款文件标记工具，让你通过赋予任意标签来组织文件，而不必完全依赖目录层级。标签和文件关联存储在本地 SQLite 数据库中，实际文件保持不变。
 
-Files can be queried using tag-based expressions with boolean operators (and, or, not), making it easy to find files matching specific criteria. The **mount** command provides a FUSE virtual filesystem where tagged files appear organized into directories by tag, enabling integration with standard file management tools.
+可以使用带布尔运算符（and、or、not）的标签表达式查询文件，轻松找到符合特定条件的文件。**mount** 命令提供一个 FUSE 虚拟文件系统，其中被标记的文件按标签组织成目录，可与标准文件管理工具配合使用。
 
 # CAVEATS
 
-FUSE needed for mount. Database per directory. Go-based tool.
+挂载需要 FUSE。每个目录一个数据库。基于 Go 的工具。
 
 # HISTORY
 
-**TMSU** (Tag My Stuff Unix) was created for file organization using tags with optional FUSE filesystem support.
+**TMSU**（Tag My Stuff Unix）为使用标签进行文件整理而创建，并可选支持 FUSE 文件系统。
 
 # INSTALL
 

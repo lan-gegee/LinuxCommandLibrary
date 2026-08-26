@@ -1,30 +1,30 @@
 # TAGLINE
 
-Simple lightweight X11 image viewer
+简单轻量的 X11 图片查看器
 
 # TLDR
 
-**Open** an image
+**打开**图片
 
 ```sxiv path/to/image```
 
-Open in **fullscreen** mode
+以**全屏**模式打开
 
 ```sxiv -f path/to/image```
 
-Read filenames from **stdin**
+从**标准输入**读取文件名
 
 ```echo path/to/file | sxiv -i```
 
-Open as **slideshow**
+以**幻灯片**方式打开
 
 ```sxiv -S 3 path/to/image1 path/to/image2```
 
-Open in **thumbnail** mode
+以**缩略图**模式打开
 
 ```sxiv -t path/to/images/*```
 
-**Recursive** directory search
+**递归**搜索目录
 
 ```sxiv -r path/to/directory```
 
@@ -34,65 +34,65 @@ Open in **thumbnail** mode
 
 # DESCRIPTION
 
-**sxiv** is a simple image viewer for X. It has two modes: image mode for displaying individual images and thumbnail mode for selecting from a grid view. It supports keyboard navigation, zooming, rotation, and slideshow functionality.
+**sxiv** 是一个简单的 X 图片查看器。它有两种模式：用于显示单张图片的图像模式，以及用于网格视图选择的缩略图模式。它支持键盘导航、缩放、旋转和幻灯片功能。
 
 # PARAMETERS
 
 **-f**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-b**
-> Do not show info bar at bottom
+> 不显示底部信息栏
 
 **-t**
-> Start in thumbnail mode
+> 以缩略图模式启动
 
 **-i**
-> Read file list from stdin
+> 从标准输入读取文件列表
 
 **-r**
-> Search directories recursively for images
+> 递归搜索目录中的图片
 
 **-o**
-> Write marked files to stdout on exit
+> 退出时将被标记的文件写入标准输出
 
 **-a**
-> Play animations of multi-frame images
+> 播放多帧图片的动画
 
 **-A FRAMERATE**
-> Set animation framerate
+> 设置动画帧率
 
 **-s MODE**
-> Set scale mode (d=down, f=fit, F=fill, w=width, h=height)
+> 设置缩放模式（d=down，f=fit，F=fill，w=width，h=height）
 
 **-z ZOOM**
-> Set zoom level as percentage
+> 以百分比设置缩放级别
 
 **-g GEOMETRY**
-> Set window geometry (WxH+X+Y)
+> 设置窗口几何参数（WxH+X+Y）
 
 **-G GAMMA**
-> Set gamma correction (-32 to 32)
+> 设置伽马校正（-32 到 32）
 
 **-S SECONDS**
-> Start slideshow with specified interval
+> 以指定间隔启动幻灯片
 
 **-n NUM**
-> Start at image number NUM
+> 从第 NUM 张图片开始
 
 **-c**
-> Clean thumbnail cache
+> 清理缩略图缓存
 
 **-q**
-> Suppress warnings
+> 抑制警告信息
 
 # CAVEATS
 
-Requires an EWMH/NetWM compliant window manager for fullscreen functionality. Thumbnail cache is stored in $XDG_CACHE_HOME/sxiv/. Custom key handlers can be defined in $XDG_CONFIG_HOME/sxiv/exec/key-handler.
+全屏功能需要符合 EWMH/NetWM 规范的窗口管理器。缩略图缓存存储在 $XDG_CACHE_HOME/sxiv/。自定义按键处理器可在 $XDG_CONFIG_HOME/sxiv/exec/key-handler 中定义。
 
 # HISTORY
 
-**sxiv** (Simple X Image Viewer) was created as a lightweight alternative to heavier image viewers, focusing on speed and keyboard-driven operation.
+**sxiv**（Simple X Image Viewer）的定位是更重量级图片查看器的轻量替代品，专注于速度和键盘驱动的操作。
 
 # INSTALL
 

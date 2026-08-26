@@ -1,42 +1,42 @@
 # TAGLINE
 
-List loaded units and their states
+列出已加载的单元及其状态
 
 # TLDR
 
-List **active** units
+列出**活动的**单元
 
 ```systemctl list-units```
 
-List **all** units
+列出**全部**单元
 
 ```systemctl list-units -a```
 
-Filter by **type**
+按**类型**过滤
 
 ```systemctl list-units -t [service|socket|timer]```
 
-Filter by **state**
+按**状态**过滤
 
 ```systemctl list-units --state [running|listening|dead]```
 
-Filter by **pattern**
+按**模式**过滤
 
 ```systemctl list-units '[pattern*]'```
 
-Output without **pager**
+输出时不使用**分页器**
 
 ```systemctl list-units --no-pager```
 
-Output without **headers**
+输出时不带**表头**
 
 ```systemctl list-units --no-legend```
 
-List only **failed** units
+只列出**失败的**单元
 
 ```systemctl list-units --failed```
 
-List units **with full names** (no ellipsis)
+列出**完整名称的**单元（不用省略号）
 
 ```systemctl list-units --full```
 
@@ -47,57 +47,57 @@ List units **with full names** (no ellipsis)
 # PARAMETERS
 
 **-a, --all**
-> Include inactive units and units following other units
+> 包括未激活的单元和跟随其他单元的单元
 
 **-t, --type=** _TYPE_
-> Filter by unit type (comma-separated list, e.g., service, socket, timer)
+> 按单元类型过滤（逗号分隔的列表，如 service、socket、timer）
 
 **--state=** _STATE_
-> Filter by LOAD, SUB, or ACTIVE state (comma-separated list)
+> 按 LOAD、SUB 或 ACTIVE 状态过滤（逗号分隔的列表）
 
 **--failed**
-> Show only failed units (equivalent to --state=failed)
+> 只显示失败的单元（等同于 --state=failed）
 
 **-l, --full**
-> Do not ellipsize unit names, descriptions, or other fields in the output
+> 输出中不省略单元名称、描述或其他字段
 
 **-r, --recursive**
-> Also show units of local containers
+> 同时显示本地容器的单元
 
 **--with-dependencies**
-> Show specified units and their dependencies
+> 显示指定单元及其依赖
 
 **--no-pager**
-> Disable pager output
+> 禁用分页器输出
 
 **--no-legend**
-> Suppress header and footer (useful for scripts)
+> 不显示表头和页脚（便于脚本使用）
 
 # DESCRIPTION
 
-**systemctl list-units** displays units that systemd currently has loaded in memory. By default, it shows units that are active, have pending jobs, or have failed.
+**systemctl list-units** 显示 systemd 当前加载到内存中的单元。默认情况下，它会显示处于活动状态、有待处理任务或失败的单元。
 
-The output shows the unit name, load state, active state, sub-state, and description. This is the primary command for viewing current system state.
+输出内容包括单元名称、加载状态、活动状态、子状态和描述。这是查看系统当前状态的主要命令。
 
 # OUTPUT COLUMNS
 
-**UNIT** - Unit name
+**UNIT** - 单元名称
 
-**LOAD** - Load state (loaded, not-found, error)
+**LOAD** - 加载状态（loaded、not-found、error）
 
-**ACTIVE** - Active state (active, inactive, failed)
+**ACTIVE** - 活动状态（active、inactive、failed）
 
-**SUB** - Sub-state (running, exited, dead, listening)
+**SUB** - 子状态（running、exited、dead、listening）
 
-**DESCRIPTION** - Unit description
+**DESCRIPTION** - 单元描述
 
 # CAVEATS
 
-Only shows currently loaded units. Use `list-unit-files` to see all installed units. Failed units remain visible until acknowledged with `systemctl reset-failed`.
+只显示当前已加载的单元。要查看所有已安装的单元请使用 `list-unit-files`。失败的单元在被 `systemctl reset-failed` 确认之前会一直可见。
 
 # HISTORY
 
-The **list-units** subcommand is the primary status overview command in systemd, replacing various init script listing mechanisms.
+**list-units** 子命令是 systemd 中最主要的状态总览命令，取代了各种 init 脚本列表机制。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Unified dispatcher for tpm2-tools utilities
+tpm2-tools 工具集的统一分发器
 
 # TLDR
 
-**List all available** TPM2 subcommands
+**列出所有可用的** TPM2 子命令
 
 ```tpm2 --help```
 
-**Get 8 random bytes** from the TPM
+从 TPM **获取 8 个随机字节**
 
 ```tpm2 getrandom 8 | xxd -p```
 
-**Initialize the TPM** after boot
+启动后**初始化 TPM**
 
 ```tpm2 startup -c```
 
-**Read PCR values** for the SHA-256 bank
+读取 SHA-256 bank 的 **PCR 值**
 
 ```tpm2 pcrread sha256:all```
 
-**Extend a PCR** with a precomputed hash
+用预计算的哈希**扩展 PCR**
 
 ```tpm2 pcrextend [index]:sha256=[hexdigest]```
 
-**Reset a resettable PCR** (typically index 16 or 23)
+**重置可重置的 PCR**（通常为索引 16 或 23）
 
 ```tpm2 pcrreset [index]```
 
-**Create a primary key** under the owner hierarchy
+在所有者层级下**创建主密钥**
 
 ```tpm2 createprimary -C o -c primary.ctx```
 
-**Use a specific TCTI** (e.g. the simulator)
+**使用指定的 TCTI**（例如模拟器）
 
 ```tpm2 --tcti=mssim getrandom 8```
 
@@ -44,34 +44,34 @@ Unified dispatcher for tpm2-tools utilities
 
 # DESCRIPTION
 
-**tpm2** is a single busybox-style executable that combines all of the individual **tpm2-tools** utilities into one binary. Each historical tool, such as **tpm2_getrandom** or **tpm2_pcrread**, is available as a subcommand of **tpm2** (invoke **tpm2 getrandom**) as well as through a symlink of the original name.
+**tpm2** 是一个 busybox 风格的单体可执行文件，将所有独立的 **tpm2-tools** 工具合并为一个二进制文件。每个历史上的工具（如 **tpm2_getrandom** 或 **tpm2_pcrread**）既可作为 **tpm2** 的子命令使用（调用 **tpm2 getrandom**），也可通过原始名称的符号链接调用。
 
-The dispatcher exists primarily to shrink the footprint of **tpm2-tools** on size-constrained systems (initramfs images, embedded devices, recovery environments) where shipping dozens of separate binaries is wasteful. Because each _tpm2_<tool>_ symlink points back to the same binary, behaviour is identical between the two invocation styles.
+该分发器的存在主要是为了在空间受限的系统（initramfs 镜像、嵌入式设备、恢复环境）上缩减 **tpm2-tools** 的占用，因为在这些环境中附带数十个独立的二进制文件非常浪费。由于每个 _tpm2_<tool>_ 符号链接都指向同一个二进制文件，两种调用方式的行为完全一致。
 
-Tools cover the full TPM 2.0 command surface: key creation and loading, NV storage, PCR operations, session and policy management, attestation, and auditing.
+这些工具覆盖了完整的 TPM 2.0 命令面：密钥创建与加载、NV 存储、PCR 操作、会话与策略管理、证明（attestation）以及审计。
 
 # COMMON OPTIONS
 
 **-h**, **--help**[=_man_|_no-man_]
-> Show the help page for the selected tool. With **=man**, render the manpage via **man**; with **=no-man**, print a plain summary.
+> 显示所选工具的帮助页。使用 **=man** 时通过 **man** 渲染手册页；使用 **=no-man** 时打印纯文本摘要。
 
 **-v**, **--version**
-> Print version information for **tpm2-tools**.
+> 打印 **tpm2-tools** 的版本信息。
 
 **-V**, **--verbose**
-> Increase console output; useful for debugging.
+> 增加控制台输出；便于调试。
 
 **-Q**, **--quiet**
-> Suppress normal informational output.
+> 抑制常规信息输出。
 
 **-Z**, **--enable-errata**
-> Apply errata workarounds for known TPM bugs.
+> 对已知的 TPM 缺陷应用勘误规避措施。
 
 **-T** _tcti_, **--tcti=**_tcti_
-> Select the TCTI (Transmission Interface Configuration) used to talk to the TPM.
+> 选择用于与 TPM 通信的 TCTI（传输接口配置）。
 
 **-R**, **--autoflush**
-> Automatically flush transient objects from the TPM when the tool exits.
+> 工具退出时自动从 TPM 中清除（flush）临时对象。
 
 # SUBCOMMAND CATEGORIES
 
@@ -86,13 +86,13 @@ Tools cover the full TPM 2.0 command surface: key creation and loading, NV stora
 
 # TCTI SELECTION
 
-Communication with the TPM is abstracted by a **TCTI**. Selection priority:
+与 TPM 的通信由 **TCTI** 抽象。选择优先级：
 
-1. **-T** / **--tcti** on the command line
-2. **TPM2TOOLS_TCTI** environment variable
-3. Compile-time default
+1. 命令行上的 **-T** / **--tcti**
+2. **TPM2TOOLS_TCTI** 环境变量
+3. 编译时默认值
 
-Common TCTIs:
+常见的 TCTI：
 
 ```
 tabrmd   Resource manager (tpm2-abrmd)
@@ -105,30 +105,30 @@ none     Offline mode (no TPM required)
 # EXIT CODES
 
 **0**
-> Success.
+> 成功。
 
 **1**
-> General tool error.
+> 一般工具错误。
 
 **2**
-> Option parsing error.
+> 选项解析错误。
 
 **3**
-> Authentication failure.
+> 身份验证失败。
 
 **4**
-> TCTI communication error.
+> TCTI 通信错误。
 
 **5**
-> Unsupported scheme or algorithm.
+> 不支持的方案或算法。
 
 # CAVEATS
 
-Not every TPM exposes every hierarchy or PCR to userspace: only PCR 16 and 23 are typically resettable from locality 0, and certain operations require the owner password or a valid session. On systems using **tpm2-abrmd**, direct **device** access is blocked while the resource manager is running. When writing scripts, prefer the **tpm2 _tool_** form: it works even on minimal installs that only ship the dispatcher binary.
+并非每个 TPM 都向用户空间开放所有层级或 PCR：通常只有 PCR 16 和 23 可以在 locality 0 下重置，且某些操作需要所有者密码或有效会话。在使用 **tpm2-abrmd** 的系统上，资源管理器运行期间会阻止直接访问 **device**。编写脚本时优先使用 **tpm2 _tool_** 形式：即使在没有附带各工具符号链接的最小安装中也能工作。
 
 # HISTORY
 
-The **tpm2-tools** project is maintained by the **tpm2-software** community and implements the user-space side of the **TCG TPM 2.0** specification on top of the **tpm2-tss** stack. The unified **tpm2** dispatcher was introduced to simplify packaging in constrained environments; the original per-tool invocation (**tpm2_**_tool_) is still supported and, on most distributions, remains the primary interface.
+**tpm2-tools** 项目由 **tpm2-software** 社区维护，在 **tpm2-tss** 栈之上实现了 **TCG TPM 2.0** 规范的用户空间部分。引入统一的 **tpm2** 分发器是为了简化受限环境下的打包；原始的按工具调用方式（**tpm2_**_tool_）仍然受支持，并且在大多数发行版上仍是主要接口。
 
 # INSTALL
 
@@ -145,4 +145,3 @@ The **tpm2-tools** project is maintained by the **tpm2-software** community and 
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

@@ -1,12 +1,12 @@
 # TAGLINE
 
-Restore files from the trash
+从回收站恢复文件
 
 # TLDR
 
-This command is documented with **trash**
+此命令的文档收录在 **trash** 中
 
-View documentation for **trash-restore**
+查看 **trash-restore** 的文档
 
 ```tldr trash```
 
@@ -16,7 +16,7 @@ View documentation for **trash-restore**
 
 # DESCRIPTION
 
-**trash-restore** is part of the trash-cli suite. See **trash** for full documentation.
+**trash-restore** 是 trash-cli 套件的一部分。完整文档参见 **trash**。
 
 # INSTALL
 

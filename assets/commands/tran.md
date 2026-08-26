@@ -1,30 +1,30 @@
 # TAGLINE
 
-Securely transfer files between computers with TUI
+使用 TUI 在计算机之间安全传输文件
 
 # TLDR
 
-**Open the file browser TUI**
+**打开文件浏览器 TUI**
 
 ```tran```
 
-**Open TUI in a specific directory**
+**在指定目录中打开 TUI**
 
 ```tran --start-dir [/path/to/dir]```
 
-**Send a file or directory to a remote computer**
+**向远程计算机发送文件或目录**
 
 ```tran send [file_or_directory]```
 
-**Receive files from a remote computer**
+**从远程计算机接收文件**
 
 ```tran receive [password]```
 
-**Authenticate with GitHub**
+**进行 GitHub 身份验证**
 
 ```tran auth login```
 
-**Sync tran config file**
+**同步 tran 配置文件**
 
 ```tran sync start```
 
@@ -35,31 +35,31 @@ Securely transfer files between computers with TUI
 # PARAMETERS
 
 **--start-dir** _path_
-> Set the starting directory for the TUI.
+> 设置 TUI 的起始目录。
 
 # SUBCOMMANDS
 
 **send** _file_or_directory_
-> Send a file or directory to a remote computer.
+> 向远程计算机发送文件或目录。
 
 **receive** _password_
-> Receive files from a remote computer using a password.
+> 使用密码从远程计算机接收文件。
 
 **auth login**
-> Authenticate with GitHub.
+> 进行 GitHub 身份验证。
 
 **sync start**
-> Sync your tran config file.
+> 同步你的 tran 配置文件。
 
 # DESCRIPTION
 
-**tran** is a command-line tool and TUI that allows secure transfer and sending of files and directories between computers. It provides a file browser interface for selecting files and uses password-based authentication for receiving transfers.
+**tran** 是一个命令行工具和 TUI，可在计算机之间安全地传输和发送文件与目录。它提供文件浏览器界面用于选择文件，并使用基于密码的身份验证来接收传输。
 
-Configuration is stored in **~/.config/tran/tran.yml**.
+配置保存在 **~/.config/tran/tran.yml**。
 
 # HISTORY
 
-**tran** was created by **abdfnx** and is written in **Go**.
+**tran** 由 **abdfnx** 创建，使用 **Go** 编写。
 
 # INSTALL
 

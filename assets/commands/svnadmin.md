@@ -1,38 +1,38 @@
 # TAGLINE
 
-Subversion repository administration tool
+Subversion 仓库管理工具
 
 # TLDR
 
-**Create a new repository**
+**创建新仓库**
 
 ```svnadmin create [/path/to/repo]```
 
-**Dump repository to file**
+**将仓库转储到文件**
 
 ```svnadmin dump [/path/to/repo] > [backup.dump]```
 
-**Load dump into repository**
+**将转储载入仓库**
 
 ```svnadmin load [/path/to/repo] < [backup.dump]```
 
-**Verify repository integrity**
+**验证仓库完整性**
 
 ```svnadmin verify [/path/to/repo]```
 
-**List outstanding transactions**
+**列出未完成的事务**
 
 ```svnadmin lstxns [/path/to/repo]```
 
-**Remove a dead transaction**
+**移除失效的事务**
 
 ```svnadmin rmtxns [/path/to/repo] [txn-id]```
 
-**Upgrade repository format**
+**升级仓库格式**
 
 ```svnadmin upgrade [/path/to/repo]```
 
-**Show repository info**
+**显示仓库信息**
 
 ```svnadmin info [/path/to/repo]```
 
@@ -43,94 +43,94 @@ Subversion repository administration tool
 # PARAMETERS
 
 **--revision** _rev_, **-r** _rev_
-> Specify revision or revision range.
+> 指定修订版或修订版范围。
 
 **--incremental**
-> Dump only changes since previous revision.
+> 只转储上一个修订版之后的变更。
 
 **--deltas**
-> Use deltas in dump output for smaller files.
+> 在转储输出中使用增量（delta）以获得更小的文件。
 
 **--fs-type** _type_
-> Filesystem type for new repos: fsfs or bdb.
+> 新仓库的文件系统类型：fsfs 或 bdb。
 
 **--force-uuid**
-> Set repository UUID from dump stream.
+> 使用转储流中的 UUID 设置仓库。
 
 **--ignore-uuid**
-> Ignore UUID in dump stream.
+> 忽略转储流中的 UUID。
 
 **--quiet**, **-q**
-> Suppress normal output.
+> 抑制常规输出。
 
 **--wait**
-> Wait for repository lock instead of failing.
+> 等待仓库锁而不是直接失败。
 
 **--config-dir** _dir_
-> Use alternate config directory.
+> 使用其他配置目录。
 
 **--pre-1.4-compatible**
-> Create repository compatible with Subversion 1.4 or older.
+> 创建与 Subversion 1.4 或更早版本兼容的仓库。
 
 **--pre-1.6-compatible**
-> Create repository compatible with Subversion 1.6 or older.
+> 创建与 Subversion 1.6 或更早版本兼容的仓库。
 
 **--compatible-version** _ver_
-> Create repository compatible with specified Subversion version.
+> 创建与指定 Subversion 版本兼容的仓库。
 
 **--bypass-hooks**
-> Skip hook scripts during load.
+> 载入期间跳过钩子脚本。
 
 **--bypass-prop-validation**
-> Skip property validation during load.
+> 载入期间跳过属性校验。
 
 # SUBCOMMANDS
 
-**create**: Create new empty repository.
+**create**: 创建新的空仓库。
 
-**dump**: Output repository contents in portable format.
+**dump**: 以可移植格式输出仓库内容。
 
-**load**: Load dump file into repository.
+**load**: 将转储文件载入仓库。
 
-**verify**: Check repository for corruption.
+**verify**: 检查仓库是否损坏。
 
-**recover**: Recover repository from crash.
+**recover**: 从崩溃中恢复仓库。
 
-**upgrade**: Upgrade repository to latest format.
+**upgrade**: 将仓库升级到最新格式。
 
-**hotcopy**: Make backup copy of repository.
+**hotcopy**: 制作仓库的热备份副本。
 
-**lstxns**: List outstanding transactions.
+**lstxns**: 列出未完成的事务。
 
-**rmtxns**: Remove specified transactions.
+**rmtxns**: 移除指定的事务。
 
-**info**: Display repository information.
+**info**: 显示仓库信息。
 
-**setlog**: Set log message for a revision.
+**setlog**: 设置某个修订版的日志消息。
 
-**setrevprop**: Set revision property.
+**setrevprop**: 设置修订版属性。
 
-**pack**: Optimize repository storage.
+**pack**: 优化仓库存储。
 
-**freeze**: Freeze repository for backup.
+**freeze**: 冻结仓库以便备份。
 
 # DESCRIPTION
 
-**svnadmin** is the administrative tool for Subversion repositories. It provides commands for creating, maintaining, and backing up repositories stored on the local filesystem.
+**svnadmin** 是 Subversion 仓库的管理工具。它提供创建、维护和备份存储在本地文件系统上的仓库的命令。
 
-The tool can create repositories with either FSFS (default) or Berkeley DB backends. It supports full and incremental dumps for backup and migration, with optional delta compression for smaller dump files.
+该工具可以使用 FSFS（默认）或 Berkeley DB 后端创建仓库。它支持用于备份和迁移的完整及增量转储，并可通过可选的增量压缩生成更小的转储文件。
 
-Repository maintenance includes integrity verification, crash recovery, format upgrades, and transaction cleanup. The hotcopy command creates consistent backups without stopping repository access.
+仓库维护包括完整性验证、崩溃恢复、格式升级和事务清理。hotcopy 命令可以在不中断仓库访问的情况下创建一致的备份。
 
-Unlike the svn client, svnadmin operates only on local repository paths and cannot access repositories over the network.
+与 svn 客户端不同，svnadmin 只能操作本地仓库路径，无法通过网络访问仓库。
 
 # CAVEATS
 
-Operates only on local repositories, not URLs. Dump files can be very large for full exports. Berkeley DB backend is deprecated in favor of FSFS. Hook bypass options should be used carefully. Repository locks prevent concurrent administrative operations.
+只能操作本地仓库，不支持 URL。完整导出时转储文件可能非常大。Berkeley DB 后端已不推荐使用，建议改用 FSFS。绕过钩子的选项应谨慎使用。仓库锁会阻止并发的管理操作。
 
 # HISTORY
 
-**svnadmin** has been part of Subversion since its initial release in 2000. Subversion was created by CollabNet as a replacement for CVS. The tool evolved alongside repository format changes, adding support for FSFS (Subversion 1.1), repository packing (1.6), and various performance improvements.
+**svnadmin** 自 Subversion 2000 年首次发布以来就是其组成部分。Subversion 由 CollabNet 创建，作为 CVS 的替代品。该工具随仓库格式的演进不断变化，陆续增加了对 FSFS（Subversion 1.1）、仓库打包（1.6）以及各种性能改进的支持。
 
 # INSTALL
 

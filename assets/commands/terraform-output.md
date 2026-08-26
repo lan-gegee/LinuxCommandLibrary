@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display Terraform output values
+显示 Terraform 输出值
 
 # TLDR
 
-**Show all outputs**
+**显示所有输出**
 
 ```terraform output```
 
-**Show specific output**
+**显示特定输出**
 
 ```terraform output [name]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```terraform output -json```
 
-**Get raw value**
+**获取原始值**
 
 ```terraform output -raw [name]```
 
@@ -27,22 +27,22 @@ Display Terraform output values
 # PARAMETERS
 
 **-json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **-raw**
-> Output raw string value.
+> 输出原始字符串值。
 
 **-state** _path_
-> Read from state file.
+> 从状态文件读取。
 
 **-no-color**
-> Disable color output.
+> 禁用彩色输出。
 
 # DESCRIPTION
 
-**terraform output** reads output values from the Terraform state file. It displays values defined in `output` blocks of the root module. Useful for scripting, passing values between configurations, and extracting infrastructure details like IP addresses, URLs, or resource IDs.
+**terraform output** 从 Terraform 状态文件读取输出值。它显示根模块 `output` 块中定义的值。适用于脚本编写、在配置之间传递值，以及提取 IP 地址、URL 或资源 ID 等基础设施细节。
 
-Use **-raw** to get a bare string suitable for shell scripting (no quotes or formatting). Use **-json** to get machine-readable output including type information. When called without a name, all outputs are displayed.
+使用 **-raw** 获取适合 shell 脚本使用的纯字符串（无引号和格式）。使用 **-json** 获取包含类型信息的机器可读输出。不带名称调用时，显示所有输出。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Use **-raw** to get a bare string suitable for shell scripting (no quotes or for
 # SEE ALSO
 
 [terraform](/man/terraform)(1), [terraform-apply](/man/terraform-apply)(1), [terraform-plan](/man/terraform-plan)(1)
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Render TheDraw ANSI font text
+渲染 TheDraw ANSI 字体文本
 
 # TLDR
 
-**View TheDraw file**
+**查看 TheDraw 文件**
 
 ```tdf [font.tdf]```
 
-**List fonts in file**
+**列出文件中的字体**
 
 ```tdf -l [font.tdf]```
 
-**Render text**
+**渲染文本**
 
 ```tdf -f [font.tdf] "[text]"```
 
-**Specific font from file**
+**使用文件中的指定字体**
 
 ```tdf -f [font.tdf] -n [fontname] "[text]"```
 
@@ -27,33 +27,33 @@ Render TheDraw ANSI font text
 # PARAMETERS
 
 **-f** _FILE_
-> Font file.
+> 字体文件。
 
 **-l**
-> List fonts.
+> 列出字体。
 
 **-n** _NAME_
-> Font name.
+> 字体名称。
 
 **-c** _COLOR_
-> Color mode.
+> 颜色模式。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**tdf** renders text using TheDraw font files (.tdf), a format originating from the BBS era for creating colorful ANSI art text banners. Each TDF file can contain multiple fonts, and specific fonts can be selected by name.
+**tdf** 使用 TheDraw 字体文件（.tdf）渲染文本。这种格式起源于 BBS 时代，用于制作彩色的 ANSI 艺术文字横幅。每个 TDF 文件可以包含多种字体，可以按名称选择特定字体。
 
-The tool reads TheDraw font definitions and uses them to transform plain text into large, stylized ANSI art rendered with colors and special characters. The **-l** flag lists all available fonts within a TDF file, making it easy to browse font collections before rendering.
+该工具读取 TheDraw 字体定义，将纯文本转换为带有颜色和特殊字符的大型风格化 ANSI 艺术。**-l** 标志可列出 TDF 文件中的所有可用字体，便于在渲染前浏览字体集合。
 
 # CAVEATS
 
-TDF files needed. Retro format. Limited font availability.
+需要 TDF 文件。属于复古格式。可用字体有限。
 
 # HISTORY
 
-**tdf** displays text using **TheDraw** ANSI font files, a popular format from the BBS era.
+**tdf** 使用 **TheDraw** ANSI 字体文件显示文本，这是 BBS 时代流行的一种格式。
 
 # INSTALL
 

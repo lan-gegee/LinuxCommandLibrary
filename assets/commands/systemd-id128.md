@@ -1,34 +1,34 @@
 # TAGLINE
 
-Generate and print 128-bit identifiers
+生成并打印 128 位标识符
 
 # TLDR
 
-**Generate** a new random identifier
+**生成**新的随机标识符
 
 ```systemd-id128 new```
 
-**Print** the identifier of the current machine
+**打印**当前机器的标识符
 
 ```systemd-id128 machine-id```
 
-**Print** the identifier of the current boot
+**打印**当前启动的标识符
 
 ```systemd-id128 boot-id```
 
-**Print** the identifier of the current service invocation
+**打印**当前服务调用的标识符
 
 ```systemd-id128 invocation-id```
 
-**Generate** a new identifier and print it as a UUID
+**生成**新标识符并以 UUID 格式打印
 
 ```systemd-id128 new --uuid```
 
-**Generate** an application-specific ID derived from the machine ID
+**生成**由机器 ID 派生的应用专属 ID
 
 ```systemd-id128 machine-id --app-specific [app-id]```
 
-**Show well-known identifiers**
+**显示**众所周知的标识符
 
 ```systemd-id128 show```
 
@@ -39,50 +39,50 @@ Generate and print 128-bit identifiers
 # PARAMETERS
 
 **new**
-> Generate a new random identifier.
+> 生成新的随机标识符。
 
 **machine-id**
-> Print the machine ID from /etc/machine-id.
+> 打印来自 /etc/machine-id 的机器 ID。
 
 **boot-id**
-> Print the current boot ID.
+> 打印当前启动 ID。
 
 **invocation-id**
-> Print the service invocation ID (systemd services only).
+> 打印服务调用 ID（仅限 systemd 服务）。
 
 **show** [_NAME_|_UUID_...]
-> Display well-known systemd identifiers.
+> 显示 systemd 的众所周知标识符。
 
 **-u, --uuid**
-> Print in UUID format with hyphen-separated groups.
+> 以 UUID 格式（连字符分隔的分组）打印。
 
 **-p, --pretty**
-> Generate output as programming language snippets.
+> 生成编程语言代码片段形式的输出。
 
 **-P, --value**
-> Only print the identifier value.
+> 只打印标识符的值。
 
 **-a, --app-specific** _APP-ID_
-> Generate an application-specific ID by hashing the machine or boot ID with the given application ID.
+> 通过对机器 ID 或启动 ID 与给定的应用 ID 进行哈希运算，生成应用专属 ID。
 
 **--json=**_MODE_
-> Output in JSON format. MODE is short, pretty, or off.
+> 以 JSON 格式输出。MODE 可为 short、pretty 或 off。
 
 **--no-pager**
-> Disable pager output.
+> 禁用分页器输出。
 
 **--no-legend**
-> Omit column headers and footer with show command.
+> 配合 show 命令使用时省略列标题和页脚。
 
 # DESCRIPTION
 
-**systemd-id128** generates and prints sd-id128 identifiers used by systemd. These 128-bit identifiers uniquely identify machines, boots, and service invocations.
+**systemd-id128** 生成并打印 systemd 所使用的 sd-id128 标识符。这些 128 位标识符唯一地标识机器、启动和服务调用。
 
-The machine ID is persistent across reboots and stored in **/etc/machine-id**. The boot ID changes each boot and identifies the current system session. The invocation ID is unique per service start.
+机器 ID 跨重启保持不变，存储在 **/etc/machine-id** 中。启动 ID 每次启动都会变化，用于标识当前的系统会话。调用 ID 则在每次服务启动时都是唯一的。
 
 # CAVEATS
 
-The invocation-id subcommand only works within systemd service contexts. Machine IDs should not be changed after initial setup. UUIDs are compatible with RFC 4122. Part of the systemd suite.
+invocation-id 子命令仅在 systemd 服务上下文中有效。机器 ID 在初始设置后不应再更改。UUID 与 RFC 4122 兼容。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

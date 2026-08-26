@@ -1,50 +1,50 @@
 # TAGLINE
 
-Ethereum smart contract development framework
+以太坊智能合约开发框架
 
 # TLDR
 
-**Initialize project**
+初始化项目
 
 ```truffle init```
 
-**Compile contracts**
+编译合约
 
 ```truffle compile```
 
-**Run migrations**
+运行迁移
 
 ```truffle migrate```
 
-**Run tests**
+运行测试
 
 ```truffle test```
 
-**Start console**
+启动控制台
 
 ```truffle console```
 
-**Deploy to network**
+部署到网络
 
 ```truffle migrate --network [mainnet]```
 
-**Start development blockchain**
+启动开发区块链
 
 ```truffle develop```
 
-**Create a new contract** boilerplate
+创建新的合约样板
 
 ```truffle create contract [ContractName]```
 
-**Create a new migration** script
+创建新的迁移脚本
 
 ```truffle create migration [MigrationName]```
 
-**Run a specific test** file
+运行指定的测试文件
 
 ```truffle test [test/MyContract.test.js]```
 
-**Compile with optimizer** enabled
+启用优化器编译
 
 ```truffle compile --all```
 
@@ -55,73 +55,73 @@ Ethereum smart contract development framework
 # PARAMETERS
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **compile**
-> Compile contracts.
+> 编译合约。
 
 **migrate**
-> Deploy contracts.
+> 部署合约。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **console**
-> Interactive console.
+> 交互式控制台。
 
 **develop**
-> Local blockchain.
+> 本地区块链。
 
 **create** _TYPE_ _NAME_
-> Generate a new contract, migration, or test boilerplate.
+> 生成新的合约、迁移或测试样板。
 
 **unbox** _box_name_
-> Download a pre-built Truffle project (Truffle Box).
+> 下载预构建的 Truffle 项目 (Truffle Box)。
 
 **networks**
-> Show addresses of deployed contracts on each network.
+> 显示各网络上已部署合约的地址。
 
 **debug** _txHash_
-> Interactively debug a transaction.
+> 以交互方式调试一笔交易。
 
 **--network** _NAME_
-> Target network (defined in truffle-config.js).
+> 目标网络（在 truffle-config.js 中定义）。
 
 **--reset**
-> Re-run all migrations from the beginning.
+> 从头重新执行所有迁移。
 
 **--compile-all**
-> Recompile all contracts even if unchanged.
+> 即使未更改也重新编译所有合约。
 
 **--verbose-rpc**
-> Log RPC communication with the Ethereum client.
+> 记录与以太坊客户端的 RPC 通信。
 
 # DESCRIPTION
 
-**Truffle** is a development framework for Ethereum smart contracts that provides a complete workflow from compilation through deployment and testing. It compiles Solidity contracts into bytecode and ABI artifacts, manages deployment through ordered migration scripts, and supports both JavaScript and Solidity test suites.
+**Truffle** 是一个以太坊智能合约开发框架，提供从编译到部署和测试的完整工作流。它将 Solidity 合约编译为字节码和 ABI 工件，通过有序的迁移脚本管理部署，并支持 JavaScript 和 Solidity 两套测试套件。
 
-The built-in development blockchain (truffle develop) provides a local Ethereum environment with instant transactions and pre-funded accounts, eliminating gas costs during development. The interactive console connects to any configured network and allows direct interaction with deployed contracts.
+内置的开发区块链 (truffle develop) 提供了一个本地以太坊环境，交易即时确认且账户预充值，开发期间无需支付 gas 费用。交互式控制台可以连接任何已配置的网络，并与已部署的合约直接交互。
 
-Projects are organized with a standard directory structure including contracts, migrations, and test directories. Network configurations in truffle-config.js define deployment targets from local development to public testnets and mainnet.
+项目采用标准目录结构组织，包括 contracts、migrations 和 test 目录。truffle-config.js 中的网络配置定义了从本地开发环境到公共测试网和主网的各类部署目标。
 
 # CONFIGURATION
 
 **truffle-config.js**
-> Main project configuration defining network endpoints, compiler settings, and migration options.
+> 主项目配置文件，定义网络端点、编译器设置和迁移选项。
 
 **contracts/**
-> Directory containing Solidity smart contract source files.
+> 存放 Solidity 智能合约源文件的目录。
 
 **migrations/**
-> Directory containing numbered deployment scripts executed in order.
+> 存放按序号顺序执行的部署脚本的目录。
 
 # CAVEATS
 
-**Truffle was sunset in September 2023** and is no longer actively maintained; consider migrating to Hardhat. Requires Node.js (v12 or later). Deploying to mainnet incurs real gas costs. Install via `npm install -g truffle`.
+**Truffle 已于 2023 年 9 月停止维护**，不再积极开发；建议迁移到 Hardhat。需要 Node.js (v12 或更高版本)。部署到主网会产生真实的 gas 费用。可通过 `npm install -g truffle` 安装。
 
 # HISTORY
 
-**Truffle** was originally created by **Tim Coulter** and later maintained by **ConsenSys** as part of the Truffle Suite. It was the dominant Ethereum development framework for several years. ConsenSys announced the **sunsetting of Truffle** in **September 2023**, recommending migration to Hardhat or other actively maintained frameworks.
+**Truffle** 由 **Tim Coulter** 创建，后来由 **ConsenSys** 作为 Truffle Suite 的一部分维护。它曾是多年来占主导地位的以太坊开发框架。ConsenSys 于 **2023 年 9 月**宣布 **Truffle 停止维护**，推荐迁移到 Hardhat 或其他仍在活跃维护的框架。
 
 # INSTALL
 

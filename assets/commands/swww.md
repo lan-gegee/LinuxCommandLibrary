@@ -1,38 +1,38 @@
 # TAGLINE
 
-Animated Wayland wallpaper daemon
+支持动画的 Wayland 壁纸守护进程
 
 # TLDR
 
-**Start the wallpaper daemon**
+**启动壁纸守护进程**
 
 ```swww-daemon```
 
-**Set a wallpaper image**
+**设置壁纸图片**
 
 ```swww img [path/to/image]```
 
-**Set wallpaper on specific monitors**
+**在特定显示器上设置壁纸**
 
 ```swww img -o [output1,output2] [path/to/image]```
 
-**Restore the last set wallpaper**
+**恢复上次设置的壁纸**
 
 ```swww restore```
 
-**Query current output and wallpaper information**
+**查询当前输出与壁纸信息**
 
 ```swww query```
 
-**Stop the daemon**
+**停止守护进程**
 
 ```swww kill```
 
-**Set wallpaper with a transition effect**
+**带过渡效果设置壁纸**
 
 ```swww img --transition-type [wipe] --transition-duration [1] [path/to/image]```
 
-**Clear the screen with a solid color**
+**用纯色清空屏幕**
 
 ```swww clear [RRGGBB]```
 
@@ -45,62 +45,62 @@ Animated Wayland wallpaper daemon
 # COMMANDS
 
 **img** _path_
-> Set wallpaper image
+> 设置壁纸图片
 
 **restore**
-> Restore last wallpaper
+> 恢复上次的壁纸
 
 **query**
-> Display output information
+> 显示输出信息
 
 **kill**
-> Stop the daemon
+> 停止守护进程
 
 **clear** _color_
-> Clear screen with RGB color
+> 用 RGB 颜色清空屏幕
 
 # PARAMETERS
 
 **-o, --outputs** _names_
-> Target specific displays (comma-separated)
+> 指定目标显示器（逗号分隔）
 
 **--transition-type** _type_
-> Effect: simple, center, outer, wipe, left, right, top, bottom, any, random
+> 效果：simple、center、outer、wipe、left、right、top、bottom、any、random
 
 **--transition-step** _n_
-> Smoothness (1-255)
+> 平滑度（1-255）
 
 **--transition-fps** _n_
-> Frame rate (1-255, default: 30)
+> 帧率（1-255，默认：30）
 
 **--transition-duration** _seconds_
-> Transition duration
+> 过渡时长
 
 **--resize** _mode_
-> Resize mode: crop, fit, no
+> 缩放模式：crop、fit、no
 
 **--fill-color** _color_
-> Color for unfilled areas
+> 未覆盖区域的颜色
 
 # DESCRIPTION
 
-**swww** is an efficient animated wallpaper daemon for Wayland compositors. It supports animated GIFs and various image formats (JPEG, PNG, WebP, AVIF, SVG, etc.) with smooth transition effects between wallpapers. The daemon can be controlled at runtime without restart.
+**swww** 是一个面向 Wayland 合成器的高效动画壁纸守护进程。它支持动画 GIF 和多种图片格式（JPEG、PNG、WebP、AVIF、SVG 等），并可在不同壁纸之间实现平滑的过渡效果。守护进程可以在运行时控制，无需重启。
 
-The daemon (**swww-daemon**) must be started first, then the **swww** client controls wallpaper settings. Per-output wallpaper control allows different images on multiple monitors.
+必须先启动守护进程（**swww-daemon**），然后由 **swww** 客户端控制壁纸设置。按输出的壁纸控制允许在多个显示器上显示不同的图片。
 
 # ENVIRONMENT
 
-**SWWW_TRANSITION**: Default transition type
-**SWWW_TRANSITION_FPS**: Default FPS
-**SWWW_TRANSITION_STEP**: Default step
+**SWWW_TRANSITION**: 默认过渡类型
+**SWWW_TRANSITION_FPS**: 默认帧率
+**SWWW_TRANSITION_STEP**: 默认步长
 
 # CAVEATS
 
-Requires wlr-layer-shell protocol (wlroots-based compositors). Does not work with GNOME. The daemon must be running before setting wallpapers. Animated wallpapers consume more resources than static images.
+需要 wlr-layer-shell 协议（基于 wlroots 的合成器）。不支持 GNOME。设置壁纸前守护进程必须已在运行。动画壁纸比静态图片消耗更多资源。
 
 # HISTORY
 
-**swww** was created by **LGFae** as a lightweight alternative to other Wayland wallpaper solutions. It focuses on efficiency and smooth animations while maintaining low CPU and memory usage. The project has been renamed to **awww** and moved to Codeberg as of October **2025**. Released under GPL-3.0.
+**swww** 由 **LGFae** 创建，作为其他 Wayland 壁纸方案的轻量替代。它专注于高效和流畅的动画，同时保持较低的 CPU 和内存占用。该项目已于 **2025 年 10 月**更名为 **awww** 并迁移至 Codeberg。以 GPL-3.0 发布。
 
 # SEE ALSO
 

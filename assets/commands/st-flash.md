@@ -1,22 +1,22 @@
 # TLDR
 
-**Flash binary**
+**烧录二进制文件**
 
 ```st-flash write [firmware.bin] [0x8000000]```
 
-**Read flash**
+**读取闪存**
 
 ```st-flash read [output.bin] [0x8000000] [0x1000]```
 
-**Erase flash**
+**擦除闪存**
 
 ```st-flash erase```
 
-**Reset device**
+**复位设备**
 
 ```st-flash reset```
 
-**Verify write**
+**校验写入**
 
 ```st-flash --verify write [firmware.bin] [0x8000000]```
 
@@ -27,39 +27,39 @@
 # PARAMETERS
 
 **write**
-> Write to flash.
+> 写入闪存。
 
 **read**
-> Read from flash.
+> 从闪存读取。
 
 **erase**
-> Erase all flash.
+> 擦除全部闪存。
 
 **reset**
-> Reset chip.
+> 复位芯片。
 
 **--verify**
-> Verify after write.
+> 写入后进行校验。
 
 **--reset**
-> Reset after operation.
+> 操作完成后复位。
 
 **--serial** _SN_
-> Device serial.
+> 设备序列号。
 
 # DESCRIPTION
 
-**st-flash** is a command-line tool for reading, writing, and erasing the flash memory of STM32 microcontrollers through an ST-Link programmer/debugger. It is part of the open-source stlink toolset.
+**st-flash** 是一款命令行工具，可通过 ST-Link 编程器/调试器读取、写入和擦除 STM32 微控制器的闪存。它是开源 stlink 工具集的一部分。
 
-The tool works with raw binary files and requires explicit memory addresses for read and write operations. The flash base address for most STM32 devices is **0x8000000**. Write verification can be enabled with **--verify** to confirm the programmed data matches the input file. The erase command clears the entire flash memory, and reset restarts the microcontroller after programming.
+该工具处理原始二进制文件，读写操作需要显式指定内存地址。大多数 STM32 设备的闪存基地址为 **0x8000000**。可以使用 **--verify** 启用写入校验，以确认烧录的数据与输入文件一致。erase 命令会清除整个闪存，reset 则会在编程完成后重启微控制器。
 
 # CAVEATS
 
-ST-Link required. STM32 specific. Correct address needed.
+需要 ST-Link。仅适用于 STM32。需要正确的地址。
 
 # HISTORY
 
-**st-flash** is part of **stlink**, an open-source toolset for programming STM32 microcontrollers via ST-Link.
+**st-flash** 是 **stlink** 工具集的一部分，后者是一套通过 ST-Link 对 STM32 微控制器编程的开源工具。
 
 # INSTALL
 

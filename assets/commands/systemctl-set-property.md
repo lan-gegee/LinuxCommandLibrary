@@ -1,22 +1,22 @@
 # TAGLINE
 
-Modify unit properties at runtime
+在运行时修改单元属性
 
 # TLDR
 
-**Set** unit property
+**设置**单元属性
 
 ```systemctl set-property [unit] [property]=[value]```
 
-Set **multiple** properties
+设置**多个**属性
 
 ```systemctl set-property [unit] [prop1=val1 prop2=val2 ...]```
 
-Set for **runtime** only
+仅对**本次运行**生效
 
 ```systemctl set-property [unit] [property]=[value] --runtime```
 
-**Reset** to default
+**重置**为默认值
 
 ```systemctl set-property [unit] [property]=```
 
@@ -27,31 +27,31 @@ Set for **runtime** only
 # PARAMETERS
 
 **--runtime**
-> Make changes temporary (cleared on reboot)
+> 更改仅为临时性（重启后清除）
 
 # DESCRIPTION
 
-**systemctl set-property** modifies unit properties at runtime. By default, changes are persistent and stored in drop-in files under `/etc/systemd/system/<unit>.d/`.
+**systemctl set-property** 在运行时修改单元属性。默认情况下，更改会持久保存，存储在 `/etc/systemd/system/<unit>.d/` 下的 drop-in 文件中。
 
-Common properties include CPUQuota, MemoryMax, IOWeight, and other resource control settings.
+常见属性包括 CPUQuota、MemoryMax、IOWeight 等资源控制设置。
 
 # COMMON PROPERTIES
 
-**CPUQuota=** - CPU time limit (e.g., 50%)
+**CPUQuota=** - CPU 时间限制（如 50%）
 
-**MemoryMax=** - Memory limit
+**MemoryMax=** - 内存限制
 
-**IOWeight=** - I/O priority
+**IOWeight=** - I/O 优先级
 
-**TasksMax=** - Maximum tasks
+**TasksMax=** - 最大任务数
 
 # CAVEATS
 
-Some properties cannot be changed at runtime. Persistent changes are stored as drop-in files. Use `systemctl revert` to remove custom properties.
+某些属性无法在运行时更改。持久化更改会以 drop-in 文件形式存储。使用 `systemctl revert` 可以移除自定义属性。
 
 # HISTORY
 
-The **set-property** subcommand enables runtime resource control adjustments, supporting dynamic system tuning without service restarts.
+**set-property** 子命令支持在运行时调整资源控制，无需重启服务即可进行动态系统调优。
 
 # SEE ALSO
 

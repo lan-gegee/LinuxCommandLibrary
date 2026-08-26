@@ -1,42 +1,42 @@
 # TAGLINE
 
-Teleport unified infrastructure access client
+Teleport 统一基础设施访问客户端
 
 # TLDR
 
-**Log in to Teleport cluster**
+**登录 Teleport 集群**
 
 ```tsh login --proxy=[teleport.example.com] --user=[username]```
 
-**List available SSH servers**
+**列出可用的 SSH 服务器**
 
 ```tsh ls```
 
-**SSH to a server**
+**SSH 连接到服务器**
 
 ```tsh ssh [user]@[hostname]```
 
-**List Kubernetes clusters**
+**列出 Kubernetes 集群**
 
 ```tsh kube ls```
 
-**Connect to Kubernetes cluster**
+**连接 Kubernetes 集群**
 
 ```tsh kube login [cluster-name]```
 
-**List available databases**
+**列出可用的数据库**
 
 ```tsh db ls```
 
-**Connect to a database**
+**连接数据库**
 
 ```tsh db connect [database-name]```
 
-**List active sessions**
+**列出活动会话**
 
 ```tsh sessions ls```
 
-**Log out from cluster**
+**从集群登出**
 
 ```tsh logout```
 
@@ -47,104 +47,104 @@ Teleport unified infrastructure access client
 # COMMANDS
 
 **login**
-> Authenticate to Teleport cluster.
+> 向 Teleport 集群进行身份验证。
 
 **logout**
-> End session and remove credentials.
+> 结束会话并移除凭据。
 
 **status**
-> Show current login status.
+> 显示当前登录状态。
 
 **ls**
-> List available SSH servers.
+> 列出可用的 SSH 服务器。
 
 **ssh** _[user@]host_
-> Start SSH session to a server.
+> 与服务器建立 SSH 会话。
 
 **scp** _src_ _dest_
-> Secure copy files.
+> 安全复制文件。
 
 **join** _session-id_
-> Join an active session.
+> 加入一个活动会话。
 
 **play** _session-id_
-> Replay a recorded session.
+> 回放已录制的会话。
 
 **sessions ls**
-> List active sessions.
+> 列出活动会话。
 
 **kube** ls|login|credentials
-> Manage Kubernetes access.
+> 管理 Kubernetes 访问。
 
 **db** ls|login|connect|logout
-> Manage database access.
+> 管理数据库访问。
 
 **apps** ls|login|logout
-> Manage application access.
+> 管理应用访问。
 
 **request** create|ls|show|review
-> Manage access requests.
+> 管理访问请求。
 
 **config**
-> Generate SSH config for native SSH client.
+> 为原生 SSH 客户端生成 SSH 配置。
 
 **version**
-> Show version information.
+> 显示版本信息。
 
 # PARAMETERS
 
 **--proxy** _address_
-> Teleport proxy service address.
+> Teleport 代理服务地址。
 
 **--user** _username_
-> Teleport username.
+> Teleport 用户名。
 
 **--login** _os-user_
-> Remote OS username for SSH.
+> SSH 登录使用的远程 OS 用户名。
 
 **--ttl** _duration_
-> Session credential TTL. Default: 12h.
+> 会话凭据的有效期（TTL）。默认：12h。
 
 **--identity** _file_
-> Path to identity file.
+> 身份文件路径。
 
 **--auth** _connector_
-> Authentication connector name.
+> 身份验证连接器名称。
 
 **--insecure**
-> Skip TLS certificate verification.
+> 跳过 TLS 证书校验。
 
 **--debug**
-> Enable verbose debug logging.
+> 启用详细的调试日志。
 
 **--jumphost**, **-J** _host_
-> SSH jump host.
+> SSH 跳板机。
 
 **--cert-format** _format_
-> Certificate format: standard or kubernetes.
+> 证书格式：standard 或 kubernetes。
 
 **--skip-version-check**
-> Skip client/server version compatibility check.
+> 跳过客户端/服务器版本兼容性检查。
 
 # DESCRIPTION
 
-**tsh** is the Teleport client CLI for accessing infrastructure protected by Teleport. It provides unified access to SSH servers, Kubernetes clusters, databases, and web applications with built-in audit logging and access controls.
+**tsh** 是 Teleport 的客户端 CLI，用于访问受 Teleport 保护的基础设施。它为 SSH 服务器、Kubernetes 集群、数据库和 Web 应用提供统一访问，并内置审计日志与访问控制。
 
-Authentication via **login** stores credentials in **~/.tsh** with automatic expiration (default 12 hours). Certificates support short-lived access aligned with zero-trust principles.
+通过 **login** 完成身份验证后，凭据存储在 **~/.tsh** 中并自动过期（默认 12 小时）。证书支持短期访问，符合零信任原则。
 
-For SSH access, use **ssh** command or generate native SSH config with **tsh config** for use with standard ssh clients. Session recording enables **play** for audit review.
+对于 SSH 访问，可以使用 **ssh** 命令，或用 **tsh config** 生成原生 SSH 配置供标准 ssh 客户端使用。会话录制功能支持通过 **play** 进行审计回放。
 
-Kubernetes access with **kube login** configures kubectl credentials. Database access via **db connect** provides authenticated connections to PostgreSQL, MySQL, MongoDB, and other databases.
+通过 **kube login** 访问 Kubernetes 时会配置 kubectl 凭据。通过 **db connect** 访问数据库时，可建立经过身份验证的连接，支持 PostgreSQL、MySQL、MongoDB 等数据库。
 
-Access requests enable just-in-time privilege escalation with approval workflows. Create requests with **request create** for resources requiring elevated permissions.
+访问请求支持带有审批流程的即时权限提升。对需要更高权限的资源，使用 **request create** 创建请求。
 
 # CAVEATS
 
-Requires Teleport cluster access configured by administrator. Some resources require role-based access or approval. Certificate TTL limits session duration. The --insecure flag should not be used in production.
+需要管理员配置的 Teleport 集群访问权限。部分资源需要基于角色的授权或审批。证书 TTL 限制了会话时长。不应在生产环境使用 --insecure 选项。
 
 # HISTORY
 
-Teleport was created by **Gravitational** (now Teleport) in **2016** to provide secure access to infrastructure with audit logging and identity-based access controls. The project implements certificate-based authentication following BeyondCorp/zero-trust principles. Teleport open-sourced the core product and has since expanded to cover Kubernetes, databases, and applications.
+Teleport 由 **Gravitational**（现名 Teleport）于 **2016 年**创建，旨在提供带审计日志和基于身份的访问控制的安全基础设施访问。该项目遵循 BeyondCorp/零信任原则实现基于证书的身份验证。Teleport 将核心产品开源，此后逐步扩展到 Kubernetes、数据库和应用领域。
 
 # INSTALL
 

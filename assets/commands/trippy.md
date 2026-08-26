@@ -1,26 +1,26 @@
 # TAGLINE
 
-Network diagnostic tool combining traceroute and ping
+结合 traceroute 和 ping 的网络诊断工具
 
 # TLDR
 
-**Trace route to a host**
+跟踪到主机的路由
 
 ```trip [example.com]```
 
-**Use TCP protocol for tracing**
+使用 TCP 协议跟踪
 
 ```trip [example.com] -p tcp```
 
-**Use UDP protocol on a specific port**
+在特定端口使用 UDP 协议
 
 ```trip [example.com] -p udp --target-port [53]```
 
-**Set maximum number of hops (TTL)**
+设置最大跳数 (TTL)
 
 ```trip [example.com] --max-ttl [30]```
 
-**Trace multiple targets simultaneously**
+同时跟踪多个目标
 
 ```trip [example.com] [example.org]```
 
@@ -31,43 +31,43 @@ Network diagnostic tool combining traceroute and ping
 # PARAMETERS
 
 **-p**, **--protocol** _PROTOCOL_
-> Tracing protocol: icmp (default), udp, or tcp.
+> 跟踪协议：icmp（默认）、udp 或 tcp。
 
 **--target-port** _PORT_
-> Target port for UDP/TCP tracing.
+> UDP/TCP 跟踪的目标端口。
 
 **--source-port** _PORT_
-> Source port for UDP/TCP tracing.
+> UDP/TCP 跟踪的源端口。
 
 **-i**, **--interface** _IFACE_
-> Network interface to use.
+> 要使用的网络接口。
 
 **--max-ttl** _N_
-> Maximum number of hops.
+> 最大跳数。
 
 **--first-ttl** _N_
-> Starting TTL value.
+> 起始 TTL 值。
 
 **-a**, **--addr-family** _FAMILY_
-> Address family: ipv4, ipv6, ipv4-then-ipv6, or ipv6-then-ipv4.
+> 地址族：ipv4、ipv6、ipv4-then-ipv6 或 ipv6-then-ipv4。
 
 **-r**, **--dns-resolve-method** _METHOD_
-> DNS resolution method: system, resolv, google, or cloudflare.
+> DNS 解析方式：system、resolv、google 或 cloudflare。
 
 **--tui-preserve-screen**
-> Preserve screen content on exit.
+> 退出时保留屏幕内容。
 
 # DESCRIPTION
 
-**trippy** combines the functionality of traceroute and ping into a single tool with a real-time TUI interface for network path analysis. It supports multiple tracing protocols (ICMP, UDP, TCP), IPv6, GeoIP visualization, and advanced ECMP strategies. Runs on Linux, BSD, macOS, and Windows.
+**trippy** 将 traceroute 与 ping 的功能合二为一，并提供实时 TUI 界面用于网络路径分析。它支持多种跟踪协议（ICMP、UDP、TCP）、IPv6、GeoIP 可视化和高级 ECMP 策略。可运行于 Linux、BSD、macOS 和 Windows。
 
 # CAVEATS
 
-Requires elevated privileges (root or CAP_NET_RAW capability) for ICMP tracing. Some firewalls may block probe packets.
+ICMP 跟踪需要提升的权限（root 或 CAP_NET_RAW 能力）。某些防火墙可能拦截探测包。
 
 # HISTORY
 
-**trippy** was created by **fujiapple852** and is written in **Rust**.
+**trippy** 由 **fujiapple852** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

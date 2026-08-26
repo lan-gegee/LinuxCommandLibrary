@@ -1,18 +1,18 @@
 # TAGLINE
 
-Visual effects engine for terminal text output
+面向终端文本输出的视觉效果引擎
 
 # TLDR
 
-**Apply the decrypt effect to text**
+**对文本应用 decrypt 效果**
 
 ```cat [your_text] | tte decrypt```
 
-**Apply the beams effect**
+**应用 beams 效果**
 
 ```echo "hello world" | tte beams```
 
-**View help for a specific effect**
+**查看特定效果的帮助**
 
 ```tte [decrypt] -h```
 
@@ -22,11 +22,11 @@ _command_ | **tte** _effect_ [_options_]
 
 # DESCRIPTION
 
-**terminaltexteffects** (tte) is a terminal visual effects engine that works as both a standalone application and a Python library. It features 37+ built-in effects including matrix, decrypt, rain, beams, and burn, with support for complex character movement via paths, waypoints, motion easing, and bezier curves. Effects run inline, preserving terminal state and workflow.
+**terminaltexteffects**（tte）是一个终端视觉效果引擎，既可以作为独立应用运行，也可以作为 Python 库使用。它内置 37 种以上的效果，包括 matrix、decrypt、rain、beams、burn 等，支持通过路径、航点、运动缓动和贝塞尔曲线实现复杂的字符移动。效果以行内方式运行，保留终端状态和工作流。
 
 # HISTORY
 
-**terminaltexteffects** was created by **ChrisBuilds** and is written in **Python**.
+**terminaltexteffects** 由 **ChrisBuilds** 创建，使用 **Python** 编写。
 
 # INSTALL
 

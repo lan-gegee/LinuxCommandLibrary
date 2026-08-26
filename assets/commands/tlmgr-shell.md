@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive TeX Live Manager session
+交互式 TeX Live Manager 会话
 
 # TLDR
 
-**Start an interactive tlmgr shell**
+**启动交互式 tlmgr shell**
 
 ```tlmgr shell```
 
-**Start a shell and run a command** (e.g., list updates)
+**启动 shell 并执行一条命令**（例如列出更新）
 
 ```tlmgr shell <<< "update --list"```
 
-**Pipe multiple commands into the shell**
+**将多条命令通过管道传入 shell**
 
 ```printf "info [package]\nquit\n" | tlmgr shell```
 
@@ -22,9 +22,9 @@ Interactive TeX Live Manager session
 
 # DESCRIPTION
 
-**tlmgr shell** starts an interactive TeX Live Manager session where you can execute multiple tlmgr commands without restarting the program each time. This is faster for batch operations since the TeX Live package database is loaded only once.
+**tlmgr shell** 启动一个交互式 TeX Live Manager 会话，你可以在其中连续执行多条 tlmgr 命令而无需每次重新启动程序。由于 TeX Live 软件包数据库只加载一次，这对批量操作来说更快。
 
-In general, all tlmgr actions that can be given on the command line work as commands in the shell (e.g., `update --list`, `install`, `info`, `search`). Type `quit` or `exit` (or send EOF) to leave the shell. The `protocol` command prints the current protocol version. The shell also supports machine-readable output for scripting by external tools.
+一般来说，所有可以在命令行上给出的 tlmgr 操作都可以作为 shell 中的命令使用（例如 `update --list`、`install`、`info`、`search`）。输入 `quit` 或 `exit`（或发送 EOF）可退出 shell。`protocol` 命令会打印当前的协议版本。该 shell 还支持机器可读输出，便于外部工具编写脚本。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-MS Paint in your terminal
+终端里的 MS Paint
 
 # TLDR
 
-**Launch the editor**
+**启动编辑器**
 
 ```textual-paint```
 
-**Open an ANSI art file**
+**打开 ANSI 艺术文件**
 
 ```textual-paint [drawing.ans]```
 
-**Launch with dark theme and ASCII-only mode**
+**以深色主题和纯 ASCII 模式启动**
 
 ```textual-paint --theme dark --ascii-only```
 
@@ -22,11 +22,11 @@ MS Paint in your terminal
 
 # DESCRIPTION
 
-**textual-paint** is a TUI image editor that faithfully recreates the classic MS Paint experience in the terminal. It includes all MS Paint tools (pencil, brush, shapes, text, selection, fill, eraser, etc.), supports multiple file formats (ANSI, PNG, BMP, SVG, HTML), undo/redo, and is localized in 26 languages.
+**textual-paint** 是一款 TUI 图像编辑器，在终端中忠实重现经典的 MS Paint 体验。它包含所有 MS Paint 工具（铅笔、画笔、形状、文本、选择、填充、橡皮擦等），支持多种文件格式（ANSI、PNG、BMP、SVG、HTML），支持撤销/重做，并已本地化为 26 种语言。
 
 # HISTORY
 
-**textual-paint** was created by **Isaiah Odhner** (1j01) and is written in **Python** using the Textual framework.
+**textual-paint** 由 **Isaiah Odhner**（1j01）创建，使用 **Python** 基于 Textual 框架编写。
 
 # INSTALL
 

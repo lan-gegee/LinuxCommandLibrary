@@ -1,22 +1,22 @@
 # TAGLINE
 
-Show unit owning a process
+显示进程所属的单元
 
 # TLDR
 
-Show **current** shell's unit
+显示**当前** Shell 所在的单元
 
 ```systemctl whoami```
 
-Show for **user** service manager
+查询**用户**服务管理器
 
 ```systemctl whoami --user```
 
-Show unit for **specific PID**
+显示**特定 PID** 所属的单元
 
 ```systemctl whoami [pid]```
 
-Show units for **multiple** PIDs
+显示**多个** PID 所属的单元
 
 ```systemctl whoami [pid1 pid2 ...]```
 
@@ -27,24 +27,24 @@ Show units for **multiple** PIDs
 # PARAMETERS
 
 **--user**
-> Query user service manager
+> 查询用户服务管理器
 
 **--system**
-> Query system service manager (default)
+> 查询系统服务管理器（默认）
 
 # DESCRIPTION
 
-**systemctl whoami** displays which systemd unit a process belongs to. Without arguments, it shows the unit of the current shell (the process running systemctl).
+**systemctl whoami** 显示某个进程属于哪个 systemd 单元。不带参数时，它显示当前 Shell（运行 systemctl 的那个进程）所属的单元。
 
-With PIDs specified, it shows the units for those processes. This helps identify which service or scope owns a particular process.
+指定 PID 时，它会显示这些进程所属的单元。这有助于识别特定进程由哪个服务或 scope 拥有。
 
 # CAVEATS
 
-Processes not managed by systemd may show as belonging to the root slice or have no associated unit. Container processes may appear differently.
+不受 systemd 管理的进程可能显示为属于 root slice，或没有关联的单元。容器中的进程显示方式可能不同。
 
 # HISTORY
 
-The **whoami** subcommand provides a quick way to identify which unit a process is running under, useful for debugging and understanding cgroup membership.
+**whoami** 子命令提供了一种快速识别进程运行于哪个单元之下的方法，可用于调试和理解 cgroup 归属关系。
 
 # INSTALL
 

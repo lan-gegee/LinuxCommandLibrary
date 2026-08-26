@@ -1,26 +1,26 @@
 # TAGLINE
 
-Switch user identity or run commands
+切换用户身份或运行命令
 
 # TLDR
 
-**Switch** to superuser (root)
+**切换**到超级用户（root）
 
 ```su```
 
-**Switch** to a specific user
+**切换**到指定用户
 
 ```su [username]```
 
-**Switch** to user with full login shell
+**以完整登录 Shell 切换**到某用户
 
 ```su - [username]```
 
-**Execute** a command as another user
+以其他用户身份**执行**命令
 
 ```su - [username] -c "[command]"```
 
-**Switch** to user with a specific shell
+**使用指定 Shell 切换**到某用户
 
 ```su -s /[path/to/shell] [username]```
 
@@ -31,32 +31,32 @@ Switch user identity or run commands
 # PARAMETERS
 
 **-, -l, --login**
-> Provide a login shell environment
+> 提供登录 Shell 环境
 
 **-c, --command _command_**
-> Pass a single command to the shell
+> 向 Shell 传递单条命令
 
 **-s, --shell _shell_**
-> Use the specified shell instead of the default
+> 使用指定的 Shell 而不是默认值
 
 **-p, --preserve-environment**
-> Preserve the entire environment
+> 保留整个环境
 
 **-m**
-> Preserve environment (same as -p)
+> 保留环境（与 -p 相同）
 
 **-g, --group _group_**
-> Specify the primary group
+> 指定主组
 
 # DESCRIPTION
 
-**su** (substitute user) allows running a shell or command as a different user. Without a username, it switches to the root user by default.
+**su**（substitute user）允许以其他用户的身份运行 Shell 或命令。不提供用户名时，默认切换到 root 用户。
 
-The difference between **su** and **su -** is that the latter provides a full login environment, resetting environment variables and changing to the target user's home directory.
+**su** 与 **su -** 的区别在于后者提供完整的登录环境，会重置环境变量并切换到目标用户的主目录。
 
 # CAVEATS
 
-Requires the target user's password (or root privileges). On many modern systems, **sudo** is preferred for running commands as root. Using **su -** is recommended over plain **su** to get a clean environment.
+需要目标用户的密码（或 root 权限）。在许多现代系统上，以 root 身份运行命令时更推荐使用 **sudo**。建议使用 **su -** 而不是单纯的 **su**，以获得干净的环境。
 
 # INSTALL
 

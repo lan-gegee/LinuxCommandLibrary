@@ -1,26 +1,26 @@
 # TAGLINE
 
-Recursively show control group contents in a tree
+以树形递归显示控制组内容
 
 # TLDR
 
-**Display the whole control group hierarchy**
+**显示整个控制组层级**
 
 ```systemd-cgls```
 
-**Display the cgroup tree for a specific controller**
+**显示特定控制器的 cgroup 树**
 
 ```systemd-cgls [cpu|memory|io]```
 
-**Display the control group hierarchy of specific units**
+**显示特定单元的控制组层级**
 
 ```systemd-cgls -u [unit1] [unit2]```
 
-**Show all control groups including empty ones**
+**显示包括空组在内的所有控制组**
 
 ```systemd-cgls --all```
 
-**Display without truncating process names**
+**显示时不截断进程名称**
 
 ```systemd-cgls -l```
 
@@ -31,41 +31,41 @@ Recursively show control group contents in a tree
 # PARAMETERS
 
 **-u**, **--unit** _UNIT_
-> Show the cgroup subtree of the specified systemd unit(s).
+> 显示指定 systemd 单元的 cgroup 子树。
 
 **-a**, **--all**
-> Show all control groups, including empty ones that contain no processes.
+> 显示所有控制组，包括不包含任何进程的空组。
 
 **-l**, **--full**
-> Do not ellipsize (truncate) process tree members.
+> 不省略（截断）进程树条目。
 
 **-k**
-> Include kernel threads in the output.
+> 在输出中包括内核线程。
 
 **--no-pager**
-> Do not pipe output into a pager.
+> 不将输出送入分页器。
 
 **-M**, **--machine** _CONTAINER_
-> Show control group contents in the specified container.
+> 显示指定容器中的控制组内容。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**systemd-cgls** recursively shows the contents of the Linux control group (cgroup) hierarchy in a tree format. It displays which processes belong to which control groups, organized by systemd slices, scopes, and services.
+**systemd-cgls** 以树形格式递归显示 Linux 控制组（cgroup）层级的内容。它展示哪些进程属于哪些控制组，并按 systemd 的 slice、scope 和 service 组织。
 
-If arguments are specified, shows all member processes of the specified control groups plus their subgroups. If no argument is given and the current working directory is beneath **/sys/fs/cgroup/**, it shows the contents of that cgroup. Otherwise, the full systemd control group hierarchy is shown.
+如果指定了参数，则显示指定控制组的所有成员进程及其子组。如果不带参数且当前工作目录位于 **/sys/fs/cgroup/** 之下，则显示该 cgroup 的内容。否则会显示完整的 systemd 控制组层级。
 
-The tool provides a clear visual representation of the cgroup nesting and processes, making it useful for understanding how systemd organizes processes and for debugging resource management issues.
+该工具以清晰的视觉方式呈现 cgroup 嵌套结构和进程，有助于理解 systemd 如何组织进程以及调试资源管理问题。
 
 # CAVEATS
 
-Requires cgroups (v1 or v2) to be mounted. Empty control groups are hidden by default unless **--all** is used. The tree structure reflects the systemd unit hierarchy. Part of the systemd suite.
+需要挂载 cgroups（v1 或 v2）。默认隐藏空的控制组，除非使用 **--all**。树形结构反映的是 systemd 单元层级。属于 systemd 工具套件的一部分。
 
 # HISTORY
 
-systemd-cgls was introduced as part of the **systemd** project by Lennart Poettering, providing a user-friendly view of the cgroup hierarchy managed by systemd.
+systemd-cgls 作为 Lennart Poettering 主导的 **systemd** 项目的一部分推出，为 systemd 管理的 cgroup 层级提供了直观的视图。
 
 # INSTALL
 

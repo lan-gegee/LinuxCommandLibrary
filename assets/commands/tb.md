@@ -1,42 +1,42 @@
 # TAGLINE
 
-Terminal task and note board
+终端任务与笔记看板
 
 # TLDR
 
-**Display all tasks and notes**
+**显示所有任务和笔记**
 
 ```tb```
 
-**Create a new task**
+**创建新任务**
 
 ```tb -t [Buy groceries]```
 
-**Create a task on a specific board**
+**在特定看板上创建任务**
 
 ```tb -t @[work] [Finish report]```
 
-**Create a note**
+**创建笔记**
 
 ```tb -n [Remember to call John]```
 
-**Check/uncheck tasks** as complete
+**勾选/取消勾选**任务为完成状态
 
 ```tb -c [1] [2]```
 
-**Set task priority** (1=normal, 2=medium, 3=high)
+**设置任务优先级**（1=普通，2=中，3=高）
 
 ```tb -p [1] [3]```
 
-**Delete items**
+**删除条目**
 
 ```tb -d [1] [2]```
 
-**Search for items**
+**搜索条目**
 
 ```tb -f [keyword]```
 
-**Display timeline view**
+**显示时间线视图**
 
 ```tb -i```
 
@@ -47,79 +47,79 @@ Terminal task and note board
 # PARAMETERS
 
 **-t**, **--task** _description_
-> Create a new task; use @board to assign to boards
+> 创建新任务；使用 @board 指派到看板
 
 **-n**, **--note** _body_
-> Create a new note
+> 创建新笔记
 
 **-c**, **--check** _ids_
-> Toggle completion status of tasks
+> 切换任务的完成状态
 
 **-b**, **--begin** _ids_
-> Start or pause tasks
+> 开始或暂停任务
 
 **-s**, **--star** _ids_
-> Star or unstar items
+> 为条目加星或取消加星
 
 **-p**, **--priority** _id_ _level_
-> Set task priority (1=normal, 2=medium, 3=high)
+> 设置任务优先级（1=普通，2=中，3=高）
 
 **-m**, **--move** _id_ _@board_
-> Move item to a different board
+> 将条目移动到其他看板
 
 **-d**, **--delete** _ids_
-> Delete items (moves to archive)
+> 删除条目（移入归档）
 
 **-e**, **--edit** _id_ _description_
-> Edit item description
+> 编辑条目描述
 
 **-f**, **--find** _keywords_
-> Search items by keywords
+> 按关键词搜索条目
 
 **-l**, **--list** _attributes_
-> List items filtered by attributes
+> 按属性过滤并列出条目
 
 **-a**, **--archive**
-> Display archived items
+> 显示已归档的条目
 
 **-r**, **--restore** _ids_
-> Restore items from archive
+> 从归档中恢复条目
 
 **--clear**
-> Delete all checked (completed) tasks
+> 删除所有已勾选（完成）的任务
 
 **-y**, **--copy** _ids_
-> Copy item descriptions to clipboard
+> 复制条目描述到剪贴板
 
 **-i**, **--timeline**
-> Display items grouped by creation date
+> 按创建日期分组显示条目
 
 **--taskbook-dir** _path_
-> Use a custom taskbook storage directory
+> 使用自定义的 taskbook 存储目录
 
 **-h**, **--help**
-> Show help information
+> 显示帮助信息
 
 **-v**, **--version**
-> Show version number
+> 显示版本号
 
 # DESCRIPTION
 
-**tb** (Taskbook) is a command-line task and note manager organized around boards. It provides a minimal interface for creating, organizing, and tracking tasks and notes directly from the terminal.
+**tb**（Taskbook）是一个以看板为核心组织方式的命令行任务与笔记管理器。它提供一个极简界面，可直接在终端中创建、组织和追踪任务与笔记。
 
-Items are organized into boards using the **@boardname** syntax. Tasks without a board assignment go to the default "My Board". Multiple boards can be assigned to a single item. The interface displays completion statistics showing pending, done, and note counts.
+使用 **@boardname** 语法将条目组织到看板中。未指派看板的任务会进入默认的 "My Board"。一个条目可以同时指派到多个看板。界面会显示统计信息，包括待办、已完成和笔记的数量。
 
-Tasks can have priorities (shown with different colors), be starred for emphasis, and marked as in-progress with the begin command. Deleted items are archived and can be restored. The timeline view groups items by creation date instead of boards.
+任务可以设置优先级（以不同颜色显示）、加星标强调，以及用 begin 命令标记为进行中。被删除的条目会进入归档，可以恢复。时间线视图按创建日期而非看板对条目分组。
 
-Data is stored in JSON format at **~/.taskbook/storage**. Configuration options can be set in **~/.taskbook.json**.
+数据以 JSON 格式存储在 **~/.taskbook/storage**。配置选项可在 **~/.taskbook.json** 中设置。
 
 # CAVEATS
 
-Taskbook requires Node.js and npm for installation. The archive grows over time with deleted items; periodic manual cleanup may be needed. Board names are case-sensitive.
+Taskbook 需要 Node.js 和 npm 才能安装。随着删除条目的累积，归档会不断增大，可能需要定期手动清理。看板名称区分大小写。
 
 # HISTORY
 
-**Taskbook** was created by **Klaus Sinani** (klaudiosinani) and released on **GitHub** in **2018**. Written in JavaScript for Node.js, it was designed to bring task management directly into the terminal workflow, emphasizing simplicity and a minimal learning curve.
+**Taskbook** 由 **Klaus Sinani**（klaudiosinani）创建，于 **2018 年**发布在 **GitHub** 上。它使用 JavaScript 编写、基于 Node.js，旨在把任务管理直接带入终端工作流，强调简单易上手。
 
 # SEE ALSO
 

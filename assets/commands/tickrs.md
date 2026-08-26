@@ -1,26 +1,26 @@
 # TAGLINE
 
-Realtime stock ticker data in your terminal
+在终端中查看实时股票行情
 
 # TLDR
 
-**Start with specified ticker symbols**
+**以指定的股票代码启动**
 
 ```tickrs -s [AAPL],[MSFT]```
 
-**Candle chart with 1-month timeframe**
+**1 个月周期的蜡烛图**
 
 ```tickrs -s [AAPL] -c candle -t 1M```
 
-**Show pre/post market hours**
+**显示盘前/盘后交易时段**
 
 ```tickrs -s [TSLA] -p```
 
-**Start in summary mode with volume graphs**
+**以汇总模式启动并显示成交量图**
 
 ```tickrs -s [AAPL],[GOOGL] --summary --show-volumes```
 
-**Show x-axis labels with custom update interval**
+**显示 x 轴标签并自定义更新间隔**
 
 ```tickrs -s [MSFT] -x -i [5]```
 
@@ -31,42 +31,42 @@ Realtime stock ticker data in your terminal
 # PARAMETERS
 
 **-s, --symbols** _SYMBOLS_
-> Comma-separated list of ticker symbols to start with.
+> 启动时要显示的股票代码列表，以逗号分隔。
 
 **-c, --chart-type** _TYPE_
-> Chart type: line (default), candle, or kagi.
+> 图表类型：line（默认）、candle 或 kagi。
 
 **-t, --time-frame** _FRAME_
-> Time frame: 1D (default), 1W, 1M, 3M, 6M, 1Y, 5Y.
+> 时间周期：1D（默认）、1W、1M、3M、6M、1Y、5Y。
 
 **-i, --update-interval** _SECONDS_
-> Interval to update data from API (default: 1).
+> 从 API 更新数据的间隔（默认：1）。
 
 **-p, --enable-pre-post**
-> Enable pre/post market hours for graphs.
+> 为图表启用盘前/盘后交易时段。
 
 **--show-volumes**
-> Show volumes graph.
+> 显示成交量图。
 
 **-x, --show-x-labels**
-> Show x-axis labels.
+> 显示 x 轴标签。
 
 **--summary**
-> Start in summary mode.
+> 以汇总模式启动。
 
 **--hide-prev-close**
-> Hide previous close line on 1D chart.
+> 在 1D 图表上隐藏昨收线。
 
 **--trunc-pre**
-> Truncate pre-market graphing to 30 minutes before open.
+> 将盘前图表截断至开盘前 30 分钟。
 
 # DESCRIPTION
 
-**tickrs** displays realtime ticker data sourced from Yahoo! Finance directly in your terminal. It supports multiple chart types, various time frames, pre/post market hours, volume graphs, and portfolio tracking with profit/loss display.
+**tickrs** 直接在你的终端中显示来自 Yahoo! Finance 的实时行情数据。它支持多种图表类型、多种时间周期、盘前/盘后交易时段、成交量图，以及带盈亏显示的投资组合跟踪。
 
 # HISTORY
 
-**tickrs** was created by **tarkah** and is written in **Rust**.
+**tickrs** 由 **tarkah** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert SVG graphics to PAM raster format
+将 SVG 图形转换为 PAM 位图格式
 
 # TLDR
 
-**Convert SVG to PAM**
+**将 SVG 转换为 PAM**
 
 ```svgtopam [input.svg] > [output.pam]```
 
-**Convert with specific resolution**
+**以指定分辨率转换**
 
 ```svgtopam -resolution [300] [input.svg] > [output.pam]```
 
@@ -19,14 +19,14 @@ Convert SVG graphics to PAM raster format
 # PARAMETERS
 
 **-resolution** _dpi_
-> Output resolution.
+> 输出分辨率。
 
 **-dimension** _WxH_
-> Output dimensions.
+> 输出尺寸。
 
 # DESCRIPTION
 
-**svgtopam** converts SVG vector graphics to PAM raster format. Rasterizes SVG at specified resolution. Part of Netpbm toolkit.
+**svgtopam** 将 SVG 矢量图形转换为 PAM 位图格式，按指定分辨率栅格化 SVG。属于 Netpbm 工具集。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Convert SVG graphics to PAM raster format
 # SEE ALSO
 
 [rsvg-convert](/man/rsvg-convert)(1), [inkscape](/man/inkscape)(1)
-

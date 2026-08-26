@@ -1,30 +1,30 @@
 # TAGLINE
 
-Format Terraform configuration files
+格式化 Terraform 配置文件
 
 # TLDR
 
-**Format current directory**
+**格式化当前目录**
 
 ```terraform fmt```
 
-**Format recursively**
+**递归格式化**
 
 ```terraform fmt -recursive```
 
-**Check formatting**
+**检查格式**
 
 ```terraform fmt -check```
 
-**Show diff**
+**显示差异**
 
 ```terraform fmt -diff```
 
-**Check formatting and show diff**
+**检查格式并显示差异**
 
 ```terraform fmt -check -diff```
 
-**Format a specific directory**
+**格式化指定目录**
 
 ```terraform fmt [path/to/directory]```
 
@@ -35,26 +35,26 @@ Format Terraform configuration files
 # PARAMETERS
 
 **-recursive**
-> Process subdirectories.
+> 处理子目录。
 
 **-check**
-> Check if formatted (exit 0 if yes).
+> 检查是否已格式化（是则退出码为 0）。
 
 **-diff**
-> Show formatting diff.
+> 显示格式差异。
 
 **-write**
-> Write changes (default true).
+> 写入更改（默认 true）。
 
 **-list**
-> List files with formatting differences (default true).
+> 列出存在格式差异的文件（默认 true）。
 
 **-no-color**
-> Disable color output in diff.
+> 禁用 diff 中的彩色输出。
 
 # DESCRIPTION
 
-**terraform fmt** formats Terraform configuration files to canonical style. Ensures consistent formatting across files and teams. Run before commits or in CI.
+**terraform fmt** 将 Terraform 配置文件格式化为规范风格。确保跨文件、跨团队格式一致。建议在提交前或 CI 中运行。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ Format Terraform configuration files
 # SEE ALSO
 
 [terraform](/man/terraform)(1), [terraform-init](/man/terraform-init)(1), [terraform-plan](/man/terraform-plan)(1)
-

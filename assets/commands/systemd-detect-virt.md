@@ -1,30 +1,30 @@
 # TAGLINE
 
-Detect virtualization environment
+检测虚拟化环境
 
 # TLDR
 
-**List** detectable virtualization technologies
+**列出**可检测的虚拟化技术
 
 ```systemd-detect-virt --list```
 
-**Detect** virtualization and print the result
+**检测**虚拟化并打印结果
 
 ```systemd-detect-virt```
 
-**Silently** check without printing anything
+**静默**检查而不打印任何内容
 
 ```systemd-detect-virt -q```
 
-**Only** detect container virtualization
+**只**检测容器虚拟化
 
 ```systemd-detect-virt -c```
 
-**Only** detect hardware virtualization
+**只**检测硬件虚拟化
 
 ```systemd-detect-virt -v```
 
-**Detect** whether in a chroot environment
+**检测**是否处于 chroot 环境
 
 ```systemd-detect-virt -r```
 
@@ -35,32 +35,32 @@ Detect virtualization environment
 # PARAMETERS
 
 **--list**
-> List all detectable virtualization technologies
+> 列出所有可检测的虚拟化技术
 
 **-q, --quiet**
-> Suppress output, only return exit code
+> 抑制输出，仅返回退出码
 
 **-c, --container**
-> Only detect container virtualization
+> 只检测容器虚拟化
 
 **-v, --vm**
-> Only detect hardware VM virtualization
+> 只检测硬件虚拟机
 
 **-r, --chroot**
-> Detect chroot environment
+> 检测 chroot 环境
 
 **--private-users**
-> Detect user namespace
+> 检测用户命名空间
 
 # DESCRIPTION
 
-**systemd-detect-virt** detects whether the system is running in a virtualized environment and prints the detected virtualization technology. It returns exit code 0 if virtualization is detected, non-zero otherwise.
+**systemd-detect-virt** 检测系统是否运行在虚拟化环境中，并打印检测到的虚拟化技术。检测到虚拟化时返回退出码 0，否则返回非零值。
 
-Detectable technologies include: KVM, QEMU, VMware, VirtualBox, Xen, Hyper-V, Docker, LXC, systemd-nspawn, and many others. The **--list** option shows all supported technologies.
+可检测的技术包括：KVM、QEMU、VMware、VirtualBox、Xen、Hyper-V、Docker、LXC、systemd-nspawn 等等。**--list** 选项会显示所有支持的技术。
 
 # CAVEATS
 
-Detection relies on various heuristics and may not detect all virtualization types. Some nested virtualization scenarios may report only the innermost layer. Part of the systemd suite.
+检测依赖多种启发式方法，可能无法识别所有虚拟化类型。某些嵌套虚拟化场景可能只报告最内层。属于 systemd 工具套件的一部分。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-Configure SteamOS chainloader and kernel boot debugging
+配置 SteamOS 链式加载器与内核启动调试
 
 # TLDR
 
-**Show** the current chainloader/kernel debug status
+**显示**当前的链式加载器/内核调试状态
 
 ```sudo steamos-bootdebug status```
 
-**Enable the GRUB chainloader menu** at boot (lets you pick A/B slots or edit kernel params)
+**在启动时启用 GRUB 链式加载器菜单**（可选择 A/B 槽位或编辑内核参数）
 
 ```sudo steamos-bootdebug menu```
 
-**Enable verbose** chainloader logging to the console
+**启用详细**的链式加载器日志输出到控制台
 
 ```sudo steamos-bootdebug verbose```
 
-**Disable** menu and verbose output (silent boot)
+**禁用**菜单与详细输出（静默启动）
 
 ```sudo steamos-bootdebug quiet```
 
-**Enable kernel debug** output to the console (loud kernel messages)
+**启用内核调试**输出到控制台（大量内核消息）
 
 ```sudo steamos-bootdebug kernel-debug```
 
-**Enable kernel debug** for the **next boot only**, then revert
+**仅为下一次启动启用内核调试**，之后自动还原
 
 ```sudo steamos-bootdebug kernel-debug-once```
 
-**Restore** the normal silent kernel boot
+**恢复**正常的静默内核启动
 
 ```sudo steamos-bootdebug kernel-quiet```
 
-**Write** the chainloader log to the **EFI** partition
+**将**链式加载器日志**写入** **EFI** 分区
 
 ```sudo steamos-bootdebug log enable```
 
-**Show** the contents of the on-disk chainloader log
+**显示**磁盘上链式加载器日志的内容
 
 ```sudo steamos-bootdebug log show```
 
@@ -47,50 +47,50 @@ Configure SteamOS chainloader and kernel boot debugging
 # PARAMETERS
 
 **menu**
-> Enable the chainloader boot menu, allowing GRUB editing and A/B slot selection at boot.
+> 启用链式加载器启动菜单，允许在启动时编辑 GRUB 和选择 A/B 槽位。
 
 **verbose**
-> Send chainloader log output to the system console.
+> 将链式加载器日志输出发送到系统控制台。
 
 **quiet**
-> Disable both the menu and verbose console output.
+> 同时禁用菜单和详细控制台输出。
 
 **log enable**
-> Persist chainloader logs to a file on the EFI System Partition (**/esp**).
+> 将链式加载器日志持久保存到 EFI 系统分区（**/esp**）上的文件。
 
 **log disable**
-> Stop persisting chainloader logs to the filesystem.
+> 停止将链式加载器日志持久保存到文件系统。
 
 **log show**
-> Print the contents of the chainloader log file.
+> 打印链式加载器日志文件的内容。
 
 **kernel-debug** [_image_]
-> Enable kernel debug output (no **quiet** parameter, debug messages on console) for the named slot _image_, or both if omitted.
+> 为指定槽位的 _image_（省略时为两者）启用内核调试输出（移除 **quiet** 参数，调试消息显示在控制台上）。
 
 **kernel-debug-once** [_image_]
-> Enable kernel debug for **only the next boot**, then automatically revert.
+> **仅在下次启动时**启用内核调试，然后自动还原。
 
 **kernel-quiet** [_image_]
-> Restore the standard silent kernel boot.
+> 恢复标准的静默内核启动。
 
 **status**
-> Print the current debug configuration of both slots.
+> 打印两个槽位当前的调试配置。
 
 # DESCRIPTION
 
-**steamos-bootdebug** is a small administration script that ships with SteamOS 3+ on the **Steam Deck**. It surfaces controls for the SteamOS **chainloader** — the small bootloader stub that decides which of the two A/B system images to load — and for the kernel command line baked into each image.
+**steamos-bootdebug** 是随 SteamOS 3+ 附带于 **Steam Deck** 的一个小型管理脚本。它提供对 SteamOS **链式加载器**（决定加载两个 A/B 系统映像中哪一个的小型引导加载程序桩）以及写入每个映像的内核命令行的控制。
 
-The chainloader runs before GRUB and normally boots the active slot silently. **steamos-bootdebug menu** flips it into interactive mode so the user can edit GRUB entries (useful for adding **systemd.unit=rescue.target**, alternate **root=** parameters, and so on). **verbose** and **quiet** toggle whether chainloader log lines go to the console or are suppressed; **log enable**/**disable**/**show** capture those lines to a file in the EFI System Partition for post-mortem inspection.
+链式加载器先于 GRUB 运行，通常静默启动活动槽位。**steamos-bootdebug menu** 会将其切换到交互模式，让用户可以编辑 GRUB 条目（用于添加 **systemd.unit=rescue.target**、替代的 **root=** 参数等）。**verbose** 与 **quiet** 切换链式加载器日志是输出到控制台还是被抑制；**log enable**/**disable**/**show** 则将这些日志捕获到 EFI 系统分区中的文件里，便于事后检查。
 
-The **kernel-debug**/**kernel-quiet** family edits the kernel command line of one or both A/B images: enabling kernel debug removes the **quiet** parameter, enables verbose printk output, and is invaluable for diagnosing display, GPU, or storage init issues. **kernel-debug-once** is the safest option — it self-reverts after a single boot, so you cannot accidentally leave the system in a noisy state.
+**kernel-debug**/**kernel-quiet** 系列命令编辑一个或两个 A/B 映像的内核命令行：启用内核调试会移除 **quiet** 参数并开启详细的 printk 输出，对诊断显示、GPU 或存储初始化问题极有价值。**kernel-debug-once** 是最安全的选择——它会在一次启动后自动还原，因此不会意外让系统停留在嘈杂状态。
 
 # CAVEATS
 
-**Read-only rootfs**: SteamOS uses an immutable root, so **steamos-bootdebug** writes to the EFI System Partition rather than **/etc**. Boot menu output is rendered on whichever display the firmware picks; if you boot the Steam Deck while docked and undock during the menu, the menu may be lost on the internal panel and you must blindly navigate or reboot. The optional _image_ argument selects the **A** or **B** slot — if omitted, both slots are modified.
+**只读根文件系统**：SteamOS 使用不可变根，因此 **steamos-bootdebug** 写入的是 EFI 系统分区而非 **/etc**。启动菜单会显示在固件选择的显示器上；如果你在连接扩展坞时启动 Steam Deck 又在菜单出现期间断开，菜单可能会在内置屏幕上丢失，此时只能盲操作或重启。可选的 _image_ 参数选择 **A** 或 **B** 槽位——省略时两个槽位都会被修改。
 
 # HISTORY
 
-**steamos-bootdebug** is shipped by Valve in **SteamOS 3** (the Arch-based Linux distribution running on the Steam Deck since **February 2022**). It is part of the **steamos-customizations** family of scripts that adapt a stock Arch install to the read-only A/B image model used on the Deck.
+**steamos-bootdebug** 由 Valve 随 **SteamOS 3** 发布（这是自 **2022 年 2 月**起运行于 Steam Deck 的基于 Arch 的 Linux 发行版）。它是 **steamos-customizations** 脚本家族的一员，这些脚本将标准 Arch 安装适配为 Deck 上使用的只读 A/B 映像模型。
 
 # SEE ALSO
 

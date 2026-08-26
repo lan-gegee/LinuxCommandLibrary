@@ -1,22 +1,22 @@
 # TAGLINE
 
-Safely edit files with elevated privileges
+以提升的权限安全地编辑文件
 
 # TLDR
 
-**Edit file as root**
+**以 root 身份编辑文件**
 
 ```sudoedit [/etc/hosts]```
 
-**Edit with specific editor**
+**使用指定编辑器编辑**
 
 ```SUDO_EDITOR=[vim] sudoedit [/etc/fstab]```
 
-**Edit multiple files**
+**编辑多个文件**
 
 ```sudoedit [/etc/file1] [/etc/file2]```
 
-**Edit as another user**
+**以其他用户身份编辑**
 
 ```sudoedit -u [username] [file]```
 
@@ -27,42 +27,42 @@ Safely edit files with elevated privileges
 # PARAMETERS
 
 **-u**, **--user** _USER_
-> Edit as user.
+> 以指定用户身份编辑。
 
 **-g**, **--group** _GROUP_
-> Edit with group.
+> 以指定组身份编辑。
 
 **-H**
-> Set HOME.
+> 设置 HOME。
 
 **-n**, **--non-interactive**
-> Non-interactive mode.
+> 非交互模式。
 
 # ENVIRONMENT
 
-**SUDO_EDITOR** - Preferred editor
-**VISUAL** - Visual editor
-**EDITOR** - Default editor
+**SUDO_EDITOR** - 首选编辑器
+**VISUAL** - 可视化编辑器
+**EDITOR** - 默认编辑器
 
 # DESCRIPTION
 
-**sudoedit** safely edits files with elevated privileges. It's equivalent to sudo -e.
+**sudoedit** 以提升的权限安全地编辑文件。它等价于 sudo -e。
 
-File is copied to temp location. User edits with their own editor.
+文件会被复制到临时位置，用户用自己的编辑器进行编辑。
 
-After editing, changes copy back. Original file replaced atomically.
+编辑完成后，改动被复制回去，原文件以原子方式替换。
 
-User's environment is preserved. Editor runs as the user, not root.
+用户的环境保持不变，编辑器以用户身份而非 root 身份运行。
 
-Safer than running editor as root. Limits privilege escalation risks.
+比直接以 root 身份运行编辑器更安全，可降低提权风险。
 
 # CAVEATS
 
-Editor plugins run as user. Some editors may not work. Temp files briefly exist.
+编辑器插件以用户身份运行，某些编辑器可能无法正常工作。临时文件会短暂存在。
 
 # HISTORY
 
-**sudoedit** is part of **sudo**, providing secure file editing. It prevents running arbitrary code with root privileges through editor extensions.
+**sudoedit** 是 **sudo** 的组成部分，提供安全的文件编辑功能。它可以防止通过编辑器扩展以 root 权限执行任意代码。
 
 # INSTALL
 

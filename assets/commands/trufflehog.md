@@ -1,38 +1,38 @@
 # TAGLINE
 
-Secret and credential scanner for code
+代码中的机密与凭据扫描器
 
 # TLDR
 
-**Scan git repository**
+扫描 git 仓库
 
 ```trufflehog git [https://github.com/user/repo]```
 
-**Scan local git repository**
+扫描本地 git 仓库
 
 ```trufflehog git file://[/path/to/repo]```
 
-**Scan filesystem**
+扫描文件系统
 
 ```trufflehog filesystem [/path/to/scan]```
 
-**Scan GitHub organization**
+扫描 GitHub 组织
 
 ```trufflehog github --org [organization]```
 
-**Scan S3 bucket**
+扫描 S3 存储桶
 
 ```trufflehog s3 --bucket [bucket-name]```
 
-**Only verified secrets**
+仅显示已验证的机密
 
 ```trufflehog git --only-verified [https://github.com/user/repo]```
 
-**Output as JSON**
+输出为 JSON
 
 ```trufflehog git --json [https://github.com/user/repo]```
 
-**Scan specific branch**
+扫描特定分支
 
 ```trufflehog git --branch [main] [https://github.com/user/repo]```
 
@@ -43,83 +43,83 @@ Secret and credential scanner for code
 # PARAMETERS
 
 **git** _URL_
-> Scan git repository.
+> 扫描 git 仓库。
 
 **github**
-> Scan GitHub (org, user, or repo).
+> 扫描 GitHub（组织、用户或仓库）。
 
 **gitlab**
-> Scan GitLab.
+> 扫描 GitLab。
 
 **filesystem** _PATH_
-> Scan local filesystem.
+> 扫描本地文件系统。
 
 **s3**
-> Scan S3 bucket.
+> 扫描 S3 存储桶。
 
 **gcs**
-> Scan Google Cloud Storage.
+> 扫描 Google Cloud Storage。
 
 **docker**
-> Scan Docker image.
+> 扫描 Docker 镜像。
 
 **--only-verified**
-> Only report verified credentials.
+> 仅报告经过验证的凭据。
 
 **--json**
-> Output as JSON.
+> 输出为 JSON。
 
 **--no-update**
-> Don't check for updates.
+> 不检查更新。
 
 **--concurrency** _NUM_
-> Scanner concurrency.
+> 扫描并发数。
 
 **--include-paths** _FILE_
-> Only scan matching paths.
+> 只扫描匹配的路径。
 
 **--exclude-paths** _FILE_
-> Skip matching paths.
+> 跳过匹配的路径。
 
 **--include-detectors** _LIST_
-> Only use specified detectors.
+> 只使用指定的检测器。
 
 **--exclude-detectors** _LIST_
-> Skip specified detectors.
+> 跳过指定的检测器。
 
 **--branch** _NAME_
-> Scan specific branch.
+> 扫描特定分支。
 
 **--since-commit** _HASH_
-> Start from commit.
+> 从指定提交开始。
 
 **--max-depth** _NUM_
-> Maximum commit history depth.
+> 最大提交历史深度。
 
 **--no-verification**
-> Skip credential verification against services.
+> 跳过针对相关服务的凭据验证。
 
 # DESCRIPTION
 
-**trufflehog** finds secrets and credentials in code repositories, filesystems, and cloud storage. It uses hundreds of detectors for API keys, passwords, and tokens.
+**trufflehog** 在代码仓库、文件系统和云存储中查找机密信息和凭据。它使用数百个检测器来识别 API 密钥、密码和令牌。
 
-The tool scans git history, catching secrets that were committed and later deleted. Each commit is checked against detector patterns. High entropy strings are flagged as potential secrets.
+该工具会扫描 git 历史，捕捉那些曾经提交、后来又被删除的机密。每个提交都会与检测器模式进行比对。高熵字符串会被标记为潜在的机密。
 
-Verification mode (--only-verified) actively tests found credentials against their services. This confirms whether secrets are still valid, prioritizing real exposures over false positives.
+验证模式 (--only-verified) 会主动向相应服务测试找到的凭据。这能确认机密是否仍然有效，从而优先呈现真实泄露而非误报。
 
-Detectors cover major services: AWS, GCP, Azure, GitHub, Slack, Stripe, Twilio, and many more. Custom regex patterns can extend detection.
+检测器覆盖主流服务：AWS、GCP、Azure、GitHub、Slack、Stripe、Twilio 等等。自定义正则模式可以扩展检测能力。
 
-Multiple source types enable comprehensive scanning: repositories, organizations, cloud storage, Docker images, and local filesystems.
+多种源类型支持全面扫描：仓库、组织、云存储、Docker 镜像和本地文件系统。
 
-JSON output integrates with security tools and CI/CD pipelines. Exit codes indicate whether secrets were found, enabling automated gates.
+JSON 输出可与安全工具和 CI/CD 流水线集成。退出码表明是否发现机密，便于实现自动化门禁。
 
 # CAVEATS
 
-Verification makes network requests to third-party services. Scanning history of large repos is slow. False positives occur with high-entropy strings. Encrypted or obfuscated secrets may be missed. Verification may trigger security alerts.
+验证过程会向第三方服务发起网络请求。扫描大型仓库的历史较慢。高熵字符串可能产生误报。加密或混淆过的机密可能被漏掉。验证可能触发安全警报。
 
 # HISTORY
 
-**trufflehog** was created by **Dylan Ayrey** at **Truffle Security** around **2016**. Originally a Python tool, version 3 was rewritten in Go for performance. The project addresses the serious problem of secrets committed to version control, providing automated detection before breaches occur.
+**trufflehog** 由 **Truffle Security** 的 **Dylan Ayrey** 于 **2016 年**前后创建。最初是一个 Python 工具，第 3 版为提升性能改用 Go 重写。该项目旨在解决机密信息被提交到版本控制这一严重问题，在泄露发生之前实现自动化检测。
 
 # INSTALL
 

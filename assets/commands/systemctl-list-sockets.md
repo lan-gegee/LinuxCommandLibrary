@@ -1,26 +1,26 @@
 # TAGLINE
 
-List socket-activated units
+列出由套接字激活的单元
 
 # TLDR
 
-List **active** socket units
+列出**活动的**套接字单元
 
 ```systemctl list-sockets```
 
-Show **socket types**
+显示**套接字类型**
 
 ```systemctl list-sockets --show-types```
 
-List **all** including inactive
+列出**全部**单元（包括未激活的）
 
 ```systemctl list-sockets -a```
 
-Filter by **state**
+按**状态**过滤
 
 ```systemctl list-sockets --state [active|inactive|failed]```
 
-Filter by **pattern**
+按**模式**过滤
 
 ```systemctl list-sockets [pattern]```
 
@@ -31,33 +31,33 @@ Filter by **pattern**
 # PARAMETERS
 
 **-a, --all**
-> Include inactive and failed socket units
+> 包括未激活和失败的套接字单元
 
 **--state=** _STATE_
-> Filter by state
+> 按状态过滤
 
 **--show-types**
-> Display socket types (Stream, Datagram, etc.)
+> 显示套接字类型（Stream、Datagram 等）
 
 **--no-legend**
-> Suppress header and footer
+> 不显示表头和页脚
 
 **--no-pager**
-> Disable pager
+> 禁用分页器
 
 # DESCRIPTION
 
-**systemctl list-sockets** displays socket units currently active in memory, ordered by listening address. Socket units implement socket activation, where services are started on-demand when connections arrive.
+**systemctl list-sockets** 显示当前内存中处于活动状态的套接字单元，按监听地址排序。套接字单元实现了套接字激活：当连接到达时才按需启动服务。
 
-The output shows the listening address (IP:port, path, etc.), the socket unit name, and the unit it activates.
+输出内容包括监听地址（IP:端口、路径等）、套接字单元名称及其激活的单元。
 
 # CAVEATS
 
-Shows systemd-managed sockets only, not all listening sockets on the system. Use `ss` or `netstat` for a complete list. Socket activation may cause startup delays on first connection.
+只显示 systemd 管理的套接字，而非系统上所有监听中的套接字。要查看完整列表请使用 `ss` 或 `netstat`。套接字激活可能在首次连接时造成启动延迟。
 
 # HISTORY
 
-The **list-sockets** subcommand provides insight into systemd's socket activation infrastructure, which reduces memory usage by starting services only when needed.
+**list-sockets** 子命令展示了 systemd 套接字激活基础设施的情况，该机制只在需要时启动服务，从而降低内存占用。
 
 # SEE ALSO
 

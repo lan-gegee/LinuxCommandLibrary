@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal-based Wireshark interface
+基于终端的 Wireshark 界面
 
 # TLDR
 
-Monitor **default** interface
+监控**默认**网络接口
 
 ```sudo termshark```
 
-Monitor **specific** interface
+监控**指定**网络接口
 
 ```sudo termshark -i [eth0]```
 
-Read a **pcap** file
+读取 **pcap** 文件
 
 ```termshark -r [path/to/capture.pcap]```
 
-Apply a **display filter**
+应用**显示过滤器**
 
 ```sudo termshark -i [eth0] -Y "[http.request]"```
 
-Apply a **capture filter**
+应用**捕获过滤器**
 
 ```sudo termshark -i [eth0] -f "[port 80]"```
 
@@ -31,49 +31,49 @@ Apply a **capture filter**
 # PARAMETERS
 
 **-i** _INTERFACE_
-> Capture on specified interface
+> 在指定接口上捕获
 
 **-r** _FILE_
-> Read from pcap file
+> 从 pcap 文件读取
 
 **-Y** _FILTER_
-> Apply display filter
+> 应用显示过滤器
 
 **-f** _FILTER_
-> Apply capture filter
+> 应用捕获过滤器
 
 **-d** _layer==selector,protocol_
-> Specify dissection of layer type
+> 指定某一层的解析方式
 
 **--pass-thru** _[auto|yes|no]_
-> Run tshark instead of UI (auto means if stdout is not a tty)
+> 直接运行 tshark 而不启动 UI（auto 表示当 stdout 不是 tty 时）
 
 **--debug**
-> Enable debug mode with profiling server on port 6060
+> 启用调试模式，并在端口 6060 开启性能分析服务器
 
 # DESCRIPTION
 
-**termshark** is a terminal-based user interface for tshark that provides a Wireshark-like experience in the terminal. It offers packet list, packet details, and packet bytes views with interactive navigation.
+**termshark** 是一个基于终端的 tshark 用户界面，可在终端中提供类似 Wireshark 的体验。它提供数据包列表、数据包详情和数据包字节三种视图，并支持交互式导航。
 
-The interface supports keyboard navigation, display filtering, and stream reassembly similar to the graphical Wireshark.
+该界面支持键盘导航、显示过滤和流重组，与图形版 Wireshark 类似。
 
 # KEYBOARD SHORTCUTS
 
-**Tab** - Switch between views
+**Tab** - 在视图之间切换
 
-**/** - Filter packets
+**/** - 过滤数据包
 
-**Enter** - Expand/collapse details
+**Enter** - 展开/折叠详情
 
-**q** - Quit
+**q** - 退出
 
 # CAVEATS
 
-Requires tshark (Wireshark CLI) to be installed. Root privileges needed for live capture. Large capture files may be slow to load.
+需要安装 tshark（Wireshark CLI）。实时捕获需要 root 权限。较大的捕获文件加载可能较慢。
 
 # HISTORY
 
-**termshark** was created by **Graham Clark** to bring Wireshark's interface paradigm to the terminal, enabling packet analysis over SSH or in environments without a GUI.
+**termshark** 由 **Graham Clark** 创建，旨在把 Wireshark 的界面范式带到终端，使通过 SSH 或在无 GUI 环境中进行数据包分析成为可能。
 
 # INSTALL
 

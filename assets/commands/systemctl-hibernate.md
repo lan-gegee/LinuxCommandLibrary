@@ -1,18 +1,18 @@
 # TAGLINE
 
-Hibernate system to disk
+将系统休眠到磁盘
 
 # TLDR
 
-**Hibernate** the system immediately
+立即**休眠**系统
 
 ```systemctl hibernate```
 
-**Force** hibernation, ignoring inhibitors
+**强制**休眠，忽略抑制锁
 
 ```systemctl hibernate --force```
 
-Hibernate without sending a **wall message** to logged-in users
+不向已登录用户发送 **wall 消息**休眠
 
 ```systemctl hibernate --no-wall```
 
@@ -22,26 +22,26 @@ Hibernate without sending a **wall message** to logged-in users
 
 # DESCRIPTION
 
-**systemctl hibernate** hibernates the system by saving the current state to disk (swap) and powering off. When the system is powered on again, it resumes from where it left off.
+**systemctl hibernate** 将系统休眠：把当前状态保存到磁盘（swap）后断电。再次开机时，系统会从上次中断的地方恢复。
 
 # PARAMETERS
 
 **-f, --force**
-> Force hibernation even if inhibitors are present (programs blocking sleep). When specified twice, the operation is executed without contacting the login manager.
+> 即使存在抑制锁（阻止睡眠的程序）也强制休眠。指定两次时，操作将在不联系登录管理器的情况下执行。
 
 **--no-wall**
-> Do not send wall message to logged-in users before hibernating
+> 休眠前不向已登录用户发送 wall 消息
 
 **-i, --ignore-inhibitors**
-> Ignore inhibitor locks when performing the hibernate operation
+> 执行休眠操作时忽略抑制锁
 
 # CAVEATS
 
-Requires sufficient swap space to hold the contents of RAM. The system must support hibernation at the hardware level. Some systems may need additional kernel parameters for hibernation to work properly.
+需要足够的 swap 空间来容纳内存内容。硬件层面必须支持休眠。某些系统可能需要额外的内核参数才能正常休眠。
 
 # HISTORY
 
-**systemctl hibernate** is part of **systemd**, the system and service manager for Linux, providing modern power management capabilities.
+**systemctl hibernate** 是 Linux 系统与服务管理器 **systemd** 的一部分，提供现代电源管理能力。
 
 # SEE ALSO
 

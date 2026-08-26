@@ -1,30 +1,30 @@
 # TAGLINE
 
-Extract main text content from web pages
+从网页中提取正文内容
 
 # TLDR
 
-**Extract text from URL**
+**从 URL 提取文本**
 
 ```trafilatura -u [https://example.com]```
 
-**Extract from local HTML file**
+**从本地 HTML 文件提取**
 
 ```trafilatura -i [page.html]```
 
-**Output as JSON with metadata**
+**输出 JSON 并附带元数据**
 
 ```trafilatura -u [https://example.com] --json --with-metadata```
 
-**Extract without comments or tables**
+提取时**不含评论或表格**
 
 ```trafilatura -u [https://example.com] --no-comments --no-tables```
 
-**Batch process URLs from a file to output directory**
+从文件批量处理 URL 并输出到目录
 
 ```trafilatura -i [urls.txt] -o [output_dir]```
 
-**Favor precision over recall**
+**偏重精确率而非召回率**
 
 ```trafilatura -u [https://example.com] --precision```
 
@@ -35,75 +35,75 @@ Extract main text content from web pages
 # PARAMETERS
 
 **-u, --URL** _URL_
-> Fetch and process a URL.
+> 抓取并处理一个 URL。
 
 **-i, --input-file** _FILE_
-> Input file (HTML file or list of URLs for batch processing).
+> 输入文件（HTML 文件或用于批量处理的 URL 列表）。
 
 **-o, --output-dir** _DIR_
-> Write results to specified directory.
+> 将结果写入指定目录。
 
 **--output-format** _FORMAT_
-> Output format: txt, csv, json, html, markdown, xml, xmltei.
+> 输出格式：txt、csv、json、html、markdown、xml、xmltei。
 
 **--json**
-> JSON output shorthand.
+> JSON 输出的简写形式。
 
 **--xml**
-> XML output shorthand.
+> XML 输出的简写形式。
 
 **--csv**
-> CSV output shorthand.
+> CSV 输出的简写形式。
 
 **--no-comments**
-> Exclude comments from extraction.
+> 提取时排除评论。
 
 **--no-tables**
-> Exclude table elements from extraction.
+> 提取时排除表格元素。
 
 **--with-metadata**
-> Extract and include metadata in output.
+> 提取元数据并将其包含在输出中。
 
 **--precision**
-> Favor extraction precision (less noise, less text).
+> 偏重提取精确率（噪声更少，文本更少）。
 
 **--recall**
-> Favor extraction recall (more text, possibly more noise).
+> 偏重提取召回率（文本更多，可能噪声也更多）。
 
 **-f, --fast**
-> Fast extraction without fallback detection.
+> 快速提取，不做后备检测。
 
 **--formatting**
-> Include text formatting (bold, italic, etc.).
+> 保留文本格式（粗体、斜体等）。
 
 **--links**
-> Include links with targets in output.
+> 在输出中包含链接及其目标。
 
 **--deduplicate**
-> Filter out duplicate documents and sections.
+> 过滤重复的文档和段落。
 
 **--feed** [_URL_]
-> Look for feeds or pass feed URL as input.
+> 查找 feed 或将 feed URL 作为输入传入。
 
 **--sitemap** [_URL_]
-> Look for sitemaps or enter sitemap URL.
+> 查找站点地图或输入站点地图 URL。
 
 **--parallel** _N_
-> Number of cores/threads for downloads and processing.
+> 用于下载和处理的核心/线程数。
 
 # DESCRIPTION
 
-**trafilatura** extracts the main text content from web pages, automatically removing navigation, ads, headers, footers, and other boilerplate elements. It can fetch pages from URLs directly or process local HTML files.
+**trafilatura** 从网页中提取正文内容，自动去除导航栏、广告、页眉、页脚和其他样板元素。它可以直接从 URL 抓取页面，也可以处理本地 HTML 文件。
 
-Output is available in plain text, CSV, JSON, HTML, Markdown, XML, or XML-TEI formats. The tool also extracts metadata such as publication dates, authors, and page titles. Batch processing handles multiple URLs from a list file, making it suitable for web scraping and corpus building. Link discovery via feeds, sitemaps, and crawling is built in.
+输出支持纯文本、CSV、JSON、HTML、Markdown、XML 或 XML-TEI 格式。该工具还能提取发布日期、作者和页面标题等元数据。批量处理可以从列表文件读取多个 URL，因此适合网页抓取和语料库构建。内置了通过 feed、站点地图和爬取进行的链接发现功能。
 
 # CAVEATS
 
-Python required. Extraction quality varies by site structure. Network access needed for URL fetching.
+需要 Python。提取质量因网站结构而异。抓取 URL 需要网络连接。
 
 # HISTORY
 
-**trafilatura** was created by **Adrien Barbaresi** as an academic project for web scraping and text extraction, written in **Python**.
+**trafilatura** 由 **Adrien Barbaresi** 创建，最初是一个用于网页抓取和文本提取的学术项目，使用 **Python** 编写。
 
 # INSTALL
 

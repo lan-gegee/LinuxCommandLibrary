@@ -1,34 +1,34 @@
 # TAGLINE
 
-Peer-to-peer continuous file synchronization
+点对点的持续文件同步
 
 # TLDR
 
-**Start syncthing**
+**启动 syncthing**
 
 ```syncthing```
 
-**Start without opening browser**
+**启动时不打开浏览器**
 
 ```syncthing --no-browser```
 
-**Start with specific home directory**
+**以指定的主目录启动**
 
 ```syncthing --home=[/path/to/config]```
 
-**Generate keys and config**
+**生成密钥和配置**
 
 ```syncthing --generate=[/path/to/config]```
 
-**Reset to default config**
+**重置为默认配置**
 
 ```syncthing --reset-deltas```
 
-**Show device ID**
+**显示设备 ID**
 
 ```syncthing --device-id```
 
-**Show version**
+**显示版本**
 
 ```syncthing --version```
 
@@ -39,79 +39,79 @@ Peer-to-peer continuous file synchronization
 # PARAMETERS
 
 **--home** _DIR_
-> Configuration directory.
+> 配置目录。
 
 **--config** _DIR_
-> Configuration file path.
+> 配置文件路径。
 
 **--data** _DIR_
-> Data directory path.
+> 数据目录路径。
 
 **--no-browser**
-> Don't open browser on start.
+> 启动时不打开浏览器。
 
 **--gui-address** _ADDR_
-> GUI listen address.
+> GUI 监听地址。
 
 **--gui-apikey** _KEY_
-> Override GUI API key.
+> 覆盖 GUI API 密钥。
 
 **--no-restart**
-> Don't restart after upgrade.
+> 升级后不重启。
 
 **--device-id**
-> Print device ID and exit.
+> 打印设备 ID 并退出。
 
 **--generate** _DIR_
-> Generate keys and config.
+> 生成密钥和配置。
 
 **--reset-database**
-> Reset database.
+> 重置数据库。
 
 **--reset-deltas**
-> Reset delta index.
+> 重置增量索引。
 
 **--logfile** _FILE_
-> Log to file.
+> 记录日志到文件。
 
 **--logflags** _FLAGS_
-> Log flags.
+> 日志标志。
 
 **--paused**
-> Start with all devices paused.
+> 以所有设备暂停的状态启动。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**Syncthing** is a continuous file synchronization program. It syncs files between devices in real-time, peer-to-peer, without requiring a central server.
+**Syncthing** 是一个持续文件同步程序。它在设备之间实时、点对点地同步文件，无需中央服务器。
 
-Devices discover each other via local network, global discovery servers, or manual configuration. Data transfers directly between devices using TLS encryption. No third-party servers access file content.
+设备通过本地网络、全局发现服务器或手动配置相互发现。数据使用 TLS 加密在设备之间直接传输。任何第三方服务器都无法访问文件内容。
 
-The web GUI (default: localhost:8384) provides configuration and monitoring. Add devices by exchanging Device IDs - long cryptographic identifiers. Shared folders are configured per-device with specific folder IDs.
+Web GUI（默认：localhost:8384）提供配置和监控功能。通过交换 Device ID（一长串加密标识符）来添加设备。共享文件夹按设备配置，并使用特定的文件夹 ID。
 
-Conflict handling creates copies when the same file is modified on multiple devices before syncing. Version history can keep old file versions for recovery.
+当同一文件在多台设备上于同步前被修改时，冲突处理会创建副本。版本历史可以保留旧版本文件以供恢复。
 
-Selective sync allows ignoring files via patterns. File watching detects changes immediately on most platforms. Periodic scanning catches any missed changes.
+选择性同步支持通过模式忽略文件。文件监视可在大多数平台上立即检测到变更，周期性扫描则可捕捉任何遗漏的更改。
 
-Syncthing runs as a daemon, typically starting at login or as a system service. Multiple instances can run with different home directories.
+Syncthing 以守护进程方式运行，通常在登录时或作为系统服务启动。可以使用不同的主目录运行多个实例。
 
 # CONFIGURATION
 
 **~/.config/syncthing/config.xml**
-> Main configuration file defining devices, shared folders, and sync settings.
+> 主配置文件，定义设备、共享文件夹和同步设置。
 
 **STTRACE**
-> Environment variable to enable debug tracing for specific subsystems.
+> 环境变量，用于启用特定子系统的调试跟踪。
 
 # CAVEATS
 
-Initial sync of large datasets takes time. Conflict files need manual resolution. Continuous syncing uses bandwidth. Discovery servers are public (though data isn't). Some filesystems don't support required features. Mobile battery usage can be significant.
+大数据集的初始同步耗时较长。冲突文件需要手动解决。持续同步会占用带宽。发现服务器是公开的（但数据不是）。某些文件系统不支持所需特性。移动端电量消耗可能相当可观。
 
 # HISTORY
 
-**Syncthing** was created by **Jakob Borg** in **2013** as an open-source alternative to proprietary sync services like Dropbox. It emphasizes privacy (no central server), security (all data encrypted), and openness (open-source, open protocol). The project has grown into a widely-used synchronization solution.
+**Syncthing** 由 **Jakob Borg** 于 **2013 年**创建，定位为 Dropbox 等专有同步服务的开源替代品。它强调隐私（无中央服务器）、安全（所有数据加密）与开放（开源、开放协议）。该项目已发展为广泛使用的同步方案。
 
 # INSTALL
 

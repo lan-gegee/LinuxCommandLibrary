@@ -1,30 +1,30 @@
 # TAGLINE
 
-STM32 GDB server via ST-Link
+基于 ST-Link 的 STM32 GDB 服务器
 
 # TLDR
 
-**Start GDB server**
+**启动 GDB 服务器**
 
 ```st-util```
 
-**Start on a specific port**
+**在指定端口启动**
 
 ```st-util -p [4242]```
 
-**Start with verbose output**
+**以详细输出模式启动**
 
 ```st-util -v```
 
-**Start in multi-target mode**
+**以多目标模式启动**
 
 ```st-util -m```
 
-**Connect to a specific ST-Link by serial number**
+**通过序列号连接指定的 ST-Link**
 
 ```st-util --serial [serial-number]```
 
-**Start with semihosting enabled**
+**启用半主机（semihosting）模式启动**
 
 ```st-util --semihosting```
 
@@ -35,36 +35,36 @@ STM32 GDB server via ST-Link
 # PARAMETERS
 
 **-p** _PORT_
-> GDB server port.
+> GDB 服务器端口。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-m**
-> Multi-target mode.
+> 多目标模式。
 
 **--serial** _SN_
-> Device serial.
+> 设备序列号。
 
 **--semihosting**
-> Enable semihosting.
+> 启用半主机（semihosting）。
 
 **-n**
-> No reset on connect.
+> 连接时不复位。
 
 # DESCRIPTION
 
-**st-util** starts a GDB server that bridges the GNU Debugger (GDB) to STM32 microcontrollers through an ST-Link programmer/debugger. It implements the GDB remote serial protocol, allowing standard GDB commands for setting breakpoints, stepping through code, and inspecting memory and registers.
+**st-util** 启动一个 GDB 服务器，将 GNU 调试器（GDB）通过 ST-Link 编程器/调试器桥接到 STM32 微控制器。它实现了 GDB 远程串行协议，允许使用标准的 GDB 命令来设置断点、单步执行代码以及检查内存和寄存器。
 
-By default, the server listens on port 4242 for GDB connections. Multi-target mode (**-m**) supports debugging multiple ST-Link devices simultaneously. Semihosting enables the target firmware to perform I/O operations (such as printf) through the debug connection. It is part of the open-source stlink toolset.
+默认情况下，服务器在端口 4242 上监听 GDB 连接。多目标模式（**-m**）支持同时调试多个 ST-Link 设备。半主机（semihosting）功能使目标固件能够通过调试连接执行 I/O 操作（例如 printf）。它是开源 stlink 工具集的一部分。
 
 # CAVEATS
 
-Requires an ST-Link programmer/debugger connected via USB. Only one ST-Link device is supported by default; use **-m** or **--serial** for multiple devices. The default port (4242) must not be in use by another process. Root or udev rules may be needed for USB access.
+需要通过 USB 连接的 ST-Link 编程器/调试器。默认只支持一个 ST-Link 设备；多设备请使用 **-m** 或 **--serial**。默认端口（4242）不能被其他进程占用。USB 访问可能需要 root 权限或 udev 规则。
 
 # HISTORY
 
-**st-util** is part of the **stlink** open-source toolset, originally created by **texane** and now maintained by the stlink-org community.
+**st-util** 是 **stlink** 开源工具集的一部分，最初由 **texane** 创建，现由 stlink-org 社区维护。
 
 # INSTALL
 

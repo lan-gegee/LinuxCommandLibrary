@@ -1,42 +1,42 @@
 # TAGLINE
 
-Infrastructure as code provisioning tool
+基础设施即代码配置工具
 
 # TLDR
 
-**Initialize a Terraform working directory**
+**初始化 Terraform 工作目录**
 
 ```terraform init```
 
-**Preview infrastructure changes**
+**预览基础设施变更**
 
 ```terraform plan```
 
-**Apply infrastructure changes**
+**应用基础设施变更**
 
 ```terraform apply```
 
-**Destroy managed infrastructure**
+**销毁受管基础设施**
 
 ```terraform destroy```
 
-**Format configuration files**
+**格式化配置文件**
 
 ```terraform fmt```
 
-**Validate configuration syntax**
+**校验配置语法**
 
 ```terraform validate```
 
-**Show current state**
+**显示当前状态**
 
 ```terraform show```
 
-**List resources in state**
+**列出状态中的资源**
 
 ```terraform state list```
 
-**Import existing infrastructure**
+**导入既有基础设施**
 
 ```terraform import [resource_type.name] [id]```
 
@@ -47,93 +47,93 @@ Infrastructure as code provisioning tool
 # PARAMETERS
 
 **init**
-> Initialize working directory, download providers
+> 初始化工作目录，下载 provider
 
 **plan**
-> Create execution plan showing proposed changes
+> 创建显示拟议变更的执行计划
 
 **apply**
-> Apply changes to reach desired state
+> 应用变更以达到期望状态
 
 **destroy**
-> Destroy all managed infrastructure
+> 销毁所有受管基础设施
 
 **fmt**
-> Format configuration files to canonical style
+> 将配置文件格式化为规范风格
 
 **validate**
-> Check configuration syntax and consistency
+> 检查配置的语法与一致性
 
 **show**
-> Display current state or saved plan
+> 显示当前状态或已保存的计划
 
 **output**
-> Read output values from state
+> 从状态读取输出值
 
 **state**
-> Advanced state management commands
+> 高级状态管理命令
 
 **import**
-> Import existing infrastructure into state
+> 将既有基础设施导入状态
 
 **workspace**
-> Manage workspaces
+> 管理 workspace
 
 **-auto-approve**
-> Skip interactive approval (apply/destroy)
+> 跳过交互式确认（apply/destroy）
 
 **-var** _'key=value'_
-> Set input variable
+> 设置输入变量
 
 **-var-file** _file_
-> Load variables from file
+> 从文件加载变量
 
 **-target** _resource_
-> Target specific resource
+> 针对特定资源
 
 **-parallelism** _n_
-> Limit concurrent operations
+> 限制并发操作数
 
 # DESCRIPTION
 
-**terraform** is an infrastructure as code tool for building, changing, and versioning cloud infrastructure safely and efficiently. It uses declarative configuration files to describe desired infrastructure state.
+**terraform** 是一款基础设施即代码工具，用于安全高效地构建、变更和版本化云基础设施。它使用声明式配置文件来描述期望的基础设施状态。
 
-Configuration is written in HCL (HashiCorp Configuration Language) defining resources like servers, networks, and databases. Terraform communicates with cloud providers (AWS, Azure, GCP, etc.) via plugins called providers.
+配置使用 HCL（HashiCorp Configuration Language）编写，定义服务器、网络和数据库等资源。Terraform 通过名为 provider 的插件与云服务商（AWS、Azure、GCP 等）通信。
 
-The workflow is: **init** (setup), **plan** (preview), **apply** (execute). State is tracked in **terraform.tfstate**, enabling Terraform to know what exists and what needs changing.
+工作流为：**init**（准备）、**plan**（预览）、**apply**（执行）。状态跟踪在 **terraform.tfstate** 中，使 Terraform 能够知道哪些已存在、哪些需要变更。
 
-Workspaces allow managing multiple environments (dev, staging, prod) from the same configuration with different state files.
+workspace 允许用同一配置管理多个环境（dev、staging、prod），各自使用不同的状态文件。
 
 # CONFIGURATION
 
 **terraform.tfvars**
-> Default variable values file, automatically loaded when present in the working directory
+> 默认变量值文件，存在于工作目录时自动加载
 
 **\*.auto.tfvars**
-> Additional variable files automatically loaded alphabetically
+> 附加变量文件，按字母顺序自动加载
 
-**~/.terraformrc** or **%APPDATA%/terraform.rc**
-> CLI configuration file for provider installation methods, credentials, and plugin cache
+**~/.terraformrc** 或 **%APPDATA%/terraform.rc**
+> CLI 配置文件，用于 provider 安装方式、凭据和插件缓存
 
 **TF_VAR_name**
-> Environment variables prefixed with TF_VAR_ set input variable values
+> 以 TF_VAR_ 为前缀的环境变量用于设置输入变量的值
 
 **TF_CLI_CONFIG_FILE**
-> Override the default CLI configuration file location
+> 覆盖默认 CLI 配置文件的位置
 
 # CAVEATS
 
-State files contain sensitive information (passwords, keys) and should be stored securely. Use remote backends (S3, Terraform Cloud) for team collaboration and state locking.
+状态文件包含敏感信息（密码、密钥），应安全存储。团队协作请使用远程 backend（S3、Terraform Cloud）以获得状态锁定。
 
-**terraform destroy** is irreversible. Always run **plan** first and verify the destruction plan carefully.
+**terraform destroy** 不可逆。务必先运行 **plan** 并仔细核对销毁计划。
 
-Provider versions should be pinned in configuration to ensure reproducibility. Unexpected provider updates can cause issues.
+provider 版本应在配置中固定，以确保可重现性。意外的 provider 更新可能引发问题。
 
-Changes made outside Terraform (manual console changes) cause state drift. Use **terraform refresh** or **import** to reconcile.
+在 Terraform 之外所做的更改（手动控制台操作）会导致状态漂移。可使用 **terraform refresh** 或 **import** 来协调。
 
 # HISTORY
 
-Terraform was created by **HashiCorp** and first released in **2014** by Mitchell Hashimoto. It pioneered the "infrastructure as code" approach for multi-cloud provisioning and became the de facto standard for declarative infrastructure management.
+Terraform 由 **HashiCorp** 创建，由 Mitchell Hashimoto 于 **2014** 年首次发布。它开创了面向多云配置的"基础设施即代码"方法，并成为声明式基础设施管理的事实标准。
 
 # INSTALL
 

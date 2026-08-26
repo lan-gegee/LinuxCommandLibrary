@@ -1,14 +1,14 @@
 # TAGLINE
 
-Task aggregator TUI for multiple providers
+面向多个提供方的任务聚合 TUI
 
 # TLDR
 
-**Launch the task aggregation TUI**
+**启动任务聚合 TUI**
 
 ```tatuin```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```tatuin --config [path/to/config]```
 
@@ -18,13 +18,13 @@ Task aggregator TUI for multiple providers
 
 # DESCRIPTION
 
-**tatuin** aggregates tasks from multiple providers into a single terminal interface. Supported providers include **Todoist** and **Obsidian** (full create/read/update/delete), **CalDAV** (full CRUD), **GitLab TODOs** (list and status updates), and **GitHub Issues** and **iCal** (read-only). Features include task filtering, status updates, saveable UI state, keyboard shortcuts (e.g., `a` to add, `e` to edit), and custom themes.
+**tatuin** 将来自多个提供方的任务聚合到同一个终端界面中。支持的提供方包括 **Todoist** 和 **Obsidian**（完整的增删改查）、**CalDAV**（完整 CRUD）、**GitLab TODOs**（列表和状态更新），以及 **GitHub Issues** 和 **iCal**（只读）。功能包括任务过滤、状态更新、可保存的界面状态、键盘快捷键（例如 `a` 添加、`e` 编辑）以及自定义主题。
 
-Obsidian integration requires the "Local REST API" plugin to be installed in your Obsidian vault.
+Obsidian 集成需要在你的 Obsidian 库中安装 "Local REST API" 插件。
 
 # HISTORY
 
-**tatuin** was created by **Konnov Konstantin** (panter-dsd) and is written in **Rust**.
+**tatuin** 由 **Konnov Konstantin**（panter-dsd）创建，使用 **Rust** 编写。
 
 # INSTALL
 

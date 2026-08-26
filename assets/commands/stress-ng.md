@@ -1,38 +1,38 @@
 # TAGLINE
 
-Advanced system stress testing framework
+高级系统压力测试框架
 
 # TLDR
 
-**Stress CPU**
+**对 CPU 施压**
 
 ```stress-ng --cpu [4] --timeout [60s]```
 
-**Stress memory**
+**对内存施压**
 
 ```stress-ng --vm [2] --vm-bytes [1G] --timeout [60s]```
 
-**Stress disk I/O**
+**对磁盘 I/O 施压**
 
 ```stress-ng --io [4] --timeout [60s]```
 
-**Combined stress test**
+**组合压力测试**
 
 ```stress-ng --cpu [2] --vm [2] --io [2] --timeout [60s]```
 
-**Matrix operations** (CPU intensive)
+**矩阵运算**（CPU 密集型）
 
 ```stress-ng --matrix [4] --timeout [60s]```
 
-**Show available stressors**
+**显示可用的压力源**
 
 ```stress-ng --stressors```
 
-**Metrics output**
+**输出指标**
 
 ```stress-ng --cpu [4] --metrics --timeout [60s]```
 
-**Limit CPU usage**
+**限制 CPU 占用**
 
 ```stress-ng --cpu [4] --cpu-load [50] --timeout [60s]```
 
@@ -43,68 +43,68 @@ Advanced system stress testing framework
 # PARAMETERS
 
 **--cpu** _N_
-> CPU stress workers.
+> CPU 压力工作进程数。
 
 **--cpu-load** _PERCENT_
-> Target CPU load.
+> 目标 CPU 负载。
 
 **--vm** _N_
-> Memory stress workers.
+> 内存压力工作进程数。
 
 **--vm-bytes** _SIZE_
-> Memory per worker.
+> 每个工作进程的内存量。
 
 **--io** _N_
-> I/O stress workers.
+> I/O 压力工作进程数。
 
 **--hdd** _N_
-> Disk write workers.
+> 磁盘写入工作进程数。
 
 **--matrix** _N_
-> Matrix computation.
+> 矩阵计算压力。
 
 **--timeout** _TIME_
-> Test duration.
+> 测试时长。
 
 **--metrics**
-> Show statistics.
+> 显示统计信息。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--stressors**
-> List stressors.
+> 列出所有压力源。
 
 **--class** _CLASS_
-> Run stressor class.
+> 运行指定类别的压力源。
 
 **--sequential** _N_
-> Run stressors sequentially.
+> 顺序运行压力源。
 
 **--all** _N_
-> Run all stressors.
+> 运行全部压力源。
 
 # DESCRIPTION
 
-**stress-ng** tests system stability under various loads. It exercises CPU, memory, I/O, and other subsystems to find hardware or software issues.
+**stress-ng** 用于测试系统在各种负载下的稳定性。它对 CPU、内存、I/O 和其他子系统施加压力，以发现硬件或软件问题。
 
-CPU stressors include integer, floating-point, matrix operations, and cryptographic algorithms. Different stressors stress different CPU components.
+CPU 压力源包括整数运算、浮点运算、矩阵操作和加密算法。不同的压力源锻炼 CPU 的不同部件。
 
-Memory tests allocate, write, and verify RAM. They can uncover bad memory, cooling issues, and memory controller problems.
+内存测试会分配、写入并校验 RAM。它们可以暴露内存故障、散热问题和内存控制器缺陷。
 
-I/O stressors exercise filesystem and block device operations. They reveal disk, controller, and driver problems.
+I/O 压力源会考验文件系统和块设备操作。它们能揭示磁盘、控制器和驱动器的问题。
 
-Metrics show operations per second and system statistics. These help quantify performance and identify bottlenecks.
+指标显示每秒操作次数和系统统计信息。这有助于量化性能并定位瓶颈。
 
-Combined workloads simulate realistic multi-component stress. Thermal and power issues often appear only under mixed loads.
+组合负载模拟真实的多组件压力。散热和供电问题往往只在混合负载下出现。
 
 # CAVEATS
 
-Can damage unstable hardware. High temperatures possible. May trigger OOM killer. Use with cooling monitoring.
+可能损坏不稳定的硬件。可能产生高温。可能触发 OOM killer。使用时请配合温度监控。
 
 # HISTORY
 
-**stress-ng** was written by **Colin Ian King** at **Canonical** as an enhanced version of stress. It provides many more stressor types and is used for kernel and hardware testing.
+**stress-ng** 由 **Canonical** 的 **Colin Ian King** 编写，是 stress 的增强版本。它提供多得多的压力源类型，被用于内核和硬件测试。
 
 # INSTALL
 

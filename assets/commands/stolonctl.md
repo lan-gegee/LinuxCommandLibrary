@@ -1,22 +1,22 @@
 # TAGLINE
 
-Stolon PostgreSQL HA cluster manager
+Stolon PostgreSQL 高可用集群管理器
 
 # TLDR
 
-**Get cluster status**
+**获取集群状态**
 
 ```stolonctl --cluster-name [cluster] status```
 
-**Initialize cluster**
+**初始化集群**
 
 ```stolonctl --cluster-name [cluster] init```
 
-**Get cluster spec**
+**获取集群规格**
 
 ```stolonctl --cluster-name [cluster] spec```
 
-**Update spec**
+**更新规格**
 
 ```stolonctl --cluster-name [cluster] update --patch '[{"key":"value"}]'```
 
@@ -31,38 +31,38 @@ Stolon PostgreSQL HA cluster manager
 # PARAMETERS
 
 **--cluster-name** _NAME_
-> Cluster name.
+> 集群名称。
 
 **status**
-> Show status.
+> 显示状态。
 
 **init**
-> Initialize cluster.
+> 初始化集群。
 
 **spec**
-> Show specification.
+> 显示规格说明。
 
 **update**
-> Update configuration.
+> 更新配置。
 
 **--store-backend** _TYPE_
-> Backend type.
+> 后端类型。
 
 # DESCRIPTION
 
-**stolonctl** is the command-line management interface for Stolon, a cloud-native PostgreSQL high-availability manager. It provides administrative control over Stolon clusters, including viewing cluster status, initializing new clusters, updating configuration specifications, and triggering manual failovers.
+**stolonctl** 是 Stolon 的命令行管理界面，Stolon 是一个云原生 PostgreSQL 高可用管理器。它提供对 Stolon 集群的管理控制，包括查看集群状态、初始化新集群、更新配置规格以及触发手动故障转移。
 
-The tool communicates with Stolon's store backend (typically etcd or Consul) to read and modify cluster state. The cluster specification defines replication settings, synchronous replication policies, automatic failover behavior, and PostgreSQL configuration parameters. Changes applied through stolonctl are picked up by the Stolon components (sentinels, keepers, and proxies) running in the cluster.
+该工具与 Stolon 的存储后端（通常是 etcd 或 Consul）通信，以读取和修改集群状态。集群规格定义了复制设置、同步复制策略、自动故障转移行为和 PostgreSQL 配置参数。通过 stolonctl 应用的更改会被集群中运行的 Stolon 组件（sentinel、keeper 和 proxy）获取并生效。
 
-Stolonctl is essential for day-to-day operations such as inspecting which keeper is the current master, forcing a failover to a different keeper, and adjusting cluster parameters without downtime. It is commonly deployed alongside Kubernetes-based Stolon installations but also works with standalone deployments.
+stolonctl 对于日常运维至关重要，例如查看哪个 keeper 是当前主节点、强制将故障转移到另一个 keeper，以及在不中断服务的情况下调整集群参数。它通常随基于 Kubernetes 的 Stolon 安装一起部署，但也适用于独立部署。
 
 # CAVEATS
 
-Stolon deployment required. Kubernetes or etcd. PostgreSQL specific.
+需要 Stolon 部署环境。依赖 Kubernetes 或 etcd。仅针对 PostgreSQL。
 
 # HISTORY
 
-**stolonctl** is the CLI for **Stolon**, a cloud-native PostgreSQL high-availability manager.
+**stolonctl** 是 **Stolon** 的 CLI，Stolon 是一个云原生 PostgreSQL 高可用管理器。
 
 # SEE ALSO
 

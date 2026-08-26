@@ -1,14 +1,14 @@
 # TAGLINE
 
-Link external unit files to systemd
+将外部单元文件链接到 systemd
 
 # TLDR
 
-**Link** unit file
+**链接**单元文件
 
 ```systemctl link [path/to/unit.service]```
 
-Link **multiple** unit files
+链接**多个**单元文件
 
 ```systemctl link [path/to/unit1.service path/to/unit2.service ...]```
 
@@ -18,17 +18,17 @@ Link **multiple** unit files
 
 # DESCRIPTION
 
-**systemctl link** creates a symbolic link in the unit file search path pointing to a unit file located elsewhere. This makes the unit available to systemd commands without copying the file.
+**systemctl link** 在单元文件搜索路径中创建一个符号链接，指向位于其他位置的单元文件。这样无需复制文件即可让 systemd 命令使用该单元。
 
-The link is created in `/etc/systemd/system/` (or the user equivalent with `--user`). The original file must be an absolute path.
+链接创建在 `/etc/systemd/system/` 中（使用 `--user` 时为对应的用户目录）。原始文件必须使用绝对路径。
 
 # CAVEATS
 
-The linked file must remain in place; removing it breaks the link. Use `systemctl disable` to remove the link. The linked unit is not automatically enabled; use `systemctl enable` after linking to start at boot.
+被链接的文件必须保持在原位；删除它会破坏链接。请使用 `systemctl disable` 移除链接。被链接的单元不会被自动启用；如需开机启动，请在链接后使用 `systemctl enable`。
 
 # HISTORY
 
-The **link** subcommand allows testing or using unit files stored outside standard locations, useful during development or when unit files are managed by external configuration management systems.
+**link** 子命令允许测试或使用存放在标准位置之外的单元文件，在开发过程中或单元文件由外部配置管理系统管理时非常有用。
 
 # SEE ALSO
 

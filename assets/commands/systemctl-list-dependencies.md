@@ -1,30 +1,30 @@
 # TAGLINE
 
-Show unit dependency tree
+显示单元依赖树
 
 # TLDR
 
-Show **default.target** dependencies
+显示 **default.target** 的依赖
 
 ```systemctl list-dependencies```
 
-Show dependencies for **specific unit**
+显示**特定单元**的依赖
 
 ```systemctl list-dependencies [unit]```
 
-Show **all** dependency types
+显示**所有**依赖类型
 
 ```systemctl list-dependencies [unit] -a```
 
-Filter by **unit type**
+按**单元类型**过滤
 
 ```systemctl list-dependencies [unit] -t [service|socket|target|mount]```
 
-Show **reverse** dependencies
+显示**反向**依赖
 
 ```systemctl list-dependencies [unit] --reverse```
 
-Output without **headers**
+输出时不带**表头**
 
 ```systemctl list-dependencies [unit] --no-legend```
 
@@ -35,33 +35,33 @@ Output without **headers**
 # PARAMETERS
 
 **-a, --all**
-> Include all dependency types (not just Requires and Wants)
+> 包括所有依赖类型（不只是 Requires 和 Wants）
 
 **-t, --type=** _TYPE_
-> Filter by unit type
+> 按单元类型过滤
 
 **--reverse**
-> Show units that depend on this unit instead
+> 改为显示依赖于该单元的其他单元
 
 **--no-legend**
-> Suppress header and footer (for scripts)
+> 不显示表头和页脚（用于脚本）
 
 **--no-pager**
-> Disable pager
+> 禁用分页器
 
 # DESCRIPTION
 
-**systemctl list-dependencies** displays a unit's dependency tree in a hierarchical format. By default, it shows Requires and Wants dependencies. With `--all`, it includes all dependency types (After, Before, Conflicts, etc.).
+**systemctl list-dependencies** 以层级结构显示单元的依赖树。默认只显示 Requires 和 Wants 依赖。使用 `--all` 时会包含所有依赖类型（After、Before、Conflicts 等）。
 
-The `--reverse` option inverts the view, showing which units depend on the specified unit rather than what it depends on.
+`--reverse` 选项会反转视图，显示哪些单元依赖于指定单元，而不是它依赖哪些单元。
 
 # CAVEATS
 
-The tree can be very large for targets like default.target. Active units are marked differently from inactive ones. The output represents configuration, not runtime state.
+对于 default.target 这类 target，依赖树可能非常庞大。活动单元与未激活单元的标记不同。该输出反映的是配置关系，而非运行时状态。
 
 # HISTORY
 
-The **list-dependencies** subcommand helps understand the complex dependency relationships in systemd, essential for debugging boot issues and understanding service ordering.
+**list-dependencies** 子命令帮助理解 systemd 中复杂的依赖关系，对排查启动问题以及理解服务启动顺序至关重要。
 
 # SEE ALSO
 

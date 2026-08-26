@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fast TypeScript execution with esbuild
+基于 esbuild 的快速 TypeScript 执行器
 
 # TLDR
 
-**Run a TypeScript file**
+**运行 TypeScript 文件**
 
 ```tsx [script.ts]```
 
-**Run with watch mode**
+**以监视模式运行**
 
 ```tsx watch [script.ts]```
 
-**Start TypeScript REPL**
+**启动 TypeScript REPL**
 
 ```tsx```
 
-**Run as Node.js loader**
+**作为 Node.js 加载器运行**
 
 ```node --import tsx [script.ts]```
 
-**Run with environment variables**
+**使用环境变量运行**
 
 ```tsx [script.ts] --env-file [.env]```
 
-**Pass arguments to script**
+**向脚本传递参数**
 
 ```tsx [script.ts] -- [arg1] [arg2]```
 
@@ -37,42 +37,42 @@ Fast TypeScript execution with esbuild
 # PARAMETERS
 
 **watch**
-> Watch mode: restart on file changes.
+> 监视模式：文件变化时重启。
 
 **--tsconfig** _file_
-> Path to tsconfig.json file.
+> tsconfig.json 文件路径。
 
 **--env-file** _file_
-> Load environment variables from file.
+> 从文件加载环境变量。
 
 **--no-cache**
-> Disable transform caching.
+> 禁用转换缓存。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**tsx** (TypeScript Execute) is an enhanced Node.js runtime that seamlessly runs TypeScript and ESM files. It uses esbuild for fast transpilation, making it ideal for development and scripting.
+**tsx**（TypeScript Execute）是一个增强版 Node.js 运行时，可以无缝运行 TypeScript 和 ESM 文件。它使用 esbuild 进行快速转译，非常适合开发和脚本场景。
 
-The tool requires zero configuration and works without a tsconfig.json file. It supports both CommonJS and ES modules, handles path aliases from tsconfig.json, and includes a watch mode for development.
+该工具零配置即可使用，没有 tsconfig.json 文件也能工作。它同时支持 CommonJS 和 ES 模块，能处理 tsconfig.json 中的路径别名，并带有面向开发的监视模式。
 
-tsx is a drop-in replacement for node, supporting all Node.js command-line flags. It transpiles TypeScript on-the-fly without writing JavaScript files to disk.
+tsx 是 node 的直接替代品，支持所有 Node.js 命令行选项。它即时转译 TypeScript，不会把 JavaScript 文件写入磁盘。
 
-Note that tsx focuses on execution speed and does not perform type checking. Use tsc or your editor for type checking.
+注意 tsx 专注于执行速度，不做类型检查。类型检查请使用 tsc 或你的编辑器。
 
-Install globally: `npm install -g tsx`
+全局安装：`npm install -g tsx`
 
 # CAVEATS
 
-Does not perform type checking. Adds slight startup overhead for transpilation. For production, pre-compile TypeScript with tsc. Works best with dynamically linked Node.js features.
+不执行类型检查。转译会带来轻微的启动开销。生产环境请用 tsc 预编译 TypeScript。与动态链接的 Node.js 特性配合效果最佳。
 
 # HISTORY
 
-**tsx** was created by Hiroki Osame (privatenumber) as a modern alternative to ts-node. It prioritizes speed and simplicity, leveraging esbuild for near-instant transpilation. The project has become popular for running TypeScript during development.
+**tsx** 由 Hiroki Osame（privatenumber）创建，作为 ts-node 的现代化替代方案。它优先考虑速度和简洁性，借助 esbuild 实现近乎即时的转译。该项目已成为开发阶段运行 TypeScript 的流行选择。
 
 # INSTALL
 

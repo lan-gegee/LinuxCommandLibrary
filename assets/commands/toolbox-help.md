@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display Toolbx help information
+显示 Toolbx 帮助信息
 
 # TLDR
 
-Display **manual**
+显示**手册**
 
 ```toolbox help```
 
-Help for **subcommand**
+**子命令**的帮助
 
 ```toolbox help [subcommand]```
 
@@ -19,11 +19,11 @@ Help for **subcommand**
 # PARAMETERS
 
 **COMMAND**
-> Subcommand to get help for
+> 要获取帮助的子命令
 
 # DESCRIPTION
 
-**toolbox help** displays help information about Toolbx and its subcommands. Without arguments, it shows the general manual. With a subcommand name, it displays detailed help for that specific command.
+**toolbox help** 显示关于 Toolbx 及其子命令的帮助信息。不带参数时，显示通用手册；给出子命令名称时，则显示该特定命令的详细帮助。
 
 # INSTALL
 

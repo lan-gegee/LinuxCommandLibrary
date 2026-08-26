@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage encrypted volume mappings
+管理加密卷映射
 
 # TLDR
 
-**Attach** (open) encrypted volume
+**挂载**（打开）加密卷
 
 ```systemd-cryptsetup attach [mapping_name] [/dev/sdXY]```
 
-Attach with **options**
+带**选项**挂载
 
 ```systemd-cryptsetup attach [mapping_name] [/dev/sdXY] none [crypttab_options]```
 
-Attach with **keyfile**
+使用**密钥文件**挂载
 
 ```systemd-cryptsetup attach [mapping_name] [/dev/sdXY] [/path/to/keyfile] [options]```
 
-**Detach** (close) mapping
+**卸载**（关闭）映射
 
 ```systemd-cryptsetup detach [mapping_name]```
 
@@ -28,17 +28,17 @@ Attach with **keyfile**
 
 # DESCRIPTION
 
-**systemd-cryptsetup** creates or removes decrypted mappings of encrypted LUKS volumes. It is the systemd equivalent of `cryptsetup open` and `cryptsetup close`.
+**systemd-cryptsetup** 创建或移除加密 LUKS 卷的解密映射。它相当于 systemd 版的 `cryptsetup open` 和 `cryptsetup close`。
 
-Arguments follow the same format as `/etc/crypttab` entries. This tool is primarily used internally by systemd to unlock encrypted devices during boot based on crypttab configuration.
+参数格式与 `/etc/crypttab` 条目相同。该工具主要由 systemd 在内部使用，根据 crypttab 配置在启动时解锁加密设备。
 
 # CAVEATS
 
-Typically called by systemd automatically, not manually. The mapping appears at `/dev/mapper/<name>`. Supports all crypttab options like luks, discard, etc.
+通常由 systemd 自动调用，而非手动执行。映射会出现在 `/dev/mapper/<name>`。支持所有 crypttab 选项，如 luks、discard 等。
 
 # HISTORY
 
-**systemd-cryptsetup** integrates encrypted volume management with systemd's boot process, enabling automatic unlocking based on `/etc/crypttab` configuration.
+**systemd-cryptsetup** 将加密卷管理整合进 systemd 的启动流程，可根据 `/etc/crypttab` 配置实现自动解锁。
 
 # INSTALL
 

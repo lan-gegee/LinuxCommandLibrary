@@ -1,30 +1,30 @@
 # TAGLINE
 
-Set X11 window transparency
+设置 X11 窗口透明度
 
 # TLDR
 
-**Set window transparency by clicking**
+**通过点击设置窗口透明度**
 
 ```transset [0.8]```
 
-**Set transparency for specific window ID**
+**为特定窗口 ID 设置透明度**
 
 ```transset -i [0x1400003] [0.75]```
 
-**Toggle transparency on clicked window**
+**切换被点击窗口的透明状态**
 
 ```transset -t```
 
-**Increase transparency of clicked window**
+**增加被点击窗口的透明度**
 
 ```transset --inc [0.1]```
 
-**Decrease transparency of clicked window**
+**降低被点击窗口的透明度**
 
 ```transset --dec [0.1]```
 
-**Apply to all windows**
+**应用到所有窗口**
 
 ```transset -a [0.9]```
 
@@ -35,47 +35,47 @@ Set X11 window transparency
 # PARAMETERS
 
 **-i**, **--id** _id_
-> Select window by X window ID.
+> 按 X 窗口 ID 选择窗口。
 
 **-n**, **--name** _name_
-> Select window by name.
+> 按名称选择窗口。
 
 **-t**, **--toggle**
-> Toggle between current opacity and fully opaque.
+> 在当前不透明度和完全不透明之间切换。
 
 **--inc** _value_
-> Increase opacity by specified amount.
+> 将不透明度增加指定数值。
 
 **--dec** _value_
-> Decrease opacity by specified amount.
+> 将不透明度降低指定数值。
 
 **-a**, **--all**
-> Apply to all windows.
+> 应用到所有窗口。
 
 **-p**, **--point**
-> Select window under pointer (default).
+> 选择指针下的窗口（默认行为）。
 
 **-v**, **--verbose**
-> Print verbose output.
+> 输出详细日志。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**transset** sets window transparency in X11 by modifying the _NET_WM_WINDOW_OPACITY property on windows. The opacity value ranges from 0 (fully transparent) to 1 (fully opaque), with 0.75 as the default.
+**transset** 通过修改窗口的 _NET_WM_WINDOW_OPACITY 属性来设置 X11 窗口透明度。不透明度取值范围为 0（完全透明）到 1（完全不透明），默认值为 0.75。
 
-The tool requires a compositing window manager (such as picom, xcompmgr, KWin, or Mutter) to actually render the transparency. Without a compositor, the property is set but no visual effect occurs.
+该工具需要合成窗口管理器（如 picom、xcompmgr、KWin 或 Mutter）才能真正渲染透明效果。若没有合成器，属性虽然会被设置，但不会产生任何视觉效果。
 
-By default, transset enters interactive mode where clicking on a window sets its transparency. Window ID or name options allow non-interactive scripted use.
+默认情况下，transset 进入交互模式，点击某个窗口即可设置其透明度。窗口 ID 或名称选项则支持非交互式的脚本化使用。
 
 # CAVEATS
 
-Requires a running compositing manager for visible effects. X11 only; does not work on Wayland. Some applications may not respect transparency settings. Window IDs change between sessions.
+需要正在运行的合成管理器才能看到效果。仅支持 X11；在 Wayland 上无法使用。某些应用程序可能不理会透明度设置。窗口 ID 在不同会话之间会变化。
 
 # HISTORY
 
-**transset** was developed as part of the X.Org project to demonstrate and utilize the COMPOSITE extension. The transset-df variant by Daniel Forchheimer added command-line options for scripted use without interactive clicking.
+**transset** 作为 X.Org 项目的一部分开发，用于演示和使用 COMPOSITE 扩展。Daniel Forchheimer 开发的 transset-df 变体增加了命令行选项，无需交互式点击即可在脚本中使用。
 
 # INSTALL
 

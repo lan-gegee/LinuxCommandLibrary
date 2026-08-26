@@ -1,46 +1,46 @@
 # TAGLINE
 
-Fast source code line counter
+快速的源代码行数统计工具
 
 # TLDR
 
-**Count lines of code in the current directory**
+**统计当前目录中的代码行数**
 
 ```tokei```
 
-**Count a specific directory**
+**统计特定目录**
 
 ```tokei [path/to/project]```
 
-**Count multiple directories**
+**统计多个目录**
 
 ```tokei [path/to/project] [path/to/other]```
 
-**Exclude directories or patterns**
+**排除目录或模式**
 
 ```tokei -e [vendor] -e [node_modules]```
 
-**Show files individually**
+**单独显示每个文件**
 
 ```tokei --files```
 
-**Sort by a specific column**
+**按特定列排序**
 
 ```tokei -s [code]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```tokei -o json```
 
-**Count only specific languages**
+**只统计特定语言**
 
 ```tokei -t [Rust,Python]```
 
-**Show supported languages**
+**显示受支持的语言**
 
 ```tokei --languages```
 
-**Read from a previously saved JSON output**
+**读取先前保存的 JSON 输出**
 
 ```tokei [path/to/project] -i [stats.json]```
 
@@ -51,68 +51,68 @@ Fast source code line counter
 # PARAMETERS
 
 **-e**, **--exclude** _PATTERN_
-> Ignore all files and directories matching the pattern. Uses gitignore syntax. Can be specified multiple times.
+> 忽略所有匹配模式的文件和目录。使用 gitignore 语法。可多次指定。
 
 **-t**, **--type** _TYPES_
-> Filter output by language type, separated by a comma (e.g. Rust,Markdown).
+> 按语言类型过滤输出，逗号分隔（例如 Rust,Markdown）。
 
 **-s**, **--sort** _COLUMN_
-> Sort languages by column. Possible values: files, lines, blanks, code, comments. Default: alphabetical by language name.
+> 按列对语言排序。可选值：files、lines、blanks、code、comments。默认：按语言名称字母顺序。
 
 **-o**, **--output** _FORMAT_
-> Output in a machine-readable format. Possible values: json, yaml, cbor.
+> 以机器可读格式输出。可选值：json、yaml、cbor。
 
 **-i**, **--input** _FILE_
-> Read in the output of a previous tokei run and combine it with the current results. Pass a file path or "stdin" to read from stdin.
+> 读入上一次 tokei 运行的输出并与当前结果合并。传入文件路径或 "stdin" 从标准输入读取。
 
 **-f**, **--files**
-> Print statistics for individual files instead of aggregating by language.
+> 打印单个文件的统计信息，而不是按语言汇总。
 
 **-l**, **--languages**
-> Print a list of all supported languages and their file extensions.
+> 打印所有受支持语言及其文件扩展名的列表。
 
 **--hidden**
-> Count hidden files and directories (those beginning with a dot).
+> 统计隐藏文件和目录（以点开头的那些）。
 
 **--no-ignore**
-> Don't respect any ignore files (.gitignore, .ignore, etc.). Implies --no-ignore-parent, --no-ignore-dot, and --no-ignore-vcs.
+> 不遵循任何 ignore 文件（.gitignore、.ignore 等）。隐含 --no-ignore-parent、--no-ignore-dot 和 --no-ignore-vcs。
 
 **--no-ignore-dot**
-> Don't respect .ignore and .tokeignore files, including those in parent directories.
+> 不遵循 .ignore 和 .tokeignore 文件，包括父目录中的那些。
 
 **--no-ignore-parent**
-> Don't respect ignore files in parent directories.
+> 不遵循父目录中的 ignore 文件。
 
 **--no-ignore-vcs**
-> Don't respect VCS ignore files (.gitignore, .hgignore, etc.), including those in parent directories.
+> 不遵循 VCS ignore 文件（.gitignore、.hgignore 等），包括父目录中的那些。
 
 **-c**, **--columns** _NUM_
-> Set a strict column width for terminal output.
+> 为终端输出设置严格的列宽。
 
 **-v**, **--verbose**
-> Increase log output level. Use up to three times (-vvv) for more detail.
+> 提高日志输出级别。最多可使用三次（-vvv）以获得更多细节。
 
 # DESCRIPTION
 
-**tokei** counts lines of code quickly and accurately. It identifies languages by file extension, categorising lines as code, comments, or blank, and groups results by language.
+**tokei** 快速而准确地统计代码行数。它根据文件扩展名识别语言，将各行归类为代码、注释或空白，并按语言分组结果。
 
-The tool is written in Rust with parallel file processing, making it capable of counting millions of lines in seconds. Results show a per-language breakdown with a grand total.
+该工具用 Rust 编写并采用并行文件处理，能够在数秒内统计数百万行代码。结果显示各语言的明细及总计。
 
-Language detection supports over 150 languages with correct handling of multi-line comments, nested comments, and strings containing comment-like syntax.
+语言检测支持超过 150 种语言，能正确处理多行注释、嵌套注释以及包含类注释语法的字符串。
 
-File filtering respects .gitignore and .ignore files by default, which excludes generated code and dependency directories. Additional patterns can be excluded with **-e**, or a .tokeignore file can be used with the same syntax as .gitignore.
+文件过滤默认遵循 .gitignore 和 .ignore 文件，从而排除生成的代码和依赖目录。可以用 **-e** 排除额外的模式，也可以使用与 .gitignore 语法相同的 .tokeignore 文件。
 
-Individual file mode (**--files**) shows statistics per file rather than aggregated by language, useful for identifying verbose or generated files.
+单文件模式（**--files**）显示每个文件的统计信息而非按语言汇总，有助于识别冗长或生成的文件。
 
-Machine-readable output (JSON, YAML, CBOR) enables integration with other tools and CI/CD pipelines. A previous run's JSON output can be fed back in with **--input** to combine results across separate directory trees.
+机器可读输出（JSON、YAML、CBOR）便于与其他工具和 CI/CD 流水线集成。可将上一次运行的 JSON 输出通过 **--input** 反馈回来，合并不同目录树的结果。
 
 # CAVEATS
 
-Lines of code is an imperfect metric. Generated code may skew results. Multi-language files (e.g. Markdown with embedded code blocks) are counted once under the primary language but embedded sub-language totals are shown separately. Extension-based detection may misidentify some files. Binary files are skipped. CBOR and YAML output require tokei to be compiled with the corresponding feature flags.
+代码行数并非完美的度量指标。生成的代码可能使结果产生偏差。多语言文件（例如内嵌代码块的 Markdown）只计入主语言，但嵌入子语言的总量会单独显示。基于扩展名的检测可能误判某些文件。二进制文件会被跳过。CBOR 和 YAML 输出要求 tokei 编译时启用相应的 feature 标志。
 
 # HISTORY
 
-**tokei** was created by **Erin Power** (XAMPPRocky) around **2016**. The Japanese name (時計) means "clock." Written in Rust for performance, it became a popular alternative to cloc and other line counting tools.
+**tokei** 由 **Erin Power**（XAMPPRocky）于 **2016 年**前后创建。其日文名（時計）意为“时钟”。它用 Rust 编写以保证性能，已成为 cloc 及其他代码行统计工具的热门替代品。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage TigerGraph Cloud instances
+管理 TigerGraph Cloud 实例
 
 # TLDR
 
-**Log in** to TigerGraph Cloud
+**登录** TigerGraph Cloud
 
 ```tgcloud login```
 
-**List solutions** (cloud instances)
+**列出解决方案**（云实例）
 
 ```tgcloud solution list```
 
-**Create a solution** interactively
+以交互方式**创建解决方案**
 
 ```tgcloud solution create```
 
-**Start a solution**
+**启动解决方案**
 
 ```tgcloud solution start [solution_id]```
 
-**Stop a solution**
+**停止解决方案**
 
 ```tgcloud solution stop [solution_id]```
 
-**Terminate (delete) a solution**
+**终止（删除）解决方案**
 
 ```tgcloud solution terminate [solution_id]```
 
-**Backup a solution**
+**备份解决方案**
 
 ```tgcloud backup create [solution_id]```
 
@@ -39,50 +39,50 @@ Manage TigerGraph Cloud instances
 # SUBCOMMANDS
 
 **login**
-> Authenticate against TigerGraph Cloud using your account credentials or API token.
+> 使用你的账户凭据或 API 令牌向 TigerGraph Cloud 进行身份验证。
 
 **logout**
-> Sign out of the current session.
+> 退出当前会话。
 
 **solution list**
-> List all solutions (cloud instances) in the account.
+> 列出账户中的所有解决方案（云实例）。
 
 **solution create**
-> Create a new solution (configure region, tier, version, etc.).
+> 创建新的解决方案（配置区域、套餐、版本等）。
 
 **solution start** _id_ / **solution stop** _id_
-> Start or stop a solution.
+> 启动或停止解决方案。
 
 **solution terminate** _id_
-> Permanently delete a solution and its data.
+> 永久删除解决方案及其数据。
 
 **backup create** _id_ / **backup list** _id_ / **backup restore** _id_
-> Manage solution backups.
+> 管理解决方案的备份。
 
 **user list**
-> List users in the organization.
+> 列出组织中的用户。
 
 # PARAMETERS
 
 **--help**, **-h**
-> Show command help.
+> 显示命令帮助。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**tgcloud** is the command-line interface for managing TigerGraph Cloud graph database instances ("solutions"). It provides programmatic control over cloud-hosted TigerGraph deployments, enabling instance lifecycle management (create, start, stop, terminate), backup operations, and user/organization management.
+**tgcloud** 是用于管理 TigerGraph Cloud 图数据库实例（即"解决方案"）的命令行界面。它提供对云端托管的 TigerGraph 部署的程序化控制，支持实例生命周期管理（创建、启动、停止、终止）、备份操作以及用户和组织管理。
 
-The tool is designed for automation and scripting workflows, allowing DevOps teams to manage TigerGraph Cloud infrastructure from the terminal or CI/CD pipelines without using the web console.
+该工具面向自动化和脚本化工作流设计，让 DevOps 团队可以在终端或 CI/CD 流水线中管理 TigerGraph Cloud 基础设施，而无需使用 Web 控制台。
 
 # CAVEATS
 
-Requires a TigerGraph Cloud account and active subscription. Authentication via **tgcloud login** is mandatory before other commands. Terminate operations are irreversible and delete all data in the solution unless a backup exists.
+需要有 TigerGraph Cloud 账户和有效订阅。在执行其他命令前必须先通过 **tgcloud login** 进行身份验证。终止操作不可逆，除非已有备份，否则会删除解决方案中的所有数据。
 
 # HISTORY
 
-**tgcloud** is the official CLI for **TigerGraph Cloud**, the managed offering of the TigerGraph graph database platform.
+**tgcloud** 是 **TigerGraph Cloud** 的官方 CLI，后者是 TigerGraph 图数据库平台的托管版本。
 
 # SEE ALSO
 

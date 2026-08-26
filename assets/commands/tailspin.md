@@ -1,18 +1,18 @@
 # TAGLINE
 
-Log file highlighter with zero configuration
+零配置的日志文件高亮工具
 
 # TLDR
 
-**View a log file with highlighting**
+带高亮地**查看日志文件**
 
 ```tspin [application.log]```
 
-**Follow a log file like tail -f**
+像 tail -f 一样**跟踪日志文件**
 
 ```tspin -f [/var/log/syslog]```
 
-**Pipe live logs through tailspin**
+将实时日志通过管道传给 tailspin
 
 ```kubectl logs -f [pod_name] | tspin```
 
@@ -22,11 +22,11 @@ Log file highlighter with zero configuration
 
 # DESCRIPTION
 
-**tailspin** highlights log files by automatically recognizing patterns like dates, IP addresses, UUIDs, URLs, severity keywords, numbers, and more. It requires no setup and works consistently across any log format. Uses **less** as its pager by default.
+**tailspin** 会自动识别日期、IP 地址、UUID、URL、严重级别关键词、数字等模式，从而高亮显示日志文件。它无需任何设置，对任意日志格式都能一致工作。默认使用 **less** 作为分页器。
 
 # HISTORY
 
-**tailspin** was created by **Ben Sadeh** (bensadeh) and is written in **Rust**.
+**tailspin** 由 **Ben Sadeh**（bensadeh）创建，采用 **Rust** 编写。
 
 # INSTALL
 

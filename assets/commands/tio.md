@@ -1,26 +1,26 @@
 # TAGLINE
 
-Simple serial device terminal emulator
+简单的串口设备终端模拟器
 
 # TLDR
 
-**Connect to serial device**
+**连接串口设备**
 
 ```tio [/dev/ttyUSB0]```
 
-**Connect with baud rate**
+**以指定波特率连接**
 
 ```tio -b [115200] [/dev/ttyUSB0]```
 
-**Connect with settings**
+**带参数连接**
 
 ```tio -b [9600] -d [8] -s [1] -p [none] [/dev/ttyUSB0]```
 
-**Enable local echo**
+**启用本地回显**
 
 ```tio -e [/dev/ttyUSB0]```
 
-**Log session to file**
+**将会话记录到文件**
 
 ```tio -l [session.log] [/dev/ttyUSB0]```
 
@@ -31,38 +31,38 @@ Simple serial device terminal emulator
 # PARAMETERS
 
 **-b** _rate_
-> Baud rate (default 115200).
+> 波特率（默认 115200）。
 
 **-d** _bits_
-> Data bits (5, 6, 7, 8).
+> 数据位（5、6、7、8）。
 
 **-s** _bits_
-> Stop bits (1, 2).
+> 停止位（1、2）。
 
 **-p** _parity_
-> Parity (none, odd, even).
+> 校验位（none、odd、even）。
 
 **-e**
-> Enable local echo.
+> 启用本地回显。
 
 **-l** _file_
-> Log to file.
+> 记录到文件。
 
 **-t**
-> Enable timestamps.
+> 启用时间戳。
 
 **-m** _map_
-> Map special characters.
+> 映射特殊字符。
 
 # DESCRIPTION
 
-**tio** is a simple serial device terminal emulator designed as a modern, user-friendly alternative to minicom and screen for serial communication. It connects to serial ports with sensible defaults (115200 baud, 8N1) and supports automatic reconnection when a device is plugged in or becomes available.
+**tio** 是一款简单的串口设备终端模拟器，定位为 minicom 和 screen 在串口通信上的现代化、易用替代品。它以合理的默认值（115200 波特率，8N1）连接串口，并支持在设备插入或变为可用时自动重连。
 
-The tool provides essential serial communication features including configurable baud rates, data bits, stop bits, parity settings, local echo, session logging, and timestamps. The prefix key **Ctrl+t** provides access to in-session commands, with **Ctrl+t q** to quit.
+该工具提供基本的串口通信特性，包括可配置的波特率、数据位、停止位和校验位设置、本地回显、会话日志以及时间戳。前缀键 **Ctrl+t** 提供会话内命令入口，其中 **Ctrl+t q** 用于退出。
 
 # CAVEATS
 
-Press **Ctrl+t q** to quit the terminal session.
+按 **Ctrl+t q** 退出终端会话。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ Press **Ctrl+t q** to quit the terminal session.
 # SEE ALSO
 
 [minicom](/man/minicom)(1), [screen](/man/screen)(1), [picocom](/man/picocom)(1)
-

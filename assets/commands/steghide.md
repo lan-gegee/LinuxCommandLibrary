@@ -1,34 +1,34 @@
 # TAGLINE
 
-Hide data within image and audio files
+在图像和音频文件中隐藏数据
 
 # TLDR
 
-**Embed** data in an image
+将数据**嵌入**图像
 
 ```steghide embed -cf [path/to/image.jpg] -ef [path/to/data.txt]```
 
-**Extract** data from a file
+从文件中**提取**数据
 
 ```steghide extract -sf [path/to/image.jpg]```
 
-Display **file information**
+显示**文件信息**
 
 ```steghide info [path/to/file.jpg]```
 
-Embed with **maximum compression**
+以**最大压缩率**嵌入
 
 ```steghide embed -cf [path/to/image.jpg] -ef [path/to/data.txt] -z 9```
 
-List **encryption algorithms**
+列出**加密算法**
 
 ```steghide encinfo```
 
-Embed with **specific encryption**
+以**指定的加密方式**嵌入
 
 ```steghide embed -cf [path/to/image.jpg] -ef [path/to/data.txt] -e blowfish cbc```
 
-Extract to **specific file**
+提取到**指定文件**
 
 ```steghide extract -sf [path/to/image.jpg] -xf [path/to/output.txt]```
 
@@ -39,71 +39,71 @@ Extract to **specific file**
 # COMMANDS
 
 **embed**
-> Hide data in a cover file
+> 将数据隐藏到载体文件（cover file）中
 
 **extract**
-> Retrieve hidden data from stego file
+> 从隐写文件（stego file）中取回隐藏数据
 
 **info**
-> Display file information and detect embedded data
+> 显示文件信息并检测嵌入的数据
 
 **encinfo**
-> List available encryption algorithms and modes
+> 列出可用的加密算法和模式
 
 # PARAMETERS
 
 **-cf, --coverfile** _file_
-> Cover file for embedding
+> 用于嵌入的载体文件
 
 **-ef, --embedfile** _file_
-> File to embed (stdin if omitted)
+> 要嵌入的文件（省略时使用 stdin）
 
 **-sf, --stegofile** _file_
-> Stego file (input for extract, output for embed)
+> 隐写文件（extract 的输入，embed 的输出）
 
 **-xf, --extractfile** _file_
-> Output filename for extracted data
+> 提取数据的输出文件名
 
 **-e, --encryption** _algo_ [_mode_]
-> Encryption algorithm and mode (default: rijndael-128 cbc)
+> 加密算法和模式（默认：rijndael-128 cbc）
 
 **-z, --compress** _level_
-> Compression level 1-9
+> 压缩级别 1-9
 
 **-Z, --dontcompress**
-> Skip compression
+> 跳过压缩
 
 **-p, --passphrase** _pass_
-> Supply passphrase
+> 提供口令
 
 **-K, --nochecksum**
-> Omit CRC32 checksum
+> 省略 CRC32 校验和
 
 **-N, --dontembedname**
-> Don't embed original filename
+> 不嵌入原始文件名
 
 **-f, --force**
-> Overwrite existing files
+> 覆盖现有文件
 
 **-v, --verbose**
-> Detailed output
+> 详细输出
 
 **-q, --quiet**
-> Suppress messages
+> 抑制消息
 
 # DESCRIPTION
 
-**steghide** is a steganography tool that hides data within JPEG, BMP, WAV, and AU files. It compresses and encrypts the secret data before embedding it in positions that preserve the cover file's statistical properties, making detection difficult.
+**steghide** 是一款隐写工具，可将数据隐藏在 JPEG、BMP、WAV 和 AU 文件中。它会先压缩并加密秘密数据，然后将其嵌入到能保持载体文件统计特性的位置，从而增加检测难度。
 
-The tool uses a graph-theoretic approach to find optimal embedding positions. Default encryption is AES-128 in CBC mode with a user-provided passphrase. The embedded data's integrity is verified using CRC32 checksums.
+该工具使用图论方法寻找最优嵌入位置。默认加密为 CBC 模式的 AES-128，配合用户提供的口令。嵌入数据的完整性通过 CRC32 校验和验证。
 
 # CAVEATS
 
-Cover file capacity depends on file size and content; **info** command shows available space. Only JPEG, BMP, WAV, and AU formats are supported as cover files. Heavily compressed images have less embedding capacity. Strong passphrases are essential for security. The cover file is modified in place unless **-sf** specifies a separate output.
+载体文件的容量取决于文件大小与内容；**info** 命令可显示可用空间。仅支持 JPEG、BMP、WAV 和 AU 格式作为载体文件。高度压缩的图像嵌入容量更小。强口令对安全至关重要。除非用 **-sf** 指定单独的输出文件，否则载体文件会被就地修改。
 
 # HISTORY
 
-**steghide** was created by **Stefan Hetzl** and first released in **2003**. It remains one of the most widely used open-source steganography tools, commonly used in CTF competitions, security research, and privacy applications. The tool is available in most Linux distribution repositories.
+**steghide** 由 **Stefan Hetzl** 创建，于 **2003 年**首次发布。它至今仍是最广泛使用的开源隐写工具之一，常用于 CTF 竞赛、安全研究和隐私保护场景。大多数 Linux 发行版的软件仓库中都提供该工具。
 
 # INSTALL
 

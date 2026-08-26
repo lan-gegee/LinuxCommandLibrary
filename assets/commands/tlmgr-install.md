@@ -1,22 +1,22 @@
 # TAGLINE
 
-Install TeX Live packages
+安装 TeX Live 软件包
 
 # TLDR
 
-**Install package**
+**安装软件包**
 
 ```tlmgr install [package]```
 
-**Install multiple packages**
+**安装多个软件包**
 
 ```tlmgr install [package1] [package2]```
 
-**Install with dependencies**
+**连同文档和源码安装**
 
 ```tlmgr install --with-doc --with-src [package]```
 
-**Dry run**
+**试运行**
 
 ```tlmgr install --dry-run [package]```
 
@@ -27,25 +27,24 @@ Install TeX Live packages
 # PARAMETERS
 
 **--with-doc**
-> Include documentation.
+> 包含文档。
 
 **--with-src**
-> Include source files.
+> 包含源文件。
 
 **--dry-run**
-> Show what would be installed.
+> 显示将要安装的内容。
 
 **--file**
-> Package is a local file.
+> 软件包为本地文件。
 
 **--reinstall**
-> Reinstall package.
+> 重新安装软件包。
 
 # DESCRIPTION
 
-**tlmgr install** installs TeX Live packages from CTAN repositories. Resolves dependencies automatically. Part of TeX Live Manager for managing LaTeX packages and fonts.
+**tlmgr install** 从 CTAN 仓库安装 TeX Live 软件包。自动解析依赖。TeX Live Manager 的组成部分，用于管理 LaTeX 软件包和字体。
 
 # SEE ALSO
 
 [tlmgr-remove](/man/tlmgr-remove)(1), [tlmgr-update](/man/tlmgr-update)(1), [tlmgr](/man/tlmgr)(1)
-

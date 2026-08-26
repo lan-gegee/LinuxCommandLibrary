@@ -1,10 +1,10 @@
 # TAGLINE
 
-Reload systemd unit configuration
+重新加载 systemd unit 配置
 
 # TLDR
 
-**Reload** systemd configuration
+**重新加载** systemd 配置
 
 ```systemctl daemon-reload```
 
@@ -14,17 +14,17 @@ Reload systemd unit configuration
 
 # DESCRIPTION
 
-**systemctl daemon-reload** reloads the systemd manager configuration, scanning for new or modified unit files. This command must be run after creating, modifying, or deleting unit files for the changes to take effect.
+**systemctl daemon-reload** 重新加载 systemd 管理器配置，扫描新增或修改过的 unit 文件。创建、修改或删除 unit 文件之后必须运行该命令，更改才能生效。
 
-The reload rescans all unit file directories, updates the dependency tree, and reloads modified units. Running services are not affected; only their configuration is updated for the next start.
+重新加载会重新扫描所有 unit 文件目录，更新依赖树，并重载被修改的 unit。正在运行的服务不受影响；只有它们的配置会在下次启动时更新。
 
 # CAVEATS
 
-Does not restart or affect currently running services. To apply configuration changes to running services, use `systemctl restart` after the reload. Errors in unit files will be reported but won't prevent the reload of other units.
+不会重启或影响当前运行的服务。要将配置更改应用到运行中的服务，请在重载后使用 `systemctl restart`。unit 文件中的错误会被报告，但不会阻止其他 unit 的重载。
 
 # HISTORY
 
-The **daemon-reload** subcommand is a fundamental part of the **systemd** workflow. It provides a safe way to update configuration without interrupting running services.
+**daemon-reload** 子命令是 **systemd** 工作流程的基础部分。它提供了一种在不中断运行服务的情况下安全更新配置的方式。
 
 # SEE ALSO
 

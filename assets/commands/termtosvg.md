@@ -1,22 +1,22 @@
 # TAGLINE
 
-Record terminal sessions as SVG animations
+将终端会话录制为 SVG 动画
 
 # TLDR
 
-**Start recording** (exit shell or Ctrl-D to stop)
+**开始录制**（退出 shell 或按 Ctrl-D 停止）
 
 ```termtosvg```
 
-**Record to a specific file**
+**录制到指定文件**
 
 ```termtosvg [out.svg]```
 
-**Still frames** instead of animation
+输出**静态帧**而非动画
 
 ```termtosvg --still-frames [outdir]```
 
-**Render an asciicast**
+**渲染 asciicast**
 
 ```termtosvg render [recording.cast]```
 
@@ -27,31 +27,31 @@ Record terminal sessions as SVG animations
 
 # DESCRIPTION
 
-**termtosvg** is a Unix terminal recorder written in Python that renders command-line sessions as standalone SVG animations (or still frames). Recordings are lightweight and embeddable on project pages. Custom colour themes and UI chrome are available via SVG templates. It can also render **asciinema** asciicast files.
+**termtosvg** 是一款用 Python 编写的 Unix 终端录制工具，可将命令行会话渲染为独立的 SVG 动画（或静态帧）。录制的文件轻量且可嵌入项目页面。通过 SVG 模板可自定义配色主题和 UI 外框。它还能渲染 **asciinema** 的 asciicast 文件。
 
-Install with **pip3 install termtosvg** (Python >= 3.5) or from distro packages. Invoke as **termtosvg** or **python3 -m termtosvg**.
+使用 **pip3 install termtosvg**（Python >= 3.5）安装，也可通过发行版软件包安装。以 **termtosvg** 或 **python3 -m termtosvg** 方式调用。
 
-**Maintenance status:** as of June 2020 the upstream repository is read-only and unmaintained. Prefer **asciinema** plus other renderers for new projects if you need active support.
+**维护状态：** 自 2020 年 6 月起上游仓库已只读并停止维护。如果你需要活跃支持，新项目请改用 **asciinema** 及其他渲染器。
 
 # PARAMETERS
 
 *output*
 
-> Output SVG path for a live recording (optional; default under a temp/generated name depending on version).
+> 实时录制输出的 SVG 路径（可选；默认使用临时/生成的名称，具体取决于版本）。
 
 **--still-frames** [*dir*]
 
-> Export still frames instead of (or in addition to) animation, when supported.
+> 在支持的情况下导出静态帧而非动画（或同时导出两者）。
 
 **render** *file.cast*
 
-> Render an existing asciicast.
+> 渲染已有的 asciicast。
 
-Template and geometry flags vary by version; see **termtosvg --help** and the templates man page in the repo.
+模板和几何参数因版本而异；参见 **termtosvg --help** 以及仓库中的模板 man 页面。
 
 # CAVEATS
 
-Unmaintained since 2020. Unix-like systems only (Linux, macOS, BSD). SVG playback depends on the viewer; very long sessions produce large files. For actively maintained terminal recording, consider **asciinema**.
+自 2020 年起不再维护。仅支持类 Unix 系统（Linux、macOS、BSD）。SVG 播放效果取决于查看器；非常长的会话会产生很大的文件。如需活跃维护的终端录制工具，可考虑 **asciinema**。
 
 # INSTALL
 

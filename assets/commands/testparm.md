@@ -1,34 +1,34 @@
 # TAGLINE
 
-Check a Samba smb.conf configuration file for correctness
+检查 Samba smb.conf 配置文件的正确性
 
 # TLDR
 
-**Check the default smb.conf** for errors
+**检查默认 smb.conf** 中的错误
 
 ```testparm```
 
-**Check a specific configuration file**
+**检查指定的配置文件**
 
 ```testparm [path/to/smb.conf]```
 
-**Check and suppress the prompt** for pressing Enter between sections
+**检查并抑制**各部分之间按回车的提示
 
 ```testparm -s```
 
-**Show all parameters** including defaults that are not explicitly set
+**显示所有参数**，包括未显式设置的默认值
 
 ```testparm -v```
 
-**Query a specific parameter** value
+**查询特定参数**的值
 
 ```testparm --parameter-name "[server role]"```
 
-**Query a parameter** from a specific share section
+从指定共享节**查询参数**
 
 ```testparm --parameter-name "[path]" --section-name "[myshare]"```
 
-**Check if a specific host** has access to services
+**检查特定主机**是否可访问服务
 
 ```testparm [path/to/smb.conf] [hostname] [host_ip]```
 
@@ -39,60 +39,60 @@ Check a Samba smb.conf configuration file for correctness
 # PARAMETERS
 
 **-s**, **--suppress-prompt**
-> Do not prompt for a carriage return after displaying service names.
+> 显示服务名后不再提示按回车。
 
 **-v**, **--verbose**
-> Show all options, including defaults not explicitly set in the configuration.
+> 显示所有选项，包括配置中未显式设置的默认值。
 
 **-l**, **--skip-logic-checks**
-> Skip global validation logic checks.
+> 跳过全局验证逻辑检查。
 
 **--parameter-name** _NAME_
-> Print the value of a specific parameter. Use a colon to specify section context.
+> 打印特定参数的值。可用冒号指定所在节。
 
 **--section-name** _NAME_
-> Restrict **--parameter-name** output to a specific configuration section.
+> 将 **--parameter-name** 的输出限制在特定配置节。
 
 **--show-all-parameters**
-> Show all parameters with their types and possible values.
+> 显示所有参数及其类型和可能取值。
 
 **-d**, **--debuglevel** _LEVEL_
-> Set debug verbosity level (0-10, default 1).
+> 设置调试详细级别（0-10，默认 1）。
 
 **--debug-stdout**
-> Send debug output to stdout instead of stderr.
+> 将调试输出发送到 stdout 而非 stderr。
 
 **--configfile** _FILE_
-> Specify the configuration file location.
+> 指定配置文件的位置。
 
 **--option** _NAME=VALUE_
-> Set a specific smb.conf option on the command line.
+> 在命令行设置特定的 smb.conf 选项。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-?**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**testparm** is a Samba utility that validates **smb.conf** configuration files for internal correctness. It parses the configuration, checks for syntax errors and invalid parameter values, and reports any problems found. If the file loads successfully, it displays all known service definitions.
+**testparm** 是一款 Samba 工具，用于验证 **smb.conf** 配置文件的内部正确性。它解析配置、检查语法错误和无效的参数值，并报告发现的任何问题。如果文件加载成功，它会显示所有已知的服务定义。
 
-When a hostname and IP address are provided as arguments, testparm also checks whether the specified host would be granted or denied access to each configured service, based on the **hosts allow** and **hosts deny** directives.
+当以参数形式提供主机名和 IP 地址时，testparm 还会根据 **hosts allow** 和 **hosts deny** 指令，检查指定主机对每个已配置服务是允许还是拒绝访问。
 
-The tool returns exit code **0** on success and **1** on error, making it suitable for use in scripts and automated deployment pipelines.
+该工具成功时返回退出码 **0**，出错时返回 **1**，因此适合在脚本和自动化部署流水线中使用。
 
 # CONFIGURATION
 
-The default configuration file is **/etc/samba/smb.conf**. Pass an alternative path as the first positional argument to check a different file. Use **--option** to override individual settings during validation.
+默认配置文件为 **/etc/samba/smb.conf**。将其他路径作为第一个位置参数传入即可检查别的文件。校验期间可用 **--option** 覆盖个别设置。
 
 # CAVEATS
 
-testparm checks for **syntactic correctness** but cannot guarantee that services will work as intended. A file that passes validation may still have logical errors (e.g. pointing to non-existent paths or conflicting share permissions). Weak cryptographic algorithm warnings (DES, ARCFOUR, SHA1, MD5) are informational and relate to Samba's cryptographic fallback behavior.
+testparm 检查的是**语法正确性**，但无法保证服务会按预期工作。通过验证的文件仍可能存在逻辑错误（例如指向不存在的路径或相互冲突的共享权限）。弱加密算法警告（DES、ARCFOUR、SHA1、MD5）仅供参考，与 Samba 的加密回退行为有关。
 
 # HISTORY
 
-**testparm** has been part of the **Samba** suite since its early releases. Samba was originally written by **Andrew Tridgell** in **1992** to provide SMB/CIFS file and print services on Unix. The testparm utility was created to help administrators validate configuration changes before restarting the Samba daemons, reducing downtime from misconfiguration.
+**testparm** 自早期版本起就是 **Samba** 套件的一部分。Samba 由 **Andrew Tridgell** 于 **1992** 年编写，最初用于在 Unix 上提供 SMB/CIFS 文件和打印服务。testparm 工具的创建目的是帮助管理员在重启 Samba 守护进程前验证配置变更，减少因配置错误导致的停机。
 
 # INSTALL
 

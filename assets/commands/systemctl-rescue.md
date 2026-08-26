@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enter single-user rescue mode
+进入单用户救援模式
 
 # TLDR
 
-Switch the system into **rescue** target (single-user-like)
+将系统切换到**救援** target（类似单用户模式）
 
 ```systemctl rescue```
 
-Request rescue mode **without waiting** for completion
+请求救援模式时**不等待**完成
 
 ```systemctl --no-block rescue```
 
@@ -19,21 +19,21 @@ Request rescue mode **without waiting** for completion
 # PARAMETERS
 
 **--no-block**
-> Return immediately without waiting
+> 立即返回而不等待
 
 # DESCRIPTION
 
-**systemctl rescue** transitions the system to rescue mode (`rescue.target`), a single-user environment for system maintenance. Most services are stopped, but more are available than in emergency mode.
+**systemctl rescue** 将系统切换到救援模式（`rescue.target`），这是一个用于系统维护的单用户环境。大多数服务会被停止，但比紧急模式下可用的功能更多。
 
-Rescue mode provides a shell with basic system services, networking may be available, and all filesystems are typically mounted read-write.
+救援模式提供一个带有基本系统服务的 Shell，网络可能可用，所有文件系统通常以读写方式挂载。
 
 # CAVEATS
 
-Requires root privileges. Most user services and network services will be stopped. Use rescue mode for system maintenance tasks like filesystem repairs or package recovery.
+需要 root 权限。大多数用户服务和网络服务会被停止。请将救援模式用于文件系统修复或软件包恢复等系统维护任务。
 
 # HISTORY
 
-The **rescue** subcommand provides the systemd equivalent of traditional single-user mode (runlevel 1), offering a minimal but functional recovery environment.
+**rescue** 子命令提供 systemd 版本的传统单用户模式（运行级别 1），提供一个精简但可用的恢复环境。
 
 # SEE ALSO
 

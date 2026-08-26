@@ -1,18 +1,18 @@
 # TAGLINE
 
-Directory tree visualization for AWS S3 buckets
+AWS S3 存储桶的目录树可视化工具
 
 # TLDR
 
-**Display tree structure of an S3 bucket**
+**显示 S3 存储桶的树形结构**
 
 ```stree [my-bucket] -p [my_profile]```
 
-**Show tree with depth limit of 3**
+**以深度限制 3 显示目录树**
 
 ```stree [my-bucket/data] -p [my_profile] -L 3```
 
-**Display tree using LocalStack**
+**使用 LocalStack 显示目录树**
 
 ```stree [my-bucket] -l```
 
@@ -23,24 +23,24 @@ Directory tree visualization for AWS S3 buckets
 # PARAMETERS
 
 **-p** _PROFILE_
-> AWS profile name to use.
+> 要使用的 AWS 配置文件名称。
 
 **-r** _REGION_
-> AWS region.
+> AWS 区域。
 
 **-L** _LEVEL_
-> Maximum directory depth to display.
+> 显示的最大目录深度。
 
 **-l**
-> Use LocalStack for local testing.
+> 使用 LocalStack 进行本地测试。
 
 # DESCRIPTION
 
-**stree** is a CLI tool that displays the directory tree structure of AWS S3 buckets with colorized output. It supports custom AWS profiles, region configuration, depth-level control, LocalStack for local testing, and MFA role-switching capability.
+**stree** 是一个以彩色输出显示 AWS S3 存储桶目录树结构的 CLI 工具。它支持自定义 AWS 配置文件、区域配置、深度层级控制、用于本地测试的 LocalStack，以及 MFA 角色切换功能。
 
 # HISTORY
 
-**stree** was created by **orangekame3** and is written in **Go**.
+**stree** 由 **orangekame3** 创建，使用 **Go** 编写。
 
 # INSTALL
 

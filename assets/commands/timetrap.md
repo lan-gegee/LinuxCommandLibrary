@@ -1,34 +1,34 @@
 # TAGLINE
 
-Simple command-line time tracking
+简单的命令行时间跟踪工具
 
 # TLDR
 
-**Start timer**
+**启动计时器**
 
 ```timetrap in "[task description]"```
 
-**Stop timer**
+**停止计时器**
 
 ```timetrap out```
 
-**Show current**
+**显示当前状态**
 
 ```timetrap now```
 
-**Display today**
+**显示今天**
 
 ```timetrap display```
 
-**Switch sheet**
+**切换表单**
 
 ```timetrap sheet [project]```
 
-**List sheets**
+**列出表单**
 
 ```timetrap list```
 
-**Edit entry**
+**编辑条目**
 
 ```timetrap edit```
 
@@ -39,41 +39,41 @@ Simple command-line time tracking
 # PARAMETERS
 
 **in**
-> Start tracking.
+> 开始跟踪。
 
 **out**
-> Stop tracking.
+> 停止跟踪。
 
 **now**
-> Current status.
+> 当前状态。
 
 **display**
-> Show entries.
+> 显示条目。
 
 **sheet**
-> Switch timesheet.
+> 切换时间表。
 
 **list**
-> List sheets.
+> 列出表单。
 
 **edit**
-> Edit entries.
+> 编辑条目。
 
 # DESCRIPTION
 
-**timetrap** is a simple command-line time tracking tool that uses a clock in/out model. You start a timer with **in** and stop it with **out**, and entries are stored in a local SQLite database for reliable, portable storage.
+**timetrap** 是一款简单的命令行时间跟踪工具，采用打卡进出模式。用 **in** 启动计时器，用 **out** 停止，条目存储在本地 SQLite 数据库中，可靠且便于迁移。
 
-Time entries are organized into sheets, which act as separate timesheets for different projects or clients. Switching between sheets with the **sheet** command makes it easy to track time across multiple activities without mixing entries.
+时间条目按表单组织，每个表单相当于不同项目或客户独立的时间表。通过 **sheet** 命令在多个表单之间切换，可以轻松跟踪多项活动而不会混淆条目。
 
-The **display** command shows logged entries with calculated durations, and reporting features provide time summaries for billing or review. Entries can be edited after the fact to correct mistakes or add notes.
+**display** 命令显示已记录的条目及其计算出的时长，报表功能可生成用于计费或回顾的时间汇总。条目可以事后编辑，以纠正错误或添加备注。
 
 # CAVEATS
 
-Ruby required. Command-line only. Manual entry.
+需要 Ruby。仅支持命令行。手动录入。
 
 # HISTORY
 
-**timetrap** was created as a simple command-line time tracking tool using SQLite for storage.
+**timetrap** 诞生之初就是一个使用 SQLite 存储的简单命令行时间跟踪工具。
 
 # INSTALL
 

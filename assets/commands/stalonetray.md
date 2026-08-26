@@ -1,34 +1,34 @@
 # TAGLINE
 
-Stand-alone X11 system tray
+独立的 X11 系统托盘
 
 # TLDR
 
-**Start stalonetray** with default settings
+**以默认设置启动 stalonetray**
 
 ```stalonetray```
 
-**Start with custom background color**
+**以自定义背景色启动**
 
 ```stalonetray --background "[#2e3440]"```
 
-**Start with custom icon size**
+**以自定义图标大小启动**
 
 ```stalonetray --icon-size [32]```
 
-**Start with window strut** to reserve screen space
+**以窗口 strut 启动**以预留屏幕空间
 
 ```stalonetray --window-strut [auto]```
 
-**Start in dockapp mode** for WindowMaker
+**以 dockapp 模式启动**（面向 WindowMaker）
 
 ```stalonetray --dockapp-mode [wmaker]```
 
-**Start with icons growing from bottom-right**
+**以图标从右下角生长的方式启动**
 
 ```stalonetray --icon-gravity [SE]```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```stalonetray --config [~/.config/stalonetray/stalonetrayrc]```
 
@@ -39,70 +39,70 @@ Stand-alone X11 system tray
 # PARAMETERS
 
 **-bg**, **--background** _color_
-> Tray background color (hex triplet or X11 color name).
+> 托盘背景色（十六进制三元组或 X11 颜色名）。
 
 **-i**, **--icon-size** _n_
-> Default icon size in pixels. Default: 24, minimum: 16.
+> 默认图标大小（像素）。默认：24，最小：16。
 
 **--icon-gravity** _gravity_
-> Icon positioning gravity: **NW**, **NE**, **SW**, or **SE**. Default: NW.
+> 图标定位的重力方向：**NW**、**NE**、**SW** 或 **SE**。默认：NW。
 
 **--grow-gravity** _gravity_
-> Direction for tray growth: **NW**, **NE**, **SW**, **SE**, **N**, **S**, **E**, or **W**.
+> 托盘生长方向：**NW**、**NE**、**SW**、**SE**、**N**、**S**、**E** 或 **W**。
 
 **--geometry** _geometry_
-> Initial tray window geometry (WIDTHxHEIGHT+X+Y).
+> 托盘初始窗口几何尺寸（WIDTHxHEIGHT+X+Y）。
 
 **--max-geometry** _geometry_
-> Maximum tray dimensions.
+> 托盘的最大尺寸。
 
 **--window-type** _type_
-> EWMH window type: **desktop**, **dock**, **normal**, **toolbar**, **utility**. Default: dock.
+> EWMH 窗口类型：**desktop**、**dock**、**normal**、**toolbar**、**utility**。默认：dock。
 
 **--window-strut** _mode_
-> Reserve screen space: **auto**, **top**, **bottom**, **left**, **right**, or **none**.
+> 预留屏幕空间：**auto**、**top**、**bottom**、**left**、**right** 或 **none**。
 
 **-d**, **--dockapp-mode** _mode_
-> Dockapp mode: **none**, **simple**, or **wmaker**.
+> Dockapp 模式：**none**、**simple** 或 **wmaker**。
 
 **--slot-size** _size_
-> Grid slot size for icon placement.
+> 用于放置图标的网格槽位大小。
 
 **--sticky**
-> Make tray window appear on all desktops.
+> 让托盘窗口出现在所有桌面上。
 
 **--skip-taskbar**
-> Remove tray window from taskbar.
+> 将托盘窗口从任务栏移除。
 
 **--kludges** _list_
-> Enable workarounds: fix_window_pos, force_icons_size, use_icons_hints.
+> 启用变通方案：fix_window_pos、force_icons_size、use_icons_hints。
 
 **--log-level** _level_
-> Logging verbosity: **err**, **info**, or **trace**.
+> 日志详细程度：**err**、**info** 或 **trace**。
 
 **-c**, **--config** _file_
-> Configuration file path.
+> 配置文件路径。
 
 # DESCRIPTION
 
-**stalonetray** is a stand-alone system tray (notification area) implementation for X11. It provides a minimalist tray that works with any EWMH-compliant window manager, making it ideal for lightweight setups or window managers without built-in system trays.
+**stalonetray** 是一个面向 X11 的独立系统托盘（通知区域）实现。它提供一个极简的托盘，可与任何符合 EWMH 标准的窗口管理器配合工作，非常适合轻量级环境或没有内置系统托盘的窗口管理器。
 
-The tray supports the freedesktop.org System Tray Protocol and XEMBED specification for embedding application icons. It can be positioned anywhere on screen and configured to reserve space (struts) so other windows don't overlap it.
+该托盘支持 freedesktop.org 系统托盘协议和用于嵌入应用程序图标的 XEMBED 规范。它可以放置在屏幕上的任意位置，并可配置为预留空间（strut），避免其他窗口与其重叠。
 
-Configuration can be done via command-line options or a configuration file at **~/.stalonetrayrc**. The file uses keyword-argument pairs with command-line options taking precedence.
+配置可以通过命令行选项或 **~/.stalonetrayrc** 配置文件完成。文件使用"关键字-参数"对的形式，命令行选项的优先级更高。
 
 # CONFIGURATION
 
 **~/.stalonetrayrc**
-> Default configuration file using keyword-argument pairs matching command-line option names (e.g., background #2e3440, icon_size 24).
+> 默认配置文件，使用与命令行选项名对应的"关键字-参数"对（例如 background #2e3440、icon_size 24）。
 
 # CAVEATS
 
-Some applications may not properly support the system tray protocol, requiring **--kludges** options. Window type **dock** may behave differently across window managers. Build requires only Xlib and optionally libXinerama. The trace log level requires building with --enable-debug.
+某些应用程序可能不能正确支持系统托盘协议，需要使用 **--kludges** 选项。窗口类型 **dock** 在不同窗口管理器下的行为可能不同。构建只需要 Xlib，可选 libXinerama。trace 日志级别需要以 --enable-debug 构建。
 
 # HISTORY
 
-**stalonetray** was created as a minimal, dependency-free system tray implementation for X11. It fills the need for a system tray in window managers that don't provide one natively, such as i3, bspwm, or dwm. The project follows the freedesktop.org specifications for system tray interoperability.
+**stalonetray** 作为一个极简、无依赖的 X11 系统托盘实现而创建。它填补了那些原生不提供系统托盘的窗口管理器（如 i3、bspwm 或 dwm）的需求空白。该项目遵循 freedesktop.org 的系统托盘互操作性规范。
 
 # INSTALL
 

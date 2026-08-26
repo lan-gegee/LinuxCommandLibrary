@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display Terraform state or plan in human-readable form
+以人类可读形式显示 Terraform 状态或计划
 
 # TLDR
 
-**Show the current state**
+**显示当前状态**
 
 ```terraform show```
 
-**Show a saved plan file**
+**显示已保存的计划文件**
 
 ```terraform show [plan.tfplan]```
 
-**Output state as JSON**
+**以 JSON 输出状态**
 
 ```terraform show -json```
 
-**Output a plan file as JSON**
+**以 JSON 输出计划文件**
 
 ```terraform show -json [plan.tfplan]```
 
-**Show state without color**
+**无颜色显示状态**
 
 ```terraform show -no-color```
 
@@ -31,24 +31,24 @@ Display Terraform state or plan in human-readable form
 # PARAMETERS
 
 **-json**
-> Output the state or plan in machine-readable JSON format. Sensitive values are shown in plain text.
+> 以机器可读的 JSON 格式输出状态或计划。敏感值会以明文显示。
 
 **-no-color**
-> Disable terminal color codes in the output.
+> 禁用输出中的终端颜色代码。
 
 # DESCRIPTION
 
-**terraform show** reads and displays Terraform state or plan files in a human-readable format. When called without a file argument, it renders the latest state snapshot, showing all managed resources and their current attribute values. When given a plan file (created by **terraform plan -out**), it displays the proposed changes including resources to be created, modified, or destroyed.
+**terraform show** 以人类可读格式读取并显示 Terraform 状态或计划文件。不带文件参数调用时，它会渲染最新的状态快照，显示所有受管资源及其当前属性值。给定计划文件（由 **terraform plan -out** 创建）时，它显示拟议的变更，包括将被创建、修改或销毁的资源。
 
-The **-json** flag produces structured JSON output suitable for processing by external tools, CI/CD pipelines, or policy engines. The JSON format includes the full resource state, planned changes, and provider configuration.
+**-json** 标志生成结构化的 JSON 输出，适合外部工具、CI/CD 流水线或策略引擎处理。该 JSON 格式包含完整的资源状态、计划的变更以及 provider 配置。
 
 # CAVEATS
 
-The **-json** flag exposes **sensitive values in plain text**, including passwords, tokens, and keys stored in state. State files should be treated as sensitive data. The JSON output format requires Terraform **0.12 or later**, and the schema may change between major versions. When using **-json** with a plan file, the plan must have been created without **-refresh=false**.
+**-json** 标志会**以明文暴露敏感值**，包括存储在状态中的密码、令牌和密钥。状态文件应被视为敏感数据。JSON 输出格式要求 Terraform **0.12 或更高版本**，且其模式可能在大版本之间变化。对计划文件使用 **-json** 时，该计划必须是在未使用 **-refresh=false** 的情况下创建的。
 
 # HISTORY
 
-The **show** subcommand has been available since early Terraform releases by **HashiCorp**. JSON output support was added in **Terraform 0.12** (May 2019) as part of a broader effort to provide machine-readable output across all commands. The JSON output schema has been incrementally extended to cover additional resource metadata and planned change details.
+**show** 子命令自 **HashiCorp** 早期的 Terraform 版本起即可用。JSON 输出支持加入于 **Terraform 0.12**（2019 年 5 月），是让所有命令提供机器可读输出这一更广泛工作的一部分。此后 JSON 输出模式被逐步扩展，覆盖了更多资源元数据和计划变更细节。
 
 # INSTALL
 

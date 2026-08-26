@@ -1,22 +1,22 @@
 # TAGLINE
 
-List scheduled timer units
+列出已调度的定时器单元
 
 # TLDR
 
-List **active** timers
+列出**活动的**定时器
 
 ```systemctl list-timers```
 
-List **all** timers
+列出**全部**定时器
 
 ```systemctl list-timers -a```
 
-Filter by **pattern**
+按**模式**过滤
 
 ```systemctl list-timers [pattern]```
 
-Filter by **state**
+按**状态**过滤
 
 ```systemctl list-timers --state [active|inactive|failed]```
 
@@ -27,44 +27,44 @@ Filter by **state**
 # PARAMETERS
 
 **-a, --all**
-> Include inactive timers
+> 包括未激活的定时器
 
 **--state=** _STATE_
-> Filter by state
+> 按状态过滤
 
 **--no-legend**
-> Suppress header and footer
+> 不显示表头和页脚
 
 **--no-pager**
-> Disable pager
+> 禁用分页器
 
 # DESCRIPTION
 
-**systemctl list-timers** displays timer units currently active in memory. The output shows next activation time, time until activation, last trigger time, time since last trigger, the timer unit, and the unit it activates.
+**systemctl list-timers** 显示当前内存中处于活动状态的定时器单元。输出内容包括下次触发时间、距离下次触发的剩余时间、上次触发时间、距上次触发经过的时间、定时器单元以及它激活的单元。
 
-Timer units are systemd's replacement for cron, providing scheduled activation of services with more flexibility and better logging integration.
+定时器单元是 systemd 对 cron 的替代方案，以更高的灵活性和更好的日志集成来提供服务的定时激活。
 
 # OUTPUT COLUMNS
 
-**NEXT** - Next scheduled activation
+**NEXT** - 下次计划触发时间
 
-**LEFT** - Time until next activation
+**LEFT** - 距离下次触发的剩余时间
 
-**LAST** - Previous trigger time
+**LAST** - 上次触发时间
 
-**PASSED** - Time since last trigger
+**PASSED** - 距上次触发经过的时间
 
-**UNIT** - Timer unit name
+**UNIT** - 定时器单元名称
 
-**ACTIVATES** - Unit triggered by this timer
+**ACTIVATES** - 由该定时器触发的单元
 
 # CAVEATS
 
-Times are relative to the current time. Transient timers created with `systemd-run` also appear here. Some system timers run very infrequently (weekly, monthly).
+时间是相对于当前时间的。通过 `systemd-run` 创建的临时定时器也会出现在这里。某些系统定时器的运行频率很低（每周、每月一次）。
 
 # HISTORY
 
-The **list-timers** subcommand provides an overview of scheduled tasks, replacing traditional `crontab -l` listings with richer information about timing and triggered services.
+**list-timers** 子命令提供定时任务的概览，取代传统的 `crontab -l` 列表，并提供更丰富的时间和触发服务信息。
 
 # SEE ALSO
 

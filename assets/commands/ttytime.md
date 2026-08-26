@@ -1,18 +1,18 @@
 # TAGLINE
 
-Show duration of ttyrec recordings
+显示 ttyrec 录像的时长
 
 # TLDR
 
-**Show duration of a recording**
+**显示单个录像的时长**
 
 ```ttytime [recording.tty]```
 
-**Show duration of multiple recordings**
+**显示多个录像的时长**
 
 ```ttytime [file1.tty] [file2.tty] [file3.tty]```
 
-**Show duration of all recordings in directory**
+**显示目录中所有录像的时长**
 
 ```ttytime [*.tty]```
 
@@ -22,15 +22,15 @@ Show duration of ttyrec recordings
 
 # DESCRIPTION
 
-**ttytime** displays the total playback duration of ttyrec recordings in seconds. It reads the timing information embedded in ttyrec files and calculates the total elapsed time from start to finish.
+**ttytime** 以秒为单位显示 ttyrec 录像的总播放时长。它读取 ttyrec 文件中内嵌的计时信息，并计算从头到尾的总耗时。
 
-The output shows the duration followed by the filename for each file specified. This is useful for quickly checking recording lengths without playing them back, organizing recordings, or scripting based on session duration.
+输出会为每个指定文件显示时长及其文件名。这样无需回放即可快速查看录像长度、整理录像，或基于会话时长编写脚本。
 
-Multiple files can be specified to get durations for a batch of recordings at once.
+可以一次指定多个文件，批量获取一组录像的时长。
 
 # OUTPUT FORMAT
 
-Output consists of duration in seconds followed by the filename:
+输出由秒数和文件名组成：
 
 ```
 173 session1.tty
@@ -40,11 +40,11 @@ Output consists of duration in seconds followed by the filename:
 
 # CAVEATS
 
-Only works with ttyrec format files. Duration reflects timing data, not actual content length. Corrupted recordings may report incorrect times.
+仅适用于 ttyrec 格式的文件。时长反映的是计时数据，而不是实际内容长度。损坏的录像可能报告错误的时间。
 
 # HISTORY
 
-**ttytime** was created as a companion utility to ttyrec and ttyplay to provide quick duration information without requiring full playback. It's part of the ttyrec package commonly used in the Unix community for recording and sharing terminal sessions.
+**ttytime** 作为 ttyrec 和 ttyplay 的配套工具而创建，无需完整回放即可快速获取时长信息。它是 ttyrec 软件包的一部分，该软件包在 Unix 社区中常用于录制和分享终端会话。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fast domain name availability research tool
+快速的域名可注册性调研工具
 
 # TLDR
 
-**Check domain availability across TLDs**
+**跨 TLD 检查域名可用性**
 
 ```tldx [myapp] --tlds com,io,dev```
 
-**Show only available domains with prefixes/suffixes**
+**配合前缀/后缀只显示可注册的域名**
 
 ```tldx [cloud] --prefixes get,my --suffixes hub,ly --available```
 
-**JSON output with max length filter**
+**JSON 输出并带最大长度过滤**
 
 ```tldx [startup] --format json --max-length 15```
 
@@ -23,30 +23,30 @@ Fast domain name availability research tool
 # PARAMETERS
 
 **--tlds** _LIST_
-> Comma-separated list of TLDs to check.
+> 要检查的 TLD 列表，逗号分隔。
 
 **--prefixes** _LIST_
-> Comma-separated prefixes to prepend.
+> 要前置的前缀列表，逗号分隔。
 
 **--suffixes** _LIST_
-> Comma-separated suffixes to append.
+> 要追加的后缀列表，逗号分隔。
 
 **--available**
-> Show only available domains.
+> 只显示可注册的域名。
 
 **--format** _FORMAT_
-> Output format: text, json, csv, or grouped.
+> 输出格式：text、json、csv 或 grouped。
 
 **--max-length** _N_
-> Maximum domain name length.
+> 域名最大长度。
 
 # DESCRIPTION
 
-**tldx** generates domain name combinations from keywords, prefixes, and suffixes, then checks their availability via WHOIS lookups using concurrent goroutines. It supports multiple output formats and TLD presets for quick searches.
+**tldx** 从关键字、前缀和后缀生成域名组合，然后使用并发 goroutine 通过 WHOIS 查询检查其可注册性。它支持多种输出格式和 TLD 预设，便于快速检索。
 
 # HISTORY
 
-**tldx** was created by **Brandon Young** (brandonyoungdev) and is written in **Go**.
+**tldx** 由 **Brandon Young**（brandonyoungdev）创建，使用 **Go** 编写。
 
 # INSTALL
 

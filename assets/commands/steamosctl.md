@@ -1,38 +1,38 @@
 # TAGLINE
 
-SteamOS system and hardware management tool
+SteamOS 系统与硬件管理工具
 
 # TLDR
 
-**Get all system properties**
+**获取所有系统属性**
 
 ```steamosctl get-all-properties```
 
-**Get the current fan control state**
+**获取当前的风扇控制状态**
 
 ```steamosctl get-fan-control-state```
 
-**Set fan control** to OS-managed
+**将风扇控制**设为操作系统管理
 
 ```steamosctl set-fan-control-state os```
 
-**Get current TDP limit**
+**获取当前 TDP 限制**
 
 ```steamosctl get-tdp-limit```
 
-**Set TDP limit** in watts
+**以瓦特为单位设置 TDP 限制**
 
 ```steamosctl set-tdp-limit [15]```
 
-**Set GPU performance level**
+**设置 GPU 性能级别**
 
 ```steamosctl set-gpu-performance-level [auto|low|high|manual]```
 
-**Set max battery charge level**
+**设置最大电池充电水平**
 
 ```steamosctl set-max-charge-level [80]```
 
-**Get the device model**
+**获取设备型号**
 
 ```steamosctl get-device-model```
 
@@ -42,79 +42,79 @@ SteamOS system and hardware management tool
 
 # DESCRIPTION
 
-**steamosctl** is a command-line utility for managing SteamOS system hardware and software settings. It communicates with the **steamos-manager** daemon over D-Bus to control hardware features on devices running SteamOS, including the Steam Deck and other supported handhelds.
+**steamosctl** 是一个用于管理 SteamOS 系统硬件和软件设置的命令行工具。它通过 D-Bus 与 **steamos-manager** 守护进程通信，控制运行 SteamOS 的设备上的硬件功能，包括 Steam Deck 和其他支持的手持设备。
 
-The steamos-manager system consists of a user daemon on the session bus and a root daemon on the system bus for privileged operations. steamosctl provides command-line access to all exposed functionality including fan control, CPU and GPU tuning, TDP limits, Wi-Fi configuration, battery management, and firmware updates.
+steamos-manager 系统由会话总线上的用户守护进程和系统总线上的 root 守护进程组成，后者负责特权操作。steamosctl 提供对所有公开功能的命令行访问，包括风扇控制、CPU 与 GPU 调节、TDP 限制、Wi-Fi 配置、电池管理和固件更新。
 
 # COMMANDS
 
 **get-fan-control-state** / **set-fan-control-state** _\<bios|os\>_
-> Get or set the fan control mode.
+> 获取或设置风扇控制模式。
 
 **get-cpu-scaling-governor** / **set-cpu-scaling-governor** _\<governor\>_
-> Get or set the CPU scaling governor.
+> 获取或设置 CPU 调频策略。
 
 **get-cpu-boost-state** / **set-cpu-boost-state** _\<enabled|disabled\>_
-> Get or set CPU boost.
+> 获取或设置 CPU 加速。
 
 **get-gpu-performance-level** / **set-gpu-performance-level** _\<auto|low|high|manual|profile_peak\>_
-> Get or set GPU performance level.
+> 获取或设置 GPU 性能级别。
 
 **get-gpu-power-profile** / **set-gpu-power-profile** _\<profile\>_
-> Get or set GPU power profile.
+> 获取或设置 GPU 功耗配置。
 
 **get-manual-gpu-clock** / **set-manual-gpu-clock** _\<freq\>_
-> Get or set manual GPU clock frequency in MHz.
+> 获取或设置手动 GPU 频率（MHz）。
 
 **get-tdp-limit** / **set-tdp-limit** _\<watts\>_
-> Get or set TDP limit.
+> 获取或设置 TDP 限制。
 
 **get-tdp-limit-min** / **get-tdp-limit-max**
-> Get minimum or maximum allowed TDP values.
+> 获取允许的最小或最大 TDP 值。
 
 **get-performance-profile** / **set-performance-profile** _\<profile\>_
-> Get or set performance profile.
+> 获取或设置性能配置。
 
 **get-wifi-backend** / **set-wifi-backend** _\<iwd|wpa_supplicant\>_
-> Get or set Wi-Fi backend.
+> 获取或设置 Wi-Fi 后端。
 
 **get-wifi-power-management-state** / **set-wifi-power-management-state** _\<enabled|disabled\>_
-> Get or set Wi-Fi power management.
+> 获取或设置 Wi-Fi 电源管理。
 
 **get-hdmi-cec-state** / **set-hdmi-cec-state** _\<disabled|control-only|control-and-wake\>_
-> Get or set HDMI-CEC state.
+> 获取或设置 HDMI-CEC 状态。
 
 **get-max-charge-level** / **set-max-charge-level** _\<1-100|-1\>_
-> Get or set max battery charge level. Use -1 for default.
+> 获取或设置最大电池充电水平。-1 表示默认值。
 
 **update-bios**
-> Update the BIOS firmware.
+> 更新 BIOS 固件。
 
 **update-dock**
-> Update dock firmware.
+> 更新扩展坞固件。
 
 **trim-devices**
-> Trim applicable storage drives.
+> 对适用的存储驱动器执行 TRIM。
 
 **prepare-factory-reset** _\<user|os|all\>_
-> Prepare a factory reset.
+> 准备恢复出厂设置。
 
 **reload-config**
-> Reload configuration from disk.
+> 从磁盘重新加载配置。
 
 **get-all-properties**
-> Get all properties from the manager.
+> 获取管理器的所有属性。
 
 **get-device-model**
-> Get the model and variant of the device.
+> 获取设备的型号与变体。
 
 # CAVEATS
 
-Only available on SteamOS. Requires the **steamos-manager** daemon to be running. Some operations like firmware updates and factory resets require elevated privileges through the system D-Bus daemon. The tool has no traditional man page; documentation lives in the source code.
+仅在 SteamOS 上可用。需要 **steamos-manager** 守护进程正在运行。固件更新和恢复出厂设置等操作需要通过系统 D-Bus 守护进程获得提升的权限。该工具没有传统的 man page；文档位于源代码中。
 
 # HISTORY
 
-**steamosctl** was developed by **Valve** with contributions from **Collabora** and **Igalia** as part of the **steamos-manager** project. Written in **Rust**, it was open-sourced in **May 2025** coinciding with the SteamOS 3.7 release. The tool provides a standardized D-Bus interface enabling third-party handheld devices to support SteamOS hardware management features.
+**steamosctl** 由 **Valve** 开发，**Collabora** 和 **Igalia** 参与贡献，是 **steamos-manager** 项目的一部分。它使用 **Rust** 编写，于 **2025 年 5 月**随 SteamOS 3.7 发布而开源。该工具提供标准化的 D-Bus 接口，使第三方手持设备能够支持 SteamOS 的硬件管理功能。
 
 # SEE ALSO
 

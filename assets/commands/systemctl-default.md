@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enter default system target
+进入默认系统 target
 
 # TLDR
 
-Enter **default** mode
+进入**默认**模式
 
 ```systemctl default```
 
-Enter default mode **asynchronously**
+**异步**进入默认模式
 
 ```systemctl default --no-block```
 
@@ -19,21 +19,21 @@ Enter default mode **asynchronously**
 # PARAMETERS
 
 **--no-block**
-> Return immediately without waiting for the operation to complete
+> 立即返回，不等待操作完成
 
 # DESCRIPTION
 
-**systemctl default** transitions the system to the default target, typically `graphical.target` or `multi-user.target` depending on system configuration. This is equivalent to `systemctl isolate default.target`.
+**systemctl default** 将系统切换到默认 target，通常是 `graphical.target` 或 `multi-user.target`（取决于系统配置）。它等价于 `systemctl isolate default.target`。
 
-This command is useful for returning a system to normal operation after being in rescue or emergency mode.
+该命令适合在救援或紧急模式之后将系统恢复到正常运行状态。
 
 # CAVEATS
 
-The default target is determined by the symlink at `/etc/systemd/system/default.target`. Switching targets may stop services that are not required by the new target.
+默认 target 由 `/etc/systemd/system/default.target` 处的符号链接决定。切换 target 可能会停止新 target 不需要的服务。
 
 # HISTORY
 
-The **default** subcommand provides a convenient way to return to normal system operation without needing to know the specific default target name.
+**default** 子命令提供了一种便捷方式来返回正常系统操作，无需了解具体的默认 target 名称。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Anonymizing onion routing network daemon
+匿名洋葱路由网络守护进程
 
 # TLDR
 
-Start **Tor** client
+启动 **Tor** 客户端
 
 ```tor```
 
-Use specific **configuration file**
+使用指定的**配置文件**
 
 ```tor -f /etc/tor/torrc```
 
-**Verify** configuration syntax
+**校验**配置语法
 
 ```tor --verify-config```
 
-Generate **hashed password** for control port
+为控制端口生成**哈希密码**
 
 ```tor --hash-password mypassword```
 
-Display **version** information
+显示**版本**信息
 
 ```tor --version```
 
@@ -30,49 +30,49 @@ Display **version** information
 
 # DESCRIPTION
 
-**tor** is a connection-oriented anonymizing communication service. Users establish source-routed paths through a distributed network of relays where each node only knows its neighboring nodes, not the full path. This enables anonymous TCP stream routing for web browsing, FTP, SSH, and other services.
+**tor** 是一种面向连接的匿名通信服务。用户通过分布式中继网络建立源路由路径，每个节点只知道与其相邻的节点，而不了解完整路径。这为网页浏览、FTP、SSH 等服务提供匿名的 TCP 流路由。
 
 # PARAMETERS
 
 **-h, --help**
-> Display help message and exit
+> 显示帮助信息并退出
 
 **-f, --torrc-file FILE**
-> Specify configuration file location
+> 指定配置文件位置
 
 **--verify-config**
-> Verify configuration file syntax and exit
+> 校验配置文件语法后退出
 
 **--hash-password PASSWORD**
-> Generate hashed control port password
+> 生成哈希后的控制端口密码
 
 **--version**
-> Display version information
+> 显示版本信息
 
 **--keygen**
-> Generate ed25519 master identity key for relays
+> 为中继生成 ed25519 主身份密钥
 
 **--list-fingerprint**
-> Generate keys and output fingerprint
+> 生成密钥并输出指纹
 
 **--quiet**
-> Only log errors during startup
+> 启动期间只记录错误日志
 
 # CONFIGURATION
 
 **/etc/tor/torrc**
-> Main configuration file specifying SOCKS port, relay settings, hidden services, bridge configuration, and logging options.
+> 主配置文件，用于指定 SOCKS 端口、中继设置、隐藏服务、网桥配置和日志选项。
 
 **-f** _file_
-> Use an alternate configuration file at runtime.
+> 运行时使用其他配置文件。
 
 # CAVEATS
 
-By default, Tor runs as a client-only service. The SOCKS protocol is unencrypted and unauthenticated, so exposing it to untrusted networks could leak information. Configuration files use "OptionName OptionValue" format while command-line uses "--OptionName OptionValue" format.
+默认情况下，Tor 仅作为客户端服务运行。SOCKS 协议不加密也不进行身份验证，因此将其暴露给不可信的网络可能泄露信息。配置文件使用 "OptionName OptionValue" 格式，而命令行使用 "--OptionName OptionValue" 格式。
 
 # HISTORY
 
-**tor** is "The Onion Router," a second-generation anonymity network originally developed by the U.S. Naval Research Laboratory and now maintained by The Tor Project.
+**tor** 即 "The Onion Router"（洋葱路由器），是第二代匿名网络，最初由美国海军研究实验室开发，现由 The Tor Project 维护。
 
 # INSTALL
 

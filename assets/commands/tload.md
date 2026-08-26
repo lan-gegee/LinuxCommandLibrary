@@ -1,26 +1,26 @@
 # TAGLINE
 
-Graphical representation of system load average
+系统负载平均值的图形化表示
 
 # TLDR
 
-**Show a live ASCII graph** of the system load on the current terminal
+**在当前终端上显示实时 ASCII 图表**
 
 ```tload```
 
-**Display the graph on a specific tty** (e.g. a secondary virtual console)
+**在特定 tty 上显示图表**（如辅助虚拟控制台）
 
 ```tload [/dev/tty2]```
 
-**Set the vertical scale** (characters between graph ticks — smaller value = larger scale)
+**设置纵向刻度**（图表刻度之间的字符数——数值越小刻度越大）
 
 ```tload -s [1]```
 
-**Update the graph every 5 seconds** instead of the default
+**每 5 秒刷新一次图表**而非默认值
 
 ```tload -d [5]```
 
-**Combine scale and update interval**
+**组合刻度与刷新间隔**
 
 ```tload -s 2 -d 2```
 
@@ -31,37 +31,37 @@ Graphical representation of system load average
 # PARAMETERS
 
 **-s** _NUMBER_, **--scale** _NUMBER_
-> Vertical scale in characters between graph ticks. A smaller value produces a taller, more sensitive graph.
+> 纵向刻度，以图表刻度之间的字符数表示。数值越小，图表越高、越灵敏。
 
 **-d** _SECONDS_, **--delay** _SECONDS_
-> Seconds between redraws. Setting **-d 0** disables the alarm and freezes the display.
+> 重绘间隔的秒数。设置 **-d 0** 会禁用定时器并冻结显示。
 
 **-h**, **--help**
-> Display help text and exit.
+> 显示帮助文本并退出。
 
 **-V**, **--version**
-> Print version information and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**tload** prints a rolling ASCII graph of the **1-, 5-, and 15-minute load averages** read from **/proc/loadavg** to the specified tty — or to the terminal that started tload if none is given. Each column in the graph represents one sample, so the display scrolls from right to left as new values arrive.
+**tload** 将从 **/proc/loadavg** 读取的 **1 分钟、5 分钟和 15 分钟负载平均值**以滚动的 ASCII 图表打印到指定的 tty——若未指定则为启动 tload 的终端。图表中每一列代表一次采样，因此随着新值的到来，显示会从右向左滚动。
 
-The current load averages are also printed at the top of the screen in the familiar **uptime** format. tload is especially useful on headless servers, serial consoles, and tmux panes where a full curses-based monitor such as **top** or **htop** would be overkill.
+当前负载平均值还会以常见的 **uptime** 格式打印在屏幕顶部。tload 特别适用于无头服务器、串口控制台和 tmux 窗格等场合，在这些场景下使用 **top** 或 **htop** 这类完整的 curses 监控器有些大材小用。
 
-The utility exits on any keystroke (**q**, **Ctrl-C**, etc.) and redraws cleanly on SIGWINCH when the terminal is resized.
+按任意键（**q**、**Ctrl-C** 等）即可退出；终端尺寸变化时会在收到 SIGWINCH 后干净地重绘。
 
 # FILES
 
 **/proc/loadavg**
-> Source file read every update cycle for the three load-average values.
+> 每次刷新周期读取三个负载平均值的来源文件。
 
 # CAVEATS
 
-Passing **-d 0** sets the internal **alarm(2)** timer to zero, which never fires; the display therefore remains static until the process is killed. The vertical scale is in whole characters, so very quiet systems may show a flat line unless **-s 1** is used.
+传入 **-d 0** 会将内部的 **alarm(2)** 定时器设为零，它永远不会触发；因此显示会保持静止，直到进程被终止。纵向刻度以整字符为单位，非常空闲的系统可能只显示一条平线，除非使用 **-s 1**。
 
 # HISTORY
 
-**tload** originated in the early **procps** utilities for Linux (mid-1990s) as a lightweight counterpart to **xload** on systems without X11. It is now maintained as part of the **procps-ng** suite alongside **ps**, **top**, **uptime**, and **w**.
+**tload** 起源于 Linux 早期的 **procps** 工具集（1990 年代中期），是在没有 X11 的系统上对应 **xload** 的轻量替代品。如今它作为 **procps-ng** 套件的一部分与 **ps**、**top**、**uptime** 和 **w** 一同维护。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Translate or delete characters
+转换或删除字符
 
 # TLDR
 
-**Translate characters** (lowercase to uppercase)
+**转换字符**（小写转大写）
 
 ```echo "hello" | tr 'a-z' 'A-Z'```
 
-**Delete specific characters**
+**删除指定字符**
 
 ```echo "hello 123" | tr -d '0-9'```
 
-**Squeeze repeated characters**
+**压缩重复字符**
 
 ```echo "helllo" | tr -s 'l'```
 
-**Replace newlines with spaces**
+**将换行符替换为空格**
 
 ```tr '\n' ' ' < [file]```
 
-**Delete non-printable characters**
+**删除不可打印字符**
 
 ```tr -cd '[:print:]' < [file]```
 
-**Translate spaces to tabs**
+**将空格转换为制表符**
 
 ```tr ' ' '\t' < [file]```
 
-**Delete all except specified characters**
+**删除指定字符以外的所有字符**
 
 ```echo "hello123" | tr -cd '0-9'```
 
@@ -39,47 +39,47 @@ Translate or delete characters
 # PARAMETERS
 
 **-d**, **--delete**
-> Delete characters in set1
+> 删除 set1 中的字符
 
 **-s**, **--squeeze-repeats**
-> Replace repeated characters with single occurrence
+> 将重复出现的字符合并为单个
 
 **-c**, **-C**, **--complement**
-> Use complement of set1
+> 使用 set1 的补集
 
 **-t**, **--truncate-set1**
-> Truncate set1 to length of set2
+> 将 set1 截断为与 set2 相同的长度
 
 # CHARACTER CLASSES
 
-**[:alnum:]**: Letters and digits
-**[:alpha:]**: Letters
-**[:digit:]**: Digits
-**[:lower:]**: Lowercase letters
-**[:upper:]**: Uppercase letters
-**[:space:]**: Whitespace
-**[:blank:]**: Spaces and tabs
-**[:print:]**: Printable characters
-**[:punct:]**: Punctuation
-**[:cntrl:]**: Control characters
+**[:alnum:]**: 字母和数字
+**[:alpha:]**: 字母
+**[:digit:]**: 数字
+**[:lower:]**: 小写字母
+**[:upper:]**: 大写字母
+**[:space:]**: 空白字符
+**[:blank:]**: 空格和制表符
+**[:print:]**: 可打印字符
+**[:punct:]**: 标点符号
+**[:cntrl:]**: 控制字符
 
 # DESCRIPTION
 
-**tr** translates, deletes, or squeezes characters from standard input, writing to standard output. It operates character-by-character, making it efficient for simple transformations.
+**tr** 对标准输入中的字符进行转换、删除或压缩，并将结果写入标准输出。它逐字符操作，因此执行简单转换非常高效。
 
-Translation replaces each character in set1 with the corresponding character in set2. If set2 is shorter, its last character is repeated. If longer, excess characters are ignored.
+转换会把 set1 中的每个字符替换为 set2 中对应位置的字符。如果 set2 更短，则重复其最后一个字符；如果更长，多出的字符会被忽略。
 
-With **-d**, characters in set1 are deleted. With **-s**, repeated characters in set1 are squeezed to single occurrences. Both can be combined.
+使用 **-d** 时，set1 中的字符会被删除。使用 **-s** 时，set1 中重复出现的字符会被压缩为单个。两者可以组合使用。
 
-**-c** complements set1, meaning "all characters NOT in set1." Useful for keeping only specific characters.
+**-c** 取 set1 的补集，即"所有不在 set1 中的字符"，适合只保留特定字符的场景。
 
 # CAVEATS
 
-Tr operates on characters, not strings or patterns. For pattern-based substitution, use **sed** or **awk**.
+Tr 操作的是字符，而不是字符串或模式。需要基于模式的替换时，请使用 **sed** 或 **awk**。
 
-Character classes in brackets must use the [:class:] syntax. Don't confuse with regex [a-z] which also works but differs from [:lower:] in locales.
+方括号中的字符类必须使用 [:class:] 语法。不要与正则表达式 [a-z] 混淆——后者也可用，但在不同 locale 下与 [:lower:] 的含义有所不同。
 
-Tr reads only from stdin; it cannot process files directly. Use redirection or pipes.
+Tr 只从 stdin 读取；无法直接处理文件。请使用重定向或管道。
 
 # INSTALL
 

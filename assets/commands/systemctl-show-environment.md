@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display service manager environment
+显示服务管理器的环境
 
 # TLDR
 
-Show **system** service manager environment
+显示**系统**服务管理器的环境
 
 ```systemctl show-environment```
 
-Show **user** service manager environment
+显示**用户**服务管理器的环境
 
 ```systemctl show-environment --user```
 
-**Filter** for a specific variable
+**过滤**特定变量
 
 ```systemctl show-environment | grep [PATH]```
 
@@ -23,24 +23,24 @@ Show **user** service manager environment
 # PARAMETERS
 
 **--user**
-> Show user service manager environment
+> 显示用户服务管理器的环境
 
 **--system**
-> Show system manager environment (default)
+> 显示系统管理器的环境（默认）
 
 # DESCRIPTION
 
-**systemctl show-environment** displays all environment variables set in the systemd service manager's environment block. These variables are inherited by all services started by the manager.
+**systemctl show-environment** 显示 systemd 服务管理器环境块中设置的所有环境变量。这些变量会被管理器启动的所有服务继承。
 
-The output shows one variable per line in NAME=VALUE format. Use **systemctl set-environment** to add variables and **systemctl unset-environment** to remove them.
+输出每行一个变量，格式为 NAME=VALUE。使用 **systemctl set-environment** 添加变量，使用 **systemctl unset-environment** 移除变量。
 
 # CAVEATS
 
-Shows the manager's environment, not the shell's environment. Variables set with `set-environment` or `import-environment` appear here.
+显示的是管理器的环境，而不是 Shell 的环境。通过 `set-environment` 或 `import-environment` 设置的变量会出现在这里。
 
 # HISTORY
 
-The **show-environment** subcommand provides visibility into what environment variables services will inherit, useful for debugging service configuration.
+**show-environment** 子命令展示服务将继承哪些环境变量，便于调试服务配置。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Sui Move smart contract development tools
+Sui Move 智能合约开发工具
 
 # TLDR
 
-**Build Move package**
+**构建 Move 软件包**
 
 ```sui move build```
 
-**Run tests**
+**运行测试**
 
 ```sui move test```
 
-**Publish package**
+**发布软件包**
 
 ```sui move publish --gas-budget [10000]```
 
-**Create new package**
+**创建新软件包**
 
 ```sui move new [package_name]```
 
@@ -27,29 +27,29 @@ Sui Move smart contract development tools
 # PARAMETERS
 
 **build**
-> Build Move package.
+> 构建 Move 软件包。
 
 **test**
-> Run Move tests.
+> 运行 Move 测试。
 
 **publish**
-> Publish to network.
+> 发布到网络。
 
 **new** _name_
-> Create new package.
+> 创建新软件包。
 
 **prove**
-> Run Move Prover.
+> 运行 Move Prover。
 
 **--gas-budget** _amount_
-> Gas budget for transactions.
+> 交易的 gas 预算。
 
 **--path** _path_
-> Package path.
+> 软件包路径。
 
 # DESCRIPTION
 
-**sui move** manages Move smart contracts on Sui blockchain. Build, test, and deploy Move packages. Part of Sui blockchain development toolkit.
+**sui move** 用于管理 Sui 区块链上的 Move 智能合约，可以构建、测试和部署 Move 软件包，是 Sui 区块链开发工具集的一部分。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ Sui Move smart contract development tools
 # SEE ALSO
 
 [sui-client](/man/sui-client)(1)
-

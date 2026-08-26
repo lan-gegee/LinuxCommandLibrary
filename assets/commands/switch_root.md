@@ -1,10 +1,10 @@
 # TAGLINE
 
-Switch to new root filesystem during boot
+在启动过程中切换到新的根文件系统
 
 # TLDR
 
-**Switch** to a new root filesystem and start init
+**切换**到新的根文件系统并启动 init
 
 ```switch_root [new_root] [/sbin/init]```
 
@@ -15,26 +15,26 @@ Switch to new root filesystem during boot
 # PARAMETERS
 
 **newroot**
-> Path to the new root filesystem
+> 新根文件系统的路径
 
 **init**
-> Path to the init program to execute (relative to new root)
+> 要执行的 init 程序路径（相对于新的根目录）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**switch_root** moves special filesystems (**/proc**, **/dev**, **/sys**, **/run**) to a new root directory and makes it the new root of the mount tree. It then executes the specified init program.
+**switch_root** 将特殊文件系统（**/proc**、**/dev**、**/sys**、**/run**）移动到新的根目录，并将其设为挂载树的新根。然后执行指定的 init 程序。
 
-This command is primarily used in initramfs to transition from the initial RAM filesystem to the real root filesystem. The old root is deleted to free memory before the switch occurs.
+该命令主要用于 initramfs 中，从初始 RAM 文件系统过渡到真正的根文件系统。旧根会在切换发生前被删除以释放内存。
 
 # CAVEATS
 
-The new root must be the root of a mount; the command will fail otherwise. Use bind-mounting as a workaround if needed. Must be run as root. Should only be used during early boot from initramfs. Part of the util-linux package.
+新根必须是某个挂载的根，否则命令会失败；如有需要可用 bind 挂载作为变通。必须以 root 运行。只应在早期引导阶段于 initramfs 中使用。属于 util-linux 软件包的一部分。
 
 # INSTALL
 

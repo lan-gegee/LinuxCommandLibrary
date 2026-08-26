@@ -1,10 +1,10 @@
 # TAGLINE
 
-Alias for try-restart
+try-restart 的别名
 
 # TLDR
 
-This command is an alias of [systemctl try-restart](/man/systemctl-try-restart).
+此命令是 [systemctl try-restart](/man/systemctl-try-restart) 的别名。
 
 # SEE ALSO
 

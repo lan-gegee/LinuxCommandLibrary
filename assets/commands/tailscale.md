@@ -1,38 +1,38 @@
 # TAGLINE
 
-WireGuard-based mesh VPN
+基于 WireGuard 的网状 VPN
 
 # TLDR
 
-**Connect to network**
+**连接网络**
 
 ```tailscale up```
 
-**Disconnect**
+**断开连接**
 
 ```tailscale down```
 
-**Show status**
+**查看状态**
 
 ```tailscale status```
 
-**Show IP addresses**
+**显示 IP 地址**
 
 ```tailscale ip```
 
-**Ping node**
+**Ping 节点**
 
 ```tailscale ping [hostname]```
 
-**SSH to node**
+**SSH 到节点**
 
 ```tailscale ssh [user@hostname]```
 
-**Share file**
+**共享文件**
 
 ```tailscale file cp [file] [hostname:]```
 
-**Receive files**
+**接收文件**
 
 ```tailscale file get [download_dir]```
 
@@ -43,71 +43,71 @@ WireGuard-based mesh VPN
 # PARAMETERS
 
 **up**
-> Connect to Tailscale.
+> 连接到 Tailscale。
 
 **down**
-> Disconnect.
+> 断开连接。
 
 **status**
-> Show network status.
+> 显示网络状态。
 
 **ip** [_-4_] [_-6_]
-> Show IP addresses.
+> 显示 IP 地址。
 
 **ping** _HOST_
-> Ping a Tailscale node.
+> Ping 一个 Tailscale 节点。
 
 **ssh** _TARGET_
-> SSH to node.
+> SSH 到节点。
 
 **file cp** _FILES_ _TARGET:_
-> Copy files.
+> 复制文件。
 
 **file get** [_DIR_]
-> Receive files.
+> 接收文件。
 
 **cert** _DOMAIN_
-> Get TLS certificate.
+> 获取 TLS 证书。
 
 **funnel**
-> Expose to internet.
+> 暴露到互联网。
 
 **serve**
-> Serve content.
+> 对外提供内容服务。
 
 **logout**
-> Log out.
+> 登出。
 
 **--accept-routes**
-> Accept subnet routes.
+> 接受子网路由。
 
 **--advertise-routes** _ROUTES_
-> Advertise routes.
+> 通告路由。
 
 **--exit-node** _NODE_
-> Use exit node.
+> 使用出口节点。
 
 # DESCRIPTION
 
-**tailscale** creates encrypted mesh networks. Devices connect directly using WireGuard, without central servers forwarding traffic.
+**tailscale** 创建加密的网状网络。设备使用 WireGuard 直接互连，没有中央服务器转发流量。
 
-Authentication uses SSO providers. After login, devices join your tailnet (Tailscale network). Each device gets a stable IP.
+认证通过 SSO 提供商完成。登录后，设备加入你的 tailnet（Tailscale 网络）。每台设备都会获得一个稳定的 IP。
 
-MagicDNS provides hostnames for devices. SSH integration enables authentication without managing keys.
+MagicDNS 为设备提供主机名。SSH 集成让身份认证无需管理密钥。
 
-File sharing transfers directly between devices. No cloud storage is involved - files go peer-to-peer.
+文件共享在设备之间直接传输，不涉及云存储——文件点对点直达。
 
-Exit nodes route traffic through specific devices. This enables secure internet access through trusted locations.
+出口节点让流量经由特定设备路由，从而通过可信位置安全地上网。
 
-Funnel exposes services to the internet. Serve provides quick HTTP/HTTPS serving with automatic certificates.
+Funnel 将服务暴露到互联网。Serve 提供快捷的 HTTP/HTTPS 服务，并自动管理证书。
 
 # CAVEATS
 
-Requires Tailscale account. Control plane is cloud-based. Some features need paid plan. Network depends on coordination server availability.
+需要 Tailscale 账户。控制平面基于云端。部分功能需要付费方案。网络的可用性依赖协调服务器。
 
 # HISTORY
 
-**Tailscale** was founded by **Brad Fitzpatrick** and others in **2019**. It builds on WireGuard to provide easy-to-use mesh VPN, focusing on zero-configuration connectivity.
+**Tailscale** 由 **Brad Fitzpatrick** 等人于 **2019 年**创立。它构建在 WireGuard 之上，提供易用的网状 VPN，专注于零配置的互联互通。
 
 # INSTALL
 

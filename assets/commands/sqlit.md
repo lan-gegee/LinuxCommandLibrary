@@ -1,18 +1,18 @@
 # TAGLINE
 
-Lazygit-style TUI for SQL databases
+Lazygit 风格的 SQL 数据库 TUI
 
 # TLDR
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```sqlit```
 
-**Connect to a saved connection**
+**连接已保存的连接**
 
 ```sqlit -c "[MyConnection]"```
 
-**Run a query from the CLI**
+**从 CLI 运行查询**
 
 ```sqlit query -c "[MyConnection]" -q "[SELECT * FROM Users]" --format csv```
 
@@ -25,21 +25,21 @@ Lazygit-style TUI for SQL databases
 # PARAMETERS
 
 **-c** _CONNECTION_
-> Connect using a saved connection name.
+> 使用已保存的连接名进行连接。
 
 **-q** _QUERY_
-> SQL query to execute (used with the **query** subcommand).
+> 要执行的 SQL 查询（与 **query** 子命令配合使用）。
 
 **--format** _FORMAT_
-> Output format for query results: **table**, **csv**, **json** (used with the **query** subcommand).
+> 查询结果的输出格式：**table**、**csv**、**json**（与 **query** 子命令配合使用）。
 
 # DESCRIPTION
 
-**sqlit** is a lightweight, keyboard-driven TUI for connecting to and querying SQL databases from the terminal. It supports 20+ database systems including PostgreSQL, MySQL, SQLite, DuckDB, BigQuery, ClickHouse, and Snowflake. Features include query history, autocomplete, Vim-style editing, SSH tunneling, Docker container auto-discovery, and secure credential storage.
+**sqlit** 是一个轻量、键盘驱动的 TUI，用于在终端中连接和查询 SQL 数据库。它支持 20 多种数据库系统，包括 PostgreSQL、MySQL、SQLite、DuckDB、BigQuery、ClickHouse 和 Snowflake。功能包括查询历史、自动补全、Vim 风格编辑、SSH 隧道、Docker 容器自动发现以及安全的凭据存储。
 
 # HISTORY
 
-**sqlit** was created by **Maxteabag** (Peter Adams) and is written in **Python**.
+**sqlit** 由 **Maxteabag**（Peter Adams）创建，使用 **Python** 编写。
 
 # INSTALL
 

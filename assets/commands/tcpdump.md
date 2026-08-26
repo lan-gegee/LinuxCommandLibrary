@@ -1,50 +1,50 @@
 # TAGLINE
 
-Capture and analyze network packets
+捕获并分析网络数据包
 
 # TLDR
 
-**Capture packets** on default interface
+**在默认接口上捕获**数据包
 
 ```tcpdump```
 
-**Capture on specific interface**
+**在指定接口上捕获**
 
 ```tcpdump -i [eth0]```
 
-**Capture only packets** to/from host
+**只捕获**发往/来自主机的数据包
 
 ```tcpdump host [192.168.1.1]```
 
-**Capture packets** on specific port
+**捕获指定端口上的**数据包
 
 ```tcpdump port [80]```
 
-**Capture and save** to file
+**捕获并保存**到文件
 
 ```tcpdump -w [capture.pcap]```
 
-**Read packets** from file
+**从文件读取**数据包
 
 ```tcpdump -r [capture.pcap]```
 
-**Capture with verbose output**
+**以详细输出捕获**
 
 ```tcpdump -v```
 
-**Capture HTTP traffic**
+**捕获 HTTP 流量**
 
 ```tcpdump -A port [80]```
 
-**Capture packets** with specific protocol
+**捕获指定协议的**数据包
 
 ```tcpdump icmp```
 
-**Capture limited number** of packets
+**限制捕获数量**的数据包
 
 ```tcpdump -c [100]```
 
-**Don't resolve hostnames**
+**不解析主机名**
 
 ```tcpdump -n```
 
@@ -54,97 +54,97 @@ Capture and analyze network packets
 
 # DESCRIPTION
 
-**tcpdump** is a packet analyzer that captures and displays network traffic. It uses libpcap to capture packets from network interfaces and can filter traffic using Berkeley Packet Filter (BPF) syntax.
+**tcpdump** 是一个数据包分析器，用于捕获并显示网络流量。它使用 libpcap 从网络接口捕获数据包，并可用 Berkeley 包过滤器（BPF）语法过滤流量。
 
-The tool can capture packets in real-time, display their contents in various formats, and save them to files for later analysis. Output can show packet headers, full content, or hexadecimal dumps.
+该工具可以实时捕获数据包、以多种格式显示其内容，并将其保存到文件供日后分析。输出可以只显示包头、完整内容，或十六进制转储。
 
-tcpdump is essential for network troubleshooting, security analysis, and protocol debugging. It's the command-line counterpart to graphical tools like Wireshark.
+tcpdump 是网络故障排查、安全分析和协议调试的必备工具。它是 Wireshark 等图形化工具的命令行对应物。
 
 # PARAMETERS
 
 **-i** _interface_
-> Capture on specific interface.
+> 在指定接口上捕获。
 
 **-w** _file_
-> Write packets to file.
+> 将数据包写入文件。
 
 **-r** _file_
-> Read packets from file.
+> 从文件读取数据包。
 
 **-c** _count_
-> Capture only count packets.
+> 只捕获 count 个数据包。
 
 **-n**
-> Don't resolve hostnames.
+> 不解析主机名。
 
 **-nn**
-> Don't resolve hostnames or ports.
+> 不解析主机名和端口。
 
 **-v**, **-vv**, **-vvv**
-> Verbose output levels.
+> 详细输出级别。
 
 **-A**
-> Print packets in ASCII.
+> 以 ASCII 打印数据包。
 
 **-X**
-> Print packets in hex and ASCII.
+> 以十六进制和 ASCII 打印数据包。
 
 **-s** _snaplen_
-> Capture snaplen bytes per packet (0=full).
+> 每个数据包捕获 snaplen 字节（0=全部）。
 
 **-e**
-> Print link-layer header.
+> 打印链路层头部。
 
 **-q**
-> Quick output (less protocol info).
+> 快速输出（较少协议信息）。
 
 **-D**, **--list-interfaces**
-> List available interfaces.
+> 列出可用接口。
 
 **-t**
-> Don't print timestamp on each line.
+> 不在每行打印时间戳。
 
 **-tt**
-> Print unformatted timestamp on each line.
+> 在每行打印未格式化的时间戳。
 
 **-p**, **--no-promiscuous-mode**
-> Don't put the interface into promiscuous mode.
+> 不将接口置于混杂模式。
 
 **-F** _file_
-> Use file as input for the filter expression.
+> 使用文件作为过滤表达式的输入。
 
 # FILTER EXPRESSIONS
 
 **host** _ip_
-> Match packets to/from the given host.
+> 匹配发往/来自指定主机的数据包。
 
 **net** _cidr_
-> Match packets within the given network (e.g., `net 10.0.0.0/8`).
+> 匹配指定网络内的数据包（例如 `net 10.0.0.0/8`）。
 
 **port** _num_
-> Match packets with the given source or destination port.
+> 匹配源或目标端口为指定值的数据包。
 
 **portrange** _lo-hi_
-> Match packets within a port range.
+> 匹配端口范围内的数据包。
 
 **src** / **dst**
-> Restrict the preceding primitive to source or destination.
+> 将前一个原语限定为源或目标。
 
 **tcp** / **udp** / **icmp**
-> Match packets of the given protocol.
+> 匹配指定协议的数据包。
 
 **and** / **or** / **not**
-> Combine primitives with boolean logic.
+> 用布尔逻辑组合各原语。
 
-Example: `tcpdump 'tcp port 80 and host 192.168.1.1'`
+示例：`tcpdump 'tcp port 80 and host 192.168.1.1'`
 
 # CAVEATS
 
-Requires root privileges. Packet capture can impact performance on high-traffic networks. Full packet capture uses significant disk space. Some protocols are encrypted and contents cannot be viewed.
+需要 root 权限。在高流量网络上抓包可能影响性能。完整抓包会占用大量磁盘空间。某些协议经过加密，无法查看其内容。
 
 # HISTORY
 
-**tcpdump** was originally written by **Van Jacobson**, **Craig Leres**, and **Steven McCanne** at the **Lawrence Berkeley National Laboratory** in **1988**. It became the foundation for network packet analysis on Unix systems. The libpcap library was extracted from tcpdump and is now used by many network analysis tools including Wireshark.
+**tcpdump** 由 **Van Jacobson**、**Craig Leres** 和 **Steven McCanne** 于 **1988 年**在 **劳伦斯伯克利国家实验室**编写。它成为 Unix 系统上网络包分析的基石。libpcap 库从 tcpdump 中剥离出来，如今被包括 Wireshark 在内的众多网络分析工具使用。
 
 # INSTALL
 

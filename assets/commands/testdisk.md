@@ -1,34 +1,34 @@
 # TAGLINE
 
-Recover lost partitions and boot sectors
+恢复丢失的分区和引导扇区
 
 # TLDR
 
-**Start testdisk** interactively
+交互式**启动 testdisk**
 
 ```sudo testdisk```
 
-**Analyze a specific disk**
+**分析指定磁盘**
 
 ```sudo testdisk [/dev/sdX]```
 
-**Analyze a disk image** file
+**分析磁盘镜像**文件
 
 ```testdisk [path/to/image.dd]```
 
-**Create a log file** during recovery
+恢复期间**创建日志文件**
 
 ```sudo testdisk /log [/dev/sdX]```
 
-**List partitions** on a device
+**列出设备上的分区**
 
 ```sudo testdisk /list [/dev/sdX]```
 
-**Dump raw sectors** to the log
+**将原始扇区转储**到日志
 
 ```sudo testdisk /dump [/dev/sdX]```
 
-**Show the version** and exit
+**显示版本**并退出
 
 ```testdisk /version```
 
@@ -39,41 +39,41 @@ Recover lost partitions and boot sectors
 # PARAMETERS
 
 **/log**
-> Append all operations and analysis results to **testdisk.log** in the current directory.
+> 将所有操作和分析结果追加到当前目录的 **testdisk.log** 中。
 
 **/debug**
-> Enable debug mode with additional detailed output.
+> 启用调试模式并输出更多详细信息。
 
 **/list**
-> Display partition information for the specified device or image and exit.
+> 显示指定设备或镜像的分区信息后退出。
 
 **/dump**
-> Dump raw sector contents into the log for post-mortem inspection.
+> 将原始扇区内容转储到日志中，供事后检查。
 
 **/version**
-> Print the TestDisk version and exit.
+> 打印 TestDisk 版本后退出。
 
 **device**
-> The disk device to analyze (e.g. **/dev/sda**, **/dev/nvme0n1**).
+> 要分析的磁盘设备（例如 **/dev/sda**、**/dev/nvme0n1**）。
 
 **image**
-> A disk image file to analyze instead of a physical device.
+> 要分析的磁盘镜像文件，用于代替物理设备。
 
 # DESCRIPTION
 
-**TestDisk** is a powerful open-source data recovery utility designed to recover lost partitions and repair boot sectors. It can restore partition tables, recover deleted partitions, rebuild boot sectors for FAT and NTFS, and fix corrupted file systems.
+**TestDisk** 是一款强大的开源数据恢复工具，旨在恢复丢失的分区和修复引导扇区。它可以还原分区表、恢复被删除的分区、重建 FAT 和 NTFS 的引导扇区，并修复损坏的文件系统。
 
-TestDisk supports a wide range of file systems including FAT12/FAT16/FAT32, NTFS, exFAT, ext2/ext3/ext4, HFS/HFS+, JFS, ReiserFS, XFS, and many others. It works with various partition table types including DOS/MBR, GPT, Mac, and BSD disklabels.
+TestDisk 支持多种文件系统，包括 FAT12/FAT16/FAT32、NTFS、exFAT、ext2/ext3/ext4、HFS/HFS+、JFS、ReiserFS、XFS 等。它兼容多种分区表类型，包括 DOS/MBR、GPT、Mac 和 BSD disklabel。
 
-The utility operates in an ncurses-based interactive menu, guiding users through the recovery process. TestDisk also includes a file recovery feature accessible through its Advanced menu, allowing recovery of deleted files from supported file systems.
+该工具运行于基于 ncurses 的交互式菜单中，引导用户完成恢复过程。TestDisk 还通过其 Advanced（高级）菜单提供文件恢复功能，可以从受支持的文件系统中恢复被删除的文件。
 
 # CAVEATS
 
-Root privileges are required when working with physical disk devices. When recovering files, always save them to a different disk or partition to avoid overwriting recoverable data. TestDisk is primarily a partition recovery tool; for file-level recovery from damaged partitions, consider using its companion tool **photorec**.
+操作物理磁盘设备需要 root 权限。恢复文件时务必保存到另一个磁盘或分区，以免覆盖尚可恢复的数据。TestDisk 主要是一个分区恢复工具；若要从受损分区做文件级恢复，可考虑它的姊妹工具 **photorec**。
 
 # HISTORY
 
-TestDisk was created by **Christophe Grenier** and initially developed as a partition repair tool for DOS, which explains its **/flag** command-line syntax. The project became part of **CGSecurity** and was open-sourced under the GPL. It is bundled with **PhotoRec**, a file carving tool for recovering files regardless of file system.
+TestDisk 由 **Christophe Grenier** 创建，最初是一个 DOS 分区修复工具，这解释了它 **/flag** 风格的命令行语法。该项目后来并入 **CGSecurity** 并以 GPL 开源。它与 **PhotoRec** 一同发布，后者是一款无视文件系统的文件雕刻（file carving）工具。
 
 # INSTALL
 

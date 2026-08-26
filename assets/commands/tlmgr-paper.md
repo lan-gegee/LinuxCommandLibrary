@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set default paper size for TeX programs
+设置 TeX 程序的默认纸张尺寸
 
 # TLDR
 
-**Show current paper size**
+**显示当前纸张尺寸**
 
 ```tlmgr paper```
 
-**Set paper size for all programs**
+**为所有程序设置纸张尺寸**
 
 ```tlmgr paper [a4]```
 
-**Set paper for specific program**
+**为特定程序设置纸张**
 
 ```tlmgr paper [dvips] [letter]```
 
-**List available sizes**
+**列出可用尺寸**
 
 ```tlmgr paper --list```
 
@@ -27,19 +27,18 @@ Set default paper size for TeX programs
 # PARAMETERS
 
 **--list**
-> List available paper sizes.
+> 列出可用的纸张尺寸。
 
 _program_
-> Specific program (dvips, pdftex, xetex, etc.).
+> 特定程序（dvips、pdftex、xetex 等）。
 
 _paper_
-> Paper size (a4, letter, etc.).
+> 纸张尺寸（a4、letter 等）。
 
 # DESCRIPTION
 
-**tlmgr paper** configures default paper size for TeX programs. Sets consistent paper size across LaTeX, dvips, and PDF output tools. Part of TeX Live Manager.
+**tlmgr paper** 为 TeX 程序配置默认纸张尺寸。使 LaTeX、dvips 和 PDF 输出工具使用一致的纸张尺寸。TeX Live Manager 的组成部分。
 
 # SEE ALSO
 
 [tlmgr-conf](/man/tlmgr-conf)(1), [tlmgr](/man/tlmgr)(1)
-

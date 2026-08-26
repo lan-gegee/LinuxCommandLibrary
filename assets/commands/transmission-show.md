@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display torrent file metadata
+显示种子文件的元数据
 
 # TLDR
 
-**Show torrent information**
+**显示种子信息**
 
 ```transmission-show [file.torrent]```
 
-**Display magnet URI**
+**显示磁力 URI**
 
 ```transmission-show -m [file.torrent]```
 
-**Show file list**
+**显示文件列表**
 
 ```transmission-show -f [file.torrent]```
 
-**Show info hash only**
+**仅显示 info hash**
 
 ```transmission-show -i [file.torrent]```
 
-**Show total size**
+**显示总大小**
 
 ```transmission-show -s [file.torrent]```
 
-**Query tracker for peer count**
+**向 tracker 查询节点数量**
 
 ```transmission-show --scrape [file.torrent]```
 
@@ -35,47 +35,47 @@ Display torrent file metadata
 # PARAMETERS
 
 **-m**, **--magnet**
-> Print the magnet URI for the torrent.
+> 输出该种子的磁力 URI。
 
 **-i**, **--info**
-> Print only the info hash.
+> 仅输出 info hash。
 
 **-s**, **--size**
-> Print total size of all files.
+> 输出所有文件的总大小。
 
 **-f**, **--files**
-> Print detailed list of files with paths and sizes.
+> 输出详细的文件列表，包括路径和大小。
 
 **-c**, **--comment**
-> Print the comment field from metadata.
+> 输出元数据中的注释字段。
 
 **-t**, **--tracker**
-> Print list of tracker URLs.
+> 输出 tracker URL 列表。
 
 **--scrape**
-> Query trackers for peer and seeder counts.
+> 向 tracker 查询节点数和做种者数量。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**transmission-show** displays metadata from .torrent files without downloading or seeding. It parses torrent files and presents information including file lists, trackers, piece counts, creation date, and info hashes.
+**transmission-show** 无需下载或做种即可显示 .torrent 文件中的元数据。它解析种子文件并展示相关信息，包括文件列表、tracker、分块数量、创建日期和 info hash。
 
-The tool is useful for inspecting torrents before adding them to a client, verifying torrent contents, extracting magnet links, or scripting torrent management tasks. The scrape option queries trackers for current swarm statistics.
+该工具适用于在把种子添加到客户端之前进行检查、验证种子内容、提取磁力链接，或编写种子管理脚本。scrape 选项可向 tracker 查询当前的集群统计信息。
 
-Output is formatted for both human readability and script parsing depending on the options used.
+输出格式兼顾人类可读性和脚本解析，具体取决于所使用的选项。
 
 # CAVEATS
 
-Scrape queries require network access and functional trackers. Some trackers may not support or respond to scrape requests. Private trackers may require authentication for scrape data.
+scrape 查询需要网络访问且 tracker 可用。某些 tracker 可能不支持或不响应 scrape 请求。私有 tracker 可能要求认证才能获取 scrape 数据。
 
 # HISTORY
 
-**transmission-show** is part of the Transmission BitTorrent client suite, providing command-line inspection of torrent files. Transmission was created in 2005 and the CLI tools enable automation and headless server operation.
+**transmission-show** 隶属于 Transmission BitTorrent 客户端套件，提供对种子文件的命令行检查能力。Transmission 创建于 2005 年，其命令行工具支持自动化和无头服务器运行。
 
 # INSTALL
 

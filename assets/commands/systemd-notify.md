@@ -1,18 +1,18 @@
 # TAGLINE
 
-Notify service manager about status changes
+向服务管理器通知状态变化
 
 # TLDR
 
-**Notify** systemd that the service has completed initialization
+**通知** systemd 服务已完成初始化
 
 ```systemd-notify --booted```
 
-**Signal** to systemd that the service is ready
+**告知** systemd 服务已就绪
 
 ```systemd-notify --ready```
 
-**Provide** a custom status message to systemd
+**提供**自定义状态消息给 systemd
 
 ```systemd-notify --status "[Add custom status message here...]"```
 
@@ -23,35 +23,35 @@ Notify service manager about status changes
 # PARAMETERS
 
 **--ready**
-> Signal service readiness to systemd
+> 向 systemd 发出服务就绪信号
 
 **--booted**
-> Check if system was booted with systemd
+> 检查系统是否以 systemd 启动
 
 **--status _text_**
-> Send status text to service manager
+> 向服务管理器发送状态文本
 
 **--pid _pid_**
-> Inform about main PID of daemon
+> 告知守护进程的主 PID
 
 **--uid _user_**
-> Specify the user to notify as
+> 指定发送通知所用的用户
 
 **--reloading**
-> Signal that service is reloading configuration
+> 发出服务正在重新加载配置的信号
 
 **--stopping**
-> Signal that service is stopping
+> 发出服务正在停止的信号
 
 # DESCRIPTION
 
-**systemd-notify** notifies the service manager about start-up completion and other daemon status changes. It is primarily used within systemd service scripts for services with **Type=notify**.
+**systemd-notify** 向服务管理器通知启动完成及其他守护进程状态变化。它主要用于 **Type=notify** 类型服务的 systemd 服务脚本中。
 
-The status text provided with **--status** is displayed by **systemctl status**. This allows services to communicate their current state and progress to administrators.
+通过 **--status** 提供的状态文本会显示在 **systemctl status** 中。这使服务能够向管理员传达其当前状态与进度。
 
 # CAVEATS
 
-Only useful within systemd service contexts. The service must be configured with **Type=notify** or **Type=notify-reload** in its unit file. Has no effect when run outside of systemd services. Part of the systemd suite.
+仅在 systemd 服务上下文中有用。服务必须在其单元文件中配置为 **Type=notify** 或 **Type=notify-reload**。在 systemd 服务之外运行时不起作用。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

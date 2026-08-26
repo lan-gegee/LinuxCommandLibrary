@@ -1,22 +1,22 @@
 # TAGLINE
 
-Clear failed unit states
+清除单元的失败状态
 
 # TLDR
 
-Reset **all** failed units
+重置**所有**失败的单元
 
 ```systemctl reset-failed```
 
-Reset a **specific** unit
+重置**特定**单元
 
 ```systemctl reset-failed [unit]```
 
-Reset **multiple** units
+重置**多个**单元
 
 ```systemctl reset-failed [unit1 unit2 ...]```
 
-**List** failed units first, then reset them
+先**列出**失败的单元，再重置它们
 
 ```systemctl --failed```
 
@@ -26,24 +26,24 @@ Reset **multiple** units
 
 # DESCRIPTION
 
-**systemctl reset-failed** clears the "failed" state from one or more units, resetting their state counters. Without arguments, it resets all failed units.
+**systemctl reset-failed** 清除一个或多个单元的"failed"状态，并重置其状态计数器。不带参数时会重置所有失败的单元。
 
-When a unit fails (process exits with a non-zero code, terminates abnormally, or times out), it enters the "failed" state with its exit code and status recorded. This state persists until the unit is restarted or explicitly reset with this command.
+当单元失败时（进程以非零码退出、异常终止或超时），它会进入"failed"状态，其退出码和状态会被记录。该状态会一直保持，直到单元被重启或通过此命令显式重置。
 
-In addition to clearing the failed state, this command also resets:
+除了清除失败状态外，此命令还会重置：
 
-- The **start rate limit counter** for all unit types (reset to zero).
-- The **restart counter** for service units (reset to zero).
+- 所有单元类型的**启动速率限制计数器**（归零）。
+- 服务单元的**重启计数器**（归零）。
 
-This is particularly useful when a unit has hit its start rate limit and systemd refuses to restart it. Running **reset-failed** resets the counter and allows the unit to be started again immediately.
+这在单元达到启动速率限制、systemd 拒绝再次启动它时特别有用。执行 **reset-failed** 会重置计数器，让单元可以立即被再次启动。
 
 # CAVEATS
 
-Does not fix the underlying cause of failure. The unit may fail again when started. Use after investigating and fixing the root cause of the failure.
+不会修复导致失败的根本原因。单元再次启动时可能仍会失败。请先调查并修复失败的根本原因，再使用此命令。
 
 # HISTORY
 
-The **reset-failed** subcommand provides a way to acknowledge and clear failed unit states, enabling restart attempts and cleaning up the failure list after issues are resolved.
+**reset-failed** 子命令提供了一种确认并清除失败单元状态的方式，可用于重新尝试启动，以及在问题解决后清理失败列表。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove files matching a pattern from the trash can
+从回收站删除匹配模式的文件
 
 # TLDR
 
-Remove all files named **foo** from trash
+从回收站中删除所有名为 **foo** 的文件
 
 ```trash-rm foo```
 
-Remove all files ending with **.o** from trash
+从回收站中删除所有以 **.o** 结尾的文件
 
 ```trash-rm '*.o'```
 
-Remove files with a specific **original path** from trash
+从回收站中删除具有特定**原始路径**的文件
 
 ```trash-rm /absolute/path/to/file```
 
@@ -22,7 +22,7 @@ Remove files with a specific **original path** from trash
 
 # DESCRIPTION
 
-**trash-rm** removes from the trash can all files matching the given pattern. It permanently deletes matching trashed files according to the freedesktop.org Trash specification. The pattern is matched against the original file name or path.
+**trash-rm** 从回收站中删除所有匹配给定模式的文件。它依据 freedesktop.org 回收站规范永久删除匹配的回收站文件。模式会与原始文件名或路径进行匹配。
 
 # INSTALL
 

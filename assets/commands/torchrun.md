@@ -1,26 +1,26 @@
 # TAGLINE
 
-PyTorch distributed training launcher
+PyTorch 分布式训练启动器
 
 # TLDR
 
-**Run distributed training** on a single node with 4 GPUs
+在单节点 4 GPU 上**运行分布式训练**
 
 ```torchrun --standalone --nproc_per_node=4 [train.py]```
 
-**Run multi-node training** with 2 nodes and 4 GPUs each
+使用 2 个节点、每节点 4 GPU **运行多节点训练**
 
 ```torchrun --nnodes=2 --nproc_per_node=4 --rdzv_endpoint=[master_ip:29500] [train.py]```
 
-**Run with specific rendezvous backend**
+以指定的 rendezvous 后端**运行**
 
 ```torchrun --nnodes=2 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=[master_ip:29500] [train.py]```
 
-**Run with fault tolerance** allowing restarts
+以支持重启的容错模式**运行**
 
 ```torchrun --nnodes=2 --nproc_per_node=4 --max_restarts=3 --rdzv_endpoint=[master_ip:29500] [train.py]```
 
-**Run single GPU training** (equivalent to regular python)
+**运行单 GPU 训练**（等同于普通 python）
 
 ```torchrun --standalone --nproc_per_node=1 [train.py]```
 
@@ -31,62 +31,62 @@ PyTorch distributed training launcher
 # PARAMETERS
 
 **--nnodes** _min_:max_ or _N_
-> Number of nodes participating in training. Can be a range for elastic training.
+> 参与训练的节点数量。弹性训练时可指定范围。
 
 **--nproc_per_node** _N_
-> Number of processes to spawn per node. Typically equals the number of GPUs.
+> 每个节点要派生的进程数。通常等于 GPU 数量。
 
 **--standalone**
-> Single-node mode without external rendezvous. Sets up local rendezvous automatically.
+> 单节点模式，无需外部 rendezvous。自动建立本地 rendezvous。
 
 **--rdzv_backend** _backend_
-> Rendezvous backend: c10d (default), etcd, etcd-v2, or static.
+> Rendezvous 后端：c10d（默认）、etcd、etcd-v2 或 static。
 
 **--rdzv_endpoint** _host:port_
-> Rendezvous endpoint address. For c10d, the master node's IP and port.
+> Rendezvous 端点地址。对于 c10d，即主节点的 IP 和端口。
 
 **--rdzv_id** _id_
-> User-defined ID for the rendezvous group. All nodes must use the same ID.
+> 用户定义的 rendezvous 组 ID。所有节点必须使用相同的 ID。
 
 **--max_restarts** _N_
-> Maximum number of worker group restarts on failure. Default is 0.
+> 工作组失败后重启的最大次数。默认为 0。
 
 **--node_rank** _N_
-> Rank of this node (for static rendezvous).
+> 本节点的编号（用于静态 rendezvous）。
 
 **--master_addr** _addr_
-> Master node address (legacy, use --rdzv_endpoint instead).
+> 主节点地址（旧式用法，请改用 --rdzv_endpoint）。
 
 **--master_port** _port_
-> Master node port (legacy, use --rdzv_endpoint instead).
+> 主节点端口（旧式用法，请改用 --rdzv_endpoint）。
 
 **--local-addr** _addr_
-> Local address to bind to. Defaults to localhost.
+> 要绑定的本地地址。默认为 localhost。
 
 **--redirects** _N_
-> Redirect stdout and stderr for each worker to log files. Format: 0:1,1:2 redirects stdout of worker 0 to file 1, etc.
+> 将每个工作进程的 stdout 和 stderr 重定向到日志文件。格式：0:1,1:2 表示将工作进程 0 的 stdout 重定向到文件 1，依此类推。
 
 **--tee** _N_
-> Tee stdout/stderr to both console and log files. Same format as --redirects.
+> 将 stdout/stderr 同时输出到控制台和日志文件。格式与 --redirects 相同。
 
 **--log-dir** _dir_
-> Directory for log files when using --redirects or --tee.
+> 使用 --redirects 或 --tee 时日志文件的存放目录。
 
 # DESCRIPTION
 
-**torchrun** is PyTorch's distributed training launcher that replaces the deprecated torch.distributed.launch. It spawns multiple processes across GPUs and nodes, setting up the distributed environment for training neural networks at scale.
+**torchrun** 是 PyTorch 的分布式训练启动器，用于取代已弃用的 torch.distributed.launch。它在多个 GPU 和节点上派生进程，为大规模神经网络训练搭建分布式环境。
 
-The launcher supports various distributed strategies including Data Distributed Parallel (DDP), Fully Sharded Data Parallel (FSDP), tensor parallelism, and hybrid approaches. It automatically sets environment variables like RANK, WORLD_SIZE, LOCAL_RANK, MASTER_ADDR, and MASTER_PORT for distributed communication.
+该启动器支持多种分布式策略，包括数据分布式并行（DDP）、全分片数据并行（FSDP）、张量并行以及混合方案。它会自动设置 RANK、WORLD_SIZE、LOCAL_RANK、MASTER_ADDR 和 MASTER_PORT 等环境变量以支持分布式通信。
 
-For single-node multi-GPU training, use **--standalone** mode. For multi-node training, all nodes must specify the same rendezvous endpoint where they coordinate. The launcher supports elastic training with dynamic node counts and fault tolerance with automatic restarts when workers fail.
+单节点多 GPU 训练请使用 **--standalone** 模式。多节点训练时，所有节点必须指定相同的 rendezvous 端点以相互协调。该启动器支持节点数量可动态变化的弹性训练，以及在 worker 失败时自动重启的容错能力。
 
 # CAVEATS
 
-Training scripts must be written to handle distributed setup using torch.distributed. The number of processes per node should not exceed available GPUs for GPU training. All nodes in a distributed job must use compatible PyTorch versions and NCCL configurations. Network firewalls must allow communication on the rendezvous port.
+训练脚本必须基于 torch.distributed 编写以处理分布式初始化。GPU 训练时每个节点的进程数不应超过可用 GPU 数量。同一分布式作业中的所有节点必须使用兼容的 PyTorch 版本和 NCCL 配置。网络防火墙必须放行 rendezvous 端口上的通信。
 
 # HISTORY
 
-**torchrun** was introduced in **PyTorch 1.10** (October 2021) as part of the TorchElastic project, replacing the older torch.distributed.launch module. It was designed to provide elastic and fault-tolerant distributed training capabilities. From **PyTorch 2.0** (March 2023), the command-line argument style changed from underscores to dashes (--local-rank instead of --local_rank).
+**torchrun** 作为 TorchElastic 项目的一部分于 **PyTorch 1.10**（2021 年 10 月）引入，取代了较旧的 torch.distributed.launch 模块，旨在提供弹性且容错的分布式训练能力。从 **PyTorch 2.0**（2023 年 3 月）起，命令行参数风格由下划线改为连字符（--local-rank 取代 --local_rank）。
 
 # INSTALL
 

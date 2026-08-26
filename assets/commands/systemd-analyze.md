@@ -1,34 +1,34 @@
 # TAGLINE
 
-Analyze system boot-up performance
+分析系统启动性能
 
 # TLDR
 
-**Print** the last system startup time
+**打印**上次系统启动耗时
 
 ```systemd-analyze```
 
-**List** all running units ordered by initialization time
+按初始化时间排序，**列出**所有正在运行的单元
 
 ```systemd-analyze blame```
 
-**Print** a tree of the time-critical chain of bootup units
+**打印**启动关键单元链的树状图
 
 ```systemd-analyze critical-chain```
 
-**Create** an SVG showing service startup timeline
+**生成**展示服务启动时间线的 SVG
 
 ```systemd-analyze plot > [path/to/file.svg]```
 
-**Plot** a dependency graph to SVG
+将依赖关系图**绘制**为 SVG
 
 ```systemd-analyze dot | dot -T svg > [path/to/file.svg]```
 
-**Show** security scores of running units
+**显示**运行中单元的安全评分
 
 ```systemd-analyze security```
 
-**View** all udev rules without comments
+**查看**所有不带注释的 udev 规则
 
 ```systemd-analyze cat-config udev/rules.d --tldr```
 
@@ -39,38 +39,38 @@ Analyze system boot-up performance
 # PARAMETERS
 
 **blame**
-> List units by startup time
+> 按启动时间排序列出单元
 
 **critical-chain**
-> Show critical path of unit startup
+> 显示单元启动的关键路径
 
 **plot**
-> Generate SVG plot of boot sequence
+> 生成启动过程的 SVG 时序图
 
 **dot**
-> Generate dependency graph in DOT format
+> 生成 DOT 格式的依赖关系图
 
 **security**
-> Analyze security and sandboxing settings
+> 分析安全与沙箱设置
 
 **verify**
-> Verify unit file syntax
+> 校验单元文件语法
 
 **cat-config**
-> Show merged configuration files
+> 显示合并后的配置文件
 
 **time**
-> Show boot timing summary (default)
+> 显示启动耗时摘要（默认）
 
 # DESCRIPTION
 
-**systemd-analyze** provides detailed information about system boot-up performance and systemd unit configurations. It helps identify slow-starting services and debug boot issues.
+**systemd-analyze** 提供关于系统启动性能和 systemd 单元配置的详细信息。它帮助识别启动缓慢的服务并调试启动问题。
 
-The **blame** and **critical-chain** commands are particularly useful for optimizing boot time by identifying bottlenecks. The **security** command audits unit sandboxing configurations.
+**blame** 和 **critical-chain** 命令通过定位瓶颈来优化启动时间，特别有用。**security** 命令则审计单元的沙箱配置。
 
 # CAVEATS
 
-Some commands require graphviz (dot) for visualization. Boot timing data is only available after system boots completely. Security scores are recommendations, not requirements.
+某些命令进行可视化时需要 graphviz（dot）。启动计时数据只有在系统完全启动后才可用。安全评分只是建议性指标，并非强制要求。
 
 # INSTALL
 

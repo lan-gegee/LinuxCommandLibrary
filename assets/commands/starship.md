@@ -1,42 +1,42 @@
 # TAGLINE
 
-Cross-shell customizable prompt in Rust
+用 Rust 编写的跨 Shell 可定制提示符
 
 # TLDR
 
-**Initialize for bash**
+**为 bash 初始化**
 
 ```eval "$(starship init bash)"```
 
-**Initialize for zsh**
+**为 zsh 初始化**
 
 ```eval "$(starship init zsh)"```
 
-**Initialize for fish**
+**为 fish 初始化**
 
 ```starship init fish | source```
 
-**Initialize for PowerShell**
+**为 PowerShell 初始化**
 
 ```Invoke-Expression (&starship init powershell)```
 
-**Print current configuration**
+**打印当前配置**
 
 ```starship print-config```
 
-**Generate preset config**
+**生成预设配置**
 
 ```starship preset [pastel-powerline] > ~/.config/starship.toml```
 
-**List available presets**
+**列出可用的预设**
 
 ```starship preset --list```
 
-**Explain active prompt segments**
+**解释当前提示符的各段内容**
 
 ```starship explain```
 
-**Show prompt rendering times**
+**显示提示符渲染耗时**
 
 ```starship timings```
 
@@ -47,64 +47,64 @@ Cross-shell customizable prompt in Rust
 # PARAMETERS
 
 **init** _SHELL_
-> Generate shell init script.
+> 生成 shell 初始化脚本。
 
 **prompt**
-> Print prompt.
+> 打印提示符。
 
 **preset** _NAME_
-> Print preset configuration.
+> 打印预设配置。
 
 **print-config**
-> Print config.
+> 打印配置。
 
 **explain**
-> Explain prompt segments.
+> 解释提示符各段的内容。
 
 **timings**
-> Time prompt rendering.
+> 测量提示符渲染耗时。
 
 **completions** _SHELL_
-> Generate completions.
+> 生成补全脚本。
 
 **bug-report**
-> Generate bug report.
+> 生成错误报告。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**starship** is a minimal, fast, cross-shell prompt. Written in Rust, it provides consistent appearance and features across bash, zsh, fish, PowerShell, and more.
+**starship** 是一个极简、快速的跨 Shell 提示符。它以 Rust 编写，在 bash、zsh、fish、PowerShell 等多种 Shell 中提供一致的外观和功能。
 
-Configuration in ~/.config/starship.toml customizes modules. Each module shows specific information: git status, language versions, cloud context, etc.
+~/.config/starship.toml 中的配置用于定制模块。每个模块显示特定信息：git 状态、语言版本、云环境上下文等。
 
-Modules appear contextually. Python version shows only in Python projects. Git info shows only in repositories. This keeps prompts clean.
+模块按上下文出现。Python 版本只在 Python 项目中显示。Git 信息只在仓库中显示。这使提示符保持简洁。
 
-Presets provide ready-made configurations. They range from minimal to information-rich, with various color schemes.
+预设提供了现成的配置。它们从极简到信息丰富不等，并带有各种配色方案。
 
-Speed is a priority. The prompt renders quickly even with many modules enabled. Timings command helps identify slow modules.
+速度是优先考量。即使启用了许多模块，提示符也能快速渲染。timings 命令有助于找出缓慢的模块。
 
-The prompt is cross-platform, working on Linux, macOS, and Windows. Configuration is portable across systems.
+该提示符是跨平台的，可在 Linux、macOS 和 Windows 上运行。配置可以在不同系统间移植。
 
 # CONFIGURATION
 
 **~/.config/starship.toml**
-> Main configuration file defining enabled modules, display format, colors, and per-module settings.
+> 主配置文件，定义启用的模块、显示格式、颜色以及各模块的设置。
 
 **STARSHIP_CONFIG**
-> Environment variable to specify an alternate configuration file path.
+> 用于指定其他配置文件路径的环境变量。
 
 # CAVEATS
 
-Requires Nerd Font for icons. Configuration syntax may differ from shell prompts. Some modules need external commands.
+图标需要 Nerd Font。配置语法可能与特定 Shell 提示符不同。某些模块需要外部命令。
 
 # HISTORY
 
-**Starship** was created by **Matan Kushner** around **2019**. It gained popularity as a fast, configurable alternative to framework-specific prompts like Oh My Zsh themes.
+**Starship** 由 **Matan Kushner** 于 **2019 年**前后创建。作为 Oh My Zsh 主题等框架专属提示符的快速、可配置替代品，它逐渐流行起来。
 
 # INSTALL
 

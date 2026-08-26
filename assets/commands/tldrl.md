@@ -1,26 +1,26 @@
 # TAGLINE
 
-Rust-based TLDR pages client
+基于 Rust 的 TLDR 页面客户端
 
 # TLDR
 
-**Show page**
+**显示页面**
 
 ```tldrl [command]```
 
-**Update cache**
+**更新缓存**
 
 ```tldrl --update```
 
-**List all pages**
+**列出所有页面**
 
 ```tldrl --list```
 
-**Show platform-specific**
+**显示特定平台内容**
 
 ```tldrl --platform [linux] [command]```
 
-**Search pages**
+**搜索页面**
 
 ```tldrl --search "[keyword]"```
 
@@ -31,33 +31,33 @@ Rust-based TLDR pages client
 # PARAMETERS
 
 **--update**
-> Update cache.
+> 更新缓存。
 
 **--list**
-> List pages.
+> 列出页面。
 
 **--platform** _OS_
-> Platform filter.
+> 平台过滤。
 
 **--search** _TERM_
-> Search pages.
+> 搜索页面。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**tldrl** is a fast, Rust-based client for accessing TLDR pages, the community-maintained collection of simplified command-line documentation focused on practical examples. It caches pages locally for offline access and quick lookups.
+**tldrl** 是一个基于 Rust 的快速 TLDR 页面客户端。TLDR 是社区维护的精简命令行文档集，以实用示例为核心。它将页面缓存在本地，支持离线访问和快速查询。
 
-The client supports platform-specific pages for Linux, macOS, and Windows, and provides search functionality to find relevant commands by keyword. The cache can be updated with **--update** to fetch the latest pages from the TLDR repository.
+该客户端支持 Linux、macOS 和 Windows 的平台专属页面，并提供按关键字搜索相关命令的功能。可通过 **--update** 更新缓存，从 TLDR 仓库获取最新页面。
 
 # CAVEATS
 
-Internet for updates. Cache needs refresh. Not official tldr client.
+更新需要联网。缓存需要刷新。非官方 tldr 客户端。
 
 # HISTORY
 
-**tldrl** is a Rust implementation of a TLDR client for accessing community-maintained simplified man pages.
+**tldrl** 是一个用 Rust 实现的 TLDR 客户端，用于访问社区维护的精简版 man page。
 
 # SEE ALSO
 

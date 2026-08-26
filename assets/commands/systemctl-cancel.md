@@ -1,22 +1,22 @@
 # TAGLINE
 
-Cancel pending systemd jobs
+取消挂起的 systemd 作业
 
 # TLDR
 
-**Cancel** job by ID
+按 ID **取消**作业
 
 ```systemctl cancel [job_id]```
 
-Cancel **multiple** jobs
+取消**多个**作业
 
 ```systemctl cancel [job_id1 job_id2 ...]```
 
-Cancel **all** pending jobs
+取消**所有**挂起的作业
 
 ```systemctl cancel```
 
-Cancel **user** job
+取消**用户**作业
 
 ```systemctl cancel [job_id] --user```
 
@@ -27,33 +27,33 @@ Cancel **user** job
 # PARAMETERS
 
 **--user**
-> Cancel jobs in the user service manager
+> 取消用户服务管理器中的作业
 
 **--system**
-> Cancel jobs in the system manager (default)
+> 取消系统管理器中的作业（默认）
 
 **-M**, **--machine** _container_
-> Execute the operation on a local container
+> 在本地容器上执行操作
 
 **-H**, **--host** _user@host_
-> Execute the operation on a remote host over SSH
+> 通过 SSH 在远程主机上执行操作
 
 **--no-pager**
-> Do not pipe output into a pager
+> 不将输出通过管道传给分页器
 
 # DESCRIPTION
 
-**systemctl cancel** cancels one or more pending jobs in the systemd service manager. Jobs represent pending operations like starting, stopping, or restarting units. When called without arguments, all pending jobs are cancelled.
+**systemctl cancel** 取消 systemd 服务管理器中的一个或多个挂起作业。作业表示启动、停止或重启 unit 等待处理的操作。不带参数调用时，会取消所有挂起的作业。
 
-Job IDs can be found using `systemctl list-jobs`. Cancelling a job aborts the pending operation without affecting the current state of the unit.
+作业 ID 可通过 `systemctl list-jobs` 查询。取消作业会中止挂起的操作，但不影响 unit 的当前状态。
 
 # CAVEATS
 
-Cannot cancel already completed jobs. Some jobs may have dependencies that restart them. Cancelling critical boot jobs may leave the system in an inconsistent state.
+无法取消已完成的作业。某些作业可能有依赖会在之后重新触发。取消关键引导作业可能使系统处于不一致状态。
 
 # HISTORY
 
-The **cancel** subcommand is part of **systemctl** in the **systemd** project. It provides control over the job queue that manages unit state transitions.
+**cancel** 子命令是 **systemd** 项目中 **systemctl** 的一部分。它用于控制管理 unit 状态转换的作业队列。
 
 # SEE ALSO
 

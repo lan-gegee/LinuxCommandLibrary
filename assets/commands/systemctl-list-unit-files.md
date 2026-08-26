@@ -1,30 +1,30 @@
 # TAGLINE
 
-List installed unit files and states
+列出已安装的单元文件及其状态
 
 # TLDR
 
-List **installed** unit files
+列出**已安装的**单元文件
 
 ```systemctl list-unit-files```
 
-Filter by **state**
+按**状态**过滤
 
 ```systemctl list-unit-files --state [enabled|disabled|static]```
 
-Filter by **type**
+按**类型**过滤
 
 ```systemctl list-unit-files -t [service|socket|timer]```
 
-Filter by **name pattern**
+按**名称模式**过滤
 
 ```systemctl list-unit-files '[pattern*]'```
 
-Output without **pager**
+输出时不使用**分页器**
 
 ```systemctl list-unit-files --no-pager```
 
-Output without **headers**
+输出时不带**表头**
 
 ```systemctl list-unit-files --no-legend```
 
@@ -35,42 +35,42 @@ Output without **headers**
 # PARAMETERS
 
 **--state=** _STATE_
-> Filter by enablement state (enabled, disabled, static, masked, etc.)
+> 按启用状态过滤（enabled、disabled、static、masked 等）
 
 **-t, --type=** _TYPE_
-> Filter by unit type
+> 按单元类型过滤
 
 **--no-pager**
-> Disable pager output
+> 禁用分页器输出
 
 **--no-legend**
-> Suppress header and footer
+> 不显示表头和页脚
 
 # DESCRIPTION
 
-**systemctl list-unit-files** displays all installed unit files and their enablement states. Unlike `list-units` which shows runtime state, this shows the boot configuration for all available units.
+**systemctl list-unit-files** 显示所有已安装的单元文件及其启用状态。与显示运行时状态的 `list-units` 不同，它显示的是所有可用单元的开机配置。
 
-The output shows the unit file name and its state: enabled, disabled, static, masked, generated, transient, indirect, or alias.
+输出内容包括单元文件名及其状态：enabled、disabled、static、masked、generated、transient、indirect 或 alias。
 
 # ENABLEMENT STATES
 
-**enabled** - Starts automatically at boot
+**enabled** - 开机自动启动
 
-**disabled** - Does not start at boot
+**disabled** - 开机不启动
 
-**static** - No install section, started as dependency
+**static** - 没有 install 区段，作为依赖被启动
 
-**masked** - Completely blocked
+**masked** - 完全禁止启动
 
-**indirect** - Enabled via another unit
+**indirect** - 通过另一个单元间接启用
 
 # CAVEATS
 
-Shows all installed unit files regardless of runtime state. Some unit files may be present but never used. Static units cannot be enabled directly.
+会显示所有已安装的单元文件，无论其运行时状态如何。某些单元文件可能存在但从未被使用。static 单元无法被直接启用。
 
 # HISTORY
 
-The **list-unit-files** subcommand provides visibility into the full set of available units and their boot configuration, complementing `list-units` which shows only currently loaded units.
+**list-unit-files** 子命令展示全部可用单元及其开机配置，与只显示当前已加载单元的 `list-units` 互为补充。
 
 # SEE ALSO
 

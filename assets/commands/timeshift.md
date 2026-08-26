@@ -1,38 +1,38 @@
 # TAGLINE
 
-System backup and restore using snapshots
+基于快照的系统备份与恢复工具
 
 # TLDR
 
-**List** all snapshots
+**列出**所有快照
 
 ```sudo timeshift --list```
 
-**Create** a snapshot with a description
+带说明文字**创建**快照
 
 ```sudo timeshift --create --comments "[description]"```
 
-**Create** a snapshot with a specific **tag**
+以特定**标签****创建**快照
 
 ```sudo timeshift --create --tags D```
 
-**Check** and create a snapshot if scheduled
+**检查**计划任务，到点则创建快照
 
 ```sudo timeshift --check```
 
-**Restore** a specific snapshot
+**恢复**指定快照
 
 ```sudo timeshift --restore --snapshot '[snapshot_name]'```
 
-**Restore** a snapshot to a specific **target device**
+将快照**恢复**到指定的**目标设备**
 
 ```sudo timeshift --restore --snapshot '[snapshot_name]' --target-device [/dev/sda1]```
 
-**Delete** a specific snapshot
+**删除**指定快照
 
 ```sudo timeshift --delete --snapshot '[snapshot_name]'```
 
-**Delete all** snapshots
+**删除全部**快照
 
 ```sudo timeshift --delete-all```
 
@@ -43,72 +43,72 @@ System backup and restore using snapshots
 # PARAMETERS
 
 **--list**
-> List all snapshots.
+> 列出所有快照。
 
 **--list-devices**
-> List available devices.
+> 列出可用设备。
 
 **--check**
-> Create snapshot if one is scheduled.
+> 如果到达计划的快照时间则创建快照。
 
 **--create**
-> Create a new snapshot (even if not scheduled).
+> 创建新快照（即使未到计划时间）。
 
 **--restore**
-> Restore a snapshot.
+> 恢复快照。
 
 **--delete**
-> Delete a snapshot.
+> 删除快照。
 
 **--delete-all**
-> Delete all snapshots.
+> 删除所有快照。
 
 **--snapshot** _NAME_
-> Specify the snapshot to restore or delete.
+> 指定要恢复或删除的快照。
 
 **--comments** _TEXT_
-> Set snapshot description.
+> 设置快照描述。
 
 **--tags** _{O,B,H,D,W,M}_
-> Add tags to snapshot: Ondemand, Boot, Hourly, Daily, Weekly, Monthly (default: O).
+> 为快照添加标签：Ondemand、Boot、Hourly、Daily、Weekly、Monthly（默认：O）。
 
 **--target-device** _DEVICE_
-> Specify target device for restore.
+> 指定恢复的目标设备。
 
 **--grub-device** _DEVICE_
-> Specify device for installing GRUB2 bootloader.
+> 指定安装 GRUB2 引导加载程序的设备。
 
 **--skip-grub**
-> Skip GRUB2 reinstallation during restore.
+> 恢复时跳过重新安装 GRUB2。
 
 **--snapshot-device** _DEVICE_
-> Specify backup device (default: from config).
+> 指定备份设备（默认：取自配置）。
 
 **--btrfs**
-> Switch to BTRFS mode.
+> 切换到 BTRFS 模式。
 
 **--rsync**
-> Switch to RSYNC mode.
+> 切换到 RSYNC 模式。
 
 **--yes**
-> Answer YES to all confirmation prompts.
+> 对所有确认提示回答 YES。
 
 **--scripted**
-> Run in non-interactive mode.
+> 以非交互模式运行。
 
 # DESCRIPTION
 
-**timeshift** is a system restore utility for Linux that creates incremental snapshots of the filesystem using rsync or btrfs snapshots. It allows rolling back system changes while preserving user data.
+**timeshift** 是一款 Linux 系统恢复工具，使用 rsync 或 btrfs 快照创建文件系统的增量快照。它可以在保留用户数据的同时回滚系统变更。
 
-Similar to Windows System Restore or macOS Time Machine for system files.
+类似于 Windows 的系统还原或 macOS 面向系统文件的 Time Machine。
 
 # CAVEATS
 
-Requires sufficient storage space. BTRFS snapshots are more space-efficient than rsync. User data in /home is excluded by default for safety. Restoring typically requires a reboot. Requires root privileges for all operations.
+需要足够的存储空间。BTRFS 快照比 rsync 更节省空间。为安全起见，默认排除 /home 中的用户数据。恢复通常需要重启。所有操作均需 root 权限。
 
 # HISTORY
 
-**Timeshift** was created by **Tony George** as a GUI and CLI tool for system backup on Linux, originally released in **2014**.
+**Timeshift** 由 **Tony George** 创建，是一款 Linux 系统备份的 GUI 和 CLI 工具，最初发布于 **2014 年**。
 
 # INSTALL
 

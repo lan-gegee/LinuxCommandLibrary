@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal digital clock
+终端数字时钟
 
 # TLDR
 
-**Display a centered clock** with seconds
+**显示居中时钟**并带秒数
 
 ```tty-clock -c -s```
 
-**Display in 12-hour format** with bold font
+**以 12 小时制显示**并使用粗体
 
 ```tty-clock -t -b```
 
-**Display with a box border** in green
+**显示边框**并使用绿色
 
 ```tty-clock -x -C 2```
 
-**Display UTC time** with a custom date format
+**显示 UTC 时间**并自定义日期格式
 
 ```tty-clock -u -f "[%A %d %B]"```
 
-**Display in screensaver mode** (exits on keypress)
+**以屏幕保护模式显示**（按键即退出）
 
 ```tty-clock -S -c -s```
 
-**Display with bouncing motion** and blinking colon
+**显示弹跳动画**并让冒号闪烁
 
 ```tty-clock -r -B```
 
@@ -35,75 +35,75 @@ Terminal digital clock
 # PARAMETERS
 
 **-s**
-> Display seconds.
+> 显示秒数。
 
 **-S**
-> Screensaver mode; exit on first keypress.
+> 屏幕保护模式；首次按键即退出。
 
 **-x**
-> Show a box around the clock.
+> 在时钟周围显示方框。
 
 **-c**
-> Center the clock on the terminal.
+> 将时钟居中显示在终端上。
 
 **-C** _0-7_
-> Set clock color (0=black, 1=red, 2=green, 3=yellow, 4=blue, 5=magenta, 6=cyan, 7=white).
+> 设置时钟颜色（0=黑、1=红、2=绿、3=黄、4=蓝、5=品红、6=青、7=白）。
 
 **-b**
-> Enable bold font.
+> 启用粗体。
 
 **-t**
-> Use 12-hour (AM/PM) time format.
+> 使用 12 小时制（AM/PM）时间格式。
 
 **-u**
-> Display UTC time.
+> 显示 UTC 时间。
 
 **-T** _tty_
-> Display clock on the specified terminal device.
+> 在指定的终端设备上显示时钟。
 
 **-r**
-> Enable bouncing motion; clock bounces off terminal edges.
+> 启用弹跳动画；时钟在终端边缘弹跳。
 
 **-f** _format_
-> Custom date format string (per **strftime**(3)).
+> 自定义日期格式字符串（遵循 **strftime**(3)）。
 
 **-n**
-> Do not quit on keypress; must be killed with a signal.
+> 按键不退出；必须通过信号终止。
 
 **-D**
-> Hide the date display.
+> 隐藏日期显示。
 
 **-B**
-> Enable blinking colon separator.
+> 启用冒号分隔符闪烁。
 
 **-d** _delay_
-> Set redraw delay in seconds (default: 1).
+> 设置重绘延迟秒数（默认：1）。
 
 **-a** _nsdelay_
-> Additional nanosecond delay between redraws.
+> 重绘之间额外的纳秒延迟。
 
 **-i**
-> Display clock information (version, compiled options).
+> 显示时钟信息（版本、编译选项）。
 
 **-v**
-> Display version information.
+> 显示版本信息。
 
 **-h**
-> Display help text.
+> 显示帮助文本。
 
 # DESCRIPTION
 
-**tty-clock** is a terminal-based digital clock built with the ncurses library. It renders the current time in large block digits directly in the terminal, with optional date display below. The clock supports various display modes including centering, bouncing animation, screensaver mode, and customizable colors.
+**tty-clock** 是一个基于 ncurses 库构建的终端数字时钟。它直接在终端中以大号块状数字渲染当前时间，可选择在下方显示日期。时钟支持多种显示模式，包括居中、弹跳动画、屏幕保护模式和自定义颜色。
 
-While running, the clock responds to keyboard commands: **K/J/H/L** for vi-style repositioning, **0-7** to change color, **B** to toggle bold, **X** to toggle the box border, **C** to center, **R** for bouncing mode, **S** to toggle seconds, **T** for 12-hour format, and **Q** to quit.
+运行期间，时钟会响应键盘命令：**K/J/H/L** 进行 vi 风格的移动定位，**0-7** 更改颜色，**B** 切换粗体，**X** 切换边框，**C** 居中，**R** 弹跳模式，**S** 切换秒数显示，**T** 切换 12 小时制，**Q** 退出。
 
 # CAVEATS
 
-The **-C** color option only supports the basic 8-color terminal palette. Centering with **-c** disables vi-style movement commands. When using **-n** mode, the process must be terminated with a signal since keypress exit is disabled. Requires **libncurses** to be installed.
+**-C** 颜色选项只支持终端基本的 8 色调色板。使用 **-c** 居中后会禁用 vi 风格移动命令。使用 **-n** 模式时，由于按键退出被禁用，必须通过信号终止进程。需要安装 **libncurses**。
 
 # HISTORY
 
-**tty-clock** was created by **Martin Duquesnoy** (xorg62) in **2008** as a lightweight terminal clock utility written in C. The project has been community-maintained since, with contributions improving signal handling, locale compatibility, and ncurses support over the years.
+**tty-clock** 由 **Martin Duquesnoy**（xorg62）于 **2008 年**创建，是一个用 C 编写的轻量级终端时钟工具。此后该项目由社区维护，多年来的贡献改进了信号处理、区域语言兼容性和 ncurses 支持。
 
 # INSTALL
 

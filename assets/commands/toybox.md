@@ -1,30 +1,30 @@
 # TAGLINE
 
-Multipurpose Unix command-line toolkit
+多用途 Unix 命令行工具箱
 
 # TLDR
 
-**List** all commands
+**列出**所有命令
 
 ```toybox```
 
-Run **command** explicitly
+显式运行**命令**
 
 ```toybox [command] [arguments]```
 
-**List** files
+**列出**文件
 
 ```toybox ls```
 
-**Remove** a file
+**删除**文件
 
 ```toybox rm [path/to/file]```
 
-Display **help** for command
+显示命令的**帮助**
 
 ```toybox [command] --help```
 
-Show **version**
+显示**版本**
 
 ```toybox --version```
 
@@ -35,30 +35,30 @@ Show **version**
 # PARAMETERS
 
 **--help**
-> Display help for a command.
+> 显示某个命令的帮助。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--long**
-> List commands with their suggested installation paths.
+> 列出各命令及其建议的安装路径。
 
 **--install** _dir_
-> Create symlinks in _dir_ for each built-in command.
+> 在 _dir_ 中为每个内置命令创建符号链接。
 
 # DESCRIPTION
 
-**toybox** is a multipurpose tool that combines many standard Unix utilities into a single executable. It provides lightweight implementations of common commands like ls, rm, cp, and many others.
+**toybox** 是一个多用途工具，将许多标准 Unix 实用程序组合进单个可执行文件中。它提供 ls、rm、cp 等常见命令以及其他众多命令的轻量实现。
 
-Toybox is commonly used in Android and embedded Linux systems where minimizing binary size is important. Running toybox without arguments lists all available built-in commands.
+Toybox 常用于 Android 和嵌入式 Linux 系统，在这些场景中减小二进制体积非常重要。不带参数运行 toybox 会列出所有可用的内置命令。
 
 # CAVEATS
 
-Some commands may have fewer features than full GNU implementations. Command availability depends on build configuration. Primarily designed for embedded systems and Android.
+某些命令的功能可能少于完整的 GNU 实现。可用命令取决于构建配置。主要面向嵌入式系统和 Android 设计。
 
 # HISTORY
 
-**toybox** was created by **Rob Landley** as a BSD-licensed alternative to BusyBox. It became the standard command-line toolbox in Android, replacing the older Toolbox implementation.
+**toybox** 由 **Rob Landley** 创建，是 BusyBox 的 BSD 许可替代品。它取代了旧的 Toolbox 实现，成为 Android 中的标准命令行工具箱。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reload configuration or restart unit
+重新加载配置或重启单元
 
 # TLDR
 
-**Reload or restart** unit
+**重新加载或重启**单元
 
 ```systemctl reload-or-restart [unit]```
 
-Reload or restart with **pattern**
+用**模式匹配**重新加载或重启
 
 ```systemctl reload-or-restart [pattern]```
 
-**Async** (no wait)
+**异步**执行（不等待）
 
 ```systemctl reload-or-restart [unit] --no-block```
 
-For **user** units
+针对**用户**单元
 
 ```systemctl reload-or-restart [unit] --user```
 
@@ -27,24 +27,24 @@ For **user** units
 # PARAMETERS
 
 **--no-block**
-> Return immediately without waiting
+> 立即返回而不等待
 
 **--user**
-> Operate on user units
+> 操作用户单元
 
 # DESCRIPTION
 
-**systemctl reload-or-restart** reloads one or more units if they support it. If not, it stops and then starts them instead. If the units are not running yet, they will be started.
+**systemctl reload-or-restart** 在一个或多个单元支持重载时重新加载它们；如果不支持，则改为停止后再次启动。如果这些单元尚未运行，则会被启动。
 
-This is useful for applying configuration changes when you don't know whether a service supports hot reloading. If the unit has `ExecReload=` defined, configuration is reloaded without interrupting the service. Otherwise, the unit is stopped and started again.
+当你不确定某个服务是否支持热重载时，这个命令可以用来应用配置更改。如果单元定义了 `ExecReload=`，则在不中断服务的情况下重新加载配置；否则该单元会被停止并再次启动。
 
 # CAVEATS
 
-Reload only works if the unit has ExecReload defined. Restart causes brief service interruption. For units without reload support, this always restarts.
+只有单元定义了 ExecReload 时重载才会生效。重启会造成短暂的服务中断。对于不支持重载的单元，此命令总是会重启它们。
 
 # HISTORY
 
-The **reload-or-restart** subcommand provides a safe way to apply configuration changes without needing to know whether a service supports hot reloading.
+**reload-or-restart** 子命令提供了一种应用配置更改的安全方式，无需事先了解服务是否支持热重载。
 
 # SEE ALSO
 

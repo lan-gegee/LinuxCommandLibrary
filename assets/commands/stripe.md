@@ -1,38 +1,38 @@
 # TAGLINE
 
-Stripe payment platform developer CLI
+Stripe 支付平台开发者 CLI
 
 # TLDR
 
-**Login to Stripe**
+**登录 Stripe**
 
 ```stripe login```
 
-**Listen for webhooks**
+**监听 webhook**
 
 ```stripe listen```
 
-**Forward to local server**
+**转发到本地服务器**
 
 ```stripe listen --forward-to [localhost:3000/webhook]```
 
-**Trigger test event**
+**触发测试事件**
 
 ```stripe trigger [payment_intent.succeeded]```
 
-**List customers**
+**列出客户**
 
 ```stripe customers list```
 
-**Create payment intent**
+**创建支付意图**
 
 ```stripe payment_intents create --amount [1000] --currency [usd]```
 
-**View logs**
+**查看日志**
 
 ```stripe logs tail```
 
-**Open dashboard**
+**打开仪表板**
 
 ```stripe open```
 
@@ -43,68 +43,68 @@ Stripe payment platform developer CLI
 # PARAMETERS
 
 **login**
-> Authenticate the CLI with your Stripe account via browser.
+> 通过浏览器用你的 Stripe 账户对 CLI 进行身份验证。
 
 **listen**
-> Listen for webhook events and optionally forward them to a local endpoint.
+> 监听 webhook 事件，并可选择将其转发到本地端点。
 
 **trigger** _EVENT_
-> Trigger a test webhook event (e.g., payment_intent.succeeded, charge.failed).
+> 触发测试 webhook 事件（例如 payment_intent.succeeded、charge.failed）。
 
 **logs tail**
-> Stream real-time API request and response logs.
+> 流式查看实时 API 请求与响应日志。
 
 **open**
-> Open Stripe dashboard pages in the default browser.
+> 在默认浏览器中打开 Stripe 仪表板页面。
 
 **status**
-> Check the current status of the Stripe API.
+> 检查 Stripe API 的当前状态。
 
 **samples**
-> Download and set up sample Stripe integration projects.
+> 下载并配置 Stripe 示例集成项目。
 
 **get** _RESOURCE_
-> Make a GET request to the Stripe API.
+> 向 Stripe API 发起 GET 请求。
 
 **post** _RESOURCE_
-> Make a POST request to the Stripe API.
+> 向 Stripe API 发起 POST 请求。
 
 **--forward-to** _URL_
-> Forward received webhook events to a local URL (used with listen).
+> 将收到的 webhook 事件转发到本地 URL（与 listen 搭配使用）。
 
 **--api-key** _KEY_
-> Use a specific Stripe API secret key for the command.
+> 为该命令使用特定的 Stripe API 密钥。
 
 **-p**, **--project-name** _NAME_
-> Run the command for a specific project configuration (default: "default").
+> 针对特定项目配置运行命令（默认为 "default"）。
 
 **--color** _on|off_
-> Enable or disable colored output.
+> 启用或禁用彩色输出。
 
 **--log-level** _LEVEL_
-> Set log verbosity level (default: info).
+> 设置日志详细程度级别（默认为 info）。
 
 **-h**, **--help**
-> Display help for a command.
+> 显示命令帮助。
 
 **-v**, **--version**
-> Display the CLI version.
+> 显示 CLI 版本。
 
 # DESCRIPTION
 
-**stripe** is the official command-line interface for the Stripe payment platform, designed to streamline development and testing of payment integrations. It provides direct access to the Stripe API, allowing developers to create and manage resources like customers, payment intents, and subscriptions without writing code.
+**stripe** 是 Stripe 支付平台的官方命令行界面，旨在简化支付集成的开发和测试。它提供对 Stripe API 的直接访问，让开发者无需编写代码即可创建和管理客户、支付意图和订阅等资源。
 
-A key feature is webhook listening, which receives Stripe events locally and forwards them to a development server. This eliminates the need for public URLs during development. The trigger command simulates specific events like successful payments or failed charges, enabling thorough testing of webhook handlers.
+其核心特性是 webhook 监听，可在本地接收 Stripe 事件并转发给开发服务器。这免除了开发过程中对公网 URL 的需求。trigger 命令可模拟支付成功或扣款失败等特定事件，便于对 webhook 处理程序进行全面测试。
 
-The CLI also provides real-time log tailing for monitoring API requests and responses, and can open the Stripe dashboard directly. Authentication is handled through the login command, which manages API keys and supports both test and live modes.
+该 CLI 还提供实时日志跟踪功能用于监控 API 请求和响应，并可直接打开 Stripe 仪表板。身份验证通过 login 命令完成，它会管理 API 密钥并同时支持测试模式和生产模式。
 
 # CAVEATS
 
-Requires a Stripe account and authentication via **stripe login** before use. API keys are sensitive credentials and should not be shared or committed to version control. The **listen** command only receives events while running; events fired when it is not active are missed. Webhook forwarding uses a temporary webhook signing secret that changes each session. Resource commands (e.g., **stripe customers list**) operate on live data unless using a test mode API key.
+使用前需要 Stripe 账户并通过 **stripe login** 完成身份验证。API 密钥是敏感凭据，不应共享或提交到版本控制。**listen** 命令仅在运行期间接收事件；未运行时触发的事件会丢失。Webhook 转发使用的临时签名密钥在每次会话中都会变化。除非使用测试模式的 API 密钥，资源类命令（例如 **stripe customers list**）会作用于生产数据。
 
 # HISTORY
 
-The **Stripe CLI** was released by **Stripe** in **2019** as an open-source tool to improve the developer experience for building payment integrations. It was built in Go and published on GitHub. The CLI addressed the common pain point of testing webhooks locally, which previously required tools like ngrok. It has since expanded to include API resource management, log tailing, sample project scaffolding, and Stripe Apps development support.
+**Stripe CLI** 由 **Stripe** 于 **2019 年**发布，是一款旨在改善支付集成开发体验的开源工具。它以 Go 语言构建并发布于 GitHub。该 CLI 解决了在本地测试 webhook 这一常见痛点——此前需要借助 ngrok 等工具。此后它的功能扩展到 API 资源管理、日志跟踪、示例项目脚手架以及 Stripe Apps 开发支持。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Test SSL/TLS server configuration and ciphers
+测试 SSL/TLS 服务器配置与密码套件
 
 # TLDR
 
-**Scan a server for SSL/TLS configuration**
+**扫描服务器的 SSL/TLS 配置**
 
 ```sslscan [example.com]```
 
-**Scan specific port**
+**扫描指定端口**
 
 ```sslscan [example.com:8443]```
 
-**Show only supported ciphers**
+**仅显示支持的密码套件**
 
 ```sslscan --no-ciphersuites [example.com]```
 
-**Show certificate details**
+**显示证书详情**
 
 ```sslscan --show-certificate [example.com]```
 
-**No color output**
+**无彩色输出**
 
 ```sslscan --no-colour [example.com]```
 
-**Use STARTTLS**
+**使用 STARTTLS**
 
 ```sslscan --starttls-smtp [mail.example.com:25]```
 
-**XML output**
+**XML 输出**
 
 ```sslscan --xml=[output.xml] [example.com]```
 
-**Check specific protocol**
+**检查所有协议版本**
 
 ```sslscan --tlsall [example.com]```
 
@@ -43,65 +43,65 @@ Test SSL/TLS server configuration and ciphers
 # PARAMETERS
 
 **--show-certificate**
-> Show certificate details.
+> 显示证书详情。
 
 **--no-ciphersuites**
-> Skip cipher listing.
+> 跳过密码套件列表。
 
 **--no-colour**
-> Disable colors.
+> 禁用彩色输出。
 
 **--xml** _FILE_
-> XML output.
+> XML 输出。
 
 **--starttls-smtp**
-> STARTTLS for SMTP.
+> 为 SMTP 使用 STARTTLS。
 
 **--starttls-imap**
-> STARTTLS for IMAP.
+> 为 IMAP 使用 STARTTLS。
 
 **--starttls-pop3**
-> STARTTLS for POP3.
+> 为 POP3 使用 STARTTLS。
 
 **--starttls-ftp**
-> STARTTLS for FTP.
+> 为 FTP 使用 STARTTLS。
 
 **--ssl2**, **--ssl3**, **--tls10**, **--tls11**, **--tls12**, **--tls13**
-> Test specific versions.
+> 测试特定协议版本。
 
 **--tlsall**
-> Test all TLS versions.
+> 测试所有 TLS 版本。
 
 **--no-fallback**
-> No version fallback.
+> 不进行版本回退。
 
 **--sni** _HOST_
-> SNI hostname.
+> SNI 主机名。
 
 **--bugs**
-> Enable SSL bug workarounds.
+> 启用 SSL 兼容性变通方案。
 
 # DESCRIPTION
 
-**sslscan** tests SSL/TLS services for configuration issues. It identifies supported ciphers, protocols, and certificate problems.
+**sslscan** 用于测试 SSL/TLS 服务的配置问题。它能识别支持的密码套件、协议以及证书问题。
 
-The scan shows which TLS versions are enabled. Legacy protocols (SSLv2, SSLv3, TLS 1.0, TLS 1.1) are security concerns.
+扫描结果显示启用了哪些 TLS 版本。旧式协议（SSLv2、SSLv3、TLS 1.0、TLS 1.1）是安全隐患。
 
-Cipher testing reveals weak algorithms. Export-grade, NULL, and RC4 ciphers are flagged. Color coding highlights problems.
+密码套件测试会暴露弱算法。出口级（Export-grade）、NULL 和 RC4 密码会被标记出来。颜色编码可突出显示问题。
 
-Certificate inspection shows expiry, chain, and trust issues. It identifies self-signed, expired, or incorrectly configured certificates.
+证书检查能发现过期、链和信任问题。它可以识别自签名、过期或配置错误的证书。
 
-STARTTLS support enables testing mail servers and other services that upgrade connections to TLS.
+STARTTLS 支持使邮件服务器及其他将连接升级为 TLS 的服务也能被测试。
 
-Results help remediate server configurations. Compare against security standards and best practices.
+扫描结果有助于改进服务器配置。可将结果与安全标准和最佳实践进行对照。
 
 # CAVEATS
 
-Requires network access to target. Some servers rate-limit scans. Results depend on client capabilities. Cannot test client certs.
+需要对目标的网络访问权限。某些服务器会对扫描限速。结果取决于客户端能力。无法测试客户端证书。
 
 # HISTORY
 
-**sslscan** was originally written by **Ian Ventura-Whiting** around **2007**. It was later forked and actively maintained by **rbsec** to support modern TLS features and protocols.
+**sslscan** 最初由 **Ian Ventura-Whiting** 于 **2007 年**前后编写。后来由 **rbsec** fork 并积极维护，以支持现代 TLS 特性和协议。
 
 # INSTALL
 

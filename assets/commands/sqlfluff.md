@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modular SQL linter and auto-formatter with dialect support
+支持多种方言的模块化 SQL linter 与自动格式化工具
 
 # TLDR
 
-**Lint** a SQL file with a specific dialect
+以**指定方言 lint** SQL 文件
 
 ```sqlfluff lint --dialect [postgres] [path/to/query.sql]```
 
-**Auto-fix** lint violations in place
+**就地自动修复**lint 违规
 
 ```sqlfluff fix --dialect [bigquery] [path/to/queries/]```
 
-**Format** SQL via stdin
+通过 stdin **格式化** SQL
 
 ```cat [query.sql] | sqlfluff format --dialect [snowflake] -```
 
-**Show parsed token tree** for a query
+**显示查询的解析标记树**
 
 ```sqlfluff parse --dialect [mysql] [query.sql]```
 
-**Lint only specific rules**
+**只 lint 特定规则**
 
 ```sqlfluff lint --rules [LT01,LT02,CP01] [path/to/file.sql]```
 
-**Exclude noisy rules** from a run
+在运行中**排除干扰性规则**
 
 ```sqlfluff lint --exclude-rules [L034,L036] [path/to/file.sql]```
 
-**Render** a templated query (expand Jinja/dbt) without linting
+**渲染**模板化查询（展开 Jinja/dbt）而不执行 lint
 
 ```sqlfluff render --dialect [ansi] [query.sql]```
 
@@ -41,56 +41,56 @@ Commands: **lint**, **fix**, **format**, **parse**, **render**, **rules**, **dia
 # PARAMETERS
 
 **--dialect** _NAME_
-> SQL dialect to parse against (e.g. **ansi**, **postgres**, **mysql**, **bigquery**, **snowflake**, **redshift**, **tsql**, **sqlite**, **duckdb**, **databricks**). Run **sqlfluff dialects** for the full list.
+> 解析所用的 SQL 方言（如 **ansi**、**postgres**、**mysql**、**bigquery**、**snowflake**、**redshift**、**tsql**、**sqlite**、**duckdb**、**databricks**）。运行 **sqlfluff dialects** 可查看完整列表。
 
 **--templater** _NAME_
-> Templating engine to use before parsing: **raw**, **jinja**, **python**, **placeholder**, or **dbt**.
+> 解析前使用的模板引擎：**raw**、**jinja**、**python**、**placeholder** 或 **dbt**。
 
 **--rules** _LIST_
-> Comma-separated list of rules (or rule groups) to enable.
+> 要启用的规则（或规则组）列表，以逗号分隔。
 
 **--exclude-rules** _LIST_
-> Comma-separated list of rules to skip.
+> 要跳过的规则列表，以逗号分隔。
 
 **-f**, **--force**
-> For **fix**: apply changes without asking for confirmation.
+> 对 **fix**：不经确认直接应用更改。
 
 **--FIX-EVEN-UNPARSABLE**
-> Allow **fix** to operate on files with templating or parse errors (dangerous).
+> 允许 **fix** 处理存在模板或解析错误的文件（危险）。
 
 **--processes** _N_
-> Number of parallel workers; **0** means all CPUs, negative means cpus + N.
+> 并行工作进程数量；**0** 表示使用所有 CPU，负数表示 CPU 数 + N。
 
 **-v**, **-vv**, **-vvv**
-> Increase verbosity; stackable.
+> 提高输出详细程度；可叠加使用。
 
 **--nocolor**
-> Disable ANSI color in output.
+> 在输出中禁用 ANSI 颜色。
 
 **--format** _FMT_
-> Output format: **human**, **json**, **yaml**, **github-annotation**, **github-annotation-native**.
+> 输出格式：**human**、**json**、**yaml**、**github-annotation**、**github-annotation-native**。
 
 **--config** _FILE_
-> Path to an explicit **.sqlfluff** configuration file.
+> 显式指定 **.sqlfluff** 配置文件的路径。
 
 **--encoding** _ENC_
-> File encoding to use when reading sources (default **autodetect**).
+> 读取源文件时使用的编码（默认 **autodetect**）。
 
 **--disable-noqa**
-> Ignore **-- noqa:** comments embedded in SQL.
+> 忽略嵌入在 SQL 中的 **-- noqa:** 注释。
 
 # DESCRIPTION
 
-**sqlfluff** is a dialect-aware linter and auto-formatter for SQL. It parses queries into an abstract syntax tree, applies a configurable set of rules, and reports or rewrites violations. Unlike text-based linters, the AST approach lets it enforce structural rules such as comma placement, keyword casing, ambiguous joins, and column-reference qualification.
+**sqlfluff** 是一个具备方言感知能力的 SQL linter 与自动格式化工具。它将查询解析为抽象语法树，应用一组可配置的规则，然后报告或重写违规之处。与基于文本的 linter 不同，AST 方法使它能够强制执行结构性规则，例如逗号位置、关键字大小写、歧义连接以及列引用限定。
 
-The tool supports a wide range of dialects (PostgreSQL, MySQL, BigQuery, Snowflake, Redshift, T-SQL, SQLite, DuckDB, Databricks, ANSI, and more) and integrates with templating engines so it can lint queries written in **Jinja**, **dbt**, or custom placeholder syntaxes without first rendering them.
+该工具支持大量方言（PostgreSQL、MySQL、BigQuery、Snowflake、Redshift、T-SQL、SQLite、DuckDB、Databricks、ANSI 等），并与模板引擎集成，因此无需先渲染即可 lint 用 **Jinja**、**dbt** 或自定义占位符语法编写的查询。
 
-Operation is split into commands: **lint** reports violations, **fix** rewrites the source in place, **format** applies layout-only fixes, **parse** dumps the token tree, and **render** expands templating without linting. Configuration is layered: built-in defaults are overridden by **.sqlfluff** files discovered up the directory tree, **pyproject.toml** sections, then command-line flags.
+操作按命令划分：**lint** 报告违规，**fix** 就地重写源文件，**format** 只应用布局类修复，**parse** 输出标记树，**render** 展开模板而不执行 lint。配置分层生效：内置默认值会被沿目录树向上找到的 **.sqlfluff** 文件覆盖，其次是 **pyproject.toml** 中的配置节，最后是命令行标志。
 
 # CONFIGURATION
 
 **.sqlfluff**
-> Per-project INI-style configuration; the search walks upward from the linted file. Example:
+> 每个项目的 INI 风格配置；查找过程从被 lint 的文件向上遍历。示例：
 
 ```
 [sqlfluff]
@@ -107,25 +107,25 @@ indent_unit = space
 ```
 
 **pyproject.toml**
-> Settings live under **[tool.sqlfluff.*]** sections that mirror the INI layout.
+> 设置位于 **[tool.sqlfluff.*]** 配置节中，与 INI 布局一一对应。
 
 **~/.sqlfluff**
-> User-level fallback applied to projects without their own config.
+> 用户级回退配置，应用于没有自身配置的项目。
 
-**-- noqa:** comments
-> Inline directives to disable rules on a line or block, e.g. **SELECT * -- noqa: L044**.
+**-- noqa:** 注释
+> 行内指令，用于在某一行或某个代码块上禁用规则，例如 **SELECT * -- noqa: L044**。
 
 # RULE GROUPS
 
-Rules are namespaced by area: **LT** layout, **CP** capitalisation, **CV** convention, **RF** references, **ST** structure, **AM** ambiguity, **AL** aliasing, **JJ** Jinja. Use **sqlfluff rules** to print the complete catalog with codes, names, and descriptions.
+规则按领域划分命名空间：**LT** 布局、**CP** 大小写、**CV** 惯例、**RF** 引用、**ST** 结构、**AM** 歧义、**AL** 别名、**JJ** Jinja。使用 **sqlfluff rules** 可打印包含代码、名称和描述的完整规则目录。
 
 # CAVEATS
 
-Templated SQL must parse after rendering; unresolved variables raise template errors that suppress most lint output. **fix** rewrites files even when the underlying SQL has subtle semantic implications (e.g. column-order changes from re-aliasing); review diffs before committing. Dialect parsers vary in coverage; very recent vendor syntax may not yet be recognized. Older numeric rule codes (**L001**, **L002**, ...) were renamed to mnemonic codes (**LT01**, **CP01**, ...) in **2.0**; legacy codes are aliased but deprecated.
+模板化 SQL 必须能在渲染后正常解析；未解析的变量会引发模板错误并抑制大部分 lint 输出。即使底层 SQL 存在细微的语义影响（例如重新起别名导致列顺序变化），**fix** 也会重写文件；提交前请检查 diff。各方言解析器的覆盖程度不一；非常新的厂商语法可能尚无法识别。较旧的数字规则代码（**L001**、**L002** 等）已在 **2.0** 中更名为助记码（**LT01**、**CP01** 等）；旧代码仍可用作别名但已弃用。
 
 # HISTORY
 
-**SQLFluff** was started by **Alan Cruickshank** in **2019** as an open-source dialect-aware alternative to text-based SQL linters. Version **1.0** shipped in **2022**, and **2.0** in **2023** brought a redesigned rule taxonomy with mnemonic codes and a templating-aware fix engine. The project is maintained on **github.com/sqlfluff/sqlfluff** under the MIT license.
+**SQLFluff** 由 **Alan Cruickshank** 于 **2019 年**发起，旨在作为基于文本的 SQL linter 的开源方言感知替代品。版本 **1.0** 于 **2022 年**发布；**2.0**（**2023 年**）带来了采用助记码的全新规则分类体系以及感知模板的修复引擎。该项目以 MIT 许可证托管于 **github.com/sqlfluff/sqlfluff** 并持续维护。
 
 # INSTALL
 

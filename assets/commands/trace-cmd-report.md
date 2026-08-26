@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display recorded kernel trace data
+显示已记录的内核跟踪数据
 
 # TLDR
 
-Display **recorded** trace
+显示**已记录的**跟踪
 
 ```sudo trace-cmd report```
 
-Display trace for specific **CPU**
+显示特定 **CPU** 的跟踪
 
 ```sudo trace-cmd report --cpu [cpu_number]```
 
@@ -19,20 +19,20 @@ Display trace for specific **CPU**
 # PARAMETERS
 
 **--cpu** _NUMBER_
-> Display trace for specific CPU only
+> 只显示特定 CPU 的跟踪
 
 **-i** _FILE_
-> Read trace from specified file
+> 从指定文件读取跟踪数据
 
 # DESCRIPTION
 
-**trace-cmd report** displays recorded trace events from a trace.dat file (or specified file). It parses the binary trace data and presents it in human-readable format.
+**trace-cmd report** 显示来自 trace.dat 文件（或指定文件）的已记录跟踪事件。它解析二进制跟踪数据并以人类可读的格式呈现。
 
-The output shows timestamps, CPU numbers, process information, and trace events in chronological order. Filtering options allow focusing on specific CPUs or event types.
+输出按时间顺序显示时间戳、CPU 编号、进程信息和跟踪事件。过滤选项可用于聚焦特定的 CPU 或事件类型。
 
 # CAVEATS
 
-Requires matching kernel version for proper symbol resolution. Large trace files may take time to process. Some events require debug information for full interpretation.
+需要内核版本匹配才能正确解析符号。处理大型跟踪文件可能耗时。某些事件需要调试信息才能完整解读。
 
 # INSTALL
 

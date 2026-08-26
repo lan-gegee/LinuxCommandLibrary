@@ -1,30 +1,30 @@
 # TAGLINE
 
-Feature-rich todo.txt task manager
+功能丰富的 todo.txt 任务管理器
 
 # TLDR
 
-**List tasks**
+**列出任务**
 
 ```topydo ls```
 
-**Add task**
+**添加任务**
 
 ```topydo add "[task description]"```
 
-**Complete task**
+**完成任务**
 
 ```topydo do [number]```
 
-**Set priority**
+**设置优先级**
 
 ```topydo pri [number] [A]```
 
-**Postpone task**
+**推迟任务**
 
 ```topydo postpone [number] [1w]```
 
-**Interactive mode**
+**交互模式**
 
 ```topydo prompt```
 
@@ -35,36 +35,36 @@ Feature-rich todo.txt task manager
 # PARAMETERS
 
 **ls**
-> List tasks.
+> 列出任务。
 
 **add**
-> Add task.
+> 添加任务。
 
 **do**
-> Complete task.
+> 完成任务。
 
 **pri**
-> Set priority.
+> 设置优先级。
 
 **postpone**
-> Delay task.
+> 推迟任务。
 
 **prompt**
-> Interactive mode.
+> 交互模式。
 
 # DESCRIPTION
 
-**topydo** is a feature-rich command-line todo list manager that uses the todo.txt format while adding capabilities like recurring tasks, relative date handling, and task dependencies. It maintains full compatibility with other todo.txt tools and clients.
+**topydo** 是一个功能丰富的命令行待办事项管理器，使用 todo.txt 格式，同时增加了循环任务、相对日期处理和任务依赖等功能。它与其他 todo.txt 工具和客户端保持完全兼容。
 
-The interactive **prompt** mode provides a continuous session for managing tasks without restarting the tool. Tasks can be postponed with relative date expressions like "1w" for one week, and recurring tasks automatically create new instances when completed.
+交互式 **prompt** 模式提供连续会话，无需重启工具即可持续管理任务。可以使用相对日期表达式推迟任务，例如 "1w" 表示一周；循环任务在完成后会自动创建新的实例。
 
 # CAVEATS
 
-Python required. todo.txt format. Configuration recommended.
+需要 Python。使用 todo.txt 格式。建议进行配置。
 
 # HISTORY
 
-**topydo** was created as a feature-rich, Python-based todo.txt client with recurring task support.
+**topydo** 的定位是一个基于 Python、支持循环任务的功能丰富的 todo.txt 客户端。
 
 # INSTALL
 

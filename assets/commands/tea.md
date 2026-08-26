@@ -1,38 +1,38 @@
 # TAGLINE
 
-Gitea command-line client
+Gitea 命令行客户端
 
 # TLDR
 
-**Log in to a Gitea instance**
+**登录 Gitea 实例**
 
 ```tea login add --url [https://gitea.example.com] --token [your_token]```
 
-**List issues** in the current repository
+**列出**当前仓库中的 issue
 
 ```tea issues```
 
-**Create a new issue**
+**创建新 issue**
 
 ```tea issues create --title "[Bug report]" --body "[Description]"```
 
-**List pull requests**
+**列出拉取请求**
 
 ```tea pulls```
 
-**Create a pull request**
+**创建拉取请求**
 
 ```tea pulls create --title "[Feature]" --base [main] --head [feature-branch]```
 
-**Checkout a pull request** locally
+**在本地检出拉取请求**
 
 ```tea pulls checkout [42]```
 
-**List repositories**
+**列出仓库**
 
 ```tea repos```
 
-**Clone a repository**
+**克隆仓库**
 
 ```tea clone [owner/repo]```
 
@@ -43,87 +43,87 @@ Gitea command-line client
 # COMMANDS
 
 **logins**
-> Manage Gitea server authentications (add, list, delete, default)
+> 管理 Gitea 服务器认证（add、list、delete、default）
 
 **logout**
-> Remove authentication from a Gitea server
+> 移除对某台 Gitea 服务器的认证
 
 **whoami**
-> Display currently authenticated user
+> 显示当前已认证的用户
 
 **issues**
-> Create, list, and manage issues (create, list, edit, close, reopen)
+> 创建、列出和管理 issue（create、list、edit、close、reopen）
 
 **pulls**, **pr**
-> Manage pull requests (create, list, checkout, merge, approve, reject)
+> 管理拉取请求（create、list、checkout、merge、approve、reject）
 
 **repos**
-> Display and manage repositories (list, create, fork, delete, migrate)
+> 显示和管理仓库（list、create、fork、delete、migrate）
 
 **branches**
-> Examine and manage branches (list, protect, unprotect)
+> 查看和管理分支（list、protect、unprotect）
 
 **labels**
-> Manage issue labels (create, list, update, delete)
+> 管理 issue 标签（create、list、update、delete）
 
 **milestones**
-> Track project milestones (create, list, close, reopen)
+> 跟踪项目里程碑（create、list、close、reopen）
 
 **releases**
-> Manage releases (create, list, delete, edit, assets)
+> 管理发布（create、list、delete、edit、assets）
 
 **organizations**
-> Manage organizations (list, create, delete)
+> 管理组织（list、create、delete）
 
 **times**
-> Track time on issues
+> 跟踪在 issue 上花费的时间
 
 **notifications**
-> View and manage notifications
+> 查看和管理通知
 
 **comment**
-> Add comments to issues or pull requests
+> 为 issue 或拉取请求添加评论
 
 **open**
-> Open repository in web browser
+> 在网页浏览器中打开仓库
 
 **clone**
-> Clone a repository
+> 克隆仓库
 
 # PARAMETERS
 
 **--login**, **-l** _name_
-> Use a specific login configuration
+> 使用指定的登录配置
 
 **--repo**, **-r** _owner/repo_
-> Specify repository (default: detected from current directory)
+> 指定仓库（默认：从当前目录自动检测）
 
 **--output**, **-o** _format_
-> Output format: simple, table, csv, tsv, yaml, json
+> 输出格式：simple、table、csv、tsv、yaml、json
 
 **--help**, **-h**
-> Show help for command
+> 显示命令帮助
 
 **--version**, **-v**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**tea** is a command-line client for interacting with Gitea servers. It provides functionality similar to GitHub's **gh** CLI, allowing management of repositories, issues, pull requests, and other entities directly from the terminal.
+**tea** 是与 Gitea 服务器交互的命令行客户端。它提供类似于 GitHub 的 **gh** CLI 的功能，可以直接在终端中管理仓库、issue、拉取请求等实体。
 
-The tool uses context from the current git repository when available, detecting the remote Gitea server and repository automatically. It works best with an upstream/fork workflow where the local main branch tracks the upstream repository.
+当处于 git 仓库中时，该工具会使用当前仓库的上下文，自动检测远程的 Gitea 服务器和仓库。它在 upstream/fork 工作流下工作效果最佳，即本地 main 分支跟踪上游仓库。
 
-Multiple Gitea instances can be configured via **tea logins add**, with one set as default. Configuration is stored in **$XDG_CONFIG_HOME/tea** (typically ~/.config/tea).
+可以通过 **tea logins add** 配置多台 Gitea 实例，并将其中一台设为默认。配置存储在 **$XDG_CONFIG_HOME/tea**（通常为 ~/.config/tea）。
 
-Useful commands include **tea pulls checkout** to fetch and switch to a PR branch locally, and **tea open** to quickly open the current repository in a web browser.
+常用命令包括用 **tea pulls checkout** 在本地获取并切换到 PR 分支，以及用 **tea open** 快速在浏览器中打开当前仓库。
 
 # CAVEATS
 
-tea assumes local git state is published to the remote before performing operations. Some commands require appropriate permissions on the Gitea server. The tool is designed specifically for Gitea and may not work with other forges.
+tea 在执行操作前假定本地 git 状态已发布到远程。某些命令需要具备 Gitea 服务器上的相应权限。该工具专为 Gitea 设计，可能无法与其他代码托管平台配合使用。
 
 # HISTORY
 
-**tea** was developed by the **Gitea** project as the official command-line interface for Gitea servers. Written in **Go**, it uses the Gitea SDK to interact with the Gitea API. The project is hosted on Gitea's own platform at gitea.com/gitea/tea.
+**tea** 由 **Gitea** 项目开发，是 Gitea 服务器的官方命令行界面。它使用 **Go** 编写，通过 Gitea SDK 与 Gitea API 交互。项目托管在 Gitea 自己的平台 gitea.com/gitea/tea 上。
 
 # INSTALL
 

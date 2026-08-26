@@ -1,22 +1,22 @@
 # TLDR
 
-**SSH with password**
+**使用密码进行 SSH 连接**
 
 ```sshpass -p '[password]' ssh [user@host]```
 
-**SSH with password from file**
+**从文件读取密码进行 SSH 连接**
 
 ```sshpass -f [password_file] ssh [user@host]```
 
-**SSH with password from env var**
+**从环境变量读取密码进行 SSH 连接**
 
 ```SSHPASS='[password]' sshpass -e ssh [user@host]```
 
-**SCP with password**
+**使用密码进行 SCP 传输**
 
 ```sshpass -p '[password]' scp [file] [user@host:/path/]```
 
-**Rsync with password**
+**使用密码进行 Rsync 同步**
 
 ```sshpass -p '[password]' rsync -avz [files] [user@host:/path/]```
 
@@ -27,48 +27,48 @@
 # PARAMETERS
 
 **-p** _PASSWORD_
-> Password on command line.
+> 在命令行上提供密码。
 
 **-f** _FILE_
-> Read password from file.
+> 从文件读取密码。
 
 **-e**
-> Read from SSHPASS env variable.
+> 从 SSHPASS 环境变量读取密码。
 
 **-d** _FD_
-> Read from file descriptor.
+> 从文件描述符读取密码。
 
 **-P** _PROMPT_
-> Set password prompt pattern.
+> 设置密码提示的匹配模式。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **-h**
-> Show help.
+> 显示帮助。
 
 **-V**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**sshpass** provides password authentication for SSH without interactive input. It enables automation where key-based auth isn't available.
+**sshpass** 为 SSH 提供非交互式的密码认证，无需手动输入。它适用于无法使用密钥认证的场景下的自动化操作。
 
-Password sources include command line, files, and environment variables. File-based passwords are safer than command-line exposure.
+密码来源包括命令行、文件和环境变量。相比在命令行上暴露密码，使用文件更安全。
 
-The tool works with any program expecting SSH-style password prompts: ssh, scp, rsync, and others.
+该工具可与任何期待 SSH 风格密码提示的程序配合使用：ssh、scp、rsync 等。
 
-First-time connections need host key handling. Use -o StrictHostKeyChecking=no for automation, though this has security implications.
+首次连接需要处理主机密钥。自动化场景可以使用 -o StrictHostKeyChecking=no，但这会带来安全隐患。
 
-For most uses, SSH keys are preferred. sshpass fills gaps where key auth isn't possible or practical.
+对大多数用途而言，优先推荐 SSH 密钥。sshpass 用于填补密钥认证不可行或不实用的场景空缺。
 
 # CAVEATS
 
-Command-line passwords visible in process list. Less secure than SSH keys. Not recommended for interactive use. May expose passwords in logs.
+命令行上的密码会在进程列表中可见。安全性不如 SSH 密钥。不建议用于交互式场景。可能将密码暴露到日志中。
 
 # HISTORY
 
-**sshpass** was written by **Shachar Shemesh** to address the need for non-interactive SSH password entry in scripts and automation where key-based authentication wasn't feasible.
+**sshpass** 由 **Shachar Shemesh** 编写，旨在解决脚本和自动化中无法使用密钥认证时的非交互式 SSH 密码输入需求。
 
 # INSTALL
 

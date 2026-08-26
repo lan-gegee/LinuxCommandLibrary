@@ -1,22 +1,22 @@
 # TAGLINE
 
-Configure TeX Live installation options
+配置 TeX Live 安装选项
 
 # TLDR
 
-**Show all options**
+**显示所有选项**
 
 ```tlmgr option```
 
-**Show specific option**
+**显示特定选项**
 
 ```tlmgr option [optionname]```
 
-**Set option value**
+**设置选项值**
 
 ```tlmgr option [optionname] [value]```
 
-**Show available options**
+**显示可用选项**
 
 ```tlmgr option showall```
 
@@ -27,25 +27,24 @@ Configure TeX Live installation options
 # PARAMETERS
 
 **repository**
-> Package repository URL.
+> 软件包仓库 URL。
 
 **autobackup**
-> Number of backups to keep.
+> 保留备份的数量。
 
 **backupdir**
-> Backup directory.
+> 备份目录。
 
 **docfiles**
-> Install documentation (0/1).
+> 安装文档（0/1）。
 
 **srcfiles**
-> Install source files (0/1).
+> 安装源文件（0/1）。
 
 # DESCRIPTION
 
-**tlmgr option** manages TeX Live installation options. Configure repository, backup settings, and what to install. Part of TeX Live Manager.
+**tlmgr option** 管理 TeX Live 的安装选项。配置仓库、备份设置以及要安装的内容。TeX Live Manager 的组成部分。
 
 # SEE ALSO
 
 [tlmgr-conf](/man/tlmgr-conf)(1), [tlmgr](/man/tlmgr)(1)
-

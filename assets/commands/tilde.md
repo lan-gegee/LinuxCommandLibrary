@@ -1,26 +1,26 @@
 # TAGLINE
 
-Shell tilde expansion shorthand
+Shell 波浪号展开简写
 
 # TLDR
 
-**Home directory**
+**主目录**
 
 ```cd ~```
 
-**Another user's home directory**
+**其他用户的主目录**
 
 ```cd ~[username]```
 
-**Previous directory**
+**上一个目录**
 
 ```cd ~-```
 
-**Current directory**
+**当前目录**
 
 ```echo ~+```
 
-**Case modification (bash 4+)**
+**大小写转换（bash 4+）**
 
 ```echo ${var~~}```
 
@@ -34,42 +34,42 @@ Shell tilde expansion shorthand
 # TILDE EXPANSIONS
 
 **~**
-> Current user's home directory ($HOME)
+> 当前用户的主目录（$HOME）
 
 **~username**
-> Specified user's home directory
+> 指定用户的主目录
 
 **~+**
-> Current working directory ($PWD)
+> 当前工作目录（$PWD）
 
 **~-**
-> Previous working directory ($OLDPWD)
+> 上一个工作目录（$OLDPWD）
 
-# PARAMETER EXPANSION (bash 4+)
+# 参数展开 (bash 4+)
 
 **${var^}**
-> Uppercase first character
+> 首字符转大写
 
 **${var^^}**
-> Uppercase all characters
+> 所有字符转大写
 
 **${var,}**
-> Lowercase first character
+> 首字符转小写
 
 **${var,,}**
-> Lowercase all characters
+> 所有字符转小写
 
 **${var~}**
-> Toggle case of first character
+> 反转首字符大小写
 
 **${var~~}**
-> Toggle case of all characters
+> 反转所有字符大小写
 
 # DESCRIPTION
 
-**~** (tilde) is expanded by the shell to directory paths. It's a shorthand that avoids hardcoding paths like /home/user.
+**~**（波浪号）会被 shell 展开为目录路径。它是一种简写，避免了硬编码 /home/user 这类路径。
 
-Tilde expansion only occurs at the start of a word or after **:**. In the middle of text, **~** is literal.
+波浪号展开只出现在词首或 **:** 之后。位于文本中间时，**~** 是字面字符。
 
 ```bash
 cd ~                    # Go home
@@ -78,7 +78,7 @@ cd ~root                # Root's home
 PATH=$PATH:~/bin        # After : works
 ```
 
-The **~+** and **~-** forms mirror the **pushd/popd** directory stack, allowing quick navigation between recent directories.
+**~+** 和 **~-** 形式对应 **pushd/popd** 目录栈，可在最近使用的目录之间快速切换。
 
 # EXAMPLES
 
@@ -102,11 +102,11 @@ echo ${name~~}    # hELLO
 
 # CAVEATS
 
-Tilde only expands when unquoted and at word start. **"~"** is literal, not home.
+波浪号只有在未加引号且位于词首时才会展开。**"~"** 是字面字符，不是主目录。
 
-**~user** looks up the user in the password database, not just string concatenation.
+**~user** 会在密码数据库中查找该用户，而不只是字符串拼接。
 
-**~-** is empty if no previous directory (new shell).
+如果没有上一个目录（新 shell），**~-** 为空。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reset all units to preset defaults
+将所有单元重置为预设默认值
 
 # TLDR
 
-Reset **all** units to preset defaults
+将**所有**单元重置为预设默认值
 
 ```sudo systemctl preset-all```
 
-**Enable** only mode
+仅**启用**模式
 
 ```sudo systemctl preset-all --preset-mode enable-only```
 
-**Disable** only mode
+仅**禁用**模式
 
 ```sudo systemctl preset-all --preset-mode disable-only```
 
-**Quiet** mode
+**安静**模式
 
 ```sudo systemctl preset-all -q```
 
@@ -27,27 +27,27 @@ Reset **all** units to preset defaults
 # PARAMETERS
 
 **--preset-mode=** _MODE_
-> full (default), enable-only, or disable-only
+> full（默认）、enable-only 或 disable-only
 
 **-q, --quiet**
-> Suppress output, return only exit code
+> 不输出内容，仅返回退出码
 
 **--user**
-> Operate on user units
+> 操作用户单元
 
 # DESCRIPTION
 
-**systemctl preset-all** resets the enablement state of all installed unit files to the defaults defined in preset policy files. This applies distribution default settings to every unit on the system.
+**systemctl preset-all** 将所有已安装单元文件的启用状态重置为预设策略文件中定义的默认值。这会将发行版的默认设置应用到系统上的每一个单元。
 
-This is typically run once after initial system installation or when resetting to distribution defaults.
+通常在系统初次安装后运行一次，或在需要恢复到发行版默认设置时运行。
 
 # CAVEATS
 
-This is a system-wide operation that can change many service enablement states. Use `--preset-mode` to limit to only enabling or disabling. Backup your current configuration before running.
+这是一种影响整个系统的操作，可能改变许多服务的启用状态。可使用 `--preset-mode` 将范围限制为只启用或只禁用。运行前请备份当前配置。
 
 # HISTORY
 
-The **preset-all** subcommand provides a way to reset the entire system to distribution-default service configuration, useful for recovery or standardization.
+**preset-all** 子命令提供了一种将整个系统重置为发行版默认服务配置的方式，适用于恢复或标准化场景。
 
 # SEE ALSO
 

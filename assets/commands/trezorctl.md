@@ -1,38 +1,38 @@
 # TAGLINE
 
-Trezor hardware wallet command-line interface
+Trezor 硬件钱包命令行界面
 
 # TLDR
 
-**List connected Trezor devices**
+列出已连接的 Trezor 设备
 
 ```trezorctl list```
 
-**Get device features and info**
+获取设备特性与信息
 
 ```trezorctl get-features```
 
-**Get Bitcoin address** at a specific path
+获取特定路径下的比特币地址
 
 ```trezorctl btc get-address -n "m/84'/0'/0'/0/0"```
 
-**Sign a message** with Bitcoin
+用比特币签名消息
 
 ```trezorctl btc sign-message -n "m/84'/0'/0'/0/0" "[message]"```
 
-**Wipe device** (factory reset)
+擦除设备（恢复出厂设置）
 
 ```trezorctl device wipe```
 
-**Update firmware**
+更新固件
 
 ```trezorctl firmware-update```
 
-**Set device label**
+设置设备标签
 
 ```trezorctl device set-label "[My Trezor]"```
 
-**Change PIN**
+更改 PIN
 
 ```trezorctl device change-pin```
 
@@ -43,71 +43,71 @@ Trezor hardware wallet command-line interface
 # PARAMETERS
 
 **list**
-> List all connected Trezor devices.
+> 列出所有已连接的 Trezor 设备。
 
 **get-features**
-> Retrieve device information including model, firmware version, and settings.
+> 获取设备信息，包括型号、固件版本和设置。
 
 **btc get-address** **-n** _path_
-> Get a Bitcoin address at the specified BIP32 derivation path.
+> 获取指定 BIP32 派生路径下的比特币地址。
 
 **btc sign-message** **-n** _path_ _message_
-> Sign a message using the key at the specified path.
+> 使用指定路径的密钥对消息签名。
 
 **btc sign-tx**
-> Sign a Bitcoin transaction interactively.
+> 以交互方式对比特币交易签名。
 
 **device wipe**
-> Wipe the device and reset to factory settings.
+> 擦除设备并恢复出厂设置。
 
 **device setup**
-> Initialize a new device with seed generation.
+> 通过生成助记词初始化新设备。
 
 **device recover**
-> Recover a device using an existing seed phrase.
+> 使用已有的助记词恢复设备。
 
 **device change-pin**
-> Change or set the device PIN.
+> 更改或设置设备 PIN。
 
 **device set-label** _label_
-> Set a custom label for the device.
+> 为设备设置自定义标签。
 
 **device unlock-bootloader**
-> Unlock the bootloader for advanced operations.
+> 解锁引导加载程序以进行高级操作。
 
 **firmware-update**
-> Update device firmware to the latest version.
+> 将设备固件更新到最新版本。
 
 **set safety-checks** _strict_|_prompt_
-> Set safety check level. Strict enforces full validation; prompt allows user overrides.
+> 设置安全检查级别。strict 强制执行完整校验；prompt 允许用户覆盖。
 
 **crypto get-public-key** **-n** _path_
-> Get public key at the specified BIP32 derivation path.
+> 获取指定 BIP32 派生路径下的公钥。
 
 **ethereum get-address** **-n** _path_
-> Get Ethereum address at the specified derivation path.
+> 获取指定派生路径下的以太坊地址。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--help**
-> Show help for a command.
+> 显示某个命令的帮助。
 
 # DESCRIPTION
 
-**trezorctl** is the command-line interface for Trezor hardware wallets, providing advanced control over device configuration, cryptocurrency operations, and security settings. It is part of the trezorlib Python package and communicates with Trezor One, Trezor Model T, and Trezor Safe devices.
+**trezorctl** 是 Trezor 硬件钱包的命令行界面，可对设备配置、加密货币操作和安全设置进行高级控制。它属于 trezorlib Python 软件包，可与 Trezor One、Trezor Model T 和 Trezor Safe 设备通信。
 
-The tool enables signing transactions, deriving addresses, managing device settings, updating firmware, and performing recovery operations without using the graphical Trezor Suite application. It supports multiple cryptocurrencies including Bitcoin, Ethereum, and various altcoins.
+借助该工具，无需使用图形化的 Trezor Suite 应用即可签署交易、派生地址、管理设备设置、更新固件以及执行恢复操作。它支持多种加密货币，包括比特币、以太坊和各种山寨币。
 
-All sensitive operations require physical confirmation on the device, maintaining security even when using command-line tools. The interface is designed for advanced users who need scriptable access to hardware wallet functions.
+所有敏感操作都需要在设备上进行物理确认，因此即使使用命令行工具也能保持安全。该界面面向需要以脚本方式访问硬件钱包功能的高级用户。
 
 # CAVEATS
 
-Requires Python 3.8 or higher and libusb. On Linux, udev rules must be installed for device detection (provided by the `trezor-common` package). Some operations like device wipe are irreversible; ensure seed phrase backup before proceeding. The device must be connected and unlocked for most commands. Install via `pip install trezor`.
+需要 Python 3.8 或更高版本以及 libusb。在 Linux 上必须安装 udev 规则才能检测到设备（由 `trezor-common` 软件包提供）。某些操作（如擦除设备）不可逆；操作前请确保已备份助记词。大多数命令要求设备已连接并解锁。可通过 `pip install trezor` 安装。
 
 # HISTORY
 
-**trezorctl** was developed by **SatoshiLabs** as part of the Python tools for Trezor, the first hardware cryptocurrency wallet released in **2014**. The command-line interface evolved alongside the device firmware, adding support for new cryptocurrencies and security features. The tool is maintained in the official trezor-firmware repository.
+**trezorctl** 由 **SatoshiLabs** 开发，是 Trezor Python 工具的一部分；Trezor 是 **2014 年**发布的首款硬件加密货币钱包。命令行界面随设备固件一同演进，陆续增加了对新加密货币和安全特性的支持。该工具在官方 trezor-firmware 仓库中维护。
 
 # INSTALL
 

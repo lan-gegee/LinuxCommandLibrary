@@ -1,34 +1,34 @@
 # TAGLINE
 
-Sublime Text command-line launcher
+Sublime Text 命令行启动器
 
 # TLDR
 
-**Open a file** in Sublime Text
+在 Sublime Text 中**打开文件**
 
 ```subl [path/to/file]```
 
-**Open a file at a specific line** and column
+**在指定行列位置打开文件**
 
 ```subl [path/to/file]:[line]:[column]```
 
-**Open a directory** as a project
+**将目录作为项目打开**
 
 ```subl [path/to/directory]```
 
-**Open files in a new window**
+**在新窗口中打开文件**
 
 ```subl -n [file1] [file2]```
 
-**Add folders to the current window** instead of opening a new one
+**将文件夹添加到当前窗口**而不是打开新窗口
 
 ```subl -a [path/to/directory]```
 
-**Wait for files to close** before returning (useful for git)
+**等待文件关闭后再返回**（对 git 有用）
 
 ```subl -w [path/to/file]```
 
-**Open from stdin**
+**从 stdin 打开**
 
 ```echo "[text]" | subl -```
 
@@ -39,48 +39,48 @@ Sublime Text command-line launcher
 # PARAMETERS
 
 **-n**, **--new-window**
-> Open a new window instead of reusing an existing instance.
+> 打开新窗口而不是复用现有实例。
 
 **-a**, **--add**
-> Add folders to the current window instead of opening a new window.
+> 将文件夹添加到当前窗口，而不是打开新窗口。
 
 **-w**, **--wait**
-> Wait for the files to be closed before returning. Useful for version control editors.
+> 等待文件关闭后再返回。适合作为版本控制的编辑器。
 
 **-b**, **--background**
-> Open files without activating the application window.
+> 打开文件但不激活应用窗口。
 
 **--project** _project_
-> Load a specific .sublime-project or .sublime-workspace file.
+> 加载指定的 .sublime-project 或 .sublime-workspace 文件。
 
 **--command** _command_
-> Execute a Sublime Text internal command (e.g., **save_all**, **build**).
+> 执行 Sublime Text 内部命令（例如 **save_all**、**build**）。
 
 **--safe-mode**
-> Launch in a sandboxed clean environment without plugins.
+> 在无插件的沙箱化干净环境中启动。
 
 **--launch-or-new-window**
-> Only open a new window if the application is already running.
+> 仅当应用已在运行时才打开新窗口。
 
 **-v**, **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助消息并退出。
 
 # DESCRIPTION
 
-**subl** is the command-line interface for Sublime Text, a popular cross-platform text editor. It allows opening files and directories from the terminal and integrating with Unix tools like git and subversion.
+**subl** 是 Sublime Text 的命令行接口，Sublime Text 是一款流行的跨平台文本编辑器。它允许从终端打开文件和目录，并与 git、subversion 等 Unix 工具集成。
 
-Files can include a **:line** or **:line:column** suffix to open at a specific location (1-based). The tool can read from stdin using **-**. When used with **-w**, it blocks until files are closed, making it suitable as an external editor for version control systems (e.g., `EDITOR='subl -w' git commit`).
+文件名可以带 **:line** 或 **:line:column** 后缀，以在特定位置打开（从 1 开始计数）。该工具可通过 **-** 从 stdin 读取内容。配合 **-w** 使用时，它会阻塞直到文件被关闭，因此适合作为版本控制系统的外部编辑器（例如 `EDITOR='subl -w' git commit`）。
 
 # CAVEATS
 
-The **subl** command requires Sublime Text to be installed. On manual installations, you may need to create a symlink: **ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl**. Package manager installations typically create this symlink automatically in /usr/bin/.
+使用 **subl** 命令需要已安装 Sublime Text。手动安装时，可能需要创建符号链接：**ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl**。通过软件包管理器安装通常会在 /usr/bin/ 中自动创建该符号链接。
 
 # HISTORY
 
-Sublime Text was created by **Jon Skinner** and first released in **January 2008**. The command-line helper **subl** has been part of Sublime Text since version 2, enabling terminal-based workflows. Sublime Text 3 was released in **2013**, and Sublime Text 4 followed in **2021** with GPU rendering and improved performance.
+Sublime Text 由 **Jon Skinner** 创建，于 **2008 年 1 月**首次发布。命令行辅助工具 **subl** 自版本 2 起就是 Sublime Text 的一部分，支持基于终端的工作流。Sublime Text 3 发布于 **2013 年**，Sublime Text 4 随后于 **2021 年**发布，带来了 GPU 渲染和更高的性能。
 
 # SEE ALSO
 

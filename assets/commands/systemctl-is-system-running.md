@@ -1,18 +1,18 @@
 # TAGLINE
 
-Check overall system operational state
+检查系统整体运行状态
 
 # TLDR
 
-Check **system state**
+检查**系统状态**
 
 ```systemctl is-system-running```
 
-**Quiet** mode (exit code only)
+**安静**模式（仅返回退出码）
 
 ```systemctl is-system-running -q```
 
-**Wait** for boot completion
+**等待**启动完成
 
 ```systemctl is-system-running --wait```
 
@@ -23,46 +23,46 @@ Check **system state**
 # PARAMETERS
 
 **-q, --quiet**
-> Suppress output, return only exit code
+> 不输出内容，仅返回退出码
 
 **--wait**
-> Wait until boot process is completed before returning
+> 等待启动过程完成后才返回
 
 # DESCRIPTION
 
-**systemctl is-system-running** checks the overall operational state of the system. It reports whether the system has finished booting and whether all units are functioning properly.
+**systemctl is-system-running** 检查系统的整体运行状态。它会报告系统是否已完成启动，以及所有单元是否运行正常。
 
-Possible states: initializing, starting, running, degraded, maintenance, stopping, offline, unknown. "Running" indicates successful boot with all units healthy.
+可能的状态：initializing、starting、running、degraded、maintenance、stopping、offline、unknown。"running" 表示启动成功且所有单元健康。
 
 # SYSTEM STATES
 
-**initializing** — Early boot, before basic.target reached.
+**initializing** — 启动早期，尚未到达 basic.target。
 
-**starting** — Late boot, before all services have finished.
+**starting** — 启动后期，尚未等所有服务完成。
 
-**running** — System fully operational, all units healthy.
+**running** — 系统完全正常运行，所有单元健康。
 
-**degraded** — System is running but at least one unit has failed.
+**degraded** — 系统正在运行，但至少有一个单元失败。
 
-**maintenance** — Rescue/emergency mode.
+**maintenance** — 救援/紧急模式。
 
-**stopping** — Shutdown in progress.
+**stopping** — 正在关机。
 
-**offline** — System not booted under systemd (e.g., chroot).
+**offline** — 系统未在 systemd 下启动（如 chroot 环境）。
 
-**unknown** — State could not be determined.
+**unknown** — 无法确定状态。
 
 # EXIT STATUS
 
-Returns **0** only when the system reports `running`. Any other state returns non-zero, so `systemctl is-system-running -q` is a convenient health-check primitive in scripts.
+只有当系统状态为 `running` 时才返回 **0**。其他任何状态都返回非零值，因此 `systemctl is-system-running -q` 是脚本中便捷的健康检查原语。
 
 # CAVEATS
 
-The `--wait` option is useful in scripts that need to wait for complete system startup before proceeding. "Degraded" state indicates at least one unit failed.
+`--wait` 选项适用于需要等系统完全启动后再继续的脚本。"degraded"（降级）状态表示至少有一个单元失败。
 
 # HISTORY
 
-The **is-system-running** subcommand provides a high-level health check for the entire system, enabling automated monitoring and boot-completion detection.
+**is-system-running** 子命令为整个系统提供高级健康检查，可用于自动化监控和检测启动是否完成。
 
 # SEE ALSO
 

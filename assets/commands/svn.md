@@ -1,38 +1,38 @@
 # TAGLINE
 
-Apache Subversion version control client
+Apache Subversion 版本控制客户端
 
 # TLDR
 
-**Checkout a repository** to a local directory
+**检出仓库**到本地目录
 
 ```svn checkout [url] [path/to/directory]```
 
-**Update the working copy** to the latest revision
+将工作副本**更新到最新修订版**
 
 ```svn update```
 
-**Add a file** to version control
+**将文件纳入版本控制**
 
 ```svn add [path/to/file]```
 
-**Commit changes** with a message
+带提交说明**提交变更**
 
 ```svn commit -m "[message]"```
 
-**Show the status** of the working copy
+**显示工作副本的状态**
 
 ```svn status```
 
-**Show differences** between working copy and repository
+**显示工作副本与仓库的差异**
 
 ```svn diff [path/to/file]```
 
-**View the commit log** for a file or directory
+**查看文件或目录的提交日志**
 
 ```svn log [path]```
 
-**Revert local changes** to a file
+**还原文件的本地修改**
 
 ```svn revert [path/to/file]```
 
@@ -43,89 +43,89 @@ Apache Subversion version control client
 # PARAMETERS
 
 **checkout** (**co**)
-> Check out a working copy from a repository.
+> 从仓库检出一个工作副本。
 
 **update** (**up**)
-> Bring changes from the repository into the working copy.
+> 将仓库中的变更拉入工作副本。
 
 **add**
-> Put files and directories under version control.
+> 将文件和目录纳入版本控制。
 
 **delete** (**del**, **rm**)
-> Remove files and directories from version control.
+> 将文件和目录从版本控制中移除。
 
 **commit** (**ci**)
-> Send changes from your working copy to the repository.
+> 将工作副本的变更发送到仓库。
 
 **status** (**st**)
-> Print the status of working copy files and directories.
+> 打印工作副本中文件和目录的状态。
 
 **diff** (**di**)
-> Display local modifications or differences between revisions.
+> 显示本地修改或修订版之间的差异。
 
 **log**
-> Display commit log messages.
+> 显示提交日志消息。
 
 **revert**
-> Undo local modifications to a file or directory.
+> 撤销对文件或目录的本地修改。
 
 **merge**
-> Apply differences between two sources to a working copy path.
+> 将两个来源之间的差异应用到工作副本路径。
 
 **copy** (**cp**)
-> Copy a file or directory in a working copy or repository.
+> 在工作副本或仓库中复制文件或目录。
 
 **move** (**mv**)
-> Move or rename a file or directory.
+> 移动或重命名文件或目录。
 
 **info**
-> Display information about a local or remote item.
+> 显示本地或远程条目的信息。
 
 **blame** (**annotate**)
-> Show author and revision information inline for each line.
+> 对每一行内联显示作者和修订信息。
 
 **-m**, **--message** _msg_
-> Specify a log message for the commit.
+> 为提交指定日志消息。
 
 **-r**, **--revision** _rev_
-> Specify a revision number or range (e.g., **-r 100**, **-r 100:200**).
+> 指定修订号或范围（如 **-r 100**、**-r 100:200**）。
 
 **-c**, **--change** _rev_
-> Apply change from revision (syntactic sugar for **-r rev-1:rev**).
+> 应用某个修订带来的变更（**-r rev-1:rev** 的语法糖）。
 
 **-q**, **--quiet**
-> Print nothing, or only summary information.
+> 不打印内容，或只打印摘要信息。
 
 **-v**, **--verbose**
-> Print extra information.
+> 打印额外信息。
 
 **--depth** _arg_
-> Limit operation scope: **empty**, **files**, **immediates**, or **infinity**.
+> 限制操作范围：**empty**、**files**、**immediates** 或 **infinity**。
 
 **--username** _user_
-> Specify a username for authentication.
+> 指定认证用户名。
 
 **--password** _pass_
-> Specify a password for authentication.
+> 指定认证密码。
 
 **--non-interactive**
-> Do no interactive prompting (useful for scripts).
+> 不进行交互式提示（便于脚本使用）。
 
 # DESCRIPTION
 
-**svn** is the official command-line client for Apache Subversion, a centralized version control system. It manages files and directories over time, tracking modifications and allowing retrieval of previous versions.
+**svn** 是 Apache Subversion 的官方命令行客户端。Subversion 是一种集中式版本控制系统，长期管理文件和目录，跟踪修改并允许取回历史版本。
 
-The client communicates with a Subversion repository to perform operations like checking out working copies, committing changes, updating to latest revisions, and merging branches. Subversion supports atomic commits, versioned directories, and efficient binary file handling.
+该客户端与 Subversion 仓库通信，执行检出工作副本、提交变更、更新到最新修订版以及合并分支等操作。Subversion 支持原子提交、目录版本控制以及高效的二进制文件处理。
 
-Working copies maintain metadata in **.svn** directories, tracking the base revision and local modifications. The **svn** client uses this metadata to determine what has changed and what needs synchronization with the repository.
+工作副本在 **.svn** 目录中维护元数据，记录基准修订版和本地修改。**svn** 客户端利用这些元数据判断哪些内容发生了变化、哪些需要与仓库同步。
 
 # CAVEATS
 
-Unlike Git, Subversion requires network access for most operations since history is stored on the server. The **.svn** directories in every subdirectory can cause issues when copying working copies. Use **svn export** instead of copying if you need a clean directory without version control metadata.
+与 Git 不同，Subversion 的大多数操作需要网络访问，因为历史记录存储在服务器上。每个子目录中都存在 **.svn** 目录，复制工作副本时可能引发问题。如果需要不带版本控制元数据的干净目录，请使用 **svn export** 而不是直接复制。
 
 # HISTORY
 
-Subversion was created by **CollabNet** in **2000** as a replacement for CVS, addressing its limitations like atomic commits and versioned directories. The project was led by Karl Fogel, Ben Collins-Sussman, and Jim Blandy. Version 1.0 was released in **February 2004**. Subversion became an **Apache Software Foundation** project in **2010**. While Git has largely supplanted it for open-source development, Subversion remains popular in enterprise environments.
+Subversion 由 **CollabNet** 于 **2000 年**创建，作为 CVS 的替代品，解决了 CVS 在原子提交和目录版本控制等方面的局限。该项目由 Karl Fogel、Ben Collins-Sussman 和 Jim Blandy 主导。1.0 版本于 **2004 年 2 月**发布。Subversion 于 **2010 年**成为 **Apache 软件基金会**的项目。虽然 Git 在开源开发领域已在很大程度上取代了它，但 Subversion 在企业环境中仍然很流行。
 
 # INSTALL
 

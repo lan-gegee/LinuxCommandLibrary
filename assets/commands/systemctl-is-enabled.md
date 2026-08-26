@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check unit boot enablement state
+检查单元的开机启用状态
 
 # TLDR
 
-Check **enablement** state
+检查**启用**状态
 
 ```systemctl is-enabled [unit]```
 
-Check **multiple** units
+检查**多个**单元
 
 ```systemctl is-enabled [unit1 unit2 ...]```
 
-**Quiet** mode (exit code only)
+**安静**模式（仅返回退出码）
 
 ```systemctl is-enabled [unit] -q```
 
-Show **targets** and symlinks
+显示**目标**和符号链接
 
 ```systemctl is-enabled [unit] -l```
 
@@ -27,42 +27,42 @@ Show **targets** and symlinks
 # PARAMETERS
 
 **-q, --quiet**
-> Suppress output, return only exit code
+> 不输出内容，仅返回退出码
 
 **-l, --full**
-> Do not truncate output; also show installation targets in the output
+> 不截断输出；同时在输出中显示安装目标
 
 **--system**
-> Check system units (default)
+> 检查系统单元（默认）
 
 **--user**
-> Check user units
+> 检查用户单元
 
 # DESCRIPTION
 
-**systemctl is-enabled** checks whether unit files are enabled to start at boot. It returns the enablement state: enabled, disabled, static, masked, generated, transient, indirect, or alias.
+**systemctl is-enabled** 检查单元文件是否被设置为开机启动。它返回启用状态：enabled、disabled、static、masked、generated、transient、indirect 或 alias。
 
-Exit code 0 indicates the unit is enabled or will start at boot via other means.
+退出码 0 表示该单元已被启用，或会通过其他方式在开机时启动。
 
 # ENABLEMENT STATES
 
-**enabled** - Will start at boot
+**enabled** - 开机时启动
 
-**disabled** - Won't start at boot
+**disabled** - 开机时不启动
 
-**static** - No install section, started as dependency only
+**static** - 没有 install 区段，只能作为依赖被启动
 
-**masked** - Completely blocked from starting
+**masked** - 完全禁止启动
 
-**indirect** - Enabled through another unit
+**indirect** - 通过另一个单元间接启用
 
-**generated** - Generated dynamically by a generator tool
+**generated** - 由生成器工具动态生成
 
-**alias** - Name is an alias for another unit
+**alias** - 名称是另一个单元的别名
 
 # CAVEATS
 
-"Enabled" means configured to start, not currently running. Use `is-active` to check runtime state. Static units have no [Install] section and can only be started as dependencies.
+"已启用"表示已配置为启动，而不是当前正在运行。请使用 `is-active` 检查运行时状态。static 单元没有 [Install] 区段，只能作为依赖被启动。
 
 # SEE ALSO
 

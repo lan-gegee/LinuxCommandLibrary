@@ -1,26 +1,26 @@
 # TAGLINE
 
-Idle management daemon for Sway
+Sway 的空闲管理守护进程
 
 # TLDR
 
-**Lock screen on idle**
+**空闲时锁定屏幕**
 
 ```swayidle timeout [300] 'swaylock -f'```
 
-**Turn off display**
+**关闭显示器**
 
 ```swayidle timeout [600] 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'```
 
-**Lock before sleep**
+**睡眠前锁定**
 
 ```swayidle before-sleep 'swaylock -f'```
 
-**Multiple timeouts**
+**多个超时事件**
 
 ```swayidle timeout [300] 'swaylock -f' timeout [600] 'systemctl suspend'```
 
-**With lock event**
+**配合锁定事件**
 
 ```swayidle lock 'swaylock -f'```
 
@@ -31,50 +31,50 @@ Idle management daemon for Sway
 # PARAMETERS
 
 **timeout** _SECONDS_ _COMMAND_
-> Run after idle time.
+> 在空闲指定时间后运行。
 
 **resume** _COMMAND_
-> Run on activity.
+> 在检测到活动时运行。
 
 **before-sleep** _COMMAND_
-> Run before suspend.
+> 在挂起前运行。
 
 **after-resume** _COMMAND_
-> Run after wake.
+> 在唤醒后运行。
 
 **lock** _COMMAND_
-> Run on lock event.
+> 在锁定事件时运行。
 
 **unlock** _COMMAND_
-> Run on unlock.
+> 在解锁时运行。
 
 **-w**
-> Wait for command to finish before continuing
+> 等待命令执行完毕后再继续
 
 **-d**
-> Enable debug output
+> 启用调试输出
 
 **-C** _path_
-> Path to config file (default: $XDG_CONFIG_HOME/swayidle/config)
+> 配置文件路径（默认：$XDG_CONFIG_HOME/swayidle/config）
 
 **-S** _seat_
-> Specify seat name to use
+> 指定要使用的 seat 名称
 
 # DESCRIPTION
 
-**swayidle** is an idle management daemon compatible with any Wayland compositor implementing the ext-idle-notify protocol. It triggers commands based on user inactivity, supporting multiple timeout events that execute commands after specified periods of idle time, enabling staged power management such as dimming the screen, locking, and eventually suspending.
+**swayidle** 是一个空闲管理守护进程，兼容任何实现了 ext-idle-notify 协议的 Wayland 合成器。它根据用户的不活动状态触发命令，支持多个超时事件——在指定的空闲时间后执行相应命令——从而实现分阶段的电源管理，例如先调暗屏幕、再锁屏、最后挂起。
 
-Resume actions execute when user activity is detected after a timeout, allowing reversal of timeout effects like turning displays back on. The before-sleep and after-resume events integrate with systemd sleep/wake cycles, commonly used to ensure the screen is locked before the system suspends.
+恢复动作在超时后检测到用户活动时执行，可以撤销超时的效果，比如重新点亮显示器。before-sleep 和 after-resume 事件与 systemd 的睡眠/唤醒周期集成，常用于确保系统挂起前屏幕已锁定。
 
-Lock and unlock events respond to session lock signals from logind, enabling coordination with external lock requests such as those from the system settings or other applications.
+锁定和解锁事件响应来自 logind 的会话锁定信号，可与来自系统设置或其他应用的外部锁定请求协同工作。
 
 # CAVEATS
 
-Requires a Wayland compositor with ext-idle-notify support. Commands run as shell. Audio playback may prevent idle detection on some compositors.
+需要支持 ext-idle-notify 的 Wayland 合成器。命令通过 Shell 执行。在某些合成器上，音频播放可能会阻止空闲检测。
 
 # HISTORY
 
-**swayidle** is the idle manager for **Sway** compositor. It handles power management and screen locking triggers.
+**swayidle** 是 **Sway** 合成器的空闲管理器，负责处理电源管理和屏幕锁定触发。
 
 # INSTALL
 

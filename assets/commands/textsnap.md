@@ -1,42 +1,42 @@
 # TAGLINE
 
-CPU-only OCR for screenshots, images, PDFs, and webpages
+仅用 CPU 对截图、图片、PDF 和网页进行 OCR
 
 # TLDR
 
-**OCR a local image** to a text file in ./textsnaps/
+**对本地图片 OCR**，结果保存为 ./textsnaps/ 下的文本文件
 
 ```textsnap [path/to/image.png]```
 
-**OCR an image at a URL**
+**对 URL 上的图片 OCR**
 
 ```textsnap [https://example.com/image.png]```
 
-**OCR a webpage** (renders the page, then extracts text)
+**对网页 OCR**（先渲染页面，再提取文本）
 
 ```textsnap [https://example.com/article]```
 
-**OCR an image already on the clipboard**, no arguments
+**对剪贴板中已有的图片 OCR**，无需参数
 
 ```textsnap```
 
-**Write output to a specific file**
+**将输出写入指定文件**
 
 ```textsnap [image.png] -o [out.txt]```
 
-**Strip markdown** and emit plain text only
+**去除 Markdown**，只输出纯文本
 
 ```textsnap [image.png] --plaintext```
 
-**Cap the decoder** at 1024 generated tokens
+**将解码器限制**在 1024 个生成 token 以内
 
 ```textsnap [image.png] --max-tokens 1024```
 
-**Use a custom local model directory**
+**使用自定义的本地模型目录**
 
 ```textsnap [image.png] --model-dir [path/to/model]```
 
-**Show progress diagnostics** on stderr
+**在 stderr 显示进度诊断信息**
 
 ```textsnap -v [image.png]```
 
@@ -47,67 +47,67 @@ CPU-only OCR for screenshots, images, PDFs, and webpages
 # PARAMETERS
 
 **-o**, **--output** _PATH_
-> Write the OCR text to _PATH_. Default: **./textsnaps/_name_\_ocr.txt**.
+> 将 OCR 文本写入 _PATH_。默认：**./textsnaps/_name_\_ocr.txt**。
 
 **-v**, **--verbose**
-> Print progress diagnostics to stderr.
+> 将进度诊断信息打印到 stderr。
 
 **--plaintext**
-> Convert the default Markdown output into plain text (no tables, no headings).
+> 将默认的 Markdown 输出转换为纯文本（无表格、无标题）。
 
 **--model-dir** _PATH_
-> Use ONNX model files from _PATH_ instead of the cached download.
+> 使用 _PATH_ 中的 ONNX 模型文件，而不是缓存下载的模型。
 
 **--max-tokens** _N_
-> Cap the decoder at _N_ generated tokens (default **2048**).
+> 将解码器限制为最多生成 _N_ 个 token（默认 **2048**）。
 
 **--max-pixels** _N_
-> Limit the vision encoder pixel budget per image to _N_.
+> 将每张图片视觉编码器的像素预算限制为 _N_。
 
 **--no-verify**
-> Skip SHA-256 verification of downloaded model files.
+> 跳过对已下载模型文件的 SHA-256 校验。
 
 **--generate-checksums**
-> Re-download the model and rewrite the checksum manifest.
+> 重新下载模型并重写校验和清单。
 
 # DESCRIPTION
 
-**textsnap** is a command-line OCR utility built around the **PaddleOCR-VL-1.5** vision-language model exported to ONNX. It reads an image from a file path, a URL, or the system clipboard and writes the recognized text to a file inside **./textsnaps/**, printing only the output path on stdout so it composes cleanly in shell pipelines.
+**textsnap** 是一款命令行 OCR 工具，基于导出为 ONNX 的 **PaddleOCR-VL-1.5** 视觉语言模型构建。它从文件路径、URL 或系统剪贴板读取图片，把识别出的文本写入 **./textsnaps/** 目录下的文件，并只在 stdout 上打印输出路径，因此可以顺畅地融入 shell 管道。
 
-The model runs entirely on the CPU, no GPU and no cloud calls. Default output is Markdown so structure such as tables, headings, and lists is preserved; **--plaintext** flattens it for callers that only want raw text. Webpage URLs are rendered before OCR, which makes the tool usable as a "screenshot to text" pipeline for content that is hard to copy directly.
+该模型完全在 CPU 上运行，无需 GPU、无需调用云端。默认输出为 Markdown，以保留表格、标题和列表等结构；**--plaintext** 会将其扁平化，供只需要原始文本的调用者使用。网页 URL 会先渲染再进行 OCR，这使该工具可以作为"截图转文本"管道，处理那些难以直接复制的内容。
 
 # INPUT MODES
 
-**No argument**
-> Read an image from the system clipboard. The OCR text is also copied back to the clipboard.
+**无参数**
+> 从系统剪贴板读取图片。OCR 文本也会被复制回剪贴板。
 
-**Local file**
-> Process a local image. Supported formats: PNG, JPG, JPEG, WebP, BMP, GIF, TIFF.
+**本地文件**
+> 处理本地图片。支持的格式：PNG、JPG、JPEG、WebP、BMP、GIF、TIFF。
 
-**Image URL**
-> Fetch and OCR a remote image.
+**图片 URL**
+> 获取远程图片并进行 OCR。
 
-**Webpage URL**
-> Render the page and OCR the resulting screenshot.
+**网页 URL**
+> 渲染页面并对得到的截图进行 OCR。
 
 # CONFIGURATION
 
 **~/.cache/textsnap/**
-> Cached ONNX model files (about **890 MB**) downloaded on first use. Contains the vision encoder (q4 quantized), the autoregressive decoder (q4 quantized), token embeddings (fp32), and a **model_checksums.sha256** manifest.
+> 首次使用时下载的 ONNX 模型文件缓存（约 **890 MB**）。包含视觉编码器（q4 量化）、自回归解码器（q4 量化）、token 嵌入（fp32），以及一个 **model_checksums.sha256** 清单。
 
 **./textsnaps/**
-> Default output directory, created in the current working directory on first run.
+> 默认输出目录，首次运行时在当前工作目录创建。
 
 **TEXTSNAP_DECODE_THREADS**
-> Environment variable that overrides the decoder thread count. Defaults to the number of physical cores.
+> 覆盖解码器线程数的环境变量。默认为物理核心数。
 
 # CAVEATS
 
-The first invocation downloads the model bundle (about 890 MB), so be ready for the initial wait and the disk usage. The tool is CPU-only, so OCR of large images or long PDFs takes longer than GPU pipelines. Webpage OCR requires a working headless browser stack provided by the package.
+首次运行会下载模型包（约 890 MB），请预留初始等待时间和磁盘空间。该工具仅使用 CPU，因此大图片或长 PDF 的 OCR 比 GPU 方案耗时更长。网页 OCR 需要软件包提供的可用无头浏览器组件。
 
 # HISTORY
 
-**textsnap** was published by **kouhxp** in 2026 under the MIT license. The bundled model, **PaddleOCR-VL-1.5**, is released by **PaddlePaddle** under the Apache-2.0 license. The CLI is distributed through PyPI and depends on **onnxruntime** and **huggingface_hub**.
+**textsnap** 由 **kouhxp** 于 2026 年以 MIT 许可证发布。内置模型 **PaddleOCR-VL-1.5** 由 **PaddlePaddle** 以 Apache-2.0 许可证发布。该 CLI 通过 PyPI 分发，依赖 **onnxruntime** 和 **huggingface_hub**。
 
 # SEE ALSO
 

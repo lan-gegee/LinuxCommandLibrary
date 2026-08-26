@@ -1,38 +1,38 @@
 # TAGLINE
 
-Execute tmt test steps
+执行 tmt 测试步骤
 
 # TLDR
 
-**Run** all test steps
+**运行**全部测试步骤
 
 ```tmt run```
 
-**Discover** what tests would run
+**发现**将运行哪些测试
 
 ```tmt run discover -v```
 
-Run with **provisioning** options
+以**资源调配**选项运行
 
 ```tmt run -a provision -h [container] -i [fedora:rawhide]```
 
-Run selected **plans** and tests
+运行选定的**计划**和测试
 
 ```tmt run plan -n [/plan/name] test -n [/test/name]```
 
-Show **results** in browser
+在浏览器中显示**结果**
 
 ```tmt run -l report -h html -o```
 
-Run with **context**
+带**上下文**运行
 
 ```tmt run -c [key=value]```
 
-Run **interactively**
+**交互式**运行
 
 ```tmt run -a execute -h tmt --interactive```
 
-**Dry run** with verbose
+**试运行**并输出详细信息
 
 ```tmt run -n -vvv```
 
@@ -43,47 +43,47 @@ Run **interactively**
 # PARAMETERS
 
 **-a, --all**
-> Run all test steps
+> 运行全部测试步骤
 
 **-l, --last**
-> Use the last run
+> 使用上一次运行
 
 **-n, --dry**
-> Dry run mode (show actions without executing)
+> 试运行模式（只显示操作而不执行）
 
 **-v, --verbose**
-> Increase verbosity (can be repeated)
+> 增加详细程度（可重复使用）
 
 **-c, --context** _KEY=VALUE_
-> Set context variables
+> 设置上下文变量
 
 **discover**
-> Show what tests would be run
+> 显示将运行哪些测试
 
 **provision**
-> Provision the guest (container, VM, or remote system) that will run the tests
+> 调配将运行测试的客户机（容器、虚拟机或远程系统）
 
 **prepare**
-> Prepare the provisioned system for testing (install packages, apply roles)
+> 为测试准备已调配的系统（安装软件包、应用角色）
 
 **execute**
-> Run the tests
+> 运行测试
 
 **report**
-> Generate test reports
+> 生成测试报告
 
 **finish**
-> Clean up after testing
+> 测试后清理
 
 # DESCRIPTION
 
-**tmt run** executes test management tool steps for test execution. By default, all steps (discover, provision, prepare, execute, report, finish) are executed in sequence. Individual steps can be run separately or with modified options.
+**tmt run** 执行测试管理工具的各步骤以完成测试。默认情况下，所有步骤（discover、provision、prepare、execute、report、finish）依次执行。单个步骤可以单独运行或使用修改后的选项运行。
 
-The command supports different provisioning methods including containers, virtual machines, and remote systems. Tests can be filtered by name, context, or plan.
+该命令支持不同的资源调配方式，包括容器、虚拟机和远程系统。测试可以按名称、上下文或计划过滤。
 
 # CAVEATS
 
-Running all steps requires appropriate provisioning backend. Container-based execution needs Podman or Docker. Some steps require root privileges. Large test suites may require significant resources.
+运行所有步骤需要合适的资源调配后端。基于容器的执行需要 Podman 或 Docker。某些步骤需要 root 权限。大型测试套件可能需要大量资源。
 
 # INSTALL
 

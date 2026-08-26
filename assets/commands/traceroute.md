@@ -1,38 +1,38 @@
 # TAGLINE
 
-Trace packet route to network host
+追踪到网络主机的数据包路由
 
 # TLDR
 
-**Trace route to a host**
+**追踪到主机的路由**
 
 ```traceroute [host]```
 
-**Use ICMP echo** instead of UDP
+使用 **ICMP 回显**代替 UDP
 
 ```traceroute -I [host]```
 
-**Use TCP SYN** for probes
+使用 **TCP SYN** 进行探测
 
 ```sudo traceroute -T [host]```
 
-**Set maximum hops**
+**设置最大跳数**
 
 ```traceroute -m [20] [host]```
 
-**Set number of probes** per hop
+**设置每跳的探测次数**
 
 ```traceroute -q [1] [host]```
 
-**Use a specific port**
+**使用指定端口**
 
 ```traceroute -p [80] [host]```
 
-**Force IPv4 or IPv6**
+**强制使用 IPv4 或 IPv6**
 
 ```traceroute -4 [host]```
 
-**Don't resolve hostnames**
+**不解析主机名**
 
 ```traceroute -n [host]```
 
@@ -43,74 +43,74 @@ Trace packet route to network host
 # PARAMETERS
 
 **-4**, **-6**
-> Force IPv4 or IPv6
+> 强制使用 IPv4 或 IPv6
 
 **-I**
-> Use ICMP ECHO for probes
+> 使用 ICMP ECHO 进行探测
 
 **-T**
-> Use TCP SYN for probes (requires root)
+> 使用 TCP SYN 进行探测（需要 root）
 
 **-U**
-> Use UDP datagrams (default)
+> 使用 UDP 数据报（默认）
 
 **-m** _MAX_
-> Maximum number of hops (default: 30)
+> 最大跳数（默认：30）
 
 **-q** _NQUERIES_
-> Number of probes per hop (default: 3)
+> 每跳的探测次数（默认：3）
 
 **-w** _WAIT_
-> Wait time for response in seconds (default: 5.0)
+> 等待响应的时间（秒）（默认：5.0）
 
 **-p** _PORT_
-> Destination port (UDP base or TCP destination)
+> 目的端口（UDP 基础端口或 TCP 目的端口）
 
 **-n**
-> Do not resolve IP addresses to hostnames
+> 不将 IP 地址解析为主机名
 
 **-N** _NUM_
-> Number of simultaneous probes (default: 16)
+> 同时进行的探测数（默认：16）
 
 **-f** _FIRST_
-> Start from specified TTL (default: 1)
+> 从指定的 TTL 开始（默认：1）
 
 **-F**
-> Set "Don't Fragment" bit
+> 设置 "Don't Fragment"（不分片）位
 
 **-i** _INTERFACE_
-> Specify network interface
+> 指定网络接口
 
 **-s** _SOURCE_
-> Use specified source address
+> 使用指定的源地址
 
 **-z** _PAUSE_
-> Pause between probes (seconds or milliseconds if >10)
+> 探测之间的停顿（秒；大于 10 时按毫秒计）
 
 **-A**
-> Perform AS path lookups
+> 执行 AS 路径查询
 
 **--mtu**
-> Discover MTU along the path
+> 沿路径发现 MTU
 
 **-V**
-> Show version
+> 显示版本
 
 # DESCRIPTION
 
-**traceroute** displays the route packets take to reach a network host. It sends probe packets with incrementing TTL (Time To Live) values, causing each router along the path to respond with an ICMP "time exceeded" message, revealing its address.
+**traceroute** 显示数据包到达网络主机所经过的路由。它发送 TTL（生存时间）值递增的探测包，使路径上的每台路由器返回 ICMP "time exceeded"（超时）消息，从而暴露其地址。
 
-Each line shows a hop number, router hostname/IP, and round-trip times for each probe (default: 3). Asterisks (*) indicate no response within the timeout period—this may be due to firewalls, rate limiting, or packet loss.
+每一行显示跳数、路由器主机名/IP 以及每次探测的往返时间（默认：3 次）。星号（*）表示在超时时间内没有响应——原因可能是防火墙、速率限制或丢包。
 
-Different probe methods work better in different networks: ICMP (**-I**) may be blocked by firewalls, TCP (**-T**) can reach hosts that block other probes, and UDP (default) works for unprivileged users but may be filtered.
+不同的探测方法在不同网络中效果不同：ICMP（**-I**）可能被防火墙拦截，TCP（**-T**）可以到达封锁其他探测方式的主机，而 UDP（默认）可供无特权用户使用但可能被过滤。
 
 # CAVEATS
 
-Many networks filter ICMP or UDP traceroute packets. Asymmetric routing means the return path may differ from the forward path shown. Response times include processing delays at each hop, not just transmission time. Some routers don't decrement TTL or respond to probes. TCP mode requires root privileges.
+许多网络会过滤 ICMP 或 UDP traceroute 数据包。非对称路由意味着返回路径可能与所显示的正向路径不同。响应时间包含每一跳的处理延迟，而不仅仅是传输时间。某些路由器不递减 TTL 或不响应探测。TCP 模式需要 root 权限。
 
 # HISTORY
 
-traceroute was written by **Van Jacobson** in **1987** at Lawrence Berkeley Laboratory. It became an essential network diagnostic tool, included in virtually all Unix-like systems. The concept exploits the TTL field's original purpose of preventing routing loops. Variants include **tracepath** (doesn't require root), **mtr** (combines ping and traceroute), and Windows **tracert**.
+traceroute 由 **Van Jacobson** 于 **1987 年**在劳伦斯伯克利实验室编写。它已成为必不可少的网络诊断工具，几乎所有类 Unix 系统都有收录。这一思路利用了 TTL 字段防止路由循环的原始用途。变体包括 **tracepath**（无需 root）、**mtr**（结合了 ping 和 traceroute）以及 Windows 的 **tracert**。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Pretty fancy and modern terminal file manager
+漂亮时尚的现代终端文件管理器
 
 # TLDR
 
-**Launch the file manager**
+**启动文件管理器**
 
 ```spf```
 
-**Open in a specific directory**
+**在指定目录中打开**
 
 ```spf [/path/to/dir]```
 
-**Open multiple panels at given paths**
+**在给定路径打开多个面板**
 
 ```spf [/path/one] [/path/two]```
 
-**Print configuration and data file paths**
+**打印配置和数据文件路径**
 
 ```spf path-list```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```spf --config-file [/path/to/config.toml]```
 
-**Use a custom hotkey file**
+**使用自定义快捷键文件**
 
 ```spf --hotkey-file [/path/to/hotkeys.toml]```
 
-**Print version**
+**打印版本号**
 
 ```spf --version```
 
@@ -41,41 +41,41 @@ Pretty fancy and modern terminal file manager
 # PARAMETERS
 
 **--config-file**, **-c** _PATH_
-> Use a different configuration file.
+> 使用其他配置文件。
 
 **--hotkey-file**, **-hf** _PATH_
-> Use a different hotkey configuration file.
+> 使用其他快捷键配置文件。
 
 **--chooser-file**, **-cf** _PATH_
-> Write the path of opened files to this file and exit.
+> 将已打开文件的路径写入此文件并退出。
 
 **--print-last-dir**, **-pld**
-> Print the last directory to stdout on exit (for cd-on-quit integration).
+> 退出时将最后一个目录打印到标准输出（用于退出时切换目录的集成）。
 
 **--fix-hotkeys**, **-fh**
-> Add any missing hotkeys to the hotkey config file.
+> 将缺失的快捷键补充到快捷键配置文件。
 
 **--fix-config-file**, **-fch**
-> Add any missing fields to the config file.
+> 将缺失的字段补充到配置文件。
 
 **--debug-info**, **-di**
-> Print debug information.
+> 打印调试信息。
 
 **--version**, **-v**
-> Print version.
+> 打印版本号。
 
 **path-list**, **pl**
-> Print paths to configuration, hotkeys, log, and data directories.
+> 打印配置、快捷键、日志和数据目录的路径。
 
 # DESCRIPTION
 
-**superfile** is a terminal-based file manager featuring multiple panels for viewing directories simultaneously, customizable themes, Vim keybindings, a clipboard viewer, and a process list. Available on Linux, macOS, and Windows.
+**superfile** 是一款基于终端的文件管理器，支持多面板同时查看目录、自定义主题、Vim 键位、剪贴板查看器和进程列表。可用于 Linux、macOS 和 Windows。
 
-Panels can be split and navigated with Tab. Press **>** to open the built-in command prompt for SPF-mode commands such as `split` and `open <PATH>`.
+面板可以用 Tab 分割和导航。按 **>** 可打开内置命令提示符，执行 SPF 模式命令，如 `split` 和 `open <PATH>`。
 
 # HISTORY
 
-**superfile** was created by **yorukot** and is written in **Go** using the Bubble Tea framework.
+**superfile** 由 **yorukot** 创建，使用 **Go** 语言和 Bubble Tea 框架编写。
 
 # INSTALL
 

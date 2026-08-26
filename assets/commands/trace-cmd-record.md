@@ -1,30 +1,30 @@
 # TAGLINE
 
-Record kernel trace to file
+将内核跟踪记录到文件
 
 # TLDR
 
-Record with specific **plugin**
+使用指定**插件**记录
 
 ```sudo trace-cmd record -p [plugin]```
 
-Record specific **executable**
+记录指定的**可执行文件**
 
 ```sudo trace-cmd record -F [executable]```
 
-Record specific **function**
+记录指定的**函数**
 
 ```sudo trace-cmd record -g [function]```
 
-**Exclude** a function
+**排除**某个函数
 
 ```sudo trace-cmd record -n [function]```
 
-Limit **graph depth**
+限制**调用图深度**
 
 ```sudo trace-cmd record --max-graph-depth [depth]```
 
-Record from **process** ID
+按**进程** ID 记录
 
 ```sudo trace-cmd record -P [pid]```
 
@@ -35,32 +35,32 @@ Record from **process** ID
 # PARAMETERS
 
 **-p** _PLUGIN_
-> Use specified tracer plugin
+> 使用指定的跟踪器插件
 
 **-F** _EXECUTABLE_
-> Trace only the specified executable
+> 只跟踪指定的可执行文件
 
 **-g** _FUNCTION_
-> Trace specified function
+> 跟踪指定的函数
 
 **-n** _FUNCTION_
-> Exclude function from trace
+> 在跟踪中排除该函数
 
 **--max-graph-depth** _DEPTH_
-> Limit function call graph depth
+> 限制函数调用图深度
 
 **-P** _PID_
-> Trace specified process ID
+> 跟踪指定的进程 ID
 
 # DESCRIPTION
 
-**trace-cmd record** captures kernel trace events to a file (trace.dat by default). It configures the Ftrace framework, starts tracing, and saves the results for later analysis with trace-cmd report.
+**trace-cmd record** 将内核跟踪事件捕获到文件（默认为 trace.dat）。它会配置 Ftrace 框架、启动跟踪并保存结果，供之后用 trace-cmd report 进行分析。
 
-Various options allow filtering by function, process, or executable, and limiting trace depth to reduce data volume.
+各种选项支持按函数、进程或可执行文件过滤，并可限制跟踪深度以减少数据量。
 
 # CAVEATS
 
-Requires root privileges. Large traces consume significant disk space. High-frequency tracing impacts system performance. Output file can grow quickly.
+需要 root 权限。大型跟踪会占用大量磁盘空间。高频跟踪会影响系统性能。输出文件可能快速增长。
 
 # INSTALL
 

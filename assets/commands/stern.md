@@ -1,38 +1,38 @@
 # TAGLINE
 
-Multi-pod Kubernetes log tailing
+多 Pod Kubernetes 日志跟踪
 
 # TLDR
 
-**Tail pod logs**
+**跟踪 Pod 日志**
 
 ```stern [pod-query]```
 
-**Tail with namespace**
+**指定命名空间跟踪日志**
 
 ```stern -n [namespace] [pod-query]```
 
-**All namespaces**
+**所有命名空间**
 
 ```stern --all-namespaces [pod-query]```
 
-**Specific container**
+**指定容器**
 
 ```stern -c [container] [pod-query]```
 
-**Since duration**
+**从某时间段开始**
 
 ```stern --since [10m] [pod-query]```
 
-**Show timestamps**
+**显示时间戳**
 
 ```stern -t [pod-query]```
 
-**Regex pod matching**
+**正则匹配 Pod**
 
 ```stern --selector [app=nginx]```
 
-**Output format**
+**输出格式**
 
 ```stern -o json [pod-query]```
 
@@ -43,44 +43,44 @@ Multi-pod Kubernetes log tailing
 # PARAMETERS
 
 **-n**, **--namespace** _NS_
-> Kubernetes namespace.
+> Kubernetes 命名空间。
 
 **--all-namespaces**, **-A**
-> All namespaces.
+> 所有命名空间。
 
 **-c**, **--container** _NAME_
-> Container name.
+> 容器名称。
 
 **--since** _DURATION_
-> Logs since duration.
+> 从指定时长之前开始输出日志。
 
 **-t**, **--timestamps**
-> Show timestamps.
+> 显示时间戳。
 
 **-o**, **--output** _FORMAT_
-> Output format.
+> 输出格式。
 
 **-s**, **--selector** _SELECTOR_
-> Label selector.
+> 标签选择器。
 
 **--tail** _N_
-> Lines per container.
+> 每个容器显示的行数。
 
 # DESCRIPTION
 
-**stern** allows you to tail log output from multiple Kubernetes pods and containers simultaneously. It accepts a pod name query (which can be a regular expression) and streams log lines from all matching pods, automatically including new pods as they appear and removing terminated ones.
+**stern** 允许你同时跟踪多个 Kubernetes Pod 和容器的日志输出。它接受一个 Pod 名称查询（可以是正则表达式），并流式输出所有匹配 Pod 的日志行，自动纳入新出现的 Pod 并移除已终止的 Pod。
 
-Each pod and container is assigned a distinct color in the output, making it easy to visually distinguish which log lines come from which source. Stern supports filtering by namespace, container name, and label selectors, and can output logs in various formats including JSON for structured processing.
+每个 Pod 和容器在输出中会被分配一种独特的颜色，便于直观区分日志行的来源。stern 支持按命名空间、容器名和标签选择器进行过滤，并能以多种格式输出日志，包括用于结构化处理的 JSON。
 
-The tool is particularly useful for debugging microservices where related functionality spans multiple pods or deployments. Unlike `kubectl logs`, which can only follow a single pod at a time, stern aggregates logs across any number of matching pods and gracefully handles pod restarts and scaling events in real time.
+该工具对于调试微服务特别有用，因为相关功能往往分布在多个 Pod 或 Deployment 上。与一次只能跟随单个 Pod 的 `kubectl logs` 不同，stern 可以聚合任意数量匹配 Pod 的日志，并实时优雅地处理 Pod 重启和扩缩容事件。
 
 # CAVEATS
 
-Requires kubectl access. Many pods may overwhelm. Network latency affects streaming.
+需要 kubectl 访问权限。Pod 过多可能造成压力。网络延迟会影响流式输出。
 
 # HISTORY
 
-**stern** was created by **Wercker** (now Oracle) for Kubernetes log tailing. It simplifies viewing logs from multiple pods simultaneously.
+**stern** 由 **Wercker**（现属 Oracle）创建，用于 Kubernetes 日志跟踪。它简化了同时查看多个 Pod 日志的操作。
 
 # INSTALL
 

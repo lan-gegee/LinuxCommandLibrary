@@ -1,38 +1,38 @@
 # TAGLINE
 
-Validate and reformat HTML markup
+校验并重新格式化 HTML 标记
 
 # TLDR
 
-**Clean HTML file**
+**清理 HTML 文件**
 
 ```tidy [input.html]```
 
-**Write to file**
+**写入文件**
 
 ```tidy -o [output.html] [input.html]```
 
-**Modify in place**
+**原地修改**
 
 ```tidy -m [file.html]```
 
-**Convert to XHTML**
+**转换为 XHTML**
 
 ```tidy -asxhtml [input.html]```
 
-**Show only errors**
+**只显示错误**
 
 ```tidy -e [input.html]```
 
-**Indent output**
+**缩进输出**
 
 ```tidy -i [input.html]```
 
-**Quiet mode**
+**安静模式**
 
 ```tidy -q [input.html]```
 
-**Wrap at column**
+**在指定列处换行**
 
 ```tidy -w [80] [input.html]```
 
@@ -43,45 +43,45 @@ Validate and reformat HTML markup
 # PARAMETERS
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-m**, **--modify**
-> Modify in place.
+> 原地修改。
 
 **-i**, **--indent**
-> Indent content.
+> 缩进内容。
 
 **-e**, **--errors**
-> Show errors only.
+> 只显示错误。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **-w** _N_, **--wrap** _N_
-> Wrap at column.
+> 在指定列处换行。
 
 **-asxhtml**
-> Output as XHTML.
+> 以 XHTML 格式输出。
 
 **-ashtml**
-> Output as HTML.
+> 以 HTML 格式输出。
 
 **--indent-spaces** _N_
-> Spaces per indent.
+> 每级缩进的空格数。
 
 # DESCRIPTION
 
-**tidy** validates and reformats HTML documents, detecting markup errors such as missing closing tags, improper nesting, and deprecated elements. It can automatically fix many common problems while producing consistently formatted output with standardized indentation and line wrapping.
+**tidy** 用于校验和重新格式化 HTML 文档，能检测出缺少闭合标签、嵌套不当、使用废弃元素等标记错误。它可以自动修复许多常见问题，同时以统一的缩进和换行生成格式一致的输出。
 
-The tool can convert HTML to XHTML (**-asxhtml**) for stricter XML-compliant output, or reformat in place with **-m**. Error-only mode (**-e**) reports problems without modifying the document, useful for quick validation checks. Output wrapping width is configurable with the **-w** flag.
+该工具可将 HTML 转换为更严格、符合 XML 规范的 XHTML（**-asxhtml**），也可用 **-m** 原地重排格式。仅报错模式（**-e**）只报告问题而不修改文档，适合快速校验。输出换行宽度可用 **-w** 标志配置。
 
 # CAVEATS
 
-May change whitespace. Some fixes alter rendering. Complex pages need care.
+可能改变空白字符。某些修复会影响渲染效果。复杂页面需谨慎处理。
 
 # HISTORY
 
-**HTML Tidy** was originally developed by **Dave Raggett** at **W3C**. It's maintained by HTACG (HTML Tidy Advocacy Community Group).
+**HTML Tidy** 最初由 **W3C** 的 **Dave Raggett** 开发。现由 HTACG（HTML Tidy Advocacy Community Group）维护。
 
 # INSTALL
 

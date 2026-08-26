@@ -1,26 +1,26 @@
 # TAGLINE
 
-Replay terminal sessions recorded by ttyrec
+回放 ttyrec 录制的终端会话
 
 # TLDR
 
-**Play a recorded session**
+**播放录制的会话**
 
 ```ttyplay [recording.tty]```
 
-**Play at double speed**
+**以两倍速播放**
 
 ```ttyplay -s [2] [recording.tty]```
 
-**Play at half speed**
+**以半速播放**
 
 ```ttyplay -s [0.5] [recording.tty]```
 
-**Play without timing delays**
+**不按时间延迟播放**
 
 ```ttyplay -n [recording.tty]```
 
-**Peek at a recording** as it is being written (live follow)
+在录制进行的同时**窥看录像**（实时跟随）
 
 ```ttyplay -p [/path/to/recording.tty]```
 
@@ -31,41 +31,41 @@ Replay terminal sessions recorded by ttyrec
 # PARAMETERS
 
 **-s** _speed_
-> Multiply playback speed by factor (default 1).
+> 按指定倍数调整播放速度（默认 1）。
 
 **-n**
-> No-wait mode; ignore timing information.
+> 不等待模式；忽略时间信息。
 
 **-p**
-> Peek mode; follow the recording file as it grows, letting a viewer watch a ttyrec session that is still being recorded.
+> 窥看模式；持续跟随不断增长的录像文件，让观看者可以实时查看仍在录制中的 ttyrec 会话。
 
 # PLAYBACK CONTROLS
 
-**+** or **f**: Double playback speed.
+**+** 或 **f**：加倍播放速度。
 
-**-** or **s**: Halve playback speed.
+**-** 或 **s**：减半播放速度。
 
-**0**: Pause playback.
+**0**：暂停播放。
 
-**1**: Reset to normal speed.
+**1**：恢复正常速度。
 
-**Space** or any key: Skip to next input event.
+**空格**或任意键：跳到下一个输入事件。
 
 # DESCRIPTION
 
-**ttyplay** replays terminal sessions recorded by ttyrec. It reproduces the exact output with original timing, showing commands, output, and user interactions as they occurred during recording.
+**ttyplay** 回放由 ttyrec 录制的终端会话。它会按照原始时序重现输出，展示录制时的命令、输出和用户交互。
 
-The player preserves timing information with microsecond accuracy, making it useful for demonstrations, tutorials, and sharing terminal workflows. Speed controls allow faster review or slower examination of complex sequences.
+播放器以微秒精度保留时间信息，适合用于演示、教程以及分享终端工作流。速度控制让你可以快速回顾或放慢检查复杂操作序列。
 
-Peek mode enables live viewing of ongoing recordings, functioning like a read-only terminal sharing system. This is useful for monitoring or demonstrating terminal sessions in real time.
+窥看模式可以实时查看正在进行的录制，功能类似于只读的终端共享系统。适合实时监控或演示终端会话。
 
 # CAVEATS
 
-Terminal size should match original recording for proper display. Playback assumes compatible terminal capabilities. Very long pauses in original session are preserved unless speed is adjusted. Colors depend on terminal settings.
+终端尺寸应与原始录制一致才能正确显示。播放假定终端能力兼容。除非调整速度，否则原会话中很长的停顿也会原样保留。颜色取决于终端设置。
 
 # HISTORY
 
-**ttyplay** was developed alongside ttyrec as a derivative of the BSD script command with enhanced timing precision. It became popular in the NetHack and roguelike gaming communities for sharing gameplay sessions, where precise timing adds to the viewing experience.
+**ttyplay** 与 ttyrec 一同开发，是 BSD script 命令的衍生版本，具有更高的计时精度。它曾在 NetHack 和 Roguelike 游戏社区流行，用于分享游戏过程，精确的时序为观看体验增色不少。
 
 # INSTALL
 

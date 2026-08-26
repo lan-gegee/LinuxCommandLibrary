@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI for OpenTofu provider registry browsing
+用于浏览 OpenTofu 提供者注册表的 TUI
 
 # TLDR
 
-**Launch the provider registry browser**
+**启动提供者注册表浏览器**
 
 ```tofuref```
 
@@ -14,11 +14,11 @@ TUI for OpenTofu provider registry browsing
 
 # DESCRIPTION
 
-**tofuref** provides a terminal UI for browsing the OpenTofu (and Terraform) provider registry without leaving the terminal. It supports GitHub token integration to avoid rate limiting, keyboard and mouse navigation with Vim keybindings, and configurable defaults.
+**tofuref** 提供一个终端 UI，让你无需离开终端即可浏览 OpenTofu（和 Terraform）的提供者注册表。它支持集成 GitHub token 以避免速率限制，提供带 Vim 键位的键盘和鼠标导航，并支持可配置的默认值。
 
 # HISTORY
 
-**tofuref** was created by **djetelina** and is written in **Python** using the Textual framework.
+**tofuref** 由 **djetelina** 创建，使用 **Python** 和 Textual 框架编写。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Node.js-based SVG optimization tool
+基于 Node.js 的 SVG 优化工具
 
 # TLDR
 
-**Optimize SVG**
+**优化 SVG**
 
 ```svgo [input.svg] -o [output.svg]```
 
-**Optimize in place**
+**原地优化**
 
 ```svgo [file.svg]```
 
-**Optimize directory**
+**优化目录**
 
 ```svgo -f [./icons] -o [./optimized]```
 
-**Show file info**
+**显示文件信息**
 
 ```svgo [file.svg] --show-plugins```
 
-**Use config file**
+**使用配置文件**
 
 ```svgo --config [svgo.config.js] [file.svg]```
 
-**Disable plugin**
+**禁用插件**
 
 ```svgo --disable=[removeViewBox] [file.svg]```
 
-**Enable plugin**
+**启用插件**
 
 ```svgo --enable=[removeDimensions] [file.svg]```
 
-**Pretty print output**
+**格式化输出**
 
 ```svgo --pretty [file.svg]```
 
@@ -43,49 +43,49 @@ Node.js-based SVG optimization tool
 # PARAMETERS
 
 **-o**, **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **-f**, **--folder** _DIR_
-> Input folder.
+> 输入文件夹。
 
 **--config** _FILE_
-> Config file.
+> 配置文件。
 
 **--disable** _PLUGIN_
-> Disable plugin.
+> 禁用插件。
 
 **--enable** _PLUGIN_
-> Enable plugin.
+> 启用插件。
 
 **--pretty**
-> Pretty print.
+> 格式化输出。
 
 **--multipass**
-> Multiple passes.
+> 多轮处理。
 
 **-q**, **--quiet**
-> Quiet output.
+> 静默输出。
 
 # DESCRIPTION
 
-**svgo** (SVG Optimizer) is a Node.js-based tool for optimizing SVG files through a plugin architecture. Each plugin handles a specific optimization such as removing metadata, simplifying path data, merging redundant elements, cleaning up attributes, or removing empty containers.
+**svgo**（SVG Optimizer）是一款基于 Node.js 的 SVG 文件优化工具，采用插件架构。每个插件负责一项特定的优化，例如移除元数据、简化路径数据、合并冗余元素、清理属性或删除空容器。
 
-Plugins can be individually enabled or disabled through a configuration file or command-line flags, allowing fine-grained control over which optimizations are applied. The multipass option runs optimizations repeatedly until no further improvements are found. Folder mode batch-processes entire directories of SVG files.
+可以通过配置文件或命令行参数单独启用或禁用插件，从而精细控制应用哪些优化。multipass 选项会反复运行优化，直到不再有任何改进为止。文件夹模式可批量处理整个目录中的 SVG 文件。
 
-SVGO is widely used in front-end build pipelines and icon library workflows to minimize SVG file sizes before deployment. Pretty-print mode reformats output for readability when human-editable SVGs are needed.
+SVGO 广泛用于前端构建流水线和图标库工作流，在部署前尽量压缩 SVG 文件体积。当需要人工可编辑的 SVG 时，格式化模式会重新排版输出以提高可读性。
 
 # CONFIGURATION
 
 **svgo.config.js**
-> Project configuration file defining enabled/disabled plugins and their options.
+> 项目配置文件，定义启用/禁用的插件及其选项。
 
 # CAVEATS
 
-Some optimizations may affect rendering. Test output visually. Complex SVGs need care.
+某些优化可能影响渲染效果。请目视检查输出。复杂 SVG 需谨慎处理。
 
 # HISTORY
 
-**SVGO** (SVG Optimizer) is a Node.js tool for SVG optimization. It's widely used in build processes and icon libraries.
+**SVGO**（SVG Optimizer）是一款用于 SVG 优化的 Node.js 工具。它广泛用于构建流程和图标库中。
 
 # INSTALL
 

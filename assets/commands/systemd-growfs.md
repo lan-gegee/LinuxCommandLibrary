@@ -1,22 +1,22 @@
 # TAGLINE
 
-Grow filesystem to fill partition
+扩展文件系统以填满分区
 
 # TLDR
 
-**Grow root filesystem to fill partition**
+**将根文件系统扩展至填满分区**
 
 ```/usr/lib/systemd/systemd-growfs /```
 
-**Grow filesystem at mount point**
+**扩展挂载点处的文件系统**
 
 ```/usr/lib/systemd/systemd-growfs [/home]```
 
-**Enable automatic grow at boot**
+**启用开机时自动扩展**
 
 ```systemctl enable systemd-growfs-root.service```
 
-**Check service status**
+**查看服务状态**
 
 ```systemctl status systemd-growfs-root.service```
 
@@ -26,15 +26,15 @@ Grow filesystem to fill partition
 
 # DESCRIPTION
 
-**systemd-growfs** is a systemd utility that instructs the kernel to grow a mounted filesystem to fill its underlying block device. It is typically used after partition resizing to expand the filesystem to use the newly available space.
+**systemd-growfs** 是一个 systemd 工具，它指示内核将已挂载的文件系统扩展到填满其底层块设备。通常在调整分区大小之后使用，以扩展文件系统来利用新腾出的空间。
 
-The utility is usually invoked automatically by systemd services based on the **x-systemd.growfs** mount option in /etc/fstab. It can also be triggered by GPT partition flag 59 as defined in the Discoverable Partitions Specification.
+该工具通常由 systemd 服务依据 /etc/fstab 中的 **x-systemd.growfs** 挂载选项自动调用。也可以通过可发现分区规范（Discoverable Partitions Specification）中定义的 GPT 分区标志 59 触发。
 
-Supported filesystems include ext4, btrfs, xfs, and dm-crypt encrypted partitions. The filesystem must already be mounted for the operation to succeed.
+支持的文件系统包括 ext4、btrfs、xfs 和 dm-crypt 加密分区。文件系统必须已经挂载，操作才能成功。
 
 # FSTAB USAGE
 
-Add x-systemd.growfs option to /etc/fstab:
+向 /etc/fstab 添加 x-systemd.growfs 选项：
 
 ```
 /dev/sda2  /  ext4  defaults,x-systemd.growfs  0  1
@@ -42,19 +42,19 @@ Add x-systemd.growfs option to /etc/fstab:
 
 # RELATED SERVICES
 
-**systemd-growfs@.service**: Template service for arbitrary mount points.
+**systemd-growfs@.service**：用于任意挂载点的模板服务。
 
-**systemd-growfs-root.service**: Service for growing the root filesystem.
+**systemd-growfs-root.service**：用于扩展根文件系统的服务。
 
-**systemd-makefs@.service**: Creates filesystems on first boot.
+**systemd-makefs@.service**：在首次启动时创建文件系统。
 
 # CAVEATS
 
-Only works with mounted filesystems. Only supports ext4, btrfs, xfs, and dm-crypt. The underlying partition must already be resized before growing the filesystem. Errors during filesystem growth produce warnings but don't fail the mount.
+仅适用于已挂载的文件系统。仅支持 ext4、btrfs、xfs 和 dm-crypt。在扩展文件系统之前必须先调整好底层分区的大小。扩展过程中出现的错误只会产生警告，不会导致挂载失败。
 
 # HISTORY
 
-**systemd-growfs** was introduced as part of systemd's image-based deployment and container features. It enables automatic filesystem expansion for cloud instances and embedded systems that need to grow their filesystem after initial provisioning.
+**systemd-growfs** 是作为 systemd 基于镜像的部署与容器特性的一部分引入的。它为云实例和嵌入式系统提供自动的文件系统扩展能力，这类系统往往需要在初始配置后扩展其文件系统。
 
 # SEE ALSO
 

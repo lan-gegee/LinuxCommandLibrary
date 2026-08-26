@@ -1,18 +1,18 @@
 # TAGLINE
 
-Shut down and power off system
+关闭系统并断电
 
 # TLDR
 
-**Power off** the system
+**关闭**系统电源
 
 ```systemctl poweroff```
 
-**Force** immediate poweroff
+**强制**立即关机
 
 ```systemctl poweroff -f```
 
-Poweroff without **wall** message
+关机时不发送 **wall** 消息
 
 ```systemctl poweroff -f --no-wall```
 
@@ -23,30 +23,30 @@ Poweroff without **wall** message
 # PARAMETERS
 
 **-f, --force**
-> Skip graceful service shutdown
+> 跳过服务的优雅关闭
 
 **--force --force** (-ff)
-> Immediate poweroff without cleanup (dangerous)
+> 立即断电，不做清理（危险）
 
 **--no-wall**
-> Don't send wall message to logged-in users
+> 不向已登录用户发送 wall 消息
 
 **--when** _TIME_
-> Schedule poweroff at specific time
+> 在指定时间安排关机
 
 # DESCRIPTION
 
-**systemctl poweroff** shuts down the system and powers off the machine. It gracefully stops all services, unmounts filesystems, and then signals the hardware to power down.
+**systemctl poweroff** 关闭系统并切断机器电源。它会优雅地停止所有服务、卸载文件系统，然后向硬件发出断电信号。
 
-With `--force`, services are not gracefully stopped. With double `--force`, filesystems aren't unmounted, risking data loss.
+使用 `--force` 时，服务不会被优雅地停止。使用双重 `--force` 时，文件系统也不会被卸载，有数据丢失风险。
 
 # CAVEATS
 
-Requires appropriate privileges. Force mode can cause data loss if filesystems aren't properly synced. Some hardware may not support software poweroff and will halt instead.
+需要相应的权限。如果文件系统未正确同步，强制模式可能导致数据丢失。某些硬件可能不支持软件断电，此时会改为停机。
 
 # HISTORY
 
-The **poweroff** subcommand provides systemd-native shutdown, integrating with the scheduled shutdown mechanism and wall notification system.
+**poweroff** 子命令提供 systemd 原生的关机方式，与计划关机机制和 wall 通知系统集成。
 
 # SEE ALSO
 

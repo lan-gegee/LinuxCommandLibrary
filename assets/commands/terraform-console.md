@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive Terraform expression evaluator
+交互式 Terraform 表达式求值器
 
 # TLDR
 
-**Open** the interactive console
+**打开**交互式控制台
 
 ```terraform console```
 
-**Evaluate** an expression against the **planned state**
+基于**计划状态****求值**表达式
 
 ```terraform console -plan```
 
-**Evaluate** an expression **non-interactively**
+**非交互式求值**表达式
 
 ```echo '[expression]' | terraform console```
 
-**Open** the console with a specific **variable file**
+**打开**控制台并指定**变量文件**
 
 ```terraform console -var-file=[path/to/vars.tfvars]```
 
@@ -27,32 +27,32 @@ Interactive Terraform expression evaluator
 # PARAMETERS
 
 **-plan**
-> Generate an execution plan first and evaluate expressions against the planned state rather than the current state. Shows values Terraform expects after the plan is applied
+> 先生成执行计划，并基于计划状态而非当前状态对表达式求值。显示 Terraform 预期在计划应用之后的值
 
 **-state=**_path_
-> Path to a local state file to evaluate expressions against (default: terraform.tfstate; legacy, local backend only)
+> 用于表达式求值的本地状态文件路径（默认：terraform.tfstate；旧式，仅限本地 backend）
 
 **-var** _'NAME=VALUE'_
-> Set a variable value on the command line
+> 在命令行设置变量值
 
 **-var-file=**_FILE_
-> Load variable definitions from a file
+> 从文件加载变量定义
 
 # DESCRIPTION
 
-**terraform console** provides an interactive **REPL** (Read-Eval-Print Loop) for evaluating Terraform expressions. It allows testing expressions and interpolations, inspecting current state values, experimenting with built-in functions like **split()**, **lower()**, **length()**, and debugging configurations interactively.
+**terraform console** 提供一个用于求值 Terraform 表达式的交互式 **REPL**（读取-求值-打印循环）。它可用于测试表达式和插值、检查当前状态值、试用 **split()**、**lower()**、**length()** 等内置函数，以及交互式调试配置。
 
-The console is **read-only** and does not modify state, configuration files, or infrastructure resources. However, it locks the state file while running, preventing concurrent **plan** or **apply** operations.
+该控制台是**只读**的，不会修改状态、配置文件或基础设施资源。但它运行期间会锁定状态文件，阻止并发的 **plan** 或 **apply** 操作。
 
-Fields, outputs, variables, and locals from the current Terraform state can be accessed directly. Type **exit** or press **Ctrl-C** / **Ctrl-D** to quit.
+可以直接访问当前 Terraform 状态中的字段、输出、变量和本地值。输入 **exit** 或按 **Ctrl-C** / **Ctrl-D** 退出。
 
 # CAVEATS
 
-The console **locks the state file** while running, so you cannot run **terraform plan** or **terraform apply** in the same workspace concurrently. You must run **terraform init** before using the console. Resources that have not been created yet show as unknown unless you use the **-plan** flag. The special **type()** function is only available within the console (since Terraform v1.1). You cannot define new variables interactively.
+控制台运行期间会**锁定状态文件**，因此无法在同一 workspace 中并发运行 **terraform plan** 或 **terraform apply**。使用控制台前必须先运行 **terraform init**。尚未创建的资源会显示为 unknown，除非使用 **-plan** 标志。特殊的 **type()** 函数仅在控制台中可用（自 Terraform v1.1 起）。无法以交互方式定义新变量。
 
 # HISTORY
 
-Introduced in **Terraform v0.8** in **November 2016** by Mitchell Hashimoto, co-founder of HashiCorp. Originally described as an interactive console for experimenting with interpolations. Support for **-var** and **-var-file** was added later via a fix in **September 2019**. The **type()** function was added in **Terraform v1.1** as a console-only feature.
+由 HashiCorp 联合创始人 Mitchell Hashimoto 于 **2016 年 11 月**随 **Terraform v0.8** 推出。最初被描述为一个用于试验插值的交互式控制台。**-var** 和 **-var-file** 支持后来通过 **2019 年 9 月**的一次修复加入。**type()** 函数作为仅限控制台的功能加入于 **Terraform v1.1**。
 
 # INSTALL
 

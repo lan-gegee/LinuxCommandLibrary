@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal-based client for Pinboard bookmarks
+基于终端的 Pinboard 书签客户端
 
 # TLDR
 
-**Launch the Pinboard TUI client**
+**启动 Pinboard TUI 客户端**
 
 ```tinboard```
 
@@ -14,11 +14,11 @@ Terminal-based client for Pinboard bookmarks
 
 # DESCRIPTION
 
-**tinboard** is a TUI client for the Pinboard.in bookmarking service. It allows you to manage, search, and browse your Pinboard bookmarks entirely from the terminal.
+**tinboard** 是 Pinboard.in 书签服务的 TUI 客户端。它让你完全在终端中管理、搜索和浏览自己的 Pinboard 书签。
 
 # HISTORY
 
-**tinboard** was created by **Dave Pearson** (davep) and is written in **Python** using the Textual framework.
+**tinboard** 由 **Dave Pearson**（davep）创建，使用 **Python** 的 Textual 框架编写。
 
 # SEE ALSO
 

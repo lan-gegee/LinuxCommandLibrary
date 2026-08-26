@@ -1,22 +1,22 @@
 # TAGLINE
 
-Auto-install missing LaTeX packages
+自动安装缺失的 LaTeX 软件包
 
 # TLDR
 
-**Compile with auto-install**
+**编译并自动安装**
 
 ```texliveonfly [document.tex]```
 
-**Use specific engine**
+**使用指定引擎**
 
 ```texliveonfly --compiler=[pdflatex] [document.tex]```
 
-**With arguments**
+**附带参数**
 
 ```texliveonfly --arguments="[-shell-escape]" [document.tex]```
 
-**Dry run**
+**试运行**
 
 ```texliveonfly --dry-run [document.tex]```
 
@@ -27,33 +27,33 @@ Auto-install missing LaTeX packages
 # PARAMETERS
 
 **--compiler** _ENGINE_
-> TeX engine to use.
+> 要使用的 TeX 引擎。
 
 **--arguments** _ARGS_
-> Pass to compiler.
+> 传给编译器的参数。
 
 **--dry-run**
-> Don't actually install.
+> 不实际安装。
 
 **--terminal_only**
-> Console output only.
+> 仅控制台输出。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**texliveonfly** compiles LaTeX documents while automatically installing any missing packages from the TeX Live repository. When the compiler encounters an undefined package, texliveonfly detects the error, uses **tlmgr** to install the required package, and retries compilation until all dependencies are satisfied.
+**texliveonfly** 编译 LaTeX 文档的同时，会自动从 TeX Live 软件仓库安装缺失的软件包。当编译器遇到未定义的软件包时，texliveonfly 会检测该错误，使用 **tlmgr** 安装所需的软件包，然后重试编译，直到所有依赖都满足为止。
 
-The tool works with any TeX Live engine including pdflatex, xelatex, and lualatex, selectable via the **--compiler** flag. Additional compiler arguments can be passed through **--arguments**. The **--dry-run** flag shows which packages would be installed without actually performing the installation.
+该工具适用于任何 TeX Live 引擎，包括 pdflatex、xelatex 和 lualatex，可通过 **--compiler** 标志选择。其他编译器参数可通过 **--arguments** 传入。**--dry-run** 标志只显示将安装哪些软件包，而不实际执行安装。
 
 # CAVEATS
 
-TeX Live required. Network access needed. Admin for global install.
+需要 TeX Live。需要网络访问。全局安装需要管理员权限。
 
 # HISTORY
 
-**texliveonfly** was created to automatically install missing LaTeX packages during compilation.
+**texliveonfly** 的创建目的是在编译期间自动安装缺失的 LaTeX 软件包。
 
 # INSTALL
 

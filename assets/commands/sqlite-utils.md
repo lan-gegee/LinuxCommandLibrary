@@ -1,46 +1,46 @@
 # TAGLINE
 
-SQLite database manipulation CLI and library
+SQLite 数据库操作 CLI 与程序库
 
 # TLDR
 
-**Import JSON into SQLite**
+**将 JSON 导入 SQLite**
 
 ```sqlite-utils insert [database.db] [table] [data.json]```
 
-**Import CSV into SQLite**
+**将 CSV 导入 SQLite**
 
 ```sqlite-utils insert [database.db] [table] [data.csv] --csv```
 
-**Query with SQL**
+**用 SQL 查询**
 
 ```sqlite-utils [database.db] "[SELECT * FROM table]"```
 
-**Query and output as JSON**
+**查询并以 JSON 输出**
 
 ```sqlite-utils [database.db] "[SELECT * FROM table]" --json```
 
-**List tables**
+**列出表**
 
 ```sqlite-utils tables [database.db]```
 
-**Show schema**
+**显示模式（schema）**
 
 ```sqlite-utils schema [database.db]```
 
-**Create FTS search index**
+**创建 FTS 全文搜索索引**
 
 ```sqlite-utils enable-fts [database.db] [table] [column1] [column2]```
 
-**Export table to JSON**
+**将表导出为 JSON**
 
 ```sqlite-utils rows [database.db] [table] > [data.json]```
 
-**Upsert data** (insert or update on conflict)
+**Upsert 数据**（冲突时插入或更新）
 
 ```sqlite-utils upsert [database.db] [table] [data.json] --pk [id]```
 
-**Process data from stdin** with in-memory database
+用内存数据库**处理来自 stdin 的数据**
 
 ```cat [data.json] | sqlite-utils memory - "[SELECT * FROM stdin]"```
 
@@ -51,92 +51,92 @@ SQLite database manipulation CLI and library
 # PARAMETERS
 
 **insert** _DB_ _TABLE_ [_FILE_]
-> Insert data from JSON, CSV, or stdin.
+> 从 JSON、CSV 或 stdin 插入数据。
 
 **rows** _DB_ _TABLE_
-> Output rows as JSON.
+> 以 JSON 输出行。
 
 **tables** _DB_
-> List tables.
+> 列出表。
 
 **schema** _DB_
-> Show database schema.
+> 显示数据库模式。
 
 **query** _DB_ _SQL_
-> Run SQL query.
+> 运行 SQL 查询。
 
 **upsert** _DB_ _TABLE_ [_FILE_]
-> Insert or update data (requires --pk).
+> 插入或更新数据（需要 --pk）。
 
 **memory** _SQL_
-> Run SQL against in-memory database (reads from files or stdin).
+> 对内存数据库运行 SQL（可从文件或 stdin 读取）。
 
 **enable-fts** _DB_ _TABLE_ _COLUMNS_
-> Enable full-text search.
+> 启用全文搜索。
 
 **search** _DB_ _TABLE_ _QUERY_
-> Full-text search.
+> 全文搜索。
 
 **create-table** _DB_ _TABLE_ _COLUMNS_
-> Create table with columns.
+> 用指定列创建表。
 
 **drop-table** _DB_ _TABLE_
-> Drop table.
+> 删除表。
 
 **add-column** _DB_ _TABLE_ _COL_ [_TYPE_]
-> Add column to table.
+> 向表添加列。
 
 **indexes** _DB_ [_TABLE_]
-> List indexes.
+> 列出索引。
 
 **--csv**
-> Input is CSV.
+> 输入为 CSV。
 
 **--tsv**
-> Input is TSV.
+> 输入为 TSV。
 
 **--nl**
-> Input is newline-delimited JSON.
+> 输入为换行分隔的 JSON。
 
 **--pk** _COLUMN_
-> Primary key column.
+> 主键列。
 
 **--json**
-> Output as JSON.
+> 以 JSON 输出。
 
 **--table**
-> Output as table.
+> 以表格输出。
 
 **-c**, **--csv**
-> Output as CSV.
+> 以 CSV 输出。
 
 **--flatten**
-> Flatten nested JSON objects into columns.
+> 将嵌套的 JSON 对象展平为列。
 
 **--batch-size** _N_
-> Number of rows per insert batch.
+> 每个插入批次的行数。
 
 # DESCRIPTION
 
-**sqlite-utils** provides a CLI and Python library for working with SQLite databases. It simplifies common tasks: importing data, running queries, and managing schema.
+**sqlite-utils** 提供用于操作 SQLite 数据库的 CLI 和 Python 库。它简化了常见任务：导入数据、运行查询和管理模式。
 
-Data import handles JSON, CSV, TSV, and newline-delimited JSON. Types are inferred automatically. Primary keys and foreign keys can be specified. Existing tables are updated or replaced as configured.
+数据导入支持 JSON、CSV、TSV 和换行分隔的 JSON。类型会自动推断。可以指定主键和外键。现有表会按配置进行更新或替换。
 
-Querying supports SQL with multiple output formats. The memory subcommand runs queries against in-memory databases, useful for quick data processing without persistent files.
+查询支持 SQL 以及多种输出格式。memory 子命令对内存数据库执行查询，适合无需持久文件的快速数据处理。
 
-Full-text search (FTS) enables fast text searching. Enable-fts creates virtual tables for specified columns. Search queries use SQLite's FTS5 syntax for relevance ranking.
+全文搜索（FTS）提供快速的文本搜索能力。enable-fts 为指定列创建虚拟表。搜索查询使用 SQLite 的 FTS5 语法进行相关性排序。
 
-Table management includes creation, alteration, and inspection. Schema command shows CREATE statements. Columns can be added without recreating tables.
+表管理包括创建、修改和检查。schema 命令显示 CREATE 语句。可以在不重建表的情况下添加列。
 
-The tool integrates well with Unix pipelines. Data flows in from curl or other tools, gets processed, and outputs to further commands.
+该工具与 Unix 管道配合良好。数据从 curl 或其他工具流入，经过处理后输出给后续命令。
 
 # CAVEATS
 
-Large inserts may need --batch-size adjustment. FTS increases database size. Type inference may not always be correct. Some features require SQLite version 3.25+. Memory usage grows with large datasets.
+大批量插入可能需要调整 --batch-size。FTS 会增大数据库体积。类型推断不一定总是正确。部分功能要求 SQLite 3.25 及以上版本。内存占用会随大数据集增长。
 
 # HISTORY
 
-**sqlite-utils** was created by **Simon Willison** around **2019** as part of the Datasette ecosystem. It provides command-line access to SQLite manipulation that previously required Python scripting or separate tools. The library is also usable from Python for programmatic database work.
+**sqlite-utils** 由 **Simon Willison** 于 **2019 年**前后创建，是 Datasette 生态系统的一部分。它以命令行方式提供了此前必须借助 Python 脚本或其他独立工具才能完成的 SQLite 操作。该库也可以在 Python 中调用，以编程方式操作数据库。
 
 # INSTALL
 

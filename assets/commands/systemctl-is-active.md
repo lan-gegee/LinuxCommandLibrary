@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check if units are running
+检查单元是否正在运行
 
 # TLDR
 
-Check if unit is **active**
+检查单元是否**处于活动状态**
 
 ```systemctl is-active [unit]```
 
-Check **multiple** units
+检查**多个**单元
 
 ```systemctl is-active [unit1 unit2 ...]```
 
-**Quiet** mode (exit code only)
+**安静**模式（仅返回退出码）
 
 ```systemctl is-active [unit] -q```
 
-Check **user** unit
+检查**用户**单元
 
 ```systemctl is-active [unit] --user```
 
@@ -27,31 +27,31 @@ Check **user** unit
 # PARAMETERS
 
 **-q, --quiet**
-> Suppress output, return only exit code
+> 不输出内容，仅返回退出码
 
 **--user**
-> Check user units
+> 检查用户单元
 
 **--system**
-> Check system units (default)
+> 检查系统单元（默认）
 
 # DESCRIPTION
 
-**systemctl is-active** checks whether one or more units are currently active (running). It prints the active state and returns exit code 0 if at least one unit is active.
+**systemctl is-active** 检查一个或多个单元当前是否处于活动状态（正在运行）。它会打印活动状态，并且只要至少有一个单元处于活动状态就返回退出码 0。
 
-Possible states include: active, inactive, activating, deactivating, failed. For multiple units, each state is printed on a separate line.
+可能的状态包括：active、inactive、activating、deactivating、failed。对于多个单元，每个状态各占一行输出。
 
 # EXIT STATUS
 
-Returns **0** if at least one unit is active, **non-zero** otherwise. This makes it useful in shell scripts for conditional logic based on service state.
+如果至少有一个单元处于活动状态则返回 **0**，否则返回**非零值**。这使得它可以在 Shell 脚本中用于基于服务状态的条件判断。
 
 # CAVEATS
 
-Only checks current runtime state, not enablement. A unit can be enabled but not active, or active but not enabled. Use `is-enabled` to check the boot configuration.
+只检查当前的运行时状态，而非开机启用状态。一个单元可以被启用但未处于活动状态，也可能处于活动状态但未被启用。请使用 `is-enabled` 检查开机配置。
 
 # HISTORY
 
-The **is-active** subcommand provides a scriptable way to query service state, replacing parsing of `systemctl status` output.
+**is-active** 子命令提供了一种可脚本化的方式来查询服务状态，取代了对 `systemctl status` 输出的解析。
 
 # SEE ALSO
 

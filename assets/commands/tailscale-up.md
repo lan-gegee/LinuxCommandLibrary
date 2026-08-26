@@ -1,26 +1,26 @@
 # TAGLINE
 
-Connect device to Tailscale network
+将设备接入 Tailscale 网络
 
 # TLDR
 
-**Connect to Tailscale**
+**连接到 Tailscale**
 
 ```tailscale up```
 
-**Connect with exit node**
+通过出口节点**连接**
 
 ```tailscale up --exit-node=[node]```
 
-**Connect accepting routes**
+接受路由并**连接**
 
 ```tailscale up --accept-routes```
 
-**Connect with SSH enabled**
+启用 SSH 后**连接**
 
 ```tailscale up --ssh```
 
-**Advertise as exit node**
+**通告为出口节点**
 
 ```tailscale up --advertise-exit-node```
 
@@ -31,61 +31,61 @@ Connect device to Tailscale network
 # PARAMETERS
 
 **--accept-routes**
-> Accept advertised routes.
+> 接受通告的路由。
 
 **--advertise-exit-node**
-> Offer as exit node.
+> 将本机提供为出口节点。
 
 **--exit-node** _node_
-> Route traffic through node.
+> 让流量经由 node 路由。
 
 **--hostname** _name_
-> Device hostname.
+> 设备主机名。
 
 **--shields-up**
-> Block incoming connections.
+> 阻止入站连接。
 
 **--ssh**
-> Enable Tailscale SSH.
+> 启用 Tailscale SSH。
 
 **--login-server** _url_
-> Custom control server.
+> 自定义控制服务器。
 
 **--authkey** _key_
-> Pre-auth key.
+> 预授权密钥。
 
 **--accept-dns**
-> Accept DNS configuration from the admin console.
+> 接受来自管理控制台的 DNS 配置。
 
 **--advertise-routes** _CIDR_
-> Expose physical subnet routes to the tailnet.
+> 将物理子网路由暴露给 tailnet。
 
 **--advertise-tags** _TAGS_
-> Give tagged permissions to this device.
+> 为本设备赋予基于标签的权限。
 
 **--force-reauth**
-> Force re-authentication.
+> 强制重新认证。
 
 **--reset**
-> Reset unspecified settings to their defaults.
+> 将未指定的设置重置为默认值。
 
 **--qr**
-> Generate a QR code for the login URL.
+> 为登录 URL 生成二维码。
 
 **--exit-node-allow-lan-access**
-> Allow LAN access while using an exit node.
+> 使用出口节点时仍允许访问局域网。
 
 **--operator** _USER_
-> Unix username to operate tailscaled without sudo.
+> 无需 sudo 即可操作 tailscaled 的 Unix 用户名。
 
 **--timeout** _DURATION_
-> Maximum wait time for service initialization.
+> 服务初始化的最长等待时间。
 
 # DESCRIPTION
 
-**tailscale up** connects the device to a Tailscale network. Authenticates and joins the tailnet. First run opens browser for authentication unless authkey is provided.
+**tailscale up** 将设备连接到 Tailscale 网络，完成认证并加入 tailnet。首次运行时会打开浏览器进行认证，除非提供了 authkey。
 
-To change settings on an already-connected device, prefer **tailscale set** which only updates specified flags, whereas **tailscale up** applies OS defaults for all unspecified flags.
+要修改已连接设备的设置，优先使用 **tailscale set**——它只更新指定的标志；而 **tailscale up** 会把所有未指定的标志应用为操作系统默认值。
 
 # INSTALL
 
@@ -106,4 +106,3 @@ To change settings on an already-connected device, prefer **tailscale set** whic
 # SEE ALSO
 
 [tailscale](/man/tailscale)(1), [tailscale-set](/man/tailscale-set)(1)
-

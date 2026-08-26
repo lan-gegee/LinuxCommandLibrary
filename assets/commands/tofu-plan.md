@@ -1,22 +1,22 @@
 # TAGLINE
 
-Preview OpenTofu infrastructure changes
+预览 OpenTofu 基础设施变更
 
 # TLDR
 
-**Create execution plan**
+**创建执行计划**
 
 ```tofu plan```
 
-**Save plan to file**
+**将计划保存到文件**
 
 ```tofu plan -out=[plan.tfplan]```
 
-**Plan with variable**
+**带变量生成计划**
 
 ```tofu plan -var="[key]=[value]"```
 
-**Plan destroy**
+**规划销毁操作**
 
 ```tofu plan -destroy```
 
@@ -27,41 +27,41 @@ Preview OpenTofu infrastructure changes
 # PARAMETERS
 
 **-out** _file_
-> Save plan to file.
+> 将计划保存到文件。
 
 **-var** _name=value_
-> Set variable.
+> 设置变量。
 
 **-var-file** _file_
-> Variable file.
+> 变量文件。
 
 **-target** _resource_
-> Target specific resource.
+> 定位到特定资源。
 
 **-destroy**
-> Plan destruction.
+> 规划销毁操作。
 
 **-refresh-only**
-> Update state without proposing changes.
+> 只刷新状态而不提出变更。
 
 **-refresh=false**
-> Skip syncing state with remote objects.
+> 跳过与远程对象同步状态。
 
 **-parallelism** _n_
-> Limit concurrent operations (default: 10).
+> 限制并发操作数（默认：10）。
 
 **-detailed-exitcode**
-> Return 0 (no changes), 1 (error), or 2 (changes present).
+> 返回 0（无变更）、1（错误）或 2（存在变更）。
 
 **-input=false**
-> Disable prompts for unset variables.
+> 禁用对未设置变量的提示输入。
 
 **-json**
-> Machine-readable JSON output.
+> 机器可读的 JSON 输出。
 
 # DESCRIPTION
 
-**tofu plan** creates an execution plan for OpenTofu. OpenTofu is the open-source fork of Terraform. Shows proposed changes before applying to infrastructure.
+**tofu plan** 为 OpenTofu 创建执行计划。OpenTofu 是 Terraform 的开源分支。它在应用到基础设施之前展示提议的变更。
 
 # INSTALL
 
@@ -82,4 +82,3 @@ Preview OpenTofu infrastructure changes
 # SEE ALSO
 
 [tofu](/man/tofu)(1), [terraform-plan](/man/terraform-plan)(1)
-

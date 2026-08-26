@@ -1,38 +1,38 @@
 # TAGLINE
 
-Caching HTTP proxy server
+带缓存的 HTTP 代理服务器
 
 # TLDR
 
-**Start squid**
+**启动 squid**
 
 ```squid```
 
-**Check configuration**
+**检查配置**
 
 ```squid -k parse```
 
-**Reload configuration**
+**重新加载配置**
 
 ```squid -k reconfigure```
 
-**Shutdown gracefully**
+**平滑关机**
 
 ```squid -k shutdown```
 
-**Show version**
+**显示版本**
 
 ```squid -v```
 
-**Run in foreground**
+**以前台方式运行**
 
 ```squid -N```
 
-**Debug mode**
+**调试模式**
 
 ```squid -d [5]```
 
-**Clear cache**
+**清空缓存**
 
 ```squid -k rotate && rm -rf [/var/spool/squid/*] && squid -z```
 
@@ -43,57 +43,57 @@ Caching HTTP proxy server
 # PARAMETERS
 
 **-k** _COMMAND_
-> Send command to running squid.
+> 向运行中的 squid 发送命令。
 
 **-f** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-N**
-> No daemon mode.
+> 非守护进程模式。
 
 **-d** _LEVEL_
-> Debug level.
+> 调试级别。
 
 **-z**
-> Create swap directories.
+> 创建 swap 目录。
 
 **-v**
-> Show version.
+> 显示版本。
 
 # COMMANDS
 
-**parse** - Check config
-**reconfigure** - Reload config
-**shutdown** - Graceful stop
-**interrupt** - Immediate stop
-**rotate** - Rotate logs
+**parse** - 检查配置
+**reconfigure** - 重新加载配置
+**shutdown** - 平滑停止
+**interrupt** - 立即停止
+**rotate** - 轮转日志
 
 # DESCRIPTION
 
-**squid** is a caching proxy server supporting HTTP, HTTPS, FTP, and other protocols. It operates as both a forward proxy for client internet access and a reverse proxy (accelerator) for web servers, caching frequently requested content to reduce bandwidth usage and improve response times.
+**squid** 是一个支持 HTTP、HTTPS、FTP 及其他协议的缓存代理服务器。它既可以作为客户端访问互联网的正向代理，也可以作为 Web 服务器的反向代理（加速器），缓存频繁请求的内容以降低带宽消耗并提升响应速度。
 
-The server uses Access Control Lists (ACLs) to filter traffic, authenticate users, restrict access to specific sites or content types, and enforce bandwidth limits. Cache storage is configurable with both memory and disk backends, supporting hierarchical caching with parent and sibling proxies.
+服务器使用访问控制列表（ACL）来过滤流量、验证用户身份、限制对特定站点或内容类型的访问，并实施带宽限制。缓存存储可配置内存和磁盘两种后端，并支持通过父级与同级代理构建层级缓存。
 
-Configuration is managed through a comprehensive configuration file that defines listening ports, ACL rules, cache policies, authentication schemes, and logging behavior. The **-k** flag sends management commands to a running instance for operations like configuration reload, log rotation, and graceful shutdown.
+配置通过一个功能完备的配置文件管理，其中定义了监听端口、ACL 规则、缓存策略、身份认证方案和日志行为。**-k** 标志可向运行中的实例发送管理命令，执行重新加载配置、轮转日志和平滑关机等操作。
 
 # CONFIGURATION
 
 **/etc/squid/squid.conf**
-> Main configuration file defining listening ports, ACL rules, cache policies, authentication helpers, and logging settings.
+> 主配置文件，定义监听端口、ACL 规则、缓存策略、认证辅助程序和日志设置。
 
 **/var/spool/squid/**
-> Default disk cache directory for cached web content.
+> 存放缓存 Web 内容的默认磁盘缓存目录。
 
 **/var/log/squid/**
-> Log directory containing access.log, cache.log, and store.log.
+> 日志目录，包含 access.log、cache.log 和 store.log。
 
 # CAVEATS
 
-Configuration is complex. ACL order matters. HTTPS interception needs certificates.
+配置复杂。ACL 的顺序很重要。HTTPS 拦截需要证书。
 
 # HISTORY
 
-**Squid** originated from the **Harvest** project at the **University of Colorado** in **1996**. It became the most widely deployed caching proxy.
+**Squid** 源自 **1996 年****科罗拉多大学**的 **Harvest** 项目。它成为部署最广泛的缓存代理。
 
 # INSTALL
 

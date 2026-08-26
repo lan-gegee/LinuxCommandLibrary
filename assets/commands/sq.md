@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modern Sequoia OpenPGP command-line tool
+现代的 Sequoia OpenPGP 命令行工具
 
 # TLDR
 
-**Generate key**
+**生成密钥**
 
 ```sq key generate --userid "[Name <email>]"```
 
-**Encrypt file**
+**加密文件**
 
 ```sq encrypt --recipient-file [key.pgp] [file]```
 
-**Decrypt file**
+**解密文件**
 
 ```sq decrypt [file.pgp]```
 
-**Sign file**
+**签名文件**
 
 ```sq sign [file]```
 
-**Verify signature**
+**验证签名**
 
 ```sq verify --signer-file [key.pgp] [file.sig]```
 
-**Inspect packet**
+**检查数据包**
 
 ```sq inspect [file.pgp]```
 
@@ -35,61 +35,61 @@ Modern Sequoia OpenPGP command-line tool
 # SUBCOMMANDS
 
 **key**
-> Generate, modify, and inspect OpenPGP keys.
+> 生成、修改和检查 OpenPGP 密钥。
 
 **encrypt**
-> Encrypt data for one or more recipients.
+> 为一个或多个接收者加密数据。
 
 **decrypt**
-> Decrypt data using a secret key.
+> 使用私钥解密数据。
 
 **sign**
-> Create an OpenPGP signature (inline, detached, or cleartext).
+> 创建 OpenPGP 签名（内联、分离或 cleartext）。
 
 **verify**
-> Verify an OpenPGP signature.
+> 验证 OpenPGP 签名。
 
 **inspect**
-> Examine the structure of OpenPGP packets without decrypting.
+> 在不解密的情况下查看 OpenPGP 数据包结构。
 
 **cert**
-> Manage TPKs (transferable public keys / certificates).
+> 管理 TPK（可传输公钥 / 证书）。
 
 **pki**
-> Authenticate and certify keys via a Web of Trust.
+> 通过信任网络（Web of Trust）认证和担保密钥。
 
 # COMMON OPTIONS
 
 **--recipient-file** _FILE_
-> Encrypt for the certificate(s) in _FILE_.
+> 为 _FILE_ 中的证书加密。
 
 **--signer-file** _FILE_
-> Use the secret key in _FILE_ to sign or verify with.
+> 使用 _FILE_ 中的私钥进行签名或验证。
 
 **--output** _FILE_, **-o** _FILE_
-> Write output to _FILE_ instead of stdout.
+> 将输出写入 _FILE_ 而不是 stdout。
 
 **--binary**
-> Emit binary OpenPGP data instead of ASCII-armored output.
+> 输出二进制 OpenPGP 数据而不是 ASCII 封装格式。
 
 **--force**
-> Overwrite existing output files.
+> 覆盖已存在的输出文件。
 
 # DESCRIPTION
 
-**sq** is the command-line interface for Sequoia PGP, a modern OpenPGP implementation written in Rust. It provides key generation, encryption, decryption, signing, and signature verification following the OpenPGP standard.
+**sq** 是 Sequoia PGP 的命令行界面，后者是一个用 Rust 编写的现代 OpenPGP 实现。它遵循 OpenPGP 标准，提供密钥生成、加密、解密、签名和签名验证功能。
 
-The tool supports standard PGP workflows including key pair generation with user IDs, file encryption for recipients using public keys, and detached or inline signatures. The **inspect** subcommand allows examining OpenPGP packet structures for debugging and verification purposes.
+该工具支持标准的 PGP 工作流，包括带用户 ID 的密钥对生成、使用公钥为接收者加密文件，以及分离或内联签名。**inspect** 子命令可用于查看 OpenPGP 数据包结构，便于调试和验证。
 
-Sequoia PGP was developed by former GnuPG contributors as a memory-safe, modular alternative to traditional PGP implementations. sq aims to provide a cleaner command-line interface while maintaining full OpenPGP compatibility.
+Sequoia PGP 由前 GnuPG 贡献者开发，是传统 PGP 实现的内存安全、模块化替代方案。sq 致力于提供更简洁的命令行界面，同时保持与 OpenPGP 的完全兼容。
 
 # CAVEATS
 
-Different from GPG. Sequoia-specific. Some features differ.
+与 GPG 不同。属于 Sequoia 特有实现。部分功能存在差异。
 
 # HISTORY
 
-**sq** is the CLI for **Sequoia PGP**, a modern OpenPGP implementation written in Rust by former GnuPG developers.
+**sq** 是 **Sequoia PGP** 的 CLI，后者是由前 GnuPG 开发者用 Rust 编写的现代 OpenPGP 实现。
 
 # INSTALL
 

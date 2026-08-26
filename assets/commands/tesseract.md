@@ -1,38 +1,38 @@
 # TAGLINE
 
-Open-source optical character recognition engine
+开源光学字符识别引擎
 
 # TLDR
 
-**Extract text from image**
+**从图片提取文本**
 
 ```tesseract [image.png] [output]```
 
-**Extract to stdout**
+**提取到 stdout**
 
 ```tesseract [image.png] stdout```
 
-**Specify language**
+**指定语言**
 
 ```tesseract -l [deu] [image.png] [output]```
 
-**Multiple languages**
+**多种语言**
 
 ```tesseract -l [eng+fra] [image.png] [output]```
 
-**Output as PDF**
+**输出为 PDF**
 
 ```tesseract [image.png] [output] pdf```
 
-**Output as hOCR** (HTML with coordinates)
+**输出为 hOCR**（带坐标的 HTML）
 
 ```tesseract [image.png] [output] hocr```
 
-**Output as TSV**
+**输出为 TSV**
 
 ```tesseract [image.png] [output] tsv```
 
-**List available languages**
+**列出可用语言**
 
 ```tesseract --list-langs```
 
@@ -43,76 +43,76 @@ Open-source optical character recognition engine
 # PARAMETERS
 
 **-l** _LANG_
-> Language(s) for OCR (eng, deu, fra, etc.).
+> OCR 使用的语言（eng、deu、fra 等）。
 
 **--psm** _NUM_
-> Page segmentation mode (0-13).
+> 页面分割模式（0-13）。
 
 **--oem** _NUM_
-> OCR Engine mode (0=legacy, 1=LSTM, 2=both).
+> OCR 引擎模式（0=旧式、1=LSTM、2=两者）。
 
 **--dpi** _NUM_
-> Override image DPI.
+> 覆盖图片 DPI。
 
 **-c** _VAR=VALUE_
-> Set config variable.
+> 设置配置变量。
 
 **--tessdata-dir** _PATH_
-> Location of language data.
+> 语言数据的存放位置。
 
 **--user-words** _FILE_
-> User word list.
+> 用户词表。
 
 **--user-patterns** _FILE_
-> User patterns file.
+> 用户模式文件。
 
 **--list-langs**
-> List available languages.
+> 列出可用语言。
 
 **--print-parameters**
-> Print config parameters.
+> 打印配置参数。
 
 **pdf**
-> Output searchable PDF.
+> 输出可搜索 PDF。
 
 **hocr**
-> Output HTML with coordinates.
+> 输出带坐标的 HTML。
 
 **tsv**
-> Output tab-separated values.
+> 输出制表符分隔值。
 
 **alto**
-> Output ALTO XML.
+> 输出 ALTO XML。
 
 # DESCRIPTION
 
-**Tesseract** is an open-source OCR (Optical Character Recognition) engine. It extracts text from images, supporting over 100 languages.
+**Tesseract** 是一个开源 OCR（光学字符识别）引擎。它从图片中提取文本，支持超过 100 种语言。
 
-The LSTM neural network engine (default) provides better accuracy than the legacy engine for most text. Engine mode selection (--oem) enables switching or combining engines.
+LSTM 神经网络引擎（默认）对大多数文本比旧式引擎准确率更高。通过引擎模式选择（--oem）可以切换或组合引擎。
 
-Page segmentation modes (--psm) tell Tesseract what to expect: single character, word, line, block, or full page. Correct mode selection improves accuracy significantly.
+页面分割模式（--psm）告诉 Tesseract 预期内容：单个字符、单词、行、块还是整页。选择正确的模式能显著提高准确率。
 
-Output formats include plain text, searchable PDF (text layer over image), hOCR (HTML with bounding boxes), TSV (detailed per-word data), and ALTO (XML archival format).
+输出格式包括纯文本、可搜索 PDF（图像上的文本层）、hOCR（带边界框的 HTML）、TSV（逐词详细数据）和 ALTO（XML 归档格式）。
 
-Image quality greatly affects results. Best results come from: high resolution (300+ DPI), good contrast, straight alignment, minimal noise. Preprocessing with ImageMagick or similar can help.
+图片质量对结果影响很大。最佳效果来自：高分辨率（300+ DPI）、良好的对比度、端正的对齐、尽量少的噪点。使用 ImageMagick 或类似工具做预处理会有帮助。
 
-Language data files (traineddata) must be installed separately. Custom training can create models for specific fonts, historical documents, or specialized text.
+语言数据文件（traineddata）必须单独安装。通过自定义训练可以为特定字体、历史文献或专门文本创建模型。
 
 # CONFIGURATION
 
 **TESSDATA_PREFIX**
-> Environment variable specifying the directory containing language data files (traineddata); defaults to the tessdata directory within the Tesseract installation
+> 指定语言数据文件（traineddata）所在目录的环境变量；默认为 Tesseract 安装目录内的 tessdata 目录
 
 **--tessdata-dir** _PATH_
-> Command-line override for the language data directory location
+> 在命令行覆盖语言数据目录的位置
 
 # CAVEATS
 
-Accuracy varies with image quality. Complex layouts may not segment correctly. Handwriting recognition is limited. Custom training requires significant effort. Large language data files. Processing speed depends on image size and complexity.
+准确率随图片质量而变化。复杂版面可能无法正确分割。手写识别能力有限。自定义训练需要大量投入。语言数据文件较大。处理速度取决于图片尺寸和复杂度。
 
 # HISTORY
 
-**Tesseract** was developed at HP Labs from **1985** to **1994**, then released as open source in **2005**. Google took over development, adding LSTM neural network support in **2016** (version 4.0). It remains the most widely used open-source OCR engine, integrated into many applications and workflows.
+**Tesseract** 于 **1985** 至 **1994** 年间在 HP 实验室开发，随后于 **2005** 年开源。Google 接手开发，并于 **2016** 年加入 LSTM 神经网络支持（4.0 版）。它至今仍是最广泛使用的开源 OCR 引擎，已集成到众多应用和工作流中。
 
 # INSTALL
 

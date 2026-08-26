@@ -1,18 +1,18 @@
 # TAGLINE
 
-Parallel SSH jobs manager with interactive CLI
+带交互式 CLI 的并行 SSH 作业管理器
 
 # TLDR
 
-**Run a command on multiple hosts**
+**在多台主机上运行命令**
 
 ```ssh-para -H [host1] [host2] [host3] -- echo connection ok```
 
-**Mass patch with 20 parallel jobs**
+**以 20 个并行作业进行大规模修补**
 
 ```ssh-para -p 20 -f [hostlist.txt] -- 'sudo yum update -y'```
 
-**Execute a local script on remote hosts**
+**在远程主机上执行本地脚本**
 
 ```ssh-para -p 20 -f [hosts.txt] -s [./myscript] -a status```
 
@@ -23,27 +23,27 @@ Parallel SSH jobs manager with interactive CLI
 # PARAMETERS
 
 **-p** _N_
-> Number of parallel SSH connections.
+> 并行 SSH 连接数量。
 
 **-H** _HOSTS_
-> Space-separated list of target hosts.
+> 以空格分隔的目标主机列表。
 
 **-f** _FILE_
-> File containing target hostnames, one per line.
+> 包含目标主机名的文件，每行一个。
 
 **-s** _SCRIPT_
-> Local script to execute on remote hosts.
+> 要在远程主机上执行的本地脚本。
 
 **-a** _ARGS_
-> Arguments to pass to the script.
+> 传递给脚本的参数。
 
 # DESCRIPTION
 
-**ssh-para** enables executing commands and scripts across multiple remote servers simultaneously with interactive real-time output monitoring. It supports pausing, resuming, and aborting jobs, killing stuck connections, configurable parallelism, and log generation. Requires SSH key-based authentication.
+**ssh-para** 可以同时在多台远程服务器上执行命令和脚本，并提供交互式的实时输出监控。它支持暂停、恢复和中止作业、终止卡住的连接、可配置的并行度以及日志生成。需要基于 SSH 密钥的认证。
 
 # HISTORY
 
-**ssh-para** was created by **joknarf** and is written in **Python**.
+**ssh-para** 由 **joknarf** 创建，使用 **Python** 编写。
 
 # INSTALL
 

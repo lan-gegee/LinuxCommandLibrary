@@ -1,34 +1,34 @@
 # TAGLINE
 
-Remove symbols from object files
+从目标文件中移除符号
 
 # TLDR
 
-**Strip** all symbols from a file (in place)
+**剥离**文件中的全部符号（就地修改）
 
 ```strip [path/to/file]```
 
-Strip and save to **output file**
+剥离后保存到**输出文件**
 
 ```strip [path/to/input] -o [path/to/output]```
 
-Strip **debug symbols** only
+仅剥离**调试符号**
 
 ```strip -d [path/to/file.o]```
 
-Strip **unneeded** symbols
+剥离**不需要的**符号
 
 ```strip --strip-unneeded [path/to/file]```
 
-**Keep** specific symbols
+**保留**特定符号
 
 ```strip -K [symbol_name] [path/to/file]```
 
-**Remove** specific section
+**移除**特定节区
 
 ```strip -R [section_name] [path/to/file]```
 
-Keep only **debug** information
+只保留**调试**信息
 
 ```strip --only-keep-debug [path/to/file]```
 
@@ -39,87 +39,87 @@ Keep only **debug** information
 # PARAMETERS
 
 **-s, --strip-all**
-> Remove all symbols
+> 移除所有符号
 
 **-g, -S, -d, --strip-debug**
-> Remove debugging symbols only
+> 仅移除调试符号
 
 **--strip-unneeded**
-> Remove unneeded symbols for relocation
+> 移除重定位不需要的符号
 
 **--only-keep-debug**
-> Keep only debugging sections
+> 仅保留调试节区
 
 **-K, --keep-symbol** _name_
-> Preserve specific symbol (repeatable)
+> 保留特定符号（可重复）
 
 **-N, --strip-symbol** _name_
-> Remove specific symbol (repeatable)
+> 移除特定符号（可重复）
 
 **-R, --remove-section** _name_
-> Remove named section (wildcards allowed)
+> 移除指定名称的节区（允许使用通配符）
 
 **--keep-section** _pattern_
-> Retain matching sections
+> 保留匹配的节区
 
 **-x, --discard-all**
-> Remove all non-global symbols
+> 移除所有非全局符号
 
 **-X, --discard-locals**
-> Remove compiler-generated local symbols
+> 移除编译器生成的局部符号
 
 **-o** _file_
-> Write output to file (single input only)
+> 将输出写入文件（仅限单个输入）
 
 **-p, --preserve-dates**
-> Keep access/modification timestamps
+> 保留访问/修改时间戳
 
 **-D, --enable-deterministic-archives**
-> Use zero for UID/GID/timestamps in archives
+> 归档中的 UID/GID/时间戳使用零值
 
 **--strip-dwo**
-> Remove DWARF .dwo sections (split debug info)
+> 移除 DWARF .dwo 节区（拆分调试信息）
 
 **--strip-section-headers**
-> Strip ELF section headers (ELF files only)
+> 剥离 ELF 节区头（仅限 ELF 文件）
 
 **--remove-relocations** _pattern_
-> Remove relocation information from matching sections
+> 从匹配的节区中移除重定位信息
 
 **--keep-file-symbols**
-> Retain symbols identifying source file names
+> 保留标识源文件名的符号
 
 **--keep-section-symbols**
-> Retain symbols identifying section names
+> 保留标识节区名的符号
 
 **-M, --merge-notes**
-> Merge and remove duplicate notes in ELF files
+> 合并并移除 ELF 文件中的重复 note
 
 **-w, --wildcard**
-> Allow shell-style wildcards in symbol names for -K and -N
+> 允许在 -K 和 -N 的符号名中使用 Shell 风格通配符
 
 **-v, --verbose**
-> List all processed files
+> 列出所有处理过的文件
 
 **--help**
-> Display help
+> 显示帮助
 
 **--version**
-> Display version
+> 显示版本
 
 # DESCRIPTION
 
-**strip** removes symbols and other data from object files and executables, reducing file size and making reverse engineering more difficult. It modifies files in-place by default. Archives (.a files) can also be stripped.
+**strip** 从目标文件和可执行文件中移除符号和其他数据，减小文件体积并增加逆向工程的难度。默认情况下它就地修改文件。归档（.a 文件）也可以被剥离。
 
-Stripping debug symbols is common for release builds to reduce binary size while retaining functionality. The **--only-keep-debug** option creates separate debug files that can be used with debuggers while keeping production binaries small.
+发布构建通常剥离调试符号以缩小二进制体积，同时保持功能不变。**--only-keep-debug** 选项会生成单独的调试文件供调试器使用，而生产二进制保持精简。
 
 # CAVEATS
 
-Stripping modifies files in place; back up originals if needed. Over-stripping can break dynamic linking or debugging capabilities. Use **--strip-debug** for libraries that may be linked against. Static analysis and debugging become difficult after stripping.
+strip 会就地修改文件；如有需要请备份原始文件。过度剥离可能破坏动态链接或调试能力。对可能被链接的库应使用 **--strip-debug**。剥离后静态分析和调试都会变得困难。
 
 # HISTORY
 
-**strip** is part of GNU **binutils**, the collection of binary tools maintained by the Free Software Foundation. The command originated in early Unix at Bell Labs in the **1970s** as a way to reduce executable size on systems with limited storage. GNU binutils provides the modern implementation used on Linux.
+**strip** 是 GNU **binutils** 的一部分，binutils 是由自由软件基金会维护的二进制工具集合。该命令起源于 **1970 年代**贝尔实验室的早期 Unix，用于在存储受限的系统上缩减可执行文件体积。GNU binutils 提供了 Linux 上使用的现代实现。
 
 # INSTALL
 

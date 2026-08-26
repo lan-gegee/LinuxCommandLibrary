@@ -1,38 +1,38 @@
 # TAGLINE
 
-Execute SQL queries on CSV, JSON, LTSV, YAML, and TBLN files
+对 CSV、JSON、LTSV、YAML 和 TBLN 文件执行 SQL 查询
 
 # TLDR
 
-**Query CSV**
+查询 CSV
 
 ```trdsql "SELECT * FROM [file.csv]"```
 
-**Query JSON**
+查询 JSON
 
 ```trdsql -ijson "SELECT * FROM [file.json]"```
 
-**Output as JSON**
+输出为 JSON
 
 ```trdsql -ojson "SELECT * FROM [file.csv]"```
 
-**With header**
+带表头
 
 ```trdsql -ih "SELECT name FROM [file.csv]"```
 
-**Join files**
+连接多个文件
 
 ```trdsql "SELECT * FROM [a.csv] JOIN [b.csv] ON [a.id]=[b.id]"```
 
-**Query LTSV**
+查询 LTSV
 
 ```trdsql -iltsv "SELECT * FROM [file.ltsv]"```
 
-**Output as Markdown table**
+输出为 Markdown 表格
 
 ```trdsql -omd "SELECT * FROM [file.csv]"```
 
-**Query YAML**
+查询 YAML
 
 ```trdsql -iyaml "SELECT * FROM [file.yaml]"```
 
@@ -43,47 +43,47 @@ Execute SQL queries on CSV, JSON, LTSV, YAML, and TBLN files
 # PARAMETERS
 
 **-i** _FORMAT_
-> Input format (csv, json, ltsv, yaml, tbln).
+> 输入格式 (csv, json, ltsv, yaml, tbln)。
 
 **-o** _FORMAT_
-> Output format (csv, json, jsonl, ltsv, raw, md, at, vf, tbln).
+> 输出格式 (csv, json, jsonl, ltsv, raw, md, at, vf, tbln)。
 
 **-ih**
-> Input has header row.
+> 输入包含表头行。
 
 **-oh**
-> Output with header.
+> 输出带表头。
 
 **-id** _DELIM_
-> Input delimiter character.
+> 输入分隔符字符。
 
 **-od** _DELIM_
-> Output delimiter character.
+> 输出分隔符字符。
 
 **-driver** _DRIVER_
-> Database driver (sqlite3, postgres, mysql).
+> 数据库驱动 (sqlite3, postgres, mysql)。
 
 **-dsn** _DSN_
-> Database connection string.
+> 数据库连接字符串。
 
 **-debug**
-> Show debug output.
+> 显示调试输出。
 
 # DESCRIPTION
 
-**trdsql** executes SQL queries directly against structured data files such as CSV, JSON, LTSV, YAML, and TBLN without importing them into a database first. File names are used as table names in SQL statements, making it straightforward to filter, aggregate, and transform data using familiar SQL syntax.
+**trdsql** 可以直接对 CSV、JSON、LTSV、YAML 和 TBLN 等结构化数据文件执行 SQL 查询，无需先将它们导入数据库。文件名可直接用作 SQL 语句中的表名，让你用熟悉的 SQL 语法轻松完成数据的过滤、聚合和转换。
 
-The tool supports joining data across multiple files, enabling relational queries between different data sources in a single command. Input and output formats can be specified independently, allowing conversion between formats as a side effect of querying.
+该工具支持跨多个文件连接数据，只需一条命令即可在不同数据源之间执行关系型查询。输入和输出格式可以独立指定，因此查询的同时还能顺带完成格式转换。
 
-Under the hood, trdsql uses SQLite as the default query engine but can also connect to PostgreSQL and MySQL for more advanced SQL features. Headers in CSV files can be used as column names with the **-ih** flag.
+在底层，trdsql 默认使用 SQLite 作为查询引擎，但也可以连接 PostgreSQL 和 MySQL 以使用更高级的 SQL 特性。配合 **-ih** 标志，CSV 文件的表头可用作列名。
 
 # CAVEATS
 
-Go-based tool. Large files are loaded into memory. SQL knowledge required. Default database engine is SQLite.
+基于 Go 的工具。大文件会被载入内存。需要具备 SQL 知识。默认数据库引擎为 SQLite。
 
 # HISTORY
 
-**trdsql** was created to execute SQL queries against various structured data formats like CSV and JSON.
+**trdsql** 的设计目的是对 CSV 和 JSON 等各种结构化数据格式执行 SQL 查询。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI monitoring tool for NVIDIA Jetson boards
+面向 NVIDIA Jetson 开发板的 TUI 监控工具
 
 # TLDR
 
-**Launch the Jetson monitoring dashboard**
+**启动 Jetson 监控面板**
 
 ```tegratop```
 
@@ -14,15 +14,15 @@ TUI monitoring tool for NVIDIA Jetson boards
 
 # DESCRIPTION
 
-**tegratop** is a top-like TUI tool for monitoring NVIDIA Jetson boards. It displays GPU utilization, CPU cores, memory usage, fan speed, power consumption, disk space, engine status, and network traffic on a single page.
+**tegratop** 是一个类似 top 的 TUI 工具，用于监控 NVIDIA Jetson 开发板。它在单页界面上显示 GPU 利用率、CPU 各核心、内存使用、风扇转速、功耗、磁盘空间、引擎状态和网络流量。
 
 # CAVEATS
 
-Requires an NVIDIA Jetson board. May need elevated privileges for full sensor access.
+需要 NVIDIA Jetson 开发板。访问全部传感器可能需要提升权限。
 
 # HISTORY
 
-**tegratop** was created by **Badr** (pythops) and is written in **Rust**.
+**tegratop** 由 **Badr**（pythops）创建，使用 **Rust** 编写。
 
 # INSTALL
 

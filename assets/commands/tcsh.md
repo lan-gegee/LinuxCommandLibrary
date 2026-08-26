@@ -1,34 +1,34 @@
 # TAGLINE
 
-Enhanced C shell with editing
+带编辑功能的增强版 C Shell
 
 # TLDR
 
-**Start an interactive tcsh shell**
+**启动交互式 tcsh shell**
 
 ```tcsh```
 
-**Execute a command**
+**执行一条命令**
 
 ```tcsh -c "[command]"```
 
-**Run a script**
+**运行脚本**
 
 ```tcsh [script.csh]```
 
-**Start as a login shell**
+**以登录 Shell 启动**
 
 ```tcsh -l```
 
-**Start without reading startup files** (fast start)
+**不读取启动文件启动**（快速启动）
 
 ```tcsh -f```
 
-**Parse commands without executing** (syntax check)
+**只解析命令而不执行**（语法检查）
 
 ```tcsh -n [script.csh]```
 
-**Enable verbose mode** to echo commands after history substitution
+**启用详细模式**，在历史替换之后回显命令
 
 ```tcsh -v```
 
@@ -39,85 +39,85 @@ Enhanced C shell with editing
 # PARAMETERS
 
 **-c** _command_
-> Read commands from the following argument string.
+> 从随后的参数字符串中读取命令。
 
 **-e**
-> Exit immediately if a command exits with non-zero status.
+> 若某条命令以非零状态退出则立即退出。
 
 **-f**
-> Fast start; do not read ~/.tcshrc or ~/.cshrc startup files.
+> 快速启动；不读取 ~/.tcshrc 或 ~/.cshrc 启动文件。
 
 **-i**
-> Force interactive mode even if input is not a terminal.
+> 即使输入不是终端也强制进入交互模式。
 
 **-l**
-> Act as a login shell; read .login and .logout files.
+> 作为登录 Shell 运行；读取 .login 并在退出时执行 .logout 文件。
 
 **-n**
-> Parse commands but do not execute them (for debugging scripts).
+> 解析命令但不执行（用于调试脚本）。
 
 **-s**
-> Read command input from standard input.
+> 从标准输入读取命令输入。
 
 **-t**
-> Read and execute a single line of input.
+> 读取并执行单行输入。
 
 **-v**
-> Set verbose mode; echo commands after history substitution.
+> 设置详细模式；在历史替换之后回显命令。
 
 **-x**
-> Set echo mode; echo commands before execution.
+> 设置回显模式；在执行之前回显命令。
 
 **-V**
-> Set verbose mode before reading ~/.tcshrc.
+> 在读取 ~/.tcshrc 之前设置详细模式。
 
 **-X**
-> Set echo mode before reading ~/.tcshrc.
+> 在读取 ~/.tcshrc 之前设置回显模式。
 
 **-b**
-> Force a break from option processing.
+> 强制中断选项处理。
 
 **-m**
-> Load ~/.tcshrc even if it doesn't belong to the effective user.
+> 即使 ~/.tcshrc 不属于当前有效用户也加载它。
 
 **-q**
-> Accept SIGQUIT; for use under a debugger with job control disabled.
+> 接受 SIGQUIT；用于在禁用作业控制的调试器下运行。
 
 **--help**
-> Print help message and exit.
+> 打印帮助信息并退出。
 
 **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 # DESCRIPTION
 
-**tcsh** is an enhanced version of the Berkeley C shell (csh). It provides a command-line editor, programmable word completion, spelling correction, history mechanism, job control, and C-like syntax.
+**tcsh** 是伯克利 C Shell（csh）的增强版本。它提供命令行编辑器、可编程的单词补全、拼写纠正、历史机制、作业控制以及类 C 的语法。
 
-Interactive shells read **~/.tcshrc** (or ~/.cshrc) on startup. Login shells additionally read **~/.login** and execute **~/.logout** on exit. The shell supports command history with **!** syntax, aliases, and shell variables.
+交互式 Shell 启动时读取 **~/.tcshrc**（或 ~/.cshrc）。登录 Shell 还会额外读取 **~/.login**，并在退出时执行 **~/.logout**。该 Shell 支持 **!** 语法的命令历史、别名和 Shell 变量。
 
-Features include filename completion with Tab, command history editing, directory stack manipulation with **pushd/popd**, and programmable completions for commands and arguments.
+功能包括用 Tab 进行文件名补全、命令历史编辑、使用 **pushd/popd** 操作目录栈，以及针对命令和参数的可编程补全。
 
 # CONFIGURATION
 
 **~/.tcshrc**
-> Primary startup file read by all interactive tcsh shells; falls back to ~/.cshrc if not found
+> 所有交互式 tcsh 都会读取的主启动文件；若未找到则回退到 ~/.cshrc
 
 **~/.login**
-> Read by login shells after ~/.tcshrc; typically sets environment variables and runs login-time commands
+> 登录 Shell 在读取 ~/.tcshrc 之后读取；通常用于设置环境变量并执行登录时的命令
 
 **~/.logout**
-> Executed when a login shell exits
+> 登录 Shell 退出时执行
 
 **~/.cshdirs**
-> Saved directory stack restored on startup when savedirs shell variable is set
+> 保存的目录栈，当设置了 savedirs Shell 变量时在启动时恢复
 
 # CAVEATS
 
-tcsh uses C shell syntax which differs from POSIX sh/bash. Scripts written for tcsh may not be portable. The C shell family has known issues with complex scripting, and POSIX-compatible shells are generally recommended for portable scripts.
+tcsh 使用 C Shell 语法，与 POSIX sh/bash 不同。为 tcsh 编写的脚本可能不具备可移植性。C Shell 家族在复杂脚本方面存在已知问题，对于可移植脚本一般建议使用兼容 POSIX 的 Shell。
 
 # HISTORY
 
-The C shell (csh) was created by **Bill Joy** at UC Berkeley in the late 1970s for BSD Unix. tcsh was developed as an enhanced version with additional features like command-line editing and completion. The name "tcsh" comes from the TENEX operating system which inspired some features. tcsh became the default shell on FreeBSD and was widely used on Unix systems before bash became dominant.
+C Shell（csh）由 **Bill Joy** 于 20 世纪 70 年代末在加州大学伯克利分校为 BSD Unix 创建。tcsh 是作为增加了命令行编辑和补全等功能的增强版本开发的。"tcsh" 这一名字来自启发了部分特性的 TENEX 操作系统。tcsh 曾是 FreeBSD 的默认 Shell，并在 bash 流行之前被 Unix 系统广泛使用。
 
 # INSTALL
 

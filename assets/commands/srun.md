@@ -1,30 +1,30 @@
 # TAGLINE
 
-Run parallel jobs under Slurm
+在 Slurm 下运行并行作业
 
 # TLDR
 
-**Submit** a basic interactive job
+**提交**一个基本的交互式作业
 
 ```srun --pty /bin/bash```
 
-**Submit** an interactive job with custom resources
+**提交**自定义资源的交互式作业
 
 ```srun --ntasks-per-node [num_cores] --mem-per-cpu [memory_MB] --pty /bin/bash```
 
-**Run** a job on a specific partition with a time limit
+在特定分区上**限时运行**作业
 
 ```srun -p [partition_name] -t [HH:MM:SS] [command]```
 
-**Run** a job requesting GPUs
+**运行**申请 GPU 的作业
 
 ```srun --gpus=[num_gpus] --pty /bin/bash```
 
-**Run** a parallel job with multiple tasks and CPUs per task
+**运行**带多个任务且每个任务占用多 CPU 的并行作业
 
 ```srun -n [num_tasks] -c [cpus_per_task] [command]```
 
-**Connect** to a worker node with a running job
+**连接**到有作业正在运行的 worker 节点
 
 ```srun --jobid [job_id] --pty /bin/bash```
 
@@ -35,77 +35,77 @@ Run parallel jobs under Slurm
 # PARAMETERS
 
 **--pty**
-> Execute in pseudo-terminal mode (for interactive use)
+> 以伪终端模式执行（用于交互式使用）
 
 **--jobid _id_**
-> Initiate a job step under an already allocated job
+> 在已分配的作业下启动一个作业步骤（job step）
 
 **-n, --ntasks _number_**
-> Number of tasks to run
+> 要运行的任务数量
 
 **--ntasks-per-node _ntasks_**
-> Number of tasks to invoke on each node
+> 每个节点上调用的任务数量
 
 **-c, --cpus-per-task _ncpus_**
-> Number of CPUs allocated per task
+> 每个任务分配的 CPU 数量
 
 **--mem _size[units]_**
-> Memory required per node (default units: MB; supports K, M, G, T)
+> 每个节点所需的内存（默认单位：MB；支持 K、M、G、T）
 
 **--mem-per-cpu _size[units]_**
-> Minimum memory required per usable allocated CPU
+> 每个可用分配 CPU 所需的最小内存
 
 **-p, --partition _name_**
-> Request specific partition for resource allocation
+> 请求在特定分区进行资源分配
 
 **-N, --nodes _min[-max]_**
-> Number of nodes required (optionally a range)
+> 所需的节点数（可选指定范围）
 
 **-t, --time _time_**
-> Time limit for job (format: HH:MM:SS or days-HH:MM:SS)
+> 作业时限（格式：HH:MM:SS 或 天-HH:MM:SS）
 
 **-J, --job-name _name_**
-> Specify a name for the job
+> 为作业指定名称
 
 **-G, --gpus _[type:]number_**
-> Total number of GPUs required for the job
+> 作业所需的 GPU 总数
 
 **--gres _list_**
-> Comma-delimited list of generic consumable resources (e.g., gpu:2)
+> 以逗号分隔的通用消耗性资源列表（例如 gpu:2）
 
 **-w, --nodelist _node_list_**
-> Request a specific list of hosts
+> 请求指定的主机列表
 
 **-x, --exclude _host_list_**
-> Exclude specific hosts from the allocation
+> 将特定主机排除在分配之外
 
 **-o, --output _filename_**
-> Redirect standard output to specified file
+> 将标准输出重定向到指定文件
 
 **-e, --error _filename_**
-> Redirect standard error to specified file
+> 将标准错误重定向到指定文件
 
 **-D, --chdir _path_**
-> Change to specified directory before execution
+> 执行前切换到指定目录
 
 **--exclusive**
-> Job cannot share nodes with other running jobs
+> 作业不得与其他正在运行的作业共享节点
 
 **--export _{ALL|NONE|variables}_**
-> Control which environment variables are propagated to the job
+> 控制哪些环境变量会传递给作业
 
 **--mpi _type_**
-> Identify the type of MPI to be used
+> 指定要使用的 MPI 类型
 
 # DESCRIPTION
 
-**srun** submits a job for execution or initiates job steps in real time. For interactive work, it creates an interactive session on compute nodes. It can also be used within batch scripts to launch parallel tasks.
+**srun** 提交作业以供执行，或实时启动作业步骤。对于交互式工作，它会在计算节点上创建交互式会话。它也可以在批处理脚本中用来启动并行任务。
 
-The command handles resource allocation automatically, requesting nodes from the scheduler and launching the specified program across allocated resources.
+该命令自动处理资源分配，向调度器请求节点，并在分配到的资源上启动指定程序。
 
 # CAVEATS
 
-Interactive jobs (**--pty**) may wait in queue for resources. Resource requests must fit within partition limits. Connection to existing jobs requires appropriate permissions.
+交互式作业（**--pty**）可能要在队列中等待资源。资源请求必须符合分区的限额。连接到已有作业需要相应权限。
 
 # INSTALL
 

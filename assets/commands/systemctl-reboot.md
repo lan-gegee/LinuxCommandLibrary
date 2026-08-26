@@ -1,26 +1,26 @@
 # TAGLINE
 
-Restart the system
+重启系统
 
 # TLDR
 
-**Reboot** the system
+**重启**系统
 
 ```systemctl reboot```
 
-Reboot into **firmware** setup
+重启进入**固件**设置界面
 
 ```systemctl reboot --firmware-setup```
 
-**Force** immediate reboot
+**强制**立即重启
 
 ```systemctl reboot -f```
 
-**Reboot** into a specific boot loader entry once
+一次性**重启**进入指定的引导加载器条目
 
 ```systemctl reboot --boot-loader-entry=[entry_id]```
 
-**Schedule** reboot at a specific time
+**安排**在特定时间重启
 
 ```systemctl reboot --when=+30min```
 
@@ -31,39 +31,39 @@ Reboot into **firmware** setup
 # PARAMETERS
 
 **-f, --force**
-> Skip graceful service shutdown
+> 跳过服务的优雅关闭
 
 **--force --force** (-ff)
-> Immediate reboot without cleanup (dangerous)
+> 立即重启，不做清理（危险）
 
 **--firmware-setup**
-> Reboot into BIOS/UEFI firmware setup menu
+> 重启进入 BIOS/UEFI 固件设置菜单
 
 **--no-wall**
-> Don't send wall message to users
+> 不向用户发送 wall 消息
 
 **--boot-loader-menu=** _TIMEOUT_
-> Reboot into the boot loader menu, showing it for the specified timeout
+> 重启进入引导加载器菜单，并按指定超时时间显示它
 
 **--boot-loader-entry=** _ID_
-> Reboot into a specific boot loader entry once (use `--boot-loader-entry=help` to list entries)
+> 一次性重启进入指定的引导加载器条目（使用 `--boot-loader-entry=help` 可列出可用条目）
 
 **--when=** _TIMESTAMP_
-> Schedule reboot at a specific time (use `--when=cancel` to cancel a scheduled reboot)
+> 安排在特定时间重启（使用 `--when=cancel` 可取消已安排的重启）
 
 # DESCRIPTION
 
-**systemctl reboot** restarts the system, gracefully stopping all services and unmounting filesystems before initiating a hardware reset.
+**systemctl reboot** 重启系统：先优雅地停止所有服务并卸载文件系统，然后触发硬件复位。
 
-The **--firmware-setup** option sets an EFI variable that tells the firmware to enter setup mode on next boot, useful for accessing UEFI settings without needing to press a key at the right time.
+**--firmware-setup** 选项会设置一个 EFI 变量，告知固件在下次启动时进入设置模式。这样无需在恰当时机按键即可进入 UEFI 设置。
 
 # CAVEATS
 
-Force mode can cause data loss. Firmware setup support depends on UEFI implementation. Some systems may not support the firmware-setup flag.
+强制模式可能导致数据丢失。固件设置功能取决于 UEFI 实现。某些系统可能不支持 firmware-setup 标志。
 
 # HISTORY
 
-The **reboot** subcommand integrates with systemd's shutdown infrastructure, providing scheduled reboots and firmware setup access that traditional reboot commands lacked.
+**reboot** 子命令与 systemd 的关机基础设施集成，提供计划重启和固件设置入口等传统 reboot 命令不具备的功能。
 
 # INSTALL
 

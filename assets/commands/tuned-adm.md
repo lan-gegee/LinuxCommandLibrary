@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage system performance tuning profiles
+管理系统性能调优配置
 
 # TLDR
 
-Show the **active** tuned profile
+显示当前**激活的** tuned 配置
 
 ```tuned-adm active```
 
-**List** profiles available on this system
+**列出**本系统可用的配置
 
 ```tuned-adm list```
 
-**Switch** to a named profile
+**切换**到指定配置
 
 ```tuned-adm profile [profile_name]```
 
-Ask tuned for a **recommended** profile
+让 tuned **推荐**一个配置
 
 ```tuned-adm recommend```
 
-**Turn off** dynamic tuning
+**关闭**动态调优
 
 ```tuned-adm off```
 
@@ -31,35 +31,35 @@ Ask tuned for a **recommended** profile
 # PARAMETERS
 
 **list**
-> List available tuning profiles
+> 列出可用的调优配置
 
 **active**
-> Show currently active profile
+> 显示当前激活的配置
 
 **profile _name_**
-> Switch to specified profile
+> 切换到指定配置
 
 **recommend**
-> Recommend optimal profile for this system
+> 为本系统推荐最优配置
 
 **off**
-> Disable tuned and reset to defaults
+> 禁用 tuned 并重置为默认值
 
 **verify**
-> Verify current profile settings match configuration
+> 校验当前设置是否与配置一致
 
 **auto_profile**
-> Enable/disable automatic profile selection
+> 启用/禁用自动选择配置
 
 # DESCRIPTION
 
-**tuned-adm** manages system performance tuning profiles provided by the **tuned** daemon. Profiles optimize various kernel and system parameters for specific workloads like throughput, latency, power saving, or virtualization.
+**tuned-adm** 管理 **tuned** 守护进程提供的系统性能调优配置。这些配置针对特定工作负载（如吞吐量、延迟、节能或虚拟化）优化各种内核和系统参数。
 
-Common profiles include: **balanced**, **throughput-performance**, **latency-performance**, **powersave**, **virtual-guest**, and **virtual-host**. The **recommend** command analyzes the system to suggest the best profile.
+常见配置包括：**balanced**、**throughput-performance**、**latency-performance**、**powersave**、**virtual-guest** 和 **virtual-host**。**recommend** 命令会分析系统并建议最佳配置。
 
 # CAVEATS
 
-Requires the tuned service to be running. Profile changes take effect immediately. Some settings may require a reboot to fully apply. Available profiles vary by distribution.
+需要 tuned 服务正在运行。配置更改立即生效。某些设置可能需要重启才能完全应用。可用配置因发行版而异。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-TCP stream sniffer and analyzer
+TCP 流嗅探器与分析器
 
 # TLDR
 
-Capture traffic on **interface**, host, and port
+按**接口**、主机和端口捕获流量
 
 ```sudo tcpick -i [interface] -C -h [host] -p [port]```
 
-Capture **HTTP** traffic
+捕获 **HTTP** 流量
 
 ```sudo tcpick -i eth0 -C -h [192.168.1.100] -p 80```
 
-Display **help**
+显示**帮助**
 
 ```tcpick --help```
 
@@ -23,42 +23,42 @@ Display **help**
 # PARAMETERS
 
 **-i, --interface** _INTERFACE_
-> Capture on specified network interface
+> 在指定网络接口上捕获
 
 **-C, --colors**
-> Display output with colors
+> 以彩色显示输出
 
 **-h** _HOST_
-> Filter by host
+> 按主机过滤
 
 **-p** _PORT_
-> Filter by port
+> 按端口过滤
 
 **-r** _FILE_
-> Read from pcap file
+> 从 pcap 文件读取
 
 **-w** _FILE_
-> Write to pcap file
+> 写入 pcap 文件
 
 **-a**
-> Display data as ASCII
+> 以 ASCII 显示数据
 
 **-x**
-> Display data as hexadecimal
+> 以十六进制显示数据
 
 # DESCRIPTION
 
-**tcpick** is a packet sniffer and TCP stream analyzer that captures and displays TCP connections and their data. It can monitor network traffic on specific interfaces, hosts, or ports with colorized output.
+**tcpick** 是一个数据包嗅探器和 TCP 流分析器，用于捕获并显示 TCP 连接及其数据。它可以监视特定接口、主机或端口上的网络流量，并以彩色输出。
 
-The tool tracks TCP connection states and can reassemble TCP streams to show complete conversations.
+该工具跟踪 TCP 连接状态，可以重组 TCP 流以显示完整的会话内容。
 
 # CAVEATS
 
-Requires root privileges for packet capture. Uses libpcap for capture functionality. Connection tracking may consume memory on busy networks.
+抓包需要 root 权限。使用 libpcap 实现捕获功能。连接跟踪在繁忙网络上可能消耗内存。
 
 # HISTORY
 
-**tcpick** provides network analysts with a focused tool for TCP traffic inspection, combining capture and analysis in a single utility.
+**tcpick** 为网络分析师提供了一个专注于 TCP 流量检查的工具，把捕获和分析集成在同一个实用程序中。
 
 # INSTALL
 

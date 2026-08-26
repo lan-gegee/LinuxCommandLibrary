@@ -1,18 +1,18 @@
 # TAGLINE
 
-Disable then re-enable a unit
+先禁用再重新启用单元
 
 # TLDR
 
-**Re-enable** unit
+**重新启用**单元
 
 ```systemctl reenable [unit]```
 
-Re-enable **multiple** units
+重新启用**多个**单元
 
 ```systemctl reenable [unit1 unit2 ...]```
 
-Re-enable and **start** immediately
+重新启用并立即**启动**
 
 ```systemctl reenable [unit] --now```
 
@@ -23,24 +23,24 @@ Re-enable and **start** immediately
 # PARAMETERS
 
 **--now**
-> Also start the unit after re-enabling
+> 重新启用后同时启动该单元
 
 **--user**
-> Operate on user units
+> 操作用户单元
 
 # DESCRIPTION
 
-**systemctl reenable** is equivalent to running `disable` followed by `enable`. It removes all existing symlinks for the unit and recreates them according to the current [Install] section in the unit file.
+**systemctl reenable** 相当于先执行 `disable` 再执行 `enable`。它会移除该单元现有的所有符号链接，并根据单元文件中当前的 [Install] 区段重新创建它们。
 
-This is useful when a unit's [Install] section has changed (e.g., the targets it should be enabled for), as `enable` alone won't update existing symlinks.
+当单元的 [Install] 区段发生变化时（例如它应被启用的 target 改变了），此命令非常有用，因为单独执行 `enable` 不会更新已存在的符号链接。
 
 # CAVEATS
 
-Unlike `enable`, this always recreates symlinks even if the unit is already enabled. Use when changing which targets a service belongs to.
+与 `enable` 不同，即使单元已经处于启用状态，此命令也总会重新创建符号链接。适用于更改服务所属 target 的场景。
 
 # HISTORY
 
-The **reenable** subcommand provides a single command for updating enablement configuration when unit install targets change, avoiding the manual disable/enable sequence.
+**reenable** 子命令在单元安装目标发生变化时提供一条命令即可更新启用配置的方式，省去了手动 disable/enable 的组合操作。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Open-source STM32 programming toolset
+开源 STM32 编程工具集
 
 # TLDR
 
-**Flash firmware to STM32**
+**将固件烧录到 STM32**
 
 ```st-flash write [firmware.bin] 0x08000000```
 
-**Read flash memory to file**
+**读取闪存到文件**
 
 ```st-flash read [output.bin] 0x08000000 [size]```
 
-**Erase flash memory**
+**擦除闪存**
 
 ```st-flash erase```
 
-**Display programmer and MCU information**
+**显示编程器和 MCU 信息**
 
 ```st-info --probe```
 
-**Flash with reset before and after programming**
+**烧录前后都复位目标芯片**
 
 ```st-flash --reset write [firmware.bin] 0x08000000```
 
-**Reset the target MCU**
+**复位目标 MCU**
 
 ```st-flash reset```
 
-**Flash Intel HEX file**
+**烧录 Intel HEX 文件**
 
 ```st-flash --format ihex write [firmware.hex]```
 
@@ -41,71 +41,71 @@ Open-source STM32 programming toolset
 # PARAMETERS
 
 **--reset**
-> Trigger a reset both before and after flashing.
+> 在烧录前后均触发一次复位。
 
 **--connect-under-reset**
-> Connect to target while held in reset.
+> 在目标保持复位状态时进行连接。
 
 **--hot-plug**
-> Connect to target without reset.
+> 不复位直接连接目标。
 
 **--format** _format_
-> File format: binary or ihex (Intel HEX).
+> 文件格式：binary 或 ihex（Intel HEX）。
 
 **--flash** _size_
-> Override detected flash size (in bytes with optional k/M suffix).
+> 覆盖检测到的闪存大小（以字节为单位，可带 k/M 后缀）。
 
 **--serial** _serial_
-> Use specific ST-LINK by serial number.
+> 按序列号使用指定的 ST-LINK。
 
 **--freq** _khz_
-> Set SWD frequency in kHz.
+> 以 kHz 设置 SWD 频率。
 
 **--opt**
-> Enable ignore ending empty bytes optimization.
+> 启用忽略末尾空字节的优化。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
-**--probe** (st-info)
-> Display information about connected programmer and target.
+**--probe**（st-info）
+> 显示已连接编程器和目标的信息。
 
-**--chipid** (st-info)
-> Display chip ID of connected target.
+**--chipid**（st-info）
+> 显示已连接目标的芯片 ID。
 
-**--descr** (st-info)
-> Display description of connected target.
+**--descr**（st-info）
+> 显示已连接目标的描述信息。
 
-**--flash** (st-info)
-> Display amount of flash memory available.
+**--flash**（st-info）
+> 显示可用的闪存容量。
 
-**--sram** (st-info)
-> Display amount of SRAM available.
+**--sram**（st-info）
+> 显示可用的 SRAM 容量。
 
-**--pagesize** (st-info)
-> Display flash page size.
+**--pagesize**（st-info）
+> 显示闪存页大小。
 
-**--serial** (st-info)
-> Display serial code of the programmer.
+**--serial**（st-info）
+> 显示编程器的序列号编码。
 
 # DESCRIPTION
 
-**stlink** is an open source toolset for programming and debugging STM32 microcontrollers using ST-LINK programmers. It provides command-line utilities that work with ST-LINK/V1, V2, V2-1, V3, and compatible clone programmers.
+**stlink** 是一套用于通过 ST-LINK 编程器对 STM32 微控制器进行编程和调试的开源工具集。它提供的命令行实用程序支持 ST-LINK/V1、V2、V2-1、V3 以及兼容的克隆编程器。
 
-The toolset includes **st-flash** for reading and writing flash memory, and **st-info** for querying programmer and target information. It communicates with the STM32 target via SWD (Serial Wire Debug) or JTAG protocols.
+该工具集包括用于读写闪存的 **st-flash**，以及用于查询编程器和目标信息的 **st-info**。它通过 SWD（Serial Wire Debug）或 JTAG 协议与 STM32 目标通信。
 
-The tools support binary and Intel HEX file formats. Flash operations can target the main flash memory, option bytes, or other memory regions. The **--connect-under-reset** option helps with targets that have problematic firmware or locked debug access.
+这些工具支持二进制和 Intel HEX 文件格式。闪存操作可以针对主闪存、选项字节或其他存储区域。**--connect-under-reset** 选项对固件有问题或调试访问被锁定的目标很有帮助。
 
 # CAVEATS
 
-Requires appropriate udev rules on Linux for non-root access. Some ST-LINK clones may have compatibility issues. The V1 programmer has limited functionality compared to V2/V3. Option byte manipulation can brick devices if done incorrectly. For complex programming needs, consider STM32CubeProgrammer CLI.
+在 Linux 上需要配置相应的 udev 规则以支持非 root 访问。某些 ST-LINK 克隆版可能存在兼容性问题。V1 编程器相比 V2/V3 功能有限。选项字节操作不当可能导致设备变砖。对于复杂的编程需求，可考虑使用 STM32CubeProgrammer CLI。
 
 # HISTORY
 
-The **stlink** project was created as an open source alternative to STMicroelectronics' proprietary ST-LINK Utility. It originated from the texane/stlink repository and is now maintained by the stlink-org community on GitHub. The project enables STM32 development on Linux and macOS where official tools had limited support.
+**stlink** 项目作为 STMicroelectronics 专有工具 ST-LINK Utility 的开源替代方案而创建。它起源于 texane/stlink 仓库，现由 GitHub 上的 stlink-org 社区维护。该项目让 STM32 开发得以在官方工具支持有限的 Linux 和 macOS 上进行。
 
 # INSTALL
 

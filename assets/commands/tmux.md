@@ -1,42 +1,42 @@
 # TAGLINE
 
-Terminal multiplexer with session persistence
+支持会话持久化的终端复用器
 
 # TLDR
 
-**Start a new session**
+**启动新会话**
 
 ```tmux```
 
-**Start a new named session**
+**启动新的命名会话**
 
 ```tmux new -s [session_name]```
 
-**List sessions**
+**列出会话**
 
 ```tmux ls```
 
-**Attach to the most recently used session**
+**连接到最近使用的会话**
 
 ```tmux attach```
 
-**Attach to a named session**
+**连接到命名会话**
 
 ```tmux attach -t [session_name]```
 
-**Detach from the current session** (inside tmux)
+**脱离当前会话**（在 tmux 内部）
 
 ```Ctrl-b d```
 
-**Kill a session**
+**终止一个会话**
 
 ```tmux kill-session -t [session_name]```
 
-**Start a detached session running a command**
+**启动运行命令的分离式会话**
 
 ```tmux new -d -s [session_name] '[command]'```
 
-**Reload the configuration file**
+**重新加载配置文件**
 
 ```tmux source-file ~/.tmux.conf```
 
@@ -47,119 +47,119 @@ Terminal multiplexer with session persistence
 # PARAMETERS
 
 **-2**
-> Force tmux to assume the terminal supports 256 colours.
+> 强制 tmux 认为终端支持 256 色。
 
 **-c** _shell-command_
-> Execute shell-command using the default shell, like sh -c.
+> 使用默认 shell 执行 shell-command，类似 sh -c。
 
 **-f** _file_
-> Specify an alternative configuration file.
+> 指定替代的配置文件。
 
 **-L** _socket-name_
-> Use a named socket, allowing independent servers to run in parallel.
+> 使用命名的套接字，允许多个独立的服务器并行运行。
 
 **-S** _socket-path_
-> Specify a full path to the server socket instead of a name.
+> 指定服务器套接字的完整路径而不是名称。
 
 **-u**
-> Force tmux to assume the terminal supports UTF-8.
+> 强制 tmux 认为终端支持 UTF-8。
 
 **-V**
-> Report the tmux version.
+> 报告 tmux 版本。
 
 **new-session**, **new** [**-d**] [**-s** _name_]
-> Create a new session; -d starts it detached.
+> 创建新会话；-d 以分离方式启动。
 
 **attach-session**, **attach** [**-t** _target_]
-> Attach to an existing session.
+> 连接到已有会话。
 
 **list-sessions**, **ls**
-> List managed sessions.
+> 列出受管理的会话。
 
 **detach-client**, **detach**
-> Detach the current client from its session.
+> 将当前客户端从其会话中脱离。
 
 **kill-session** [**-t** _target_]
-> Destroy a session, closing its windows.
+> 销毁会话并关闭其窗口。
 
 **kill-server**
-> Kill the tmux server and all sessions.
+> 终止 tmux 服务器和所有会话。
 
 **split-window** [**-h**] [**-v**]
-> Split the active pane; -h side by side, -v top and bottom (default).
+> 分割活动窗格；-h 左右分割，-v 上下分割（默认）。
 
 **send-keys** [**-t** _target_] _keys_
-> Send key strokes to a window or pane.
+> 向窗口或窗格发送按键。
 
 **source-file** _file_
-> Execute commands from a configuration file.
+> 执行配置文件中的命令。
 
 **list-keys**, **lsk**
-> List all bound keys and the commands they run.
+> 列出所有已绑定的按键及其执行的命令。
 
 **resize-pane** [**-UDLR**] [_amount_]
-> Resize the active pane in the given direction.
+> 在给定方向上调整活动窗格的大小。
 
 **swap-window** [**-s** _src_] [**-t** _dst_]
-> Swap two windows.
+> 交换两个窗口。
 
 # KEY BINDINGS
 
-All bindings are pressed after the prefix **Ctrl-b**:
+所有按键都在前缀 **Ctrl-b** 之后按下：
 
-**?**: List all key bindings
-**:**: Open the tmux command prompt
+**?**：列出所有按键绑定
+**:**：打开 tmux 命令提示符
 
-**d**: Detach from session
-**$**: Rename current session
-**s**: Choose a session interactively
-**(** / **)**: Switch to previous/next session
+**d**：脱离会话
+**$**：重命名当前会话
+**s**：交互式选择会话
+**(** / **)**：切换到上一个/下一个会话
 
-**c**: Create new window
-**,**: Rename current window
-**&**: Kill current window (asks for confirmation)
-**n** / **p**: Next/previous window
-**0-9**: Switch to window by number
-**l**: Switch to the last selected window
-**w**: Choose a window interactively
+**c**：创建新窗口
+**,**：重命名当前窗口
+**&**：终止当前窗口（要求确认）
+**n** / **p**：下一个/上一个窗口
+**0-9**：按编号切换窗口
+**l**：切换到最近选择的窗口
+**w**：交互式选择窗口
 
-**"**: Split pane into top and bottom
-**%**: Split pane into left and right
-**Up/Down/Left/Right**: Move to the pane in that direction
-**o**: Cycle through panes
-**q**: Show pane numbers (press a number to select)
-**x**: Kill current pane (asks for confirmation)
-**z**: Toggle zoom of the current pane
-**!**: Break current pane out into a new window
-**{** / **}**: Swap current pane with the previous/next one
-**Space**: Cycle through preset pane layouts
+**"**：将窗格上下分割
+**%**：将窗格左右分割
+**上/下/左/右**：移动到该方向的窗格
+**o**：循环切换窗格
+**q**：显示窗格编号（按数字选择）
+**x**：终止当前窗格（要求确认）
+**z**：切换当前窗格的缩放状态
+**!**：将当前窗格拆分为独立的新窗口
+**{** / **}**：将当前窗格与上一个/下一个窗格交换
+**Space**：循环切换预设的窗格布局
 
-**[**: Enter copy mode (scroll back, search, copy text)
-**]**: Paste the most recently copied text
+**[**：进入复制模式（回滚、搜索、复制文本）
+**]**：粘贴最近复制的文本
 
 # DESCRIPTION
 
-**tmux** (terminal multiplexer) lets a single terminal hold multiple sessions, each containing windows (like tabs) that can be split into panes. It runs as a client-server system: the server keeps sessions alive in the background, and clients attach to and detach from them at will.
+**tmux**（terminal multiplexer，终端复用器）让单个终端承载多个会话，每个会话包含多个窗口（类似标签页），窗口还可以分割成窗格。它以客户端-服务器系统方式运行：服务器在后台保持会话存活，客户端可以随时连接和脱离这些会话。
 
-Because sessions persist on the server, work survives SSH disconnections and intentional detaches - reattaching with **tmux attach** restores everything exactly as it was. This makes tmux essential for remote server administration, long-running jobs, and pair programming (multiple clients can attach to the same session).
+由于会话持久保存在服务器上，工作可以在 SSH 断开或主动脱离后继续存在——重新用 **tmux attach** 连接即可完全恢复原状。这使得 tmux 成为远程服务器管理、长时间运行任务和结对编程（多个客户端可连接同一会话）的必备工具。
 
-Inside tmux, the prefix key (default **Ctrl-b**) followed by a command key triggers actions, and the command prompt (prefix **:**) accepts any tmux command by name. Behaviour, key bindings, and the status bar are customised through the configuration file.
+在 tmux 内部，前缀键（默认 **Ctrl-b**）加命令键触发操作，命令提示符（前缀 **:**）可按名称执行任何 tmux 命令。行为、按键绑定和状态栏都可以通过配置文件自定义。
 
 # CONFIGURATION
 
 **~/.tmux.conf**, **~/.config/tmux/tmux.conf**
-> User configuration file for key bindings, status bar customisation, default options, and plugins. Read when the server starts; reload a running server with **tmux source-file**.
+> 用户配置文件，用于按键绑定、状态栏定制、默认选项和插件。在服务器启动时读取；可用 **tmux source-file** 重新加载到运行中的服务器。
 
 **/etc/tmux.conf**
-> System-wide configuration applied before the user file.
+> 系统级配置，先于用户文件应用。
 
 # CAVEATS
 
-The default prefix **Ctrl-b** shadows the readline/emacs "back one character" binding; many users rebind it to **Ctrl-a**. Scrolling back through output requires entering copy mode first. tmux sets **TERM** to screen or tmux-256color inside sessions, which can confuse programs that test for specific terminals. When nesting tmux inside tmux, press the prefix twice to send it to the inner session. Configuration changes only take effect after the file is sourced or the server restarts.
+默认前缀 **Ctrl-b** 会遮蔽 readline/emacs 的“后退一个字符”绑定；许多用户将其重新绑定为 **Ctrl-a**。回滚查看输出需要先进入复制模式。tmux 在会话内部将 **TERM** 设置为 screen 或 tmux-256color，这可能会让检测特定终端的程序产生混淆。在 tmux 中嵌套 tmux 时，需按两次前缀才能发送给内层会话。配置更改只有在重新加载文件或重启服务器后才会生效。
 
 # HISTORY
 
-**tmux** was written by **Nicholas Marriott** and first released in **2007** as a BSD-licensed alternative to GNU Screen with a cleaner codebase and a client-server design. It became part of the OpenBSD base system in **2009** (OpenBSD 4.6), and a portable version is packaged for Linux, macOS, and other platforms. The project remains under active development.
+**tmux** 由 **Nicholas Marriott** 编写，于 **2007 年**首次发布，是一个代码库更整洁、采用客户端-服务器设计的 BSD 许可 GNU Screen 替代品。它在 **2009 年**（OpenBSD 4.6）成为 OpenBSD 基本系统的一部分，可移植版则为 Linux、macOS 及其他平台打包。该项目仍在活跃开发中。
 
 # INSTALL
 

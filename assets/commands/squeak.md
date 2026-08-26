@@ -1,30 +1,30 @@
 # TAGLINE
 
-Open-source Smalltalk virtual machine
+开源 Smalltalk 虚拟机
 
 # TLDR
 
-**Start Squeak** with default image
+**以默认镜像启动 Squeak**
 
 ```squeak```
 
-**Run a specific image file**
+**运行特定的镜像文件**
 
 ```squeak [path/to/image.image]```
 
-**Run in headless mode** (no GUI)
+**以无头模式运行**（无 GUI）
 
 ```squeak -headless [image.image]```
 
-**Run with a specific memory size**
+**以指定内存大小运行**
 
 ```squeak -memory [512m] [image.image]```
 
-**Run with a specific sources file**
+**以指定的 sources 文件运行**
 
 ```squeak -pathenc utf8 [image.image]```
 
-**Run with VM options**
+**带 VM 选项运行**
 
 ```squeak -vm-sound-null [image.image]```
 
@@ -35,55 +35,55 @@ Open-source Smalltalk virtual machine
 # PARAMETERS
 
 **-headless**
-> Run without a graphical display. Useful for servers and CI environments.
+> 不使用图形显示运行。适用于服务器和 CI 环境。
 
 **-memory** _size_
-> Set initial memory size (e.g., 256m, 1g).
+> 设置初始内存大小（例如 256m、1g）。
 
 **-vm-sound-null**
-> Disable sound output.
+> 禁用声音输出。
 
 **-vm-display-null**
-> Use null display driver.
+> 使用空显示驱动。
 
 **-encoding** _enc_
-> Set character encoding for file operations.
+> 设置文件操作使用的字符编码。
 
 **-pathenc** _enc_
-> Set path encoding (utf8, latin1).
+> 设置路径编码（utf8、latin1）。
 
 **-plugins** _path_
-> Directory containing VM plugins.
+> 包含 VM 插件的目录。
 
 **-version**
-> Display VM version information.
+> 显示 VM 版本信息。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # ENVIRONMENT
 
 **SQUEAK_IMAGE**
-> Default image file to use if none specified on command line.
+> 命令行未指定时默认使用的镜像文件。
 
 **SQUEAK_PLUGINS**
-> Directory containing VM plugins.
+> 包含 VM 插件的目录。
 
 # DESCRIPTION
 
-**squeak** is the virtual machine launcher for Squeak, an open-source Smalltalk programming environment. It executes Squeak image files, which contain the complete state of a Smalltalk system including all objects, classes, and the development environment.
+**squeak** 是 Squeak 的虚拟机启动器。Squeak 是一个开源的 Smalltalk 编程环境，其镜像（image）文件包含 Smalltalk 系统的完整状态，包括所有对象、类和开发环境。
 
-The VM provides a portable execution environment across platforms. When started without arguments, it looks for images in **~/squeak** and **/usr/share/squeak**, or uses the image specified in the **SQUEAK_IMAGE** environment variable.
+该 VM 提供跨平台的可移植执行环境。不带参数启动时，它会在 **~/squeak** 和 **/usr/share/squeak** 中查找镜像，或使用 **SQUEAK_IMAGE** 环境变量中指定的镜像。
 
-Squeak includes a complete IDE with code browser, debugger, and GUI toolkit. The headless mode enables running Squeak applications as servers or in CI pipelines without graphical output. CommandShell provides Unix shell integration within the Squeak environment.
+Squeak 自带完整的 IDE，包括代码浏览器、调试器和 GUI 工具集。无头模式让 Squeak 应用可以作为服务器或在 CI 流水线中运行，而无需图形输出。CommandShell 在 Squeak 环境内提供 Unix Shell 集成。
 
 # CAVEATS
 
-On 64-bit Linux systems, running 32-bit Squeak images requires 32-bit compatibility libraries. X11 must be installed for graphical mode. Image files are not portable between significantly different VM versions. Memory settings may need adjustment for large projects.
+在 64 位 Linux 系统上运行 32 位 Squeak 镜像需要 32 位兼容库。图形模式必须安装 X11。镜像文件在差异较大的 VM 版本之间不可移植。大型项目可能需要调整内存设置。
 
 # HISTORY
 
-**Squeak** was created at Apple in **1996** by Alan Kay, Dan Ingalls, and others as an open-source implementation of Smalltalk-80. The name comes from the mouse mascot. It evolved from the original Xerox PARC Smalltalk and has been continuously developed by an international community. Squeak has spawned derivative projects including Pharo and serves as a platform for educational programming tools like Scratch (its original implementation).
+**Squeak** 由 Alan Kay、Dan Ingalls 等人于 **1996 年**在 Apple 创建，是 Smalltalk-80 的开源实现。名字来源于老鼠吉祥物。它源自最初的 Xerox PARC Smalltalk，并由国际社区持续开发。Squeak 衍生出了 Pharo 等项目，同时也是 Scratch（其最初实现）等教育编程工具的载体平台。
 
 # INSTALL
 

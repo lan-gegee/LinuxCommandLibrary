@@ -1,30 +1,30 @@
 # TAGLINE
 
-Apply Terraform infrastructure changes
+应用 Terraform 基础设施变更
 
 # TLDR
 
-**Apply changes** with interactive approval
+**应用变更**并进行交互式确认
 
 ```terraform apply```
 
-**Apply a saved plan** file
+**应用已保存的计划**文件
 
 ```terraform apply [plan.tfplan]```
 
-**Apply without confirmation** prompt
+**跳过确认提示**直接应用
 
 ```terraform apply -auto-approve```
 
-**Apply with a variable**
+**应用时传入变量**
 
 ```terraform apply -var="[key]=[value]"```
 
-**Replace a specific resource**
+**替换特定资源**
 
 ```terraform apply -replace=[resource]```
 
-**Apply with limited parallelism**
+**限制并行度进行应用**
 
 ```terraform apply -parallelism=[n]```
 
@@ -35,66 +35,66 @@ Apply Terraform infrastructure changes
 # PARAMETERS
 
 **-auto-approve**
-> Skip interactive approval of the plan before applying.
+> 跳过应用前的交互式计划确认。
 
 **-var** _name=value_
-> Set an input variable value. Can be specified multiple times.
+> 设置输入变量的值。可多次指定。
 
 **-var-file** _file_
-> Load variable values from a file.
+> 从文件加载变量值。
 
 **-replace** _resource_
-> Force replacement of a specific resource instance.
+> 强制替换特定的资源实例。
 
 **-target** _resource_
-> Limit the operation to a specific resource and its dependencies.
+> 将操作限制在特定资源及其依赖项上。
 
 **-parallelism** _n_
-> Limit the number of concurrent operations. Default is **10**.
+> 限制并发操作的数量。默认为 **10**。
 
 **-compact-warnings**
-> Show warning messages in compact form with only the summary.
+> 以仅含摘要的紧凑形式显示警告消息。
 
 **-input** _true|false_
-> Enable or disable interactive prompts. Default is **true**.
+> 启用或禁用交互式提示。默认为 **true**。
 
 **-lock** _true|false_
-> Lock the state file during operations. Default is **true**.
+> 操作期间锁定状态文件。默认为 **true**。
 
 **-lock-timeout** _duration_
-> Duration to retry acquiring a state lock. Default is **0s**.
+> 重试获取状态锁的时长。默认为 **0s**。
 
 **-no-color**
-> Disable color codes in the output.
+> 禁用输出中的颜色代码。
 
 **-json**
-> Enable machine-readable JSON output. Implies **-input=false**.
+> 启用机器可读的 JSON 输出。隐含 **-input=false**。
 
 **-destroy**
-> Create a plan to destroy all resources, then apply it.
+> 生成销毁所有资源的计划，然后执行它。
 
 **-refresh-only**
-> Only update the state to match remote objects.
+> 仅更新状态以匹配远程对象。
 
 **-state** _path_
-> Path to the state file (legacy, local backend only).
+> 状态文件的路径（旧式，仅限本地 backend）。
 
 **-backup** _path_
-> Path to backup the previous state file.
+> 备份先前状态文件的路径。
 
 # DESCRIPTION
 
-**terraform apply** executes the actions proposed in a Terraform plan to create, update, or destroy infrastructure. When run without a saved plan file, it automatically creates a new plan, prompts for approval, and then performs the proposed changes. When given a saved plan file (from **terraform plan -out**), it executes the plan without prompting.
+**terraform apply** 执行 Terraform 计划中提出的操作，以创建、更新或销毁基础设施。在不带已保存计划文件运行时，它会自动生成新计划，提示确认，然后执行所提议的变更。如果给定已保存的计划文件（来自 **terraform plan -out**），则直接执行该计划而不提示。
 
-The command compares the desired state defined in configuration files against the current state and determines the minimal set of changes needed. It supports all planning modes and options from **terraform plan** when no saved plan is provided.
+该命令将配置文件中定义的期望状态与当前状态进行比较，确定所需的最小变更集。在未提供已保存计划时，它支持 **terraform plan** 的所有规划模式和选项。
 
 # CAVEATS
 
-Running **terraform apply** without **-auto-approve** in non-interactive environments (CI/CD) will hang waiting for input. Use **-auto-approve** or pipe a saved plan file for automation. State locking should not be disabled in team environments as it risks state corruption from concurrent operations.
+在非交互环境（CI/CD）中不带 **-auto-approve** 运行 **terraform apply** 会因等待输入而挂起。自动化场景请使用 **-auto-approve** 或管道传入已保存的计划文件。团队环境中不应禁用状态锁定，否则并发操作可能导致状态损坏。
 
 # HISTORY
 
-**Terraform** was created by **Mitchell Hashimoto** and released by **HashiCorp** in **2014**. It pioneered the infrastructure-as-code approach using a declarative configuration language (HCL). The apply command has been a core part of the plan-then-apply workflow since the initial release, with JSON output support added in later versions.
+**Terraform** 由 **Mitchell Hashimoto** 创建，于 **2014** 年由 **HashiCorp** 发布。它开创了使用声明式配置语言（HCL）的基础设施即代码方法。apply 命令自首个版本起就是"先计划后应用"工作流的核心部分，JSON 输出支持在后续版本中加入。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal UI for UFW firewall management
+用于 UFW 防火墙管理的终端界面
 
 # TLDR
 
-**Launch the firewall management TUI**
+**启动防火墙管理 TUI**
 
 ```sudo tufw```
 
@@ -14,15 +14,15 @@ Terminal UI for UFW firewall management
 
 # DESCRIPTION
 
-**tufw** wraps the Uncomplicated Firewall (UFW) in a terminal-based interface with dropdown menus and form-based rule editing. Every action translates into regular UFW commands behind the scenes. It works perfectly over SSH connections.
+**tufw** 为简单防火墙（UFW）提供了基于终端的界面，带有下拉菜单和表单化的规则编辑。每个操作在幕后都会转换为常规的 UFW 命令。通过 SSH 连接使用也毫无问题。
 
 # CAVEATS
 
-Must be run as root.
+必须以 root 身份运行。
 
 # HISTORY
 
-**tufw** was created by **Thomas Pellegatta** (peltho) and is written in **Go**.
+**tufw** 由 **Thomas Pellegatta**（peltho）创建，用 **Go** 编写。
 
 # INSTALL
 

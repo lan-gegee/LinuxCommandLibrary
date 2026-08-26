@@ -1,26 +1,26 @@
 # TAGLINE
 
-Disable unit auto-start at boot
+禁用 unit 开机自启
 
 # TLDR
 
-**Disable** a service from running on boot
+**禁用**服务开机运行
 
 ```systemctl disable [unit]```
 
-Disable a service from running on boot **and stop** it immediately
+禁用服务开机运行并**立即停止**它
 
 ```systemctl disable --now [unit]```
 
-Disable a **user** service from running on login
+禁用**用户级**服务在登录时运行
 
 ```systemctl --user disable [unit]```
 
-Disable **multiple** units at once
+一次禁用**多个** unit
 
 ```systemctl disable [unit1] [unit2]```
 
-Disable a unit **temporarily** until next reboot
+**临时**禁用 unit，直到下次重启
 
 ```systemctl disable --runtime [unit]```
 
@@ -31,32 +31,32 @@ Disable a unit **temporarily** until next reboot
 # PARAMETERS
 
 **--now**
-> Also stop the unit after disabling
+> 禁用后同时停止该 unit
 
 **--user**
-> Disable user service manager units instead of system units
+> 禁用用户服务管理器的 unit 而非系统 unit
 
 **--no-reload**
-> Do not reload systemd configuration after disabling
+> 禁用后不重新加载 systemd 配置
 
 **--runtime**
-> Disable temporarily until next reboot only.
+> 仅临时禁用，直到下次重启。
 
 **--force**
-> When disabling, remove symlinks even if the unit file does not exist.
+> 禁用时即使 unit 文件不存在也移除符号链接。
 
 **--global**
-> Disable for all users (with --user-mode units).
+> 对所有用户禁用（用于 --user 模式的 unit）。
 
 # DESCRIPTION
 
-**systemctl disable** removes the symbolic links that cause units to start automatically at boot or login. This prevents the unit from starting in the future but does not stop a currently running instance unless **--now** is used.
+**systemctl disable** 移除使 unit 在启动或登录时自动启动的符号链接。这会阻止该 unit 今后自动启动，但不会停止当前正在运行的实例，除非使用 **--now**。
 
-The command reverses the effect of **systemctl enable** by removing symlinks from target.wants directories. The unit file itself is not modified or deleted.
+该命令通过移除 target.wants 目录中的符号链接来逆转 **systemctl enable** 的效果。unit 文件本身不会被修改或删除。
 
 # CAVEATS
 
-Requires root privileges for system units. Disabling does not stop currently running units; use **--now** or **systemctl stop**. Some units are started by other means (socket activation, path triggers) and may need additional steps to fully disable.
+系统 unit 需要 root 权限。禁用不会停止正在运行的 unit；请使用 **--now** 或 **systemctl stop**。某些 unit 由其他机制启动（socket 激活、路径触发），可能需要额外步骤才能完全禁用。
 
 # INSTALL
 

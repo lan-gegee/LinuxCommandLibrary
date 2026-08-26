@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run commands in transient units
+在临时单元中运行命令
 
 # TLDR
 
-**Start** a transient service
+**启动**临时服务
 
 ```sudo systemd-run [command] [arguments]```
 
-**Start** a transient service under the current user
+以当前用户身份**启动**临时服务
 
 ```systemd-run --user [command] [arguments]```
 
-**Start** a transient service with a custom name and description
+以自定义名称和描述**启动**临时服务
 
 ```sudo systemd-run -u [name] --description [string] [command]```
 
-**Start** a service that remains after exit with custom environment
+**启动**退出后仍保留的服务并设置自定义环境变量
 
 ```sudo systemd-run -r --set-env=[name]=[value] [command]```
 
-**Start** a transient timer that runs periodically
+**启动**周期性运行的临时定时器
 
 ```sudo systemd-run --on-calendar=[calendar_event] [command]```
 
-**Run** interactively with terminal access
+带终端访问权限**交互式运行**
 
 ```systemd-run -r --pty [command]```
 
-**Set** resource limits and wait for completion
+**设置**资源限制并等待完成
 
 ```systemd-run -p MemoryMax=[bytes] -p CPUQuota=[percentage]% --wait [command]```
 
-**Use** in a shell pipeline
+在 shell 管道中**使用**
 
 ```[command1] | systemd-run -P [command2] | [command3]```
 
@@ -43,65 +43,65 @@ Run commands in transient units
 # PARAMETERS
 
 **--user**
-> Run under user service manager
+> 在用户服务管理器下运行
 
 **-u, --unit _name_**
-> Unit name for the transient service
+> 临时服务的单元名称
 
 **--description _text_**
-> Description for the unit
+> 单元的描述
 
 **-r, --remain-after-exit**
-> Keep unit after process exits
+> 进程退出后保留单元
 
 **--set-env _name=value_**
-> Set environment variables
+> 设置环境变量
 
 **--on-calendar _spec_**
-> Create a timer unit
+> 创建定时器单元
 
 **--pty**
-> Allocate a pseudo-TTY
+> 分配伪终端（PTY）
 
 **-p, --property _name=value_**
-> Set unit properties
+> 设置单元属性
 
 **--wait**
-> Wait for service completion
+> 等待服务完成
 
 **-P, --pipe**
-> Enable pipe mode for use in pipelines.
+> 启用管道模式以便在管道中使用。
 
 **-t, --pty**
-> Run interactively with a PTY attached (alias variant).
+> 附着 PTY 交互式运行（别名变体）。
 
 **-q, --quiet**
-> Suppress informational messages.
+> 抑制提示性消息。
 
 **--scope**
-> Create a transient .scope unit instead of a .service unit.
+> 创建临时的 .scope 单元而非 .service 单元。
 
 **--slice** _NAME_
-> Add the unit into the specified slice.
+> 将单元加入指定的 slice。
 
 **--working-directory** _DIR_
-> Set the working directory for the invoked command.
+> 为被调用的命令设置工作目录。
 
 **--uid** _USER_, **--gid** _GROUP_
-> Run the command as the given user/group.
+> 以给定的用户/组身份运行命令。
 
 **--nice** _N_
-> Set scheduling priority for the invoked command.
+> 为被调用的命令设置调度优先级。
 
 # DESCRIPTION
 
-**systemd-run** runs programs in transient scope or service units managed by systemd. This allows applying resource controls, creating timers, and proper service management for ad-hoc commands.
+**systemd-run** 在由 systemd 管理的临时 scope 或 service 单元中运行程序。这允许对临时命令应用资源控制、创建定时器并进行规范的服务管理。
 
-The tool is useful for running commands with specific resource limits (CPU, memory), creating one-shot timers, and ensuring proper cleanup and logging through systemd.
+该工具适用于以特定资源限制（CPU、内存）运行命令、创建一次性定时器，以及通过 systemd 确保妥善的清理和日志记录。
 
 # CAVEATS
 
-Timer syntax follows systemd.time format. Resource properties require appropriate cgroup controllers. Some options require root privileges. Part of the systemd suite.
+定时器语法遵循 systemd.time 格式。资源属性需要相应的 cgroup 控制器。某些选项需要 root 权限。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

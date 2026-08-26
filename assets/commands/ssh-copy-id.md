@@ -1,22 +1,22 @@
 # TLDR
 
-**Copy the default public key** to a remote host
+**将默认公钥复制**到远程主机
 
 ```ssh-copy-id [user@host]```
 
-**Copy a specific public key**
+**复制特定的公钥**
 
 ```ssh-copy-id -i [~/.ssh/id_ed25519.pub] [user@host]```
 
-**Copy to a host on a non-standard port**
+**复制到非标准端口上的主机**
 
 ```ssh-copy-id -p [2222] [user@host]```
 
-**Dry run** to see which keys would be installed
+**试运行（dry run）**以查看会安装哪些密钥
 
 ```ssh-copy-id -n [user@host]```
 
-**Force copy** without checking for existing keys
+不检查已有密钥而**强制复制**
 
 ```ssh-copy-id -f -i [~/.ssh/id_rsa.pub] [user@host]```
 
@@ -27,38 +27,38 @@
 # PARAMETERS
 
 **-i** _identity_file_
-> Use the specified identity file (public key)
+> 使用指定的身份文件（公钥）
 
 **-p** _port_
-> Connect to the specified port on the remote host
+> 连接远程主机的指定端口
 
 **-f**
-> Force mode; don't check if keys already exist on remote
+> 强制模式；不检查远程是否已存在该密钥
 
 **-n**
-> Dry run; print keys that would be installed without installing
+> 试运行；打印将被安装的密钥但不实际安装
 
 **-s**
-> Use sftp instead of cat for copying (useful for restricted shells)
+> 复制时用 sftp 代替 cat（适用于受限 Shell）
 
 **-o** _ssh_option_
-> Pass options to the underlying ssh command
+> 向底层 ssh 命令传递选项
 
 # DESCRIPTION
 
-**ssh-copy-id** installs SSH public keys on a remote server's authorized_keys file, enabling passwordless authentication. It connects via SSH (usually with password authentication), creates the ~/.ssh directory and authorized_keys file if needed, and appends your public key.
+**ssh-copy-id** 将 SSH 公钥安装到远程服务器的 authorized_keys 文件中，从而启用免密认证。它通过 SSH 连接（通常使用密码认证），在需要时创建 ~/.ssh 目录和 authorized_keys 文件，然后追加你的公钥。
 
-The script ensures correct permissions are set: ~/.ssh directory at 700 and authorized_keys at 600, which SSH requires for security. Incorrect permissions cause authentication failures.
+该脚本确保设置正确的权限：~/.ssh 目录为 700，authorized_keys 为 600——这是 SSH 出于安全考虑的要求。权限不正确会导致认证失败。
 
-By default, ssh-copy-id uses keys from ssh-add -L or the most recent ~/.ssh/id*.pub file. Use **-i** to specify a different key.
+默认情况下，ssh-copy-id 使用 ssh-add -L 输出的密钥或最新的 ~/.ssh/id*.pub 文件。可用 **-i** 指定其他密钥。
 
 # CAVEATS
 
-Password authentication must be enabled on the remote host for the initial copy. After installation, you may want to disable password authentication in sshd_config. The script is a shell wrapper around ssh, so all ssh options apply.
+初次复制时远程主机必须启用密码认证。安装完成后，你可能需要在 sshd_config 中禁用密码认证。该脚本只是围绕 ssh 的 shell 封装，因此所有 ssh 选项都适用。
 
 # HISTORY
 
-ssh-copy-id is a convenience script included with **OpenSSH** to simplify the public key installation process. It automates what would otherwise require manually copying keys and setting permissions correctly.
+ssh-copy-id 是 **OpenSSH** 附带的便利脚本，用于简化公钥安装过程。它把原本需要手动复制密钥并正确设置权限的流程自动化了。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-LLM token usage monitor in the terminal
+终端中的 LLM token 用量监控器
 
 # TLDR
 
-**Launch the LLM usage dashboard**
+**启动 LLM 用量仪表盘**
 
 ```toktop```
 
@@ -14,11 +14,11 @@ LLM token usage monitor in the terminal
 
 # DESCRIPTION
 
-**toktop** is a terminal dashboard for monitoring OpenAI and Anthropic API token usage and costs. It allows account administrators to track LLM API usage without switching to web dashboards.
+**toktop** 是一个用于监控 OpenAI 和 Anthropic API token 用量与费用的终端仪表盘。它让账户管理员无需切换到 Web 仪表盘即可跟踪 LLM API 的使用情况。
 
 # HISTORY
 
-**toktop** was created by **htin1** and is written in **Rust**.
+**toktop** 由 **htin1** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

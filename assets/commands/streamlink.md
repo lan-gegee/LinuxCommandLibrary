@@ -1,34 +1,34 @@
 # TAGLINE
 
-Pipe live streams to media players
+将直播流管道传输给媒体播放器
 
 # TLDR
 
-**Open stream in default player**
+**在默认播放器中打开流**
 
 ```streamlink [URL] [best]```
 
-**Open stream in specific player**
+**在指定播放器中打开流**
 
 ```streamlink --player [mpv] [URL] [best]```
 
-**List available qualities**
+**列出可用画质**
 
 ```streamlink [URL]```
 
-**Record stream to file**
+**将流录制到文件**
 
 ```streamlink -o [output.ts] [URL] [best]```
 
-**Open with specific quality**
+**以指定画质打开**
 
 ```streamlink [URL] [720p]```
 
-**Open Twitch stream**
+**打开 Twitch 直播流**
 
 ```streamlink [twitch.tv/streamername] [best]```
 
-**Pass player arguments**
+**传递播放器参数**
 
 ```streamlink --player [mpv] --player-args "[--no-border]" [URL] [best]```
 
@@ -39,82 +39,82 @@ Pipe live streams to media players
 # PARAMETERS
 
 **-p** _PLAYER_, **--player** _PLAYER_
-> Player to use.
+> 要使用的播放器。
 
 **-a** _ARGS_, **--player-args** _ARGS_
-> Arguments for player.
+> 传递给播放器的参数。
 
 **-o** _FILE_, **--output** _FILE_
-> Record to file.
+> 录制到文件。
 
 **-r** _FILE_, **--record** _FILE_
-> Record while also playing.
+> 边播放边录制。
 
 **-f**, **--force**
-> Overwrite output file.
+> 覆盖输出文件。
 
 **--default-stream** _QUALITY_
-> Default stream quality.
+> 默认的流画质。
 
 **--stream-url**
-> Print stream URL only.
+> 仅打印流 URL。
 
 **--json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **--retry-streams** _SEC_
-> Retry if stream offline.
+> 流不在线时进行重试。
 
 **--retry-max** _NUM_
-> Maximum retry attempts.
+> 最大重试次数。
 
 **--retry-open** _NUM_
-> Retry opening stream.
+> 重试打开流的次数。
 
 **--hls-live-edge** _SEG_
-> Segments from live edge.
+> 从直播边缘获取的分段数量。
 
 **--twitch-disable-ads**
-> Disable Twitch ads.
+> 禁用 Twitch 广告。
 
 **--twitch-low-latency**
-> Enable low latency mode.
+> 启用低延迟模式。
 
 **--http-header** _HEADER_
-> Add HTTP header.
+> 添加 HTTP 头。
 
 **--http-cookie** _COOKIE_
-> Add HTTP cookie.
+> 添加 HTTP Cookie。
 
 # DESCRIPTION
 
-**streamlink** extracts streams from websites and pipes them to media players. It bypasses browser-based players, enabling use of lightweight, efficient players like mpv or VLC.
+**streamlink** 从网站提取视频流并将其管道传输给媒体播放器。它绕过基于浏览器的播放器，让你可以使用 mpv 或 VLC 等轻量高效的播放器。
 
-Quality selection uses identifiers like best, worst, or specific resolutions (720p, 1080p60). Listing qualities shows available options for a stream. Fallback selection (720p,480p,best) tries multiple qualities.
+画质选择使用 best、worst 或具体分辨率（720p、1080p60）等标识符。列出画质可查看某个流的可选项。回退式选择（720p,480p,best）会依次尝试多种画质。
 
-Recording saves streams to files. Combined with a player, streams can be both watched and archived. Output format depends on stream type (usually TS or MP4).
+录制功能可将流保存为文件。结合播放器使用时，可以一边观看一边存档。输出格式取决于流的类型（通常是 TS 或 MP4）。
 
-Platform support includes Twitch, YouTube, and hundreds of other sites. Plugin architecture enables community-contributed support for additional platforms.
+平台支持包括 Twitch、YouTube 和数百个其他站点。插件架构让社区可以为更多平台提供支持。
 
-Twitch-specific features include ad skipping, low-latency mode, and OAuth authentication for subscriber streams. Configuration can be saved in ~/.config/streamlink/config.
+Twitch 专属特性包括广告跳过、低延迟模式，以及用于订阅者直播流的 OAuth 身份验证。配置可保存在 ~/.config/streamlink/config 中。
 
-HTTP options enable accessing streams behind authentication or with custom headers, handling various DRM and geo-restriction scenarios.
+HTTP 选项可用于访问需要身份验证的流或添加自定义请求头，处理各种 DRM 与地域限制场景。
 
 # CONFIGURATION
 
 **~/.config/streamlink/config**
-> Main configuration file for default options, player settings, and plugin parameters.
+> 主配置文件，用于默认选项、播放器设置和插件参数。
 
 **~/.config/streamlink/plugins/**
-> Directory for custom or third-party stream extraction plugins.
+> 存放自定义或第三方流提取插件的目录。
 
 # CAVEATS
 
-Site support depends on plugins and may break with site changes. Some sites block third-party access. DRM content usually not supported. Quality options vary by platform. Ad blocking may violate ToS.
+站点支持依赖插件，站点改版可能导致失效。某些站点会阻止第三方访问。通常不支持 DRM 内容。画质选项因平台而异。广告屏蔽可能违反服务条款。
 
 # HISTORY
 
-**streamlink** is a fork of **livestreamer**, which was created around **2012**. After livestreamer's development stalled, streamlink forked in **2016** with active maintenance. The project supports an extensive list of streaming sites and continues community-driven development.
+**streamlink** 是 **livestreamer** 的分支，livestreamer 创建于 **2012 年**前后。在 livestreamer 开发停滞之后，streamlink 于 **2016 年**分支出来并获得积极维护。该项目支持大量流媒体网站，并持续由社区驱动开发。
 
 # INSTALL
 

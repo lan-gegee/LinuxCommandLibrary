@@ -1,30 +1,30 @@
 # TAGLINE
 
-Universal TLS/SSL tunneling proxy
+通用 TLS/SSL 隧道代理
 
 # TLDR
 
-**Start stunnel with a configuration file**
+**使用配置文件启动 stunnel**
 
 ```stunnel [/etc/stunnel/stunnel.conf]```
 
-**Read configuration from a file descriptor** (e.g. stdin)
+**从文件描述符读取配置**（例如 stdin）
 
 ```stunnel -fd [0]```
 
-**Display version and compile-time defaults**
+**显示版本与编译期默认值**
 
 ```stunnel -version```
 
-**Show available socket options**
+**显示可用的套接字选项**
 
 ```stunnel -sockets```
 
-**Show available TLS options**
+**显示可用的 TLS 选项**
 
 ```stunnel -options```
 
-**Display help**
+**显示帮助**
 
 ```stunnel -help```
 
@@ -35,136 +35,136 @@ Universal TLS/SSL tunneling proxy
 # PARAMETERS
 
 **configfile**
-> Path to the configuration file to use
+> 要使用的配置文件路径
 
 **-fd** _n_
-> Read configuration from file descriptor _n_ (Unix only)
+> 从文件描述符 _n_ 读取配置（仅限 Unix）
 
 **-help**
-> Display help message
+> 显示帮助消息
 
 **-version**
-> Display version information and compile-time defaults
+> 显示版本信息和编译期默认值
 
 **-sockets**
-> Show default socket options
+> 显示默认套接字选项
 
 **-options**
-> Show supported TLS/SSL options compiled into OpenSSL
+> 显示 OpenSSL 编译支持的 TLS/SSL 选项
 
 # CONFIGURATION
 
-Stunnel is driven entirely by a configuration file. The file uses INI-style syntax: global directives appear at the top, then one or more named service sections in `[service_name]` blocks. Lines beginning with `;` are comments.
+Stunnel 完全由配置文件驱动。文件采用 INI 风格语法：全局指令位于顶部，之后是一个或多个以 `[service_name]` 块表示的命名服务节区。以 `;` 开头的行是注释。
 
-**Global directives (selected)**
+**全局指令（节选）**
 
 **foreground**
-> Keep the process in the foreground and log to stderr instead of syslog. Values: `yes | no`. Default: `no`
+> 让进程保持在前台运行，并将日志输出到 stderr 而不是 syslog。取值：`yes | no`。默认：`no`
 
 **pid**
-> Path to the PID file. An empty value disables PID file creation. Path is relative to `chroot` if set (Unix only)
+> PID 文件路径。空值表示不创建 PID 文件。若设置了 `chroot`，路径相对于 `chroot` 目录（仅限 Unix）
 
 **chroot**
-> Chroot jail directory. Stunnel drops privileges and changes root to this directory after startup (Unix only)
+> Chroot 监禁目录。Stunnel 在启动后放弃特权并将根目录切换到该目录（仅限 Unix）
 
 **setuid**
-> Unix user to run as after startup (Unix only)
+> 启动后用于运行进程的 Unix 用户（仅限 Unix）
 
 **setgid**
-> Unix group to run as after startup (Unix only)
+> 启动后用于运行进程的 Unix 组（仅限 Unix）
 
 **debug**
-> Logging verbosity level. Format: `[FACILITY.]LEVEL`. Levels: emerg(0), alert(1), crit(2), err(3), warning(4), notice(5), info(6), debug(7). Default: `notice`
+> 日志详细程度级别。格式：`[FACILITY.]LEVEL`。级别：emerg(0)、alert(1)、crit(2)、err(3)、warning(4)、notice(5)、info(6)、debug(7)。默认：`notice`
 
 **output**
-> Append log messages to the specified file instead of syslog
+> 将日志消息追加到指定文件而不是 syslog
 
 **syslog**
-> Enable or disable logging to syslog. Values: `yes | no`. Default: `yes`
+> 启用或禁用记录到 syslog。取值：`yes | no`。默认：`yes`
 
-**Service-level directives (selected)**
+**服务级指令（节选）**
 
 **accept**
-> Accept connections on the specified address. Format: `[HOST:]PORT`. Omit `accept` in inetd mode
+> 在指定地址上接受连接。格式：`[HOST:]PORT`。inetd 模式下省略 `accept`
 
 **connect**
-> Forward connections to the specified address. Format: `[HOST:]PORT`. Default host: `localhost`. Multiple entries are supported for round-robin load balancing
+> 将连接转发到指定地址。格式：`[HOST:]PORT`。默认主机为 `localhost`。支持多条目以实现轮询负载均衡
 
 **client**
-> Enable client mode — the remote end is expected to speak TLS. Values: `yes | no`. Default: `no` (server mode)
+> 启用客户端模式——远端应讲 TLS 协议。取值：`yes | no`。默认：`no`（服务器模式）
 
 **cert**
-> Path to the PEM or PKCS#12 certificate chain file. Required in server mode; optional in client mode unless the server requires client certificates
+> PEM 或 PKCS#12 证书链文件的路径。服务器模式下必需；客户端模式下可选，除非服务器要求客户端证书
 
 **key**
-> Path to the private key file. Defaults to the value of `cert` when omitted. The file should only be readable by its owner
+> 私钥文件路径。省略时默认使用 `cert` 的值。该文件应仅允许所有者读取
 
 **CAfile**
-> Load trusted CA certificates from a file. Used with `verifyChain` or `verifyPeer`
+> 从文件加载受信任的 CA 证书。与 `verifyChain` 或 `verifyPeer` 配合使用
 
 **CApath**
-> Load trusted CA certificates from a directory. Certificate files must be named in the OpenSSL hash format (`XXXXXXXX.0`)
+> 从目录加载受信任的 CA 证书。证书文件必须按 OpenSSL 哈希格式命名（`XXXXXXXX.0`）
 
 **verifyChain**
-> Verify the peer certificate chain starting from a trusted root CA. Values: `yes | no`. Default: `no`
+> 从受信任的根 CA 开始验证对端证书链。取值：`yes | no`。默认：`no`
 
 **verifyPeer**
-> Verify the end-entity (leaf) peer certificate. Values: `yes | no`. Default: `no`
+> 验证终端实体（叶子）对端证书。取值：`yes | no`。默认：`no`
 
 **checkHost**
-> Verify the hostname in the peer certificate's Subject Alternative Names. Multiple entries allowed. Requires OpenSSL 1.0.2+
+> 验证对端证书使用者可选名称中的主机名。允许多条目。需要 OpenSSL 1.0.2+
 
 **sni**
-> Server Name Indication. In client mode: SNI hostname to send. In server mode: `SERVICE_NAME:SERVER_NAME_PATTERN` for virtual hosting. Requires OpenSSL 1.0.0+
+> 服务器名称指示（SNI）。客户端模式：要发送的 SNI 主机名。服务器模式：`SERVICE_NAME:SERVER_NAME_PATTERN`，用于虚拟主机。需要 OpenSSL 1.0.0+
 
 **protocol**
-> Application-level protocol to negotiate TLS with. Supported: `cifs`, `connect`, `imap`, `ldap`, `nntp`, `pgsql`, `pop3`, `proxy`, `smtp`, `socks`
+> 用于协商 TLS 的应用层协议。支持：`cifs`、`connect`、`imap`、`ldap`、`nntp`、`pgsql`、`pop3`、`proxy`、`smtp`、`socks`
 
 **exec**
-> Execute a local inetd-style program instead of connecting to a remote host. The program's stdin/stdout are used for the unencrypted side of the tunnel
+> 执行本地 inetd 风格的程序，而不是连接远程主机。程序的标准输入/标准输出用作隧道未加密一侧
 
 **execArgs**
-> Whitespace-separated argument list for `exec`, including the program name as `$0`
+> 传给 `exec` 的以空白分隔的参数列表，包括作为 `$0` 的程序名
 
 **delay**
-> Delay DNS resolution for `connect` until a client connects. Values: `yes | no`. Default: `no`
+> 推迟 `connect` 的 DNS 解析，直到有客户端连接。取值：`yes | no`。默认：`no`
 
 **ciphers**
-> Colon-delimited list of TLS 1.2 and earlier cipher suites to allow
+> 允许使用的 TLS 1.2 及更早版本密码套件的冒号分隔列表
 
 **ciphersuites**
-> Colon-delimited list of TLS 1.3 ciphersuites. Default: `TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256`. Requires OpenSSL 1.1.1+
+> TLS 1.3 密码套件的冒号分隔列表。默认：`TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256`。需要 OpenSSL 1.1.1+
 
 **sslVersionMin**
-> Minimum TLS protocol version. Requires OpenSSL 1.1.0+. Default: `TLSv1`
+> 最低 TLS 协议版本。需要 OpenSSL 1.1.0+。默认：`TLSv1`
 
 **sslVersionMax**
-> Maximum TLS protocol version. Requires OpenSSL 1.1.0+. Default: `all`
+> 最高 TLS 协议版本。需要 OpenSSL 1.1.0+。默认：`all`
 
 **securityLevel**
-> OpenSSL security level (0–5). Level 2 requires at least 112-bit security (default). Requires OpenSSL 1.1.0+
+> OpenSSL 安全级别（0–5）。级别 2 要求至少 112 位安全强度（默认）。需要 OpenSSL 1.1.0+
 
 **transparent**
-> Enable transparent proxy mode. Values: `none`, `source`, `destination`, `both`. Requires kernel and routing support (Unix only)
+> 启用透明代理模式。取值：`none`、`source`、`destination`、`both`。需要内核和路由支持（仅限 Unix）
 
 **socket**
-> Set a socket option. Format: `a|l|r:OPTION=VALUE[:VALUE]` where `a`=accept socket, `l`=local socket, `r`=remote socket
+> 设置套接字选项。格式：`a|l|r:OPTION=VALUE[:VALUE]`，其中 `a`=接受套接字、`l`=本地套接字、`r`=远程套接字
 
 # DESCRIPTION
 
-**stunnel** is a TLS/SSL proxy that wraps arbitrary TCP connections with encryption without requiring any changes to the application code. It uses OpenSSL for all cryptographic operations and supports modern TLS versions.
+**stunnel** 是一个 TLS/SSL 代理，可为任意 TCP 连接加上加密，而无需修改应用程序代码。它使用 OpenSSL 执行所有加密操作并支持现代 TLS 版本。
 
-In **server mode** (the default), stunnel listens for incoming TLS-encrypted connections and forwards them unencrypted to a backend service (e.g. a plain-text IMAP or SMTP daemon). In **client mode** (`client = yes`), it accepts unencrypted connections from local clients and establishes a TLS-encrypted tunnel to a remote TLS server.
+在**服务器模式**（默认）下，stunnel 监听传入的 TLS 加密连接，并将其解密后转发给后端服务（例如纯文本的 IMAP 或 SMTP 守护进程）。在**客户端模式**（`client = yes`）下，它接受来自本地客户端的未加密连接，并与远程 TLS 服务器建立 TLS 加密隧道。
 
-Stunnel reads a configuration file that contains global settings and one or more named service sections. Each service section defines an independent tunnel. Multiple tunnels can run within a single stunnel process.
+Stunnel 读取一个包含全局设置和一个或多个命名服务节区的配置文件。每个服务节区定义一条独立的隧道。单个 stunnel 进程内可以运行多条隧道。
 
-It supports inetd-style operation (omit `accept`; stunnel inherits the socket), daemon mode, and launch by systemd. Unix signals control a running daemon: `SIGHUP` reloads the configuration, `SIGUSR1` reopens the log file, and `SIGTERM`/`SIGQUIT`/`SIGINT` shut it down.
+它支持 inetd 风格运行（省略 `accept`；stunnel 继承套接字）、守护进程模式以及由 systemd 启动。Unix 信号控制运行中的守护进程：`SIGHUP` 重新加载配置，`SIGUSR1` 重新打开日志文件，`SIGTERM`/`SIGQUIT`/`SIGINT` 关闭守护进程。
 
-**FTP limitation**: stunnel cannot tunnel the FTP data channel because FTP uses dynamically negotiated secondary ports.
+**FTP 限制**：stunnel 无法为 FTP 数据通道建立隧道，因为 FTP 使用动态协商的第二端口。
 
 # EXAMPLES
 
-**Wrap a plain IMAP daemon with TLS (server mode)**
+**用 TLS 包裹纯文本 IMAP 守护进程（服务器模式）**
 
 ```
 [imapd]
@@ -174,7 +174,7 @@ execArgs = imapd
 cert    = /etc/stunnel/server.pem
 ```
 
-**Forward encrypted IMAP to a plain local daemon (server mode)**
+**将加密 IMAP 转发到本地的明文守护进程（服务器模式）**
 
 ```
 [imapd]
@@ -183,7 +183,7 @@ connect = 143
 cert    = /etc/stunnel/server.pem
 ```
 
-**Wrap outgoing connections to a remote TLS server (client mode)**
+**包裹发往远程 TLS 服务器的出站连接（客户端模式）**
 
 ```
 [imap-client]
@@ -192,7 +192,7 @@ accept  = 127.0.0.1:143
 connect = mail.example.com:993
 ```
 
-**SOCKS proxy tunnel (client and server pair)**
+**SOCKS 代理隧道（客户端与服务器配对）**
 
 ```
 ; Server side
@@ -212,11 +212,11 @@ CAfile   = /etc/stunnel/ca.pem
 
 # CAVEATS
 
-SSLv2 and SSLv3 are disabled by default due to known security vulnerabilities. Certificate chain verification (`verifyChain = yes`) and hostname checking (`checkHost`) should be enabled in production client configurations to prevent man-in-the-middle attacks. Transparent proxy mode requires specific kernel support and routing configuration. The `compression` option poses a security risk (CRIME-style attacks) when the application allows attacker-controlled plaintext.
+由于已知的安全漏洞，SSLv2 和 SSLv3 默认被禁用。生产环境的客户端配置应启用证书链验证（`verifyChain = yes`）和主机名检查（`checkHost`），以防中间人攻击。透明代理模式需要特定的内核支持和路由配置。当应用程序允许攻击者控制明文时，`compression` 选项存在安全风险（CRIME 式攻击）。
 
 # HISTORY
 
-stunnel was created by **Michał Trojnara** in **1998** as a universal TLS wrapper for TCP services. It remains in active development and supports modern TLS 1.3 and current OpenSSL APIs.
+stunnel 由 **Michał Trojnara** 于 **1998 年**创建，是面向 TCP 服务的通用 TLS 包装器。它至今仍在积极开发中，支持现代 TLS 1.3 和当前的 OpenSSL API。
 
 # INSTALL
 

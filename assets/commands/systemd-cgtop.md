@@ -1,26 +1,26 @@
 # TAGLINE
 
-Monitor cgroup resource usage
+监控 cgroup 资源使用情况
 
 # TLDR
 
-**Start** an interactive view
+**启动**交互式视图
 
 ```systemd-cgtop```
 
-**Change** the sort order
+**更改**排序方式
 
 ```systemd-cgtop --order [cpu|memory|path|tasks|io]```
 
-**Show** CPU usage by time instead of percentage
+按时间而非百分比**显示** CPU 占用
 
 ```systemd-cgtop --cpu=percentage```
 
-**Change** the update interval
+**更改**刷新间隔
 
 ```systemd-cgtop -d [interval]```
 
-**Only** count userspace processes (no kernel threads)
+**只**统计用户空间进程（不含内核线程）
 
 ```systemd-cgtop -P```
 
@@ -31,38 +31,38 @@ Monitor cgroup resource usage
 # PARAMETERS
 
 **--order _field_**
-> Sort by cpu, memory, path, tasks, or io
+> 按 cpu、memory、path、tasks 或 io 排序
 
 **-d, --delay _interval_**
-> Update interval (supports ms, us, min suffixes)
+> 刷新间隔（支持 ms、us、min 后缀）
 
 **-P**
-> Count only userspace processes
+> 只统计用户空间进程
 
 **-k**
-> Include kernel threads in counts
+> 统计时包括内核线程
 
 **-n, --iterations _n_**
-> Run for n iterations and exit
+> 运行 n 次迭代后退出
 
 **-b, --batch**
-> Run in batch mode (non-interactive)
+> 以批处理模式运行（非交互式）
 
 **-r, --raw**
-> Output raw numbers without units
+> 输出不带单位的原始数字
 
 **--depth _n_**
-> Maximum cgroup tree depth to show
+> 要显示的最大 cgroup 树深度
 
 # DESCRIPTION
 
-**systemd-cgtop** shows the top control groups by resource usage, similar to **top** but organized by cgroups. It displays CPU, memory, and I/O statistics for each control group.
+**systemd-cgtop** 按资源使用量显示占用最多的控制组，类似于 **top**，但按 cgroup 组织。它会显示每个控制组的 CPU、内存和 I/O 统计信息。
 
-The tool is useful for monitoring resource consumption by services and understanding which systemd units are using system resources. Interactive mode supports keyboard shortcuts for changing display options.
+该工具适用于监控各服务的资源消耗，了解哪些 systemd 单元正在使用系统资源。交互模式支持通过键盘快捷键更改显示选项。
 
 # CAVEATS
 
-I/O accounting requires appropriate cgroup controllers to be enabled. Some resource statistics may not be available depending on kernel configuration. Part of the systemd suite.
+I/O 统计需要启用相应的 cgroup 控制器。某些资源统计信息可能因内核配置而不可用。属于 systemd 工具套件的一部分。
 
 # INSTALL
 

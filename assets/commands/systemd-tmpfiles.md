@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage temporary files and directories
+管理临时文件和目录
 
 # TLDR
 
-**Create** files and directories as specified in configuration
+按配置**创建**文件和目录
 
 ```systemd-tmpfiles --create```
 
-**Clean up** files and directories with age parameters
+按老化参数**清理**文件和目录
 
 ```systemd-tmpfiles --clean```
 
-**Remove** files and directories as specified in configuration
+按配置**移除**文件和目录
 
 ```systemd-tmpfiles --remove```
 
-**Apply** operations for user-specific configurations
+对用户级配置**应用**操作
 
 ```systemd-tmpfiles --create --user```
 
-**Execute** lines marked for early boot
+**执行**标记为早期启动的行
 
 ```systemd-tmpfiles --create --boot```
 
-**Apply** only to paths under a specific prefix
+仅对特定前缀下的路径**应用**
 
 ```systemd-tmpfiles --create --prefix=[/tmp]```
 
-**Create, clean, and remove** in a single invocation
+一次调用中完成**创建、清理和移除**
 
 ```systemd-tmpfiles --create --clean --remove```
 
@@ -39,56 +39,56 @@ Manage temporary files and directories
 # PARAMETERS
 
 **--create**
-> Create files and directories as configured
+> 按配置创建文件和目录
 
 **--clean**
-> Clean up files older than configured age
+> 清理超过配置时长的文件
 
 **--remove**
-> Remove files and directories
+> 移除文件和目录
 
 **--user**
-> Apply user configuration
+> 应用用户配置
 
 **--boot**
-> Execute boot-time entries
+> 执行启动时的条目
 
 **--purge**
-> Delete all files and directories created by the specified configuration files
+> 删除由指定配置文件创建的所有文件和目录
 
 **--prefix** _path_
-> Only apply rules with paths starting with specified prefix (repeatable)
+> 只应用路径以指定前缀开头的规则（可重复）
 
 **--exclude-prefix** _path_
-> Ignore rules with paths starting with specified prefix (repeatable)
+> 忽略路径以指定前缀开头的规则（可重复）
 
 **-E**
-> Shortcut for excluding /dev, /proc, /run, and /sys hierarchies
+> 排除 /dev、/proc、/run 和 /sys 层级的快捷方式
 
 **--root** _path_
-> Prefix all paths with the given alternate root directory
+> 为所有路径加上给定的备用根目录前缀
 
 **--replace** _path_
-> Use command-line arguments instead of the specified configuration file
+> 用命令行参数替代指定的配置文件
 
 **--cat-config**
-> Print the contents of configuration files to stdout
+> 将配置文件的内容打印到标准输出
 
 **--no-pager**
-> Do not pipe output into a pager
+> 不将输出通过分页器显示
 
 **-h**, **--help**
-> Print help text and exit
+> 打印帮助文本并退出
 
 # DESCRIPTION
 
-**systemd-tmpfiles** creates, deletes, and cleans up volatile and temporary files and directories. Configuration files in **/etc/tmpfiles.d/**, **/usr/lib/tmpfiles.d/**, and related directories define what actions to take.
+**systemd-tmpfiles** 创建、删除和清理易失性的临时文件和目录。**/etc/tmpfiles.d/**、**/usr/lib/tmpfiles.d/** 及相关目录中的配置文件定义了要采取的操作。
 
-The tool is automatically invoked during system boot by systemd services. Manual execution is typically only needed for testing configurations or one-time cleanup operations.
+该工具在系统启动期间由 systemd 服务自动调用。通常只有在测试配置或进行一次性清理时才需要手动执行。
 
 # CAVEATS
 
-Running manually is usually not needed as systemd handles this automatically. It is possible to combine --create, --clean, and --remove in one invocation. Configuration syntax errors may prevent proper cleanup. Age-based cleanup requires properly configured time values. Part of the systemd suite.
+由于 systemd 会自动处理，通常无需手动运行。可以在一次调用中组合使用 --create、--clean 和 --remove。配置中的语法错误可能导致清理无法正常进行。基于时长的清理需要正确配置的时间值。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

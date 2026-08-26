@@ -1,26 +1,26 @@
 # TAGLINE
 
-SWI-Prolog logic programming interpreter
+SWI-Prolog 逻辑编程解释器
 
 # TLDR
 
-**Start interactive**
+**启动交互式**环境
 
 ```swipl```
 
-**Load file**
+**加载文件**
 
 ```swipl [program.pl]```
 
-**Run goal and exit**
+**运行目标后退出**
 
 ```swipl -g "[goal]" -t halt [program.pl]```
 
-**Query from command line**
+**从命令行查询**
 
 ```swipl -g "[member(X,[1,2,3]),writeln(X)]" -t halt```
 
-**Compile to standalone**
+**编译为独立程序**
 
 ```swipl -o [output] -c [program.pl]```
 
@@ -31,62 +31,62 @@ SWI-Prolog logic programming interpreter
 # PARAMETERS
 
 **-g** _GOAL_
-> Goal executed before entering the interactive top level. May appear multiple times.
+> 在进入交互式顶层之前执行的目标。可多次出现。
 
 **-t** _GOAL_
-> Use goal as the interactive top level instead of the default prolog/0 (commonly **halt** for scripts).
+> 使用指定目标作为交互式顶层，取代默认的 prolog/0（脚本中常用 **halt**）。
 
 **-o** _FILE_
-> Specify the output file when used with **-c**.
+> 与 **-c** 配合使用时指定输出文件。
 
 **-c** _FILES_
-> Compile files into an intermediate code (saved state) file.
+> 将文件编译为中间代码（保存状态）文件。
 
 **-s** _FILE_
-> Load file as a script after initialization.
+> 初始化后将文件作为脚本加载。
 
 **-f** _FILE_
-> Use file as the initialization file instead of the default **init.pl**. Use **-f none** to skip init.
+> 用指定文件作为初始化文件，取代默认的 **init.pl**。用 **-f none** 可跳过初始化。
 
 **-l** _FILE_
-> Load file (compatibility with other Prolog systems).
+> 加载文件（与其他 Prolog 系统兼容）。
 
 **-x** _BOOTFILE_
-> Boot from an alternative saved state.
+> 从另一个保存状态启动。
 
 **-O**
-> Enable optimized compilation.
+> 启用优化编译。
 
 **-D** _NAME_[=_VALUE_]
-> Set a Prolog flag.
+> 设置一个 Prolog 标志。
 
 **--stack-limit=**_SIZE_
-> Limit combined Prolog stack size (suffix b, k, m, g).
+> 限制 Prolog 栈的总大小（后缀 b、k、m、g）。
 
 **-q**, **--quiet**
-> Suppress informational messages and startup banner.
+> 抑制提示性消息和启动横幅。
 
 **--version**
-> Print version and architecture.
+> 打印版本与架构信息。
 
 **--help**
-> Print brief help summary.
+> 打印简要帮助摘要。
 
 # DESCRIPTION
 
-**swipl** is the interpreter and compiler for SWI-Prolog, one of the most comprehensive and widely used Prolog implementations. It provides an interactive REPL for querying facts and rules, loading Prolog source files, and compiling standalone executables.
+**swipl** 是 SWI-Prolog 的解释器和编译器。SWI-Prolog 是最全面、使用最广泛的 Prolog 实现之一。它提供交互式 REPL，用于查询事实和规则、加载 Prolog 源文件以及编译独立的可执行程序。
 
-SWI-Prolog includes an extensive standard library with support for constraint logic programming (CLP), definite clause grammars, multi-threading, HTTP server framework, and interfaces to databases and other languages. It supports both interactive development and deployment as compiled applications.
+SWI-Prolog 内置丰富的标准库，支持约束逻辑编程（CLP）、定子句文法、多线程、HTTP 服务器框架，以及数据库和其他语言的接口。它既支持交互式开发，也支持以编译应用的形式部署。
 
-The system can execute goals from the command line, load source files, and create standalone executables using the -c flag. It is widely used in academic research, natural language processing, and knowledge representation systems.
+该系统可以从命令行执行目标、加载源文件，并通过 -c 标志创建独立的可执行程序。它被广泛用于学术研究、自然语言处理和知识表示系统。
 
 # CAVEATS
 
-Prolog syntax unique. Logic programming paradigm. Learning curve.
+Prolog 语法独特。属于逻辑编程范式。有学习曲线。
 
 # HISTORY
 
-**SWI-Prolog** was started by **Jan Wielemaker** in 1987. It's one of the most widely used Prolog implementations.
+**SWI-Prolog** 由 **Jan Wielemaker** 于 1987 年发起，是最广泛使用的 Prolog 实现之一。
 
 # INSTALL
 

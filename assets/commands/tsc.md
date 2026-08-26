@@ -1,38 +1,38 @@
 # TAGLINE
 
-TypeScript to JavaScript compiler
+TypeScript 到 JavaScript 的编译器
 
 # TLDR
 
-**Compile a TypeScript file** to JavaScript
+**编译 TypeScript 文件**为 JavaScript
 
 ```tsc [file.ts]```
 
-**Compile using a tsconfig.json** configuration
+**使用 tsconfig.json** 配置编译
 
 ```tsc -p [tsconfig.json]```
 
-**Compile in watch mode** (recompile on changes)
+**以监视模式编译**（文件变化时重新编译）
 
 ```tsc -w```
 
-**Compile with strict mode** enabled
+**启用 strict 模式**编译
 
 ```tsc --strict [file.ts]```
 
-**Compile to a specific ECMAScript** target
+**编译为指定的 ECMAScript** 目标版本
 
 ```tsc --target [ES2020] [file.ts]```
 
-**Output to a specific directory**
+**输出到指定目录**
 
 ```tsc --outDir [dist] [file.ts]```
 
-**Generate source maps**
+**生成 source map**
 
 ```tsc --sourceMap [file.ts]```
 
-**Initialize a new tsconfig.json**
+**初始化新的 tsconfig.json**
 
 ```tsc --init```
 
@@ -43,91 +43,91 @@ TypeScript to JavaScript compiler
 # PARAMETERS
 
 **-p**, **--project** _path_
-> Compile project from tsconfig.json at path
+> 根据指定路径的 tsconfig.json 编译项目
 
 **-w**, **--watch**
-> Watch input files and recompile on changes
+> 监视输入文件并在变化时重新编译
 
 **-t**, **--target** _version_
-> ECMAScript target version (ES5, ES2015, ES2020, ES2022, ESNext)
+> ECMAScript 目标版本（ES5、ES2015、ES2020、ES2022、ESNext）
 
 **--outDir** _directory_
-> Redirect output to specified directory
+> 将输出重定向到指定目录
 
 **--outFile** _file_
-> Concatenate and emit output to single file
+> 合并所有输出并写入单个文件
 
 **--strict**
-> Enable all strict type-checking options
+> 启用所有严格类型检查选项
 
 **--noEmit**
-> Do not emit outputs; type-check only
+> 不输出结果，仅进行类型检查
 
 **--sourceMap**
-> Generate corresponding .map source map files
+> 生成对应的 .map source map 文件
 
 **--declaration**
-> Generate .d.ts declaration files
+> 生成 .d.ts 声明文件
 
 **--module** _system_
-> Module system: commonjs, es2015, es2020, esnext, node16, nodenext
+> 模块系统：commonjs、es2015、es2020、esnext、node16、nodenext
 
 **--moduleResolution** _strategy_
-> Module resolution strategy: node, nodenext, bundler
+> 模块解析策略：node、nodenext、bundler
 
 **--incremental**
-> Enable incremental compilation for faster rebuilds
+> 启用增量编译以加快重新构建速度
 
 **--skipLibCheck**
-> Skip type checking of declaration files
+> 跳过对声明文件的类型检查
 
 **--esModuleInterop**
-> Enable interoperability between CommonJS and ES Modules
+> 启用 CommonJS 与 ES Module 之间的互操作性
 
 **--resolveJsonModule**
-> Allow importing .json files
+> 允许导入 .json 文件
 
 **--jsx** _mode_
-> JSX handling: react, react-jsx, react-jsxdev, preserve
+> JSX 处理方式：react、react-jsx、react-jsxdev、preserve
 
 **--lib** _libs_
-> Specify library files to include (e.g., ES2020, DOM, ES2020.Promise)
+> 指定要包含的库文件（例如 ES2020、DOM、ES2020.Promise）
 
 **--noEmitOnError**
-> Do not emit outputs if any errors are reported
+> 存在任何报错时不输出结果
 
 **--init**
-> Initialize a tsconfig.json file
+> 初始化一个 tsconfig.json 文件
 
 **--listFiles**
-> Print names of files that are part of the compilation
+> 打印参与编译的文件名
 
 **--showConfig**
-> Print the final resolved configuration instead of compiling
+> 打印最终解析后的配置而不是执行编译
 
 **-h**, **--help**
-> Show help
+> 显示帮助信息
 
 **-v**, **--version**
-> Show version
+> 显示版本信息
 
 # DESCRIPTION
 
-**tsc** is the TypeScript compiler that transforms TypeScript (.ts, .tsx) files into JavaScript (.js). Developed by Microsoft, TypeScript is a superset of JavaScript that adds optional static typing and modern language features.
+**tsc** 是 TypeScript 编译器，将 TypeScript（.ts、.tsx）文件转换为 JavaScript（.js）。TypeScript 由 Microsoft 开发，是 JavaScript 的超集，增加了可选的静态类型和现代语言特性。
 
-When run without arguments in a directory with **tsconfig.json**, tsc compiles the project according to that configuration. When files are specified on the command line, tsconfig.json is ignored unless **-p** is used.
+在包含 **tsconfig.json** 的目录中不带参数运行时，tsc 会按照该配置编译整个项目。当在命令行上指定了文件时，除非使用 **-p**，否则 tsconfig.json 会被忽略。
 
-The compiler performs type checking to catch errors during development, then emits valid JavaScript. The **--strict** flag enables comprehensive type checking including strict null checks and no implicit any.
+编译器通过类型检查在开发阶段发现错误，然后输出合法的 JavaScript。**--strict** 选项启用全面的类型检查，包括严格的 null 检查和禁止隐式 any。
 
-Watch mode (**-w**) monitors source files and recompiles automatically when changes are detected, enabling a fast development workflow.
+监视模式（**-w**）会监控源文件并在检测到变化时自动重新编译，实现快速的开发工作流。
 
 # CAVEATS
 
-tsc requires Node.js and is typically installed via npm (**npm install -g typescript**). Compilation options on the command line override tsconfig.json settings. When files are specified on the command line, **tsconfig.json** is ignored (use **-p** to use a config file). Large projects may have slow compile times; consider using **--incremental** or **--noEmit** for type-check-only workflows.
+tsc 依赖 Node.js，通常通过 npm 安装（**npm install -g typescript**）。命令行上的编译选项会覆盖 tsconfig.json 的设置。当在命令行上指定文件时，**tsconfig.json** 会被忽略（请用 **-p** 来使用配置文件）。大型项目的编译可能较慢；对于仅需类型检查的工作流，可以考虑使用 **--incremental** 或 **--noEmit**。
 
 # HISTORY
 
-**TypeScript** was developed by **Microsoft** under the lead of **Anders Hejlsberg** (creator of C# and Turbo Pascal). It was first publicly released in **October 2012**. The language was designed to address the challenges of large-scale JavaScript development by adding optional static types while maintaining full compatibility with existing JavaScript.
+**TypeScript** 由 **Microsoft** 在 **Anders Hejlsberg**（C# 和 Turbo Pascal 之父）的主导下开发，于 **2012 年 10 月**首次公开发布。该语言旨在通过添加可选静态类型来应对大规模 JavaScript 开发的挑战，同时与现有 JavaScript 保持完全兼容。
 
 # INSTALL
 

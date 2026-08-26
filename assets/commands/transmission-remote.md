@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control Transmission daemon remotely
+远程控制 Transmission 守护进程
 
 # TLDR
 
-**List all torrents**
+**列出所有种子**
 
 ```transmission-remote -l```
 
-**Add a torrent**
+**添加种子**
 
 ```transmission-remote -a [path/to/file.torrent]```
 
-**Add a magnet link**
+**添加磁力链接**
 
 ```transmission-remote -a "[magnet:?xt=urn:btih:...]"```
 
-**Start a specific torrent** by ID
+**按 ID 启动特定种子**
 
 ```transmission-remote -t [id] -s```
 
-**Pause a torrent**
+**暂停种子**
 
 ```transmission-remote -t [id] -S```
 
-**Remove a torrent** (keep downloaded files)
+**移除种子**（保留已下载的文件）
 
 ```transmission-remote -t [id] -r```
 
-**Remove a torrent and delete files**
+**移除种子并删除文件**
 
 ```transmission-remote -t [id] -rad```
 
-**Connect to remote daemon** with authentication
+**以认证方式连接远程守护进程**
 
 ```transmission-remote [host:port] --auth [user:password] -l```
 
@@ -43,65 +43,65 @@ Control Transmission daemon remotely
 # PARAMETERS
 
 **-l**, **--list**
-> List all torrents with status, progress, and speeds.
+> 列出所有种子的状态、进度和速度。
 
 **-a** _file_, **--add** _file_
-> Add a torrent file or magnet URI.
+> 添加种子文件或磁力 URI。
 
 **-t** _id_
-> Select torrent(s) by ID. Can be single ID, range (1-5), comma list (1,3,5), or 'all'.
+> 按 ID 选择一个或多个种子。可以是单个 ID、范围 (1-5)、逗号列表 (1,3,5) 或 'all'。
 
 **-s**, **--start**
-> Start the selected torrent(s).
+> 启动选定的种子。
 
 **-S**, **--stop**
-> Stop (pause) the selected torrent(s).
+> 停止（暂停）选定的种子。
 
 **-r**, **--remove**
-> Remove the selected torrent(s) but keep downloaded files.
+> 移除选定的种子，但保留已下载的文件。
 
 **-rad**, **--remove-and-delete**
-> Remove the selected torrent(s) and delete downloaded files.
+> 移除选定的种子并删除已下载的文件。
 
 **-d** _limit_, **--downlimit** _limit_
-> Set global download speed limit in KB/s.
+> 设置全局下载速度限制，单位 KB/s。
 
 **-u** _limit_, **--uplimit** _limit_
-> Set global upload speed limit in KB/s.
+> 设置全局上传速度限制，单位 KB/s。
 
 **--auth** _user:pass_
-> Provide authentication credentials for the daemon.
+> 提供守护进程的认证凭据。
 
 **--port** _port_
-> Connect to specified RPC port (default: 9091).
+> 连接到指定的 RPC 端口（默认：9091）。
 
 **--ssl**
-> Use SSL/TLS for the RPC connection.
+> RPC 连接使用 SSL/TLS。
 
 **-i**, **--info**
-> Show detailed information about the selected torrent.
+> 显示选定种子的详细信息。
 
 **-if**, **--info-files**
-> List files in the selected torrent.
+> 列出选定种子中的文件。
 
 **-ip**, **--info-peers**
-> List connected peers for the selected torrent.
+> 列出选定种子已连接的对等节点。
 
 # DESCRIPTION
 
-**transmission-remote** is a command-line utility for controlling the Transmission BitTorrent daemon remotely. It connects to transmission-daemon (default: localhost:9091) to manage torrents, configure settings, and monitor transfer status.
+**transmission-remote** 是一个用于远程控制 Transmission BitTorrent 守护进程的命令行工具。它连接到 transmission-daemon（默认：localhost:9091），用于管理种子、配置设置以及监控传输状态。
 
-The tool provides full control over the daemon including adding and removing torrents, starting and stopping transfers, setting speed limits, viewing detailed torrent information, and managing individual files within torrents. Multiple torrents can be selected using the **-t** option with IDs, ranges, or 'all'.
+该工具提供对守护进程的完全控制：添加和移除种子、启动和停止传输、设置速度限制、查看种子详细信息，以及管理种子内的单个文件。可以通过 **-t** 选项配合 ID、范围或 'all' 来选择多个种子。
 
-Authentication can be provided via the **--auth** option, the TR_AUTH environment variable, or a .netrc file. For remote daemons, specify the host and port as the first argument.
+认证可通过 **--auth** 选项、TR_AUTH 环境变量或 .netrc 文件提供。对于远程守护进程，将主机和端口作为第一个参数传入即可。
 
 # CAVEATS
 
-Requires transmission-daemon to be running. Default connection is localhost:9091; remote connections may require firewall configuration. Authentication credentials in command-line arguments may be visible to other users via process listings; prefer environment variables or .netrc for sensitive environments.
+需要 transmission-daemon 正在运行。默认连接 localhost:9091；远程连接可能需要配置防火墙。命令行参数中的认证凭据可能通过进程列表被其他用户看到；在敏感环境中建议改用环境变量或 .netrc。
 
 # HISTORY
 
-**transmission-remote** was developed as part of the **Transmission** project, which began in **2005**. The remote control utility was created to enable headless operation of the BitTorrent client, allowing system administrators to manage torrent downloads on servers without graphical interfaces. It has become a standard tool for automated torrent management in scripts and server environments.
+**transmission-remote** 是始于 **2005 年**的 **Transmission** 项目的一部分。开发这一远程控制工具是为了支持无头运行，让系统管理员能够在没有图形界面的服务器上管理种子下载。如今它已成为脚本和服务器环境中自动化种子管理的标准工具。
 
 # INSTALL
 

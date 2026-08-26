@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert Atari Spectrum 512 images to PPM
+将 Atari Spectrum 512 图像转换为 PPM
 
 # TLDR
 
-**Convert Atari Spectrum 512 to PPM**
+**将 Atari Spectrum 512 转换为 PPM**
 
 ```sputoppm [input.spu] > [output.ppm]```
 
@@ -14,7 +14,7 @@ Convert Atari Spectrum 512 images to PPM
 
 # DESCRIPTION
 
-**sputoppm** converts images in the Atari Spectrum 512 uncompressed format (SPU) to PPM (Portable Pixmap) format. The Spectrum 512 format was used on the Atari ST computer to display images with up to 512 simultaneous colors by cycling the palette on each scanline. This tool is part of the Netpbm image processing toolkit, which provides converters between many image formats.
+**sputoppm** 将 Atari Spectrum 512 未压缩格式（SPU）的图像转换为 PPM（Portable Pixmap）格式。Spectrum 512 格式曾用于 Atari ST 计算机，通过在每个扫描行上循环切换调色板来显示最多 512 种同时可见的颜色。该工具是 Netpbm 图像处理工具集的一部分，后者提供了众多图像格式之间的转换器。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ Convert Atari Spectrum 512 images to PPM
 # SEE ALSO
 
 [ppmtospu](/man/ppmtospu)(1), [spctoppm](/man/spctoppm)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Destroy Terraform-managed infrastructure
+销毁 Terraform 管理的基础设施
 
 # TLDR
 
-**Destroy** all resources in the current configuration
+**销毁**当前配置中的所有资源
 
 ```terraform destroy```
 
-**Destroy** without interactive confirmation
+**销毁**时不进行交互式确认
 
 ```terraform destroy -auto-approve```
 
-**Destroy** a **specific resource** only
+仅**销毁特定资源**
 
 ```terraform destroy -target=[resource_type.resource_name]```
 
-**Preview** what would be destroyed without executing
+**预览**将销毁的内容而不执行
 
 ```terraform plan -destroy```
 
-**Destroy** with specific **variable values**
+使用指定**变量值****销毁**
 
 ```terraform destroy -var '[name]=[value]'```
 
-**Destroy** with a **variable file**
+使用**变量文件****销毁**
 
 ```terraform destroy -var-file=[prod.tfvars]```
 
-**Destroy** with limited **parallelism** to avoid API rate limits
+以受限的**并行度****销毁**，避免触发 API 速率限制
 
 ```terraform destroy -parallelism=[5]```
 
@@ -39,50 +39,50 @@ Destroy Terraform-managed infrastructure
 # PARAMETERS
 
 **-auto-approve**
-> Skip the interactive confirmation prompt
+> 跳过交互式确认提示
 
 **-target=**_RESOURCE_
-> Destroy only the specified resource and its dependencies. Can be specified multiple times.
+> 仅销毁指定的资源及其依赖项。可多次指定。
 
 **-var** '_NAME_=_VALUE_'
-> Set an input variable value. Can be specified multiple times.
+> 设置输入变量的值。可多次指定。
 
 **-var-file=**_PATH_
-> Load variable values from a file
+> 从文件加载变量值
 
 **-lock=**_BOOL_
-> Control whether Terraform locks the state file. Default: **true**.
+> 控制 Terraform 是否锁定状态文件。默认：**true**。
 
 **-lock-timeout=**_DURATION_
-> How long to wait to acquire the state lock. Example: **20s**.
+> 等待获取状态锁的时长。示例：**20s**。
 
 **-parallelism=**_N_
-> Limit concurrent resource operations. Default: **10**.
+> 限制并发资源操作数。默认：**10**。
 
 **-refresh=**_BOOL_
-> Whether to refresh state before planning. Default: **true**.
+> 是否在规划前刷新状态。默认：**true**。
 
 **-state=**_PATH_
-> Path to the state file. Default: **terraform.tfstate**.
+> 状态文件的路径。默认：**terraform.tfstate**。
 
 **-no-color**
-> Disable color output
+> 禁用彩色输出
 
 # DESCRIPTION
 
-**terraform destroy** permanently deletes all infrastructure resources tracked in the current Terraform state file. It is a convenience alias for **terraform apply -destroy**.
+**terraform destroy** 永久删除当前 Terraform 状态文件中跟踪的所有基础设施资源。它是 **terraform apply -destroy** 的便捷别名。
 
-The command reads the state file to identify managed resources, validates state against cloud provider APIs, builds a dependency graph to determine the correct reverse destruction order, presents a plan for confirmation, and then deletes resources via provider APIs. After completion, it updates the state file to reflect that the resources no longer exist.
+该命令读取状态文件以识别受管资源，针对云服务商 API 验证状态，构建依赖图以确定正确的反向销毁顺序，给出计划供确认，然后通过服务商 API 删除资源。完成后它会更新状态文件，反映这些资源已不存在。
 
-It is designed primarily for ephemeral infrastructure in development and testing environments. For production, it should only be used in controlled decommissioning scenarios.
+它主要用于开发和测试环境中的临时基础设施。对于生产环境，只应在受控的下线场景中使用。
 
 # CAVEATS
 
-This command is **irreversible**. Once resources are destroyed, the cloud provider removes them permanently and Terraform cannot restore them. If a destroy operation fails partway through, you may end up in a partially destroyed state. The command operates exclusively based on the state file and has no awareness of resources not tracked in state. Resources with **deletion protection** enabled at the provider level cannot be destroyed until protection is manually disabled. Configurations using **lifecycle { prevent_destroy = true }** will cause the destroy to fail with an error. Using **-target** for selective destruction can leave infrastructure in an inconsistent state and should be reserved for exceptional situations.
+此命令**不可逆**。资源一旦被销毁，云服务商将其永久移除，Terraform 无法恢复它们。如果销毁操作在中途失败，你可能处于部分销毁的状态。该命令完全基于状态文件运行，不感知未在状态中跟踪的资源。在服务商层面启用了**删除保护**的资源，在手动解除保护之前无法销毁。配置了 **lifecycle { prevent_destroy = true }** 的资源会使销毁失败并报错。使用 **-target** 进行选择性销毁可能使基础设施处于不一致的状态，应仅用于例外情况。
 
 # HISTORY
 
-**Terraform** was created by **Mitchell Hashimoto** and **Armon Dadgar** at **HashiCorp**, with **v0.1.0** released in **July 2014**. The destroy subcommand has been part of Terraform's core workflow since the earliest releases. In **v0.15.2** (April 2021), **terraform apply -destroy** was added as the explicit form, making **terraform destroy** an official convenience alias. Terraform reached general availability with **v1.0.0** in **June 2021**.
+**Terraform** 由 **Mitchell Hashimoto** 和 **Armon Dadgar** 在 **HashiCorp** 创建，**v0.1.0** 于 **2014 年 7 月**发布。destroy 子命令自最早版本起就是 Terraform 核心工作流的一部分。在 **v0.15.2**（2021 年 4 月）中，**terraform apply -destroy** 作为显式形式加入，使 **terraform destroy** 成为官方认可的便捷别名。Terraform 于 **2021 年 6 月**随 **v1.0.0** 正式发布（GA）。
 
 # INSTALL
 

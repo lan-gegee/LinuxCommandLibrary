@@ -1,12 +1,12 @@
 # TAGLINE
 
-Conditionally stop a systemd unit
+有条件地停止 systemd unit
 
 # TLDR
 
-This command is an alias of [systemctl stop](/man/systemctl-stop).
+此命令是 [systemctl stop](/man/systemctl-stop) 的别名。
 
-**Conditionally stop a service**
+**有条件地停止服务**
 
 ```systemctl condstop [unit]```
 

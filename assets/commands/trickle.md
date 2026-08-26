@@ -1,30 +1,30 @@
 # TAGLINE
 
-Userspace bandwidth shaper for applications
+面向应用程序的用户态带宽整形器
 
 # TLDR
 
-**Limit download speed** of a command
+限制命令的下载速度
 
 ```trickle -d [100] [command]```
 
-**Limit upload speed** of a command
+限制命令的上传速度
 
 ```trickle -u [50] [command]```
 
-**Limit both download and upload**
+同时限制下载和上传
 
 ```trickle -d [100] -u [50] [command]```
 
-**Run in standalone mode**
+以独立模式运行
 
 ```trickle -s -d [100] -u [50] [command]```
 
-**Limit wget download speed**
+限制 wget 的下载速度
 
 ```trickle -d [200] wget [https://example.com/file.iso]```
 
-**Limit scp transfer speed**
+限制 scp 的传输速度
 
 ```trickle -d [50] -u [50] scp [file] [user@host:/path]```
 
@@ -35,53 +35,53 @@ Userspace bandwidth shaper for applications
 # PARAMETERS
 
 **-d** _rate_
-> Limit download bandwidth to rate KB/s.
+> 将下载带宽限制为 rate KB/s。
 
 **-u** _rate_
-> Limit upload bandwidth to rate KB/s.
+> 将上传带宽限制为 rate KB/s。
 
 **-s**
-> Run in standalone mode, independent of trickled.
+> 以独立模式运行，不依赖 trickled。
 
 **-w** _length_
-> Peak detection window size in KB. Lower values are more aggressive but may over-shape (default: 512).
+> 峰值检测窗口大小，单位 KB。数值越小越激进，但可能过度整形（默认：512）。
 
 **-t** _seconds_
-> Smoothing time interval in seconds (default: 5).
+> 平滑时间间隔，单位秒（默认：5）。
 
 **-l** _length_
-> Smoothing length in KB (default: 10).
+> 平滑长度，单位 KB（默认：10）。
 
 **-L** _latency_
-> Set latency in milliseconds for shaping calculations.
+> 设置用于整形计算的延迟，单位毫秒。
 
 **-n** _path_
-> trickled socket path (default: /tmp/.trickled.sock).
+> trickled 套接字路径（默认：/tmp/.trickled.sock）。
 
 **-v**
-> Increase verbosity level. Can be specified multiple times.
+> 提高详细程度。可多次指定。
 
 **-V**
-> Display version information.
+> 显示版本信息。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**trickle** is a lightweight userspace bandwidth shaper that limits network bandwidth consumption of individual applications. It works without root privileges or kernel modifications by intercepting socket calls.
+**trickle** 是一个轻量级的用户态带宽整形器，用于限制单个应用程序的网络带宽消耗。它通过拦截套接字调用来工作，无需 root 权限，也无需修改内核。
 
-The tool uses preloading (LD_PRELOAD) to inject bandwidth limiting into dynamically linked applications. In standalone mode (-s), each application gets its own bandwidth limits. When trickled daemon is running, bandwidth can be shared among multiple applications.
+该工具使用预加载（LD_PRELOAD）技术向动态链接的应用注入带宽限制。在独立模式 (-s) 下，每个应用拥有各自的带宽限制。当 trickled 守护进程运行时，多个应用之间可以共享带宽。
 
-Use cases include preventing a single download from saturating your connection, testing application behavior under low bandwidth, and fair bandwidth allocation among processes.
+典型用例包括：防止单个下载占满整个连接、测试应用在低带宽下的行为，以及在多个进程之间公平分配带宽。
 
 # CAVEATS
 
-Only works with dynamically linked executables using TCP (SOCK_STREAM) sockets. Does not work with statically linked or setuid programs. UDP traffic is not affected. Standalone mode uses fixed limits; daemon mode allows shared limits via trickled.
+仅对使用 TCP (SOCK_STREAM) 套接字的动态链接可执行文件有效。对静态链接或 setuid 程序无效。UDP 流量不受影响。独立模式使用固定限额；守护进程模式可通过 trickled 共享限额。
 
 # HISTORY
 
-**trickle** was developed by Marius Aamodt Eriksen as a simple solution for application-level bandwidth limiting. It provides an alternative to complex traffic control solutions like tc, working entirely in userspace without system-wide configuration.
+**trickle** 由 Marius Aamodt Eriksen 开发，是一种简单的应用层带宽限制方案。它提供了 tc 等复杂流量控制方案的替代选择，完全在用户态工作，无需系统级配置。
 
 # INSTALL
 

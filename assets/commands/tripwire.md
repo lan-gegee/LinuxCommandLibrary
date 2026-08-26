@@ -1,30 +1,30 @@
 # TAGLINE
 
-Host-based filesystem integrity monitoring
+基于主机的文件系统完整性监控
 
 # TLDR
 
-**Initialize the database** (create baseline)
+初始化数据库（建立基线）
 
 ```sudo tripwire --init```
 
-**Run an integrity check**
+执行完整性检查
 
 ```sudo tripwire --check```
 
-**Run integrity check** in interactive mode
+以交互模式执行完整性检查
 
 ```sudo tripwire --check --interactive```
 
-**Update the database** after legitimate changes
+合法变更之后更新数据库
 
 ```sudo tripwire --update --twrfile [path/to/report.twr]```
 
-**Update the policy file**
+更新策略文件
 
 ```sudo tripwire --update-policy [path/to/policy.txt]```
 
-**Test the configuration** without modifying
+测试配置而不做修改
 
 ```sudo tripwire --test```
 
@@ -35,78 +35,78 @@ Host-based filesystem integrity monitoring
 # PARAMETERS
 
 **-m i**, **--init**
-> Database initialization mode. Create baseline database from current filesystem state.
+> 数据库初始化模式。根据当前文件系统状态创建基线数据库。
 
 **-m c**, **--check**
-> Integrity checking mode. Compare current filesystem against baseline database.
+> 完整性检查模式。将当前文件系统与基线数据库进行比较。
 
 **-m u**, **--update**
-> Database update mode. Update database to reflect legitimate changes.
+> 数据库更新模式。更新数据库以反映合法的变更。
 
 **-m p**, **--update-policy**
-> Policy update mode. Apply new policy and synchronize database.
+> 策略更新模式。应用新策略并同步数据库。
 
 **-m t**, **--test**
-> Test mode. Verify configuration without making changes.
+> 测试模式。验证配置而不做更改。
 
 **-I**, **--interactive**
-> Open report in editor after integrity check for easy database update selection.
+> 完整性检查后在编辑器中打开报告，便于选择要更新的数据库条目。
 
 **-r** _file_, **--twrfile** _file_
-> Specify report file for database update mode.
+> 为数据库更新模式指定报告文件。
 
 **-p** _file_, **--polfile** _file_
-> Specify policy file to use.
+> 指定要使用的策略文件。
 
 **-c** _file_, **--cfgfile** _file_
-> Specify configuration file location.
+> 指定配置文件的位置。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-s**, **--silent**
-> Suppress output except errors.
+> 屏蔽除错误之外的所有输出。
 
 **-n**, **--no-tty-output**
-> Suppress report from being printed to console.
+> 不将报告打印到控制台。
 
 **-E**, **--signed-report**
-> Create cryptographically signed report.
+> 创建经过加密签名的报告。
 
 # DESCRIPTION
 
-**Tripwire** is a host-based intrusion detection system (HIDS) that monitors filesystem integrity. It creates a baseline database of file attributes and periodically compares the current state against this baseline to detect unauthorized additions, deletions, or modifications.
+**Tripwire** 是一个基于主机的入侵检测系统 (HIDS)，用于监控文件系统的完整性。它创建一个记录文件属性的基线数据库，并定期将当前状态与该基线比较，以检测未经授权的添加、删除或修改。
 
-The tool operates in several modes: initialization creates the baseline database, integrity checking compares current files against the baseline, database update incorporates legitimate changes, and policy update modifies monitoring rules. All database and policy files are cryptographically signed to prevent tampering.
+该工具有多种运行模式：初始化创建基线数据库；完整性检查将当前文件与基线比较；数据库更新纳入合法的变更；策略更新则修改监控规则。所有数据库和策略文件都经过加密签名以防篡改。
 
-Tripwire uses two encryption keys: a site key for organization-wide policies and a local key unique to each server. This allows centralized policy management while maintaining per-server database security.
+Tripwire 使用两把加密密钥：站点密钥用于组织范围的策略，本地密钥则对每台服务器唯一。这样既能集中管理策略，又能保持每台服务器数据库的安全性。
 
-Exit codes from integrity checking indicate what changed: 0 (no changes), 1 (files added), 2 (files modified), 4 (files deleted), 8 (errors).
+完整性检查的退出码表示发生了什么变化：0（无变化）、1（新增文件）、2（文件被修改）、4（文件被删除）、8（出错）。
 
 # CONFIGURATION
 
 **/etc/tripwire/tw.cfg**
-> Main configuration file specifying database location, report directory, and mail settings.
+> 主配置文件，指定数据库位置、报告目录和邮件设置。
 
 **/etc/tripwire/tw.pol**
-> Policy file defining which files and directories to monitor and what attributes to check.
+> 策略文件，定义要监控哪些文件和目录以及检查哪些属性。
 
 **/var/lib/tripwire/$(HOSTNAME).twd**
-> Baseline database file containing recorded filesystem state.
+> 基线数据库文件，包含记录下来的文件系统状态。
 
 **TRIPWIRE_SITE_KEY**
-> Path to the site key used for signing policy and configuration files.
+> 用于签署策略和配置文件的站点密钥路径。
 
 **TRIPWIRE_LOCAL_KEY**
-> Path to the local key used for signing the database and reports.
+> 用于签署数据库和报告的本地密钥路径。
 
 # CAVEATS
 
-The baseline database must be created after a known-clean system state. Running with verbose output can expose sensitive file paths. Reports should be reviewed promptly as attackers could modify files and then restore them between checks. The database file should be stored securely, preferably on read-only media.
+基线数据库必须在确认系统处于干净状态之后创建。以详细输出运行可能暴露敏感的文件路径。报告应及时审阅，因为攻击者可能在两次检查之间修改文件后又恢复原状。数据库文件应妥善保管，最好存放在只读介质上。
 
 # HISTORY
 
-**Tripwire** was originally developed by **Gene Kim** and **Gene Spafford** at **Purdue University** in **1992** as an academic research project. It became one of the first file integrity monitoring tools widely adopted for Unix security. The open-source version was later maintained by Tripwire Inc., with a commercial enterprise version also available. It remains a foundational tool in host-based intrusion detection.
+**Tripwire** 最初由 **Gene Kim** 和 **Gene Spafford** 于 **1992 年**在**普渡大学**作为学术研究项目开发。它是最早被广泛用于 Unix 安全的文件完整性监控工具之一。开源版本后来由 Tripwire Inc. 维护，同时也有商业企业版可用。它至今仍是基于主机的入侵检测领域的基础工具。
 
 # INSTALL
 

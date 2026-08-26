@@ -1,18 +1,18 @@
 # TAGLINE
 
-List pending systemd jobs
+列出待处理的 systemd 任务
 
 # TLDR
 
-List **all** pending and running jobs
+列出**所有**待处理和正在运行的任务
 
 ```systemctl list-jobs```
 
-Filter jobs matching a **pattern**
+按**模式**匹配过滤任务
 
 ```systemctl list-jobs [pattern]```
 
-**Cancel** a specific job by ID
+按 ID **取消**特定任务
 
 ```systemctl cancel [job_id]```
 
@@ -22,35 +22,35 @@ Filter jobs matching a **pattern**
 
 # DESCRIPTION
 
-**systemctl list-jobs** displays the queue of pending and running jobs in the systemd service manager. Jobs represent state change operations like starting, stopping, or reloading units.
+**systemctl list-jobs** 显示 systemd 服务管理器中待处理和正在运行的任务队列。任务代表状态更改操作，例如启动、停止或重新加载单元。
 
-The output shows the job ID, unit name, job type (start, stop, reload, etc.), and state (waiting, running). Jobs appear during boot or when multiple unit state changes are triggered.
+输出内容包括任务 ID、单元名称、任务类型（start、stop、reload 等）和状态（waiting、running）。任务会在启动期间或触发多个单元状态更改时出现。
 
 # JOB TYPES
 
-**start** - Starting a unit
+**start** - 启动一个单元
 
-**stop** - Stopping a unit
+**stop** - 停止一个单元
 
-**reload** - Reloading configuration
+**reload** - 重新加载配置
 
-**restart** - Restarting a unit
+**restart** - 重启一个单元
 
-**try-restart** - Restarting a unit if active
+**try-restart** - 若单元处于活动状态则重启它
 
-**reload-or-restart** - Reloading or restarting a unit
+**reload-or-restart** - 重新加载或重启一个单元
 
-**verify-active** - Checking if active
+**verify-active** - 检查是否处于活动状态
 
-**nop** - No operation (used for ordering)
+**nop** - 无操作（用于排序）
 
 # CAVEATS
 
-The job queue is usually empty on an idle system. Jobs appear briefly during state changes and may complete before the command output is displayed. Job IDs are used with `systemctl cancel`.
+空闲系统的任务队列通常是空的。任务只在状态更改期间短暂存在，可能在命令输出显示之前就已完成。任务 ID 可配合 `systemctl cancel` 使用。
 
 # HISTORY
 
-The **list-jobs** subcommand provides visibility into systemd's internal job queue, useful for debugging stuck boots or understanding why services are not starting. It has been part of systemd since its initial release.
+**list-jobs** 子命令让 systemd 的内部任务队列可见，可用于排查卡住的启动过程或了解服务为何未能启动。它自 systemd 首个版本起就存在。
 
 # SEE ALSO
 

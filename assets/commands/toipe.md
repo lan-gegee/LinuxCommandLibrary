@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal-based typing speed test
+基于终端的打字速度测试
 
 # TLDR
 
-**Start a typing test** with the default settings
+以默认设置**开始打字测试**
 
 ```toipe```
 
-**Choose a built-in wordlist**
+**选择一个内置词表**
 
 ```toipe -w [top1000]```
 
-**Use a custom wordlist** file
+**使用自定义词表**文件
 
 ```toipe -f [path/to/words.txt]```
 
-**Set the number of words** per test
+**设置每次测试的单词数量**
 
 ```toipe -n [50]```
 
-**List built-in** wordlists
+**列出内置**词表
 
 ```toipe --list```
 
@@ -31,36 +31,36 @@ Terminal-based typing speed test
 # PARAMETERS
 
 **-w** _WORDLIST_
-> Built-in wordlist name (top250, top500, top1000, ...).
+> 内置词表名称（top250、top500、top1000 等）。
 
 **-f** _FILE_
-> Read words from a custom newline-separated file.
+> 从自定义的换行分隔文件中读取单词。
 
 **-n** _COUNT_
-> Number of words to include in the test.
+> 测试中包含的单词数量。
 
 **-p**, **--punctuation**
-> Include punctuation in generated text.
+> 在生成的文本中加入标点符号。
 
 **--list**
-> List available built-in wordlists and exit.
+> 列出可用的内置词表后退出。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**toipe** is a terminal-based typing speed test written in Rust. It draws random words from a wordlist, presents them as a single paragraph in the terminal, and tracks per-character errors as you type. At the end of a run it prints words per minute (WPM), characters per minute (CPM), and accuracy.
+**toipe** 是一款用 Rust 编写的基于终端的打字速度测试工具。它从词表中抽取随机单词，在终端中以单个段落的形式呈现，并在你输入时逐字符跟踪错误。每轮结束后它会打印每分钟单词数（WPM）、每分钟字符数（CPM）和准确率。
 
-Several built-in wordlists ship with the binary, grouped by difficulty. Custom lists can be loaded with **-f**, allowing practice on programming keywords, foreign-language vocabulary, or domain-specific text.
+二进制文件附带多个按难度分组的内置词表。自定义词表可通过 **-f** 加载，便于练习编程关键字、外语词汇或特定领域的文本。
 
 # CAVEATS
 
-Terminal-based only; requires a terminal that supports raw mode. Performance reporting assumes a one-second resolution clock. The shipped wordlists are English-only, but **-f** accepts any UTF-8 file. Wordlists with characters outside the typical 7-bit ASCII range may not render correctly on legacy terminals.
+仅限终端环境；需要支持 raw 模式的终端。性能报告假设时钟具有一秒分辨率。自带的词表仅含英语，但 **-f** 可接受任何 UTF-8 文件。含有典型 7 位 ASCII 范围之外字符的词表可能在传统终端上无法正确渲染。
 
 # HISTORY
 
-**toipe** was created as a terminal-based typing test application written in Rust.
+**toipe** 是一款用 Rust 编写的基于终端的打字测试应用。
 
 # INSTALL
 

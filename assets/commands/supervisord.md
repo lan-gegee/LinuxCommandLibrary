@@ -1,26 +1,26 @@
 # TAGLINE
 
-Process control and auto-restart daemon
+进程控制与自动重启守护进程
 
 # TLDR
 
-**Start supervisord**
+**启动 supervisord**
 
 ```supervisord```
 
-**Use config file**
+**使用配置文件**
 
 ```supervisord -c [/etc/supervisor/supervisord.conf]```
 
-**Run in foreground**
+**在前台运行**
 
 ```supervisord -n```
 
-**Debug mode**
+**调试模式**
 
 ```supervisord -e debug```
 
-**Check configuration**
+**检查配置**
 
 ```supervisord -c [supervisord.conf] -t```
 
@@ -31,49 +31,49 @@ Process control and auto-restart daemon
 # PARAMETERS
 
 **-c** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-n**
-> Run in foreground.
+> 在前台运行。
 
 **-e** _LEVEL_
-> Log level.
+> 日志级别。
 
 **-t**
-> Test configuration.
+> 测试配置。
 
 **-d** _DIR_
-> Working directory.
+> 工作目录。
 
 **-u** _USER_
-> Run as user.
+> 以指定用户身份运行。
 
 **-j** _FILE_
-> Pidfile path.
+> PID 文件路径。
 
 # DESCRIPTION
 
-**supervisord** is a process control daemon that manages long-running processes, automatically restarting them if they crash or exit unexpectedly. It is widely used to run application servers, background workers, and other services that need reliable process supervision.
+**supervisord** 是一个进程控制守护进程，用于管理长期运行的进程，并在它们崩溃或意外退出时自动重启。它被广泛用于运行应用服务器、后台工作进程以及其他需要可靠进程监管的服务。
 
-The configuration file defines programs with their commands, environment variables, user permissions, and restart policies. Programs can be organized into groups for coordinated management. The daemon captures stdout and stderr from managed processes, writing them to log files with configurable rotation.
+配置文件定义各个程序及其命令、环境变量、用户权限和重启策略。程序可以组织成组以便协同管理。守护进程会捕获受管进程的 stdout 和 stderr，将其写入支持可配置轮转的日志文件。
 
-Event listeners allow custom scripts to respond to process state changes such as crashes or transitions. The daemon communicates with supervisorctl through a Unix socket or TCP connection, and provides an optional web interface for process management.
+事件监听器允许自定义脚本响应崩溃或状态转换等进程状态变化。守护进程通过 Unix 套接字或 TCP 连接与 supervisorctl 通信，并提供可选的 Web 界面进行进程管理。
 
 # CONFIGURATION
 
 **/etc/supervisor/supervisord.conf**
-> Main configuration file defining programs, groups, logging, and socket settings.
+> 定义程序、分组、日志和套接字设置的主配置文件。
 
 **/etc/supervisor/conf.d/*.conf**
-> Drop-in directory for individual program configuration files.
+> 存放各程序配置文件的插入式目录。
 
 # CAVEATS
 
-Not a replacement for init systems. Single point of failure. Needs its own monitoring.
+不能替代 init 系统。存在单点故障。需要对它自身进行监控。
 
 # HISTORY
 
-**Supervisor** was created by **Chris McDonough** (Agendaless Consulting). It provides simple process management for Python applications and beyond.
+**Supervisor** 由 **Chris McDonough**（Agendaless Consulting）创建。它为 Python 应用及其他程序提供简单的进程管理。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Single-user mode root login prompt
+单用户模式的 root 登录提示符
 
 # TLDR
 
-**Start** sulogin on the default console
+在默认控制台上**启动** sulogin
 
 ```sudo sulogin```
 
-**Start** sulogin on a specific TTY device
+在指定 TTY 设备上**启动** sulogin
 
 ```sudo sulogin [/dev/ttyX]```
 
-**Set** a maximum timeout for entering the password
+**设置**输入密码的最大超时时间
 
 ```sudo sulogin -t [timeout]```
 
-**Start** root's shell as a login shell
+以登录 Shell 方式**启动** root 的 Shell
 
 ```sudo sulogin -p```
 
-**Force** a root shell without asking for a password
+**强制**进入 root Shell 而不询问密码
 
 ```sudo sulogin -e```
 
@@ -31,29 +31,29 @@ Single-user mode root login prompt
 # PARAMETERS
 
 **-t**, **--timeout** _seconds_
-> Maximum time to wait for password before continuing boot
+> 等待密码的最长时间，超时后继续启动
 
 **-p**, **--login-shell**
-> Start the shell as a login shell
+> 以登录 Shell 方式启动 Shell
 
 **-e**, **--force**
-> Examine default password files and skip prompt if root has no password
+> 检查默认密码文件，若 root 没有密码则跳过提示
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**sulogin** is invoked by init when the system enters single-user mode. It prompts for the root password and starts a root shell. This is used for system maintenance and recovery.
+**sulogin** 由 init 在系统进入单用户模式时调用。它会提示输入 root 密码并启动一个 root Shell，用于系统维护和恢复。
 
-The command is typically called automatically during boot when entering single-user or rescue mode. It provides secure access to the system when normal multi-user services are not running.
+该命令通常在启动过程中进入单用户模式或救援模式时被自动调用。它在常规多用户服务尚未运行时提供对系统的安全访问。
 
 # CAVEATS
 
-Requires physical console access. The **-e** option should only be used when root has no password set (common in initramfs environments). Part of the util-linux package.
+需要物理控制台访问权限。**-e** 选项仅应在 root 未设置密码时使用（常见于 initramfs 环境）。属于 util-linux 软件包。
 
 # INSTALL
 

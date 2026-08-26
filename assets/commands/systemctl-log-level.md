@@ -1,14 +1,14 @@
 # TAGLINE
 
-Get or set systemd log verbosity
+获取或设置 systemd 日志详细程度
 
 # TLDR
 
-Show **current** log level
+显示**当前的**日志级别
 
 ```systemctl log-level```
 
-**Set** log level
+**设置**日志级别
 
 ```systemctl log-level [emerg|alert|crit|err|warning|notice|info|debug]```
 
@@ -18,35 +18,35 @@ Show **current** log level
 
 # LOG LEVELS
 
-**emerg** - System is unusable
+**emerg** - 系统不可用
 
-**alert** - Immediate action required
+**alert** - 需要立即采取行动
 
-**crit** - Critical conditions
+**crit** - 严重状况
 
-**err** - Error conditions
+**err** - 错误状况
 
-**warning** - Warning conditions
+**warning** - 警告状况
 
-**notice** - Normal but significant
+**notice** - 正常但值得注意
 
-**info** - Informational messages
+**info** - 信息性消息
 
-**debug** - Debug-level messages
+**debug** - 调试级别消息
 
 # DESCRIPTION
 
-**systemctl log-level** gets or sets the logging verbosity of the systemd service manager (PID 1). Without arguments, it displays the current level. With a level argument, it changes the verbosity at runtime.
+**systemctl log-level** 获取或设置 systemd 服务管理器（PID 1）的日志详细程度。不带参数时，显示当前级别。带级别参数时，在运行时更改详细程度。
 
-Higher verbosity levels (debug, info) produce more log output and can help diagnose issues. Lower levels (err, crit) reduce noise in production.
+更高的详细程度（debug、info）会产生更多日志输出，有助于诊断问题。更低的级别（err、crit）可减少生产环境中的日志噪音。
 
 # CAVEATS
 
-Changes are temporary and reset on reboot. For permanent changes, modify the systemd configuration. Debug level can produce significant log volume and impact performance.
+更改是临时的，重启后会恢复原状。若要永久更改，请修改 systemd 配置。debug 级别会产生大量日志并影响性能。
 
 # HISTORY
 
-The **log-level** subcommand provides runtime control over systemd's verbosity, useful for temporary debugging without configuration changes or restarts.
+**log-level** 子命令提供对 systemd 详细程度的运行时控制，无需修改配置或重启即可进行临时调试。
 
 # SEE ALSO
 

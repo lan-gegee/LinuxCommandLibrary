@@ -1,22 +1,22 @@
 # TAGLINE
 
-Disable swap devices and files
+禁用交换设备和交换文件
 
 # TLDR
 
-**Disable** a swap area
+**禁用**某个交换分区
 
 ```sudo swapoff /path/to/swapfile```
 
-Disable **all** swap areas
+禁用**所有**交换分区
 
 ```sudo swapoff -a```
 
-Disable swap by **label**
+按**标签**禁用交换空间
 
 ```sudo swapoff -L swap_label```
 
-Disable swap by **UUID**
+按 **UUID** 禁用交换空间
 
 ```sudo swapoff -U uuid```
 
@@ -26,35 +26,35 @@ Disable swap by **UUID**
 
 # DESCRIPTION
 
-**swapoff** disables swapping on the specified devices and files. When swapoff is called, all pages that are swapped to the specified areas are swapped back into RAM before the swap area is disabled.
+**swapoff** 禁用在指定设备和文件上的交换。调用 swapoff 时，所有已换出到指定区域的页面会先被换回 RAM，然后才禁用该交换区域。
 
 # PARAMETERS
 
 **-a, --all**
-> Disable all swap areas listed in /proc/swaps
+> 禁用 /proc/swaps 中列出的所有交换区域
 
 **-L label**
-> Disable swap partition with the specified label
+> 禁用具有指定标签的交换分区
 
 **-U uuid**
-> Disable swap partition with the specified UUID
+> 禁用具有指定 UUID 的交换分区
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-h, --help**
-> Display help text and exit
+> 显示帮助文本并退出
 
 **-V, --version**
-> Display version information and exit
+> 显示版本信息并退出
 
 # CAVEATS
 
-Disabling swap requires enough RAM to hold all swapped-out pages. If there is insufficient RAM, swapoff will fail. This can take significant time on heavily used swap areas.
+禁用交换需要有足够的 RAM 容纳所有换出的页面。RAM 不足时 swapoff 会失败。在重度使用的交换区域上，这一过程可能耗时较长。
 
 # HISTORY
 
-**swapoff** is part of the **util-linux** package. It is the counterpart to swapon for disabling swap space.
+**swapoff** 是 **util-linux** 软件包的一部分。它是 swapon 的对应工具，用于禁用交换空间。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Test management and execution framework
+测试管理与执行框架
 
 # TLDR
 
-**List** tests, plans, and stories
+**列出**测试、计划和故事
 
 ```tmt```
 
-**Initialize** project structure
+**初始化**项目结构
 
 ```tmt init```
 
-**Create** test with template
+**使用模板创建**测试
 
 ```tmt test create -t [beakerlib] --link [verifies:issue#1234]```
 
-List **tests/plans/stories**
+列出**测试/计划/故事**
 
 ```tmt [test|plan|story] ls [pattern]```
 
-Show test **metadata** with context
+结合上下文显示测试**元数据**
 
 ```tmt -c [arch=aarch64] test show```
 
-**Validate** tmt files
+**校验** tmt 文件
 
 ```tmt lint```
 
-**Run** all tests in a container
+在容器中**运行**所有测试
 
 ```tmt run```
 
-Use **filter**
+使用**过滤器**
 
 ```tmt tests ls -f [tag:foo] -f [tier:0]```
 
@@ -43,48 +43,48 @@ Use **filter**
 # COMMANDS
 
 **init**
-> Initialize tmt project structure
+> 初始化 tmt 项目结构
 
 **test** [create|ls|show]
-> Manage tests
+> 管理测试
 
 **plan** [ls|show]
-> Manage test plans
+> 管理测试计划
 
 **story** [ls|show]
-> Manage stories
+> 管理故事
 
 **run**
-> Execute tests
+> 执行测试
 
 **lint**
-> Validate tmt files
+> 校验 tmt 文件
 
 **try**
-> Try tests interactively
+> 交互式试用测试
 
 # PARAMETERS
 
 **-c, --context** _KEY=VALUE_
-> Set context for operations
+> 为操作设置上下文
 
 **-f, --filter** _EXPRESSION_
-> Filter items
+> 过滤条目
 
 **-t, --template** _NAME_
-> Use template for creation
+> 创建时使用模板
 
 # DESCRIPTION
 
-**tmt** (Test Management Tool) is a framework for creating, organizing, and executing tests. It uses metadata in YAML format to define tests, plans, and stories, enabling reproducible test execution across different environments.
+**tmt**（Test Management Tool）是用于创建、组织和执行测试的框架。它使用 YAML 格式的元数据定义测试、计划和故事，从而在不同环境中实现可复现的测试执行。
 
 # CAVEATS
 
-Requires proper tmt file structure. Tests run in containers by default. Complex plans may require additional provisioning setup.
+需要正确的 tmt 文件结构。测试默认在容器中运行。复杂的计划可能需要额外的资源调配配置。
 
 # HISTORY
 
-**tmt** was developed by **Red Hat** for managing tests across Fedora and RHEL, providing a unified test metadata format and execution framework.
+**tmt** 由 **Red Hat** 开发，用于管理 Fedora 和 RHEL 的测试，提供了统一的测试元数据格式和执行框架。
 
 # INSTALL
 

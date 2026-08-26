@@ -1,38 +1,38 @@
 # TAGLINE
 
-Spring Boot application framework CLI
+Spring Boot 应用框架 CLI
 
 # TLDR
 
-**Create new project** (via start.spring.io)
+**创建新项目**（通过 start.spring.io）
 
 ```spring init --dependencies=[web,data-jpa,postgresql] [myapp]```
 
-**Create with specific options**
+**以指定选项创建**
 
 ```spring init --build=[gradle] --java-version=[17] --packaging=[war] [myapp.zip]```
 
-**List available dependencies and options**
+**列出可用依赖和选项**
 
 ```spring init --list```
 
-**Encode a password** using bcrypt
+**使用 bcrypt 编码密码**
 
 ```spring encodepassword [password]```
 
-**Run Spring Boot application** with Maven wrapper
+**配合 Maven wrapper 运行 Spring Boot 应用**
 
 ```./mvnw spring-boot:run```
 
-**Run with Gradle** wrapper
+**配合 Gradle wrapper 运行**
 
 ```./gradlew bootRun```
 
-**Package as executable JAR**
+**打包为可执行 JAR**
 
 ```./mvnw package```
 
-**Show CLI version**
+**显示 CLI 版本**
 
 ```spring --version```
 
@@ -47,97 +47,97 @@ Spring Boot application framework CLI
 # SPRING CLI COMMANDS
 
 **init** [_options_] [_location_]
-> Create new project from start.spring.io.
+> 从 start.spring.io 创建新项目。
 
 **encodepassword** [_options_] _password_
-> Encode a password for use with Spring Security.
+> 为 Spring Security 编码密码。
 
 **shell**
-> Start interactive shell.
+> 启动交互式 Shell。
 
 **version**
-> Show CLI version.
+> 显示 CLI 版本。
 
 **help** [_command_]
-> Display help.
+> 显示帮助。
 
 # INIT OPTIONS
 
 **-d**, **--dependencies** _list_
-> Comma-separated list of dependency identifiers.
+> 以逗号分隔的依赖标识符列表。
 
 **-b**, **--build** _type_
-> Build system: maven (default), gradle.
+> 构建系统：maven（默认）、gradle。
 
 **-j**, **--java-version** _version_
-> Java version: 17, 21.
+> Java 版本：17、21。
 
 **-l**, **--language** _lang_
-> Language: java, kotlin, groovy.
+> 语言：java、kotlin、groovy。
 
 **-n**, **--name** _name_
-> Project name.
+> 项目名称。
 
 **-g**, **--group-id** _group_
-> Maven group ID.
+> Maven group ID。
 
 **-a**, **--artifact-id** _artifact_
-> Maven artifact ID.
+> Maven artifact ID。
 
 **-p**, **--packaging** _type_
-> Packaging: jar (default), war.
+> 打包方式：jar（默认）、war。
 
 **-v**, **--version** _version_
-> Project version (e.g. '0.0.1-SNAPSHOT').
+> 项目版本（例如 '0.0.1-SNAPSHOT'）。
 
 **--boot-version** _version_
-> Spring Boot version.
+> Spring Boot 版本。
 
 **-x**, **--extract**
-> Extract the project archive.
+> 解压项目归档。
 
 **-f**, **--force**
-> Force overwrite of existing files.
+> 强制覆盖已存在的文件。
 
 **--list**
-> List available options and dependencies.
+> 列出可用选项和依赖。
 
 # MAVEN/GRADLE GOALS
 
 **spring-boot:run** / **bootRun**
-> Run application.
+> 运行应用。
 
 **spring-boot:build-image** / **bootBuildImage**
-> Build OCI container image.
+> 构建 OCI 容器镜像。
 
 **package** / **bootJar**
-> Create executable JAR.
+> 创建可执行 JAR。
 
 **spring-boot:start** / **bootStart**
-> Start application in background.
+> 在后台启动应用。
 
 **spring-boot:stop** / **bootStop**
-> Stop background application.
+> 停止后台应用。
 
 # DESCRIPTION
 
-**spring** CLI and Spring Boot Maven/Gradle plugins manage Spring Boot applications. The CLI scaffolds new projects and encodes passwords; plugins handle building and running. The **run** command was removed in Spring Boot 3.0.
+**spring** CLI 与 Spring Boot 的 Maven/Gradle 插件用于管理 Spring Boot 应用。CLI 负责搭建新项目骨架和编码密码；插件负责构建和运行。**run** 命令已在 Spring Boot 3.0 中移除。
 
-**spring init** fetches project templates from start.spring.io with selected dependencies. Dependencies like web, data-jpa, security add starters that auto-configure functionality.
+**spring init** 从 start.spring.io 获取项目模板，并带上所选依赖。web、data-jpa、security 等依赖会添加自动配置相应功能的 starter。
 
-Running applications during development uses **bootRun** (Gradle) or **spring-boot:run** (Maven). DevTools enables hot reload when included as dependency.
+开发期间运行应用使用 **bootRun**（Gradle）或 **spring-boot:run**（Maven）。若将 DevTools 加入依赖，即可启用热重载。
 
-**bootJar** / **package** creates an executable JAR with embedded server. Run with **java -jar app.jar**. **bootBuildImage** creates OCI container images without Dockerfile.
+**bootJar** / **package** 创建内嵌服务器的可执行 JAR，用 **java -jar app.jar** 运行。**bootBuildImage** 无需 Dockerfile 即可创建 OCI 容器镜像。
 
-Native image support via GraalVM compiles to native executables with **-Pnative** profile. Requires GraalVM and produces fast-startup binaries.
+借助 GraalVM 的原生镜像支持，可通过 **-Pnative** profile 将应用编译为原生可执行文件。该方式要求 GraalVM，并生成启动迅速的二进制文件。
 
 # CAVEATS
 
-The **spring run** command was removed in Spring Boot 3.0; use Maven/Gradle plugins to run applications. CLI is primarily for project creation. Auto-configuration may conflict with custom config. Native image requires additional metadata. DevTools should be excluded from production.
+**spring run** 命令已在 Spring Boot 3.0 中移除；请改用 Maven/Gradle 插件来运行应用。CLI 主要用于项目创建。自动配置可能与自定义配置冲突。原生镜像需要额外的元数据。DevTools 应从生产环境中排除。
 
 # HISTORY
 
-Spring Boot was created by **Pivotal** (now VMware) team led by **Phil Webb** and released in **2014**. It simplified Spring Framework development with convention over configuration. Spring Boot 2.0 (2018) updated to Spring Framework 5. Version 3.0 (2022) required Java 17, removed the CLI **run** command, and added native compilation support. Spring Boot is the most widely used Java application framework.
+Spring Boot 由 **Phil Webb** 领导的 **Pivotal**（现为 VMware）团队创建，于 **2014 年**发布。它以"约定优于配置"的理念简化了 Spring Framework 开发。Spring Boot 2.0（2018 年）升级到 Spring Framework 5。3.0 版（2022 年）要求 Java 17，移除了 CLI 的 **run** 命令，并加入原生编译支持。Spring Boot 是使用最广泛的 Java 应用框架。
 
 # INSTALL
 

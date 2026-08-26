@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove the tainted status from a Terraform resource instance
+移除 Terraform 资源实例的 tainted 状态
 
 # TLDR
 
-**Remove taint** from a resource so it will not be replaced
+**移除资源的 taint 标记**，使其不会被替换
 
 ```terraform untaint aws_instance.example```
 
-**Untaint even if missing** from state
+即使资源在状态中**缺失也照样解除标记**
 
 ```terraform untaint -allow-missing module.foo.resource.bar```
 
-**Untaint without acquiring state lock**
+**解除标记时不获取状态锁**
 
 ```terraform untaint -lock=false aws_instance.example```
 
@@ -22,27 +22,27 @@ Remove the tainted status from a Terraform resource instance
 
 # DESCRIPTION
 
-**terraform untaint** clears the tainted flag from a resource instance in the state file. The resource will be treated normally on the next apply (no forced replacement). It does not modify remote infrastructure—only state.
+**terraform untaint** 清除状态文件中资源实例的 tainted 标志。该资源在下一次 apply 时将被正常对待（不强制替换）。它不会修改远程基础设施——只修改状态。
 
-Like `terraform taint`, this command is deprecated in favor of more explicit mechanisms such as `-replace` on apply.
+与 `terraform taint` 一样，此命令已被弃用，建议改用更明确的机制，例如 apply 时的 `-replace`。
 
 # PARAMETERS
 
 **-allow-missing**
-> Succeed even if the address does not exist in state.
+> 即使地址在状态中不存在也成功执行。
 
 **-lock**=_true|false_
-> Control state locking (default true). Use `-lock=false` to disable.
+> 控制状态锁定（默认 true）。使用 `-lock=false` 禁用。
 
 **-lock-timeout**=_duration_
-> How long to wait for a lock (e.g. `3s`).
+> 等待获取锁的时长（例如 `3s`）。
 
 **-no-color**
-> Disable terminal color sequences in output.
+> 禁用输出中的终端颜色序列。
 
 # CAVEATS
 
-Deprecated. Prefer `terraform apply -replace=...` when you need to force replacement. Untaint only removes the state marker; it does not repair remote objects.
+已弃用。需要强制替换时，请优先使用 `terraform apply -replace=...`。untaint 只移除状态中的标记；它不会修复远程对象。
 
 # INSTALL
 

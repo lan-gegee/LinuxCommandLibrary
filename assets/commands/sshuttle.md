@@ -1,34 +1,34 @@
 # TAGLINE
 
-Transparent VPN-like tunnel over a plain SSH connection
+基于普通 SSH 连接的透明类 VPN 隧道
 
 # TLDR
 
-**Tunnel all traffic**
+**隧道转发所有流量**
 
 ```sshuttle -r [user@host] 0/0```
 
-**Tunnel specific network**
+**隧道转发指定网络**
 
 ```sshuttle -r [user@host] [192.168.0.0/24]```
 
-**Tunnel multiple networks**
+**隧道转发多个网络**
 
 ```sshuttle -r [user@host] [10.0.0.0/8] [172.16.0.0/12]```
 
-**Exclude addresses**
+**排除地址**
 
 ```sshuttle -r [user@host] 0/0 -x [192.168.1.0/24]```
 
-**Tunnel with DNS**
+**隧道转发 DNS**
 
 ```sshuttle --dns -r [user@host] 0/0```
 
-**Auto-detect networks** (from server routes)
+**自动检测网络**（来自服务器路由）
 
 ```sshuttle -r [user@host] --auto-nets```
 
-**Verbose mode**
+**详细输出模式**
 
 ```sshuttle -v -r [user@host] [10.0.0.0/8]```
 
@@ -39,62 +39,62 @@ Transparent VPN-like tunnel over a plain SSH connection
 # PARAMETERS
 
 **-r** _SERVER_
-> Remote server (user@host).
+> 远程服务器（user@host）。
 
 **--dns**
-> Tunnel DNS queries.
+> 对 DNS 查询建立隧道。
 
 **-x** _SUBNET_
-> Exclude subnet.
+> 排除子网。
 
 **-l** _ADDR_
-> Listen address.
+> 监听地址。
 
 **--auto-nets**
-> Auto-detect server networks.
+> 自动检测服务器网络。
 
 **-H**, **--auto-hosts**
-> Scan for hostnames on the remote and add them to `/etc/hosts` for the duration of the tunnel.
+> 扫描远程的主机名，并在隧道存续期间将其添加到 `/etc/hosts`。
 
 **-N**, **--auto-nets**
-> Read the remote routing table and tunnel all networks the remote can reach (alias for the long option above).
+> 读取远程路由表，对远程可达的所有网络建立隧道（上面长选项的别名）。
 
 **-e** _CMD_, **--ssh-cmd** _CMD_
-> SSH command line to use (default: `ssh`).
+> 要使用的 SSH 命令行（默认：`ssh`）。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **--daemon**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **--pidfile** _FILE_
-> PID file.
+> PID 文件。
 
 **--method** _METHOD_
-> NAT method (auto, nat, tproxy).
+> NAT 方式（auto、nat、tproxy）。
 
 # DESCRIPTION
 
-**sshuttle** creates a VPN-like tunnel over SSH. It transparently redirects traffic through a remote server without configuring VPN software.
+**sshuttle** 通过 SSH 创建类 VPN 的隧道。它将流量透明地重定向到远程服务器，无需配置 VPN 软件。
 
-Unlike VPNs, sshuttle requires only SSH access. No server-side installation is needed beyond Python. It works where VPN ports are blocked.
+与 VPN 不同，sshuttle 只需要 SSH 访问权限。除 Python 外无需在服务器端安装任何东西。在 VPN 端口被封的环境中也能工作。
 
-Subnet specifications determine what traffic is tunneled. 0/0 tunnels everything. Specific subnets route only matching traffic.
+子网规格决定哪些流量走隧道。0/0 表示转发所有流量。具体子网则只路由匹配的流量。
 
-DNS tunneling prevents leaks. Remote DNS resolution hides query patterns from local networks.
+DNS 隧道可防止 DNS 泄漏。远程 DNS 解析能向本地网络隐藏查询模式。
 
-The tool uses iptables/pf to redirect traffic. Root access is needed locally for routing setup. The remote needs only SSH access.
+该工具使用 iptables/pf 重定向流量。本地需要 root 权限来设置路由。远程端只需要 SSH 访问权限。
 
-Auto-nets reads the remote routing table to tunnel all its accessible networks.
+auto-nets 会读取远程路由表，对其所有可达网络建立隧道。
 
 # CAVEATS
 
-Requires root locally. Not a full VPN (no UDP by default). Latency added by SSH. Some applications may not work through tunnel.
+本地需要 root 权限。不是完整的 VPN（默认不支持 UDP）。SSH 会带来额外延迟。某些应用程序可能无法通过隧道工作。
 
 # HISTORY
 
-**sshuttle** was created by **Avery Pennarun** around **2010**. It was described as a "poor man's VPN" that works wherever SSH works.
+**sshuttle** 由 **Avery Pennarun** 于 **2010 年**前后创建。它被称为"穷人版 VPN"，只要 SSH 可用就能工作。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Synology firmware upgrade utility
+Synology 固件升级工具
 
 # TLDR
 
-**Check** for available upgrades
+**检查**可用升级
 
 ```sudo synoupgrade --check```
 
-Check for **patches** only
+只检查**补丁**
 
 ```sudo synoupgrade --check-smallupdate```
 
-**Download** latest upgrade
+**下载**最新升级
 
 ```sudo synoupgrade --download```
 
-**Start** upgrade process
+**开始**升级过程
 
 ```sudo synoupgrade --start```
 
-**Auto** upgrade to latest
+**自动**升级到最新版本
 
 ```sudo synoupgrade --auto```
 
-**Auto** apply patches only
+**自动**只应用补丁
 
 ```sudo synoupgrade --auto-smallupdate```
 
-Upgrade from **patch file**
+从**补丁文件**升级
 
 ```sudo synoupgrade --patch [/path/to/file.pat]```
 
-Display **help**
+显示**帮助**
 
 ```synoupgrade```
 
@@ -47,57 +47,57 @@ Display **help**
 # PARAMETERS
 
 **-h**
-> Display help information
+> 显示帮助信息
 
 **-p, --patch** _file.pat_
-> Upgrade from local patch file (absolute path required)
+> 从本地补丁文件升级（需要绝对路径）
 
 **--no-reboot**
-> Prevent automatic reboot after upgrade
+> 阻止升级后自动重启
 
 **--check**
-> Check for available upgrades online
+> 在线检查可用升级
 
 **--check-smallupdate**
-> Check for patches without major version upgrade
+> 检查不含主版本升级的补丁
 
 **--download**
-> Download latest upgrade
+> 下载最新升级
 
 **--download-smallupdate**
-> Download patches only
+> 只下载补丁
 
 **--start**
-> Start the upgrade process
+> 开始升级过程
 
 **--auto**
-> Automatically upgrade to latest version
+> 自动升级到最新版本
 
 **--auto-smallupdate**
-> Automatically apply patches
+> 自动应用补丁
 
 **--online**
-> Check online servers for updates
+> 在线检查服务器上的更新
 
 **--online_download**
-> Download available updates
+> 下载可用的更新
 
 **--online_install**
-> Install downloaded updates
+> 安装已下载的更新
 
 # DESCRIPTION
 
-**synoupgrade** is the firmware upgrade utility for Synology DiskStation Manager (DSM). It provides command-line control over the NAS operating system update process, enabling both manual upgrades from local patch files and automated online updates.
+**synoupgrade** 是 Synology DiskStation Manager（DSM）的固件升级工具。它提供对 NAS 操作系统更新过程的命令行控制，既支持从本地补丁文件手动升级，也支持自动在线更新。
 
-The tool handles DSM's proprietary .pat firmware packages and manages the complete upgrade workflow including download, verification, installation, and system reboot.
+该工具处理 DSM 专有的 .pat 固件包，并管理包括下载、校验、安装和系统重启在内的完整升级流程。
 
 # CAVEATS
 
-Requires root privileges. SSH access must be enabled on the NAS. Only accepts Synology .pat firmware files. Interruption during upgrade can cause system corruption or data loss. Always backup critical data before upgrading. The system typically reboots after upgrade unless --no-reboot is specified.
+需要 root 权限。NAS 上必须启用 SSH 访问。只接受 Synology 的 .pat 固件文件。升级过程中断可能导致系统损坏或数据丢失。升级前务必备份重要数据。除非指定 --no-reboot，系统通常会在升级后重启。
 
 # HISTORY
 
-**synoupgrade** is developed by **Synology Inc.** as part of DiskStation Manager. Synology NAS devices have been available since **2004**, with DSM evolving as the primary operating system. The command-line upgrade tool complements the web-based Control Panel upgrade interface.
+**synoupgrade** 由 **Synology Inc.** 开发，是 DiskStation Manager 的一部分。Synology NAS 设备自 **2004 年**起上市，DSM 逐步演进为其主要操作系统。命令行升级工具是对 Web 控制面板升级界面的补充。
 
 # SEE ALSO
 

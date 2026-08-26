@@ -1,26 +1,26 @@
 # TAGLINE
 
-Preview Terraform infrastructure changes
+预览 Terraform 基础设施变更
 
 # TLDR
 
-**Create execution plan**
+**创建执行计划**
 
 ```terraform plan```
 
-**Save plan to file**
+**将计划保存到文件**
 
 ```terraform plan -out=[plan.tfplan]```
 
-**Plan with variable**
+**带变量的计划**
 
 ```terraform plan -var="[key]=[value]"```
 
-**Plan destroy**
+**计划销毁**
 
 ```terraform plan -destroy```
 
-**Plan specific target**
+**针对特定目标的计划**
 
 ```terraform plan -target=[resource]```
 
@@ -31,29 +31,29 @@ Preview Terraform infrastructure changes
 # PARAMETERS
 
 **-out** _file_
-> Save plan to file.
+> 将计划保存到文件。
 
 **-var** _name=value_
-> Set variable.
+> 设置变量。
 
 **-var-file** _file_
-> Variable file.
+> 变量文件。
 
 **-target** _resource_
-> Target specific resource.
+> 针对特定资源。
 
 **-destroy**
-> Plan destruction.
+> 规划销毁操作。
 
 **-refresh-only**
-> Only refresh state.
+> 仅刷新状态。
 
 **-detailed-exitcode**
-> Exit 2 if changes planned.
+> 若有变更计划则退出码为 2。
 
 # DESCRIPTION
 
-**terraform plan** creates an execution plan showing proposed changes. Compares current state with configuration. Review before applying to understand infrastructure changes.
+**terraform plan** 创建显示拟议变更的执行计划。它将当前状态与配置进行比较。在应用前先审阅计划，以了解基础设施的变更内容。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ Preview Terraform infrastructure changes
 # SEE ALSO
 
 [terraform](/man/terraform)(1), [terraform-apply](/man/terraform-apply)(1)
-

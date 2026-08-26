@@ -1,30 +1,30 @@
 # TAGLINE
 
-Transparent Git file encryption
+透明的 Git 文件加密
 
 # TLDR
 
-**Initialize encryption**
+**初始化加密**
 
 ```transcrypt```
 
-**With specific cipher**
+使用指定密码算法
 
 ```transcrypt -c [aes-256-cbc]```
 
-**Show credentials**
+**显示凭据**
 
 ```transcrypt -d```
 
-**Flush credentials**
+**清除凭据**
 
 ```transcrypt -f```
 
-**Rekey repository**
+**为仓库重新生成密钥**
 
 ```transcrypt -r```
 
-**Uninstall**
+**卸载**
 
 ```transcrypt -u```
 
@@ -35,38 +35,38 @@ Transparent Git file encryption
 # PARAMETERS
 
 **-c** _CIPHER_
-> Encryption cipher.
+> 加密密码算法。
 
 **-d**
-> Display credentials.
+> 显示凭据。
 
 **-f**
-> Flush credentials.
+> 清除凭据。
 
 **-r**
-> Rekey repository.
+> 为仓库重新生成密钥。
 
 **-u**
-> Uninstall.
+> 卸载。
 
 **-p** _PASSWORD_
-> Set password.
+> 设置密码。
 
 # DESCRIPTION
 
-**transcrypt** provides transparent encryption for files within a Git repository using OpenSSL symmetric ciphers. It leverages Git's built-in clean and smudge filter mechanisms to automatically encrypt files when they are staged and decrypt them when checked out, making the process seamless for daily development workflows.
+**transcrypt** 使用 OpenSSL 对称密码为 Git 仓库中的文件提供透明加密。它利用 Git 内置的 clean 和 smudge 过滤器机制，在文件暂存时自动加密、在检出时自动解密，让这一过程在日常开发工作流中无缝进行。
 
-The tool encrypts sensitive files on push so they are stored encrypted in the remote repository, while automatically decrypting them on pull for local use. It supports any cipher available through OpenSSL, with AES-256-CBC as the default. Credentials are managed through Git's credential helper system, and the repository can be rekeyed if a password needs to be changed.
+该工具会在推送时加密敏感文件，使其以加密形式存储在远程仓库中，并在拉取时自动解密供本地使用。它支持 OpenSSL 提供的任何密码算法，默认为 AES-256-CBC。凭据通过 Git 的凭据辅助（credential helper）系统管理；如果需要更改密码，可以为仓库重新生成密钥。
 
-Each clone of the repository requires initialization with the correct password to access encrypted files. The encryption configuration is stored in `.gitattributes`, which specifies which files should be encrypted.
+仓库的每个克隆都需要使用正确的密码进行初始化才能访问加密文件。加密配置保存在 `.gitattributes` 中，由其指定哪些文件应被加密。
 
 # CAVEATS
 
-Requires setup per clone. Password management. Git-specific.
+每个克隆都需要单独设置。需管理密码。仅适用于 Git。
 
 # HISTORY
 
-**transcrypt** was created for transparently encrypting files in a Git repository using OpenSSL.
+**transcrypt** 的设计目标是使用 OpenSSL 对 Git 仓库中的文件进行透明加密。
 
 # INSTALL
 

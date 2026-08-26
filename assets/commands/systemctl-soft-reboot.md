@@ -1,22 +1,22 @@
 # TAGLINE
 
-Restart userspace without kernel reboot
+不重启内核而重启用户空间
 
 # TLDR
 
-**Soft reboot** (userspace only)
+**软重启**（仅用户空间）
 
 ```systemctl soft-reboot```
 
-**Force** soft reboot
+**强制**软重启
 
 ```systemctl soft-reboot -f```
 
-**Schedule** soft reboot
+**安排**软重启
 
 ```systemctl soft-reboot --when "[timestamp]"```
 
-**Cancel** scheduled soft reboot
+**取消**已安排的软重启
 
 ```systemctl soft-reboot --when cancel```
 
@@ -27,24 +27,24 @@ Restart userspace without kernel reboot
 # PARAMETERS
 
 **-f, --force**
-> Force reboot even if inhibitors are present
+> 即使存在抑制锁也强制重启
 
 **--when** _TIMESTAMP_
-> Schedule reboot at specified time or cancel
+> 在指定时间安排重启或取消
 
 # DESCRIPTION
 
-**systemctl soft-reboot** shuts down and restarts userspace while keeping the kernel running. This is faster than a full reboot as it skips BIOS/firmware initialization and kernel boot.
+**systemctl soft-reboot** 关闭并重启用户空间，同时保持内核继续运行。由于跳过了 BIOS/固件初始化和内核引导，这比完整重启快得多。
 
-The kernel continues running; only systemd and all user services are restarted. This is useful for quickly testing service configurations or applying updates that don't require a kernel change.
+内核持续运行；只有 systemd 和所有用户服务被重启。这适用于快速测试服务配置或应用无需更换内核的更新。
 
 # CAVEATS
 
-Requires kernel support. Not suitable when kernel updates need to be applied. Some hardware state may persist inappropriately. Newer feature requiring recent systemd versions.
+需要内核支持。当需要应用内核更新时不适用。部分硬件状态可能不恰当地保留下来。这是较新的功能，需要较新版本的 systemd。
 
 # HISTORY
 
-The **soft-reboot** subcommand was added in systemd **254** to support faster system restarts for scenarios where only userspace changes need to take effect.
+**soft-reboot** 子命令在 systemd **254** 中加入，用于在只需用户空间更改生效的场景下实现更快的系统重启。
 
 # SEE ALSO
 

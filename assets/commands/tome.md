@@ -1,26 +1,26 @@
 # TAGLINE
 
-Roguelike dungeon crawler in Middle Earth
+中土世界背景的 Roguelike 地牢探索游戏
 
 # TLDR
 
-**Start the game**
+**启动游戏**
 
 ```tome```
 
-**Start with specific character file**
+**以指定的角色存档文件启动**
 
 ```tome -u [savefile]```
 
-**Start in graphics mode**
+**以图形模式启动**
 
 ```tome -g```
 
-**Start in text/ASCII mode**
+**以文本/ASCII 模式启动**
 
 ```tome -m```
 
-**Start with specific display size**
+**以指定的显示尺寸启动**
 
 ```tome -- -geometry [80x50]```
 
@@ -31,67 +31,67 @@ Roguelike dungeon crawler in Middle Earth
 # PARAMETERS
 
 **-u** _file_
-> Use specific save file.
+> 使用指定的存档文件。
 
 **-g**
-> Force graphics mode.
+> 强制图形模式。
 
 **-m**
-> Force monochrome/ASCII mode.
+> 强制单色/ASCII 模式。
 
 **-n**
-> Start a new character.
+> 创建一个新角色。
 
 **-r**
-> Restore from save file.
+> 从存档文件恢复。
 
 **-s**
-> Show high scores.
+> 显示高分榜。
 
 **-v**
-> Display version.
+> 显示版本。
 
 # CONTROLS
 
-**?**: Display help and key bindings.
+**?**: 显示帮助和按键绑定。
 
-**=**: Set game options.
+**=**：设置游戏选项。
 
-**Movement**: Arrow keys or vi keys (hjklyubn).
+**移动**：方向键或 vi 键（hjklyubn）。
 
-**>**: Go down stairs.
+**>**：下楼梯。
 
-**<**: Go up stairs.
+**<**：上楼梯。
 
-**i**: View inventory.
+**i**：查看物品栏。
 
-**d**: Drop item.
+**d**：丢弃物品。
 
-**e**: Eat food.
+**e**：进食。
 
-**q**: Quaff potion.
+**q**：喝药水。
 
-**r**: Read scroll.
+**r**：阅读卷轴。
 
-**w**: Wear/wield equipment.
+**w**：穿戴/装备武器防具。
 
-**Ctrl+S**: Save and exit.
+**Ctrl+S**：保存并退出。
 
 # DESCRIPTION
 
-**tome** (Tales of Middle Earth) is a roguelike dungeon crawling game set in Tolkien's Middle Earth. Players explore procedurally generated dungeons, fight monsters, collect items, and develop their character through experience and equipment.
+**tome**（Tales of Middle Earth）是一款以托尔金的中土世界为背景的 Roguelike 地牢探索游戏。玩家在程序生成的地牢中探险、与怪物战斗、收集物品，并通过经验和装备培养角色。
 
-The game features permadeath, meaning character death is permanent and save files are deleted upon death. It includes extensive character customization with multiple races, classes, and skills. The world includes themed locations from the Middle Earth setting.
+游戏采用永久死亡机制，即角色死亡是永久性的，存档文件会在死亡后被删除。它提供丰富的角色自定义选项，包括多种种族、职业和技能。游戏世界中包含取材自中土设定的主题场景。
 
-ToME descended from Angband and introduced many innovations including overworld travel, multiple dungeons, and expanded skill systems. The interface combines traditional roguelike keyboard commands with optional graphical tiles.
+ToME 源自 Angband，引入了许多创新，包括地表旅行、多个地牢以及扩展的技能系统。界面将传统的 Roguelike 键盘命令与可选的图形贴图相结合。
 
 # CAVEATS
 
-Permadeath means lost progress on death. Games can last many hours. Some versions require specific terminal sizes. The learning curve is steep for new roguelike players. Save files are deleted upon character death.
+永久死亡意味着角色死亡后进度即告丢失。一局游戏可能持续数小时。某些版本对终端尺寸有特定要求。对 Roguelike 新手来说学习曲线较为陡峭。角色死亡后存档文件会被删除。
 
 # HISTORY
 
-**ToME** began as PernAngband in 1994, evolving through several name changes before becoming Tales of Middle Earth. It forked from Angband to add story elements and a connected world. The name later changed to Tales of Maj'Eyal (ToME 4) after 2010, moving to an original fantasy setting while the Middle Earth version continued separately. ToME won the ASCII Dreams Roguelike of the Year award multiple times.
+**ToME** 于 1994 年以 PernAngband 之名起步，历经数次更名后才成为 Tales of Middle Earth。它从 Angband 分叉而来，加入了故事元素和相互连通的世界。2010 年之后更名为 Tales of Maj'Eyal（ToME 4），转向原创奇幻背景，而中土版本则继续独立发展。ToME 曾多次获得 ASCII Dreams 年度 Roguelike 奖。
 
 # SEE ALSO
 

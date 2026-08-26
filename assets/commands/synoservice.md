@@ -1,34 +1,34 @@
 # TAGLINE
 
-Synology NAS service management
+Synology NAS 服务管理
 
 # TLDR
 
-**List all services**
+**列出所有服务**
 
 ```synoservicecfg --list```
 
-**Check service status**
+**检查服务状态**
 
 ```synoservice --status [servicename]```
 
-**Start a service**
+**启动服务**
 
 ```synoservicecfg --start [servicename]```
 
-**Stop a service**
+**停止服务**
 
 ```synoservicecfg --stop [servicename]```
 
-**Force stop a service**
+**强制停止服务**
 
 ```synoservicecfg --hard-stop [servicename]```
 
-**Restart a service**
+**重启服务**
 
 ```synoservice --restart [servicename]```
 
-**Restart a package service**
+**重启软件包服务**
 
 ```synoservicectl --restart [pkgctl-WebStation]```
 
@@ -43,43 +43,43 @@ Synology NAS service management
 # PARAMETERS
 
 **--status**
-> Display status of specified service.
+> 显示指定服务的状态。
 
 **--start**
-> Start the specified service.
+> 启动指定的服务。
 
 **--stop**
-> Stop the specified service.
+> 停止指定的服务。
 
 **--restart**
-> Restart the specified service.
+> 重启指定的服务。
 
 **--hard-start**
-> Force start the service.
+> 强制启动服务。
 
 **--hard-stop**
-> Force stop the service.
+> 强制停止服务。
 
 **--list**
-> List all available services.
+> 列出所有可用服务。
 
 # DESCRIPTION
 
-**synoservice** and related commands (**synoservicecfg**, **synoservicectl**) are Synology NAS utilities for managing system and package services from the command line via SSH.
+**synoservice** 及相关命令（**synoservicecfg**、**synoservicectl**）是 Synology NAS 的实用工具，可通过 SSH 在命令行管理系统服务和软件包服务。
 
-These commands control DSM (DiskStation Manager) services including web server, Samba file sharing, SSH, FTP, Docker, and third-party packages. They are located in /usr/syno/sbin/ and require root privileges.
+这些命令控制 DSM（DiskStation Manager）的服务，包括 Web 服务器、Samba 文件共享、SSH、FTP、Docker 以及第三方套件。它们位于 /usr/syno/sbin/ 下，需要 root 权限。
 
-Common services include DSM, nginx, samba, ssh-shell, nfsd, ftpd, crond, and package services prefixed with pkgctl- such as pkgctl-Docker and pkgctl-WebStation.
+常见服务包括 DSM、nginx、samba、ssh-shell、nfsd、ftpd、crond，以及以 pkgctl- 为前缀的软件包服务，例如 pkgctl-Docker 和 pkgctl-WebStation。
 
-In DSM 7 and newer, the standard **systemctl** command can also be used for service management.
+在 DSM 7 及更新版本中，也可以使用标准的 **systemctl** 命令管理服务。
 
 # CAVEATS
 
-Requires SSH access and root privileges (use sudo -i). Commands may differ slightly between DSM versions. Package services use the pkgctl- prefix. Some critical services should not be stopped remotely. On DSM 7+, consider using systemctl as an alternative.
+需要 SSH 访问和 root 权限（使用 sudo -i）。不同 DSM 版本之间命令可能略有差异。软件包服务使用 pkgctl- 前缀。某些关键服务不应被远程停止。在 DSM 7 及以上版本，可考虑改用 systemctl。
 
 # HISTORY
 
-**synoservice** utilities are Synology-proprietary tools developed for their DiskStation Manager operating system. They provide a consistent interface for managing services across different DSM versions and hardware platforms. DSM 7 introduced better systemd integration alongside these legacy tools.
+**synoservice** 系列工具是 Synology 专有工具，为其 DiskStation Manager 操作系统开发。它们在不同 DSM 版本和硬件平台上提供一致的服务管理接口。DSM 7 在保留这些传统工具的同时引入了更好的 systemd 集成。
 
 # SEE ALSO
 

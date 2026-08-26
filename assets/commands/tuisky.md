@@ -1,22 +1,22 @@
 # TAGLINE
 
-TUI client for the Bluesky social network
+Bluesky 社交网络的 TUI 客户端
 
 # TLDR
 
-**Launch the Bluesky TUI client**
+**启动 Bluesky TUI 客户端**
 
 ```tuisky```
 
-**Specify a config file**
+**指定配置文件**
 
 ```tuisky -c [path/to/config.toml]```
 
-**Set maximum number of columns**
+**设置最大列数**
 
 ```tuisky -n [3]```
 
-**Show version**
+**显示版本**
 
 ```tuisky -V```
 
@@ -27,24 +27,24 @@ TUI client for the Bluesky social network
 # PARAMETERS
 
 **-c**, **--config** _CONFIG_
-> Path to configuration file.
+> 配置文件路径。
 
 **-n**, **--num-columns** _NUM_
-> Maximum number of columns to display (auto-determined by terminal width if not set).
+> 最大显示列数（未设置时根据终端宽度自动确定）。
 
 **-h**, **--help**
-> Print help.
+> 打印帮助信息。
 
 **-V**, **--version**
-> Print version.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**tuisky** is a terminal user interface client for Bluesky. It features multiple columns, multiple session management, pinned feed selection, auto-refresh, post creation with text and image embedding, notifications and chat, and configurable settings with auto-save and restore.
+**tuisky** 是 Bluesky 的终端用户界面客户端。它支持多栏布局、多会话管理、置顶信息流选择、自动刷新、带文本和图片的帖子发布、通知和聊天，以及可自动保存与恢复的可配置设置。
 
 # HISTORY
 
-**tuisky** was created by **sugyan** and is written in **Rust** using the ratatui TUI framework.
+**tuisky** 由 **sugyan** 创建，用 **Rust** 和 ratatui TUI 框架编写。
 
 # INSTALL
 

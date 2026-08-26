@@ -1,38 +1,38 @@
 # TAGLINE
 
-Query and set terminal capabilities
+查询和设置终端能力
 
 # TLDR
 
-**Set bold text**
+**设置粗体文本**
 
 ```tput bold```
 
-**Set foreground color** (0-7: black, red, green, yellow, blue, magenta, cyan, white)
+**设置前景色**（0-7：黑、红、绿、黄、蓝、洋红、青、白）
 
 ```tput setaf [2]```
 
-**Set background color**
+**设置背景色**
 
 ```tput setab [4]```
 
-**Reset all attributes** to default
+将所有属性**重置**为默认值
 
 ```tput sgr0```
 
-**Clear the screen**
+**清屏**
 
 ```tput clear```
 
-**Get terminal width** in columns
+以列数**获取终端宽度**
 
 ```tput cols```
 
-**Get terminal height** in lines
+以行数**获取终端高度**
 
 ```tput lines```
 
-**Move cursor** to row and column
+将光标**移动**到指定行列
 
 ```tput cup [5] [10]```
 
@@ -43,78 +43,78 @@ Query and set terminal capabilities
 # PARAMETERS
 
 **-T** _type_
-> Specify terminal type; defaults to $TERM environment variable
+> 指定终端类型；默认取 $TERM 环境变量
 
 **-S**
-> Read capabilities from stdin, allowing multiple operations
+> 从 stdin 读取能力，允许执行多个操作
 
 **-V**
-> Print ncurses version and exit
+> 打印 ncurses 版本并退出
 
 # COMMON CAPABILITIES
 
 **bold**
-> Enable bold mode
+> 启用粗体模式
 
 **dim**
-> Enable half-bright/dim mode
+> 启用半亮/暗淡模式
 
 **smul** / **rmul**
-> Start/end underline mode
+> 开始/结束下划线模式
 
 **rev**
-> Enable reverse video mode
+> 启用反显模式
 
 **blink**
-> Enable blinking text
+> 启用闪烁文本
 
 **smso** / **rmso**
-> Start/end standout mode
+> 开始/结束突出显示模式
 
 **sgr0**
-> Reset all attributes to default
+> 将所有属性重置为默认值
 
 **setaf** _n_
-> Set foreground color (0-7 or 0-255)
+> 设置前景色（0-7 或 0-255）
 
 **setab** _n_
-> Set background color
+> 设置背景色
 
 **clear**
-> Clear screen and move cursor home
+> 清屏并将光标移回起始位置
 
 **cup** _row_ _col_
-> Move cursor to position
+> 将光标移动到指定位置
 
 **cols**
-> Print number of columns
+> 输出列数
 
 **lines**
-> Print number of lines
+> 输出行数
 
 **sc** / **rc**
-> Save/restore cursor position
+> 保存/恢复光标位置
 
 **civis** / **cnorm**
-> Hide/show cursor
+> 隐藏/显示光标
 
 # DESCRIPTION
 
-**tput** queries the terminfo database to output terminal-dependent capabilities. It provides a portable way to control terminal features like colors, cursor positioning, and text attributes without hardcoding escape sequences.
+**tput** 查询 terminfo 数据库以输出与终端相关的能力。它提供了一种可移植的方式来控制颜色、光标定位和文本属性等终端特性，而无需硬编码转义序列。
 
-The command uses the **$TERM** environment variable to determine the terminal type and looks up the appropriate escape sequences. This makes scripts portable across different terminal emulators.
+该命令使用 **$TERM** 环境变量确定终端类型，并查找相应的转义序列。这使脚本可以在不同终端模拟器之间移植。
 
-Color numbers 0-7 represent basic colors: black (0), red (1), green (2), yellow (3), blue (4), magenta (5), cyan (6), white (7). Extended color terminals support 256 colors (0-255).
+颜色编号 0-7 代表基本颜色：黑（0）、红（1）、绿（2）、黄（3）、蓝（4）、洋红（5）、青（6）、白（7）。扩展颜色的终端支持 256 色（0-255）。
 
-Common usage in scripts combines capabilities: **$(tput bold)$(tput setaf 1)Error$(tput sgr0)** prints "Error" in bold red, then resets.
+脚本中的常见用法是将多种能力组合起来：**$(tput bold)$(tput setaf 1)Error$(tput sgr0)** 会以红色粗体打印 "Error"，然后重置属性。
 
 # CAVEATS
 
-Capabilities vary by terminal type; not all terminals support all features. Always reset attributes with **sgr0** after use to avoid affecting subsequent output. The **-T** option should match the actual terminal for correct behavior.
+能力因终端类型而异；并非所有终端都支持全部特性。使用后务必用 **sgr0** 重置属性，以免影响后续输出。为获得正确行为，**-T** 选项应与实际终端匹配。
 
 # HISTORY
 
-**tput** was introduced in **System V Unix** in the early 1980s as part of the terminfo system, which replaced the older termcap. The ncurses implementation provides the tput command on most Linux systems today. It was designed to abstract terminal-specific escape codes behind a consistent interface.
+**tput** 于 20 世纪 80 年代初随 **System V Unix** 推出，是 terminfo 系统（取代较旧的 termcap）的一部分。如今大多数 Linux 系统上的 tput 命令由 ncurses 实现提供。其设计目的是将特定于终端的转义码抽象到统一接口之后。
 
 # INSTALL
 

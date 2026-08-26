@@ -1,36 +1,36 @@
 # TAGLINE
 
-Track and budget Claude Code token spending from the command line
+从命令行跟踪并预算 Claude Code 的 token 消耗
 
 # TLDR
 
-Create a **task with a budget cap**
+创建**带预算上限的任务**
 
 ```tkst -t "[Issue-243]" -b [5]```
 
-Launch **Claude Code with cost tracking** enabled
+启动**开启成本跟踪的 Claude Code**
 
 ```tkst claude```
 
-**List all tasks** and their current spending
+**列出所有任务**及其当前支出
 
 ```tkst -l```
 
-**Update** a task's budget or name
+**更新**任务的预算或名称
 
 ```tkst -u "[Issue-243]" -b [10]```
 
-**Delete** a task
+**删除**任务
 
 ```tkst -d "[Issue-243]"```
 
-**Reallocate spend** from one task to another
+在任务之间**重新分配支出**
 
 ```tkst -ra "[old-task]" "[new-task]"```
 
-Toggle tracking **on or off**
+**开启或关闭**跟踪
 
-```tkst --enable``` or ```tkst --disable```
+```tkst --enable``` 或 ```tkst --disable```
 
 # SYNOPSIS
 
@@ -38,57 +38,57 @@ Toggle tracking **on or off**
 
 # DESCRIPTION
 
-**tkst** (Tokenyst) is a small CLI that wraps the **claude** command and keeps a running ledger of token usage, computed dollar cost, and budget consumption per task. After each prompt during a session it prints a per-turn delta and the cumulative spend against the active budget, so you can stop before exceeding a cap. Tasks are user-defined buckets — typically one per ticket, feature, or experiment — that hold a budget, a list of recorded sessions, and an aggregated total.
+**tkst**（Tokenyst）是一个小型 CLI，它包装 **claude** 命令，并为每个任务持续记录 token 用量、折算的美元成本和预算消耗情况。会话期间的每次提示后，它会打印每轮增量以及相对当前预算的累计支出，让你可以在超出上限之前停止。任务是用户定义的桶——通常每个工单、功能或实验一个——其中保存着预算、已记录会话列表和汇总总额。
 
-All state is stored locally under **~/.tokenyst** with no cloud sync. Pricing for the supported Claude model variants is bundled with the binary and applied to the token counts reported by the **claude** CLI.
+所有状态都存储在本地 **~/.tokenyst** 下，没有云同步。受支持的 Claude 各模型变体的定价随二进制文件一起打包，并应用于 **claude** CLI 报告的 token 计数。
 
 # PARAMETERS
 
 **claude** [_args_]
-> Launch the Claude CLI under tracking. Arguments after **claude** are forwarded verbatim.
+> 在跟踪状态下启动 Claude CLI。**claude** 之后的参数原样转发。
 
 **-t** _name_, **--task** _name_
-> Create a new task with the given name.
+> 以给定名称创建新任务。
 
 **-b** _amount_, **--budget** _amount_
-> Set the budget cap (USD) for the task, used with **-t** or **-u**.
+> 设置任务的预算上限（美元），与 **-t** 或 **-u** 配合使用。
 
 **-l**, **--list**
-> List every task with its budget, total spend, and recent sessions.
+> 列出每个任务的预算、总支出和最近会话。
 
 **-u** _name_, **--update** _name_
-> Update an existing task; combine with **-b** to change the budget or **--rename** to change the name.
+> 更新已有任务；配合 **-b** 更改预算或配合 **--rename** 更改名称。
 
 **-d** _name_, **--delete** _name_
-> Delete the named task.
+> 删除指定名称的任务。
 
 **-a**, **--allocations**
-> Show per-session and per-task spend allocations.
+> 显示按会话和按任务的支出分配。
 
 **-ra** _from_ _to_, **--reallocate** _from_ _to_
-> Move recorded spend from one task to another (useful after misattributed sessions).
+> 将已记录的支出从一个任务转移到另一个任务（在会话被错误归属时很有用）。
 
 **--enable**
-> Re-enable tracking after it was disabled.
+> 在被禁用后重新启用跟踪。
 
 **--disable**
-> Suspend tracking; the **claude** wrapper still passes calls through.
+> 暂停跟踪；**claude** 包装器仍会透传调用。
 
 # CONFIGURATION
 
 **~/.tokenyst/**
-> Local data directory holding the tasks, session logs, and computed totals.
+> 存放任务、会话日志和计算总额的本地数据目录。
 
 **~/.tokenyst/config.json**
-> User-tunable settings such as default model pricing and currency.
+> 用户可调的设置，例如默认模型定价和货币。
 
 # CAVEATS
 
-Cost figures depend on the **bundled price list**; if Anthropic changes pricing the values are estimates until the binary is updated. Token counts are read from the **claude** CLI output, so changes to that interface can disrupt tracking. State lives locally and is **not synchronised** between machines — pair with version control or a synced home directory if you want shared budgets.
+成本数字依赖于**内置价格表**；如果 Anthropic 调整了定价，在二进制文件更新之前这些数值只是估算值。Token 计数读取自 **claude** CLI 的输出，因此该界面的变更可能干扰跟踪。状态保存在本地，不会在机器之间**同步**——如果想要共享预算，请配合版本控制或同步的主目录使用。
 
 # HISTORY
 
-**Tokenyst** was published by **jher7** in **2026** in response to the proliferation of multi-agent Claude Code workflows, where per-prompt spend was previously invisible until end-of-month billing. It is distributed as an **npm**/**pnpm** package installed globally and invoked as **tkst**.
+**Tokenyst** 由 **jher7** 于 **2026 年**发布，是为了应对多智能体 Claude Code 工作流的激增——在此之前每次提示的支出直到月底账单才可见。它以全局安装的 **npm**/**pnpm** 包形式分发，并作为 **tkst** 调用。
 
 # SEE ALSO
 

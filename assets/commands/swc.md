@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast Rust-based JavaScript and TypeScript compiler
+基于 Rust 的高速 JavaScript 和 TypeScript 编译器
 
 # TLDR
 
-**Compile file**
+**编译文件**
 
 ```swc [input.js] -o [output.js]```
 
-**Compile directory**
+**编译目录**
 
 ```swc [src/] -d [dist/]```
 
-**Watch mode**
+**监视模式**
 
 ```swc [src/] -d [dist/] -w```
 
-**With source maps**
+**生成 source map**
 
 ```swc [input.js] -o [output.js] --source-maps```
 
-**Use config file**
+**使用配置文件**
 
 ```swc [input.js] -o [output.js] --config-file [.swcrc]```
 
@@ -31,43 +31,43 @@ Fast Rust-based JavaScript and TypeScript compiler
 # PARAMETERS
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-d** _DIR_
-> Output directory.
+> 输出目录。
 
 **-w**
-> Watch mode.
+> 监视模式。
 
 **--source-maps**
-> Generate source maps.
+> 生成 source map。
 
 **--config-file** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--sync**
-> Synchronous mode.
+> 同步模式。
 
 # DESCRIPTION
 
-**swc** (Speedy Web Compiler) is a JavaScript and TypeScript compiler written in Rust, designed as a significantly faster alternative to Babel. It handles transpilation, JSX transformation, TypeScript stripping, and minification in a single tool.
+**swc**（Speedy Web Compiler）是一个用 Rust 编写的 JavaScript 和 TypeScript 编译器，定位为比 Babel 快得多的替代方案。它在单一工具中完成转译、JSX 转换、TypeScript 类型剥离和压缩。
 
-The compiler supports modern JavaScript features, downlevel compilation to older targets, and React JSX transformation. TypeScript files are compiled by stripping types without performing type checking, making it much faster than tsc for builds where type checking is handled separately.
+该编译器支持现代 JavaScript 特性、向下编译到较旧的目标版本，以及 React JSX 转换。TypeScript 文件通过剥离类型来编译，不执行类型检查，因此在类型检查单独处理的构建流程中，它比 tsc 快得多。
 
-SWC can process individual files, entire directories with watch mode for development, and generates source maps for debugging. It is used as the compilation engine by tools like Next.js and Parcel.
+SWC 可以处理单个文件或整个目录（支持开发用的监视模式），并生成用于调试的 source map。它被 Next.js 和 Parcel 等工具用作编译引擎。
 
 # CONFIGURATION
 
 **.swcrc**
-> Project configuration file in JSON format defining compilation target, module type, JSX settings, and minification options.
+> 项目配置文件，JSON 格式，定义编译目标、模块类型、JSX 设置和压缩选项。
 
 # CAVEATS
 
-Less plugins than Babel. Rust ecosystem. Config differs from Babel.
+插件比 Babel 少。生态基于 Rust。配置方式与 Babel 不同。
 
 # HISTORY
 
-**SWC** (Speedy Web Compiler) was created by **Donny** as a fast JavaScript/TypeScript compiler written in Rust.
+**SWC**（Speedy Web Compiler）由 **Donny** 创建，是一个用 Rust 编写的高速 JavaScript/TypeScript 编译器。
 
 # INSTALL
 

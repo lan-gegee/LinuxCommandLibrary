@@ -1,22 +1,22 @@
 # TAGLINE
 
-Uninstall TeX Live packages
+卸载 TeX Live 软件包
 
 # TLDR
 
-**Remove package**
+**移除软件包**
 
 ```tlmgr remove [package]```
 
-**Remove multiple packages**
+**移除多个软件包**
 
 ```tlmgr remove [package1] [package2]```
 
-**Force removal**
+**强制移除**
 
 ```tlmgr remove --force [package]```
 
-**Dry run**
+**试运行**
 
 ```tlmgr remove --dry-run [package]```
 
@@ -27,22 +27,21 @@ Uninstall TeX Live packages
 # PARAMETERS
 
 **--force**
-> Force removal even if other packages depend on it.
+> 即使其他软件包依赖它也强制移除。
 
 **--dry-run**
-> Show what would be removed.
+> 显示将要移除的内容。
 
 **--no-depends**
-> Don't remove dependencies.
+> 不移除依赖。
 
 **--no-depends-at-all**
-> Even more aggressive: do not check for and remove dependent packages even from the same collection.
+> 更加激进：即使同一集合内的依赖软件包也不检查、不移除。
 
 # DESCRIPTION
 
-**tlmgr remove** uninstalls TeX Live packages, collections, or schemes. By default it prevents removal of packages required by other installed components, ensuring the integrity of the TeX Live installation, unless overridden with `--force`. When TeX Live is installed system-wide, root privileges are required.
+**tlmgr remove** 卸载 TeX Live 软件包、集合或方案。默认情况下，它会阻止移除其他已安装组件所需的软件包，以保证 TeX Live 安装的完整性，除非使用 `--force` 覆盖。TeX Live 以系统级方式安装时需要 root 权限。
 
 # SEE ALSO
 
 [tlmgr-install](/man/tlmgr-install)(1), [tlmgr-update](/man/tlmgr-update)(1), [tlmgr](/man/tlmgr)(1)
-

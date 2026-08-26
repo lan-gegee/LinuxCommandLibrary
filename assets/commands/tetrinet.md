@@ -1,26 +1,26 @@
 # TAGLINE
 
-Multiplayer terminal Tetris game
+多人终端俄罗斯方块游戏
 
 # TLDR
 
-**Connect to a server**
+**连接到服务器**
 
 ```tetrinet [nickname] [server.example.com]```
 
-**Connect with fancy graphics**
+**以华丽图形连接**
 
 ```tetrinet -fancy [nickname] [server]```
 
-**Connect in tetrifast mode**
+**以 tetrifast 模式连接**
 
 ```tetrinet -fast [nickname] [server]```
 
-**Use custom window size**
+**使用自定义窗口大小**
 
 ```tetrinet -log [logfile] [nickname] [server]```
 
-**Enable shadow piece preview**
+**启用投影预览**
 
 ```tetrinet -shadow [nickname] [server]```
 
@@ -31,60 +31,60 @@ Multiplayer terminal Tetris game
 # PARAMETERS
 
 **-fancy**
-> Use fancy TTY graphics with box-drawing characters.
+> 使用带制表符的华丽 TTY 图形。
 
 **-fast**
-> Connect using tetrifast mode (faster gameplay).
+> 以 tetrifast 模式连接（更快的游戏节奏）。
 
 **-log** _file_
-> Log partyline messages to file.
+> 将聊天频道消息记录到文件。
 
 **-shadow**
-> Enable shadow piece showing where piece will land.
+> 启用方块落点投影显示。
 
 **-slide**
-> Enable piece sliding after landing.
+> 启用方块落地后的滑动。
 
 **-noshadow**
-> Disable shadow piece.
+> 禁用方块投影。
 
 **-noslide**
-> Disable piece sliding.
+> 禁用方块滑动。
 
 **-windows**
-> Emulate Windows client behavior.
+> 模拟 Windows 客户端行为。
 
 # CONTROLS
 
-**Left/Right arrows**: Move piece horizontally.
+**Left/Right arrows**: 水平移动方块。
 
-**Up arrow**: Rotate piece clockwise.
+**Up arrow**: 顺时针旋转方块。
 
-**Down arrow**: Soft drop.
+**Down arrow**: 软降。
 
-**Space**: Hard drop.
+**Space**: 硬降。
 
-**d**: Discard special block.
+**d**: 丢弃特殊块。
 
-**1-6**: Use special on player field.
+**1-6**: 对玩家场地使用特殊块。
 
-**t**: Talk in partyline.
+**t**: 在聊天频道发言。
 
 # DESCRIPTION
 
-**tetrinet** is a multiplayer Tetris game for up to six players that runs in a text terminal. It connects to TetriNET servers and supports both cooperative team play and competitive matches.
+**tetrinet** 是一款最多支持六名玩家的多人俄罗斯方块游戏，运行在文本终端中。它连接 TetriNET 服务器，既支持合作组队也支持对抗比赛。
 
-The game features special blocks that appear when clearing lines containing them. Specials include add lines, clear lines, nuke field, block bomb, gravity, and various other attacks that can be used against opponents or to help teammates.
+游戏特色是特殊块：当消掉包含它们的行时会出现。特殊块包括加行、消行、清空场地、方块炸弹、重力等，可用于攻击对手或帮助队友。
 
-The terminal client uses ncurses for display and requires a terminal with at least 50 lines. It's compatible with original Windows TetriNET servers and supports the faster tetrifast variant.
+终端客户端使用 ncurses 进行显示，要求终端至少有 50 行。它与原始的 Windows TetriNET 服务器兼容，并支持速度更快的 tetrifast 变体。
 
 # CAVEATS
 
-Requires a terminal with at least 50 lines. Server availability varies; public servers may have limited uptime. The -fancy option requires Unicode support in the terminal. Network latency can affect competitive play.
+需要至少 50 行的终端。服务器可用性不一；公共服务器的在线时间可能有限。-fancy 选项要求终端支持 Unicode。网络延迟会影响对战体验。
 
 # HISTORY
 
-**TetriNET** was created by St0rmCat in 1997 as a multiplayer Tetris variant for Windows. The Linux client was developed to provide compatible access from Unix systems. The game became popular in the late 1990s and early 2000s for its unique special block mechanics that added strategic depth to multiplayer Tetris.
+**TetriNET** 由 St0rmCat 于 1997 年创建，是面向 Windows 的多人俄罗斯方块变体。Linux 客户端的开发目的是让 Unix 系统也能兼容访问。该游戏在 1990 年代末和 2000 年代初流行一时，其独特的特殊块机制为多人俄罗斯方块增添了策略深度。
 
 # INSTALL
 

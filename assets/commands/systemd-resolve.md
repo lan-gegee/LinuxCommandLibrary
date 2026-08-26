@@ -1,10 +1,10 @@
 # TAGLINE
 
-Deprecated DNS resolver, use resolvectl
+已弃用的 DNS 解析器，请改用 resolvectl
 
 # TLDR
 
-**View** documentation for the renamed command
+**查看**更名后命令的文档
 
 ```tldr resolvectl```
 
@@ -14,11 +14,11 @@ Deprecated DNS resolver, use resolvectl
 
 # DESCRIPTION
 
-**systemd-resolve** has been renamed to **resolvectl** in newer versions of systemd. The functionality for resolving domain names, IPv4/IPv6 addresses, DNS resource records, and services is now provided by the resolvectl command.
+**systemd-resolve** 在较新版本的 systemd 中已更名为 **resolvectl**。解析域名、IPv4/IPv6 地址、DNS 资源记录以及服务的功能现在由 resolvectl 命令提供。
 
 # CAVEATS
 
-This command is deprecated. Use **resolvectl** instead for DNS resolution and management of systemd-resolved.
+此命令已被弃用。进行 DNS 解析和管理 systemd-resolved 请改用 **resolvectl**。
 
 # SEE ALSO
 

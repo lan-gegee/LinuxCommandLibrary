@@ -1,30 +1,30 @@
 # TAGLINE
 
-Get or set per-service log destination
+获取或设置单个服务的日志目的地
 
 # TLDR
 
-Show service **log target**
+显示服务的**日志目标**
 
 ```systemctl service-log-target [service]```
 
-Set to **console**
+设置为 **console**
 
 ```systemctl service-log-target [service] console```
 
-Set to **journal**
+设置为 **journal**
 
 ```systemctl service-log-target [service] journal```
 
-Set to **syslog**
+设置为 **syslog**
 
 ```systemctl service-log-target [service] syslog```
 
-Set to **auto**
+设置为 **auto**
 
 ```systemctl service-log-target [service] auto```
 
-**Disable** logging
+**禁用**日志
 
 ```systemctl service-log-target [service] null```
 
@@ -34,29 +34,29 @@ Set to **auto**
 
 # LOG TARGETS
 
-**console** - Send logs to stderr
+**console** - 将日志发送到 stderr
 
-**journal** - Send logs to systemd-journald
+**journal** - 将日志发送到 systemd-journald
 
-**syslog** - Send logs to /dev/log
+**syslog** - 将日志发送到 /dev/log
 
-**auto** - Let systemd choose
+**auto** - 由 systemd 自行选择
 
-**null** - Disable all log output
+**null** - 禁用所有日志输出
 
 # DESCRIPTION
 
-**systemctl service-log-target** gets or sets where a service sends its log messages via D-Bus. This allows redirecting service logs at runtime without restarting.
+**systemctl service-log-target** 通过 D-Bus 获取或设置服务发送日志消息的目的地。这可以在不重启的情况下在运行时重定向服务日志。
 
-The service must support the standard D-Bus logging interface.
+服务必须支持标准的 D-Bus 日志接口。
 
 # CAVEATS
 
-Only works with D-Bus integrated services. Changes are temporary and reset on service restart. Not all services support this feature.
+只对集成了 D-Bus 的服务有效。更改是临时的，服务重启后会恢复原状。并非所有服务都支持此功能。
 
 # HISTORY
 
-The **service-log-target** subcommand enables per-service log routing control for debugging and troubleshooting specific services.
+**service-log-target** 子命令提供按服务粒度的日志路由控制，便于调试和排查特定服务。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Fast, simple TUI for systemd services
+快速、简洁的 systemd 服务 TUI
 
 # TLDR
 
-**Launch the interactive service manager**
+**启动交互式服务管理器**
 
 ```systemctl-tui```
 
-**Limit displayed units** by pattern
+按模式**限制显示的单元**
 
 ```systemctl-tui --limit-units "[pattern]"```
 
@@ -18,22 +18,22 @@ Fast, simple TUI for systemd services
 
 # DESCRIPTION
 
-**systemctl-tui** lets you quickly browse systemd service status and logs, start/stop/restart/reload services, and view/edit unit files from an interactive terminal interface.
+**systemctl-tui** 让你通过交互式终端界面快速浏览 systemd 服务状态和日志，启动/停止/重启/重载服务，以及查看/编辑单元文件。
 
-It aims to do a small number of things well: viewing service status, reading logs, and managing services without needing to remember `systemctl` and `journalctl` subcommands.
+它力求把少量事情做好：查看服务状态、阅读日志和管理服务，无需记住 `systemctl` 和 `journalctl` 的各种子命令。
 
 # PARAMETERS
 
 **--limit-units** _pattern_
-> Limit the view to units matching the given pattern.
+> 将视图限制为匹配给定模式的单元。
 
 # CAVEATS
 
-Linux only. WSL requires systemd to be enabled. Service management operations (start, stop, restart) require appropriate privileges.
+仅支持 Linux。WSL 需要启用 systemd。服务管理操作（start、stop、restart）需要相应权限。
 
 # HISTORY
 
-**systemctl-tui** was created by **Reilly Wood** (rgwood) and is written in **Rust**.
+**systemctl-tui** 由 **Reilly Wood**（rgwood）创建，使用 **Rust** 编写。
 
 # INSTALL
 

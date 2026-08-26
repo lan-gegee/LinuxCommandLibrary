@@ -1,34 +1,34 @@
 # TAGLINE
 
-Tag-based time interval tracking
+基于标签的时间区间跟踪
 
 # TLDR
 
-**Start tracking**
+**开始跟踪**
 
 ```timew start [tag1] [tag2]```
 
-**Stop tracking**
+**停止跟踪**
 
 ```timew stop```
 
-**Show current**
+**显示当前状态**
 
 ```timew```
 
-**Show summary**
+**显示汇总**
 
 ```timew summary```
 
-**Show week**
+**显示本周**
 
 ```timew summary :week```
 
-**Continue last task**
+**继续上一个任务**
 
 ```timew continue```
 
-**Track past time**
+**补录过去的时间**
 
 ```timew track [9:00] - [12:00] [meeting]```
 
@@ -39,49 +39,49 @@ Tag-based time interval tracking
 # PARAMETERS
 
 **start**
-> Begin tracking.
+> 开始跟踪。
 
 **stop**
-> End tracking.
+> 结束跟踪。
 
 **summary**
-> Show report.
+> 显示报告。
 
 **continue**
-> Resume last.
+> 恢复上一个。
 
 **track**
-> Add past time.
+> 补录过去的时间。
 
 **:day**
-> Today filter.
+> 今天过滤器。
 
 **:week**
-> This week.
+> 本周。
 
 # DESCRIPTION
 
-**timew** (Timewarrior) is a command-line time tracking tool that records work intervals with flexible tag-based categorization. You start tracking with **start** and one or more tags describing the activity, then **stop** when finished. The **track** command allows logging past intervals retroactively.
+**timew**（Timewarrior）是一款命令行时间跟踪工具，通过灵活的标签体系记录工作区间并分类。用 **start** 加一个或多个描述活动的标签开始跟踪，完成后执行 **stop**。**track** 命令支持事后补录过去的区间。
 
-Reporting is built in, with the **summary** command providing time breakdowns filterable by date ranges using hint syntax like **:day**, **:week**, or **:month**. Data can also be exported for use with external reporting tools.
+报告功能是内置的，**summary** 命令提供时间细分，并可使用 **:day**、**:week** 或 **:month** 等 hint 语法的日期范围进行过滤。数据也可以导出给外部报表工具使用。
 
-Timewarrior integrates with Taskwarrior to automatically track time when tasks are started and stopped, providing a combined task and time management workflow.
+Timewarrior 与 Taskwarrior 集成，可在任务开始和结束时自动跟踪时间，提供任务与时间管理一体化的工作流。
 
 # CONFIGURATION
 
 **~/.timewarrior/timewarrior.cfg**
-> Main configuration file for themes, exclusions (holidays, weekends), and report settings.
+> 主配置文件，用于主题、排除项（节假日、周末）和报表设置。
 
 **~/.timewarrior/data/**
-> Directory containing time tracking interval data files.
+> 存放时间跟踪区间数据文件的目录。
 
 # CAVEATS
 
-Learning curve for ranges. Data in ~/.timewarrior. Taskwarrior optional.
+日期范围的用法需要学习成本。数据存放在 ~/.timewarrior。Taskwarrior 集成为可选。
 
 # HISTORY
 
-**Timewarrior** was created by the **Taskwarrior** team as a companion time tracking tool.
+**Timewarrior** 由 **Taskwarrior** 团队创建，作为配套的时间跟踪工具。
 
 # INSTALL
 

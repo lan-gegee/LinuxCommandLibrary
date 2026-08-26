@@ -1,34 +1,34 @@
 # TAGLINE
 
-Query user for system password
+向用户查询系统密码
 
 # TLDR
 
-**Query** a system password with a specific prompt
+用指定的提示语**查询**系统密码
 
 ```systemd-ask-password "[prompt]"```
 
-**Specify** an identifier for the password query
+为密码查询**指定**标识符
 
 ```systemd-ask-password --id [identifier] "[prompt]"```
 
-**Use** a kernel keyring key name as cache
+**使用**内核密钥环的密钥名称作为缓存
 
 ```systemd-ask-password --keyname [key_name] "[prompt]"```
 
-**Set** a custom timeout for the query
+为查询**设置**自定义超时
 
 ```systemd-ask-password --timeout [seconds] "[prompt]"```
 
-**Force** the use of an agent system (never ask on TTY)
+**强制**使用代理系统（绝不在 TTY 上询问）
 
 ```systemd-ask-password --no-tty "[prompt]"```
 
-**Store** a password in the kernel keyring without displaying
+将密码**存入**内核密钥环而不显示
 
 ```systemd-ask-password --no-output --keyname [key_name] "[prompt]"```
 
-**Pipe** a password to a command without trailing newline
+将密码通过管道传给命令且不带末尾换行符
 
 ```systemd-ask-password -n | [command]```
 
@@ -39,35 +39,35 @@ Query user for system password
 # PARAMETERS
 
 **--id _identifier_**
-> Unique identifier for the password query
+> 密码查询的唯一标识符
 
 **--keyname _name_**
-> Kernel keyring key name for caching
+> 用于缓存的内核密钥环密钥名称
 
 **--timeout _seconds_**
-> Timeout for password entry
+> 密码输入的超时时间
 
 **--no-tty**
-> Never query password on current TTY
+> 绝不在当前 TTY 上查询密码
 
 **--no-output**
-> Don't print password to stdout
+> 不将密码打印到 stdout
 
 **-n, --newline=no**
-> Don't print trailing newline
+> 不打印末尾换行符
 
 **--accept-cached**
-> Accept cached password from keyring
+> 接受来自密钥环的缓存密码
 
 # DESCRIPTION
 
-**systemd-ask-password** queries the user for a system password and optionally caches it in the kernel keyring. It integrates with the systemd password agent infrastructure for boot-time password prompts.
+**systemd-ask-password** 向用户查询系统密码，并可选择将其缓存在内核密钥环中。它与 systemd 密码代理基础设施集成，用于启动时的密码提示。
 
-The tool is commonly used for disk encryption passphrases, but can be used in any script requiring secure password input with optional caching.
+该工具常用于磁盘加密口令，但也可用于任何需要安全密码输入并支持可选缓存的脚本。
 
 # CAVEATS
 
-Cached passwords in the kernel keyring are cleared on reboot. The **--no-tty** option requires a password agent to be running. Part of the systemd suite.
+内核密钥环中的缓存密码会在重启时清除。**--no-tty** 选项要求有正在运行的密码代理。属于 systemd 工具套件的一部分。
 
 # INSTALL
 

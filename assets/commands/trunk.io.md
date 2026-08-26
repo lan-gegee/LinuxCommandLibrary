@@ -1,38 +1,38 @@
 # TAGLINE
 
-Unified code quality linting and formatting
+统一的代码质量检查与格式化工具
 
 # TLDR
 
-**Initialize trunk in a project**
+在项目中初始化 trunk
 
 ```trunk init```
 
-**Check changed files for issues**
+检查已更改文件中的问题
 
 ```trunk check```
 
-**Check all files in the repository**
+检查仓库中的所有文件
 
 ```trunk check --all```
 
-**Check and auto-fix issues**
+检查并自动修复问题
 
 ```trunk check --fix```
 
-**Format changed files**
+格式化已更改的文件
 
 ```trunk fmt```
 
-**Format all files in the repository**
+格式化仓库中的所有文件
 
 ```trunk fmt --all```
 
-**Run only a specific linter**
+仅运行特定的 linter
 
 ```trunk check --filter [eslint]```
 
-**Upgrade trunk and all managed tools**
+升级 trunk 及所有受管理的工具
 
 ```trunk upgrade```
 
@@ -43,56 +43,55 @@ Unified code quality linting and formatting
 # PARAMETERS
 
 **init**
-> Initialize trunk configuration in the current repository, creating a `.trunk/trunk.yaml` file.
+> 在当前仓库中初始化 trunk 配置，创建 `.trunk/trunk.yaml` 文件。
 
 **check** [_paths..._]
-> Run all enabled linters on changed files. Without `--all`, only checks files modified relative to the upstream branch.
+> 对已更改的文件运行所有启用的 linter。不带 `--all` 时，只检查相对于上游分支有修改的文件。
 
 **fmt** [_paths..._]
-> Format code using enabled formatters. Equivalent to `trunk check --fix --filter` set to all formatters.
+> 使用启用的格式化工具格式化代码。等同于 `trunk check --fix --filter` 应用到所有格式化工具。
 
 **upgrade**
-> Upgrade trunk CLI and all managed tool versions.
+> 升级 trunk CLI 和所有受管理的工具版本。
 
 **actions**
-> Manage trunk actions (git hooks, notifications, etc.).
+> 管理 trunk actions（git 钩子、通知等）。
 
 **tools**
-> Manage linter and formatter tool installations.
+> 管理 linter 和格式化工具的安装。
 
 **login**
-> Authenticate with the Trunk platform.
+> 向 Trunk 平台进行身份认证。
 
 **--all**
-> Check or format all files in the repository, not just changed files.
+> 检查或格式化仓库中的所有文件，而不只是已更改的文件。
 
 **--fix**
-> Automatically apply fixes for issues that support auto-fixing.
+> 自动应用支持自动修复的问题修复。
 
 **--filter** _linter_
-> Restrict check to a specific linter or formatter.
+> 将检查限制到指定的 linter 或格式化工具。
 
 **--upstream** _branch_
-> Explicitly set the upstream branch for change detection (auto-detected by default).
+> 显式设置用于变更检测的上游分支（默认自动检测）。
 
 **--no-progress**
-> Suppress progress reporting during checks.
+> 在检查过程中不显示进度报告。
 
 **--ci**
-> Run in CI mode with appropriate output formatting.
+> 以 CI 模式运行，采用相应的输出格式。
 
 **--output** _format_
-> Set output format (e.g., text, json).
+> 设置输出格式（例如 text、json）。
 
 # DESCRIPTION
 
-**trunk** is a code quality tool that manages multiple linters and formatters through a unified interface. It auto-detects and configures appropriate tools for your codebase, providing static analysis, formatting, and CI integration.
+**trunk** 是一个代码质量工具，通过统一界面管理多个 linter 和格式化工具。它会自动检测并为你的代码库配置合适的工具，提供静态分析、格式化和 CI 集成能力。
 
-By default, trunk operates in hold-the-line mode: it only checks files changed relative to the upstream branch, preventing existing issues from blocking new work. Use `--all` to check the entire repository.
+默认情况下，trunk 以 hold-the-line 模式运行：只检查相对于上游分支有变更的文件，避免既有问题阻碍新的工作。使用 `--all` 可检查整个仓库。
 
-Configuration is stored in `.trunk/trunk.yaml` where linters, formatters, and actions can be enabled, disabled, or customized.
+配置存储在 `.trunk/trunk.yaml` 中，可以在其中启用、禁用或自定义 linter、格式化工具和 actions。
 
 # SEE ALSO
 
 [eslint](/man/eslint)(1), [prettier](/man/prettier)(1)
-

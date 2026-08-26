@@ -1,14 +1,14 @@
 # TAGLINE
 
-Get or set systemd log destination
+获取或设置 systemd 日志目的地
 
 # TLDR
 
-Show **current** log target
+显示**当前的**日志目标
 
 ```systemctl log-target```
 
-**Set** log target
+**设置**日志目标
 
 ```systemctl log-target [journal-or-kmsg|journal|kmsg|console|syslog|null|auto]```
 
@@ -18,33 +18,33 @@ Show **current** log target
 
 # LOG TARGETS
 
-**journal-or-kmsg** - Journal if available, else kernel ring buffer
+**journal-or-kmsg** - 可用时使用 Journal，否则使用内核环形缓冲区
 
-**journal** - systemd journal only
+**journal** - 仅使用 systemd journal
 
-**kmsg** - Kernel ring buffer (dmesg)
+**kmsg** - 内核环形缓冲区（dmesg）
 
-**console** - System console
+**console** - 系统控制台
 
-**syslog** - Traditional syslog
+**syslog** - 传统 syslog
 
-**null** - Discard all logs
+**null** - 丢弃所有日志
 
-**auto** - Automatic selection
+**auto** - 自动选择
 
 # DESCRIPTION
 
-**systemctl log-target** gets or sets where the systemd service manager sends its log messages. Without arguments, it displays the current target. With a target argument, it redirects logging at runtime.
+**systemctl log-target** 获取或设置 systemd 服务管理器发送日志消息的目的地。不带参数时，显示当前目标。带目标参数时，在运行时重定向日志。
 
-This controls where systemd's own messages go, separate from where individual service logs are sent.
+它控制的是 systemd 自身消息的去向，与各个服务日志的发送位置相互独立。
 
 # CAVEATS
 
-Changes are temporary and reset on reboot. Console logging can slow the system and flood the display. Null target discards all systemd diagnostic output.
+更改是临时的，重启后会恢复原状。向控制台输出日志会拖慢系统并刷屏。null 目标会丢弃所有 systemd 诊断输出。
 
 # HISTORY
 
-The **log-target** subcommand provides runtime control over systemd's log destination, useful for debugging boot issues or redirecting logs in specific environments.
+**log-target** 子命令提供对 systemd 日志目的地的运行时控制，适用于调试启动问题或在特定环境中重定向日志。
 
 # SEE ALSO
 

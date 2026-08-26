@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove non-deterministic data for reproducible builds
+移除不确定性数据，助力可复现构建
 
 # TLDR
 
-**Strip file**
+**清理文件**
 
 ```strip-nondeterminism [file]```
 
-**Strip with type**
+**指定类型清理**
 
 ```strip-nondeterminism --type [zip] [file.zip]```
 
-**Set timestamp**
+**设置时间戳**
 
 ```strip-nondeterminism --timestamp [1234567890] [file]```
 
-**Verbose output**
+**详细输出**
 
 ```strip-nondeterminism -v [file]```
 
-**Dry run**
+**演练运行**
 
 ```strip-nondeterminism -n [file]```
 
@@ -31,35 +31,35 @@ Remove non-deterministic data for reproducible builds
 # PARAMETERS
 
 **-t**, **--type** _TYPE_
-> Force the input to be treated as a particular file format (e.g., _zip_, _jar_, _png_, _gzip_, _ar_, _javadoc_) instead of letting the filename suffix decide.
+> 强制将输入视为特定文件格式（例如 _zip_、_jar_、_png_、_gzip_、_ar_、_javadoc_），而不是由文件名后缀决定。
 
 **-T**, **--timestamp** _TS_
-> Replace embedded timestamps with the given Unix epoch value. If unset, **strip-nondeterminism** falls back to the **SOURCE_DATE_EPOCH** environment variable.
+> 用给定的 Unix epoch 值替换内嵌的时间戳。若未设置，**strip-nondeterminism** 会回退使用 **SOURCE_DATE_EPOCH** 环境变量。
 
 **-v**, **--verbose**
-> Print each modification.
+> 打印每处修改。
 
 **-n**, **--dry-run**
-> Show what would change without writing to disk.
+> 显示将要进行的更改，但不写入磁盘。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**strip-nondeterminism** removes sources of non-determinism from files to enable reproducible builds. Build artifacts often contain embedded timestamps, user IDs, file ordering variations, and other metadata that differ between builds even when the source code is identical. This tool normalizes those elements so that building the same source always produces bit-identical output.
+**strip-nondeterminism** 移除文件中不确定性的来源，以实现可复现构建。构建产物通常包含内嵌时间戳、用户 ID、文件顺序差异以及其他元数据，即使源代码完全相同，不同构建之间这些内容也可能不同。该工具会规范化这些元素，使相同源代码的构建总是产生逐位一致的输出。
 
-The tool supports multiple file formats including ZIP archives, JAR files, PNG images, gzip files, and ar archives. For each format, it identifies and strips or normalizes the specific metadata fields that introduce non-determinism, such as modification timestamps in archive entries or creation dates in PNG headers.
+该工具支持多种文件格式，包括 ZIP 归档、JAR 文件、PNG 图像、gzip 文件和 ar 归档。针对每种格式，它会识别并剥离或规范化引入不确定性的特定元数据字段，例如归档条目中的修改时间戳或 PNG 头中的创建日期。
 
-It is part of the Debian Reproducible Builds infrastructure and is commonly integrated into build systems as a post-processing step. A fixed timestamp can be provided to replace variable ones, typically sourced from the SOURCE_DATE_EPOCH environment variable.
+它是 Debian 可复现构建基础设施的一部分，常作为后处理步骤集成到构建系统中。可以提供固定的时间戳来替换可变的时间戳，通常取自 SOURCE_DATE_EPOCH 环境变量。
 
 # CAVEATS
 
-Format-specific. May need type hint. Part of Debian reproducible builds.
+依赖具体格式。可能需要类型提示。属于 Debian 可复现构建项目的一部分。
 
 # HISTORY
 
-**strip-nondeterminism** was created for the **Reproducible Builds** project to make build outputs deterministic.
+**strip-nondeterminism** 为 **Reproducible Builds** 项目而创建，旨在使构建输出具有确定性。
 
 # INSTALL
 

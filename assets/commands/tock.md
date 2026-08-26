@@ -1,18 +1,18 @@
 # TAGLINE
 
-Digital clock for the terminal
+终端中的数字时钟
 
 # TLDR
 
-**Display a centered 24-hour clock with seconds**
+**显示居中且带秒数的 24 小时制时钟**
 
 ```tock -s -m -c```
 
-**Custom color and font dimensions**
+**自定义颜色和字体尺寸**
 
 ```tock -C [4] -W [3] -H [2]```
 
-**Custom date format**
+**自定义日期格式**
 
 ```tock -f "[%A, %B %d]"```
 
@@ -23,60 +23,60 @@ Digital clock for the terminal
 # PARAMETERS
 
 **-s**, **--second**
-> Display seconds.
+> 显示秒数。
 
 **-m**, **--military**
-> Use 24-hour (military) time format.
+> 使用 24 小时制时间格式。
 
 **-c**, **--center**
-> Center the clock in the terminal (overrides manual positioning).
+> 将时钟居中显示在终端中（覆盖手动定位）。
 
 **-C**, **--color** _COLOR_
-> Set the clock color using an ANSI value 0-7 (default: 2).
+> 用 ANSI 值 0-7 设置时钟颜色（默认：2）。
 
 **-x**, **--x** _X_
-> Horizontal 0-indexed position of the clock's top-left corner (default: 0).
+> 时钟左上角的水平位置（从 0 开始计数，默认：0）。
 
 **-y**, **--y** _Y_
-> Vertical 0-indexed position of the clock's top-left corner (default: 0).
+> 时钟左上角的垂直位置（从 0 开始计数，默认：0）。
 
 **-W**, **--width** _WIDTH_
-> Font width in characters per tile (default: 2).
+> 字体宽度，以每个字符块的字符数表示（默认：2）。
 
 **-H**, **--height** _HEIGHT_
-> Font height in characters per tile (default: 1).
+> 字体高度，以每个字符块的字符数表示（默认：1）。
 
 **-f**, **--format** _FORMAT_
-> Custom date format string (default: "%F | %Z").
+> 自定义日期格式字符串（默认："%F | %Z"）。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # INTERACTIVE KEYS
 
 **q**
-> Quit the clock.
+> 退出时钟。
 
 **s**
-> Toggle seconds display.
+> 切换秒数显示。
 
 **m**
-> Toggle 24-hour (military) time.
+> 切换 24 小时制。
 
 **0**-**7**
-> Change the ANSI color at runtime.
+> 运行时更改 ANSI 颜色。
 
 # DESCRIPTION
 
-**tock** is a digital clock for the terminal inspired by tty-clock. It supports customizable positioning, font sizing, 12/24-hour modes, color selection, seconds display, and date formatting.
+**tock** 是一款受 tty-clock 启发的终端数字时钟。它支持自定义定位、字号大小、12/24 小时制、颜色选择、秒数显示和日期格式化。
 
 # CAVEATS
 
-UNIX only due to termios usage.
+由于使用了 termios，仅限 UNIX 系统。
 
 # HISTORY
 
-**tock** was created by **nwtnni** and is written in **Rust**.
+**tock** 由 **nwtnni** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

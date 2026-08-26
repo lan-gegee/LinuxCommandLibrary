@@ -1,34 +1,34 @@
 # TAGLINE
 
-Shadowsocks local SOCKS5 proxy client
+Shadowsocks 本地 SOCKS5 代理客户端
 
 # TLDR
 
-**Start client**
+**启动客户端**
 
 ```ss-local -s [server] -p [8388] -l [1080] -k [password] -m [aes-256-gcm]```
 
-**Use config file**
+**使用配置文件**
 
 ```ss-local -c [/etc/shadowsocks/config.json]```
 
-**Run in foreground**
+**以前台方式运行**
 
 ```ss-local -c [config.json] -v```
 
-**Specify local address**
+**指定本地地址**
 
 ```ss-local -c [config.json] -b [127.0.0.1]```
 
-**UDP relay**
+**UDP 中继**
 
 ```ss-local -c [config.json] -u```
 
-**Use SIP003 plugin** (e.g., v2ray-plugin)
+**使用 SIP003 插件**（例如 v2ray-plugin）
 
 ```ss-local -c [config.json] --plugin [v2ray-plugin] --plugin-opts "[tls;host=example.com]"```
 
-**Run as daemon**
+**以守护进程运行**
 
 ```ss-local -c [config.json] -f [/var/run/ss-local.pid]```
 
@@ -39,106 +39,106 @@ Shadowsocks local SOCKS5 proxy client
 # PARAMETERS
 
 **-s** _SERVER_
-> Remote server hostname or IP.
+> 远程服务器主机名或 IP。
 
 **-p** _PORT_
-> Remote server port.
+> 远程服务器端口。
 
 **-l** _PORT_
-> Local SOCKS5 listening port.
+> 本地 SOCKS5 监听端口。
 
 **-k** _PASSWORD_
-> Shared password (must match server).
+> 共享密码（必须与服务器一致）。
 
 **-m** _METHOD_
-> Encryption method (e.g., aes-256-gcm, chacha20-ietf-poly1305).
+> 加密方法（例如 aes-256-gcm、chacha20-ietf-poly1305）。
 
 **-c** _FILE_
-> JSON configuration file.
+> JSON 配置文件。
 
 **-b** _ADDR_
-> Local bind address.
+> 本地绑定地址。
 
 **-i** _INTERFACE_
-> Outgoing network interface.
+> 出站网络接口。
 
 **-t** _SECONDS_
-> Socket timeout (default: 60).
+> 套接字超时时间（默认：60）。
 
 **-a** _USER_
-> Drop privileges to this user after startup.
+> 启动后降权到该用户运行。
 
 **-f** _PIDFILE_
-> Fork to background and write PID file.
+> 转入后台并写入 PID 文件。
 
 **-n** _NUMBER_
-> Maximum number of open files.
+> 最大打开文件数。
 
 **-u**
-> Enable UDP relay alongside TCP.
+> 在 TCP 之外同时启用 UDP 中继。
 
 **-U**
-> UDP-only relay (disable TCP).
+> 仅 UDP 中继（禁用 TCP）。
 
 **-6**
-> Prefer IPv6 for hostname resolution.
+> 主机名解析优先使用 IPv6。
 
 **-v**
-> Verbose logging.
+> 详细日志输出。
 
 **--fast-open**
-> Enable TCP Fast Open.
+> 启用 TCP Fast Open。
 
 **--reuse-port**
-> Enable SO_REUSEPORT.
+> 启用 SO_REUSEPORT。
 
 **--mptcp**
-> Enable Multipath TCP.
+> 启用 Multipath TCP。
 
 **--no-delay**
-> Enable TCP_NODELAY.
+> 启用 TCP_NODELAY。
 
 **--mtu** _MTU_
-> Interface MTU for fragmentation.
+> 用于分片的接口 MTU。
 
 **--acl** _FILE_
-> Access Control List file.
+> 访问控制列表文件。
 
 **--plugin** _NAME_
-> SIP003 transport plugin (e.g., v2ray-plugin, obfs-local).
+> SIP003 传输插件（例如 v2ray-plugin、obfs-local）。
 
 **--plugin-opts** _OPTS_
-> Options passed to the SIP003 plugin.
+> 传递给 SIP003 插件的选项。
 
 **--key** _BASE64_
-> Pre-shared key as Base64 (alternative to -k).
+> 以 Base64 表示的预共享密钥（替代 -k）。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**ss-local** is the local client component of Shadowsocks, an encrypted proxy protocol. It listens on a local port as a SOCKS5 proxy server, encrypting all traffic and forwarding it through a remote Shadowsocks server to bypass network filtering.
+**ss-local** 是 Shadowsocks（一种加密代理协议）的本地客户端组件。它在本机的一个端口上作为 SOCKS5 代理服务器监听，将所有流量加密后经远程 Shadowsocks 服务器转发，以绕过网络过滤。
 
-Applications configured to use the local SOCKS5 proxy have their traffic encrypted using methods such as AES-256-GCM or ChaCha20-Poly1305 before it leaves the local machine. The encryption method and password must match the remote server configuration. UDP relay mode (**-u**) enables proxying of UDP traffic for applications like DNS resolution and gaming.
+配置为使用该本地 SOCKS5 代理的应用程序，其流量会在离开本机前使用 AES-256-GCM 或 ChaCha20-Poly1305 等方法加密。加密方法和密码必须与远程服务器的配置一致。UDP 中继模式（**-u**）可为 DNS 解析和游戏等应用代理 UDP 流量。
 
-Connection parameters can be specified on the command line or stored in a JSON configuration file for convenience.
+连接参数可以在命令行上指定，也可以为方便起见存放在 JSON 配置文件中。
 
 # CONFIGURATION
 
 **/etc/shadowsocks-libev/config.json**
-> System-wide configuration file specifying server address, port, password, encryption method, and local listening settings.
+> 系统级配置文件，指定服务器地址、端口、密码、加密方法和本地监听设置。
 
 **~/.shadowsocks/config.json**
-> Per-user configuration file with the same JSON format as the system-wide config.
+> 每用户配置文件，JSON 格式与系统级配置相同。
 
 # CAVEATS
 
-Encryption method and password must exactly match the remote ss-server. Only proxies TCP by default; add **-u** for UDP. Deep packet inspection on some networks fingerprints and blocks Shadowsocks; mitigate with SIP003 plugins like v2ray-plugin or obfs. Not a full VPN; only applications configured to use the SOCKS5 endpoint are proxied.
+加密方法和密码必须与远程 ss-server 完全一致。默认只代理 TCP；需要 UDP 时请加上 **-u**。某些网络的深度包检测会识别并封锁 Shadowsocks；可借助 v2ray-plugin 或 obfs 等 SIP003 插件缓解。它不是完整的 VPN；只有配置为使用该 SOCKS5 端点的应用才会被代理。
 
 # HISTORY
 
-**Shadowsocks** was created by **clowwindy** in **2012** for circumventing internet censorship. It uses encrypted proxy connections to bypass filtering.
+**Shadowsocks** 由 **clowwindy** 于 **2012 年**创建，用于规避互联网审查。它使用加密代理连接绕过过滤。
 
 # INSTALL
 
@@ -155,4 +155,3 @@ Encryption method and password must exactly match the remote ss-server. Only pro
 # SEE ALSO
 
 [ss-server](/man/ss-server)(1), [proxychains](/man/proxychains)(1)
-

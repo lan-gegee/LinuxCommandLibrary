@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove Toolbx containers
+删除 Toolbx 容器
 
 # TLDR
 
-**Remove** a container
+**删除**一个容器
 
 ```toolbox rm [container_name]```
 
-Remove **all** containers
+删除**所有**容器
 
 ```toolbox rm -a```
 
-**Force** remove active container
+**强制**删除正在运行的容器
 
 ```toolbox rm -f [container_name]```
 
@@ -23,20 +23,20 @@ Remove **all** containers
 # PARAMETERS
 
 **-a, --all**
-> Remove all Toolbx containers
+> 删除所有 Toolbx 容器
 
 **-f, --force**
-> Force removal of running containers
+> 强制删除正在运行的容器
 
 # DESCRIPTION
 
-**toolbox rm** removes one or more Toolbx containers. Containers must be stopped before removal unless the force flag is used.
+**toolbox rm** 删除一个或多个 Toolbx 容器。除非使用强制选项，否则容器必须先停止才能删除。
 
-Multiple containers can be removed by specifying their names as arguments. The --all flag removes all Toolbx containers at once.
+可以通过在参数中指定名称来一次删除多个容器。--all 选项会一次性删除所有 Toolbx 容器。
 
 # CAVEATS
 
-Running containers cannot be removed without --force. Data stored only inside the container will be lost. The home directory (mounted from host) is preserved.
+正在运行的容器不使用 --force 无法删除。仅存储在容器内部的数据将会丢失。主目录（从宿主机挂载）会保留。
 
 # INSTALL
 

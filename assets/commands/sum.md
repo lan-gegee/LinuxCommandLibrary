@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compute legacy file checksums and block counts
+计算旧式文件校验和及块计数
 
 # TLDR
 
-**Calculate checksum** using BSD algorithm (default)
+使用 BSD 算法**计算校验和**（默认）
 
 ```sum [file]```
 
-**Use System V algorithm** with 512-byte blocks
+配合 512 字节块**使用 System V 算法**
 
 ```sum -s [file]```
 
-**Explicitly use BSD algorithm** with 1K blocks
+显式配合 1K 块**使用 BSD 算法**
 
 ```sum -r [file]```
 
-**Read from stdin**
+**从标准输入读取**
 
 ```cat [file] | sum```
 
@@ -27,26 +27,26 @@ Compute legacy file checksums and block counts
 # PARAMETERS
 
 **-r**
-> Use BSD algorithm, use 1K blocks (default)
+> 使用 BSD 算法，采用 1K 块（默认）
 
 **-s**, **--sysv**
-> Use System V algorithm, use 512-byte blocks
+> 使用 System V 算法，采用 512 字节块
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**sum** prints checksum and block counts for each FILE. With no FILE, or when FILE is -, reads standard input. The default BSD algorithm uses 1024-byte blocks, while the System V algorithm uses 512-byte blocks.
+**sum** 为每个 FILE 打印校验和与块计数。未指定 FILE 或 FILE 为 - 时，读取标准输入。默认的 BSD 算法使用 1024 字节块，而 System V 算法使用 512 字节块。
 
-This is a legacy utility provided for compatibility. The **cksum** command is preferred for new applications.
+这是一个为兼容性保留的旧式工具。新应用建议改用 **cksum** 命令。
 
 # CAVEATS
 
-Not cryptographically secure. Use sha256sum or similar for integrity verification. The checksum algorithm is not suitable for detecting intentional data tampering.
+不具备密码学安全性。完整性校验请使用 sha256sum 或类似工具。该校验和算法不适合检测蓄意的数据篡改。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ Not cryptographically secure. Use sha256sum or similar for integrity verificatio
 # SEE ALSO
 
 [cksum](/man/cksum)(1), [md5sum](/man/md5sum)(1), [sha256sum](/man/sha256sum)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Drop-down terminal emulator
+下拉式终端模拟器
 
 # TLDR
 
-**Start Tilda terminal**
+**启动 Tilda 终端**
 
 ```tilda```
 
-**Start with D-Bus support** for Wayland
+在 Wayland 上**以 D-Bus 支持启动**
 
 ```tilda --dbus```
 
-**Toggle specific Tilda instance**
+**切换特定 Tilda 实例**
 
 ```tilda -T [0]```
 
-**Start hidden**
+**隐藏启动**
 
 ```tilda --hidden```
 
-**Use specific config file**
+**使用指定配置文件**
 
 ```tilda -c [~/.config/tilda/config_0]```
 
-**Show version**
+**显示版本**
 
 ```tilda --version```
 
-**Display help**
+**显示帮助**
 
 ```tilda --help```
 
@@ -39,65 +39,65 @@ Drop-down terminal emulator
 # PARAMETERS
 
 **--dbus**
-> Enable D-Bus interface for window toggling.
+> 启用 D-Bus 接口，用于切换窗口。
 
 **-T**, **--toggle** _n_
-> Toggle visibility of instance n.
+> 切换实例 n 的可见性。
 
 **--hidden**
-> Start with window hidden.
+> 以隐藏窗口方式启动。
 
 **-c**, **--config** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **-C**
-> Open configuration wizard (deprecated, use right-click menu).
+> 打开配置向导（已废弃，请使用右键菜单）。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # KEYBOARD SHORTCUTS
 
-**F1**: Pull down/up terminal (default hotkey)
+**F1**：下拉/收回终端（默认热键）
 
-**Shift+Ctrl+T**: Open new tab
+**Shift+Ctrl+T**：打开新标签页
 
-**Shift+Ctrl+W**: Close current tab
+**Shift+Ctrl+W**：关闭当前标签页
 
-**Shift+Ctrl+PageUp**: Move tab left
+**Shift+Ctrl+PageUp**：将标签页左移
 
-**Shift+Ctrl+PageDown**: Move tab right
+**Shift+Ctrl+PageDown**：将标签页右移
 
-**Shift+Ctrl+C**: Copy selected text
+**Shift+Ctrl+C**：复制选中文本
 
-**Shift+Ctrl+V**: Paste clipboard
+**Shift+Ctrl+V**：粘贴剪贴板内容
 
-**Shift+Ctrl+F**: Search
+**Shift+Ctrl+F**：搜索
 
-**F11**: Toggle fullscreen
+**F11**：切换全屏
 
-**F12**: Toggle transparency
+**F12**：切换透明度
 
-**Shift+Ctrl+Q**: Quit Tilda
+**Shift+Ctrl+Q**：退出 Tilda
 
 # DESCRIPTION
 
-**Tilda** is a GTK-based drop-down terminal emulator for Linux. It slides down from the top of the screen when activated by a hotkey, similar to the console in Quake-style games.
+**Tilda** 是一款基于 GTK 的 Linux 下拉式终端模拟器。按下热键时，它会从屏幕顶部滑下，类似于 Quake 风格游戏中的控制台。
 
-The terminal supports tabs, transparency, customizable appearance, and can be configured to auto-hide when losing focus. Configuration is done through the preferences dialog accessible by right-clicking the terminal window.
+该终端支持标签页、透明度和自定义外观，还可以配置为失去焦点时自动隐藏。配置通过右键点击终端窗口打开的首选项对话框完成。
 
-Multiple Tilda instances can run simultaneously, each with its own configuration file (config_0, config_1, etc.) stored in ~/.config/tilda/. The D-Bus interface enables integration with desktop environments for global hotkey support, particularly useful on Wayland.
+多个 Tilda 实例可以同时运行，每个实例使用自己的配置文件（config_0、config_1 等），存放在 ~/.config/tilda/ 目录中。D-Bus 接口支持与桌面环境集成以实现全局热键，这在 Wayland 上尤其有用。
 
 # CAVEATS
 
-On Wayland, requires --dbus flag and desktop environment hotkey configuration. The first instance uses config_0. Global hotkey may conflict with other applications. Some transparency features require a compositing window manager.
+在 Wayland 上需要 --dbus 标志并配置桌面环境热键。第一个实例使用 config_0。全局热键可能与其他应用冲突。部分透明特性需要支持合成的窗口管理器。
 
 # HISTORY
 
-**Tilda** was inspired by the drop-down console found in first-person shooter games like Quake. It was created to provide quick terminal access without managing separate windows. The project continues to be maintained with support for modern features like Wayland compatibility.
+**Tilda** 的灵感来自 Quake 等第一人称射击游戏中的下拉控制台。它的设计目标是无需管理独立窗口即可快速访问终端。该项目仍在持续维护，已支持 Wayland 兼容等现代特性。
 
 # INSTALL
 

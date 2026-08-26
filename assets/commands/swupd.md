@@ -1,38 +1,38 @@
 # TAGLINE
 
-Clear Linux software update and bundle manager
+Clear Linux 的软件更新与 bundle 管理器
 
 # TLDR
 
-**Update** to latest version
+**更新**到最新版本
 
 ```sudo swupd update```
 
-Check for **available updates**
+检查**可用更新**
 
 ```swupd check-update```
 
-**List** installed bundles
+**列出**已安装的 bundle
 
 ```swupd bundle-list```
 
-**Search** for a package
+**搜索**软件包
 
 ```swupd search -b [package]```
 
-**Install** a bundle
+**安装**一个 bundle
 
 ```sudo swupd bundle-add [bundle]```
 
-**Remove** a bundle
+**移除**一个 bundle
 
 ```sudo swupd bundle-remove [bundle]```
 
-**Verify** and repair system files
+**校验**并修复系统文件
 
 ```sudo swupd verify```
 
-Show **system info**
+显示**系统信息**
 
 ```swupd info```
 
@@ -43,68 +43,68 @@ Show **system info**
 # COMMANDS
 
 **update** [_version_]
-> Update to latest or specified version
+> 更新到最新或指定版本
 
 **check-update**
-> Check for available updates
+> 检查可用更新
 
 **bundle-list** [**--all**]
-> List installed (or all available) bundles
+> 列出已安装（或全部可用）的 bundle
 
 **bundle-add** _bundle_
-> Install a bundle
+> 安装一个 bundle
 
 **bundle-remove** _bundle_
-> Remove a bundle
+> 移除一个 bundle
 
 **search** _term_
-> Find bundles containing search term
+> 查找包含搜索词的 bundle
 
 **info**
-> Display version and update server info
+> 显示版本和更新服务器信息
 
 **diagnose**
-> Verify system files against manifest
+> 对照清单校验系统文件
 
 **repair**
-> Fix detected file mismatches
+> 修复检测到的文件不一致
 
 **autoupdate**
-> Enable/disable automatic updates
+> 启用/禁用自动更新
 
 **clean**
-> Remove cached files
+> 清除缓存的文件
 
 # PARAMETERS
 
 **-b**
-> Search for bundles (with search)
+> 搜索 bundle（与 search 配合）
 
 **--all**
-> Show all available bundles (with bundle-list)
+> 显示所有可用 bundle（与 bundle-list 配合）
 
 **--force**
-> Force operation
+> 强制执行操作
 
 **--no-scripts**
-> Skip post-update scripts
+> 跳过更新后脚本
 
 **-h, --help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**swupd** is the software update and bundle management tool for Clear Linux. Unlike traditional package managers, swupd manages bundles (collections of related packages) and uses file-level versioning similar to git, where each OS version represents a complete, consistent snapshot.
+**swupd** 是 Clear Linux 的软件更新和 bundle 管理工具。与传统软件包管理器不同，swupd 管理 bundle（相关软件包的集合），并采用类似 git 的文件级版本控制，每个 OS 版本代表一个完整、一致的快照。
 
-Updates are highly efficient, downloading only changed files using binary deltas. The tool can verify system integrity, repair corrupted files, and manage automatic updates.
+更新效率极高，只通过二进制差量下载发生变化的文件。该工具可以校验系统完整性、修复损坏的文件，并管理自动更新。
 
 # CAVEATS
 
-Requires network connectivity to update servers. Bundles include all dependencies; you cannot install individual packages. OS version numbers are not semantic; each represents a complete system state. Some bundles are large.
+需要连接更新服务器的网络。bundle 包含全部依赖，无法单独安装某个软件包。OS 版本号不遵循语义化版本，每个版本号代表一个完整的系统状态。部分 bundle 体积较大。
 
 # HISTORY
 
-**swupd** was developed by **Intel** for **Clear Linux**, a performance-optimized Linux distribution first released in **2015**. Clear Linux pioneered stateless computing and efficient update mechanisms. The swupd tool exemplifies Clear Linux's approach to software management with atomic updates and file-level verification.
+**swupd** 由 **Intel** 为 **Clear Linux** 开发。Clear Linux 是一个针对性能优化的 Linux 发行版，于 **2015 年**首次发布，率先倡导无状态计算和高效更新机制。swupd 工具以原子更新和文件级校验体现了 Clear Linux 的软件管理理念。
 
 # SEE ALSO
 

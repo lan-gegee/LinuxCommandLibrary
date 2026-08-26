@@ -1,26 +1,26 @@
 # TAGLINE
 
-Multiple GNOME terminals in one window
+在一个窗口中运行多个 GNOME 终端
 
 # TLDR
 
-**Start** terminator window
+**启动** terminator 窗口
 
 ```terminator```
 
-**Start** with a fullscreen window
+**以全屏窗口启动**
 
 ```terminator -f```
 
-**Split** terminals horizontally
+**水平分割**终端
 
 ```Ctrl+Shift+O```
 
-**Split** terminals vertically
+**垂直分割**终端
 
 ```Ctrl+Shift+E```
 
-**Open** new tab
+**打开**新标签页
 
 ```Ctrl+Shift+T```
 
@@ -31,38 +31,38 @@ Multiple GNOME terminals in one window
 # PARAMETERS
 
 **-f, --fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-m, --maximise**
-> Start maximized
+> 最大化启动
 
 **-b, --borderless**
-> Start without window decorations
+> 无窗口装饰启动
 
 **-T, --title _title_**
-> Set window title
+> 设置窗口标题
 
 **-e, --command _command_**
-> Run command in the terminal
+> 在终端中运行命令
 
 **-l, --layout _layout_**
-> Load a specific layout
+> 加载指定的布局
 
 **-p, --profile _profile_**
-> Use specified profile
+> 使用指定的配置档
 
 **-g, --config _file_**
-> Use alternate config file
+> 使用备用配置文件
 
 # DESCRIPTION
 
-**terminator** is a terminal emulator that allows arranging multiple GNOME terminals in a single window. Terminals can be split horizontally and vertically, organized into tabs, and resized dynamically.
+**terminator** 是一个终端模拟器，允许在单个窗口中排列多个 GNOME 终端。终端可以水平和垂直分割、组织为标签页，并可动态调整大小。
 
-Key bindings allow quick navigation and manipulation of the terminal grid. Layouts and profiles can be saved and restored for consistent workspace setups.
+快捷键支持快速导航和操作终端网格。布局和配置档可以保存与恢复，以便获得一致的工作区设置。
 
 # CAVEATS
 
-Requires a graphical environment. Configuration is stored in **~/.config/terminator/**. Some key bindings may conflict with applications running in the terminal.
+需要图形环境。配置存储在 **~/.config/terminator/**。某些快捷键可能与终端内运行的应用冲突。
 
 # INSTALL
 

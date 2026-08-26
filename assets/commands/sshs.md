@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive TUI for browsing and connecting to SSH hosts
+用于浏览和连接 SSH 主机的交互式 TUI
 
 # TLDR
 
-**Launch the interactive SSH host selector**
+**启动交互式 SSH 主机选择器**
 
 ```sshs```
 
-**Use a custom SSH config file**
+**使用自定义的 SSH 配置文件**
 
 ```sshs --config [~/.ssh/custom_config]```
 
@@ -18,11 +18,11 @@ Interactive TUI for browsing and connecting to SSH hosts
 
 # DESCRIPTION
 
-**sshs** is a terminal user interface for SSH that reads your ~/.ssh/config file to list and connect to hosts. It provides a fuzzy-searchable interactive interface to quickly select and connect to configured SSH destinations.
+**sshs** 是一个面向 SSH 的终端用户界面，它读取你的 ~/.ssh/config 文件来列出并连接主机。它提供支持模糊搜索的交互式界面，可快速选择并连接到已配置的 SSH 目标。
 
 # HISTORY
 
-**sshs** was created by **quantumsheep** and is written in **Rust**.
+**sshs** 由 **quantumsheep** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

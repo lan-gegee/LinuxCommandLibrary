@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create Toolbx development containers
+创建 Toolbx 开发容器
 
 # TLDR
 
-Create a Toolbx container for a **specific distribution**
+为**特定发行版**创建 Toolbx 容器
 
 ```toolbox create -d [distribution]```
 
-Create a container for a specific **release** of the current distribution
+为当前发行版的特定**发布版本**创建容器
 
 ```toolbox create -r [release]```
 
-Create a container with a **custom image**
+使用**自定义镜像**创建容器
 
 ```toolbox create -i [name]```
 
-Create from a **custom Fedora image**
+从**自定义 Fedora 镜像**创建容器
 
 ```toolbox create -i quay.io/fedora/fedora:[tag]```
 
-Create using default image for a **specific Fedora release**
+使用**特定 Fedora 版本**的默认镜像创建容器
 
 ```toolbox create -d fedora -r f[version]```
 
@@ -31,26 +31,26 @@ Create using default image for a **specific Fedora release**
 # PARAMETERS
 
 **-d**, **--distro** _distro_
-> Create container for specified distribution
+> 为指定发行版创建容器
 
 **-r**, **--release** _release_
-> Create container for specified release version
+> 为指定发布版本创建容器
 
 **-i**, **--image** _image_
-> Use specified container image
+> 使用指定的容器镜像
 
 **-c**, **--container** _name_
-> Assign custom name to the container
+> 为容器指定自定义名称
 
 # DESCRIPTION
 
-**toolbox create** creates a new Toolbx container based on an OCI image. By default, it creates a container matching the host system's distribution and release. Custom images can be specified for development environments or cross-distribution work.
+**toolbox create** 基于 OCI 镜像创建新的 Toolbx 容器。默认情况下，它会创建一个与宿主系统的发行版和版本相匹配的容器。可以指定自定义镜像，用于开发环境或跨发行版工作。
 
-The container is configured for seamless integration with the host, including home directory access, user permissions, and graphical application support.
+容器经过配置，可与宿主机无缝集成，包括主目录访问、用户权限以及图形应用支持。
 
 # CAVEATS
 
-Requires podman to be installed. The default image is pulled from the distribution's registry if not cached locally. Container names must be unique within toolbox.
+需要已安装 podman。如果本地没有缓存，默认镜像将从发行版的 registry 拉取。容器名称在 toolbox 内必须唯一。
 
 # INSTALL
 

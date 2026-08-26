@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage udev hardware database
+管理 udev 硬件数据库
 
 # TLDR
 
-**Update** hardware database
+**更新**硬件数据库
 
 ```systemd-hwdb update```
 
-**Query** database for modalias
+**查询**数据库中的 modalias
 
 ```systemd-hwdb query [modalias]```
 
-Update with **strict** error checking
+以**严格**的错误检查方式更新
 
 ```systemd-hwdb -s update```
 
-Update in **/usr/lib/udev**
+在 **/usr/lib/udev** 中更新
 
 ```systemd-hwdb --usr update```
 
-Update for **alternate root**
+针对**备用根目录**更新
 
 ```systemd-hwdb -r [/path/to/root] update```
 
@@ -31,35 +31,35 @@ Update for **alternate root**
 # COMMANDS
 
 **update**
-> Compile hwdb source files into binary database
+> 将 hwdb 源文件编译为二进制数据库
 
 **query** _MODALIAS_
-> Query database for a specific modalias
+> 在数据库中查询特定的 modalias
 
 # PARAMETERS
 
 **-s, --strict**
-> Return non-zero exit on parsing errors
+> 解析出错时返回非零退出码
 
 **--usr**
-> Update database in /usr/lib/udev instead of /etc/udev
+> 更新 /usr/lib/udev 中的数据库而非 /etc/udev
 
 **-r, --root=** _PATH_
-> Operate on alternate root filesystem
+> 在指定的备用根文件系统上操作
 
 # DESCRIPTION
 
-**systemd-hwdb** manages the udev hardware database, which maps hardware identifiers (modalias) to properties and metadata. The database is compiled from text files in `/usr/lib/udev/hwdb.d/` and `/etc/udev/hwdb.d/` into a binary format for fast lookup.
+**systemd-hwdb** 管理 udev 硬件数据库，该数据库将硬件标识符（modalias）映射到属性和元数据。数据库由 `/usr/lib/udev/hwdb.d/` 和 `/etc/udev/hwdb.d/` 中的文本文件编译成二进制格式，以便快速查找。
 
-This database is used by udev rules to identify hardware and set appropriate properties.
+udev 规则使用该数据库来识别硬件并设置相应的属性。
 
 # CAVEATS
 
-Must run `systemd-hwdb update` after modifying hwdb source files. The binary database is architecture-specific. Changes in /etc override /usr/lib entries.
+修改 hwdb 源文件后必须运行 `systemd-hwdb update`。二进制数据库与体系结构相关。/etc 中的更改会覆盖 /usr/lib 中的条目。
 
 # HISTORY
 
-**systemd-hwdb** replaces the older udev hwdb management, providing hardware identification data used throughout the system for device setup.
+**systemd-hwdb** 取代了较旧的 udev hwdb 管理机制，提供系统中设备配置所需的硬件识别数据。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-TLP power management status reports
+TLP 电源管理状态报告
 
 # TLDR
 
-Generate **full** status report
+生成**完整**状态报告
 
 ```sudo tlp-stat```
 
-Show **battery** information
+显示**电池**信息
 
 ```sudo tlp-stat -b```
 
-Show **processor** tunables
+显示**处理器**可调参数
 
 ```sudo tlp-stat -p```
 
-Show **disk** device tunables
+显示**磁盘**设备可调参数
 
 ```sudo tlp-stat -d```
 
-Show **configuration**
+显示**配置**
 
 ```sudo tlp-stat -c```
 
-Show **configuration differences** from defaults
+显示与默认值的**配置差异**
 
 ```sudo tlp-stat --cdiff```
 
-Show **temperatures** and fan speed
+显示**温度**和风扇转速
 
 ```sudo tlp-stat -t```
 
-Show **system** information and TLP status
+显示**系统**信息和 TLP 状态
 
 ```sudo tlp-stat -s```
 
-Monitor power supply **udev events**
+监控电源供电的 **udev 事件**
 
 ```sudo tlp-stat -P```
 
@@ -47,73 +47,73 @@ Monitor power supply **udev events**
 # PARAMETERS
 
 **-b, --battery**
-> Battery data
+> 电池数据
 
 **-c, --config**
-> Active configuration
+> 当前生效的配置
 
 **--cdiff**
-> Differences between defaults and user configuration
+> 默认值与用户配置之间的差异
 
 **-d, --disk**
-> Disk device tunables
+> 磁盘设备可调参数
 
 **-e, --pcie**
-> PCIe device tunables
+> PCIe 设备可调参数
 
 **-g, --graphics**
-> Graphics card tunables
+> 显卡可调参数
 
 **-p, --processor**
-> Processor tunables
+> 处理器可调参数
 
 **-r, --rfkill**
-> Radio device states and tunables
+> 无线设备状态和可调参数
 
 **-s, --system**
-> System information and TLP status
+> 系统信息和 TLP 状态
 
 **-t, --temp**
-> Temperatures and fan speed
+> 温度和风扇转速
 
 **-u, --usb**
-> USB device tunables
+> USB 设备可调参数
 
 **-v, --verbose**
-> Show additional detail in supported categories
+> 在支持的类别中显示更多细节
 
 **-q, --quiet**
-> Omit version header and reduce processor output
+> 省略版本头并精简处理器输出
 
 **-P, --pev**
-> Monitor power supply udev events
+> 监控电源供电 udev 事件
 
 **--psup**
-> Power supply diagnostics
+> 电源诊断
 
 **-T, --trace**
-> Trace output
+> 跟踪输出
 
 **--udev**
-> Check if udev rules are active
+> 检查 udev 规则是否已激活
 
 **-w, --warn**
-> Warnings about SATA disks
+> 关于 SATA 磁盘的警告
 
 **--version**
-> Print TLP version
+> 打印 TLP 版本
 
 # DESCRIPTION
 
-**tlp-stat** generates status reports for TLP power management. It shows active settings, battery health, power consumption, and hardware status. The output helps diagnose power issues and verify TLP configuration.
+**tlp-stat** 为 TLP 电源管理生成状态报告。它显示当前生效的设置、电池健康度、功耗和硬件状态。其输出有助于诊断电源问题并验证 TLP 配置。
 
 # CAVEATS
 
-Some information requires root privileges. Battery statistics may not be available on all hardware. Use verbose mode for detailed diagnostics. Some options like --cdiff, --version, and -q require TLP 1.7 or later.
+部分信息需要 root 权限。并非所有硬件都提供电池统计信息。需要详细诊断时请使用详细模式。一些选项（如 --cdiff、--version 和 -q）需要 TLP 1.7 或更高版本。
 
 # HISTORY
 
-**tlp-stat** is the companion diagnostic tool for **TLP**, created by **Thomas Koch** for monitoring and troubleshooting Linux laptop power management.
+**tlp-stat** 是 **TLP** 的配套诊断工具，由 **Thomas Koch** 创建，用于监控和排查 Linux 笔记本的电源管理问题。
 
 # INSTALL
 

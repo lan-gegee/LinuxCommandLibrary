@@ -1,38 +1,38 @@
 # TAGLINE
 
-Synology NAS package management utility
+Synology NAS 软件包管理工具
 
 # TLDR
 
-**List** installed packages
+**列出**已安装的软件包
 
 ```synopkg list --name```
 
-List packages **depending on** another
+列出**依赖于**其他软件包的软件包
 
 ```synopkg list --depend-on [package]```
 
-**Start, stop, or restart** a package
+**启动、停止或重启**软件包
 
 ```sudo synopkg [start|stop|restart] [package]```
 
-Show package **status**
+显示软件包**状态**
 
 ```synopkg status [package]```
 
-**Uninstall** a package
+**卸载**软件包
 
 ```sudo synopkg uninstall [package]```
 
-Check for **updates**
+检查**更新**
 
 ```synopkg checkupdate [package]```
 
-**Upgrade** all packages
+将所有软件包**升级**
 
 ```sudo synopkg upgradeall```
 
-**Install** from SPK file
+从 SPK 文件**安装**
 
 ```sudo synopkg install [path/to/package.spk]```
 
@@ -43,59 +43,59 @@ Check for **updates**
 # COMMANDS
 
 **list** [**--name**] [**--depend-on** _pkg_]
-> List installed packages
+> 列出已安装的软件包
 
 **install** _file.spk_
-> Install package from SPK file
+> 从 SPK 文件安装软件包
 
 **uninstall** _package_
-> Remove installed package
+> 移除已安装的软件包
 
 **start** _package_
-> Start a package service
+> 启动一个软件包服务
 
 **stop** _package_
-> Stop a package service
+> 停止一个软件包服务
 
 **restart** _package_
-> Restart a package service
+> 重启一个软件包服务
 
 **status** _package_
-> Show package running status
+> 显示软件包运行状态
 
 **is_onoff** _package_
-> Check if package is enabled
+> 检查软件包是否已启用
 
 **checkupdate** _package_
-> Check for package updates
+> 检查软件包更新
 
 **upgradeall**
-> Upgrade all packages to latest versions
+> 将所有软件包升级到最新版本
 
 **log** _package_
-> View package logs
+> 查看软件包日志
 
 # PARAMETERS
 
 **--name**
-> Show only package names
+> 只显示软件包名称
 
 **--depend-on** _package_
-> List packages depending on specified package
+> 列出依赖于指定软件包的软件包
 
 # DESCRIPTION
 
-**synopkg** is the package management utility for Synology DiskStation Manager (DSM), the operating system for Synology NAS devices. It provides command-line control over package installation, updates, and service management.
+**synopkg** 是 Synology DiskStation Manager（DSM）——Synology NAS 设备操作系统——的软件包管理工具。它提供对软件包安装、更新和服务管理的命令行控制。
 
-The tool wraps each package's start/stop scripts located at `/var/packages/<package>/scripts/start-stop-status`. It automatically handles dependency resolution when installing packages and integrates with DSM's Package Center.
+该工具包装了位于 `/var/packages/<package>/scripts/start-stop-status` 的每个软件包的启动/停止脚本。安装软件包时它会自动处理依赖解析，并与 DSM 的套件中心集成。
 
 # CAVEATS
 
-Requires root privileges for install/uninstall/start/stop operations. SSH access must be enabled on the Synology NAS. Only accepts SPK package format. Installation has the same constraints as the web UI Package Center.
+安装/卸载/启动/停止操作需要 root 权限。Synology NAS 上必须启用 SSH 访问。只接受 SPK 软件包格式。安装约束与 Web 界面套件中心相同。
 
 # HISTORY
 
-**synopkg** is developed by **Synology Inc.** as part of their DiskStation Manager operating system. DSM provides a Linux-based platform for Synology NAS devices, first introduced in the mid-**2000s**. The command-line tools complement the web-based administration interface.
+**synopkg** 由 **Synology Inc.** 开发，是其 DiskStation Manager 操作系统的一部分。DSM 为 Synology NAS 设备提供基于 Linux 的平台，最早于 **2000 年代中期**推出。命令行工具是对基于 Web 的管理界面的补充。
 
 # SEE ALSO
 

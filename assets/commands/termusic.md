@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal music player with vim bindings
+支持 vim 按键绑定的终端音乐播放器
 
 # TLDR
 
-Open to **specific** directory
+打开**指定**目录
 
 ```termusic [path/to/directory]```
 
-Disable **album cover** display
+禁用**专辑封面**显示
 
 ```termusic -c```
 
-Display **help**
+显示**帮助**
 
 ```termusic --help```
 
-**Scan** library and update database
+**扫描**媒体库并更新数据库
 
 ```termusic scan```
 
@@ -27,51 +27,51 @@ Display **help**
 # PARAMETERS
 
 **-c**
-> Disable showing album cover
+> 禁用专辑封面显示
 
 **-m** _DEPTH_
-> Max depth of folder scanning (default: 4)
+> 文件夹扫描的最大深度（默认：4）
 
 **scan**
-> Scan library and update database
+> 扫描媒体库并更新数据库
 
 **config**
-> Open config in editor
+> 在编辑器中打开配置文件
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**termusic** is a terminal music player written in Rust featuring vim-like key bindings. It supports various audio formats and provides a TUI (terminal user interface) for browsing and playing music.
+**termusic** 是一款用 Rust 编写的终端音乐播放器，特色是类似 vim 的按键绑定。它支持多种音频格式，并提供 TUI（终端用户界面）用于浏览和播放音乐。
 
-Configuration is stored in `~/.config/termusic/config.toml` where default directories and preferences can be set.
+配置存储在 `~/.config/termusic/config.toml` 中，可在其中设置默认目录和偏好选项。
 
 # KEY BINDINGS
 
-**j/k** - Navigate up/down
+**j/k** - 上/下导航
 
-**Enter** - Play selected
+**Enter** - 播放所选曲目
 
-**Space** - Pause/resume
+**Space** - 暂停/继续
 
-**n/p** - Next/previous track
+**n/p** - 下一首/上一首
 
-**s** - Toggle shuffle
+**s** - 切换随机播放
 
-**f** - Seek forward
+**f** - 向前快进
 
-**F1** - Help
+**F1** - 帮助
 
-**q** - Quit
+**q** - 退出
 
 # CAVEATS
 
-Album cover display requires a compatible terminal. Some audio formats may need additional codec support.
+专辑封面显示需要兼容的终端。某些音频格式可能需要额外的编解码器支持。
 
 # HISTORY
 
-**termusic** is a modern terminal music player developed by **tramhao**, inspired by vim's modal editing philosophy and designed for keyboard-driven music playback.
+**termusic** 是由 **tramhao** 开发的一款现代终端音乐播放器，灵感来自 vim 的模态编辑理念，专为键盘驱动的音乐播放而设计。
 
 # INSTALL
 

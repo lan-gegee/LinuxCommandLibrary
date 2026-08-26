@@ -1,54 +1,54 @@
 # TAGLINE
 
-Display directory contents in tree format
+以树状格式显示目录内容
 
 # TLDR
 
-**Display directory tree**
+显示目录树
 
 ```tree```
 
-**Show tree for specific directory**
+显示特定目录的树
 
 ```tree [path/to/directory]```
 
-**Include hidden files**
+包含隐藏文件
 
 ```tree -a```
 
-**Show only directories**
+仅显示目录
 
 ```tree -d```
 
-**Limit depth** of tree
+限制树的深度
 
 ```tree -L [2]```
 
-**Show file sizes**
+显示文件大小
 
 ```tree -s```
 
-**Show human-readable sizes**
+以人类可读格式显示大小
 
 ```tree -h```
 
-**Output in JSON format**
+输出为 JSON 格式
 
 ```tree -J```
 
-**Exclude patterns**
+排除匹配的模式
 
 ```tree -I "[pattern|pattern2]"```
 
-**Show full path** for each file
+显示每个文件的完整路径
 
 ```tree -f```
 
-**Sort by modification time**, newest first
+按修改时间**排序**，最新的在前
 
 ```tree -t -r```
 
-**Show directory sizes and respect .gitignore**
+**显示目录大小并遵循 .gitignore**
 
 ```tree --du --gitignore```
 
@@ -59,100 +59,100 @@ Display directory contents in tree format
 # PARAMETERS
 
 **-a**
-> Show all files including hidden
+> 显示所有文件，包括隐藏文件
 
 **-d**
-> List directories only
+> 仅列出目录
 
 **-L** _level_
-> Limit depth to level
+> 将深度限制到指定层级
 
 **-f**
-> Print full path prefix
+> 打印完整路径前缀
 
 **-s**
-> Print size of each file
+> 打印每个文件的大小
 
 **-h**
-> Print sizes in human-readable format
+> 以人类可读格式打印大小
 
 **-D**
-> Print last modification date
+> 打印最后修改日期
 
 **-p**
-> Print file permissions
+> 打印文件权限
 
 **-u**
-> Print username
+> 打印用户名
 
 **-g**
-> Print group name
+> 打印组名
 
 **-I** _pattern_
-> Exclude files matching pattern
+> 排除匹配模式的文件
 
 **-P** _pattern_
-> List only files matching pattern
+> 仅列出匹配模式的文件
 
 **--dirsfirst**
-> List directories before files
+> 目录排在文件之前
 
 **-C**
-> Colorize output
+> 彩色化输出
 
 **-n**
-> Turn off colorization
+> 关闭彩色化
 
 **-r**
-> Sort output in reverse order
+> 以逆序排列输出
 
 **-t**
-> Sort by last modification time
+> 按最后修改时间排序
 
 **-o** _filename_
-> Send output to filename
+> 将输出发送到指定文件
 
 **--du**
-> Show cumulative directory sizes
+> 显示目录的累计大小
 
 **--prune**
-> Prune empty directories from output
+> 从输出中剪除空目录
 
 **--gitignore**
-> Use .gitignore files for filtering
+> 使用 .gitignore 文件进行过滤
 
 **--noreport**
-> Omit file and directory count at end of listing
+> 省略列表末尾的文件和目录计数
 
 **--filelimit** _N_
-> Do not descend directories with more than N entries
+> 不进入条目数超过 N 的目录
 
 **-H** _baseHREF_
-> Output HTML with base URL
+> 输出带基础 URL 的 HTML
 
 **-J**
-> Output JSON
+> 输出 JSON
 
 **-X**
-> Output XML
+> 输出 XML
 
 # DESCRIPTION
 
-**tree** displays the contents of directories in a tree-like format, showing the hierarchical relationship between files and subdirectories visually.
+**tree** 以树状格式显示目录内容，直观呈现文件与子目录之间的层次关系。
 
-The default output uses ASCII or Unicode box-drawing characters to represent the tree structure. Colorization helps distinguish file types (directories, executables, symlinks, etc.).
+默认输出使用 ASCII 或 Unicode 制表线字符表示树结构。彩色化有助于区分文件类型（目录、可执行文件、符号链接等）。
 
-Various output formats are supported for integration with other tools: JSON (**-J**) for programmatic parsing, XML (**-X**) for structured data, and HTML (**-H**) for web display.
+它支持多种输出格式以便与其他工具集成：JSON（**-J**）用于程序解析，XML（**-X**）用于结构化数据，HTML（**-H**）用于网页展示。
 
-Filtering with **-I** (exclude) and **-P** (include) uses shell glob patterns, supporting wildcards like \* and ?.
+使用 **-I**（排除）和 **-P**（包含）过滤时采用 shell 通配符模式，支持 \* 和 ? 等通配符。
 
 # CAVEATS
 
-Large directories can produce overwhelming output. Use **-L** to limit depth or **-d** for directories only when exploring unfamiliar structures.
+大目录可能产生海量输出。浏览陌生结构时，请用 **-L** 限制深度或用 **-d** 只显示目录。
 
-Tree does not follow symbolic links by default if they would cause recursion. Use **-l** to follow all symlinks.
+若符号链接会导致递归，tree 默认不跟随它们。使用 **-l** 可跟随所有符号链接。
 
-Using **--prune** and **--du** causes tree to accumulate the entire tree in memory before output, which may be slow for very large directory trees.
+同时使用 **--prune** 和 **--du** 会让 tree 在输出前将整棵树累积在内存中，对于非常大的目录树可能较慢。
 
 # INSTALL
 

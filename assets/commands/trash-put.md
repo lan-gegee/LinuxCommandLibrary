@@ -1,12 +1,12 @@
 # TAGLINE
 
-Move files to the trash
+将文件移入回收站
 
 # TLDR
 
-This command is an **alias** of **trash**
+此命令是 **trash** 的**别名**
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr trash```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**trash-put** is an alias for **trash**, the main command for moving files to the trash. See **trash** for full documentation.
+**trash-put** 是 **trash** 的别名，后者是将文件移入回收站的主命令。完整文档参见 **trash**。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Neural text-to-speech synthesis
+神经文本转语音合成
 
 # TLDR
 
-**Synthesize speech**
+**合成语音**
 
 ```tts --text "[Hello world]"```
 
-**Save to file**
+**保存到文件**
 
 ```tts --text "[Hello]" --out_path [output.wav]```
 
-**List models**
+**列出模型**
 
 ```tts --list_models```
 
-**Use specific model**
+**使用指定模型**
 
 ```tts --text "[text]" --model_name [tts_models/en/ljspeech/tacotron2-DDC]```
 
-**List speakers**
+**列出说话人**
 
 ```tts --model_name [model] --list_speakers```
 
@@ -31,35 +31,35 @@ Neural text-to-speech synthesis
 # PARAMETERS
 
 **--text** _TEXT_
-> Input text.
+> 输入文本。
 
 **--out_path** _FILE_
-> Output audio file.
+> 输出音频文件。
 
 **--model_name** _MODEL_
-> TTS model.
+> TTS 模型。
 
 **--list_models**
-> Show models.
+> 显示模型列表。
 
 **--speaker_idx** _ID_
-> Speaker selection.
+> 选择说话人。
 
 # DESCRIPTION
 
-**tts** is the command-line interface for Coqui TTS, an open-source deep learning text-to-speech toolkit. It converts text input into natural-sounding speech audio using neural network models, supporting multiple languages and voice styles.
+**tts** 是 Coqui TTS 的命令行界面。Coqui TTS 是一个开源深度学习文本转语音工具包，使用神经网络模型将文本输入转换为自然流畅的语音，支持多种语言和声音风格。
 
-The tool ships with a variety of pre-trained models that can be listed and selected by name. Multi-speaker models allow choosing between different voice characteristics via speaker indices. Audio output can be saved to WAV files or played directly.
+该工具自带多种预训练模型，可通过名称列出和选择。多说话人模型允许通过说话人索引选择不同的声音特征。音频输出可以保存为 WAV 文件或直接播放。
 
-Models are downloaded automatically on first use and cached locally. While CPU inference is supported, a GPU is recommended for faster synthesis, especially with larger models.
+模型在首次使用时自动下载并缓存到本地。虽然支持 CPU 推理，但建议使用 GPU 以加快合成速度，尤其是较大的模型。
 
 # CAVEATS
 
-Python required. Large model downloads. GPU recommended.
+需要 Python。模型下载体积较大。建议使用 GPU。
 
 # HISTORY
 
-**TTS** (Coqui TTS) is an open-source deep learning text-to-speech toolkit with multiple models.
+**TTS**（Coqui TTS）是一个包含多种模型的开源深度学习文本转语音工具包。
 
 # INSTALL
 

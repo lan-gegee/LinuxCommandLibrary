@@ -1,18 +1,18 @@
 # TAGLINE
 
-Enable SteamOS developer mode
+启用 SteamOS 开发者模式
 
 # TLDR
 
-**Enable** developer mode
+**启用**开发者模式
 
 ```sudo steamos-devmode enable```
 
-Enable **without confirmation**
+**无需确认**地启用
 
 ```sudo steamos-devmode enable --no-prompt```
 
-Check developer mode **status**
+检查开发者模式**状态**
 
 ```sudo steamos-devmode status```
 
@@ -23,29 +23,29 @@ Check developer mode **status**
 # COMMANDS
 
 **enable**
-> Enable developer mode
+> 启用开发者模式
 
 **status**
-> Check if developer mode is enabled
+> 检查开发者模式是否已启用
 
 # PARAMETERS
 
 **--no-prompt**
-> Skip confirmation prompt when enabling
+> 启用时跳过确认提示
 
 # DESCRIPTION
 
-**steamos-devmode** enables developer mode on SteamOS (Steam Deck), which disables read-only filesystem protections and initializes the pacman package manager. This allows installing additional software, modifying system files, and customizing the operating system.
+**steamos-devmode** 在 SteamOS（Steam Deck）上启用开发者模式，这会禁用只读文件系统保护并初始化 pacman 包管理器。这样就可以安装额外软件、修改系统文件以及自定义操作系统。
 
-Developer mode is intended for advanced users who want to use the Steam Deck as a full Linux desktop, install development tools, or customize the system beyond the default configuration.
+开发者模式面向想把 Steam Deck 当作完整 Linux 桌面使用、安装开发工具或在默认配置之外定制系统的高级用户。
 
 # CAVEATS
 
-Disables read-only protections that prevent system modifications. System updates may overwrite changes made in developer mode. Not intended for regular users. May affect system stability if used improperly. Requires root privileges.
+会禁用防止修改系统的只读保护。系统更新可能覆盖开发者模式下的更改。不面向普通用户。使用不当可能影响系统稳定性。需要 root 权限。
 
 # HISTORY
 
-**steamos-devmode** is part of **SteamOS 3.0**, developed by **Valve** for the **Steam Deck** released in **February 2022**. SteamOS 3.0 is based on Arch Linux and uses an immutable filesystem by default. Developer mode was provided to allow power users to modify the system while maintaining the option for a locked-down console experience.
+**steamos-devmode** 属于 **SteamOS 3.0**，由 **Valve** 为 **2022 年 2 月**发布的 **Steam Deck** 开发。SteamOS 3.0 基于 Arch Linux，默认使用不可变文件系统。提供开发者模式是为了让高级用户能够修改系统，同时保留锁定主机体验的选项。
 
 # SEE ALSO
 

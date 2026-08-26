@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reset unit enablement to defaults
+将单元启用状态重置为默认值
 
 # TLDR
 
-Reset to **preset** defaults
+重置为**预设**默认值
 
 ```systemctl preset [unit1 unit2 ...]```
 
-**Enable** only mode
+仅**启用**模式
 
 ```systemctl preset [unit] --preset-mode enable-only```
 
-**Disable** only mode
+仅**禁用**模式
 
 ```systemctl preset [unit] --preset-mode disable-only```
 
-**Quiet** mode
+**安静**模式
 
 ```systemctl preset [unit] -q```
 
@@ -27,27 +27,27 @@ Reset to **preset** defaults
 # PARAMETERS
 
 **--preset-mode=** _MODE_
-> full (default), enable-only, or disable-only
+> full（默认）、enable-only 或 disable-only
 
 **-q, --quiet**
-> Suppress output, return only exit code
+> 不输出内容，仅返回退出码
 
 **--user**
-> Operate on user units
+> 操作用户单元
 
 # DESCRIPTION
 
-**systemctl preset** resets the enablement state of specified unit files to the defaults defined in preset policy files. Preset files in `/usr/lib/systemd/system-preset/` and `/etc/systemd/system-preset/` define which units should be enabled or disabled by default.
+**systemctl preset** 将指定单元文件的启用状态重置为预设策略文件中定义的默认值。`/usr/lib/systemd/system-preset/` 和 `/etc/systemd/system-preset/` 中的预设文件定义了哪些单元默认应被启用或禁用。
 
-This is typically used after package installation to set the initial enablement state according to distribution policy.
+通常在安装软件包后使用，以根据发行版策略设置初始启用状态。
 
 # CAVEATS
 
-Preset policies are distribution-specific. Running preset on a unit may change whether it starts at boot. Use `--preset-mode` to limit changes to only enabling or disabling.
+预设策略因发行版而异。对单元执行 preset 可能改变它是否开机启动。可使用 `--preset-mode` 将更改限制为只启用或只禁用。
 
 # HISTORY
 
-The **preset** subcommand implements policy-based enablement, allowing distributions to define default service states while letting administrators override them.
+**preset** 子命令实现了基于策略的启用机制，允许发行版定义默认服务状态，同时让管理员可以覆盖这些设置。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Traceroute using TCP packets
+使用 TCP 数据包的 traceroute
 
 # TLDR
 
-**Trace** route to a host
+对主机进行**路由跟踪**
 
 ```tcptraceroute host```
 
-Trace to specific **destination port**
+跟踪到指定**目标端口**
 
 ```tcptraceroute host 80```
 
-Specify **source port** and address
+指定**源端口**和地址
 
 ```tcptraceroute host -p 12345 -s 192.168.1.10```
 
-Set **first and maximum TTL**
+设置**初始和最大 TTL**
 
 ```tcptraceroute host -f 1 -m 30```
 
-Set **wait time** and queries per hop
+设置**等待时间**和每跳查询次数
 
 ```tcptraceroute host -w 3 -q 3```
 
-Specify **network interface**
+指定**网络接口**
 
 ```tcptraceroute host -i eth0```
 
-Use **numeric** output only
+仅使用**数字**输出
 
 ```tcptraceroute -n host```
 
@@ -38,53 +38,53 @@ Use **numeric** output only
 
 # DESCRIPTION
 
-**tcptraceroute** is a traceroute implementation using TCP packets. It can trace through firewalls that block traditional ICMP or UDP traceroute packets by using TCP SYN packets to a specified port.
+**tcptraceroute** 是一种使用 TCP 数据包的 traceroute 实现。它通过向指定端口发送 TCP SYN 包，可以穿透封锁传统 ICMP 或 UDP traceroute 数据包的防火墙完成路由跟踪。
 
 # PARAMETERS
 
 **-p PORT**
-> Set local source port
+> 设置本地源端口
 
 **-s ADDRESS**
-> Set source IP address
+> 设置源 IP 地址
 
 **-i INTERFACE**
-> Specify network interface to use
+> 指定使用的网络接口
 
 **-f TTL**
-> Set the initial (first) TTL value
+> 设置初始（第一个）TTL 值
 
 **-m TTL**
-> Set the maximum TTL value (default: 30)
+> 设置最大 TTL 值（默认为 30）
 
 **-w SECONDS**
-> Set the timeout for each probe (default: 3)
+> 设置每个探测的超时时间（默认为 3）
 
 **-q QUERIES**
-> Set number of queries per hop (default: 3)
+> 设置每跳的查询次数（默认为 3）
 
 **-n**
-> Print numeric addresses only (no DNS resolution)
+> 仅打印数字地址（不做 DNS 解析）
 
 **-N**
-> Enable lookup of hostnames
+> 启用主机名查询
 
 **-S**
-> Set SYN flag on outgoing packets
+> 在发出的数据包上设置 SYN 标志
 
 **-A**
-> Set ACK flag on outgoing packets
+> 在发出的数据包上设置 ACK 标志
 
 **-E**
-> Set ECN flag on outgoing packets
+> 在发出的数据包上设置 ECN 标志
 
 # CAVEATS
 
-Requires root privileges or appropriate capabilities to send raw packets. The destination port defaults to 80 (HTTP). Some firewalls may still block TCP probes depending on their configuration.
+发送原始数据包需要 root 权限或相应的能力。目标端口默认为 80（HTTP）。某些防火墙仍可能根据自身配置阻止 TCP 探测。
 
 # HISTORY
 
-**tcptraceroute** was created as an alternative to traditional traceroute that could bypass firewalls blocking ICMP and UDP packets by using TCP SYN packets.
+**tcptraceroute** 作为传统 traceroute 的替代方案而创建，通过使用 TCP SYN 包绕过封锁 ICMP 和 UDP 数据包的防火墙。
 
 # INSTALL
 

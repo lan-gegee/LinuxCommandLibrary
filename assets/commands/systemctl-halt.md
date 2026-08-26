@@ -1,34 +1,34 @@
 # TAGLINE
 
-Shut down and halt the system
+关闭并停机系统
 
 # TLDR
 
-**Halt** the system
+**停机**系统
 
 ```systemctl halt```
 
-**Force** halt immediately
+立即**强制**停机
 
 ```systemctl halt -f```
 
-Halt without **wall** message
+不发送 **wall** 消息停机
 
 ```systemctl halt -f --no-wall```
 
-**Emergency** halt (dangerous)
+**紧急**停机（危险）
 
 ```systemctl halt -ff```
 
-**Schedule** halt at time
+**定时**在指定时刻停机
 
 ```systemctl halt --when 23:00```
 
-Schedule halt in **duration**
+以**时长**定时停机
 
 ```systemctl halt --when +2h```
 
-**Cancel** scheduled halt
+**取消**已计划的停机
 
 ```systemctl halt --when cancel```
 
@@ -39,30 +39,30 @@ Schedule halt in **duration**
 # PARAMETERS
 
 **-f, --force**
-> Skip graceful service shutdown
+> 跳过服务的优雅关闭
 
 **--force --force** (-ff)
-> Immediate halt without cleanup (dangerous)
+> 立即停机，不做清理（危险）
 
 **--no-wall**
-> Don't send wall message to users
+> 不向用户发送 wall 消息
 
 **--when** _TIME_
-> Schedule halt at specific time or offset
+> 定时在指定时间或偏移量处停机
 
 # DESCRIPTION
 
-**systemctl halt** shuts down and halts the system, stopping the OS kernel but leaving hardware powered on. This differs from poweroff, which completely powers down the machine, and reboot, which restarts the system.
+**systemctl halt** 关闭并停机系统：停止操作系统内核，但保持硬件通电。这与 poweroff（完全切断机器电源）和 reboot（重启系统）不同。
 
-With one `--force`, services are not gracefully stopped. With two `--force` flags, filesystems are not unmounted and may cause data loss.
+使用一个 `--force` 时，服务不会被优雅地停止。使用两个 `--force` 标志时，文件系统不会被卸载，可能导致数据丢失。
 
 # CAVEATS
 
-Halt leaves the system powered but unresponsive; manual power-off is required. Double-force mode risks data corruption. Scheduled operations can be cancelled with `--when cancel`.
+halt 后系统保持通电但无响应；需要手动断电。双重强制模式有数据损坏风险。计划中的操作可用 `--when cancel` 取消。
 
 # HISTORY
 
-The **halt** subcommand provides a systemd-native way to halt the system, integrating with the scheduled shutdown mechanism and wall notification system.
+**halt** 子命令提供 systemd 原生的系统停机方式，并与定时关机机制和 wall 通知系统集成。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Collect SteamOS system diagnostics
+收集 SteamOS 系统诊断信息
 
 # TLDR
 
-**Dump all system information**
+**转储全部系统信息**
 
 ```sudo steamos-dump-info```
 
-**List available sections**
+**列出可用的分区段**
 
 ```steamos-dump-info --list-sections```
 
-**Dump with verbose output**
+**以详细输出转储**
 
 ```sudo steamos-dump-info --verbose```
 
-**Dump without compressing output**
+**不压缩输出地转储**
 
 ```sudo steamos-dump-info --no-compress```
 
-**Dump only a specific section**
+**仅转储指定的分区段**
 
 ```sudo steamos-dump-info --section [network]```
 
@@ -31,39 +31,39 @@ Collect SteamOS system diagnostics
 # PARAMETERS
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助消息。
 
 **-L**, **--list-sections**
-> List all available sections that can be dumped individually.
+> 列出所有可以单独转储的可用分区段。
 
 **--section** _NAME_
-> Dump only the specified section. Can be used multiple times.
+> 仅转储指定的分区段。可多次使用。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-v**, **--verbose**
-> Enable verbose output with more detail about the collection process.
+> 启用详细输出，提供收集过程的更多信息。
 
 **-q**, **--quiet**
-> Suppress most output, showing only critical messages.
+> 抑制大部分输出，只显示关键消息。
 
 **--no-compress**
-> Create an uncompressed directory instead of a compressed archive.
+> 创建未压缩的目录而不是压缩归档。
 
 # DESCRIPTION
 
-**steamos-dump-info** collects comprehensive system diagnostics from a SteamOS installation into a compressed archive. The output includes system logs (journalctl, /var/log), hardware information (lspci, lsusb, /proc entries), network configuration, Steam client logs, Xorg logs, and system configuration files.
+**steamos-dump-info** 将 SteamOS 系统的综合诊断信息收集到压缩归档中。输出内容包括系统日志（journalctl、/var/log）、硬件信息（lspci、lsusb、/proc 条目）、网络配置、Steam 客户端日志、Xorg 日志以及系统配置文件。
 
-The resulting archive is commonly requested by Valve support for troubleshooting Steam Deck and SteamOS issues, and can be uploaded to bug trackers or support tickets.
+Valve 支持团队在排查 Steam Deck 和 SteamOS 问题时通常会要求提供生成的归档，也可以将其上传到错误跟踪器或支持工单。
 
 # CAVEATS
 
-Requires root privileges for full system information. Specific to SteamOS (Steam Deck and other Valve devices). The output archive may contain sensitive system information.
+获取完整系统信息需要 root 权限。仅适用于 SteamOS（Steam Deck 及其他 Valve 设备）。输出的归档可能包含敏感的系统信息。
 
 # HISTORY
 
-**steamos-dump-info** is part of the SteamOS system tools developed by **Valve** for the Steam Deck and other SteamOS-based devices.
+**steamos-dump-info** 属于 **Valve** 为 Steam Deck 及其他基于 SteamOS 的设备开发的系统工具。
 
 # SEE ALSO
 

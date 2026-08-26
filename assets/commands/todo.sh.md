@@ -1,30 +1,30 @@
 # TAGLINE
 
-Plain-text todo.txt task manager
+纯文本 todo.txt 任务管理器
 
 # TLDR
 
-**Add task**
+**添加任务**
 
 ```todo.sh add "[task text]"```
 
-**List all tasks**
+**列出所有任务**
 
 ```todo.sh list```
 
-**List by priority**
+**按优先级列出**
 
 ```todo.sh listpri [A]```
 
-**Mark done**
+**标记完成**
 
 ```todo.sh do [item-number]```
 
-**Add priority**
+**添加优先级**
 
 ```todo.sh pri [item-number] [A]```
 
-**Archive completed**
+**归档已完成项**
 
 ```todo.sh archive```
 
@@ -35,36 +35,36 @@ Plain-text todo.txt task manager
 # PARAMETERS
 
 **add**
-> Add task.
+> 添加任务。
 
 **list**, **ls**
-> List tasks.
+> 列出任务。
 
 **listpri**, **lsp**
-> List by priority.
+> 按优先级列出。
 
 **do**
-> Complete task.
+> 完成任务。
 
 **pri**
-> Set priority.
+> 设置优先级。
 
 **archive**
-> Archive done.
+> 归档已完成项。
 
 # DESCRIPTION
 
-**todo.sh** is a shell script for managing tasks in the todo.txt plain text format created by Gina Trapani. Tasks are stored one per line with support for priorities (A-Z), project tags (+project), and context tags (@context), making the file both human-readable and easily parseable.
+**todo.sh** 是一个 shell 脚本，用于管理 Gina Trapani 创建的 todo.txt 纯文本格式的任务。任务每行一条，支持优先级（A-Z）、项目标签（+project）和上下文标签（@context），使文件既便于人类阅读也易于解析。
 
-The tool provides commands for adding, completing, prioritizing, and archiving tasks. Completed items can be moved to a done.txt archive to keep the active list clean. The plain text format ensures portability and compatibility with any text editor or sync service.
+该工具提供添加、完成、设置优先级和归档任务的命令。已完成的条目可移动到 done.txt 归档文件，保持活动列表整洁。纯文本格式确保了可移植性，可与任何文本编辑器或同步服务兼容。
 
 # CAVEATS
 
-Bash required. todo.txt format. Configuration file needed.
+需要 Bash。使用 todo.txt 格式。需要配置文件。
 
 # HISTORY
 
-**todo.sh** was created by **Gina Trapani** as part of the todo.txt format for simple, plain-text task management.
+**todo.sh** 由 **Gina Trapani** 创建，是 todo.txt 格式的一部分，用于简单、纯文本的任务管理。
 
 # INSTALL
 

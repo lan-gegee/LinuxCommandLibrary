@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI packet visualizer, tcpdump for humans
+TUI 数据包可视化工具，给人看的 tcpdump
 
 # TLDR
 
-**Capture packets on a network interface**
+**在网络接口上捕获数据包**
 
 ```tcpterm -i [eth0]```
 
-**Read packets from a pcap file**
+**从 pcap 文件读取数据包**
 
 ```tcpterm -r [capture.pcap]```
 
-**Apply a BPF filter** (passed as positional arguments)
+**应用 BPF 过滤器**（以位置参数传入）
 
 ```tcpterm -i [eth0] [port 80]```
 
@@ -23,30 +23,30 @@ TUI packet visualizer, tcpdump for humans
 # PARAMETERS
 
 **-i** _INTERFACE_
-> Network interface to capture packets from.
+> 从指定网络接口捕获数据包。
 
 **-r** _FILE_
-> Read packets from a pcap file.
+> 从 pcap 文件读取数据包。
 
 **-s** _SNAPLEN_
-> Snapshot length per packet (default 65535).
+> 每个数据包的快照长度（默认 65535）。
 
 **--help**
-> Show help information.
+> 显示帮助信息。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 _expression_
-> Optional BPF filter expression (positional), e.g. `port 80`.
+> 可选的 BPF 过滤表达式（位置参数），例如 `port 80`。
 
 # DESCRIPTION
 
-**tcpterm** is a terminal-based packet visualizer that provides a more user-friendly alternative to tcpdump. It can capture live traffic from a network interface or read from pcap files, with BPF filter support.
+**tcpterm** 是一个基于终端的数据包可视化工具，为 tcpdump 提供了更友好的替代方案。它可以从网络接口捕获实时流量，也可以读取 pcap 文件，并支持 BPF 过滤器。
 
 # HISTORY
 
-**tcpterm** was created by **Takumasa Sakao** (sachaos) and is written in **Go**.
+**tcpterm** 由 **Takumasa Sakao**（sachaos）创建，使用 **Go** 编写。
 
 # INSTALL
 

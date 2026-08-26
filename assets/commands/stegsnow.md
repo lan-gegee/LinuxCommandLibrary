@@ -1,30 +1,30 @@
 # TAGLINE
 
-Conceal messages in text file whitespace
+将消息隐藏在文本文件的空白字符中
 
 # TLDR
 
-**Extract** message from file
+从文件中**提取**消息
 
 ```stegsnow [path/to/file.txt]```
 
-Extract **compressed** and **password-protected** message
+提取**经过压缩**且**有密码保护**的消息
 
 ```stegsnow -C -p [password] [path/to/file.txt]```
 
-Show **storage capacity**
+显示**存储容量**
 
 ```stegsnow -S -l 72 [path/to/file.txt]```
 
-**Conceal** message in text file
+将消息**隐藏**到文本文件中
 
 ```stegsnow -m '[message]' [path/to/file.txt] [path/to/output.txt]```
 
-Conceal from **message file** with compression
+以压缩方式从**消息文件**隐藏内容
 
 ```stegsnow -C -f [path/to/message.txt] [path/to/file.txt] [path/to/output.txt]```
 
-Conceal with **compression and password**
+使用**压缩和密码**进行隐藏
 
 ```stegsnow -C -p [password] -m '[message]' [path/to/file.txt] [path/to/output.txt]```
 
@@ -35,45 +35,45 @@ Conceal with **compression and password**
 # PARAMETERS
 
 **-C**
-> Enable compression (concealing) or decompression (extracting)
+> 启用压缩（隐藏时）或解压（提取时）
 
 **-Q**
-> Quiet mode; suppress statistics
+> 静默模式；不显示统计信息
 
 **-S**
-> Show approximate storage capacity
+> 显示近似存储容量
 
 **-p** _password_
-> Encrypt/decrypt with password using ICE cipher in cipher-feedback mode
+> 使用 ICE 加密算法的密文反馈模式以密码进行加密/解密
 
 **-l** _line-length_
-> Maximum line length (default: 80)
+> 最大行长度（默认为 80）
 
 **-f** _file_
-> Conceal contents of specified file
+> 隐藏指定文件的内容
 
 **-m** _message_
-> Conceal specified text string
+> 隐藏指定的文本字符串
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 **-h, --help**
-> Display usage information
+> 显示用法信息
 
 # DESCRIPTION
 
-**stegsnow** (also known as SNOW) conceals messages in text files by appending tabs and spaces at line endings. These whitespace characters are invisible when viewing the file, providing steganographic encoding. The tool encodes data using sequences of spaces and tabs, typically storing 3 bits per 8 columns.
+**stegsnow**（也称为 SNOW）通过在行尾追加制表符和空格，将消息隐藏在文本文件中。这些空白字符在查看文件时不可见，从而实现隐写编码。该工具使用空格和制表符序列对数据进行编码，通常每 8 列存储 3 位。
 
-Features include built-in Huffman compression optimized for English text and encryption using the ICE algorithm in cipher-feedback mode. A marker tab indicates the data start position, allowing file headers to remain intact.
+其特性包括针对英文文本优化的内置 Huffman 压缩，以及采用密文反馈模式 ICE 算法的加密。一个标记制表符指示数据起始位置，使文件头保持原样。
 
 # CAVEATS
 
-Storage capacity depends on line lengths in the cover file. Very short lines provide less hiding space. Non-text data should use external compression (gzip) before concealment. Whitespace-stripping tools or editors may corrupt hidden data.
+存储容量取决于载体文件中的行长。过短的行提供的隐藏空间较少。非文本数据应在隐藏前先使用外部压缩工具（gzip）处理。去除空白字符的工具或编辑器可能损坏隐藏数据。
 
 # HISTORY
 
-**SNOW** (Steganographic Nature Of Whitespace) was created by **Matthew Kwan** in **1996**. The program is one of the earliest and most well-known text-based steganography tools, using the simple but effective technique of encoding data in trailing whitespace that is invisible to casual observers.
+**SNOW**（Steganographic Nature Of Whitespace）由 **Matthew Kwan** 于 **1996 年**创建。它是最早也是最著名的基于文本的隐写术工具之一，使用在行尾空白字符中编码数据这一简单而有效的技术——普通观察者无法察觉这些空白。
 
 # INSTALL
 

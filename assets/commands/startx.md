@@ -1,26 +1,26 @@
 # TAGLINE
 
-Start X Window System session
+启动 X Window System 会话
 
 # TLDR
 
-**Start** an X session
+**启动** X 会话
 
 ```startx```
 
-**Start** X with a specific color depth
+**以指定颜色深度启动** X
 
 ```startx -- -depth [16]```
 
-**Start** X with a specific DPI value
+**以指定 DPI 值启动** X
 
 ```startx -- -dpi [100]```
 
-**Start** X with a specific window manager
+**以指定窗口管理器启动** X
 
 ```startx [path/to/window_manager]```
 
-**Start** X with a specific server layout
+**使用指定的服务器布局启动** X
 
 ```startx -- -layout [Multihead]```
 
@@ -31,54 +31,54 @@ Start X Window System session
 # PARAMETERS
 
 **--**
-> Separator between client arguments and server arguments.
+> 客户端参数与服务器参数之间的分隔符。
 
 **-depth _value_**
-> Server option: set color depth (e.g. 8, 16, 24).
+> 服务器选项：设置颜色深度（如 8、16、24）。
 
 **-dpi _value_**
-> Server option: set dots per inch for the display.
+> 服务器选项：设置显示器的 DPI。
 
 **-layout _name_**
-> Server option: use a specific server layout from xorg.conf.
+> 服务器选项：使用 xorg.conf 中特定的服务器布局。
 
 # DESCRIPTION
 
-**startx** is a front-end to xinit that provides a convenient way to start an X session. It reads the user's .xinitrc file (or the system default if none exists) to determine what client programs to run. Similarly, it reads .xserverrc (or the system default) to determine the X server to start.
+**startx** 是 xinit 的前端，提供了一种启动 X 会话的便捷方式。它读取用户的 .xinitrc 文件（若不存在则使用系统默认）来决定运行哪些客户端程序；同样地，它读取 .xserverrc（或系统默认）来决定要启动的 X 服务器。
 
-Typically startx runs a window manager or desktop environment and sets up the X display. Arguments before **--** are passed to the client, and arguments after **--** are passed to the server.
+通常 startx 会运行一个窗口管理器或桌面环境并建立 X 显示。**--** 之前的参数传给客户端，**--** 之后的参数传给服务器。
 
 # ENVIRONMENT
 
 **XINITRC**
-> Path to an xinitrc file. If unset, ~/.xinitrc or /etc/X11/xinit/xinitrc is used.
+> xinitrc 文件的路径。未设置时使用 ~/.xinitrc 或 /etc/X11/xinit/xinitrc。
 
 **XSERVERRC**
-> Path to an xserverrc file. If unset, ~/.xserverrc or /etc/X11/xinit/xserverrc is used.
+> xserverrc 文件的路径。未设置时使用 ~/.xserverrc 或 /etc/X11/xinit/xserverrc。
 
 **DISPLAY**
-> Set by startx to the name of the display to which clients should connect.
+> 由 startx 设置，表示客户端应连接的显示器名称。
 
 **XAUTHORITY**
-> If not already defined, set to ~/.Xauthority.
+> 若尚未定义，则设置为 ~/.Xauthority。
 
 # CONFIGURATION
 
 **~/.xinitrc**
-> User startup script executed by startx to launch a window manager or desktop environment.
+> 用户启动脚本，由 startx 执行以启动窗口管理器或桌面环境。
 
 **~/.xserverrc**
-> User server startup script to determine which X server to start.
+> 用户的服务器启动脚本，用于决定启动哪个 X 服务器。
 
 **/etc/X11/xinit/xinitrc**
-> System-wide default startup script used when no user .xinitrc exists.
+> 系统级默认启动脚本，在没有用户 .xinitrc 时使用。
 
 **/etc/X11/xinit/xserverrc**
-> System-wide default server script used when no user .xserverrc exists.
+> 系统级默认服务器脚本，在没有用户 .xserverrc 时使用。
 
 # CAVEATS
 
-Requires X server to be installed. The .xinitrc file in the user's home directory controls which programs start with X. Not needed when using a display manager like GDM, SDDM, or LightDM.
+需要安装 X 服务器。用户主目录中的 .xinitrc 文件决定哪些程序随 X 一起启动。使用 GDM、SDDM 或 LightDM 等显示管理器时无需此命令。
 
 # INSTALL
 

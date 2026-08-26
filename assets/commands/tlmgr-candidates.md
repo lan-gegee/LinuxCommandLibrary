@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show available repository candidates for a TeX Live package
+显示 TeX Live 软件包在仓库中的可用候选版本
 
 # TLDR
 
-**Show package candidates**
+**显示软件包候选版本**
 
 ```tlmgr candidates [package]```
 
@@ -15,13 +15,12 @@ Show available repository candidates for a TeX Live package
 # PARAMETERS
 
 _package_
-> Package name to check.
+> 要查询的软件包名称。
 
 # DESCRIPTION
 
-**tlmgr candidates** shows which repositories provide a package. Displays available versions from configured repositories. Part of TeX Live Manager for multi-repository setups.
+**tlmgr candidates** 显示哪些仓库提供某个软件包。列出已配置仓库中可用的版本。TeX Live Manager 的组成部分，适用于多仓库环境。
 
 # SEE ALSO
 
 [tlmgr](/man/tlmgr)(1), [tlmgr-repository](/man/tlmgr-repository)(1), [tlmgr-info](/man/tlmgr-info)(1)
-

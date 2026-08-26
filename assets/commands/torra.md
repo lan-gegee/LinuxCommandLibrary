@@ -1,18 +1,18 @@
 # TAGLINE
 
-Search and download torrents from your terminal
+在终端中搜索和下载种子
 
 # TLDR
 
-**Search for torrents**
+**搜索种子**
 
 ```torra search "[arch linux iso]"```
 
-**Download from a magnet URI**
+**从磁力链接下载**
 
 ```torra download "[magnet:?xt=...]"```
 
-**Configure indexers and download paths**
+**配置索引器和下载路径**
 
 ```torra config```
 
@@ -22,11 +22,11 @@ Search and download torrents from your terminal
 
 # DESCRIPTION
 
-**torra** is a TUI tool for searching and downloading torrents directly from the terminal, powered by Jackett/Prowlarr and Libtorrent. It features a Textual-based interface with pause/resume support and configurable indexers.
+**torra** 是一个直接在终端中搜索和下载种子的 TUI 工具，由 Jackett/Prowlarr 和 Libtorrent 提供支持。它采用基于 Textual 的界面，支持暂停/恢复，并可配置索引器。
 
 # HISTORY
 
-**torra** was created by **stabldev** and is written in **Python**.
+**torra** 由 **stabldev** 创建，使用 **Python** 编写。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Terminal-based Tetris game
+基于终端的俄罗斯方块游戏
 
 # TLDR
 
-**Start a game** of tetris
+**开始一局** tetris 游戏
 
 ```tetris```
 
-**Start with a specific level**
+**从指定等级开始**
 
 ```tetris -l [level]```
 
-**Start in two-player mode** locally
+**在本地以双人模式开始**
 
 ```tetris 2p```
 
-**Listen for a network game** on a port
+**在某端口上监听网络对战**
 
 ```tetris listen [port]```
 
-**Connect to a network game**
+**连接到网络对战**
 
 ```tetris connect [hostname]:[port]```
 
-**Set terminal width**
+**设置终端宽度**
 
 ```tetris -w [80]```
 
-**Show help** for game options
+**显示游戏选项的帮助**
 
 ```tetris -help game```
 
@@ -39,47 +39,47 @@ Terminal-based Tetris game
 # PARAMETERS
 
 **-l** _level_
-> Set the starting level (affects falling speed).
+> 设置起始等级（影响下落速度）。
 
 **-h** _height_
-> Set the starting height of garbage blocks.
+> 设置垃圾方块的初始高度。
 
 **-w** _width_
-> Set the terminal width.
+> 设置终端宽度。
 
 **2p**
-> Start a local two-player game.
+> 开始本地双人游戏。
 
 **listen** _port_
-> Listen for incoming network connections on the specified port.
+> 在指定端口监听传入的网络连接。
 
 **connect** _host:port_
-> Connect to a remote player for network play.
+> 连接到远程玩家进行网络对战。
 
 **-help**
-> Print help and exit.
+> 打印帮助并退出。
 
 **-help game**
-> List game options and exit.
+> 列出游戏选项并退出。
 
 **-help term**
-> List terminal options and exit.
+> 列出终端选项并退出。
 
 # DESCRIPTION
 
-**vitetris** (often installed as **tetris**) is a terminal-based Tetris clone with gameplay similar to early Nintendo Tetris games. It supports single-player, local two-player, and network multiplayer modes.
+**vitetris**（通常安装为 **tetris**）是一款基于终端的俄罗斯方块克隆，玩法类似早期的任天堂俄罗斯方块。它支持单人、本地双人和网络多人模式。
 
-The game features customizable controls, configurable appearance, and network play where both players can independently choose their difficulty settings. It requires only libc with no additional library dependencies.
+游戏特色包括可自定义的控制键、可配置的外观，以及网络对战——双方玩家可以各自独立选择难度设置。它只需要 libc，没有额外的库依赖。
 
-Controls and appearance can be customized through in-game menus or command-line options. High scores are saved in **~/.vitetris**.
+控制和外观可通过游戏内菜单或命令行选项自定义。高分记录保存在 **~/.vitetris** 中。
 
 # CAVEATS
 
-Network play requires one player to listen on a port that is accessible to the connecting player. Firewalls and NAT may require port forwarding configuration. The game does not include sound.
+网络对战需要一名玩家在连接方可访问的端口上监听。防火墙和 NAT 可能需要配置端口转发。游戏不包含声音。
 
 # HISTORY
 
-vitetris was created by **Victor Geraldsson** and first released in **2007**. It was designed to be a lightweight, portable Tetris implementation for terminals. The game has been ported to multiple platforms including Linux, BSD, Windows, and DOS. Network play support was added to enable competitive multiplayer over the internet.
+vitetris 由 **Victor Geraldsson** 创建，于 **2007** 年首次发布。它的设计目标是成为一款轻量、可移植的终端俄罗斯方块实现。该游戏已被移植到多个平台，包括 Linux、BSD、Windows 和 DOS。加入网络对战支持是为了实现跨互联网的竞技多人游戏。
 
 # INSTALL
 

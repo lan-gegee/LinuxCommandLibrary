@@ -1,38 +1,38 @@
 # TAGLINE
 
-Swift language compiler and package manager
+Swift 语言编译器与软件包管理器
 
 # TLDR
 
-**Start REPL**
+**启动 REPL**
 
 ```swift```
 
-**Run script**
+**运行脚本**
 
 ```swift [script.swift]```
 
-**Build package**
+**构建包**
 
 ```swift build```
 
-**Build release**
+**以 release 模式构建**
 
 ```swift build -c release```
 
-**Run package**
+**运行包**
 
 ```swift run```
 
-**Run tests**
+**运行测试**
 
 ```swift test```
 
-**Create new package**
+**创建新包**
 
 ```swift package init --type [executable]```
 
-**Show dependencies**
+**显示依赖**
 
 ```swift package show-dependencies```
 
@@ -43,56 +43,56 @@ Swift language compiler and package manager
 # PARAMETERS
 
 **build**
-> Build the package.
+> 构建包。
 
 **run** [_TARGET_]
-> Build and run.
+> 构建并运行。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **package init**
-> Create new package.
+> 创建新包。
 
 **package update**
-> Update dependencies.
+> 更新依赖。
 
 **package resolve**
-> Resolve dependencies.
+> 解析依赖。
 
 **-c** _CONFIG_
-> Build configuration (debug, release).
+> 构建配置（debug、release）。
 
 **-Xswiftc** _FLAG_
-> Pass flag to compiler.
+> 向编译器传递标志。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**swift** is the Swift programming language compiler and package manager. It builds, runs, and tests Swift applications.
+**swift** 是 Swift 编程语言的编译器和软件包管理器，用于构建、运行和测试 Swift 应用程序。
 
-The REPL provides interactive Swift execution. It's useful for experimentation and learning.
+REPL 提供交互式的 Swift 执行环境，适合实验和学习。
 
-Swift Package Manager handles dependencies and builds. Package.swift defines targets, dependencies, and products.
+Swift Package Manager 负责依赖管理和构建。Package.swift 定义目标、依赖和产品。
 
-Debug builds are fast to compile with debugging support. Release builds optimize for performance.
+Debug 构建编译速度快并支持调试。Release 构建则针对性能进行优化。
 
-Testing integrates XCTest framework. Tests run with swift test, supporting parallel execution.
+测试集成 XCTest 框架，通过 swift test 运行，支持并行执行。
 
-Cross-platform support includes Linux and Windows beyond Apple platforms. Server-side Swift is a common use case.
+跨平台支持覆盖 Apple 平台之外的 Linux 和 Windows。服务端 Swift 是常见的使用场景。
 
 # CAVEATS
 
-Full functionality on macOS. Linux support is good but some Apple frameworks unavailable. Windows support is newer.
+在 macOS 上功能完整。Linux 支持良好但部分 Apple 框架不可用。Windows 支持较新。
 
 # HISTORY
 
-**Swift** was announced by **Apple** at WWDC **2014**, developed by **Chris Lattner** and others. It was open-sourced in **2015**. Swift has evolved significantly, with Swift 6 introducing strict concurrency.
+**Swift** 由 **Apple** 在 **2014 年** WWDC 上发布，由 **Chris Lattner** 等人开发，并于 **2015 年**开源。此后 Swift 不断演进，Swift 6 引入了严格的并发机制。
 
 # INSTALL
 

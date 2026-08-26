@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage system trust policy certificate store
+管理系统信任策略证书存储
 
 # TLDR
 
-**List** trust policy store items
+列出信任策略存储中的条目
 
 ```trust list```
 
-List information about **specific items** in the trust policy store
+列出信任策略存储中特定条目的信息
 
 ```trust list --filter=[blocklist|ca-anchors|certificates|trust-policy]```
 
-**Store** a trust anchor in the trust policy store
+向信任策略存储添加信任锚
 
 ```trust anchor [path/to/certificate.crt]```
 
-**Remove** an anchor from the trust policy store
+从信任策略存储移除锚点
 
 ```trust anchor --remove [path/to/certificate.crt]```
 
-**Extract** trust policy to a directory
+将信任策略提取到目录
 
 ```trust extract --format=x509-directory --filter=ca-anchors [path/to/directory]```
 
-Display **help** for a subcommand
+显示子命令的帮助信息
 
 ```trust [subcommand] --help```
 
@@ -35,42 +35,42 @@ Display **help** for a subcommand
 # PARAMETERS
 
 **list**
-> List trust policy store items
+> 列出信任策略存储中的条目
 
 **anchor** _file_
-> Add a trust anchor to the store
+> 向存储添加信任锚
 
 **anchor** **--remove** _file_
-> Remove a trust anchor
+> 移除信任锚
 
 **extract** **--format=**_format_ _path_
-> Extract trust anchors in specified format.
+> 以指定格式提取信任锚。
 
 **extract-compat**
-> Extract trust policy in a format compatible with the system's native tools.
+> 以与系统原生工具兼容的格式提取信任策略。
 
 **--filter=**_type_
-> Filter by type (ca-anchors, blocklist, certificates, trust-policy).
+> 按类型过滤 (ca-anchors, blocklist, certificates, trust-policy)。
 
 **--format=**_format_
-> Output format (x509-file, x509-directory, pem-file, pem-bundle, java-cacerts, openssl-bundle, openssl-directory, etc.).
+> 输出格式 (x509-file, x509-directory, pem-file, pem-bundle, java-cacerts, openssl-bundle, openssl-directory 等)。
 
 **--purpose=**_purpose_
-> Filter by purpose (server-auth, client-auth, email, code-signing).
+> 按用途过滤 (server-auth, client-auth, email, code-signing)。
 
 # DESCRIPTION
 
-**trust** manages the shared system trust policy store, which contains trusted CA certificates, blocklisted certificates, and trust policies. It allows administrators to add, remove, and extract trust anchors used for TLS/SSL verification across the system.
+**trust** 管理共享的系统信任策略存储，其中包含受信任的 CA 证书、被列入黑名单的证书以及信任策略。它让管理员能够添加、移除和提取用于全系统 TLS/SSL 验证的信任锚。
 
-Changes made with trust affect all applications that use the p11-kit trust module, providing a unified way to manage certificates rather than configuring each application individually.
+用 trust 所做的更改会影响所有使用 p11-kit 信任模块的应用程序，从而提供一种统一管理证书的方式，无需逐个配置每个应用。
 
 # CAVEATS
 
-May require root privileges to modify the system trust store if no user-specific store is available. Changes may require applications to be restarted to take effect. The store format and location varies by distribution.
+如果没有用户专属的存储可用，修改系统信任存储可能需要 root 权限。更改后可能需要重启应用才能生效。存储格式和位置因发行版而异。
 
 # HISTORY
 
-Part of **p11-kit**, developed as part of the FreeDesktop.org project to provide a standard way to manage trust anchors across Linux distributions. Replaces distribution-specific methods like update-ca-certificates.
+属于 **p11-kit** 的一部分，作为 FreeDesktop.org 项目的一部分开发，旨在提供跨 Linux 发行版管理信任锚的标准方式。取代 update-ca-certificates 等各发行版专有的方法。
 
 # INSTALL
 

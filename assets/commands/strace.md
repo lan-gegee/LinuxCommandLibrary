@@ -1,34 +1,34 @@
 # TAGLINE
 
-Trace system calls and signals
+跟踪系统调用和信号
 
 # TLDR
 
-**Attach** to a running process
+**附加**到运行中的进程
 
 ```sudo strace -p 1234```
 
-Trace process with **filtered** system calls
+以**过滤**的系统调用跟踪进程
 
 ```sudo strace -p 1234 -e read,write```
 
-Show **summary** of calls and errors
+显示调用与错误的**汇总**
 
 ```sudo strace -p 1234 -c```
 
-Show **time spent** in each call
+显示每次调用的**耗时**
 
 ```sudo strace -p 1234 -T -s 32```
 
-**Trace** a program from start
+从头**跟踪**一个程序
 
 ```strace ./program```
 
-Trace **file operations** only
+仅跟踪**文件操作**
 
 ```strace -e trace=file ./program```
 
-Trace **network** operations with child processes
+连同子进程一起跟踪**网络**操作
 
 ```strace -f -e trace=network -o trace.txt ./program```
 
@@ -38,78 +38,78 @@ Trace **network** operations with child processes
 
 # DESCRIPTION
 
-**strace** intercepts and records system calls made by a process and the signals received by it. It is invaluable for debugging, diagnostics, and understanding system behavior without requiring source code access.
+**strace** 拦截并记录进程发起的系统调用及其接收的信号。它对于调试、诊断和理解系统行为极具价值，而且不需要访问源代码。
 
 # PARAMETERS
 
 **-p, --attach pid**
-> Attach to running process with given PID
+> 附加到具有给定 PID 的运行中进程
 
 **-f, --follow-forks**
-> Trace child processes created by fork/vfork/clone
+> 跟踪由 fork/vfork/clone 创建的子进程
 
 **-e trace=set**
-> Trace only specified system calls (file, network, process, etc.)
+> 仅跟踪指定的系统调用（file、network、process 等）
 
 **-e signal=set**
-> Trace only specified signals
+> 仅跟踪指定的信号
 
 **-o, --output file**
-> Write trace output to file
+> 将跟踪输出写入文件
 
 **-c, --summary-only**
-> Display summary statistics at exit
+> 退出时显示汇总统计
 
 **-C, --summary**
-> Display summary along with normal output
+> 在正常输出的同时显示汇总
 
 **-t, -tt, -ttt**
-> Add timestamps (-t: HH:MM:SS, -tt: with microseconds, -ttt: epoch seconds)
+> 添加时间戳（-t：HH:MM:SS，-tt：含微秒，-ttt：epoch 秒）
 
 **-T, --syscall-times**
-> Show time spent in each system call
+> 显示每次系统调用的耗时
 
 **-s, --string-limit size**
-> Maximum string size to print (default 32)
+> 打印字符串的最大长度（默认为 32）
 
 **-v, --no-abbrev**
-> Display unabbreviated output
+> 显示未缩写的输出
 
 **-y, --decode-fds**
-> Print file paths associated with file descriptors
+> 打印文件描述符关联的文件路径
 
 **-z, --successful-only**
-> Show only successful system calls
+> 仅显示成功的系统调用
 
 **-Z, --failed-only**
-> Show only failed system calls
+> 仅显示失败的系统调用
 
 **-P, --trace-path path**
-> Trace only syscalls accessing given path
+> 仅跟踪访问指定路径的系统调用
 
 **-k, --stack-traces**
-> Print stack trace for each system call
+> 为每个系统调用打印堆栈跟踪
 
 **-u, --user username**
-> Run command as specified user
+> 以指定用户身份运行命令
 
 # TRACE EXPRESSIONS
 
-**%file**: File operations (open, stat, chmod, etc.)
-**%network**: Network operations (socket, connect, etc.)
-**%process**: Process operations (fork, exec, etc.)
-**%memory**: Memory mapping operations
-**%signal**: Signal-related calls
-**%ipc**: IPC operations (msgget, semop, etc.)
-**%desc**: File descriptor operations (read, write, select, etc.)
+**%file**：文件操作（open、stat、chmod 等）
+**%network**：网络操作（socket、connect 等）
+**%process**：进程操作（fork、exec 等）
+**%memory**：内存映射操作
+**%signal**：信号相关调用
+**%ipc**：IPC 操作（msgget、semop 等）
+**%desc**：文件描述符操作（read、write、select 等）
 
 # CAVEATS
 
-Tracing significantly slows down the traced process. Do not use on production systems without care. Use **-f** to trace forked children or some calls may be missed.
+跟踪会显著拖慢被跟踪的进程。在生产系统上使用时务必小心。请使用 **-f** 跟踪 fork 出的子进程，否则可能遗漏部分调用。
 
 # HISTORY
 
-**strace** was originally written for SunOS by Paul Kranenburg in 1991. It has become an essential debugging tool on Linux systems.
+**strace** 由 Paul Kranenburg 于 1991 年最初为 SunOS 编写。它已成为 Linux 系统上不可或缺的调试工具。
 
 # INSTALL
 

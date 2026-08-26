@@ -1,14 +1,14 @@
 # TAGLINE
 
-Toggle SELinux boolean values
+切换 SELinux 布尔值
 
 # TLDR
 
-**Toggle** a SELinux boolean
+**切换** SELinux 布尔值
 
 ```sudo togglesebool virt_use_samba```
 
-Toggle **multiple** booleans
+切换**多个**布尔值
 
 ```sudo togglesebool httpd_enable_homedirs ftpd_full_access```
 
@@ -18,20 +18,20 @@ Toggle **multiple** booleans
 
 # DESCRIPTION
 
-**togglesebool** flips the current (non-persistent) values of SELinux booleans. If a boolean is currently on, it will be turned off, and vice versa. Changes do not persist across reboots.
+**togglesebool** 反转 SELinux 布尔值的当前（非持久化）取值。如果布尔值当前为开则关闭，反之亦然。更改不会在重启后保留。
 
 # PARAMETERS
 
 **boolean**
-> One or more SELinux boolean names to toggle
+> 一个或多个要切换的 SELinux 布尔值名称
 
 # CAVEATS
 
-This tool has been deprecated and is often removed in favor of setsebool. Changes made with togglesebool are non-persistent and will be lost after reboot. Use setsebool -P for persistent changes.
+此工具已被弃用，通常已被移除，由 setsebool 取代。用 togglesebool 所做的更改不是持久化的，重启后会丢失。如需持久化更改请使用 setsebool -P。
 
 # HISTORY
 
-**togglesebool** was part of the early SELinux tools for managing boolean values. It has been superseded by **setsebool** which provides more control over persistence.
+**togglesebool** 是早期管理布尔值的 SELinux 工具之一。它已被 **setsebool** 取代，后者对持久性提供了更多控制。
 
 # INSTALL
 

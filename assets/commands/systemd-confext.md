@@ -1,12 +1,12 @@
 # TAGLINE
 
-Configuration extension for /etc
+/etc 的配置扩展
 
 # TLDR
 
-This command is an alias of [systemd-sysext](/man/systemd-sysext).
+此命令是 [systemd-sysext](/man/systemd-sysext) 的别名。
 
-Unlike systemd-sysext which extends `/usr` and `/opt`, confext extends only `/etc` with configuration extensions.
+与扩展 `/usr` 和 `/opt` 的 systemd-sysext 不同，confext 只用配置扩展来扩展 `/etc`。
 
 # INSTALL
 

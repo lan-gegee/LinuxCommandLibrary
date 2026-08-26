@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line Todoist client in Rust
+Rust 编写的命令行 Todoist 客户端
 
 # TLDR
 
-**Import** projects
+**导入**项目
 
 ```tod project import```
 
-**Quickadd** a task
+**快速添加**任务
 
 ```tod --quickadd [Buy more milk today]```
 
-**Create** a new task
+**创建**新任务
 
 ```tod task create```
 
-Create task in **project**
+在**项目**中创建任务
 
 ```tod task create --content "[Write more rust]" --project [code]```
 
-Get **next** task
+获取**下一项**任务
 
 ```tod task next```
 
-Get **scheduled** tasks
+获取**已排期**的任务
 
 ```tod task list --scheduled --project [work]```
 
-**List** all tasks
+**列出**所有任务
 
 ```tod task list --project [work]```
 
@@ -39,44 +39,44 @@ Get **scheduled** tasks
 # COMMANDS
 
 **project import**
-> Import your Todoist projects
+> 导入你的 Todoist 项目
 
 **task create**
-> Create a new task
+> 创建新任务
 
 **task next**
-> Get the next task for a project
+> 获取某个项目的下一项任务
 
 **task list**
-> List tasks
+> 列出任务
 
 # PARAMETERS
 
 **--quickadd** _TEXT_
-> Quickly create a task with natural language
+> 用自然语言快速创建任务
 
 **--content** _TEXT_
-> Task content/description
+> 任务内容/描述
 
 **--project** _NAME_
-> Specify project name
+> 指定项目名称
 
 **--scheduled**
-> Show only scheduled tasks
+> 只显示已排期的任务
 
 # DESCRIPTION
 
-**tod** is a tiny Todoist client written in Rust. It provides a command-line interface for managing tasks in your Todoist account. The tool leverages natural language processing to parse due dates, tags, and other task attributes from simple text input.
+**tod** 是一个用 Rust 编写的轻量级 Todoist 客户端。它提供命令行界面来管理 Todoist 账户中的任务。该工具利用自然语言处理，从简单的文本输入中解析截止日期、标签和其他任务属性。
 
-Tasks can be quickly added to your inbox or assigned to specific projects. The tool supports viewing scheduled tasks and managing your work queue.
+任务可以快速添加到收件箱或分配给特定项目。该工具支持查看已排期的任务并管理工作队列。
 
 # CAVEATS
 
-Requires Todoist account and API token configuration. Projects must be imported before they can be referenced. Natural language parsing depends on Todoist's processing capabilities.
+需要 Todoist 账户和 API token 配置。项目必须先导入才能引用。自然语言解析依赖 Todoist 自身的处理能力。
 
 # HISTORY
 
-**tod** was created as a lightweight, fast command-line Todoist client using Rust, focusing on quick task entry and simple project management workflows.
+**tod** 作为一款轻量快速的 Rust 命令行 Todoist 客户端而创建，专注于快速录入任务和简单的项目管理流程。
 
 # SEE ALSO
 

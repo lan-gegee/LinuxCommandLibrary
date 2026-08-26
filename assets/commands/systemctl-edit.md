@@ -1,22 +1,22 @@
 # TAGLINE
 
-Edit systemd unit override files
+编辑 systemd unit 覆盖文件
 
 # TLDR
 
-**Overlay** unit file non-destructively
+以**非破坏性方式**叠加修改 unit 文件
 
 ```sudo systemctl edit [unit]```
 
-**Edit** full unit file
+**编辑**完整 unit 文件
 
 ```sudo systemctl edit [unit] --full```
 
-**Create** new unit file
+**创建**新 unit 文件
 
 ```sudo systemctl edit [unit] --full --force```
 
-Edit **user** unit file
+编辑**用户级** unit 文件
 
 ```systemctl edit [unit] --user```
 
@@ -27,33 +27,33 @@ Edit **user** unit file
 # PARAMETERS
 
 **-l, --full**
-> Edit the main unit file instead of creating a drop-in override
+> 编辑主 unit 文件，而非创建 drop-in 覆盖文件
 
 **--force**
-> Create a new unit file if it doesn't exist (with --full)
+> 如果 unit 文件不存在则创建新文件（与 --full 配合）
 
 **--user**
-> Edit user unit files
+> 编辑用户级 unit 文件
 
 **--system**
-> Edit system unit files (default)
+> 编辑系统级 unit 文件（默认）
 
 **--runtime**
-> Make changes temporary (cleared on reboot)
+> 使更改临时生效（重启后清除）
 
 # DESCRIPTION
 
-**systemctl edit** opens a text editor to modify systemd unit files. By default, it creates a drop-in override file in `/etc/systemd/system/<unit>.d/override.conf` that extends the original unit without modifying it directly.
+**systemctl edit** 打开文本编辑器来修改 systemd unit 文件。默认情况下，它会在 `/etc/systemd/system/<unit>.d/override.conf` 创建一个 drop-in 覆盖文件，在不直接修改原 unit 的情况下对其进行扩展。
 
-With `--full`, the entire unit file is opened for editing. With `--full --force`, a new unit file can be created. After editing, systemd automatically reloads the configuration. The editor is determined by `SYSTEMD_EDITOR`, `EDITOR`, or `VISUAL` environment variables.
+使用 `--full` 时，会打开整个 unit 文件进行编辑。配合 `--full --force` 可以创建新的 unit 文件。编辑后 systemd 会自动重载配置。所用的编辑器由 `SYSTEMD_EDITOR`、`EDITOR` 或 `VISUAL` 环境变量决定。
 
 # CAVEATS
 
-Drop-in files only add or override specific settings; they cannot remove existing configuration. The daemon reloads automatically after edit, but running units may need manual restart. Syntax errors in unit files can prevent services from starting.
+Drop-in 文件只能添加或覆盖特定设置，无法移除现有配置。编辑后守护进程会自动重载，但运行中的 unit 可能需要手动重启。unit 文件的语法错误可能导致服务无法启动。
 
 # HISTORY
 
-The **edit** subcommand was added to **systemctl** to simplify unit customization. Systemd was created by **Lennart Poettering** and **Kay Sievers** at Red Hat and has been the default init system for most major Linux distributions since **2015**. The drop-in override pattern allows safe customization that persists across package updates.
+**edit** 子命令加入 **systemctl** 是为了简化 unit 的自定义。Systemd 由 **Lennart Poettering** 和 **Kay Sievers** 在 Red Hat 创建，自 **2015 年**起成为多数主流 Linux 发行版的默认 init 系统。drop-in 覆盖模式允许在软件包更新后依然保留的安全自定义。
 
 # INSTALL
 

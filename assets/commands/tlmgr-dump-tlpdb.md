@@ -1,18 +1,18 @@
 # TAGLINE
 
-Dump TeX Live package database
+导出 TeX Live 软件包数据库
 
 # TLDR
 
-**Dump local database**
+**导出本地数据库**
 
 ```tlmgr dump-tlpdb --local```
 
-**Dump remote database**
+**导出远程数据库**
 
 ```tlmgr dump-tlpdb --remote```
 
-**Output in JSON**
+**以 JSON 输出**
 
 ```tlmgr dump-tlpdb --local --json```
 
@@ -23,19 +23,18 @@ Dump TeX Live package database
 # PARAMETERS
 
 **--local**
-> Dump local installation database.
+> 导出本地安装数据库。
 
 **--remote**
-> Dump remote repository database.
+> 导出远程仓库数据库。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**tlmgr dump-tlpdb** outputs the TeX Live package database. Useful for scripting, debugging, and comparing installations. Part of TeX Live Manager.
+**tlmgr dump-tlpdb** 输出 TeX Live 软件包数据库。可用于脚本编写、调试和比较不同安装。TeX Live Manager 的组成部分。
 
 # SEE ALSO
 
 [tlmgr-info](/man/tlmgr-info)(1), [tlmgr](/man/tlmgr)(1)
-

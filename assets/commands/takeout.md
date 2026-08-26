@@ -1,38 +1,38 @@
 # TAGLINE
 
-Docker-based development service manager
+基于 Docker 的开发服务管理器
 
 # TLDR
 
-**Enable service**
+**启用服务**
 
 ```takeout enable [mysql]```
 
-**Enable service** with default settings
+以默认设置**启用服务**
 
 ```takeout enable [mysql] --default```
 
-**Enable multiple** services
+**启用多个**服务
 
 ```takeout enable [mysql] [redis] [meilisearch]```
 
-**Disable service**
+**禁用服务**
 
 ```takeout disable [mysql]```
 
-**List services**
+**列出服务**
 
 ```takeout list```
 
-**Start all enabled**
+启动所有已启用的服务
 
 ```takeout start```
 
-**Stop all**
+停止全部服务
 
 ```takeout stop```
 
-**Show status**
+**查看状态**
 
 ```takeout status```
 
@@ -43,41 +43,41 @@ Docker-based development service manager
 # PARAMETERS
 
 **enable** _SERVICE..._
-> Enable and start a service container with interactive prompts.
+> 通过交互式提示启用并启动服务容器。
 
 **disable** _SERVICE_
-> Stop and remove a service container.
+> 停止并移除服务容器。
 
 **--default**
-> Accept default parameters when enabling (skip prompts).
+> 启用时接受默认参数（跳过提示）。
 
 **start**
-> Start services.
+> 启动服务。
 
 **stop**
-> Stop services.
+> 停止服务。
 
 **list**
-> List available.
+> 列出可用的服务。
 
 **status**
-> Show status.
+> 显示状态。
 
 # DESCRIPTION
 
-**takeout** is a CLI tool that simplifies managing development dependencies using Docker containers. Instead of installing databases and services directly on your machine, Takeout runs them as isolated Docker containers that can be enabled or disabled with simple commands.
+**takeout** 是一个简化开发依赖管理的 CLI 工具，基于 Docker 容器实现。它不把数据库和服务直接装在机器上，而是把它们作为相互隔离的 Docker 容器运行，用简单的命令即可启用或禁用。
 
-Supported services include MySQL, PostgreSQL, MariaDB, Redis, Memcached, Elasticsearch, MeiliSearch, MinIO, and many more. Each service runs in its own container with sensible defaults, and Takeout handles port mapping, volume persistence, and container lifecycle management automatically.
+支持的服务包括 MySQL、PostgreSQL、MariaDB、Redis、Memcached、Elasticsearch、MeiliSearch、MinIO 等等。每个服务都在自己的容器中以合理的默认值运行，Takeout 会自动处理端口映射、卷持久化和容器生命周期管理。
 
-Created by **Tighten** for the Laravel ecosystem, Takeout works well for any PHP development workflow and beyond. The **enable** command pulls and starts a service container with an interactive prompt for version and configuration, while **disable** stops and removes it. The **start** and **stop** commands control all enabled services at once.
+Takeout 由 **Tighten** 为 Laravel 生态而创建，同样适用于任何 PHP 开发工作流乃至更广泛的场景。**enable** 命令会拉取并启动服务容器，并通过交互式提示询问版本和配置；**disable** 则停止并移除容器。**start** 和 **stop** 命令可以同时控制所有已启用的服务。
 
 # CAVEATS
 
-Docker required. macOS/Linux. Tighten-created tool.
+需要 Docker。适用于 macOS/Linux。由 Tighten 创建的工具。
 
 # HISTORY
 
-**Takeout** was created by **Tighten** to simplify local development service management using Docker.
+**Takeout** 由 **Tighten** 创建，旨在利用 Docker 简化本地开发服务的管理。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Simple alternative to xinit and startx
+xinit 和 startx 的简单替代品
 
 # TLDR
 
-**Start an X session** running the commands in _$XDG_CONFIG_HOME/sx/sxrc_
+**启动一个 X 会话**，运行 _$XDG_CONFIG_HOME/sx/sxrc_ 中的命令
 
 ```sx```
 
-**Start an X session** running a specific window manager directly
+**启动一个 X 会话**，直接运行指定的窗口管理器
 
 ```sx [dwm]```
 
-**Start an X session** with an explicit command line
+**启动一个 X 会话**，使用显式命令行
 
 ```sx [exec] [i3]```
 
-**Run** a one-off X program after starting the server
+启动服务器后**运行**一个一次性的 X 程序
 
 ```sx [xterm]```
 
@@ -26,16 +26,16 @@ Simple alternative to xinit and startx
 
 # DESCRIPTION
 
-**sx** is a small POSIX shell script that starts an **Xorg** server, sets up an authority cookie, and then runs a user-supplied command (or _sxrc_) as the X session. It is intended as a minimal, transparent replacement for **xinit** and **startx**, exposing the same basic mechanics without their many optional behaviors.
+**sx** 是一个小型 POSIX shell 脚本：它启动 **Xorg** 服务器，设置授权 cookie，然后以用户提供的命令（或 _sxrc_）作为 X 会话运行。它的定位是 **xinit** 和 **startx** 的极简、透明替代品，暴露相同的基本机制，但去掉两者众多可选行为。
 
-The X server is started on the same TTY where **sx** is invoked, with the display number derived from the TTY number (so VT1 becomes _:1_). A fresh MIT-MAGIC-COOKIE-1 is generated from _/dev/urandom_ and registered with **xauth** before the server is launched with **-keeptty -noreset**.
+X 服务器在调用 **sx** 的同一 TTY 上启动，显示编号由 TTY 编号推导而来（因此 VT1 变成 _:1_）。服务器以 **-keeptty -noreset** 启动之前，会先从 _/dev/urandom_ 生成新的 MIT-MAGIC-COOKIE-1 并注册到 **xauth**。
 
-If no arguments are passed, **sx** runs the executable file at _$XDG_CONFIG_HOME/sx/sxrc_ (defaulting to _~/.config/sx/sxrc_). Otherwise the supplied command and its arguments become the session leader: when it exits, **sx** tears down the server.
+如果不带参数，**sx** 运行 _$XDG_CONFIG_HOME/sx/sxrc_ 处的可执行文件（默认为 _~/.config/sx/sxrc_）。否则，所给的命令及其参数成为会话主导进程：当它退出时，**sx** 关闭服务器。
 
 # CONFIGURATION
 
 **$XDG_CONFIG_HOME/sx/sxrc**
-> Executable script run as the X session when **sx** is invoked without arguments. Must have the executable bit set. A typical _sxrc_ launches a window manager as the last (foreground) command, for example:
+> 不带参数调用 **sx** 时作为 X 会话运行的可执行脚本。必须具有可执行位。典型的 _sxrc_ 以窗口管理器作为最后一条（前台）命令启动，例如：
 
 ```
 #!/bin/sh
@@ -45,19 +45,19 @@ exec dwm
 ```
 
 **$XAUTHORITY**
-> Path to the X authority file. **sx** generates this file under _$XDG_DATA_HOME/sx/_ and exports it for child processes.
+> X 授权文件的路径。**sx** 在 _$XDG_DATA_HOME/sx/_ 下生成此文件，并为子进程导出该变量。
 
 # PARAMETERS
 
-**sx** does not parse flags of its own. Any arguments are treated as the session command and its arguments. Use **--** before the command if it begins with something that could be mistaken for an option.
+**sx** 自身不解析任何标志。所有参数都被视为会话命令及其参数。如果命令开头可能被误认为选项，请在命令前使用 **--**。
 
 # CAVEATS
 
-The Xorg command line is **hardcoded**: server flags cannot be customized through **sx** itself. Only **Unix domain** sockets are configured; TCP listening is not enabled. The display number is tied to the TTY number, so starting **sx** on _tty1_ always produces display _:1_, which differs from **startx**, where _:0_ is the default. **sx** requires **Xorg**, **xauth**, and a readable _/dev/urandom_; error checking is intentionally minimal, leaving most reporting to the underlying tools.
+Xorg 命令行是**硬编码的**：服务器标志无法通过 **sx** 本身自定义。只配置了 **Unix 域**套接字；未启用 TCP 监听。显示编号与 TTY 编号绑定，因此在 _tty1_ 上启动 **sx** 总是产生 _:1_，这与 **startx** 不同（其默认为 _:0_）。**sx** 需要 **Xorg**、**xauth** 和可读的 _/dev/urandom_；错误检查刻意保持最少，大部分报错交给底层工具。
 
 # HISTORY
 
-**sx** was written by **Earnest Wieczorek** (Earnestly) as a proof-of-concept response to the comment in **xinit(1)** urging "site administrators" to write nicer wrappers. First published on GitHub around **2015**, it has remained a tiny shell script (around 70 lines) and is packaged in several distributions, notably **Arch Linux**, as a lightweight way to launch an X session without **startx**.
+**sx** 由 **Earnest Wieczorek**（Earnestly）编写，是对 **xinit(1)** 中敦促"站点管理员"编写更好封装脚本这一评论的概念验证。它于 **2015 年**前后首次发布在 GitHub 上，始终保持为一个微型 shell 脚本（约 70 行），并被多个发行版打包，其中最著名的是 **Arch Linux**，作为不使用 **startx** 启动 X 会话的轻量方式。
 
 # INSTALL
 

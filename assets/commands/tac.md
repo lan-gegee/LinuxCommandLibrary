@@ -1,30 +1,30 @@
 # TAGLINE
 
-Print files in reverse line order
+按行的逆序输出文件
 
 # TLDR
 
-**Reverse lines** of a file
+**反转文件**的行序
 
 ```tac [file.txt]```
 
-**Reverse lines** from multiple files
+**反转多个文件**的行序
 
 ```tac [file1.txt] [file2.txt]```
 
-**Reverse with custom separator**
+以自定义分隔符反转
 
 ```tac -s "[separator]" [file.txt]```
 
-**Reverse with regex separator**
+以正则表达式分隔符反转
 
 ```tac -r -s "[pattern]" [file.txt]```
 
-**Reverse stdin**
+**反转 stdin**
 
 ```cat [file.txt] | tac```
 
-**Reverse before separator** (attach separator to following)
+分隔符放在前面再反转（把分隔符附着到后一条记录）
 
 ```tac -b -s "[separator]" [file.txt]```
 
@@ -34,36 +34,36 @@ Print files in reverse line order
 
 # DESCRIPTION
 
-**tac** concatenates and prints files in reverse, line by line. The name is "cat" spelled backwards, reflecting its reversed functionality.
+**tac** 连接并按逆序逐行输出文件。它的名字是 "cat" 倒着拼出来的，正对应其反向的功能。
 
-By default, tac uses newline as the record separator, reversing line order. Custom separators can be specified, making it useful for reversing records in various file formats.
+默认情况下，tac 以换行符作为记录分隔符，从而反转行序。也可以指定自定义分隔符，因此它可用于反转各种文件格式中的记录。
 
-The tool is handy for viewing log files (newest first), reversing sorted output, or processing data that needs to be in reverse order.
+该工具适合查看日志文件（最新的在前）、反转已排序的输出，或处理需要逆序的数据。
 
 # PARAMETERS
 
 **-b**, **--before**
-> Attach separator before instead of after record.
+> 将分隔符附着在记录之前而非之后。
 
 **-r**, **--regex**
-> Interpret separator as regular expression.
+> 将分隔符解释为正则表达式。
 
 **-s** _string_, **--separator=** _string_
-> Use string as separator instead of newline.
+> 使用 string 作为分隔符，替代换行符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # CAVEATS
 
-Reads entire input into memory (inefficient for very large files). Binary files may produce unexpected results. Regex separators may have performance impact. Does not reverse characters within lines.
+会将整个输入读入内存（对超大文件效率不高）。二进制文件可能产生意外的结果。正则表达式分隔符可能影响性能。不会反转行内的字符顺序。
 
 # HISTORY
 
-**tac** is part of **GNU coreutils**, following the Unix tradition of tools that reverse operations (like rev which reverses characters). The name playfully reverses "cat". It provides functionality not available in standard Unix, though some BSD systems have alternatives.
+**tac** 是 **GNU coreutils** 的一部分，延续了 Unix 中"反向操作"工具的传统（例如反转字符顺序的 rev）。名字俏皮地把 "cat" 反转了过来。它提供了标准 Unix 所不具备的功能，不过某些 BSD 系统有类似的替代品。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Restore TeX Live packages from backups
+从备份恢复 TeX Live 软件包
 
 # TLDR
 
-**List available backups**
+**列出可用备份**
 
 ```tlmgr restore```
 
-**Restore package**
+**恢复软件包**
 
 ```tlmgr restore [package] [revision]```
 
-**Restore all from backup**
+**从备份恢复全部**
 
 ```tlmgr restore --all```
 
@@ -23,22 +23,21 @@ Restore TeX Live packages from backups
 # PARAMETERS
 
 **--all**
-> Restore all packages.
+> 恢复所有软件包。
 
 **--backupdir** _dir_
-> Backup source directory.
+> 备份来源目录。
 
 **--dry-run**
-> Show what would be restored.
+> 显示将要恢复的内容。
 
 _revision_
-> Specific revision to restore.
+> 要恢复到的特定修订版本。
 
 # DESCRIPTION
 
-**tlmgr restore** restores TeX Live packages from backups. Reverts to previous versions after problematic updates. Part of TeX Live Manager.
+**tlmgr restore** 从备份恢复 TeX Live 软件包。在有问题的更新之后回退到先前版本。TeX Live Manager 的组成部分。
 
 # SEE ALSO
 
 [tlmgr-backup](/man/tlmgr-backup)(1), [tlmgr](/man/tlmgr)(1)
-

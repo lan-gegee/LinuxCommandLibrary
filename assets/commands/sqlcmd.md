@@ -1,34 +1,34 @@
 # TAGLINE
 
-SQL Server command-line query tool
+SQL Server 命令行查询工具
 
 # TLDR
 
-**Connect to SQL Server** locally
+**连接本地** SQL Server
 
 ```sqlcmd -S [localhost] -U [sa] -P "[password]"```
 
-**Connect to a remote server**
+**连接远程服务器**
 
 ```sqlcmd -S [server.example.com] -U [username] -P "[password]"```
 
-**Execute a query** and exit
+**执行查询**后退出
 
 ```sqlcmd -S [server] -U [user] -P "[password]" -Q "SELECT @@VERSION"```
 
-**Execute a SQL script file**
+**执行 SQL 脚本文件**
 
 ```sqlcmd -S [server] -U [user] -P "[password]" -i [script.sql]```
 
-**Output results to a file**
+**将结果输出到文件**
 
 ```sqlcmd -S [server] -U [user] -P "[password]" -Q "[query]" -o [output.txt]```
 
-**Connect with Windows Authentication**
+**使用 Windows 身份验证**连接
 
 ```sqlcmd -S [server] -E```
 
-**Connect with encryption optional**
+**以加密可选方式**连接
 
 ```sqlcmd -S [server] -U [user] -P "[password]" -No```
 
@@ -39,83 +39,83 @@ SQL Server command-line query tool
 # PARAMETERS
 
 **-S** _server_
-> SQL Server instance to connect to. Format: [protocol:]server[\instance][,port].
+> 要连接的 SQL Server 实例。格式：[protocol:]server[\instance][,port]。
 
 **-U** _login_
-> User login name.
+> 用户登录名。
 
 **-P** _password_
-> Password for the login.
+> 登录密码。
 
 **-E**
-> Use Windows Authentication (trusted connection).
+> 使用 Windows 身份验证（受信任连接）。
 
 **-d** _database_
-> Initial database to use.
+> 初始使用的数据库。
 
 **-Q** _query_
-> Execute query and exit.
+> 执行查询并退出。
 
 **-q** _query_
-> Execute query and enter interactive mode.
+> 执行查询并进入交互模式。
 
 **-i** _file_
-> Input file containing SQL statements.
+> 包含 SQL 语句的输入文件。
 
 **-o** _file_
-> Output file for results.
+> 结果的输出文件。
 
 **-N** _mode_
-> Encryption mode: **o** (optional), **m** (mandatory, default in SQL Server 2025), **s** (strict/TDS 8.0).
+> 加密模式：**o**（可选）、**m**（强制，SQL Server 2025 中的默认值）、**s**（strict/TDS 8.0）。
 
 **-No**
-> Encryption optional (shorthand).
+> 加密可选（简写）。
 
 **-C**
-> Trust server certificate.
+> 信任服务器证书。
 
 **-t** _timeout_
-> Query timeout in seconds.
+> 查询超时时间，以秒为单位。
 
 **-l** _timeout_
-> Login timeout in seconds.
+> 登录超时时间，以秒为单位。
 
 **-h** _headers_
-> Rows between column headers (-1 to disable).
+> 列标题之间间隔的行数（-1 表示禁用）。
 
 **-s** _separator_
-> Column separator character.
+> 列分隔符字符。
 
 **-w** _width_
-> Screen width for output.
+> 输出的屏幕宽度。
 
 **-A** _size_
-> Request a packet of a different size. Must be between 512 and 32767.
+> 请求不同大小的数据包。必须介于 512 和 32767 之间。
 
 **-W**
-> Remove trailing spaces from a column.
+> 移除列尾部的空格。
 
 **-?**
-> Display help for ODBC sqlcmd flags.
+> 显示 ODBC 版 sqlcmd 标志的帮助。
 
 **--help**
-> Display help for go-sqlcmd subcommands.
+> 显示 go-sqlcmd 子命令的帮助。
 
 # DESCRIPTION
 
-**sqlcmd** is Microsoft's command-line utility for SQL Server and Azure SQL. It allows executing Transact-SQL statements, stored procedures, and SQL scripts interactively or in batch mode. Two implementations exist: the newer Go-based version (go-sqlcmd) and the traditional ODBC-based version.
+**sqlcmd** 是 Microsoft 针对 SQL Server 和 Azure SQL 的命令行工具。它支持以交互或批处理模式执行 Transact-SQL 语句、存储过程和 SQL 脚本。现有两种实现：较新的基于 Go 的版本（go-sqlcmd）和传统的基于 ODBC 的版本。
 
-The utility supports various authentication methods including SQL Server authentication, Windows/Kerberos authentication, and Azure Active Directory. Results can be output to the terminal, files, or piped to other commands.
+该工具支持多种身份验证方式，包括 SQL Server 身份验证、Windows/Kerberos 身份验证以及 Azure Active Directory。结果可以输出到终端、文件，或通过管道传给其他命令。
 
-In interactive mode, commands like **:quit** exit the session, **GO** executes the statement batch, and **:r** includes a script file. The prompt shows the current line number.
+在交互模式下，**:quit** 命令退出会话，**GO** 执行语句批处理，**:r** 引入脚本文件。提示符会显示当前行号。
 
 # CAVEATS
 
-Starting with SQL Server 2025, mandatory encryption (**-Nm**) is the default, which is a breaking change from earlier versions. Use **-No** for optional encryption when connecting to older servers. Password on command line is visible in process listings; consider using environment variables or prompts instead. Linux requires the mssql-tools package from Microsoft repositories.
+从 SQL Server 2025 开始，默认采用强制加密（**-Nm**），这是相对早期版本的破坏性变更。连接旧服务器时可使用 **-No** 将加密设为可选。命令行上的密码会在进程列表中可见；建议改用环境变量或交互式提示输入。Linux 上需要来自 Microsoft 软件仓库的 mssql-tools 软件包。
 
 # HISTORY
 
-**sqlcmd** was introduced by Microsoft as the replacement for the older **osql** and **isql** utilities. The ODBC-based version has been available since SQL Server 2005 and was ported to Linux when SQL Server on Linux was released in **2017**. In **2022**, Microsoft released go-sqlcmd, a Go-based reimplementation with modern features and cross-platform support. Development continues with SQL Server 2025 adding TDS 8.0 support.
+**sqlcmd** 由 Microsoft 推出，用于取代较旧的 **osql** 和 **isql** 工具。基于 ODBC 的版本自 SQL Server 2005 起可用，并在 **2017 年** Linux 版 SQL Server 发布时被移植到 Linux。**2022 年**，Microsoft 发布了 go-sqlcmd——一个具备现代特性和跨平台支持的 Go 语言重实现。开发仍在继续，SQL Server 2025 加入了对 TDS 8.0 的支持。
 
 # INSTALL
 

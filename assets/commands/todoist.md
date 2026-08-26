@@ -1,30 +1,30 @@
 # TAGLINE
 
-Command-line Todoist service client
+命令行 Todoist 服务客户端
 
 # TLDR
 
-**Add task**
+**添加任务**
 
 ```todoist add "[task description]"```
 
-**List tasks**
+**列出任务**
 
 ```todoist list```
 
-**Complete task**
+**完成任务**
 
 ```todoist close [task-id]```
 
-**Add with due date**
+**带截止日期添加**
 
 ```todoist add "[task]" --date "[tomorrow]"```
 
-**Add to project**
+**添加到项目**
 
 ```todoist add "[task]" --project "[Project Name]"```
 
-**Sync**
+**同步**
 
 ```todoist sync```
 
@@ -35,39 +35,39 @@ Command-line Todoist service client
 # PARAMETERS
 
 **add**
-> Create task.
+> 创建任务。
 
 **list**
-> Show tasks.
+> 显示任务。
 
 **close**
-> Complete task.
+> 完成任务。
 
 **sync**
-> Sync with server.
+> 与服务器同步。
 
 **--date** _DATE_
-> Due date.
+> 截止日期。
 
 **--project** _NAME_
-> Target project.
+> 目标项目。
 
 **--priority** _N_
-> Priority level.
+> 优先级。
 
 # DESCRIPTION
 
-**todoist** is a command-line client for the Todoist task management service, providing terminal access to your cloud-synced task lists. Tasks can be created with natural language due dates like "tomorrow" or "next week," organized into projects, and assigned priority levels.
+**todoist** 是 Todoist 任务管理服务的命令行客户端，让你可以在终端访问云同步的任务列表。任务可以用 "tomorrow" 或 "next week" 等自然语言截止日期创建，并可组织到项目中以及指定优先级。
 
-The tool syncs with the Todoist cloud service, so changes made from the CLI are immediately available on all other devices. An API token is required for authentication and is typically configured on first use.
+该工具与 Todoist 云服务同步，因此在 CLI 中所做的更改会立即出现在所有其他设备上。身份验证需要 API token，通常在首次使用时配置。
 
 # CAVEATS
 
-Todoist account required. API token needed. Internet dependent.
+需要 Todoist 账户。需要 API token。依赖网络。
 
 # HISTORY
 
-Various **todoist** CLI clients exist for the **Todoist** task management service, providing terminal access.
+针对 **Todoist** 任务管理服务存在多种 **todoist** CLI 客户端，提供终端访问能力。
 
 # INSTALL
 

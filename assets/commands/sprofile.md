@@ -1,10 +1,10 @@
 # TAGLINE
 
-View Spotify listening activity in the terminal
+在终端中查看 Spotify 收听动态
 
 # TLDR
 
-**Launch the Spotify activity viewer**
+**启动 Spotify 动态查看器**
 
 ```sprofile```
 
@@ -14,11 +14,11 @@ View Spotify listening activity in the terminal
 
 # DESCRIPTION
 
-**sprofile** is a TUI application for viewing your Spotify listening activity. Built with the Ratatui framework, it provides an interactive terminal interface to review your Spotify history and profile data.
+**sprofile** 是一个用于查看 Spotify 收听动态的 TUI 应用。它基于 Ratatui 框架构建，提供交互式终端界面，用于查看你的 Spotify 历史记录和个人资料数据。
 
 # HISTORY
 
-**sprofile** was created by **Sushant Ray** (GoodBoyNeon) and is written in **Rust**.
+**sprofile** 由 **Sushant Ray**（GoodBoyNeon）创建，使用 **Rust** 编写。
 
 # INSTALL
 

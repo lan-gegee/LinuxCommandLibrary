@@ -1,38 +1,38 @@
 # TAGLINE
 
-TigerVNC remote desktop viewer
+TigerVNC 远程桌面查看器
 
 # TLDR
 
-**Connect to VNC server**
+**连接到 VNC 服务器**
 
 ```vncviewer [hostname:display]```
 
-**Connect to specific port**
+**连接到特定端口**
 
 ```vncviewer [hostname::5901]```
 
-**Connect in fullscreen mode**
+**以全屏模式连接**
 
 ```vncviewer -FullScreen [hostname:1]```
 
-**Connect in view-only mode**
+**以只读模式连接**
 
 ```vncviewer -ViewOnly [hostname:1]```
 
-**Connect through SSH tunnel**
+**通过 SSH 隧道连接**
 
 ```vncviewer -via [gateway] [hostname:1]```
 
-**Connect with password file**
+**使用密码文件连接**
 
 ```vncviewer -passwd [~/.vnc/passwd] [hostname:1]```
 
-**Listen for reverse connections**
+**监听反向连接**
 
 ```vncviewer -listen [5500]```
 
-**Set preferred encoding**
+**设置首选编码**
 
 ```vncviewer -PreferredEncoding Tight [hostname:1]```
 
@@ -47,79 +47,79 @@ TigerVNC remote desktop viewer
 # PARAMETERS
 
 **-FullScreen**
-> Start in fullscreen mode.
+> 以全屏模式启动。
 
 **-FullScreenAllMonitors**
-> Use all monitors in fullscreen.
+> 全屏时使用所有显示器。
 
 **-Maximize**
-> Maximize viewer window.
+> 最大化查看器窗口。
 
 **-ViewOnly**
-> Disable keyboard and mouse input.
+> 禁用键盘和鼠标输入。
 
 **-Shared**
-> Share desktop with existing connections.
+> 与已有连接共享桌面。
 
 **-listen** _port_
-> Listen for reverse connections (default: 5500).
+> 监听反向连接（默认：5500）。
 
 **-via** _gateway_
-> Tunnel through SSH gateway.
+> 通过 SSH 网关建隧道。
 
 **-passwd** _file_
-> Password file location.
+> 密码文件的位置。
 
 **-geometry** _WxH+X+Y_
-> Initial window position and size.
+> 初始窗口位置和大小。
 
 **-PreferredEncoding** _encoding_
-> Encoding: Tight, ZRLE, hextile, raw.
+> 编码：Tight、ZRLE、hextile、raw。
 
 **-QualityLevel** _n_
-> JPEG quality (0-9, default: 8).
+> JPEG 质量（0-9，默认：8）。
 
 **-CompressLevel** _n_
-> Compression level (0-6, default: 2).
+> 压缩级别（0-6，默认：2）。
 
 **-NoJPEG**
-> Disable JPEG compression.
+> 禁用 JPEG 压缩。
 
 **-AutoSelect**
-> Auto-select encoding and format.
+> 自动选择编码和格式。
 
 **-AcceptClipboard**
-> Accept clipboard from server.
+> 接受来自服务器的剪贴板内容。
 
 **-SendClipboard**
-> Send clipboard to server.
+> 将剪贴板内容发送到服务器。
 
 **-X509CA** _file_
-> CA certificate for TLS.
+> 用于 TLS 的 CA 证书。
 
 **-Log** _config_
-> Debug logging configuration.
+> 调试日志配置。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**TigerVNC** (vncviewer) is a VNC client for connecting to remote desktops. It displays the graphical desktop of a remote VNC server and allows interaction via keyboard and mouse.
+**TigerVNC**（vncviewer）是一款用于连接远程桌面的 VNC 客户端。它显示远程 VNC 服务器的图形桌面，并允许通过键盘和鼠标进行交互。
 
-The viewer supports multiple encodings optimized for different network conditions: Tight encoding with JPEG compression for low bandwidth, and raw or hextile for local networks. Automatic encoding selection adapts to connection quality.
+该查看器支持多种针对不同网络条件优化的编码：低带宽下采用带 JPEG 压缩的 Tight 编码，局域网内可采用 raw 或 hextile。自动编码选择会根据连接质量自适应调整。
 
-Security features include TLS encryption and various authentication methods. The -via option provides SSH tunneling for secure connections through untrusted networks.
+安全特性包括 TLS 加密和多种身份验证方式。-via 选项提供 SSH 隧道，可通过不可信网络建立安全连接。
 
-TigerVNC can also act as a reverse-connection client using -listen mode, where the server initiates the connection to the viewer.
+TigerVNC 还可以通过 -listen 模式充当反向连接客户端，此时由服务器主动向查看器发起连接。
 
 # CAVEATS
 
-Display numbers start at 0 (port 5900). Double-colon specifies raw port number. Some features require server support. Full-screen mode exit may need platform-specific key combinations.
+显示编号从 0 开始（对应端口 5900）。双冒号用于指定原始端口号。部分功能需要服务器端支持。退出全屏模式可能需要特定平台的按键组合。
 
 # HISTORY
 
-**TigerVNC** is a fork of TightVNC, focused on performance and security improvements. It originated from the VNC (Virtual Network Computing) technology developed at Olivetti Research Laboratory in the late 1990s. TigerVNC is widely used in enterprise environments and Linux distributions.
+**TigerVNC** 是 TightVNC 的分支，专注于性能和安全性的改进。它起源于 20 世纪 90 年代末 Olivetti Research Laboratory 开发的 VNC（Virtual Network Computing）技术。TigerVNC 广泛应用于企业环境和 Linux 发行版中。
 
 # INSTALL
 

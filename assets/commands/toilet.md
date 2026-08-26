@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display colorful ASCII art text banners
+显示彩色 ASCII 艺术文字横幅
 
 # TLDR
 
-Generate **ASCII art** for text
+为文本生成 **ASCII 艺术**
 
 ```toilet [input_text]```
 
-Use custom **font**
+使用自定义**字体**
 
 ```toilet [input_text] -f [font_filename]```
 
-Apply **filter**
+应用**过滤器**
 
 ```toilet [input_text] -F [filter_name]```
 
-**List** available filters
+**列出**可用过滤器
 
 ```toilet -F list```
 
@@ -27,33 +27,33 @@ Apply **filter**
 # PARAMETERS
 
 **-f, --font** _NAME_
-> Use specified font file
+> 使用指定的字体文件
 
 **-F, --filter** _NAME_
-> Apply filter to output
+> 对输出应用过滤器
 
 **-w, --width** _N_
-> Set output width
+> 设置输出宽度
 
 **-t, --term**
-> Use terminal width
+> 使用终端宽度
 
 **-d, --directory** _DIR_
-> Specify font directory
+> 指定字体目录
 
 # DESCRIPTION
 
-**toilet** (The Other Implementation's letters) displays ASCII-art text banners using various fonts and filters. It is similar to FIGlet but with additional features like color filters and Unicode support.
+**toilet**（The Other Implementation's letters）使用各种字体和滤镜显示 ASCII 艺术文字横幅。它与 FIGlet 类似，但额外支持彩色滤镜和 Unicode。
 
-The program reads text from command-line arguments or standard input and renders it using the specified font. Various filters can apply effects like color gradients, borders, and transformations.
+该程序从命令行参数或标准输入读取文本，并使用指定字体渲染。多种滤镜可应用颜色渐变、边框和变换等效果。
 
 # CAVEATS
 
-Font availability depends on installation. Some filters require terminal color support. Wide output may wrap incorrectly on narrow terminals. Unicode fonts require UTF-8 terminal support.
+字体可用性取决于安装情况。某些滤镜需要终端颜色支持。宽幅输出在窄终端上可能换行错乱。Unicode 字体需要终端支持 UTF-8。
 
 # HISTORY
 
-**toilet** was created by **Sam Hocevar** as part of the libcaca project, providing an alternative to FIGlet with additional features like color support and more rendering options.
+**toilet** 由 **Sam Hocevar** 作为 libcaca 项目的一部分创建，提供了 FIGlet 的替代方案，并增加了彩色支持和更多渲染选项等特性。
 
 # INSTALL
 

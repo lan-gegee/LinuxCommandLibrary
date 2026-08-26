@@ -1,30 +1,30 @@
 # TAGLINE
 
-Automated semantic versioning from commits
+基于提交记录的自动化语义化版本管理
 
 # TLDR
 
-**Release new version**
+**发布新版本**
 
 ```standard-version```
 
-**First release**
+**首次发布**
 
 ```standard-version --first-release```
 
-**Pre-release version**
+**预发布版本**
 
 ```standard-version --prerelease alpha```
 
-**Dry run**
+**试运行**
 
 ```standard-version --dry-run```
 
-**Specific version bump**
+**指定版本提升类型**
 
 ```standard-version --release-as [major|minor|patch]```
 
-**Skip changelog**
+**跳过变更日志**
 
 ```standard-version --skip.changelog```
 
@@ -35,45 +35,45 @@ Automated semantic versioning from commits
 # PARAMETERS
 
 **--first-release**
-> First version.
+> 第一个版本。
 
 **--release-as** _TYPE_
-> Version bump type.
+> 版本提升类型。
 
 **--prerelease** _TAG_
-> Pre-release tag.
+> 预发布标签。
 
 **--dry-run**
-> Preview only.
+> 仅预览。
 
 **--skip.changelog**
-> Skip changelog.
+> 跳过变更日志。
 
 **-s**, **--sign**
-> Sign commits and tags with GPG.
+> 使用 GPG 签署提交和标签。
 
 **-a**, **--commit-all**
-> Commit all staged files, not just package/changelog.
+> 提交所有已暂存的文件，而不只是 package/changelog。
 
 **-t**, **--tag-prefix** _prefix_
-> Customize tag prefix (default: v).
+> 自定义标签前缀（默认：v）。
 
 **--no-verify**
-> Bypass pre-commit/commit-msg git hooks.
+> 绕过 pre-commit/commit-msg git 钩子。
 
 # DESCRIPTION
 
-**standard-version** automates semantic versioning and changelog generation for Node.js projects based on the Conventional Commits specification. It analyzes commit messages (feat, fix, BREAKING CHANGE) to determine whether to bump the major, minor, or patch version.
+**standard-version** 基于 Conventional Commits 规范，为 Node.js 项目自动执行语义化版本管理和变更日志生成。它分析提交信息（feat、fix、BREAKING CHANGE）来决定是提升 major、minor 还是 patch 版本。
 
-The tool updates the version in package.json, generates or updates a CHANGELOG.md from commit messages, creates a git commit with the version bump, and tags it with the new version number. A dry run mode previews changes without modifying files. Pre-release tags (alpha, beta, rc) are supported for staged releases.
+该工具会更新 package.json 中的版本号，根据提交信息生成或更新 CHANGELOG.md，创建一个包含版本提升的 git 提交，并用新版本号打标签。试运行模式可以预览更改而不修改文件。支持预发布标签（alpha、beta、rc）用于阶段性发布。
 
 # CAVEATS
 
-**Deprecated** - the project is no longer maintained. The authors recommend **release-please** (GitHub users) or the fork **commit-and-tag-version** for continued support. Requires conventional commits, a Node.js project, and a git repository.
+**已弃用**——该项目不再维护。作者推荐 GitHub 用户使用 **release-please**，或使用 fork 版 **commit-and-tag-version** 以获得持续支持。需要 Conventional Commits 提交规范、Node.js 项目和 git 仓库。
 
 # HISTORY
 
-**standard-version** was created for automated semantic versioning based on Conventional Commits specification.
+**standard-version** 为基于 Conventional Commits 规范的自动化语义化版本管理而创建。
 
 # INSTALL
 

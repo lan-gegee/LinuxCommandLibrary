@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for viewing and editing database files
+用于查看和编辑数据库文件的 TUI
 
 # TLDR
 
-**Open a SQLite database**
+**打开 SQLite 数据库**
 
 ```termdbms [mydata.db]```
 
-**Convert and open a CSV file as SQLite**
+**将 CSV 文件转换为 SQLite 并打开**
 
 ```termdbms --csv [data.csv]```
 
-**Connect to a MySQL database**
+**连接 MySQL 数据库**
 
 ```termdbms --url "[mysql://user:pass@host/db]"```
 
@@ -23,18 +23,18 @@ TUI for viewing and editing database files
 # PARAMETERS
 
 **--csv** _FILE_
-> Convert a CSV file to SQLite and open it.
+> 将 CSV 文件转换为 SQLite 并打开。
 
 **--url** _URL_
-> Connect to a MySQL database via URL.
+> 通过 URL 连接 MySQL 数据库。
 
 # DESCRIPTION
 
-**termdbms** is a terminal UI for viewing and editing SQLite and MySQL databases. It supports SQL queries with undo/redo, CSV-to-SQLite conversion, CSV/SQLite export, and automatic JSON formatting in selection mode.
+**termdbms** 是一个用于查看和编辑 SQLite 与 MySQL 数据库的终端 UI。它支持带撤销/重做的 SQL 查询、CSV 到 SQLite 的转换、CSV/SQLite 导出，以及选择模式下对 JSON 的自动格式化。
 
 # HISTORY
 
-**termdbms** was created by **mathaou** and is written in **Go**.
+**termdbms** 由 **mathaou** 创建，使用 **Go** 编写。
 
 # INSTALL
 

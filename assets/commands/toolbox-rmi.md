@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove Toolbx container images
+删除 Toolbx 容器镜像
 
 # TLDR
 
-**Remove** images
+**删除**镜像
 
 ```toolbox rmi [image_name1] [image_name2]```
 
-Remove **all** images
+删除**所有**镜像
 
 ```toolbox rmi -a```
 
-**Force** remove image in use
+**强制**删除正在使用的镜像
 
 ```toolbox rmi -f [image_name]```
 
@@ -23,20 +23,20 @@ Remove **all** images
 # PARAMETERS
 
 **-a, --all**
-> Remove all Toolbx images
+> 删除所有 Toolbx 镜像
 
 **-f, --force**
-> Force removal of images in use by containers
+> 强制删除正被容器使用的镜像
 
 # DESCRIPTION
 
-**toolbox rmi** removes one or more Toolbx container images. Images that are currently being used by containers cannot be removed unless the force flag is used.
+**toolbox rmi** 删除一个或多个 Toolbx 容器镜像。当前正被容器使用的镜像，除非使用强制选项，否则无法删除。
 
-When using --force on an image that has containers, those containers will also be removed along with the image.
+对已有容器的镜像使用 --force 时，这些容器将随镜像一并被删除。
 
 # CAVEATS
 
-Images in use by containers cannot be removed without --force. Force removal will delete associated containers. Removing base images requires re-downloading them later.
+正被容器使用的镜像不使用 --force 无法删除。强制删除会连带删掉相关联的容器。删除基础镜像后，之后需要重新下载。
 
 # INSTALL
 

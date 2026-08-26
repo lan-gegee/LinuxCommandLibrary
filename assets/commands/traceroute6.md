@@ -1,34 +1,34 @@
 # TAGLINE
 
-Trace IPv6 packet route to host
+追踪到主机的 IPv6 数据包路由
 
 # TLDR
 
-**Trace the route to an IPv6 host**
+**追踪到 IPv6 主机的路由**
 
 ```traceroute6 [host]```
 
-**Trace with numeric output only** (no DNS resolution)
+以纯数字输出**追踪**（不做 DNS 解析）
 
 ```traceroute6 -n [host]```
 
-**Set maximum hop limit**
+**设置最大跳数限制**
 
 ```traceroute6 -m [60] [host]```
 
-**Start from a specific hop**
+**从指定跳开始**
 
 ```traceroute6 -f [5] [host]```
 
-**Use ICMP ECHO instead of UDP**
+**使用 ICMP ECHO 代替 UDP**
 
 ```traceroute6 -I [host]```
 
-**Set the number of probes per hop**
+**设置每跳的探测次数**
 
 ```traceroute6 -q [5] [host]```
 
-**Specify source address**
+**指定源地址**
 
 ```traceroute6 -s [source_address] [host]```
 
@@ -39,50 +39,50 @@ Trace IPv6 packet route to host
 # PARAMETERS
 
 **-n**
-> Do not resolve addresses to hostnames
+> 不将地址解析为主机名
 
 **-m** _hoplimit_
-> Maximum hop limit (default: 30, max: 255)
+> 最大跳数限制（默认：30，上限：255）
 
 **-f** _firsthop_
-> Start probes at specified hop (skip earlier hops)
+> 从指定跳开始探测（跳过更早的跳）
 
 **-I**
-> Use ICMPv6 ECHO instead of UDP datagrams
+> 使用 ICMPv6 ECHO 代替 UDP 数据报
 
 **-N**
-> Use packets with no upper layer header
+> 使用不带上层报头的数据包
 
 **-p** _port_
-> Set destination UDP port
+> 设置目的 UDP 端口
 
 **-q** _probes_
-> Number of probes per hop (default: 3)
+> 每跳的探测次数（默认：3）
 
 **-s** _src_
-> Use specified source address
+> 使用指定的源地址
 
 **-w** _waittime_
-> Wait time in seconds for responses
+> 等待响应的时间（秒）
 
 **-g** _gateway_
-> Specify intermediate gateway (uses routing header)
+> 指定中间网关（使用路由报头）
 
 # DESCRIPTION
 
-**traceroute6** traces the route IPv6 packets take to reach a destination host. It exploits the IPv6 hop limit field by sending probes with increasing limits, eliciting ICMPv6 TIME_EXCEEDED responses from each router along the path.
+**traceroute6** 追踪 IPv6 数据包到达目标主机所经过的路由。它利用 IPv6 的跳数字段，发送跳数限制递增的探测包，诱使路径上的每台路由器返回 ICMPv6 TIME_EXCEEDED 响应。
 
-Each line of output shows the hop number, gateway address (and hostname unless **-n** is used), and round-trip times for each probe. The trace continues until the destination responds or the maximum hop limit is reached.
+输出的每一行显示跳数、网关地址（除非使用了 **-n**，否则还包括主机名）以及每次探测的往返时间。追踪会持续进行，直到目标响应或达到最大跳数限制为止。
 
-The command is equivalent to **traceroute -6** and sends UDP datagrams by default. Use **-I** for ICMPv6 ECHO probes instead.
+该命令等同于 **traceroute -6**，默认发送 UDP 数据报。如需改用 ICMPv6 ECHO 探测，请使用 **-I**。
 
 # CAVEATS
 
-Requires CAP_NET_RAW capability or root privileges on Linux. Some routers may not respond to probes, appearing as * * * in output. Firewalls may block traceroute probes. Response times can vary significantly between probes.
+在 Linux 上需要 CAP_NET_RAW 能力或 root 权限。某些路由器可能不响应探测，在输出中显示为 * * *。防火墙可能拦截 traceroute 探测。各次探测之间的响应时间可能差异很大。
 
 # HISTORY
 
-traceroute was originally written by **Van Jacobson** in **1988**. The IPv6 version was ported from NRL's IPv6 distribution in **1996** and later ported to Linux by Pedro Roque.
+traceroute 最初由 **Van Jacobson** 于 **1988 年**编写。IPv6 版本于 **1996 年**从 NRL 的 IPv6 发行版移植而来，后由 Pedro Roque 移植到 Linux。
 
 # SEE ALSO
 

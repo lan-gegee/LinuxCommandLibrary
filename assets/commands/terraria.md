@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terraria dedicated game server
+Terraria 专用游戏服务器
 
 # TLDR
 
-Start **interactive** server setup
+启动**交互式**服务器设置
 
 ```[path/to]/TerrariaServer```
 
-Start server with **world**
+以指定**世界**启动服务器
 
 ```[path/to]/TerrariaServer -world [path/to/world.wld]```
 
@@ -19,39 +19,39 @@ Start server with **world**
 # PARAMETERS
 
 **-world** _PATH_
-> World file to load
+> 要加载的世界文件
 
 **-port** _PORT_
-> Server port (default: 7777)
+> 服务器端口（默认：7777）
 
 **-maxplayers** _N_
-> Maximum players allowed
+> 允许的最大玩家数
 
 **-password** _PASS_
-> Server password
+> 服务器密码
 
 **-config** _FILE_
-> Configuration file path
+> 配置文件路径
 
 **-autocreate** _SIZE_
-> Auto-create world (1=small, 2=medium, 3=large)
+> 自动创建世界（1=小、2=中、3=大）
 
 **-worldname** _NAME_
-> Name for auto-created world
+> 自动创建世界的名称
 
 # DESCRIPTION
 
-**TerrariaServer** creates and runs a headless Terraria game server. It can be started interactively to configure settings or with command-line arguments for automated deployment.
+**TerrariaServer** 创建并运行无界面的 Terraria 游戏服务器。它可以交互式启动以进行设置，也可以使用命令行参数实现自动化部署。
 
-The server hosts multiplayer Terraria sessions, allowing players to connect and play together.
+该服务器承载 Terraria 多人游戏会话，允许玩家连接并一起游玩。
 
 # CAVEATS
 
-Requires a valid Terraria server installation. World files are platform-specific. Server consumes significant resources for large worlds with many players.
+需要有效的 Terraria 服务器安装。世界文件是平台相关的。对于大世界和大量玩家，服务器消耗的资源相当可观。
 
 # HISTORY
 
-**Terraria** is a 2D sandbox game developed by **Re-Logic**, first released in **2011**. The dedicated server allows hosting multiplayer games without running the full game client.
+**Terraria** 是由 **Re-Logic** 开发的 2D 沙盒游戏，于 **2011** 年首次发布。专用服务器让你无需运行完整游戏客户端即可托管多人游戏。
 
 # SEE ALSO
 

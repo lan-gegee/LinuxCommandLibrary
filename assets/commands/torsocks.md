@@ -1,30 +1,30 @@
 # TAGLINE
 
-Transparently route traffic through Tor
+透明地将流量经 Tor 路由
 
 # TLDR
 
-**Run** command using Tor
+使用 Tor **运行**命令
 
 ```torsocks [command]```
 
-**Toggle** Tor in shell
+在 Shell 中**切换** Tor
 
 ```. torsocks [on|off]```
 
-Spawn Tor-enabled **shell**
+生成启用 Tor 的 **Shell**
 
 ```torsocks --shell```
 
-**Check** if Tor is enabled
+**检查** Tor 是否已启用
 
 ```torsocks show```
 
-**Isolate** traffic through different circuit
+通过不同链路**隔离**流量
 
 ```torsocks -i [curl https://check.torproject.org/api/ip]```
 
-Connect to specific **proxy**
+连接到指定的**代理**
 
 ```torsocks -a [ip_address] -P [port] [command]```
 
@@ -35,36 +35,36 @@ Connect to specific **proxy**
 # PARAMETERS
 
 **--shell**
-> Spawn a new Tor-enabled shell
+> 生成一个新的启用 Tor 的 Shell
 
 **-i, --isolate**
-> Isolate traffic through a different Tor circuit
+> 通过不同的 Tor 链路隔离流量
 
 **-a, --address** _IP_
-> Connect to Tor proxy at specified address
+> 连接到指定地址的 Tor 代理
 
 **-P, --port** _PORT_
-> Connect to Tor proxy on specified port
+> 连接到指定端口的 Tor 代理
 
 **show**
-> Check if current shell is Tor-enabled
+> 检查当前 Shell 是否已启用 Tor
 
 **on|off**
-> Toggle Tor routing in current shell
+> 在当前 Shell 中切换 Tor 路由
 
 # DESCRIPTION
 
-**torsocks** routes network traffic from applications through the Tor network by intercepting network calls and redirecting them through Tor's SOCKS proxy. By default, it connects to the Tor daemon running at 127.0.0.1:9050.
+**torsocks** 通过拦截网络调用并将其重定向到 Tor 的 SOCKS 代理，使应用程序的网络流量经 Tor 网络路由。默认情况下，它连接运行在 127.0.0.1:9050 的 Tor 守护进程。
 
-The tool uses LD_PRELOAD to intercept network system calls, providing transparent Tor routing for applications that don't natively support SOCKS proxies.
+该工具使用 LD_PRELOAD 拦截网络系统调用，为原生不支持 SOCKS 代理的应用程序提供透明的 Tor 路由。
 
 # CAVEATS
 
-Requires running Tor daemon. Some applications may leak DNS or use protocols incompatible with Tor. UDP traffic is not supported. Applications using raw sockets bypass torsocks.
+需要有正在运行的 Tor 守护进程。某些应用程序可能泄露 DNS 或使用与 Tor 不兼容的协议。不支持 UDP 流量。使用原始套接字（raw socket）的应用程序会绕过 torsocks。
 
 # HISTORY
 
-**torsocks** was developed as an improved replacement for **torify**, providing better security and functionality for routing traffic through the Tor anonymity network.
+**torsocks** 是作为 **torify** 的改进替代品而开发的，为经 Tor 匿名网络路由流量提供了更好的安全性和功能性。
 
 # INSTALL
 

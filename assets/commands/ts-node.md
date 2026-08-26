@@ -1,38 +1,38 @@
 # TAGLINE
 
-TypeScript execution environment for Node.js
+Node.js 的 TypeScript 执行环境
 
 # TLDR
 
-**Run TypeScript file**
+**运行 TypeScript 文件**
 
 ```ts-node [script.ts]```
 
-**Start REPL**
+**启动 REPL**
 
 ```ts-node```
 
-**Run with specific config**
+**使用指定配置运行**
 
 ```ts-node -P [tsconfig.json] [script.ts]```
 
-**Transpile only** (skip type checking)
+**仅转译**（跳过类型检查）
 
 ```ts-node --transpile-only [script.ts]```
 
-**Run as ESM**
+**以 ESM 方式运行**
 
 ```ts-node --esm [script.ts]```
 
-**Evaluate code**
+**执行代码**
 
 ```ts-node -e "console.log('Hello')"```
 
-**Transpile with SWC** (fastest mode)
+**使用 SWC 转译**（最快模式）
 
 ```ts-node --swc [script.ts]```
 
-**Print evaluated expression**
+**输出表达式的求值结果**
 
 ```ts-node -p "1 + 1"```
 
@@ -43,71 +43,71 @@ TypeScript execution environment for Node.js
 # PARAMETERS
 
 **-P** _FILE_
-> Path to tsconfig.json.
+> tsconfig.json 的路径。
 
 **--transpile-only**, **-T**
-> Skip type checking.
+> 跳过类型检查。
 
 **--esm**
-> Use ESM loader.
+> 使用 ESM 加载器。
 
 **-e** _CODE_
-> Evaluate code.
+> 执行代码。
 
 **-p** _CODE_
-> Evaluate and print.
+> 执行并打印结果。
 
 **-r** _MODULE_
-> Require module.
+> 加载（require）模块。
 
 **--pretty**
-> Pretty-print errors.
+> 美化打印错误信息。
 
 **--skip-project**
-> Skip loading tsconfig.json.
+> 跳过加载 tsconfig.json。
 
 **--swc**
-> Transpile with SWC for faster startup. Implies --transpileOnly.
+> 使用 SWC 转译以加快启动速度。隐含 --transpileOnly。
 
 **--files**
-> Load files, include, and exclude from tsconfig.json on startup.
+> 启动时从 tsconfig.json 加载 files、include 和 exclude 指定的文件。
 
 **-C** _NAME_, **--compiler** _NAME_
-> TypeScript compiler to use (default: typescript).
+> 要使用的 TypeScript 编译器（默认：typescript）。
 
 **-D** _CODES_, **--ignoreDiagnostics** _CODES_
-> Ignore TypeScript diagnostics by code.
+> 按代码忽略 TypeScript 诊断信息。
 
 **--emit**
-> Write compiled output files to .ts-node directory.
+> 将编译输出的文件写入 .ts-node 目录。
 
 **-i**, **--interactive**
-> Force REPL even if stdin is not a terminal.
+> 即使 stdin 不是终端也强制进入 REPL。
 
 **--skipIgnore**
-> Skip ignore checks, allowing compilation of files in node_modules.
+> 跳过忽略检查，允许编译 node_modules 中的文件。
 
 **-O** _JSON_, **--compilerOptions** _JSON_
-> Merge JSON compiler options with tsconfig.
+> 将 JSON 编译器选项与 tsconfig 合并。
 
 **--showConfig**
-> Print resolved tsconfig.json and exit.
+> 打印解析后的 tsconfig.json 并退出。
 
 # DESCRIPTION
 
-**ts-node** is a TypeScript execution engine for Node.js that compiles and runs TypeScript files on-the-fly without a separate build step. By default it performs full type checking at runtime, reporting type errors before execution begins.
+**ts-node** 是 Node.js 的 TypeScript 执行引擎，可以即时编译并运行 TypeScript 文件，无需单独的构建步骤。默认情况下它会在运行时执行完整的类型检查，在开始执行之前报告类型错误。
 
-The **--transpile-only** mode skips type checking for significantly faster startup, which is useful during development when your editor already provides type feedback. The **--swc** flag uses the SWC transpiler (written in Rust) for an even greater speed improvement, and implies --transpileOnly. ESM mode (**--esm**) handles ES module imports and is needed when working with import/export syntax natively. The built-in REPL provides an interactive TypeScript environment for experimentation.
+**--transpile-only** 模式跳过类型检查，可显著加快启动速度，在你的编辑器已经提供类型反馈的开发阶段非常有用。**--swc** 选项使用 SWC 转译器（用 Rust 编写），速度提升更明显，且隐含 --transpileOnly。ESM 模式（**--esm**）处理 ES 模块导入，原生使用 import/export 语法时需要该模式。内置 REPL 提供了一个交互式 TypeScript 环境，便于实验。
 
-Configuration is loaded from tsconfig.json by default, and a custom config can be specified with **-P**. The tool integrates well with development workflows using ts-node-dev or nodemon for automatic restart on file changes.
+配置默认从 tsconfig.json 加载，也可以用 **-P** 指定自定义配置。配合 ts-node-dev 或 nodemon 在文件变化时自动重启，它能很好地融入开发工作流。
 
 # CAVEATS
 
-Slower startup than precompiled JavaScript. Type checking adds overhead. Some advanced TypeScript features need configuration. Not recommended for production.
+启动速度比预编译的 JavaScript 慢。类型检查会带来额外开销。部分高级 TypeScript 特性需要额外配置。不建议在生产环境使用。
 
 # HISTORY
 
-**ts-node** was created around **2015** to enable direct TypeScript execution. It became essential for TypeScript development, enabling scripts, REPL, and development servers.
+**ts-node** 创建于 **2015** 年前后，用于直接执行 TypeScript。它成为 TypeScript 开发的重要工具，支持脚本、REPL 和开发服务器的运行。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Monitor memory and processor usage on NVIDIA Jetson devices
+监视 NVIDIA Jetson 设备上的内存与处理器使用情况
 
 # TLDR
 
-**Repeatedly print system statistics**
+**循环打印系统统计信息**
 
 ```sudo tegrastats```
 
-**Set a custom sampling interval in milliseconds**
+**设置自定义采样间隔（毫秒）**
 
 ```sudo tegrastats --interval [1000]```
 
-**Write the output to a logfile**
+**将输出写入日志文件**
 
 ```sudo tegrastats --logfile [filename]```
 
-**Run tegrastats in the background and log to a file**
+**在后台运行 tegrastats 并记录到文件**
 
 ```sudo tegrastats --start --logfile [filename]```
 
-**Stop a tegrastats process running in the background**
+**停止后台运行的 tegrastats 进程**
 
 ```sudo tegrastats --stop```
 
-**Print verbose messages, including read-failure warnings**
+**输出详细信息，包括读取失败的警告**
 
 ```sudo tegrastats --verbose```
 
@@ -34,75 +34,75 @@ Monitor memory and processor usage on NVIDIA Jetson devices
 
 # DESCRIPTION
 
-**tegrastats** reports memory and processor usage for NVIDIA Jetson-based devices running Linux for Tegra (L4T). It prints a single status line at a fixed interval, summarizing RAM and swap usage, per-core CPU load and frequency, memory-controller and GPU (GR3D) utilization, on-die temperatures, and, on boards with the required power sensors, instantaneous and average power draw per rail.
+**tegrastats** 用于报告运行 Linux for Tegra（L4T）的 NVIDIA Jetson 设备的内存和处理器使用情况。它以固定间隔打印一行状态信息，汇总 RAM 和 swap 的使用量、每核 CPU 负载与频率、内存控制器和 GPU（GR3D）利用率、片上温度，并且在配备相应电源传感器的板卡上还会显示每条电源轨的瞬时与平均功耗。
 
-It is the standard lightweight tool for watching a Jetson under load, since the desktop **nvidia-smi** utility does not support Tegra integrated GPUs. The output is a compact, machine-parsable line, which makes tegrastats convenient for logging long-running benchmarks to a file for later analysis.
+由于桌面版的 **nvidia-smi** 工具不支持 Tegra 集成 GPU，tegrastats 成为观察 Jetson 负载的标准轻量工具。它的输出是紧凑且机器可解析的一行文本，因此非常适合把长时间运行的基准测试结果记录到文件供日后分析。
 
-tegrastats ships as part of the L4T BSP and is installed at **/usr/bin/tegrastats** by JetPack. Running it without **sudo** produces incomplete output, because reading some of the hardware counters requires root privileges.
+tegrastats 随 L4T BSP 一起发布，由 JetPack 安装在 **/usr/bin/tegrastats**。不带 **sudo** 运行时输出不完整，因为读取部分硬件计数器需要 root 权限。
 
 # PARAMETERS
 
 **--interval** _millisec_
 
-> Sample and print statistics every _millisec_ milliseconds. The default is 1000 (one second).
+> 每隔 _millisec_ 毫秒采样并打印一次统计信息。默认为 1000（一秒）。
 
 **--logfile** _filename_
 
-> Write output to _filename_ instead of standard output.
+> 将输出发送到 _filename_ 而非标准输出。
 
 **--start**
 
-> Run tegrastats as a background process. Combine with **--logfile** to keep logging while the terminal is free for other work.
+> 以后台进程方式运行 tegrastats。可与 **--logfile** 组合，在终端腾出来做其他工作的同时持续记录日志。
 
 **--stop**
 
-> Terminate any tegrastats process currently running in the background.
+> 终止当前在后台运行的所有 tegrastats 进程。
 
 **--verbose**
 
-> Print additional diagnostic messages, such as warnings when a sensor read fails.
+> 打印额外的诊断消息，例如传感器读取失败时的警告。
 
 **--help**
 
-> Print a usage summary and exit.
+> 打印用法摘要并退出。
 
 # OUTPUT FIELDS
 
 **RAM** _used_/_total_MB
 
-> Main memory used and total, followed by the largest free block (**lfb**) available.
+> 主内存的已用量和总量，随后是可用的最大空闲块（**lfb**）。
 
 **SWAP** _used_/_total_MB
 
-> Swap used and total, with the amount cached.
+> swap 的已用量和总量，以及缓存数量。
 
 **CPU** [_load_%@_freq_,...]
 
-> Per-core utilization percentage and clock frequency; an offline core is shown as **off**.
+> 每核利用率百分比与时钟频率；离线核心显示为 **off**。
 
 **EMC_FREQ** _x_%@_freq_
 
-> External memory controller (DRAM) utilization and frequency.
+> 外部内存控制器（DRAM）的利用率和频率。
 
 **GR3D_FREQ** _x_%@_freq_
 
-> GPU 3D engine utilization and frequency.
+> GPU 3D 引擎的利用率和频率。
 
 **CPU@_x_C, GPU@_x_C, ...**
 
-> Temperatures reported by the on-die thermal zones, in degrees Celsius.
+> 片上热区报告的温度，单位为摄氏度。
 
 **VDD_IN _x_/_y_, ...**
 
-> Power rails in milliwatts shown as instantaneous/average, on boards equipped with INA power monitors.
+> 各电源轨的功率（毫瓦），显示为瞬时/平均，仅在配备 INA 功率监测器的板卡上提供。
 
 # CAVEATS
 
-Run with **sudo**; without root some counters cannot be read and the line is incomplete. Power readings are only available on boards that include the corresponding INA sensors, and the exact set of fields varies by Jetson module (Nano, TX2, Xavier, Orin) and L4T release. tegrastats is specific to Tegra SoCs and is not available on desktop NVIDIA GPUs.
+请用 **sudo** 运行；没有 root 时某些计数器无法读取，输出会不完整。功耗读数仅在包含相应 INA 传感器的板卡上可用，字段的确切集合因 Jetson 模块（Nano、TX2、Xavier、Orin）和 L4T 版本而异。tegrastats 仅适用于 Tegra SoC，桌面版 NVIDIA GPU 上不可用。
 
 # HISTORY
 
-**tegrastats** is part of NVIDIA's **Linux for Tegra (L4T)** board support package, distributed with the **JetPack** SDK for the Jetson product line. It has long been the recommended built-in way to monitor Jetson system load, and the popular third-party **jtop** (jetson-stats) tool parses and builds on its output.
+**tegrastats** 是 NVIDIA **Linux for Tegra (L4T)** 板级支持包的一部分，随面向 Jetson 产品线的 **JetPack** SDK 分发。长期以来它一直是监控 Jetson 系统负载的推荐内置方式，流行的第三方工具 **jtop**（jetson-stats）也在解析并利用它的输出。
 
 # SEE ALSO
 

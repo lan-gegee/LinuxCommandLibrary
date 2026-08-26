@@ -1,18 +1,18 @@
 # TAGLINE
 
-Historical and statistical system uptime/downtime reporter
+系统运行/停机历史与统计报告工具
 
 # TLDR
 
-**Show uptime/downtime summary**
+**显示运行/停机摘要**
 
 ```tuptime```
 
-**List all startup/shutdown events**
+**列出所有启动/关机事件**
 
 ```tuptime -l```
 
-**Output in CSV format**
+**以 CSV 格式输出**
 
 ```tuptime --csv```
 
@@ -22,11 +22,11 @@ Historical and statistical system uptime/downtime reporter
 
 # DESCRIPTION
 
-**tuptime** reports historical and statistical real time of the system, keeping data between restarts. It tracks all startups and shutdowns in a SQLite database, calculates uptime and downtime percentages, records used kernels, and identifies the largest, shortest, and average up/downtime periods.
+**tuptime** 报告系统的历史与统计实时数据，并在重启之间保留这些数据。它将所有启动和关机事件记录在 SQLite 数据库中，计算运行和停机时间百分比，记录使用过的内核，并找出最长、最短以及平均的运行/停机时段。
 
 # HISTORY
 
-**tuptime** was created by **Ricardo Fraile** (rfmoz) and is written in **Python**.
+**tuptime** 由 **Ricardo Fraile**（rfmoz）创建，用 **Python** 编写。
 
 # INSTALL
 

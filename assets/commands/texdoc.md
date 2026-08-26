@@ -1,34 +1,34 @@
 # TAGLINE
 
-View TeX/LaTeX package documentation from TeX Live
+查看 TeX Live 中的 TeX/LaTeX 软件包文档
 
 # TLDR
 
-**Open the documentation** for a package
+**打开软件包的文档**
 
 ```texdoc [package-name]```
 
-**List matching docs** without opening anything
+**列出匹配的文档**而不打开
 
 ```texdoc -l [package-name]```
 
-**Full-text search** across documentation
+跨文档进行**全文搜索**
 
 ```texdoc -s [query]```
 
-**Open in a specific PDF viewer**
+**用指定的 PDF 查看器打开**
 
 ```texdoc --viewer=[evince] [package-name]```
 
-**Show file paths** instead of opening
+**显示文件路径**而不打开
 
 ```texdoc -f [package-name]```
 
-**Interactively pick** between matches
+在多个匹配之间**交互式选择**
 
 ```texdoc -I [package-name]```
 
-**Open multiple packages** at once
+一次**打开多个软件包**
 
 ```texdoc [package1] [package2] [package3]```
 
@@ -39,62 +39,62 @@ View TeX/LaTeX package documentation from TeX Live
 # PARAMETERS
 
 **-l**, **--list**
-> Show numbered list of matches; prompt to choose one.
+> 显示带编号的匹配列表；提示用户选择其一。
 
 **-s**, **--search**
-> Full-text search across the documentation tree.
+> 跨文档树进行全文搜索。
 
 **-I**, **--interact**
-> Force interactive mode (opposite of **--nointeract**).
+> 强制交互模式（与 **--nointeract** 相对）。
 
 **-M**, **--machine**
-> Machine-readable output: one line per match (file path, score, name).
+> 机器可读输出：每个匹配一行（文件路径、得分、名称）。
 
 **-f**, **--files**
-> Print matching file paths instead of opening them.
+> 打印匹配文件的路径而不打开它们。
 
 **-w**, **--view**
-> View documentation (default action).
+> 查看文档（默认动作）。
 
 **-m**, **--mixed**
-> Combine name search and full-text search (useful when names overlap with content).
+> 结合名称搜索与全文搜索（当名称与内容重叠时有用）。
 
 **--viewer** _CMD_
-> Override the configured PDF viewer.
+> 覆盖已配置的 PDF 查看器。
 
 **-D**, **--debug**
-> Print debug output to stderr.
+> 将调试输出打印到 stderr。
 
 **-q**, **--quiet**
-> Suppress informational messages.
+> 抑制信息性消息。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 提高详细程度。
 
 **-V**, **--version**
-> Show texdoc version.
+> 显示 texdoc 版本。
 
 # DESCRIPTION
 
-**texdoc** finds and displays documentation for TeX, LaTeX, ConTeXt, and related packages installed in a TeX Live distribution. It searches **TEXMF** trees for files associated with a package — usually a PDF manual but sometimes README, .txt, or .html — and opens the best match in a configured viewer.
+**texdoc** 用于查找并显示 TeX Live 发行版中安装的 TeX、LaTeX、ConTeXt 及相关软件包的文档。它在 **TEXMF** 树中搜索与某个软件包关联的文件——通常是 PDF 手册，有时是 README、.txt 或 .html——并在配置的查看器中打开最佳匹配。
 
-When multiple matches exist, **-l** prompts for a selection and **-s** broadens the search to the documentation contents (using the texdoc-fulltext index). The viewer is selected from configuration (**~/.texlive*/texmf-config/texdoc/texdoc.cnf**) or from the **PDFVIEWER** / **BROWSER** environment variables.
+当存在多个匹配时，**-l** 会提示选择，而 **-s** 会把搜索范围扩大到文档内容（使用 texdoc-fulltext 索引）。查看器从配置文件（**~/.texlive*/texmf-config/texdoc/texdoc.cnf**）或 **PDFVIEWER** / **BROWSER** 环境变量中选择。
 
 # CONFIGURATION
 
 **texdoc.cnf**
-> Per-user configuration controlling viewer selection, mode aliases, and language preferences. Searched in **TEXMFCONFIG**, **TEXMFVAR**, **TEXMFHOME**, etc.
+> 按用户的配置文件，控制查看器选择、模式别名和语言偏好。在 **TEXMFCONFIG**、**TEXMFVAR**、**TEXMFHOME** 等位置查找。
 
 **TEXDOCS**
-> kpathsea variable controlling where texdoc looks for documentation files.
+> kpathsea 变量，控制 texdoc 在何处查找文档文件。
 
 # CAVEATS
 
-Requires a TeX Live (or MiKTeX) installation with documentation packages installed; minimal "scheme-small" installs ship without docs. Not all packages provide documentation in PDF form. Full-text search depends on the **texdoc-fulltext** package being installed.
+需要安装了文档包的 TeX Live（或 MiKTeX）；最小化的 "scheme-small" 安装不附带文档。并非所有软件包都提供 PDF 格式的文档。全文搜索依赖于已安装的 **texdoc-fulltext** 软件包。
 
 # HISTORY
 
-**texdoc** is part of TeX Live, written in Lua and bundled with **luatex**. Earlier shell-script versions were superseded by the Lua implementation in **TeX Live 2009**.
+**texdoc** 是 TeX Live 的一部分，用 Lua 编写并随 **luatex** 捆绑发布。早期的 shell 脚本版本在 **TeX Live 2009** 中被 Lua 实现取代。
 
 # INSTALL
 

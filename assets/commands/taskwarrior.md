@@ -1,46 +1,46 @@
 # TAGLINE
 
-Command-line task and todo manager
+命令行任务与待办事项管理器
 
 # TLDR
 
-**Add a new task**
+**添加新任务**
 
 ```task add [Buy groceries]```
 
-**List all pending tasks**
+**列出所有待办任务**
 
 ```task list```
 
-**Mark task as done**
+**将任务标记为已完成**
 
 ```task [1] done```
 
-**Add task with project and priority**
+**添加带项目和优先级的任务**
 
 ```task add [description] project:[Home] priority:[H]```
 
-**Add task with due date**
+**添加带截止日期的任务**
 
 ```task add [description] due:[tomorrow]```
 
-**Add task with tags**
+**添加带标签的任务**
 
 ```task add [description] +[work] +[urgent]```
 
-**Start working on a task**
+**开始处理某个任务**
 
 ```task [1] start```
 
-**View detailed task information**
+**查看任务详细信息**
 
 ```task [1] info```
 
-**Delete a task**
+**删除任务**
 
 ```task [1] delete```
 
-**Synchronize tasks**
+**同步任务**
 
 ```task sync```
 
@@ -50,87 +50,87 @@ Command-line task and todo manager
 
 # COMMANDS
 
-**add** _description_: Create a new task.
+**add** _description_：创建新任务。
 
-**done**: Mark task(s) as completed.
+**done**：将任务标记为已完成。
 
-**delete**: Delete task(s).
+**delete**：删除任务。
 
-**start**: Mark task(s) as started.
+**start**：将任务标记为已开始。
 
-**stop**: Mark task(s) as stopped.
+**stop**：将任务标记为已停止。
 
-**modify**: Change task attributes.
+**modify**：修改任务属性。
 
-**annotate**: Add note to task.
+**annotate**：为任务添加备注。
 
-**edit**: Edit task in text editor.
+**edit**：在文本编辑器中编辑任务。
 
-**list**: Show pending tasks.
+**list**：显示待办任务。
 
-**all**: Show all tasks including completed.
+**all**：显示包括已完成在内的所有任务。
 
-**next**: Show most urgent tasks.
+**next**：显示最紧急的任务。
 
-**active**: Show started tasks.
+**active**：显示已开始的任务。
 
-**blocked**: Show blocked tasks.
+**blocked**：显示被阻塞的任务。
 
-**projects**: List all projects.
+**projects**：列出所有项目。
 
-**tags**: List all tags.
+**tags**：列出所有标签。
 
-**reports**: List available reports.
+**reports**：列出可用的报告。
 
-**sync**: Synchronize with a sync server or cloud backend.
+**sync**：与同步服务器或云端后端同步。
 
-**undo**: Revert the last change.
+**undo**：撤销上一次更改。
 
-**purge**: Permanently remove deleted tasks.
+**purge**：永久移除已删除的任务。
 
-**shell**: Interactive task shell.
+**shell**：交互式任务 Shell。
 
-**config**: Modify configuration.
+**config**：修改配置。
 
 # MODIFICATIONS
 
-**project:**_name_: Assign to project.
+**project:**_name_：指派到项目。
 
-**priority:**_H|M|L_: Set priority (High/Medium/Low).
+**priority:**_H|M|L_：设置优先级（高/中/低）。
 
-**due:**_date_: Set due date.
+**due:**_date_：设置截止日期。
 
-**scheduled:**_date_: Set scheduled date.
+**scheduled:**_date_：设置计划日期。
 
-**until:**_date_: Set expiration date.
+**until:**_date_：设置失效日期。
 
-**recur:**_freq_: Set recurrence (daily, weekly, monthly).
+**recur:**_freq_：设置重复频率（daily、weekly、monthly）。
 
-**wait:**_date_: Hide until date.
+**wait:**_date_：在该日期前隐藏。
 
-**+**_tag_: Add tag.
+**+**_tag_：添加标签。
 
-**-**_tag_: Remove tag.
+**-**_tag_：移除标签。
 
-**depends:**_id_: Set task dependency.
+**depends:**_id_：设置任务依赖。
 
 # DESCRIPTION
 
-**Taskwarrior** (the `task` command) is a command-line TODO list manager. It provides flexible task management with support for projects, priorities, tags, due dates, recurrence, and dependencies.
+**Taskwarrior**（即 `task` 命令）是一个命令行待办清单管理器。它提供灵活的任务管理，支持项目、优先级、标签、截止日期、重复任务和依赖关系。
 
-Tasks can be filtered using any attribute, dates, or logical expressions. The tool generates various reports including lists, calendars, and burndown charts.
+任务可以按任意属性、日期或逻辑表达式进行过滤。该工具能生成多种报告，包括列表、日历和燃尽图。
 
-Configuration is stored in `~/.taskrc` with extensive customization options. The tool supports hooks for automation and sync for sharing tasks across devices.
+配置存储在 `~/.taskrc` 中，具有丰富的自定义选项。工具支持用于自动化的钩子（hooks），以及跨设备共享任务的同步功能。
 
-Starting with **Taskwarrior 3.0** (2024), data is stored in a local SQLite database (`taskchampion.sqlite3`) and synchronization uses a new backend supporting AWS S3, Google Cloud Storage, or `taskchampion-sync-server`. The legacy `taskd` server is no longer supported.
+从 **Taskwarrior 3.0**（2024 年）开始，数据存储在本地 SQLite 数据库（`taskchampion.sqlite3`）中，同步则使用支持 AWS S3、Google Cloud Storage 或 `taskchampion-sync-server` 的新后端。旧版 `taskd` 服务器不再受支持。
 
 # CAVEATS
 
-First run creates `~/.taskrc`. Task IDs change as tasks are completed; use UUID for permanent references in scripts. Some reports require sufficient terminal width for proper display. Taskwarrior 3.x storage is not compatible with file-sync tools like Syncthing or rsync since data lives in a SQLite database.
+首次运行会创建 `~/.taskrc`。任务 ID 会随着任务完成而变化；在脚本中请使用 UUID 作为永久引用。某些报告需要足够的终端宽度才能正常显示。Taskwarrior 3.x 的存储方式与 Syncthing 或 rsync 等文件同步工具不兼容，因为数据存放在 SQLite 数据库中。
 
 # HISTORY
 
-**Taskwarrior** was created by Paul Beckingham and Federico Hernandez. The first version was released in 2006, with the project growing into a task management ecosystem. Taskwarrior 3.0 (2024) replaced the file-based store and `taskd` server with the TaskChampion library and a new sync protocol.
+**Taskwarrior** 由 Paul Beckingham 和 Federico Hernandez 创建。首个版本于 2006 年发布，此后项目逐渐发展成一个任务管理生态。Taskwarrior 3.0（2024 年）用 TaskChampion 库和新的同步协议取代了基于文件的存储和 `taskd` 服务器。
 
 # INSTALL
 

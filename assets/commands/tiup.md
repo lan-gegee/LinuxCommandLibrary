@@ -1,38 +1,38 @@
 # TAGLINE
 
-TiDB component and cluster manager
+TiDB 组件与集群管理器
 
 # TLDR
 
-**Start local TiDB playground**
+**启动本地 TiDB playground**
 
 ```tiup playground```
 
-**Start with specific version**
+**以指定版本启动**
 
 ```tiup playground v[7.1.0]```
 
-**Start with multiple components**
+**以多实例启动**
 
 ```tiup playground --db [3] --pd [3] --kv [3]```
 
-**Deploy a cluster**
+**部署集群**
 
 ```tiup cluster deploy [cluster-name] v[7.1.0] [topology.yaml]```
 
-**Start a cluster**
+**启动集群**
 
 ```tiup cluster start [cluster-name]```
 
-**Show cluster status**
+**显示集群状态**
 
 ```tiup cluster display [cluster-name]```
 
-**Connect to TiDB** (MySQL client)
+**连接 TiDB**（MySQL 客户端）
 
 ```mysql -h [127.0.0.1] -P [4000] -u root```
 
-**Install a component**
+**安装组件**
 
 ```tiup install tidb:v[7.1.0]```
 
@@ -45,97 +45,97 @@ TiDB component and cluster manager
 # COMMANDS
 
 **playground**
-> Start local test cluster.
+> 启动本地测试集群。
 
 **cluster** deploy|start|stop|destroy|display|scale-out|scale-in
-> Manage production clusters.
+> 管理生产集群。
 
 **install** _component_
-> Install a TiUP component.
+> 安装 TiUP 组件。
 
 **update** _component_
-> Update a component.
+> 更新组件。
 
 **list**
-> List available components.
+> 列出可用组件。
 
 **status**
-> Show running components.
+> 显示正在运行的组件。
 
 **clean**
-> Clean component data.
+> 清理组件数据。
 
 **uninstall** _component_
-> Remove a component.
+> 移除组件。
 
 **--version**
-> Show TiUP version.
+> 显示 TiUP 版本。
 
 # PLAYGROUND OPTIONS
 
 **--db** _count_
-> Number of TiDB instances.
+> TiDB 实例数量。
 
 **--pd** _count_
-> Number of PD instances.
+> PD 实例数量。
 
 **--kv** _count_
-> Number of TiKV instances.
+> TiKV 实例数量。
 
 **--tiflash** _count_
-> Number of TiFlash instances.
+> TiFlash 实例数量。
 
 **--host** _address_
-> Bind address.
+> 绑定地址。
 
 **--db.port** _port_
-> TiDB port. Default: 4000.
+> TiDB 端口。默认：4000。
 
 **--pd.port** _port_
-> PD port. Default: 2379.
+> PD 端口。默认：2379。
 
 # CLUSTER OPTIONS
 
 **deploy** _name_ _version_ _topology_
-> Deploy cluster from topology file.
+> 从拓扑文件部署集群。
 
 **start** _name_
-> Start cluster.
+> 启动集群。
 
 **stop** _name_
-> Stop cluster.
+> 停止集群。
 
 **destroy** _name_
-> Remove cluster.
+> 移除集群。
 
 **scale-out** _name_ _topology_
-> Add nodes.
+> 添加节点。
 
 **scale-in** _name_ --node _host:port_
-> Remove nodes.
+> 移除节点。
 
 **upgrade** _name_ _version_
-> Upgrade cluster.
+> 升级集群。
 
 # DESCRIPTION
 
-**tiup** is the component manager for TiDB, a MySQL-compatible distributed database. It manages installation, deployment, and operations of TiDB clusters.
+**tiup** 是 TiDB 的组件管理器。TiDB 是一款 MySQL 兼容的分布式数据库，tiup 负责其集群的安装、部署和运维。
 
-**tiup playground** starts a local development cluster with TiDB, PD (placement driver), and TiKV (storage) components. Connect using any MySQL client on port 4000.
+**tiup playground** 启动一个包含 TiDB、PD（placement driver）和 TiKV（存储）组件的本地开发集群。使用任意 MySQL 客户端连接 4000 端口即可。
 
-Production deployments use **tiup cluster** with YAML topology files. The topology defines hosts, ports, directories, and component placement. **deploy** creates the cluster; **start** runs it.
+生产部署使用 **tiup cluster** 配合 YAML 拓扑文件。拓扑文件定义主机、端口、目录和组件分布。**deploy** 创建集群；**start** 运行集群。
 
-TiDB is MySQL-compatible; use standard MySQL clients and drivers. TiFlash provides columnar storage for analytics workloads.
+TiDB 与 MySQL 兼容，可以使用标准的 MySQL 客户端和驱动。TiFlash 为分析型负载提供列式存储。
 
-TiUP components include monitoring (Prometheus, Grafana), diagnostic tools, and utilities. **tiup list** shows available components.
+TiUP 组件包括监控（Prometheus、Grafana）、诊断工具和各类实用程序。**tiup list** 可查看可用组件。
 
 # CAVEATS
 
-TiDB is mostly MySQL-compatible but some features differ or are unsupported. Minimum 3-node PD for production high availability. TiKV requires SSD storage. Resource requirements scale with data size.
+TiDB 大体兼容 MySQL，但部分特性有差异或不受支持。生产高可用至少需要 3 节点 PD。TiKV 需要 SSD 存储。资源需求随数据规模增长。
 
 # HISTORY
 
-TiDB was created by **PingCAP** and first released in **2015**. Inspired by Google Spanner and F1, it combines MySQL compatibility with horizontal scalability. TiKV, the storage layer, joined CNCF and graduated in **2020**. TiDB is widely used for HTAP (hybrid transactional/analytical) workloads, especially in Asia. Major versions release annually with LTS support.
+TiDB 由 **PingCAP** 创建，首次发布于 **2015 年**。它受 Google Spanner 和 F1 启发，将 MySQL 兼容性与水平扩展能力结合在一起。其存储层 TiKV 加入 CNCF 并于 **2020 年**毕业。TiDB 广泛用于 HTAP（混合事务/分析处理）负载，尤其在亚洲地区。主要版本每年发布一次，并提供 LTS 支持。
 
 # SEE ALSO
 

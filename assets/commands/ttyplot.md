@@ -1,30 +1,30 @@
 # TAGLINE
 
-Real-time terminal plotting from stdin
+从标准输入实时绘制终端图表
 
 # TLDR
 
-**Plot** values from stdin
+从 stdin**绘制**数值
 
 ```printf "1\n2\n3\n" | ttyplot```
 
-Set **title and unit**
+设置**标题和单位**
 
 ```printf "10\n20\n30\n" | ttyplot -t "Title" -u "ms"```
 
-**Continuously** plot random values
+**持续**绘制随机值
 
 ```while true; do echo $RANDOM; sleep 1; done | ttyplot```
 
-**Plot ping** latency
+**绘制 ping** 延迟
 
 ```ping 8.8.8.8 | sed -u 's/^.*time=//g; s/ ms//g' | ttyplot -t "Ping" -u ms```
 
-**Monitor CPU usage** in real time
+实时**监控 CPU 使用率**
 
 ```while true; do grep 'cpu ' /proc/stat | awk '{u=$2+$4; t=$2+$4+$5; printf "%.1f\n", u/t*100}'; sleep 1; done | ttyplot -t "CPU %" -u "%"```
 
-Plot with **two values** (dual plot)
+绘制**两个数值**（双图模式）
 
 ```command | ttyplot -2```
 
@@ -34,44 +34,44 @@ Plot with **two values** (dual plot)
 
 # DESCRIPTION
 
-**ttyplot** is a real-time terminal plotting utility that reads numeric values from stdin and displays them as a scrolling graph in the terminal. It is useful for visualizing streaming data like network latency, CPU usage, or sensor readings.
+**ttyplot** 是一个实时终端绘图工具，它从 stdin 读取数值并在终端中显示为滚动图形。适用于可视化流式数据，如网络延迟、CPU 使用率或传感器读数。
 
 # PARAMETERS
 
 **-t TITLE**
-> Set the plot title
+> 设置图表标题
 
 **-u UNIT**
-> Set the unit label for values
+> 设置数值的单位标签
 
 **-s SCALE**
-> Set the vertical scale (max value)
+> 设置垂直刻度（最大值）
 
 **-m MIN**
-> Set the minimum value
+> 设置最小值
 
 **-2**
-> Enable dual/two value plotting mode
+> 启用双值/双线绘图模式
 
 **-c COLOR**
-> Set the plot color
+> 设置绘图颜色
 
 **-e**
-> Exit when stdin closes
+> 在 stdin 关闭时退出
 
 **-r**
-> Rate mode (values per second)
+> 速率模式（每秒数值）
 
 **-w WIDTH**
-> Set the plot width in characters
+> 以字符数设置图表宽度
 
 # CAVEATS
 
-Input must be numeric values, one per line. Use sed or awk to extract numeric values from command output. The plot resizes automatically with terminal size changes.
+输入必须是数值，每行一个。可用 sed 或 awk 从命令输出中提取数值。图表会随终端尺寸变化自动调整大小。
 
 # HISTORY
 
-**ttyplot** was created as a simple way to visualize streaming numeric data directly in the terminal without requiring a graphical environment.
+**ttyplot** 的诞生是为了提供一种无需图形环境即可在终端中直接可视化流式数值数据的简单方式。
 
 # INSTALL
 

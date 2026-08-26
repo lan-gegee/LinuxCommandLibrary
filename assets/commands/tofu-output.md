@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display OpenTofu state output values
+显示 OpenTofu 状态的输出值
 
 # TLDR
 
-**Show all outputs**
+**显示所有输出值**
 
 ```tofu output```
 
-**Show specific output**
+**显示特定输出值**
 
 ```tofu output [name]```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```tofu output -json```
 
-**Get raw value**
+**获取原始值**
 
 ```tofu output -raw [name]```
 
@@ -27,20 +27,20 @@ Display OpenTofu state output values
 # PARAMETERS
 
 **-json**
-> Output as JSON. Sensitive values are displayed in plain text.
+> 以 JSON 输出。敏感值将以明文显示。
 
 **-raw**
-> Output raw string value. Only works with values that can be automatically converted to strings.
+> 输出原始字符串值。仅适用于可自动转换为字符串的值。
 
 **-state** _path_
-> Read from a specific state file instead of the default.
+> 从指定的状态文件读取而不是默认文件。
 
 **-no-color**
-> Disable color output.
+> 禁用彩色输出。
 
 # DESCRIPTION
 
-**tofu output** displays output values from OpenTofu state. OpenTofu is the open-source fork of Terraform. Shows values defined in output blocks. When called without a name argument, it displays all outputs. The default human-readable format may change between versions; use -json for stable machine-readable output in scripts. When using -json or -raw, sensitive values are displayed in plain text.
+**tofu output** 显示 OpenTofu 状态中的输出值。OpenTofu 是 Terraform 的开源分支。它显示在 output 块中定义的值。不带名称参数调用时显示所有输出值。默认的人类可读格式可能在版本间变化；脚本中请使用 -json 以获得稳定的机器可读输出。使用 -json 或 -raw 时，敏感值将以明文显示。
 
 # INSTALL
 
@@ -61,4 +61,3 @@ Display OpenTofu state output values
 # SEE ALSO
 
 [tofu](/man/tofu)(1), [tofu-plan](/man/tofu-plan)(1), [terraform-output](/man/terraform-output)(1)
-

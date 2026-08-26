@@ -1,42 +1,42 @@
 # TAGLINE
 
-Command-line client for Tigris S3-compatible object storage
+Tigris S3 兼容对象存储的命令行客户端
 
 # TLDR
 
-**Authenticate** the CLI against your Tigris account
+**认证** CLI 并登录你的 Tigris 账户
 
 ```tigris login```
 
-**Show** the currently logged-in user and active account
+**显示**当前登录的用户和活动账户
 
 ```tigris whoami```
 
-**Create** a new bucket
+**创建**新存储桶
 
 ```tigris bucket mk [bucket_name]```
 
-**List** all buckets in your account
+**列出**账户中的所有存储桶
 
 ```tigris ls```
 
-**List** objects inside a bucket
+**列出**存储桶内的对象
 
 ```tigris ls t3://[bucket_name]/```
 
-**Copy** a local file into a bucket
+将本地文件**复制**到存储桶
 
 ```tigris cp [path/to/file] t3://[bucket_name]/[key]```
 
-**Recursively copy** a directory to a bucket
+**递归复制**目录到存储桶
 
 ```tigris cp -r [path/to/dir] t3://[bucket_name]/[prefix]/```
 
-**Download** an object to a local path
+**下载**对象到本地路径
 
 ```tigris cp t3://[bucket_name]/[key] [path/to/file]```
 
-**Delete** an object or recursively a prefix
+**删除**对象或递归删除某个前缀
 
 ```tigris rm -r t3://[bucket_name]/[prefix]/```
 
@@ -48,67 +48,67 @@ Command-line client for Tigris S3-compatible object storage
 # PARAMETERS
 
 **login**
-> Open a browser-based flow to authenticate the CLI against Tigris (or Fly.io for Fly-managed buckets).
+> 打开基于浏览器的认证流程，让 CLI 登录 Tigris（Fly 托管的桶则登录 Fly.io）。
 
 **logout**
-> Remove cached credentials.
+> 移除缓存的凭据。
 
 **whoami**
-> Print the active user and account.
+> 打印当前活动的用户和账户。
 
 **configure**
-> Interactively configure profiles, endpoints, and access keys for non-interactive use.
+> 以交互方式配置 profile、端点和访问密钥，供非交互场景使用。
 
 **bucket mk** _name_ [**--region** _region_] [**--public**]
-> Create a new bucket. Bucket names share Tigris' global namespace.
+> 创建新存储桶。桶名共享 Tigris 的全局命名空间。
 
 **bucket ls**
-> List buckets owned by the active account.
+> 列出当前账户拥有的存储桶。
 
 **bucket rm** _name_
-> Delete an empty bucket.
+> 删除空存储桶。
 
 **ls** [_t3-uri_]
-> List buckets when given no argument, or list keys under a bucket / prefix when given a **t3://** URI.
+> 不带参数时列出所有存储桶，给定 **t3://** URI 时列出桶 / 前缀下的键。
 
 **cp** [**-r**] [**--acl** _acl_] [**--content-type** _type_] _src_ _dst_
-> Copy data between local paths and **t3://** URIs. Either side may be local or remote, enabling local-to-remote, remote-to-local, or remote-to-remote copies.
+> 在本地路径与 **t3://** URI 之间复制数据。任一侧都可以是本地或远程，因此支持本地到远程、远程到本地以及远程到远程的复制。
 
 **rm** [**-r**] _t3-uri_
-> Delete a single object, or recursively delete a prefix with **-r**.
+> 删除单个对象，或用 **-r** 递归删除某个前缀。
 
 **touch** _t3-uri_
-> Create a zero-byte object at the given key.
+> 在给定键处创建零字节对象。
 
 **presign** _t3-uri_ [**--expires** _duration_] [**--method** _GET\|PUT_]
-> Generate a pre-signed URL for sharing a single object without credentials.
+> 生成预签名 URL，无需凭据即可分享单个对象。
 
 **--profile** _name_
-> Use a named profile from the configuration file.
+> 使用配置文件中的命名 profile。
 
 **--endpoint** _url_
-> Override the Tigris endpoint (defaults to **fly.storage.tigris.dev**).
+> 覆盖 Tigris 端点（默认为 **fly.storage.tigris.dev**）。
 
 **--output** _format_
-> _table_, _json_, or _yaml_ output.
+> _table_、_json_ 或 _yaml_ 输出。
 
 **-v**, **--verbose**
-> Verbose logging.
+> 详细日志。
 
 **--help**
-> Show help for any command.
+> 显示任意命令的帮助。
 
 # DESCRIPTION
 
-**tigris** is the official command-line client for **Tigris**, a globally distributed, S3-compatible object storage service. The CLI presents an intentionally **UNIX-flavoured** interface modelled after **ls**, **cp**, **rm**, and **touch**, with **t3://_bucket_/_key_** URIs identifying remote objects.
+**tigris** 是 **Tigris**（一项全球分布式、S3 兼容的对象存储服务）的官方命令行客户端。该 CLI 有意采用模仿 **ls**、**cp**、**rm** 和 **touch** 的 **UNIX 风格**接口，并用 **t3://_bucket_/_key_** 形式的 URI 标识远程对象。
 
-The CLI groups commands by domain - **bucket**, **object**, **iam**, **config** - and each domain exposes a small, predictable set of operations. Because Tigris is S3-compatible, anything **tigris** can do is also reachable via the **AWS CLI** by pointing **--endpoint-url** at the Tigris endpoint; the dedicated CLI mainly improves ergonomics, login flow, and bucket lifecycle management.
+CLI 按域分组命令——**bucket**、**object**、**iam**、**config**——每个域都暴露一小组可预期的操作。由于 Tigris 与 S3 兼容，**tigris** 能做的一切也可以通过 **AWS CLI** 实现，只需把 **--endpoint-url** 指向 Tigris 端点；专用 CLI 主要改善的是易用性、登录流程以及桶生命周期管理。
 
-When a bucket is provisioned through **Fly.io** (using **fly storage create**), the same credentials and endpoints work seamlessly with **tigris**, and a short alias **t3** is available for terser one-liners.
+当存储桶通过 **Fly.io** 创建时（使用 **fly storage create**），相同的凭据和端点可与 **tigris** 无缝配合，且提供了简短别名 **t3**，方便写出更精炼的单行命令。
 
 # CONFIGURATION
 
-Credentials and profiles live under _~/.config/tigris/config.toml_:
+凭据和 profile 保存在 _~/.config/tigris/config.toml_：
 
 ```
 [default]
@@ -118,7 +118,7 @@ endpoint = "https://fly.storage.tigris.dev"
 region = "auto"
 ```
 
-Environment variables override the file:
+环境变量优先于配置文件：
 
 ```
 TIGRIS_ACCESS_KEY_ID
@@ -129,15 +129,15 @@ AWS_SECRET_ACCESS_KEY
 AWS_ENDPOINT_URL_S3
 ```
 
-Standard **AWS_*** variables are honoured so existing S3 tooling can target Tigris without code changes. **tigris configure** writes the same file interactively.
+标准的 **AWS_*** 变量同样被识别，因此现有的 S3 工具无需改动代码即可指向 Tigris。**tigris configure** 会以交互方式写入同一份文件。
 
 # CAVEATS
 
-The **tigris** CLI is distinct from any historical **TigrisData** database CLI of the same name; the modern client targets the **Tigris Object Storage** product run on Fly.io infrastructure. Bucket names are **globally unique**, similar to S3. Pre-signed URLs respect bucket ACLs, so a private bucket plus a presigned URL is the correct way to share an object publicly for a limited time.
+**tigris** CLI 与历史上同名的任何 **TigrisData** 数据库 CLI 都不是同一个东西；现代客户端针对的是运行在 Fly.io 基础设施上的 **Tigris Object Storage** 产品。桶名是**全局唯一**的，与 S3 类似。预签名 URL 受桶 ACL 约束，因此要限时公开分享某个对象，正确做法是对私有桶使用预签名 URL。
 
 # HISTORY
 
-**Tigris** launched as the storage layer for **Fly.io** applications and is operated by **Tigris Data**. The dedicated CLI was introduced to provide a focused alternative to the AWS CLI for everyday bucket operations, with the **t3** shorthand and **t3://** URI scheme borrowing the ergonomics of **s3cmd** and **rclone**.
+**Tigris** 作为 **Fly.io** 应用的存储层推出，由 **Tigris Data** 运营。专用 CLI 的推出是为了给日常桶操作提供一个比 AWS CLI 更专注的替代方案，其中 **t3** 简写和 **t3://** URI 方案借鉴了 **s3cmd** 和 **rclone** 的使用体验。
 
 # SEE ALSO
 

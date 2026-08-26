@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terraform wrapper for DRY configurations
+让配置保持 DRY 的 Terraform 包装器
 
 # TLDR
 
-**Initialize modules**
+**初始化模块**
 
 ```terragrunt init```
 
-**Plan changes**
+**预览变更**
 
 ```terragrunt plan```
 
-**Apply changes**
+**应用变更**
 
 ```terragrunt apply```
 
-**Destroy infrastructure**
+**销毁基础设施**
 
 ```terragrunt destroy```
 
-**Run on all modules**
+**对所有模块运行**
 
 ```terragrunt run-all apply```
 
-**Plan all modules**
+**对所有模块做计划**
 
 ```terragrunt run-all plan```
 
-**Show outputs**
+**显示输出**
 
 ```terragrunt output```
 
-**Graph dependencies**
+**绘制依赖图**
 
 ```terragrunt graph-dependencies```
 
@@ -43,73 +43,73 @@ Terraform wrapper for DRY configurations
 # PARAMETERS
 
 **init**
-> Initialize Terraform.
+> 初始化 Terraform。
 
 **plan**
-> Show execution plan.
+> 显示执行计划。
 
 **apply**
-> Apply changes.
+> 应用变更。
 
 **destroy**
-> Destroy infrastructure.
+> 销毁基础设施。
 
 **output**
-> Show outputs.
+> 显示输出值。
 
 **run-all** _CMD_
-> Run command on all modules.
+> 对所有模块运行命令。
 
 **graph-dependencies**
-> Show dependency graph.
+> 显示依赖图。
 
 **--terragrunt-config** _FILE_
-> Config file.
+> 配置文件。
 
 **--terragrunt-working-dir** _DIR_
-> Working directory.
+> 工作目录。
 
 **--terragrunt-source** _SOURCE_
-> Module source override.
+> 覆盖模块来源。
 
 **--terragrunt-non-interactive**
-> Non-interactive mode.
+> 非交互模式。
 
 **--terragrunt-parallelism** _N_
-> Parallel operations.
+> 并行操作数。
 
 # DESCRIPTION
 
-**terragrunt** is a thin wrapper for Terraform that provides extra tools for keeping configurations DRY and managing multiple modules.
+**terragrunt** 是 Terraform 的轻量包装器，提供额外工具来保持配置 DRY（不重复）并管理多个模块。
 
-DRY configuration avoids repetition across environments. Common settings are defined once and inherited by modules.
+DRY 配置可避免跨环境的重复。公共设置只定义一次，由各模块继承。
 
-Remote state configuration is centralized. Backend settings don't need repetition in every module.
+远程状态配置集中管理。backend 设置无需在每个模块中重复编写。
 
-Dependencies between modules are managed automatically. run-all executes commands across multiple modules in dependency order.
+模块间的依赖被自动管理。run-all 按依赖顺序在多个模块间执行命令。
 
-Before and after hooks run custom commands around Terraform operations. This enables validation, notifications, and cleanup.
+before 和 after 钩子可在 Terraform 操作前后运行自定义命令，从而实现校验、通知和清理。
 
-Lock file management handles concurrent access. Multiple team members can work safely on shared infrastructure.
+锁文件管理负责处理并发访问，使多名团队成员可以安全地协作共享基础设施。
 
 # CONFIGURATION
 
 **terragrunt.hcl**
-> Module-level configuration file defining Terraform source, inputs, dependencies, and backend settings
+> 模块级配置文件，定义 Terraform 来源、输入、依赖和 backend 设置
 
 **TERRAGRUNT_CONFIG**
-> Environment variable to override the default configuration file path
+> 用于覆盖默认配置文件路径的环境变量
 
 **TERRAGRUNT_DOWNLOAD**
-> Environment variable to set the directory where Terragrunt downloads Terraform source code
+> 用于设置 Terragrunt 下载 Terraform 源码目录的环境变量
 
 # CAVEATS
 
-Adds complexity over plain Terraform. Learning curve for configuration syntax. Some Terraform features need workarounds.
+相比纯 Terraform 增加了复杂度。配置语法有学习曲线。某些 Terraform 功能需要变通处理。
 
 # HISTORY
 
-**Terragrunt** was created by **Gruntwork** around **2016** to address pain points in managing Terraform at scale. It's widely used for multi-environment, multi-account infrastructure management.
+**Terragrunt** 由 **Gruntwork** 于 **2016** 年前后创建，旨在解决大规模管理 Terraform 的痛点。它被广泛用于多环境、多账号的基础设施管理。
 
 # INSTALL
 

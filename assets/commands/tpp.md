@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal-based text presentations
+基于终端的文本演示
 
 # TLDR
 
-**Run a presentation**
+**播放演示文稿**
 
 ```tpp [presentation.tpp]```
 
-**Export a presentation** to LaTeX
+将演示文稿**导出**为 LaTeX
 
 ```tpp -l [output.tex] [presentation.tpp]```
 
@@ -19,52 +19,52 @@ Terminal-based text presentations
 # PARAMETERS
 
 **-l** _output_
-> Convert presentation to LaTeX format and write to output file
+> 将演示文稿转换为 LaTeX 格式并写入输出文件
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version number
+> 显示版本号
 
 # DESCRIPTION
 
-**tpp** (Text Presentation Program) is an ncurses-based tool for creating and displaying presentations in the terminal. Presentations are written in a simple markup format and can run on any terminal that supports ncurses.
+**tpp**（Text Presentation Program）是一个基于 ncurses 的工具，用于在终端中创建和展示演示文稿。演示文稿以简单的标记格式编写，可在任何支持 ncurses 的终端上运行。
 
-Presentations consist of pages separated by **--newpage**. Text before the first page marker serves as the abstract. Formatting commands include **--heading** for titles, **--center** for centered text, and **--boldon**/**--boldoff** for bold text.
+演示文稿由以 **--newpage** 分隔的页面组成。第一个页面标记之前的文本作为摘要。格式化命令包括用于标题的 **--heading**、居中文本的 **--center**，以及粗体文本的 **--boldon**/**--boldoff**。
 
-Special features include **--huge** text using FIGlet, shell command output with **--beginshelloutput**/**--endshelloutput**, and simulated typing for demonstrations. Colors are supported with **--color** followed by a color name.
+特殊功能包括使用 FIGlet 的 **--huge** 大字文本、通过 **--beginshelloutput**/**--endshelloutput** 展示 shell 命令输出，以及用于演示的模拟打字效果。颜色可通过 **--color** 加颜色名称来设置。
 
-The tool supports animated text effects and real-time command execution, making it suitable for technical presentations and demos directly in the terminal.
+该工具支持动画文字效果和实时命令执行，适合直接在终端中进行技术演讲和演示。
 
 # NAVIGATION
 
 **Space**, **Right**, **Down**
-> Next page
+> 下一页
 
 **b**, **Left**, **Up**
-> Previous page
+> 上一页
 
 **j/J**
-> Jump to specific page
+> 跳转到指定页
 
 **s/S**
-> Jump to start
+> 跳转到开头
 
 **e/E**
-> Jump to end
+> 跳转到结尾
 
 **l/L**
-> Reload current file
+> 重新加载当前文件
 
 **c/C**
-> Open command line
+> 打开命令行
 
 **q/Q**
-> Quit
+> 退出
 
 **?/h**
-> Show help
+> 显示帮助
 
 # PRESENTATION FORMAT
 
@@ -87,11 +87,11 @@ $ ls -la
 
 # CAVEATS
 
-tpp requires a terminal with ncurses support. The **--huge** feature requires FIGlet to be installed. Complex presentations with many effects may not display correctly on minimal terminals.
+tpp 需要支持 ncurses 的终端。**--huge** 功能需要安装 FIGlet。包含大量效果的复杂演示文稿在简陋终端上可能无法正确显示。
 
 # HISTORY
 
-**tpp** was written by **Andreas Krennmair** and **Nico Golde**. It was designed to enable presentations directly in the terminal, appealing to users who prefer text-based tools and want to avoid graphical presentation software. The tool gained popularity in the Linux community for technical talks and demonstrations.
+**tpp** 由 **Andreas Krennmair** 和 **Nico Golde** 编写。它的设计目标是直接在终端中进行演示，吸引了偏好文本工具、希望避开图形化演示软件的用户。该工具因技术演讲和演示而在 Linux 社区中广受欢迎。
 
 # INSTALL
 

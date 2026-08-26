@@ -1,18 +1,18 @@
 # TAGLINE
 
-Real-time terminal text communication
+实时的终端文字交流工具
 
 # TLDR
 
-**Talk to a local user**
+**与本机用户交谈**
 
 ```talk [username]```
 
-**Talk to a user on a specific terminal**
+**与特定终端上的用户交谈**
 
 ```talk [username] [tty3]```
 
-**Talk to a user on a remote host**
+**与远程主机上的用户交谈**
 
 ```talk [username]@[hostname]```
 
@@ -25,24 +25,24 @@ Real-time terminal text communication
 # PARAMETERS
 
 _user_
-> Username of the person to talk to. Can include @hostname for remote users.
+> 要交谈对象的用户名。远程用户可写成 @hostname 的形式。
 
 _ttyname_
-> Specific terminal to reach the user on, if they are logged in on multiple terminals.
+> 当对方登录在多个终端时，指定要联系的特定终端。
 
 # DESCRIPTION
 
-**talk** is a visual communication program that copies text between terminals of two users in real-time. The screen is split into two halves: the top shows what you type, the bottom shows the other user's text.
+**talk** 是一个可视化的交流程序，可以在两个用户的终端之间实时复制文本。屏幕被分成上下两半：上半部分显示你输入的内容，下半部分显示对方的文字。
 
-The target user receives a message inviting them to talk, which they must accept by running `talk` back to you.
+目标用户会收到一条邀请交谈的消息，他们必须也对你运行 `talk` 来接受邀请。
 
 # CAVEATS
 
-Both users must be logged in. Requires the talk daemon (talkd) to be running. The mesg command controls whether users can receive talk requests. Largely obsolete, replaced by instant messaging.
+双方用户都必须已登录。需要 talk 守护进程（talkd）正在运行。mesg 命令控制用户是否能接收 talk 请求。此工具基本已被即时通讯取代，属于过时技术。
 
 # HISTORY
 
-**talk** originated in BSD Unix in the **1980s** as an early form of instant messaging. It was part of the standard Unix networking tools and is now included in GNU inetutils.
+**talk** 于 **20 世纪 80 年代**起源于 BSD Unix，是最早的即时通讯形式之一。它曾是标准 Unix 网络工具的一部分，现在包含在 GNU inetutils 中。
 
 # INSTALL
 

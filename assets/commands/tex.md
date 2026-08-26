@@ -1,22 +1,22 @@
 # TAGLINE
 
-Original TeX typesetting engine
+最初的 TeX 排版引擎
 
 # TLDR
 
-**Compile document**
+**编译文档**
 
 ```tex [document.tex]```
 
-**Compile with jobname**
+**以指定作业名编译**
 
 ```tex -jobname=[output] [document.tex]```
 
-**Interaction mode**
+**交互模式**
 
 ```tex -interaction=nonstopmode [document.tex]```
 
-**Initialize format**
+**初始化格式**
 
 ```tex -ini [format.tex]```
 
@@ -27,42 +27,42 @@ Original TeX typesetting engine
 # PARAMETERS
 
 **-interaction** _MODE_
-> Set interaction mode: batchmode, nonstopmode, scrollmode, or errorstopmode.
+> 设置交互模式：batchmode、nonstopmode、scrollmode 或 errorstopmode。
 
 **-jobname** _NAME_
-> Set the job name instead of deriving it from the input file name.
+> 设置作业名，而不是从输入文件名派生。
 
 **-ini**
-> Start in INI mode for dumping formats; no format is preloaded.
+> 以 INI 模式启动，用于转储（dump）格式；不预加载任何格式。
 
 **-output-directory** _DIR_
-> Write output files in DIR instead of the current directory.
+> 将输出文件写入 DIR 而不是当前目录。
 
 **-halt-on-error**
-> Stop processing at the first error.
+> 在第一个错误处停止处理。
 
 **-file-line-error**
-> Print error messages in file:line:error format.
+> 以 file:line:error 格式打印错误消息。
 
 **-recorder**
-> Enable the filename recorder, creating a .fls file listing opened files.
+> 启用文件名记录器，生成列出已打开文件的 .fls 文件。
 
 **-fmt** _NAME_
-> Use NAME as the format instead of the default.
+> 使用 NAME 作为格式，而非默认值。
 
 # DESCRIPTION
 
-**tex** is the original TeX typesetting engine created by Donald Knuth. It reads plain TeX source files and produces DVI (Device Independent) output, which can then be converted to PostScript, PDF, or other formats using tools like dvips or dvipdfm.
+**tex** 是 Donald Knuth 创建的最初版 TeX 排版引擎。它读取纯 TeX 源文件并产生 DVI（设备无关）输出，随后可用 dvips 或 dvipdfm 等工具转换为 PostScript、PDF 或其他格式。
 
-TeX uses the plain TeX macro format by default, which provides basic typesetting commands without the higher-level abstractions of LaTeX. It excels at mathematical typesetting, producing publication-quality output for equations, formulas, and technical documents. TeX serves as the foundation upon which LaTeX, ConTeXt, and other macro packages are built.
+TeX 默认使用 plain TeX 宏格式，它只提供基础的排版命令，没有 LaTeX 那样的高层抽象。它在数学排版方面尤为出色，能为公式、方程和技术文档产出出版级质量的输出。TeX 是 LaTeX、ConTeXt 及其他宏包赖以构建的基础。
 
 # CAVEATS
 
-Produces DVI output only; use pdftex or pdflatex for direct PDF output. Uses plain TeX macros by default without higher-level LaTeX abstractions.
+只产生 DVI 输出；需要直接输出 PDF 请使用 pdftex 或 pdflatex。默认使用 plain TeX 宏，没有 LaTeX 的高层抽象。
 
 # HISTORY
 
-**TeX** was created by **Donald Knuth** starting in 1977 for typesetting his books, especially mathematical content.
+**TeX** 由 **Donald Knuth** 从 1977 年开始创建，最初用于排版他自己的著作，尤其是数学内容。
 
 # INSTALL
 

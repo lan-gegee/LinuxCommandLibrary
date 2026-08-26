@@ -1,14 +1,14 @@
 # TAGLINE
 
-Reset SteamOS to factory settings
+将 SteamOS 恢复为出厂设置
 
 # TLDR
 
-Begin **factory reset**
+开始**恢复出厂设置**
 
 ```steamos-factory-reset```
 
-Display **help**
+显示**帮助**
 
 ```steamos-factory-reset --help```
 
@@ -18,17 +18,17 @@ Display **help**
 
 # DESCRIPTION
 
-**steamos-factory-reset** resets SteamOS to factory settings, erasing user data and configurations while preserving the operating system. The command requires user confirmation before proceeding.
+**steamos-factory-reset** 将 SteamOS 恢复为出厂设置，擦除用户数据和配置，同时保留操作系统。该命令在继续之前需要用户确认。
 
-This is typically used to prepare a device for resale, troubleshoot persistent issues, or restore the system to a clean state.
+通常用于出售设备前的准备、排查顽固问题，或将系统恢复到干净状态。
 
 # CAVEATS
 
-This operation is destructive and cannot be undone. All user data, installed games, and configurations will be erased. Backup important data before running. Requires confirmation prompt.
+此操作具有破坏性且无法撤销。所有用户数据、已安装的游戏和配置都将被擦除。运行前请备份重要数据。需要确认提示。
 
 # HISTORY
 
-**steamos-factory-reset** is part of the **SteamOS** utilities developed by **Valve**. Factory reset functionality is essential for the Steam Deck as a consumer device.
+**steamos-factory-reset** 是 **Valve** 开发的 **SteamOS** 工具的一部分。对于作为消费设备的 Steam Deck 而言，恢复出厂设置功能必不可少。
 
 # SEE ALSO
 

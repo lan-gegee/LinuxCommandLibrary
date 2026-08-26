@@ -1,26 +1,26 @@
 # TAGLINE
 
-Show manual pages for units
+显示 unit 的手册页
 
 # TLDR
 
-Show **manual** for a unit
+显示某个 unit 的**手册**
 
 ```systemctl help [unit]```
 
-Show manuals for **multiple** units
+显示**多个** unit 的手册
 
 ```systemctl help [unit1 unit2 ...]```
 
-Show manual for a **user** unit
+显示**用户级** unit 的手册
 
 ```systemctl help [unit] --user```
 
-Show without **pager**
+不使用**分页器**显示
 
 ```systemctl help [unit] --no-pager```
 
-Show manual for the unit owning a **PID**
+显示某个 **PID** 所属 unit 的手册
 
 ```systemctl help [pid]```
 
@@ -31,24 +31,24 @@ Show manual for the unit owning a **PID**
 # PARAMETERS
 
 **--user**
-> Show help for user units
+> 显示用户级 unit 的帮助
 
 **--no-pager**
-> Display all output at once without paging
+> 一次性显示所有输出，不分页
 
 # DESCRIPTION
 
-**systemctl help** displays the manual pages for one or more units. If a numeric PID is provided instead of a unit name, it shows the manual for the unit that process belongs to.
+**systemctl help** 显示一个或多个 unit 的手册页。如果提供的是数字 PID 而非 unit 名称，则显示该进程所属 unit 的手册。
 
-The manual page is determined by the `Documentation=` directive in the unit file.
+手册页由 unit 文件中的 `Documentation=` 指令决定。
 
 # CAVEATS
 
-Not all units have associated documentation. The Documentation= directive must be set in the unit file for this to work. Falls back to generic systemd documentation if no specific manual exists.
+并非所有 unit 都有相关文档。必须在 unit 文件中设置 Documentation= 指令才能生效。如果不存在特定手册，会回退到通用的 systemd 文档。
 
 # HISTORY
 
-The **help** subcommand provides integrated documentation access directly from the unit management interface, linking units to their relevant manual pages.
+**help** 子命令将文档访问直接集成到 unit 管理界面中，把 unit 与其相关手册页关联起来。
 
 # INSTALL
 

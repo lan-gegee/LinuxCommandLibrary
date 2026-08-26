@@ -1,30 +1,30 @@
 # TAGLINE
 
-Block system sleep or shutdown
+阻止系统休眠或关机
 
 # TLDR
 
-**List** all active inhibition locks
+**列出**所有活动的抑制锁
 
 ```systemd-inhibit --list```
 
-**Block** system shutdown while running a command
+在运行命令期间**阻止**系统关机
 
 ```systemd-inhibit --what shutdown [command]```
 
-**Keep** the system from sleeping or idling
+**防止**系统休眠或空闲
 
 ```systemd-inhibit --what sleep:idle wget [https://example.com/file]```
 
-**Ignore** lid close switch until the script exits
+在脚本退出前**忽略**合上笔记本盖子的动作
 
 ```systemd-inhibit --what sleep:handle-lid-switch [path/to/script]```
 
-**Ignore** power button press while command is running
+在命令运行期间**忽略**电源键按下
 
 ```systemd-inhibit --what handle-power-key [command]```
 
-**Describe** who and why created the inhibitor
+**说明**是谁、为何创建了抑制器
 
 ```systemd-inhibit --who [$USER] --why [reason] --what [operation] [command]```
 
@@ -35,29 +35,29 @@ Block system sleep or shutdown
 # PARAMETERS
 
 **--list**
-> List all active inhibitor locks
+> 列出所有活动的抑制锁
 
 **--what _operation_**
-> Operations to inhibit (shutdown, sleep, idle, handle-power-key, handle-suspend-key, handle-hibernate-key, handle-lid-switch)
+> 要抑制的操作（shutdown、sleep、idle、handle-power-key、handle-suspend-key、handle-hibernate-key、handle-lid-switch）
 
 **--who _name_**
-> Descriptive name of who is holding the lock
+> 持锁者的描述性名称
 
 **--why _reason_**
-> Descriptive reason for holding the lock
+> 持锁原因的描述性说明
 
 **--mode _mode_**
-> Either "block" or "delay"
+> 可为 "block" 或 "delay"
 
 # DESCRIPTION
 
-**systemd-inhibit** creates inhibitor locks that can block or delay system sleep, shutdown, and hardware key handling while a command runs. The lock is held for the duration of the command's execution.
+**systemd-inhibit** 创建抑制锁，可以在命令运行期间阻止或延迟系统休眠、关机以及硬件按键处理。锁会持续到命令执行结束为止。
 
-Multiple operations can be specified by separating them with colons. The **--list** option shows all active inhibitors from all sources, not just those created by this tool.
+多个操作之间用冒号分隔即可同时指定。**--list** 选项显示来自所有来源的活动抑制器，而不仅仅是本工具创建的那些。
 
 # CAVEATS
 
-Inhibitor locks should be used sparingly to avoid blocking normal system operation. "Delay" mode only holds off the operation briefly. Requires appropriate privileges for some operations. Part of the systemd suite.
+抑制锁应谨慎使用，以免妨碍系统正常运行。"delay" 模式只能短暂推迟操作。某些操作需要相应的权限。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

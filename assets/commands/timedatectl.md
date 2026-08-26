@@ -1,30 +1,30 @@
 # TAGLINE
 
-Control system time and timezone
+控制系统时间和时区
 
 # TLDR
 
-Show current **time and date** settings
+显示当前的**日期和时间**设置
 
 ```timedatectl```
 
-Set **local time** directly
+直接设置**本地时间**
 
 ```timedatectl set-time "2024-01-15 14:30:00"```
 
-List available **timezones**
+列出可用的**时区**
 
 ```timedatectl list-timezones```
 
-Set system **timezone**
+设置系统**时区**
 
 ```timedatectl set-timezone America/New_York```
 
-Enable **NTP synchronization**
+启用 **NTP 同步**
 
 ```timedatectl set-ntp on```
 
-Set hardware clock to **local time**
+将硬件时钟设为**本地时间**
 
 ```timedatectl set-local-rtc 1```
 
@@ -34,61 +34,61 @@ Set hardware clock to **local time**
 
 # DESCRIPTION
 
-**timedatectl** queries and changes the system clock and its settings. It controls the system time, timezone, and network time synchronization through systemd-timedated.
+**timedatectl** 用于查询和修改系统时钟及其设置。它通过 systemd-timedated 控制系统时间、时区和网络时间同步。
 
 # COMMANDS
 
 **status**
-> Show current time/date settings (default command)
+> 显示当前的日期/时间设置（默认命令）
 
 **show**
-> Show properties in machine-readable format
+> 以机器可读格式显示属性
 
 **set-time TIME**
-> Set system time (YYYY-MM-DD HH:MM:SS format)
+> 设置系统时间（YYYY-MM-DD HH:MM:SS 格式）
 
 **set-timezone ZONE**
-> Set system timezone
+> 设置系统时区
 
 **list-timezones**
-> List available timezones
+> 列出可用时区
 
 **set-local-rtc BOOL**
-> Control RTC in local time (0=UTC, 1=local)
+> 控制 RTC 是否使用本地时间（0=UTC，1=本地）
 
 **set-ntp BOOL**
-> Enable or disable NTP synchronization
+> 启用或禁用 NTP 同步
 
 **timesync-status**
-> Show status of systemd-timesyncd
+> 显示 systemd-timesyncd 的状态
 
 # PARAMETERS
 
 **--no-pager**
-> Do not pipe output into a pager
+> 不将输出送入分页器
 
 **--no-ask-password**
-> Do not prompt for password
+> 不提示输入密码
 
 **-H, --host**
-> Execute operation on remote host
+> 在远程主机上执行操作
 
 **-M, --machine**
-> Execute operation on container
+> 在容器上执行操作
 
 **-p, --property**
-> Show specific property
+> 显示特定属性
 
 **--value**
-> Show only property values
+> 只显示属性值
 
 # CAVEATS
 
-Setting time manually (set-time) disables NTP synchronization. RTC in local time (set-local-rtc 1) can cause issues with dual-boot systems during DST changes.
+手动设置时间（set-time）会禁用 NTP 同步。RTC 使用本地时间（set-local-rtc 1）在夏令时切换期间可能给双系统启动带来问题。
 
 # HISTORY
 
-**timedatectl** is part of **systemd**, introduced to provide a unified interface for time/date management replacing older tools like hwclock and tzselect.
+**timedatectl** 是 **systemd** 的一部分，旨在提供统一的时间/日期管理接口，取代 hwclock 和 tzselect 等旧工具。
 
 # INSTALL
 

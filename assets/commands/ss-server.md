@@ -1,22 +1,22 @@
 # TLDR
 
-**Start server** with inline configuration
+**以内联配置启动服务器**
 
 ```ss-server -s [0.0.0.0] -p [8388] -k "[password]" -m [aes-256-gcm]```
 
-**Start server** with a configuration file
+**使用配置文件启动服务器**
 
 ```ss-server -c [/etc/shadowsocks/config.json]```
 
-**Start in verbose mode**
+**以详细模式启动**
 
 ```ss-server -c [config.json] -v```
 
-**Start with a specific user**
+**以指定用户身份启动**
 
 ```ss-server -c [config.json] -a [nobody]```
 
-**Run as daemon**
+**以守护进程运行**
 
 ```ss-server -c [config.json] -f [/var/run/ss-server.pid]```
 
@@ -27,67 +27,67 @@
 # PARAMETERS
 
 **-c**, **--config** _file_
-> Path to JSON configuration file.
+> JSON 配置文件的路径。
 
 **-s**, **--server** _address_
-> Server address to bind to.
+> 要绑定的服务器地址。
 
 **-p**, **--server-port** _port_
-> Server port number.
+> 服务器端口号。
 
 **-k**, **--password** _password_
-> Password for encryption.
+> 用于加密的密码。
 
 **-m**, **--encrypt-method** _method_
-> Encryption method (aes-256-gcm, chacha20-ietf-poly1305, etc.).
+> 加密方法（aes-256-gcm、chacha20-ietf-poly1305 等）。
 
 **-t**, **--timeout** _seconds_
-> Socket timeout in seconds.
+> 套接字超时时间，以秒为单位。
 
 **-a**, **--user** _user_
-> Run as specified user.
+> 以指定用户身份运行。
 
 **-f**, **--pid-file** _file_
-> PID file path for daemon mode.
+> 守护进程模式的 PID 文件路径。
 
 **-d**, **--dns** _server_
-> DNS server address.
+> DNS 服务器地址。
 
 **--fast-open**
-> Enable TCP fast open.
+> 启用 TCP fast open。
 
 **--reuse-port**
-> Enable port reuse for multiple instances.
+> 启用端口复用以支持多个实例。
 
 **-u**, **--udp**
-> Enable UDP relay.
+> 启用 UDP 中继。
 
 **-v**, **--verbose**
-> Enable verbose logging.
+> 启用详细日志输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ss-server** is the server component of Shadowsocks, a secure proxy protocol designed to protect network traffic. It listens for incoming connections from Shadowsocks clients and forwards traffic to destination servers.
+**ss-server** 是 Shadowsocks 的服务端组件。Shadowsocks 是一种旨在保护网络流量的安全代理协议。它监听来自 Shadowsocks 客户端的连接，并将流量转发到目标服务器。
 
-The server encrypts all traffic between client and server using modern cryptographic algorithms. Recommended ciphers include **aes-256-gcm** and **chacha20-ietf-poly1305** (AEAD ciphers). Older stream ciphers are deprecated due to security vulnerabilities.
+服务器使用现代密码学算法加密客户端与服务器之间的所有流量。推荐的加密算法包括 **aes-256-gcm** 和 **chacha20-ietf-poly1305**（AEAD 加密）。旧的流式加密因存在安全漏洞已被弃用。
 
-Configuration can be provided via command-line arguments or a JSON file. The JSON format supports additional options like multiple server ports and plugin configuration.
+配置可以通过命令行参数或 JSON 文件提供。JSON 格式还支持多个服务器端口和插件配置等附加选项。
 
 # CONFIGURATION
 
 **/etc/shadowsocks-libev/config.json**
-> System-wide JSON configuration file specifying server address, port, password, encryption method, timeout, and optional plugin settings.
+> 系统级 JSON 配置文件，指定服务器地址、端口、密码、加密方法、超时时间以及可选的插件设置。
 
 # CAVEATS
 
-Avoid deprecated stream ciphers (rc4-md5, aes-cfb, etc.) as they lack authentication. Use AEAD ciphers for security. Running as root is not recommended; use **-a** to drop privileges. TCP fast open requires kernel support and may be blocked by some networks. Check local laws regarding proxy software usage.
+避免使用已弃用的流式加密（rc4-md5、aes-cfb 等），它们缺少认证机制。为了安全请使用 AEAD 加密。不建议以 root 运行；请用 **-a** 降权。TCP fast open 需要内核支持，且可能被某些网络封锁。使用代理软件前请了解当地法律。
 
 # HISTORY
 
-**Shadowsocks** was created by clowwindy in **2012** as a secure proxy protocol. The original Python implementation was followed by ports to various languages. The libev-based implementation (shadowsocks-libev) provides **ss-server** as a high-performance C implementation. The project has been widely adopted and continues development with community contributions despite the original repository's removal.
+**Shadowsocks** 由 clowwindy 于 **2012 年**创建，是一种安全代理协议。最初的 Python 实现之后出现了多种语言的移植版本。基于 libev 的实现（shadowsocks-libev）以高性能的 C 实现提供 **ss-server**。尽管原始仓库已被移除，该项目仍得到广泛采用，并在社区贡献下继续开发。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Start systemd units
+启动 systemd 单元
 
 # TLDR
 
-**Start** a system unit now
+立即**启动**一个系统单元
 
 ```systemctl start [unit]```
 
-Start a unit in the **user** manager
+在**用户**管理器中启动一个单元
 
 ```systemctl --user start [unit]```
 
@@ -19,23 +19,23 @@ Start a unit in the **user** manager
 # PARAMETERS
 
 **--user**
-> Start user service manager units instead of system units
+> 启动用户服务管理器的单元而不是系统单元
 
 **--no-block**
-> Do not wait for the operation to complete
+> 不等待操作完成
 
 **--job-mode=**_MODE_
-> Specify how to deal with already queued jobs (fail, replace, etc.)
+> 指定如何处理已排队的任务（fail、replace 等）
 
 # DESCRIPTION
 
-**systemctl start** activates systemd units, starting services, mounting filesystems, or activating other unit types. The command queues a start job for the specified unit and its dependencies.
+**systemctl start** 激活 systemd 单元：启动服务、挂载文件系统或激活其他类型的单元。该命令会为指定单元及其依赖排入一个启动任务。
 
-For services, this starts the service process. For sockets, it begins listening. For mounts, it mounts the filesystem. Dependencies are automatically started as needed.
+对于服务，这会启动服务进程；对于套接字，这会开始监听；对于挂载点，这会挂载文件系统。依赖项会按需自动启动。
 
 # CAVEATS
 
-Requires root privileges for system units. Starting a unit does not enable it for boot; use **systemctl enable** for persistence. Some units may have dependencies that must be satisfied first.
+对系统单元操作需要 root 权限。启动一个单元并不会让它开机自启；要实现持久化请使用 **systemctl enable**。某些单元可能存在必须先满足的依赖。
 
 # INSTALL
 

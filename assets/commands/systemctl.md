@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control systemd services and system
+控制 systemd 服务与系统
 
 # TLDR
 
-Show all **running services**
+显示所有**正在运行的服务**
 
 ```systemctl status```
 
-List **failed** units
+列出**失败的**单元
 
 ```systemctl --failed```
 
-**Start/Stop/Restart** a service
+**启动/停止/重启**一个服务
 
 ```systemctl start|stop|restart unit```
 
-**Enable/Disable** a service at boot
+设置服务开机**启用/禁用**
 
 ```systemctl enable|disable unit```
 
-Reload **systemd configuration**
+重载 **systemd 配置**
 
 ```systemctl daemon-reload```
 
-Check if a unit is **active/enabled/failed**
+检查单元是否**处于活动/已启用/失败状态**
 
 ```systemctl is-active|is-enabled|is-failed unit```
 
-List all **service units** by state
+按状态列出所有**服务单元**
 
 ```systemctl list-units -t service --state running```
 
-Show **contents** of a unit file
+显示单元文件的**内容**
 
 ```systemctl cat unit```
 
@@ -42,69 +42,69 @@ Show **contents** of a unit file
 
 # DESCRIPTION
 
-**systemctl** controls the systemd system and service manager. It can be used to introspect and control the state of the systemd system, manage services, check unit dependencies, and perform system operations like reboot or shutdown.
+**systemctl** 控制 systemd 系统与服务管理器。它可用于查看和控制 systemd 系统的状态、管理服务、检查单元依赖，以及执行重启或关机等系统操作。
 
 # PARAMETERS
 
 **-t, --type=TYPE**
-> Filter by unit type (service, socket, target, mount, timer, etc.)
+> 按单元类型过滤（service、socket、target、mount、timer 等）
 
 **--state=STATE**
-> Filter by unit state (active, inactive, failed, running, etc.)
+> 按单元状态过滤（active、inactive、failed、running 等）
 
 **-a, --all**
-> Show all units including inactive ones
+> 显示所有单元，包括未激活的单元
 
 **--user**
-> Manage user services instead of system services
+> 管理用户服务而不是系统服务
 
 **--no-block**
-> Return immediately without waiting for operation to complete
+> 立即返回而不等待操作完成
 
 **--now**
-> Combine enable/disable with start/stop
+> 将 enable/disable 与 start/stop 结合执行
 
 **--force**
-> Override safety checks or symlink conflicts
+> 覆盖安全检查或符号链接冲突
 
 **-q, --quiet**
-> Suppress output
+> 抑制输出
 
 **-n, --lines=NUM**
-> Number of journal lines to show with status
+> status 显示的日志行数
 
 **--no-pager**
-> Do not pipe output into a pager
+> 不将输出送入分页器
 
 **-o, --output=FORMAT**
-> Control journal output format (short, verbose, json, etc.)
+> 控制日志输出格式（short、verbose、json 等）
 
 # COMMON COMMANDS
 
-**list-units**: List active or specified units
-**list-unit-files**: Show installed unit files and their enablement state
-**status**: Show runtime status and recent logs
-**start/stop**: Start or stop units
-**restart**: Stop then start units
-**reload**: Reload unit configuration without stopping
-**enable/disable**: Enable or disable unit activation at boot
-**mask/unmask**: Completely disable or re-enable a unit
-**edit**: Edit unit file with drop-in snippets
-**cat**: Show contents of unit file
-**show**: Display unit properties in machine-readable format
-**daemon-reload**: Reload systemd configuration and unit files
-**is-active/is-enabled/is-failed**: Check unit state
-**kill**: Send signal to unit processes
-**poweroff/reboot/halt**: System power commands
-**suspend/hibernate**: Enter sleep states
+**list-units**：列出活动单元或指定单元
+**list-unit-files**：显示已安装的单元文件及其启用状态
+**status**：显示运行时状态和最近的日志
+**start/stop**：启动或停止单元
+**restart**：先停止再启动单元
+**reload**：在不停止服务的情况下重载单元配置
+**enable/disable**：启用或禁用单元开机激活
+**mask/unmask**：完全禁用或重新启用一个单元
+**edit**：使用 drop-in 片段编辑单元文件
+**cat**：显示单元文件内容
+**show**：以机器可读格式显示单元属性
+**daemon-reload**：重载 systemd 配置和单元文件
+**is-active/is-enabled/is-failed**：检查单元状态
+**kill**：向单元的进程发送信号
+**poweroff/reboot/halt**：系统电源命令
+**suspend/hibernate**：进入睡眠状态
 
 # CAVEATS
 
-Some commands require root privileges. The **--user** flag manages per-user services in ~/.config/systemd/user/. Use **daemon-reload** after modifying unit files. Masked units cannot be started even manually.
+某些命令需要 root 权限。**--user** 标志管理 ~/.config/systemd/user/ 下的用户级服务。修改单元文件后请执行 **daemon-reload**。被屏蔽的单元即使手动也无法启动。
 
 # HISTORY
 
-**systemctl** is part of **systemd**, introduced in 2010 by Lennart Poettering. It replaced traditional SysV init scripts and service management tools like **service** and **chkconfig**.
+**systemctl** 是 **systemd** 的一部分，由 Lennart Poettering 于 2010 年推出。它取代了传统的 SysV init 脚本以及 **service** 和 **chkconfig** 等服务管理工具。
 
 # INSTALL
 

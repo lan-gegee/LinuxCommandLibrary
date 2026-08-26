@@ -1,34 +1,34 @@
 # TAGLINE
 
-Send IPC commands to Sway compositor
+向 Sway 合成器发送 IPC 命令
 
 # TLDR
 
-**Send command**
+**发送命令**
 
 ```swaymsg [command]```
 
-**Get workspaces**
+**获取工作区**
 
 ```swaymsg -t get_workspaces```
 
-**Get outputs**
+**获取输出**
 
 ```swaymsg -t get_outputs```
 
-**Get focused window**
+**获取焦点窗口**
 
 ```swaymsg -t get_tree | jq '.. | select(.focused?)'```
 
-**Reload configuration**
+**重新加载配置**
 
 ```swaymsg reload```
 
-**Exit sway**
+**退出 sway**
 
 ```swaymsg exit```
 
-**Move workspace**
+**移动工作区**
 
 ```swaymsg move workspace to output [HDMI-A-1]```
 
@@ -39,51 +39,51 @@ Send IPC commands to Sway compositor
 # PARAMETERS
 
 **-t**, **--type** _TYPE_
-> Message type.
+> 消息类型。
 
 **-m**, **--monitor**
-> Monitor for responses until killed. Can only be used with the subscribe message type.
+> 持续监听响应直到被终止。只能与 subscribe 消息类型配合使用。
 
 **-p**, **--pretty**
-> Use pretty output even when not using a tty.
+> 即使未连接 tty 也使用美观输出。
 
 **-r**, **--raw**
-> Use raw JSON output even when using a tty.
+> 即使连接了 tty 也使用原始 JSON 输出。
 
 **-q**, **--quiet**
-> Send the IPC message but do not print the response.
+> 发送 IPC 消息但不打印响应。
 
 **-s**, **--socket** _PATH_
-> Use the specified socket path instead of SWAYSOCK environment variable.
+> 使用指定的套接字路径而不是 SWAYSOCK 环境变量。
 
 # MESSAGE TYPES
 
-**get_workspaces** - List workspaces and their status
-**get_outputs** - List outputs and their properties
-**get_tree** - JSON-encoded layout tree of all windows, containers, outputs, and workspaces
-**get_marks** - List of window marks
-**get_bar_config** - Bar configuration
-**get_version** - Sway version information
-**get_inputs** - List current inputs
-**get_seats** - List seats and assigned devices
-**get_binding_modes** - List configured binding modes
-**subscribe** - Subscribe to event types (use with -m)
+**get_workspaces** - 列出工作区及其状态
+**get_outputs** - 列出输出及其属性
+**get_tree** - 所有窗口、容器、输出和工作区的 JSON 编码布局树
+**get_marks** - 窗口标记列表
+**get_bar_config** - 栏配置
+**get_version** - Sway 版本信息
+**get_inputs** - 当前输入设备列表
+**get_seats** - seat 及其分配设备的列表
+**get_binding_modes** - 已配置绑定模式的列表
+**subscribe** - 订阅事件类型（配合 -m 使用）
 
 # DESCRIPTION
 
-**swaymsg** is the IPC (Inter-Process Communication) client for the Sway Wayland compositor. It sends commands and queries to a running Sway instance via the IPC socket, enabling scripted control of window management operations like moving, resizing, and focusing windows.
+**swaymsg** 是 Sway Wayland 合成器的 IPC（进程间通信）客户端。它通过 IPC 套接字向正在运行的 Sway 实例发送命令和查询，实现窗口管理操作（移动、调整大小、聚焦等）的脚本化控制。
 
-Query message types (get_workspaces, get_outputs, get_tree) return JSON data describing the current compositor state, which can be parsed with tools like jq. This makes swaymsg useful for building custom status bars, automation scripts, and workspace management tools.
+查询类消息类型（get_workspaces、get_outputs、get_tree）返回描述当前合成器状态的 JSON 数据，可用 jq 之类的工具解析。这使 swaymsg 非常适合构建自定义状态栏、自动化脚本和工作区管理工具。
 
-Monitor mode subscribes to Sway events and prints them in real time, useful for debugging and building reactive scripts. The IPC socket path defaults to the SWAYSOCK environment variable set by Sway.
+监听模式订阅 Sway 事件并实时打印，便于调试和编写响应式脚本。IPC 套接字路径默认取自 Sway 设置的 SWAYSOCK 环境变量。
 
 # CAVEATS
 
-Sway must be running. Socket permissions required. JSON output needs parsing.
+必须先启动 Sway。需要套接字权限。JSON 输出需要解析。
 
 # HISTORY
 
-**swaymsg** is the IPC client for **Sway** compositor. It mirrors i3-msg functionality for Wayland.
+**swaymsg** 是 **Sway** 合成器的 IPC 客户端，在 Wayland 上对应 i3-msg 的功能。
 
 # INSTALL
 

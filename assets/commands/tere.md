@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal file explorer for fast directory navigation
+用于快速目录导航的终端文件浏览器
 
 # TLDR
 
-**Navigate to a directory interactively**
+**交互式导航到某个目录**
 
 ```cd "$(tere)"```
 
-**Use filter mode to show only matching items**
+**使用过滤模式只显示匹配的条目**
 
 ```cd "$(tere --filter-search)"```
 
-**Auto-enter directories after a timeout (milliseconds)**
+**超时后自动进入目录（毫秒）**
 
 ```cd "$(tere --autocd-timeout 500)"```
 
-**Enable mouse navigation**
+**启用鼠标导航**
 
 ```cd "$(tere --mouse=on)"```
 
-**Sort by modification date and use case-insensitive search**
+**按修改日期排序并使用不区分大小写的搜索**
 
 ```cd "$(tere --sort modified --ignore-case)"```
 
@@ -31,63 +31,63 @@ Terminal file explorer for fast directory navigation
 # PARAMETERS
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Print version.
+> 打印版本。
 
 **-f**, **--filter-search**
-> Show only items matching current search query.
+> 只显示与当前搜索词匹配的条目。
 
 **-F**, **--no-filter-search**
-> Show all items while searching (default).
+> 搜索时仍显示全部条目（默认）。
 
 **-S**, **--smart-case**
-> Case insensitive for lowercase, sensitive with uppercase (default).
+> 小写时不区分大小写，含大写时区分（默认）。
 
 **-i**, **--ignore-case**
-> Always ignore case in searches.
+> 搜索始终忽略大小写。
 
 **-s**, **--case-sensitive**
-> Always enforce case sensitivity.
+> 始终区分大小写。
 
 **-g**, **--gap-search**
-> Allow fuzzy matches with gaps from start of name (default).
+> 允许从名称开头起有间隔的模糊匹配（默认）。
 
 **-G**, **--gap-search-anywhere**
-> Allow fuzzy matches with gaps anywhere in names.
+> 允许在名称任意位置有间隔的模糊匹配。
 
 **-n**, **--normal-search**
-> Match consecutive characters from start of name.
+> 从名称开头匹配连续字符。
 
 **-N**, **--normal-search-anywhere**
-> Match consecutive characters anywhere in name.
+> 匹配名称中任意位置的连续字符。
 
 **--files** _MODE_
-> File display mode: ignore (default), hide, or match.
+> 文件显示模式：ignore（默认）、hide 或 match。
 
 **--sort** _ORDER_
-> Sort order: name (default), created, or modified.
+> 排序方式：name（默认）、created 或 modified。
 
 **--autocd-timeout** _MS_
-> Auto-enter directory after MS milliseconds when single match. Use "off" to disable.
+> 当只有单个匹配时，在 MS 毫秒后自动进入目录。设为 "off" 可禁用。
 
 **--mouse=on|off**
-> Enable or disable mouse navigation (default: off).
+> 启用或禁用鼠标导航（默认为 off）。
 
 **--history-file** _PATH_
-> Path to JSON history file.
+> JSON 历史文件的路径。
 
 **--map** _KEY:ACTION_
-> Custom keyboard shortcut mapping.
+> 自定义键盘快捷键映射。
 
 # DESCRIPTION
 
-**tere** provides a TUI for quickly navigating to a directory, then prints the selected path on exit. It is not a file manager -- it only browses folders. Navigation uses arrow keys, Enter, and type-to-search, designed for minimal keystrokes.
+**tere** 提供一个 TUI 用于快速导航到某个目录，退出时打印所选路径。它不是文件管理器——只能浏览文件夹。导航使用方向键、Enter 和输入即搜索，力求最少按键次数。
 
 # HISTORY
 
-**tere** was created by **Marton Gunyho** (mgunyho) and is written in **Rust**.
+**tere** 由 **Marton Gunyho**（mgunyho）创建，使用 **Rust** 编写。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast and powerful SSL/TLS server scanning tool
+快速而强大的 SSL/TLS 服务器扫描工具
 
 # TLDR
 
-**Scan a server** for SSL/TLS configuration
+**扫描服务器**的 SSL/TLS 配置
 
 ```sslyze [www.example.com]```
 
-**Scan multiple servers**
+**扫描多台服务器**
 
 ```sslyze [www.example.com] [www.google.com]```
 
-**Test for specific SSL/TLS versions**
+**测试特定的 SSL/TLS 版本**
 
 ```sslyze --sslv2 --sslv3 --tlsv1 --tlsv1_1 --tlsv1_2 --tlsv1_3 [server]```
 
-**Test for Heartbleed vulnerability**
+**测试 Heartbleed 漏洞**
 
 ```sslyze --heartbleed [server]```
 
-**Test for all vulnerabilities**
+**测试所有漏洞**
 
 ```sslyze --heartbleed --robot --openssl_ccs --compression [server]```
 
-**Check against Mozilla TLS configuration**
+**对照 Mozilla TLS 配置检查**
 
 ```sslyze --mozilla_config=[intermediate] [server]```
 
-**Use STARTTLS** for mail server
+**为邮件服务器使用 STARTTLS**
 
 ```sslyze --starttls [smtp] [mail.example.com]```
 
-**Output to JSON**
+**输出到 JSON**
 
 ```sslyze --json_out=[results.json] [server]```
 
@@ -43,68 +43,68 @@ Fast and powerful SSL/TLS server scanning tool
 # PARAMETERS
 
 **--sslv2**, **--sslv3**
-> Test for SSL 2.0 or SSL 3.0 support.
+> 测试是否支持 SSL 2.0 或 SSL 3.0。
 
 **--tlsv1**, **--tlsv1_1**, **--tlsv1_2**, **--tlsv1_3**
-> Test for specific TLS version support.
+> 测试特定 TLS 版本的支持情况。
 
 **--certinfo**
-> Retrieve and analyze server certificate.
+> 获取并分析服务器证书。
 
 **--heartbleed**
-> Test for OpenSSL Heartbleed vulnerability.
+> 测试 OpenSSL Heartbleed 漏洞。
 
 **--robot**
-> Test for ROBOT vulnerability.
+> 测试 ROBOT 漏洞。
 
 **--openssl_ccs**
-> Test for OpenSSL CCS Injection vulnerability (CVE-2014-0224).
+> 测试 OpenSSL CCS 注入漏洞（CVE-2014-0224）。
 
 **--compression**
-> Test for TLS compression support (CRIME attack vector).
+> 测试 TLS 压缩支持（CRIME 攻击向量）。
 
 **--reneg**
-> Test for insecure TLS renegotiation.
+> 测试不安全的 TLS 重协商。
 
 **--fallback**
-> Test for TLS_FALLBACK_SCSV downgrade prevention.
+> 测试 TLS_FALLBACK_SCSV 降级防护。
 
 **--early_data**
-> Test for TLS 1.3 early data support.
+> 测试 TLS 1.3 early data 支持。
 
 **--starttls** _protocol_
-> Use STARTTLS handshake. Protocols: auto, smtp, xmpp, pop3, imap, ftp, ldap, rdp, postgres.
+> 使用 STARTTLS 握手。协议：auto、smtp、xmpp、pop3、imap、ftp、ldap、rdp、postgres。
 
 **--sni** _hostname_
-> Server Name Indication hostname for TLS 1.0+.
+> 用于 TLS 1.0+ 的服务器名称指示（SNI）主机名。
 
 **--mozilla_config** _level_
-> Check compliance: **old**, **intermediate**, or **modern**.
+> 检查合规性：**old**、**intermediate** 或 **modern**。
 
 **--json_out** _file_
-> Output results to JSON file.
+> 将结果输出到 JSON 文件。
 
 **--targets_in** _file_
-> Read targets from file (one per line).
+> 从文件读取目标（每行一个）。
 
 **--quiet**
-> Suppress output except errors.
+> 抑制除错误外的输出。
 
 # DESCRIPTION
 
-**SSLyze** is a fast SSL/TLS scanning tool that analyzes server configurations to identify security weaknesses. It tests for protocol support, cipher suites, certificate validity, and known vulnerabilities like Heartbleed, ROBOT, and CRIME.
+**SSLyze** 是一款快速的 SSL/TLS 扫描工具，用于分析服务器配置以发现安全弱点。它测试协议支持、密码套件、证书有效性，以及 Heartbleed、ROBOT、CRIME 等已知漏洞。
 
-The tool connects directly to servers and performs real protocol handshakes to verify configurations. It supports STARTTLS for protocols that upgrade to TLS (SMTP, IMAP, etc.) and Server Name Indication for virtual hosting.
+该工具直接连接服务器并执行真实的协议握手来验证配置。它支持对升级到 TLS 的协议（SMTP、IMAP 等）使用 STARTTLS，并支持虚拟主机的服务器名称指示（SNI）。
 
-SSLyze can check configurations against Mozilla's recommended TLS settings, returning non-zero exit codes for non-compliant servers. This makes it suitable for CI/CD pipeline integration.
+SSLyze 可以对照 Mozilla 推荐的 TLS 设置检查配置，并对不符合要求的服务器返回非零退出码。这使其适合集成到 CI/CD 流水线中。
 
 # CAVEATS
 
-Scanning servers you don't own may be considered unauthorized testing. Some scans may trigger security alerts on monitored systems. The tool requires network connectivity to target servers. Vulnerability tests are point-in-time assessments; retest after server changes.
+扫描不属于你的服务器可能被视为未经授权的测试。某些扫描可能触发受监控系统上的安全警报。该工具需要与目标服务器的网络连通性。漏洞测试只是某一时间点的评估；服务器变更后应重新测试。
 
 # HISTORY
 
-**SSLyze** was created by Alban Diquet (nabla-c0d3) and released as open source. It has become a standard tool for TLS security assessment, used to scan hundreds of thousands of servers. The project is actively maintained with support for new TLS features and vulnerabilities. It's distributed under the GNU Affero General Public License (AGPL).
+**SSLyze** 由 Alban Diquet（nabla-c0d3）创建并以开源形式发布。它已成为 TLS 安全评估的标准工具，被用于扫描数十万台服务器。该项目得到积极维护，支持新的 TLS 特性和漏洞检测。它以 GNU Affero 通用公共许可证（AGPL）分发。
 
 # INSTALL
 

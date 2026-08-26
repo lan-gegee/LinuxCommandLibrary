@@ -1,38 +1,38 @@
 # TLDR
 
-**Connect to a remote server**
+**连接远程服务器**
 
 ```ssh [user]@[hostname]```
 
-**Connect on a specific port**
+**在指定端口上连接**
 
 ```ssh -p [port] [user]@[hostname]```
 
-**Connect with a specific identity file** (private key)
+**使用指定的身份文件**（私钥）连接
 
 ```ssh -i [~/.ssh/id_rsa] [user]@[hostname]```
 
-**Run a command on remote server**
+**在远程服务器上运行命令**
 
 ```ssh [user]@[hostname] "[command]"```
 
-**Create a local port forward** (tunnel)
+**创建本地端口转发**（隧道）
 
 ```ssh -L [local_port]:[target_host]:[target_port] [user]@[hostname]```
 
-**Create a remote port forward**
+**创建远程端口转发**
 
 ```ssh -R [remote_port]:localhost:[local_port] [user]@[hostname]```
 
-**Create a SOCKS proxy**
+**创建 SOCKS 代理**
 
 ```ssh -D [port] [user]@[hostname]```
 
-**Enable X11 forwarding**
+**启用 X11 转发**
 
 ```ssh -X [user]@[hostname]```
 
-**Copy SSH key to server** for passwordless login
+**将 SSH 密钥复制到服务器**以实现免密登录
 
 ```ssh-copy-id [user]@[hostname]```
 
@@ -43,83 +43,83 @@
 # PARAMETERS
 
 **-p** _port_
-> Connect to specified port (default: 22)
+> 连接指定端口（默认：22）
 
 **-i** _identity_file_
-> Use specified private key file
+> 使用指定的私钥文件
 
 **-l** _login_name_
-> Specify username (alternative to user@host)
+> 指定用户名（user@host 的替代写法）
 
 **-L** [_bind_:]_port_:_host_:_port_
-> Local port forwarding
+> 本地端口转发
 
 **-R** [_bind_:]_port_:_host_:_port_
-> Remote port forwarding
+> 远程端口转发
 
 **-D** [_bind_:]_port_
-> Dynamic port forwarding (SOCKS proxy)
+> 动态端口转发（SOCKS 代理）
 
 **-N**
-> Do not execute remote command (for tunnels)
+> 不执行远程命令（用于隧道）
 
 **-f**
-> Go to background after authentication
+> 认证后转入后台
 
 **-X**
-> Enable X11 forwarding
+> 启用 X11 转发
 
 **-Y**
-> Enable trusted X11 forwarding
+> 启用受信任的 X11 转发
 
 **-A**
-> Enable agent forwarding
+> 启用代理转发
 
 **-C**
-> Enable compression
+> 启用压缩
 
 **-v**
-> Verbose mode (use -vvv for more detail)
+> 详细模式（用 -vvv 可获得更多信息）
 
 **-o** _option_
-> Set configuration option
+> 设置配置选项
 
 **-J** _jump_host_
-> Connect via jump host (ProxyJump)
+> 通过跳板机连接（ProxyJump）
 
 **-t**
-> Force pseudo-terminal allocation
+> 强制分配伪终端
 
 # DESCRIPTION
 
-**ssh** (Secure Shell) provides secure encrypted communication between hosts over an insecure network. It's the primary tool for remote server administration and secure file transfer.
+**ssh**（Secure Shell）在不安全的网络上的主机之间提供安全加密的通信。它是远程服务器管理和安全文件传输的主要工具。
 
-Authentication can use passwords or public key cryptography. Key-based authentication is more secure and convenient; generate keys with **ssh-keygen** and copy public keys to servers with **ssh-copy-id**.
+认证可以使用密码或公钥加密。基于密钥的认证更安全也更方便；使用 **ssh-keygen** 生成密钥，再用 **ssh-copy-id** 将公钥复制到服务器。
 
-Port forwarding creates encrypted tunnels for other traffic. Local forwarding (**-L**) makes a remote service available locally. Remote forwarding (**-R**) exposes a local service on the remote host. Dynamic forwarding (**-D**) creates a SOCKS proxy.
+端口转发可为其他流量创建加密隧道。本地转发（**-L**）让远程服务在本地可用。远程转发（**-R**）把本地服务暴露在远程主机上。动态转发（**-D**）则创建 SOCKS 代理。
 
-Configuration in **~/.ssh/config** can define hosts with custom settings (port, user, identity file, proxy), making complex connections simple.
+通过 **~/.ssh/config** 可以定义带自定义设置（端口、用户、身份文件、代理）的主机，让复杂的连接变得简单。
 
 # CONFIGURATION
 
 **~/.ssh/config**
-> Per-user configuration file defining host aliases, default ports, usernames, identity files, proxy settings, and other connection options.
+> 每用户配置文件，定义主机别名、默认端口、用户名、身份文件、代理设置及其他连接选项。
 
 **~/.ssh/known_hosts**
-> Database of previously verified host keys, used to detect server impersonation.
+> 已验证主机密钥的数据库，用于检测服务器仿冒。
 
 **/etc/ssh/ssh_config**
-> System-wide SSH client configuration applied to all users.
+> 应用于所有用户的系统级 SSH 客户端配置。
 
 # CAVEATS
 
-First connection to a new host shows a fingerprint warning. Verify the fingerprint through a trusted channel before accepting.
+首次连接新主机时会出现指纹警告。接受之前请通过可信渠道核实指纹。
 
-Agent forwarding (**-A**) is convenient but risky on untrusted servers. Consider **ProxyJump** instead.
+代理转发（**-A**）虽然方便，但在不受信任的服务器上有风险。建议改用 **ProxyJump**。
 
-Keep private keys secure with permissions 600. Protect keys with passphrases and use ssh-agent to avoid repeated passphrase entry.
+私钥务必妥善保管，权限设为 600。为密钥设置口令保护，并配合 ssh-agent 避免重复输入口令。
 
-Firewall rules may block SSH. Port 22 is commonly filtered; consider running SSH on alternate ports for such networks.
+防火墙规则可能封锁 SSH。22 端口常被过滤；在这类网络中可考虑让 SSH 使用其他端口运行。
 
 # INSTALL
 

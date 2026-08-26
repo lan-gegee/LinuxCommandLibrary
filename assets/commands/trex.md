@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal app for regex visualization and testing
+正则表达式可视化与测试终端应用
 
 # TLDR
 
-**Launch the interactive regex playground**
+启动交互式正则表达式演练场
 
 ```trex```
 
-**Load a file for regex testing**
+加载文件用于正则测试
 
 ```trex -f [file]```
 
@@ -18,11 +18,11 @@ Terminal app for regex visualization and testing
 
 # DESCRIPTION
 
-**trex** is a terminal-based tool for writing, visualizing, and testing regular expressions. It displays a live regex playground where you input patterns and test strings side by side, with dynamic highlighting of matches and capture groups. It also includes a regex help menu and file loading support.
+**trex** 是一个基于终端的正则表达式编写、可视化和测试工具。它呈现一个实时正则演练场，你可以并排输入模式和测试字符串，匹配结果和捕获组会动态高亮显示。它还包含正则帮助菜单，并支持文件加载。
 
 # HISTORY
 
-**trex** was created by **Samyak Bardiya** (samyakbardiya) and is written in **Go**.
+**trex** 由 **Samyak Bardiya**（samyakbardiya）创建，使用 **Go** 编写。
 
 # INSTALL
 

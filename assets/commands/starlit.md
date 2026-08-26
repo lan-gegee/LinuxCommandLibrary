@@ -1,18 +1,18 @@
 # TAGLINE
 
-Minimal and customizable weather CLI
+极简且可定制的天气 CLI
 
 # TLDR
 
-**Display weather for a specific city**
+**显示指定城市的天气**
 
 ```starlit [seattle]```
 
-**Start interactive weather mode**
+**启动交互式天气模式**
 
 ```starlit --interactive```
 
-**Open the configuration file for editing**
+**打开配置文件进行编辑**
 
 ```starlit --edit```
 
@@ -22,15 +22,15 @@ Minimal and customizable weather CLI
 
 # DESCRIPTION
 
-**starlit** is a minimal and customizable weather CLI powered by the OpenWeatherMap API and styled with the Rich library and terminal text effects. It supports interactive mode, customizable color themes, and multi-language output.
+**starlit** 是一个极简且可定制的天气 CLI，由 OpenWeatherMap API 驱动，使用 Rich 库和终端文本特效进行样式呈现。它支持交互模式、自定义颜色主题和多语言输出。
 
 # CAVEATS
 
-Requires an OpenWeatherMap API key.
+需要 OpenWeatherMap API 密钥。
 
 # HISTORY
 
-**starlit** was created by **Ashley Lee** (ashuhlee) and is written in **Python**.
+**starlit** 由 **Ashley Lee**（ashuhlee）创建，使用 **Python** 编写。
 
 # SEE ALSO
 

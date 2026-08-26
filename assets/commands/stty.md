@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display and change terminal line settings
+显示并更改终端线路设置
 
 # TLDR
 
-**Show all settings**
+**显示所有设置**
 
 ```stty -a```
 
-**Show settings for device**
+**显示设备的设置**
 
 ```stty -a -F [/dev/ttyUSB0]```
 
-**Set baud rate**
+**设置波特率**
 
 ```stty -F [/dev/ttyUSB0] [115200]```
 
-**Disable echo**
+**禁用回显**
 
 ```stty -echo```
 
-**Enable raw mode**
+**启用原始模式**
 
 ```stty raw```
 
-**Reset to sane defaults**
+**重置为合理默认值**
 
 ```stty sane```
 
-**Set terminal size**
+**设置终端大小**
 
 ```stty rows [24] cols [80]```
 
@@ -38,64 +38,64 @@ Display and change terminal line settings
 
 # DESCRIPTION
 
-**stty** displays or changes terminal line settings. It controls various aspects of terminal I/O including baud rate, character processing, and signal handling.
+**stty** 显示或更改终端线路设置。它控制终端 I/O 的各个方面，包括波特率、字符处理和信号处理。
 
-The tool is essential for configuring serial ports and customizing terminal behavior.
+该工具对于配置串口和自定义终端行为至关重要。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Print all settings.
+> 打印所有设置。
 
 **-g**, **--save**
-> Print in stty-readable form.
+> 以 stty 可读的形式打印。
 
 **-F** _device_, **--file**=_device_
-> Open and use the specified device instead of stdin.
+> 打开并使用指定设备而不是 stdin。
 
 **sane**
-> Reset to sane values.
+> 重置为合理值。
 
 **raw**
-> Raw mode (no processing).
+> 原始模式（不做处理）。
 
 **cooked**
-> Normal mode (opposite of raw).
+> 常规模式（raw 的反义）。
 
 **echo** / **-echo**
-> Enable/disable echoing of input characters.
+> 启用/禁用输入字符回显。
 
 **rows** _n_
-> Set terminal rows.
+> 设置终端行数。
 
 **cols** _n_
-> Set terminal columns.
+> 设置终端列数。
 
 **ispeed** _n_
-> Set input baud rate.
+> 设置输入波特率。
 
 **ospeed** _n_
-> Set output baud rate.
+> 设置输出波特率。
 
 **ixon** / **-ixon**
-> Enable/disable START/STOP output control.
+> 启用/禁用 START/STOP 输出控制。
 
 **ixoff** / **-ixoff**
-> Enable/disable sending of START/STOP characters.
+> 启用/禁用 START/STOP 字符的发送。
 
 **crtscts** / **-crtscts**
-> Enable/disable RTS/CTS hardware flow control.
+> 启用/禁用 RTS/CTS 硬件流控制。
 
 **cstopb** / **-cstopb**
-> Use two stop bits per character (one with '-').
+> 每字符使用两个停止位（加 '-' 则为一个）。
 
 # CAVEATS
 
-Settings affect current terminal. Some require appropriate privileges. Raw mode disables many features. Changes may not persist.
+设置影响当前终端。某些设置需要相应权限。原始模式会禁用许多特性。更改可能不会持久保存。
 
 # HISTORY
 
-**stty** (set tty) is a traditional Unix utility dating back to early Unix versions. It remains essential for serial communication and terminal configuration.
+**stty**（set tty）是一款传统 Unix 实用程序，可追溯到早期 Unix 版本。它在串口通信和终端配置方面仍然不可或缺。
 
 # INSTALL
 

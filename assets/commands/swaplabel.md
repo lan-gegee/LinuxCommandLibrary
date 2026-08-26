@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display or change swap area label and UUID
+显示或更改交换分区的标签和 UUID
 
 # TLDR
 
-**Display** the current label and UUID of a swap area
+**显示**交换分区当前的标签和 UUID
 
 ```swaplabel [path/to/device]```
 
-**Set** the label of a swap area
+**设置**交换分区的标签
 
 ```swaplabel -L [new_label] [path/to/device]```
 
-**Set** the UUID of a swap area
+**设置**交换分区的 UUID
 
 ```swaplabel -U [new_uuid] [path/to/device]```
 
@@ -23,26 +23,26 @@ Display or change swap area label and UUID
 # PARAMETERS
 
 **-L, --label _label_**
-> Set the swap area label
+> 设置交换分区的标签
 
 **-U, --uuid _uuid_**
-> Set the swap area UUID (use **uuidgen** to create)
+> 设置交换分区的 UUID（可用 **uuidgen** 生成）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**swaplabel** prints or changes the label or UUID of a Linux swap area. The device can be a partition or a regular file configured as swap space.
+**swaplabel** 用于打印或更改 Linux 交换分区的标签或 UUID。设备可以是分区，也可以是配置为交换空间的普通文件。
 
-Labels and UUIDs are useful for identifying swap areas in **/etc/fstab** instead of using device paths, which may change between boots. Using UUIDs is particularly recommended for reliable identification.
+标签和 UUID 可用于在 **/etc/fstab** 中标识交换分区，避免使用可能在重启之间发生变化的设备路径。特别建议使用 UUID 来实现可靠的标识。
 
 # CAVEATS
 
-The swap area must be inactive (not in use) when changing label or UUID. Requires root privileges. After changing UUID, update **/etc/fstab** if it references the old UUID. Part of the util-linux package.
+更改标签或 UUID 时，交换分区必须处于未激活（未使用）状态。需要 root 权限。更改 UUID 后，如果 **/etc/fstab** 引用了旧 UUID，请更新它。属于 util-linux 软件包。
 
 # INSTALL
 

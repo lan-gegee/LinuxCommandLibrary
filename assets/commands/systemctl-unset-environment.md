@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove service manager environment variables
+移除服务管理器的环境变量
 
 # TLDR
 
-**Unset** environment variable
+**移除**环境变量
 
 ```systemctl unset-environment [VAR]```
 
-Unset **multiple** variables
+移除**多个**变量
 
 ```systemctl unset-environment [VAR1 VAR2 ...]```
 
-Unset in **user** manager
+在**用户**管理器中移除
 
 ```systemctl unset-environment [VAR] --user```
 
@@ -23,24 +23,24 @@ Unset in **user** manager
 # PARAMETERS
 
 **--user**
-> Unset in user service manager environment
+> 从用户服务管理器的环境中移除
 
 **--system**
-> Unset in system manager environment (default)
+> 从系统管理器的环境中移除（默认）
 
 # DESCRIPTION
 
-**systemctl unset-environment** removes environment variables from the systemd service manager's environment. This undoes the effect of `systemctl set-environment`.
+**systemctl unset-environment** 从 systemd 服务管理器的环境中移除环境变量。这会撤销 `systemctl set-environment` 的效果。
 
-Services started after the unset will not receive the removed variables.
+在移除之后启动的服务将不再收到这些变量。
 
 # CAVEATS
 
-Only affects services started after the change. Already running services keep their environment. Changes are temporary and lost on reboot.
+只影响更改之后启动的服务。已在运行的服务保留其环境。更改是临时的，重启后会丢失。
 
 # HISTORY
 
-The **unset-environment** subcommand complements `set-environment`, providing complete runtime control over the service manager's environment.
+**unset-environment** 子命令与 `set-environment` 互为补充，提供对服务管理器环境的完整运行时控制。
 
 # SEE ALSO
 

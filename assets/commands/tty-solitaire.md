@@ -1,18 +1,18 @@
 # TAGLINE
 
-terminal-based Klondike solitaire card game
+基于终端的 Klondike 接龙纸牌游戏
 
 # TLDR
 
-**Start a game**
+**开始游戏**
 
 ```ttysolitaire```
 
-**Set number of passes through the deck**
+**设置允许翻牌堆的遍数**
 
 ```ttysolitaire -p [3]```
 
-**Use a specific card back color**
+**使用指定的牌背颜色**
 
 ```ttysolitaire -b [blue]```
 
@@ -23,16 +23,16 @@ terminal-based Klondike solitaire card game
 # PARAMETERS
 
 **-p** _NUM_
-> Number of passes through the deck (default: unlimited).
+> 允许翻阅牌堆的遍数（默认：不限）。
 
 **-b** _COLOR_
-> Card back color: red, green, blue, cyan, magenta, yellow, white, black.
+> 牌背颜色：red、green、blue、cyan、magenta、yellow、white、black。
 
 **-h**
-> Display help.
+> 显示帮助信息。
 
 **-v**
-> Display version.
+> 显示版本信息。
 
 # PREVIEW
 
@@ -44,17 +44,17 @@ terminal-based Klondike solitaire card game
 
 # DESCRIPTION
 
-**ttysolitaire** is an ncurses-based Klondike solitaire card game for the terminal. The classic solitaire game with seven tableau columns, four foundation piles, and a stock/waste pile.
+**ttysolitaire** 是一个基于 ncurses 的终端 Klondike 接龙纸牌游戏。经典的接龙玩法，包含七个牌桌列、四个基础堆以及一个发牌堆/弃牌堆。
 
-Controls: arrow keys or hjkl to move cursor, space to select/place cards, **m** to draw from stock, **q** to quit. Cards are built down in alternating colors on the tableau and up by suit on the foundations.
+操作方式：方向键或 hjkl 移动光标，空格键选择/放置纸牌，**m** 从发牌堆抽牌，**q** 退出。在牌桌上纸牌按交替颜色递减排列，在基础堆上按花色递增排列。
 
 # CAVEATS
 
-Requires a terminal with ncurses and color support. Minimum terminal size is 80x24.
+需要支持 ncurses 和颜色的终端。终端最小尺寸为 80x24。
 
 # HISTORY
 
-**tty-solitaire** was created by **Mats Rauhala** as a lightweight terminal solitaire implementation, providing the classic card game experience without a graphical environment.
+**tty-solitaire** 由 **Mats Rauhala** 创建，是一个轻量级的终端接龙实现，让用户在没有图形环境的情况下也能体验经典纸牌游戏。
 
 # INSTALL
 

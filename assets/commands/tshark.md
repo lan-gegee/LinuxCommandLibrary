@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line network packet analyzer
+命令行网络数据包分析器
 
 # TLDR
 
-**Monitor** everything on localhost
+**监控**本地主机上的所有流量
 
 ```tshark```
 
-Only capture packets matching a **capture filter**
+只捕获匹配**捕获过滤器**的数据包
 
 ```tshark -f 'udp port 53'```
 
-Only show packets matching an **output filter**
+只显示匹配**输出过滤器**的数据包
 
 ```tshark -Y 'http.request.method == "GET"'```
 
-**Decode** a TCP port using a specific protocol
+用指定协议**解码** TCP 端口
 
 ```tshark -d tcp.port==8888,http```
 
-Specify the **format** of captured output
+指定捕获输出的**格式**
 
 ```tshark -T [json|text|ps]```
 
-Select **specific fields** to output
+选择要输出的**特定字段**
 
 ```tshark -T fields -e http.request.method -e ip.src```
 
-**Write** captured packets to a file
+将捕获的数据包**写入**文件
 
 ```tshark -w [path/to/file]```
 
-**Analyze** packets from a file
+从文件中**分析**数据包
 
 ```tshark -r [path/to/file.pcap]```
 
@@ -43,57 +43,57 @@ Select **specific fields** to output
 # PARAMETERS
 
 **-i** _interface_
-> Capture on specified interface
+> 在指定网络接口上捕获
 
 **-f** _filter_
-> Capture filter (BPF syntax)
+> 捕获过滤器（BPF 语法）
 
 **-Y** _filter_
-> Display filter (Wireshark syntax)
+> 显示过滤器（Wireshark 语法）
 
 **-r** _file_
-> Read packets from file
+> 从文件读取数据包
 
 **-w** _file_
-> Write packets to file
+> 将数据包写入文件
 
 **-T** _format_
-> Output format (text, json, pdml, ps, fields, etc.)
+> 输出格式（text、json、pdml、ps、fields 等）
 
 **-e** _field_
-> Field to print (with -T fields/json/pdml)
+> 要打印的字段（配合 -T fields/json/pdml 使用）
 
 **-d** _spec_
-> Decode as protocol (e.g., tcp.port==8080,http)
+> 按指定协议解码（例如 tcp.port==8080,http）
 
 **-c** _count_
-> Stop after capturing count packets
+> 捕获 count 个数据包后停止
 
 **-a** _condition_
-> Autostop condition (duration:sec, filesize:KB)
+> 自动停止条件（duration:sec、filesize:KB）
 
 **-V**
-> Verbose output (packet tree)
+> 详细输出（数据包树）
 
 **-x**
-> Print hex dump of packet data
+> 打印数据包数据的十六进制转储
 
 **-q**
-> Quiet mode (less output)
+> 安静模式（减少输出）
 
 # DESCRIPTION
 
-**tshark** is the command-line version of Wireshark, providing network packet capture and analysis capabilities. It can capture live traffic from network interfaces, read packets from capture files, and decode protocol data.
+**tshark** 是 Wireshark 的命令行版本，提供网络数据包捕获与分析能力。它可以从网络接口捕获实时流量、从捕获文件读取数据包，并解码协议数据。
 
-The tool supports both capture filters (BPF syntax, applied during capture) and display filters (Wireshark syntax, applied to output). It can output data in various formats including text, JSON, and PDML for further processing.
+该工具同时支持捕获过滤器（BPF 语法，在捕获时应用）和显示过滤器（Wireshark 语法，应用于输出）。它可以以多种格式输出数据，包括 text、JSON 和 PDML，便于后续处理。
 
 # CAVEATS
 
-Requires root or appropriate capabilities for live capture. Capture and display filter syntaxes are different. Large captures can consume significant disk space and memory. Some protocol decoding requires port hints via **-d** option.
+实时捕获需要 root 权限或相应的能力（capabilities）。捕获过滤器与显示过滤器的语法不同。大型捕获可能占用大量磁盘空间和内存。某些协议的解码需要通过 **-d** 选项提供端口提示。
 
 # HISTORY
 
-Part of the **Wireshark** project, originally called Ethereal. The command-line version has been available since the early days of the project. tshark provides the same protocol analysis engine as Wireshark but suited for scripting and headless systems.
+属于 **Wireshark** 项目（最初名为 Ethereal）的一部分。命令行版本自项目早期就已存在。tshark 提供与 Wireshark 相同的协议分析引擎，但更适合脚本和无界面系统。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-move files to recoverable FreeDesktop.org trash
+将文件移入可恢复的 FreeDesktop.org 回收站
 
 # TLDR
 
-**Send** a file to the trash
+将文件移入**回收站**
 
 ```trash [path/to/file]```
 
-**List** all files in the trash
+列出**回收站中的所有文件**
 
 ```trash-list```
 
-**Interactively restore** a file from the trash
+以交互方式**从回收站恢复**文件
 
 ```trash-restore```
 
-**Empty** the trash
+清空回收站
 
 ```trash-empty```
 
-Permanently delete files older than **10 days**
+永久删除超过 **10 天**的文件
 
 ```trash-empty 10```
 
-**Remove** files matching a pattern from trash
+从回收站中**删除**匹配模式的文件
 
 ```trash-rm "*.o"```
 
-Remove files with a **specific original location**
+删除具有**特定原始位置**的文件
 
 ```trash-rm /[path/to/file_or_directory]```
 
@@ -47,48 +47,48 @@ Remove files with a **specific original location**
 # PARAMETERS
 
 **trash** _files_
-> Move files to trash (alias: trash-put)
+> 将文件移入回收站（别名：trash-put）
 
 **trash-list**
-> List files in trash with original path and deletion date
+> 列出回收站中的文件，包括原始路径和删除日期
 
 **trash-restore**
-> Interactively restore files from trash
+> 以交互方式从回收站恢复文件
 
 **trash-empty** [_days_]
-> Empty trash, optionally only files older than days
+> 清空回收站，可选择只清理超过指定天数的文件
 
 **trash-rm** _pattern_
-> Remove files from trash matching pattern or original path
+> 从回收站中删除匹配模式或原始路径的文件
 
 **-d**, **--directory**
-> Remove empty directories
+> 移除空目录
 
 **-f**, **--force**
-> Ignore nonexistent files
+> 忽略不存在的文件
 
 **-v**, **--verbose**
-> Explain what is being done
+> 说明正在进行的操作
 
 **--trash-dir** _dir_
-> Use specified trash directory instead of the default.
+> 使用指定的回收站目录而非默认位置。
 
 **--version**
-> Show the program's version number and exit.
+> 显示程序的版本号并退出。
 
 # DESCRIPTION
 
-**trash-cli** is a command-line interface to the FreeDesktop.org Trash specification, providing a safer alternative to rm by moving files to a recoverable trash location instead of permanent deletion. The trash follows XDG standards and integrates with desktop file managers.
+**trash-cli** 是 FreeDesktop.org 回收站规范的命令行实现，通过将文件移动到可恢复的回收站位置而不是永久删除，提供了比 rm 更安全的替代方案。该回收站遵循 XDG 标准，并与桌面文件管理器集成。
 
-Files can be restored to their original location using trash-restore, which presents an interactive menu of trashed items. The trash-empty command permanently deletes items from the trash, with optional age filtering.
+可以使用 trash-restore 将文件恢复到原始位置，它会呈现一个可交互选择的回收站项目菜单。trash-empty 命令永久删除回收站中的项目，并支持按时间过滤。
 
 # CAVEATS
 
-Trashing files on external drives creates a .Trash directory on that drive. Disk space is not freed until trash is emptied. Files trashed from command line may not appear in desktop trash depending on file manager implementation.
+移除外部驱动器上的文件会在该驱动器上创建 .Trash 目录。在清空回收站之前不会释放磁盘空间。视文件管理器的实现而定，通过命令行移除的文件可能不会出现在桌面回收站中。
 
 # HISTORY
 
-Developed by **Andrea Francia** as a command-line implementation of the FreeDesktop.org Trash specification. Provides Unix philosophy-compliant access to desktop trash functionality, enabling safe deletion practices in terminal workflows.
+由 **Andrea Francia** 开发，是 FreeDesktop.org 回收站规范的命令行实现。它以符合 Unix 哲学的方式访问桌面回收站功能，让终端工作流中也能安全地执行删除操作。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Inspect and mount disk images
+检查和挂载磁盘镜像
 
 # TLDR
 
-**Show** general image information
+**显示**镜像的一般信息
 
 ```systemd-dissect [path/to/image.raw]```
 
-**Mount** an OS image
+**挂载**一个 OS 镜像
 
 ```systemd-dissect -m [path/to/image.raw] [/mnt/image]```
 
-**Unmount** an OS image
+**卸载**一个 OS 镜像
 
 ```systemd-dissect -u [/mnt/image]```
 
-**List** files in an image
+**列出**镜像中的文件
 
 ```systemd-dissect -l [path/to/image.raw]```
 
-**Attach** an OS image to a loopback device
+将 OS 镜像**接入**回环设备
 
 ```systemd-dissect --attach [path/to/image.raw]```
 
-**Detach** an OS image from a loopback device
+将 OS 镜像从回环设备**分离**
 
 ```systemd-dissect --detach [path/to/device]```
 
@@ -35,38 +35,38 @@ Inspect and mount disk images
 # PARAMETERS
 
 **-m, --mount**
-> Mount the image to a directory
+> 将镜像挂载到目录
 
 **-u, --umount**
-> Unmount a mounted image
+> 卸载已挂载的镜像
 
 **-l, --list**
-> List files in the image
+> 列出镜像中的文件
 
 **--attach**
-> Attach image to loopback device
+> 将镜像接入回环设备
 
 **--detach**
-> Detach image from loopback device
+> 将镜像从回环设备分离
 
 **-x, --copy-from**
-> Copy files from image
+> 从镜像复制文件
 
 **-a, --copy-to**
-> Copy files to image
+> 向镜像复制文件
 
 **--root-hash _hash_**
-> Specify dm-verity root hash
+> 指定 dm-verity 根哈希
 
 # DESCRIPTION
 
-**systemd-dissect** introspects and interacts with Discoverable Disk Images (DDIs) and other OS disk images. It can mount, list, and manipulate image contents without requiring manual loopback setup.
+**systemd-dissect** 用于检查和操作可发现磁盘镜像（DDI）及其他 OS 磁盘镜像。它可以挂载、列出和操作镜像内容，无需手动设置回环设备。
 
-The tool supports various image formats including raw disk images with GPT partition tables, following the Discoverable Partitions Specification for automatic partition type recognition.
+该工具支持多种镜像格式，包括带 GPT 分区表的原始磁盘镜像，并遵循可发现分区规范自动识别分区类型。
 
 # CAVEATS
 
-Requires appropriate kernel support for filesystem types in the image. dm-verity images require the root hash to be provided. Part of the systemd suite.
+需要内核对镜像中的文件系统类型提供相应支持。dm-verity 镜像需要提供根哈希。属于 systemd 工具套件的一部分。
 
 # INSTALL
 

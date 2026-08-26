@@ -1,18 +1,18 @@
 # TAGLINE
 
-Download and launch Tor Browser
+下载并启动 Tor Browser
 
 # TLDR
 
-**Launch Tor Browser**
+**启动 Tor Browser**
 
 ```torbrowser-launcher```
 
-**Open settings dialog**
+**打开设置对话框**
 
 ```torbrowser-launcher --settings```
 
-**Check for updates**
+**检查更新**
 
 ```torbrowser-launcher```
 
@@ -23,28 +23,28 @@ Download and launch Tor Browser
 # PARAMETERS
 
 **--settings**
-> Open the Tor Browser Launcher Settings dialog.
+> 打开 Tor Browser Launcher 设置对话框。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**torbrowser-launcher** downloads, installs, and launches the Tor Browser on Linux. On first run, it downloads the latest Tor Browser from the Tor Project, verifies the signature, and installs it in the user's home directory.
+**torbrowser-launcher** 在 Linux 上下载、安装并启动 Tor Browser。首次运行时，它会从 Tor Project 下载最新的 Tor Browser，验证签名，并将其安装到用户主目录。
 
-Subsequent runs check for updates and launch the browser. The launcher handles downloading the correct version for your architecture and language, and preserves bookmarks and preferences across updates.
+后续运行会检查更新并启动浏览器。启动器会为你的架构和语言下载正确的版本，并在更新过程中保留书签和偏好设置。
 
-The settings dialog allows configuring the download mirror, whether to use the system Tor service for downloads, and other options.
+设置对话框允许配置下载镜像、是否使用系统 Tor 服务进行下载以及其他选项。
 
-Tor Browser enables anonymous web browsing by routing traffic through the Tor network, encrypting connections and hiding the user's IP address.
+Tor Browser 通过 Tor 网络路由流量来支持匿名上网，对连接加密并隐藏用户的 IP 地址。
 
 # CAVEATS
 
-First launch requires internet connection to download Tor Browser. Downloads may take time depending on network speed. Some networks block Tor; use bridges in settings if needed. Signature verification requires GPG.
+首次启动需要联网下载 Tor Browser。下载耗时取决于网络速度。某些网络会封锁 Tor；如有需要可在设置中使用网桥（bridge）。签名验证依赖 GPG。
 
 # HISTORY
 
-**torbrowser-launcher** was created by Micah Lee to simplify Tor Browser installation on Linux. It addresses security concerns of manual installation by automating signature verification. The launcher is widely packaged in Linux distributions including Debian, Ubuntu, and Fedora.
+**torbrowser-launcher** 由 Micah Lee 创建，旨在简化 Tor Browser 在 Linux 上的安装。它通过自动化签名验证解决了手动安装的安全隐患。该启动器已被 Debian、Ubuntu 和 Fedora 等 Linux 发行版广泛打包收录。
 
 # INSTALL
 

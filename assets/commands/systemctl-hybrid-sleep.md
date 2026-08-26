@@ -1,18 +1,18 @@
 # TAGLINE
 
-Suspend to both RAM and disk
+同时挂起到内存和磁盘
 
 # TLDR
 
-Enter **hybrid sleep**
+进入**混合睡眠**
 
 ```systemctl hybrid-sleep```
 
-**Force** hybrid sleep
+**强制**混合睡眠
 
 ```systemctl hybrid-sleep -f```
 
-Sleep without **wall** message
+不发送 **wall** 消息进入睡眠
 
 ```systemctl hybrid-sleep --no-wall```
 
@@ -23,29 +23,29 @@ Sleep without **wall** message
 # PARAMETERS
 
 **-f, --force**
-> Force sleep even if inhibitors are present
+> 即使存在抑制锁也强制睡眠
 
 **--no-wall**
-> Don't send wall message to logged-in users
+> 不向已登录用户发送 wall 消息
 
 # DESCRIPTION
 
-**systemctl hybrid-sleep** puts the system into hybrid sleep, which combines suspend-to-RAM and hibernate. The system state is saved to both RAM and disk, then the system enters low-power suspend mode.
+**systemctl hybrid-sleep** 使系统进入混合睡眠，它结合了挂起到内存和休眠。系统状态会同时保存到内存和磁盘，然后系统进入低功耗挂起模式。
 
-If power is maintained, the system wakes quickly from RAM. If power is lost, the system can still recover from the hibernation image on disk. This provides the best of both worlds at the cost of longer sleep time.
+如果电力得以维持，系统能从内存快速唤醒。如果断电，系统仍可从磁盘上的休眠镜像恢复。这兼顾了两者的优点，代价是更长的入睡时间。
 
 # CONFIGURATION
 
 **/etc/systemd/sleep.conf**
-> Controls hybrid sleep behavior via HybridSleepMode, HybridSleepState, and AllowHybridSleep settings.
+> 通过 HybridSleepMode、HybridSleepState 和 AllowHybridSleep 设置控制混合睡眠行为。
 
 # CAVEATS
 
-Requires both suspend and hibernate to be supported by hardware. Takes longer than regular suspend due to writing the hibernation image to disk. Requires sufficient swap space for hibernation. May not work with secure boot enabled on some systems.
+要求硬件同时支持挂起和休眠。由于要将休眠镜像写入磁盘，比常规挂起耗时更长。需要足够的 swap 空间用于休眠。在某些系统上启用安全启动时可能无法工作。
 
 # HISTORY
 
-Hybrid sleep was added to address the risk of data loss during suspend when laptop batteries drain completely, combining fast resume with the safety of hibernation.
+混合睡眠的引入是为了应对笔记本电池完全耗尽时挂起中数据丢失的风险，将快速恢复与休眠的安全性结合起来。
 
 # SEE ALSO
 

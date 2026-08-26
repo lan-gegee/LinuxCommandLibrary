@@ -1,18 +1,18 @@
 # TAGLINE
 
-Query systemd file hierarchy paths
+查询 systemd 文件层级路径
 
 # TLDR
 
-**Display** a list of known paths and their values
+**显示**已知路径及其值的列表
 
 ```systemd-path```
 
-**Query** a specific path and display its value
+**查询**特定路径并显示其值
 
 ```systemd-path "[path_name]"```
 
-**Suffix** printed paths with a string
+为打印的路径添加字符串**后缀**
 
 ```systemd-path --suffix [suffix_string]```
 
@@ -23,26 +23,26 @@ Query systemd file hierarchy paths
 # PARAMETERS
 
 **--suffix _string_**
-> Append suffix to printed paths
+> 为打印的路径追加后缀
 
 **--no-pager**
-> Don't pipe output through a pager
+> 不将输出通过分页器显示
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**systemd-path** queries and lists various system and user paths as defined by the systemd file hierarchy specification. These include standard locations for configuration, cache, runtime data, and other system directories.
+**systemd-path** 查询并列出 systemd 文件层级规范定义的各类系统和用户路径。其中包括配置、缓存、运行时数据等系统目录的标准位置。
 
-Common path names include: **temporary**, **temporary-large**, **system-binaries**, **system-configuration**, **user-configuration**, **user-runtime**, and many others.
+常见的路径名称包括：**temporary**、**temporary-large**、**system-binaries**、**system-configuration**、**user-configuration**、**user-runtime** 等。
 
 # CAVEATS
 
-Path values may vary based on system configuration and user context. The tool reflects the file hierarchy as understood by systemd. Part of the systemd suite.
+路径的值可能随系统配置和用户上下文而变化。该工具反映的是 systemd 所理解的文件层级。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

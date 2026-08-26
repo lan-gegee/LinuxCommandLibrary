@@ -1,30 +1,30 @@
 # TAGLINE
 
-System-level event capture and analysis
+系统级事件捕获与分析
 
 # TLDR
 
-**Capture** all events from live system
+从运行中的系统**捕获**所有事件
 
 ```sysdig```
 
-**Save** events to file
+将事件**保存**到文件
 
 ```sysdig -w [path/to/file].scap```
 
-**Read** events from file
+从文件**读取**事件
 
 ```sysdig -r [path/to/file].scap```
 
-**Filter** events by process and event type
+按进程和事件类型**过滤**事件
 
 ```sysdig proc.name=cat and evt.type=open```
 
-**List** available chisels
+**列出**可用的 chisel
 
 ```sysdig -cl```
 
-**Use** a chisel to analyze traffic
+**使用** chisel 分析流量
 
 ```sysdig -c spy_ip [ip_address]```
 
@@ -35,66 +35,66 @@ System-level event capture and analysis
 # PARAMETERS
 
 **-w, --write _file_**
-> Write captured events to file
+> 将捕获的事件写入文件
 
 **-r, --read _file_**
-> Read events from file
+> 从文件读取事件
 
 **-c, --chisel _name_**
-> Run specified chisel
+> 运行指定的 chisel
 
 **-cl, --list-chisels**
-> List available chisels
+> 列出可用的 chisel
 
 **-l, --list**
-> List available fields
+> 列出可用字段
 
 **-I _source_**
-> Use specified input source
+> 使用指定的输入源
 
 **-n _num_**
-> Stop after num events
+> 在 num 个事件后停止
 
 **-p _format_**
-> Custom output format
+> 自定义输出格式
 
 **-j, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-A, --print-ascii**
-> Print event buffers as ASCII (skip non-printable bytes).
+> 以 ASCII 打印事件缓冲区（跳过不可打印字节）。
 
 **-X, --print-hex-ascii**
-> Print event buffers as hex + ASCII.
+> 以十六进制 + ASCII 打印事件缓冲区。
 
 **-s** _len_, **--snaplen** _len_
-> Capture the first _len_ bytes of each I/O buffer (default 80).
+> 捕获每个 I/O 缓冲区的前 _len_ 字节（默认 80）。
 
 **-pc**, **-pcontainer**
-> Use container-aware output formatting (host + container.id, container.name).
+> 使用容器感知的输出格式（主机 + container.id、container.name）。
 
 **-M** _seconds_
-> Stop capturing after the given number of seconds.
+> 在给定秒数后停止捕获。
 
 **--list-fields**
-> List all filter/format fields available.
+> 列出所有可用的过滤/格式化字段。
 
 # DESCRIPTION
 
-**sysdig** is a system-level exploration and troubleshooting tool. It captures system calls and events, providing deep visibility into system behavior. It supports filtering, chisels (Lua scripts for analysis), and various output formats.
+**sysdig** 是一个系统级探索与故障排查工具。它捕获系统调用和事件，提供对系统行为的深入可见性。它支持过滤、chisel（用于分析的 Lua 脚本）以及多种输出格式。
 
-Sysdig can be used for performance analysis, security monitoring, and debugging.
+Sysdig 可用于性能分析、安全监控和调试。
 
 # FILTER SYNTAX
 
-Filters use **field=value** syntax with AND, OR, and NOT operators:
+过滤器使用 **field=value** 语法，支持 AND、OR 和 NOT 运算符：
 - proc.name=nginx
 - evt.type=open and fd.name contains /etc
 - container.id!=host
 
 # CAVEATS
 
-Requires root privileges for live capture. Kernel headers may be needed for certain features. Generates significant data on busy systems.
+实时捕获需要 root 权限。某些特性可能需要内核头文件。在繁忙的系统上会产生大量数据。
 
 # INSTALL
 

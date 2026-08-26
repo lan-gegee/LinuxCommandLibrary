@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create transient mount units
+创建临时挂载单元
 
 # TLDR
 
-**Mount** a device automatically at /run/media/system/LABEL
+**自动挂载**设备到 /run/media/system/LABEL
 
 ```systemd-mount [path/to/device]```
 
-**Mount** a device at a specific location
+**挂载**设备到指定位置
 
 ```systemd-mount [path/to/device] [path/to/mount_point]```
 
-**List** all known block devices with mountable filesystems
+**列出**所有已知的含可挂载文件系统的块设备
 
 ```systemd-mount --list```
 
-**Create** an automount point
+**创建**自动挂载点
 
 ```systemd-mount --automount yes [path/to/device]```
 
-**Unmount** one or more devices
+**卸载**一个或多个设备
 
 ```systemd-mount -u [path/to/mount_point]```
 
-**Mount** with a specific filesystem type
+以指定的文件系统类型**挂载**
 
 ```systemd-mount -t [filesystem_type] [path/to/device] [path/to/mount_point]```
 
-**Mount** with additional options
+附加选项进行**挂载**
 
 ```systemd-mount -o [mount_options] [path/to/device] [path/to/mount_point]```
 
@@ -39,38 +39,38 @@ Create transient mount units
 # PARAMETERS
 
 **--list**
-> List known block devices with mountable filesystems
+> 列出已知的存在可挂载文件系统的块设备
 
 **--automount _bool_**
-> Create an automount point
+> 创建自动挂载点
 
 **-u, --umount**
-> Unmount the specified mount point or device
+> 卸载指定的挂载点或设备
 
 **-t, --type _fstype_**
-> Specify filesystem type
+> 指定文件系统类型
 
 **-o, --options _opts_**
-> Mount options
+> 挂载选项
 
 **--owner _user_**
-> Set the owner of the mount point
+> 设置挂载点的所有者
 
 **-A, --automount**
-> Create automount unit
+> 创建 automount 单元
 
 **--discover**
-> Use automatic device discovery
+> 使用自动设备发现
 
 # DESCRIPTION
 
-**systemd-mount** creates and destroys transient mount or automount points using systemd's mount handling. It creates temporary mount units that are automatically cleaned up when unmounted.
+**systemd-mount** 利用 systemd 的挂载处理机制创建和销毁临时的挂载点或自动挂载点。它创建的临时挂载单元会在卸载时被自动清理。
 
-The tool integrates with systemd's device and mount management, supporting features like automount (on-demand mounting) and proper tracking of mount states through systemd units.
+该工具与 systemd 的设备和挂载管理相集成，支持自动挂载（按需挂载）等特性，并通过 systemd 单元正确跟踪挂载状态。
 
 # CAVEATS
 
-Mount points created are transient and don't persist across reboots. For persistent mounts, use fstab or create proper systemd mount units. Part of the systemd suite.
+所创建的挂载点是临时的，重启后不会保留。若需持久挂载，请使用 fstab 或创建正式的 systemd 挂载单元。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

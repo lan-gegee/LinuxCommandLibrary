@@ -1,30 +1,30 @@
 # TAGLINE
 
-Trace network path with MTU discovery
+追踪网络路径并发现 MTU
 
 # TLDR
 
-**Trace** path to a host with MTU discovery
+**追踪**到主机的路径并发现 MTU
 
 ```tracepath -p 33434 [host]```
 
-**Trace** with a specific destination port
+使用指定目的端口**追踪**
 
 ```tracepath -p [port] [host]```
 
-**Print** both hostnames and IP addresses
+同时**输出**主机名和 IP 地址
 
 ```tracepath -b [host]```
 
-**Specify** maximum TTL (hops)
+**指定**最大 TTL（跳数）
 
 ```tracepath -m [max_hops] [host]```
 
-**Specify** initial packet length
+**指定**初始数据包长度
 
 ```tracepath -l [packet_length] [host]```
 
-**Use** only IPv6 addresses
+只**使用** IPv6 地址
 
 ```tracepath -6 [host]```
 
@@ -35,35 +35,35 @@ Trace network path with MTU discovery
 # PARAMETERS
 
 **-p _port_**
-> Set initial destination port
+> 设置初始目的端口
 
 **-b**
-> Print both hostnames and numerical IP addresses
+> 同时输出主机名和数字 IP 地址
 
 **-m _max_hops_**
-> Set maximum number of hops (TTL)
+> 设置最大跳数（TTL）
 
 **-l _length_**
-> Set initial packet length
+> 设置初始数据包长度
 
 **-4**
-> Use IPv4 only
+> 只使用 IPv4
 
 **-6**
-> Use IPv6 only
+> 只使用 IPv6
 
 **-n**
-> Print only numeric addresses
+> 只输出数字地址
 
 # DESCRIPTION
 
-**tracepath** traces the path to a network host, discovering the MTU (Maximum Transmission Unit) along the path. Unlike traceroute, it does not require superuser privileges and can detect path MTU.
+**tracepath** 追踪到网络主机的路径，并沿路径发现 MTU（最大传输单元）。与 traceroute 不同，它不需要超级用户权限，并且能够检测路径 MTU。
 
-The output shows each hop with its RTT and MTU information.
+输出会显示每一跳及其 RTT 和 MTU 信息。
 
 # CAVEATS
 
-May not work through firewalls that block UDP packets. Results can vary based on network conditions and firewall rules. Part of the iputils package.
+在封锁 UDP 数据包的防火墙后可能无法工作。结果可能因网络状况和防火墙规则而异。是 iputils 软件包的组成部分。
 
 # INSTALL
 

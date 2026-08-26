@@ -1,38 +1,38 @@
 # TAGLINE
 
-Evaluate conditional expressions
+求值条件表达式
 
 # TLDR
 
-**Check if a file exists**
+**检查文件是否存在**
 
 ```test -e [path/to/file] && echo "exists"```
 
-**Check if file is a directory**
+**检查文件是否为目录**
 
 ```test -d [path/to/dir] && echo "is directory"```
 
-**Check if file is readable**
+**检查文件是否可读**
 
 ```test -r [path/to/file] && echo "readable"```
 
-**Compare strings for equality**
+**比较字符串是否相等**
 
 ```test "[string1]" = "[string2]"```
 
-**Check if string is non-empty**
+**检查字符串是否非空**
 
 ```test -n "[string]"```
 
-**Compare integers**
+**比较整数**
 
 ```test [5] -gt [3] && echo "greater"```
 
-**Combine conditions with AND**
+**用 AND 组合条件**
 
 ```test -f [file] -a -r [file]```
 
-**Combine conditions with OR**
+**用 OR 组合条件**
 
 ```test -f [file1] -o -f [file2]```
 
@@ -45,119 +45,119 @@ Evaluate conditional expressions
 # FILE TESTS
 
 **-e** _FILE_
-> True if file exists.
+> 文件存在时为真。
 
 **-f** _FILE_
-> True if file exists and is a regular file.
+> 文件存在且为普通文件时为真。
 
 **-d** _FILE_
-> True if file exists and is a directory.
+> 文件存在且为目录时为真。
 
 **-r** _FILE_
-> True if file is readable.
+> 文件可读时为真。
 
 **-w** _FILE_
-> True if file is writable.
+> 文件可写时为真。
 
 **-x** _FILE_
-> True if file is executable.
+> 文件可执行时为真。
 
 **-s** _FILE_
-> True if file exists and has size greater than zero.
+> 文件存在且大小大于零时为真。
 
 **-L** _FILE_
-> True if file is a symbolic link.
+> 文件是符号链接时为真。
 
 **-b** _FILE_
-> True if file is a block special file.
+> 文件是块设备文件时为真。
 
 **-c** _FILE_
-> True if file is a character special file.
+> 文件是字符设备文件时为真。
 
 **-p** _FILE_
-> True if file is a named pipe (FIFO).
+> 文件是命名管道（FIFO）时为真。
 
 **-S** _FILE_
-> True if file is a socket.
+> 文件是套接字时为真。
 
 **-g** _FILE_
-> True if file has set-group-ID bit set.
+> 文件设置了 set-group-ID 位时为真。
 
 **-u** _FILE_
-> True if file has set-user-ID bit set.
+> 文件设置了 set-user-ID 位时为真。
 
 **-O** _FILE_
-> True if file is owned by the effective user ID.
+> 文件由有效用户 ID 所有时为真。
 
 _FILE1_ **-nt** _FILE2_
-> True if FILE1 is newer (modification date) than FILE2.
+> FILE1 比 FILE2 新（按修改日期）时为真。
 
 _FILE1_ **-ot** _FILE2_
-> True if FILE1 is older than FILE2.
+> FILE1 比 FILE2 旧时为真。
 
 _FILE1_ **-ef** _FILE2_
-> True if FILE1 and FILE2 refer to the same device and inode numbers.
+> FILE1 与 FILE2 指向相同的设备号和 inode 号时为真。
 
 # STRING TESTS
 
 **-n** _STRING_
-> True if string length is non-zero.
+> 字符串长度非零时为真。
 
 **-z** _STRING_
-> True if string length is zero.
+> 字符串长度为零时为真。
 
 _STRING1_ **=** _STRING2_
-> True if strings are equal.
+> 两字符串相等时为真。
 
 _STRING1_ **!=** _STRING2_
-> True if strings are not equal.
+> 两字符串不相等时为真。
 
 # INTEGER COMPARISONS
 
 _INT1_ **-eq** _INT2_
-> Equal.
+> 等于。
 
 _INT1_ **-ne** _INT2_
-> Not equal.
+> 不等于。
 
 _INT1_ **-lt** _INT2_
-> Less than.
+> 小于。
 
 _INT1_ **-le** _INT2_
-> Less than or equal.
+> 小于或等于。
 
 _INT1_ **-gt** _INT2_
-> Greater than.
+> 大于。
 
 _INT1_ **-ge** _INT2_
-> Greater than or equal.
+> 大于或等于。
 
 # OPERATORS
 
 **!** _EXPR_
-> True if expression is false.
+> 表达式为假时为真。
 
 _EXPR1_ **-a** _EXPR2_
-> True if both expressions are true (AND).
+> 两个表达式都为真时为真（AND）。
 
 _EXPR1_ **-o** _EXPR2_
-> True if either expression is true (OR).
+> 任一表达式为真时为真（OR）。
 
 # DESCRIPTION
 
-**test** evaluates conditional expressions, returning exit status 0 (true) or 1 (false). It is commonly used in shell scripts for decision-making in if statements and loops.
+**test** 对条件表达式求值，返回退出状态 0（真）或 1（假）。它常用于 shell 脚本中，在 if 语句和循环里做判断。
 
-The command can also be invoked as **[** with a closing **]** required as the last argument. This bracket syntax is more readable in conditionals: **if [ -f file ]; then**.
+该命令也可以写作 **[**，此时必须以 **]** 作为最后一个参数。这种方括号写法在条件语句中更易读：**if [ -f file ]; then**。
 
-Modern shells also provide **[[** which offers additional features like pattern matching and safer string handling, but is not POSIX-compliant.
+现代 shell 还提供 **[[**，它支持模式匹配等额外特性以及更安全的字符串处理，但不符合 POSIX 标准。
 
 # CAVEATS
 
-Variables in test expressions should be quoted to handle empty values and spaces correctly. The **[** form requires spaces around brackets. String comparison uses **=** not **==** for POSIX compliance. Integer comparison operators (-eq, -lt) are different from string operators.
+test 表达式中的变量应加引号，以正确处理空值和空格。**[** 形式要求方括号两侧有空格。为了符合 POSIX 规范，字符串比较应使用 **=** 而非 **==**。整数比较运算符（-eq、-lt）与字符串运算符不同。
 
 # HISTORY
 
-test is one of the original Unix utilities, dating back to Version 7 Unix in **1979**. The bracket notation **[** was added as an alias for improved readability in shell scripts. Both forms are specified by POSIX and available as shell builtins and standalone commands.
+test 是最古老的 Unix 工具之一，可追溯到 **1979** 年的 Version 7 Unix。方括号记法 **[** 是作为别名加入的，用于提高 shell 脚本的可读性。两种形式均由 POSIX 规定，既可作为 shell 内建命令也可作为独立命令使用。
 
 # INSTALL
 

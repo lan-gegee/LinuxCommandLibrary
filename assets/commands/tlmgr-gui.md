@@ -1,14 +1,14 @@
 # TAGLINE
 
-Graphical TeX Live Manager interface
+图形界面的 TeX Live Manager
 
 # TLDR
 
-**Start graphical interface**
+**启动图形界面**
 
 ```tlmgr gui```
 
-**Start with specific repository**
+**以指定仓库启动**
 
 ```tlmgr --repository [url] gui```
 
@@ -19,17 +19,16 @@ Graphical TeX Live Manager interface
 # PARAMETERS
 
 **--load** _profile_
-> Load GUI profile.
+> 加载 GUI 配置档案。
 
 # DESCRIPTION
 
-**tlmgr gui** launches the graphical TeX Live Manager interface. Provides visual package browsing, installation, and configuration. Requires Perl/Tk.
+**tlmgr gui** 启动图形化的 TeX Live Manager 界面。提供可视化的软件包浏览、安装和配置。需要 Perl/Tk。
 
 # CAVEATS
 
-Requires **perl-tk** package to be installed.
+需要安装 **perl-tk** 软件包。
 
 # SEE ALSO
 
 [tlmgr](/man/tlmgr)(1), [tlmgr-shell](/man/tlmgr-shell)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-IPv6 security testing toolkit
+IPv6 安全测试工具包
 
 # TLDR
 
-**Scan for alive IPv6 hosts** on a network
+在网络中**扫描存活的 IPv6 主机**
 
 ```atk6-alive6 [eth0]```
 
-**Trace route to IPv6 host**
+**跟踪到 IPv6 主机的路由**
 
 ```atk6-trace6 [eth0] [target]```
 
-**Convert MAC address** to IPv6 link-local
+**将 MAC 地址转换为** IPv6 链路本地地址
 
 ```atk6-address6 [00:11:22:33:44:55]```
 
-**Flood target with router advertisements**
+**用路由器通告泛洪目标**
 
 ```atk6-flood_router6 [eth0] [target]```
 
-**Spoof neighbor advertisements** (MITM)
+**伪造邻居通告**（中间人攻击）
 
 ```atk6-parasite6 [eth0]```
 
-**Announce as a fake router**
+**伪装成路由器进行通告**
 
 ```atk6-fake_router6 [eth0] [network/64]```
 
-**Test known IPv6 vulnerabilities**
+**测试已知 IPv6 漏洞**
 
 ```atk6-exploit6 [eth0] [target]```
 
@@ -39,62 +39,62 @@ IPv6 security testing toolkit
 # TOOLS
 
 **alive6**
-> Detect alive hosts on the local network segment
+> 检测本地网段上存活的主机
 
 **trace6**
-> Fast IPv6 traceroute with ICMP6 or TCP-SYN
+> 使用 ICMP6 或 TCP-SYN 的快速 IPv6 traceroute
 
 **address6**
-> Convert between MAC, IPv4, and IPv6 addresses
+> 在 MAC、IPv4 和 IPv6 地址之间转换
 
 **fake_router6**
-> Announce as a router on the network
+> 在网络上伪装成路由器进行通告
 
 **flood_router6**
-> Flood target with random router advertisements
+> 用随机路由器通告泛洪目标
 
 **flood_advertise6**
-> Flood target with random neighbor advertisements
+> 用随机邻居通告泛洪目标
 
 **parasite6**
-> ICMP neighbor spoofer for MITM attacks
+> 用于中间人攻击的 ICMP 邻居欺骗器
 
 **redir6**
-> ICMPv6 redirect spoofer for MITM
+> 用于中间人攻击的 ICMPv6 重定向欺骗器
 
 **dos-new-ip6**
-> DoS by telling new devices their IP collides
+> 通过告知新设备其 IP 冲突来发起 DoS
 
 **denial6**
-> Prevent new IPv6 interfaces with DAD attacks
+> 用 DAD 攻击阻止新的 IPv6 接口
 
 **fake_mld6**
-> Join multicast groups on the network
+> 加入网络上的组播组
 
 **exploit6**
-> Test known IPv6 implementation vulnerabilities
+> 测试已知的 IPv6 实现漏洞
 
 **ndpexhaust26**
-> Exhaust NDP tables with ICMPv6 flooding
+> 用 ICMPv6 泛洪耗尽 NDP 表
 
 **rsmurf6**
-> Remote smurf attack over IPv6
+> 基于 IPv6 的远程 smurf 攻击
 
 # DESCRIPTION
 
-**thc-ipv6** is a toolkit for testing IPv6 and ICMPv6 protocol weaknesses. It contains various tools for network reconnaissance, denial of service, man-in-the-middle attacks, and vulnerability testing on IPv6 networks.
+**thc-ipv6** 是一个用于测试 IPv6 和 ICMPv6 协议弱点的工具包。它包含多种工具，可用于 IPv6 网络上的网络侦察、拒绝服务、中间人攻击和漏洞测试。
 
-On Debian-based systems, tools are prefixed with **atk6-** (e.g., **atk6-alive6**). Each tool has its own options; run with **-h** for help. The toolkit exploits features of IPv6 that differ from IPv4, including neighbor discovery, router advertisements, and multicast.
+在基于 Debian 的系统上，这些工具以 **atk6-** 为前缀（例如 **atk6-alive6**）。每个工具有各自的选项；用 **-h** 运行可查看帮助。该工具包利用了 IPv6 区别于 IPv4 的特性，包括邻居发现、路由器通告和组播。
 
-The library **thc-ipv6-lib.c** enables custom tool development with minimal code for crafting IPv6/ICMPv6 packets. Environment variables **THC_IPV6_PPPOE** and **THC_IPV6_6IN4** configure tunnel support.
+库文件 **thc-ipv6-lib.c** 让开发者能用少量代码构造自定义的 IPv6/ICMPv6 数据包工具。环境变量 **THC_IPV6_PPPOE** 和 **THC_IPV6_6IN4** 用于配置隧道支持。
 
 # CAVEATS
 
-These tools are for authorized security testing only. IPv6 attacks can disrupt network connectivity for all users on a segment. Many attacks require root privileges and direct network access. Some tools may crash vulnerable systems. Detection and logging of IPv6 attacks varies by network infrastructure.
+这些工具仅限用于获得授权的安全测试。IPv6 攻击可能中断网段内所有用户的网络连接。许多攻击需要 root 权限和直接的网络访问。某些工具可能导致存在漏洞的系统崩溃。对 IPv6 攻击的检测和日志记录因网络基础设施而异。
 
 # HISTORY
 
-THC-IPv6 was created by **van Hauser** (Marc Heuse) of **The Hacker's Choice** (THC), a German hacker collective. The toolkit was developed to demonstrate IPv6 security weaknesses as organizations began IPv6 deployment. It highlights that IPv6 introduces new attack surfaces absent in IPv4 networks, particularly around neighbor discovery and router advertisement protocols.
+THC-IPv6 由德国黑客团体 **The Hacker's Choice**（THC）的 **van Hauser**（Marc Heuse）创建。该工具包的开发目的是在各组织开始部署 IPv6 时展示其安全弱点。它揭示了 IPv6 引入了 IPv4 网络中不存在的新攻击面，尤其是围绕邻居发现和路由器通告协议的部分。
 
 # INSTALL
 

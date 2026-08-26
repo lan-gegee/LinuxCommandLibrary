@@ -1,30 +1,30 @@
 # TAGLINE
 
-Expose local services to internet
+将本地服务暴露到互联网
 
 # TLDR
 
-**Expose a local service** on port 8080 to the internet
+**将 8080 端口上的本地服务**暴露到互联网
 
 ```tailscale funnel [8080]```
 
-**Expose a local HTTPS proxy** target to the internet
+**将本地 HTTPS 代理**目标暴露到互联网
 
 ```tailscale funnel https+insecure://localhost:[8443]```
 
-**Expose on a specific port** (443, 8443, or 10000)
+在特定端口上**暴露**（443、8443 或 10000）
 
 ```tailscale funnel --serve-port [8443] [3000]```
 
-**Turn off funnel**
+关闭 funnel
 
 ```tailscale funnel off```
 
-**Check funnel status**
+查看 funnel 状态
 
 ```tailscale funnel status```
 
-**Run in background** mode
+以后台模式运行
 
 ```tailscale funnel --bg [8080]```
 
@@ -35,32 +35,32 @@ Expose local services to internet
 # PARAMETERS
 
 **--bg**
-> Run in background.
+> 在后台运行。
 
 **--serve-port** _port_
-> The public-facing port (443, 8443, or 10000; default 443).
+> 面向公众的端口（443、8443 或 10000；默认 443）。
 
 **--set-path** _path_
-> Mount the service at a specific URL path.
+> 将服务挂载到特定的 URL 路径。
 
 **off**
-> Disable funnel.
+> 禁用 funnel。
 
 **status**
-> Show current funnel configuration.
+> 显示当前 funnel 配置。
 
 **reset**
-> Reset all funnel configuration.
+> 重置所有 funnel 配置。
 
 # DESCRIPTION
 
-**tailscale funnel** exposes local services to the public internet through your Tailscale node. Unlike **tailscale serve** which only makes services available within your tailnet, Funnel creates a publicly accessible HTTPS endpoint that anyone on the internet can reach.
+**tailscale funnel** 通过你的 Tailscale 节点将本地服务暴露到公共互联网。与只能在 tailnet 内部访问服务的 **tailscale serve** 不同，Funnel 会创建一个互联网上任何人都能访问的公开 HTTPS 端点。
 
-Tailscale automatically provisions and manages TLS certificates for the endpoint, so traffic is encrypted without manual certificate setup. Services can be mapped to specific URL paths using **--set-path**, allowing multiple local services to be exposed under different routes. The **off** subcommand disables the funnel, and **status** shows the current configuration.
+Tailscale 会自动为端点申请和管理 TLS 证书，因此无需手动配置证书即可实现流量加密。服务可以通过 **--set-path** 映射到特定的 URL 路径，从而让多个本地服务以不同的路由对外提供。**off** 子命令禁用 funnel，**status** 则显示当前的配置。
 
 # CAVEATS
 
-Exposes services to the public internet -- use with caution. Funnel must be enabled in the Tailscale admin console ACL policy. Only ports 443, 8443, and 10000 are supported for public-facing endpoints.
+会将服务暴露到公共互联网——请谨慎使用。必须先在 Tailscale 管理控制台的 ACL 策略中启用 Funnel。面向公众的端点只支持 443、8443 和 10000 端口。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Exposes services to the public internet -- use with caution. Funnel must be enab
 # SEE ALSO
 
 [tailscale](/man/tailscale)(1), [tailscale-up](/man/tailscale-up)(1), [ngrok](/man/ngrok)(1)
-

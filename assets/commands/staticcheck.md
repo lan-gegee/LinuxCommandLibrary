@@ -1,34 +1,34 @@
 # TAGLINE
 
-Advanced Go static analysis linter
+先进的 Go 静态分析检查器
 
 # TLDR
 
-**Analyze all packages** in current module
+**分析当前模块中的所有包**
 
 ```staticcheck ./...```
 
-**Analyze specific packages**
+**分析指定的包**
 
 ```staticcheck [package1] [package2]```
 
-**Run specific checks only**
+**仅运行特定检查**
 
 ```staticcheck -checks "SA*,ST1000" ./...```
 
-**Ignore specific checks**
+**忽略特定检查**
 
 ```staticcheck -checks "all,-ST1003" ./...```
 
-**Output in different format**
+**以不同格式输出**
 
 ```staticcheck -f [stylish] ./...```
 
-**Show explanation for a check**
+**显示某个检查的解释**
 
 ```staticcheck -explain [SA1019]```
 
-**Display version**
+**显示版本**
 
 ```staticcheck -version```
 
@@ -39,52 +39,52 @@ Advanced Go static analysis linter
 # PARAMETERS
 
 **-checks** _checks_
-> Comma-separated list of checks to run. Supports wildcards and negation.
+> 要运行的检查的逗号分隔列表。支持通配符和取反。
 
 **-f** _format_
-> Output format: text (default), stylish, json, sarif, or null.
+> 输出格式：text（默认）、stylish、json、sarif 或 null。
 
 **-fail** _checks_
-> Comma-separated list of checks that cause non-zero exit on findings.
+> 导致发现问题时以非零值退出的检查的逗号分隔列表。
 
 **-explain** _check_
-> Display detailed explanation of a specific check.
+> 显示特定检查的详细解释。
 
 **-show-ignored**
-> Include findings that have been explicitly ignored via directives.
+> 包含已通过指令显式忽略的发现。
 
 **-go** _version_
-> Target Go version for compatibility checks.
+> 兼容性检查的目标 Go 版本。
 
 **-debug.cpuprofile** _file_
-> Write CPU profile to file.
+> 将 CPU profile 写入文件。
 
 **-debug.memprofile** _file_
-> Write memory profile to file.
+> 将内存 profile 写入文件。
 
 **-debug.version**
-> Print detailed version information.
+> 打印详细的版本信息。
 
 **-version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**staticcheck** is a state-of-the-art static analysis linter for Go. It finds bugs, performance issues, and code quality problems using sophisticated analysis techniques that go beyond what the standard **go vet** tool provides.
+**staticcheck** 是 Go 语言先进的静态分析检查器。它使用超出标准 **go vet** 工具范围的复杂分析技术来查找 bug、性能问题和代码质量问题。
 
-The tool includes over 150 checks organized into categories: SA (staticcheck - bugs and correctness), S (simple - code simplifications), ST (stylecheck - style issues), QF (quickfix - suggested improvements), and U (unused - dead code detection).
+该工具包含 150 多项检查，按类别组织：SA（staticcheck——bug 与正确性）、S（simple——代码简化）、ST（stylecheck——风格问题）、QF（quickfix——建议改进）和 U（unused——死代码检测）。
 
-Staticcheck integrates seamlessly with Go's tooling conventions, accepting packages in the same format as **go build**. It supports configuration via **staticcheck.conf** files for project-wide settings and inline directives like **//lint:ignore** for suppressing specific warnings.
+Staticcheck 无缝集成 Go 的工具链约定，接受与 **go build** 相同格式的包。它支持通过 **staticcheck.conf** 文件进行项目级设置，并支持 **//lint:ignore** 等内联指令来抑制特定警告。
 
-The linter is used as the default in VS Code's Go extension and is included as a component of golangci-lint. It provides machine-readable output formats for CI/CD integration.
+该检查器是 VS Code 的 Go 扩展的默认选择，也作为 golangci-lint 的组件包含在内。它提供机器可读的输出格式，便于 CI/CD 集成。
 
 # CAVEATS
 
-Check categories are disabled by default in some contexts. ST checks (style) include some controversial rules that are off by default. Configuration files use a different syntax than command-line flags. Some checks require analyzing dependencies which increases runtime. The tool is developed by Dominik Honnef with sponsorship from Google.
+在某些上下文中部分检查类别默认禁用。ST 检查（风格）中一些有争议的规则默认关闭。配置文件的语法与命令行标志不同。某些检查需要分析依赖项，会增加运行时间。该工具由 Dominik Honnef 开发，由 Google 提供赞助。
 
 # HISTORY
 
-**Staticcheck** was created by Dominik Honnef, starting development while at Google. It evolved from earlier tools like **go vet** and **golint** to provide more comprehensive static analysis. The tool gained widespread adoption in the Go community and became the default linter for VS Code's Go extension. It is now sponsored by both Google and the Go team.
+**Staticcheck** 由 Dominik Honnef 创建，开发工作始于他在 Google 任职期间。它在 **go vet** 和 **golint** 等早期工具的基础上演进，提供更全面的静态分析。该工具在 Go 社区获得广泛采用，成为 VS Code Go 扩展的默认检查器。现在由 Google 和 Go 团队共同赞助。
 
 # INSTALL
 

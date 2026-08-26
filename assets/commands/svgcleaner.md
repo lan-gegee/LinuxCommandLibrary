@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lossless SVG file optimizer
+无损 SVG 文件优化器
 
 # TLDR
 
-**Clean SVG**
+**清理 SVG**
 
 ```svgcleaner [input.svg] [output.svg]```
 
-**Maximum compression**
+**最大压缩**
 
 ```svgcleaner --preset=maximum [input.svg] [output.svg]```
 
-**Preserve specific attributes**
+**保留特定属性**
 
 ```svgcleaner --keep-named-ids [input.svg] [output.svg]```
 
-**Indent output**
+**缩进输出**
 
 ```svgcleaner --indent [2] [input.svg] [output.svg]```
 
-**Quiet mode**
+**静默模式**
 
 ```svgcleaner -q [input.svg] [output.svg]```
 
@@ -31,35 +31,35 @@ Lossless SVG file optimizer
 # PARAMETERS
 
 **--preset** _NAME_
-> Optimization preset.
+> 优化预设。
 
 **--keep-named-ids**
-> Preserve IDs.
+> 保留 ID。
 
 **--indent** _N_
-> Indentation spaces.
+> 缩进空格数。
 
 **-q**
-> Quiet mode.
+> 静默模式。
 
 **--multipass**
-> Multiple optimization passes.
+> 多轮优化。
 
 # DESCRIPTION
 
-**svgcleaner** performs lossless optimization of SVG files, reducing file size without altering their visual appearance. It removes unnecessary metadata, editor artifacts, unused definitions, and redundant attributes that bloat SVG files exported from graphic editors.
+**svgcleaner** 对 SVG 文件执行无损优化，在不改变外观的前提下减小文件体积。它会移除不必要的元数据、编辑器残留、未使用的定义以及冗余属性——这些正是图形编辑器导出的 SVG 文件臃肿的原因。
 
-The tool simplifies path data, optimizes geometry, merges compatible elements, and removes empty groups and containers. Multiple optimization passes can be applied for maximum size reduction. Optimization presets allow choosing between conservative and aggressive cleaning levels.
+该工具简化路径数据、优化几何结构、合并兼容的元素，并删除空的分组和容器。可以应用多轮优化以获得最大的体积缩减。通过优化预设可以在保守和激进的清理级别之间选择。
 
-Written in Rust for performance, svgcleaner is particularly effective at cleaning SVGs produced by editors like Inkscape, Adobe Illustrator, and Sketch, which often embed substantial editor-specific metadata and redundant styling information.
+svgcleaner 用 Rust 编写以保证性能，对清理 Inkscape、Adobe Illustrator 和 Sketch 等编辑器生成的 SVG 特别有效，这些文件通常嵌入大量编辑器专有元数据和冗余样式信息。
 
 # CAVEATS
 
-May break complex SVGs. Test output. Rust written.
+可能破坏复杂的 SVG。请测试输出结果。用 Rust 编写。
 
 # HISTORY
 
-**svgcleaner** was created as a lossless SVG optimizer, reducing file size without affecting visual appearance.
+**svgcleaner** 是一个无损 SVG 优化器，可在不影响外观的情况下减小文件体积。
 
 # INSTALL
 

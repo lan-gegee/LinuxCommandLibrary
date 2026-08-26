@@ -1,10 +1,10 @@
 # TAGLINE
 
-Terminal-based touch typing practice application
+基于终端的触打字练习应用
 
 # TLDR
 
-**Start a typing practice session**
+**开始一次打字练习**
 
 ```tukai```
 
@@ -15,33 +15,33 @@ Terminal-based touch typing practice application
 # KEYBOARD CONTROLS
 
 **Ctrl+C** / **Esc**
-> Exit the application.
+> 退出应用。
 
 **Ctrl+R**
-> Restart and generate new text.
+> 重启并生成新文本。
 
 **Ctrl+S**
-> Switch templates.
+> 切换模板。
 
 **Ctrl+P**
-> Switch languages.
+> 切换语言。
 
 **Ctrl+T**
-> Toggle transparent background.
+> 切换透明背景。
 
 **Ctrl+H** / **Left arrow**
-> Switch screen forward.
+> 向后切换屏幕。
 
 **Ctrl+L** / **Right arrow**
-> Switch screen backward.
+> 向前切换屏幕。
 
 # DESCRIPTION
 
-**tukai** is a minimalist touch typing tool for the terminal built with **Ratatui**. It offers interactive typing practice with switchable templates, built-in statistics tracking, multiple language support, and real-time feedback on speed and accuracy.
+**tukai** 是一个用 **Ratatui** 构建的极简终端触打字练习工具。它提供交互式打字练习，支持可切换的模板、内置统计跟踪、多语言支持，以及实时的速度和准确率反馈。
 
 # HISTORY
 
-**tukai** was created by **hlsxx** and is written in **Rust**.
+**tukai** 由 **hlsxx** 创建，用 **Rust** 编写。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Text-based interface for BitTorrent clients
+面向 BitTorrent 客户端的文本界面
 
 # TLDR
 
-**Connect to the default Transmission daemon**
+**连接默认的 Transmission 守护进程**
 
 ```tewi```
 
-**Connect to a qBittorrent instance**
+**连接 qBittorrent 实例**
 
 ```tewi --client-type qbittorrent --port [8080]```
 
-**Connect to a Deluge instance via Web API**
+**通过 Web API 连接 Deluge 实例**
 
 ```tewi --client-type deluge --port [8112]```
 
-**Connect to a remote host**
+**连接远程主机**
 
 ```tewi --host [192.168.1.10] --port [9091]```
 
-**Use a specific configuration profile**
+**使用指定的配置 profile**
 
 ```tewi --profile [myprofile]```
 
@@ -31,42 +31,42 @@ Text-based interface for BitTorrent clients
 # PARAMETERS
 
 **--host** _host_
-> Daemon host address (default: localhost)
+> 守护进程主机地址（默认：localhost）
 
 **--port** _port_
-> Daemon port (default: 9091 for Transmission)
+> 守护进程端口（Transmission 默认：9091）
 
 **--client-type** _type_
-> Client type: transmission, qbittorrent, or deluge
+> 客户端类型：transmission、qbittorrent 或 deluge
 
 **--profile** _name_
-> Load a named configuration profile
+> 加载指定名称的配置 profile
 
 **--profiles**
-> List available configuration profiles
+> 列出可用的配置 profile
 
 **--badge-max-count** _N_
-> Maximum badge count displayed in torrent cards
+> 种子卡片中显示的最大徽标数量
 
 **--badge-max-length** _N_
-> Maximum badge length in torrent cards
+> 种子卡片中徽标的最大长度
 
 **--search-providers** _providers_
-> Specify enabled search providers/indexers
+> 指定启用的搜索提供者/索引器
 
 **--list-search-providers**
-> Display available search providers
+> 显示可用的搜索提供者
 
 **--help**
-> Display all available options
+> 显示所有可用选项
 
 # DESCRIPTION
 
-**tewi** is a terminal UI for managing BitTorrent daemons including Transmission, qBittorrent, and Deluge from a single interface. It supports multiple view modes (card, compact, oneline), torrent management operations, category and tag management, alternative speed limit switching, and search integration with Jackett, Prowlarr, and bitmagnet. Configuration profiles allow managing multiple daemon connections.
+**tewi** 是一个终端 UI，可在同一界面中管理 Transmission、qBittorrent 和 Deluge 等 BitTorrent 守护进程。它支持多种视图模式（card、compact、oneline）、种子管理操作、分类与标签管理、备用限速切换，以及与 Jackett、Prowlarr 和 bitmagnet 的搜索集成。配置 profile 允许管理多个守护进程连接。
 
 # HISTORY
 
-**tewi** was created by **Anton Larionov** (anlar) and is written in **Python** (requires Python 3.10+). Install via `pipx install tewi-torrent`. Version 2.0 added Deluge support, configuration profiles, and search provider integration.
+**tewi** 由 **Anton Larionov**（anlar）创建，使用 **Python** 编写（要求 Python 3.10+）。可通过 `pipx install tewi-torrent` 安装。2.0 版加入了 Deluge 支持、配置 profile 和搜索提供者集成。
 
 # INSTALL
 

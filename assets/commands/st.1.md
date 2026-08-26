@@ -1,42 +1,42 @@
 # TAGLINE
 
-Suckless simple terminal emulator
+Suckless 简约终端模拟器
 
 # TLDR
 
-**Open** a terminal
+**打开**终端
 
 ```st```
 
-Open with specific **title**
+以指定**标题**打开
 
 ```st -T [title]```
 
-**Execute command** and write output to file
+**执行命令**并将输出写入文件
 
 ```st -o [path/to/file] -e [command] [args]```
 
-**Execute command** in terminal
+在终端中**执行命令**
 
 ```st -e [command] [args]```
 
-Set **geometry**
+设置**几何尺寸**
 
 ```st -g [columns]x[rows]```
 
 # KEYBOARD SHORTCUTS
 
 **Ctrl+Shift+PageUp/PageDown**
-> Increase/decrease font size
+> 增大/减小字号
 
 **Ctrl+Shift+c**
-> Copy to clipboard
+> 复制到剪贴板
 
 **Ctrl+Shift+v**
-> Paste from clipboard
+> 从剪贴板粘贴
 
 **Ctrl+Shift+y**
-> Paste from selection
+> 从选择区粘贴
 
 # SYNOPSIS
 
@@ -45,54 +45,54 @@ Set **geometry**
 # PARAMETERS
 
 **-T** _title_
-> Set window title
+> 设置窗口标题
 
 **-t** _title_
-> Set window title (alias for -T)
+> 设置窗口标题（-T 的别名）
 
 **-e** _command_ [_args_]
-> Execute command instead of shell
+> 执行命令而非 Shell
 
 **-o** _file_
-> Write terminal output to file
+> 将终端输出写入文件
 
 **-g** _geometry_
-> Set window geometry (WxH+X+Y)
+> 设置窗口几何尺寸（WxH+X+Y）
 
 **-f** _font_
-> Set font (X11 font string)
+> 设置字体（X11 字体字符串）
 
 **-c** _class_
-> Set window class
+> 设置窗口类
 
 **-n** _name_
-> Set window name
+> 设置窗口名
 
 **-w** _windowid_
-> Embed in given window ID
+> 嵌入到给定的窗口 ID 中
 
 **-a**
-> Disable alternate screen buffer
+> 禁用备用屏幕缓冲区
 
 **-i**
-> Fix screen on insert mode
+> 在插入模式下固定屏幕
 
 **-v**
-> Print version
+> 打印版本号
 
 # DESCRIPTION
 
-**st** is a simple terminal emulator for X11 from the suckless project. It aims to be lightweight and follows the suckless philosophy of simplicity, providing a minimal terminal with core functionality and configuration through source code modification.
+**st** 是来自 suckless 项目的 X11 简约终端模拟器。它追求轻量级并遵循 suckless 的极简哲学，提供一个只包含核心功能的精简终端，配置需通过修改源代码完成。
 
-Features include UTF-8 support, true color, clipboard handling, and configurable keybindings. Unlike feature-rich terminals, st is designed to be patched and recompiled for customization rather than configured through files.
+特性包括 UTF-8 支持、真彩色、剪贴板处理和可配置的快捷键。与功能丰富的终端不同，st 的定制方式是打补丁后重新编译，而不是通过配置文件。
 
 # CAVEATS
 
-Configuration requires editing config.h and recompiling. No scrollback by default; requires a patch or external tool like **scroll** or **tmux**. No tabs or splits; use a multiplexer. Requires X11; does not work on Wayland without XWayland.
+配置需要编辑 config.h 并重新编译。默认不支持回滚（scrollback）；需要补丁或 **scroll**、**tmux** 等外部工具。没有标签页或分屏；请使用多路复用器。需要 X11；没有 XWayland 时无法在 Wayland 上运行。
 
 # HISTORY
 
-**st** was created by the **suckless.org** community, known for minimalist software including **dwm** window manager. The project follows the suckless philosophy emphasizing simplicity, clarity, and frugality in software design. st has been developed since **2012** as an alternative to bloated terminal emulators.
+**st** 由 **suckless.org** 社区创建，该社区以 **dwm** 窗口管理器等极简软件闻名。项目遵循 suckless 哲学，强调软件设计中的简洁、清晰与节俭。st 自 **2012 年**起持续开发，作为臃肿终端模拟器的替代品。
 
 # SEE ALSO
 

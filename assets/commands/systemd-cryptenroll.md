@@ -1,42 +1,42 @@
 # TAGLINE
 
-Enroll LUKS2 disk unlock methods
+注册 LUKS2 磁盘解锁方式
 
 # TLDR
 
-Enroll new **password**
+注册新**密码**
 
 ```systemd-cryptenroll --password [/dev/luks_device]```
 
-Enroll **recovery key**
+注册**恢复密钥**
 
 ```systemd-cryptenroll --recovery-key [/dev/luks_device]```
 
-List or enroll **PKCS#11** token
+列出或注册 **PKCS#11** 令牌
 
 ```systemd-cryptenroll --pkcs11-token-uri [list|auto|uri] [/dev/luks_device]```
 
-List or enroll **FIDO2** device
+列出或注册 **FIDO2** 设备
 
 ```systemd-cryptenroll --fido2-device [list|auto|/path/to/hidraw] [/dev/luks_device]```
 
-Enroll FIDO2 with **biometrics**
+注册支持**生物识别**的 FIDO2
 
 ```systemd-cryptenroll --fido2-device auto --fido2-with-user-verification yes [/dev/luks_device]```
 
-Enroll **TPM2** with PIN
+注册带 PIN 的 **TPM2**
 
 ```systemd-cryptenroll --tpm2-device auto --tpm2-with-pin yes [/dev/luks_device]```
 
-Enroll **TPM2** bound to specific PCR registers
+注册绑定特定 PCR 寄存器的 **TPM2**
 
 ```systemd-cryptenroll --tpm2-device auto --tpm2-pcrs [7+11] [/dev/luks_device]```
 
-**List** candidate LUKS2 block devices
+**列出**候选的 LUKS2 块设备
 
 ```systemd-cryptenroll --list-devices```
 
-**Wipe** enrollment slots
+**擦除**已注册的槽位
 
 ```systemd-cryptenroll --wipe-slot [empty|password|fido2|pkcs11|tpm2|recovery|all] [/dev/luks_device]```
 
@@ -47,84 +47,84 @@ Enroll **TPM2** bound to specific PCR registers
 # PARAMETERS
 
 **--password**
-> Enroll a regular passphrase for volume unlocking.
+> 注册用于解锁卷的常规口令。
 
 **--recovery-key**
-> Enroll a computer-generated recovery key with high entropy.
+> 注册由计算机生成的高熵恢复密钥。
 
 **--unlock-key-file=** _PATH_
-> Use a file containing the unlock key instead of reading from stdin.
+> 使用包含解锁密钥的文件，而不是从 stdin 读取。
 
 **--unlock-fido2-device=** _PATH_
-> Unlock using a FIDO2 device to enroll another method. Supports "auto" for automatic detection.
+> 使用 FIDO2 设备解锁以注册其他方式。支持 "auto" 自动检测。
 
 **--unlock-tpm2-device=** _PATH_
-> Unlock using a TPM2 device to enroll another method. Supports "auto" for automatic detection.
+> 使用 TPM2 设备解锁以注册其他方式。支持 "auto" 自动检测。
 
 **--pkcs11-token-uri=** _list|auto|URI_
-> List or enroll a PKCS#11 security token or smartcard.
+> 列出或注册 PKCS#11 安全令牌或智能卡。
 
 **--fido2-device=** _list|auto|PATH_
-> List or enroll a FIDO2 security token with hmac-secret extension.
+> 列出或注册支持 hmac-secret 扩展的 FIDO2 安全令牌。
 
 **--fido2-credential-algorithm=** _STRING_
-> COSE algorithm for credential generation. Supported: "es256" (default), "rs256", "eddsa".
+> 凭证生成使用的 COSE 算法。支持："es256"（默认）、"rs256"、"eddsa"。
 
 **--fido2-with-client-pin=** _BOOL_
-> Require PIN entry when unlocking with FIDO2. Defaults to "yes".
+> 使用 FIDO2 解锁时要求输入 PIN。默认为 "yes"。
 
 **--fido2-with-user-presence=** _BOOL_
-> Require user presence (tapping the token) when unlocking. Defaults to "yes".
+> 解锁时要求用户在场（触碰令牌）。默认为 "yes"。
 
 **--fido2-with-user-verification=** _BOOL_
-> Require biometric user verification for FIDO2. Defaults to "no".
+> FIDO2 要求进行生物识别用户验证。默认为 "no"。
 
 **--tpm2-device=** _list|auto|PATH_
-> List or enroll a TPM2 security chip.
+> 列出或注册 TPM2 安全芯片。
 
 **--tpm2-pcrs=** _PCR[+PCR...]_
-> Bind enrollment to specific PCR registers (range 0-23). Defaults to PCR 7.
+> 将注册绑定到特定的 PCR 寄存器（范围 0-23）。默认为 PCR 7。
 
 **--tpm2-with-pin=** _BOOL_
-> Require additional PIN entry for TPM2 unlocking.
+> TPM2 解锁时要求额外输入 PIN。
 
 **--tpm2-public-key=** _PATH_
-> PEM-encoded RSA public key for signed PCR policy.
+> 用于签名 PCR 策略的 PEM 编码 RSA 公钥。
 
 **--tpm2-public-key-pcrs=** _PCR[+PCR...]_
-> PCR registers to bind the signed policy to.
+> 签名策略要绑定到的 PCR 寄存器。
 
 **--tpm2-signature=** _PATH_
-> TPM2 PCR signature file for verification.
+> 用于验证的 TPM2 PCR 签名文件。
 
 **--wipe-slot=** _SLOT[,SLOT...]_
-> Wipe specified LUKS2 key slots. Accepts numeric indexes or: "all", "empty", "password", "recovery", "pkcs11", "fido2", "tpm2".
+> 擦除指定的 LUKS2 密钥槽位。接受数字索引或："all"、"empty"、"password"、"recovery"、"pkcs11"、"fido2"、"tpm2"。
 
 **--list-devices**
-> Display candidate block devices containing LUKS superblocks.
+> 显示包含 LUKS 超级块的候选块设备。
 
 **-h**, **--help**
-> Show help text and exit.
+> 显示帮助文本并退出。
 
 **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **--no-pager**
-> Do not pipe output into a pager.
+> 不将输出送入分页器。
 
 # DESCRIPTION
 
-**systemd-cryptenroll** manages enrollment of unlock methods for LUKS2 encrypted volumes. It supports five types: passwords, recovery keys, PKCS#11 tokens (smartcards like YubiKeys), FIDO2 tokens (with hmac-secret extension), and TPM2 security chips.
+**systemd-cryptenroll** 管理 LUKS2 加密卷解锁方式的注册。它支持五种类型：密码、恢复密钥、PKCS#11 令牌（YubiKey 等智能卡）、FIDO2 令牌（带 hmac-secret 扩展）以及 TPM2 安全芯片。
 
-The tool stores token metadata in LUKS2's JSON token area, enabling automatic unlocking during boot when configured with `/etc/crypttab` or the initramfs.
+该工具将令牌元数据存储在 LUKS2 的 JSON 令牌区，配合 `/etc/crypttab` 或 initramfs 配置即可在启动时自动解锁。
 
 # CAVEATS
 
-Works only with LUKS2 volumes, not LUKS1. Requires an existing unlock method to enroll new ones. TPM2 enrollments bound to specific PCR states may break when firmware or boot software is updated. FIDO2 enrollment requires a token that supports the hmac-secret extension.
+仅适用于 LUKS2 卷，不适用于 LUKS1。注册新解锁方式时需要已有一种可用的解锁方式。绑定到特定 PCR 状态的 TPM2 注册可能在固件或引导软件更新后失效。FIDO2 注册需要支持 hmac-secret 扩展的令牌。
 
 # HISTORY
 
-**systemd-cryptenroll** was added to **systemd** to provide a unified interface for modern hardware-based disk encryption unlocking. It complements **cryptsetup** and integrates with systemd's boot process for seamless encrypted root filesystem support.
+**systemd-cryptenroll** 加入 **systemd** 是为了给现代基于硬件的磁盘加密解锁提供统一接口。它与 **cryptsetup** 互为补充，并集成到 systemd 的启动流程中，为加密根文件系统提供无缝支持。
 
 # INSTALL
 

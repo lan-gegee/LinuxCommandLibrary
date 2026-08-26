@@ -1,26 +1,26 @@
 # TAGLINE
 
-Extract files from squashfs to stdout
+从 squashfs 提取文件到 stdout
 
 # TLDR
 
-Display contents of **files** from squashfs
+显示 squashfs 中**文件**的内容
 
 ```sqfscat [filesystem.squashfs] [file1] [file2]```
 
-Use **multiple processors**
+使用**多处理器**
 
 ```sqfscat -p [num_processors] [filesystem.squashfs] [file]```
 
-Set **memory limit** for cache
+设置缓存的**内存限制**
 
 ```sqfscat -mem [512M] [filesystem.squashfs] [file]```
 
-Skip **offset** bytes at filesystem start
+跳过文件系统开头的 **offset** 个字节
 
 ```sqfscat -o [bytes] [filesystem.squashfs] [file]```
 
-Ignore **write errors**
+忽略**写入错误**
 
 ```sqfscat -ig [filesystem.squashfs] [file]```
 
@@ -31,57 +31,57 @@ Ignore **write errors**
 # PARAMETERS
 
 **-v, -version**
-> Display version and copyright
+> 显示版本和版权信息
 
 **-p, -processors** _number_
-> Number of processors to use for decompression
+> 用于解压的处理器数量
 
 **-mem** _size_
-> Cache memory size (K/M/G suffixes; default: 512MB)
+> 缓存内存大小（支持 K/M/G 后缀；默认：512MB）
 
 **-mem-percent** _percent_
-> Set cache as percentage of physical memory
+> 以物理内存的百分比设置缓存
 
 **-o, -offset** _bytes_
-> Skip bytes at filesystem start
+> 跳过文件系统开头的字节数
 
 **-ig, -ignore-errors**
-> Treat write errors as non-fatal
+> 将写入错误视为非致命错误
 
 **-st, -strict-errors**
-> Treat all errors as fatal
+> 将所有错误视为致命错误
 
 **-no-exit, -no-exit-code**
-> Don't set non-zero exit code on non-fatal errors
+> 非致命错误时不设置非零退出码
 
 **-no-wild, -no-wildcards**
-> Disable wildcard matching in filenames
+> 禁用文件名通配符匹配
 
 **-r, -regex**
-> Treat filenames as POSIX regular expressions
+> 将文件名视为 POSIX 正则表达式
 
 **-h, -help**
-> Display help summary
+> 显示帮助摘要
 
 # DESCRIPTION
 
-**sqfscat** outputs the contents of files from a squashfs filesystem to stdout, similar to how **cat** works on regular filesystems. Squashfs is a highly compressed read-only filesystem supporting gzip, xz, lzo, lz4, zstd, and lzma compression.
+**sqfscat** 将 squashfs 文件系统中文件的内容输出到 stdout，类似于 **cat** 在普通文件系统上的工作方式。Squashfs 是一种高压缩比的只读文件系统，支持 gzip、xz、lzo、lz4、zstd 和 lzma 压缩。
 
-The tool allows extracting file contents without mounting the filesystem, useful for inspection, scripting, and embedded systems. Multiple files can be specified and their contents will be concatenated.
+该工具无需挂载文件系统即可提取文件内容，适用于检查、脚本编写和嵌入式系统。可以指定多个文件，其内容会被依次拼接输出。
 
 # EXIT STATUS
 
-**0**: Successful operation
-**1**: Fatal errors (corruption, I/O failures)
-**2**: Non-fatal errors (invalid file types, path resolution issues)
+**0**：操作成功
+**1**：致命错误（数据损坏、I/O 失败）
+**2**：非致命错误（无效的文件类型、路径解析问题）
 
 # CAVEATS
 
-Only works with squashfs filesystems. File paths within the squashfs are relative to its root. Large files may require significant memory for decompression. Read-only access only.
+仅适用于 squashfs 文件系统。squashfs 内的文件路径相对于其根目录。大文件解压可能需要大量内存。仅提供只读访问。
 
 # HISTORY
 
-**sqfscat** is part of **squashfs-tools**, created by **Phillip Lougher** starting in **2002**. Squashfs was merged into the Linux kernel mainline in version **2.6.29** (2009). The tools have evolved to support multiple compression algorithms and are widely used in live CDs, container images, and embedded systems.
+**sqfscat** 是 **squashfs-tools** 的一部分，由 **Phillip Lougher** 自 **2002 年**起创建。Squashfs 于 **2.6.29** 版（2009 年）被合并进 Linux 内核主线。这些工具已发展为支持多种压缩算法，并广泛应用于 Live CD、容器镜像和嵌入式系统。
 
 # INSTALL
 

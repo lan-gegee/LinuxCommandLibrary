@@ -1,18 +1,18 @@
 # TAGLINE
 
-Restart units only if running
+仅在运行时重启单元
 
 # TLDR
 
-**Restart** unit if running
+若在运行则**重启**单元
 
 ```systemctl try-restart [unit]```
 
-Restart **multiple** units if running
+若在运行则重启**多个**单元
 
 ```systemctl try-restart [unit1 unit2 ...]```
 
-Restart by **pattern** if running
+若在运行则按**模式匹配**重启
 
 ```systemctl try-restart '[pattern]'```
 
@@ -22,21 +22,21 @@ Restart by **pattern** if running
 
 # DESCRIPTION
 
-**systemctl try-restart** restarts one or more units only if they are currently running. If a unit is not active, no action is taken.
+**systemctl try-restart** 只在一个或多个单元当前正在运行时才重启它们。如果单元未处于活动状态，则不采取任何操作。
 
-This is useful for restarting services after configuration changes without accidentally starting services that were intentionally stopped.
+这适用于在配置更改后重启服务，同时避免误启动那些被有意停止的服务。
 
 # CAVEATS
 
-Does nothing for inactive units. Unlike `restart`, this won't start a stopped service. For units not currently running, the command succeeds without action.
+对未激活的单元不做任何事。与 `restart` 不同，它不会启动已停止的服务。对于未运行的单元，命令会成功返回但不执行操作。
 
 # ALIASES
 
-This command is also known as `condrestart`.
+此命令也被称为 `condrestart`。
 
 # HISTORY
 
-The **try-restart** subcommand provides safe restart operations that respect the current service state, avoiding unintended service starts.
+**try-restart** 子命令提供尊重服务当前状态的安全重启操作，避免意外的服务启动。
 
 # SEE ALSO
 

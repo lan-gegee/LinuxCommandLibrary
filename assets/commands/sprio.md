@@ -1,30 +1,30 @@
 # TAGLINE
 
-Slurm job scheduling priority viewer
+Slurm 作业调度优先级查看器
 
 # TLDR
 
-View priority factors for **all pending jobs**
+查看**所有待处理作业**的优先级因子
 
 ```sprio```
 
-View priority for **specific jobs**
+查看**特定作业**的优先级
 
 ```sprio -j [job_id1,job_id2]```
 
-Show **extended** information
+显示**扩展**信息
 
 ```sprio -l```
 
-View jobs for **specific users**
+查看**特定用户**的作业
 
 ```sprio -u [user1,user2]```
 
-Print **priority weights**
+打印**优先级权重**
 
 ```sprio -w```
 
-Show **normalized** priority factors
+显示**归一化**的优先级因子
 
 ```sprio -n```
 
@@ -35,71 +35,71 @@ Show **normalized** priority factors
 # PARAMETERS
 
 **-j, --jobs** _job_ids_
-> Show priority for specific job IDs (comma-separated)
+> 显示特定作业 ID（逗号分隔）的优先级
 
 **-u, --user** _users_
-> Filter by user names or IDs (comma-separated)
+> 按用户名或用户 ID 过滤（逗号分隔）
 
 **-p, --partition** _partitions_
-> Restrict to specific partitions
+> 限定于特定分区
 
 **-l, --long**
-> Display extended output information
+> 显示扩展输出信息
 
 **-n, --norm**
-> Show normalized priority factors (0.0-1.0)
+> 显示归一化的优先级因子（0.0-1.0）
 
 **-w, --weights**
-> Display configured priority weight values
+> 显示已配置的优先级权重值
 
 **-o, --format** _format_
-> Customize output format
+> 自定义输出格式
 
 **-S, --sort** _fields_
-> Sort results by specified fields
+> 按指定字段对结果排序
 
 **-h, --noheader**
-> Suppress column headers
+> 不显示列标题
 
 **-M, --clusters** _names_
-> Target specific clusters
+> 面向特定集群
 
 **--federation**
-> Display jobs from all federated clusters
+> 显示所有联邦集群的作业
 
 **--local**
-> Show only local cluster jobs
+> 只显示本地集群的作业
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-V, --version**
-> Display version
+> 显示版本
 
 # DESCRIPTION
 
-**sprio** displays the components that determine job scheduling priority when Slurm's multi-factor priority plugin is active. It shows how factors like age, fairshare, job size, partition, and QOS contribute to each job's overall priority score.
+当 Slurm 的多因子优先级插件启用时，**sprio** 会显示决定作业调度优先级的各个组成部分。它会展示 age、fairshare、job size、partition、QOS 等因子如何共同构成每个作业的总优先级得分。
 
-By default, it displays information for all pending jobs. The tool helps administrators and users understand why certain jobs are scheduled before others and troubleshoot scheduling issues.
+默认情况下，它显示所有待处理作业的信息。该工具可帮助管理员和用户理解为什么某些作业先于其他作业被调度，并排查调度问题。
 
 # FORMAT SPECIFIERS
 
-**%i**: Job ID
-**%Y**: Priority
-**%A**: Age factor
-**%F**: Fairshare factor
-**%J**: Job size factor
-**%P**: Partition factor
-**%Q**: QOS factor
-**%u**: User name
+**%i**: 作业 ID
+**%Y**: 优先级
+**%A**: Age 因子
+**%F**: Fairshare 因子
+**%J**: 作业规模因子
+**%P**: 分区因子
+**%Q**: QOS 因子
+**%u**: 用户名
 
 # CAVEATS
 
-Only works when the multi-factor priority plugin is configured in Slurm. Read-only utility; cannot modify priorities. Priority values are relative and depend on cluster configuration. Some factors may be zero if not configured.
+只有在 Slurm 中配置了多因子优先级插件时才能使用。这是一个只读工具，无法修改优先级。优先级值是相对的，取决于集群配置。若某些因子未配置，其值可能为零。
 
 # HISTORY
 
-**sprio** is part of **Slurm** (Simple Linux Utility for Resource Management), developed at **Lawrence Livermore National Laboratory** starting in **2002**. The multi-factor priority plugin was added to provide fair and configurable job scheduling in HPC environments. Slurm is now maintained by **SchedMD**.
+**sprio** 是 **Slurm**（Simple Linux Utility for Resource Management）的一部分，自 **2002 年**起由 **劳伦斯利弗莫尔国家实验室** 开发。多因子优先级插件的加入是为了在高性能计算环境中提供公平且可配置的作业调度。Slurm 目前由 **SchedMD** 维护。
 
 # INSTALL
 

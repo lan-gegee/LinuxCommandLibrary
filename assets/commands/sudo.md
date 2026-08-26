@@ -1,42 +1,42 @@
 # TAGLINE
 
-Execute commands with elevated privileges
+以提升的权限执行命令
 
 # TLDR
 
-**Run a command as root**
+**以 root 身份运行命令**
 
 ```sudo [command]```
 
-**Run a command as another user**
+**以其他用户身份运行命令**
 
 ```sudo -u [username] [command]```
 
-**Start a root shell**
+**启动 root Shell**
 
 ```sudo -i```
 
-**Start a shell as another user**
+**以其他用户身份启动 Shell**
 
 ```sudo -u [username] -s```
 
-**Run command with preserved environment**
+**保留环境变量运行命令**
 
 ```sudo -E [command]```
 
-**Edit a file as root** (using sudoedit)
+**以 root 身份编辑文件**（使用 sudoedit）
 
 ```sudo -e [/etc/hosts]```
 
-**List allowed commands** for current user
+**列出当前用户**允许执行的命令
 
 ```sudo -l```
 
-**Invalidate cached credentials**
+**使缓存的凭据失效**
 
 ```sudo -k```
 
-**Run command in background**
+**在后台运行命令**
 
 ```sudo -b [command]```
 
@@ -51,85 +51,85 @@ Execute commands with elevated privileges
 # PARAMETERS
 
 **-u** _USER_, **--user** _USER_
-> Run command as specified user (default: root)
+> 以指定用户身份运行命令（默认：root）
 
 **-g** _GROUP_, **--group** _GROUP_
-> Run command with specified primary group
+> 以指定的主组身份运行命令
 
 **-i**, **--login**
-> Run login shell as target user
+> 以目标用户身份运行登录 Shell
 
 **-s**, **--shell**
-> Run shell (from $SHELL or user's default)
+> 运行 Shell（取自 $SHELL 或用户默认值）
 
 **-e**, **--edit**
-> Edit files (sudoedit mode)
+> 编辑文件（sudoedit 模式）
 
 **-E**, **--preserve-env**
-> Preserve user's environment variables
+> 保留用户的环境变量
 
 **-H**, **--set-home**
-> Set HOME to target user's home directory
+> 将 HOME 设置为目标用户的主目录
 
 **-b**, **--background**
-> Run command in background
+> 在后台运行命令
 
 **-l**, **--list**
-> List allowed commands for user
+> 列出用户允许执行的命令
 
 **-v**, **--validate**
-> Refresh credential cache without running command
+> 刷新凭据缓存而不运行命令
 
 **-k**, **--reset-timestamp**
-> Invalidate cached credentials
+> 使缓存的凭据失效
 
 **-K**, **--remove-timestamp**
-> Remove cached credentials entirely
+> 彻底移除缓存的凭据
 
 **-n**, **--non-interactive**
-> Non-interactive mode; fail if password required
+> 非交互模式；需要密码时直接失败
 
 **-A**, **--askpass**
-> Use askpass helper for password
+> 使用 askpass 辅助程序获取密码
 
 **-S**, **--stdin**
-> Read password from stdin
+> 从标准输入读取密码
 
 **-p** _PROMPT_, **--prompt** _PROMPT_
-> Custom password prompt
+> 自定义密码提示符
 
 **-T** _TIMEOUT_
-> Command timeout in seconds
+> 命令超时时间（秒）
 
 **-V**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**sudo** (superuser do) executes commands with elevated privileges, typically as root. It provides controlled access to privileged operations based on rules defined in **/etc/sudoers**, allowing fine-grained permission management.
+**sudo**（superuser do）以提升的权限执行命令，通常是以 root 身份。它基于 **/etc/sudoers** 中定义的规则提供对特权操作的可控访问，支持细粒度的权限管理。
 
-After successful authentication, sudo caches credentials for a grace period (typically 5 minutes), allowing subsequent commands without re-entering the password. Use **-k** to invalidate this cache.
+认证成功后，sudo 会将凭据缓存一段宽限期（通常为 5 分钟），后续命令无需重新输入密码。使用 **-k** 可使该缓存失效。
 
-The **sudoers** file controls who can run what commands on which hosts. Users can be granted full root access or restricted to specific commands. The **visudo** command should be used to edit sudoers safely.
+**sudoers** 文件控制哪些用户可以在哪些主机上运行哪些命令。用户可以被授予完整的 root 权限，也可以被限制为只能执行特定命令。应使用 **visudo** 命令安全地编辑 sudoers 文件。
 
 # CONFIGURATION
 
 **/etc/sudoers**
-> Main policy file defining which users can run which commands. Edit with visudo only.
+> 定义哪些用户可以运行哪些命令的主策略文件。只能用 visudo 编辑。
 
 **/etc/sudoers.d/**
-> Drop-in directory for modular sudo policy files.
+> 用于存放模块化 sudo 策略文件的插入式目录。
 
 **SUDO_EDITOR**
-> Environment variable specifying the editor for sudoedit.
+> 指定 sudoedit 所用编辑器的环境变量。
 
 # CAVEATS
 
-Running commands as root is dangerous—mistakes can damage the system. The **-E** flag can expose sensitive environment variables. Some environment variables are filtered by default for security. Incorrect sudoers syntax can lock out administrative access; always use **visudo** to edit. Avoid using sudo in scripts that might be run by untrusted users.
+以 root 身份运行命令很危险——失误可能损坏系统。**-E** 选项可能暴露敏感的环境变量。出于安全考虑，某些环境变量默认会被过滤。sudoers 语法错误可能导致无法进行管理操作；请始终使用 **visudo** 进行编辑。避免在可能被不可信用户运行的脚本中使用 sudo。
 
 # HISTORY
 
-sudo was originally written by **Bob Coggeshall** and **Cliff Spencer** at SUNY Buffalo around **1980**. **Todd Miller** took over maintenance in **1994** and continues to lead development. The name is commonly understood as "superuser do" though it originally stood for "substitute user do" since it can run commands as any user. sudo has become the standard method for privilege escalation on Unix-like systems, replacing direct root login in most distributions.
+sudo 最初由 **Bob Coggeshall** 和 **Cliff Spencer** 于 **1980 年**前后在纽约州立大学布法罗分校编写。**Todd Miller** 于 **1994 年**接手维护工作并持续领导开发至今。这个名字通常被理解为 "superuser do"，但它最初代表 "substitute user do"，因为它能以任意用户身份运行命令。sudo 已成为类 Unix 系统上提权的标准方式，在大多数发行版中取代了直接以 root 登录的做法。
 
 # INSTALL
 

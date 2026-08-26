@@ -1,18 +1,18 @@
 # TAGLINE
 
-Compile terminfo terminal descriptions
+编译 terminfo 终端描述文件
 
 # TLDR
 
-**Compile** and install terminfo
+**编译**并安装 terminfo
 
 ```tic -xe [terminal] [path/to/terminal.info]```
 
-**Check** terminfo for errors
+**检查** terminfo 的错误
 
 ```tic -c [path/to/terminal.info]```
 
-Print database **locations**
+打印数据库**位置**
 
 ```tic -D```
 
@@ -23,36 +23,36 @@ Print database **locations**
 # PARAMETERS
 
 **-c**
-> Check terminfo file for errors without installing
+> 检查 terminfo 文件的错误但不安装
 
 **-x**
-> Compile and treat unknown capabilities as user-defined
+> 编译时将未知的能力项视为用户自定义能力
 
 **-e** _NAMES_
-> Compile only specified terminal names
+> 只编译指定的终端名称
 
 **-D**
-> Print database locations
+> 打印数据库位置
 
 **-o** _DIR_
-> Write compiled files to specified directory
+> 将编译后的文件写入指定目录
 
 **-v** _N_
-> Verbose output (0-10)
+> 详细输出（0-10）
 
 # DESCRIPTION
 
-**tic** compiles terminfo source files into the binary format used by ncurses and other terminal-handling libraries. The compiled descriptions are installed into the terminfo database where programs can look them up.
+**tic** 将 terminfo 源文件编译为 ncurses 及其他终端处理库使用的二进制格式。编译后的描述会安装到 terminfo 数据库中，供程序查询使用。
 
-Terminfo describes terminal capabilities like cursor movement, color support, and special keys.
+terminfo 描述终端的各种能力，如光标移动、颜色支持和特殊按键。
 
 # CAVEATS
 
-Installing to system directories requires root privileges. Syntax errors in source files prevent compilation. Use -c to validate before installing.
+安装到系统目录需要 root 权限。源文件中的语法错误会导致编译失败。可在安装前先用 -c 进行校验。
 
 # HISTORY
 
-**tic** is part of the **ncurses** library, the standard terminal handling library for Unix-like systems. Terminfo replaced the older termcap format for describing terminal capabilities.
+**tic** 是 **ncurses** 库的一部分，后者是类 Unix 系统的标准终端处理库。terminfo 取代了较旧的 termcap 格式来描述终端能力。
 
 # INSTALL
 

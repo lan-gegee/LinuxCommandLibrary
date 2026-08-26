@@ -1,30 +1,30 @@
 # TAGLINE
 
-Linux video stream processing tool
+Linux 视频流处理工具
 
 # TLDR
 
-**Transcode a video file with a specific export module**
+**使用指定导出模块转码视频文件**
 
 ```transcode -i [input.avi] -y [xvid] -o [output.avi]```
 
-**Transcode with explicit import and export modules**
+**显式指定导入和导出模块转码**
 
 ```transcode -i [input.vob] -x [vob] -y [xvid,lame] -o [output.avi]```
 
-**Extract audio to a separate file**
+**将音频提取到单独的文件**
 
 ```transcode -i [video.avi] -y null,tcaud -m [audio.mp3]```
 
-**Resize video using filtered zoom**
+**使用滤镜缩放调整视频尺寸**
 
 ```transcode -i [input.avi] -Z [640x480] -y [xvid] -o [output.avi]```
 
-**Set video bitrate and encode a specific frame range**
+**设置视频码率并编码指定的帧范围**
 
 ```transcode -i [input.avi] -w [1500] -c [0-5000] -y [xvid] -o [output.avi]```
 
-**Crop 16 pixels from top and bottom of the video**
+**从视频上下各裁剪 16 像素**
 
 ```transcode -i [input.avi] -j [16,0] -y [xvid] -o [output.avi]```
 
@@ -35,59 +35,59 @@ Linux video stream processing tool
 # PARAMETERS
 
 **-i** _FILE_
-> Input file (required). The only mandatory option.
+> 输入文件（必需）。唯一强制要求的选项。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-x** _MODULE_
-> Import module (e.g., vob, dvd, raw). Determines how input is decoded.
+> 导入模块（如 vob、dvd、raw）。决定输入如何解码。
 
 **-y** _MODULE_[,_AMODULE_]
-> Export module for video, optionally with a separate audio export module (e.g., xvid,lame).
+> 视频导出模块，可选配单独的音频导出模块（如 xvid,lame）。
 
 **-Z** _WxH_[,_MODE_]
-> Resize video using zoom. Append "fast" for fast zoom mode (e.g., 640x480,fast).
+> 使用缩放调整视频尺寸。附加 "fast" 表示快速缩放模式（如 640x480,fast）。
 
 **-j** _TOP_,_LEFT_[,_BOTTOM_,_RIGHT_]
-> Crop pixels from the image borders. Two values are expanded symmetrically.
+> 从图像边缘裁剪像素。只给两个值时会对称扩展。
 
 **-w** _BITRATE_
-> Video encoder bitrate in kbps.
+> 视频编码器码率（kbps）。
 
 **-b** _BITRATE_
-> Audio encoder bitrate in kbps.
+> 音频编码器码率（kbps）。
 
 **-m** _FILE_
-> Write audio output to a separate file.
+> 将音频输出写入单独的文件。
 
 **-p** _FILE_
-> Read audio from an external file instead of the main input.
+> 从外部文件而不是主输入读取音频。
 
 **-c** _RANGE_
-> Encode only the specified frame range (e.g., 0-5000 or 0:05:00-0:10:00).
+> 只编码指定的帧范围（如 0-5000 或 0:05:00-0:10:00）。
 
 **-s** _FACTOR_
-> Adjust audio volume by the given factor (e.g., 4.47 to increase).
+> 按给定系数调整音量（例如增大音量用 4.47）。
 
 **-R** _N_[,_FILE_]
-> Multi-pass encoding. Use -R 1 for first pass and -R 2 for second pass.
+> 多遍编码。第一遍用 -R 1，第二遍用 -R 2。
 
 **-T** _TITLE_
-> Select a DVD title to process.
+> 选择要处理的 DVD 标题。
 
 **--multi_input**
-> Enable batch processing of multiple input files.
+> 启用多输入文件的批处理。
 
 # DESCRIPTION
 
-**transcode** is a Linux video stream processing tool for converting between video and audio formats. It uses a modular architecture with separate import and export modules for different codecs and containers.
+**transcode** 是一个 Linux 视频流处理工具，用于在视频和音频格式之间转换。它采用模块化架构，针对不同的编解码器和容器使用独立的导入和导出模块。
 
-The tool supports filtering operations including resizing, cropping, deinterlacing, and volume adjustment. It can extract audio tracks separately and perform multi-pass encoding for better quality. Transcode has been largely superseded by **FFmpeg**, which offers broader format support and more active development.
+该工具支持缩放、裁剪、去隔行扫描和音量调整等滤镜操作。它可以单独提取音轨，并通过多遍编码获得更好的质量。Transcode 已在很大程度上被 **FFmpeg** 取代，后者支持更广泛的格式且开发更为活跃。
 
 # CAVEATS
 
-Legacy tool no longer actively developed. FFmpeg is generally preferred for new projects. The modular architecture means available codecs depend on which modules are installed. The only mandatory option is **-i**; all others are discretionary.
+这是一个不再积极开发的遗留工具。新项目通常首选 FFmpeg。模块化架构意味着可用的编解码器取决于已安装的模块。唯一的强制选项是 **-i**，其余均为可选。
 
 # INSTALL
 

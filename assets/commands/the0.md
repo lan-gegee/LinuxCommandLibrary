@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI for the0 algorithmic trading platform
+the0 算法交易平台 CLI
 
 # TLDR
 
-**Install** the the0 CLI
+**安装** the0 CLI
 
 ```curl -sSL https://install.the0.app | sh```
 
-**Initialize a local stack** with root admin credentials
+以 root 管理员凭据**初始化本地堆栈**
 
 ```the0 local init --email [you@example.com] --password [password]```
 
-**Start** the local Docker Compose platform
+**启动**本地 Docker Compose 平台
 
 ```the0 local start```
 
-**Show** CLI help
+**查看** CLI 帮助
 
 ```the0 --help```
 
-**Log in** and obtain API credentials for remote or MCP use
+**登录**并获取用于远程或 MCP 场景的 API 凭据
 
 ```the0 auth login```
 
-**Point the CLI** at a local Docker Compose API
+**将 CLI 指向**本地 Docker Compose API
 
 ```export THE0_API_URL=http://localhost:3000```
 
@@ -34,36 +34,36 @@ CLI for the0 algorithmic trading platform
 
 # DESCRIPTION
 
-**the0** is the command-line interface for **the0**, an open-source algorithmic trading execution engine. The CLI installs and manages a self-hosted stack (API, web dashboard, bot runners, and supporting services via Docker Compose or Kubernetes), authenticates against the API, and is the primary workflow for developing, deploying, and managing trading bots.
+**the0** 是 **the0**（一个开源算法交易执行引擎）的命令行界面。该 CLI 可安装和管理自托管堆栈（通过 Docker Compose 或 Kubernetes 部署的 API、Web 仪表盘、bot 运行器及配套服务），针对 API 进行身份验证，是开发、部署和管理交易 bot 的主要工作流入口。
 
-Bots can be written in Python, TypeScript, Rust, C++, C#, Scala, or Haskell with official SDKs. The platform supports scheduled (cron) and real-time bots, custom React dashboards, and exchange-agnostic strategies. Local deployment typically exposes the frontend on port **3001**, the API on **3000**, and MinIO on **9001**. The install script places the binary under **~/.the0/bin/the0** (ensure that directory is on **PATH**). Source builds from **the0/cli** install to **~/bin/the0**.
+Bot 可以使用官方 SDK 以 Python、TypeScript、Rust、C++、C#、Scala 或 Haskell 编写。平台支持定时（cron）和实时 bot、自定义 React 仪表盘以及与交易所无关的策略。本地部署通常在前端端口 **3001**、API 端口 **3000**、MinIO 端口 **9001** 上提供服务。安装脚本会把二进制文件放到 **~/.the0/bin/the0**（请确保该目录在 **PATH** 中）。从 **the0/cli** 源码构建则安装到 **~/bin/the0**。
 
-The API also exposes an MCP (Model Context Protocol) HTTP endpoint so AI assistants can list bots, deploy configurations, and read logs when given an API key.
+API 还暴露了一个 MCP（Model Context Protocol）HTTP 端点，AI 助手在持有 API 密钥的情况下可以列出 bot、部署配置并读取日志。
 
 # PARAMETERS
 
 **local init**
-> Scaffold local Docker Compose config and set the root admin (**--email**, **--password**). Requires Docker 20.10+ with Compose.
+> 生成本地 Docker Compose 配置骨架，并设置 root 管理员（**--email**、**--password**）。需要 Docker 20.10+ 及 Compose。
 
 **local start**
-> Start all local platform services.
+> 启动所有本地平台服务。
 
 **auth login**
-> Authenticate and obtain API credentials (also used for MCP integration).
+> 进行身份验证并获取 API 凭据（也用于 MCP 集成）。
 
 **--help**
-> Show CLI help and available subcommands.
+> 显示 CLI 帮助和可用子命令。
 
 **THE0_API_URL**
-> Environment variable for the API base URL (e.g. **http://localhost:3000** for Docker Compose, or a Kubernetes service URL).
+> 指定 API 基础 URL 的环境变量（Docker Compose 用 **http://localhost:3000**，Kubernetes 则为服务 URL）。
 
 # CAVEATS
 
-The project is in **beta** and not production-ready. Local deploy needs Docker with Compose and roughly 4 GB of free RAM for containers. Kubernetes (Helm) needs operator-managed PostgreSQL, MongoDB, S3-compatible storage, JWT secrets, and admin configuration—it is not a one-command install. Trading bots talk to real or paper brokers under your own credentials; the CLI does not provide market access by itself.
+该项目处于 **beta** 阶段，尚未达到生产可用状态。本地部署需要带 Compose 的 Docker，容器大约需要 4 GB 空闲内存。Kubernetes（Helm）部署需要运维人员自备 PostgreSQL、MongoDB、S3 兼容存储、JWT 密钥和管理员配置——并非一条命令即可完成安装。交易 bot 使用你自己的凭据连接真实或模拟券商；CLI 本身不提供行情访问能力。
 
 # HISTORY
 
-**the0** is developed by **AlphaNeuron** (Alexander Wanyoike) as an open-source multi-language bot execution platform under the Apache License 2.0, with a Go CLI (Cobra), NestJS API, and Go runtime services.
+**the0** 由 **AlphaNeuron**（Alexander Wanyoike）开发，是基于 Apache License 2.0 的开源多语言 bot 执行平台，采用 Go 编写的 CLI（Cobra）、NestJS API 以及 Go 运行时服务。
 
 # SEE ALSO
 

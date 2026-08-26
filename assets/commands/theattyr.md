@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal theater for playing VT100 art and animations
+播放 VT100 艺术与动画的终端影院
 
 # TLDR
 
-**Launch with the file browser**
+**启动并打开文件浏览器**
 
 ```theattyr```
 
-**Play a specific animation**
+**播放指定动画**
 
 ```theattyr [fireworks.vt]```
 
-**Set playback frame rate**
+**设置播放帧率**
 
 ```theattyr --fps [30]```
 
@@ -22,11 +22,11 @@ Terminal theater for playing VT100 art and animations
 
 # DESCRIPTION
 
-**theattyr** is a terminal application for browsing and playing VT100 art and animations from the retro ANSI art scene. It includes 100+ pre-loaded VT100 animation files, supports RetroArch shaders for visual effects, and provides an interactive file browser with adjustable playback speed.
+**theattyr** 是一款终端应用，用于浏览和播放来自复古 ANSI 艺术圈的 VT100 艺术与动画。它内置 100 多个预装的 VT100 动画文件，支持 RetroArch 着色器来实现视觉效果，并提供可调节播放速度的交互式文件浏览器。
 
 # HISTORY
 
-**theattyr** was created by **Orhun Parmaksiz** and is written in **Rust**.
+**theattyr** 由 **Orhun Parmaksiz** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

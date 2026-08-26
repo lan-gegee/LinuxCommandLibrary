@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal typing test with language modes
+带语言模式的终端打字测试
 
 # TLDR
 
-**Start typing test with default words**
+**使用默认单词开始打字测试**
 
 ```ttyper```
 
-**Limit to specific number of words**
+**限制测试的单词数量**
 
 ```ttyper -w [25]```
 
-**Practice with programming language**
+**用编程语言单词练习**
 
 ```ttyper -l [rust]```
 
-**Use custom word file**
+**使用自定义单词文件**
 
 ```ttyper -c [/path/to/wordlist.txt]```
 
-**Practice with specific language file**
+**用指定语言文件练习**
 
 ```ttyper -l [python] -w [50]```
 
-**Show available languages**
+**显示可用的语言**
 
 ```ttyper --list-languages```
 
@@ -35,38 +35,38 @@ Terminal typing test with language modes
 # PARAMETERS
 
 **-w**, **--words** _count_
-> Number of words to include in the test.
+> 测试包含的单词数量。
 
 **-l**, **--language** _lang_
-> Use words from specified programming language.
+> 使用指定编程语言的单词。
 
 **-c**, **--contents** _file_
-> Use custom file as word source.
+> 使用自定义文件作为单词来源。
 
 **--list-languages**
-> Display available built-in languages.
+> 显示可用的内置语言。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**ttyper** is a terminal-based typing test built with Rust and Ratatui. It measures typing speed in words per minute (WPM) and accuracy, providing immediate visual feedback as you type.
+**ttyper** 是一个用 Rust 和 Ratatui 构建的终端打字测试工具。它以每分钟单词数（WPM）和准确率衡量打字水平，并在你输入时提供即时的视觉反馈。
 
-The test highlights correct characters in green and incorrect ones in red. Statistics include raw WPM, adjusted WPM (accounting for errors), and accuracy percentage. Results are displayed upon completion.
+测试中正确的字符显示为绿色，错误的显示为红色。统计指标包括原始 WPM、调整后 WPM（考虑错误）以及准确率百分比，完成后展示结果。
 
-Programming language modes include keywords and common identifiers from each language, making it useful for developers to practice language-specific typing patterns. Custom word lists allow personalized practice sets.
+编程语言模式包含各语言的关键字和常见标识符，便于开发者练习特定语言的输入习惯。自定义词表则支持个性化的练习内容。
 
 # CAVEATS
 
-Requires a terminal with Unicode support. Configuration stored in ~/.config/ttyper/. Results are not persisted between sessions by default. Terminal size affects display layout.
+需要支持 Unicode 的终端。配置存储在 ~/.config/ttyper/ 中。默认情况下结果不会跨会话保存。终端大小会影响显示布局。
 
 # HISTORY
 
-**ttyper** was created as a terminal-native alternative to web-based typing tests like Monkeytype. The developer wanted typing practice without leaving the terminal environment. Built with Rust, it showcases modern terminal UI capabilities using the Ratatui framework.
+**ttyper** 的诞生是为了提供终端原生的替代方案，取代 Monkeytype 等基于网页的打字测试。开发者希望在不离开终端环境的情况下进行打字练习。它使用 Rust 构建，借助 Ratatui 框架展现了现代终端 UI 的能力。
 
 # INSTALL
 

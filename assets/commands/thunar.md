@@ -1,26 +1,26 @@
 # TAGLINE
 
-Xfce graphical file manager
+Xfce 图形文件管理器
 
 # TLDR
 
-Open **current** directory
+打开**当前**目录
 
 ```thunar```
 
-Open a **specific** directory
+打开**指定**目录
 
 ```thunar [/path/to/directory]```
 
-Open **bulk rename** utility
+打开**批量重命名**工具
 
 ```thunar --bulk-rename```
 
-Bulk rename specific **files**
+批量重命名指定的**文件**
 
 ```thunar --bulk-rename [file1] [file2] [file3]```
 
-**Close** all Thunar windows
+**关闭**所有 Thunar 窗口
 
 ```thunar --quit```
 
@@ -31,38 +31,38 @@ Bulk rename specific **files**
 # PARAMETERS
 
 **-B, --bulk-rename**
-> Open the bulk rename utility. If URIs are specified, they are passed to the renamer.
+> 打开批量重命名工具。如果指定了 URI，则将其传递给重命名器。
 
 **-q, --quit**
-> Close all Thunar windows and terminate the daemon if running.
+> 关闭所有 Thunar 窗口，若守护进程正在运行则将其终止。
 
 **--daemon**
-> Run as a daemon in the background for faster startup of subsequent windows.
+> 在后台作为守护进程运行，加快后续窗口的启动速度。
 
 **--display** _DISPLAY_
-> X display to use.
+> 要使用的 X display。
 
 **-V, --version**
-> Display version information and exit.
+> 显示版本信息后退出。
 
 **-h, --help**
-> Display help information and exit.
+> 显示帮助信息后退出。
 
 # DESCRIPTION
 
-**thunar** is the graphical file manager for the Xfce desktop environment. It provides a clean, lightweight interface for browsing files and directories with support for custom actions, emblems, and plugins.
+**thunar** 是 Xfce 桌面环境的图形文件管理器。它提供简洁轻量的界面来浏览文件和目录，并支持自定义动作、标志（emblem）和插件。
 
-URIs may be specified as file: or trash: URIs, absolute paths, or paths relative to the current directory. If no URIs are specified, the current folder is opened.
+URI 可以是 file: 或 trash: URI、绝对路径或相对于当前目录的路径。如果不指定 URI，则打开当前文件夹。
 
-The bulk rename utility allows renaming multiple files at once using patterns and templates.
+批量重命名工具可以使用模式和模板一次重命名多个文件。
 
 # CAVEATS
 
-Designed primarily for Xfce but works on other desktops. Some features like custom actions require configuration. Plugins extend functionality for archives, media, and more.
+主要为 Xfce 设计，但也能在其他桌面上运行。自定义动作等部分功能需要进行配置。插件可扩展归档、媒体等方面的功能。
 
 # HISTORY
 
-**Thunar** was created by **Benedikt Meurer** for Xfce, replacing the older xffm file manager. It emphasizes speed and simplicity while providing essential file management features.
+**Thunar** 由 **Benedikt Meurer** 为 Xfce 开发，取代了较旧的 xffm 文件管理器。它在强调速度和简洁的同时提供了必要的文件管理功能。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Talos Linux Kubernetes nodes
+管理 Talos Linux Kubernetes 节点
 
 # TLDR
 
-**Generate configuration**
+**生成配置**
 
 ```talosctl gen config [cluster-name] [https://endpoint:6443]```
 
-**Apply configuration**
+**应用配置**
 
 ```talosctl apply-config --nodes [192.168.1.10] --file [controlplane.yaml]```
 
-**Bootstrap cluster**
+引导启动集群
 
 ```talosctl bootstrap --nodes [192.168.1.10]```
 
-**Get cluster info**
+获取集群信息
 
 ```talosctl --nodes [192.168.1.10] dashboard```
 
-**Show services**
+显示服务
 
 ```talosctl --nodes [192.168.1.10] services```
 
-**View logs**
+查看日志
 
 ```talosctl --nodes [192.168.1.10] logs [kubelet]```
 
-**Get kubeconfig**
+获取 kubeconfig
 
 ```talosctl kubeconfig --nodes [192.168.1.10]```
 
@@ -39,53 +39,53 @@ Manage Talos Linux Kubernetes nodes
 # PARAMETERS
 
 **--nodes** _NODES_
-> Target nodes.
+> 目标节点。
 
 **--endpoints** _ENDPOINTS_
-> API endpoints.
+> API 端点。
 
 **-n** _NODE_
-> Single node.
+> 单个节点。
 
 **--talosconfig** _FILE_
-> Config file.
+> 配置文件。
 
 # COMMANDS
 
-**gen config** - Generate configs
-**apply-config** - Apply to node
-**bootstrap** - Bootstrap etcd
-**kubeconfig** - Get kubeconfig
-**dashboard** - Node dashboard
-**services** - List services
-**logs** - View logs
+**gen config** - 生成配置
+**apply-config** - 应用到节点
+**bootstrap** - 引导启动 etcd
+**kubeconfig** - 获取 kubeconfig
+**dashboard** - 节点仪表盘
+**services** - 列出服务
+**logs** - 查看日志
 
 # DESCRIPTION
 
-**talosctl** is the command-line tool for managing Talos Linux, a minimal and immutable operating system purpose-built for running Kubernetes. It provides complete lifecycle management for Talos nodes, from initial configuration generation through ongoing cluster operations.
+**talosctl** 是管理 Talos Linux 的命令行工具。Talos Linux 是专为运行 Kubernetes 打造的最小化、不可变操作系统。它为 Talos 节点提供完整的生命周期管理，从最初的配置生成一直到日常的集群运维。
 
-The **gen config** command creates machine configuration files for control plane and worker nodes, including certificates and secrets needed for secure cluster communication. The **apply-config** command pushes these configurations to nodes, and **bootstrap** initializes the etcd cluster on the first control plane node to start the Kubernetes cluster.
+**gen config** 命令为控制平面节点和工作节点创建机器配置文件，包括安全集群通信所需的证书和密钥。**apply-config** 命令把这些配置推送到节点，**bootstrap** 则在第一个控制平面节点上初始化 etcd 集群以启动 Kubernetes 集群。
 
-For day-to-day operations, talosctl provides a **dashboard** for monitoring node health and resource usage, **services** for inspecting running system services, and **logs** for viewing service output. The **kubeconfig** command retrieves cluster credentials for use with kubectl. All communication with nodes uses mutual TLS authentication configured through the talosconfig file.
+在日常运维方面，talosctl 提供用于监控节点健康和资源使用的 **dashboard**、用于检查系统服务运行状态的 **services**，以及用于查看服务输出的 **logs**。**kubeconfig** 命令检索集群凭据供 kubectl 使用。所有与节点的通信都使用 talosconfig 文件中配置的双向 TLS 认证。
 
 # CONFIGURATION
 
 **~/.talos/config**
-> Default talosconfig file containing cluster endpoints, node addresses, and TLS credentials for authenticating with Talos nodes
+> 默认的 talosconfig 文件，包含用于向 Talos 节点认证的集群端点、节点地址和 TLS 凭据
 
 **--talosconfig** _FILE_
-> Override the default config file location via command-line flag
+> 通过命令行标志覆盖默认配置文件的位置
 
 **TALOSCONFIG**
-> Environment variable to specify an alternative talosconfig file path
+> 用于指定备用 talosconfig 文件路径的环境变量
 
 # CAVEATS
 
-Talos-specific tool. Nodes must be Talos. API access required.
+Talos 专用工具。节点必须是 Talos。需要 API 访问权限。
 
 # HISTORY
 
-**Talos** was created by **Sidero Labs** as a minimal, immutable Kubernetes OS. talosctl provides complete lifecycle management.
+**Talos** 由 **Sidero Labs** 创建，是一个最小化的不可变 Kubernetes 操作系统。talosctl 提供完整的生命周期管理。
 
 # INSTALL
 

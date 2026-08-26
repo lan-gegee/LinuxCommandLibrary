@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert STL 3D meshes to GTS format
+将 STL 三维网格转换为 GTS 格式
 
 # TLDR
 
-**Convert STL to GTS**
+**将 STL 转换为 GTS**
 
 ```stl2gts < [input.stl] > [output.gts]```
 
-**With verbose output**
+**带详细输出**
 
 ```stl2gts -v < [input.stl] > [output.gts]```
 
-**Help**
+**帮助**
 
 ```stl2gts --help```
 
@@ -23,29 +23,29 @@ Convert STL 3D meshes to GTS format
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**stl2gts** converts 3D mesh files from the widely-used STL (Stereolithography) format into GTS (GNU Triangulated Surface) format. STL files represent 3D surfaces as collections of triangular facets and are commonly used in CAD software, 3D printing, and computational geometry.
+**stl2gts** 将广泛使用的 STL（Stereolithography，光固化成型）格式的三维网格文件转换为 GTS（GNU Triangulated Surface）格式。STL 文件以三角面片的集合表示三维曲面，常用于 CAD 软件、3D 打印和计算几何领域。
 
-The GTS format is designed for efficient manipulation and analysis of triangulated surfaces. Unlike STL, GTS stores topological information about vertex and edge connectivity, enabling operations like mesh refinement, boolean operations, and surface analysis that would be difficult with raw triangle soup.
+GTS 格式专为高效操作和分析三角化曲面而设计。与 STL 不同，GTS 存储顶点和边连接关系的拓扑信息，支持网格细化、布尔运算和曲面分析等操作——这些在原始的"三角形汤"数据上很难实现。
 
-The tool reads STL data from standard input and writes GTS output to standard output, following the Unix pipeline convention. It is part of the GTS Library toolkit, which provides a collection of utilities for triangulated surface mesh processing and computational geometry.
+该工具遵循 Unix 管道约定，从标准输入读取 STL 数据，并将 GTS 输出写入标准输出。它是 GTS Library 工具集的一部分，该工具集提供一系列用于三角化曲面网格处理和计算几何的实用程序。
 
 # CAVEATS
 
-Stdin/stdout only. Binary STL not supported. Part of gts-bin.
+仅支持 stdin/stdout。不支持二进制 STL。属于 gts-bin 的一部分。
 
 # HISTORY
 
-**stl2gts** is part of the **GTS Library** (GNU Triangulated Surface Library) for mesh manipulation and analysis.
+**stl2gts** 是 **GTS Library**（GNU Triangulated Surface Library）的一部分，用于网格操作与分析。
 
 # INSTALL
 

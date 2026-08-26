@@ -1,12 +1,12 @@
 # TAGLINE
 
-Deprecated, use tail -f
+已弃用，请改用 tail -f
 
 # TLDR
 
-This command has been superseded by [tail](/man/tail) -f.
+此命令已被 [tail](/man/tail) -f 取代。
 
-Use `tail -f` instead for following file output.
+要跟踪文件的追加输出，请改用 `tail -f`。
 
 # SEE ALSO
 

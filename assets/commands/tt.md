@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal-based typing speed test
+基于终端的打字速度测试
 
 # TLDR
 
-**Start a typing test** with default 50 words
+**开始打字测试**，默认 50 个单词
 
 ```tt```
 
-**Start a test with custom word count**
+**以自定义单词数开始测试**
 
 ```tt -n [100]```
 
-**Start a timed test** (seconds)
+**以限时模式开始测试**（秒）
 
 ```tt -t [60]```
 
-**Use quote mode** with English quotes
+**使用引语模式**并选用英语引语
 
 ```tt -quotes en```
 
-**Group words** into segments
+**将单词分组**为多个片段
 
 ```tt -n [50] -g [10]```
 
-**Apply a custom theme**
+**应用自定义主题**
 
 ```tt -theme [gruvbox]```
 
-**Use a custom word list**
+**使用自定义词表**
 
 ```tt -words [english1000]```
 
-**Log results to CSV**
+**将结果记录到 CSV**
 
 ```tt -csv >> [~/wpm.csv]```
 
@@ -43,66 +43,66 @@ Terminal-based typing speed test
 # PARAMETERS
 
 **-n** _number_
-> Number of words in the test (default: 50)
+> 测试的单词数量（默认：50）
 
 **-t** _seconds_
-> Time limit for the test in seconds
+> 测试的时间限制（秒）
 
 **-g** _number_
-> Group words into segments of specified size
+> 将单词按指定大小分组
 
 **-quotes** _name_
-> Enable quote mode with specified quote list
+> 启用引语模式，使用指定的引语列表
 
 **-words** _name_
-> Use custom or built-in word list
+> 使用自定义或内置词表
 
 **-theme** _name_
-> Apply custom or built-in theme
+> 应用自定义或内置主题
 
 **-csv**
-> Output results in CSV format
+> 以 CSV 格式输出结果
 
 **-raw**
-> Raw output mode for scripting
+> 面向脚本的原始输出模式
 
 **-showwpm**
-> Display live WPM while typing
+> 打字时实时显示 WPM
 
 **-help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**tt** is a terminal-based typing test written in Go. It generates tests from randomly selected words and measures typing speed and accuracy. By default, it uses the top 1000 English words.
+**tt** 是一个用 Go 编写的终端打字测试工具。它从随机选择的单词生成测试内容，并测量打字速度和准确率。默认使用最常见的 1000 个英文单词。
 
-When given a file path, tt uses that file as input, treating each paragraph as a separate test segment. This allows practicing with custom text or code samples.
+给定文件路径时，tt 会以该文件作为输入，将每个段落视为一个独立的测试片段。这样可以用自定义文本或代码示例进行练习。
 
-After each test, tt displays statistics including characters per minute (CPM), words per minute (WPM), accuracy percentage, and specific mistakes made. Results can be logged to CSV for tracking progress over time.
+每次测试结束后，tt 会显示统计数据，包括每分钟字符数（CPM）、每分钟单词数（WPM）、准确率百分比以及具体的错误。结果可以记录到 CSV 中，便于长期跟踪进度。
 
-Custom themes and word lists can be placed in **~/.tt/themes** and **~/.tt/words** directories. The tool is designed to be scriptable and integrate with other Unix tools.
+自定义主题和词表可放在 **~/.tt/themes** 和 **~/.tt/words** 目录中。该工具设计上支持脚本化，便于与其他 Unix 工具集成。
 
 # KEY BINDINGS
 
 **Escape**
-> Restart current test
+> 重启当前测试
 
 **Ctrl+C**
-> Exit
+> 退出
 
 **Right Arrow**
-> Next test
+> 下一题
 
 **Left Arrow**
-> Previous test
+> 上一题
 
 # CAVEATS
 
-tt requires a terminal with proper Unicode support for accurate character display. Very narrow terminals may affect word wrapping and display. The default word list focuses on common English words; programmers may want custom lists with symbols.
+tt 需要正确支持 Unicode 的终端才能准确显示字符。过窄的终端可能影响换行和显示效果。默认词表侧重常见英文单词；程序员可能需要包含符号的自定义词表。
 
 # HISTORY
 
-**tt** was created by **lemnos** and is hosted on GitHub. Written in **Go**, it was designed as a minimal, scriptable typing test for terminal users who prefer command-line tools over web-based alternatives like monkeytype or typeracer.
+**tt** 由 **lemnos** 创建，托管在 GitHub 上。它用 **Go** 编写，设计目标是一个极简、可脚本化的打字测试工具，面向那些偏好命令行工具而非 monkeytype 或 typeracer 等网页应用的终端用户。
 
 # INSTALL
 

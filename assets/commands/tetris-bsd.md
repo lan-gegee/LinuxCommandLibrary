@@ -1,26 +1,26 @@
 # TAGLINE
 
-BSD Tetris game for terminals
+面向终端的 BSD 俄罗斯方块游戏
 
 # TLDR
 
-**Start a game** of tetris
+**开始一局** tetris 游戏
 
 ```tetris-bsd```
 
-**Start at a specific level**
+**从指定等级开始**
 
 ```tetris-bsd -l [level]```
 
-**Enable preview** of the next shape
+**启用下一个形状的预览**
 
 ```tetris-bsd -p```
 
-**Use custom control keys** (left, rotate, right, drop, pause, quit)
+**自定义控制键**（左移、旋转、右移、下落、暂停、退出）
 
 ```tetris-bsd -k "[jkl pq]"```
 
-**Start with seed** for reproducible game
+**指定随机种子**以获得可复现的游戏
 
 ```tetris-bsd -s [seed]```
 
@@ -31,16 +31,16 @@ BSD Tetris game for terminals
 # PARAMETERS
 
 **-l** _level_
-> Set the starting level (default: 2). Higher levels make blocks fall faster (blocks fall N times per second at level N).
+> 设置起始等级（默认：2）。等级越高方块下落越快（N 级时每秒下落 N 次）。
 
 **-k** _keys_
-> Customize control keys. Provide six characters for: left, rotate, right, drop, pause, quit.
+> 自定义控制键。按顺序提供六个字符：左移、旋转、右移、下落、暂停、退出。
 
 **-p**
-> Enable preview of the next shape that will appear.
+> 启用下一个将出现形状的预览。
 
 **-s** _seed_
-> Set the random seed for reproducible block sequences.
+> 设置随机种子，使方块序列可复现。
 
 # PREVIEW
 
@@ -57,19 +57,19 @@ BSD Tetris game for terminals
 
 # DESCRIPTION
 
-**tetris-bsd** is a terminal-based Tetris implementation from the BSD games collection. The game displays falling tetrominoes that must be arranged to form complete horizontal rows. Completed rows disappear, and the game ends when blocks stack to the top.
+**tetris-bsd** 是 BSD 游戏合集中的终端版俄罗斯方块实现。游戏中下落的四格方块必须被排列成完整的水平行。完成的行会消失；当方块堆到顶部时游戏结束。
 
-Default controls use vi-style keys: **j** (left), **k** (rotate), **l** (right), **space** (drop), **p** (pause), **q** (quit). The falling speed is directly proportional to the level number.
+默认控制采用 vi 风格按键：**j**（左移）、**k**（旋转）、**l**（右移）、**space**（下落）、**p**（暂停）、**q**（退出）。下落速度与等级数成正比。
 
-Scoring awards one point per block placed and one point per space dropped. The final score is multiplied by the current level. High scores are saved in **/var/games/bsdgames/tetris-bsd.scores**.
+计分规则为每放置一个方块得一分，每下落一格得一分。最终得分乘以当前等级。高分记录保存在 **/var/games/bsdgames/tetris-bsd.scores** 中。
 
 # CAVEATS
 
-The game must be played on a CRT-compatible terminal. The vi-style default controls may be unfamiliar to users expecting arrow keys.
+游戏必须在兼容 CRT 的终端上玩。习惯方向键的用户可能对 vi 风格的默认控制键感到陌生。
 
 # HISTORY
 
-The original Tetris was created by **Alexey Pajitnov** in **1984** in the Soviet Union. This BSD implementation was adapted from a **1989** International Obfuscated C Code Contest winner by **Chris Torek** and **Darren F. Provine**. Preview mode was added by **Hubert Feyrer** in **1999**. The game is part of the **bsdgames** package included in many Unix-like distributions.
+最初的俄罗斯方块由 **Alexey Pajitnov** 于 **1984** 年在前苏联创造。这个 BSD 实现改编自 **1989** 年国际 C 语言混乱代码大赛（IOCCC）获奖作品，作者为 **Chris Torek** 和 **Darren F. Provine**。预览模式由 **Hubert Feyrer** 于 **1999** 年加入。该游戏是许多类 Unix 发行版所附带的 **bsdgames** 软件包的一部分。
 
 # INSTALL
 

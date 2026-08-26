@@ -1,22 +1,22 @@
 # TAGLINE
 
-Log file syntax highlighter and viewer
+日志文件语法高亮查看器
 
 # TLDR
 
-**View log file**
+**查看日志文件**
 
 ```tspin [logfile.log]```
 
-**Tail and highlight**
+**跟踪并高亮显示**
 
 ```tspin -f [logfile.log]```
 
-**Read from stdin**
+**从标准输入读取**
 
 ```cat [log] | tspin```
 
-**No pager**
+**不使用分页器**
 
 ```tspin --no-pager [logfile.log]```
 
@@ -27,32 +27,32 @@ Log file syntax highlighter and viewer
 # PARAMETERS
 
 **-f**
-> Follow mode.
+> 跟随模式。
 
 **--no-pager**
-> Disable pager.
+> 禁用分页器。
 
 **--config** _FILE_
-> Config file.
+> 配置文件。
 
 **--help**
-> Show help.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**tspin** is a log file viewer that automatically applies syntax highlighting to make logs more readable. It detects common log formats and colorizes elements like timestamps, log levels, IP addresses, URLs, and JSON structures without requiring manual configuration.
+**tspin** 是一个日志文件查看器，会自动应用语法高亮，让日志更易读。它能识别常见的日志格式，为时间戳、日志级别、IP 地址、URL 和 JSON 结构等元素着色，无需手动配置。
 
-Follow mode (**-f**) monitors log files in real time, highlighting new entries as they appear, similar to **tail -f** but with color. The tool can also read from standard input via pipes, integrating into existing logging pipelines.
+跟随模式（**-f**）实时监控日志文件，在新条目出现时立即高亮，类似于带颜色的 **tail -f**。该工具还可以通过管道从标准输入读取，融入现有的日志处理管道。
 
-A built-in pager allows scrolling through log files interactively. Custom highlighting rules can be defined through a configuration file for non-standard log formats.
+内置分页器支持交互式滚动浏览日志文件。对于非标准日志格式，可以通过配置文件定义自定义高亮规则。
 
 # CAVEATS
 
-Rust implementation. Config for custom formats. Terminal colors needed.
+使用 Rust 实现。自定义格式需通过配置。需要终端颜色支持。
 
 # HISTORY
 
-**tspin** was created as a log file highlighter to make logs more readable with automatic format detection.
+**tspin** 作为一个日志文件高亮工具而创建，通过自动格式检测让日志更易读。
 
 # INSTALL
 

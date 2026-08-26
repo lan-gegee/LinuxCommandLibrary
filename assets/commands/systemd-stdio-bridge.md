@@ -1,22 +1,22 @@
 # TAGLINE
 
-Bridge stdio to D-Bus connection
+将 stdio 桥接到 D-Bus 连接
 
 # TLDR
 
-Forward to **system** bus
+转发到**系统**总线
 
 ```systemd-stdio-bridge```
 
-Forward to **user** bus
+转发到**用户**总线
 
 ```systemd-stdio-bridge --user```
 
-Forward to **container** bus
+转发到**容器**总线
 
 ```systemd-stdio-bridge -M [container]```
 
-Forward to **custom** bus address
+转发到**自定义**总线地址
 
 ```systemd-stdio-bridge -p unix:path=[/path/to/socket]```
 
@@ -27,30 +27,30 @@ Forward to **custom** bus address
 # PARAMETERS
 
 **--user**
-> Connect to user D-Bus session
+> 连接到用户 D-Bus 会话
 
 **--system**
-> Connect to system D-Bus (default)
+> 连接到系统 D-Bus（默认）
 
 **-M, --machine=** _CONTAINER_
-> Connect to D-Bus in specified container
+> 连接到指定容器中的 D-Bus
 
 **-p, --bus-path=** _ADDRESS_
-> Connect to custom D-Bus address
+> 连接到自定义 D-Bus 地址
 
 # DESCRIPTION
 
-**systemd-stdio-bridge** implements a proxy between stdin/stdout and a D-Bus connection. It expects an open connection via stdin/stdout and creates a new connection to the specified bus.
+**systemd-stdio-bridge** 在 stdin/stdout 与一条 D-Bus 连接之间实现代理。它期待一个通过 stdin/stdout 打开的连接，并创建一个到指定总线的新连接。
 
-This enables remote D-Bus access via SSH or similar transport mechanisms, bridging external connections to the local bus.
+这使得通过 SSH 或类似的传输机制远程访问 D-Bus 成为可能，将外部连接桥接到本地总线。
 
 # CAVEATS
 
-Expects a properly formatted D-Bus connection on stdin. Used primarily for remote D-Bus access scenarios. Requires appropriate permissions on the target bus.
+要求 stdin 上是格式正确的 D-Bus 连接。主要用于远程访问 D-Bus 的场景。需要对目标总线拥有相应的权限。
 
 # HISTORY
 
-**systemd-stdio-bridge** enables remote D-Bus access patterns, supporting tools like `busctl` and `systemctl` when operating on remote systems via SSH.
+**systemd-stdio-bridge** 支持远程 D-Bus 访问模式，让 `busctl` 和 `systemctl` 等工具可以通过 SSH 操作远程系统。
 
 # INSTALL
 

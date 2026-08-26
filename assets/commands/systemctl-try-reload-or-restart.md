@@ -1,18 +1,18 @@
 # TAGLINE
 
-Reload or restart running units only
+仅对运行中的单元重载或重启
 
 # TLDR
 
-**Reload or restart** unit (if running)
+**重载或重启**单元（若在运行）
 
 ```systemctl try-reload-or-restart [unit]```
 
-Reload or restart **multiple** units
+重载或重启**多个**单元
 
 ```systemctl try-reload-or-restart [unit1 unit2 ...]```
 
-Reload or restart by **pattern**
+按**模式匹配**重载或重启
 
 ```systemctl try-reload-or-restart '[pattern]'```
 
@@ -22,21 +22,21 @@ Reload or restart by **pattern**
 
 # DESCRIPTION
 
-**systemctl try-reload-or-restart** attempts to reload configuration for running units if they support reloading, otherwise restarts them. Unlike `reload-or-restart`, this command only affects units that are currently active.
+**systemctl try-reload-or-restart** 尝试为运行中的单元重载配置（若其支持重载），否则重启它们。与 `reload-or-restart` 不同，此命令只影响当前处于活动状态的单元。
 
-If a unit is not running, no action is taken. This is useful for applying configuration changes without starting stopped services.
+如果单元未在运行，则不采取任何操作。这适用于在不启动已停止服务的情况下应用配置更改。
 
 # CAVEATS
 
-Does nothing for inactive units. Reload only works if the unit has ExecReload defined. If reload isn't supported, the unit is restarted.
+对未激活的单元不做任何事。只有单元定义了 ExecReload 时重载才会生效。如果不支持重载，该单元会被重启。
 
 # ALIASES
 
-This command has several aliases: `condreload`, `force-reload`, `reload-or-try-restart`.
+此命令有若干别名：`condreload`、`force-reload`、`reload-or-try-restart`。
 
 # HISTORY
 
-The **try-reload-or-restart** subcommand provides the safest way to apply configuration changes to services, avoiding unintended service starts.
+**try-reload-or-restart** 子命令提供将配置更改应用到服务的最安全方式，避免意外的服务启动。
 
 # SEE ALSO
 

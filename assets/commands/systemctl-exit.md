@@ -1,18 +1,18 @@
 # TAGLINE
 
-Exit user or container service manager
+退出用户级或容器服务管理器
 
 # TLDR
 
-Exit **user** service manager
+退出**用户**服务管理器
 
 ```systemctl exit --user```
 
-Exit with specific **exit code**
+以指定的**退出码**退出
 
 ```systemctl exit [code] --user```
 
-Exit **container** service manager
+退出**容器**服务管理器
 
 ```systemctl exit```
 
@@ -23,24 +23,24 @@ Exit **container** service manager
 # PARAMETERS
 
 **--user**
-> Exit the user service manager
+> 退出用户服务管理器
 
 _EXIT_CODE_
-> Optional exit code to return (integer)
+> 可选的返回退出码（整数）
 
 # DESCRIPTION
 
-**systemctl exit** asks the service manager to quit. When used with `--user`, it terminates the per-user systemd instance and all user services. When used without `--user` in a container, it cleanly shuts down the container.
+**systemctl exit** 请求服务管理器退出。配合 `--user` 使用时，它会终止每用户的 systemd 实例及所有用户服务。在容器中不带 `--user` 使用时，它会干净地关闭容器。
 
-On a regular system without `--user`, this is equivalent to `systemctl poweroff`.
+在常规系统上不带 `--user` 时，等价于 `systemctl poweroff`。
 
 # CAVEATS
 
-When exiting the user service manager, all user services are terminated. The exit code is passed to the process that started the service manager. Not typically useful on bare-metal systems outside of containers.
+退出用户服务管理器时，所有用户服务都会被终止。退出码会传递给启动服务管理器的进程。在容器之外的裸机系统上通常用处不大。
 
 # HISTORY
 
-The **exit** subcommand supports clean shutdown of containerized systemd instances and user service managers, enabling proper service termination instead of forceful kills.
+**exit** 子命令支持容器化 systemd 实例和用户服务管理器的干净关闭，实现正常的服务终止而非强制杀死。
 
 # SEE ALSO
 

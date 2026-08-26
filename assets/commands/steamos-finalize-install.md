@@ -1,26 +1,26 @@
 # TAGLINE
 
-Complete SteamOS installation setup
+完成 SteamOS 安装设置
 
 # TLDR
 
-**Finalize** installation
+**完成**安装
 
 ```sudo steamos-finalize-install```
 
-Finalize without **bootloaders** or kernel
+不安装**引导加载器**或内核地完成
 
 ```sudo steamos-finalize-install --no-bootloaders --no-kernel```
 
-Skip **migration** steps
+跳过**迁移**步骤
 
 ```sudo steamos-finalize-install --no-migrate```
 
-Set specific **root hash**
+设置指定的**根哈希**
 
 ```sudo steamos-finalize-install --roothash [hash]```
 
-**Force** migration regardless of environment
+无论环境如何都**强制**迁移
 
 ```sudo steamos-finalize-install --force```
 
@@ -31,33 +31,33 @@ Set specific **root hash**
 # PARAMETERS
 
 **--no-bootloaders**
-> Skip bootloader setup
+> 跳过引导加载器设置
 
 **--no-kernel**
-> Skip kernel installation
+> 跳过内核安装
 
 **--no-migrate**
-> Skip all migration steps
+> 跳过所有迁移步骤
 
 **--roothash** _HASH_
-> Set specific root hash during finalization
+> 在完成安装时设置指定的根哈希
 
 **--force**
-> Force system migration regardless of environment
+> 无论环境如何都强制系统迁移
 
 # DESCRIPTION
 
-**steamos-finalize-install** completes a SteamOS installation by setting up bootloaders, installing the kernel, and applying system updates. It performs necessary migration steps to transition from an incomplete installation to a fully bootable system.
+**steamos-finalize-install** 通过设置引导加载器、安装内核和应用系统更新来完成 SteamOS 安装。它执行必要的迁移步骤，从不完整的安装过渡到完全可启动的系统。
 
-This command is typically run as part of the installation process but can be manually invoked to repair or reconfigure boot components.
+此命令通常作为安装流程的一部分运行，但也可以手动调用以修复或重新配置启动组件。
 
 # CAVEATS
 
-Requires root privileges. Incorrect use may render the system unbootable. The --force flag bypasses safety checks and should be used with caution. This command is specific to SteamOS 3.x on Steam Deck and compatible hardware.
+需要 root 权限。使用不当可能导致系统无法启动。--force 标志会绕过安全检查，应谨慎使用。此命令仅适用于 Steam Deck 及兼容硬件上的 SteamOS 3.x。
 
 # HISTORY
 
-**steamos-finalize-install** is part of the **SteamOS** utilities developed by **Valve**. It handles the final stage of the A/B partition installation system used by SteamOS 3.0 on the Steam Deck.
+**steamos-finalize-install** 是 **Valve** 开发的 **SteamOS** 工具的一部分。它处理 Steam Deck 上 SteamOS 3.0 所使用的 A/B 分区安装系统的最后阶段。
 
 # SEE ALSO
 

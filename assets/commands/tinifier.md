@@ -1,30 +1,30 @@
 # TAGLINE
 
-CLI tool for compressing images via TinyPNG API
+通过 TinyPNG API 压缩图片的 CLI 工具
 
 # TLDR
 
-**Compress all images in a directory**
+**压缩目录中的所有图像**
 
 ```tinifier --api-key [KEY] [./images/]```
 
-**Compress recursively with 4 threads**
+**递归压缩并使用 4 个线程**
 
 ```tinifier -t 4 -r --api-key [KEY] [./images/]```
 
-**Compress preserving file modification time and EXIF data**
+**压缩时保留文件修改时间和 EXIF 数据**
 
 ```tinifier --preserve-time --api-key [KEY] [photo.png]```
 
-**Compress only specific file extensions**
+**只压缩特定扩展名的文件**
 
 ```tinifier --api-key [KEY] --ext [png,webp] [./images/]```
 
-**Skip files with less than 5% size reduction**
+**跳过体积缩减不足 5% 的文件**
 
 ```tinifier --api-key [KEY] --skip-if-diff-less [5] [./images/]```
 
-**Keep original files alongside compressed versions**
+**保留原始文件与压缩版本并存**
 
 ```tinifier --api-key [KEY] --keep-original-file [./images/]```
 
@@ -35,49 +35,49 @@ CLI tool for compressing images via TinyPNG API
 # PARAMETERS
 
 **-k**, **--api-key** _KEY_
-> TinyPNG API key. Multiple keys separated by commas for automatic switching when quotas are exceeded.
+> TinyPNG API 密钥。可提供多个密钥并以逗号分隔，超出配额时自动切换。
 
 **-t**, **--threads** _N_
-> Number of parallel threads (default: 16).
+> 并行线程数（默认：16）。
 
 **-r**, **--recursive**
-> Search for files in listed directories recursively.
+> 递归搜索所列目录中的文件。
 
 **-e**, **--ext** _EXTENSIONS_
-> File extensions to compress (default: png,jpeg,jpg,webp,avif).
+> 要压缩的文件扩展名（默认：png,jpeg,jpg,webp,avif）。
 
 **-p**, **--preserve-time**
-> Preserve the original file modification date/time including EXIF data.
+> 保留原始文件的修改日期/时间，包括 EXIF 数据。
 
 **--keep-original-file**
-> Leave the original uncompressed file alongside the compressed one.
+> 在压缩文件旁边保留未压缩的原始文件。
 
 **--skip-if-diff-less** _N_
-> Skip files if compression saves less than N percent (default: 1).
+> 若压缩节省的空间小于 N 百分比则跳过该文件（默认：1）。
 
 **--max-errors** _N_
-> Maximum number of errors before stopping (default: 10, 0 to disable).
+> 停止前允许的最大错误数（默认：10，0 表示不限制）。
 
 **--retry-attempts** _N_
-> Number of retry attempts for operations (default: 3).
+> 操作的重试次数（默认：3）。
 
 **--delay-between-retries** _DURATION_
-> Delay between retry attempts (default: 1s).
+> 重试之间的延迟（默认：1s）。
 
 **-c**, **--config-file** _PATH_
-> Path to a configuration file.
+> 配置文件路径。
 
 # DESCRIPTION
 
-**tinifier** compresses images using the TinyPNG API with parallel processing. It supports PNG, JPEG, WebP, and AVIF files. Multiple API keys can be provided for automatic switching when quotas are exceeded. The tool can recursively scan directories and preserves original file metadata on request.
+**tinifier** 使用 TinyPNG API 并行压缩图像。它支持 PNG、JPEG、WebP 和 AVIF 文件。可以提供多个 API 密钥，在配额用尽时自动切换。该工具支持递归扫描目录，并可根据需要保留原始文件元数据。
 
 # CAVEATS
 
-Requires a TinyPNG API key (free tier: 500 compressions/month). Files are uploaded to TinyPNG servers for compression. Network connectivity is required.
+需要 TinyPNG API 密钥（免费层：每月 500 次压缩）。文件会上传到 TinyPNG 服务器进行压缩。需要网络连接。
 
 # HISTORY
 
-**tinifier** was created by **tarampampam** and is written in **Go**.
+**tinifier** 由 **tarampampam** 创建，使用 **Go** 编写。
 
 # INSTALL
 

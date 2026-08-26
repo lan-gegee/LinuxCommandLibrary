@@ -1,12 +1,12 @@
 # TAGLINE
 
-List files in the trash
+列出回收站中的文件
 
 # TLDR
 
-This command is documented with **trash**
+此命令的文档收录在 **trash** 中
 
-View documentation for **trash-list**
+查看 **trash-list** 的文档
 
 ```tldr trash```
 
@@ -16,7 +16,7 @@ View documentation for **trash-list**
 
 # DESCRIPTION
 
-**trash-list** is part of the trash-cli suite. See **trash** for full documentation.
+**trash-list** 是 trash-cli 套件的一部分。完整文档参见 **trash**。
 
 # INSTALL
 

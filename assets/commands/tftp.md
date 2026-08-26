@@ -1,34 +1,34 @@
 # TAGLINE
 
-Trivial File Transfer Protocol client
+简单文件传输协议（TFTP）客户端
 
 # TLDR
 
-**Connect** to server
+**连接**到服务器
 
 ```tftp [server_ip] [port]```
 
-Execute **command** directly
+直接**执行命令**
 
 ```tftp [server_ip] -c [command]```
 
-Connect with **IPv6** and port range
+使用 **IPv6** 和端口范围连接
 
 ```tftp [server_ip] -6 -R [port:port]```
 
-Set transfer **mode** (interactive)
+设置传输**模式**（交互式）
 
 ```mode [binary|ascii]```
 
-**Download** file (interactive)
+**下载**文件（交互式）
 
 ```get [file]```
 
-**Upload** file (interactive)
+**上传**文件（交互式）
 
 ```put [file]```
 
-**Exit** (interactive)
+**退出**（交互式）
 
 ```quit```
 
@@ -39,63 +39,63 @@ Set transfer **mode** (interactive)
 # PARAMETERS
 
 **-c** _COMMAND_
-> Execute TFTP command and exit
+> 执行 TFTP 命令后退出
 
 **-6**
-> Use IPv6
+> 使用 IPv6
 
 **-R** _PORT:PORT_
-> Force originating port range
+> 强制指定源端口范围
 
 **-4**
-> Use IPv4 only
+> 仅使用 IPv4
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-V**
-> Print version and configuration, then exit
+> 打印版本和配置信息，然后退出
 
 **-l**
-> Default to literal mode (no special processing of ':' in filenames)
+> 默认使用字面模式（不特殊处理文件名中的 ':'）
 
 # INTERACTIVE COMMANDS
 
 **get** _file_
-> Download file from server
+> 从服务器下载文件
 
 **put** _file_
-> Upload file to server
+> 向服务器上传文件
 
 **mode** _binary|ascii_
-> Set transfer mode
+> 设置传输模式
 
 **status**
-> Show current status
+> 显示当前状态
 
 **ascii**
-> Shorthand for "mode ascii"
+> "mode ascii" 的简写
 
 **binary**
-> Shorthand for "mode binary"
+> "mode binary" 的简写
 
 **timeout** _seconds_
-> Set per-packet retransmission timeout
+> 设置每个数据包的重传超时时间
 
 **quit**
-> Exit client
+> 退出客户端
 
 # DESCRIPTION
 
-**tftp** is a client for the Trivial File Transfer Protocol, a simple protocol for transferring files without authentication. TFTP operates over UDP and is commonly used for network booting (PXE) and firmware updates.
+**tftp** 是简单文件传输协议（Trivial File Transfer Protocol）的客户端，这是一种无需身份验证的简单文件传输协议。TFTP 基于 UDP 运行，常用于网络启动（PXE）和固件更新。
 
 # CAVEATS
 
-No authentication or encryption. UDP-based, may have issues with firewalls. Limited error handling compared to FTP. Maximum file size limited by protocol.
+没有身份验证和加密。基于 UDP，在防火墙环境下可能有问题。与 FTP 相比错误处理能力有限。最大文件大小受协议限制。
 
 # HISTORY
 
-TFTP was defined in **RFC 1350** (1992) and is one of the oldest file transfer protocols. It's designed for simplicity, making it suitable for embedded systems and network boot environments.
+TFTP 由 **RFC 1350**（1992 年）定义，是最古老的文件传输协议之一。它的设计追求简洁，因此适合嵌入式系统和网络启动环境。
 
 # INSTALL
 

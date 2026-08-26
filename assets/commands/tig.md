@@ -1,38 +1,38 @@
 # TAGLINE
 
-Text-mode interface for Git
+Git 的文本模式界面
 
 # TLDR
 
-**Open the repository browser** (main view)
+**打开仓库浏览器**（主视图）
 
 ```tig```
 
-**Show commit log** view
+**显示提交日志**视图
 
 ```tig log```
 
-**Show status** of working directory
+**显示工作目录状态**
 
 ```tig status```
 
-**Show blame** for a file
+对文件**显示 blame（行级追溯）**
 
 ```tig blame [path/to/file]```
 
-**Show stash** view
+**显示 stash** 视图
 
 ```tig stash```
 
-**Browse commits** for a specific file
+**浏览特定文件的提交**
 
 ```tig [path/to/file]```
 
-**Browse commits** in a range
+**浏览某范围内的提交**
 
 ```tig [commit1]..[commit2]```
 
-**Use as pager** for git output
+作为 git 输出的**分页器**使用
 
 ```git log --pretty=raw | tig --pretty=raw```
 
@@ -43,92 +43,92 @@ Text-mode interface for Git
 # SUBCOMMANDS
 
 **log**
-> Start in log view displaying git log output
+> 在日志视图中启动，显示 git log 输出
 
 **show**
-> Open diff view using git show options
+> 使用 git show 选项打开 diff 视图
 
 **blame** _file_
-> Show file annotated with commit information
+> 显示附带提交信息的文件标注
 
 **grep**
-> Open grep view; supports git grep options
+> 打开 grep 视图；支持 git grep 的选项
 
 **refs**
-> Start in refs view showing branches and tags
+> 在 refs 视图中启动，显示分支和标签
 
 **reflog**
-> Start in reflog view
+> 在 reflog 视图中启动
 
 **stash**
-> Start in stash view
+> 在 stash 视图中启动
 
 **status**
-> Start in status view showing working directory state
+> 在状态视图中启动，显示工作目录状态
 
 # PARAMETERS
 
 **+**_number_
-> Show first view with the specified line selected.
+> 首个视图打开时选中指定的行。
 
 **-C** _path_
-> Run as if tig was started in _path_ instead of the current directory.
+> 就像在 _path_ 中而不是当前目录启动 tig 一样运行。
 
 **--all**
-> Pretend all refs are listed on the command line (shows every branch).
+> 相当于把所有引用都写在命令行上（显示每个分支）。
 
 **--stdin**
-> Read commit IDs or git output from standard input (pager mode).
+> 从标准输入读取提交 ID 或 git 输出（分页器模式）。
 
 **--pretty=raw**
-> Process stdin formatted as `git log --pretty=raw` output.
+> 处理格式化为 `git log --pretty=raw` 输出的 stdin。
 
 **-v**, **--version**
-> Show version and exit.
+> 显示版本后退出。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息后退出。
 
 # DESCRIPTION
 
-**tig** is an ncurses-based text interface for Git. It serves as a repository browser for exploring commit history, viewing diffs, and managing staging. It can also function as a pager for git command output.
+**tig** 是基于 ncurses 的 Git 文本界面。它可作为仓库浏览器，用于查看提交历史、浏览 diff 以及管理暂存。它还可以充当 git 命令输出的分页器。
 
-The main view shows commit history with author, date, and message. Pressing **Enter** opens the diff view for the selected commit. Use **j/k** or arrow keys to navigate, **/** to search, and **q** to quit or go back.
+主视图显示包含作者、日期和说明的提交历史。按 **Enter** 可打开所选提交的 diff 视图。用 **j/k** 或方向键导航，**/** 搜索，**q** 退出或返回。
 
-In status view, you can stage changes at the file or chunk level. Press **u** to stage/unstage files, and navigate into files to stage individual hunks. This provides a visual alternative to **git add -p**.
+在状态视图中，你可以按文件或代码块（hunk）级别暂存更改。按 **u** 暂存/取消暂存文件，进入文件内部可以逐块暂存。这为 **git add -p** 提供了可视化替代方案。
 
-Configuration is read from **~/.config/tig/config** or **~/.tigrc**. Colors, keybindings, and views can be customized. Press **h** in tig to display the help menu with all keybindings.
+配置从 **~/.config/tig/config** 或 **~/.tigrc** 读取。颜色、快捷键和视图均可自定义。在 tig 中按 **h** 可显示包含所有快捷键的帮助菜单。
 
 # KEY BINDINGS
 
-**j/k** or arrows
-> Navigate up/down
+**j/k** 或方向键
+> 向上/向下导航
 
 **Enter**
-> Open selected item
+> 打开选中项
 
 **q**
-> Quit or close current view
+> 退出或关闭当前视图
 
 **/**
-> Search forward
+> 向前搜索
 
 **n/N**
-> Next/previous search result
+> 下一个/上一个搜索结果
 
 **u**
-> Stage/unstage file or hunk (in status view)
+> 暂存/取消暂存文件或代码块（在状态视图中）
 
 **h**
-> Show help
+> 显示帮助
 
 # CAVEATS
 
-tig accepts most git-log and git-diff options, but some complex git commands may not display as expected. Large repositories with many commits may experience slower navigation. Custom color schemes require terminal support.
+tig 接受大多数 git-log 和 git-diff 选项，但一些复杂的 git 命令可能无法按预期显示。提交数量庞大的仓库导航速度可能较慢。自定义配色需要终端支持。
 
 # HISTORY
 
-**tig** was created by **Jonas Fonseca** and first released in **2006**. The name is "git" spelled backwards. Written in C using ncurses, it was designed to provide a visual interface for Git without leaving the terminal, inspired by tools like gitk but for text-mode environments.
+**tig** 由 **Jonas Fonseca** 创建，首次发布于 **2006 年**。名字是"git"的倒序拼写。它使用 C 语言和 ncurses 编写，设计目标是提供一个不离开终端即可使用的 Git 可视化界面，其灵感来自 gitk 等工具，但面向文本模式环境。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-List registered machines and containers
+列出已注册的机器与容器
 
 # TLDR
 
-List **all** machines
+列出**所有**机器
 
 ```systemctl list-machines```
 
-List **specific** machine
+列出**特定**机器
 
 ```systemctl list-machines [machine]```
 
-List **multiple** machines
+列出**多个**机器
 
 ```systemctl list-machines [machine1 machine2 ...]```
 
-Filter by **pattern**
+按**模式**过滤
 
 ```systemctl list-machines [pattern*]```
 
@@ -26,17 +26,17 @@ Filter by **pattern**
 
 # DESCRIPTION
 
-**systemctl list-machines** displays the host and all running local containers and virtual machines registered with systemd-machined. It shows the machine name, state, and number of failed units.
+**systemctl list-machines** 显示本机以及向 systemd-machined 注册的所有正在运行的本地容器和虚拟机。它会显示机器名称、状态和失败单元的数量。
 
-This provides an overview of all systemd-managed machines, including the local host and systemd-nspawn containers.
+这提供了所有由 systemd 管理的机器的概览，包括本地主机和 systemd-nspawn 容器。
 
 # CAVEATS
 
-Only shows machines registered with systemd-machined. External containers (Docker, Podman without systemd integration) are not listed. The local host is always shown as the first entry.
+只显示向 systemd-machined 注册的机器。外部容器（Docker、未集成 systemd 的 Podman）不会被列出。本地主机始终显示为第一条。
 
 # HISTORY
 
-The **list-machines** subcommand integrates container and VM management into the standard systemctl interface, providing unified monitoring across the host and its managed machines.
+**list-machines** 子命令将容器和虚拟机管理整合进标准的 systemctl 界面，提供跨主机及其管理的机器的统一监控。
 
 # SEE ALSO
 

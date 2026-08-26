@@ -1,34 +1,34 @@
 # TAGLINE
 
-Symlink-based dotfile manager
+基于符号链接的 dotfile 管理器
 
 # TLDR
 
-**Symlink all dotfiles into place**
+**将所有 dotfile 以符号链接部署到位**
 
 ```tuckr add \*```
 
-**Symlink specific groups**
+**部署指定分组**
 
 ```tuckr add [neovim] [zsh]```
 
-**Symlink everything except some groups**
+**部署除某些分组外的全部内容**
 
 ```tuckr add \* -e [neovim]```
 
-**Set up groups and run their hooks**
+**设置分组并运行其钩子**
 
 ```tuckr set [group]```
 
-**Remove deployed dotfiles**
+**移除已部署的 dotfile**
 
 ```tuckr rm [group]```
 
-**Show symlinking status**
+**显示符号链接状态**
 
 ```tuckr status```
 
-**Copy existing files into a group**
+**将现有文件复制进某个分组**
 
 ```tuckr push [group] [file]```
 
@@ -38,57 +38,57 @@ Symlink-based dotfile manager
 
 # PARAMETERS
 
-**add** (alias **a**)
-> Deploy dotfiles for the given groups by creating symlinks.
+**add**（别名 **a**）
+> 通过创建符号链接为给定分组部署 dotfile。
 
 **rm**
-> Remove the deployed dotfiles from the system.
+> 从系统中移除已部署的 dotfile。
 
 **set**
-> Set up groups and run their hooks.
+> 设置分组并运行它们的钩子。
 
 **unset**
-> Remove groups and run their cleanup hooks.
+> 移除分组并运行其清理钩子。
 
-**status** (alias **s**)
-> Show the symlinking status of dotfiles.
+**status**（别名 **s**）
+> 显示 dotfile 的符号链接状态。
 
 **push**
-> Copy existing files into a group.
+> 将现有文件复制进一个分组。
 
 **pop**
-> Remove groups from the dotfiles directory.
+> 从 dotfiles 目录中移除分组。
 
-**encrypt** (alias **e**)
-> Encrypt files and store them under Secrets.
+**encrypt**（别名 **e**）
+> 加密文件并将其存放在 Secrets 下。
 
-**decrypt** (alias **d**)
-> Decrypt files.
+**decrypt**（别名 **d**）
+> 解密文件。
 
 **groupis**
-> Report which group a file belongs to.
+> 报告文件属于哪个分组。
 
 **init**
-> Initialize the dotfile directory.
+> 初始化 dotfile 目录。
 
 **-e** _GROUP_
-> Exclude the given group when used with add.
+> 与 add 一起使用时排除给定分组。
 
 # DESCRIPTION
 
-**tuckr** is a dotfile manager that organizes configuration files into logical groups and deploys them as symlinks. Each group represents a set of related dotfiles (such as vim, zsh, or git), allowing selective deployment of configurations across different machines.
+**tuckr** 是一个 dotfile 管理器，它将配置文件组织成逻辑分组并以符号链接方式部署。每个分组代表一组相关的 dotfile（如 vim、zsh 或 git），可以在不同机器上选择性地部署配置。
 
-The add command creates symlinks from the dotfile repository to their expected locations in the home directory. Groups can be linked individually or all at once with the `\*` wildcard, and the status command shows which groups are currently linked. The rm command cleanly unlinks deployed symlinks, while set additionally runs per-group setup hooks.
+add 命令从 dotfile 仓库创建指向家目录中预期位置的符号链接。分组可以单独链接，也可以用 `\*` 通配符一次性全部链接；status 命令显示当前已链接的分组。rm 命令干净地解除已部署的符号链接，而 set 还会运行各分组的设置钩子。
 
-The tool uses a simple directory structure with Configs, Hooks, and Secrets directories, where each subdirectory under Configs represents a group that mirrors the home directory layout within it. Inspired by GNU Stow, it adds hooks and encrypted secrets without requiring symlink-aware tooling.
+该工具使用简单的目录结构，包含 Configs、Hooks 和 Secrets 目录，Configs 下的每个子目录代表一个分组，并在其中镜像家目录布局。它受 GNU Stow 启发，增加了钩子和加密密钥管理功能，且不要求具备符号链接感知能力的工具。
 
 # CAVEATS
 
-Rust implementation. Specific directory structure. Symlink-based.
+使用 Rust 实现。目录结构有特定要求。基于符号链接。
 
 # HISTORY
 
-**Tuckr** was created as a simple dotfile manager using symlinks with group-based organization.
+**Tuckr** 的创建目标是提供一个使用符号链接、按分组组织的简单 dotfile 管理器。
 
 # INSTALL
 

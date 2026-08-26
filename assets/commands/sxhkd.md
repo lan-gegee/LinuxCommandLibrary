@@ -1,34 +1,34 @@
 # TAGLINE
 
-Simple X11 hotkey daemon
+简单的 X11 热键守护进程
 
 # TLDR
 
-**Start sxhkd** with default configuration
+以默认配置**启动 sxhkd**
 
 ```sxhkd &```
 
-**Start with a custom configuration** file
+**使用自定义配置**文件启动
 
 ```sxhkd -c [~/.config/sxhkd/custom_sxhkdrc] &```
 
-**Start with status output** to a FIFO
+**启动并将状态输出**到 FIFO
 
 ```sxhkd -s [/tmp/sxhkd.fifo] &```
 
-**Redirect command output** to a file
+将命令输出**重定向**到文件
 
 ```sxhkd -r [/tmp/sxhkd.log] &```
 
-**Reload configuration** without restarting
+不重启而**重新加载配置**
 
 ```pkill -USR1 sxhkd```
 
-**Toggle hotkey grabbing**
+**切换热键抓取状态**
 
 ```pkill -USR2 sxhkd```
 
-**Set chord chain timeout** to 3 seconds
+将**组合键链超时**设为 3 秒
 
 ```sxhkd -t 3 &```
 
@@ -39,48 +39,48 @@ Simple X11 hotkey daemon
 # PARAMETERS
 
 **-h**
-> Display help and exit
+> 显示帮助并退出
 
 **-v**
-> Display version and exit
+> 显示版本并退出
 
 **-c** _config_file_
-> Read configuration from specified file instead of default
+> 从指定文件而非默认位置读取配置
 
 **-r** _redir_file_
-> Redirect command output to specified file
+> 将命令输出重定向到指定文件
 
 **-s** _status_fifo_
-> Write status information to specified FIFO
+> 将状态信息写入指定 FIFO
 
 **-t** _timeout_
-> Chord chain timeout in seconds
+> 组合键链超时时间（秒）
 
 **-m** _count_
-> Handle first count mapping notify events (for keyboard layout changes)
+> 处理前 count 个映射通知事件（用于键盘布局切换）
 
 # DESCRIPTION
 
-**sxhkd** (Simple X Hotkey Daemon) listens for keyboard and mouse events on X11 and executes commands defined in its configuration file. It is window manager agnostic and commonly used with tiling window managers like **bspwm**.
+**sxhkd**（Simple X Hotkey Daemon）监听 X11 上的键盘和鼠标事件，并执行其配置文件中定义的命令。它与窗口管理器无关，常与 **bspwm** 等平铺式窗口管理器搭配使用。
 
-Configuration is read from **~/.config/sxhkd/sxhkdrc** by default. Each binding consists of a hotkey line followed by a command line (indented with whitespace). Modifiers include **super**, **alt**, **ctrl**, **shift**, and **mod1-mod5**.
+配置默认从 **~/.config/sxhkd/sxhkdrc** 读取。每条绑定由一行热键和随后的命令行（用空白缩进）组成。修饰键包括 **super**、**alt**、**ctrl**、**shift** 和 **mod1-mod5**。
 
-Key features include chorded bindings (sequences like **super + a ; b**), key release events (prefix keysym with **@**), and pointer buttons (**button1-button24**). Sequences with **{a,b,c}** expand to multiple bindings.
+主要特性包括组合键绑定（如 **super + a ; b** 的序列）、按键释放事件（在 keysym 前加 **@**）以及鼠标按钮（**button1-button24**）。含 **{a,b,c}** 的序列会展开为多条绑定。
 
-Commands execute via **$SXHKD_SHELL** or **$SHELL**. Send **SIGUSR1** to reload configuration and **SIGUSR2** to toggle hotkey grabbing.
+命令通过 **$SXHKD_SHELL** 或 **$SHELL** 执行。发送 **SIGUSR1** 可重新加载配置，发送 **SIGUSR2** 可切换热键抓取。
 
 # CONFIGURATION
 
 **~/.config/sxhkd/sxhkdrc**
-> Default configuration file defining hotkey bindings and their associated commands.
+> 默认配置文件，定义热键绑定及其关联的命令。
 
 # CAVEATS
 
-sxhkd only works on X11; it does not support Wayland. Keysym names are determined by **xev**. Some key combinations may conflict with window managers or other applications grabbing the same keys.
+sxhkd 只能在 X11 上工作，不支持 Wayland。keysym 名称可通过 **xev** 查询。某些按键组合可能与窗口管理器或其他抓取相同按键的应用冲突。
 
 # HISTORY
 
-**sxhkd** was created by **Bastien Dejean** (baskerville), the same developer behind **bspwm**. It was first released around **2013** as a standalone hotkey daemon that could work with any window manager, addressing the need for a simple, scriptable keybinding system independent of the window manager.
+**sxhkd** 由 **Bastien Dejean**（baskerville）创建，他也是 **bspwm** 的开发者。它于 **2013 年**前后首次发布，是一个可与任意窗口管理器配合的独立热键守护进程，满足了人们对独立于窗口管理器的简单、可脚本化按键绑定系统的需求。
 
 # INSTALL
 

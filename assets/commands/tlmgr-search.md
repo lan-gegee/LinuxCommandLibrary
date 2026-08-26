@@ -1,18 +1,18 @@
 # TAGLINE
 
-Search TeX Live packages
+搜索 TeX Live 软件包
 
 # TLDR
 
-**Search packages**
+**搜索软件包**
 
 ```tlmgr search [keyword]```
 
-**Search in descriptions**
+**在描述中搜索**
 
 ```tlmgr search --global [keyword]```
 
-**Search files**
+**搜索文件**
 
 ```tlmgr search --file [filename]```
 
@@ -23,22 +23,21 @@ Search TeX Live packages
 # PARAMETERS
 
 **--global**
-> Search descriptions and names.
+> 搜索描述和名称。
 
 **--file**
-> Search for files.
+> 搜索文件。
 
 **--word**
-> Match whole words only.
+> 仅匹配完整单词。
 
 **--all**
-> Search all packages, not just installed.
+> 搜索所有软件包，而不只是已安装的。
 
 # DESCRIPTION
 
-**tlmgr search** finds TeX Live packages by name, description, or contained files. Part of TeX Live Manager for discovering LaTeX packages.
+**tlmgr search** 按名称、描述或所含文件查找 TeX Live 软件包。TeX Live Manager 的组成部分，用于发现 LaTeX 软件包。
 
 # SEE ALSO
 
 [tlmgr-info](/man/tlmgr-info)(1), [tlmgr-install](/man/tlmgr-install)(1)
-

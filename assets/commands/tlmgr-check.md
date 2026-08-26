@@ -1,30 +1,30 @@
 # TAGLINE
 
-Verify TeX Live installation integrity
+校验 TeX Live 安装的完整性
 
 # TLDR
 
-**Check all aspects of the installation**
+**检查安装的所有方面**
 
 ```tlmgr check all```
 
-**Check that all files listed in the database are present**
+**检查数据库中列出的文件是否都存在**
 
 ```tlmgr check files```
 
-**Check for missing dependencies**
+**检查缺失的依赖**
 
 ```tlmgr check depends```
 
-**Check for conflicting run files between packages**
+**检查软件包之间运行文件的冲突**
 
 ```tlmgr check runfiles```
 
-**Check ls-R file consistency**
+**检查 ls-R 文件的一致性**
 
 ```tlmgr check lsr```
 
-**Run checks with verbose output**
+**以详细输出运行检查**
 
 ```tlmgr -v check all```
 
@@ -35,28 +35,27 @@ Verify TeX Live installation integrity
 # PARAMETERS
 
 **files**
-> Check that all files listed in the local TLPDB are actually present on disk.
+> 检查本地 TLPDB 中列出的所有文件是否确实存在于磁盘上。
 
 **depends**
-> List packages that are dependencies of an installed collection but are not themselves installed, and packages not contained in any collection.
+> 列出作为已安装集合的依赖但自身未安装的软件包，以及不属于任何集合的软件包。
 
 **executes**
-> Check that files referred to by execute directives in the TeX Live Database are present.
+> 检查 TeX Live 数据库中 execute 指令所引用的文件是否存在。
 
 **runfiles**
-> List filenames that occur more than once in the runfiles sections, except for known duplicates.
+> 列出在 runfiles 区段中出现多次的文件名（已知重复项除外）。
 
 **lsr**
-> Check consistency of the ls-R files. Useful after defining new trees or changing TEXMF variables.
+> 检查 ls-R 文件的一致性。在定义新目录树或修改 TEXMF 变量后很有用。
 
 **all**
-> Run all of the above checks.
+> 运行以上全部检查。
 
 # DESCRIPTION
 
-**tlmgr check** verifies the consistency and integrity of a TeX Live installation. If no problems are found, there is no output. Use `tlmgr -v check` for verbose output showing what is being checked. This action does not require write permissions and works the same in user mode and normal mode.
+**tlmgr check** 校验 TeX Live 安装的一致性和完整性。如果没有发现问题，则没有任何输出。使用 `tlmgr -v check` 可获得详细输出，显示正在检查的内容。此操作不需要写权限，在用户模式和普通模式下行为相同。
 
 # SEE ALSO
 
 [tlmgr](/man/tlmgr)(1), [tlmgr-install](/man/tlmgr-install)(1), [tlmgr-update](/man/tlmgr-update)(1)
-

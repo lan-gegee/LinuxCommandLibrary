@@ -1,26 +1,26 @@
 # TAGLINE
 
-Network connection viewer and monitor
+网络连接查看与监控工具
 
 # TLDR
 
-**Show network connections**
+显示网络连接
 
 ```trawl```
 
-**Show all connections**
+显示所有连接
 
 ```trawl -a```
 
-**Filter by process**
+按进程过滤
 
 ```trawl -p [pid]```
 
-**Show listening only**
+仅显示监听中的连接
 
 ```trawl -l```
 
-**Watch mode**
+监控模式
 
 ```trawl -w```
 
@@ -31,38 +31,38 @@ Network connection viewer and monitor
 # PARAMETERS
 
 **-a**
-> All connections.
+> 所有连接。
 
 **-l**
-> Listening only.
+> 仅监听中的连接。
 
 **-p** _PID_
-> Filter by process.
+> 按进程过滤。
 
 **-w**
-> Watch mode.
+> 监控模式。
 
 **-n**
-> Numeric output.
+> 数字化输出。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**trawl** is a network connection viewer that displays information about active TCP connections on a system. It shows details including local and remote addresses, connection state, and the processes associated with each connection.
+**trawl** 是一个网络连接查看器，用于显示系统上活动的 TCP 连接信息。它展示的详细信息包括本地和远程地址、连接状态，以及与每个连接关联的进程。
 
-The watch mode provides continuous updates, refreshing the connection list at regular intervals for real-time monitoring. Connections can be filtered by process ID to focus on a specific application's network activity, and the listening-only mode shows sockets waiting for incoming connections.
+监控模式提供持续更新，定期刷新连接列表以实现实时监控。可以按进程 ID 过滤连接，从而聚焦特定应用的网络活动；仅监听模式则显示等待传入连接的套接字。
 
-Output is designed to be clean and readable, with options for numeric display to avoid DNS resolution delays.
+输出设计得简洁易读，并提供数字化显示选项以避免 DNS 解析延迟。
 
 # CAVEATS
 
-Root may be needed. Platform specific. Network tool.
+可能需要 root 权限。与平台相关。属于网络工具。
 
 # HISTORY
 
-**trawl** is a network connection viewer providing information about active TCP connections.
+**trawl** 是一个网络连接查看器，提供活动 TCP 连接的相关信息。
 
 # SEE ALSO
 

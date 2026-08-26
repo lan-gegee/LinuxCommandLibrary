@@ -1,16 +1,16 @@
 # TAGLINE
 
-Local AI agent CLI that learns from corrections via LoRA (Apple Silicon / MLX)
+通过 LoRA 从纠错中学习的本地 AI 智能体 CLI（Apple Silicon / MLX）
 
 # TLDR
 
-**Start** interactive chat (first run opens the setup wizard)
+**启动**交互式对话（首次运行会打开设置向导）
 
 ```symbio```
 
 ```symb```
 
-**Show or edit** configuration
+**查看或修改**配置
 
 ```symb config```
 
@@ -18,11 +18,11 @@ Local AI agent CLI that learns from corrections via LoRA (Apple Silicon / MLX)
 
 ```symb config set agent.temperature 0.7```
 
-**Train** a LoRA adapter from collected data
+用收集的数据**训练** LoRA 适配器
 
 ```symb train```
 
-**Manage skills** and idle adapters
+**管理技能**与闲置适配器
 
 ```symb skill list```
 
@@ -30,7 +30,7 @@ Local AI agent CLI that learns from corrections via LoRA (Apple Silicon / MLX)
 
 ```symb archive --dry-run```
 
-**Telegram** gateway
+**Telegram** 网关
 
 ```symb gateway status```
 
@@ -44,55 +44,55 @@ Local AI agent CLI that learns from corrections via LoRA (Apple Silicon / MLX)
 
 # DESCRIPTION
 
-**symbio** (short alias **symb**) is a local AI assistant that chats in the terminal (or via Telegram), keeps markdown notes, runs sandboxed tools, and turns your corrections into **LoRA** fine-tuning data so the model improves on-device.
+**symbio**（简短别名 **symb**）是一个本地 AI 助手：它在终端中（或通过 Telegram）对话，维护 markdown 笔记，运行沙箱化的工具，并把你的纠正转化为 **LoRA** 微调数据，让模型在设备端不断改进。
 
-It uses Apple's **MLX** / Metal stack: current releases target **Apple Silicon** (recommended ~16 GB unified memory). There is no cloud API requirement for the core loop. On first launch an interactive wizard sets names, model preset, and optional features (browser, web search, mixture-of-agents dispatch, Telegram).
+它使用 Apple 的 **MLX** / Metal 技术栈：当前版本面向 **Apple Silicon**（建议约 16 GB 统一内存）。核心流程不依赖任何云端 API。首次启动时，交互式向导会设置名称、模型预设和可选功能（浏览器、网页搜索、混合智能体调度、Telegram）。
 
-Corrections are detected automatically (phrases like "No, …" / "Actually …") and stored as mistake notes; when **learn.mistake_threshold** (default 5) is reached, a batch LoRA update runs and is checked against a **golden set** with automatic rollback on regression. Optional **MOA** mode delegates bounded tasks to smaller worker models. Skills start as markdown procedures and can grow dedicated adapters.
+纠正会被自动识别（如 "No, …" / "Actually …" 之类的措辞）并保存为错误笔记；当达到 **learn.mistake_threshold**（默认 5）时，会执行一次批量 LoRA 更新，并用**黄金基准集**校验，出现回退时自动回滚。可选的 **MOA** 模式把有边界的任务委托给更小的 worker 模型。技能以 markdown 流程起步，之后可以发展出专属适配器。
 
-Install from a clone with **pip install -e .** or **pipx install .** so **symbio** / **symb** land on **$PATH**.
+从克隆目录安装可用 **pip install -e .** 或 **pipx install .**，使 **symbio** / **symb** 进入 **$PATH**。
 
 # PARAMETERS
 
 **(no subcommand)** / **chat**
-> Start the interactive chat session.
+> 启动交互式对话会话。
 
 **config** [**show** | **get** _key_ | **set** _key_ _value_]
-> View or change **config.json** (bot tokens redacted in show output).
+> 查看或修改 **config.json**（show 输出中的机器人令牌会被遮蔽）。
 
 **train**
-> Run LoRA fine-tuning (**lora.iters**) and reload the adapter.
+> 运行 LoRA 微调（**lora.iters**）并重新加载适配器。
 
 **skill list** | **skill new** _name_ | **skill rm** _role_
-> List, create, or remove skill notes/adapters.
+> 列出、创建或移除技能笔记/适配器。
 
 **archive** [**--dry-run**] [**--restore** **note**|**adapter** _name_]
-> Archive idle notes/adapters or restore one.
+> 归档闲置的笔记/适配器，或恢复其中一项。
 
 **gateway status** | **gateway start** | **gateway stop**
-> Check or control the Telegram bot gateway.
+> 检查或控制 Telegram 机器人网关。
 
 **setup**
-> Re-run the interactive setup wizard.
+> 重新运行交互式设置向导。
 
 # CONFIGURATION
 
-**config.json** (project / install directory)
-> Model name, agent limits, LoRA hyperparameters, learn thresholds, Telegram settings, dispatch (MOA), and tool groups. Prefer **symb config set** over hand-editing secrets.
+**config.json**（项目 / 安装目录）
+> 模型名称、智能体限制、LoRA 超参数、学习阈值、Telegram 设置、调度（MOA）和工具组。机密信息优先使用 **symb config set**，而非手动编辑。
 
 **SYMBIO_TELEGRAM_TOKEN**
-> Telegram bot token; overrides the value stored in config when set.
+> Telegram 机器人令牌；设置后覆盖配置文件中存储的值。
 
-**notes/**, **training_data/**, **adapters/**
-> Markdown memory, JSONL training corpora, and LoRA adapter weights (workers live under **workers/**_role_/).
+**notes/**、**training_data/**、**adapters/**
+> Markdown 记忆、JSONL 训练语料和 LoRA 适配器权重（worker 位于 **workers/**_role_/ 下）。
 
 # CAVEATS
 
-Inference and training currently require **Apple Silicon + MLX**; CUDA/llama.cpp backends are roadmap items, not production defaults. Sandbox for shell/Python is best-effort under your user privileges. Telegram and browser features need extra config and explicit approval for dangerous actions. Model downloads and LoRA training are resource-heavy.
+推理和训练目前要求 **Apple Silicon + MLX**；CUDA/llama.cpp 后端属于路线图规划，并非生产默认项。shell/Python 沙箱是在你的用户权限下尽力而为的保护。Telegram 和浏览器功能需要额外配置，危险操作需显式批准。模型下载和 LoRA 训练非常消耗资源。
 
 # HISTORY
 
-**Symbio** is an open-source local agent (Apache-2.0) focused on correction-driven LoRA personalization without a cloud subscription. Upstream: **github.com/huyedits/Symbio**.
+**Symbio** 是一个开源本地智能体（Apache-2.0），专注于无需云订阅的、由纠错驱动的 LoRA 个性化。上游地址：**github.com/huyedits/Symbio**。
 
 # SEE ALSO
 

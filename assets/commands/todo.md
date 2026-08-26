@@ -1,30 +1,30 @@
 # TAGLINE
 
-Simple command-line task management
+简单的命令行任务管理
 
 # TLDR
 
-**Add task**
+**添加任务**
 
 ```todo add "[task description]"```
 
-**List tasks**
+**列出任务**
 
 ```todo list```
 
-**Complete task**
+**完成任务**
 
 ```todo done [id]```
 
-**Remove task**
+**移除任务**
 
 ```todo rm [id]```
 
-**Show task**
+**显示任务**
 
 ```todo show [id]```
 
-**Clear completed**
+**清除已完成项**
 
 ```todo clear```
 
@@ -35,36 +35,36 @@ Simple command-line task management
 # PARAMETERS
 
 **add**
-> Add task.
+> 添加任务。
 
 **list**
-> Show tasks.
+> 显示任务。
 
 **done**
-> Mark complete.
+> 标记为完成。
 
 **rm**
-> Remove task.
+> 移除任务。
 
 **show**
-> Show details.
+> 显示详情。
 
 **clear**
-> Remove done.
+> 移除已完成项。
 
 # DESCRIPTION
 
-**todo** is a simple command-line task manager for creating, listing, completing, and removing tasks. It provides a minimal interface for quick task entry and progress tracking without the complexity of full-featured project management tools.
+**todo** 是一款简单的命令行任务管理器，用于创建、列出、完成和移除任务。它提供极简的界面，便于快速录入任务和跟踪进度，没有全功能项目管理工具的复杂性。
 
-Multiple implementations exist under the name "todo," each with slightly different features and storage backends. The core workflow is consistent: add tasks with descriptions, mark them done when completed, and clear finished items from the list.
+存在多个以 "todo" 命名的实现，各自的功能和存储后端略有不同。核心工作流程是一致的：添加带描述的任务，完成时标记为 done，并从列表中清除已完成的条目。
 
 # CAVEATS
 
-Multiple tools named todo. Check which installed. Features vary.
+存在多个名为 todo 的工具。请检查安装的是哪一个。功能各有差异。
 
 # HISTORY
 
-Various **todo** implementations exist for command-line task management, each with slightly different features.
+命令行任务管理领域存在多种 **todo** 实现，各自的功能略有不同。
 
 # INSTALL
 

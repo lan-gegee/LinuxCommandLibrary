@@ -1,18 +1,18 @@
 # TAGLINE
 
-Access alternate SteamOS partitions
+访问备用的 SteamOS 分区
 
 # TLDR
 
-Switch to **other** A/B partition
+切换到**另一个** A/B 分区
 
 ```steamos-chroot -p other```
 
-Switch to partition on **another drive**
+切换到**其他磁盘**上的分区
 
 ```steamos-chroot -d [/dev/sdX] -p [A|B]```
 
-Display **help**
+显示**帮助**
 
 ```steamos-chroot -h```
 
@@ -23,27 +23,27 @@ Display **help**
 # PARAMETERS
 
 **-p**, **--partset** _A|B|other_
-> Select partition set (A, B, or the other inactive one)
+> 选择分区集（A、B 或另一个非活动的分区）
 
 **-d**, **--disk** _DEVICE_
-> Target a specific disk device
+> 指定目标磁盘设备
 
 **-h**, **--help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**steamos-chroot** switches the root directory in a SteamOS environment, enabling access to the alternate A/B partition or partitions on other drives. SteamOS uses A/B partition schemes for reliable updates, allowing one partition to be updated while the other remains bootable.
+**steamos-chroot** 在 SteamOS 环境中切换根目录，从而能够访问备用的 A/B 分区或其他驱动器上的分区。SteamOS 采用 A/B 分区方案来实现可靠的更新，允许一个分区更新时另一个分区保持可启动状态。
 
-This tool is useful for recovery operations, system repair, or accessing files on the inactive partition.
+该工具可用于恢复操作、系统修复或访问非活动分区上的文件。
 
 # CAVEATS
 
-Requires root privileges. Changes made in the chroot affect the target partition. Be careful when switching between A/B partitions during an active update.
+需要 root 权限。在 chroot 中所做的更改会影响目标分区。在进行中的更新期间切换 A/B 分区时请务必小心。
 
 # HISTORY
 
-**steamos-chroot** is part of the **SteamOS** utilities developed by **Valve** for the Steam Deck. SteamOS 3.0, based on Arch Linux, was released in **2022** with the Steam Deck handheld gaming device.
+**steamos-chroot** 是 **Valve** 为 Steam Deck 开发的 **SteamOS** 工具的一部分。基于 Arch Linux 的 SteamOS 3.0 于 **2022 年**随 Steam Deck 掌上游戏设备一同发布。
 
 # SEE ALSO
 

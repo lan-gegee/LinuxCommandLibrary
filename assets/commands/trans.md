@@ -1,38 +1,38 @@
 # TAGLINE
 
-Command-line language translator
+命令行翻译器
 
 # TLDR
 
-**Translate text** to your default language
+将文本**翻译**成你的默认语言
 
 ```trans "[text]"```
 
-**Translate to a specific language**
+**翻译成指定语言**
 
 ```trans :[target_lang] "[text]"```
 
-**Translate from one language to another**
+在两种语言之间**互译**
 
 ```trans [source]:[target] "[text]"```
 
-**Translate to multiple languages**
+**同时翻译成多种语言**
 
 ```trans :fr+de+es "[text]"```
 
-**Brief mode** (show only translation)
+**简洁模式**（只显示译文）
 
 ```trans -b "[text]"```
 
-**Listen to the translation** (text-to-speech)
+**收听译文**（文字转语音）
 
 ```trans -p :[target] "[text]"```
 
-**Identify the language** of text
+**识别文本的语言**
 
 ```trans -id "[text]"```
 
-**Start interactive mode**
+**启动交互模式**
 
 ```trans -shell```
 
@@ -43,62 +43,62 @@ Command-line language translator
 # PARAMETERS
 
 **-b**, **-brief**
-> Brief mode; show only the translation.
+> 简洁模式；只显示译文。
 
 **-d**, **-dictionary**
-> Show dictionary definition of the word.
+> 显示单词的词典释义。
 
 **-id**, **-identify**
-> Identify the language of the text.
+> 识别文本的语言。
 
 **-p**, **-play**
-> Listen to translation via text-to-speech.
+> 通过文字转语音收听译文。
 
 **-speak**
-> Listen to the original text.
+> 收听原文。
 
 **-s**, **-source** _lang_
-> Specify source language.
+> 指定源语言。
 
 **-t**, **-target** _lang_
-> Specify target language.
+> 指定目标语言。
 
 **-i**, **-input** _file_
-> Read text from a file.
+> 从文件读取文本。
 
 **-o**, **-output** _file_
-> Write translation to a file.
+> 将译文写入文件。
 
 **-shell**, **-interactive**
-> Start an interactive translation shell.
+> 启动交互式翻译 Shell。
 
 **-e**, **-engine** _engine_
-> Use a specific translation engine (google, bing, yandex, apertium).
+> 使用指定的翻译引擎（google、bing、yandex、apertium）。
 
 **-T**, **-reference**
-> Print reference table of all supported languages.
+> 打印所有支持语言的对照表。
 
 **-V**, **-version**
-> Print version and exit.
+> 打印版本并退出。
 
 **-H**, **-help**
-> Print help message and exit.
+> 打印帮助信息并退出。
 
 # DESCRIPTION
 
-**Translate Shell** (trans) is a command-line translator powered by Google Translate (default), Bing Translator, Yandex.Translate, and Apertium. It provides quick access to translation services from the terminal.
+**Translate Shell**（trans）是一个命令行翻译器，由 Google Translate（默认）、Bing Translator、Yandex.Translate 和 Apertium 提供支持。它让你可以在终端中快速使用各种翻译服务。
 
-Language codes follow ISO 639 standards (e.g., en, fr, de, zh-CN, ja). The source language is auto-detected if not specified. Multiple target languages can be specified by joining codes with **+**.
+语言代码遵循 ISO 639 标准（如 en、fr、de、zh-CN、ja）。未指定源语言时会自动检测。可以用 **+** 连接多个代码来同时指定多个目标语言。
 
-Interactive mode (**-shell**) allows translating line by line. Audio playback requires mplayer, mpv, or mpg123. The tool can also function as a dictionary with the **-d** flag.
+交互模式（**-shell**）支持逐行翻译。音频播放需要 mplayer、mpv 或 mpg123。配合 **-d** 选项，该工具还可以当作词典使用。
 
 # CAVEATS
 
-Requires internet connection and depends on external translation services. Heavy usage may trigger rate limiting. Audio playback requires a compatible audio player (mplayer, mpv, or mpg123) to be installed.
+需要联网，且依赖外部翻译服务。大量使用可能触发速率限制。音频播放需要安装兼容的音频播放器（mplayer、mpv 或 mpg123）。
 
 # HISTORY
 
-Translate Shell was originally named "Google Translate CLI" and was created by **Mort Yao** (soimort). It was first released around **2012** to provide command-line access to Google Translate. The project was later renamed and expanded to support multiple translation engines including Bing, Yandex, and Apertium.
+Translate Shell 最初名为 "Google Translate CLI"，由 **Mort Yao**（soimort）创建。它于 **2012 年**左右首次发布，用于在命令行中使用 Google Translate。该项目后来更名，并扩展为支持包括 Bing、Yandex 和 Apertium 在内的多种翻译引擎。
 
 # INSTALL
 

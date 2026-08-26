@@ -1,22 +1,22 @@
 # TAGLINE
 
-Flush filesystem buffers to disk
+将文件系统缓冲区刷写到磁盘
 
 # TLDR
 
-**Flush all file system buffers** to disk
+将**所有文件系统缓冲区**刷写到磁盘
 
 ```sync```
 
-**Synchronize a specific file**
+**同步特定文件**
 
 ```sync [path/to/file]```
 
-**Synchronize data only** (skip metadata)
+**只同步数据**（跳过元数据）
 
 ```sync -d [path/to/file]```
 
-**Synchronize file systems** containing specific files
+**同步包含指定文件的文件系统**
 
 ```sync -f [path/to/file]```
 
@@ -27,32 +27,32 @@ Flush filesystem buffers to disk
 # PARAMETERS
 
 **-d**, **--data**
-> Sync only file data, skip unnecessary metadata
+> 只同步文件数据，跳过不必要的元数据
 
 **-f**, **--file-system**
-> Sync the file systems containing the specified files
+> 同步包含指定文件的文件系统
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**sync** flushes file system buffers, forcing changed blocks (dirty pages) to be written to disk. This ensures data currently held in memory is persisted to storage.
+**sync** 刷新文件系统缓冲区，强制将被修改的块（脏页）写入磁盘。这确保当前保存在内存中的数据被持久化到存储设备。
 
-Linux buffers write operations in memory for performance, bundling and reordering disk I/O. While efficient, this means an unexpected crash or power loss could result in data loss. sync forces the kernel to write buffered data to disk, ensuring integrity.
+出于性能考虑，Linux 会在内存中缓冲写操作，对磁盘 I/O 进行合并与重排。这样做虽然高效，但意味着意外崩溃或断电可能导致数据丢失。sync 强制内核把缓冲的数据写入磁盘，以保证数据完整性。
 
-When called without arguments, sync flushes all buffers system-wide. With FILE arguments, only those files are synchronized.
+不带参数调用时，sync 会刷新全系统的所有缓冲区。带 FILE 参数时，则只同步这些文件。
 
 # CAVEATS
 
-sync guarantees data reaches the device driver but does not guarantee physical writes to the disk platter or flash memory have completed. For SSDs and some drives with write caching, data may still be in the drive's internal cache. Modern utilities like **umount**, **reboot**, and **shutdown** invoke sync automatically.
+sync 保证数据到达设备驱动层，但不保证物理写入磁盘盘片或闪存已完成。对于 SSD 和某些带写入缓存的硬盘，数据可能仍停留在硬盘的内部缓存中。现代工具如 **umount**、**reboot** 和 **shutdown** 会自动调用 sync。
 
 # HISTORY
 
-sync has been part of Unix since the early days, ensuring filesystem consistency before shutdown or media removal. Written by Jim Meyering for GNU coreutils. The underlying sync(2) system call has existed since the original Unix.
+sync 自 Unix 早期就已是其中一员，用于确保关机或移除介质前的文件系统一致性。由 Jim Meyering 为 GNU coreutils 编写。底层的 sync(2) 系统调用自最初的 Unix 就已存在。
 
 # INSTALL
 

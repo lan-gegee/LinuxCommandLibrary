@@ -1,22 +1,22 @@
 # TAGLINE
 
-Fetch info about a Telegram username or URL
+获取 Telegram 用户名或 URL 的信息
 
 # TLDR
 
-**Get info about a Telegram username**
+**获取 Telegram 用户名的信息**
 
 ```tginfo [username]```
 
-**Get info from a Telegram URL**
+**从 Telegram URL 获取信息**
 
 ```tginfo https://t.me/[username]```
 
-**Display only specific attributes**
+**仅显示特定属性**
 
 ```tginfo [username] --attrs=title,type,subscribers```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```tginfo [username] --json```
 
@@ -27,26 +27,26 @@ Fetch info about a Telegram username or URL
 # PARAMETERS
 
 **--attrs**=_ATTR1,ATTR2_
-> Display only specific attributes.
+> 仅显示特定属性。
 
 **--json**
-> Display JSON instead of a human readable view.
+> 显示 JSON 而非人类可读的视图。
 
 **--help**
-> Print help message.
+> 打印帮助信息。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**tginfo** is a zero-dependency Node.js module that fetches information about a Telegram username or URL. It accepts web URLs (https://t.me/username), deep links (tg://resolve?domain=username), plain usernames, or invite codes.
+**tginfo** 是一个零依赖的 Node.js 模块，用于获取 Telegram 用户名或 URL 的信息。它接受 Web URL（https://t.me/username）、深链接（tg://resolve?domain=username）、纯用户名或邀请码。
 
-The output includes attributes such as type, title, webUrl, tgUrl, and optional fields like username, info, verified, image, subscribers, members, and online count depending on the entity type.
+输出包含 type、title、webUrl、tgUrl 等属性，并根据实体类型可选包含 username、info、verified、image、subscribers、members 和在线人数等字段。
 
 # CAVEATS
 
-Requires Node.js. Install globally via `npm install -g tginfo` or run with `npx tginfo`.
+需要 Node.js。可通过 `npm install -g tginfo` 全局安装，或用 `npx tginfo` 运行。
 
 # SEE ALSO
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Suspend system to RAM
+将系统挂起到内存
 
 # TLDR
 
-**Suspend** the system
+**挂起**系统
 
 ```systemctl suspend```
 
-**Force** suspend
+**强制**挂起
 
 ```systemctl suspend -f```
 
@@ -19,24 +19,24 @@ Suspend system to RAM
 # PARAMETERS
 
 **-f, --force**
-> Force suspend even if inhibitors are present
+> 即使存在抑制锁也强制挂起
 
 **--no-wall**
-> Don't send wall message to users
+> 不向用户发送 wall 消息
 
 # DESCRIPTION
 
-**systemctl suspend** puts the system into suspend mode (suspend-to-RAM), a low-power state where the system contents are kept in memory. Wake-up is fast since the system state doesn't need to be restored from disk.
+**systemctl suspend** 将系统置于挂起模式（挂起到内存），这是一种低功耗状态，系统内容保留在内存中。由于无需从磁盘恢复系统状态，唤醒速度很快。
 
-Power is maintained to RAM to preserve the system state. This is the standard sleep mode for laptops and desktops.
+内存保持供电以维持系统状态。这是笔记本电脑和台式机的标准睡眠模式。
 
 # CAVEATS
 
-System state is lost if power fails while suspended. Battery drain continues (slowly) during suspend. Some hardware may not support suspend reliably. Wake devices (keyboard, power button) must be configured.
+如果挂起期间断电，系统状态会丢失。挂起期间电池仍会（缓慢）耗电。某些硬件可能无法可靠支持挂起。唤醒设备（键盘、电源键）需要另行配置。
 
 # HISTORY
 
-The **suspend** subcommand integrates system sleep into the systemd command interface, coordinating with power management and inhibitor locks.
+**suspend** 子命令将系统睡眠功能整合进 systemd 命令界面，与电源管理和抑制锁机制协同工作。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Enter Toolbx container interactively
+交互式进入 Toolbx 容器
 
 # TLDR
 
-Enter a Toolbx container using default image of a **specific distribution**
+使用**特定发行版**的默认镜像进入 Toolbx 容器
 
 ```toolbox enter -d [distribution]```
 
-Enter container using default image of a **specific release**
+使用**特定发布版本**的默认镜像进入容器
 
 ```toolbox enter -r [release]```
 
-Enter container for a **specific Fedora release**
+进入**特定 Fedora 版本**的容器
 
 ```toolbox enter -d fedora -r f[version]```
 
@@ -23,23 +23,23 @@ Enter container for a **specific Fedora release**
 # PARAMETERS
 
 **-d**, **--distro** _distro_
-> Enter container for specified distribution
+> 进入指定发行版的容器
 
 **-r**, **--release** _release_
-> Enter container for specified release version
+> 进入指定发布版本的容器
 
 **container**
-> Name of container to enter (default: current)
+> 要进入的容器名称（默认：当前容器）
 
 # DESCRIPTION
 
-**toolbox enter** provides an interactive shell inside a Toolbx container. The container environment seamlessly integrates with the host, sharing the home directory, user identity, and system resources like graphics and networking.
+**toolbox enter** 在 Toolbx 容器内提供一个交互式 Shell。容器环境与宿主机无缝集成，共享主目录、用户身份以及图形和网络等系统资源。
 
-This allows running distribution-specific tools, testing software, or development work in an isolated environment while maintaining access to host files and services.
+这样可以在隔离环境中运行特定发行版的工具、测试软件或进行开发工作，同时保持对宿主机文件和服务的访问。
 
 # CAVEATS
 
-Container must exist; use **toolbox create** first. Changes to home directory persist between sessions. System directories are container-specific and reset if the container is recreated.
+容器必须已存在；请先使用 **toolbox create**。对主目录的更改会在会话之间保留。系统目录是容器专属的，重新创建容器时会被重置。
 
 # INSTALL
 

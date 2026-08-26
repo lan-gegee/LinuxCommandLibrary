@@ -1,22 +1,22 @@
 # TAGLINE
 
-Lightweight namespace container
+轻量级命名空间容器
 
 # TLDR
 
-**Run** a command in a container
+在容器中**运行**命令
 
 ```systemd-nspawn -D [path/to/container_root]```
 
-**Run** a full Linux OS in a container (boot)
+在容器中**运行**完整 Linux 操作系统（引导启动）
 
 ```systemd-nspawn -b -D [path/to/container_root]```
 
-**Run** the command as PID 2 using a stub init process
+借助桩 init 进程以 PID 2 身份**运行**命令
 
 ```systemd-nspawn -D [path/to/container_root] -a```
 
-**Specify** the machine name and hostname
+**指定**机器名称和主机名
 
 ```systemd-nspawn -M [container_name] --hostname [hostname] -D [path/to/container_root]```
 
@@ -27,41 +27,41 @@ Lightweight namespace container
 # PARAMETERS
 
 **-D, --directory _path_**
-> Root directory of the container
+> 容器的根目录
 
 **-b, --boot**
-> Boot the container's init system
+> 引导启动容器的 init 系统
 
 **-M, --machine _name_**
-> Set the machine name
+> 设置机器名称
 
 **-a, --as-pid2**
-> Run command as PID 2 with stub init
+> 使用桩 init 以 PID 2 身份运行命令
 
 **--hostname _name_**
-> Set the container hostname
+> 设置容器主机名
 
 **-u, --user _user_**
-> Run as specified user
+> 以指定用户身份运行
 
 **--bind _src:dest_**
-> Bind mount host path into container
+> 将宿主机路径绑定挂载到容器中
 
 **-n, --network-veth**
-> Create a virtual Ethernet link
+> 创建虚拟以太网链路
 
 **--private-network**
-> Disconnect from host network
+> 与宿主网络断开连接
 
 # DESCRIPTION
 
-**systemd-nspawn** spawns a command or full operating system in a lightweight container. It uses Linux namespaces and cgroups for isolation but is simpler than full container solutions like Docker.
+**systemd-nspawn** 在轻量级容器中启动一个命令或完整的操作系统。它使用 Linux 命名空间和 cgroups 进行隔离，但比 Docker 这类完整的容器方案更简单。
 
-The tool is useful for testing, building packages, and running isolated services. With **--boot**, it can run a complete init system, making it suitable for system containers.
+该工具适用于测试、构建软件包以及运行相互隔离的服务。配合 **--boot** 可以运行完整的 init 系统，因此也适合作为系统容器使用。
 
 # CAVEATS
 
-Requires root privileges. The container filesystem must contain a complete OS or at least the required binaries. Network isolation requires additional configuration. Part of the systemd suite.
+需要 root 权限。容器文件系统必须包含完整的操作系统，或至少包含所需的二进制文件。网络隔离需要额外的配置。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

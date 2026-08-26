@@ -1,34 +1,34 @@
 # TAGLINE
 
-Screen locker for Sway Wayland compositor
+Sway Wayland 合成器的屏幕锁定工具
 
 # TLDR
 
-**Lock screen**
+**锁定屏幕**
 
 ```swaylock```
 
-**With solid color**
+**使用纯色**
 
 ```swaylock -c [1a1a2e]```
 
-**With image**
+**使用图像**
 
 ```swaylock -i [wallpaper.jpg]```
 
-**Per-output images**
+**每个输出使用不同图像**
 
 ```swaylock -i [HDMI-A-1:wallpaper.jpg]```
 
-**Blur effect**
+**模糊效果**
 
 ```swaylock --effect-blur [7x5]```
 
-**Show failed attempts**
+**显示失败次数**
 
 ```swaylock -f --show-failed-attempts```
 
-**Daemonize**
+**以守护进程方式运行**
 
 ```swaylock -f```
 
@@ -39,41 +39,41 @@ Screen locker for Sway Wayland compositor
 # PARAMETERS
 
 **-c**, **--color** _COLOR_
-> Background color.
+> 背景颜色。
 
 **-i**, **--image** _IMAGE_
-> Background image.
+> 背景图像。
 
 **-f**, **--daemonize**
-> Run as daemon.
+> 以守护进程方式运行。
 
 **-s**, **--scaling** _MODE_
-> Image scaling.
+> 图像缩放方式。
 
 **--effect-blur** _PARAMS_
-> Blur effect.
+> 模糊效果。
 
 **--show-failed-attempts**
-> Show failures.
+> 显示失败情况。
 
 **--indicator-radius** _N_
-> Indicator size.
+> 指示器大小。
 
 # DESCRIPTION
 
-**swaylock** is a screen locking utility for Sway and other Wayland compositors, providing secure session locking with PAM-based authentication. It renders a lock screen over all outputs and requires the user's password to unlock.
+**swaylock** 是面向 Sway 和其他 Wayland 合成器的屏幕锁定工具，通过基于 PAM 的认证提供安全的会话锁定。它会在所有输出上渲染锁屏界面，并要求输入用户密码才能解锁。
 
-The lock screen background can be customized with solid colors or images, with per-output image support for multi-monitor setups. An indicator ring shows the current state: idle, typing, password verification, and incorrect password. The swaylock-effects fork adds additional visual effects like blur.
+锁屏背景可以自定义纯色或图像，多显示器环境中还支持为每个输出指定不同图像。指示环会显示当前状态：空闲、正在输入、密码验证中以及密码错误。swaylock-effects 分支增加了模糊等更多视觉效果。
 
-The daemonize flag causes swaylock to fork to the background after the lock screen is displayed, which is essential when used with swayidle's before-sleep event to ensure the screen is locked before the system suspends.
+daemonize 参数使 swaylock 在显示锁屏后 fork 到后台运行。与 swayidle 的 before-sleep 事件配合使用时，这一选项至关重要，可确保系统挂起前屏幕已锁定。
 
 # CAVEATS
 
-Wayland/Sway only. PAM configuration needed. Some effects need swaylock-effects fork.
+仅支持 Wayland/Sway。需要配置 PAM。某些效果需要 swaylock-effects 分支。
 
 # HISTORY
 
-**swaylock** is the screen locker for **Sway** compositor. It's a Wayland replacement for i3lock.
+**swaylock** 是 **Sway** 合成器的屏幕锁定工具，是 i3lock 在 Wayland 上的替代品。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Resume frozen unit processes
+恢复已冻结单元的进程
 
 # TLDR
 
-**Thaw** (resume) a unit
+**解冻**（恢复）一个单元
 
 ```systemctl thaw [unit]```
 
-Thaw **multiple** units
+解冻**多个**单元
 
 ```systemctl thaw [unit1 unit2 ...]```
 
-Thaw **all** frozen units
+解冻**所有**冻结的单元
 
 ```systemctl thaw '*'```
 
@@ -22,17 +22,17 @@ Thaw **all** frozen units
 
 # DESCRIPTION
 
-**systemctl thaw** resumes one or more units that were previously frozen with `systemctl freeze`. Frozen units have all their processes suspended via the kernel freezer cgroup controller.
+**systemctl thaw** 恢复之前通过 `systemctl freeze` 冻结的一个或多个单元。被冻结的单元，其所有进程都会经由内核的 freezer cgroup 控制器挂起。
 
-Thawing allows the unit's processes to continue execution from where they were paused.
+解冻让单元的进程从暂停之处继续执行。
 
 # CAVEATS
 
-Only affects units that were frozen. Thawing a non-frozen unit has no effect. Requires the cgroup freezer controller to be available.
+只对曾被冻结的单元有效。对未冻结的单元执行解冻没有任何效果。需要 cgroup freezer 控制器可用。
 
 # HISTORY
 
-The **thaw** subcommand complements the freeze functionality, enabling controlled process suspension and resumption for debugging or resource management.
+**thaw** 子命令与 freeze 功能互为补充，支持受控的进程暂停与恢复，可用于调试或资源管理。
 
 # SEE ALSO
 

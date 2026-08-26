@@ -1,26 +1,26 @@
 # TAGLINE
 
-Impose CPU, memory, and I/O load
+施加 CPU、内存和 I/O 负载
 
 # TLDR
 
-Spawn 4 workers to stress test **CPU**
+启动 4 个工作进程对 **CPU** 进行压力测试
 
 ```stress -c 4```
 
-Spawn 2 workers to stress test **IO** with timeout
+启动 2 个工作进程带超时地对 **IO** 施压
 
 ```stress -i 2 -t 5```
 
-Spawn 2 workers to stress test **memory**
+启动 2 个工作进程对**内存**施压
 
 ```stress -m 2 --vm-bytes 256M```
 
-Spawn 2 workers to stress test **disk**
+启动 2 个工作进程对**磁盘**施压
 
 ```stress -d 2 --hdd-bytes 1GB```
 
-Run with **verbose** output
+以**详细输出**运行
 
 ```stress -v -c 2```
 
@@ -30,59 +30,59 @@ Run with **verbose** output
 
 # DESCRIPTION
 
-**stress** imposes a configurable amount of CPU, memory, I/O, or disk stress on a POSIX-compliant operating system and reports any errors it detects. It is useful for evaluating system scalability, performance characteristics, and exposing bugs that manifest under heavy load conditions.
+**stress** 在符合 POSIX 标准的操作系统上施加可配置强度的 CPU、内存、I/O 或磁盘压力，并报告检测到的错误。它适用于评估系统的可伸缩性和性能特征，并暴露在高负载条件下才会出现的问题。
 
 # PARAMETERS
 
 **-c, --cpu N**
-> Spawn N workers calculating square roots
+> 启动 N 个计算平方根的工作进程
 
 **-i, --io N**
-> Spawn N workers calling sync()
+> 启动 N 个调用 sync() 的工作进程
 
 **-m, --vm N**
-> Spawn N workers allocating and freeing memory
+> 启动 N 个分配并释放内存的工作进程
 
 **--vm-bytes B**
-> Allocate B bytes per vm worker (default: 256MB)
+> 每个 vm 工作进程分配 B 字节（默认为 256MB）
 
 **--vm-stride B**
-> Touch bytes at B-byte intervals (default: 4096)
+> 以 B 字节间隔访问内存（默认为 4096）
 
 **--vm-hang N**
-> Sleep N seconds before freeing memory
+> 释放内存前休眠 N 秒
 
 **--vm-keep**
-> Redirty memory instead of reallocating
+> 反复弄脏内存而不是重新分配
 
 **-d, --hdd N**
-> Spawn N workers writing and unlinking files
+> 启动 N 个写入并删除文件的工作进程
 
 **--hdd-bytes B**
-> Write B bytes per hdd worker (default: 1GB)
+> 每个 hdd 工作进程写入 B 字节（默认为 1GB）
 
 **-t, --timeout N**
-> Terminate after N seconds
+> N 秒后终止
 
 **--backoff N**
-> Wait N microseconds before starting work
+> 开始工作前等待 N 微秒
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **-q, --quiet**
-> Suppress non-error messages
+> 不显示非错误消息
 
 **-n, --dry-run**
-> Display actions without executing them
+> 仅显示将要执行的操作，不实际执行
 
 # CAVEATS
 
-This tool is explicitly not a benchmarking tool. Numbers may be suffixed with s, m, h, d, y (time) or B, K, M, G (size). Running excessive stress tests may cause system instability.
+该工具明确不是基准测试工具。数字可带 s、m、h、d、y（时间）或 B、K、M、G（大小）后缀。运行过度的压力测试可能导致系统不稳定。
 
 # HISTORY
 
-**stress** was written by **Amos Waterland** as a simple workload generator for POSIX systems. The related **stress-ng** tool by Colin Ian King provides many more stressor types and metrics.
+**stress** 由 **Amos Waterland** 编写，是面向 POSIX 系统的简单负载生成器。由 Colin Ian King 开发的相关工具 **stress-ng** 提供了多得多的压力源类型和指标。
 
 # INSTALL
 

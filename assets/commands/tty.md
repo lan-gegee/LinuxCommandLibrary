@@ -1,22 +1,22 @@
 # TAGLINE
 
-Print terminal device file name
+打印终端设备文件名
 
 # TLDR
 
-**Print the terminal device** name
+**打印终端设备**名
 
 ```tty```
 
-**Check silently** if stdin is a terminal (exit status only)
+**静默检查** stdin 是否为终端（仅返回退出状态）
 
 ```tty -s```
 
-**Use in a script** to check for interactive mode
+在脚本中用于**检查是否处于交互模式**
 
 ```if tty -s; then echo "Interactive"; fi```
 
-**Show version**
+**显示版本**
 
 ```tty --version```
 
@@ -27,36 +27,36 @@ Print terminal device file name
 # PARAMETERS
 
 **-s**, **--silent**, **--quiet**
-> Print nothing; only return exit status
+> 不打印任何内容；只返回退出状态
 
 **--help**
-> Display help and exit
+> 显示帮助信息并退出
 
 **--version**
-> Output version information and exit
+> 输出版本信息并退出
 
 # DESCRIPTION
 
-**tty** prints the file name of the terminal connected to standard input. The output is typically a device path like **/dev/pts/0** (pseudo-terminal) or **/dev/tty1** (virtual console).
+**tty** 打印连接到标准输入的终端的文件名。输出通常是一个设备路径，例如 **/dev/pts/0**（伪终端）或 **/dev/tty1**（虚拟控制台）。
 
-If standard input is not connected to a terminal (e.g., when input is piped or redirected from a file), tty prints "not a tty" and exits with status 1.
+如果标准输入没有连接到终端（例如输入来自管道或文件重定向），tty 会打印 "not a tty" 并以状态 1 退出。
 
-The **-s** option suppresses output entirely, making it useful in scripts where only the exit status matters. This allows testing whether a script is running interactively or in a batch/piped context.
+**-s** 选项完全抑制输出，适用于只关心退出状态的脚本。这样可以测试脚本是在交互模式下运行，还是在批处理/管道环境中运行。
 
 # EXIT STATUS
 
 **0**
-> Standard input is a terminal
+> 标准输入是终端
 
 **1**
-> Standard input is not a terminal
+> 标准输入不是终端
 
 **2**
-> Invalid option specified
+> 指定了无效选项
 
 # EXAMPLES
 
-**Check if running interactively**
+**检查是否以交互方式运行**
 ```
 if tty -s; then
     echo "Running in terminal"
@@ -65,7 +65,7 @@ else
 fi
 ```
 
-**Get the terminal device path**
+**获取终端设备路径**
 ```
 MYTERM=$(tty)
 echo "Connected to: $MYTERM"
@@ -73,11 +73,11 @@ echo "Connected to: $MYTERM"
 
 # CAVEATS
 
-The tty command only checks standard input. If stdin is redirected but stdout/stderr are still connected to a terminal, tty will report "not a tty". For more detailed terminal checks, consider using **test -t** or examining **/proc/self/fd/**.
+tty 命令只检查标准输入。如果 stdin 被重定向而 stdout/stderr 仍连接着终端，tty 会报告 "not a tty"。如需更细致的终端检测，可以考虑使用 **test -t** 或查看 **/proc/self/fd/**。
 
 # HISTORY
 
-The **tty** command dates back to the earliest versions of Unix at Bell Labs in the **1970s**. The name comes from "teletypewriter," the original terminal devices. The GNU coreutils version was written by **David MacKenzie**. The command is specified in POSIX.
+**tty** 命令可追溯到 **20 世纪 70 年代**贝尔实验室最早的 Unix 版本。其名称来源于"teletypewriter"（电传打字机），即最早的终端设备。GNU coreutils 版本由 **David MacKenzie** 编写。该命令已列入 POSIX 标准。
 
 # INSTALL
 

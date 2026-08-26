@@ -1,30 +1,30 @@
 # TAGLINE
 
-Gather SSH public host keys from servers
+从服务器收集 SSH 公开主机密钥
 
 # TLDR
 
-**Scan host for keys**
+**扫描主机获取密钥**
 
 ```ssh-keyscan [hostname]```
 
-**Scan specific port**
+**扫描指定端口**
 
 ```ssh-keyscan -p [port] [hostname]```
 
-**Scan for specific key type**
+**扫描特定密钥类型**
 
 ```ssh-keyscan -t ed25519 [hostname]```
 
-**Scan multiple hosts from file**
+**从文件扫描多台主机**
 
 ```ssh-keyscan -f [hosts_file]```
 
-**Append to known_hosts with hashed hostnames**
+**以哈希主机名追加到 known_hosts**
 
 ```ssh-keyscan -H [hostname] >> ~/.ssh/known_hosts```
 
-**Print keys as SSHFP DNS records**
+**以 SSHFP DNS 记录格式打印密钥**
 
 ```ssh-keyscan -D [hostname]```
 
@@ -35,43 +35,43 @@ Gather SSH public host keys from servers
 # PARAMETERS
 
 **-4**
-> Force IPv4 addresses only.
+> 仅使用 IPv4 地址。
 
 **-6**
-> Force IPv6 addresses only.
+> 仅使用 IPv6 地址。
 
 **-c**
-> Request certificates from target hosts instead of plain keys.
+> 向目标主机请求证书而不是普通密钥。
 
 **-D**
-> Print keys found as SSHFP DNS records.
+> 将找到的密钥以 SSHFP DNS 记录格式输出。
 
 **-f** _file_
-> Read hosts from file (use `-` for stdin).
+> 从文件读取主机列表（`-` 表示 stdin）。
 
 **-H**
-> Hash hostnames and addresses in output.
+> 对输出中的主机名和地址做哈希处理。
 
 **-p** _port_
-> Connect to specified port on the remote host.
+> 连接远程主机的指定端口。
 
 **-q**
-> Quiet mode; suppress comments in output.
+> 静默模式；抑制输出中的注释。
 
 **-t** _type_
-> Key type to fetch: rsa, ed25519, ecdsa, ecdsa-sk, or ed25519-sk. Multiple types can be separated by commas.
+> 要获取的密钥类型：rsa、ed25519、ecdsa、ecdsa-sk 或 ed25519-sk。可用逗号分隔多种类型。
 
 **-T** _timeout_
-> Connection timeout in seconds (default 5).
+> 连接超时时间，以秒为单位（默认 5）。
 
 **-v**
-> Verbose mode; print debugging messages.
+> 详细模式；打印调试信息。
 
 # DESCRIPTION
 
-**ssh-keyscan** is a utility for gathering SSH public host keys from remote servers. It connects to each specified host and retrieves the server's public keys, outputting them in a format suitable for appending to **~/.ssh/known_hosts** or **/etc/ssh/ssh_known_hosts** files.
+**ssh-keyscan** 是一个从远程服务器收集 SSH 公开主机密钥的工具。它连接到每台指定的主机并获取服务器的公钥，以适合追加到 **~/.ssh/known_hosts** 或 **/etc/ssh/ssh_known_hosts** 文件的格式输出。
 
-The tool is primarily used for automating host key distribution in environments where manually accepting host keys during first connection is impractical. It can scan multiple hosts in parallel, read host lists from files, and filter by key type (RSA, Ed25519, ECDSA). The **-H** option hashes hostnames in the output for additional privacy.
+该工具主要用于在首次连接时人工接受主机密钥不现实的环境中自动化分发主机密钥。它可以并行扫描多台主机、从文件读取主机列表，并按密钥类型（RSA、Ed25519、ECDSA）过滤。**-H** 选项会对输出中的主机名做哈希处理，提供额外的隐私保护。
 
 # INSTALL
 
@@ -84,4 +84,3 @@ The tool is primarily used for automating host key distribution in environments 
 # SEE ALSO
 
 [ssh](/man/ssh)(1), [ssh-keygen](/man/ssh-keygen)(1)
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Set service manager environment variables
+设置服务管理器的环境变量
 
 # TLDR
 
-**Set** environment variable
+**设置**环境变量
 
 ```systemctl set-environment [VAR=value]```
 
-Set **multiple** variables
+设置**多个**变量
 
 ```systemctl set-environment [VAR1=val1 VAR2=val2 ...]```
 
-Set for **user** manager
+为**用户**管理器设置
 
 ```systemctl set-environment [VAR=value] --user```
 
@@ -23,24 +23,24 @@ Set for **user** manager
 # PARAMETERS
 
 **--user**
-> Set in user service manager environment
+> 设置到用户服务管理器的环境中
 
 **--system**
-> Set in system manager environment (default)
+> 设置到系统管理器的环境中（默认）
 
 # DESCRIPTION
 
-**systemctl set-environment** adds or updates environment variables in the systemd service manager's environment. These variables are passed to all services started after the change.
+**systemctl set-environment** 在 systemd 服务管理器的环境中添加或更新环境变量。这些变量会被传递给更改之后启动的所有服务。
 
-This is useful for injecting configuration into services without modifying their unit files.
+这适用于在不修改单元文件的情况下向服务注入配置。
 
 # CAVEATS
 
-Only affects services started after the change. Changes are temporary and lost on reboot. Already running services are not affected. Use `import-environment` to import from the shell.
+只影响更改之后启动的服务。更改是临时的，重启后会丢失。已经在运行的服务不受影响。要从 Shell 导入环境变量，请使用 `import-environment`。
 
 # HISTORY
 
-The **set-environment** subcommand enables dynamic environment configuration for services, complementing unit file Environment= directives.
+**set-environment** 子命令支持为服务动态配置环境，与单元文件中的 Environment= 指令互为补充。
 
 # SEE ALSO
 

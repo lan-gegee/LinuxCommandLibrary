@@ -1,30 +1,30 @@
 # TAGLINE
 
-Modern BitTorrent client for the terminal
+面向终端的现代 BitTorrent 客户端
 
 # TLDR
 
-**Launch the TUI client**
+**启动 TUI 客户端**
 
 ```superseedr```
 
-**Add a magnet link**
+**添加磁力链接**
 
 ```superseedr add "[magnet:?xt=urn:btih:...]"```
 
-**Add a torrent file**
+**添加种子文件**
 
 ```superseedr add [/path/to/file.torrent]```
 
-**List configured torrents**
+**列出已配置的种子**
 
 ```superseedr torrents```
 
-**List the files of a torrent** by info hash
+按 info hash **列出一个种子的文件**
 
 ```superseedr files [info_hash]```
 
-**Gracefully stop the running client**
+**优雅地停止正在运行的客户端**
 
 ```superseedr stop-client```
 
@@ -34,33 +34,33 @@ Modern BitTorrent client for the terminal
 
 # DESCRIPTION
 
-**superseedr** is a modern BitTorrent client featuring a high-performance 60 FPS terminal UI, real-time swarm observability with bandwidth graphs and peer analytics, and Docker with Gluetun VPN integration. It supports BitTorrent v2, RSS feed tracking, and 40+ built-in themes.
+**superseedr** 是一款现代 BitTorrent 客户端，具有高性能的 60 FPS 终端 UI、带带宽图表和对等节点分析功能的实时 swarm 观测，以及 Docker 与 Gluetun VPN 集成。它支持 BitTorrent v2、RSS 订阅跟踪和 40 多个内置主题。
 
-Run without arguments, **superseedr** opens the interactive terminal UI. While it is running you can add content by pasting a magnet link or torrent path, or by running the `add` subcommand from another terminal, which hands the input to the live instance. The remaining subcommands provide a scriptable interface for managing torrents and the shared/standalone configuration. Add **--json** to any subcommand to get structured output.
+不带参数运行时，**superseedr** 会打开交互式终端 UI。运行期间可以通过粘贴磁力链接或种子路径添加内容，也可以从另一个终端运行 `add` 子命令，输入会被转交给正在运行的实例。其余子命令提供了可脚本化的接口，用于管理种子以及共享/独立配置。在任何子命令后加上 **--json** 即可获得结构化输出。
 
 # COMMANDS
 
 **add** [**--path** _PATH_] [**--validated**] _input_...
-> Add one or more torrent file paths or magnet links. **--path** persists an existing download path for the inputs; **--validated** treats data as already verified when rebuilding a catalog.
+> 添加一个或多个种子文件路径或磁力链接。**--path** 为这些输入持久化已有的下载路径；重建目录时，**--validated** 会将数据视为已经校验过。
 
 **torrents**
-> List configured torrents.
+> 列出已配置的种子。
 
 **info** _info_hash_|_path_
-> Show a single torrent by info hash or unique file path.
+> 按 info hash 或唯一文件路径显示单个种子。
 
 **files** _info_hash_|_path_
-> List the files for a torrent, including relative and resolved full paths.
+> 列出某个种子的文件，包括相对路径和解析后的完整路径。
 
 **stop-client**
-> Request a graceful shutdown of the running client.
+> 请求优雅关闭正在运行的客户端。
 
 **to-shared** _PATH_ / **to-standalone**
-> Convert between layered shared config (rooted at _PATH_) and local standalone config.
+> 在分层共享配置（以 _PATH_ 为根）和本地独立配置之间互相转换。
 
 # HISTORY
 
-**superseedr** was created by **Jagalite** and is written in **Rust**. It is distributed via `cargo install superseedr`, Homebrew, the AUR, and platform installers.
+**superseedr** 由 **Jagalite** 创建，使用 **Rust** 编写。可通过 `cargo install superseedr`、Homebrew、AUR 以及各平台安装程序获取。
 
 # INSTALL
 

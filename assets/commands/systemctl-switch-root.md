@@ -1,18 +1,18 @@
 # TAGLINE
 
-Switch to real root filesystem
+切换到真正的根文件系统
 
 # TLDR
 
-**Switch** to new root filesystem
+**切换**到新的根文件系统
 
 ```systemctl switch-root [/path/to/new_root]```
 
-Switch and run **specific init**
+切换并运行**指定的 init**
 
 ```systemctl switch-root [/path/to/new_root] [/sbin/init]```
 
-Switch with **verbose** output
+以**详细输出**方式切换
 
 ```systemctl switch-root [/path/to/new_root] -v```
 
@@ -23,27 +23,27 @@ Switch with **verbose** output
 # PARAMETERS
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 _ROOT_
-> Path to the new root filesystem
+> 新根文件系统的路径
 
 _INIT_
-> Init binary to execute (default: systemd)
+> 要执行的 init 程序（默认：systemd）
 
 # DESCRIPTION
 
-**systemctl switch-root** transitions the system from an initramfs to the real root filesystem and executes a new system manager. This is the final step of the boot process after the initramfs has set up the real root.
+**systemctl switch-root** 将系统从 initramfs 切换到真正的根文件系统，并启动新的系统管理器。这是 initramfs 设置好真正的根之后的最后一步启动流程。
 
-This command is typically used internally by the initramfs to complete the boot process, not called manually.
+此命令通常由 initramfs 在内部调用来完成启动过程，而非手动调用。
 
 # CAVEATS
 
-Intended for initramfs use during boot. Incorrect use can render the system unbootable. The new root must contain a valid init system. All processes from the old root are terminated.
+仅供 initramfs 在启动过程中使用。使用不当可能导致系统无法启动。新的根必须包含有效的 init 系统。旧根上的所有进程都会被终止。
 
 # HISTORY
 
-The **switch-root** subcommand formalizes the initramfs-to-real-root transition in systemd, replacing the traditional pivot_root operations.
+**switch-root** 子命令将 initramfs 到真正根文件系统的切换流程规范化到 systemd 中，取代了传统的 pivot_root 操作。
 
 # SEE ALSO
 

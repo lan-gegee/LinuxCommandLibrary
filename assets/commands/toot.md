@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mastodon CLI and TUI client
+Mastodon CLI 与 TUI 客户端
 
 # TLDR
 
-**Launch the TUI**
+**启动 TUI**
 
 ```toot tui```
 
-**Post a status**
+**发布一条状态**
 
 ```toot post "[your message]"```
 
-**Log in to a Mastodon instance**
+**登录 Mastodon 实例**
 
 ```toot login```
 
@@ -22,11 +22,11 @@ Mastodon CLI and TUI client
 
 # DESCRIPTION
 
-**toot** is a CLI and TUI client for interacting with Mastodon and compatible Fediverse instances. It supports posting, replying, and deleting statuses, media uploads, spoiler text, searching by account or hashtag, following, muting and blocking accounts, and switching between multiple authenticated accounts.
+**toot** 是一个用于与 Mastodon 及兼容的联邦宇宙（Fediverse）实例交互的 CLI 和 TUI 客户端。它支持发布、回复和删除状态，上传媒体，剧透文本，按账号或话题标签搜索，关注、静音和屏蔽账号，以及在多个已认证账号之间切换。
 
 # HISTORY
 
-**toot** was created by **Ivan Habunek** (ihabunek) and is written in **Python**.
+**toot** 由 **Ivan Habunek**（ihabunek）创建，使用 **Python** 编写。
 
 # INSTALL
 

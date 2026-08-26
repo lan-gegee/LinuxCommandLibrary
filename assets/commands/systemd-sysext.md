@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage system extension images
+管理系统扩展镜像
 
 # TLDR
 
-**Show current merge status**
+**显示当前合并状态**
 
 ```systemd-sysext status```
 
-**List** installed extension images
+**列出**已安装的扩展镜像
 
 ```systemd-sysext list```
 
-**Merge** extensions into /usr and /opt
+将扩展**合并**到 /usr 和 /opt
 
 ```systemd-sysext merge```
 
-**Unmerge** all extensions
+**取消合并**所有扩展
 
 ```systemd-sysext unmerge```
 
-**Refresh** (unmerge then merge)
+**刷新**（先取消合并再合并）
 
 ```systemd-sysext refresh```
 
-**Merge ignoring version compatibility checks**
+合并时忽略版本兼容性检查
 
 ```systemd-sysext merge --force```
 
@@ -35,56 +35,56 @@ Manage system extension images
 # COMMANDS
 
 **status**
-> Show current merge status. Default when invoked without a command.
+> 显示当前合并状态。不带命令调用时的默认行为。
 
 **list**
-> List installed extension images.
+> 列出已安装的扩展镜像。
 
 **merge**
-> Overlay extension images onto /usr and /opt using overlayfs.
+> 使用 overlayfs 将扩展镜像叠加到 /usr 和 /opt 上。
 
 **unmerge**
-> Remove extension overlays.
+> 移除扩展叠加层。
 
 **refresh**
-> Unmerge then merge (reload extensions after installing or removing images).
+> 先取消合并再合并（在安装或删除镜像后重新加载扩展）。
 
 # PARAMETERS
 
 **--root=** _PATH_
-> Operate relative to the specified root directory.
+> 相对于指定的根目录进行操作。
 
 **--force**
-> Ignore version incompatibilities when merging.
+> 合并时忽略版本不兼容问题。
 
 **--mutable=** _MODE_
-> Set mutability mode (disabled, auto, yes, import, ephemeral, ephemeral-import).
+> 设置可变性模式（disabled、auto、yes、import、ephemeral、ephemeral-import）。
 
 **--no-reload**
-> Do not reload daemon after merge, unmerge, or refresh.
+> 合并、取消合并或刷新后不重载守护进程。
 
 **--no-pager**
-> Do not pipe output into a pager.
+> 不将输出通过分页器显示。
 
 **--no-legend**
-> Do not print column headers and footer hints.
+> 不打印列标题和页脚提示。
 
 **--json=** _MODE_
-> Output as JSON (short, pretty, or off).
+> 以 JSON 格式输出（short、pretty 或 off）。
 
 # DESCRIPTION
 
-**systemd-sysext** manages system extension images that overlay files onto `/usr/` and `/opt/`. Extensions are read-only images (DDI format) that add software to the base system without modifying the root filesystem.
+**systemd-sysext** 管理系统扩展镜像，这些镜像会将文件叠加到 `/usr/` 和 `/opt/` 上。扩展是只读镜像（DDI 格式），可以在不修改根文件系统的情况下向基础系统添加软件。
 
-Extensions are stored in `/var/lib/extensions/` or `/run/extensions/` and are merged using overlayfs.
+扩展存储在 `/var/lib/extensions/` 或 `/run/extensions/` 中，并通过 overlayfs 合并。
 
 # CAVEATS
 
-Extensions must match the host OS version. The base /usr must be immutable or read-only for overlay to work. Changes require refresh to take effect.
+扩展必须与宿主操作系统版本匹配。基础 /usr 必须是不可变的或只读的，叠加才能生效。更改需要执行 refresh 才会生效。
 
 # HISTORY
 
-**systemd-sysext** enables modular system composition, supporting immutable base images with layered extensions for additional software.
+**systemd-sysext** 支持模块化的系统组装，以不可变的基础镜像配合分层扩展来添加额外软件。
 
 # INSTALL
 

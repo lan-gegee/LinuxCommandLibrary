@@ -1,26 +1,26 @@
 # TAGLINE
 
-Configure persistent Tailscale options
+配置持久的 Tailscale 选项
 
 # TLDR
 
-**Accept routes** advertised by other tailnet nodes
+**接受**其他 tailnet 节点通告的**路由**
 
 ```tailscale set --accept-routes```
 
-**Advertise this device as an exit node**
+**将本设备通告为出口节点**
 
 ```tailscale set --advertise-exit-node```
 
-**Set the device hostname**
+**设置设备主机名**
 
 ```tailscale set --hostname [name]```
 
-**Allow a non-root user to control tailscaled**
+允许非 root 用户控制 tailscaled
 
 ```tailscale set --operator=[$USER]```
 
-**Route this device's traffic through an exit node**
+让本设备的流量经由出口节点**路由**
 
 ```tailscale set --exit-node [node-name-or-ip]```
 
@@ -31,44 +31,44 @@ Configure persistent Tailscale options
 # PARAMETERS
 
 **--accept-routes**
-> Accept subnet routes advertised by other nodes.
+> 接受其他节点通告的子网路由。
 
 **--accept-dns**
-> Accept DNS configuration from the admin console.
+> 接受来自管理控制台的 DNS 配置。
 
 **--advertise-routes** _CIDRS_
-> Expose physical subnet routes to the tailnet.
+> 将物理子网路由暴露给 tailnet。
 
 **--advertise-exit-node**
-> Offer this node as an exit node.
+> 将本节点提供为出口节点。
 
 **--advertise-tags** _TAGS_
-> Apply ACL tags to this device.
+> 为本设备应用 ACL 标签。
 
 **--exit-node** _NODE_
-> Route traffic through the named exit node (empty string clears it).
+> 让流量经由指定的出口节点路由（空字符串表示清除）。
 
 **--exit-node-allow-lan-access**
-> Allow LAN access while connected to an exit node.
+> 连接到出口节点时仍允许访问局域网。
 
 **--hostname** _NAME_
-> Override the device hostname.
+> 覆盖设备主机名。
 
 **--shields-up**
-> Block all incoming connections.
+> 阻止所有入站连接。
 
 **--ssh**
-> Enable Tailscale SSH on this device.
+> 在本设备上启用 Tailscale SSH。
 
 **--operator** _USER_
-> Allow the named local user to operate **tailscaled** without sudo.
+> 允许指定的本地用户无需 sudo 即可操作 **tailscaled**。
 
 **--auto-update**
-> Enable automatic Tailscale client updates (where supported).
+> 启用 Tailscale 客户端自动更新（在支持的平台上）。
 
 # DESCRIPTION
 
-**tailscale set** changes per-node Tailscale options without disrupting the existing connection. Unlike **tailscale up**, which resets every unspecified flag back to its default, **set** modifies only the flags you pass — making it the safer choice for incremental changes.
+**tailscale set** 在不打断现有连接的情况下修改每个节点的 Tailscale 选项。**tailscale up** 会把所有未指定的标志重置回默认值，而 **set** 只修改你传入的标志——因此更适合做增量修改，也更安全。
 
 # INSTALL
 
@@ -89,4 +89,3 @@ Configure persistent Tailscale options
 # SEE ALSO
 
 [tailscale](/man/tailscale)(1), [tailscale-up](/man/tailscale-up)(1)
-

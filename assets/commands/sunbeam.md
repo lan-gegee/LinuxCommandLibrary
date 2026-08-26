@@ -1,30 +1,30 @@
 # TAGLINE
 
-General purpose command-line launcher
+通用命令行启动器
 
 # TLDR
 
-**Launch the root view**
+**启动根视图**
 
 ```sunbeam```
 
-**Run an extension** by alias or path
+按别名或路径**运行扩展**
 
 ```sunbeam run [extension] [command]```
 
-**Install an extension** from a URL or local path
+从 URL 或本地路径**安装扩展**
 
 ```sunbeam extension install [origin]```
 
-**List installed extensions**
+**列出已安装的扩展**
 
 ```sunbeam extension list```
 
-**Validate a script** against the Sunbeam schema
+根据 Sunbeam schema **校验脚本**
 
 ```sunbeam validate [manifest.json]```
 
-**Open a file or URL** in the system handler
+在系统处理程序中**打开文件或 URL**
 
 ```sunbeam open [target]```
 
@@ -35,35 +35,35 @@ General purpose command-line launcher
 # PARAMETERS
 
 **run** _extension_ [_command_]
-> Execute a command exposed by an installed extension.
+> 执行已安装扩展暴露的某个命令。
 
 **extension install** _origin_
-> Install an extension from a Git URL or local directory.
+> 从 Git URL 或本地目录安装扩展。
 
 **extension list**
-> Show installed extensions.
+> 显示已安装的扩展。
 
 **extension remove** _alias_
-> Uninstall an extension.
+> 卸载扩展。
 
 **validate** _file_
-> Check that a manifest or page conforms to the Sunbeam JSON schema.
+> 检查清单或页面是否符合 Sunbeam JSON schema。
 
 **open** _target_
-> Open a URL or file with the default handler.
+> 用默认处理程序打开 URL 或文件。
 
 **--help**
-> Show usage for sunbeam or any subcommand.
+> 显示 sunbeam 或任意子命令的用法。
 
 # DESCRIPTION
 
-**sunbeam** lets you define UIs composed of a succession of views from simple scripts written in any language. It is a hybrid between application launchers like Raycast and fuzzy-finders like fzf, rendering interactive lists, details, and forms from JSON emitted by your scripts.
+**sunbeam** 让你用任何语言编写的简单脚本来定义由一系列视图组成的 UI。它介于 Raycast 这类应用启动器和 fzf 这类模糊查找器之间，可以从你的脚本输出的 JSON 渲染出交互式列表、详情和表单。
 
-Extensions can be written in shell, Python, TypeScript, or any language that can print JSON to stdout. Sunbeam ships integrations for GitHub, Nix, Google Search, Hacker News, and Pipe Boards, and embeds cleanly inside tmux or zellij popups.
+扩展可以用 Shell、Python、TypeScript 或任何能向标准输出打印 JSON 的语言编写。Sunbeam 内置了 GitHub、Nix、Google 搜索、Hacker News 和 Pipe Boards 的集成，并能干净地嵌入 tmux 或 zellij 弹窗中。
 
 # HISTORY
 
-**sunbeam** was created by **pomdtr** and is written in **Go**. It is distributed under the MIT license.
+**sunbeam** 由 **pomdtr** 创建，使用 **Go** 编写，以 MIT 许可证发布。
 
 # SEE ALSO
 

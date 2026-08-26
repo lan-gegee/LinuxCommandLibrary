@@ -1,42 +1,42 @@
 # TAGLINE
 
-Archive and compress files
+归档并压缩文件
 
 # TLDR
 
-**Create an archive** from files
+从文件**创建归档**
 
 ```tar -cvf [archive.tar] [file1] [file2]```
 
-**Create a gzip-compressed archive**
+**创建 gzip 压缩的归档**
 
 ```tar -czvf [archive.tar.gz] [directory/]```
 
-**Create a bzip2-compressed archive**
+**创建 bzip2 压缩的归档**
 
 ```tar -cjvf [archive.tar.bz2] [directory/]```
 
-**Create an xz-compressed archive**
+**创建 xz 压缩的归档**
 
 ```tar -cJvf [archive.tar.xz] [directory/]```
 
-**Extract an archive**
+**解压归档**
 
 ```tar -xvf [archive.tar]```
 
-**Extract a compressed archive**
+**解压压缩归档**
 
 ```tar -xzvf [archive.tar.gz]```
 
-**Extract to a specific directory**
+解压到指定目录
 
 ```tar -xvf [archive.tar] -C [directory/]```
 
-**List contents** of an archive
+列出归档的**内容**
 
 ```tar -tvf [archive.tar]```
 
-**Extract specific files**
+**提取特定文件**
 
 ```tar -xvf [archive.tar] [file1] [file2]```
 
@@ -47,89 +47,89 @@ Archive and compress files
 # PARAMETERS
 
 **-c**, **--create**
-> Create a new archive
+> 创建新归档
 
 **-x**, **--extract**
-> Extract files from archive
+> 从归档中提取文件
 
 **-t**, **--list**
-> List archive contents
+> 列出归档内容
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-f** _file_, **--file**=_file_
-> Use specified archive file
+> 使用指定的归档文件
 
 **-z**, **--gzip**
-> Filter through gzip
+> 通过 gzip 过滤
 
 **-j**, **--bzip2**
-> Filter through bzip2
+> 通过 bzip2 过滤
 
 **-J**, **--xz**
-> Filter through xz
+> 通过 xz 过滤
 
 **-a**, **--auto-compress**
-> Determine compression from file extension
+> 根据文件扩展名判断压缩方式
 
 **-C** _dir_, **--directory**=_dir_
-> Change to directory before operation
+> 操作前先切换到指定目录
 
 **-p**, **--preserve-permissions**
-> Preserve file permissions
+> 保留文件权限
 
 **--exclude**=_pattern_
-> Exclude files matching pattern
+> 排除匹配模式的文件
 
 **-r**, **--append**
-> Append files to archive
+> 将文件追加到归档
 
 **-u**, **--update**
-> Update archive with newer files
+> 用较新的文件更新归档
 
 **-k**, **--keep-old-files**
-> Don't replace existing files when extracting
+> 解压时不替换已有文件
 
 **--zstd**
-> Filter through zstd compression
+> 通过 zstd 压缩过滤
 
 **-T** _FILE_, **--files-from**=_FILE_
-> Read list of files to extract or create from FILE
+> 从 FILE 读取要提取或创建的文件列表
 
 **-X** _FILE_, **--exclude-from**=_FILE_
-> Exclude patterns listed in FILE
+> 排除 FILE 中列出的模式
 
 **--strip-components**=_N_
-> Strip N leading path components
+> 剥离 N 层前导路径组件
 
 **-h**, **--dereference**
-> Follow symbolic links; archive the files they point to
+> 跟随符号链接；归档它们指向的文件
 
 **-O**, **--to-stdout**
-> Extract files to standard output
+> 将文件提取到标准输出
 
 # DESCRIPTION
 
-**tar** (tape archive) creates, extracts, and manages archive files. It bundles multiple files and directories into a single file while preserving permissions, ownership, and directory structure.
+**tar**（tape archive，磁带归档）用于创建、提取和管理归档文件。它把多个文件和目录打包成单个文件，同时保留权限、所有者和目录结构。
 
-Tar itself doesn't compress; compression is handled by external programs (gzip, bzip2, xz) invoked via options or automatically based on file extension with **-a**.
+tar 本身不压缩；压缩由外部程序（gzip、bzip2、xz）完成，可通过选项调用，或用 **-a** 根据文件扩展名自动选择。
 
-Common extensions: **.tar** (uncompressed), **.tar.gz** or **.tgz** (gzip), **.tar.bz2** (bzip2), **.tar.xz** (xz), **.tar.zst** (zstd). Modern tar auto-detects compression when extracting.
+常见扩展名：**.tar**（未压缩）、**.tar.gz** 或 **.tgz**（gzip）、**.tar.bz2**（bzip2）、**.tar.xz**（xz）、**.tar.zst**（zstd）。现代 tar 在解压时会自动检测压缩方式。
 
-The order of options matters with short flags. **-cvf** works; **-fvc archive.tar** may not, as -f expects its argument immediately after.
+使用短选项时顺序很重要。**-cvf** 可行；**-fvc archive.tar** 可能不行，因为 -f 要求其参数紧跟其后。
 
 # CAVEATS
 
-By default, tar extracts with paths from the archive. Archives with absolute paths or **../** can overwrite files outside the target directory. Use **--strip-components** or extract to an empty directory first.
+默认情况下，tar 按归档中记录的路径提取。包含绝对路径或 **../** 的归档可能覆盖目标目录之外的文件。请使用 **--strip-components**，或者先解压到一个空目录。
 
-Extracting as root preserves original ownership. As a regular user, files are owned by you regardless of archive metadata.
+以 root 身份解压会保留原始的所有者信息。以普通用户身份解压时，无论归档元数据如何，文件都归你所有。
 
-GNU tar differs from BSD tar in some options. For portability, stick to common options or check the specific implementation.
+GNU tar 与 BSD tar 在某些选项上有所不同。为了可移植性，请坚持使用通用选项，或查阅具体实现的文档。
 
 # HISTORY
 
-Tar originated in Version 7 Unix in **1979**, designed for tape backups (hence "tape archive"). It became the standard Unix archiving tool and is specified by POSIX. GNU tar added many extensions including compression integration.
+Tar 起源于 **1979 年**的 Version 7 Unix，为磁带备份而设计（因此得名 "tape archive"）。它成为标准的 Unix 归档工具并被 POSIX 规范化。GNU tar 加入了许多扩展，包括压缩集成。
 
 # INSTALL
 

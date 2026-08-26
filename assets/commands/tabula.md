@@ -1,30 +1,30 @@
 # TAGLINE
 
-Extract tables from PDF documents
+从 PDF 文档提取表格
 
 # TLDR
 
-**Extract tables from PDF**
+**从 PDF 提取表格**
 
 ```tabula [document.pdf]```
 
-**Output as CSV**
+输出为 CSV
 
 ```tabula -o [output.csv] [document.pdf]```
 
-**Specific pages**
+指定页码
 
 ```tabula -p [1,2,3] [document.pdf]```
 
-**JSON output**
+JSON 输出
 
 ```tabula -f JSON [document.pdf]```
 
-**All pages**
+所有页面
 
 ```tabula -p all [document.pdf]```
 
-**With area**
+指定区域
 
 ```tabula -a [0,0,100,100] [document.pdf]```
 
@@ -35,41 +35,41 @@ Extract tables from PDF documents
 # PARAMETERS
 
 **-p** _PAGES_
-> Page numbers.
+> 页码。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-f** _FORMAT_
-> Output format (CSV, JSON, TSV).
+> 输出格式（CSV、JSON、TSV）。
 
 **-a** _AREA_
-> Extraction area.
+> 提取区域。
 
 **-g**
-> Guess table areas.
+> 猜测表格区域。
 
 **-l**
-> Force lattice mode (tables with ruling lines).
+> 强制 lattice 模式（带分隔线的表格）。
 
 **-s**
-> Force stream mode (tables without ruling lines).
+> 强制 stream 模式（不带分隔线的表格）。
 
 # DESCRIPTION
 
-**tabula** extracts tabular data from PDF documents and converts it into structured formats such as CSV, JSON, or TSV. It is designed for liberating data trapped in PDFs, where tables are visually rendered but not stored as actual data structures.
+**tabula** 从 PDF 文档中提取表格数据，并将其转换为 CSV、JSON 或 TSV 等结构化格式。它的设计目标是解放困在 PDF 里的数据——这些表格只是视觉上呈现出来，并没有存储为真正的数据结构。
 
-The tool offers two extraction modes: lattice mode detects tables by looking for ruling lines between cells, while stream mode uses whitespace and text alignment to identify column boundaries. Automatic detection chooses the best approach, but manual mode selection often improves accuracy for specific document layouts. An area option allows targeting specific page regions when only part of a page contains the desired table.
+该工具提供两种提取模式：lattice 模式通过查找单元格之间的分隔线来检测表格；stream 模式则利用空白和文本对齐来确定列边界。自动检测会选出最合适的方式，但对于特定的文档版式，手动选择模式往往能提高准确性。当目标表格只占页面的一部分时，area 选项可用于定位页面的特定区域。
 
-Tabula runs as a Java application and can process specific pages or entire documents. It was originally created as a web application for journalists needing to extract data from government reports and financial disclosures, and the command-line version provides the same extraction engine for scripting and automation workflows.
+Tabula 以 Java 应用运行，可处理指定页面或整个文档。它最初是作为一个 Web 应用诞生的，供需要从政府报告和财务披露文件中提取数据的记者使用；命令行版本提供同样的提取引擎，适合脚本和自动化工作流。
 
 # CAVEATS
 
-Requires Java Runtime Environment. Table detection accuracy varies by PDF layout; manually specifying **-l** (lattice) or **-s** (stream) mode often improves results. Cannot extract tables from scanned/image-based PDFs (use OCR tools first).
+需要 Java 运行环境。表格检测的准确率因 PDF 版式而异；手动指定 **-l**（lattice）或 **-s**（stream）模式通常能改善结果。无法从扫描件/图像型 PDF 中提取表格（请先用 OCR 工具处理）。
 
 # HISTORY
 
-**Tabula** was created by journalists at **ProPublica** and **The New York Times** for extracting data from PDF documents.
+**Tabula** 由 **ProPublica** 和《纽约时报》的新闻记者们创建，用于从 PDF 文档中提取数据。
 
 # INSTALL
 

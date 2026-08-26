@@ -1,18 +1,18 @@
 # TAGLINE
 
-Stop and restart systemd units
+停止并重启 systemd 单元
 
 # TLDR
 
-**Restart** a unit
+**重启**一个单元
 
 ```systemctl restart [unit]```
 
-Restart **multiple** units
+重启**多个**单元
 
 ```systemctl restart [unit1] [unit2]```
 
-Restart a **user** unit
+重启一个**用户**单元
 
 ```systemctl restart [unit] --user```
 
@@ -23,23 +23,23 @@ Restart a **user** unit
 # PARAMETERS
 
 **--user**
-> Restart user service manager units instead of system units
+> 重启用户服务管理器的单元而不是系统单元
 
 **--no-block**
-> Do not wait for the operation to complete
+> 不等待操作完成
 
 **--job-mode=**_MODE_
-> Specify how to deal with already queued jobs
+> 指定如何处理已排队的任务
 
 # DESCRIPTION
 
-**systemctl restart** stops and then starts systemd units. This is useful when a service needs to be fully restarted to pick up configuration changes or recover from an error state.
+**systemctl restart** 先停止再启动 systemd 单元。当服务需要完全重启才能应用配置更改或从错误状态恢复时，此命令非常有用。
 
-Unlike **systemctl reload**, restart fully stops the service process and starts a new one. This causes a brief interruption but ensures a clean restart. Can be used on stopped units, but **systemctl start** is safer to avoid accidentally restarting running services.
+与 **systemctl reload** 不同，restart 会完全停止服务进程并启动新进程。这会造成短暂中断，但能确保干净的重启。它也可用于已停止的单元，但为避免意外重启正在运行的服务，使用 **systemctl start** 更稳妥。
 
 # CAVEATS
 
-Requires root privileges for system units. Causes service interruption during restart. For configuration reloads without interruption, use **systemctl reload** if the service supports it.
+对系统单元操作需要 root 权限。重启期间服务会中断。如果服务支持且需要无中断地应用配置，请使用 **systemctl reload**。
 
 # INSTALL
 

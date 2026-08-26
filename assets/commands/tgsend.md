@@ -1,30 +1,30 @@
 # TAGLINE
 
-Send Telegram messages via bot API
+通过 Bot API 发送 Telegram 消息
 
 # TLDR
 
-**Send message**
+**发送消息**
 
 ```tgsend "[message]"```
 
-**Send to specific chat**
+**发送到特定聊天**
 
 ```tgsend -c [chat_id] "[message]"```
 
-**Send file**
+**发送文件**
 
 ```tgsend -f [document.pdf]```
 
-**Send image**
+**发送图片**
 
 ```tgsend -p [image.jpg]```
 
-**Send with caption**
+**带说明文字发送**
 
 ```tgsend -p [image.jpg] -m "[caption]"```
 
-**Silent message**
+**静默消息**
 
 ```tgsend -s "[message]"```
 
@@ -35,36 +35,36 @@ Send Telegram messages via bot API
 # PARAMETERS
 
 **-c** _ID_
-> Chat ID.
+> 聊天 ID。
 
 **-f** _FILE_
-> Send file.
+> 发送文件。
 
 **-p** _FILE_
-> Send photo.
+> 发送图片。
 
 **-m** _TEXT_
-> Caption text.
+> 说明文字。
 
 **-s**
-> Silent mode.
+> 静默模式。
 
 **-t** _TOKEN_
-> Bot token.
+> Bot 令牌。
 
 # DESCRIPTION
 
-**tgsend** sends messages, files, and photos to Telegram chats using the Telegram Bot API. It is designed for automation and scripting, enabling notifications, alerts, and file delivery from the command line or cron jobs.
+**tgsend** 使用 Telegram Bot API 向 Telegram 聊天发送消息、文件和图片。它专为自动化和脚本化场景设计，可以从命令行或 cron 任务发送通知、警报和文件。
 
-Messages can be sent to specific chats using their ID, and media attachments can include captions via the **-m** flag. The **-s** flag sends messages silently without triggering a notification on the recipient's device. A bot token is required and can be passed via the **-t** flag or environment configuration.
+消息可以通过聊天 ID 发送到指定聊天，媒体附件可通过 **-m** 标志附带说明文字。**-s** 标志以静默方式发送消息，不会在接收方设备上触发通知。需要 bot 令牌，可通过 **-t** 标志或环境配置传入。
 
 # CAVEATS
 
-Bot token required. Chat ID needed. Rate limits apply.
+需要 bot 令牌。需要聊天 ID。受速率限制约束。
 
 # HISTORY
 
-**tgsend** is a lightweight CLI tool for sending messages via the Telegram Bot API, commonly used for alerting and automation in DevOps workflows.
+**tgsend** 是一款通过 Telegram Bot API 发送消息的轻量级 CLI 工具，常用于 DevOps 工作流中的告警和自动化。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Dynamic system performance tuning daemon
+动态系统性能调优守护进程
 
 # TLDR
 
-**Start the tuned daemon**
+**启动 tuned 守护进程**
 
 ```sudo systemctl start tuned```
 
-**Enable tuned at boot**
+**设置 tuned 开机自启**
 
 ```sudo systemctl enable tuned```
 
-**List available profiles**
+**列出可用配置**
 
 ```tuned-adm list```
 
-**Show active profile**
+**显示当前激活的配置**
 
 ```tuned-adm active```
 
-**Apply a performance profile**
+**应用性能配置**
 
 ```sudo tuned-adm profile [throughput-performance]```
 
-**Get recommended profile**
+**获取推荐配置**
 
 ```tuned-adm recommend```
 
-**Disable tuning**
+**禁用调优**
 
 ```sudo tuned-adm off```
 
@@ -40,62 +40,62 @@ Dynamic system performance tuning daemon
 
 # PROFILES
 
-**balanced**: General purpose; balances performance and power.
+**balanced**：通用场景；平衡性能与功耗。
 
-**throughput-performance**: Maximum throughput for servers.
+**throughput-performance**：面向服务器的最大吞吐量。
 
-**latency-performance**: Minimize latency for real-time workloads.
+**latency-performance**：为实时工作负载最小化延迟。
 
-**powersave**: Reduce power consumption.
+**powersave**：降低功耗。
 
-**virtual-guest**: Optimized for virtual machine guests.
+**virtual-guest**：针对虚拟机客户机优化。
 
-**virtual-host**: Optimized for hypervisor hosts.
+**virtual-host**：针对虚拟化宿主机优化。
 
-**network-latency**: Low latency network tuning.
+**network-latency**：低延迟网络调优。
 
-**network-throughput**: High network throughput.
+**network-throughput**：高网络吞吐量。
 
 # TUNED-ADM COMMANDS
 
-**list**: Show available profiles.
+**list**：显示可用配置。
 
-**active**: Display currently active profile.
+**active**：显示当前激活的配置。
 
-**profile** _name_: Activate specified profile.
+**profile** _name_：激活指定配置。
 
-**recommend**: Suggest optimal profile for system.
+**recommend**：为系统建议最优配置。
 
-**off**: Disable all tuning.
+**off**：禁用所有调优。
 
-**verify**: Check if current settings match profile.
+**verify**：检查当前设置是否与配置一致。
 
 # DESCRIPTION
 
-**tuned** is a daemon that monitors system usage and dynamically adjusts system settings to optimize performance. It uses profiles that configure CPU governors, disk I/O schedulers, kernel parameters, and power management settings.
+**tuned** 是一个监控系统使用情况并动态调整系统设置以优化性能的守护进程。它使用各种配置文件来设置 CPU 调频策略、磁盘 I/O 调度器、内核参数和电源管理设置。
 
-The daemon can operate in static mode (applying fixed settings from a profile) or dynamic mode (adjusting settings based on real-time system activity). Profiles are stored in /etc/tuned/ and /usr/lib/tuned/.
+守护进程可以静态模式（应用配置中的固定设置）或动态模式（根据实时系统活动调整设置）运行。配置存储在 /etc/tuned/ 和 /usr/lib/tuned/ 中。
 
-Management is done through tuned-adm, which communicates with the daemon to switch profiles and query status. Custom profiles can be created by extending existing ones or defining new tuning rules.
+管理通过 tuned-adm 完成，它与守护进程通信以切换配置和查询状态。可以通过扩展现有配置或定义新的调优规则来创建自定义配置。
 
 # CONFIGURATION
 
 **/etc/tuned/tuned-main.conf**
-> Main daemon configuration controlling dynamic tuning, update interval, and logging.
+> 守护进程主配置，控制动态调优、更新间隔和日志。
 
 **/etc/tuned/**_profile_**/tuned.conf**
-> Custom profile definitions with kernel, disk, and CPU tuning parameters.
+> 自定义配置定义，包含内核、磁盘和 CPU 调优参数。
 
 **/usr/lib/tuned/**
-> System-provided default profiles directory.
+> 系统提供的默认配置目录。
 
 # CAVEATS
 
-Dynamic tuning is disabled by default on RHEL. Profile changes take effect immediately but don't persist reboots without enabling the service. Some settings may conflict with other system management tools.
+在 RHEL 上动态调优默认禁用。配置更改立即生效，但若不启用该服务则不会在重启后保留。某些设置可能与其他系统管理工具冲突。
 
 # HISTORY
 
-**tuned** was developed by Red Hat for enterprise Linux systems to simplify performance optimization. It evolved from manual kernel tuning practices into an automated system that applies best practices based on workload type, reducing the expertise required for system optimization.
+**tuned** 由 Red Hat 为企业级 Linux 系统开发，旨在简化性能优化。它从手动内核调优实践演变为基于工作负载类型应用最佳实践的自动化系统，降低了对系统优化专业经验的要求。
 
 # INSTALL
 

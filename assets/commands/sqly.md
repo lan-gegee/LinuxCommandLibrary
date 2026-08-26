@@ -1,18 +1,18 @@
 # TAGLINE
 
-Execute SQL against CSV, TSV, JSON, and Excel files
+对 CSV、TSV、JSON 和 Excel 文件执行 SQL
 
 # TLDR
 
-**Open an interactive SQL shell with a CSV file**
+**用 CSV 文件打开交互式 SQL Shell**
 
 ```sqly [user.csv]```
 
-**Run a query directly**
+**直接运行查询**
 
 ```sqly --sql "[SELECT * FROM user WHERE age > 30]" [user.csv]```
 
-**Output results as CSV**
+**以 CSV 格式输出结果**
 
 ```sqly --sql "[SELECT * FROM user LIMIT 2]" --csv [user.csv]```
 
@@ -22,11 +22,11 @@ Execute SQL against CSV, TSV, JSON, and Excel files
 
 # DESCRIPTION
 
-**sqly** imports CSV, TSV, LTSV, JSON, and Excel files into an in-memory SQLite3 database, letting you run SQL queries against them. It supports both an interactive shell mode with SQL completion and command history, and direct one-shot query execution. Output can be formatted as ASCII table, CSV, TSV, or LTSV.
+**sqly** 将 CSV、TSV、LTSV、JSON 和 Excel 文件导入内存中的 SQLite3 数据库，让你可以对这些数据运行 SQL 查询。它既支持带 SQL 补全和命令历史记录的交互式 Shell 模式，也支持直接执行一次性查询。输出可格式化为 ASCII 表格、CSV、TSV 或 LTSV。
 
 # HISTORY
 
-**sqly** was created by **nao1215** and is written in **Go**.
+**sqly** 由 **nao1215** 创建，使用 **Go** 编写。
 
 # SEE ALSO
 

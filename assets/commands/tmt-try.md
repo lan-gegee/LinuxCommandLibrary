@@ -1,38 +1,38 @@
 # TAGLINE
 
-Interactive tmt test experimentation
+交互式 tmt 测试试验
 
 # TLDR
 
-**Experiment** with default provision
+使用默认调配方式**试验**
 
 ```tmt try```
 
-Run test in **current** directory
+在**当前**目录中运行测试
 
 ```cd [path/to/test_directory] && tmt try```
 
-Try against a specific **image**
+针对特定**镜像**试验
 
 ```tmt try [fedora]```
 
-Select image and **provision method**
+选择镜像和**调配方式**
 
 ```tmt try [fedora@container]```
 
-Run only tests matching a **regexp**
+仅运行匹配**正则表达式**的测试
 
 ```tmt try -t [feature]```
 
-Just provision and **ask** what to do next
+只做调配然后**询问**下一步做什么
 
 ```tmt try -a```
 
-**Log in** to the guest without running tests
+不运行测试，直接**登录**客户机
 
 ```tmt try -l```
 
-Connect to a **running guest** by IP or FQDN
+通过 IP 或 FQDN 连接到**正在运行的客户机**
 
 ```tmt try [192.168.12.23@connect]```
 
@@ -43,41 +43,41 @@ Connect to a **running guest** by IP or FQDN
 # PARAMETERS
 
 **-t**, **--test** _REGEXP_
-> Run tests matching the given regular expression. By default all tests under the current working directory are executed. Can be given multiple times.
+> 运行匹配给定正则表达式的测试。默认执行当前工作目录下的所有测试。可多次指定。
 
 **-p**, **--plan** _REGEXP_
-> Use the matching plan. By default a `/user/plan*` plan from the user config is used, otherwise a default plan.
+> 使用匹配的计划。默认使用用户配置中的 `/user/plan*` 计划，否则使用默认计划。
 
 **-l**, **--login**
-> Log into the guest only, do not run any tests.
+> 仅登录客户机，不运行任何测试。
 
 **-a**, **--ask**
-> Just provision the guest and ask what to do next.
+> 只调配客户机，然后询问下一步做什么。
 
 **--epel**
-> Enable the EPEL repository on the guest.
+> 在客户机上启用 EPEL 仓库。
 
 **--fips**
-> Enable FIPS mode on the guest.
+> 在客户机上启用 FIPS 模式。
 
 **--install** _PACKAGE_
-> Install the given package on the guest. Can be given multiple times.
+> 在客户机上安装指定软件包。可多次指定。
 
 **--arch** _ARCH_
-> Specify the guest CPU architecture.
+> 指定客户机的 CPU 架构。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**tmt try** provides an interactive session to run tests or experiment with guests. It provisions a guest, runs the tests found in the current working directory, and then presents a menu of what to do next. If no tests are detected, it logs into the guest so you can start experimenting.
+**tmt try** 提供一个交互式会话来运行测试或在客户机上进行试验。它会调配一台客户机，运行当前工作目录中发现的测试，然后展示后续操作的菜单。如果未检测到任何测试，它会登录到客户机，让你开始动手实验。
 
-Specify the guest with an image name, for example `tmt try fedora`. Append `@HOW` to choose the provision method per guest, such as `fedora@container` or `centos-stream-9@virtual`. Use `@connect` with an FQDN or IP address to attach to an already running guest, for example `192.168.12.23@connect`.
+用镜像名称指定客户机，例如 `tmt try fedora`。追加 `@HOW` 可为每台客户机选择调配方式，例如 `fedora@container` 或 `centos-stream-9@virtual`。将 `@connect` 与 FQDN 或 IP 地址一起使用可连接到已在运行的客户机，例如 `192.168.12.23@connect`。
 
 # CAVEATS
 
-If no tests are found in the current directory, **tmt try** simply logs into the guest. Image availability depends on the provisioning backend. Interactive mode requires terminal access, and some images may require authentication or special configuration.
+如果当前目录中没有找到测试，**tmt try** 只会登录客户机。镜像可用性取决于资源调配后端。交互模式需要终端访问，某些镜像可能需要身份验证或特殊配置。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Adjust exFAT filesystem parameters
+调整 exFAT 文件系统参数
 
 # TLDR
 
-Print volume **label**
+打印卷**标签**
 
 ```tune.exfat -l [/dev/sdXY]```
 
-Set volume **label**
+设置卷**标签**
 
 ```tune.exfat -L [new_label] [/dev/sdXY]```
 
-Print volume **GUID**
+打印卷 **GUID**
 
 ```tune.exfat -u [/dev/sdXY]```
 
-Set volume **GUID**
+设置卷 **GUID**
 
 ```tune.exfat -U [new_guid] [/dev/sdXY]```
 
-Print volume **serial**
+打印卷**序列号**
 
 ```tune.exfat -i [/dev/sdXY]```
 
-Set volume **serial**
+设置卷**序列号**
 
 ```tune.exfat -I [new_serial] [/dev/sdXY]```
 
@@ -35,32 +35,32 @@ Set volume **serial**
 # PARAMETERS
 
 **-l, --print-label**
-> Print volume label
+> 打印卷标签
 
 **-L, --set-label** _LABEL_
-> Set volume label
+> 设置卷标签
 
 **-u, --print-guid**
-> Print volume GUID
+> 打印卷 GUID
 
 **-U, --set-guid** _GUID_
-> Set volume GUID
+> 设置卷 GUID
 
 **-i, --print-serial**
-> Print volume serial number
+> 打印卷序列号
 
 **-I, --set-serial** _SERIAL_
-> Set volume serial number
+> 设置卷序列号
 
 # DESCRIPTION
 
-**tune.exfat** adjusts tunable filesystem parameters on an exFAT filesystem. It can modify the volume label, GUID, and serial number without reformatting the filesystem.
+**tune.exfat** 调整 exFAT 文件系统上的可调参数。它可以在不重新格式化文件系统的情况下修改卷标签、GUID 和序列号。
 
-The device must be unmounted before modifying parameters. This tool is useful for changing volume identification without losing data.
+修改参数前必须先卸载设备。该工具适合在不丢失数据的情况下更改卷的标识信息。
 
 # CAVEATS
 
-Filesystem must be unmounted for modifications. Requires root privileges. Incorrect GUID or serial changes may affect system recognition of the volume.
+修改时必须先卸载文件系统。需要 root 权限。不正确的 GUID 或序列号更改可能影响系统对卷的识别。
 
 # INSTALL
 

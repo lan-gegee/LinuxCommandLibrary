@@ -1,10 +1,10 @@
 # TAGLINE
 
-Graphical Slurm cluster state viewer
+图形化的 Slurm 集群状态查看器
 
 # TLDR
 
-Start the **Slurm GUI**
+启动 **Slurm 图形界面**
 
 ```sview```
 
@@ -14,35 +14,35 @@ Start the **Slurm GUI**
 
 # DESCRIPTION
 
-**sview** is a graphical user interface for viewing and modifying Slurm cluster state. It provides visual access to job, node, partition, and configuration information through an interactive GTK-based interface.
+**sview** 是一个用于查看和修改 Slurm 集群状态的图形用户界面。它通过基于 GTK 的交互式界面，以可视化方式访问作业、节点、分区和配置信息。
 
-The interface uses tabs to switch between Jobs and Partitions views, with an optional node map showing associated resources. Users can customize column display, sort order, and expand job steps by clicking on interface elements.
+界面使用标签页在作业和分区视图之间切换，并可选显示关联资源的节点图。用户可以通过点击界面元素自定义列显示、排序方式以及展开作业步骤。
 
 # FEATURES
 
-- View jobs, partitions, and nodes graphically
-- Sort and filter cluster data
-- Expand job details to see individual steps
-- Customize visible fields via right-click menus
-- Node map visualization
-- Admin Mode for authorized modifications (root)
+- 以图形方式查看作业、分区和节点
+- 对集群数据排序和过滤
+- 展开作业详情查看各个步骤
+- 通过右键菜单自定义可见字段
+- 节点图可视化
+- 管理模式用于授权修改（root）
 
 # ADMIN MODE
 
-Root users can enable Admin Mode to modify fields such as node state and job time limits, and trigger Slurm reconfiguration. The documentation recommends disabling Admin Mode immediately after making changes.
+root 用户可以启用管理模式来修改节点状态、作业时间限制等字段，并触发 Slurm 重新配置。文档建议完成修改后立即关闭管理模式。
 
 # CAVEATS
 
-Requires GTK+-2.0 libraries. Some GTK themes have difficulty displaying large numbers of entries. Requires X11 forwarding for remote access. Modifications in Admin Mode take effect immediately.
+需要 GTK+-2.0 库。某些 GTK 主题在显示大量条目时会出现问题。远程访问需要 X11 转发。管理模式下的修改立即生效。
 
 # ENVIRONMENT
 
 **SLURM_CONF**
-> Path to Slurm configuration file
+> Slurm 配置文件的路径
 
 # HISTORY
 
-**sview** is part of **Slurm**, developed at **Lawrence Livermore National Laboratory** starting in **2002**. The GUI tool provides a user-friendly alternative to command-line utilities for monitoring cluster state. Slurm is now maintained by **SchedMD**.
+**sview** 是 **Slurm** 的组成部分。Slurm 由 **劳伦斯利弗莫尔国家实验室** 自 **2002 年**开始开发。这款 GUI 工具为监控集群状态提供了命令行工具之外的易用选择。Slurm 目前由 **SchedMD** 维护。
 
 # INSTALL
 

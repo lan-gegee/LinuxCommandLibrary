@@ -1,38 +1,38 @@
 # TAGLINE
 
-Shell-based todo.txt task management
+基于 shell 的 todo.txt 任务管理
 
 # TLDR
 
-**Add a new task**
+**添加新任务**
 
 ```todo.sh add "[Buy groceries +shopping @errands]"```
 
-**List all tasks**
+**列出所有任务**
 
 ```todo.sh list```
 
-**List tasks matching term**
+**列出匹配关键词的任务**
 
 ```todo.sh list "[search term]"```
 
-**Mark task as done**
+**将任务标记为完成**
 
 ```todo.sh do [1]```
 
-**Set priority on task**
+**为任务设置优先级**
 
 ```todo.sh pri [1] [A]```
 
-**Append text to task**
+**向任务追加文本**
 
 ```todo.sh append [1] "[additional text]"```
 
-**Archive completed tasks**
+**归档已完成的任务**
 
 ```todo.sh archive```
 
-**Delete a task**
+**删除任务**
 
 ```todo.sh del [1]```
 
@@ -42,78 +42,78 @@ Shell-based todo.txt task management
 
 # ACTIONS
 
-**add** _text_: Add new task.
+**add** _text_: 添加新任务。
 
-**list** _term_: List tasks matching term.
+**list** _term_: 列出匹配关键词的任务。
 
-**listall** _term_: List all tasks including completed.
+**listall** _term_: 列出包括已完成在内的所有任务。
 
-**do** _n_: Mark task n as done.
+**do** _n_: 将任务 n 标记为完成。
 
-**pri** _n_ _priority_: Set priority (A-Z) on task n.
+**pri** _n_ _priority_: 为任务 n 设置优先级（A-Z）。
 
-**depri** _n_: Remove priority from task n.
+**depri** _n_: 移除任务 n 的优先级。
 
-**append** _n_ _text_: Append text to task n.
+**append** _n_ _text_: 向任务 n 追加文本。
 
-**prepend** _n_ _text_: Prepend text to task n.
+**prepend** _n_ _text_: 在任务 n 开头插入文本。
 
-**replace** _n_ _text_: Replace task n with new text.
+**replace** _n_ _text_: 用新文本替换任务 n。
 
-**del** _n_: Delete task n.
+**del** _n_: 删除任务 n。
 
-**archive**: Move done tasks to done.txt.
+**archive**: 将已完成的任务移动到 done.txt。
 
-**report**: Add open/done counts to report.txt.
+**report**: 将未完成/已完成数量追加到 report.txt。
 
-**deduplicate**: Remove duplicate lines.
+**deduplicate**: 移除重复行。
 
 # PARAMETERS
 
 **-f**
-> Force actions without confirmation.
+> 强制执行操作而不确认。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 **-p**
-> Plain mode (no colors).
+> 纯文本模式（无颜色）。
 
 **-a**
-> Don't auto-archive done tasks.
+> 不自动归档已完成的任务。
 
 **-n**
-> Don't preserve line numbers.
+> 不保留行号。
 
 **-t**
-> Don't prepend date on add.
+> 添加时不自动加日期前缀。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-V**
-> Display version.
+> 显示版本。
 
 **-d** _file_
-> Use alternate config file.
+> 使用替代的配置文件。
 
 # DESCRIPTION
 
-**todo.txt-cli** (todo.sh) is a shell script for managing tasks in a plain text file. It follows the todo.txt format, which uses simple conventions for priorities, projects (+project), contexts (@context), and dates.
+**todo.txt-cli**（todo.sh）是一个 shell 脚本，用于在纯文本文件中管理任务。它遵循 todo.txt 格式，用简单约定表示优先级、项目（+project）、上下文（@context）和日期。
 
-Tasks are stored in todo.txt, one per line. Completed tasks are optionally archived to done.txt. The plain text format ensures portability and compatibility with any text editor, sync service, or scripting tool.
+任务存储在 todo.txt 中，每行一条。已完成的任务可以选择归档到 done.txt。纯文本格式确保了可移植性，并与任何文本编辑器、同步服务或脚本工具兼容。
 
-The script supports tab completion for priorities, contexts, and projects. Configuration is done through a .todo.cfg file which can customize colors, file locations, and default behaviors.
+该脚本支持优先级、上下文和项目的 Tab 补全。配置通过 .todo.cfg 文件完成，可自定义颜色、文件位置和默认行为。
 
-Install via package manager or Homebrew: `brew install todo-txt`
+通过包管理器或 Homebrew 安装：`brew install todo-txt`
 
 # CAVEATS
 
-Requires Bash. Task numbers change when tasks are added or deleted. Use archive regularly to maintain consistent numbering. Plain text format means no built-in reminders or dependencies.
+需要 Bash。任务编号会随任务的添加或删除而变化。定期执行 archive 以保持编号一致。纯文本格式意味着没有内置提醒或依赖关系。
 
 # HISTORY
 
-**todo.txt** was created by Gina Trapani as a simple, portable task management system. The format and CLI tool have inspired numerous apps and implementations across platforms. The project emphasizes future-proof, human-readable task storage.
+**todo.txt** 由 Gina Trapani 创建，是一套简单、可移植的任务管理系统。其格式和 CLI 工具启发了各平台上众多应用和实现。该项目强调面向未来、人类可读的任务存储方式。
 
 # SEE ALSO
 

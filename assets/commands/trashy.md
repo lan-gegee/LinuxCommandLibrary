@@ -1,34 +1,34 @@
 # TAGLINE
 
-Rust-based command-line trash utility
+基于 Rust 的命令行回收站工具
 
 # TLDR
 
-Move a specific **file** to the trash
+将特定**文件**移入回收站
 
 ```trash [path/to/file]```
 
-Move **multiple files** to the trash
+将**多个文件**移入回收站
 
 ```trash [path/to/file1] [path/to/file2]```
 
-**List** items in the trash
+列出回收站中的项目
 
 ```trash list```
 
-**Restore** a specific file from the trash
+从回收站恢复特定文件
 
 ```trash restore [file]```
 
-**Remove** a specific file from the trash
+从回收站中删除特定文件
 
 ```trash empty [file]```
 
-Restore **all files** from the trash
+恢复回收站中的所有文件
 
 ```trash restore --all```
 
-Remove **all files** from the trash
+删除回收站中的所有文件
 
 ```trash empty --all```
 
@@ -39,45 +39,45 @@ Remove **all files** from the trash
 # PARAMETERS
 
 **put** _files_
-> Move files to trash (default if no command given)
+> 将文件移入回收站（未指定命令时的默认行为）
 
 **list**
-> List items in the trash
+> 列出回收站中的项目
 
 **restore** _files_
-> Restore files from trash to original location
+> 将文件从回收站恢复到原始位置
 
 **empty** _files_
-> Permanently delete files from trash
+> 永久删除回收站中的文件
 
 **--all**
-> Apply to all items (with restore or empty)
+> 应用于所有项目（配合 restore 或 empty 使用）
 
 **-f**, **--force**
-> Skip confirmation prompts
+> 跳过确认提示
 
 **-r**, **--recursive**
-> Include directories recursively
+> 递归包含目录
 
 **-v**, **--verbose**
-> Show verbose output
+> 显示详细输出
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**trashy** is a Rust-based command-line trash utility that provides a safe alternative to rm by moving files to the XDG Trash specification-compliant trash can. It offers a modern, fast implementation with intuitive subcommands.
+**trashy** 是一个基于 Rust 的命令行回收站工具，通过将文件移入符合 XDG 回收站规范的回收站，提供了比 rm 更安全的替代方案。它实现现代、运行快速，并配有直观的子命令。
 
-The main command **trash** moves files to trash by default. Files can be listed, restored to their original location, or permanently deleted using the respective subcommands. It integrates with desktop trash locations.
+主命令 **trash** 默认将文件移入回收站。使用相应的子命令可以列出回收站中的文件、将其恢复到原始位置，或永久删除。它与桌面环境的回收站位置集成。
 
 # CAVEATS
 
-The **trash** command name may conflict with trash-cli if both are installed. Uses the same trash directory as desktop file managers. Disk space is not freed until files are removed from trash with **trash empty**.
+如果同时安装了 trash-cli，**trash** 命令名可能与之冲突。它使用的回收站目录与桌面文件管理器相同。在使用 **trash empty** 从回收站中移除文件之前，不会释放磁盘空间。
 
 # HISTORY
 
-Written in **Rust** by oberblastmeister as a modern alternative to trash-cli. Designed for speed and ease of use with a simplified command interface compared to trash-cli's separate commands.
+由 oberblastmeister 用 **Rust** 编写，作为 trash-cli 的现代替代品。与 trash-cli 分离的多个命令相比，它的命令界面更简洁，追求速度和易用性。
 
 # INSTALL
 

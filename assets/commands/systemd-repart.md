@@ -1,18 +1,18 @@
 # TAGLINE
 
-Declarative disk partition management
+声明式磁盘分区管理
 
 # TLDR
 
-**Grow** partitions automatically
+**自动扩展**分区
 
 ```systemd-repart```
 
-**Dry run** (view changes only)
+**试运行**（仅查看变更）
 
 ```systemd-repart --dry-run yes```
 
-Grow root to **specific size**
+将根分区扩展到**指定大小**
 
 ```systemd-repart --size 10G --root /```
 
@@ -23,30 +23,30 @@ Grow root to **specific size**
 # PARAMETERS
 
 **--dry-run=** _BOOL_
-> Show what would be done without applying changes
+> 显示将要执行的操作但不实际应用变更
 
 **--size=** _SIZE_
-> Target size for operations
+> 操作的目标大小
 
 **--root=** _PATH_
-> Operate on specified root directory
+> 在指定的根目录上操作
 
 **--definitions=** _PATH_
-> Use configuration from specified directory
+> 使用指定目录中的配置
 
 # DESCRIPTION
 
-**systemd-repart** automatically grows and adds partitions based on configuration files in `/usr/lib/repart.d/` and `/etc/repart.d/`. It reads declarative partition definitions and applies them to the disk.
+**systemd-repart** 依据 `/usr/lib/repart.d/` 和 `/etc/repart.d/` 中的配置文件自动扩展和添加分区。它读取声明式的分区定义并将其应用到磁盘上。
 
-This tool modifies partition tables but does not resize filesystems. Use `systemd-growfs` to extend filesystems after growing partitions.
+此工具只修改分区表，不调整文件系统大小。扩展分区之后请使用 `systemd-growfs` 来扩展文件系统。
 
 # CAVEATS
 
-Only modifies partition tables, not filesystems. Configuration files define desired partition layout declaratively. Use dry-run mode to preview changes before applying. Primarily designed for image-based systems.
+只修改分区表，不修改文件系统。配置文件以声明式方式描述期望的分区布局。应用更改前请先用试运行模式预览。主要为基于镜像的系统设计。
 
 # HISTORY
 
-**systemd-repart** supports image-based OS deployment by enabling declarative partition management, allowing systems to automatically configure disk layout on first boot.
+**systemd-repart** 通过支持声明式分区管理来助力基于镜像的操作系统部署，让系统能够在首次启动时自动配置磁盘布局。
 
 # INSTALL
 

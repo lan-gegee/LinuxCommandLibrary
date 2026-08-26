@@ -1,18 +1,18 @@
 # TAGLINE
 
-Interactive TUI for managing Homebrew packages
+管理 Homebrew 软件包的交互式 TUI
 
 # TLDR
 
-**Launch the Homebrew TUI browser**
+**启动 Homebrew TUI 浏览器**
 
 ```taproom```
 
-**Start with only installed packages shown**
+**启动时只显示已安装的软件包**
 
 ```taproom --filters installed```
 
-**Sort by name and hide the help bar**
+按名称排序并隐藏帮助栏
 
 ```taproom --sort-column name --hide-help```
 
@@ -22,15 +22,15 @@ Interactive TUI for managing Homebrew packages
 
 # DESCRIPTION
 
-**taproom** is a terminal user interface for Homebrew that lets you browse, search, install, remove, and view dependencies of formulae and casks. It displays packages in searchable tables with real-time filtering, status indicators, and recursive dependency visualization.
+**taproom** 是 Homebrew 的终端用户界面，可用于浏览、搜索、安装、移除 formulae 和 casks，并查看其依赖关系。它以可搜索的表格展示软件包，支持实时过滤、状态指示和递归的依赖可视化。
 
 # CAVEATS
 
-Requires Homebrew to be installed.
+需要已安装 Homebrew。
 
 # HISTORY
 
-**taproom** was created by **Johnny Huang** (hzqtc) and is written in **Go**.
+**taproom** 由 **Johnny Huang**（hzqtc）创建，采用 **Go** 编写。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Output last part of files
+输出文件的末尾部分
 
 # TLDR
 
-**Show last 10 lines** of a file
+显示文件的**最后 10 行**
 
 ```tail [file]```
 
-**Show last N lines**
+**显示最后 N 行**
 
 ```tail -n [20] [file]```
 
-**Show all lines starting from line N**
+**显示从第 N 行开始的全部内容**
 
 ```tail -n +[10] [file]```
 
-**Follow a file** (watch for new content)
+**跟踪文件**（监视新内容）
 
 ```tail -f [file]```
 
-**Follow multiple files**
+**跟踪多个文件**
 
 ```tail -f [file1] [file2]```
 
-**Follow and retry** if file is recreated
+文件被重建时继续**跟踪并重试**
 
 ```tail -F [file]```
 
-**Show last N bytes**
+**显示最后 N 字节**
 
 ```tail -c [100] [file]```
 
@@ -39,53 +39,53 @@ Output last part of files
 # PARAMETERS
 
 **-n** _N_, **--lines**=_N_
-> Output last N lines (or +N for starting from line N)
+> 输出最后 N 行（+N 表示从第 N 行开始）
 
 **-c** _N_, **--bytes**=_N_
-> Output last N bytes (or +N for starting from byte N)
+> 输出最后 N 字节（+N 表示从第 N 字节开始）
 
 **-f**, **--follow**
-> Output appended data as file grows
+> 随文件增长输出新追加的数据
 
 **-F**
-> Same as --follow=name --retry
+> 等价于 --follow=name --retry
 
 **--retry**
-> Keep trying to open file if inaccessible
+> 文件不可访问时持续尝试打开
 
 **-s** _N_, **--sleep-interval**=_N_
-> Sleep N seconds between iterations with -f
+> 配合 -f 时每次迭代之间休眠 N 秒
 
 **--pid**=_PID_
-> With -f, terminate after process PID dies
+> 与 -f 同用时，进程 PID 结束后即终止
 
 **-q**, **--quiet**
-> Never output headers with file names
+> 从不输出带文件名的头部
 
 **-v**, **--verbose**
-> Always output headers with file names
+> 总是输出带文件名的头部
 
 # DESCRIPTION
 
-**tail** outputs the last part of files. By default, it shows the last 10 lines. It's commonly used to view log files and monitor file changes in real-time.
+**tail** 输出文件的末尾部分。默认显示最后 10 行。它常用于查看日志文件和实时监控文件变化。
 
-The **-f** (follow) option is particularly useful for monitoring log files. Tail continues reading as new lines are appended, displaying them immediately.
+**-f**（follow）选项在监控日志文件时特别有用。当新行被追加时，tail 会继续读取并立即显示。
 
-Using **-n +N** outputs starting from line N rather than the last N lines. This is useful for skipping headers or combining with head for extracting specific ranges.
+使用 **-n +N** 会从第 N 行开始输出，而不是输出最后 N 行。这可用于跳过表头，或与 head 组合来提取特定范围的内容。
 
-Multiple files can be specified; tail shows headers indicating which file output comes from.
+可以指定多个文件；tail 会显示标明输出来自哪个文件的头部。
 
 # CAVEATS
 
-**-f** follows the file descriptor. If a file is deleted and recreated (common with log rotation), use **-F** which follows by name and retries.
+**-f** 跟踪的是文件描述符。如果文件被删除又重建（日志轮转时很常见），请改用按名称跟踪并自动重试的 **-F**。
 
-For large files, tail is efficient—it seeks to near the end rather than reading the entire file.
+对于大文件，tail 非常高效——它会直接定位到接近文件末尾的位置，而不是读取整个文件。
 
-The **+** syntax for -n and -c counts from the beginning (1-indexed for lines, 0-indexed for bytes). **tail -n +1** outputs the entire file.
+-n 和 -c 的 **+** 语法从开头计数（行为 1 起始，字节为 0 起始）。**tail -n +1** 会输出整个文件。
 
 # HISTORY
 
-**tail** originated in **AT&T Unix** Version 1 (1971). It is part of POSIX and GNU coreutils on Linux.
+**tail** 起源于 **AT&T Unix** 第 1 版（1971 年）。它是 POSIX 的组成部分，在 Linux 上由 GNU coreutils 提供。
 
 # INSTALL
 

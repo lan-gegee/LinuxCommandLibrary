@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate language bindings for C/C++ code
+为 C/C++ 代码生成语言绑定
 
 # TLDR
 
-**Generate Python wrapper**
+**生成 Python 封装**
 
 ```swig -python [interface.i]```
 
-**Generate with C++**
+**针对 C++ 生成**
 
 ```swig -c++ -python [interface.i]```
 
-**Specify output file**
+**指定输出文件**
 
 ```swig -python -o [wrap.c] [interface.i]```
 
-**Include directory**
+**包含目录**
 
 ```swig -I[/usr/include] -python [interface.i]```
 
-**Generate Java wrapper**
+**生成 Java 封装**
 
 ```swig -java [interface.i]```
 
@@ -31,41 +31,41 @@ Generate language bindings for C/C++ code
 # PARAMETERS
 
 **-python**
-> Python target.
+> 目标为 Python。
 
 **-java**
-> Java target.
+> 目标为 Java。
 
 **-ruby**
-> Ruby target.
+> 目标为 Ruby。
 
 **-c++**
-> C++ mode.
+> C++ 模式。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-I** _DIR_
-> Include path.
+> 包含路径。
 
 **-module** _NAME_
-> Module name.
+> 模块名。
 
 # DESCRIPTION
 
-**swig** (Simplified Wrapper and Interface Generator) generates wrapper code that allows C and C++ libraries to be called from other programming languages. It reads interface definition files (.i) that describe which functions, classes, and types to expose, and produces the glue code needed for the target language.
+**swig**（Simplified Wrapper and Interface Generator）生成封装代码，使 C 和 C++ 库能够被其他编程语言调用。它读取接口定义文件（.i），其中描述了要暴露哪些函数、类和类型，并产出目标语言所需的胶水代码。
 
-Supported target languages include Python, Java, Ruby, Perl, PHP, Lua, Go, JavaScript, C#, and many others. SWIG handles automatic type conversion and data marshaling between C/C++ and the target language, including complex types, pointers, arrays, and object-oriented constructs like inheritance and templates.
+支持的目标语言包括 Python、Java、Ruby、Perl、PHP、Lua、Go、JavaScript、C# 等众多语言。SWIG 负责 C/C++ 与目标语言之间的自动类型转换和数据编组，包括复杂类型、指针、数组以及继承和模板等面向对象结构。
 
-Interface files use a syntax similar to C/C++ header files with additional SWIG directives for controlling the wrapping process. SWIG can also parse actual C/C++ header files directly for simpler cases.
+接口文件使用类似 C/C++ 头文件的语法，外加用于控制封装过程的 SWIG 指令。对较简单的场景，SWIG 还可以直接解析实际的 C/C++ 头文件。
 
 # CAVEATS
 
-Learning curve for interface files. C/C++ knowledge needed. Build system integration.
+接口文件有学习曲线。需要 C/C++ 知识。需与构建系统集成。
 
 # HISTORY
 
-**SWIG** (Simplified Wrapper and Interface Generator) was created by **David Beazley** for connecting C/C++ with scripting languages.
+**SWIG**（Simplified Wrapper and Interface Generator）由 **David Beazley** 创建，用于将 C/C++ 与脚本语言连接起来。
 
 # INSTALL
 

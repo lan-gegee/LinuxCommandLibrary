@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for the Slurm workload manager
+Slurm 工作负载管理器的 TUI
 
 # TLDR
 
-**Launch the Slurm job TUI**
+**启动 Slurm 作业 TUI**
 
 ```turm```
 
-**Show only your jobs**
+**只显示自己的作业**
 
 ```turm -u $USER```
 
-**Filter by partition**
+**按分区过滤**
 
 ```turm --partition [gpu]```
 
@@ -22,11 +22,11 @@ TUI for the Slurm workload manager
 
 # DESCRIPTION
 
-**turm** provides a convenient terminal user interface for managing Slurm cluster jobs. It parses the output of squeue to display job information, updates the queue every two seconds, and displays log files with inotify-based live updates. It accepts the same options as squeue.
+**turm** 为管理 Slurm 集群作业提供了便捷的终端用户界面。它解析 squeue 的输出来展示作业信息，每两秒刷新一次队列，并通过基于 inotify 的实时更新显示日志文件。它接受与 squeue 相同的选项。
 
 # HISTORY
 
-**turm** was created by **Karim Abou Zeid** (kabouzeid) and is written in **Python**.
+**turm** 由 **Karim Abou Zeid**（kabouzeid）创建，用 **Python** 编写。
 
 # SEE ALSO
 

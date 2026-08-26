@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create squashfs filesystem from tar archives
+从 tar 归档创建 squashfs 文件系统
 
 # TLDR
 
-Create squashfs from **tar archive**
+从 **tar 归档**创建 squashfs
 
 ```sqfstar < [archive.tar] [filesystem.squashfs]```
 
-Create with **specific compression**
+以**指定压缩方式**创建
 
 ```zcat [archive.tar.gz] | sqfstar -comp [gzip|lzo|lz4|xz|zstd] [filesystem.squashfs]```
 
-Create and **exclude files**
+创建并**排除文件**
 
 ```xzcat [archive.tar.xz] | sqfstar [filesystem.squashfs] [file1] [file2]```
 
-Exclude by **pattern**
+按**模式**排除
 
 ```zstdcat [archive.tar.zst] | sqfstar [filesystem.squashfs] "*.gz"```
 
-Exclude by **regex**
+按**正则表达式**排除
 
 ```lz4cat [archive.tar.lz4] | sqfstar [filesystem.squashfs] -regex "[pattern]"```
 
-Set **block size**
+设置**块大小**
 
 ```cat [archive.tar] | sqfstar -b [131072] [filesystem.squashfs]```
 
@@ -35,69 +35,69 @@ Set **block size**
 # PARAMETERS
 
 **-comp** _compressor_
-> Compression algorithm: gzip, lzo, lz4, xz, zstd, lzma
+> 压缩算法：gzip、lzo、lz4、xz、zstd、lzma
 
 **-b** _block_size_
-> Block size in bytes (4K-1MB, default: 128K)
+> 以字节为单位的块大小（4K-1MB，默认：128K）
 
 **-noI**
-> Do not compress inode table
+> 不压缩 inode 表
 
 **-noD**
-> Do not compress data blocks
+> 不压缩数据块
 
 **-noF**
-> Do not compress fragment blocks
+> 不压缩片段块（fragment）
 
 **-no-duplicates**
-> Do not detect duplicate files
+> 不检测重复文件
 
 **-all-root**
-> Make all files owned by root
+> 将所有文件设为 root 所有
 
 **-force-uid** _uid_
-> Set all file UIDs
+> 设置所有文件的 UID
 
 **-force-gid** _gid_
-> Set all file GIDs
+> 设置所有文件的 GID
 
 **-regex**
-> Treat exclude patterns as POSIX regex
+> 将排除模式视为 POSIX 正则表达式
 
 **-ignore-zeros**
-> Allow concatenated tar archives
+> 允许拼接的 tar 归档
 
 **-mkfs-time** _time_
-> Set filesystem creation time
+> 设置文件系统创建时间
 
 **-all-time** _time_
-> Set all inode timestamps
+> 设置所有 inode 的时间戳
 
 **-processors** _num_
-> Number of processors to use
+> 使用的处理器数量
 
 **-mem** _size_
-> Set memory limit
+> 设置内存限制
 
 **-progress**
-> Show progress bar
+> 显示进度条
 
 **-info**
-> Print files as they are added
+> 在添加文件时打印文件名
 
 # DESCRIPTION
 
-**sqfstar** creates a squashfs filesystem directly from a tar archive read from stdin. Squashfs is a highly compressed read-only filesystem supporting multiple compression algorithms with block sizes from 4K to 1MB.
+**sqfstar** 直接从 stdin 读取的 tar 归档创建 squashfs 文件系统。Squashfs 是一种高压缩比的只读文件系统，支持多种压缩算法，块大小范围为 4K 到 1MB。
 
-The tool is useful for converting tar archives to squashfs without intermediate extraction. Compressed tar archives should be decompressed before piping (using zcat, xzcat, etc.). Files can be excluded by name, wildcard pattern, or regex.
+该工具适合将 tar 归档转换为 squashfs 而无需中间解压步骤。压缩的 tar 归档应先解压再通过管道传入（使用 zcat、xzcat 等）。可以按名称、通配符模式或正则表达式排除文件。
 
 # CAVEATS
 
-Input must be tar format; compressed tars need external decompression. Squashfs is read-only after creation. Large archives require significant memory during creation. Block size affects compression ratio and random access performance.
+输入必须是 tar 格式；压缩的 tar 需要外部工具解压。Squashfs 创建后即为只读。大型归档在创建期间需要大量内存。块大小会影响压缩比和随机访问性能。
 
 # HISTORY
 
-**sqfstar** is part of **squashfs-tools**, created by **Phillip Lougher**. The sqfstar utility was added to provide direct tar-to-squashfs conversion without intermediate files. Squashfs is widely used in Linux distributions for live systems, snap packages, and container images.
+**sqfstar** 是 **squashfs-tools** 的一部分，由 **Phillip Lougher** 创建。添加 sqfstar 工具是为了提供无需中间文件、直接将 tar 转换为 squashfs 的能力。Squashfs 广泛用于 Linux 发行版的 Live 系统、snap 软件包和容器镜像。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Switch SteamOS between gaming and desktop
+在 SteamOS 的游戏模式与桌面模式之间切换
 
 # TLDR
 
-Switch to **desktop** mode
+切换到**桌面**模式
 
 ```steamos-session-select plasma```
 
-Switch to **gamemode**
+切换到**游戏模式**
 
 ```steamos-session-select```
 
-Switch to **Wayland** desktop
+切换到 **Wayland** 桌面
 
 ```steamos-session-select plasma-wayland```
 
-**Persistent** Wayland desktop (boot default)
+**持久的** Wayland 桌面（启动默认项）
 
 ```steamos-session-select plasma-wayland-persistent```
 
-**Persistent** X11 desktop (boot default)
+**持久的** X11 桌面（启动默认项）
 
 ```steamos-session-select plasma-x11-persistent```
 
@@ -31,33 +31,33 @@ Switch to **Wayland** desktop
 # SESSIONS
 
 **plasma**
-> KDE Plasma desktop mode
+> KDE Plasma 桌面模式
 
 **plasma-wayland**
-> KDE Plasma desktop on Wayland
+> 基于 Wayland 的 KDE Plasma 桌面
 
 **plasma-x11-persistent**
-> X11 desktop, set as boot default
+> X11 桌面，并设为启动默认项
 
 **plasma-wayland-persistent**
-> Wayland desktop, set as boot default
+> Wayland 桌面，并设为启动默认项
 
-(no argument)
-> Return to gamemode (removes persistent desktop selection)
+(无参数)
+> 返回游戏模式（移除持久桌面选择）
 
 # DESCRIPTION
 
-**steamos-session-select** switches between SteamOS sessions, allowing users to change from the gaming interface to the KDE Plasma desktop environment and back. Sessions with `-persistent` suffix make the device boot to that session by default.
+**steamos-session-select** 在 SteamOS 会话之间切换，让用户可以从游戏界面切换到 KDE Plasma 桌面环境再切回来。带 `-persistent` 后缀的会话会使设备默认启动到该会话。
 
-This is the command-line equivalent of the session switching available in the Steam Deck's power menu.
+此命令相当于 Steam Deck 电源菜单中提供的会话切换功能的命令行版本。
 
 # CAVEATS
 
-Session changes take effect after the current session ends. Persistent sessions change the boot default until changed again. Gamemode is the default session on fresh installations.
+会话更改在当前会话结束后生效。持久会话会改变启动默认项，直到再次更改。全新安装时默认会话为游戏模式。
 
 # HISTORY
 
-**steamos-session-select** is part of the **SteamOS** utilities developed by **Valve**. The dual-session design allows the Steam Deck to function as both a gaming console and a full Linux desktop.
+**steamos-session-select** 是 **Valve** 开发的 **SteamOS** 工具的一部分。双会话设计使 Steam Deck 既能作为游戏主机运行，又能充当完整的 Linux 桌面。
 
 # INSTALL
 

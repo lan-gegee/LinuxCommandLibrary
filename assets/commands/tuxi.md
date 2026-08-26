@@ -1,34 +1,34 @@
 # TAGLINE
 
-Quick Google answers from the terminal
+在终端快速获取 Google 答案
 
 # TLDR
 
-**Search Google for an answer**
+**搜索 Google 获取答案**
 
 ```tuxi [search_terms]```
 
-**Display raw output without formatting**
+**显示无格式的原始输出**
 
 ```tuxi -r [search_terms]```
 
-**Display all valid answers**
+**显示所有有效答案**
 
 ```tuxi -a [search_terms]```
 
-**Print top URLs for a query**
+**打印查询的前几条 URL**
 
 ```tuxi -u [search_terms]```
 
-**Suppress suggestions and show results only**
+**隐藏建议只显示结果**
 
 ```tuxi -q [search_terms]```
 
-**Search in a specific language**
+**用指定语言搜索**
 
 ```tuxi -l LANG_[language_code] [search_terms]```
 
-**Display version**
+**显示版本**
 
 ```tuxi -v```
 
@@ -39,62 +39,62 @@ Quick Google answers from the terminal
 # PARAMETERS
 
 **-r**
-> Raw format output (no colors or formatting).
+> 原始格式输出（无颜色和格式）。
 
 **-q**
-> Quiet mode (suppress "Did you mean?" suggestions and greeting).
+> 安静模式（抑制 "Did you mean?" 建议和问候语）。
 
 **-a**
-> Display all valid answers.
+> 显示所有有效答案。
 
 **-u**
-> Print top URLs for the query.
+> 打印查询的前几条 URL。
 
 **-b**
-> Select best answer based on query keywords (experimental).
+> 根据查询关键词选择最佳答案（实验性）。
 
 **-l** _LANG_code_
-> Override search language (e.g., LANG_en_US, LANG_fr_FR).
+> 覆盖搜索语言（例如 LANG_en_US、LANG_fr_FR）。
 
 **-d**
-> Print debug information.
+> 打印调试信息。
 
 **-s**
-> Save HTML results to cache.
+> 将 HTML 结果保存到缓存。
 
 **-c**
-> Use most recent cached result instead of fetching.
+> 使用最近的缓存结果而不是重新抓取。
 
 **-p**
-> Disable pipe support.
+> 禁用管道支持。
 
 **-v**
-> Show version information.
+> 显示版本信息。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**tuxi** is a command-line tool that scrapes Google search results to provide instant, concise answers to queries. It extracts featured snippets and knowledge panel information to display answers directly in the terminal.
+**tuxi** 是一个命令行工具，它抓取 Google 搜索结果，为查询提供即时、简洁的答案。它会提取精选摘要（featured snippet）和知识面板信息，直接在终端中显示答案。
 
-The tool is useful for quick fact-checking and getting answers without opening a web browser. It requires **pup** (HTML parser), **recode** (character set conversion), and **jq** (JSON processor) as dependencies.
+该工具适合快速核实事实，无需打开浏览器即可获得答案。它依赖 **pup**（HTML 解析器）、**recode**（字符集转换）和 **jq**（JSON 处理器）作为依赖项。
 
 # ENVIRONMENT
 
 **TUXI_LANG**=_lang_
-> Set default search language.
+> 设置默认搜索语言。
 
 **TUXI_DELAY**=_int_
-> Adjust delay between answer detection (default: 250ms).
+> 调整答案检测之间的延迟（默认：250ms）。
 
 # CAVEATS
 
-Depends on Google's HTML structure which may change without notice. May be blocked by Google rate limiting or CAPTCHA. Requires internet connection. Results are scraped and may not always be accurate. Requires **pup**, **recode**, and **jq** to be installed.
+依赖于 Google 的 HTML 结构，后者可能随时变更。可能被 Google 的速率限制或 CAPTCHA 拦截。需要联网。结果是抓取的，不一定总是准确。需要安装 **pup**、**recode** 和 **jq**。
 
 # HISTORY
 
-**tuxi** was created by **Bugswriter** as a fast, lightweight way to get answers from Google directly in the terminal without browser overhead.
+**tuxi** 由 **Bugswriter** 创建，旨在提供一种快速轻量的方式，在终端中直接从 Google 获取答案，避免浏览器的开销。
 
 # SEE ALSO
 

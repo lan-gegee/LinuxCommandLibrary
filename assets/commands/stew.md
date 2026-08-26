@@ -1,18 +1,18 @@
 # TAGLINE
 
-Package manager for compiled binaries from GitHub
+用于 GitHub 编译版二进制文件的软件包管理器
 
 # TLDR
 
-**Install the latest release of a GitHub project**
+**安装 GitHub 项目的最新发行版**
 
 ```stew install [junegunn/fzf]```
 
-**Search GitHub for a project using the TUI**
+**使用 TUI 在 GitHub 上搜索项目**
 
 ```stew search [ripgrep]```
 
-**Upgrade all installed binaries**
+**升级所有已安装的二进制文件**
 
 ```stew upgrade --all```
 
@@ -22,11 +22,11 @@ Package manager for compiled binaries from GitHub
 
 # DESCRIPTION
 
-**stew** is a single-binary package manager with zero runtime dependencies for installing compiled binaries from GitHub releases or direct URLs. It supports declarative package management through Stewfiles, version pinning, private repositories, and provides a TUI for searching and browsing GitHub releases.
+**stew** 是一个零运行时依赖的单二进制软件包管理器，可从 GitHub releases 或直接 URL 安装编译好的二进制文件。它支持通过 Stewfile 进行声明式包管理、版本锁定和私有仓库，并提供 TUI 用于搜索和浏览 GitHub 发行版。
 
 # HISTORY
 
-**stew** was created by **Marwan Hawari** and is written in **Go**.
+**stew** 由 **Marwan Hawari** 创建，使用 **Go** 编写。
 
 # INSTALL
 

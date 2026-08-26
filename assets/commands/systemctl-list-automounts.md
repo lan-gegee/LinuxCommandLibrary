@@ -1,22 +1,22 @@
 # TAGLINE
 
-List automount units and states
+列出自动挂载单元及其状态
 
 # TLDR
 
-List **automount** units
+列出**自动挂载**单元
 
 ```systemctl list-automounts```
 
-List **all** including inactive
+列出**全部**单元（包括未激活的）
 
 ```systemctl list-automounts -a```
 
-Filter by **state**
+按**状态**过滤
 
 ```systemctl list-automounts --state [active|inactive|failed]```
 
-Filter by **pattern**
+按**模式**过滤
 
 ```systemctl list-automounts [pattern]```
 
@@ -27,30 +27,30 @@ Filter by **pattern**
 # PARAMETERS
 
 **-a, --all**
-> Include inactive automount units
+> 包括未激活的自动挂载单元
 
 **--state=** _STATE_
-> Filter by state (active, inactive, failed, etc.)
+> 按状态过滤（active、inactive、failed 等）
 
 **--no-legend**
-> Suppress header and footer
+> 不显示表头和页脚
 
 **--no-pager**
-> Disable pager output
+> 禁用分页器输出
 
 # DESCRIPTION
 
-**systemctl list-automounts** displays automount units currently loaded in memory, showing mount paths and corresponding unit names. Automount units trigger on-demand mounting when the mount point is accessed.
+**systemctl list-automounts** 显示当前加载到内存中的自动挂载单元，包括挂载路径和对应的单元名称。当访问挂载点时，自动挂载单元会触发按需挂载。
 
-The output shows the path being watched, the automount unit name, and its current state.
+输出内容包含被监视的路径、自动挂载单元名称及其当前状态。
 
 # CAVEATS
 
-Only shows automount units, not regular mount units. Inactive automounts are hidden by default. For all mount information, use `systemctl list-units --type=mount`.
+只显示自动挂载单元，不显示普通挂载单元。未激活的自动挂载默认会被隐藏。要查看全部挂载信息，请使用 `systemctl list-units --type=mount`。
 
 # HISTORY
 
-The **list-automounts** subcommand provides a focused view of on-demand mounting configuration, separating automount units from regular mounts for easier administration.
+**list-automounts** 子命令提供了按需挂载配置的专属视图，将自动挂载单元与普通挂载分开显示，便于管理。
 
 # SEE ALSO
 

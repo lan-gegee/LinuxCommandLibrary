@@ -1,34 +1,34 @@
 # TAGLINE
 
-Expressive CSS preprocessor compiler
+表现力丰富的 CSS 预处理器编译器
 
 # TLDR
 
-**Compile Stylus file to CSS**
+**将 Stylus 文件编译为 CSS**
 
 ```stylus [style.styl]```
 
-**Compile to specific output file**
+**编译到指定输出文件**
 
 ```stylus [style.styl] -o [style.css]```
 
-**Watch for changes and compile**
+**监视更改并编译**
 
 ```stylus -w [style.styl] -o [style.css]```
 
-**Compile with compression**
+**以压缩方式编译**
 
 ```stylus -c [style.styl]```
 
-**Compile all files in directory**
+**编译目录中的所有文件**
 
 ```stylus [src/] -o [dist/]```
 
-**Convert CSS to Stylus**
+**将 CSS 转换为 Stylus**
 
 ```stylus -C [style.css] [style.styl]```
 
-**Generate source maps**
+**生成 source map**
 
 ```stylus --sourcemap [style.styl]```
 
@@ -39,80 +39,80 @@ Expressive CSS preprocessor compiler
 # PARAMETERS
 
 **-o**, **--out** _dir_
-> Output to specified directory or file.
+> 输出到指定目录或文件。
 
 **-w**, **--watch**
-> Watch files for changes and recompile.
+> 监视文件更改并重新编译。
 
 **-c**, **--compress**
-> Compress CSS output.
+> 压缩 CSS 输出。
 
 **-C**, **--css** _src_ [_dest_]
-> Convert CSS input to Stylus.
+> 将 CSS 输入转换为 Stylus。
 
 **-m**, **--sourcemap**
-> Generate v3 source maps.
+> 生成 v3 source map。
 
 **--sourcemap-inline**
-> Inline the source map as base64 in the output.
+> 将 source map 以 base64 内联到输出中。
 
 **-l**, **--line-numbers**
-> Add line number comments to output.
+> 在输出中添加行号注释。
 
 **-i**, **--interactive**
-> Start interactive REPL.
+> 启动交互式 REPL。
 
 **-U**, **--inline**
-> Inline images as data URIs.
+> 将图像内联为 data URI。
 
 **-u**, **--use** _plugin_
-> Use specified plugin.
+> 使用指定插件。
 
 **-I**, **--include** _path_
-> Add path to import lookup.
+> 向导入查找路径中添加路径。
 
 **-r**, **--resolve-url**
-> Resolve relative URLs inside imports.
+> 解析导入中的相对 URL。
 
 **--include-css**
-> Include regular CSS on @import.
+> 在 @import 时包含常规 CSS。
 
 **--import** _file_
-> Import file before compiling.
+> 编译前先导入文件。
 
 **-p**, **--print**
-> Print compiled CSS to stdout.
+> 将编译后的 CSS 打印到 stdout。
 
 **-d**, **--compare**
-> Display both input and compiled output.
+> 同时显示输入与编译后的输出。
 
 **-D**, **--deps**
-> Display dependent files.
+> 显示依赖文件。
 
 **-P**, **--prefix** _prefix_
-> Prefix all CSS class names.
+> 为所有 CSS 类名添加前缀。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**stylus** is a command-line compiler for the Stylus CSS preprocessor. Stylus is an expressive, dynamic CSS language built for Node.js that features flexible syntax, powerful functions, and robust feature set.
+**stylus** 是 Stylus CSS 预处理器的命令行编译器。Stylus 是为 Node.js 构建的表现力强、动态的 CSS 语言，具有灵活的语法、强大的函数和丰富的特性集。
 
-The compiler transforms Stylus source files (.styl) into standard CSS. Stylus syntax is flexible, allowing optional colons, semicolons, and braces, making stylesheets more readable. It supports variables, mixins, functions, iteration, and many other features that extend CSS capabilities.
+该编译器将 Stylus 源文件（.styl）转换为标准 CSS。Stylus 语法灵活，冒号、分号和花括号均可省略，使样式表更具可读性。它支持变量、mixin、函数、迭代等众多扩展 CSS 能力的特性。
 
-The watch mode enables automatic recompilation during development. Source maps aid debugging by mapping compiled CSS back to original Stylus sources. The CSS conversion feature helps migrate existing stylesheets to Stylus.
+监视模式可在开发过程中自动重新编译。source map 通过将编译后的 CSS 映射回原始 Stylus 源码来辅助调试。CSS 转换功能有助于将现有样式表迁移到 Stylus。
 
 # CAVEATS
 
-Requires Node.js and npm for installation. The flexible syntax can be confusing for teams without consistent conventions. Performance may be slower than other preprocessors for large projects. Stylus has less community adoption compared to Sass/SCSS.
+安装需要 Node.js 和 npm。灵活的语法对缺乏统一约定的团队来说可能造成困扰。大型项目下性能可能不如其他预处理器。与 Sass/SCSS 相比，Stylus 的社区采用度较低。
 
 # HISTORY
 
-**Stylus** was created by TJ Holowaychuk (creator of Express.js) and released in 2010. It was designed to be more expressive and flexible than existing CSS preprocessors. While it gained significant adoption, Sass/SCSS eventually became more dominant in the CSS preprocessor ecosystem.
+**Stylus** 由 TJ Holowaychuk（Express.js 的作者）创建并于 2010 年发布。它的设计目标是比现有 CSS 预处理器更有表现力和灵活性。虽然它获得了可观的采用，但 Sass/SCSS 最终在 CSS 预处理器生态中占据了更主导的地位。
 
 # INSTALL
 

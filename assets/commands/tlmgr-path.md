@@ -1,14 +1,14 @@
 # TAGLINE
 
-Manage TeX Live system PATH integration
+管理 TeX Live 的系统 PATH 集成
 
 # TLDR
 
-**Add TeX Live to PATH**
+**将 TeX Live 加入 PATH**
 
 ```tlmgr path add```
 
-**Remove from PATH**
+**从 PATH 中移除**
 
 ```tlmgr path remove```
 
@@ -19,20 +19,19 @@ Manage TeX Live system PATH integration
 # PARAMETERS
 
 **add**
-> Add TeX Live to system PATH.
+> 将 TeX Live 添加到系统 PATH。
 
 **remove**
-> Remove TeX Live from system PATH.
+> 将 TeX Live 从系统 PATH 移除。
 
 # DESCRIPTION
 
-**tlmgr path** manages system PATH integration for TeX Live. Creates or removes symlinks in /usr/local/bin for TeX programs. Part of TeX Live Manager.
+**tlmgr path** 管理 TeX Live 与系统 PATH 的集成。在 /usr/local/bin 中创建或移除指向 TeX 程序的符号链接。TeX Live Manager 的组成部分。
 
 # CAVEATS
 
-Requires root privileges. May conflict with system TeX packages.
+需要 root 权限。可能与系统的 TeX 软件包冲突。
 
 # SEE ALSO
 
 [tlmgr](/man/tlmgr)(1)
-

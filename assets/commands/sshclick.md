@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal-based SSH config manager with groups
+支持分组的基于终端的 SSH 配置管理器
 
 # TLDR
 
-**List all configured SSH hosts**
+**列出所有已配置的 SSH 主机**
 
 ```sshc host list```
 
-**Show host details in card format**
+**以卡片格式显示主机详情**
 
 ```sshc host show [myserver] --style card```
 
-**Create a new host group**
+**创建新的主机组**
 
 ```sshc group create [mygroup] --desc "[Production servers]"```
 
-**Create a host** with parameters
+**带参数创建主机**
 
 ```sshc host create [myserver] --param hostname=[example.com] --param user=[admin] --param port=[22]```
 
-**Delete a host**
+**删除主机**
 
 ```sshc host delete [myserver]```
 
-**Launch the interactive TUI**
+**启动交互式 TUI**
 
 ```sshc tui```
 
@@ -35,53 +35,53 @@ Terminal-based SSH config manager with groups
 # SUBCOMMANDS
 
 **host list**
-> List all SSH hosts in the config.
+> 列出配置中的所有 SSH 主机。
 
 **host show** _name_
-> Display details for a single host.
+> 显示单个主机的详细信息。
 
 **host create** _name_
-> Add a new host entry.
+> 添加新的主机条目。
 
 **host set** _name_
-> Modify an existing host's parameters.
+> 修改现有主机的参数。
 
 **host delete** _name_
-> Remove a host entry.
+> 移除主机条目。
 
 **group list** / **group show** / **group create** / **group delete**
-> Manage groups of hosts.
+> 管理主机组。
 
 **tui**
-> Launch the interactive terminal UI.
+> 启动交互式终端界面。
 
 # PARAMETERS
 
 **-f**, **--file** _PATH_
-> Use a specific SSH config file (default `~/.ssh/config`).
+> 使用特定的 SSH 配置文件（默认 `~/.ssh/config`）。
 
 **--style** _STYLE_
-> Output style: table, card, json.
+> 输出样式：table、card、json。
 
 **--param** _key=value_
-> Set an SSH option on a host (e.g. hostname, user, port, identityfile).
+> 在主机上设置 SSH 选项（例如 hostname、user、port、identityfile）。
 
 **--desc** _TEXT_
-> Description metadata for hosts or groups.
+> 主机或组的描述性元数据。
 
 # DESCRIPTION
 
-**sshclick** is a CLI and TUI tool for managing SSH configuration files. It parses your SSH config (`~/.ssh/config` by default) and provides commands to list, filter, modify, and view host entries. Through additional metadata comments, it supports abstractions like host groups and descriptions for better organization.
+**sshclick** 是一个用于管理 SSH 配置文件的 CLI 和 TUI 工具。它解析你的 SSH 配置（默认为 `~/.ssh/config`），提供列出、过滤、修改和查看主机条目的命令。借助额外的元数据注释，它还支持主机分组和描述等抽象，便于更好地组织配置。
 
-The TUI mode provides interactive navigation, search, and editing of hosts and groups.
+TUI 模式提供对主机和分组的交互式导航、搜索和编辑能力。
 
 # CAVEATS
 
-Edits to the SSH config file may reorder or rewrite comments. Always keep a backup before bulk operations.
+对 SSH 配置文件的编辑可能重排或重写注释。批量操作前务必备份。
 
 # HISTORY
 
-**sshclick** was created by **Karlo Tisaj** (karlot) and is written in **Python**.
+**sshclick** 由 **Karlo Tisaj**（karlot）创建，使用 **Python** 编写。
 
 # SEE ALSO
 

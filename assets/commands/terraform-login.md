@@ -1,14 +1,14 @@
 # TAGLINE
 
-Authenticate Terraform CLI with a remote host
+向远程主机认证 Terraform CLI
 
 # TLDR
 
-**Log in** to HCP Terraform (default)
+**登录** HCP Terraform（默认）
 
 ```terraform login```
 
-**Log in** to a specific **Terraform Enterprise** instance
+**登录**指定的 **Terraform Enterprise** 实例
 
 ```terraform login [hostname]```
 
@@ -19,25 +19,25 @@ Authenticate Terraform CLI with a remote host
 # PARAMETERS
 
 **hostname**
-> The hostname of the Terraform service to authenticate against. Defaults to **app.terraform.io** (HCP Terraform). For Terraform Enterprise, specify your organization's hostname
+> 要认证的 Terraform 服务主机名。默认为 **app.terraform.io**（HCP Terraform）。对于 Terraform Enterprise，请指定你组织的主机名
 
 # DESCRIPTION
 
-**terraform login** obtains and saves an API token for **HCP Terraform** (formerly Terraform Cloud), **Terraform Enterprise**, or any host implementing the Terraform login protocol. The command launches a web browser directing the user to the service's login page. After authorization, Terraform receives an API token via **OAuth 2.0** with **PKCE** and saves it locally.
+**terraform login** 为 **HCP Terraform**（原 Terraform Cloud）、**Terraform Enterprise** 或任何实现了 Terraform 登录协议的主机获取并保存 API 令牌。该命令会启动网页浏览器，引导用户前往服务的登录页面。授权后，Terraform 通过带 **PKCE** 的 **OAuth 2.0** 接收 API 令牌并将其保存在本地。
 
-By default, the token is stored in plain text in **~/.terraform.d/credentials.tfrc.json**. Alternatively, a **credentials helper** can be configured to store tokens in an external secrets management system.
+默认情况下，令牌以明文形式存储在 **~/.terraform.d/credentials.tfrc.json** 中。也可以配置**凭据助手**（credentials helper），把令牌存储到外部的机密管理系统中。
 
 # CONFIGURATION
 
-Tokens are stored in **~/.terraform.d/credentials.tfrc.json** by default. The location can be overridden with the **TF_CLI_CONFIG_FILE** environment variable. Tokens can also be provided via environment variables following the pattern **TF_TOKEN_\<hostname_with_underscores\>** (e.g., **TF_TOKEN_app_terraform_io**). A **credentials_helper** block in the CLI config can integrate with external secret stores.
+令牌默认存储在 **~/.terraform.d/credentials.tfrc.json** 中。可以通过 **TF_CLI_CONFIG_FILE** 环境变量覆盖该位置。令牌也可按 **TF_TOKEN_\<hostname_with_underscores\>** 的命名模式通过环境变量提供（例如 **TF_TOKEN_app_terraform_io**）。CLI 配置中的 **credentials_helper** 块可与外部机密存储集成。
 
 # CAVEATS
 
-The command is **interactive** and launches a web browser, so it cannot be used in headless or CI/CD environments. For automation, configure credentials manually via environment variables or the credentials file. Tokens are stored in **plain text** by default. Terraform does not handle token refresh or expiration automatically; when a token expires, run **terraform login** again. Only **user tokens** or **team tokens** work; organization tokens cannot be used for CLI operations.
+该命令是**交互式**的且会启动网页浏览器，因此不能在无头或 CI/CD 环境中使用。自动化场景请通过环境变量或凭据文件手动配置凭据。令牌默认以**明文**存储。Terraform 不会自动处理令牌刷新或过期；令牌过期后需重新运行 **terraform login**。只有**用户令牌**或**团队令牌**可用；组织令牌不能用于 CLI 操作。
 
 # HISTORY
 
-Introduced in **Terraform v0.12.21** in early **2020** alongside **terraform logout** to simplify connecting the CLI to Terraform Cloud and Enterprise, replacing the previous manual process of generating and configuring API tokens.
+于 **2020** 年初随 **Terraform v0.12.21** 与 **terraform logout** 一同推出，用于简化 CLI 与 Terraform Cloud 和 Enterprise 的连接，取代了此前手动生成并配置 API 令牌的流程。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-View and modify kernel parameters
+查看和修改内核参数
 
 # TLDR
 
-**Show** all available variables and their values
+**显示**所有可用变量及其值
 
 ```sysctl -a```
 
-**Set** a changeable kernel state variable
+**设置**一个可写的内核状态变量
 
 ```sysctl -w [section.tunable]=[value]```
 
-**Get** currently open file handlers
+**获取**当前打开的文件句柄数
 
 ```sysctl fs.file-nr```
 
-**Get** limit for simultaneous open files
+**获取**同时打开文件的上限
 
 ```sysctl fs.file-max```
 
-**Apply** changes from /etc/sysctl.conf
+**应用** /etc/sysctl.conf 中的更改
 
 ```sysctl -p```
 
@@ -31,47 +31,47 @@ View and modify kernel parameters
 # PARAMETERS
 
 **-a, --all**
-> Display all available variables
+> 显示所有可用变量
 
 **-w, --write**
-> Write value to variable
+> 向变量写入值
 
 **-p, --load [_file_]**
-> Load settings from file (default: /etc/sysctl.conf)
+> 从文件加载设置（默认：/etc/sysctl.conf）
 
 **-n, --values**
-> Print only values, not variable names
+> 只打印值，不打印变量名
 
 **-e, --ignore**
-> Ignore unknown variables
+> 忽略未知变量
 
 **-q, --quiet**
-> Suppress error messages
+> 抑制错误消息
 
 **--system**
-> Load settings from all system configuration files
+> 从所有系统配置文件加载设置
 
 # DESCRIPTION
 
-**sysctl** is used to examine and modify kernel parameters at runtime. Parameters available are listed under **/proc/sys/** and can be read or written using this tool.
+**sysctl** 用于在运行时检查和修改内核参数。可用参数列在 **/proc/sys/** 下，可使用该工具读取或写入。
 
-Common categories include **kernel.** (core kernel settings), **net.** (networking), **vm.** (virtual memory), and **fs.** (filesystem). Changes made with sysctl are temporary unless persisted to configuration files.
+常见类别包括 **kernel.**（核心内核设置）、**net.**（网络）、**vm.**（虚拟内存）和 **fs.**（文件系统）。用 sysctl 所做的更改是临时的，除非持久化到配置文件。
 
 # CONFIGURATION
 
 **/etc/sysctl.conf**
-> Main configuration file for persistent kernel parameter settings, loaded at boot.
+> 持久化内核参数设置的主配置文件，在启动时加载。
 
 **/etc/sysctl.d/*.conf**
-> Drop-in directory for modular kernel parameter configuration files.
+> 用于模块化内核参数配置文件的 drop-in 目录。
 
 # CAVEATS
 
-Changes are lost on reboot unless saved to **/etc/sysctl.conf** or files in **/etc/sysctl.d/**. Some parameters are read-only. Incorrect values can destabilize the system. Requires root privileges to modify values.
+除非保存到 **/etc/sysctl.conf** 或 **/etc/sysctl.d/** 下的文件，否则重启后更改会丢失。部分参数是只读的。错误的值可能导致系统不稳定。修改值需要 root 权限。
 
 # HISTORY
 
-**sysctl** is part of **procps** (now procps-ng). It provides a convenient interface to the /proc/sys virtual filesystem for reading and writing kernel parameters at runtime.
+**sysctl** 是 **procps**（现 procps-ng）的一部分。它为 /proc/sys 虚拟文件系统提供了便捷接口，可在运行时读写内核参数。
 
 # INSTALL
 

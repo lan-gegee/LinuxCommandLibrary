@@ -1,26 +1,26 @@
 # TLDR
 
-**Show device info**
+**显示设备信息**
 
 ```st-info --probe```
 
-**Show flash size**
+**显示闪存大小**
 
 ```st-info --flash```
 
-**Show SRAM size**
+**显示 SRAM 大小**
 
 ```st-info --sram```
 
-**Show chip ID**
+**显示芯片 ID**
 
 ```st-info --chipid```
 
-**Show description**
+**显示描述**
 
 ```st-info --descr```
 
-**Show serial number**
+**显示序列号**
 
 ```st-info --serial```
 
@@ -31,36 +31,36 @@
 # PARAMETERS
 
 **--probe**
-> Probe connected device.
+> 探测已连接的设备。
 
 **--flash**
-> Flash memory size.
+> 闪存大小。
 
 **--sram**
-> SRAM size.
+> SRAM 大小。
 
 **--chipid**
-> Chip identifier.
+> 芯片标识符。
 
 **--descr**
-> Device description.
+> 设备描述。
 
 **--serial**
-> Programmer serial.
+> 编程器序列号。
 
 # DESCRIPTION
 
-**st-info** queries information from STM32 microcontrollers connected via an ST-Link programmer/debugger. It reports device identification details including chip ID, device description, flash memory size, SRAM size, and the programmer's serial number.
+**st-info** 通过 ST-Link 编程器/调试器查询 STM32 微控制器的信息。它报告设备识别详情，包括芯片 ID、设备描述、闪存大小、SRAM 大小以及编程器的序列号。
 
-The tool is useful for verifying hardware connections, identifying unknown STM32 variants, and confirming memory sizes before programming. The **--probe** option provides a comprehensive summary of all connected devices. It is part of the open-source stlink toolset.
+该工具可用于验证硬件连接、识别未知的 STM32 型号，以及在编程前确认内存大小。**--probe** 选项提供所有已连接设备的综合摘要。它是开源 stlink 工具集的一部分。
 
 # CAVEATS
 
-ST-Link required. Device must be connected. STM32 only.
+需要 ST-Link。必须连接设备。仅支持 STM32。
 
 # HISTORY
 
-**st-info** is part of **stlink**, providing device information for STM32 microcontrollers connected via ST-Link.
+**st-info** 是 **stlink** 工具集的一部分，为通过 ST-Link 连接的 STM32 微控制器提供设备信息。
 
 # INSTALL
 

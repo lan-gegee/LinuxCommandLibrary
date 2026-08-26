@@ -1,18 +1,18 @@
 # TAGLINE
 
-Topological sort of dependency pairs
+对依赖对进行拓扑排序
 
 # TLDR
 
-**Sort dependencies**
+**排序依赖**
 
 ```tsort [dependencies.txt]```
 
-**From stdin**
+**从标准输入读取**
 
 ```echo -e "a b\nb c" | tsort```
 
-**Sort makefile dependencies**
+**对 makefile 依赖排序**
 
 ```tsort [makefile_deps]```
 
@@ -23,21 +23,21 @@ Topological sort of dependency pairs
 # PARAMETERS
 
 _FILE_
-> Input file containing whitespace-separated dependency pairs. With no file (or `-`), reads from standard input.
+> 包含以空白分隔的依赖对的输入文件。不指定文件（或使用 `-`）时，从标准输入读取。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**tsort** performs topological sorting on a set of dependency pairs read from standard input or a file. Each line contains two whitespace-separated items where the first item depends on the second. The output lists all items in an order where every dependency appears before the items that depend on it.
+**tsort** 对从标准输入或文件读取的一组依赖对执行拓扑排序。每行包含两个以空白分隔的项，第一项依赖于第二项。输出会按某种顺序列出所有项，保证每个被依赖项都出现在依赖它的项之前。
 
-The tool is commonly used in build systems to determine compilation order, in package managers to resolve installation sequences, and in any scenario where items must be processed in dependency order. If the input contains cycles (circular dependencies), tsort reports an error since no valid ordering exists.
+该工具常用于构建系统中确定编译顺序、在软件包管理器中解析安装顺序，以及任何必须按依赖顺序处理条目的场景。如果输入中存在环（循环依赖），tsort 会报告错误，因为不存在有效的排序。
 
-Input with a single item on a line introduces that item without declaring a dependency, ensuring it appears in the output.
+输入行上只有单个项时，会引入该项而不声明依赖关系，确保它出现在输出中。
 
 # INPUT FORMAT
 
@@ -49,7 +49,7 @@ c d    # c depends on d
 
 # OUTPUT
 
-Items in dependency order: d, c, b, a
+按依赖顺序排列的项：d, c, b, a
 
 # EXAMPLE
 
@@ -62,11 +62,11 @@ main
 
 # CAVEATS
 
-Detects cycles but can't resolve. Single dependency per line pair. Whitespace separated.
+能检测环但无法解决。每行只能有一个依赖对。各项以空白分隔。
 
 # HISTORY
 
-**tsort** is part of POSIX and has been in Unix since early versions. It was originally used for ordering object files in linker commands.
+**tsort** 是 POSIX 的一部分，自 Unix 早期版本就已存在。它最初用于在链接器命令中为目标文件排序。
 
 # INSTALL
 

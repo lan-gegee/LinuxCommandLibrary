@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert Sun icon images to PNM format
+将 Sun 图标图像转换为 PNM 格式
 
 # TLDR
 
-**Convert** Sun icon to PNM (writes to stdout)
+**转换** Sun 图标为 PNM（写入标准输出）
 
 ```sunicontopnm [input.icon] > [output.pnm]```
 
-**Convert from stdin**
+**从标准输入转换**
 
 ```sunicontopnm < [input.icon] > [output.pnm]```
 
@@ -18,17 +18,17 @@ Convert Sun icon images to PNM format
 
 # DESCRIPTION
 
-**sunicontopnm** reads a Sun icon-format image (the monochrome icon format used historically on SunOS workstations) and writes a corresponding PBM (or PNM) image to standard output. If no input file is given, the icon is read from standard input.
+**sunicontopnm** 读取 Sun 图标格式的图像（历史上 SunOS 工作站使用的单色图标格式），并将对应的 PBM（或 PNM）图像写入标准输出。未指定输入文件时，从标准输入读取图标。
 
-The output is always monochrome since Sun icons store only black-and-white pixels. This program is part of the **Netpbm** toolkit, which provides building blocks for image-format conversion pipelines.
+由于 Sun 图标只存储黑白像素，输出始终是单色的。该程序是 **Netpbm** 工具集的一部分，该工具集提供了构建图像格式转换流水线的基础组件。
 
 # CAVEATS
 
-Sun icon files are an obsolete format. The tool is mainly useful for archival conversions. The complementary tool, **pbmtosunicon**, performs the reverse conversion from PBM to Sun icon format.
+Sun 图标文件是一种过时的格式。该工具主要用于归档用途的转换。配套工具 **pbmtosunicon** 执行相反的 PBM 到 Sun 图标格式的转换。
 
 # HISTORY
 
-Part of the **Netpbm** package. The Sun icon format dates from the SunView/NeWS era of SunOS in the 1980s; the converter has been part of pbmplus / Netpbm since the early 1990s.
+属于 **Netpbm** 软件包。Sun 图标格式可追溯到 20 世纪 80 年代 SunOS 的 SunView/NeWS 时代；该转换器自 20 世纪 90 年代初起就已成为 pbmplus / Netpbm 的一部分。
 
 # INSTALL
 

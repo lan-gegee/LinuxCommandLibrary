@@ -1,26 +1,26 @@
 # TAGLINE
 
-List path-activated units
+列出由路径激活的单元
 
 # TLDR
 
-List **path** units
+列出**路径**单元
 
 ```systemctl list-paths```
 
-Filter by **pattern**
+按**模式**过滤
 
 ```systemctl list-paths [pattern]```
 
-List **all** including inactive
+列出**全部**单元（包括未激活的）
 
 ```systemctl list-paths -a```
 
-Filter by **state**
+按**状态**过滤
 
 ```systemctl list-paths --state [state]```
 
-Show **unit types**
+显示**单元类型**
 
 ```systemctl list-paths --show-types```
 
@@ -31,33 +31,33 @@ Show **unit types**
 # PARAMETERS
 
 **-a, --all**
-> Include inactive path units
+> 包括未激活的路径单元
 
 **--state=** _STATE_
-> Filter by state
+> 按状态过滤
 
 **--show-types**
-> Display unit types in output
+> 在输出中显示单元类型
 
 **--no-legend**
-> Suppress header and footer
+> 不显示表头和页脚
 
 **--no-pager**
-> Disable pager
+> 禁用分页器
 
 # DESCRIPTION
 
-**systemctl list-paths** displays path units currently loaded in memory, ordered by the paths they watch. Path units activate other units when specified filesystem paths are modified.
+**systemctl list-paths** 显示当前加载到内存中的路径单元，并按其监视的路径排序。当指定的文件系统路径被修改时，路径单元会激活其他单元。
 
-The output shows the watched path, the path unit name, and its current state.
+输出内容包括被监视的路径、路径单元名称及其当前状态。
 
 # CAVEATS
 
-Only shows path units, not related service units. Inactive path units are hidden by default. Path monitoring uses inotify, which has kernel limits on watched paths.
+只显示路径单元，不显示相关的服务单元。未激活的路径单元默认会被隐藏。路径监控基于 inotify，内核对可监视的路径数量有限制。
 
 # HISTORY
 
-The **list-paths** subcommand provides a focused view of filesystem-triggered units, which are systemd's replacement for incron or similar file-watching mechanisms.
+**list-paths** 子命令提供了文件系统触发单元的专属视图，这类单元是 systemd 对 incron 或类似文件监视机制的替代方案。
 
 # SEE ALSO
 

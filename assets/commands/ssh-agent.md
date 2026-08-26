@@ -1,26 +1,26 @@
 # TLDR
 
-**Start ssh-agent** and set environment variables
+**启动 ssh-agent** 并设置环境变量
 
 ```eval $(ssh-agent)```
 
-**Start agent in background** for current shell
+为当前 Shell **在后台启动代理**
 
 ```ssh-agent -s```
 
-**Start with C-shell** compatible output
+**以 C-shell 兼容输出**启动
 
 ```ssh-agent -c```
 
-**Kill the running agent**
+**杀死正在运行的代理**
 
 ```ssh-agent -k```
 
-**Run a command** with agent environment
+在代理环境中**运行命令**
 
 ```ssh-agent [command]```
 
-**Set key lifetime** (default is forever)
+**设置密钥生命周期**（默认永久）
 
 ```ssh-agent -t [1h]```
 
@@ -33,41 +33,41 @@
 # PARAMETERS
 
 **-s**
-> Generate Bourne shell commands on stdout.
+> 在 stdout 上生成 Bourne shell 命令。
 
 **-c**
-> Generate C-shell commands on stdout.
+> 在 stdout 上生成 C-shell 命令。
 
 **-k**
-> Kill the current agent (using SSH_AGENT_PID).
+> 杀死当前代理（使用 SSH_AGENT_PID）。
 
 **-d**
-> Debug mode (don't fork).
+> 调试模式（不 fork）。
 
 **-D**
-> Foreground mode without debug output.
+> 前台模式，无调试输出。
 
 **-a** _SOCKET_
-> Bind to specified Unix socket instead of random.
+> 绑定到指定的 Unix 套接字而非随机套接字。
 
 **-t** _LIFE_
-> Default maximum lifetime for added keys (e.g., 1h, 30m).
+> 所添加密钥的默认最长生命周期（例如 1h、30m）。
 
 # DESCRIPTION
 
-**ssh-agent** is a program that holds private keys used for SSH public key authentication. The agent runs in the background and provides keys to SSH clients without requiring passphrase re-entry.
+**ssh-agent** 是一个保存用于 SSH 公钥认证的私钥的程序。代理在后台运行，向 SSH 客户端提供密钥，无需重复输入口令。
 
-Keys are added to the agent using **ssh-add**. Once added, the agent responds to authentication requests from SSH connections, including forwarded agent connections from remote hosts.
+密钥通过 **ssh-add** 添加到代理。添加后，代理会响应来自 SSH 连接的认证请求，包括从远程主机转发而来的代理连接。
 
-The agent outputs shell commands to set environment variables (SSH_AUTH_SOCK and SSH_AGENT_PID). These must be evaluated in the shell using **eval $(ssh-agent)** to enable communication between SSH clients and the agent.
+代理会输出设置环境变量（SSH_AUTH_SOCK 和 SSH_AGENT_PID）的 shell 命令。必须用 **eval $(ssh-agent)** 在 shell 中执行这些命令，SSH 客户端才能与代理通信。
 
 # CAVEATS
 
-The agent keeps decrypted private keys in memory. If compromised, all loaded keys are exposed. Use **-t** to limit key lifetime. Agent forwarding (-A in ssh) should be used carefully as remote hosts can use your agent. Kill the agent when done with sensitive sessions.
+代理将解密后的私钥保存在内存中。一旦被攻破，所有已加载的密钥都会暴露。请用 **-t** 限制密钥生命周期。代理转发（ssh 的 -A 选项）应谨慎使用，因为远程主机可以借用你的代理。处理完敏感会话后请杀死代理。
 
 # HISTORY
 
-ssh-agent was developed as part of OpenSSH, originally created by Tatu Ylönen and later maintained by the OpenBSD project. The agent model allows secure key storage while enabling passwordless SSH connections, and has become the standard approach for managing SSH keys across all major platforms.
+ssh-agent 作为 OpenSSH 的一部分开发而来；OpenSSH 最初由 Tatu Ylönen 创建，后来由 OpenBSD 项目维护。代理模型既能安全存储密钥，又能实现免密 SSH 连接，已成为所有主流平台上管理 SSH 密钥的标准方式。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show default boot target
+显示默认引导 target
 
 # TLDR
 
-Show **default target**
+显示**默认 target**
 
 ```systemctl get-default```
 
@@ -14,17 +14,17 @@ Show **default target**
 
 # DESCRIPTION
 
-**systemctl get-default** displays the default target (equivalent to runlevel) that the system boots into. Common targets include `graphical.target` (GUI environment), `multi-user.target` (text-mode multi-user), and `rescue.target` (single-user recovery).
+**systemctl get-default** 显示系统启动时进入的默认 target（等价于运行级别）。常见 target 包括 `graphical.target`（图形界面环境）、`multi-user.target`（文本模式多用户）和 `rescue.target`（单用户恢复）。
 
-The default target is determined by the symlink at `/etc/systemd/system/default.target`.
+默认 target 由 `/etc/systemd/system/default.target` 处的符号链接决定。
 
 # CAVEATS
 
-Only shows the configured default, not the currently active target. Use `systemctl list-units --type=target` to see currently active targets.
+只显示已配置的默认值，而非当前活动的 target。使用 `systemctl list-units --type=target` 查看当前活动的 target。
 
 # HISTORY
 
-The **get-default** subcommand provides a simple way to check the system's boot target, replacing the traditional examination of `/etc/inittab` runlevel configuration.
+**get-default** 子命令提供了一种查看系统引导 target 的简单方式，取代了传统的 `/etc/inittab` 运行级别配置检查。
 
 # SEE ALSO
 

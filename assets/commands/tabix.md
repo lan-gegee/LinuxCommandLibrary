@@ -1,38 +1,38 @@
 # TAGLINE
 
-Genomic position file indexer
+基因组位置文件索引器
 
 # TLDR
 
-**Index a VCF file**
+为 VCF 文件建立**索引**
 
 ```tabix -p vcf [file.vcf.gz]```
 
-**Index a BED file**
+为 BED 文件建立**索引**
 
 ```tabix -p bed [file.bed.gz]```
 
-**Index a GFF file**
+为 GFF 文件建立**索引**
 
 ```tabix -p gff [file.gff.gz]```
 
-**Query a region**
+**查询某个区域**
 
 ```tabix [file.vcf.gz] [chr1:1000000-2000000]```
 
-**Query with header output**
+输出时包含头部的**查询**
 
 ```tabix -h [file.vcf.gz] [chr1:1000000-2000000]```
 
-**List chromosomes in index**
+**列出**索引中的染色体
 
 ```tabix -l [file.vcf.gz]```
 
-**Query regions from file**
+从文件读取区域进行**查询**
 
 ```tabix -R [regions.bed] [file.vcf.gz]```
 
-**Create CSI index** for large chromosomes
+为大染色体**创建 CSI 索引**
 
 ```tabix -C -p vcf [file.vcf.gz]```
 
@@ -43,79 +43,79 @@ Genomic position file indexer
 # PARAMETERS
 
 **-p**, **--preset** _format_
-> Input format preset: gff, bed, sam, vcf.
+> 输入格式预设：gff、bed、sam、vcf。
 
 **-s**, **--sequence** _col_
-> Column of sequence name (default: 1).
+> 序列名称所在列（默认：1）。
 
 **-b**, **--begin** _col_
-> Column of start position (default: 4).
+> 起始位置所在列（默认：4）。
 
 **-e**, **--end** _col_
-> Column of end position (default: 5).
+> 结束位置所在列（默认：5）。
 
 **-S**, **--skip-lines** _n_
-> Skip first n lines.
+> 跳过前 n 行。
 
 **-c**, **--comment** _char_
-> Skip lines starting with character (default: #).
+> 跳过以此字符开头的行（默认：#）。
 
 **-0**, **--zero-based**
-> Positions are 0-based half-open.
+> 位置采用 0 起始的半开区间。
 
 **-C**, **--csi**
-> Create CSI index instead of TBI.
+> 创建 CSI 索引而非 TBI。
 
 **-f**, **--force**
-> Overwrite existing index.
+> 覆盖已有索引。
 
 **-h**, **--print-header**
-> Print header lines with output.
+> 输出时打印头部行。
 
 **-H**, **--only-header**
-> Print only header/meta lines.
+> 只打印头部/元信息行。
 
 **-l**, **--list-chroms**
-> List sequence names stored in the index file.
+> 列出索引文件中存储的序列名称。
 
 **-r**, **--reheader** _file_
-> Replace the header with the content of file.
+> 用 file 的内容替换头部。
 
 **-R**, **--regions** _file_
-> Query regions from BED or TAB-delimited file.
+> 从 BED 或 TAB 分隔的文件中读取查询区域。
 
 **-T**, **--targets** _file_
-> Similar to -R but reads input sequentially.
+> 与 -R 类似，但按顺序读取输入。
 
 **-m**, **--min-shift** _INT_
-> Set minimal interval size for CSI indices to 2^INT (default: 14).
+> 将 CSI 索引的最小区间大小设为 2^INT（默认：14）。
 
 **-D**
-> Do not download index file before opening (remote files only).
+> 打开前不下载索引文件（仅限远程文件）。
 
 **--separate-regions**
-> Insert region name before each group in output.
+> 在输出的每个分组前插入区域名称。
 
 **--cache** _INT_
-> Set BGZF block cache size in megabytes (default: 10).
+> 设置 BGZF 块缓存大小，单位 MB（默认：10）。
 
 # DESCRIPTION
 
-**tabix** is a generic indexer for TAB-delimited genome position files. It creates an index that enables fast retrieval of data lines overlapping specified genomic regions.
+**tabix** 是一个针对 TAB 分隔的基因组位置文件的通用索引器。它创建的索引可以快速检索与指定基因组区域重叠的数据行。
 
-Input files must be position-sorted and compressed with **bgzip**. The index file (.tbi or .csi) enables random access to compressed data without decompressing the entire file.
+输入文件必须按位置排序并用 **bgzip** 压缩。索引文件（.tbi 或 .csi）支持对压缩数据的随机访问，无需解压整个文件。
 
-Common applications include indexing VCF variant files, BED annotation files, and GFF/GTF gene annotation files. The tool is essential for working with large genomic datasets in bioinformatics pipelines.
+常见用途包括为 VCF 变异文件、BED 注释文件和 GFF/GTF 基因注释文件建立索引。在生物信息学流程中处理大型基因组数据集时，该工具必不可少。
 
-Region queries use 1-based inclusive coordinates in the format chr:start-end.
+区域查询使用 1 起始的闭区间坐标，格式为 chr:start-end。
 
 # CAVEATS
 
-Input must be bgzip-compressed, not gzip. TBI index format supports chromosomes up to 512 Mbp; use CSI (-C) for larger. Preset options cannot be combined with manual column specifications. The index stores column settings so retrieval doesn't need format specification.
+输入必须用 bgzip 压缩，而不是 gzip。TBI 索引格式支持的染色体最长 512 Mbp；更大的请使用 CSI（-C）。预设选项不能与手动指定的列参数组合使用。索引中保存了列设置，因此检索时无需再指定格式。
 
 # HISTORY
 
-**tabix** was developed by Heng Li and published in Bioinformatics journal in 2011. It is now part of the HTSlib project maintained by the samtools/htslib team. The tool has become a standard component in genomics workflows for efficient data access.
+**tabix** 由李恒（Heng Li）开发，2011 年发表于 Bioinformatics 期刊。现属于由 samtools/htslib 团队维护的 HTSlib 项目。该工具已成为基因组学工作流中高效数据访问的标准组件。
 
 # INSTALL
 

@@ -1,6 +1,6 @@
 # TLDR
 
-This command may refer to different tools. See documentation for:
+此命令可能指代不同的工具。请参阅以下文档：
 
 **st (terminal emulator)**
 
@@ -8,9 +8,9 @@ This command may refer to different tools. See documentation for:
 
 # DESCRIPTION
 
-The command **st** most commonly refers to the simple terminal emulator for X11 from the suckless.org project. See **st.1** for its documentation.
+命令 **st** 最常指的是来自 suckless.org 项目的 X11 简约终端模拟器。其文档见 **st.1**。
 
-The name **st** is also used by some unrelated command-line statistics utilities for analyzing numeric data, but those are separate, less common tools.
+名称 **st** 也被一些无关的命令行统计工具用于分析数值数据，但那些是独立的、较少见的工具。
 
 # INSTALL
 

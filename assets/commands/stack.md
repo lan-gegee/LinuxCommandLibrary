@@ -1,42 +1,42 @@
 # TAGLINE
 
-Haskell build tool and project manager
+Haskell 构建工具与项目管理器
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```stack new [project_name]```
 
-**Build project**
+**构建项目**
 
 ```stack build```
 
-**Run project executable**
+**运行项目可执行文件**
 
 ```stack run```
 
-**Run tests**
+**运行测试**
 
 ```stack test```
 
-**Start REPL with project**
+**加载项目启动 REPL**
 
 ```stack ghci```
 
-**Install package globally**
+**全局安装软件包**
 
 ```stack install [package_name]```
 
-**Execute Haskell file as script**
+**以脚本方式执行 Haskell 文件**
 
 ```stack script [script.hs]```
 
-**Update package index**
+**更新软件包索引**
 
 ```stack update```
 
-**Show project paths**
+**显示项目路径**
 
 ```stack path```
 
@@ -47,104 +47,104 @@ Haskell build tool and project manager
 # PARAMETERS
 
 **new** _NAME_ [_TEMPLATE_]
-> Create new project.
+> 创建新项目。
 
 **init**
-> Initialize stack in existing project.
+> 在现有项目中初始化 stack。
 
 **build**
-> Build project.
+> 构建项目。
 
 **run**
-> Build and run executable.
+> 构建并运行可执行文件。
 
 **test**
-> Build and run tests.
+> 构建并运行测试。
 
 **bench**
-> Build and run benchmarks.
+> 构建并运行基准测试。
 
 **ghci**
-> Start REPL with project loaded.
+> 加载项目并启动 REPL。
 
 **install** _PACKAGES_
-> Build and copy executables to bin.
+> 构建并将可执行文件复制到 bin 目录。
 
 **exec** _COMMAND_
-> Run command in build environment.
+> 在构建环境中运行命令。
 
 **script** _FILE_
-> Run a Haskell script.
+> 运行 Haskell 脚本。
 
 **setup**
-> Download and install GHC for the project.
+> 为项目下载并安装 GHC。
 
 **path**
-> Display paths used by stack.
+> 显示 stack 使用的路径。
 
 **ls**
-> List information (snapshots, dependencies, etc.).
+> 列出信息（快照、依赖等）。
 
 **clean**
-> Clean build artifacts.
+> 清理构建产物。
 
 **purge**
-> Delete the stack working directories (clean --full).
+> 删除 stack 的工作目录（clean --full）。
 
 **upgrade**
-> Upgrade stack itself.
+> 升级 stack 本身。
 
 **--snapshot** _SNAPSHOT_, **--resolver** _RESOLVER_
-> Stackage snapshot (e.g., lts-22.0, nightly-2025-01-01).
+> Stackage 快照（例如 lts-22.0、nightly-2025-01-01）。
 
 **--system-ghc**
-> Use system GHC instead of stack-managed.
+> 使用系统 GHC 而不是 stack 管理的 GHC。
 
 **--no-install-ghc**
-> Don't automatically install GHC.
+> 不自动安装 GHC。
 
 **--fast**
-> Disable optimizations for faster build.
+> 禁用优化以加快构建速度。
 
 **--test**
-> Enable test building.
+> 启用测试构建。
 
 **--bench**
-> Enable benchmark building.
+> 启用基准测试构建。
 
 **--file-watch**
-> Rebuild on file changes.
+> 文件变更时重新构建。
 
 **--ghc-options** _OPTS_
-> Additional GHC options.
+> 额外的 GHC 选项。
 
 **--jobs** _N_, **-j** _N_
-> Number of concurrent jobs.
+> 并发任务数。
 
 **--stack-yaml** _FILE_
-> Override project stack.yaml file.
+> 覆盖项目的 stack.yaml 文件。
 
 # DESCRIPTION
 
-**stack** is a build tool and project manager for Haskell. It provides reproducible builds by pinning GHC versions and package sets via Stackage snapshots.
+**stack** 是 Haskell 的构建工具和项目管理器。它通过 Stackage 快照固定 GHC 版本和软件包集合，从而提供可重现的构建。
 
-Stackage snapshots (LTS or Nightly) define curated package sets known to build together. This avoids "dependency hell" by ensuring compatible versions. The resolver in stack.yaml specifies which snapshot to use.
+Stackage 快照（LTS 或 Nightly）定义了经过筛选、可一起构建的软件包集合。这通过确保版本兼容来避免"依赖地狱"。stack.yaml 中的 resolver 指定使用哪个快照。
 
-Stack manages GHC installations automatically. Different projects can use different GHC versions without system-wide conflicts. The correct version downloads and builds on first use.
+Stack 自动管理 GHC 的安装。不同项目可以使用不同的 GHC 版本而不会产生系统级冲突。正确的版本会在首次使用时下载并构建。
 
-Project structure includes stack.yaml (configuration), package.yaml (package definition), and source directories. Templates provide starting points for libraries, executables, or specific frameworks.
+项目结构包括 stack.yaml（配置）、package.yaml（软件包定义）和源代码目录。模板为库、可执行文件或特定框架提供了起点。
 
-The REPL (ghci) loads project code for interactive development. File watching (--file-watch) rebuilds on changes, enabling rapid iteration.
+REPL（ghci）会加载项目代码以便进行交互式开发。文件监视（--file-watch）会在变更时重新构建，实现快速迭代。
 
-Integration with Cabal packages works through package.yaml or .cabal files. Stack can use Hackage packages not in Stackage via extra-deps.
+与 Cabal 软件包的集成通过 package.yaml 或 .cabal 文件完成。Stack 可以通过 extra-deps 使用不在 Stackage 中的 Hackage 软件包。
 
 # CAVEATS
 
-Initial builds download GHC and many dependencies. Different from cabal workflow - teams should standardize. Stackage may lag behind Hackage for new releases. Disk space usage can be significant. Some advanced Cabal features require workarounds.
+初次构建需要下载 GHC 和大量依赖。工作流与 cabal 不同——团队应统一标准。Stackage 对新发布的软件包可能滞后于 Hackage。磁盘空间占用可能相当可观。某些高级 Cabal 特性需要变通处理。
 
 # HISTORY
 
-**stack** was created by **FP Complete** in **2015** to solve Haskell's dependency management challenges. It built on work from Stackage (stable package sets). The tool became widely adopted for its reproducibility guarantees and simplified workflow. Development continues with community involvement.
+**stack** 由 **FP Complete** 于 **2015 年**创建，旨在解决 Haskell 的依赖管理难题。它建立在 Stackage（稳定软件包集合）的工作之上。该工具凭借可重现性保证和简化的工作流得到了广泛采用。目前仍在社区参与下持续开发。
 
 # INSTALL
 

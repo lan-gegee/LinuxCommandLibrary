@@ -1,14 +1,14 @@
 # TAGLINE
 
-Get or set per-service log level
+获取或设置单个服务的日志级别
 
 # TLDR
 
-Show service **log level**
+显示服务的**日志级别**
 
 ```systemctl service-log-level [service]```
 
-**Set** log level
+**设置**日志级别
 
 ```systemctl service-log-level [service] [emerg|alert|crit|err|warning|notice|info|debug]```
 
@@ -18,35 +18,35 @@ Show service **log level**
 
 # LOG LEVELS
 
-**emerg** (0) - System unusable
+**emerg** (0) - 系统不可用
 
-**alert** (1) - Immediate action required
+**alert** (1) - 需要立即采取行动
 
-**crit** (2) - Critical conditions
+**crit** (2) - 严重状况
 
-**err** (3) - Error conditions
+**err** (3) - 错误状况
 
-**warning** (4) - Warning conditions
+**warning** (4) - 警告状况
 
-**notice** (5) - Normal but significant
+**notice** (5) - 正常但值得注意
 
-**info** (6) - Informational
+**info** (6) - 信息性消息
 
-**debug** (7) - Debug messages
+**debug** (7) - 调试消息
 
 # DESCRIPTION
 
-**systemctl service-log-level** gets or sets the runtime log level for a specific service via D-Bus. This allows adjusting service verbosity without restarting the service or editing configuration.
+**systemctl service-log-level** 通过 D-Bus 获取或设置特定服务的运行时日志级别。这可以在不重启服务、不修改配置的情况下调整服务的日志详细程度。
 
-The service must support the standard D-Bus logging interface for this to work.
+服务必须支持标准的 D-Bus 日志接口，此功能才能生效。
 
 # CAVEATS
 
-Only works with services that expose the D-Bus logging interface. Changes are temporary and reset when the service restarts. Not all services support this feature.
+只对暴露了 D-Bus 日志接口的服务有效。更改是临时的，服务重启后会恢复原状。并非所有服务都支持此功能。
 
 # HISTORY
 
-The **service-log-level** subcommand provides per-service logging control, enabling debugging of specific services without affecting system-wide verbosity.
+**service-log-level** 子命令提供按服务粒度的日志控制，可以在不影响系统整体详细程度的情况下调试特定服务。
 
 # SEE ALSO
 

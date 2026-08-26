@@ -1,14 +1,14 @@
 # TAGLINE
 
-Tiny freestanding tar archiver written in C
+用 C 编写的微型独立 tar 归档工具
 
 # TLDR
 
-**Create an archive** from files
+从文件**创建归档**
 
 ```ttar c [archive.tar] [file1] [file2]```
 
-**Extract** an archive
+**解压**归档
 
 ```ttar x [archive.tar]```
 
@@ -20,25 +20,25 @@ Tiny freestanding tar archiver written in C
 
 # DESCRIPTION
 
-**ttar** (tiny tar) is a minimal tar archiver written in freestanding C. It uses only raw system calls, with no libc, no external libraries, and no other dependencies, producing a very small static binary (about 2.4 KB on arm64). It targets multiple architectures including arm64, arm-v7, mips, riscv, x86, and i386.
+**ttar**（tiny tar）是一个用独立（freestanding）C 编写的极简 tar 归档工具。它只使用原始系统调用，不依赖 libc、外部库或其他任何依赖，生成非常小的静态二进制文件（arm64 上约 2.4 KB）。它面向多种架构，包括 arm64、arm-v7、mips、riscv、x86 和 i386。
 
-The tool supports just two operations: creating an uncompressed tar archive from a list of files, and extracting an existing tar archive. It is aimed at minimal, embedded, or bootstrap environments where a full **tar** implementation is unavailable or too large.
+该工具只支持两种操作：从文件列表创建未压缩的 tar 归档，以及解压现有的 tar 归档。它适用于完整 **tar** 实现不可用或过于庞大的极简、嵌入式或引导（bootstrap）环境。
 
 # PARAMETERS
 
 **c** _archive.tar_ _files..._
-> Create _archive.tar_ containing the listed files.
+> 创建包含所列文件的 _archive.tar_。
 
 **x** _archive.tar_
-> Extract the contents of _archive.tar_ into the current directory.
+> 将 _archive.tar_ 的内容解压到当前目录。
 
 # CAVEATS
 
-The mode must be a single **c** or **x** as the first argument; any other value exits with an error. ttar does not compress archives and does not provide listing, appending, or filtering options found in full tar implementations. Use a dedicated compressor such as **gzip** on the resulting archive if compression is needed.
+模式必须是第一个参数且只能为 **c** 或 **x**；其他任何值都会报错退出。ttar 不压缩归档，也不提供完整 tar 实现中的列出、追加或过滤选项。如需压缩，请对生成的归档使用 **gzip** 等专用压缩工具。
 
 # HISTORY
 
-**ttar** was released as a demonstration of a libc-free, syscall-only archiver in pure C, emphasizing an extremely small binary footprint. It is distributed under the GPL-3.0 license.
+**ttar** 的发布是为了展示一个纯 C 编写、无 libc、仅用系统调用的归档工具，强调极其精小的二进制体积。它以 GPL-3.0 许可证发布。
 
 # SEE ALSO
 

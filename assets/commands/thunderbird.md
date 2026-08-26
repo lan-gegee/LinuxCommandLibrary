@@ -1,34 +1,34 @@
 # TAGLINE
 
-Mozilla email and calendar client
+Mozilla 邮件与日历客户端
 
 # TLDR
 
-**Start Thunderbird**
+**启动 Thunderbird**
 
 ```thunderbird```
 
-**Compose new message**
+**撰写新邮件**
 
 ```thunderbird -compose "[to='email@example.com',subject='Hello']"```
 
-**Open profile manager**
+**打开配置文件管理器**
 
 ```thunderbird -ProfileManager```
 
-**Use specific profile**
+**使用指定配置文件**
 
 ```thunderbird -P [profile-name]```
 
-**Safe mode**
+**安全模式**
 
 ```thunderbird -safe-mode```
 
-**Check for new mail**
+**检查新邮件**
 
 ```thunderbird -mail```
 
-**Open address book**
+**打开通讯录**
 
 ```thunderbird -addressbook```
 
@@ -39,42 +39,42 @@ Mozilla email and calendar client
 # PARAMETERS
 
 **-compose** _OPTS_
-> Compose a new message. Options include to, cc, bcc, subject, body, attachment as comma-separated key=value pairs.
+> 撰写新邮件。选项包括 to、cc、bcc、subject、body、attachment，以逗号分隔的 key=value 键值对形式传入。
 
 **-P** _NAME_
-> Start with the specified profile.
+> 以指定的配置文件启动。
 
 **-ProfileManager**
-> Open the profile manager to create or select profiles.
+> 打开配置文件管理器，用于创建或选择配置文件。
 
 **-safe-mode**
-> Start in safe mode with all extensions disabled for troubleshooting.
+> 以安全模式启动，禁用所有扩展，用于故障排查。
 
 **-mail**
-> Open the mail client and check for new messages.
+> 打开邮件客户端并检查新消息。
 
 **-addressbook**
-> Open the address book.
+> 打开通讯录。
 
 **-no-remote**
-> Do not accept or send remote commands; run a new instance.
+> 不接受或不发送远程命令；启动一个新实例。
 
 **-search**
-> Open the global search tab.
+> 打开全局搜索标签页。
 
 # DESCRIPTION
 
-**thunderbird** is Mozilla's free, open-source email client that supports multiple email accounts, calendar integration, an address book, RSS feed reading, and built-in OpenPGP encryption for secure messaging.
+**thunderbird** 是 Mozilla 的免费开源电子邮件客户端，支持多邮箱账户、日历集成、通讯录、RSS 订阅阅读以及内置 OpenPGP 加密的安全通信。
 
-The application supports IMAP, POP3, and SMTP protocols, and can be extended with add-ons for additional functionality. It uses profiles to store settings and data, manageable through the **-ProfileManager** flag, and can be launched in **-safe-mode** to troubleshoot issues with extensions.
+该应用支持 IMAP、POP3 和 SMTP 协议，可通过附加组件扩展更多功能。它使用配置文件（profile）存储设置和数据，可通过 **-ProfileManager** 标志管理，还可以用 **-safe-mode** 启动以排查扩展相关的问题。
 
 # CAVEATS
 
-Desktop application. Profile-based storage. Memory usage can be high with many accounts or large mailboxes.
+桌面应用程序。基于配置文件（profile）存储。账户较多或邮箱较大时内存占用可能偏高。
 
 # HISTORY
 
-**Thunderbird** was originally developed by **Mozilla Foundation** as a companion to Firefox. Since 2020, it has been maintained by the **MZLA Technologies** subsidiary. It was rebranded as **Thunderbird Supernova** with the major UI refresh in version 115 (2023).
+**Thunderbird** 最初由 **Mozilla Foundation** 开发，作为 Firefox 的姊妹项目。自 2020 年起由子公司 **MZLA Technologies** 维护。在 115 版（2023 年）大幅刷新界面后更名为 **Thunderbird Supernova**。
 
 # INSTALL
 

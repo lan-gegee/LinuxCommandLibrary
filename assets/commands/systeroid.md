@@ -1,34 +1,34 @@
 # TAGLINE
 
-Powerful alternative to sysctl with TUI
+带 TUI 的强大 sysctl 替代品
 
 # TLDR
 
-**List all kernel parameters**
+**列出所有内核参数**
 
 ```systeroid -A```
 
-**Display parameters in tree format**
+以树形格式**显示参数**
 
 ```systeroid -T```
 
-**Set a kernel parameter**
+**设置内核参数**
 
 ```systeroid [kernel.hostname]=[myhost]```
 
-**Search parameters matching a pattern**
+搜索匹配模式的参数
 
 ```systeroid -r [net.ipv4]```
 
-**Display parameter values with documentation**
+连同文档一起**显示参数值**
 
 ```systeroid -E [kernel.hostname]```
 
-**Output parameters as JSON**
+以 JSON 格式输出参数
 
 ```systeroid -A --output json```
 
-**Launch the TUI**
+**启动 TUI**
 
 ```systeroid-tui```
 
@@ -38,37 +38,37 @@ Powerful alternative to sysctl with TUI
 
 # DESCRIPTION
 
-**systeroid** is a more powerful alternative to **sysctl** for managing kernel parameters at runtime via procfs. It provides both a CLI and TUI interface, supports tree-like display, JSON output, regex pattern matching, and can fetch official Linux kernel documentation for parameters.
+**systeroid** 是 **sysctl** 的一个更强大的替代品，用于通过 procfs 在运行时管理内核参数。它同时提供 CLI 和 TUI 界面，支持树形显示、JSON 输出、正则表达式模式匹配，还能获取参数的官方 Linux 内核文档。
 
 # OPTIONS
 
 **-A**, **--all**
-> List all kernel parameters.
+> 列出所有内核参数。
 
 **-T**, **--tree**
-> Display parameters in a tree hierarchy.
+> 以树形层次结构显示参数。
 
 **-r**, **--pattern** _REGEX_
-> Filter parameters matching a regex pattern.
+> 过滤匹配正则表达式的参数。
 
 **-E**, **--explain**
-> Show the kernel documentation for a parameter.
+> 显示某个参数的内核文档。
 
 **--output** _FORMAT_
-> Output format (default or json).
+> 输出格式（default 或 json）。
 
 **-p**, **--load** _FILE_
-> Load parameter values from a configuration file.
+> 从配置文件加载参数值。
 
 **-q**, **--quiet**
-> Suppress normal output.
+> 抑制正常输出。
 
 **-N**, **--names**
-> Print only parameter names, not values.
+> 只打印参数名，不打印值。
 
 # HISTORY
 
-**systeroid** was created by **Orhun Poyraz** (orhun) and is written in **Rust**.
+**systeroid** 由 **Orhun Poyraz**（orhun）创建，采用 **Rust** 编写。
 
 # INSTALL
 

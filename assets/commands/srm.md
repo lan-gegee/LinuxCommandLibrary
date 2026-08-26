@@ -1,34 +1,34 @@
 # TAGLINE
 
-Secure file deletion with overwriting
+带覆写的安全文件删除
 
 # TLDR
 
-**Securely delete file**
+**安全删除文件**
 
 ```srm [file.txt]```
 
-**Delete directory recursively**
+**递归删除目录**
 
 ```srm -r [directory/]```
 
-**Simple overwrite (faster)**
+**简单覆写（更快）**
 
 ```srm -s [file.txt]```
 
-**Medium security (7 passes)**
+**中等安全（7 次覆写）**
 
 ```srm -m [file.txt]```
 
-**Maximum security (38 passes)**
+**最高安全（38 次覆写）**
 
 ```srm -z [file.txt]```
 
-**Verbose output**
+**详细输出**
 
 ```srm -v [file.txt]```
 
-**Force delete**
+**强制删除**
 
 ```srm -f [file.txt]```
 
@@ -39,42 +39,42 @@ Secure file deletion with overwriting
 # PARAMETERS
 
 **-r**, **-R**
-> Recursive delete.
+> 递归删除。
 
 **-s**
-> Simple overwrite.
+> 简单覆写。
 
 **-m**
-> Medium (7 passes).
+> 中等安全（7 次覆写）。
 
 **-z**
-> Gutmann (38 passes).
+> Gutmann 算法（38 次覆写）。
 
 **-f**
-> Force, no prompt.
+> 强制执行，不提示确认。
 
 **-v**
-> Verbose.
+> 详细输出。
 
 **-l**
-> Reduce security for speed.
+> 降低安全性以换取速度。
 
 **-x**
-> One filesystem only.
+> 仅限单一文件系统。
 
 # DESCRIPTION
 
-**srm** (secure rm) deletes files by overwriting their contents before unlinking, making data recovery significantly more difficult than with standard **rm**. It offers multiple security levels: simple mode (**-s**) performs a single overwrite pass for speed, medium mode (**-m**) uses 7 passes based on the DoD 5220.22-M standard, and the default Gutmann mode (**-z**) performs 38 passes with various patterns designed to defeat magnetic force microscopy.
+**srm**（secure rm）在解除链接之前先覆写文件内容，使数据恢复远比使用标准 **rm** 困难。它提供多种安全级别：简单模式（**-s**）为求速度只执行一次覆写；中等模式（**-m**）基于 DoD 5220.22-M 标准进行 7 次覆写；默认的 Gutmann 模式（**-z**）则以各种模式执行 38 次覆写，旨在对抗磁力显微镜恢复技术。
 
-The tool handles recursive directory deletion with **-r** and supports force mode (**-f**) to skip confirmation prompts. File names are also overwritten before deletion to prevent recovery of filenames from directory entries.
+该工具通过 **-r** 处理递归目录删除，并支持强制模式（**-f**）跳过确认提示。文件名也会在删除前被覆写，以防从目录项中恢复出文件名。
 
 # CAVEATS
 
-SSD trim may bypass overwrite. Journaling filesystems may retain copies. Slow for large files.
+SSD 的 trim 操作可能绕过覆写。日志式文件系统可能保留副本。处理大文件时速度较慢。
 
 # HISTORY
 
-**srm** was developed for secure file deletion. It implements various overwrite methods to prevent data recovery.
+**srm** 为安全删除文件而开发。它实现了多种覆写方法以阻止数据恢复。
 
 # INSTALL
 

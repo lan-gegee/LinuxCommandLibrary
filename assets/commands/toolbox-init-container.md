@@ -1,10 +1,10 @@
 # TAGLINE
 
-Initialize Toolbx container internals
+初始化 Toolbx 容器内部环境
 
 # TLDR
 
-**Initialize** a running container
+**初始化**一个正在运行的容器
 
 ```toolbox init-container --gid [gid] --home [home] --shell [shell] --uid [uid] --user [user]```
 
@@ -15,41 +15,41 @@ Initialize Toolbx container internals
 # PARAMETERS
 
 **--gid** _GID_
-> Group ID of the user
+> 用户的组 ID
 
 **--home** _PATH_
-> Home directory path
+> 主目录路径
 
 **--home-link**
-> Create symbolic link for home
+> 为 home 创建符号链接
 
 **--media-link**
-> Create symbolic link for media
+> 为 media 创建符号链接
 
 **--mnt-link**
-> Create symbolic link for mnt
+> 为 mnt 创建符号链接
 
 **--monitor-host**
-> Monitor host for configuration changes
+> 监视宿主机的配置变更
 
 **--shell** _SHELL_
-> User's login shell
+> 用户的登录 Shell
 
 **--uid** _UID_
-> User ID
+> 用户 ID
 
 **--user** _NAME_
-> Username
+> 用户名
 
 # DESCRIPTION
 
-**toolbox init-container** initializes a running Toolbx container. This is an internal command executed automatically when a container starts and should not be run manually by users.
+**toolbox init-container** 初始化一个正在运行的 Toolbx 容器。这是容器启动时自动执行的内部命令，不应由用户手动运行。
 
-The command sets up the container environment to match the host system's user configuration, creating necessary symbolic links and configuring user identity.
+该命令将容器环境设置为与宿主机系统的用户配置一致，创建必要的符号链接并配置用户身份。
 
 # CAVEATS
 
-This command cannot be run on the host system. It is designed for internal use by the Toolbx container initialization process only.
+该命令不能在宿主系统上运行。它仅供 Toolbx 容器初始化进程内部使用。
 
 # SEE ALSO
 

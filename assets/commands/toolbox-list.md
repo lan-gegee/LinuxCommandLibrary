@@ -1,18 +1,18 @@
 # TAGLINE
 
-List Toolbx containers and images
+列出 Toolbx 容器和镜像
 
 # TLDR
 
-List **all** Toolbx containers and images
+列出**所有** Toolbx 容器和镜像
 
 ```toolbox list```
 
-List only **containers**
+只列出**容器**
 
 ```toolbox list -c```
 
-List only **images**
+只列出**镜像**
 
 ```toolbox list -i```
 
@@ -23,16 +23,16 @@ List only **images**
 # PARAMETERS
 
 **-c**, **--containers**
-> List only containers
+> 只列出容器
 
 **-i**, **--images**
-> List only images
+> 只列出镜像
 
 # DESCRIPTION
 
-**toolbox list** displays existing Toolbx containers and images. It shows container names, images used, creation times, and running status. This helps manage multiple development environments and identify which containers are available.
+**toolbox list** 显示现有的 Toolbx 容器和镜像。它会显示容器名称、所用镜像、创建时间和运行状态。这有助于管理多个开发环境，并了解哪些容器可用。
 
-The output distinguishes between containers (runnable environments) and images (base templates from which containers are created).
+输出会区分容器（可运行的环境）和镜像（创建容器所用的基础模板）。
 
 # INSTALL
 

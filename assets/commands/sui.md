@@ -1,30 +1,30 @@
 # TAGLINE
 
-Sui blockchain command-line interface
+Sui 区块链命令行界面
 
 # TLDR
 
-**Start local network**
+**启动本地网络**
 
 ```sui start```
 
-**Create new address**
+**创建新地址**
 
 ```sui client new-address ed25519```
 
-**Check gas**
+**查看 gas**
 
 ```sui client gas```
 
-**Publish package**
+**发布软件包**
 
 ```sui client publish --gas-budget [1000000]```
 
-**Call function**
+**调用函数**
 
 ```sui client call --package [pkg] --module [mod] --function [fn]```
 
-**Switch environment**
+**切换环境**
 
 ```sui client switch --env [devnet]```
 
@@ -35,38 +35,38 @@ Sui blockchain command-line interface
 # PARAMETERS
 
 **start**
-> Start local network.
+> 启动本地网络。
 
 **client**
-> Client operations.
+> 客户端操作。
 
 **move**
-> Move language tools.
+> Move 语言工具。
 
 **keytool**
-> Key management.
+> 密钥管理。
 
 **--gas-budget** _N_
-> Gas limit.
+> gas 上限。
 
 **--env** _NAME_
-> Environment.
+> 环境。
 
 # DESCRIPTION
 
-**sui** is the command-line interface for interacting with the Sui blockchain, a Layer 1 blockchain that uses the Move programming language for smart contracts. It provides tools for managing wallets, deploying and interacting with Move packages, executing transactions, and running a local development network.
+**sui** 是与 Sui 区块链交互的命令行界面。Sui 是一条使用 Move 编程语言编写智能合约的 Layer 1 区块链。该 CLI 提供管理钱包、部署和交互 Move 软件包、执行交易以及运行本地开发网络的工具。
 
-The CLI encompasses several subcommands including client operations for wallet management and transactions, move commands for building and testing smart contracts, and keytool for cryptographic key management. It supports connecting to devnet, testnet, and mainnet environments.
+此 CLI 包含多个子命令：用于钱包管理和交易的 client 操作、用于构建和测试智能合约的 move 命令，以及用于加密密钥管理的 keytool。它支持连接 devnet、testnet 和 mainnet 环境。
 
-A local network can be started for development and testing, providing a self-contained Sui environment without requiring connection to public networks. Gas budget management is integral to all transactions on the Sui blockchain.
+可以启动本地网络用于开发和测试，提供自包含的 Sui 环境而无需连接公共网络。gas 预算管理是 Sui 区块链上所有交易的必要环节。
 
 # CAVEATS
 
-Sui blockchain specific. Move language. Account required.
+Sui 区块链专用。需要 Move 语言。需要账户。
 
 # HISTORY
 
-**sui** is the CLI for the **Sui** blockchain, a Layer 1 blockchain using Move language for smart contracts.
+**sui** 是 **Sui** 区块链的 CLI，后者是一条使用 Move 语言编写智能合约的 Layer 1 区块链。
 
 # INSTALL
 

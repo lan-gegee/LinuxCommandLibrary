@@ -1,30 +1,30 @@
 # TLDR
 
-List **share information**
+列出**共享信息**
 
 ```sshare```
 
-Output in **parsable format**
+以**可解析格式**输出
 
 ```sshare --parsable```
 
-Output as **JSON**
+以 **JSON 格式**输出
 
 ```sshare --json```
 
-Custom **output format**
+自定义**输出格式**
 
 ```sshare -o [format_string]```
 
-Show for **specific users**
+显示**特定用户**的数据
 
 ```sshare -u [user1,user2]```
 
-Show for **specific accounts**
+显示**特定账户**的数据
 
 ```sshare -A [account1,account2]```
 
-Show **all users**
+显示**所有用户**
 
 ```sshare -a```
 
@@ -35,74 +35,74 @@ Show **all users**
 # PARAMETERS
 
 **-A, --accounts** _accounts_
-> Show data for specified accounts (comma-separated)
+> 显示指定账户（逗号分隔）的数据
 
 **-a, --all**
-> Display information for all users
+> 显示所有用户的信息
 
 **-u, --users** _users_
-> Show data for specified users (comma-separated)
+> 显示指定用户（逗号分隔）的数据
 
 **-U, --Users**
-> Print only user information (exclude ancestors)
+> 只打印用户信息（不含祖先条目）
 
 **-M, --clusters** _names_
-> Target specific clusters
+> 面向特定集群
 
 **-o, --format** _format_
-> Custom field selection
+> 自定义字段选择
 
 **-l, --long**
-> Extended output with normalized data
+> 含归一化数据的扩展输出
 
 **-n, --noheader**
-> Omit header row
+> 省略标题行
 
 **-p, --parsable**
-> Pipe-delimited with trailing delimiter
+> 以竖线分隔且末尾带分隔符的输出
 
 **-P, --parsable2**
-> Pipe-delimited without trailing delimiter
+> 以竖线分隔但末尾不带分隔符的输出
 
 **--json**
-> Output as JSON
+> 以 JSON 输出
 
 **--yaml**
-> Output as YAML
+> 以 YAML 输出
 
 **-m, --partition**
-> Show partition names
+> 显示分区名称
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-V, --version**
-> Print version
+> 打印版本
 
 # OUTPUT FIELDS
 
-**Account**: Association account
-**User**: User name
-**Raw Shares**: Assigned share count
-**Norm Shares**: Normalized shares (0.0-1.0)
-**Raw Usage**: Raw usage value
-**Norm Usage**: Normalized usage
-**Effectv Usage**: Effective usage considering hierarchy
-**FairShare**: Fair-share factor for scheduling
+**Account**: 关联账户
+**User**: 用户名
+**Raw Shares**: 分配的共享数
+**Norm Shares**: 归一化共享数（0.0-1.0）
+**Raw Usage**: 原始使用量
+**Norm Usage**: 归一化使用量
+**Effectv Usage**: 考虑层级结构后的有效使用量
+**FairShare**: 用于调度的公平共享因子
 
 # DESCRIPTION
 
-**sshare** displays fair-share information for Slurm's priority/multifactor plugin. It shows how accounts and users are allocated shares, their actual usage, and resulting fair-share factors that influence job scheduling priority.
+**sshare** 显示 Slurm 优先级/多因子插件的公平共享信息。它展示账户和用户如何被分配共享额度、其实际使用量，以及影响作业调度优先级的公平共享因子。
 
-The data requires slurmdbd to be configured and operational. Fair-share scheduling ensures equitable resource distribution among users and projects based on their allocated shares and historical usage.
+这些数据要求 slurmdbd 已配置并可正常运行。公平共享调度根据用户和项目分配的共享额度及历史使用情况，确保资源在它们之间公平分配。
 
 # CAVEATS
 
-Requires slurmdbd and the multifactor priority plugin. Share values are relative within the hierarchy. Usage data updates with accounting polling intervals. Historical usage decay depends on PriorityDecayHalfLife configuration.
+需要 slurmdbd 和多因子优先级插件。共享值是层级结构内的相对值。使用量数据按计费轮询间隔更新。历史使用量的衰减取决于 PriorityDecayHalfLife 配置。
 
 # HISTORY
 
-**sshare** is part of **Slurm**, developed at **Lawrence Livermore National Laboratory** starting in **2002**. Fair-share scheduling was added to support equitable resource allocation in multi-user HPC environments. Slurm is now maintained by **SchedMD**.
+**sshare** 是 **Slurm** 的一部分，自 **2002 年**起由**劳伦斯利弗莫尔国家实验室**开发。加入公平共享调度是为了在多用户 HPC 环境中支持公平的资源分配。Slurm 目前由 **SchedMD** 维护。
 
 # INSTALL
 

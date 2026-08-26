@@ -1,22 +1,22 @@
 # TAGLINE
 
-Edit and delete Telegram messages from the command line
+在命令行中编辑和删除 Telegram 消息
 
 # TLDR
 
-**Delete all messages matching text in a chat**
+**删除聊天中所有匹配文本的消息**
 
 ```tgutil -n [session] -u [chat_id] -m deleteall --text "[text]"```
 
-**Edit a specific message**
+**编辑特定消息**
 
 ```tgutil -n [session] -u [me] -m edit --text "[old text]" --newtext "[new text]"```
 
-**Edit all matching messages**
+**编辑所有匹配的消息**
 
 ```tgutil -n [session] -u [chat_id] -m editall --text "[old text]" --newtext "[new text]"```
 
-**Delete a single matching message in saved messages**
+**删除"收藏夹"（Saved Messages）中单条匹配的消息**
 
 ```tgutil -n [session] -u [me] -m delete --text "[text]"```
 
@@ -27,31 +27,31 @@ Edit and delete Telegram messages from the command line
 # PARAMETERS
 
 **-n**, **--name** _SESSION_
-> Session name (authenticated Telegram account).
+> 会话名称（已认证的 Telegram 账户）。
 
 **-u**, **--username** _CHAT_
-> Target chat ID or username. Use `me` for Saved Messages.
+> 目标聊天 ID 或用户名。使用 `me` 表示收藏夹（Saved Messages）。
 
 **-m**, **--mode** _MODE_
-> Operation mode: `edit`, `editall`, `delete`, `deleteall`.
+> 操作模式：`edit`、`editall`、`delete`、`deleteall`。
 
 **--text** _TEXT_
-> Text to search for in messages.
+> 要在消息中搜索的文本。
 
 **--newtext** _TEXT_
-> Replacement text (required for `edit` and `editall` modes).
+> 替换文本（`edit` 和 `editall` 模式必需）。
 
 # DESCRIPTION
 
-**tgutil** is a CLI tool for editing and deleting messages in Telegram chats. It is part of the **telegram-cloud** Python package, which provides a suite of tools for interacting with Telegram from the command line.
+**tgutil** 是一款用于编辑和删除 Telegram 聊天消息的 CLI 工具。它是 **telegram-cloud** Python 软件包的一部分，该软件包提供了一整套从命令行操作 Telegram 的工具。
 
-The tool operates in four modes: `edit` modifies the first matching message, `editall` modifies all matching messages, `delete` removes the first matching message, and `deleteall` removes all matching messages containing the specified text.
+该工具有四种模式：`edit` 修改第一条匹配的消息，`editall` 修改所有匹配的消息，`delete` 删除第一条匹配的消息，`deleteall` 删除所有包含指定文本的匹配消息。
 
-Install via pip: `pip install telegram-cloud`.
+通过 pip 安装：`pip install telegram-cloud`。
 
 # CAVEATS
 
-Requires prior authentication via **tglogin** with a Telegram API id and hash from https://my.telegram.org. Part of the **telegram-cloud** package. Can only edit or delete your own messages.
+需要先通过 **tglogin** 使用来自 https://my.telegram.org 的 Telegram API id 和 hash 进行认证。是 **telegram-cloud** 软件包的一部分。只能编辑或删除你自己发的消息。
 
 # SEE ALSO
 

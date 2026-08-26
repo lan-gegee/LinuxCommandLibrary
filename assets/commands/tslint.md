@@ -1,30 +1,30 @@
 # TAGLINE
 
-Deprecated TypeScript linter
+已弃用的 TypeScript 代码检查工具
 
 # TLDR
 
-**Lint files**
+**检查文件**
 
 ```tslint [file.ts]```
 
-**Lint with config**
+**使用配置检查**
 
 ```tslint -c [tslint.json] [file.ts]```
 
-**Fix automatically**
+**自动修复**
 
 ```tslint --fix [file.ts]```
 
-**Lint project**
+**检查整个项目**
 
 ```tslint -p [tsconfig.json]```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```tslint --format json [file.ts]```
 
-**Lint all TypeScript**
+**检查所有 TypeScript 文件**
 
 ```tslint -p . "[src/**/*.ts]"```
 
@@ -35,35 +35,35 @@ Deprecated TypeScript linter
 # PARAMETERS
 
 **-c** _FILE_
-> Config file.
+> 配置文件。
 
 **-p** _FILE_
-> Project tsconfig.
+> 项目 tsconfig。
 
 **--fix**
-> Auto-fix issues.
+> 自动修复问题。
 
 **--format** _FMT_
-> Output format.
+> 输出格式。
 
 **-e** _PATTERN_
-> Exclude pattern.
+> 排除模式。
 
 # DESCRIPTION
 
-**TSLint** was a static analysis tool for TypeScript that checked code for readability, maintainability, and functional correctness. It enforced configurable rules covering style conventions, potential errors, and best practices.
+**TSLint** 曾是一个 TypeScript 静态分析工具，用于检查代码的可读性、可维护性和功能正确性。它通过可配置的规则来强制执行风格约定、发现潜在错误并推行最佳实践。
 
-The tool supported automatic fixing of many rule violations and integrated with editors and CI systems. Configuration was managed through a tslint.json file that specified which rules to enable and their severity levels.
+该工具支持自动修复许多规则违规，并与编辑器和 CI 系统集成。配置通过 tslint.json 文件管理，其中指定要启用的规则及其严重级别。
 
-TSLint was deprecated in 2019 in favor of **ESLint** with the **typescript-eslint** plugin, which provides the same TypeScript linting capabilities within the more widely adopted ESLint ecosystem.
+TSLint 于 2019 年被弃用，取而代之的是配合 **typescript-eslint** 插件的 **ESLint**，后者在采用更广泛的 ESLint 生态中提供了同样的 TypeScript 检查能力。
 
 # CAVEATS
 
-Deprecated in favor of ESLint. TypeScript-specific. Node.js required.
+已被弃用，建议改用 ESLint。仅适用于 TypeScript。需要 Node.js。
 
 # HISTORY
 
-**TSLint** was the standard TypeScript linter until 2019 when the team deprecated it in favor of **ESLint** with TypeScript support.
+**TSLint** 曾是标准的 TypeScript 检查工具，直到 2019 年团队将其弃用，转向支持 TypeScript 的 **ESLint**。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Reconstruct TeX Live package database
+重建 TeX Live 软件包数据库
 
 # TLDR
 
-**Recreate package database**
+**重建软件包数据库**
 
 ```tlmgr recreate-tlpdb```
 
@@ -14,13 +14,12 @@ Reconstruct TeX Live package database
 
 # DESCRIPTION
 
-**tlmgr recreate-tlpdb** reconstructs the TeX Live package database from installed files. Recovery tool for corrupted installations. Part of TeX Live Manager maintenance.
+**tlmgr recreate-tlpdb** 根据已安装文件重建 TeX Live 软件包数据库。用于损坏安装的恢复工具。TeX Live Manager 的维护功能之一。
 
 # CAVEATS
 
-Only use if database is corrupted. May not fully restore all package metadata.
+仅在数据库损坏时使用。可能无法完整恢复所有软件包元数据。
 
 # SEE ALSO
 
 [tlmgr-check](/man/tlmgr-check)(1), [tlmgr](/man/tlmgr)(1)
-

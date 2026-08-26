@@ -1,22 +1,22 @@
 # TAGLINE
 
-SSH over the Tailscale network with identity-based authentication
+通过 Tailscale 网络进行基于身份认证的 SSH
 
 # TLDR
 
-**SSH to a Tailscale device**
+**SSH 连接到 Tailscale 设备**
 
 ```tailscale ssh [user]@[device]```
 
-**SSH to a device using its Tailscale hostname**
+使用设备的 Tailscale 主机名 **SSH 连接**
 
 ```tailscale ssh [user]@[hostname]```
 
-**SSH and run a remote command**
+**SSH 连接并执行远程命令**
 
 ```tailscale ssh [user]@[device] [command]```
 
-**SSH with verbose output**
+带详细输出进行 **SSH 连接**
 
 ```tailscale ssh -v [user]@[device]```
 
@@ -27,27 +27,27 @@ SSH over the Tailscale network with identity-based authentication
 # PARAMETERS
 
 _target_
-> Tailscale device name, hostname, or IP address to connect to.
+> 要连接的 Tailscale 设备名、主机名或 IP 地址。
 
 _user_
-> Remote username. If omitted, the current local username is used.
+> 远程用户名。若省略，则使用当前本地用户名。
 
 _command_
-> Optional command to execute on the remote host.
+> 可选，要在远程主机上执行的命令。
 
-Standard SSH flags (e.g., **-v**, **-p**, **-L**) are passed through to the underlying SSH connection.
+标准 SSH 标志（例如 **-v**、**-p**、**-L**）会原样传递给底层的 SSH 连接。
 
 # DESCRIPTION
 
-**tailscale ssh** connects to another machine on your Tailscale network using SSH, with authentication handled by Tailscale's identity system instead of traditional SSH keys or passwords.
+**tailscale ssh** 使用 SSH 连接到你的 Tailscale 网络中的其他机器，其认证由 Tailscale 的身份系统处理，而不依赖传统的 SSH 密钥或密码。
 
-When Tailscale SSH is enabled on the target machine, connections are authenticated using the Tailscale identity of the connecting user. Access is controlled through Tailscale SSH ACLs in the admin console, allowing fine-grained rules about which users can access which machines and as which system users.
+当目标机器启用了 Tailscale SSH 时，连接将使用连接用户的 Tailscale 身份进行认证。访问控制由管理控制台中的 Tailscale SSH ACL 管理，可以精细地规定哪些用户能以哪些系统用户身份访问哪些机器。
 
-The connection is encrypted end-to-end over the WireGuard tunnel that Tailscale establishes between nodes. This means SSH access works without exposing port 22 to the public internet and without managing SSH key distribution.
+连接在 Tailscale 在节点之间建立的 WireGuard 隧道上端到端加密。这意味着无需向公共互联网暴露 22 端口、无需管理 SSH 密钥分发即可实现 SSH 访问。
 
 # CAVEATS
 
-Tailscale SSH must be enabled on the target device (via **tailscale up --ssh** or the admin console). Both machines must be on the same Tailnet or share access via Tailscale sharing. SSH ACLs must be configured in the Tailscale admin console to permit the connection. The target machine must have a Tailscale SSH server running (built into the Tailscale client).
+目标设备必须启用 Tailscale SSH（通过 **tailscale up --ssh** 或管理控制台）。两台机器必须位于同一 Tailnet，或通过 Tailscale 共享功能获得访问权限。必须在 Tailscale 管理控制台中配置 SSH ACL 以允许该连接。目标机器必须运行 Tailscale SSH 服务器（内置于 Tailscale 客户端中）。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Tailscale SSH must be enabled on the target device (via **tailscale up --ssh** o
 # SEE ALSO
 
 [tailscale](/man/tailscale)(1), [tailscale-up](/man/tailscale-up)(1), [ssh](/man/ssh)(1)
-

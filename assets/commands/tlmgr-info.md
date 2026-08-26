@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display TeX Live package information
+显示 TeX Live 软件包信息
 
 # TLDR
 
-**Show package information**
+**显示软件包信息**
 
 ```tlmgr info [package]```
 
-**List all packages**
+**列出所有软件包**
 
 ```tlmgr info --list```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```tlmgr info --only-installed```
 
-**Show package files**
+**显示软件包的文件**
 
 ```tlmgr info --files [package]```
 
@@ -27,25 +27,24 @@ Display TeX Live package information
 # PARAMETERS
 
 **--list**
-> List all available packages.
+> 列出所有可用软件包。
 
 **--only-installed**
-> Show only installed packages.
+> 仅显示已安装的软件包。
 
 **--files**
-> Show package files.
+> 显示软件包包含的文件。
 
 **--data** _fields_
-> Output specific fields (name, category, etc.).
+> 输出特定字段（name、category 等）。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 # DESCRIPTION
 
-**tlmgr info** displays information about TeX Live packages. Shows descriptions, versions, sizes, and contained files. Part of TeX Live Manager.
+**tlmgr info** 显示 TeX Live 软件包的信息。包括描述、版本、大小和所含文件。TeX Live Manager 的组成部分。
 
 # SEE ALSO
 
 [tlmgr-search](/man/tlmgr-search)(1), [tlmgr](/man/tlmgr)(1)
-

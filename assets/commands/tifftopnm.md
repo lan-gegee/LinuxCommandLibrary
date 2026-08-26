@@ -1,18 +1,18 @@
 # TAGLINE
 
-Convert TIFF images to PNM format
+将 TIFF 图像转换为 PNM 格式
 
 # TLDR
 
-**Convert TIFF to PNM**
+**将 TIFF 转换为 PNM**
 
 ```tifftopnm [input.tiff] > [output.pnm]```
 
-**Convert specific page**
+**转换指定页**
 
 ```tifftopnm -page [2] [input.tiff] > [output.pnm]```
 
-**List pages in TIFF**
+**列出 TIFF 中的页面**
 
 ```tifftopnm -headerdump [input.tiff]```
 
@@ -23,20 +23,20 @@ Convert TIFF images to PNM format
 # PARAMETERS
 
 **-page** _n_
-> Extract specific page.
+> 提取指定页。
 
 **-headerdump**
-> Dump TIFF headers.
+> 转储 TIFF 头信息。
 
 **-alphaout** _file_
-> Write alpha channel to file.
+> 将 alpha 通道写入文件。
 
 **-respectfillorder**
-> Respect fill order tag.
+> 遵循 fill order 标签。
 
 # DESCRIPTION
 
-**tifftopnm** converts TIFF images to PNM format. Part of Netpbm toolkit. Supports multi-page TIFF files and alpha channel extraction.
+**tifftopnm** 将 TIFF 图像转换为 PNM 格式。是 Netpbm 工具包的一部分。支持多页 TIFF 文件和 alpha 通道提取。
 
 # INSTALL
 
@@ -59,4 +59,3 @@ Convert TIFF images to PNM format
 # SEE ALSO
 
 [pnmtotiff](/man/pnmtotiff)(1), [pngtopnm](/man/pngtopnm)(1)
-

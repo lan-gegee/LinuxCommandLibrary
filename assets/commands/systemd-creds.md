@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage encrypted service credentials
+管理加密的服务凭证
 
 # TLDR
 
-**Encrypt** file with name
+**加密**文件并指定名称
 
 ```systemd-creds encrypt --name [name] [input] [output]```
 
-**Decrypt** file
+**解密**文件
 
 ```systemd-creds decrypt [input] [output]```
 
-Encrypt from **stdin**
+从 **stdin** 加密
 
 ```echo -n [text] | systemd-creds encrypt --name [name] - [output]```
 
-Encrypt with **pretty** format for unit files
+以适合单元文件的 **pretty** 格式加密
 
 ```echo -n [text] | systemd-creds encrypt --name [name] --pretty - - >> [unit.service]```
 
-Create credential with **expiry**
+创建带**过期时间**的凭证
 
 ```systemd-creds encrypt --not-after "[timestamp]" [input] [output]```
 
@@ -31,44 +31,44 @@ Create credential with **expiry**
 # COMMANDS
 
 **encrypt** _INPUT_ _OUTPUT_
-> Encrypt a credential
+> 加密一个凭证
 
 **decrypt** _INPUT_ _OUTPUT_
-> Decrypt a credential
+> 解密一个凭证
 
 **list**
-> List available credentials
+> 列出可用的凭证
 
 **cat** _CREDENTIAL_
-> Show credential content
+> 显示凭证内容
 
 # PARAMETERS
 
 **--name=** _NAME_
-> Set credential name
+> 设置凭证名称
 
 **--pretty**
-> Output in format suitable for unit files
+> 以适合单元文件的格式输出
 
 **--not-after=** _TIMESTAMP_
-> Set credential expiry time
+> 设置凭证的过期时间
 
 **--with-key=** _TYPE_
-> Encryption key source (host, tpm2, etc.)
+> 加密密钥来源（host、tpm2 等）
 
 # DESCRIPTION
 
-**systemd-creds** manages encrypted credentials for systemd services. Credentials are encrypted secrets that can be securely passed to services via the `$CREDENTIALS_DIRECTORY` mechanism.
+**systemd-creds** 管理 systemd 服务的加密凭证。凭证是经过加密的秘密信息，可通过 `$CREDENTIALS_DIRECTORY` 机制安全地传递给服务。
 
-Credentials can be encrypted with the host key, TPM2, or both. They support time-based expiry and can be embedded directly in unit files using the `--pretty` format.
+凭证可以使用主机密钥、TPM2 或两者同时加密。它们支持基于时间的过期机制，并且可以用 `--pretty` 格式直接嵌入单元文件。
 
 # CAVEATS
 
-Host-encrypted credentials are tied to the specific machine. TPM2-encrypted credentials require TPM hardware. Credentials must be decrypted by systemd, not manually accessible to services.
+使用主机密钥加密的凭证绑定到特定机器。TPM2 加密的凭证需要 TPM 硬件。凭证必须由 systemd 解密，服务无法直接手动访问。
 
 # HISTORY
 
-**systemd-creds** was added to provide secure secret management for services, replacing environment variables and world-readable files for storing sensitive configuration.
+**systemd-creds** 的加入为服务提供了安全的秘密管理方式，取代了以往用于存储敏感配置的环境变量和全局可读文件。
 
 # INSTALL
 

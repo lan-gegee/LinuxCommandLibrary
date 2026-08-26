@@ -1,38 +1,38 @@
 # TAGLINE
 
-Cloud-native HTTP reverse proxy
+云原生 HTTP 反向代理
 
 # TLDR
 
-**Start Traefik** with default configuration
+以默认配置**启动 Traefik**
 
 ```traefik```
 
-**Start with a specific config file**
+**使用指定配置文件启动**
 
 ```traefik --configFile=[traefik.yml]```
 
-**Enable Docker provider**
+**启用 Docker provider**
 
 ```traefik --providers.docker```
 
-**Enable Docker with specific endpoint**
+**以指定端点启用 Docker**
 
 ```traefik --providers.docker.endpoint=unix:///var/run/docker.sock```
 
-**Set entrypoint** for HTTP traffic
+为 HTTP 流量**设置入口点**
 
 ```traefik --entrypoints.web.address=:80```
 
-**Enable the API dashboard**
+**启用 API 仪表板**
 
 ```traefik --api.dashboard=true```
 
-**Check health status**
+**检查健康状态**
 
 ```traefik healthcheck```
 
-**Display help**
+**显示帮助**
 
 ```traefik --help```
 
@@ -43,59 +43,59 @@ Cloud-native HTTP reverse proxy
 # PARAMETERS
 
 **--configFile** _file_
-> Load configuration from specified file (traefik.yml, traefik.toml).
+> 从指定文件加载配置（traefik.yml、traefik.toml）。
 
 **--providers.docker**
-> Enable Docker provider for automatic service discovery.
+> 启用 Docker provider 以自动发现服务。
 
 **--providers.docker.endpoint** _endpoint_
-> Docker daemon endpoint (e.g., unix:///var/run/docker.sock).
+> Docker 守护进程端点（如 unix:///var/run/docker.sock）。
 
 **--providers.file.filename** _file_
-> Enable file provider with configuration file.
+> 使用配置文件启用文件 provider。
 
 **--entrypoints.**_name_**.address** _address_
-> Define entrypoint address (e.g., :80, :443).
+> 定义入口点地址（如 :80、:443）。
 
 **--api.dashboard**
-> Enable the web dashboard.
+> 启用 Web 仪表板。
 
 **--api.insecure**
-> Allow insecure access to API (for development).
+> 允许不安全地访问 API（用于开发）。
 
 **--log.level** _level_
-> Log level: DEBUG, INFO, WARN, ERROR.
+> 日志级别：DEBUG、INFO、WARN、ERROR。
 
 **--accesslog**
-> Enable access logging.
+> 启用访问日志。
 
 **--certificatesresolvers.**_name_**.acme.email** _email_
-> Email for Let's Encrypt certificates.
+> 用于 Let's Encrypt 证书的邮箱。
 
 **healthcheck**
-> Check Traefik health via /ping endpoint.
+> 通过 /ping 端点检查 Traefik 健康状况。
 
 **version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Traefik** is a modern HTTP reverse proxy and load balancer designed for microservices. It automatically discovers services through providers like Docker, Kubernetes, and Consul, and configures routing rules dynamically.
+**Traefik** 是一款为微服务设计的现代 HTTP 反向代理和负载均衡器。它通过 Docker、Kubernetes 和 Consul 等 provider 自动发现服务，并动态配置路由规则。
 
-Key features include automatic HTTPS with Let's Encrypt, load balancing, circuit breakers, rate limiting, and metrics. Configuration can be provided via files (YAML, TOML), environment variables, or command-line flags.
+主要特性包括基于 Let's Encrypt 的自动 HTTPS、负载均衡、熔断器、速率限制和指标收集。配置可通过文件（YAML、TOML）、环境变量或命令行选项提供。
 
-The web dashboard provides real-time visibility into routers, services, and middlewares. Traefik integrates natively with container orchestrators and service meshes.
+Web 仪表板可实时查看路由器、服务和中间件。Traefik 与容器编排器和服务网格原生集成。
 
 # CAVEATS
 
-The API dashboard should not be exposed publicly without authentication. For Docker provider, Traefik needs access to the Docker socket, which has security implications. Let's Encrypt rate limits apply when using ACME for certificates.
+未经身份验证的 API 仪表板不应公开暴露。使用 Docker provider 时，Traefik 需要访问 Docker 套接字，这会带来安全隐患。使用 ACME 申请证书时受 Let's Encrypt 的速率限制约束。
 
 # HISTORY
 
-Traefik was created by **Emile Vauge** and first released in **2015** by **Traefik Labs** (formerly Containous). It was designed specifically for the cloud-native era and microservices architectures. Traefik 2.0, released in **2019**, introduced a new routing architecture with routers, services, and middlewares. It has become one of the most popular reverse proxies for container environments.
+Traefik 由 **Emile Vauge** 创建，于 **2015 年**由 **Traefik Labs**（前身为 Containous）首次发布。它专为云原生时代和微服务架构设计。**2019 年**发布的 Traefik 2.0 引入了由路由器、服务和中间件构成的新路由架构。它已成为容器环境中最流行的反向代理之一。
 
 # INSTALL
 

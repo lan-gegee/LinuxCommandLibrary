@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI SQLite viewer and editor
+TUI SQLite 查看器与编辑器
 
 # TLDR
 
-**Open a database file**
+**打开数据库文件**
 
 ```squall -f [path/to/database.sqlite]```
 
-**Launch the TUI without a file**
+**不指定文件启动 TUI**
 
 ```squall```
 
@@ -18,11 +18,11 @@ TUI SQLite viewer and editor
 
 # DESCRIPTION
 
-**squall** is a terminal-based SQLite database viewer and editor. It displays tables and query results in panes with syntax highlighting, supports browsing tables, executing SQL queries, and editing records directly. It has a minimal resource footprint.
+**squall** 是一个基于终端的 SQLite 数据库查看器和编辑器。它在窗格中显示表和查询结果并带语法高亮，支持浏览表、执行 SQL 查询以及直接编辑记录。其资源占用极小。
 
 # HISTORY
 
-**squall** was created by **Mike Driscoll** (driscollis) and is written in **Python** using the Textual framework.
+**squall** 由 **Mike Driscoll**（driscollis）创建，使用 **Python** 和 Textual 框架编写。
 
 # SEE ALSO
 

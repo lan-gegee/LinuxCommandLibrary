@@ -1,38 +1,38 @@
 # TAGLINE
 
-TeX Live package manager
+TeX Live 软件包管理器
 
 # TLDR
 
-**Update TeX Live**
+**更新 TeX Live**
 
 ```tlmgr update --all```
 
-**Install package**
+**安装软件包**
 
 ```tlmgr install [package-name]```
 
-**Remove package**
+**移除软件包**
 
 ```tlmgr remove [package-name]```
 
-**Search packages**
+**搜索软件包**
 
 ```tlmgr search [pattern]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```tlmgr list --only-installed```
 
-**Show package info**
+**显示软件包信息**
 
 ```tlmgr info [package-name]```
 
-**Update tlmgr itself**
+**更新 tlmgr 自身**
 
 ```tlmgr update --self```
 
-**Backup package**
+**备份软件包**
 
 ```tlmgr backup [package-name]```
 
@@ -43,47 +43,47 @@ TeX Live package manager
 # PARAMETERS
 
 **install** _PKGS_
-> Install packages.
+> 安装软件包。
 
 **remove** _PKGS_
-> Remove packages.
+> 移除软件包。
 
 **update**
-> Update packages.
+> 更新软件包。
 
 **search** _PATTERN_
-> Search packages.
+> 搜索软件包。
 
 **list**
-> List packages.
+> 列出软件包。
 
 **info** _PKG_
-> Package info.
+> 软件包信息。
 
 **--all**
-> All packages.
+> 所有软件包。
 
 **--self**
-> Update tlmgr.
+> 更新 tlmgr。
 
 **--only-installed**
-> Installed only.
+> 仅已安装项。
 
 # DESCRIPTION
 
-**tlmgr** (TeX Live Manager) is the package manager for the TeX Live distribution, handling installation, updates, and removal of LaTeX packages and fonts. It automatically resolves dependencies when installing new packages and can update the entire distribution with **update --all**.
+**tlmgr**（TeX Live Manager）是 TeX Live 发行版的软件包管理器，负责 LaTeX 软件包和字体的安装、更新与移除。它在安装新软件包时自动解析依赖，并可通过 **update --all** 更新整个发行版。
 
-The tool provides search and information commands to explore the thousands of available packages by name or description. Packages can be backed up before changes and restored if an update causes problems. The **--self** flag updates tlmgr itself separately from other packages.
+该工具提供搜索和信息命令，可按名称或描述浏览数千个可用软件包。软件包可在更改前备份，如果更新出现问题则可恢复。**--self** 标志单独更新 tlmgr 本身，与其他软件包无关。
 
-Running **tlmgr** requires a native TeX Live installation rather than a distribution-packaged version, as Linux distribution packages typically manage TeX packages through their own package manager instead.
+运行 **tlmgr** 需要原生 TeX Live 安装而不是发行版打包的版本，因为 Linux 发行版的软件包通常改用自身的包管理器来管理 TeX 软件包。
 
 # CAVEATS
 
-Requires TeX Live (not distro packages). Some distributions manage separately. Network needed for updates.
+需要 TeX Live（而非发行版软件包）。部分发行版另行管理。更新需要联网。
 
 # HISTORY
 
-**tlmgr** is part of **TeX Live**, the comprehensive TeX distribution. It provides package management for the LaTeX ecosystem.
+**tlmgr** 是 **TeX Live** 这一全面 TeX 发行版的组成部分。它为 LaTeX 生态系统提供软件包管理。
 
 # SEE ALSO
 

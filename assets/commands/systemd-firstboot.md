@@ -1,38 +1,38 @@
 # TAGLINE
 
-Initialize basic system settings
+初始化基本系统设置
 
 # TLDR
 
-**Operate** on a specified directory instead of the host system
+**操作**指定目录而非主机系统
 
 ```sudo systemd-firstboot --root [path/to/root_directory]```
 
-**Set** the system keyboard layout
+**设置**系统键盘布局
 
 ```sudo systemd-firstboot --keymap [keymap]```
 
-**Set** the system hostname
+**设置**系统主机名
 
 ```sudo systemd-firstboot --hostname [hostname]```
 
-**Set** the root user's password
+**设置** root 用户的密码
 
 ```sudo systemd-firstboot --root-password [password]```
 
-**Prompt** the user interactively for a setting
+**交互式提示**用户输入某项设置
 
 ```sudo systemd-firstboot --prompt [setting]```
 
-**Force** writing configuration even if files exist
+即使文件已存在也**强制**写入配置
 
 ```sudo systemd-firstboot --force```
 
-**Remove** all existing firstboot configuration files
+**移除**所有已有的首次启动配置文件
 
 ```sudo systemd-firstboot --reset```
 
-**Remove** the password of the root user
+**移除** root 用户的密码
 
 ```sudo systemd-firstboot --delete-root-password```
 
@@ -43,47 +43,47 @@ Initialize basic system settings
 # PARAMETERS
 
 **--root _path_**
-> Operate on specified root directory
+> 在指定的根目录上操作
 
 **--hostname _name_**
-> Set the system hostname
+> 设置系统主机名
 
 **--keymap _map_**
-> Set the keyboard layout
+> 设置键盘布局
 
 **--timezone _tz_**
-> Set the system timezone
+> 设置系统时区
 
 **--locale _locale_**
-> Set the system locale
+> 设置系统区域设置
 
 **--root-password _password_**
-> Set root's password
+> 设置 root 密码
 
 **--root-shell _shell_**
-> Set root's login shell
+> 设置 root 的登录 Shell
 
 **--prompt**
-> Prompt interactively for settings
+> 交互式提示输入各项设置
 
 **--force**
-> Overwrite existing configuration
+> 覆盖已有配置
 
 **--reset**
-> Remove all firstboot configuration files
+> 移除所有首次启动配置文件
 
 **--delete-root-password**
-> Remove root password
+> 移除 root 密码
 
 # DESCRIPTION
 
-**systemd-firstboot** initializes basic system settings on or before the first boot of a system. It is typically used when preparing OS images or system installations.
+**systemd-firstboot** 在系统首次启动时或启动之前初始化基本系统设置。它通常用于准备操作系统镜像或系统安装。
 
-The tool can set hostname, locale, timezone, keyboard layout, and root password. When run without options on a live system, it interactively prompts for unconfigured settings.
+该工具可以设置主机名、区域设置、时区、键盘布局和 root 密码。在没有选项的情况下于运行中的系统上执行时，它会交互式地提示未配置的设置项。
 
 # CAVEATS
 
-Some settings require the **--force** flag to overwrite existing configuration. The **--root** option is essential when preparing disk images. Passwords should be provided securely. Part of the systemd suite.
+某些设置需要 **--force** 标志才能覆盖已有配置。在准备磁盘镜像时，**--root** 选项必不可少。密码应以安全的方式提供。本命令是 systemd 套件的一部分。
 
 # INSTALL
 

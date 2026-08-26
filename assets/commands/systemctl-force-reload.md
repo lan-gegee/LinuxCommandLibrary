@@ -1,10 +1,10 @@
 # TAGLINE
 
-Alias for try-reload-or-restart
+try-reload-or-restart 的别名
 
 # TLDR
 
-This command is an alias of [systemctl try-reload-or-restart](/man/systemctl-try-reload-or-restart).
+此命令是 [systemctl try-reload-or-restart](/man/systemctl-try-reload-or-restart) 的别名。
 
 # SEE ALSO
 

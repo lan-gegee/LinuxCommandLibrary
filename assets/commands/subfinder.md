@@ -1,30 +1,30 @@
 # TAGLINE
 
-Passive subdomain discovery tool
+被动子域名发现工具
 
 # TLDR
 
-**Find subdomains**
+**查找子域名**
 
 ```subfinder -d [example.com]```
 
-**Output to file**
+**输出到文件**
 
 ```subfinder -d [example.com] -o [subdomains.txt]```
 
-**Use all sources**
+**使用所有数据源**
 
 ```subfinder -d [example.com] -all```
 
-**Show only active hosts**
+**仅显示活跃主机**
 
 ```subfinder -d [example.com] -active```
 
-**Silent mode** (subdomains only)
+**静默模式**（仅输出子域名）
 
 ```subfinder -d [example.com] -silent```
 
-**Multiple domains**
+**多个域名**
 
 ```subfinder -dL [domains.txt]```
 
@@ -34,57 +34,57 @@ Passive subdomain discovery tool
 
 # DESCRIPTION
 
-**subfinder** is a subdomain discovery tool that uses passive sources to find subdomains of a target domain. It queries certificate transparency logs, DNS datasets, and various APIs.
+**subfinder** 是一个子域名发现工具，使用被动数据源查找目标域名的子域名。它查询证书透明度日志、DNS 数据集和各种 API。
 
-The tool is designed for authorized security assessments and bug bounty hunting.
+该工具专为授权的安全评估和漏洞赏金挖掘而设计。
 
 # PARAMETERS
 
 **-d** _domain_
-> Target domain.
+> 目标域名。
 
 **-dL** _file_
-> List of domains.
+> 域名列表文件。
 
 **-o** _file_
-> Output file.
+> 输出文件。
 
 **-oJ**
-> JSON output.
+> JSON 输出。
 
 **-all**
-> Use all sources.
+> 使用所有数据源。
 
 **-active**
-> Verify active subdomains.
+> 验证子域名是否活跃。
 
 **-silent**
-> Output subdomains only.
+> 仅输出子域名。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-t** _n_
-> Threads.
+> 线程数。
 
 **-timeout** _n_
-> Timeout in seconds.
+> 超时时间（秒）。
 
 **-rl** _n_
-> Rate limit.
+> 速率限制。
 
 # CONFIGURATION
 
 **~/.config/subfinder/provider-config.yaml**
-> API keys and credentials for data sources such as Shodan, Censys, SecurityTrails, and VirusTotal.
+> Shodan、Censys、SecurityTrails、VirusTotal 等数据源的 API 密钥和凭据。
 
 # CAVEATS
 
-API keys improve results. Rate limits apply. Only for authorized testing. Results depend on available data.
+API 密钥能改善结果。受速率限制约束。仅限授权测试。结果取决于可用数据。
 
 # HISTORY
 
-**subfinder** was created by **projectdiscovery** as a fast subdomain enumeration tool. It's part of their security toolkit and is widely used in the bug bounty community.
+**subfinder** 由 **projectdiscovery** 创建，是一款快速的子域名枚举工具。它是其安全工具包的一部分，在漏洞赏金社区中被广泛使用。
 
 # INSTALL
 

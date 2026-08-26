@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mark a Terraform resource as tainted to force replacement on next apply
+将 Terraform 资源标记为 tainted，强制在下一次 apply 时替换
 
 # TLDR
 
-**Taint a resource** so it will be recreated on next apply
+**将资源标记为 tainted**，使其在下次 apply 时被重建
 
 ```terraform taint aws_instance.example```
 
-**Taint even if currently missing** from state
+即使资源在状态中**缺失也照样标记**
 
 ```terraform taint -allow-missing module.foo.aws_instance.bar[0]```
 
-**Taint without state lock**
+**不锁定状态进行标记**
 
 ```terraform taint -lock=false aws_instance.example```
 
@@ -22,32 +22,32 @@ Mark a Terraform resource as tainted to force replacement on next apply
 
 # DESCRIPTION
 
-**terraform taint** marks a resource instance in the Terraform state as "tainted". On the next `terraform apply`, Terraform will destroy the existing object and create a replacement.
+**terraform taint** 将 Terraform 状态中的一个资源实例标记为 "tainted"。在下一次 `terraform apply` 时，Terraform 将销毁现有对象并创建替代对象。
 
-This was historically used to force replacement of resources that became inconsistent or corrupted.
+过去常用于强制替换变得不一致或已损坏的资源。
 
-**Note:** This command is deprecated. The recommended approach is to use the `-replace` flag on `terraform apply` or `terraform plan`, e.g. `terraform apply -replace="aws_instance.example"`.
+**注意：** 此命令已被弃用。推荐的做法是在 `terraform apply` 或 `terraform plan` 上使用 `-replace` 标志，例如 `terraform apply -replace="aws_instance.example"`。
 
 # PARAMETERS
 
 **-allow-missing**
-> Succeed even if the resource address is not present in state.
+> 即使资源地址不在状态中也成功执行。
 
 **-lock**=_true|false_
-> Acquire a state lock (default true). Use `-lock=false` to disable.
+> 获取状态锁（默认 true）。使用 `-lock=false` 禁用。
 
 **-lock-timeout**=_duration_
-> Duration to retry acquiring a state lock (e.g. `3s`).
+> 重试获取状态锁的时长（例如 `3s`）。
 
 **-var** '_NAME=VALUE_'
-> Set an input variable value (repeatable).
+> 设置输入变量的值（可重复）。
 
 **-var-file**=_filename_
-> Load variable values from a `.tfvars` file (repeatable).
+> 从 `.tfvars` 文件加载变量值（可重复）。
 
 # CAVEATS
 
-Tainting is deprecated in modern Terraform versions. Using `-replace` during planning/applying is preferred because it is more explicit and works in a single step. Taint/untaint only affect state and require a separate apply.
+在现代 Terraform 版本中，tainting 已被弃用。更推荐在规划/应用时使用 `-replace`，因为它更明确且一步完成。taint/untaint 只影响状态，还需要单独执行一次 apply。
 
 # INSTALL
 

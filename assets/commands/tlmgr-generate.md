@@ -1,18 +1,18 @@
 # TAGLINE
 
-Regenerate TeX Live configuration files
+重新生成 TeX Live 配置文件
 
 # TLDR
 
-**Regenerate configuration files**
+**重新生成配置文件**
 
 ```tlmgr generate updmap```
 
-**Regenerate language files**
+**重新生成语言文件**
 
 ```tlmgr generate language```
 
-**Regenerate font maps**
+**重新生成字体映射**
 
 ```tlmgr generate fmtutil```
 
@@ -23,19 +23,18 @@ Regenerate TeX Live configuration files
 # PARAMETERS
 
 **updmap**
-> Regenerate font map configuration.
+> 重新生成字体映射配置。
 
 **language**
-> Regenerate language.dat files.
+> 重新生成 language.dat 文件。
 
 **fmtutil**
-> Regenerate format configuration.
+> 重新生成格式配置。
 
 # DESCRIPTION
 
-**tlmgr generate** regenerates TeX Live configuration files. Rebuilds font maps, format files, and language hyphenation patterns. Part of TeX Live Manager maintenance.
+**tlmgr generate** 重新生成 TeX Live 配置文件。重建字体映射、格式文件和语言连字符断字模式。TeX Live Manager 的维护功能之一。
 
 # SEE ALSO
 
 [tlmgr](/man/tlmgr)(1)
-

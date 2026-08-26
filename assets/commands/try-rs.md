@@ -1,18 +1,18 @@
 # TAGLINE
 
-Workspace manager for temporary experiments with TUI
+带 TUI 的临时实验工作区管理器
 
 # TLDR
 
-**Launch the TUI to manage experiments**
+启动 TUI 管理实验
 
 ```try-rs```
 
-**Create a new experiment directory**
+创建新的实验目录
 
 ```try-rs [rust-test]```
 
-**Clone a repo into experiments**
+将仓库克隆到实验目录
 
 ```try-rs [https://github.com/user/repo]```
 
@@ -22,11 +22,11 @@ Workspace manager for temporary experiments with TUI
 
 # DESCRIPTION
 
-**try-rs** organizes temporary project experiments into date-prefixed directories instead of cluttering your Desktop or /tmp. It provides a rich TUI for creating, navigating, and cleaning up experiments, with features like fuzzy search and git integration for auto-cloning URLs.
+**try-rs** 将临时的项目实验组织到以日期为前缀的目录中，避免弄乱你的桌面或 /tmp。它提供功能丰富的 TUI，用于创建、浏览和清理实验，并具备模糊搜索和 git 集成（自动克隆 URL）等特性。
 
 # HISTORY
 
-**try-rs** was created by **Tassio Virginio** (tassiovirginio) and is written in **Rust**.
+**try-rs** 由 **Tassio Virginio**（tassiovirginio）创建，使用 **Rust** 编写。
 
 # INSTALL
 

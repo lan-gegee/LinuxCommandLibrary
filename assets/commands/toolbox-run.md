@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run commands in Toolbx containers
+在 Toolbx 容器中运行命令
 
 # TLDR
 
-**Run** command in container
+在容器中**运行**命令
 
 ```toolbox run -c [container_name] [command]```
 
-Run in **distribution** container
+在**发行版**容器中运行
 
 ```toolbox run -d [distribution] -r [release] [command]```
 
-Run **emacs** in Fedora container
+在 Fedora 容器中运行 **emacs**
 
 ```toolbox run -d fedora -r f[version] emacs```
 
@@ -23,23 +23,23 @@ Run **emacs** in Fedora container
 # PARAMETERS
 
 **-c, --container** _NAME_
-> Specify container name
+> 指定容器名称
 
 **-d, --distro** _DISTRO_
-> Specify distribution
+> 指定发行版
 
 **-r, --release** _RELEASE_
-> Specify distribution release version
+> 指定发行版的发布版本
 
 # DESCRIPTION
 
-**toolbox run** executes a command inside an existing Toolbx container without entering an interactive session. The command runs in the container environment and returns to the host when complete.
+**toolbox run** 在现有的 Toolbx 容器内执行命令，无需进入交互式会话。命令在容器环境中运行，完成后返回宿主机。
 
-This is useful for running individual commands or scripts in a container environment while staying on the host system.
+这适用于在不离开宿主机系统的情况下，于容器环境中运行单条命令或脚本。
 
 # CAVEATS
 
-Container must exist and be running. Command must be available inside the container. Environment differs from interactive session in some cases.
+容器必须已存在且正在运行。命令必须能在容器内部使用。某些情况下环境与交互式会话有所不同。
 
 # INSTALL
 

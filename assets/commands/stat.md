@@ -1,42 +1,42 @@
 # TAGLINE
 
-Display file and filesystem metadata
+显示文件与文件系统的元数据
 
 # TLDR
 
-**Display file status**
+**显示文件状态**
 
 ```stat [file]```
 
-**Display in terse format**
+**以简洁格式显示**
 
 ```stat -t [file]```
 
-**Display filesystem status**
+**显示文件系统状态**
 
 ```stat -f [file]```
 
-**Custom format output**
+**自定义格式输出**
 
 ```stat -c "%n: %s bytes" [file]```
 
-**Show access time**
+**显示访问时间**
 
 ```stat -c "%x" [file]```
 
-**Show modification time**
+**显示修改时间**
 
 ```stat -c "%y" [file]```
 
-**Show permissions in octal**
+**以八进制显示权限**
 
 ```stat -c "%a" [file]```
 
-**Show all info for multiple files**
+**显示多个文件的全部信息**
 
 ```stat [file1] [file2] [file3]```
 
-**Follow symbolic links**
+**跟随符号链接**
 
 ```stat -L [symlink]```
 
@@ -46,62 +46,62 @@ Display file and filesystem metadata
 
 # DESCRIPTION
 
-**stat** displays detailed information about files or filesystems. It shows metadata including size, permissions, ownership, timestamps, inode number, and device information.
+**stat** 显示关于文件或文件系统的详细信息。它展示的元数据包括大小、权限、所有者关系、时间戳、inode 号和设备信息。
 
-The default output includes file name, size, blocks, device, inode, links, access permissions, ownership, and access/modify/change times. Custom format strings allow selecting specific fields.
+默认输出包括文件名、大小、块数、设备、inode、链接数、访问权限、所有者关系以及访问/修改/变更时间。自定义格式字符串可以选择特定字段。
 
-stat is useful for scripting when specific file attributes are needed, or for investigating file properties not shown by ls.
+当脚本需要特定文件属性，或需要调查 ls 未显示的文件属性时，stat 非常有用。
 
 # PARAMETERS
 
 **-f**, **--file-system**
-> Display filesystem status instead of file.
+> 显示文件系统状态而非文件状态。
 
 **-L**, **--dereference**
-> Follow symbolic links.
+> 跟随符号链接。
 
 **-t**, **--terse**
-> Print terse output.
+> 打印简洁输出。
 
 **-c** _format_, **--format=** _format_
-> Use custom format string.
+> 使用自定义格式字符串。
 
 **--printf=** _format_
-> Like --format, but interpret backslash escapes and no trailing newline.
+> 类似 --format，但会解释反斜杠转义且不输出末尾换行符。
 
 # FORMAT SEQUENCES (FILE)
 
-**%a**: Access rights in octal
-**%A**: Access rights in human readable form
-**%F**: File type
-**%g**: Group ID
-**%G**: Group name
-**%h**: Number of hard links
-**%i**: Inode number
-**%n**: File name
-**%s**: Size in bytes
-**%u**: User ID
-**%U**: User name
-**%x**: Access time
-**%y**: Modification time
-**%z**: Change time
+**%a**: 八进制访问权限
+**%A**: 人类可读形式的访问权限
+**%F**: 文件类型
+**%g**: 组 ID
+**%G**: 组名
+**%h**: 硬链接数量
+**%i**: inode 号
+**%n**: 文件名
+**%s**: 大小（字节）
+**%u**: 用户 ID
+**%U**: 用户名
+**%x**: 访问时间
+**%y**: 修改时间
+**%z**: 变更时间
 
 # FORMAT SEQUENCES (FILESYSTEM)
 
-**%a**: Free blocks
-**%b**: Total blocks
-**%f**: Free blocks (non-root)
-**%n**: File name
-**%s**: Block size
-**%T**: Filesystem type
+**%a**: 空闲块数
+**%b**: 总块数
+**%f**: 空闲块数（非 root）
+**%n**: 文件名
+**%s**: 块大小
+**%T**: 文件系统类型
 
 # CAVEATS
 
-Output format differs between GNU stat (Linux) and BSD stat (macOS). Some filesystems don't support all attributes. Access times may be disabled on some systems for performance.
+GNU stat（Linux）与 BSD stat（macOS）的输出格式不同。某些文件系统不支持全部属性。出于性能考虑，部分系统可能禁用了访问时间记录。
 
 # HISTORY
 
-**stat** has different origins on different systems. The GNU version (part of **coreutils**) was written by **Michael Meskes** in **2001**. BSD systems have their own implementation with slightly different syntax. The command provides a standard interface to the stat() system call.
+**stat** 在不同系统上有不同的起源。GNU 版本（**coreutils** 的一部分）由 **Michael Meskes** 于 **2001 年**编写。BSD 系统有自己的实现，语法略有差异。该命令为 stat() 系统调用提供了标准接口。
 
 # INSTALL
 

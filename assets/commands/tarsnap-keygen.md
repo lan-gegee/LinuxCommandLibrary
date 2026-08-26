@@ -1,14 +1,14 @@
 # TAGLINE
 
-Generate Tarsnap encryption keys
+生成 Tarsnap 加密密钥
 
 # TLDR
 
-**Generate new key**
+**生成新密钥**
 
 ```tarsnap-keygen --keyfile [/root/tarsnap.key] --user [email@example.com] --machine [hostname]```
 
-**Generate with passphrase**
+带口令**生成**
 
 ```tarsnap-keygen --keyfile [/root/tarsnap.key] --user [email@example.com] --machine [hostname] --passphrased```
 
@@ -19,24 +19,24 @@ Generate Tarsnap encryption keys
 # PARAMETERS
 
 **--keyfile** _path_
-> Output key file path.
+> 输出密钥文件的路径。
 
 **--user** _email_
-> Tarsnap account email.
+> Tarsnap 账户邮箱。
 
 **--machine** _name_
-> Machine name identifier.
+> 机器名称标识。
 
 **--passphrased**
-> Encrypt key with passphrase.
+> 用口令加密密钥。
 
 # DESCRIPTION
 
-**tarsnap-keygen** generates encryption keys for Tarsnap backup service. Creates machine-specific keys for encrypted, deduplicated backups. Keys are required for tarsnap operations.
+**tarsnap-keygen** 为 Tarsnap 备份服务生成加密密钥。它创建特定于机器的密钥，用于加密、去重的备份。tarsnap 的各种操作都需要密钥。
 
 # CAVEATS
 
-Keep the key file secure and backed up. Losing the key means losing access to backups.
+请妥善保管并备份密钥文件。丢失密钥意味着无法再访问备份。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ Keep the key file secure and backed up. Losing the key means losing access to ba
 # SEE ALSO
 
 [tarsnap](/man/tarsnap)(1)
-

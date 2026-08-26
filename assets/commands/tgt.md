@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI client for Telegram
+Telegram 的 TUI 客户端
 
 # TLDR
 
-**Launch the Telegram TUI**
+**启动 Telegram TUI**
 
 ```tgt```
 
@@ -14,11 +14,11 @@ TUI client for Telegram
 
 # DESCRIPTION
 
-**tgt** is a terminal user interface for Telegram that lets you send, receive, edit, delete, and reply to messages entirely from the terminal. It features customizable themes and keybindings via TOML configuration files, full keyboard navigation, and photo viewing support.
+**tgt** 是 Telegram 的终端用户界面，让你完全在终端中收发、编辑、删除和回复消息。它支持通过 TOML 配置文件自定义主题和快捷键，提供完整的键盘导航，并支持查看图片。
 
 # HISTORY
 
-**tgt** was created by **Federico Bruzzone** and is written in **Rust**.
+**tgt** 由 **Federico Bruzzone** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

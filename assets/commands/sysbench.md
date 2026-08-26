@@ -1,38 +1,38 @@
 # TAGLINE
 
-Multi-threaded system benchmark tool
+多线程系统基准测试工具
 
 # TLDR
 
-**CPU benchmark**
+**CPU 基准测试**
 
 ```sysbench cpu run```
 
-**CPU benchmark with threads**
+**多线程 CPU 基准测试**
 
 ```sysbench cpu --threads=[4] run```
 
-**Memory benchmark**
+**内存基准测试**
 
 ```sysbench memory run```
 
-**File I/O prepare**
+**文件 I/O 准备**
 
 ```sysbench fileio --file-total-size=[10G] prepare```
 
-**File I/O benchmark**
+**文件 I/O 基准测试**
 
 ```sysbench fileio --file-total-size=[10G] --file-test-mode=[rndrw] run```
 
-**MySQL benchmark**
+**MySQL 基准测试**
 
 ```sysbench oltp_read_write --mysql-host=[localhost] --mysql-user=[user] --mysql-password=[pass] --mysql-db=[test] run```
 
-**Cleanup test files**
+**清理测试文件**
 
 ```sysbench fileio --file-total-size=[10G] cleanup```
 
-**CPU benchmark with custom prime limit**
+**自定义素数上限的 CPU 基准测试**
 
 ```sysbench cpu --cpu-max-prime=[20000] --threads=[4] run```
 
@@ -43,104 +43,104 @@ Multi-threaded system benchmark tool
 # PARAMETERS
 
 **cpu**
-> CPU test.
+> CPU 测试。
 
 **memory**
-> Memory test.
+> 内存测试。
 
 **fileio**
-> File I/O test.
+> 文件 I/O 测试。
 
 **oltp_read_write**
-> Database OLTP test.
+> 数据库 OLTP 测试。
 
 **oltp_read_only**
-> Read-only database test.
+> 只读数据库测试。
 
 **threads**
-> Thread scheduler performance test.
+> 线程调度器性能测试。
 
 **mutex**
-> Mutex contention performance test.
+> 互斥锁争用性能测试。
 
 **--threads** _N_
-> Number of threads (default: 1).
+> 线程数（默认：1）。
 
 **--time** _SECONDS_
-> Test duration (default: 10).
+> 测试时长（默认：10）。
 
 **--events** _N_
-> Maximum number of events (default: 0, unlimited).
+> 事件数上限（默认：0，无限制）。
 
 **--file-total-size** _SIZE_
-> Total file size.
+> 文件总大小。
 
 **--file-test-mode** _MODE_
-> I/O mode (seqwr, seqrd, rndrw, etc.).
+> I/O 模式（seqwr、seqrd、rndrw 等）。
 
 **--mysql-host** _HOST_
-> MySQL host.
+> MySQL 主机。
 
 **--mysql-user** _USER_
-> MySQL user.
+> MySQL 用户。
 
 **--mysql-password** _PASS_
-> MySQL password.
+> MySQL 密码。
 
 **--mysql-db** _DB_
-> MySQL database name.
+> MySQL 数据库名。
 
 **--cpu-max-prime** _N_
-> Upper limit for prime number calculation in CPU test (default: 10000).
+> CPU 测试中素数计算的上限（默认：10000）。
 
 **--memory-block-size** _SIZE_
-> Size of memory block for memory test (default: 1K).
+> 内存测试的内存块大小（默认：1K）。
 
 **--memory-total-size** _SIZE_
-> Total size of data to transfer in memory test (default: 100G).
+> 内存测试要传输的数据总量（默认：100G）。
 
 **--memory-oper** _OP_
-> Memory operation type: read or write (default: write).
+> 内存操作类型：read 或 write（默认：write）。
 
 **--memory-access-mode** _MODE_
-> Memory access mode: seq or rnd (default: seq).
+> 内存访问模式：seq 或 rnd（默认：seq）。
 
 **--file-num** _N_
-> Number of files to create (default: 128).
+> 要创建的文件数（默认：128）。
 
 **--file-extra-flags** _FLAGS_
-> Additional flags for opening files: sync, dsync, direct.
+> 打开文件的额外标志：sync、dsync、direct。
 
 **--percentile** _N_
-> Percentile to calculate in latency statistics (default: 95).
+> 延迟统计中计算的百分位（默认：95）。
 
 **--report-interval** _SECONDS_
-> Periodically report intermediate statistics (0 = disabled).
+> 定期报告中间统计信息（0 = 禁用）。
 
 **prepare**
-> Prepare test data (required for fileio and database tests).
+> 准备测试数据（fileio 和数据库测试必需）。
 
 **run**
-> Run the benchmark test.
+> 运行基准测试。
 
 **cleanup**
-> Clean up test data created during prepare.
+> 清理 prepare 阶段创建的测试数据。
 
 # DESCRIPTION
 
-**sysbench** is a multi-threaded benchmarking tool for evaluating system performance across CPU, memory, file I/O, and database workloads. It provides consistent, reproducible measurements that allow meaningful comparisons between different hardware configurations, kernel versions, or tuning parameters.
+**sysbench** 是一个多线程基准测试工具，用于评估系统在 CPU、内存、文件 I/O 和数据库工作负载下的性能。它提供一致且可复现的测量结果，便于在不同硬件配置、内核版本或调优参数之间进行有意义的比较。
 
-The tool includes built-in test types for common benchmarks. CPU tests stress processors using prime number calculations to measure computational throughput. Memory tests measure bandwidth and latency across sequential and random access patterns. File I/O tests support multiple modes including sequential writes, sequential reads, and random read/write mixes, requiring a preparation step to create test files before running and a cleanup step afterward.
+该工具内置了常见基准的测试类型。CPU 测试通过素数计算给处理器施加压力，以衡量计算吞吐量。内存测试测量顺序和随机访问模式下的带宽与延迟。文件 I/O 测试支持多种模式，包括顺序写、顺序读和随机读写混合；运行前需要准备步骤来创建测试文件，运行后需要清理步骤。
 
-Database benchmarks simulate OLTP (Online Transaction Processing) workloads against MySQL or PostgreSQL, executing realistic mixes of select, insert, update, and delete queries. All test types support multi-threaded execution to measure how performance scales with parallelism, revealing bottlenecks and contention points. Custom Lua scripts can define additional workloads beyond the built-in tests.
+数据库基准测试针对 MySQL 或 PostgreSQL 模拟 OLTP（联机事务处理）工作负载，执行贴近真实的 select、insert、update 和 delete 查询组合。所有测试类型都支持多线程执行，以衡量性能随并行度扩展的情况，从而暴露瓶颈与争用点。除内置测试外，还可通过自定义 Lua 脚本定义更多工作负载。
 
 # CAVEATS
 
-Results depend on test parameters. Synthetic benchmarks don't reflect all workloads. File tests need disk space. Database tests need setup.
+结果取决于测试参数。合成基准无法反映所有工作负载。文件测试需要磁盘空间。数据库测试需要预先配置。
 
 # HISTORY
 
-**sysbench** was created by **Alexey Kopytov** at MySQL AB around **2004**. It became a standard tool for MySQL benchmarking and general system performance testing.
+**sysbench** 由 **Alexey Kopytov** 在 MySQL AB 于 **2004 年**前后创建。后来成为 MySQL 基准测试和通用系统性能测试的标准工具。
 
 # INSTALL
 

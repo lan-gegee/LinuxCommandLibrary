@@ -1,14 +1,14 @@
 # TAGLINE
 
-Interactive configuration tool for TeX Live
+TeX Live 交互式配置工具
 
 # TLDR
 
-Launch the interactive TeX Live configuration menu
+启动交互式 TeX Live 配置菜单
 
 ```texconfig```
 
-Show current TeX Live configuration
+显示当前 TeX Live 配置
 
 ```texconfig conf```
 
@@ -18,30 +18,30 @@ Show current TeX Live configuration
 
 # DESCRIPTION
 
-**texconfig** provides an interactive curses-based interface (and a non-interactive command-line interface) for configuring a TeX Live installation. It lets you change paper size, default modes, hyphenation patterns, and many other TeX engine and format settings without manually editing `texmf.cnf` or format files.
+**texconfig** 提供一个基于 curses 的交互式界面（以及非交互式的命令行界面）来配置 TeX Live 安装。它让你无需手动编辑 `texmf.cnf` 或格式文件，即可更改纸张尺寸、默认模式、断字模式以及许多其他 TeX 引擎和格式设置。
 
-Common tasks include:
+常见任务包括：
 
-- Switching between A4 and letter paper
-- Enabling or disabling certain hyphenation languages
-- Rebuilding format files after configuration changes
-- Viewing and editing the main TeX Live configuration file
+- 在 A4 和 letter 纸张之间切换
+- 启用或禁用特定语言的断字模式
+- 配置更改后重建格式文件
+- 查看和编辑 TeX Live 主配置文件
 
 # PARAMETERS
 
 **conf**  
-> Print the current configuration (non-interactive)
+> 打印当前配置（非交互式）
 
 **paper**  
-> Set default paper size (a4 or letter)
+> 设置默认纸张尺寸（a4 或 letter）
 
 **formats**  
-> Rebuild format files
+> 重建格式文件
 
 **hyphen**  
-> Manage hyphenation patterns
+> 管理断字模式
 
-Running `texconfig` with no arguments starts the full-screen interactive configurator.
+不带参数运行 `texconfig` 会启动全屏交互式配置器。
 
 # INSTALL
 

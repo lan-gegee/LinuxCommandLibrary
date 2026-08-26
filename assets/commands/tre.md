@@ -1,42 +1,42 @@
 # TAGLINE
 
-Modern tree replacement with editor integration
+支持编辑器集成的现代 tree 替代品
 
 # TLDR
 
-**Show directory tree**
+显示目录树
 
 ```tre```
 
-**Show with hidden**
+显示隐藏文件
 
 ```tre -a```
 
-**Limit depth**
+限制深度
 
 ```tre -l [2]```
 
-**With editor integration**
+启用编辑器集成
 
 ```tre -e```
 
-**Specific directory**
+指定目录
 
 ```tre [path/to/directory]```
 
-**Show only directories**
+仅显示目录
 
 ```tre -d```
 
-**Output as JSON**
+输出为 JSON
 
 ```tre -j```
 
-**Exclude paths matching a regex**
+排除匹配正则表达式的路径
 
 ```tre -E [pattern]```
 
-**Portable paths**
+可移植路径
 
 ```tre -p```
 
@@ -47,43 +47,43 @@ Modern tree replacement with editor integration
 # PARAMETERS
 
 **-a, --all**
-> Include hidden files.
+> 包含隐藏文件。
 
 **-d, --directories**
-> Only list directories.
+> 仅列出目录。
 
 **-l, --limit** _DEPTH_
-> Maximum depth.
+> 最大深度。
 
 **-e, --editor** [_COMMAND_]
-> Editor integration (numbers files, creates aliases).
+> 编辑器集成（为文件编号，创建别名）。
 
 **-E, --exclude** _PATTERN_
-> Exclude paths matching a regex. Repeatable.
+> 排除匹配正则表达式的路径。可重复使用。
 
 **-j, --json**
-> Output JSON instead of tree diagram.
+> 输出 JSON 而非树状图。
 
 **-p, --portable**
-> Portable absolute paths in editor aliases.
+> 编辑器别名中使用可移植的绝对路径。
 
 **-s, --simple**
-> Ignore .gitignore rules.
+> 忽略 .gitignore 规则。
 
 **-c, --color** _WHEN_
-> Color output: automatic, always, never.
+> 彩色输出：automatic、always、never。
 
 # DESCRIPTION
 
-**tre** is a modern replacement for the classic tree command, written in Rust. It displays directory structures in a tree format with additional features designed for developer workflows, including editor integration and gitignore awareness.
+**tre** 是经典 tree 命令的现代替代品，用 Rust 编写。它以树状格式展示目录结构，并带有面向开发者工作流的附加特性，包括编辑器集成和 gitignore 感知。
 
-The editor integration mode (**-e**) numbers each file in the output and creates a shell alias that opens the corresponding file in your editor by number. Portable path mode (**-p**) outputs paths that can be directly copied and pasted into other commands.
+编辑器集成模式（**-e**）会为输出中的每个文件编号，并创建一个 Shell 别名，通过编号即可在编辑器中打开对应文件。可移植路径模式（**-p**）输出的路径可以直接复制粘贴到其他命令中。
 
-By default, tre respects `.gitignore` rules, filtering out ignored files for a cleaner view of project structures. Hidden files are excluded unless explicitly requested with **-a**.
+默认情况下，tre 会遵循 `.gitignore` 规则，过滤掉被忽略的文件，从而更清晰地呈现项目结构。除非用 **-a** 明确要求，否则隐藏文件不会显示。
 
 # CAVEATS
 
-Not a drop-in replacement for **tree** — uses different flag names (e.g. **-l** instead of **-L** for depth). Respects .gitignore by default, which can be disabled with **-s**.
+并非 **tree** 的直接替代品——标志名称不同（例如深度选项用 **-l** 而不是 **-L**）。默认遵循 .gitignore，可通过 **-s** 禁用。
 
 # INSTALL
 

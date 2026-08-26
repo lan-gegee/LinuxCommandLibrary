@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal initialization and reset utility
+终端初始化与重置工具
 
 # TLDR
 
-**Initialize the terminal** using $TERM
+根据 $TERM **初始化终端**
 
 ```tset```
 
-**Reset the terminal** to sane defaults
+**将终端重置**为正常状态
 
 ```reset```
 
-**Set terminal type** explicitly
+**显式设置终端类型**
 
 ```tset [xterm-256color]```
 
-**Print shell commands** to set TERM
+**输出设置 TERM 的 shell 命令**
 
 ```tset -s```
 
-**Set the erase character** to backspace
+**将擦除字符**设为退格键
 
 ```tset -e ^H```
 
-**Set the interrupt character**
+**设置中断字符**
 
 ```tset -i ^C```
 
-**Skip sending initialization** strings
+**跳过发送初始化**字符串
 
 ```tset -I```
 
-**Quiet mode** (suppress output)
+**安静模式**（抑制输出）
 
 ```tset -q```
 
@@ -43,58 +43,58 @@ Terminal initialization and reset utility
 # PARAMETERS
 
 **-c**
-> Set control characters and modes
+> 设置控制字符和终端模式
 
 **-e** _ch_
-> Set the erase character to ch
+> 将擦除字符设置为 ch
 
 **-i** _ch_
-> Set the interrupt character to ch
+> 将中断字符设置为 ch
 
 **-k** _ch_
-> Set the line kill character to ch
+> 将行终止（kill）字符设置为 ch
 
 **-I**
-> Do not send terminal or tab initialization strings
+> 不发送终端和制表符初始化字符串
 
 **-m** _mapping_
-> Map port type and baud rate to terminal type
+> 将端口类型和波特率映射到终端类型
 
 **-Q**
-> Do not display erase, interrupt, and kill characters
+> 不显示擦除、中断和 kill 字符
 
 **-q**
-> Display terminal type to stdout without initializing the terminal
+> 将终端类型输出到标准输出，但不初始化终端
 
 **-r**
-> Print terminal type to stderr
+> 将终端类型打印到标准错误
 
 **-s**
-> Print shell commands to set TERM environment variable
+> 输出用于设置 TERM 环境变量的 shell 命令
 
 **-V**
-> Print ncurses version and exit
+> 打印 ncurses 版本并退出
 
 **-w**
-> Resize window to match size deduced via setupterm
+> 调整窗口大小以匹配通过 setupterm 推断出的尺寸
 
 # DESCRIPTION
 
-**tset** initializes the terminal according to the terminal type specified in the **$TERM** environment variable or on the command line. It sets terminal modes, sends initialization strings, and can configure special characters like erase and kill. If neither **-c** nor **-w** is specified, both are assumed.
+**tset** 根据 **$TERM** 环境变量或命令行中指定的终端类型初始化终端。它设置终端模式、发送初始化字符串，并可配置擦除、kill 等特殊字符。如果既未指定 **-c** 也未指定 **-w**，则默认两者都生效。
 
-When invoked as **reset**, the command sets terminal modes to "sane" values: enables cooked and echo modes, disables raw mode, enables newline translation, and resets special characters to defaults. This is useful for recovering from programs that leave the terminal in an abnormal state.
+以 **reset** 方式调用时，该命令会将终端模式恢复为"正常"值：启用 cooked 和 echo 模式、禁用 raw 模式、启用换行转换，并将特殊字符重置为默认值。这可用于从把终端弄乱的程序中恢复。
 
-The command determines terminal type by checking: command-line argument, $TERM variable, /etc/ttys entry (on BSD), or the default type "unknown". It then sends appropriate initialization sequences from the terminfo database.
+命令按以下顺序确定终端类型：命令行参数、$TERM 变量、/etc/ttys 条目（BSD 系统），最后是默认类型 "unknown"。随后它会从 terminfo 数据库发送相应的初始化序列。
 
-The **-s** option outputs shell commands to set TERM, useful in login scripts when the terminal type may change.
+**-s** 选项会输出设置 TERM 的 shell 命令，在登录脚本中终端类型可能变化的场景下很有用。
 
 # CAVEATS
 
-When the terminal is garbled, you may need to type **\<LF\>reset\<LF\>** (Ctrl+J instead of Enter) since carriage return may not work. The tset command is less commonly needed on modern systems where terminal emulators handle initialization automatically.
+当终端显示混乱时，你可能需要输入 **\<LF\>reset\<LF\>**（用 Ctrl+J 代替回车），因为此时回车符可能不起作用。在现代系统上，终端模拟器通常会自动处理初始化，因此 tset 已较少需要。
 
 # HISTORY
 
-**tset** was written by **Eric Allman** and first appeared in **1BSD** in **1977**, using the termcap database. The ncurses version uses terminfo. The **reset** functionality was historically a separate command but is now typically a link to tset. The command predates POSIX and is not standardized.
+**tset** 由 **Eric Allman** 编写，于 **1977 年**首次出现在 **1BSD** 中，当时使用 termcap 数据库。ncurses 版本则使用 terminfo。**reset** 功能历史上是一个独立命令，现在通常是指向 tset 的链接。该命令早于 POSIX 标准，并未被标准化。
 
 # INSTALL
 

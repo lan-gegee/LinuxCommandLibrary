@@ -1,30 +1,30 @@
 # TAGLINE
 
-Tcl scripting language shell
+Tcl 脚本语言 Shell
 
 # TLDR
 
-**Start an interactive Tcl shell**
+**启动交互式 Tcl Shell**
 
 ```tclsh```
 
-**Run a Tcl script**
+**运行 Tcl 脚本**
 
 ```tclsh [script.tcl]```
 
-**Run a script with arguments**
+**带参数运行脚本**
 
 ```tclsh [script.tcl] [arg1] [arg2]```
 
-**Run in interactive mode** after executing a script
+**在执行脚本后进入交互模式**
 
 ```tclsh -i [script.tcl]```
 
-**Specify encoding** for reading the script
+**指定读取脚本的编码**
 
 ```tclsh -encoding utf-8 [script.tcl]```
 
-**Execute a Tcl command** directly
+**直接执行 Tcl 命令**
 
 ```echo 'puts "Hello World"' | tclsh```
 
@@ -35,38 +35,38 @@ Tcl scripting language shell
 # PARAMETERS
 
 **-encoding** _name_
-> Specify the character encoding for reading the script file (e.g., utf-8).
+> 指定读取脚本文件所用的字符编码（例如 utf-8）。
 
 **-i**
-> Force interactive mode even when a script file is provided.
+> 即使提供了脚本文件也强制进入交互模式。
 
 **-f**
-> Force the first non-option argument to be treated as a script file.
+> 强制将第一个非选项参数视为脚本文件。
 
 **-norc**
-> Do not load the user's startup file (~/.tclshrc).
+> 不加载用户的启动文件（~/.tclshrc）。
 
 **-t**
-> Equivalent to **-i**, forces interactive mode.
+> 等价于 **-i**，强制进入交互模式。
 
 **--**
-> End of options; all following arguments are the script file and its arguments.
+> 选项结束；其后的所有参数都是脚本文件及其参数。
 
 # DESCRIPTION
 
-**tclsh** is the standard shell for the Tcl (Tool Command Language) scripting language. It reads and evaluates Tcl commands from standard input or from a script file. When invoked without arguments, it runs interactively with a **%** prompt.
+**tclsh** 是 Tcl（Tool Command Language）脚本语言的标准 Shell。它从标准输入或脚本文件读取并求值 Tcl 命令。不带参数调用时以 **%** 提示符交互式运行。
 
-Several variables are set for scripts: **argc** contains the argument count, **argv** is a list of arguments, **argv0** is the script name, and **tcl_interactive** indicates whether the shell is interactive.
+脚本中可以使用若干预设变量：**argc** 是参数个数，**argv** 是参数列表，**argv0** 是脚本名，**tcl_interactive** 表示 Shell 是否处于交互模式。
 
-In interactive mode, the shell reads the **~/.tclshrc** startup file before accepting commands. The prompts can be customized via **tcl_prompt1** and **tcl_prompt2** variables.
+在交互模式下，Shell 在接受命令之前会先读取 **~/.tclshrc** 启动文件。提示符可以通过 **tcl_prompt1** 和 **tcl_prompt2** 变量自定义。
 
 # CAVEATS
 
-Tcl uses different syntax than most Unix shells. Braces **{}** are used for grouping, brackets **[]** for command substitution, and **$** for variable expansion. String quoting and list handling follow Tcl conventions rather than POSIX shell conventions.
+Tcl 的语法与大多数 Unix Shell 不同。花括号 **{}** 用于分组，方括号 **[]** 用于命令替换，**$** 用于变量展开。字符串引号和列表处理遵循 Tcl 的约定而非 POSIX Shell 约定。
 
 # HISTORY
 
-Tcl was created by **John Ousterhout** at UC Berkeley in **1988** as an embeddable scripting language. The name stands for "Tool Command Language". Tcl gained popularity with the Tk GUI toolkit. Development continued at Sun Microsystems in the 1990s and is now maintained by the Tcl Core Team. The current major version is Tcl 8.6, with Tcl 9.0 in development.
+Tcl 由 **John Ousterhout** 于 **1988 年**在加州大学伯克利分校创建，是一种可嵌入的脚本语言。名字是 "Tool Command Language" 的缩写。随着 Tk GUI 工具包的流行，Tcl 也广受欢迎。20 世纪 90 年代开发工作转移到 Sun Microsystems 继续，现由 Tcl Core Team 维护。当前主版本为 Tcl 8.6，Tcl 9.0 正在开发中。
 
 # INSTALL
 

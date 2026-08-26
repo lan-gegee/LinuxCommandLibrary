@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal AI chatbot client
+终端 AI 聊天机器人客户端
 
 # TLDR
 
-**Ask question**
+**提问**
 
 ```tgpt "[What is Linux?]"```
 
-**Interactive mode**
+**交互模式**
 
 ```tgpt -i```
 
-**Code mode**
+**代码模式**
 
 ```tgpt -c "[Write a Python hello world]"```
 
-**Multiline input**
+**多行输入**
 
 ```tgpt -m```
 
-**With specific provider**
+**使用指定提供商**
 
 ```tgpt --provider [openai] "[question]"```
 
-**Generate image**
+**生成图像**
 
 ```tgpt -img "[A sunset over mountains]"```
 
@@ -35,36 +35,36 @@ Terminal AI chatbot client
 # PARAMETERS
 
 **-i**
-> Interactive mode.
+> 交互模式。
 
 **-c**
-> Code generation.
+> 代码生成。
 
 **-m**
-> Multiline input.
+> 多行输入。
 
 **--provider** _NAME_
-> AI provider.
+> AI 提供商。
 
 **-img**
-> Image generation.
+> 图像生成。
 
 **-s**
-> Silent mode.
+> 静默模式。
 
 # DESCRIPTION
 
-**tgpt** is a terminal-based client for interacting with AI language models from multiple providers including OpenAI, Anthropic, and others. It supports one-shot prompts, interactive conversation mode (**-i**), and specialized code generation mode (**-c**).
+**tgpt** 是一款基于终端的客户端，用于与 OpenAI、Anthropic 等多家提供商的 AI 语言模型交互。它支持一次性提问、交互式对话模式（**-i**），以及专门的代码生成模式（**-c**）。
 
-The tool can also generate images using models like DALL-E via the **-img** flag. Some providers work without requiring API keys, while others need keys configured for authentication. Multiline input mode (**-m**) allows composing longer prompts directly in the terminal.
+该工具还可以通过 **-img** 标志使用 DALL-E 等模型生成图像。部分提供商无需 API 密钥即可使用，另一些则需要配置密钥进行身份验证。多行输入模式（**-m**）允许直接在终端中编写较长的提示词。
 
 # CAVEATS
 
-API key may be needed. Network required. Provider-specific features.
+可能需要 API 密钥。需要网络。功能因提供商而异。
 
 # HISTORY
 
-**tgpt** was created as a terminal-based interface to various AI language models without requiring API keys for some providers.
+**tgpt** 的创建初衷是为各种 AI 语言模型提供基于终端的界面，且部分提供商无需 API 密钥即可使用。
 
 # INSTALL
 

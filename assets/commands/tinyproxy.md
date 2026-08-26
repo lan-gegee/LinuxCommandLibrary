@@ -1,30 +1,30 @@
 # TAGLINE
 
-Lightweight HTTP and HTTPS proxy daemon
+轻量级 HTTP 与 HTTPS 代理守护进程
 
 # TLDR
 
-**Start tinyproxy** with the default configuration
+以默认配置**启动 tinyproxy**
 
 ```tinyproxy```
 
-**Start with a custom configuration file**
+**使用自定义配置文件启动**
 
 ```tinyproxy -c [path/to/tinyproxy.conf]```
 
-**Run in foreground** (don't daemonize)
+**前台运行**（不守护进程化）
 
 ```tinyproxy -d```
 
-**Run in foreground with custom config** for debugging
+前台运行并加载自定义配置，用于调试
 
 ```tinyproxy -d -c [path/to/tinyproxy.conf]```
 
-**Show version information**
+**显示版本信息**
 
 ```tinyproxy -v```
 
-**Show help**
+**显示帮助**
 
 ```tinyproxy -h```
 
@@ -35,45 +35,45 @@ Lightweight HTTP and HTTPS proxy daemon
 # PARAMETERS
 
 **-c** _config-file_
-> Use an alternate configuration file instead of the default /etc/tinyproxy/tinyproxy.conf.
+> 使用替代配置文件，而不是默认的 /etc/tinyproxy/tinyproxy.conf。
 
 **-d**
-> Do not daemonize. Stay in the foreground, useful for debugging.
+> 不守护进程化，保持在前台运行，便于调试。
 
 **-h**
-> Display a short help screen and exit.
+> 显示简短的帮助界面后退出。
 
 **-l**
-> Display the licensing agreement and exit.
+> 显示许可协议后退出。
 
 **-v**
-> Display version information and exit.
+> 显示版本信息后退出。
 
 # DESCRIPTION
 
-**Tinyproxy** is a lightweight HTTP/HTTPS proxy daemon designed for minimal resource consumption. It listens on a configurable TCP port and handles HTTP proxy requests, making it ideal for embedded systems, containers, or environments where a full-featured proxy would be too resource-intensive.
+**Tinyproxy** 是一款轻量级 HTTP/HTTPS 代理守护进程，设计目标是极低的资源消耗。它在可配置的 TCP 端口上监听并处理 HTTP 代理请求，非常适合嵌入式系统、容器，或者完整功能代理显得过于消耗资源的场景。
 
-The daemon supports basic HTTP proxying, HTTPS via CONNECT method, upstream proxy configuration, access control lists, and URL-based filtering. It can also function as a reverse proxy, forwarding requests to backend servers.
+该守护进程支持基本的 HTTP 代理、通过 CONNECT 方法的 HTTPS、上游代理配置、访问控制列表以及基于 URL 的过滤。它还可以充当反向代理，将请求转发给后端服务器。
 
-Configuration is done through a configuration file (typically /etc/tinyproxy/tinyproxy.conf) that specifies the listening port, allowed clients, log settings, and filtering rules. Tinyproxy provides a built-in statistics page accessible by requesting the stathost (default: tinyproxy.stats).
+配置通过配置文件完成（通常是 /etc/tinyproxy/tinyproxy.conf），其中指定监听端口、允许的客户端、日志设置和过滤规则。Tinyproxy 内置统计页面，通过请求 stathost（默认：tinyproxy.stats）即可访问。
 
-Signals can control the running daemon: SIGHUP triggers garbage collection on connections, and standard signals handle graceful shutdown.
+信号可以控制运行中的守护进程：SIGHUP 触发连接的垃圾回收，标准信号用于优雅关机。
 
 # CONFIGURATION
 
 **/etc/tinyproxy/tinyproxy.conf**
-> Main configuration file specifying listening port, allowed clients, log settings, upstream proxies, filtering rules, and access control lists.
+> 主配置文件，指定监听端口、允许的客户端、日志设置、上游代理、过滤规则和访问控制列表。
 
 **-c** _file_
-> Use an alternate configuration file at runtime.
+> 运行时使用替代配置文件。
 
 # CAVEATS
 
-Tinyproxy does not support caching, authentication schemes beyond basic, or SOCKS proxying. For high-traffic production environments, consider more full-featured proxies like Squid. The default configuration may allow connections from any host, so access control should be configured appropriately.
+Tinyproxy 不支持缓存、basic 以外的身份验证方式以及 SOCKS 代理。对于高流量的生产环境，请考虑 Squid 等功能更全面的代理。默认配置可能允许来自任意主机的连接，因此应合理配置访问控制。
 
 # HISTORY
 
-**Tinyproxy** was originally written by **Steven Young** in **1999** as a lightweight alternative to heavier proxy servers. The project has been maintained by various contributors and continues development on GitHub. Its small footprint and simplicity have made it popular for embedded Linux systems, Docker containers, and privacy-focused setups.
+**Tinyproxy** 由 **Steven Young** 于 **1999 年**编写，作为重量级代理服务器的轻量替代品。该项目由多位贡献者维护，目前在 GitHub 上持续开发。凭借小巧的占用和简洁性，它在嵌入式 Linux 系统、Docker 容器和注重隐私的环境中广受欢迎。
 
 # INSTALL
 

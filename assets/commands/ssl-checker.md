@@ -1,18 +1,18 @@
 # TAGLINE
 
-Collect and analyze SSL/TLS certificate information
+收集并分析 SSL/TLS 证书信息
 
 # TLDR
 
-**Check SSL certificate for a host**
+**检查主机的 SSL 证书**
 
 ```ssl_checker -H [github.com:443]```
 
-**Output certificate info as JSON**
+**以 JSON 格式输出证书信息**
 
 ```ssl_checker -H [example.com] -j```
 
-**Analyze host for security vulnerabilities**
+**分析主机的安全漏洞**
 
 ```ssl_checker -H [example.com] -a```
 
@@ -23,45 +23,45 @@ Collect and analyze SSL/TLS certificate information
 # PARAMETERS
 
 **-H** _HOST_
-> Host(s) to check, in host:port format.
+> 要检查的主机，格式为 host:port，可指定多个。
 
 **-f** _FILE_
-> File containing hostnames to check.
+> 包含待检查主机名的文件。
 
 **-j**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **-a**
-> Analyze host for security vulnerabilities.
+> 分析主机的安全漏洞。
 
 **-c**
-> Output results in CSV format.
+> 以 CSV 格式输出结果。
 
 **-S**
-> Output summary only.
+> 仅输出摘要。
 
 **-x**
-> Export results as HTML file.
+> 将结果导出为 HTML 文件。
 
 **-J**
-> Export JSON individually per host.
+> 按主机分别导出 JSON。
 
 **-v**
-> Enable verbose output for troubleshooting.
+> 启用详细输出以便排查问题。
 
 **-t** _TIMEOUT_
-> Connection timeout in seconds.
+> 连接超时时间（秒）。
 
 **-s** _HOST:PORT_
-> Use a SOCKS proxy for connections.
+> 使用 SOCKS 代理进行连接。
 
 # DESCRIPTION
 
-**ssl-checker** is a Python script that collects SSL/TLS information from hosts. It can check certificate expiration dates, issuer details, and cipher suites. It supports security vulnerability analysis, SOCKS proxy connections, and exports results in JSON, CSV, or HTML formats.
+**ssl-checker** 是一个从主机收集 SSL/TLS 信息的 Python 脚本。它可以检查证书过期日期、颁发者详情和密码套件。它支持安全漏洞分析、SOCKS 代理连接，并能以 JSON、CSV 或 HTML 格式导出结果。
 
 # HISTORY
 
-**ssl-checker** was created by **narbehaj** and is written in **Python**.
+**ssl-checker** 由 **narbehaj** 创建，使用 **Python** 编写。
 
 # INSTALL
 

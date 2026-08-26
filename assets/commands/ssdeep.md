@@ -1,30 +1,30 @@
 # TLDR
 
-**Compute fuzzy hash** of files
+**计算文件的模糊哈希**
 
 ```ssdeep [file1] [file2]```
 
-**Compute hashes recursively**
+**递归计算哈希**
 
 ```ssdeep -r [directory/]```
 
-**Compare files** and show matches
+**比较文件**并显示匹配结果
 
 ```ssdeep -p [file1] [file2] [file3]```
 
-**Match files against known hashes**
+**将文件与已知哈希匹配**
 
 ```ssdeep -m [known_hashes.txt] [files_to_check]```
 
-**Compare two hash files**
+**比较两个哈希文件**
 
 ```ssdeep -k [known.txt] [computed.txt]```
 
-**Set match threshold** (0-100)
+**设置匹配阈值**（0-100）
 
 ```ssdeep -p -t [50] [files]```
 
-**Output in CSV format**
+**以 CSV 格式输出**
 
 ```ssdeep -c [files]```
 
@@ -35,62 +35,62 @@
 # PARAMETERS
 
 **-m** _file_
-> Load known hashes from file and match against computed hashes from input files.
+> 从文件加载已知哈希，与输入文件计算出的哈希进行匹配。
 
 **-k** _file_
-> Compare known signatures in file against pre-computed signatures in input files.
+> 将文件中的已知签名与输入文件中预先计算的签名进行比较。
 
 **-p**
-> Pretty matching mode. Compare all input files against each other.
+> 美观匹配模式。将所有输入文件两两比较。
 
 **-d**
-> Match each file against known set, then add its hash to the known set.
+> 将每个文件与已知集合匹配，然后将其哈希加入已知集合。
 
 **-r**
-> Recursive mode. Traverse all subdirectories.
+> 递归模式。遍历所有子目录。
 
 **-t** _val_
-> Match threshold (0-100). Only display matches above this score. Default: 0.
+> 匹配阈值（0-100）。只显示高于该分数的匹配。默认：0。
 
 **-a**
-> Display all matches regardless of score.
+> 无论分数高低，显示所有匹配。
 
 **-v**
-> Verbose mode. Print filename to stderr while hashing.
+> 详细模式。计算哈希时向 stderr 打印文件名。
 
 **-b**
-> Use bare filenames (no path) in output.
+> 输出中使用不带路径的纯文件名。
 
 **-l**
-> Use relative paths in output.
+> 输出中使用相对路径。
 
 **-c**
-> Output in CSV format.
+> 以 CSV 格式输出。
 
 **-s**
-> Silent mode. Suppress warnings.
+> 静默模式。抑制警告信息。
 
 **-x**
-> Signature file matching. Treat input files as signature files and compare them against the known set.
+> 签名文件匹配。将输入文件视为签名文件，并与已知集合进行比较。
 
 **-g**
-> Cluster mode. Group similar files into clusters of related items.
+> 聚类模式。把相似文件归入关联项目的簇。
 
 # DESCRIPTION
 
-**ssdeep** computes context-triggered piecewise hashes (CTPH), also called fuzzy hashes. Unlike cryptographic hashes that produce completely different outputs for slightly different inputs, fuzzy hashes can identify files that are similar but not identical.
+**ssdeep** 计算上下文触发的分段哈希（CTPH），也称为模糊哈希。与加密哈希对微小差异的输入产生完全不同的输出不同，模糊哈希能够识别相似但不完全相同的文件。
 
-The tool is useful for malware analysis, identifying modified documents, finding near-duplicate files, and digital forensics. Two files with a match score above zero share some common sequences of bytes. Scores range from 0 (no match) to 100 (very similar or identical).
+该工具适用于恶意软件分析、识别被篡改的文档、查找近似重复文件以及数字取证。匹配分数大于零的两个文件共享某些相同的字节序列。分数范围为 0（不匹配）到 100（非常相似或相同）。
 
-Output format includes the block size, two hash components, and the filename. This output can be saved and used later for matching with the **-m** or **-k** options.
+输出格式包括块大小、两个哈希分量和文件名。此输出可以保存起来，之后配合 **-m** 或 **-k** 选项用于匹配。
 
 # CAVEATS
 
-Fuzzy hashing is not a replacement for cryptographic hashes when verifying exact file integrity. Small files may not produce meaningful fuzzy hashes. Match scores are approximate; manual verification may be needed for forensic use. The tool cannot detect similarity if files have been significantly restructured.
+在验证文件的精确完整性时，模糊哈希不能替代加密哈希。小文件可能无法产生有意义的模糊哈希。匹配分数只是近似值；用于取证时可能需要人工核实。如果文件经过大幅重构，该工具无法检测出相似性。
 
 # HISTORY
 
-**ssdeep** was created by Jesse Kornblum based on the spamsum algorithm developed by Dr. Andrew Tridgell for spam detection. The project provides both a command-line tool and the **libfuzzy** library for programmatic access. It's widely used in digital forensics, malware analysis, and security research. The tool is distributed under the GNU General Public License.
+**ssdeep** 由 Jesse Kornblum 基于 Andrew Tridgell 博士为垃圾邮件检测开发的 spamsum 算法创建。该项目同时提供命令行工具和供编程调用的 **libfuzzy** 库。它被广泛用于数字取证、恶意软件分析和安全研究。该工具以 GNU 通用公共许可证发布。
 
 # INSTALL
 

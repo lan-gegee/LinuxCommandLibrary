@@ -1,34 +1,34 @@
 # TAGLINE
 
-List available kernel trace events
+列出可用的内核跟踪事件
 
 # TLDR
 
-List available **tracers**
+列出可用的**跟踪器**
 
 ```sudo trace-cmd list -t```
 
-List available **plugins**
+列出可用的**插件**
 
 ```sudo trace-cmd list -p```
 
-List available **events**
+列出可用的**事件**
 
 ```sudo trace-cmd list -e```
 
-List available **functions**
+列出可用的**函数**
 
 ```sudo trace-cmd list -f```
 
-List events matching a **pattern**
+列出匹配**模式**的事件
 
 ```sudo trace-cmd list -e [sched:*]```
 
-List available **event options**
+列出可用的**事件选项**
 
 ```sudo trace-cmd list -o```
 
-List functions matching a **regex**
+列出匹配**正则表达式**的函数
 
 ```sudo trace-cmd list -f [tcp_send*]```
 
@@ -39,32 +39,32 @@ List functions matching a **regex**
 # PARAMETERS
 
 **-t**
-> List available tracers
+> 列出可用的跟踪器
 
 **-p**
-> List available plugins
+> 列出可用的插件
 
 **-e** [_regex_]
-> List available events, optionally filtered by a subsystem or regex pattern.
+> 列出可用事件，可按子系统或正则表达式模式过滤。
 
 **-f** [_regex_]
-> List available functions for tracing, optionally filtered by regex.
+> 列出可用于跟踪的函数，可按正则表达式过滤。
 
 **-o**
-> List available event options (e.g., noprint-fmt, sym-offset).
+> 列出可用的事件选项（如 noprint-fmt、sym-offset）。
 
 **-B** _buffer_
-> List from a specific buffer instance.
+> 从指定的缓冲区实例列出。
 
 # DESCRIPTION
 
-**trace-cmd list** displays available tracers, events, plugins, and functions that can be used with the Ftrace tracing framework. This helps identify what can be traced on the current system.
+**trace-cmd list** 显示可与 Ftrace 跟踪框架配合使用的跟踪器、事件、插件和函数。这有助于了解当前系统上可以跟踪哪些内容。
 
-The output depends on kernel configuration and loaded modules. Function listing may be very large on systems with many kernel symbols.
+输出取决于内核配置和已加载的模块。在内核符号较多的系统上，函数列表可能非常庞大。
 
 # CAVEATS
 
-Requires root privileges. Available items depend on kernel build configuration. Function list can be extremely large.
+需要 root 权限。可用条目取决于内核构建配置。函数列表可能极其庞大。
 
 # INSTALL
 

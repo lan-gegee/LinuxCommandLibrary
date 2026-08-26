@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert SBIG ST-4 autoguider images to PGM
+将 SBIG ST-4 自动导星图像转换为 PGM
 
 # TLDR
 
-**Convert** an SBIG ST-4 image file to PGM
+**转换** SBIG ST-4 图像文件为 PGM
 
 ```st4topgm [input.st4] > [output.pgm]```
 
-**Read from stdin** and convert to PGM
+**从标准输入读取**并转换为 PGM
 
 ```cat [input.st4] | st4topgm > [output.pgm]```
 
@@ -18,13 +18,13 @@ Convert SBIG ST-4 autoguider images to PGM
 
 # DESCRIPTION
 
-**st4topgm** reads an image in the native format used by the Santa Barbara Instrument Group (SBIG) ST-4 astronomical CCD autoguider cameras and writes the data to standard output as a PGM (Portable Graymap) image.
+**st4topgm** 读取 Santa Barbara Instrument Group（SBIG）ST-4 天文 CCD 自动导星相机所使用的原生格式图像，并将数据以 PGM（Portable Graymap）图像的形式写入标准输出。
 
-It is part of the Netpbm toolkit. If no input file is specified, it reads from standard input. The program does not provide any custom options; it honors the common libnetpbm options (e.g., `-quiet`, `-plain`).
+它是 Netpbm 工具集的一部分。若未指定输入文件，则从标准输入读取。该程序不提供任何自定义选项；它支持 libnetpbm 的通用选项（例如 `-quiet`、`-plain`）。
 
 # CAVEATS
 
-ST-4 files are a legacy astronomical imaging format. Use **pgmtost4** to perform the reverse conversion.
+ST-4 是一种过时的天文成像格式。反向转换请使用 **pgmtost4**。
 
 # INSTALL
 
@@ -47,4 +47,3 @@ ST-4 files are a legacy astronomical imaging format. Use **pgmtost4** to perform
 # SEE ALSO
 
 [pgmtost4](/man/pgmtost4)(1), [sbigtopgm](/man/sbigtopgm)(1)
-

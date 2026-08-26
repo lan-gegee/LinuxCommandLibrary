@@ -1,30 +1,30 @@
 # TAGLINE
 
-Terminal stock and crypto price tracker
+终端股票与加密货币价格跟踪器
 
 # TLDR
 
-**Watch stock prices** in real time
+实时**监视股票价格**
 
 ```ticker -w [AAPL,MSFT,GOOG]```
 
-**Track stocks** with position tracking from a config file
+通过配置文件**跟踪股票**及持仓
 
 ```ticker```
 
-**Show stock prices** in JSON format
+以 JSON 格式**显示股票价格**
 
 ```ticker -w [AAPL,MSFT] --format json```
 
-**Show stock prices** in CSV format
+以 CSV 格式**显示股票价格**
 
 ```ticker -w [AAPL,MSFT] --format csv```
 
-**Watch cryptocurrency prices**
+**监视加密货币价格**
 
 ```ticker -w [BTC-USD,ETH-USD]```
 
-**Use a custom config file**
+**使用自定义配置文件**
 
 ```ticker -c [path/to/config.yaml]```
 
@@ -35,50 +35,50 @@ Terminal stock and crypto price tracker
 # PARAMETERS
 
 **-w**, **--watchlist** _symbols_
-> Comma-separated list of stock or crypto symbols to watch.
+> 要监视的股票或加密货币代码列表，以逗号分隔。
 
 **-c**, **--config** _file_
-> Path to the configuration file. Default is ~/.ticker.yaml.
+> 配置文件的路径。默认为 ~/.ticker.yaml。
 
 **--format** _format_
-> Output format: default, json, or csv.
+> 输出格式：default、json 或 csv。
 
 **--show-fundamentals**
-> Show fundamental data like P/E ratio and market cap.
+> 显示市盈率、市值等基本面数据。
 
 **--show-tags**
-> Display tags associated with symbols.
+> 显示代码关联的标签。
 
 **--show-separator**
-> Show a separator between symbols in output.
+> 在输出中的各代码之间显示分隔线。
 
 **--show-holdings**
-> Display holdings and position values.
+> 显示持仓和仓位价值。
 
 **--sort** _field_
-> Sort output by field (e.g., change, changePercent).
+> 按字段排序输出（如 change、changePercent）。
 
 **--proxy** _url_
-> Proxy URL for API requests.
+> API 请求使用的代理 URL。
 
 **-i**, **--interval** _seconds_
-> Refresh interval in seconds.
+> 刷新间隔（秒）。
 
 # DESCRIPTION
 
-**ticker** is a terminal-based stock and cryptocurrency tracker that displays live price updates and position tracking. Written in Go, it provides real-time quotes from Yahoo Finance and CoinMarketCap, supporting stocks, ETFs, mutual funds, and cryptocurrencies.
+**ticker** 是一款基于终端的股票和加密货币跟踪工具，可显示实时价格更新和持仓跟踪。它使用 Go 编写，从 Yahoo Finance 和 CoinMarketCap 获取实时报价，支持股票、ETF、共同基金和加密货币。
 
-The tool can track both current prices and your portfolio positions with support for multiple cost basis lots. It displays pre-market and post-market prices when available, making it useful for monitoring investments outside regular trading hours.
+该工具可以同时跟踪当前价格和你的投资组合持仓，支持多个成本批次。有数据时会显示盘前和盘后价格，适合在常规交易时间之外监控投资。
 
-Configuration is typically done through a YAML file (~/.ticker.yaml) where you can define watchlists, positions with cost basis, and display preferences. The config file supports grouping symbols with tags and setting up multiple portfolios.
+配置通常通过 YAML 文件（~/.ticker.yaml）完成，你可以在其中定义关注列表、带成本基础的持仓以及显示偏好。配置文件支持用标签对代码分组，并可设置多个投资组合。
 
 # CAVEATS
 
-Market data from Yahoo Finance may have a slight lag (up to 30 seconds) due to intermediary systems. Real-time data is available for NYSE and NASDAQ, but other exchanges may have additional delays. Cryptocurrency prices are sourced from CoinMarketCap via Yahoo Finance.
+受中间系统影响，来自 Yahoo Finance 的行情数据可能有轻微延迟（最多 30 秒）。NYSE 和 NASDAQ 提供实时数据，但其他交易所可能存在额外延迟。加密货币价格由 CoinMarketCap 通过 Yahoo Finance 提供。
 
 # HISTORY
 
-**ticker** was created by **Ani Channarasappa** and first released in **2020**. It was developed to provide a lightweight, terminal-based alternative to web-based stock tracking tools, appealing to developers and terminal enthusiasts who prefer command-line workflows.
+**ticker** 由 **Ani Channarasappa** 创建，首次发布于 **2020 年**。它的开发初衷是提供一个轻量级、基于终端的网络股票跟踪工具替代品，吸引了偏爱命令行工作流的开发者和终端爱好者。
 
 # INSTALL
 

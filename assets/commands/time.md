@@ -1,26 +1,26 @@
 # TAGLINE
 
-Measure command execution time
+测量命令执行时间
 
 # TLDR
 
-**Measure execution time of a command**
+**测量命令的执行时间**
 
 ```time [command]```
 
-**Measure time with verbose output** (GNU time)
+**测量时间并输出详细信息**（GNU time）
 
 ```/usr/bin/time -v [command]```
 
-**Output to a file** (GNU time)
+**输出到文件**（GNU time）
 
 ```/usr/bin/time -o [time.log] [command]```
 
-**Custom output format** (GNU time)
+**自定义输出格式**（GNU time）
 
 ```/usr/bin/time -f "Real: %e User: %U Sys: %S" [command]```
 
-**Append to output file** (GNU time)
+**追加到输出文件**（GNU time）
 
 ```/usr/bin/time -a -o [time.log] [command]```
 
@@ -33,46 +33,46 @@ Measure command execution time
 # PARAMETERS (GNU TIME)
 
 **-v**, **--verbose**
-> Display detailed resource usage
+> 显示详细的资源使用情况
 
 **-o** _file_, **--output**=_file_
-> Write timing statistics to file
+> 将计时统计信息写入文件
 
 **-a**, **--append**
-> Append to output file instead of overwriting
+> 追加到输出文件而不是覆盖
 
 **-f** _format_, **--format**=_format_
-> Use specified output format
+> 使用指定的输出格式
 
 **-p**, **--portability**
-> Use POSIX output format
+> 使用 POSIX 输出格式
 
 # FORMAT SPECIFIERS (GNU TIME)
 
-**%e**: Elapsed real time (seconds)
-**%E**: Elapsed real time (h:mm:ss)
-**%U**: User CPU time (seconds)
-**%S**: System CPU time (seconds)
-**%P**: Percentage of CPU ((U+S)/E)
-**%M**: Maximum resident set size (KB)
-**%x**: Exit status of command
-**%C**: Command and arguments
+**%e**：实际经过时间（秒）
+**%E**：实际经过时间（h:mm:ss）
+**%U**：用户态 CPU 时间（秒）
+**%S**：内核态 CPU 时间（秒）
+**%P**：CPU 使用百分比（(U+S)/E）
+**%M**：最大常驻内存集（KB）
+**%x**：命令的退出状态
+**%C**：命令及其参数
 
 # DESCRIPTION
 
-**time** measures the execution time of a command, reporting real (wall clock), user (CPU time in user mode), and system (CPU time in kernel mode) times.
+**time** 测量命令的执行时间，报告实际耗时（墙上时钟）、用户时间（用户态 CPU 时间）和系统时间（内核态 CPU 时间）。
 
-There are two versions: the shell builtin (bash, zsh) and GNU time (**/usr/bin/time**). The builtin is simpler; GNU time provides more detailed resource statistics and formatting options.
+它有两个版本：shell 内建命令（bash、zsh）和 GNU time（**/usr/bin/time**）。内建版本较简单；GNU time 提供更详细的资源统计和格式化选项。
 
-Real time is the actual elapsed time. User time is CPU time executing user code. System time is CPU time in kernel calls. User + System may exceed Real on multi-core systems with parallel execution, or be less if the process waits for I/O.
+实际时间是真正经过的时间。用户时间是执行用户代码的 CPU 时间。系统时间是内核调用中花费的 CPU 时间。在多核并行执行的系统中，User + System 可能大于 Real；若进程等待 I/O 则可能更少。
 
 # CAVEATS
 
-The shell builtin **time** takes precedence. Use **/usr/bin/time** or **\time** for the external command with full features.
+Shell 内建的 **time** 优先级更高。要使用功能完整的外部命令，请用 **/usr/bin/time** 或 **\time**。
 
-For accurate benchmarking, run multiple iterations and consider system load. Use tools like **hyperfine** for statistical benchmarking.
+要做准确的基准测试，需多次运行迭代并考虑系统负载。统计型基准测试可使用 **hyperfine** 等工具。
 
-Resource measurements (memory, I/O) are only available with GNU time, not the shell builtin.
+资源测量（内存、I/O）只在 GNU time 中可用，shell 内建版本不支持。
 
 # INSTALL
 

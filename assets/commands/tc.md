@@ -1,34 +1,34 @@
 # TAGLINE
 
-Linux traffic control and shaping
+Linux 流量控制与整形
 
 # TLDR
 
-Add constant **delay**
+添加固定**延迟**
 
 ```sudo tc qdisc add dev eth0 root netem delay 100ms```
 
-Add **variable** delay
+添加**可变**延迟
 
 ```sudo tc qdisc add dev eth0 root netem delay 100ms 20ms```
 
-Add packet **loss**
+添加数据包**丢失**
 
 ```sudo tc qdisc add dev eth0 root netem loss 5%```
 
-**Limit** bandwidth
+**限制**带宽
 
 ```sudo tc qdisc add dev eth0 root tbf rate 10mbit burst 32kbit latency 400ms```
 
-**Show** active policies
+**显示**生效的策略
 
 ```tc qdisc show dev eth0```
 
-**Delete** all rules
+**删除**所有规则
 
 ```sudo tc qdisc delete dev eth0```
 
-**Change** rule
+**修改**规则
 
 ```sudo tc qdisc change dev eth0 root netem delay 50ms```
 
@@ -38,47 +38,47 @@ Add packet **loss**
 
 # DESCRIPTION
 
-**tc** (traffic control) configures kernel packet scheduling, shaping, and filtering. It can simulate network conditions like latency, packet loss, and bandwidth limits for testing or quality of service management.
+**tc**（traffic control，流量控制）用于配置内核的数据包调度、整形和过滤。它可以模拟延迟、丢包、带宽限制等网络状况，用于测试或服务质量（QoS）管理。
 
 # PARAMETERS
 
 **qdisc**
-> Queuing discipline - manage packet queuing
+> 排队规则——管理数据包排队
 
 **add**
-> Add a new traffic control policy
+> 添加新的流量控制策略
 
 **delete**
-> Remove traffic control policy
+> 移除流量控制策略
 
 **change**
-> Modify existing policy
+> 修改现有策略
 
 **show**
-> Display current policies
+> 显示当前策略
 
 **netem**
-> Network emulation (delay, loss, corruption)
+> 网络模拟（延迟、丢包、损坏）
 
 **tbf**
-> Token bucket filter (bandwidth limiting)
+> 令牌桶过滤器（带宽限制）
 
 **delay** _ms_
-> Add latency to packets
+> 为数据包增加延迟
 
 **loss** _percent_
-> Drop percentage of packets
+> 按百分比丢弃数据包
 
 **rate** _bandwidth_
-> Maximum bandwidth rate
+> 最大带宽速率
 
 # CAVEATS
 
-Affects outgoing traffic only. For bidirectional control, configure on both ends. Changes are immediate and can disrupt network connectivity. Not persistent across reboots.
+只影响出站流量。若要双向控制，需在两端分别配置。更改立即生效，可能中断网络连接。重启后不会保留。
 
 # HISTORY
 
-**tc** is part of **iproute2**, the Linux networking toolkit, providing advanced traffic shaping and network emulation.
+**tc** 是 Linux 网络工具集 **iproute2** 的组成部分，提供高级的流量整形与网络模拟能力。
 
 # INSTALL
 

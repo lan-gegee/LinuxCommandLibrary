@@ -1,30 +1,30 @@
 # TAGLINE
 
-Count words in LaTeX documents
+统计 LaTeX 文档中的字数
 
 # TLDR
 
-**Count words**
+**统计字数**
 
 ```texcount [document.tex]```
 
-**Brief output**
+**简要输出**
 
 ```texcount -brief [document.tex]```
 
-**Include subcounts**
+**包含子统计**
 
 ```texcount -sub [document.tex]```
 
-**HTML output**
+**HTML 输出**
 
 ```texcount -html [document.tex]```
 
-**Count multiple files**
+**统计多个文件**
 
 ```texcount -merge [file1.tex] [file2.tex]```
 
-**Verbose output**
+**详细输出**
 
 ```texcount -v [document.tex]```
 
@@ -35,36 +35,36 @@ Count words in LaTeX documents
 # PARAMETERS
 
 **-brief**
-> Short output.
+> 简短输出。
 
 **-sub**
-> Subcounts by section.
+> 按章节细分统计。
 
 **-html**
-> HTML output.
+> HTML 输出。
 
 **-merge**
-> Merge file counts.
+> 合并多个文件的统计结果。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-inc**
-> Include input files.
+> 包含被 \input 的文件。
 
 # DESCRIPTION
 
-**texcount** counts words in LaTeX documents by properly parsing TeX syntax rather than counting all whitespace-separated tokens. It distinguishes between text words, header words, caption words, and mathematical formulas, providing accurate counts that exclude macro names and formatting commands.
+**texcount** 通过正确解析 TeX 语法来统计 LaTeX 文档的字数，而不是简单地对所有以空白分隔的词元计数。它区分正文字词、标题字词、题注字词和数学公式，提供排除宏名和格式化命令后的准确计数。
 
-The **-sub** option breaks down counts by section, chapter, or other structural elements, which is useful for tracking progress on individual parts of a document. Multiple files can be processed together with **-merge**, and **-inc** follows \\input and \\include directives to count included files. Output formats include plain text, HTML, and verbose mode showing how each word was classified.
+**-sub** 选项可按节、章或其他结构元素细分统计，便于跟踪文档各部分的进度。多个文件可用 **-merge** 一起处理，**-inc** 会跟随 \\input 和 \\include 指令统计被包含的文件。输出格式包括纯文本、HTML 以及展示每个词如何被分类的详细模式。
 
 # CAVEATS
 
-LaTeX specific. Custom macros may confuse. Perl required.
+仅适用于 LaTeX。自定义宏可能造成混淆。需要 Perl。
 
 # HISTORY
 
-**TeXcount** was created to provide accurate word counts for LaTeX documents by properly parsing TeX syntax.
+**TeXcount** 的创建目的是通过正确解析 TeX 语法，为 LaTeX 文档提供准确的字数统计。
 
 # INSTALL
 

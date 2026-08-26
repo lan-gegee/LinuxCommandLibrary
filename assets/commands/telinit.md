@@ -1,30 +1,30 @@
 # TAGLINE
 
-Change SysV init runlevel
+更改 SysV init 运行级别
 
 # TLDR
 
-**Power off**
+**关机**
 
 ```telinit 0```
 
-**Reboot**
+**重启**
 
 ```telinit 6```
 
-Change **runlevel**
+更改**运行级别**
 
 ```telinit [2|3|4|5]```
 
-Enter **rescue** mode
+进入**救援**模式
 
 ```telinit 1```
 
-**Reload** daemon configuration
+**重新加载**守护进程配置
 
 ```telinit q```
 
-Reboot/poweroff without **wall** message
+重启/关机时**不发送 wall** 消息
 
 ```telinit --no-wall [0|6]```
 
@@ -34,26 +34,26 @@ Reboot/poweroff without **wall** message
 
 # RUNLEVELS
 
-**0** - Power off
+**0** - 关机
 
-**1** - Single-user/rescue mode
+**1** - 单用户/救援模式
 
-**2, 3, 4** - Multi-user modes
+**2, 3, 4** - 多用户模式
 
-**5** - Multi-user with GUI
+**5** - 带 GUI 的多用户模式
 
-**6** - Reboot
+**6** - 重启
 
-**q, Q** - Reload configuration
+**q, Q** - 重新加载配置
 
 # PARAMETERS
 
 **--no-wall**
-> Don't send wall message before reboot/poweroff
+> 重启/关机前不发送 wall 消息
 
 # DESCRIPTION
 
-**telinit** changes the SysV init runlevel. On systemd systems, runlevel requests are transparently translated to systemd target activations:
+**telinit** 用于更改 SysV init 运行级别。在 systemd 系统上，运行级别请求会被透明地转换为 systemd target 的激活：
 
 - 0 → poweroff.target
 - 1 → rescue.target
@@ -63,11 +63,11 @@ Reboot/poweroff without **wall** message
 
 # CAVEATS
 
-The SysV runlevel concept is obsolete on systemd systems. Use `systemctl` commands instead for native systemd operation. Provided for backwards compatibility.
+SysV 运行级别的概念在 systemd 系统上已经过时。原生的 systemd 操作请改用 `systemctl` 命令。该命令仅为向后兼容而提供。
 
 # HISTORY
 
-**telinit** originates from SysV init, predating systemd. On systemd systems, it's a compatibility wrapper that translates runlevels to systemd targets.
+**telinit** 起源于早于 systemd 的 SysV init。在 systemd 系统上，它是一个兼容性包装器，把运行级别转换为 systemd target。
 
 # INSTALL
 

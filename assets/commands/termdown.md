@@ -1,38 +1,38 @@
 # TAGLINE
 
-Terminal countdown timer and stopwatch
+终端倒计时器与秒表
 
 # TLDR
 
-**Countdown timer**
+**倒计时器**
 
 ```termdown [5m]```
 
-**Countdown to time**
+**倒计时到指定时刻**
 
 ```termdown [14:30]```
 
-**With title displayed above the timer**
+**在计时器上方显示标题**
 
 ```termdown -T "[Break time]" [10m]```
 
-**Blink at end**
+**结束时闪烁**
 
 ```termdown -b [5m]```
 
-**Spoken countdown using text-to-speech**
+**使用文字转语音进行语音倒计时**
 
 ```termdown -v [Alex] [5m]```
 
-**Critical time warning (last N seconds in red)**
+**临界时间警告（最后 N 秒显示为红色）**
 
 ```termdown -c [10] [5m]```
 
-**Stopwatch mode (count up, no time argument)**
+**秒表模式（向上计时，不带时间参数）**
 
 ```termdown```
 
-**Use alternate colon-separated format**
+**使用另一种冒号分隔的格式**
 
 ```termdown -a [5m]```
 
@@ -43,57 +43,57 @@ Terminal countdown timer and stopwatch
 # PARAMETERS
 
 **-t** _TEXT_, **--text** _TEXT_
-> Text to display at end of countdown.
+> 倒计时结束时显示的文本。
 
 **-b**
-> Blink at zero.
+> 归零时闪烁。
 
 **-v** _VOICE_, **--voice** _VOICE_
-> Spoken countdown using text-to-speech (requires espeak on Linux or say on macOS).
+> 使用文字转语音进行语音倒计时（Linux 上需要 espeak，macOS 上需要 say）。
 
 **-c** _SEC_, **--critical** _SEC_
-> Draw final N seconds in red and announce individually with --voice (defaults to 3).
+> 最后 N 秒以红色显示并用 --voice 单独播报（默认为 3）。
 
 **-f** _FONT_, **--font** _FONT_
-> Figlet font name or path to OTF/TTF file.
+> Figlet 字体名或 OTF/TTF 文件路径。
 
 **-s**, **--no-seconds**
-> Don't show seconds until critical threshold.
+> 到达临界阈值前不显示秒。
 
 **-a**, **--alt-format**
-> Use colon-separated time format.
+> 使用冒号分隔的时间格式。
 
 **-B**, **--no-bell**
-> Don't ring terminal bell at end of countdown.
+> 倒计时结束时不响铃。
 
 **-T** _TITLE_, **--title** _TITLE_
-> Text to display on top of countdown/stopwatch.
+> 显示在倒计时/秒表上方的文本。
 
 **-q** _N_, **--quit-after** _N_
-> Quit N seconds after countdown reaches zero.
+> 倒计时归零 N 秒后退出。
 
 **-o** _PATH_, **--outfile** _PATH_
-> File to write current remaining/elapsed time to.
+> 将当前剩余/已用时间写入该文件。
 
 **--exec-cmd** _CMD_
-> Run CMD every second during countdown.
+> 倒计时期间每秒执行一次 CMD。
 
 **--no-figlet**
-> Don't use ASCII art for display.
+> 显示时不使用 ASCII 艺术。
 
 # DESCRIPTION
 
-**termdown** displays countdown timers and stopwatches in the terminal using large figlet-style text for high visibility. It accepts time in various formats including seconds, minutes (e.g., **5m**), hours (e.g., **1h30m**), or a specific target time (e.g., **14:30**).
+**termdown** 在终端中显示倒计时器和秒表，使用大号 figlet 风格文字以获得高可见度。它接受多种时间格式：秒、分钟（如 **5m**）、小时（如 **1h30m**），或具体的目标时刻（如 **14:30**）。
 
-The timer can use text-to-speech (via espeak or macOS say) for spoken countdown, blink the display, and show a custom title. A critical threshold option changes the display color when time is running low. If no TIME is given, it operates in stopwatch mode and counts upward.
+计时器可以使用文字转语音（通过 espeak 或 macOS 的 say）播报倒计时、闪烁显示以及显示自定义标题。临界阈值选项会在时间快到时改变显示颜色。若未给出时间，则以秒表模式向上计时。
 
 # CAVEATS
 
-Terminal display only. Figlet fonts are optional but recommended for large visible text. The --voice option requires espeak on Linux or say on macOS.
+仅在终端中显示。Figlet 字体是可选的，但建议使用以获得清晰的大号文本。--voice 选项在 Linux 上需要 espeak，macOS 上需要 say。
 
 # HISTORY
 
-**termdown** was created as a terminal countdown timer with large figlet-style display for visibility.
+**termdown** 作为终端倒计时器而创建，采用 figlet 风格的大字显示以保证可见性。
 
 # INSTALL
 

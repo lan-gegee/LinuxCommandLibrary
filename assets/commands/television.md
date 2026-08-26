@@ -1,18 +1,18 @@
 # TAGLINE
 
-Blazingly fast general-purpose fuzzy finder TUI
+极速的通用模糊查找器 TUI
 
 # TLDR
 
-**Fuzzy search files in the current directory**
+**模糊搜索当前目录中的文件**
 
 ```tv```
 
-**Search through file contents**
+**搜索文件内容**
 
 ```tv text```
 
-**Find git repositories**
+**查找 git 仓库**
 
 ```tv git-repos```
 
@@ -22,11 +22,11 @@ Blazingly fast general-purpose fuzzy finder TUI
 
 # DESCRIPTION
 
-**television** is a fast, portable, and hackable fuzzy finder inspired by Neovim's Telescope plugin. It searches in real-time across files, text, git repos, environment variables, Docker containers, and more through a "channels" system. It uses the nucleo fuzzy matching library and ratatui for rendering.
+**television** 是一个快速、便携且可深度定制的模糊查找器，灵感来自 Neovim 的 Telescope 插件。它通过"频道（channels）"系统对文件、文本、git 仓库、环境变量、Docker 容器等进行实时搜索。它使用 nucleo 模糊匹配库和 ratatui 进行渲染。
 
 # HISTORY
 
-**television** was created by **Alex Pasmantier** (alexpasmantier) and is written in **Rust**.
+**television** 由 **Alex Pasmantier**（alexpasmantier）创建，使用 **Rust** 编写。
 
 # INSTALL
 

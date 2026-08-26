@@ -1,34 +1,34 @@
 # TAGLINE
 
-Shows warning or error messages with buttons on Sway
+在 Sway 上显示带按钮的警告或错误消息
 
 # TLDR
 
-**Show a simple warning** message
+**显示一条简单的警告**消息
 
 ```swaynag -m "[Low battery]"```
 
-**Show an error** (uses the red error style)
+**显示一条错误**（使用红色错误样式）
 
 ```swaynag -t error -m "[Disk full]"```
 
-**Add a button** that runs a command
+**添加一个**可运行命令的**按钮**
 
 ```swaynag -m "[Reboot required]" -b "[Reboot]" "[systemctl reboot]"```
 
-**Read a detailed message from stdin** and show a toggle
+**从标准输入读取详细消息**并显示切换按钮
 
 ```dmesg | swaynag -m "[Kernel messages]" -l```
 
-**Anchor the bar at the bottom** of the screen
+将栏**锚定在屏幕底部**
 
 ```swaynag -m "[Bottom notice]" -e bottom```
 
-**Target a specific output**
+**指定特定输出**
 
 ```swaynag -m "[Hello]" -o [HDMI-A-1]```
 
-**Use a custom config** file
+**使用自定义配置**文件
 
 ```swaynag -c [path/to/config] -m "[Hi]"```
 
@@ -39,56 +39,56 @@ Shows warning or error messages with buttons on Sway
 # PARAMETERS
 
 **-m**, **--message** _text_
-> Message to display.
+> 要显示的消息。
 
 **-l**, **--detailed-message**
-> Read a detailed message from standard input; adds a button that toggles the detailed text.
+> 从标准输入读取详细消息；会添加一个用于切换详细文本的按钮。
 
 **-L**, **--detailed-button** _text_
-> Text for the detailed-message toggle button (default: _Toggle details_).
+> 详细消息切换按钮的文字（默认：_Toggle details_）。
 
 **-t**, **--type** _name_
-> Message type (_error_, _warning_, or a custom one defined in the config). Each type has its own colors.
+> 消息类型（_error_、_warning_，或配置文件中定义的自定义类型）。每种类型有自己的配色。
 
 **-e**, **--edge** _top|bottom_
-> Screen edge on which to anchor (default: _top_).
+> 锚定的屏幕边缘（默认：_top_）。
 
 **-y**, **--layer** _overlay|top|bottom|background_
-> wlr-layer-shell layer used (default: _overlay_).
+> 使用的 wlr-layer-shell 层（默认：_overlay_）。
 
 **-o**, **--output** _name_
-> Name of the xdg_output on which to show the bar.
+> 显示该栏的 xdg_output 名称。
 
 **-b**, **--button** _text_ _command_
-> Add a button that runs _command_ in a terminal when pressed. Repeatable.
+> 添加一个按钮，按下后在终端中运行 _command_。可重复使用。
 
 **-B**, **--button-no-terminal** _text_ _command_
-> As **-b** but runs _command_ without a terminal.
+> 与 **-b** 相同，但不通过终端运行 _command_。
 
 **-z**, **--button-dismiss** _text_ _command_
-> Button that runs _command_ and then dismisses swaynag.
+> 添加一个按钮，运行 _command_ 后关闭 swaynag。
 
 **-Z**, **--button-dismiss-no-terminal** _text_ _command_
-> Same as **-z** but without a terminal.
+> 与 **-z** 相同，但不通过终端运行。
 
 **-s**, **--dismiss-button** _text_
-> Text for the dismiss (close) button (default: _X_).
+> 关闭按钮的文字（默认：_X_）。
 
 **-f**, **--font** _font_
-> Pango font description.
+> Pango 字体描述。
 
 **-c**, **--config** _file_
-> Load configuration from _file_.
+> 从 _file_ 加载配置。
 
 **-v**, **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 **-h**, **--help**
-> Show help and exit.
+> 显示帮助并退出。
 
 # CONFIGURATION
 
-**swaynag** loads the first readable file from:
+**swaynag** 会加载以下位置中第一个可读的文件：
 
 ```
 $HOME/.swaynag/config
@@ -96,17 +96,17 @@ $XDG_CONFIG_HOME/swaynag/config
 SYSCONFDIR/swaynag/config
 ```
 
-Config files use INI-style sections. The section name corresponds to the value of **-t**/**--type**; **[<default>]** applies to all types. Typical keys control colors, borders, padding, fonts, layer, and default buttons. See **swaynag**(5) for the full schema.
+配置文件采用 INI 风格的分节结构。节名对应 **-t**/**--type** 的取值；**[<default>]** 适用于所有类型。常见的键控制颜色、边框、内边距、字体、层和默认按钮。完整配置项请参阅 **swaynag**(5)。
 
 # DESCRIPTION
 
-**swaynag** is the **Sway** compositor's on-screen message dialog. It draws a bar across the top or bottom of a screen with a message, an optional detailed body, and optional buttons. Sway itself invokes **swaynag** to surface configuration errors or important warnings, but users and scripts may call it directly to display confirmations, reboot prompts, or custom alerts.
+**swaynag** 是 **Sway** 合成器的屏幕消息对话框。它在屏幕顶部或底部绘制一条栏，包含一条消息、可选的详细正文以及可选的按钮。Sway 本身会调用 **swaynag** 来提示配置错误或重要警告，但用户和脚本也可以直接调用它来显示确认信息、重启提示或自定义警告。
 
-The tool uses the **wlr-layer-shell** protocol, so it is specific to Wayland compositors that implement that protocol (Sway and other wlroots-based compositors).
+该工具使用 **wlr-layer-shell** 协议，因此仅适用于实现该协议的 Wayland 合成器（Sway 及其他基于 wlroots 的合成器）。
 
 # HISTORY
 
-**swaynag** is part of the **Sway** compositor, a tiling Wayland compositor compatible with i3. Sway was started by **Drew DeVault** in **2015**; **swaynag** was added as the replacement for the i3 nagbar that Sway historically launched for configuration errors.
+**swaynag** 是 **Sway** 合成器的一部分。Sway 是一个与 i3 兼容的平铺式 Wayland 合成器，由 **Drew DeVault** 于 **2015 年**发起；**swaynag** 作为 Sway 过去针对配置错误所启动的 i3 nagbar 的替代品而加入。
 
 # INSTALL
 

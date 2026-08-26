@@ -1,34 +1,34 @@
 # TAGLINE
 
-Lightweight BitTorrent client suite
+轻量级 BitTorrent 客户端套件
 
 # TLDR
 
-**Start GTK client**
+**启动 GTK 客户端**
 
 ```transmission-gtk```
 
-**Start Qt client**
+**启动 Qt 客户端**
 
 ```transmission-qt```
 
-**Start daemon**
+**启动守护进程**
 
 ```transmission-daemon```
 
-**Control daemon**
+**控制守护进程**
 
 ```transmission-remote```
 
-**Download torrent**
+**下载种子**
 
 ```transmission-cli [file.torrent]```
 
-**Add torrent to daemon**
+**向守护进程添加种子**
 
 ```transmission-remote -a [file.torrent]```
 
-**List torrents**
+**列出种子**
 
 ```transmission-remote -l```
 
@@ -39,44 +39,44 @@ Lightweight BitTorrent client suite
 # COMMANDS
 
 **transmission-gtk**
-> GTK GUI client.
+> GTK 图形客户端。
 
 **transmission-qt**
-> Qt GUI client.
+> Qt 图形客户端。
 
 **transmission-daemon**
-> Background daemon.
+> 后台守护进程。
 
 **transmission-remote**
-> Remote control.
+> 远程控制。
 
 **transmission-cli**
-> CLI client.
+> 命令行客户端。
 
 **transmission-create**
-> Create torrents.
+> 创建种子。
 
 **transmission-show**
-> Show torrent info.
+> 显示种子信息。
 
 **transmission-edit**
-> Modify existing torrent files.
+> 修改现有的种子文件。
 
 # DESCRIPTION
 
-**Transmission** is a lightweight, cross-platform BitTorrent client known for its simplicity and low resource usage. All of its interface variants — GTK, Qt, web, CLI, and daemon — share the same core backend engine, providing consistent behavior regardless of how the client is accessed.
+**Transmission** 是一个轻量级的跨平台 BitTorrent 客户端，以简洁和低资源占用著称。其所有界面变体——GTK、Qt、Web、CLI 和守护进程——共享同一核心后端引擎，无论以何种方式访问，行为都保持一致。
 
-The desktop GUI clients (transmission-gtk and transmission-qt) offer a graphical interface for managing torrents. For headless servers, transmission-daemon runs in the background and can be controlled through a built-in web interface or the transmission-remote command-line tool. The standalone transmission-cli provides simple single-torrent downloading without requiring a daemon.
+桌面图形客户端（transmission-gtk 和 transmission-qt）提供管理种子的图形界面。对于无头服务器，transmission-daemon 在后台运行，可通过内置 Web 界面或 transmission-remote 命令行工具控制。独立的 transmission-cli 提供简单的单种子下载功能，无需守护进程。
 
-Additional utilities include transmission-create for building new torrent files, transmission-show for inspecting torrent metadata, and transmission-edit for modifying existing torrent files. The suite supports features like peer exchange, DHT, magnet links, encryption, and bandwidth scheduling.
+其他实用工具包括用于构建新种子文件的 transmission-create、检查种子元数据的 transmission-show，以及修改现有种子文件的 transmission-edit。该套件支持节点交换、DHT、磁力链接、加密和带宽调度等功能。
 
 # CAVEATS
 
-Different packages for each interface. Daemon needs configuration. Port forwarding may be needed.
+每种界面由不同的软件包提供。守护进程需要配置。可能需要设置端口转发。
 
 # HISTORY
 
-**Transmission** was created in **2005** focusing on simplicity and low resource usage. It became popular for its clean design and cross-platform support.
+**Transmission** 创建于 **2005 年**，专注于简洁和低资源占用。凭借简洁的设计和跨平台支持而广受欢迎。
 
 # INSTALL
 

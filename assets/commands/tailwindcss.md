@@ -1,30 +1,30 @@
 # TAGLINE
 
-Utility-first CSS framework CLI
+实用优先 CSS 框架的命令行工具
 
 # TLDR
 
-**Build CSS from input file**
+从输入文件**构建 CSS**
 
 ```tailwindcss -i [src/input.css] -o [dist/output.css]```
 
-**Build and watch for changes**
+**构建并监视变更**
 
 ```tailwindcss -i [src/input.css] -o [dist/output.css] --watch```
 
-**Build with minification**
+压缩构建
 
 ```tailwindcss -i [src/input.css] -o [dist/output.css] --minify```
 
-**Initialize a configuration file**
+**初始化**配置文件
 
 ```tailwindcss init```
 
-**Initialize with full configuration**
+以完整配置**初始化**
 
 ```tailwindcss init --full```
 
-**Build using npx**
+通过 npx 构建
 
 ```npx tailwindcss -i [src/input.css] -o [dist/output.css]```
 
@@ -35,49 +35,49 @@ Utility-first CSS framework CLI
 # PARAMETERS
 
 **-i** _file_, **--input** _file_
-> Input CSS file to process
+> 要处理的输入 CSS 文件
 
 **-o** _file_, **--output** _file_
-> Output file for compiled CSS
+> 编译后的 CSS 输出文件
 
 **-w**, **--watch**
-> Watch for changes and rebuild automatically
+> 监视变更并自动重新构建
 
 **-m**, **--minify**
-> Minify the output CSS
+> 压缩输出的 CSS
 
 **-c** _file_, **--config** _file_
-> Path to tailwind.config.js file
+> tailwind.config.js 文件的路径
 
 **--content** _paths_
-> Content files to scan for class usage
+> 要扫描类名使用情况的内容文件
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 # SUBCOMMANDS
 
 **init**
-> Create a tailwind.config.js file
+> 创建 tailwind.config.js 文件
 
 **init --full**
-> Create configuration with all default values
+> 创建包含所有默认值的配置
 
 # DESCRIPTION
 
-**Tailwind CSS** is a utility-first CSS framework that generates optimized CSS by scanning source files for class usage. The CLI compiles Tailwind's utility classes into standard CSS.
+**Tailwind CSS** 是一个实用优先（utility-first）的 CSS 框架，它通过扫描源文件中的类使用情况来生成优化的 CSS。该 CLI 将 Tailwind 的工具类编译为标准 CSS。
 
-The build process scans template files (HTML, JSX, Vue, etc.) for Tailwind classes, generates only the CSS rules actually used, and outputs a production-ready stylesheet. The **--watch** flag enables live rebuilding during development.
+构建过程会扫描模板文件（HTML、JSX、Vue 等）中的 Tailwind 类，只生成实际用到的 CSS 规则，并输出可用于生产环境的样式表。**--watch** 标志可在开发过程中实时重新构建。
 
-Input CSS files should contain Tailwind directives like @tailwind base, @tailwind components, and @tailwind utilities. Configuration is customized via tailwind.config.js.
+输入的 CSS 文件应包含 @tailwind base、@tailwind components 和 @tailwind utilities 等 Tailwind 指令。配置通过 tailwind.config.js 自定义。
 
 # CAVEATS
 
-The CLI requires Node.js. For production builds, always use **--minify** to reduce file size. Ensure content paths in configuration correctly point to all template files to avoid missing styles.
+此 CLI 需要 Node.js。生产环境构建时务必使用 **--minify** 来减小文件体积。确保配置中的 content 路径正确指向所有模板文件，以免样式缺失。
 
 # HISTORY
 
-Tailwind CSS was created by **Adam Wathan** and first released in **November 2017**. Version 4 (2024) introduced significant performance improvements with the @tailwindcss/cli package. The framework popularized the utility-first approach to CSS.
+Tailwind CSS 由 **Adam Wathan** 创建，于 **2017 年 11 月**首次发布。第 4 版（2024 年）通过 @tailwindcss/cli 软件包带来了显著的性能提升。该框架让实用优先的 CSS 编写方式广为流行。
 
 # INSTALL
 

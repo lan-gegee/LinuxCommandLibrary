@@ -1,18 +1,18 @@
 # TAGLINE
 
-Import variables into service manager
+向服务管理器导入环境变量
 
 # TLDR
 
-**Import** environment variable
+**导入**环境变量
 
 ```systemctl import-environment [VARIABLE]```
 
-Import **multiple** variables
+导入**多个**变量
 
 ```systemctl import-environment [VAR1 VAR2 ...]```
 
-Import for **user** services
+为**用户**服务导入
 
 ```systemctl import-environment [VARIABLE] --user```
 
@@ -23,24 +23,24 @@ Import for **user** services
 # PARAMETERS
 
 **--user**
-> Import into user service manager environment
+> 导入到用户服务管理器环境
 
 **--system**
-> Import into system manager environment (default)
+> 导入到系统管理器环境（默认）
 
 # DESCRIPTION
 
-**systemctl import-environment** imports environment variables from the current shell session into the systemd service manager's environment. These imported variables become available to all units started by the service manager.
+**systemctl import-environment** 将当前 shell 会话中的环境变量导入 systemd 服务管理器的环境中。这些导入的变量对该服务管理器启动的所有 unit 可见。
 
-This is commonly used with `--user` to pass display-related variables (like DISPLAY, WAYLAND_DISPLAY, or XDG_SESSION_ID) from the login session to user services.
+这通常与 `--user` 一起使用，将显示相关的变量（如 DISPLAY、WAYLAND_DISPLAY 或 XDG_SESSION_ID）从登录会话传递给用户服务。
 
 # CAVEATS
 
-Only affects services started after the import. Does not affect already running services. The system service manager typically runs in a minimal environment; importing user session variables may not be appropriate.
+只影响导入之后启动的服务，不影响已在运行的服务。系统服务管理器通常运行在最小化环境中；导入用户会话变量可能并不合适。
 
 # HISTORY
 
-The **import-environment** subcommand enables proper integration between login sessions and systemd user services, solving the problem of user services not having access to session environment variables.
+**import-environment** 子命令实现了登录会话与 systemd 用户服务的正确集成，解决了用户服务无法访问会话环境变量的问题。
 
 # SEE ALSO
 

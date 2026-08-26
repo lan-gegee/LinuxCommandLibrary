@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI interface for large language models
+大语言模型的 TUI 界面
 
 # TLDR
 
-**Launch the LLM chat TUI**
+**启动 LLM 聊天 TUI**
 
 ```tenere```
 
-**Use a specific config file**
+**使用指定的配置文件**
 
 ```tenere --config [~/.config/tenere/config.toml]```
 
@@ -18,11 +18,11 @@ TUI interface for large language models
 
 # DESCRIPTION
 
-**tenere** is a terminal user interface for interacting with LLMs like ChatGPT, llama.cpp, and Ollama. It features Vim-like modes (Normal, Visual, Insert), syntax highlighting, chat history, and file saving. Configuration is done via TOML files.
+**tenere** 是一个用于与 ChatGPT、llama.cpp、Ollama 等 LLM 交互的终端用户界面。它具有类 Vim 的模式（Normal、Visual、Insert）、语法高亮、聊天历史和文件保存功能。配置通过 TOML 文件完成。
 
 # HISTORY
 
-**tenere** was created by **Badr** (pythops) and is written in **Rust**.
+**tenere** 由 **Badr**（pythops）创建，使用 **Rust** 编写。
 
 # INSTALL
 

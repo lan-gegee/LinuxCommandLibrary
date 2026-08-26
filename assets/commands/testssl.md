@@ -1,38 +1,38 @@
 # TAGLINE
 
-Test TLS/SSL server configurations
+测试 TLS/SSL 服务器配置
 
 # TLDR
 
-**Test server**
+**测试服务器**
 
 ```testssl [example.com]```
 
-**Test specific port**
+**测试指定端口**
 
 ```testssl [example.com:8443]```
 
-**Quick test**
+**快速测试**
 
 ```testssl --fast [example.com]```
 
-**Show all ciphers**
+**显示所有密码套件**
 
 ```testssl -E [example.com]```
 
-**Check vulnerabilities only**
+**仅检查漏洞**
 
 ```testssl -U [example.com]```
 
-**HTML output**
+**HTML 输出**
 
 ```testssl --html [example.com]```
 
-**JSON output**
+**JSON 输出**
 
 ```testssl --jsonfile [output.json] [example.com]```
 
-**Quiet mode**
+**安静模式**
 
 ```testssl --quiet [example.com]```
 
@@ -43,68 +43,68 @@ Test TLS/SSL server configurations
 # PARAMETERS
 
 **-E**, **--each-cipher**
-> Test each cipher.
+> 测试每个密码套件。
 
 **-e**, **--cipher-per-proto**
-> Ciphers per protocol.
+> 按协议列出密码套件。
 
 **-U**, **--vulnerable**
-> Vulnerability checks.
+> 漏洞检查。
 
 **-S**, **--server-defaults**
-> Server defaults.
+> 服务器默认设置。
 
 **-P**, **--protocols**
-> Protocol support.
+> 协议支持情况。
 
 **-H**, **--headers**
-> HTTP headers.
+> HTTP 头部。
 
 **--fast**
-> Quick check.
+> 快速检查。
 
 **--html**
-> HTML output.
+> HTML 输出。
 
 **--jsonfile** _FILE_
-> JSON output.
+> JSON 输出。
 
 **--csvfile** _FILE_
-> CSV output.
+> CSV 输出。
 
 **--quiet**
-> Minimal output.
+> 极简输出。
 
 **--color** _N_
-> Color mode (0-3).
+> 颜色模式（0-3）。
 
 **--connect-timeout** _SEC_
-> Connection timeout.
+> 连接超时。
 
 **--openssl** _PATH_
-> Custom OpenSSL path.
+> 自定义 OpenSSL 路径。
 
 # DESCRIPTION
 
-**testssl** checks TLS/SSL encryption on servers. It identifies vulnerabilities, weak ciphers, and configuration problems.
+**testssl** 检查服务器上的 TLS/SSL 加密。它能识别漏洞、弱密码套件和配置问题。
 
-Protocol testing shows which TLS versions are enabled. Old protocols (SSLv3, TLS 1.0, TLS 1.1) are security risks.
+协议测试显示启用了哪些 TLS 版本。旧协议（SSLv3、TLS 1.0、TLS 1.1）存在安全风险。
 
-Vulnerability scanning checks for BEAST, POODLE, Heartbleed, ROBOT, and other known attacks.
+漏洞扫描检查 BEAST、POODLE、Heartbleed、ROBOT 及其他已知攻击。
 
-Cipher analysis reveals weak encryption. Export ciphers, NULL encryption, and RC4 are flagged.
+密码套件分析可发现弱加密。导出级密码套件、NULL 加密和 RC4 都会被标记出来。
 
-Certificate inspection shows validity, chain, and trust issues. It identifies expiring, self-signed, or misconfigured certificates.
+证书检查显示有效期、证书链和信任问题。它能识别即将过期、自签名或配置错误的证书。
 
-The tool is a bash script requiring OpenSSL. It works on any Unix-like system without installation.
+该工具是一个依赖 OpenSSL 的 bash 脚本。它可以在任何类 Unix 系统上直接使用，无需安装。
 
 # CAVEATS
 
-Thorough scans take time. Some checks may trigger IDS. Depends on OpenSSL version for some tests. Not all vulnerabilities detectable remotely.
+彻底的扫描需要时间。某些检查可能触发 IDS。部分测试结果取决于 OpenSSL 版本。并非所有漏洞都能远程检测到。
 
 # HISTORY
 
-**testssl.sh** was created by **Dirk Wetter** starting around **2012**. It provides comprehensive TLS testing without requiring complex setup, becoming a standard tool for security assessments.
+**testssl.sh** 由 **Dirk Wetter** 从 **2012** 年前后开始开发。它无需复杂的部署即可提供全面的 TLS 测试，已成为安全评估的标准工具。
 
 # INSTALL
 

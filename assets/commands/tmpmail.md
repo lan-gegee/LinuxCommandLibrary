@@ -1,30 +1,30 @@
 # TAGLINE
 
-Temporary disposable email from terminal
+来自终端的一次性临时邮箱
 
 # TLDR
 
-**Generate address**
+**生成地址**
 
 ```tmpmail -g```
 
-**Check inbox**
+**检查收件箱**
 
 ```tmpmail```
 
-**Read email by ID**
+**按 ID 阅读邮件**
 
 ```tmpmail [email-id]```
 
-**Copy address**
+**复制地址**
 
 ```tmpmail -c```
 
-**Different domain**
+**更换域名**
 
 ```tmpmail -g [domain]```
 
-**Recent emails**
+**最近的邮件**
 
 ```tmpmail -r```
 
@@ -35,36 +35,36 @@ Temporary disposable email from terminal
 # PARAMETERS
 
 **-g**
-> Generate address.
+> 生成地址。
 
 **-c**
-> Copy to clipboard.
+> 复制到剪贴板。
 
 **-r**
-> Recent emails.
+> 最近的邮件。
 
 **-b** _BROWSER_
-> Open email in the specified browser instead of plain text in the terminal.
+> 用指定的浏览器打开邮件，而不是在终端中以纯文本显示。
 
 **-t**, **--text**
-> Force text mode rendering (do not open in a browser).
+> 强制以文本模式渲染（不在浏览器中打开）。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**tmpmail** generates temporary, disposable email addresses and lets you check their inbox directly from the terminal. It is useful for signing up for services without exposing your real email address to potential spam.
+**tmpmail** 生成一次性的临时邮箱地址，让你可以直接从终端查看其收件箱。它适合注册各种服务时使用，避免将真实邮箱暴露给潜在的垃圾邮件。
 
-The tool creates addresses on supported temporary email domains and retrieves incoming messages for viewing in the terminal or a browser. The current address can be copied to the clipboard with **-c** for quick pasting into registration forms.
+该工具在支持的临时邮箱域名上创建地址，并获取收到的邮件以便在终端或浏览器中查看。当前地址可以用 **-c** 复制到剪贴板，方便快速粘贴到注册表单中。
 
 # CAVEATS
 
-External service dependent. May have limits. Not for sensitive use.
+依赖外部服务。可能有使用限制。不适合敏感用途。
 
 # HISTORY
 
-**tmpmail** was created for generating temporary email addresses and checking them from the command line.
+**tmpmail** 为生成临时邮箱地址并在命令行中查看它们而创建。
 
 # INSTALL
 

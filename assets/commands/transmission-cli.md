@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line BitTorrent downloader
+命令行 BitTorrent 下载器
 
 # TLDR
 
-**Download a torrent**
+**下载种子**
 
 ```transmission-cli [path/to/file.torrent]```
 
-**Download a magnet link**
+**下载磁力链接**
 
 ```transmission-cli "[magnet:?xt=urn:btih:...]"```
 
-**Download to a specific directory**
+**下载到指定目录**
 
 ```transmission-cli -w [path/to/download/dir] [file.torrent]```
 
-**Download with speed limits** (KB/s)
+**限速下载** (KB/s)
 
 ```transmission-cli -d [500] -u [100] [file.torrent]```
 
-**Download and exit immediately** when complete (don't seed)
+**完成后立即退出**（不做种）
 
 ```transmission-cli -m [file.torrent]```
 
-**Download with peer blocklist enabled**
+**启用对等节点黑名单下载**
 
 ```transmission-cli -b [file.torrent]```
 
-**Run in quiet mode**
+**以静默模式运行**
 
 ```transmission-cli -q [file.torrent]```
 
@@ -39,55 +39,55 @@ Command-line BitTorrent downloader
 # PARAMETERS
 
 **-b**, **--blocklist**
-> Enable peer blocklists. Transmission understands the bluetack blocklist format.
+> 启用对等节点黑名单。Transmission 支持 bluetack 黑名单格式。
 
 **-d** _limit_
-> Set maximum download speed in KB/s. 0 means unlimited.
+> 设置最大下载速度，单位 KB/s。0 表示不限制。
 
 **-u** _limit_
-> Set maximum upload speed in KB/s. 0 means unlimited.
+> 设置最大上传速度，单位 KB/s。0 表示不限制。
 
 **-f** _script_
-> Run a script when the torrent finishes downloading.
+> 种子下载完成时运行指定脚本。
 
 **-g**, **--config-dir** _dir_
-> Directory for configuration files. Allows sharing config between different Transmission clients.
+> 配置文件所在目录。可在不同 Transmission 客户端之间共享配置。
 
 **-m**
-> Do not seed after download completes; exit immediately.
+> 下载完成后不做种；立即退出。
 
 **-p**, **--port** _port_
-> Set the port to listen for incoming peers. Default: 51413.
+> 设置监听传入对等节点的端口。默认：51413。
 
 **-w** _dir_
-> Directory to save downloaded files. Defaults to current directory.
+> 保存下载文件的目录。默认为当前目录。
 
 **-q**
-> Quiet mode. Suppress most output, show only critical messages.
+> 静默模式。屏蔽大部分输出，仅显示关键消息。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 **-v**, **--version**
-> Display version number and exit.
+> 显示版本号并退出。
 
 # DESCRIPTION
 
-**transmission-cli** is a lightweight, command-line BitTorrent client for downloading and uploading torrents. It supports both .torrent files and magnet URIs, making it suitable for servers, headless systems, and scripted torrent operations.
+**transmission-cli** 是一个轻量级的命令行 BitTorrent 客户端，用于下载和上传种子。它同时支持 .torrent 文件和磁力 URI，适用于服务器、无头系统以及脚本化的种子操作。
 
-The client handles a single torrent per invocation, downloading the content and optionally seeding upon completion. Progress is displayed in the terminal showing download/upload speeds, peer connections, and completion percentage.
+每次调用只处理一个种子：下载内容并可选择在完成后做种。进度会显示在终端中，包括下载/上传速度、对等节点连接数和完成百分比。
 
-Configuration is stored in ~/.config/transmission by default, allowing resume functionality if a download is interrupted. The client respects the TRANSMISSION_HOME environment variable for custom config locations and http_proxy for tracker announces.
+配置默认存储在 ~/.config/transmission 中，下载中断后可据此恢复。该客户端会遵循 TRANSMISSION_HOME 环境变量指定的自定义配置位置，并遵循 http_proxy 进行 tracker 通告。
 
-Sending SIGHUP to a running transmission-cli process contacts the tracker for additional peers.
+向正在运行的 transmission-cli 进程发送 SIGHUP 可联系 tracker 以获取更多对等节点。
 
 # CAVEATS
 
-transmission-cli handles only one torrent at a time and is not designed for continuous operation. For managing multiple torrents or running as a service, use **transmission-daemon** with **transmission-remote** instead. The client must remain running for the entire download; closing it will interrupt the transfer.
+transmission-cli 一次只能处理一个种子，且并非为持续运行而设计。若要管理多个种子或将其作为服务运行，请改用 **transmission-daemon** 配合 **transmission-remote**。客户端必须在整个下载期间保持运行；关闭它会中断传输。
 
 # HISTORY
 
-**Transmission** was originally created by **Eric Petit** and **Josh Elsasser** in **2005** for macOS, with Linux support following shortly after. The command-line interface was added to provide headless operation capabilities. Transmission became known for its lightweight design and cross-platform support, becoming one of the default BitTorrent clients on many Linux distributions.
+**Transmission** 由 **Eric Petit** 和 **Josh Elsasser** 于 **2005 年**为 macOS 创建，随后不久加入了对 Linux 的支持。命令行界面的加入使其具备无头运行能力。Transmission 以轻量设计和跨平台支持著称，成为许多 Linux 发行版的默认 BitTorrent 客户端之一。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Protein query to nucleotide database search
+蛋白质查询序列对核苷酸数据库的搜索
 
 # TLDR
 
-**Search a protein query** against a nucleotide database
+**用蛋白质查询序列搜索**核苷酸数据库
 
 ```tblastn -query [protein.fasta] -db [nt_database]```
 
-**Search with a specific output format**
+**以指定的输出格式搜索**
 
 ```tblastn -query [protein.fasta] -db [database] -outfmt [6]```
 
-**Save results to a file**
+**将结果保存到文件**
 
 ```tblastn -query [protein.fasta] -db [database] -out [results.txt]```
 
-**Use multiple threads** for faster search
+**使用多线程**加快搜索
 
 ```tblastn -query [protein.fasta] -db [database] -num_threads [4]```
 
-**Set E-value threshold**
+**设置 E 值阈值**
 
 ```tblastn -query [protein.fasta] -db [database] -evalue [1e-10]```
 
-**Use the fast task** for quicker searches
+**使用快速任务**进行更快的搜索
 
 ```tblastn -query [protein.fasta] -db [database] -task tblastn-fast```
 
-**Search against a remote NCBI database**
+**搜索远程 NCBI 数据库**
 
 ```tblastn -query [protein.fasta] -db [nr] -remote```
 
@@ -39,78 +39,78 @@ Protein query to nucleotide database search
 # PARAMETERS
 
 **-query** _file_
-> Input file with protein query sequence(s) in FASTA format.
+> 包含 FASTA 格式蛋白质查询序列的输入文件。
 
 **-db** _database_
-> Nucleotide database name or path to search against.
+> 要搜索的核苷酸数据库名称或路径。
 
 **-out** _file_
-> Output file for results (default: stdout).
+> 结果输出文件（默认为 stdout）。
 
 **-outfmt** _format_
-> Output format: 0 (pairwise), 6 (tabular), 7 (tabular with comments), 10 (CSV), and others.
+> 输出格式：0（配对）、6（表格）、7（带注释的表格）、10（CSV）等。
 
 **-evalue** _value_
-> E-value threshold for reporting matches (default: 10).
+> 报告匹配的 E 值阈值（默认为 10）。
 
 **-num_threads** _n_
-> Number of threads for parallel execution.
+> 并行执行所用的线程数。
 
 **-task** _task_
-> Task to execute: **tblastn** (standard) or **tblastn-fast** (faster, larger word size).
+> 要执行的任务：**tblastn**（标准）或 **tblastn-fast**（更快，字长更大）。
 
 **-remote**
-> Execute search against NCBI servers instead of local database.
+> 针对 NCBI 服务器而非本地数据库执行搜索。
 
 **-max_target_seqs** _n_
-> Maximum number of aligned sequences to keep.
+> 保留的比对序列最大数量。
 
 **-word_size** _n_
-> Word size for initial match (default: 3 for tblastn, 6 for tblastn-fast).
+> 初始匹配的字长（tblastn 默认为 3，tblastn-fast 默认为 6）。
 
 **-matrix** _name_
-> Scoring matrix (default: BLOSUM62). Other options include PAM30, PAM70, BLOSUM45, BLOSUM80.
+> 打分矩阵（默认为 BLOSUM62）。其他选项包括 PAM30、PAM70、BLOSUM45、BLOSUM80。
 
 **-gapopen** _n_
-> Cost to open a gap.
+> 打开缺口的代价。
 
 **-gapextend** _n_
-> Cost to extend a gap.
+> 延伸缺口的代价。
 
 **-db_gencode** _n_
-> Genetic code to translate database sequences (default: 1).
+> 翻译数据库序列使用的遗传密码（默认为 1）。
 
 **-comp_based_stats** _mode_
-> Composition-based statistics mode (0-3).
+> 基于组成的统计模式（0-3）。
 
 **-seg** _options_
-> Filter query with SEG algorithm.
+> 使用 SEG 算法过滤查询序列。
 
 **-threshold** _n_
-> Minimum score to add a word to the BLAST lookup table (default: 13 for tblastn, 21 for tblastn-fast).
+> 将单词加入 BLAST 查找表的最低分值（tblastn 默认为 13，tblastn-fast 默认为 21）。
 
 **-h**
-> Print abbreviated help.
+> 打印简略帮助。
 
 **-help**
-> Print detailed help with all options.
+> 打印含全部选项的详细帮助。
 
 **-version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**tblastn** is part of the NCBI BLAST+ suite for sequence alignment. It searches a protein query sequence against a nucleotide sequence database, translating the database sequences in all six reading frames at search time. This is useful for finding protein-coding regions in nucleotide sequences.
+**tblastn** 是 NCBI BLAST+ 序列比对工具套件的一部分。它以蛋白质查询序列搜索核苷酸序列数据库，在搜索时将数据库序列按全部六个阅读框翻译。这适用于在核苷酸序列中寻找蛋白编码区域。
 
-The algorithm compares each protein query against the translated nucleotide subjects and reports statistically significant alignments. Results can be formatted in various ways for downstream analysis, including tabular formats suitable for parsing.
+该算法将每个蛋白质查询与翻译后的核苷酸目标序列进行比较，并报告具有统计学显著性的比对。结果可以多种方式格式化以便下游分析，其中包括适合解析的表格格式。
 
 # CAVEATS
 
-Searching against translated databases is computationally intensive since each subject sequence is translated in six frames. For large databases, use **-num_threads** to enable parallel execution. The **tblastn-fast** task provides faster but less sensitive searches. Local database searches require pre-built BLAST databases created with **makeblastdb**.
+针对翻译后数据库的搜索计算量很大，因为每条目标序列都要按六个阅读框翻译。对于大型数据库，应使用 **-num_threads** 启用并行执行。**tblastn-fast** 任务搜索更快但灵敏度较低。本地数据库搜索需要使用 **makeblastdb** 预先构建 BLAST 数据库。
 
 # HISTORY
 
-BLAST (Basic Local Alignment Search Tool) was developed at **NCBI** by **Stephen Altschul** and colleagues, with the original algorithm published in **1990**. tblastn was part of the original BLAST suite for protein-to-translated-nucleotide searches. The BLAST+ command-line applications, a complete rewrite in C++, were released in **2009** and continue to be actively maintained by NCBI.
+BLAST（Basic Local Alignment Search Tool，基础局部比对搜索工具）由 **NCBI** 的 **Stephen Altschul** 及其同事开发，原始算法于 **1990 年**发表。tblastn 是最初 BLAST 套件中用于蛋白质对翻译后核苷酸搜索的工具。BLAST+ 命令行程序是用 C++ 完全重写的版本，于 **2009 年**发布，至今仍由 NCBI 积极维护。
 
 # INSTALL
 

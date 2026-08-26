@@ -1,22 +1,22 @@
 # TAGLINE
 
-Containerized environments for immutable Linux
+面向不可变 Linux 的容器化环境
 
 # TLDR
 
-**Enter** a Toolbx container interactively
+交互式**进入** Toolbx 容器
 
 ```toolbox enter [container]```
 
-**Remove** one or more containers
+**删除**一个或多个容器
 
 ```toolbox rm [container1] [container2]```
 
-**Remove** one or more images
+**删除**一个或多个镜像
 
 ```toolbox rmi [image1] [image2]```
 
-**Display** help for a specific subcommand
+**显示**特定子命令的帮助
 
 ```toolbox help [subcommand]```
 
@@ -27,38 +27,38 @@ Containerized environments for immutable Linux
 # PARAMETERS
 
 **create**
-> Create a new Toolbx container
+> 创建新的 Toolbx 容器
 
 **enter**
-> Enter a container for interactive use
+> 进入容器进行交互式使用
 
 **list**
-> List existing containers and images
+> 列出现有的容器和镜像
 
 **rm**
-> Remove one or more containers
+> 删除一个或多个容器
 
 **rmi**
-> Remove one or more images
+> 删除一个或多个镜像
 
 **run**
-> Run a command in a container
+> 在容器中运行命令
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**toolbox** (or Toolbx) provides containerized command-line environments on Linux, primarily for Fedora Silverblue, CoreOS, and other immutable/ostree-based distributions. It creates mutable containers that seamlessly integrate with the host system.
+**toolbox**（或称 Toolbx）在 Linux 上提供容器化的命令行环境，主要面向 Fedora Silverblue、CoreOS 以及其他基于 immutable/ostree 的发行版。它创建的易变容器可与宿主系统无缝集成。
 
-Containers have access to the user's home directory, networking, and graphical environment while being isolated from the immutable host OS. This allows installing and using development tools without modifying the base system.
+容器可以访问用户的主目录、网络和图形环境，同时与不可变的宿主操作系统保持隔离。这样无需修改基础系统即可安装和使用开发工具。
 
 # CAVEATS
 
-Requires Podman as the container runtime. Best suited for immutable Linux distributions. Container images are distribution-specific. Integration with the host may vary.
+需要 Podman 作为容器运行时。最适合不可变 Linux 发行版。容器镜像因发行版而异。与宿主机的集成程度可能有所不同。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Top-like display backed by hardware performance counters
+基于硬件性能计数器的类 top 显示工具
 
 # TLDR
 
-**Launch the interactive monitor**
+**启动交互式监视器**
 
 ```tiptop```
 
-**Refresh every 2 seconds**
+每 2 秒刷新一次
 
 ```tiptop -d [2]```
 
-**Show only the named process**
+只显示指定进程
 
 ```tiptop -p [firefox]```
 
-**Show only one user's tasks**
+只显示某个用户的任务
 
 ```tiptop -u [$USER]```
 
-**Run in batch mode** for 5 iterations (e.g., for logging)
+**以批处理模式运行** 5 次迭代（例如用于记录日志）
 
 ```tiptop -b -n [5]```
 
-**Include kernel activity** in counter values (needs root / **CAP_SYS_ADMIN**)
+将内核活动计入计数器值（需要 root / **CAP_SYS_ADMIN**）
 
 ```sudo tiptop -K```
 
@@ -35,57 +35,57 @@ Top-like display backed by hardware performance counters
 # PARAMETERS
 
 **-b**
-> Batch mode: print to stdout, no interactive control.
+> 批处理模式：输出到 stdout，无交互控制。
 
 **-c**
-> Display the full command line instead of the process name.
+> 显示完整命令行而不是进程名。
 
 **-d** _SECONDS_
-> Delay between refreshes (fractional values allowed).
+> 刷新间隔（允许小数值）。
 
 **-H**
-> Show one line per thread instead of per process.
+> 每个线程一行显示，而不是每个进程一行。
 
 **-i**
-> Include idle tasks.
+> 包含空闲任务。
 
 **-K**
-> Count kernel-mode events (needs **perf_event_paranoid <= 1** or root).
+> 统计内核态事件（需要 **perf_event_paranoid <= 1** 或 root）。
 
 **-n** _COUNT_
-> Exit after _COUNT_ refreshes (useful with **-b**).
+> 刷新 _COUNT_ 次后退出（配合 **-b** 使用）。
 
 **-p** _PID_or_NAME_
-> Restrict the display to a process by PID or basename.
+> 按 PID 或进程名限定显示范围。
 
 **-u** _USER_
-> Restrict the display to a user.
+> 按用户限定显示范围。
 
 **-w** _PID_
-> Highlight/follow a single task.
+> 高亮并跟踪单个任务。
 
 **-S** _COL_
-> Sort by the named column.
+> 按指定列排序。
 
 **--sticky**
-> Keep finished tasks in the table.
+> 已结束的任务保留在表格中。
 
 **--epoch**
-> Print Unix epoch timestamps in batch output.
+> 批处理输出中使用 Unix epoch 时间戳。
 
 # DESCRIPTION
 
-**tiptop** displays a top-like view of running tasks but, instead of CPU% and RSS, the columns come from **hardware performance counters** (instructions per cycle, cache misses, branch mispredictions, etc.) read through the Linux **perf_event** interface. This makes it suitable for spotting microarchitectural bottlenecks — bad cache behavior, branch-prediction issues, FPU pressure — that a standard **top** cannot see.
+**tiptop** 以类似 top 的视图显示运行中的任务，但各列的数据不是 CPU% 和 RSS，而是通过 Linux **perf_event** 接口读取的**硬件性能计数器**（每周期指令数、缓存未命中、分支预测失败等）。这使它适合发现标准 **top** 看不到的微架构瓶颈——糟糕的缓存行为、分支预测问题、FPU 压力等。
 
-The set of counters and how they are combined into columns is configured per-architecture; users can also define custom columns in **~/.tiptoprc** to expose additional counters or derived metrics.
+计数器的集合及其组合成列的方式按架构分别配置；用户还可以在 **~/.tiptoprc** 中自定义列，展示额外的计数器或派生指标。
 
 # CAVEATS
 
-Requires hardware performance-counter support and an accessible **perf_event** subsystem; on hardened kernels you may need to lower **/proc/sys/kernel/perf_event_paranoid**. **-K** (count kernel events) requires elevated privileges. Some virtual machines do not expose PMU counters, in which case columns will read as zero.
+需要硬件性能计数器支持和可访问的 **perf_event** 子系统；在加固内核上可能需要调低 **/proc/sys/kernel/perf_event_paranoid**。**-K**（统计内核事件）需要提升的权限。某些虚拟机不暴露 PMU 计数器，此时各列会显示为零。
 
 # HISTORY
 
-**tiptop** was written by **Erven Rohou** at **INRIA** to make hardware performance counters as accessible as **top**. A separate, unrelated Python tool of the same name exists; this page documents the canonical Erven Rohou implementation packaged as **tiptop** in Debian, Ubuntu, Fedora, and Arch.
+**tiptop** 由 **INRIA** 的 **Erven Rohou** 编写，目标是让硬件性能计数器像 **top** 一样易于使用。存在一个同名的独立 Python 工具，与本工具无关；本页面描述的是 Debian、Ubuntu、Fedora 和 Arch 中打包为 **tiptop** 的 Erven Rohou 正统实现。
 
 # INSTALL
 

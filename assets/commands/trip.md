@@ -1,30 +1,30 @@
 # TAGLINE
 
-Visual network traceroute with TUI
+带 TUI 的可视化网络路由跟踪工具
 
 # TLDR
 
-**Trace route**
+跟踪路由
 
 ```trip [example.com]```
 
-**Use ICMP**
+使用 ICMP
 
 ```trip -p icmp [example.com]```
 
-**Use UDP**
+使用 UDP
 
 ```trip -p udp [example.com]```
 
-**Use TCP**
+使用 TCP
 
 ```trip -p tcp [example.com]```
 
-**With DNS resolution**
+启用 DNS 解析
 
 ```trip -r [example.com]```
 
-**Chart view**
+图表视图
 
 ```trip --tui-chart [example.com]```
 
@@ -35,35 +35,35 @@ Visual network traceroute with TUI
 # PARAMETERS
 
 **-p** _PROTOCOL_
-> Protocol (icmp, udp, tcp).
+> 协议 (icmp, udp, tcp)。
 
 **-r**
-> Reverse DNS.
+> 反向 DNS 解析。
 
 **--tui-chart**
-> Chart display.
+> 图表显示。
 
 **-m** _HOPS_
-> Max hops.
+> 最大跳数。
 
 **-i** _INTERVAL_
-> Probe interval.
+> 探测间隔。
 
 # DESCRIPTION
 
-**trip** is a modern network diagnostic tool that combines traceroute functionality with a text-based user interface for real-time visualization. It continuously traces the network path to a destination, displaying hop-by-hop latency statistics in an interactive terminal display.
+**trip** 是一款现代网络诊断工具，将 traceroute 功能与文本用户界面相结合以实现实时可视化。它持续追踪到目标主机的网络路径，并在交互式终端界面中逐跳显示延迟统计信息。
 
-The tool supports multiple protocols including ICMP, UDP, and TCP, allowing probing through different network paths and firewall configurations. A chart view provides latency visualization over time, making it easy to spot intermittent connectivity issues and jitter patterns.
+该工具支持多种协议，包括 ICMP、UDP 和 TCP，可以穿越不同的网络路径和防火墙配置进行探测。图表视图提供延迟随时间变化的可视化，便于发现间歇性连接问题和抖动模式。
 
-Reverse DNS resolution can be enabled to show hostnames for each hop. The continuous tracing mode keeps running and updating statistics, making it useful for ongoing network monitoring and troubleshooting.
+可以启用反向 DNS 解析以显示每一跳的主机名。持续追踪模式会不断运行并更新统计数据，适合长期网络监控和故障排查。
 
 # CAVEATS
 
-Requires root or appropriate capabilities for raw socket access (ICMP/UDP probing). TCP probing may behave differently through stateful firewalls. Some hops may not respond to probes, appearing as `*` in the output.
+访问原始套接字（ICMP/UDP 探测）需要 root 权限或相应的能力。TCP 探测在有状态防火墙后的表现可能不同。某些跳点可能不响应探测，在输出中显示为 `*`。
 
 # HISTORY
 
-**trip** was created as a modern network diagnostic tool with a text-based user interface for traceroute.
+**trip** 作为一款带文本用户界面的现代 traceroute 网络诊断工具而创建。
 
 # INSTALL
 

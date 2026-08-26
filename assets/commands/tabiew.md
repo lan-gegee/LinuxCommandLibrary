@@ -1,18 +1,18 @@
 # TAGLINE
 
-Lightweight TUI for viewing and querying tabular data
+用于查看和查询表格数据的轻量级 TUI
 
 # TLDR
 
-**Open a CSV file in the viewer**
+在查看器中**打开 CSV 文件**
 
 ```tw [data.csv]```
 
-**Open with a custom delimiter**
+以自定义分隔符**打开**
 
 ```tw [data.csv] --separator '|'```
 
-**Pipe data from stdin**
+从 stdin **管道传入**数据
 
 ```curl -s "[https://example.com/data.csv]" | tw```
 
@@ -22,11 +22,11 @@ Lightweight TUI for viewing and querying tabular data
 
 # DESCRIPTION
 
-**tabiew** is a terminal application for viewing and querying tabular data files including CSV, TSV, Parquet, JSON, JSONL, Arrow, SQLite, Excel, and Logfmt. It features SQL query capabilities, Vim-style navigation, fuzzy search, and automatic file format detection.
+**tabiew** 是一个用于查看和查询表格数据文件的终端应用，支持 CSV、TSV、Parquet、JSON、JSONL、Arrow、SQLite、Excel 和 Logfmt 等格式。它具备 SQL 查询能力、Vim 风格导航、模糊搜索以及自动文件格式检测。
 
 # HISTORY
 
-**tabiew** was created by **shshemi** and is written in **Rust**.
+**tabiew** 由 **shshemi** 创建，采用 **Rust** 编写。
 
 # INSTALL
 

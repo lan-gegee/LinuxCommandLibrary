@@ -1,10 +1,10 @@
 # TAGLINE
 
-Python AST viewer for the terminal
+终端中的 Python AST 查看器
 
 # TLDR
 
-**Explore the AST of a Python file**
+**浏览 Python 文件的 AST**
 
 ```astare [my_script.py]```
 
@@ -14,11 +14,11 @@ Python AST viewer for the terminal
 
 # DESCRIPTION
 
-**textual-astview** is a command-line tool for displaying and exploring the Python Abstract Syntax Tree. It loads a Python source file and shows its AST in an interactive tree alongside the source code.
+**textual-astview** 是一款用于显示和探索 Python 抽象语法树（AST）的命令行工具。它加载 Python 源文件，在源代码旁边以交互式树的形式展示其 AST。
 
 # HISTORY
 
-**textual-astview** was created by **Dave Pearson** (davep) and is written in **Python** using the Textual framework.
+**textual-astview** 由 **Dave Pearson**（davep）创建，使用 **Python** 基于 Textual 框架编写。
 
 # SEE ALSO
 

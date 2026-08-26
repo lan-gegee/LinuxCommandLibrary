@@ -1,22 +1,22 @@
 # TAGLINE
 
-Initialize Starship prompt for shells
+为 Shell 初始化 Starship 提示符
 
 # TLDR
 
-**Initialize for bash**
+**为 bash 初始化**
 
 ```eval "$(starship init bash)"```
 
-**Initialize for zsh**
+**为 zsh 初始化**
 
 ```eval "$(starship init zsh)"```
 
-**Initialize for fish**
+**为 fish 初始化**
 
 ```starship init fish | source```
 
-**Initialize for PowerShell**
+**为 PowerShell 初始化**
 
 ```Invoke-Expression (&starship init powershell)```
 
@@ -27,23 +27,23 @@ Initialize Starship prompt for shells
 # PARAMETERS
 
 **bash**
-> Bash shell.
+> Bash shell。
 
 **zsh**
-> Zsh shell.
+> Zsh shell。
 
 **fish**
-> Fish shell.
+> Fish shell。
 
 **powershell**
-> PowerShell.
+> PowerShell。
 
 **--print-full-init**
-> Print full initialization script.
+> 打印完整的初始化脚本。
 
 # DESCRIPTION
 
-**starship init** generates shell initialization for Starship prompt. Outputs script to be evaluated by shell. Add to shell config for persistent prompt customization.
+**starship init** 为 Starship 提示符生成 shell 初始化脚本，输出的脚本交由 shell 求值执行。将其添加到 shell 配置中即可持久启用提示符定制。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ Initialize Starship prompt for shells
 # SEE ALSO
 
 [starship](/man/starship)(1)
-

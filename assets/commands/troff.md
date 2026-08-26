@@ -1,30 +1,30 @@
 # TAGLINE
 
-GNU roff typesetting processor
+GNU roff 排版处理器
 
 # TLDR
 
-**Format a document** using the man macro package
+使用 man 宏包排版文档
 
 ```troff -man [file.1]```
 
-**Format with the ms macro package**
+使用 ms 宏包排版
 
 ```troff -ms [file.ms]```
 
-**Generate ASCII output**
+生成 ASCII 输出
 
 ```troff -a [file]```
 
-**Print version information**
+打印版本信息
 
 ```troff -v```
 
-**Enable all warnings**
+启用所有警告
 
 ```troff -w all [file]```
 
-**Format with compatibility mode**
+以兼容模式排版
 
 ```troff -C [file]```
 
@@ -35,71 +35,71 @@ GNU roff typesetting processor
 # PARAMETERS
 
 **-a**
-> Generate ASCII approximation of typeset output.
+> 生成排版结果的 ASCII 近似输出。
 
 **-b**
-> Print backtrace with each warning or error message.
+> 在每条警告或错误消息中打印回溯信息。
 
 **-c**
-> Disable color output.
+> 禁用彩色输出。
 
 **-C**
-> Enable compatibility mode with traditional troff.
+> 启用与传统 troff 的兼容模式。
 
 **-d** _cs_
-> Define string c as s.
+> 将字符串 c 定义为 s。
 
 **-f** _fam_
-> Set default font family.
+> 设置默认字族。
 
 **-F** _dir_
-> Search directory for font files.
+> 在指定目录中搜索字体文件。
 
 **-i**
-> Read standard input after processing files.
+> 处理完文件后继续读取标准输入。
 
 **-m** _name_
-> Include macro package (e.g., **man**, **ms**, **me**, **mom**).
+> 包含宏包（例如 **man**、**ms**、**me**、**mom**）。
 
 **-n** _num_
-> Number first page as num.
+> 第一页的页码设为 num。
 
 **-o** _list_
-> Output only pages in list.
+> 仅输出列表中的页。
 
 **-r** _cn_
-> Set register c to value n.
+> 将寄存器 c 的值设置为 n。
 
 **-T** _name_
-> Prepare output for device name (default: ps).
+> 为指定设备准备输出（默认：ps）。
 
 **-U**
-> Enable unsafe mode (allows dangerous requests).
+> 启用不安全模式（允许危险的请求）。
 
 **-v**
-> Print version number.
+> 打印版本号。
 
 **-w** _name_
-> Enable warning name. Use **-w all** for most warnings.
+> 启用指定警告。使用 **-w all** 可启用大多数警告。
 
 **-W** _name_
-> Disable warning name.
+> 禁用指定警告。
 
 # DESCRIPTION
 
-**troff** is the typesetting processor of the groff (GNU roff) text formatting system. It reads text files containing formatting commands and produces formatted output for various devices including PostScript, PDF, and terminals.
+**troff** 是 groff (GNU roff) 文本格式化系统中的排版处理器。它读取包含格式化命令的文本文件，并为 PostScript、PDF 和终端等多种设备生成格式化输出。
 
-troff is usually invoked through **groff**, which handles preprocessors (tbl, eqn, pic) and postprocessors automatically. Macro packages provide high-level formatting: **man** for manual pages, **ms** for general documents, **mom** for complex documents.
+troff 通常通过 **groff** 调用，后者自动处理预处理器（tbl、eqn、pic）和后处理器。宏包提供高层的格式化能力：**man** 用于手册页，**ms** 用于一般文档，**mom** 用于复杂文档。
 
-The groff implementation extends traditional Unix troff with color support, additional escape sequences, and improved compatibility features while maintaining backward compatibility.
+groff 实现扩展了传统 Unix troff，增加了颜色支持、额外的转义序列和改进的兼容特性，同时保持向后兼容。
 
 # CAVEATS
 
-Direct use of troff is uncommon; **groff** is the preferred wrapper that handles the complete processing pipeline. The **-U** unsafe mode should be avoided unless necessary as it enables potentially dangerous file operations. Compatibility mode (**-C**) may be needed for older documents.
+直接使用 troff 并不常见；首选 **groff** 包装器来处理完整的处理管线。除非必要，应避免 **-U** 不安全模式，因为它允许潜在危险的文件操作。旧文档可能需要兼容模式 (**-C**)。
 
 # HISTORY
 
-The original troff was written by **Joe Ossanna** at Bell Labs in **1973** as part of Unix, evolving from the earlier runoff formatter. After Ossanna's death in 1977, **Brian Kernighan** rewrote and maintained troff. GNU troff (groff) was developed by **James Clark** starting in **1989** as a free software replacement, and is now maintained by the groff project as part of the GNU system.
+最初的 troff 由 **Joe Ossanna** 于 **1973 年**在贝尔实验室作为 Unix 的一部分编写，由更早的 runoff 格式化程序演化而来。Ossanna 于 1977 年去世后，**Brian Kernighan** 重写并维护了 troff。GNU troff (groff) 由 **James Clark** 自 **1989 年**起开发，作为自由的软件替代品，如今由 groff 项目作为 GNU 系统的一部分维护。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-View, tail, merge, and search log files
+查看、追踪、合并和搜索日志文件
 
 # TLDR
 
-**Open and view a log file**
+**打开并查看日志文件**
 
 ```tl [access.log]```
 
-**Merge and view multiple logs by timestamp**
+**按时间戳合并并查看多个日志**
 
 ```tl [server.log] [app.log] --merge```
 
-**Pipe live output into toolong**
+**将实时输出管道传入 toolong**
 
 ```tail -f [/var/log/syslog] | tl```
 
-**Tail a log file** (start at the end)
+**追踪日志文件**（从末尾开始）
 
 ```tl --tail [access.log]```
 
@@ -27,24 +27,24 @@ View, tail, merge, and search log files
 # PARAMETERS
 
 **--merge**
-> Merge multiple log files by timestamp.
+> 按时间戳合并多个日志文件。
 
 **--tail**
-> Start at the end of the file.
+> 从文件末尾开始。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**toolong** is a terminal application for viewing and analyzing log files, including JSONL. It can open multi-gigabyte files instantly, live-tail logs, auto-detect timestamps for merging multiple files, handle compressed .bz/.bz2 files, and syntax-highlight common log formats.
+**toolong** 是一个用于查看和分析日志文件（包括 JSONL）的终端应用。它可以即时打开数 GB 大小的文件、实时追踪日志、自动检测时间戳以合并多个文件、处理压缩的 .bz/.bz2 文件，并对常见日志格式进行语法高亮。
 
 # HISTORY
 
-**toolong** was created by **Will McGugan** (Textualize) and is written in **Python** using the Textual framework.
+**toolong** 由 **Will McGugan**（Textualize）创建，使用 Textual 框架以 **Python** 编写。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Extract printable text from binary files
+从二进制文件中提取可打印文本
 
 # TLDR
 
-**Find printable strings** in a file
+在文件中**查找可打印字符串**
 
 ```strings [file]```
 
-**Find strings** of minimum length
+**查找**最小长度的字符串
 
 ```strings -n [10] [file]```
 
-**Print filename** with each string
+在每个字符串前**打印文件名**
 
 ```strings -f [file1] [file2]```
 
-**Print offset** of each string
+**打印每个字符串的偏移量**
 
 ```strings -t d [file]```
 
-**Print offset in hexadecimal**
+以十六进制**打印偏移量**
 
 ```strings -t x [file]```
 
-**Search entire file** (not just data sections)
+**搜索整个文件**（不只是数据段）
 
 ```strings -a [file]```
 
-**Search for specific encoding**
+**按指定编码搜索**
 
 ```strings -e l [file]```
 
-**Scan multiple files**
+**扫描多个文件**
 
 ```strings [*.bin]```
 
@@ -42,42 +42,42 @@ Extract printable text from binary files
 
 # DESCRIPTION
 
-**strings** finds and prints sequences of printable characters in files, typically binary files. By default, it looks for sequences of at least 4 printable characters followed by an unprintable character.
+**strings** 查找并打印文件中的可打印字符序列，通常用于二进制文件。默认情况下，它查找至少由 4 个连续可打印字符组成、后跟不可打印字符的序列。
 
-The tool is commonly used to examine binaries, extract text from executables, find embedded messages, and perform basic forensic analysis. It can reveal version strings, error messages, and other embedded text.
+该工具常用于检查二进制文件、从可执行文件中提取文本、查找内嵌消息以及进行基本的取证分析。它可以揭示版本字符串、错误消息和其他内嵌文本。
 
-strings ignores the structure of the file and simply scans for character sequences, making it useful when file format isn't known or important.
+strings 不关心文件的结构，只是扫描字符序列，因此在文件格式未知或不重要时非常有用。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Scan entire file, not just data sections.
+> 扫描整个文件，而不只是数据段。
 
 **-f**, **--print-file-name**
-> Print filename before each string.
+> 在每个字符串前打印文件名。
 
 **-n** _min_, **--bytes=** _min_
-> Minimum string length (default 4).
+> 最小字符串长度（默认为 4）。
 
 **-t** _format_, **--radix=** _format_
-> Print offset (o=octal, d=decimal, x=hex).
+> 打印偏移量（o=八进制，d=十进制，x=十六进制）。
 
 **-e** _encoding_
-> Character encoding (s=7-bit, S=8-bit, b/l=16-bit, B/L=32-bit).
+> 字符编码（s=7 位，S=8 位，b/l=16 位，B/L=32 位）。
 
 **-o**
-> Print offset in octal (like -t o).
+> 以八进制打印偏移量（等同于 -t o）。
 
 **-T** _bfdname_, **--target=** _bfdname_
-> Specify binary format.
+> 指定二进制格式。
 
 # CAVEATS
 
-Results include any character sequences, not necessarily meaningful text. False positives are common in binary data. Cannot determine context or purpose of found strings. Some strings may be partial or misleading.
+结果包含任何形式的字符序列，未必是有意义的文本。二进制数据中误报很常见。无法判断所找到字符串的上下文或用途。某些字符串可能是不完整的或具有误导性的。
 
 # HISTORY
 
-**strings** has been part of Unix since early versions, originating in **Version 6 Unix** at **Bell Labs** in the **1970s**. The GNU version is part of **binutils**. The tool remains essential for binary analysis and is commonly used in security research and reverse engineering.
+**strings** 自早期 Unix 版本就已存在，起源于 **1970 年代**贝尔实验室的 **Version 6 Unix**。GNU 版本是 **binutils** 的一部分。该工具至今仍是二进制分析的重要工具，常用于安全研究和逆向工程。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Replay captured network traffic
+重放已捕获的网络流量
 
 # TLDR
 
-**Replay pcap**
+**重放 pcap**
 
 ```tcpreplay -i [eth0] [capture.pcap]```
 
-**Replay at speed**
+**以指定速度重放**
 
 ```tcpreplay -i [eth0] -M [100] [capture.pcap]```
 
-**Loop replay**
+**循环重放**
 
 ```tcpreplay -i [eth0] --loop [10] [capture.pcap]```
 
-**Replay at topspeed**
+**以最高速度重放**
 
 ```tcpreplay -i [eth0] --topspeed [capture.pcap]```
 
-**Multiplier speed**
+**倍速重放**
 
 ```tcpreplay -i [eth0] -x [2.0] [capture.pcap]```
 
@@ -31,38 +31,38 @@ Replay captured network traffic
 # PARAMETERS
 
 **-i** _IFACE_
-> Output interface.
+> 输出接口。
 
 **-M** _MBPS_
-> Rate in Mbps.
+> 以 Mbps 表示的速率。
 
 **-x** _MULT_
-> Speed multiplier.
+> 速度倍数。
 
 **--loop** _N_
-> Loop count.
+> 循环次数。
 
 **--topspeed**
-> Maximum speed.
+> 最高速度。
 
 **-K**
-> Preload into memory.
+> 预加载到内存。
 
 # DESCRIPTION
 
-**tcpreplay** replays previously captured network traffic from pcap files back onto the network. It reads packet captures produced by tools like tcpdump or Wireshark and transmits them through a specified network interface at controlled rates.
+**tcpreplay** 将先前从 pcap 文件捕获的网络流量重新发回到网络中。它读取 tcpdump 或 Wireshark 等工具生成的抓包文件，并以受控速率通过指定的网络接口发送。
 
-The tool provides flexible speed control: traffic can be replayed at the original recorded speed, at a fixed rate in Mbps, at a speed multiplier, or at maximum wire speed with **--topspeed**. The **--loop** option repeats the capture file multiple times, and **-K** preloads the entire file into memory for consistent high-speed replay.
+该工具提供灵活的速度控制：流量可以按原始记录速度、固定 Mbps 速率、速度倍数或 **--topspeed** 的最大线速重放。**--loop** 选项可将抓包文件重复多次，**-K** 则把整个文件预加载到内存以保证高速重放的稳定性。
 
-Common use cases include testing network devices like firewalls and IDS/IPS systems, stress-testing network infrastructure, reproducing network issues for debugging, and benchmarking network applications under realistic traffic conditions.
+常见用例包括测试防火墙和 IDS/IPS 等网络设备、对网络基础设施做压力测试、复现网络问题以便调试，以及在真实流量条件下对网络应用进行基准测试。
 
 # CAVEATS
 
-Requires root for raw socket access. Replaying traffic on a production network can cause disruption. The interface specified with **-i** must be up. For editing packets before replay, use **tcprewrite**.
+原始套接字访问需要 root 权限。在生产网络上重放流量可能造成干扰。**-i** 指定的接口必须处于启用状态。若要在重放前编辑数据包，请使用 **tcprewrite**。
 
 # HISTORY
 
-**tcpreplay** was created for replaying captured network traffic for testing network devices and applications.
+**tcpreplay** 为重放已捕获的网络流量而创建，用于测试网络设备和应用程序。
 
 # INSTALL
 

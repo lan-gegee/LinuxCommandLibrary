@@ -1,26 +1,26 @@
 # TAGLINE
 
-Return successful exit status
+返回成功的退出状态
 
 # TLDR
 
-**Return success** exit status
+返回表示成功的退出状态
 
 ```true```
 
-**Use in infinite loop**
+用于无限循环
 
 ```while true; do [command]; sleep [1]; done```
 
-**Use in conditional** as placeholder
+在条件判断中用作占位符
 
 ```if true; then echo "always runs"; fi```
 
-**Ignore command failure** in scripts
+在脚本中忽略命令失败
 
 ```command || true```
 
-**As no-op command** in shell
+在 Shell 中充当空操作命令
 
 ```true; echo "continues regardless"```
 
@@ -30,24 +30,24 @@ Return successful exit status
 
 # DESCRIPTION
 
-**true** does nothing except return an exit status of 0 (success). Any arguments provided are ignored.
+**true** 什么都不做，只返回退出状态 0（成功）。提供的任何参数都会被忽略。
 
-The command is used in shell scripts where a command is syntactically required but no action is needed. Common uses include:
+该命令用于 Shell 脚本中语法上要求有命令但实际无需执行任何操作的场合。常见用法包括：
 
-- Infinite loops: **while true; do ...; done**
-- Ignoring failures: **command || true** (prevents script exit with set -e)
-- Placeholder in conditionals when logic is still being developed
-- Initializing variables with command substitution that must succeed
+- 无限循环：**while true; do ...; done**
+- 忽略失败：**command || true**（防止脚本在 set -e 下退出）
+- 逻辑尚未完成时在条件判断中充当占位符
+- 用必须成功的命令替换来初始化变量
 
-As a shell builtin in most shells, true executes without spawning a subprocess, making it efficient for frequent use in loops.
+作为大多数 Shell 的内建命令，true 执行时不会派生子进程，因此在循环中频繁使用也很高效。
 
 # CAVEATS
 
-Although true ignores all arguments, it still parses them. Some implementations treat **--help** and **--version** specially. The external binary /usr/bin/true exists for use when a builtin is not available or when exec is needed.
+虽然 true 会忽略所有参数，但它仍会解析它们。某些实现对 **--help** 和 **--version** 做特殊处理。当内建命令不可用或需要 exec 时，可以使用外部二进制 /usr/bin/true。
 
 # HISTORY
 
-true has been part of Unix since Version 7 Unix in **1979**. It was originally implemented as an empty shell script or a program that simply called exit(0). The companion command **false** returns exit status 1. Both are specified by POSIX and exist as both shell builtins and standalone binaries.
+自 **1979 年**的 Version 7 Unix 起，true 就已成为 Unix 的一部分。它最初实现为空 shell 脚本或一个仅调用 exit(0) 的程序。配套命令 **false** 返回退出状态 1。两者均由 POSIX 规定，既可作为 shell 内建命令，也以独立二进制形式存在。
 
 # INSTALL
 

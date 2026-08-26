@@ -1,26 +1,26 @@
 # TAGLINE
 
-Check if units have failed
+检查单元是否失败
 
 # TLDR
 
-Check for **any failed** units
+检查是否有**任何失败的**单元
 
 ```systemctl is-failed```
 
-Check if **specific unit** failed
+检查**特定单元**是否失败
 
 ```systemctl is-failed unit_name```
 
-Check **multiple units**
+检查**多个单元**
 
 ```systemctl is-failed unit1 unit2```
 
-**Quiet** mode (exit code only)
+**安静**模式（仅返回退出码）
 
 ```systemctl is-failed -q unit_name```
 
-Check **user** unit
+检查**用户**单元
 
 ```systemctl is-failed --user unit_name```
 
@@ -30,26 +30,26 @@ Check **user** unit
 
 # DESCRIPTION
 
-**systemctl is-failed** checks if one or more systemd units have failed. It returns exit code 0 if any specified unit is in a failed state, useful for scripting and monitoring.
+**systemctl is-failed** 检查一个或多个 systemd 单元是否失败。只要任一指定单元处于失败状态就返回退出码 0，适用于脚本编写和监控。
 
 # PARAMETERS
 
 **PATTERN**
-> Unit names or patterns to check (checks all units if omitted)
+> 要检查的单元名称或模式（省略时检查所有单元）
 
 **-q, --quiet**
-> Suppress output, only return exit code
+> 不输出内容，仅返回退出码
 
 **--user**
-> Check user units instead of system units
+> 检查用户单元而不是系统单元
 
 # CAVEATS
 
-Exit code 0 means at least one unit is failed; non-zero means no failures or unit not found. Without arguments, checks all units and returns 0 if any are failed.
+退出码 0 表示至少有一个单元失败；非零表示没有失败或未找到单元。不带参数时会检查所有单元，只要其中有失败的就返回 0。
 
 # HISTORY
 
-**systemctl is-failed** is part of **systemd**, providing status checking commands for scripting and automation.
+**systemctl is-failed** 是 **systemd** 的一部分，为脚本编写和自动化提供状态检查命令。
 
 # SEE ALSO
 

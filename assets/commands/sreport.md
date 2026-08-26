@@ -1,30 +1,30 @@
 # TAGLINE
 
-Slurm cluster usage report generator
+Slurm 集群使用情况报告生成器
 
 # TLDR
 
-Show **cluster utilization** (parsable format)
+显示**集群利用率**（可解析格式）
 
 ```sreport -p cluster utilization```
 
-Show **number of jobs** run
+显示已运行的**作业数量**
 
 ```sreport job sizes printjobcount```
 
-Show users with **highest CPU usage**
+显示 **CPU 使用率最高**的用户
 
 ```sreport user topusage```
 
-Show **account utilization** by user
+按用户显示**账户利用率**
 
 ```sreport cluster AccountUtilizationByUser```
 
-Specify **time period**
+指定**时间段**
 
 ```sreport cluster utilization Start=[YYYY-MM-DD] End=[YYYY-MM-DD]```
 
-Show for **specific cluster**
+针对**特定集群**显示
 
 ```sreport -M [cluster_name] cluster utilization```
 
@@ -35,40 +35,40 @@ Show for **specific cluster**
 # PARAMETERS
 
 **-a, --all_clusters**
-> Report on all clusters, not just local
+> 报告所有集群，而不仅是本地集群
 
 **-M, --cluster** _names_
-> Specify cluster(s) for reports
+> 指定报告涉及的集群
 
 **-n, --noheader**
-> Omit header from output
+> 输出中省略标题行
 
 **-p, --parsable**
-> Pipe-delimited output with trailing pipe
+> 以竖线分隔且末尾带竖线的输出
 
 **-P, --parsable2**
-> Pipe-delimited output without trailing pipe
+> 以竖线分隔但末尾不带竖线的输出
 
 **-t** _time_format_
-> Set time format for output (e.g., Seconds, Minutes, Hours, Percent)
+> 设置输出的时间格式（例如 Seconds、Minutes、Hours、Percent）
 
 **-T, --tres** _tres_names_
-> Specify trackable resources to report
+> 指定要报告的可跟踪资源
 
 **--federation**
-> Report for entire federation
+> 报告整个联邦的数据
 
 **--local**
-> Report local cluster only
+> 只报告本地集群
 
 **-Q, --quiet**
-> Show errors only
+> 只显示错误
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-V, --version**
-> Print version
+> 打印版本
 
 # REPORT TYPES
 
@@ -87,30 +87,30 @@ Show for **specific cluster**
 # REPORT OPTIONS
 
 **Start** _date_
-> Report period start (default: previous day 00:00)
+> 报告周期开始时间（默认：前一天 00:00）
 
 **End** _date_
-> Report period end (default: previous day 23:59)
+> 报告周期结束时间（默认：前一天 23:59）
 
 **Accounts** _list_
-> Filter by accounts
+> 按账户过滤
 
 **Users** _list_
-> Filter by users
+> 按用户过滤
 
 # DESCRIPTION
 
-**sreport** generates usage and utilization reports from Slurm accounting data stored in slurmdbd. It produces reports on job statistics, user usage, cluster utilization, and reservation usage based on hourly, daily, and monthly rollup tables.
+**sreport** 基于 slurmdbd 中存储的 Slurm 计费数据生成使用情况和利用率报告。它依据小时、日、月的汇总表，生成作业统计、用户使用量、集群利用率和预留使用量等报告。
 
-Reports help administrators understand cluster usage patterns, identify top users, and track resource consumption across accounts and projects.
+这些报告帮助管理员了解集群的使用模式、找出用量最大的用户，并跟踪各账户和项目的资源消耗。
 
 # CAVEATS
 
-Requires slurmdbd to be configured and running. Report accuracy depends on proper accounting configuration. Historical data availability depends on database retention settings. Time periods use cluster local time.
+需要配置并运行 slurmdbd。报告的准确性取决于正确的计费配置。历史数据的可用性取决于数据库保留策略设置。时间段使用集群本地时间。
 
 # HISTORY
 
-**sreport** is part of **Slurm**, developed at **Lawrence Livermore National Laboratory** starting in **2002**. The accounting and reporting features help HPC centers track usage for billing, capacity planning, and fair-share scheduling. Slurm is now maintained by **SchedMD**.
+**sreport** 是 **Slurm** 的一部分，自 **2002 年**起由**劳伦斯利弗莫尔国家实验室**开发。计费与报告功能帮助 HPC 中心跟踪使用量，用于计费、容量规划和公平共享调度。Slurm 目前由 **SchedMD** 维护。
 
 # INSTALL
 

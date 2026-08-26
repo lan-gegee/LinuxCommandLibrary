@@ -1,18 +1,18 @@
 # TAGLINE
 
-Minimal neofetch-style weather CLI
+极简的 neofetch 风格天气 CLI
 
 # TLDR
 
-**Display weather for your current location**
+**显示当前位置的天气**
 
 ```stormy```
 
-**Show weather for a specific city in imperial units**
+**以英制单位显示指定城市的天气**
 
 ```stormy --city "[New York]" --units imperial```
 
-**Display weather in compact mode**
+**以紧凑模式显示天气**
 
 ```stormy --compact```
 
@@ -22,11 +22,11 @@ Minimal neofetch-style weather CLI
 
 # DESCRIPTION
 
-**stormy** is a minimal, customizable weather CLI that displays current weather conditions with colorful ASCII art in a neofetch-like format. It supports multiple weather providers including Open-Meteo (no API key required) and OpenWeatherMap, with configurable units and a compact display mode.
+**stormy** 是一个极简、可定制的天气 CLI，它以 neofetch 式的布局配合彩色 ASCII 艺术图显示当前天气状况。它支持多个天气数据源，包括 Open-Meteo（无需 API 密钥）和 OpenWeatherMap，可配置单位并具有紧凑显示模式。
 
 # HISTORY
 
-**stormy** was created by **Ashish Kumar** (ashish0kumar) and is written in **Go**.
+**stormy** 由 **Ashish Kumar**（ashish0kumar）创建，使用 **Go** 编写。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Supabase local development and deployment CLI
+Supabase 本地开发与部署 CLI
 
 # TLDR
 
-**Initialize project**
+**初始化项目**
 
 ```supabase init```
 
-**Start local development**
+**启动本地开发环境**
 
 ```supabase start```
 
-**Stop local services**
+**停止本地服务**
 
 ```supabase stop```
 
-**Generate types**
+**生成类型定义**
 
 ```supabase gen types typescript --local```
 
-**Create migration**
+**创建迁移**
 
 ```supabase migration new [migration_name]```
 
-**Apply migrations**
+**应用迁移**
 
 ```supabase db push```
 
-**Link to project**
+**链接到项目**
 
 ```supabase link --project-ref [project-id]```
 
-**View status**
+**查看状态**
 
 ```supabase status```
 
@@ -43,47 +43,47 @@ Supabase local development and deployment CLI
 # PARAMETERS
 
 **init**
-> Initialize project.
+> 初始化项目。
 
 **start**
-> Start local stack.
+> 启动本地堆栈。
 
 **stop**
-> Stop local stack.
+> 停止本地堆栈。
 
 **link**
-> Link to remote project.
+> 链接到远程项目。
 
 **db push**
-> Push migrations.
+> 推送迁移。
 
 **gen types**
-> Generate types.
+> 生成类型定义。
 
 **migration new** _NAME_
-> Create migration.
+> 创建迁移。
 
 **status**
-> Show status.
+> 显示状态。
 
 **--project-ref** _ID_
-> Project reference.
+> 项目引用 ID。
 
 # DESCRIPTION
 
-**supabase** is the command-line interface for managing Supabase projects, an open-source Firebase alternative built on PostgreSQL. It provides tools for local development, database migration management, type generation, and deployment to hosted Supabase projects.
+**supabase** 是用于管理 Supabase 项目的命令行界面。Supabase 是构建在 PostgreSQL 之上的开源 Firebase 替代品。该 CLI 提供本地开发、数据库迁移管理、类型生成以及部署到托管 Supabase 项目的工具。
 
-The local development environment runs a complete Supabase stack using Docker, including PostgreSQL, authentication services, object storage, realtime subscriptions, and Edge Functions. This allows developing and testing against a production-equivalent environment without needing a remote project.
+本地开发环境通过 Docker 运行完整的 Supabase 堆栈，包括 PostgreSQL、认证服务、对象存储、实时订阅和 Edge Functions。这样无需远程项目就能在与生产环境等同的环境中开发和测试。
 
-Database migrations track schema changes in version control. The CLI can generate TypeScript types from the database schema for type-safe client code. Linking connects the local project to a hosted Supabase instance for deploying migrations and Edge Functions to production.
+数据库迁移将 schema 变更纳入版本控制。CLI 可以从数据库 schema 生成 TypeScript 类型，实现类型安全的客户端代码。link 操作将本地项目连接到托管的 Supabase 实例，以便将迁移和 Edge Functions 部署到生产环境。
 
 # CAVEATS
 
-Docker required for local dev. Project must exist on Supabase. Free tier limits apply.
+本地开发需要 Docker。项目必须存在于 Supabase 上。受免费套餐限制约束。
 
 # HISTORY
 
-**Supabase** is an open-source Firebase alternative launched in **2020**. The CLI enables local development and self-hosting.
+**Supabase** 是一个开源的 Firebase 替代品，于 **2020 年**推出。该 CLI 支持本地开发和自托管。
 
 # INSTALL
 

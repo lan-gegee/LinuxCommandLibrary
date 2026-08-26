@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automate tmux session configuration
+自动化 tmux 会话配置
 
 # TLDR
 
-**Start project**
+**启动项目**
 
 ```tmuxinator start [project]```
 
-**Create new project**
+**创建新项目**
 
 ```tmuxinator new [project]```
 
-**Edit project**
+**编辑项目**
 
 ```tmuxinator edit [project]```
 
-**List projects**
+**列出项目**
 
 ```tmuxinator list```
 
-**Delete project**
+**删除项目**
 
 ```tmuxinator delete [project]```
 
-**Copy project**
+**复制项目**
 
 ```tmuxinator copy [existing] [new_name]```
 
-**Stop project**
+**停止项目**
 
 ```tmuxinator stop [project]```
 
-**Show project config**
+**显示项目配置**
 
 ```tmuxinator debug [project]```
 
@@ -43,70 +43,70 @@ Automate tmux session configuration
 # PARAMETERS
 
 **start** _PROJECT_
-> Start project session.
+> 启动项目会话。
 
 **new** _PROJECT_
-> Create new project.
+> 创建新项目。
 
 **edit** _PROJECT_
-> Edit project config.
+> 编辑项目配置。
 
 **open** _PROJECT_
-> Alias for edit.
+> edit 的别名。
 
 **list**, **ls**
-> List projects.
+> 列出项目。
 
 **delete** _PROJECT_
-> Delete project.
+> 删除项目。
 
 **stop** _PROJECT_
-> Kill project session.
+> 终止项目会话。
 
 **copy** _SRC_ _DEST_
-> Copy project.
+> 复制项目。
 
 **debug** _PROJECT_
-> Show generated script.
+> 显示生成的脚本。
 
 **doctor**
-> Check configuration.
+> 检查配置。
 
 **version**
-> Show version.
+> 显示版本。
 
 **-p** _FILE_
-> Use project file.
+> 使用指定的项目文件。
 
 **-n** _NAME_
-> Override session name.
+> 覆盖会话名称。
 
 # DESCRIPTION
 
-**tmuxinator** automates tmux session setup. Project files define windows, panes, and commands that start with a single command.
+**tmuxinator** 自动化 tmux 会话的搭建。项目文件定义窗口、窗格和命令，一条命令即可全部启动。
 
-YAML configuration describes session layout. Windows have names, working directories, and pane configurations.
+YAML 配置描述会话布局。窗口具有名称、工作目录和窗格配置。
 
-Commands run automatically when panes open. Development servers, editors, and monitoring tools start in their designated locations.
+窗格打开时命令自动运行。开发服务器、编辑器和监控工具会在各自指定的位置启动。
 
-Layout presets handle common pane arrangements. Custom layouts specify exact pane dimensions.
+布局预设处理常见的窗格排列。自定义布局可指定精确的窗格尺寸。
 
-Project files live in ~/.config/tmuxinator. They're portable across machines and can be version controlled.
+项目文件位于 ~/.config/tmuxinator。它们可在机器之间移植，也可以纳入版本控制。
 
-Starting a project creates or attaches to the tmux session. Subsequent starts attach without recreating.
+启动项目会创建或连接 tmux 会话。后续启动直接附加而不会重建。
 
 # CONFIGURATION
 
 **~/.config/tmuxinator/*.yml**
-> Project configuration files in YAML format defining session layouts, windows, panes, and startup commands.
+> YAML 格式的项目配置文件，定义会话布局、窗口、窗格和启动命令。
 
 # CAVEATS
 
-Requires Ruby. Complex layouts need careful configuration. Some tmux versions may have compatibility issues.
+需要 Ruby。复杂布局需要仔细配置。某些 tmux 版本可能存在兼容性问题。
 
 # HISTORY
 
-**Tmuxinator** was created around **2010** to automate tmux session creation. It became the standard tool for managing development environment configurations.
+**Tmuxinator** 创建于 **2010 年**前后，用于自动化 tmux 会话创建。它已成为管理开发环境配置的标准工具。
 
 # INSTALL
 

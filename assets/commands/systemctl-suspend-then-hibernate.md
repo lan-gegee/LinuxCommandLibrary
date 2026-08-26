@@ -1,14 +1,14 @@
 # TAGLINE
 
-Suspend then auto-hibernate after delay
+先挂起，延时后自动休眠
 
 # TLDR
 
-**Suspend then hibernate**
+**先挂起再休眠**
 
 ```systemctl suspend-then-hibernate```
 
-**Force** suspend-then-hibernate
+**强制**执行先挂起再休眠
 
 ```systemctl suspend-then-hibernate -f```
 
@@ -19,24 +19,24 @@ Suspend then auto-hibernate after delay
 # PARAMETERS
 
 **-f, --force**
-> Force operation even if inhibitors are present
+> 即使存在抑制锁也强制执行操作
 
 **--no-wall**
-> Don't send wall message to users
+> 不向用户发送 wall 消息
 
 # DESCRIPTION
 
-**systemctl suspend-then-hibernate** first suspends the system to RAM, then automatically wakes up and hibernates to disk after a configured delay. This provides fast wake-up when used shortly after suspension, while protecting against data loss if the battery depletes during extended sleep.
+**systemctl suspend-then-hibernate** 先将系统挂起到内存，然后在设定的延时之后自动唤醒并休眠到磁盘。这样既能在刚挂起后不久唤醒时享受快速恢复速度，又能在长时间睡眠期间电池耗尽时防止数据丢失。
 
-The delay before hibernation is configured in **/etc/systemd/sleep.conf** via the **HibernateDelaySec=** option (default varies by distribution).
+进入休眠前的延时可通过 **/etc/systemd/sleep.conf** 中的 **HibernateDelaySec=** 选项配置（默认值因发行版而异）。
 
 # CAVEATS
 
-Requires both suspend and hibernate to work properly. Needs sufficient swap space for hibernation. The delay timer wakes the system to hibernate, consuming some power. May not work reliably on all hardware.
+需要挂起和休眠都能正常工作。休眠需要足够的交换空间。延时计时器会唤醒系统以进行休眠，消耗一些电量。并非在所有硬件上都能可靠工作。
 
 # HISTORY
 
-The **suspend-then-hibernate** subcommand combines the benefits of fast suspend wake-up with the safety of hibernation for long idle periods, ideal for laptops left sleeping overnight.
+**suspend-then-hibernate** 子命令结合了挂起快速唤醒的优势与长时空闲时休眠的安全性，非常适合过夜睡眠的笔记本电脑。
 
 # SEE ALSO
 

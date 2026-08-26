@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage TeX Live package repositories
+管理 TeX Live 软件包仓库
 
 # TLDR
 
-**List repositories**
+**列出仓库**
 
 ```tlmgr repository list```
 
-**Add repository**
+**添加仓库**
 
 ```tlmgr repository add [url] [tag]```
 
-**Remove repository**
+**移除仓库**
 
 ```tlmgr repository remove [url]```
 
-**Set the entire repository list** (replaces all existing)
+**设置整个仓库列表**（替换所有现有条目）
 
 ```tlmgr repository set [url#tag] [url#tag ...]```
 
-**Check verification status** of repositories
+**检查仓库的验证状态**
 
 ```tlmgr repository status```
 
@@ -31,32 +31,31 @@ Manage TeX Live package repositories
 # PARAMETERS
 
 **list** [_path|url|tag_]
-> List configured repositories and their tags. If a path, URL, or tag is given, initialize a TL database from that source and list its packages.
+> 列出已配置的仓库及其标签。如果给定了路径、URL 或标签，则从该来源初始化 TL 数据库并列出其中的软件包。
 
 **list** **--with-platforms**
-> Additionally list available platforms for each package.
+> 额外列出每个软件包可用的平台。
 
 **add** _path_ [_tag_]
-> Add a repository, optionally attaching a tag for convenient reference.
+> 添加仓库，可选择附加一个标签以便引用。
 
 **remove** _path|tag_
-> Remove a repository by full path/URL or by its tag.
+> 通过完整路径/URL 或标签移除仓库。
 
 **set** _path_[**#**_tag_] [_path_[**#**_tag_] ...]
-> Replace the entire repository list with the specified entries. One repository must be tagged as **main**.
+> 用指定条目替换整个仓库列表。必须有一个仓库标记为 **main**。
 
 **status**
-> Report verification status of loaded repositories (tag, URL, and verification status).
+> 报告已加载仓库的验证状态（标签、URL 和验证状态）。
 
 # DESCRIPTION
 
-**tlmgr repository** manages the list of TeX Live package repositories. It allows configuring CTAN mirrors and additional package sources. One repository must always be tagged as **main**; operations will fail without it. Part of TeX Live Manager.
+**tlmgr repository** 管理 TeX Live 软件包仓库列表。它允许配置 CTAN 镜像和额外的软件包来源。必须始终有一个仓库标记为 **main**；否则操作会失败。TeX Live Manager 的组成部分。
 
 # CAVEATS
 
-The **set** action replaces all previously configured repositories. One repository must be tagged as **main** or operations will fail. Repository verification depends on a working GnuPG (gpg) binary being available.
+**set** 操作会替换之前配置的所有仓库。必须有一个仓库标记为 **main**，否则操作将失败。仓库验证依赖可用的 GnuPG（gpg）二进制文件。
 
 # SEE ALSO
 
 [tlmgr-update](/man/tlmgr-update)(1), [tlmgr](/man/tlmgr)(1), [tlmgr-conf](/man/tlmgr-conf)(1), [tlmgr-install](/man/tlmgr-install)(1)
-

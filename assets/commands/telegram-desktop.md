@@ -1,26 +1,26 @@
 # TAGLINE
 
-Telegram messaging desktop client
+Telegram 即时通讯桌面客户端
 
 # TLDR
 
-**Start Telegram**
+**启动 Telegram**
 
 ```telegram-desktop```
 
-**Open with URL**
+**通过 URL 打开**
 
 ```telegram-desktop -- [tg://resolve?domain=username]```
 
-**Start minimized**
+**以最小化方式启动**
 
 ```telegram-desktop -startintray```
 
-**With working directory**
+**指定工作目录**
 
 ```telegram-desktop -workdir [~/.telegram]```
 
-**Debug mode**
+**调试模式**
 
 ```telegram-desktop -debug```
 
@@ -31,33 +31,33 @@ Telegram messaging desktop client
 # PARAMETERS
 
 **-startintray**
-> Start minimized to tray.
+> 最小化到系统托盘启动。
 
 **-workdir** _DIR_
-> Data directory.
+> 数据目录。
 
 **-debug**
-> Debug mode.
+> 调试模式。
 
 **-scale** _N_
-> UI scale factor.
+> 界面缩放系数。
 
 **--**
-> Open URL.
+> 打开 URL。
 
 # DESCRIPTION
 
-**telegram-desktop** is the official desktop client for the Telegram messaging platform. It provides access to all Telegram features including text messages, voice and video calls, media sharing, and channels from a native desktop application.
+**telegram-desktop** 是 Telegram 即时通讯平台的官方桌面客户端。它以原生桌面应用的形式提供 Telegram 的全部功能，包括文字消息、语音和视频通话、媒体分享以及频道。
 
-The client supports group chats with up to 200,000 members, secret chats with end-to-end encryption, file transfers up to 2GB per file, and seamless synchronization across all devices. It is built with Qt and runs on Linux, macOS, and Windows, with data stored in a configurable working directory.
+该客户端支持最多 20 万成员的群聊、端到端加密的秘密聊天、单个最大 2GB 的文件传输，以及在所有设备间的无缝同步。它基于 Qt 构建，可运行于 Linux、macOS 和 Windows，数据存储在可配置的工作目录中。
 
 # CAVEATS
 
-Account required. Internet needed. Qt-based application.
+需要账号。需要联网。基于 Qt 的应用程序。
 
 # HISTORY
 
-**Telegram Desktop** is the official desktop client for **Telegram**, created by the Durov brothers' team.
+**Telegram Desktop** 是 **Telegram** 的官方桌面客户端，由 Durov 兄弟的团队打造。
 
 # INSTALL
 

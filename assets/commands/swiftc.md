@@ -1,38 +1,38 @@
 # TAGLINE
 
-Compile Swift source code to executables
+将 Swift 源代码编译为可执行文件
 
 # TLDR
 
-**Compile a Swift source file**
+**编译 Swift 源文件**
 
 ```swiftc [file.swift]```
 
-**Compile with a custom output name**
+**以自定义输出名编译**
 
 ```swiftc -o [program] [file.swift]```
 
-**Compile multiple source files**
+**编译多个源文件**
 
 ```swiftc [main.swift] [utils.swift] -o [program]```
 
-**Compile with debugging symbols**
+**带调试符号编译**
 
 ```swiftc -g [file.swift] -o [program]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```swiftc -O [file.swift] -o [program]```
 
-**Show verbose compilation output**
+**显示详细的编译输出**
 
 ```swiftc -v [file.swift]```
 
-**Compile with size optimization**
+**以体积优化编译**
 
 ```swiftc -Osize [file.swift] -o [program]```
 
-**Emit object file only**
+**仅生成目标文件**
 
 ```swiftc -c [file.swift] -o [file.o]```
 
@@ -43,74 +43,74 @@ Compile Swift source code to executables
 # PARAMETERS
 
 **-o** _file_
-> Specify output file name
+> 指定输出文件名
 
 **-c**
-> Compile without linking (produce object file)
+> 只编译不链接（生成目标文件）
 
 **-g**
-> Generate debugging symbols
+> 生成调试符号
 
 **-O**
-> Compile with optimizations
+> 带优化编译
 
 **-Osize**
-> Compile with optimizations, prioritizing smaller binary size
+> 带优化编译，优先考虑更小的二进制体积
 
 **-Ounchecked**
-> Compile with optimizations, removing runtime safety checks
+> 带优化编译，移除运行时安全检查
 
 **-Onone**
-> Compile without optimizations (default for debug)
+> 不带优化编译（debug 的默认值）
 
 **-whole-module-optimization**
-> Optimize across the entire module at once
+> 一次对整个模块进行优化
 
 **-target** _triple_
-> Generate code for the given target triple (e.g., x86_64-apple-macosx10.15)
+> 为给定的目标三元组生成代码（例如 x86_64-apple-macosx10.15）
 
 **-v**, **--verbose**
-> Show verbose output including executed commands
+> 显示详细输出，包括执行的命令
 
 **-emit-executable**
-> Generate an executable (default when linking)
+> 生成可执行文件（链接时的默认行为）
 
 **-emit-library**
-> Generate a dynamic library
+> 生成动态库
 
 **-emit-module**
-> Generate a Swift module
+> 生成 Swift 模块
 
 **-D** _flag_
-> Define a conditional compilation flag
+> 定义条件编译标志
 
 **-I** _path_
-> Add import search path
+> 添加导入搜索路径
 
 **-L** _path_
-> Add library search path
+> 添加库搜索路径
 
 **-l** _library_
-> Link with specified library
+> 链接指定的库
 
 **-h**, **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**swiftc** is the Swift compiler that translates Swift source code into executable binaries, libraries, object files, and modules. It is the command-line interface for building Swift programs outside of Xcode.
+**swiftc** 是 Swift 编译器，负责将 Swift 源代码翻译为可执行二进制、库、目标文件和模块。它是在 Xcode 之外构建 Swift 程序的命令行界面。
 
-The compiler driver coordinates multiple compilation phases: parsing, type checking, optimization, and code generation. For single-file programs, swiftc produces an executable directly. Multiple source files are compiled and linked together.
+该编译器驱动器协调多个编译阶段：解析、类型检查、优化和代码生成。对于单文件程序，swiftc 直接生成可执行文件。多个源文件会被一起编译并链接。
 
-swiftc is a symbolic link to the swift executable, which determines its behavior based on how it is invoked. The Swift Package Manager typically handles compilation for complex projects.
+swiftc 是指向 swift 可执行文件的符号链接，后者根据被调用的方式决定自身行为。复杂项目通常由 Swift Package Manager 负责编译。
 
 # CAVEATS
 
-swiftc requires the Swift toolchain to be installed. On macOS, it is included with Xcode; on Linux, it must be installed separately. Module compatibility depends on Swift version; mixing versions may cause issues.
+swiftc 要求安装 Swift 工具链。macOS 上随 Xcode 附带；Linux 上需单独安装。模块兼容性依赖 Swift 版本，混用版本可能出问题。
 
 # HISTORY
 
-Swift was announced by **Apple** at WWDC **2014** and open-sourced in **December 2015**. The compiler was initially written in C++, with ongoing efforts to rewrite components in Swift itself. Swift 6 added major concurrency and safety improvements.
+Swift 由 **Apple** 在 **2014 年** WWDC 上发布，并于 **2015 年 12 月**开源。该编译器最初用 C++ 编写，目前仍在持续努力用 Swift 本身重写各组件。Swift 6 带来了重大的并发与安全性改进。
 
 # INSTALL
 

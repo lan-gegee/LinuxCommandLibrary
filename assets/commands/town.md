@@ -1,44 +1,44 @@
 # TAGLINE
 
-CLI for authoring and deploying pixel towns with AI NPCs
+用于创作和部署带 AI NPC 像素小镇的 CLI
 
 # TLDR
 
-**Install** the CLI (or run without a global install)
+**安装** CLI（或不做全局安装直接运行）
 
 ```npm install -g @redplanethq/town```
 
 ```pnpm dlx @redplanethq/town [login]```
 
-**Log in** to CORE and save a personal access token
+**登录** CORE 并保存个人访问令牌
 
 ```town login```
 
-**Create a new town** and open the chat creator
+**创建新小镇**并打开聊天创作器
 
 ```town new ["My Town"]```
 
-**Clone an existing town** into a local folder
+将现有小镇**克隆**到本地文件夹
 
 ```town clone --slug [my-town]```
 
-**Deploy** the current folder's town definition to the server
+将当前文件夹的小镇定义**部署**到服务器
 
 ```town deploy```
 
-**Force a full layout reflow** on deploy
+部署时**强制完整布局重排**
 
 ```town deploy --reflow```
 
-**Print the plot catalog** (optional per-town data)
+**打印地块目录**（可选的小镇数据）
 
 ```town catalog --slug [my-town]```
 
-**Generate a custom building exterior** image
+**生成自定义建筑外观**图像
 
 ```town generate exterior ["a cozy bookshop with a green awning"] --out [exterior.png]```
 
-**Test an NPC prompt** against a real LLM
+用真实 LLM **测试 NPC 提示词**
 
 ```town test npc [npcs/cafe.mdx] -q ["What do you recommend today?"]```
 
@@ -50,83 +50,83 @@ CLI for authoring and deploying pixel towns with AI NPCs
 
 # DESCRIPTION
 
-**town** is the companion command-line tool for **Town** (by RedPlanetHQ / CORE): multiplayer pixel-map spaces where each building hosts AI characters with personalities and tool skillsets. Players explore towns in the browser; creators edit towns as a folder of JSON and MDX on disk, then push changes with this CLI.
+**town** 是 **Town**（由 RedPlanetHQ / CORE 开发）的配套命令行工具：这是一种多人像素地图空间，每栋建筑中都有具备个性和工具技能组合的 AI 角色。玩家在浏览器中探索小镇；创作者将小镇编辑为磁盘上的 JSON 和 MDX 文件夹，然后用此 CLI 推送更改。
 
-A town folder typically contains **town.json** (building list and custom plot refs), **npcs/** (one **.mdx** file per character, frontmatter for identity and body as the system prompt), optional **customPlots/** (user-defined interiors/exteriors), plus catalog/manifest reference files. Bare **town** with no subcommand, run inside a folder that has **town.json**, launches the interactive chat creator (requires prior **town login**). Outside a town folder, bare **town** prints help.
+小镇文件夹通常包含 **town.json**（建筑列表和自定义地块引用）、**npcs/**（每个角色一个 **.mdx** 文件，frontmatter 定义身份，正文作为系统提示词）、可选的 **customPlots/**（用户定义的室内/室外场景），以及目录/清单参考文件。在含有 **town.json** 的文件夹中运行不带子命令的裸 **town** 会启动交互式聊天创作器（需要先执行过 **town login**）。在小镇文件夹之外，裸 **town** 则打印帮助信息。
 
-Authentication uses a CORE personal access token stored at **~/.town/config.json** (mode **0600**). API calls send that token as a Bearer credential to the configured town server.
+身份验证使用存储在 **~/.town/config.json**（权限模式 **0600**）中的 CORE 个人访问令牌。API 调用会将该令牌作为 Bearer 凭据发送到所配置的小镇服务器。
 
 # COMMANDS
 
 **login**
 
-> Authenticate with CORE (browser OAuth flow) and save host URLs plus PAT under **~/.town/config.json**.
+> 通过 CORE 进行身份验证（浏览器 OAuth 流程），并将主机 URL 和 PAT 保存在 **~/.town/config.json** 下。
 
 **new** [_name_]
 
-> Create a new town (prompts for a name when omitted), scaffold the local folder, and launch the chat creator.
+> 创建新小镇（省略名称时会提示输入），生成本地文件夹脚手架，并启动聊天创作器。
 
 **clone**
 
-> Pull an existing town's state into a local directory. Use **--slug** to pick a town without an interactive prompt.
+> 将现有小镇的状态拉取到本地目录。使用 **--slug** 可在不进行交互提示的情况下选择小镇。
 
 **deploy**
 
-> Upload **town.json**, **customPlots/**, and **npcs/** to the server. Uploads new local PNGs, then POSTs the plot payload; the server applies incremental layout ops by default.
+> 将 **town.json**、**customPlots/** 和 **npcs/** 上传到服务器。先上传新的本地 PNG，再 POST 地块数据；服务器默认应用增量布局操作。
 
 **catalog**
 
-> Print available plot keys from the global catalog; with **--slug**, include that town's tags and item templates.
+> 打印全局目录中可用的地块键名；配合 **--slug** 时还会包含该小镇的标签和物品模板。
 
 **delete**
 
-> Permanently delete one of your towns. **--force** skips the type-the-slug confirmation.
+> 永久删除你的某个小镇。**--force** 可跳过输入 slug 确认的步骤。
 
 **generate exterior** _concept_ / **generate interior** _concept_
 
-> Generate a pixel-art PNG for a custom plot exterior or interior from a short text description.
+> 根据简短的文字描述为自定义地块的外观或内部生成像素画 PNG。
 
 **test set-key** _provider_ _key_
 
-> Store an LLM API key for local NPC testing (**anthropic**, **openai**, or **ollama**). Environment variables always override saved keys.
+> 存储用于本地 NPC 测试的 LLM API 密钥（**anthropic**、**openai** 或 **ollama**）。环境变量始终优先于已保存的密钥。
 
 **test npc** [_mdxPath_]
 
-> Run an NPC prompt against a real model (multi-turn session, one-shot question, or scripted scenario).
+> 用真实模型运行 NPC 提示词（多轮会话、单次提问或脚本化场景）。
 
 **init**
 
-> Deprecated alias. Exits with a message to use **town new** or **town clone** instead.
+> 已弃用的别名。退出时提示改用 **town new** 或 **town clone**。
 
 # PARAMETERS
 
-**deploy** options:
+**deploy** 选项：
 
 **-d**, **--dir** _path_
 
-> Folder containing **town.json**, **customPlots/**, and **npcs/** (default: current directory).
+> 包含 **town.json**、**customPlots/** 和 **npcs/** 的文件夹（默认：当前目录）。
 
 **--slug** _slug_
 
-> Target town slug (defaults from **town.json** id stash, then folder name).
+> 目标小镇的 slug（默认先取自 **town.json** 中保存的 id，其次取自文件夹名称）。
 
 **--reflow**
 
-> Wipe the server-side plot before applying so layout is regenerated from scratch.
+> 应用前清空服务器端的地块，使布局完全从头重新生成。
 
-**clone** / **delete** / **catalog** / **generate**: **--slug** _slug_ where noted.
+**clone** / **delete** / **catalog** / **generate**：在注明处使用 **--slug** _slug_。
 
-**delete**: **--force** — skip confirmation.
+**delete**：**--force** —— 跳过确认。
 
-**generate exterior**: **--out** _path_ (default **exterior.png**), **--tiles** _WxH_, **--category** _cat_, **--slug** _slug_
+**generate exterior**：**--out** _path_（默认 **exterior.png**）、**--tiles** _WxH_、**--category** _cat_、**--slug** _slug_
 
-**generate interior**: **--out** _path_ (default **interior.png**), **--category** _cat_, **--slug** _slug_
+**generate interior**：**--out** _path_（默认 **interior.png**）、**--category** _cat_、**--slug** _slug_
 
-**test npc**: **-s** / **--session** _file_, **-q** / **--question** _text_, **-f** / **--script** _file_, **--show**, **--reset**, **--speaker** _name_, **--model** _id_
+**test npc**：**-s** / **--session** _file_、**-q** / **--question** _text_、**-f** / **--script** _file_、**--show**、**--reset**、**--speaker** _name_、**--model** _id_
 
 # CONFIGURATION
 
-Credentials and optional LLM keys live in **~/.town/config.json** (directory **~/.town/**, file permissions **0600**):
+凭据和可选的 LLM 密钥保存在 **~/.town/config.json**（目录 **~/.town/**，文件权限 **0600**）：
 
 ```
 {
@@ -144,15 +144,15 @@ Credentials and optional LLM keys live in **~/.town/config.json** (directory **~
 }
 ```
 
-Shell environment variables (**ANTHROPIC_API_KEY**, **OPENAI_API_KEY**, **OLLAMA_API_KEY**, **LLM_PROVIDER**, **OLLAMA_BASE_URL**) take precedence over values stored under **llm**. Use **town login** to populate **auth**; use **town test set-key** for local NPC testing keys.
+Shell 环境变量（**ANTHROPIC_API_KEY**、**OPENAI_API_KEY**、**OLLAMA_API_KEY**、**LLM_PROVIDER**、**OLLAMA_BASE_URL**）优先于 **llm** 下保存的值。使用 **town login** 填充 **auth**；本地 NPC 测试密钥则通过 **town test set-key** 设置。
 
 # CAVEATS
 
-Requires Node.js (the published package targets modern Node and is typically run via **npm** / **pnpm**). Most mutating commands need a successful **town login**. **town init** no longer creates or clones towns — use **new** or **clone**. Sprite uploads on deploy accept PNG only (content-addressed, size-capped on the server). **town test npc** needs a configured LLM key and may incur provider costs. The interactive creator TUI expects a real terminal.
+需要 Node.js（发布的软件包面向较新的 Node 版本，通常通过 **npm** / **pnpm** 运行）。大多数修改类命令都需要成功执行 **town login**。**town init** 不再创建或克隆小镇——请改用 **new** 或 **clone**。部署时的精灵图上传仅接受 PNG 格式（内容寻址，服务器有大小上限）。**town test npc** 需要配置好的 LLM 密钥，且可能产生服务商费用。交互式创作 TUI 需要真实终端。
 
 # HISTORY
 
-**Town** is an open-source project from **RedPlanetHQ**, built around the **CORE** agent/memory platform. Towns are multiplayer pixel maps with tool-using AI NPCs; the **@redplanethq/town** package provides the offline authoring and deploy workflow. Early CLI versions used a single **init** verb for both create and clone; that was later split into **town new** and **town clone**, with **init** retained only as a migration hint.
+**Town** 是来自 **RedPlanetHQ** 的开源项目，围绕 **CORE** 智能体/记忆平台构建。小镇是带有会使用工具的 AI NPC 的多人像素地图；**@redplanethq/town** 软件包提供离线创作与部署工作流。早期 CLI 版本用一个 **init** 动词同时承担创建和克隆；后来拆分为 **town new** 和 **town clone**，**init** 仅作为迁移提示保留。
 
 # SEE ALSO
 

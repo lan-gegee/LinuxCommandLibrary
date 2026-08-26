@@ -1,38 +1,38 @@
 # TAGLINE
 
-Encrypted storage volume manager
+加密存储卷管理器
 
 # TLDR
 
-**Create** a new tomb (100 MB)
+**创建**新的 tomb（100 MB）
 
 ```tomb dig -s 100 secret.tomb```
 
-**Forge** a new key file
+**锻造**新密钥文件
 
 ```tomb forge secret.tomb.key```
 
-**Lock** a tomb with its key
+**用密钥锁定** tomb
 
 ```tomb lock secret.tomb -k secret.tomb.key```
 
-**Open** a tomb and mount it
+**打开**并挂载 tomb
 
 ```tomb open secret.tomb -k secret.tomb.key```
 
-**Close** a tomb
+**关闭** tomb
 
 ```tomb close secret.tomb```
 
-**Slam** all tombs forcefully
+**强制**关闭所有 tomb
 
 ```tomb slam all```
 
-**List** all open tombs
+**列出**所有已打开的 tomb
 
 ```tomb list```
 
-**Resize** a tomb
+**调整** tomb 大小
 
 ```tomb resize secret.tomb -s 200```
 
@@ -42,80 +42,80 @@ Encrypted storage volume manager
 
 # DESCRIPTION
 
-**tomb** manages encrypted storage directories that can be safely transported and hidden in a filesystem. It creates LUKS-encrypted containers that can be mounted as regular directories. Tombs are useful for secure storage of sensitive data.
+**tomb** 管理可安全传输并隐藏在文件系统中的加密存储目录。它创建 LUKS 加密容器，可以像普通目录一样挂载。Tomb 适合安全存储敏感数据。
 
 # PARAMETERS
 
 **dig**
-> Create a new tomb container
+> 创建新的 tomb 容器
 
 **forge**
-> Create a new key file for locking a tomb
+> 创建用于锁定 tomb 的新密钥文件
 
 **lock**
-> Initialize and lock an empty tomb with a key
+> 用密钥初始化并锁定空的 tomb
 
 **open**
-> Mount a tomb using its key file
+> 使用密钥文件挂载 tomb
 
 **close**
-> Unmount a tomb
+> 卸载 tomb
 
 **slam**
-> Forcefully close tombs, killing processes using them
+> 强制关闭 tomb，终止占用它们的进程
 
 **list**
-> List all open tombs
+> 列出所有已打开的 tomb
 
 **resize**
-> Change the size of a tomb
+> 更改 tomb 的大小
 
 **passwd**
-> Change the passphrase protecting a key file
+> 更改保护密钥文件的口令
 
 **setkey**
-> Replace the key of an existing tomb with a different one
+> 将现有 tomb 的密钥替换为另一个
 
 **bury**
-> Hide a key file inside a JPEG image (steganography)
+> 将密钥文件隐藏在 JPEG 图像中（隐写术）
 
 **exhume**
-> Recover a key file previously buried in an image
+> 恢复先前埋入图像中的密钥文件
 
 **engrave**
-> Print a key as a QR code for paper backup
+> 将密钥打印为二维码以便纸质备份
 
 **index**, **search**, **recompose**
-> Maintain and query a recoll full-text index of tombs
+> 维护和查询 tomb 的 recoll 全文索引
 
 **-s SIZE**
-> Specify size in megabytes
+> 以 MB 为单位指定大小
 
 **-k KEYFILE**
-> Specify key file to use
+> 指定要使用的密钥文件
 
 **-f, --force**
-> Force operation (e.g., forge key despite swap)
+> 强制执行操作（例如无视 swap 存在而锻造密钥）
 
 **-o MOUNT_OPTIONS**
-> Specify mount options
+> 指定挂载选项
 
 **--kdf** _N_
-> Use strong KDF with _N_ rounds of key derivation (hardens against brute-force).
+> 使用带 _N_ 轮密钥派生的强 KDF（增强抗暴力破解能力）。
 
 **--tomb-pwd** _FD_
-> Read passphrase from file descriptor _FD_ (for automation).
+> 从文件描述符 _FD_ 读取口令（用于自动化）。
 
 **-g, --gpg-key** _KEYID_
-> Encrypt the tomb key with a GPG public key instead of a passphrase.
+> 使用 GPG 公钥而不是口令加密 tomb 密钥。
 
 # CAVEATS
 
-Tomb refuses to forge keys if swap is enabled (to prevent key material from being written to swap). Use -f to override this check. Tombs are implemented using LUKS and require cryptsetup.
+如果启用了 swap，tomb 会拒绝锻造密钥（防止密钥材料被写入 swap）。使用 -f 可绕过此检查。Tomb 基于 LUKS 实现，需要 cryptsetup。
 
 # HISTORY
 
-**tomb** was created by the Dyne.org foundation as a user-friendly wrapper for creating and managing LUKS-encrypted volumes in a portable way.
+**tomb** 由 Dyne.org 基金会创建，是一个以可移植方式创建和管理 LUKS 加密卷的易用包装器。
 
 # INSTALL
 

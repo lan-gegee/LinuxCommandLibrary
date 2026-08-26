@@ -1,34 +1,34 @@
 # TAGLINE
 
-Open-source agent runtime harness with TUI and CLI
+带 TUI 和 CLI 的开源智能体运行时框架
 
 # TLDR
 
-**Open** the interactive terminal UI
+**打开**交互式终端 UI
 
 ```tura```
 
-**Start** the TUI with an initial prompt
+以初始提示词**启动** TUI
 
 ```tura "[Inspect this repository]"```
 
-**Run** a non-interactive gateway-backed prompt
+通过网关**运行**非交互式提示词
 
 ```tura run "[Fix the failing test and verify it]"```
 
-**Run** a one-shot prompt via the direct Rust CLI
+通过 Rust CLI 直接**执行**一次性提示词
 
 ```tura exec "[Summarize the architecture]"```
 
-**List** configured LLM providers
+**列出**已配置的 LLM 提供方
 
 ```tura provider list```
 
-**List** sessions
+**列出**会话
 
 ```tura session list --json```
 
-**Resume** the latest session with a follow-up
+**恢复**最近一次会话并继续追问
 
 ```tura resume --last "[Continue and verify the fix]"```
 
@@ -39,95 +39,95 @@ Open-source agent runtime harness with TUI and CLI
 # PARAMETERS
 
 **--gateway-url** _URL_
-> Use an explicit gateway instead of auto-starting or discovering one.
+> 使用显式指定的网关，而不是自动启动或自动发现。
 
 **--cwd** _PATH_
-> Workspace directory sent to the gateway. Defaults to the current directory.
+> 发送给网关的工作区目录。默认为当前目录。
 
 **--initial-session** _ID_
-> Open the TUI on a specific session. Also read from **TURA_TUI_INITIAL_SESSION_ID**.
+> 在指定会话上打开 TUI。也可从 **TURA_TUI_INITIAL_SESSION_ID** 读取。
 
 **--json**
-> Request JSON output where the selected command supports it.
+> 在所选命令支持时请求 JSON 输出。
 
 **--verbose**
-> Print gateway request diagnostics to stderr.
+> 将网关请求的诊断信息打印到 stderr。
 
 **--plain** / **--rich**
-> Force plain/safe terminal rendering or rich rendering.
+> 强制使用普通/安全终端渲染或富文本渲染。
 
 **--lang** **en**|**zh-CN**, **--language** **en**|**zh-CN**
-> Set CLI display language.
+> 设置 CLI 显示语言。
 
-With no subcommand, **tura** opens the interactive TUI. If the first argument is not a known command, remaining text is treated as the initial TUI prompt.
+不带子命令时，**tura** 会打开交互式 TUI。如果第一个参数不是已知命令，其余文本将被视为初始 TUI 提示词。
 
 # COMMANDS
 
 **run** [_options_] _"prompt"_
-> Gateway-backed non-interactive prompt: create or reuse a session, stream until the turn completes, print the result. Options include **-m**/**--model**, **-a**/**--agent**, **--session**, **--output** text|json|ndjson, **--timeout**, **--stream**/**--no-stream**, **--bash**/**--zsh**/**--shel**.
+> 基于网关的非交互式提示词：创建或复用会话，流式输出直到本轮完成，然后打印结果。选项包括 **-m**/**--model**、**-a**/**--agent**、**--session**、**--output** text|json|ndjson、**--timeout**、**--stream**/**--no-stream**、**--bash**/**--zsh**/**--shel**。
 
 **exec** [_options_] _"prompt"_
-> Direct Rust CLI one-shot runner (**tura_exec**). Reads prompt from stdin if omitted. Options include **-C**/**--cwd**, **-m**/**--model**, **-a**/**--agent**, **--json**, **--quiet**, **--sandbox**, **--goal**, **--bash**/**--zsh**/**--shll**.
+> 直接的 Rust CLI 一次性运行器（**tura_exec**）。省略时从 stdin 读取提示词。选项包括 **-C**/**--cwd**、**-m**/**--model**、**-a**/**--agent**、**--json**、**--quiet**、**--sandbox**、**--goal**、**--bash**/**--zsh**/**--shll**。
 
 **bash** | **zsh** | **shel** _"prompt"_
-> Aliases for **run** with the **command_run** shell surface forced.
+> **run** 的别名，强制使用 **command_run** shell 界面。
 
 **session** **list**|**show**|**update**|**abort** ...
-> Inspect and modify gateway sessions. **list** supports **--all** and **--json**.
+> 查看和修改网关会话。**list** 支持 **--all** 和 **--json**。
 
 **resume** [_SESSION_ID_ | **--last**] [_prompt_...]
-> Show a session, or append a follow-up prompt.
+> 查看某个会话，或追加后续提示词。
 
 **config** **get**|**set**|**model-tier** ...
-> Read or patch workspace session config and model tiers.
+> 读取或修改工作区会话配置和模型层级。
 
 **provider** **list**|**status**|**login**|**set-auth**|**logout** ...
-> List providers and manage local authentication (OAuth or API key). Credentials are not bundled; configure a provider before prompt commands.
+> 列出提供方并管理本地身份验证（OAuth 或 API key）。凭据不随软件包附带；使用提示词命令前需先配置提供方。
 
 **agent** **list**|**show**|**create**|**update**|**delete**|**model** ...
-> Work with the gateway agent registry (default agent id often **balanced**).
+> 操作网关智能体注册表（默认智能体 ID 通常为 **balanced**）。
 
 **persona** **list**|**show**|**create**|**update**|**delete** ...
-> Work with the gateway persona registry.
+> 操作网关角色（persona）注册表。
 
 **project** **current**|**list**|**create**|**default** ...
-> Inspect or create gateway workspaces.
+> 检查或创建网关工作区。
 
 **file** **list**|**read**|**open**|**reveal** ...
-> Operate on files in the selected workspace via the gateway.
+> 通过网关对所选工作区中的文件进行操作。
 
 **command** **list**|**run** ...
-> List or execute registered gateway commands (not arbitrary shell).
+> 列出或执行已注册的网关命令（不能执行任意 shell 命令）。
 
 **inspect** **status**|**path**|**sessions**|**messages** ...
-> Diagnostics for gateway and session state.
+> 针对网关和会话状态的诊断。
 
 **completion** **bash**|**zsh**|**fish**
-> Print shell completion snippets.
+> 输出 shell 补全脚本片段。
 
 **gateway** _METHOD_ _PATH_ [**-d** _JSON_]
-> Send one raw HTTP request through the CLI gateway client.
+> 通过 CLI 网关客户端发送一条原始 HTTP 请求。
 
 **register-cli** | **unregister-cli** | **doctor-cli-path**
-> npm package-entry helpers to register or check the release binary on **PATH**.
+> npm 包入口辅助工具，用于在 **PATH** 上注册或检查发布版二进制文件。
 
-Related binaries: **tura_gateway** (local HTTP/SSE gateway), **tura_gui** (desktop client), **tura_exec**, **tura_router**, **tura_session_db** (runtime plumbing).
+相关二进制文件：**tura_gateway**（本地 HTTP/SSE 网关）、**tura_gui**（桌面客户端）、**tura_exec**、**tura_router**、**tura_session_db**（运行时基础组件）。
 
 # DESCRIPTION
 
-**tura** is an open-source agent runtime harness designed to complete long-horizon coding tasks with fewer model turns and tokens than typical tool-calling loops. Instead of exposing many fine-grained tools per step, it emphasizes a macro **command_run** tool so related shell, patch, build, and test actions can run in one structured turn, plus runtime context management tied to task state.
+**tura** 是一个开源智能体运行时框架，设计目标是以比典型工具调用循环更少的模型轮次和 token 完成长周期编码任务。它不在每一步暴露大量细粒度工具，而是强调一个宏观的 **command_run** 工具，让相关的 shell、补丁、构建和测试操作可以在一个结构化轮次中完成，并配合与任务状态关联的运行时上下文管理。
 
-The primary entry point is the **tura** command: with no arguments it launches a terminal UI; **tura run** and **tura exec** provide non-interactive paths for scripts and CI-style prompts. A local gateway process coordinates sessions, agents, and providers. Install via npm (**tura-ai**) or from source with the project's install scripts; on first launch, configure an LLM provider and model before sending prompts.
+主要入口是 **tura** 命令：不带参数时启动终端 UI；**tura run** 和 **tura exec** 为脚本和 CI 风格提示词提供非交互路径。本地网关进程负责协调会话、智能体和提供方。可通过 npm（**tura-ai**）安装，或使用项目提供的安装脚本从源码安装；首次启动时需先配置 LLM 提供方和模型才能发送提示词。
 
-Published benchmarks compare Tura agent configurations against other coding agents on long-horizon tasks; results and methodology are documented upstream. License is AGPL-3.0-or-later.
+已发布的基准测试将 Tura 智能体配置与其他编码智能体在长周期任务上进行了比较；结果和方法在上游有文档说明。许可证为 AGPL-3.0-or-later。
 
 # CAVEATS
 
-Requires a configured LLM provider; installation alone does not supply credentials. Behavior and available models depend on which providers you authenticate. Some subcommands need a running or auto-started gateway. Companion binaries (**tura_gateway**, **tura_gui**, router/session DB tools) are for service and desktop use, not everyday prompt entry. Spelling of shell surfaces differs slightly between TypeScript (**shel**) and Rust (**shll**) frontends.
+需要配置好 LLM 提供方；仅安装不会自带凭据。行为和可用模型取决于你完成身份验证的提供方。部分子命令需要网关正在运行或可自动启动。配套的二进制文件（**tura_gateway**、**tura_gui**、router/会话数据库工具）面向服务和桌面用途，不用于日常输入提示词。shell 界面的拼写在 TypeScript（**shel**）与 Rust（**shll**）前端之间略有差异。
 
 # HISTORY
 
-Developed by **Tura-AI** as an open-source agent harness with TUI, CLI, and optional GUI, emphasizing macro command execution and context control. Distributed on npm as **tura-ai** and on GitHub as **Tura-AI/tura**.
+由 **Tura-AI** 开发，是一个带 TUI、CLI 和可选 GUI 的开源智能体框架，强调宏命令执行和上下文控制。以 **tura-ai** 名义发布于 npm，并以 **Tura-AI/tura** 托管在 GitHub 上。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TLDR
 
-Start **SSL stripping** on default port
+在默认端口启动 **SSL 剥离**
 
 ```sslstrip```
 
-Listen on **specific port**
+监听**指定端口**
 
 ```sslstrip --listen=8080```
 
-Log **all SSL** traffic
+记录**所有 SSL** 流量
 
 ```sslstrip --ssl --listen=8080```
 
-Log **all HTTP and SSL** traffic
+记录**所有 HTTP 和 SSL** 流量
 
 ```sslstrip --listen=8080 --all```
 
-Write logs to **file**
+将日志写入**文件**
 
 ```sslstrip --listen=8080 --write=output.log```
 
-Display **help**
+显示**帮助**
 
 ```sslstrip --help```
 
@@ -30,41 +30,41 @@ Display **help**
 
 # DESCRIPTION
 
-**sslstrip** is a security testing tool that performs SSL stripping attacks by acting as a proxy between the victim and the server. It converts HTTPS links to HTTP, allowing interception of traffic that would otherwise be encrypted. This tool is used for authorized penetration testing and security research.
+**sslstrip** 是一款安全测试工具，通过在受害者与服务器之间充当代理来实施 SSL 剥离攻击。它将 HTTPS 链接转换为 HTTP，从而拦截本应加密的流量。该工具用于获得授权的渗透测试和安全研究。
 
 # PARAMETERS
 
 **-l, --listen PORT**
-> Port to listen on (default: 10000)
+> 要监听的端口（默认：10000）
 
 **-a, --all**
-> Log all SSL and HTTP traffic
+> 记录所有 SSL 和 HTTP 流量
 
 **-s, --ssl**
-> Log all SSL traffic to and from server
+> 记录与服务器之间的所有 SSL 流量
 
 **-w, --write FILE**
-> Specify log file path
+> 指定日志文件路径
 
 **-p, --post**
-> Log only HTTP POST requests (default)
+> 仅记录 HTTP POST 请求（默认）
 
 **-f, --favicon**
-> Substitute a lock favicon on secure requests
+> 在安全请求上替换为锁形图标
 
 **-k, --killsessions**
-> Kill sessions in progress
+> 终止进行中的会话
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-This tool is intended for authorized security testing only. Unauthorized use against systems you do not own or have permission to test is illegal. Requires ARP spoofing or similar MITM setup to intercept traffic. Modern browsers with HSTS preloading may prevent this attack.
+此工具仅用于获得授权的安全测试。未经授权对不属于你或未获测试许可的系统使用属于违法行为。需要配合 ARP 欺骗或类似的中间人设置才能拦截流量。启用 HSTS 预加载的现代浏览器可以阻止此类攻击。
 
 # HISTORY
 
-**sslstrip** was created by Moxie Marlinspike and demonstrated at Black Hat DC 2009 to illustrate vulnerabilities in SSL/TLS implementation in web applications.
+**sslstrip** 由 Moxie Marlinspike 创建，并在 Black Hat DC 2009 上演示，用以说明 Web 应用中 SSL/TLS 实现的漏洞。
 
 # INSTALL
 

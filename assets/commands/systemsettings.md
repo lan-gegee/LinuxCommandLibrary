@@ -1,18 +1,18 @@
 # TAGLINE
 
-KDE Plasma system settings GUI
+KDE Plasma 系统设置图形界面
 
 # TLDR
 
-Open settings **GUI**
+打开设置的**图形界面**
 
 ```systemsettings```
 
-**List** all KCM modules
+**列出**所有 KCM 模块
 
 ```systemsettings --list```
 
-Display **help**
+显示**帮助**
 
 ```systemsettings -h```
 
@@ -23,24 +23,24 @@ Display **help**
 # PARAMETERS
 
 **--list**
-> List all available KCM (KDE Control Module) modules
+> 列出所有可用的 KCM（KDE Control Module，KDE 控制模块）
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**systemsettings** is the central configuration program for KDE Plasma desktop. It provides a graphical interface to configure system settings including appearance, workspace behavior, hardware, network, and applications.
+**systemsettings** 是 KDE Plasma 桌面的核心配置程序。它提供图形界面来配置系统设置，包括外观、工作区行为、硬件、网络和应用程序。
 
-Settings are organized into categories with individual KCM modules handling specific configuration areas.
+设置按类别组织，由各个 KCM 模块分别处理特定的配置领域。
 
 # CAVEATS
 
-Requires KDE Plasma desktop environment. Some modules require root privileges for system-wide changes. Changes take effect immediately or after logout depending on the setting.
+需要 KDE Plasma 桌面环境。某些模块在进行系统级更改时需要 root 权限。更改立即生效或注销后生效，取决于具体设置项。
 
 # HISTORY
 
-**systemsettings** has been the primary configuration tool for KDE since KDE 4, replacing the earlier KControl application. It continues as the settings interface in KDE Plasma 5 and 6.
+自 KDE 4 以来，**systemsettings** 一直是 KDE 的主要配置工具，取代了更早的 KControl 程序。它延续为 KDE Plasma 5 和 6 的设置界面。
 
 # INSTALL
 

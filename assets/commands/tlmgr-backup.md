@@ -1,22 +1,22 @@
 # TAGLINE
 
-Backup TeX Live packages
+备份 TeX Live 软件包
 
 # TLDR
 
-**Backup package**
+**备份软件包**
 
 ```tlmgr backup [package]```
 
-**Backup all packages**
+**备份所有软件包**
 
 ```tlmgr backup --all```
 
-**Backup to directory**
+**备份到指定目录**
 
 ```tlmgr backup --backupdir [/path/to/backup] [package]```
 
-**Clean old backups**
+**清理旧备份**
 
 ```tlmgr backup --clean [days]```
 
@@ -27,22 +27,21 @@ Backup TeX Live packages
 # PARAMETERS
 
 **--all**
-> Backup all installed packages.
+> 备份所有已安装的软件包。
 
 **--backupdir** _dir_
-> Backup destination directory.
+> 备份目标目录。
 
 **--clean** _n_
-> Remove backups older than n days.
+> 删除 n 天前的备份。
 
 **--dry-run**
-> Show what would be done.
+> 显示将要执行的操作。
 
 # DESCRIPTION
 
-**tlmgr backup** creates backups of TeX Live packages. Useful before updates or system changes. Part of TeX Live Manager.
+**tlmgr backup** 创建 TeX Live 软件包的备份。在更新或系统更改前很有用。TeX Live Manager 的组成部分。
 
 # SEE ALSO
 
 [tlmgr-restore](/man/tlmgr-restore)(1), [tlmgr-update](/man/tlmgr-update)(1)
-

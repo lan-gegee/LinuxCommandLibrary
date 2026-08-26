@@ -1,10 +1,10 @@
 # TAGLINE
 
-TUI SSH connection manager for quick access
+快速访问的 TUI SSH 连接管理器
 
 # TLDR
 
-**Launch the connection manager**
+**启动连接管理器**
 
 ```ssh-list```
 
@@ -14,19 +14,19 @@ TUI SSH connection manager for quick access
 
 # DESCRIPTION
 
-**ssh-list** is a TUI SSH connection manager that displays saved hosts in a menu, allowing quick connection via keyboard navigation. It supports adding, editing, copying, and sorting SSH entries, importing from ~/.ssh/config, executing commands on remote hosts, and filtering connections. It does not store passwords, relying on SSH keys.
+**ssh-list** 是一个 TUI SSH 连接管理器，它以菜单形式显示已保存的主机，可通过键盘导航快速连接。它支持添加、编辑、复制和排序 SSH 条目、从 ~/.ssh/config 导入、在远程主机上执行命令以及过滤连接。它不存储密码，而是依赖 SSH 密钥。
 
 # CONFIGURATION
 
 **~/.ssh/ssh-list.json**
-> Stores the SSH connection entries.
+> 存储 SSH 连接条目。
 
 **~/.ssh/ssh-list_config.toml**
-> Stores application settings and appearance options.
+> 存储应用设置和外观选项。
 
 # HISTORY
 
-**ssh-list** was created by **akinoiro** and is written in **Rust**.
+**ssh-list** 由 **akinoiro** 创建，使用 **Rust** 编写。
 
 # INSTALL
 

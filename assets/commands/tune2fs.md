@@ -1,30 +1,30 @@
 # TAGLINE
 
-Adjust ext2/ext3/ext4 filesystem parameters
+调整 ext2/ext3/ext4 文件系统参数
 
 # TLDR
 
-Set max **mount count** before check
+设置检查前的最大**挂载次数**
 
 ```sudo tune2fs -c 2 /dev/sdXN```
 
-Set filesystem **label**
+设置文件系统**标签**
 
 ```sudo tune2fs -L 'MY_LABEL' /dev/sdXN```
 
-Enable **discard** and extended attributes
+启用 **discard** 和扩展属性
 
 ```sudo tune2fs -o discard,user_xattr /dev/sdXN```
 
-Enable **journaling**
+启用**日志功能**
 
 ```sudo tune2fs -o has_journal /dev/sdXN```
 
-Assign new **random UUID**
+分配新的**随机 UUID**
 
 ```sudo tune2fs -U random /dev/sdXN```
 
-Set **reserved blocks** percentage
+设置**保留块**百分比
 
 ```sudo tune2fs -m 1 /dev/sdXN```
 
@@ -34,68 +34,68 @@ Set **reserved blocks** percentage
 
 # DESCRIPTION
 
-**tune2fs** adjusts tunable filesystem parameters on ext2, ext3, or ext4 filesystems. Many parameters can be changed on mounted filesystems, but some require the filesystem to be unmounted.
+**tune2fs** 调整 ext2、ext3 或 ext4 文件系统上的可调参数。许多参数可以在文件系统挂载状态下修改，但有些则要求文件系统处于卸载状态。
 
 # PARAMETERS
 
 **-c MAX-MOUNT-COUNTS**
-> Set maximum mount count before fsck
+> 设置 fsck 前的最大挂载次数
 
 **-C MOUNT-COUNT**
-> Set current mount count
+> 设置当前挂载计数
 
 **-e ERROR-BEHAVIOR**
-> Set error behavior (continue, remount-ro, panic)
+> 设置错误处理行为（continue、remount-ro、panic）
 
 **-E EXTENDED-OPTIONS**
-> Set extended options
+> 设置扩展选项
 
 **-f**
-> Force operation on filesystems with errors
+> 强制对存在错误的文件系统执行操作
 
 **-i INTERVAL**
-> Time between filesystem checks (d/w/m for days/weeks/months)
+> 文件系统检查的间隔时间（d/w/m 表示天/周/月）
 
 **-j**
-> Add ext3 journal to ext2 filesystem
+> 为 ext2 文件系统添加 ext3 日志
 
 **-J JOURNAL-OPTIONS**
-> Set journal options
+> 设置日志选项
 
 **-l**
-> List filesystem superblock contents
+> 列出文件系统超级块内容
 
 **-L LABEL**
-> Set filesystem label
+> 设置文件系统标签
 
 **-m RESERVED-BLOCKS-PERCENTAGE**
-> Set percentage of reserved blocks
+> 设置保留块的百分比
 
 **-o OPTIONS**
-> Set/clear default mount options
+> 设置/清除默认挂载选项
 
 **-O FEATURES**
-> Set/clear filesystem features
+> 设置/清除文件系统特性
 
 **-r RESERVED-BLOCKS-COUNT**
-> Set number of reserved blocks
+> 设置保留块的数量
 
 **-T TIME**
-> Set time of last filesystem check
+> 设置上次文件系统检查的时间
 
 **-u USER**
-> Set user who can use reserved blocks
+> 设置可以使用保留块的用户
 
 **-U UUID**
-> Set filesystem UUID
+> 设置文件系统的 UUID
 
 # CAVEATS
 
-Some changes require unmounting the filesystem. Changing certain features incorrectly can make the filesystem unmountable. Always backup important data before making changes.
+某些更改需要先卸载文件系统。错误地更改某些特性可能导致文件系统无法挂载。进行任何更改前请务必备份重要数据。
 
 # HISTORY
 
-**tune2fs** is part of **e2fsprogs**, the ext2/3/4 filesystem utilities package.
+**tune2fs** 属于 **e2fsprogs**，即 ext2/3/4 文件系统工具软件包。
 
 # INSTALL
 

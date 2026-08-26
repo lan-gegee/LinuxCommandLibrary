@@ -1,34 +1,34 @@
 # TAGLINE
 
-Set process CPU affinity
+设置进程的 CPU 亲和性
 
 # TLDR
 
-**Get** a running process' CPU affinity by PID
+**获取**运行中进程按 PID 指定的 CPU 亲和性
 
 ```taskset -p -c [pid]```
 
-**Set** a running process' CPU affinity by PID
+**设置**运行中进程按 PID 指定的 CPU 亲和性
 
 ```taskset -p -c [cpu_id] [pid]```
 
-**Start** a new process with affinity for a single CPU
+**以单个 CPU 的亲和性启动**新进程
 
 ```taskset -c [cpu_id] [command]```
 
-**Start** a new process with affinity for multiple non-sequential CPUs
+**以多个非连续 CPU 的亲和性启动**新进程
 
 ```taskset -c [cpu_id_1,cpu_id_2,cpu_id_3] [command]```
 
-**Start** a new process with affinity for CPUs 1 through 4
+**以 CPU 1 到 4 的亲和性启动**新进程
 
 ```taskset -c [1-4] [command]```
 
-**Set affinity using a hex bitmask** (CPUs 0 and 1)
+**使用十六进制掩码设置亲和性**（CPU 0 和 1）
 
 ```taskset -p [0x3] [pid]```
 
-**Set affinity for all threads** of a process
+**为进程的所有线程设置**亲和性
 
 ```taskset -a -p -c [0-3] [pid]```
 
@@ -39,29 +39,29 @@ Set process CPU affinity
 # PARAMETERS
 
 **-p, --pid**
-> Operate on an existing PID
+> 操作已存在的 PID
 
 **-c, --cpu-list**
-> Specify CPUs as a list instead of a bitmask
+> 以列表而非位掩码的形式指定 CPU
 
 **-a, --all-tasks**
-> Set/get affinity of all tasks (threads)
+> 设置/获取所有任务（线程）的亲和性
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**taskset** retrieves or sets a process's CPU affinity, which controls which CPUs the process can run on. CPU affinity can be specified as a bitmask or a comma-separated list of CPU IDs.
+**taskset** 用于获取或设置进程的 CPU 亲和性，即控制进程可以在哪些 CPU 上运行。CPU 亲和性可以用位掩码或逗号分隔的 CPU ID 列表来指定。
 
-This is useful for performance tuning, isolating processes to specific cores, or testing how software behaves on limited CPU resources.
+它适用于性能调优、把进程隔离到特定核心，或测试软件在受限 CPU 资源下的表现。
 
 # CAVEATS
 
-CPU IDs start at 0. Setting affinity may not improve performance and can hurt it if done incorrectly. The kernel may still migrate processes for load balancing unless CPU isolation is configured. The CPU list supports stride syntax (e.g. 0-10:2 means CPUs 0,2,4,6,8,10). Part of the util-linux package.
+CPU ID 从 0 开始。设置亲和性未必能提升性能，操作不当反而可能造成性能下降。除非配置了 CPU 隔离，内核仍可能为负载均衡而迁移进程。CPU 列表支持步长语法（例如 0-10:2 表示 CPU 0、2、4、6、8、10）。该命令属于 util-linux 软件包。
 
 # INSTALL
 

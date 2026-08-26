@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display socket statistics and connections
+显示套接字统计信息与连接
 
 # TLDR
 
-Show all **TCP/UDP/RAW/UNIX sockets**
+显示所有 **TCP/UDP/RAW/UNIX 套接字**
 
 ```ss -a -t```
 
-Show all **listening** sockets
+显示所有处于**监听**状态的套接字
 
 ```ss -l```
 
-Show all TCP sockets with **process** information
+显示带**进程**信息的所有 TCP 套接字
 
 ```ss -tp```
 
-Show all TCP sockets connected to local **HTTPS port**
+显示连接到本地 **HTTPS 端口**的所有 TCP 套接字
 
 ```ss -t src :443```
 
-Show all TCP sockets **listening** on port 8080
+显示在 8080 端口上**监听**的所有 TCP 套接字
 
 ```ss -lt src :8080```
 
-Show **established** SSH connections
+显示已**建立（established）**的 SSH 连接
 
 ```ss -o state established '( dport = :ssh or sport = :ssh )'```
 
-**Kill** a socket connection
+**杀死**一个套接字连接
 
 ```ss -K dst 192.168.1.1 dport = 22```
 
-Print **summary** statistics
+打印**汇总**统计信息
 
 ```ss -s```
 
@@ -42,77 +42,77 @@ Print **summary** statistics
 
 # DESCRIPTION
 
-**ss** is used to dump socket statistics. It displays information similar to netstat but can show more TCP and state information than other tools. It retrieves socket information directly from kernel space, making it faster than netstat.
+**ss** 用于转储套接字统计信息。它显示的信息与 netstat 类似，但能比其他工具呈现更多的 TCP 和状态信息。它直接从内核空间获取套接字信息，因此比 netstat 更快。
 
 # PARAMETERS
 
 **-h, --help**
-> Show summary of options
+> 显示选项摘要
 
 **-a, --all**
-> Display both listening and non-listening sockets
+> 同时显示监听和非监听状态的套接字
 
 **-l, --listening**
-> Display only listening sockets
+> 只显示监听状态的套接字
 
 **-n, --numeric**
-> Do not resolve service names; show numeric ports
+> 不解析服务名；以数字形式显示端口
 
 **-r, --resolve**
-> Attempt to resolve numeric address/ports
+> 尝试解析数字地址/端口
 
 **-p, --processes**
-> Show process using socket
+> 显示使用套接字的进程
 
 **-t, --tcp**
-> Display TCP sockets
+> 显示 TCP 套接字
 
 **-u, --udp**
-> Display UDP sockets
+> 显示 UDP 套接字
 
 **-x, --unix**
-> Display Unix domain sockets
+> 显示 Unix 域套接字
 
 **-w, --raw**
-> Display raw sockets
+> 显示原始（raw）套接字
 
 **-4, --ipv4**
-> Display IPv4 sockets only
+> 仅显示 IPv4 套接字
 
 **-6, --ipv6**
-> Display IPv6 sockets only
+> 仅显示 IPv6 套接字
 
 **-o, --options**
-> Show timer information
+> 显示定时器信息
 
 **-e, --extended**
-> Show detailed socket information (UID, inode, cookie)
+> 显示详细的套接字信息（UID、inode、cookie）
 
 **-m, --memory**
-> Show socket memory usage
+> 显示套接字内存占用
 
 **-i, --info**
-> Show internal TCP information
+> 显示 TCP 内部信息
 
 **-K, --kill**
-> Forcibly close sockets
+> 强制关闭套接字
 
 **-s, --summary**
-> Print summary statistics
+> 打印汇总统计信息
 
 **-E, --events**
-> Continually display sockets as they are destroyed
+> 持续显示正在被销毁的套接字
 
 **-N, --net=NSNAME**
-> Switch to specified network namespace
+> 切换到指定的网络命名空间
 
 # CAVEATS
 
-State filtering supports TCP states (established, syn-sent, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, last-ack, listening, closing) and meta-states (all, connected, synchronized, bucket). The **-K** option requires appropriate privileges.
+状态过滤支持 TCP 状态（established、syn-sent、syn-recv、fin-wait-1、fin-wait-2、time-wait、closed、close-wait、last-ack、listening、closing）和元状态（all、connected、synchronized、bucket）。**-K** 选项需要相应权限。
 
 # HISTORY
 
-**ss** is part of the **iproute2** package and was developed as a modern replacement for **netstat**. It provides faster performance by reading directly from kernel netlink sockets rather than parsing /proc files.
+**ss** 是 **iproute2** 软件包的一部分，作为 **netstat** 的现代替代品而开发。它直接读取内核 netlink 套接字而非解析 /proc 文件，因而性能更快。
 
 # INSTALL
 

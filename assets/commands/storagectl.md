@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enumerate and mount storage volumes provided by systemd storage providers
+枚举并挂载 systemd 存储提供程序提供的存储卷
 
 # TLDR
 
-**List all available storage volumes**
+**列出所有可用的存储卷**
 
 ```storagectl volumes```
 
-**List storage providers**
+**列出存储提供程序**
 
 ```storagectl providers```
 
-**List volume templates**
+**列出存储卷模板**
 
 ```storagectl templates```
 
-**List volumes matching a glob**
+**列出匹配通配符的存储卷**
 
 ```storagectl volumes '*foo*'```
 
-**Mount a directory volume** using the storage mount helper (as root)
+**使用 storage 挂载助手挂载目录存储卷**（需要 root 权限）
 
 ```mount -t storage fs:myvol /mnt/myvol```
 
@@ -30,45 +30,45 @@ Enumerate and mount storage volumes provided by systemd storage providers
 
 # DESCRIPTION
 
-**storagectl** is a command-line tool to inspect storage providers and the storage volumes they expose. It is part of the systemd project.
+**storagectl** 是一个用于检查存储提供程序及其暴露的存储卷的命令行工具。它是 systemd 项目的一部分。
 
-A storage provider implements the `io.systemd.StorageProvider` Varlink interface and registers an AF_UNIX socket under `/run/systemd/io.systemd.StorageProvider/` (system) or the user equivalent.
+存储提供程序实现 `io.systemd.StorageProvider` Varlink 接口，并在 `/run/systemd/io.systemd.StorageProvider/`（系统级）或用户等效路径下注册一个 AF_UNIX 套接字。
 
-systemd ships two providers:
+systemd 自带两个提供程序：
 
-- `systemd-storage-block@.service` — exposes the system's block devices.
-- `systemd-storage-fs@.service` — exposes regular files and directories from a backing filesystem (supports on-the-fly creation via templates).
+- `systemd-storage-block@.service` — 暴露系统的块设备。
+- `systemd-storage-fs@.service` — 暴露来自底层文件系统的常规文件和目录（支持通过模板即时创建）。
 
-storagectl can also act as a mount helper (`mount -t storage ...` or `mount -t storage.FSTYPE ...`) to acquire and mount volumes at arbitrary locations. The source is specified as `PROVIDER:VOLUME`.
+storagectl 还可以充当挂载助手（`mount -t storage ...` 或 `mount -t storage.FSTYPE ...`），以获取存储卷并将其挂载到任意位置。源以 `PROVIDER:VOLUME` 形式指定。
 
 # COMMANDS
 
 **volumes** [_GLOB_]
-> List volumes (default command). Optional glob filters volume names.
+> 列出存储卷（默认命令）。可选的通配符用于过滤卷名。
 
 **templates** [_GLOB_]
-> List supported volume templates (for providers that support dynamic creation).
+> 列出支持的存储卷模板（适用于支持动态创建的提供程序）。
 
 **providers**
-> List known storage providers and whether their sockets are reachable.
+> 列出已知的存储提供程序及其套接字是否可达。
 
 # OPTIONS
 
 **--system**
-> Operate on system providers (default).
+> 操作系统级提供程序（默认）。
 
 **--user**
-> Operate on per-user providers.
+> 操作每用户提供程序。
 
 **--json**=_MODE_
-> Output as JSON ("short", "pretty", or "off").
+> 以 JSON 输出（"short"、"pretty" 或 "off"）。
 
 **--no-pager**, **--no-legend**, **--no-ask-password**
-> Control output and authentication behavior.
+> 控制输出和身份验证行为。
 
 # CAVEATS
 
-This tool is relatively new (added in systemd 261). Storage providers are an experimental/low-level interface primarily for advanced use cases and other systemd components (e.g. machinectl).
+该工具相对较新（在 systemd 261 中加入）。存储提供程序是一个实验性/低层级接口，主要面向高级用例和其他 systemd 组件（例如 machinectl）。
 
 # SEE ALSO
 

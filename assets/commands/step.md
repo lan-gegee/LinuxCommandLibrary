@@ -1,34 +1,34 @@
 # TAGLINE
 
-Certificate and key management CLI
+证书与密钥管理 CLI
 
 # TLDR
 
-**Create CA**
+**创建 CA**
 
 ```step ca init```
 
-**Generate certificate**
+**生成证书**
 
 ```step ca certificate [hostname] [cert.pem] [key.pem]```
 
-**Inspect certificate**
+**检查证书**
 
 ```step certificate inspect [cert.pem]```
 
-**Create CSR**
+**创建 CSR**
 
 ```step certificate create --csr [hostname] [csr.pem] [key.pem]```
 
-**Verify certificate**
+**验证证书**
 
 ```step certificate verify [cert.pem] --roots [ca.pem]```
 
-**Get CA fingerprint**
+**获取 CA 指纹**
 
 ```step certificate fingerprint [ca.pem]```
 
-**Bootstrap CA client**
+**引导配置 CA 客户端**
 
 ```step ca bootstrap --ca-url [https://ca:9000] --fingerprint [fingerprint]```
 
@@ -39,61 +39,61 @@ Certificate and key management CLI
 # PARAMETERS
 
 **ca**
-> Certificate authority commands.
+> 证书颁发机构相关命令。
 
 **certificate**
-> Certificate operations.
+> 证书操作。
 
 **crypto**
-> Cryptographic operations.
+> 加密操作。
 
 **ssh**
-> SSH certificate commands.
+> SSH 证书命令。
 
 **oauth**
-> OAuth and OIDC authorization operations.
+> OAuth 和 OIDC 授权操作。
 
 **path**
-> Print the configured step path (default ~/.step).
+> 打印已配置的 step 路径（默认为 ~/.step）。
 
 **context**
-> Manage certificate authority contexts.
+> 管理证书颁发机构上下文。
 
 **completion**
-> Print shell completion scripts (bash, zsh, fish).
+> 打印 Shell 补全脚本（bash、zsh、fish）。
 
 **--ca-url** _URL_
-> CA server URL.
+> CA 服务器 URL。
 
 **--fingerprint** _FP_
-> CA fingerprint.
+> CA 指纹。
 
 # DESCRIPTION
 
-**step** is a comprehensive command-line toolkit for working with certificates, keys, and cryptographic operations. It serves as both a standalone utility for inspecting and creating certificates and as the client interface for the step-ca private certificate authority server.
+**step** 是一个用于处理证书、密钥和加密操作的综合性命令行工具包。它既可作为独立的实用程序来检查和创建证书，也可作为 step-ca 私有证书颁发机构服务器的客户端接口。
 
-The tool provides subcommands for the full certificate lifecycle: creating certificate signing requests, requesting signed certificates from a CA, inspecting certificate details, verifying certificate chains, and managing SSH certificates. It supports modern cryptographic standards including ECDSA, EdDSA, and RSA keys, and can work with ACME protocol for automated certificate issuance.
+该工具提供覆盖证书完整生命周期的子命令：创建证书签名请求、从 CA 请求签名证书、查看证书详情、验证证书链以及管理 SSH 证书。它支持 ECDSA、EdDSA 和 RSA 密钥等现代加密标准，并可通过 ACME 协议实现自动化证书签发。
 
-When paired with a step-ca server, step enables automated PKI workflows including bootstrapping client trust, requesting short-lived certificates, and managing provisioners for different authentication methods such as OIDC, JWK, and ACME. It also supports SSH certificate management as an alternative to traditional long-lived SSH keys.
+与 step-ca 服务器配合使用时，step 支持自动化的 PKI 工作流，包括引导客户端信任、请求短期证书，以及管理面向 OIDC、JWK 和 ACME 等不同身份验证方式的 provisioner。它还支持 SSH 证书管理，作为传统长期 SSH 密钥的替代方案。
 
 # CONFIGURATION
 
 **~/.step/**
-> Default step path containing CA configuration, certificates, and keys.
+> 默认的 step 路径，包含 CA 配置、证书和密钥。
 
 **~/.step/config/defaults.json**
-> Default settings including CA URL, fingerprint, and provisioner.
+> 默认设置，包括 CA URL、指纹和 provisioner。
 
 **STEPPATH**
-> Environment variable to override the default step configuration directory.
+> 用于覆盖默认 step 配置目录的环境变量。
 
 # CAVEATS
 
-CA setup requires planning. Certificate lifetimes matter. Key security essential.
+CA 的搭建需要规划。证书的有效期很重要。密钥安全必不可少。
 
 # HISTORY
 
-**step** and **step-ca** were created by **Smallstep** for modern PKI. They simplify certificate management for developers and DevOps.
+**step** 与 **step-ca** 由 **Smallstep** 为现代 PKI 而创建。它们简化了开发者和 DevOps 的证书管理。
 
 # INSTALL
 

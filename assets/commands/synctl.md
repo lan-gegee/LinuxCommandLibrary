@@ -1,30 +1,30 @@
 # TAGLINE
 
-Matrix Synapse homeserver control interface
+Matrix Synapse 主服务器控制接口
 
 # TLDR
 
-**Start Synapse server**
+**启动 Synapse 服务器**
 
 ```synctl start```
 
-**Stop Synapse server**
+**停止 Synapse 服务器**
 
 ```synctl stop```
 
-**Restart Synapse server**
+**重启 Synapse 服务器**
 
 ```synctl restart```
 
-**Start with specific config file**
+**使用指定的配置文件启动**
 
 ```synctl start [/path/to/homeserver.yaml]```
 
-**Start a specific worker**
+**启动特定的 worker**
 
 ```synctl start -w [/path/to/worker.yaml]```
 
-**Restart all workers and main process**
+**重启所有 worker 和主进程**
 
 ```synctl restart -a [/path/to/workers/]```
 
@@ -35,43 +35,43 @@ Matrix Synapse homeserver control interface
 # PARAMETERS
 
 **start**
-> Start Synapse server or worker.
+> 启动 Synapse 服务器或 worker。
 
 **stop**
-> Stop Synapse server or worker.
+> 停止 Synapse 服务器或 worker。
 
 **restart**
-> Restart Synapse server or worker.
+> 重启 Synapse 服务器或 worker。
 
 _configfile_
-> Path to configuration file (default: homeserver.yaml).
+> 配置文件路径（默认：homeserver.yaml）。
 
 **-w**, **--worker** _file_
-> Operate on a single worker using specified config file.
+> 使用指定的配置文件操作单个 worker。
 
 **-a**, **--all-processes** _dir_
-> Operate on all workers in directory and main process.
+> 操作目录中的所有 worker 和主进程。
 
 # DESCRIPTION
 
-**synctl** is the control interface for Matrix Synapse, the reference homeserver implementation for the Matrix communication protocol. It manages starting, stopping, and restarting the Synapse server and its worker processes.
+**synctl** 是 Matrix Synapse 的控制接口。Synapse 是 Matrix 通信协议的参考主服务器实现。synctl 负责管理 Synapse 服务器及其 worker 进程的启动、停止和重启。
 
-For single-instance deployments, synctl operates on the main homeserver process. For scaled deployments using workers, the -a option manages all worker processes defined in a configuration directory.
+对于单实例部署，synctl 操作主 homeserver 进程。对于使用 worker 的扩展部署，-a 选项可管理配置目录中定义的所有 worker 进程。
 
-Configuration files use YAML format and define server settings, database connections, federation parameters, and resource limits.
+配置文件采用 YAML 格式，定义服务器设置、数据库连接、联邦参数和资源限制。
 
 # ENVIRONMENT
 
 **SYNAPSE_CACHE_FACTOR**
-: Controls memory cache size. Default is 0.5. Decrease to reduce RAM usage or increase for better performance.
+: 控制内存缓存大小。默认为 0.5。降低该值可减少内存占用，提高该值可获得更好性能。
 
 # CAVEATS
 
-The configuration file must exist and be valid YAML. When using workers, each worker needs its own configuration file. Memory usage can be significant; tune SYNAPSE_CACHE_FACTOR accordingly. Requires Python 3 and dependencies installed.
+配置文件必须存在且为有效的 YAML。使用 worker 时，每个 worker 需要自己的配置文件。内存占用可能较大，请相应调整 SYNAPSE_CACHE_FACTOR。需要 Python 3 及已安装的依赖。
 
 # HISTORY
 
-**Synapse** is developed by Element (formerly New Vector) as the reference implementation of the Matrix protocol. Matrix is an open standard for decentralized, real-time communication. Synapse was first released in 2014 and remains the most widely deployed Matrix homeserver.
+**Synapse** 由 Element（前身为 New Vector）开发，是 Matrix 协议的参考实现。Matrix 是一个用于去中心化实时通信的开放标准。Synapse 于 2014 年首次发布，至今仍是部署最广泛的 Matrix 主服务器。
 
 # INSTALL
 

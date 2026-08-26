@@ -1,10 +1,10 @@
 # TAGLINE
 
-Star Trek tactical simulation game
+星际迷航战术模拟游戏
 
 # TLDR
 
-**Start a game**
+开始一局游戏
 
 ```trek```
 
@@ -24,17 +24,17 @@ Star Trek tactical simulation game
 
 # DESCRIPTION
 
-**trek** is a text-based Star Trek simulation game from the **bsdgames** collection. The player commands the USS Enterprise through a galaxy divided into quadrants, hunting Klingon warships while managing energy, torpedoes, and time limits.
+**trek** 是 **bsdgames** 合集中的文字版《星际迷航》模拟游戏。玩家指挥联邦星舰企业号在划分为象限的银河系中航行，猎杀克林贡战舰，同时管理能量、鱼雷和时间限制。
 
-Commands include navigation, phaser fire, photon torpedoes, short-range and long-range scans, damage reports, and docking at starbases for repairs. The game ends when all Klingons are destroyed, time runs out, or the Enterprise is destroyed.
+命令包括导航、相位炮射击、光子鱼雷、短程与长程扫描、损伤报告，以及在星际基地停靠维修。当所有克林贡人被消灭、时间耗尽或企业号被摧毁时，游戏结束。
 
 # CAVEATS
 
-Part of the bsdgames package. Text-based interface with command-line input. Game state is not saved between sessions.
+属于 bsdgames 软件包。基于文本界面，通过命令行输入操作。游戏状态不会在会话之间保存。
 
 # HISTORY
 
-**trek** is based on the classic **1971** Star Trek mainframe game, one of the earliest computer games. The BSD version was written by **Eric Allman** and has been part of BSD games distributions since the **1980s**.
+**trek** 基于经典的 **1971 年**《星际迷航》大型机游戏——最早的电脑游戏之一。BSD 版本由 **Eric Allman** 编写，自 **20 世纪 80 年代**起就一直是 BSD 游戏合集的一部分。
 
 # INSTALL
 

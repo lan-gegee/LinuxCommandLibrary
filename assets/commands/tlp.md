@@ -1,26 +1,26 @@
 # TAGLINE
 
-Advanced laptop power management
+高级笔记本电源管理
 
 # TLDR
 
-**Start** and apply power settings for current power source
+**启动**并根据当前电源应用电源设置
 
 ```sudo tlp start```
 
-Apply **battery** profile regardless of power source
+无论当前电源如何，均应用**电池**配置方案
 
 ```sudo tlp bat```
 
-Apply **AC** profile regardless of power source
+无论当前电源如何，均应用 **AC** 配置方案
 
 ```sudo tlp ac```
 
-Enable **USB autosuspend** for all devices
+为所有设备启用 **USB 自动挂起**
 
 ```sudo tlp usb```
 
-Show **disk device IDs** for configuration
+显示用于配置的**磁盘设备 ID**
 
 ```sudo tlp diskid```
 
@@ -31,41 +31,41 @@ Show **disk device IDs** for configuration
 # COMMANDS
 
 **start**
-> Apply settings based on current power source
+> 根据当前电源应用设置
 
 **bat**
-> Apply battery profile (ignore actual power source)
+> 应用电池配置方案（忽略实际电源）
 
 **ac**
-> Apply AC profile (ignore actual power source)
+> 应用 AC 配置方案（忽略实际电源）
 
 **usb**
-> Enable autosuspend for USB devices
+> 启用 USB 设备自动挂起
 
 **diskid**
-> Show disk IDs for configuration
+> 显示用于配置的磁盘 ID
 
 # DESCRIPTION
 
-**tlp** is an advanced power management tool for Linux that optimizes battery life on laptops. It automatically applies power-saving settings when on battery and performance settings when on AC power.
+**tlp** 是一款面向 Linux 的高级电源管理工具，用于优化笔记本电脑的电池续航。它在电池供电时自动应用省电设置，在接通交流电时自动应用性能设置。
 
-Settings are configured in `/etc/tlp.conf` and cover CPU frequency, disk spin-down, USB autosuspend, WiFi power saving, and more.
+设置在 `/etc/tlp.conf` 中配置，涵盖 CPU 频率、磁盘停转、USB 自动挂起、WiFi 省电等内容。
 
 # CONFIGURATION
 
 **/etc/tlp.conf**
-> Main configuration file defining power profiles for AC and battery modes, covering CPU governor, disk settings, USB autosuspend, WiFi power saving, and more.
+> 主配置文件，定义 AC 和电池模式的电源配置方案，涵盖 CPU 调频器、磁盘设置、USB 自动挂起、WiFi 省电等。
 
 **/etc/tlp.d/*.conf**
-> Drop-in configuration directory for modular overrides.
+> 用于模块化覆盖的下沉式配置目录。
 
 # CAVEATS
 
-May conflict with other power management tools. Some settings require specific hardware support. Test settings carefully on new hardware. Use `tlp-stat` to check current status.
+可能与其他电源管理工具冲突。某些设置需要特定的硬件支持。在新硬件上请谨慎测试设置。使用 `tlp-stat` 查看当前状态。
 
 # HISTORY
 
-**TLP** was created by **Thomas Koch** (linrunner) to provide comprehensive power management for Linux laptops without requiring manual configuration.
+**TLP** 由 **Thomas Koch**（linrunner）创建，旨在为 Linux 笔记本提供全面的电源管理而无需手动配置。
 
 # INSTALL
 

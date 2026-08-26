@@ -1,46 +1,46 @@
 # TAGLINE
 
-Linux kernel Ftrace tracing frontend
+Linux 内核 Ftrace 跟踪前端
 
 # TLDR
 
-Display tracing **status**
+显示跟踪**状态**
 
 ```sudo trace-cmd stat```
 
-List available **tracers**
+列出可用的**跟踪器**
 
 ```sudo trace-cmd list -t```
 
-**Start** tracing with plugin
+使用插件**开始**跟踪
 
 ```sudo trace-cmd start -p [function|function_graph|irqsoff|wakeup]```
 
-**View** trace output
+**查看**跟踪输出
 
 ```sudo trace-cmd show```
 
-**Stop** tracing
+**停止**跟踪
 
 ```sudo trace-cmd stop```
 
-**Clear** trace buffers
+**清空**跟踪缓冲区
 
 ```sudo trace-cmd clear```
 
-**Record** a trace of specific events
+**记录**特定事件的跟踪
 
 ```sudo trace-cmd record -e [sched_switch]```
 
-**Record** function graph tracing for a specific function
+为特定函数**记录**函数调用图跟踪
 
 ```sudo trace-cmd record -p function_graph -g [function_name]```
 
-Display **recorded** trace from file
+显示文件中**已记录的**跟踪
 
 ```trace-cmd report```
 
-List available **events**
+列出可用的**事件**
 
 ```sudo trace-cmd list -e```
 
@@ -51,62 +51,62 @@ List available **events**
 # COMMANDS
 
 **stat**
-> Display tracing system status
+> 显示跟踪系统状态
 
 **start**
-> Start the kernel tracer
+> 启动内核跟踪器
 
 **stop**
-> Stop the kernel tracer
+> 停止内核跟踪器
 
 **show**
-> View current trace output
+> 查看当前跟踪输出
 
 **clear**
-> Clear trace buffers
+> 清空跟踪缓冲区
 
 **record**
-> Record a trace to file
+> 将跟踪记录到文件
 
 **report**
-> Display recorded trace
+> 显示已记录的跟踪
 
 **list**
-> List available tracers, events, and functions
+> 列出可用的跟踪器、事件和函数
 
 # PARAMETERS
 
 **-p** _PLUGIN_
-> Specify tracer plugin (function, function_graph, irqsoff, wakeup, etc.)
+> 指定跟踪器插件（function、function_graph、irqsoff、wakeup 等）
 
 **-e** _EVENT_
-> Enable a trace event (can be specified multiple times)
+> 启用一个跟踪事件（可多次指定）
 
 **-g** _FUNCTION_
-> Trace calls starting from a specific function (used with function_graph)
+> 从特定函数开始跟踪调用（与 function_graph 配合使用）
 
 **-o** _FILE_
-> Write trace output to specified file (default: trace.dat)
+> 将跟踪输出写入指定文件（默认：trace.dat）
 
 **-t**
-> List available tracers (used with list subcommand)
+> 列出可用的跟踪器（与 list 子命令配合使用）
 
 **-F**
-> Trace only the child process after a fork
+> 只跟踪 fork 之后的子进程
 
 # DESCRIPTION
 
-**trace-cmd** is a utility for interacting with the Linux kernel's Ftrace tracing framework. It provides a user-friendly interface for configuring and capturing kernel traces, analyzing function calls, timing, and system events.
+**trace-cmd** 是一个用于与 Linux 内核 Ftrace 跟踪框架交互的工具。它提供友好的接口来配置和捕获内核跟踪，分析函数调用、耗时和系统事件。
 
-The tool supports various tracer plugins including function tracing, function call graphs, and latency tracers for debugging and performance analysis.
+该工具支持多种跟踪器插件，包括函数跟踪、函数调用图以及用于调试和性能分析的延迟跟踪器。
 
 # CAVEATS
 
-Requires root privileges. Tracing can impact system performance. Large traces consume significant memory and storage. Some features depend on kernel configuration.
+需要 root 权限。跟踪可能影响系统性能。大型跟踪会占用大量内存和存储空间。某些功能取决于内核配置。
 
 # HISTORY
 
-**trace-cmd** was created by **Steven Rostedt** as a front-end for the Linux kernel's Ftrace framework, simplifying the process of kernel tracing and analysis.
+**trace-cmd** 由 **Steven Rostedt** 创建，是 Linux 内核 Ftrace 框架的前端，简化了内核跟踪与分析的过程。
 
 # INSTALL
 

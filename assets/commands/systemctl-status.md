@@ -1,30 +1,30 @@
 # TAGLINE
 
-Show runtime status of units
+显示单元的运行时状态
 
 # TLDR
 
-Show the **status** of a systemd unit
+显示某个 systemd 单元的**状态**
 
 ```systemctl status [unit].service```
 
-Show **system overview** status
+显示**系统总览**状态
 
 ```systemctl status```
 
-Show status of **multiple units**
+显示**多个单元**的状态
 
 ```systemctl status [unit1] [unit2]```
 
-Show status by **PID**
+按 **PID** 显示状态
 
 ```systemctl status [pid]```
 
-Show status with more **journal lines**
+显示更多**日志行数**的状态
 
 ```systemctl status -n [50] [unit]```
 
-Show the status of a **user unit**
+显示**用户单元**的状态
 
 ```systemctl status --user [unit]```
 
@@ -35,25 +35,25 @@ Show the status of a **user unit**
 # PARAMETERS
 
 **--user**
-> Query user service manager instead of system
+> 查询用户服务管理器而不是系统管理器
 
 **-n**, **--lines=**_NUM_
-> Number of journal lines to show
+> 要显示的日志行数
 
 **-o**, **--output=**_MODE_
-> Journal output mode (short, verbose, json, etc.)
+> 日志输出模式（short、verbose、json 等）
 
 **--no-pager**
-> Do not pipe output to pager
+> 不将输出送入分页器
 
 **-l**, **--full**
-> Do not ellipsize unit names, process tree entries, or journal output
+> 不省略单元名称、进程树条目或日志输出
 
 # DESCRIPTION
 
-**systemctl status** displays the current state of systemd units including services, sockets, targets, and timers. It shows whether units are active, enabled, or have failed, along with recent log entries from the journal.
+**systemctl status** 显示 systemd 单元（包括服务、套接字、target 和定时器）的当前状态。它会展示单元是否处于活动状态、是否已启用或已失败，以及来自 journal 的最近日志条目。
 
-Without arguments, it shows an overview of system state. With a unit name, it provides detailed status including the main PID, memory usage, control group, and recent log lines.
+不带参数时，它显示系统状态总览。带单元名称时，它提供详细状态，包括主 PID、内存占用、控制组和最近的日志行。
 
 # INSTALL
 

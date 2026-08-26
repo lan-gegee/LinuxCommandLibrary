@@ -1,22 +1,22 @@
 # TAGLINE
 
-Bind-mount paths into unit mount namespaces at runtime
+在运行时将路径 bind 挂载到 unit 的挂载命名空间
 
 # TLDR
 
-**Bind-mount** path into unit
+将路径 **bind 挂载**到 unit
 
 ```systemctl bind [unit] [/path/to/host]```
 
-Bind to **different** location in unit
+挂载到 unit 内的**不同**位置
 
 ```systemctl bind [unit] [/host/path] [/unit/path]```
 
-Bind as **read-only**
+以**只读**方式挂载
 
 ```systemctl bind [unit] [/path] --read-only```
 
-**Create** destination before binding
+绑定前**创建**目标目录
 
 ```systemctl bind [unit] [/host/path] [/unit/path] --mkdir```
 
@@ -27,24 +27,24 @@ Bind as **read-only**
 # PARAMETERS
 
 **--read-only**
-> Mount the path as read-only inside the unit
+> 在 unit 内以只读方式挂载该路径
 
 **--mkdir**
-> Create the destination directory if it doesn't exist
+> 如果目标目录不存在则创建它
 
 # DESCRIPTION
 
-**systemctl bind** ephemerally bind-mounts a file or directory from the host into a running unit's mount namespace. This allows injecting files into sandboxed services without modifying their unit configuration.
+**systemctl bind** 将主机上的文件或目录临时 bind 挂载到运行中 unit 的挂载命名空间。这允许向沙箱化的服务注入文件，而无需修改其 unit 配置。
 
-If only one path is specified, the mount appears at the same location inside the unit. If two paths are given, the source is mounted at the destination inside the unit.
+如果只指定一个路径，挂载会出现在 unit 内的相同位置。如果给出两个路径，源路径会挂载到 unit 内的目标路径。
 
 # CAVEATS
 
-Requires the unit to have a separate mount namespace (PrivateMounts=yes or similar). Binds are ephemeral and don't persist across unit restarts. The unit must be running.
+要求 unit 拥有独立的挂载命名空间（PrivateMounts=yes 或类似设置）。bind 是临时的，不会在 unit 重启后保留。unit 必须正在运行。
 
 # HISTORY
 
-The **bind** subcommand was added to **systemctl** for runtime injection of files into isolated services. It complements systemd's sandboxing features like PrivateMounts and ProtectSystem.
+**bind** 子命令加入 **systemctl**，用于在运行时向隔离的服务注入文件。它与 systemd 的 PrivateMounts、ProtectSystem 等沙箱特性互为补充。
 
 # SEE ALSO
 

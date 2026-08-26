@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast LaTeX source code formatter
+快速的 LaTeX 源码格式化工具
 
 # TLDR
 
-**Format file**
+**格式化文件**
 
 ```tex-fmt [document.tex]```
 
-**Format in place**
+**原地格式化**
 
 ```tex-fmt -w [document.tex]```
 
-**Check formatting**
+**检查格式**
 
 ```tex-fmt --check [document.tex]```
 
-**Format from stdin**
+**从 stdin 格式化**
 
 ```cat [document.tex] | tex-fmt```
 
-**With config**
+**使用配置文件**
 
 ```tex-fmt -c [tex-fmt.toml] [document.tex]```
 
@@ -31,33 +31,33 @@ Fast LaTeX source code formatter
 # PARAMETERS
 
 **-w**
-> Write in place.
+> 原地写入。
 
 **--check**
-> Check only.
+> 仅检查。
 
 **-c** _FILE_
-> Config file.
+> 配置文件。
 
 **--stdin**
-> Read stdin.
+> 读取 stdin。
 
 **--tabsize** _N_
-> Tab size.
+> 制表符宽度。
 
 # DESCRIPTION
 
-**tex-fmt** is a fast LaTeX source code formatter written in Rust that standardizes indentation and whitespace in .tex files. It ensures consistent formatting across documents and teams by applying configurable indentation rules to LaTeX environments, commands, and structures.
+**tex-fmt** 是一款用 Rust 编写的快速 LaTeX 源码格式化工具，用于统一 .tex 文件中的缩进和空白。它对 LaTeX 环境、命令和结构应用可配置的缩进规则，确保文档之间、团队之间格式一致。
 
-The **-w** flag writes changes in place, while **--check** mode verifies formatting without modifying files, making it suitable for CI pipelines. Configuration can be provided via a TOML file to customize indentation width, tab handling, and other style preferences.
+**-w** 标志将更改原地写入，而 **--check** 模式只验证格式而不修改文件，因此适合 CI 流水线。可通过 TOML 文件提供配置，自定义缩进宽度、制表符处理及其他样式偏好。
 
 # CAVEATS
 
-LaTeX specific. May break manual formatting. Test before use.
+仅适用于 LaTeX。可能破坏手工排版。使用前请先测试。
 
 # HISTORY
 
-**tex-fmt** is a fast LaTeX formatter written in Rust for consistent document formatting.
+**tex-fmt** 是一款用 Rust 编写的快速 LaTeX 格式化工具，用于实现一致的文档格式。
 
 # INSTALL
 

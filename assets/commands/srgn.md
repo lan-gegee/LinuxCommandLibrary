@@ -1,30 +1,30 @@
 # TAGLINE
 
-Syntax-aware grep and code editing tool
+语法感知的 grep 与代码编辑工具
 
 # TLDR
 
-**Replace matching text**
+**替换匹配的文本**
 
 ```echo 'Hello World!' | srgn '[wW]orld' -- 'there'```
 
-**Convert piped input to uppercase**
+**将管道输入转换为大写**
 
 ```echo 'hello' | srgn --upper '.*'```
 
-**Delete matching characters**
+**删除匹配的字符**
 
 ```echo 'Hello World!' | srgn --delete '[!]'```
 
-**Squeeze repeated characters**
+**压缩重复字符**
 
 ```echo 'Helloooo Woooorld!!!' | srgn --squeeze '(o|!)'```
 
-**Search within Python class definitions**
+**在 Python 类定义内搜索**
 
 ```srgn --python 'class' '[age]'```
 
-**Convert to lowercase within Rust strings only**
+**仅在 Rust 字符串内转换为小写**
 
 ```srgn --rust 'string' --lower '.*'```
 
@@ -35,50 +35,50 @@ Syntax-aware grep and code editing tool
 # PARAMETERS
 
 **--upper**
-> Convert matched text to uppercase
+> 将匹配文本转为大写
 
 **--lower**
-> Convert matched text to lowercase
+> 将匹配文本转为小写
 
 **--delete**
-> Delete matched text
+> 删除匹配文本
 
 **--squeeze**
-> Squeeze consecutive repeated characters into single occurrences
+> 将连续重复字符压缩为单个
 
 **--python** _QUERY_
-> Scope to Python syntax nodes (e.g., class, function, string)
+> 限定作用于 Python 语法节点（例如 class、function、string）
 
 **--rust** _QUERY_
-> Scope to Rust syntax nodes
+> 限定作用于 Rust 语法节点
 
 **--go** _QUERY_
-> Scope to Go syntax nodes
+> 限定作用于 Go 语法节点
 
 **--typescript** _QUERY_
-> Scope to TypeScript syntax nodes
+> 限定作用于 TypeScript 语法节点
 
 **--c** _QUERY_
-> Scope to C syntax nodes
+> 限定作用于 C 语法节点
 
 **--csharp** _QUERY_
-> Scope to C# syntax nodes
+> 限定作用于 C# 语法节点
 
 **--hcl** _QUERY_
-> Scope to HCL syntax nodes
+> 限定作用于 HCL 语法节点
 
 **--glob** _PATTERN_
-> Process files matching glob pattern
+> 处理匹配 glob 模式的文件
 
 # DESCRIPTION
 
-**srgn** is a grep-like tool that understands source code syntax via tree-sitter and allows manipulation in addition to search. It combines capabilities of tr, sed, and ripgrep with language grammar awareness, supporting Python, Rust, Go, TypeScript, C, C#, and HCL. It can perform bulk file edits, case transformations, and regex replacements scoped to specific syntactic constructs.
+**srgn** 是一款类似 grep 的工具，它通过 tree-sitter 理解源代码语法，并在搜索之外还支持文本操作。它将 tr、sed 和 ripgrep 的能力与语言语法感知结合在一起，支持 Python、Rust、Go、TypeScript、C、C# 和 HCL。它可以执行批量文件编辑、大小写转换，以及限定于特定语法结构的正则替换。
 
-Actions are composable and applied in a fixed order regardless of flag order. Replacement (positional, after **--**) is applied first, then flags like **--upper**, **--lower**, **--delete**, and **--squeeze** are applied in sequence.
+各个操作可以组合使用，并按固定顺序应用，与标志的书写顺序无关。先应用替换（位于 **--** 之后的位置参数），再依次应用 **--upper**、**--lower**、**--delete** 和 **--squeeze** 等标志。
 
 # HISTORY
 
-**srgn** was created by **Alex Povel** and is written in **Rust**.
+**srgn** 由 **Alex Povel** 创建，使用 **Rust** 编写。
 
 # INSTALL
 
