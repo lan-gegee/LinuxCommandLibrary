@@ -1,18 +1,18 @@
 # TAGLINE
 
-manage MySQL SQL mode settings
+管理 MySQL 的 SQL 模式设置
 
 # TLDR
 
-**Get current SQL mode** for a database cluster
+**获取数据库集群当前的 SQL 模式**
 
 ```doctl databases sql-mode get [cluster_id]```
 
-**Set SQL mode** for a database cluster
+**为数据库集群设置 SQL 模式**
 
 ```doctl databases sql-mode set [cluster_id] [ANSI_QUOTES] [STRICT_TRANS_TABLES]```
 
-**Set SQL mode with output format**
+**获取 SQL 模式并指定输出格式**
 
 ```doctl databases sql-mode get [cluster_id] --format [SQLMode]```
 
@@ -23,26 +23,26 @@ manage MySQL SQL mode settings
 # SUBCOMMANDS
 
 **get**
-> Get current SQL mode for a MySQL database cluster.
+> 获取 MySQL 数据库集群当前的 SQL 模式。
 
 **set**
-> Set SQL mode for a MySQL database cluster. Provide one or more modes as space-separated arguments.
+> 为 MySQL 数据库集群设置 SQL 模式。以空格分隔的参数提供一个或多个模式。
 
 # PARAMETERS
 
 **--format** _columns_
-> Columns for output in a comma-separated list.
+> 以逗号分隔的输出列列表。
 
 **--no-header**
-> Return raw data with no headers.
+> 返回不带表头的原始数据。
 
 # DESCRIPTION
 
-**doctl databases sql-mode** manages SQL mode settings for MySQL managed database clusters on DigitalOcean. SQL modes control how MySQL handles query syntax validation, data type conversions, and error conditions.
+**doctl databases sql-mode** 管理 DigitalOcean 托管 MySQL 数据库集群的 SQL 模式设置。SQL 模式控制 MySQL 如何处理查询语法验证、数据类型转换和错误情况。
 
-Common SQL modes include STRICT_TRANS_TABLES (reject invalid data), ANSI_QUOTES (treat double quotes as identifier quotes), NO_ZERO_DATE (disallow '0000-00-00' dates), and ONLY_FULL_GROUP_BY (require GROUP BY to include all non-aggregated columns).
+常见的 SQL 模式包括 STRICT_TRANS_TABLES（拒绝无效数据）、ANSI_QUOTES（将双引号视为标识符引号）、NO_ZERO_DATE（不允许 '0000-00-00' 日期）以及 ONLY_FULL_GROUP_BY（要求 GROUP BY 包含所有非聚合列）。
 
-Setting SQL modes replaces the existing configuration entirely rather than appending to it. To add a mode, first retrieve the current modes with **get**, then include them all in the **set** command.
+设置 SQL 模式会完全替换现有配置，而不是在其基础上追加。要添加一个模式，应先用 **get** 获取当前的模式，然后在 **set** 命令中把它们全部列出。
 
 # SEE ALSO
 

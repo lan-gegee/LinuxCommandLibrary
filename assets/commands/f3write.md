@@ -1,30 +1,30 @@
 # TAGLINE
 
-flash drive capacity tester
+闪存盘容量测试工具
 
 # TLDR
 
-**Fill a mounted flash drive** with test files
+用测试文件**填满已挂载的闪存盘**
 
 ```f3write [/media/flash_drive]```
 
-**Write test files starting** from a specific file number
+从指定文件编号**开始写**测试文件
 
 ```f3write --start-at=[10] [/media/flash_drive]```
 
-**Write test files up to** a specific file number
+写到指定文件编号为止
 
 ```f3write --end-at=[50] [/media/flash_drive]```
 
-**Write to a raw device** (unmounted)
+**写入裸设备**（未挂载）
 
 ```sudo f3write -g [/dev/sdX]```
 
-**Force write even if** device appears busy
+即使设备看起来繁忙也**强制写入**
 
 ```f3write --force [/media/flash_drive]```
 
-**Optimize for low memory** systems
+针对低内存系统优化
 
 ```f3write --low-memory [/media/flash_drive]```
 
@@ -35,47 +35,47 @@ flash drive capacity tester
 # PARAMETERS
 
 **--start-at**=_NUM_
-> Initial number for file names (default: 1).
+> 文件名的起始编号（默认：1）。
 
 **--end-at**=_NUM_
-> Final number for file names (default: infinity).
+> 文件名的结束编号（默认：无限）。
 
 **-a**, **--append**
-> Append new files to existing ones on the target device.
+> 将新文件追加到目标设备上已有文件的后面。
 
 **-b** _BYTES_, **--block-size**=_BYTES_
-> Set I/O block size in bytes (default: 1M).
+> 设置 I/O 块大小（字节）（默认：1M）。
 
 **-f**, **--force**
-> Force writing even if device appears busy or contains data.
+> 即使设备看起来繁忙或已含数据也强制写入。
 
 **-g**, **--full-device**
-> Write to the full raw device (device must be unmounted).
+> 写入整个裸设备（设备必须未挂载）。
 
 **-L**, **--low-memory**
-> Optimize operation for systems with limited memory.
+> 为内存有限的系统优化运行方式。
 
 **-s** _OFFSET_, **--start-offset**=_OFFSET_
-> Starting offset in bytes from device beginning.
+> 相对设备起始处的偏移量（字节）。
 
 **-S** _OFFSET_, **--end-offset**=_OFFSET_
-> Ending offset in bytes where writing should stop.
+> 写入应停止的位置偏移量（字节）。
 
 # DESCRIPTION
 
-**f3write** is part of the F3 (Fight Flash Fraud) suite and tests the actual capacity of flash storage devices by filling them with known data patterns. It writes 1GB files named N.h2w (where N is a number) to the target filesystem until the drive is full.
+**f3write** 是 F3（Fight Flash Fraud）套件的一部分，通过用已知数据模式填满闪存设备来测试其真实容量。它向目标文件系统写入名为 N.h2w 的 1GB 文件（N 为数字），直到驱动器写满为止。
 
-The typical workflow involves writing test data with f3write, then verifying with **f3read**. If the drive is counterfeit and reports false capacity, f3read will detect data corruption beyond the actual physical capacity.
+典型工作流程是先用 f3write 写入测试数据，再用 **f3read** 进行校验。如果驱动器是虚报容量的假货，f3read 将检测到超出实际物理容量部分的数据损坏。
 
-f3write can operate on a mounted filesystem (writing to a directory) or directly to a raw unmounted device using the **-g** option.
+f3write 可以在已挂载的文件系统上运行（写入目录），也可以使用 **-g** 选项直接写入未挂载的裸设备。
 
 # CAVEATS
 
-**All data on the tested disk will be overwritten.** Always backup important data before testing. When using raw device mode (-g), ensure you specify the correct device to avoid destroying data on other drives. The test can take considerable time depending on drive size and speed.
+**被测磁盘上的所有数据都会被覆盖。** 测试前务必备份重要数据。使用裸设备模式（-g）时，请确保指定正确的设备，以免破坏其他驱动器上的数据。视驱动器容量和速度不同，测试可能耗时较长。
 
 # HISTORY
 
-f3write was created by Michel Machado as part of the F3 (Fight Flash Fraud) suite. The tool addresses the widespread problem of counterfeit flash storage that uses modified firmware to report inflated capacities. When users attempt to store more data than the actual capacity, the drive silently corrupts data by overwriting existing content or simply discarding writes.
+f3write 由 Michel Machado 作为 F3（Fight Flash Fraud）套件的一部分创建。该工具针对的是普遍存在的假冒闪存问题：这类产品修改固件以虚报容量。当用户尝试存储超过实际容量的数据时，驱动器会通过覆盖已有内容或直接丢弃写入的方式悄悄破坏数据。
 
 # INSTALL
 

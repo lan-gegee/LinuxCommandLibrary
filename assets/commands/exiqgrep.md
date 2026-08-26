@@ -1,30 +1,30 @@
 # TAGLINE
 
-Exim mail queue search utility
+Exim 邮件队列搜索工具
 
 # TLDR
 
-Match **sender** address (case-insensitive)
+匹配**发件人**地址（不区分大小写）
 
 ```exiqgrep -f '<[email@example.com]>'```
 
-Match sender and display **message IDs** only
+匹配发件人并只显示**消息 ID**
 
 ```exiqgrep -i -f '<[email@example.com]>'```
 
-Match **recipient** address
+匹配**收件人**地址
 
 ```exiqgrep -r '[email@example.com]'```
 
-**Remove** all messages matching sender
+**删除**所有匹配发件人的消息
 
 ```exiqgrep -i -f '<[email@example.com]>' | xargs exim -Mrm```
 
-Test for **bounced** messages
+检测**退信**消息
 
 ```exiqgrep -f '^<>$'```
 
-Display **count** of bounced messages
+显示退信消息的**数量**
 
 ```exiqgrep -c -f '^<>$'```
 
@@ -35,44 +35,44 @@ Display **count** of bounced messages
 # PARAMETERS
 
 **-f** _pattern_
-> Match sender address
+> 匹配发件人地址
 
 **-r** _pattern_
-> Match recipient address
+> 匹配收件人地址
 
 **-i**
-> Display message IDs only
+> 只显示消息 ID
 
 **-c**
-> Display count only
+> 只显示数量
 
 **-o** _seconds_
-> Match messages older than
+> 匹配早于指定秒数的消息
 
 **-y** _seconds_
-> Match messages younger than
+> 匹配晚于指定秒数的消息
 
 **-z**
-> Match frozen messages only
+> 只匹配冻结的消息
 
 **-x**
-> Match non-frozen messages only
+> 只匹配非冻结的消息
 
 **-b**
-> Brief format output
+> 简短格式输出
 
 **-R**
-> Reverse output order
+> 反转输出顺序
 
 # DESCRIPTION
 
-**exiqgrep** is a Perl script for searching the Exim mail queue. It filters queue output by sender, recipient, age, frozen state, and other criteria. At least one selection option or **-c** must be given.
+**exiqgrep** 是一个用于搜索 Exim 邮件队列的 Perl 脚本。它按发件人、收件人、时间、冻结状态等条件过滤队列输出。必须至少给出一个筛选选项或 **-c**。
 
-Commonly used with **exim -Mrm** to remove matching messages from the queue.
+它常与 **exim -Mrm** 配合使用，从队列中删除匹配的消息。
 
 # CAVEATS
 
-Exim mail server specific. Patterns use Perl regular expressions. Requires appropriate permissions to access mail queue.
+仅适用于 Exim 邮件服务器。模式采用 Perl 正则表达式。需要相应的权限才能访问邮件队列。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Funtoo Linux system personality manager
+Funtoo Linux 系统个性管理器
 
 # TLDR
 
-**Synchronize** the Portage tree
+**同步** Portage 树
 
 ```ego sync```
 
-**Update** bootloader configuration
+**更新**引导加载程序配置
 
 ```ego boot update```
 
-**Read** a Funtoo wiki page
+**阅读** Funtoo wiki 页面
 
 ```ego doc [wiki_page]```
 
-**Print** current profile
+**打印**当前 profile
 
 ```ego profile show```
 
-**Enable/Disable** mix-ins
+**启用/禁用** mix-in
 
 ```ego profile mix-in +[gnome] -[kde-plasma-5]```
 
-**Query** Funtoo bugs for a package
+**查询**软件包相关的 Funtoo bug
 
 ```ego query bug [package]```
 
@@ -34,51 +34,51 @@ Funtoo Linux system personality manager
 
 # DESCRIPTION
 
-**ego** is Funtoo's official system personality management tool. It provides a unified interface for synchronizing repositories, managing profiles, updating bootloader configuration, and accessing Funtoo documentation.
+**ego** 是 Funtoo 官方的系统个性管理工具。它为同步仓库、管理 profile、更新引导加载程序配置以及访问 Funtoo 文档提供统一接口。
 
-Available modules include: **sync**, **profile**, **query**, **doc**, **boot**, **kit**, and **config**. Replaces several separate tools with a single coherent interface.
+可用模块包括：**sync**、**profile**、**query**、**doc**、**boot**、**kit** 和 **config**。它用一个连贯的接口取代了多个独立的工具。
 
 # PARAMETERS
 
 **sync**
-> Synchronize Portage tree
+> 同步 Portage 树
 
 **boot update**
-> Update bootloader configuration
+> 更新引导加载程序配置
 
 **doc** _page_
-> Read wiki documentation
+> 阅读 wiki 文档
 
 **profile show**
-> Display current profile
+> 显示当前 profile
 
 **profile mix-in** _changes_
-> Enable/disable mix-ins with +/-
+> 使用 +/- 启用/禁用 mix-in
 
 **query bug** _package_
-> Query bugs for package
+> 查询软件包的相关 bug
 
 **kit**
-> Display kit information
+> 显示 kit 信息
 
 **config**
-> View and modify /etc/ego.conf settings
+> 查看和修改 /etc/ego.conf 设置
 
 **help** [_module_]
-> Show help for ego or a specific module.
+> 显示 ego 或特定模块的帮助。
 
 # CONFIGURATION
 
 **/etc/ego.conf**
-> Main configuration file for ego profiles and settings.
+> ego profile 和设置的主配置文件。
 
 # CAVEATS
 
-Funtoo Linux specific. Not available on stock Gentoo or other distributions. Requires proper /etc/ego.conf configuration. Ego is a wrapper around and intended eventual replacement for **eselect** on Funtoo; the shortcut `epro` is equivalent to `ego profile`.
+Funtoo Linux 特有。原版 Gentoo 或其他发行版上不可用。需要正确的 /etc/ego.conf 配置。Ego 是对 **eselect** 的封装，也是其在 Funtoo 上的预期替代品；快捷方式 `epro` 等价于 `ego profile`。
 
 # HISTORY
 
-**ego** was introduced by the **Funtoo Linux** project, a Gentoo-derived distribution led by Daniel Robbins (the original Gentoo founder). It consolidates previously separate utilities (profile selection, Portage tree sync, bootloader generation) into a single modular command and replaces portions of eselect on Funtoo systems.
+**ego** 由 **Funtoo Linux** 项目引入，该项目是由 Daniel Robbins（Gentoo 创始人）领导的 Gentoo 衍生发行版。它将此前相互独立的功能（profile 选择、Portage 树同步、引导加载程序生成）整合为单一的模块化命令，并在 Funtoo 系统上取代了 eselect 的部分功能。
 
 # INSTALL
 

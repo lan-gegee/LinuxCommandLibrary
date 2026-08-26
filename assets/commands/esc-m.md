@@ -1,14 +1,14 @@
 # TAGLINE
 
-Decode min12xxw printer driver output for debugging
+解码 min12xxw 打印机驱动输出以便调试
 
 # TLDR
 
-**Decode a driver data stream** piped from stdin
+**解码从标准输入管道传入的驱动数据流**
 
 ```min12xxw < [document.pbm] | esc-m```
 
-**Inspect a captured** printer data file
+**检查捕获到的**打印机数据文件
 
 ```esc-m < [captured.prn]```
 
@@ -18,13 +18,13 @@ Decode min12xxw printer driver output for debugging
 
 # DESCRIPTION
 
-**esc-m** is a small debugging filter shipped with the **min12xxw** printer driver. It reads a driver data stream on standard input and prints a human-readable description of the ESC-M (compressed page) commands it contains to standard output.
+**esc-m** 是随 **min12xxw** 打印机驱动附带的一个小型调试过滤器。它从标准输入读取驱动数据流，并将其中的 ESC-M（压缩页）命令以人类可读的形式打印到标准输出。
 
-The tool takes no arguments and no options: it is only meant to help developers and users understand what the min12xxw driver emits for a KonicaMinolta PagePro 1200W-class printer, for example when diagnosing a printing problem or verifying the compressed raster output.
+该工具不接受任何参数或选项：它的用途只是帮助开发者和用户了解 min12xxw 驱动为 KonicaMinolta PagePro 1200W 一类打印机生成的数据内容，例如诊断打印问题或校验压缩光栅输出时。
 
 # CAVEATS
 
-esc-m is a diagnostic aid, not a print command; it does not talk to a printer. It only understands the data format produced by the min12xxw driver, so feeding it arbitrary files produces meaningless output. It is packaged together with min12xxw (Debian's printer-driver-min12xxw) rather than as a standalone tool.
+esc-m 是诊断辅助工具，不是打印命令；它不会与打印机通信。它只认识 min12xxw 驱动产生的数据格式，喂入任意文件只会得到无意义的输出。它与 min12xxw 一起打包发行（Debian 的 printer-driver-min12xxw），而非独立工具。
 
 # INSTALL
 

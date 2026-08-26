@@ -1,30 +1,30 @@
 # TAGLINE
 
-symmetric encryption and decryption utility
+对称加密与解密工具
 
 # TLDR
 
-**Encrypt file** with AES-256-CBC using PBKDF2
+**加密文件**：AES-256-CBC 加 PBKDF2
 
 ```openssl enc -aes-256-cbc -pbkdf2 -in [plaintext] -out [encrypted]```
 
-**Decrypt file**
+**解密文件**
 
 ```openssl enc -d -aes-256-cbc -pbkdf2 -in [encrypted] -out [plaintext]```
 
-**Encrypt with base64** output
+**加密并以 base64 输出**
 
 ```openssl enc -aes-256-cbc -pbkdf2 -a -in [plaintext] -out [encrypted.b64]```
 
-**Encrypt with explicit password** source
+**显式指定密码**来源进行加密
 
 ```openssl enc -aes-256-cbc -pbkdf2 -pass pass:[password] -in [file] -out [encrypted]```
 
-**Print key and IV** without encrypting
+只**打印密钥和 IV** 而不加密
 
 ```openssl enc -aes-256-cbc -pbkdf2 -P -pass pass:[password]```
 
-**List available ciphers**
+**列出可用的密码算法**
 
 ```openssl enc -list```
 
@@ -35,71 +35,71 @@ symmetric encryption and decryption utility
 # PARAMETERS
 
 **-e**
-> Encrypt the input data (default).
+> 加密输入数据（默认）。
 
 **-d**
-> Decrypt the input data.
+> 解密输入数据。
 
 **-in** _FILE_
-> Input file.
+> 输入文件。
 
 **-out** _FILE_
-> Output file.
+> 输出文件。
 
 **-a**, **-base64**
-> Base64 encode/decode the data.
+> 对数据进行 Base64 编码/解码。
 
 **-pass** _SOURCE_
-> Password source (e.g., pass:password, file:pathname, env:var, stdin).
+> 密码来源（如 pass:password、file:pathname、env:var、stdin）。
 
 **-k** _PASSWORD_
-> Password for key derivation. Superseded by -pass.
+> 用于密钥派生的密码。已被 -pass 取代。
 
 **-pbkdf2**
-> Use PBKDF2 key derivation (recommended; default iteration count 10000).
+> 使用 PBKDF2 密钥派生（推荐；默认迭代次数 10000）。
 
 **-iter** _COUNT_
-> Override PBKDF2 iteration count.
+> 覆盖 PBKDF2 迭代次数。
 
 **-salt**
-> Use a random salt for key derivation (default).
+> 密钥派生时使用随机盐值（默认）。
 
 **-nosalt**
-> Do not use salt. Not recommended except for testing.
+> 不使用盐值。除测试外不建议。
 
 **-K** _KEY_
-> Actual encryption key in hex.
+> 十六进制形式的实际加密密钥。
 
 **-iv** _IV_
-> Actual initialization vector in hex.
+> 十六进制形式的实际初始化向量。
 
 **-P**
-> Print key and IV then exit; do not encrypt or decrypt.
+> 打印密钥和 IV 后退出；不执行加密或解密。
 
 **-p**
-> Print key and IV, then proceed with encryption/decryption.
+> 打印密钥和 IV，然后继续执行加密/解密。
 
 **-list**
-> List all supported ciphers.
+> 列出所有支持的密码算法。
 
 **-nopad**
-> Disable standard block padding.
+> 禁用标准的块填充。
 
 # DESCRIPTION
 
-**openssl enc** performs symmetric encryption and decryption using various cipher algorithms. It is the general-purpose encryption command in OpenSSL.
+**openssl enc** 使用各种密码算法执行对称加密和解密。它是 OpenSSL 中的通用加密命令。
 
-The command supports numerous ciphers including AES, DES, Blowfish, Camellia, ChaCha20, and others. When deriving keys from passwords, use **-pbkdf2** for secure key derivation with a salt (enabled by default). Output can be binary or base64-encoded with **-a**.
+该命令支持众多密码算法，包括 AES、DES、Blowfish、Camellia、ChaCha20 等。从密码派生密钥时，应使用 **-pbkdf2** 进行加盐的安全密钥派生（默认已启用）。输出可以是二进制形式，也可以用 **-a** 进行 base64 编码。
 
-Common use cases include file encryption, creating encrypted backups, and data protection workflows.
+常见用途包括文件加密、创建加密备份以及数据保护工作流。
 
 # CAVEATS
 
-Without **-pbkdf2**, OpenSSL uses a legacy key derivation function that is vulnerable to dictionary attacks. The **-k** option is superseded by **-pass**. Using **-nosalt** is insecure except for testing. Lost passwords mean lost data.
+不使用 **-pbkdf2** 时，OpenSSL 会采用易受字典攻击的旧式密钥派生函数。**-k** 选项已被 **-pass** 取代。除测试外使用 **-nosalt** 并不安全。密码丢失即意味着数据丢失。
 
 # HISTORY
 
-openssl enc is part of **OpenSSL**, the open-source cryptography toolkit. It provides command-line access to symmetric encryption algorithms for data protection.
+openssl enc 是开源密码学工具包 **OpenSSL** 的一部分。它通过命令行提供对称加密算法，用于数据保护。
 
 # SEE ALSO
 

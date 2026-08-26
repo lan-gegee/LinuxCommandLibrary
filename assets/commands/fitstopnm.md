@@ -1,14 +1,14 @@
 # TAGLINE
 
-convert astronomical FITS images to PNM
+把天文 FITS 图像转换为 PNM
 
 # TLDR
 
-**Convert FITS to PNM**
+**将 FITS 转换为 PNM**
 
 ```fitstopnm [input.fits] > [output.pnm]```
 
-**Convert specific image in file**
+**转换文件中的指定图像**
 
 ```fitstopnm -image [2] [input.fits] > [output.pnm]```
 
@@ -19,16 +19,16 @@ convert astronomical FITS images to PNM
 # PARAMETERS
 
 **-image** _num_
-> Select specific image from multi-image file.
+> 从多图像文件中选择指定的图像。
 
 **-noraw**
-> Output in plain format.
+> 以纯文本格式输出。
 
 # DESCRIPTION
 
-**fitstopnm** converts FITS (Flexible Image Transport System) files to PNM format. FITS is the standard astronomical image format used for scientific data interchange.
+**fitstopnm** 将 FITS（Flexible Image Transport System）文件转换为 PNM 格式。FITS 是天文学界用于科学数据交换的标准图像格式。
 
-The tool reads multi-dimensional image data from FITS files and converts it to the portable anymap format, making astronomical images accessible to standard image processing tools. Part of the Netpbm toolkit.
+该工具从 FITS 文件读取多维图像数据，并将其转换为 portable anymap 格式，使天文图像可以被标准图像处理工具使用。它是 Netpbm 工具集的一部分。
 
 # INSTALL
 
@@ -57,4 +57,3 @@ The tool reads multi-dimensional image data from FITS files and converts it to t
 ```[Homepage](https://netpbm.sourceforge.net/)```
 
 <!-- verified: 2026-07-15 -->
-

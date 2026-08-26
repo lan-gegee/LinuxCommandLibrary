@@ -1,22 +1,22 @@
 # TAGLINE
 
-ID3 tag editor for MP3 files
+MP3 文件的 ID3 标签编辑器
 
 # TLDR
 
-**View** information about an MP3 file
+**查看** MP3 文件的信息
 
 ```eyeD3 [filename.mp3]```
 
-Set the **title** of an MP3 file
+设置 MP3 文件的**标题**
 
 ```eyeD3 [-t|--title] "[A Title]" [filename.mp3]```
 
-Set the **album** of all MP3 files in directory
+设置目录中所有 MP3 文件的**专辑**
 
 ```eyeD3 [-A|--album] "[Album Name]" [*.mp3]```
 
-Set front **cover art** for an MP3 file
+为 MP3 文件设置正面**封面图**
 
 ```eyeD3 --add-image [front_cover.jpeg]:FRONT_COVER: [filename.mp3]```
 
@@ -26,66 +26,66 @@ Set front **cover art** for an MP3 file
 
 # DESCRIPTION
 
-**eyeD3** reads and manipulates ID3 metadata in MP3 files. It supports ID3 v1.x and v2.x tags including text, images, and custom frames.
+**eyeD3** 读取和处理 MP3 文件中的 ID3 元数据。它支持 ID3 v1.x 和 v2.x 标签，包括文本、图像和自定义帧。
 
-Useful for organizing music libraries and batch tagging MP3 collections.
+适合用于整理音乐库和批量标记 MP3 收藏。
 
 # PARAMETERS
 
 **-t, --title** _text_
-> Set track title.
+> 设置曲目标题。
 
 **-A, --album** _text_
-> Set album name.
+> 设置专辑名称。
 
 **-a, --artist** _text_
-> Set artist name.
+> 设置艺人名称。
 
 **-b, --album-artist** _text_
-> Set album artist (compilations, multi-artist albums).
+> 设置专辑艺人（合辑、多艺人专辑）。
 
 **-n, --track** _num_
-> Set track number.
+> 设置曲目编号。
 
 **-N, --track-total** _num_
-> Set total number of tracks.
+> 设置曲目总数。
 
 **-d, --disc-num** _num_
-> Set disc number.
+> 设置唱片编号。
 
 **-G, --genre** _genre_
-> Set genre (name or numeric ID3v1 code).
+> 设置流派（名称或数字 ID3v1 代码）。
 
 **-Y, --release-year** _year_
-> Set release year.
+> 设置发行年份。
 
 **-c, --comment** _text_
-> Add a comment.
+> 添加注释。
 
 **--add-image** _path:type[:description]_
-> Add an image (APIC frame); TYPE from `--list-image-types` (e.g. FRONT_COVER).
+> 添加图像（APIC 帧）；TYPE 取自 `--list-image-types`（如 FRONT_COVER）。
 
 **--remove-all-images**
-> Remove all embedded images.
+> 移除所有内嵌图像。
 
 **--write-images** _dir_
-> Extract images to a directory.
+> 将图像提取到目录。
 
 **--to-v2.3**, **--to-v2.4**, **--to-v1.1**
-> Convert the tag to the specified ID3 version.
+> 将标签转换为指定的 ID3 版本。
 
 **--remove-v1**, **--remove-v2**, **--remove-all**
-> Remove ID3 v1.x, v2.x, or all tags.
+> 移除 ID3 v1.x、v2.x 或所有标签。
 
 **--preserve-file-times**
-> Keep original file modification timestamps.
+> 保留原始文件修改时间戳。
 
 **-Q, --quiet**
-> Suppress output.
+> 抑制输出。
 
 # CAVEATS
 
-Only works with MP3 files. Some players may not support all ID3v2 features. Unicode support depends on tag version.
+只能处理 MP3 文件。部分播放器可能不支持所有 ID3v2 特性。Unicode 支持取决于标签版本。
 
 # INSTALL
 

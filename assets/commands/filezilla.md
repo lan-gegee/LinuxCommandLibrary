@@ -1,26 +1,26 @@
 # TAGLINE
 
-graphical FTP/SFTP client
+图形化 FTP/SFTP 客户端
 
 # TLDR
 
-**Start FileZilla**
+**启动 FileZilla**
 
 ```filezilla```
 
-**Connect to server**
+**连接服务器**
 
 ```filezilla [ftp://user@host]```
 
-**Connect with SFTP**
+**以 SFTP 连接**
 
 ```filezilla [sftp://user@host]```
 
-**Open the Site Manager on startup**
+**启动时打开站点管理器**
 
 ```filezilla -s```
 
-**Connect to a saved site**
+**连接已保存的站点**
 
 ```filezilla -c [0/sitename]```
 
@@ -31,49 +31,49 @@ graphical FTP/SFTP client
 # PARAMETERS
 
 _URL_
-> Server URL to connect to.
+> 要连接的服务器 URL。
 
 **-c** _PATH_, **--site** _PATH_
-> Connect to a saved Site Manager entry (path form, e.g. 0/name). Cannot be combined with -s.
+> 连接到站点管理器中已保存的条目（路径形式，如 0/name）。不能与 -s 同时使用。
 
 **-s**, **--sitemanager**
-> Open the Site Manager at startup.
+> 启动时打开站点管理器。
 
 **-a** _PATH_, **--local** _PATH_
-> Set the local start directory.
+> 设置本地起始目录。
 
 **-l** _TYPE_, **--logontype** _TYPE_
-> Logon type (ask or interactive) when connecting via an FTP URL.
+> 通过 FTP URL 连接时的登录类型（ask 或 interactive）。
 
 **-v**, **--version**
-> Display version.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/filezilla/sitemanager.xml**
-> Saved FTP/SFTP site configurations and connection profiles.
+> 已保存的 FTP/SFTP 站点配置和连接配置档。
 
 **~/.config/filezilla/filezilla.xml**
-> General application settings and preferences.
+> 应用的一般设置和偏好项。
 
 # DESCRIPTION
 
-**filezilla** is a graphical FTP, SFTP, and FTPS client. It provides file transfer with drag-and-drop, directory comparison, bookmarks, and transfer queue management.
+**filezilla** 是图形化的 FTP、SFTP 和 FTPS 客户端。它提供拖放式文件传输、目录比较、书签以及传输队列管理。
 
-The application supports multiple concurrent connections, resume for interrupted transfers, and configurable transfer speed limits. Site Manager stores connection profiles for quick access.
+该应用支持多条并发连接、中断传输后的续传，以及可配置的传输速度限制。站点管理器保存连接配置档，方便快速访问常用站点。
 
-FileZilla handles large files and directories efficiently with its transfer queue and multi-threaded engine.
+借助传输队列和多线程引擎，FileZilla 能高效地处理大文件和大型目录。
 
 # CAVEATS
 
-GUI application requires display. Stored passwords may be security risk. Very large directories may be slow to list.
+GUI 应用需要图形显示环境。保存下来的密码可能有安全风险。特别大的目录列起目录来可能很慢。
 
 # HISTORY
 
-FileZilla was created by **Tim Kosse** in 2001, initially as a school project. It became one of the most popular open source FTP clients, later adding SFTP and FTPS support.
+FileZilla 由 **Tim Kosse** 于 2001 年创建，最初只是一个学校项目。它后来成为最受欢迎的开源 FTP 客户端之一，之后又陆续加入了对 SFTP 和 FTPS 的支持。
 
 # INSTALL
 

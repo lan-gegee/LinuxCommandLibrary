@@ -1,30 +1,30 @@
 # TAGLINE
 
-distributed key-value store with Raft consensus
+基于 Raft 共识的分布式键值存储
 
 # TLDR
 
-**Start etcd server**
+**启动 etcd 服务器**
 
 ```etcd```
 
-**Start with custom data directory**
+**以自定义数据目录启动**
 
 ```etcd --data-dir [/var/lib/etcd]```
 
-**Start with specific listen address**
+**以指定监听地址启动**
 
 ```etcd --listen-client-urls [http://localhost:2379]```
 
-**Start with advertised URLs**
+**以通告 URL 启动**
 
 ```etcd --advertise-client-urls [http://localhost:2379]```
 
-**Start a cluster member**
+**启动一个集群成员**
 
 ```etcd --name [node1] --initial-cluster [node1=http://host1:2380,node2=http://host2:2380]```
 
-**Enable TLS**
+**启用 TLS**
 
 ```etcd --cert-file [cert.pem] --key-file [key.pem]```
 
@@ -35,70 +35,70 @@ distributed key-value store with Raft consensus
 # PARAMETERS
 
 **--name** _name_
-> Human-readable node name.
+> 易读的节点名称。
 
 **--data-dir** _path_
-> Data directory path.
+> 数据目录路径。
 
 **--listen-client-urls** _urls_
-> Client listen URLs.
+> 客户端监听 URL。
 
 **--advertise-client-urls** _urls_
-> Advertised client URLs.
+> 对外通告的客户端 URL。
 
 **--listen-peer-urls** _urls_
-> Peer listen URLs.
+> 节点间监听 URL。
 
 **--initial-cluster** _config_
-> Initial cluster configuration.
+> 初始集群配置。
 
 **--initial-cluster-state** _state_
-> Initial cluster state (new or existing).
+> 初始集群状态（new 或 existing）。
 
 **--cert-file** _file_
-> TLS certificate file.
+> TLS 证书文件。
 
 **--key-file** _file_
-> TLS key file.
+> TLS 密钥文件。
 
 **--initial-cluster-token** _token_
-> Unique cluster token to prevent cross-cluster interaction.
+> 唯一的集群令牌，用于防止跨集群交互。
 
 **--initial-advertise-peer-urls** _urls_
-> Peer URLs to advertise to the rest of the cluster.
+> 向集群其余成员通告的节点间 URL。
 
 **--snapshot-count** _count_
-> Number of committed transactions to trigger a snapshot to disk (default 100000).
+> 触发快照落盘的已提交事务数量（默认 100000）。
 
 **--quota-backend-bytes** _bytes_
-> Raise alarms when backend size exceeds the given quota (0 defaults to low space quota).
+> 当后端大小超过给定配额时引发告警（0 表示使用较低的默认空间配额）。
 
 **--max-request-bytes** _bytes_
-> Maximum client request size in bytes the server will accept (default 1572864).
+> 服务器接受的最大客户端请求大小，单位字节（默认 1572864）。
 
 # DESCRIPTION
 
-**etcd** is a distributed key-value store that provides reliable, consistent data storage for distributed systems. It implements the Raft consensus algorithm to ensure strong consistency across multiple nodes, making it suitable for critical configuration data and service coordination.
+**etcd** 是一个分布式键值存储，为分布式系统提供可靠、一致的数据存储。它实现了 Raft 共识算法以确保多个节点间的强一致性，适合保存关键的配置数据和服务协调信息。
 
-The server forms the backbone of Kubernetes cluster state management and is used extensively in cloud-native architectures for configuration management, service discovery, and distributed locking. Its simple HTTP/gRPC API and watch functionality enable applications to respond to configuration changes in real-time.
+该服务器是 Kubernetes 集群状态管理的支柱，在云原生架构中被广泛用于配置管理、服务发现和分布式锁。其简洁的 HTTP/gRPC API 和 watch 功能使应用能够实时响应配置变化。
 
-etcd prioritizes consistency and availability, making it ideal for storing cluster membership, feature flags, and other distributed system metadata.
+etcd 优先保证一致性和可用性，是存储集群成员信息、功能开关及其他分布式系统元数据的理想选择。
 
 # CONFIGURATION
 
 **/etc/etcd/etcd.conf.yml**
-> Main configuration file for etcd server settings, cluster topology, and security options. Overrides all command-line flags and environment variables when specified.
+> etcd 服务器设置的主配置文件，涵盖集群拓扑和安全选项。指定时将覆盖所有命令行标志和环境变量。
 
 **ETCD_***
-> Every flag has a corresponding environment variable prefixed with ETCD_ in all caps and snake case (e.g., --data-dir becomes ETCD_DATA_DIR). Command-line flags take precedence over environment variables.
+> 每个标志都有对应的环境变量，前缀为大写的 ETCD_ 并采用蛇形命名（例如 --data-dir 对应 ETCD_DATA_DIR）。命令行标志优先于环境变量。
 
 # CAVEATS
 
-Requires careful cluster planning for production use. Network partitions affect availability. Disk performance impacts latency. Regular backups essential. Raft consensus requires quorum majority.
+生产使用需要细致的集群规划。网络分区会影响可用性。磁盘性能影响延迟。必须定期备份。Raft 共识需要多数派仲裁。
 
 # HISTORY
 
-etcd was created by **CoreOS** in **2013** and became a Cloud Native Computing Foundation (CNCF) project. It has become the de facto standard for Kubernetes configuration storage and is widely deployed in production cloud environments.
+etcd 由 **CoreOS** 于 **2013 年**创建，后成为云原生计算基金会（CNCF）项目。它已成为 Kubernetes 配置存储的事实标准，在生产云环境中广泛部署。
 
 # INSTALL
 
@@ -119,4 +119,3 @@ etcd was created by **CoreOS** in **2013** and became a Cloud Native Computing F
 # SEE ALSO
 
 [etcdctl](/man/etcdctl)(1), [kubectl](/man/kubectl)(1), [consul](/man/consul)(1)
-

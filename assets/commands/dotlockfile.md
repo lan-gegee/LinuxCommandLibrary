@@ -1,30 +1,30 @@
 # TAGLINE
 
-mailbox-style file locking utility
+邮箱风格的文件锁定工具
 
 # TLDR
 
-**Create a lockfile**
+**创建锁文件**
 
 ```dotlockfile [file.lock]```
 
-**Create with retry**
+**带重试地创建**
 
 ```dotlockfile -r [5] [file.lock]```
 
-**Remove a lockfile**
+**移除锁文件**
 
 ```dotlockfile -u [file.lock]```
 
-**Lock with PID** checking
+**加锁并检查 PID**
 
 ```dotlockfile -p [file.lock]```
 
-**Try lock once** (no wait)
+**尝试加锁一次**（不等待）
 
 ```dotlockfile -r [0] [file.lock]```
 
-**Lock with timeout** in seconds
+**以秒为单位设置超时**加锁
 
 ```dotlockfile -r [10] -l [file.lock]```
 
@@ -35,41 +35,41 @@ mailbox-style file locking utility
 # PARAMETERS
 
 _LOCKFILE_
-> Path to lockfile to create/remove.
+> 要创建/移除的锁文件路径。
 
 **-r** _RETRIES_
-> Number of retries (0 = try once, -1 = infinite).
+> 重试次数（0 = 只试一次，-1 = 无限重试）。
 
 **-u**, **--unlock**
-> Remove the lockfile.
+> 移除锁文件。
 
 **-p**, **--use-pid**
-> Write PID to lockfile.
+> 将 PID 写入锁文件。
 
 **-l**
-> Lock (default action).
+> 加锁（默认动作）。
 
 **-c**, **--check**
-> Check if lock is stale.
+> 检查锁是否已失效。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dotlockfile** creates lockfiles using the mailbox locking convention (name.lock). It provides atomic file locking for scripts and applications that need to serialize access to resources.
+**dotlockfile** 按照邮箱锁定惯例（name.lock）创建锁文件。它为需要串行化资源访问的脚本和应用程序提供原子化的文件锁定。
 
-The tool handles retry logic, stale lock detection, and PID tracking. With -p, it writes the process ID to the lockfile enabling detection of dead lock holders.
+该工具处理重试逻辑、失效锁检测和 PID 跟踪。配合 -p 使用时，它会将进程 ID 写入锁文件，从而能够检测持锁进程是否已经死亡。
 
-dotlockfile is commonly used in shell scripts to prevent concurrent access to files or ensure only one instance of a script runs at a time.
+dotlockfile 常用于 shell 脚本中，防止对文件的并发访问，或确保同一脚本一次只运行一个实例。
 
 # CAVEATS
 
-Lockfiles on network filesystems may not be reliable. Must manually remove locks on script exit. Stale lock detection requires -p option. Not suitable for high-contention scenarios.
+网络文件系统上的锁文件可能不可靠。必须在脚本退出时手动移除锁。失效锁检测需要 -p 选项。不适合高竞争场景。
 
 # HISTORY
 
-dotlockfile implements the traditional Unix lockfile convention, widely used for mailbox locking. It's part of the **liblockfile** package providing standardized file locking utilities.
+dotlockfile 实现了传统的 Unix 锁文件惯例，这种惯例曾被广泛用于邮箱锁定。它是 **liblockfile** 软件包的一部分，该包提供了标准化的文件锁定工具。
 
 # INSTALL
 

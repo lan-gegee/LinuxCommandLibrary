@@ -1,22 +1,22 @@
 # TAGLINE
 
-MIME-type aware file editor launcher
+感知 MIME 类型的文件编辑器启动器
 
 # TLDR
 
-**Edit a file** using the appropriate editor for its MIME type
+**编辑文件**，根据其 MIME 类型选择合适的编辑器
 
 ```edit [filename]```
 
-**Edit with explicit MIME type**
+**以显式 MIME 类型编辑**
 
 ```edit [text/html]:[filename]```
 
-**Show the editor command without running it**
+**只显示编辑器命令而不执行**
 
 ```edit --norun [filename]```
 
-**Using run-mailcap directly with the edit action**
+**直接使用 run-mailcap 的 edit 动作**
 
 ```run-mailcap --action=edit [filename]```
 
@@ -26,35 +26,35 @@ MIME-type aware file editor launcher
 
 # DESCRIPTION
 
-**edit** is an alias for run-mailcap's edit action. It opens files in the appropriate editor based on MIME type configuration in mailcap files.
+**edit** 是 run-mailcap 的 edit 动作的别名。它根据 mailcap 文件中的 MIME 类型配置，用合适的编辑器打开文件。
 
-The actual editor used depends on the file type and system mailcap configuration.
+实际使用的编辑器取决于文件类型和系统的 mailcap 配置。
 
 # PARAMETERS
 
 _filename_
-> File to edit. Can be prefixed with a MIME type and optional encoding as `MIME-TYPE:[ENCODING:]FILE`.
+> 要编辑的文件。可以在前面加上 MIME 类型和可选的编码，格式为 `MIME-TYPE:[ENCODING:]FILE`。
 
 **--debug**
-> Print extra diagnostic information about what is happening.
+> 打印关于当前操作的额外诊断信息。
 
 **--nopager**
-> Ignore any `copiousoutput` directive and send output directly to stdout.
+> 忽略任何 `copiousoutput` 指令，将输出直接发送到 stdout。
 
 **--norun**
-> Display the command that would be run without executing it.
+> 显示将要运行的命令但不执行它。
 
 # CONFIGURATION
 
 **/etc/mailcap**
-> System-wide MIME type to application mappings.
+> 系统级的 MIME 类型到应用程序的映射。
 
 **~/.mailcap**
-> User-specific MIME type overrides.
+> 用户级的 MIME 类型覆盖配置。
 
 # CAVEATS
 
-Debian/Ubuntu specific. The editor used depends on mailcap configuration and MIME type detection.
+Debian/Ubuntu 特有。所使用的编辑器取决于 mailcap 配置和 MIME 类型检测。
 
 # INSTALL
 

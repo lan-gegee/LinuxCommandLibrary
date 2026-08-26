@@ -1,26 +1,26 @@
 # TAGLINE
 
-modern Python web framework CLI
+现代 Python Web 框架 CLI
 
 # TLDR
 
-**Run development server**
+**运行开发服务器**
 
 ```fastapi dev [main.py]```
 
-**Run with specific host and port**
+**指定主机和端口运行**
 
 ```fastapi dev [main.py] --host [0.0.0.0] --port [8080]```
 
-**Run production server**
+**运行生产服务器**
 
 ```fastapi run [main.py]```
 
-**Run with auto-reload disabled**
+**禁用自动重载运行**
 
 ```fastapi dev [main.py] --no-reload```
 
-**Specify the app location**
+**指定应用位置**
 
 ```fastapi dev [main.py:app]```
 
@@ -31,62 +31,62 @@ modern Python web framework CLI
 # COMMANDS
 
 **dev** _path_
-> Start development server with auto-reload.
+> 启动带自动重载的开发服务器。
 
 **run** _path_
-> Start production server.
+> 启动生产服务器。
 
 # PARAMETERS
 
 **--host** _address_
-> Bind address. Default: 127.0.0.1 (dev), 0.0.0.0 (run).
+> 绑定地址。默认：127.0.0.1（dev）、0.0.0.0（run）。
 
 **--port** _port_
-> Server port. Default: 8000.
+> 服务器端口。默认：8000。
 
 **--reload**
-> Enable auto-reload (dev default).
+> 启用自动重载（dev 默认）。
 
 **--no-reload**
-> Disable auto-reload.
+> 禁用自动重载。
 
 **--workers** _count_
-> Number of worker processes.
+> 工作进程数量。
 
 **--root-path** _path_
-> ASGI root path for proxied setups.
+> 用于代理部署的 ASGI 根路径。
 
 **--app** _name_
-> Application variable name. Default: app.
+> 应用变量名。默认：app。
 
 **--reload-dir** _path_
-> Directory to watch for file changes (dev mode).
+> 监视文件变更的目录（dev 模式）。
 
 **--proxy-headers**
-> Trust X-Forwarded headers.
+> 信任 X-Forwarded 头。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fastapi** is the CLI for FastAPI, a modern Python web framework for building APIs. It wraps Uvicorn ASGI server for convenient development and deployment.
+**fastapi** 是 FastAPI 的 CLI。FastAPI 是一个用于构建 API 的现代 Python Web 框架。它封装了 Uvicorn ASGI 服务器，便于开发和部署。
 
-**fastapi dev** starts a development server with auto-reload—code changes trigger automatic restart. Use for local development with **--host 0.0.0.0** to allow external access.
+**fastapi dev** 启动带自动重载的开发服务器——代码变更会触发自动重启。本地开发时可使用 **--host 0.0.0.0** 以允许外部访问。
 
-**fastapi run** starts a production-oriented server without auto-reload and binding to all interfaces. For actual production, consider Uvicorn or Gunicorn directly with more configuration options.
+**fastapi run** 启动面向生产的服务器，不启用自动重载并绑定所有接口。实际生产环境建议直接使用 Uvicorn 或 Gunicorn，以获得更多配置选项。
 
-The path argument points to a Python file containing a FastAPI instance. Use **path:variable** syntax to specify a non-default app variable name.
+路径参数指向包含 FastAPI 实例的 Python 文件。可使用 **path:variable** 语法指定非默认的应用变量名。
 
-FastAPI generates automatic API documentation at **/docs** (Swagger UI) and **/redoc** endpoints based on your route definitions and type hints.
+FastAPI 会根据路由定义和类型注解，在 **/docs**（Swagger UI）和 **/redoc** 端点自动生成 API 文档。
 
 # CAVEATS
 
-The CLI is a convenience wrapper; production deployments often use Uvicorn/Gunicorn directly for more control. Auto-reload may miss some file changes. Debug mode exposes detailed error pages.
+该 CLI 只是便捷封装；生产部署通常直接使用 Uvicorn/Gunicorn 以获得更多控制权。自动重载可能遗漏部分文件变更。调试模式会暴露详细的错误页面。
 
 # HISTORY
 
-FastAPI was created by **Sebastián Ramírez** and first released in **December 2018**. Built on Starlette and Pydantic, it emphasizes type hints for validation, serialization, and documentation. The framework quickly became one of the most popular Python web frameworks for APIs. The **fastapi** CLI was added later to simplify the development experience. FastAPI is used in production by Microsoft, Netflix, Uber, and many others.
+FastAPI 由 **Sebastián Ramírez** 创建，于 **2018 年 12 月**首次发布。它构建在 Starlette 和 Pydantic 之上，强调利用类型注解进行校验、序列化和文档生成。该框架迅速成为最受欢迎的 Python Web 框架之一。**fastapi** CLI 是后来加入的，用于简化开发体验。微软、Netflix、Uber 等众多公司都在生产环境中使用 FastAPI。
 
 # INSTALL
 

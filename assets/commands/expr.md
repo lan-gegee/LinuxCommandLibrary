@@ -1,34 +1,34 @@
 # TAGLINE
 
-evaluate arithmetic and string expressions in shell
+在 shell 中求算术和字符串表达式的值
 
 # TLDR
 
-**Evaluate arithmetic** expression
+**求算术表达式**的值
 
 ```expr [5] + [3]```
 
-**Multiply** (escape the operator)
+**相乘**（运算符需转义）
 
 ```expr [5] \* [3]```
 
-**String length**
+**字符串长度**
 
 ```expr length "[string]"```
 
-**Substring extraction** (1-indexed)
+**提取子串**（从 1 开始计数）
 
 ```expr substr "[string]" [1] [5]```
 
-**Pattern matching**
+**模式匹配**
 
 ```expr "[string]" : '[regex]'```
 
-**Compare values** (escape the operator)
+**比较数值**（运算符需转义）
 
 ```expr [10] \> [5]```
 
-**Find index** of first character match
+查找首个字符匹配的**位置**
 
 ```expr index "[string]" "[chars]"```
 
@@ -39,53 +39,53 @@ evaluate arithmetic and string expressions in shell
 # PARAMETERS
 
 _EXPRESSION_
-> Mathematical or string expression to evaluate.
+> 要求值的数学表达式或字符串表达式。
 
 **+**, **-**, **\***, **/**, **%**
-> Arithmetic operators (multiply must be escaped).
+> 算术运算符（乘号必须转义）。
 
 **=**, **!=**, **\<**, **\>**, **\<=**, **\>=**
-> Comparison operators (escape < and >).
+> 比较运算符（< 和 > 需转义）。
 
 **length** _STRING_
-> Return string length.
+> 返回字符串长度。
 
 **substr** _STRING_ _POS_ _LEN_
-> Extract substring (1-indexed).
+> 提取子串（从 1 开始计数）。
 
 **index** _STRING_ _CHARS_
-> Find first occurrence of characters.
+> 查找字符首次出现的位置。
 
 **match** _STRING_ _REGEX_
-> Pattern match (same as STRING : REGEX).
+> 模式匹配（等同于 STRING : REGEX）。
 
 **|**
-> Logical OR: ARG1 | ARG2 returns ARG1 if non-null and non-zero, else ARG2.
+> 逻辑 OR：ARG1 | ARG2 在 ARG1 非空且非零时返回 ARG1，否则返回 ARG2。
 
 **&**
-> Logical AND: ARG1 & ARG2 returns ARG1 if both are non-null and non-zero, else 0.
+> 逻辑 AND：ARG1 & ARG2 在两者均非空且非零时返回 ARG1，否则返回 0。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**expr** evaluates expressions and outputs the result. It handles integer arithmetic, string operations, and comparisons. Results are printed to standard output with exit status indicating boolean results.
+**expr** 对表达式求值并输出结果。它支持整数算术、字符串操作和比较。结果打印到标准输出，退出状态码用于表示布尔结果。
 
-Operators must be passed as separate arguments, with shell metacharacters escaped. For arithmetic, expr only handles integers. String operations include length, substring extraction, and regex matching.
+运算符必须作为独立参数传递，shell 元字符需转义。在算术中 expr 只处理整数。字符串操作包括求长度、提取子串和正则匹配。
 
-expr is often used in shell scripts for calculations and string manipulation, though modern shells provide built-in alternatives.
+expr 常用于 shell 脚本中的计算和字符串处理，不过现代 shell 已提供内建的替代方案。
 
 # CAVEATS
 
-Operators need escaping (\* for multiply, \> for comparison). Only integer arithmetic supported. Returns exit code 1 for zero/false results. Regex uses basic regular expressions only.
+运算符需要转义（乘法用 \*，比较用 \>）。仅支持整数算术。结果为零/假时返回退出码 1。正则仅支持基本正则表达式。
 
 # HISTORY
 
-expr originated in **Version 7 Unix** (1979) as a general-purpose expression evaluator. It remains part of POSIX and GNU coreutils, though many of its functions are now handled by shell builtins.
+expr 起源于 **Version 7 Unix**（1979 年），作为通用的表达式求值器。它仍是 POSIX 和 GNU coreutils 的一部分，但许多功能现在已由 shell 内建命令承担。
 
 # INSTALL
 

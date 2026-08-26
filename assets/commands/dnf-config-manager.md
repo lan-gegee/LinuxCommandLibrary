@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage DNF repositories and configuration
+管理 DNF 软件仓库与配置
 
 # TLDR
 
-**Add** repository from URL
+从 URL **添加**软件仓库
 
 ```dnf config-manager --add-repo=[repository_url]```
 
-**Print** current configuration
+**打印**当前配置
 
 ```dnf config-manager --dump```
 
-**Enable** a repository
+**启用**软件仓库
 
 ```dnf config-manager --set-enabled [repository_id]```
 
-**Disable** repositories
+**禁用**软件仓库
 
 ```dnf config-manager --set-disabled [repository_id1] [repository_id2]```
 
-**Set** configuration option
+**设置**配置选项
 
 ```dnf config-manager --setopt=[option]=[value]```
 
@@ -30,47 +30,47 @@ manage DNF repositories and configuration
 
 # DESCRIPTION
 
-**dnf config-manager** provides command-line management of DNF repositories and configuration settings. It's part of dnf-plugins-core and offers an alternative to manually editing configuration files.
+**dnf config-manager** 提供通过命令行管理 DNF 软件仓库和配置设置的能力。它是 dnf-plugins-core 的一部分，可作为手动编辑配置文件的替代方案。
 
-The tool can add repositories from URLs (creating .repo files automatically), enable or disable existing repositories, and modify DNF configuration options on the fly. Changes to repositories are persisted in /etc/yum.repos.d/ as .repo files. This is particularly useful for scripted repository management, adding third-party repositories, or temporarily adjusting configuration without editing files manually. The --dump option is helpful for troubleshooting by showing the complete effective configuration.
+该工具可以从 URL 添加软件仓库（自动创建 .repo 文件）、启用或禁用已有仓库，以及即时修改 DNF 配置选项。对软件仓库的更改会持久保存到 /etc/yum.repos.d/ 下的 .repo 文件中。它尤其适合脚本化管理仓库、添加第三方仓库或临时调整配置而无需手动编辑文件。--dump 选项能显示完整的生效配置，便于排查问题。
 
 # PARAMETERS
 
 **--add-repo** _url_
-> Add repository from URL
+> 从 URL 添加软件仓库
 
 **--dump**
-> Print current configuration
+> 打印当前配置
 
 **--set-enabled** _repo_
-> Enable repository
+> 启用软件仓库
 
 **--set-disabled** _repo_
-> Disable repository
+> 禁用软件仓库
 
 **--setopt** _opt=val_
-> Set configuration option
+> 设置配置选项
 
 **--save**
-> Persist `--setopt` changes to the appropriate configuration file (by default changes are session-only).
+> 将 `--setopt` 的修改持久写入相应配置文件（默认仅当前会话有效）。
 
 **--dump-variables**
-> Print the effective values of the built-in DNF variables (`$releasever`, `$basearch`, …).
+> 打印 DNF 内置变量的生效值（`$releasever`、`$basearch` 等）。
 
 **--help-cmd**
-> Display help
+> 显示帮助
 
 # CONFIGURATION
 
 **/etc/yum.repos.d/*.repo**
-> Repository configuration files. Changes made by dnf config-manager persist here.
+> 软件仓库配置文件。dnf config-manager 所做的更改会持久保存在这里。
 
 **/etc/dnf/dnf.conf**
-> Main DNF configuration file. Options can be modified using --setopt.
+> DNF 主配置文件。可通过 --setopt 修改其中的选项。
 
 # CAVEATS
 
-Requires **dnf-plugins-core** on DNF 4. On DNF 5 (Fedora 41+) the plugin has been merged into the main binary and the subcommand is invoked as **dnf5 config-manager**; most flags carry over but **--set-enabled**/**--set-disabled** become **enable**/**disable** subcommands. Repository changes require root. Changes to `.repo` files persist in `/etc/yum.repos.d/`.
+在 DNF 4 上需要 **dnf-plugins-core** 插件。在 DNF 5（Fedora 41+）中该插件已并入主程序，子命令改为 **dnf5 config-manager**；大多数标志保持不变，但 **--set-enabled**/**--set-disabled** 变成了 **enable**/**disable** 子命令。仓库操作需要 root 权限。`.repo` 文件的更改会持久保存在 `/etc/yum.repos.d/` 中。
 
 # SEE ALSO
 

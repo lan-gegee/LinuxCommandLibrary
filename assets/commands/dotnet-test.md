@@ -1,34 +1,34 @@
 # TAGLINE
 
-test runner for .NET projects
+.NET 项目测试运行器
 
 # TLDR
 
-**Run tests**
+**运行测试**
 
 ```dotnet test```
 
-**Run tests in specific project**
+**运行指定项目中的测试**
 
 ```dotnet test [tests/Tests.csproj]```
 
-**Run with filter**
+**按过滤器运行**
 
 ```dotnet test --filter "[FullyQualifiedName~UnitTests]"```
 
-**Run specific test**
+**运行特定测试**
 
 ```dotnet test --filter "Name=[TestMethodName]"```
 
-**Run with verbosity**
+**指定详细程度运行**
 
 ```dotnet test --verbosity [detailed]```
 
-**Run without build**
+**跳过构建运行**
 
 ```dotnet test --no-build```
 
-**Generate coverage report**
+**生成覆盖率报告**
 
 ```dotnet test --collect:"XPlat Code Coverage"```
 
@@ -39,37 +39,37 @@ test runner for .NET projects
 # PARAMETERS
 
 **--filter** _expression_
-> Filter tests by expression.
+> 按表达式过滤测试。
 
 **--no-build**
-> Don't build before testing.
+> 测试前不构建。
 
 **--no-restore**
-> Don't restore before testing.
+> 测试前不还原。
 
 **-c**, **--configuration** _CONFIG_
-> Build configuration (e.g., Debug, Release).
+> 构建配置（如 Debug、Release）。
 
 **-v**, **--verbosity** _level_
-> Verbosity (quiet, minimal, normal, detailed, diagnostic).
+> 详细程度（quiet、minimal、normal、detailed、diagnostic）。
 
 **--logger** _logger_
-> Test logger.
+> 测试日志记录器。
 
 **--collect** _data_
-> Enable data collector.
+> 启用数据收集器。
 
 **--blame**
-> Run tests in blame mode.
+> 以 blame 模式运行测试。
 
 **-r**, **--results-directory** _dir_
-> Results directory.
+> 结果目录。
 
 # DESCRIPTION
 
-**dotnet test** executes unit tests in .NET projects using the configured test framework adapter. It supports popular testing frameworks including MSTest, NUnit, and xUnit through their respective NuGet packages.
+**dotnet test** 使用配置好的测试框架适配器执行 .NET 项目中的单元测试。通过相应的 NuGet 包，它支持 MSTest、NUnit 和 xUnit 等主流测试框架。
 
-The command discovers test methods through framework-specific attributes, executes them, and reports results including pass/fail status, execution time, and detailed failure information. It integrates with code coverage tools and CI/CD pipelines through various loggers and output formats.
+该命令通过框架特有的特性发现测试方法并逐一执行，报告结果包括通过/失败状态、执行时间和详细的失败信息。它通过各种日志记录器和输出格式与代码覆盖率工具及 CI/CD 流水线集成。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ The command discovers test methods through framework-specific attributes, execut
 # SEE ALSO
 
 [dotnet](/man/dotnet)(1), [dotnet-build](/man/dotnet-build)(1), [dotnet-run](/man/dotnet-run)(1)
-

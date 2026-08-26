@@ -1,38 +1,38 @@
 # TAGLINE
 
-Forgejo CLI for the terminal
+面向终端的 Forgejo CLI
 
 # TLDR
 
-**Log in** to a Forgejo instance
+**登录** Forgejo 实例
 
 ```fj auth login```
 
-**Clone** a repository
+**克隆**仓库
 
 ```fj repo clone [owner]/[repository]```
 
-**Create** a new issue interactively
+**交互式创建**新 issue
 
 ```fj issue create```
 
-**Open** an issue in the browser
+**在浏览器中打开**某个 issue
 
 ```fj issue browse [issue_number]```
 
-**Create** a new pull request
+**创建**新的 pull request
 
 ```fj pr create```
 
-**Check out** a pull request branch locally
+**本地检出** pull request 分支
 
 ```fj pr checkout [pr_number]```
 
-**List** the releases of a repository
+**列出**仓库的发行版
 
 ```fj release list```
 
-**Show** the currently logged-in user
+**显示**当前登录的用户
 
 ```fj whoami```
 
@@ -42,39 +42,39 @@ Forgejo CLI for the terminal
 
 # DESCRIPTION
 
-**fj** is the command-line interface for **Forgejo**, a self-hosted Git forge (a community-driven fork of Gitea). It lets you interact with Forgejo instances without leaving the terminal: authenticate against one or more servers, manage repositories, and work with issues, pull requests, and releases.
+**fj** 是 **Forgejo**——一个自托管的 Git forge（Gitea 的社区驱动分支）——的命令行界面。它让你不必离开终端即可与 Forgejo 实例交互：向一台或多台服务器完成身份验证、管理仓库，以及处理 issue、pull request 和 release。
 
-Commands are grouped into nouns such as **auth**, **repo**, **issue**, **pr**, and **release**, each with its own subcommands and flags. Once authenticated, fj reads the remote of the current Git repository to determine which instance and project to act on, so most commands can be run from inside a clone without extra arguments.
+命令按名词分组，比如 **auth**、**repo**、**issue**、**pr** 和 **release**，各组都有各自的子命令和标志。完成认证后，fj 会读取当前 Git 仓库的远程地址来判断目标实例和项目，因此大多数命令可以直接在克隆目录内运行，不需要额外参数。
 
 # PARAMETERS
 
 **auth**
 
-> Manage authentication. Use **fj auth login** to store credentials for an instance and **fj auth logout** to remove them.
+> 管理身份验证。使用 **fj auth login** 保存实例的凭据，使用 **fj auth logout** 移除凭据。
 
 **repo**
 
-> Work with repositories, including **clone**, **create**, and **view**.
+> 操作仓库，包括 **clone**、**create** 和 **view**。
 
 **issue**
 
-> Create, list, view, and browse issues.
+> 创建、列出、查看和浏览 issue。
 
 **pr**
 
-> Create, list, check out, and review pull requests.
+> 创建、列出、检出和评审 pull request。
 
 **release**
 
-> List and manage repository releases.
+> 列出并管理仓库发行版。
 
 **whoami**
 
-> Display the user account that is currently logged in.
+> 显示当前登录的用户账户。
 
 # CAVEATS
 
-fj is under active development and its command surface still changes between releases. It targets Forgejo's API; some operations may not work against older Forgejo or Gitea servers.
+fj 仍在活跃开发之中，命令形态在不同版本之间还会变动。它针对 Forgejo 的 API 设计；某些操作在较旧的 Forgejo 或 Gitea 服务器上可能无法工作。
 
 # SEE ALSO
 

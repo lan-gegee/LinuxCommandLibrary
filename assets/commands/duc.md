@@ -1,34 +1,34 @@
 # TAGLINE
 
-indexed disk usage calculator with visualization
+带可视化的索引式磁盘用量计算器
 
 # TLDR
 
-**Index a directory**
+**为目录建立索引**
 
 ```duc index [/path/to/directory]```
 
-**List directory sizes**
+**列出目录大小**
 
 ```duc ls [/path]```
 
-**Interactive console UI**
+**交互式终端 UI**
 
 ```duc ui [/path]```
 
-**Graphical sunburst view**
+**图形化旭日图视图**
 
 ```duc gui [/path]```
 
-**Show database info** and when each path was last indexed
+**显示数据库信息**及各路径的最后索引时间
 
 ```duc info```
 
-**Generate a sunburst image**
+**生成旭日图图片**
 
 ```duc graph -o [usage.png] [/path]```
 
-**Export to JSON**
+**导出为 JSON**
 
 ```duc json [/path]```
 
@@ -39,75 +39,75 @@ indexed disk usage calculator with visualization
 # SUBCOMMANDS
 
 **index** _path_
-> Scan the filesystem and write the results to the database. Everything else reads that database.
+> 扫描文件系统并把结果写入数据库。其他所有子命令读取的都是这个数据库。
 
 **ls** [_path_]
-> List directory sizes, with an optional graph. **-R** recurses, **-g** draws a bar, **-d** limits depth.
+> 列出目录大小，可选附带条形图。**-R** 递归，**-g** 绘制条形，**-d** 限制深度。
 
 **ui** [_path_]
-> Interactive ncurses interface for browsing the index.
+> 用于浏览索引的交互式 ncurses 界面。
 
 **gui** [_path_]
-> X11 window with a clickable sunburst chart.
+> 带可点击旭日图的 X11 窗口。
 
 **graph** [_path_]
-> Render a sunburst or treemap to a PNG, SVG, or PDF file.
+> 将旭日图或矩形树图渲染为 PNG、SVG 或 PDF 文件。
 
 **xml** / **json**
-> Export the index for another tool to consume.
+> 导出索引，供其他工具消费。
 
 **cgi**
-> Serve the index over HTTP as a CGI script.
+> 以 CGI 脚本的形式通过 HTTP 提供索引服务。
 
 **info**
-> List the indexed paths in the database, with their sizes and the time each was indexed.
+> 列出数据库中已索引的路径及其大小和各自的索引时间。
 
 # PARAMETERS
 
 **-d**, **--database** _FILE_
-> Database to use. Defaults to `~/.duc.db`, overridable with the `DUC_DATABASE` environment variable.
+> 要使用的数据库。默认为 `~/.duc.db`，可通过 `DUC_DATABASE` 环境变量覆盖。
 
 **-x**, **--one-file-system**
-> Do not cross filesystem boundaries when indexing.
+> 建索引时不跨越文件系统边界。
 
 **-e**, **--exclude** _PATTERN_
-> Skip files matching a pattern while indexing.
+> 建索引时跳过匹配模式的文件。
 
 **--check-hard-links**
-> Count a hard-linked file only once.
+> 硬链接的文件只计一次。
 
 **-p**, **--progress**
-> Show progress during a long index run.
+> 在长时间的索引过程中显示进度。
 
 **-o**, **--output** _FILE_
-> Output file for **graph**.
+> **graph** 的输出文件。
 
 **-f**, **--format** _FORMAT_
-> Graph output format: `png`, `svg`, `pdf`, or `html`.
+> 图形输出格式：`png`、`svg`、`pdf` 或 `html`。
 
 # DESCRIPTION
 
-**duc** (Disk Usage Calculator) indexes filesystem usage into a database for fast repeated queries and provides multiple visualization interfaces. Unlike tools that scan filesystems on every invocation, duc performs an initial scan to build an index, then allows instant queries and visualizations from the cached data.
+**duc**（Disk Usage Calculator）将文件系统使用情况索引进数据库，以便快速反复查询，并提供多种可视化界面。与每次运行都重新扫描文件系统的工具不同，duc 先做一次初始扫描建立索引，之后便可基于缓存数据即时查询和可视化。
 
-The workflow involves two phases: first, use **duc index** to scan directories and build the database; second, query the database using various interfaces (ls, ui, gui, graph). This approach is particularly effective for large filesystems where repeated full scans would be prohibitively slow.
+工作流程分两个阶段：先用 **duc index** 扫描目录并构建数据库；再通过各种接口（ls、ui、gui、graph）查询数据库。这种方式对大型文件系统特别有效，因为在那种规模下反复全量扫描慢得无法接受。
 
-duc offers four main visualization modes: ls (command-line listing), ui (interactive ncurses interface), gui (graphical X11 window with sunburst charts), and graph (generate static images). The graphical modes provide intuitive visual representations of disk usage, making it easy to identify large directories at a glance.
+duc 提供四种主要可视化模式：ls（命令行列表）、ui（交互式 ncurses 界面）、gui（带旭日图的图形化 X11 窗口）和 graph（生成静态图片）。图形模式以直观的方式呈现磁盘占用情况，一眼就能找出大目录。
 
-The database stores complete size information including file counts and sizes at all directory levels. Multiple filesystem scans can live in a single database, and duc records when each was taken.
+数据库存储完整的尺寸信息，包括所有目录层级的文件数量和大小。多次文件系统扫描的结果可以共存于同一个数据库中，并且 duc 会记录每次扫描的时间。
 
-This design is what makes duc the right tool for **large** filesystems. Indexing a multi-terabyte fileserver takes a long time, but it only has to happen once, typically from a nightly cron job, after which any number of queries and visualisations are instant. `ncdu` and `du`, which rescan on every invocation, become impractical at that scale.
+正是这种设计使 duc 成为**大型**文件系统的合适工具。给多 TB 的文件服务器建索引用时很长，但只需做一次，通常由每晚的 cron 任务完成，之后任意次数的查询和可视化都是即时的。每次运行都重新扫描的 `ncdu` 和 `du` 在这种规模下就不实用了。
 
 # CAVEATS
 
-**The index is a snapshot, not a live view.** Everything duc reports reflects the filesystem as it was when `duc index` last ran, so a file deleted this morning still occupies space according to duc until the next index. This is the fundamental trade-off of the design, and the usual answer is a cron job.
+**索引是快照，不是实时视图。** duc 报告的一切都反映 `duc index` 上次运行时的文件系统状态，所以今天上午删除的文件在下次建索引之前仍会占据 duc 报告中的空间。这是该设计上的根本取舍，常见的应对办法就是定时任务。
 
-There is no incremental indexing: a re-index rescans the tree from scratch.
+没有增量索引：重建索引会从头开始重新扫描整棵树。
 
-The interfaces have separate dependencies, and distributions often split them across packages, so `duc ui` may be missing without ncurses support compiled in, and `duc gui` needs X11 and cairo. A duc built without them still indexes and lists happily, which makes the absence confusing when you first reach for the sunburst view.
+各界面的依赖彼此独立，发行版又常常把它们拆分到不同软件包中，因此未编译进 ncurses 支持时 `duc ui` 可能缺失，`duc gui` 则需要 X11 和 cairo。缺少这些组件的 duc 依然能正常建索引和列表，这让初次想用旭日图的人摸不着头脑。
 
 # HISTORY
 
-duc was written by **Ico Doornekamp** as a successor to his earlier `philesight`, and its whole premise is the separation of scanning from viewing. That distinction matters once a filesystem is large enough that walking it is measured in hours rather than seconds, at which point the interactive scanners everyone uses on a laptop stop being an option and an indexed database becomes the only workable approach.
+duc 由 **Ico Doornekamp** 编写，是他早期作品 `philesight` 的后继者，其全部立意就在于把扫描与查看分离。当文件系统大到需要以小时而非秒来衡量遍历时间时，这种区分就变得重要了——此时大家在笔记本上常用的那些交互式扫描器都不再可行，带索引的数据库成了唯一可行的方案。
 
 # INSTALL
 
@@ -134,4 +134,3 @@ duc was written by **Ico Doornekamp** as a successor to his earlier `philesight`
 ```[Homepage](https://duc.zevv.nl)```
 
 <!-- verified: 2026-07-14 -->
-

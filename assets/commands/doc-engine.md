@@ -1,26 +1,26 @@
 # TAGLINE
 
-Zero-config Markdown to PDF documentation engine using Typst
+基于 Typst 的零配置 Markdown 转 PDF 文档引擎
 
 # TLDR
 
-**Generate a PDF** from README.md with zero configuration
+**从 README.md 生成 PDF**，零配置
 
 ```doc-engine build```
 
-**Convert a specific file** and override title and author
+**转换指定文件**并覆盖标题和作者
 
 ```doc-engine build CONTRIBUTING.md -o guide.pdf -t "Guide" -a "Team"```
 
-**Use a different template** and accent color
+**使用其他模板**和强调色
 
 ```doc-engine build --template modern --accent teal```
 
-**Check for Markdown errors** without generating PDF
+**检查 Markdown 错误**而不生成 PDF
 
 ```doc-engine build --dry-run```
 
-**Install via pipx**
+通过 pipx **安装**
 
 ```pipx install doc-engine-cli```
 
@@ -34,65 +34,65 @@ Zero-config Markdown to PDF documentation engine using Typst
 
 # DESCRIPTION
 
-**doc-engine** is a CLI tool that converts Markdown files into professionally styled PDF documents using Typst as the rendering backend. It auto-detects README.md, extracts metadata from Git, and produces high-quality technical or academic reports complete with cover page, table of contents, and syntax-highlighted code.
+**doc-engine** 是一个 CLI 工具，它以 Typst 作为渲染后端，将 Markdown 文件转换为具有专业排版的 PDF 文档。它能自动检测 README.md、从 Git 提取元数据，并生成高质量的技术或学术报告，包含封面、目录和带语法高亮的代码。
 
-It requires no LaTeX, Pandoc, or manual configuration. The tool supports five built-in templates and custom accent colors. It can also perform source error checking with precise line/column reporting.
+它不需要 LaTeX、Pandoc 或手动配置。该工具内置五种模板并支持自定义强调色。还能对源文件进行错误检查，并给出精确的行/列报告。
 
 # PARAMETERS
 
 **build** [_INPUT_FILE_]
 
-> Convert the Markdown file to PDF. Defaults to auto-detecting README.md in the current directory.
+> 将 Markdown 文件转换为 PDF。默认自动检测当前目录中的 README.md。
 
 **-o**, **--output** _file.pdf_
 
-> Output file path. Default: <input>_doc.pdf
+> 输出文件路径。默认：<input>_doc.pdf
 
 **-t**, **--title** _title_
 
-> Document title. Defaults to first # heading or Git-derived.
+> 文档标题。默认取第一个 # 标题，或由 Git 推导得出。
 
 **-a**, **--author** _name_
 
-> Author name. Defaults to `git config user.name`.
+> 作者名。默认取 `git config user.name`。
 
 **--template** _name_
 
-> Template: academic (default), modern, minimal, technical, book.
+> 模板：academic（默认）、modern、minimal、technical、book。
 
 **--accent** _color_
 
-> Accent color (hex or named: blue, teal, rose, etc.).
+> 强调色（十六进制值或命名颜色：blue、teal、rose 等）。
 
 **--bib** _file.bib_
 
-> Bibliography file for IEEE-style references section.
+> 参考文献文件，用于生成 IEEE 风格的参考文献部分。
 
 **--dry-run**
 
-> Validate Markdown and report errors without producing PDF.
+> 校验 Markdown 并报告错误，不生成 PDF。
 
 **--open**
 
-> Open the generated PDF after creation.
+> 在 PDF 生成后打开它。
 
 **--no-branding**
 
-> Omit "doc-engine" attribution from footer.
+> 在页脚中省略 "doc-engine" 署名。
 
 # EXAMPLES
 
-Basic zero-config usage in a project directory:
+在项目目录中进行基本的零配置转换：
 
 ```doc-engine build```
 
-Generate with custom options:
+使用自定义选项生成：
 
 ```doc-engine build docs/api.md -o api.pdf --template technical --accent "#7c3aed"```
 
 # CAVEATS
 
-Images in Markdown are rendered only as alt text (remote images not downloaded or embedded). Complex layouts may require reviewing the output PDF. Requires Python 3.10+ and the Typst Python bindings (installed automatically).
+Markdown 中的图片只渲染为替代文本（不下载也不嵌入远程图片）。复杂排版可能需要人工检查输出 PDF。需要 Python 3.10+ 和 Typst 的 Python 绑定（会自动安装）。
 
 # SEE ALSO
 

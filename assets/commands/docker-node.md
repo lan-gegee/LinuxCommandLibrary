@@ -1,38 +1,38 @@
 # TAGLINE
 
-manage Docker Swarm cluster nodes
+管理 Docker Swarm 集群节点
 
 # TLDR
 
-**List swarm nodes**
+**列出 swarm 节点**
 
 ```docker node ls```
 
-**Inspect a node** in pretty format
+**查看节点**，以易读格式显示
 
 ```docker node inspect --pretty [node]```
 
-**List tasks running** on a node
+**列出节点上正在运行的任务**
 
 ```docker node ps [node]```
 
-**Promote node to manager**
+**将节点提升为管理节点**
 
 ```docker node promote [node]```
 
-**Demote manager to worker**
+**将管理节点降级为工作节点**
 
 ```docker node demote [node]```
 
-**Drain** a node (stop scheduling tasks)
+**排空（drain）** 一个节点（停止调度任务）
 
 ```docker node update --availability drain [node]```
 
-**Add label to node**
+**为节点添加标签**
 
 ```docker node update --label-add [key=value] [node]```
 
-**Remove a node** from swarm
+**从 swarm 中移除**节点
 
 ```docker node rm [node]```
 
@@ -43,29 +43,29 @@ manage Docker Swarm cluster nodes
 # SUBCOMMANDS
 
 **ls**
-> List nodes in the swarm.
+> 列出 swarm 中的节点。
 
 **inspect**
-> Display detailed node information.
+> 显示详细的节点信息。
 
 **update**
-> Update a node.
+> 更新节点。
 
 **promote**
-> Promote nodes to manager.
+> 将节点提升为管理节点。
 
 **demote**
-> Demote managers to workers.
+> 将管理节点降级为工作节点。
 
 **rm**
-> Remove nodes from swarm.
+> 从 swarm 中移除节点。
 
 **ps**
-> List tasks running on nodes.
+> 列出节点上运行的任务。
 
 # DESCRIPTION
 
-**docker node** manages Swarm nodes. Nodes are Docker hosts participating in a swarm cluster. Only works when the Docker daemon is running in swarm mode. Managers coordinate cluster operations while workers execute tasks. Node management includes controlling availability (active, pause, drain), labels for task placement constraints, and role assignments (manager/worker).
+**docker node** 用于管理 Swarm 节点。节点是参与 swarm 集群的 Docker 主机。该命令仅在 Docker 守护进程以 swarm 模式运行时可用。管理节点负责协调集群操作，工作节点负责执行任务。节点管理包括控制可用性（active、pause、drain）、用于任务放置约束的标签，以及角色分配（manager/worker）。
 
 # INSTALL
 
@@ -88,4 +88,3 @@ manage Docker Swarm cluster nodes
 # SEE ALSO
 
 [docker-swarm](/man/docker-swarm)(1), [docker-service](/man/docker-service)(1)
-

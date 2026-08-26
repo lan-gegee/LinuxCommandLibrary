@@ -1,38 +1,38 @@
 # TAGLINE
 
-comprehensive suite for network MITM attacks
+全面的网络中间人攻击套件
 
 # TLDR
 
-**Start graphical** interface
+**启动图形**界面
 
 ```ettercap -G```
 
-**ARP poisoning** attack
+**ARP 毒化**攻击
 
 ```ettercap -Tq -M arp:remote /[target1]// /[target2]//```
 
-**Sniff on interface** in quiet mode
+在安静模式下**于指定接口嗅探**
 
 ```ettercap -Tq -i [eth0]```
 
-**Use text interface**
+**使用文本界面**
 
 ```ettercap -T```
 
-**Load plugin**
+**加载插件**
 
 ```ettercap -Tq -P [dns_spoof]```
 
-**Read from pcap** file
+**从 pcap 文件读取**
 
 ```ettercap -T -r [capture.pcap]```
 
-**Write captured packets** to a file
+**将捕获的数据包写入**文件
 
 ```ettercap -Tq -w [output.pcap] -M arp /[target]// /[gateway]//```
 
-**Run as daemon** in background
+以后台守护进程方式**运行**
 
 ```ettercap -D -M arp /[target]// /[gateway]//```
 
@@ -43,67 +43,67 @@ comprehensive suite for network MITM attacks
 # PARAMETERS
 
 _TARGET_
-> Target specification (MAC/IP/PORT).
+> 目标规格（MAC/IP/PORT）。
 
 **-G**
-> Graphical (GTK) interface.
+> 图形（GTK）界面。
 
 **-T**
-> Text-only interface.
+> 纯文本界面。
 
 **-M** _METHOD_
-> MITM attack method.
+> 中间人攻击方法。
 
 **-i** _INTERFACE_
-> Network interface.
+> 网络接口。
 
 **-P** _PLUGIN_
-> Load plugin.
+> 加载插件。
 
 **-r** _FILE_
-> Read from pcap file.
+> 从 pcap 文件读取。
 
 **-w** _FILE_
-> Write to pcap file.
+> 写入 pcap 文件。
 
 **-q**
-> Quiet mode (suppress packet content display).
+> 安静模式（不显示数据包内容）。
 
 **-D**
-> Daemonize ettercap (run in background).
+> 以守护进程方式运行 ettercap（在后台运行）。
 
 **-F** _FILE_
-> Load a filter file (compiled with etterfilter).
+> 加载过滤文件（由 etterfilter 编译生成）。
 
 **-L** _FILE_
-> Log all traffic to this file.
+> 将所有流量记录到此文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Ettercap** is a comprehensive suite for man-in-the-middle attacks on LAN. It supports active and passive protocol analysis, including features for network and host analysis.
+**Ettercap** 是一套针对局域网的全面中间人攻击套件。它支持主动和被动协议分析，包含网络与主机分析功能。
 
-The tool can intercept traffic through ARP poisoning, allowing packet sniffing, injection, and filtering. Plugins extend functionality for DNS spoofing, OS fingerprinting, and more.
+该工具可通过 ARP 毒化拦截流量，实现数据包嗅探、注入和过滤。插件可扩展 DNS 欺骗、操作系统指纹识别等功能。
 
-Ettercap is used for network security testing, protocol analysis, and penetration testing on authorized networks.
+Ettercap 用于网络安全测试、协议分析以及在授权网络上进行渗透测试。
 
 # CONFIGURATION
 
 **/etc/ettercap/etter.conf**
-> Main configuration file controlling default interface, packet forwarding, plugin paths, and network settings.
+> 主配置文件，控制默认接口、数据包转发、插件路径和网络设置。
 
 **/etc/ettercap/etter.dns**
-> DNS spoofing configuration mapping hostnames to IP addresses for the dns_spoof plugin.
+> DNS 欺骗配置，为主机名到 IP 地址建立映射，供 dns_spoof 插件使用。
 
 # CAVEATS
 
-Only use on authorized networks. May disrupt network operations. Detectable by security tools. Some attacks need root privileges.
+仅在授权网络上使用。可能干扰网络的正常运行。会被安全工具检测到。某些攻击需要 root 权限。
 
 # HISTORY
 
-Ettercap was created by **Alberto Ornaghi** and **Marco Valleri**, released as open source for network security research. It became a standard tool for man-in-the-middle attack demonstrations.
+Ettercap 由 **Alberto Ornaghi** 和 **Marco Valleri** 创建，作为面向网络安全研究的开源软件发布。它已成为演示中间人攻击的标准工具。
 
 # INSTALL
 

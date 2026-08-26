@@ -1,22 +1,22 @@
 # TAGLINE
 
-Validate and test Elasticsearch cron expressions
+校验并测试 Elasticsearch cron 表达式
 
 # TLDR
 
-**Evaluate a cron expression** (fires every day at noon)
+**求值一个 cron 表达式**（每天中午触发）
 
 ```elasticsearch-croneval "[0 0 12 * * ?]"```
 
-**Show the next N trigger times**
+**显示接下来的 N 次触发时间**
 
 ```elasticsearch-croneval -c [20] "[0 0/5 * * * ?]"```
 
-Evaluate an expression that fires **on weekday mornings**
+求值一个在**工作日早晨**触发的表达式
 
 ```elasticsearch-croneval "[0 30 9 ? * MON-FRI]"```
 
-**Show the stack trace** when an expression is rejected
+当表达式被拒绝时**显示堆栈跟踪**
 
 ```elasticsearch-croneval -d "[0 0 12 * *]"```
 
@@ -27,38 +27,38 @@ Evaluate an expression that fires **on weekday mornings**
 # PARAMETERS
 
 _expression_
-> The cron expression to evaluate. Quote it, because it contains shell-significant characters.
+> 要求值的 cron 表达式。请加引号，因为它含有对 shell 有特殊意义的字符。
 
 **-c**, **--count** _number_
-> Number of future trigger times to print. Defaults to 10.
+> 要打印的未来触发时间数量。默认为 10。
 
 **-d**, **--detail**
-> Show detail for invalid expressions, printing the stack trace when parsing fails.
+> 显示无效表达式的详细信息，解析失败时打印堆栈跟踪。
 
 **-s**, **--silent**
-> Show minimal output.
+> 显示最少输出。
 
 **-v**, **--verbose**
-> Show verbose output.
+> 显示详细输出。
 
 **-h**, **--help**
-> Show the command parameters.
+> 显示命令参数。
 
 # DESCRIPTION
 
-**elasticsearch-croneval** validates an Elasticsearch cron expression and prints the next times it would fire. It is the quickest way to check a Watcher schedule, a snapshot lifecycle policy, or an ILM rollover schedule before putting it into a cluster.
+**elasticsearch-croneval** 校验 Elasticsearch cron 表达式并打印其接下来的触发时间。这是把 Watcher 计划、快照生命周期策略或 ILM 滚动计划写入集群之前进行验证的最快方式。
 
-The tool lives in $ES_HOME/bin and runs offline: it does not need a running cluster.
+该工具位于 $ES_HOME/bin 中，可离线运行：不需要正在运行的集群。
 
 # CRON FORMAT
 
-Elasticsearch cron expressions are Quartz-style and take six or seven fields, not the five of Unix cron. Seconds come first, and the year is optional.
+Elasticsearch cron 表达式采用 Quartz 风格，包含六到七个字段，而不是 Unix cron 的五个。秒在最前，年份可选。
 
 ```
 <seconds> <minutes> <hours> <day_of_month> <month> <day_of_week> [year]
 ```
 
-Exactly one of _day_of_month_ and _day_of_week_ must be **?** ("no specific value"), because the two cannot be constrained at the same time. So the crontab expression `0 12 * * *` becomes `0 0 12 * * ?` here.
+_day_of_month_ 和 _day_of_week_ 必须恰好有一个为 **?**（"不指定具体值"），因为二者不能同时受限。因此 crontab 表达式 `0 12 * * *` 在这里要写成 `0 0 12 * * ?`。
 
 # SEE ALSO
 
@@ -73,4 +73,3 @@ Exactly one of _day_of_month_ and _day_of_week_ must be **?** ("no specific valu
 ```[Documentation](https://www.elastic.co/docs/reference/elasticsearch/command-line-tools/elasticsearch-croneval)```
 
 <!-- verified: 2026-07-14 -->
-

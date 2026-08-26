@@ -1,26 +1,26 @@
 # TAGLINE
 
-download tracked files to local cache
+将被跟踪的文件下载到本地缓存
 
 # TLDR
 
-**Fetch all tracked data**
+**获取所有被跟踪的数据**
 
 ```dvc fetch```
 
-**Fetch specific file**
+**获取特定文件**
 
 ```dvc fetch [data.csv.dvc]```
 
-**Fetch from specific remote**
+**从特定远程存储获取**
 
 ```dvc fetch -r [remote_name]```
 
-**Fetch all revisions**
+**获取所有修订版本**
 
 ```dvc fetch --all-commits```
 
-**Fetch with jobs**
+**使用多个任务并行获取**
 
 ```dvc fetch -j [4]```
 
@@ -31,39 +31,39 @@ download tracked files to local cache
 # PARAMETERS
 
 **-r**, **--remote** _name_
-> Remote storage name.
+> 远程存储名称。
 
 **-j**, **--jobs** _number_
-> Parallel download jobs.
+> 并行下载任务数。
 
 **--all-commits**
-> Fetch for all Git commits.
+> 为所有 Git 提交获取数据。
 
 **--all-branches**
-> Fetch for all branches.
+> 为所有分支获取数据。
 
 **--all-tags**
-> Fetch for all tags.
+> 为所有标签获取数据。
 
 **-R**, **--recursive**
-> Fetch recursively.
+> 递归地获取。
 
 **--run-cache**
-> Fetch run history for DVC pipeline stages.
+> 获取 DVC 流水线阶段的运行历史。
 
 **-v**, **--verbose**
-> Increase verbosity of output.
+> 增加输出的详细程度。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 # DESCRIPTION
 
-**dvc fetch** downloads DVC-tracked data from remote storage into the local DVC cache without affecting the workspace. This is useful for preparing data for later use without immediately populating the working directory.
+**dvc fetch** 从远程存储下载 DVC 跟踪的数据到本地 DVC 缓存，而不影响工作区。这适用于预先准备数据以供后续使用，而不立即填充工作目录。
 
-The two-stage process (fetch then checkout) provides control over disk space and timing. Fetching brings data into cache (usually .dvc/cache) where it's stored efficiently with deduplication. A subsequent dvc checkout creates links or copies from cache to workspace when you actually need the files.
+这种两阶段流程（先 fetch 再 checkout）让你可以控制磁盘空间和时机。fetch 将数据带入缓存（通常是 .dvc/cache），并以去重的方式高效存储。之后当你真正需要这些文件时，再由 dvc checkout 从缓存创建链接或副本到工作区。
 
-This separation is particularly valuable in CI/CD pipelines or when switching between branches: you can fetch all necessary data upfront, then quickly checkout different versions as needed without repeated downloads. The --all-commits, --all-branches, and --all-tags options help prefetch data for multiple revisions in bulk.
+这种分离在 CI/CD 流水线或切换分支时尤其有价值：你可以预先获取所有必要的数据，然后在需要时快速检出不同的版本，而无需重复下载。--all-commits、--all-branches 和 --all-tags 选项有助于批量预取多个修订版本的数据。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ This separation is particularly valuable in CI/CD pipelines or when switching be
 # SEE ALSO
 
 [dvc](/man/dvc)(1), [dvc-checkout](/man/dvc-checkout)(1), [dvc-gc](/man/dvc-gc)(1), [dvc-add](/man/dvc-add)(1)
-

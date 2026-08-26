@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast counterfeit flash memory detector
+快速检测假冒闪存
 
 # TLDR
 
-**Probe a flash drive** for counterfeit memory (destructive)
+**探测闪存盘是否为假冒内存**（具有破坏性）
 
 ```sudo f3probe --destructive [/dev/sdX]```
 
-**Probe with timing information**
+**探测并附带计时信息**
 
 ```sudo f3probe --destructive --time-ops [/dev/sdX]```
 
-**Probe with minimal memory usage** (slower but uses less RAM)
+**探测时占用最少的内存**（较慢但更省 RAM）
 
 ```sudo f3probe --destructive --min-memory [/dev/sdX]```
 
-**Probe using a specific reset method**
+**使用指定的重置方法探测**
 
 ```sudo f3probe --destructive --reset-type=[2] [/dev/sdX]```
 
-**Force a specific block size**
+**强制指定块大小**
 
 ```sudo f3probe --destructive --block-order=[9] [/dev/sdX]```
 
@@ -31,41 +31,41 @@ fast counterfeit flash memory detector
 # PARAMETERS
 
 **-b**, **--block-order**=_ORDER_
-> Force block size of the drive to 2^ORDER bytes.
+> 强制驱动器的块大小为 2^ORDER 字节。
 
 **-l**, **--min-memory**
-> Trade speed for less memory usage.
+> 以速度换取更低的内存占用。
 
 **-n**, **--destructive**
-> Do not restore blocks after probing (faster but data is lost).
+> 探测后不还原块内容（更快但数据会丢失）。
 
 **-s**, **--reset-type**=_TYPE_
-> Reset method to use during the probe.
+> 探测期间使用的重置方法。
 
 **-t**, **--time-ops**
-> Time reads, writes, and resets for diagnostic output.
+> 对读取、写入和重置操作计时，用于诊断输出。
 
 **-?**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Print program version.
+> 输出程序版本。
 
 # DESCRIPTION
 
-**f3probe** is part of the F3 (Fight Flash Fraud) suite and detects counterfeit flash memory devices such as USB drives and SD cards that report false storage capacities. Many fake drives claim large sizes (e.g., 256GB) but contain only a fraction of that memory, causing data loss when the actual capacity is exceeded.
+**f3probe** 是 F3（Fight Flash Fraud）套件的一部分，用于检测虚报存储容量的假冒闪存设备，如 U 盘和 SD 卡。许多假货标称大容量（如 256GB），但实际只包含其中一小部分的存储芯片，一旦写入超过真实容量就会导致数据丢失。
 
-The tool works by writing unique sequential patterns from the end of the reported capacity backwards. When readback fails due to non-existent flash cells, it identifies the actual usable capacity. f3probe operates directly on the unmounted block device and requires root privileges.
+该工具从报告容量的末端开始反向写入唯一的顺序模式。当读取因闪存单元不存在而失败时，它便能确定实际可用容量。f3probe 直接在未挂载的块设备上运行，需要 root 权限。
 
-If a fake drive is detected, f3probe reports the fake type and real memory size. The output can be used with **f3fix** to create a partition that fits the actual size of the drive.
+如果检测到假货，f3probe 会报告其造假类型和真实内存大小。输出结果可以配合 **f3fix** 使用，创建一个与设备实际大小相符的分区。
 
 # CAVEATS
 
-**f3probe destroys all data on the tested device.** Never use on mounted filesystems, HDDs, or drives containing important data. Always unmount the device before testing. Testing can take considerable time on large drives. The device path can be found using **lsblk** command.
+**f3probe 会销毁被测设备上的所有数据。** 切勿在已挂载的文件系统、HDD 或包含重要数据的驱动器上使用。测试前务必卸载设备。大容量驱动器的测试可能耗时较长。可以使用 **lsblk** 命令找到设备路径。
 
 # HISTORY
 
-F3 (Fight Flash Fraud) was created by Michel Machado to combat the widespread problem of counterfeit flash storage devices being sold online. These fake drives use modified firmware to report false capacities, leading to data corruption when users attempt to store more data than the actual capacity. The tool has become essential for verifying flash storage before trusting it with important data.
+F3（Fight Flash Fraud）由 Michel Machado 创建，旨在应对网上销售的假冒闪存设备这一普遍问题。这些假货通过修改固件来虚报容量，当用户尝试存储超过实际容量的数据时便会损坏数据。在把重要数据托付给闪存之前，先用它进行验证已成为必要步骤。
 
 # INSTALL
 

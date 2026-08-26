@@ -1,34 +1,34 @@
 # TAGLINE
 
-deployment package builder and publisher
+部署包构建与发布工具
 
 # TLDR
 
-**Publish for deployment** (Release by default on .NET 8+)
+**发布以供部署**（.NET 8+ 默认 Release）
 
 ```dotnet publish```
 
-**Publish a self-contained** app for a target runtime
+**发布自包含**应用，面向目标运行时
 
 ```dotnet publish -r [linux-x64] --self-contained```
 
-**Publish a single-file** executable
+**发布单文件**可执行程序
 
 ```dotnet publish -r [linux-x64] -p:PublishSingleFile=true```
 
-**Publish to a directory**
+**发布到目录**
 
 ```dotnet publish -o [./publish]```
 
-**Publish trimmed**, for smaller self-contained output
+**发布裁剪版本**，获得更小的自包含输出
 
 ```dotnet publish -r [linux-x64] --self-contained -p:PublishTrimmed=true```
 
-**Cross-compile** by naming the OS and architecture separately
+**交叉编译**，分别指定操作系统和体系结构
 
 ```dotnet publish --os [linux] --arch [arm64]```
 
-**Publish using a profile** from Properties/PublishProfiles
+**使用 Properties/PublishProfiles 中的配置文件**发布
 
 ```dotnet publish -p:PublishProfile=[FolderProfile]```
 
@@ -39,83 +39,83 @@ deployment package builder and publisher
 # PARAMETERS
 
 _PROJECT_ | _SOLUTION_ | _FILE_
-> What to publish. Defaults to the project or solution found in the current directory.
+> 要发布的对象。默认为当前目录下找到的项目或解决方案。
 
 **-c**, **--configuration** _CONFIG_
-> Build configuration. Defaults to **Release** when building `net8.0` or later with the .NET 8 SDK or newer, and to Debug otherwise.
+> 构建配置。使用 .NET 8 或更新 SDK 构建 `net8.0` 及以上目标时默认为 **Release**，否则为 Debug。
 
 **-r**, **--runtime** _RID_
-> Publish for a given Runtime Identifier, such as `linux-x64` or `osx-arm64`. Pair it with **--self-contained** or **--no-self-contained**.
+> 面向给定的运行时标识符（RID）发布，如 `linux-x64` 或 `osx-arm64`。需搭配 **--self-contained** 或 **--no-self-contained** 使用。
 
 **-a**, **--arch** _ARCH_ / **--os** _OS_
-> Shorthand that combines with the current platform to form the RID. Do not combine these with **-r**.
+> 与当前平台组合成 RID 的简写形式。不要与 **-r** 同时使用。
 
 **--sc**, **--self-contained**
-> Publish the .NET runtime alongside the app, so nothing needs to be installed on the target.
+> 将 .NET 运行时随应用一起打包发布，目标机器无需安装任何东西。
 
 **--no-self-contained**
-> Publish framework-dependent: a compatible .NET runtime must already exist on the target.
+> 发布框架依赖型应用：目标机器上必须已有兼容的 .NET 运行时。
 
 **--ucr**, **--use-current-runtime**
-> Use the machine's own runtime as the target.
+> 以本机自身的运行时为目标。
 
 **-o**, **--output** _DIR_
-> Output directory. Defaults to `bin/<configuration>/<framework>/publish/`, with the RID appended for self-contained output.
+> 输出目录。默认为 `bin/<configuration>/<framework>/publish/`，自包含输出会附加 RID 后缀。
 
 **-f**, **--framework** _TFM_
-> Publish for one target framework of a multi-targeted project.
+> 为多目标项目的某一个目标框架发布。
 
 **-p**, **--property**:_NAME_=_VALUE_
-> Set an MSBuild property. This is how `PublishSingleFile`, `PublishTrimmed`, `PublishReadyToRun`, and `PublishAot` are enabled.
+> 设置 MSBuild 属性。`PublishSingleFile`、`PublishTrimmed`、`PublishReadyToRun` 和 `PublishAot` 都是通过这一选项启用的。
 
 **--no-build**
-> Do not build first; use existing output. Implies **--no-restore**.
+> 不先构建，直接使用现有输出。隐含 **--no-restore**。
 
 **--no-restore**
-> Skip the implicit `dotnet restore`.
+> 跳过隐式的 `dotnet restore`。
 
 **--no-dependencies**
-> Ignore project-to-project references and restore only the root project.
+> 忽略项目到项目的引用，只还原根项目。
 
 **--artifacts-path** _DIR_
-> Put all build output under one directory, separated by project.
+> 将所有构建输出集中到一个目录下，按项目分列。
 
 **--manifest** _FILE_
-> Trim the published package set against a target manifest.
+> 依据目标清单裁剪发布的包集合。
 
 **--version-suffix** _SUFFIX_
-> Replace the `*` in the project's version field.
+> 替换项目版本字段中的 `*`。
 
 **--nologo**
-> Suppress the startup banner.
+> 抑制启动横幅。
 
 **--tl**:[**auto**|**on**|**off**]
-> Control the Terminal Logger for build output.
+> 控制构建输出的终端记录器（Terminal Logger）。
 
 **-v**, **--verbosity** _LEVEL_
-> One of `quiet`, `minimal` (the default), `normal`, `detailed`, `diagnostic`.
+> 取值之一：`quiet`、`minimal`（默认）、`normal`、`detailed`、`diagnostic`。
 
 # DESCRIPTION
 
-**dotnet publish** compiles an application and lays out everything needed to run it into one directory. That is more than `dotnet build` produces: alongside the assemblies it writes a `.deps.json` listing every dependency, a `.runtimeconfig.json` describing the runtime the app expects, and the dependencies themselves copied out of the NuGet cache. It is the only officially supported way to prepare a .NET app for deployment.
+**dotnet publish** 编译应用程序，并把运行它所需的一切整理到一个目录中。这比 `dotnet build` 的产出更多：除程序集外，它还会写出一份列出全部依赖的 `.deps.json`、一份描述应用所期望运行时的 `.runtimeconfig.json`，以及从 NuGet 缓存复制出来的依赖项本身。这是官方唯一支持的应用部署准备方式。
 
-The main choice is **framework-dependent** versus **self-contained**. Framework-dependent output is small and portable across architectures but requires a matching .NET runtime on the target. Self-contained output bundles the runtime, so it runs anywhere, at the cost of tens of megabytes and of being tied to one RID.
+最核心的选择是**框架依赖**还是**自包含**。框架依赖型输出体积小、跨体系结构可移植，但要求目标机器上有匹配的 .NET 运行时。自包含输出捆绑了运行时，因此到处都能运行，代价是几十兆的体积以及被绑定到单个 RID。
 
-Beyond that, several MSBuild properties reshape the output. `PublishSingleFile` bundles everything into one executable (which implies self-contained). `PublishTrimmed` removes IL that static analysis can prove unreachable. `PublishReadyToRun` precompiles assemblies ahead of time to cut startup latency, and `PublishAot` compiles to a native binary with no IL or JIT at all.
+除此之外，若干 MSBuild 属性可以重塑输出形态。`PublishSingleFile` 把一切捆绑进单个可执行文件（这意味着自包含）。`PublishTrimmed` 移除静态分析证明不可达的 IL。`PublishReadyToRun` 提前预编译程序集以降低启动延迟，而 `PublishAot` 则编译为完全没有 IL 和 JIT 的原生二进制。
 
-The command is a thin front end to MSBuild's `Publish` target, so any MSBuild property or publish profile applies, and `-c` and `-o` simply map onto the `Configuration` and `PublishDir` properties.
+该命令只是 MSBuild `Publish` 目标的一个薄封装，因此任何 MSBuild 属性或发布配置文件都适用，`-c` 和 `-o` 也只是映射到 `Configuration` 和 `PublishDir` 属性而已。
 
 # CAVEATS
 
-The default configuration changed: with the .NET 8 SDK and later, `dotnet publish` uses **Release** for `net8.0`+ targets, where older SDKs defaulted to Debug. Scripts that relied on the old behaviour, or that pass `-c Debug` believing it to be the default, need reviewing.
+默认配置发生了变化：在 .NET 8 及更新的 SDK 中，`dotnet publish` 对 `net8.0`+ 目标使用 **Release**，而旧版 SDK 默认为 Debug。依赖旧行为的脚本，或者想当然地传入 `-c Debug` 以为它是默认值的脚本，都需要重新审视。
 
-Trimming and AOT are the sharp edges. Both rely on static analysis, so code reached only through reflection or dynamic loading can be removed or fail to compile, and the failure usually appears at runtime rather than at publish time. Test trimmed output, and heed the trim warnings rather than suppressing them.
+裁剪和 AOT 是最容易踩坑的地方。两者都依赖静态分析，只通过反射或动态加载触达的代码可能被移除或编译失败，而且问题往往在运行时才显现，发布时毫无征兆。请测试裁剪后的产物，重视裁剪警告而不是一味压制。
 
-Publishing a *solution* with `-o` is an error in recent SDKs, because all projects' outputs would collide in one directory; use the `PublishDir` property instead. Publishing into a folder underneath the project directory makes successive runs nest output inside itself. And `--no-build` quietly implies `--no-restore`, so a stale `bin` directory will be published without complaint.
+对*解决方案*使用 `-o` 在较新的 SDK 中属于错误用法，因为所有项目的输出会在同一目录里相互冲突；应改用 `PublishDir` 属性。发布到项目目录之下的文件夹会让后续多次运行的输出层层嵌套在自己内部。另外 `--no-build` 会静默隐含 `--no-restore`，所以过期的 `bin` 目录会被不加提醒地直接发布出去。
 
 # HISTORY
 
-**dotnet publish** arrived with the first .NET Core SDK in **2016** and replaced the platform-specific packaging that .NET Framework applications had needed. Its capabilities have widened with each release: self-contained deployment, then single-file bundling and ReadyToRun in .NET Core 3, trimming made viable in .NET 6, and Native AOT from .NET 7 onward, which together turned a runtime once seen as heavyweight into one that can produce small, dependency-free native executables.
+**dotnet publish** 随首个 .NET Core SDK 于 **2016 年**问世，取代了 .NET Framework 应用曾经需要的各平台专属打包方式。它的能力随每次发布不断扩展：先是自包含部署，随后 .NET Core 3 引入单文件捆绑和 ReadyToRun，.NET 6 让裁剪真正可用，.NET 7 起又加入 Native AOT——这一切让一个曾被视作笨重的运行时，也能产出小巧、无依赖的原生可执行文件。
 
 # INSTALL
 
@@ -140,4 +140,3 @@ Publishing a *solution* with `-o` is an error in recent SDKs, because all projec
 ```[Documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish)```
 
 <!-- verified: 2026-07-14 -->
-

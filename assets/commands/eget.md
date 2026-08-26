@@ -1,38 +1,38 @@
 # TAGLINE
 
-GitHub release binary downloader
+GitHub 发布版二进制下载器
 
 # TLDR
 
-**Download latest release** binary
+**下载最新发布版**的二进制
 
 ```eget [owner/repo]```
 
-**Download specific** binary
+**下载特定的**二进制
 
 ```eget [owner/repo] --asset [linux-amd64]```
 
-**Download to specific** directory
+**下载到指定**目录
 
 ```eget [owner/repo] --to [/usr/local/bin]```
 
-**Download specific version**
+**下载特定版本**
 
 ```eget [owner/repo] --tag [v1.2.3]```
 
-**Extract specific file** from archive
+**从归档中提取特定文件**
 
 ```eget [owner/repo] --file [binary]```
 
-**Verify with SHA-256 checksum**
+**使用 SHA-256 校验和验证**
 
 ```eget [owner/repo] --sha256 [checksum]```
 
-**Download source code** instead of binary
+**下载源代码**而不是二进制
 
 ```eget [owner/repo] --source```
 
-**Download without extracting**
+**仅下载而不解压**
 
 ```eget [owner/repo] --download-only```
 
@@ -43,53 +43,53 @@ GitHub release binary downloader
 # PARAMETERS
 
 _REPOSITORY_
-> GitHub repository in owner/repo format.
+> owner/repo 格式的 GitHub 仓库。
 
 **--asset** _PATTERN_
-> Asset name pattern to download.
+> 要下载的资源名称模式。
 
 **--to** _DIR_
-> Destination directory.
+> 目标目录。
 
 **--tag** _VERSION_
-> Specific version tag.
+> 特定的版本标签。
 
 **--file** _NAME_
-> Extract specific file from archive.
+> 从归档中提取特定文件。
 
 **--sha256** _HASH_
-> Verify downloaded file against SHA-256 checksum.
+> 用 SHA-256 校验和验证下载的文件。
 
 **--source**
-> Download source code archive instead of release binary.
+> 下载源代码归档而不是发布版二进制。
 
 **--download-only**
-> Download asset without extracting.
+> 仅下载资源而不解压。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--upgrade-only**
-> Only download if newer version is available.
+> 只有当有更新的版本时才下载。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**eget** downloads and extracts prebuilt binaries from GitHub releases. It automatically detects the correct asset for your platform (OS and architecture) and extracts executables from archives.
+**eget** 从 GitHub 发布中下载并解压预编译的二进制。它会自动检测适合你平台（操作系统和架构）的资源，并从归档中提取可执行文件。
 
-The tool simplifies installing Go, Rust, and other compiled tools that distribute binaries through GitHub releases. It handles tar, zip, and other archive formats automatically.
+该工具简化了安装通过 GitHub 发布分发二进制的 Go、Rust 及其他编译型工具的过程。它会自动处理 tar、zip 等归档格式。
 
-eget supports checksums verification and can be configured with a dotfile for managing multiple tools.
+eget 支持校验和验证，并可通过 dotfile 进行配置以管理多个工具。
 
 # CAVEATS
 
-Requires GitHub API access. Rate limits may apply. Trust the source of binaries you download. Platform detection may not always match.
+需要访问 GitHub API。可能受到速率限制。请信任你所下载二进制的来源。平台检测不一定总是准确。
 
 # HISTORY
 
-eget was created to simplify the common task of downloading and installing tools from GitHub releases, providing a single command to replace manual download, extraction, and installation.
+eget 的诞生是为了简化从 GitHub 发布中下载和安装工具这一常见任务，用一条命令取代手动下载、解压和安装。
 
 # INSTALL
 

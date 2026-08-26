@@ -1,34 +1,34 @@
 # TAGLINE
 
-Elixir version manager
+Elixir 版本管理器
 
 # TLDR
 
-**List installed versions**
+**列出已安装的版本**
 
 ```exenv versions```
 
-**List available versions**
+**列出可用的版本**
 
 ```exenv install --list```
 
-**Install a version**
+**安装某个版本**
 
 ```exenv install [1.14.0]```
 
-**Set global version**
+**设置全局版本**
 
 ```exenv global [1.14.0]```
 
-**Set local version**
+**设置本地版本**
 
 ```exenv local [1.14.0]```
 
-**Show current version**
+**显示当前版本**
 
 ```exenv version```
 
-**Rehash shims**
+**重建 shims**
 
 ```exenv rehash```
 
@@ -39,43 +39,43 @@ Elixir version manager
 # SUBCOMMANDS
 
 **versions**
-> List installed versions.
+> 列出已安装的版本。
 
 **version**
-> Show current version.
+> 显示当前版本。
 
 **install**
-> Install a version.
+> 安装某个版本。
 
 **uninstall**
-> Uninstall a version.
+> 卸载某个版本。
 
 **global**
-> Set global version.
+> 设置全局版本。
 
 **local**
-> Set directory-local version.
+> 设置目录级版本。
 
 **shell**
-> Set shell-specific version.
+> 设置 Shell 级版本。
 
 **rehash**
-> Rehash exenv shims.
+> 重建 exenv shims。
 
 **which**
-> Show path to executable.
+> 显示可执行文件的路径。
 
 # DESCRIPTION
 
-**exenv** manages multiple Elixir versions. Allows switching between versions per-project or globally. Similar to rbenv for Ruby.
+**exenv** 管理多个 Elixir 版本，支持按项目或全局切换版本。与 Ruby 的 rbenv 类似。
 
 # CONFIGURATION
 
 **~/.exenv/version**
-> Global default Elixir version.
+> 全局默认的 Elixir 版本。
 
 **.exenv-version**
-> Directory-local Elixir version file, written by `exenv local`.
+> 目录级 Elixir 版本文件，由 `exenv local` 写入。
 
 # SEE ALSO
 

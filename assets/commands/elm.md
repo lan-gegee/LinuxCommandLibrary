@@ -1,30 +1,30 @@
 # TAGLINE
 
-Functional frontend language compiler and toolchain
+函数式前端语言编译器与工具链
 
 # TLDR
 
-**Initialize Elm project**
+**初始化 Elm 项目**
 
 ```elm init```
 
-**Compile Elm file**
+**编译 Elm 文件**
 
 ```elm make [src/Main.elm]```
 
-**Compile to JavaScript**
+**编译为 JavaScript**
 
 ```elm make [src/Main.elm] --output=[main.js]```
 
-**Start development** server
+**启动开发服务器**
 
 ```elm reactor```
 
-**Start interactive** REPL
+**启动交互式 REPL**
 
 ```elm repl```
 
-**Install package**
+**安装软件包**
 
 ```elm install [elm/http]```
 
@@ -35,53 +35,53 @@ Functional frontend language compiler and toolchain
 # PARAMETERS
 
 _COMMAND_
-> Operation: init, make, reactor, repl, install, etc.
+> 操作：init、make、reactor、repl、install 等。
 
 **init**
-> Initialize new Elm project.
+> 初始化新的 Elm 项目。
 
 **make** _FILE_
-> Compile Elm source file.
+> 编译 Elm 源文件。
 
 **--output** _FILE_
-> Output file path.
+> 输出文件路径。
 
 **--optimize**
-> Enable optimizations.
+> 启用优化。
 
 **reactor**
-> Start development server.
+> 启动开发服务器。
 
 **repl**
-> Start interactive shell.
+> 启动交互式 Shell。
 
 **install** _PACKAGE_
-> Install Elm package.
+> 安装 Elm 软件包。
 
 **diff** _PACKAGE_ _V1_ _V2_
-> Show API differences between package versions.
+> 显示软件包版本之间的 API 差异。
 
 **bump**
-> Bump version based on API changes.
+> 根据 API 变更提升版本号。
 
 **publish**
-> Publish package to the Elm package repository.
+> 发布软件包到 Elm 软件包仓库。
 
 # DESCRIPTION
 
-**elm** is the command-line tool for the Elm programming language, a functional language for frontend web development. It handles project initialization, compilation, package management, and development tools.
+**elm** 是 Elm 编程语言的命令行工具。Elm 是一种面向前端 Web 开发的函数式语言。它负责项目初始化、编译、软件包管理和开发工具。
 
-Elm compiles to JavaScript with no runtime exceptions through its strong type system. The compiler provides friendly error messages that help fix issues.
+Elm 通过强大的类型系统编译为没有运行时异常的 JavaScript。编译器提供友好的错误消息来帮助修复问题。
 
-The reactor provides a development server with hot reloading, while repl offers interactive Elm evaluation.
+reactor 提供带热重载的开发服务器，而 repl 提供交互式的 Elm 求值环境。
 
 # CAVEATS
 
-Breaks with major versions (0.19 not compatible with 0.18). Limited JavaScript interop. Smaller ecosystem than mainstream languages. Strict type system has learning curve.
+大版本之间不兼容（0.19 与 0.18 不兼容）。与 JavaScript 的互操作有限。生态系统比主流语言小。严格的类型系统有学习曲线。
 
 # HISTORY
 
-Elm was created by **Evan Czaplicki** as his thesis project in **2012**. It pioneered the "Elm Architecture" pattern that influenced React/Redux and other frontend frameworks.
+Elm 由 **Evan Czaplicki** 于 **2012 年**作为其毕业论文项目创建。它开创了 "Elm Architecture" 模式，影响了 React/Redux 及其他前端框架。
 
 # INSTALL
 

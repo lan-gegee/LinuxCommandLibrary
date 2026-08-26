@@ -1,38 +1,38 @@
 # TAGLINE
 
-Factory.ai terminal coding agent
+Factory.ai 终端编程智能体
 
 # TLDR
 
-**Start an interactive session**
+**启动交互式会话**
 
 ```droid```
 
-**Execute a single prompt** non-interactively (read-only by default)
+**非交互式执行单个提示词**（默认只读）
 
 ```droid exec "[analyze the auth system and propose a plan]"```
 
-**Allow safe file edits**
+**允许安全的文件编辑**
 
 ```droid exec --auto low "[add JSDoc comments to all functions]"```
 
-**Full autonomy**, including commits and pushes
+**完全自主**，包括提交和推送
 
 ```droid exec --auto high "[fix the bug, run tests, commit and push]"```
 
-**Read the prompt from a file**
+**从文件读取提示词**
 
 ```droid exec -f [prompt.txt]```
 
-**Get JSON output** for scripting
+**获取 JSON 输出**供脚本使用
 
 ```droid exec -o json "[your prompt]"```
 
-**Continue an existing session**
+**继续已有会话**
 
 ```droid exec -s [session_id] "[keep going]"```
 
-**Work in an isolated git worktree**
+**在隔离的 git worktree 中工作**
 
 ```droid exec --worktree "[refactor the parser]"```
 
@@ -47,111 +47,111 @@ Factory.ai terminal coding agent
 # COMMANDS
 
 **droid**
-> Start the interactive REPL.
+> 启动交互式 REPL。
 
 **exec**
-> Run a task non-interactively. This is the scripting entry point.
+> 非交互式运行任务。这是脚本化的入口。
 
 **search**, **find**
-> Search across local sessions: messages, documents, and tool results.
+> 跨本地会话搜索：消息、文档和工具结果。
 
 **mcp**
-> Manage Model Context Protocol servers.
+> 管理模型上下文协议服务器。
 
 **plugin**
-> Install, uninstall, and update plugins, and manage marketplaces.
+> 安装、卸载和更新插件，并管理插件市场。
 
 **computer**
-> Register and manage Bring-Your-Own-Machine computers.
+> 注册和管理自带机器（Bring-Your-Own-Machine）计算机。
 
 **daemon**
-> Run the Factory daemon server.
+> 运行 Factory 守护进程服务器。
 
 **update**
-> Update the CLI to the latest version.
+> 将 CLI 更新到最新版本。
 
 # EXEC OPTIONS
 
 **--auto** _LEVEL_
-> Autonomy level: **low**, **medium**, or **high**. Omitting it leaves the agent read-only.
+> 自主级别：**low**、**medium** 或 **high**。省略则智能体保持只读。
 
 **-f**, **--file** _PATH_
-> Read the prompt from a file.
+> 从文件读取提示词。
 
 **-m**, **--model** _ID_
-> Select a specific model.
+> 选择特定模型。
 
 **-r**, **--reasoning-effort** _LEVEL_
-> Override reasoning effort: `off`, `none`, `low`, `medium`, or `high`.
+> 覆盖推理力度：`off`、`none`、`low`、`medium` 或 `high`。
 
 **-o**, **--output-format** _FORMAT_
-> Output format: `text` (default), `json`, `stream-json`, or `stream-jsonrpc`.
+> 输出格式：`text`（默认）、`json`、`stream-json` 或 `stream-jsonrpc`。
 
 **--input-format** _FORMAT_
-> Input format. `stream-jsonrpc` enables multi-turn sessions.
+> 输入格式。`stream-jsonrpc` 支持多轮会话。
 
 **-s**, **--session-id** _ID_
-> Continue an existing session.
+> 继续已有会话。
 
 **--fork**
-> Fork an existing session into a new copy and resume that.
+> 将已有会话分叉为新副本并恢复之。
 
 **-w**, **--worktree**
-> Run the session in an isolated git worktree, leaving the working tree untouched.
+> 在隔离的 git worktree 中运行会话，工作树保持原样。
 
 **--cwd** _PATH_
-> Execute from a specific working directory.
+> 在指定的工作目录中执行。
 
 **--use-spec**
-> Start in specification mode: plan before executing.
+> 以规格模式启动：先规划再执行。
 
 **--spec-model** _ID_ / **--spec-reasoning-effort** _LEVEL_
-> Use a different model or reasoning effort for the planning phase.
+> 为规划阶段使用不同的模型或推理力度。
 
 **--enabled-tools** _IDS_ / **--disabled-tools** _IDS_ / **--list-tools**
-> Force-enable tools, disable them for this run, or print the available ones and exit.
+> 强制启用工具、本次运行禁用工具，或列出可用工具后退出。
 
 **--mission**
-> Run in mission mode, orchestrating multiple agents. **--worker-model** and **--validator-model**, with their matching reasoning-effort flags, control the sub-agents.
+> 以 mission 模式运行，编排多个智能体。**--worker-model** 和 **--validator-model** 及其配套的 reasoning-effort 标志控制各子智能体。
 
 **--append-system-prompt** _TEXT_ / **--append-system-prompt-file** _PATH_
-> Append custom instructions to the system prompt.
+> 向系统提示词追加自定义指令。
 
 **--tag** _TAG_
-> Attach a session tag. Repeatable.
+> 附加会话标签。可重复使用。
 
 **--skip-permissions-unsafe**
-> Skip every permission prompt. Dangerous; see CAVEATS.
+> 跳过所有权限提示。危险；参见 CAVEATS。
 
 **-v**, **--version** / **-h**, **--help**
-> Print the version, or show help.
+> 打印版本号或显示帮助。
 
 # CONFIGURATION
 
 **.factory/droids/**
-> Custom sub-agent definitions, as markdown files with YAML frontmatter.
+> 自定义子智能体定义，为带 YAML frontmatter 的 markdown 文件。
 
 # DESCRIPTION
 
-**droid** is Factory.ai's coding agent for the terminal. It runs in two shapes: an interactive REPL, and **droid exec**, which takes a prompt, works until the task is done, and exits, which is what makes it usable from scripts and CI.
+**droid** 是 Factory.ai 面向终端的编程智能体。它有两种运行形态：交互式 REPL，以及 **droid exec**——后者接收提示词、持续工作直到任务完成然后退出，这使它可以在脚本和 CI 中使用。
 
-Permissions are graduated rather than all-or-nothing. Without **--auto** the agent is effectively read-only: it can inspect the codebase and produce a plan, but not change it. **--auto low** permits file edits and little else. **--auto medium** additionally auto-approves reversible actions such as installing dependencies and running tests, while still asking before anything risky. **--auto high** hands over everything, including commits and pushes. The sensible progression is to start low on an unfamiliar repository, see what the agent actually proposes to touch, and raise the level once you trust it.
+权限是分级而非全有全无的。不指定 **--auto** 时，智能体实际上只读：它可以查看代码库并产出计划，但不能修改代码。**--auto low** 允许文件编辑，仅此而已。**--auto medium** 额外自动批准可逆操作，比如安装依赖和运行测试，但执行任何有风险的操作前仍会询问。**--auto high** 则移交一切，包括提交和推送。合理的做法是在陌生仓库上先从 low 开始，看看智能体实际打算改动什么，等信任建立后再提高级别。
 
-**--use-spec** inverts the flow: the agent writes a specification first and only then implements against it, optionally using a stronger model for the planning step via **--spec-model**. **--mission** goes further, orchestrating several agents and splitting work between worker and validator roles.
+**--use-spec** 反转了流程：智能体先撰写规格说明，然后再据此实现，还可通过 **--spec-model** 为规划步骤选用更强的模型。**--mission** 更进一步，编排多个智能体并在 worker 与 validator 角色之间分工。
 
-Custom sub-agents ("Custom Droids") are markdown files with YAML frontmatter under `.factory/droids/`, so a repository can ship its own specialised agents alongside its code.
+自定义子智能体（"Custom Droids"）是 `.factory/droids/` 下带 YAML frontmatter 的 markdown 文件，因此仓库可以随代码一起分发自己的专用智能体。
 
 # CAVEATS
 
-**--skip-permissions-unsafe** disables every safety check, including the confirmations before destructive commands. It is meant for throwaway containers, and running it on a machine you care about, or with live credentials in the environment, is exactly the mistake its name warns about.
+**--skip-permissions-unsafe** 会禁用所有安全检查，包括破坏性命令前的确认。它面向用完即弃的容器；在你珍视的机器上运行它，或在环境变量里带着有效凭据运行它，正是其名字所警告的那种错误。
 
-**--auto high** can rewrite history, force-push, and run arbitrary commands without asking. Combining it with a session that has push access to a shared branch is a real risk, and **--worktree** is the cheap mitigation, since it isolates the agent's changes from your working tree.
+**--auto high** 可以改写历史、强制推送并不加询问地运行任意命令。将它与对共享分支有推送权限的会话组合是实实在在的风险，而 **--worktree** 是低成本的缓解手段，因为它把智能体的更改与你的工作树隔离开来。
 
-The tool needs a Factory.ai account, and prompts, code context, and tool results are sent to Factory's service and to the underlying model providers. That has obvious implications for proprietary code and is worth checking against your organisation's policy before pointing it at a private repository.
+该工具需要 Factory.ai 账户，提示词、代码上下文和工具结果会被发送到 Factory 的服务及底层模型提供方。这对专有代码有明显影响，将其指向私有仓库之前值得对照你所在组织的政策审视一番。
 
 # HISTORY
 
-**droid** is the CLI of **Factory.ai**, a company building agent tooling aimed at enterprise engineering teams rather than individual developers, which shows in its emphasis on session management, worktree isolation, multi-agent missions, and model choice. It is one of a crowded field of terminal coding agents that appeared from 2024 onward, alongside Claude Code, Codex CLI, Aider, and others.
+**droid** 是 **Factory.ai** 的 CLI，这家公司打造的智能体工具面向企业工程团队而非个人开发者——这一点体现在它对会话管理、worktree 隔离、多智能体 mission 和模型选择的强调上。它是 2024 年以来涌现的一众终端编程智能体中的一员，与 Claude Code、Codex CLI、Aider 等并列。
 
 # SEE ALSO
 

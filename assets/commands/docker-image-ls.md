@@ -1,26 +1,26 @@
 # TAGLINE
 
-list Docker images on the system
+列出系统上的 Docker 镜像
 
 # TLDR
 
-**List all images**
+**列出所有镜像**
 
 ```docker image ls```
 
-**List with digests**
+**列出镜像及其摘要**
 
 ```docker image ls --digests```
 
-**List only image IDs**
+**仅列出镜像 ID**
 
 ```docker image ls -q```
 
-**Filter by reference**
+**按引用过滤**
 
 ```docker image ls [repository]```
 
-**List dangling images**
+**列出悬空镜像**
 
 ```docker image ls -f dangling=true```
 
@@ -31,35 +31,35 @@ list Docker images on the system
 # PARAMETERS
 
 **-a**, **--all**
-> Show all images (including intermediate).
+> 显示所有镜像（包括中间层镜像）。
 
 **-q**, **--quiet**
-> Only show image IDs.
+> 仅显示镜像 ID。
 
 **--digests**
-> Show digests.
+> 显示摘要。
 
 **-f**, **--filter** _filter_
-> Filter output based on conditions.
+> 根据条件过滤输出。
 
 **--format** _string_
-> Format output using Go template.
+> 使用 Go 模板格式化输出。
 
 **--no-trunc**
-> Don't truncate output.
+> 不截断输出。
 
 **--tree**
-> Display multi-platform images as a tree (experimental; Docker API 1.47+).
+> 以树状结构显示多平台镜像（实验性功能；需要 Docker API 1.47+）。
 
-Valid **--filter** keys: **dangling**=_true_|_false_, **label**=_key_[=_value_], **before**=_image_, **since**=_image_, **reference**=_pattern_.
+有效的 **--filter** 键：**dangling**=_true_|_false_、**label**=_key_[=_value_]、**before**=_image_、**since**=_image_、**reference**=_pattern_。
 
 # DESCRIPTION
 
-**docker image ls** lists Docker images stored in the local image cache, displaying information including repository name, tag, image ID, creation time, and virtual size. This command provides visibility into which images are available for creating containers and how much disk space they consume.
+**docker image ls** 列出存储在本地镜像缓存中的 Docker 镜像，显示的信息包括软件仓库名称、标签、镜像 ID、创建时间和虚拟大小。通过该命令可以了解哪些镜像可用于创建容器，以及它们占用了多少磁盘空间。
 
-By default, intermediate images created during builds are hidden; use **-a** to display them. Dangling images are untagged layers left over from superseded builds and can be identified with the filter **dangling=true**, making them candidates for cleanup via **docker image prune**.
+默认情况下，构建过程中产生的中间层镜像会被隐藏；使用 **-a** 可以显示它们。悬空镜像（dangling images）是被新构建取代后遗留的无标签层，可以通过过滤器 **dangling=true** 找到它们，是使用 **docker image prune** 清理的候选对象。
 
-The command supports filtering by repository name, tag patterns, and various image attributes. Output formatting with Go templates enables custom displays and scripting integration.
+该命令支持按软件仓库名称、标签模式以及各种镜像属性进行过滤。使用 Go 模板进行输出格式化可以实现自定义显示和脚本集成。
 
 # INSTALL
 

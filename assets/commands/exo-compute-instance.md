@@ -1,34 +1,34 @@
 # TAGLINE
 
-Exoscale virtual machine lifecycle management
+Exoscale 虚拟机生命周期管理
 
 # TLDR
 
-**List instances**
+**列出实例**
 
 ```exo compute instance list```
 
-**Create an instance**
+**创建实例**
 
 ```exo compute instance create [name] --zone [ch-gva-2] --template [Linux Ubuntu]```
 
-**Show instance details**
+**显示实例详情**
 
 ```exo compute instance show [name]```
 
-**Start an instance**
+**启动实例**
 
 ```exo compute instance start [name]```
 
-**Stop an instance**
+**停止实例**
 
 ```exo compute instance stop [name]```
 
-**Delete an instance**
+**删除实例**
 
 ```exo compute instance delete [name]```
 
-**SSH into instance**
+**SSH 登录实例**
 
 ```exo compute instance ssh [name]```
 
@@ -39,39 +39,39 @@ Exoscale virtual machine lifecycle management
 # SUBCOMMANDS
 
 **list**
-> List instances.
+> 列出实例。
 
 **create**
-> Create an instance.
+> 创建实例。
 
 **show**
-> Show instance details.
+> 显示实例详情。
 
 **start**
-> Start instance.
+> 启动实例。
 
 **stop**
-> Stop instance.
+> 停止实例。
 
 **reboot**
-> Reboot instance.
+> 重启实例。
 
 **delete**
-> Delete instance.
+> 删除实例。
 
 **ssh**
-> SSH into instance.
+> SSH 登录实例。
 
 **resize**
-> Resize instance.
+> 调整实例规格。
 
 # DESCRIPTION
 
-**exo compute instance** manages Exoscale compute instances (virtual machines). It handles the full lifecycle from creation through deletion, including power management and configuration.
+**exo compute instance** 用于管理 Exoscale 计算实例（虚拟机）。它处理从创建到删除的完整生命周期，包括电源管理和配置。
 
-Instances run in specified availability zones with configurable templates, instance types, security groups, and SSH keys. The tool provides convenient SSH access and management without using the web console.
+实例运行在指定的可用区中，可配置模板、实例类型、安全组和 SSH 密钥。该工具提供便捷的 SSH 访问和管理能力，无需使用 Web 控制台。
 
-Commands support all instance operations including resizing, rebooting, and attaching to networks and storage.
+命令支持所有实例操作，包括调整规格、重启以及连接网络和存储。
 
 # INSTALL
 
@@ -96,4 +96,3 @@ Commands support all instance operations including resizing, rebooting, and atta
 ```[Homepage](https://www.exoscale.com/)```
 
 <!-- verified: 2026-07-15 -->
-

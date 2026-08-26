@@ -1,22 +1,22 @@
 # TAGLINE
 
-Environment snapshot and diff tool
+环境快照与差异比较工具
 
 # TLDR
 
-**Capture** current environment state
+**捕获**当前环境状态
 
 ```envdiff capture```
 
-**Compare** current environment to snapshot
+将当前环境与快照进行**比较**
 
 ```envdiff diff [snapshot.json]```
 
-**List** all captured snapshots
+**列出**所有已捕获的快照
 
 ```envdiff list```
 
-**Compare** two snapshots
+**比较**两个快照
 
 ```envdiff diff [snapshot1.json] [snapshot2.json]```
 
@@ -27,48 +27,48 @@ Environment snapshot and diff tool
 # PARAMETERS
 
 **capture** [_NAME_]
-> Capture current environment state
+> 捕获当前环境状态
 
 **diff** [_SNAPSHOT1_] [_SNAPSHOT2_]
-> Compare environments (defaults to current if only one specified)
+> 比较环境（只指定一个时默认与当前环境比较）
 
 **list**
-> List all saved snapshots
+> 列出所有已保存的快照
 
 **delete** _NAME_
-> Delete a snapshot
+> 删除一个快照
 
 **--format** _FORMAT_
-> Output format: text, json, yaml (default: text)
+> 输出格式：text、json、yaml（默认：text）
 
 **--include** _VARS_
-> Comma-separated list of variables to include
+> 要包含的变量列表，逗号分隔
 
 **--exclude** _VARS_
-> Comma-separated list of variables to exclude
+> 要排除的变量列表，逗号分隔
 
 **--sensitive**
-> Include sensitive variables (masked by default)
+> 包含敏感变量（默认会被掩码处理）
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**envdiff** is a tool for capturing and comparing environment variable states. It allows users to snapshot their environment, compare different states, and track changes over time.
+**envdiff** 是一个用于捕获和比较环境变量状态的工具。它允许用户对环境做快照、比较不同状态，并跟踪随时间发生的变化。
 
-The tool is useful for debugging environment-related issues, verifying configuration consistency across different systems, and documenting environment setups.
+该工具适用于调试与环境相关的问题、验证不同系统间配置的一致性，以及记录环境的搭建方式。
 
 # CAVEATS
 
-Sensitive data is masked by default but may still be captured. Large environment variable sets can create large snapshot files. System-specific variables may differ between platforms.
+敏感数据默认会被掩码，但仍可能被捕获。庞大的环境变量集合会生成很大的快照文件。系统专属变量在不同平台上可能不一致。
 
 # HISTORY
 
-**envdiff** was created to help developers troubleshoot environment-related issues by providing a way to track and compare environment states over time.
+**envdiff** 的诞生是为了帮助开发者排查与环境相关的问题，提供一种随时间跟踪和比较环境状态的手段。
 
 # INSTALL
 

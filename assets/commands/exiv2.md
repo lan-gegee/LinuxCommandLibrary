@@ -1,34 +1,34 @@
 # TAGLINE
 
-image metadata reader and editor for Exif, IPTC, and XMP
+支持 Exif、IPTC 和 XMP 的图像元数据读写工具
 
 # TLDR
 
-**Show metadata** of image
+**显示图像的元数据**
 
 ```exiv2 [image.jpg]```
 
-**Print all Exif** data
+**打印所有 Exif** 数据
 
 ```exiv2 -pa [image.jpg]```
 
-**Print IPTC data**
+**打印 IPTC 数据**
 
 ```exiv2 -pi [image.jpg]```
 
-**Print XMP data**
+**打印 XMP 数据**
 
 ```exiv2 -px [image.jpg]```
 
-**Modify Exif** data
+**修改 Exif** 数据
 
 ```exiv2 -M "set Exif.Photo.UserComment [text]" [image.jpg]```
 
-**Delete all metadata**
+**删除所有元数据**
 
 ```exiv2 -da [image.jpg]```
 
-**Rename by date**
+**按日期重命名**
 
 ```exiv2 -r "%Y%m%d_%H%M%S" [*.jpg]```
 
@@ -39,47 +39,47 @@ image metadata reader and editor for Exif, IPTC, and XMP
 # PARAMETERS
 
 _FILES_
-> Image files to process.
+> 要处理的图像文件。
 
 **-pa**
-> Print all metadata (Exif, IPTC, and XMP tags).
+> 打印所有元数据（Exif、IPTC 和 XMP 标签）。
 
 **-pi**
-> Print IPTC tags.
+> 打印 IPTC 标签。
 
 **-px**
-> Print XMP tags.
+> 打印 XMP 标签。
 
 **-M** _CMD_
-> Modify metadata.
+> 修改元数据。
 
 **-da**
-> Delete all metadata.
+> 删除所有元数据。
 
 **-r** _FORMAT_
-> Rename files by timestamp.
+> 按时间戳重命名文件。
 
 **-e** _FORMAT_
-> Extract thumbnail.
+> 提取缩略图。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**exiv2** reads, writes, and manipulates image metadata including Exif, IPTC, and XMP. It supports JPEG, TIFF, PNG, and many other image formats.
+**exiv2** 读取、写入和操作图像元数据，包括 Exif、IPTC 和 XMP。它支持 JPEG、TIFF、PNG 及许多其他图像格式。
 
-The tool provides detailed access to camera settings, GPS coordinates, timestamps, and descriptive metadata. Batch operations can modify metadata across multiple files.
+该工具可以详细访问相机设置、GPS 坐标、时间戳和描述性元数据。批量操作可以一次修改多个文件的元数据。
 
-exiv2 is useful for organizing photos, removing sensitive metadata, and forensic analysis of image files.
+exiv2 适用于整理照片、移除敏感元数据以及对图像文件进行取证分析。
 
 # CAVEATS
 
-Metadata modifications are permanent. Some formats have limited metadata support. GPS data may reveal location. Backup before bulk operations.
+元数据修改是永久性的。某些格式的元数据支持有限。GPS 数据可能暴露位置信息。批量操作前请备份。
 
 # HISTORY
 
-exiv2 is an open-source project providing a library and command-line tool for Exif and other metadata handling, used by many image applications.
+exiv2 是一个开源项目，提供用于处理 Exif 及其他元数据的库和命令行工具，被众多图像应用使用。
 
 # INSTALL
 

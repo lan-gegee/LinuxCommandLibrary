@@ -1,14 +1,14 @@
 # TAGLINE
 
-FAT filesystem volume label utility
+FAT 文件系统卷标工具
 
 # TLDR
 
-**Read** the volume label of a FAT filesystem
+**读取** FAT 文件系统的卷标
 
 ```fatlabel [/dev/sda1]```
 
-**Write** a new volume label
+**写入**新卷标
 
 ```fatlabel [/dev/sdc3] "[new_label]"```
 
@@ -18,21 +18,21 @@ FAT filesystem volume label utility
 
 # DESCRIPTION
 
-**fatlabel** gets or sets the volume label of a FAT filesystem. Without a label argument, it displays the current label. With a label argument, it sets a new label.
+**fatlabel** 用于获取或设置 FAT 文件系统的卷标。不带卷标参数时，显示当前卷标；带卷标参数时，设置新卷标。
 
-Part of the dosfstools package for managing FAT filesystems.
+它是 dosfstools 软件包的一部分，该软件包用于管理 FAT 文件系统。
 
 # PARAMETERS
 
 _device_
-> FAT partition device
+> FAT 分区设备
 
 _label_
-> New volume label (optional)
+> 新卷标（可选）
 
 # CAVEATS
 
-FAT labels limited to 11 characters. Requires unmounted filesystem for writing. Part of dosfstools package.
+FAT 卷标限制为 11 个字符。写入时要求文件系统未挂载。dosfstools 软件包的一部分。
 
 # INSTALL
 

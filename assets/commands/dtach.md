@@ -1,30 +1,30 @@
 # TAGLINE
 
-minimal detachable terminal session manager
+极简的可分离终端会话管理器
 
 # TLDR
 
-**Create new session**
+**创建新会话**
 
 ```dtach -c [/tmp/session.sock] [command]```
 
-**Attach to existing session**
+**连接到已有会话**
 
 ```dtach -a [/tmp/session.sock]```
 
-**Create session, don't attach**
+**创建会话但不连接**
 
 ```dtach -n [/tmp/session.sock] [command]```
 
-**Attach, create if missing**
+**连接会话，不存在则创建**
 
 ```dtach -A [/tmp/session.sock] [command]```
 
-**Set custom detach key**
+**设置自定义分离键**
 
 ```dtach -c [/tmp/session.sock] -e '^a' [command]```
 
-**Create session with no detach key**
+**创建不设分离键的会话**
 
 ```dtach -c [/tmp/session.sock] -E [command]```
 
@@ -34,43 +34,43 @@ minimal detachable terminal session manager
 
 # DESCRIPTION
 
-**dtach** provides detachable terminal sessions similar to screen or tmux, but focused solely on the detach/attach functionality. It creates a Unix socket for session communication.
+**dtach** 提供类似 screen 或 tmux 的可分离终端会话，但只专注于分离/连接这一项功能。它会创建一个 Unix 套接字用于会话通信。
 
-The minimalist approach makes dtach lighter than alternatives when only session detachment is needed, without window management or other features.
+这种极简的设计使 dtach 在只需要会话分离功能时比其他工具更轻量，没有窗口管理或其他附加特性。
 
 # PARAMETERS
 
 **-c** _socket_
-> Create new session and attach.
+> 创建新会话并连接。
 
 **-n** _socket_
-> Create new session without attaching.
+> 创建新会话但不连接。
 
 **-a** _socket_
-> Attach to existing session.
+> 连接到已有会话。
 
 **-A** _socket_
-> Attach or create if missing.
+> 连接会话，不存在则创建。
 
 **-r** _method_
-> Redraw method (none, ctrl_l, winch).
+> 重绘方法（none、ctrl_l、winch）。
 
 **-e** _char_
-> Set detach character.
+> 设置分离字符。
 
 **-E**
-> Disable detach character.
+> 禁用分离字符。
 
 **-z**
-> Disable suspend key handling.
+> 禁用挂起键处理。
 
 # CAVEATS
 
-No window management. No scrollback buffer. Socket files persist after session ends. Single client at a time by default. No built-in session listing.
+没有窗口管理。没有回滚缓冲区。会话结束后套接字文件仍会保留。默认同一时间只允许一个客户端。没有内置的会话列表功能。
 
 # HISTORY
 
-**dtach** was created by **Ned T. Crigler** in **2001** as a minimal alternative to GNU Screen. It emerged from the desire for session detachment without screen's complexity. The tool is useful when combining with other terminal multiplexers or for simple session persistence.
+**dtach** 由 **Ned T. Crigler** 于 **2001 年**创建，作为 GNU Screen 的极简替代品。它源于对会话分离功能的需求，同时避免了 screen 的复杂性。当需要与其他终端复用器配合使用或只需简单的会话持久化时，该工具非常实用。
 
 # INSTALL
 

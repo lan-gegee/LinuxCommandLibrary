@@ -1,26 +1,26 @@
 # TAGLINE
 
-capture images from network traffic
+从网络流量中捕获图像
 
 # TLDR
 
-**Capture images** from network
+从网络中**捕获图像**
 
 ```driftnet -i [eth0]```
 
-**Save images to** directory
+**将图像保存到**目录
 
 ```driftnet -i [eth0] -d [/tmp/images]```
 
-**Capture without display**
+**无界面捕获**
 
 ```driftnet -i [eth0] -a -d [/tmp/images]```
 
-**Read from pcap** file
+从 pcap **文件读取**
 
 ```driftnet -f [capture.pcap]```
 
-**Verbose output**
+**详细输出**
 
 ```driftnet -v -i [eth0]```
 
@@ -31,44 +31,44 @@ capture images from network traffic
 # PARAMETERS
 
 **-i** _INTERFACE_
-> Network interface to capture on.
+> 要在其上捕获的网络接口。
 
 **-d** _DIR_
-> Directory to save images.
+> 保存图像的目录。
 
 **-a**
-> Adjunct mode (no display).
+> 附属模式（无显示窗口）。
 
 **-f** _FILE_
-> Read from pcap file.
+> 从 pcap 文件读取。
 
 **-p**
-> Don't put interface in promiscuous mode.
+> 不将接口置于混杂模式。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-b**
-> Beep when image captured.
+> 捕获到图像时发出蜂鸣。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**driftnet** captures and displays images from network traffic in real-time. It extracts JPEG, GIF, and PNG images transmitted over unencrypted HTTP connections passing through the monitored network interface.
+**driftnet** 实时捕获并显示网络流量中的图像。它提取经过受监控网络接口的未加密 HTTP 连接所传输的 JPEG、GIF 和 PNG 图像。
 
-The tool is useful for network monitoring, security demonstrations, and forensics. In display mode, captured images appear in a window; in adjunct mode, they're saved to disk.
+该工具适用于网络监控、安全演示和取证。在显示模式下，捕获的图像会显示在窗口中；在附属模式下，它们会被保存到磁盘。
 
-driftnet can also extract audio data from network streams, playing it in real-time or saving to files.
+driftnet 还能从网络流中提取音频数据，实时播放或保存为文件。
 
 # CAVEATS
 
-Only captures unencrypted traffic (HTTP). Requires root/promiscuous access. HTTPS traffic not visible. Intended for authorized monitoring only.
+只能捕获未加密流量（HTTP）。需要 root/混杂模式访问权限。无法看到 HTTPS 流量。仅用于经授权的监控。
 
 # HISTORY
 
-driftnet was created by **Chris Lightfoot** as a demonstration of network traffic visibility. It highlights the privacy implications of unencrypted communications and is used in security awareness training.
+driftnet 由 **Chris Lightfoot** 创建，作为网络流量可见性的一个演示。它揭示了未加密通信对隐私的影响，常被用于安全意识培训。
 
 # INSTALL
 

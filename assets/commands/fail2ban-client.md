@@ -1,18 +1,18 @@
 # TAGLINE
 
-intrusion prevention control interface
+入侵防御控制接口
 
 # TLDR
 
-Retrieve current **status** of a jail
+获取某个 jail 的当前**状态**
 
 ```fail2ban-client status [jail]```
 
-**Remove** IP from jail ban list
+从 jail 的封禁列表中**移除** IP
 
 ```fail2ban-client set [jail] unbanip [ip_address]```
 
-Verify server is **alive**
+验证服务器是否**存活**
 
 ```fail2ban-client ping```
 
@@ -22,50 +22,50 @@ Verify server is **alive**
 
 # DESCRIPTION
 
-**fail2ban-client** configures and controls the fail2ban server. Fail2ban monitors log files and bans IP addresses that show malicious behavior like repeated failed login attempts.
+**fail2ban-client** 用于配置和控制 fail2ban 服务器。Fail2ban 监控日志文件，封禁表现出恶意行为（如反复登录失败）的 IP 地址。
 
-Used for managing jail status, banning/unbanning IPs, and server control.
+用于管理 jail 状态、封禁/解封 IP 以及服务器控制。
 
 # PARAMETERS
 
 **status** [_jail_]
-> Show jail status
+> 显示 jail 状态
 
 **set** _jail_ _action_ _value_
-> Configure jail settings
+> 配置 jail 设置
 
 **unbanip** _ip_
-> Remove IP from ban list
+> 从封禁列表移除 IP
 
 **ping**
-> Check server is alive
+> 检查服务器是否存活
 
 **start**
-> Start the server
+> 启动服务器
 
 **stop**
-> Stop the server
+> 停止服务器
 
 **reload**
-> Reload configuration
+> 重载配置
 
 # CONFIGURATION
 
 **/etc/fail2ban/jail.conf**
-> Default jail configurations (do not modify directly).
+> 默认 jail 配置（不要直接修改）。
 
 **/etc/fail2ban/jail.local**
-> Local overrides for jail configurations.
+> jail 配置的本地覆盖。
 
 **/etc/fail2ban/fail2ban.conf**
-> Main fail2ban server configuration.
+> fail2ban 服务器主配置。
 
 **/etc/fail2ban/filter.d/**
-> Filter definitions for log parsing.
+> 用于日志解析的过滤器定义。
 
 # CAVEATS
 
-Requires fail2ban-server to be running. Jail names are defined in configuration files. May require root privileges for most operations.
+需要 fail2ban-server 正在运行。Jail 名称在配置文件中定义。大多数操作可能需要 root 权限。
 
 # INSTALL
 

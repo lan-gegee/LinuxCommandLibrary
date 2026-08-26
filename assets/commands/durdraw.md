@@ -1,38 +1,38 @@
 # TAGLINE
 
-ASCII/ANSI art editor with animation support
+支持动画的 ASCII/ANSI 字符画编辑器
 
 # TLDR
 
-**Launch** the ASCII/ANSI art editor
+**启动** ASCII/ANSI 字符画编辑器
 
 ```durdraw```
 
-**Open a file** (.dur or ASCII/ANSI) for editing
+**打开文件**（.dur 或 ASCII/ANSI）进行编辑
 
 ```durdraw [filename.dur]```
 
-**Create a new canvas** with specific dimensions
+**以指定尺寸创建新画布**
 
 ```durdraw -W [80] -H [25]```
 
-**Use the maximum canvas size** that fits the terminal
+**使用能容纳于终端的最大画布尺寸**
 
 ```durdraw -m```
 
-**Play a .dur animation** and exit
+**播放 .dur 动画**后退出
 
 ```durdraw -p [animation.dur]```
 
-**Loop an animation** a fixed number of times
+**循环播放动画**固定次数
 
 ```durdraw -p -x [3] [animation.dur]```
 
-**Force 16- or 256-color mode**
+**强制 16 色或 256 色模式**
 
 ```durdraw --256color```
 
-**Export loaded art to .ansi** and exit
+**将已加载的作品导出为 .ansi** 后退出
 
 ```durdraw --export-ansi [input.dur]```
 
@@ -43,110 +43,110 @@ ASCII/ANSI art editor with animation support
 # PARAMETERS
 
 _FILENAME_
-> A .dur, ASCII, or ANSI file to load.
+> 要加载的 .dur、ASCII 或 ANSI 文件。
 
 **-p**, **--play**
-> Play .dur file(s) then exit.
+> 播放 .dur 文件后退出。
 
 **-x**, **--times** _N_
-> Play _N_ times (requires **-p**).
+> 播放 _N_ 次（需要 **-p**）。
 
 **--startup**
-> Show the startup screen.
+> 显示启动画面。
 
 **-w**, **--wait**
-> Pause on the startup screen.
+> 在启动画面暂停。
 
 **--256color**
-> Force 256-color mode.
+> 强制 256 色模式。
 
 **--16color**
-> Force 16-color mode.
+> 强制 16 色模式。
 
 **-b**, **--blackbg**
-> Use a black background instead of the terminal default.
+> 使用黑色背景代替终端默认背景。
 
 **-W**, **--width** _N_
-> Set canvas width.
+> 设置画布宽度。
 
 **-H**, **--height** _N_
-> Set canvas height.
+> 设置画布高度。
 
 **-m**, **--max**
-> Use the largest canvas that fits the terminal.
+> 使用能容纳于终端的最大画布。
 
 **--nomouse**
-> Disable mouse support.
+> 禁用鼠标支持。
 
 **--cursor** _STYLE_
-> Cursor style: block, underscore, or pipe.
+> 光标样式：block、underscore 或 pipe。
 
 **--notheme**
-> Disable theme support.
+> 禁用主题支持。
 
 **--theme** _FILE_
-> Load a custom theme file.
+> 加载自定义主题文件。
 
 **--cp437**
-> Use Code Page 437 encoding (beta).
+> 使用 Code Page 437 编码（测试版）。
 
 **--export-ansi**
-> Export loaded art to an .ansi file and exit.
+> 将已加载的作品导出为 .ansi 文件并退出。
 
 **-u**, **--undosize** _N_
-> Number of undo history states (default: 100).
+> 撤销历史的状态数（默认：100）。
 
 **-V**, **--version**
-> Show version and exit.
+> 显示版本并退出。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 # DESCRIPTION
 
-**durdraw** is a versatile curses-based ASCII, ANSI, and Unicode art editor for drawing in Linux, Unix, and macOS terminals. It supports 16- and 256-color palettes, CP437 and Unicode, customizable themes, mouse input, and frame-by-frame animation with adjustable delay.
+**durdraw** 是一个功能多样的基于 curses 的 ASCII、ANSI 和 Unicode 字符画编辑器，可在 Linux、Unix 和 macOS 终端中作画。它支持 16 色和 256 色调色板、CP437 与 Unicode、自定义主题、鼠标输入，以及可调节延迟的逐帧动画。
 
-Files are saved in durdraw's native JSON-based `.dur` format, which preserves animation frames and metadata. Static art can be exported to `.ansi` for sharing on traditional ANSI art boards. Animations can be played back in the terminal with **durdraw -p** or the **durview** companion tool.
+文件以 durdraw 原生的基于 JSON 的 `.dur` 格式保存，完整保留动画帧和元数据。静态作品可以导出为 `.ansi`，以便在传统 ANSI 画板上分享。动画可通过 **durdraw -p** 或配套工具 **durview** 在终端中回放。
 
 # KEYBINDINGS
 
-**Arrow keys**
-> Move cursor
+**方向键**
+> 移动光标
 
 **Space**
-> Draw with selected brush
+> 用选定的画笔绘制
 
 **Tab**
-> Switch between foreground/background color
+> 在前景色/背景色之间切换
 
 **c**
-> Color picker mode
+> 取色模式
 
 **b**
-> Brush selection
+> 选择画笔
 
 **f**
-> Flood fill
+> 泛洪填充
 
 **Ctrl+S**
-> Save file
+> 保存文件
 
 **Ctrl+Q**
-> Quit
+> 退出
 
 **PgUp/PgDn**
-> Navigate animation frames
+> 在动画帧之间导航
 
 **F5**
-> Play/preview animation
+> 播放/预览动画
 
 # CAVEATS
 
-Requires terminal with proper ANSI support. Animation playback depends on terminal capabilities. Large animations may consume significant memory. Some export formats require additional dependencies.
+需要具备完善 ANSI 支持的终端。动画播放效果取决于终端能力。大型动画可能消耗大量内存。部分导出格式需要额外的依赖。
 
 # HISTORY
 
-**durdraw** was created by Sam "cmang" Foster as a modern successor to DOS-era ANSI editors like TheDraw and ACiDDraw, bringing terminal art creation to Linux, Unix, and macOS with features such as 256-color support, Unicode, and frame animation.
+**durdraw** 由 Sam "cmang" Foster 创建，是 TheDraw 和 ACiDDraw 等 DOS 时代 ANSI 编辑器的现代后继者，凭借 256 色支持、Unicode 和帧动画等特性，把终端艺术创作带到了 Linux、Unix 和 macOS 上。
 
 # INSTALL
 

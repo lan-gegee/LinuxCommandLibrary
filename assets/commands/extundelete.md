@@ -1,22 +1,22 @@
 # TAGLINE
 
-ext3/ext4 file recovery utility
+ext3/ext4 文件恢复工具
 
 # TLDR
 
-**Restore all** deleted files from partition
+从分区**恢复所有**已删除的文件
 
 ```sudo extundelete [/dev/sdXN] --restore-all```
 
-Restore a **specific file**
+恢复**指定文件**
 
 ```extundelete [/dev/sdXN] --restore-file [path/to/file]```
 
-Restore a **specific directory**
+恢复**指定目录**
 
 ```extundelete [/dev/sdXN] --restore-directory [path/to/directory]```
 
-Restore files deleted **after** a date
+恢复在某个日期**之后**删除的文件
 
 ```extundelete [/dev/sdXN] --restore-all --after [1577840400]```
 
@@ -26,30 +26,30 @@ Restore files deleted **after** a date
 
 # DESCRIPTION
 
-**extundelete** recovers deleted files from ext3 and ext4 partitions by parsing the filesystem journal. It can restore individual files, directories, or all recoverable files.
+**extundelete** 通过解析文件系统日志从 ext3 和 ext4 分区中恢复已删除的文件。它可以恢复单个文件、目录或所有可恢复的文件。
 
-Works best when run immediately after deletion before journal wraps.
+在删除后立即运行（日志尚未回绕之前）效果最佳。
 
 # PARAMETERS
 
 **--restore-all**
-> Restore all recoverable files
+> 恢复所有可恢复的文件
 
 **--restore-file** _path_
-> Restore specific file
+> 恢复指定文件
 
 **--restore-directory** _path_
-> Restore specific directory
+> 恢复指定目录
 
 **--after** _time_
-> Only restore files deleted after Unix timestamp
+> 只恢复在给定 Unix 时间戳之后删除的文件
 
 **--before** _time_
-> Only restore files deleted before timestamp
+> 只恢复在给定时间戳之前删除的文件
 
 # CAVEATS
 
-Only works with ext3/ext4 filesystems. Unmount partition before recovery for best results. Paths are relative to filesystem root (no leading /). Recovery success depends on journal state.
+仅适用于 ext3/ext4 文件系统。为获得最佳效果，恢复前应卸载分区。路径相对于文件系统根目录（开头不加 /）。恢复成败取决于日志的状态。
 
 # INSTALL
 

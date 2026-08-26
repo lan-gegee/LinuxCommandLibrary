@@ -1,14 +1,14 @@
 # TAGLINE
 
-automated temperature-based fan speed control
+基于温度的自动风扇转速控制
 
 # TLDR
 
-Start with the **default** configuration file (/etc/fancontrol)
+使用**默认**配置文件启动（/etc/fancontrol）
 
 ```sudo fancontrol```
 
-Start with a **custom** configuration file
+使用**自定义**配置文件启动
 
 ```sudo fancontrol [path/to/config_file]```
 
@@ -19,43 +19,43 @@ Start with a **custom** configuration file
 # PARAMETERS
 
 _config_file_
-> Path to configuration (default: /etc/fancontrol).
+> 配置文件路径（默认：/etc/fancontrol）。
 
 # DESCRIPTION
 
-**fancontrol** is a shell script from the lm-sensors package that provides automated fan speed management based on temperature readings. It reads its configuration from a file, calculates fan speeds from temperatures, and sets the corresponding PWM outputs to the computed values.
+**fancontrol** 是 lm-sensors 软件包中的一个 shell 脚本，基于温度读数自动管理风扇转速。它从配置文件读取设置，根据温度计算风扇转速，并将相应的 PWM 输出设置为计算出的值。
 
-The daemon continuously monitors hardware temperature sensors and adjusts PWM-controlled fans to maintain desired thermal levels. Configuration is typically generated with the pwmconfig utility, which detects available fans and sensors, then creates appropriate mappings and thresholds.
+该守护进程持续监控硬件温度传感器，并调整 PWM 控制的风扇以维持预期的温度水平。配置通常由 pwmconfig 工具生成：它会检测可用的风扇和传感器，然后创建相应的映射关系和阈值。
 
 # CONFIGURATION
 
 **/etc/fancontrol**
-> Main configuration file with the following key variables:
+> 主配置文件，包含以下关键变量：
 
 **FCTEMPS**
-> Maps PWM outputs to temperature sensors.
+> 将 PWM 输出映射到温度传感器。
 
 **FCFANS**
-> Associates PWM outputs with fan speed inputs for monitoring.
+> 将 PWM 输出与用于监控的风扇转速输入关联。
 
 **MINTEMP / MAXTEMP**
-> Temperature range for fan speed calculation.
+> 用于风扇转速计算的温度区间。
 
 **MINPWM / MAXPWM**
-> PWM value range corresponding to the temperature range.
+> 与温度区间对应的 PWM 取值范围。
 
 **MINSTART**
-> Minimum PWM value at which fans start spinning.
+> 风扇开始转动的最小 PWM 值。
 
 **MINSTOP**
-> Minimum PWM value at which fans still spin (below this they stop).
+> 风扇仍在转动的最小 PWM 值（低于此值风扇停止）。
 
 **AVERAGE**
-> Number of temperature readings to average (default: 1, no averaging).
+> 参与平均的温度读数个数（默认：1，不做平均）。
 
 # CAVEATS
 
-Requires configured hardware monitoring (lm-sensors). Run pwmconfig first to detect fans and sensors and generate the configuration file. Requires root privileges since it accesses hardware PWM controls. The daemon runs in the foreground by default; use a systemd service or init script to run it as a background service.
+需要已配置好的硬件监控（lm-sensors）。请先运行 pwmconfig 来检测风扇和传感器并生成配置文件。由于要访问硬件 PWM 控制，需要 root 权限。守护进程默认在前台运行；要用 systemd 服务或 init 脚本将其作为后台服务运行。
 
 # INSTALL
 

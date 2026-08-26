@@ -1,30 +1,30 @@
 # TAGLINE
 
-capture framebuffer screenshots to PNG
+将 framebuffer 截图捕获为 PNG
 
 # TLDR
 
-**Take a screenshot** of the current framebuffer
+对当前 framebuffer **截图**
 
 ```fbgrab [screenshot.png]```
 
-**Take a screenshot** from a specific framebuffer device
+从指定的 framebuffer 设备**截图**
 
 ```fbgrab -d [/dev/fb1] [screenshot.png]```
 
-**Take a screenshot** of a specific virtual console
+对指定的虚拟控制台**截图**
 
 ```fbgrab -c [1] [screenshot.png]```
 
-**Wait 5 seconds** before taking a screenshot
+截图前**等待 5 秒**
 
 ```fbgrab -s [5] [screenshot.png]```
 
-**Convert a raw framebuffer dump** to PNG
+**将原始 framebuffer 转储**转换为 PNG
 
 ```fbgrab -w [1920] -h [1080] -b [32] -f [framebuffer.dump] [screenshot.png]```
 
-**Set PNG compression** level (0=fast, 9=best)
+设置 PNG 压缩**级别**（0=最快，9=最佳）
 
 ```fbgrab -z [9] [screenshot.png]```
 
@@ -35,60 +35,60 @@ capture framebuffer screenshots to PNG
 # PARAMETERS
 
 **-?**
-> Display usage information.
+> 显示用法信息。
 
 **-a**
-> Ignore the alpha channel. Useful for pixel formats like BGR32 where drivers incorrectly report alpha.
+> 忽略 alpha 通道。对于 BGR32 等驱动程序错误报告 alpha 的像素格式很有用。
 
 **-b** _bitdepth_
-> The number of bits per pixel. Optional when reading from device.
+> 每像素位数。从设备读取时可选。
 
 **-c** _console_
-> Specifies which console (virtual terminal) to grab.
+> 指定要抓取的控制台（虚拟终端）。
 
 **-C** _console_
-> Switch console with a delay before capturing.
+> 切换控制台并延迟后捕获。
 
 **-d** _device_
-> Framebuffer device to use. Defaults to FRAMEBUFFER environment variable or /dev/fb0.
+> 要使用的 framebuffer 设备。默认为 FRAMEBUFFER 环境变量或 /dev/fb0。
 
 **-f** _filename_
-> Read from file instead of device. Requires -w, -h, and -b options.
+> 从文件而非设备读取。需要同时给出 -w、-h 和 -b 选项。
 
 **-h** _height_
-> The height of the framebuffer in pixels. Optional when reading from device.
+> framebuffer 的高度（像素）。从设备读取时可选。
 
 **-i**
-> Turns off ADAM7 interlacing in the output PNG.
+> 关闭输出 PNG 中的 ADAM7 隔行扫描。
 
 **-l** _line_length_
-> Line length (stride) in pixels between the start of each row. Optional when reading from device.
+> 每行起点之间的行长（步长，以像素为单位）。从设备读取时可选。
 
 **-s** _seconds_
-> Seconds to wait before grabbing the screenshot.
+> 截图前等待的秒数。
 
 **-v**
-> Enable verbose output.
+> 启用详细输出。
 
 **-w** _width_
-> The width of the framebuffer in pixels. Optional when reading from device.
+> framebuffer 的宽度（像素）。从设备读取时可选。
 
 **-z** _compression_
-> Set PNG compression level (0=fast, 9=best).
+> 设置 PNG 压缩级别（0=最快，9=最佳）。
 
 # DESCRIPTION
 
-**fbgrab** reads the Linux framebuffer device (/dev/fb*) or a dump thereof and saves a PNG image file. It can capture screenshots of virtually any application, from traditional text applications to X-windows desktops and framebuffer applications.
+**fbgrab** 读取 Linux framebuffer 设备（/dev/fb*）或其转储文件，并保存为 PNG 图像文件。它几乎可以为任何应用截图——从传统的文本程序到 X 窗口桌面和 framebuffer 应用。
 
-The tool is particularly useful for capturing screenshots on systems without a running X server, embedded systems, or when working directly with the Linux console.
+该工具特别适用于在没有运行 X 服务器的系统、嵌入式系统上截图，或直接在 Linux 控制台下工作的情况。
 
 # CAVEATS
 
-The **-c** option may require root privileges or the CAP_SYS_TTY_CONFIG capability. When reading from a raw dump file, the **-w**, **-h**, and **-b** options must all be specified. The framebuffer device must be accessible with appropriate permissions.
+**-c** 选项可能需要 root 权限或 CAP_SYS_TTY_CONFIG 能力。从原始转储文件读取时，必须同时指定 **-w**、**-h** 和 **-b** 选项。framebuffer 设备必须具有适当的访问权限。
 
 # HISTORY
 
-**fbgrab** was written by Gunnar Monell as a rewrite of fbshot by Stephan Beyer. The tool has been maintained since 2002 and is licensed under GPL version 2.
+**fbgrab** 由 Gunnar Monell 编写，是对 Stephan Beyer 所写 fbshot 的重写。该工具自 2002 年以来持续维护，基于 GPL 第 2 版授权。
 
 # INSTALL
 

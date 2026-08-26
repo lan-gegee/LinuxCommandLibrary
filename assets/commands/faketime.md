@@ -1,18 +1,18 @@
 # TAGLINE
 
-system time manipulation for testing
+用于测试的系统时间篡改工具
 
 # TLDR
 
-Fake time to **this evening**
+把时间伪装成**今晚**
 
 ```faketime '[today 23:30]' [date]```
 
-Open shell with **yesterday** as current date
+以**昨天**为当前日期打开 shell
 
 ```faketime '[yesterday]' [bash]```
 
-Simulate how program would act **next Friday**
+模拟程序在**下周五**的表现
 
 ```faketime '[next Friday 1 am]' [path/to/program]```
 
@@ -22,35 +22,35 @@ Simulate how program would act **next Friday**
 
 # DESCRIPTION
 
-**faketime** runs a command with a fake system time by intercepting time-related system calls. It uses LD_PRELOAD to wrap functions like time(), gettimeofday(), and clock_gettime(), returning a user-specified time instead of the real system time.
+**faketime** 通过拦截时间相关的系统调用，以伪造的系统时间运行命令。它利用 LD_PRELOAD 包装 time()、gettimeofday() 和 clock_gettime() 等函数，返回用户指定的时间而不是真实的系统时间。
 
-This is useful for testing time-dependent software, debugging date-related bugs, simulating future or past conditions, and testing expiration or scheduling logic. The timestamp accepts absolute dates ("YYYY-MM-DD hh:mm:ss") as well as natural-language and relative descriptions parsed via GNU date.
+这对测试依赖时间的软件、调试与日期相关的缺陷、模拟未来或过去的条件以及测试过期或调度逻辑非常有用。时间戳既接受绝对日期（"YYYY-MM-DD hh:mm:ss"），也接受经 GNU date 解析的自然语言和相对描述。
 
-Giving an absolute timestamp freezes the clock at that instant: repeated time queries return the same value. The advanced format (**-f**) instead lets time advance, run faster or slower, or step forward on each call.
+给出绝对时间戳会把时钟冻结在该时刻：重复查询时间返回相同的值。高级格式（**-f**）则允许时间继续流动、加速或减速，或在每次调用时步进。
 
 # PARAMETERS
 
 _timestamp_
-> Time specification (absolute date, natural language, or, with -f, an advanced offset/speed spec).
+> 时间规格（绝对日期、自然语言，或配合 -f 使用的高级偏移/速度规格）。
 
 _command_
-> Command to run with the faked time.
+> 以伪造时间运行的命令。
 
 **-f**
-> Use the advanced timestamp specification format (offsets, per-call increments, and clock-speed multipliers).
+> 使用高级时间戳格式（偏移量、每次调用递增量、时钟速度倍率）。
 
 **-m**
-> Use the multi-threading variant of libfaketime.
+> 使用 libfaketime 的多线程变体。
 
 **--exclude-monotonic**
-> Do not fake CLOCK_MONOTONIC queries.
+> 不伪造 CLOCK_MONOTONIC 查询。
 
 **--date-prog** _path_
-> Use an alternate GNU date-compatible program to parse the timestamp.
+> 使用另一个兼容 GNU date 的程序来解析时间戳。
 
 # CAVEATS
 
-Uses LD_PRELOAD, so it may not work with statically linked binaries or setuid programs. To freeze time, give an absolute timestamp; to let it advance or scale, use the -f advanced format.
+使用 LD_PRELOAD 实现，因此对静态链接的二进制或 setuid 程序可能无效。要冻结时间请给出绝对时间戳；要让时间流动或缩放请使用 -f 高级格式。
 
 # INSTALL
 

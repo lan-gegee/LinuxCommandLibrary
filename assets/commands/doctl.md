@@ -1,54 +1,54 @@
 # TAGLINE
 
-official DigitalOcean command-line interface
+DigitalOcean 官方命令行界面
 
 # TLDR
 
-**Authenticate with** DigitalOcean
+**向** DigitalOcean **进行身份验证**
 
 ```doctl auth init```
 
-**List all droplets**
+**列出所有 Droplet**
 
 ```doctl compute droplet list```
 
-**Create a droplet**
+**创建 Droplet**
 
 ```doctl compute droplet create [name] --size [s-1vcpu-1gb] --image [ubuntu-22-04-x64] --region [nyc1]```
 
-**Delete a droplet**
+**删除 Droplet**
 
 ```doctl compute droplet delete [droplet_id]```
 
-**List Kubernetes clusters**
+**列出 Kubernetes 集群**
 
 ```doctl kubernetes cluster list```
 
-**Get kubeconfig**
+**获取 kubeconfig**
 
 ```doctl kubernetes cluster kubeconfig save [cluster_name]```
 
-**List available regions**
+**列出可用区域**
 
 ```doctl compute region list```
 
-**List all databases**
+**列出所有数据库**
 
 ```doctl databases list```
 
-**List Spaces** (object storage buckets)
+**列出 Spaces**（对象存储桶）
 
 ```doctl spaces list```
 
-**Create a container registry**
+**创建容器镜像仓库**
 
 ```doctl registry create [name]```
 
-**List SSH keys**
+**列出 SSH 密钥**
 
 ```doctl compute ssh-key list```
 
-**Output as JSON**
+**以 JSON 格式输出**
 
 ```doctl compute droplet list --output json```
 
@@ -59,89 +59,89 @@ official DigitalOcean command-line interface
 # PARAMETERS
 
 _COMMAND_
-> Resource type: account, auth, compute, apps, databases, kubernetes, monitoring, projects, registry, serverless, spaces, vpcs, etc.
+> 资源类型：account、auth、compute、apps、databases、kubernetes、monitoring、projects、registry、serverless、spaces、vpcs 等。
 
 **auth** **init**
-> Authenticate with API token.
+> 使用 API 令牌进行身份验证。
 
 **auth** **list**
-> List available authentication contexts.
+> 列出可用的身份验证上下文。
 
 **compute** **droplet** _ACTION_
-> Manage Droplets (create, list, delete, get, etc.).
+> 管理 Droplet（创建、列出、删除、查询等）。
 
 **compute** **volume** _ACTION_
-> Manage block storage volumes.
+> 管理块存储卷。
 
 **compute** **domain** _ACTION_
-> Manage DNS domains and records.
+> 管理 DNS 域名和记录。
 
 **compute** **firewall** _ACTION_
-> Manage cloud firewalls.
+> 管理云防火墙。
 
 **compute** **load-balancer** _ACTION_
-> Manage load balancers.
+> 管理负载均衡器。
 
 **kubernetes** **cluster** _ACTION_
-> Manage Kubernetes clusters.
+> 管理 Kubernetes 集群。
 
 **apps** _ACTION_
-> Manage App Platform applications.
+> 管理 App Platform 应用。
 
 **databases** _ACTION_
-> Manage managed database clusters.
+> 管理托管数据库集群。
 
 **spaces** _ACTION_
-> Manage Spaces object storage.
+> 管理 Spaces 对象存储。
 
 **registry** _ACTION_
-> Manage container registries.
+> 管理容器镜像仓库。
 
 **serverless** _ACTION_
-> Manage serverless functions.
+> 管理 Serverless 函数。
 
 **monitoring** _ACTION_
-> Manage monitoring alert policies and uptime checks.
+> 管理监控警报策略和在线状态检查。
 
 **projects** _ACTION_
-> Organize and assign resources to projects.
+> 组织资源并将其分配到项目。
 
 **--access-token** _TOKEN_
-> DigitalOcean API token. Overrides config and DIGITALOCEAN_ACCESS_TOKEN.
+> DigitalOcean API 令牌。覆盖配置文件和 DIGITALOCEAN_ACCESS_TOKEN。
 
 **--output** _FORMAT_
-> Output format: text, json.
+> 输出格式：text、json。
 
 **--format** _COLUMNS_
-> Comma-separated list of columns to display in table output.
+> 表格输出中要显示的列的列表，以逗号分隔。
 
 **--context** _NAME_
-> Use named authentication context.
+> 使用指定的身份验证上下文。
 
 **--trace**
-> Show a log of network activity while performing a command.
+> 执行命令时显示网络活动日志。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**doctl** is the official command-line interface for DigitalOcean, providing access to all DigitalOcean services including Droplets, Kubernetes, App Platform, Databases, and more.
+**doctl** 是 DigitalOcean 官方的命令行界面，可用于访问所有 DigitalOcean 服务，包括 Droplets、Kubernetes、App Platform、数据库等。
 
-The tool enables infrastructure automation, CI/CD integration, and scriptable management of DigitalOcean resources. It supports multiple authentication contexts for managing different accounts or teams.
+该工具支持基础设施自动化、CI/CD 集成，以及通过脚本管理 DigitalOcean 资源。它支持多个身份验证上下文，便于管理不同的账号或团队。
 
-doctl mirrors the DigitalOcean API functionality, allowing complete control over cloud resources from the command line without using the web console.
+doctl 与 DigitalOcean API 的功能一一对应，让你无需使用 Web 控制台即可从命令行完全掌控云资源。
 
 # CAVEATS
 
-Requires DigitalOcean account and API token. Actions may incur charges. Some operations are irreversible. Rate limits apply to API requests.
+需要 DigitalOcean 账号和 API 令牌。某些操作可能产生费用。部分操作不可逆。API 请求受速率限制约束。
 
 # HISTORY
 
-doctl was developed by **DigitalOcean** as the official CLI for their cloud platform. It provides programmatic access to DigitalOcean services, supporting DevOps workflows and infrastructure as code practices.
+doctl 由 **DigitalOcean** 开发，是其云平台的官方 CLI。它提供对 DigitalOcean 服务的编程式访问，支持 DevOps 工作流和基础设施即代码实践。
 
 # INSTALL
 

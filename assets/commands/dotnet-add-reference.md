@@ -1,18 +1,18 @@
 # TAGLINE
 
-project-to-project reference adder
+项目到项目引用的添加工具
 
 # TLDR
 
-**Add project reference**
+**添加项目引用**
 
 ```dotnet add reference [../Other/Other.csproj]```
 
-**Add multiple references**
+**添加多个引用**
 
 ```dotnet add reference [../Lib1/Lib1.csproj] [../Lib2/Lib2.csproj]```
 
-**Add reference to specific project**
+**向指定项目添加引用**
 
 ```dotnet add [src/App/App.csproj] reference [../Lib/Lib.csproj]```
 
@@ -23,20 +23,20 @@ project-to-project reference adder
 # PARAMETERS
 
 **-f**, **--framework** _framework_
-> Add reference only for specific target framework.
+> 仅为特定的目标框架添加引用。
 
 **--interactive**
-> Allow the command to prompt for input.
+> 允许命令提示输入。
 
 # DESCRIPTION
 
-**dotnet add reference** adds project-to-project (P2P) references to a project file, creating build-time dependencies between projects in a solution. Referenced projects are automatically built before the referencing project, ensuring correct build order.
+**dotnet add reference** 向项目文件添加项目到项目（P2P）引用，在解决方案中的项目之间建立构建期依赖。被引用的项目会在引用它的项目之前自动构建，以确保正确的构建顺序。
 
-P2P references enable code sharing within a solution while maintaining clear dependency boundaries. The command modifies the `.csproj` (or `.fsproj`, `.vbproj`) file to add `<ProjectReference>` elements with relative paths to the referenced projects.
+P2P 引用在解决方案内实现代码共享，同时保持清晰的依赖边界。该命令修改 `.csproj`（或 `.fsproj`、`.vbproj`）文件，添加带有指向被引用项目的相对路径的 `<ProjectReference>` 元素。
 
 # CAVEATS
 
-Circular references are not allowed and will produce an error. The referenced project must exist. Use `dotnet list reference` to verify existing references.
+不允许循环引用，否则会产生错误。被引用的项目必须存在。可用 `dotnet list reference` 验证已有的引用。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ Circular references are not allowed and will produce an error. The referenced pr
 # SEE ALSO
 
 [dotnet](/man/dotnet)(1), [dotnet-build](/man/dotnet-build)(1), [dotnet-add-package](/man/dotnet-add-package)(1)
-

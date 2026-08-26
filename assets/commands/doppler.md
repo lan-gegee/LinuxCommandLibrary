@@ -1,34 +1,34 @@
 # TAGLINE
 
-secrets management and injection platform
+密钥管理与注入平台
 
 # TLDR
 
-**Login to Doppler**
+**登录 Doppler**
 
 ```doppler login```
 
-**Setup project** configuration
+**设置项目**配置
 
 ```doppler setup```
 
-**List secrets** in current config
+**列出**当前 config 中的密钥
 
 ```doppler secrets```
 
-**Run command with** secrets injected
+**运行命令并注入**密钥
 
 ```doppler run -- [command]```
 
-**Dump secrets** to stdout as a dotenv file
+将密钥**转储到 stdout**，输出为 dotenv 文件
 
 ```doppler secrets download --no-file --format [env]```
 
-**Run against a specific** project and config
+针对**指定的**项目和 config 运行
 
 ```doppler run -p [backend] -c [prod] -- [command]```
 
-**Authenticate in CI** with a service token
+使用服务令牌**在 CI 中完成身份验证**
 
 ```echo "[dp.st.prd.xxxx]" | doppler configure set token --scope /```
 
@@ -39,73 +39,73 @@ secrets management and injection platform
 # COMMANDS
 
 **login** / **logout**
-> Authenticate this machine against Doppler, or disconnect it.
+> 让本机完成 Doppler 身份验证，或者解除绑定。
 
 **setup**
-> Interactively bind the current directory to a project and config, so later commands need no **-p**/**-c**.
+> 以交互方式将当前目录绑定到某个项目和 config，此后的命令便无需再加 **-p**/**-c**。
 
 **run** **--** _command_
-> Run _command_ with the config's secrets injected into its environment.
+> 运行 _command_，并把该 config 的密钥注入其环境。
 
 **secrets**
-> List, get, set, delete, download, upload, and substitute secrets.
+> 列出、获取、设置、删除、下载、上传密钥，以及在模板中替换密钥。
 
 **projects** / **configs** / **environments**
-> Manage the project, config, and environment hierarchy.
+> 管理项目、config 和环境的层级结构。
 
 **configure**
-> View and edit the CLI's own configuration, including the auth token and the directory-to-config mapping.
+> 查看和编辑 CLI 自身的配置，包括身份验证令牌以及目录与 config 的映射。
 
 **import**
-> Import secrets from another source into a config.
+> 从其他来源把密钥导入某个 config。
 
 **activity**
-> Show the audit log of recent changes.
+> 显示近期变更的审计日志。
 
 **me**
-> Show which identity the current token belongs to.
+> 显示当前令牌对应的身份。
 
 **open**
-> Open the current project's dashboard in a browser.
+> 在浏览器中打开当前项目的仪表盘。
 
 **update**
-> Update the CLI itself to the latest version.
+> 把 CLI 自身更新到最新版本。
 
 # PARAMETERS
 
 **-p**, **--project** _NAME_ / **-c**, **--config** _NAME_
-> Project and config to act on, overriding what `doppler setup` chose for this directory.
+> 指定要操作的项目和 config，覆盖 `doppler setup` 为该目录所做的选择。
 
 **--command** _STRING_
-> Pass the command to **run** as a single shell string instead of after `--`.
+> 以单条 shell 字符串的形式把命令传给 **run**，而不是放在 `--` 之后。
 
 **--preserve-env** [_LIST_]
-> Let existing environment values win over Doppler's for the named secrets.
+> 就列出的密钥而言，让既有环境变量的取值优先于 Doppler 的。
 
 **--mount** _PATH_
-> Write secrets to an ephemeral file instead of injecting them into the environment.
+> 将密钥写入临时文件，而不是注入环境中。
 
 **--fallback** _PATH_, **--fallback-only**
-> Use an encrypted local fallback file so processes still start when Doppler is unreachable.
+> 使用加密的本地后备文件，Doppler 不可达时进程依然能够启动。
 
 **--json**
-> Print output as JSON.
+> 以 JSON 格式打印输出。
 
 # DESCRIPTION
 
-**Doppler** is a hosted secrets manager, and its CLI exists mainly to keep secrets out of files. The central command is **doppler run**, which fetches the current config's secrets and injects them as environment variables into a child process. Nothing is written to disk, so there is no `.env` to leak, commit, or leave stale.
+**Doppler** 是一个托管型密钥管理平台，它的 CLI 存在的首要目的就是让密钥远离文件。核心命令是 **doppler run**：取得当前 config 的密钥，并以环境变量的形式注入子进程。全程没有任何内容落盘，因而也就不存在可能泄露、被误提交或逐渐过期的 `.env` 文件。
 
-The model is a three-level hierarchy: a *project* per service, an *environment* per stage (dev, staging, production), and a *config* holding the actual key/value pairs. `doppler setup` records which project and config a directory belongs to, so that a developer can `cd` into a repository and have `doppler run` pick the right secrets automatically.
+其模型是一个三层结构：每个服务一个*项目*，每个阶段（dev、staging、production）一个*环境*，以及存放实际键值对的 *config*。`doppler setup` 会记录目录所属的项目和 config，于是开发者只需 `cd` 进入仓库，`doppler run` 就能自动选对密钥。
 
-For CI and production, a *service token* scoped to a single config replaces the interactive login, which is why the same command works unchanged on a laptop and in a pipeline. An encrypted **fallback file** is written after each successful fetch so that a deploy still comes up if Doppler itself is unreachable.
+在 CI 和生产环境中，作用于单一 config 的*服务令牌*取代了交互式登录，因此同一条命令在笔记本电脑上和流水线里都能原样工作。每次成功拉取后还会写入一份加密的**后备文件**，即使 Doppler 自身不可达，部署也照常可以启动。
 
 # CAVEATS
 
-Doppler is a commercial SaaS product: it needs an account, and secrets are fetched over the network at process start, so an outage or a missing token stops your application from booting unless a fallback file is in place. Secrets injected into the environment are visible to the child process and its descendants, and on Linux to anyone who can read `/proc/<pid>/environ` for that user, so **--mount** is the safer option for high-value credentials. Exporting with `secrets download --no-file` puts plaintext on your terminal and into shell history, which defeats much of the point of using the tool.
+Doppler 是商业 SaaS 产品：需要账号，且密钥在进程启动时经由网络获取，一旦出现故障或缺失令牌，应用就无法启动，除非提前备好后备文件。注入环境中的密钥对子进程及其后代均可见；在 Linux 上，同一用户下任何能读取 `/proc/<pid>/environ` 的进程同样能看到，所以对高价值凭据而言，**--mount** 是更稳妥的选择。用 `secrets download --no-file` 导出会把明文留在终端和 Shell 历史中，这基本抵消了使用这个工具的意义。
 
 # HISTORY
 
-Doppler was founded in **2018**, part of a wave of tools reacting to the ubiquity of `.env` files, which are easy to use, easy to commit by accident, and impossible to rotate centrally. The CLI is open source and written in Go, even though the backend service is proprietary, so the injection mechanism can be audited independently of the platform.
+Doppler 创立于 **2018 年**，属于回应 `.env` 文件泛滥的那一波工具——这类文件用着方便、容易误提交，却无法集中轮换。尽管后端服务是专有的，CLI 却是用 Go 编写的开源程序，因此注入机制可以独立于平台接受审查。
 
 # INSTALL
 
@@ -128,4 +128,3 @@ Doppler was founded in **2018**, part of a wave of tools reacting to the ubiquit
 ```[Documentation](https://docs.doppler.com/docs/cli)```
 
 <!-- verified: 2026-07-14 -->
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-optimize and reduce Docker image sizes
+优化并缩减 Docker 镜像体积
 
 # TLDR
 
-**Analyze and slim an image**
+**分析并瘦身一个镜像**
 
 ```docker-slim build [image]```
 
-**Profile an image**
+**分析镜像**
 
 ```docker-slim profile [image]```
 
-**Lint a Dockerfile**
+**检查 Dockerfile**
 
 ```docker-slim lint [Dockerfile]```
 
-**Generate Dockerfile from image**
+**从镜像生成 Dockerfile**
 
 ```docker-slim xray [image]```
 
-**Slim with HTTP probes**
+**使用 HTTP 探测进行瘦身**
 
 ```docker-slim build --http-probe [image]```
 
-**Slim keeping shell access**
+**瘦身时保留 shell 访问能力**
 
 ```docker-slim build --include-shell [image]```
 
@@ -35,37 +35,37 @@ optimize and reduce Docker image sizes
 # SUBCOMMANDS
 
 **build**
-> Analyze and create optimized image.
+> 分析并创建优化后的镜像。
 
 **profile**
-> Analyze image without building.
+> 仅分析镜像而不构建。
 
 **xray**
-> Inspect image internals.
+> 检查镜像内部结构。
 
 **lint**
-> Lint Dockerfile.
+> 检查 Dockerfile。
 
 **version**
-> Show version info.
+> 显示版本信息。
 
 # PARAMETERS
 
 **--http-probe**
-> Enable HTTP probing.
+> 启用 HTTP 探测。
 
 **--include-shell**
-> Include shell in slimmed image.
+> 在瘦身后保留 shell。
 
 **--target** _string_
-> Target output image name.
+> 目标输出镜像名称。
 
 **--expose** _port_
-> Expose additional ports.
+> 暴露额外的端口。
 
 # DESCRIPTION
 
-**docker-slim** (also known as SlimToolkit) analyzes and optimizes Docker images, reducing size significantly while maintaining functionality. Uses static and dynamic analysis. The tool works by executing the container, monitoring which files and dependencies are actually used, then creating a minimal image containing only those components. Can reduce image sizes by up to 30x while preserving application functionality.
+**docker-slim**（又称 SlimToolkit）通过静态和动态分析来分析并优化 Docker 镜像，在保持功能的前提下显著减小体积。其工作原理是运行容器，监测实际用到的文件和依赖，然后创建只包含这些组件的最小化镜像。在保持应用功能的同时，最多可将镜像体积缩小 30 倍。
 
 # INSTALL
 
@@ -86,4 +86,3 @@ optimize and reduce Docker image sizes
 ```[Homepage](https://slimtoolkit.org/)```
 
 <!-- verified: 2026-07-11 -->
-

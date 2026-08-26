@@ -1,22 +1,22 @@
 # TAGLINE
 
-system default text editor
+系统默认文本编辑器
 
 # TLDR
 
-**Open the default editor**
+**打开默认编辑器**
 
 ```editor [file.txt]```
 
-**Change default editor**
+**更改默认编辑器**
 
 ```sudo update-alternatives --config editor```
 
-**Set editor via environment**
+**通过环境变量设置编辑器**
 
 ```export EDITOR=vim```
 
-**Set visual editor**
+**设置可视化编辑器**
 
 ```export VISUAL=nano```
 
@@ -26,9 +26,9 @@ system default text editor
 
 # DESCRIPTION
 
-**editor** is a symbolic link to the system's default text editor. On Debian-based systems /usr/bin/editor is managed by the alternatives system and typically points to nano, vim, or another installed editor. It is a Debian convention rather than a program in its own right, and it does not exist on most non-Debian distributions.
+**editor** 是指向系统默认文本编辑器的符号链接。在基于 Debian 的系统上，/usr/bin/editor 由 alternatives 系统管理，通常指向 nano、vim 或其他已安装的编辑器。它是 Debian 的一项约定而非独立程序，在大多数非 Debian 发行版上并不存在。
 
-The editor command provides a standard way for programs to invoke a text editor. Commands like crontab, visudo, and git commit use the EDITOR or VISUAL environment variables to determine which editor to launch, falling back to sensible-editor or /usr/bin/editor when neither is set.
+editor 命令为程序提供了一种调用文本编辑器的标准方式。crontab、visudo 和 git commit 等命令会使用 EDITOR 或 VISUAL 环境变量来确定要启动的编辑器，当两者都未设置时回退到 sensible-editor 或 /usr/bin/editor。
 
 # CONFIGURATION
 
@@ -46,14 +46,14 @@ export VISUAL="code --wait"
 
 # EDITOR PRIORITY
 
-Programs typically check in order:
-1. VISUAL (for graphical terminals)
-2. EDITOR (for any terminal)
-3. System default (editor, /usr/bin/editor)
+程序通常按以下顺序检查：
+1. VISUAL（面向图形终端）
+2. EDITOR（适用于任何终端）
+3. 系统默认（editor、/usr/bin/editor）
 
 # CAVEATS
 
-The editor command may not exist on all systems. Environment variables override system settings. Some programs ignore EDITOR and use their own configuration. Graphical editors need --wait or similar flag for proper integration.
+editor 命令可能并非在所有系统上都存在。环境变量会覆盖系统设置。某些程序忽略 EDITOR 并使用自己的配置。图形化编辑器需要 --wait 或类似标志才能正确集成。
 
 # SEE ALSO
 

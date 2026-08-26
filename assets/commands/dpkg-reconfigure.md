@@ -1,18 +1,18 @@
 # TAGLINE
 
-reconfigure installed Debian packages
+重新配置已安装的 Debian 软件包
 
 # TLDR
 
-**Reconfigure** packages
+**重新配置**软件包
 
 ```dpkg-reconfigure [package1] [package2]```
 
-Reconfigure **console font** setup
+重新配置**控制台字体**设置
 
 ```dpkg-reconfigure console-setup```
 
-Reconfigure **timezone**
+重新配置**时区**
 
 ```dpkg-reconfigure tzdata```
 
@@ -22,29 +22,29 @@ Reconfigure **timezone**
 
 # DESCRIPTION
 
-**dpkg-reconfigure** reconfigures already installed packages on Debian-based systems. It runs a package's post-installation configuration scripts again, presenting the same prompts shown during initial installation and allowing you to change previously configured settings.
+**dpkg-reconfigure** 在基于 Debian 的系统上重新配置已安装的软件包。它会再次运行软件包的安装后配置脚本，呈现与初次安装时相同的提问，让你可以修改之前配置过的选项。
 
-The tool uses the debconf system to manage configuration questions and responses. It's particularly useful for system settings that are difficult to change manually, such as locales, keyboard layouts, timezones, and display manager configurations.
+该工具通过 debconf 系统管理配置问题和答案。对于那些难以手动修改的系统设置——如 locale、键盘布局、时区和显示管理器配置——它尤其有用。
 
-Different frontends (dialog, readline, noninteractive) control how questions are presented, making it suitable for both interactive terminal sessions and automated scripts.
+不同的前端（dialog、readline、noninteractive）控制问题的呈现方式，使其既适合交互式终端会话，也适合自动化脚本。
 
 # PARAMETERS
 
 **-f, --frontend** _frontend_
-> Use specified frontend (dialog, readline, noninteractive)
+> 使用指定的前端（dialog、readline、noninteractive）
 
 **-p, --priority** _priority_
-> Priority of questions (low, medium, high, critical)
+> 问题优先级（low、medium、high、critical）
 
 **-a, --all**
-> Reconfigure all packages
+> 重新配置所有软件包
 
 **--default-priority**
-> Use default priority
+> 使用默认优先级
 
 # CAVEATS
 
-Debian/Ubuntu specific. Not all packages support reconfiguration. Some reconfigurations require root privileges.
+仅适用于 Debian/Ubuntu。并非所有软件包都支持重新配置。某些重新配置操作需要 root 权限。
 
 # INSTALL
 

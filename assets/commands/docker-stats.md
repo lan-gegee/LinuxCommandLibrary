@@ -1,26 +1,26 @@
 # TAGLINE
 
-display live container resource usage statistics
+实时显示容器的资源使用统计
 
 # TLDR
 
-**Show live stats for all containers**
+**显示所有容器的实时统计**
 
 ```docker stats```
 
-**Show stats for specific containers**
+**显示指定容器的统计**
 
 ```docker stats [container1] [container2]```
 
-**Show one-time snapshot**
+**显示一次性快照**
 
 ```docker stats --no-stream```
 
-**Custom output format**
+**自定义输出格式**
 
 ```docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"```
 
-**Include stopped containers**
+**包括已停止的容器**
 
 ```docker stats -a```
 
@@ -31,20 +31,20 @@ display live container resource usage statistics
 # PARAMETERS
 
 **-a**, **--all**
-> Show all containers (default shows running).
+> 显示所有容器（默认只显示运行中的）。
 
 **--no-stream**
-> Disable streaming, show single snapshot.
+> 禁用流式输出，只显示单次快照。
 
 **--no-trunc**
-> Don't truncate output.
+> 不截断输出。
 
 **--format** _string_
-> Format output using Go template.
+> 使用 Go 模板格式化输出。
 
 # DESCRIPTION
 
-**docker stats** displays a live stream of container resource usage statistics including CPU percentage, memory usage/limit, network I/O, and block I/O.
+**docker stats** 实时显示容器资源使用统计流，包括 CPU 占用率、内存使用量/上限、网络 I/O 和块设备 I/O。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ display live container resource usage statistics
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

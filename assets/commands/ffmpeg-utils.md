@@ -1,30 +1,30 @@
 # TAGLINE
 
-utility functions for ffmpeg processing
+ffmpeg 处理的实用工具函数
 
 # TLDR
 
-**Get media information**
+获取媒体信息
 
 ```ffprobe [input.mp4]```
 
-**Show stream details**
+显示流详情
 
 ```ffprobe -show_streams [input.mp4]```
 
-**Output as JSON**
+以 JSON 输出
 
 ```ffprobe -print_format json -show_format [input.mp4]```
 
-**Analyze frames**
+分析帧
 
 ```ffprobe -show_frames [input.mp4]```
 
-**Get duration only**
+只获取时长
 
 ```ffprobe -v quiet -show_entries format=duration -of csv=p=0 [input.mp4]```
 
-**Show video stream info** only
+只显示视频流信息
 
 ```ffprobe -hide_banner -select_streams v:0 -show_streams [input.mp4]```
 
@@ -35,59 +35,59 @@ utility functions for ffmpeg processing
 # PARAMETERS
 
 _INPUT_
-> Media file to analyze.
+> 要分析的媒体文件。
 
 **-show_format**
-> Display container format info.
+> 显示容器格式信息。
 
 **-show_streams**
-> Display stream information.
+> 显示流信息。
 
 **-show_frames**
-> Display frame information.
+> 显示帧信息。
 
 **-print_format** _FORMAT_
-> Output format: json, xml, csv, flat.
+> 输出格式：json、xml、csv、flat。
 
 **-show_entries** _ENTRIES_
-> Select specific entries to show.
+> 选择要显示的特定条目。
 
 **-of** _FORMAT_
-> Output format (alias for print_format).
+> 输出格式（print_format 的别名）。
 
 **-select_streams** _SPEC_
-> Select only specified streams (e.g., v:0 for first video, a for all audio).
+> 只选择指定的流（如 v:0 表示第一个视频流，a 表示所有音频流）。
 
 **-show_chapters**
-> Display chapter information.
+> 显示章节信息。
 
 **-hide_banner**
-> Suppress printing banner with copyright and build info.
+> 不打印包含版权和构建信息的横幅。
 
 **-v** _LEVEL_
-> Set logging verbosity (e.g., quiet, error, warning, info).
+> 设置日志详细程度（如 quiet、error、warning、info）。
 
 **-count_frames**
-> Count the number of frames per stream (requires decoding, slow).
+> 统计每个流的帧数（需要解码，速度慢）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ffprobe** (part of ffmpeg utils) gathers information from multimedia streams and prints it in human or machine-readable formats. It reveals codec details, duration, bitrate, resolution, and metadata.
+**ffprobe**（ffmpeg 工具集的一部分）从多媒体流中收集信息，并以人类或机器可读的格式打印。它揭示编解码器细节、时长、码率、分辨率和元数据。
 
-The tool is essential for scripting video workflows, checking file properties before processing, and debugging encoding issues. Structured output formats enable parsing by other tools.
+该工具对于编写视频工作流脚本、在处理前检查文件属性以及调试编码问题至关重要。结构化的输出格式便于其他工具解析。
 
-ffprobe provides detailed stream analysis without modifying files, making it safe for inspection tasks.
+ffprobe 提供详细的流分析且不修改文件，因此用于检查任务是安全的。
 
 # CAVEATS
 
-Full frame analysis can be slow. Some formats have incomplete metadata. Output format varies by file type.
+完整的帧分析可能较慢。某些格式的元数据不完整。输出格式因文件类型而异。
 
 # HISTORY
 
-ffprobe was added to ffmpeg to provide dedicated media analysis functionality, separating inspection from processing. It's become the standard tool for programmatic media file analysis.
+ffprobe 加入 ffmpeg 是为了提供专门的媒体分析功能，将检查与处理分离。它已成为程序化媒体文件分析的标准工具。
 
 # INSTALL
 

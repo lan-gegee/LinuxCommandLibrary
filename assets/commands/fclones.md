@@ -1,30 +1,30 @@
 # TAGLINE
 
-high-performance duplicate file finder
+高性能重复文件查找工具
 
 # TLDR
 
-**Find duplicate files**
+**查找重复文件**
 
 ```fclones group [directory]```
 
-**Remove duplicates interactively**
+**交互式删除重复文件**
 
 ```fclones group [directory] | fclones remove```
 
-**Limit scan depth**
+**限制扫描深度**
 
 ```fclones group --depth [2] [directory]```
 
-**Replace duplicates with hard links**
+**用硬链接替换重复文件**
 
 ```fclones group [directory] | fclones link```
 
-**Show duplicate statistics**
+**显示重复文件统计**
 
 ```fclones group [directory] --format fdupes```
 
-**Move duplicates to** directory
+**将重复文件移动到**目录
 
 ```fclones group [directory] | fclones move [trash_dir]```
 
@@ -35,47 +35,47 @@ high-performance duplicate file finder
 # PARAMETERS
 
 _COMMAND_
-> Operation: group, remove, link, move.
+> 操作：group、remove、link、move。
 
 _PATHS_
-> Directories or files to scan.
+> 要扫描的目录或文件。
 
 **--depth** _N_
-> Maximum directory depth.
+> 最大目录深度。
 
 **--min** _SIZE_
-> Minimum file size.
+> 最小文件大小。
 
 **--max** _SIZE_
-> Maximum file size.
+> 最大文件大小。
 
 **--format** _FORMAT_
-> Output format: default, fdupes, csv, json.
+> 输出格式：default、fdupes、csv、json。
 
 **-R**, **--follow-links**
-> Follow symbolic links.
+> 跟随符号链接。
 
 **--threads** _N_
-> Number of threads.
+> 线程数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fclones** is a high-performance duplicate file finder written in Rust. It uses multiple algorithms including hash-based comparison and parallel processing for fast scanning of large file systems.
+**fclones** 是一款用 Rust 编写的高性能重复文件查找工具。它使用多种算法，包括基于哈希的比较和并行处理，可快速扫描大型文件系统。
 
-The tool works in two phases: finding duplicates with 'group' and acting on them with remove, link, or move. Output can be piped between commands or saved for review before action.
+该工具分两个阶段工作：先用 'group' 找出重复文件，再用 remove、link 或 move 对其处理。输出可在命令间通过管道传递，也可保存下来在操作前进行审查。
 
-fclones optimizes for speed with techniques like partial hashing, caching, and SIMD acceleration.
+fclones 通过部分哈希、缓存和 SIMD 加速等技术优化速度。
 
 # CAVEATS
 
-Requires careful review before removal. Hard linking changes all copies. Large directories may use significant memory.
+删除前需仔细审查。硬链接会影响所有副本。大型目录可能占用大量内存。
 
 # HISTORY
 
-fclones was created as a modern alternative to tools like fdupes, emphasizing performance through Rust's speed and memory safety. It achieves significant speedups through parallelism and optimized hashing.
+fclones 作为 fdupes 等工具的现代替代品而创建，借助 Rust 的速度和内存安全特性强调性能。它通过并行化和优化的哈希算法实现了显著的加速。
 
 # INSTALL
 

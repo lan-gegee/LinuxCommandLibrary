@@ -1,26 +1,26 @@
 # TAGLINE
 
-check or set features of DVD-RAM discs
+检查或设置 DVD-RAM 盘片的特性
 
 # TLDR
 
-**Show current settings** of a DVD-RAM disc
+**显示 DVD-RAM 盘片的当前设置**
 
 ```dvd-ram-control [/dev/dvd]```
 
-**Make the disc read-only** (persistent write protection)
+**使盘片变为只读**（持久写保护）
 
 ```dvd-ram-control -rdonly [/dev/dvd]```
 
-**Re-enable read/write** access
+**重新启用读/写**访问
 
 ```dvd-ram-control -rdwr [/dev/dvd]```
 
-**Enable automatic write relocation** (AWRE)
+**启用自动写重定位**（AWRE）
 
 ```dvd-ram-control -awre [/dev/dvd]```
 
-**Enable automatic read relocation** (ARRE)
+**启用自动读重定位**（ARRE）
 
 ```dvd-ram-control -arre [/dev/dvd]```
 
@@ -31,33 +31,33 @@ check or set features of DVD-RAM discs
 # PARAMETERS
 
 _/dev/dvd_
-> The DVD-RAM drive device to operate on.
+> 要操作的 DVD-RAM 驱动器设备。
 
 **-rdonly**
-> Turn on persistent write protection (read-only).
+> 开启持久写保护（只读）。
 
 **-rdwr**
-> Turn off persistent write protection (read-write).
+> 关闭持久写保护（读写）。
 
 **-awre**
-> Toggle Automatic Write Relocation Enable.
+> 切换自动写重定位启用（AWRE）状态。
 
 **-arre**
-> Toggle Automatic Read Relocation Enable.
+> 切换自动读重定位启用（ARRE）状态。
 
 # DESCRIPTION
 
-**dvd-ram-control** is part of the **dvd+rw-tools** suite and lets you inspect or change low-level features of a DVD-RAM disc. Running it with no option flags prints the current state of the disc's Persistent Write Protection and AWRE/ARRE flags. Adding a flag toggles or sets the corresponding feature in the drive's defect management data.
+**dvd-ram-control** 是 **dvd+rw-tools** 工具集的一员，可用于检查或更改 DVD-RAM 盘片的底层特性。不带任何选项标志运行时会打印盘片当前的持久写保护状态和 AWRE/ARRE 标志。添加标志则会切换或设置驱动器缺陷管理数据中的相应特性。
 
-Persistent Write Protection (**-rdonly** / **-rdwr**) turns the whole disc into a read-only or read-write medium; AWRE and ARRE control automatic sector reallocation on write or read errors.
+持久写保护（**-rdonly** / **-rdwr**）会将整张盘片变成只读或可读写介质；AWRE 和 ARRE 控制在读或写出错时的扇区自动重分配。
 
 # CAVEATS
 
-Only works with DVD-RAM media (not DVD±R, DVD±RW, or Blu-ray). Needs access to the raw device (usually as root or as a member of the `cdrom`/`disk` group). Persistent Write Protection can outlive the current session — re-enable read/write explicitly before attempting to burn.
+仅适用于 DVD-RAM 介质（不适用于 DVD±R、DVD±RW 或蓝光）。需要访问原始设备（通常以 root 身份或作为 `cdrom`/`disk` 组成员）。持久写保护可能在当前会话结束后仍然生效——尝试刻录前请显式重新启用读/写。
 
 # HISTORY
 
-**dvd-ram-control** ships with **dvd+rw-tools** by **Andy Polyakov**, a suite of utilities for working with DVD±RW, DVD±R, and DVD-RAM media on Unix.
+**dvd-ram-control** 由 **Andy Polyakov** 开发，随 **dvd+rw-tools** 一起发布，这是一套用于在 Unix 上处理 DVD±RW、DVD±R 和 DVD-RAM 介质的实用工具。
 
 # INSTALL
 

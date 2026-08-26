@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage DigitalOcean CLI authentication contexts
+管理 DigitalOcean CLI 的认证上下文
 
 # TLDR
 
-**Initialize authentication**
+**初始化认证**
 
 ```doctl auth init```
 
-**Initialize with token** directly
+**直接使用令牌初始化**
 
 ```doctl auth init --access-token [token]```
 
-**List auth contexts**
+**列出认证上下文**
 
 ```doctl auth list```
 
-**Switch to context**
+**切换到指定上下文**
 
 ```doctl auth switch --context [context_name]```
 
-**Remove auth context**
+**移除认证上下文**
 
 ```doctl auth remove --context [context_name]```
 
@@ -31,44 +31,44 @@ manage DigitalOcean CLI authentication contexts
 # PARAMETERS
 
 _COMMAND_
-> Operation: init, list, switch, remove.
+> 操作：init、list、switch、remove。
 
 **init**
-> Initialize authentication with token.
+> 使用令牌初始化认证。
 
 **list**
-> List authentication contexts.
+> 列出认证上下文。
 
 **switch** **--context** _NAME_
-> Switch active context.
+> 切换活动上下文。
 
 **remove** **--context** _NAME_
-> Remove context.
+> 移除上下文。
 
 **--access-token** _TOKEN_
-> API access token.
+> API 访问令牌。
 
 **--context** _NAME_
-> Context name.
+> 上下文名称。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**doctl auth** manages authentication contexts for the DigitalOcean CLI. Contexts allow storing multiple API tokens for different accounts, teams, or environments.
+**doctl auth** 管理 DigitalOcean CLI 的认证上下文。上下文允许为不同的账户、团队或环境保存多个 API 令牌。
 
-The init command prompts for or accepts an API token, storing it securely. Multiple contexts can be configured and switched between, enabling management of different DigitalOcean accounts from a single CLI installation.
+init 命令会提示输入或直接接受 API 令牌，并将其安全存储。可以配置多个上下文并在其间切换，从而通过单个 CLI 安装管理多个 DigitalOcean 账户。
 
-Authentication tokens are obtained from the DigitalOcean control panel and provide API access according to their scope.
+认证令牌从 DigitalOcean 控制面板获取，并按其作用范围提供相应的 API 访问权限。
 
 # CAVEATS
 
-Tokens are stored locally. Token scopes determine available actions. Expired or revoked tokens require re-authentication. Contexts are machine-specific.
+令牌存储在本地。令牌的作用范围决定了可执行的操作。过期或被吊销的令牌需要重新认证。上下文是特定于机器的。
 
 # HISTORY
 
-doctl auth is part of the **doctl** CLI developed by **DigitalOcean**. Multi-context support enables users and organizations to manage multiple accounts efficiently.
+doctl auth 是 **DigitalOcean** 开发的 **doctl** CLI 的一部分。多上下文支持让用户和组织能够高效地管理多个账户。
 
 # INSTALL
 

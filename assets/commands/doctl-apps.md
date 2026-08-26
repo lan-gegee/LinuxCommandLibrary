@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage DigitalOcean App Platform applications
+管理 DigitalOcean App Platform 应用
 
 # TLDR
 
-**List all apps**
+**列出所有应用**
 
 ```doctl apps list```
 
-**Create app from** spec file
+**从 spec 文件创建应用**
 
 ```doctl apps create --spec [app.yaml]```
 
-**Get app details**
+**获取应用详情**
 
 ```doctl apps get [app_id]```
 
-**Delete an app**
+**删除一个应用**
 
 ```doctl apps delete [app_id]```
 
-**List app deployments**
+**列出应用的部署**
 
 ```doctl apps list-deployments [app_id]```
 
-**View deployment logs**
+**查看部署日志**
 
 ```doctl apps logs [app_id]```
 
-**Update app spec**
+**更新应用 spec**
 
 ```doctl apps update [app_id] --spec [app.yaml]```
 
@@ -39,47 +39,47 @@ manage DigitalOcean App Platform applications
 # PARAMETERS
 
 _COMMAND_
-> Operation: list, create, get, delete, update, logs, etc.
+> 操作：list、create、get、delete、update、logs 等。
 
 **list**
-> List all applications.
+> 列出所有应用。
 
 **create** **--spec** _FILE_
-> Create app from specification.
+> 从规范文件创建应用。
 
 **get** _APP_ID_
-> Get application details.
+> 获取应用详情。
 
 **delete** _APP_ID_
-> Delete application.
+> 删除应用。
 
 **list-deployments** _APP_ID_
-> List app deployments.
+> 列出应用的部署。
 
 **logs** _APP_ID_
-> View application logs.
+> 查看应用日志。
 
 **--spec** _FILE_
-> App specification file (YAML).
+> 应用规范文件（YAML）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**doctl apps** manages DigitalOcean App Platform applications. App Platform is a Platform-as-a-Service (PaaS) offering that builds, deploys, and scales apps automatically.
+**doctl apps** 管理 DigitalOcean App Platform 应用。App Platform 是一项平台即服务（PaaS）产品，可自动构建、部署和伸缩应用。
 
-The command handles the full app lifecycle: creating apps from specifications, managing deployments, viewing logs, and configuring scaling. App specs define services, workers, static sites, and jobs in YAML format.
+该命令覆盖应用的完整生命周期：从规范创建应用、管理部署、查看日志以及配置伸缩。App 规范以 YAML 格式定义服务、worker、静态站点和作业。
 
-App Platform supports various runtimes including Docker, Node.js, Python, Go, and static sites, with automatic builds from Git repositories.
+App Platform 支持 Docker、Node.js、Python、Go 和静态站点等多种运行时，并可从 Git 仓库自动构建。
 
 # CAVEATS
 
-App Platform incurs usage charges. Build times vary with app complexity. Some features require specific spec configurations. Deployment rollbacks may need manual intervention.
+App Platform 会产生使用费用。构建时间因应用复杂度而异。某些功能需要特定的 spec 配置。部署回滚可能需要手动干预。
 
 # HISTORY
 
-doctl apps was added to the DigitalOcean CLI when App Platform launched in **2020**. It provides CLI access to DigitalOcean's managed application hosting platform.
+doctl apps 于 **2020 年** App Platform 发布时加入 DigitalOcean CLI，为 DigitalOcean 托管的应用托管平台提供了命令行访问方式。
 
 # INSTALL
 

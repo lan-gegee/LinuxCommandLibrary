@@ -1,14 +1,14 @@
 # TAGLINE
 
-remove DVC initialization from project
+从项目中移除 DVC 初始化
 
 # TLDR
 
-**Remove DVC from project**
+**从项目中移除 DVC**
 
 ```dvc destroy```
 
-**Force destroy without confirmation**
+**强制销毁而不确认**
 
 ```dvc destroy -f```
 
@@ -19,19 +19,19 @@ remove DVC initialization from project
 # PARAMETERS
 
 **-f**, **--force**
-> Force destroy without confirmation.
+> 强制销毁而不进行确认。
 
 # DESCRIPTION
 
-**dvc destroy** completely removes DVC initialization from a project, effectively uninstalling DVC from the repository. It deletes the .dvc directory (containing cache, configuration, and internal state) along with all .dvc metadata files throughout the project.
+**dvc destroy** 从项目中完全移除 DVC 初始化，相当于从仓库中卸载 DVC。它会删除 .dvc 目录（包含缓存、配置和内部状态），以及整个项目中所有的 .dvc 元数据文件。
 
-Importantly, the actual data files tracked by DVC are preserved. Only the DVC tracking infrastructure is removed. This means your large datasets and model files remain in the workspace, they simply lose their version control status.
+需要注意的是，DVC 跟踪的实际数据文件会被保留下来。被移除的只是 DVC 的跟踪基础设施。这意味着你的大型数据集和模型文件仍留在工作区中，只是不再具有版本控制状态。
 
-This command is irreversible and should be used with caution. Before destroying, ensure you've pushed important data to remote storage if you might need to restore DVC tracking later. After destroying, .gitignore entries added by DVC remain and may need manual cleanup.
+该命令不可逆，应谨慎使用。在销毁之前，如果之后可能需要恢复 DVC 跟踪，请确保已将重要数据推送到远程存储。销毁后，DVC 添加到 .gitignore 中的条目仍然存在，可能需要手动清理。
 
 # CAVEATS
 
-This operation is irreversible. Make sure to backup any data or push to remote storage before destroying.
+此操作不可逆。销毁前请务必备份数据或推送到远程存储。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ This operation is irreversible. Make sure to backup any data or push to remote s
 ```[Documentation](https://dvc.org/doc/command-reference/destroy)```
 
 <!-- verified: 2026-07-14 -->
-

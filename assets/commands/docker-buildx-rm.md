@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove Docker Buildx builder instances
+移除 Docker Buildx 构建器实例
 
 # TLDR
 
-**Remove a specific** builder instance
+**移除指定的**构建器实例
 
 ```docker buildx rm [builder_name]```
 
-**Remove a builder** without confirmation prompt
+**移除构建器**且不弹出确认提示
 
 ```docker buildx rm -f [builder_name]```
 
-**Remove all inactive** builders
+**移除所有非活动**构建器
 
 ```docker buildx rm --all-inactive```
 
-**Remove a builder** but keep the BuildKit daemon running
+**移除构建器**但保持 BuildKit 守护进程运行
 
 ```docker buildx rm --keep-daemon [builder_name]```
 
-**Remove a builder** but preserve its state for reuse
+**移除构建器**但保留其状态以便复用
 
 ```docker buildx rm --keep-state [builder_name]```
 
@@ -31,29 +31,29 @@ Remove Docker Buildx builder instances
 # PARAMETERS
 
 **--all-inactive**
-> Remove all inactive builder instances.
+> 移除所有非活动的构建器实例。
 
 **-f**, **--force**
-> Do not prompt for confirmation.
+> 不弹出确认提示。
 
 **--keep-daemon**
-> Keep the BuildKit daemon running after removing the builder. Supported by docker-container and kubernetes drivers only.
+> 移除构建器后仍保持 BuildKit 守护进程运行。仅 docker-container 和 kubernetes 驱动支持。
 
 **--keep-state**
-> Preserve BuildKit state so a new builder with the same name can reuse it. Supported by docker-container driver only.
+> 保留 BuildKit 状态，使之后同名的新构建器可以复用。仅 docker-container 驱动支持。
 
 **--timeout** _duration_
-> Override default timeout for loading builder status (default: 20s).
+> 覆盖加载构建器状态的默认超时时间（默认：20s）。
 
 # DESCRIPTION
 
-**docker buildx rm** removes the specified builder instance or, if no name is given, the currently selected builder. Removing the **default** builder is a no-op since it uses the Docker daemon's built-in build capabilities.
+**docker buildx rm** 移除指定的构建器实例；若未给出名称，则移除当前选定的构建器。移除 **default** 构建器是空操作，因为它使用 Docker 守护进程的内置构建能力。
 
-The command stops the associated BuildKit daemon and cleans up its state by default. Use **--keep-daemon** to leave the daemon running independently, or **--keep-state** to preserve build cache and state for a future builder with the same name.
+默认情况下，该命令会停止关联的 BuildKit 守护进程并清理其状态。使用 **--keep-daemon** 可让守护进程继续独立运行；使用 **--keep-state** 可保留构建缓存和状态，供未来同名的构建器使用。
 
 # CAVEATS
 
-The default builder cannot be removed. The **--keep-daemon** flag only works with docker-container and kubernetes drivers. The **--keep-state** flag only works with the docker-container driver.
+默认构建器无法移除。**--keep-daemon** 标志只对 docker-container 和 kubernetes 驱动有效。**--keep-state** 标志只对 docker-container 驱动有效。
 
 # INSTALL
 

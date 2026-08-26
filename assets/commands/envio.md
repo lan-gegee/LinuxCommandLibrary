@@ -1,38 +1,38 @@
 # TAGLINE
 
-Secure encrypted profiles for environment variables
+面向环境变量的安全加密配置档案
 
 # TLDR
 
-**Initialize** envio in a project directory
+在项目目录中**初始化** envio
 
 ```envio init```
 
-**Create** an encrypted profile
+**创建**加密档案
 
 ```envio create [profile]```
 
-**Create** a profile with variables
+**创建**带变量的档案
 
 ```envio create [profile] -e [KEY=value] [OTHER=value]```
 
-**List** profiles
+**列出**所有档案
 
 ```envio list```
 
-**Show** variables in a profile
+**查看**档案中的变量
 
 ```envio show [profile]```
 
-**Set** or update a variable
+**设置**或更新变量
 
 ```envio set [profile] [KEY=value]```
 
-**Start a shell** with the profile loaded
+**启动一个加载了该档案的** Shell
 
 ```envio shell [profile]```
 
-**Run a command** with the profile environment
+在该档案的环境下**运行一条命令**
 
 ```envio run [profile] -- [command]```
 
@@ -42,57 +42,57 @@ Secure encrypted profiles for environment variables
 
 # DESCRIPTION
 
-**envio** manages named **profiles** of environment variables with optional encryption (none, passphrase, symmetric key, or GPG). Profiles can be listed, inspected, edited, checked for expiry, loaded into a new shell, or applied to a single command. Intended for project secrets and multi-environment configuration without committing plaintext **.env** files.
+**envio** 以命名的**档案**（profile）管理环境变量，支持可选的加密方式（无加密、口令、对称密钥或 GPG）。档案可以被列出、查看、编辑、检查过期情况、加载进新的 shell，或应用于单条命令。它面向项目机密和多环境配置，避免提交明文 **.env** 文件。
 
-Detailed guide: https://github.com/humblepenguinn/envio/blob/main/docs/usage.md
+详细指南见：https://github.com/humblepenguinn/envio/blob/main/docs/usage.md
 
 # PARAMETERS
 
 **init**
 
-> Initialize envio for the current project directory.
+> 为当前项目目录初始化 envio。
 
 **create** | **new** *profile* [**-e** *KEY[=value]*...] [**-k** *cipher*] [**-f** *file*] [**-d** *description*] [**-c**] [**-x**]
 
-> Create a profile. **-k** selects **none**, **passphrase**, **symmetric**, or **gpg**. **-e** adds envs; **-f** imports from a file; **-c**/**-x** prompt for comments/expiry.
+> 创建档案。**-k** 选择 **none**、**passphrase**、**symmetric** 或 **gpg**。**-e** 添加环境变量；**-f** 从文件导入；**-c**/**-x** 提示输入注释/过期时间。
 
 **list** | **ls** [**--no-pretty-print**]
 
-> List profiles.
+> 列出所有档案。
 
 **show** *profile* [**-c**] [**-x**] [**--no-pretty-print**]
 
-> Display keys/values (optional comments and expiration).
+> 显示键值对（可选注释与过期时间）。
 
 **set** *profile* *KEY[=value]*... [**-c**] [**-x**]
 
-> Add or update variables.
+> 添加或更新变量。
 
 **unset** *profile* *KEY*...
 
-> Remove variables.
+> 移除变量。
 
 **edit** *profile*
 
-> Open decrypted profile in **$EDITOR** (requires **EDITOR**).
+> 在 **$EDITOR** 中打开解密后的档案（需要设置 **EDITOR**）。
 
 **check** *profile*
 
-> Report expired or soon-to-expire variables.
+> 报告已过期或即将过期的变量。
 
 **shell** *profile*
 
-> Spawn a shell with the profile environment injected.
+> 启动注入了档案环境的 shell。
 
 **run** *profile* **--** *command*
 
-> Run one command with the profile applied.
+> 应用档案后运行单条命令。
 
-Encryption method for a profile cannot be changed after creation. Keep passphrase/symmetric keys safe.
+档案的加密方法在创建后不可更改。请妥善保管口令/对称密钥。
 
 # CAVEATS
 
-**edit** writes secrets to a temporary file (mode 0600 on Unix) while the editor is open. Symmetric keys are shown once at creation—store them offline. Prefer GPG or strong passphrases for production secrets.
+编辑器打开期间，**edit** 会将机密写入临时文件（Unix 上权限为 0600）。对称密钥只在创建时显示一次——请离线保存。生产环境的机密建议优先使用 GPG 或高强度口令。
 
 # INSTALL
 

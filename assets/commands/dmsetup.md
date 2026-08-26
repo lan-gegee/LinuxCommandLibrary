@@ -1,34 +1,34 @@
 # TAGLINE
 
-device-mapper low-level administration
+device-mapper 底层管理工具
 
 # TLDR
 
-**List all device** mapper devices
+**列出所有 device-mapper 设备**
 
 ```dmsetup ls```
 
-**Show device status**
+**显示设备状态**
 
 ```dmsetup status [device_name]```
 
-**Show detailed information**
+**显示详细信息**
 
 ```dmsetup info```
 
-**Show device table**
+**显示设备表**
 
 ```dmsetup table [device_name]```
 
-**Create a device** mapper target
+**创建一个 device-mapper 目标**
 
 ```dmsetup create [name] --table "[0 size linear /dev/sda 0]"```
 
-**Remove a device**
+**移除设备**
 
 ```dmsetup remove [device_name]```
 
-**Suspend a device**
+**挂起设备**
 
 ```dmsetup suspend [device_name]```
 
@@ -39,47 +39,47 @@ device-mapper low-level administration
 # PARAMETERS
 
 _COMMAND_
-> Operation: ls, status, info, table, create, remove, etc.
+> 操作类型：ls、status、info、table、create、remove 等。
 
 **ls**
-> List device mapper devices.
+> 列出 device-mapper 设备。
 
 **status** [_DEVICE_]
-> Show device status.
+> 显示设备状态。
 
 **info** [_DEVICE_]
-> Show detailed information.
+> 显示详细信息。
 
 **table** [_DEVICE_]
-> Show device table.
+> 显示设备表。
 
 **create** _NAME_
-> Create new device.
+> 创建新设备。
 
 **remove** _DEVICE_
-> Remove device.
+> 移除设备。
 
 **suspend**/**resume** _DEVICE_
-> Suspend/resume device.
+> 挂起/恢复设备。
 
 **--table** _TABLE_
-> Device table specification.
+> 设备表定义。
 
 # DESCRIPTION
 
-**dmsetup** is the low-level administration tool for the Linux device-mapper. Device-mapper provides a generic way to create virtual block devices that map onto physical devices through various target types.
+**dmsetup** 是 Linux device-mapper 的底层管理工具。device-mapper 提供了一种通用机制，通过各种目标类型创建映射到物理设备的虚拟块设备。
 
-The tool can create, configure, and manage device-mapper devices including linear mappings, striped volumes, snapshots, mirrors, and more. It's the foundation underlying LVM, dm-crypt, and other Linux storage technologies.
+该工具可以创建、配置和管理各类 device-mapper 设备，包括线性映射、条带卷、快照、镜像等。它是 LVM、dm-crypt 及其他 Linux 存储技术的底层基础。
 
-While typically used indirectly through LVM or cryptsetup, dmsetup provides direct access for debugging, custom configurations, or understanding device-mapper internals.
+虽然通常通过 LVM 或 cryptsetup 间接使用，但 dmsetup 提供了直接访问能力，适用于调试、自定义配置或理解 device-mapper 内部机制。
 
 # CAVEATS
 
-Requires root privileges. Incorrect use can cause data loss. Tables must specify valid targets and parameters. Some operations require suspended devices.
+需要 root 权限。使用不当可能导致数据丢失。设备表必须指定有效的目标和参数。某些操作要求设备处于挂起状态。
 
 # HISTORY
 
-dmsetup is part of the **device-mapper** component of **LVM2**, developed primarily by **Red Hat** and **Sistina Software**. Device-mapper was merged into the Linux kernel in **2003**, providing the foundation for flexible storage management.
+dmsetup 属于 **LVM2** 的 **device-mapper** 组件，主要由 **Red Hat** 和 **Sistina Software** 开发。device-mapper 于 **2003 年**合入 Linux 内核，为灵活的存储管理奠定了基础。
 
 # INSTALL
 

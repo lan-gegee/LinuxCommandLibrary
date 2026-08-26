@@ -1,34 +1,34 @@
 # TAGLINE
 
-Perl regex-based file renaming
+基于 Perl 正则表达式的文件批量重命名
 
 # TLDR
 
-**Rename using Perl expression**
+**用 Perl 表达式重命名**
 
 ```file-rename 's/old/new/' [files]```
 
-**Rename to lowercase**
+**重命名为小写**
 
 ```file-rename 'y/A-Z/a-z/' [files]```
 
-**Dry run to preview changes**
+**试运行以预览更改**
 
 ```file-rename -n 's/pattern/replacement/' [files]```
 
-**Replace spaces with underscores**
+**把空格替换为下划线**
 
 ```file-rename 's/ /_/g' [files]```
 
-**Add prefix to files**
+**为文件添加前缀**
 
 ```file-rename 's/^/prefix_/' [files]```
 
-**Change file extension**
+**修改文件扩展名**
 
 ```file-rename 's/\.jpeg$/.jpg/' [*.jpeg]```
 
-**Remove numbering prefix from files**
+**移除文件名中的编号前缀**
 
 ```file-rename 's/^\d+_//' [files]```
 
@@ -39,34 +39,34 @@ Perl regex-based file renaming
 # PARAMETERS
 
 **-n**, **--no-act**
-> Dry run, show what would happen.
+> 试运行，只显示将要进行的操作。
 
 **-v**, **--verbose**
-> Print names of files renamed.
+> 打印被重命名文件的名称。
 
 **-f**, **--force**
-> Overwrite existing files.
+> 覆盖已存在的文件。
 
 **-0**, **--null**
-> Expect null-terminated input from stdin (for use with find -print0).
+> 从标准输入读取以空字符结尾的数据（配合 find -print0 使用）。
 
 **-d**, **--filename**
-> Rename only the filename component, not the directory part.
+> 只重命名文件名部分，不改动目录部分。
 
 **-e** _expression_
-> Apply expression to filename. Multiple -e options can be chained.
+> 对文件名应用表达式。多个 -e 选项可以串联使用。
 
 # DESCRIPTION
 
-**file-rename** (also known as rename or prename) renames multiple files using Perl regular expressions, providing powerful pattern-based transformation capabilities. Unlike simple mv operations, it can apply complex substitutions, case conversions, and pattern matching across multiple filenames simultaneously.
+**file-rename**（也称 rename 或 prename）使用 Perl 正则表达式重命名多个文件，提供强大的基于模式的转换能力。与简单的 mv 操作不同，它能够同时对多个文件名执行复杂的替换、大小写转换和模式匹配。
 
-The tool supports the full Perl regex syntax including capture groups, look-ahead/look-behind assertions, and transliteration operations. Common uses include batch renaming, removing or replacing characters, changing file extensions, and standardizing filename formats.
+该工具支持完整的 Perl 正则语法，包括捕获组、前瞻/后顾断言和转换（transliteration）操作。常见用途包括批量重命名、删除或替换字符、修改文件扩展名以及统一文件名格式。
 
-file-rename's dry-run mode (-n) allows preview of changes before execution, preventing accidental destructive operations. The force flag (-f) enables overwriting existing files when name collisions occur.
+file-rename 的试运行模式（-n）可以在执行前预览更改，避免意外的破坏性操作。强制标志（-f）则允许在名字冲突时覆盖已有文件。
 
 # CAVEATS
 
-Multiple implementations of rename exist. This documents the Perl version (prename), not the util-linux version.
+rename 存在多个实现。本文档介绍的是 Perl 版本（prename），而非 util-linux 版本。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ Multiple implementations of rename exist. This documents the Perl version (prena
 # SEE ALSO
 
 [rename](/man/rename)(1), [mv](/man/mv)(1), [mmv](/man/mmv)(1), [find](/man/find)(1), [perl](/man/perl)(1), [sed](/man/sed)(1)
-

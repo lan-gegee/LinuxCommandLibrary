@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line DNS client with colorful output
+带彩色输出的命令行 DNS 客户端
 
 # TLDR
 
-**Query A records**
+**查询 A 记录**
 
 ```dog [example.com]```
 
-**Query specific record** type
+**查询指定记录**类型
 
 ```dog [example.com] [MX]```
 
-**Use specific DNS** server
+**使用指定的 DNS** 服务器
 
 ```dog [example.com] @[8.8.8.8]```
 
-**Query multiple record** types
+**查询多种记录**类型
 
 ```dog [example.com] A AAAA MX```
 
-**Output in JSON** format
+**以 JSON 格式输出**
 
 ```dog [example.com] --json```
 
-**Use DNS over** HTTPS
+**使用 DNS over** HTTPS
 
 ```dog [example.com] --https @[https://cloudflare-dns.com/dns-query]```
 
-**Use DNS over** TLS
+**使用 DNS over** TLS
 
 ```dog [example.com] --tls @[1.1.1.1]```
 
-**Print only the first result** (script-friendly)
+**只打印第一个结果**（适合脚本使用）
 
 ```dog [example.com] --short```
 
@@ -40,79 +40,79 @@ command-line DNS client with colorful output
 
 **dog** [_options_] [_domain_] [_type_...] [@_server_]
 
-Arguments are order-independent: dog recognises a record type by its name, a nameserver by the leading **@**, and treats anything else as the domain.
+参数与顺序无关：dog 根据名称识别记录类型，根据前导 **@** 识别域名服务器，其余一律视为域名。
 
 # PARAMETERS
 
 **-q**, **--query**=_HOST_
-> Host name or domain to query (may also be given positionally).
+> 要查询的主机名或域名（也可以按位置给出）。
 
 **-t**, **--type**=_TYPE_
-> Record type to look up: A, AAAA, CAA, CNAME, HINFO, MX, NS, PTR, SOA, SRV, TXT. Repeatable.
+> 要查询的记录类型：A、AAAA、CAA、CNAME、HINFO、MX、NS、PTR、SOA、SRV、TXT。可重复使用。
 
 **-n**, **--nameserver**=_ADDR_
-> Address of the nameserver to send the query to (may also be given as @_ADDR_).
+> 接收查询的域名服务器地址（也可以用 @_ADDR_ 的形式给出）。
 
 **--class**=_CLASS_
-> Network class of the query: IN (default), CH, or HS.
+> 查询的网络类别：IN（默认）、CH 或 HS。
 
 **-U**, **--udp**
-> Send the query over plain UDP (the default).
+> 通过普通 UDP 发送查询（默认方式）。
 
 **-T**, **--tcp**
-> Send the query over TCP.
+> 通过 TCP 发送查询。
 
 **-S**, **--tls**
-> Send the query using DNS-over-TLS.
+> 使用 DNS-over-TLS 发送查询。
 
 **-H**, **--https**
-> Send the query using DNS-over-HTTPS.
+> 使用 DNS-over-HTTPS 发送查询。
 
 **--edns**=_SETTING_
-> Control EDNS: **disable**, **hide**, or **show**.
+> 控制 EDNS：**disable**、**hide** 或 **show**。
 
 **--txid**=_NUMBER_
-> Use a specific transaction ID instead of a random one.
+> 使用指定的事务 ID 而不是随机值。
 
 **-Z**=_TWEAKS_
-> Uncommon protocol-level tweaks, such as **aa**, **ad**, **cd**, or **bufsize=**_N_.
+> 少见的协议级微调选项，如 **aa**、**ad**、**cd** 或 **bufsize=**_N_。
 
 **-1**, **--short**
-> Display nothing but the first result.
+> 只显示第一个结果，不输出其他内容。
 
 **-J**, **--json**
-> Print the response as JSON.
+> 以 JSON 格式打印响应。
 
 **--color**, **--colour**=_WHEN_
-> When to colourise output: **always**, **automatic**, or **never**.
+> 何时对输出着色：**always**、**automatic** 或 **never**。
 
 **--seconds**
-> Print durations as seconds instead of human-readable time units.
+> 以秒而不是人类可读的时间单位打印时长。
 
 **--time**
-> Print the time the response took to arrive.
+> 打印响应到达所耗费的时间。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**dog** is a command-line DNS client with colorful output and modern features. It serves as an alternative to dig with a more user-friendly interface and support for encrypted DNS protocols.
+**dog** 是一个带彩色输出的命令行 DNS 客户端，具备现代特性。它是 dig 的替代品，拥有更友好的界面，并支持加密 DNS 协议。
 
-The tool supports DNS over HTTPS (DoH) and DNS over TLS (DoT), enabling secure DNS queries. Output is colorized by default for readability, with JSON output available for scripting.
+该工具支持 DNS over HTTPS（DoH）和 DNS over TLS（DoT），可进行安全的 DNS 查询。输出默认着色以提升可读性，同时提供 JSON 输出供脚本使用。
 
-dog provides a simplified interface compared to dig while maintaining power-user features. Multiple record types can be queried simultaneously, and responses are clearly formatted.
+相比 dig，dog 提供了更简化的界面，同时保留了高级用户所需的功能。可以同时查询多种记录类型，响应的格式也十分清晰。
 
 # CAVEATS
 
-Upstream development has been dormant since **2021** and the project's homepage (dns.lookup.dog) is offline, so distribution packages may lag behind the repository. Colours are disabled automatically when output is not a terminal, but pass **--color=never** to be sure in scripts. DoH and DoT require a resolver that speaks them. dog does not cover every corner of dig: there is no zone transfer (AXFR), no batch `-f` file mode, and no `+trace` equivalent.
+上游开发自 **2021 年**起已陷入停滞，项目主页（dns.lookup.dog）也已下线，因此发行版软件包可能落后于代码仓库。当输出目标不是终端时会自动禁用彩色显示，但在脚本中若要确保如此，可显式传入 **--color=never**。DoH 与 DoT 要求解析器支持相应协议。dog 并未覆盖 dig 的每一个角落：没有区域传送（AXFR）、没有批量 `-f` 文件模式，也没有等价于 `+trace` 的功能。
 
 # HISTORY
 
-dog was created by **Benjamin Sago** (ogham), also known for the `exa` file lister, and first released in **2020**. Written in Rust, it was designed as a friendlier alternative to dig, with colourised output, order-independent arguments, and built-in support for encrypted DNS transports. It inspired **doggo**, a Go reimplementation of the same idea that is more actively maintained.
+dog 由 **Benjamin Sago**（ogham）创建，他也是 `exa` 文件列表工具的作者。dog 于 **2020 年**首次发布，采用 Rust 编写，定位为比 dig 更友好的替代品，具备彩色输出、参数顺序无关以及内置加密 DNS 传输支持等特性。它还启发了 **doggo**——基于 Go 的同理念重实现，目前维护得更为活跃。
 
 # INSTALL
 
@@ -135,4 +135,3 @@ dog was created by **Benjamin Sago** (ogham), also known for the `exa` file list
 ```[Source code](https://github.com/ogham/dog)```
 
 <!-- verified: 2026-07-14 -->
-

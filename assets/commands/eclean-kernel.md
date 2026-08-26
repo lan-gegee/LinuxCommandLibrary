@@ -1,26 +1,26 @@
 # TAGLINE
 
-old kernel removal utility
+旧内核清理工具
 
 # TLDR
 
-**List** all kernel files
+**列出**所有内核文件
 
 ```sudo eclean-kernel -l```
 
-Keep only **two newest** kernels
+只保留最新的 **2 个**内核
 
 ```sudo eclean-kernel -n 2```
 
-**Preview** what would be removed
+**预览**将被移除的内容
 
 ```sudo eclean-kernel -p -n 2```
 
-Remove kernels with **confirmation**
+带**确认**地移除内核
 
 ```sudo eclean-kernel -A -n 2```
 
-Remove all kernels **not referenced** by bootloader
+移除所有**未被引导程序引用**的内核
 
 ```sudo eclean-kernel -a```
 
@@ -30,44 +30,44 @@ Remove all kernels **not referenced** by bootloader
 
 # DESCRIPTION
 
-**eclean-kernel** removes old kernels in Gentoo Linux. It cleans up kernel images, modules, and related files while preserving a specified number of recent kernels.
+**eclean-kernel** 移除 Gentoo Linux 中的旧内核。它会清理内核镜像、模块及相关文件，同时保留指定数量的近期内核。
 
-Over time, /boot and /lib/modules accumulate old kernel versions from upgrades, consuming significant disk space. This is particularly problematic on systems with small boot partitions. eclean-kernel automatically identifies and removes old kernel files while protecting the running kernel and a configurable number of recent versions.
+随着时间推移，/boot 和 /lib/modules 会积累升级产生的旧内核版本，占用大量磁盘空间。这对引导分区较小的系统尤其成问题。eclean-kernel 自动识别并删除旧的内核文件，同时保护正在运行的内核和可配置数量的近期版本。
 
-The tool handles all kernel-related components including the kernel image, System.map, initramfs, config files, and module directories. It's safer than manual deletion as it understands kernel dependencies and prevents removing essential files.
+该工具处理所有与内核相关的组件，包括内核镜像、System.map、initramfs、配置文件和模块目录。它比手动删除更安全，因为它理解内核依赖关系，避免误删关键文件。
 
 # PARAMETERS
 
 **-l, --list-kernels**
-> List all installed kernels and exit
+> 列出所有已安装的内核并退出
 
 **-n** _NUM_
-> Keep N newest kernels
+> 保留 N 个最新内核
 
 **-A, --ask**
-> Ask before removing each kernel
+> 移除每个内核前先询问
 
 **-a, --all**
-> Remove all kernels unless referenced by bootloader
+> 移除所有未被引导程序引用的内核
 
 **-d, --destructive**
-> Destructive mode: remove kernels even when referenced by bootloader
+> 破坏模式：即使被引导程序引用也移除内核
 
 **-p, --pretend**
-> Print kernels to be removed and exit
+> 打印将要移除的内核并退出
 
 **-b, --bootloader** _BOOTLOADER_
-> Bootloader used (auto, lilo, grub2, grub, yaboot, symlinks)
+> 所使用的引导程序（auto、lilo、grub2、grub、yaboot、symlinks）
 
 **-x, --exclude** _KERNEL_
-> Exclude a specific kernel from removal
+> 排除特定内核不移除
 
 **--no-bootloader-update**
-> Do not update bootloader configuration after removal
+> 移除后不更新引导程序配置
 
 # CAVEATS
 
-Gentoo-specific. Always keep at least one working kernel. The currently running kernel is protected.
+仅限 Gentoo。务必至少保留一个可用内核。当前正在运行的内核会受到保护。
 
 # SEE ALSO
 

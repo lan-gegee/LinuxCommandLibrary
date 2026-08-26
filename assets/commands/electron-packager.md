@@ -1,30 +1,30 @@
 # TAGLINE
 
-Package Electron apps for distribution
+打包 Electron 应用以便分发
 
 # TLDR
 
-**Package for current platform**
+**为当前平台打包**
 
 ```electron-packager [.] [app_name]```
 
-**Package for specific platform**
+**为特定平台打包**
 
 ```electron-packager [.] [app_name] --platform=[darwin] --arch=[x64]```
 
-**Package for all platforms**
+**为所有平台打包**
 
 ```electron-packager [.] [app_name] --all```
 
-**Specify icon**
+**指定图标**
 
 ```electron-packager [.] [app_name] --icon=[icon.icns]```
 
-**Specify output directory**
+**指定输出目录**
 
 ```electron-packager [.] [app_name] --out=[dist]```
 
-**Overwrite existing build**
+**覆盖已有构建产物**
 
 ```electron-packager [.] [app_name] --overwrite```
 
@@ -35,32 +35,32 @@ Package Electron apps for distribution
 # PARAMETERS
 
 **--platform** _platform_
-> Target platform (darwin, linux, win32, mas).
+> 目标平台（darwin、linux、win32、mas）。
 
 **--arch** _arch_
-> Target architecture (x64, arm64, ia32).
+> 目标架构（x64、arm64、ia32）。
 
 **--all**
-> Build for all platforms.
+> 为所有平台构建。
 
 **--icon** _path_
-> Application icon.
+> 应用图标。
 
 **--out** _directory_
-> Output directory.
+> 输出目录。
 
 **--overwrite**
-> Overwrite existing output.
+> 覆盖已有的输出。
 
 **--asar**
-> Package as ASAR archive.
+> 打包为 ASAR 归档。
 
 **--prune**
-> Prune devDependencies.
+> 移除 devDependencies。
 
 # DESCRIPTION
 
-**electron-packager** packages Electron applications for distribution. Creates standalone executables for macOS, Windows, and Linux from source code.
+**electron-packager** 将 Electron 应用打包以便分发。它从源代码创建 macOS、Windows 和 Linux 的独立可执行文件。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Package Electron apps for distribution
 # SEE ALSO
 
 [electron](/man/electron)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-plugin manager for fish shell
+fish shell 的插件管理器
 
 # TLDR
 
-**Install plugin**
+**安装插件**
 
 ```fisher install [jorgebucaran/nvm.fish]```
 
-**List installed plugins**
+**列出已安装的插件**
 
 ```fisher list```
 
-**Update all plugins**
+**更新所有插件**
 
 ```fisher update```
 
-**Remove plugin**
+**移除插件**
 
 ```fisher remove [jorgebucaran/nvm.fish]```
 
-**Update specific plugin**
+**更新指定插件**
 
 ```fisher update [jorgebucaran/nvm.fish]```
 
@@ -31,43 +31,43 @@ plugin manager for fish shell
 # PARAMETERS
 
 _COMMAND_
-> Operation: install, remove, update, list.
+> 操作：install、remove、update、list。
 
 _PLUGINS_
-> Plugin names (github/repo format).
+> 插件名（github/repo 格式）。
 
 **install** _PLUGIN_
-> Install one or more plugins.
+> 安装一个或多个插件。
 
 **remove** _PLUGIN_
-> Uninstall plugins.
+> 卸载插件。
 
 **update**
-> Update installed plugins.
+> 更新已安装的插件。
 
 **list**
-> List installed plugins.
+> 列出已安装的插件。
 
 # CONFIGURATION
 
 **~/.config/fish/fish_plugins**
-> List of installed plugins tracked for version control and bulk installation.
+> 已安装插件的清单，方便纳入版本控制以及批量安装。
 
 # DESCRIPTION
 
-**fisher** is a plugin manager for the fish shell. It installs plugins from GitHub repositories, local directories, or URLs, extending fish with themes, functions, and completions.
+**fisher** 是 fish shell 的插件管理器。它能从 GitHub 仓库、本地目录或 URL 安装插件，为 fish 增添主题、函数和补全。
 
-The manager is minimal with no configuration file required. It stores plugin references in a fish_plugins file for version control and can bulk install from this file.
+这款管理器非常精简，无需任何配置文件。它把插件引用记录在 fish_plugins 文件中以利于版本控制，并且能根据该文件批量安装。
 
-fisher handles plugin dependencies and provides fast installation through parallel downloads.
+fisher 会处理插件之间的依赖，并通过并行下载实现快速安装。
 
 # CAVEATS
 
-Fish shell only. Some plugins may conflict. No automatic dependency resolution.
+只能用于 fish shell。某些插件之间可能存在冲突。不会自动解析依赖。
 
 # HISTORY
 
-fisher was created by **Jorge Bucaran** as a minimal, fast plugin manager for fish. It replaced the older Oh My Fish framework approach with a simpler, more direct installation method.
+fisher 由 **Jorge Bucaran** 创建，是一个极简而快速的 fish 插件管理器。它用更简单直接的安装方式取代了旧的 Oh My Fish 框架思路。
 
 # INSTALL
 

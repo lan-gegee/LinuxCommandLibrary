@@ -1,34 +1,34 @@
 # TAGLINE
 
-Extremely fast JavaScript and TypeScript bundler
+极快的 JavaScript 与 TypeScript 打包器
 
 # TLDR
 
-**Bundle JavaScript file**
+**打包 JavaScript 文件**
 
 ```esbuild [app.js] --bundle --outfile=[out.js]```
 
-**Bundle with minification**
+**压缩打包**
 
 ```esbuild [app.js] --bundle --minify --outfile=[out.js]```
 
-**Bundle TypeScript**
+**打包 TypeScript**
 
 ```esbuild [app.ts] --bundle --outfile=[out.js]```
 
-**Watch mode**
+**监视模式**
 
 ```esbuild [app.js] --bundle --watch --outfile=[out.js]```
 
-**Start dev server**
+**启动开发服务器**
 
 ```esbuild [app.js] --bundle --serve=[8000]```
 
-**Bundle for browser**
+**面向浏览器打包**
 
 ```esbuild [app.js] --bundle --platform=browser --outfile=[out.js]```
 
-**Generate source maps**
+**生成 source map**
 
 ```esbuild [app.js] --bundle --sourcemap --outfile=[out.js]```
 
@@ -39,71 +39,71 @@ Extremely fast JavaScript and TypeScript bundler
 # PARAMETERS
 
 _ENTRY_POINTS_
-> Input files to process.
+> 要处理的输入文件。
 
 **--bundle**
-> Bundle dependencies.
+> 打包依赖。
 
 **--outfile** _FILE_
-> Output file path.
+> 输出文件路径。
 
 **--minify**
-> Minify output.
+> 压缩输出。
 
 **--watch**
-> Rebuild on changes.
+> 文件变化时重新构建。
 
 **--serve** [_PORT_]
-> Start development server.
+> 启动开发服务器。
 
 **--platform** _PLATFORM_
-> Target: browser, node, neutral.
+> 目标平台：browser、node、neutral。
 
 **--sourcemap**
-> Generate source maps.
+> 生成 source map。
 
 **--target** _VERSION_
-> JavaScript target version, e.g. es2020 or chrome100.
+> JavaScript 目标版本，例如 es2020 或 chrome100。
 
 **--outdir** _DIR_
-> Output directory (use instead of --outfile when there are multiple outputs).
+> 输出目录（存在多个输出时用其代替 --outfile）。
 
 **--format** _FORMAT_
-> Output module format: iife, cjs or esm.
+> 输出模块格式：iife、cjs 或 esm。
 
 **--loader:**_.ext=loader_
-> How to load a given file extension (js, ts, jsx, json, text, base64, dataurl, file, ...).
+> 指定如何加载给定扩展名的文件（js、ts、jsx、json、text、base64、dataurl、file 等）。
 
 **--define:**_K=V_
-> Substitute a global identifier with a constant expression at build time.
+> 构建时将全局标识符替换为常量表达式。
 
 **--external:**_pkg_
-> Exclude a package from the bundle and leave the import in place.
+> 将某个包排除在 bundle 之外，保留原样的 import 语句。
 
 **--splitting**
-> Enable code splitting (esm format only).
+> 启用代码分割（仅限 esm 格式）。
 
 **--metafile** _FILE_
-> Write a JSON file describing the build, for bundle analysis.
+> 写出一个描述构建结果的 JSON 文件，用于 bundle 分析。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**esbuild** is an extremely fast JavaScript and TypeScript bundler and minifier. Written in Go, it's 10-100x faster than traditional bundlers like webpack or Parcel.
+**esbuild** 是一个极快的 JavaScript 与 TypeScript 打包和压缩工具。它以 Go 编写，速度比 webpack 或 Parcel 等传统打包器快 10 到 100 倍。
 
-The tool handles bundling, minification, code splitting, tree shaking, and transpilation. It supports JSX, TypeScript, and modern JavaScript features without configuration.
+该工具处理打包、压缩、代码分割、tree shaking 和转译。无需配置即可支持 JSX、TypeScript 和现代 JavaScript 特性。
 
-esbuild's speed makes it ideal for development builds and as a lower-level tool in build pipelines.
+esbuild 的速度使其非常适合开发构建，也可作为构建流水线中的底层工具。
 
 # CAVEATS
 
-Plugin ecosystem smaller than webpack. Some transformations not supported. Configuration differs from other bundlers. May need plugins for complex setups.
+插件生态小于 webpack。部分转换不受支持。配置方式与其他打包器不同。复杂场景可能需要借助插件。
 
 # HISTORY
 
-esbuild was created by **Evan Wallace** (co-founder of Figma) and released in **2020**. Its dramatic speed improvement over existing tools came from being written in Go with parallelization.
+esbuild 由 **Evan Wallace**（Figma 联合创始人）创建，于 **2020 年**发布。它相比现有工具的巨大速度提升源于 Go 编写与并行化设计。
 
 # INSTALL
 

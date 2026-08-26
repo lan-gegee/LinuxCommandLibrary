@@ -1,22 +1,22 @@
 # TAGLINE
 
-display package changelogs
+显示软件包更新日志
 
 # TLDR
 
-View **all changelogs** for a package
+查看软件包的**全部更新日志**
 
 ```dnf changelog [package]```
 
-View changelogs **since date**
+查看**某日期之后**的更新日志
 
 ```dnf changelog --since [date] [package]```
 
-View **last n** changelogs
+查看**最近 n 条**更新日志
 
 ```dnf changelog --count [number] [package]```
 
-Show **new items** for upgradeable packages
+显示可升级软件包的**新增条目**
 
 ```dnf changelog --upgrades [package]```
 
@@ -26,27 +26,27 @@ Show **new items** for upgradeable packages
 
 # DESCRIPTION
 
-**dnf changelog** displays package changelogs, which document changes, bug fixes, and security updates included in package versions. It's part of dnf-plugins-core and requires that plugin to be installed.
+**dnf changelog** 显示软件包的更新日志（changelog），其中记录了各软件包版本包含的变更、bug 修复和安全更新。它是 dnf-plugins-core 的一部分，需要安装该插件。
 
-Changelogs are maintained by package maintainers and provide insight into what has changed between versions. This is particularly useful before upgrading to review security fixes, new features, or bug corrections. You can filter changelogs by date or count to focus on recent changes, or use --upgrades to see only what's new in available updates compared to your installed version.
+更新日志由软件包维护者编写，可帮助了解版本之间的变化。在升级前查看安全修复、新功能或 bug 修正时特别有用。可以按日期或条数过滤更新日志以聚焦最近的变更，或使用 --upgrades 只查看可用更新相对于已装版本的新增内容。
 
 # PARAMETERS
 
 **--since** _date_
-> Show entries after specified date
+> 显示指定日期之后的条目
 
 **--count** _n_
-> Show last n entries
+> 显示最近 n 条条目
 
 **--upgrades**
-> Show only new entries for available upgrades
+> 仅显示可用升级的新增条目
 
 **--help-cmd**
-> Display help
+> 显示帮助
 
 # CAVEATS
 
-Requires dnf-plugins-core. Changelog availability depends on package maintainers including them in the RPM.
+需要 dnf-plugins-core。更新日志是否可用取决于软件包维护者是否将其写入 RPM。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage individual databases within a cluster
+管理集群内的各个数据库
 
 # TLDR
 
-**List databases in cluster**
+**列出集群中的数据库**
 
 ```doctl databases db list [cluster_id]```
 
-**Create a database**
+**创建一个数据库**
 
 ```doctl databases db create [cluster_id] [db_name]```
 
-**Delete a database**
+**删除一个数据库**
 
 ```doctl databases db delete [cluster_id] [db_name]```
 
-**Get database details**
+**获取数据库详情**
 
 ```doctl databases db get [cluster_id] [db_name]```
 
-**List databases** with JSON output
+**以 JSON 输出列出数据库**
 
 ```doctl databases db list [cluster_id] --output json```
 
@@ -31,24 +31,24 @@ manage individual databases within a cluster
 # SUBCOMMANDS
 
 **list**
-> List databases in a cluster.
+> 列出集群中的数据库。
 
 **create**
-> Create a database.
+> 创建一个数据库。
 
 **delete**
-> Delete a database.
+> 删除一个数据库。
 
 **get**
-> Get database info.
+> 获取数据库信息。
 
 # DESCRIPTION
 
-**doctl databases db** manages individual databases within a DigitalOcean managed database cluster.
+**doctl databases db** 管理 DigitalOcean 托管数据库集群中的各个数据库。
 
-Within a single database cluster, you can create multiple isolated databases. This allows hosting separate applications or environments (development, staging, production) on the same cluster infrastructure. Each database can have its own set of users and permissions while sharing the cluster's compute and storage resources.
+在单个数据库集群中，你可以创建多个相互隔离的数据库，从而在同一套集群基础设施上托管不同的应用或环境（开发、预发布、生产）。每个数据库可以拥有自己的用户和权限集，同时共享集群的计算和存储资源。
 
-The command handles database creation, listing, and deletion within the cluster. This is distinct from managing the cluster itself, which is handled by the parent doctl databases command.
+该命令负责集群内数据库的创建、列出和删除。它与管理集群本身不同，后者由父命令 doctl databases 处理。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ The command handles database creation, listing, and deletion within the cluster.
 # SEE ALSO
 
 [doctl-databases](/man/doctl-databases)(1), [doctl-databases-user](/man/doctl-databases-user)(1), [doctl-databases-pool](/man/doctl-databases-pool)(1), [doctl](/man/doctl)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for Exoscale cloud services
+Exoscale 云服务的命令行界面
 
 # TLDR
 
-**Configure CLI credentials**
+**配置 CLI 凭据**
 
 ```exo config add```
 
-**List compute instances**
+**列出计算实例**
 
 ```exo compute instance list```
 
-**Create a compute instance in a specific zone**
+**在指定可用区创建计算实例**
 
 ```exo compute instance create [name] --zone [ch-gva-2]```
 
-**SSH to an instance**
+**SSH 登录某个实例**
 
 ```exo compute instance ssh [instance_name]```
 
-**List IAM API keys**
+**列出 IAM API 密钥**
 
 ```exo iam api-key list```
 
-**List object storage buckets**
+**列出对象存储桶**
 
 ```exo storage list```
 
-**Show current account limits**
+**显示当前账户限额**
 
 ```exo limits```
 
@@ -39,61 +39,61 @@ command-line interface for Exoscale cloud services
 # PARAMETERS
 
 _COMMAND_
-> Service: compute, iam, storage, dns, etc.
+> 服务：compute、iam、storage、dns 等。
 
 **compute** _SUBCOMMAND_
-> Manage compute resources (instances, security groups, load balancers, SKS clusters, etc.).
+> 管理计算资源（实例、安全组、负载均衡器、SKS 集群等）。
 
 **dbaas** _SUBCOMMAND_
-> Manage Database as a Service instances.
+> 管理数据库即服务（DBaaS）实例。
 
 **dns** _SUBCOMMAND_
-> Manage DNS zones and records.
+> 管理 DNS 区域和记录。
 
 **iam** _SUBCOMMAND_
-> Identity and access management (API keys, roles, org policy).
+> 身份与访问管理（API 密钥、角色、组织策略）。
 
 **storage** _SUBCOMMAND_
-> Object storage operations (buckets, upload, download).
+> 对象存储操作（存储桶、上传、下载）。
 
 **config** _SUBCOMMAND_
-> Manage CLI configuration and credentials.
+> 管理 CLI 配置和凭据。
 
 **zone**
-> List available zones.
+> 列出可用区。
 
 **limits**
-> Show current account resource limits.
+> 显示当前账户的资源限额。
 
 **status**
-> Show Exoscale platform status.
+> 显示 Exoscale 平台状态。
 
 **version**
-> Print CLI version.
+> 输出 CLI 版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/exoscale/exoscale.toml**
-> Stores API credentials and default zone/account settings.
+> 存储 API 凭据以及默认的可用区/账户设置。
 
 # DESCRIPTION
 
-**exo** is the command-line interface for Exoscale, a European cloud computing provider. It manages compute instances, storage, DNS, and other cloud resources.
+**exo** 是 Exoscale（一家欧洲云计算提供商）的命令行界面。它管理计算实例、存储、DNS 以及其他云资源。
 
-The tool provides commands for all Exoscale services including SKS (Kubernetes), DBaaS, dedicated inference, and networking. Configuration stores API credentials for authentication.
+该工具为所有 Exoscale 服务提供命令，包括 SKS（Kubernetes）、DBaaS、专用推理和网络。配置中保存用于身份验证的 API 凭据。
 
-exo enables infrastructure automation and management without the web console.
+exo 让你无需 Web 控制台即可实现基础设施的自动化与管理。
 
 # CAVEATS
 
-Requires Exoscale account and API keys. Actions may incur costs. Zone availability varies. Some features require specific subscriptions.
+需要 Exoscale 账户和 API 密钥。某些操作可能产生费用。可用性因可用区而异。部分功能需要特定订阅。
 
 # HISTORY
 
-exo is the official CLI for **Exoscale**, a Swiss cloud provider founded in **2011** offering GDPR-compliant cloud infrastructure with a focus on European data sovereignty.
+exo 是 **Exoscale** 的官方 CLI。Exoscale 是一家成立于 **2011 年**的瑞士云服务商，提供符合 GDPR 的云基础设施，专注于欧洲数据主权。
 
 # INSTALL
 

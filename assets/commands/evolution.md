@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNOME personal information management application
+GNOME 个人信息管理应用
 
 # TLDR
 
-**Start Evolution**
+**启动 Evolution**
 
 ```evolution```
 
-**Start with specific component**
+**以指定组件启动**
 
 ```evolution --component=[mail|calendar|contacts]```
 
-**Compose new email**
+**撰写新邮件**
 
 ```evolution mailto:[user@example.com]```
 
-**Import file**
+**导入文件**
 
 ```evolution --import [file.ics]```
 
-**Force offline mode**
+**强制离线模式**
 
 ```evolution --force-offline```
 
@@ -31,48 +31,48 @@ GNOME personal information management application
 # PARAMETERS
 
 **--component** _name_
-> Start with specific component: mail, calendar, contacts, tasks, memos.
+> 以指定组件启动：mail、calendar、contacts、tasks、memos。
 
 **--import** _file_
-> Import file (vCard, iCal, etc.).
+> 导入文件（vCard、iCal 等）。
 
 **--force-online**
-> Force online mode.
+> 强制在线模式。
 
 **--force-offline**
-> Force offline mode.
+> 强制离线模式。
 
 **--quit**
-> Request running instance to quit.
+> 请求正在运行的实例退出。
 
 **--express**
-> Start in express mode.
+> 以快速（express）模式启动。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**Evolution** is the GNOME personal information management application. It integrates email, calendar, contacts, tasks, and memos into a single application, similar to Microsoft Outlook.
+**Evolution** 是 GNOME 的个人信息管理应用。它将电子邮件、日历、联系人、任务和备忘录整合到单一应用中，类似 Microsoft Outlook。
 
-Evolution supports multiple email protocols (IMAP, POP, SMTP, Exchange), calendar standards (CalDAV, ICS), and contact formats (CardDAV, LDAP). It includes features like encryption (GPG, S/MIME), spam filtering, and search folders.
+Evolution 支持多种邮件协议（IMAP、POP、SMTP、Exchange）、日历标准（CalDAV、ICS）和联系人格式（CardDAV、LDAP）。它包含加密（GPG、S/MIME）、垃圾邮件过滤和搜索文件夹等功能。
 
 # FEATURES
 
-- Multiple email accounts
-- CalDAV and Exchange calendars
-- CardDAV and LDAP contacts
-- Task and memo management
-- GPG and S/MIME encryption
-- Spam filtering
+- 多个邮件账户
+- CalDAV 与 Exchange 日历
+- CardDAV 与 LDAP 联系人
+- 任务与备忘录管理
+- GPG 与 S/MIME 加密
+- 垃圾邮件过滤
 
 # CAVEATS
 
-Heavy resource usage compared to simpler clients. Some Exchange features require additional packages. First-time setup wizard is mandatory. Background processes may continue after closing.
+与更简洁的客户端相比资源占用较高。部分 Exchange 功能需要额外的软件包。首次使用必须经过设置向导。关闭窗口后后台进程可能继续运行。
 
 # HISTORY
 
-Evolution was originally developed by **Ximian** starting in **1999**, acquired by Novell in 2003, and later became part of the GNOME project. It was one of the first Linux applications to offer comprehensive groupware functionality.
+Evolution 最初由 **Ximian** 于 **1999 年**开始开发，2003 年被 Novell 收购，后来成为 GNOME 项目的一部分。它是最早提供完整群件功能的 Linux 应用之一。
 
 # INSTALL
 

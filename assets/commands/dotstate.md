@@ -1,22 +1,22 @@
 # TAGLINE
 
-Modern dotfile manager with Git integration
+集成 Git 的现代 dotfile 管理器
 
 # TLDR
 
-**Initialize** a new dotstate repository
+**初始化**一个新的 dotstate 仓库
 
 ```dotstate init [directory]```
 
-**Add** a file to dotstate tracking
+将文件**加入** dotstate 跟踪
 
 ```dotstate add [path/to/file]```
 
-**Sync** dotfiles to current system
+**同步** dotfiles 到当前系统
 
 ```dotstate sync```
 
-**Track** and commit changes
+**跟踪**并提交更改
 
 ```dotstate commit -m "message"```
 
@@ -27,65 +27,65 @@ Modern dotfile manager with Git integration
 # PARAMETERS
 
 **-c, --config** _FILE_
-> Configuration file path
+> 配置文件路径
 
 **-d, --dotfiles** _DIR_
-> Dotfiles repository directory
+> Dotfiles 仓库目录
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--dry-run**
-> Show what would be done without making changes
+> 只显示将要执行的操作，不实际更改
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**dotstate** is a modern dotfile manager that uses Git for version control while providing a simplified interface for common dotfile operations. It helps users manage configuration files across multiple machines by tracking them in a Git repository.
+**dotstate** 是一个现代 dotfile 管理器，使用 Git 进行版本控制，同时为常见的 dotfile 操作提供简化接口。它通过在 Git 仓库中跟踪配置文件，帮助用户在多台机器之间管理配置。
 
-The tool provides commands for initializing a dotfiles repo, adding files to tracking, synchronizing configurations between systems, and handling platform-specific files. It maintains a clean separation between the actual dotfiles in the home directory and the repository.
+该工具提供初始化 dotfiles 仓库、添加文件进行跟踪、在系统间同步配置以及处理平台特定文件的命令。它在主目录中的实际 dotfiles 与仓库之间保持清晰的分离。
 
 # COMMANDS
 
 **init** [_DIRECTORY_]
-> Initialize a new dotstate repository
+> 初始化一个新的 dotstate 仓库
 
 **add** _FILE_
-> Add a file to dotstate tracking
+> 将文件加入 dotstate 跟踪
 
 **remove** _FILE_
-> Remove a file from tracking
+> 停止跟踪某个文件
 
 **sync**
-> Synchronize dotfiles to current system
+> 将 dotfiles 同步到当前系统
 
 **status**
-> Show repository status
+> 显示仓库状态
 
 **commit** [_-m_ _MESSAGE_]
-> Commit changes to repository
+> 提交更改到仓库
 
 **push**
-> Push changes to remote
+> 推送更改到远程
 
 **pull**
-> Pull changes from remote
+> 从远程拉取更改
 
 **list**
-> List all tracked files
+> 列出所有被跟踪的文件
 
 # CAVEATS
 
-Requires Git to be installed and configured. May overwrite existing files during sync - backups recommended. Platform-specific configurations need manual handling. Symbolic link handling varies by operating system.
+需要已安装并配置 Git。同步期间可能覆盖现有文件——建议先备份。平台特定配置需手动处理。符号链接的处理因操作系统而异。
 
 # HISTORY
 
-**dotstate** was created as a modern alternative to traditional dotfile managers, focusing on simplicity and Git integration. It aims to provide the power of version control without the complexity of manual Git operations.
+**dotstate** 作为传统 dotfile 管理器的现代化替代品而创建，注重简洁与 Git 集成。它的目标是提供版本控制的强大能力，同时免去手动 Git 操作的复杂度。
 
 # SEE ALSO
 

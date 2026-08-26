@@ -1,30 +1,30 @@
 # TAGLINE
 
-Extensible RSS/Atom feed reader for Emacs
+Emacs 的可扩展 RSS/Atom 订阅阅读器
 
 # TLDR
 
-**Open Elfeed in Emacs**
+**在 Emacs 中打开 Elfeed**
 
 ```M-x elfeed```
 
-**Update all feeds**
+**更新所有订阅源**
 
 ```M-x elfeed-update```
 
-**Set default search filter**
+**设置默认搜索过滤条件**
 
 ```(setq elfeed-search-filter "@6-months-ago +unread")```
 
-**Add feeds in config**
+**在配置中添加订阅源**
 
 ```(setq elfeed-feeds '("https://example.com/feed.xml" "https://blog.example.org/rss"))```
 
 # DESCRIPTION
 
-**Elfeed** is an extensible RSS/Atom feed reader for Emacs. It provides a fast, keyboard-driven interface for reading and managing feeds, with support for tagging, searching, and customization through Emacs Lisp.
+**Elfeed** 是 Emacs 的一个可扩展 RSS/Atom 订阅阅读器。它提供快速、键盘驱动的界面来阅读和管理订阅源，并支持通过 Emacs Lisp 进行打标签、搜索和自定义。
 
-Elfeed stores feed data in a local database and supports thousands of feeds efficiently. It integrates with Emacs features like org-mode and can display feed content using eww or external browsers.
+Elfeed 将订阅数据存储在本地数据库中，能高效支持数千个订阅源。它与 org-mode 等 Emacs 特性集成，可以使用 eww 或外部浏览器显示订阅内容。
 
 # EMACS CONFIGURATION
 
@@ -58,22 +58,22 @@ q         - Quit elfeed or close entry
 
 # CONFIGURATION
 
-**~/.emacs.d/init.el** or **~/.emacs**
-> Configure feeds and settings using Emacs Lisp (setq elfeed-feeds).
+**~/.emacs.d/init.el** 或 **~/.emacs**
+> 使用 Emacs Lisp 配置订阅源和设置（setq elfeed-feeds）。
 
-**~/.elfeed/** (default database location)
-> Local feed database and cached entries.
+**~/.elfeed/**（默认数据库位置）
+> 本地订阅数据库和缓存条目。
 
-**~/.emacs.d/elfeed.org** (with elfeed-org)
-> Org-mode file for managing feeds when using elfeed-org integration.
+**~/.emacs.d/elfeed.org**（配合 elfeed-org）
+> 使用 elfeed-org 集成时管理订阅源的 Org-mode 文件。
 
 # CAVEATS
 
-Emacs-only application. Requires Emacs 24.3+. Large numbers of feeds may slow initial sync. No mobile sync (use elfeed-protocol for Fever/NewsBlur). Learning curve for Emacs users unfamiliar with feeds.
+仅限 Emacs 的应用。要求 Emacs 24.3+。大量订阅源可能拖慢初始同步。不支持移动端同步（可通过 elfeed-protocol 使用 Fever/NewsBlur）。对不熟悉订阅源的 Emacs 用户有一定学习曲线。
 
 # HISTORY
 
-Elfeed was created by **Christopher Wellons** (skeeto) around **2013**. It was designed as a lightweight, Emacs-native feed reader that leverages Emacs's strengths in text processing and extensibility.
+Elfeed 由 **Christopher Wellons**（skeeto）于 **2013 年**前后创建。它的设计目标是成为一个轻量级的 Emacs 原生订阅阅读器，充分发挥 Emacs 在文本处理和可扩展性方面的优势。
 
 # INSTALL
 

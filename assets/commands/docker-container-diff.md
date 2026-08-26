@@ -1,10 +1,10 @@
 # TAGLINE
 
-show container filesystem changes
+显示容器文件系统的变更
 
 # TLDR
 
-**Show filesystem changes** in a container
+**查看容器内的文件系统变更**
 
 ```docker container diff [container]```
 
@@ -14,7 +14,7 @@ show container filesystem changes
 
 # DESCRIPTION
 
-**docker container diff** inspects changes to files or directories on a container's filesystem. Shows files that were added (A), changed (C), or deleted (D) compared to the base image.
+**docker container diff** 检查容器文件系统上文件或目录的变更。与基础镜像相比，它会标出新增（A）、修改（C）或删除（D）的文件。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Emacs tag file generator
+Emacs 标签文件生成器
 
 # TLDR
 
-**Generate TAGS file**
+**生成 TAGS 文件**
 
 ```etags [*.c] [*.h]```
 
-**Append to existing TAGS**
+**追加到现有 TAGS**
 
 ```etags -a [newfile.c]```
 
-**Output to specific file**
+**输出到指定文件**
 
 ```etags -o [MYTAGS] [*.c]```
 
-**Include files from file list**
+**处理文件列表中的文件**
 
 ```etags - < [filelist.txt]```
 
-**Process specific language**
+**按指定语言处理**
 
 ```etags --language=[c++] [*.cpp]```
 
-**Recursive directory processing**
+**递归处理目录**
 
 ```find . -name "*.py" | etags -```
 
@@ -34,44 +34,44 @@ Emacs tag file generator
 
 # DESCRIPTION
 
-**etags** generates tag files for Emacs. Tags enable jumping to function definitions, variable declarations, and other symbols across source files.
+**etags** 为 Emacs 生成标签文件。标签支持在源文件之间跳转到函数定义、变量声明和其他符号。
 
-The tool parses source files and creates a TAGS file containing symbol locations. Emacs uses this for code navigation with M-. (find-tag) and related commands.
+该工具解析源文件并创建包含符号位置的 TAGS 文件。Emacs 借助它配合 M-.（find-tag）及相关命令进行代码导航。
 
 # PARAMETERS
 
 **-a**, **--append**
-> Append to existing TAGS file.
+> 追加到现有的 TAGS 文件。
 
 **-o** _file_
-> Output to specified file.
+> 输出到指定文件。
 
 **-l** _lang_, **--language=** _lang_
-> Force language for following files.
+> 强制指定后续文件的语言。
 
 **-I**, **--include=** _file_
-> Include another tags file.
+> 包含另一个标签文件。
 
 **-r** _regex_, **--regex=** _regex_
-> Tag lines matching regex.
+> 为匹配正则表达式的行生成标签。
 
 **-**
-> Read file names from stdin.
+> 从标准输入读取文件名。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # SUPPORTED LANGUAGES
 
-C, C++, Java, Python, Perl, Ruby, Lisp, Scheme, Fortran, Pascal, PHP, Lua, Erlang, and many more.
+C、C++、Java、Python、Perl、Ruby、Lisp、Scheme、Fortran、Pascal、PHP、Lua、Erlang 等众多语言。
 
 # CAVEATS
 
-Different from ctags (Vim tags). TAGS file can grow large. Needs regeneration after code changes. Some languages have limited support.
+与 ctags（Vim 标签）不同。TAGS 文件可能变得很大。代码更改后需要重新生成。部分语言的支持有限。
 
 # HISTORY
 
-**etags** has been part of **GNU Emacs** since its early versions. It provides the Emacs counterpart to ctags. The tool has evolved to support many programming languages while maintaining compatibility with Emacs tag navigation.
+**etags** 自早期版本起就是 **GNU Emacs** 的一部分，提供与 ctags 对应的 Emacs 版工具。该工具在保持与 Emacs 标签导航兼容的同时，已发展为支持多种编程语言。
 
 # INSTALL
 

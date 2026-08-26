@@ -1,34 +1,34 @@
 # TAGLINE
 
-convert DOS/Windows line endings to Unix
+将 DOS/Windows 换行符转换为 Unix 格式
 
 # TLDR
 
-**Convert** file line endings
+**转换**文件换行符
 
 ```dos2unix [path/to/file]```
 
-Create **copy** with Unix line endings
+创建保留 Unix 换行符的**副本**
 
 ```dos2unix -n [path/to/file] [path/to/new_file]```
 
-Display **file information**
+显示**文件信息**
 
 ```dos2unix -i [path/to/file]```
 
-Handle **BOM** (keep/add/remove)
+处理 **BOM**（保留/添加/移除）
 
 ```dos2unix --[keep-bom|add-bom|remove-bom] [path/to/file]```
 
-Convert **in place, preserving the timestamp**
+**原地转换并保留时间戳**
 
 ```dos2unix -k [path/to/file]```
 
-Convert **many files at once**
+**一次转换多个文件**
 
 ```dos2unix [file1] [file2] [file3]```
 
-Force conversion of a file **detected as binary**
+强制转换**被检测为二进制**的文件
 
 ```dos2unix -f [path/to/file]```
 
@@ -40,78 +40,78 @@ Force conversion of a file **detected as binary**
 
 # DESCRIPTION
 
-**dos2unix** converts text files from DOS/Windows format (CRLF line endings) to Unix format (LF line endings). DOS/Windows systems use carriage return and line feed (\\r\\n) to mark line endings, while Unix-like systems use only line feed (\\n).
+**dos2unix** 将文本文件从 DOS/Windows 格式（CRLF 换行符）转换为 Unix 格式（LF 换行符）。DOS/Windows 系统使用回车加换行（\r\n）标记行尾，而类 Unix 系统只使用换行符（\n）。
 
-Line ending mismatches cause problems in scripts, compilation errors, or rendering issues in text editors. This tool resolves these issues by normalizing line endings to the Unix standard. It handles byte order marks (BOM) commonly found in UTF-8 files from Windows.
+换行符不匹配会导致脚本出错、编译失败或文本编辑器显示异常。该工具通过将换行符规范化为 Unix 标准来解决这些问题。它还能处理来自 Windows 的 UTF-8 文件中常见的字节顺序标记（BOM）。
 
-The tool operates in-place by default, modifying the original file, but can create new output files preserving the original. It intelligently detects file formats and can provide information about a file's current line ending format before conversion.
+默认情况下该工具就地操作，直接修改原文件，但也可以创建新输出文件并保留原文件。它能智能检测文件格式，并在转换前提供文件当前换行符格式的相关信息。
 
 # PARAMETERS
 
 **-o**, **--oldfile** _file_...
-> Old file mode: convert each file and overwrite it. This is the default.
+> 旧文件模式：转换每个文件并覆盖原文件。这是默认行为。
 
 **-n**, **--newfile** _infile_ _outfile_...
-> New file mode: convert _infile_ and write the result to _outfile_, leaving the original untouched.
+> 新文件模式：转换 _infile_ 并把结果写入 _outfile_，原文件保持不变。
 
 **-i**[_FLAGS_], **--info**[=_FLAGS_] _file_...
-> Report each file's line-break counts, BOM, and text/binary status. No conversion is done.
+> 报告每个文件的换行符数量、BOM 以及文本/二进制状态。不做任何转换。
 
 **-c**, **--convmode** _mode_
-> Conversion mode: **ascii** (the default), **7bit**, **iso**, or **mac**.
+> 转换模式：**ascii**（默认）、**7bit**、**iso** 或 **mac**。
 
 **-k**, **--keepdate**
-> Give the output file the same timestamp as the input file.
+> 让输出文件的时间戳与输入文件相同。
 
 **-s**, **--safe**
-> Skip binary files. This is the default.
+> 跳过二进制文件。这是默认行为。
 
 **-f**, **--force**
-> Convert a file even if it looks binary.
+> 即使文件看起来是二进制也进行转换。
 
 **-F**, **--follow-symlink**
-> Follow symbolic links and convert their targets.
+> 跟随符号链接并转换其目标文件。
 
 **-b**, **--keep-bom**
-> Keep a Byte Order Mark: if the input has one, write one to the output.
+> 保留字节顺序标记：若输入含有 BOM，则输出中也写入 BOM。
 
 **-m**, **--add-bom**
-> Write a Byte Order Mark (UTF-8 by default) to the output.
+> 向输出写入字节顺序标记（默认为 UTF-8）。
 
 **-r**, **--remove-bom**
-> Do not write a Byte Order Mark to the output.
+> 不向输出写入字节顺序标记。
 
 **-e**, **--add-eol**
-> Add a line break to the last line if it does not have one.
+> 若最后一行缺少换行符则补上。
 
 **-l**, **--newline**
-> Also add an extra newline, turning each single line break into a double one.
+> 额外添加一个换行符，把每个单换行变成双换行。
 
 **-u**, **--keep-utf16**
-> Keep the input file's original UTF-16 encoding rather than converting to UTF-8.
+> 保留输入文件原有的 UTF-16 编码，而不转换为 UTF-8。
 
 **-ul**, **--assume-utf16le** / **-ub**, **--assume-utf16be**
-> Assume the input is UTF-16 little-endian or big-endian when there is no BOM to say so.
+> 当没有 BOM 表明编码时，假定输入为 UTF-16 小端序或大端序。
 
 **-q**, **--quiet**
-> Quiet mode: suppress all warnings and messages.
+> 安静模式：抑制所有警告和消息。
 
 **-v**, **--verbose**
-> Report extra detail about Byte Order Marks and the conversion performed.
+> 报告关于字节顺序标记和所执行转换的额外细节。
 
 **--allow-chown**
-> Permit a change of file ownership in old file mode.
+> 允许在旧文件模式下发生文件所有者变更。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # CAVEATS
 
-The default is to modify files in place, so keep a copy or use **-n** if the original matters. In old file mode dos2unix writes a new file and renames it over the old one, so the target's ownership can change when running as another user; that is why **--allow-chown** must be given explicitly. Binary files are skipped by default (**-s**), and forcing conversion with **-f** on a real binary will corrupt it, so check with **-i** first when unsure. Note that the ASCII conversion mode only rewrites line breaks; it does not transcode character sets, and **iso** mode assumes a specific DOS code page that may not match your file.
+默认行为是就地修改文件，因此如果原文件很重要，请保留副本或使用 **-n**。在旧文件模式下，dos2unix 会先写一个新文件再将其重命名覆盖旧文件，因此以其他用户身份运行时目标文件的所有者可能改变，这也是必须显式给出 **--allow-chown** 的原因。二进制文件默认被跳过（**-s**），对真正的二进制文件用 **-f** 强制转换会损坏它，所以不确定时先用 **-i** 检查。注意 ASCII 转换模式只重写换行符，不做字符集转码，而 **iso** 模式假定的特定 DOS 代码页可能与你的文件不匹配。
 
 # HISTORY
 
-dos2unix has existed in one form or another since the late 1980s, when moving text between DOS and Unix was routine. The version shipped by every current Linux distribution is **Erwin Waterlander's** rewrite, begun in **2009**, which added Unicode and UTF-16 support, BOM handling, and the mac conversion mode to what had been a very small utility. It is distributed with a companion **unix2dos** that performs the reverse conversion, and the two are usually the same binary invoked under different names.
+自 20 世纪 80 年代末起，dos2unix 就以各种形式存在，当时在 DOS 与 Unix 之间移动文本是日常操作。如今每个 Linux 发行版附带的版本都是 **Erwin Waterlander** 于 **2009 年**开始的重写版，它为这个原本非常小的工具增加了 Unicode 和 UTF-16 支持、BOM 处理以及 mac 转换模式。它与执行反向转换的 **unix2dos** 一同发布，两者通常是同一个二进制文件以不同名称调用。
 
 # INSTALL
 
@@ -142,4 +142,3 @@ dos2unix has existed in one form or another since the late 1980s, when moving te
 ```[Homepage](https://dos2unix.sourceforge.io/)```
 
 <!-- verified: 2026-07-14 -->
-

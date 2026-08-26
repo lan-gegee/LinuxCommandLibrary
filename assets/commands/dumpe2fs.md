@@ -1,26 +1,26 @@
 # TAGLINE
 
-ext2/ext3/ext4 filesystem information dumper
+ext2/ext3/ext4 文件系统信息转储工具
 
 # TLDR
 
-Display **filesystem information**
+显示**文件系统信息**
 
 ```sudo dumpe2fs /dev/sdXN```
 
-Display **bad blocks** only
+仅显示**坏块**
 
 ```sudo dumpe2fs -b /dev/sdXN```
 
-**Force** display with unrecognized features
+遇到无法识别的特性也**强制**显示
 
 ```sudo dumpe2fs -f /dev/sdXN```
 
-Display **superblock** info only
+仅显示**超级块**信息
 
 ```sudo dumpe2fs -h /dev/sdXN```
 
-Display block numbers in **hexadecimal**
+以**十六进制**显示块号
 
 ```sudo dumpe2fs -x /dev/sdXN```
 
@@ -30,50 +30,50 @@ Display block numbers in **hexadecimal**
 
 # DESCRIPTION
 
-**dumpe2fs** prints the superblock and block group information for ext2, ext3, and ext4 filesystems. It displays detailed filesystem metadata including features, block counts, and allocation information.
+**dumpe2fs** 打印 ext2、ext3 和 ext4 文件系统的超级块和块组信息。它显示详细的文件系统元数据，包括特性、块数量和分配信息。
 
 # PARAMETERS
 
 **-b**
-> Print only the blocks marked as bad
+> 只打印被标记为坏块的块
 
 **-f**
-> Force display even with unrecognized feature flags
+> 即使存在无法识别的特性标志也强制显示
 
 **-g**
-> Display block group descriptor information in colon-separated format
+> 以冒号分隔格式显示块组描述符信息
 
 **-h**
-> Display superblock info only, not block group details
+> 仅显示超级块信息，不含块组细节
 
 **-i**
-> Display filesystem data from image file
+> 从镜像文件显示文件系统数据
 
 **-o superblock=NUM**
-> Use alternative superblock at block NUM
+> 使用位于块 NUM 处的备用超级块
 
 **-o blocksize=SIZE**
-> Specify block size when searching for superblock
+> 搜索超级块时指定块大小
 
 **-x**
-> Display block numbers in hexadecimal format
+> 以十六进制格式显示块号
 
 **-V**
-> Display version information
+> 显示版本信息
 
 # CAVEATS
 
-dumpe2fs only **reads**, so it is safe to run on a mounted filesystem, but the figures it prints will be slightly stale: the superblock on disk lags the kernel's in-memory copy, so free block and inode counts can be out of date. Unmount first if the numbers must be exact.
+dumpe2fs 只**读取**磁盘，因此在已挂载的文件系统上运行是安全的，但它打印的数字会略微过时：磁盘上的超级块落后于内核的内存副本，空闲块和 inode 计数可能不准确。如果数字必须精确，请先卸载。
 
-The output is long, and **-h** is usually what you actually want: the superblock alone gives the block size, inode count, feature flags, mount count, and the UUID, without pages of block group detail.
+输出很长，而你真正想要的通常是 **-h**：仅超级块就能给出块大小、inode 数量、特性标志、挂载次数和 UUID，省去好几页块组细节。
 
-**-b** does not list bad blocks from a fresh scan. It prints the blocks already recorded in the filesystem's bad-block inode, which is only populated if something put them there, typically `mke2fs -c` or `e2fsck -c`. An empty result therefore means "none recorded", not "none exist".
+**-b** 列出的不是新扫描出的坏块。它打印的是文件系统坏块 inode 中已记录的块，而这些记录只有在有东西写入时才会存在，通常来自 `mke2fs -c` 或 `e2fsck -c`。因此结果为空表示"没有记录"，而不是"不存在"。
 
-A practical use is recovering from a damaged primary superblock: `dumpe2fs` prints the locations of the backup superblocks, which is what `e2fsck -b` then needs.
+一个实用场景是从损坏的主超级块中恢复：`dumpe2fs` 会打印备用超级块的位置，这正是 `e2fsck -b` 随后需要的。
 
 # HISTORY
 
-**dumpe2fs** is part of **e2fsprogs**, the ext2/3/4 utility suite that **Theodore Ts'o** has maintained since **1993**. It is the counterpart to `tune2fs`: where tune2fs changes filesystem parameters, dumpe2fs shows them, and between them they cover almost everything you can ask or tell an ext filesystem without mounting it. The tool has outlived two filesystem revisions largely unchanged, since ext3 and ext4 both kept the ext2 on-disk layout and simply added features to the superblock's feature flags.
+**dumpe2fs** 属于 **e2fsprogs**——由 **Theodore Ts'o** 自 **1993 年**起维护至今的 ext2/3/4 工具套件。它是 `tune2fs` 的对应物：tune2fs 修改文件系统参数，dumpe2fs 展示这些参数，两者加起来几乎覆盖了在不挂载的情况下你对 ext 文件系统所能询问或设定的一切。该工具历经两次文件系统版本演进几乎没有变化，因为 ext3 和 ext4 都保留了 ext2 的磁盘布局，只是向超级块的特性标志中添加了新特性。
 
 # INSTALL
 
@@ -104,4 +104,3 @@ A practical use is recovering from a damaged primary superblock: `dumpe2fs` prin
 ```[Homepage](http://e2fsprogs.sourceforge.net)```
 
 <!-- verified: 2026-07-14 -->
-

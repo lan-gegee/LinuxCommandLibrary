@@ -1,26 +1,26 @@
 # TAGLINE
 
-ext2/ext3/ext4 filesystem backup utility
+ext2/ext3/ext4 文件系统备份工具
 
 # TLDR
 
-**Backup filesystem to file**
+**备份文件系统到文件**
 
 ```dump -0uf [/backup/root.dump] [/dev/sda1]```
 
-**Backup with compression**
+**带压缩备份**
 
 ```dump -0uf - [/] | gzip > [backup.dump.gz]```
 
-**Incremental backup (level 1)**
+**增量备份（级别 1）**
 
 ```dump -1uf [/backup/root.1.dump] [/]```
 
-**Backup to tape device**
+**备份到磁带设备**
 
 ```dump -0uf [/dev/st0] [/home]```
 
-**List files in dump archive** (using restore)
+**列出 dump 归档中的文件**（借助 restore）
 
 ```restore -tf [backup.dump]```
 
@@ -30,43 +30,43 @@ ext2/ext3/ext4 filesystem backup utility
 
 # PARAMETERS
 
-**-0** through **-9**
-> Dump level; 0 is full, 1-9 are incremental.
+**-0** 至 **-9**
+> 备份级别；0 为全量，1-9 为增量。
 
 **-u**
-> Update /etc/dumpdates after successful dump.
+> 备份成功后更新 /etc/dumpdates。
 
 **-f** _file_
-> Output file or device.
+> 输出文件或设备。
 
 **-a**
-> Auto-size; bypass tape length calculation.
+> 自动测长；跳过磁带长度计算。
 
 **-h** _level_
-> Honor nodump flag for levels above this.
+> 对高于此级别的备份遵循 nodump 标志。
 
 **-L** _label_
-> Label for dump volume.
+> dump 卷的标签。
 
 **-z** _level_
-> Compress output with zlib.
+> 用 zlib 压缩输出。
 
 **-M**
-> Multi-volume; prompt for new tape.
+> 多卷模式；提示更换磁带。
 
 # CONFIGURATION
 
 **/etc/dumpdates**
-> Records dump history tracking dump levels and timestamps for incremental backup management.
+> 记录备份历史，跟踪备份级别和时间戳，用于增量备份管理。
 
 **/etc/fstab**
-> Defines filesystem mount points that dump uses to identify filesystems by name rather than device.
+> 定义文件系统挂载点，dump 借此按名称而非设备识别文件系统。
 
 # DESCRIPTION
 
-**dump** creates backups of ext2/ext3/ext4 filesystems. It operates at the filesystem level, reading disk blocks directly, which provides complete backups including file metadata and special files.
+**dump** 用于创建 ext2/ext3/ext4 文件系统的备份。它在文件系统层面工作，直接读取磁盘块，因此能提供包含文件元数据和特殊文件的完整备份。
 
-Dump supports incremental backups through levels 0-9. Level 0 is a full backup; higher levels back up files changed since the last backup at a lower level. The /etc/dumpdates file tracks backup history.
+Dump 通过 0-9 级别支持增量备份。级别 0 是全量备份；更高级别只备份自上一个较低级别备份以来发生变化的文件。/etc/dumpdates 文件负责跟踪备份历史。
 
 # DUMP LEVELS
 
@@ -77,15 +77,15 @@ Level 2: Files changed since level 1
 ...and so on
 ```
 
-Common strategy: Weekly level 0, daily level 1.
+常见策略：每周做一次级别 0，每天做一次级别 1。
 
 # CAVEATS
 
-Filesystem-specific; works with ext2/3/4 but not XFS or Btrfs. Cannot back up mounted filesystems reliably in all cases. Use **restore** command to recover files. Modern alternatives like rsync or borg may be preferred.
+仅适用于特定文件系统；支持 ext2/3/4，但不支持 XFS 或 Btrfs。并非在所有情况下都能可靠地备份已挂载的文件系统。请使用 **restore** 命令恢复文件。现代替代方案如 rsync 或 borg 可能更受青睐。
 
 # HISTORY
 
-dump dates back to early Unix at **Bell Labs** in the **1970s**. It was one of the original backup utilities, designed for tape backups. The Linux version (dump/restore) was adapted from 4.4BSD and continues the traditional interface while supporting modern ext filesystems.
+dump 的历史可追溯到 **20 世纪 70 年代** **贝尔实验室**的早期 Unix。它是最早的备份工具之一，为磁带备份而设计。Linux 版本（dump/restore）改编自 4.4BSD，延续了传统接口，同时支持现代 ext 文件系统。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Run Linux distributions in containers with host integration
+在容器中运行 Linux 发行版并与宿主机深度集成
 
 # TLDR
 
-**Create a new container**
+**创建新容器**
 
 ```distrobox create --name [mycontainer] --image [ubuntu:latest]```
 
-**List all containers**
+**列出所有容器**
 
 ```distrobox list```
 
-**Enter a container**
+**进入容器**
 
 ```distrobox enter [mycontainer]```
 
-**Run a command inside a container**
+**在容器内运行命令**
 
 ```distrobox enter [mycontainer] -- [command]```
 
-**Export an app from the container to the host**
+**将应用从容器导出到宿主机**
 
 ```distrobox-export --app [application]```
 
-**Upgrade all containers**
+**升级所有容器**
 
 ```distrobox upgrade --all```
 
-**Stop a container**
+**停止容器**
 
 ```distrobox stop [mycontainer]```
 
-**Remove a container**
+**删除容器**
 
 ```distrobox rm [mycontainer]```
 
@@ -43,34 +43,34 @@ Run Linux distributions in containers with host integration
 # PARAMETERS
 
 **create**
-> Create a new container.
+> 创建新容器。
 
 **enter**
-> Enter an existing container.
+> 进入已有容器。
 
 **list**
-> List containers created with distrobox.
+> 列出用 distrobox 创建的容器。
 
 **rm**
-> Remove a container.
+> 删除容器。
 
 **stop**
-> Stop a running container.
+> 停止正在运行的容器。
 
 **upgrade**
-> Upgrade one or more containers.
+> 升级一个或多个容器。
 
 **--help**, **-h**
-> Display help information.
+> 显示帮助信息。
 
 **--root**
-> Run distrobox as root (using sudo/doas).
+> 以 root 身份运行 distrobox（使用 sudo/doas）。
 
 # DESCRIPTION
 
-**distrobox** allows running any Linux distribution inside a terminal container while tightly integrating with the host OS. Containers share the home directory, storage, and hardware access (including graphics and audio).
+**distrobox** 可以在终端容器中运行任意 Linux 发行版，同时与宿主机操作系统紧密集成。容器共享主目录、存储和硬件访问（包括图形和音频）。
 
-Built on top of Podman or Docker, it provides seamless access to different distributions' package managers and software. Applications installed inside containers can be exported to appear in the host's application menu.
+它构建于 Podman 或 Docker 之上，可无缝使用不同发行版的软件包管理器和软件。安装在容器内的应用可以导出到宿主机的应用菜单中显示。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Erlang runtime system and interactive shell
+Erlang 运行时系统与交互式 Shell
 
 # TLDR
 
-**Start Erlang shell**
+**启动 Erlang shell**
 
 ```erl```
 
-**Run with module**
+**运行指定模块**
 
 ```erl -s [module] [function]```
 
-**Run and halt**
+**运行后退出**
 
 ```erl -noshell -s [module] [function] -s init stop```
 
-**Start named node**
+**启动命名节点**
 
 ```erl -name [node@host]```
 
-**Set cookie for** distribution
+为分布式通信**设置 cookie**
 
 ```erl -setcookie [secret]```
 
-**Load paths**
+**添加代码加载路径**
 
 ```erl -pa [ebin/]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```erl -eval "[io:format(\"Hello~n\")]"```
 
@@ -39,67 +39,67 @@ Erlang runtime system and interactive shell
 # PARAMETERS
 
 **-s** _MOD_ [_FUNC_ [_ARGS_]]
-> Start module function.
+> 启动模块函数。
 
 **-noshell**
-> Run without interactive shell.
+> 不带交互式 shell 运行。
 
 **-name** _NAME_
-> Long node name.
+> 长节点名。
 
 **-sname** _NAME_
-> Short node name.
+> 短节点名。
 
 **-setcookie** _COOKIE_
-> Distribution cookie.
+> 分布式认证 cookie。
 
 **-pa** _DIR_
-> Prepend to code path.
+> 添加到代码路径开头。
 
 **-eval** _EXPR_
-> Evaluate expression at startup.
+> 启动时求值表达式。
 
 **-run** _MOD_ [_FUNC_ [_ARGS_]]
-> Similar to -s but passes arguments as a list of strings.
+> 与 -s 类似，但以字符串列表的形式传递参数。
 
 **-config** _FILE_
-> Application configuration file (sys.config).
+> 应用配置文件（sys.config）。
 
 **-detached**
-> Start the Erlang runtime system detached from the controlling terminal.
+> 以脱离控制终端的方式启动 Erlang 运行时系统。
 
 **-heart**
-> Start a heartbeat monitoring process.
+> 启动心跳监控进程。
 
 **+P** _NUM_
-> Set maximum number of concurrent processes (default 262144).
+> 设置最大并发进程数（默认 262144）。
 
 **+K** _true|false_
-> Enable or disable kernel poll (epoll/kqueue).
+> 启用或禁用内核轮询（epoll/kqueue）。
 
 # CONFIGURATION
 
 **sys.config**
-> Application configuration file specifying runtime parameters for OTP applications.
+> 应用配置文件，为 OTP 应用指定运行时参数。
 
 **vm.args**
-> VM arguments file for distributed Erlang settings, memory limits, and node configuration.
+> VM 参数文件，用于分布式 Erlang 设置、内存限制和节点配置。
 
 # DESCRIPTION
 
-**erl** starts the Erlang runtime system and interactive shell. It's the primary way to run Erlang programs, either interactively or in batch mode.
+**erl** 启动 Erlang 运行时系统和交互式 shell。它是运行 Erlang 程序的主要方式，既可交互使用也可批处理运行。
 
-The shell provides an interactive environment for evaluating Erlang expressions. For production use, -noshell runs without the shell, and -s/-eval execute specific code.
+shell 提供了求值 Erlang 表达式的交互环境。生产环境中可用 -noshell 不带 shell 运行，用 -s/-eval 执行特定代码。
 
-Erlang's distributed features are enabled through node naming (-name/-sname) and authentication (-setcookie).
+Erlang 的分布式特性通过节点命名（-name/-sname）和身份验证（-setcookie）启用。
 
 # CAVEATS
 
-Shell differs from module syntax. Distribution requires matching cookies. Node names must be unique. Memory usage scales with processes.
+Shell 语法与模块语法不同。分布式要求各节点 cookie 一致。节点名必须唯一。内存占用随进程数增长。
 
 # HISTORY
 
-Erlang was developed at **Ericsson** starting in **1986** by **Joe Armstrong**, **Robert Virding**, and **Mike Williams** for telecom systems. The erl command has been the standard way to run Erlang since its open-source release in **1998**.
+Erlang 由 **Joe Armstrong**、**Robert Virding** 和 **Mike Williams** 自 **1986 年**起在 **Ericsson** 开发，面向电信系统。自 **1998 年**开源以来，erl 命令一直是运行 Erlang 的标准方式。
 
 # INSTALL
 

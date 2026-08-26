@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display or set the system's NIS/YP domain name
+显示或设置系统的 NIS/YP 域名
 
 # TLDR
 
-**Show current NIS domain name**
+**显示当前 NIS 域名**
 
 ```domainname```
 
-**Set NIS domain name**
+**设置 NIS 域名**
 
 ```sudo domainname [example.com]```
 
-**Set NIS domain name from a file**
+**从文件设置 NIS 域名**
 
 ```sudo domainname -F [/etc/nisdomain]```
 
-**Clear domain name**
+**清除域名**
 
 ```sudo domainname ""```
 
@@ -26,34 +26,34 @@ Display or set the system's NIS/YP domain name
 
 # DESCRIPTION
 
-**domainname** displays or sets the system's NIS (Network Information Service) domain name. This is different from the DNS domain name and is used for NIS/YP services.
+**domainname** 显示或设置系统的 NIS（Network Information Service）域名。它与 DNS 域名是两回事，专用于 NIS/YP 服务。
 
-Without arguments, it shows the current NIS domain. With an argument, it sets the domain name (requires root privileges). The setting is typically not persistent across reboots without additional configuration.
+不带参数时显示当前 NIS 域；带参数时设置域名（需要 root 权限）。如果不做额外配置，该设置通常无法在重启后保留。
 
 # PARAMETERS
 
 **-v**, **--verbose**
-> Be verbose about actions.
+> 详细输出操作信息。
 
 **-F** _file_, **--file** _file_
-> Read domain name from the specified file.
+> 从指定文件读取域名。
 
 **-y**, **--yp**, **--nis**
-> Display the NIS domain name (default behavior when invoked as domainname).
+> 显示 NIS 域名（以 domainname 调用时的默认行为）。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **-V**, **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 # CAVEATS
 
-Do not confuse this with the DNS domain name; use **dnsdomainname** for that. Setting is not persistent by default across reboots. NIS is deprecated in favor of LDAP and Kerberos. Rarely used on modern systems.
+不要把它与 DNS 域名混淆；查询 DNS 域名请用 **dnsdomainname**。默认情况下设置不会跨重启保留。NIS 已逐渐被 LDAP 和 Kerberos 取代。在现代系统上很少使用。
 
 # HISTORY
 
-**domainname** dates back to the early days of **NIS** (originally Yellow Pages, YP), developed at **Sun Microsystems** in the **1980s**. NIS provided centralized authentication and configuration for Unix networks. While largely replaced by LDAP and Kerberos, the command remains for compatibility.
+**domainname** 的历史可追溯到 **NIS**（最初名为 Yellow Pages，简称 YP）诞生的年代，该技术由 **Sun Microsystems** 在 **20 世纪 80 年代**开发，为 Unix 网络提供集中式身份验证和配置服务。虽然如今大多已被 LDAP 和 Kerberos 取代，这个命令仍因兼容性而保留至今。
 
 # INSTALL
 

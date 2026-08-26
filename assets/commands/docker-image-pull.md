@@ -1,30 +1,30 @@
 # TAGLINE
 
-Download images from a registry
+从镜像仓库下载镜像
 
 # TLDR
 
-**Pull an image**
+**拉取一个镜像**
 
 ```docker image pull [image]```
 
-**Pull specific tag**
+**拉取指定标签**
 
 ```docker image pull [image]:[tag]```
 
-**Pull all tags**
+**拉取所有标签**
 
 ```docker image pull -a [image]```
 
-**Pull by digest**
+**按摘要拉取**
 
 ```docker image pull [image]@[sha256:digest]```
 
-**Pull for a specific platform**
+**为特定平台拉取**
 
 ```docker image pull --platform [linux/arm64] [image]:[tag]```
 
-**Pull from specific registry**
+**从特定镜像仓库拉取**
 
 ```docker image pull [registry.example.com/image]:[tag]```
 
@@ -35,24 +35,24 @@ Download images from a registry
 # PARAMETERS
 
 **-a**, **--all-tags**
-> Download all tagged images.
+> 下载所有带标签的镜像。
 
 **--disable-content-trust**
-> Skip image verification.
+> 跳过镜像验证。
 
 **--platform** _string_
-> Set platform (e.g., linux/amd64).
+> 设置平台（例如 linux/amd64）。
 
 **-q**, **--quiet**
-> Suppress verbose output.
+> 抑制详细输出。
 
 # DESCRIPTION
 
-**docker image pull** downloads a Docker image or repository from a registry to the local Docker daemon. When no registry is specified, Docker Hub serves as the default source. If no tag is provided, the **latest** tag is assumed.
+**docker image pull** 从镜像仓库（registry）将 Docker 镜像或软件仓库下载到本地 Docker 守护进程。未指定镜像仓库时，默认使用 Docker Hub。如果未提供标签，则假定使用 **latest** 标签。
 
-The pull operation downloads image layers in parallel for efficiency. If some layers already exist locally from other images, Docker reuses them through its content-addressable storage system, minimizing bandwidth and storage requirements.
+拉取操作会并行下载镜像层以提高效率。如果某些层已因其他镜像而存在于本地，Docker 会通过其内容寻址存储系统复用这些层，从而最大限度地减少带宽和存储占用。
 
-Images can be pulled by tag for version-specific deployments or by SHA256 digest for immutable, verifiable image references. The **--platform** flag enables pulling multi-architecture images for cross-platform development and deployment scenarios.
+可以按标签拉取镜像以进行特定版本的部署，也可以按 SHA256 摘要拉取以获得不可变且可验证的镜像引用。**--platform** 选项可用于为跨平台开发和部署场景拉取多架构镜像。
 
 # INSTALL
 

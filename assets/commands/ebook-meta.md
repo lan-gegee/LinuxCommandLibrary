@@ -1,30 +1,30 @@
 # TAGLINE
 
-ebook metadata editor
+电子书元数据编辑器
 
 # TLDR
 
-**Show metadata**
+**显示元数据**
 
 ```ebook-meta [book.epub]```
 
-**Set title**
+**设置标题**
 
 ```ebook-meta [book.epub] --title "[New Title]"```
 
-**Set author**
+**设置作者**
 
 ```ebook-meta [book.epub] --authors "[Author Name]"```
 
-**Set cover**
+**设置封面**
 
 ```ebook-meta [book.epub] --cover [cover.jpg]```
 
-**Get cover image**
+**提取封面图像**
 
 ```ebook-meta [book.epub] --get-cover [cover.jpg]```
 
-**Set multiple fields**
+**设置多个字段**
 
 ```ebook-meta [book.epub] --title "[Title]" --authors "[Author]" --publisher "[Publisher]"```
 
@@ -34,70 +34,70 @@ ebook metadata editor
 
 # DESCRIPTION
 
-**ebook-meta** reads and writes metadata in ebook files. Part of Calibre, it handles various formats including EPUB, MOBI, AZW3, and PDF.
+**ebook-meta** 读写电子书文件中的元数据。作为 Calibre 的一部分，它支持包括 EPUB、MOBI、AZW3 和 PDF 在内的多种格式。
 
-The tool can display existing metadata and modify fields like title, author, publisher, date, and cover image without converting the file.
+该工具可以显示现有元数据，并修改标题、作者、出版商、日期和封面图等字段，而无需转换文件。
 
 # PARAMETERS
 
 **--title** _title_
-> Set book title.
+> 设置书名。
 
 **--authors** _names_
-> Set authors (comma-separated).
+> 设置作者（逗号分隔）。
 
 **--publisher** _name_
-> Set publisher.
+> 设置出版商。
 
 **--date** _date_
-> Set publication date.
+> 设置出版日期。
 
 **--isbn** _isbn_
-> Set ISBN.
+> 设置 ISBN。
 
 **--tags** _tags_
-> Set tags (comma-separated).
+> 设置标签（逗号分隔）。
 
 **--series** _name_
-> Set series name.
+> 设置丛书名。
 
 **--series-index** _n_
-> Set position in series.
+> 设置在丛书中的位置。
 
 **--cover** _file_
-> Set cover from image.
+> 从图像设置封面。
 
 **--get-cover** _file_
-> Extract cover to file.
+> 将封面提取到文件。
 
 **--language** _lang_
-> Set language.
+> 设置语言。
 
 **--comments** _text_
-> Set description/comments.
+> 设置描述/评论。
 
 **--rating** _n_
-> Set the rating (1 to 5).
+> 设置评分（1 到 5）。
 
 **--author-sort** _name_
-> Set the string used to sort by author.
+> 设置按作者排序所用的字符串。
 
 **--to-opf** _file.opf_
-> Write the book's metadata to an OPF file.
+> 将该书的元数据写入 OPF 文件。
 
 **--from-opf** _file.opf_
-> Read metadata from an OPF file and apply it to the book.
+> 从 OPF 文件读取元数据并应用到该书。
 
 **--identifier** _id:value_
-> Set an identifier, e.g. `--identifier doi:10.1234/foo`. Repeatable.
+> 设置标识符，例如 `--identifier doi:10.1234/foo`。可重复使用。
 
 # CAVEATS
 
-Not all formats support all metadata fields. PDF metadata limited. Changes are in-place by default. Some metadata requires specific format support.
+并非所有格式都支持所有元数据字段。PDF 的元数据有限。默认直接修改原文件。某些元数据需要特定格式的支持。
 
 # HISTORY
 
-**ebook-meta** is part of **Calibre**, created by **Kovid Goyal** in **2006**. It provides command-line access to Calibre's metadata editing capabilities, essential for batch processing and scripting.
+**ebook-meta** 是 **Calibre** 的一部分，由 **Kovid Goyal** 于 **2006 年**创建。它以命令行方式提供 Calibre 的元数据编辑功能，对批处理和脚本化操作至关重要。
 
 # SEE ALSO
 

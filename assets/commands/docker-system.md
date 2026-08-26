@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage Docker system resources and disk usage
+管理 Docker 系统资源与磁盘占用
 
 # TLDR
 
-**Show disk usage**
+**查看磁盘占用**
 
 ```docker system df```
 
-**Show detailed disk usage**
+**查看详细磁盘占用**
 
 ```docker system df -v```
 
-**Remove unused data**
+**清理未使用的数据**
 
 ```docker system prune```
 
-**Remove all unused data including volumes**
+**清理所有未使用的数据（包括卷）**
 
 ```docker system prune -a --volumes```
 
-**Show system information**
+**显示系统信息**
 
 ```docker system info```
 
-**Show system events**
+**显示系统事件**
 
 ```docker system events```
 
@@ -35,20 +35,20 @@ manage Docker system resources and disk usage
 # SUBCOMMANDS
 
 **df**
-> Show Docker disk usage.
+> 查看 Docker 磁盘占用。
 
 **prune**
-> Remove unused data.
+> 清理未使用的数据。
 
 **info**
-> Display system-wide information.
+> 显示系统级信息。
 
 **events**
-> Get real-time events from server.
+> 从服务器获取实时事件。
 
 # DESCRIPTION
 
-**docker system** manages Docker system resources. Useful for monitoring disk usage and cleaning up unused containers, images, networks, and volumes.
+**docker system** 管理 Docker 的系统资源，可用于监控磁盘占用以及清理未使用的容器、镜像、网络和卷。
 
 # INSTALL
 
@@ -69,5 +69,3 @@ manage Docker system resources and disk usage
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-
-

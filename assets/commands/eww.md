@@ -1,38 +1,38 @@
 # TAGLINE
 
-custom desktop widget system
+自定义桌面小组件系统
 
 # TLDR
 
-Start the **daemon**
+启动**守护进程**
 
 ```eww daemon```
 
-**Open** a widget
+**打开**一个小组件
 
 ```eww [-c|--config] [path/to/source_code_directory] open [window_name]```
 
-**Close** a widget
+**关闭**一个小组件
 
 ```eww [-c|--config] [path/to/source_code_directory] close [window_name]```
 
-**Reload** configuration
+**重新加载**配置
 
 ```eww reload```
 
-**Kill** the daemon
+**终止**守护进程
 
 ```eww kill```
 
-**Get** the value of a variable
+**获取**变量的值
 
 ```eww get [variable_name]```
 
-**Update** a variable
+**更新**变量
 
 ```eww update [variable_name]="[value]"```
 
-Print and **watch logs**
+打印并**监视日志**
 
 ```eww logs```
 
@@ -43,67 +43,67 @@ Print and **watch logs**
 # PARAMETERS
 
 **daemon**
-> Start the daemon process.
+> 启动守护进程。
 
 **open** _window_
-> Open a widget window.
+> 打开一个小组件窗口。
 
 **open-many** _windows..._
-> Open multiple widget windows at once.
+> 同时打开多个小组件窗口。
 
 **close** _window_
-> Close a widget window.
+> 关闭一个小组件窗口。
 
 **close-all**
-> Close all open widget windows.
+> 关闭所有已打开的小组件窗口。
 
 **reload**
-> Reload configuration files.
+> 重新加载配置文件。
 
 **kill**
-> Stop the daemon.
+> 停止守护进程。
 
 **logs**
-> Display and watch logs.
+> 显示并跟踪日志。
 
 **get** _variable_
-> Print the current value of a variable.
+> 打印变量的当前值。
 
 **update** _var=value_
-> Update a variable value.
+> 更新变量的值。
 
 **state**
-> Display the current state of all variables.
+> 显示所有变量的当前状态。
 
 **inspect**
-> Open the GTK debugger.
+> 打开 GTK 调试器。
 
 **shell-completions** _shell_
-> Generate shell completions (bash, fish, zsh).
+> 生成 Shell 补全脚本（bash、fish、zsh）。
 
 **-c**, **--config** _path_
-> Specify config directory.
+> 指定配置目录。
 
 **--no-daemonize**
-> Don't fork the daemon process to the background.
+> 不将守护进程派生到后台。
 
 # DESCRIPTION
 
-**eww** (ElKowar's Wacky Widgets) creates custom desktop widgets for any window manager. It uses a configuration language to define widgets with dynamic content and styling.
+**eww**（ElKowar's Wacky Widgets）为任意窗口管理器创建自定义桌面小组件。它使用一套配置语言来定义具有动态内容和样式的小组件。
 
-Popular for creating status bars, sidebars, and other desktop elements.
+它常用于创建状态栏、侧边栏和其他桌面元素。
 
 # CONFIGURATION
 
 **~/.config/eww/eww.yuck**
-> Widget definitions and structure written in the eww configuration language.
+> 用 eww 配置语言编写的小组件定义与结构。
 
 **~/.config/eww/eww.scss**
-> Widget styling using CSS/SCSS syntax.
+> 使用 CSS/SCSS 语法的组件样式。
 
 # CAVEATS
 
-Requires configuration files in eww format. Daemon must be running for widgets to display. Works with X11 and Wayland.
+需要 eww 格式的配置文件。小组件要显示出来必须有守护进程运行。支持 X11 和 Wayland。
 
 # INSTALL
 

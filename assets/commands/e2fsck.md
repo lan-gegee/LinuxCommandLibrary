@@ -1,38 +1,38 @@
 # TAGLINE
 
-check and repair ext filesystems
+检查并修复 ext 文件系统
 
 # TLDR
 
-**Check** filesystem for errors
+**检查**文件系统错误
 
 ```sudo e2fsck /dev/sdXN```
 
-Check and **auto-repair** (preen)
+检查并**自动修复**（preen 模式）
 
 ```sudo e2fsck -p /dev/sdXN```
 
-Check for **bad blocks** using read-only test
+使用只读测试检查**坏块**
 
 ```sudo e2fsck -c /dev/sdXN```
 
-**Force** check even if clean
+即使文件系统干净也**强制**检查
 
 ```sudo e2fsck -f /dev/sdXN```
 
-Exhaustive **bad block** test
+进行彻底的**坏块**测试
 
 ```sudo e2fsck -fccky /dev/sdXN```
 
-**Read-only** check without making changes
+**只读**检查，不做任何更改
 
 ```sudo e2fsck -n /dev/sdXN```
 
-**Verbose** output
+**详细**输出
 
 ```sudo e2fsck -v /dev/sdXN```
 
-Interactively repair, answering **yes to all** questions
+交互式修复，对所有问题回答**yes**
 
 ```sudo e2fsck -y /dev/sdXN```
 
@@ -42,67 +42,67 @@ Interactively repair, answering **yes to all** questions
 
 # DESCRIPTION
 
-**e2fsck** checks and optionally repairs Linux ext2, ext3, or ext4 filesystems. The filesystem should be unmounted before running this command, or mounted read-only at minimum.
+**e2fsck** 检查并可选择性地修复 Linux 的 ext2、ext3 或 ext4 文件系统。运行此命令前应先卸载文件系统，或至少以只读方式挂载。
 
 # PARAMETERS
 
 **-a**
-> Automatically repair without prompting (same as -p)
+> 自动修复而不提示（与 -p 相同）
 
 **-b SUPERBLOCK**
-> Use alternative superblock
+> 使用备用超级块
 
 **-B BLOCKSIZE**
-> Specify block size when searching for superblock
+> 搜索超级块时指定块大小
 
 **-c**
-> Check for bad blocks using read-only test
+> 使用只读测试检查坏块
 
 **-C FD**
-> Write completion information to file descriptor
+> 将完成进度信息写入文件描述符
 
 **-d**
-> Print debugging output
+> 打印调试输出
 
 **-D**
-> Optimize directories
+> 优化目录
 
 **-f**
-> Force check even if filesystem seems clean
+> 即使文件系统看起来干净也强制检查
 
 **-F**
-> Flush buffer cache before checking
+> 检查前刷新缓冲区缓存
 
 **-k**
-> Keep existing bad block list
+> 保留已有的坏块列表
 
 **-n**
-> Open read-only, answer "no" to all questions
+> 以只读方式打开，对所有问题回答"no"
 
 **-p**
-> Preen mode: automatically repair safe problems
+> Preen 模式：自动修复安全的问题
 
 **-t**
-> Print timing statistics
+> 打印计时统计
 
 **-v**
-> Verbose mode
+> 详细模式
 
 **-y**
-> Answer "yes" to all questions
+> 对所有问题回答"yes"
 
 # CONFIGURATION
 
 **/etc/e2fsck.conf**
-> Configuration file controlling default behavior, problem handling, and optimization settings.
+> 配置文件，控制默认行为、问题处理和优化设置。
 
 # CAVEATS
 
-Never run e2fsck on a mounted filesystem unless it's read-only. The **-y** option can cause data loss if used carelessly. Always backup before repairing.
+切勿在已挂载的文件系统上运行 e2fsck，除非它是以只读方式挂载的。**-y** 选项若使用不当可能导致数据丢失。修复前务必备份。
 
 # HISTORY
 
-**e2fsck** is part of **e2fsprogs**, providing filesystem checking for ext2/3/4 filesystems since the early 1990s.
+**e2fsck** 是 **e2fsprogs** 的一部分，自 20 世纪 90 年代初起为 ext2/3/4 文件系统提供检查功能。
 
 # INSTALL
 

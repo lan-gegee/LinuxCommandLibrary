@@ -1,38 +1,38 @@
 # TAGLINE
 
-Android bootloader flashing and modification tool
+Android 引导加载程序刷写与修改工具
 
 # TLDR
 
-**List connected devices**
+**列出已连接的设备**
 
 ```fastboot devices```
 
-**Flash partition**
+**刷写分区**
 
 ```fastboot flash [boot] [boot.img]```
 
-**Flash all partitions** from factory image
+**从出厂镜像刷写全部分区**
 
 ```fastboot flashall```
 
-**Unlock bootloader**
+**解锁引导加载程序**
 
 ```fastboot flashing unlock```
 
-**Reboot device**
+**重启设备**
 
 ```fastboot reboot```
 
-**Reboot to recovery**
+**重启到 recovery**
 
 ```fastboot reboot recovery```
 
-**Erase partition**
+**擦除分区**
 
 ```fastboot erase [cache]```
 
-**Boot temporary image**
+**引导临时镜像**
 
 ```fastboot boot [recovery.img]```
 
@@ -42,55 +42,55 @@ Android bootloader flashing and modification tool
 
 # DESCRIPTION
 
-**fastboot** is an Android tool for flashing firmware and modifying device partitions. It communicates with devices in fastboot/bootloader mode for low-level operations.
+**fastboot** 是一款用于刷写固件和修改设备分区的 Android 工具。它与处于 fastboot/bootloader 模式的设备通信，执行底层操作。
 
-The tool enables installing custom ROMs, recovery images, and performing maintenance on Android devices. It's part of the Android SDK platform tools.
+该工具可用于安装自定义 ROM、recovery 镜像，以及对 Android 设备进行维护。它是 Android SDK platform tools 的一部分。
 
 # PARAMETERS
 
 **devices**
-> List connected devices.
+> 列出已连接的设备。
 
 **flash** _partition_ _image_
-> Flash image to partition.
+> 将镜像刷写到分区。
 
 **flashall**
-> Flash all partitions.
+> 刷写所有分区。
 
 **erase** _partition_
-> Erase partition.
+> 擦除分区。
 
 **reboot** [_target_]
-> Reboot (bootloader, recovery).
+> 重启（bootloader、recovery）。
 
 **boot** _image_
-> Boot temporary image.
+> 引导临时镜像。
 
 **oem** _command_
-> OEM-specific commands.
+> OEM 特定命令。
 
 **getvar** _variable_
-> Get bootloader variable.
+> 获取 bootloader 变量。
 
 **-s** _serial_
-> Target specific device.
+> 指定目标设备。
 
 **update** _zipfile_
-> Flash all partitions from an update zip.
+> 从更新 zip 刷写所有分区。
 
 **flashing unlock**
-> Unlock the bootloader (newer devices).
+> 解锁 bootloader（较新设备）。
 
 **-w**
-> Wipe userdata.
+> 清除 userdata。
 
 # CAVEATS
 
-Device must be in fastboot mode. Wrong images can brick device. Unlocking bootloader may void warranty. USB drivers needed on Windows.
+设备必须处于 fastboot 模式。错误的镜像可能导致设备变砖。解锁 bootloader 可能使保修失效。Windows 上需要安装 USB 驱动。
 
 # HISTORY
 
-**fastboot** is part of Android SDK platform tools, developed by **Google**. It emerged with Android's development in the late **2000s** as a standard way to flash devices. The protocol allows manufacturers to customize behavior while maintaining compatibility.
+**fastboot** 是 Android SDK platform tools 的一部分，由 **Google** 开发。它随 Android 在 **2000 年代末**的开发而出现，成为刷写设备的标准方式。该协议允许厂商自定义行为，同时保持兼容性。
 
 # INSTALL
 

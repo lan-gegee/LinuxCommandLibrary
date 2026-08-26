@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage containerized services in Docker Swarm
+管理 Docker Swarm 中的容器化服务
 
 # TLDR
 
-**Create a service**
+**创建一个服务**
 
 ```docker service create --name [name] [image]```
 
-**List services**
+**列出服务**
 
 ```docker service ls```
 
-**Inspect a service**
+**查看一个服务**
 
 ```docker service inspect [service]```
 
-**Scale a service**
+**伸缩一个服务**
 
 ```docker service scale [service]=[replicas]```
 
-**Update service image**
+**更新服务镜像**
 
 ```docker service update --image [image]:[tag] [service]```
 
-**View service logs**
+**查看服务日志**
 
 ```docker service logs [service]```
 
-**Remove a service**
+**删除一个服务**
 
 ```docker service rm [service]```
 
@@ -39,64 +39,64 @@ manage containerized services in Docker Swarm
 # SUBCOMMANDS
 
 **create**
-> Create a new service.
+> 创建一个新服务。
 
 **ls**
-> List services.
+> 列出服务。
 
 **inspect**
-> Display detailed information.
+> 显示详细信息。
 
 **update**
-> Update a service.
+> 更新服务。
 
 **scale**
-> Scale services.
+> 伸缩服务。
 
 **logs**
-> Fetch service logs.
+> 获取服务日志。
 
 **ps**
-> List tasks of a service.
+> 列出服务的任务。
 
 **rm**
-> Remove services.
+> 删除服务。
 
 **rollback**
-> Revert a service to its previous specification.
+> 将服务回滚到上一个规格。
 
 # COMMON OPTIONS
 
-**--replicas** _n_ (create/scale)
-> Number of replicated tasks to run.
+**--replicas** _n_（create/scale）
+> 要运行的副本任务数量。
 
-**--mode** _mode_ (create)
-> **replicated** (default) or **global** (one task per node).
+**--mode** _mode_（create）
+> **replicated**（默认）或 **global**（每个节点一个任务）。
 
-**--publish** _published:target_ (create)
-> Publish a port externally (e.g. `8080:80`).
+**--publish** _published:target_（create）
+> 对外发布端口（例如 `8080:80`）。
 
-**--network** _name_ (create)
-> Attach the service to a swarm overlay network.
+**--network** _name_（create）
+> 将服务连接到 swarm overlay 网络。
 
-**--env**, **-e** _KEY=VAL_ (create/update)
-> Set environment variables.
+**--env**, **-e** _KEY=VAL_（create/update）
+> 设置环境变量。
 
-**--constraint** _expr_ (create)
-> Placement constraints (e.g. `node.role==worker`).
+**--constraint** _expr_（create）
+> 放置约束（例如 `node.role==worker`）。
 
-**--update-parallelism** _n_ / **--update-delay** _dur_ (create/update)
-> Rolling-update concurrency and delay between batches.
+**--update-parallelism** _n_ / **--update-delay** _dur_（create/update）
+> 滚动更新的并发数以及批次之间的延迟。
 
 # DESCRIPTION
 
-**docker service** manages Swarm services. A service is a declaration of how a set of containers should run across a swarm: image, replica count, networks, mounts, secrets, resource limits, and update strategy. The swarm orchestrator schedules tasks (container instances) on cluster nodes and maintains the desired state, replacing failed tasks and routing traffic via the routing mesh.
+**docker service** 管理 Swarm 服务。服务是对一组容器应如何在 swarm 中运行的声明，包括镜像、副本数量、网络、挂载、secrets、资源限制和更新策略。Swarm 编排器在集群节点上调度任务（容器实例）并维持期望状态，替换失败的任务并通过路由网格（routing mesh）转发流量。
 
-Service commands are only available on a Docker host participating in a swarm; initialize one with **docker swarm init** before using them. Updates are applied as rolling updates by default, with **rollback** available to revert to the previous service spec.
+服务命令仅在已加入 swarm 的 Docker 主机上可用；使用前需先执行 **docker swarm init** 初始化。更新默认以滚动更新方式应用，并可使用 **rollback** 回退到上一个服务规格。
 
 # CAVEATS
 
-Requires swarm mode (**docker swarm init** / **join**). For single-host workloads use **docker run** or **docker compose** instead. Rolling updates with **--update-parallelism 0** will replace all tasks at once and can cause downtime.
+需要 swarm 模式（**docker swarm init** / **join**）。单主机工作负载请改用 **docker run** 或 **docker compose**。使用 **--update-parallelism 0** 的滚动更新会一次性替换所有任务，可能导致停机。
 
 # INSTALL
 
@@ -119,4 +119,3 @@ Requires swarm mode (**docker swarm init** / **join**). For single-host workload
 # SEE ALSO
 
 [docker-swarm](/man/docker-swarm)(1), [docker-node](/man/docker-node)(1), [docker](/man/docker)(1), [docker-compose](/man/docker-compose)(1)
-

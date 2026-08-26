@@ -1,38 +1,38 @@
 # TAGLINE
 
-lightweight notification daemon for desktops
+轻量级桌面通知守护进程
 
 # TLDR
 
-**Start dunst** notification daemon
+**启动 dunst** 通知守护进程
 
 ```dunst```
 
-**Start with a custom config file**
+**使用自定义配置文件启动**
 
 ```dunst -config [path/to/dunstrc]```
 
-**Print notifications** to stdout as well as displaying them
+**将通知打印到标准输出**并同时显示
 
 ```dunst -print```
 
-**Test dunst** with a sample notification
+**用一条示例通知测试 dunst**
 
 ```notify-send "Title" "Message body"```
 
-**Show the most recent** notification again
+**再次显示最近一条**通知
 
 ```dunstctl history-pop```
 
-**Toggle Do Not Disturb**
+**切换勿扰模式**
 
 ```dunstctl set-paused toggle```
 
-**Start with verbose output**
+**以详细输出启动**
 
 ```dunst -verbosity debug```
 
-**Print version information**
+**打印版本信息**
 
 ```dunst -v```
 
@@ -43,53 +43,53 @@ lightweight notification daemon for desktops
 # PARAMETERS
 
 **-config** _file_
-> Use the specified configuration file.
+> 使用指定的配置文件。
 
 **-print**
-> Print notifications to stdout instead of displaying them.
+> 将通知打印到标准输出而不显示。
 
 **-verbosity** _level_
-> Set verbosity level: crit, warn, mesg, info, debug.
+> 设置详细程度：crit、warn、mesg、info、debug。
 
 **-startup_notification**
-> Display a notification on startup.
+> 启动时显示一条通知。
 
 **-v**, **-version**
-> Print version information.
+> 打印版本信息。
 
 **-h**, **-help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/dunst/dunstrc**
-> Main configuration file controlling appearance, behavior, urgency styling, and notification rules.
+> 主配置文件，控制外观、行为、紧急度样式和通知规则。
 
 # DESCRIPTION
 
-**dunst** is a lightweight notification daemon for X11 and Wayland that displays desktop notifications following the freedesktop.org notification specification. It's highly customizable through its configuration file and popular in tiling window manager setups.
+**dunst** 是一个面向 X11 和 Wayland 的轻量级通知守护进程，按照 freedesktop.org 通知规范显示桌面通知。它可以通过配置文件高度定制，在平铺式窗口管理器环境中颇受欢迎。
 
-Notifications appear as styled popups that can be configured for position, size, colors, fonts, icons, and behavior. Dunst supports notification actions, urgency levels (low, normal, critical), and can execute scripts when notifications arrive based on rules.
+通知以样式化的弹出框形式出现，其位置、大小、颜色、字体、图标和行为均可配置。Dunst 支持通知动作和紧急级别（low、normal、critical），并且可以基于规则在通知到达时执行脚本。
 
-Configuration is done through **~/.config/dunst/dunstrc**. The config file defines global settings, urgency-specific styling, and rules for matching notifications by app name, summary, body, or other criteria. Rules can modify notification appearance or trigger actions.
+配置通过 **~/.config/dunst/dunstrc** 完成。该文件定义全局设置、按紧急度区分的样式，以及按应用名、摘要、正文或其他条件匹配通知的规则。规则可以修改通知外观或触发动作。
 
-Key features include notification history (accessed via **dunstctl history-pop**), Do Not Disturb mode, keyboard navigation for interacting with notifications, and support for notification actions. Critical notifications can be configured to persist until acknowledged.
+主要特性包括通知历史（通过 **dunstctl history-pop** 访问）、勿扰模式、用于与通知交互的键盘导航，以及通知动作支持。critical 级别的通知可以配置为持续显示直到确认。
 
-Dunst integrates with **dunstctl** for runtime control and **dunstify** for sending notifications with advanced features like notification replacement and progress bars.
+Dunst 与 **dunstctl** 集成实现运行时控制，与 **dunstify** 集成发送具备通知替换和进度条等高级特性的通知。
 
 # CAVEATS
 
-Notification daemons are **D-Bus activated**, and only one can own the `org.freedesktop.Notifications` name at a time. If a desktop environment already ships one (GNOME and KDE both do), dunst will refuse to start, or will start and never receive anything, depending on who claimed the name first. This is why dunst is mostly seen alongside tiling window managers, which ship no daemon of their own.
+通知守护进程由 **D-Bus 激活**，而 `org.freedesktop.Notifications` 名称同一时间只能由一个进程持有。如果桌面环境已经自带一个（GNOME 和 KDE 都是如此），dunst 要么拒绝启动，要么启动了却永远收不到任何通知，取决于谁先占用了该名称。这正是 dunst 多见于平铺式窗口管理器（它们不自带通知守护进程）旁的原因。
 
-The corollary is that dunst does not need to be launched at all in the ordinary case: D-Bus starts it on the first notification. Adding it to an autostart script *and* relying on activation is a common way to end up with two instances.
+由此推论，通常情况下根本不需要手动启动 dunst：D-Bus 会在第一条通知到来时启动它。既把它加入自启脚本*又*依赖 D-Bus 激活，是最终出现两个实例的常见原因。
 
-Note that the flags take a **single dash**, even the long ones: `-config`, `-verbosity`, not `--config`.
+注意这些标志用的是**单个短横线**，长选项也不例外：`-config`、`-verbosity`，而非 `--config`。
 
-Configuration is reloaded on SIGUSR2 in recent versions, but many settings are still read at startup, and an invalid `dunstrc` prevents dunst from starting at all, which on a bare window manager means notifications silently stop working with no visible error. Check with `dunst -verbosity debug` from a terminal when that happens.
+新版本支持通过 SIGUSR2 重载配置，但仍有许多设置只在启动时读取，而且无效的 `dunstrc` 会让 dunst 完全无法启动——在没有完整桌面的窗口管理器上，这意味着通知悄然失效且没有任何可见错误。遇到这种情况时，请在终端里用 `dunst -verbosity debug` 排查。
 
 # HISTORY
 
-**dunst** was created by **Sascha Kruse** around **2012**, for people running a tiling window manager who found that the notification daemons on offer were either tied to a full desktop environment or drew popups they could not restyle. Its configuration file, which lets any notification be matched on app name, summary, body, or urgency and then restyled or acted upon, is what set it apart and is still the reason people choose it. Wayland support arrived later, and **mako** now fills much the same role for those who want a Wayland-native daemon.
+**dunst** 由 **Sascha Kruse** 于 **2012 年**前后创建，面向那些运行平铺式窗口管理器、却发现现成的通知守护进程要么绑定整个桌面环境、要么弹出无法重设样式的提示框的用户。它的配置文件可以把任意通知按应用名、摘要、正文或紧急度匹配后重新设计样式或触发动作，这一能力使它与众不同，至今仍是人们选择它的理由。Wayland 支持后来才加入，如今 **mako** 在想要 Wayland 原生守护进程的用户中扮演着类似角色。
 
 # INSTALL
 
@@ -118,4 +118,3 @@ Configuration is reloaded on SIGUSR2 in recent versions, but many settings are s
 ```[Homepage](https://dunst-project.org)```
 
 <!-- verified: 2026-07-14 -->
-

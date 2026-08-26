@@ -1,30 +1,30 @@
 # TAGLINE
 
-DNF plugin for offline Fedora major-version upgrades
+用于 Fedora 大版本离线升级的 DNF 插件
 
 # TLDR
 
-**Download** all packages for the target release
+为目标发行版**下载**全部软件包
 
 ```sudo dnf system-upgrade download --releasever=[40]```
 
-**Reboot** and apply the staged upgrade
+**重启**并执行已暂存的升级
 
 ```sudo dnf system-upgrade reboot```
 
-**Allow erasing** packages blocking dependency resolution (e.g. stale third-party repos)
+**允许删除**阻碍依赖解析的软件包（如过时的第三方仓库）
 
 ```sudo dnf system-upgrade download --releasever=[40] --allowerasing```
 
-**Cancel** a staged upgrade and clean cached data
+**取消**已暂存的升级并清理缓存数据
 
 ```sudo dnf system-upgrade clean```
 
-**Check the status** of a pending upgrade
+**检查状态**：查看待执行的升级
 
 ```dnf system-upgrade status```
 
-**View logs** of a previous upgrade attempt
+**查看日志**：查看之前升级尝试的记录
 
 ```sudo dnf system-upgrade log --number=[-1]```
 
@@ -35,47 +35,47 @@ DNF plugin for offline Fedora major-version upgrades
 # PARAMETERS
 
 **download**
-> Download all packages needed for the upgrade and stage them for the next boot.
+> 下载升级所需的全部软件包，并为下次启动做好暂存。
 
 **reboot**
-> Trigger a reboot into the offline upgrade environment that performs the transaction.
+> 触发重启进入离线升级环境以执行事务。
 
 **clean**
-> Remove cached packages and the saved transaction state.
+> 移除缓存的软件包和保存的事务状态。
 
 **status**
-> Print the state of the current pending upgrade (no upgrade, download complete, etc).
+> 打印当前待处理升级的状态（无升级、下载完成等）。
 
 **log**
-> List previous upgrade attempts; with **--number** _N_ show journal output for that boot (commonly **-1** for the last).
+> 列出之前的升级尝试；配合 **--number** _N_ 可显示对应那次启动的日志输出（通常用 **-1** 表示最近一次）。
 
 **--releasever=**_VER_
-> Set the Fedora release version to upgrade to (e.g. **40**, **41**).
+> 设置要升级到的 Fedora 发行版版本（如 **40**、**41**）。
 
 **--allowerasing**
-> Permit DNF to remove packages whose dependencies cannot be satisfied on the new release.
+> 允许 DNF 删除在新发行版上无法满足依赖的软件包。
 
 **--best**
-> Try to use the best available package versions, failing if not possible.
+> 尽量使用最优的可用软件包版本，做不到则失败。
 
 **--nogpgcheck**
-> Skip GPG signature verification (not recommended).
+> 跳过 GPG 签名验证（不建议）。
 
 # DESCRIPTION
 
-**dnf system-upgrade** is a DNF plugin used to perform major version upgrades of Fedora and other RPM-based distributions in an offline manner. Instead of upgrading the system while it runs, the plugin downloads every required package and then reboots into a dedicated systemd target where the transaction is applied with no user processes active.
+**dnf system-upgrade** 是一款 DNF 插件，用于以离线方式对 Fedora 及其他 RPM 系发行版进行大版本升级。它不在系统运行时直接升级，而是先下载所有必需的软件包，然后重启进入专用的 systemd target，在没有用户进程运行的情况下完成事务。
 
-The workflow is three stages: **download** stages packages and verifies dependencies; **reboot** restarts the machine into the offline upgrade environment; on completion the system reboots again into the new release. **clean** discards the staged transaction if the upgrade is aborted.
+工作流分为三个阶段：**download** 暂存软件包并验证依赖；**reboot** 重启机器进入离线升级环境；完成后系统再次重启进入新版本。如果中途放弃升级，**clean** 会丢弃暂存的事务。
 
-The plugin also exposes **offline-upgrade** and **offline-distrosync** subcommands which apply the same offline mechanism to ordinary updates and distro-syncs rather than to a release change.
+该插件还提供 **offline-upgrade** 和 **offline-distrosync** 子命令，将同样的离线机制应用于普通更新和 distro-sync，而非版本变更。
 
 # CAVEATS
 
-The reboot phase rewrites the live root filesystem; the machine must be on stable power and not interrupted, or the system may be left unbootable. Third-party repositories often lag a release behind, so **--allowerasing** is frequently required. The plugin only supports going forward; downgrades between releases are not safe. Skipping a release (e.g. 39 to 41) is officially unsupported, even when it appears to work.
+重启阶段会重写正在使用的根文件系统；机器必须接稳定电源且不能中断，否则系统可能无法启动。第三方仓库常常滞后一个发行版版本，因此经常需要 **--allowerasing**。该插件只支持向前升级；跨版本降级并不安全。官方不支持跳版本升级（如从 39 直接到 41），即使看起来能成功也不受支持。
 
 # HISTORY
 
-The plugin originated as **fedup** in **2012** for Fedora 18, providing the first supported in-place upgrade path. It was rewritten as **dnf-plugin-system-upgrade** in **2015** for Fedora 23 to integrate with DNF, and folded into **dnf-plugins-extras**. In **2024** the plugin became a first-class component of **dnf5** shipping with Fedora 41.
+该插件起源于 **2012 年**面向 Fedora 18 的 **fedup**，提供了首个受支持的就地升级途径。**2015 年**为 Fedora 23 重写为 **dnf-plugin-system-upgrade** 以集成到 DNF，并被并入 **dnf-plugins-extras**。**2024 年**，该插件成为随 Fedora 41 发布的 **dnf5** 的一等组件。
 
 # SEE ALSO
 

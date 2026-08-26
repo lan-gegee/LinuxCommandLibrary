@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage encrypted Elasticsearch secure settings
+管理 Elasticsearch 的加密安全设置
 
 # TLDR
 
-**Create keystore**
+**创建 keystore**
 
 ```elasticsearch-keystore create```
 
-**Create a password-protected keystore**
+**创建受密码保护的 keystore**
 
 ```elasticsearch-keystore create -p```
 
-**List settings**
+**列出设置**
 
 ```elasticsearch-keystore list```
 
-**Add setting** (prompts for value)
+**添加设置**（提示输入值）
 
 ```elasticsearch-keystore add [setting.name]```
 
-**Add setting from stdin**
+**从 stdin 添加设置**
 
 ```echo "[value]" | elasticsearch-keystore add --stdin [setting.name]```
 
-**Add setting from file**
+**从文件添加设置**
 
 ```elasticsearch-keystore add-file [setting.name] [file]```
 
-**Show a setting value**
+**显示某个设置的值**
 
 ```elasticsearch-keystore show [setting.name]```
 
-**Remove setting**
+**移除设置**
 
 ```elasticsearch-keystore remove [setting.name]```
 
-**Upgrade keystore**
+**升级 keystore**
 
 ```elasticsearch-keystore upgrade```
 
@@ -47,60 +47,59 @@ Manage encrypted Elasticsearch secure settings
 # SUBCOMMANDS
 
 **create**
-> Create a new keystore.
+> 创建新的 keystore。
 
 **list**
-> List entries in keystore.
+> 列出 keystore 中的条目。
 
 **add**
-> Add setting (prompts for value).
+> 添加设置（提示输入值）。
 
 **add-file**
-> Add setting from file.
+> 从文件添加设置。
 
 **remove**
-> Remove setting.
+> 移除设置。
 
 **show**
-> Display setting value.
+> 显示设置的值。
 
 **has-passwd**
-> Check if keystore is password-protected.
+> 检查 keystore 是否受密码保护。
 
 **upgrade**
-> Upgrade keystore format.
+> 升级 keystore 格式。
 
 **passwd**
-> Change keystore password.
+> 更改 keystore 密码。
 
 # PARAMETERS
 
 **--stdin**
-> Read setting value from stdin (used with add).
+> 从 stdin 读取设置值（与 add 配合使用）。
 
 **-f**, **--force**
-> Overwrite existing setting without prompting.
+> 不经提示直接覆盖现有设置。
 
 **-p**
-> Prompt for password when creating keystore.
+> 创建 keystore 时提示输入密码。
 
 **-o** _file_
-> Output file (used with show).
+> 输出文件（与 show 配合使用）。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-s**, **--silent**
-> Show minimal output.
+> 显示最少输出。
 
 **-v**, **--verbose**
-> Show verbose output.
+> 显示详细输出。
 
 # DESCRIPTION
 
-**elasticsearch-keystore** manages the secure settings keystore for Elasticsearch. Stores sensitive configuration like passwords and API keys in encrypted form.
+**elasticsearch-keystore** 管理 Elasticsearch 的安全设置 keystore。它以加密形式存储密码、API 密钥等敏感配置。
 
 # SEE ALSO
 
 [elasticsearch](/man/elasticsearch)(1), [elasticsearch-certutil](/man/elasticsearch-certutil)(1)
-

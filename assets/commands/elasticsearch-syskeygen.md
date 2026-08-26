@@ -1,10 +1,10 @@
 # TAGLINE
 
-Generate Elasticsearch system encryption key
+生成 Elasticsearch 系统加密密钥
 
 # TLDR
 
-**Generate system key**
+**生成系统密钥**
 
 ```elasticsearch-syskeygen```
 
@@ -14,13 +14,12 @@ Generate Elasticsearch system encryption key
 
 # DESCRIPTION
 
-**elasticsearch-syskeygen** creates a **system_key** file in the Elasticsearch configuration directory. This key is used to symmetrically encrypt sensitive data, such as preventing Watcher from returning and storing information that contains clear text credentials.
+**elasticsearch-syskeygen** 在 Elasticsearch 配置目录中创建一个 **system_key** 文件。该密钥用于对称加密敏感数据，例如防止 Watcher 返回并存储包含明文凭证的信息。
 
 # CAVEATS
 
-This tool is part of X-Pack. The generated system key must be the same across all nodes in a cluster. Use **elasticsearch-keystore** for managing secure settings in newer versions.
+该工具属于 X-Pack。生成的系统密钥在集群的所有节点上必须相同。较新版本请使用 **elasticsearch-keystore** 管理安全设置。
 
 # SEE ALSO
 
 [elasticsearch](/man/elasticsearch)(1), [elasticsearch-keystore](/man/elasticsearch-keystore)(1)
-

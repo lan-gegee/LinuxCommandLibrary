@@ -1,30 +1,30 @@
 # TAGLINE
 
-Upgrade the operating system to the latest release
+将操作系统升级到最新发行版
 
 # TLDR
 
-**Upgrade to the latest release**
+**升级到最新发行版**
 
 ```sudo do-release-upgrade```
 
-**Upgrade to the development release**
+**升级到开发版**
 
 ```sudo do-release-upgrade -d```
 
-**Upgrade using the proposed upgrader**
+**使用候选版升级器**升级
 
 ```sudo do-release-upgrade -p```
 
-**Check if an upgrade is available without performing it**
+**只检查是否有可用升级而不实际执行**
 
 ```sudo do-release-upgrade -c```
 
-**Run upgrade in server mode with text frontend**
+以服务器模式运行升级，使用文本前端
 
 ```sudo do-release-upgrade -m server -f DistUpgradeViewText```
 
-**Test upgrade in a sandbox without modifying the system**
+在沙盒中测试升级，不改动系统
 
 ```sudo do-release-upgrade -s```
 
@@ -35,39 +35,39 @@ Upgrade the operating system to the latest release
 # PARAMETERS
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 **-d**, **--devel-release**
-> If using the latest supported release, upgrade to the development release.
+> 若当前已在使用最新受支持的发行版，则升级到开发版。
 
 **-p**, **--proposed**
-> Try upgrading using the upgrader from ubuntu-proposed.
+> 尝试使用 ubuntu-proposed 中的升级器进行升级。
 
 **-c**, **--check-dist-upgrade-only**
-> Check if a new release is available and exit without upgrading.
+> 检查是否有新发行版可用，然后退出，不执行升级。
 
 **-m** _MODE_, **--mode** _MODE_
-> Run in a special upgrade mode. Supported modes are "desktop" and "server".
+> 以特殊升级模式运行。支持的模式有 "desktop" 和 "server"。
 
 **-f** _FRONTEND_, **--frontend** _FRONTEND_
-> Run the specified frontend (DistUpgradeViewGtk3, DistUpgradeViewText, DistUpgradeViewNonInteractive).
+> 运行指定的前端（DistUpgradeViewGtk3、DistUpgradeViewText、DistUpgradeViewNonInteractive）。
 
 **-s**, **--sandbox**
-> Test upgrade with a sandbox aufs overlay.
+> 使用 aufs overlay 沙盒测试升级。
 
 # DESCRIPTION
 
-**do-release-upgrade** upgrades Ubuntu to a new release version. It handles the complex process of updating sources, upgrading packages, and resolving conflicts. It is the recommended command for upgrading servers and systems without a graphical environment, or when upgrading over a remote connection.
+**do-release-upgrade** 将 Ubuntu 升级到新的发行版本。它负责更新软件源、升级软件包以及解决冲突等复杂流程。它是升级服务器和无图形环境系统时的推荐命令，也适用于通过远程连接执行升级的场景。
 
-By default, upgrades are only offered to the next LTS release (for LTS users) or the next release (for non-LTS users). The **-d** flag is needed to upgrade to a development release.
+默认情况下，只会提供向下一个 LTS 发行版的升级（针对 LTS 用户）或下一个常规发行版的升级（针对非 LTS 用户）。若要升级到开发版，需要使用 **-d** 标志。
 
 # CAVEATS
 
-Ubuntu-specific. Backup important data before upgrading. May take significant time. Third-party repositories are disabled during upgrade and may cause issues. Run from a terminal multiplexer (screen or tmux) when upgrading over SSH to avoid disconnection problems.
+Ubuntu 专属命令。升级前请备份重要数据。升级可能耗费大量时间。第三方软件仓库会在升级期间被禁用，并可能导致问题。通过 SSH 升级时，请在终端复用器（screen 或 tmux）中运行，以避免连接中断带来的问题。
 
 # HISTORY
 
-**do-release-upgrade** is part of the **ubuntu-release-upgrader** package, the standard tool for performing Ubuntu release upgrades since at least Ubuntu 8.04 (Hardy Heron). It replaced manual sources.list editing as the recommended upgrade method.
+**do-release-upgrade** 属于 **ubuntu-release-upgrader** 软件包，自 Ubuntu 8.04（Hardy Heron）起就是执行 Ubuntu 发行版升级的标准工具。它取代了手动编辑 sources.list 的做法，成为推荐的升级方式。
 
 # SEE ALSO
 

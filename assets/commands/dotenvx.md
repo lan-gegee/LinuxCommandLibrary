@@ -1,34 +1,34 @@
 # TAGLINE
 
-encrypted environment variable manager
+加密环境变量管理器
 
 # TLDR
 
-**Run command with .env loaded**
+**加载 .env 运行命令**
 
 ```dotenvx run -- [command]```
 
-**Run with specific env file**
+**使用指定 env 文件运行**
 
 ```dotenvx run -f [.env.production] -- [command]```
 
-**Encrypt env file**
+**加密 env 文件**
 
 ```dotenvx encrypt```
 
-**Decrypt env file**
+**解密 env 文件**
 
 ```dotenvx decrypt```
 
-**Set a key**
+**设置一个键**
 
 ```dotenvx set [KEY] [value]```
 
-**Get a key**
+**获取一个键**
 
 ```dotenvx get [KEY]```
 
-**Convert to encrypted format**
+**转换为加密格式**
 
 ```dotenvx convert```
 
@@ -39,47 +39,47 @@ encrypted environment variable manager
 # SUBCOMMANDS
 
 **run**
-> Load env and run command.
+> 加载 env 并运行命令。
 
 **get**
-> Get environment variable.
+> 获取环境变量。
 
 **set**
-> Set environment variable.
+> 设置环境变量。
 
 **encrypt**
-> Encrypt .env file.
+> 加密 .env 文件。
 
 **decrypt**
-> Decrypt .env file.
+> 解密 .env 文件。
 
 **convert**
-> Convert to encrypted format.
+> 转换为加密格式。
 
 **genexample**
-> Generate .env.example.
+> 生成 .env.example。
 
 # PARAMETERS
 
 **-f**, **--env-file** _file_
-> Path to env file.
+> env 文件路径。
 
 **--overload**
-> Override existing env vars.
+> 覆盖已存在的环境变量。
 
 # CONFIGURATION
 
 **.env**
-> Default environment variables file loaded automatically.
+> 默认的环境变量文件，会被自动加载。
 
 **.env.keys**
-> Encryption keys for decrypting .env files.
+> 用于解密 .env 文件的加密密钥。
 
 # DESCRIPTION
 
-**dotenvx** is an enhanced dotenv tool that loads environment variables from .env files with support for encryption. It extends the traditional dotenv pattern with built-in encryption capabilities, allowing teams to securely commit encrypted environment files to version control.
+**dotenvx** 是增强版 dotenv 工具，可从 .env 文件加载环境变量并支持加密。它在传统 dotenv 模式的基础上增加了内置加密能力，使团队能够将加密后的环境文件安全地提交到版本控制。
 
-The tool supports multiple environment files (.env.production, .env.staging), automatic decryption at runtime, and key management for team-based secret sharing. It provides a modern approach to managing application secrets without external secret management services.
+该工具支持多个环境文件（.env.production、.env.staging）、运行时自动解密，以及面向团队密钥共享的密钥管理。它提供了一种无需外部密钥管理服务即可管理应用机密的现代方案。
 
 # INSTALL
 
@@ -90,4 +90,3 @@ The tool supports multiple environment files (.env.production, .env.staging), au
 # SEE ALSO
 
 [env](/man/env)(1), [direnv](/man/direnv)(1), [sops](/man/sops)(1)
-

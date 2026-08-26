@@ -1,46 +1,46 @@
 # TAGLINE
 
-command-line shell for Drupal
+Drupal 的命令行 Shell
 
 # TLDR
 
-**Clear all caches**
+**清空所有缓存**
 
 ```drush cache:rebuild```
 
-**Enable and install** a module
+**启用并安装**模块
 
 ```drush pm:install [module_name]```
 
-**Update database**
+**更新数据库**
 
 ```drush updatedb```
 
-**Run cron**
+**运行 cron**
 
 ```drush cron```
 
-**Show site status**
+**显示站点状态**
 
 ```drush status```
 
-**Export configuration**
+**导出配置**
 
 ```drush config:export```
 
-**Import configuration**
+**导入配置**
 
 ```drush config:import```
 
-**Generate one-time** login link
+**生成一次性**登录链接
 
 ```drush user:login```
 
-**Dump the database** to a SQL file
+**将数据库转储**到 SQL 文件
 
 ```drush sql:dump --result-file=[dump.sql]```
 
-**Open an interactive SQL** shell
+**打开交互式 SQL** shell
 
 ```drush sql:cli```
 
@@ -51,73 +51,73 @@ command-line shell for Drupal
 # PARAMETERS
 
 _COMMAND_
-> Drush command to execute.
+> 要执行的 Drush 命令。
 
 **cache:rebuild**, **cr**
-> Clear all caches.
+> 清空所有缓存。
 
 **pm:install** _NAME_, **en**
-> Enable and install a module.
+> 启用并安装模块。
 
 **pm:uninstall** _NAME_, **pmu**
-> Uninstall a module.
+> 卸载模块。
 
 **updatedb**, **updb**
-> Apply database updates.
+> 应用数据库更新。
 
 **config:export**, **cex**
-> Export configuration.
+> 导出配置。
 
 **config:import**, **cim**
-> Import configuration.
+> 导入配置。
 
 **user:login**, **uli**
-> Generate login link.
+> 生成登录链接。
 
 **sql:dump**
-> Export database to a SQL file.
+> 将数据库导出为 SQL 文件。
 
 **sql:cli**, **sqlc**
-> Open an interactive SQL shell using Drupal credentials.
+> 使用 Drupal 凭据打开交互式 SQL shell。
 
 **status**, **st**
-> Show site information.
+> 显示站点信息。
 
 **--yes**, **-y**
-> Auto-accept confirmations.
+> 自动接受确认提示。
 
 **--uri** _URI_
-> Drupal URI for multi-site setups.
+> 多站点设置中使用的 Drupal URI。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.drush/drush.yml**
-> User-level Drush configuration for default options and aliases.
+> Drush 用户级配置，用于默认选项和别名。
 
-**drush/drush.yml** or **drush/sites/**.yml
-> Project-specific Drush configuration files in Drupal root.
+**drush/drush.yml** 或 **drush/sites/**.yml
+> 位于 Drupal 根目录的项目专属 Drush 配置文件。
 
 **/drush/sites/*.site.yml**
-> Site alias definitions for managing multiple Drupal sites.
+> 站点别名定义，用于管理多个 Drupal 站点。
 
 # DESCRIPTION
 
-**Drush** (Drupal Shell) is the command-line interface for Drupal, providing tools for site administration, development, and deployment. It's essential for Drupal developers and administrators.
+**Drush**（Drupal Shell）是 Drupal 的命令行界面，提供站点管理、开发和部署工具。它是 Drupal 开发者和管理员的必备工具。
 
-The tool handles cache clearing, module management, database updates, configuration synchronization, and user administration. Short aliases (cr, cex, cim) provide quick access to common commands.
+该工具负责缓存清理、模块管理、数据库更新、配置同步和用户管理。短别名（cr、cex、cim）可快速调用常用命令。
 
-Drush supports site aliases for managing multiple Drupal sites and integrates with deployment workflows for configuration management.
+Drush 支持通过站点别名管理多个 Drupal 站点，并与配置管理的部署工作流集成。
 
 # CAVEATS
 
-Requires Drupal installation. Must run from site root or use aliases. Version must match Drupal version. Some commands need database access.
+需要 Drupal 环境。必须在站点根目录运行或使用别名。版本必须与 Drupal 版本匹配。部分命令需要数据库访问。
 
 # HISTORY
 
-Drush was created by **Moshe Weitzman** and others in **2007** for Drupal 5. It has evolved alongside Drupal, becoming the standard CLI tool for Drupal administration and development.
+Drush 由 **Moshe Weitzman** 等人于 **2007 年**为 Drupal 5 创建。它随 Drupal 一同演进，已成为 Drupal 管理与开发的标准 CLI 工具。
 
 # INSTALL
 

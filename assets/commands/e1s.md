@@ -1,22 +1,22 @@
 # TAGLINE
 
-AWS ECS terminal dashboard (like k9s for ECS)
+AWS ECS 终端仪表盘（ECS 版 k9s）
 
 # TLDR
 
-**Launch** the ECS dashboard
+**启动** ECS 仪表盘
 
 ```e1s```
 
-**Connect** to specific AWS profile
+**连接**到指定的 AWS profile
 
 ```e1s --profile [profile_name]```
 
-**View** specific cluster on startup
+启动时**查看**特定集群
 
 ```e1s --cluster [cluster_name]```
 
-**Connect** to specific region
+**连接**到指定区域
 
 ```e1s --region [us-west-2]```
 
@@ -27,80 +27,80 @@ AWS ECS terminal dashboard (like k9s for ECS)
 # PARAMETERS
 
 **--profile** _NAME_
-> AWS profile to use.
+> 要使用的 AWS profile。
 
 **--region** _REGION_
-> AWS region (default: from config).
+> AWS 区域（默认：来自配置）。
 
 **--cluster** _NAME_
-> Default ECS cluster to view.
+> 默认要查看的 ECS 集群。
 
 **--service** _NAME_
-> Default ECS service to view (requires --cluster).
+> 默认要查看的 ECS 服务（需要 --cluster）。
 
 **--read-only**
-> Start in read-only mode.
+> 以只读模式启动。
 
 **-c**, **--config-file** _FILE_
-> Config file path (default: ~/.config/e1s/config.yml).
+> 配置文件路径（默认：~/.config/e1s/config.yml）。
 
 **-r**, **--refresh** _SECONDS_
-> Auto-refresh interval in seconds (default: 30, -1 to disable).
+> 自动刷新间隔（秒）（默认：30，-1 表示禁用）。
 
 **-s**, **--shell** _PATH_
-> Shell for interactive exec (default: /bin/sh).
+> 用于交互式 exec 的 shell（默认：/bin/sh）。
 
 **-d**, **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **-l**, **--log-file** _FILE_
-> Custom log file path.
+> 自定义日志文件路径。
 
 **-j**, **--json**
-> Output logs in JSON format.
+> 以 JSON 格式输出日志。
 
 **-v**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 # DESCRIPTION
 
-**e1s** is a terminal user interface for Amazon ECS (Elastic Container Service), inspired by k9s for Kubernetes. It provides a real-time dashboard for monitoring ECS clusters, services, tasks, and containers.
+**e1s** 是 Amazon ECS（Elastic Container Service）的终端用户界面，其灵感来自 Kubernetes 生态中的 k9s。它提供一个实时仪表盘，用于监控 ECS 集群、服务、任务和容器。
 
-The tool allows users to view resource status, view logs, execute commands in containers, and manage deployments without leaving the terminal. It integrates with AWS credentials and supports multiple profiles and regions.
+该工具让用户无需离开终端即可查看资源状态、查看日志、在容器中执行命令以及管理部署。它与 AWS 凭据集成，并支持多个 profile 和区域。
 
 # KEYBINDINGS
 
 **h/j/k/l**
-> Vim-style navigation (left/down/up/right)
+> Vim 风格导航（左/下/上/右）
 
 **Enter**
-> View resource details
+> 查看资源详情
 
 **/**
-> Filter resources
+> 过滤资源
 
 **ctrl-p**
-> Switch AWS profile
+> 切换 AWS profile
 
 **ctrl-d**
-> Exit interactive exec session
+> 退出交互式 exec 会话
 
 **q**
-> Quit
+> 退出
 
 **?**
-> Show all keybindings
+> 显示所有键绑定
 
 # CAVEATS
 
-Requires AWS credentials with appropriate ECS permissions. Some operations require additional IAM permissions. Log streaming may incur AWS CloudWatch costs. Network connectivity to AWS required.
+需要具有相应 ECS 权限的 AWS 凭据。某些操作需要额外的 IAM 权限。日志流传输可能产生 AWS CloudWatch 费用。需要与 AWS 保持网络连通。
 
 # HISTORY
 
-**e1s** was created as the ECS equivalent of k9s, bringing the powerful terminal-based management experience to AWS ECS users. It fills the gap for users managing containerized applications on ECS.
+**e1s** 作为 k9s 的 ECS 对应物而创建，将强大的基于终端的管理体验带给 AWS ECS 用户。它填补了在 ECS 上管理容器化应用的工具空白。
 
 # INSTALL
 

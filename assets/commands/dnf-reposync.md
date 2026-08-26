@@ -1,30 +1,30 @@
 # TAGLINE
 
-synchronize remote repositories locally
+将远程软件仓库同步到本地
 
 # TLDR
 
-**Synchronize** repository to local directory
+将仓库**同步**到本地目录
 
 ```dnf reposync --repoid [repo_name]```
 
-Sync to **custom location**
+同步到**自定义位置**
 
 ```dnf reposync --repoid [repo_name] -p [path/to/directory]```
 
-Sync packages **and metadata**
+同步软件包**及元数据**
 
 ```dnf reposync --repoid [repo_name] --download-metadata```
 
-Download only **newest packages**
+仅下载**最新的软件包**
 
 ```dnf reposync --repoid [repo_name] -n```
 
-**Print URLs** only
+仅**打印 URL**
 
 ```dnf reposync --repoid [repo_name] -u```
 
-Preserve **remote timestamps**
+保留**远程时间戳**
 
 ```dnf reposync --repoid [repo_name] --remote-time```
 
@@ -34,33 +34,33 @@ Preserve **remote timestamps**
 
 # DESCRIPTION
 
-**dnf reposync** synchronizes packages and metadata from remote DNF repositories to a local directory. Part of dnf-plugins-core.
+**dnf reposync** 将远程 DNF 软件仓库的软件包和元数据同步到本地目录。属于 dnf-plugins-core。
 
-Useful for creating local mirrors or offline repositories.
+适用于创建本地镜像或离线仓库。
 
 # PARAMETERS
 
 **--repoid** _repo_
-> Repository to sync
+> 要同步的仓库
 
 **-p, --download-path** _path_
-> Download destination
+> 下载目标位置
 
 **--download-metadata**
-> Also download repository metadata
+> 同时下载仓库元数据
 
 **-n, --newest-only**
-> Only download newest package versions
+> 仅下载最新版本的软件包
 
 **-u, --urls**
-> Print URLs instead of downloading
+> 打印 URL 而不下载
 
 **--remote-time**
-> Preserve remote timestamps
+> 保留远程时间戳
 
 # CAVEATS
 
-Requires dnf-plugins-core. Large repositories require significant disk space and bandwidth. Use --newest-only to reduce size.
+需要 dnf-plugins-core。大型仓库需要大量磁盘空间和带宽。可用 --newest-only 减小体积。
 
 # SEE ALSO
 

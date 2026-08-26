@@ -1,38 +1,38 @@
 # TAGLINE
 
-encrypted bandwidth-efficient backup tool
+加密且节省带宽的备份工具
 
 # TLDR
 
-**Backup a directory** to remote location
+**备份目录**到远程位置
 
 ```duplicity [/path/to/source] [sftp://user@host/backup]```
 
-**Incremental backup**
+**增量备份**
 
 ```duplicity --full-if-older-than [30D] [/path/to/source] [file:///backup/destination]```
 
-**Restore from backup**
+**从备份恢复**
 
 ```duplicity restore [sftp://user@host/backup] [/path/to/restore]```
 
-**Restore specific file**
+**恢复指定文件**
 
 ```duplicity restore --file-to-restore [relative/path/file] [backup_url] [/path/to/restore]```
 
-**List files in backup**
+**列出备份中的文件**
 
 ```duplicity list-current-files [backup_url]```
 
-**Verify backup** against source
+**对照源数据校验备份**
 
 ```duplicity verify [backup_url] [/path/to/source]```
 
-**Remove old backups**
+**删除旧备份**
 
 ```duplicity remove-older-than [60D] [backup_url]```
 
-**Encrypt with GPG key**
+**使用 GPG 密钥加密**
 
 ```duplicity --encrypt-key [KEY_ID] [/source] [destination]```
 
@@ -42,75 +42,75 @@ encrypted bandwidth-efficient backup tool
 
 # DESCRIPTION
 
-**duplicity** is a backup tool that creates encrypted, bandwidth-efficient backups. It uses librsync to produce incremental archives that only contain changed parts of files, and GnuPG for encryption and signing.
+**duplicity** 是一款创建加密、节省带宽的备份工具。它用 librsync 生成只包含文件变更部分的增量归档，并用 GnuPG 进行加密和签名。
 
-Backups can be stored locally or on various remote backends including SFTP, S3, Google Cloud Storage, Azure, WebDAV, and many others. The combination of encryption and incremental transfers makes duplicity suitable for remote/cloud backups over untrusted networks.
+备份可以存放在本地或各种远程后端，包括 SFTP、S3、Google Cloud Storage、Azure、WebDAV 等等。加密与增量传输的结合使 duplicity 特别适合通过不可信网络进行远程/云备份。
 
-A full backup is periodically created, with subsequent incremental backups storing only changes. This allows point-in-time recovery while minimizing storage and bandwidth usage.
+它会周期性地创建全量备份，之后的增量备份只存储变更内容。这样既能实现任意时间点恢复，又能把存储和带宽占用降到最低。
 
 # PARAMETERS
 
 **full**
-> Force a full backup.
+> 强制全量备份。
 
 **incremental**
-> Force incremental backup.
+> 强制增量备份。
 
 **restore**
-> Restore from backup.
+> 从备份恢复。
 
 **verify**
-> Verify backup integrity.
+> 校验备份完整性。
 
 **list-current-files**
-> List files in current backup.
+> 列出当前备份中的文件。
 
 **remove-older-than** _time_
-> Delete old backup sets.
+> 删除早于指定时间的备份集。
 
 **remove-all-but-n-full** _n_
-> Keep only n full backups.
+> 只保留 n 个全量备份。
 
 **--full-if-older-than** _time_
-> Full backup if last one is older than time.
+> 若上一次全量备份早于指定时间，则执行全量备份。
 
 **--encrypt-key** _key_id_
-> GPG key for encryption.
+> 用于加密的 GPG 密钥。
 
 **--sign-key** _key_id_
-> GPG key for signing.
+> 用于签名的 GPG 密钥。
 
 **--no-encryption**
-> Disable encryption entirely.
+> 完全禁用加密。
 
 **--include** _pattern_
-> Include files matching pattern.
+> 包含匹配模式的文件。
 
 **--exclude** _pattern_
-> Exclude files matching pattern.
+> 排除匹配模式的文件。
 
 **--file-to-restore** _path_
-> Restore specific file.
+> 恢复指定文件。
 
 **-t** _time_, **--restore-time** _time_
-> Restore from specific time.
+> 从指定时间点恢复。
 
 **--tempdir** _path_
-> Use specific directory for temporary files.
+> 使用指定目录存放临时文件。
 
 **--progress**
-> Display upload progress and estimated upload time.
+> 显示上传进度和预计上传时间。
 
 **--verbosity** _level_
-> Set verbosity level (0-9, default 3).
+> 设置详细程度（0-9，默认 3）。
 
 # CAVEATS
 
-GPG passphrase required for encrypted backups (use PASSPHRASE env var for scripting). First backup is always full and may take time. Restoring individual files requires downloading multiple increments. Backend credentials may need configuration.
+加密备份需要 GPG 口令（脚本场景可使用 PASSPHRASE 环境变量）。首次备份始终是全量的，可能耗时较长。恢复单个文件需要下载多个增量包。后端凭据可能需要另行配置。
 
 # HISTORY
 
-**duplicity** was created by **Ben Escoto** in **2002** as an encrypted backup solution. It combined rsync's efficient delta-transfer algorithm with GnuPG encryption. The project has been maintained by various contributors and expanded to support numerous cloud storage backends. It remains a popular choice for secure, automated backups.
+**duplicity** 由 **Ben Escoto** 于 **2002 年**创建，是一个加密备份方案。它将 rsync 高效的增量传输算法与 GnuPG 加密相结合。该项目由多位贡献者持续维护，并扩展支持了大量云存储后端。它至今仍是安全自动化备份的热门选择。
 
 # INSTALL
 

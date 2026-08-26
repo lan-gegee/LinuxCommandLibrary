@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast and user-friendly file finder
+快速且用户友好的文件查找工具
 
 # TLDR
 
-**Find files by** name
+按名称**查找文件**
 
 ```fd [pattern]```
 
-**Find with specific** extension
+按指定**扩展名**查找
 
 ```fd -e [txt] [pattern]```
 
-**Find in directory**
+**在目录中**查找
 
 ```fd [pattern] [directory]```
 
-**Include hidden files**
+**包含隐藏文件**
 
 ```fd -H [pattern]```
 
-**Execute command on** results
+对结果**执行命令**
 
 ```fd [pattern] -x [command]```
 
@@ -31,62 +31,62 @@ fast and user-friendly file finder
 # PARAMETERS
 
 _PATTERN_
-> Search pattern (regex by default).
+> 搜索模式（默认为正则表达式）。
 
 _PATH_
-> Directory to search (default: current).
+> 要搜索的目录（默认：当前目录）。
 
 **-e** _EXT_, **--extension** _EXT_
-> Filter by file extension.
+> 按文件扩展名过滤。
 
 **-t** _TYPE_, **--type** _TYPE_
-> Filter by type: f (file), d (directory), l (symlink).
+> 按类型过滤：f（文件）、d（目录）、l（符号链接）。
 
 **-H**, **--hidden**
-> Include hidden files.
+> 包含隐藏文件。
 
 **-I**, **--no-ignore**
-> Don't respect .gitignore.
+> 不遵守 .gitignore。
 
 **-x** _CMD_, **--exec** _CMD_
-> Execute command on each result.
+> 对每个结果执行命令。
 
 **-X** _CMD_, **--exec-batch** _CMD_
-> Execute command with all results.
+> 用所有结果一起执行命令。
 
 **-d** _N_, **--max-depth** _N_
-> Maximum search depth.
+> 最大搜索深度。
 
 **-g**, **--glob**
-> Use glob pattern instead of regex.
+> 使用 glob 模式而非正则表达式。
 
 **-E** _PATTERN_, **--exclude** _PATTERN_
-> Exclude entries matching pattern.
+> 排除匹配模式的条目。
 
 **-S** _SIZE_, **--size** _SIZE_
-> Filter by size (e.g., +1m, -100k).
+> 按大小过滤（如 +1m、-100k）。
 
 **--changed-within** _DATE_
-> Filter by modification time.
+> 按修改时间过滤。
 
 **-c**, **--color** _WHEN_
-> When to use colors (auto, always, never).
+> 何时使用颜色（auto、always、never）。
 
 # DESCRIPTION
 
-**fd** is a modern replacement for find, written in Rust. It provides intuitive syntax, colorful output, smart defaults, and significant performance improvements over traditional find.
+**fd** 是 find 的现代替代品，用 Rust 编写。它提供直观的语法、彩色输出、智能的默认行为，相比传统 find 有显著的性能提升。
 
-By default, fd ignores hidden files and respects .gitignore patterns. It uses regex patterns rather than glob, provides parallel command execution, and produces human-friendly output.
+默认情况下，fd 忽略隐藏文件并遵守 .gitignore 规则。它使用正则表达式模式而非 glob，支持并行执行命令，输出也更友好。
 
-fd aims to cover 80% of find use cases with simpler syntax while being faster through parallelization.
+fd 旨在以更简单的语法覆盖 find 80% 的使用场景，同时通过并行化实现更快的速度。
 
 # CAVEATS
 
-Regex by default (not glob). Ignores hidden and gitignored files by default. Not a complete find replacement.
+默认使用正则表达式（而非 glob）。默认忽略隐藏和被 gitignore 的文件。并非 find 的完整替代品。
 
 # HISTORY
 
-fd was created by **David Peter** as a simpler, faster alternative to find. Written in Rust, it emphasizes user experience with sensible defaults and modern terminal output.
+fd 由 **David Peter** 创建，作为 find 更简单、更快速的替代品。它用 Rust 编写，注重用户体验，具有合理的默认值和现代化的终端输出。
 
 # INSTALL
 

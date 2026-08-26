@@ -1,22 +1,22 @@
 # TAGLINE
 
-Stop one or more running Docker containers
+停止一个或多个运行中的 Docker 容器
 
 # TLDR
 
-**Stop a container** gracefully (SIGTERM then SIGKILL after timeout)
+**优雅地停止容器**（先发 SIGTERM，超时后再发 SIGKILL）
 
 ```docker container stop mycontainer```
 
-**Stop multiple containers**
+**停止多个容器**
 
 ```docker container stop container1 container2```
 
-**Stop with a custom timeout** (seconds before SIGKILL)
+**使用自定义超时停止**（发出 SIGKILL 前等待的秒数）
 
 ```docker container stop --timeout 30 mycontainer```
 
-**Send a specific stop signal**
+**发送指定的停止信号**
 
 ```docker container stop --signal SIGINT mycontainer```
 
@@ -26,21 +26,21 @@ Stop one or more running Docker containers
 
 # DESCRIPTION
 
-**docker container stop** stops one or more running containers. It sends `SIGTERM` (or the signal specified by `--signal` / the container's `STOPSIGNAL`) to the main process inside the container. If the process does not exit within the timeout (default 10 seconds on Linux, 30 on Windows unless configured with `--stop-timeout` at create/run time), `SIGKILL` is sent.
+**docker container stop** 停止一个或多个运行中的容器。它会向容器内的主进程发送 `SIGTERM`（或由 `--signal` 指定的信号，或容器的 `STOPSIGNAL`）。如果进程未在超时时间内退出（Linux 默认 10 秒、Windows 默认 30 秒，除非在创建/运行时通过 `--stop-timeout` 配置），则会发送 `SIGKILL`。
 
-This is the preferred way to stop containers cleanly. The alias `docker stop` is equivalent.
+这是干净利落停止容器的首选方式。别名 `docker stop` 与之等价。
 
 # PARAMETERS
 
 **-t**, **--timeout** _seconds_
-> Seconds to wait for the container to stop after sending the stop signal before forcibly killing it with `SIGKILL`. Set to `-1` to wait indefinitely. Default: daemon default (10s Linux / 30s Windows) or the container's configured stop timeout.
+> 发送停止信号后等待容器停止的秒数，超时则以 `SIGKILL` 强制终止。设为 `-1` 表示无限等待。默认：守护进程默认值（Linux 为 10 秒，Windows 为 30 秒）或容器配置的停止超时。
 
 **-s**, **--signal** _signal_
-> Signal to send to the container (e.g. `SIGTERM`, `SIGINT`, `SIGKILL`, or a number). Default is the container's configured stop signal or `SIGTERM`.
+> 发送给容器的信号（如 `SIGTERM`、`SIGINT`、`SIGKILL` 或数字）。默认为容器配置的停止信号或 `SIGTERM`。
 
 # CAVEATS
 
-If the main process ignores SIGTERM, the container may not stop until the timeout triggers SIGKILL. Stopped containers remain on disk and can be restarted with `docker start` / `docker container start`, or removed with `docker rm`.
+如果主进程忽略 SIGTERM，容器可能直到超时触发 SIGKILL 才会停止。已停止的容器仍保留在磁盘上，可以用 `docker start` / `docker container start` 重新启动，或用 `docker rm` 移除。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-list Docker containers and their status
+列出 Docker 容器及其状态
 
 # TLDR
 
-**List running containers**
+**列出运行中的容器**
 
 ```docker ps```
 
-**List all containers** (including stopped)
+**列出所有容器**（包括已停止的）
 
 ```docker ps -a```
 
-**List with custom format**
+**使用自定义格式列出**
 
 ```docker ps --format "{{.ID}}: {{.Names}}"```
 
-**List only container IDs**
+**仅列出容器 ID**
 
 ```docker ps -q```
 
-**List containers by name filter**
+**按名称过滤容器**
 
 ```docker ps -f name=[pattern]```
 
-**List containers by status**
+**按状态列出容器**
 
 ```docker ps -f status=[running|exited|paused]```
 
-**Show container sizes**
+**显示容器大小**
 
 ```docker ps -s```
 
-**List last created container**
+**列出最近创建的容器**
 
 ```docker ps -l```
 
@@ -43,71 +43,71 @@ list Docker containers and their status
 # PARAMETERS
 
 **-a**, **--all**
-> Show all containers (default shows running only).
+> 显示所有容器（默认只显示运行中的）。
 
 **-q**, **--quiet**
-> Only display container IDs.
+> 仅显示容器 ID。
 
 **-l**, **--latest**
-> Show latest created container.
+> 显示最近创建的容器。
 
 **-n** _num_
-> Show n last created containers.
+> 显示最近创建的 n 个容器。
 
 **-s**, **--size**
-> Display total file sizes.
+> 显示文件总大小。
 
 **-f**, **--filter** _filter_
-> Filter output based on conditions.
+> 根据条件过滤输出。
 
 **--format** _string_
-> Format output using Go template.
+> 使用 Go 模板格式化输出。
 
 **--no-trunc**
-> Don't truncate output.
+> 不截断输出。
 
 # FILTERS
 
-**id**: Container ID
-**name**: Container name
-**label**: Label key or key=value
-**status**: created, restarting, running, paused, exited, dead
-**ancestor**: Image name or ID
-**network**: Network name or ID
-**publish** / **expose**: Port number
-**health**: healthy, unhealthy, starting, none
+**id**: 容器 ID
+**name**: 容器名称
+**label**: 标签键或 key=value
+**status**: created、restarting、running、paused、exited、dead
+**ancestor**: 镜像名称或 ID
+**network**: 网络名称或 ID
+**publish** / **expose**: 端口号
+**health**: healthy、unhealthy、starting、none
 
 # FORMAT PLACEHOLDERS
 
-**{{.ID}}**: Container ID
-**{{.Names}}**: Container names
-**{{.Image}}**: Image name
-**{{.Status}}**: Container status
-**{{.Ports}}**: Published ports
-**{{.State}}**: Container state
-**{{.CreatedAt}}**: Creation time
-**{{.RunningFor}}**: Time since start
-**{{.Size}}**: Container disk size
-**{{.Mounts}}**: Names of the volumes mounted
-**{{.Networks}}**: Names of the networks attached
-**{{.Command}}**: Quoted command
-**{{.Label}}**: Container label value (e.g., {{.Label "key"}})
+**{{.ID}}**: 容器 ID
+**{{.Names}}**: 容器名称
+**{{.Image}}**: 镜像名称
+**{{.Status}}**: 容器状态
+**{{.Ports}}**: 发布的端口
+**{{.State}}**: 容器状态
+**{{.CreatedAt}}**: 创建时间
+**{{.RunningFor}}**: 启动至今的时长
+**{{.Size}}**: 容器磁盘占用
+**{{.Mounts}}**: 挂载的卷名称
+**{{.Networks}}**: 连接的网络名称
+**{{.Command}}**: 带引号的命令
+**{{.Label}}**: 容器标签值（例如 {{.Label "key"}}）
 
 # DESCRIPTION
 
-**docker ps** lists Docker containers. By default, it shows only running containers with their ID, image, command, creation time, status, ports, and names.
+**docker ps** 列出 Docker 容器。默认只显示运行中的容器，包括其 ID、镜像、命令、创建时间、状态、端口和名称。
 
-The command provides filtering capabilities to find specific containers by various criteria. Custom formatting allows displaying exactly the information needed, useful for scripting and automation.
+该命令提供过滤功能，可按多种条件查找特定容器。自定义格式可以精确显示所需信息，对脚本编写和自动化很有用。
 
-Container IDs are shown truncated by default; use **--no-trunc** for full IDs. The **-q** option outputs only IDs, convenient for passing to other commands.
+容器 ID 默认截断显示；使用 **--no-trunc** 可查看完整 ID。**-q** 选项只输出 ID，便于传给其他命令。
 
 # CAVEATS
 
-Stopped containers are hidden by default; use **-a** to see them. Size calculation (**-s**) can be slow on systems with many containers. Format strings use Go template syntax. Some filters may behave unexpectedly with wildcards.
+已停止的容器默认隐藏；使用 **-a** 才能看到。大小计算（**-s**）在容器较多的系统上可能较慢。格式字符串使用 Go 模板语法。某些过滤器在使用通配符时可能出现意外行为。
 
 # HISTORY
 
-docker ps has been part of Docker since its initial release in **2013**, modeled after the Unix **ps** command for processes. The filtering and formatting options were added over time to support container management at scale. The command remains the primary way to inspect running containers.
+docker ps 自 **2013 年** Docker 最初发布起就是其一部分，仿照 Unix 中用于进程的 **ps** 命令设计。过滤和格式化选项是后来逐步加入的，以支持大规模容器管理。该命令仍然是检查运行中容器的主要方式。
 
 # INSTALL
 
@@ -130,4 +130,3 @@ docker ps has been part of Docker since its initial release in **2013**, modeled
 # SEE ALSO
 
 [docker](/man/docker)(1), [docker-inspect](/man/docker-inspect)(1), [docker-logs](/man/docker-logs)(1), [docker-stats](/man/docker-stats)(1), [docker-rm](/man/docker-rm)(1), [docker-run](/man/docker-run)(1)
-

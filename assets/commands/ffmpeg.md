@@ -1,34 +1,34 @@
 # TAGLINE
 
-multimedia conversion and processing tool
+多媒体转换与处理工具
 
 # TLDR
 
-**Convert video format (auto-detected from extension)**
+**转换视频格式（由扩展名自动判断）**
 
 ```ffmpeg -i [input.mp4] [output.avi]```
 
-**Extract audio without re-encoding**
+**提取音频而不重新编码**
 
 ```ffmpeg -i [video.mp4] -vn -c:a copy [audio.m4a]```
 
-**Resize video to 1280x720**
+**将视频调整为 1280x720**
 
 ```ffmpeg -i [input.mp4] -vf scale=[1280]:[720] [output.mp4]```
 
-**Compress video with x264 CRF (lower = better)**
+**用 x264 CRF 压缩视频（值越低质量越好）**
 
 ```ffmpeg -i [input.mp4] -c:v libx264 -crf [23] -c:a copy [output.mp4]```
 
-**Trim from 00:01:00 for 30 seconds**
+**从 00:01:00 开始截取 30 秒**
 
 ```ffmpeg -ss [00:01:00] -i [input.mp4] -t [30] -c copy [output.mp4]```
 
-**Create GIF from video**
+**从视频创建 GIF**
 
 ```ffmpeg -i [input.mp4] -vf "fps=10,scale=320:-1" [output.gif]```
 
-**Concatenate files listed in files.txt**
+**拼接 files.txt 中列出的文件**
 
 ```ffmpeg -f concat -safe 0 -i [files.txt] -c copy [output.mp4]```
 
@@ -39,86 +39,86 @@ multimedia conversion and processing tool
 # PARAMETERS
 
 **-i** _FILE_
-> Input file (may be specified multiple times).
+> 输入文件（可多次指定）。
 
 **-c:v** _CODEC_
-> Video codec (e.g. libx264, libx265, libvpx-vp9, copy).
+> 视频编解码器（如 libx264、libx265、libvpx-vp9、copy）。
 
 **-c:a** _CODEC_
-> Audio codec (e.g. aac, libmp3lame, libopus, copy).
+> 音频编解码器（如 aac、libmp3lame、libopus、copy）。
 
 **-c** _CODEC_
-> Shorthand for setting the codec of all streams (often used as `-c copy`).
+> 设置所有流编解码器的简写（常用作 `-c copy`）。
 
 **-crf** _N_
-> Constant Rate Factor for x264/x265 (0-51, lower is better quality, 23 is the default).
+> x264/x265 的恒定速率因子 CRF（0-51，值越小质量越好，默认为 23）。
 
 **-b:v** _BITRATE_
-> Target video bitrate (e.g. 2M).
+> 目标视频码率（如 2M）。
 
 **-b:a** _BITRATE_
-> Target audio bitrate (e.g. 128k).
+> 目标音频码率（如 128k）。
 
 **-r** _FPS_
-> Output frame rate.
+> 输出帧率。
 
 **-s** _WxH_
-> Set output frame size (e.g. 1280x720).
+> 设置输出帧大小（如 1280x720）。
 
 **-vf** _FILTER_
-> Video filter graph (scale, crop, fps, etc.).
+> 视频滤镜图（scale、crop、fps 等）。
 
 **-af** _FILTER_
-> Audio filter graph.
+> 音频滤镜图。
 
 **-ss** _TIME_
-> Seek to start position. Used before `-i` for a fast seek, after `-i` for accurate seek.
+> 定位到起始位置。放在 `-i` 之前为快速定位，放在 `-i` 之后为精确定位。
 
 **-to** _TIME_
-> Stop writing at the given absolute time.
+> 在给定的绝对时间停止写入。
 
 **-t** _DURATION_
-> Limit output to the given duration.
+> 将输出限制在给定时长内。
 
 **-vn**
-> Disable video output.
+> 禁用视频输出。
 
 **-an**
-> Disable audio output.
+> 禁用音频输出。
 
 **-map** _SPEC_
-> Explicit stream mapping from inputs to outputs.
+> 显式地将输入流映射到输出。
 
 **-f** _FORMAT_
-> Force container format.
+> 强制容器格式。
 
 **-y**
-> Overwrite output files without asking.
+> 不询问直接覆盖输出文件。
 
 **-n**
-> Never overwrite output files.
+> 绝不覆盖输出文件。
 
 **-loglevel** _LEVEL_
-> Logging verbosity (quiet, panic, fatal, error, warning, info, verbose, debug, trace).
+> 日志详细程度（quiet、panic、fatal、error、warning、info、verbose、debug、trace）。
 
 **-h** [_topic_]
-> Display help; use `-h long` or `-h full` for more options.
+> 显示帮助；使用 `-h long` 或 `-h full` 查看更多选项。
 
 # DESCRIPTION
 
-**ffmpeg** is the swiss army knife of multimedia processing. It converts, records, streams, and processes audio and video in virtually any format through an extensive codec library.
+**ffmpeg** 是多媒体处理的瑞士军刀。凭借庞大的编解码器库，它可以对几乎所有格式的音频和视频进行转换、录制、推流和处理。
 
-The tool uses a powerful filter system for transformations like scaling, cropping, color correction, and effects. It handles everything from simple format conversion to complex streaming setups.
+该工具使用强大的滤镜系统实现缩放、裁剪、色彩校正和特效等变换。从简单的格式转换到复杂的推流部署它都能胜任。
 
-ffmpeg forms the foundation of many video applications and is the de facto standard for command-line multimedia processing.
+ffmpeg 是众多视频应用的基石，也是命令行多媒体处理事实上的标准。
 
 # CAVEATS
 
-Complex syntax requires learning. Quality vs size tradeoffs vary by content. Some codecs have licensing considerations. Processing is CPU-intensive.
+语法复杂，需要学习。质量与大小的权衡因内容而异。某些编解码器存在许可方面的考量。处理过程 CPU 占用较高。
 
 # HISTORY
 
-ffmpeg was started by **Fabrice Bellard** in 2000 and has become the most widely-used multimedia framework. It powers countless applications from VLC to YouTube's video processing pipeline.
+ffmpeg 由 **Fabrice Bellard** 于 2000 年启动，如今已成为使用最广泛的多媒体框架。从 VLC 到 YouTube 的视频处理流水线，无数应用都依赖它。
 
 # INSTALL
 

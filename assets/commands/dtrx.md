@@ -1,38 +1,38 @@
 # TAGLINE
 
-intelligent archive extraction tool
+智能的归档解压工具
 
 # TLDR
 
-**Extract an archive** into its own directory
+**将归档解压**到专属目录
 
 ```dtrx [archive.tar.gz]```
 
-**Extract multiple archives**
+**解压多个归档**
 
 ```dtrx [*.tar.gz]```
 
-**List archive contents** without extracting
+**列出归档内容**而不解压
 
 ```dtrx -l [archive.tar.gz]```
 
-**Extract into the current directory** instead of a dedicated one
+**解压到当前目录**而不是专属目录
 
 ```dtrx -f [archive.tar.gz]```
 
-**Extract nested archives** too, recursively
+**递归解压嵌套的归档**
 
 ```dtrx -r [archive.tar.gz]```
 
-**Overwrite** an existing target directory instead of picking a new name
+**覆盖**已存在的目标目录，而不是另选名称
 
 ```dtrx -o [archive.tar.gz]```
 
-**Extract the metadata** from a .deb or .gem
+**提取 .deb 或 .gem 的元数据**
 
 ```dtrx -m [package.deb]```
 
-**Never prompt**, taking conservative defaults
+**从不询问**，采用保守的默认行为
 
 ```dtrx -n [archive.tar.gz]```
 
@@ -43,59 +43,59 @@ intelligent archive extraction tool
 # PARAMETERS
 
 _ARCHIVE_
-> Archive file(s) to extract.
+> 要解压的归档文件。
 
 **-r**, **--recursive**
-> Look inside the archive for further archives and extract those as well.
+> 查看归档内部是否还有其他归档，并将其一并解压。
 
 **-f**, **--flat**
-> Extract everything into the **current** directory rather than a dedicated one.
+> 将所有内容解压到**当前**目录，而不是专属目录。
 
 **-o**, **--overwrite**
-> Use the default directory name even if it already exists, overwriting it, instead of choosing an alternative name. This is **not** an output-directory option.
+> 即使默认目录名已存在也直接使用并覆盖它，而不是另选名称。这**不是**输出目录选项。
 
 **-l**, **-t**, **--list**, **--table**
-> List the contents without extracting.
+> 列出内容而不解压。
 
 **-m**, **--metadata**
-> Extract the *metadata* from a `.deb` or `.gem` package rather than its contents.
+> 提取 `.deb` 或 `.gem` 软件包的*元数据*而非其内容。
 
 **--one**, **--one-entry** _MODE_
-> How to handle an archive containing a single file or directory: **inside** (wrap it in a directory named after the archive; the default), **rename** (rename it to match the archive), or **here** (extract it into the current directory as-is).
+> 如何处理只包含单个文件或目录的归档：**inside**（将其包进一个以归档命名的目录；默认值）、**rename**（重命名以匹配归档名）或 **here**（原样解压到当前目录）。
 
 **-n**, **--noninteractive**
-> Never prompt; use conservative defaults instead.
+> 从不询问；改用保守的默认行为。
 
 **-q**, **--quiet**
-> Suppress warnings. Give it twice for silence.
+> 抑制警告。使用两次可完全静默。
 
 **-v**, **--verbose**
-> List the files extracted. Give it twice for debugging output.
+> 列出已解压的文件。使用两次可输出调试信息。
 
 **--help** / **--version**
-> Display help, or version and copyright information.
+> 显示帮助，或版本与版权信息。
 
 # DESCRIPTION
 
-**dtrx** stands for "Do The Right Extraction", and its purpose is to remove every decision you would otherwise have to make about an archive.
+**dtrx** 是 "Do The Right Extraction"（正确地解压）的缩写，其目标是替你免去解压归档时需要做出的所有决定。
 
-It identifies the format from the *contents* rather than the file name, so it handles tar in all its compressions, zip, rar, 7z, cpio, deb, rpm, gem, and more without being told which is which, and it invokes whichever underlying tool is appropriate.
+它根据文件*内容*而非文件名来识别格式，因此无需告知格式即可处理各种压缩方式的 tar、zip、rar、7z、cpio、deb、rpm、gem 等，并自动调用合适的底层工具。
 
-Its most valuable behaviour is preventing a **tarbomb**: an archive whose members are not wrapped in a top-level directory and which therefore scatters files across your current directory. dtrx always extracts into a single directory named after the archive, and if the archive already has one sensible top-level directory it uses that instead of nesting redundantly. Where a name would collide, dtrx picks a fresh one rather than clobbering what is there.
+它最有价值的行为是防止 **tar 炸弹**（tarbomb）：这类归档的成员没有包在顶层目录里，解压后会把文件散落得到处都是。dtrx 总是解压到单个以归档命名的目录中；如果归档本身已有一个合理的顶层目录，就直接使用而不重复嵌套。当目录名发生冲突时，dtrx 会另选新名，而不是覆盖已有内容。
 
-It also normalises permissions, so a directory that arrives unreadable or a file that arrives world-writable is corrected on extraction.
+它还会规范化权限：解压时会把不可读的目录或全局可写的文件修正过来。
 
 # CAVEATS
 
-**-o does not take an output directory.** It means *overwrite*, and passing `dtrx -o mydir archive.tar.gz` will try to extract two things: the archive, and a file called `mydir`. To extract somewhere specific, change directory first. Likewise **-m** does not preserve ownership or permissions; it extracts the metadata section of a `.deb` or `.gem`.
+**-o 不接受输出目录参数。** 它的含义是*覆盖*，传入 `dtrx -o mydir archive.tar.gz` 会尝试解压两个东西：该归档和一个名为 `mydir` 的文件。要解压到指定位置，请先切换目录。同样，**-m** 不保留所有权或权限；它提取的是 `.deb` 或 `.gem` 的元数据部分。
 
-dtrx is a front end and does not implement any format itself, so it can only handle what is installed: without `unrar` or `p7zip` on the system, the corresponding archives simply fail.
+dtrx 是一个前端，自身不实现任何格式，因此只能处理系统上已安装的工具所支持的格式：如果系统上没有 `unrar` 或 `p7zip`，相应的归档会直接失败。
 
-The original project has been unmaintained for years, and its Python 2 codebase forced distributions either to drop it or to carry a Python 3 port, so the version available varies. **atool** covers much the same ground and is still maintained.
+原项目已多年无人维护，其 Python 2 代码库迫使各发行版要么放弃它、要么自行维护 Python 3 移植版，因此可用版本因发行版而异。**atool** 覆盖的功能范围与之相近且仍在维护中。
 
 # HISTORY
 
-dtrx was written by **Brett Smith** in **2006**, in a period when the tarbomb was a genuine hazard and every archive format wanted a different incantation, `tar xzf` here, `tar xjf` there, `unzip` for one thing and `unrar x` for another. The tool's premise, that the computer can obviously work this out for itself, was compelling enough that it became a fixture in distributions long after `tar` grew automatic decompression detection and made half the original problem go away.
+dtrx 由 **Brett Smith** 于 **2006 年**编写。那个年代 tarbomb 是真实的威胁，而且每种归档格式都需要不同的咒语——这里用 `tar xzf`，那里用 `tar xjf`，有的用 `unzip`，有的用 `unrar x`。"计算机显然可以自己搞定这些"这一前提足够有说服力，使它成为各发行版中的常客，哪怕后来 `tar` 增加了自动解压检测、让最初的问题消解了一半。
 
 # INSTALL
 
@@ -118,4 +118,3 @@ dtrx was written by **Brett Smith** in **2006**, in a period when the tarbomb wa
 ```[Source code](https://github.com/dtrx-py/dtrx)```
 
 <!-- verified: 2026-07-14 -->
-

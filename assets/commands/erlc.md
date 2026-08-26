@@ -1,30 +1,30 @@
 # TAGLINE
 
-Erlang compiler for BEAM bytecode
+生成 BEAM 字节码的 Erlang 编译器
 
 # TLDR
 
-**Compile Erlang module**
+**编译 Erlang 模块**
 
 ```erlc [module.erl]```
 
-**Compile to specific directory**
+**编译到指定目录**
 
 ```erlc -o [ebin] [module.erl]```
 
-**Compile with debug info**
+**附带调试信息编译**
 
 ```erlc +debug_info [module.erl]```
 
-**Include header directory**
+**指定头文件目录**
 
 ```erlc -I [include] [module.erl]```
 
-**Compile multiple files**
+**编译多个文件**
 
 ```erlc [*.erl]```
 
-**Show warnings as errors**
+**将警告视为错误**
 
 ```erlc -Werror [module.erl]```
 
@@ -34,49 +34,49 @@ Erlang compiler for BEAM bytecode
 
 # DESCRIPTION
 
-**erlc** is the Erlang compiler, converting Erlang source files (.erl) to BEAM bytecode (.beam). It's the standard way to compile Erlang modules.
+**erlc** 是 Erlang 编译器，把 Erlang 源文件（.erl）转换为 BEAM 字节码（.beam）。它是编译 Erlang 模块的标准方式。
 
-The compiler supports various options for optimization, debugging, and include paths. It's typically invoked through build tools like rebar3 but can be used directly.
+该编译器支持优化、调试和头文件路径等多种选项。它通常经由 rebar3 等构建工具调用，但也可以直接使用。
 
 # PARAMETERS
 
 **-o** _directory_
-> Output directory for compiled files.
+> 编译产物的输出目录。
 
 **-I** _directory_
-> Add include directory.
+> 添加头文件目录。
 
 **-D** _name[=value]_
-> Define macro.
+> 定义宏。
 
 **-W** _level_
-> Warning level.
+> 警告级别。
 
 **-Werror**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **+debug_info**
-> Include debug information.
+> 包含调试信息。
 
 **+native**
-> Native code compilation (HiPE).
+> 本地代码编译（HiPE）。
 
 **-b** _type_
-> Output type (beam, asm, etc.).
+> 输出类型（beam、asm 等）。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-pa** _path_
-> Add code path.
+> 添加代码路径。
 
 # CAVEATS
 
-Requires Erlang/OTP installed. Native compilation deprecated in OTP 24+. Include paths must be specified explicitly. Module name must match filename.
+需要安装 Erlang/OTP。OTP 24 及以上版本已弃用本地编译。头文件路径必须显式指定。模块名必须与文件名一致。
 
 # HISTORY
 
-**erlc** has been part of **Erlang/OTP** since its early releases. Erlang was developed at **Ericsson** by **Joe Armstrong** and others starting in **1986**, released as open source in **1998**. The compiler generates BEAM bytecode for the Erlang virtual machine.
+**erlc** 自 **Erlang/OTP** 早期发布起便是其中一员。Erlang 由 **Joe Armstrong** 等人自 **1986 年**起在 **Ericsson** 开发，**1998 年**开源发布。该编译器为 Erlang 虚拟机生成 BEAM 字节码。
 
 # INSTALL
 

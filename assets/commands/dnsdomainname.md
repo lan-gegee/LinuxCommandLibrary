@@ -1,10 +1,10 @@
 # TAGLINE
 
-display DNS domain name
+显示 DNS 域名
 
 # TLDR
 
-Print the **DNS domain** portion of the FQDN
+打印 FQDN 中的 **DNS 域名**部分
 
 ```dnsdomainname```
 
@@ -14,13 +14,13 @@ Print the **DNS domain** portion of the FQDN
 
 # DESCRIPTION
 
-**dnsdomainname** displays the DNS domain name portion of the system's fully qualified domain name (FQDN). It uses gethostname() to retrieve the hostname, then getaddrinfo() to resolve it to the canonical name via DNS lookup.
+**dnsdomainname** 显示系统完全限定域名（FQDN）中的 DNS 域名部分。它先用 gethostname() 取得主机名，再通过 getaddrinfo() 经 DNS 查询解析为规范名称。
 
-The domain name is extracted as everything after the first dot in the FQDN. For example, if the FQDN is "server.example.com", dnsdomainname returns "example.com". This differs from tools like domainname which display the NIS/YP domain. On most distributions dnsdomainname is a link to the same **hostname** multi-call binary (equivalent to `hostname --domain`). The command requires proper DNS configuration and name resolution to work correctly. If the system hostname doesn't include a domain component or DNS resolution fails, it returns an empty result.
+域名提取规则是取 FQDN 中第一个点之后的所有内容。例如 FQDN 为 "server.example.com" 时，dnsdomainname 返回 "example.com"。这与显示 NIS/YP 域的 domainname 等工具不同。在大多数发行版上，dnsdomainname 是指向同一个 **hostname** 多功能二进制文件的链接（等价于 `hostname --domain`）。该命令需要正确的 DNS 配置和名称解析才能正常工作。如果系统主机名不包含域部分或 DNS 解析失败，它会返回空结果。
 
 # CAVEATS
 
-Returns empty if the system hostname doesn't include a domain name or DNS resolution fails. Requires proper DNS configuration.
+如果系统主机名不含域名或 DNS 解析失败，则返回空结果。需要正确的 DNS 配置。
 
 # INSTALL
 

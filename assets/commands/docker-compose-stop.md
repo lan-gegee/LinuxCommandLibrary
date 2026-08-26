@@ -1,22 +1,22 @@
 # TAGLINE
 
-stop Compose services without removing containers
+停止 Compose 服务而不移除容器
 
 # TLDR
 
-**Stop** all running services
+**停止**所有运行中的服务
 
 ```docker compose stop```
 
-Stop **specific** services
+停止**指定的**服务
 
 ```docker compose stop [service1] [service2]```
 
-Stop with a custom **timeout** in seconds
+以自定义**超时时间**（秒）停止
 
 ```docker compose stop -t [30]```
 
-Use a specific **compose file**
+使用指定的 **compose 文件**
 
 ```docker compose -f [path/to/compose.yaml] stop```
 
@@ -27,13 +27,13 @@ Use a specific **compose file**
 # PARAMETERS
 
 **-t**, **--timeout** _seconds_
-> Shutdown timeout in seconds before killing containers
+> 强制终止容器前等待的关闭超时时间（秒）
 
 # DESCRIPTION
 
-**docker compose stop** stops running containers for one or more services defined in a Compose project **without removing** them. Stopped containers keep their configuration and volumes and can be started again with **docker compose start**.
+**docker compose stop** 停止 Compose 项目中定义的一个或多个服务的运行容器，但**不移除**它们。已停止的容器会保留其配置和卷，之后可用 **docker compose start** 再次启动。
 
-Unlike **docker compose down**, this command does not remove containers, networks, or volumes. It is useful when you want a temporary stop while preserving the ability to resume the same containers quickly.
+与 **docker compose down** 不同，此命令不会移除容器、网络或卷。当你想临时停止并保留快速恢复同一批容器的能力时，它很有用。
 
 # INSTALL
 

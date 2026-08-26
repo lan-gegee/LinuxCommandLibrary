@@ -1,34 +1,34 @@
 # TAGLINE
 
-network packet capture engine
+网络数据包捕获引擎
 
 # TLDR
 
-**Capture on default interface**
+**在默认接口上捕获**
 
 ```dumpcap -i [eth0] -w [capture.pcapng]```
 
-**List available interfaces**
+**列出可用接口**
 
 ```dumpcap -D```
 
-**Capture with ring buffer**
+**使用环形缓冲区捕获**
 
 ```dumpcap -i [eth0] -b filesize:100000 -w [capture.pcapng]```
 
-**Capture with duration limit**
+**带时长限制捕获**
 
 ```dumpcap -i [eth0] -a duration:60 -w [capture.pcapng]```
 
-**Capture without promiscuous mode** (it is on by default)
+**不使用混杂模式捕获**（默认是开启的）
 
 ```dumpcap -i [eth0] -p -w [capture.pcapng]```
 
-**Capture with a packet count limit**
+**带数据包数量限制捕获**
 
 ```dumpcap -i [eth0] -c [1000] -w [capture.pcapng]```
 
-**Apply a capture filter**
+**应用捕获过滤器**
 
 ```dumpcap -i [eth0] -f "[tcp port 443]" -w [capture.pcapng]```
 
@@ -39,70 +39,70 @@ network packet capture engine
 # PARAMETERS
 
 **-i** _interface_
-> Interface to capture on. May be repeated to capture on several at once.
+> 要捕获的接口。可重复使用以同时在多个接口上捕获。
 
 **-w** _file_
-> Write packets to this file. Use **-** for standard output.
+> 将数据包写入此文件。用 **-** 表示标准输出。
 
 **-D**
-> List the available interfaces and exit.
+> 列出可用接口并退出。
 
 **-L**
-> List the link-layer types supported by the interface and exit.
+> 列出接口支持的链路层类型并退出。
 
 **-c** _count_
-> Stop after this many packets.
+> 捕获指定数量的数据包后停止。
 
 **-a** _condition_:_value_
-> Autostop condition: **duration**:_secs_, **filesize**:_kB_, **files**:_n_, or **packets**:_n_.
+> 自动停止条件：**duration**:_secs_、**filesize**:_kB_、**files**:_n_ 或 **packets**:_n_。
 
 **-b** _condition_:_value_
-> Ring buffer: rotate to a new file on **filesize**:_kB_, **duration**:_secs_, **interval**:_secs_, or **packets**:_n_, keeping at most **files**:_n_.
+> 环形缓冲区：在 **filesize**:_kB_、**duration**:_secs_、**interval**:_secs_ 或 **packets**:_n_ 条件下轮转到新文件，最多保留 **files**:_n_ 个文件。
 
 **-f** _filter_
-> Capture filter in BPF syntax. Filtering in the kernel is far cheaper than capturing everything and discarding it later.
+> BPF 语法的捕获过滤器。在内核中过滤远比全部捕获之后再丢弃便宜。
 
 **-p**
-> Do **not** put the interface into promiscuous mode. Promiscuous mode is the default, so this flag turns it off.
+> **不要**将接口置于混杂模式。混杂模式默认开启，所以这个标志的作用是关闭它。
 
 **-s** _snaplen_
-> Snapshot length: bytes captured per packet. Useful for keeping headers while discarding payloads.
+> 快照长度：每个数据包捕获的字节数。适合只保留头部而丢弃载荷。
 
 **-P**
-> Write the output in pcap format instead of the default pcapng.
+> 以 pcap 格式而非默认的 pcapng 格式写入输出。
 
 **-q**
-> Quiet: do not print the running packet count.
+> 安静：不打印不断增长的数据包计数。
 
 # DESCRIPTION
 
-**dumpcap** is a network traffic capture tool from the Wireshark project. It captures packets and writes them to files in pcapng or pcap format. Unlike Wireshark or tshark, dumpcap focuses solely on capture without protocol dissection.
+**dumpcap** 是 Wireshark 项目的网络流量捕获工具。它捕获数据包并以 pcapng 或 pcap 格式写入文件。与 Wireshark 或 tshark 不同，dumpcap 只专注于捕获，不做协议解析。
 
-Its whole reason for existing is **privilege separation**. Capturing packets requires elevated privileges, while dissecting them means running an enormous body of parsing code over hostile input from the network, which is the last thing you want privileged. Wireshark and tshark therefore do not capture: they run dumpcap as a small, separate, privileged helper and read the result back unprivileged. Running dumpcap directly is simply using that helper on its own.
+它存在的全部理由就是**权限分离**。捕获数据包需要提升的权限，而解析数据包意味着让庞大的解析代码处理来自网络的恶意输入——这是你最不想赋予特权的事情。因此 Wireshark 和 tshark 并不自己捕获：它们以一个独立的小型特权辅助程序运行 dumpcap，再以非特权身份读回结果。直接运行 dumpcap 不过是单独使用那个辅助程序而已。
 
-Because it does no dissection, it is also the fastest capture path in the suite and the right choice for long-running or high-rate captures where tshark would drop packets.
+由于不做任何解析，它也是整个工具套件中最快的捕获路径，是在长时间运行或高速率捕获（tshark 会丢包）场景下的正确选择。
 
 # RING BUFFER
 
-Rotate to a new file every 100 MB, keeping the 10 most recent:
+每 100 MB 轮转到新文件，保留最近的 10 个：
 
 ```dumpcap -i [eth0] -b filesize:100000 -b files:10 -w [capture.pcapng]```
 
-This is the standard way to capture continuously without filling the disk: the oldest file is discarded as each new one is opened. Note that **filesize** is in **kB**, so `filesize:100000` is roughly 100 MB, not 100 kB.
+这是持续捕获而不填满磁盘的标准做法：每打开一个新文件就丢弃最旧的文件。注意 **filesize** 的单位是 **kB**，所以 `filesize:100000` 约为 100 MB，而不是 100 kB。
 
 # CAVEATS
 
-Capture needs root, or the `CAP_NET_RAW` and `CAP_NET_ADMIN` capabilities on the binary. Distributions usually handle this by installing dumpcap setuid-capable and restricting it to the `wireshark` group; adding yourself to that group is the supported way to capture without root, and is why running `wireshark` as root is both unnecessary and a bad idea.
+捕获需要 root 权限，或给二进制文件赋予 `CAP_NET_RAW` 和 `CAP_NET_ADMIN` 能力。发行版通常把 dumpcap 安装为具备 setuid 能力并将其限制在 `wireshark` 组内；把自己加入该组是无 root 捕获的受支持方式，这也是以 root 运行 `wireshark` 既无必要又不明智的原因。
 
-Note the inverted flag: **-p** *disables* promiscuous mode, which is on by default. Promiscuous mode also does far less than people expect on a switched network, where you will see your own traffic and broadcasts regardless, and need a mirror port or a tap to see anyone else's.
+注意这个反向的标志：**-p** 是*禁用*混杂模式的，后者默认开启。另外，混杂模式在交换网络中的作用远小于人们的预期——在这种网络里你无论如何都能看到自己的流量和广播，想看到别人的流量则需要镜像端口或分流器（tap）。
 
-Use **-f** rather than filtering later. A capture filter is compiled to BPF and runs in the kernel, so unwanted packets are never copied to userspace at all, whereas a display filter in Wireshark discards them only after they have been written to disk.
+请用 **-f** 而不是稍后过滤。捕获过滤器会被编译成 BPF 在内核中运行，不需要的数据包根本不会被复制到用户空间；而 Wireshark 里的显示过滤器要等数据包写入磁盘之后才把它们丢弃。
 
-Capture files grow startlingly fast on a busy link. A ring buffer, a snaplen, or both are the difference between a useful capture and a full disk.
+在繁忙的链路上，捕获文件的增长速度快得惊人。环形缓冲区、快照长度，或两者兼用，决定了你得到的是一次有用的捕获还是一块写满的磁盘。
 
 # HISTORY
 
-dumpcap is part of the **Wireshark** project, which **Gerald Combs** started in **1998** under the name **Ethereal**. It was split out of the main application after a long run of security advisories in the dissectors made the risk of a privileged monolith untenable: with the split, only the few hundred lines that actually touch the network run with elevated rights, while the millions of lines of protocol parsing do not.
+dumpcap 是 **Wireshark** 项目的一部分，该项目由 **Gerald Combs** 于 **1998 年**以 **Ethereal**之名启动。协议解析器长期接连曝出安全公告，使"特权单体"的风险变得难以承受之后，它才从主应用中拆分出来：拆分后只有实际接触网络的那几百行代码以提升权限运行，数百万行的协议解析代码则不然。
 
 # INSTALL
 
@@ -125,4 +125,3 @@ dumpcap is part of the **Wireshark** project, which **Gerald Combs** started in 
 ```[Documentation](https://www.wireshark.org/docs/man-pages/dumpcap.html)```
 
 <!-- verified: 2026-07-14 -->
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-dynamically update container resource limits
+动态更新容器的资源限制
 
 # TLDR
 
-**Update CPU limit**
+**更新 CPU 限制**
 
 ```docker container update --cpus [2] [container]```
 
-**Update memory limit**
+**更新内存限制**
 
 ```docker container update --memory [512m] [container]```
 
-**Update restart policy**
+**更新重启策略**
 
 ```docker container update --restart [always] [container]```
 
-**Update multiple containers**
+**更新多个容器**
 
 ```docker container update --memory [1g] [container1] [container2]```
 
@@ -27,49 +27,49 @@ dynamically update container resource limits
 # PARAMETERS
 
 **--cpus** _decimal_
-> Number of CPUs.
+> CPU 数量。
 
 **--memory** **-m** _bytes_
-> Memory limit.
+> 内存限制。
 
 **--memory-swap** _bytes_
-> Swap limit.
+> 交换空间限制。
 
 **--restart** _policy_
-> Restart policy (no, on-failure, always, unless-stopped).
+> 重启策略（no、on-failure、always、unless-stopped）。
 
 **--cpu-shares** _int_
-> CPU shares (relative weight).
+> CPU 份额（相对权重）。
 
 **--cpu-period** _int_
-> Limit CPU CFS (Completely Fair Scheduler) period.
+> 限制 CPU CFS（完全公平调度器）周期。
 
 **--cpu-quota** _int_
-> Limit CPU CFS quota.
+> 限制 CPU CFS 配额。
 
 **--cpuset-cpus** _string_
-> CPUs in which to allow execution (e.g., 0-3, 0,1).
+> 允许执行的 CPU（如 0-3、0,1）。
 
 **--cpuset-mems** _string_
-> MEMs in which to allow execution (0-3, 0,1).
+> 允许执行的内存节点（0-3、0,1）。
 
 **--memory-reservation** _bytes_
-> Memory soft limit.
+> 内存软限制。
 
 **--kernel-memory** _bytes_
-> Kernel memory limit (deprecated).
+> 内核内存限制（已弃用）。
 
 **--blkio-weight** _uint16_
-> Block IO (relative weight), between 10 and 1000, or 0 to disable.
+> 块设备 IO 相对权重，取值 10 到 1000，0 表示禁用。
 
 **--pids-limit** _int_
-> Tune container pids limit (set -1 for unlimited).
+> 调整容器的进程数上限（设为 -1 表示不限制）。
 
 # DESCRIPTION
 
-**docker container update** dynamically updates resource constraints and restart policies for one or more running containers without requiring a restart. This allows administrators to adjust resource limits in response to changing workload requirements or to correct initial configuration mistakes.
+**docker container update** 动态更新一个或多个运行中容器的资源约束和重启策略，无需重启容器。这使管理员能够根据工作负载变化调整资源限制，或修正初始配置的错误。
 
-While most resource limit changes take effect immediately, some settings may require a container restart to fully apply. The restart policy update is particularly useful for changing whether containers should automatically restart on failure or system boot.
+虽然大多数资源限制的修改会立即生效，但某些设置可能需要重启容器才能完全应用。重启策略的更新尤其有用，可用于更改容器是否应在失败或系统启动时自动重启。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-multimedia stream analyzer
+多媒体流分析器
 
 # TLDR
 
-**Display information** about a media file
+**显示媒体文件的信息**
 
 ```ffprobe [path/to/file.mp4]```
 
-**Show information in JSON format**
+**以 JSON 格式显示信息**
 
 ```ffprobe -v quiet -print_format json -show_format -show_streams [file.mp4]```
 
-**Get video duration** in seconds
+**获取视频时长**（秒）
 
 ```ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 [file.mp4]```
 
-**Get video resolution**
+**获取视频分辨率**
 
 ```ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 [file.mp4]```
 
-**Get codec information**
+**获取编解码器信息**
 
 ```ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 [file.mp4]```
 
-**Get audio sample rate**
+**获取音频采样率**
 
 ```ffprobe -v error -select_streams a:0 -show_entries stream=sample_rate -of default=noprint_wrappers=1:nokey=1 [file.mp4]```
 
-**Show all stream information**
+**显示所有流信息**
 
 ```ffprobe -v error -show_streams [file.mp4]```
 
-**Analyze a network stream**
+**分析网络流**
 
 ```ffprobe [https://example.com/stream.m3u8]```
 
@@ -43,75 +43,75 @@ multimedia stream analyzer
 # PARAMETERS
 
 **-v** _level_
-> Set logging verbosity (quiet, panic, fatal, error, warning, info, verbose, debug).
+> 设置日志详细程度（quiet、panic、fatal、error、warning、info、verbose、debug）。
 
 **-show_format**
-> Show container format information.
+> 显示容器格式信息。
 
 **-show_streams**
-> Show stream information (video, audio, subtitle tracks).
+> 显示流信息（视频、音频、字幕轨）。
 
 **-show_entries** _section_
-> Show only specified entries (e.g., stream=codec_name,bit_rate).
+> 只显示指定的条目（如 stream=codec_name,bit_rate）。
 
 **-select_streams** _specifier_
-> Select specific streams (v:0 for first video, a:0 for first audio).
+> 选择特定流（v:0 为第一个视频流，a:0 为第一个音频流）。
 
 **-print_format**, **-of** _format_
-> Output format: default, json, xml, csv, flat, ini.
+> 输出格式：default、json、xml、csv、flat、ini。
 
 **-count_frames**
-> Count and report total frames (slow for large files).
+> 统计并报告总帧数（大文件较慢）。
 
 **-count_packets**
-> Count packets in each stream.
+> 统计每个流中的包数。
 
 **-show_chapters**
-> Show chapter information.
+> 显示章节信息。
 
 **-show_programs**
-> Show program information.
+> 显示节目信息。
 
 **-show_error**
-> Show information about any errors.
+> 显示有关错误的信息。
 
 **-show_data**
-> Show payload data as hexadecimal and ASCII dump.
+> 以十六进制和 ASCII 转储形式显示载荷数据。
 
 **-i** _input_
-> Input file (optional, can specify file directly).
+> 输入文件（可选，也可直接指定文件）。
 
 **-hide_banner**
-> Suppress printing banner/configuration info.
+> 不打印横幅/配置信息。
 
 **-pretty**
-> Prettify displayed values with SI prefixes and units.
+> 使用 SI 前缀和单位美化显示的值。
 
 **-sexagesimal**
-> Use sexagesimal format HH:MM:SS.MICROSECONDS for time values.
+> 时间值使用六十进制格式 HH:MM:SS.MICROSECONDS。
 
 **-bitexact**
-> Force bitexact output, not dependent on the specific build.
+> 强制输出与具体构建无关的位精确结果。
 
 # DESCRIPTION
 
-**ffprobe** is a multimedia stream analyzer from the FFmpeg project. It examines media files and streams, reporting detailed technical information about container formats, codecs, bitrates, resolution, duration, metadata, and more.
+**ffprobe** 是 FFmpeg 项目中的多媒体流分析器。它检查媒体文件和流，报告容器格式、编解码器、码率、分辨率、时长、元数据等详细技术信息。
 
-The tool reads media files without decoding them, making analysis fast. It supports virtually all audio and video formats that FFmpeg handles, including local files, network streams, and devices.
+该工具读取媒体文件而不进行解码，因此分析速度很快。它支持 FFmpeg 处理的几乎所有音视频格式，包括本地文件、网络流和设备。
 
-Output can be formatted as human-readable text, JSON, XML, CSV, or other formats for scripting integration. The **-show_entries** option enables extracting specific values without parsing verbose output.
+输出可以格式化为人类可读的文本、JSON、XML、CSV 或其他格式，便于脚本集成。**-show_entries** 选项可提取特定值，无需解析冗长的输出。
 
-Common uses include: verifying transcoding results, extracting metadata for media libraries, debugging playback issues, analyzing stream characteristics before processing, and building media management scripts.
+常见用途包括：验证转码结果、为媒体库提取元数据、调试播放问题、在处理前分析流特性，以及编写媒体管理脚本。
 
-For network streams (HLS, DASH, RTSP, etc.), ffprobe can analyze remote content, useful for monitoring streaming infrastructure. Combined with FFmpeg's other tools, it enables complete media inspection and manipulation.
+对于网络流（HLS、DASH、RTSP 等），ffprobe 可分析远程内容，适用于监控推流基础设施。结合 FFmpeg 的其他工具，它可以实现完整的媒体检查和处理。
 
 # CAVEATS
 
-Frame counting (-count_frames) requires decoding and is slow. Some formats may not report duration accurately. Protected/DRM content may not be analyzable. Network stream analysis requires stable connectivity.
+帧统计（-count_frames）需要解码，速度较慢。某些格式可能无法准确报告时长。受保护/DRM 内容可能无法分析。网络流分析需要稳定的连接。
 
 # HISTORY
 
-**ffprobe** is part of the **FFmpeg** project, which began in **2000**. The project provides a complete suite for multimedia handling. ffprobe emerged as the dedicated analysis tool, separating inspection functionality from ffmpeg's conversion capabilities. FFmpeg is one of the most widely used open-source multimedia frameworks.
+**ffprobe** 是 **FFmpeg** 项目的一部分，该项目始于 **2000 年**。FFmpeg 提供完整的多媒体处理套件。ffprobe 作为专门的分析工具出现，将检查功能从 ffmpeg 的转换能力中分离出来。FFmpeg 是使用最广泛的开源多媒体框架之一。
 
 # INSTALL
 

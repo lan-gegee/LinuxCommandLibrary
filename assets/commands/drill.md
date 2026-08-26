@@ -1,34 +1,34 @@
 # TAGLINE
 
-DNS lookup tool with DNSSEC support
+支持 DNSSEC 的 DNS 查询工具
 
 # TLDR
 
-**Query A records**
+**查询 A 记录**
 
 ```drill [example.com]```
 
-**Query specific record** type
+**查询指定类型**的记录
 
 ```drill [example.com] [MX]```
 
-**Use specific DNS** server
+**使用指定的 DNS** 服务器
 
 ```drill @[8.8.8.8] [example.com]```
 
-**Trace delegation** path
+**追踪委托路径**
 
 ```drill -T [example.com]```
 
-**Show DNSSEC** information
+**显示 DNSSEC** 信息
 
 ```drill -D [example.com]```
 
-**TCP instead of UDP**
+用 **TCP 替代 UDP**
 
 ```drill -t [example.com]```
 
-**Reverse DNS lookup**
+**反向 DNS 查询**
 
 ```drill -x [8.8.8.8]```
 
@@ -39,50 +39,50 @@ DNS lookup tool with DNSSEC support
 # PARAMETERS
 
 _NAME_
-> Domain name to query.
+> 要查询的域名。
 
 @_SERVER_
-> DNS server to query.
+> 要查询的 DNS 服务器。
 
 _TYPE_
-> Record type: A, AAAA, MX, NS, TXT, etc.
+> 记录类型：A、AAAA、MX、NS、TXT 等。
 
 **-T**
-> Trace from root to answer.
+> 从根服务器开始追踪直到得到答案。
 
 **-D**
-> Enable DNSSEC, setting the DO (DNSSEC OK) bit in the query.
+> 启用 DNSSEC，在查询中设置 DO（DNSSEC OK）位。
 
 **-S**
-> Chase the signatures of the answer up to a known key or trust anchor (requires OpenSSL support).
+> 沿签名链向上验证答案，直至已知密钥或信任锚（需要 OpenSSL 支持）。
 
 **-t**
-> Use TCP instead of UDP.
+> 使用 TCP 而非 UDP。
 
 **-x**
-> Reverse DNS lookup.
+> 反向 DNS 查询。
 
 **-k** _FILE_
-> Trust anchor file for DNSSEC.
+> DNSSEC 的信任锚文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**drill** is a DNS lookup tool from the ldns library, designed as a modern alternative to dig. It performs DNS queries with particular emphasis on DNSSEC verification capabilities.
+**drill** 是 ldns 库自带的 DNS 查询工具，定位为 dig 的现代化替代品。它执行 DNS 查询，特别强调 DNSSEC 验证能力。
 
-The tool provides detailed output about DNS responses including flags, sections, and timing. The trace option follows the delegation chain from root servers, showing how DNS resolution works.
+该工具提供关于 DNS 响应的详细输出，包括标志、各区和耗时。-T 追踪选项沿着从根服务器开始的委托链逐级解析，直观展示 DNS 解析的工作过程。
 
-drill's DNSSEC support includes signature validation and trust chain verification, making it valuable for debugging secure DNS configurations.
+drill 的 DNSSEC 支持包括签名验证和信任链验证，因此非常适合调试安全的 DNS 配置。
 
 # CAVEATS
 
-Less widely installed than dig. Some output format differences from dig. DNSSEC validation requires proper trust anchor configuration.
+装机量不如 dig 普及。输出格式与 dig 存在一些差异。DNSSEC 验证需要正确配置信任锚。
 
 # HISTORY
 
-drill was developed as part of the **ldns** library by **NLnet Labs**, creators of Unbound DNS. It was designed as a dig replacement with better DNSSEC support and cleaner output.
+drill 作为 **ldns** 库的一部分由 **NLnet Labs** 开发，该公司也是 Unbound DNS 的缔造者。它被设计为 dig 的替代品，提供更好的 DNSSEC 支持和更清爽的输出。
 
 # INSTALL
 

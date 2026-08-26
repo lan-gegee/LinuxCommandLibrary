@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate SAML Service Provider metadata
+生成 SAML 服务提供方元数据
 
 # TLDR
 
-**Generate SAML metadata**
+**生成 SAML 元数据**
 
 ```elasticsearch-saml-metadata```
 
-**Specify realm name**
+**指定 realm 名称**
 
 ```elasticsearch-saml-metadata --realm [realm_name]```
 
-**Output to file**
+**输出到文件**
 
 ```elasticsearch-saml-metadata --out [metadata.xml]```
 
-**With signing certificate**
+**附带签名证书**
 
 ```elasticsearch-saml-metadata --signing-cert [cert.pem] --signing-key [key.pem]```
 
@@ -27,55 +27,55 @@ Generate SAML Service Provider metadata
 # PARAMETERS
 
 **--realm** _name_
-> SAML realm to describe. Required when more than one SAML realm is configured.
+> 要描述的 SAML realm。配置了多个 SAML realm 时必填。
 
 **--out** _file_
-> Output file path. Defaults to saml-elasticsearch-metadata.xml.
+> 输出文件路径。默认为 saml-elasticsearch-metadata.xml。
 
 **--batch**
-> Run without prompting for input.
+> 运行时不提示输入。
 
 **--attribute** _name_
-> Add a `<RequestedAttribute>` element for the named attribute. Repeatable.
+> 为指定的属性添加一个 `<RequestedAttribute>` 元素。可重复使用。
 
 **--service-name** _name_
-> Value for `<ServiceName>`. Defaults to "elasticsearch".
+> `<ServiceName>` 的值。默认为 "elasticsearch"。
 
 **--locale** _name_
-> Locale used for the metadata elements. Defaults to the JVM locale.
+> 元数据元素使用的区域设置。默认为 JVM 的区域设置。
 
 **--contacts**
-> Prompt for and include `<ContactPerson>` elements.
+> 提示输入并包含 `<ContactPerson>` 元素。
 
 **--organisation-name** _name_
-> Include an `<Organization>` element with this name.
+> 包含一个使用此名称的 `<Organization>` 元素。
 
 **--organisation-display-name** _name_
-> Display name for the organization.
+> 组织的显示名称。
 
 **--organisation-url** _url_
-> URL for the organization.
+> 组织的 URL。
 
 **--signing-cert** _file_
-> PEM certificate used to sign the metadata.
+> 用于签署元数据的 PEM 证书。
 
 **--signing-key** _file_
-> PEM private key matching the signing certificate.
+> 与签名证书匹配的 PEM 私钥。
 
 **--signing-key-password** _password_
-> Password protecting the signing key.
+> 保护签名私钥的密码。
 
 **--signing-bundle** _file_
-> PKCS#12 file holding the signing key pair, as an alternative to the cert/key pair.
+> 保存签名密钥对的 PKCS#12 文件，可作为 cert/key 对的替代方案。
 
 **-E** _setting=value_
-> Configure an Elasticsearch setting.
+> 配置一个 Elasticsearch 设置。
 
 # DESCRIPTION
 
-**elasticsearch-saml-metadata** generates the SAML Service Provider metadata document that an Identity Provider needs in order to trust Elasticsearch. It reads the SAML realm configuration from elasticsearch.yml and writes the entity ID, the assertion consumer service URL, and the single logout endpoints into an XML file that can be handed to the IdP administrator.
+**elasticsearch-saml-metadata** 生成 SAML 服务提供方元数据文档，身份提供方（IdP）需要该文档来信任 Elasticsearch。它从 elasticsearch.yml 读取 SAML realm 配置，并将实体 ID、断言消费者服务 URL 和单点注销端点写入一个 XML 文件，可以交给 IdP 管理员。
 
-The realm must already be configured before running the command: the tool describes what is in the configuration, it does not create it.
+运行该命令之前 realm 必须已经配置好：该工具只是描述配置中的内容，并不创建配置。
 
 # SEE ALSO
 
@@ -90,4 +90,3 @@ The realm must already be configured before running the command: the tool descri
 ```[Documentation](https://www.elastic.co/docs/reference/elasticsearch/command-line-tools/saml-metadata)```
 
 <!-- verified: 2026-07-14 -->
-

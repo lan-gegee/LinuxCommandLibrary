@@ -1,26 +1,26 @@
 # TAGLINE
 
-shell expansion operator for variables and commands
+Shell 中用于变量和命令的展开运算符
 
 # TLDR
 
-**Reference a variable**
+**引用变量**
 
 ```echo $[VARIABLE]```
 
-**Command substitution**
+**命令替换**
 
 ```result=$(command)```
 
-**Arithmetic expansion**
+**算术展开**
 
 ```echo $((1 + 2))```
 
-**Parameter expansion with default**
+**带默认值的参数展开**
 
 ```echo ${VAR:-[default]}```
 
-**String length**
+**字符串长度**
 
 ```echo ${#VAR}```
 
@@ -34,85 +34,85 @@ shell expansion operator for variables and commands
 # PARAMETERS
 
 **${var}**
-> Value of variable.
+> 变量的值。
 
 **${var:-default}**
-> Use default if var is unset or empty.
+> 若 var 未设置或为空，则使用 default。
 
 **${var:=default}**
-> Assign default if var is unset or empty.
+> 若 var 未设置或为空，则为其赋值 default。
 
 **${var:+alternate}**
-> Use alternate value if var is set.
+> 若 var 已设置，则使用 alternate。
 
 **${var:?error}**
-> Exit with error message if var is unset.
+> 若 var 未设置，则以错误消息退出。
 
 **${#var}**
-> String length of var.
+> var 的字符串长度。
 
 **${var%pattern}**
-> Remove shortest suffix match.
+> 删除最短的后缀匹配。
 
 **${var%%pattern}**
-> Remove longest suffix match.
+> 删除最长的后缀匹配。
 
 **${var#pattern}**
-> Remove shortest prefix match.
+> 删除最短的前缀匹配。
 
 **${var##pattern}**
-> Remove longest prefix match.
+> 删除最长的前缀匹配。
 
 **${var/old/new}**
-> Replace first occurrence of old with new.
+> 将第一个 old 替换为 new。
 
 **${var//old/new}**
-> Replace all occurrences of old with new.
+> 将所有 old 替换为 new。
 
 **${var:offset:length}**
-> Substring extraction.
+> 提取子串。
 
 **$?**
-> Exit status of last command.
+> 上一条命令的退出状态。
 
 **$$**
-> PID of the current shell.
+> 当前 Shell 的 PID。
 
 **$!**
-> PID of last background job.
+> 最后一个后台任务的 PID。
 
 **$0**
-> Script or shell name.
+> 脚本或 Shell 的名称。
 
 **$1**-**$9**
-> Positional parameters.
+> 位置参数。
 
 **$@**
-> All positional parameters as separate words.
+> 作为独立单词的全部位置参数。
 
 **$***
-> All positional parameters as a single word.
+> 作为单个单词的全部位置参数。
 
 **$#**
-> Number of positional parameters.
+> 位置参数的数量。
 
 # DESCRIPTION
 
-**$** is the shell's expansion operator for variables, commands, and arithmetic. It triggers substitution of values before command execution.
+**$** 是 Shell 中用于变量、命令和算术的展开运算符。它会在命令执行前触发值的替换。
 
-Variable expansion **$VAR** or **${VAR}** retrieves the variable's value. Braces allow modifiers and are required for array access and complex expansions.
+变量展开 **$VAR** 或 **${VAR}** 用于取得变量的值。花括号形式支持各种修饰符，访问数组和复杂展开时必须使用。
 
-Command substitution **$(command)** executes the command and substitutes its output. This replaces the older backtick syntax.
+命令替换 **$(command)** 会执行命令并将其输出替换进来。它取代了较旧的反引号语法。
 
-Arithmetic expansion **$((expr))** evaluates mathematical expressions.
+算术展开 **$((expr))** 用于计算数学表达式。
 
 # CAVEATS
 
-Unquoted expansions undergo word splitting and glob expansion. Always quote **"$var"** unless you specifically want splitting.
+未经引号包裹的展开会经历单词拆分和 glob 展开。除非你明确想要拆分，否则请始终写成 **"$var"**。
 
-**$*** vs **$@** behave differently in quotes: **"$@"** preserves argument boundaries, **"$*"** joins them.
+**$*** 与 **$@** 在引号内行为不同：**"$@"** 保留参数边界，**"$*"** 则将它们连接在一起。
 
-Command substitution strips trailing newlines from output.
+命令替换会去掉输出末尾的换行符。
 
 # INSTALL
 

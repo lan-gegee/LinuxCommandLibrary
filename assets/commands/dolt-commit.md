@@ -1,26 +1,26 @@
 # TAGLINE
 
-record staged database table changes
+记录已暂存的数据库表变更
 
 # TLDR
 
-**Commit staged changes**
+**提交已暂存的变更**
 
 ```dolt commit -m "[message]"```
 
-**Commit all changes** including unstaged modified tables
+**提交所有变更**，包括未暂存的已修改表
 
 ```dolt commit -am "[message]"```
 
-**Amend last commit**
+**修补最后一次提交**
 
 ```dolt commit --amend```
 
-**Commit with a specific author**
+以指定的作者**提交**
 
 ```dolt commit -m "[message]" --author "[Name <email>]"```
 
-**Create an empty commit** (e.g., for triggering CI)
+**创建空提交**（例如用于触发 CI）
 
 ```dolt commit --allow-empty -m "[message]"```
 
@@ -31,36 +31,36 @@ record staged database table changes
 # PARAMETERS
 
 **-m**, **--message** _string_
-> Commit message.
+> 提交消息。
 
 **-a**, **--all**
-> Stage all modified tables and commit.
+> 暂存所有已修改的表并提交。
 
 **--amend**
-> Amend the previous commit instead of creating a new one.
+> 修补上一次提交而不是新建提交。
 
 **--author** _string_
-> Override the commit author (format: "Name <email>").
+> 覆盖提交作者（格式："Name <email>"）。
 
 **--date** _string_
-> Override the commit date.
+> 覆盖提交日期。
 
 **--allow-empty**
-> Allow creating a commit with no changes.
+> 允许创建不含任何变更的提交。
 
 **--force**
-> Force the commit, ignoring any warnings.
+> 强制提交，忽略任何警告。
 
 **-A**, **--ALL**
-> Stage all tables (including new and untracked) and commit.
+> 暂存所有表（包括新增和未跟踪的表）并提交。
 
 # DESCRIPTION
 
-**dolt commit** records changes to the database repository by creating a new commit with staged table modifications. It captures a snapshot of the current state of all staged tables, preserving the data and schema at that moment in the repository's history.
+**dolt commit** 通过创建一个包含已暂存表修改的新提交来记录数据库仓库的变更。它会捕获当前所有已暂存表的状态快照，把那一刻的数据和表结构保存在仓库历史中。
 
-Each commit requires a message describing the changes, creating an audit trail of database evolution over time. The command mirrors Git's commit workflow but operates on database tables instead of files, enabling version control for data.
+每个提交都需要一条描述变更的消息，由此形成数据库随时间演进的审计轨迹。该命令沿用 Git 的提交流程，只是操作对象从文件换成了数据库表，从而实现数据的版本控制。
 
-Commits can be amended, authored by different users, and can include all modified tables automatically with the -a flag. Use -A (uppercase) to also include new untracked tables. Empty commits are rejected by default to prevent meaningless history entries.
+提交可以被修补，可以指定不同的作者，也可以用 -a 标志自动纳入所有已修改的表。使用大写的 -A 还会包括新增的未跟踪表。默认拒绝空提交，以免产生无意义的历史条目。
 
 # INSTALL
 

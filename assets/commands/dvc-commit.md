@@ -1,22 +1,22 @@
 # TAGLINE
 
-record changes to DVC-tracked files
+记录对 DVC 跟踪文件的更改
 
 # TLDR
 
-**Commit changes to .dvc files**
+**将更改提交到 .dvc 文件**
 
 ```dvc commit```
 
-**Commit specific file**
+**提交特定文件**
 
 ```dvc commit [data.csv.dvc]```
 
-**Commit with message**
+**带消息提交**
 
 ```dvc commit -m "[message]"```
 
-**Force commit**
+**强制提交**
 
 ```dvc commit -f```
 
@@ -27,21 +27,21 @@ record changes to DVC-tracked files
 # PARAMETERS
 
 **-f**, **--force**
-> Force commit even if unchanged.
+> 即使未发生更改也强制提交。
 
 **-m**, **--message** _msg_
-> Commit message.
+> 提交消息。
 
 **-R**, **--recursive**
-> Commit recursively.
+> 递归地提交。
 
 # DESCRIPTION
 
-**dvc commit** updates .dvc metadata files to reflect changes made to tracked data files in the workspace. After modifying a DVC-tracked file, its hash no longer matches the hash stored in the .dvc file. Running dvc commit computes the new hash and updates the .dvc file accordingly.
+**dvc commit** 更新 .dvc 元数据文件，以反映对工作区中被跟踪数据文件的更改。修改 DVC 跟踪的文件后，其哈希值将不再与 .dvc 文件中存储的哈希值一致。运行 dvc commit 会计算新的哈希值并相应地更新 .dvc 文件。
 
-This is analogous to git commit but for DVC-tracked data: it records that you intentionally changed the file and want to version this new state. The command moves the new version into the DVC cache and updates the metadata.
+这类似于 git commit，但针对的是 DVC 跟踪的数据：它记录你有意更改了该文件，并希望对这个新状态进行版本控制。该命令会将新版本移入 DVC 缓存并更新元数据。
 
-Use dvc commit after editing data files, adding content to tracked directories, or replacing tracked files. The updated .dvc file can then be committed to Git, creating a new data version in your project history.
+在编辑数据文件、向被跟踪的目录添加内容或替换被跟踪的文件之后，可使用 dvc commit。随后可将更新后的 .dvc 文件提交到 Git，从而在项目历史中创建一个新的数据版本。
 
 # INSTALL
 
@@ -54,4 +54,3 @@ Use dvc commit after editing data files, adding content to tracked directories, 
 # SEE ALSO
 
 [dvc-add](/man/dvc-add)(1)
-

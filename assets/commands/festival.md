@@ -1,30 +1,30 @@
 # TAGLINE
 
-general-purpose speech synthesis system
+通用语音合成系统
 
 # TLDR
 
-**Speak text**
+朗读文本
 
 ```echo "[Hello world]" | festival --tts```
 
-**Speak file contents**
+朗读文件内容
 
 ```festival --tts [file.txt]```
 
-**Start interactive mode**
+启动交互模式
 
 ```festival```
 
-**Speak with specific voice**
+用指定嗓音朗读
 
 ```echo "[text]" | festival --tts --voice [voice_name]```
 
-**Save speech to WAV**
+将语音保存为 WAV
 
 ```echo "[Hello]" | text2wave -o [output.wav]```
 
-**List available voices**
+列出可用嗓音
 
 ```festival -b "(voice.list)"```
 
@@ -34,48 +34,48 @@ general-purpose speech synthesis system
 
 # DESCRIPTION
 
-**festival** is a general-purpose speech synthesis system. It converts text to speech using various synthesis techniques and can be controlled interactively or through scripts.
+**festival** 是一个通用语音合成系统。它使用多种合成技术将文本转换为语音，可以通过交互方式或脚本控制。
 
-The system supports multiple languages and voices, and can be extended with new voices. It's used for accessibility, voice interfaces, and audio content generation.
+该系统支持多种语言和嗓音，并且可以扩展新嗓音。它被用于无障碍辅助、语音界面和音频内容生成等场景。
 
 # PARAMETERS
 
 **--tts**
-> Text-to-speech mode (read from stdin).
+> 文本转语音模式（从 stdin 读取）。
 
 **-b** _expression_
-> Evaluate Scheme expression.
+> 求值 Scheme 表达式。
 
 **-i**
-> Interactive mode.
+> 交互模式。
 
 **--voice** _name_
-> Select voice.
+> 选择嗓音。
 
 **--otype** _type_
-> Output type (riff, aiff, etc.).
+> 输出类型（riff、aiff 等）。
 
 **--server**
-> Run as server.
+> 作为服务器运行。
 
 **--heap** _size_
-> Heap size in bytes.
+> 堆大小（字节）。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # RELATED COMMANDS
 
-**text2wave**: Convert text to audio file
-**festival_client**: Connect to server
+**text2wave**: 将文本转换为音频文件
+**festival_client**: 连接到服务器
 
 # CAVEATS
 
-Voice quality varies. Large texts may be slow. Some voices require additional downloads. Scheme knowledge helpful for customization.
+嗓音质量参差不齐。长文本可能较慢。部分嗓音需要额外下载。自定义时了解 Scheme 会很有帮助。
 
 # HISTORY
 
-**Festival** was developed at the **Centre for Speech Technology Research** at the **University of Edinburgh** by **Alan Black** and **Paul Taylor** starting in the **1990s**. It became a widely-used open source TTS system.
+**Festival** 由 **Alan Black** 和 **Paul Taylor** 于 **20 世纪 90 年代**起在**爱丁堡大学言语技术研究中心**开发。它成为广泛使用的开源 TTS 系统。
 
 # INSTALL
 

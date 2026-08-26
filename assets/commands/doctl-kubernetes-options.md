@@ -1,22 +1,22 @@
 # TAGLINE
 
-enumerate available Kubernetes configuration values
+枚举可用的 Kubernetes 配置取值
 
 # TLDR
 
-**List Kubernetes versions**
+**列出 Kubernetes 版本**
 
 ```doctl kubernetes options versions```
 
-**List available regions**
+**列出可用区域**
 
 ```doctl kubernetes options regions```
 
-**List node sizes**
+**列出节点规格**
 
 ```doctl kubernetes options sizes```
 
-**List versions in a specific output format**
+**以指定输出格式列出版本**
 
 ```doctl kubernetes options versions --format [slug]```
 
@@ -27,39 +27,39 @@ enumerate available Kubernetes configuration values
 # PARAMETERS
 
 _COMMAND_
-> Option type: versions, regions, sizes.
+> 选项类型：versions、regions、sizes。
 
 **versions**
-> List available Kubernetes versions.
+> 列出可用的 Kubernetes 版本。
 
 **regions**
-> List regions supporting Kubernetes.
+> 列出支持 Kubernetes 的区域。
 
 **sizes**
-> List machine sizes available for node pools.
+> 列出可用于节点池的机器规格。
 
 **--format** _columns_
-> Columns for output in a comma-separated list.
+> 以逗号分隔的输出列列表。
 
 **--no-header**
-> Return raw data with no headers.
+> 返回不带表头的原始数据。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**doctl kubernetes options** enumerates valid values for use with DigitalOcean Kubernetes (DOKS) cluster commands. It helps users determine valid values for cluster creation and modification, such as supported Kubernetes versions, regions where DOKS is available, and machine sizes suitable for worker nodes.
+**doctl kubernetes options** 枚举可与 DigitalOcean Kubernetes（DOKS）集群命令配合使用的有效取值。它帮助用户确定创建和修改集群时的有效值，例如受支持的 Kubernetes 版本、DOKS 可用的区域以及适合工作节点的机器规格。
 
-Using these options ensures cluster configurations are valid and helps identify available resources in different regions.
+使用这些选项可以确保集群配置有效，并有助于了解各区域的可用资源。
 
 # CAVEATS
 
-Options may change as DigitalOcean updates offerings. Not all sizes available in all regions. Kubernetes versions have support lifecycles.
+选项可能随 DigitalOcean 更新产品而变化。并非所有区域都提供所有规格。Kubernetes 版本有支持生命周期。
 
 # HISTORY
 
-doctl kubernetes options is part of the Kubernetes management commands added to **doctl** when DigitalOcean launched their managed Kubernetes service (DOKS) in **2018**.
+doctl kubernetes options 是 **2018 年** DigitalOcean 推出托管 Kubernetes 服务（DOKS）时加入 **doctl** 的 Kubernetes 管理命令的一部分。
 
 # SEE ALSO
 

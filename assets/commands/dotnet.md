@@ -1,38 +1,38 @@
 # TAGLINE
 
-cross-platform .NET development CLI
+跨平台 .NET 开发 CLI
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```dotnet new [console] -n [MyApp]```
 
-**Build project**
+**构建项目**
 
 ```dotnet build```
 
-**Run project**
+**运行项目**
 
 ```dotnet run```
 
-**Run tests**
+**运行测试**
 
 ```dotnet test```
 
-**Add NuGet package**
+**添加 NuGet 包**
 
 ```dotnet add package [PackageName]```
 
-**Restore dependencies**
+**还原依赖项**
 
 ```dotnet restore```
 
-**Publish for deployment**
+**发布以供部署**
 
 ```dotnet publish -c Release```
 
-**List installed SDKs**
+**列出已安装的 SDK**
 
 ```dotnet --list-sdks```
 
@@ -43,58 +43,58 @@ cross-platform .NET development CLI
 # PARAMETERS
 
 _COMMAND_
-> Operation: new, build, run, test, publish, add, restore, etc.
+> 操作类型：new、build、run、test、publish、add、restore 等。
 
 **new** _TEMPLATE_
-> Create project from template.
+> 从模板创建项目。
 
 **build**
-> Build the project.
+> 构建项目。
 
 **run**
-> Build and run the project.
+> 构建并运行项目。
 
 **test**
-> Run unit tests.
+> 运行单元测试。
 
 **publish**
-> Publish for deployment.
+> 发布以供部署。
 
 **add package** _NAME_
-> Add NuGet package reference.
+> 添加 NuGet 包引用。
 
 **restore**
-> Restore NuGet packages.
+> 还原 NuGet 包。
 
 **-c** _CONFIG_
-> Build configuration (Debug, Release).
+> 构建配置（Debug、Release）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **global.json**
-> Specifies SDK version and project settings at solution level.
+> 在解决方案级别指定 SDK 版本和项目设置。
 
 **nuget.config**
-> Configures NuGet package sources and credentials.
+> 配置 NuGet 包源和凭据。
 
 # DESCRIPTION
 
-**dotnet** is the .NET CLI for creating, building, running, and publishing .NET applications. It supports C#, F#, and Visual Basic across console apps, web APIs, libraries, and more.
+**dotnet** 是 .NET 的命令行界面，用于创建、构建、运行和发布 .NET 应用程序。它支持 C#、F# 和 Visual Basic，覆盖控制台应用、Web API、类库等多种形态。
 
-The CLI handles the full development workflow from project creation through deployment. It manages NuGet packages, runs tests, and produces deployment artifacts. Templates provide starting points for various application types.
+该 CLI 覆盖从项目创建到部署的完整开发工作流。它管理 NuGet 包、运行测试并生成部署工件。各种模板为不同类型的应用提供了起点。
 
-dotnet works cross-platform on Windows, macOS, and Linux, enabling .NET development everywhere.
+dotnet 可在 Windows、macOS 和 Linux 上跨平台运行，让 .NET 开发无处不在。
 
 # CAVEATS
 
-Requires .NET SDK installed. Multiple SDK versions can coexist. Large projects may have slow build times. Some features require specific SDK versions.
+需要已安装 .NET SDK。多个 SDK 版本可以共存。大型项目的构建可能较慢。某些功能需要特定的 SDK 版本。
 
 # HISTORY
 
-The dotnet CLI was introduced with **.NET Core** in **2016** as Microsoft's cross-platform .NET implementation. It unified the fragmented .NET tooling under a single CLI, becoming the standard for .NET development.
+dotnet CLI 随 **.NET Core** 于 **2016 年**推出，是微软跨平台的 .NET 实现。它把碎片化的 .NET 工具链统一到一个 CLI 之下，成为 .NET 开发的标准方式。
 
 # INSTALL
 

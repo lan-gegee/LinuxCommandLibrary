@@ -1,30 +1,30 @@
 # TAGLINE
 
-dynamic firewall daemon for Linux
+Linux 动态防火墙守护进程
 
 # TLDR
 
-**Start firewalld** daemon
+**启动 firewalld** 守护进程
 
 ```sudo systemctl start firewalld```
 
-**Enable firewalld** at boot
+**设置 firewalld 开机自启**
 
 ```sudo systemctl enable firewalld```
 
-**Check firewalld status**
+**检查 firewalld 状态**
 
 ```sudo systemctl status firewalld```
 
-**Run firewalld** in debug mode (foreground)
+**以调试模式运行 firewalld**（前台）
 
 ```sudo firewalld --debug```
 
-**Run firewalld** without forking
+**运行 firewalld** 但不 fork 到后台
 
 ```sudo firewalld --nofork```
 
-**Run firewalld** without loading modules
+**运行 firewalld** 而不加载模块
 
 ```sudo firewalld --nopid```
 
@@ -35,52 +35,52 @@ dynamic firewall daemon for Linux
 # PARAMETERS
 
 **--debug**
-> Set log level to debug and run in foreground.
+> 将日志级别设为 debug 并在前台运行。
 
 **--debug-gc**
-> Enable garbage collector leak information.
+> 显示垃圾回收器的内存泄漏信息。
 
 **--nofork**
-> Do not fork into background (stay in foreground).
+> 不派生到后台运行（保持在前台）。
 
 **--nopid**
-> Disable writing PID file.
+> 不写 PID 文件。
 
 **--system-config** _DIR_
-> Path to system configuration directory.
+> 系统配置目录的路径。
 
 **--default-config** _DIR_
-> Path to default configuration directory.
+> 默认配置目录的路径。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **/etc/firewalld/firewalld.conf**
-> Main daemon configuration including default zone, cleanup settings, and backend selection.
+> 守护进程的主配置，包括默认区域、清理设置和后端选择。
 
 **/etc/firewalld/zones/*.xml**
-> Zone definitions controlling network trust levels.
+> 区域定义，控制各网络的信任级别。
 
 **/etc/firewalld/services/*.xml**
-> Service definitions for port and protocol mappings.
+> 服务定义，描述端口与协议的映射关系。
 
 # DESCRIPTION
 
-**firewalld** is a dynamic firewall daemon providing a frontend for nftables (or iptables as a legacy backend). It manages firewall rules dynamically, allowing changes without disrupting existing connections or requiring a full restart.
+**firewalld** 是一个动态防火墙守护进程，充当 nftables 的前端（也可以选用 iptables 作为传统后端）。它动态地管理防火墙规则，无需打断现有连接或整体重启就能应用变更。
 
-Firewalld uses the concept of **zones** to define trust levels for network connections (public, home, work, trusted, etc.). Each zone has predefined rules for allowed services and ports. **Services** define ports and protocols for common applications (ssh, http, https).
+Firewalld 通过**区域（zone）**的概念来定义网络连接的信任级别（public、home、work、trusted 等）。每个区域都有针对允许服务和端口的预置规则。**服务（service）**则为常见应用（ssh、http、https）定义端口和协议。
 
-Users interact with firewalld primarily through **firewall-cmd**, the command-line client. Changes can be made at runtime (temporary) or permanently (persist across reboots). The daemon handles rule translation and manages the underlying packet filtering.
+用户主要通过命令行客户端 **firewall-cmd** 来操作 firewalld。修改可以即时生效（临时），也可以持久化保存（跨重启保留）。守护进程负责规则翻译，并管理底层的包过滤。
 
 # CAVEATS
 
-firewalld should not be used simultaneously with other firewall management tools like ufw or direct iptables manipulation. Running firewalld in debug mode generates verbose output and is intended for troubleshooting. The daemon requires root privileges and is typically managed via systemd.
+不要将 firewalld 与 ufw 或直接操作 iptables 等其他防火墙管理方式同时使用。调试模式会生成冗长的输出，仅供排障使用。该守护进程需要 root 权限，通常由 systemd 管理。
 
 # HISTORY
 
-firewalld was developed by Red Hat and introduced in **Fedora 15** (2011) as a replacement for the static system-config-firewall tool. It provides dynamic management without requiring service restarts. In **2018**, firewalld switched from iptables to nftables as its default backend, though iptables support remains for compatibility.
+firewalld 由 Red Hat 开发，随 **Fedora 15**（2011 年）推出，用来取代静态的 system-config-firewall 工具。它支持动态管理，无需重启服务。**2018 年**，firewalld 将默认后端从 iptables 切换为 nftables，不过 iptables 支持因兼容性得以保留。
 
 # INSTALL
 

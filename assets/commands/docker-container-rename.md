@@ -1,10 +1,10 @@
 # TAGLINE
 
-rename an existing container
+重命名现有容器
 
 # TLDR
 
-**Rename a container**
+**重命名容器**
 
 ```docker container rename [old_name] [new_name]```
 
@@ -14,13 +14,13 @@ rename an existing container
 
 # DESCRIPTION
 
-**docker container rename** renames a container to a new name without affecting its configuration, state, or data. This operation works on both running and stopped containers, allowing you to correct naming mistakes or reorganize your container naming scheme.
+**docker container rename** 将容器重命名为新名称，不影响其配置、状态或数据。此操作对运行中和已停止的容器都有效，可以用来纠正命名错误或重新组织容器的命名方案。
 
-Container names must be unique on the Docker host. Renaming does not modify the container's ID or any other attributes beyond the name itself. The shorthand alias **docker rename** is equivalent.
+容器名称在 Docker 主机上必须唯一。重命名不会修改容器的 ID 或除名称以外的任何属性。简写别名 **docker rename** 与之等价。
 
 # CAVEATS
 
-Other containers that referenced the old name via Docker DNS or the legacy `--link` flag will continue to use the old name until reconnected or restarted. Compose-managed containers should be renamed through Compose configuration to keep state consistent.
+其他通过 Docker DNS 或旧式 `--link` 标志引用旧名称的容器，在重新连接或重启之前仍会使用旧名称。由 Compose 管理的容器应通过 Compose 配置来重命名，以保持状态一致。
 
 # INSTALL
 

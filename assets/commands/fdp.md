@@ -1,22 +1,22 @@
 # TAGLINE
 
-force-directed graph layout engine
+力导向图布局引擎
 
 # TLDR
 
-**Generate graph from** DOT file
+**从** DOT 文件**生成图**
 
 ```fdp -Tpng [graph.dot] -o [output.png]```
 
-**Output SVG format**
+**输出 SVG 格式**
 
 ```fdp -Tsvg [graph.dot] -o [output.svg]```
 
-**Process from stdin**
+**从 stdin 处理**
 
 ```echo 'graph { a -- b }' | fdp -Tpng -o [output.png]```
 
-**Set graph attributes**
+**设置图的属性**
 
 ```fdp -Gsize="10,10" -Tpng [graph.dot] -o [output.png]```
 
@@ -27,44 +27,44 @@ force-directed graph layout engine
 # PARAMETERS
 
 _FILES_
-> DOT graph files to process.
+> 要处理的 DOT 图文件。
 
 **-T** _FORMAT_
-> Output format: png, svg, pdf, ps, etc.
+> 输出格式：png、svg、pdf、ps 等。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-G** _ATTR=VALUE_
-> Set graph attribute.
+> 设置图属性。
 
 **-N** _ATTR=VALUE_
-> Set node attribute.
+> 设置节点属性。
 
 **-E** _ATTR=VALUE_
-> Set edge attribute.
+> 设置边属性。
 
 **-K** _LAYOUT_
-> Override layout engine.
+> 覆盖布局引擎。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fdp** is a Graphviz layout engine for drawing undirected graphs using a force-directed placement algorithm. It positions nodes by simulating physical forces between connected and unconnected nodes.
+**fdp** 是一个 Graphviz 布局引擎，使用力导向布局算法绘制无向图。它通过模拟相连与不相连节点之间的物理力来确定节点位置。
 
-The spring model algorithm treats edges as springs and nodes as charged particles. It iteratively adjusts positions until reaching equilibrium, producing aesthetically pleasing layouts for many graph types.
+弹簧模型算法将边视为弹簧，将节点视为带电粒子。它迭代调整位置直到达到平衡，为多种类型的图生成美观的布局。
 
-fdp is suited for undirected graphs where node clustering and edge lengths should reflect graph structure.
+fdp 适用于无向图，其中节点聚类和边的长度应反映图的结构。
 
 # CAVEATS
 
-May not converge for very large graphs. Random initial placement means non-deterministic results. Better for undirected graphs than directed.
+对非常大的图可能无法收敛。随机初始布局意味着结果不确定。更适合无向图而非有向图。
 
 # HISTORY
 
-fdp is part of **Graphviz**, the graph visualization software from AT&T Labs. It implements force-directed placement algorithms developed for graph drawing research, providing an alternative to dot's hierarchical layout.
+fdp 是 **Graphviz**（AT&T 实验室的图可视化软件）的一部分。它实现了为图绘制研究开发的力导向布局算法，是 dot 层次化布局之外的另一种选择。
 
 # INSTALL
 

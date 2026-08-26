@@ -1,38 +1,38 @@
 # TAGLINE
 
-Intuitive disk usage analyzer with visualization
+直观的可视化磁盘用量分析器
 
 # TLDR
 
-**Show disk usage** of current directory
+**显示当前目录的磁盘用量**
 
 ```dust```
 
-**Show disk usage** with depth limit
+**带深度限制地显示磁盘用量**
 
 ```dust -d [2]```
 
-**Show disk usage** of specific directory
+**显示指定目录的磁盘用量**
 
 ```dust [/path/to/directory]```
 
-**Show sizes in SI units** (powers of 1000)
+**以 SI 单位显示大小**（1000 的幂）
 
 ```dust -H```
 
-**Show only files** (not directories)
+**只显示文件**（不含目录）
 
 ```dust -F```
 
-**Show apparent size** instead of disk usage
+**显示表面大小**而非磁盘用量
 
 ```dust -s```
 
-**Reverse sort order** (smallest first)
+**反转排序顺序**（最小在前）
 
 ```dust -r```
 
-**Show disk usage** without percentage bars
+**显示磁盘用量**但不带百分比条
 
 ```dust -p```
 
@@ -42,72 +42,72 @@ Intuitive disk usage analyzer with visualization
 
 # DESCRIPTION
 
-**dust** (du + rust) is a modern, intuitive disk usage analyzer that shows the size of directories and files in a tree structure. It provides a visual representation with percentage bars, making it easy to identify large files and directories.
+**dust**（du + rust）是一个现代、直观的磁盘用量分析器，以树状结构展示目录和文件的大小。它提供带有百分比条的可视化呈现，便于快速识别大文件和大目录。
 
-Unlike traditional du, dust displays results in a tree format with visual size indicators, automatically limiting depth for readable output. It defaults to showing the largest items first and includes a percentage column showing relative sizes.
+与传统 du 不同，dust 以树状格式显示结果并附带直观的大小指示，自动限制深度以保证输出可读。它默认最大的条目排在最前，还包含一个显示相对大小的百分比列。
 
-The tool is written in Rust for performance and handles large directory trees efficiently with parallel processing.
+该工具用 Rust 编写以追求性能，借助并行处理高效处理大型目录树。
 
 # PARAMETERS
 
 **-d** _n_, **--depth** _n_
-> Maximum depth to display.
+> 最大显示深度。
 
 **-n** _num_
-> Number of items to show.
+> 显示的条目数量。
 
 **-r**, **--reverse**
-> Reverse sort order.
+> 反转排序顺序。
 
 **-s**, **--apparent-size**
-> Show apparent size instead of disk usage.
+> 显示表面大小而非磁盘用量。
 
 **-f**
-> Show file count instead of size.
+> 显示文件数量而非大小。
 
 **-H**, **--si**
-> Print sizes in SI units (powers of 1000 instead of 1024).
+> 以 SI 单位打印大小（1000 的幂而非 1024）。
 
 **-p**, **--no-percent-bars**
-> Hide percentage bars.
+> 隐藏百分比条。
 
 **-c**, **--no-colors**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-b**, **--no-bars**
-> Hide bars entirely.
+> 完全隐藏条形图。
 
 **-D**, **--only-dir**
-> Only show directories, not files.
+> 只显示目录，不显示文件。
 
 **-F**, **--only-file**
-> Only show files, not directories.
+> 只显示文件，不显示目录。
 
 **-e** _regex_, **--filter** _regex_
-> Filter by regular expression.
+> 按正则表达式过滤。
 
 **-v** _regex_, **--invert-filter** _regex_
-> Exclude items matching regex.
+> 排除匹配正则表达式的条目。
 
 **-X**, **--ignore-directory** _name_
-> Ignore specified directory.
+> 忽略指定的目录。
 
 **-x**, **--one-filesystem**
-> Stay on one filesystem.
+> 不跨出单一文件系统。
 
 **-j**, **--threads** _n_
-> Number of threads to use.
+> 使用的线程数。
 
 **-z** _size_, **--min-size** _size_
-> Minimum size to display (e.g., 1M).
+> 最小显示大小（如 1M）。
 
 # CAVEATS
 
-Results may differ from du due to block size vs apparent size differences. Very large directory trees may take time to scan. Requires terminal with color support for best visualization. Symlinks are not followed by default.
+由于块大小与表面大小的差异，结果可能与 du 不同。非常大的目录树扫描起来可能耗时较长。要获得最佳可视化效果，需要支持颜色的终端。符号链接默认不被跟随。
 
 # HISTORY
 
-**dust** was created by **Andy Boot** in **2018** as a Rust-based alternative to du with better visualization. It was designed to address common complaints about du's output format and difficulty in interpreting results. The project gained popularity as part of the wave of Rust-based CLI tool replacements for traditional Unix utilities.
+**dust** 由 **Andy Boot** 于 **2018 年**创建，是基于 Rust 的 du 替代品，可视化效果更好。它的设计初衷是解决人们对 du 输出格式的常见抱怨以及解读结果的困难。作为用 Rust 重写传统 Unix 工具浪潮的一部分，该项目广受欢迎。
 
 # INSTALL
 

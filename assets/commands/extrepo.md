@@ -1,26 +1,26 @@
 # TAGLINE
 
-external Debian repository manager
+外部 Debian 软件仓库管理器
 
 # TLDR
 
-**Search** for a repository
+**搜索**软件仓库
 
 ```extrepo search keyword```
 
-**Enable** a repository
+**启用**软件仓库
 
 ```sudo extrepo enable repository_name```
 
-**Disable** a repository
+**禁用**软件仓库
 
 ```sudo extrepo disable repository_name```
 
-**Update** a repository
+**更新**软件仓库
 
 ```sudo extrepo update repository_name```
 
-**List** all available repositories
+**列出**所有可用的软件仓库
 
 ```extrepo search```
 
@@ -30,33 +30,33 @@ external Debian repository manager
 
 # DESCRIPTION
 
-**extrepo** manages external Debian repositories in a secure, standardized way. It provides a curated collection of third-party repositories that have been vetted by the Debian project, each with verified GPG keys and proper configuration.
+**extrepo** 以安全、标准化的方式管理外部 Debian 软件仓库。它提供一个经过 Debian 项目审核的第三方仓库精选集合，每个仓库都具有经过验证的 GPG 密钥和正确的配置。
 
-Instead of manually editing /etc/apt/sources.list or using add-apt-repository with untrusted sources, extrepo offers a safe method to enable popular external repositories like Docker, Node.js, Kubernetes, and other projects. All repository configurations are maintained centrally and include proper security verification.
+extrepo 让你无需手动编辑 /etc/apt/sources.list 或使用 add-apt-repository 添加不受信任的来源，而是提供一种安全的方法来启用 Docker、Node.js、Kubernetes 等热门外部仓库。所有仓库配置都集中维护，并包含适当的安全验证。
 
-This tool helps avoid common pitfalls like insecure repository additions, missing GPG keys, or incorrect sources.list syntax when adding third-party software sources to Debian systems.
+该工具帮助避免向 Debian 系统添加第三方软件源时的常见问题，如不安全的仓库添加、缺少 GPG 密钥或 sources.list 语法错误。
 
 # PARAMETERS
 
 **search [KEYWORD]**
-> Search for repositories matching keyword (or list all if no keyword)
+> 搜索匹配关键字的仓库（不带关键字则列出全部）
 
 **enable REPO**
-> Enable the specified repository
+> 启用指定的仓库
 
 **disable REPO**
-> Disable the specified repository
+> 禁用指定的仓库
 
 **update REPO**
-> Update the repository configuration
+> 更新仓库配置
 
 # CAVEATS
 
-Requires root privileges for enable/disable operations. Only repositories vetted by the Debian project are available. After enabling a repository, run apt update to refresh package lists.
+启用/禁用操作需要 root 权限。仅提供经过 Debian 项目审核的仓库。启用仓库后，请运行 apt update 刷新软件包列表。
 
 # HISTORY
 
-**extrepo** was developed for Debian to provide a secure method for managing external repositories, replacing manual sources.list editing with verified repository configurations.
+**extrepo** 为 Debian 开发，旨在提供一种管理外部仓库的安全方法，用经过验证的仓库配置取代手动编辑 sources.list 的做法。
 
 # SEE ALSO
 

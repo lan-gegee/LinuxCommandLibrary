@@ -1,46 +1,46 @@
 # TAGLINE
 
-SQL database with Git-like version control
+带 Git 式版本控制的 SQL 数据库
 
 # TLDR
 
-**Initialize a repository**
+**初始化仓库**
 
 ```dolt init```
 
-**Clone a repository**
+**克隆仓库**
 
 ```dolt clone [owner/repo]```
 
-**Check status**
+**查看状态**
 
 ```dolt status```
 
-**Add changes**
+**添加变更**
 
 ```dolt add [table_name]```
 
-**Commit changes**
+**提交变更**
 
 ```dolt commit -m "[message]"```
 
-**Run SQL query**
+**运行 SQL 查询**
 
 ```dolt sql -q "[SELECT * FROM table]"```
 
-**Start SQL server**
+**启动 SQL 服务器**
 
 ```dolt sql-server```
 
-**Push to remote**
+**推送到远程**
 
 ```dolt push origin main```
 
-**Diff two commits** or branches
+**对比两个提交**或分支
 
 ```dolt diff [main] [feature_branch]```
 
-**Import a CSV** into a table
+将 CSV **导入**表
 
 ```dolt table import -c --pk=[id] [table_name] [data.csv]```
 
@@ -51,63 +51,63 @@ SQL database with Git-like version control
 # COMMANDS
 
 **init** / **clone** _owner_/_repo_
-> Create a new database in the current directory, or clone one from a remote such as DoltHub.
+> 在当前目录创建新数据库，或从 DoltHub 等远程克隆一个。
 
 **status** / **diff** / **log** / **blame**
-> Inspect the working set, compare commits or branches, browse history, and see which commit last changed a row.
+> 检查工作集、比较提交或分支、浏览历史，并查看最后修改某一行的是哪个提交。
 
 **add** _table_ / **reset** / **commit** **-m** _msg_
-> Stage, unstage, and commit table changes.
+> 暂存、取消暂存并提交表变更。
 
 **branch** / **checkout** / **merge** / **tag**
-> Manage branches, switch between them, join histories, and mark releases.
+> 管理分支、切换分支、合并历史以及标记发布。
 
 **remote** / **fetch** / **pull** / **push**
-> Manage remotes and exchange commits with them.
+> 管理 remote 并与其交换提交。
 
 **sql** [**-q** _query_]
-> Open the SQL shell or run a single query.
+> 打开 SQL Shell 或运行单条查询。
 
 **sql-server**
-> Start a MySQL-compatible server so ordinary clients and ORMs can connect.
+> 启动 MySQL 兼容服务器，让普通客户端和 ORM 都能连接。
 
 **table import** / **table export**
-> Load a CSV, JSON, or Parquet file into a table, or dump one out.
+> 将 CSV、JSON 或 Parquet 文件载入表中，或把表导出。
 
 **dump**
-> Export the whole database to SQL, CSV, JSON, or Parquet.
+> 将整个数据库导出为 SQL、CSV、JSON 或 Parquet。
 
 **gc**
-> Reclaim disk space from unreachable data.
+> 从不可达的数据中回收磁盘空间。
 
 **version**
-> Print the installed Dolt version.
+> 打印已安装的 Dolt 版本。
 
 # DESCRIPTION
 
-**Dolt** is a SQL database with Git-like version control. It is a real MySQL-compatible relational database, and every one of Git's core operations, `clone`, `branch`, `diff`, `merge`, `commit`, `push`, `pull`, works on the data and the schema inside it.
+**Dolt** 是一个带 Git 式版本控制的 SQL 数据库。它是真正 MySQL 兼容的关系型数据库，Git 的每一项核心操作——`clone`、`branch`、`diff`、`merge`、`commit`、`push`、`pull`——都能作用于其中的数据和表结构。
 
-The version-control surface is available two ways. The CLI mirrors Git command for command, which is how most people first use it. Everything is also reachable from SQL: `AS OF` queries read a table at any commit or branch, system tables such as `dolt_log`, `dolt_diff_<table>`, and `dolt_status` expose history, and stored procedures like `CALL DOLT_COMMIT()` and `CALL DOLT_MERGE()` let an application version its own data without shelling out.
+版本控制界面有两种用法。CLI 与 Git 命令一一对应，这是多数人入门时的途径。所有操作也可以通过 SQL 完成：`AS OF` 查询能读取任意提交或分支时刻的表；`dolt_log`、`dolt_diff_<table>`、`dolt_status` 等系统表暴露历史；`CALL DOLT_COMMIT()` 和 `CALL DOLT_MERGE()` 这类存储过程则让应用程序无需调用外部命令即可为自己的数据建立版本。
 
-Because merges happen cell by cell rather than line by line, two branches that touch different columns of the same row merge cleanly, and genuine conflicts are surfaced as rows in the `dolt_conflicts` tables to be resolved with SQL. **DoltHub** and **DoltLab** provide hosted and self-hosted remotes, in the same relationship GitHub has to Git.
+由于合并按单元格而非文本行进行，触及同一行不同列的两个分支可以干净地合并；真正的冲突会作为记录出现在 `dolt_conflicts` 表中，用 SQL 即可解决。**DoltHub** 和 **DoltLab** 提供托管与自托管两种远程仓库，正如 GitHub 之于 Git 的关系。
 
-Typical uses are data versioning and auditing, collaborative curation of shared datasets, reproducible pipelines that can be rolled back to any past state, and test fixtures that can be branched per test run.
+典型用途包括数据版本管理与审计、共享数据集的协作整理、可回滚到任意历史状态的可复现流水线，以及能为每轮测试单独建分支的测试数据。
 
 # CONFIGURATION
 
 **~/.dolt/config_global.json**
-> Global configuration for user name, email, and default remotes.
+> 全局配置，包含用户名、邮箱和默认远程。
 
 **.dolt/config.json**
-> Repository-specific configuration for remotes and branch settings.
+> 仓库专属配置，包含远程和分支相关设置。
 
 # CAVEATS
 
-Keeping every historical version is not free: a Dolt database is larger and generally slower than the equivalent MySQL instance, and heavy write workloads need periodic **dolt gc**. MySQL compatibility is high but not complete, so an application that leans on exotic functions or storage-engine behaviour may need adjustment. Data written through `dolt sql` or `sql-server` lands in the working set and is not history until it is committed, which surprises people who expect an ordinary database. Conflicts are not resolved with text markers but through the `dolt_conflicts` system tables.
+保留全部历史版本并非没有代价：Dolt 数据库比同等的 MySQL 实例更大、通常也更慢，重写入负载需要定期执行 **dolt gc**。MySQL 兼容性很高但并不完备，重度依赖冷门函数或存储引擎行为的应用可能需要调整。通过 `dolt sql` 或 `sql-server` 写入的数据会进入工作集，提交之前不算作历史，这一点常令期待普通数据库的用户意外。冲突不通过文本标记解决，而是借助 `dolt_conflicts` 系统表处理。
 
 # HISTORY
 
-Dolt was created by **Liquidata**, now DoltHub, and released in **2019**. Its storage engine descends from **Noms**, an earlier content-addressed, versioned database from Attic Labs, which is what makes cheap branching and structural diffing possible. Early versions had their own query dialect; the pivot to MySQL compatibility, built on the **go-mysql-server** engine that DoltHub adopted and now maintains, is what turned Dolt from an interesting data-sharing tool into a database you can point an existing application at.
+Dolt 由 **Liquidata**（即如今的 DoltHub）创建，于 **2019 年**发布。其存储引擎承袭自 **Noms**——Attic Labs 早前推出的内容寻址版本化数据库，这正是廉价分支和结构性 diff 得以实现的根基。早期版本拥有自己的查询方言；后来转向 MySQL 兼容（基于 DoltHub 接手并维护至今的 **go-mysql-server** 引擎），才让 Dolt 从一个有趣的数据共享工具变成可以直接承载现有应用的数据库。
 
 # INSTALL
 
@@ -132,4 +132,3 @@ Dolt was created by **Liquidata**, now DoltHub, and released in **2019**. Its st
 ```[Documentation](https://www.dolthub.com/docs/)```
 
 <!-- verified: 2026-07-14 -->
-

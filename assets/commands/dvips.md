@@ -1,30 +1,30 @@
 # TAGLINE
 
-convert DVI to PostScript
+将 DVI 转换为 PostScript
 
 # TLDR
 
-**Convert DVI to PostScript**
+**将 DVI 转换为 PostScript**
 
 ```dvips [document.dvi] -o [document.ps]```
 
-**Convert specific pages**
+**转换指定页**
 
 ```dvips -p [5] -l [10] [document.dvi] -o [output.ps]```
 
-**Output to stdout**
+**输出到标准输出**
 
 ```dvips [document.dvi] -o -```
 
-**Convert for specific paper size**
+**按指定纸张大小转换**
 
 ```dvips -t [letter] [document.dvi] -o [output.ps]```
 
-**Convert in landscape mode**
+**以横向模式转换**
 
 ```dvips -t landscape [document.dvi] -o [output.ps]```
 
-**Generate PDF via ps2pdf**
+**经由 ps2pdf 生成 PDF**
 
 ```dvips [document.dvi] -o - | ps2pdf - [document.pdf]```
 
@@ -35,48 +35,48 @@ convert DVI to PostScript
 # PARAMETERS
 
 **-o** _file_
-> Output file name (- for stdout).
+> 输出文件名（- 表示标准输出）。
 
 **-p** _num_
-> First page to output.
+> 要输出的第一页。
 
 **-l** _num_
-> Last page to output.
+> 要输出的最后一页。
 
 **-t** _paper_
-> Paper type: letter, a4, landscape.
+> 纸张类型：letter、a4、landscape。
 
 **-D** _dpi_
-> Resolution in dots per inch.
+> 以每英寸点数表示的分辨率。
 
 **-x** _mag_
-> Magnification factor.
+> 放大倍数。
 
 **-c** _copies_
-> Number of copies.
+> 打印份数。
 
 **-e** _num_
-> Maximum drift in pixels.
+> 最大像素漂移量。
 
 **-Z**
-> Compress bitmap fonts.
+> 压缩位图字体。
 
 **-Ppdf**
-> Optimize for PDF conversion.
+> 针对 PDF 转换进行优化。
 
 # DESCRIPTION
 
-**dvips** converts DVI (DeVice Independent) files produced by TeX and LaTeX into PostScript. The output can be printed directly or converted to PDF using tools like ps2pdf.
+**dvips** 将 TeX 和 LaTeX 生成的 DVI（DeVice Independent）文件转换为 PostScript。输出可直接打印，或使用 ps2pdf 等工具转换为 PDF。
 
-The program processes DVI instructions, embeds fonts, and generates PostScript code. It supports font substitution, paper size selection, and various optimization options for different output devices.
+该程序处理 DVI 指令、嵌入字体并生成 PostScript 代码。它支持字体替换、纸张大小选择以及针对不同输出设备的多种优化选项。
 
 # CAVEATS
 
-Requires Type 1 or bitmap fonts to be installed. Some modern TeX workflows use pdflatex or xelatex directly, bypassing DVI. PostScript output may be large; use -Z for compression. Font paths must be configured in texmf.cnf.
+需要已安装 Type 1 或位图字体。一些现代 TeX 工作流直接使用 pdflatex 或 xelatex，绕过 DVI。PostScript 输出可能很大；使用 -Z 进行压缩。字体路径必须在 texmf.cnf 中配置。
 
 # HISTORY
 
-dvips was written by **Tomas Rokicki** in the late **1980s** and has been a standard part of TeX distributions since. It remains widely used despite direct PDF generation becoming more common. The program is maintained as part of TeX Live.
+dvips 由 **Tomas Rokicki** 于 **20 世纪 80 年代末**编写，此后一直是 TeX 发行版的标准组成部分。尽管直接生成 PDF 已更为常见，它仍被广泛使用。该程序作为 TeX Live 的一部分持续维护。
 
 # INSTALL
 

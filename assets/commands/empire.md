@@ -1,18 +1,18 @@
 # TAGLINE
 
-classic full-scale war strategy game
+经典的全局战争策略游戏
 
 # TLDR
 
-**Start a new game**
+**开始新游戏**
 
 ```empire```
 
-**Start with mostly water** (island map)
+**以多水域模式开始**（岛屿地图）
 
 ```empire -w [90]```
 
-**Set message delay** to 500ms
+**将消息延迟设为** 500 毫秒
 
 ```empire -d [500]```
 
@@ -23,19 +23,19 @@ classic full-scale war strategy game
 # PARAMETERS
 
 **-w** _water_
-> Percentage of map that is water (10-90, default 70).
+> 地图中水域的百分比（10-90，默认 70）。
 
 **-s** _smooth_
-> Map smoothing level; low values create islands, high values create continents (default 5).
+> 地图平滑程度；数值低生成岛屿，数值高生成大陆（默认 5）。
 
 **-d** _delay_
-> Delay in milliseconds after informational messages (default 2000).
+> 信息类消息之后的延迟毫秒数（默认 2000）。
 
 **-S** _interval_
-> Auto-save interval in turns (default 10).
+> 自动存档的回合间隔（默认 10）。
 
 **-f** _savefile_
-> Specify save file name (default empsave.dat).
+> 指定存档文件名（默认 empsave.dat）。
 
 # PREVIEW
 
@@ -49,17 +49,17 @@ classic full-scale war strategy game
 
 # DESCRIPTION
 
-**empire** is a classic full-scale war simulation strategy game. Two emperors compete for world domination on a randomly generated map, producing armies, fighters, ships, and other units to explore, conquer, and hold territory.
+**empire** 是一款经典的全局战争模拟策略游戏。两位皇帝在随机生成的地图上争夺世界霸权，生产军队、战斗机、舰船等单位来探索、征服并守住领土。
 
-The game plays on a grid map with cities, land, and sea. Units are produced in captured cities and commanded individually. Fog of war means only areas near your units are visible.
+游戏在由城市、陆地和海洋组成的网格地图上进行。单位在攻占的城市中生产并可逐一指挥。战争迷雾意味着只有你的单位附近的区域可见。
 
 # CAVEATS
 
-Complex controls and steep learning curve. Games can take a long time to complete. Terminal must be at least 80x24.
+操作复杂，学习曲线陡峭。一局游戏可能耗时很久。终端至少需要 80x24 大小。
 
 # HISTORY
 
-**Empire** was originally created by **Walter Bright** in the **1970s** and is considered one of the first strategy war games. The Unix version was rewritten by **Chuck Simmons** and is maintained by **Eric S. Raymond**.
+**Empire** 最初由 **Walter Bright** 于 **20 世纪 70 年代**创建，被认为是最早的策略战争游戏之一。Unix 版本由 **Chuck Simmons** 重写，目前由 **Eric S. Raymond** 维护。
 
 # SEE ALSO
 

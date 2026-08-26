@@ -1,34 +1,34 @@
 # TAGLINE
 
-Debian package build tool
+Debian 软件包构建工具
 
 # TLDR
 
-**Build package**
+**构建软件包**
 
 ```dpkg-buildpackage```
 
-**Build unsigned**
+**不签名构建**
 
 ```dpkg-buildpackage -us -uc```
 
-**Build binary only**
+**只构建二进制**
 
 ```dpkg-buildpackage -b```
 
-**Build source only**
+**只构建源码**
 
 ```dpkg-buildpackage -S```
 
-**Build with parallelism**
+**并行构建**
 
 ```dpkg-buildpackage -j[4]```
 
-**Build without cleaning**
+**不清理直接构建**
 
 ```dpkg-buildpackage -nc```
 
-**Specify key for signing**
+**指定签名密钥**
 
 ```dpkg-buildpackage -k[keyid]```
 
@@ -38,55 +38,55 @@ Debian package build tool
 
 # DESCRIPTION
 
-**dpkg-buildpackage** builds Debian packages from source. It orchestrates the full build process including extracting source, running the build system, and creating .deb files.
+**dpkg-buildpackage** 从源码构建 Debian 软件包。它统筹完整的构建流程，包括解压源码、运行构建系统以及创建 .deb 文件。
 
-The tool handles dependencies, runs debian/rules targets, calls dpkg-source for source packages, and dpkg-genchanges for upload files. It's the standard way to build Debian packages.
+该工具处理依赖关系，运行 debian/rules 目标，调用 dpkg-source 生成源码包、dpkg-genchanges 生成上传文件。它是构建 Debian 软件包的标准方式。
 
 # PARAMETERS
 
 **-b**
-> Binary-only build.
+> 仅构建二进制。
 
 **-S**
-> Source-only build.
+> 仅构建源码。
 
 **-F**
-> Full build (source and binary).
+> 完整构建（源码加二进制）。
 
 **-us**
-> Don't sign source package.
+> 不签名源码包。
 
 **-uc**
-> Don't sign changes file.
+> 不签名 changes 文件。
 
 **-j** _n_
-> Parallel jobs.
+> 并行任务数。
 
 **-nc**
-> Don't clean before build.
+> 构建前不清理。
 
 **-tc**
-> Clean after build.
+> 构建后清理。
 
 **-k** _keyid_
-> GPG key for signing.
+> 用于签名的 GPG 密钥。
 
 **-r** _cmd_
-> Use cmd to gain root.
+> 用 cmd 获取 root 权限。
 
 **-d**
-> Don't check dependencies.
+> 不检查依赖。
 
 **--build=** _type_
-> Specify build type.
+> 指定构建类型。
 
 # CAVEATS
 
-Requires build dependencies installed. Signing needs GPG key. Must run in package source directory. Clean environment recommended for reproducible builds.
+需要已安装构建依赖。签名需要 GPG 密钥。必须在软件包源码目录中运行。要实现可重现构建，建议使用干净的环境。
 
 # HISTORY
 
-**dpkg-buildpackage** is part of the **dpkg** suite, the core of Debian package management since **1994**. It has evolved with Debian's packaging practices, adding features for source formats, signing, and cross-compilation over the years.
+**dpkg-buildpackage** 是 **dpkg** 工具套件的一部分，dpkg 自 **1994 年**起就是 Debian 软件包管理的核心。它随 Debian 打包实践的演进而发展，多年来陆续加入了对源码格式、签名和交叉编译的支持。
 
 # INSTALL
 

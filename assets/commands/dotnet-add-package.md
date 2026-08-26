@@ -1,30 +1,30 @@
 # TAGLINE
 
-Add or update a NuGet package reference in a project
+向项目添加或更新 NuGet 包引用
 
 # TLDR
 
-**Add a NuGet package**
+**添加 NuGet 包**
 
 ```dotnet add package [package_name]```
 
-**Add specific version**
+**添加指定版本**
 
 ```dotnet add package [package_name] --version [1.0.0]```
 
-**Add package to specific project**
+**向指定项目添加包**
 
 ```dotnet add [project.csproj] package [package_name]```
 
-**Add prerelease version**
+**添加预发布版本**
 
 ```dotnet add package [package_name] --prerelease```
 
-**Add from specific source**
+**从指定源添加**
 
 ```dotnet add package [package_name] --source [https://api.nuget.org/v3/index.json]```
 
-**Add package targeting a specific framework**
+**添加面向特定框架的包**
 
 ```dotnet add package [package_name] --framework [net8.0]```
 
@@ -35,31 +35,31 @@ Add or update a NuGet package reference in a project
 # PARAMETERS
 
 **-v**, **--version** _version_
-> Specific version to install.
+> 要安装的特定版本。
 
 **--prerelease**
-> Allow prerelease packages to be installed.
+> 允许安装预发布包。
 
 **-f**, **--framework** _framework_
-> Add a package reference only when targeting a specific framework.
+> 仅当面向特定框架时才添加包引用。
 
 **-s**, **--source** _source_
-> NuGet package source URI to use during restore.
+> 还原期间使用的 NuGet 包源 URI。
 
 **-n**, **--no-restore**
-> Add reference without performing a restore preview and compatibility check.
+> 添加引用但不执行还原预览和兼容性检查。
 
 **--package-directory** _dir_
-> Directory to restore packages to.
+> 包还原到的目录。
 
 **--interactive**
-> Allow the command to stop and wait for user input or action.
+> 允许命令停下等待用户输入或操作。
 
 # DESCRIPTION
 
-**dotnet add package** adds a NuGet package reference to a project file and runs a compatibility check. It modifies the .csproj or .fsproj file to include a PackageReference element, making the dependency trackable in version control.
+**dotnet add package** 向项目文件添加 NuGet 包引用并执行兼容性检查。它会修改 .csproj 或 .fsproj 文件以加入 PackageReference 元素，使依赖关系可以在版本控制中被跟踪。
 
-If the package is already referenced, it updates the reference to the latest compatible version. The command runs an implicit **dotnet restore** after adding the reference unless **--no-restore** is specified. Projects using Central Package Management (CPM) will have the PackageVersion element updated in the Directory.Packages.props file.
+如果该包已被引用，则将引用更新为最新的兼容版本。除非指定 **--no-restore**，否则该命令在添加引用后会隐式运行 **dotnet restore**。使用中央包管理（CPM）的项目将在 Directory.Packages.props 文件中更新 PackageVersion 元素。
 
 # INSTALL
 
@@ -76,4 +76,3 @@ If the package is already referenced, it updates the reference to the latest com
 # SEE ALSO
 
 [dotnet-restore](/man/dotnet-restore)(1), [dotnet-build](/man/dotnet-build)(1), [dotnet](/man/dotnet)(1)
-

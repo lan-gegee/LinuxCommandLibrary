@@ -1,26 +1,26 @@
 # TAGLINE
 
-input method framework
+输入法框架
 
 # TLDR
 
-**Start fcitx**
+**启动 fcitx**
 
 ```fcitx```
 
-**Start in daemon** mode
+**以守护进程模式启动**
 
 ```fcitx -d```
 
-**Restart fcitx**
+**重启 fcitx**
 
 ```fcitx -r```
 
-**Replace existing instance**
+**替换已有实例**
 
 ```fcitx --replace```
 
-**Show version**
+**显示版本**
 
 ```fcitx -v```
 
@@ -31,46 +31,46 @@ input method framework
 # PARAMETERS
 
 **-d**, **--daemon**
-> Run as daemon (background).
+> 以守护进程方式运行（后台）。
 
 **-r**, **--replace**
-> Replace existing instance.
+> 替换已有实例。
 
 **-D**, **--disable**
-> Disable addon loading.
+> 禁用加载指定附加组件。
 
 **-s**, **--enable**
-> Enable specific addon.
+> 启用指定附加组件。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fcitx** (Flexible Context-aware Input Tool with eXtension) is an input method framework for entering non-Latin characters. It supports Chinese, Japanese, Korean, and many other languages through various input method engines.
+**fcitx**（Flexible Context-aware Input Tool with eXtension）是一个用于输入非拉丁字符的输入法框架。它通过各种输入法引擎支持中文、日文、韩文以及许多其他语言。
 
-The framework provides a modular architecture with addons for different input methods like Pinyin, Wubi, Hangul, and Anthy. It integrates with desktop environments through GTK and Qt input modules.
+该框架采用模块化架构，提供针对拼音、五笔、韩文（Hangul）、Anthy 等不同输入法的附加组件。它通过 GTK 和 Qt 输入模块与桌面环境集成。
 
-fcitx handles input method switching, candidate selection, and provides a configurable user interface for text entry.
+fcitx 处理输入法切换和候选词选择，并为文字输入提供可配置的用户界面。
 
 # CONFIGURATION
 
 **~/.config/fcitx/**
-> User configuration files for input methods, hotkeys, and addons.
+> 用户配置文件，涵盖输入法、快捷键和附加组件。
 
 **/usr/share/fcitx/**
-> System-wide input method data and addon files.
+> 系统级的输入法数据和附加组件文件。
 
 # CAVEATS
 
-Requires environment variables set correctly. May conflict with other input frameworks. Desktop integration depends on toolkit support.
+需要正确设置环境变量。可能与其他输入法框架冲突。桌面集成取决于工具包支持。
 
 # HISTORY
 
-fcitx was created by **Yuking** in 2002 as a Chinese input method for Linux. It evolved into a general-purpose input method framework, with **fcitx5** being the modern rewrite with improved architecture.
+fcitx 由 **Yuking** 于 2002 年创建，最初是 Linux 上的中文输入法。后来演变为通用输入法框架，**fcitx5** 是其现代重写版本，架构有所改进。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Docker daemon background service
+Docker 守护进程后台服务
 
 # TLDR
 
-Run Docker **daemon**
+运行 Docker **守护进程**
 
 ```dockerd```
 
-Listen on **specific sockets**
+监听**指定的套接字**
 
 ```dockerd -H unix://[path/to/tmp.sock] -H tcp://[ip_address]```
 
-Specify **PID file**
+指定 **PID 文件**
 
 ```dockerd -p [path/to/pid_file]```
 
-Run in **debug mode**
+以**调试模式**运行
 
 ```dockerd -D```
 
-Set **log level**
+设置**日志级别**
 
 ```dockerd -l [debug|info|warn|error|fatal]```
 
@@ -30,50 +30,50 @@ Set **log level**
 
 # DESCRIPTION
 
-**dockerd** is the Docker daemon process that manages containers, images, networks, and volumes. It's a persistent background service that listens for Docker API requests.
+**dockerd** 是 Docker 守护进程，负责管理容器、镜像、网络和卷。它是一个持久运行的后台服务，监听 Docker API 请求。
 
-Usually managed by systemd rather than run directly.
+通常由 systemd 管理，而不是直接运行。
 
 # PARAMETERS
 
 **-H, --host** _socket_
-> Socket to listen on (unix://, tcp://, fd://)
+> 要监听的套接字（unix://、tcp://、fd://）
 
 **-p, --pidfile** _file_
-> PID file path
+> PID 文件路径
 
 **-D, --debug**
-> Enable debug mode
+> 启用调试模式
 
 **-l, --log-level** _level_
-> Logging level
+> 日志级别
 
 **--storage-driver** _driver_
-> Storage driver (overlay2, devicemapper, etc.)
+> 存储驱动（overlay2、devicemapper 等）
 
 **--data-root** _path_
-> Root directory for Docker data (default /var/lib/docker).
+> Docker 数据的根目录（默认 /var/lib/docker）。
 
 **--tls**, **--tlsverify**
-> Use TLS (and verify remote certificates).
+> 使用 TLS（并验证远程证书）。
 
 **--tlscert** _file_, **--tlskey** _file_, **--tlscacert** _file_
-> TLS certificate, key, and trusted CA for secure daemon connections.
+> 用于安全守护进程连接的 TLS 证书、密钥和受信任 CA。
 
 **--userland-proxy**=_true|false_
-> Enable userland-proxy for loopback traffic to published ports.
+> 为发布端口的回环流量启用 userland-proxy。
 
 **--live-restore**
-> Keep containers alive during daemon downtime.
+> 守护进程停机期间保持容器存活。
 
 # CONFIGURATION
 
 **/etc/docker/daemon.json**
-> Main configuration file for the Docker daemon. Controls storage drivers, logging, networking, registry mirrors, and runtime settings.
+> Docker 守护进程的主配置文件，控制存储驱动、日志、网络、镜像仓库加速器和运行时设置。
 
 # CAVEATS
 
-Requires root privileges or proper group membership. Configuration typically via /etc/docker/daemon.json. Exposing TCP socket without TLS is insecure.
+需要 root 权限或正确的组成员身份。通常通过 /etc/docker/daemon.json 进行配置。不使用 TLS 暴露 TCP 套接字是不安全的。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-flexible Mail Transfer Agent
+灵活的邮件传输代理
 
 # TLDR
 
-**Start mail queue processing**
+**启动邮件队列处理**
 
 ```exim -q```
 
-**Send test message**
+**发送测试消息**
 
 ```echo "Test" | exim [user@example.com]```
 
-**Show mail queue**
+**显示邮件队列**
 
 ```exim -bp```
 
-**Display queue count**
+**显示队列数量**
 
 ```exim -bpc```
 
-**Force delivery of message**
+**强制投递消息**
 
 ```exim -M [message_id]```
 
-**Remove message from queue**
+**从队列中删除消息**
 
 ```exim -Mrm [message_id]```
 
-**Test address routing**
+**测试地址路由**
 
 ```exim -bt [user@example.com]```
 
-**Check configuration**
+**检查配置**
 
 ```exim -bV```
 
@@ -43,59 +43,59 @@ flexible Mail Transfer Agent
 # PARAMETERS
 
 **-q** [_time_]
-> Run queue, optionally repeatedly.
+> 运行队列，可选周期性重复执行。
 
 **-bp**
-> List messages in queue.
+> 列出队列中的消息。
 
 **-bpc**
-> Count messages in queue.
+> 统计队列中的消息数。
 
 **-bt** _address_
-> Test address routing.
+> 测试地址路由。
 
 **-bV**
-> Display version and config.
+> 显示版本和配置。
 
 **-M** _id_
-> Force delivery of message.
+> 强制投递消息。
 
 **-Mrm** _id_
-> Remove message from queue.
+> 从队列中删除消息。
 
 **-Mvh** _id_
-> View message headers.
+> 查看消息头。
 
 **-Mvb** _id_
-> View message body.
+> 查看消息正文。
 
 **-d**
-> Enable debug mode.
+> 启用调试模式。
 
 **-C** _file_
-> Use alternate configuration.
+> 使用备用配置。
 
 # DESCRIPTION
 
-**exim** is a Mail Transfer Agent (MTA) that handles sending, receiving, and routing email on Unix systems. It's known for flexibility in configuration and filtering capabilities.
+**exim** 是一个邮件传输代理（MTA），负责在 Unix 系统上发送、接收和路由电子邮件。它以灵活的配置和强大的过滤能力著称。
 
-The tool supports ACLs, content scanning, TLS encryption, and various authentication mechanisms. It can function as both an incoming and outgoing mail server.
+该工具支持 ACL、内容扫描、TLS 加密以及多种认证机制。它可以同时充当收信和发信邮件服务器。
 
 # CONFIGURATION
 
 **/etc/exim4/exim4.conf**
-> Main configuration file controlling routing, ACLs, authentication, and transport settings.
+> 主配置文件，控制路由、ACL、认证和传输设置。
 
 **/etc/exim4/passwd**
-> Authentication credentials for SMTP clients.
+> SMTP 客户端的认证凭据。
 
 # CAVEATS
 
-Complex configuration syntax. Requires careful security setup. Port 25 often blocked by ISPs. Log monitoring essential for production.
+配置语法复杂。需要细致的安全设置。端口 25 常被 ISP 封锁。生产环境中必须监控日志。
 
 # HISTORY
 
-**Exim** was originally written by **Philip Hazel** at the **University of Cambridge** starting in **1995**. The name stands for "EXperimental Internet Mailer." It became the default MTA for Debian and is widely used on Unix servers.
+**Exim** 由 **剑桥大学**的 **Philip Hazel** 自 **1995 年**起编写。名字代表 "EXperimental Internet Mailer"。它成为 Debian 的默认 MTA，并在 Unix 服务器上广泛使用。
 
 # INSTALL
 

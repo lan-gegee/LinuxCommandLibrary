@@ -1,30 +1,30 @@
 # TAGLINE
 
-display text output
+显示文本输出
 
 # TLDR
 
-**Print text**
+**打印文本**
 
 ```echo "[Hello World]"```
 
-**Print without trailing newline**
+**打印时不带末尾换行**
 
 ```echo -n "[text]"```
 
-**Interpret escape sequences**
+**解释转义序列**
 
 ```echo -e "[Line 1\nLine 2]"```
 
-**Print an environment variable**
+**打印环境变量**
 
 ```echo $[PATH]```
 
-**Write text to a file**
+**将文本写入文件**
 
 ```echo "[content]" > [file.txt]```
 
-**Append text to a file**
+**将文本追加到文件**
 
 ```echo "[more content]" >> [file.txt]```
 
@@ -34,42 +34,42 @@ display text output
 
 # DESCRIPTION
 
-**echo** displays a line of text to standard output. It's one of the most basic and frequently used commands, essential for scripts, logging, and displaying information to users.
+**echo** 将一行文本输出到标准输出。它是最基础、最常用的命令之一，对脚本编写、日志记录以及向用户显示信息不可或缺。
 
-The command exists as both a shell built-in and standalone program.
+该命令既作为 shell 内建命令存在，也有独立的可执行程序。
 
 # PARAMETERS
 
 **-n**
-> Don't output trailing newline
+> 不输出末尾换行
 
 **-e**
-> Enable interpretation of backslash escapes
+> 启用反斜杠转义的解释
 
 **-E**
-> Disable interpretation of backslash escapes (default)
+> 禁用反斜杠转义的解释（默认）
 
 # ESCAPE SEQUENCES
 
-(With **-e** flag):
+（需配合 **-e** 标志）：
 
-**\n** - Newline
-**\t** - Tab
-**\r** - Carriage return
-**\a** - Alert (bell)
-**\b** - Backspace
-**\\\\** - Backslash
-**\\"** - Double quote
-**\xHH** - Hexadecimal byte
-**\0NNN** - Octal byte
+**\n** - 换行
+**\t** - 制表符
+**\r** - 回车
+**\a** - 警示音（响铃）
+**\b** - 退格
+**\\\\** - 反斜杠
+**\\"** - 双引号
+**\xHH** - 十六进制字节
+**\0NNN** - 八进制字节
 
 # CAVEATS
 
-Behavior differs between shells and between the shell built-in and `/bin/echo`. The **-e** flag is not POSIX and is not supported by all implementations. For portable scripts, prefer **printf** which has consistent behavior across platforms. Most shells (bash, zsh, dash) provide echo as a built-in that may behave differently from the external binary.
+不同 shell 之间、shell 内建命令与 `/bin/echo` 之间的行为存在差异。**-e** 标志不是 POSIX 标准的一部分，并非所有实现都支持。要编写可移植脚本，建议使用 **printf**，它在各平台上的行为一致。大多数 shell（bash、zsh、dash）都将 echo 作为内建命令提供，其行为可能与外部二进制程序不同。
 
 # HISTORY
 
-**echo** has been part of Unix since Version 2 in **1972**, though its behavior has varied across different Unix variants.
+**echo** 自 **1972 年**的 Unix Version 2 起就是 Unix 的一部分，但其行为在不同 Unix 变体间有所差异。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-modern DNS client with encrypted protocol support
+支持加密协议的现代 DNS 客户端
 
 # TLDR
 
-Query **A records** with the system resolver
+使用系统解析器查询 **A 记录**
 
 ```doggo [example.com]```
 
-Query a **specific record type** against a chosen resolver
+向选定的解析器查询**特定记录类型**
 
 ```doggo [example.com] [MX] @[9.9.9.9]```
 
-Use **DNS over HTTPS**
+使用 **DNS over HTTPS**
 
 ```doggo [example.com] @https://[cloudflare-dns.com/dns-query]```
 
-Use **DNS over TLS**
+使用 **DNS over TLS**
 
 ```doggo [example.com] @tls://[1.1.1.1]```
 
-Query **every common record type** at once
+一次查询**所有常见记录类型**
 
 ```doggo [example.com] --any```
 
-Output **JSON** for scripting
+输出 **JSON** 以便脚本处理
 
 ```doggo [example.com] --json```
 
-**Reverse lookup** an IP address, short form
+对 IP 地址进行**反向查询**，简短输出
 
 ```doggo --reverse [8.8.8.8] --short```
 
-Run the query **from another country** via the Globalping network
+通过 Globalping 网络**从其他国家**发起查询
 
 ```doggo [example.com] --gp-from [Germany] --gp-limit [2]```
 
@@ -40,122 +40,122 @@ Run the query **from another country** via the Globalping network
 
 **doggo** [_query options_] [_arguments_...]
 
-Arguments may be given free-form: doggo recognises a hostname, a record type, a class, and an **@**_resolver_ in any order.
+参数可以自由书写：无论顺序如何，doggo 都能识别主机名、记录类型、网络类别以及 **@**_resolver_。
 
 # PARAMETERS
 
 **-q**, **--query**=_HOSTNAME_
-> Hostname to query the DNS records for.
+> 要查询 DNS 记录的主机名。
 
 **-t**, **--type**=_TYPE_
-> Type of the DNS record (A, AAAA, MX, NS, TXT, ...).
+> DNS 记录类型（A、AAAA、MX、NS、TXT 等）。
 
 **-n**, **--nameserver**=_ADDR_
-> Address of a specific nameserver to send queries to.
+> 用于接收查询的特定域名服务器地址。
 
 **-c**, **--class**=_CLASS_
-> Network class of the DNS record (IN, CH, HS).
+> DNS 记录的网络类别（IN、CH、HS）。
 
 **-x**, **--reverse**
-> Reverse lookup of an IPv4 or IPv6 address; sets type PTR and class IN.
+> 对 IPv4 或 IPv6 地址进行反向查询；自动设置类型为 PTR、类别为 IN。
 
 **--any**
-> Query all supported record types (A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, TXT, CAA).
+> 查询所有支持的记录类型（A、AAAA、CNAME、MX、NS、PTR、SOA、SRV、TXT、CAA）。
 
 **-A**, **--authoritative**
-> Find the domain's zone via its SOA and query the delegated authoritative nameservers.
+> 通过域名的 SOA 记录找到其区域，并向委派的权威域名服务器发起查询。
 
 **--strategy**=_STRATEGY_
-> How to pick among nameservers: **all**, **random**, **first**, or **internal**.
+> 如何在多个域名服务器之间选择：**all**、**random**、**first** 或 **internal**。
 
 **--ndots**=_INT_
-> ndots value; taken from `/etc/resolv.conf` for the system nameserver, otherwise 1.
+> ndots 值；系统域名服务器场景下取自 `/etc/resolv.conf`，否则为 1。
 
 **--search**
-> Use the search list from `resolv.conf` (default true; **--search=false** disables it).
+> 使用 `resolv.conf` 中的搜索列表（默认开启；**--search=false** 可禁用）。
 
 **--timeout**=_DURATION_
-> Resolver timeout, e.g. `5s`, `400ms`, `1m`.
+> 解析超时时间，如 `5s`、`400ms`、`1m`。
 
 **-4**, **--ipv4** / **-6**, **--ipv6**
-> Restrict queries to IPv4 or IPv6 only.
+> 将查询限制为仅 IPv4 或仅 IPv6。
 
 **--tls-hostname**=_HOSTNAME_
-> Hostname used for certificate verification when the DoT nameserver is given as an IP.
+> 当 DoT 域名服务器以 IP 形式给出时，用于证书校验的主机名。
 
 **--skip-hostname-verification**
-> Skip TLS hostname verification for DoT lookups.
+> 跳过 DoT 查询的 TLS 主机名校验。
 
 **--aa**, **--ad**, **--cd**, **--rd**, **--do**, **--z**
-> Set the Authoritative Answer, Authenticated Data, Checking Disabled, Recursion Desired (on by default), DNSSEC OK, and Z header flags.
+> 设置 AA（权威应答）、AD（已认证数据）、CD（禁用检查）、RD（期望递归，默认开启）、DO（DNSSEC OK）以及 Z 头部标志位。
 
 **--nsid**, **--cookie**, **--padding**, **--ede**
-> EDNS options: request the Name Server Identifier, a DNS Cookie, EDNS padding, or Extended DNS Errors.
+> EDNS 选项：请求名称服务器标识符（NSID）、DNS Cookie、EDNS 填充或扩展 DNS 错误（EDE）。
 
 **--ecs**=_SUBNET_
-> Send an EDNS Client Subnet such as `192.0.2.0/24`, for geo-aware responses.
+> 发送 EDNS Client Subnet，例如 `192.0.2.0/24`，以获得感知地理位置的响应。
 
 **--bufsize**=_BYTES_
-> EDNS UDP buffer size (512-65535); setting it enables EDNS. Defaults to 1232 when EDNS is on.
+> EDNS UDP 缓冲区大小（512-65535）；设置后即启用 EDNS。EDNS 开启时默认为 1232。
 
 **-J**, **--json**
-> Format the output as JSON.
+> 以 JSON 格式输出。
 
 **--short**
-> Short output: response section only.
+> 简短输出：仅显示响应部分。
 
 **--color**
-> Colourised output (default true; **--color=false** disables it).
+> 彩色输出（默认开启；**--color=false** 可禁用）。
 
 **--time**
-> Show how long the server took to respond.
+> 显示服务器响应所耗费的时间。
 
 **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **--gp-from**=_LOCATION_, **--gp-limit**=_INT_
-> Run the query from Globalping probes in a given location, limiting the number of probes.
+> 从指定位置的 Globalping 探针发起查询，并可限制探针数量。
 
 **completions** [_bash_|_zsh_|_fish_]
-> Print the shell completion script for the given shell.
+> 打印给定 Shell 的补全脚本。
 
 # TRANSPORT
 
-The resolver is selected with a URL-style scheme after **@**. Plain UDP is used when no scheme is given.
+通过 **@** 后面的 URL 风格 scheme 选择解析器。未给出 scheme 时使用普通 UDP。
 
 **@udp://1.1.1.1**
-> UDP query to port 53 (the default).
+> 发往 53 端口的 UDP 查询（默认方式）。
 
 **@tcp://1.1.1.1**
-> TCP query to port 53.
+> 发往 53 端口的 TCP 查询。
 
 **@tls://1.1.1.1**
-> DNS over TLS (DoT) to port 853.
+> 发往 853 端口的 DNS over TLS（DoT）。
 
 **@https://cloudflare-dns.com/dns-query**
-> DNS over HTTPS (DoH).
+> DNS over HTTPS（DoH）。
 
 **@quic://**
-> DNS over QUIC (DoQ).
+> DNS over QUIC（DoQ）。
 
 **@sdns://**
-> DNSCrypt or DoH via a DNS stamp.
+> 通过 DNS stamp 使用 DNSCrypt 或 DoH。
 
 # DESCRIPTION
 
-**doggo** is a command-line DNS client written in Go, positioned as a friendlier `dig`. It prints a tabular, colourised answer by default and can emit JSON for scripting.
+**doggo** 是一个用 Go 编写的命令行 DNS 客户端，定位为更友好的 `dig`。它默认打印表格化的彩色结果，也可以输出 JSON 供脚本使用。
 
-Beyond plain UDP and TCP it speaks the modern encrypted transports: DNS over HTTPS, DNS over TLS, DNS over QUIC, and DNSCrypt. The resolver is chosen by prefixing it with a URL scheme, which keeps one flagless syntax for every protocol.
+除普通 UDP 和 TCP 外，它还支持现代加密传输协议：DNS over HTTPS、DNS over TLS、DNS over QUIC 以及 DNSCrypt。只需给解析器加上 URL scheme 前缀即可完成选择，这让所有协议共用一套无需选项的语法。
 
-doggo reads `/etc/resolv.conf` for the system nameserver, ndots value, and search list, so bare hostnames resolve the way they would for any other program. Header flags, EDNS options, and DNSSEC can all be toggled from the command line, and **--gp-from** runs the same query from Globalping probes around the world to compare answers between regions.
+doggo 会读取 `/etc/resolv.conf` 获取系统域名服务器、ndots 值和搜索列表，因此裸主机名的解析行为与其他程序一致。头部标志位、EDNS 选项和 DNSSEC 都可以在命令行上切换，而 **--gp-from** 可以让同一条查询从世界各地的 Globalping 探针发出，用来比较不同地区的解析结果。
 
 # CAVEATS
 
-Encrypted transports only work against resolvers that support them. **--short** hides the question, authority, and additional sections, which is convenient but drops information you often need when debugging. Colour is on by default, so pass **--color=false** when parsing output with anything other than **--json**. Globalping queries are executed by a third-party service rather than from your own machine.
+加密传输协议只在解析器支持时才可用。**--short** 会隐藏 question、authority 和 additional 部分，虽然方便，但调试时经常需要的信息也会被丢掉。彩色输出默认开启，因此在使用 **--json** 以外的方式解析输出时应传入 **--color=false**。Globalping 查询由第三方服务执行，而非从你自己的机器发出。
 
 # HISTORY
 
-doggo was created by **Karan Sharma** and first released in **2020**. It was inspired by **dog**, the Rust DNS client, but written in Go so that it ships as a single static binary. It has since grown well past its inspiration with DNSCrypt, DNS over QUIC, Globalping integration, and a web frontend, and unlike dog it remains actively maintained.
+doggo 由 **Karan Sharma** 创建，于 **2020 年**首次发布。它的灵感来自 Rust 编写的 DNS 客户端 **dog**，但改用 Go 编写，因此以单个静态二进制文件的形式发布。此后它在灵感来源的基础上发展出更多功能：DNSCrypt、DNS over QUIC、Globalping 集成以及一个 Web 前端，而且与 dog 不同，它至今仍在积极维护。
 
 # INSTALL
 

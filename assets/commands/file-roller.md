@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNOME graphical archive manager
+GNOME 图形化归档管理器
 
 # TLDR
 
-**Open archive manager**
+**打开归档管理器**
 
 ```file-roller```
 
-**Open specific archive**
+**打开指定归档**
 
 ```file-roller [archive.zip]```
 
-**Extract archive**
+**解压归档**
 
 ```file-roller --extract-here [archive.tar.gz]```
 
-**Extract to directory**
+**解压到目录**
 
 ```file-roller --extract-to=[directory] [archive.zip]```
 
-**Create new archive**
+**创建新归档**
 
 ```file-roller --add [file1] [file2]```
 
@@ -31,38 +31,38 @@ GNOME graphical archive manager
 # PARAMETERS
 
 _ARCHIVES_
-> Archive files to open.
+> 要打开的归档文件。
 
 **--extract-here**
-> Extract to current directory.
+> 解压到当前目录。
 
 **--extract-to** _DIR_
-> Extract to specified directory.
+> 解压到指定目录。
 
 **--add** _FILES_
-> Create archive from files.
+> 用这些文件创建归档。
 
 **--add-to** _ARCHIVE_
-> Add files to existing archive.
+> 向现有归档中添加文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**file-roller** is the GNOME archive manager providing a graphical interface for creating, viewing, and extracting archives. It supports numerous formats through command-line tools.
+**file-roller** 是 GNOME 的归档管理器，为创建、查看和解压归档提供图形界面。它借助命令行工具支持众多格式。
 
-The application integrates with the GNOME file manager for context menu archive operations. It handles zip, tar, gz, bz2, 7z, rar, and many other formats automatically.
+该应用与 GNOME 文件管理器集成，可以在上下文菜单中直接执行归档操作。zip、tar、gz、bz2、7z、rar 等许多格式的处理都是自动完成的。
 
-file-roller provides drag-and-drop functionality and progress indication for archive operations.
+file-roller 支持拖放操作，并会在归档操作期间显示进度。
 
 # CAVEATS
 
-Requires GNOME libraries. Format support depends on installed tools (unrar, p7zip, etc.). Command-line operation is basic.
+需要 GNOME 库。格式支持情况取决于已安装的工具（unrar、p7zip 等）。命令行功能比较基础。
 
 # HISTORY
 
-file-roller is part of the **GNOME desktop** project, providing archive management since GNOME 2. It serves as the default archive manager for GNOME and GNOME-based distributions.
+file-roller 是 **GNOME 桌面**项目的组成部分，自 GNOME 2 起便提供归档管理功能。它是 GNOME 及基于 GNOME 的发行版的默认归档管理器。
 
 # INSTALL
 

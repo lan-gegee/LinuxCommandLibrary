@@ -1,34 +1,34 @@
 # TAGLINE
 
-UEFI boot manager configuration tool
+UEFI 启动管理器配置工具
 
 # TLDR
 
-**List** all boot options with verbose details
+**列出**所有启动选项及详细信息
 
 ```efibootmgr -v```
 
-**Add** a new UEFI boot entry
+**添加**新的 UEFI 启动项
 
 ```sudo efibootmgr -c -d [/dev/sda] -p [1] -l "[\EFI\boot\bootx64.efi]" -L "[My Entry]"```
 
-**Change** current boot order
+**更改**当前启动顺序
 
 ```sudo efibootmgr -o [0002,0008,0001,001A]```
 
-**Set** boot entry for next boot only
+**设置**仅在下次启动时生效的启动项
 
 ```sudo efibootmgr -n [0002]```
 
-**Delete** a boot option
+**删除**启动选项
 
 ```sudo efibootmgr -b [0008] -B```
 
-**Set** boot manager timeout in seconds
+**设置**启动管理器超时时间（秒）
 
 ```sudo efibootmgr -t [10]```
 
-**Set** a boot entry as inactive
+**将**某个启动项**设为**非活动
 
 ```sudo efibootmgr -b [0002] -A```
 
@@ -38,63 +38,63 @@ UEFI boot manager configuration tool
 
 # DESCRIPTION
 
-**efibootmgr** manipulates the UEFI Boot Manager by modifying EFI variables stored in NVRAM. It can create, delete, and modify boot entries, change boot order, and set the next boot device.
+**efibootmgr** 通过修改存储在 NVRAM 中的 EFI 变量来操纵 UEFI 启动管理器。它可以创建、删除和修改启动项，更改启动顺序，并设置下次启动设备。
 
-Essential for managing dual-boot systems and UEFI boot configuration.
+对于管理双系统以及 UEFI 启动配置至关重要。
 
 # PARAMETERS
 
 **-c, --create**
-> Create a new boot entry.
+> 创建新的启动项。
 
 **-d, --disk** _disk_
-> Disk containing the loader (defaults to /dev/sda).
+> 包含加载器的磁盘（默认为 /dev/sda）。
 
 **-p, --part** _part_
-> Partition number on the disk (defaults to 1).
+> 磁盘上的分区号（默认为 1）。
 
 **-l, --loader** _name_
-> EFI loader filename (defaults to \EFI\arch\grub.efi).
+> EFI 加载器文件名（默认为 \EFI\arch\grub.efi）。
 
 **-L, --label** _label_
-> Boot entry display label (defaults to "Linux").
+> 启动项显示标签（默认为 "Linux"）。
 
 **-o, --bootorder** _order_
-> Set boot order (comma-separated hex boot numbers).
+> 设置启动顺序（逗号分隔的十六进制启动编号）。
 
 **-b, --bootnum** _num_
-> Boot entry number (hex) to operate on.
+> 要操作的启动项编号（十六进制）。
 
 **-B, --delete-bootnum**
-> Delete the entry specified by -b.
+> 删除 -b 指定的启动项。
 
 **-n, --bootnext** _num_
-> Set the boot entry to be used on next boot only. Supersedes BootOrder for one boot.
+> 设置仅在下次启动时使用的启动项。一次启动内优先于 BootOrder。
 
 **-N, --delete-bootnext**
-> Delete the BootNext setting.
+> 删除 BootNext 设置。
 
 **-a, --active**
-> Set the boot entry specified by -b as active.
+> 将 -b 指定的启动项设为活动。
 
 **-A, --inactive**
-> Set the boot entry specified by -b as inactive.
+> 将 -b 指定的启动项设为非活动。
 
 **-t, --timeout** _seconds_
-> Set the boot manager timeout in seconds.
+> 设置启动管理器超时时间（秒）。
 
 **-T, --delete-timeout**
-> Delete the boot manager timeout variable.
+> 删除启动管理器超时变量。
 
 **-u, --unicode**
-> Pass extra command line arguments in Unicode.
+> 以 Unicode 传递额外的命令行参数。
 
 **-v, --verbose**
-> Print additional information including device paths.
+> 打印包括设备路径在内的额外信息。
 
 # CAVEATS
 
-Requires root privileges. Modifies UEFI NVRAM variables. Use with caution as incorrect settings can prevent system boot. Backup boot entries before making changes. Only works on systems booted in UEFI mode, not legacy BIOS.
+需要 root 权限。会修改 UEFI NVRAM 变量。请谨慎使用，错误的设置可能导致系统无法启动。修改前先备份启动项。只能用于以 UEFI 模式启动的系统，不适用于传统 BIOS。
 
 # INSTALL
 

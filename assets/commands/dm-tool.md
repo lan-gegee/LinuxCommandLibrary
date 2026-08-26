@@ -1,22 +1,22 @@
 # TAGLINE
 
-LightDM display manager control
+LightDM 显示管理器控制工具
 
 # TLDR
 
-Show **greeter** (login screen)
+显示**登录界面**（greeter）
 
 ```dm-tool switch-to-greeter```
 
-**Lock** the current session
+**锁定**当前会话
 
 ```dm-tool lock```
 
-**Switch** to a specific user
+**切换**到指定用户
 
 ```dm-tool switch-to-user [username] [session]```
 
-**Add** a dynamic seat
+**添加**动态 seat
 
 ```dm-tool add-seat [xlocal] [name]=[value]```
 
@@ -26,32 +26,32 @@ Show **greeter** (login screen)
 
 # DESCRIPTION
 
-**dm-tool** is a command-line utility for interacting with the LightDM display manager. It provides session management capabilities including locking the current session, switching between users, and displaying the greeter (login screen) without logging out.
+**dm-tool** 是一款用于与 LightDM 显示管理器交互的命令行工具。它提供会话管理功能，包括锁定当前会话、切换用户，以及在不注销的情况下显示登录界面。
 
-The tool enables multi-user workflows by allowing quick user switching while preserving all open sessions. It can also manage display seats, which are independent workstations consisting of a display, keyboard, and mouse.
+该工具通过快速切换用户并保留所有打开的会话来支持多用户工作流。它还能管理显示 seat，即由显示器、键盘和鼠标组成的独立工作站。
 
-dm-tool communicates with LightDM via D-Bus, sending commands that control the display manager's behavior. This makes it useful for scripting and custom session management workflows on systems using LightDM.
+dm-tool 通过 D-Bus 与 LightDM 通信，发送控制显示管理器行为的命令。这使其适合在使用 LightDM 的系统上进行脚本编写和自定义会话管理。
 
 # PARAMETERS
 
 **switch-to-greeter**
-> Show login screen, keep current session
+> 显示登录界面，保留当前会话
 
 **lock**
-> Lock current session
+> 锁定当前会话
 
 **switch-to-user** _user_ [_session_]
-> Switch to specified user
+> 切换到指定用户
 
 **add-seat** _type_ _options_
-> Add dynamic seat
+> 添加动态 seat
 
 **list-seats**
-> List available seats
+> 列出可用的 seat
 
 # CAVEATS
 
-Only works with LightDM display manager. Other display managers (GDM, SDDM) have different tools. Session type must be valid.
+只能配合 LightDM 显示管理器使用。其他显示管理器（GDM、SDDM）有不同的工具。会话类型必须有效。
 
 # INSTALL
 

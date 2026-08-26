@@ -1,22 +1,22 @@
 # TAGLINE
 
-display resource usage statistics for containers
+显示容器的资源使用统计
 
 # TLDR
 
-**Show live resource usage**
+**实时查看资源使用情况**
 
 ```docker container stats```
 
-**Show stats for specific containers**
+**查看指定容器的统计信息**
 
 ```docker container stats [container1] [container2]```
 
-**Show one-time snapshot**
+**显示一次性快照**
 
 ```docker container stats --no-stream```
 
-**Custom format**
+**自定义格式**
 
 ```docker container stats --format "{{.Name}}: {{.CPUPerc}}"```
 
@@ -27,26 +27,26 @@ display resource usage statistics for containers
 # PARAMETERS
 
 **--no-stream**
-> Disable streaming, show single snapshot.
+> 禁用流式输出，只显示一次快照。
 
 **-a**, **--all**
-> Show all containers (default shows running).
+> 显示所有容器（默认只显示运行中的）。
 
 **--format** _string_
-> Format output using Go template. Placeholders: **.Container**, **.Name**, **.ID**, **.CPUPerc**, **.MemUsage**, **.MemPerc**, **.NetIO**, **.BlockIO**, **.PIDs**.
+> 使用 Go 模板格式化输出。占位符：**.Container**、**.Name**、**.ID**、**.CPUPerc**、**.MemUsage**、**.MemPerc**、**.NetIO**、**.BlockIO**、**.PIDs**。
 
 **--no-trunc**
-> Do not truncate output (show full container IDs).
+> 不截断输出（显示完整容器 ID）。
 
 # DESCRIPTION
 
-**docker container stats** displays a live stream of container resource usage statistics, providing real-time visibility into CPU percentage, memory usage and limit, network I/O, and block I/O for running containers.
+**docker container stats** 以实时流的形式显示容器的资源使用统计，让你实时了解运行中容器的 CPU 占用率、内存使用量与上限、网络 I/O 和块设备 I/O。
 
-By default, the display continuously updates with current metrics for all running containers. The **--no-stream** option provides a single snapshot instead of continuous updates, which is useful for scripting and automation.
+默认情况下，界面会持续更新所有运行中容器的当前指标。**--no-stream** 选项改为提供单次快照而非持续刷新，适合脚本和自动化场景。
 
 # CAVEATS
 
-On Linux, memory usage includes cache by default. Network I/O shows cumulative totals since container start, not per-second rates. Stats are not available for containers using the **host** network mode on some platforms.
+在 Linux 上，内存使用量默认包含缓存。网络 I/O 显示的是自容器启动以来的累计值，而不是每秒速率。在某些平台上，使用 **host** 网络模式的容器无法获取统计数据。
 
 # INSTALL
 

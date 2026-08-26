@@ -1,26 +1,26 @@
 # TAGLINE
 
-ASCII art text banner generator
+ASCII 艺术字横幅生成器
 
 # TLDR
 
-**Create ASCII art** text
+**创建 ASCII 艺术**文字
 
 ```figlet "[Hello World]"```
 
-**Use specific font**
+**使用指定字体**
 
 ```figlet -f [slant] "[text]"```
 
-**Center output**
+**居中输出**
 
 ```figlet -c "[text]"```
 
-**Set width**
+**设置宽度**
 
 ```figlet -w [80] "[text]"```
 
-**Preview all available fonts**
+**预览所有可用字体**
 
 ```showfigfonts```
 
@@ -31,47 +31,47 @@ ASCII art text banner generator
 # PARAMETERS
 
 _MESSAGE_
-> Text to render as ASCII art.
+> 要渲染成 ASCII 艺术字的文本。
 
 **-f** _FONT_
-> Font file to use.
+> 要使用的字体文件。
 
 **-w** _WIDTH_
-> Output width.
+> 输出宽度。
 
 **-c**
-> Center output.
+> 输出居中。
 
 **-l**
-> Left justify.
+> 左对齐。
 
 **-r**
-> Right justify.
+> 右对齐。
 
 **-k**
-> Kerning mode.
+> 字距调整模式。
 
 **-W**
-> Full width (no smushing).
+> 全宽（不合并字符间距）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**figlet** renders text as large ASCII art characters using various fonts. It's commonly used for terminal banners, welcome messages, and stylized text output.
+**figlet** 使用各种字体把文本渲染成大号的 ASCII 艺术字符。它常用于制作终端横幅、欢迎信息和风格化的文本输出。
 
-Multiple fonts provide different styles from simple block letters to elaborate designs. The tool adjusts character spacing (smushing) to create compact or spread-out output.
+多种字体提供了从简单块状字母到繁复设计的不同风格。该工具会调整字符间距（smushing），从而生成紧凑或舒展的输出。
 
-figlet reads from standard input if no message is provided, enabling piped input.
+如果没有给出消息，figlet 会从标准输入读取，因此支持管道输入。
 
 # CAVEATS
 
-Font availability varies by installation. Very long text may wrap awkwardly. Some fonts work better at certain terminal widths.
+可用字体因安装情况而异。过长的文本换行后可能不太美观。有些字体只有在特定的终端宽度下才有较好的效果。
 
 # HISTORY
 
-figlet (Frank, Ian & Glenn's Letters) was created in 1991 by Glenn Chappell and Ian Chai. It became a Unix classic for creating ASCII banners, spawning hundreds of community-created fonts.
+figlet（Frank, Ian & Glenn's Letters）由 Glenn Chappell 和 Ian Chai 于 1991 年创建。它成为 Unix 世界里制作 ASCII 横幅的经典工具，并催生了数百款社区创作的字体。
 
 # INSTALL
 

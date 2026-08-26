@@ -1,18 +1,18 @@
 # TAGLINE
 
-automate interactive applications with scripted responses
+以脚本化应答自动操作交互式应用程序
 
 # TLDR
 
-**Execute** an expect script from file
+从文件**执行** expect 脚本
 
 ```expect [path/to/file]```
 
-Execute a **specified** expect script
+执行**指定的** expect 脚本
 
 ```expect -c "[commands]"```
 
-Enter **interactive** REPL
+进入**交互式** REPL
 
 ```expect -i```
 
@@ -22,41 +22,41 @@ Enter **interactive** REPL
 
 # DESCRIPTION
 
-**expect** automates interactive applications by scripting responses to expected prompts. It spawns processes and responds to their output based on pattern matching.
+**expect** 通过脚本化的应答来自动操作交互式应用程序。它会启动进程，并基于模式匹配对其输出作出响应。
 
-The tool uses Tcl scripting language with expect-specific commands like spawn, expect, and send. Scripts can handle multiple response patterns, timeouts, and conditional logic. This enables automation of programs that require interactive input like passwords, confirmations, or menu selections.
+该工具使用 Tcl 脚本语言以及 spawn、expect、send 等 expect 特有命令。脚本可以处理多种响应模式、超时和条件逻辑。这使得需要交互输入（如密码、确认或菜单选择）的程序也能被自动化。
 
-Commonly used for automating SSH logins, FTP sessions, database setup scripts, and other interactive programs. While powerful, modern alternatives like SSH keys, API tokens, and configuration management tools are often preferred for security.
+常用于自动化 SSH 登录、FTP 会话、数据库初始化脚本以及其他交互式程序。虽然功能强大，但出于安全考虑，现在更推荐使用 SSH 密钥、API 令牌和配置管理工具等现代替代方案。
 
 # PARAMETERS
 
 **-c** _commands_
-> Execute the given Tcl/Expect commands before the script runs.
+> 在脚本运行前执行给定的 Tcl/Expect 命令。
 
 **-i**
-> Interactive mode (REPL). Also implied when stdin is a terminal.
+> 交互模式（REPL）。当 stdin 是终端时也会隐式启用。
 
 **-f** _FILE_
-> Read the command script from FILE.
+> 从 FILE 读取命令脚本。
 
 **-b** _FILE_
-> Read the script line-by-line (buffered mode) — useful for very long scripts.
+> 逐行读取脚本（缓冲模式）——对非常长的脚本很有用。
 
 **-d**
-> Enable diagnostic output (command tracing).
+> 启用诊断输出（命令跟踪）。
 
 **-D** [_N_]
-> Enter the interactive debugger (on first prompt or after N expect calls).
+> 进入交互式调试器（在第一个提示符处或在 N 次 expect 调用后）。
 
 **-v**
-> Print Expect version and exit.
+> 输出 Expect 版本并退出。
 
 **--** 
-> End of options; following arguments are passed to the script in `$argv`.
+> 选项结束；之后的参数将以 `$argv` 的形式传给脚本。
 
 # CAVEATS
 
-Uses Tcl scripting language. Sending passwords in scripts has security implications. Consider SSH keys or other authentication methods when possible.
+使用 Tcl 脚本语言。在脚本中发送密码存在安全隐患。可能的情况下请考虑 SSH 密钥或其他身份验证方式。
 
 # INSTALL
 

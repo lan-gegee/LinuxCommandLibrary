@@ -1,18 +1,18 @@
 # TAGLINE
 
-Replay shell commands live for terminal demos
+为终端演示实时回放 Shell 命令
 
 # TLDR
 
-**Play** a session file
+**播放**会话文件
 
 ```doitlive play [session.sh]```
 
-**Record** a demo session
+**录制**演示会话
 
 ```doitlive record```
 
-**Use** a specific shell / prompt theme
+**使用**指定的 Shell / 提示符主题
 
 ```doitlive play -p [powerline] [session.sh]```
 
@@ -22,29 +22,29 @@ Replay shell commands live for terminal demos
 
 # DESCRIPTION
 
-**doitlive** reads a file of shell commands and “types” them live in the terminal for talks and screencasts, waiting for keypresses between commands so the presenter controls pacing. Written in Python; install with **pip install doitlive** or Homebrew.
+**doitlive** 会读取一个包含 Shell 命令的文件，并在终端中现场“键入”这些命令，适用于演讲和屏幕录制；命令之间会等待按键，由演讲者控制节奏。该项目用 Python 编写，可通过 **pip install doitlive** 或 Homebrew 安装。
 
 # PARAMETERS
 
 **play** *file*
 
-> Replay commands from *file*.
+> 回放 *file* 中的命令。
 
 **record**
 
-> Capture a session to a file.
+> 将会话捕获到文件中。
 
 **-p**, **--prompt** *theme*
 
-> Prompt style for the demo.
+> 演示时使用的提示符样式。
 
 **-q**, **--quiet** / speed-related flags
 
-> Control echo and timing (see **doitlive play --help**).
+> 控制回显与节奏（见 **doitlive play --help**）。
 
 # CAVEATS
 
-Demo files can run destructive commands—review before playing. Not a secure automation tool; it is for presentation UX.
+演示文件可能执行破坏性命令——播放前请先审查内容。它不是安全的自动化工具，只是用于提升演示体验。
 
 # INSTALL
 

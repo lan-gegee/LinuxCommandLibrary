@@ -1,26 +1,26 @@
 # TAGLINE
 
-color edges of a laid-out graph for visual distinction
+为已布局的图着色边以区分视觉效果
 
 # TLDR
 
-**Color edges** and write the result
+**为边着色**并写出结果
 
 ```edgepaint [graph.dot] -o [colored.dot]```
 
-**Set the minimum** incidence angle (degrees)
+**设置最小**入射角（度）
 
 ```edgepaint --angle=15 [graph.dot] -o [out.dot]```
 
-**Use a specific** color scheme
+**使用指定的**配色方案
 
 ```edgepaint --color_scheme=accent8 [graph.dot] -o [out.dot]```
 
-**Allow edges sharing an endpoint** to keep the same color
+**允许共享端点的边**保持相同颜色
 
 ```edgepaint --share_endpoint [graph.dot] -o [out.dot]```
 
-**Pipe through dot** to render a PNG
+**通过管道交给 dot** 渲染 PNG
 
 ```dot graph.dot | edgepaint | dot -Tpng -o out.png```
 
@@ -31,48 +31,48 @@ color edges of a laid-out graph for visual distinction
 # PARAMETERS
 
 _input_
-> Input DOT file with node positions already laid out. Reads stdin if omitted.
+> 已完成节点布局的输入 DOT 文件。省略时从 stdin 读取。
 
 **-o** _FILE_
-> Write output to FILE instead of stdout.
+> 将输出写入 FILE 而不是 stdout。
 
 **--accuracy**=_e_
-> Precision for finding maximally different coloring at each node. Default 0.01.
+> 在每个节点处查找最大差异配色时的精度。默认 0.01。
 
 **--angle**=_a_
-> Color two edges differently if their incidence angle is less than _a_ degrees. Default 15.
+> 若两条边的入射角小于 _a_ 度，则为其着不同颜色。默认 15。
 
 **--color_scheme**=_c_
-> Color palette: `rgb`, `gray`, `lab` (default), a list of hex colors, or any Brewer scheme name (e.g. `accent8`, `set19`).
+> 配色板：`rgb`、`gray`、`lab`（默认）、十六进制颜色列表，或任何 Brewer 方案名（如 `accent8`、`set19`）。
 
 **--lightness**=_l1,l2_
-> Lightness range, only with `lab`. Integers 0-100. Default `0,70`.
+> 亮度范围，仅在 `lab` 下可用。取整数值 0-100。默认 `0,70`。
 
 **--random_seed**=_s_
-> Seed for the randomized coloring. Negative values run multiple iterations with different seeds.
+> 随机配色的种子。负值表示用不同的种子运行多次迭代。
 
 **--share_endpoint**
-> Edges that share a node and are nearly anti-parallel (~180 degrees apart) are not treated as conflicting.
+> 共享节点且几乎反向平行（相差约 180 度）的边不视为冲突。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-?**
-> Print usage and exit.
+> 打印用法并退出。
 
 # DESCRIPTION
 
-**edgepaint** assigns colors to the edges of a graph so that adjacent or near-parallel edges receive maximally distinct colors. It expects a graph that has already been laid out (for example by **dot** or **neato**), since the algorithm uses the geometric positions of edges to decide which pairs should differ.
+**edgepaint** 为图的边分配颜色，使相邻或近似平行的边获得最大差异的颜色。它要求图已经过布局（例如由 **dot** 或 **neato** 完成），因为算法利用边的几何位置来决定哪些边对应当不同。
 
-Colors are written into each edge's `color` attribute and the modified DOT is emitted on stdout (or to the file given with **-o**). The default `lab` color scheme produces perceptually distinct hues; alternative Brewer schemes give a fixed small palette.
+颜色会写入每条边的 `color` 属性，修改后的 DOT 会输出到 stdout（或 **-o** 指定的文件）。默认的 `lab` 配色方案产生感知上差异明显的色调；其他 Brewer 方案则提供一个固定的小型调色板。
 
 # CAVEATS
 
-Input must already contain edge geometry from a layout engine; otherwise edgepaint cannot determine angles. Very dense graphs may exhaust the palette and still produce visually similar edges. The Brewer schemes have a fixed number of colors, so large graphs should prefer `lab`.
+输入必须已包含来自布局引擎的边几何信息，否则 edgepaint 无法确定角度。非常稠密的图可能耗尽调色板，仍会产生视觉上相似的边。Brewer 方案的颜色数量是固定的，因此大图应优先使用 `lab`。
 
 # HISTORY
 
-**edgepaint** is part of **Graphviz**, originally developed at **AT&T Labs Research**. It implements ideas from Yifan Hu's work on edge coloring for graph readability.
+**edgepaint** 是 **Graphviz** 的一部分，最初由 **AT&T Labs Research** 开发。它实现了 Yifan Hu 关于面向图形可读性的边着色研究思想。
 
 # INSTALL
 

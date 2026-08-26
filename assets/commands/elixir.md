@@ -1,30 +1,30 @@
 # TAGLINE
 
-Functional language runtime on Erlang VM
+运行于 Erlang VM 的函数式语言运行时
 
 # TLDR
 
-**Run Elixir script**
+**运行 Elixir 脚本**
 
 ```elixir [script.exs]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```elixir -e "[IO.puts \"Hello\"]"```
 
-**Start with shell**
+**附带 Shell 启动**
 
 ```elixir -S iex```
 
-**Run with Mix** project
+**运行 Mix 项目**
 
 ```elixir -S mix run```
 
-**Start named node**
+**启动命名节点**
 
 ```elixir --name [node@host] -S iex```
 
-**Set environment**
+**设置环境**
 
 ```MIX_ENV=prod elixir -S mix phx.server```
 
@@ -35,56 +35,56 @@ Functional language runtime on Erlang VM
 # PARAMETERS
 
 _SCRIPT_
-> Elixir script file to run.
+> 要运行的 Elixir 脚本文件。
 
 **-e** _CODE_
-> Evaluate code string.
+> 求值代码字符串。
 
 **-r** _FILE_
-> Require file before execution.
+> 执行前加载文件。
 
 **-S** _SCRIPT_
-> Run Erlang/Elixir script.
+> 运行 Erlang/Elixir 脚本。
 
 **--name** _NAME_
-> Set distributed node name.
+> 设置分布式节点名。
 
 **--sname** _NAME_
-> Set short node name.
+> 设置短节点名。
 
 **--cookie** _COOKIE_
-> Set Erlang distribution cookie.
+> 设置 Erlang 分布式 cookie。
 
 **--no-halt**
-> Do not exit after the script finishes; keep the VM running.
+> 脚本结束后不退出；保持 VM 继续运行。
 
 **--erl** _SWITCHES_
-> Pass switches through to the underlying erl command.
+> 将开关参数传递给底层的 erl 命令。
 
 **--rpc-eval** _NODE_ _CODE_
-> Evaluate code on a remote running node.
+> 在远程运行中的节点上求值代码。
 
 **-v**, **--version**
-> Print the Elixir and Erlang/OTP versions.
+> 打印 Elixir 和 Erlang/OTP 版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**elixir** runs Elixir code and scripts. It's the primary command for executing Elixir programs, supporting both script files (.exs) and compiled modules.
+**elixir** 运行 Elixir 代码和脚本。它是执行 Elixir 程序的主要命令，同时支持脚本文件（.exs）和编译后的模块。
 
-The command starts the Erlang VM with Elixir loaded. Options control distributed computing settings, code loading, and execution mode. Combined with `-S mix`, it runs Mix tasks.
+该命令启动已加载 Elixir 的 Erlang VM。选项用于控制分布式计算设置、代码加载和执行模式。结合 `-S mix` 可以运行 Mix 任务。
 
-Elixir's interactive shell (IEx) can be started using `elixir -S iex` for development and debugging.
+Elixir 的交互式 Shell（IEx）可通过 `elixir -S iex` 启动，用于开发和调试。
 
 # CAVEATS
 
-Requires Erlang/OTP installed. Startup time includes BEAM VM boot. Scripts have .exs extension by convention. Distributed features need network configuration.
+需要安装 Erlang/OTP。启动时间包含 BEAM VM 引导。脚本按惯例使用 .exs 扩展名。分布式特性需要网络配置。
 
 # HISTORY
 
-Elixir was created by **José Valim** and released in **2011**, running on the Erlang BEAM VM. It brought modern syntax and tooling to the Erlang ecosystem while maintaining compatibility.
+Elixir 由 **José Valim** 创建并于 **2011 年**发布，运行于 Erlang BEAM VM 之上。它为 Erlang 生态带来了现代语法和工具链，同时保持了兼容性。
 
 # INSTALL
 

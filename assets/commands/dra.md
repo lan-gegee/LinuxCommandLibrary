@@ -1,22 +1,22 @@
 # TAGLINE
 
-Download GitHub release assets from the command line
+从命令行下载 GitHub release 资产
 
 # TLDR
 
-**Download** assets from the latest release
+从最新 release 中**下载**资产
 
 ```dra download [owner/repo]```
 
-**Select asset interactively**
+**交互式选择**资产
 
 ```dra download -s [owner/repo]```
 
-**Download a specific tag**
+**下载指定标签**的 release
 
 ```dra download -t [v1.2.3] [owner/repo]```
 
-**Install** a binary asset into a directory
+将二进制资产**安装**到目录中
 
 ```dra download -i [~/.local/bin] [owner/repo]```
 
@@ -26,37 +26,37 @@ Download GitHub release assets from the command line
 
 # DESCRIPTION
 
-**dra** (Download Release Assets) fetches files attached to GitHub Releases. It can list or download the latest or a tagged release, filter assets by name/pattern, and optionally install executables into a destination directory—handy for bootstrapping tools not yet packaged by your distro.
+**dra**（Download Release Assets）用于获取附加在 GitHub Releases 上的文件。它可以列出或下载最新或指定标签的 release，按名称/模式过滤资产，并可选择将可执行文件安装到目标目录——非常适合引导安装你的发行版尚未打包的工具。
 
 # PARAMETERS
 
 **download** [*owner/repo*]
 
-> Download release asset(s). Repo can also be a GitHub URL.
+> 下载 release 资产。repo 也可以是 GitHub URL。
 
 **-t**, **--tag** *tag*
 
-> Release tag (default: latest).
+> Release 标签（默认：latest）。
 
 **-s**, **--select**
 
-> Interactive asset selection.
+> 交互式选择资产。
 
 **-a**, **--asset** *pattern*
 
-> Asset name/pattern filter.
+> 资产名称/模式过滤器。
 
 **-i**, **--install** *dir*
 
-> Install downloaded binary to *dir*.
+> 将下载的二进制文件安装到 *dir*。
 
-**--source** / authentication flags
+**--source** / 认证标志
 
-> Use GitHub API with token when rate-limited (**GITHUB_TOKEN** / flags per **--help**).
+> 在遇到速率限制时使用带令牌的 GitHub API（**GITHUB_TOKEN** / 具体标志见 **--help**）。
 
 # CAVEATS
 
-Subject to GitHub API rate limits; set a token for private repos or heavy use. Always verify checksums of downloaded binaries when available.
+受 GitHub API 速率限制；访问私有仓库或高频使用时请设置令牌。下载的二进制文件如有校验和，务必进行验证。
 
 # INSTALL
 

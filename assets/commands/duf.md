@@ -1,42 +1,42 @@
 # TAGLINE
 
-modern disk usage and free space utility
+现代化的磁盘用量与剩余空间工具
 
 # TLDR
 
-**Show disk usage** for all mounted filesystems
+**显示所有已挂载文件系统**的磁盘用量
 
 ```duf```
 
-**Show only local filesystems**
+**只显示本地文件系统**
 
 ```duf --only local```
 
-**Show specific mount points**
+**显示指定挂载点**
 
 ```duf [/] [/home]```
 
-**Show all filesystems** including special
+**显示所有文件系统**，包括特殊文件系统
 
 ```duf --all```
 
-**Hide specific filesystem types**
+**隐藏特定文件系统类型**
 
 ```duf --hide-fs tmpfs,devtmpfs```
 
-**Output as JSON**
+**以 JSON 输出**
 
 ```duf --json```
 
-**Sort by usage percentage**
+**按使用率排序**
 
 ```duf --sort usage```
 
-**Show inodes** instead of disk space
+**显示 inode** 而非磁盘空间
 
 ```duf --inodes```
 
-**Choose which columns** to display
+**选择要显示的列**
 
 ```duf --output mountpoint,size,used,avail,usage```
 
@@ -46,67 +46,67 @@ modern disk usage and free space utility
 
 # DESCRIPTION
 
-**duf** (Disk Usage/Free) is a modern replacement for the df command with a colorful, user-friendly terminal interface. It displays disk usage and free space for mounted filesystems in an organized table format.
+**duf**（Disk Usage/Free）是 df 命令的现代替代品，提供色彩丰富、对用户友好的终端界面。它以整齐的表格形式显示已挂载文件系统的磁盘用量和剩余空间。
 
-The tool provides a clear visual representation with color-coded usage bars, making it easy to identify nearly-full filesystems at a glance. It groups filesystems by type (local, network, special) for better organization.
+该工具用颜色标识的使用率条提供清晰的视觉呈现，一眼就能看出快满的文件系统。它按类型（本地、网络、特殊）对文件系统分组，条理更清晰。
 
-duf automatically handles various filesystem types and units, displaying sizes in human-readable format. It supports multiple output formats including JSON for scripting.
+duf 自动处理各种文件系统类型和单位，以人类可读的格式显示大小。它支持多种输出格式，包括便于脚本处理的 JSON。
 
 # PARAMETERS
 
 **--all**
-> Include pseudo, duplicate, and inaccessible filesystems.
+> 包含伪文件系统、重复文件系统和不可访问的文件系统。
 
 **--only** _devices_ / **--hide** _devices_
-> Show only, or hide, specific **device groups**: `local`, `network`, `fuse`, `special`, `loops`, `binds`. Comma-separated.
+> 只显示或隐藏特定的**设备组**：`local`、`network`、`fuse`、`special`、`loops`、`binds`。逗号分隔。
 
 **--only-fs** _types_ / **--hide-fs** _types_
-> Show only, or hide, specific **filesystem types** such as `ext4` or `tmpfs`.
+> 只显示或隐藏特定的**文件系统类型**，如 `ext4` 或 `tmpfs`。
 
 **--only-mp** _paths_ / **--hide-mp** _paths_
-> Show only, or hide, specific **mount points**. Wildcards are supported.
+> 只显示或隐藏特定的**挂载点**。支持通配符。
 
 **--inodes**
-> List inode usage instead of block usage.
+> 列出 inode 使用情况而非块使用情况。
 
 **--json**
-> Output every device as JSON.
+> 将每个设备输出为 JSON。
 
 **--output** _fields_
-> Choose the columns to display, comma-separated.
+> 选择要显示的列，逗号分隔。
 
 **--sort** _field_
-> Sort by a column. Defaults to `mountpoint`.
+> 按某列排序。默认为 `mountpoint`。
 
 **--style** _style_
-> Table style: `unicode` or `ascii`.
+> 表格样式：`unicode` 或 `ascii`。
 
 **--theme** _theme_
-> Colour theme: `dark`, `light`, or `ansi`.
+> 配色主题：`dark`、`light` 或 `ansi`。
 
 **--width** _n_
-> Maximum output width.
+> 最大输出宽度。
 
 **--avail-threshold** _sizes_
-> Colouring thresholds (yellow, red) for the available column. Defaults to `10G,1G`.
+> available 列的着色阈值（黄色、红色）。默认为 `10G,1G`。
 
 **--usage-threshold** _fractions_
-> Colouring thresholds (yellow, red) for the usage bars, as fractions from 0 to 1. Defaults to `0.5,0.9`.
+> 使用率条的着色阈值（黄色、红色），以 0 到 1 的比例表示。默认为 `0.5,0.9`。
 
 **--warnings**
-> Print warnings to stderr.
+> 将警告打印到标准错误。
 
 # CAVEATS
 
-The grouping flags are easy to mix up. **--only** and **--hide** take *device groups* (`local`, `network`, `fuse`, `special`, `loops`, `binds`), not filesystem types or paths. For filesystem types use **--only-fs**/**--hide-fs**, and for paths **--only-mp**/**--hide-mp**.
+分组相关的标志很容易混淆。**--only** 和 **--hide** 接受的是*设备组*（`local`、`network`、`fuse`、`special`、`loops`、`binds`），而不是文件系统类型或路径。文件系统类型要用 **--only-fs**/**--hide-fs**，路径要用 **--only-mp**/**--hide-mp**。
 
-duf is a display tool, not a `df` replacement in scripts: the table is meant for humans, and colour and box-drawing characters will corrupt anything that parses it. Use **--json** when the output feeds another program.
+duf 是一个展示工具，不是脚本中的 `df` 替代品：它的表格是给人看的，颜色和制表线字符会破坏任何解析程序。当输出要喂给其他程序时，请使用 **--json**。
 
-By default it omits pseudo-filesystems, so a mount you expect to see may need **--all** to appear. A hung network filesystem can make duf block, exactly as `df` does, since both must stat the mount point.
+默认情况下它会省略伪文件系统，因此你期望看到的某个挂载可能需要 **--all** 才会出现。挂起的网络文件系统会让 duf 阻塞，与 `df` 完全一样，因为两者都必须对挂载点执行 stat。
 
 # HISTORY
 
-**duf** was written by **Christian Muehlhaeuser** in **2020** in Go, one of a wave of tools that took a venerable Unix utility and asked what it would look like if the terminal had colour, Unicode, and a wide screen, which it had not when `df` was written. It caught on quickly, since reading `df` output is a small daily irritation for a great many people and duf's grouped, colour-coded table removes it.
+**duf** 由 **Christian Muehlhaeuser** 于 **2020 年**用 Go 编写，属于那波重新审视古老 Unix 工具的浪潮之一——它们追问的是"如果终端拥有颜色、Unicode 和宽屏，这个工具会是什么样"，而 `df` 问世时这些都不存在。它迅速流行起来，因为阅读 `df` 输出对许多人来说是一种日常小烦恼，而 duf 分组、彩色编码的表格消除了这种烦恼。
 
 # INSTALL
 
@@ -133,4 +133,3 @@ By default it omits pseudo-filesystems, so a mount you expect to see may need **
 ```[Source code](https://github.com/muesli/duf)```
 
 <!-- verified: 2026-07-14 -->
-

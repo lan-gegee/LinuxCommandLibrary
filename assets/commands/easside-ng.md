@@ -1,22 +1,22 @@
 # TAGLINE
 
-automated WEP key recovery tool
+自动化 WEP 密钥恢复工具
 
 # TLDR
 
-**Start with interface** and buddy server
+**指定接口**和 buddy 服务器启动
 
 ```sudo easside-ng -f [wlan0] -s [buddy_ip]```
 
-**Target a specific BSSID**
+**针对特定 BSSID**
 
 ```sudo easside-ng -f [wlan0] -s [buddy_ip] -v [00:11:22:33:44:55]```
 
-**Lock to a specific channel**
+**锁定特定信道**
 
 ```sudo easside-ng -f [wlan0] -s [buddy_ip] -c [6]```
 
-**Determine Internet IP** only
+仅**确定 Internet IP**
 
 ```sudo easside-ng -f [wlan0] -s [buddy_ip] -n```
 
@@ -27,45 +27,45 @@ automated WEP key recovery tool
 # PARAMETERS
 
 **-f** _interface_
-> Wireless interface to use (mandatory).
+> 要使用的无线接口（必填）。
 
 **-s** _ip_
-> Buddy-ng server IP address (mandatory).
+> Buddy-ng 服务器 IP 地址（必填）。
 
 **-v** _mac_
-> Victim BSSID (target access point MAC address).
+> 受害者 BSSID（目标接入点的 MAC 地址）。
 
 **-m** _mac_
-> Source MAC address.
+> 源 MAC 地址。
 
 **-i** _ip_
-> Source IP address.
+> 源 IP 地址。
 
 **-r** _ip_
-> Router IP address.
+> 路由器 IP 地址。
 
 **-c** _channel_
-> Lock card to this channel.
+> 将网卡锁定到该信道。
 
 **-n**
-> Determine Internet IP only.
+> 仅确定 Internet IP。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**easside-ng** is a tool from the Aircrack-ng suite designed for automated WEP key recovery. It communicates with an external "buddy" server to decrypt packets without needing the WEP key, enabling network access.
+**easside-ng** 是 Aircrack-ng 套件中的一款工具，用于自动化的 WEP 密钥恢复。它与外部的 "buddy" 服务器通信，无需 WEP 密钥即可解密数据包，从而获得网络访问能力。
 
-The tool automates the attack process against WEP-encrypted networks, exploiting known vulnerabilities in the WEP protocol.
+该工具针对 WEP 加密网络将攻击过程自动化，利用了 WEP 协议的已知漏洞。
 
 # CAVEATS
 
-Requires wireless card supporting monitor mode and packet injection. WEP is deprecated and rarely used. Only for authorized security testing. Requires buddy-ng server running on the internet. May be illegal without proper authorization.
+需要支持监听模式和包注入的无线网卡。WEP 已被弃用且很少使用。仅用于经授权的安全测试。需要在互联网上运行 buddy-ng 服务器。未经适当授权可能违法。
 
 # HISTORY
 
-easside-ng is part of the **Aircrack-ng** suite, developed from the original Aircrack project. The tool was created to demonstrate WEP vulnerabilities and for legitimate security testing. WEP attacks helped drive the adoption of WPA/WPA2.
+easside-ng 是 **Aircrack-ng** 套件的一部分，由最初的 Aircrack 项目发展而来。该工具旨在演示 WEP 的漏洞并用于正当的安全测试。对 WEP 的攻击推动了 WPA/WPA2 的普及。
 
 # INSTALL
 

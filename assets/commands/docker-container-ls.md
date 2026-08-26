@@ -1,34 +1,34 @@
 # TAGLINE
 
-list containers on the system
+列出系统上的容器
 
 # TLDR
 
-**List running containers**
+**列出运行中的容器**
 
 ```docker container ls```
 
-**List all containers**
+**列出所有容器**
 
 ```docker container ls -a```
 
-**List with specific format**
+**以指定格式列出**
 
 ```docker container ls --format "{{.Names}}: {{.Status}}"```
 
-**Filter by status**
+**按状态过滤**
 
 ```docker container ls -f status=[running|exited|paused]```
 
-**Show only IDs**
+**只显示 ID**
 
 ```docker container ls -q```
 
-**Filter by name**
+**按名称过滤**
 
 ```docker container ls -f name=[container_name]```
 
-**Show the last created container**
+**显示最近创建的容器**
 
 ```docker container ls --latest```
 
@@ -39,34 +39,34 @@ list containers on the system
 # PARAMETERS
 
 **-a**, **--all**
-> Show all containers (default shows running).
+> 显示所有容器（默认只显示运行中的）。
 
 **-q**, **--quiet**
-> Only display container IDs.
+> 只显示容器 ID。
 
 **-f**, **--filter** _filter_
-> Filter output based on conditions (e.g., status, name, label, ancestor, network, exited).
+> 按条件过滤输出（如 status、name、label、ancestor、network、exited）。
 
 **--format** _string_
-> Format output using Go template.
+> 使用 Go 模板格式化输出。
 
 **-n**, **--last** _n_
-> Show n last created containers (includes all states).
+> 显示最后创建的 n 个容器（包含所有状态）。
 
 **-l**, **--latest**
-> Show the most recently created container (includes all states).
+> 显示最近创建的容器（包含所有状态）。
 
 **-s**, **--size**
-> Display total file sizes.
+> 显示文件总大小。
 
 **--no-trunc**
-> Do not truncate output.
+> 不截断输出。
 
 # DESCRIPTION
 
-**docker container ls** lists containers on the Docker host, providing information about container IDs, images, commands, creation time, status, ports, and names. By default, only running containers are displayed, but the **-a** flag reveals all containers regardless of state.
+**docker container ls** 列出 Docker 主机上的容器，提供容器 ID、镜像、命令、创建时间、状态、端口和名称等信息。默认只显示运行中的容器，但加上 **-a** 标志可以查看所有状态的容器。
 
-This command is equivalent to the legacy **docker ps** command and serves as the primary interface for viewing container inventory. Filtering and formatting options make it suitable for scripting and automation workflows.
+此命令等价于旧式的 **docker ps** 命令，是查看容器清单的主要接口。其过滤和格式化选项使其非常适合脚本和自动化工作流。
 
 # INSTALL
 

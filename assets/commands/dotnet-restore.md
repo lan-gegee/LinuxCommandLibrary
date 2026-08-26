@@ -1,34 +1,34 @@
 # TAGLINE
 
-Restore NuGet package dependencies for a .NET project
+还原 .NET 项目的 NuGet 包依赖
 
 # TLDR
 
-**Restore** dependencies for the project in the current directory
+**还原**当前目录中项目的依赖
 
 ```dotnet restore```
 
-**Restore a specific project**
+**还原指定的项目**
 
 ```dotnet restore [project.csproj]```
 
-**Restore from a specific NuGet source**
+**从指定的 NuGet 源还原**
 
 ```dotnet restore --source [https://api.nuget.org/v3/index.json]```
 
-**Restore without using HTTP cache**
+**不使用 HTTP 缓存还原**
 
 ```dotnet restore --no-cache```
 
-**Restore for a specific runtime** (RID)
+**面向特定运行时还原**（RID）
 
 ```dotnet restore --runtime [linux-x64]```
 
-**Restore in lock-file mode** (fails if any package version drifts)
+**以锁定模式还原**（任何包版本漂移都会失败）
 
 ```dotnet restore --locked-mode```
 
-**Restore with verbose logging**
+**以详细日志还原**
 
 ```dotnet restore --verbosity detailed```
 
@@ -39,50 +39,50 @@ Restore NuGet package dependencies for a .NET project
 # PARAMETERS
 
 **-s**, **--source** _SOURCE_
-> NuGet package source to use during restore (overrides nuget.config).
+> 还原期间使用的 NuGet 包源（覆盖 nuget.config）。
 
 **--packages** _DIR_
-> Directory in which to install the restored packages (default: ~/.nuget/packages).
+> 安装还原包的目录（默认：~/.nuget/packages）。
 
 **--no-cache**
-> Don't cache HTTP requests; always re-fetch from the source.
+> 不缓存 HTTP 请求，总是从源重新获取。
 
 **--no-dependencies**
-> Restore only the root project, ignoring project-to-project references.
+> 只还原根项目，忽略项目到项目的引用。
 
 **--force**
-> Force all dependencies to be re-resolved even if a cached lock exists.
+> 即使存在缓存的锁文件也强制重新解析所有依赖。
 
 **--locked-mode**
-> Don't allow updates to **packages.lock.json** — fail if it would change.
+> 不允许更新 **packages.lock.json** —— 若会导致变化则失败。
 
 **--use-lock-file**
-> Generate or update **packages.lock.json**.
+> 生成或更新 **packages.lock.json**。
 
 **--runtime** _RID_
-> Target a specific runtime identifier (e.g. **linux-x64**, **win-x86**).
+> 面向特定的运行时标识符（如 **linux-x64**、**win-x86**）。
 
 **--configfile** _FILE_
-> NuGet config file to use instead of the default chain.
+> 使用指定的 NuGet 配置文件替代默认链。
 
 **--disable-parallel**
-> Disable parallel downloads.
+> 禁用并行下载。
 
 **-v**, **--verbosity** _LEVEL_
-> Verbosity: q[uiet], m[inimal], n[ormal], d[etailed], diag[nostic].
+> 详细程度：q[uiet]、m[inimal]、n[ormal]、d[etailed]、diag[nostic]。
 
 **-?**, **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**dotnet restore** downloads and installs all NuGet package dependencies declared in a project, solution, or **dotnet-tools.json**. It reads **PackageReference** entries from .csproj/.fsproj/.vbproj files, queries the configured NuGet sources, and writes restored assets to **obj/project.assets.json**.
+**dotnet restore** 下载并安装项目、解决方案或 **dotnet-tools.json** 中声明的所有 NuGet 包依赖。它读取 .csproj/.fsproj/.vbproj 文件中的 **PackageReference** 条目，查询配置好的 NuGet 源，并把还原后的资产写入 **obj/project.assets.json**。
 
-Other commands like **dotnet build** and **dotnet run** trigger an implicit restore by default, so explicit invocation is mainly useful in CI pipelines (where you want to cache the restore step), when troubleshooting package resolution, or when **--no-restore** is being used downstream.
+**dotnet build** 和 **dotnet run** 等其他命令默认都会触发隐式还原，因此显式调用主要用于 CI 流水线（希望缓存还原步骤）、排查包解析问题时，或在下游命令使用 **--no-restore** 的场景。
 
 # CAVEATS
 
-Restore obeys the standard NuGet config chain: machine-wide, user, and per-directory **NuGet.config** files. **--source** replaces (not adds to) configured sources. Setting **--locked-mode** without an existing **packages.lock.json** fails immediately.
+还原遵循标准的 NuGet 配置链：机器级、用户级和目录级 **NuGet.config** 文件。**--source** 是替换（而非追加）已配置的源。在没有现成 **packages.lock.json** 的情况下设置 **--locked-mode** 会立即失败。
 
 # INSTALL
 

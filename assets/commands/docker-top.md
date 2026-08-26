@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display the running processes of a container
+显示容器中正在运行的进程
 
 # TLDR
 
-**Show running processes in container**
+**显示容器中运行的进程**
 
 ```docker top [container]```
 
-**Show with BSD-style ps options (full info)**
+**使用 BSD 风格的 ps 选项显示（完整信息）**
 
 ```docker top [container] aux```
 
-**Show with specific columns**
+**显示指定的列**
 
 ```docker top [container] -o pid,user,comm```
 
-**Use container ID instead of name**
+**使用容器 ID 代替名称**
 
 ```docker top [container_id]```
 
@@ -27,20 +27,20 @@ Display the running processes of a container
 # PARAMETERS
 
 _CONTAINER_
-> Name or ID of a running container.
+> 运行中容器的名称或 ID。
 
 _ps OPTIONS_
-> Optional **ps**(1) flags forwarded to the host's ps to format output (e.g., `aux`, `-eo pid,comm`).
+> 可选的 **ps**(1) 标志，转发给主机的 ps 用于格式化输出（例如 `aux`、`-eo pid,comm`）。
 
 # DESCRIPTION
 
-**docker top** displays the processes running inside a container by querying the host's process list and filtering for that container's namespace. It is conceptually the same as **docker container top** and accepts arbitrary **ps**(1) options to control the output format.
+**docker top** 通过查询主机的进程列表并筛选出属于该容器命名空间的进程，来显示容器内正在运行的进程。概念上等同于 **docker container top**，并接受任意 **ps**(1) 选项来控制输出格式。
 
-The container must be running; stopped containers cannot be inspected with this command. Output reflects the host's view of the processes (host PIDs), not the in-container PIDs.
+容器必须处于运行状态；已停止的容器无法用该命令查看。输出反映的是主机视角的进程（主机 PID），而不是容器内的 PID。
 
 # CAVEATS
 
-Process IDs shown are the host's PIDs, not the PIDs as seen from inside the container. The available **ps** options depend on the host's ps implementation (procps on Linux). Does not work on Windows containers in the same way.
+显示的进程 ID 是主机的 PID，而不是从容器内部看到的 PID。可用的 **ps** 选项取决于主机的 ps 实现（Linux 上为 procps）。对 Windows 容器的行为有所不同。
 
 # INSTALL
 
@@ -63,4 +63,3 @@ Process IDs shown are the host's PIDs, not the PIDs as seen from inside the cont
 # SEE ALSO
 
 [docker](/man/docker)(1), [docker-container-top](/man/docker-container-top)(1), [docker-ps](/man/docker-ps)(1), [docker-stats](/man/docker-stats)(1), [ps](/man/ps)(1), [top](/man/top)(1)
-

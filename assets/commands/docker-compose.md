@@ -1,30 +1,30 @@
 # TAGLINE
 
-multi-container Docker orchestration
+多容器 Docker 编排
 
 # TLDR
 
-**Start** services
+**启动**服务
 
 ```docker-compose up```
 
-**Start** in background
+**后台启动**
 
 ```docker-compose up -d```
 
-**Stop** services
+**停止**服务
 
 ```docker-compose down```
 
-**View** logs
+**查看**日志
 
 ```docker-compose logs```
 
-**Build** services
+**构建**服务
 
 ```docker-compose build```
 
-**List** containers
+**列出**容器
 
 ```docker-compose ps```
 
@@ -34,46 +34,46 @@ multi-container Docker orchestration
 
 # DESCRIPTION
 
-**docker-compose** is a tool for defining and running multi-container Docker applications using YAML configuration files. Instead of managing multiple docker run commands with complex flags, Compose lets you declare your entire application stack in a single docker-compose.yml file.
+**docker-compose** 是一个通过 YAML 配置文件来定义和运行多容器 Docker 应用的工具。Compose 让你在单个 docker-compose.yml 文件中声明整个应用栈，而不必用复杂的标志管理多条 docker run 命令。
 
-The tool handles service orchestration, networking, volume management, and dependencies between containers. It automatically creates isolated networks for your application, manages startup order through depends_on directives, and provides convenient commands for viewing logs, executing commands, and managing the entire application lifecycle.
+该工具负责服务编排、网络、卷管理以及容器间的依赖关系。它会自动为应用创建隔离的网络，通过 depends_on 指令管理启动顺序，并提供便捷命令用于查看日志、执行命令和管理应用的完整生命周期。
 
-Docker Compose is essential for local development environments where applications require multiple services (web server, database, cache, queue). It ensures consistency across development teams and simplifies the transition from development to production. Modern Docker includes Compose V2 as a native plugin (docker compose) replacing the standalone docker-compose command.
+Docker Compose 对本地开发环境至关重要——当应用需要多个服务（Web 服务器、数据库、缓存、队列）时尤其如此。它保证了开发团队之间的一致性，并简化了从开发到生产环境的过渡。现代 Docker 将 Compose V2 作为原生插件提供（docker compose），取代独立的 docker-compose 命令。
 
 # PARAMETERS
 
 **up** [**-d**]
-> Create and start containers
+> 创建并启动容器
 
 **down**
-> Stop and remove containers, networks
+> 停止并移除容器、网络
 
 **build**
-> Build or rebuild services
+> 构建或重新构建服务
 
 **start**
-> Start services
+> 启动服务
 
 **stop**
-> Stop services
+> 停止服务
 
 **restart**
-> Restart services
+> 重启服务
 
 **ps**
-> List containers
+> 列出容器
 
 **logs** [**-f**]
-> View output from containers
+> 查看容器的输出
 
 **exec** _service_ _command_
-> Execute command in running container
+> 在运行中的容器内执行命令
 
 **pull**
-> Pull service images
+> 拉取服务镜像
 
 **config**
-> Validate and view compose file
+> 校验并查看 compose 文件
 
 # DOCKER-COMPOSE.YML
 
@@ -159,21 +159,21 @@ docker-compose exec db psql -U postgres
 
 # FEATURES
 
-- Multi-container orchestration
-- Network isolation
-- Volume management
-- Environment variable handling
-- Service dependencies
-- Health checks
-- Resource limits
+- 多容器编排
+- 网络隔离
+- 卷管理
+- 环境变量处理
+- 服务依赖
+- 健康检查
+- 资源限制
 
 # FILE LOCATIONS
 
-Default file names (in order):
+默认文件名（按顺序）：
 1. docker-compose.override.yml
 2. docker-compose.yml
 
-Custom file:
+自定义文件：
 ```bash
 docker-compose -f custom-compose.yml up
 ```
@@ -181,21 +181,21 @@ docker-compose -f custom-compose.yml up
 # CONFIGURATION
 
 **docker-compose.yml**
-> Main configuration file defining services, networks, volumes, and their relationships. Placed in project root directory.
+> 定义服务、网络、卷及其关系的主配置文件。放置在项目根目录。
 
 **docker-compose.override.yml**
-> Optional override file automatically loaded alongside docker-compose.yml for local customizations without modifying the main file.
+> 可选的覆盖文件，与 docker-compose.yml 一起自动加载，便于在不修改主文件的情况下进行本地定制。
 
 **.env**
-> Environment variables file automatically loaded by Docker Compose to populate variable substitutions in compose files.
+> 由 Docker Compose 自动加载的环境变量文件，用于填充 compose 文件中的变量替换。
 
 # CAVEATS
 
-Not for production orchestration (use Kubernetes). File format versions matter. Environment variables need proper quoting. Network isolation can complicate debugging. Volume permissions issues. Compose V2 (docker compose) vs V1 (docker-compose) differences.
+不适用于生产环境编排（请使用 Kubernetes）。文件格式版本很重要。环境变量需要正确加引号。网络隔离可能增加调试难度。存在卷权限问题。注意 Compose V2（docker compose）与 V1（docker-compose）的差异。
 
 # HISTORY
 
-**docker-compose** was created by Orchard Labs (acquired by Docker) around **2014** as Fig, becoming Docker Compose and integral to Docker development workflows.
+**docker-compose** 由 Orchard Labs（后被 Docker 收购）于 **2014 年**前后以 Fig 的名义创建，后来成为 Docker Compose，并成为 Docker 开发工作流的重要组成部分。
 
 # INSTALL
 

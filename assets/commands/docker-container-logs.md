@@ -1,34 +1,34 @@
 # TAGLINE
 
-view logs from a container
+查看容器的日志
 
 # TLDR
 
-**View container logs**
+**查看容器日志**
 
 ```docker container logs [container]```
 
-**Follow log output**
+**跟踪日志输出**
 
 ```docker container logs -f [container]```
 
-**Show timestamps**
+**显示时间戳**
 
 ```docker container logs -t [container]```
 
-**Show last n lines**
+**显示最后 n 行**
 
 ```docker container logs --tail [100] [container]```
 
-**Show logs since a relative time or timestamp**
+**显示自某个相对时间或时间戳以来的日志**
 
 ```docker container logs --since [1h30m] [container]```
 
-**Show logs before a specific time**
+**显示指定时间之前的日志**
 
 ```docker container logs --until [2024-01-01T00:00:00Z] [container]```
 
-**Show extra attributes from the logging driver**
+**显示日志驱动提供的额外属性**
 
 ```docker container logs --details [container]```
 
@@ -39,28 +39,28 @@ view logs from a container
 # PARAMETERS
 
 **--details**
-> Show extra attributes provided to `--log-opt` when creating the container.
+> 显示创建容器时提供给 `--log-opt` 的额外属性。
 
 **-f**, **--follow**
-> Follow log output.
+> 跟踪日志输出。
 
 **-n**, **--tail** _n_
-> Number of lines to show from the end of the logs. Default is `all`.
+> 从日志末尾开始显示的行数。默认为 `all`。
 
 **--since** _time_
-> Show logs since timestamp (e.g., `2024-01-01T00:00:00Z`) or relative (e.g., `42m`, `1h30m`).
+> 显示自某时间戳（如 `2024-01-01T00:00:00Z`）或相对时间（如 `42m`、`1h30m`）之后的日志。
 
 **-t**, **--timestamps**
-> Show RFC3339Nano timestamps.
+> 显示 RFC3339Nano 时间戳。
 
 **--until** _time_
-> Show logs before timestamp or relative time.
+> 显示在某时间戳或相对时间之前的日志。
 
 # DESCRIPTION
 
-**docker container logs** fetches logs from a container's main process, displaying both standard output and standard error streams. This command is essential for debugging and monitoring containerized applications, allowing you to view historical logs or follow them in real-time.
+**docker container logs** 获取容器主进程的日志，同时显示标准输出和标准错误流。此命令是调试和监控容器化应用的关键工具，既可以查看历史日志，也可以实时跟踪输出。
 
-Logs are collected from the container's configured logging driver, which by default captures stdout and stderr from the container's PID 1 process. Time-based filtering and tail options make it efficient to work with large log volumes. The `--since` and `--until` options accept Unix timestamps, RFC 3339 date/time strings, or Go duration strings relative to the client machine's time.
+日志从容器配置的日志驱动中收集，默认会捕获容器 PID 1 进程的 stdout 和 stderr。基于时间的过滤和 tail 选项让处理大量日志更加高效。`--since` 和 `--until` 选项接受 Unix 时间戳、RFC 3339 日期/时间字符串，或相对于客户端机器时间的 Go duration 字符串。
 
 # INSTALL
 

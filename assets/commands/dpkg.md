@@ -1,38 +1,38 @@
 # TAGLINE
 
-low-level Debian package manager
+低层 Debian 软件包管理器
 
 # TLDR
 
-**Install** a package
+**安装**一个软件包
 
 ```sudo dpkg -i [path/to/file.deb]```
 
-**Remove** a package
+**移除**一个软件包
 
 ```sudo dpkg -r [package]```
 
-**List** installed packages
+**列出**已安装的软件包
 
 ```dpkg -l [pattern]```
 
-List a package's **contents**
+列出一个软件包的**内容**
 
 ```dpkg -L [package]```
 
-List contents of a **local package file**
+列出**本地软件包文件**的内容
 
 ```dpkg -c [path/to/file.deb]```
 
-Find which package **owns** a file
+查找哪个软件包**拥有**某个文件
 
 ```dpkg -S [path/to/file]```
 
-**Purge** a package including configuration files
+**彻底清除**一个软件包（包括配置文件）
 
 ```sudo dpkg -P [package]```
 
-Show package **status**
+显示软件包**状态**
 
 ```dpkg -s [package]```
 
@@ -42,62 +42,62 @@ Show package **status**
 
 # DESCRIPTION
 
-**dpkg** is the low-level package manager for Debian-based systems. It handles the installation, removal, and management of .deb packages. Higher-level tools like **apt** and **apt-get** use dpkg internally.
+**dpkg** 是基于 Debian 的系统的低层软件包管理器。它负责 .deb 软件包的安装、卸载和管理。**apt** 和 **apt-get** 等更高层的工具在内部使用 dpkg。
 
 # PARAMETERS
 
 **-i, --install file.deb**
-> Install a package from a .deb file
+> 从 .deb 文件安装软件包
 
 **-r, --remove package**
-> Remove a package (keep configuration files)
+> 卸载软件包（保留配置文件）
 
 **-P, --purge package**
-> Remove a package and its configuration files
+> 卸载软件包及其配置文件
 
 **-l, --list pattern**
-> List packages matching pattern
+> 列出匹配模式的软件包
 
 **-L, --listfiles package**
-> List files installed by a package
+> 列出某软件包安装的文件
 
 **-c, --contents file.deb**
-> List contents of a .deb file
+> 列出 .deb 文件的内容
 
 **-S, --search path**
-> Search for a package owning a file
+> 查找拥有某个文件的软件包
 
 **-s, --status package**
-> Display package status details
+> 显示软件包状态详情
 
 **--configure package**
-> Configure an unpacked package
+> 配置已解包但未配置的软件包
 
 **--unpack file.deb**
-> Unpack but don't configure a package
+> 只解包软件包而不进行配置
 
 **--get-selections** [_pattern_]
-> Get list of package selections
+> 获取软件包选择列表
 
 **--set-selections**
-> Set package selections from stdin
+> 从标准输入设置软件包选择
 
 **--audit**, **-C**
-> Search for partially installed packages and suggest how to fix them.
+> 搜索未完全安装的软件包并给出修复建议。
 
 **--force-**_things_
-> Override safety checks (e.g. **--force-all**, **--force-overwrite**). Use with care.
+> 覆盖安全检查（例如 **--force-all**、**--force-overwrite**）。请谨慎使用。
 
 **--no-act**, **--dry-run**, **--simulate**
-> Show what would be done without making changes.
+> 只显示将要执行的操作，而不实际更改。
 
 # CAVEATS
 
-dpkg does not handle dependencies automatically. Use **apt** or **apt-get** for dependency resolution. Configuration files are kept by default when removing packages.
+dpkg 不会自动处理依赖关系。请使用 **apt** 或 **apt-get** 来解决依赖。默认情况下，卸载软件包时会保留配置文件。
 
 # HISTORY
 
-**dpkg** was originally created for the **Debian** project in **1994** by **Ian Murdock**, then rewritten in C by **Ian Jackson** who became its primary developer. It remains the foundation of package management on Debian-based systems.
+**dpkg** 由 **Ian Murdock** 于 **1994 年**为 **Debian** 项目创建，随后由成为其主力开发者的 **Ian Jackson** 用 C 语言重写。它至今仍是基于 Debian 的系统上软件包管理的基石。
 
 # INSTALL
 

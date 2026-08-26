@@ -1,34 +1,34 @@
 # TAGLINE
 
-system fact gathering tool for Puppet
+面向 Puppet 的系统信息采集工具
 
 # TLDR
 
-**Show all facts**
+**显示所有 fact**
 
 ```facter```
 
-**Show specific fact**
+**显示特定 fact**
 
 ```facter [os.family]```
 
-**Show facts in JSON**
+**以 JSON 输出 fact**
 
 ```facter --json```
 
-**Show facts in YAML**
+**以 YAML 输出 fact**
 
 ```facter --yaml```
 
-**List all fact names**
+**列出所有 fact 名称**
 
 ```facter --list```
 
-**Show timing information**
+**显示耗时信息**
 
 ```facter --timing```
 
-**Debug output**
+调试输出
 
 ```facter --debug```
 
@@ -39,48 +39,48 @@ system fact gathering tool for Puppet
 # PARAMETERS
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--yaml**
-> Output in YAML format.
+> 以 YAML 格式输出。
 
 **--list**
-> List all fact names.
+> 列出所有 fact 名称。
 
 **--timing**
-> Show timing for each fact.
+> 显示每个 fact 的采集耗时。
 
 **--debug**
-> Debug output.
+> 调试输出。
 
 **--no-custom-facts**
-> Disable custom facts.
+> 禁用自定义 fact。
 
 **--external-dir** _dir_
-> Directory for external facts.
+> 外部 fact 所在目录。
 
 **--puppet**
-> Load Puppet's settings.
+> 加载 Puppet 的设置。
 
 **-p**
-> Include Puppet facts.
+> 包含 Puppet 的 fact。
 
 # CONFIGURATION
 
 **/etc/facter/facts.d/**
-> Custom external facts directory for system-wide facts.
+> 自定义外部 fact 目录，存放系统级 fact。
 
 **/opt/puppetlabs/facter/facts.d/**
-> Puppet-specific custom facts directory.
+> Puppet 专用的自定义 fact 目录。
 
 **~/.facter/facts.d/**
-> User-specific custom facts directory.
+> 用户级自定义 fact 目录。
 
 # DESCRIPTION
 
-**facter** collects and displays system facts - information about the operating system, hardware, network, and other system properties. It's a core component of Puppet, providing data for configuration management.
+**facter** 收集并显示系统 fact——有关操作系统、硬件、网络和其他系统属性的信息。它是 Puppet 的核心组件，为配置管理提供数据。
 
-Facts include OS details, IP addresses, memory, processors, disk space, and more. Custom facts can be written in Ruby or as executable external facts.
+fact 包括操作系统详情、IP 地址、内存、处理器、磁盘空间等。自定义 fact 可以用 Ruby 编写，也可以作为可执行的外部 fact 提供。
 
 # COMMON FACTS
 
@@ -95,11 +95,11 @@ facter virtual           # Virtualization
 
 # CAVEATS
 
-Some facts require root privileges. Custom facts may slow collection. Facts may differ between facter versions. Puppet-specific facts need --puppet flag.
+部分 fact 需要 root 权限。自定义 fact 可能拖慢采集速度。不同 facter 版本的 fact 可能不同。Puppet 相关的 fact 需要 --puppet 标志。
 
 # HISTORY
 
-Facter was created by **Luke Kanies** as part of the Puppet project at **Puppet Labs** (now Puppet) in the mid-**2000s**. Facter 3, a rewrite in C++ (later Ruby again), was released in **2015** for improved performance.
+Facter 由 **Luke Kanies** 于 **2000 年代中期**作为 **Puppet Labs**（现 Puppet）Puppet 项目的一部分创建。Facter 3 是一次 C++ 重写（后来又改回 Ruby），于 **2015 年**发布，性能有所提升。
 
 # INSTALL
 

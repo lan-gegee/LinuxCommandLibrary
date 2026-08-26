@@ -1,22 +1,22 @@
 # TAGLINE
 
-Expressive shell with modern programming features
+具有现代编程特性的富表现力 Shell
 
 # TLDR
 
-**Start Elvish shell**
+**启动 Elvish Shell**
 
 ```elvish```
 
-**Run Elvish script**
+**运行 Elvish 脚本**
 
 ```elvish [script.elv]```
 
-**Run command string**
+**运行命令字符串**
 
 ```elvish -c "[echo hello]"```
 
-**Start with specific** config
+**以指定配置启动**
 
 ```elvish --rc [config.elv]```
 
@@ -27,55 +27,55 @@ Expressive shell with modern programming features
 # PARAMETERS
 
 _SCRIPT_
-> Script file to execute.
+> 要执行的脚本文件。
 
 **-c** _CODE_
-> Execute command string.
+> 执行命令字符串。
 
 **--rc** _FILE_
-> Configuration file.
+> 配置文件。
 
 **--norc**
-> Don't load rc file.
+> 不加载 rc 文件。
 
 **-i**
-> Force interactive mode even when input is not a terminal.
+> 即使输入不是终端也强制进入交互模式。
 
 **--compileonly**
-> Parse and compile the code but do not execute it, reporting any errors.
+> 解析并编译代码但不执行，同时报告错误。
 
 **--json**
-> Print output of --compileonly as JSON.
+> 将 --compileonly 的输出打印为 JSON。
 
 **--version**
-> Print the Elvish version and exit.
+> 打印 Elvish 版本并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Elvish** is an expressive programming language and a powerful shell for Unix-like systems. It combines shell features with a modern programming language including namespaces, lambdas, and structured data.
+**Elvish** 是一门富有表现力的编程语言，也是类 Unix 系统上功能强大的 Shell。它将 shell 特性与现代编程语言相结合，包括命名空间、lambda 和结构化数据。
 
-The shell offers pipelines that pass structured data (not just strings), built-in file manager (Ctrl-N), and comprehensive history with directory history (Ctrl-L). Its syntax is cleaner than traditional shells.
+该 shell 提供传递结构化数据（而不只是字符串）的管道、内置文件管理器（Ctrl-N），以及包含目录历史（Ctrl-L）在内的完善历史记录。其语法比传统 shell 更简洁。
 
-Elvish provides real-time syntax highlighting, intelligent completions, and a consistent programming model for both interactive use and scripting.
+Elvish 提供实时语法高亮、智能补全，并为交互使用和脚本编写提供一致的编程模型。
 
 # CONFIGURATION
 
-**~/.config/elvish/rc.elv** or **~/.elvish/rc.elv**
-> Main configuration file loaded on shell startup.
+**~/.config/elvish/rc.elv** 或 **~/.elvish/rc.elv**
+> shell 启动时加载的主配置文件。
 
 **~/.config/elvish/lib/**
-> Directory for Elvish modules and libraries.
+> 存放 Elvish 模块和库的目录。
 
 # CAVEATS
 
-Not POSIX-compatible. Scripts not portable to bash/zsh. Smaller community than mainstream shells. Some traditional shell patterns don't work.
+不兼容 POSIX。脚本无法移植到 bash/zsh。社区比主流 shell 小。某些传统 shell 模式无法使用。
 
 # HISTORY
 
-Elvish was created by **Qi Xiao** starting around **2014** as a shell designed from scratch with modern language features rather than POSIX compatibility as the primary goal.
+Elvish 由 **Qi Xiao** 自 **2014 年**前后开始创建，是一款从零设计、以现代语言特性而非 POSIX 兼容性为主要目标的 shell。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-search directory trees for files
+在目录树中查找文件
 
 # TLDR
 
-**Find files by** name
+**按名称查找**文件
 
 ```find [path] -name "[*.txt]"```
 
-**Find directories**
+**查找目录**
 
 ```find [path] -type d -name "[dirname]"```
 
-**Find and delete**
+**查找并删除**
 
 ```find [path] -name "[*.tmp]" -delete```
 
-**Find by modification** time
+**按修改时间查找**
 
 ```find [path] -mtime -[7]```
 
-**Find and execute** command
+**查找并对结果执行**命令
 
 ```find [path] -name "[*.log]" -exec rm {} \;```
 
-**Print a custom** output format
+**以自定义格式打印**输出
 
 ```find [path] -printf "[%p %s bytes\n]"```
 
@@ -35,53 +35,53 @@ search directory trees for files
 # PARAMETERS
 
 _PATH_
-> Starting directories (default: current).
+> 起始目录（默认：当前目录）。
 
 **-name** _PATTERN_
-> Match filename pattern (glob).
+> 匹配文件名模式（glob）。
 
 **-iname** _PATTERN_
-> Case-insensitive name match.
+> 不区分大小写的名称匹配。
 
 **-type** _TYPE_
-> File type: f (file), d (directory), l (link).
+> 文件类型：f（文件）、d（目录）、l（链接）。
 
 **-mtime** _N_
-> Modified N days ago.
+> N 天前修改过。
 
 **-size** _N_
-> File size (c bytes, k KB, M MB).
+> 文件大小（c 字节、k KB、M MB）。
 
 **-exec** _CMD_ **{}** **\;**
-> Execute command on results.
+> 对查到的结果执行命令。
 
 **-delete**
-> Delete matched files.
+> 删除匹配的文件。
 
 **-maxdepth** _N_
-> Maximum directory depth.
+> 最大目录深度。
 
 **-printf** _FORMAT_
-> Print a custom format for each match (e.g. %p path, %f filename, %s size, %t time). No newline unless \n is included.
+> 为每个匹配项按自定义格式打印（例如 %p 路径、%f 文件名、%s 大小、%t 时间）。除非包含 \n，否则不会换行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**find** searches directory trees for files matching criteria. It's one of Unix's most powerful utilities, combining searching with file operations through -exec.
+**find** 在目录树中搜索满足条件的文件。它是 Unix 上最强大的实用工具之一，通过 -exec 把查找与文件操作结合起来。
 
-The tool evaluates expressions left to right, short-circuiting with -a (and) and -o (or). Actions like -print, -delete, and -exec operate on matches.
+该工具从左到右对表达式求值，遇到 -a（与）和 -o（或）时进行短路处理。-print、-delete、-exec 等动作会作用于匹配到的条目。
 
-find's flexibility handles complex queries combining name patterns, timestamps, sizes, permissions, and ownership.
+find 的灵活性足以应对复杂查询，可以把名称模式、时间戳、大小、权限和所有者等条件组合起来。
 
 # CAVEATS
 
-Glob patterns need quoting. -delete acts immediately without confirmation. Complex expressions need careful ordering.
+glob 模式必须加引号。-delete 会立即执行且不请求确认。复杂表达式需要仔细安排先后顺序。
 
 # HISTORY
 
-find appeared in **Unix Version 5** (1974). It remains the standard file-finding utility, though modern alternatives like fd offer simpler syntax for common cases.
+find 出现于 **Unix Version 5**（1974 年）。它至今仍是标准的文件查找工具，尽管 fd 等现代替代品针对常见场景提供了更简单的语法。
 
 # INSTALL
 

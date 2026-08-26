@@ -1,26 +1,26 @@
 # TAGLINE
 
-remove Docker images from local storage
+从本地存储中删除 Docker 镜像
 
 # TLDR
 
-**Remove an image**
+**删除一个镜像**
 
 ```docker rmi [image]```
 
-**Remove multiple images**
+**删除多个镜像**
 
 ```docker rmi [image1] [image2]```
 
-**Force remove**
+**强制删除**
 
 ```docker rmi -f [image]```
 
-**Remove all dangling images**
+**删除所有悬空镜像**
 
 ```docker rmi $(docker images -f dangling=true -q)```
 
-**Remove by image ID**
+**按镜像 ID 删除**
 
 ```docker rmi [image_id]```
 
@@ -31,14 +31,14 @@ remove Docker images from local storage
 # PARAMETERS
 
 **-f**, **--force**
-> Force removal.
+> 强制删除。
 
 **--no-prune**
-> Do not delete untagged parent images.
+> 不删除无标签的父镜像。
 
 # DESCRIPTION
 
-**docker rmi** removes one or more images. Images in use by containers cannot be removed unless forced. Shorthand for docker image rm. Removing an image deletes all its layers unless they're shared with other images. Dangling images are untagged images that are no longer referenced by any tagged image.
+**docker rmi** 删除一个或多个镜像。正在被容器使用的镜像除非强制删除否则无法移除。该命令是 docker image rm 的简写形式。删除镜像会删除其所有层，除非这些层与其他镜像共享。悬空镜像是不再被任何带标签镜像引用的无标签镜像。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ remove Docker images from local storage
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

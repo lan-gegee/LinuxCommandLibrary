@@ -1,35 +1,35 @@
 # TAGLINE
 
-Read, edit, and comment on .docx files from the command line with full format fidelity
+从命令行读取、编辑 .docx 文件并添加批注，完整保留原有格式
 
 # TLDR
 
-**Read a document** as Markdown with structural locators
+以带结构定位符的 Markdown **读取文档**
 
 ```docx read document.docx```
 
-**Create a new document** from Markdown
+从 Markdown **创建新文档**
 
 ```docx create report.docx --from content.md --title "Q3 Report"```
 
-**Replace text** while preserving formatting and tabs
+**替换文本**的同时保留格式和制表位
 
 ```docx replace invoice.docx "Amount Due" "$1,250.00"```
 
-**Find text and add a comment** at the match
+**查找文本并在匹配处添加批注**
 
 ```docx comments add contract.docx --at "$(docx find contract.docx 'liability' | head -1)" --text "Review this clause with legal."```
 
-**Turn on tracked changes** and make a redlined edit
+**开启修订模式**并进行红线修改
 
 ```docx track-changes contract.docx on
 docx replace contract.docx "reasonable efforts" "best efforts" --track```
 
-**Render pages visually** for layout verification
+**可视化渲染页面**以便核对版式
 
 ```docx render proposal.docx --out pages/```
 
-**Install standalone** (verified binary)
+**独立安装**（经过校验的二进制文件）
 
 ```curl -fsSL https://raw.githubusercontent.com/kklimuk/docx-cli/main/install.sh | sh```
 
@@ -39,64 +39,64 @@ docx replace contract.docx "reasonable efforts" "best efforts" --track```
 
 # DESCRIPTION
 
-**docx** is a command-line tool for AI agents and humans to read, edit, comment on, and review Microsoft Word (.docx) documents without losing formatting or breaking files that Word can open.
+**docx** 是一款面向 AI 智能体和人类的命令行工具，可用于读取、编辑 Microsoft Word（.docx）文档、添加批注并进行审阅，且不会丢失格式或破坏 Word 无法再打开的文件。
 
-It works by mutating the underlying OOXML directly instead of round-tripping through lossy models or re-serializing the document. Agents receive a stable locator system (e.g. `p3:5-20`, `t1:r0c2:p0`) plus an annotated Markdown view, allowing precise, safe edits.
+它直接修改底层的 OOXML，而不是经由有损模型来回转换或重新序列化文档。智能体会获得一套稳定的定位符系统（例如 `p3:5-20`、`t1:r0c2:p0`）外加一份带注记的 Markdown 视图，从而实现精确而安全的编辑。
 
-Key capabilities include:
+主要能力包括：
 
-- Read as Markdown or lossless JSON AST
-- Create, insert, edit, delete, replace content
-- Add and manage comments, footnotes, endnotes, headers/footers, images, hyperlinks, tables
-- Full tracked-changes (redline) support with accept/reject
-- Style management and page geometry
-- Visual page rendering via Word or LibreOffice
+- 以 Markdown 或无损 JSON AST 形式读取
+- 创建、插入、编辑、删除、替换内容
+- 添加并管理批注、脚注、尾注、页眉/页脚、图片、超链接、表格
+- 完整的修订（redline）支持，可接受/拒绝修订
+- 样式管理与页面几何信息
+- 通过 Word 或 LibreOffice 进行页面可视化渲染
 
-The tool is designed so that `docx <command> --help` is always authoritative. It ships with an optional Agent Skill for Claude Code, Codex, and similar harnesses.
+该工具的设计原则是 `docx <command> --help` 始终是最权威的参考。它还附带一个可选的 Agent Skill，适用于 Claude Code、Codex 及类似的宿主环境。
 
 # LOCATORS
 
-Locators address paragraphs (`pN`), tables (`tN`), sections (`sN`), cell paragraphs, character spans (`pN:S-E`), and entity IDs (`cN` for comments, `imgN`, etc.). Use `docx info locators` for the full grammar.
+定位符可以寻址段落（`pN`）、表格（`tN`）、节（`sN`）、单元格段落、字符区间（`pN:S-E`）以及实体 ID（`cN` 表示批注，`imgN` 表示图片等）。完整语法请使用 `docx info locators` 查看。
 
 # COMMON COMMANDS
 
 **create** FILE [--from PATH.md | --text "..."] [--title T] [--author A]
 
-> Create a new .docx. `--from` accepts the same Markdown dialect used by insert/edit.
+> 创建一个新的 .docx 文件。`--from` 接受与 insert/edit 相同的 Markdown 方言。
 
 **read** FILE [--from LOC] [--to LOC] [--ast] [--comments] [--accepted|--current|--baseline]
 
-> Render body as Markdown (with locator annotations) or JSON AST. Supports tracked-change views.
+> 将正文渲染为 Markdown（带定位符注记）或 JSON AST。支持多种修订视图。
 
 **edit** / **insert** / **delete** / **replace** FILE ...
 
-> Mutate content at locators or via batch JSONL. Replace keeps existing run formatting.
+> 在定位符处修改内容，或通过批量 JSONL 处理。replace 会保留既有的 run 格式。
 
 **find** FILE QUERY [--regex] [--all]
 
-> Return locators for text or formatting matches (for feeding to --at).
+> 返回文本或格式匹配项的定位符（可供 --at 使用）。
 
 **track-changes** on|off|list|accept|reject FILE
 
-> Control and review revisions.
+> 控制并审阅修订。
 
 **comments** / **images** / **tables** / **styles** / **sections** ...
 
-> Manage the corresponding document parts.
+> 管理对应的文档部件。
 
 **render** FILE [--out DIR]
 
-> Produce page images for visual verification of layout.
+> 生成页面图片，用于直观核对版式。
 
 **wc** / **outline** / **info**
 
-> Word counts, heading trees, and reference material (schema, locators).
+> 字数统计、标题树以及参考资料（schema、定位符）。
 
 # CAVEATS
 
-There is no undo inside the CLI — use git or copies. Edits that would corrupt the file (e.g. deleting a referenced relationship) are refused. Rendering requires Microsoft Word (macOS/Windows) or LibreOffice. Batch operations address the document snapshot at read time.
+CLI 内部没有撤销功能——请使用 git 或文件副本兜底。会导致文件损坏的编辑（例如删除被引用的关系）会被拒绝执行。渲染依赖 Microsoft Word（macOS/Windows）或 LibreOffice。批量操作针对的是读取时刻的文档快照。
 
-The Markdown dialect preserves most formatting but literal text channels (`--text-file`) exist for content that GFM would alter.
+其 Markdown 方言能保留大部分格式，但对于会被 GFM 改动的内容，也提供了字面文本通道（`--text-file`）。
 
 # SEE ALSO
 

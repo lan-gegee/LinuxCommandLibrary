@@ -1,26 +1,26 @@
 # TAGLINE
 
-dynamic menu for X11
+X11 动态菜单
 
 # TLDR
 
-Display menu from **ls output**
+从 **ls 输出**显示菜单
 
 ```ls | dmenu```
 
-Display menu with **custom items**
+以**自定义选项**显示菜单
 
 ```echo -e "[red]\n[green]\n[blue]" | dmenu```
 
-**Save** selected item to file
+将选中项**保存**到文件
 
 ```echo -e "[red]\n[green]\n[blue]" | dmenu > [color.txt]```
 
-Launch on **specific monitor**
+在**指定显示器**上启动
 
 ```ls | dmenu -m [1]```
 
-Display at **bottom** of screen
+显示在屏幕**底部**
 
 ```ls | dmenu -b```
 
@@ -30,42 +30,42 @@ Display at **bottom** of screen
 
 # DESCRIPTION
 
-**dmenu** is a dynamic menu for X11. It reads items from stdin, displays them in a horizontal menu, and outputs the selected item to stdout.
+**dmenu** 是 X11 下的动态菜单工具。它从 stdin 读取选项，以水平菜单形式显示，并将选中的项输出到 stdout。
 
-Commonly used as an application launcher, file picker, or general selection interface in tiling window managers.
+它常被用作应用启动器、文件选择器或平铺式窗口管理器中的通用选择界面。
 
 # PARAMETERS
 
 **-b**
-> Display at bottom of screen
+> 显示在屏幕底部
 
 **-m** _monitor_
-> Display on specified monitor
+> 显示在指定显示器上
 
 **-l** _lines_
-> Vertical list with n lines
+> 显示为 n 行的垂直列表
 
 **-p** _prompt_
-> Display prompt text
+> 显示提示文本
 
 **-fn** _font_
-> Font or font pattern
+> 字体或字体模式
 
 **-nb** _color_
-> Normal background color
+> 普通状态背景色
 
 **-nf** _color_
-> Normal foreground color
+> 普通状态前景色
 
 **-sb** _color_
-> Selected background color
+> 选中状态背景色
 
 **-sf** _color_
-> Selected foreground color
+> 选中状态前景色
 
 # CAVEATS
 
-X11 only (see bemenu for Wayland). Items must be newline-separated. Part of suckless tools. Highly customizable through patches.
+仅支持 X11（Wayland 请使用 bemenu）。选项必须以换行符分隔。属于 suckless 工具集。可通过补丁高度定制。
 
 # INSTALL
 

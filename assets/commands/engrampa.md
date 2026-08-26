@@ -1,22 +1,22 @@
 # TAGLINE
 
-MATE desktop archive manager
+MATE 桌面的归档管理器
 
 # TLDR
 
-**Open** specific archives
+**打开**指定的归档
 
 ```engrampa [path/to/archive1.tar] [path/to/archive2.tar]```
 
-**Add** files to an archive and quit
+向归档中**添加**文件并退出
 
 ```engrampa --add-to=[path/to/archive.tar] [path/to/file_or_directory]```
 
-**Extract** archives to a directory and quit
+将归档**解压**到某个目录并退出
 
 ```engrampa --extract-to=[path/to/directory] [path/to/archive.tar]```
 
-**Extract** archives into a folder named after each archive and quit
+将归档**解压**到以各归档命名的文件夹中并退出
 
 ```engrampa --extract-here [path/to/archive.tar]```
 
@@ -26,36 +26,36 @@ MATE desktop archive manager
 
 # DESCRIPTION
 
-**engrampa** is the MATE desktop archive manager. It creates and extracts archives in various formats including tar, zip, 7z, rar, and more.
+**engrampa** 是 MATE 桌面的归档管理器。它可以创建和解压多种格式的归档，包括 tar、zip、7z、rar 等。
 
-A fork of file-roller adapted for the MATE desktop environment.
+它是 file-roller 针对桌面环境 MATE 的分支版本。
 
 # PARAMETERS
 
 **-a**, **--add-to** _archive_
-> Add files to the specified archive and quit.
+> 将文件添加到指定归档并退出。
 
 **-d**, **--add** _file_
-> Add files, prompting for the archive name, and quit.
+> 添加文件，提示输入归档名，然后退出。
 
 **-e**, **--extract-to** _folder_
-> Extract archives to the specified folder and quit.
+> 将归档解压到指定文件夹并退出。
 
 **-f**, **--extract**
-> Extract archives, prompting for the destination folder, and quit.
+> 解压归档，提示选择目标文件夹，然后退出。
 
 **-h**, **--extract-here**
-> Extract archives using the archive name as destination folder and quit.
+> 以归档名作为目标文件夹解压归档并退出。
 
 **--default-dir** _folder_
-> Default folder to use for `--add` and `--extract` commands.
+> `--add` 和 `--extract` 命令使用的默认文件夹。
 
 **--force**
-> Create destination folder without asking for confirmation.
+> 创建目标文件夹时不请求确认。
 
 # CAVEATS
 
-MATE desktop application. Requires appropriate libraries for different archive formats. Command-line options are limited compared to dedicated tools like tar or zip.
+MATE 桌面应用。需要针对不同归档格式的相应库。与 tar 或 zip 等专用工具相比，命令行选项有限。
 
 # INSTALL
 

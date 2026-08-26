@@ -1,26 +1,26 @@
 # TAGLINE
 
-character encoding detection and conversion
+字符编码检测与转换
 
 # TLDR
 
-**Detect encoding** of file
+**检测文件**编码
 
 ```enca [file.txt]```
 
-**Detect with language** hint
+**带语言**提示进行检测
 
 ```enca -L [czech] [file.txt]```
 
-**Convert encoding**
+**转换编码**
 
 ```enca -x [UTF-8] [file.txt]```
 
-**Detect and show** confidence
+**检测并显示**置信度
 
 ```enca -d [file.txt]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```enca -L [russian] [*.txt]```
 
@@ -31,39 +31,39 @@ character encoding detection and conversion
 # PARAMETERS
 
 _FILES_
-> Files to analyze.
+> 要分析的文件。
 
 **-L** _LANGUAGE_
-> Hint language for detection.
+> 提示检测所用语言。
 
 **-x** _ENCODING_
-> Convert to specified encoding.
+> 转换为指定编码。
 
 **-d**
-> Show detailed detection info.
+> 显示详细的检测信息。
 
 **-g**, **--guess**
-> Output best guess only.
+> 仅输出最佳猜测。
 
 **-i**, **--info**
-> Show available encodings.
+> 显示可用的编码。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**enca** (Extremely Naive Charset Analyser) detects character encodings of text files using language-based statistical heuristics, and can convert files between encodings by piping through **iconv**. It is particularly strong on legacy 8-bit charsets used for Slavic and Central/Eastern European languages (ISO-8859-2/5, KOI8-R, CP1250/1251, Mazovia, T.61, ...), where simpler tools like **file -i** struggle.
+**enca**（Extremely Naive Charset Analyser）基于语言的统计启发式方法检测文本文件的字符编码，并可通过管道调用 **iconv** 在编码之间转换文件。它尤其擅长处理斯拉夫语及中/东欧语言使用的传统 8 位字符集（ISO-8859-2/5、KOI8-R、CP1250/1251、Mazovia、T.61 等），而 **file -i** 这类更简单的工具在这些场景下往往力不从心。
 
-Detection works best with a language hint passed via **-L**; without it, **enca** falls back to a general profile and may return ambiguous matches. The output is one detected encoding per file by default, or extended information with **-d** or **-v**. Conversion is performed in place with **-x** _ENCODING_, which calls **iconv** under the hood; pair it with **--cstocs** for transliteration when the target charset lacks specific characters.
+通过 **-L** 提供语言提示时检测效果最好；否则 **enca** 会退回到通用配置文件，可能返回含糊的结果。默认情况下每个文件输出一行检测到的编码，使用 **-d** 或 **-v** 则输出扩展信息。**-x** _ENCODING_ 就地执行转换，底层调用 **iconv**；当目标字符集缺少某些字符时，可搭配 **--cstocs** 进行转写。
 
 # CAVEATS
 
-Detection is heuristic, not deterministic. Short files may be ambiguous. Works best with specific language hints. Some encodings indistinguishable.
+检测是启发式的，并非确定无疑。短文件可能出现歧义。配合具体的语言提示效果最佳。某些编码无法相互区分。
 
 # HISTORY
 
-enca was developed for handling the encoding diversity in Central/Eastern European computing, where many incompatible character sets were historically used for the same languages.
+enca 为应对中/东欧计算环境中的编码多样性而生——历史上同一语言曾被许多互不兼容的字符集所表示。
 
 # INSTALL
 

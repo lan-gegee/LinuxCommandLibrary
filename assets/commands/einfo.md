@@ -1,22 +1,22 @@
 # TAGLINE
 
-NCBI Entrez database information tool
+NCBI Entrez 数据库信息工具
 
 # TLDR
 
-**Print** all database names
+**打印**所有数据库名称
 
 ```einfo -dbs```
 
-**Print** all information of a database in XML format
+**以 XML 格式打印**数据库的全部信息
 
 ```einfo -db [protein]```
 
-**Print** all fields of a database
+**打印**数据库的所有字段
 
 ```einfo -db [nuccore] -fields```
 
-**Print** all links of a database
+**打印**数据库的所有链接
 
 ```einfo -db [protein] -links```
 
@@ -26,33 +26,33 @@ NCBI Entrez database information tool
 
 # DESCRIPTION
 
-**einfo** provides information about NCBI Entrez databases. It shows the number of records indexed in each field, last update dates, and available cross-database links.
+**einfo** 提供 NCBI Entrez 数据库的信息。它显示每个字段中索引的记录数、最后更新日期以及可用的跨数据库链接。
 
-Part of the NCBI EDirect utilities for programmatic access to biological databases.
+属于 NCBI EDirect 工具集，用于以编程方式访问生物学数据库。
 
 # PARAMETERS
 
 **-dbs**
-> List all database names.
+> 列出所有数据库名称。
 
 **-db** _database_
-> Specify database to query.
+> 指定要查询的数据库。
 
 **-fields**
-> Show available search fields for the database.
+> 显示数据库可用的搜索字段。
 
 **-links**
-> Show available cross-database links.
+> 显示可用的跨数据库链接。
 
 **-help**
-> Print usage information.
+> 打印用法信息。
 
 **-email** _address_
-> E-mail address to send with requests.
+> 随请求发送的电子邮件地址。
 
 # CAVEATS
 
-Part of the edirect package from NCBI. Requires internet connection. Output is in XML format by default.
+属于 NCBI 的 edirect 软件包。需要互联网连接。输出默认为 XML 格式。
 
 # INSTALL
 

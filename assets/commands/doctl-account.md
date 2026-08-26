@@ -1,14 +1,14 @@
 # TAGLINE
 
-display DigitalOcean account information
+显示 DigitalOcean 账户信息
 
 # TLDR
 
-**Show account information**
+**显示账户信息**
 
 ```doctl account get```
 
-**Show rate limit status**
+**显示速率限制状态**
 
 ```doctl account ratelimit```
 
@@ -19,16 +19,16 @@ display DigitalOcean account information
 # SUBCOMMANDS
 
 **get**
-> Display account information.
+> 显示账户信息。
 
 **ratelimit**
-> Show API rate limit status.
+> 显示 API 速率限制状态。
 
 # DESCRIPTION
 
-**doctl account** displays information about your DigitalOcean account including email, UUID, status, and API rate limits.
+**doctl account** 显示你的 DigitalOcean 账户信息，包括邮箱、UUID、状态和 API 速率限制。
 
-The command provides quick access to account details without navigating the web console. This is useful for verifying which account you're currently authenticated with, especially when managing multiple contexts. The ratelimit subcommand helps monitor API usage to avoid exceeding rate limits during automated operations or intensive scripting.
+该命令无需进入网页控制台即可快速查看账户详情。适合用来确认当前认证的是哪个账户，尤其是在管理多个上下文时。ratelimit 子命令有助于监控 API 用量，避免在自动化操作或密集脚本执行时超出速率限制。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ The command provides quick access to account details without navigating the web 
 ```[Documentation](https://docs.digitalocean.com/reference/doctl/)```
 
 <!-- verified: 2026-07-11 -->
-

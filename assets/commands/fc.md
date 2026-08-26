@@ -1,26 +1,26 @@
 # TAGLINE
 
-list, edit, and re-execute shell commands
+列出、编辑并重新执行 shell 命令
 
 # TLDR
 
-**Edit and rerun** last command
+**编辑并重新运行**上一条命令
 
 ```fc```
 
-**List recent commands**
+**列出最近的命令**
 
 ```fc -l```
 
-**List commands without** numbers
+**列出命令但不带**编号
 
 ```fc -ln [10] [20]```
 
-**Rerun command** by number
+按编号**重新运行命令**
 
 ```fc -s [15]```
 
-**Edit specific command**
+**编辑特定命令**
 
 ```fc [20]```
 
@@ -31,41 +31,41 @@ list, edit, and re-execute shell commands
 # PARAMETERS
 
 _FIRST_
-> First command (number or string).
+> 起始命令（编号或字符串）。
 
 _LAST_
-> Last command in range.
+> 范围的结束命令。
 
 **-l**
-> List commands without editing.
+> 列出命令而不进入编辑。
 
 **-n**
-> Suppress command numbers in listing.
+> 列出时不显示命令编号。
 
 **-r**
-> Reverse order of listing.
+> 反转列表顺序。
 
 **-s** [_OLD=NEW_]
-> Rerun command, optionally with substitution.
+> 重新运行命令，可选文本替换。
 
 **-e** _EDITOR_
-> Use specified editor.
+> 使用指定的编辑器。
 
 # DESCRIPTION
 
-**fc** is a shell builtin for listing, editing, and re-executing commands from history. It opens commands in an editor for modification before execution, enabling quick fixes to previous commands.
+**fc** 是一个 shell 内建命令，用于列出、编辑和重新执行历史中的命令。它会在编辑器中打开命令供修改后再执行，便于快速修正之前的命令。
 
-The command can list history entries, open single commands or ranges in an editor, and directly re-execute commands with optional text substitution. The default editor is taken from FCEDIT, EDITOR, or vi.
+该命令可以列出历史条目，在编辑器中打开单条或一段命令，并通过可选的文本替换直接重新执行命令。默认编辑器依次取自 FCEDIT、EDITOR 或 vi。
 
-fc is particularly useful for fixing typos in long commands or re-running complex pipelines with modifications.
+fc 特别适合修正长命令中的拼写错误，或在修改后重新运行复杂的管道。
 
 # CAVEATS
 
-Only works with interactive shell history. Editing spawns external editor. Substitution syntax is limited. History must be enabled.
+只适用于交互式 shell 的历史记录。编辑时会启动外部编辑器。替换语法功能有限。必须启用历史记录。
 
 # HISTORY
 
-fc (fix command) is a **POSIX-specified** shell builtin present in Korn shell, Bash, and Zsh. It originated in the Korn shell as a way to edit and re-execute command history entries.
+fc（fix command）是 **POSIX 规定**的 shell 内建命令，存在于 Korn shell、Bash 和 Zsh 中。它起源于 Korn shell，作为编辑和重新执行命令历史条目的手段。
 
 # INSTALL
 

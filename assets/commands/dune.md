@@ -1,34 +1,34 @@
 # TAGLINE
 
-composable build system for OCaml projects
+面向 OCaml 项目的可组合构建系统
 
 # TLDR
 
-**Build the project**
+**构建项目**
 
 ```dune build```
 
-**Run tests**
+**运行测试**
 
 ```dune test```
 
-**Run an executable**
+**运行可执行程序**
 
 ```dune exec [program]```
 
-**Clean build artifacts**
+**清理构建产物**
 
 ```dune clean```
 
-**Build and watch for changes**
+**构建并监视变更**
 
 ```dune build --watch```
 
-**Format code**
+**格式化代码**
 
 ```dune fmt```
 
-**Create new project**
+**创建新项目**
 
 ```dune init project [name]```
 
@@ -39,57 +39,57 @@ composable build system for OCaml projects
 # PARAMETERS
 
 **build** [_targets_]
-> Build specified targets or all.
+> 构建指定目标或全部目标。
 
 **test**
-> Run tests.
+> 运行测试。
 
 **exec** _program_
-> Build and execute program.
+> 构建并执行程序。
 
 **clean**
-> Remove build artifacts.
+> 移除构建产物。
 
 **init** _component_ _name_
-> Initialize new component (project, library, executable, test).
+> 初始化新组件（project、library、executable、test）。
 
 **fmt**
-> Format source code using ocamlformat.
+> 使用 ocamlformat 格式化源代码。
 
 **promote**
-> Promote expected test outputs.
+> 提升预期的测试输出。
 
 **cache**
-> Manage the shared build artifact cache.
+> 管理共享的构建产物缓存。
 
 **install**
-> Install packages defined in the project.
+> 安装项目中定义的软件包。
 
 **--watch**, **-w**
-> Rebuild continuously on file changes.
+> 文件变化时持续重新构建。
 
 **--force**
-> Force rebuild of all targets.
+> 强制重新构建所有目标。
 
 **--verbose**
-> Display full command lines of executed programs.
+> 显示所执行程序的完整命令行。
 
 # CONFIGURATION
 
 **dune**
-> Per-directory build configuration files using S-expression syntax defining libraries, executables, and tests.
+> 每个目录的构建配置文件，使用 S 表达式语法定义库、可执行程序和测试。
 
 **dune-project**
-> Project-level configuration at repository root specifying project metadata and language version.
+> 位于仓库根目录的项目级配置，指定项目元数据和语言版本。
 
 **dune-workspace**
-> Optional workspace configuration for multi-context builds and advanced project settings.
+> 可选的工作区配置，用于多上下文构建和高级项目设置。
 
 # DESCRIPTION
 
-**Dune** is the standard build system for OCaml and Reason projects. It automatically discovers project structure, handles dependencies, and provides fast incremental builds with caching.
+**Dune** 是 OCaml 和 Reason 项目的标准构建系统。它能自动发现项目结构、处理依赖，并借助缓存提供快速的增量构建。
 
-Projects are configured with **dune** files using an S-expression syntax. Dune integrates with opam for package management and supports cross-compilation, multiple build contexts, and IDE integration.
+项目通过使用 S 表达式语法的 **dune** 文件进行配置。Dune 与 opam 集成以进行软件包管理，并支持交叉编译、多个构建上下文和 IDE 集成。
 
 # DUNE FILE EXAMPLE
 
@@ -109,11 +109,11 @@ Projects are configured with **dune** files using an S-expression syntax. Dune i
 
 # CAVEATS
 
-Requires OCaml or Reason compiler. Build artifacts go in the _build directory. Dune files use S-expression syntax, not YAML or TOML. Package management requires opam.
+需要 OCaml 或 Reason 编译器。构建产物放在 _build 目录中。Dune 文件使用 S 表达式语法，而不是 YAML 或 TOML。软件包管理依赖 opam。
 
 # HISTORY
 
-Dune was originally called **jbuilder**, created by **Jane Street** in **2016**. It was renamed to Dune in **2018** and became the de facto standard build system for the OCaml ecosystem. The project aims to provide a modern, fast, and user-friendly build experience.
+Dune 最初名为 **jbuilder**，由 **Jane Street** 于 **2016 年**创建。它在 **2018 年**更名为 Dune，并成为 OCaml 生态事实上的标准构建系统。该项目致力于提供现代、快速且对用户友好的构建体验。
 
 # INSTALL
 

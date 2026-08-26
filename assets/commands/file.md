@@ -1,26 +1,26 @@
 # TAGLINE
 
-content-based file type identification
+基于内容的文件类型识别
 
 # TLDR
 
-**Determine file type**
+**判断文件类型**
 
 ```file [filename]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```file [file1] [file2] [file3]```
 
-**Show MIME type**
+**显示 MIME 类型**
 
 ```file --mime-type [filename]```
 
-**Follow symlinks**
+**跟随符号链接**
 
 ```file -L [symlink]```
 
-**Read from stdin**
+**从标准输入读取**
 
 ```cat [file] | file -```
 
@@ -31,44 +31,44 @@ content-based file type identification
 # PARAMETERS
 
 _FILES_
-> Files to identify.
+> 要识别的文件。
 
 **-b**, **--brief**
-> Omit filename from output.
+> 输出中省略文件名。
 
 **-i**, **--mime**
-> Output MIME type and encoding.
+> 输出 MIME 类型和编码。
 
 **--mime-type**
-> Output MIME type only.
+> 仅输出 MIME 类型。
 
 **-L**, **--dereference**
-> Follow symlinks.
+> 跟随符号链接。
 
 **-z**, **--uncompress**
-> Look inside compressed files.
+> 查看压缩文件内部。
 
 **-f** _FILE_
-> Read filenames from file.
+> 从文件中读取文件名列表。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**file** determines file types by examining content rather than extensions. It uses magic number patterns and heuristics from a database to identify formats.
+**file** 通过检查文件内容而非扩展名来判断文件类型。它利用魔数（magic number）模式以及数据库中的启发式规则来识别各种格式。
 
-The tool recognizes thousands of file types including executables, archives, documents, images, and text encodings. It examines file headers and content patterns rather than trusting filename extensions.
+该工具能识别数千种文件类型，包括可执行文件、归档、文档、图像和文本编码。它检查的是文件头和内容模式，而不是轻信文件名扩展名。
 
-file is essential for identifying unknown files and verifying file types in scripts.
+无论是识别未知文件，还是在脚本中验证文件类型，file 都是必不可少的工具。
 
 # CAVEATS
 
-May misidentify corrupted or unusual files. Custom formats may not be recognized. Magic database completeness varies.
+可能误判损坏或异常的文件。自定义格式可能无法被识别。不同环境下魔数数据库的完备程度不一。
 
 # HISTORY
 
-file dates back to **Unix Version 6** (1975). The magic file database approach was developed to identify the many file formats accumulating on Unix systems.
+file 的历史可以追溯到 **Unix Version 6**（1975 年）。magic 文件数据库的方法正是为了应对 Unix 系统上日益增多的文件格式而发展起来的。
 
 # INSTALL
 

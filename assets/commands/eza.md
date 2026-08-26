@@ -1,26 +1,26 @@
 # TAGLINE
 
-modern ls replacement with git integration
+集成 git 的现代 ls 替代品
 
 # TLDR
 
-**List files with** icons and colors
+**列出文件，带**图标和颜色
 
 ```eza --icons```
 
-**Long format with** git status
+**以长格式显示并带** git 状态
 
 ```eza -l --git```
 
-**Show hidden files**
+**显示隐藏文件**
 
 ```eza -a```
 
-**Tree view**
+**树状视图**
 
 ```eza --tree --level [2]```
 
-**Sort by modification** time
+**按修改时间排序**
 
 ```eza -l --sort modified```
 
@@ -31,56 +31,56 @@ modern ls replacement with git integration
 # PARAMETERS
 
 _FILES_
-> Files or directories to list (default: current directory).
+> 要列出的文件或目录（默认：当前目录）。
 
 **-l**, **--long**
-> Display detailed list format.
+> 以详细的列表格式显示。
 
 **-a**, **--all**
-> Show hidden files (dotfiles).
+> 显示隐藏文件（点文件）。
 
 **--tree**
-> Display as tree structure.
+> 以树状结构显示。
 
 **--level** _N_
-> Tree depth limit.
+> 树深度限制。
 
 **--git**
-> Show git status for each file.
+> 显示每个文件的 git 状态。
 
 **--icons**
-> Display file type icons.
+> 显示文件类型图标。
 
 **-h**, **--header**
-> Show column headers.
+> 显示列标题。
 
 **--sort** _FIELD_
-> Sort by: name, size, modified, accessed, created.
+> 排序依据：name、size、modified、accessed、created。
 
 **-r**, **--reverse**
-> Reverse sort order.
+> 反转排序顺序。
 
 **--group-directories-first**
-> List directories before files.
+> 目录排在文件之前。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**eza** is a modern replacement for ls, written in Rust. It provides colorful output, git integration, extended attributes display, and tree view capabilities out of the box.
+**eza** 是一个用 Rust 编写的现代 ls 替代品。开箱即用地提供彩色输出、git 集成、扩展属性显示和树状视图功能。
 
-The tool improves on ls with features like git status integration, file icons, and better defaults for human-readable output. It recognizes many file types and displays them with distinctive colors and icons.
+相比 ls，它在 git 状态集成、文件图标以及更适合人类阅读的输出默认值等方面有所改进。它能识别多种文件类型，并以醒目的颜色和图标显示。
 
-eza is designed as a drop-in ls replacement while adding modern features developers expect from file listing tools.
+eza 被设计为 ls 的直接替代品，同时加入开发者期望的现代文件列表特性。
 
 # CAVEATS
 
-Requires terminal with color support. Icons need compatible font (Nerd Font). Git integration adds overhead in large repos. Not POSIX-compliant.
+需要支持颜色的终端。图标需要兼容字体（Nerd Font）。git 集成在大型仓库中会带来额外开销。不符合 POSIX 标准。
 
 # HISTORY
 
-eza is a maintained fork of **exa**, which was unmaintained since 2023. It continues development with new features and bug fixes, preserving exa's modern approach to file listing while actively maintaining the codebase.
+eza 是 **exa** 的活跃维护分支，exa 自 2023 年起无人维护。eza 在保留 exa 现代化文件列表理念的同时继续开发新功能并修复缺陷，持续维护代码库。
 
 # INSTALL
 

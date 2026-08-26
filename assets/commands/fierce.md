@@ -1,26 +1,26 @@
 # TAGLINE
 
-DNS reconnaissance and subdomain discovery tool
+DNS 侦察与子域名发现工具
 
 # TLDR
 
-**DNS reconnaissance on** domain
+**对域名进行 DNS 侦察**
 
 ```fierce --domain [example.com]```
 
-**Use custom DNS** server
+**使用自定义 DNS**服务器
 
 ```fierce --domain [example.com] --dns-servers [8.8.8.8]```
 
-**Search with wordlist**
+**使用字典搜索**
 
 ```fierce --domain [example.com] --subdomain-file [wordlist.txt]```
 
-**Expand search range**
+**扩大搜索范围**
 
 ```fierce --domain [example.com] --wide```
 
-**Output to file**
+**输出到文件**
 
 ```fierce --domain [example.com] > [output.txt]```
 
@@ -31,41 +31,41 @@ DNS reconnaissance and subdomain discovery tool
 # PARAMETERS
 
 **--domain** _DOMAIN_
-> Target domain to scan.
+> 要扫描的目标域名。
 
 **--dns-servers** _SERVERS_
-> Custom DNS servers.
+> 自定义 DNS 服务器。
 
 **--subdomain-file** _FILE_
-> Wordlist for subdomain bruteforce.
+> 用于子域名暴力破解的字典文件。
 
 **--wide**
-> Scan entire class C of found hosts.
+> 扫描已发现主机所在的整个 C 类网段。
 
 **--traverse** _N_
-> Scan adjacent IPs.
+> 扫描相邻的 IP。
 
 **--delay** _SEC_
-> Delay between queries.
+> 查询之间的延迟。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fierce** is a DNS reconnaissance tool that locates non-contiguous IP space and hostnames for a target. It performs zone transfers, subdomain brute forcing, and adjacent IP discovery.
+**fierce** 是一款 DNS 侦察工具，用于定位目标的非连续 IP 空间和主机名。它可以执行区域传送、子域名暴力破解以及相邻 IP 探测。
 
-The tool attempts DNS zone transfers first, then falls back to dictionary-based subdomain enumeration. When hosts are found, it scans nearby IP addresses to discover additional systems.
+该工具会首先尝试 DNS 区域传送，失败后回退到基于字典的子域名枚举。发现主机后，它还会扫描附近的 IP 地址，以找出更多系统。
 
-fierce is used in penetration testing for initial target enumeration and attack surface mapping.
+fierce 常用于渗透测试中的初始目标枚举和攻击面测绘。
 
 # CAVEATS
 
-Only use against authorized targets. Zone transfers usually fail on properly configured servers. DNS queries may be logged.
+只能对已授权的目标使用。配置得当的服务器通常会让区域传送失败。DNS 查询可能被日志记录。
 
 # HISTORY
 
-fierce was created by **RSnake** (Robert Hansen) as a DNS reconnaissance tool for penetration testers. The Python 3 rewrite modernized the original Perl script for current security workflows.
+fierce 由 **RSnake**（Robert Hansen）创建，是一款面向渗透测试人员的 DNS 侦察工具。Python 3 重写版对原来的 Perl 脚本做了现代化改造，以融入当前的安全工作流程。
 
 # INSTALL
 

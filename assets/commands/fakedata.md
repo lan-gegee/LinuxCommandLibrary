@@ -1,34 +1,34 @@
 # TAGLINE
 
-test data generator for development
+面向开发的测试数据生成器
 
 # TLDR
 
-**List available generators**
+**列出可用的生成器**
 
 ```fakedata --generators```
 
-**Generate fake names**
+生成假姓名
 
 ```fakedata name```
 
-**Combine generators** (one column each)
+组合多个生成器（各占一列）
 
 ```fakedata name email```
 
-**Generate a specific number of rows**
+**生成指定数量的行**
 
 ```fakedata -l [10] name email```
 
-**Output as CSV**
+以 CSV 格式输出
 
 ```fakedata -f csv name email```
 
-**Output as SQL INSERT statements**
+以 SQL INSERT 语句输出
 
 ```fakedata -f sql name email```
 
-**Generate from a custom template** (generator names capitalized)
+从自定义模板生成（生成器名首字母大写）
 
 ```echo "{{Name}},{{Email}}" | fakedata```
 
@@ -39,21 +39,21 @@ test data generator for development
 # PARAMETERS
 
 **-l**, **--limit** _count_
-> Number of rows to generate (default 10).
+> 要生成的行数（默认 10）。
 
 **-f**, **--format** _format_
-> Output format: csv, tab, or sql.
+> 输出格式：csv、tab 或 sql。
 
 **--generators**
-> List all available generators and exit.
+> 列出所有可用的生成器后退出。
 
 # DESCRIPTION
 
-**fakedata** generates fake data for testing and development. It provides numerous data generators for creating realistic but synthetic information including names, emails, addresses, phone numbers, dates, numbers, and custom format strings.
+**fakedata** 为测试和开发生成假数据。它提供大量数据生成器，可创建逼真但合成的信息，包括姓名、邮箱、地址、电话号码、日期、数字和自定义格式字符串。
 
-The tool is designed for populating test databases, creating sample datasets, and development work where realistic data is needed without using actual user information. It supports multiple output formats including CSV, JSON, and tab-separated values.
+该工具专为填充测试数据库、创建样例数据集而设计，适用于需要真实感数据但不希望使用真实用户信息的开发场景。它支持多种输出格式，包括 CSV、JSON 和制表符分隔值。
 
-Generators can be combined in a single invocation, and the seed option enables reproducible data generation for consistent test scenarios.
+一次调用可以组合多个生成器；seed 选项支持可复现的数据生成，便于保持测试场景一致。
 
 # SEE ALSO
 
@@ -64,4 +64,3 @@ Generators can be combined in a single invocation, and the seed option enables r
 ```[Source code](https://github.com/lucapette/fakedata)```
 
 <!-- verified: 2026-07-15 -->
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-application sandboxing with Linux namespaces
+基于 Linux 命名空间的应用沙箱
 
 # TLDR
 
-**Integrate** firejail with desktop environment
+**把 firejail 集成**到桌面环境
 
 ```sudo firecfg```
 
-Open a **restricted** Firefox
+打开一个**受限的** Firefox
 
 ```firejail [firefox]```
 
-Start restricted Apache on specific **network**
+在特定**网络**上启动受限的 Apache
 
 ```firejail --net=[eth0] --ip=[192.168.1.244] [/etc/init.d/apache2] [start]```
 
-**List** running sandboxes
+**列出**正在运行的沙箱
 
 ```firejail --list```
 
-List **network activity** from sandboxes
+列出沙箱的**网络活动**
 
 ```firejail --netstats```
 
-**Shutdown** a running sandbox
+**关闭**一个正在运行的沙箱
 
 ```firejail --shutdown=[7777]```
 
-Run **highly restricted** Firefox session
+运行**高度受限的** Firefox 会话
 
 ```firejail --seccomp --private --private-dev --private-tmp --protocol=inet firefox --new-instance --no-remote --safe-mode --private-window```
 
-Use **custom hosts** file
+使用**自定义 hosts** 文件
 
 ```firejail --hosts-file=[~/myhosts] [curl http://mysite.arpa]```
 
@@ -42,50 +42,50 @@ Use **custom hosts** file
 
 # DESCRIPTION
 
-**firejail** securely sandboxes processes using Linux namespaces, seccomp-bpf, and capabilities. It isolates applications from the rest of the system for security.
+**firejail** 使用 Linux 命名空间、seccomp-bpf 和 capabilities 安全地把进程关进沙箱。出于安全考虑，它会将应用程序与系统的其余部分隔离。
 
-Provides per-application profiles for common programs like Firefox and VLC.
+它为 Firefox、VLC 等常见程序提供按应用划分的 profile。
 
 # PARAMETERS
 
 **--list**
-> List running sandboxes
+> 列出正在运行的沙箱
 
 **--netstats**
-> Show network activity
+> 显示网络活动
 
 **--shutdown** _pid_
-> Stop sandbox by PID
+> 按 PID 停止沙箱
 
 **--net** _interface_
-> Use network namespace
+> 使用网络命名空间
 
 **--ip** _address_
-> Assign IP address
+> 分配 IP 地址
 
 **--seccomp**
-> Enable seccomp filtering
+> 启用 seccomp 过滤
 
 **--private**
-> Use private home directory
+> 使用私有的主目录
 
 **--private-tmp**
-> Use private /tmp
+> 使用私有的 /tmp
 
 **--private-dev**
-> Use private /dev
+> 使用私有的 /dev
 
 # CONFIGURATION
 
 **/etc/firejail/[application].profile**
-> Application-specific sandboxing profiles defining restrictions and permissions.
+> 应用专属的沙箱 profile，定义各项限制和权限。
 
 **~/.config/firejail/[application].profile**
-> User-level custom profiles that override system defaults.
+> 用户级自定义 profile，会覆盖系统默认配置。
 
 # CAVEATS
 
-Some applications may not work correctly in sandbox. Profiles in /etc/firejail/. Use firecfg to integrate with desktop.
+某些应用在沙箱中可能无法正常运行。系统级 profile 位于 /etc/firejail/。可用 firecfg 完成与桌面环境的集成。
 
 # INSTALL
 

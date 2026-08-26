@@ -1,22 +1,22 @@
 # TAGLINE
 
-start stopped containers
+启动已停止的容器
 
 # TLDR
 
-**Start a stopped container**
+**启动一个已停止的容器**
 
 ```docker start [container]```
 
-**Start multiple containers**
+**启动多个容器**
 
 ```docker start [container1] [container2]```
 
-**Start with attached output**
+**启动并附加输出**
 
 ```docker start -a [container]```
 
-**Start interactively**
+**交互式启动**
 
 ```docker start -ai [container]```
 
@@ -27,23 +27,23 @@ start stopped containers
 # PARAMETERS
 
 **-a**, **--attach**
-> Attach STDOUT/STDERR and forward signals.
+> 附加 STDOUT/STDERR 并转发信号。
 
 **-i**, **--interactive**
-> Attach container's STDIN.
+> 附加容器的 STDIN。
 
 **--detach-keys** _string_
-> Override the key sequence for detaching a container.
+> 覆盖脱离容器所用的按键序列。
 
 **--checkpoint** _string_
-> Restore from this checkpoint.
+> 从该检查点恢复。
 
 **--checkpoint-dir** _string_
-> Use a custom checkpoint storage directory.
+> 使用自定义的检查点存储目录。
 
 # DESCRIPTION
 
-**docker start** starts one or more stopped containers. Containers retain their configuration from when they were created or last run.
+**docker start** 启动一个或多个已停止的容器。容器会保留其创建时或上次运行时的配置。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ start stopped containers
 # SEE ALSO
 
 [docker-container-start](/man/docker-container-start)(1), [docker-run](/man/docker-run)(1)
-

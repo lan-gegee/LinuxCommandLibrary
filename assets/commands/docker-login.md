@@ -1,26 +1,26 @@
 # TAGLINE
 
-authenticate with Docker registries
+向 Docker 镜像仓库进行身份验证
 
 # TLDR
 
-**Log in to Docker Hub** using device code flow
+**登录 Docker Hub**，使用设备码流程
 
 ```docker login```
 
-**Log in to Docker Hub** with a username (prompts for password)
+**登录 Docker Hub**，指定用户名（会提示输入密码）
 
 ```docker login -u [username]```
 
-**Log in to a specific** registry
+**登录特定的**镜像仓库
 
 ```docker login [registry.example.com]```
 
-**Log in non-interactively** using stdin for the password
+**非交互式登录**，密码通过 stdin 提供
 
 ```echo [token] | docker login -u [username] --password-stdin```
 
-**Log in to GitHub** Container Registry
+**登录 GitHub** Container Registry
 
 ```echo [PAT] | docker login ghcr.io -u [username] --password-stdin```
 
@@ -31,26 +31,26 @@ authenticate with Docker registries
 # PARAMETERS
 
 **-u**, **--username** _string_
-> Username.
+> 用户名。
 
 **-p**, **--password** _string_
-> Password or Personal Access Token (insecure, prefer --password-stdin).
+> 密码或个人访问令牌（不安全，建议使用 --password-stdin）。
 
 **--password-stdin**
-> Take password from stdin.
+> 从 stdin 读取密码。
 
 # DESCRIPTION
 
-**docker login** authenticates with a Docker registry. When no server is specified, it authenticates to Docker Hub using a device code flow by default, unless --username is provided. Credentials are stored in ~/.docker/config.json or in an external credential store (such as the OS native keychain) when configured. Authentication is required to push images and access private repositories.
+**docker login** 用于向 Docker 镜像仓库进行身份验证。未指定服务器时，除非提供了 --username，否则默认使用设备码流程向 Docker Hub 验证身份。凭据存储在 ~/.docker/config.json 中，或在已配置的情况下存储在外部凭据管理器（如操作系统原生钥匙串）中。推送镜像和访问私有软件仓库都需要先进行身份验证。
 
 # CONFIGURATION
 
 **~/.docker/config.json**
-> Stores registry credentials and authentication tokens. Uses credential helpers for secure storage when available.
+> 存储镜像仓库凭据和身份验证令牌。在可用时使用凭据辅助工具进行安全存储。
 
 # CAVEATS
 
-Using -p exposes the password in shell history and log files. Always prefer --password-stdin for scripted logins.
+使用 -p 会把密码暴露在 shell 历史记录和日志文件中。脚本化登录时务必使用 --password-stdin。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ Using -p exposes the password in shell history and log files. Always prefer --pa
 # SEE ALSO
 
 [docker-pull](/man/docker-pull)(1), [docker-build](/man/docker-build)(1)
-

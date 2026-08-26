@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create a new Docker Buildx builder instance
+创建新的 Docker Buildx 构建器实例
 
 # TLDR
 
-**Create** a builder using the current Docker context
+使用当前 Docker context **创建**构建器
 
 ```docker buildx create```
 
-**Create** a named builder and switch to it
+**创建**命名构建器并切换到它
 
 ```docker buildx create --name [mybuilder] --use```
 
-**Create** a multi-platform builder in a container
+在容器中**创建**多平台构建器
 
 ```docker buildx create --name [multiarch] --driver docker-container --platform linux/amd64,linux/arm64 --use```
 
-**Append** a node to an existing builder
+向现有构建器**追加**一个节点
 
 ```docker buildx create --name [mybuilder] --append [context_name]```
 
-**Create** a builder with a custom BuildKit config
+**创建**带自定义 BuildKit 配置的构建器
 
 ```docker buildx create --buildkitd-config [path/to/buildkitd.toml]```
 
@@ -31,54 +31,54 @@ Create a new Docker Buildx builder instance
 # PARAMETERS
 
 **--append**
-> Append a node to an existing builder instead of creating a new one. Requires **--name**.
+> 向现有构建器追加一个节点，而不是新建构建器。需要配合 **--name**。
 
 **--bootstrap**
-> Boot the builder after creation.
+> 创建后立即启动构建器。
 
 **--buildkitd-config** _file_
-> BuildKit daemon configuration file.
+> BuildKit 守护进程配置文件。
 
 **--buildkitd-flags** _flags_
-> Extra flags passed to the BuildKit daemon; override values in **--buildkitd-config**.
+> 传给 BuildKit 守护进程的额外标志；会覆盖 **--buildkitd-config** 中的值。
 
 **--driver** _driver_
-> Builder driver: **docker** (default), **docker-container**, **kubernetes**, or **remote**.
+> 构建器驱动：**docker**（默认）、**docker-container**、**kubernetes** 或 **remote**。
 
 **--driver-opt** _options_
-> Driver-specific options (for example **network=host** for **docker-container**).
+> 驱动专属选项（例如为 **docker-container** 设置 **network=host**）。
 
 **--leave**
-> Remove a node from a builder instead of creating one. Requires **--name** and **--node**.
+> 从构建器中移除一个节点，而不是创建节点。需要配合 **--name** 和 **--node**。
 
 **--name** _name_
-> Builder instance name. Auto-generated if omitted.
+> 构建器实例名称。若省略则自动生成。
 
 **--node** _node_
-> Node name to create or modify. Defaults to the builder name with a numeric suffix.
+> 要创建或修改的节点名称。默认为构建器名称加数字后缀。
 
 **--platform** _platforms_
-> Comma-separated platforms for the node (for example **linux/amd64,linux/arm64**).
+> 该节点支持的平台，逗号分隔（例如 **linux/amd64,linux/arm64**）。
 
 **--timeout** _duration_
-> Timeout for loading builder status (default: **20s**).
+> 加载构建器状态的超时时间（默认：**20s**）。
 
 **--use**
-> Switch the current builder to the newly created instance.
+> 将当前使用的构建器切换为新创建的实例。
 
 # DESCRIPTION
 
-**docker buildx create** provisions a new Buildx builder instance that points at a Docker context or endpoint. A builder is an isolated environment where **docker buildx build** runs; each Docker context also receives a default builder.
+**docker buildx create** 会配置一个新的 Buildx 构建器实例，指向某个 Docker context 或端点。构建器是一个隔离的环境，**docker buildx build** 在其中运行；每个 Docker context 也各自拥有一个默认构建器。
 
-The optional _context_ argument is the name from **docker context ls**. An _endpoint_ can be a Docker socket address (the value of **DOCKER_HOST**). When neither is given, the active Docker configuration determines the target.
+可选的 _context_ 参数是 **docker context ls** 中列出的名称。_endpoint_ 可以是 Docker 套接字地址（即 **DOCKER_HOST** 的值）。两者都未提供时，由当前活动的 Docker 配置决定目标。
 
-Drivers control where builds execute. The **docker** driver uses the daemon's built-in builder and implies **--load** on builds, but cannot build multi-platform images or export cache. **docker-container** spawns a dedicated BuildKit container and supports multi-platform builds and cache export; images are not loaded into **docker images** unless **--load** is used. **kubernetes** runs BuildKit in pods. **remote** connects to an externally managed BuildKit daemon.
+驱动决定构建在哪里执行。**docker** 驱动使用守护进程内置的构建器，构建时隐含 **--load**，但无法构建多平台镜像或导出缓存。**docker-container** 会启动一个专用的 BuildKit 容器，支持多平台构建和缓存导出；除非使用 **--load**，镜像不会加载进 **docker images**。**kubernetes** 在 Pod 中运行 BuildKit。**remote** 连接到外部管理的 BuildKit 守护进程。
 
-Use **--append** to add another node (context/endpoint) to an existing named builder so Buildx can route builds to the node that supports the requested platform. Use **--leave** with **--name** and **--node** to detach a node.
+用 **--append** 可以把另一个节点（context/endpoint）加入现有的命名构建器，让 Buildx 将构建路由到支持所需平台的节点。用 **--leave** 配合 **--name** 和 **--node** 可将节点从构建器上分离。
 
 # CAVEATS
 
-The **docker** driver does not support multi-platform image builds or cache export. **docker-container**, **kubernetes**, and **remote** drivers require **docker buildx build --load** to make images appear in **docker images**. Remote and Kubernetes builders may show as inactive if their endpoint is unreachable within **--timeout**.
+**docker** 驱动不支持多平台镜像构建或缓存导出。**docker-container**、**kubernetes** 和 **remote** 驱动需要通过 **docker buildx build --load** 才能让镜像出现在 **docker images** 中。如果远程或 Kubernetes 构建器的端点在 **--timeout** 内不可达，它们可能显示为非活动状态。
 
 # INSTALL
 

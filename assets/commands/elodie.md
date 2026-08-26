@@ -1,38 +1,38 @@
 # TAGLINE
 
-EXIF-based photo, video, and audio organizer
+基于 EXIF 的照片、视频和音频整理器
 
 # TLDR
 
-**Import** files into a destination library
+**导入**文件到目标媒体库
 
 ```elodie.py import --destination=["/path/to/library"] ["/path/to/photos"]```
 
-**Dry-run** an import (no changes)
+**试运行**导入（不做任何更改）
 
 ```elodie.py import --dry-run --destination=["/path/to/library"] ["/path/to/photos"]```
 
-**Import** and set location when EXIF lacks it
+**在 EXIF 缺失位置信息时**导入并设置位置
 
 ```elodie.py import --destination=["/path/to/library"] --location=["Las Vegas, NV"] ["/path/to/photos"]```
 
-**Update** location EXIF and reorganize
+**更新**位置 EXIF 并重新整理
 
 ```elodie.py update --location=["Las Vegas, NV"] [file.jpg]...```
 
-**Update** capture time
+**更新**拍摄时间
 
 ```elodie.py update --time=["2015-04-15"] [file.jpg]...```
 
-**Regenerate** checksum database
+**重新生成**校验和数据库
 
 ```elodie.py generate-db --source=["/path/to/library"]```
 
-**Verify** library against bit rot
+**校验**媒体库是否发生位腐坏（bit rot）
 
 ```elodie.py verify```
 
-**Run** plugin batch operations (dry-run)
+**运行**插件批量操作（试运行）
 
 ```elodie.py batch --dry-run```
 
@@ -42,43 +42,38 @@ EXIF-based photo, video, and audio organizer
 
 # DESCRIPTION
 
-**Elodie** is a personal EXIF-based assistant for organizing photos, videos, and audio. It reads metadata (via **ExifTool**), copies media into a structured library, can update location/time/title/album tags, and optionally moves originals to the trash after import.
+**Elodie** 是一个基于 EXIF 的个人照片、视频和音频整理助手。它读取元数据（通过 **ExifTool**），将媒体复制到结构化的媒体库中，可以更新位置/时间/标题/相册标签，并可在导入后选择性地把原文件移入回收站。
 
-Primary entry point from the repository is **elodie.py** (run after **pip install -r requirements.txt** in a clone). Requires **ExifTool** on PATH (**exiftool -ver**); video features need ExifTool 10.20+, HEIC 11.50+, and geolocation-to-city translation 13.13+.
+仓库中的主入口是 **elodie.py**（在克隆后执行 **pip install -r requirements.txt** 再运行）。PATH 中必须有 **ExifTool**（用 **exiftool -ver** 检查）；视频功能需要 ExifTool 10.20+，HEIC 需要 11.50+，地理位置到城市的转换需要 13.13+。
 
-Library layout and naming are configurable via **~/.elodie/config.ini** (or **ELODIE_APPLICATION_DIRECTORY**). A **hash.json** under **~/.elodie/** tracks SHA-256 signatures for duplicate detection and **verify**.
+媒体库的布局和命名可通过 **~/.elodie/config.ini**（或 **ELODIE_APPLICATION_DIRECTORY**）配置。**~/.elodie/** 下的 **hash.json** 记录 SHA-256 签名，用于重复检测和 **verify**。
 
 # PARAMETERS
 
 **import** [*paths*...]
-
-> Copy media into **--destination** (required), reading EXIF. Options include **--source**, **--file**, **--album-from-folder**, **--trash**, **--allow-duplicates**, **--location**, **--time**, **--exclude-regex**, **--debug**, **--dry-run**.
+> 将媒体复制到必需的 **--destination** 中，读取 EXIF。选项包括 **--source**、**--file**、**--album-from-folder**、**--trash**、**--allow-duplicates**、**--location**、**--time**、**--exclude-regex**、**--debug**、**--dry-run**。
 
 **update** *files*...
-
-> Update EXIF and reorganize. Options: **--album**, **--location**, **--time**, **--title**, **--debug**, **--dry-run**.
+> 更新 EXIF 并重新整理。选项：**--album**、**--location**、**--time**、**--title**、**--debug**、**--dry-run**。
 
 **generate-db**
-
-> Rebuild **hash.json** from **--source** (required).
+> 从必需的 **--source** 重建 **hash.json**。
 
 **batch**
-
-> Run **batch()** for all plugins (**--debug**, **--dry-run**).
+> 为所有插件运行 **batch()**（**--debug**、**--dry-run**）。
 
 **verify**
+> 对照存储的校验和检查媒体库是否发生位腐坏。
 
-> Check the library against stored checksums for bit rot.
-
-Use **elodie.py** *command* **--help** for full option text.
+完整选项说明请使用 elodie.py *command* **--help** 查看。
 
 # CONFIGURATION
 
-Place **config.ini** in **~/.elodie/** (or under **ELODIE_APPLICATION_DIRECTORY**). Sections can define custom folder/file path templates and **[Exclusions]** patterns. Command-line **--exclude-regex** also skips paths at import time. **--location** / **--time** on import overwrite existing EXIF when provided; use them when data is missing or known wrong.
+将 **config.ini** 放在 **~/.elodie/**（或 **ELODIE_APPLICATION_DIRECTORY** 之下）。其中的节可定义自定义文件夹/文件路径模板以及 **[Exclusions]** 模式。命令行的 **--exclude-regex** 也会在导入时跳过匹配的路径。提供 **--location** / **--time** 时会在导入时覆盖现有 EXIF；在数据缺失或确定有误时使用它们。
 
 # CAVEATS
 
-Depends on system ExifTool; missing or old ExifTool limits formats and geolocation. MapQuest integration is deprecated in favor of ExifTool. Always prefer **--dry-run** before bulk imports. Default import **copies** files; **--trash** moves sources after success.
+依赖系统上的 ExifTool；ExifTool 缺失或版本过旧会限制支持的格式和地理定位功能。MapQuest 集成已被弃用，推荐使用 ExifTool。批量导入前务必先用 **--dry-run**。默认导入方式是**复制**文件；**--trash** 会在成功后将源文件移走。
 
 # SEE ALSO
 

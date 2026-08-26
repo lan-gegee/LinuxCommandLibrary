@@ -1,22 +1,22 @@
 # TAGLINE
 
-display available database configuration options
+显示可用的数据库配置选项
 
 # TLDR
 
-**List engine options**
+**列出数据库引擎选项**
 
 ```doctl databases options engines```
 
-**List available regions**
+**列出可用区域**
 
 ```doctl databases options regions```
 
-**List available sizes**
+**列出可用规格**
 
 ```doctl databases options slugs```
 
-**List available versions**
+**列出可用版本**
 
 ```doctl databases options versions [engine]```
 
@@ -27,24 +27,24 @@ display available database configuration options
 # SUBCOMMANDS
 
 **engines**
-> List available database engines.
+> 列出可用的数据库引擎。
 
 **regions**
-> List available regions.
+> 列出可用的区域。
 
 **slugs**
-> List available sizes.
+> 列出可用的规格。
 
 **versions**
-> List available versions for engine.
+> 列出指定引擎的可用版本。
 
 # DESCRIPTION
 
-**doctl databases options** displays available configuration options for DigitalOcean managed databases including supported engines, regions, and sizes. This command helps users determine valid values when creating or modifying database clusters.
+**doctl databases options** 显示 DigitalOcean 托管数据库的可用配置选项，包括支持的引擎、区域和规格。该命令帮助用户在创建或修改数据库集群时确定有效取值。
 
-The tool queries DigitalOcean's API to provide current information about supported database engines (PostgreSQL, MySQL, Redis, MongoDB), geographic regions where databases can be deployed, and available instance sizes (slugs) with their specifications. Version information helps users select appropriate engine versions for compatibility requirements.
+该工具查询 DigitalOcean 的 API，提供关于受支持数据库引擎（PostgreSQL、MySQL、Redis、MongoDB）、可部署数据库的地理区域，以及可用实例规格（slug）及其配置的最新信息。版本信息帮助用户根据兼容性要求选择合适的引擎版本。
 
-This information is essential for planning database deployments and ensuring configurations align with DigitalOcean's current offerings. Options may vary by region and change as DigitalOcean updates their managed database service.
+这些信息对于规划数据库部署以及确保配置符合 DigitalOcean 当前提供的服务至关重要。选项可能因区域而异，并会随 DigitalOcean 更新其托管数据库服务而变化。
 
 # INSTALL
 

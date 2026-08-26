@@ -1,26 +1,26 @@
 # TAGLINE
 
-remove cached DNF repository data
+清除缓存的 DNF 软件仓库数据
 
 # TLDR
 
-Remove **cache files**
+清除**缓存文件**
 
 ```dnf clean dbcache```
 
-Mark metadata as **expired**
+将元数据标记为**过期**
 
 ```dnf clean expire-cache```
 
-Remove **repository metadata**
+清除**软件仓库元数据**
 
 ```dnf clean metadata```
 
-Remove **cached packages**
+清除**缓存的软件包**
 
 ```dnf clean packages```
 
-Clean **all** DNF cache
+清理**全部** DNF 缓存
 
 ```dnf clean all```
 
@@ -30,30 +30,30 @@ Clean **all** DNF cache
 
 # DESCRIPTION
 
-**dnf clean** removes temporary files cached by DNF for repositories. This includes metadata, packages, and database files.
+**dnf clean** 清除 DNF 为软件仓库缓存的临时文件，包括元数据、软件包和数据库文件。
 
-Useful for freeing disk space or forcing DNF to refresh metadata from repositories.
+可用于释放磁盘空间，或强制 DNF 下次从软件仓库刷新元数据。
 
 # PARAMETERS
 
 **dbcache**
-> Remove database cache files
+> 清除数据库缓存文件
 
 **expire-cache**
-> Mark metadata as expired
+> 将元数据标记为过期
 
 **metadata**
-> Remove repository metadata
+> 清除软件仓库元数据
 
 **packages**
-> Remove cached packages
+> 清除缓存的软件包
 
 **all**
-> Clean everything (all of the above)
+> 清理全部内容（以上所有）
 
 # CAVEATS
 
-Cleaning cache means DNF must re-download metadata on next use. Cached packages are in /var/cache/dnf. "all" is the most thorough option.
+清理缓存后，DNF 在下次使用时必须重新下载元数据。缓存的软件包位于 /var/cache/dnf。"all" 是最彻底的选项。
 
 # SEE ALSO
 

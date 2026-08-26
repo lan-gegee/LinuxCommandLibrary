@@ -1,30 +1,30 @@
 # TAGLINE
 
-GPU switching utility for Nvidia Optimus laptops
+Nvidia Optimus 笔记本的 GPU 切换工具
 
 # TLDR
 
-**Switch** between GPU modes
+在不同 GPU 模式间**切换**
 
 ```sudo envycontrol [-s|--switch] [nvidia|integrated|hybrid]```
 
-Specify **display manager** manually
+手动指定**显示管理器**
 
 ```envycontrol --dm [gdm|gdm3|sddm|lightdm]```
 
-**Check** current GPU mode
+**查看**当前 GPU 模式
 
 ```sudo envycontrol [-q|--query]```
 
-**Reset** settings
+**重置**设置
 
 ```sudo envycontrol --reset```
 
-Display **help**
+显示**帮助**
 
 ```envycontrol [-h|--help]```
 
-Display **version**
+显示**版本**
 
 ```envycontrol [-v|--version]```
 
@@ -34,33 +34,33 @@ Display **version**
 
 # DESCRIPTION
 
-**envycontrol** is a GPU switching utility specifically designed for Nvidia Optimus laptops running Linux. It provides a streamlined interface for switching between integrated Intel/AMD graphics, hybrid mode (both GPUs active), and dedicated Nvidia GPU mode without requiring manual configuration file editing.
+**envycontrol** 是专为运行 Linux 的 Nvidia Optimus 笔记本设计的 GPU 切换工具。它提供简化的界面，可在集成 Intel/AMD 显卡、混合模式（双 GPU 同时启用）和独立 Nvidia GPU 模式之间切换，无需手动编辑配置文件。
 
-The tool simplifies power management and performance tuning on dual-GPU systems by handling the complex configuration changes needed for GPU mode switching, including display manager setup and driver configuration. Changes require a system reboot to take effect as the underlying graphics stack must be reinitialized.
+该工具通过处理 GPU 模式切换所需的各种复杂配置变更来简化双 GPU 系统的电源管理和性能调优，其中包括显示管理器设置和驱动配置。由于底层图形栈必须重新初始化，更改需要重启系统才能生效。
 
 # PARAMETERS
 
 **-s**, **--switch** _mode_
-> Switch to nvidia, integrated, or hybrid
+> 切换到 nvidia、integrated 或 hybrid 模式
 
 **--dm** _manager_
-> Specify display manager
+> 指定显示管理器
 
 **-q**, **--query**
-> Show current GPU mode
+> 显示当前 GPU 模式
 
 **--reset**
-> Reset to default settings
+> 重置为默认设置
 
 **-h**, **--help**
-> Display help message
+> 显示帮助消息
 
 **-v**, **--version**
-> Display version
+> 显示版本
 
 # CAVEATS
 
-Requires Nvidia Optimus laptop. Changes require reboot to take effect. Display manager must be correctly specified. May conflict with other GPU switching solutions.
+需要 Nvidia Optimus 笔记本。更改需重启后生效。必须正确指定显示管理器。可能与其他 GPU 切换方案冲突。
 
 # INSTALL
 

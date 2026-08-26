@@ -1,22 +1,22 @@
 # TAGLINE
 
-subdomain brute-force scanner
+子域名暴力破解扫描器
 
 # TLDR
 
-Scan for subdomains using **internal wordlist**
+使用**内置字典**扫描子域名
 
 ```dnsmap [example.com]```
 
-Specify **custom wordlist**
+指定**自定义字典**
 
 ```dnsmap [example.com] -w [path/to/wordlist.txt]```
 
-Store results to **CSV file**
+将结果保存到 **CSV 文件**
 
 ```dnsmap [example.com] -c [path/to/file.csv]```
 
-**Ignore** false positive IPs
+**忽略**误报的 IP
 
 ```dnsmap [example.com] -i [123.45.67.89,98.76.54.32]```
 
@@ -26,30 +26,30 @@ Store results to **CSV file**
 
 # DESCRIPTION
 
-**dnsmap** is a subdomain brute-force enumeration tool that uses DNS queries to discover subdomains not listed in public DNS records. It works by attempting to resolve potential subdomain names from a wordlist, identifying which ones successfully resolve to IP addresses.
+**dnsmap** 是一款子域名暴力枚举工具，通过 DNS 查询发现未列入公开 DNS 记录的子域名。它的工作原理是尝试从字典中解析候选子域名，识别哪些能成功解析到 IP 地址。
 
-The tool comes with a built-in wordlist of common subdomain names (www, mail, ftp, etc.), but custom wordlists can be specified for more thorough enumeration. DNS wildcard configurations can cause false positives where all subdomains resolve to the same IP; the -i flag allows filtering out these known wildcard addresses. Results can be saved to CSV format for further analysis. The tool is commonly used in penetration testing reconnaissance to map an organization's DNS footprint and discover potential attack surfaces like development servers, staging environments, or forgotten subdomains.
+该工具内置常见子域名列表（www、mail、ftp 等），也可指定自定义字典做更彻底的枚举。DNS 泛解析配置会导致所有子域名都解析到同一 IP 的误报；使用 -i 标志可以过滤掉这些已知的泛解析地址。结果可保存为 CSV 格式以便进一步分析。该工具常用于渗透测试侦察阶段，用来绘制组织的 DNS 足迹并发现潜在攻击面，例如开发服务器、预发布环境或被遗忘的子域名。
 
 # PARAMETERS
 
 **-w** _wordlist_
-> Use custom wordlist file
+> 使用自定义字典文件
 
 **-c** _file_
-> Output results to CSV file
+> 将结果输出到 CSV 文件
 
 **-i** _IPs_
-> Comma-separated IPs to ignore (false positives)
+> 忽略的 IP 列表（逗号分隔）（误报）
 
 **-d** _delay_
-> Delay between queries (milliseconds)
+> 查询间隔（毫秒）
 
 **-r** _file_
-> Save results to regular file
+> 将结果保存到普通文本文件
 
 # CAVEATS
 
-Use only against authorized domains. May trigger security alerts. DNS wildcards can cause false positives; use -i to filter.
+只能用于已授权的域名。可能触发安全告警。DNS 泛解析会造成误报；可用 -i 过滤。
 
 # INSTALL
 

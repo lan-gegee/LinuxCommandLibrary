@@ -1,20 +1,20 @@
 # TAGLINE
 
-removed interactive DOT graph viewer and editor
+已移除的交互式 DOT 图查看器与编辑器
 
 # TLDR
 
-**dotty has been removed from Graphviz.** Use a maintained viewer instead.
+**dotty 已从 Graphviz 中移除。**请改用仍在维护的查看器。
 
-View a graph interactively with **xdot**
+用 **xdot** 交互式查看图
 
 ```xdot [graph.dot]```
 
-Render to **SVG** and open it in a browser
+渲染为 **SVG** 并在浏览器中打开
 
 ```dot -Tsvg [graph.dot] -o [graph.svg]```
 
-Edit graphs visually with **Gephi**, **yEd**, or a live-preview editor
+用 **Gephi**、**yEd** 或实时预览编辑器可视化地编辑图
 
 ```dot -Tx11 [graph.dot]```
 
@@ -25,36 +25,36 @@ Edit graphs visually with **Gephi**, **yEd**, or a live-preview editor
 # PARAMETERS
 
 _FILES_
-> DOT files to open.
+> 要打开的 DOT 文件。
 
 **-V**
-> Print the version and exit.
+> 打印版本并退出。
 
 **-f**
-> Load and reformat the graph even if it already has layout coordinates.
+> 即使图已带有布局坐标也强制加载并重新排版。
 
 **-lm** _MODE_
-> Set the layout mode: **sync** or **async**.
+> 设置布局模式：**sync** 或 **async**。
 
 # DESCRIPTION
 
-**dotty** was an interactive graph viewer and editor for the DOT language, shipped with Graphviz. Unlike **dot**, which renders a static image, dotty opened a window in which a graph could be panned, zoomed, edited, and re-laid-out, with nodes and edges added or deleted by mouse.
+**dotty** 曾是随 Graphviz 发布的 DOT 语言交互式图查看器和编辑器。与渲染静态图像的 **dot** 不同，dotty 会打开一个窗口，可以在其中平移、缩放、编辑和重新排版图，还能用鼠标增删节点和边。
 
-It was written not in C but in **lefty**, a small programmable graphics language that also came with Graphviz. lefty handled the window and the interaction, and shelled out to `dot` or `neato` for layout. That design made dotty highly scriptable, since its entire behaviour was source code you could edit, but it also tied it to a language nobody else used.
+它不是用 C 写的，而是用 **lefty**——一种同样随 Graphviz 附带的小型可编程图形语言。lefty 负责窗口和交互，布局则调用 `dot` 或 `neato` 完成。这种设计让 dotty 高度可脚本化，因为它的全部行为都是可以修改的源代码，但也把它绑死在一种无人使用的语言上。
 
-**This command no longer exists.** lefty, and with it dotty and lneato, were disabled in the build system in **September 2021**, dropped from the packages published on graphviz.org in **January 2022**, and finally deleted from the repository. Current Graphviz releases do not contain any of them. The code remains in the project's git history for anyone who needs to build an old version.
+**此命令已不存在。** lefty 连同 dotty 和 lneato 于 **2021 年 9 月**在构建系统中被禁用，**2022 年 1 月**起从 graphviz.org 发布的软件包中移除，最终从仓库中删除。当前的 Graphviz 发行版不包含其中任何一个。代码仍保留在项目的 git 历史中，供需要构建旧版本的人使用。
 
 # CAVEATS
 
-If a distribution still ships **dotty**, it is packaging an old Graphviz release. The command requires X11, cannot be built against current Graphviz sources, and receives no fixes.
+如果某个发行版仍在提供 **dotty**，那说明它打包的是旧版 Graphviz。该命令需要 X11，无法针对当前的 Graphviz 源码构建，也不会再获得任何修复。
 
-For interactive viewing, **xdot** is the usual replacement: it is actively maintained, reads the same DOT files, and offers pan, zoom, and click-to-navigate. For editing graphs by hand, general graph editors such as yEd or Gephi are far more capable than dotty ever was, and for a quick look, rendering to SVG with `dot -Tsvg` and opening the result in a browser costs nothing.
+交互式查看方面，**xdot** 是通常的替代品：它维护活跃，读取同样的 DOT 文件，支持平移、缩放和点击跳转。手动编辑图的话，yEd 或 Gephi 等通用图编辑器远比当年的 dotty 强大；而只是想快速看一眼的话，用 `dot -Tsvg` 渲染成 SVG 再用浏览器打开毫无成本。
 
 # HISTORY
 
-dotty came out of the original Graphviz work at **AT&T Bell Labs** and later AT&T Labs Research, in the early **1990s**, when an interactive X11 viewer was the only convenient way to explore a large graph. It was written by Eleftherios Koutsofios on top of his **lefty** language.
+dotty 出自 **AT&T 贝尔实验室**及其后 AT&T 实验室研究部门的早期 Graphviz 工作，时间在 **20 世纪 90 年代初**，当时交互式 X11 查看器还是探索大图的唯一便捷途径。它由 Eleftherios Koutsofios 在自己的 **lefty** 语言之上编写。
 
-Its removal was unusually cautious even by Graphviz standards. The maintainers suspected lefty had been unused for years but, given how widely Graphviz is deployed, staged the removal across several years so that anyone still depending on it would have time to object. Almost nobody did.
+它的移除过程即使按 Graphviz 的标准也称得上格外谨慎。维护者怀疑 lefty 已多年无人使用，但鉴于 Graphviz 部署之广，他们把移除分阶段安排在数年之内，给仍然依赖它的用户留出反对的时间。结果几乎没有人反对。
 
 # INSTALL
 
@@ -85,4 +85,3 @@ Its removal was unusually cautious even by Graphviz standards. The maintainers s
 ```[Documentation](https://graphviz.org/docs/cli/dotty/)```
 
 <!-- verified: 2026-07-14 -->
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage Docker images
+管理 Docker 镜像
 
 # TLDR
 
-**List images**
+**列出镜像**
 
 ```docker image ls```
 
-**Pull an image**
+**拉取一个镜像**
 
 ```docker image pull [image]:[tag]```
 
-**Remove an image**
+**删除一个镜像**
 
 ```docker image rm [image]```
 
-**Build an image**
+**构建一个镜像**
 
 ```docker image build -t [name] [path]```
 
-**Inspect image details**
+**查看镜像详情**
 
 ```docker image inspect [image]```
 
-**Show image history**
+**查看镜像历史**
 
 ```docker image history [image]```
 
-**Remove unused images**
+**清理未使用的镜像**
 
 ```docker image prune```
 
@@ -39,48 +39,48 @@ manage Docker images
 # SUBCOMMANDS
 
 **ls**
-> List images.
+> 列出镜像。
 
 **pull**
-> Download image from registry.
+> 从镜像仓库下载镜像。
 
 **push**
-> Upload image to registry.
+> 将镜像上传到镜像仓库。
 
 **rm**
-> Remove images.
+> 删除镜像。
 
 **build**
-> Build image from Dockerfile.
+> 从 Dockerfile 构建镜像。
 
 **inspect**
-> Display detailed information.
+> 显示详细信息。
 
 **history**
-> Show image layers.
+> 查看镜像层。
 
 **tag**
-> Create image tag.
+> 创建镜像标签。
 
 **prune**
-> Remove unused images.
+> 删除未使用的镜像。
 
 **save**
-> Save image to tar archive.
+> 将镜像保存为 tar 归档。
 
 **load**
-> Load image from tar archive.
+> 从 tar 归档加载镜像。
 
 **import**
-> Import from tarball.
+> 从 tar 包导入。
 
 # DESCRIPTION
 
-**docker image** manages Docker images, which are read-only templates used to create containers. Images contain the application code, runtime, libraries, environment variables, and configuration files needed to run software in an isolated environment.
+**docker image** 用于管理 Docker 镜像。镜像是用于创建容器的只读模板，包含在隔离环境中运行软件所需的应用程序代码、运行时、库、环境变量和配置文件。
 
-Docker images are built in layers, with each instruction in a Dockerfile creating a new layer. This layering system enables efficient storage through layer sharing between images and faster builds through caching. Images are identified by repository name, optional tag (defaulting to "latest"), and a unique SHA256 digest.
+Docker 镜像采用分层构建方式，Dockerfile 中的每条指令都会创建一个新层。这种分层系统通过镜像之间的层共享实现高效存储，并通过缓存加快构建速度。镜像由软件仓库名称、可选标签（默认为 "latest"）以及唯一的 SHA256 摘要来标识。
 
-The **docker image** command group provides comprehensive image lifecycle management, from pulling images from registries, building custom images via Dockerfile, tagging for organization, to cleaning up unused images that consume disk space.
+**docker image** 命令组提供全面的镜像生命周期管理，包括从镜像仓库拉取镜像、通过 Dockerfile 构建自定义镜像、打标签进行组织管理，以及清理占用磁盘空间的未使用镜像。
 
 # INSTALL
 

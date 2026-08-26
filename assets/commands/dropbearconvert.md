@@ -1,14 +1,14 @@
 # TAGLINE
 
-convert SSH keys between Dropbear and OpenSSH formats
+在 Dropbear 与 OpenSSH 格式之间转换 SSH 密钥
 
 # TLDR
 
-Convert **OpenSSH to Dropbear** format
+将 **OpenSSH 转换为 Dropbear** 格式
 
 ```dropbearconvert openssh dropbear ~/.ssh/id_rsa output_key```
 
-Convert **Dropbear to OpenSSH** format
+将 **Dropbear 转换为 OpenSSH** 格式
 
 ```dropbearconvert dropbear openssh input_key ~/.ssh/id_rsa```
 
@@ -18,33 +18,33 @@ Convert **Dropbear to OpenSSH** format
 
 # DESCRIPTION
 
-**dropbearconvert** converts private keys between Dropbear and OpenSSH formats. Dropbear and OpenSSH use different private key formats, and this utility bridges the two implementations.
+**dropbearconvert** 在 Dropbear 和 OpenSSH 格式之间转换私钥。Dropbear 与 OpenSSH 使用不同的私钥格式，该实用工具在两种实现之间架起桥梁。
 
 # PARAMETERS
 
 **input_type**
-> Format of the input key: "dropbear" or "openssh"
+> 输入密钥的格式："dropbear" 或 "openssh"
 
 **output_type**
-> Format of the output key: "dropbear" or "openssh"
+> 输出密钥的格式："dropbear" 或 "openssh"
 
 **input_file**
-> Path to the input private key file
+> 输入私钥文件的路径
 
 **output_file**
-> Path for the converted output key file
+> 转换后输出密钥文件的路径
 
 # CAVEATS
 
-**Passphrase-protected keys cannot be converted.** dropbearconvert has no way to prompt for a passphrase, so an encrypted OpenSSH key must be decrypted first, for example with `ssh-keygen -p -N "" -f key`, and the resulting plaintext key handled carefully. Note also that Dropbear's own format has no encrypted variant at all: converting *to* Dropbear always yields an unprotected private key on disk.
+**受口令保护的密钥无法转换。**dropbearconvert 无法提示输入口令，因此加密的 OpenSSH 密钥必须先解密，例如用 `ssh-keygen -p -N "" -f key`，并小心处理得到的明文密钥。另请注意，Dropbear 自己的格式根本没有加密变体：转换*为* Dropbear 格式时，磁盘上得到的一定是未受保护的私钥。
 
-Only private keys are converted. Public keys need no conversion, since both implementations use the same one-line `authorized_keys` format.
+只转换私钥。公钥无需转换，因为两种实现使用相同的单行 `authorized_keys` 格式。
 
-The tool overwrites the output file without asking, and converting the wrong direction silently produces a file the other end cannot read, so keep a copy of the original.
+该工具会不加询问地覆盖输出文件，而且方向转错时会静默生成对端无法读取的文件，所以请保留原文件的副本。
 
 # HISTORY
 
-**dropbearconvert** exists because Dropbear predates OpenSSH's current key format and chose its own compact encoding, suited to devices where parsing PEM was an unwelcome cost. That decision left the two implementations mutually unreadable, and this small converter is the bridge. It ships with Dropbear itself, and on space-constrained firmware it is often the first binary left out, which is why key conversion is usually done on a workstation and the result copied across.
+**dropbearconvert** 的存在源于历史：Dropbear 早于 OpenSSH 现行的密钥格式出现，选择了自己的紧凑编码，以适应那些解析 PEM 成本过高的设备。这一决定导致两种实现互相无法读取，这个小巧的转换器便是桥梁。它随 Dropbear 本体一起发布，而在空间受限的固件上往往最先被裁掉——这就是为什么密钥转换通常在工作站上完成、再将结果拷贝过去。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ The tool overwrites the output file without asking, and converting the wrong dir
 ```[Homepage](https://matt.ucc.asn.au/dropbear/dropbear.html)```
 
 <!-- verified: 2026-07-14 -->
-

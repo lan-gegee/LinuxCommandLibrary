@@ -1,34 +1,34 @@
 # TAGLINE
 
-ejabberd XMPP server control utility
+ejabberd XMPP 服务器控制工具
 
 # TLDR
 
-**Start ejabberd server**
+**启动 ejabberd 服务器**
 
 ```sudo ejabberdctl start```
 
-**Stop ejabberd server**
+**停止 ejabberd 服务器**
 
 ```sudo ejabberdctl stop```
 
-**Check server status**
+**检查服务器状态**
 
 ```ejabberdctl status```
 
-**Register new user**
+**注册新用户**
 
 ```ejabberdctl register [user] [domain] [password]```
 
-**Unregister user**
+**注销用户**
 
 ```ejabberdctl unregister [user] [domain]```
 
-**List registered users**
+**列出已注册用户**
 
 ```ejabberdctl registered_users [domain]```
 
-**Restart server**
+**重启服务器**
 
 ```sudo ejabberdctl restart```
 
@@ -39,59 +39,59 @@ ejabberd XMPP server control utility
 # PARAMETERS
 
 **start**
-> Start ejabberd server.
+> 启动 ejabberd 服务器。
 
 **stop**
-> Stop ejabberd server.
+> 停止 ejabberd 服务器。
 
 **restart**
-> Restart ejabberd server.
+> 重启 ejabberd 服务器。
 
 **status**
-> Show server status.
+> 显示服务器状态。
 
 **register** _user_ _host_ _password_
-> Register new user.
+> 注册新用户。
 
 **unregister** _user_ _host_
-> Remove user.
+> 移除用户。
 
 **registered_users** _host_
-> List users on host.
+> 列出主机上的用户。
 
 **connected_users**
-> List online users.
+> 列出在线用户。
 
 **kick_user** _user_ _host_
-> Disconnect user.
+> 断开用户连接。
 
 **reload_config**
-> Reload configuration.
+> 重新加载配置。
 
 **backup** _file_
-> Backup database.
+> 备份数据库。
 
 **restore** _file_
-> Restore database.
+> 恢复数据库。
 
 # CONFIGURATION
 
 **/etc/ejabberd/ejabberd.yml**
-> Main ejabberd configuration file controlling server behavior, virtual hosts, and modules.
+> ejabberd 的主配置文件，控制服务器行为、虚拟主机和模块。
 
 # DESCRIPTION
 
-**ejabberdctl** is the command-line administration tool for ejabberd, an open-source XMPP (Jabber) instant messaging server. It manages server operations, user accounts, and configuration.
+**ejabberdctl** 是 ejabberd（开源 XMPP/Jabber 即时通讯服务器）的命令行管理工具。它管理服务器操作、用户账户和配置。
 
-The tool communicates with the running ejabberd node through Erlang RPC, allowing administration without accessing the web interface. It supports all administrative functions available through the web admin.
+该工具通过 Erlang RPC 与正在运行的 ejabberd 节点通信，无需访问 Web 界面即可进行管理。它支持 Web 管理界面提供的所有管理功能。
 
 # CAVEATS
 
-Requires ejabberd to be installed and configured. Some commands need root privileges. Server must be running for most commands. Database changes may require restart. Erlang environment must be properly configured.
+需要安装并配置好 ejabberd。某些命令需要 root 权限。大多数命令要求服务器正在运行。数据库变更可能需要重启才能生效。Erlang 环境必须正确配置。
 
 # HISTORY
 
-ejabberd was developed by **Alexey Shchepin** starting in **2002**, written in Erlang for scalability and fault tolerance. It became one of the most widely deployed XMPP servers, used by WhatsApp and other messaging platforms at scale.
+ejabberd 由 **Alexey Shchepin** 自 **2002 年**起开发，用 Erlang 编写以获得可扩展性和容错能力。它已成为部署最广泛的 XMPP 服务器之一，被 WhatsApp 及其他消息平台大规模使用。
 
 # INSTALL
 

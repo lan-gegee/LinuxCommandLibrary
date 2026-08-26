@@ -1,18 +1,18 @@
 # TAGLINE
 
-Package manager for Solus Linux
+Solus Linux 的软件包管理器
 
 # TLDR
 
-**Refresh and upgrade** every installed package
+**刷新并升级**所有已安装的软件包
 
 ```sudo eopkg upgrade```
 
-**Install** one or more packages
+**安装**一个或多个软件包
 
 ```sudo eopkg install [package]```
 
-**Search** the repository index
+**搜索**软件仓库索引
 
 ```sudo eopkg search [search_term]```
 
@@ -22,48 +22,48 @@ Package manager for Solus Linux
 
 # DESCRIPTION
 
-**eopkg** is the package manager for Solus Linux, an independent distribution. It handles all aspects of package management including installation, updates, removal, and repository management using the .eopkg package format.
+**eopkg** 是独立发行版 Solus Linux 的软件包管理器。它使用 .eopkg 软件包格式，负责软件包管理的所有环节，包括安装、更新、移除和仓库管理。
 
-The tool evolved from the PiSi package manager originally developed for Pardus Linux, with significant improvements and optimizations for Solus. eopkg provides dependency resolution, package rollback capabilities, and maintains a local database of installed packages. It integrates with Solus's rolling release model to provide continuous updates while maintaining system stability.
+该工具由最初为 Pardus Linux 开发的 PiSi 软件包管理器演化而来，并针对 Solus 做了大量改进与优化。eopkg 提供依赖解析和软件包回滚能力，并维护已安装软件包的本地数据库。它融入 Solus 的滚动发布模型，在保持系统稳定的同时提供持续更新。
 
 # PARAMETERS
 
 **install** _packages_
-> Install packages (short alias: **it**)
+> 安装软件包（短别名：**it**）
 
 **upgrade**
-> Update all packages (short alias: **up**)
+> 更新所有软件包（短别名：**up**）
 
 **search** _term_
-> Search for packages (short alias: **sr**)
+> 搜索软件包（短别名：**sr**）
 
 **remove** _packages_
-> Remove packages (short alias: **rm**)
+> 移除软件包（短别名：**rm**）
 
 **info** _package_
-> Show package information
+> 显示软件包信息
 
 **list-installed**
-> List installed packages (short alias: **li**)
+> 列出已安装的软件包（短别名：**li**）
 
 **list-available**
-> List packages available in the repositories (short alias: **la**)
+> 列出软件仓库中可用的软件包（短别名：**la**）
 
 **update-repo**
-> Refresh the local copy of the repository index (short alias: **ur**)
+> 刷新软件仓库索引的本地副本（短别名：**ur**）
 
 **history**
-> Show the transaction history
+> 显示事务历史
 
 **history -t** _number_
-> Roll the system back to a previous transaction
+> 将系统回滚到之前某次事务
 
 **check** _package_
-> Verify the integrity of installed files
+> 校验已安装文件的完整性
 
 # CAVEATS
 
-Solus Linux specific. Not compatible with other distributions. Requires root privileges for most operations. Refresh the index with `eopkg update-repo` before installing or upgrading if it may be stale.
+Solus Linux 专属。与其他发行版不兼容。多数操作需要 root 权限。若索引可能过期，请先执行 `eopkg update-repo` 再安装或升级。
 
 # SEE ALSO
 

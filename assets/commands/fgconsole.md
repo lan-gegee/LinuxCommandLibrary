@@ -1,14 +1,14 @@
 # TAGLINE
 
-print foreground virtual terminal number
+打印前台虚拟终端编号
 
 # TLDR
 
-Print **current** terminal number
+打印**当前**终端编号
 
 ```fgconsole```
 
-Print **next** unallocated virtual terminal number
+打印**下一个**未分配的虚拟终端编号
 
 ```fgconsole --next-available```
 
@@ -18,24 +18,24 @@ Print **next** unallocated virtual terminal number
 
 # DESCRIPTION
 
-**fgconsole** prints the number of the foreground virtual terminal. If the terminal is serial, it prints "serial" instead of a number.
+**fgconsole** 打印前台虚拟终端的编号。如果终端是串行终端，则打印 "serial" 而不是编号。
 
-Part of kbd package for console management utilities.
+它是 kbd 软件包中控制台管理实用工具的一员。
 
 # PARAMETERS
 
 **-n**, **--next-available**
-> Print next unallocated VT number
+> 打印下一个未分配的 VT 编号
 
 **-V**, **--version**
-> Print version number and exit
+> 打印版本号并退出
 
 **-h**, **--help**
-> Display help and exit
+> 显示帮助并退出
 
 # CAVEATS
 
-Only works on Linux console. Returns error if not on a virtual terminal. Part of kbd package.
+只能在 Linux 控制台上工作。不在虚拟终端上时返回错误。属于 kbd 软件包。
 
 # INSTALL
 

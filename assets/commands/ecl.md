@@ -1,30 +1,30 @@
 # TAGLINE
 
-Embeddable Common Lisp interpreter
+可嵌入的 Common Lisp 解释器
 
 # TLDR
 
-**Start ECL REPL**
+**启动 ECL REPL**
 
 ```ecl```
 
-**Load and execute a file**
+**加载并执行文件**
 
 ```ecl -load [file.lisp]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```ecl -eval "(print \"Hello\")"```
 
-**Compile file to shared library**
+**将文件编译为共享库**
 
 ```ecl -compile [file.lisp]```
 
-**Run script and exit**
+**运行脚本后退出**
 
 ```ecl -shell [script.lisp]```
 
-**Start without initialization**
+**不加载初始化文件启动**
 
 ```ecl -norc```
 
@@ -35,51 +35,51 @@ Embeddable Common Lisp interpreter
 # PARAMETERS
 
 **-load** _file_
-> Load Lisp file.
+> 加载 Lisp 文件。
 
 **-eval** _expr_
-> Evaluate expression.
+> 求值表达式。
 
 **-compile** _file_
-> Translate file to C and compile to a shared library (.fas).
+> 将文件翻译为 C 并编译成共享库（.fas）。
 
 **-o** _ofile_
-> Name the compiled shared library output file.
+> 为编译后的共享库输出文件命名。
 
 **-c** _cfile_
-> Name the intermediary C file and keep it after compilation.
+> 为中间 C 文件命名并在编译后保留。
 
 **-h** _hfile_
-> Name the intermediary C header file and keep it after compilation.
+> 为中间 C 头文件命名并在编译后保留。
 
 **-data** [_datafile_]
-> Dump compiler data into datafile.
+> 将编译器数据转储到数据文件中。
 
 **-s**
-> Produce a linkable object file instead of a shared library.
+> 生成可链接的目标文件而非共享库。
 
 **-shell** _script_
-> Run as script, then exit.
+> 以脚本方式运行，然后退出。
 
 **-norc**
-> Don't load init file (~/.eclrc).
+> 不加载初始化文件（~/.eclrc）。
 
 **-dir** _directory_
-> Use directory as system directory.
+> 将指定目录用作系统目录。
 
 **-q**
-> Reduce compiler output verbosity.
+> 降低编译器输出的详细程度。
 
 # CONFIGURATION
 
 **~/.eclrc**
-> Initialization file loaded on startup containing Lisp expressions for customization.
+> 启动时加载的初始化文件，包含用于自定义的 Lisp 表达式。
 
 # DESCRIPTION
 
-**ECL** (Embeddable Common Lisp) is an implementation of Common Lisp designed to be embedded in other applications. It compiles Lisp to C, enabling integration with C libraries and native code generation.
+**ECL**（Embeddable Common Lisp）是一个设计为可嵌入其他应用的 Common Lisp 实现。它将 Lisp 编译为 C，从而能与 C 库集成并生成原生代码。
 
-ECL supports the full ANSI Common Lisp standard with extensions for threading, FFI (Foreign Function Interface), and embedding. It can produce standalone executables and shared libraries.
+ECL 支持完整的 ANSI Common Lisp 标准，并带有线程、FFI（外部函数接口）和嵌入等扩展。它可以生成独立的可执行文件和共享库。
 
 # REPL COMMANDS
 
@@ -92,11 +92,11 @@ ECL supports the full ANSI Common Lisp standard with extensions for threading, F
 
 # CAVEATS
 
-Compiling to C adds complexity. Some libraries may need adaptation for ECL. Debugging compiled code is harder than interpreted. Threading behavior may differ from other implementations.
+编译为 C 会增加复杂度。某些库可能需要适配才能在 ECL 上运行。调试编译后的代码比解释执行更困难。线程行为可能与其他实现不同。
 
 # HISTORY
 
-ECL was originally developed at **IRCAM** (Paris) in the **1980s** as **KCL** (Kyoto Common Lisp). It was forked and developed as **ECL** by **Giuseppe Attardi** and later maintained by the community. The focus on embeddability distinguishes it from other Common Lisp implementations.
+ECL 最初于 **20 世纪 80 年代**在巴黎的 **IRCAM** 开发，当时名为 **KCL**（Kyoto Common Lisp）。它被 fork 后由 **Giuseppe Attardi** 继续开发为 **ECL**，后来交由社区维护。对可嵌入性的专注使其有别于其他 Common Lisp 实现。
 
 # INSTALL
 

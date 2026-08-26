@@ -1,10 +1,10 @@
 # TAGLINE
 
-show working tree and staging status
+显示工作树和暂存区状态
 
 # TLDR
 
-**Show working tree status**
+**显示工作树状态**
 
 ```dolt status```
 
@@ -14,11 +14,11 @@ show working tree and staging status
 
 # DESCRIPTION
 
-**dolt status** displays the current state of the working tree and staging area in a Dolt repository. It categorizes tables into three groups: staged changes ready for commit, unstaged modifications in the working set, and untracked new tables.
+**dolt status** 显示 Dolt 仓库中工作树和暂存区的当前状态。它把表分为三类：已暂存、等待提交的变更，工作集中未暂存的修改，以及未跟踪的新表。
 
-The output helps understand what will be included in the next commit and what changes remain in the working set. This is essential before committing to verify the intended tables are staged and to avoid committing unintended changes.
+通过输出可以了解下一次提交会包含哪些内容、工作集中还剩哪些变更。这在提交前尤为重要：既能确认目标表已正确暂存，也能避免误提交无关变更。
 
-Similar to git status, it provides a clear overview of repository state, indicating which tables need attention and what actions (add, commit, or reset) might be appropriate next.
+与 git status 类似，它清晰地呈现仓库状态，指出哪些表需要注意，以及接下来适合执行哪些操作（add、commit 或 reset）。
 
 # INSTALL
 
@@ -33,4 +33,3 @@ Similar to git status, it provides a clear overview of repository state, indicat
 # SEE ALSO
 
 [dolt-add](/man/dolt-add)(1)
-

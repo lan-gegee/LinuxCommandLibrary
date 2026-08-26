@@ -1,38 +1,38 @@
 # TAGLINE
 
-Ethernet bridge frame filtering firewall
+以太网网桥帧过滤防火墙
 
 # TLDR
 
-**List all rules**
+**列出所有规则**
 
 ```sudo ebtables -L```
 
-**List rules with line numbers**
+**带行号列出规则**
 
 ```sudo ebtables -L --Ln```
 
-**Block MAC address**
+**封锁 MAC 地址**
 
 ```sudo ebtables -A INPUT -s [00:11:22:33:44:55] -j DROP```
 
-**Allow only specific MAC**
+**只允许特定 MAC**
 
 ```sudo ebtables -A INPUT -s ! [00:11:22:33:44:55] -j DROP```
 
-**Drop packets by protocol**
+**按协议丢弃数据包**
 
 ```sudo ebtables -A FORWARD -p IPv4 -j DROP```
 
-**Flush all rules**
+**清空所有规则**
 
 ```sudo ebtables -F```
 
-**Set policy for a chain**
+**为链设置策略**
 
 ```sudo ebtables -P FORWARD DROP```
 
-**Save rules to file**
+**将规则保存到文件**
 
 ```sudo ebtables-save > [rules.txt]```
 
@@ -43,66 +43,66 @@ Ethernet bridge frame filtering firewall
 # PARAMETERS
 
 **-L**, **--list**
-> List all rules.
+> 列出所有规则。
 
 **-A** _chain_
-> Append rule to chain.
+> 向链追加规则。
 
 **-D** _chain_
-> Delete rule from chain.
+> 从链中删除规则。
 
 **-I** _chain_ [_num_]
-> Insert rule at position.
+> 在指定位置插入规则。
 
 **-F** [_chain_]
-> Flush rules (all or specific chain).
+> 清空规则（全部或特定链）。
 
 **-P** _chain_ _target_
-> Set chain policy.
+> 设置链策略。
 
 **-p** _protocol_
-> Match protocol (IPv4, IPv6, ARP).
+> 匹配协议（IPv4、IPv6、ARP）。
 
 **-s** _mac_
-> Source MAC address.
+> 源 MAC 地址。
 
 **-d** _mac_
-> Destination MAC address.
+> 目标 MAC 地址。
 
 **-i** _interface_
-> Input interface.
+> 输入接口。
 
 **-o** _interface_
-> Output interface.
+> 输出接口。
 
 **-j** _target_
-> Jump to target (ACCEPT, DROP, CONTINUE, RETURN).
+> 跳转到目标（ACCEPT、DROP、CONTINUE、RETURN）。
 
 **-t** _table_
-> Table to operate on (filter, nat, broute). Default is filter.
+> 要操作的表（filter、nat、broute）。默认为 filter。
 
 **--Ln**
-> Show line numbers when listing rules.
+> 列出规则时显示行号。
 
 **-N** _chain_
-> Create a new user-defined chain.
+> 创建新的用户自定义链。
 
 **-X** [_chain_]
-> Delete a user-defined chain.
+> 删除一个用户自定义链。
 
 # DESCRIPTION
 
-**ebtables** filters Ethernet frames at the link layer (Layer 2) in Linux bridges. It controls traffic passing through a bridge based on MAC addresses, VLAN tags, and Ethernet protocols, complementing iptables which operates at Layer 3.
+**ebtables** 在 Linux 网桥的链路层（第 2 层）过滤以太网帧。它基于 MAC 地址、VLAN 标签和以太网协议控制通过网桥的流量，与工作在第 3 层的 iptables 形成互补。
 
-Ebtables uses chains (INPUT, OUTPUT, FORWARD) and tables (filter, nat, broute) similar to iptables. It's essential for bridge firewall configurations and MAC-based access control.
+ebtables 使用与 iptables 类似的链（INPUT、OUTPUT、FORWARD）和表（filter、nat、broute）。它是网桥防火墙配置和基于 MAC 的访问控制的关键工具。
 
 # CAVEATS
 
-Only applies to bridged traffic. Requires kernel bridge-nf support. Legacy tool; nftables provides unified filtering for modern systems. Must be used in conjunction with iptables for IP-level filtering. Rules don't persist across reboots without save/restore.
+只作用于经网桥转发的流量。需要内核 bridge-nf 支持。属于遗留工具；现代系统建议使用 nftables 进行统一过滤。IP 层过滤必须与 iptables 配合使用。不进行 save/restore 的话规则不会在重启后保留。
 
 # HISTORY
 
-ebtables was developed for the Linux kernel in the early **2000s** to provide Ethernet frame filtering for bridges. It was modeled after iptables to provide familiar syntax. The project is now considered legacy, with nftables recommended for new deployments.
+ebtables 于 **21 世纪初**为 Linux 内核开发，用于为网桥提供以太网帧过滤功能。它的语法仿照 iptables 设计，便于用户上手。该项目现被视为遗留项目，新部署推荐使用 nftables。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-filesystem information in formatted tables
+以格式化表格显示文件系统信息
 
 # TLDR
 
-Get **standard overview** of disks
+获取磁盘的**标准概览**
 
 ```dysk```
 
-**Sort** by free size
+**按剩余空间排序**
 
 ```dysk -s free```
 
-Include only **HDD** disks
+只包含 **HDD** 磁盘
 
 ```dysk -f 'disk = HDD'```
 
-**Exclude** SSD disks
+**排除** SSD 磁盘
 
 ```dysk -f 'disk <> SSD'```
 
-Display disks with **high utilization or low free space**
+显示**利用率高或剩余空间少**的磁盘
 
 ```dysk -f 'use > 65% | free < 50G'```
 
@@ -30,56 +30,56 @@ Display disks with **high utilization or low free space**
 
 # DESCRIPTION
 
-**dysk** displays filesystem information in a formatted table. It shows mount points, disk types, sizes, usage, and filesystem types with color-coded output.
+**dysk** 以格式化表格显示文件系统信息。它以彩色输出展示挂载点、磁盘类型、容量、使用情况和文件系统类型。
 
-Provides filtering and sorting capabilities for focused analysis.
+提供筛选和排序功能，便于聚焦分析。
 
 # PARAMETERS
 
 **-a, --all**
-> Show all mount points, including pseudo, removable and remote ones
+> 显示所有挂载点，包括伪文件系统、可移动和远程文件系统
 
 **-s, --sort** _field_
-> Sort by field (free, size, used, filesystem, etc.)
+> 按字段排序（free、size、used、filesystem 等）
 
 **-f, --filter** _expr_
-> Filter expression
+> 过滤表达式
 
 **-c, --csv**
-> Output as CSV
+> 以 CSV 输出
 
 **-j, --json**
-> Output as JSON
+> 以 JSON 输出
 
 **--cols** _cols_
-> Choose which columns are shown
+> 选择要显示哪些列
 
 **-l, --list-cols**
-> List the available columns
+> 列出可用列
 
 **--units** _si|binary_
-> Size units: SI (1M = 1,000,000 B) or binary (1M = 1,048,576 B)
+> 容量单位：SI（1M = 1,000,000 B）或二进制（1M = 1,048,576 B）
 
 **--color** _auto|yes|no_
-> Control colored output
+> 控制彩色输出
 
 # FILTER EXPRESSIONS
 
 **disk = HDD**
-> Only HDDs
+> 仅 HDD
 
 **disk = SSD**
-> Only SSDs
+> 仅 SSD
 
 **use > 65%**
-> Usage over 65%
+> 使用率超过 65%
 
 **free < 50G**
-> Less than 50GB free
+> 剩余空间少于 50 GB
 
 # CAVEATS
 
-Linux only: dysk reads /proc/mounts and sysfs, so it does not run on macOS or BSD. Disk type detection (SSD vs HDD) depends on what the kernel exposes and can be blank for virtual or remote filesystems. The project was previously named **lfs**.
+仅支持 Linux：dysk 读取 /proc/mounts 和 sysfs，因此无法在 macOS 或 BSD 上运行。磁盘类型检测（SSD 还是 HDD）取决于内核暴露的信息，对于虚拟或远程文件系统可能为空。该项目此前名为 **lfs**。
 
 # INSTALL
 

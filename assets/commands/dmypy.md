@@ -1,34 +1,34 @@
 # TAGLINE
 
-mypy daemon for fast incremental type checking
+用于快速增量类型检查的 mypy 守护进程
 
 # TLDR
 
-**Start mypy daemon**
+**启动 mypy 守护进程**
 
 ```dmypy start```
 
-**Run type check** via daemon
+**通过守护进程运行类型检查**
 
 ```dmypy run [file.py]```
 
-**Check entire project**
+**检查整个项目**
 
 ```dmypy run -- --strict [.]```
 
-**Stop the daemon**
+**停止守护进程**
 
 ```dmypy stop```
 
-**Check daemon status**
+**检查守护进程状态**
 
 ```dmypy status```
 
-**Restart the daemon**
+**重启守护进程**
 
 ```dmypy restart```
 
-**Kill daemon forcefully**
+**强制终止守护进程**
 
 ```dmypy kill```
 
@@ -39,47 +39,47 @@ mypy daemon for fast incremental type checking
 # PARAMETERS
 
 _COMMAND_
-> Operation: start, stop, run, status, restart, kill.
+> 操作类型：start、stop、run、status、restart、kill。
 
 **start**
-> Start the mypy daemon.
+> 启动 mypy 守护进程。
 
 **stop**
-> Stop the daemon gracefully.
+> 平滑地停止守护进程。
 
 **run** [_FILES_]
-> Type check files via daemon.
+> 通过守护进程对文件做类型检查。
 
 **status**
-> Show daemon status.
+> 显示守护进程状态。
 
 **restart**
-> Restart the daemon.
+> 重启守护进程。
 
 **kill**
-> Forcefully terminate daemon.
+> 强制终止守护进程。
 
 **--status-file** _FILE_
-> Custom status file location.
+> 自定义状态文件位置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dmypy** is the daemon interface for mypy, Python's static type checker. It keeps mypy running as a background process, dramatically reducing type checking time by maintaining cached state between runs.
+**dmypy** 是 mypy（Python 静态类型检查器）的守护进程接口。它让 mypy 作为后台进程持续运行，通过在多次运行之间维护缓存状态来大幅缩短类型检查时间。
 
-The daemon pre-computes and caches type information, making incremental checks nearly instantaneous. This is particularly valuable for large codebases where full mypy runs would be slow.
+守护进程会预先计算并缓存类型信息，使增量检查几乎瞬时完成。这对大型代码库尤其有价值——完整的 mypy 检查在这种场景下会很慢。
 
-dmypy integrates with editors and CI systems that need fast, repeated type checks. It handles the daemon lifecycle and forwards type checking requests to the running mypy instance.
+dmypy 可集成到需要频繁执行快速类型检查的编辑器和 CI 系统中。它负责守护进程的生命周期管理，并将类型检查请求转发给正在运行的 mypy 实例。
 
 # CAVEATS
 
-Daemon must be restarted after configuration changes. Memory usage increases with project size. May need restart if mypy version changes. Not suitable for parallel type checking.
+配置变更后必须重启守护进程。内存占用随项目规模增长。mypy 版本变化时可能需要重启。不适合并行类型检查。
 
 # HISTORY
 
-dmypy was introduced as part of **mypy**, originally created by **Jukka Lehtosalo** at Dropbox. The daemon mode was added to address performance concerns with large codebases requiring frequent type checks during development.
+dmypy 作为 **mypy** 的组成部分推出，mypy 最初由 **Jukka Lehtosalo** 在 Dropbox 开发。守护进程模式是为了解决大型代码库在开发过程中需要频繁进行类型检查的性能问题而添加的。
 
 # INSTALL
 

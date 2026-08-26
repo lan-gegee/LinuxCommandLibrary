@@ -1,26 +1,26 @@
 # TAGLINE
 
-simple media player using ffmpeg libraries
+基于 ffmpeg 库的简易媒体播放器
 
 # TLDR
 
-**Play media file**
+**播放媒体文件**
 
 ```ffplay [video.mp4]```
 
-**Play with specific** size
+以指定尺寸播放
 
 ```ffplay -x [640] -y [480] [video.mp4]```
 
-**Loop playback**
+**循环播放**
 
 ```ffplay -loop [0] [video.mp4]```
 
-**Play audio only**
+只播音频
 
 ```ffplay -nodisp [audio.mp3]```
 
-**Seek to position**
+定位到指定位置
 
 ```ffplay -ss [00:01:30] [video.mp4]```
 
@@ -31,53 +31,53 @@ simple media player using ffmpeg libraries
 # PARAMETERS
 
 _INPUT_
-> Media file or stream to play.
+> 要播放的媒体文件或流。
 
 **-x** _WIDTH_
-> Display width.
+> 显示宽度。
 
 **-y** _HEIGHT_
-> Display height.
+> 显示高度。
 
 **-loop** _N_
-> Loop count (0 = infinite).
+> 循环次数（0 = 无限）。
 
 **-nodisp**
-> Disable display (audio only).
+> 禁用显示（仅音频）。
 
 **-ss** _TIME_
-> Start position.
+> 起始位置。
 
 **-t** _DURATION_
-> Play duration.
+> 播放时长。
 
 **-vf** _FILTER_
-> Video filter.
+> 视频滤镜。
 
 **-af** _FILTER_
-> Audio filter.
+> 音频滤镜。
 
 **-fs**
-> Start fullscreen.
+> 以全屏启动。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ffplay** is a simple media player using the ffmpeg libraries. It plays virtually any audio or video format that ffmpeg supports, making it useful for testing filters and previewing encodes.
+**ffplay** 是一个基于 ffmpeg 库的简易媒体播放器。它可以播放 ffmpeg 支持的几乎所有音视频格式，因此适合测试滤镜和预览编码效果。
 
-The player provides basic controls via keyboard: space for pause, arrows for seeking, and q to quit. It can apply filters in real-time for previewing effects before encoding.
+播放器通过键盘提供基本控制：空格暂停、方向键定位、q 退出。它可以实时应用滤镜，在编码前预览效果。
 
-ffplay is primarily a development and testing tool rather than a full-featured media player.
+ffplay 主要是一个开发和测试工具，而非全功能媒体播放器。
 
 # CAVEATS
 
-Minimal UI compared to full players. No playlist support. Filter preview may not match final output exactly.
+与完整播放器相比界面极简。不支持播放列表。滤镜预览可能与最终输出不完全一致。
 
 # HISTORY
 
-ffplay was created as a reference player demonstrating ffmpeg's decoding capabilities. It serves as both a testing tool and simple player for formats that other players might not support.
+ffplay 作为演示 ffmpeg 解码能力的参考播放器而创建。它既是测试工具，也是播放其他播放器可能不支持的格式的简易选择。
 
 # INSTALL
 

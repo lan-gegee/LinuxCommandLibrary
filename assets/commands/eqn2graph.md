@@ -1,18 +1,18 @@
 # TAGLINE
 
-Equation description to graphic image converter
+公式描述转图形图像转换器
 
 # TLDR
 
-**Convert equation** to image
+**将公式转换为**图片
 
 ```echo "x = {-b +- sqrt{b sup 2 - 4ac}} over 2a" | eqn2graph > [equation.png]```
 
-**Specify output format**
+**指定输出格式**
 
 ```echo "[equation]" | eqn2graph --format [svg]```
 
-**Set font size**
+**设置字号**
 
 ```echo "[equation]" | eqn2graph -s [14]```
 
@@ -23,32 +23,32 @@ Equation description to graphic image converter
 # PARAMETERS
 
 **--format** _FORMAT_
-> Output format: png, svg, pdf, etc.
+> 输出格式：png、svg、pdf 等。
 
 **-s** _SIZE_
-> Font point size.
+> 字体磅值大小。
 
 **-unsafe**
-> Allow unsafe operations.
+> 允许不安全的操作。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 # DESCRIPTION
 
-**eqn2graph** converts eqn equation descriptions into graphic images. It's a wrapper that processes eqn input through groff and converts the output to various image formats.
+**eqn2graph** 将 eqn 公式描述转换为图形图像。它是一个封装脚本，先用 groff 处理 eqn 输入，再把结果转换为各种图像格式。
 
-The tool reads equation text from stdin using eqn syntax and produces image files suitable for embedding in documents, web pages, or presentations.
+该工具从标准输入读取采用 eqn 语法的公式文本，生成适合嵌入文档、网页或演示文稿的图像文件。
 
-eqn2graph is useful for generating standalone equation images without full document processing.
+eqn2graph 适合在无需完整文档排版流程的情况下生成独立的公式图片。
 
 # CAVEATS
 
-Requires groff and an image conversion tool (typically GraphicsMagick or ImageMagick). The default output format is PNG. Uses eqn syntax, not LaTeX math notation.
+需要 groff 和一个图像转换工具（通常是 GraphicsMagick 或 ImageMagick）。默认输出格式为 PNG。使用 eqn 语法而非 LaTeX 数学记号。
 
 # HISTORY
 
-eqn2graph is part of the **groff** suite, providing a convenient way to generate equation images from eqn's preprocessor language.
+eqn2graph 是 **groff** 工具集的一部分，提供了一种便捷方式，可从 eqn 预处理语言生成公式图像。
 
 # INSTALL
 

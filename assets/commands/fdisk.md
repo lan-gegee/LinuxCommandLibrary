@@ -1,14 +1,14 @@
 # TAGLINE
 
-partition table manipulator
+分区表操作工具
 
 # TLDR
 
-**List** partitions
+**列出**分区
 
 ```sudo fdisk -l```
 
-Start the **interactive** partition manipulator
+启动**交互式**分区操作程序
 
 ```sudo fdisk [/dev/sdX]```
 
@@ -18,51 +18,51 @@ Start the **interactive** partition manipulator
 
 # DESCRIPTION
 
-**fdisk** is a dialog-driven program for managing partition tables and partitions on storage drives. It supports MBR, GPT, SGI, and Sun partition tables.
+**fdisk** 是一个对话驱动的程序，用于管理存储驱动器上的分区表和分区。它支持 MBR、GPT、SGI 和 Sun 分区表。
 
 # PARAMETERS
 
 **-l, --list**
-> List partition tables for all devices or specified device
+> 列出所有设备或指定设备的分区表
 
 **-u, --units**
-> Display units in sectors (default) or cylinders
+> 以扇区（默认）或柱面为单位显示
 
 **-s, --getsz partition**
-> Print size of partition in 512-byte sectors
+> 打印分区大小（以 512 字节扇区计）
 
 **-b, --sector-size size**
-> Specify physical and logical sector size
+> 指定物理和逻辑扇区大小
 
 **-c, --compatibility mode**
-> Specify compatibility mode (dos or nondos)
+> 指定兼容模式（dos 或 nondos）
 
 **-L, --color**
-> Colorize output
+> 输出着色
 
 **-t, --type type**
-> Specify disk label type (dos, gpt, sgi, sun)
+> 指定磁盘标签类型（dos、gpt、sgi、sun）
 
 # INTERACTIVE COMMANDS
 
-**m**: Display help menu
-**p**: Print partition table
-**n**: Create new partition
-**d**: Delete partition
-**t**: Change partition type
-**l**: List known partition types
-**w**: Write changes and exit
-**q**: Quit without saving changes
-**g**: Create new GPT partition table
-**o**: Create new DOS partition table
+**m**: 显示帮助菜单
+**p**: 打印分区表
+**n**: 创建新分区
+**d**: 删除分区
+**t**: 更改分区类型
+**l**: 列出已知的分区类型
+**w**: 写入更改并退出
+**q**: 不保存更改直接退出
+**g**: 创建新的 GPT 分区表
+**o**: 创建新的 DOS 分区表
 
 # CAVEATS
 
-**Dangerous**: Changes are written when you press 'w'. Double-check before writing. Modern fdisk supports GPT natively. MBR partition tables (not fdisk) are limited to 2TB; use GPT for larger disks.
+**危险**：只有按下 'w' 时才会写入更改。写入前请仔细确认。现代 fdisk 原生支持 GPT。MBR 分区表（非 fdisk 本身）限制为 2TB；更大的磁盘请使用 GPT。
 
 # HISTORY
 
-Part of **util-linux** package. Based on the original fdisk from **Minix** and early Linux. One of the oldest Linux disk partitioning tools.
+util-linux 软件包的一部分。源自 **Minix** 和早期 Linux 的原始 fdisk。是最古老的 Linux 磁盘分区工具之一。
 
 # INSTALL
 

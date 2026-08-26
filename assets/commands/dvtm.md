@@ -1,30 +1,30 @@
 # TAGLINE
 
-dynamic virtual terminal manager
+动态虚拟终端管理器
 
 # TLDR
 
-**Start dvtm**
+**启动 dvtm**
 
 ```dvtm```
 
-**Set modifier key** to Ctrl+a
+**将修饰键设为** Ctrl+a
 
 ```dvtm -m ^a```
 
-**Toggle default mouse support**
+**切换默认鼠标支持**
 
 ```dvtm -M```
 
-**Set scrollback history** buffer size
+**设置回滚历史**缓冲区大小
 
 ```dvtm -h [5000]```
 
-**Use a status FIFO** for the status bar
+**使用状态 FIFO** 显示状态栏
 
 ```dvtm -s [/tmp/dvtm-status]```
 
-**Persist session with abduco**
+**用 abduco 保持会话**
 
 ```abduco -A [mysession] dvtm```
 
@@ -34,70 +34,70 @@ dynamic virtual terminal manager
 
 # DESCRIPTION
 
-**dvtm** (dynamic virtual terminal manager) brings dwm-style window management to the terminal. It tiles multiple terminal windows within a single terminal emulator.
+**dvtm**（dynamic virtual terminal manager）将 dwm 风格的窗口管理带入终端。它在单个终端模拟器内平铺多个终端窗口。
 
-The tool provides dynamic layouts, tagging, and keyboard-driven window management. It's lightweight and follows the suckless philosophy of minimalism.
+该工具提供动态布局、标签和键盘驱动的窗口管理。它轻量且遵循 suckless 的极简主义哲学。
 
 # CONFIGURATION
 
 **config.h**
-> Source-level configuration file that must be edited and recompiled to change keybindings, colors, layouts, and behavior.
+> 源码级配置文件，必须编辑并重新编译才能更改键绑定、颜色、布局和行为。
 
 # PARAMETERS
 
 **-v**
-> Print version and exit.
+> 打印版本并退出。
 
 **-M**
-> Toggle default mouse support.
+> 切换默认鼠标支持。
 
 **-m** _mod_
-> Modifier key (default: Ctrl+g).
+> 修饰键（默认：Ctrl+g）。
 
 **-d** _delay_
-> Escape sequence delay in milliseconds for ncurses.
+> ncurses 的转义序列延迟（毫秒）。
 
 **-h** _lines_
-> Scrollback history buffer size.
+> 回滚历史缓冲区大小。
 
 **-t** _title_
-> Set terminal title.
+> 设置终端标题。
 
 **-s** _status-fifo_
-> Named pipe to read status bar content from.
+> 从中读取状态栏内容的命名管道。
 
 **-c** _cmd_
-> Command to pipe into the status FIFO.
+> 通过管道送入状态 FIFO 的命令。
 
 # DEFAULT KEYS
 
-Default modifier (MOD) is **Ctrl+g**.
+默认修饰键（MOD）为 **Ctrl+g**。
 
-**Mod+c**: Create window
-**Mod+x**: Close window
-**Mod+j/k**: Focus next/previous
-**Mod+h/l**: Resize master
-**Mod+Enter**: Zoom window
-**Mod+Space**: Toggle layout
-**Mod+[1-9]**: Jump to window by number
-**Mod+e**: Enter copy mode
-**Mod+p**: Paste
-**Mod+q**: Quit
+**Mod+c**：创建窗口
+**Mod+x**：关闭窗口
+**Mod+j/k**：聚焦下一个/上一个窗口
+**Mod+h/l**：调整主区域大小
+**Mod+Enter**：放大窗口
+**Mod+Space**：切换布局
+**Mod+[1-9]**：按编号跳转到窗口
+**Mod+e**：进入复制模式
+**Mod+p**：粘贴
+**Mod+q**：退出
 
 # LAYOUTS
 
-**tile**: Master-stack
-**grid**: Grid layout
-**bstack**: Bottom stack
-**fullscreen**: Single maximized
+**tile**：主-堆栈布局
+**grid**：网格布局
+**bstack**：底部堆栈布局
+**fullscreen**：单窗口最大化
 
 # CAVEATS
 
-Limited compared to tmux/screen. No built-in session persistence; pair with **abduco** (recommended) or **dtach**. Configuration requires editing config.h and recompiling. Default modifier Ctrl+g may need to be rebound if it conflicts with applications.
+与 tmux/screen 相比功能有限。没有内置的会话持久化；请配合 **abduco**（推荐）或 **dtach** 使用。配置需要编辑 config.h 并重新编译。默认修饰键 Ctrl+g 若与应用程序冲突，可能需要重新绑定。
 
 # HISTORY
 
-**dvtm** was created by **Marc Andre Tanner** as a terminal multiplexer following **dwm** principles. It emerged from the suckless community around **2007**, providing dynamic tiling for terminal environments without the complexity of screen or tmux.
+**dvtm** 由 **Marc Andre Tanner** 创建，是一个遵循 **dwm** 原则的终端复用器。它诞生于 **2007 年**前后的 suckless 社区，为终端环境提供动态平铺功能，而没有 screen 或 tmux 那样的复杂性。
 
 # INSTALL
 

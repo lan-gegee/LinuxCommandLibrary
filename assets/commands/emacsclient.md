@@ -1,38 +1,38 @@
 # TAGLINE
 
-connect to running Emacs server for fast editing
+连接正在运行的 Emacs 服务器，实现快速编辑
 
 # TLDR
 
-**Open file** in existing Emacs frame
+在已有的 Emacs frame 中**打开文件**
 
 ```emacsclient [file.txt]```
 
-**Open file** in terminal (no window)
+在终端中**打开文件**（无窗口）
 
 ```emacsclient -nw [file.txt]```
 
-**Open file** in new frame
+在新 frame 中**打开文件**
 
 ```emacsclient -c [file.txt]```
 
-**Open file** without waiting for edit to finish
+**打开文件**且不等待编辑完成
 
 ```emacsclient -n [file.txt]```
 
-**Evaluate Emacs Lisp** expression
+**求值 Emacs Lisp** 表达式
 
 ```emacsclient -e "(message \"Hello\")"```
 
-**Start alternate editor** if no server
+在没有服务器时**启动备用编辑器**
 
 ```emacsclient -a "" [file.txt]```
 
-**Create new frame** and don't wait
+**创建新 frame** 且不等待
 
 ```emacsclient -cn [file.txt]```
 
-**Connect to specific socket**
+**连接到指定的套接字**
 
 ```emacsclient -s [server_name] [file.txt]```
 
@@ -42,56 +42,56 @@ connect to running Emacs server for fast editing
 
 # DESCRIPTION
 
-**emacsclient** connects to an existing Emacs server process to open files or evaluate Lisp expressions. This allows quick file editing without starting a new Emacs instance, dramatically reducing startup time.
+**emacsclient** 连接到已存在的 Emacs 服务器进程来打开文件或求值 Lisp 表达式。这样无需启动新的 Emacs 实例即可快速编辑文件，大幅缩短启动时间。
 
-The Emacs server must be started first with M-x server-start or by adding (server-start) to the init file. emacsclient then communicates with this server to open files in existing or new frames.
+必须先用 M-x server-start 或在初始化文件中加入 (server-start) 来启动 Emacs 服务器。随后 emacsclient 与该服务器通信，在已有或新建的 frame 中打开文件。
 
-This workflow is common for using Emacs as an external editor for other programs (git, crontab) or as a quick command-line editor while maintaining a persistent Emacs session.
+这种工作流常用于把 Emacs 作为其他程序（git、crontab）的外部编辑器，或在保持持久 Emacs 会话的同时作为快捷的命令行编辑器。
 
 # PARAMETERS
 
 **-n**, **--no-wait**
-> Return immediately, don't wait for editing.
+> 立即返回，不等待编辑完成。
 
 **-c**, **--create-frame**
-> Create a new graphical frame.
+> 创建一个新的图形 frame。
 
 **-nw**, **-t**, **--tty**
-> Open in terminal, not graphical frame.
+> 在终端中打开，而非图形 frame。
 
 **-e**, **--eval**
-> Evaluate argument as Emacs Lisp.
+> 将参数作为 Emacs Lisp 求值。
 
 **-a** _editor_, **--alternate-editor=** _editor_
-> Use editor if no server (empty string starts daemon).
+> 在没有服务器时使用指定的编辑器（空字符串表示启动守护进程）。
 
 **-s** _name_, **--socket-name=** _name_
-> Connect to named server socket.
+> 连接到指定名称的服务器套接字。
 
 **-f** _file_, **--server-file=** _file_
-> Use server file for TCP connection.
+> 使用服务器文件进行 TCP 连接。
 
 **-q**, **--quiet**
-> Don't display messages.
+> 不显示消息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.emacs.d/server/**
-> Server socket and authentication files for Emacs server connections.
+> Emacs 服务器连接所用的服务器套接字与认证文件。
 
 # CAVEATS
 
-Requires Emacs server to be running (or use -a to start daemon). Terminal mode (-nw) requires appropriate terminal. Socket permissions may prevent access from different users. Server file needed for TCP connections.
+需要 Emacs 服务器正在运行（或用 -a 启动守护进程）。终端模式（-nw）需要合适的终端。套接字权限可能阻止不同用户的访问。TCP 连接需要服务器文件。
 
 # HISTORY
 
-**emacsclient** has been part of **GNU Emacs** since the early versions, with the server/client architecture designed by **Richard Stallman** and contributors. The Emacs server mode was introduced to allow external programs to request editing and to reduce the overhead of starting Emacs repeatedly. The feature has evolved to support both Unix sockets and TCP connections.
+**emacsclient** 自早期版本起就是 **GNU Emacs** 的一部分，其服务器/客户端架构由 **Richard Stallman** 及贡献者设计。引入 Emacs 服务器模式的目的是让外部程序能够请求编辑，并减少反复启动 Emacs 的开销。该功能后来发展为同时支持 Unix 套接字和 TCP 连接。
 
 # INSTALL
 

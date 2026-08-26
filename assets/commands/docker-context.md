@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage Docker daemon connection contexts
+管理 Docker 守护进程连接上下文
 
 # TLDR
 
-**List contexts**
+**列出上下文**
 
 ```docker context ls```
 
-**Show current context**
+**显示当前上下文**
 
 ```docker context show```
 
-**Create a new context**
+**创建新上下文**
 
 ```docker context create [name] --docker "host=ssh://[user@host]"```
 
-**Switch to context**
+**切换到某个上下文**
 
 ```docker context use [name]```
 
-**Remove a context**
+**移除上下文**
 
 ```docker context rm [name]```
 
-**Inspect context details**
+**查看上下文详情**
 
 ```docker context inspect [name]```
 
@@ -35,44 +35,44 @@ manage Docker daemon connection contexts
 # SUBCOMMANDS
 
 **ls**
-> List contexts.
+> 列出上下文。
 
 **show**
-> Print current context.
+> 打印当前上下文。
 
 **create**
-> Create a new context.
+> 创建新上下文。
 
 **use**
-> Set current context.
+> 设置当前上下文。
 
 **rm**
-> Remove contexts.
+> 移除上下文。
 
 **inspect**
-> Display detailed information.
+> 显示详细信息。
 
 **update**
-> Update a context.
+> 更新上下文。
 
 **export**
-> Export a context.
+> 导出上下文。
 
 **import**
-> Import a context.
+> 导入上下文。
 
 # DESCRIPTION
 
-**docker context** manages Docker contexts, which are configuration profiles that store connection information for different Docker engines. Contexts enable seamless switching between local, remote, and cloud-based Docker hosts without manually reconfiguring connection settings.
+**docker context** 管理 Docker 上下文。上下文是存储不同 Docker 引擎连接信息的配置档案。借助上下文，可以在本地、远程和云端 Docker 主机之间无缝切换，而无需手动重新配置连接设置。
 
-Each context contains endpoint information, TLS certificates, and other metadata needed to communicate with a Docker daemon. This is particularly useful for developers and operators who work with multiple Docker environments, such as local development, staging servers, and production clusters.
+每个上下文包含端点信息、TLS 证书以及与 Docker 守护进程通信所需的其他元数据。这对需要同时使用多个 Docker 环境的开发者和运维人员特别有用，例如本地开发、预发布服务器和生产集群。
 
-The default context named "default" connects to the local Docker daemon via Unix socket. Additional contexts can be created to connect to remote Docker hosts over SSH, TCP, or other protocols.
+名为 "default" 的默认上下文通过 Unix 套接字连接本地 Docker 守护进程。可以创建额外的上下文，通过 SSH、TCP 或其他协议连接远程 Docker 主机。
 
 # CONFIGURATION
 
 **~/.docker/contexts**
-> Directory storing context metadata and TLS certificates for custom contexts.
+> 存储自定义上下文的元数据和 TLS 证书的目录。
 
 # INSTALL
 

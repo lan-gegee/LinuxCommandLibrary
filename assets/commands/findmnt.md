@@ -1,38 +1,38 @@
 # TAGLINE
 
-query and verify mounted filesystems
+查询和校验已挂载的文件系统
 
 # TLDR
 
-**List** all mounted filesystems
+**列出**所有已挂载的文件系统
 
 ```findmnt```
 
-Search by **device**
+按**设备**搜索
 
 ```findmnt /dev/sdb1```
 
-Search by **mountpoint**
+按**挂载点**搜索
 
 ```findmnt /```
 
-Filter by **type**
+按**类型**过滤
 
 ```findmnt -t ext4,btrfs```
 
-Show **disk usage** like df
+像 df 一样显示**磁盘用量**
 
 ```findmnt -D```
 
-Find by **label**
+按**标签**查找
 
 ```findmnt LABEL=BigStorage```
 
-Output as **JSON**
+以 **JSON** 格式输出
 
 ```findmnt --json```
 
-**Verify** fstab
+**校验** fstab
 
 ```findmnt -x --verbose```
 
@@ -42,68 +42,68 @@ Output as **JSON**
 
 # DESCRIPTION
 
-**findmnt** lists all mounted filesystems or searches for a filesystem by device, mountpoint, label, or UUID. It can also verify the mount table and fstab configuration for errors.
+**findmnt** 列出所有已挂载的文件系统，也可以按设备、挂载点、标签或 UUID 搜索某个文件系统。它还能检查挂载表以及 fstab 配置中有无错误。
 
 # PARAMETERS
 
 **-t, --types** _list_
-> Limit output to filesystems of specified types
+> 只显示指定类型的文件系统
 
 **-o, --output** _list_
-> Define output columns
+> 定义输出的列
 
 **-l, --list**
-> Use list output format
+> 使用列表形式的输出格式
 
 **-D, --df**
-> Imitate df output (show space usage)
+> 模仿 df 的输出（显示空间使用情况）
 
 **-x, --verify**
-> Verify mount table content
+> 校验挂载表内容
 
 **-n, --noheadings**
-> Don't print column headings
+> 不打印列标题
 
 **-r, --raw**
-> Use raw output format
+> 使用原始输出格式
 
 **-J, --json**
-> Use JSON output format
+> 使用 JSON 输出格式
 
 **-f, --first-only**
-> Print the first matching filesystem only
+> 只打印第一个匹配的文件系统
 
 **-s, --fstab**
-> Search in /etc/fstab instead of /proc/self/mountinfo
+> 在 /etc/fstab 中搜索而不是 /proc/self/mountinfo
 
 **-S, --source** _spec_
-> Explicitly define the mount source (device, LABEL=, UUID=, etc.)
+> 显式指定挂载来源（设备、LABEL=、UUID= 等）
 
 **-M, --mountpoint** _path_
-> Explicitly define the mountpoint file or directory
+> 显式指定挂载点文件或目录
 
 **-T, --target** _path_
-> Find the filesystem for the given path (any file or directory)
+> 查找给定路径（任意文件或目录）所在的文件系统
 
 **-p, --poll**[=_list_]
-> Monitor changes in /proc/self/mountinfo (actions: mount, umount, remount, move)
+> 监视 /proc/self/mountinfo 的变化（动作：mount、umount、remount、move）
 
 **-R, --submounts**
-> Print recursively all submounts for the selected filesystems
+> 递归打印所选文件系统的全部子挂载
 
 **LABEL=**_label_
-> Search by filesystem label
+> 按文件系统标签搜索
 
 **UUID=**_uuid_
-> Search by filesystem UUID
+> 按文件系统 UUID 搜索
 
 # CAVEATS
 
-The verify option checks for configuration errors but does not mount anything. Output format may vary between systems and kernel versions.
+verify 选项只负责检查配置错误，不会真正挂载任何东西。输出格式在不同系统和内核版本之间可能有差异。
 
 # HISTORY
 
-**findmnt** is part of the **util-linux** package, providing mount information querying on Linux systems.
+**findmnt** 是 **util-linux** 软件包的一部分，用于在 Linux 系统上查询挂载信息。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-List Docker Buildx builder instances
+列出 Docker Buildx 构建器实例
 
 # TLDR
 
-**List all builder** instances
+**列出所有构建器**实例
 
 ```docker buildx ls```
 
-**List builders** without truncating output
+**列出构建器**且不截断输出
 
 ```docker buildx ls --no-trunc```
 
-**List builders** with a custom format
+以自定义格式**列出构建器**
 
 ```docker buildx ls --format "{{.Name}}: {{.Status}}"```
 
-**List builders** as JSON
+以 JSON 格式**列出构建器**
 
 ```docker buildx ls --format json```
 
@@ -27,23 +27,23 @@ List Docker Buildx builder instances
 # PARAMETERS
 
 **--format** _format_
-> Format output using a Go template or predefined format. Default: table.
+> 使用 Go 模板或预定义格式输出。默认：table。
 
 **--no-trunc**
-> Do not truncate output.
+> 不截断输出。
 
 **--timeout** _duration_
-> Override default timeout for loading builder status (default: 20s).
+> 覆盖加载构建器状态的默认超时时间（默认：20s）。
 
 # DESCRIPTION
 
-**docker buildx ls** lists all builder instances and their associated nodes. The output shows the builder name, driver, endpoint, status, BuildKit version, and supported platforms. The currently selected builder is marked with an asterisk (**\***).
+**docker buildx ls** 列出所有构建器实例及其关联节点。输出包括构建器名称、驱动、端点、状态、BuildKit 版本和支持的平台。当前选定的构建器会标上星号（**\***）。
 
-Each builder may have multiple nodes representing different build environments or platforms. The default builder uses the Docker daemon's built-in build capabilities, while additional builders can use the **docker-container**, **kubernetes**, or **remote** drivers.
+每个构建器可以有多个节点，代表不同的构建环境或平台。默认构建器使用 Docker 守护进程的内置构建能力，而其他构建器可以使用 **docker-container**、**kubernetes** 或 **remote** 驱动。
 
 # CAVEATS
 
-Builder status is loaded with a default 20-second timeout. Builders using remote drivers or Kubernetes may appear as inactive if the endpoint is unreachable within the timeout window.
+加载构建器状态时的默认超时为 20 秒。若远程或 Kubernetes 构建器的端点在超时窗口内不可达，它们可能显示为非活动状态。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-container platform for application deployment
+用于应用部署的容器平台
 
 # TLDR
 
-**Run** container
+**运行**容器
 
 ```docker run [image]```
 
-**List** containers
+**列出**容器
 
 ```docker ps```
 
-**Build** image
+**构建**镜像
 
 ```docker build -t [name] [.]```
 
-**Pull** image
+**拉取**镜像
 
 ```docker pull [image]```
 
-**Stop** container
+**停止**容器
 
 ```docker stop [container]```
 
-**Remove** container
+**删除**容器
 
 ```docker rm [container]```
 
-**Execute** command in container
+在容器中**执行**命令
 
 ```docker exec -it [container] [bash]```
 
@@ -38,75 +38,75 @@ container platform for application deployment
 
 # DESCRIPTION
 
-**docker** is a platform for developing, shipping, and running applications in containers. Containers package applications with their dependencies into standardized units, ensuring consistency across different environments from development to production.
+**docker** 是一个用于开发、交付和以容器方式运行应用的平台。容器将应用程序及其依赖打包成标准化单元，确保从开发到生产的不同环境之间的一致性。
 
-Docker has revolutionized application deployment and development workflows by solving the "it works on my machine" problem. It uses OS-level virtualization to isolate applications, making them portable, efficient, and easy to scale. Containers share the host kernel but maintain isolated filesystems, processes, and networking.
+Docker 解决了"在我机器上能跑"的问题，从而彻底改变了应用部署和开发工作流。它使用操作系统级虚拟化来隔离应用，使其可移植、高效且易于伸缩。容器共享主机内核，但保持隔离的文件系统、进程和网络。
 
-The Docker ecosystem includes Docker Engine (the runtime), Docker Hub (image registry), and a comprehensive CLI for managing containers, images, networks, and volumes. Docker images are built in layers, making them efficient to distribute and update. The platform supports both single-container applications and complex multi-service architectures.
+Docker 生态系统包括 Docker Engine（运行时）、Docker Hub（镜像仓库）以及一套用于管理容器、镜像、网络和卷的完整 CLI。Docker 镜像采用分层构建，便于高效分发和更新。该平台既支持单容器应用，也支持复杂的多服务架构。
 
 # PARAMETERS
 
 **run** [_options_] _image_
-> Create and start container
+> 创建并启动容器
 
 **ps** [**-a**]
-> List containers
+> 列出容器
 
 **build** **-t** _name_ _path_
-> Build image from Dockerfile
+> 从 Dockerfile 构建镜像
 
 **pull** _image_
-> Pull image from registry
+> 从镜像仓库拉取镜像
 
 **push** _image_
-> Push image to registry
+> 将镜像推送到镜像仓库
 
 **exec** _container_ _command_
-> Execute command in running container
+> 在运行中的容器中执行命令
 
 **logs** _container_
-> Fetch container logs
+> 获取容器日志
 
 **stop** _container_
-> Stop running container
+> 停止运行中的容器
 
 **start** _container_
-> Start stopped container
+> 启动已停止的容器
 
 **rm** _container_
-> Remove container
+> 删除容器
 
 **rmi** _image_
-> Remove image
+> 删除镜像
 
 **images**
-> List images
+> 列出镜像
 
 # RUN OPTIONS
 
 **-d**, **--detach**
-> Run in background
+> 在后台运行
 
 **-it**
-> Interactive with TTY
+> 交互模式并分配 TTY
 
 **-p** _host_**:**_container_
-> Publish port
+> 发布端口
 
 **-v** _host_**:**_container_
-> Mount volume
+> 挂载卷
 
 **--name** _name_
-> Assign name to container
+> 为容器指定名称
 
 **-e** _var_**=**_value_
-> Set environment variable
+> 设置环境变量
 
 **--rm**
-> Automatically remove on exit
+> 退出时自动删除
 
 **--network** _network_
-> Connect to network
+> 连接到网络
 
 # WORKFLOW
 
@@ -185,18 +185,18 @@ docker stats
 # CONFIGURATION
 
 **/etc/docker/daemon.json**
-> Docker daemon configuration including storage drivers, logging, registry mirrors, and resource limits.
+> Docker 守护进程配置，包括存储驱动、日志、镜像仓库加速器和资源限制。
 
 **~/.docker/config.json**
-> User-level configuration for registry authentication, default command settings, and CLI preferences.
+> 用户级配置，包括镜像仓库身份验证、默认命令设置和 CLI 偏好。
 
 # CAVEATS
 
-Requires Docker daemon running. Root or docker group membership needed. Networking can be complex. Volume permissions issues common. Images can be large. Security considerations for production. Different behavior on different operating systems.
+需要 Docker 守护进程处于运行状态。需要 root 权限或 docker 组成员身份。网络配置可能比较复杂。卷权限问题常见。镜像可能很大。生产环境需考虑安全问题。在不同操作系统上行为有所差异。
 
 # HISTORY
 
-**Docker** was created by Solomon Hykes at dotCloud in **2013**, becoming open-source and revolutionizing application containerization.
+**Docker** 由 Solomon Hykes 于 **2013 年**在 dotCloud 创建，随后开源并彻底改变了应用容器化领域。
 
 # INSTALL
 

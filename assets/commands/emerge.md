@@ -1,34 +1,34 @@
 # TAGLINE
 
-Gentoo Linux package manager
+Gentoo Linux 软件包管理器
 
 # TLDR
 
-**Synchronize** all packages
+**同步**所有软件包
 
 ```sudo emerge --sync```
 
-**Update** all packages including dependencies
+**更新**所有软件包及其依赖
 
 ```sudo emerge [-avuDN|--ask --verbose --update --deep --newuse] @world```
 
-**Resume** a failed update, skipping failing package
+**继续**失败的更新，跳过出错的软件包
 
 ```sudo emerge --resume --skipfirst```
 
-**Install** a new package with confirmation
+**安装**新软件包并确认
 
 ```sudo emerge [-av|--ask --verbose] [package]```
 
-**Remove** a package with dependencies
+**移除**软件包及其依赖
 
 ```sudo emerge [-avc|--ask --verbose --depclean] [package]```
 
-Remove **orphaned** packages
+移除**孤立的**软件包
 
 ```sudo emerge [-avc|--ask --verbose --depclean]```
 
-**Search** the package database
+**搜索**软件包数据库
 
 ```emerge [-S|--searchdesc] [keyword]```
 
@@ -38,56 +38,56 @@ Remove **orphaned** packages
 
 # DESCRIPTION
 
-**emerge** is the Gentoo Linux package manager. It installs, updates, and removes packages by compiling them from source according to USE flags and system configuration.
+**emerge** 是 Gentoo Linux 的软件包管理器。它根据 USE 标志和系统配置从源码编译软件包，从而完成安装、更新和移除。
 
-Manages the entire software lifecycle including dependency resolution and slot conflicts.
+它管理软件的整个生命周期，包括依赖解析和 slot 冲突处理。
 
 # PARAMETERS
 
 **--sync**
-> Synchronize package database
+> 同步软件包数据库
 
 **-a, --ask**
-> Ask before proceeding
+> 执行前询问
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-u, --update**
-> Update packages
+> 更新软件包
 
 **-D, --deep**
-> Consider entire dependency tree
+> 考虑整棵依赖树
 
 **-N, --newuse**
-> Rebuild for USE flag changes
+> 因 USE 标志变更而重新构建
 
 **--depclean**
-> Remove unneeded packages
+> 移除不再需要的软件包
 
 **-S, --searchdesc**
-> Search package descriptions
+> 搜索软件包描述
 
 **--resume**
-> Resume interrupted operation
+> 继续被中断的操作
 
 **--skipfirst**
-> Skip first package when resuming
+> 恢复时跳过第一个软件包
 
 # CONFIGURATION
 
 **/etc/portage/make.conf**
-> Global Portage configuration including USE flags, compiler flags, and system settings.
+> 全局 Portage 配置，包括 USE 标志、编译器标志和系统设置。
 
 **/etc/portage/package.use**
-> Per-package USE flag overrides.
+> 针对单个软件包的 USE 标志覆盖。
 
 **/etc/portage/package.accept_keywords**
-> Accept unstable packages or specific versions.
+> 接受不稳定版本或特定版本的软件包。
 
 # CAVEATS
 
-Gentoo Linux specific. Compiles from source, which can be time-consuming. Requires proper /etc/portage configuration. Use `emerge --sync` or `emaint sync` before updates.
+Gentoo Linux 专属。从源码编译，可能非常耗时。需要正确配置 /etc/portage。更新前先运行 `emerge --sync` 或 `emaint sync`。
 
 # SEE ALSO
 

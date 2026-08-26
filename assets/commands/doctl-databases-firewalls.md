@@ -1,22 +1,22 @@
 # TAGLINE
 
-manage database cluster firewall rules
+管理数据库集群的防火墙规则
 
 # TLDR
 
-**List firewall rules**
+**列出防火墙规则**
 
 ```doctl databases firewalls list [cluster_id]```
 
-**Add firewall rule for IP**
+**为 IP 添加防火墙规则**
 
 ```doctl databases firewalls append [cluster_id] --rule ip_addr:[ip]```
 
-**Add firewall rule for droplet**
+**为 droplet 添加防火墙规则**
 
 ```doctl databases firewalls append [cluster_id] --rule droplet:[droplet_id]```
 
-**Remove firewall rule**
+**移除防火墙规则**
 
 ```doctl databases firewalls remove [cluster_id] [rule_uuid]```
 
@@ -27,21 +27,21 @@ manage database cluster firewall rules
 # SUBCOMMANDS
 
 **list**
-> List firewall rules.
+> 列出防火墙规则。
 
 **append**
-> Add firewall rule.
+> 添加防火墙规则。
 
 **remove**
-> Remove firewall rule.
+> 移除防火墙规则。
 
 # DESCRIPTION
 
-**doctl databases firewalls** manages trusted sources (firewall rules) for DigitalOcean managed database clusters. Rules control which IPs, droplets, Kubernetes clusters, or tags can connect.
+**doctl databases firewalls** 管理 DigitalOcean 托管数据库集群的可信来源（防火墙规则）。规则控制哪些 IP、droplet、Kubernetes 集群或标签可以建立连接。
 
-By default, managed database clusters deny all incoming connections for security. Firewall rules explicitly allow access from specific sources. You can authorize individual IP addresses, entire droplets, Kubernetes clusters, or resources identified by tags. This enables secure database access while preventing unauthorized connections.
+出于安全考虑，托管数据库集群默认拒绝所有入站连接。防火墙规则用于显式允许来自特定来源的访问。你可以授权单个 IP 地址、整个 droplet、Kubernetes 集群，或由标签标识的资源。这样既能安全地访问数据库，又能阻止未授权连接。
 
-Rules can be added, listed, and removed to adapt to changing infrastructure requirements. Each rule is identified by a UUID for management operations.
+规则可以添加、列出和移除，以适应不断变化的基础设施需求。每条规则由一个 UUID 标识，便于管理操作。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ Rules can be added, listed, and removed to adapt to changing infrastructure requ
 # SEE ALSO
 
 [doctl-databases](/man/doctl-databases)(1)
-

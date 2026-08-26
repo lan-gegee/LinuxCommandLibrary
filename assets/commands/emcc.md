@@ -1,34 +1,34 @@
 # TAGLINE
 
-compile C/C++ to WebAssembly or JavaScript
+将 C/C++ 编译为 WebAssembly 或 JavaScript
 
 # TLDR
 
-**Compile C to WebAssembly**
+**将 C 编译为 WebAssembly**
 
 ```emcc [input.c] -o [output.wasm]```
 
-**Compile to JavaScript**
+**编译为 JavaScript**
 
 ```emcc [input.c] -o [output.js]```
 
-**Compile with HTML harness**
+**附带 HTML 宿主页面编译**
 
 ```emcc [input.c] -o [output.html]```
 
-**Compile C++**
+**编译 C++**
 
 ```em++ [input.cpp] -o [output.js]```
 
-**Optimize for size**
+**针对体积优化**
 
 ```emcc -Os [input.c] -o [output.wasm]```
 
-**Optimize for speed**
+**针对速度优化**
 
 ```emcc -O3 [input.c] -o [output.wasm]```
 
-**Export specific functions**
+**导出指定函数**
 
 ```emcc -sEXPORTED_FUNCTIONS=['_main','_myFunc'] [input.c] -o [output.js]```
 
@@ -39,53 +39,53 @@ compile C/C++ to WebAssembly or JavaScript
 # PARAMETERS
 
 **-o** _file_
-> Output file (.js, .wasm, .html).
+> 输出文件（.js、.wasm、.html）。
 
-**-O0** to **-O3**, **-Os**, **-Oz**
-> Optimization levels.
+**-O0** 到 **-O3**、**-Os**、**-Oz**
+> 优化级别。
 
 **-s** _SETTING=VALUE_
-> Emscripten-specific settings.
+> Emscripten 特有设置。
 
 **-I** _dir_
-> Include directory.
+> 头文件目录。
 
 **-L** _dir_
-> Library directory.
+> 库目录。
 
 **-l** _lib_
-> Link library.
+> 链接库。
 
 **-g**
-> Generate debug information.
+> 生成调试信息。
 
 **--preload-file** _path_
-> Preload file into virtual filesystem.
+> 将文件预加载到虚拟文件系统。
 
 **--embed-file** _path_
-> Embed file in output.
+> 将文件嵌入输出中。
 
 **-sMODULARIZE**
-> Output as ES6 module.
+> 以 ES6 模块形式输出。
 
 # CONFIGURATION
 
 **.emscripten**
-> Emscripten configuration file containing SDK paths and compiler settings.
+> Emscripten 配置文件，包含 SDK 路径与编译器设置。
 
 # DESCRIPTION
 
-**emcc** (Emscripten Compiler Frontend) compiles C and C++ code to WebAssembly (Wasm) or JavaScript using LLVM and Emscripten. It enables running native code in web browsers and other Wasm runtimes.
+**emcc**（Emscripten Compiler Frontend）使用 LLVM 和 Emscripten 将 C 与 C++ 代码编译为 WebAssembly（Wasm）或 JavaScript。它使原生代码能够在 Web 浏览器及其他 Wasm 运行时中运行。
 
-Emscripten provides a compatibility layer for POSIX APIs, OpenGL (via WebGL), and SDL. It can compile entire codebases including games and applications to run in browsers.
+Emscripten 为 POSIX API、OpenGL（通过 WebGL）和 SDL 提供兼容层。它可以编译完整的代码库，包括游戏和应用程序，让它们在浏览器中运行。
 
 # CAVEATS
 
-Not all C/C++ features work identically. File system access requires virtual filesystem. Threading needs SharedArrayBuffer. Performance differs from native. Large applications may have long compile times. Browser security restrictions apply.
+并非所有 C/C++ 特性的行为都完全一致。文件系统访问依赖虚拟文件系统。线程需要 SharedArrayBuffer。性能与原生代码有差异。大型应用可能编译时间很长。还受浏览器安全限制的约束。
 
 # HISTORY
 
-Emscripten was created by **Alon Zakai** at Mozilla in **2011**, initially targeting asm.js before WebAssembly existed. When WebAssembly launched in **2017**, Emscripten became the primary compiler toolchain for bringing C/C++ to the web.
+Emscripten 由 **Alon Zakai** 于 **2011 年**在 Mozilla 创建，最初以 asm.js 为目标，当时 WebAssembly 尚未问世。**2017 年** WebAssembly 发布后，Emscripten 成为将 C/C++ 带入 Web 的主要编译器工具链。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Headless multiplayer game server
+Factorio 无头多人游戏服务器
 
 # TLDR
 
-**Create** a new save file
+**创建**新的存档文件
 
 ```[path/to]/factorio --create [path/to/save_file.zip]```
 
-**Start** a Factorio server
+**启动** Factorio 服务器
 
 ```[path/to]/factorio --start-server [path/to/save_file.zip]```
 
-**Start server with settings**
+使用设置启动服务器
 
 ```[path/to]/factorio --start-server [path/to/save_file.zip] --server-settings [path/to/server-settings.json]```
 
-Create save with **specific map settings**
+使用**指定地图设置**创建存档
 
 ```[path/to]/factorio --create [path/to/save.zip] --map-gen-settings [path/to/map_gen_settings.json] --map-settings [path/to/map_settings.json]```
 
-**Shut** the server gracefully (interactive)
+优雅地**关闭**服务器（交互模式）
 
 ```/quit```
 
-Display **help**
+显示**帮助**
 
 ```[path/to]/factorio [-h|--help]```
 
@@ -34,48 +34,48 @@ Display **help**
 
 # DESCRIPTION
 
-**factorio** runs the Factorio game in headless server mode for multiplayer. It creates and hosts game worlds without requiring a graphical interface.
+**factorio** 以无头服务器模式运行 Factorio 游戏以支持多人游戏。它无需图形界面即可创建和托管游戏世界。
 
-Used for dedicated Factorio servers and automated testing.
+用于专用 Factorio 服务器和自动化测试。
 
 # PARAMETERS
 
 **--create** _file_
-> Create new save file
+> 创建新的存档文件
 
 **--start-server** _file_
-> Start server with save file
+> 使用存档文件启动服务器
 
 **--map-gen-settings** _file_
-> Map generation settings JSON
+> 地图生成设置 JSON
 
 **--map-settings** _file_
-> Map settings JSON
+> 地图设置 JSON
 
 **-h, --help**
-> Display help
+> 显示帮助信息
 
 **--port** _number_
-> Server port number (default: 34197).
+> 服务器端口号（默认：34197）。
 
 **--server-settings** _file_
-> Server configuration JSON file (name, description, visibility, passwords).
+> 服务器配置 JSON 文件（名称、描述、可见性、密码）。
 
 **--server-adminlist** _file_
-> JSON file listing admin usernames.
+> 列出管理员用户名的 JSON 文件。
 
 **--server-banlist** _file_
-> JSON file listing banned usernames.
+> 列出被封禁用户名的 JSON 文件。
 
 **--console-log** _file_
-> Write server console output to a log file.
+> 将服务器控制台输出写入日志文件。
 
 **--mod-directory** _dir_
-> Override mod directory path.
+> 覆盖 mod 目录路径。
 
 # CAVEATS
 
-Requires Factorio game installation. Server settings configured via JSON files. Headless mode requires no X server. Commercial game with separate license. Default port is 34197/UDP.
+需要安装 Factorio 游戏。服务器设置通过 JSON 文件配置。无头模式不需要 X 服务器。商业游戏，需单独购买许可。默认端口为 34197/UDP。
 
 # INSTALL
 

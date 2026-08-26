@@ -1,38 +1,38 @@
 # TAGLINE
 
-legacy DNF version 4 package manager
+旧版 DNF 4 软件包管理器
 
 # TLDR
 
-**Upgrade** all packages
+**升级**所有软件包
 
 ```sudo dnf4 upgrade```
 
-**Search** for packages
+**搜索**软件包
 
 ```dnf4 search [keyword1] [keyword2]```
 
-Display package **info**
+显示软件包**信息**
 
 ```dnf4 info [package]```
 
-**Install** packages
+**安装**软件包
 
 ```sudo dnf4 install [package1] [package2]```
 
-**Remove** packages
+**移除**软件包
 
 ```sudo dnf4 remove [package1] [package2]```
 
-List **installed** packages
+列出**已安装的**软件包
 
 ```dnf4 list --installed```
 
-Find package **providing** a command
+查找**提供**某命令的软件包
 
 ```dnf4 provides [command]```
 
-View **history**
+查看**历史**
 
 ```dnf4 history```
 
@@ -42,39 +42,39 @@ View **history**
 
 # DESCRIPTION
 
-**dnf4** is the DNF version 4 package manager for RHEL 8/9 and older Fedora versions (pre-41). It's the successor to yum and manages RPM packages.
+**dnf4** 是 DNF 第 4 版软件包管理器，用于 RHEL 8/9 和较旧的 Fedora 版本（41 之前）。它是 yum 的后继者，负责管理 RPM 软件包。
 
-On Fedora 41+, dnf defaults to version 5. Use dnf4 explicitly for the older version.
+在 Fedora 41+ 上，dnf 默认使用第 5 版。需要旧版时请显式使用 dnf4。
 
 # PARAMETERS
 
 **upgrade**
-> Upgrade installed packages
+> 升级已安装的软件包
 
 **search** _keywords_
-> Search package names and summaries
+> 搜索软件包名称和摘要
 
 **info** _package_
-> Display package details
+> 显示软件包详情
 
 **install** _packages_
-> Install packages
+> 安装软件包
 
 **remove** _packages_
-> Remove packages
+> 移除软件包
 
 **list**
-> List packages
+> 列出软件包
 
 **provides** _file_
-> Find package owning file
+> 查找拥有某文件的软件包
 
 **history**
-> View transaction history
+> 查看事务历史
 
 # CAVEATS
 
-Legacy version, newer systems use dnf5. Command abbreviations supported (in, rm, se, etc.).
+属于旧版本，较新的系统使用 dnf5。支持命令缩写（in、rm、se 等）。
 
 # INSTALL
 

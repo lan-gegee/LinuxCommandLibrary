@@ -1,30 +1,30 @@
 # TAGLINE
 
-build and execute .NET projects
+构建并执行 .NET 项目
 
 # TLDR
 
-**Run current project**
+**运行当前项目**
 
 ```dotnet run```
 
-**Run with arguments**
+**带参数运行**
 
 ```dotnet run -- [arg1] [arg2]```
 
-**Run specific project**
+**运行指定项目**
 
 ```dotnet run --project [path/to/project.csproj]```
 
-**Run in Release** configuration
+**以 Release** 配置运行
 
 ```dotnet run -c Release```
 
-**Run without building**
+**跳过构建直接运行**
 
 ```dotnet run --no-build```
 
-**Run specific framework**
+**按指定框架运行**
 
 ```dotnet run -f [net8.0]```
 
@@ -35,55 +35,55 @@ build and execute .NET projects
 # PARAMETERS
 
 **--project** _PATH_
-> Project to run.
+> 要运行的项目。
 
 **-c**, **--configuration** _CONFIG_
-> Build configuration.
+> 构建配置。
 
 **-f**, **--framework** _FRAMEWORK_
-> Target framework.
+> 目标框架。
 
 **--no-build**
-> Run without building first.
+> 运行前不构建。
 
 **--no-restore**
-> Skip package restore.
+> 跳过包还原。
 
 **--launch-profile** _NAME_
-> Launch profile to use from launchSettings.json.
+> 使用 launchSettings.json 中的启动配置文件。
 
 **--no-launch-profile**
-> Do not use any launch profile.
+> 不使用任何启动配置文件。
 
 **--arch** _ARCH_
-> Target architecture (e.g., x86, x64, arm64).
+> 目标体系结构（如 x86、x64、arm64）。
 
 **--** _ARGS_
-> Arguments to pass to application.
+> 传递给应用程序的参数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **Properties/launchSettings.json**
-> Configures launch profiles with environment variables and application arguments.
+> 通过环境变量和应用程序参数配置启动配置文件。
 
 # DESCRIPTION
 
-**dotnet run** builds and executes a .NET project in one step. It's the standard way to run applications during development without creating deployment artifacts.
+**dotnet run** 一键完成 .NET 项目的构建和执行。它是开发期间运行应用程序的标准方式，不会创建部署工件。
 
-The double-dash separates dotnet options from arguments passed to the application. Launch profiles in launchSettings.json can configure environment variables and arguments for development scenarios.
+双横线（--）用于分隔 dotnet 选项与传给应用程序的参数。launchSettings.json 中的启动配置文件可为开发场景配置环境变量和参数。
 
-For web applications, dotnet run starts the development server with hot reload support in newer versions.
+对于 web 应用程序，新版 dotnet run 会启动开发服务器并支持热重载。
 
 # CAVEATS
 
-Includes build time in execution. Use --no-build for faster iteration. Launch profiles only work from project directory. Not intended for production use.
+执行时间中包含构建时间。追求更快的迭代请用 --no-build。启动配置文件只在项目目录内生效。不适合生产环境使用。
 
 # HISTORY
 
-dotnet run is part of the **.NET CLI** providing streamlined development iteration. It combines build and execution, improving developer experience over separate compile-then-run workflows.
+dotnet run 是 **.NET CLI** 的一部分，提供精简的开发迭代方式。它把构建和执行合二为一，相比先编译后运行的分离工作流改善了开发者体验。
 
 # INSTALL
 

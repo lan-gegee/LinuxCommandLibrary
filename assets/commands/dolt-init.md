@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create a new Dolt data repository
+创建新的 Dolt 数据仓库
 
 # TLDR
 
-**Initialize a Dolt repository in the current directory**
+**在当前目录初始化 Dolt 仓库**
 
 ```dolt init```
 
-**Initialize with a specific initial branch name**
+**使用指定的初始分支名称**初始化
 
 ```dolt init -b [main]```
 
-**Initialize with author name and email**
+以作者姓名和邮箱**初始化**
 
 ```dolt init --name "[John Doe]" --email "[john@example.com]"```
 
-**Initialize with a custom date for the initial commit**
+**为初始提交指定自定义日期**
 
 ```dolt init --date "[2024-01-01T00:00:00]"```
 
@@ -27,29 +27,29 @@ Create a new Dolt data repository
 # PARAMETERS
 
 **-b**, **--initial-branch** _string_
-> Name of the initial branch. If not provided, uses `init.defaultbranch` from global config (default "main").
+> 初始分支的名称。未提供时使用全局配置中的 `init.defaultbranch`（默认 "main"）。
 
 **--name** _string_
-> Author name for the initial commit. If not provided, uses `user.name` from global config.
+> 初始提交的作者姓名。未提供时使用全局配置中的 `user.name`。
 
 **--email** _string_
-> Author email for the initial commit. If not provided, uses `user.email` from global config.
+> 初始提交的作者邮箱。未提供时使用全局配置中的 `user.email`。
 
 **--date** _string_
-> Date to use for the initial commit. If not specified, the current system time is used.
+> 初始提交使用的日期。未指定时使用当前系统时间。
 
 **--fun**
-> Create the repository with a fun initial commit message.
+> 创建仓库时附带一条有趣的初始提交消息。
 
 # DESCRIPTION
 
-**dolt init** creates a new, empty Dolt repository in the current directory. It initializes the `.dolt` directory structure containing metadata, configuration, and the underlying storage for version-controlled SQL databases.
+**dolt init** 在当前目录创建一个新的空 Dolt 仓库。它会初始化 `.dolt` 目录结构，其中包含元数据、配置以及版本化 SQL 数据库的底层存储。
 
-This is typically the first command run when starting a new Dolt project. The initialized repository can immediately accept table creation, data insertion, and commits. An initial branch is created (default name "main", customizable with `-b`).
+这通常是开始一个新的 Dolt 项目时运行的第一个命令。初始化完成的仓库立刻就能接受建表、插入数据和提交操作。同时会创建一个初始分支（默认名为 "main"，可用 `-b` 自定义）。
 
-User identity information (name and email) can be provided during initialization or inherited from global configuration. This identity is used for authorship of all subsequent commits.
+用户身份信息（姓名和邮箱）可以在初始化时提供，也可以继承自全局配置。该身份将用于后续所有提交的署名。
 
-The command will fail if the current directory already contains an initialized Dolt repository.
+如果当前目录已经存在初始化过的 Dolt 仓库，该命令会失败。
 
 # INSTALL
 

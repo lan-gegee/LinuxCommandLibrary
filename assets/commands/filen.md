@@ -1,34 +1,34 @@
 # TAGLINE
 
-end-to-end encrypted cloud storage CLI
+端到端加密云存储的命令行工具
 
 # TLDR
 
-**Login to account**
+**登录账户**
 
 ```filen login```
 
-**Upload a file to the cloud**
+**上传文件到云端**
 
 ```filen upload [local_file] [cloud_path]```
 
-**Download a file or directory from the cloud**
+**从云端下载文件或目录**
 
 ```filen download [cloud_path] [local_destination]```
 
-**List directory contents**
+**列出目录内容**
 
 ```filen ls [cloud_path]```
 
-**Sync a local directory with the cloud continuously**
+**持续同步本地目录与云端**
 
 ```filen sync [local_dir] [cloud_dir] --continuous```
 
-**Start a local WebDAV server**
+**启动本地 WebDAV 服务器**
 
 ```filen webdav```
 
-**Show current user info**
+**显示当前用户信息**
 
 ```filen whoami```
 
@@ -39,74 +39,74 @@ end-to-end encrypted cloud storage CLI
 # PARAMETERS
 
 _COMMAND_
-> Operation: upload, download, ls, sync, login, etc.
+> 操作类型：upload、download、ls、sync、login 等。
 
 **upload** _LOCAL_ _CLOUD_PATH_
-> Upload a local file or directory to the cloud.
+> 将本地文件或目录上传到云端。
 
 **download** _CLOUD_PATH_ _LOCAL_DEST_
-> Download a file or directory from the cloud.
+> 从云端下载文件或目录。
 
 **ls** _PATH_
-> List directory contents.
+> 列出目录内容。
 
 **sync** _LOCAL_ _REMOTE_
-> Synchronize directories. Use --continuous to keep syncing.
+> 同步目录。配合 --continuous 可保持持续同步。
 
 **login**
-> Authenticate with Filen.
+> 登录 Filen 进行身份验证。
 
 **logout**
-> Log out of Filen.
+> 退出 Filen 登录。
 
 **whoami**
-> Show current user.
+> 显示当前用户。
 
 **mkdir** _PATH_
-> Create a directory in the cloud.
+> 在云端创建目录。
 
 **rm** _PATH_
-> Delete a file or directory. Use --no-trash to delete permanently.
+> 删除文件或目录。使用 --no-trash 可永久删除。
 
 **mv** _FROM_ _TO_
-> Move a file or directory.
+> 移动文件或目录。
 
 **cp** _FROM_ _TO_
-> Copy a file or directory.
+> 复制文件或目录。
 
 **stat** _PATH_
-> Display information about a file or directory.
+> 显示文件或目录的信息。
 
 **webdav**
-> Start a local WebDAV server mirroring your Filen Drive.
+> 启动一个镜像你 Filen Drive 的本地 WebDAV 服务器。
 
 **s3**
-> Start a local S3 server mirroring your Filen Drive.
+> 启动一个镜像你 Filen Drive 的本地 S3 服务器。
 
 **--skip-update**
-> Skip checking for updates.
+> 跳过更新检查。
 
 **--data-dir** _PATH_
-> Override the default data directory location.
+> 覆盖默认数据目录的位置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**filen** is the command-line interface for Filen, an end-to-end encrypted cloud storage service. It provides file upload, download, synchronization, and local WebDAV/S3 server capabilities with zero-knowledge encryption.
+**filen** 是 Filen——一项端到端加密云存储服务——的命令行界面。它提供文件上传、下载、同步以及本地 WebDAV/S3 服务器功能，全程采用零知识加密。
 
-All files are encrypted client-side before upload, ensuring the server never has access to unencrypted data. The CLI enables scripted backups and file management without the desktop app.
+所有文件在上传前都会在客户端完成加密，确保服务器永远无法接触到未加密的数据。有了这个 CLI，无需桌面应用就能实现脚本化的备份和文件管理。
 
-When invoked without any command, filen enters interactive mode. It supports folder synchronization for automated backup workflows, with the --continuous flag for ongoing sync.
+不带任何命令调用时，filen 会进入交互模式。它支持文件夹同步以搭建自动化备份流程，并可使用 --continuous 标志进行不间断的同步。
 
 # CAVEATS
 
-Requires Filen account. Encryption adds processing overhead. Storage limits depend on subscription.
+需要 Filen 账户。加密会增加处理开销。存储配额取决于订阅等级。
 
 # HISTORY
 
-filen is the CLI for **Filen**, a German cloud storage service emphasizing privacy through end-to-end encryption. The service launched as an encrypted alternative to mainstream cloud storage.
+filen 是 **Filen** 的 CLI。Filen 是一家德国云存储服务商，强调以端到端加密保障隐私，希望成为主流云存储的加密替代品。
 
 # SEE ALSO
 

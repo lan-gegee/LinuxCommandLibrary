@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fortran to Python interface generator
+Fortran 到 Python 的接口生成器
 
 # TLDR
 
-**Generate Python wrapper** for Fortran
+为 Fortran **生成 Python 包装模块**
 
 ```f2py -c [module.f90] -m [module_name]```
 
-**Create signature file**
+**创建签名文件**
 
 ```f2py [module.f90] -h [module.pyf]```
 
-**Build with specific** compiler
+**使用指定**编译器构建
 
 ```f2py -c --fcompiler=[gfortran] [module.f90] -m [module_name]```
 
-**Link external libraries**
+**链接外部库**
 
 ```f2py -c [module.f90] -m [module_name] -l[blas]```
 
-**Show available compilers**
+**显示可用的编译器**
 
 ```f2py --help-fcompiler```
 
@@ -31,50 +31,50 @@ Fortran to Python interface generator
 # PARAMETERS
 
 _FORTRAN-FILES_
-> Fortran source files (.f, .f90, .f95).
+> Fortran 源文件（.f、.f90、.f95）。
 
 **-c**
-> Compile and build extension module.
+> 编译并构建扩展模块。
 
 **-m** _NAME_
-> Set module name.
+> 设置模块名。
 
 **-h** _FILE_
-> Generate signature file.
+> 生成签名文件。
 
 **--fcompiler** _NAME_
-> Specify Fortran compiler.
+> 指定 Fortran 编译器。
 
 **-l** _LIBRARY_
-> Link with library.
+> 链接指定的库。
 
 **-L** _PATH_
-> Library search path.
+> 库搜索路径。
 
 **-I** _PATH_
-> Include search path.
+> 头文件搜索路径。
 
 **--help-fcompiler**
-> List available Fortran compilers.
+> 列出可用的 Fortran 编译器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**f2py** (Fortran to Python) is a NumPy tool that creates Python bindings for Fortran code. It generates wrapper modules that allow calling Fortran subroutines and functions directly from Python.
+**f2py**（Fortran to Python）是 NumPy 的一个工具，可为 Fortran 代码创建 Python 绑定。它生成包装模块，让你可以直接从 Python 调用 Fortran 子例程和函数。
 
-The tool automatically handles type conversion between Python/NumPy arrays and Fortran arrays. It parses Fortran source code or signature files to determine interfaces, then generates C wrapper code compiled into a Python extension module.
+该工具自动处理 Python/NumPy 数组与 Fortran 数组之间的类型转换。它解析 Fortran 源代码或签名文件以确定接口，然后生成编译为 Python 扩展模块的 C 包装代码。
 
-f2py enables using high-performance Fortran libraries in Python scientific computing workflows without rewriting existing code.
+f2py 让你无需重写现有代码即可在 Python 科学计算工作流中使用高性能的 Fortran 库。
 
 # CAVEATS
 
-Requires Fortran compiler and NumPy installation. Complex Fortran constructs may need signature file tweaks. Array ordering differs between Fortran (column-major) and C (row-major).
+需要安装 Fortran 编译器和 NumPy。复杂的 Fortran 结构可能需要调整签名文件。Fortran（列优先）与 C（行优先）的数组排列顺序不同。
 
 # HISTORY
 
-f2py was created by **Pearu Peterson** in the late 1990s and became part of NumPy. It bridges Python's scientific computing ecosystem with decades of Fortran numerical libraries, enabling their continued use in modern Python workflows.
+f2py 由 **Pearu Peterson** 创建于 1990 年代末，后来成为 NumPy 的一部分。它将 Python 科学计算生态与数十年积累的 Fortran 数值库连接起来，使这些库得以在现代 Python 工作流中继续使用。
 
 # INSTALL
 

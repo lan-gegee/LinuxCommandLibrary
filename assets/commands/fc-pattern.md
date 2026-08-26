@@ -1,22 +1,22 @@
 # TAGLINE
 
-parse and display fontconfig patterns
+解析并显示 fontconfig 模式
 
 # TLDR
 
-**Parse font pattern**
+**解析字体模式**
 
 ```fc-pattern "[pattern]"```
 
-**Show default pattern**
+**显示默认模式**
 
 ```fc-pattern --default [pattern]```
 
-**Configure pattern**
+**应用配置到模式**
 
 ```fc-pattern --config [pattern]```
 
-**Custom format output**
+**自定义格式输出**
 
 ```fc-pattern --format "%{family}" [pattern]```
 
@@ -27,23 +27,23 @@ parse and display fontconfig patterns
 # PARAMETERS
 
 **-d**, **--default**
-> Apply default substitutions.
+> 应用默认替换。
 
 **-c**, **--config**
-> Apply config substitutions.
+> 应用配置替换。
 
 **-f**, **--format** _format_
-> Custom output format.
+> 自定义输出格式。
 
 # DESCRIPTION
 
-**fc-pattern** parses and displays fontconfig patterns, showing how fontconfig interprets font matching requests. The tool is useful for debugging font configuration and understanding pattern syntax.
+**fc-pattern** 解析并显示 fontconfig 模式，展示 fontconfig 如何解释字体匹配请求。该工具可用于调试字体配置和理解模式语法。
 
-Fontconfig patterns specify desired font properties like family, style, weight, and size. fc-pattern reveals how these patterns are normalized and what substitutions are applied by the configuration.
+Fontconfig 模式指定期望的字体属性，如字族、样式、字重和字号。fc-pattern 揭示这些模式如何被规范化，以及配置应用了哪些替换。
 
 # CAVEATS
 
-Pattern syntax can be complex. Output format requires understanding fontconfig internals. Primarily useful for debugging rather than regular font management.
+模式语法可能较复杂。解读输出格式需要了解 fontconfig 内部机制。主要用于调试而非日常字体管理。
 
 # INSTALL
 

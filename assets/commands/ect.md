@@ -1,34 +1,34 @@
 # TAGLINE
 
-lossless image compression optimizer
+无损图像压缩优化器
 
 # TLDR
 
-**Optimize PNG file**
+**优化 PNG 文件**
 
 ```ect [image.png]```
 
-**Optimize with maximum** compression
+**以最大压缩率优化**
 
 ```ect -9 [image.png]```
 
-**Optimize multiple files**
+**优化多个文件**
 
 ```ect [*.png]```
 
-**Optimize recursively**
+**递归优化**
 
 ```ect -recurse [directory]```
 
-**Preserve modification time**
+**保留修改时间**
 
 ```ect -keep [image.png]```
 
-**Strip metadata for smallest size**
+**去除元数据以获得最小体积**
 
 ```ect -strip [image.png]```
 
-**Optimize JPEG** losslessly
+**无损优化 JPEG**
 
 ```ect [image.jpg]```
 
@@ -39,56 +39,56 @@ lossless image compression optimizer
 # PARAMETERS
 
 _FILES_
-> Image files to optimize.
+> 要优化的图像文件。
 
-**-1** to **-9**
-> Compression level (1 = fast, 9 = slowest/strongest). Default is **-3**.
+**-1** 到 **-9**
+> 压缩级别（1 = 快，9 = 最慢/最强）。默认为 **-3**。
 
 **-recurse**
-> Process directories recursively.
+> 递归处理目录。
 
 **-keep**
-> Preserve file modification time.
+> 保留文件修改时间。
 
 **-strip**
-> Strip metadata (EXIF, comments, color profiles).
+> 去除元数据（EXIF、注释、色彩配置文件）。
 
 **-progressive**
-> Encode JPEGs as progressive.
+> 将 JPEG 编码为渐进式。
 
 **-gzip**
-> Optimize gzip files instead of treating them as images.
+> 优化 gzip 文件而不是将其当作图像处理。
 
 **-zip**
-> Optimize ZIP archives.
+> 优化 ZIP 归档。
 
 **-quiet**
-> Suppress non-error output.
+> 抑制非错误输出。
 
 **--mt-deflate**[=_N_]
-> Multithread the deflate stage; optionally pin to _N_ threads.
+> 对 deflate 阶段进行多线程处理；可选指定为 _N_ 个线程。
 
 **--mt-file**[=_N_]
-> Process multiple input files in parallel.
+> 并行处理多个输入文件。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ECT** (Efficient Compression Tool) losslessly optimizes PNG, JPEG, and gzip files for smaller sizes. It achieves better compression than many alternatives while remaining lossless.
+**ECT**（Efficient Compression Tool）对 PNG、JPEG 和 gzip 文件进行无损优化以获得更小的体积。它在保持无损的同时，比许多同类工具实现更好的压缩效果。
 
-The tool combines multiple compression strategies to reduce file sizes without quality loss. For PNG, it optimizes filters and DEFLATE compression. For JPEG, it optimizes Huffman tables.
+该工具结合多种压缩策略来减小文件体积而不损失质量。对于 PNG，它优化滤波器和 DEFLATE 压缩；对于 JPEG，它优化 Huffman 表。
 
-ECT is useful for web optimization, reducing bandwidth and storage while maintaining perfect image quality.
+ECT 适用于 Web 优化，在保持完美图像质量的同时减少带宽和存储占用。
 
 # CAVEATS
 
-High compression levels are very slow (level 9 may take minutes per image). Files are rewritten in place. Use **-strip** if you need the absolute smallest output, since metadata is kept by default.
+高压缩级别非常慢（级别 9 每张图像可能需要数分钟）。文件会被原地重写。如果需要绝对最小的输出，请使用 **-strip**，因为默认情况下会保留元数据。
 
 # HISTORY
 
-ECT was developed as a high-performance lossless image optimizer, combining techniques from multiple compression tools (zopfli, optipng, etc.) into an efficient single tool.
+ECT 是作为一个高性能无损图像优化器开发的，将多种压缩工具（zopfli、optipng 等）的技术整合到一个高效的单体工具中。
 
 # INSTALL
 

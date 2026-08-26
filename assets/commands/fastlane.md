@@ -1,34 +1,34 @@
 # TAGLINE
 
-iOS and Android app automation tool
+iOS 和 Android 应用自动化工具
 
 # TLDR
 
-**Initialize Fastlane**
+**初始化 Fastlane**
 
 ```fastlane init```
 
-**Run a lane**
+**运行一个 lane**
 
 ```fastlane [lane_name]```
 
-**Build and test iOS app**
+**构建并测试 iOS 应用**
 
 ```fastlane ios test```
 
-**Deploy to App Store**
+**部署到 App Store**
 
 ```fastlane release```
 
-**Deploy to TestFlight**
+**部署到 TestFlight**
 
 ```fastlane beta```
 
-**List available actions**
+**列出可用 action**
 
 ```fastlane actions```
 
-**List available lanes**
+**列出可用 lane**
 
 ```fastlane lanes```
 
@@ -39,46 +39,46 @@ iOS and Android app automation tool
 # SUBCOMMANDS
 
 **init**
-> Initialize Fastlane.
+> 初始化 Fastlane。
 
 **lanes**
-> List all lanes.
+> 列出所有 lane。
 
 **actions**
-> List all actions.
+> 列出所有 action。
 
 **env**
-> Print environment info.
+> 打印环境信息。
 
 **new_action**
-> Create new action.
+> 创建新 action。
 
 **docs**
-> Generate documentation.
+> 生成文档。
 
 # PARAMETERS
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **--env** _environment_
-> Load environment-specific config.
+> 加载特定环境的配置。
 
 # CONFIGURATION
 
 **./fastlane/Fastfile**
-> Main configuration file defining lanes (workflows) for build, test, and deployment automation.
+> 主配置文件，定义用于构建、测试和部署自动化的 lane（工作流）。
 
 **./fastlane/Appfile**
-> App-specific configuration including bundle identifiers and Apple ID.
+> 应用特定配置，包括 bundle identifier 和 Apple ID。
 
 # DESCRIPTION
 
-**fastlane** automates iOS and Android development tasks including building, testing, code signing, and releasing apps to the App Store and Google Play.
+**fastlane** 自动化处理 iOS 和 Android 开发任务，包括构建、测试、代码签名，以及将应用发布到 App Store 和 Google Play。
 
-The tool provides a Ruby-based DSL for defining workflows (called "lanes") that chain together actions. It handles complex tasks like certificate management, screenshot generation, beta distribution, and store submissions.
+该工具提供基于 Ruby 的 DSL 来定义工作流（称为 "lane"），将多个 action 串联起来。它可处理证书管理、截图生成、beta 分发和应用商店提交等复杂任务。
 
-fastlane integrates with tools like xcodebuild, Gradle, gym, match, and deliver to provide end-to-end automation for mobile development and release processes.
+fastlane 与 xcodebuild、Gradle、gym、match、deliver 等工具集成，为移动开发和发布流程提供端到端的自动化。
 
 # INSTALL
 
@@ -99,4 +99,3 @@ fastlane integrates with tools like xcodebuild, Gradle, gym, match, and deliver 
 ```[Homepage](https://fastlane.tools/)```
 
 <!-- verified: 2026-07-15 -->
-

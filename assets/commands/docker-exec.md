@@ -1,26 +1,26 @@
 # TAGLINE
 
-execute commands in a running container
+在运行中的容器内执行命令
 
 # TLDR
 
-**Run command in container**
+**在容器内运行命令**
 
 ```docker exec [container] [command]```
 
-**Open interactive shell**
+**打开交互式 shell**
 
 ```docker exec -it [container] /bin/bash```
 
-**Run as specific user**
+**以指定用户身份运行**
 
 ```docker exec -u [root] [container] [command]```
 
-**Set environment variable**
+**设置环境变量**
 
 ```docker exec -e [VAR=value] [container] [command]```
 
-**Run in specific directory**
+**在指定目录中运行**
 
 ```docker exec -w [/path] [container] [command]```
 
@@ -31,43 +31,43 @@ execute commands in a running container
 # PARAMETERS
 
 **-d**, **--detach**
-> Run command in background.
+> 在后台运行命令。
 
 **-i**, **--interactive**
-> Keep STDIN open.
+> 保持 STDIN 打开。
 
 **-t**, **--tty**
-> Allocate pseudo-TTY.
+> 分配伪终端。
 
 **-u**, **--user** _user_
-> Username or UID.
+> 用户名或 UID。
 
 **-w**, **--workdir** _dir_
-> Working directory inside container.
+> 容器内的工作目录。
 
 **-e**, **--env** _list_
-> Set environment variables.
+> 设置环境变量。
 
 **--env-file** _file_
-> Read environment variables from a file.
+> 从文件读取环境变量。
 
 **--detach-keys** _sequence_
-> Override the key sequence for detaching from the container.
+> 覆盖从容器分离所用的按键序列。
 
 **--privileged**
-> Give extended privileges.
+> 授予扩展权限。
 
 # DESCRIPTION
 
-**docker exec** runs a new command in a running container's existing environment, creating a new process within the container's namespaces and cgroups. This is fundamentally different from **docker run**, which creates an entirely new container.
+**docker exec** 在运行中的容器的现有环境里执行新命令，在容器的命名空间和 cgroup 内创建一个新进程。这与 **docker run** 有本质区别——后者会创建一个全新的容器。
 
-The most common use case is opening an interactive shell for debugging with **docker exec -it container /bin/bash**, which provides direct access to the container's filesystem and running processes. Commands executed via **docker exec** inherit the container's environment but can be customized with user, working directory, and environment variable options.
+最常见的用法是用 **docker exec -it container /bin/bash** 打开交互式 shell 进行调试，直接访问容器的文件系统和运行中的进程。通过 **docker exec** 执行的命令会继承容器的环境，但可以通过用户、工作目录和环境变量等选项进行定制。
 
-The **--privileged** flag grants extended capabilities useful for system administration tasks, though it should be used cautiously as it reduces container isolation.
+**--privileged** 标志授予扩展能力，适合系统管理任务，但由于它会削弱容器隔离性，应谨慎使用。
 
 # CAVEATS
 
-The container must be running. Commands inherit the container's environment. Use **-it** together for interactive shells. The **--privileged** flag reduces container isolation and should be used sparingly.
+容器必须处于运行状态。命令会继承容器的环境。交互式 shell 需将 **-it** 配合使用。**--privileged** 标志会降低容器隔离性，应尽量少用。
 
 # INSTALL
 

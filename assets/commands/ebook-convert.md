@@ -1,30 +1,30 @@
 # TAGLINE
 
-ebook format converter
+电子书格式转换器
 
 # TLDR
 
-**Convert EPUB to MOBI**
+**将 EPUB 转换为 MOBI**
 
 ```ebook-convert [book.epub] [book.mobi]```
 
-**Convert PDF to EPUB**
+**将 PDF 转换为 EPUB**
 
 ```ebook-convert [book.pdf] [book.epub]```
 
-**Set output profile**
+**设置输出配置**
 
 ```ebook-convert [input.epub] [output.mobi] --output-profile [kindle]```
 
-**Convert with custom cover**
+**使用自定义封面转换**
 
 ```ebook-convert [book.epub] [book.mobi] --cover [cover.jpg]```
 
-**Set metadata**
+**设置元数据**
 
 ```ebook-convert [book.epub] [book.mobi] --authors "[Author Name]" --title "[Book Title]"```
 
-**Convert HTML to EPUB**
+**将 HTML 转换为 EPUB**
 
 ```ebook-convert [book.html] [book.epub]```
 
@@ -34,49 +34,49 @@ ebook format converter
 
 # DESCRIPTION
 
-**ebook-convert** is Calibre's command-line tool for converting between ebook formats. It supports a wide range of formats including EPUB, MOBI, PDF, AZW3, HTML, and many others.
+**ebook-convert** 是 Calibre 的命令行电子书格式转换工具。它支持多种格式，包括 EPUB、MOBI、PDF、AZW3、HTML 等。
 
-The tool handles format-specific optimizations and allows customization of output including fonts, margins, covers, and metadata.
+该工具处理格式特定的优化，并允许自定义输出，包括字体、边距、封面和元数据。
 
 # PARAMETERS
 
 **--output-profile** _profile_
-> Device profile (kindle, ipad, etc.).
+> 设备配置（kindle、ipad 等）。
 
 **--cover** _file_
-> Use custom cover image.
+> 使用自定义封面图像。
 
 **--authors** _names_
-> Set author metadata.
+> 设置作者元数据。
 
 **--title** _title_
-> Set book title.
+> 设置书名。
 
 **--base-font-size** _size_
-> Base font size in points.
+> 基础字号（磅）。
 
 **--embed-all-fonts**
-> Embed all fonts.
+> 嵌入所有字体。
 
 **--change-justification** _type_
-> Text justification.
+> 文本对齐方式。
 
 **--margin-top/bottom/left/right** _pts_
-> Set margins.
+> 设置边距。
 
 **--list-recipes**
-> List news recipes.
+> 列出新闻订阅源配方。
 
 **--input-encoding** _enc_
-> Input file encoding.
+> 输入文件编码。
 
 # CAVEATS
 
-PDF conversion may lose formatting. Complex layouts may not convert well. Some formats have limited feature support. Large files can be slow.
+PDF 转换可能丢失格式。复杂排版可能无法很好地转换。某些格式功能支持有限。大文件转换可能较慢。
 
 # HISTORY
 
-**ebook-convert** is part of **Calibre**, created by **Kovid Goyal** starting in **2006**. Originally focused on Sony Reader devices, Calibre grew into a comprehensive ebook management system supporting dozens of formats and devices.
+**ebook-convert** 是 **Calibre** 的一部分，由 **Kovid Goyal** 自 **2006 年**起创建。Calibre 最初面向 Sony Reader 设备，后来发展为支持数十种格式和设备的综合性电子书管理系统。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-encrypted private directory setup
+加密私有目录设置
 
 # TLDR
 
-**Setup encrypted private directory**
+**设置加密的私有目录**
 
 ```ecryptfs-setup-private```
 
-**Setup with wrapped passphrase**
+**使用包装口令设置**
 
 ```ecryptfs-setup-private --wrapping```
 
-**Setup without wrapped passphrase**
+**不使用包装口令设置**
 
 ```ecryptfs-setup-private --noautomount```
 
-**Force setup (overwrite existing)**
+**强制设置（覆盖已有配置）**
 
 ```ecryptfs-setup-private --force```
 
@@ -27,55 +27,55 @@ encrypted private directory setup
 # PARAMETERS
 
 **--wrapping**
-> Use login passphrase for wrapping.
+> 使用登录口令进行包装。
 
 **--noautomount**
-> Don't configure automount on login.
+> 不配置登录时自动挂载。
 
 **--nopwcheck**
-> Don't verify login password.
+> 不校验登录密码。
 
 **--force**
-> Overwrite existing configuration.
+> 覆盖已有的配置。
 
 **-u**, **--username** _name_
-> Specify username (for root use).
+> 指定用户名（供 root 使用）。
 
 **-l**, **--loginpass** _pass_
-> Login passphrase (insecure, for scripting).
+> 登录口令（不安全，仅供脚本使用）。
 
 **-m**, **--mountpass** _pass_
-> Mount passphrase (insecure, for scripting).
+> 挂载口令（不安全，仅供脚本使用）。
 
 # CONFIGURATION
 
 **~/.ecryptfs/**
-> Directory containing encryption keys, wrapped passphrases, and mount configuration.
+> 存放加密密钥、包装口令和挂载配置的目录。
 
 **~/.ecryptfs/wrapped-passphrase**
-> Mount passphrase wrapped with login password for automatic decryption.
+> 用登录密码包装的挂载口令，用于自动解密。
 
 # DESCRIPTION
 
-**ecryptfs-setup-private** creates an encrypted private directory for a user. It sets up ~/Private as an encrypted folder that is automatically mounted when the user logs in and unmounted on logout.
+**ecryptfs-setup-private** 为用户创建一个加密的私有目录。它将 ~/Private 设置为加密文件夹，在用户登录时自动挂载，在登出时卸载。
 
-The setup creates the necessary encryption keys and wrapper, storing them in ~/.ecryptfs. The mount passphrase is wrapped with the login password, enabling automatic decryption on login.
+设置过程会创建必要的加密密钥和包装器并存储到 ~/.ecryptfs 中。挂载口令会用登录密码包装，从而实现登录时自动解密。
 
 # SETUP PROCESS
 
-1. Prompts for login password
-2. Generates random mount passphrase
-3. Wraps mount passphrase with login password
-4. Creates ~/.Private (encrypted) and ~/Private (mount point)
-5. Configures PAM for auto-mount
+1. 提示输入登录密码
+2. 生成随机的挂载口令
+3. 用登录密码包装挂载口令
+4. 创建 ~/.Private（加密）和 ~/Private（挂载点）
+5. 配置 PAM 以实现自动挂载
 
 # CAVEATS
 
-Requires eCryptfs kernel module. Swap should be encrypted for security. Login password changes require rewrapping. Recovery requires unwrapped passphrase. Deprecated in favor of fscrypt on modern systems.
+需要 eCryptfs 内核模块。出于安全考虑应对交换分区加密。修改登录密码后需要重新包装。恢复数据需要未包装的口令。在现代系统上已被 fscrypt 取代。
 
 # HISTORY
 
-This utility was developed for Ubuntu's encrypted home directory feature. It was widely used for per-user encryption from **Ubuntu 8.10** through **18.04**, after which fscrypt became the recommended solution.
+该工具是为 Ubuntu 的主目录加密功能开发的。从 **Ubuntu 8.10** 到 **18.04** 被广泛用于按用户加密，之后 fscrypt 成为推荐的解决方案。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Initialize Data Version Control in a repository
+在仓库中初始化数据版本控制
 
 # TLDR
 
-**Initialize DVC** in a Git repository
+**在 Git 仓库中初始化 DVC**
 
 ```dvc init```
 
-**Initialize without Git** integration
+**不集成 Git 进行初始化**
 
 ```dvc init --no-scm```
 
-**Initialize in a subdirectory** of a Git repo
+**在 Git 仓库的子目录中初始化**
 
 ```dvc init --subdir```
 
-**Force re-initialization** of DVC
+**强制重新初始化 DVC**
 
 ```dvc init -f```
 
@@ -27,35 +27,35 @@ Initialize Data Version Control in a repository
 # PARAMETERS
 
 **--no-scm**
-> Initialize DVC without Git integration. DVC will not create or modify any Git-related files.
+> 不与 Git 集成而初始化 DVC。DVC 将不会创建或修改任何与 Git 相关的文件。
 
 **--subdir**
-> Initialize DVC in a subdirectory of a Git repository, instead of the repository root.
+> 在 Git 仓库的子目录而非仓库根目录中初始化 DVC。
 
 **-f**, **--force**
-> Force re-initialization, overwriting any existing .dvc directory.
+> 强制重新初始化，覆盖任何已存在的 .dvc 目录。
 
 **-q**, **--quiet**
-> Suppress all output except errors.
+> 抑制除错误外的所有输出。
 
 **-v**, **--verbose**
-> Display detailed tracing information.
+> 显示详细的跟踪信息。
 
 # DESCRIPTION
 
-**dvc init** initializes Data Version Control in a directory, creating the `.dvc/` directory structure. This sets up DVC for tracking large files, datasets, and machine learning models alongside Git version control.
+**dvc init** 在目录中初始化数据版本控制，创建 `.dvc/` 目录结构。这会让 DVC 与 Git 版本控制协同工作，用于跟踪大文件、数据集和机器学习模型。
 
-Should be run in a Git repository for full functionality, though the `--no-scm` option allows standalone operation. The command creates configuration files, a cache directory, and integrates with Git by updating `.gitignore` and staging the new `.dvc/` directory.
+应在 Git 仓库中运行以获得完整功能，不过 `--no-scm` 选项允许独立运行。该命令会创建配置文件和缓存目录，并通过更新 `.gitignore` 和暂存新的 `.dvc/` 目录来与 Git 集成。
 
-The created `.dvc/` directory contains `config` (repository configuration), `.gitignore` (to exclude cache and temporary files), and a `tmp/` directory for internal use.
+创建的 `.dvc/` 目录包含 `config`（仓库配置）、`.gitignore`（用于排除缓存和临时文件），以及一个内部使用的 `tmp/` 目录。
 
 # CONFIGURATION
 
 **.dvc/config**
-> Local repository configuration including remotes, cache settings, and execution parameters.
+> 本地仓库配置，包括远程存储、缓存设置和执行参数。
 
 **.dvc/config.local**
-> Local machine-specific settings not tracked in Git, such as credentials and cache locations.
+> 不由 Git 跟踪的本机特定设置，例如凭据和缓存位置。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ The created `.dvc/` directory contains `config` (repository configuration), `.gi
 # SEE ALSO
 
 [dvc](/man/dvc)(1), [dvc-config](/man/dvc-config)(1), [dvc-destroy](/man/dvc-destroy)(1), [git-init](/man/git-init)(1)
-

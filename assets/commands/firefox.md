@@ -1,26 +1,26 @@
 # TAGLINE
 
-Mozilla's open source web browser
+Mozilla 出品的开源网页浏览器
 
 # TLDR
 
-**Open Firefox**
+**打开 Firefox**
 
 ```firefox```
 
-**Open specific URL**
+**打开指定 URL**
 
 ```firefox [https://example.com]```
 
-**New window**
+**新建窗口**
 
 ```firefox --new-window [url]```
 
-**Private browsing**
+**隐私浏览**
 
 ```firefox --private-window```
 
-**Use specific profile**
+**使用指定配置档**
 
 ```firefox -P [profilename]```
 
@@ -31,61 +31,61 @@ Mozilla's open source web browser
 # PARAMETERS
 
 _URLS_
-> URLs to open.
+> 要打开的 URL。
 
 **--new-window** _URL_
-> Open URL in new window.
+> 在新窗口中打开 URL。
 
 **--new-tab** _URL_
-> Open URL in new tab.
+> 在新标签页中打开 URL。
 
 **--private-window**
-> Start private browsing.
+> 进入隐私浏览模式。
 
 **-P** _PROFILE_
-> Use named profile.
+> 使用指定名称的配置档。
 
 **--ProfileManager**
-> Open profile manager.
+> 打开配置档管理器。
 
 **--safe-mode**
-> Start with extensions disabled.
+> 在禁用扩展的状态下启动。
 
 **--headless**
-> Run without GUI.
+> 无界面运行。
 
 **--screenshot** _FILE_
-> Capture page to file.
+> 把页面截图保存到文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.mozilla/firefox/profiles.ini**
-> Profile configuration and location mappings.
+> 配置档设置及其位置映射。
 
 **~/.mozilla/firefox/[profile]/prefs.js**
-> User preferences for a specific profile.
+> 某个配置档的用户偏好设置。
 
 **~/.mozilla/firefox/[profile]/user.js**
-> Custom user overrides for preferences.
+> 用户对偏好项的自定义覆盖。
 
 # DESCRIPTION
 
-**firefox** is Mozilla's open source web browser. The command-line interface launches the browser with various options for windows, profiles, and automated tasks.
+**firefox** 是 Mozilla 的开源网页浏览器。其命令行接口支持以多种选项启动浏览器，可用于窗口管理、配置档切换和自动化任务。
 
-The browser supports multiple profiles for separating work and personal browsing. Headless mode enables automated screenshots and testing without a visible window.
+浏览器支持多配置档，便于把工作浏览和个人浏览分隔开。无头模式能够在没有可见窗口的情况下执行自动截图和测试。
 
-Firefox provides extensive privacy features and extension support through its add-ons ecosystem.
+Firefox 提供丰富的隐私特性，并借助扩展生态提供强大的插件支持。
 
 # CAVEATS
 
-Profile options require no running instance. Headless mode has limited functionality. Some options vary by platform.
+使用配置档相关选项时不能有正在运行的实例。无头模式的功能有限。某些选项的行为随平台而异。
 
 # HISTORY
 
-Firefox emerged from the **Mozilla** project in 2002 as Phoenix, renamed Firefox in 2004. It became a major browser challenging Internet Explorer's dominance, pioneering features like tabbed browsing and extensions.
+Firefox 由 **Mozilla** 项目孕育，2002 年以 Phoenix 之名诞生，2004 年更名为 Firefox。它是撼动 Internet Explorer 统治地位的主要浏览器之一，率先普及了标签页浏览和扩展机制。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-force-feedback device testing utility
+力反馈设备测试工具
 
 # TLDR
 
-Open fftest on an **event device**
+在**事件设备**上运行 fftest
 
 ```fftest [/dev/input/eventX]```
 
@@ -14,20 +14,20 @@ Open fftest on an **event device**
 
 # DESCRIPTION
 
-**fftest** tests force-feedback devices like game controllers, steering wheels, and joysticks with rumble or haptic feedback functionality. It sends various force-feedback effects to the device including constant forces, periodic effects, ramps, and spring conditions to verify they work correctly.
+**fftest** 用于测试带有振动或触觉反馈功能的力反馈设备，如游戏手柄、方向盘和摇杆。它会向设备发送各种力反馈效果，包括恒定力、周期效果、斜坡和弹簧条件，以验证其是否正常工作。
 
-The tool is part of the linuxconsole package for input device testing. It interacts with Linux input event devices through the force-feedback API, allowing users to diagnose hardware issues and verify driver support.
+该工具是 linuxconsole 软件包中用于输入设备测试的一部分。它通过力反馈 API 与 Linux 输入事件设备交互，帮助用户诊断硬件问题并验证驱动支持。
 
-fftest requires appropriate device permissions and is primarily used for troubleshooting gaming peripherals and testing driver implementations.
+fftest 需要相应的设备权限，主要用于排查游戏外设故障和测试驱动实现。
 
 # PARAMETERS
 
 _device_
-> Input event device to test (e.g., /dev/input/event0)
+> 要测试的输入事件设备（如 /dev/input/event0）
 
 # CAVEATS
 
-Requires appropriate permissions on input device. Device must support force-feedback. Use evtest to identify the correct event device.
+需要对输入设备有相应权限。设备必须支持力反馈。可使用 evtest 确认正确的事件设备。
 
 # INSTALL
 

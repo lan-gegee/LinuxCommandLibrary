@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNOME document viewer for PDF and PostScript
+GNOME 的 PDF 与 PostScript 文档查看器
 
 # TLDR
 
-**Open** a PDF file
+**打开** PDF 文件
 
 ```evince [path/to/file.pdf]```
 
-Open **multiple** documents
+打开**多个**文档
 
 ```evince [file1.pdf] [file2.pdf]```
 
-Open in **fullscreen** mode
+以**全屏**模式打开
 
 ```evince [-f|--fullscreen] [path/to/file.pdf]```
 
-Open in **presentation** mode
+以**演示**模式打开
 
 ```evince [-s|--presentation] [path/to/file.pdf]```
 
-Open a specific **page** number
+打开指定的**页码**
 
 ```evince [-i|--page-index] [5] [path/to/file.pdf]```
 
@@ -31,29 +31,29 @@ Open a specific **page** number
 # PARAMETERS
 
 **-f, --fullscreen**
-> Open in fullscreen mode
+> 以全屏模式打开
 
 **-s, --presentation**
-> Open in presentation mode
+> 以演示模式打开
 
 **-i, --page-index** _page_
-> Open at specific page
+> 打开到指定页码
 
 **-l, --page-label** _label_
-> Open at page with label
+> 打开到具有指定标签的页面
 
 **-w, --preview**
-> Run in preview mode
+> 以预览模式运行
 
 # DESCRIPTION
 
-**evince** is the GNOME document viewer supporting PDF, PostScript, DjVu, TIFF, and other formats. It provides annotation support, form filling, and presentation mode.
+**evince** 是 GNOME 的文档查看器，支持 PDF、PostScript、DjVu、TIFF 等格式。它提供注释支持、表单填写和演示模式功能。
 
-Integrates with GNOME desktop services for printing and file management.
+它与 GNOME 桌面的打印和文件管理服务集成。
 
 # CAVEATS
 
-GNOME desktop application. Some features require poppler library. Large documents may consume significant memory.
+GNOME 桌面应用。部分功能依赖 poppler 库。大文档可能占用较多内存。
 
 # INSTALL
 

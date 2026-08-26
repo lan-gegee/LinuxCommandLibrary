@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for Drupal code generation and site management
+Drupal 代码生成与站点管理 CLI
 
 # TLDR
 
-**List all available commands**
+**列出所有可用命令**
 
 ```drupal list```
 
-**Generate module scaffolding** (interactive)
+**生成模块脚手架**（交互式）
 
 ```drupal generate:module```
 
-**Generate a controller class**
+**生成控制器类**
 
 ```drupal generate:controller```
 
-**Clear and rebuild all caches**
+**清空并重建所有缓存**
 
 ```drupal cache:rebuild```
 
-**Install and enable a module**
+**安装并启用模块**
 
 ```drupal module:install [module_name]```
 
-**Run pending database updates**
+**运行待执行的数据库更新**
 
 ```drupal update:execute```
 
-**Check site status and configuration**
+**查看站点状态与配置**
 
 ```drupal site:status```
 
@@ -39,52 +39,52 @@ CLI for Drupal code generation and site management
 # PARAMETERS
 
 _COMMAND_
-> Drupal Console command to execute.
+> 要执行的 Drupal Console 命令。
 
 **generate:module**
-> Generate module scaffolding.
+> 生成模块脚手架。
 
 **generate:controller**
-> Generate controller class.
+> 生成控制器类。
 
 **cache:rebuild**
-> Clear all caches.
+> 清空所有缓存。
 
 **module:install** _NAME_
-> Install and enable module.
+> 安装并启用模块。
 
 **site:status**
-> Show site information.
+> 显示站点信息。
 
 **update:execute**
-> Run database updates.
+> 运行数据库更新。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.console/config.yml**
-> User-level configuration for Drupal Console, including default options and preferences.
+> Drupal Console 的用户级配置，包括默认选项和偏好设置。
 
 **drupal.yml**
-> Project-specific configuration file in Drupal root, defining module paths and custom settings.
+> 位于 Drupal 根目录的项目专属配置文件，定义模块路径和自定义设置。
 
 # DESCRIPTION
 
-**Drupal Console** is a CLI tool for generating boilerplate code, interacting with, and debugging Drupal 8+ applications. Built on the Symfony Console component, it accelerates development through code generation and provides utilities for common administrative tasks.
+**Drupal Console** 是一款 CLI 工具，用于生成样板代码以及与 Drupal 8+ 应用交互和调试。它基于 Symfony Console 组件构建，通过代码生成加速开发，并为常见管理任务提供实用工具。
 
-The generate commands create scaffolding for modules, plugins, controllers, forms, and other Drupal components following best practices. Interactive prompts guide through configuration options.
+generate 系列命令按照最佳实践为模块、插件、控制器、表单和其他 Drupal 组件创建脚手架。交互式提示会引导你完成各项配置选项。
 
-Drupal Console also provides debugging tools, cache management, configuration import/export, and database operations from the command line.
+Drupal Console 还提供调试工具、缓存管理、配置导入/导出以及命令行数据库操作。
 
 # CAVEATS
 
-Requires Drupal 8+ installation. Must be run from the Drupal root directory. Some commands require database access. The project is no longer actively maintained; **Drush** has adopted many of its features and is the recommended CLI tool for modern Drupal development.
+需要 Drupal 8+ 环境。必须在 Drupal 根目录下运行。部分命令需要数据库访问。该项目已不再活跃维护；**Drush** 吸收了它的许多功能，是现代 Drupal 开发推荐的 CLI 工具。
 
 # HISTORY
 
-Drupal Console was created as a code generation and developer tool for **Drupal 8**, released around **2015**. It was inspired by Symfony Console and brought modern CLI development practices to Drupal.
+Drupal Console 作为面向 **Drupal 8** 的代码生成与开发者工具而创建，发布于 **2015 年**前后。它受 Symfony Console 启发，将现代 CLI 开发实践带入 Drupal。
 
 # INSTALL
 

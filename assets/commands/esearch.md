@@ -1,22 +1,22 @@
 # TAGLINE
 
-NCBI Entrez database search utility
+NCBI Entrez 数据库搜索工具
 
 # TLDR
 
-Search **pubmed** for a query
+在 **pubmed** 中搜索查询词
 
 ```esearch -db pubmed -query "[selective serotonin reuptake inhibitor]"```
 
-Search **protein** database using regex
+使用正则表达式搜索 **protein** 数据库
 
 ```esearch -db [protein] -query '[Escherichia*]'```
 
-Search **nucleotide** database with field qualifiers
+带字段限定符搜索 **nucleotide** 数据库
 
 ```esearch -db nuccore -query "[insulin [PROT] AND rodents [ORGN]]"```
 
-Display **help**
+显示**帮助**
 
 ```esearch [-h|-help]```
 
@@ -26,24 +26,24 @@ Display **help**
 
 # DESCRIPTION
 
-**esearch** is a command-line tool for performing searches in NCBI's Entrez databases using indexed field queries. It provides programmatic access to major biological databases including PubMed (biomedical literature), GenBank (nucleotide sequences), Protein (protein sequences), and many others.
+**esearch** 是一个命令行工具，用于通过索引字段查询在 NCBI 的 Entrez 数据库中执行搜索。它提供对主要生物学数据库的编程访问能力，包括 PubMed（生物医学文献）、GenBank（核苷酸序列）、Protein（蛋白质序列）等众多数据库。
 
-The tool is part of the NCBI EDirect (Entrez Direct) utilities suite, designed for automated retrieval and processing of biological data. esearch typically serves as the first step in a pipeline, identifying records that match search criteria. Its output is usually piped to other EDirect commands like efetch (to retrieve full records) or elink (to find related data across databases). This enables powerful automation of biological database queries in research workflows.
+该工具属于 NCBI EDirect（Entrez Direct）实用程序套件，专为自动化检索和处理生物学数据而设计。esearch 通常作为管道的第一步，找出符合搜索条件的记录。其输出通常通过管道传给其他 EDirect 命令，如 efetch（获取完整记录）或 elink（查找跨数据库的关联数据）。这使得研究工作流中的生物数据库查询可以高效地自动化。
 
 # PARAMETERS
 
 **-db** _database_
-> Database to search
+> 要搜索的数据库
 
 **-query** _string_
-> Search query with optional field qualifiers
+> 搜索查询，可附带字段限定符
 
 **-h, -help**
-> Display help
+> 显示帮助
 
 # CAVEATS
 
-Part of the edirect package from NCBI. Requires internet connection. Output is typically piped to elink or efetch for further processing.
+属于 NCBI 的 edirect 软件包。需要联网。其输出通常通过管道传给 elink 或 efetch 作进一步处理。
 
 # INSTALL
 

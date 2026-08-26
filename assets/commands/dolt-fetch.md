@@ -1,22 +1,22 @@
 # TAGLINE
 
-download objects and refs from remote
+从远程下载对象和引用
 
 # TLDR
 
-**Fetch from remote**
+**从远程抓取**
 
 ```dolt fetch```
 
-**Fetch from specific remote**
+**从指定远程抓取**
 
 ```dolt fetch [remote]```
 
-**Fetch specific branch**
+**抓取指定分支**
 
 ```dolt fetch [remote] [branch]```
 
-**Fetch all remotes**
+**抓取所有远程**
 
 ```dolt fetch --all```
 
@@ -27,18 +27,18 @@ download objects and refs from remote
 # PARAMETERS
 
 **--all**
-> Fetch from all remotes.
+> 从所有远程抓取。
 
 **--prune**
-> Remove stale remote tracking branches.
+> 移除过期的远程跟踪分支。
 
 # DESCRIPTION
 
-**dolt fetch** downloads objects, commits, and branch references from a remote Dolt repository. It synchronizes the local repository's knowledge of the remote's state without modifying the working set or local branches.
+**dolt fetch** 从远程 Dolt 仓库下载对象、提交和分支引用。它同步本地仓库对远程状态的认知，但不会修改工作集或本地分支。
 
-This command updates remote-tracking branches (e.g., origin/main) to reflect the current state of the remote repository. Unlike pull, fetch does not automatically merge changes, allowing you to review remote changes before integrating them into your local branches.
+该命令会更新远程跟踪分支（例如 origin/main），使其反映远程仓库的当前状态。与 pull 不同，fetch 不会自动合并变更，你可以先审阅远程改动再决定是否整合到本地分支。
 
-The --prune option removes remote-tracking branches that no longer exist on the remote, keeping the local repository clean. Fetching from all remotes simultaneously is useful in multi-remote workflows.
+--prune 选项会移除远程上已不存在的远程跟踪分支，保持本地仓库整洁。在多远程工作流中，同时从所有远程抓取会很有用。
 
 # INSTALL
 
@@ -51,5 +51,4 @@ The --prune option removes remote-tracking branches that no longer exist on the 
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-
 

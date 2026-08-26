@@ -1,22 +1,22 @@
 # TAGLINE
 
-UEFI variable management utility
+UEFI 变量管理工具
 
 # TLDR
 
-**List** all UEFI variables
+**列出**所有 UEFI 变量
 
 ```efivar -l```
 
-**Print** contents of a variable
+**打印**变量内容
 
 ```efivar -n [guid-name] -p```
 
-**Export** a variable to a file
+**导出**变量到文件
 
 ```efivar -n [guid-name] -e [path/to/output_file]```
 
-**List** known GUID names
+**列出**已知的 GUID 名称
 
 ```efivar -L```
 
@@ -26,51 +26,51 @@ UEFI variable management utility
 
 # DESCRIPTION
 
-**efivar** manages UEFI variables stored in NVRAM. It can list, read, write, and delete EFI variables. These variables contain boot configuration, secure boot settings, and other firmware data.
+**efivar** 管理存储在 NVRAM 中的 UEFI 变量。它可以列出、读取、写入和删除 EFI 变量。这些变量包含启动配置、安全启动设置和其他固件数据。
 
-Useful for debugging UEFI boot issues and inspecting firmware configuration.
+可用于调试 UEFI 启动问题和检查固件配置。
 
 # PARAMETERS
 
 **-l, --list**
-> List current EFI variables
+> 列出当前的 EFI 变量
 
 **-n, --name** _guid-name_
-> Variable to manipulate, in the form 8be4df61-93ca-11d2-aa0d-00e098032b8c-BootOrder
+> 要操作的变量，格式为 8be4df61-93ca-11d2-aa0d-00e098032b8c-BootOrder
 
 **-p, --print**
-> Print variable specified by --name
+> 打印 --name 指定的变量
 
 **-d, --print-decimal**
-> Print variable in decimal format values specified by --name
+> 以十进制格式打印 --name 指定的变量的值
 
 **-a, --append**
-> Append to variable specified by --name
+> 追加到 --name 指定的变量
 
 **-A, --attributes** _attributes_
-> Attributes to use on append
+> 追加时使用的属性
 
 **-w, --write**
-> Write to variable specified by --name
+> 写入 --name 指定的变量
 
 **-f, --datafile** _file_
-> Load or save variable contents from file
+> 从文件加载或保存变量内容
 
 **-e, --export** _file_
-> Export variable to file
+> 导出变量到文件
 
 **-i, --import** _file_
-> Import variable from file
+> 从文件导入变量
 
 **-L, --list-guids**
-> Show internal GUID list
+> 显示内部 GUID 列表
 
 **-D, --dmpstore**
-> Use DMPSTORE format when exporting
+> 导出时使用 DMPSTORE 格式
 
 # CAVEATS
 
-Requires root privileges for write operations. Modifying EFI variables incorrectly can prevent system boot. Some variables are protected by Secure Boot.
+写操作需要 root 权限。错误地修改 EFI 变量可能导致系统无法启动。某些变量受安全启动（Secure Boot）保护。
 
 # INSTALL
 

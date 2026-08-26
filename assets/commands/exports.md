@@ -1,44 +1,44 @@
 # TAGLINE
 
-NFS shared directory configuration and management
+NFS 共享目录配置与管理
 
 # TLDR
 
-**View current exports**
+**查看当前导出项**
 
 ```exportfs -v```
 
-**Reload exports configuration**
+**重载导出配置**
 
 ```sudo exportfs -ra```
 
-**Export directory temporarily**
+**临时导出目录**
 
 ```sudo exportfs -o [rw,sync] [client:/path]```
 
-**Unexport directory**
+**取消导出目录**
 
 ```sudo exportfs -u [client:/path]```
 
 # SYNOPSIS
 
-**/etc/exports** - NFS exports configuration
+**/etc/exports** - NFS 导出配置文件
 
 **exportfs** [_options_] [_client:/path_]
 
 # PARAMETERS
 
 **exportfs -r**
-> Re-export all directories.
+> 重新导出所有目录。
 
 **exportfs -a**
-> Export all entries in /etc/exports.
+> 导出 /etc/exports 中的所有条目。
 
 **exportfs -u** _client:/path_
-> Unexport directory.
+> 取消导出目录。
 
 **exportfs -v**
-> Verbose; show current exports.
+> 详细输出；显示当前导出项。
 
 # EXPORTS FILE FORMAT
 
@@ -52,35 +52,35 @@ NFS shared directory configuration and management
 # OPTIONS
 
 **rw** / **ro**
-> Read-write or read-only access.
+> 读写或只读访问。
 
 **sync** / **async**
-> Synchronous or asynchronous writes.
+> 同步或异步写入。
 
 **no_root_squash**
-> Don't map root to anonymous user.
+> 不将 root 映射为匿名用户。
 
 **root_squash**
-> Map root to anonymous user (default).
+> 将 root 映射为匿名用户（默认）。
 
 **all_squash**
-> Map all users to anonymous.
+> 将所有用户映射为匿名用户。
 
 **subtree_check** / **no_subtree_check**
-> Subtree checking.
+> 子树检查。
 
 **secure** / **insecure**
-> Require ports < 1024.
+> 要求端口小于 1024。
 
 # DESCRIPTION
 
-**/etc/exports** defines which directories are shared via NFS (Network File System). Each line specifies a path and which clients can access it with what options.
+**/etc/exports** 定义哪些目录通过 NFS（网络文件系统）共享。每一行指定一个路径，以及哪些客户端可以用什么选项访问它。
 
-The **exportfs** command manages the export table at runtime, reading from /etc/exports and updating the kernel's export table without restarting NFS services.
+**exportfs** 命令在运行时管理导出表，从 /etc/exports 读取配置并更新内核的导出表，无需重启 NFS 服务。
 
 # CAVEATS
 
-Changes to /etc/exports require `exportfs -ra` to take effect. Security relies on IP-based access control by default. Consider Kerberos for authenticated NFS. Permission mapping between client and server must be considered.
+修改 /etc/exports 后需要执行 `exportfs -ra` 才能生效。默认安全性依赖基于 IP 的访问控制。如需经过身份验证的 NFS，可考虑 Kerberos。客户端与服务器之间的权限映射也需要考虑。
 
 # SEE ALSO
 

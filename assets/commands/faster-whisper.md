@@ -1,34 +1,34 @@
 # TAGLINE
 
-optimized Whisper speech recognition engine
+经过优化的 Whisper 语音识别引擎
 
 # TLDR
 
-**Transcribe an audio file**
+**转写音频文件**
 
 ```faster-whisper [audio.mp3]```
 
-**Transcribe with a specific model**
+**使用指定模型转写**
 
 ```faster-whisper [audio.mp3] --model [large-v3]```
 
-**Transcribe with language hint**
+**带语言提示转写**
 
 ```faster-whisper [audio.mp3] --language [en]```
 
-**Output as SRT subtitles**
+**输出为 SRT 字幕**
 
 ```faster-whisper [audio.mp3] --output_format srt```
 
-**Translate to English**
+**翻译成英语**
 
 ```faster-whisper [audio.mp3] --task translate```
 
-**Save output to directory**
+**将输出保存到目录**
 
 ```faster-whisper [audio.mp3] --output_dir [/path/to/output]```
 
-**Transcribe with word timestamps**
+**带词级时间戳转写**
 
 ```faster-whisper [audio.mp3] --word_timestamps true```
 
@@ -39,58 +39,58 @@ optimized Whisper speech recognition engine
 # PARAMETERS
 
 **--model** _SIZE_
-> Model size: tiny, base, small, medium, large-v1, large-v2, large-v3 (default: small).
+> 模型大小：tiny、base、small、medium、large-v1、large-v2、large-v3（默认：small）。
 
 **--language** _LANG_
-> Language code (en, de, fr, etc.) or auto-detect.
+> 语言代码（en、de、fr 等）或自动检测。
 
 **--task** _TASK_
-> Task: transcribe or translate.
+> 任务：transcribe 或 translate。
 
 **--output_format** _FORMAT_
-> Output format: txt, vtt, srt, tsv, json, all.
+> 输出格式：txt、vtt、srt、tsv、json、all。
 
 **--output_dir** _DIR_
-> Output directory for results.
+> 结果输出目录。
 
 **--word_timestamps** _BOOL_
-> Include word-level timestamps.
+> 包含词级时间戳。
 
 **--device** _DEVICE_
-> Device: cpu, cuda, auto (default: auto).
+> 设备：cpu、cuda、auto（默认：auto）。
 
 **--compute_type** _TYPE_
-> Compute type: int8, float16, float32 (default: int8 on CPU).
+> 计算类型：int8、float16、float32（CPU 上默认：int8）。
 
 **--beam_size** _N_
-> Beam search size (default: 5).
+> 束搜索宽度（默认：5）。
 
 **--vad_filter** _BOOL_
-> Enable voice activity detection filter (uses Silero VAD).
+> 启用语音活动检测过滤（使用 Silero VAD）。
 
 **--initial_prompt** _TEXT_
-> Optional text to provide as initial prompt for the decoder.
+> 可选文本，作为解码器的初始提示。
 
 **--threads** _N_
-> Number of CPU threads.
+> CPU 线程数。
 
 # DESCRIPTION
 
-**faster-whisper** is a reimplementation of OpenAI's Whisper using **CTranslate2**, a fast inference engine for Transformer models. It provides up to 4x faster transcription than the original Whisper while using less memory.
+**faster-whisper** 是 OpenAI Whisper 的重新实现，基于 **CTranslate2**——一种面向 Transformer 模型的快速推理引擎。它比原版 Whisper 的转写速度最高快 4 倍，同时占用更少内存。
 
-The tool supports all Whisper model sizes. Larger models are more accurate but slower. The compute type parameter controls precision: int8 is fastest and most memory-efficient, float16 is a good balance on GPU, float32 is highest precision.
+该工具支持所有 Whisper 模型尺寸。模型越大越准确但越慢。compute type 参数控制精度：int8 最快且最省内存，float16 在 GPU 上是良好折衷，float32 精度最高。
 
-Voice activity detection (VAD) filtering skips silent sections, improving both speed and accuracy. Language detection is automatic but specifying the language avoids detection overhead.
+语音活动检测（VAD）过滤会跳过静音片段，同时提升速度和准确性。语言检测是自动的，但显式指定语言可避免检测开销。
 
-The base library is installed via `pip install faster-whisper` (Python API only). For CLI usage, install a wrapper such as `pip install faster-whisper-cli` or `pip install whisper-ctranslate2`. CTranslate2 handles model conversion automatically. GPU acceleration requires CUDA toolkit.
+基础库通过 `pip install faster-whisper` 安装（仅 Python API）。如需命令行用法，请安装封装工具，例如 `pip install faster-whisper-cli` 或 `pip install whisper-ctranslate2`。CTranslate2 会自动处理模型转换。GPU 加速需要 CUDA 工具包。
 
 # CAVEATS
 
-Large models require significant memory. CUDA toolkit needed for GPU. First run downloads and converts models. Accuracy varies by audio quality. No speaker diarization in CLI (available via API).
+大模型需要大量内存。GPU 需要 CUDA 工具包。首次运行会下载并转换模型。准确性因音频质量而异。CLI 不支持说话人分离（可通过 API 使用）。
 
 # HISTORY
 
-**faster-whisper** was created by **Guillaume Klein** (SYSTRAN) in **2023** using CTranslate2 to optimize Whisper inference. It became the preferred Whisper implementation for production use due to its speed and memory advantages. The project achieved wide adoption in transcription workflows.
+**faster-whisper** 由 **Guillaume Klein**（SYSTRAN）于 **2023 年**创建，使用 CTranslate2 优化 Whisper 推理。凭借速度和内存优势，它成为生产环境中首选的 Whisper 实现。该项目在转写工作流中得到了广泛采用。
 
 # SEE ALSO
 

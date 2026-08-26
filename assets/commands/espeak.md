@@ -1,34 +1,34 @@
 # TAGLINE
 
-compact open-source speech synthesizer
+紧凑的开源语音合成器
 
 # TLDR
 
-**Speak text**
+**朗读文本**
 
 ```espeak "[Hello world]"```
 
-**Speak from file**
+**从文件朗读**
 
 ```espeak -f [text.txt]```
 
-**Set voice/language**
+**设置语音/语言**
 
 ```espeak -v [en-us] "[Hello]"```
 
-**Adjust speed**
+**调整语速**
 
 ```espeak -s [150] "[Hello]"```
 
-**Save to audio** file
+**保存到音频**文件
 
 ```espeak -w [output.wav] "[Hello]"```
 
-**List available voices**
+**列出可用语音**
 
 ```espeak --voices```
 
-**Adjust pitch**
+**调整音高**
 
 ```espeak -p [50] "[Hello]"```
 
@@ -39,59 +39,59 @@ compact open-source speech synthesizer
 # PARAMETERS
 
 _WORDS_
-> Text to speak.
+> 要朗读的文本。
 
 **-f** _FILE_
-> Read text from file.
+> 从文件读取文本。
 
 **-v** _VOICE_
-> Voice name or language.
+> 语音名称或语言。
 
 **-s** _SPEED_
-> Speed in words per minute.
+> 语速，以每分钟单词数计。
 
 **-p** _PITCH_
-> Pitch (0-99).
+> 音高（0-99）。
 
 **-w** _FILE_
-> Write output to WAV file.
+> 将输出写入 WAV 文件。
 
 **--voices**
-> List available voices.
+> 列出可用的语音。
 
 **-a** _AMPLITUDE_
-> Amplitude/volume (0 to 200, default 100).
+> 振幅/音量（0 到 200，默认 100）。
 
 **-g** _GAP_
-> Word gap, in units of 10 ms.
+> 单词间隔，以 10 毫秒为单位。
 
 **-m**
-> Interpret SSML markup in the input.
+> 解析输入中的 SSML 标记。
 
 **-x**
-> Write phoneme mnemonics to stdout instead of speaking.
+> 将音素助记符写到标准输出，而不是朗读出来。
 
 **--stdout**
-> Write WAV audio to standard output.
+> 将 WAV 音频写到标准输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**eSpeak** is a compact, open-source text-to-speech synthesizer supporting many languages. It uses formant synthesis, producing a distinctive robotic voice but requiring minimal resources.
+**eSpeak** 是一个紧凑的开源文本转语音合成器，支持多种语言。它采用共振峰合成，声音带有独特的机械感，但资源占用极小。
 
-The tool converts text to speech output through speakers or audio files. Multiple languages and voices are available with adjustable speed, pitch, and other parameters.
+该工具可将文本转换为通过扬声器播放或写入音频文件的语音。提供多种语言和语音可选，语速、音高等参数均可调节。
 
-eSpeak is useful for accessibility, automated announcements, and applications requiring speech synthesis without large voice databases.
+eSpeak 适用于无障碍访问、自动播报，以及需要语音合成但不想依赖庞大语音数据库的应用。
 
 # CAVEATS
 
-Voice quality robotic compared to neural TTS. Some language support limited. Pronunciation may need tuning. SSML support is partial.
+与神经网络 TTS 相比语音质量偏机械。部分语言的支持有限。发音可能需要调校。SSML 支持不完整。
 
 # HISTORY
 
-eSpeak was created by **Jonathan Duddington** and released as open source. Its formant synthesis approach prioritizes small size and multi-language support over naturalistic voice quality. Development of the original eSpeak stopped around 2015; the actively maintained fork **espeak-ng** is now the recommended version, and on many distributions `espeak` is a compatibility wrapper around it.
+eSpeak 由 **Jonathan Duddington** 创建并以开源方式发布。其共振峰合成方案优先考虑体积小巧和多语言支持，而非自然逼真的音质。原版 eSpeak 的开发在 2015 年前后停止；活跃维护的分支 **espeak-ng** 现在是推荐使用的版本，并且在许多发行版上 `espeak` 只是围绕它的兼容包装器。
 
 # INSTALL
 

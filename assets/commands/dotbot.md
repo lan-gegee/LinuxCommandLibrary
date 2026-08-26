@@ -1,30 +1,30 @@
 # TAGLINE
 
-dotfiles bootstrapping automation tool
+dotfiles 引导自动化工具
 
 # TLDR
 
-**Install dotfiles with config**
+使用配置**安装 dotfiles**
 
 ```dotbot -c [install.conf.yaml]```
 
-**Specify dotfiles directory**
+**指定 dotfiles 目录**
 
 ```dotbot -d [~/dotfiles] -c [install.conf.yaml]```
 
-**Run with verbose output**
+**以详细输出运行**
 
 ```dotbot -v -c [install.conf.yaml]```
 
-**Use specific plugin**
+**使用指定插件**
 
 ```dotbot -p [plugin.py] -c [install.conf.yaml]```
 
-**Run only specific directives**
+**只运行特定指令**
 
 ```dotbot -c [install.conf.yaml] --only [link shell]```
 
-**Run all directives except specified ones**
+**运行除指定指令外的所有指令**
 
 ```dotbot -c [install.conf.yaml] --except [shell]```
 
@@ -35,46 +35,46 @@ dotfiles bootstrapping automation tool
 # PARAMETERS
 
 **-c**, **--config-file** _file_
-> Configuration file (YAML or JSON).
+> 配置文件（YAML 或 JSON）。
 
 **-d**, **--base-directory** _dir_
-> Base directory for dotfiles.
+> dotfiles 的基准目录。
 
 **-p**, **--plugin** _plugin_
-> Load plugin module.
+> 加载插件模块。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-q**, **--quiet**
-> Suppress most output.
+> 抑制大部分输出。
 
 **-Q**, **--super-quiet**
-> Suppress almost all output.
+> 抑制几乎所有输出。
 
 **--plugin-dir** _dir_
-> Load all plugins in a directory.
+> 加载某个目录下的所有插件。
 
 **--only** _directives_
-> Only run specified directives.
+> 只运行指定的指令。
 
 **--except** _directives_
-> Run all directives except those specified.
+> 运行除指定指令之外的所有指令。
 
 **--no-color**
-> Disable colored output.
+> 禁用彩色输出。
 
 **--force-color**
-> Force colored output.
+> 强制彩色输出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Dotbot** is a tool for bootstrapping dotfiles. It automates the process of setting up a new machine by creating symlinks, running shell commands, and performing other configuration tasks defined in a YAML or JSON file.
+**Dotbot** 是一个用于引导 dotfiles 的工具。它通过创建符号链接、运行 shell 命令以及执行 YAML 或 JSON 文件中定义的其他配置任务，自动完成新机器的环境搭建。
 
-Configuration files define directives like **link** (create symlinks), **shell** (run commands), **create** (make directories), and **clean** (remove broken symlinks). Dotbot is typically included as a git submodule in dotfiles repositories.
+配置文件定义各种指令，如 **link**（创建符号链接）、**shell**（运行命令）、**create**（创建目录）和 **clean**（清除失效符号链接）。Dotbot 通常作为 git 子模块包含在 dotfiles 仓库中。
 
 # CONFIGURATION EXAMPLE
 
@@ -96,11 +96,11 @@ Configuration files define directives like **link** (create symlinks), **shell**
 
 # CAVEATS
 
-Requires Python 3. Symlink creation may require appropriate permissions. Existing files at link destinations are not overwritten by default. Plugin system allows extensions but adds complexity.
+需要 Python 3。创建符号链接可能需要相应权限。链接目标处已有的文件默认不会被覆盖。插件系统支持扩展但会增加复杂度。
 
 # HISTORY
 
-Dotbot was created by **Anish Athalye** in **2014** as a simple, self-contained tool for dotfiles management. It was designed to be included as a git submodule, making dotfiles repositories self-bootstrapping without external dependencies beyond Python.
+Dotbot 由 **Anish Athalye** 于 **2014 年**创建，是一个简洁、自包含的 dotfiles 管理工具。它被设计为以 git 子模块的形式包含，使 dotfiles 仓库除 Python 之外无需外部依赖即可自我引导。
 
 # INSTALL
 

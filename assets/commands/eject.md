@@ -1,38 +1,38 @@
 # TAGLINE
 
-removable media ejection utility
+可移动介质弹出工具
 
 # TLDR
 
-Display the **default** device
+显示**默认**设备
 
 ```eject [-d|--default]```
 
-**Eject** the default device
+**弹出**默认设备
 
 ```eject```
 
-**Eject** a specific device
+**弹出**指定设备
 
 ```eject [/dev/cdrom]```
 
-**Toggle** tray open/closed
+**切换**托盘打开/关闭状态
 
 ```eject [-T|--traytoggle] [/dev/cdrom]```
 
-Eject a **cd** drive
+弹出 **cd** 驱动器
 
 ```eject [-r|--cdrom] [/dev/cdrom]```
 
-Eject a **floppy** drive
+弹出**软盘**驱动器
 
 ```eject [-f|--floppy] [/mnt/floppy]```
 
-Eject a **tape** drive
+弹出**磁带**驱动器
 
 ```eject [-q|--tape] [/mnt/tape]```
 
-Set whether physical button is **ignored**
+设置是否**忽略**物理按钮
 
 ```eject [-i|--manualeject] [on|off]```
 
@@ -42,63 +42,63 @@ Set whether physical button is **ignored**
 
 # DESCRIPTION
 
-**eject** ejects removable media such as CDs, DVDs, floppy disks, and tape drives. It can also control the tray mechanism and lock/unlock devices.
+**eject** 弹出可移动介质，如 CD、DVD、软盘和磁带驱动器。它还可以控制托盘机构以及锁定/解锁设备。
 
-The default order for device types is cd-rom, scsi, floppy, then tape.
+设备类型的默认尝试顺序是 cd-rom、scsi、floppy，最后是 tape。
 
 # PARAMETERS
 
 **-d, --default**
-> Display the default device
+> 显示默认设备
 
 **-T, --traytoggle**
-> Toggle tray open/closed state
+> 切换托盘打开/关闭状态
 
 **-r, --cdrom**
-> Eject using CD-ROM method
+> 使用 CD-ROM 方式弹出
 
 **-f, --floppy**
-> Eject using floppy method
+> 使用软盘方式弹出
 
 **-q, --tape**
-> Eject using tape method
+> 使用磁带方式弹出
 
 **-i, --manualeject** _on|off_
-> Control whether physical button works
+> 控制物理按钮是否有效
 
 **-t, --trayclose**
-> Close the tray
+> 关闭托盘
 
 **-a, --auto** _on|off_
-> Enable or disable the drive's auto-eject mode
+> 启用或禁用驱动器的自动弹出模式
 
 **-m, --no-unmount**
-> Do not unmount the device even if it is mounted
+> 即使设备已挂载也不卸载它
 
 **-M, --no-partitions-unmount**
-> Do not unmount other partitions on the same device
+> 不卸载同一设备上的其他分区
 
 **-n, --noop**
-> Show which device would be used without ejecting it
+> 显示将要使用的设备但不实际弹出
 
 **-p, --proc**
-> Use /proc/mounts instead of /etc/mtab
+> 使用 /proc/mounts 而不是 /etc/mtab
 
 **-s, --scsi**
-> Eject using SCSI commands
+> 使用 SCSI 命令弹出
 
 **-x, --cdspeed** _speed_
-> Set the CD-ROM drive speed (0 selects the maximum)
+> 设置 CD-ROM 驱动器速度（0 表示最大速度）
 
 **-X, --listspeed**
-> List the speeds the drive supports
+> 列出驱动器支持的速度
 
 **-v, --verbose**
-> Print more information about what is happening
+> 打印更多关于当前操作的信息
 
 # CAVEATS
 
-eject unmounts the device (and, by default, all other partitions on it) before ejecting; use **-m** to skip that. Ejection fails if a process still holds a file open on the mounted filesystem. Many laptop and USB optical drives ignore the tray commands, and **-x** speed control depends on drive firmware. Part of the **util-linux** package.
+eject 在弹出前会先卸载设备（默认还会卸载其上的所有其他分区）；使用 **-m** 可跳过这一步。如果仍有进程在已挂载的文件系统上打开文件，弹出会失败。许多笔记本和 USB 光驱会忽略托盘命令，**-x** 的速度控制取决于驱动器固件。属于 **util-linux** 软件包。
 
 # INSTALL
 

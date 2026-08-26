@@ -1,38 +1,38 @@
 # TAGLINE
 
-Set zsh shell emulation mode
+设置 zsh 的 shell 模拟模式
 
 # TLDR
 
-**Print** the current emulation mode
+**打印**当前模拟模式
 
 ```emulate```
 
-**Switch** to native zsh emulation
+**切换**到原生 zsh 模拟
 
 ```emulate zsh```
 
-**Emulate** Bourne shell (sh) behavior
+**模拟** Bourne shell（sh）行为
 
 ```emulate sh```
 
-**Emulate** Korn shell (ksh) behavior
+**模拟** Korn shell（ksh）行为
 
 ```emulate ksh```
 
-**Reset** all options to defaults for the chosen mode
+将所有选项**重置**为所选模式的默认值
 
 ```emulate -R [zsh|sh|ksh|csh]```
 
-**Restrict** emulation effects to the surrounding function
+将模拟效果**限制**在外围函数内
 
 ```emulate -L [sh]```
 
-**Run** a command under a temporary emulation
+在临时模拟环境下**运行**命令
 
 ```emulate [sh] -c '[command]'```
 
-**List** the options that would be set for a given mode
+**列出**给定模式下会被设置的选项
 
 ```emulate -lR [ksh]```
 
@@ -43,57 +43,57 @@ Set zsh shell emulation mode
 # PARAMETERS
 
 **-L**
-> Set **LOCAL_OPTIONS**, **LOCAL_PATTERNS**, and **LOCAL_TRAPS** so that the emulation, option changes, and traps revert when the surrounding function returns. Implies a function context.
+> 设置 **LOCAL_OPTIONS**、**LOCAL_PATTERNS** 和 **LOCAL_TRAPS**，使模拟状态、选项变更和陷阱在外围函数返回时自动还原。隐含要求处于函数上下文中。
 
 **-R**
-> Reset every settable option to its default value for the requested emulation, except for options describing the interactive environment (e.g. **ZLE**, **HIST**\_ flags). Without **-R**, only options that differ between modes are touched.
+> 将每个可设置选项重置为目标模拟模式的默认值，但描述交互环境的选项（如 **ZLE**、**HIST**\_ 系列标志）除外。不带 **-R** 时，只调整各模式之间存在差异的选项。
 
 **-l**
-> List the options and their values that the current invocation would set, instead of changing the shell state. Combine with **-L** or **-R** to scope the listing.
+> 列出本次调用将会设置的选项及其值，而不实际改变 shell 状态。可与 **-L** 或 **-R** 组合以限定列举范围。
 
 **-c**  _arg_
-> Evaluate _arg_ in the requested emulation, then restore the previous mode and options. Functions defined inside _arg_ become **sticky**, retaining the temporary emulation when later invoked.
+> 在指定的模拟模式下求值 _arg_，随后恢复之前的模式和选项。在 _arg_ 内定义的函数会带上**粘性**（sticky）模拟，之后调用时仍保留该临时模拟。
 
 **-M**
-> When defining a function inside **-c**, ignore any sticky emulation already attached to the calling context (use the matching one).
+> 在 **-c** 中定义函数时，忽略调用上下文已附加的粘性模拟（改用与之匹配的那个）。
 
 **-S**
-> Counterpart to **-M**: force the new function to inherit the current sticky emulation regardless of how it was reached.
+> 与 **-M** 相对：强制新函数继承当前的粘性模拟，无论它是如何被调用的。
 
 _mode_
-> One of **zsh**, **sh**, **ksh**, or **csh**. With no argument, **emulate** prints the active mode.
+> **zsh**、**sh**、**ksh** 或 **csh** 之一。不带参数时，**emulate** 打印当前激活的模式。
 
 # DESCRIPTION
 
-**emulate** is a zsh builtin that switches the shell into a compatibility mode resembling another Bourne-family shell. Each mode adjusts a curated set of options governing word splitting, glob behavior, function handling, prompt expansion, and parameter rules so that scripts written for **sh**, **ksh**, or **csh** behave more predictably under zsh.
+**emulate** 是一个 zsh 内建命令，用于把 shell 切换到类似其他 Bourne 系列外壳的兼容模式。每种模式会调整一组精心挑选的选项，涵盖单词拆分、glob 行为、函数处理、提示符展开和参数规则，让为 **sh**、**ksh** 或 **csh** 编写的脚本在 zsh 下表现得更可预测。
 
-The change applies to the running shell unless **-L** scopes it to a function. With **-R**, every settable option is forced to the canonical defaults for the target mode—useful at the top of a script that should run in a clean, predictable environment regardless of the user's interactive setup.
+除非用 **-L** 将作用范围限定在某个函数内，否则更改会作用于正在运行的 shell。配合 **-R** 时，每个可设置选项都被强制设为目标模式的规范默认值——适用于脚本开头，使其无论用户的交互式配置如何都能在干净、可预测的环境中运行。
 
-The **-c** form is the safest way to borrow another mode for a snippet: the previous emulation, options, and traps are restored on exit. Functions defined while **-c** is active acquire sticky emulation, so they continue to evaluate under that mode no matter where they are later called from. This is the mechanism behind the autoloaded **zsh/system** completion functions.
+**-c** 形式是为一段代码借用其他模式的最安全方式：退出时会恢复之前的模拟、选项和陷阱。在 **-c** 生效期间定义的函数会获得粘性模拟，因此无论日后从何处调用，它们都会在该模式下继续求值。这正是自动加载的 **zsh/system** 补全函数背后的机制。
 
-Querying with no arguments returns the current top-level emulation, which can be tested in scripts to gate behavior. Combining **-l** with **-R** prints exactly which options would be toggled, making it convenient for inspecting the differences between modes without applying them.
+不带参数查询会返回当前顶层模拟模式，脚本中可据此判断并控制行为。将 **-l** 与 **-R** 组合会精确打印将被切换的选项，便于在不实际应用的情况下查看各模式之间的差异。
 
 # EMULATION MODES
 
 **zsh**
-> Native mode. All zsh extensions are available; the shell behaves as documented in **zshall**(1).
+> 原生模式。所有 zsh 扩展均可用；shell 的行为如 **zshall**(1) 所述。
 
 **sh**
-> POSIX/Bourne-style behavior. Disables many zsh-only features (e.g., implicit globbing failure, **EQUALS** expansion) and enables compatibility flags such as **SH_WORD_SPLIT**.
+> POSIX/Bourne 风格行为。禁用许多 zsh 特有功能（例如隐式 glob 失败、**EQUALS** 展开），并启用 **SH_WORD_SPLIT** 等兼容性标志。
 
 **ksh**
-> Korn-shell compatibility. Enables **KSH_ARRAYS**, **KSH_GLOB**, **KSH_OPTION_PRINT**, and related options used by ksh-style scripts.
+> Korn shell 兼容。启用 **KSH_ARRAYS**、**KSH_GLOB**、**KSH_OPTION_PRINT** 以及 ksh 风格脚本会用到的相关选项。
 
 **csh**
-> C-shell compatibility. Enables **CSH_JUNKIE_LOOPS**, **CSH_NULL_GLOB**, and similar options. Less complete than the others—csh syntax is not fully implemented.
+> C shell 兼容。启用 **CSH_JUNKIE_LOOPS**、**CSH_NULL_GLOB** 及类似选项。不如其他模式完整——csh 语法并未完全实现。
 
 # CAVEATS
 
-**emulate** changes options, not parser syntax: zsh still parses zsh syntax even under **emulate sh**, so constructs like `=(...)` or `<(...)` remain available unless explicitly disabled. To run an actual sh script, invoke **sh** as a separate process. **emulate** without **-L** has global effect—if used at the top level of an interactive shell, it persists for the rest of the session. Sticky emulations attached via **-c** survive **typeset -f** copying, so two functions with identical bodies may behave differently.
+**emulate** 改变的是选项而非解析器语法：即使在 **emulate sh** 下，zsh 仍按 zsh 语法解析，`=(...)` 或 `<(...)` 等结构仍然可用，除非被显式禁用。要运行真正的 sh 脚本，应将 **sh** 作为独立进程调用。不带 **-L** 的 **emulate** 具有全局效果——若在交互式 shell 的顶层使用，其影响将持续到本会话结束。通过 **-c** 附加的粘性模拟能够在 **typeset -f** 复制后保留，因此两个内容完全相同的函数可能表现出不同行为。
 
 # HISTORY
 
-The **emulate** builtin has been part of zsh since the early **1990s**, introduced to ease the porting of ksh and Bourne shell scripts as zsh's user base grew. The sticky-emulation mechanism (via **-c**) was added later to support **autoload -U** and the modular completion system shipped with zsh, allowing system functions to run reliably regardless of the user's option settings.
+**emulate** 内建命令自 **20 世纪 90 年代初**起就是 zsh 的一部分，引入它的目的是随着 zsh 用户群增长，简化 ksh 和 Bourne shell 脚本的移植。粘性模拟机制（经由 **-c**）是后来加入的，用于支持 **autoload -U** 和随 zsh 发布的模块化补全系统，使系统函数无论用户的选项设置如何都能可靠运行。
 
 # SEE ALSO
 

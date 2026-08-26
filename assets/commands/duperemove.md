@@ -1,22 +1,22 @@
 # TAGLINE
 
-filesystem extent deduplication tool
+文件系统 extent 去重工具
 
 # TLDR
 
-Search for **duplicate extents**
+搜索**重复的 extent**
 
 ```duperemove -r [path/to/directory]```
 
-**Deduplicate** on Btrfs or XFS
+在 Btrfs 或 XFS 上执行**去重**
 
 ```duperemove -r -d [path/to/directory]```
 
-Use **hash file** for persistence
+使用**哈希文件**持久化结果
 
 ```duperemove -r -d --hashfile=[path/to/hashfile] [path/to/directory]```
 
-Limit **threads**
+限制**线程数**
 
 ```duperemove -r -d --hashfile=[path/to/hashfile] --io-threads=[n] --cpu-threads=[n] [path/to/directory]```
 
@@ -26,42 +26,42 @@ Limit **threads**
 
 # DESCRIPTION
 
-**duperemove** finds duplicate filesystem extents and optionally schedules them for deduplication. On filesystems like Btrfs and XFS, identical data blocks can be shared between files, saving disk space.
+**duperemove** 查找重复的文件系统 extent，并可选地将它们调度去重。在 Btrfs 和 XFS 这类文件系统上，相同的数据块可以在多个文件之间共享，从而节省磁盘空间。
 
-An extent is a contiguous area of storage allocated for a file.
+extent 是为文件分配的一段连续存储区域。
 
 # PARAMETERS
 
 **-r**
-> Recursively process directories
+> 递归处理目录
 
 **-d**
-> Deduplicate (schedule duplicates for dedup)
+> 去重（将重复内容调度去重）
 
 **--hashfile** _file_
-> Store hashes in file for reuse
+> 将哈希存入文件以便复用
 
 **--io-threads** _n_
-> I/O thread count
+> I/O 线程数
 
 **--cpu-threads** _n_
-> CPU thread count for hash comparison
+> 用于哈希比较的 CPU 线程数
 
 **-h**
-> Print human-readable sizes
+> 以人类可读格式打印大小
 
 **-v**
-> Verbose output
+> 详细输出
 
 **--dedupe-options=**_OPTIONS_
-> Comma-separated dedupe options (e.g., partial, same)
+> 逗号分隔的去重选项（如 partial、same）
 
 **-b** _SIZE_
-> Block size for hashing (default: 128K)
+> 计算哈希的块大小（默认：128K）
 
 # CAVEATS
 
-Only works on filesystems supporting extent-level deduplication (Btrfs, XFS). Deduplication is handled by the kernel via the `FIDEDUPERANGE` ioctl. Using a hashfile is strongly recommended for large datasets as it reduces memory usage and enables incremental scans across runs. Without `-d`, the tool only reports duplicates without deduplicating. Read-only files can still be deduplicated since dedup operates at the filesystem level.
+只适用于支持 extent 级去重的文件系统（Btrfs、XFS）。去重由内核通过 `FIDEDUPERANGE` ioctl 完成。强烈建议在大数据集上使用哈希文件，因为它能减少内存占用并支持跨运行增量扫描。不加 `-d` 时，工具只报告重复而不去重。只读文件也可以被去重，因为去重在文件系统层面操作。
 
 # INSTALL
 

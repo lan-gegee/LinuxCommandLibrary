@@ -1,26 +1,26 @@
 # TAGLINE
 
-encrypted file sharing client
+加密文件共享客户端
 
 # TLDR
 
-**Upload file**
+**上传文件**
 
 ```ffsend upload [file.zip]```
 
-**Upload with password**
+带密码上传
 
 ```ffsend upload -p [password] [file.zip]```
 
-**Set download limit**
+设置下载次数限制
 
 ```ffsend upload -d [5] [file.zip]```
 
-**Download file**
+**下载文件**
 
 ```ffsend download [url]```
 
-**Delete uploaded file**
+删除已上传的文件
 
 ```ffsend delete [url]```
 
@@ -31,44 +31,44 @@ encrypted file sharing client
 # PARAMETERS
 
 _COMMAND_
-> Operation: upload, download, delete, info, history.
+> 操作：upload、download、delete、info、history。
 
 **upload** _FILE_
-> Upload file and get share link.
+> 上传文件并获取分享链接。
 
 **download** _URL_
-> Download from share link.
+> 从分享链接下载。
 
 **delete** _URL_
-> Delete uploaded file.
+> 删除已上传的文件。
 
 **-p** _PASSWORD_, **--password** _PASSWORD_
-> Protect with password.
+> 用密码保护。
 
 **-d** _N_, **--downloads** _N_
-> Maximum download count.
+> 最大下载次数。
 
 **-e** _TIME_, **--expiry** _TIME_
-> Expiry time (e.g., 1h, 7d).
+> 过期时间（如 1h、7d）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ffsend** is a command-line client for Firefox Send, enabling secure file sharing through encrypted uploads. Files are end-to-end encrypted before upload and can be password protected.
+**ffsend** 是 Firefox Send 的命令行客户端，通过加密上传实现安全的文件共享。文件在上传前经过端到端加密，并可用密码保护。
 
-The tool generates shareable links that expire after a set number of downloads or time period. Encryption happens client-side, ensuring the server never has access to unencrypted content.
+该工具生成的分享链接可在达到设定下载次数或时间期限后过期。加密在客户端完成，确保服务器永远无法访问未加密的内容。
 
-ffsend works with official and self-hosted Send instances for private file sharing.
+ffsend 兼容官方和自托管的 Send 实例，用于私密文件共享。
 
 # CAVEATS
 
-Official Firefox Send service was discontinued. Requires compatible Send server. Large files may take time to encrypt.
+Firefox Send 官方服务已停止运营。需要兼容的 Send 服务器。大文件加密可能耗时。
 
 # HISTORY
 
-ffsend was created as a CLI client for **Firefox Send**, Mozilla's encrypted file sharing service. While Mozilla discontinued the official service in 2020, self-hosted Send instances and ffsend remain usable.
+ffsend 作为 Mozilla 加密文件共享服务 **Firefox Send** 的 CLI 客户端而创建。虽然 Mozilla 于 2020 年停止了官方服务，但自托管的 Send 实例和 ffsend 仍可使用。
 
 # INSTALL
 

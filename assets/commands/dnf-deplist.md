@@ -1,12 +1,12 @@
 # TAGLINE
 
-query package dependencies
+查询软件包依赖关系
 
 # TLDR
 
-This command is an alias of **dnf repoquery --deplist**.
+本命令是 **dnf repoquery --deplist** 的别名。
 
-See documentation for the original command.
+请参阅原命令的文档。
 
 ```tldr dnf repoquery```
 

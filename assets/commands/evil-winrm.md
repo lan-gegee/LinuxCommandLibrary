@@ -1,42 +1,42 @@
 # TAGLINE
 
-penetration testing shell for WinRM
+面向 WinRM 的渗透测试 Shell
 
 # TLDR
 
-**Connect to target**
+**连接目标**
 
 ```evil-winrm -i [target_ip] -u [username] -p [password]```
 
-**Connect with hash**
+**使用哈希连接**
 
 ```evil-winrm -i [target_ip] -u [username] -H [NTLM_hash]```
 
-**Use SSL**
+**使用 SSL**
 
 ```evil-winrm -i [target_ip] -u [user] -p [pass] -S```
 
-**Upload file**
+**上传文件**
 
 ```upload [local_file] [remote_path]```
 
-**Download file**
+**下载文件**
 
 ```download [remote_file] [local_path]```
 
-**Load PowerShell** scripts from directory
+从目录**加载 PowerShell** 脚本
 
 ```evil-winrm -i [ip] -u [user] -p [pass] -s [scripts/]```
 
-**Connect with SSL** and custom **port**
+使用 SSL 和自定义**端口**连接
 
 ```evil-winrm -i [target_ip] -u [user] -p [pass] -S -P [5986]```
 
-**Connect using Kerberos** authentication
+**使用 Kerberos** 认证连接
 
 ```evil-winrm -i [target_ip] -u [user] -p [pass] -r [DOMAIN.LOCAL]```
 
-**Connect with certificate-based** authentication
+**使用基于证书的**认证连接
 
 ```evil-winrm -i [target_ip] -c [cert.pem] -k [key.pem] -S```
 
@@ -47,77 +47,77 @@ penetration testing shell for WinRM
 # PARAMETERS
 
 **-i** _IP_
-> Target IP address.
+> 目标 IP 地址。
 
 **-u** _USER_
-> Username.
+> 用户名。
 
 **-p** _PASSWORD_
-> Password.
+> 密码。
 
 **-H** _HASH_
-> NTLM hash for pass-the-hash.
+> 用于哈希传递攻击的 NTLM 哈希。
 
 **-S**, **--ssl**
-> Enable SSL encrypted connection.
+> 启用 SSL 加密连接。
 
 **-c** _PATH_, **--pub-key** _PATH_
-> Local path to public key certificate.
+> 公钥证书的本地路径。
 
 **-k** _PATH_, **--priv-key** _PATH_
-> Local path to private key certificate.
+> 私钥证书的本地路径。
 
 **-s** _PATH_, **--scripts** _PATH_
-> PowerShell scripts local path.
+> PowerShell 脚本的本地路径。
 
 **-e** _PATH_, **--executables** _PATH_
-> C# executables local path.
+> C# 可执行文件的本地路径。
 
 **-P** _PORT_, **--port** _PORT_
-> Remote host port (default 5985).
+> 远程主机端口（默认 5985）。
 
 **-U** _URL_, **--url** _URL_
-> Remote URL endpoint (default /wsman).
+> 远程 URL 端点（默认 /wsman）。
 
 **-r** _DOMAIN_, **--realm** _DOMAIN_
-> Kerberos auth realm/domain.
+> Kerberos 认证的 realm/域。
 
 **--spn** _PREFIX_
-> SPN prefix for Kerberos auth (default HTTP).
+> Kerberos 认证的 SPN 前缀（默认 HTTP）。
 
 **-l**, **--log**
-> Log the WinRM session.
+> 记录 WinRM 会话日志。
 
 **-n**, **--no-colors**
-> Disable colored output.
+> 禁用彩色输出。
 
 **-N**, **--no-rpath-completion**
-> Disable remote path completion.
+> 禁用远程路径补全。
 
 **-a** _USERAGENT_, **--user-agent** _USERAGENT_
-> Specify connection user-agent (default Microsoft WinRM Client).
+> 指定连接使用的 user-agent（默认 Microsoft WinRM Client）。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Evil-WinRM** is a penetration testing shell for Windows Remote Management (WinRM). It provides an interactive PowerShell session with additional features for pentest activities.
+**Evil-WinRM** 是一个针对 Windows 远程管理（WinRM）的渗透测试 Shell。它提供一个交互式 PowerShell 会话，并带有面向渗透测试活动的额外功能。
 
-The tool supports pass-the-hash authentication, Kerberos authentication, certificate-based authentication, file upload/download, and loading custom PowerShell scripts and C# executables. It is designed for red team operations and authorized security testing.
+该工具支持哈希传递认证、Kerberos 认证、基于证书的认证、文件上传下载，以及加载自定义 PowerShell 脚本和 C# 可执行程序。它专为红队行动和授权的安全测试而设计。
 
-Built-in commands available within the shell include **upload** and **download** for file transfer, **Invoke-Binary** for executing C# assemblies in memory, and **Dll-Loader** for loading DLLs. The **menu** command lists all available built-in commands.
+Shell 内可用的内建命令包括用于传输文件的 **upload** 和 **download**、在内存中执行 C# 程序集的 **Invoke-Binary**，以及加载 DLL 的 **Dll-Loader**。**menu** 命令会列出所有可用的内建命令。
 
 # CAVEATS
 
-Only use with explicit authorization. WinRM must be enabled on the target (ports 5985 for HTTP, 5986 for HTTPS). May trigger security alerts and endpoint detection. AMSI bypass may be needed for some PowerShell scripts. Kerberos authentication requires proper /etc/krb5.conf configuration.
+仅在获得明确授权时使用。目标上必须启用 WinRM（HTTP 使用端口 5985，HTTPS 使用端口 5986）。可能触发安全告警和终端检测。某些 PowerShell 脚本可能需要绕过 AMSI。Kerberos 认证需要正确配置 /etc/krb5.conf。
 
 # HISTORY
 
-Evil-WinRM was created by **Hackplayers** for the security research community, providing a feature-rich alternative to standard WinRM tools for penetration testing.
+Evil-WinRM 由 **Hackplayers** 面向安全研究社区创建，为渗透测试提供了一个功能丰富的新式 WinRM 工具替代方案。
 
 # INSTALL
 

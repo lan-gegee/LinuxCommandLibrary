@@ -1,30 +1,30 @@
 # TAGLINE
 
-dynamic kernel module framework
+动态内核模块支持框架
 
 # TLDR
 
-List **installed modules**
+列出**已安装的模块**
 
 ```dkms status```
 
-**Rebuild** modules for current kernel
+为当前内核**重建模块**
 
 ```sudo dkms autoinstall```
 
-**Install** a module version
+**安装**某个模块版本
 
 ```sudo dkms install -m module_name -v 1.2.1```
 
-**Remove** module from all kernels
+从所有内核中**移除**模块
 
 ```sudo dkms remove -m module_name -v 1.2.1 --all```
 
-**Add** module source
+**添加**模块源码
 
 ```sudo dkms add -m module_name -v 1.2.1```
 
-**Build** module for current kernel
+为当前内核**构建**模块
 
 ```sudo dkms build -m module_name -v 1.2.1```
 
@@ -34,69 +34,69 @@ List **installed modules**
 
 # DESCRIPTION
 
-**dkms** (Dynamic Kernel Module Support) is a framework that allows kernel modules to be dynamically built for each kernel version on a system. It automatically rebuilds modules when a new kernel is installed.
+**dkms**（Dynamic Kernel Module Support）是一个框架，可为系统上的每个内核版本动态构建内核模块。安装新内核时会自动重新构建模块。
 
 # ACTIONS
 
 **add**
-> Add a module source to the DKMS tree
+> 将模块源码添加到 DKMS 树
 
 **remove**
-> Remove a module from the DKMS tree
+> 从 DKMS 树中移除模块
 
 **build**
-> Build a module for a specific kernel
+> 为特定内核构建模块
 
 **install**
-> Install a built module for a kernel
+> 为内核安装已构建的模块
 
 **uninstall**
-> Uninstall a module from a kernel
+> 从内核卸载模块
 
 **autoinstall**
-> Install all modules for current kernel
+> 为当前内核安装所有模块
 
 **status**
-> Show status of DKMS-managed modules
+> 显示 DKMS 管理的模块状态
 
 **mkdriverdisk**
-> Create a driver disk image
+> 创建驱动盘镜像
 
 **mktarball**
-> Create a tarball of module source
+> 创建模块源码的 tar 包
 
 # PARAMETERS
 
 **-m, --module**
-> Specify module name
+> 指定模块名
 
 **-v, --version**
-> Specify module version
+> 指定模块版本
 
 **-k, --kernelver**
-> Specify kernel version
+> 指定内核版本
 
 **--all**
-> Apply to all kernel versions
+> 应用于所有内核版本
 
 **-c, --config**
-> Specify dkms.conf location
+> 指定 dkms.conf 的位置
 
 # CONFIGURATION
 
 **/etc/dkms/framework.conf**
-> Global DKMS framework configuration settings.
+> DKMS 框架的全局配置。
 
 **/usr/src/MODULE-VERSION/dkms.conf**
-> Per-module build configuration, dependencies, and installation instructions.
+> 各模块的构建配置、依赖关系和安装说明。
 
 # CAVEATS
 
-DKMS requires kernel headers to be installed. Module sources are stored in /usr/src/. Kernel upgrades trigger automatic module rebuilds if properly configured.
+DKMS 需要已安装内核头文件。模块源码存放在 /usr/src/ 中。配置得当时，内核升级会触发模块自动重建。
 
 # HISTORY
 
-**dkms** was developed by Dell as a solution to maintain out-of-tree kernel modules across kernel updates without manual rebuilding.
+**dkms** 由 Dell 开发，用于在内核更新后维护树外内核模块而无需手动重新构建。
 
 # INSTALL
 

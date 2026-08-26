@@ -1,18 +1,18 @@
 # TAGLINE
 
-configure framebuffer device settings
+配置 framebuffer 设备设置
 
 # TLDR
 
-Show current **framebuffer settings**
+显示当前 **framebuffer 设置**
 
 ```sudo fbset [-i|--info]```
 
-Set a framebuffer **mode** from fb.modes
+从 fb.modes 设置 framebuffer **模式**
 
 ```sudo fbset "[800]x[600]-[60]"```
 
-Set **arbitrary** framebuffer mode
+设置**任意** framebuffer 模式
 
 ```sudo fbset [-g|--geometry] [TTY_horizontal] [TTY_vertical] [monitor_horizontal] [monitor_vertical] [color_depth]```
 
@@ -22,32 +22,32 @@ Set **arbitrary** framebuffer mode
 
 # DESCRIPTION
 
-**fbset** shows and modifies Linux framebuffer device settings. It can change resolution, color depth, timing, and other display parameters.
+**fbset** 用于查看和修改 Linux framebuffer 设备的设置。它可以更改分辨率、颜色深度、时序和其他显示参数。
 
-Used for configuring console display on systems using framebuffer.
+用于在使用 framebuffer 的系统上配置控制台显示。
 
 # PARAMETERS
 
 **-i, --info**
-> Show framebuffer information
+> 显示 framebuffer 信息
 
 **-g, --geometry** _params_
-> Set geometry (xres, yres, vxres, vyres, depth)
+> 设置几何参数（xres、yres、vxres、vyres、depth）
 
 **-t, --timings** _params_
-> Set display timings
+> 设置显示时序
 
 **-fb** _device_
-> Use specified framebuffer device
+> 使用指定的 framebuffer 设备
 
 # CONFIGURATION
 
 **/etc/fb.modes**
-> Defines predefined video modes with resolution, timing, and color depth settings.
+> 定义预置的视频模式，包含分辨率、时序和颜色深度设置。
 
 # CAVEATS
 
-Requires framebuffer support in kernel. May require root privileges. Incorrect settings can cause display issues.
+需要内核支持 framebuffer。可能需要 root 权限。错误的设置可能导致显示问题。
 
 # INSTALL
 

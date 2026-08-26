@@ -1,18 +1,18 @@
 # TAGLINE
 
-Samba Windows event log manager
+Samba 的 Windows 事件日志管理器
 
 # TLDR
 
-**Create event log** database
+**创建事件日志**数据库
 
 ```eventlogadm -o addsource [Application] [/var/lib/samba/eventlog]```
 
-**Dump event log**
+**转储事件日志**
 
 ```eventlogadm -o dump [Application]```
 
-**Write event** to log
+**向日志写入事件**
 
 ```eventlogadm -o write [Application] [message]```
 
@@ -23,43 +23,43 @@ Samba Windows event log manager
 # PARAMETERS
 
 _OPERATION_
-> Operation: addsource, dump, write.
+> 操作：addsource、dump、write。
 
 **-o** _OP_
-> Operation to perform.
+> 要执行的操作。
 
 **-s** _CONF_
-> Samba config file.
+> Samba 配置文件。
 
 **addsource** _NAME_ _PATH_
-> Create event log source.
+> 创建事件日志源。
 
 **dump** _NAME_
-> Dump log contents.
+> 转储日志内容。
 
 **write** _NAME_ _MSG_
-> Write event.
+> 写入事件。
 
 # DESCRIPTION
 
-**eventlogadm** is a Samba utility for managing Windows-compatible event logs on Unix systems. It allows creating, reading, and writing event log databases that Windows clients can access.
+**eventlogadm** 是一个 Samba 工具，用于在 Unix 系统上管理兼容 Windows 的事件日志。它可以创建、读取和写入 Windows 客户端能够访问的事件日志数据库。
 
-The tool works with Samba's implementation of the Windows Event Log service. Event logs are stored in TDB (Trivial Database) format and can be viewed from Windows Event Viewer.
+该工具与 Samba 对 Windows Event Log 服务的实现配合工作。事件日志以 TDB（Trivial Database）格式存储，可以在 Windows 事件查看器中查看。
 
-eventlogadm is useful for integrating Unix logging with Windows-centric management tools.
+eventlogadm 有助于将 Unix 日志与以 Windows 为中心的管理工具集成起来。
 
 # CONFIGURATION
 
 **/etc/samba/smb.conf**
-> Samba server configuration that defines event log paths and settings.
+> Samba 服务器配置，其中定义事件日志的路径和设置。
 
 # CAVEATS
 
-Requires Samba configured. Event log format specific to Windows compatibility. Storage location depends on Samba config.
+需要先配置好 Samba。事件日志格式专为 Windows 兼容性设计。存储位置取决于 Samba 配置。
 
 # HISTORY
 
-eventlogadm is part of **Samba**, providing Windows event log compatibility for the Unix implementation of Windows networking protocols.
+eventlogadm 是 **Samba** 的一部分，为 Windows 网络协议的 Unix 实现提供 Windows 事件日志兼容能力。
 
 # INSTALL
 

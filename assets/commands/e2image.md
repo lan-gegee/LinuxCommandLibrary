@@ -1,30 +1,30 @@
 # TAGLINE
 
-save ext filesystem metadata images
+保存 ext 文件系统元数据镜像
 
 # TLDR
 
-Write metadata to **file**
+将元数据写入**文件**
 
 ```e2image [/dev/sdXN] [path/to/image_file]```
 
-Print metadata to **stdout**
+将元数据打印到**标准输出**
 
 ```e2image [/dev/sdXN] -```
 
-**Restore** metadata to device
+**恢复**元数据到设备
 
 ```e2image -I [/dev/sdXN] [path/to/image_file]```
 
-Create **raw sparse** image
+创建**原始稀疏**镜像
 
 ```e2image -r [/dev/sdXN] [path/to/image_file]```
 
-Create **QCOW2** image
+创建 **QCOW2** 镜像
 
 ```e2image -Q [/dev/sdXN] [path/to/image_file]```
 
-Create raw image with **scrambled** directory entries (for bug reports)
+创建目录项已**打乱**的原始镜像（用于提交 bug 报告）
 
 ```e2image -r -s [/dev/sdXN] - | bzip2 > [hda1.e2i.bz2]```
 
@@ -34,45 +34,45 @@ Create raw image with **scrambled** directory entries (for bug reports)
 
 # DESCRIPTION
 
-**e2image** saves critical ext2/ext3/ext4 filesystem metadata to a file. This is useful for backing up filesystem structure for disaster recovery or debugging filesystem corruption issues.
+**e2image** 将关键的 ext2/ext3/ext4 文件系统元数据保存到文件。这对于备份文件系统结构以备灾难恢复，或调试文件系统损坏问题很有用。
 
-The image file contains only metadata (superblock, block groups, inode tables, etc.), not file contents, making it much smaller than a full backup. This allows filesystem experts to diagnose problems without access to the actual data or the need to copy entire filesystems.
+镜像文件只包含元数据（超级块、块组、inode 表等），不含文件内容，因此比完整备份小得多。这让文件系统专家无需访问实际数据或复制整个文件系统就能诊断问题。
 
 # PARAMETERS
 
 **-I**
-> Restore metadata from image to device
+> 将元数据从镜像恢复到设备
 
 **-r**
-> Create raw sparse image (metadata at proper offsets)
+> 创建原始稀疏镜像（元数据位于正确的偏移处）
 
 **-Q**
-> Create QCOW2 format image
+> 创建 QCOW2 格式镜像
 
 **-a**
-> Include all data (not just metadata)
+> 包含所有数据（而不仅是元数据）
 
 **-f**
-> Force operation even if the filesystem is mounted (result may be unreliable)
+> 即使文件系统已挂载也强制操作（结果可能不可靠）
 
 **-s**
-> Scramble directory entries and zero unused directory block portions
+> 打乱目录项并将未使用的目录块部分清零
 
 **-o** _src_offset_
-> Offset in bytes where the filesystem starts on the source device
+> 文件系统在源设备上的起始字节偏移
 
 **-O** _dest_offset_
-> Offset to seek to in the destination before writing
+> 写入前在目标文件中定位到的偏移
 
 **-b** _blocksize_
-> Set filesystem blocksize in bytes (normally auto-detected)
+> 设置文件系统块大小（字节）（通常自动检测）
 
 **-p**
-> Compare blocks before writing; skip identical blocks (useful for flash storage)
+> 写入前比较块；跳过相同的块（对闪存存储有用）
 
 # CAVEATS
 
-Does not backup file contents by default. Part of e2fsprogs. Useful for debugging and recovery scenarios. QCOW2 format is compatible with QEMU. The -f flag allows imaging a mounted filesystem but the result is likely unreliable.
+默认不备份文件内容。属于 e2fsprogs。适用于调试和恢复场景。QCOW2 格式与 QEMU 兼容。-f 标志允许对已挂载的文件系统成像，但结果很可能不可靠。
 
 # INSTALL
 

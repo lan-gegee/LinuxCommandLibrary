@@ -1,34 +1,34 @@
 # TAGLINE
 
-information gathering reconnaissance tool
+信息收集侦察工具
 
 # TLDR
 
-**Perform whois lookup**
+**执行 whois 查询**
 
 ```dmitry -w [domain.com]```
 
-**Get netcraft info**
+**获取 netcraft 信息**
 
 ```dmitry -n [domain.com]```
 
-**Search for subdomains**
+**搜索子域名**
 
 ```dmitry -s [domain.com]```
 
-**Search for email** addresses
+**搜索电子邮箱地址**
 
 ```dmitry -e [domain.com]```
 
-**Perform TCP port** scan
+**执行 TCP 端口扫描**
 
 ```dmitry -p [domain.com]```
 
-**Port scan with banner** grabbing
+**端口扫描并抓取 banner**
 
 ```dmitry -pb [domain.com]```
 
-**Run all information** gathering
+**执行全部信息收集**
 
 ```dmitry -winsepo [output.txt] [domain.com]```
 
@@ -39,56 +39,56 @@ information gathering reconnaissance tool
 # PARAMETERS
 
 _HOST_
-> Target domain or IP address.
+> 目标域名或 IP 地址。
 
 **-w**
-> Perform whois lookup.
+> 执行 whois 查询。
 
 **-n**
-> Retrieve Netcraft information.
+> 获取 Netcraft 信息。
 
 **-s**
-> Search for subdomains.
+> 搜索子域名。
 
 **-e**
-> Search for email addresses.
+> 搜索电子邮件地址。
 
 **-p**
-> Perform TCP port scan.
+> 执行 TCP 端口扫描。
 
 **-b**
-> Read banner from discovered ports (requires -p).
+> 从发现的端口读取 banner（需配合 -p）。
 
 **-f**
-> Report filtered ports (requires -p).
+> 报告被过滤的端口（需配合 -p）。
 
 **-t** _SECONDS_
-> Set TTL for the portscan module (default 2 seconds).
+> 设置端口扫描模块的 TTL（默认 2 秒）。
 
 **-o** _FILE_
-> Save output to file.
+> 将输出保存到文件。
 
 **-i**
-> Perform Internet number whois lookup.
+> 对主机 IP 执行 whois 查询。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dmitry** (Deepmagic Information Gathering Tool) is a UNIX command-line application for information gathering during penetration testing. It collects data about a host through various passive and active techniques.
+**dmitry**（Deepmagic Information Gathering Tool）是一款 UNIX 命令行工具，用于渗透测试中的信息收集。它通过多种被动和主动技术收集目标主机的数据。
 
-The tool combines multiple reconnaissance functions: whois lookups, Netcraft queries, subdomain enumeration, email harvesting, and TCP port scanning. Results can be consolidated into a single report file.
+该工具集成了多项侦察功能：whois 查询、Netcraft 查询、子域名枚举、邮箱地址收集和 TCP 端口扫描。结果可以汇总到一个报告文件中。
 
-dmitry is designed for the information gathering phase of security assessments, helping testers understand the target environment before more active testing.
+dmitry 面向安全评估的信息收集阶段设计，帮助测试人员在进行更主动的测试之前了解目标环境。
 
 # CAVEATS
 
-Some queries may be rate-limited. Port scanning should only be performed with authorization. Email harvesting depends on public data availability. Results may vary based on target configuration.
+部分查询可能被限速。端口扫描必须获得授权后才能执行。邮箱收集依赖公开数据的可用性。结果可能因目标配置而异。
 
 # HISTORY
 
-dmitry was developed for security professionals as a reconnaissance tool. It consolidates multiple information gathering techniques into a single utility, streamlining the initial phases of penetration testing engagements.
+dmitry 为安全专业人员开发的侦察工具。它将多种信息收集技术整合到一个实用程序中，简化了渗透测试项目的初期阶段工作。
 
 # INSTALL
 

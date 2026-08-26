@@ -1,26 +1,26 @@
 # TAGLINE
 
-show changes in tracked data files
+显示被跟踪数据文件的更改
 
 # TLDR
 
-**Show changes since last commit**
+**显示自上次提交以来的更改**
 
 ```dvc diff```
 
-**Compare with specific revision**
+**与特定修订版本比较**
 
 ```dvc diff [HEAD~1]```
 
-**Compare two revisions**
+**比较两个修订版本**
 
 ```dvc diff [rev1] [rev2]```
 
-**Show detailed output**
+**显示详细输出**
 
 ```dvc diff --json```
 
-**Compare specific target**
+**比较特定目标**
 
 ```dvc diff [target.dvc]```
 
@@ -31,21 +31,21 @@ show changes in tracked data files
 # PARAMETERS
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **--show-hash**
-> Show file hashes.
+> 显示文件哈希值。
 
 **--md**
-> Output in markdown format.
+> 以 markdown 格式输出。
 
 # DESCRIPTION
 
-**dvc diff** compares DVC-tracked data between Git commits to show what data changed, similar to how git diff shows code changes. It reports added, deleted, and modified files by comparing the hashes stored in .dvc metadata files across different commits.
+**dvc diff** 比较 Git 提交之间 DVC 跟踪的数据，展示哪些数据发生了变化，就像 git diff 展示代码更改一样。它通过比较不同提交中 .dvc 元数据文件存储的哈希值，报告新增、删除和修改的文件。
 
-This enables data versioning workflows: you can see what datasets changed between experiments, compare model checkpoints across branches, or review data modifications before merging. The output shows file paths and their hash changes, making it clear which data files have new versions.
+这使数据版本控制工作流成为可能：你可以查看实验之间数据集的变化、跨分支比较模型检查点，或在合并前审查数据的修改。输出会显示文件路径及其哈希值变化，清楚地表明哪些数据文件有了新版本。
 
-The tool accepts Git revision specifiers (HEAD, branch names, commit hashes) to compare any two points in history. The --json output format is useful for programmatic analysis, while --md generates markdown tables suitable for documentation or pull request descriptions.
+该工具接受 Git 修订版说明符（HEAD、分支名、提交哈希），可比较历史中的任意两个时间点。--json 输出格式适合程序化分析，而 --md 会生成 markdown 表格，适合用于文档或拉取请求描述。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ The tool accepts Git revision specifiers (HEAD, branch names, commit hashes) to 
 # SEE ALSO
 
 [dvc](/man/dvc)(1), [git-diff](/man/git-diff)(1)
-

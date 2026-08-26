@@ -1,30 +1,30 @@
 # TAGLINE
 
-Executable and Linkable Format for Unix binaries
+Unix 二进制文件的可执行与可链接格式（ELF）
 
 # TLDR
 
-**View ELF header**
+**查看 ELF 头**
 
 ```readelf -h [binary]```
 
-**List sections**
+**列出节区**
 
 ```readelf -S [binary]```
 
-**List program headers**
+**列出程序头**
 
 ```readelf -l [binary]```
 
-**Show symbols**
+**显示符号**
 
 ```readelf -s [binary]```
 
-**Display dynamic section**
+**显示动态节区**
 
 ```readelf -d [binary]```
 
-**Show all information**
+**显示全部信息**
 
 ```readelf -a [binary]```
 
@@ -34,9 +34,9 @@ Executable and Linkable Format for Unix binaries
 
 # DESCRIPTION
 
-**ELF** (Executable and Linkable Format) is the standard binary format for executables, object files, shared libraries, and core dumps on Unix-like systems. Tools like **readelf** and **objdump** inspect ELF files.
+**ELF**（Executable and Linkable Format，可执行与可链接格式）是类 Unix 系统上可执行文件、目标文件、共享库和核心转储的标准二进制格式。**readelf** 和 **objdump** 等工具可以检查 ELF 文件。
 
-ELF files contain headers describing the binary structure, sections with code and data, and segment information for the runtime loader. Understanding ELF is essential for debugging, reverse engineering, and systems programming.
+ELF 文件包含描述二进制结构的头部、包含代码和数据的节区，以及供运行时加载器使用的段信息。理解 ELF 对调试、逆向工程和系统编程至关重要。
 
 # ELF STRUCTURE
 

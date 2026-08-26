@@ -1,30 +1,30 @@
 # TAGLINE
 
-view compose service logs
+查看 Compose 服务的日志
 
 # TLDR
 
-**View logs** from all services
+**查看所有服务**的日志
 
 ```docker compose logs```
 
-**Follow log output**
+**跟踪日志输出**
 
 ```docker compose logs -f```
 
-**View logs** for specific service
+**查看指定服务**的日志
 
 ```docker compose logs [service_name]```
 
-**Show timestamps**
+**显示时间戳**
 
 ```docker compose logs -t```
 
-**Limit output lines**
+**限制输出行数**
 
 ```docker compose logs --tail [100]```
 
-**Since specific time**
+**从指定时间起显示**
 
 ```docker compose logs --since [1h]```
 
@@ -35,26 +35,26 @@ view compose service logs
 # PARAMETERS
 
 **-f**, **--follow**
-> Follow log output.
+> 跟踪日志输出。
 
 **-t**, **--timestamps**
-> Show timestamps.
+> 显示时间戳。
 
 **--tail** _n_
-> Number of lines from end.
+> 从末尾算起的行数。
 
 **--since** _time_
-> Show logs since timestamp or relative time.
+> 显示自某时间戳或相对时间之后的日志。
 
 **--until** _time_
-> Show logs before timestamp or relative time.
+> 显示在某时间戳或相对时间之前的日志。
 
 **--no-color**
-> Produce monochrome output.
+> 输出单色内容。
 
 # DESCRIPTION
 
-**docker compose logs** displays log output from services defined in the Compose file. Aggregates logs from all containers of each service.
+**docker compose logs** 显示 Compose 文件中定义的服务的日志输出。它会汇总每个服务的所有容器的日志。
 
 # INSTALL
 

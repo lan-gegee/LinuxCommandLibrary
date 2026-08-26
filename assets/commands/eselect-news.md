@@ -1,34 +1,34 @@
 # TAGLINE
 
-Gentoo news item reader and manager
+Gentoo 新闻条目阅读器和管理器
 
 # TLDR
 
-**List** news items
+**列出**新闻条目
 
 ```eselect news list```
 
-List only **new** items
+只列出**新**条目
 
 ```eselect news list new```
 
-**Read** all unread news
+**阅读**所有未读新闻
 
 ```eselect news read```
 
-Read **specific** news items
+阅读**指定**的新闻条目
 
 ```eselect news read 1 2 3```
 
-Mark items as **unread**
+将条目标记为**未读**
 
 ```eselect news unread 1 2```
 
-**Delete** read news items
+**删除**已读的新闻条目
 
 ```eselect news purge```
 
-**Count** news items
+**统计**新闻条目数量
 
 ```eselect news count new```
 
@@ -38,32 +38,32 @@ Mark items as **unread**
 
 # DESCRIPTION
 
-**eselect news** is an eselect module for reading Gentoo news items. Portage prints a notice when news is available after repository synchronization.
+**eselect news** 是一个 eselect 模块，用于阅读 Gentoo 新闻条目。同步软件仓库后有新新闻可用时，Portage 会打印提示。
 
 # PARAMETERS
 
 **list [all|new]**
-> List available news items (all by default)
+> 列出可用的新闻条目（默认为 all）
 
 **read [NUMBERS...]**
-> Read specified news items or all unread if none specified
+> 阅读指定的新闻条目；未指定时阅读全部未读条目
 
 **unread NUMBERS...**
-> Mark specified news items as unread
+> 将指定新闻条目标记为未读
 
 **purge**
-> Delete all read news items
+> 删除所有已读的新闻条目
 
 **count [all|new]**
-> Show the number of news items (new by default)
+> 显示新闻条目的数量（默认为 new）
 
 # CAVEATS
 
-News items are repository-specific announcements from Gentoo developers about important changes. Reading news items marks them as read and they won't be announced again.
+新闻条目是 Gentoo 开发者发布的仓库相关公告，涉及重要变更。阅读新闻条目会将其标记为已读，之后不会再收到提示。
 
 # HISTORY
 
-**eselect news** is part of the **eselect** framework on Gentoo Linux, providing a modular system for configuration management.
+**eselect news** 是 Gentoo Linux 上 **eselect** 框架的一部分，该框架为配置管理提供了模块化的体系。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-secure IMAP and POP3 email server
+安全的 IMAP 和 POP3 邮件服务器
 
 # TLDR
 
-**Start Dovecot** daemon
+**启动 Dovecot** 守护进程
 
 ```dovecot```
 
-**Run in foreground** (do not daemonize)
+**前台运行**（不守护进程化）
 
 ```dovecot -F```
 
-**Show non-default configuration** settings
+**显示非默认的配置**项
 
 ```dovecot -n```
 
-**Show full configuration** (all settings)
+**显示完整配置**（所有设置）
 
 ```dovecot -a```
 
-**Use alternate configuration** file
+**使用其他配置**文件
 
 ```dovecot -c [/path/to/dovecot.conf]```
 
-**Reload configuration** without restarting
+**不重启而重新加载配置**
 
 ```dovecot reload```
 
-**Stop Dovecot** daemon
+**停止 Dovecot** 守护进程
 
 ```dovecot stop```
 
-**Show version**
+**显示版本**
 
 ```dovecot --version```
 
@@ -43,55 +43,55 @@ secure IMAP and POP3 email server
 # PARAMETERS
 
 **-F**
-> Run in foreground, do not daemonize
+> 前台运行，不守护进程化
 
 **-n**
-> Print non-default configuration and exit
+> 打印非默认配置后退出
 
 **-a**
-> Print all configuration settings and exit
+> 打印所有配置设置后退出
 
 **-c** _config_file_
-> Use specified configuration file instead of /etc/dovecot/dovecot.conf
+> 使用指定的配置文件替代 /etc/dovecot/dovecot.conf
 
 **-p**
-> Prompt for SSL key password on startup
+> 启动时提示输入 SSL 密钥密码
 
 **reload**
-> Reload configuration without restarting
+> 不重启而重新加载配置
 
 **stop**
-> Stop the running daemon
+> 停止正在运行的守护进程
 
 **--build-options**
-> Show build options and exit
+> 显示构建选项并退出
 
 **--version**
-> Show version and exit
+> 显示版本并退出
 
 # CONFIGURATION
 
 **/etc/dovecot/dovecot.conf**
-> Main configuration file for protocols, authentication, and mail storage settings.
+> 主配置文件，包含协议、身份验证和邮件存储设置。
 
 **/etc/dovecot/conf.d/**
-> Modular configuration directory for protocol-specific and feature-specific settings.
+> 模块化配置目录，存放各协议及各功能的具体设置。
 
 # DESCRIPTION
 
-**Dovecot** is an open-source IMAP and POP3 email server for Unix-like systems. It provides secure, fast, and standards-compliant access to email stored on the server.
+**Dovecot** 是面向类 Unix 系统的开源 IMAP 和 POP3 邮件服务器。它对存储在服务器上的电子邮件提供安全、快速且符合标准的访问。
 
-The server supports various authentication methods, virtual users, and mailbox formats including Maildir and mbox. It is designed for both small and large-scale deployments with features like quota management and full-text search.
+该服务器支持多种身份验证方法、虚拟用户以及 Maildir 和 mbox 等邮箱格式。其设计兼顾小型与大规模部署，提供配额管理和全文检索等功能。
 
-Dovecot's modular architecture allows plugins for LDAP authentication, Sieve filtering, and integration with other mail system components. The **-F** flag is commonly used in container environments or with process supervisors.
+Dovecot 的模块化架构支持 LDAP 身份验证、Sieve 过滤等插件，并可与邮件系统的其他组件集成。**-F** 标志常用于容器环境或配合进程监督器使用。
 
 # CAVEATS
 
-Requires proper configuration before use. TLS certificate setup needed for secure connections. Permission issues common with mailbox access. Use **dovecot -n** to verify configuration before deploying changes.
+使用前需正确配置。安全连接需要设置 TLS 证书。邮箱访问常见权限问题。部署更改前先用 **dovecot -n** 校验配置。
 
 # HISTORY
 
-Dovecot was created by **Timo Sirainen** and first released in **2002**. It was designed as a secure, fast alternative to existing IMAP servers, emphasizing correctness and standards compliance.
+Dovecot 由 **Timo Sirainen** 创建，于 **2002 年**首次发布。它的设计目标是成为现有 IMAP 服务器之外一个安全、快速的替代品，强调正确性和标准符合性。
 
 # INSTALL
 

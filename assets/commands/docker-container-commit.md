@@ -1,14 +1,14 @@
 # TAGLINE
 
-create image from container state
+根据容器状态创建镜像
 
 # TLDR
 
-**Create image from container**
+**从容器创建镜像**
 
 ```docker container commit [container] [image:tag]```
 
-**Commit with message**
+**附带说明提交**
 
 ```docker container commit -m "[message]" [container] [image:tag]```
 
@@ -18,7 +18,7 @@ create image from container state
 
 # DESCRIPTION
 
-**docker container commit** creates a new image from a container's changes. This is an alias for **docker commit**.
+**docker container commit** 根据容器的更改创建新镜像。它是 **docker commit** 的别名。
 
 # INSTALL
 

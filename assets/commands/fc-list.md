@@ -1,34 +1,34 @@
 # TAGLINE
 
-list available fonts
+列出可用字体
 
 # TLDR
 
-**List all fonts**
+**列出所有字体**
 
 ```fc-list```
 
-**List fonts matching pattern**
+**列出匹配模式的字体**
 
 ```fc-list : family style | sort```
 
-**Find specific font**
+**查找特定字体**
 
 ```fc-list | grep -i "[arial]"```
 
-**List monospace fonts**
+**列出等宽字体**
 
 ```fc-list :spacing=mono family```
 
-**Show font file paths**
+**显示字体文件路径**
 
 ```fc-list : file family```
 
-**List fonts with specific style**
+**列出具有特定样式的字体**
 
 ```fc-list :style=Bold```
 
-**List fonts by language**
+**按语言列出字体**
 
 ```fc-list :lang=[zh]```
 
@@ -39,36 +39,36 @@ list available fonts
 # PARAMETERS
 
 **-v**, **--verbose**
-> Verbose output with all properties.
+> 包含所有属性的详细输出。
 
 **-f** _format_
-> Custom output format.
+> 自定义输出格式。
 
 **-q**, **--quiet**
-> Suppress normal output.
+> 抑制常规输出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 _pattern_
-> Font matching pattern.
+> 字体匹配模式。
 
 _elements_
-> Properties to display: family, style, file, etc.
+> 要显示的属性：family、style、file 等。
 
 # DESCRIPTION
 
-**fc-list** lists fonts available to applications using fontconfig. It displays font family names, styles, file locations, and other properties.
+**fc-list** 列出使用 fontconfig 的应用可用的字体。它显示字体族名称、样式、文件位置及其他属性。
 
-The command is essential for discovering installed fonts, finding font file paths, and verifying font installation. It queries the fontconfig database which caches font information.
+该命令对于发现已安装的字体、查找字体文件路径和验证字体安装至关重要。它查询缓存了字体信息的 fontconfig 数据库。
 
 # CAVEATS
 
-Output can be long; pipe to grep or sort. Font names may vary by language. Newly installed fonts need `fc-cache -fv`. Some applications cache fonts independently.
+输出可能很长；可管道到 grep 或 sort。字体名称可能因语言而异。新安装的字体需要执行 `fc-cache -fv`。有些应用会独立缓存字体。
 
 # HISTORY
 
-fc-list is part of **fontconfig**, created by **Keith Packard** around **2000** to provide system-wide font configuration for X11 and other systems. It replaced the older X font system with a more flexible, file-based approach.
+fc-list 是 **fontconfig** 的一部分，由 **Keith Packard** 于 **2000 年**前后创建，为 X11 及其他系统提供系统级字体配置。它以更灵活的基于文件的方式取代了旧的 X 字体系统。
 
 # INSTALL
 

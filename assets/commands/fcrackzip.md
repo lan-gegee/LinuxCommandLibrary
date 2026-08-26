@@ -1,30 +1,30 @@
 # TAGLINE
 
-crack password-protected ZIP archives
+破解受密码保护的 ZIP 归档
 
 # TLDR
 
-**Brute-force** alphanumeric password (4-8 chars)
+对字母数字密码（4-8 位）**暴力破解**
 
 ```fcrackzip [-b|--brute-force] [-l|--length] 4-8 [-c|--charset] aA1 [archive]```
 
-Brute-force with **custom charset**
+使用**自定义字符集**暴力破解
 
 ```fcrackzip [-v|--verbose] [-b|--brute-force] [-l|--length] 3 [-c|--charset] a:$% [archive]```
 
-Brute-force with **special characters**
+包含**特殊字符**的暴力破解
 
 ```fcrackzip [-b|--brute-force] [-l|--length] 4 [-c|--charset] a! [archive]```
 
-Brute-force **starting** from specific password
+从指定密码**开始**暴力破解
 
 ```fcrackzip [-b|--brute-force] [-l|--length] 5 [-c|--charset] 1 [-p|--init-password] 12345 [archive]```
 
-Crack using **wordlist**
+使用**词典**破解
 
 ```fcrackzip [-u|--use-unzip] [-D|--dictionary] [-p|--init-password] [wordlist] [archive]```
 
-**Benchmark** cracking performance
+对破解性能**基准测试**
 
 ```fcrackzip [-B|--benchmark]```
 
@@ -34,39 +34,39 @@ Crack using **wordlist**
 
 # DESCRIPTION
 
-**fcrackzip** cracks password-protected ZIP archives using brute-force or dictionary attacks. It can test passwords against the archive's encryption.
+**fcrackzip** 使用暴力破解或字典攻击破解受密码保护的 ZIP 归档。它可以针对归档的加密测试密码。
 
-Security research and recovery tool for forgotten passwords.
+用于安全研究和找回遗忘的密码。
 
 # PARAMETERS
 
 **-b, --brute-force**
-> Use brute-force mode
+> 使用暴力破解模式
 
 **-D, --dictionary**
-> Use dictionary mode
+> 使用字典模式
 
 **-l, --length** _min-max_
-> Password length range
+> 密码长度范围
 
 **-c, --charset** _set_
-> Character set (a=lowercase, A=uppercase, 1=digits, !=special)
+> 字符集（a=小写、A=大写、1=数字、!=特殊字符）
 
 **-p, --init-password** _pass_
-> Starting password or wordlist
+> 起始密码或词典
 
 **-u, --use-unzip**
-> Use unzip to verify
+> 用 unzip 验证
 
 **-v, --verbose**
-> Verbose output
+> 详细输出
 
 **-B, --benchmark**
-> Performance benchmark
+> 性能基准测试
 
 # CAVEATS
 
-Use only on archives you own or have permission to access. Brute-force is slow for long passwords. Dictionary attacks are faster for common passwords.
+只可用于你拥有或有权访问的归档。长密码的暴力破解很慢。对于常见密码，字典攻击更快。
 
 # INSTALL
 

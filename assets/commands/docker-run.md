@@ -1,38 +1,38 @@
 # TAGLINE
 
-create and start containers from images
+基于镜像创建并启动容器
 
 # TLDR
 
-**Run a container interactively**
+**交互式运行一个容器**
 
 ```docker run -it [image] [bash]```
 
-**Run container in background**
+**在后台运行容器**
 
 ```docker run -d [image]```
 
-**Run with port mapping**
+**运行时映射端口**
 
 ```docker run -p [8080:80] [image]```
 
-**Run with volume mount**
+**运行时挂载卷**
 
 ```docker run -v [/host/path:/container/path] [image]```
 
-**Run with environment variables**
+**运行时设置环境变量**
 
 ```docker run -e [VAR=value] [image]```
 
-**Run with automatic removal on exit**
+**退出时自动删除容器**
 
 ```docker run --rm [image]```
 
-**Run with custom name**
+**使用自定义名称运行**
 
 ```docker run --name [container_name] [image]```
 
-**Run with memory limit**
+**运行时限制内存**
 
 ```docker run -m [512m] [image]```
 
@@ -43,62 +43,62 @@ create and start containers from images
 # PARAMETERS
 
 **-d**, **--detach**
-> Run container in background.
+> 在后台运行容器。
 
 **-it**
-> Interactive with pseudo-TTY.
+> 交互模式并分配伪终端。
 
 **-p**, **--publish** _host:container_
-> Publish container port to host.
+> 将容器端口发布到主机。
 
 **-v**, **--volume** _host:container_
-> Bind mount a volume.
+> 绑定挂载一个卷。
 
 **-e**, **--env** _VAR=value_
-> Set environment variable.
+> 设置环境变量。
 
 **--name** _name_
-> Assign container name.
+> 指定容器名称。
 
 **--rm**
-> Remove container on exit.
+> 容器退出时将其删除。
 
 **-m**, **--memory** _limit_
-> Memory limit (e.g., 512m, 1g).
+> 内存限制（例如 512m、1g）。
 
 **--cpus** _n_
-> Number of CPUs.
+> CPU 数量。
 
 **--network** _network_
-> Connect to network.
+> 连接到指定网络。
 
 **--restart** _policy_
-> Restart policy: no, always, unless-stopped, on-failure.
+> 重启策略：no、always、unless-stopped、on-failure。
 
 **-w**, **--workdir** _dir_
-> Working directory inside container.
+> 容器内的工作目录。
 
 **-u**, **--user** _user_
-> Username or UID.
+> 用户名或 UID。
 
 **--entrypoint** _cmd_
-> Override default entrypoint.
+> 覆盖默认的入口点。
 
 # DESCRIPTION
 
-**docker run** creates and starts a new container from an image. It combines **docker create** and **docker start** into a single command, providing the primary way to launch containers.
+**docker run** 基于镜像创建并启动一个新容器。它将 **docker create** 和 **docker start** 合并为一条命令，是启动容器的主要方式。
 
-The command pulls the image if not present locally, creates a container from it, and starts execution. Options control resource allocation, networking, storage, and runtime behavior.
+如果本地不存在该镜像，命令会先拉取镜像，然后基于它创建容器并开始执行。各种选项用于控制资源分配、网络、存储和运行时行为。
 
-Containers are isolated but can connect to host resources through port mapping, volume mounts, and network configuration. The **-it** flags enable interactive terminal access for debugging and exploration.
+容器之间相互隔离，但可以通过端口映射、卷挂载和网络配置连接主机资源。**-it** 选项提供交互式终端访问，便于调试和探索。
 
 # CAVEATS
 
-Containers run as root by default; use **-u** for non-root execution. Ports below 1024 require root on the host. Volumes with relative paths are created as Docker volumes, not bind mounts. Container filesystem changes are lost unless volumes are used.
+容器默认以 root 身份运行；需要非 root 执行时使用 **-u**。低于 1024 的端口在主机上需要 root 权限。使用相对路径的卷会被创建为 Docker 卷，而不是绑定挂载。如果不使用卷，容器文件系统的更改会丢失。
 
 # HISTORY
 
-docker run has been the fundamental Docker command since the initial release in **2013** by **Solomon Hykes** and dotCloud (later Docker, Inc.). The command's design draws from Unix philosophy and LXC container concepts. Options have expanded significantly to support enterprise features, orchestration, and security requirements.
+docker run 自 **2013 年 Solomon Hykes** 和 dotCloud（即后来的 Docker, Inc.）首次发布 Docker 以来就是其核心命令。该命令的设计借鉴了 Unix 哲学和 LXC 容器理念。其选项已大幅扩展，以支持企业级功能、编排和安全需求。
 
 # INSTALL
 
@@ -129,4 +129,3 @@ docker run has been the fundamental Docker command since the initial release in 
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-find best matching font
+查找最佳匹配的字体
 
 # TLDR
 
-**Find best matching font**
+**查找最佳匹配的字体**
 
 ```fc-match [pattern]```
 
-**Match monospace font**
+**匹配等宽字体**
 
 ```fc-match monospace```
 
-**Match with specific family**
+**匹配指定字族**
 
 ```fc-match "DejaVu Sans"```
 
-**Show verbose output**
+**显示详细输出**
 
 ```fc-match -v [pattern]```
 
-**Show specific elements**
+**显示特定元素**
 
 ```fc-match --format "%{family}\n" [pattern]```
 
-**Match all fonts**
+**匹配所有字体**
 
 ```fc-match -a [pattern]```
 
@@ -35,26 +35,26 @@ find best matching font
 # PARAMETERS
 
 **-a**, **--all**
-> Show all matching fonts.
+> 显示所有匹配的字体。
 
 **-s**, **--sort**
-> Sort output by priority.
+> 按优先级排序输出。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--format** _format_
-> Format output string.
+> 格式化输出字符串。
 
 # DESCRIPTION
 
-**fc-match** matches fonts against fontconfig patterns and shows which font will be used for a given request. The tool is essential for debugging font configuration, understanding why certain fonts are selected, and verifying font substitution rules.
+**fc-match** 将字体与 fontconfig 模式进行匹配，并显示对于给定请求将使用哪个字体。该工具对调试字体配置、理解为何选中某个字体以及验证字体替换规则至关重要。
 
-When applications request a font, fontconfig uses a sophisticated matching algorithm considering family name, style, weight, and other properties. fc-match reveals the result of this matching process, helping diagnose font-related issues.
+当应用请求某个字体时，fontconfig 会使用复杂的匹配算法，综合考虑字族名、样式、字重等属性。fc-match 揭示这一匹配过程的结果，帮助诊断字体相关问题。
 
 # CAVEATS
 
-Pattern syntax can be complex. Font matching rules depend on fontconfig configuration. Results may differ across systems with different font installations.
+模式语法可能较复杂。字体匹配规则取决于 fontconfig 配置。在不同字体安装状况的系统上结果可能不同。
 
 # INSTALL
 

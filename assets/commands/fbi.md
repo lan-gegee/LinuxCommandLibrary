@@ -1,26 +1,26 @@
 # TAGLINE
 
-framebuffer image viewer
+framebuffer 图像查看器
 
 # TLDR
 
-**Display** an image
+**显示**图像
 
 ```sudo fbi [path/to/file]```
 
-Display **multiple** images
+显示**多张**图像
 
 ```sudo fbi [path/to/file1] [path/to/file2]```
 
-Start **slideshow** with custom delay
+以自定义延迟启动**幻灯片放映**
 
 ```sudo fbi [-t|--timeout] [delay] [path/to/files/*]```
 
-**Scale** image to fit screen
+**缩放**图像以适配屏幕
 
 ```sudo fbi [-a|--autozoom] [path/to/file]```
 
-Display **help**
+显示**帮助**
 
 ```fbi [-h|--help]```
 
@@ -30,30 +30,30 @@ Display **help**
 
 # DESCRIPTION
 
-**fbi** (framebuffer imageviewer) displays images directly on the Linux framebuffer console without requiring X11 or Wayland. It supports various image formats including JPEG, PNG, GIF, and TIFF.
+**fbi**（framebuffer imageviewer）直接在 Linux framebuffer 控制台上显示图像，无需 X11 或 Wayland。它支持多种图像格式，包括 JPEG、PNG、GIF 和 TIFF。
 
-Useful for viewing images on headless servers or minimal systems.
+适用于在无头服务器或精简系统上查看图像。
 
 # PARAMETERS
 
 **-t**, **--timeout** _seconds_
-> Slideshow delay between images
+> 幻灯片放映中图像之间的延迟
 
 **-a**, **--autozoom**
-> Scale to fit screen
+> 缩放以适配屏幕
 
 **-h**, **--help**
-> Display help
+> 显示帮助
 
 **-1**, **--once**
-> Don't loop slideshow
+> 不循环播放幻灯片
 
 **-u**, **--random**
-> Randomize slideshow order
+> 随机化幻灯片顺序
 
 # CAVEATS
 
-Requires framebuffer support. Usually needs root or console access. Part of fbida package. Not for use in X11/Wayland sessions.
+需要 framebuffer 支持。通常需要 root 或控制台访问权限。fbida 软件包的一部分。不适用于 X11/Wayland 会话。
 
 # INSTALL
 

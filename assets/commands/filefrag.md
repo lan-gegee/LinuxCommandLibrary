@@ -1,38 +1,38 @@
 # TAGLINE
 
-report on file fragmentation
+报告文件的碎片化程度
 
 # TLDR
 
-Display **fragmentation report** for files
+显示文件的**碎片化报告**
 
 ```filefrag [path/to/file1] [path/to/file2]```
 
-Report using **1024 byte** blocksize
+以 **1024 字节**块大小生成报告
 
 ```filefrag -k [path/to/file]```
 
-Report using **specific** blocksize
+以**指定**块大小生成报告
 
 ```filefrag -b[1024|1K|1M|1G] [path/to/file]```
 
-**Sync** file before requesting mapping
+请求映射前先**同步**文件
 
 ```filefrag -s [path/to/file1] [path/to/file2]```
 
-Display **verbose** report with extent details
+显示带 extent 详情的**详细**报告
 
 ```filefrag -v [path/to/file1] [path/to/file2]```
 
-Display mapping of **extended attributes**
+显示**扩展属性**的映射
 
 ```filefrag -x [path/to/file1] [path/to/file2]```
 
-Display extent block numbers in **hexadecimal**
+以**十六进制**显示 extent 块号
 
 ```filefrag -X [path/to/file]```
 
-Print **version** number
+打印**版本**号
 
 ```filefrag -V```
 
@@ -42,48 +42,48 @@ Print **version** number
 
 # DESCRIPTION
 
-**filefrag** reports on how badly fragmented a particular file might be. It shows the number of extents (contiguous blocks) for each file, which indicates fragmentation level. A file with 1 extent is not fragmented; more extents indicate higher fragmentation.
+**filefrag** 报告某个文件碎片化的严重程度。它显示每个文件的 extent（连续区块）数量，以此反映碎片化水平：只有 1 个 extent 的文件没有碎片；extent 越多说明碎片越严重。
 
-Useful for identifying files that may benefit from defragmentation.
+可用于找出那些做碎片整理会有收益的文件。
 
 # PARAMETERS
 
 **-b** _blocksize_
-> Use blocksize in bytes, or with [KMG] suffix, up to 1GB for output instead of the filesystem blocksize. If blocksize is unspecified it defaults to 1024 bytes. Must be added without any space after -b.
+> 指定输出使用的块大小，单位为字节，也可带 [KMG] 后缀，上限 1GB，用它代替文件系统的块大小。未指定块大小时默认为 1024 字节。必须紧跟在 -b 之后书写，中间不能有空格。
 
 **-B**
-> Force use of the older FIBMAP ioctl instead of the FIEMAP ioctl for testing purposes.
+> 为便于测试，强制使用较旧的 FIBMAP ioctl 而不是 FIEMAP ioctl。
 
 **-e**
-> Print output in extent format, even for block-mapped files.
+> 即使对按块映射的文件，也以 extent 格式打印输出。
 
 **-E**
-> Display the contents of ext4's extent status cache. Only supported on ext4 filesystems.
+> 显示 ext4 extent 状态缓存的内容。仅在 ext4 文件系统上受支持。
 
 **-k**
-> Use 1024-byte blocksize for output (identical to '-b1024').
+> 输出时使用 1024 字节的块大小（等同 '-b1024'）。
 
 **-P**
-> Pre-load the ext4 extent status cache for the file. Only supported on ext4 filesystems.
+> 预加载该文件的 ext4 extent 状态缓存。仅在 ext4 文件系统上受支持。
 
 **-s**
-> Sync the file before requesting the mapping.
+> 在请求映射之前先同步文件。
 
 **-v**
-> Be verbose when checking for file fragmentation.
+> 检查文件碎片时输出详细信息。
 
 **-V**
-> Print version number of program and library. If given twice, also print the FIEMAP flags understood by the current version.
+> 打印程序和库的版本号。若给出两次，还会打印当前版本所能理解的 FIEMAP 标志。
 
 **-x**
-> Display mapping of extended attributes.
+> 显示扩展属性的映射。
 
 **-X**
-> Display extent block numbers in hexadecimal format.
+> 以十六进制格式显示 extent 块号。
 
 # CAVEATS
 
-Part of e2fsprogs. Works best on ext2/ext3/ext4 but supports other filesystems via FIEMAP ioctl. The -E and -P options are ext4-specific and not supported on all kernels.
+属于 e2fsprogs。在 ext2/ext3/ext4 上效果最好，但也能通过 FIEMAP ioctl 支持其他文件系统。-E 和 -P 选项为 ext4 专属，并非所有内核都支持。
 
 # INSTALL
 

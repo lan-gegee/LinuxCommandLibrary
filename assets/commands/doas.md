@@ -1,34 +1,34 @@
 # TAGLINE
 
-minimal privilege escalation tool
+极简的提权工具
 
 # TLDR
 
-**Run a command as root**
+**以 root 身份运行命令**
 
 ```doas [command]```
 
-**Run a command as another user**
+**以其他用户身份运行命令**
 
 ```doas -u [username] [command]```
 
-**Start a root shell**
+**启动 root shell**
 
 ```doas -s```
 
-**Start a shell as another user**
+**以其他用户身份启动 shell**
 
 ```doas -u [username] -s```
 
-**Run without requiring password** (if configured)
+**无需密码运行**（若已配置）
 
 ```doas -n [command]```
 
-**Check if doas.conf** allows the command
+**检查 doas.conf** 是否允许该命令
 
 ```doas -C [/etc/doas.conf] [command]```
 
-**Clear cached credentials**
+**清除缓存的凭据**
 
 ```doas -L```
 
@@ -39,48 +39,48 @@ minimal privilege escalation tool
 # PARAMETERS
 
 **-n**
-> Non-interactive mode; fail if password is required.
+> 非交互模式；需要密码时直接失败。
 
 **-L**
-> Clear any persisted authentication credentials.
+> 清除所有持久化的身份验证凭据。
 
 **-s**
-> Execute the shell from SHELL environment variable or from /etc/passwd.
+> 执行 SHELL 环境变量或 /etc/passwd 中指定的 shell。
 
 **-u** _user_
-> Run the command as the specified user (default: root).
+> 以指定用户身份运行命令（默认：root）。
 
 **-a** _style_
-> Use the specified authentication style.
+> 使用指定的身份验证方式。
 
 **-C** _config_
-> Parse and check the specified config file and exit.
+> 解析并检查指定的配置文件后退出。
 
 _command_
-> The command to execute with elevated privileges.
+> 要以提升后的权限执行的命令。
 
 # DESCRIPTION
 
-**doas** (dedicated openbsd application subexecutor) is a minimal program for running commands as another user, typically root. It originated in OpenBSD as a simpler, more secure alternative to sudo with a significantly smaller codebase and attack surface.
+**doas**（dedicated openbsd application subexecutor）是一个用于以其他用户（通常是 root）身份运行命令的极简程序。它源自 OpenBSD，是比 sudo 更简单、更安全的替代品，代码库和攻击面都小得多。
 
-Configuration is done through **/etc/doas.conf** with simple rules specifying who can run what. A basic rule might be: **permit persist :wheel** to allow members of the wheel group to execute commands as root with credential caching.
+配置通过 **/etc/doas.conf** 完成，使用简单的规则规定谁可以执行什么。一条基本规则例如 **permit persist :wheel**，允许 wheel 组成员以 root 身份执行命令并缓存凭据。
 
-The configuration syntax is straightforward: each line is a rule with **permit** or **deny**, optional keywords like **nopass** (no password), **persist** (cache credentials), **keepenv** (preserve environment), and specifications for user, group, and allowed commands.
+配置语法很直观：每行是一条规则，包含 **permit** 或 **deny**、可选的关键字如 **nopass**（免密码）、**persist**（缓存凭据）、**keepenv**（保留环境变量），以及用户、组和允许的命令的说明。
 
-Unlike sudo's extensive feature set, doas focuses on the core use case of privilege escalation with minimal complexity. This makes it easier to audit and reduces potential security vulnerabilities. Many Linux distributions now package doas as a sudo alternative.
+与 sudo 庞大的功能集不同，doas 专注于以最小的复杂度实现提权这一核心用例。这使得它更容易审计并减少了潜在的安全漏洞。许多 Linux 发行版现在都将 doas 作为 sudo 的替代品打包提供。
 
 # CONFIGURATION
 
 **/etc/doas.conf**
-> Main configuration file specifying authorization rules. Each line contains a rule with permit/deny, optional keywords (nopass, persist, keepenv), and user/group/command specifications.
+> 指定授权规则的主配置文件。每行包含一条 permit/deny 规则、可选关键字（nopass、persist、keepenv）以及用户/组/命令的限定条件。
 
 # CAVEATS
 
-Configuration syntax differs from sudo; migration requires rewriting rules. Fewer features than sudo (no fine-grained command logging, no complex per-command options). Some software may expect sudo specifically. Must be configured before use (no default permissive configuration).
+配置语法与 sudo 不同；迁移时需要重写规则。功能少于 sudo（没有细粒度的命令日志记录，也没有复杂的按命令选项）。某些软件可能明确要求 sudo。使用前必须先完成配置（没有默认放行的配置）。
 
 # HISTORY
 
-**doas** was created by Ted Unangst and introduced in **OpenBSD 5.8** in **2015** as a replacement for sudo in the base system. The design goal was to provide necessary functionality with minimal code (around 1000 lines versus sudo's 100,000+). It has been ported to Linux and other systems, gaining popularity among security-conscious users.
+**doas** 由 Ted Unangst 创建，于 **2015 年**随 **OpenBSD 5.8** 引入基础系统，作为 sudo 的替代品。其设计目标是用最少的代码（约 1000 行，而 sudo 超过 10 万行）提供必要的功能。它已被移植到 Linux 及其他系统，在注重安全的用户中颇受欢迎。
 
 # INSTALL
 

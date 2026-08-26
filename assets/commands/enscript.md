@@ -1,34 +1,34 @@
 # TAGLINE
 
-convert text files to PostScript for printing
+将文本文件转换为 PostScript 以便打印
 
 # TLDR
 
-**Print file to default printer**
+**打印文件到默认打印机**
 
 ```enscript [file]```
 
-**Generate PostScript output**
+**生成 PostScript 输出**
 
 ```enscript -o [output.ps] [file]```
 
-**Print two columns**
+**按双栏打印**
 
 ```enscript -2 [file]```
 
-**Print with syntax highlighting**
+**带语法高亮打印**
 
 ```enscript -E [file.c]```
 
-**Print landscape**
+**横向打印**
 
 ```enscript -r [file]```
 
-**Print with header**
+**带页眉打印**
 
 ```enscript -b "[Header Text]" [file]```
 
-**Print line numbers**
+**打印行号**
 
 ```enscript -C [file]```
 
@@ -39,50 +39,50 @@ convert text files to PostScript for printing
 # PARAMETERS
 
 **-o** _file_
-> Output to file instead of printer.
+> 输出到文件而非打印机。
 
 **-E** [_lang_]
-> Syntax highlighting.
+> 语法高亮。
 
 **-2**
-> Two-column output.
+> 双栏输出。
 
 **-r**
-> Landscape orientation.
+> 横向（landscape）方向。
 
 **-b** _header_
-> Page header.
+> 页眉。
 
 **-C**
-> Print line numbers.
+> 打印行号。
 
 **-f** _font_
-> Body font.
+> 正文字体。
 
 **-F** _font_
-> Header font.
+> 页眉字体。
 
 **-p** _printer_
-> Select printer.
+> 选择打印机。
 
 **--color**
-> Color output.
+> 彩色输出。
 
 # DESCRIPTION
 
-**enscript** converts text files to PostScript, HTML, or RTF for printing or viewing. It provides advanced formatting capabilities including multi-column output, headers, footers, and syntax highlighting for numerous programming languages.
+**enscript** 将文本文件转换为 PostScript、HTML 或 RTF，用于打印或查看。它提供高级格式化功能，包括多栏输出、页眉、页脚以及对众多编程语言的语法高亮。
 
-The tool is widely used for generating professional-looking printouts of source code and documentation. It can automatically detect file types and apply appropriate syntax highlighting, making code more readable when printed.
+该工具广泛用于生成美观专业的源代码和文档打印稿。它能自动检测文件类型并应用相应的语法高亮，使代码在打印后更具可读性。
 
-enscript supports customization through configuration files and command-line options, allowing control over fonts, page layout, borders, and output format. It's particularly useful in development environments for code reviews and documentation.
+enscript 支持通过配置文件和命令行选项进行定制，可控制字体、页面布局、边框和输出格式。它在开发环境中尤其适合代码评审和文档打印。
 
 # CONFIGURATION
 
 **/etc/enscript.cfg**
-> System-wide configuration file for default settings.
+> 全局系统配置文件，用于默认设置。
 
 **~/.enscriptrc**
-> User-specific configuration file for personal preferences.
+> 用户专属配置文件，用于个人偏好设置。
 
 # INSTALL
 
@@ -105,4 +105,3 @@ enscript supports customization through configuration files and command-line opt
 # SEE ALSO
 
 [lpr](/man/lpr)(1)
-

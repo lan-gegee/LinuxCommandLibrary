@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line client for etcd key-value store
+etcd 键值存储的命令行客户端
 
 # TLDR
 
-**Set a key**
+**设置键**
 
 ```etcdctl put [mykey] "[myvalue]"```
 
-**Get a key**
+**获取键**
 
 ```etcdctl get [mykey]```
 
-**Get all keys with prefix**
+**获取某前缀下的所有键**
 
 ```etcdctl get --prefix [/myapp/]```
 
-**Delete a key**
+**删除键**
 
 ```etcdctl del [mykey]```
 
-**Watch for changes**
+**监视变更**
 
 ```etcdctl watch [mykey]```
 
-**List cluster members**
+**列出集群成员**
 
 ```etcdctl member list```
 
-**Check cluster health**
+**检查集群健康状况**
 
 ```etcdctl endpoint health```
 
@@ -39,63 +39,63 @@ command-line client for etcd key-value store
 # PARAMETERS
 
 **put** _key_ _value_
-> Set key to value.
+> 将键设置为指定的值。
 
 **get** _key_
-> Get key value.
+> 获取键的值。
 
 **del** _key_
-> Delete key.
+> 删除键。
 
 **watch** _key_
-> Watch key for changes.
+> 监视键的变更。
 
 **--prefix**
-> Apply operation to keys with prefix.
+> 将操作应用于具有指定前缀的键。
 
 **member list**
-> List cluster members.
+> 列出集群成员。
 
 **member add** _name_ _urls_
-> Add cluster member.
+> 添加集群成员。
 
 **member remove** _id_
-> Remove cluster member.
+> 移除集群成员。
 
 **endpoint health**
-> Check endpoint health.
+> 检查端点健康状况。
 
 **snapshot save** _file_
-> Save cluster snapshot.
+> 保存集群快照。
 
 **snapshot restore** _file_
-> Restore from snapshot.
+> 从快照恢复。
 
 **--endpoints** _urls_
-> etcd endpoints.
+> etcd 端点。
 
 **--cacert** _file_
-> CA certificate.
+> CA 证书。
 
 **--cert** _file_
-> Client certificate.
+> 客户端证书。
 
 **--key** _file_
-> Client key.
+> 客户端密钥。
 
 # DESCRIPTION
 
-**etcdctl** is the command-line client for etcd, a distributed key-value store used for shared configuration and service discovery. It's a core component of Kubernetes for storing cluster state.
+**etcdctl** 是 etcd 的命令行客户端。etcd 是一种分布式键值存储，用于共享配置和服务发现，也是 Kubernetes 存储集群状态的核心组件。
 
-etcd provides strong consistency through the Raft consensus algorithm. etcdctl manages keys, watches for changes, and administers the cluster.
+etcd 通过 Raft 共识算法提供强一致性。etcdctl 用于管理键、监视变更以及管理集群。
 
 # CAVEATS
 
-API version 3 is default (set ETCDCTL_API=3). Authentication may be required. Cluster operations need careful planning. Snapshots should be taken regularly. Large values impact performance.
+默认使用 API 版本 3（需设置 ETCDCTL_API=3）。可能需要进行身份验证。集群操作需要仔细规划。应定期制作快照。过大的值会影响性能。
 
 # HISTORY
 
-etcd was created by **CoreOS** in **2013** as a distributed configuration store for their Container Linux. It became a CNCF project and is now maintained by the etcd community. Kubernetes adopted etcd as its backing store from the beginning.
+etcd 由 **CoreOS** 于 **2013 年**创建，最初是其 Container Linux 的分布式配置存储。它后来成为 CNCF 项目，现由 etcd 社区维护。Kubernetes 从一开始就采用 etcd 作为其底层存储。
 
 # INSTALL
 

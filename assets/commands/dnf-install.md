@@ -1,26 +1,26 @@
 # TAGLINE
 
-install RPM packages
+安装 RPM 软件包
 
 # TLDR
 
-**Install** packages by name
+按名称**安装**软件包
 
 ```sudo dnf install [package1] [package2]```
 
-Install from **local file**
+从**本地文件**安装
 
 ```sudo dnf install [path/to/file]```
 
-Install from **URL**
+从 **URL** 安装
 
 ```sudo dnf install [https://example.com/package.rpm]```
 
-Add **EPEL** repositories
+添加 **EPEL** 仓库
 
 ```sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-[10].noarch.rpm```
 
-Add **Remi** repository
+添加 **Remi** 仓库
 
 ```sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-[8].rpm```
 
@@ -30,27 +30,27 @@ Add **Remi** repository
 
 # DESCRIPTION
 
-**dnf install** is the primary command for installing software packages on Red Hat-based distributions including RHEL, CentOS, Fedora, and AlmaLinux. It handles installation from multiple sources: repository package names, local RPM files, or direct URLs to RPM packages.
+**dnf install** 是在 RHEL、CentOS、Fedora 和 AlmaLinux 等 Red Hat 系发行版上安装软件包的主要命令。它支持从多种来源安装：仓库中的包名、本地 RPM 文件或直接指向 RPM 包的 URL。
 
-The command automatically resolves and installs all required dependencies, downloading them from configured repositories. When installing from URLs, this is commonly used to add third-party repositories like EPEL or RPM Fusion by installing their release packages. The tool verifies package signatures, checks for conflicts, and can handle complex scenarios like replacing packages or allowing erasure of conflicting packages with --allowerasing. Root privileges are required as installation modifies system files.
+该命令自动解析并安装所有必需的依赖，从已配置的仓库中下载。通过 URL 安装通常用于添加第三方仓库（如 EPEL 或 RPM Fusion），方法是安装它们的 release 包。该工具会验证软件包签名并检查冲突，还能处理复杂场景，例如替换软件包或通过 --allowerasing 允许删除冲突的软件包。由于安装会修改系统文件，因此需要 root 权限。
 
 # PARAMETERS
 
 _package_
-> Package name, local file path, or URL
+> 包名、本地文件路径或 URL
 
 **-y, --assumeyes**
-> Automatically answer yes to prompts
+> 自动对所有提示回答 yes
 
 **--allowerasing**
-> Allow erasing conflicting packages
+> 允许删除冲突的软件包
 
 **--downloadonly**
-> Download only, don't install
+> 仅下载，不安装
 
 # CAVEATS
 
-Requires root privileges. Package names must match repository names exactly. Installing from URLs requires network access.
+需要 root 权限。包名必须与仓库中的名称完全一致。从 URL 安装需要网络连接。
 
 # INSTALL
 

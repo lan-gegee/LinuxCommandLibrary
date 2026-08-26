@@ -1,30 +1,30 @@
 # TAGLINE
 
-F-Droid repository management tool
+F-Droid 软件仓库管理工具
 
 # TLDR
 
-**Update repository index**
+**更新仓库索引**
 
 ```fdroid update```
 
-**Build app from** source
+**从源码构建应用**
 
 ```fdroid build [app.id]```
 
-**Initialize repository**
+**初始化仓库**
 
 ```fdroid init```
 
-**Publish signed apps**
+**发布已签名的应用**
 
 ```fdroid publish```
 
-**Check metadata for issues**
+**检查元数据问题**
 
 ```fdroid lint [app.id]```
 
-**Check for app updates**
+**检查应用更新**
 
 ```fdroid checkupdates [app.id]```
 
@@ -35,70 +35,70 @@ F-Droid repository management tool
 # PARAMETERS
 
 _COMMAND_
-> Operation: update, build, init, publish, lint, etc.
+> 操作：update、build、init、publish、lint 等。
 
 **update**
-> Update the repository index.
+> 更新软件仓库索引。
 
 **build** _APP_
-> Build application from source.
+> 从源码构建应用。
 
 **init**
-> Initialize new repository.
+> 初始化新仓库。
 
 **publish**
-> Publish signed apps.
+> 发布已签名的应用。
 
 **lint** _APP_
-> Check metadata for issues.
+> 检查元数据问题。
 
 **checkupdates** _APP_
-> Check for available upstream updates.
+> 检查可用的上游更新。
 
 **scanner** _APP_
-> Scan APKs for known non-free libraries.
+> 扫描 APK 中已知的非自由库。
 
 **rewritemeta** _APP_
-> Reformat and normalize metadata files.
+> 重新格式化并规范化元数据文件。
 
 **deploy**
-> Deploy the repository to a server.
+> 将仓库部署到服务器。
 
 **import**
-> Import a new app from source repository.
+> 从源码仓库导入新应用。
 
 **readmeta**
-> Read and validate metadata.
+> 读取并验证元数据。
 
 **-v**, **--verbose**
-> More verbose output.
+> 更详细的输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fdroid** is the server-side tool for managing F-Droid repositories. It builds Android apps from source, maintains repository metadata, and generates the index files that F-Droid clients use.
+**fdroid** 是用于管理 F-Droid 仓库的服务端工具。它从源码构建 Android 应用，维护仓库元数据，并生成 F-Droid 客户端使用的索引文件。
 
-The tool handles the entire app publication workflow: building APKs from source, signing them, generating metadata, and publishing to repositories. It enforces F-Droid's commitment to open source by building from source code.
+该工具处理应用发布的完整工作流：从源码构建 APK、签名、生成元数据并发布到仓库。它通过从源码构建来践行 F-Droid 对开源的承诺。
 
-fdroid is used by the official F-Droid repository and third-party repositories hosting open source Android applications.
+fdroid 被 F-Droid 官方仓库以及托管开源 Android 应用的第三方仓库使用。
 
 # CONFIGURATION
 
 **config.yml**
-> Repository configuration including repo name, description, and keystore settings.
+> 仓库配置，包括仓库名称、描述和密钥库设置。
 
 **metadata/**
-> Directory containing per-app metadata files describing build recipes and app information.
+> 存放各应用元数据文件的目录，描述构建配方和应用信息。
 
 # CAVEATS
 
-Requires Android SDK. Building apps needs significant resources. Repository setup is complex. Signing requires key management.
+需要 Android SDK。构建应用需要大量资源。仓库搭建较复杂。签名需要进行密钥管理。
 
 # HISTORY
 
-fdroid is the server component of **F-Droid**, the open source Android app repository founded in 2010. It enables anyone to host their own repository of free software Android applications.
+fdroid 是 **F-Droid** 的服务端组件。F-Droid 是创立于 2010 年的开源 Android 应用仓库，让任何人都能够托管自己的自由软件 Android 应用仓库。
 
 # SEE ALSO
 

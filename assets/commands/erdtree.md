@@ -1,26 +1,26 @@
 # TAGLINE
 
-Modern filesystem tree utility with git integration
+集成 Git 的现代文件系统树工具
 
 # TLDR
 
-**Display** directory tree
+**显示**目录树
 
 ```erdtree [directory]```
 
-**Show** sizes of directories and files
+**显示**目录和文件的大小
 
 ```erdtree -s [directory]```
 
-**Show** git status alongside tree
+在树旁**显示** git 状态
 
 ```erdtree --git [directory]```
 
-**Limit** depth of tree
+**限制**树的深度
 
 ```erdtree -L 3 [directory]```
 
-**Show** only directories
+只**显示**目录
 
 ```erdtree -d [directory]```
 
@@ -31,63 +31,63 @@ Modern filesystem tree utility with git integration
 # PARAMETERS
 
 **-d, --dirs-only**
-> Show only directories
+> 只显示目录
 
 **-L, --level** _N_
-> Limit tree depth to N levels
+> 将树深度限制为 N 层
 
 **-s, --size**
-> Show file and directory sizes
+> 显示文件和目录大小
 
 **-h, --human-readable**
-> Show sizes in human-readable format
+> 以人类可读的格式显示大小
 
 **--git**
-> Show git status (modified, untracked, ignored)
+> 显示 git 状态（已修改、未跟踪、已忽略）
 
 **--no-git**
-> Disable git integration
+> 禁用 git 集成
 
 **--ignore** _PATTERN_
-> Ignore files matching pattern
+> 忽略匹配模式的文件
 
 **-I, --ignore-git**
-> Respect .gitignore rules
+> 遵循 .gitignore 规则
 
 **-a, --all**
-> Show hidden files
+> 显示隐藏文件
 
 **-P, --prune**
-> Prune empty directories
+> 剪除空目录
 
 **--sort** _TYPE_
-> Sort by: name, size, time, git
+> 排序依据：name、size、time、git
 
 **--dirs-first**
-> Show directories before files
+> 目录排在文件之前
 
 **-o, --output** _FILE_
-> Output to file instead of stdout
+> 输出到文件而非标准输出
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**erdtree** is a modern tree command replacement with additional features like disk usage reporting, git integration, and improved visual formatting. It combines the functionality of tree and du with a clean, fast interface.
+**erdtree** 是 tree 命令的现代替代品，额外提供磁盘占用统计、git 集成和更美观的格式化等功能。它将 tree 与 du 的功能结合在一起，界面简洁、运行快速。
 
-The tool can display file sizes, git status indicators, and customizable sorting. It's designed to be faster than traditional tree implementations while providing more useful information.
+该工具可以显示文件大小、git 状态指示符，并支持自定义排序。它的设计目标是在提供更多实用信息的同时，比传统 tree 实现更快。
 
 # CAVEATS
 
-Large directories may take time to process. Git status checking adds overhead. Symbolic links are handled according to options. Unicode filenames require proper terminal support.
+大型目录可能需要较长时间处理。检查 git 状态会带来额外开销。符号链接的处理取决于所选选项。Unicode 文件名需要终端正确支持。
 
 # HISTORY
 
-**erdtree** was created by Benji Nguyen as a modern replacement for the traditional tree command, addressing performance and feature limitations while maintaining compatibility.
+**erdtree** 由 Benji Nguyen 创建，作为传统 tree 命令的现代替代品，在保持兼容性的同时解决了性能与功能上的局限。
 
 # INSTALL
 

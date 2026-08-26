@@ -1,22 +1,22 @@
 # TAGLINE
 
-Reset passwords for built-in Elasticsearch users
+重置 Elasticsearch 内置用户的密码
 
 # TLDR
 
-**Reset elastic user password**
+**重置 elastic 用户密码**
 
 ```elasticsearch-reset-password -u elastic```
 
-**Reset with auto-generated password**
+**使用自动生成的密码重置**
 
 ```elasticsearch-reset-password -u [username] -a```
 
-**Reset interactively**
+**交互式重置**
 
 ```elasticsearch-reset-password -u [username] -i```
 
-**Specify batch mode**
+**指定批处理模式**
 
 ```elasticsearch-reset-password -u [username] -b```
 
@@ -27,41 +27,41 @@ Reset passwords for built-in Elasticsearch users
 # PARAMETERS
 
 **-u**, **--username** _user_
-> Username to reset.
+> 要重置的用户名。
 
 **-a**, **--auto**
-> Reset the password to an auto-generated strong password. This is the default.
+> 将密码重置为自动生成的强密码。这是默认行为。
 
 **-i**, **--interactive**
-> Prompt for the new password instead of generating one.
+> 提示输入新密码而不是自动生成。
 
 **-b**, **--batch**
-> Run without prompting for confirmation.
+> 运行时不提示确认。
 
 **-f**, **--force**
-> Run even against an unhealthy cluster.
+> 即使在不健康的集群上也强制运行。
 
 **--url** _url_
-> Base URL for the Elasticsearch API. Defaults to the value derived from elasticsearch.yml.
+> Elasticsearch API 的基础 URL。默认取自 elasticsearch.yml 推导出的值。
 
 **-E** _setting=value_
-> Configure a standard Elasticsearch or X-Pack setting.
+> 配置标准的 Elasticsearch 或 X-Pack 设置。
 
 **-s**, **--silent**
-> Show minimal output.
+> 显示最少输出。
 
 **-v**, **--verbose**
-> Show verbose output.
+> 显示详细输出。
 
 # DESCRIPTION
 
-**elasticsearch-reset-password** resets the password of a native realm user or one of the built-in users such as **elastic** or **kibana_system**. It is the recommended way to recover access when the elastic password is lost.
+**elasticsearch-reset-password** 重置 native realm 用户或 **elastic**、**kibana_system** 等内置用户的密码。当 elastic 密码丢失时，它是恢复访问的推荐方式。
 
-The tool must be run on a node of the cluster, as the user that owns the Elasticsearch files, and it needs the cluster to be running. Without **-i** it prints a freshly generated password to the console; that output is the only time the password is shown.
+该工具必须以拥有 Elasticsearch 文件的用户身份，在集群的某个节点上运行，并且要求集群正在运行。不加 **-i** 时它会把新生成的密码打印到控制台；该输出是唯一一次显示密码的机会。
 
 # CAVEATS
 
-Only works when the Elasticsearch security features are enabled, which is the default from version 8. The command talks to the cluster over HTTPS, so a cluster that is down or unreachable cannot have its passwords reset unless **-f** is used against an unhealthy but running cluster.
+仅在启用了 Elasticsearch 安全特性时有效（8 版本起默认启用）。该命令通过 HTTPS 与集群通信，因此处于停机或不可达状态的集群无法重置密码，除非对仍在运行但不健康的集群使用 **-f**。
 
 # SEE ALSO
 
@@ -76,4 +76,3 @@ Only works when the Elasticsearch security features are enabled, which is the de
 ```[Documentation](https://www.elastic.co/docs/reference/elasticsearch/command-line-tools/reset-password)```
 
 <!-- verified: 2026-07-14 -->
-

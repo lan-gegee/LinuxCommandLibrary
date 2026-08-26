@@ -1,10 +1,10 @@
 # TAGLINE
 
-Show Docker Buildx version information
+显示 Docker Buildx 版本信息
 
 # TLDR
 
-**Show buildx version**
+**显示 buildx 版本**
 
 ```docker buildx version```
 
@@ -14,7 +14,7 @@ Show Docker Buildx version information
 
 # DESCRIPTION
 
-**docker buildx version** displays the version of the Docker Buildx plugin along with its git commit hash. The output includes the module path, semantic version number, and the full commit identifier used to build the binary.
+**docker buildx version** 显示 Docker Buildx 插件的版本及其 git 提交哈希。输出包括模块路径、语义化版本号以及用于构建该二进制文件的完整提交标识符。
 
 # INSTALL
 

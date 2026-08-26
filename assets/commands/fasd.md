@@ -1,34 +1,34 @@
 # TAGLINE
 
-frecency-based file and directory navigation
+基于 frecency 的文件与目录快速导航
 
 # TLDR
 
-**Jump to frecent directory**
+跳转到最常使用的目录
 
 ```z [pattern]```
 
-**Edit frecent file**
+编辑常用文件
 
 ```f [pattern]```
 
-**List frecent directories**
+列出常用目录
 
 ```d```
 
-**List frecent files**
+列出常用文件
 
 ```f```
 
-**Show all frecent paths**
+显示所有常用路径
 
 ```fasd```
 
-**Interactive selection**
+交互式选择
 
 ```fasd -si [pattern]```
 
-**Add path to database**
+将路径加入数据库
 
 ```fasd -A [path]```
 
@@ -38,64 +38,64 @@ frecency-based file and directory navigation
 
 # DESCRIPTION
 
-**fasd** provides quick access to frequently and recently used files and directories. It tracks access patterns and uses a "frecency" algorithm combining frequency and recency.
+**fasd** 提供对经常和最近使用的文件与目录的快速访问。它跟踪访问模式，并结合频率和新鲜度使用"frecency"算法排序。
 
-The tool integrates with the shell to track cd and file access, enabling fast navigation with minimal typing. Aliases like z (directories) and f (files) provide shortcuts.
+该工具与 shell 集成，跟踪 cd 和文件访问行为，只需极少输入即可快速导航。z（目录）和 f（文件）等别名提供了快捷方式。
 
 # PARAMETERS
 
 **-s**
-> Show ranks and paths.
+> 显示排名和路径。
 
 **-l**
-> List paths only.
+> 只列出路径。
 
 **-i**
-> Interactive selection.
+> 交互式选择。
 
 **-e** _cmd_
-> Execute command on result.
+> 对结果执行命令。
 
 **-a**
-> Match files and directories.
+> 匹配文件和目录。
 
 **-d**
-> Match directories only.
+> 只匹配目录。
 
 **-f**
-> Match files only.
+> 只匹配文件。
 
 **-r**
-> Match by rank only.
+> 仅按排名匹配。
 
 **-t**
-> Match by recency only.
+> 仅按新鲜度匹配。
 
 **-A**
-> Add path to database.
+> 将路径加入数据库。
 
 **-D**
-> Remove path from database.
+> 从数据库移除路径。
 
 # ALIASES (shell init)
 
-**z**: Jump to directory (fasd_cd -d)
-**zz**: Interactive directory select
-**f**: Select file
-**v**: Open frecent file in $EDITOR
+**z**: 跳转到目录 (fasd_cd -d)
+**zz**: 交互式选择目录
+**f**: 选择文件
+**v**: 用 $EDITOR 打开常用文件
 
 # CONFIGURATION
 
 **~/.fasd**
-> Database file tracking frecency scores for files and directories.
+> 数据库文件，记录文件和目录的 frecency 得分。
 
 # CAVEATS
 
-Requires shell integration. Database builds over time. Patterns are substrings. May need manual cleanup of old entries.
+需要 shell 集成。数据库随时间积累。模式为子串匹配。可能需要手动清理旧条目。
 
 # HISTORY
 
-**fasd** was created by **Wei Dai** (clvv) inspired by autojump and z. It combined features of both, adding file tracking and extensibility. The project became popular for its speed and flexibility in shell navigation.
+**fasd** 由 **Wei Dai**（clvv）受 autojump 和 z 启发而创建。它结合了两者特性，并增加了文件跟踪和可扩展性。该项目凭借在 shell 导航中的速度和灵活性而广受欢迎。
 
 # INSTALL
 

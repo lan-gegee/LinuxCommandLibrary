@@ -1,14 +1,14 @@
 # TAGLINE
 
-analyze ext filesystem free space fragmentation
+分析 ext 文件系统空闲空间碎片
 
 # TLDR
 
-Check **free space fragmentation**
+检查**空闲空间碎片**
 
 ```e2freefrag [/dev/sdXN]```
 
-Check with specific **chunk size**
+以指定**块大小**检查
 
 ```e2freefrag -c [chunk_size_in_kb] [/dev/sdXN]```
 
@@ -18,26 +18,26 @@ Check with specific **chunk size**
 
 # DESCRIPTION
 
-**e2freefrag** prints free space fragmentation information for ext2/ext3/ext4 filesystems. It shows how many free blocks are available as contiguous and aligned free space in histogram format.
+**e2freefrag** 打印 ext2/ext3/ext4 文件系统的空闲空间碎片信息。它以直方图形式显示有多少空闲块可作为连续且对齐的空闲空间使用。
 
-The tool analyzes the filesystem's free space distribution, reporting statistics about chunk sizes and their frequency. This information helps assess filesystem health and determine if defragmentation might improve performance.
+该工具分析文件系统的空闲空间分布，报告关于块大小及其出现频率的统计信息。这些信息有助于评估文件系统健康状况，并判断碎片整理是否能提升性能。
 
-Useful for identifying fragmentation patterns that could impact sequential I/O performance, particularly on systems with large files or database workloads.
+可用于识别可能影响顺序 I/O 性能的碎片模式，对于存在大文件或数据库负载的系统尤其有用。
 
 # PARAMETERS
 
 **-c** _chunk_kb_
-> Report the number of free chunks of the given size (in KB). Must be a power of two and larger than the filesystem block size.
+> 报告给定大小（KB）的空闲块数量。必须是 2 的幂且大于文件系统块大小。
 
 **-h**
-> Display usage information.
+> 显示用法信息。
 
 _device_
-> Filesystem device (e.g. **/dev/sda1**) to analyze.
+> 要分析的文件系统设备（例如 **/dev/sda1**）。
 
 # CAVEATS
 
-Filesystem should be unmounted or mounted read-only for accurate results. Part of e2fsprogs package.
+为获得准确结果，文件系统应处于卸载状态或以只读方式挂载。属于 e2fsprogs 软件包。
 
 # INSTALL
 

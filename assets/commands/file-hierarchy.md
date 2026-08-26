@@ -1,18 +1,18 @@
 # TAGLINE
 
-systemd filesystem hierarchy documentation
+systemd 文件系统层级结构文档
 
 # TLDR
 
-**View file hierarchy documentation**
+**查看文件系统层级结构文档**
 
 ```man file-hierarchy```
 
 # DESCRIPTION
 
-**file-hierarchy** is a systemd documentation page (man page) describing the file system hierarchy used by systemd-based Linux systems. It documents the purpose of directories under /, /etc, /usr, /var, and other key locations.
+**file-hierarchy** 是一份 systemd 文档页（man page），描述基于 systemd 的 Linux 系统所采用的文件系统层级结构。它记录了 /、/etc、/usr、/var 等关键位置下各目录的用途。
 
-This is not an executable command but a reference document explaining where files should be placed and why.
+这不是一个可执行命令，而是一份参考文档，解释文件应当放在哪里以及为什么。
 
 # KEY DIRECTORIES
 
@@ -38,14 +38,14 @@ This is not an executable command but a reference document explaining where file
 
 # SYSTEMD SPECIFICS
 
-- /run replaces /var/run
-- /usr/lib/systemd for unit files
-- /etc/systemd for local overrides
-- Merged /usr (bin, sbin, lib merged)
+- /run 取代 /var/run
+- 单元文件位于 /usr/lib/systemd
+- 本地覆盖配置位于 /etc/systemd
+- 合并式 /usr（bin、sbin、lib 已合并）
 
 # CAVEATS
 
-This is a documentation page, not an executable command. The hierarchy described is specific to systemd-based distributions and may differ on other Linux systems.
+这是一份文档页，不是可执行命令。其中描述的层级结构是基于 systemd 的发行版所特有的，在其他 Linux 系统上可能有所不同。
 
 # INSTALL
 

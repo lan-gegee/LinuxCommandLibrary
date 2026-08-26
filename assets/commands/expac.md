@@ -1,26 +1,26 @@
 # TAGLINE
 
-pacman database query tool with custom formatting
+支持自定义格式的 pacman 数据库查询工具
 
 # TLDR
 
-List **dependencies** of a package
+列出软件包的**依赖**
 
 ```expac [-S|--sync] '%D' [package]```
 
-List **optional dependencies**
+列出**可选依赖**
 
 ```expac [-S|--sync] "%o" [package]```
 
-List **download size** of packages in MiB
+以 MiB 为单位列出软件包的**下载大小**
 
 ```expac [-S|--sync] [-H|--humansize] M '%k\t%n' [package1] [package2]```
 
-List packages marked for **upgrade** with size
+按大小列出标记为待**升级**的软件包
 
 ```expac [-S|--sync] [-H|--humansize] M '%k\t%n' $(pacman -Qqu) | sort [-sh|--sort --human-numeric-sort]```
 
-List **explicitly-installed** packages with optional dependencies
+列出**显式安装**的软件包及其可选依赖
 
 ```expac [-d|--delim] '\n\n' [-l|--listdelim] '\n\t' [-Q|--query] '%n\n\t%O' $(pacman -Qeq)```
 
@@ -30,45 +30,45 @@ List **explicitly-installed** packages with optional dependencies
 
 # DESCRIPTION
 
-**expac** extracts data from alpm databases using printf-like format strings. It provides flexible output formatting for pacman-based package queries.
+**expac** 使用类似 printf 的格式字符串从 alpm 数据库提取数据。它为基于 pacman 的软件包查询提供灵活的输出格式化。
 
-The tool acts as a lightweight alternative to parsing pacman output, offering direct access to package metadata including dependencies, sizes, descriptions, and installation dates. Format specifiers like %n (name), %v (version), %D (dependencies) enable custom reports.
+该工具是解析 pacman 输出的轻量级替代方案，可直接访问软件包元数据，包括依赖、大小、描述和安装日期。%n（名称）、%v（版本）、%D（依赖）等格式说明符可用于生成自定义报告。
 
-Useful for scripting, package analysis, and generating custom package reports. Particularly powerful when combined with other tools for filtering and processing package information.
+适合用于脚本编写、软件包分析和生成自定义软件包报告。与其他工具结合进行过滤和处理时尤为强大。
 
 # PARAMETERS
 
 **-S, --sync**
-> Query sync database
+> 查询同步数据库
 
 **-Q, --query**
-> Query local database
+> 查询本地数据库
 
 **-H, --humansize** _unit_
-> Human-readable sizes (K, M, G)
+> 人类可读的大小（K、M、G）
 
 **-d, --delim** _string_
-> Delimiter between packages (default: newline)
+> 软件包之间的分隔符（默认：换行符）
 
 **-l, --listdelim** _string_
-> Delimiter for list items (default: two spaces)
+> 列表项之间的分隔符（默认：两个空格）
 
 **-t, --timefmt** _format_
-> Time output format string passed to strftime(3) (default: %c)
+> 传递给 strftime(3) 的时间输出格式字符串（默认：%c）
 
 **-1, --readone**
-> Stop after first match
+> 在第一个匹配后停止
 
 **-p, --file** _pkgfile_
-> Query a package file instead of the database
+> 查询软件包文件而非数据库
 
 # FORMAT SPECIFIERS
 
-Common format specifiers: %n (name), %v (version), %d (description), %D (depends), %E (depends, no version), %O (optional deps), %o (optional deps, no descriptions), %N (required by), %P (provides), %H (conflicts), %G (groups), %m (install size), %k (download size), %r (repo), %u (URL), %a (architecture), %l (install date), %w (install reason), %F (files).
+常用格式说明符：%n（名称）、%v（版本）、%d（描述）、%D（依赖）、%E（依赖，不含版本）、%O（可选依赖）、%o（可选依赖，不含描述）、%N（被谁依赖）、%P（提供）、%H（冲突）、%G（组）、%m（安装大小）、%k（下载大小）、%r（仓库）、%u（URL）、%a（架构）、%l（安装日期）、%w（安装原因）、%F（文件列表）。
 
 # CAVEATS
 
-Arch Linux and derivatives only. Format strings use % specifiers. Part of the pacman ecosystem. Use -H to format sizes in human-readable units (K, M, G, T).
+仅适用于 Arch Linux 及其衍生发行版。格式字符串使用 % 说明符。属于 pacman 生态的一部分。使用 -H 可以将大小格式化为人类可读的单位（K、M、G、T）。
 
 # INSTALL
 

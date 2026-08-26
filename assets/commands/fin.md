@@ -1,26 +1,26 @@
 # TAGLINE
 
-Docksal Docker development environment CLI
+Docksal Docker 开发环境 CLI
 
 # TLDR
 
-**List projects**
+**列出项目**
 
 ```fin project list```
 
-**Start project**
+**启动项目**
 
 ```fin project start```
 
-**Stop project**
+**停止项目**
 
 ```fin project stop```
 
-**SSH into container**
+**SSH 进入容器**
 
 ```fin bash```
 
-**Run drush command**
+**运行 drush 命令**
 
 ```fin drush [status]```
 
@@ -31,52 +31,52 @@ Docksal Docker development environment CLI
 # PARAMETERS
 
 _COMMAND_
-> Operation: project, bash, drush, exec, etc.
+> 操作类型：project、bash、drush、exec 等。
 
 **project** _ACTION_
-> Manage Docksal projects.
+> 管理 Docksal 项目。
 
 **bash**
-> SSH into CLI container.
+> SSH 进入 CLI 容器。
 
 **drush** _CMD_
-> Run Drush command.
+> 运行 Drush 命令。
 
 **exec** _CMD_
-> Execute command in container.
+> 在容器中执行命令。
 
 **up**
-> Start project containers.
+> 启动项目容器。
 
 **stop**
-> Stop project containers.
+> 停止项目容器。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **.docksal/docksal.yml**
-> Project-specific Docksal configuration for containers and services.
+> 项目专属的 Docksal 配置，描述容器与服务。
 
 **.docksal/docksal.env**
-> Environment variables for the project.
+> 项目使用的环境变量。
 
 # DESCRIPTION
 
-**fin** is the Docksal command-line tool for managing Docker-based development environments. It simplifies container orchestration for web development projects, particularly Drupal, WordPress, and other PHP applications.
+**fin** 是 Docksal 的命令行工具，用于管理基于 Docker 的开发环境。它简化了 Web 开发项目的容器编排，尤其面向 Drupal、WordPress 及其他 PHP 应用。
 
-The tool handles project creation, starting/stopping containers, running commands inside containers, and managing development services like databases and mail catchers.
+该工具负责创建项目、启动/停止容器、在容器内执行命令，以及管理数据库、邮件捕获器等开发服务。
 
-fin abstracts Docker complexity, providing developers with simple commands for common tasks.
+fin 把 Docker 的复杂性抽象掉，为常见任务提供简单的命令。
 
 # CAVEATS
 
-Requires Docksal and Docker. Configuration specific to Docksal. Project must be initialized.
+需要安装 Docksal 和 Docker。配置方式为 Docksal 专属。项目必须先经过初始化。
 
 # HISTORY
 
-fin is part of **Docksal**, a Docker-based development environment tool. Created to simplify local development setup, particularly for Drupal projects, providing consistent environments across team members.
+fin 是 **Docksal** 的一部分；Docksal 是一款基于 Docker 的开发环境工具。它诞生的目的是简化本地开发环境的搭建，特别是 Drupal 项目，让团队每个成员都能获得一致的环境。
 
 # SEE ALSO
 

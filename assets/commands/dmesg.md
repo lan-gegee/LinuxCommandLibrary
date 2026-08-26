@@ -1,34 +1,34 @@
 # TAGLINE
 
-kernel ring buffer message viewer
+内核环形缓冲区消息查看工具
 
 # TLDR
 
-Show **kernel messages**
+显示**内核消息**
 
 ```sudo dmesg```
 
-Show kernel **error messages**
+显示内核**错误消息**
 
 ```sudo dmesg -l err```
 
-**Follow** kernel messages in real-time
+实时**跟踪**内核消息
 
 ```sudo dmesg -w```
 
-Show messages with **human-readable timestamps**
+以**人类可读时间戳**显示消息
 
 ```sudo dmesg -T```
 
-Show messages in **human-readable** form
+以**易读格式**显示消息
 
 ```sudo dmesg -H```
 
-**Colorize** output
+输出**着色**
 
 ```sudo dmesg -L```
 
-Filter messages by **facility**
+按 **facility** 过滤消息
 
 ```sudo dmesg -f kern```
 
@@ -38,71 +38,71 @@ Filter messages by **facility**
 
 # DESCRIPTION
 
-**dmesg** prints and controls the kernel ring buffer, which contains messages from the kernel including hardware detection, driver loading, and system events. It is essential for debugging hardware and driver issues.
+**dmesg** 打印并控制内核环形缓冲区，其中包含来自内核的消息，如硬件检测、驱动加载和系统事件。它是调试硬件与驱动问题的重要工具。
 
 # PARAMETERS
 
 **-l, --level level**
-> Restrict output to specified log levels (emerg, alert, crit, err, warn, notice, info, debug)
+> 只显示指定的日志级别（emerg、alert、crit、err、warn、notice、info、debug）
 
 **-f, --facility facility**
-> Restrict output to specified facilities (kern, user, mail, daemon, etc.)
+> 只显示指定的 facility（kern、user、mail、daemon 等）
 
 **-T, --ctime**
-> Print human-readable timestamps
+> 打印人类可读的时间戳
 
 **-H, --human**
-> Enable human-readable output with colors and timestamps
+> 启用带颜色和时间戳的易读输出
 
 **-w, --follow**
-> Wait for new messages (like tail -f)
+> 等待新消息（类似 tail -f）
 
 **-L, --color**
-> Colorize output
+> 输出着色
 
 **-c, --read-clear**
-> Clear the ring buffer after printing
+> 打印后清空环形缓冲区
 
 **-C, --clear**
-> Clear the ring buffer without printing
+> 清空环形缓冲区但不打印
 
 **-n, --console-level level**
-> Set level of messages printed to console
+> 设置打印到控制台的消息级别
 
 **-k, --kernel**
-> Print kernel messages only
+> 仅打印内核消息
 
 **-u, --userspace**
-> Print userspace messages only
+> 仅打印用户空间消息
 
 **--time-format** _format_
-> Timestamp format: ctime, reltime, delta, iso, raw
+> 时间戳格式：ctime、reltime、delta、iso、raw
 
 **--since** _time_
-> Display records since the specified time
+> 显示指定时间之后的记录
 
 **--until** _time_
-> Display records until the specified time
+> 显示指定时间之前的记录
 
 **-J, --json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-t, --notime**
-> Do not print kernel timestamps
+> 不打印内核时间戳
 
 **-r, --raw**
-> Print raw message buffer with log-level prefixes
+> 打印带日志级别前缀的原始消息缓冲区
 
 **-x, --decode**
-> Decode facility and level to human-readable prefixes
+> 将 facility 和级别解码为可读前缀
 
 # CAVEATS
 
-Requires root privileges on most systems. The **-w** (follow) option requires kernel 3.5.0+ (for /dev/kmsg). The **-T** and **-H** options are util-linux userspace features and do not require a specific kernel version.
+在大多数系统上需要 root 权限。**-w**（follow）选项要求内核 3.5.0 及以上版本（用于 /dev/kmsg）。**-T** 和 **-H** 是 util-linux 的用户空间特性，不依赖特定内核版本。
 
 # HISTORY
 
-Part of **util-linux** package. The kernel ring buffer has been part of Linux since early versions, providing essential diagnostic information.
+属于 **util-linux** 软件包。内核环形缓冲区自 Linux 早期版本就存在，提供重要的诊断信息。
 
 # INSTALL
 

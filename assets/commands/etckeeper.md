@@ -1,26 +1,26 @@
 # TAGLINE
 
-version control for /etc directory
+/etc 目录的版本控制
 
 # TLDR
 
-**Initialize** Git repo in /etc
+在 /etc 中**初始化** Git 仓库
 
 ```sudo etckeeper init```
 
-**Commit** all changes in /etc
+**提交** /etc 中的所有更改
 
 ```sudo etckeeper commit [message]```
 
-Run **arbitrary Git** commands
+运行**任意 Git** 命令
 
 ```sudo etckeeper vcs [status]```
 
-**Check** for uncommitted changes
+**检查**是否存在未提交的更改
 
 ```sudo etckeeper unclean```
 
-**Stop tracking** and destroy repo
+**停止跟踪**并销毁仓库
 
 ```sudo etckeeper uninit```
 
@@ -30,43 +30,43 @@ Run **arbitrary Git** commands
 
 # DESCRIPTION
 
-**etckeeper** tracks system configuration files in /etc using version control (Git, Mercurial, Bazaar, or Darcs). It integrates seamlessly with package managers like apt, yum, pacman, and dnf to automatically commit changes before and after package operations.
+**etckeeper** 使用版本控制（Git、Mercurial、Bazaar 或 Darcs）跟踪 /etc 中的系统配置文件。它与 apt、yum、pacman、dnf 等软件包管理器无缝集成，在软件包操作前后自动提交更改。
 
-This provides an audit trail of all system configuration modifications, making it possible to review what changed when, understand why a system behaves differently after updates, and revert problematic changes. The tool preserves file permissions and metadata that Git normally doesn't track.
+这提供了所有系统配置修改的审计轨迹，让你可以审查何时改了什么、弄清系统为何在更新后行为不同，并回退有问题的更改。该工具还会保留 Git 通常不跟踪的文件权限和元数据。
 
-etckeeper is valuable for system administrators managing multiple servers, troubleshooting configuration issues, and maintaining compliance documentation.
+etckeeper 对于管理多台服务器的系统管理员、排查配置问题以及维护合规文档都很有价值。
 
 # PARAMETERS
 
 **init**
-> Initialize repository in /etc
+> 在 /etc 中初始化仓库
 
 **commit** _message_
-> Commit all changes
+> 提交所有更改
 
 **vcs** _command_
-> Run VCS command on repo
+> 在仓库上运行 VCS 命令
 
 **unclean**
-> Check for uncommitted changes
+> 检查未提交的更改
 
 **uninit**
-> Remove repository
+> 移除仓库
 
 **pre-install**
-> Run before package install
+> 在安装软件包之前运行
 
 **post-install**
-> Run after package install
+> 在安装软件包之后运行
 
 # CONFIGURATION
 
 **/etc/etckeeper/etckeeper.conf**
-> Main configuration file specifying VCS to use, package manager hooks to enable, and files to ignore.
+> 主配置文件，指定要使用的 VCS、要启用的软件包管理器钩子以及要忽略的文件。
 
 # CAVEATS
 
-Requires root privileges. Must run from /etc directory for init. Integrates with apt, yum, and pacman. Sensitive files may need gitignore entries.
+需要 root 权限。init 必须在 /etc 目录下运行。与 apt、yum、pacman 集成。敏感文件可能需要添加 gitignore 条目。
 
 # INSTALL
 

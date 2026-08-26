@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line client for Google Drive
+Google Drive 命令行客户端
 
 # TLDR
 
-**Initialize drive in directory**
+在目录中**初始化 drive**
 
 ```drive init [~/gdrive]```
 
-**Pull files from Google Drive**
+从 Google Drive **拉取文件**
 
 ```drive pull [path/to/file]```
 
-**Push files to Google Drive**
+向 Google Drive **推送文件**
 
 ```drive push [path/to/file]```
 
-**List files in Google Drive**
+**列出** Google Drive 中的文件
 
 ```drive list```
 
-**Pull all changes**
+**拉取全部变更**
 
 ```drive pull -all```
 
-**Push with force**
+**强制推送**
 
 ```drive push -force [path]```
 
-**Show differences**
+**查看差异**
 
 ```drive diff [path]```
 
@@ -39,60 +39,60 @@ command-line client for Google Drive
 # PARAMETERS
 
 **init**
-> Initialize drive context in directory.
+> 在目录中初始化 drive 上下文。
 
 **pull** [_path_]
-> Download files from Google Drive.
+> 从 Google Drive 下载文件。
 
 **push** [_path_]
-> Upload files to Google Drive.
+> 向 Google Drive 上传文件。
 
 **list** [_path_]
-> List files and directories.
+> 列出文件和目录。
 
 **diff** [_path_]
-> Show differences between local and remote.
+> 显示本地与远端的差异。
 
 **trash** [_path_]
-> Move files to trash.
+> 将文件移入回收站。
 
 **untrash** [_path_]
-> Restore files from trash.
+> 从回收站恢复文件。
 
 **delete** [_path_]
-> Permanently delete files.
+> 永久删除文件。
 
 **-all**
-> Apply operation to all files.
+> 对所有文件执行操作。
 
 **-force**
-> Force operation without confirmation.
+> 强制操作，无需确认。
 
 **-no-prompt**
-> Disable confirmation prompts.
+> 禁用确认提示。
 
 **-depth** _n_
-> Limit directory traversal depth.
+> 限制目录遍历深度。
 
 # DESCRIPTION
 
-**drive** is a command-line client for Google Drive that deliberately borrows Git's model: you **pull** and **push** rather than letting a daemon sync in the background. Nothing moves until you say so, which is the whole appeal for anyone who has watched an automatic sync client propagate a mistake.
+**drive** 是一款 Google Drive 命令行客户端，刻意借鉴了 Git 的模型：由你显式地 **pull** 和 **push**，而不是让守护进程在后台自动同步。在你发话之前什么都不会动——这正是所有目睹过自动同步客户端扩散错误的人看重它的原因。
 
-`drive init` creates a context directory (`.gd/`) that marks a local folder as the root of a Drive mirror, much as `.git/` marks a repository. Subsequent commands compare local state against the remote and report what would change; `drive diff` shows the differences without transferring anything.
+`drive init` 会创建一个上下文目录（`.gd/`），把某个本地文件夹标记为 Drive 镜像的根，就像 `.git/` 标记一个仓库那样。后续命令会将本地状态与远端比较并报告将要发生的变更；`drive diff` 只显示差异，不传输任何内容。
 
-Note that its flags are Go-style **single-dash** long options: `-force`, `-no-prompt`, `-depth`, not `--force`. This trips up people who expect GNU conventions.
+注意它的标志是 Go 风格的**单横线**长选项：`-force`、`-no-prompt`、`-depth`，而不是 `--force`。习惯了 GNU 约定的人常常在这里踩坑。
 
 # CAVEATS
 
-The project is **effectively dormant**: the last upstream commit was in early **2024**, and Google's Drive API and OAuth requirements have continued to move. New installations often stumble on OAuth setup, which now expects you to register your own client credentials in a Google Cloud project rather than use a bundled key.
+该项目**实际上已处于休眠状态**：上游最后一次提交是在 **2024 年**初，而 Google 的 Drive API 和 OAuth 要求仍在不断变化。新安装常常卡在 OAuth 配置上——现在需要在 Google Cloud 项目中注册你自己的客户端凭据，而不再使用内置密钥。
 
-For most people **rclone** is the better tool today: it is actively maintained, handles Drive alongside dozens of other backends, supports server-side copies and encryption, and has a far more capable sync engine.
+如今对多数人而言 **rclone** 才是更好的选择：它维护活跃，除了 Drive 还支持几十种其他后端，支持服务端复制和加密，同步引擎也强大得多。
 
-There is no conflict resolution to speak of. When a file has changed on both sides, drive asks, and `-force` simply overwrites, so a careless push can discard remote edits. Google Docs, Sheets, and Slides are not real files and cannot be pulled as-is; they must be exported to a concrete format.
+它基本没有冲突解决机制。当文件在两端都被修改时，drive 只会询问，而 `-force` 则直接覆盖，一次粗心的 push 就可能丢弃远端的修改。Google Docs、Sheets 和 Slides 并不是真正的文件，无法按原样拉取；必须先导出为具体格式。
 
 # HISTORY
 
-drive was written by **Emmanuel Odeke** in **2015**, at a time when Google shipped no official Drive client for Linux at all and the alternatives were FUSE mounts that tended to hang. Its Git-like explicit push/pull model was a direct reaction to the automatic sync clients on other platforms, and it earned a large following on that basis. It has since been overtaken by rclone, which covers the same ground and much more.
+drive 由 **Emmanuel Odeke** 于 **2015 年**编写。当时 Google 完全没有面向 Linux 的官方 Drive 客户端，现有替代品是容易挂起的 FUSE 挂载方案。它那 Git 式的显式 push/pull 模型正是对其他平台上自动同步客户端的直接回应，也因此收获了大批拥趸。此后它被 rclone 超越——后者覆盖同样的场景且功能更广。
 
 # INSTALL
 
@@ -109,4 +109,3 @@ drive was written by **Emmanuel Odeke** in **2015**, at a time when Google shipp
 ```[Source code](https://github.com/odeke-em/drive)```
 
 <!-- verified: 2026-07-14 -->
-

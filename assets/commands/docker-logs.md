@@ -1,30 +1,30 @@
 # TAGLINE
 
-fetch container logs from STDOUT and STDERR
+从 STDOUT 和 STDERR 获取容器日志
 
 # TLDR
 
-**Show container logs**
+**显示容器日志**
 
 ```docker logs [container]```
 
-**Follow log output**
+**跟踪日志输出**
 
 ```docker logs -f [container]```
 
-**Show last N lines**
+**显示最后 N 行**
 
 ```docker logs --tail [100] [container]```
 
-**Show timestamps**
+**显示时间戳**
 
 ```docker logs -t [container]```
 
-**Show logs since time**
+**显示某个时间之后的日志**
 
 ```docker logs --since [2h] [container]```
 
-**Show logs until time**
+**显示某个时间之前的日志**
 
 ```docker logs --until [1h] [container]```
 
@@ -35,26 +35,26 @@ fetch container logs from STDOUT and STDERR
 # PARAMETERS
 
 **-f**, **--follow**
-> Follow log output.
+> 跟踪日志输出。
 
 **--tail** _string_
-> Number of lines from end (default "all").
+> 从末尾算起的行数（默认 "all"）。
 
 **-t**, **--timestamps**
-> Show timestamps.
+> 显示时间戳。
 
 **--since** _string_
-> Show logs since timestamp or duration.
+> 显示指定时间戳或时长之后的日志。
 
 **--until** _string_
-> Show logs before timestamp or duration.
+> 显示指定时间戳或时长之前的日志。
 
 **--details**
-> Show extra details.
+> 显示额外的详细信息。
 
 # DESCRIPTION
 
-**docker logs** fetches the logs of a container. Shows STDOUT and STDERR output from the container's main process. Logs are captured by Docker's logging driver and can be filtered by time range or number of lines. Essential for debugging containerized applications and monitoring runtime behavior.
+**docker logs** 获取容器的日志，显示容器主进程的 STDOUT 和 STDERR 输出。日志由 Docker 的日志驱动程序捕获，可按时间范围或行数进行过滤。是调试容器化应用和监控运行时行为的必备工具。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ fetch container logs from STDOUT and STDERR
 # SEE ALSO
 
 [docker-container-logs](/man/docker-container-logs)(1)
-

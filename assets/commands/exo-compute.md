@@ -1,34 +1,34 @@
 # TAGLINE
 
-Exoscale compute instance and infrastructure management
+Exoscale 计算实例与基础设施管理
 
 # TLDR
 
-**List instances**
+**列出实例**
 
 ```exo compute instance list```
 
-**Create instance**
+**创建实例**
 
 ```exo compute instance create [name] --template [Linux Ubuntu] --zone [ch-gva-2]```
 
-**Start instance**
+**启动实例**
 
 ```exo compute instance start [name]```
 
-**Stop instance**
+**停止实例**
 
 ```exo compute instance stop [name]```
 
-**Delete instance**
+**删除实例**
 
 ```exo compute instance delete [name]```
 
-**SSH to instance**
+**SSH 登录实例**
 
 ```exo compute instance ssh [name]```
 
-**Show instance details**
+**显示实例详情**
 
 ```exo compute instance show [name]```
 
@@ -39,38 +39,38 @@ Exoscale compute instance and infrastructure management
 # PARAMETERS
 
 _RESOURCE_
-> Resource type: instance, template, security-group, etc.
+> 资源类型：instance、template、security-group 等。
 
 _ACTION_
-> Operation: list, create, delete, start, stop, show.
+> 操作：list、create、delete、start、stop、show。
 
 **--template** _NAME_
-> Instance template.
+> 实例模板。
 
 **--zone** _ZONE_
-> Availability zone.
+> 可用区。
 
 **--type** _TYPE_
-> Instance type.
+> 实例类型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**exo compute** manages Exoscale compute instances (virtual machines). It handles the full lifecycle from creation through deletion, including power management.
+**exo compute** 用于管理 Exoscale 计算实例（虚拟机）。它处理从创建到删除的完整生命周期，包括电源管理。
 
-Commands support all instance configurations including templates, security groups, SSH keys, and network settings. Zones are Exoscale data center locations.
+命令支持所有实例配置，包括模板、安全组、SSH 密钥和网络设置。可用区即 Exoscale 数据中心的位置。
 
-This subcommand provides IaaS management for Exoscale's compute platform.
+该子命令为 Exoscale 的计算平台提供 IaaS 管理。
 
 # CAVEATS
 
-Instances incur costs while running. Zone resources may be limited. Some templates require specific configurations. Deletion is immediate.
+实例运行期间会产生费用。可用区资源可能有限。部分模板需要特定配置。删除操作立即生效。
 
 # HISTORY
 
-exo compute is part of the **Exoscale CLI**, providing programmatic access to Exoscale's compute infrastructure for automated cloud management.
+exo compute 是 **Exoscale CLI** 的一部分，为自动化云管理提供对 Exoscale 计算基础设施的编程访问。
 
 # INSTALL
 

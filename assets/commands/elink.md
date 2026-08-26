@@ -1,14 +1,14 @@
 # TAGLINE
 
-Find related records across NCBI databases
+查找 NCBI 数据库间的关联记录
 
 # TLDR
 
-Search pubmed then find **related sequences**
+搜索 pubmed 然后查找**相关序列**
 
 ```esearch -db pubmed -query "[query]" | elink -target nuccore```
 
-Search nucleotide then find **related biosamples**
+搜索核苷酸然后查找**相关生物样本**
 
 ```esearch -db nuccore -query "[query]" | elink -target biosample```
 
@@ -18,27 +18,27 @@ Search nucleotide then find **related biosamples**
 
 # DESCRIPTION
 
-**elink** looks up precomputed neighbors within an NCBI database or finds associated records in other databases. It takes search results from esearch and finds related entries.
+**elink** 在 NCBI 数据库内查询预计算的邻居记录，或在其他数据库中查找关联记录。它接收 esearch 的搜索结果并找出相关条目。
 
-Part of the NCBI EDirect utilities for programmatic access to biological databases.
+属于 NCBI EDirect 工具集，用于以编程方式访问生物学数据库。
 
 # PARAMETERS
 
 **-target** _database_
-> Target database for linked records
+> 关联记录的目标数据库
 
 **-name** _linkname_
-> Specific link name to follow
+> 要跟随的特定链接名称
 
 **-db** _database_
-> Source database
+> 源数据库
 
 **-cmd** _command_
-> Entrez link command mode
+> Entrez 链接命令模式
 
 # CAVEATS
 
-Part of the edirect package from NCBI. Works with piped input from esearch. Requires internet connection.
+属于 NCBI 的 edirect 软件包。配合 esearch 的管道输入工作。需要互联网连接。
 
 # INSTALL
 

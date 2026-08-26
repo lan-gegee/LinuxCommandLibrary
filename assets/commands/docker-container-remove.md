@@ -1,10 +1,10 @@
 # TAGLINE
 
-remove one or more containers
+移除一个或多个容器
 
 # TLDR
 
-**Remove a container**
+**移除容器**
 
 ```docker container remove [container]```
 
@@ -14,9 +14,9 @@ remove one or more containers
 
 # DESCRIPTION
 
-**docker container remove** is an alias for **docker container rm** and removes one or more containers from the Docker host. Containers must be stopped before removal unless the force option is used. This command cleans up container filesystem layers and metadata but does not affect the underlying image.
+**docker container remove** 是 **docker container rm** 的别名，从 Docker 主机上移除一个或多个容器。除非使用强制选项，否则容器必须先停止才能移除。此命令会清理容器的文件系统层和元数据，但不会影响底层镜像。
 
-Removing containers is important for maintaining system cleanliness and freeing disk space, as stopped containers continue to consume storage until explicitly deleted.
+移除容器对保持系统整洁和释放磁盘空间非常重要，因为已停止的容器在被显式删除之前会持续占用存储空间。
 
 # INSTALL
 

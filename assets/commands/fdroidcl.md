@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line client for F-Droid repository
+F-Droid 软件仓库的命令行客户端
 
 # TLDR
 
-**Search for apps**
+**搜索应用**
 
 ```fdroidcl search [query]```
 
-**Install app**
+**安装应用**
 
 ```fdroidcl install [app.id]```
 
-**Update all apps**
+**更新所有应用**
 
 ```fdroidcl upgrade```
 
-**List installed apps**
+**列出已安装的应用**
 
 ```fdroidcl list installed```
 
-**Show app details**
+**显示应用详情**
 
 ```fdroidcl show [app.id]```
 
-**Refresh repository** index
+**刷新仓库**索引
 
 ```fdroidcl update```
 
-**List connected Android devices**
+**列出已连接的 Android 设备**
 
 ```fdroidcl devices```
 
-**Download an APK** without installing
+只下载 APK 而**不安装**
 
 ```fdroidcl download [app.id]```
 
@@ -43,47 +43,47 @@ command-line client for F-Droid repository
 # PARAMETERS
 
 _COMMAND_
-> Operation: search, install, upgrade, list, show.
+> 操作：search、install、upgrade、list、show。
 
 **search** _QUERY_
-> Search for apps.
+> 搜索应用。
 
 **install** _APP_
-> Install application.
+> 安装应用。
 
 **upgrade**
-> Update all installed apps.
+> 更新所有已安装的应用。
 
 **uninstall** _APP_
-> Remove application.
+> 移除应用。
 
 **list** _TYPE_
-> List apps (installed, upgradable, all).
+> 列出应用（installed、upgradable、all）。
 
 **show** _APP_
-> Show app details.
+> 显示应用详情。
 
 **update**
-> Refresh repository index.
+> 刷新仓库索引。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fdroidcl** is a command-line client for F-Droid, the free software Android app repository. It allows searching, installing, and managing apps from F-Droid repositories without using the graphical client.
+**fdroidcl** 是 F-Droid——自由软件 Android 应用仓库——的命令行客户端。它无需图形客户端即可从 F-Droid 仓库搜索、安装和管理应用。
 
-The tool connects to F-Droid repositories and uses ADB to install apps on connected Android devices. It can manage multiple devices and provides scripting-friendly output for automation.
+该工具连接到 F-Droid 仓库，并使用 ADB 在已连接的 Android 设备上安装应用。它可以管理多台设备，并提供适合脚本的输出以便自动化。
 
-fdroidcl enables command-line management of F-Droid apps for power users and automated deployment scenarios.
+fdroidcl 让高级用户和自动化部署场景可以通过命令行管理 F-Droid 应用。
 
 # CAVEATS
 
-Requires ADB and connected device. Device must allow installation from unknown sources. Some apps require specific Android versions.
+需要 ADB 和已连接的设备。设备必须允许安装未知来源应用。某些应用需要特定的 Android 版本。
 
 # HISTORY
 
-fdroidcl was created as a command-line alternative to the F-Droid graphical client, enabling scriptable management of open source Android applications from F-Droid repositories.
+fdroidcl 作为 F-Droid 图形客户端的命令行替代品而创建，支持以脚本方式管理来自 F-Droid 仓库的开源 Android 应用。
 
 # INSTALL
 

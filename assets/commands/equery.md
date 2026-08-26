@@ -1,34 +1,34 @@
 # TAGLINE
 
-Portage package information query tool
+Portage 软件包信息查询工具
 
 # TLDR
 
-**List** all installed packages
+**列出**所有已安装的软件包
 
 ```equery list '*'```
 
-Search for packages in Portage tree and **overlays**
+在 Portage 树和 **overlay** 中搜索软件包
 
 ```equery list -po [package1] [package2]```
 
-List all packages that **depend on** a package
+列出**依赖于**某软件包的所有软件包
 
 ```equery depends [package]```
 
-List all packages that a package **depends on**
+列出某软件包**所依赖的**全部软件包
 
 ```equery depgraph [package]```
 
-List all **files** installed by a package
+列出某软件包安装的全部**文件**
 
 ```equery files --tree [package]```
 
-Show **USE flags** for a package
+显示软件包的 **USE 标志**
 
 ```equery uses [package]```
 
-Find which package **owns** a file
+查找某个文件**属于**哪个软件包
 
 ```equery belongs [/path/to/file]```
 
@@ -38,48 +38,48 @@ Find which package **owns** a file
 
 # DESCRIPTION
 
-**equery** is a powerful query tool for viewing information about Portage packages on Gentoo Linux. It provides detailed information about installed packages, their dependencies, owned files, USE flag settings, and more. The tool can search both the local installed package database and the Portage tree including overlays.
+**equery** 是 Gentoo Linux 上功能强大的查询工具，用于查看 Portage 软件包的相关信息。它提供关于已安装软件包的详细信息，包括依赖关系、所属文件、USE 标志设置等。该工具既能查询本地已安装软件包数据库，也能搜索包含 overlay 在内的 Portage 树。
 
-As part of the gentoolkit package, equery offers a more user-friendly interface than raw Portage queries, making it easier to investigate package relationships, troubleshoot installation issues, and understand the state of the system. It's an essential tool for Gentoo system administration and package management.
+作为 gentoolkit 软件包的一部分，equery 提供了比原始 Portage 查询更友好的界面，便于排查软件包关系、诊断安装问题以及了解系统状态。它是 Gentoo 系统管理与软件包管理的必备工具。
 
 # PARAMETERS
 
 **list** _pattern_
-> List packages matching pattern
+> 列出匹配模式的软件包
 
 **depends** _package_
-> Show reverse dependencies
+> 显示反向依赖
 
 **depgraph** _package_
-> Show dependency graph
+> 显示依赖图
 
 **files** _package_
-> List installed files
+> 列出已安装的文件
 
 **uses** _package_
-> Show USE flags for a package
+> 显示软件包的 USE 标志
 
 **belongs** _file_
-> Find which package owns a file
+> 查找文件所属的软件包
 
 **hasuse** _flag_
-> Find packages with a specific USE flag
+> 查找具有特定 USE 标志的软件包
 
 **size** _package_
-> Show disk space used by a package
+> 显示软件包占用的磁盘空间
 
 **-p**, **--portage-tree**
-> Include Portage tree
+> 包含 Portage 树
 
 **-o**, **--overlay-tree**
-> Include overlays
+> 包含 overlay
 
 **--tree**
-> Display as tree
+> 以树形显示
 
 # CAVEATS
 
-Gentoo Linux specific. Part of gentoolkit package. Only queries local database, not remote repositories.
+Gentoo Linux 专属。属于 gentoolkit 软件包。只查询本地数据库，不查询远程仓库。
 
 # SEE ALSO
 

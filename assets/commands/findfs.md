@@ -1,22 +1,22 @@
 # TAGLINE
 
-locate filesystems by label or UUID
+按标签或 UUID 定位文件系统
 
 # TLDR
 
-**Find device by filesystem label**
+**按文件系统标签查找设备**
 
 ```findfs LABEL=[label]```
 
-**Find device by filesystem UUID**
+**按文件系统 UUID 查找设备**
 
 ```findfs UUID=[uuid]```
 
-**Find device by GPT partition label**
+**按 GPT 分区标签查找设备**
 
 ```findfs PARTLABEL=[partition_label]```
 
-**Find device by GPT partition UUID**
+**按 GPT 分区 UUID 查找设备**
 
 ```findfs PARTUUID=[partition_uuid]```
 
@@ -26,27 +26,27 @@ locate filesystems by label or UUID
 
 # DESCRIPTION
 
-**findfs** finds a filesystem by label or UUID and prints the device path. It searches all block devices for matching filesystem metadata.
+**findfs** 通过标签或 UUID 查找文件系统，并打印对应的设备路径。它会遍历所有块设备，寻找文件系统元数据匹配的那一个。
 
-Used in boot scripts and mount operations to locate filesystems reliably.
+启动脚本和挂载操作常用它来可靠地定位文件系统。
 
 # PARAMETERS
 
 **LABEL=**_label_
-> Search by filesystem label
+> 按文件系统标签搜索
 
 **UUID=**_uuid_
-> Search by filesystem UUID
+> 按文件系统 UUID 搜索
 
 **PARTLABEL=**_label_
-> Search by GPT/MAC partition label
+> 按 GPT/MAC 分区标签搜索
 
 **PARTUUID=**_uuid_
-> Search by GPT partition UUID
+> 按 GPT 分区 UUID 搜索
 
 # CAVEATS
 
-Part of util-linux. PARTUUID only available on GPT partition tables. Labels and UUIDs must be unique for reliable matching.
+属于 util-linux。PARTUUID 仅存在于 GPT 分区表上。要想匹配可靠，标签与 UUID 必须唯一。
 
 # INSTALL
 

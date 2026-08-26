@@ -1,30 +1,30 @@
 # TAGLINE
 
-convert tab characters to spaces in text files
+将文本文件中的制表符转换为空格
 
 # TLDR
 
-**Convert tabs to** spaces
+**将制表符转换为**空格
 
 ```expand [file.txt]```
 
-**Set tab width**
+**设置制表符宽度**
 
 ```expand -t [4] [file.txt]```
 
-**Custom tab stops**
+**自定义制表位**
 
 ```expand -t [4,8,12] [file.txt]```
 
-**Process multiple files**
+**处理多个文件**
 
 ```expand [file1.txt] [file2.txt]```
 
-**Only convert leading tabs**
+**仅转换行首制表符**
 
 ```expand -i [file.txt]```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [file.txt] | expand```
 
@@ -35,38 +35,38 @@ convert tab characters to spaces in text files
 # PARAMETERS
 
 _FILES_
-> Files to process (stdin if none).
+> 要处理的文件（未指定则读取 stdin）。
 
 **-t** _N_
-> Tab width (default: 8).
+> 制表符宽度（默认：8）。
 
 **-t** _LIST_
-> Comma-separated tab stop positions. Last value can be prefixed with `/` for repeating interval or `+` for relative alignment.
+> 以逗号分隔的制表位位置。最后一个值可以加 `/` 前缀表示重复间隔，或加 `+` 前缀表示相对对齐。
 
 **-i**, **--initial**
-> Only convert tabs before non-blank characters on each line.
+> 仅转换每行非空白字符之前的制表符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Output version information and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**expand** converts tab characters to spaces. It's commonly used to normalize text files for consistent display or before processing by tools that don't handle tabs well.
+**expand** 将制表符转换为空格。常用于规范化文本文件以获得一致的显示效果，或在使用对制表符处理不佳的工具之前进行预处理。
 
-By default, tabs expand to 8-space intervals. Custom tab widths or specific tab stop positions can be set. The --initial option only converts tabs at line beginnings.
+默认情况下，制表符按 8 个空格的间隔展开。可以设置自定义制表宽度或特定的制表位位置。--initial 选项只转换行首的制表符。
 
-expand is the inverse of unexpand, which converts spaces to tabs.
+expand 是 unexpand 的逆操作，后者将空格转换为制表符。
 
 # CAVEATS
 
-Changes file content permanently if redirected. Tab interpretation is contextual. Binary files may be corrupted. Original tabs unrecoverable.
+如果重定向输出，会永久改变文件内容。制表符的解释与上下文相关。二进制文件可能被损坏。原始制表符无法恢复。
 
 # HISTORY
 
-expand is a classic Unix utility from the early BSD distribution, providing tab-to-space conversion for text processing pipelines.
+expand 是早期 BSD 发行版中的经典 Unix 工具，为文本处理管道提供制表符到空格的转换。
 
 # INSTALL
 

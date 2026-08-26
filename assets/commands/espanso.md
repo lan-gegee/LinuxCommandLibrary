@@ -1,34 +1,34 @@
 # TAGLINE
 
-cross-platform text expansion tool
+跨平台文本扩展工具
 
 # TLDR
 
-**Start Espanso**
+**启动 Espanso**
 
 ```espanso start```
 
-**Stop Espanso**
+**停止 Espanso**
 
 ```espanso stop```
 
-**Restart service**
+**重启服务**
 
 ```espanso restart```
 
-**Edit configuration**
+**编辑配置**
 
 ```espanso edit```
 
-**Search packages**
+**搜索软件包**
 
 ```espanso package search [keyword]```
 
-**Install package**
+**安装软件包**
 
 ```espanso package install [package_name]```
 
-**Show status**
+**显示状态**
 
 ```espanso status```
 
@@ -39,67 +39,67 @@ cross-platform text expansion tool
 # PARAMETERS
 
 _COMMAND_
-> Operation: start, stop, restart, edit, package, etc.
+> 操作：start、stop、restart、edit、package 等。
 
 **start**
-> Start Espanso service.
+> 启动 Espanso 服务。
 
 **stop**
-> Stop service.
+> 停止服务。
 
 **restart**
-> Restart service.
+> 重启服务。
 
 **edit**
-> Open config in editor.
+> 在编辑器中打开配置。
 
 **package search** _KEYWORD_
-> Search packages.
+> 搜索软件包。
 
 **package install** _NAME_
-> Install package.
+> 安装软件包。
 
 **status**
-> Show service status.
+> 显示服务状态。
 
 **service register**
-> Register espanso to start automatically on login.
+> 注册 espanso 使其在登录时自动启动。
 
 **env-path register**
-> Add the espanso binary to the system PATH.
+> 将 espanso 可执行文件添加到系统 PATH。
 
 **match list**
-> List all currently active matches.
+> 列出当前所有生效的匹配项。
 
 **path**
-> Print the resolved config, packages and runtime directories.
+> 打印解析后的配置、软件包和运行时目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**Espanso** is a cross-platform text expander that replaces typed abbreviations with predefined text snippets. It runs in the background detecting trigger strings and expanding them system-wide.
+**Espanso** 是一个跨平台的文本扩展工具，可将输入的缩写替换为预定义的文本片段。它在后台运行，检测触发字符串并在整个系统范围内展开它们。
 
-Configuration files define matches between triggers and replacements. Replacements can include static text, dynamic content (dates, clipboard), or scripts. Packages add pre-configured expansions.
+配置文件定义触发器与替换内容之间的匹配关系。替换内容可以是静态文本、动态内容（日期、剪贴板）或脚本。软件包则提供预先配置好的扩展条目。
 
-Espanso works across all applications, handling common typing patterns, boilerplate text, and frequently used phrases.
+Espanso 适用于所有应用程序，可处理常见的输入模式、样板文本和常用短语。
 
 # CONFIGURATION
 
 **~/.config/espanso/config/default.yml**
-> Main configuration file controlling behavior like toggle key, backend preferences, and global settings.
+> 主配置文件，控制切换键、后端偏好等行为以及全局设置。
 
 **~/.config/espanso/match/base.yml**
-> Default match file defining triggers and replacements. Additional match files can be created to organize expansions.
+> 默认匹配文件，定义触发器和替换内容。可创建更多匹配文件来组织各条扩展。
 
 # CAVEATS
 
-Requires background service. Needs accessibility permissions on macOS. Some applications may not support input injection. Trigger conflicts possible.
+需要后台服务运行。在 macOS 上需要辅助功能权限。某些应用程序可能不支持输入注入。可能出现触发器冲突。
 
 # HISTORY
 
-Espanso was created by **Federico Terzi** as an open-source, cross-platform alternative to commercial text expanders. Written in Rust, it emphasizes privacy and performance.
+Espanso 由 **Federico Terzi** 创建，是商业文本扩展工具的开源跨平台替代品。它用 Rust 编写，强调隐私与性能。
 
 # INSTALL
 

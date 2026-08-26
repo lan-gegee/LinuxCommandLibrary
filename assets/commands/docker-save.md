@@ -1,30 +1,30 @@
 # TAGLINE
 
-save Docker images to tar archives
+将 Docker 镜像保存为 tar 归档
 
 # TLDR
 
-**Save image to tar file**
+**将镜像保存为 tar 文件**
 
 ```docker save -o [image.tar] [image]```
 
-**Save to stdout**
+**保存到标准输出**
 
 ```docker save [image] > [image.tar]```
 
-**Save with compression**
+**保存时压缩**
 
 ```docker save [image] | gzip > [image.tar.gz]```
 
-**Save multiple images**
+**保存多个镜像**
 
 ```docker save -o [images.tar] [image1] [image2]```
 
-**Save specific tag**
+**保存指定标签**
 
 ```docker save -o [image.tar] [image]:[tag]```
 
-**Save a specific platform variant**
+**保存特定平台变体**
 
 ```docker save --platform [linux/amd64] -o [image.tar] [image]```
 
@@ -35,14 +35,14 @@ save Docker images to tar archives
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Write to file instead of stdout.
+> 写入文件而不是标准输出。
 
 **--platform** _os[/arch[/variant]]_
-> Save a specific platform variant. By default, all platform variants present in the image store are saved.
+> 保存特定平台变体。默认保存镜像存储中存在的所有平台变体。
 
 # DESCRIPTION
 
-**docker save** saves one or more images to a tar archive, including all parent layers, tags, and versions. Use docker load to restore. This command is useful for offline distribution, backing up images, or transferring images between systems without a registry. The resulting archive preserves the complete image with all metadata and history.
+**docker save** 将一个或多个镜像保存为 tar 归档，包括所有父层、标签和版本。使用 docker load 可将其恢复。该命令适用于离线分发、备份镜像，或在无需镜像仓库的情况下在系统之间传输镜像。生成的归档保留完整的镜像及其所有元数据和历史记录。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ save Docker images to tar archives
 # SEE ALSO
 
 [docker-image-save](/man/docker-image-save)(1), [docker-load](/man/docker-load)(1), [docker-image](/man/docker-image)(1)
-

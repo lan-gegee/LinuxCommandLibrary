@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage package groups
+管理软件包组
 
 # TLDR
 
-**List** DNF groups
+**列出** DNF 组
 
 ```dnf group list```
 
-Show **group info**
+显示**组信息**
 
 ```dnf group info [group_name]```
 
-**Install** a group
+**安装**一个组
 
 ```dnf group install [group_name]```
 
-**Remove** a group
+**移除**一个组
 
 ```dnf group remove [group_name]```
 
-**Upgrade** a group
+**升级**一个组
 
 ```dnf group upgrade [group_name]```
 
@@ -30,30 +30,30 @@ Show **group info**
 
 # DESCRIPTION
 
-**dnf group** manages virtual collections of packages. Groups bundle related packages together, such as "Development Tools" or "Server".
+**dnf group** 管理虚拟的软件包集合。组将相关的软件打包在一起，例如"Development Tools"或"Server"。
 
-Installing a group installs all its mandatory and default packages.
+安装一个组会安装其中所有必选和默认的软件包。
 
 # PARAMETERS
 
 **list**
-> List available groups
+> 列出可用的组
 
 **info** _group_
-> Show group details including packages
+> 显示组的详细信息，包括所含软件包
 
 **install** _group_
-> Install group packages
+> 安装组内软件包
 
 **remove** _group_
-> Remove group packages
+> 移除组内软件包
 
 **upgrade** _group_
-> Upgrade group packages
+> 升级组内软件包
 
 # CAVEATS
 
-Groups can be referenced by name or ID. Optional packages in groups aren't installed by default. Removing a group may leave some packages installed.
+可以通过名称或 ID 引用组。组内的可选软件包默认不安装。移除组后部分软件包可能仍保留在系统中。
 
 # INSTALL
 

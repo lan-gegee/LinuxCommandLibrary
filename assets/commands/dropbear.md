@@ -1,38 +1,38 @@
 # TAGLINE
 
-lightweight SSH server
+轻量级 SSH 服务器
 
 # TLDR
 
-**Start SSH server**
+**启动 SSH 服务器**
 
 ```dropbear```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```dropbear -p [2222]```
 
-**Start in foreground**
+**在前台启动**
 
 ```dropbear -F```
 
-**Start with specific host key**
+**使用指定的主机密钥启动**
 
 ```dropbear -r [/etc/dropbear/dropbear_ed25519_host_key]```
 
-**Disable password logins** entirely (keys only)
+完全**禁用密码登录**（仅限密钥）
 
 ```dropbear -s```
 
-**Disallow root logins** completely
+彻底**禁止 root 登录**
 
 ```dropbear -w```
 
-**Generate host keys** automatically if missing
+如缺失则自动**生成主机密钥**
 
 ```dropbear -R```
 
-**Run in the foreground, logging to stderr** (for debugging)
+**在前台运行并将日志输出到 stderr**（用于调试）
 
 ```dropbear -F -E```
 
@@ -42,84 +42,84 @@ lightweight SSH server
 
 # DESCRIPTION
 
-**dropbear** is a small SSH server for systems where OpenSSH would not fit: routers, embedded Linux, initramfs images, and rescue environments. It speaks SSH 2 and supports public-key and password authentication, TCP port forwarding, and, through the companion `scp` binary, file transfer.
+**dropbear** 是一款小型 SSH 服务器，面向那些装不下 OpenSSH 的系统：路由器、嵌入式 Linux、initramfs 镜像和救援环境。它支持 SSH 2 协议，提供公钥和密码认证、TCP 端口转发，并可通过配套的 `scp` 二进制进行文件传输。
 
-The whole point is size. A stripped Dropbear binary is on the order of a couple of hundred kilobytes, an order of magnitude smaller than OpenSSH's sshd, which is why it is the SSH server in OpenWrt and in most consumer routers that offer SSH at all.
+它的核心卖点就是体积。裁剪后的 Dropbear 二进制大约只有几百 KB，比 OpenSSH 的 sshd 小一个数量级——这正是它成为 OpenWrt 以及大多数提供 SSH 的消费级路由器之选的原因。
 
-It is normally started as a daemon at boot, but it can equally be run from **inetd** with **-i**, which suits systems that expect only occasional connections and would rather not keep a process resident.
+它通常在启动时作为守护进程运行，但也可以用 **-i** 从 **inetd** 运行，这适合只期待偶发连接、不想常驻进程的系统。
 
 # PARAMETERS
 
 **-p** [_address_:]_port_
-> Listen on this address and port. May be given several times. Defaults to port 22.
+> 在此地址和端口上监听。可多次给出。默认端口为 22。
 
 **-F**
-> Run in the foreground rather than daemonising.
+> 前台运行而不是守护进程化。
 
 **-E**
-> Log to standard error rather than syslog.
+> 日志输出到标准错误而非 syslog。
 
 **-r** _keyfile_
-> Use this host key file. May be repeated for several key types.
+> 使用此主机密钥文件。可为多种密钥类型重复使用。
 
 **-R**
-> Generate host keys automatically as they are needed.
+> 按需自动生成主机密钥。
 
 **-s**
-> Disable password logins, leaving public-key authentication only.
+> 禁用密码登录，只保留公钥认证。
 
 **-g**
-> Disable password logins **for root only**. Other users may still use passwords.
+> **仅对 root**禁用密码登录。其他用户仍可使用密码。
 
 **-w**
-> Disallow root logins altogether.
+> 完全禁止 root 登录。
 
 **-B**
-> Allow blank passwords.
+> 允许空密码。
 
 **-T** _attempts_
-> Maximum authentication attempts per connection. Defaults to 10.
+> 每个连接的最大认证尝试次数。默认 10 次。
 
 **-a**
-> Allow remote hosts to connect to forwarded ports.
+> 允许远程主机连接到转发的端口。
 
 **-j** / **-k**
-> Disable local port forwarding (including unix stream forwards), or remote port forwarding.
+> 分别禁用本地端口转发（包括 unix 流转发）或远程端口转发。
 
 **-b** _banner_
-> Display the contents of this file before the user logs in.
+> 在用户登录前显示此文件的内容。
 
 **-m**
-> Do not display the message of the day.
+> 不显示当日消息（message of the day）。
 
 **-c** _command_
-> Run this command instead of whatever the user requested.
+> 运行此命令，忽略用户请求的命令。
 
 **-I** _seconds_
-> Disconnect a session after this many seconds of inactivity.
+> 会话空闲这么多秒后断开连接。
 
 **-K** _seconds_
-> Send keepalive traffic at this interval.
+> 按此间隔发送 keepalive 流量。
 
 **-P** _pidfile_
-> Where to write the PID when running as a daemon.
+> 以守护进程运行时写入 PID 的位置。
 
 **-i**
-> Run from inetd rather than as a standalone daemon.
+> 从 inetd 运行，而不是作为独立守护进程。
 
 # CAVEATS
 
-**-g** and **-w** are easily confused: **-g** only stops root from using a *password* (root can still log in with a key), whereas **-w** blocks root entirely. If the intent is to lock root out, **-w** is the option.
+**-g** 和 **-w** 容易混淆：**-g** 只是阻止 root 使用*密码*（root 仍可用密钥登录），而 **-w** 则彻底封锁 root。如果目的是把 root 挡在门外，应使用 **-w**。
 
-Dropbear stores host and user keys in **its own format**, not OpenSSH's. Keys must be converted with `dropbearconvert` to move between the two, and `~/.ssh/authorized_keys` is the one place where the OpenSSH public-key format is used unchanged.
+Dropbear 以**自己的格式**存储主机密钥和用户密钥，而非 OpenSSH 格式。两者之间的迁移必须用 `dropbearconvert` 转换；`~/.ssh/authorized_keys` 是唯一原样使用 OpenSSH 公钥格式的地方。
 
-There is **no built-in SFTP server**. Dropbear will run an external `sftp-server` binary if one is present and configured, but on a minimal system there usually is not one, so `sftp` fails while `scp` works. Some builds also omit `scp` to save space.
+它**没有内置 SFTP 服务器**。如果系统中存在并配置了外部的 `sftp-server` 二进制文件，Dropbear 会调用它；但精简系统上通常没有，于是 `sftp` 失败而 `scp` 可用。一些构建版本为了节省空间还会省略 `scp`。
 
-Being small means being selective: the cipher and key-exchange lists are shorter than OpenSSH's, and old vendor firmware often ships an ancient Dropbear with algorithms modern clients have since dropped, which is why connecting to a router can require explicitly re-enabling a legacy key exchange on the client.
+体积小意味着取舍：密码套件和密钥交换列表比 OpenSSH 短，老旧的厂商固件往往还带着一个古董版 Dropbear，其算法已被现代客户端弃用——这就是为什么连接路由器时可能需要在客户端显式重新启用旧式密钥交换。
 
 # HISTORY
 
-**dropbear** was written by **Matt Johnston** and first released in **2003**, when the alternative on a small device was either no SSH at all or a painfully stripped OpenSSH. It quickly became standard in embedded Linux, and OpenWrt's adoption made it, by installed count, one of the most widely deployed SSH servers in existence, running on millions of routers whose owners have never heard of it.
+**dropbear** 由 **Matt Johnston** 编写，首次发布于 **2003 年**。当时小型设备上的选择要么完全没有 SSH，要么是被削得面目全非的 OpenSSH。它迅速成为嵌入式 Linux 的标配，OpenWrt 的采用更使其按装机数量计成为现存部署最广的 SSH 服务器之一，运行在数百万台其主人从未听说过它的路由器上。
 
 # INSTALL
 
@@ -148,4 +148,3 @@ Being small means being selective: the cipher and key-exchange lists are shorter
 ```[Homepage](https://matt.ucc.asn.au/dropbear/dropbear.html)```
 
 <!-- verified: 2026-07-14 -->
-

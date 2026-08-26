@@ -1,34 +1,34 @@
 # TAGLINE
 
-Encapsulated PostScript to PDF converter
+封装 PostScript（EPS）转 PDF 转换器
 
 # TLDR
 
-**Convert EPS to PDF**
+**将 EPS 转换为 PDF**
 
 ```epstopdf [image.eps]```
 
-**Specify output file**
+**指定输出文件**
 
 ```epstopdf --outfile=[output.pdf] [image.eps]```
 
-**Convert with Ghostscript options**
+**附带 Ghostscript 选项转换**
 
 ```epstopdf --gsopt=[-dPDFSETTINGS=/prepress] [image.eps]```
 
-**Restricted mode** (safer)
+**受限模式**（更安全）
 
 ```epstopdf --restricted [image.eps]```
 
-**Embed fonts**
+**嵌入字体**
 
 ```epstopdf --embed [image.eps]```
 
-**Read EPS from stdin, write PDF to stdout**
+**从标准输入读取 EPS，将 PDF 写到标准输出**
 
 ```cat [image.eps] | epstopdf --filter > [out.pdf]```
 
-**Use HiResBoundingBox**
+**使用 HiResBoundingBox**
 
 ```epstopdf --hires [image.eps]```
 
@@ -38,79 +38,79 @@ Encapsulated PostScript to PDF converter
 
 # DESCRIPTION
 
-**epstopdf** converts Encapsulated PostScript (EPS) files to PDF format. It uses Ghostscript for the conversion and is commonly used in TeX/LaTeX workflows.
+**epstopdf** 将 Encapsulated PostScript（EPS）文件转换为 PDF 格式。它借助 Ghostscript 完成转换，常用于 TeX/LaTeX 工作流。
 
-The tool handles bounding box calculations, font embedding, and produces PDF output suitable for inclusion in documents.
+该工具处理包围盒计算和字体嵌入，生成适合插入文档的 PDF 输出。
 
 # PARAMETERS
 
 **-o**, **--outfile=** _file_
-> Output PDF file name.
+> 输出 PDF 文件名。
 
 **--filter**
-> Read EPS from stdin and write PDF to stdout.
+> 从标准输入读取 EPS，并将 PDF 写到标准输出。
 
 **--restricted**
-> Restricted mode (no shell escapes or unsafe options).
+> 受限模式（不允许 shell 逃逸或不安全选项）。
 
 **--gsopt=** _option_
-> Pass a single option to Ghostscript (repeatable).
+> 向 Ghostscript 传递单个选项（可重复）。
 
 **--gsopts=** _options_
-> Pass multiple space-separated options to Ghostscript.
+> 向 Ghostscript 传递多个以空格分隔的选项。
 
 **--gscmd=** _command_
-> Ghostscript command to use.
+> 要使用的 Ghostscript 命令。
 
 **--gs**, **--nogs**
-> Run Ghostscript (default) or output intermediate PostScript instead.
+> 运行 Ghostscript（默认），或改为输出中间 PostScript。
 
 **--hires**
-> Scan and use the HiResBoundingBox.
+> 扫描并使用 HiResBoundingBox。
 
 **--exact**
-> Scan and use the ExactBoundingBox.
+> 扫描并使用 ExactBoundingBox。
 
 **--embed**, **--noembed**
-> Control font embedding.
+> 控制字体嵌入。
 
 **--compress**, **--nocompress**
-> Toggle output compression.
+> 开关输出压缩。
 
 **--gray**, **--nogray**
-> Convert output to grayscale.
+> 将输出转换为灰度。
 
 **--autorotate=** _MODE_
-> Set page rotation behavior (None, All, or PageByPage).
+> 设置页面旋转行为（None、All 或 PageByPage）。
 
 **--pdfsettings=** _LEVEL_
-> Ghostscript PDF quality preset (e.g., screen, ebook, printer, prepress).
+> Ghostscript PDF 质量预设（如 screen、ebook、printer、prepress）。
 
 **--res=** _DPI_
-> Set raster image resolution.
+> 设置光栅图像分辨率。
 
 **--safer**, **--nosafer**
-> Toggle Ghostscript safety restrictions.
+> 开关 Ghostscript 安全限制。
 
 **--quiet**, **--noquiet**
-> Suppress or show output messages.
+> 抑制或显示输出消息。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help.
+> 显示帮助。
 
 # CAVEATS
 
-Requires Ghostscript installation. Bounding box must be valid in source EPS. Some PostScript features may not convert correctly. Output quality depends on source.
+需要安装 Ghostscript。源 EPS 中的包围盒必须有效。某些 PostScript 特性可能无法正确转换。输出质量取决于源文件。
 
 # HISTORY
 
-**epstopdf** is part of the **TeX Live** distribution, essential for LaTeX users who need to include EPS graphics in PDF documents. It has been maintained by various TeX developers over the years, with **Karl Berry** and others contributing to its development.
+**epstopdf** 是 **TeX Live** 发行版的一部分，对于需要在 PDF 文档中插入 EPS 图形的 LaTeX 用户不可或缺。多年来它由多位 TeX 开发者维护，**Karl Berry** 等人为其开发做出了贡献。
 
 # INSTALL
 

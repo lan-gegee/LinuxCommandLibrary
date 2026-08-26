@@ -1,18 +1,18 @@
 # TAGLINE
 
-scan font files and directories
+扫描字体文件和目录
 
 # TLDR
 
-**Scan directory for** fonts
+在目录中**扫描**字体
 
 ```fc-scan [/usr/share/fonts]```
 
-**Scan single font**
+**扫描单个字体**
 
 ```fc-scan [font.ttf]```
 
-**Output specific format**
+**以指定格式输出**
 
 ```fc-scan --format '%{family}: %{file}\n' [directory]```
 
@@ -23,32 +23,32 @@ scan font files and directories
 # PARAMETERS
 
 _FILES_
-> Font files or directories to scan. Directories are scanned recursively.
+> 要扫描的字体文件或目录。目录会被递归扫描。
 
 **-f**, **--format** _FORMAT_
-> Output format string.
+> 输出格式字符串。
 
 **-V**, **--version**
-> Show the program version and exit.
+> 显示程序版本并退出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fc-scan** scans font files and directories, displaying font information in fontconfig format. Unlike fc-query which examines single files, fc-scan can process directories and multiple files.
+**fc-scan** 扫描字体文件和目录，以 fontconfig 格式显示字体信息。与检查单个文件的 fc-query 不同，fc-scan 可以处理目录和多个文件。
 
-The tool outputs font patterns that fontconfig uses for font matching. Custom format strings extract specific properties. When given a directory, it scans the entire tree recursively.
+该工具输出 fontconfig 用于字体匹配的字体模式。自定义格式字符串可提取特定属性。给定目录时，它会递归扫描整个目录树。
 
-fc-scan is useful for inventorying fonts, finding duplicates, or generating font lists for documentation.
+fc-scan 可用于清点字体、查找重复字体，或为文档生成字体列表。
 
 # CAVEATS
 
-Does not update system font cache. Large directories may take time. Format string syntax can be complex.
+不会更新系统字体缓存。大型目录可能耗时。格式字符串语法可能较复杂。
 
 # HISTORY
 
-fc-scan is part of **fontconfig**, providing batch font scanning capabilities. It complements fc-query for examining fonts without affecting the system font configuration.
+fc-scan 是 **fontconfig** 的一部分，提供批量字体扫描能力。它与 fc-query 互补，可在不影响系统字体配置的情况下检查字体。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-AWS EKS cluster management CLI
+AWS EKS 集群管理 CLI
 
 # TLDR
 
-**Create EKS cluster**
+**创建 EKS 集群**
 
 ```eksctl create cluster --name [cluster_name]```
 
-**Create with node** configuration
+**使用节点**配置创建
 
 ```eksctl create cluster --name [name] --nodes [3] --node-type [t3.medium]```
 
-**List clusters**
+**列出集群**
 
 ```eksctl get clusters```
 
-**Delete cluster**
+**删除集群**
 
 ```eksctl delete cluster --name [cluster_name]```
 
-**Create nodegroup**
+**创建节点组**
 
 ```eksctl create nodegroup --cluster [name] --name [ng-name]```
 
-**Scale nodegroup**
+**伸缩节点组**
 
 ```eksctl scale nodegroup --cluster [name] --name [ng-name] --nodes [5]```
 
-**Update kubeconfig**
+**更新 kubeconfig**
 
 ```eksctl utils write-kubeconfig --cluster [name]```
 
-**Create a cluster from a config file**
+**从配置文件创建集群**
 
 ```eksctl create cluster -f [cluster.yaml]```
 
-**Upgrade the control plane** to a new Kubernetes version
+**升级控制平面**到新的 Kubernetes 版本
 
 ```eksctl upgrade cluster --name [name] --version [1.31] --approve```
 
@@ -47,50 +47,50 @@ AWS EKS cluster management CLI
 # PARAMETERS
 
 _COMMAND_
-> Operation: create, get, delete, scale, upgrade, etc.
+> 操作：create、get、delete、scale、upgrade 等。
 
 **create cluster** **--name** _NAME_
-> Create new EKS cluster.
+> 创建新的 EKS 集群。
 
 **--nodes** _N_
-> Number of worker nodes.
+> 工作节点数量。
 
 **--node-type** _TYPE_
-> EC2 instance type for nodes.
+> 节点使用的 EC2 实例类型。
 
 **--region** _REGION_
-> AWS region.
+> AWS 区域。
 
 **-f**, **--config-file** _FILE_
-> Declarative YAML cluster configuration; most flags have an equivalent field.
+> 声明式 YAML 集群配置；大多数标志都有对应的字段。
 
 **--dry-run**
-> Print the config file eksctl would apply instead of creating anything.
+> 打印 eksctl 将要应用的配置文件而不实际创建任何内容。
 
 **delete cluster** **--name** _NAME_
-> Delete cluster.
+> 删除集群。
 
 **get clusters**
-> List clusters.
+> 列出集群。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**eksctl** is the official CLI for Amazon EKS (Elastic Kubernetes Service). It simplifies creating, managing, and deleting EKS clusters and their associated resources.
+**eksctl** 是 Amazon EKS（Elastic Kubernetes Service）的官方 CLI。它简化了 EKS 集群及其关联资源的创建、管理和删除。
 
-The tool handles the complex AWS infrastructure setup including VPCs, subnets, security groups, and IAM roles. Clusters can be defined declaratively with YAML configurations.
+该工具负责处理复杂的 AWS 基础设施设置，包括 VPC、子网、安全组和 IAM 角色。集群可以通过 YAML 配置以声明式方式定义。
 
-eksctl supports advanced features like managed node groups, Fargate profiles, and cluster upgrades.
+eksctl 支持托管节点组、Fargate 配置文件和集群升级等高级特性。
 
 # CAVEATS
 
-AWS credentials required. Cluster creation takes time. Incurs AWS charges. Some operations require specific IAM permissions.
+需要 AWS 凭证。集群创建需要时间。会产生 AWS 费用。某些操作需要特定的 IAM 权限。
 
 # HISTORY
 
-eksctl was created by **Weaveworks** in partnership with AWS, released in **2018** to simplify EKS cluster management. It became the official CLI tool for EKS. After Weaveworks wound down in 2024, the project moved to the community-run **eksctl-io** organization, where it continues to be maintained.
+eksctl 由 **Weaveworks** 与 AWS 合作创建，于 **2018 年**发布以简化 EKS 集群管理。后来成为 EKS 的官方 CLI 工具。Weaveworks 于 2024 年停业后，该项目迁移到社区运营的 **eksctl-io** 组织并持续维护。
 
 # INSTALL
 

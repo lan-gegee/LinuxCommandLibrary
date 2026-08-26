@@ -1,22 +1,22 @@
 # TAGLINE
 
-Environment variable management tool
+环境变量管理工具
 
 # TLDR
 
-**Load** environment from .env file
+从 .env 文件**加载**环境
 
 ```envx load [.env]```
 
-**Export** current environment to file
+将当前环境**导出**到文件
 
 ```envx export [filename.env]```
 
-**Run** command with specific environment
+在指定环境下**运行**命令
 
 ```envx run -e [KEY=VALUE] -- [command]```
 
-**Check** for required variables
+**检查**必需的变量
 
 ```envx check [REQUIRED_VAR1] [REQUIRED_VAR2]```
 
@@ -27,48 +27,48 @@ Environment variable management tool
 # PARAMETERS
 
 **load** [_FILE_]
-> Load environment variables from file
+> 从文件加载环境变量
 
 **export** [_FILE_]
-> Export current environment to file
+> 将当前环境导出到文件
 
 **run** [_options_] -- _COMMAND_
-> Run command with modified environment
+> 在修改后的环境下运行命令
 
 **check** _VARIABLES_
-> Verify required variables are set
+> 验证必需的变量已设置
 
 **-e, --env** _KEY=VALUE_
-> Set environment variable
+> 设置环境变量
 
 **-f, --file** _FILE_
-> Specify environment file
+> 指定环境文件
 
 **--expand**
-> Expand variable references in values
+> 展开值中的变量引用
 
 **--override**
-> Override existing variables
+> 覆盖已有变量
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**envx** is an environment variable management tool that provides utilities for loading, exporting, and manipulating environment configurations. It supports .env files, variable expansion, and temporary environment modifications.
+**envx** 是一个环境变量管理工具，提供加载、导出和操作环境配置的实用功能。它支持 .env 文件、变量展开以及临时性的环境修改。
 
-The tool is useful for managing environment configurations across different environments (development, staging, production) and ensuring required variables are present before running applications.
+该工具适合在不同环境（开发、预发布、生产）之间管理环境配置，并在运行应用前确保所需的变量都已就绪。
 
 # CAVEATS
 
-Variable expansion may have security implications with untrusted input. .env file format may vary between tools. System environment variables are protected from modification in some cases.
+对不可信输入做变量展开可能带来安全风险。.env 文件格式在不同工具之间可能有所差异。某些情况下系统环境变量受保护而无法修改。
 
 # HISTORY
 
-**envx** was created to provide a consistent way to manage environment variables across projects and environments.
+**envx** 的目标是提供一种跨项目、跨环境一致的环境变量管理方式。
 
 # INSTALL
 

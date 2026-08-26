@@ -1,34 +1,34 @@
 # TAGLINE
 
-Firebase platform management CLI
+Firebase 平台管理 CLI
 
 # TLDR
 
-**Login to Firebase**
+**登录 Firebase**
 
 ```firebase login```
 
-**Initialize project**
+**初始化项目**
 
 ```firebase init```
 
-**Deploy all services**
+**部署所有服务**
 
 ```firebase deploy```
 
-**Deploy only hosting**
+**只部署 hosting**
 
 ```firebase deploy --only hosting```
 
-**Deploy only functions**
+**只部署 functions**
 
 ```firebase deploy --only functions```
 
-**Start local emulators**
+**启动本地模拟器**
 
 ```firebase emulators:start```
 
-**List projects**
+**列出项目**
 
 ```firebase projects:list```
 
@@ -39,59 +39,59 @@ Firebase platform management CLI
 # PARAMETERS
 
 **login**
-> Authenticate with Google account.
+> 使用 Google 账户进行身份验证。
 
 **logout**
-> Sign out.
+> 登出。
 
 **init**
-> Initialize Firebase project in directory.
+> 在目录中初始化 Firebase 项目。
 
 **deploy**
-> Deploy to Firebase services.
+> 部署到 Firebase 服务。
 
 **--only** _services_
-> Deploy specific services.
+> 只部署指定的服务。
 
 **serve**
-> Start local development server.
+> 启动本地开发服务器。
 
 **emulators:start**
-> Start Firebase emulators.
+> 启动 Firebase 模拟器。
 
 **projects:list**
-> List available projects.
+> 列出可用项目。
 
 **use** _project_
-> Switch active project.
+> 切换当前活动的项目。
 
 **functions:log**
-> View Cloud Functions logs.
+> 查看 Cloud Functions 日志。
 
 **hosting:disable**
-> Disable hosting for project.
+> 停用项目的托管（hosting）。
 
 # CONFIGURATION
 
 **firebase.json**
-> Project configuration including hosting rules, function settings, and database rules.
+> 项目配置，涵盖托管规则、函数设置和数据库规则。
 
 **.firebaserc**
-> Project aliases and active project selection.
+> 项目别名以及当前选择的活动项目。
 
 # DESCRIPTION
 
-**firebase** is the CLI for Firebase, Google's mobile and web application platform. It manages deployments for Hosting, Cloud Functions, Firestore, Realtime Database, Authentication, and other Firebase services.
+**firebase** 是 Firebase——Google 的移动与 Web 应用平台——官方 CLI。它负责管理 Hosting、Cloud Functions、Firestore、Realtime Database、Authentication 等 Firebase 服务的部署。
 
-The CLI handles project initialization, local development with emulators, and deployment workflows. It integrates with Google Cloud and supports multiple environments.
+该 CLI 承担项目初始化、借助模拟器进行的本地开发以及部署流程。它与 Google Cloud 集成，支持多环境配置。
 
 # CAVEATS
 
-Requires Node.js (install via `npm install -g firebase-tools`). A Google account is needed for authentication. Some services (Cloud Functions, extended Firestore usage) require a Blaze billing plan. The emulator suite requires Java for Firestore and Realtime Database emulators.
+需要 Node.js（可通过 `npm install -g firebase-tools` 安装）。身份验证需要 Google 账户。部分服务（Cloud Functions、更高用量的 Firestore）要求 Blaze 计费方案。Firestore 与 Realtime Database 模拟器需要 Java 支持。
 
 # HISTORY
 
-Firebase was founded in **2011** and acquired by **Google** in **2014**. The Firebase CLI evolved from basic hosting deployment to support the expanding Firebase platform including Cloud Functions, Firestore, and comprehensive local emulation.
+Firebase 创立于 **2011 年**，并在 **2014 年**被 **Google** 收购。Firebase CLI 从最初只能做基础的托管部署，逐步发展到支撑整个不断扩展的 Firebase 平台，包括 Cloud Functions、Firestore 以及完善的本地模拟体系。
 
 # SEE ALSO
 

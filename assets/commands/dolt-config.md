@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage repository and global settings
+管理仓库级和全局设置
 
 # TLDR
 
-**Set global user** name
+**设置全局用户**名
 
 ```dolt config --global --add user.name "[Your Name]"```
 
-**Set global email**
+**设置全局邮箱**
 
 ```dolt config --global --add user.email "[email@example.com]"```
 
-**List all config**
+**列出全部配置**
 
 ```dolt config --list```
 
-**Get specific value**
+**获取指定值**
 
 ```dolt config --get user.name```
 
-**Set local config**
+**设置本地配置**
 
 ```dolt config --local --set [key] [value]```
 
-**Unset config value**
+**删除配置项**
 
 ```dolt config --global --unset [key]```
 
@@ -41,49 +41,49 @@ manage repository and global settings
 # PARAMETERS
 
 **--global**
-> Operate on the global config, shared by every repository for this user.
+> 操作全局配置，该配置由当前用户的所有仓库共享。
 
 **--local**
-> Operate on the repository-local config.
+> 操作仓库本地的配置。
 
 **--set** _name_ _value_
-> Set the value of one or more config parameters.
+> 设置一个或多个配置参数的值。
 
 **--add** _name_ _value_
-> Set the value of one or more config parameters (a synonym for **--set**).
+> 设置一个或多个配置参数的值（**--set** 的同义词）。
 
 **--get** _name_
-> Print the value of one or more config parameters.
+> 打印一个或多个配置参数的值。
 
 **--unset** _name_...
-> Remove one or more config parameters.
+> 移除一个或多个配置参数。
 
 **--list**
-> List the values of all config parameters.
+> 列出所有配置参数的值。
 
 # DESCRIPTION
 
-**dolt config** manages Dolt configuration settings at global and repository-local levels. Essential settings include user identity (name and email) used in commit authorship.
+**dolt config** 管理全局和仓库本地两个层级的 Dolt 配置。核心配置包括用于提交署名的用户身份（姓名和邮箱）。
 
-Global configuration applies to all repositories for the user, while local configuration is repository-specific. Local settings override global ones when both exist.
+全局配置对该用户的所有仓库生效，本地配置只作用于单个仓库。两者同时存在时，本地配置优先。
 
-Configuration mirrors Git's config system, including its precedence rules, but the values are stored as JSON rather than INI. Beyond `user.name` and `user.email`, common keys include `init.defaultbranch`, `sqlserver.global.*` for server defaults, and `metrics.disabled` to opt out of usage reporting.
+配置体系沿用了 Git 的 config 系统，包括其优先级规则，但值以 JSON 而非 INI 格式存储。除 `user.name` 和 `user.email` 外，常见键还包括 `init.defaultbranch`、用于服务器默认值的 `sqlserver.global.*`，以及用于关闭使用情况上报的 `metrics.disabled`。
 
 # CONFIGURATION
 
 **~/.dolt/config_global.json**
-> Global configuration for all Dolt repositories belonging to the current user.
+> 当前用户全部 Dolt 仓库共用的全局配置。
 
 **.dolt/config.json**
-> Repository-local configuration, which overrides the global settings.
+> 仓库本地配置，其优先级高于全局设置。
 
 # CAVEATS
 
-An identity (`user.name` and `user.email`) must be set before the first commit; Dolt will refuse to commit without one. Unknown keys are accepted silently, so a typo in a key name fails quietly rather than erroring. **--local** only works inside a Dolt database directory. Server-related settings under `sqlserver.global.*` are read at startup, so `dolt sql-server` must be restarted for changes to take effect.
+首次提交前必须设置身份信息（`user.name` 和 `user.email`）；否则 Dolt 会拒绝提交。未知键会被静默接受，键名拼写错误不会报错，只会悄悄失效。**--local** 只能在 Dolt 数据库目录内使用。`sqlserver.global.*` 下的服务器相关设置只在启动时读取，因此修改后必须重启 `dolt sql-server` 才能生效。
 
 # HISTORY
 
-dolt config follows the **git config** conventions closely, deliberately so: Dolt's whole interface is designed to be guessable by anyone who already knows Git, and configuration was one of the first commands ported when Dolt was released in 2019.
+dolt config 有意紧贴 **git config** 的约定：Dolt 的整套界面都力求让熟悉 Git 的人一看就会用，而配置命令正是 2019 年 Dolt 发布时最早移植的命令之一。
 
 # INSTALL
 
@@ -106,4 +106,3 @@ dolt config follows the **git config** conventions closely, deliberately so: Dol
 ```[Documentation](https://www.dolthub.com/docs/cli-reference/cli/)```
 
 <!-- verified: 2026-07-14 -->
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-execute commands with injected secrets
+执行命令并向其注入密钥
 
 # TLDR
 
-**Run command with** injected secrets
+**运行命令并注入**密钥
 
 ```doppler run -- [node app.js]```
 
-**Run with specific** config
+使用指定的 config **运行**
 
 ```doppler run --config [dev] -- [command]```
 
-**Run with specific** project
+使用指定的项目**运行**
 
 ```doppler run --project [myapp] -- [command]```
 
-**Passthrough to shell**
+**透传给 Shell**
 
 ```doppler run -- sh -c "[echo \$SECRET_KEY]"```
 
-**Run with fallback** file
+使用后备文件**运行**
 
 ```doppler run --fallback [.env.backup] -- [command]```
 
-**Mount secrets as** a file
+将密钥**挂载为**文件
 
 ```doppler run --mount [secrets.env] -- [command]```
 
-**Transform secret names** for .NET
+为 .NET **转换密钥名称**
 
 ```doppler run --name-transformer dotnet-env -- [dotnet run]```
 
@@ -39,56 +39,56 @@ execute commands with injected secrets
 # PARAMETERS
 
 **--** _COMMAND_
-> Command to run with injected secrets.
+> 要以注入密钥方式运行的命令。
 
 **--config** _NAME_
-> Configuration environment to use.
+> 要使用的配置环境。
 
 **--project** _NAME_
-> Project name.
+> 项目名称。
 
 **--fallback** _FILE_
-> Fallback file if Doppler unavailable.
+> Doppler 不可用时使用的后备文件。
 
 **--no-fallback**
-> Disable fallback behavior.
+> 禁用后备行为。
 
 **--preserve-env**
-> Preserve existing environment variables. Accepts a comma-separated list of specific secrets (e.g. --preserve-env="FOO,BAR") or "true" for all.
+> 保留既有的环境变量。接受以逗号分隔的具体密钥列表（例如 --preserve-env="FOO,BAR"），或传 "true" 表示全部保留。
 
 **--mount** _PATH_
-> Write secrets to an ephemeral file instead of injecting into the environment. Format auto-detected from file extension.
+> 把密钥写入临时文件，而不是注入环境变量。格式根据文件扩展名自动检测。
 
 **--mount-format** _FORMAT_
-> File format for mounted secrets (e.g. json, env).
+> 挂载密钥文件使用的格式（例如 json、env）。
 
 **--name-transformer** _TRANSFORMER_
-> Transform secret names from UPPER_SNAKE_CASE (e.g. dotnet-env, tf-var, lower-camel, lower-snake).
+> 对 UPPER_SNAKE_CASE 形式的密钥名进行转换（例如 dotnet-env、tf-var、lower-camel、lower-snake）。
 
 **--command** _CMD_
-> Command to execute (alternative to using -- separator).
+> 要执行的命令（可用来替代 `--` 分隔符）。
 
 **--clean-exit**
-> Exit with a 0 status code when the command is interrupted (SIGINT).
+> 当命令被中断（SIGINT）时以状态码 0 退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**doppler run** executes a command with secrets from Doppler injected as environment variables. This enables applications to access secrets without code changes or local configuration files.
+**doppler run** 执行一条命令，并把 Doppler 中的密钥作为环境变量注入。这样应用程序无需改动代码或本地配置文件就能访问密钥。
 
-Secrets are fetched from the Doppler API and made available only to the executed process. The double-dash separates doppler options from the command to run.
+密钥从 Doppler API 获取，且只对被执行的进程可用。双横线用于分隔 doppler 的选项与要运行的命令。
 
-Fallback files provide resilience when Doppler is unreachable, while preserve-env prevents overwriting existing environment variables.
+后备文件在 Doppler 不可达时提供韧性，而 preserve-env 则防止覆盖既有的环境变量。
 
 # CAVEATS
 
-Requires authenticated doppler CLI. Network latency affects startup time. Secrets visible in process environment. Child processes inherit secrets.
+需要已通过身份验证的 doppler CLI。网络延迟会影响启动时间。密钥在进程环境中可见。子进程会继承这些密钥。
 
 # HISTORY
 
-doppler run is the primary command for secrets injection in the **Doppler** CLI, implementing the zero-configuration secrets access that Doppler was designed to provide.
+doppler run 是 **Doppler** CLI 中负责密钥注入的主力命令，体现了 Doppler 设计之初追求的零配置密钥访问。
 
 # INSTALL
 

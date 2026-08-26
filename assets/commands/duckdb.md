@@ -1,42 +1,42 @@
 # TAGLINE
 
-embedded analytical database engine
+嵌入式分析型数据库引擎
 
 # TLDR
 
-**Start an interactive SQL shell**
+**启动交互式 SQL shell**
 
 ```duckdb```
 
-**Open or create a database file**
+**打开或创建数据库文件**
 
 ```duckdb [path/to/database.db]```
 
-**Execute a SQL query and exit**
+**执行 SQL 查询后退出**
 
 ```duckdb -c "[SELECT * FROM table_name]"```
 
-**Query a CSV file directly**
+**直接查询 CSV 文件**
 
 ```duckdb -c "[SELECT * FROM 'data.csv']"```
 
-**Query a Parquet file**
+**查询 Parquet 文件**
 
 ```duckdb -c "[SELECT * FROM 'data.parquet']"```
 
-**Execute SQL from a file**
+**从文件执行 SQL**
 
 ```duckdb -f [path/to/script.sql]```
 
-**Export query results to CSV**
+**将查询结果导出为 CSV**
 
 ```duckdb -csv -c "[COPY (SELECT * FROM table) TO 'output.csv' (HEADER)]"```
 
-**Start in read-only mode**
+**以只读模式启动**
 
 ```duckdb -readonly [database.db]```
 
-**Output results as JSON**
+**以 JSON 格式输出结果**
 
 ```duckdb -json -c "[SELECT * FROM 'data.csv' LIMIT 10]"```
 
@@ -47,119 +47,119 @@ embedded analytical database engine
 # PARAMETERS
 
 **-c** _COMMAND_
-> Execute the specified SQL command and exit.
+> 执行指定的 SQL 命令并退出。
 
 **-s** _COMMAND_
-> Execute the specified SQL statement and exit (alias for **-c**).
+> 执行指定的 SQL 语句并退出（**-c** 的别名）。
 
 **-cmd** _COMMAND_
-> Run command before reading stdin.
+> 在读取标准输入之前运行命令。
 
 **-f** _FILENAME_
-> Execute SQL from file (after processing ~/.duckdbrc).
+> 从文件执行 SQL（在处理 ~/.duckdbrc 之后）。
 
 **-init** _FILENAME_
-> Run script on startup instead of ~/.duckdbrc.
+> 启动时运行指定脚本，代替 ~/.duckdbrc。
 
 **-readonly**
-> Open database in read-only mode.
+> 以只读模式打开数据库。
 
 **-no-stdin**
-> Exit after processing options instead of reading stdin.
+> 处理完选项后退出，不读取标准输入。
 
 **-json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **-csv**
-> Output results in CSV format.
+> 以 CSV 格式输出结果。
 
 **-table**
-> Output results as ASCII table.
+> 以 ASCII 表格输出结果。
 
 **-box**
-> Output results with box-drawing characters (default).
+> 使用制表线字符输出结果（默认）。
 
 **-markdown**
-> Output results as Markdown table.
+> 以 Markdown 表格输出结果。
 
 **-line**
-> Output results in line mode (one value per line).
+> 以行模式输出结果（每行一个值）。
 
 **-column**
-> Output results in columnar format.
+> 以列式格式输出结果。
 
 **-ascii**
-> Output results in ASCII table format.
+> 以 ASCII 表格格式输出结果。
 
 **-html**
-> Output results in HTML format.
+> 以 HTML 格式输出结果。
 
 **-list**
-> Output results in list format.
+> 以列表格式输出结果。
 
 **-separator** _SEP_
-> Set column separator (default: |).
+> 设置列分隔符（默认：|）。
 
 **-newline** _SEP_
-> Set row separator (default: \n).
+> 设置行分隔符（默认：\n）。
 
 **-nullvalue** _TEXT_
-> Set text shown for NULL values.
+> 设置 NULL 值显示的文本。
 
 **-header**
-> Include column headers in output.
+> 输出中包含列头。
 
 **-noheader**
-> Exclude column headers from output.
+> 输出中不包含列头。
 
 **-echo**
-> Print commands before execution.
+> 执行前先打印命令。
 
 **-bail**
-> Stop after hitting an error.
+> 遇到错误后停止。
 
 **-batch**
-> Force batch I/O.
+> 强制批量 I/O。
 
 **-interactive**
-> Force interactive I/O.
+> 强制交互式 I/O。
 
 **-unsigned**
-> Allow loading of unsigned extensions.
+> 允许加载未签名的扩展。
 
 **-nofollow**
-> Refuse to open symbolic links to database files.
+> 拒绝打开指向数据库文件的符号链接。
 
 **-version**
-> Print version and exit.
+> 打印版本并退出。
 
 **-help**
-> Display available options.
+> 显示可用选项。
 
 # CONFIGURATION
 
 **~/.duckdbrc**
-> Initialization file with SQL commands executed on shell startup, used for setting preferences and defaults.
+> 初始化文件，其中的 SQL 命令会在 shell 启动时执行，用于设置偏好和默认值。
 
 # DESCRIPTION
 
-**DuckDB** is an embedded analytical database designed for fast online analytical processing (OLAP) workloads. It can run entirely in-process without a separate server, making it ideal for data analysis and scripting.
+**DuckDB** 是一个嵌入式分析型数据库，专为快速在线分析处理（OLAP）工作负载而设计。它可以完全在进程内运行而无需单独的服务器，因此非常适合数据分析和脚本编写。
 
-A key feature is the ability to query files directly without importing: CSV, Parquet, JSON, and other formats can be used in SQL queries with automatic type detection. This makes DuckDB excellent for exploratory data analysis and ETL tasks.
+它的一个关键特性是无需导入即可直接查询文件：CSV、Parquet、JSON 等格式可以直接用在 SQL 查询中，并自动检测类型。这使 DuckDB 成为探索性数据分析和 ETL 任务的利器。
 
-The database supports standard SQL with analytical extensions including window functions, CTEs, and complex aggregations. It provides high performance through vectorized execution and columnar storage, optimized for aggregation queries over large datasets.
+该数据库支持带分析扩展的标准 SQL，包括窗口函数、CTE 和复杂聚合。它通过向量化执行和列式存储实现高性能，专门针对大型数据集上的聚合查询做了优化。
 
-In interactive mode, DuckDB provides a full-featured SQL shell with tab completion, command history, and dot-commands for settings. Results can be output in various formats including tables, JSON, CSV, and Markdown. The default output mode is **duckbox**, a box-drawing format.
+在交互模式下，DuckDB 提供功能完整的 SQL shell，支持 Tab 补全、命令历史以及用于设置的点命令。结果可以多种格式输出，包括表格、JSON、CSV 和 Markdown。默认输出模式是 **duckbox**，一种制表线格式。
 
-DuckDB can be used as a library in Python, R, Java, Node.js, and other languages, or standalone via the CLI. Database files are portable across platforms and versions.
+DuckDB 可以作为库用于 Python、R、Java、Node.js 等语言，也可以通过 CLI 独立使用。数据库文件可跨平台和跨版本移植。
 
 # CAVEATS
 
-In-memory databases are lost when the process exits. Write operations lock the database file, limiting concurrent write access. Very large datasets may exceed available memory without proper configuration. Some SQL syntax differs slightly from other databases.
+内存数据库在进程退出后即丢失。写操作会锁定数据库文件，限制并发写入。未做适当配置时，超大数据集可能耗尽可用内存。部分 SQL 语法与其他数据库略有差异。
 
 # HISTORY
 
-**DuckDB** was created by Mark Raasveldt and Hannes Mühleisen at CWI Amsterdam (the research institute where PostgreSQL originated). Development started around **2018** with the goal of creating an embeddable analytical database akin to "SQLite for analytics." The project gained significant adoption in the data science community starting in **2020**.
+**DuckDB** 由 Mark Raasveldt 和 Hannes Mühleisen 在阿姆斯特丹 CWI（PostgreSQL 的诞生地）创建。开发始于 **2018 年**前后，目标是打造一个可嵌入的分析型数据库，类似"analytics 界的 SQLite"。该项目自 **2020 年**起在数据科学社区获得广泛采用。
 
 # INSTALL
 

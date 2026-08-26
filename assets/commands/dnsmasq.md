@@ -1,38 +1,38 @@
 # TAGLINE
 
-lightweight DNS forwarder and DHCP server
+轻量级 DNS 转发器和 DHCP 服务器
 
 # TLDR
 
-**Start dnsmasq** as DNS forwarder
+**启动 dnsmasq** 作为 DNS 转发器
 
 ```dnsmasq```
 
-**Start with specific config file**
+**使用指定的配置文件启动**
 
 ```dnsmasq -C [/etc/dnsmasq.conf]```
 
-**Run in foreground** with debug output
+**以前台模式运行**并输出调试信息
 
 ```dnsmasq -d```
 
-**Test configuration** syntax
+**测试配置**语法
 
 ```dnsmasq --test```
 
-**Start with DHCP** for a subnet
+为子网**启用 DHCP 启动**
 
 ```dnsmasq --dhcp-range=[192.168.1.50,192.168.1.150,12h]```
 
-**Specify upstream DNS server**
+**指定上游 DNS 服务器**
 
 ```dnsmasq --server=[8.8.8.8]```
 
-**Start as authoritative** for a local domain
+**作为本地域名的权威服务器**启动
 
 ```dnsmasq --local=/[mydomain.local]/```
 
-**Block ads** using hosts file
+利用 hosts 文件**屏蔽广告**
 
 ```dnsmasq --addn-hosts=[/etc/hosts.ads]```
 
@@ -42,83 +42,83 @@ lightweight DNS forwarder and DHCP server
 
 # DESCRIPTION
 
-**dnsmasq** is a lightweight DNS forwarder and DHCP server designed for small networks. It provides DNS caching, DHCP, TFTP, and PXE boot services in a single, efficient package.
+**dnsmasq** 是面向小型网络的轻量级 DNS 转发器和 DHCP 服务器。它在一个高效的单体软件包中提供 DNS 缓存、DHCP、TFTP 和 PXE 网络启动服务。
 
-As a DNS server, dnsmasq forwards queries to upstream servers and caches responses, reducing latency and bandwidth. It reads /etc/hosts for local name resolution and supports custom local domains. It can also provide DNS-based ad blocking.
+作为 DNS 服务器时，dnsmasq 将查询转发给上游服务器并缓存响应，降低延迟并节省带宽。它读取 /etc/hosts 进行本地名称解析，支持自定义本地域名，还可以基于 DNS 实现广告屏蔽。
 
-The DHCP server provides dynamic and static address assignment with support for BOOTP, PXE, and TFTP for network booting. dnsmasq is commonly used in routers, embedded systems, and as a local development DNS/DHCP solution.
+DHCP 服务器支持动态和静态地址分配，并通过 BOOTP、PXE 和 TFTP 支持网络启动。dnsmasq 常用于路由器、嵌入式系统，以及作为本地开发的 DNS/DHCP 方案。
 
 # PARAMETERS
 
 **-d**
-> Debug mode, foreground, log to stderr.
+> 调试模式：前台运行，日志输出到 stderr。
 
 **-k**
-> Keep in foreground, don't daemonize.
+> 保持前台运行，不转为守护进程。
 
 **-C** _file_
-> Use specified configuration file.
+> 使用指定的配置文件。
 
 **--test**
-> Check configuration syntax.
+> 检查配置语法。
 
 **-p** _port_
-> Listen on specified DNS port.
+> 监听指定的 DNS 端口。
 
 **-a** _address_
-> Listen on specified address.
+> 监听指定的地址。
 
 **--dhcp-range=** _range_
-> Enable DHCP with address range.
+> 启用 DHCP 并设置地址范围。
 
 **--dhcp-host=** _config_
-> Static DHCP assignment.
+> 静态 DHCP 分配。
 
 **-h**, **--no-hosts**
-> Don't read /etc/hosts.
+> 不读取 /etc/hosts。
 
 **-H**, **--addn-hosts=** _file_
-> Additional hosts file.
+> 额外的 hosts 文件。
 
 **--local=** _domain_
-> Answer authoritatively for domain.
+> 对指定域名作权威应答。
 
 **--server=** _address_
-> Upstream DNS server.
+> 上游 DNS 服务器。
 
 **-R**, **--no-resolv**
-> Don't read /etc/resolv.conf for upstream servers.
+> 不从 /etc/resolv.conf 读取上游服务器。
 
 **-r**, **--resolv-file=** _file_
-> Read upstream nameservers from specified file instead of /etc/resolv.conf.
+> 从指定文件而非 /etc/resolv.conf 读取上游域名服务器。
 
 **--cache-size=** _n_
-> DNS cache size (default 150).
+> DNS 缓存条数（默认 150）。
 
 **--address=** _/domain/address_
-> Return a specific address for all hosts in a domain. Useful for blocking or redirecting.
+> 为某域名下的所有主机返回指定地址。可用于屏蔽或重定向。
 
 **--log-queries**
-> Log DNS queries.
+> 记录 DNS 查询日志。
 
 # CONFIGURATION
 
 **/etc/dnsmasq.conf**
-> Main configuration file. Contains DNS and DHCP settings, upstream servers, domain configurations, and DHCP ranges.
+> 主配置文件。包含 DNS 和 DHCP 设置、上游服务器、域名配置以及 DHCP 地址范围。
 
 **/etc/hosts**
-> Local hostname to IP mappings. Read by dnsmasq for local DNS resolution unless --no-hosts is specified.
+> 本地主机名到 IP 的映射。除非指定 --no-hosts，dnsmasq 会读取它进行本地 DNS 解析。
 
 **/etc/dnsmasq.d/**
-> Directory for additional configuration snippets. Files here are automatically included in the main configuration.
+> 存放额外配置片段的目录。其中的文件会被自动并入主配置。
 
 # CAVEATS
 
-Only one DNS/DHCP server should run on each interface. Conflicts with systemd-resolved on some systems (disable or configure to coexist). DHCP requires appropriate network permissions. Large networks may need a full-featured DHCP server.
+每个网络接口上只能运行一个 DNS/DHCP 服务器。在某些系统上与 systemd-resolved 冲突（需禁用或配置共存）。DHCP 需要适当的网络权限。大型网络可能需要功能完整的 DHCP 服务器。
 
 # HISTORY
 
-**dnsmasq** was created by **Simon Kelley** in **2000** as a simple DNS forwarder for dial-up connections. It evolved to include DHCP and became popular in embedded Linux systems, routers (OpenWrt, DD-WRT), and development environments. The project remains actively maintained and is included in most Linux distributions.
+**dnsmasq** 由 **Simon Kelley** 于 **2000 年**创建，最初是拨号连接用的简易 DNS 转发器。后来加入了 DHCP 功能，并在嵌入式 Linux 系统、路由器（OpenWrt、DD-WRT）和开发环境中广受欢迎。该项目至今仍在活跃维护，并被大多数 Linux 发行版收录。
 
 # INSTALL
 

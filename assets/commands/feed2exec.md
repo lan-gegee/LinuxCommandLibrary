@@ -1,26 +1,26 @@
 # TAGLINE
 
-RSS/Atom feed automation tool
+RSS/Atom 源自动化工具
 
 # TLDR
 
-**Fetch all configured feeds**
+**抓取所有已配置的源**
 
 ```feed2exec fetch```
 
-**Add a new feed**
+**添加新源**
 
 ```feed2exec add [feedname] [https://example.com/feed.xml]```
 
-**List configured feeds**
+**列出已配置的源**
 
 ```feed2exec ls```
 
-**Remove a feed**
+**移除一个源**
 
 ```feed2exec rm [feedname]```
 
-**Run with custom config**
+**使用自定义配置运行**
 
 ```feed2exec --config [~/.config/feed2exec.ini] fetch```
 
@@ -31,47 +31,47 @@ RSS/Atom feed automation tool
 # PARAMETERS
 
 **fetch**
-> Fetch and process all feeds.
+> 抓取并处理所有源。
 
 **add** _name_ _url_
-> Add new feed.
+> 添加新源。
 
 **rm** _name_
-> Remove feed.
+> 移除源。
 
 **ls**
-> List configured feeds.
+> 列出已配置的源。
 
 **parse** _url_
-> Parse feed without processing.
+> 只解析源而不处理。
 
 **--config** _file_
-> Configuration file path.
+> 配置文件路径。
 
 **--verbose**, **-v**
-> Verbose output.
+> 详细输出。
 
 **--debug**
-> Debug output.
+> 调试输出。
 
 # CONFIGURATION
 
 **~/.config/feed2exec.ini**
-> Main configuration file defining feeds, output formats, and processing commands.
+> 主配置文件，定义源、输出格式和处理命令。
 
 # DESCRIPTION
 
-**feed2exec** fetches RSS/Atom feeds and executes commands for each new entry. It's a flexible feed processor that can send emails, run scripts, save files, or trigger any command based on feed updates.
+**feed2exec** 抓取 RSS/Atom 源，并对每个新条目执行命令。它是一个灵活的源处理器，可以根据源更新发送邮件、运行脚本、保存文件或触发任意命令。
 
-Unlike feed readers, feed2exec is designed for automation. Common uses include email notifications, archiving, and triggering webhooks when feeds update.
+与订阅阅读器不同，feed2exec 面向自动化设计。常见用途包括邮件通知、归档，以及在源更新时触发 webhook。
 
 # CAVEATS
 
-Requires configuration for each feed. State tracked in SQLite database. Email sending needs configured MTA. Complex outputs may need custom plugins.
+每个源都需要单独配置。状态记录在 SQLite 数据库中。发送邮件需要配置好的 MTA。复杂的输出可能需要自定义插件。
 
 # HISTORY
 
-feed2exec was written by **Antoine Beaupré** as a flexible replacement for rss2email and similar tools. It emphasizes Unix philosophy, executing external commands rather than implementing every feature internally.
+feed2exec 由 **Antoine Beaupré** 编写，作为 rss2email 及类似工具的灵活替代品。它强调 Unix 哲学：通过执行外部命令而非在内部实现所有功能来完成工作。
 
 # SEE ALSO
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-exchange files with an EuroBraille Clio terminal
+与 EuroBraille Clio 终端交换文件
 
 # TLDR
 
-**Start** the interactive file transfer session
+**启动**交互式文件传输会话
 
 ```eutp```
 
@@ -14,20 +14,20 @@ exchange files with an EuroBraille Clio terminal
 
 # DESCRIPTION
 
-**eutp** lets you exchange files with a Clio terminal from EuroBraille. It is part of the **brltty** braille display driver package.
+**eutp** 用于与 EuroBraille 的 Clio 终端交换文件。它是 **brltty** 盲文显示驱动软件包的一部分。
 
-The program is fully interactive and menu driven: it prompts you to choose the transfer direction (send files to the terminal or receive files from it), the file type, and the files to transfer. There are no command-line options.
+该程序完全交互且由菜单驱动：它会提示你选择传输方向（向终端发送文件或从终端接收文件）、文件类型以及要传输的文件。没有任何命令行选项。
 
-When receiving files, be careful with shell special characters. Wildcards such as **\*** and **.** are interpreted by the terminal's file matching, so protect them with single quotes or backslashes to avoid unexpected results.
+接收文件时要小心 shell 特殊字符。\* 和 . 等通配符会被终端的文件匹配逻辑解释，因此要用单引号或反斜杠保护它们，避免出现意外结果。
 
 # PARAMETERS
 
-_None._
-> eutp takes no command-line options; all interaction happens through its menus.
+_无。_
+> eutp 不接受任何命令行选项；所有交互均通过其菜单完成。
 
 # CAVEATS
 
-Requires an EuroBraille Clio terminal connected to the system. Returns 1 on error. Special characters in file names should be quoted to prevent shell or terminal expansion.
+需要连接 EuroBraille Clio 终端。出错时返回 1。文件名中的特殊字符应加引号，以防被 shell 或终端展开。
 
 # INSTALL
 

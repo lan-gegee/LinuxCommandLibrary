@@ -1,26 +1,26 @@
 # TAGLINE
 
-localized fake data generation library CLI
+支持本地化的假数据生成库 CLI
 
 # TLDR
 
-**Generate fake name**
+生成假姓名
 
 ```faker name```
 
-**Generate fake email**
+生成假邮箱
 
 ```faker email```
 
-**Generate with locale**
+指定地区生成
 
 ```faker -l [de_DE] address```
 
-**Multiple outputs**
+多条输出
 
 ```faker -r [10] name```
 
-**Generate specific type**
+生成特定类型的数据
 
 ```faker phone_number```
 
@@ -31,38 +31,38 @@ localized fake data generation library CLI
 # PARAMETERS
 
 _PROVIDER_
-> Data provider: name, address, email, phone_number, etc.
+> 数据提供者：name、address、email、phone_number 等。
 
 **-l** _LOCALE_, **--locale** _LOCALE_
-> Locale for generated data (e.g., en_US, de_DE, ja_JP).
+> 生成数据所用地区（如 en_US、de_DE、ja_JP）。
 
 **-r** _COUNT_, **--repeat** _COUNT_
-> Number of values to generate.
+> 要生成的值的数量。
 
 **-s** _SEED_, **--seed** _SEED_
-> Random seed for reproducibility.
+> 用于可复现性的随机种子。
 
 **-o** _FORMAT_, **--output** _FORMAT_
-> Output format: csv, json, tab.
+> 输出格式：csv、json、tab。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**faker** is a command-line tool for generating fake data like names, addresses, emails, and phone numbers. It's part of the Faker Python library and supports localized data for many countries.
+**faker** 是一个生成假数据的命令行工具，如姓名、地址、邮箱和电话号码。它是 Faker Python 库的一部分，支持许多国家地区的本地化数据。
 
-The tool provides numerous data providers covering personal information, company details, internet data, dates, and more. Localization ensures generated data matches regional formats and naming conventions.
+该工具提供众多数据提供者，涵盖个人信息、公司详情、互联网数据、日期等。本地化功能确保生成的数据符合相应地区的格式和命名习惯。
 
-faker is widely used for testing, database seeding, and development when realistic but non-sensitive data is needed.
+faker 广泛用于测试、数据库填充和开发场景，适合需要逼真但不含敏感数据的场合。
 
 # CAVEATS
 
-Generated data may accidentally match real information. Quality varies by locale. Some providers may be incomplete for certain regions.
+生成的数据可能碰巧与真实信息相同。质量因地区而异。某些提供者在特定区域可能不完整。
 
 # HISTORY
 
-Faker originated as a **PHP library** inspired by Perl's Data::Faker. The Python version by **joke2k** became widely popular, providing the faker CLI and extensive provider ecosystem for test data generation.
+Faker 起源于一个受 Perl 的 Data::Faker 启发的 **PHP 库**。**joke2k** 开发的 Python 版本广受欢迎，提供了 faker CLI 和庞大的提供者生态用于生成测试数据。
 
 # INSTALL
 

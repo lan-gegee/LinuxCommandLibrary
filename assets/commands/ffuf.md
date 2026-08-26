@@ -1,34 +1,34 @@
 # TAGLINE
 
-fast web fuzzer written in Go
+用 Go 编写的快速 Web 模糊测试工具
 
 # TLDR
 
-**Directory fuzzing**
+**目录模糊测试**
 
 ```ffuf -u [https://target.com/FUZZ] -w [wordlist.txt]```
 
-**POST parameter fuzzing**
+**POST 参数模糊测试**
 
 ```ffuf -u [https://target.com/api] -w [wordlist.txt] -X POST -d "param=FUZZ"```
 
-**Filter by status** code
+**按状态码过滤**
 
 ```ffuf -u [https://target.com/FUZZ] -w [wordlist.txt] -fc [404]```
 
-**Match response size**
+**匹配响应大小**
 
 ```ffuf -u [https://target.com/FUZZ] -w [wordlist.txt] -ms [1234]```
 
-**Multiple wordlists**
+**多个字典文件**
 
 ```ffuf -u [https://target.com/FUZZ1/FUZZ2] -w [list1.txt]:FUZZ1 -w [list2.txt]:FUZZ2```
 
-**Virtual host discovery via Host header**
+**通过 Host 头发现虚拟主机**
 
 ```ffuf -u [https://target.com] -w [vhosts.txt] -H "Host: FUZZ.target.com"```
 
-**Recursive discovery with extensions**
+**带扩展名的递归发现**
 
 ```ffuf -u [https://target.com/FUZZ] -w [wordlist.txt] -recursion -e [.php,.html,.txt]```
 
@@ -39,83 +39,83 @@ fast web fuzzer written in Go
 # PARAMETERS
 
 **-u** _URL_
-> Target URL with FUZZ keyword.
+> 包含 FUZZ 关键字的目标 URL。
 
 **-w** _WORDLIST_
-> Wordlist file.
+> 字典文件。
 
 **-X** _METHOD_
-> HTTP method.
+> HTTP 方法。
 
 **-d** _DATA_
-> POST data.
+> POST 数据。
 
 **-H** _HEADER_
-> Custom header.
+> 自定义请求头。
 
 **-fc** _CODES_
-> Filter out responses by status code.
+> 按状态码过滤掉响应。
 
 **-fs** _SIZE_
-> Filter out responses by size.
+> 按大小过滤掉响应。
 
 **-fw** _COUNT_
-> Filter out responses by word count.
+> 按单词数过滤掉响应。
 
 **-fl** _COUNT_
-> Filter out responses by line count.
+> 按行数过滤掉响应。
 
 **-mc** _CODES_
-> Match status codes (default 200-299,301,302,307,401,403,405,500).
+> 匹配状态码（默认 200-299,301,302,307,401,403,405,500）。
 
 **-ms** _SIZE_
-> Match response size.
+> 匹配响应大小。
 
 **-e** _EXTENSIONS_
-> Comma-separated extensions to append to each word.
+> 以逗号分隔的扩展名，会附加到每个单词后面。
 
 **-recursion**
-> Scan recursively into discovered directories.
+> 递归扫描发现的目录。
 
 **-recursion-depth** _N_
-> Maximum recursion depth.
+> 最大递归深度。
 
 **-t** _N_
-> Number of concurrent threads (default 40).
+> 并发线程数（默认 40）。
 
 **-rate** _N_
-> Rate limit in requests per second (0 = unlimited).
+> 速率限制，以每秒请求数计（0 = 不限制）。
 
 **-o** _FILE_
-> Write results to a file.
+> 将结果写入文件。
 
 **-of** _FORMAT_
-> Output format (json, csv, html, md, ...).
+> 输出格式（json、csv、html、md 等）。
 
 **-c**
-> Colorize output.
+> 彩色输出。
 
 **-s**
-> Silent mode, show only results.
+> 静默模式，仅显示结果。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ffuf** (Fuzz Faster U Fool) is a fast web fuzzer written in Go. It discovers hidden content, parameters, and vulnerabilities by sending requests with wordlist entries substituted at marked positions.
+**ffuf**（Fuzz Faster U Fool）是一个用 Go 编写的快速 Web 模糊测试工具。它通过在标记位置替换为字典条目并发送请求，来发现隐藏内容、参数和漏洞。
 
-The tool excels at content discovery, parameter fuzzing, and virtual host enumeration. Filtering options allow matching or excluding responses by status, size, words, or lines.
+该工具擅长内容发现、参数模糊测试和虚拟主机枚举。过滤选项支持按状态码、大小、单词数或行数来匹配或排除响应。
 
-ffuf's speed and flexibility make it popular for penetration testing and security assessments.
+ffuf 凭借其速度和灵活性，成为渗透测试和安全评估中的流行工具。
 
 # CAVEATS
 
-Only use against authorized targets. High thread counts may overwhelm servers. Results need manual verification.
+只能对已授权的目标使用。线程数过高可能压垮服务器。结果需要人工验证。
 
 # HISTORY
 
-ffuf was created by **joohoi** as a fast, flexible web fuzzer. Written in Go for performance, it has become a standard tool in web application security testing.
+ffuf 由 **joohoi** 创建，是一个快速灵活的 Web 模糊测试工具。它使用 Go 编写以追求性能，现已成为 Web 应用安全测试的标准工具。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-JPEG decompressor with format conversion
+支持格式转换的 JPEG 解压缩器
 
 # TLDR
 
-**Decompress JPEG** to PPM
+**将 JPEG 解压**为 PPM
 
 ```djpeg [image.jpg] > [output.ppm]```
 
-**Decompress to BMP** format
+**解压为 BMP** 格式
 
 ```djpeg -bmp [image.jpg] > [output.bmp]```
 
-**Decompress to GIF** format
+**解压为 GIF** 格式
 
 ```djpeg -gif [image.jpg] > [output.gif]```
 
-**Scale output** to fraction
+**按比例缩放输出**
 
 ```djpeg -scale [1/2] [image.jpg] > [output.ppm]```
 
-**Output grayscale only**
+**仅输出灰度图**
 
 ```djpeg -grayscale [image.jpg] > [output.ppm]```
 
-**Show verbose info**
+**显示详细信息**
 
 ```djpeg -verbose [image.jpg] > [output.ppm]```
 
@@ -35,47 +35,47 @@ JPEG decompressor with format conversion
 # PARAMETERS
 
 _FILE_
-> Input JPEG file (stdin if omitted).
+> 输入的 JPEG 文件（省略时从 stdin 读取）。
 
 **-bmp**
-> Output BMP format.
+> 输出 BMP 格式。
 
 **-gif**
-> Output GIF format.
+> 输出 GIF 格式。
 
 **-ppm**
-> Output PPM format (default).
+> 输出 PPM 格式（默认）。
 
 **-targa**
-> Output Targa format.
+> 输出 Targa 格式。
 
 **-scale** _M/N_
-> Scale output by fraction.
+> 按比例缩放输出。
 
 **-grayscale**
-> Output grayscale only.
+> 仅输出灰度图。
 
 **-colors** _N_
-> Quantize to N colors.
+> 量化为 N 种颜色。
 
 **-verbose**, **-debug**
-> Show debug information.
+> 显示调试信息。
 
 # DESCRIPTION
 
-**djpeg** decompresses JPEG images to various uncompressed or lossless formats. It's part of the libjpeg/libjpeg-turbo package and provides command-line JPEG decoding with format conversion.
+**djpeg** 将 JPEG 图像解压为多种未压缩或无损格式。它是 libjpeg/libjpeg-turbo 软件包的一部分，提供带格式转换功能的命令行 JPEG 解码。
 
-The tool reads JPEG files and outputs PPM, BMP, GIF, or Targa format. Scaling during decompression is efficient as it uses DCT coefficient scaling rather than full decompression followed by resizing.
+该工具读取 JPEG 文件并输出 PPM、BMP、GIF 或 Targa 格式。解压时进行缩放非常高效，因为它使用 DCT 系数缩放，而不是先完全解压再调整大小。
 
-djpeg is useful for batch processing, scripting, and converting JPEG images to formats suitable for further processing with other tools.
+djpeg 适用于批处理、脚本编写，以及将 JPEG 图像转换为便于其他工具进一步处理的格式。
 
 # CAVEATS
 
-Output goes to stdout by default (redirect to file). Color quantization for GIF may lose quality. Not all JPEG features supported equally. Progressive JPEG processing requires buffering.
+输出默认写入 stdout（需重定向到文件）。GIF 的颜色量化可能损失画质。并非所有 JPEG 特性都得到同等支持。处理渐进式 JPEG 需要缓冲。
 
 # HISTORY
 
-djpeg is part of the **libjpeg** project created by the **Independent JPEG Group (IJG)** starting in **1991**. libjpeg-turbo, a high-performance fork, provides compatible djpeg with SIMD optimizations.
+djpeg 是 **libjpeg** 项目的一部分，该项目由 **Independent JPEG Group（IJG）** 自 **1991 年**起开发。libjpeg-turbo 是一个高性能分支，通过 SIMD 优化提供了兼容的 djpeg。
 
 # INSTALL
 

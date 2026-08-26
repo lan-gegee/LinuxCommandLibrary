@@ -1,26 +1,26 @@
 # TAGLINE
 
-modern input method framework
+现代输入法框架
 
 # TLDR
 
-**Start fcitx5** input method daemon
+**启动 fcitx5** 输入法守护进程
 
 ```fcitx5```
 
-**Start in daemon mode** (background)
+**以守护进程模式启动**（后台）
 
 ```fcitx5 -d```
 
-**Start with verbose output** for debugging
+**以详细输出启动**以便调试
 
 ```fcitx5 -v```
 
-**Replace an existing fcitx5** instance
+**替换已有的 fcitx5 实例**
 
 ```fcitx5 -r```
 
-**Display version** information
+**显示版本**信息
 
 ```fcitx5 --version```
 
@@ -31,27 +31,27 @@ modern input method framework
 # PARAMETERS
 
 **-d**, **--daemon**
-> Run as a background daemon.
+> 作为后台守护进程运行。
 
 **-r**, **--replace**
-> Replace an existing fcitx5 instance.
+> 替换已有的 fcitx5 实例。
 
 **-v**, **--verbose**
-> Enable verbose output for debugging.
+> 启用详细输出以调试。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Fcitx5** is a flexible input method framework for Unix-like systems, primarily used for entering Chinese, Japanese, Korean (CJK), and other languages requiring complex input methods. It is the successor to Fcitx and features a modular, plugin-based architecture.
+**Fcitx5** 是一个面向类 Unix 系统的灵活输入法框架，主要用于输入中文、日文、韩文（CJK）以及其他需要复杂输入法的语言。它是 Fcitx 的后继者，采用模块化的插件式架构。
 
-The framework provides a lightweight core with additional language support via addons. Input method engines for various languages can be installed separately (e.g., fcitx5-chinese-addons for Chinese, fcitx5-anthy for Japanese, fcitx5-hangul for Korean).
+该框架提供一个轻量的核心，通过附加组件扩展语言支持。各种语言的输入法引擎可以单独安装（例如中文的 fcitx5-chinese-addons、日文的 fcitx5-anthy、韩文的 fcitx5-hangul）。
 
-For proper operation, environment variables should be set in the desktop session:
+为正常运行，应在桌面会话中设置以下环境变量：
 
 ```
 XMODIFIERS=@im=fcitx
@@ -59,26 +59,26 @@ GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 ```
 
-Fcitx5 supports both X11 and Wayland, with native Wayland text-input protocol support for better integration.
+Fcitx5 同时支持 X11 和 Wayland，并提供原生 Wayland text-input 协议支持以实现更好的集成。
 
 # CONFIGURATION
 
 **~/.config/fcitx5/**
-> User configuration directory containing profile settings, input method configurations, and addon settings.
+> 用户配置目录，包含 profile 设置、输入法配置和附加组件设置。
 
 **~/.local/share/fcitx5/**
-> User data directory for themes, dictionaries, and custom data.
+> 用户数据目录，存放主题、词典和自定义数据。
 
 **/etc/xdg/fcitx5/**
-> System-wide configuration directory.
+> 系统级配置目录。
 
 # CAVEATS
 
-Different desktop environments may require different configuration methods for autostart and environment variables. On Wayland, the native text-input protocol is preferred over legacy input method modules. Some applications may require the GTK or Qt IM modules for proper input method support.
+不同的桌面环境可能需要不同的自启动和环境变量配置方法。在 Wayland 上，优先使用原生 text-input 协议而非旧式输入法模块。某些应用可能需要 GTK 或 Qt IM 模块才能获得正常的输入法支持。
 
 # HISTORY
 
-Fcitx (Flexible Context Input X) was originally developed for Chinese input on Linux. **Fcitx5** is a complete rewrite released under LGPL-2.1+, offering improved architecture, better Wayland support, and enhanced extensibility. The modular design allows input methods, themes, and features to be added as independent plugins.
+Fcitx（Flexible Context Input X）最初为 Linux 上的中文输入而开发。**Fcitx5** 是一次彻底重写，基于 LGPL-2.1+ 发布，提供了改进的架构、更好的 Wayland 支持和更强的可扩展性。模块化设计允许将输入法、主题和功能作为独立插件添加。
 
 # INSTALL
 

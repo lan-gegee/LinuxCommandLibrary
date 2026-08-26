@@ -1,18 +1,18 @@
 # TAGLINE
 
-data transformation tool with query language
+带查询语言的数据转换工具
 
 # TLDR
 
-**Transform JSON data**
+**转换 JSON 数据**
 
 ```emuto '[.data.items | map(.name)]' [input.json]```
 
-**Transform from stdin**
+**从标准输入转换**
 
 ```cat [data.json] | emuto '[.items]'```
 
-**Output formatted**
+**输出格式化结果**
 
 ```emuto --pretty '[.]' [input.json]```
 
@@ -23,32 +23,32 @@ data transformation tool with query language
 # PARAMETERS
 
 _EXPRESSION_
-> Emuto transformation expression.
+> Emuto 转换表达式。
 
 _FILE_
-> Input JSON file.
+> 输入的 JSON 文件。
 
 **--pretty**
-> Pretty-print output.
+> 以美化格式打印输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**emuto** is a data transformation tool using a jq-like query language. It processes JSON, CSV, TSV, DSV, and plain text through expressions that select, filter, and transform data structures.
+**emuto** 是一个使用类 jq 查询语言的数据转换工具。它通过表达式处理 JSON、CSV、TSV、DSV 和纯文本，对数据结构进行选择、过滤和变换。
 
-The expression language supports object access, array operations, mapping, and filtering. It provides a functional approach to JSON manipulation.
+其表达式语言支持对象访问、数组操作、映射和过滤，以函数式的方式操作 JSON。
 
-emuto is useful for data extraction, format conversion, and JSON processing in scripts and pipelines.
+emuto 适用于脚本和管道中的数据提取、格式转换和 JSON 处理。
 
 # CAVEATS
 
-Expression syntax differs from jq. May not handle all JSON edge cases. Performance varies with data size.
+表达式语法与 jq 不同。可能无法覆盖所有 JSON 边界情况。性能随数据量而变化。
 
 # HISTORY
 
-emuto was developed as a JSON transformation tool, providing jq-like functionality with its own expression syntax for data manipulation.
+emuto 是作为 JSON 转换工具开发的，凭借自己的表达式语法提供类似 jq 的数据处理功能。
 
 # INSTALL
 

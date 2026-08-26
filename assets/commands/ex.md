@@ -1,22 +1,22 @@
 # TAGLINE
 
-Line-oriented text editor, the predecessor of vi
+面向行的文本编辑器，vi 的前身
 
 # TLDR
 
-**Start ex mode on a file**
+**对文件进入 ex 模式**
 
 ```ex [file.txt]```
 
-**Execute a substitution command and quit**
+**执行替换命令后退出**
 
 ```ex -c "%s/[old]/[new]/g" -c "wq" [file.txt]```
 
-**Open a file in read-only mode**
+**以只读模式打开文件**
 
 ```ex -R [file.txt]```
 
-**Edit multiple files sequentially**
+**依次编辑多个文件**
 
 ```ex [file1.txt] [file2.txt]```
 
@@ -27,47 +27,47 @@ Line-oriented text editor, the predecessor of vi
 # PARAMETERS
 
 _FILES_
-> Files to edit.
+> 要编辑的文件。
 
 **-c** _COMMAND_
-> Execute command after loading the first file.
+> 加载第一个文件后执行命令。
 
 **-s**
-> Silent (batch) mode. Suppress all interactive feedback. Useful for scripting.
+> 静默（批处理）模式。抑制所有交互反馈，适合脚本使用。
 
 **-R**
-> Read-only mode. Prevents writing to the file.
+> 只读模式。禁止写入文件。
 
 **-r** _FILE_
-> Recover editing session from a swap file after a crash.
+> 在崩溃后从交换文件恢复编辑会话。
 
 **-n**
-> Do not use a swap file (vim implementation).
+> 不使用交换文件（vim 实现）。
 
 **-t** _TAG_
-> Edit the file containing the specified tag.
+> 编辑包含指定标签的文件。
 
 **-V**
-> Verbose mode. Show commands read from stdin.
+> 详细模式。显示从标准输入读取的命令。
 
 **-v**
-> Start in visual mode (equivalent to running vi).
+> 以可视模式启动（等同于运行 vi）。
 
 # DESCRIPTION
 
-**ex** is a line-oriented text editor. It provides command-line editing without a visual interface, using the same command language that powers vi's colon (:) commands. Commands are entered at a prompt rather than in a full-screen display.
+**ex** 是一个面向行的文本编辑器。它没有可视化界面，通过命令行进行编辑，使用的正是 vi 冒号（:) 命令背后的同一套命令语言。命令在提示符处输入，而非全屏界面中操作。
 
-ex is particularly valuable for batch editing and scripted file modifications, allowing search/replace and other transformations without interactive use. When combined with **-s** for silent mode, it can process editing commands from stdin or scripts.
+ex 特别适合批量编辑和脚本化的文件修改，无需交互即可完成查找替换及其他变换。配合 **-s** 静默模式，它可以从 stdin 或脚本读取编辑命令进行处理。
 
-The ex and vi editors are the same program started in different modes. Running **ex -v** starts visual mode (vi), and running **vi -e** starts line mode (ex).
+ex 和 vi 实际上是同一个程序在不同模式下的启动方式。运行 **ex -v** 进入可视模式（vi），运行 **vi -e** 则进入行模式（ex）。
 
 # CAVEATS
 
-No visual feedback in ex mode, making complex edits error-prone. Most modern systems provide ex via vim (as **vim -e**). The POSIX specification defines a subset of features; vim's ex mode includes many extensions.
+ex 模式下没有可视化反馈，复杂编辑容易出错。大多数现代系统通过 vim 提供 ex（即 **vim -e**）。POSIX 规范只定义了其中一部分功能；vim 的 ex 模式包含大量扩展。
 
 # HISTORY
 
-ex was developed by **Bill Joy** at UC Berkeley in the late 1970s as an extended version of ed. It later gained the visual interface that became vi, with ex remaining as the underlying command mode. ex first appeared in **1BSD** (1978).
+ex 由 **Bill Joy** 于 20 世纪 70 年代末在加州大学伯克利分校开发，是 ed 的扩展版本。它后来增加了可视化界面，演变为 vi，而 ex 作为底层命令模式保留下来。ex 首次出现在 **1BSD**（1978 年）中。
 
 # INSTALL
 

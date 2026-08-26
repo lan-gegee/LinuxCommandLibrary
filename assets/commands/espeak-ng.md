@@ -1,34 +1,34 @@
 # TAGLINE
 
-next-generation formant-based speech synthesis
+基于共振峰的下一代语音合成
 
 # TLDR
 
-**Speak text**
+**朗读文本**
 
 ```espeak-ng "[Hello world]"```
 
-**Use specific voice**
+**使用指定语音**
 
 ```espeak-ng -v [en-gb] "[Hello]"```
 
-**Read from file**
+**从文件读取**
 
 ```espeak-ng -f [document.txt]```
 
-**Output to WAV**
+**输出到 WAV**
 
 ```espeak-ng -w [output.wav] "[Hello]"```
 
-**Adjust speaking rate**
+**调整语速**
 
 ```espeak-ng -s [175] "[Hello]"```
 
-**List voices**
+**列出语音**
 
 ```espeak-ng --voices```
 
-**Use phoneme input**
+**使用音素输入**
 
 ```espeak-ng -x "[h@l'oU]"```
 
@@ -39,62 +39,62 @@ next-generation formant-based speech synthesis
 # PARAMETERS
 
 _WORDS_
-> Text to speak.
+> 要朗读的文本。
 
 **-v** _VOICE_
-> Select voice/language.
+> 选择语音/语言。
 
 **-f** _FILE_
-> Read from file.
+> 从文件读取。
 
 **-w** _FILE_
-> Write to WAV file.
+> 写入 WAV 文件。
 
 **-s** _SPEED_
-> Words per minute.
+> 每分钟单词数。
 
 **-p** _PITCH_
-> Pitch adjustment.
+> 音高调整。
 
 **-p** _PITCH_
-> Pitch adjustment (0 to 99, default 50).
+> 音高调整（0 到 99，默认 50）。
 
 **-a** _AMPLITUDE_
-> Amplitude/volume (0 to 200, default 100).
+> 振幅/音量（0 到 200，默认 100）。
 
 **-g** _GAP_
-> Word gap, in units of 10 ms.
+> 单词间隔，以 10 毫秒为单位。
 
 **-x**
-> Write the translated phoneme mnemonics to stdout instead of speaking.
+> 将转换后的音素助记符写到标准输出，而不是朗读出来。
 
 **--ipa**
-> Write phonemes using the International Phonetic Alphabet.
+> 使用国际音标（IPA）写出音素。
 
 **--stdout**
-> Write the audio as WAV data to standard output.
+> 将音频以 WAV 数据形式写到标准输出。
 
 **--voices**[=_lang_]
-> List available voices, optionally filtered by language.
+> 列出可用的语音，可按语言过滤。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**espeak-ng** (eSpeak New Generation) is a fork of eSpeak with active development, additional features, and improved voice quality. It's a formant-based speech synthesizer supporting 100+ languages.
+**espeak-ng**（eSpeak New Generation）是 eSpeak 的一个分支，保持活跃开发，具有更多功能和更好的语音质量。它是一个基于共振峰的语音合成器，支持 100 多种语言。
 
-The tool provides text-to-speech capabilities for accessibility, voice assistants, and applications. It includes improvements in pronunciation rules, language support, and phoneme handling over the original eSpeak.
+该工具为无障碍访问、语音助手和各类应用提供文本转语音能力。与原版 eSpeak 相比，它在发音规则、语言支持和音素处理方面都有改进。
 
-espeak-ng is the default TTS engine in many Linux distributions and speech synthesis frameworks.
+espeak-ng 是许多 Linux 发行版和语音合成框架中的默认 TTS 引擎。
 
 # CAVEATS
 
-Still sounds robotic (formant synthesis). Some advanced SSML features unsupported. Voice quality varies by language. Output format options limited.
+听感仍然偏机械（共振峰合成）。部分高级 SSML 功能不受支持。语音质量因语言而异。输出格式选项有限。
 
 # HISTORY
 
-espeak-ng was forked from eSpeak by **Reece H. Dunn** to continue development after the original project became inactive. It's now the actively maintained version used in most Linux distributions.
+espeak-ng 由 **Reece H. Dunn** 从 eSpeak 分支而来，以便在原项目停止维护后继续开发。它现在是大多数 Linux 发行版中使用的活跃维护版本。
 
 # INSTALL
 

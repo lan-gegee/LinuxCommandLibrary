@@ -1,14 +1,14 @@
 # TAGLINE
 
-encrypted swap configuration
+加密交换分区配置
 
 # TLDR
 
-**Setup encrypted swap**
+**设置加密交换分区**
 
 ```ecryptfs-setup-swap```
 
-**Setup with specific** swap partition
+**指定**交换分区进行设置
 
 ```ecryptfs-setup-swap [/dev/sda2]```
 
@@ -19,26 +19,26 @@ encrypted swap configuration
 # PARAMETERS
 
 _DEVICE_
-> Swap partition to encrypt. If omitted, every active swap device is used.
+> 要加密的交换分区。省略时使用所有处于活动状态的交换设备。
 
 **-f**, **--force**
-> Set up encrypted swap even if the device already looks encrypted.
+> 即使设备看起来已经加密也照样设置加密交换。
 
 # DESCRIPTION
 
-**ecryptfs-setup-swap** configures encrypted swap space using dm-crypt with a random key. This prevents sensitive data from being recoverable from swap after shutdown.
+**ecryptfs-setup-swap** 使用 dm-crypt 和随机密钥配置加密交换空间。这能防止敏感数据在关机后仍可从交换分区中被恢复。
 
-The script modifies /etc/fstab and /etc/crypttab to enable encrypted swap on boot. A random key is generated each boot, so swap contents are unrecoverable after restart.
+该脚本会修改 /etc/fstab 和 /etc/crypttab，以便在启动时启用加密交换。每次启动都会生成新的随机密钥，因此重启后交换分区中的内容无法恢复。
 
-Encrypted swap is important when using encrypted home directories, as unencrypted swap could leak decrypted data.
+在使用加密主目录时，加密交换尤为重要，因为未加密的交换空间可能泄露已解密的数据。
 
 # CAVEATS
 
-Disables hibernation (swap content unrecoverable). Requires root privileges. Existing swap will be reformatted. Must run with system not using swap.
+会禁用休眠功能（交换内容无法恢复）。需要 root 权限。现有的交换分区将被重新格式化。必须在系统未使用交换分区时运行。
 
 # HISTORY
 
-ecryptfs-setup-swap is part of the **eCryptfs** utilities, addressing the security gap where encrypted filesystem data could leak to unencrypted swap space.
+ecryptfs-setup-swap 是 **eCryptfs** 工具集的一部分，用于解决加密文件系统数据可能泄露到未加密交换空间的安全缺口。
 
 # INSTALL
 

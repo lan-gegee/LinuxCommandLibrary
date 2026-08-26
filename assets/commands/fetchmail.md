@@ -1,34 +1,34 @@
 # TAGLINE
 
-retrieve mail from remote servers
+从远程服务器收取邮件
 
 # TLDR
 
-**Fetch mail from server**
+从服务器**收取邮件**
 
 ```fetchmail```
 
-**Fetch from specific server**
+**从指定服务器收取**
 
 ```fetchmail [mail.example.com]```
 
-**Keep messages on server**
+**在服务器上保留邮件**
 
 ```fetchmail -k```
 
-**Check for mail only**
+只检查是否有新邮件
 
 ```fetchmail -c```
 
-**Verbose output**
+详细输出
 
 ```fetchmail -v```
 
-**Run as daemon**
+以守护进程方式运行
 
 ```fetchmail -d [300]```
 
-**Use specific config file**
+使用指定配置文件
 
 ```fetchmail -f [~/.fetchmailrc]```
 
@@ -38,69 +38,69 @@ retrieve mail from remote servers
 
 # DESCRIPTION
 
-**fetchmail** retrieves mail from remote servers and forwards it to the local mail system. It supports POP3, IMAP, ETRN, and ODMR protocols with SSL/TLS encryption.
+**fetchmail** 从远程服务器收取邮件并转发到本地邮件系统。它支持 POP3、IMAP、ETRN 和 ODMR 协议，并可使用 SSL/TLS 加密。
 
-The tool is configured through ~/.fetchmailrc or command-line options. It can run as a daemon, periodically checking for new mail, and integrates with local MTAs.
+该工具通过 ~/.fetchmailrc 或命令行选项进行配置。它可以作为守护进程运行，定期检查新邮件，并与本地 MTA 集成。
 
 # PARAMETERS
 
 **-c**, **--check**
-> Check for mail only, don't fetch.
+> 只检查是否有邮件，不收取。
 
 **-k**, **--keep**
-> Keep messages on server.
+> 在服务器上保留邮件。
 
 **-a**, **--all**
-> Fetch all messages (including seen).
+> 收取所有邮件（包括已读）。
 
 **-d** _seconds_
-> Daemon mode with poll interval.
+> 以守护进程模式按轮询间隔运行。
 
 **-f** _file_
-> Use alternate config file.
+> 使用备用配置文件。
 
 **-u** _user_
-> Remote username.
+> 远程用户名。
 
 **-p** _proto_, **--proto** _proto_
-> Protocol (auto, pop3, imap, etrn, odmr).
+> 协议（auto、pop3、imap、etrn、odmr）。
 
 **--ssl**
-> Use implicit SSL/TLS (connect directly over encrypted channel).
+> 使用隐式 SSL/TLS（直接通过加密通道连接）。
 
 **--sslproto** _value_
-> SSL/TLS protocol version and STARTTLS control. Recommended: tls1.2+.
+> SSL/TLS 协议版本和 STARTTLS 控制。推荐：tls1.2+。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-s**, **--silent**
-> Suppress progress messages.
+> 抑制进度消息。
 
 **-q**, **--quit**
-> Kill running daemon.
+> 终止正在运行的守护进程。
 
 **-l** _maxbytes_, **--limit** _maxbytes_
-> Skip messages larger than maxbytes.
+> 跳过超过 maxbytes 的邮件。
 
 **-r** _folder_, **--folder** _folder_
-> Retrieve from non-default mail folder (IMAP only).
+> 从非默认邮件文件夹收取（仅限 IMAP）。
 
 **--idle**
-> Use IMAP IDLE for push notification of new mail.
+> 使用 IMAP IDLE 对新邮件进行推送通知。
 
 # CONFIGURATION
 
 **~/.fetchmailrc**
-> Main configuration file containing server settings, authentication, and delivery options.
+> 主配置文件，包含服务器设置、认证和投递选项。
 
 # CAVEATS
 
-Passwords in config file need protection. SSL verification recommended. Large mailboxes may be slow. Local MTA must accept forwarded mail.
+配置文件中的密码需要妥善保护。建议启用 SSL 验证。大邮箱可能较慢。本地 MTA 必须接受转发的邮件。
 
 # HISTORY
 
-**fetchmail** was originally written by **Carl Harris** as popclient in **1993**. **Eric S. Raymond** took over development in **1996**, renaming it fetchmail and adding IMAP support. It became a standard tool for pulling mail from remote servers.
+**fetchmail** 最初由 **Carl Harris** 于 **1993 年**编写，名为 popclient。**Eric S. Raymond** 于 **1996 年**接手开发，将其更名为 fetchmail 并添加了 IMAP 支持。它成为从远程服务器拉取邮件的标准工具。
 
 # INSTALL
 

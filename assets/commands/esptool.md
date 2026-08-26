@@ -1,30 +1,30 @@
 # TAGLINE
 
-Espressif chip firmware flashing utility
+Espressif 芯片固件烧录工具
 
 # TLDR
 
-**Flash firmware** at a given offset
+在指定偏移处**烧录固件**
 
 ```esptool --port [/dev/ttyUSB0] write-flash 0x00000 [firmware.bin]```
 
-**Read chip information**
+**读取芯片信息**
 
 ```esptool --port [/dev/ttyUSB0] chip-id```
 
-**Erase flash memory**
+**擦除闪存**
 
 ```esptool --port [/dev/ttyUSB0] erase-flash```
 
-**Read flash to file**
+**读取闪存到文件**
 
 ```esptool --port [/dev/ttyUSB0] read-flash 0 0x400000 [backup.bin]```
 
-**Flash at specific baud rate**
+**以指定波特率烧录**
 
 ```esptool --port [/dev/ttyUSB0] --baud [921600] write-flash 0x0 [firmware.bin]```
 
-**Read the MAC address**
+**读取 MAC 地址**
 
 ```esptool --port [/dev/ttyUSB0] read-mac```
 
@@ -35,56 +35,56 @@ Espressif chip firmware flashing utility
 # PARAMETERS
 
 **--port** _port_, **-p** _port_
-> Serial port device.
+> 串口设备。
 
 **--baud** _rate_, **-b** _rate_
-> Baud rate (default 115200).
+> 波特率（默认 115200）。
 
 **--chip** _name_, **-c** _name_
-> Target chip: esp8266, esp32, esp32s3, etc. Auto-detected by default.
+> 目标芯片：esp8266、esp32、esp32s3 等。默认自动检测。
 
 **--before** _action_ / **--after** _action_
-> Reset behavior before connecting and after finishing (e.g. default-reset, hard-reset, no-reset).
+> 连接前和完成后的复位行为（如 default-reset、hard-reset、no-reset）。
 
 **chip-id**
-> Read the chip ID.
+> 读取芯片 ID。
 
 **flash-id**
-> Read the flash chip ID and size.
+> 读取闪存芯片 ID 和容量。
 
 **read-mac**
-> Read the MAC address.
+> 读取 MAC 地址。
 
 **write-flash** _addr_ _file_
-> Write a binary to flash at the given address.
+> 将二进制文件写入指定地址处的闪存。
 
 **read-flash** _addr_ _size_ _file_
-> Read flash contents to a file.
+> 将闪存内容读出到文件。
 
 **erase-flash**
-> Erase the entire flash.
+> 擦除整个闪存。
 
 **erase-region** _addr_ _size_
-> Erase a region of flash.
+> 擦除闪存的某个区域。
 
 **verify-flash** _addr_ _file_
-> Compare flash contents against a file.
+> 将闪存内容与文件进行比对。
 
 # DESCRIPTION
 
-**esptool** is the official tool for flashing firmware to Espressif chips (ESP8266, ESP32, ESP32-S2, ESP32-S3, ESP32-C3, and others). It communicates over serial to read, write, and verify flash memory.
+**esptool** 是向 Espressif 芯片（ESP8266、ESP32、ESP32-S2、ESP32-S3、ESP32-C3 等）烧录固件的官方工具。它通过串口通信来读取、写入和校验闪存。
 
-The tool is essential for ESP32/ESP8266 development, used to upload Arduino sketches, MicroPython, ESPHome, and other firmware. It auto-detects the chip type and flash parameters in most cases.
+该工具是 ESP32/ESP8266 开发不可或缺的部分，用于上传 Arduino sketch、MicroPython、ESPHome 及其他固件。多数情况下它会自动检测芯片类型和闪存参数。
 
 # CAVEATS
 
-Requires Python and pyserial. The device must be in bootloader mode (GPIO0 held low on reset, or auto-reset via the RTS/DTR lines on boards with a USB-serial bridge). Write access to the serial port is needed, which on Linux usually means membership of the dialout group. A bad flash can leave the device unbootable, but it is recoverable by re-entering the bootloader.
+需要 Python 和 pyserial。设备必须处于引导加载模式（复位时拉低 GPIO0，或在带 USB 转串口芯片的开发板上通过 RTS/DTR 线自动复位）。需要对串口的写权限，在 Linux 上通常意味着要加入 dialout 组。一次失败的烧录可能导致设备无法启动，但重新进入引导加载模式即可恢复。
 
-Since **esptool v5** all commands and options use hyphens instead of underscores (`write-flash`, not `write_flash`), and the preferred invocation is `esptool` without the `.py` suffix. The old `esptool.py` name and underscore forms still work but print deprecation warnings and are slated for removal. The `--verify` option of write-flash was dropped because verification now runs automatically.
+自 **esptool v5** 起，所有命令和选项都改用连字符而非下划线（`write-flash` 而非 `write_flash`），推荐的调用方式是不带 `.py` 后缀的 `esptool`。旧的 `esptool.py` 名称和下划线写法仍然有效，但会打印弃用警告并计划移除。write-flash 的 `--verify` 选项已被删除，因为校验现在会自动执行。
 
 # HISTORY
 
-esptool began as **esptool.py**, developed by **Espressif Systems** as the official flashing utility for their ESP8266 and ESP32 series of WiFi/Bluetooth microcontrollers. It is open source and actively maintained alongside the ESP-IDF framework.
+esptool 始于 **esptool.py**，由 **Espressif Systems** 开发，是其 ESP8266 和 ESP32 系列 WiFi/蓝牙微控制器的官方烧录工具。它是开源软件，与 ESP-IDF 框架一同积极维护。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-build fontconfig cache files
+构建 fontconfig 缓存文件
 
 # TLDR
 
-**Rebuild font cache** for all directories
+为所有目录**重建字体缓存**
 
 ```fc-cache```
 
-**Force rebuild** with verbose output
+**强制重建**并输出详细信息
 
 ```fc-cache -fv```
 
-**Rebuild system-wide caches** only (requires root)
+只**重建系统级缓存**（需要 root）
 
 ```sudo fc-cache -fvs```
 
-**Rebuild cache** for a specific directory
+为指定目录**重建缓存**
 
 ```fc-cache [path/to/fonts/directory]```
 
-**Erase all caches** and rebuild from scratch
+**清除所有缓存**并从头重建
 
 ```fc-cache -r```
 
-**Check if cache files** are up to date (really verbose)
+检查缓存文件是否为最新（极度详细）
 
 ```fc-cache -rv```
 
@@ -35,55 +35,55 @@ build fontconfig cache files
 # PARAMETERS
 
 **-f**, **--force**
-> Force re-generation of cache files, overriding timestamp checking.
+> 强制重新生成缓存文件，忽略时间戳检查。
 
 **-r**, **--really-force**
-> Erase all existing cache files and rescan.
+> 清除所有现有缓存文件并重新扫描。
 
 **-s**, **--system-only**
-> Only scan system-wide directories, omitting user home directory locations.
+> 只扫描系统级目录，跳过用户主目录位置。
 
 **-v**, **--verbose**
-> Display status information while processing.
+> 处理时显示状态信息。
 
 **-E**, **--error-on-no-fonts**
-> Raise an error if there are no fonts in the specified directory.
+> 如果指定目录中没有字体则报错。
 
 **-V**, **--version**
-> Display fontconfig version and exit.
+> 显示 fontconfig 版本并退出。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**fc-cache** scans font directories and builds font information cache files for applications using fontconfig. These caches map font file names to font properties, enabling fast font lookup at application startup without scanning all font files.
+**fc-cache** 扫描字体目录，并为使用 fontconfig 的应用程序构建字体信息缓存文件。这些缓存将字体文件名映射到字体属性，使应用启动时能快速查找字体，而无需扫描所有字体文件。
 
-If no directory arguments are given, fc-cache processes all directories in the current fontconfig configuration. Each directory is scanned for font files readable by FreeType, and cache files are created containing font properties and associated filenames.
+如果不给目录参数，fc-cache 会处理当前 fontconfig 配置中的所有目录。每个目录都会被扫描以查找 FreeType 可读的字体文件，并创建包含字体属性及相关文件名的缓存文件。
 
-User caches are stored in **~/.cache/fontconfig/** while system caches are stored in **/var/cache/fontconfig/**. Cache files must be regenerated when fonts are added or removed.
+用户缓存放置在 **~/.cache/fontconfig/**，系统缓存放置在 **/var/cache/fontconfig/**。添加或删除字体后必须重新生成缓存。
 
 # CONFIGURATION
 
 **~/.cache/fontconfig/**
-> User-specific font cache files.
+> 用户特定的字体缓存文件。
 
 **/var/cache/fontconfig/**
-> System-wide font cache files.
+> 系统级的字体缓存文件。
 
 **/etc/fonts/fonts.conf**
-> Main fontconfig configuration specifying font directories.
+> 主 fontconfig 配置文件，指定字体目录。
 
 **~/.config/fontconfig/fonts.conf**
-> User-specific fontconfig configuration.
+> 用户特定的 fontconfig 配置。
 
 # CAVEATS
 
-fc-cache must be run once per architecture to generate properly customized font information. When installing new fonts, running **fc-cache -fv** ensures the fonts become immediately available to applications. Some applications may need to be restarted to pick up new fonts even after cache regeneration.
+fc-cache 必须针对每种架构各运行一次，才能生成正确定制的字体信息。安装新字体后，运行 **fc-cache -fv** 可确保字体立即对应用可用。即使重新生成了缓存，某些应用可能仍需重启才能加载新字体。
 
 # HISTORY
 
-Fontconfig was initiated by Keith Packard in **2000** for improved font handling in X11, evolving from the older bitmap-focused X font system to support scalable fonts. The fc-cache utility became stable with Fontconfig 2.0 in **2002**. Fontconfig has become the standard font configuration system on Linux desktops.
+Fontconfig 由 Keith Packard 于 **2000 年**发起，旨在改进 X11 的字体处理，从早期侧重位图的 X 字体系统演进为支持可缩放字体。fc-cache 工具随着 **2002 年** Fontconfig 2.0 发布趋于稳定。Fontconfig 已成为 Linux 桌面上的标准字体配置系统。
 
 # INSTALL
 

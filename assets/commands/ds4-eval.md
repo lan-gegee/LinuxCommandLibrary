@@ -1,30 +1,30 @@
 # TAGLINE
 
-Quality evaluation harness for DwarfStar model outputs
+DwarfStar 模型输出的质量评估工具
 
 # TLDR
 
-**Run the first N built-in evaluation questions**
+**运行前 N 道内置评估题**
 
 ```ds4-eval --questions [10] --ctx [100000]```
 
-**Disable thinking and cap generation length**
+**禁用思考并限制生成长度**
 
 ```ds4-eval --plain --nothink --tokens [512]```
 
-**Write a full evaluation trace**
+**写出完整评估轨迹**
 
 ```ds4-eval --questions [10] --trace [eval.trace]```
 
-**Regrade a previous trace** without reloading the model
+无需重新加载模型即可**重新评分既有轨迹**
 
 ```ds4-eval --regrade-trace [eval.trace]```
 
-**CPU diagnostic pass** on a single question
+对单道题做 **CPU 诊断**
 
 ```ds4-eval --cpu --questions [1] --tokens [32]```
 
-**Run selected case numbers** in order
+按顺序**运行指定的用例编号**
 
 ```ds4-eval --case-sequence [1,3,5] --ctx [100000]```
 
@@ -35,57 +35,57 @@ Quality evaluation harness for DwarfStar model outputs
 # PARAMETERS
 
 **-m**, **--model** _FILE_
-> Path to the GGUF model. Default: **ds4flash.gguf**.
+> GGUF 模型路径。默认：**ds4flash.gguf**。
 
 **-c**, **--ctx** _N_
-> Allocated context length in tokens.
+> 分配的上下文长度（以 token 计）。
 
 **-n**, **--tokens** _N_
-> Maximum generated tokens per question.
+> 每道题的最大生成 token 数。
 
 **--questions** _N_
-> Run only the first _N_ embedded evaluation questions.
+> 只运行前 _N_ 道内嵌评估题。
 
 **--case-sequence** _LIST_
-> Comma-separated 1-based case numbers to run in that order.
+> 以逗号分隔的用例编号（从 1 开始），按给定顺序运行。
 
 **--trace** _FILE_
-> Write a detailed evaluation trace.
+> 写出详细的评估轨迹。
 
 **--regrade-trace** _FILE_
-> Regrade a prior trace without loading the model again.
+> 对先前的轨迹重新评分，而不再加载模型。
 
 **--plain**
-> Disable the split-screen ANSI UI.
+> 禁用分屏 ANSI 界面。
 
 **--think** / **--think-max** / **--nothink**
-> Control thinking/reasoning mode for answers.
+> 控制回答时的思考/推理模式。
 
 **--metal** | **--cuda** | **--rocm** | **--cpu**
-> Select the inference backend explicitly.
+> 显式选择推理后端。
 
 **--power** _N_
-> GPU duty-cycle target from 1 to 100.
+> GPU 占空比目标，取值 1 到 100。
 
 **--pause-ms** _N_
-> Pause after each result in the TTY UI. Default: **350**.
+> TTY 界面中每条结果后的暂停时间。默认：**350**。
 
 **--self-test-extractors**
-> Run answer-extractor self-tests and exit.
+> 运行答案抽取器自测后退出。
 
 # DESCRIPTION
 
-**ds4-eval** is the quality-evaluation tool for **DwarfStar** (**ds4**). It runs a built-in set of questions against the loaded GGUF, extracts answers, and grades them so contributors can catch regressions when changing kernels, quantizations, or sampling defaults.
+**ds4-eval** 是 **DwarfStar**（**ds4**）的质量评估工具。它对已加载的 GGUF 运行一组内置问题，抽取答案并评分，让贡献者在修改内核、量化方案或采样默认值时能够发现回归。
 
-Unlike **ds4-bench** (speed), **ds4-eval** focuses on correctness and answer quality. Traces can be saved and regraded later with **--regrade-trace**, which is useful when iterating on grading logic without paying the full inference cost again. A plain mode drops the ANSI UI for log-friendly CI or remote sessions.
+与测速度的 **ds4-bench** 不同，**ds4-eval** 关注正确性与答案质量。轨迹可以保存，之后用 **--regrade-trace** 重新评分——在迭代评分逻辑时不必再付一次完整推理的成本，非常实用。plain 模式去掉 ANSI 界面，便于在 CI 或远程会话中记录日志。
 
 # CAVEATS
 
-Requires a DwarfStar-compatible GGUF for meaningful scores. Embedded cases and extractors are project-specific; they are not a general LLM leaderboard. CPU mode is slow and intended for diagnostics. Thinking modes and context size strongly affect both quality and runtime.
+需要 DwarfStar 兼容的 GGUF 才能得到有意义的分数。内嵌用例和抽取器是项目专属的，并非通用 LLM 排行榜。CPU 模式很慢，仅用于诊断。思考模式和上下文大小会显著影响质量与运行时间。
 
 # HISTORY
 
-**ds4-eval** ships with **DwarfStar** by **Salvatore Sanfilippo** (**antirez**) and contributors as part of the project's emphasis on official-vector validation and regression testing alongside speed benchmarks.
+**ds4-eval** 由 **Salvatore Sanfilippo**（**antirez**）及其他贡献者开发的 **DwarfStar** 附带发布，体现了该项目在速度基准之外对官方向量校验和回归测试的重视。
 
 # SEE ALSO
 

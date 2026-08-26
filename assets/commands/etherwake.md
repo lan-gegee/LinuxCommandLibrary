@@ -1,26 +1,26 @@
 # TAGLINE
 
-Wake-on-LAN magic packet sender
+Wake-on-LAN 魔术包发送工具
 
 # TLDR
 
-**Wake computer by MAC address**
+**通过 MAC 地址唤醒计算机**
 
 ```sudo etherwake [00:11:22:33:44:55]```
 
-**Wake using specific interface**
+**通过指定网卡唤醒**
 
 ```sudo etherwake -i [eth0] [00:11:22:33:44:55]```
 
-**Wake with broadcast**
+**以广播方式唤醒**
 
 ```sudo etherwake -b [00:11:22:33:44:55]```
 
-**Wake with password**
+**带密码唤醒**
 
 ```sudo etherwake -p [password] [00:11:22:33:44:55]```
 
-**Debug mode**
+**调试模式**
 
 ```sudo etherwake -D [00:11:22:33:44:55]```
 
@@ -31,43 +31,43 @@ Wake-on-LAN magic packet sender
 # PARAMETERS
 
 **-i** _interface_
-> Network interface to use.
+> 要使用的网络接口。
 
 **-b**
-> Use broadcast address.
+> 使用广播地址。
 
 **-D**
-> Increase debug level; show packet contents (repeat for more).
+> 提高调试级别；显示数据包内容（重复使用可查看更多信息）。
 
 **-p** _password_
-> SecureOn password (6 bytes).
+> SecureOn 密码（6 字节）。
 
 **-V**
-> Show version.
+> 显示版本。
 
 _mac-address_
-> Target MAC address (XX:XX:XX:XX:XX:XX).
+> 目标 MAC 地址（XX:XX:XX:XX:XX:XX）。
 
 # DESCRIPTION
 
-**etherwake** sends Wake-on-LAN (WoL) magic packets to wake computers from sleep, hibernation, or powered-off state. The target computer must have WoL enabled in BIOS/UEFI and on the network interface.
+**etherwake** 发送 Wake-on-LAN（WoL）魔术包，将计算机从睡眠、休眠或关机状态唤醒。目标计算机必须在 BIOS/UEFI 和网络接口上启用 WoL。
 
-The magic packet contains a sync stream followed by the target MAC address repeated 16 times. When the network card detects this pattern, it signals the computer to power on.
+魔术包包含一个同步流，随后是重复 16 次的目标 MAC 地址。当网卡检测到这一模式时，就会发出信号让计算机开机。
 
 # REQUIREMENTS
 
-- Target must have WoL enabled in BIOS/UEFI
-- Network interface must support WoL
-- Target must be on same network segment (or use directed broadcast)
-- Target's NIC must have power in standby
+- 目标必须在 BIOS/UEFI 中启用 WoL
+- 网络接口必须支持 WoL
+- 目标必须位于同一网段（或使用定向广播）
+- 目标网卡在待机时必须保持供电
 
 # CAVEATS
 
-Requires root or CAP_NET_RAW capability. Works on local network only; WoL over internet needs port forwarding or VPN. Some NICs need specific driver configuration. Wireless usually doesn't support WoL.
+需要 root 权限或 CAP_NET_RAW 能力。仅适用于局域网；跨互联网的 WoL 需要端口转发或 VPN。某些网卡需要特定的驱动配置。无线网络通常不支持 WoL。
 
 # HISTORY
 
-Wake-on-LAN was developed in **1996** by AMD and HP as part of the Advanced Manageability Alliance. etherwake is one of several Linux implementations of WoL sending tools.
+Wake-on-LAN 由 AMD 和惠普于 **1996 年**作为 Advanced Manageability Alliance 的一部分开发。etherwake 是 Linux 上多个 WoL 发送工具实现之一。
 
 # INSTALL
 

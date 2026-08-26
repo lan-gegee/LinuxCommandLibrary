@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast and secure VPN daemon
+快速安全的 VPN 守护进程
 
 # TLDR
 
-**Start fastd with config**
+**以配置启动 fastd**
 
 ```fastd --config [/etc/fastd/fastd.conf]```
 
-**Generate key pair**
+**生成密钥对**
 
 ```fastd --generate-key```
 
-**Show public key from secret**
+**从私钥显示公钥**
 
 ```fastd --show-key --secret [secret.key]```
 
-**Start in foreground**
+**以前台模式启动**
 
 ```fastd --config [config] --log-level debug```
 
-**Verify configuration** syntax
+**校验配置**语法
 
 ```fastd --verify-config --config [config]```
 
-**Run as daemon** with a PID file
+**作为守护进程运行**并使用 PID 文件
 
 ```fastd --config [config] --daemon --pid-file [/var/run/fastd.pid]```
 
@@ -35,45 +35,45 @@ fast and secure VPN daemon
 # PARAMETERS
 
 **--config** _file_
-> Configuration file path.
+> 配置文件路径。
 
 **--generate-key**
-> Generate new key pair.
+> 生成新密钥对。
 
 **--show-key**
-> Show public key.
+> 显示公钥。
 
 **--secret** _file_
-> Secret key file.
+> 私钥文件。
 
 **--log-level** _level_
-> Log level (fatal, error, warn, info, verbose, debug).
+> 日志级别（fatal、error、warn、info、verbose、debug）。
 
 **--verify-config**
-> Verify configuration syntax.
+> 校验配置语法。
 
 **--daemon**
-> Run as daemon.
+> 作为守护进程运行。
 
 **--pid-file** _file_
-> Write PID to file.
+> 将 PID 写入文件。
 
 **--user** _user_
-> Drop privileges to specified user.
+> 降权到指定用户运行。
 
 **--interface** _name_
-> TUN/TAP interface name.
+> TUN/TAP 接口名称。
 
 # CONFIGURATION
 
 **/etc/fastd/fastd.conf**
-> Main configuration file defining interface, peers, encryption methods, and network settings.
+> 主配置文件，定义接口、对端节点、加密方法和网络设置。
 
 # DESCRIPTION
 
-**fastd** is a fast and secure VPN daemon designed for building mesh networks and tunneling traffic. It's commonly used in Freifunk community wireless networks to create encrypted mesh topologies.
+**fastd** 是一个快速而安全的 VPN 守护进程，专为构建网状网络和隧道传输流量而设计。它常用于 Freifunk 社区无线网络中，创建加密的网状拓扑。
 
-The tool supports multiple encryption methods and is optimized for low-latency, high-performance VPN connections. It uses UDP for transport and supports various authentication and encryption ciphers. Configuration defines peers, network interfaces, and security parameters.
+该工具支持多种加密方法，针对低延迟、高性能的 VPN 连接进行了优化。它使用 UDP 传输，支持多种认证和加密算法。配置文件定义对端节点、网络接口和安全参数。
 
 # INSTALL
 
@@ -92,4 +92,3 @@ The tool supports multiple encryption methods and is optimized for low-latency, 
 # SEE ALSO
 
 [wg](/man/wg)(8), [openvpn](/man/openvpn)(8), [ipsec](/man/ipsec)(8)
-

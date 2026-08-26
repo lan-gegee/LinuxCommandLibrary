@@ -1,22 +1,22 @@
 # TAGLINE
 
-system-wide locale and language configuration
+系统级 locale 与语言配置
 
 # TLDR
 
-**List** available locales
+**列出**可用的 locale
 
 ```eselect locale list```
 
-**Set** the LANG environment variable by name
+**按名称设置** LANG 环境变量
 
 ```eselect locale set [en_US.utf8]```
 
-**Set** the LANG environment variable by index number
+**按编号设置** LANG 环境变量
 
 ```eselect locale set [4]```
 
-**Display** current LANG value
+**显示**当前的 LANG 值
 
 ```eselect locale show```
 
@@ -26,24 +26,24 @@ system-wide locale and language configuration
 
 # DESCRIPTION
 
-**eselect locale** manages the LANG environment variable on Gentoo systems. It sets the system-wide language and locale by modifying /etc/env.d/02locale. After changes, run `env-update && source /etc/profile` to apply.
+**eselect locale** 管理 Gentoo 系统上的 LANG 环境变量。它通过修改 /etc/env.d/02locale 来设置系统级的语言和 locale。更改之后，需运行 `env-update && source /etc/profile` 使其生效。
 
-Part of the eselect framework for system configuration.
+它是用于系统配置的 eselect 框架的一部分。
 
 # PARAMETERS
 
 **list**
-> List available locales.
+> 列出可用的 locale。
 
 **set** _target_
-> Set LANG to specified locale (by name or index number).
+> 将 LANG 设置为指定的 locale（按名称或编号）。
 
 **show**
-> Display current LANG setting.
+> 显示当前的 LANG 设置。
 
 # CAVEATS
 
-Gentoo Linux specific. Locales must be generated first with locale-gen. Changes require running env-update and re-sourcing the profile or re-login to take effect.
+仅适用于 Gentoo Linux。locale 必须先用 locale-gen 生成。更改需要运行 env-update 并重新加载 profile 或重新登录后才能生效。
 
 # SEE ALSO
 

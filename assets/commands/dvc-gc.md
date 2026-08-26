@@ -1,30 +1,30 @@
 # TAGLINE
 
-Clean unused DVC cache files
+清理未使用的 DVC 缓存文件
 
 # TLDR
 
-**Clean cache keeping** workspace files
+**清理缓存但保留**工作区文件
 
 ```dvc gc -w```
 
-**Clean keeping all** branches
+**清理时保留所有**分支
 
 ```dvc gc -a```
 
-**Clean keeping all** tags and branches
+**清理时保留所有**标签和分支
 
 ```dvc gc -a -T```
 
-**Dry run** (show what would be deleted)
+**试运行**（显示将被删除的内容）
 
 ```dvc gc -w --dry```
 
-**Force clean** in cloud remote without confirmation
+**强制清理**云端远程存储而不确认
 
 ```dvc gc -w -c -f```
 
-**Clean keeping data from the last** N commits
+**清理时保留最近 N 个**提交的数据
 
 ```dvc gc -n [5]```
 
@@ -35,65 +35,65 @@ Clean unused DVC cache files
 # PARAMETERS
 
 **-w**, **--workspace**
-> Keep files used in current workspace.
+> 保留当前工作区使用的文件。
 
 **-a**, **--all-branches**
-> Keep files used in all Git branch tips.
+> 保留所有 Git 分支顶端使用的文件。
 
 **-T**, **--all-tags**
-> Keep files used in all Git tags.
+> 保留所有 Git 标签使用的文件。
 
 **-A**, **--all-commits**
-> Keep files used in all Git commits.
+> 保留所有 Git 提交使用的文件。
 
 **--all-experiments**
-> Keep files used in all experiments.
+> 保留所有实验使用的文件。
 
 **-c**, **--cloud**
-> Also garbage collect in remote storage in addition to local cache.
+> 除本地缓存外，也对远程存储执行垃圾回收。
 
 **-r** _NAME_, **--remote** _NAME_
-> Target a specific remote for garbage collection.
+> 指定要执行垃圾回收的远程存储。
 
 **-n** _NUM_, **--num** _NUM_
-> Keep data from the last NUM commits (default: 1).
+> 保留最近 NUM 个提交的数据（默认：1）。
 
 **--rev** _COMMIT_
-> Keep data files from a specified Git commit.
+> 保留指定 Git 提交的数据文件。
 
 **--date** _YYYY-MM-DD_
-> Keep cached data from commits after the specified date.
+> 保留指定日期之后各提交的缓存数据。
 
 **--not-in-remote**
-> Keep data not present in remote storage.
+> 保留远程存储中不存在的数据。
 
 **-f**, **--force**
-> Skip confirmation prompts.
+> 跳过确认提示。
 
 **-j** _NUM_, **--jobs** _NUM_
-> Number of concurrent jobs for cloud operations.
+> 云端操作的并发任务数。
 
 **--dry**
-> Preview what would be deleted without executing.
+> 预览将要删除的内容而不实际执行。
 
 **-p** _PATHS_, **--projects** _PATHS_
-> Include specified projects when sharing a cache directory.
+> 在共享缓存目录时包含指定的项目。
 
 # DESCRIPTION
 
-**dvc gc** removes unused files from the DVC cache, freeing disk space. At least one scope option (**-w**, **-a**, **-T**, **-A**, **--all-experiments**, **-n**, **--rev**, or **--date**) must be specified to define which data to keep.
+**dvc gc** 从 DVC 缓存中移除未使用的文件，释放磁盘空间。必须至少指定一个范围选项（**-w**、**-a**、**-T**、**-A**、**--all-experiments**、**-n**、**--rev** 或 **--date**），以定义要保留哪些数据。
 
-The cache accumulates files from all tracked versions. Garbage collection identifies and removes files no longer referenced by any specified commits, branches, or tags.
+缓存会积累所有被跟踪版本的文件。垃圾回收会识别并移除不再被任何指定提交、分支或标签引用的文件。
 
-The cloud option (**-c**) extends cleaning to remote storage, removing files not needed by the specified scope.
+云选项（**-c**）将清理范围扩展到远程存储，移除指定范围之外不需要的文件。
 
 # CAVEATS
 
-Irreversible operation - removed cache files must be re-downloaded or re-computed. Consider keeping all branches for collaboration. Cloud gc may affect other users' access to data. A scope option is required; running without one produces an error.
+不可逆操作——被删除的缓存文件必须重新下载或重新计算。为了协作方便可考虑保留所有分支。云端垃圾回收可能影响其他用户对数据的访问。必须提供范围选项；不带范围选项运行会产生错误。
 
 # HISTORY
 
-dvc gc implements garbage collection for **DVC** caches, similar to git gc but for versioned data files, enabling storage management in ML projects.
+dvc gc 为 **DVC** 缓存实现垃圾回收，类似于 git gc 但针对版本化数据文件，为机器学习项目提供存储管理能力。
 
 # INSTALL
 

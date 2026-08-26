@@ -1,38 +1,38 @@
 # TAGLINE
 
-duplicate file finder
+重复文件查找器
 
 # TLDR
 
-**Find duplicate files** in a directory
+**在目录中查找重复文件**
 
 ```duff [directory]```
 
-**Find duplicates recursively**
+**递归查找重复文件**
 
 ```duff -r [directory]```
 
-**Compare files from multiple directories**
+**比较来自多个目录的文件**
 
 ```duff -r [dir1] [dir2] [dir3]```
 
-**Byte-for-byte comparison**, not just digests
+**逐字节比较**，而不只是比较摘要值
 
 ```duff -rt [directory]```
 
-**Exclude empty files** (which are all identical to each other)
+**排除空文件**（它们彼此全都相同）
 
 ```duff -rz [directory]```
 
-**Include hidden files** in a recursive search
+递归搜索时**包含隐藏文件**
 
 ```duff -ra [directory]```
 
-**Print the excess copies only**, ready to pipe into removal
+**只输出多余的副本**，便于管道接入删除操作
 
 ```duff -re [directory]```
 
-**Use a stronger digest**
+**使用更强的摘要算法**
 
 ```duff -r -d [sha256] [directory]```
 
@@ -43,46 +43,46 @@ duplicate file finder
 # PARAMETERS
 
 **-r**
-> Search the given directories recursively. Without it, duff only looks at the files named.
+> 递归搜索给定目录。不加该选项时，duff 只查看点名给出的文件。
 
 **-a**
-> Include hidden files and directories in a recursive search.
+> 递归搜索时包含隐藏文件和目录。
 
 **-e**
-> Excess mode: print all but one file from each cluster, and omit the headers. This is the form to pipe into `xargs rm`.
+> 多余模式（excess）：每组重复簇中除一个文件外全部输出，并省略组头。这是接入 `xargs rm` 管道时使用的形式。
 
 **-t**
-> Thorough mode: compare byte by byte when sizes match, instead of trusting the digest.
+> 彻底模式（thorough）：大小相同时逐字节比较，而不是信赖摘要值。
 
 **-d** _function_
-> Digest algorithm: `sha1` (the default), `sha256`, `sha384`, or `sha512`.
+> 摘要算法：`sha1`（默认）、`sha256`、`sha384` 或 `sha512`。
 
 **-z**
-> Do not report empty files as duplicates of one another.
+> 不把空文件报告为彼此的重复。
 
 **-p**
-> Physical mode: treat hard links to the same file as distinct, rather than as duplicates.
+> 物理模式：将指向同一文件的硬链接视为不同文件，而不是重复。
 
 **-H** / **-L** / **-P**
-> Follow symbolic links given on the command line only; follow all symbolic links; or follow none. **-P** is the default, and each overrides the others.
+> 只跟随命令行中给出的符号链接；跟随所有符号链接；或不跟随任何符号链接。默认为 **-P**，三者互相覆盖。
 
 **-l** _limit_
-> Minimum file size at which duff samples rather than reading whole files. Defaults to zero. This is a **size threshold**, not a cap on the number of results.
+> 超过该最小文件大小时，duff 改为抽样而非读取整个文件。默认为零。这是一个**大小阈值**，不是结果数量的上限。
 
 **-f** _format_
-> Custom cluster header, with escapes such as `%n` (file count), `%s` (size), `%d` (digest), `%i` (cluster index).
+> 自定义重复簇头部，可用转义符如 `%n`（文件数）、`%s`（大小）、`%d`（摘要）、`%i`（簇序号）。
 
 **-q**
-> Quiet mode: suppress warnings and error messages.
+> 安静模式：抑制警告和错误消息。
 
 **-0**
-> When reading file names from stdin, expect them null-terminated rather than newline-separated.
+> 从标准输入读取文件名时期望以 null 结尾，而不是以换行分隔。
 
 # DESCRIPTION
 
-**duff** (Duplicate File Finder) identifies duplicate files by comparing file sizes and contents. It groups files with identical content, making it useful for finding and removing redundant files to free disk space.
+**duff**（Duplicate File Finder）通过比较文件大小和内容来识别重复文件。它将内容完全相同的文件分组，因此适合查找并清除冗余文件以释放磁盘空间。
 
-The tool first groups files by size, then compares content using checksums and byte-by-byte comparison when necessary. Output shows clusters of duplicate files separated by blank lines.
+该工具先按大小分组，再用校验和比较内容，必要时进行逐字节比较。输出以空行分隔各组重复文件。
 
 # OUTPUT FORMAT
 
@@ -95,23 +95,23 @@ another2.jpg
 another3.jpg
 ```
 
-Each cluster contains files with identical content.
+每一簇内的文件内容完全相同。
 
 # CAVEATS
 
-**duff does not recurse by default.** `duff mydir` inspects the directory entry itself and finds nothing; you almost always want **-r**. Hidden files are skipped in recursive mode too, unless **-a** is given, so a run that reports no duplicates may simply not have looked.
+**duff 默认不递归。** `duff mydir` 只检查这个目录条目本身，什么也找不到；你几乎总是需要 **-r**。递归模式下隐藏文件同样会被跳过，除非给出 **-a**，所以一次"没有发现重复"的报告可能根本没找过那些地方。
 
-Without **-t**, duplicates are decided by **digest**, not by comparing the bytes. A SHA-1 collision is not something you will encounter by accident, but the guarantee is probabilistic rather than absolute, and **-t** upgrades it to certainty at the cost of speed. `-l` makes this weaker still: above the given size duff samples rather than hashing whole files, which is fast and occasionally wrong.
+不加 **-t** 时，是否重复由**摘要值**决定，而不是比较字节本身。SHA-1 碰撞不是你会偶然遇到的事情，但这个保证是概率性的而非绝对的，**-t** 以速度为代价把它升级为确定。`-l` 让保证更弱：超过指定大小的文件 duff 改用抽样而非完整哈希，速度快但偶尔出错。
 
-duff never deletes anything, which is a feature. The intended pipeline is **-e**, which prints every copy except one per cluster:
+duff 从不删除任何东西，这正是它的优点。预期的用法是通过管道接 **-e**，它对每个重复簇输出除一个之外的所有副本：
 
 ```duff -re [directory] | xargs -d '\n' rm --```
 
-Read the output before running that. Empty files are all identical to one another and will be swept up unless **-z** is given, and by default hard links to the same inode are reported as duplicates even though deleting one frees nothing: **-p** stops that.
+执行前请先读一遍输出。空文件彼此全都相同，不加 **-z** 时会被一并扫走；默认情况下指向同一 inode 的硬链接也会被报告为重复，尽管删掉其中一个释放不了任何空间：**-p** 可以避免这一点。
 
 # HISTORY
 
-duff was written by **Camilla Löwy** as a small, fast duplicate finder for Unix. Its approach is the classic one: group by size first, then by digest, and only fall back to comparing bytes when explicitly asked, which means the vast majority of candidate files are never fully read. Development has long been quiet, and **jdupes**, a maintained and considerably faster descendant of fdupes, is what most people reach for now.
+duff 由 **Camilla Löwy** 编写，是一个小巧快速的 Unix 重复文件查找工具。它的方法是经典套路：先按大小分组，再按摘要分组，只有明确要求时才回退到逐字节比较，这意味着绝大多数候选文件从未被完整读取。该项目早已归于沉寂，如今大多数人改用 **jdupes**——fdupes 的一个维护活跃且快得多的后继者。
 
 # INSTALL
 
@@ -134,4 +134,3 @@ duff was written by **Camilla Löwy** as a small, fast duplicate finder for Unix
 ```[Source code](https://github.com/elmindreda/duff)```
 
 <!-- verified: 2026-07-14 -->
-

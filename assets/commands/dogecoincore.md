@@ -1,26 +1,26 @@
 # TAGLINE
 
-Dogecoin Core daemon and CLI client
+Dogecoin Core 守护进程与 CLI 客户端
 
 # TLDR
 
-**Start the Dogecoin daemon**
+**启动 Dogecoin 守护进程**
 
 ```dogecoind -daemon```
 
-**Get blockchain info**
+**获取区块链信息**
 
 ```dogecoin-cli getblockchaininfo```
 
-**Get wallet balance**
+**获取钱包余额**
 
 ```dogecoin-cli getbalance```
 
-**Send Dogecoin to an address**
+**向指定地址发送 Dogecoin**
 
 ```dogecoin-cli sendtoaddress "[address]" [amount]```
 
-**Stop the daemon**
+**停止守护进程**
 
 ```dogecoin-cli stop```
 
@@ -33,43 +33,42 @@ Dogecoin Core daemon and CLI client
 # PARAMETERS
 
 **-daemon**
-> Run dogecoind in the background as a daemon.
+> 在后台以守护进程方式运行 dogecoind。
 
 **-testnet**
-> Use the test network.
+> 使用测试网络。
 
 **-datadir** _DIR_
-> Specify data directory.
+> 指定数据目录。
 
 **-conf** _FILE_
-> Specify configuration file.
+> 指定配置文件。
 
 **-rpcuser** _USER_
-> Username for JSON-RPC connections.
+> JSON-RPC 连接的用户名。
 
 **-rpcpassword** _PASS_
-> Password for JSON-RPC connections.
+> JSON-RPC 连接的密码。
 
 **-rpcport** _PORT_
-> Listen for JSON-RPC connections on this port.
+> 在该端口监听 JSON-RPC 连接。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 **-version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**Dogecoin Core** consists of **dogecoind**, the full node daemon that validates and relays transactions on the Dogecoin network, and **dogecoin-cli**, a command-line client for interacting with the daemon via JSON-RPC.
+**Dogecoin Core** 由两部分组成：**dogecoind** 是完整节点守护进程，负责在 Dogecoin 网络上验证并转发交易；**dogecoin-cli** 是命令行客户端，通过 JSON-RPC 与守护进程交互。
 
-The CLI supports wallet operations (sending, receiving, balance queries), blockchain queries, network management, and mining controls. Configuration is stored in **dogecoin.conf**.
+该 CLI 支持钱包操作（发送、接收、余额查询）、区块链查询、网络管理以及挖矿控制。配置保存在 **dogecoin.conf** 中。
 
 # CAVEATS
 
-Running a full node requires downloading the entire Dogecoin blockchain. The daemon must be running for dogecoin-cli to work. Based on Bitcoin Core.
+运行完整节点需要下载整条 Dogecoin 区块链。dogecoin-cli 必须在守护进程处于运行状态时才能工作。本项目基于 Bitcoin Core 开发。
 
 # SEE ALSO
 
 [bitcoind](/man/bitcoind)(1), [bitcoin-cli](/man/bitcoin-cli)(1), [electrum](/man/electrum)(1), [geth](/man/geth)(1)
-

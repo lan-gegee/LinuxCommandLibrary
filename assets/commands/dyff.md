@@ -1,22 +1,22 @@
 # TAGLINE
 
-YAML/JSON diff tool for configuration files
+面向配置文件的 YAML/JSON diff 工具
 
 # TLDR
 
-**Compare** two YAML/JSON files
+**比较**两个 YAML/JSON 文件
 
 ```dyff between [file1.yaml] [file2.yaml]```
 
-**Compare** Kubernetes manifests
+**比较** Kubernetes 清单
 
 ```dyff between -k [manifest1.yaml] [manifest2.yaml]```
 
-**Show** differences with specific output format
+**以指定输出格式显示**差异
 
 ```dyff between -o json [file1] [file2]```
 
-**Compare** directories recursively
+**递归比较**目录
 
 ```dyff between -r [dir1] [dir2]```
 
@@ -27,62 +27,62 @@ YAML/JSON diff tool for configuration files
 # PARAMETERS
 
 **between** _FILE1_ _FILE2_
-> Compare two files
+> 比较两个文件
 
 **-k, --kubernetes**
-> Compare Kubernetes manifests (ignore metadata timestamps)
+> 比较 Kubernetes 清单（忽略元数据时间戳）
 
 **-r, --recursive**
-> Compare directories recursively
+> 递归比较目录
 
 **-o, --output** _FORMAT_
-> Output format: human, json, yaml, tap (default: human)
+> 输出格式：human、json、yaml、tap（默认：human）
 
 **--chroot** _PATH_
-> Chroot both inputs to a specific path
+> 将两个输入都限制在指定路径下
 
 **--ignore-order-changes**
-> Ignore changes in list order
+> 忽略列表顺序的变化
 
 **--ignore-value-changes** _PATH_
-> Ignore value changes at specific path
+> 忽略特定路径处的值变化
 
 **--no-table-style**
-> Disable table output styling
+> 禁用表格输出样式
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**dyff** is a diff tool specifically designed for YAML and JSON configuration files. Unlike traditional line-based diff tools, it understands the structure of YAML/JSON documents and shows meaningful differences at the semantic level.
+**dyff** 是一个专为 YAML 和 JSON 配置文件设计的 diff 工具。与传统的基于行的 diff 工具不同，它能理解 YAML/JSON 文档的结构，并在语义层面展示有意义的差异。
 
-The tool is particularly useful for comparing Kubernetes manifests, configuration files, and structured data where the order of keys doesn't matter but their values do. It can ignore certain types of changes (like metadata timestamps) and provides various output formats.
+该工具特别适合比较 Kubernetes 清单、配置文件以及键序无关但值重要的结构化数据。它可以忽略某些类型的更改（如元数据时间戳），并提供多种输出格式。
 
 # COMMANDS
 
 **between** _FILE1_ _FILE2_
-> Compare two files and show differences
+> 比较两个文件并显示差异
 
 **json** _FILE_
-> Parse and validate JSON file
+> 解析并校验 JSON 文件
 
 **yaml** _FILE_
-> Parse and validate YAML file
+> 解析并校验 YAML 文件
 
 **version**
-> Display version information
+> 显示版本信息
 
 # CAVEATS
 
-Complex nested structures may produce verbose output. Large files can be slow to compare. Order-sensitive comparisons may miss reorderings unless specifically enabled. Some special YAML features may not be fully supported.
+复杂的嵌套结构可能产生冗长的输出。大文件比较可能较慢。除非明确启用，顺序敏感的比较可能遗漏重排。某些特殊 YAML 特性可能不被完全支持。
 
 # HISTORY
 
-**dyff** was created by the Homeport team to address the need for semantic diffing of Kubernetes and configuration files. It provides more meaningful output than traditional diff tools when working with structured configuration data.
+**dyff** 由 Homeport 团队创建，旨在满足对 Kubernetes 和配置文件进行语义化 diff 的需求。在处理结构化配置数据时，它比传统 diff 工具的输出更有意义。
 
 # INSTALL
 

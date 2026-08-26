@@ -1,18 +1,18 @@
 # TAGLINE
 
-change ext filesystem labels
+更改 ext 文件系统标签
 
 # TLDR
 
-**Display** the current volume label
+**显示**当前卷标
 
 ```sudo e2label [/dev/sda1]```
 
-Change **volume label**
+更改**卷标**
 
 ```sudo e2label [/dev/sda1] "[label_name]"```
 
-**Clear** the volume label
+**清除**卷标
 
 ```sudo e2label [/dev/sda1] ""```
 
@@ -22,21 +22,21 @@ Change **volume label**
 
 # DESCRIPTION
 
-**e2label** changes or displays the filesystem label on an ext2/ext3/ext4 filesystem. Labels provide human-readable names for filesystems and can be used to mount filesystems by label instead of device name, which improves portability when device names change.
+**e2label** 更改或显示 ext2/ext3/ext4 文件系统上的标签。标签为文件系统提供人类可读的名称，可用于按标签而非设备名挂载文件系统，这在设备名发生变化时能提升可移植性。
 
-If no label is specified, the current label is displayed. Labels are particularly useful in /etc/fstab entries, making system configuration more resilient to device renaming after hardware changes.
+如果不指定标签，则显示当前标签。标签在 /etc/fstab 条目中特别有用，能让系统配置在硬件更换导致设备重命名后仍保持有效。
 
 # PARAMETERS
 
 _device_
-> The filesystem device
+> 文件系统设备
 
 _new-label_
-> New label (max 16 characters)
+> 新标签（最多 16 个字符）
 
 # CAVEATS
 
-Labels are limited to 16 characters and are silently truncated if longer. e2label is a thin wrapper around **tune2fs -L**, so the two are interchangeable. The filesystem may be mounted while the label is changed, but the new label is only picked up by udev and /dev/disk/by-label after the next scan. Part of the **e2fsprogs** package.
+标签限制为 16 个字符，超长会被静默截断。e2label 是 **tune2fs -L** 的一个轻量封装，两者可以互换。更改标签时文件系统可以处于挂载状态，但 udev 和 /dev/disk/by-label 要到下次扫描后才会识别新标签。属于 **e2fsprogs** 软件包。
 
 # INSTALL
 

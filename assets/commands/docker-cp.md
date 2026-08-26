@@ -1,22 +1,22 @@
 # TAGLINE
 
-copy files between containers and the host
+在容器与宿主机之间复制文件
 
 # TLDR
 
-**Copy file from container to host**
+**将文件从容器复制到宿主机**
 
 ```docker cp [container]:[/path/to/file] [/local/path]```
 
-**Copy file from host to container**
+**将文件从宿主机复制到容器**
 
 ```docker cp [/local/file] [container]:[/path/in/container]```
 
-**Copy directory recursively**
+**递归复制目录**
 
 ```docker cp [container]:[/path/to/dir] [/local/dir]```
 
-**Copy preserving ownership**
+**复制时保留所有者信息**
 
 ```docker cp -a [container]:[/path] [/local/path]```
 
@@ -29,21 +29,21 @@ copy files between containers and the host
 # PARAMETERS
 
 **-a**, **--archive**
-> Archive mode (copy all uid/gid information).
+> 归档模式（复制全部 uid/gid 信息）。
 
 **-L**, **--follow-link**
-> Follow symbolic links in source path.
+> 跟随源路径中的符号链接。
 
 **-q**, **--quiet**
-> Suppress progress output.
+> 抑制进度输出。
 
 # DESCRIPTION
 
-**docker cp** copies files or directories between a container's filesystem and the local host filesystem, functioning bidirectionally for both container-to-host and host-to-container transfers. This command works with both running and stopped containers, making it useful for extracting logs, injecting configuration files, or backing up data.
+**docker cp** 在容器的文件系统和本地宿主机的文件系统之间复制文件或目录，支持容器到宿主机和宿主机到容器的双向传输。此命令对运行中和已停止的容器都有效，可用于提取日志、注入配置文件或备份数据。
 
-The command uses tar internally for efficient transfer, streaming data between the container and host. Archive mode (**-a**) preserves file ownership and permissions, which is important when copying system files or maintaining consistent file attributes.
+该命令内部使用 tar 进行高效传输，在容器与宿主机之间流式传送数据。归档模式（**-a**）会保留文件的所有者和权限，在复制系统文件或需要保持一致文件属性时很重要。
 
-Unlike volume mounts which are configured at container creation, **docker cp** enables ad-hoc file transfer at any time during a container's lifecycle.
+与在容器创建时就固定下来的卷挂载不同，**docker cp** 允许在容器生命周期的任意时刻进行临时文件传输。
 
 # INSTALL
 

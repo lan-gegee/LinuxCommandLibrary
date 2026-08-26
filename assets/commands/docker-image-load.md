@@ -1,22 +1,22 @@
 # TAGLINE
 
-load images from tar archives
+从 tar 归档加载镜像
 
 # TLDR
 
-**Load an image from a tar archive**
+**从 tar 归档加载镜像**
 
 ```docker image load -i [image.tar]```
 
-**Load an image from stdin**
+**从 stdin 加载镜像**
 
 ```cat [image.tar] | docker image load```
 
-**Load an image with quiet output**
+**以安静模式加载镜像**
 
 ```docker image load -q -i [image.tar]```
 
-**Load only a specific platform variant**
+**只加载特定平台变体**
 
 ```docker image load --platform [linux/amd64] -i [image.tar]```
 
@@ -27,29 +27,29 @@ load images from tar archives
 # PARAMETERS
 
 **-i**, **--input** _file_
-> Read from tar archive file instead of STDIN.
+> 从 tar 归档文件读取而不是 STDIN。
 
 **-q**, **--quiet**
-> Suppress load output.
+> 抑制加载过程的输出。
 
 **--platform** _value_
-> Load only the given platform variant(s), formatted as "os[/arch[/variant]]" (e.g., linux/amd64). Can be specified multiple times.
+> 只加载指定的平台变体，格式为 "os[/arch[/variant]]"（如 linux/amd64）。可多次指定。
 
 # DESCRIPTION
 
-**docker image load** loads a Docker image from a tar archive (even if compressed with gzip, bzip2, xz, or zstd) created by **docker image save**, restoring the image layers and metadata to the local Docker daemon.
+**docker image load** 从由 **docker image save** 创建的 tar 归档（即使经过 gzip、bzip2、xz 或 zstd 压缩）中加载 Docker 镜像，将镜像层和元数据恢复到本地 Docker 守护进程。
 
-The tar archive contains all image layers, configuration, and manifest data needed to fully reconstruct the image. Loading an image preserves its repository tags and digests exactly as they were when saved. This makes **docker image load** ideal for air-gapped environments, backup/restore workflows, and distributing images via physical media or secure file transfer.
+tar 归档包含完整重建镜像所需的全部镜像层、配置和 manifest 数据。加载镜像时会原样保留其保存时的仓库标签和摘要。这使 **docker image load** 非常适合物理隔离（air-gapped）环境、备份/恢复工作流，以及通过物理介质或安全文件传输分发镜像的场景。
 
-The command can read from a file specified with **-i** or from stdin, enabling flexible integration with compression tools and network transfers.
+该命令可以从 **-i** 指定的文件或 stdin 读取输入，便于灵活地与压缩工具和网络传输集成。
 
 # CAVEATS
 
-The tar archive must have been created with **docker image save** or a compatible tool. Loading an image does not pull missing layers from a registry. Images are loaded into the local Docker daemon only.
+tar 归档必须由 **docker image save** 或兼容工具创建。加载镜像不会从 registry 拉取缺失的层。镜像只会加载到本地 Docker 守护进程中。
 
 # HISTORY
 
-**docker image load** is the modern syntax for the **docker load** command, introduced as part of Docker's CLI restructuring to group commands under management categories.
+**docker image load** 是 **docker load** 命令的现代语法，作为 Docker CLI 重构的一部分引入，目的是将命令按管理类别分组。
 
 # INSTALL
 

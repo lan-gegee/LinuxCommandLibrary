@@ -1,18 +1,18 @@
 # TAGLINE
 
-License usage detector for Rust dependencies
+Rust 依赖许可证使用检测工具
 
 # TLDR
 
-**Check** dependencies in current project
+检查当前项目的依赖
 
 ```feluda```
 
-**Check** specific manifest
+**检查**指定的清单文件
 
 ```feluda [path/to/Cargo.toml]```
 
-**Output** in JSON format
+以 JSON 格式**输出**
 
 ```feluda --json```
 
@@ -23,40 +23,41 @@ License usage detector for Rust dependencies
 # PARAMETERS
 
 **--json**
-> Output results in JSON format
+> 以 JSON 格式输出结果
 
 **--include-dev**
-> Include dev dependencies
+> 包含开发依赖
 
 **--include-build**
-> Include build dependencies
+> 包含构建依赖
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
-**-V, --version**> Display version and exit
+**-V, --version**
+> 显示版本并退出
 
 # DESCRIPTION
 
-**feluda** is a Rust tool that analyzes project dependencies and detects their licenses. It helps developers understand the license composition of their Rust projects and identify potential compliance issues.
+**feluda** 是一款 Rust 工具，用于分析项目依赖并检测其许可证。它帮助开发者了解 Rust 项目的许可证构成，并识别潜在的合规问题。
 
-The tool reads Cargo.toml and Cargo.lock files to identify all dependencies and their associated licenses from crate metadata.
+该工具读取 Cargo.toml 和 Cargo.lock 文件，从 crate 元数据中识别所有依赖及其对应的许可证。
 
 # OUTPUT
 
-Displays a table of:
-- Crate names
-- Versions
-- License identifiers
-- License file paths
+显示包含以下内容的表格：
+- Crate 名称
+- 版本
+- 许可证标识符
+- 许可证文件路径
 
 # CAVEATS
 
-Relies on accurate license metadata in crates. License detection may miss custom or unusual licenses. Multiple license options (OR) are displayed separately. Requires Cargo.toml and Cargo.lock to be present.
+依赖于 crate 中准确的许可证元数据。许可证检测可能遗漏自定义或不常见的许可证。多选许可证（OR）会分别显示。需要存在 Cargo.toml 和 Cargo.lock。
 
 # HISTORY
 
-**feluda** was created to help Rust developers perform license audits on their projects, ensuring compliance with open source licensing requirements.
+**feluda** 的创建旨在帮助 Rust 开发者对项目进行许可证审计，确保符合开源许可要求。
 
 # INSTALL
 

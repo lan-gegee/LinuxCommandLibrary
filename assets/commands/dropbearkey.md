@@ -1,22 +1,22 @@
 # TAGLINE
 
-generate SSH keys for Dropbear
+为 Dropbear 生成 SSH 密钥
 
 # TLDR
 
-Generate **ed25519** key
+生成 **ed25519** 密钥
 
 ```dropbearkey -t ed25519 -f [path/to/key_file]```
 
-Generate **ECDSA** key
+生成 **ECDSA** 密钥
 
 ```dropbearkey -t ecdsa -f [path/to/key_file]```
 
-Generate **RSA** key with 4096 bits
+生成 4096 位的 **RSA** 密钥
 
 ```dropbearkey -t rsa -s 4096 -f [path/to/key_file]```
 
-Print **fingerprint and public key**
+打印**指纹和公钥**
 
 ```dropbearkey -y -f [path/to/key_file]```
 
@@ -26,35 +26,35 @@ Print **fingerprint and public key**
 
 # DESCRIPTION
 
-**dropbearkey** generates SSH host and user keys in Dropbear's native format. Dropbear is a lightweight SSH implementation commonly used on embedded systems, routers, and resource-constrained devices where OpenSSH would be too large.
+**dropbearkey** 以 Dropbear 原生格式生成 SSH 主机密钥和用户密钥。Dropbear 是一款轻量级 SSH 实现，常用于嵌入式系统、路由器和资源受限设备——这些场合 OpenSSH 会显得过于庞大。
 
-The tool supports modern key types including Ed25519, ECDSA, and RSA with configurable key sizes. Generated keys are stored in Dropbear's own format, which differs from OpenSSH's format. If you need to use keys with OpenSSH or vice versa, use dropbearconvert to convert between formats.
+该工具支持现代密钥类型，包括 Ed25519、ECDSA 以及可配置密钥长度的 RSA。生成的密钥以 Dropbear 自有格式存储，与 OpenSSH 的格式不同。如果需要让密钥在 OpenSSH 中使用（或反过来），请使用 dropbearconvert 在两种格式间转换。
 
-Host keys are typically stored in /etc/dropbear/, while user keys can be placed in standard SSH locations.
+主机密钥通常存放在 /etc/dropbear/ 下，用户密钥则可放在标准 SSH 位置。
 
 # PARAMETERS
 
 **-t** _type_
-> Key type: **rsa**, **ecdsa**, **ed25519**, or **dss**.
+> 密钥类型：**rsa**、**ecdsa**、**ed25519** 或 **dss**。
 
 **-f** _file_
-> File to write the private key to.
+> 写入私钥的目标文件。
 
 **-s** _bits_
-> Key size in bits, which should be a multiple of 8. Applies to RSA and ECDSA; Ed25519 has a fixed size and ignores it.
+> 密钥长度（位），应为 8 的倍数。适用于 RSA 和 ECDSA；Ed25519 长度固定，会忽略此选项。
 
 **-y**
-> Print the public key and fingerprint of an existing private key instead of generating one.
+> 打印已有私钥对应的公钥和指纹，而不是生成新密钥。
 
 # CAVEATS
 
-The generated file is in **Dropbear's own private key format**, not OpenSSH's, so it cannot be handed to `ssh -i` directly: convert it first with `dropbearconvert`. The *public* key printed by **-y** is in the usual OpenSSH one-line form, so it can be pasted straight into an `authorized_keys` file.
+生成的文件采用 **Dropbear 自有的私钥格式**而非 OpenSSH 格式，因此不能直接交给 `ssh -i` 使用：必须先用 `dropbearconvert` 转换。而 **-y** 打印出的*公*钥是常见的 OpenSSH 单行形式，可直接粘贴进 `authorized_keys` 文件。
 
-Unlike `ssh-keygen`, dropbearkey does **not** encrypt the private key with a passphrase, and there is no option to do so. Anyone who can read the file has the key. For user keys that matter, generate with `ssh-keygen` and convert, rather than the other way round.
+与 `ssh-keygen` 不同，dropbearkey **不会**用口令加密私钥，也没有提供这样做的选项。任何能读到该文件的人就拿到了密钥。对于重要的用户密钥，应先用 `ssh-keygen` 生成再转换，而不是反过来。
 
-Prefer **ed25519**: it is small, fast, and well supported. **dss** is obsolete, rejected by modern SSH implementations, and should never be chosen for a new key.
+优先选择 **ed25519**：它体积小、速度快且支持良好。**dss** 已经过时，会被现代 SSH 实现拒绝，新密钥绝不应选用。
 
-Generating an RSA key on a slow embedded device can take a surprisingly long time, and on a freshly booted system the entropy pool may not be seeded, so host key generation at first boot is a classic source of both delay and weak keys.
+在缓慢的嵌入式设备上生成 RSA 密钥可能耗时惊人；而且刚启动的系统熵池可能尚未播种，首次开机时的主机密钥生成正是既拖慢启动又产生弱密钥的经典来源。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ Generating an RSA key on a slow embedded device can take a surprisingly long tim
 ```[Homepage](https://matt.ucc.asn.au/dropbear/dropbear.html)```
 
 <!-- verified: 2026-07-14 -->
-

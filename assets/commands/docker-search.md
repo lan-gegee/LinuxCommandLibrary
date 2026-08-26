@@ -1,26 +1,26 @@
 # TAGLINE
 
-search Docker Hub for container images
+在 Docker Hub 中搜索容器镜像
 
 # TLDR
 
-**Search Docker Hub**
+**搜索 Docker Hub**
 
 ```docker search [term]```
 
-**Search with limit**
+**限制搜索结果数量**
 
 ```docker search --limit [25] [term]```
 
-**Filter official images**
+**过滤官方镜像**
 
 ```docker search -f is-official=true [term]```
 
-**Filter automated builds**
+**过滤自动构建镜像**
 
 ```docker search -f is-automated=true [term]```
 
-**Filter by stars**
+**按星标数过滤**
 
 ```docker search -f stars=[100] [term]```
 
@@ -31,20 +31,20 @@ search Docker Hub for container images
 # PARAMETERS
 
 **-f**, **--filter** _filter_
-> Filter output based on conditions.
+> 根据条件过滤输出。
 
 **--format** _string_
-> Format output using Go template.
+> 使用 Go 模板格式化输出。
 
 **--limit** _int_
-> Max number of results (default 25).
+> 结果数量上限（默认 25）。
 
 **--no-trunc**
-> Don't truncate output.
+> 不截断输出。
 
 # DESCRIPTION
 
-**docker search** searches Docker Hub for images. Returns image name, description, stars, and official/automated status. This command queries the public Docker Hub registry to help discover available images. Results can be filtered by official status, automation, or popularity to find trusted images.
+**docker search** 在 Docker Hub 中搜索镜像，返回镜像名称、描述、星标数以及官方/自动构建状态。该命令查询公共的 Docker Hub 镜像仓库，帮助发现可用镜像。结果可按官方状态、自动化程度或热门程度进行过滤，以便找到可信的镜像。
 
 # INSTALL
 
@@ -75,4 +75,3 @@ search Docker Hub for container images
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Data Matrix barcode encoder
+Data Matrix 条码编码器
 
 # TLDR
 
-**Encode text as Data Matrix barcode**
+**将文本编码为 Data Matrix 条码**
 
 ```echo "[text]" | dmtxwrite -o [output.png]```
 
-**Create barcode from file contents**
+**从文件内容创建条码**
 
 ```dmtxwrite -o [output.png] < [data.txt]```
 
-**Set module (cell) size in pixels**
+**设置模块（单元格）大小（像素）**
 
 ```echo "[text]" | dmtxwrite -d [5] -o [output.png]```
 
-**Set margin size in pixels**
+**设置边距大小（像素）**
 
 ```echo "[text]" | dmtxwrite -m [10] -o [output.png]```
 
-**Create SVG output**
+**创建 SVG 输出**
 
 ```echo "[text]" | dmtxwrite -o [output.svg]```
 
-**Use specific symbol size**
+**使用指定的符号尺寸**
 
 ```echo "[text]" | dmtxwrite -s s -o [output.png]```
 
-**Print codeword listing instead of barcode**
+**打印码字列表而非条码图像**
 
 ```echo "[text]" | dmtxwrite -c```
 
-**Set image print resolution (DPI)**
+**设置图像打印分辨率（DPI）**
 
 ```echo "[text]" | dmtxwrite -R [300] -o [output.png]```
 
@@ -43,60 +43,60 @@ Data Matrix barcode encoder
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Output filename. Default is standard output.
+> 输出文件名。默认为标准输出。
 
 **-d**, **--module** _pixels_
-> Module (cell) size in pixels.
+> 模块（单元格）大小（像素）。
 
 **-m**, **--margin** _pixels_
-> Margin size in pixels.
+> 边距大小（像素）。
 
 **-s**, **--symbol-size** _size_
-> Symbol size: s(quare auto), r(ectangle auto), or RxC (e.g., 24x24).
+> 符号尺寸：s（自动正方形）、r（自动矩形）或 RxC（如 24x24）。
 
 **-e**, **--encoding** _scheme_
-> Encodation scheme: b(est), a(scii) [default], c(40), t(ext), x(12), e(difact), 8 (Base 256).
+> 编码方案：b（最优）、a（ASCII）[默认]、c（40）、t（文本）、x（12）、e（EDIFACT）、8（Base 256）。
 
 **-R**, **--resolution** _dpi_
-> Image print resolution in DPI.
+> 图像打印分辨率（DPI）。
 
 **-f**, **--format** _format_
-> Output format: png [default], tif, gif, pdf, svg.
+> 输出格式：png [默认]、tif、gif、pdf、svg。
 
 **-c**, **--codewords**
-> Print codeword listing instead of creating barcode image.
+> 打印码字列表而不生成条码图像。
 
 **-M**, **--mosaic**
-> Create non-standard Data Mosaic barcode.
+> 创建非标准的 Data Mosaic 条码。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 # DESCRIPTION
 
-**dmtxwrite** generates Data Matrix barcode images from input text or binary data. Data Matrix barcodes are 2D square or rectangular patterns that encode data with built-in error correction.
+**dmtxwrite** 从输入的文本或二进制数据生成 Data Matrix 条码图像。Data Matrix 条码是二维的正方形或矩形图案，编码数据时自带纠错功能。
 
-The tool reads data from standard input and produces images in various formats. Symbol size is automatically chosen based on data length, or can be specified manually. Error correction is automatically included per the Data Matrix standard.
+该工具从标准输入读取数据并生成各种格式的图像。符号尺寸会根据数据长度自动选择，也可以手动指定。纠错信息按照 Data Matrix 标准自动加入。
 
-Data Matrix barcodes are widely used for small item marking (electronics, medical devices), logistics, and anywhere high data density is needed in a small space.
+Data Matrix 条码广泛用于小件物品标识（电子元件、医疗器械）、物流等需要在狭小空间内存储高密度数据的场景。
 
 # SYMBOL SIZES
 
-**s**: Automatic square selection
-**r**: Automatic rectangle selection
-**10x10** to **144x144**: Specific square sizes
-**8x18** to **16x48**: Specific rectangle sizes
+**s**: 自动选择正方形尺寸
+**r**: 自动选择矩形尺寸
+**10x10** 至 **144x144**: 特定的正方形尺寸
+**8x18** 至 **16x48**: 特定的矩形尺寸
 
 # CAVEATS
 
-Data capacity depends on symbol size and encoding; larger symbols hold more data. Binary data encoding may require specific encoding schemes. Very small module sizes may not scan reliably. Some scanners have difficulty with rectangular Data Matrix codes.
+数据容量取决于符号尺寸和编码方式；更大的符号可容纳更多数据。二进制数据的编码可能需要特定的编码方案。模块尺寸过小时可能难以可靠扫描。部分扫描仪难以识别矩形 Data Matrix 码。
 
 # HISTORY
 
-dmtxwrite is part of **libdmtx**, created by **Mike Laughton** in **2006**. The library provides open-source tools for Data Matrix barcode generation and reading. Data Matrix is an ISO/IEC 16022 standard, originally developed for industrial marking applications.
+dmtxwrite 属于 **libdmtx**，由 **Mike Laughton** 于 **2006 年**创建。该库为 Data Matrix 条码的生成和读取提供开源工具。Data Matrix 是 ISO/IEC 16022 标准，最初为工业标识应用而开发。
 
 # INSTALL
 

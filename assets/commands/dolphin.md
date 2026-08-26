@@ -1,30 +1,30 @@
 # TAGLINE
 
-KDE file manager with integrated features
+功能集成的 KDE 文件管理器
 
 # TLDR
 
-**Launch** the file manager
+**启动**文件管理器
 
 ```dolphin```
 
-Open **specific directories**
+打开**指定目录**
 
 ```dolphin [path/to/directory1] [path/to/directory2]```
 
-Open with files/directories **selected**
+打开并**选中**指定文件/目录
 
 ```dolphin --select [path/to/file1] [path/to/file2]```
 
-Open a **new window**
+打开**新窗口**
 
 ```dolphin --new-window```
 
-Open in **split view**
+以**分屏视图**打开
 
 ```dolphin --split [path/to/directory1] [path/to/directory2]```
 
-Launch the **daemon** for faster startup
+启动**守护进程**以加快启动速度
 
 ```dolphin --daemon```
 
@@ -34,36 +34,36 @@ Launch the **daemon** for faster startup
 
 # DESCRIPTION
 
-**dolphin** is KDE's file manager. It provides a graphical interface for managing files and directories with features like tabs, split view, integrated terminal, and file previews.
+**dolphin** 是 KDE 的文件管理器。它提供图形界面来管理文件和目录，具备标签页、分屏视图、集成终端和文件预览等功能。
 
-Part of the KDE Plasma desktop environment but can be used in other desktop environments with the KDE/Qt libraries installed.
+它是 KDE Plasma 桌面环境的组成部分，但在安装了 KDE/Qt 库的其他桌面环境中同样可以使用。
 
 # PARAMETERS
 
 **--select** _files_
-> Open with specified files or directories selected in their parent folder.
+> 打开时在其所在文件夹中选中指定的文件或目录。
 
 **--new-window**
-> Force opening a new window instead of reusing an existing one.
+> 强制打开新窗口，而不是复用已有窗口。
 
 **--split** _dir1_ _dir2_
-> Open two directories side by side in split view.
+> 以分屏视图并排打开两个目录。
 
 **--daemon**
-> Start Dolphin as a D-Bus service in the background for faster subsequent launches.
+> 让 Dolphin 作为 D-Bus 服务在后台运行，从而加快后续启动速度。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--author**
-> Show author information.
+> 显示作者信息。
 
 **--version**
-> Show version information.
+> 显示版本信息。
 
 # CAVEATS
 
-KDE application, requires Qt/KDE libraries. Full functionality requires KDE desktop environment. For GNOME, see Nautilus; for XFCE, see Thunar. The --daemon flag keeps Dolphin running in the background which uses memory even when no windows are open.
+KDE 应用，依赖 Qt/KDE 库。完整功能需要 KDE 桌面环境。GNOME 用户可参考 Nautilus，XFCE 用户可参考 Thunar。--daemon 选项会让 Dolphin 在后台持续运行，即使没有打开任何窗口也会占用内存。
 
 # INSTALL
 

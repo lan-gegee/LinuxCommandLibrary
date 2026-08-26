@@ -1,22 +1,22 @@
 # TAGLINE
 
-Extensible shell with functional programming features
+具有函数式编程特性的可扩展 shell
 
 # TLDR
 
-**Start es shell**
+**启动 es shell**
 
 ```es```
 
-**Run command**
+**运行命令**
 
 ```es -c "[echo hello]"```
 
-**Run script**
+**运行脚本**
 
 ```es [script.es]```
 
-**Start without initialization**
+**不加载初始化配置启动**
 
 ```es -p```
 
@@ -27,44 +27,44 @@ Extensible shell with functional programming features
 # PARAMETERS
 
 **-c** _command_
-> Execute command string.
+> 执行命令字符串。
 
 **-p**
-> Don't load profile.
+> 不加载 profile 配置文件。
 
 **-l**
-> Act as login shell.
+> 作为登录 shell 运行。
 
 **-v**
-> Print input to stderr.
+> 将输入打印到标准错误。
 
 **-x**
-> Print commands before execution.
+> 执行前打印命令。
 
 **-i**
-> Force interactive mode.
+> 强制交互模式。
 
 **-n**
-> Parse only, don't execute.
+> 仅解析，不执行。
 
 # CONFIGURATION
 
 **~/.esrc**
-> User initialization file loaded at startup (unless -p flag is used).
+> 启动时加载的用户初始化文件（使用 -p 标志时不加载）。
 
 # DESCRIPTION
 
-**es** is an extensible shell derived from rc (the Plan 9 shell) with first-class functions, lexical scoping, and exception handling. It provides a clean, programmable shell with functional programming features.
+**es** 是从 rc（Plan 9 shell）衍生而来的可扩展 shell，支持一等函数、词法作用域和异常处理。它提供简洁、可编程并带函数式编程特性的 shell 体验。
 
-Unlike traditional shells, es treats functions as first-class values, supports closures, and has a simpler, more consistent syntax than bash or zsh.
+与传统 shell 不同，es 将函数视为一等值，支持闭包，且语法比 bash 或 zsh 更简单、更一致。
 
 # CAVEATS
 
-Not POSIX-compatible; scripts need rewriting. Smaller community and fewer resources than bash. Some features differ from rc. May not be available on all systems.
+不兼容 POSIX；脚本需要重写。社区规模和资源少于 bash。某些特性与 rc 不同。可能并非在所有系统上都可用。
 
 # HISTORY
 
-es was created by **Paul Haahr** and **Byron Rakitzis** in the early **1990s** as an enhanced version of rc, the Plan 9 shell. It added functional programming concepts like first-class functions and lexical scoping to shell scripting.
+es 由 **Paul Haahr** 和 **Byron Rakitzis** 于 **20 世纪 90 年代初**创建，是 Plan 9 shell rc 的增强版本。它把一等函数、词法作用域等函数式编程概念引入了 shell 脚本。
 
 # INSTALL
 

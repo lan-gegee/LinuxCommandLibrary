@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast Gentoo package search utility
+Gentoo 快速软件包搜索工具
 
 # TLDR
 
-Search the Portage package cache by **name**
+按**名称**搜索 Portage 软件包缓存
 
 ```eix [query]```
 
-Limit results to packages that are **already installed**
+将结果限定为**已安装**的软件包
 
 ```eix --installed [query]```
 
-Match against the package **description** text
+匹配软件包**描述**文本
 
 ```eix --description "[text]"```
 
-Filter by **license** name
+按**许可证**名称过滤
 
 ```eix --license [license]```
 
-Invert a filter (e.g. packages **not** under a license)
+反转过滤条件（例如查找**不**在某许可证之下的软件包）
 
 ```eix --not --license [license]```
 
@@ -30,33 +30,33 @@ Invert a filter (e.g. packages **not** under a license)
 
 # DESCRIPTION
 
-**eix** searches local Gentoo packages quickly using a pre-built cache. It provides fast package lookups with detailed version and USE flag information.
+**eix** 使用预构建的缓存快速搜索本地 Gentoo 软件包。它提供快速的软件包查询，并附带详细的版本和 USE 标志信息。
 
-Run `eix-update` to update the local package cache before searching.
+搜索前先运行 `eix-update` 更新本地软件包缓存。
 
 # PARAMETERS
 
 **--installed**
-> Only show installed packages
+> 只显示已安装的软件包
 
 **--description** _text_
-> Search in package descriptions
+> 在软件包描述中搜索
 
 **--license** _license_
-> Search by license
+> 按许可证搜索
 
 **--not**
-> Negate the following condition
+> 取反其后的条件
 
 **-c, --compact**
-> Compact output format
+> 紧凑输出格式
 
 **-e, --exact**
-> Exact name match
+> 精确名称匹配
 
 # CAVEATS
 
-Gentoo Linux specific. Requires running eix-update to build cache. Cache must be updated after emerge --sync.
+Gentoo Linux 特有。需要运行 eix-update 构建缓存。执行 emerge --sync 后必须更新缓存。
 
 # SEE ALSO
 

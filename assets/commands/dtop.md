@@ -1,22 +1,22 @@
 # TAGLINE
 
-Terminal dashboard for Docker container monitoring
+用于 Docker 容器监控的终端仪表盘
 
 # TLDR
 
-**Launch** the Docker monitoring dashboard
+**启动** Docker 监控仪表盘
 
 ```dtop```
 
-**Monitor** specific containers only
+**只监控**指定的容器
 
 ```dtop [container1] [container2]```
 
-**Refresh** every 5 seconds
+**每 5 秒刷新一次**
 
 ```dtop --refresh 5```
 
-**Show** all containers including stopped
+**显示**所有容器，包括已停止的
 
 ```dtop --all```
 
@@ -27,71 +27,71 @@ Terminal dashboard for Docker container monitoring
 # PARAMETERS
 
 **-r, --refresh** _SECONDS_
-> Refresh interval in seconds (default: 2)
+> 刷新间隔，单位为秒（默认：2）
 
 **-a, --all**
-> Show all containers including stopped
+> 显示所有容器，包括已停止的
 
 **--no-trunc**
-> Don't truncate container names
+> 不截断容器名称
 
 **--cpu-only**
-> Show only CPU metrics
+> 只显示 CPU 指标
 
 **--memory-only**
-> Show only memory metrics
+> 只显示内存指标
 
 **--network-only**
-> Show only network metrics
+> 只显示网络指标
 
 **-c, --config** _FILE_
-> Configuration file path
+> 配置文件路径
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**dtop** is a terminal-based dashboard for monitoring Docker containers in real-time. It provides a top/htop-like interface specifically designed for Docker, showing CPU usage, memory consumption, network I/O, and container status.
+**dtop** 是一个基于终端的仪表盘，用于实时监控 Docker 容器。它提供了一个专为 Docker 设计的 top/htop 风格界面，显示 CPU 使用率、内存消耗、网络 I/O 和容器状态。
 
-The tool displays container metrics in a sortable table format with color-coded health indicators. It automatically refreshes to show current statistics and allows filtering to focus on specific containers or resource types.
+该工具以可排序的表格形式展示容器指标，并用颜色标识健康状态。它会自动刷新以显示当前统计信息，还支持过滤，以便聚焦于特定容器或资源类型。
 
 # KEYBINDINGS
 
 **↑/↓**
-> Navigate through containers
+> 在容器之间导航
 
 **s**
-> Change sort column
+> 更改排序列
 
 **q**
-> Quit
+> 退出
 
 **p**
-> Pause/unpause selected container
+> 暂停/恢复选定的容器
 
 **r**
-> Restart selected container
+> 重启选定的容器
 
 **k**
-> Kill selected container
+> 终止选定的容器
 
 **l**
-> Show container logs
+> 显示容器日志
 
-**/ or f**
-> Filter/search containers
+**/ 或 f**
+> 过滤/搜索容器
 
 # CAVEATS
 
-Requires Docker daemon access and appropriate permissions. Container stats are limited by Docker API capabilities. Large numbers of containers may impact performance. Network stats may vary by Docker driver.
+需要 Docker 守护进程访问权限和相应的权限。容器统计信息受 Docker API 能力的限制。大量容器可能影响性能。网络统计信息可能因 Docker 驱动而异。
 
 # HISTORY
 
-**dtop** was created to provide Docker-specific monitoring similar to what top/htop provide for system processes. It fills the gap between Docker's built-in stats command and more complex monitoring solutions.
+**dtop** 的创建目的是提供类似 top/htop 对系统进程那样的 Docker 专属监控。它填补了 Docker 内置 stats 命令与更复杂监控方案之间的空白。
 
 # INSTALL
 

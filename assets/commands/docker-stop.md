@@ -1,22 +1,22 @@
 # TAGLINE
 
-Stop one or more running Docker containers (alias)
+停止一个或多个运行中的 Docker 容器（别名）
 
 # TLDR
 
-**Stop a container** (alias of `docker container stop`)
+**停止一个容器**（`docker container stop` 的别名）
 
 ```docker stop mycontainer```
 
-**Stop multiple containers**
+**停止多个容器**
 
 ```docker stop container1 container2```
 
-**Stop with a custom timeout** (seconds before SIGKILL)
+**使用自定义超时时间停止**（发出 SIGKILL 前等待的秒数）
 
 ```docker stop --timeout 30 mycontainer```
 
-**Send a specific stop signal**
+**发送特定的停止信号**
 
 ```docker stop --signal SIGINT mycontainer```
 
@@ -26,17 +26,17 @@ Stop one or more running Docker containers (alias)
 
 # DESCRIPTION
 
-**docker stop** is an alias for `docker container stop`. It stops one or more running containers by sending a termination signal (`SIGTERM` by default, or the container's `STOPSIGNAL` / `--signal`) and waiting for a graceful shutdown. If the process does not exit within the timeout (default 10 seconds on Linux unless configured otherwise), `SIGKILL` is sent.
+**docker stop** 是 `docker container stop` 的别名。它通过向一个或多个运行中的容器发送终止信号（默认为 `SIGTERM`，或容器设置的 `STOPSIGNAL` / `--signal`）并等待其优雅关闭来停止容器。如果进程未在超时时间内退出（在 Linux 上默认为 10 秒，除非另行配置），则发送 `SIGKILL`。
 
-For full option details, prefer the canonical form documented under `docker container stop`.
+完整的选项说明请参考 `docker container stop` 的规范形式文档。
 
 # PARAMETERS
 
 **-t**, **--timeout** _seconds_
-> Seconds to wait before killing the container after the stop signal. Set to `-1` to wait indefinitely.
+> 发送停止信号后、杀死容器前等待的秒数。设为 `-1` 表示无限等待。
 
 **-s**, **--signal** _signal_
-> Signal to send to the container (e.g. `SIGTERM`, `SIGINT`).
+> 发送给容器的信号（例如 `SIGTERM`、`SIGINT`）。
 
 # INSTALL
 

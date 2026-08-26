@@ -1,14 +1,14 @@
 # TAGLINE
 
-display running processes inside a container
+显示容器内正在运行的进程
 
 # TLDR
 
-**Show running processes** in a container
+**查看容器中正在运行的进程**
 
 ```docker container top [container]```
 
-**Show with custom ps options**
+**使用自定义 ps 选项查看**
 
 ```docker container top [container] aux```
 
@@ -18,9 +18,9 @@ display running processes inside a container
 
 # DESCRIPTION
 
-**docker container top** displays the running processes inside a container, similar to the Unix **ps** command but scoped to a specific container's process namespace. This provides visibility into what is actually executing within the container at any given moment.
+**docker container top** 显示容器内正在运行的进程，类似于 Unix 的 **ps** 命令，但范围限定在特定容器的进程命名空间内。它可以让你随时了解容器内部实际在执行什么。
 
-The command accepts standard **ps** options to customize the output format and control which process attributes are displayed. This is particularly useful for debugging containers, verifying that expected processes are running, and investigating resource usage at the process level.
+该命令接受标准的 **ps** 选项，以自定义输出格式并控制显示哪些进程属性。它对调试容器、验证预期进程是否在运行以及在进程级别排查资源占用特别有用。
 
 # INSTALL
 

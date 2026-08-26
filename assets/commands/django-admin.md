@@ -1,34 +1,34 @@
 # TAGLINE
 
-Django command-line utility for administrative tasks
+Django 管理任务的命令行工具
 
 # TLDR
 
-**Start a new project**
+**创建新项目**
 
 ```django-admin startproject [project_name]```
 
-**Start a new app**
+**创建新应用**
 
 ```django-admin startapp [app_name]```
 
-**Run development server**
+**运行开发服务器**
 
 ```django-admin runserver```
 
-**Create database migrations**
+**生成数据库迁移**
 
 ```django-admin makemigrations```
 
-**Apply database migrations**
+**应用数据库迁移**
 
 ```django-admin migrate```
 
-**Create superuser**
+**创建超级用户**
 
 ```django-admin createsuperuser```
 
-**Open Django shell**
+**打开 Django shell**
 
 ```django-admin shell```
 
@@ -39,58 +39,58 @@ Django command-line utility for administrative tasks
 # PARAMETERS
 
 _COMMAND_
-> Django management command to execute.
+> 要执行的 Django 管理命令。
 
 **startproject** _NAME_
-> Create new Django project.
+> 创建新的 Django 项目。
 
 **startapp** _NAME_
-> Create new Django app.
+> 创建新的 Django 应用。
 
 **runserver** [_PORT_]
-> Run development server.
+> 运行开发服务器。
 
 **makemigrations** [_APP_]
-> Create migration files.
+> 创建迁移文件。
 
 **migrate** [_APP_]
-> Apply migrations.
+> 应用迁移。
 
 **createsuperuser**
-> Create admin user.
+> 创建管理员用户。
 
 **shell**
-> Open interactive Python shell with Django context.
+> 打开带 Django 上下文的交互式 Python shell。
 
 **--settings** _MODULE_
-> Settings module to use.
+> 要使用的设置模块。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**django-admin** is Django's command-line utility for administrative tasks. It provides commands for project setup, database management, testing, and development server operation.
+**django-admin** 是 Django 用于管理任务的命令行工具。它提供项目初始化、数据库管理、测试以及开发服务器运行等命令。
 
-The tool requires a Django settings module to function. When inside a project directory, it automatically discovers the settings; otherwise, the DJANGO_SETTINGS_MODULE environment variable or --settings flag specifies the configuration.
+该工具需要一个 Django 设置模块才能工作。在项目目录内时会自动发现设置；否则需通过 DJANGO_SETTINGS_MODULE 环境变量或 --settings 标志指定配置。
 
-django-admin is typically aliased or replaced by manage.py within projects, which automatically configures the settings module. Both provide identical functionality.
+项目中通常会用 manage.py 别名或替代 django-admin，它会自动配置设置模块。两者功能完全相同。
 
 # CONFIGURATION
 
 **settings.py**
-> Django project settings module controlling database, installed apps, middleware, and all configuration.
+> Django 项目设置模块，控制数据库、已安装的应用、中间件及全部配置。
 
 **manage.py**
-> Project-specific wrapper around django-admin that sets the settings module automatically.
+> django-admin 的项目专用包装器，会自动设置设置模块。
 
 # CAVEATS
 
-Requires Django installed. Some commands require configured settings and database. Development server not suitable for production. Migration commands require database access.
+需要安装 Django。部分命令要求配置好设置和数据库。开发服务器不适合生产环境。迁移命令需要数据库访问权限。
 
 # HISTORY
 
-django-admin is part of **Django**, created by **Adrian Holovaty** and **Simon Willison** at the Lawrence Journal-World newspaper. Django was released as open source in **2005** and has become one of the most popular Python web frameworks.
+django-admin 是 **Django** 的组成部分，Django 由 **Adrian Holovaty** 和 **Simon Willison** 在 Lawrence Journal-World 报社开发，于 **2005 年**开源发布，如今已成为最流行的 Python Web 框架之一。
 
 # INSTALL
 

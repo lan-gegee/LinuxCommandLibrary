@@ -1,34 +1,34 @@
 # TAGLINE
 
-extended regex pattern searcher
+扩展正则表达式模式搜索工具
 
 # TLDR
 
-**Search for pattern** in file
+**在文件中搜索模式**
 
 ```egrep "[pattern]" [file.txt]```
 
-**Search case-insensitive**
+**不区分大小写地搜索**
 
 ```egrep -i "[pattern]" [file.txt]```
 
-**Search with line** numbers
+**带行号搜索**
 
 ```egrep -n "[pattern]" [file.txt]```
 
-**Search recursively**
+**递归搜索**
 
 ```egrep -r "[pattern]" [directory]```
 
-**Search for multiple** patterns (alternation)
+**搜索多个**模式（交替）
 
 ```egrep "[pattern1]|[pattern2]" [file.txt]```
 
-**Count matches**
+**统计匹配数**
 
 ```egrep -c "[pattern]" [file.txt]```
 
-**Show only matching** filenames
+**只显示匹配的**文件名
 
 ```egrep -l "[pattern]" [*.txt]```
 
@@ -39,50 +39,50 @@ extended regex pattern searcher
 # PARAMETERS
 
 _PATTERN_
-> Extended regular expression.
+> 扩展正则表达式。
 
 _FILE_
-> File(s) to search.
+> 要搜索的文件。
 
 **-i**
-> Case-insensitive search.
+> 不区分大小写搜索。
 
 **-n**
-> Show line numbers.
+> 显示行号。
 
 **-r**, **-R**
-> Recursive search.
+> 递归搜索。
 
 **-l**
-> Show only filenames.
+> 只显示文件名。
 
 **-c**
-> Count matching lines.
+> 统计匹配的行数。
 
 **-v**
-> Invert match (non-matching lines).
+> 反向匹配（显示不匹配的行）。
 
 **-o**
-> Show only matched parts.
+> 只显示匹配的部分。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**egrep** searches files for lines matching an extended regular expression pattern. It's equivalent to `grep -E` and supports ERE syntax including +, ?, |, and () without escaping.
+**egrep** 在文件中搜索匹配扩展正则表达式模式的行。它等价于 `grep -E`，支持 ERE 语法，包括无需转义的 +、?、| 和 ()。
 
-Extended regular expressions are more readable than basic grep patterns for complex matches. Alternation (|), grouping (), and quantifiers work directly without backslashes.
+对于复杂匹配，扩展正则表达式比基本的 grep 模式更易读。交替（|）、分组（）和量词可以直接使用而无需反斜杠。
 
-egrep is deprecated in favor of `grep -E` but remains widely available for compatibility.
+egrep 已被弃用，推荐使用 `grep -E`，但出于兼容性考虑仍然广泛可用。
 
 # CAVEATS
 
-Deprecated - use grep -E. Behavior may vary between implementations. Large files may be slow. Binary files may produce garbage output.
+已弃用——请使用 grep -E。不同实现之间的行为可能不同。大文件可能较慢。二进制文件可能产生乱码输出。
 
 # HISTORY
 
-egrep was originally a separate program with extended regex support. Modern grep includes this functionality with the -E flag, making standalone egrep redundant but preserved for compatibility.
+egrep 最初是一个支持扩展正则表达式的独立程序。现代 grep 通过 -E 标志包含了这一功能，使独立的 egrep 显得多余，但为了兼容性仍被保留。
 
 # INSTALL
 

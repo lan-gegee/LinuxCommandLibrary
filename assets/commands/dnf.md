@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fedora/RHEL package manager
+Fedora/RHEL 软件包管理器
 
 # TLDR
 
-**Upgrade** installed packages to newest versions
+将已安装的软件包**升级**到最新版本
 
 ```sudo dnf upgrade```
 
-**Search** packages via keywords
+按关键字**搜索**软件包
 
 ```dnf search [keyword]```
 
-Display **details** about a package
+显示软件包的**详细信息**
 
 ```dnf info [package]```
 
-**Install** new packages
+**安装**新软件包
 
 ```sudo dnf install [package]```
 
-**Remove** packages
+**移除**软件包
 
 ```sudo dnf remove [package]```
 
-List **installed** packages
+列出**已安装的**软件包
 
 ```dnf list --installed```
 
-Find which packages **provide** a command
+查找哪个软件包**提供**某个命令
 
 ```dnf provides [command]```
 
-**Clean** cached data
+**清理**缓存数据
 
 ```sudo dnf clean all```
 
@@ -42,64 +42,64 @@ Find which packages **provide** a command
 
 # DESCRIPTION
 
-**dnf** (Dandified YUM) is the package manager for Fedora, RHEL, and related distributions. It has been the default since Fedora 22, with DNF5 becoming the default in Fedora 41+. It is the successor to YUM and provides improved dependency resolution, performance, and a more consistent interface.
+**dnf**（Dandified YUM）是 Fedora、RHEL 及相关发行版的软件包管理器。自 Fedora 22 起成为默认，DNF5 则在 Fedora 41+ 成为默认。它是 YUM 的后继者，提供更好的依赖解析、性能和更一致的接口。
 
 # PARAMETERS
 
 **install, in package**
-> Install specified packages
+> 安装指定的软件包
 
 **remove, rm package**
-> Remove specified packages
+> 移除指定的软件包
 
 **upgrade, up**
-> Upgrade all installed packages
+> 升级所有已安装的软件包
 
 **search, se keyword**
-> Search for packages matching keyword
+> 搜索匹配关键字的软件包
 
 **info, if package**
-> Display detailed information about a package
+> 显示软件包的详细信息
 
 **list, ls**
-> List packages (--installed, --available, --updates)
+> 列出软件包（--installed、--available、--updates）
 
 **provides command**
-> Find packages providing a file or command
+> 查找提供某个文件或命令的软件包
 
 **clean option**
-> Clean cached data (all, dbcache, expire-cache, metadata, packages)
+> 清理缓存数据（all、dbcache、expire-cache、metadata、packages）
 
 **repolist**
-> Display configured repositories
+> 显示已配置的软件仓库
 
 **history**
-> View transaction history
+> 查看事务历史
 
 **autoremove**
-> Remove unneeded packages
+> 移除不再需要的软件包
 
 **-y, --assumeyes**
-> Automatically answer yes to prompts
+> 自动对所有提示回答 yes
 
 **--refresh**
-> Set metadata as expired before running command
+> 在执行命令前将元数据标记为过期
 
 # CONFIGURATION
 
 **/etc/dnf/dnf.conf**
-> Main DNF configuration file with settings for package management behavior.
+> DNF 主配置文件，包含软件包管理行为的设置。
 
 **/etc/yum.repos.d/*.repo**
-> Repository configuration files defining package sources.
+> 定义软件来源的仓库配置文件。
 
 # CAVEATS
 
-DNF5 (used in Fedora 41+) has some differences from earlier DNF versions. Check documentation for specific version differences.
+DNF5（用于 Fedora 41+）与早期 DNF 版本存在一些差异。请查阅文档了解具体版本差异。
 
 # HISTORY
 
-DNF was introduced in **Fedora 18** as an experimental package manager and became the default in **Fedora 22**. DNF5 is a complete rewrite released with Fedora 41.
+DNF 作为实验性软件包管理器随 **Fedora 18** 推出，并在 **Fedora 22** 成为默认。DNF5 是一次完全重写，随 Fedora 41 发布。
 
 # INSTALL
 

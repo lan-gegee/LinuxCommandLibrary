@@ -1,26 +1,26 @@
 # TAGLINE
 
-Download RPM packages without installing
+下载 RPM 软件包而不安装
 
 # TLDR
 
-**Download a package** to the current directory
+**下载软件包**到当前目录
 
 ```dnf download [package]```
 
-**Download to a specific directory**
+**下载到指定目录**
 
 ```dnf download [package] --destdir [path/to/directory]```
 
-**Download a package and all its dependencies**
+**下载软件包及其全部依赖**
 
 ```dnf download --resolve [package]```
 
-**Download the source RPM** of a package
+**下载软件包的源码 RPM**
 
 ```dnf download --source [package]```
 
-**Print the URL** instead of downloading
+**打印 URL** 而不下载
 
 ```dnf download --url [package]```
 
@@ -30,31 +30,31 @@ Download RPM packages without installing
 
 # DESCRIPTION
 
-**dnf download** downloads RPM packages from configured DNF repositories without installing them. It is part of the **dnf-plugins-core** package. Useful for obtaining packages for offline installation, inspection, or distributing to air-gapped systems.
+**dnf download** 从已配置的 DNF 软件仓库下载 RPM 包但不安装。它属于 **dnf-plugins-core** 软件包。适合获取软件包用于离线安装、检查，或分发给与外网隔离的系统。
 
 # PARAMETERS
 
 **--destdir** _dir_
-> Download destination directory. Defaults to the current directory.
+> 下载目标目录。默认为当前目录。
 
 **--url**
-> Print the download URL to stdout instead of downloading.
+> 打印下载 URL 到 stdout 而不下载。
 
 **--source**
-> Download the source RPM instead of the binary package. Enables source repositories automatically.
+> 下载源码 RPM 而非二进制包。会自动启用源码仓库。
 
 **--resolve**
-> Also download all uninstalled dependencies of the specified packages.
+> 同时下载指定软件包所有未安装的依赖。
 
 **--alldeps**
-> When used with --resolve, download all dependencies (including already installed ones).
+> 与 --resolve 搭配时，下载全部依赖（包括已安装的）。
 
 **--arch** _arch_
-> Limit to packages of the given architecture.
+> 仅限指定架构的软件包。
 
 # CAVEATS
 
-Requires **dnf-plugins-core** to be installed. Downloaded packages are not automatically installed. When using --resolve, only missing dependencies are downloaded by default.
+需要安装 **dnf-plugins-core**。下载的软件包不会被自动安装。使用 --resolve 时默认只下载缺失的依赖。
 
 # SEE ALSO
 

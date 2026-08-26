@@ -1,42 +1,42 @@
 # TAGLINE
 
-runtime control interface for dunst
+dunst 的运行时控制接口
 
 # TLDR
 
-**Show notification history**
+**显示通知历史**
 
 ```dunstctl history-pop```
 
-**Close current notification**
+**关闭当前通知**
 
 ```dunstctl close```
 
-**Close all notifications**
+**关闭所有通知**
 
 ```dunstctl close-all```
 
-**Toggle do-not-disturb**
+**切换勿扰模式**
 
 ```dunstctl set-paused toggle```
 
-**Check if paused**
+**检查是否已暂停**
 
 ```dunstctl is-paused```
 
-**Show notification count**
+**显示通知数量**
 
 ```dunstctl count```
 
-**Export history** as JSON
+**导出历史**为 JSON
 
 ```dunstctl history-export```
 
-**Clear notification history**
+**清空通知历史**
 
 ```dunstctl history-clear```
 
-**Reload configuration**
+**重载配置**
 
 ```dunstctl reload```
 
@@ -47,57 +47,57 @@ runtime control interface for dunst
 # SUBCOMMANDS
 
 **close**
-> Close current notification.
+> 关闭当前通知。
 
 **close-all**
-> Close all notifications.
+> 关闭所有通知。
 
 **history-pop**
-> Show notification from history.
+> 从历史中弹出一条通知显示。
 
 **set-paused** _state_
-> Set pause state (true, false, toggle).
+> 设置暂停状态（true、false、toggle）。
 
 **is-paused**
-> Check pause state.
+> 检查暂停状态。
 
 **count** [_displayed_|_history_|_waiting_]
-> Show notification count (all categories if no argument given).
+> 显示通知数量（不给参数时统计所有类别）。
 
 **history-export**
-> Export notification history as JSON.
+> 将通知历史导出为 JSON。
 
 **history-clear**
-> Delete all notifications from history.
+> 从历史中删除所有通知。
 
 **reload**
-> Reload configuration.
+> 重载配置。
 
 **rule** _NAME_ _enable_|_disable_|_toggle_
-> Enable, disable, or toggle a named rule.
+> 启用、禁用或切换指定的具名规则。
 
 **action** [_N_]
-> Perform default action on notification at position N (0 = top).
+> 对位于第 N 位的通知执行默认动作（0 = 最上方）。
 
 **get-pause-level**
-> Get current pause level (0 = not paused, 100 = fully paused).
+> 获取当前暂停级别（0 = 未暂停，100 = 完全暂停）。
 
 **set-pause-level** _LEVEL_
-> Set pause level (0-100), combines with notification override_pause_level.
+> 设置暂停级别（0-100），可与通知的 override_pause_level 组合使用。
 
 **debug**
-> Print debug information.
+> 打印调试信息。
 
 **context**
-> Open context menu with actions/URLs for open notifications.
+> 打开上下文菜单，列出当前打开通知的动作/URL。
 
 # DESCRIPTION
 
-**dunstctl** is the command-line control interface for the dunst notification daemon. It provides runtime management capabilities without requiring configuration file changes or daemon restarts.
+**dunstctl** 是 dunst 通知守护进程的命令行控制接口。它提供运行时管理能力，无需修改配置文件或重启守护进程。
 
-The tool allows closing notifications programmatically, managing notification history, toggling pause state (do-not-disturb mode), and reloading dunst's configuration. It's commonly used in window manager keybindings and scripts for notification management.
+该工具允许以编程方式关闭通知、管理通知历史、切换暂停状态（勿扰模式）以及重载 dunst 的配置。它常被用在窗口管理器的按键绑定和脚本中进行通知管理。
 
-Key features include history navigation (pop the most recent notification from history), pause state management for temporarily suppressing notifications, and live configuration reloading. The close commands can target specific notifications or clear all visible ones at once. Pause levels (0-100) can be combined with per-notification override_pause_level for selective display during do-not-disturb mode.
+主要特性包括历史导航（从历史中弹出最近的通知）、用于临时抑制通知的暂停状态管理，以及实时配置重载。close 命令可以针对特定通知，也可以一次性清除所有可见通知。暂停级别（0-100）可与每条通知的 override_pause_level 组合，在勿扰模式下实现有选择的显示。
 
 # INSTALL
 
@@ -118,4 +118,3 @@ Key features include history navigation (pop the most recent notification from h
 # SEE ALSO
 
 [dunst](/man/dunst)(1), [dunstify](/man/dunstify)(1), [notify-send](/man/notify-send)(1)
-

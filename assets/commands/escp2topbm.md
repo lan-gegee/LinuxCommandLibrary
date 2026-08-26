@@ -1,10 +1,10 @@
 # TAGLINE
 
-Epson ESC/P2 to PBM format converter
+Epson ESC/P2 到 PBM 格式的转换器
 
 # TLDR
 
-**Convert ESCP2 to PBM**
+**将 ESCP2 转换为 PBM**
 
 ```escp2topbm < [input.escp2] > [output.pbm]```
 
@@ -14,13 +14,13 @@ Epson ESC/P2 to PBM format converter
 
 # DESCRIPTION
 
-**escp2topbm** reads an Epson ESC/P2 printer data stream and writes the graphics it contains as a PBM (Portable Bitmap) image on standard output. If no file is given it reads from standard input. It is part of the Netpbm image processing toolkit.
+**escp2topbm** 读取 Epson ESC/P2 打印机数据流，并将其中的图形作为 PBM（Portable Bitmap）图像写到标准输出。如果未指定文件，则从标准输入读取。它是 Netpbm 图像处理工具集的一部分。
 
-ESC/P2 is Epson's enhanced printer control language, widely used in dot-matrix and inkjet printers. escp2topbm extracts the bitmap raster embedded in such a stream, which lets you recover or inspect the image that would have been printed. It is essentially the inverse of pbmtoepson.
+ESC/P2 是 Epson 增强型打印机控制语言，广泛用于点阵打印机和喷墨打印机。escp2topbm 会提取此类数据流中嵌入的位图光栅数据，让你能够恢复或查看本应被打印出来的图像。它本质上是 pbmtoepson 的逆操作。
 
 # PARAMETERS
 
-escp2topbm defines no options of its own; it accepts the options common to all Netpbm programs, such as **-plain** and **-quiet** (the common **-plain** option had no effect before Netpbm 10.72).
+escp2topbm 自身不定义任何选项；它接受所有 Netpbm 程序通用的选项，例如 **-plain** 和 **-quiet**（在 Netpbm 10.72 之前，通用的 **-plain** 选项不起作用）。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ escp2topbm defines no options of its own; it accepts the options common to all N
 ```[Documentation](https://netpbm.sourceforge.net/doc/escp2topbm.html)```
 
 <!-- verified: 2026-07-14 -->
-

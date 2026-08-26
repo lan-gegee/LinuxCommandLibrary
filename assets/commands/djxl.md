@@ -1,30 +1,30 @@
 # TAGLINE
 
-JPEG XL decoder to multiple formats
+JPEG XL 解码器，支持多种输出格式
 
 # TLDR
 
-**Decode JPEG XL** to PNG
+**将 JPEG XL 解码**为 PNG
 
 ```djxl [image.jxl] [output.png]```
 
-**Decode to JPEG**
+**解码为 JPEG**
 
 ```djxl [image.jxl] [output.jpg]```
 
-**Decode to PPM**
+**解码为 PPM**
 
 ```djxl [image.jxl] [output.ppm]```
 
-**Show image info** only
+**仅显示图片信息**
 
 ```djxl --info [image.jxl]```
 
-**Decode with specific** number of threads
+**以指定线程数解码**
 
 ```djxl --num_threads [4] [image.jxl] [output.png]```
 
-**Decode specific frame** from animation
+**从动画中解码指定帧**
 
 ```djxl --frame [5] [animation.jxl] [frame5.png]```
 
@@ -35,44 +35,44 @@ JPEG XL decoder to multiple formats
 # PARAMETERS
 
 _INPUT_
-> JPEG XL file to decode.
+> 要解码的 JPEG XL 文件。
 
 _OUTPUT_
-> Output file (format inferred from extension).
+> 输出文件（格式由扩展名推断）。
 
 **--info**
-> Show image information only.
+> 仅显示图片信息。
 
 **--num_threads** _N_
-> Number of decoding threads.
+> 解码线程数。
 
 **--frame** _N_
-> Extract specific frame from animation.
+> 从动画中提取指定帧。
 
 **--jpeg**
-> Reconstruct exact JPEG if losslessly recompressed.
+> 若原始 JPEG 经无损重压缩，则精确重建原 JPEG。
 
 **--bits_per_sample** _N_
-> Output bit depth.
+> 输出位深。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**djxl** is the reference JPEG XL decoder, converting JPEG XL images to other formats. It's part of the libjxl reference implementation and supports all JPEG XL features including animation, HDR, and lossless JPEG reconstruction.
+**djxl** 是参考实现的 JPEG XL 解码器，可将 JPEG XL 图像转换为其他格式。它属于 libjxl 参考实现，支持包括动画、HDR 和无损 JPEG 重建在内的全部 JPEG XL 特性。
 
-JPEG XL files created by losslessly recompressing JPEG can be decoded back to the exact original JPEG bytes using the --jpeg flag. This allows JPEG XL to serve as a reversible compression layer.
+对于由 JPEG 无损重压缩而来的 JPEG XL 文件，可以使用 --jpeg 标志解码回与原始字节完全一致的 JPEG。这使 JPEG XL 可以作为一层可逆的压缩方案。
 
-The decoder supports various output formats with automatic format detection based on file extension, and can extract metadata and individual frames from animated images.
+解码器支持多种输出格式，可根据文件扩展名自动识别格式，还能提取动画图像中的元数据和单个帧。
 
 # CAVEATS
 
-Output format support depends on build configuration. Some HDR features may require specific output formats. JPEG reconstruction requires original was losslessly compressed. Large images may use significant memory.
+输出格式的支持情况取决于编译配置。部分 HDR 特性可能需要特定的输出格式。JPEG 重建要求原图经过无损压缩。大图可能占用大量内存。
 
 # HISTORY
 
-djxl is part of the **libjxl** reference implementation of JPEG XL, developed by the **JPEG Committee** with contributions from Google. JPEG XL was standardized in **2022** as a next-generation image format combining features from Google's PIK and Cloudinary's FUIF.
+djxl 是 JPEG XL 的 **libjxl** 参考实现的一部分，由 **JPEG 委员会**主导开发并有 Google 参与。JPEG XL 于 **2022 年**标准化，是融合了 Google PIK 和 Cloudinary FUIF 特性的新一代图像格式。
 
 # INSTALL
 

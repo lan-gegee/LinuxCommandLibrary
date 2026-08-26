@@ -1,14 +1,14 @@
 # TAGLINE
 
-re-enable frozen pipeline stages
+重新启用已冻结的流水线阶段
 
 # TLDR
 
-**Unfreeze a stage**
+**解冻一个阶段**
 
 ```dvc unfreeze [stage_name]```
 
-**Unfreeze all stages in file**
+**解冻文件中的所有阶段**
 
 ```dvc unfreeze [dvc.yaml]```
 
@@ -18,7 +18,7 @@ re-enable frozen pipeline stages
 
 # DESCRIPTION
 
-**dvc unfreeze** unfreezes previously frozen pipeline stages, allowing them to be executed again during dvc repro.
+**dvc unfreeze** 解除之前冻结的流水线阶段，使其可以在 dvc repro 期间再次执行。
 
 # INSTALL
 
@@ -31,4 +31,3 @@ re-enable frozen pipeline stages
 # SEE ALSO
 
 [dvc-freeze](/man/dvc-freeze)(1)
-

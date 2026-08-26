@@ -1,30 +1,30 @@
 # TAGLINE
 
-remove a PostgreSQL database
+删除 PostgreSQL 数据库
 
 # TLDR
 
-**Drop a database**
+**删除数据库**
 
 ```dropdb [database_name]```
 
-**Drop with confirmation** prompt
+**删除前弹出确认**提示
 
 ```dropdb -i [database_name]```
 
-**Drop on remote** host
+在**远程主机上删除**
 
 ```dropdb -h [hostname] -p [5432] [database_name]```
 
-**Drop as specific** user
+以**指定用户**身份删除
 
 ```dropdb -U [username] [database_name]```
 
-**Drop if exists** (no error if missing)
+**存在才删除**（不存在时不报错）
 
 ```dropdb --if-exists [database_name]```
 
-**Force disconnect** active connections
+**强制断开**活动连接
 
 ```dropdb --force [database_name]```
 
@@ -35,59 +35,59 @@ remove a PostgreSQL database
 # PARAMETERS
 
 _DBNAME_
-> Database name to drop.
+> 要删除的数据库名。
 
 **-h**, **--host** _HOST_
-> Server hostname.
+> 服务器主机名。
 
 **-p**, **--port** _PORT_
-> Server port.
+> 服务器端口。
 
 **-U**, **--username** _USER_
-> Connect as user.
+> 以该用户身份连接。
 
 **-i**, **--interactive**
-> Prompt before drop.
+> 删除前提示确认。
 
 **--if-exists**
-> Don't error if database doesn't exist.
+> 数据库不存在时不报错。
 
 **--force**
-> Terminate existing connections.
+> 终止已有连接。
 
 **-w**, **--no-password**
-> Never prompt for password.
+> 从不提示输入密码。
 
 **-W**, **--password**
-> Force password prompt.
+> 强制提示输入密码。
 
 **--maintenance-db** _dbname_
-> Database to connect to for issuing the drop (default: postgres).
+> 用于执行删除操作的连接数据库（默认：postgres）。
 
 **-e**, **--echo**
-> Show SQL command executed.
+> 显示执行的 SQL 命令。
 
 **-V**, **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dropdb** is a PostgreSQL utility that removes a database. It's a wrapper around the SQL DROP DATABASE command, providing a convenient command-line interface for database deletion.
+**dropdb** 是一个用于删除数据库的 PostgreSQL 实用工具。它是 SQL DROP DATABASE 命令的封装，为数据库删除提供了便捷的命令行界面。
 
-The tool connects to the postgres database to execute the drop. The --force option terminates existing connections to the target database, allowing deletion of databases with active sessions.
+该工具连接到 postgres 数据库来执行删除。--force 选项会终止与目标数据库的现有连接，从而允许删除仍有活动会话的数据库。
 
-dropdb requires appropriate privileges - typically superuser or database owner permissions.
+dropdb 需要相应的权限——通常是超级用户或数据库所有者权限。
 
 # CAVEATS
 
-Irreversible operation. Cannot drop database with active connections without --force. Requires superuser or owner privileges. Cannot drop template databases.
+不可逆操作。没有 --force 时无法删除有活动连接的数据库。需要超级用户或所有者权限。无法删除模板数据库。
 
 # HISTORY
 
-dropdb is part of the **PostgreSQL** client utilities, providing command-line database administration since PostgreSQL's early releases. It simplifies common administrative tasks without requiring direct SQL.
+dropdb 是 **PostgreSQL** 客户端实用工具的一部分，自 PostgreSQL 早期版本起就提供命令行数据库管理功能。它简化了常见的管理任务，无需直接编写 SQL。
 
 # INSTALL
 

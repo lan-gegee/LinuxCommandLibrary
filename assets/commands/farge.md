@@ -1,26 +1,26 @@
 # TAGLINE
 
-screen color picker for X11 and Wayland
+X11 和 Wayland 屏幕取色器
 
 # TLDR
 
-Display **preview** and copy hexadecimal value
+显示**预览**并复制十六进制颜色值
 
 ```farge```
 
-Copy hex value **without** preview
+复制十六进制颜色值，**不显示**预览
 
 ```farge --no-preview```
 
-**Output** hex value to stdout
+将十六进制颜色值**输出**到 stdout
 
 ```farge --stdout```
 
-Output **RGB** value to stdout
+输出 **RGB** 值到 stdout
 
 ```farge --rgb --stdout```
 
-Display as **notification** with expiry time
+以**通知**形式显示并指定过期时间
 
 ```farge --notify --expire-time [5000]```
 
@@ -30,30 +30,30 @@ Display as **notification** with expiry time
 
 # DESCRIPTION
 
-**farge** picks and displays the color of a specific pixel on the screen. It can output colors in hexadecimal or RGB format and copies the value to the clipboard.
+**farge** 选取并显示屏幕上特定像素的颜色。它可以以十六进制或 RGB 格式输出颜色，并将值复制到剪贴板。
 
-Useful for designers and developers to quickly sample colors from anywhere on screen.
+适合设计者和开发者快速从屏幕任意位置采样颜色。
 
 # PARAMETERS
 
 **--no-preview**
-> Don't show preview window
+> 不显示预览窗口
 
 **--stdout**
-> Output to stdout
+> 输出到 stdout
 
 **--rgb**
-> Output as RGB format
+> 以 RGB 格式输出
 
 **--notify**
-> Show as notification
+> 以通知形式显示
 
 **--expire-time** _ms_
-> Notification expiry time in milliseconds
+> 通知过期时间（毫秒）
 
 # CAVEATS
 
-Requires clipboard and notification tools. Works on X11 and Wayland with appropriate backends.
+需要剪贴板和通知工具。借助相应的后端可在 X11 和 Wayland 上工作。
 
 # INSTALL
 
@@ -62,4 +62,3 @@ Requires clipboard and notification tools. Works on X11 and Wayland with appropr
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

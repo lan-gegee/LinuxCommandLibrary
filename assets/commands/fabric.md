@@ -1,30 +1,30 @@
 # TAGLINE
 
-Python SSH automation and deployment tool
+Python SSH 自动化与部署工具
 
 # TLDR
 
-**Run a shell command on a remote host**
+在远程主机上执行 shell 命令
 
 ```fab -H [host] -- [command]```
 
-**Run a task defined in fabfile.py**
+运行 fabfile.py 中定义的任务
 
 ```fab [taskname]```
 
-**Run a task on a specific host**
+在指定主机上运行任务
 
 ```fab -H [user@host] [taskname]```
 
-**List all available tasks**
+列出所有可用任务
 
 ```fab --list```
 
-**Run a task using a specific SSH key**
+使用指定 SSH 密钥运行任务
 
 ```fab -i [~/.ssh/key] -H [host] [taskname]```
 
-**Show detailed help for a specific task**
+显示指定任务的详细帮助
 
 ```fab -d [taskname]```
 
@@ -35,37 +35,37 @@ Python SSH automation and deployment tool
 # PARAMETERS
 
 **-H**, **--hosts** _hosts_
-> Comma-separated host list.
+> 以逗号分隔的主机列表。
 
 **-i** _key_
-> SSH identity file.
+> SSH 身份认证文件。
 
 **-u**, **--user** _user_
-> SSH username.
+> SSH 用户名。
 
 **-l**, **--list**
-> List available tasks.
+> 列出可用任务。
 
 **-p**, **--password**
-> Prompt for SSH password.
+> 提示输入 SSH 密码。
 
 **-d** _task_
-> Show task docstring.
+> 显示任务的 docstring。
 
 **--** _command_
-> Run shell command directly.
+> 直接运行 shell 命令。
 
 **-c**, **--config** _file_
-> Config file path.
+> 配置文件路径。
 
 **-r**, **--roles** _roles_
-> Roles to operate on.
+> 要操作的角色。
 
 # DESCRIPTION
 
-**Fabric** is a Python library and command-line tool for executing shell commands on remote servers over SSH. It simplifies deployment, system administration, and automation tasks.
+**Fabric** 是一个 Python 库和命令行工具，用于通过 SSH 在远程服务器上执行 shell 命令。它简化了部署、系统管理和自动化任务。
 
-Tasks are defined in a **fabfile.py** using Python. Fabric 2.x provides a cleaner API than version 1.x, with Connection objects and a simpler task decorator.
+任务用 Python 定义在 **fabfile.py** 中。Fabric 2.x 提供了比 1.x 更简洁的 API，包含 Connection 对象和更简单的 task 装饰器。
 
 # FABFILE EXAMPLE
 
@@ -85,11 +85,11 @@ def uptime(c):
 
 # CAVEATS
 
-Version 2.x is significantly different from 1.x. Requires SSH access. Python 3 required for Fabric 2+. Complex deployments may benefit from Ansible or similar tools.
+2.x 版本与 1.x 有显著差异。需要 SSH 访问权限。Fabric 2+ 需要 Python 3。复杂的部署可考虑 Ansible 或类似工具。
 
 # HISTORY
 
-Fabric was created by **Jeff Forcier** in **2009** as a simpler alternative to Capistrano for Python deployments. Version 2.0, released in **2018**, was a complete rewrite with a modernized API.
+Fabric 由 **Jeff Forcier** 于 **2009 年**创建，作为 Python 部署场景下 Capistrano 的更简替代方案。**2018 年**发布的 2.0 版本是一次彻底重写，API 全面现代化。
 
 # INSTALL
 

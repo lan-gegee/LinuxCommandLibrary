@@ -1,38 +1,38 @@
 # TAGLINE
 
-Gentoo package build interface
+Gentoo 软件包构建接口
 
 # TLDR
 
-Create/update package **manifest**
+创建/更新软件包 **manifest**
 
 ```ebuild [path/to/file.ebuild] manifest```
 
-**Clean** temporary build directories
+**清理**临时构建目录
 
 ```ebuild [path/to/file.ebuild] clean```
 
-**Fetch** sources
+**获取**源码
 
 ```ebuild [path/to/file.ebuild] fetch```
 
-**Extract** sources
+**解压**源码
 
 ```ebuild [path/to/file.ebuild] unpack```
 
-**Compile** sources
+**编译**源码
 
 ```ebuild [path/to/file.ebuild] compile```
 
-**Install** to temporary directory
+**安装**到临时目录
 
 ```ebuild [path/to/file.ebuild] install```
 
-Install to **live filesystem**
+安装到**实际文件系统**
 
 ```ebuild [path/to/file.ebuild] qmerge```
 
-**Full build** (fetch, unpack, compile, install, merge)
+**完整构建**（fetch、unpack、compile、install、merge）
 
 ```ebuild [path/to/file.ebuild] merge```
 
@@ -42,68 +42,68 @@ Install to **live filesystem**
 
 # DESCRIPTION
 
-**ebuild** is a low-level interface to the Gentoo Portage system. It processes ebuild files, which are Bash scripts describing how to build and install packages.
+**ebuild** 是 Gentoo Portage 系统的低层接口。它处理 ebuild 文件，这是一类描述如何构建和安装软件包的 Bash 脚本。
 
-The tool provides direct access to individual build phases (fetch, unpack, compile, install, merge), allowing developers to test and debug packages step-by-step. This is essential for package maintainers creating or modifying ebuilds.
+该工具提供对各个构建阶段（fetch、unpack、compile、install、merge）的直接访问，让开发者可以逐步测试和调试软件包。这对创建或修改 ebuild 的包维护者至关重要。
 
-While emerge is used for normal package management, ebuild gives fine-grained control over the build process. It's particularly useful for testing new packages before adding them to the portage tree or for manually installing custom ebuilds.
+常规的软件包管理使用 emerge，而 ebuild 则提供对构建过程的细粒度控制。它尤其适合在将新软件包加入 portage 树之前进行测试，或手动安装自定义 ebuild。
 
 # PARAMETERS
 
 **manifest**
-> Create/update package manifest
+> 创建/更新软件包 manifest
 
 **clean**
-> Remove temporary build files
+> 移除临时构建文件
 
 **fetch**
-> Download source files
+> 下载源文件
 
 **unpack**
-> Extract sources
+> 解压源码
 
 **compile**
-> Build the package
+> 构建软件包
 
 **install**
-> Install to temp directory
+> 安装到临时目录
 
 **qmerge**
-> Merge to live filesystem
+> 合并到实际文件系统
 
 **merge**
-> All steps combined
+> 所有步骤的组合
 
 **unmerge**
-> Remove from live filesystem
+> 从实际文件系统移除
 
 **setup**
-> Run pre-build setup phase
+> 运行构建前设置阶段
 
 **prepare**
-> Run source preparation (patches, etc.)
+> 运行源码准备（打补丁等）
 
 **configure**
-> Run configure phase
+> 运行 configure 阶段
 
 **test**
-> Run package tests
+> 运行软件包测试
 
 **prerm**
-> Execute pre-removal tasks
+> 执行卸载前任务
 
 **postrm**
-> Execute post-removal tasks
+> 执行卸载后任务
 
 **postinst**
-> Execute post-installation tasks
+> 执行安装后任务
 
 **digest**
-> Create manifest (legacy alias for manifest)
+> 创建 manifest（manifest 的旧别名）
 
 # CAVEATS
 
-Gentoo-specific. For normal package management, use **emerge**. Ebuild files require specific directory structure in portage tree. By default, ebuild executes all phases in order up to the specified one, skipping phases already completed in a previous invocation.
+仅限 Gentoo。常规软件包管理请使用 **emerge**。ebuild 文件需要在 portage 树中有特定的目录结构。默认情况下，ebuild 会按顺序执行从开始直到指定阶段的全部阶段，并跳过之前调用中已完成的部分。
 
 # SEE ALSO
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Linux disk encryption subsystem
+Linux 磁盘加密子系统
 
 # TLDR
 
-**Create LUKS encrypted volume**
+**创建 LUKS 加密卷**
 
 ```sudo cryptsetup luksFormat [/dev/sdX]```
 
-**Open LUKS volume**
+**打开 LUKS 卷**
 
 ```sudo cryptsetup open [/dev/sdX] [name]```
 
-**Close encrypted volume**
+**关闭加密卷**
 
 ```sudo cryptsetup close [name]```
 
-**Show LUKS header information**
+**显示 LUKS 头信息**
 
 ```sudo cryptsetup luksDump [/dev/sdX]```
 
-**Add a new key to LUKS volume**
+**向 LUKS 卷添加新密钥**
 
 ```sudo cryptsetup luksAddKey [/dev/sdX]```
 
-**Create plain dm-crypt volume**
+**创建 plain dm-crypt 卷**
 
 ```sudo cryptsetup open --type plain [/dev/sdX] [name]```
 
-**Benchmark encryption algorithms**
+**测试加密算法性能**
 
 ```cryptsetup benchmark```
 
@@ -39,51 +39,51 @@ Linux disk encryption subsystem
 # PARAMETERS
 
 **luksFormat** _device_
-> Initialize LUKS partition.
+> 初始化 LUKS 分区。
 
 **open** _device_ _name_
-> Open and map encrypted device.
+> 打开并映射加密设备。
 
 **close** _name_
-> Close mapped device.
+> 关闭已映射的设备。
 
 **luksDump** _device_
-> Display LUKS header information.
+> 显示 LUKS 头信息。
 
 **luksAddKey** _device_
-> Add new passphrase/keyfile.
+> 添加新的口令/密钥文件。
 
 **luksRemoveKey** _device_
-> Remove a passphrase.
+> 移除一个口令。
 
 **luksHeaderBackup** _device_
-> Backup LUKS header.
+> 备份 LUKS 头。
 
 **luksHeaderRestore** _device_
-> Restore LUKS header.
+> 恢复 LUKS 头。
 
 **--type** _type_
-> Encryption type: luks, luks2, plain.
+> 加密类型：luks、luks2、plain。
 
 **--cipher** _cipher_
-> Encryption cipher (aes-xts-plain64).
+> 加密算法（aes-xts-plain64）。
 
 **--key-size** _bits_
-> Key size in bits.
+> 密钥长度（位）。
 
 **--hash** _hash_
-> Hash for key derivation.
+> 用于密钥派生的哈希函数。
 
 **--key-file** _file_
-> Use keyfile instead of passphrase.
+> 使用密钥文件代替口令。
 
 # DESCRIPTION
 
-**dm-crypt** is the Linux kernel's device-mapper encryption target, providing transparent disk encryption. **cryptsetup** is the userspace tool to configure dm-crypt, typically using the LUKS (Linux Unified Key Setup) format.
+**dm-crypt** 是 Linux 内核的 device-mapper 加密目标，提供透明磁盘加密。**cryptsetup** 是配置 dm-crypt 的用户空间工具，通常使用 LUKS（Linux Unified Key Setup）格式。
 
-LUKS provides standardized on-disk format with multiple key slots, allowing multiple passphrases or keyfiles. It stores encryption metadata in a header, enabling key management without re-encrypting data.
+LUKS 提供标准化的磁盘格式，带有多个密钥槽，允许设置多个口令或密钥文件。它将加密元数据存储在头部中，无需重新加密数据即可管理密钥。
 
-Plain dm-crypt provides encryption without a header, useful for plausible deniability but requiring exact parameters to be remembered. Both modes create a mapped device in /dev/mapper/ for normal filesystem operations.
+Plain dm-crypt 提供无头部的加密方式，可实现合理否认性（plausible deniability），但必须记住确切的参数。两种模式都会在 /dev/mapper/ 中创建映射设备，可像普通文件系统一样操作。
 
 # USAGE WORKFLOW
 
@@ -103,11 +103,11 @@ sudo mount /dev/mapper/encrypted_data /mnt
 
 # CAVEATS
 
-LUKS header damage can make data unrecoverable; always backup headers. Encryption has CPU overhead (AES-NI helps significantly). SSDs may require special TRIM considerations. Forgotten passphrases mean permanent data loss.
+LUKS 头损坏可能导致数据无法恢复；务必备份头部。加密有 CPU 开销（AES-NI 可显著缓解）。SSD 可能需要特殊的 TRIM 处理。忘记口令意味着数据永久丢失。
 
 # HISTORY
 
-dm-crypt was merged into the Linux kernel in version **2.6** (2004). **LUKS** was designed by **Clemens Fruhwirth** in **2004** to standardize Linux disk encryption. LUKS2, released in **2017**, added modern key derivation (Argon2), authenticated encryption, and larger metadata areas.
+dm-crypt 于内核 **2.6** 版本（2004 年）合入 Linux 内核。**LUKS** 由 **Clemens Fruhwirth** 于 **2004 年**设计，旨在标准化 Linux 磁盘加密。**2017 年**发布的 LUKS2 引入了现代密钥派生（Argon2）、认证加密和更大的元数据区域。
 
 # SEE ALSO
 

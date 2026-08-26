@@ -1,26 +1,26 @@
 # TAGLINE
 
-stage table changes for commit
+暂存表变更以待提交
 
 # TLDR
 
-**Stage all changes**
+**暂存所有变更**
 
 ```dolt add .```
 
-**Stage a specific table**
+**暂存指定的表**
 
 ```dolt add [table_name]```
 
-**Stage multiple tables**
+**暂存多个表**
 
 ```dolt add [table1] [table2]```
 
-**Stage everything**, equivalent to `.`
+**暂存全部内容**，相当于 `.`
 
 ```dolt add -A```
 
-**Stage a table that is ignored** by `dolt_ignore`
+**暂存被 `dolt_ignore` 忽略的表**
 
 ```dolt add --force [table_name]```
 
@@ -31,22 +31,22 @@ stage table changes for commit
 # PARAMETERS
 
 **-A**, **--all**
-> Stage any and all changes (adds, deletes, and modifications), except for ignored tables.
+> 暂存一切变更（新增、删除和修改），被忽略的表除外。
 
 **-f**, **--force**
-> Allow adding otherwise ignored tables.
+> 允许添加原本会被忽略的表。
 
 # DESCRIPTION
 
-**dolt add** stages table changes for the next commit. Where `git add` operates on files, `dolt add` stages database tables whose rows or schema have been modified, added, or dropped.
+**dolt add** 将表变更暂存，等待下一次提交。`git add` 操作的对象是文件，而 `dolt add` 暂存的对象是数据库表——即行或表结构被修改、新增或删除的表。
 
-The command marks tables with pending changes to be included in the next commit. Staging allows selective committing across multiple tables, the same index concept as Git's, applied to schema and data modifications instead of file contents.
+该命令标记存在待处理变更的表，将其纳入下一次提交。借助暂存，可以在多张表之间进行选择性提交——这与 Git 的索引是同一个概念，只是作用对象从文件内容变成了表结构和数据的修改。
 
-Naming tables explicitly stages only those; `.` or **-A** stages every modified table in the working set.
+显式指定表名时只暂存这些表；`.` 或 **-A** 则会暂存工作集中所有已修改的表。
 
 # CAVEATS
 
-Tables matched by the `dolt_ignore` system table are skipped even by **-A**; use **--force** to stage one anyway. Staging is only meaningful for the CLI workflow: writes made through `dolt sql-server` land directly in the working set, and depending on the session's `@@dolt_transaction_commit` setting they may be committed without ever passing through the staging area.
+被 `dolt_ignore` 系统表匹配的表即使使用 **-A** 也会被跳过；此时可用 **--force** 强制暂存。暂存仅对 CLI 工作流有意义：通过 `dolt sql-server` 执行的写入会直接进入工作集，而且根据会话的 `@@dolt_transaction_commit` 设置，这些写入可能根本不经过暂存区就被提交。
 
 # INSTALL
 
@@ -69,4 +69,3 @@ Tables matched by the `dolt_ignore` system table are skipped even by **-A**; use
 ```[Documentation](https://www.dolthub.com/docs/cli-reference/cli/)```
 
 <!-- verified: 2026-07-14 -->
-

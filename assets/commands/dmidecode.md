@@ -1,42 +1,42 @@
 # TAGLINE
 
-DMI/SMBIOS hardware information decoder
+DMI/SMBIOS 硬件信息解码工具
 
 # TLDR
 
-**Show all DMI table contents**
+**显示全部 DMI 表内容**
 
 ```sudo dmidecode```
 
-**Show the BIOS version**
+**显示 BIOS 版本**
 
 ```sudo dmidecode -s bios-version```
 
-**Show the system serial number**
+**显示系统序列号**
 
 ```sudo dmidecode -s system-serial-number```
 
-**Show BIOS information**
+**显示 BIOS 信息**
 
 ```sudo dmidecode -t bios```
 
-**Show CPU information**
+**显示 CPU 信息**
 
 ```sudo dmidecode -t processor```
 
-**Show memory information**
+**显示内存信息**
 
 ```sudo dmidecode -t memory```
 
-**Show system manufacturer and product name**
+**显示系统制造商和产品名称**
 
 ```sudo dmidecode -t system```
 
-**Dump DMI data to a binary file**
+**将 DMI 数据转储到二进制文件**
 
 ```sudo dmidecode --dump-bin [output.bin]```
 
-**List available string keywords**
+**列出可用的字符串关键字**
 
 ```dmidecode --list-strings```
 
@@ -46,64 +46,64 @@ DMI/SMBIOS hardware information decoder
 
 # DESCRIPTION
 
-**dmidecode** reads the DMI (Desktop Management Interface) table, also known as SMBIOS (System Management BIOS), and displays hardware information in a human-readable format. This includes details about the BIOS, system, baseboard, chassis, processor, memory, cache, connectors, and slots.
+**dmidecode** 读取 DMI（Desktop Management Interface）表，也称 SMBIOS（System Management BIOS），并以人类可读的格式显示硬件信息。内容涵盖 BIOS、系统、主板、机箱、处理器、内存、缓存、连接器和插槽等细节。
 
-The DMI data is read from /dev/mem or sysfs, depending on system availability.
+DMI 数据从 /dev/mem 或 sysfs 读取，取决于系统的可用情况。
 
 # PARAMETERS
 
 **-s**, **--string** _keyword_
-> Only display the value of a specific DMI string (e.g., bios-vendor, bios-version, system-serial-number, system-uuid, processor-version, processor-frequency).
+> 仅显示特定 DMI 字符串的值（如 bios-vendor、bios-version、system-serial-number、system-uuid、processor-version、processor-frequency）。
 
 **--list-strings**
-> List all valid string keywords for use with -s.
+> 列出可与 -s 搭配使用的全部有效字符串关键字。
 
 **-t**, **--type** _type_
-> Only display entries of specified type. Can be a number, comma-separated list, or keyword (bios, system, baseboard, chassis, processor, memory, cache, connector, slot).
+> 仅显示指定类型的条目。可以是数字、逗号分隔的列表，或关键字（bios、system、baseboard、chassis、processor、memory、cache、connector、slot）。
 
 **--list-types**
-> List all valid type keywords for use with -t.
+> 列出可与 -t 搭配使用的全部有效类型关键字。
 
 **-H**, **--handle** _handle_
-> Only display the entry matching the specified 16-bit handle value.
+> 仅显示匹配指定 16 位句柄值的条目。
 
 **-q**, **--quiet**
-> Less verbose output; suppresses unknown, inactive, and OEM-specific entries.
+> 减少输出；省略未知、未启用及 OEM 特有的条目。
 
 **-u**, **--dump**
-> Show raw DMI data as hexadecimal.
+> 以十六进制显示原始 DMI 数据。
 
 **--dump-bin** _file_
-> Dump DMI data to a binary file for later use with --from-dump.
+> 将 DMI 数据转储到二进制文件，供之后用 --from-dump 读取。
 
 **--from-dump** _file_
-> Read DMI data from a previously saved binary dump file.
+> 从先前保存的二进制转储文件读取 DMI 数据。
 
 **--no-quirks**
-> Decode table contents precisely without applying workarounds for common firmware bugs.
+> 精确解码表内容，不对常见固件 bug 应用规避措施。
 
 **--no-sysfs**
-> Do not attempt to read DMI data from sysfs files.
+> 不尝试从 sysfs 文件读取 DMI 数据。
 
 **-d**, **--dev-mem** _file_
-> Read memory from a device file other than /dev/mem.
+> 从 /dev/mem 以外的设备文件读取内存。
 
 **--oem-string** _N_
-> Display OEM string number N, or use "count" to show the total.
+> 显示第 N 条 OEM 字符串，或使用 "count" 显示总数。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Display version.
+> 显示版本。
 
 # CAVEATS
 
-Requires root privileges. Information accuracy depends on the BIOS/firmware implementation. Only works on x86 and x86_64 systems with SMBIOS-compliant firmware. The options **-s**, **-t**, and **--dump-bin** are mutually exclusive.
+需要 root 权限。信息准确性取决于 BIOS/固件的实现。仅适用于带符合 SMBIOS 标准固件的 x86 和 x86_64 系统。选项 **-s**、**-t** 和 **--dump-bin** 互斥。
 
 # HISTORY
 
-**dmidecode** was written by **Alan Cox** and is currently maintained by **Jean Delvare**. It provides a standardized way to access system hardware information through the SMBIOS standard on x86 and x86_64 systems.
+**dmidecode** 由 **Alan Cox** 编写，目前由 **Jean Delvare** 维护。它通过 SMBIOS 标准为 x86 和 x86_64 系统提供了访问系统硬件信息的标准化途径。
 
 # INSTALL
 

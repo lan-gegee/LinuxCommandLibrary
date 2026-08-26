@@ -1,38 +1,38 @@
 # TAGLINE
 
-initramfs image generator
+initramfs 镜像生成器
 
 # TLDR
 
-Generate initramfs for **current kernel**
+为**当前内核**生成 initramfs
 
 ```dracut```
 
-Generate and **overwrite** existing
+生成并**覆盖**已有镜像
 
 ```dracut -f```
 
-Generate for **specific kernel**
+为**指定内核**生成
 
 ```dracut --kver [kernel_version]```
 
-**List** available modules
+**列出**可用模块
 
 ```dracut --list-modules```
 
-**Rebuild every** installed kernel's initramfs
+为所有已安装内核**重建** initramfs
 
 ```dracut --regenerate-all -f```
 
-Build a **generic** image that boots on any hardware
+构建可在任何硬件上启动的**通用**镜像
 
 ```dracut -f --no-hostonly [/boot/initramfs-rescue.img]```
 
-Show which **kernel command line** the image expects
+显示镜像期望的**内核命令行**
 
 ```dracut --print-cmdline```
 
-Add an extra **module and driver**
+添加额外的**模块与驱动**
 
 ```dracut -f --add [crypt] --add-drivers [nvme]```
 
@@ -42,100 +42,100 @@ Add an extra **module and driver**
 
 # DESCRIPTION
 
-**dracut** builds an initramfs: the small root filesystem the kernel unpacks into memory and runs before the real root is available. Its job is to load whatever is needed to *find* and mount the real root, which may mean assembling an LVM volume group, unlocking a LUKS device, starting a RAID array, or bringing up the network for an NFS or iSCSI root.
+**dracut** 用于构建 initramfs：这是内核解包进内存并在真正的根文件系统可用之前运行的小型根文件系统。它的任务是加载查找并挂载真正根文件系统所需的一切，这可能意味着组装 LVM 卷组、解锁 LUKS 设备、启动 RAID 阵列，或为 NFS/iSCSI 根建立网络连接。
 
-Where older generators used hand-written scripts, dracut is event-driven: it populates the image with **udev** rules and systemd units, and the boot proceeds as devices appear rather than by polling in a fixed order. The image content comes from **dracut modules**, small shells of scripts and dependencies under `/usr/lib/dracut/modules.d/`, which are selected automatically from what the running system needs and can be forced in or out with **--add** and **--omit**.
+较老的生成器使用手写脚本，而 dracut 是事件驱动的：它在镜像中填充 **udev** 规则和 systemd 单元，启动过程随设备出现而推进，而不是按固定顺序轮询。镜像内容来自 **dracut 模块**，即位于 `/usr/lib/dracut/modules.d/` 下的一组脚本及其依赖的小集合；模块根据运行系统的需要自动选择，也可用 **--add** 和 **--omit** 强制启用或排除。
 
-The most consequential choice is **host-only** mode. With **-H** the image contains only the drivers and modules this specific machine needs to boot, which is small and fast; most distributions default to it. A **--no-hostonly** image includes far more and will boot on hardware other than the one that built it, which is what you want for a rescue image or for an image built inside a container or chroot.
+最重要的选择是 **host-only** 模式。使用 **-H** 时，镜像只包含这台特定机器启动所需的驱动和模块，体积小且速度快；多数发行版默认采用此模式。**--no-hostonly** 镜像包含的内容多得多，能在构建它的机器之外的其他硬件上启动——救援镜像或在容器/chroot 内构建的镜像正需要这种方式。
 
 # PARAMETERS
 
 **-f**, **--force**
-> Overwrite an existing image.
+> 覆盖已有的镜像。
 
 **--kver** _VERSION_
-> Build for a specific kernel version rather than the running one.
+> 为指定的内核版本而非当前运行的内核构建。
 
 **--regenerate-all**
-> Rebuild the initramfs for every installed kernel.
+> 为每个已安装内核重建 initramfs。
 
 **-a**, **--add** _MODULES_
-> Add dracut modules on top of the automatically selected set.
+> 在自动选择的集合之上追加 dracut 模块。
 
 **-o**, **--omit** _MODULES_
-> Leave dracut modules out.
+> 排除指定的 dracut 模块。
 
 **--force-add** _MODULES_
-> Add modules even if they would otherwise be omitted.
+> 即使模块本会被排除，也强制加入。
 
 **-m**, **--modules** _MODULES_
-> Use exactly these dracut modules and nothing else.
+> 只使用这些 dracut 模块，不用其他任何模块。
 
 **--add-drivers** _MODULES_ / **--omit-drivers** _MODULES_
-> Add or exclude specific *kernel* modules (drivers).
+> 添加或排除特定的*内核*模块（驱动）。
 
 **-d**, **--drivers** _MODULES_
-> Include exactly these kernel modules.
+> 只包含这些内核模块。
 
 **-H**, **--hostonly** / **-N**, **--no-hostonly**
-> Build a host-specific image, or a generic one that boots on other hardware.
+> 构建针对本机的镜像，或可在其他硬件上启动的通用镜像。
 
 **--list-modules** / **-M**, **--show-modules**
-> List the available dracut modules, or print the ones being included during a build.
+> 列出可用的 dracut 模块，或打印构建过程中将要包含的模块。
 
 **--print-cmdline**
-> Print the kernel command line parameters this system's root setup requires.
+> 打印本系统根文件系统配置所需的内核命令行参数。
 
 **--kernel-cmdline** _PARAMS_
-> Embed default kernel command line parameters in the image.
+> 在镜像中嵌入默认的内核命令行参数。
 
 **-I**, **--install** _FILES_
-> Install extra files into the image, resolving their library dependencies.
+> 将额外文件安装进镜像，并解析其库依赖。
 
 **--include** _SRC_ _TARGET_
-> Copy a file or directory into the image at a given path.
+> 将文件或目录复制到镜像内的指定路径。
 
 **--fstab**
-> Use `/etc/fstab` rather than `/proc/self/mountinfo` to work out the mounts.
+> 使用 `/etc/fstab` 而非 `/proc/self/mountinfo` 来确定挂载。
 
 **--uefi**
-> Produce a UEFI executable combining kernel, initramfs, and command line.
+> 生成结合内核、initramfs 和命令行的 UEFI 可执行文件。
 
 **--gzip** / **--xz** / **--zstd** / **--no-compress**
-> Choose the compression algorithm, or skip compression entirely.
+> 选择压缩算法，或完全不压缩。
 
 **--sysroot** _DIR_
-> Build against another root directory, for cross-building or installers.
+> 基于另一个根目录构建，用于交叉构建或安装器场景。
 
 **-v**, **--verbose** / **-q**, **--quiet**
-> Raise or lower the verbosity.
+> 提高或降低输出详细程度。
 
 # CONFIGURATION
 
 **/etc/dracut.conf**
-> Main configuration file for dracut behavior and module selection.
+> dracut 行为与模块选择的主配置文件。
 
 **/etc/dracut.conf.d/**
-> Directory for additional configuration files.
+> 存放附加配置文件的目录。
 
 **/usr/lib/dracut/dracut.conf.d/**
-> System-wide dracut configuration directory.
+> 全系统范围的 dracut 配置目录。
 
 # CAVEATS
 
-A bad initramfs makes the machine unbootable, and you will not find out until the next reboot. Always keep the previous kernel and its image installed, so the boot menu still offers a way in, and prefer `dracut -f` on a spare image name over overwriting the one you are currently running from.
+损坏的 initramfs 会让机器无法启动，而且直到下次重启你才会发现问题。请始终保留上一个内核及其镜像，使引导菜单中仍有进入系统的途径；并且宁可把 `dracut -f` 用在备用镜像名上，也不要覆盖你正在运行的镜像。
 
-**Host-only images are not portable.** An image built with **-H** on one machine, in a container, or in a chroot may lack the drivers needed on the target and drop you into the emergency shell. Build with **--no-hostonly** whenever the image will boot hardware other than the machine that produced it.
+**Host-only 镜像不可移植。**在一台机器上、容器内或 chroot 中用 **-H** 构建的镜像可能缺少目标硬件所需的驱动，导致你落入 emergency shell。只要镜像要在构建它的机器之外的硬件上启动，就应使用 **--no-hostonly** 构建。
 
-`--print-cmdline` is worth running before switching bootloader configuration: an image can only find the root filesystem if the kernel command line tells it where to look, and a missing `rd.luks.uuid` or `rd.lvm.lv` fails at exactly the point where debugging is hardest.
+切换引导程序配置前值得先运行 `--print-cmdline`：只有当内核命令行告诉镜像去哪里找根文件系统时，它才能找到；缺少 `rd.luks.uuid` 或 `rd.lvm.lv` 时，失败恰好发生在最难调试的地方。
 
-Historically dracut was the Fedora/RHEL/SUSE generator while Debian and Ubuntu used **initramfs-tools**, but Debian and Ubuntu now package dracut as an alternative, and it is no longer a Red Hat-only tool.
+历史上，dracut 是 Fedora/RHEL/SUSE 的生成器，而 Debian 和 Ubuntu 使用 **initramfs-tools**；但如今 Debian 和 Ubuntu 也打包了 dracut 作为替代方案，它不再是 Red Hat 独有的工具。
 
 # HISTORY
 
-dracut was started around **2008** by Harald Hoyer and others at Red Hat to replace `mkinitrd`, whose generated images were an unmaintainable tangle of distribution-specific shell script. The design goal was to keep as little logic as possible in the initramfs itself and let udev events drive the boot, so that one generator could serve every distribution instead of each rolling its own. Fedora, RHEL, and SUSE adopted it, and it became the de facto standard.
+dracut 由 Red Hat 的 Harald Hoyer 等人于 **2008 年**前后启动，用来取代 `mkinitrd`——后者生成的镜像是发行版专属 shell 脚本的纠缠体，难以维护。其设计目标是让 initramfs 自身只保留尽可能少的逻辑，由 udev 事件驱动启动过程，这样一个生成器就能服务于所有发行版，而不是各发行版各自造轮子。Fedora、RHEL 和 SUSE 相继采用，使其成为事实上的标准。
 
-In **March 2024** development moved to **dracut-ng**, a coordinated fork involving the previous maintainer along with several distributions, after the original repository stalled. dracut-ng is where releases now come from, and distributions have followed it.
+**2024 年 3 月**，由于原仓库停滞，开发工作迁移到了 **dracut-ng**——这是一个由前任维护者联合多个发行版共同参与的协作分支。现在的发布都来自 dracut-ng，各发行版也已跟进。
 
 # INSTALL
 
@@ -164,4 +164,3 @@ In **March 2024** development moved to **dracut-ng**, a coordinated fork involvi
 ```[Homepage](https://dracut-ng.github.io/)```
 
 <!-- verified: 2026-07-14 -->
-

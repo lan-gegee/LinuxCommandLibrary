@@ -1,26 +1,26 @@
 # TAGLINE
 
-trace exec() system calls system-wide
+系统级跟踪 exec() 系统调用
 
 # TLDR
 
-Trace **all** program executions on the system
+跟踪系统上**所有**程序的执行
 
 ```sudo extrace```
 
-Trace **descendants** of a command only
+只跟踪某个命令的**后代**进程
 
 ```sudo extrace [command]```
 
-Print current working **directory** of each process
+打印每个进程的当前工作**目录**
 
 ```sudo extrace -d```
 
-Resolve **full path** of each executable
+解析每个可执行文件的**完整路径**
 
 ```sudo extrace -l```
 
-Display **user** running each process
+显示运行每个进程的**用户**
 
 ```sudo extrace -u```
 
@@ -30,44 +30,44 @@ Display **user** running each process
 
 # DESCRIPTION
 
-**extrace** traces exec() system calls system-wide to monitor program execution on Linux. It captures every time a program is executed, displaying the command line, process hierarchy, and optionally the user, working directory, and environment variables.
+**extrace** 在整个系统范围内跟踪 exec() 系统调用，以监控 Linux 上的程序执行。它捕获每一次程序执行，显示命令行、进程层级，并可选地显示用户、工作目录和环境变量。
 
-Unlike strace which traces individual processes, extrace monitors all execution activity on the system or within a specific process tree. It's particularly useful for security auditing to detect suspicious process execution, debugging complex scripts that spawn multiple subprocesses, and understanding system behavior during package installations or automated tasks.
+与跟踪单个进程的 strace 不同，extrace 监控整个系统或特定进程树内的所有执行活动。它特别适合安全审计（检测可疑的进程执行）、调试派生多个子进程的复杂脚本，以及了解软件包安装或自动化任务期间的系统行为。
 
-The tool subscribes to the Linux kernel's netlink process connector (requires **CONFIG_CONNECTOR** and **CONFIG_PROC_EVENTS**) to receive exec notifications, so it captures activity without attaching a debugger to each process.
+该工具订阅 Linux 内核的 netlink 进程连接器（需要 **CONFIG_CONNECTOR** 和 **CONFIG_PROC_EVENTS**）来接收 exec 通知，因此无需向每个进程附加调试器即可捕获活动。
 
 # PARAMETERS
 
 **-d**
-> Print the working directory of each process
+> 打印每个进程的工作目录
 
 **-e**
-> Print the process environment (or '-' if unreadable)
+> 打印进程环境（不可读时显示 '-'）
 
 **-f**
-> Flat output, without tree indentation
+> 扁平输出，不带树状缩进
 
 **-l**
-> Resolve and show the full path of the executable
+> 解析并显示可执行文件的完整路径
 
 **-q**
-> Quiet; suppress printing of exec() arguments
+> 安静模式；不打印 exec() 的参数
 
 **-t**
-> Print exit status and duration of each process
+> 打印每个进程的退出状态和持续时间
 
 **-u**
-> Display the user running each process
+> 显示运行每个进程的用户
 
 **-o** _file_
-> Write trace output to _file_
+> 将跟踪输出写入 _file_
 
 **-p** _pid_
-> Trace only descendants of the given PID
+> 只跟踪指定 PID 的后代进程
 
 # CAVEATS
 
-Requires root privileges and a kernel built with the process connector enabled. Linux-only. May impact system performance when tracing heavily.
+需要 root 权限以及启用了进程连接器的内核。仅限 Linux。大量跟踪时可能影响系统性能。
 
 # INSTALL
 

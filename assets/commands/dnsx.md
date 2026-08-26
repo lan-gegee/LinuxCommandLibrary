@@ -1,34 +1,34 @@
 # TAGLINE
 
-fast multi-purpose DNS toolkit
+快速的多用途 DNS 工具包
 
 # TLDR
 
-**Resolve A records** for domains
+**解析域名的 A 记录**
 
 ```cat [domains.txt] | dnsx -a```
 
-**Resolve multiple** record types
+**解析多种**记录类型
 
 ```cat [domains.txt] | dnsx -a -aaaa -mx -ns```
 
-**Resolve with** custom resolver
+使用自定义解析器**解析**
 
 ```cat [domains.txt] | dnsx -r [8.8.8.8]```
 
-**Output in JSON** format
+以 **JSON 格式**输出
 
 ```cat [domains.txt] | dnsx -json```
 
-**Brute force subdomains**
+**暴破子域名**
 
 ```dnsx -d [domain.com] -w [wordlist.txt]```
 
-**Reverse DNS** lookups
+**反向 DNS** 查询
 
 ```cat [ips.txt] | dnsx -ptr```
 
-**Rate limit requests**
+对请求进行**速率限制**
 
 ```cat [domains.txt] | dnsx -rate-limit [100]```
 
@@ -39,56 +39,56 @@ fast multi-purpose DNS toolkit
 # PARAMETERS
 
 **-a**
-> Query A records.
+> 查询 A 记录。
 
 **-aaaa**
-> Query AAAA records.
+> 查询 AAAA 记录。
 
 **-mx**
-> Query MX records.
+> 查询 MX 记录。
 
 **-ns**
-> Query NS records.
+> 查询 NS 记录。
 
 **-ptr**
-> Query PTR records.
+> 查询 PTR 记录。
 
 **-cname**
-> Query CNAME records.
+> 查询 CNAME 记录。
 
 **-d** _DOMAIN_
-> Target domain for subdomain brute force.
+> 用于子域名暴破的目标域名。
 
 **-w** _FILE_
-> Wordlist for brute force.
+> 用于暴破的字典文件。
 
 **-r** _RESOLVER_
-> Custom DNS resolver.
+> 自定义 DNS 解析器。
 
 **-json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-rate-limit** _N_
-> Max queries per second.
+> 每秒最大查询数。
 
 **-help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dnsx** is a fast, multi-purpose DNS toolkit designed for security reconnaissance. It runs DNS queries efficiently, supporting multiple record types, custom resolvers, and high-performance parallel execution.
+**dnsx** 是一款面向安全侦察的快速多用途 DNS 工具包。它能高效执行 DNS 查询，支持多种记录类型、自定义解析器以及高性能并行执行。
 
-The tool excels at bulk DNS operations including resolution, reverse lookups, and subdomain brute forcing. It accepts input from stdin, making it easy to integrate into reconnaissance pipelines with other tools.
+该工具擅长批量 DNS 操作，包括解析、反向查询和子域名暴破。它接受来自 stdin 的输入，因此很容易集成到与其他工具配合的侦察流水线中。
 
-dnsx supports wildcard filtering, retries, and various output formats. Its focus on performance makes it suitable for large-scale DNS enumeration tasks.
+dnsx 支持泛解析过滤、重试以及多种输出格式。其对性能的关注使它适合大规模 DNS 枚举任务。
 
 # CAVEATS
 
-High query rates may trigger rate limiting or blocks. Only perform on authorized targets. Large wordlists consume time and may be detected. DNS responses may be cached or manipulated.
+过高的查询速率可能触发速率限制或封锁。仅可对已授权的目标执行。大型字典耗时较长且可能被检测到。DNS 应答可能被缓存或篡改。
 
 # HISTORY
 
-dnsx was developed by **ProjectDiscovery**, creators of other security tools like nuclei and httpx. It was released as part of their open-source security toolkit to provide fast, reliable DNS operations for reconnaissance workflows.
+dnsx 由 **ProjectDiscovery** 开发，该公司也是 nuclei、httpx 等安全工具的开发者。它作为其开源安全工具包的一部分发布，旨在为侦察工作流提供快速可靠的 DNS 操作。
 
 # INSTALL
 

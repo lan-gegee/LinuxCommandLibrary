@@ -1,38 +1,38 @@
 # TAGLINE
 
-fast and user-friendly file finder
+快速且用户友好的文件查找工具
 
 # TLDR
 
-**Find files by name**
+**按名称查找文件**
 
 ```fdfind [pattern]```
 
-**Find with extension**
+**按扩展名查找**
 
 ```fdfind -e [txt] [pattern]```
 
-**Find directories only**
+**只查找目录**
 
 ```fdfind -t d [pattern]```
 
-**Find files only**
+**只查找文件**
 
 ```fdfind -t f [pattern]```
 
-**Search hidden files**
+**搜索隐藏文件**
 
 ```fdfind -H [pattern]```
 
-**Search specific directory**
+**在指定目录中搜索**
 
 ```fdfind [pattern] [/path/to/search]```
 
-**Execute command on results**
+**对结果执行命令**
 
 ```fdfind [pattern] -x [command]```
 
-**Case-sensitive search**
+**区分大小写搜索**
 
 ```fdfind -s [Pattern]```
 
@@ -43,41 +43,41 @@ fast and user-friendly file finder
 # PARAMETERS
 
 **-e**, **--extension** _ext_
-> Filter by extension.
+> 按扩展名过滤。
 
 **-t**, **--type** _type_
-> Filter by type (f, d, l, x).
+> 按类型过滤（f、d、l、x）。
 
 **-H**, **--hidden**
-> Include hidden files.
+> 包含隐藏文件。
 
 **-I**, **--no-ignore**
-> Don't respect ignore files.
+> 不遵守 ignore 文件。
 
 **-s**, **--case-sensitive**
-> Case-sensitive search.
+> 区分大小写搜索。
 
 **-x**, **--exec** _cmd_
-> Execute command on each result.
+> 对每个结果执行命令。
 
 **-X**, **--exec-batch** _cmd_
-> Execute command with all results.
+> 用所有结果一起执行命令。
 
 **-d**, **--max-depth** _num_
-> Maximum search depth.
+> 最大搜索深度。
 
 **-E**, **--exclude** _pattern_
-> Exclude pattern.
+> 排除匹配的模式。
 
 # DESCRIPTION
 
-**fdfind** (or fd) is a simple, fast, and user-friendly alternative to find, written in Rust. It uses regex patterns by default and respects .gitignore files, making it ideal for searching code repositories.
+**fdfind**（即 fd）是一个简单、快速且用户友好的 find 替代品，用 Rust 编写。它默认使用正则表达式模式并遵守 .gitignore 文件，非常适合搜索代码仓库。
 
-The command provides colorful output, sensible defaults that ignore hidden and gitignored files, and parallel execution for better performance. On Debian-based systems, the binary is named fdfind to avoid conflicts with another package.
+该命令提供彩色输出、忽略隐藏和被 gitignore 文件的合理默认行为，以及并行执行以获得更好的性能。在基于 Debian 的系统上，二进制文件命名为 fdfind，以避免与另一个软件包冲突。
 
 # CAVEATS
 
-Uses regex patterns by default, not glob syntax. Ignores hidden and .gitignore files unless explicitly enabled. May not cover all find use cases.
+默认使用正则表达式模式，而非 glob 语法。除非显式启用，否则会忽略隐藏和 .gitignore 文件。可能无法覆盖 find 的全部使用场景。
 
 # INSTALL
 

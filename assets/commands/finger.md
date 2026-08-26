@@ -1,26 +1,26 @@
 # TAGLINE
 
-display user information and status
+显示用户信息和状态
 
 # TLDR
 
-**Look up local** user
+**查找本地**用户
 
 ```finger [username]```
 
-**Look up remote** user
+**查找远程**用户
 
 ```finger [username]@[host]```
 
-**List all logged** in users
+**列出所有已登录的用户**
 
 ```finger```
 
-**Long format output**
+**长格式输出**
 
 ```finger -l [username]```
 
-**Short format** output
+**短格式输出**
 
 ```finger -s [username]```
 
@@ -31,41 +31,41 @@ display user information and status
 # PARAMETERS
 
 _USER_
-> Username to look up.
+> 要查询的用户名。
 
 _USER@HOST_
-> Remote user lookup.
+> 查询远程主机上的用户。
 
 **-l**
-> Long format output.
+> 长格式输出。
 
 **-s**
-> Short format output.
+> 短格式输出。
 
 **-m**
-> Match exact username only.
+> 只匹配完全相同的用户名。
 
 **-p**
-> Omit .plan and .project files.
+> 忽略 .plan 和 .project 文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**finger** displays information about system users including name, terminal, login time, and contact information. It reads from system databases and user home directories.
+**finger** 显示系统用户的信息，包括姓名、终端、登录时间和联系方式。它的数据来自系统数据库和用户主目录。
 
-Users can customize their finger output with .plan and .project files in their home directory. Remote finger queries contact the finger daemon on port 79.
+用户可以用自己主目录下的 .plan 和 .project 文件来定制 finger 的显示内容。远程 finger 查询会联系目标主机端口 79 上的 finger 守护进程。
 
-finger was once common for finding contact information on multi-user systems and across the early internet.
+finger 曾是多用户系统和早期互联网上查询联系人信息的常用方式。
 
 # CAVEATS
 
-Privacy concerns led to disabling on most systems. Remote finger is often blocked. Information disclosure can be a security risk.
+出于隐私考虑，大多数系统已经禁用了它。远程 finger 通常会被封锁。泄露用户信息可能构成安全风险。
 
 # HISTORY
 
-finger originated at **Stanford** in 1971 and became a standard Unix utility. Once ubiquitous for user lookup, it's now largely deprecated due to privacy and security concerns.
+finger 于 1971 年诞生于**斯坦福大学**，随后成为标准的 Unix 工具。它曾一度无处不在地用于用户查询，如今因隐私与安全问题已基本弃用。
 
 # INSTALL
 

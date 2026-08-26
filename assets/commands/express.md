@@ -1,26 +1,26 @@
 # TAGLINE
 
-Node.js web application scaffolding tool
+Node.js Web 应用脚手架工具
 
 # TLDR
 
-**Create Express app with generator**
+**用生成器创建 Express 应用**
 
 ```npx express-generator [myapp]```
 
-**Create with view engine**
+**指定视图引擎创建**
 
 ```npx express-generator --view=[pug] [myapp]```
 
-**Create with CSS preprocessor**
+**指定 CSS 预处理器创建**
 
 ```npx express-generator --css=[sass] [myapp]```
 
-**Create without view engine**
+**不使用视图引擎创建**
 
 ```npx express-generator --no-view [myapp]```
 
-**Create with git ignore**
+**同时生成 .gitignore 创建**
 
 ```npx express-generator --git [myapp]```
 
@@ -31,37 +31,37 @@ Node.js web application scaffolding tool
 # PARAMETERS
 
 **--view** _engine_
-> View engine: pug, ejs, hbs, hjs, twig.
+> 视图引擎：pug、ejs、hbs、hjs、twig。
 
 **--css** _engine_
-> CSS preprocessor: sass, less, stylus, compass.
+> CSS 预处理器：sass、less、stylus、compass。
 
 **-e**, **--ejs**
-> Use EJS template engine.
+> 使用 EJS 模板引擎。
 
 **--pug**
-> Use Pug template engine.
+> 使用 Pug 模板引擎。
 
 **--hbs**
-> Use Handlebars template engine.
+> 使用 Handlebars 模板引擎。
 
 **--no-view**
-> Generate without view engine.
+> 不使用视图引擎生成。
 
 **-c** _engine_
-> CSS engine (same as --css).
+> CSS 引擎（等同 --css）。
 
 **--git**
-> Add .gitignore.
+> 添加 .gitignore。
 
 **-f**, **--force**
-> Force on non-empty directory.
+> 在非空目录上强制执行。
 
 # DESCRIPTION
 
-**express-generator** scaffolds Express.js web applications. It creates the basic directory structure, package.json, and boilerplate code for starting an Express server.
+**express-generator** 用于搭建 Express.js Web 应用的骨架。它会创建基本的目录结构、package.json 以及启动 Express 服务器的样板代码。
 
-Express is a minimal Node.js web framework. The generator provides a conventional starting point with routes, views (optional), static files, and error handling.
+Express 是一个精简的 Node.js Web 框架。该生成器提供了一个符合惯例的起点，包含路由、视图（可选）、静态文件和错误处理。
 
 # GENERATED STRUCTURE
 
@@ -77,11 +77,11 @@ myapp/
 
 # CAVEATS
 
-Generator provides minimal setup. Production needs additional configuration (security, logging, etc.). Express 5 is in development; generator may lag. Consider alternatives like Fastify or Nest.js for larger projects.
+生成器只提供最基础的配置。生产环境需要额外的配置（安全、日志等）。Express 5 尚在开发中，生成器可能滞后。较大的项目可以考虑 Fastify 或 Nest.js 等替代方案。
 
 # HISTORY
 
-Express was created by **TJ Holowaychuk** in **2010** and became the most popular Node.js web framework. The express-generator was separated from the main package to allow the core framework to remain minimal.
+Express 由 **TJ Holowaychuk** 于 **2010 年**创建，后来成为最受欢迎的 Node.js Web 框架。express-generator 从主包中分离出来，以便核心框架保持精简。
 
 # INSTALL
 

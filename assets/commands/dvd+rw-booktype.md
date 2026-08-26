@@ -1,30 +1,30 @@
 # TAGLINE
 
-modify DVD booktype for compatibility
+修改 DVD booktype 以提升兼容性
 
 # TLDR
 
-**Query current booktype** settings of the drive and loaded media
+**查询驱动器和已装载盘片的当前 booktype** 设置
 
 ```dvd+rw-booktype [/dev/dvd]```
 
-Set the booktype of the **currently loaded disc** to DVD-ROM
+将**当前装入的盘片**的 booktype 设为 DVD-ROM
 
 ```dvd+rw-booktype -dvd-rom-spec -media [/dev/dvd]```
 
-Make the drive **default to DVD-ROM booktype** for every future recording
+让驱动器在之后的每次刻录时**默认使用 DVD-ROM booktype**
 
 ```dvd+rw-booktype -dvd-rom-spec -unit [/dev/dvd]```
 
-Set the drive default **only for DVD+R** recordings
+**仅对 DVD+R** 刻录设置驱动器默认值
 
 ```dvd+rw-booktype -dvd-rom-spec -unit+r [/dev/dvd]```
 
-Restore the **native booktype** of the loaded DVD+RW disc
+恢复已装载 DVD+RW 盘片的**原生 booktype**
 
 ```dvd+rw-booktype -dvd+rw-spec -media [/dev/dvd]```
 
-**Print drive inquiry** information
+**打印驱动器 inquiry** 信息
 
 ```dvd+rw-booktype -inq [/dev/dvd]```
 
@@ -35,47 +35,47 @@ Restore the **native booktype** of the loaded DVD+RW disc
 # PARAMETERS
 
 _device_
-> DVD drive device path, e.g. /dev/dvd or /dev/sr0.
+> DVD 驱动器设备路径，例如 /dev/dvd 或 /dev/sr0。
 
 **-dvd-rom-spec**
-> Use the DVD-ROM book type specification.
+> 使用 DVD-ROM book type 规格。
 
 **-dvd+rw-spec**
-> Use the native DVD+RW book type specification.
+> 使用原生 DVD+RW book type 规格。
 
 **-dvd+r-spec**
-> Use the native DVD+R book type specification.
+> 使用原生 DVD+R book type 规格。
 
 **-inq**
-> Print drive inquiry information and exit.
+> 打印驱动器 inquiry 信息并退出。
 
 **-media**
-> Apply the chosen specification to the currently loaded disc.
+> 将所选规格应用到当前装入的盘片。
 
 **-unit**
-> Store the chosen specification as the drive default for future recordings.
+> 将所选规格保存为驱动器的默认值，用于以后的刻录。
 
 **-unit+rw**
-> Store the drive default for DVD+RW recordings only.
+> 仅对 DVD+RW 刻录保存驱动器默认值。
 
 **-unit+r**
-> Store the drive default for DVD+R recordings only.
+> 仅对 DVD+R 刻录保存驱动器默认值。
 
 # DESCRIPTION
 
-**dvd+rw-booktype** changes the book type field recorded on DVD+R and DVD+RW media. The book type is what a player reads to decide which kind of disc it is holding, so it directly affects playback compatibility.
+**dvd+rw-booktype** 更改记录在 DVD+R 和 DVD+RW 盘片上的 book type 字段。播放器通过读取 book type 来判断手中是哪种类型的盘片，因此它直接影响播放兼容性。
 
-Presenting a DVD+R or DVD+RW disc as DVD-ROM makes many older standalone players and set-top boxes accept it, because those units predate the DVD+ formats. A specification flag chooses the identity to write; a target flag chooses whether it applies to the loaded disc (**-media**) or becomes the drive's default for future burns (**-unit** and its variants).
+将 DVD+R 或 DVD+RW 盘片呈现为 DVD-ROM，可以让许多较老的外置播放机和机顶盒接受它，因为这些设备的出现早于 DVD+ 格式。规格标志选择要写入的身份；目标标志则决定它作用于当前盘片（**-media**），还是成为驱动器以后刻录的默认值（**-unit** 及其变体）。
 
-Running the command with only a device argument prints the current drive and media settings without changing anything.
+只带设备参数运行该命令时，会打印当前驱动器和盘片设置而不做任何更改。
 
 # CAVEATS
 
-Not every drive supports book type modification, and support often depends on the firmware. Changing the book type of a DVD+R disc is a one-way operation: the field is written into the disc's control data and cannot be rewritten. DVD+RW media can be changed repeatedly. The command does not affect DVD-R/-RW media at all.
+并非所有驱动器都支持修改 book type，且支持与否通常取决于固件。更改 DVD+R 盘片的 book type 是单向操作：该字段被写入盘片的控制数据后无法重写。DVD+RW 盘片则可以反复更改。此命令完全不影响 DVD-R/-RW 盘片。
 
 # HISTORY
 
-dvd+rw-booktype is part of the **dvd+rw-tools** package, developed for managing DVD+R/RW media on Linux. Booktype modification became important for compatibility when DVD+ format competed with DVD-.
+dvd+rw-booktype 是 **dvd+rw-tools** 软件包的一部分，用于在 Linux 上管理 DVD+R/RW 盘片。在 DVD+ 格式与 DVD- 竞争的年代，booktype 修改对兼容性变得十分重要。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-partition table fix for counterfeit flash drives
+修复假冒闪存盘的分区表
 
 # TLDR
 
-**Fix fake flash** capacity
+**修复虚假闪存**容量
 
 ```f3fix --last-sec [size] [/dev/sdb]```
 
-**Calculate correct size**
+**计算正确的大小**
 
 ```f3fix --last-sec $(f3probe --destructive [/dev/sdb] | grep 'last usable sector')```
 
-**Fix with specific** sector
+**使用指定**扇区修复
 
 ```f3fix --last-sec [1953125] [/dev/sdb]```
 
@@ -23,29 +23,29 @@ partition table fix for counterfeit flash drives
 # PARAMETERS
 
 _DEVICE_
-> Block device to fix (e.g., /dev/sdb).
+> 要修复的块设备（如 /dev/sdb）。
 
 **--last-sec** _SECTOR_
-> Set last usable sector number.
+> 设置最后一个可用扇区的编号。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**f3fix** creates a partition that matches the real capacity of a fake flash drive. It's part of the F3 (Fight Flash Fraud) toolkit and is used after f3probe identifies a counterfeit drive's actual size.
+**f3fix** 创建一个与假冒闪存盘真实容量相符的分区。它是 F3（Fight Flash Fraud）工具集的一部分，在 f3probe 识别出假冒设备的实际大小后使用。
 
-Fake flash drives report larger capacities than they actually have, causing data loss. f3fix creates a partition limited to the real usable space, preventing writes beyond the actual storage capacity.
+假冒闪存盘报告的容量大于其实际容量，会导致数据丢失。f3fix 创建一个限制在真实可用空间内的分区，防止向超出实际存储容量的区域写入数据。
 
-The tool modifies the partition table to reflect true capacity, making the device safely usable at its real size.
+该工具会修改分区表以反映真实容量，使设备能够按其实际大小安全使用。
 
 # CAVEATS
 
-Requires root privileges. Destroys existing partition table. Use only after f3probe identifies real capacity. Device must be unmounted.
+需要 root 权限。会破坏现有分区表。只能在 f3probe 确定真实容量之后使用。设备必须已卸载。
 
 # HISTORY
 
-f3fix is part of the **F3** (Fight Flash Fraud) project created to combat counterfeit flash storage. The toolkit helps identify and safely use fake capacity drives that are common in online marketplaces.
+f3fix 是 **F3**（Fight Flash Fraud）项目的一部分，该项目旨在打击假冒闪存。该工具集帮助识别虚假容量闪存盘并安全地使用它们，这类产品在网上购物平台十分常见。
 
 # INSTALL
 

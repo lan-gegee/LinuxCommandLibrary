@@ -1,34 +1,34 @@
 # TAGLINE
 
-Exoscale managed database service operations
+Exoscale 托管数据库服务操作
 
 # TLDR
 
-**List database services**
+**列出数据库服务**
 
 ```exo dbaas list```
 
-**Create a PostgreSQL database**
+**创建 PostgreSQL 数据库**
 
 ```exo dbaas create pg [name] --zone [ch-gva-2] --plan [hobbyist-2]```
 
-**Show database details**
+**显示数据库详情**
 
 ```exo dbaas show [name] --zone [ch-gva-2]```
 
-**Show database connection URI**
+**显示数据库连接 URI**
 
 ```exo dbaas show [name] --zone [ch-gva-2] --uri```
 
-**List available database types and plans**
+**列出可用的数据库类型和套餐**
 
 ```exo dbaas type list [--zone ch-gva-2]```
 
-**Delete a database**
+**删除数据库**
 
 ```exo dbaas delete [name] --zone [ch-gva-2]```
 
-**Update database settings**
+**更新数据库设置**
 
 ```exo dbaas update [name] --zone [ch-gva-2] --plan [business-4]```
 
@@ -39,44 +39,44 @@ Exoscale managed database service operations
 # SUBCOMMANDS
 
 **list**
-> List database services.
+> 列出数据库服务。
 
 **create**
-> Create a database service.
+> 创建数据库服务。
 
 **show**
-> Show database details.
+> 显示数据库详情。
 
 **update**
-> Update database settings.
+> 更新数据库设置。
 
 **delete**
-> Delete a database.
+> 删除数据库。
 
 **type**
-> List and show available database types and plans.
+> 列出并查看可用的数据库类型和套餐。
 
 # PARAMETERS
 
 **--zone** _zone_
-> Exoscale zone (e.g., ch-gva-2, de-fra-1, at-vie-1).
+> Exoscale 可用区（如 ch-gva-2、de-fra-1、at-vie-1）。
 
 **--plan** _plan_
-> Service plan (e.g., hobbyist-2, startup-4, business-4).
+> 服务套餐（如 hobbyist-2、startup-4、business-4）。
 
 **--uri**
-> Show the connection URI for the database service.
+> 显示数据库服务的连接 URI。
 
 **-O**, **--output-format** _FORMAT_
-> Output format: table, json, text.
+> 输出格式：table、json、text。
 
 # DESCRIPTION
 
-**exo dbaas** manages Exoscale Database as a Service (DBaaS). Supports PostgreSQL, MySQL, Redis, OpenSearch, Kafka, and other managed database engines.
+**exo dbaas** 用于管理 Exoscale 的数据库即服务（DBaaS）。支持 PostgreSQL、MySQL、Redis、OpenSearch、Kafka 以及其他托管数据库引擎。
 
-DBaaS provides fully managed database instances with automated backups, monitoring, updates, and high availability. Services run on dedicated infrastructure with configurable performance plans.
+DBaaS 提供完全托管的数据库实例，具备自动备份、监控、更新和高可用性。服务运行在专用基础设施上，并提供可配置的性能套餐。
 
-The tool handles provisioning, configuration updates, and access credential management without manual database server administration.
+该工具处理开通、配置更新和访问凭据管理，无需手动管理数据库服务器。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ The tool handles provisioning, configuration updates, and access credential mana
 # SEE ALSO
 
 [exo](/man/exo)(1), [exo-compute](/man/exo-compute)(1), [exo-storage](/man/exo-storage)(1)
-

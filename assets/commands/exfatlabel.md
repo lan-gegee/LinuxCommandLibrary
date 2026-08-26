@@ -1,22 +1,22 @@
 # TAGLINE
 
-get or set an exFAT filesystem label or serial number
+获取或设置 exFAT 文件系统的卷标或序列号
 
 # TLDR
 
-**Show volume label**
+**显示卷标**
 
 ```exfatlabel [/dev/sda1]```
 
-**Set volume label**
+**设置卷标**
 
 ```exfatlabel [/dev/sda1] "[NEW_LABEL]"```
 
-**Show volume serial number**
+**显示卷序列号**
 
 ```exfatlabel -i [/dev/sda1]```
 
-**Set volume serial number**
+**设置卷序列号**
 
 ```exfatlabel -i [/dev/sda1] [0x12345678]```
 
@@ -27,18 +27,18 @@ get or set an exFAT filesystem label or serial number
 # PARAMETERS
 
 **-i**, **--volume-serial**
-> Switch to volume serial mode to get or set the volume serial number.
+> 切换到卷序列号模式，用于获取或设置卷序列号。
 
 **-V**
-> Print version number and exit.
+> 打印版本号并退出。
 
 # DESCRIPTION
 
-**exfatlabel** displays or sets the volume label or volume serial of an exFAT filesystem. If no label argument is given, displays the current label. Labels can be up to 15 characters (fewer if characters beyond Unicode BMP are used, since labels are stored internally as UTF-16). An empty label (`''`) removes the volume name.
+**exfatlabel** 显示或设置 exFAT 文件系统的卷标或卷序列号。如果未给出 label 参数，则显示当前卷标。卷标最多 15 个字符（若使用了超出 Unicode BMP 的字符则更短，因为卷标内部以 UTF-16 存储）。空卷标（`''`）会移除卷名。
 
 # CAVEATS
 
-The filesystem must be unmounted before changing the label or serial number. Zero is returned on success, non-zero on failure.
+更改卷标或序列号前必须先卸载文件系统。成功返回 0，失败返回非零值。
 
 # INSTALL
 

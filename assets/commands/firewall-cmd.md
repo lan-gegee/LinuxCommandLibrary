@@ -1,42 +1,42 @@
 # TAGLINE
 
-dynamic firewall management interface
+动态防火墙管理接口
 
 # TLDR
 
-**Check** firewalld daemon status
+**检查** firewalld 守护进程状态
 
 ```firewall-cmd --state```
 
-**List** all active zones with their interfaces
+**列出**所有活动区域及其绑定的接口
 
 ```firewall-cmd --get-active-zones```
 
-**List** all rules in the default zone
+**列出**默认区域中的全部规则
 
 ```firewall-cmd --list-all```
 
-**Add** a service permanently to a zone
+**永久添加**服务到某个区域
 
 ```firewall-cmd --permanent --zone public --add-service https```
 
-**Add** a port permanently to a zone
+**永久添加**端口到某个区域
 
 ```firewall-cmd --permanent --zone public --add-port 8080/tcp```
 
-**Remove** a service permanently
+**永久移除**服务
 
 ```firewall-cmd --permanent --zone public --remove-service http```
 
-**Reload** configuration (apply permanent changes at runtime)
+**重载**配置（使永久性更改在运行时生效）
 
 ```firewall-cmd --reload```
 
-**Save** runtime config to permanent
+**保存**运行时配置为永久配置
 
 ```firewall-cmd --runtime-to-permanent```
 
-**Enable masquerade** (NAT) on a zone
+在区域上**启用地址伪装**（NAT）
 
 ```firewall-cmd --permanent --zone public --add-masquerade```
 
@@ -46,97 +46,97 @@ dynamic firewall management interface
 
 # DESCRIPTION
 
-**firewall-cmd** is the command-line interface for firewalld, providing dynamic management of the Linux firewall. It supports zones, services, port forwarding, masquerading, and rich rules with both runtime and permanent configurations.
+**firewall-cmd** 是 firewalld 的命令行接口，用于动态管理 Linux 防火墙。它支持区域、服务、端口转发、地址伪装和富规则，同时提供运行时和永久两种配置方式。
 
 # PARAMETERS
 
 **--state**
-> Check whether the firewalld daemon is active (returns exit code 0 if running).
+> 检查 firewalld 守护进程是否在运行（运行中则返回退出码 0）。
 
 **--reload**
-> Reload firewall rules while keeping state information. Applies permanent rules to the runtime configuration.
+> 在保留状态信息的前提下重新加载防火墙规则。会把永久规则应用到运行时配置。
 
 **--complete-reload**
-> Reload the firewall completely, including netfilter kernel modules. May terminate active connections.
+> 彻底重载防火墙，包括 netfilter 内核模块。可能会终止现有连接。
 
 **--runtime-to-permanent**
-> Save the current runtime configuration to permanent.
+> 把当前运行时配置保存为永久配置。
 
 **--get-zones**
-> List all predefined zones.
+> 列出所有预定义的区域。
 
 **--get-default-zone**
-> Print the default zone for connections and interfaces.
+> 打印连接和接口所用的默认区域。
 
 **--set-default-zone** _zone_
-> Set the default zone.
+> 设置默认区域。
 
 **--get-active-zones**
-> Print currently active zones with their bound interfaces and sources.
+> 打印当前活动的区域及其绑定的接口和来源。
 
 **--list-all-zones**
-> List all available zones with their complete settings.
+> 列出所有可用区域及其完整设置。
 
 **--list-all**
-> List everything added or enabled in the current or specified zone.
+> 列出当前或指定区域内添加或启用的一切条目。
 
 **--zone** _zone_
-> Specify the zone to operate on.
+> 指定要操作的区域。
 
 **--get-services**
-> List all predefined services.
+> 列出所有预定义的服务。
 
 **--add-service** _service_
-> Add a service to the zone.
+> 向区域添加服务。
 
 **--remove-service** _service_
-> Remove a service from the zone.
+> 从区域移除服务。
 
 **--add-port** _port/protocol_
-> Add a port (or port range) to the zone (e.g. `8080/tcp` or `5000-5100/tcp`).
+> 向区域添加端口或端口范围（例如 `8080/tcp` 或 `5000-5100/tcp`）。
 
 **--remove-port** _port/protocol_
-> Remove a previously added port from the zone.
+> 从区域移除先前添加的端口。
 
 **--add-masquerade**
-> Enable IPv4 masquerade (NAT) on the zone. Useful when the machine is a router.
+> 在区域上启用 IPv4 地址伪装（NAT）。机器作为路由器使用时很有用。
 
 **--remove-masquerade**
-> Disable IPv4 masquerade on the zone.
+> 在区域上禁用 IPv4 地址伪装。
 
 **--query-masquerade**
-> Return whether IPv4 masquerade is enabled in the zone.
+> 查询该区域是否启用了 IPv4 地址伪装。
 
 **--add-rich-rule** _rule_
-> Add a rich language firewall rule.
+> 添加一条富语言（rich language）防火墙规则。
 
 **--remove-rich-rule** _rule_
-> Remove a rich language firewall rule.
+> 移除一条富语言防火墙规则。
 
 **--permanent**
-> Make changes permanent (survives reboot). Requires `--reload` to take effect at runtime.
+> 使更改永久生效（重启后依然保留）。需要执行 `--reload` 才能在运行时生效。
 
 **--panic-on** / **--panic-off**
-> Enable/disable panic mode (drops all incoming and outgoing traffic).
+> 启用/禁用恐慌模式（丢弃所有出入站流量）。
 
 **--change-interface** _interface_
-> Change the zone binding of a network interface.
+> 更改网络接口所绑定的区域。
 
 # CONFIGURATION
 
 **/etc/firewalld/zones/*.xml**
-> Zone definitions including allowed services, ports, and rich rules.
+> 区域定义，包括允许的服务、端口和富规则。
 
 **/etc/firewalld/services/*.xml**
-> Service definitions mapping service names to ports and protocols.
+> 服务定义，把服务名映射到端口和协议。
 
 # CAVEATS
 
-Changes without --permanent are lost on reload or reboot. After permanent changes, use --reload to apply them. Zone changes may disconnect active sessions.
+不带 --permanent 的更改会在重载或重启后丢失。做完永久性更改后，需要用 --reload 使其在运行时生效。修改区域可能导致活动会话被断开。
 
 # HISTORY
 
-**firewall-cmd** is the client for **firewalld**, Red Hat's dynamic firewall management daemon used in RHEL, CentOS, and Fedora.
+**firewall-cmd** 是 **firewalld** 的客户端；firewalld 是 Red Hat 推出的动态防火墙管理守护进程，常见于 RHEL、CentOS 和 Fedora。
 
 # INSTALL
 

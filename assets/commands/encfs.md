@@ -1,30 +1,30 @@
 # TAGLINE
 
-user-space encrypted filesystem using FUSE
+基于 FUSE 的用户空间加密文件系统
 
 # TLDR
 
-**Create/mount encrypted directory**
+**创建/挂载加密目录**
 
 ```encfs [~/.encrypted] [~/private]```
 
-**Create with standard mode**
+**以标准模式创建**
 
 ```encfs -s [~/.encrypted] [~/private]```
 
-**Unmount encrypted directory**
+**卸载加密目录**
 
 ```fusermount -u [~/private]```
 
-**Change password**
+**更改密码**
 
 ```encfsctl passwd [~/.encrypted]```
 
-**Show volume info**
+**显示卷信息**
 
 ```encfsctl info [~/.encrypted]```
 
-**Idle timeout** unmount
+空闲超时后自动**卸载**
 
 ```encfs -i [10] [~/.encrypted] [~/private]```
 
@@ -34,51 +34,51 @@ user-space encrypted filesystem using FUSE
 
 # DESCRIPTION
 
-**encfs** provides encrypted filesystem in user-space using FUSE. It encrypts files individually, storing them in a directory with encrypted names and contents.
+**encfs** 使用 FUSE 在用户空间提供加密文件系统。它逐个加密文件，将它们以加密的文件名和内容存储在一个目录中。
 
-The tool is useful for encrypting cloud-synced folders or sensitive directories. Each file is encrypted separately, allowing efficient sync of changed files.
+该工具适合加密云同步文件夹或敏感目录。每个文件独立加密，因此变更过的文件可以高效同步。
 
 # PARAMETERS
 
 **-s**
-> Single-threaded mode.
+> 单线程模式。
 
 **-f**
-> Run in foreground.
+> 以前台方式运行。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **-i** _minutes_
-> Idle timeout before unmount.
+> 卸载前的空闲超时时间。
 
 **-o** _options_
-> FUSE mount options.
+> FUSE 挂载选项。
 
 **--standard**
-> Use standard (safer) settings.
+> 使用标准（更安全）设置。
 
 **--paranoid**
-> Use paranoid settings.
+> 使用偏执（paranoid）设置。
 
 **--reverse**
-> Reverse mode for backups.
+> 用于备份的反向模式。
 
 **--extpass** _cmd_
-> External password program.
+> 外部密码程序。
 
 # CONFIGURATION
 
 **.encfs6.xml**
-> Configuration file stored in the encrypted directory containing encryption parameters and settings.
+> 存储在加密目录中的配置文件，包含加密参数与设置。
 
 # CAVEATS
 
-Leaks file sizes and directory structure. Not resistant to watermarking attacks. Consider newer alternatives like gocryptfs. FUSE adds overhead. Passphrase recovery not possible.
+会泄露文件大小和目录结构。无法抵抗水印攻击。可考虑 gocryptfs 等更新的替代品。FUSE 会带来额外开销。口令一旦遗失无法恢复。
 
 # HISTORY
 
-**encfs** was created by **Valient Gough** in **2003**. It pioneered user-space encrypted filesystems on Linux. While popular for years, security audits revealed weaknesses, leading to recommendations for alternatives like gocryptfs for new deployments.
+**encfs** 由 **Valient Gough** 于 **2003 年**创建，是 Linux 上用户空间加密文件系统的先驱。它多年来广受欢迎，但安全审计暴露了一些弱点，因此新部署被建议改用 gocryptfs 等替代方案。
 
 # INSTALL
 

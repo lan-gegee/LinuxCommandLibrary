@@ -1,10 +1,10 @@
 # TAGLINE
 
-display DVD media information
+显示 DVD 盘片信息
 
 # TLDR
 
-**Show media information**
+**显示盘片信息**
 
 ```dvd+rw-mediainfo [/dev/dvd]```
 
@@ -15,23 +15,23 @@ display DVD media information
 # PARAMETERS
 
 _DEVICE_
-> DVD/BD drive device path (e.g., /dev/dvd, /dev/sr0).
+> DVD/BD 驱动器设备路径（例如 /dev/dvd、/dev/sr0）。
 
 # DESCRIPTION
 
-**dvd+rw-mediainfo** displays detailed information about optical media (DVD/BD) currently in the drive and the drive itself. It reports disc type, capacity, booktype, write speed, and current usage status.
+**dvd+rw-mediainfo** 显示当前位于驱动器中的光盘介质（DVD/BD）以及驱动器本身的详细信息。它会报告盘片类型、容量、booktype、写入速度和当前使用状态。
 
-The output includes manufacturer information, disc state (empty, appendable, complete), and layer information for dual-layer media. This helps verify disc compatibility and available capacity before burning. It is especially useful for debugging, and its output should be included when reporting bugs in dvd+rw-tools.
+输出包括制造商信息、盘片状态（空白、可追加、已完成）以及双层盘片的层信息。这有助于在刻录前确认盘片兼容性和可用容量。它在调试时尤其有用，报告 dvd+rw-tools 的 bug 时应附上其输出。
 
-This program does not accept any command-line options beyond the device path.
+此程序不接受设备路径之外的任何命令行选项。
 
 # CAVEATS
 
-Requires media in drive for most info. Some information depends on drive capabilities. May need root permissions for device access.
+大多数信息需要驱动器中装有盘片。某些信息取决于驱动器的能力。访问设备可能需要 root 权限。
 
 # HISTORY
 
-dvd+rw-mediainfo is part of **dvd+rw-tools**, providing disc analysis capabilities essential for DVD authoring and burning on Linux systems.
+dvd+rw-mediainfo 是 **dvd+rw-tools** 的一部分，提供在 Linux 系统上进行 DVD 制作和刻录所必需的盘片分析能力。
 
 # INSTALL
 

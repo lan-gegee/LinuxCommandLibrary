@@ -1,26 +1,26 @@
 # TAGLINE
 
-run commands when files change
+文件变化时运行命令
 
 # TLDR
 
-**Run command when** file changes
+文件变化时**运行命令**
 
 ```ls [*.py] | entr [python test.py]```
 
-**Clear screen before** running
+运行前**清屏**
 
 ```ls [*.md] | entr -c [make html]```
 
-**Restart command** on change
+变化时**重启命令**
 
 ```ls [main.go] | entr -r [go run main.go]```
 
-**Run once and exit**
+**运行一次后退出**
 
 ```ls [config.yml] | entr -p [./deploy.sh]```
 
-**Use tracked file** in command
+在命令中**使用被跟踪的文件**
 
 ```ls [*.js] | entr -s '[eslint /_]'```
 
@@ -31,50 +31,50 @@ run commands when files change
 # PARAMETERS
 
 _COMMAND_
-> Command to run when files change.
+> 文件变化时要运行的命令。
 
 **-c**
-> Clear the screen before running the command. Repeat as **-cc** to also clear the scrollback.
+> 运行命令前清屏。写成 **-cc** 还会同时清空回滚缓冲区。
 
 **-r**
-> Reload a persistent child process, sending it SIGTERM before restarting it.
+> 重载持久的子进程：重启前先向其发送 SIGTERM。
 
 **-p**
-> Postpone the first execution until a file actually changes.
+> 推迟首次执行，直到文件真正发生变化。
 
 **-s**
-> Run the command through $SHELL and use its exit status.
+> 通过 $SHELL 运行命令并采用其退出状态。
 
 **-d**
-> Track directories: exit if a new file is added to a watched directory, so a wrapper loop can restart entr with the new file list.
+> 跟踪目录：当被监视目录中出现新文件时退出，便于外层循环带着新的文件列表重新启动 entr。
 
 **-a**
-> Respond to all events instead of coalescing rapid changes into one.
+> 响应所有事件，而不是把快速连续的变化合并为一次。
 
 **-n**
-> Non-interactive: do not read from the terminal, so no space-to-rerun or q-to-quit.
+> 非交互式：不从终端读取输入，因此没有"按空格重跑"或"按 q 退出"。
 
 **-z**
-> One-shot mode: exit after the command completes.
+> 单次模式：命令完成后退出。
 
 /_
-> Placeholder that expands to the file that changed.
+> 占位符，展开为发生变化的那个文件。
 
 # DESCRIPTION
 
-**entr** runs commands when files change. It watches files listed on stdin and executes the specified command whenever any change is detected.
+**entr** 在文件变化时运行命令。它监视从标准输入读入的文件列表，只要检测到任何变化就执行指定的命令。
 
-The tool is ideal for development workflows: rerunning tests, rebuilding projects, or restarting servers on source changes. The -r flag handles processes that need restart rather than re-execution.
+该工具非常适合开发工作流：源码变化时重新运行测试、重新构建项目或重启服务器。-r 标志用于处理需要重启而非重复执行的进程。
 
-entr uses efficient kernel file notification mechanisms (kqueue, inotify) rather than polling.
+entr 使用高效的内核文件通知机制（kqueue、inotify）而非轮询。
 
 # CAVEATS
 
-The file list is read from stdin once at startup and never grows: **-d** makes entr exit when a new file appears in a watched directory, and the usual pattern is to wrap it in a shell loop such as `while sleep 0.1; do ls *.c | entr -d make; done`. Editors that save by writing a new file and renaming it over the old one replace the inode entr is watching, which is why **-d** or a rerun is often needed. The number of files is bounded by the system limit on open file descriptors.
+文件列表只在启动时从标准输入读取一次且不会增长：**-d** 让 entr 在被监视目录出现新文件时退出，常见做法是将其包在 shell 循环里，如 `while sleep 0.1; do ls *.c | entr -d make; done`。有些编辑器保存时会先写新文件再重命名覆盖旧文件，这会替换掉 entr 正在监视的 inode，这就是经常需要 **-d** 或重新运行的原因。文件数量受系统打开文件描述符上限的约束。
 
 # HISTORY
 
-entr was created by **Eric Radman** as a simple, Unix-philosophy tool for file watching. It focuses on doing one thing well: running commands when files change.
+entr 由 **Eric Radman** 创建，是一个贯彻 Unix 哲学的简单文件监视工具。它专注于做好一件事：在文件变化时运行命令。
 
 # INSTALL
 

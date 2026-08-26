@@ -1,38 +1,38 @@
 # TAGLINE
 
-static site generator optimized for documentation
+面向文档优化的静态网站生成器
 
 # TLDR
 
-**Create a new Docusaurus site** using the classic template
+使用 classic 模板**创建新的 Docusaurus 站点**
 
 ```npx create-docusaurus@latest [my-website] classic```
 
-**Start the development server** (with hot reload)
+**启动开发服务器**（支持热重载）
 
 ```npx docusaurus start```
 
-**Start on a specific port**
+**在指定端口启动**
 
 ```npx docusaurus start --port [8080]```
 
-**Build the site for production**
+**构建用于生产环境的站点**
 
 ```npx docusaurus build```
 
-**Serve the production build locally**
+**在本地伺服生产构建产物**
 
 ```npx docusaurus serve```
 
-**Deploy to GitHub Pages**
+**部署到 GitHub Pages**
 
 ```npx docusaurus deploy```
 
-**Clear generated files and caches**
+**清除生成的文件和缓存**
 
 ```npx docusaurus clear```
 
-**Tag a new documentation version**
+**将当前文档标记为新版本**
 
 ```npx docusaurus docs:version [1.0]```
 
@@ -43,48 +43,48 @@ static site generator optimized for documentation
 # PARAMETERS
 
 **start** [**--port** _n_]
-> Start development server (default port 3000).
+> 启动开发服务器（默认端口 3000）。
 
 **build** [**--out-dir** _path_]
-> Build static site for production.
+> 构建用于生产环境的静态站点。
 
 **serve** [**--port** _n_]
-> Serve built site locally.
+> 在本地伺服已构建的站点。
 
 **deploy**
-> Deploy to GitHub Pages.
+> 部署到 GitHub Pages。
 
 **clear**
-> Clear generated files and caches.
+> 清除生成的文件和缓存。
 
 **swizzle** _theme_ _component_
-> Eject or wrap a theme component for customization (interactive).
+> 弹出或包装主题组件以便自定义（交互式）。
 
 **docs:version** _version_
-> Tag the current docs as a new version snapshot.
+> 将当前文档标记为新版本快照。
 
 **write-translations**
-> Extract translatable strings to JSON translation files.
+> 提取待翻译字符串到 JSON 翻译文件。
 
 **write-heading-ids**
-> Add explicit heading IDs to Markdown documents.
+> 为 Markdown 文档添加显式的标题 ID。
 
 **--locale** _locale_
-> Specify locale for the command.
+> 为命令指定区域设置。
 
 **--config** _path_
-> Use a custom configuration file.
+> 使用自定义配置文件。
 
 **--out-dir** _path_
-> Custom output directory for build (default: build/).
+> build 的自定义输出目录（默认：build/）。
 
 # DESCRIPTION
 
-**Docusaurus** is a static site generator optimized for documentation websites. It uses React for the UI, Markdown/MDX for content, and provides features like versioning, i18n, and search out of the box.
+**Docusaurus** 是一个专为文档网站优化的静态网站生成器。它使用 React 构建 UI，使用 Markdown/MDX 编写内容，并开箱即用地提供版本化、国际化和搜索等功能。
 
-Sites are configured via **docusaurus.config.js**, defining metadata, themes, plugins, and navigation. Content lives in **docs/** for documentation and **blog/** for blog posts.
+站点通过 **docusaurus.config.js** 进行配置，定义元数据、主题、插件和导航。内容存放在 **docs/** 目录（文档）和 **blog/** 目录（博客文章）中。
 
-The development server provides hot reloading. Production builds generate static HTML, CSS, and JavaScript that can be hosted anywhere. Built-in deployment support targets GitHub Pages.
+开发服务器支持热重载。生产构建会生成可托管在任何地方的静态 HTML、CSS 和 JavaScript。内置的部署功能面向 GitHub Pages。
 
 # PROJECT STRUCTURE
 
@@ -103,18 +103,18 @@ my-website/
 # CONFIGURATION
 
 **docusaurus.config.js**
-> Main configuration defining site metadata, themes, plugins, navbar, footer, and build options.
+> 主配置文件，定义站点元数据、主题、插件、导航栏、页脚和构建选项。
 
 **sidebars.js**
-> Sidebar structure configuration defining documentation hierarchy and navigation.
+> 侧边栏结构配置，定义文档层级和导航。
 
 # CAVEATS
 
-Requires Node.js 18+. Large sites may have slow build times. Custom React components need familiarity with React. Swizzling (customizing) theme components may break on version upgrades. Full-text search requires additional setup (Algolia DocSearch or a local search plugin).
+需要 Node.js 18 及以上版本。大型站点的构建时间可能较长。自定义 React 组件需要熟悉 React。Swizzle（自定义）主题组件在版本升级时可能出现问题。全文搜索需要额外配置（Algolia DocSearch 或本地搜索插件）。
 
 # HISTORY
 
-Docusaurus was created at **Facebook** (Meta) and open-sourced in **2017**. It was designed to power documentation for Facebook's open-source projects. Version 2, a complete rewrite using React, was released in **2022**. The project is maintained by Meta and a community of contributors.
+Docusaurus 诞生于 **Facebook**（Meta），并于 **2017 年**开源。它的设计初衷是为 Facebook 的开源项目提供文档支持。Version 2 是一次基于 React 的完全重写，于 **2022 年**发布。该项目由 Meta 及社区贡献者共同维护。
 
 # SEE ALSO
 

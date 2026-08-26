@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage PostgreSQL connection pools on DigitalOcean
+管理 DigitalOcean 上的 PostgreSQL 连接池
 
 # TLDR
 
-**List all connection pools** for a database cluster
+**列出数据库集群的所有连接池**
 
 ```doctl databases pool list [cluster_id]```
 
-**Create a connection pool**
+**创建一个连接池**
 
 ```doctl databases pool create [cluster_id] [pool_name] --db [database] --user [user] --size [10] --mode [transaction]```
 
-**Get details of a specific pool**
+**获取指定连接池的详情**
 
 ```doctl databases pool get [cluster_id] [pool_name]```
 
-**Update a connection pool**
+**更新一个连接池**
 
 ```doctl databases pool update [cluster_id] [pool_name] --size [20]```
 
-**Delete a connection pool**
+**删除一个连接池**
 
 ```doctl databases pool delete [cluster_id] [pool_name]```
 
@@ -31,42 +31,42 @@ Manage PostgreSQL connection pools on DigitalOcean
 # SUBCOMMANDS
 
 **list**
-> List all connection pools for a database cluster.
+> 列出数据库集群的所有连接池。
 
 **create**
-> Create a connection pool (requires name, database, user, and size).
+> 创建一个连接池（需要名称、数据库、用户和大小）。
 
 **get**
-> Get details of a specific connection pool.
+> 获取指定连接池的详情。
 
 **update**
-> Update an existing connection pool's settings.
+> 更新现有连接池的设置。
 
 **delete**
-> Delete a connection pool.
+> 删除一个连接池。
 
 # PARAMETERS
 
 **--db** _string_
-> Target database name for the pool.
+> 连接池的目标数据库名称。
 
 **--user** _string_
-> Database username for pool authentication.
+> 用于连接池认证的数据库用户名。
 
 **--size** _int_
-> Pool size (number of connections to maintain).
+> 池大小（要维持的连接数）。
 
 **--mode** _string_
-> Pool mode: transaction (default, fastest), session (preserves session state), or statement.
+> 池模式：transaction（默认，最快）、session（保留会话状态）或 statement。
 
 **--format** _string_
-> Customize output columns.
+> 自定义输出列。
 
 # DESCRIPTION
 
-**doctl databases pool** manages connection pools for PostgreSQL managed databases on DigitalOcean. Connection pools use PgBouncer to provide connection multiplexing, significantly improving performance for applications with many concurrent clients.
+**doctl databases pool** 管理 DigitalOcean 托管 PostgreSQL 数据库的连接池。连接池使用 PgBouncer 提供连接复用，可显著改善拥有大量并发客户端的应用的性能。
 
-Pools act as intermediaries between applications and the database, maintaining a set number of reusable database connections. This reduces overhead from repeatedly opening and closing connections. Pool modes determine connection behavior: **transaction** mode releases connections after each transaction (fastest for stateless queries), **session** mode holds connections for the entire client session, and **statement** mode releases after each individual statement.
+连接池充当应用与数据库之间的中间层，维护一定数量的可复用数据库连接，从而减少反复建立和关闭连接的开销。池模式决定连接的行为：**transaction** 模式在每个事务结束后释放连接（对无状态查询最快），**session** 模式在整个客户端会话期间保持连接，**statement** 模式则在每条语句结束后释放连接。
 
 # INSTALL
 

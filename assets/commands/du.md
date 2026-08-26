@@ -1,30 +1,30 @@
 # TAGLINE
 
-disk usage analyzer
+磁盘用量分析器
 
 # TLDR
 
-**Show total size of a directory**
+**显示目录总大小**
 
 ```du -sh [directory]```
 
-**Show sizes in human-readable format**
+**以人类可读格式显示大小**
 
 ```du -h [directory]```
 
-**Show sizes of subdirectories** (one level deep)
+**显示子目录大小**（仅一层深度）
 
 ```du -h --max-depth=1 [directory]```
 
-**Show largest subdirectories first**
+**优先显示最大的子目录**
 
 ```du -h --max-depth=1 [directory] | sort -hr```
 
-**Show size of all files and directories**
+**显示所有文件和目录的大小**
 
 ```du -ah [directory]```
 
-**Stay on one filesystem** (don't cross mount points)
+**不跨文件系统**（不越过挂载点）
 
 ```du -shx [directory]```
 
@@ -34,68 +34,68 @@ disk usage analyzer
 
 # DESCRIPTION
 
-**du** (disk usage) estimates and reports file and directory space usage by recursively examining directory trees. Unlike df which shows filesystem-level free space, du focuses on individual files and directories, making it essential for identifying what's consuming disk space and where cleanup efforts should focus.
+**du**（disk usage）通过递归遍历目录树来估算并报告文件和目录的空间占用情况。与显示文件系统级剩余空间的 df 不同，du 关注的是单个文件和目录，因此对于找出磁盘空间被什么占用、应该从哪里着手清理至关重要。
 
-The tool walks directory hierarchies and sums the disk space used by each file, reporting sizes at each directory level. By default, it shows sizes for all directories in the tree, but options like --max-depth allow limiting output to higher-level summaries. The -h flag converts raw block counts to human-readable formats (KB, MB, GB).
+该工具遍历目录层级并对每个文件占用的磁盘空间求和，在每个目录层级报告大小。默认情况下它会显示树中所有目录的大小，但可以使用 --max-depth 之类的选项将输出限制为较高层级的汇总。-h 标志把原始块数转换为人类可读的格式（KB、MB、GB）。
 
-du is commonly combined with sort to identify the largest space consumers. Patterns like "du -h | sort -hr | head" reveal the top disk space users, essential for troubleshooting full filesystems or planning cleanup operations.
+du 常与 sort 组合使用来找出占用空间最大的对象。"du -h | sort -hr | head" 这类模式可以揭示最大的磁盘空间消耗者，对于排查磁盘写满问题或规划清理操作必不可少。
 
-The command reports disk usage (actual blocks consumed) rather than apparent file size, which matters for sparse files and filesystems with compression. Hard links to the same inode are counted only once by default (use -l to count each link separately). The -x option prevents crossing filesystem boundaries, useful for analyzing specific filesystems without including mounted subdirectories.
+该命令报告的是磁盘用量（实际分配的块数）而非文件的表面大小，这一点对稀疏文件和支持压缩的文件系统尤为重要。指向同一 inode 的硬链接默认只计一次（用 -l 可对每个链接分别计数）。-x 选项防止跨越文件系统边界，适合在不包含挂载子目录的情况下分析特定文件系统。
 
 # PARAMETERS
 
 **-h**, **--human-readable**
-> Human-readable sizes (K, M, G)
+> 人类可读的大小（K、M、G）
 
 **-s**, **--summarize**
-> Display total only
+> 仅显示总计
 
 **-c**, **--total**
-> Produce grand total
+> 生成总计
 
 **-a**, **--all**
-> Include files, not just directories
+> 包含文件，而不仅是目录
 
 **-d** _N_, **--max-depth=**_N_
-> Maximum directory depth
+> 最大目录深度
 
 **-b**, **--bytes**
-> Print sizes in bytes
+> 以字节为单位显示大小
 
 **-k**, **--kilobytes**
-> Print sizes in kilobytes
+> 以 KB 为单位显示大小
 
 **-m**, **--megabytes**
-> Print sizes in megabytes
+> 以 MB 为单位显示大小
 
 **-x**, **--one-file-system**
-> Skip different filesystems
+> 跳过不同的文件系统
 
 **-l**, **--count-links**
-> Count hard links multiple times
+> 对硬链接重复计数
 
 **--apparent-size**
-> Print apparent sizes rather than disk usage
+> 显示表面大小而非磁盘用量
 
 **--si**
-> Like -h but use powers of 1000 (not 1024)
+> 类似 -h，但使用 1000 的幂（而非 1024）
 
 **-L**, **--dereference**
-> Follow symbolic links
+> 跟随符号链接
 
 **--exclude=**_pattern_
-> Exclude files matching pattern
+> 排除匹配模式的文件
 
 **--time**
-> Show last modification time
+> 显示最后修改时间
 
 # CAVEATS
 
-Can be slow on large directory trees. Reports actual disk usage (blocks allocated), not apparent file size — use **--apparent-size** for file sizes. Crosses filesystem boundaries by default; use **-x** to stay on one filesystem. Hard links are counted only once by default. May require root for restricted directories.
+在大目录树上可能较慢。报告的是实际磁盘用量（已分配的块数），不是文件的表面大小——要查看文件大小请用 **--apparent-size**。默认会跨越文件系统边界；用 **-x** 可停留在单一文件系统内。硬链接默认只计一次。访问受限目录可能需要 root 权限。
 
 # HISTORY
 
-**du** has been part of Unix since the early **1970s**, one of the original Unix utilities for disk management.
+**du** 自 **20 世纪 70 年代初**起就是 Unix 的一部分，是最早的一批 Unix 磁盘管理工具之一。
 
 # INSTALL
 

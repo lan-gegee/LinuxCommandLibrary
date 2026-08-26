@@ -1,34 +1,34 @@
 # TAGLINE
 
-Exoscale identity and access management
+Exoscale 身份与访问管理
 
 # TLDR
 
-**List API keys**
+**列出 API 密钥**
 
 ```exo iam api-key list```
 
-**Create API key** with a role
+**创建带角色的 API 密钥**
 
 ```exo iam api-key create [name] [role-name]```
 
-**Delete API key**
+**删除 API 密钥**
 
 ```exo iam api-key delete [key_id]```
 
-**List IAM roles**
+**列出 IAM 角色**
 
 ```exo iam role list```
 
-**Create an IAM role**
+**创建 IAM 角色**
 
 ```exo iam role create [role-name] --policy [policy.json]```
 
-**Show role details**
+**显示角色详情**
 
 ```exo iam role show [role-name]```
 
-**Show organization policy**
+**显示组织策略**
 
 ```exo iam org-policy show```
 
@@ -39,48 +39,48 @@ Exoscale identity and access management
 # PARAMETERS
 
 **api-key** _ACTION_
-> Manage API keys (list, create, delete).
+> 管理 API 密钥（list、create、delete）。
 
 **api-key create** _NAME_ _ROLE-NAME|ROLE-ID_
-> Create new API key with the specified role name or ID.
+> 使用指定的角色名或角色 ID 创建新的 API 密钥。
 
 **api-key list**
-> List all API keys.
+> 列出所有 API 密钥。
 
 **api-key delete** _ID_
-> Delete an API key.
+> 删除一个 API 密钥。
 
 **role** _ACTION_
-> Manage IAM roles (list, create, delete, show, update).
+> 管理 IAM 角色（list、create、delete、show、update）。
 
 **role create** _NAME_ **--policy** _FILE_
-> Create a new IAM role with a policy file.
+> 使用策略文件创建新的 IAM 角色。
 
 **role show** _NAME|ID_
-> Display details of an IAM role.
+> 显示 IAM 角色的详情。
 
 **role update** _NAME|ID_ **--policy** _FILE_
-> Update the policy of an existing IAM role.
+> 更新现有 IAM 角色的策略。
 
 **org-policy** _ACTION_
-> Manage organization IAM policy (show, reset).
+> 管理组织级 IAM 策略（show、reset）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**exo iam** manages identity and access management for Exoscale cloud. It handles API keys used for authentication and roles for access control.
+**exo iam** 管理 Exoscale 云的身份与访问控制。它处理用于身份验证的 API 密钥以及用于访问控制的角色。
 
-API keys provide programmatic access to Exoscale resources. Each key is attached to a role that defines its permissions via a policy. Roles contain policies that specify allowed and denied operations across services such as compute, dns, dbaas, sos, and block-storage. The org-policy subcommand manages the organization-level default policy.
+API 密钥提供对 Exoscale 资源的编程访问。每个密钥都绑定到一个角色，该角色通过策略定义其权限。角色包含的策略会指定在 compute、dns、dbaas、sos 和 block-storage 等服务中允许和拒绝的操作。org-policy 子命令管理组织级默认策略。
 
 # CAVEATS
 
-Key secrets shown only at creation. Deleted keys are unrecoverable. Roles affect all resources. Root keys have full access.
+密钥的机密内容仅在创建时显示一次。已删除的密钥无法恢复。角色会影响所有资源。根密钥拥有完全访问权限。
 
 # HISTORY
 
-exo iam is part of the **Exoscale CLI**, providing security and access management for Exoscale cloud accounts.
+exo iam 是 **Exoscale CLI** 的一部分，为 Exoscale 云账户提供安全与访问管理。
 
 # INSTALL
 

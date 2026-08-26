@@ -1,26 +1,26 @@
 # TAGLINE
 
-Netflix-powered internet speed test CLI
+由 Netflix 提供支持的网速测试 CLI
 
 # TLDR
 
-**Run speed test**
+**运行测速**
 
 ```fast```
 
-**Run with upload test**
+**包含上传测试**
 
 ```fast --upload```
 
-**Output on a single line** (script-friendly)
+**单行输出**（适合脚本处理）
 
 ```fast --single-line```
 
-**Show JSON output**
+**以 JSON 输出结果**
 
 ```fast --json```
 
-**Include latency and server location**
+**显示延迟和服务器位置**
 
 ```fast --verbose```
 
@@ -31,22 +31,22 @@ Netflix-powered internet speed test CLI
 # PARAMETERS
 
 **-u**, **--upload**
-> Measure upload speed in addition to download speed.
+> 在下载速度之外再测量上传速度。
 
 **--single-line**
-> Reduce spacing and print output on a single line.
+> 减少间距，将输出打印在单行内。
 
 **--json**
-> Output results as JSON.
+> 以 JSON 格式输出结果。
 
 **--verbose**
-> Include latency and server location information.
+> 包含延迟和服务器位置信息。
 
 # DESCRIPTION
 
-**fast** is a command-line speed testing tool powered by Netflix's Fast.com service. It measures download speed and optionally upload speed using Netflix's servers worldwide.
+**fast** 是一款由 Netflix 的 Fast.com 服务驱动的命令行测速工具。它使用 Netflix 分布在全球的服务器测量下载速度，也可选测量上传速度。
 
-The tool provides a quick bandwidth measurement without ads or complexity. It's useful for testing internet connection quality and ISP performance.
+该工具无需广告、操作简单，可快速测量带宽。适用于测试网络连接质量和 ISP 性能。
 
 # OUTPUT
 
@@ -60,11 +60,11 @@ The tool provides a quick bandwidth measurement without ads or complexity. It's 
 
 # CAVEATS
 
-Requires internet connection to Netflix's servers. Results may vary by location and time. Netflix servers may be throttled by some ISPs. For more detailed tests, use speedtest-cli.
+需要连接 Netflix 服务器的互联网。结果可能因地点和时间而异。某些 ISP 可能会对 Netflix 服务器限速。如需更详细的测试，请使用 speedtest-cli。
 
 # HISTORY
 
-fast-cli was created as a command-line interface to Netflix's Fast.com, which Netflix launched in **2016** as a simple, ad-free speed test. The service uses Netflix's content delivery network.
+fast-cli 作为 Netflix Fast.com 的命令行界面而创建。Netflix 于 **2016 年**推出 Fast.com，作为一个简单无广告的测速服务。该服务使用 Netflix 的内容分发网络。
 
 # INSTALL
 

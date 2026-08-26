@@ -1,26 +1,26 @@
 # TAGLINE
 
-visualization for profiled stack traces
+性能剖析调用栈的可视化工具
 
 # TLDR
 
-**Generate flame graph from perf data**
+**从 perf 数据生成火焰图**
 
 ```perf script | stackcollapse-perf.pl | flamegraph.pl > [flame.svg]```
 
-**From dtrace output**
+**从 dtrace 输出生成**
 
 ```stackcollapse.pl [out.dtrace] | flamegraph.pl > [flame.svg]```
 
-**Custom title**
+**自定义标题**
 
 ```flamegraph.pl --title "[My App Profile]" [stacks.txt] > [flame.svg]```
 
-**Inverted (icicle) graph**
+**倒置（冰柱）图**
 
 ```flamegraph.pl --inverted [stacks.txt] > [flame.svg]```
 
-**Set width**
+**设置宽度**
 
 ```flamegraph.pl --width [1200] [stacks.txt] > [flame.svg]```
 
@@ -31,61 +31,61 @@ visualization for profiled stack traces
 # PARAMETERS
 
 **--title** _text_
-> Title for the graph.
+> 图表标题。
 
 **--subtitle** _text_
-> Second level title (optional).
+> 二级标题（可选）。
 
 **--width** _pixels_
-> SVG width (default 1200).
+> SVG 宽度（默认 1200）。
 
 **--height** _pixels_
-> Frame height (default 16).
+> 帧的高度（默认 16）。
 
 **--minwidth** _pixels_
-> Omit functions narrower than this (default 0.1 pixels).
+> 省略比这更窄的函数（默认 0.1 像素）。
 
 **--fontsize** _num_
-> Font size (default 12).
+> 字号（默认 12）。
 
 **--fonttype** _font_
-> Font type (default "Verdana").
+> 字体类型（默认 "Verdana"）。
 
 **--countname** _text_
-> Count type label (default "samples").
+> 计数类型的标签（默认 "samples"）。
 
 **--nametype** _text_
-> Name type label (default "Function:").
+> 名称类型的标签（默认 "Function:"）。
 
 **--inverted**
-> Generate icicle graph (top-down).
+> 生成冰柱图（自顶向下）。
 
 **--reverse**
-> Reverse stack order.
+> 反转调用栈顺序。
 
 **--colors** _palette_
-> Color palette: hot (default), mem, io, wakeup, chain, java, js, perl, red, green, blue, aqua, yellow, purple, orange.
+> 调色板：hot（默认）、mem、io、wakeup、chain、java、js、perl、red、green、blue、aqua、yellow、purple、orange。
 
 **--bgcolors** _color_
-> Background gradient: yellow (default), blue, green, grey, or flat "#rrggbb".
+> 背景渐变：yellow（默认）、blue、green、grey，或纯色 "#rrggbb"。
 
 **--hash**
-> Color by function name hash.
+> 按函数名的哈希值分配颜色。
 
 **--cp**
-> Use consistent palette (palette.map).
+> 使用一致性调色板（palette.map）。
 
 **--flamechart**
-> Time-ordered flame chart (sort by time, do not merge stacks).
+> 按时间排序的火焰图（按时间先后排列，不合并调用栈）。
 
 **--negate**
-> Switch differential hues (blue/red).
+> 对调差分色调（蓝/红）。
 
 # DESCRIPTION
 
-**FlameGraph** is a visualization tool for profiled stack traces, created by Brendan Gregg. It generates interactive SVG graphs where the x-axis shows the stack population and the y-axis shows stack depth.
+**FlameGraph** 是一款性能剖析调用栈可视化工具，由 Brendan Gregg 开发。它生成可交互的 SVG 图形，其中 x 轴表示调用栈的数量占比，y 轴表示栈的深度。
 
-Flame graphs quickly reveal which code paths consume the most resources. They work with any profiler output that can be converted to the collapsed stack format.
+火焰图可以快速揭示哪些代码路径消耗的资源最多。任何能转换成折叠栈（collapsed stacks）格式的剖析器输出都可以配合它使用。
 
 # WORKFLOW
 
@@ -105,11 +105,11 @@ flamegraph.pl stacks.txt > flame.svg
 
 # CAVEATS
 
-Requires Perl. Input must be in collapsed stack format (use stackcollapse-*.pl scripts to convert). Large profiles may produce complex graphs. Colors are randomized unless --hash or --cp is used. Interactive features (zoom, search) require an SVG-capable browser.
+需要 Perl 环境。输入必须为折叠栈格式（可用 stackcollapse-*.pl 脚本转换）。规模很大的剖析数据可能产生非常复杂的图形。除非指定 --hash 或 --cp，否则配色是随机的。交互功能（缩放、搜索）需要支持 SVG 的浏览器。
 
 # HISTORY
 
-Flame graphs were invented by **Brendan Gregg** in **2011** while at Joyent for analyzing performance issues. The visualization technique has become standard for performance profiling across languages and platforms.
+火焰图由 **Brendan Gregg** 在 **2011 年**任职 Joyent 期间发明，用于分析性能问题。这种可视化技术如今已是跨语言、跨平台性能剖析的标准做法。
 
 # INSTALL
 

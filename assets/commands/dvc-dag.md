@@ -1,22 +1,22 @@
 # TAGLINE
 
-visualize DVC pipeline dependencies
+可视化 DVC 流水线依赖关系
 
 # TLDR
 
-**Show pipeline DAG**
+**显示流水线 DAG**
 
 ```dvc dag```
 
-**Output as dot format**
+**以 dot 格式输出**
 
 ```dvc dag --dot```
 
-**Show specific stage**
+**显示特定阶段**
 
 ```dvc dag [stage_name]```
 
-**Show full graph**
+**显示完整图**
 
 ```dvc dag --full```
 
@@ -27,21 +27,21 @@ visualize DVC pipeline dependencies
 # PARAMETERS
 
 **--dot**
-> Output in Graphviz DOT format.
+> 以 Graphviz DOT 格式输出。
 
 **--full**
-> Show full graph including deps.
+> 显示包含依赖项的完整图。
 
 **-o**, **--out** _file_
-> Output to file.
+> 输出到文件。
 
 # DESCRIPTION
 
-**dvc dag** generates a visual representation of your DVC pipeline's structure as a directed acyclic graph (DAG). It shows how pipeline stages depend on each other and the flow of data through your machine learning workflow.
+**dvc dag** 将 DVC 流水线的结构生成有向无环图（DAG）形式的可视化表示。它展示流水线中各阶段之间的依赖关系，以及数据在机器学习工作流中的流动方式。
 
-Each node in the graph represents a pipeline stage (data processing, training, evaluation, etc.), and edges show dependencies between stages. This visualization helps understand pipeline structure, identify bottlenecks, and debug execution order issues.
+图中的每个节点代表一个流水线阶段（数据处理、训练、评估等），边则表示阶段之间的依赖关系。这种可视化有助于理解流水线结构、识别瓶颈以及调试执行顺序问题。
 
-The default output is ASCII art suitable for terminal viewing. The --dot option exports to Graphviz DOT format, which can be rendered to images using tools like Graphviz or online viewers. This is useful for documentation and sharing pipeline architecture with team members.
+默认输出是适合在终端查看的 ASCII 图形。--dot 选项可导出为 Graphviz DOT 格式，再使用 Graphviz 等工具或在线查看器渲染成图像。这对编写文档以及与团队成员共享流水线架构很有用。
 
 # INSTALL
 
@@ -52,5 +52,4 @@ The default output is ASCII art suitable for terminal viewing. The --dot option 
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-
 

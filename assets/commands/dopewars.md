@@ -1,14 +1,14 @@
 # TAGLINE
 
-drug trading strategy game set in New York City
+以纽约市为背景的交易策略游戏
 
 # TLDR
 
-**Start a game in text mode**
+**以文本模式开始游戏**
 
 ```dopewars -t```
 
-**Start with a specific player name**
+使用指定的玩家名称**开始游戏**
 
 ```dopewars -t -n [name]```
 
@@ -19,19 +19,19 @@ drug trading strategy game set in New York City
 # PARAMETERS
 
 **-t**
-> Text-mode (curses) interface.
+> 文本模式（curses）界面。
 
 **-n** _NAME_
-> Set player name.
+> 设置玩家名称。
 
 **-s**
-> Run as server for multiplayer.
+> 作为多人游戏服务器运行。
 
 **-c**
-> Connect to a multiplayer server.
+> 连接到多人游戏服务器。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # PREVIEW
 
@@ -45,17 +45,17 @@ drug trading strategy game set in New York City
 
 # DESCRIPTION
 
-**dopewars** is a strategy game where the player buys and sells goods across New York City locations over 30 days. The goal is to pay off the loan shark and make as much money as possible by exploiting price differences between neighborhoods.
+**dopewars** 是一款策略游戏：玩家要在 30 天内穿梭于纽约各处买卖货物。目标是还清高利贷，同时利用街区间价格的差异尽可能多赚钱。
 
-Random events like police encounters and market fluctuations add unpredictability. The game features a multiplayer mode for competing against other players over a network.
+遭遇警察、市场波动等随机事件为游戏增添不可预测性。游戏还提供多人模式，可以通过网络与其他玩家对抗。
 
 # CAVEATS
 
-Use **-t** flag for terminal mode. Multiplayer requires a running server. The game theme may be considered controversial.
+终端模式需使用 **-t** 标志。多人游戏需要一台正在运行的服务器。游戏的题材可能被认为存在争议。
 
 # HISTORY
 
-**dopewars** is based on **Drug Wars**, a game originally written by **John E. Dell** in **1984** for the TI-83 calculator. The Unix version was created by **Ben Webb** and has been actively maintained since the late **1990s**.
+**dopewars** 基于 **Drug Wars**——由 **John E. Dell** 于 **1984 年**为 TI-83 计算器编写的游戏。Unix 版本由 **Ben Webb** 创建，自 **20 世纪 90 年代末**以来一直处于活跃维护状态。
 
 # INSTALL
 

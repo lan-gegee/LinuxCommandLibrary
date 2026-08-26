@@ -1,34 +1,34 @@
 # TAGLINE
 
-decode WebP images to other formats
+解码 WebP 图像为其他格式
 
 # TLDR
 
-**Convert WebP to PNG**
+**将 WebP 转换为 PNG**
 
 ```dwebp [image.webp] -o [output.png]```
 
-**Convert to PPM**
+**转换为 PPM**
 
 ```dwebp [image.webp] -ppm -o [output.ppm]```
 
-**Convert to BMP**
+**转换为 BMP**
 
 ```dwebp [image.webp] -bmp -o [output.bmp]```
 
-**Show image info** only
+**仅显示图像信息**
 
 ```dwebp -info [image.webp]```
 
-**Resize** while decoding (0 keeps the aspect ratio)
+解码时**缩放图像**（0 表示保持宽高比）
 
 ```dwebp [image.webp] -resize [800] [0] -o [output.png]```
 
-**Crop** a rectangle out of the image
+从图像中**裁剪**一个矩形区域
 
 ```dwebp [image.webp] -crop [x] [y] [width] [height] -o [output.png]```
 
-**Flip image** vertically
+**垂直翻转图像**
 
 ```dwebp -flip [image.webp] -o [output.png]```
 
@@ -39,77 +39,77 @@ decode WebP images to other formats
 # PARAMETERS
 
 _INPUT_
-> WebP file to decode.
+> 要解码的 WebP 文件。
 
 **-o** _FILE_
-> Output file path.
+> 输出文件路径。
 
 **-ppm**
-> Output PPM format.
+> 输出 PPM 格式。
 
 **-bmp**
-> Output BMP format.
+> 输出 BMP 格式。
 
 **-tiff**
-> Output TIFF format.
+> 输出 TIFF 格式。
 
 **-pgm**
-> Output PGM format (grayscale).
+> 输出 PGM 格式（灰度）。
 
 **-pam**
-> Output PAM format (preserves the alpha channel).
+> 输出 PAM 格式（保留 alpha 通道）。
 
 **-alpha**
-> Output only the alpha plane as a grayscale image.
+> 仅输出 alpha 平面为灰度图像。
 
 **-info**
-> Print image info only.
+> 仅打印图像信息。
 
 **-flip**
-> Flip image vertically.
+> 垂直翻转图像。
 
 **-crop** _x_ _y_ _w_ _h_
-> Decode only the given rectangle of the image.
+> 只解码图像的指定矩形区域。
 
-**-resize** _width_ _height_ (or **-scale**)
-> Rescale the decoded image. A value of 0 for one dimension preserves the aspect ratio.
+**-resize** _width_ _height_（或 **-scale**）
+> 对解码后的图像重新缩放。某一维取 0 时保持宽高比。
 
 **-nofancy**
-> Disable fancy (higher quality) upsampling.
+> 禁用高质量（fancy）上采样。
 
 **-nodither**
-> Disable dithering.
+> 禁用抖动。
 
 **-mt**
-> Use multi-threading for decoding.
+> 使用多线程解码。
 
 **-quiet**
-> Suppress informational output.
+> 抑制提示性输出。
 
 **-v**
-> Print decoding time.
+> 打印解码耗时。
 
 **-version**
-> Print the library version and exit.
+> 打印库版本并退出。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dwebp** decodes WebP images to other formats. It's part of the libwebp package providing reference implementations for WebP encoding and decoding.
+**dwebp** 将 WebP 图像解码为其他格式。它是 libwebp 软件包的一部分，提供 WebP 编解码的参考实现。
 
-The tool supports both lossy and lossless WebP images, including those with alpha transparency. Output format defaults to PNG unless specified otherwise.
+该工具同时支持有损和无损 WebP 图像，包括带 alpha 透明通道的图像。除非另行指定，输出格式默认为 PNG。
 
-dwebp is useful for converting WebP images from web sources to formats compatible with tools that don't support WebP natively.
+dwebp 适用于将来自网络的 WebP 图像转换为那些原生不支持 WebP 的工具所能处理的格式。
 
 # CAVEATS
 
-The output file extension does not select the format; use the format flags. Animated WebP files are not handled by dwebp, only their first frame or nothing at all: use anim_dump or webpmux for animations. PNG output is the default and requires libpng at build time.
+输出文件的扩展名不决定格式；请使用格式标志。dwebp 不处理动画 WebP 文件，只会输出其第一帧或什么都不输出：动画请使用 anim_dump 或 webpmux。PNG 是默认输出格式，且在构建时需要 libpng。
 
 # HISTORY
 
-dwebp is part of **libwebp**, Google's reference implementation of the WebP image format. WebP was introduced by Google in **2010** as an efficient image format for web use.
+dwebp 是 **libwebp** 的一部分，后者是 Google 的 WebP 图像格式参考实现。WebP 由 Google 于 **2010 年**推出，是一种面向网络使用的高效图像格式。
 
 # INSTALL
 

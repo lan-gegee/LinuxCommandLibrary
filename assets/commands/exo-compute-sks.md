@@ -1,30 +1,30 @@
 # TAGLINE
 
-Exoscale managed Kubernetes cluster management
+Exoscale 托管 Kubernetes 集群管理
 
 # TLDR
 
-**List SKS clusters**
+**列出 SKS 集群**
 
 ```exo compute sks list```
 
-**Create SKS cluster**
+**创建 SKS 集群**
 
 ```exo compute sks create [cluster_name] --zone [ch-gva-2]```
 
-**Get kubeconfig**
+**获取 kubeconfig**
 
 ```exo compute sks kubeconfig [cluster_name]```
 
-**Add nodepool**
+**添加节点池**
 
 ```exo compute sks nodepool add [cluster_name] [nodepool_name]```
 
-**Scale nodepool**
+**伸缩节点池**
 
 ```exo compute sks nodepool scale [cluster_name] [nodepool_name] [5]```
 
-**Delete cluster**
+**删除集群**
 
 ```exo compute sks delete [cluster_name]```
 
@@ -35,41 +35,41 @@ Exoscale managed Kubernetes cluster management
 # PARAMETERS
 
 _ACTION_
-> Operation: list, create, delete, kubeconfig, nodepool.
+> 操作：list、create、delete、kubeconfig、nodepool。
 
 **create** _NAME_
-> Create new SKS cluster.
+> 创建新的 SKS 集群。
 
 **kubeconfig** _NAME_
-> Get kubeconfig for cluster.
+> 获取集群的 kubeconfig。
 
 **nodepool add** _CLUSTER_ _POOL_
-> Add nodepool to cluster.
+> 向集群添加节点池。
 
 **nodepool scale** _CLUSTER_ _POOL_ _SIZE_
-> Scale nodepool.
+> 伸缩节点池。
 
 **--zone** _ZONE_
-> Availability zone.
+> 可用区。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**exo compute sks** manages Exoscale SKS (Scalable Kubernetes Service) clusters. SKS provides managed Kubernetes with automatic control plane management.
+**exo compute sks** 用于管理 Exoscale SKS（Scalable Kubernetes Service）集群。SKS 提供托管 Kubernetes，控制平面自动管理。
 
-Commands handle cluster lifecycle, nodepool management, and kubeconfig retrieval. Nodepools allow different instance configurations within a cluster.
+命令涵盖集群生命周期、节点池管理和 kubeconfig 获取。节点池允许同一集群内使用不同的实例配置。
 
-SKS integrates with Exoscale's infrastructure for storage, networking, and load balancing.
+SKS 与 Exoscale 的基础设施集成，提供存储、网络和负载均衡能力。
 
 # CAVEATS
 
-Kubernetes clusters incur costs. Control plane is managed but workers are billable. Zone determines available features. kubeconfig provides full cluster access.
+Kubernetes 集群会产生费用。控制平面由平台托管，但工作节点需要计费。可用区决定可用的功能。kubeconfig 提供集群的完整访问权限。
 
 # HISTORY
 
-SKS is Exoscale's managed Kubernetes offering, providing CNCF-certified Kubernetes clusters on Exoscale's European cloud infrastructure.
+SKS 是 Exoscale 的托管 Kubernetes 服务，在 Exoscale 的欧洲云基础设施上提供通过 CNCF 认证的 Kubernetes 集群。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-fast cross-platform subdomain enumerator
+快速的跨平台子域名枚举工具
 
 # TLDR
 
-**Find subdomains** for a domain
+**查找域名的子域名**
 
 ```findomain -t [example.com]```
 
-**Output to file**
+**输出到文件**
 
 ```findomain -t [example.com] -o```
 
-**Use all sources**
+**使用全部数据源**
 
 ```findomain -t [example.com] -a```
 
-**Check for live subdomains**
+**检查存活的子域名**
 
 ```findomain -t [example.com] --resolved```
 
-**Output in JSON**
+**以 JSON 输出**
 
 ```findomain -t [example.com] --json```
 
-**Read domains from file**
+**从文件读取域名**
 
 ```findomain -f [domains.txt]```
 
@@ -34,51 +34,51 @@ fast cross-platform subdomain enumerator
 
 # DESCRIPTION
 
-**findomain** is a cross-platform subdomain enumerator. It queries multiple data sources to discover subdomains for a target domain, useful for reconnaissance in security assessments.
+**findomain** 是一款跨平台的子域名枚举工具。它通过查询多个数据源来发现目标域名的子域名，可用于安全评估中的侦察环节。
 
-The tool aggregates results from certificate transparency logs, search engines, and other passive sources without making direct requests to the target.
+该工具从证书透明度日志、搜索引擎以及其他被动来源聚合结果，不会直接向目标发起请求。
 
 # PARAMETERS
 
 **-t** _domain_
-> Target domain.
+> 目标域名。
 
 **-f** _file_
-> Read domains from file.
+> 从文件读取域名列表。
 
 **-o**
-> Output to file.
+> 输出到文件。
 
 **-a**, **--all-apis**
-> Use all available APIs.
+> 使用所有可用的 API。
 
 **--resolved**
-> Show only resolving subdomains.
+> 只显示能够解析的子域名。
 
 **--ip**
-> Show IP addresses.
+> 显示 IP 地址。
 
 **--json**
-> Output in JSON format.
+> 以 JSON 格式输出。
 
 **-q**, **--quiet**
-> Suppress informational output.
+> 不输出提示性信息。
 
 **-u**, **--unique**
-> Remove duplicates.
+> 去除重复项。
 
 # CONFIGURATION
 
 **~/.config/findomain/config.toml**
-> API keys for data sources like SecurityTrails, Shodan, and VirusTotal.
+> SecurityTrails、Shodan、VirusTotal 等数据源的 API 密钥。
 
 # CAVEATS
 
-API keys needed for some sources. Results depend on available data. Does not perform active scanning. Rate limits may apply.
+某些数据源需要 API 密钥。结果取决于可用数据的情况。不执行主动扫描。可能受到速率限制。
 
 # HISTORY
 
-**findomain** was created by **Eduard Tolosa** as a fast subdomain enumeration tool. Written in Rust for performance, it emerged as an alternative to tools like Sublist3r and Amass. The project focuses on speed and reliability in passive reconnaissance.
+**findomain** 由 **Eduard Tolosa** 创建，是一款追求速度的子域名枚举工具。它采用 Rust 编写以获得高性能，作为 Sublist3r、Amass 等工具的替代方案问世。该项目专注于让被动侦察更快、更可靠。
 
 # INSTALL
 

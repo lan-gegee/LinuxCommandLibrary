@@ -1,34 +1,34 @@
 # TAGLINE
 
-Gentoo ebuild repository configuration
+Gentoo ebuild 软件仓库配置
 
 # TLDR
 
-**List** all ebuild repositories
+**列出**所有 ebuild 软件仓库
 
 ```eselect repository list```
 
-List **enabled** repositories
+列出**已启用**的软件仓库
 
 ```eselect repository list -i```
 
-**Enable** a repository
+**启用**一个软件仓库
 
 ```eselect repository enable [name|index]```
 
-**Add** an unregistered repository
+**添加**一个未注册的软件仓库
 
 ```eselect repository add [name] [git|rsync|svn] [sync_uri]```
 
-**Disable** repositories without removing contents
+**禁用**软件仓库但保留其内容
 
 ```eselect repository disable [repo1] [repo2]```
 
-**Remove** repositories and their contents
+**移除**软件仓库及其内容
 
 ```eselect repository remove [repo1] [repo2]```
 
-**Create** a local repository
+**创建**一个本地软件仓库
 
 ```eselect repository create [name] [path/to/repo]```
 
@@ -38,36 +38,36 @@ List **enabled** repositories
 
 # DESCRIPTION
 
-**eselect repository** configures ebuild repositories for Portage on Gentoo systems. It can enable, disable, add, or remove repositories from the Gentoo repository list.
+**eselect repository** 为 Gentoo 系统上的 Portage 配置 ebuild 软件仓库。它可以启用、禁用、添加或移除 Gentoo 软件仓库列表中的仓库。
 
-After enabling a repository, run `emerge --sync repo_name` to download ebuilds.
+启用软件仓库后，运行 `emerge --sync repo_name` 下载 ebuild。
 
 # PARAMETERS
 
 **list**
-> List all registered repositories
+> 列出所有已注册的软件仓库
 
 **-i**
-> Show only installed/enabled
+> 只显示已安装/启用的仓库
 
 **enable** _repo_
-> Enable a repository
+> 启用一个软件仓库
 
 **disable** _repo_
-> Disable without removing
+> 禁用但不移除内容
 
 **remove** _repo_
-> Disable and remove contents
+> 禁用并移除内容
 
 **add** _name_ _type_ _uri_
-> Add unregistered repository
+> 添加未注册的软件仓库
 
 **create** _name_ _path_
-> Create local repository
+> 创建本地软件仓库
 
 # CAVEATS
 
-Gentoo Linux specific. Repositories must be synced after enabling. Part of app-eselect/eselect-repository package.
+仅适用于 Gentoo Linux。启用软件仓库后必须进行同步。属于 app-eselect/eselect-repository 软件包。
 
 # SEE ALSO
 

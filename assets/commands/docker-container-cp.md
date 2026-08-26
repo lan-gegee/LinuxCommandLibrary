@@ -1,18 +1,18 @@
 # TAGLINE
 
-copy files between container and host
+在容器与宿主机之间复制文件
 
 # TLDR
 
-**Copy file from container to host**
+**将文件从容器复制到宿主机**
 
 ```docker container cp [container]:[/path/in/container] [/local/path]```
 
-**Copy file from host to container**
+**将文件从宿主机复制到容器**
 
 ```docker container cp [/local/file] [container]:[/path/in/container]```
 
-**Copy directory**
+**复制目录**
 
 ```docker container cp [container]:[/src/dir] [/dest/dir]```
 
@@ -23,14 +23,14 @@ copy files between container and host
 # PARAMETERS
 
 **-a**, **--archive**
-> Archive mode (preserve permissions).
+> 归档模式（保留权限）。
 
 **-L**, **--follow-link**
-> Follow symbolic links.
+> 跟随符号链接。
 
 # DESCRIPTION
 
-**docker container cp** copies files between containers and the local filesystem. Works with running or stopped containers.
+**docker container cp** 在容器和本地文件系统之间复制文件。适用于运行中或已停止的容器。
 
 # INSTALL
 

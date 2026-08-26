@@ -1,30 +1,30 @@
 # TAGLINE
 
-dynamic Markdown documentation site generator
+动态 Markdown 文档站点生成器
 
 # TLDR
 
-**Initialize new documentation** site
+**初始化新文档**站点
 
 ```docsify init [./docs]```
 
-**Initialize with a specific theme**
+**使用指定主题初始化**
 
 ```docsify init [./docs] --theme [dark]```
 
-**Start local preview** server
+**启动本地预览**服务器
 
 ```docsify serve [./docs]```
 
-**Serve on specific port**
+**在指定端口提供服务**
 
 ```docsify serve [./docs] --port [4000]```
 
-**Serve and open in browser** automatically
+**提供服务并自动在浏览器打开**
 
 ```docsify serve [./docs] --open```
 
-**Generate sidebar** automatically
+**自动生成侧边栏**
 
 ```docsify generate [./docs]```
 
@@ -35,62 +35,62 @@ dynamic Markdown documentation site generator
 # PARAMETERS
 
 _COMMAND_
-> Operation: init, serve, generate.
+> 操作：init、serve、generate。
 
 _PATH_
-> Documentation directory.
+> 文档目录。
 
 **init** [_PATH_]
-> Initialize new docsify project. Shorthand: **i**.
+> 初始化新的 docsify 项目。简写：**i**。
 
 **--local, -l**
-> Copy docsify files to the docs path instead of using CDN (default: false).
+> 将 docsify 文件复制到文档路径，而不是使用 CDN（默认：false）。
 
 **--theme, -t** _THEME_
-> Choose a theme: vue, buble, dark, pure (default: vue).
+> 选择主题：vue、buble、dark、pure（默认：vue）。
 
 **--plugins, -p**
-> Add plugin script tags to index.html.
+> 在 index.html 中添加插件脚本标签。
 
 **serve** [_PATH_]
-> Start local server with live reload. Shorthand: **s**.
+> 启动支持实时重载的本地服务器。简写：**s**。
 
 **--port, -p** _N_
-> Server port (default: 3000).
+> 服务器端口（默认：3000）。
 
 **--host, -H** _HOST_
-> Host to bind to (default: localhost).
+> 绑定的主机（默认：localhost）。
 
 **--open, -o**
-> Open browser automatically.
+> 自动打开浏览器。
 
 **generate** [_PATH_]
-> Generate sidebar file. Shorthand: **g**.
+> 生成侧边栏文件。简写：**g**。
 
 **--sidebar, -s** _FILE_
-> Sidebar filename (default: _sidebar.md).
+> 侧边栏文件名（默认：_sidebar.md）。
 
 **--overwrite, -o**
-> Allow overwriting existing files.
+> 允许覆盖现有文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**docsify** is a documentation site generator that dynamically renders Markdown files without building static HTML. It loads and parses Markdown files on the fly, providing instant updates during editing.
+**docsify** 是一个动态渲染 Markdown 文件的文档站点生成器，无需构建静态 HTML。它在加载时即时解析 Markdown 文件，编辑时可获得即时更新。
 
-The tool creates simple, elegant documentation websites from Markdown files. Features include full-text search, multiple themes, plugin support, and GitHub Pages compatibility. Configuration is minimal, typically just an index.html and Markdown files.
+该工具从 Markdown 文件创建简洁优雅的文档网站，功能包括全文搜索、多种主题、插件支持和 GitHub Pages 兼容性。配置极简，通常只需一个 index.html 和若干 Markdown 文件。
 
-docsify is particularly suited for project documentation, requiring no build step and supporting features like cover pages, sidebars, and embedded code samples.
+docsify 特别适合项目文档：无需构建步骤，并支持封面页、侧边栏和内嵌代码示例等特性。
 
 # CAVEATS
 
-Requires JavaScript for rendering (no static HTML). SEO may be affected by client-side rendering. Large documentation sites may have initial load delay.
+渲染依赖 JavaScript（没有静态 HTML）。客户端渲染可能影响 SEO。大型文档站点的首次加载可能有延迟。
 
 # HISTORY
 
-docsify was created by **QingWei-Li** (cinwell) and released as an open-source project. It gained popularity as a lightweight alternative to documentation generators like GitBook and VuePress, emphasizing simplicity and no build requirements. It is installed via npm: **npm i docsify-cli -g**.
+docsify 由 **QingWei-Li**（cinwell）创建并以开源项目发布。作为 GitBook 和 VuePress 等文档生成器的轻量级替代方案而广受欢迎，强调简洁且无需构建步骤。可通过 npm 安装：**npm i docsify-cli -g**。
 
 # SEE ALSO
 

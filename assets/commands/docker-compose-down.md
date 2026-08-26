@@ -1,26 +1,26 @@
 # TAGLINE
 
-stop and remove compose resources
+停止并移除 Compose 资源
 
 # TLDR
 
-**Stop and remove containers**
+**停止并移除容器**
 
 ```docker compose down```
 
-**Remove volumes too**
+**同时移除卷**
 
 ```docker compose down -v```
 
-**Remove images too**
+**同时移除镜像**
 
 ```docker compose down --rmi all```
 
-**Remove orphan containers**
+**移除孤儿容器**
 
 ```docker compose down --remove-orphans```
 
-**Timeout for shutdown**
+**设置关闭超时时间**
 
 ```docker compose down -t [30]```
 
@@ -31,22 +31,22 @@ stop and remove compose resources
 # PARAMETERS
 
 **-v**, **--volumes**
-> Remove named volumes and anonymous volumes.
+> 移除命名卷和匿名卷。
 
 **--rmi** _type_
-> Remove images: all or local.
+> 移除镜像：all 或 local。
 
 **--remove-orphans**
-> Remove containers not defined in Compose file.
+> 移除未在 Compose 文件中定义的容器。
 
 **-t**, **--timeout** _seconds_
-> Shutdown timeout (default 10).
+> 关闭超时时间（默认 10）。
 
 # DESCRIPTION
 
-**docker compose down** stops and removes containers and networks created by **docker compose up**.
+**docker compose down** 停止并移除由 **docker compose up** 创建的容器和网络。
 
-By default, only containers and networks are removed. Volumes and images are preserved unless **-v** or **--rmi** is specified. Networks and volumes defined as **external** are never removed.
+默认只移除容器和网络。除非指定了 **-v** 或 **--rmi**，否则卷和镜像会被保留。定义为 **external** 的网络和卷永远不会被移除。
 
 # INSTALL
 

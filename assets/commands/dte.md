@@ -1,22 +1,22 @@
 # TAGLINE
 
-Small configurable terminal text editor
+小巧可配置的终端文本编辑器
 
 # TLDR
 
-**Open** a file for editing
+**打开**文件进行编辑
 
 ```dte [filename]```
 
-**Open** multiple files
+**打开**多个文件
 
 ```dte [file1] [file2]```
 
-**Open** file at specific line
+**打开**文件并定位到指定行
 
 ```dte +[line_number] [filename]```
 
-**Open** file in read-only mode
+**以只读模式打开**文件
 
 ```dte -R [filename]```
 
@@ -27,65 +27,65 @@ Small configurable terminal text editor
 # PARAMETERS
 
 **+**_N_
-> Start at line N
+> 从第 N 行开始
 
 **-R, --read-only**
-> Open in read-only mode
+> 以只读模式打开
 
 **-c, --config** _FILE_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**dte** is a small, fast, and configurable terminal text editor designed to be lightweight yet powerful. It features syntax highlighting for many languages, multiple buffers, split windows, and a clean command interface similar to vi/vim but with different key bindings.
+**dte** 是一个小巧、快速且可配置的终端文本编辑器，设计目标是轻量而强大。它支持多种语言的语法高亮、多缓冲区、窗口分割，以及一个类似于 vi/vim 但键位不同的简洁命令接口。
 
-The editor is written in C with minimal dependencies, making it suitable for resource-constrained environments. It supports macros, regular expression search, and customizable key bindings through configuration files.
+该编辑器用 C 语言编写，依赖极少，适合资源受限的环境。它支持宏、正则表达式搜索，并可通过配置文件自定义键位绑定。
 
 # KEYBINDINGS
 
 **Ctrl+S**
-> Save file
+> 保存文件
 
 **Ctrl+Q**
-> Quit
+> 退出
 
 **Ctrl+F**
-> Search
+> 搜索
 
 **Ctrl+G**
-> Go to line
+> 跳转到指定行
 
 **Ctrl+W**
-> Close buffer
+> 关闭缓冲区
 
 **Ctrl+N**
-> New file
+> 新建文件
 
 **Ctrl+O**
-> Open file
+> 打开文件
 
 **Ctrl+Z**
-> Suspend editor
+> 挂起编辑器
 
 **Tab**
-> Indent/Autocomplete
+> 缩进/自动补全
 
 **Shift+Tab**
-> Unindent
+> 取消缩进
 
 # CONFIGURATION
 
-Configuration file location:
+配置文件位置：
 - ~/.dterc
 - ~/.config/dte/dterc
 
-Example configuration:
+配置示例：
 
 ```
 set auto-indent true
@@ -95,11 +95,11 @@ set show-line-numbers true
 
 # CAVEATS
 
-Different key bindings than vi/vim may require adjustment period. Some advanced features require compilation with specific options. Terminal compatibility varies. No built-in scripting language like Vimscript or Emacs Lisp.
+与 vi/vim 不同的键位绑定可能需要一段适应期。部分高级功能需要使用特定选项编译。终端兼容性因环境而异。没有像 Vimscript 或 Emacs Lisp 那样的内置脚本语言。
 
 # HISTORY
 
-**dte** was created by Craig Barnes as a lightweight alternative to larger editors. It aims to provide essential editing features in a small footprint while remaining easy to configure and extend.
+**dte** 由 Craig Barnes 创建，作为大型编辑器的轻量替代品。它旨在占用极小空间的同时提供核心编辑功能，并且易于配置和扩展。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-standard Unix line editor
+标准 Unix 行编辑器
 
 # TLDR
 
-**Start ed with** file
+**启动 ed 并打开**文件
 
 ```ed [file.txt]```
 
-**Print line 5**
+**打印第 5 行**
 
 ```5p```
 
-**Print all lines**
+**打印所有行**
 
 ```,p```
 
-**Substitute text**
+**替换文本**
 
 ```s/old/new/```
 
-**Substitute globally** on line
+**在该行全局替换**
 
 ```s/old/new/g```
 
-**Append after** current line
+**在当前行之后追加**
 
 ```a```
 
-**Write and quit**
+**保存并退出**
 
 ```wq```
 
-**Edit a file non-interactively** by piping commands to ed
+**通过管道向 ed 传入命令以非交互方式编辑文件**
 
 ```printf '%s\n' ',s/old/new/g' 'w' 'q' | ed -s [file.txt]```
 
@@ -43,50 +43,50 @@ standard Unix line editor
 # PARAMETERS
 
 _FILE_
-> File to edit.
+> 要编辑的文件。
 
 **-p** _STRING_, **--prompt=**_STRING_
-> Use STRING as the command prompt (there is no prompt by default).
+> 使用 STRING 作为命令提示符（默认没有提示符）。
 
 **-s**, **--quiet**, **--script**
-> Suppress diagnostics, byte counts and the '!' prompt: the usual choice for scripts.
+> 抑制诊断信息、字节数和 '!' 提示：脚本的通常选择。
 
 **-E**, **--extended-regexp**
-> Use extended regular expressions instead of basic ones.
+> 使用扩展正则表达式而非基本正则表达式。
 
 **-G**, **--traditional**
-> Run in compatibility mode with the traditional Unix ed.
+> 以与传统 Unix ed 兼容的模式运行。
 
 **-l**, **--loose-exit-status**
-> Exit with 0 status even if a command fails.
+> 即使命令失败也以状态码 0 退出。
 
 **-r**, **--restricted**
-> Restricted mode: disallow shell escapes and editing files outside the current directory.
+> 受限模式：禁止 shell 逃逸和编辑当前目录之外的文件。
 
 **-v**, **--verbose**
-> Print full error messages rather than a bare '?'.
+> 输出完整的错误消息，而不是单纯的 '?'。
 
 **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**ed** is the standard Unix line editor. It operates in command mode by default, accepting single-letter commands to navigate, view, and modify text. It's the ancestor of sed and vi.
+**ed** 是标准的 Unix 行编辑器。它默认在命令模式下运行，接受单字母命令来导航、查看和修改文本。它是 sed 和 vi 的祖先。
 
-Commands typically consist of an address or range followed by a command letter. Addresses can be line numbers, patterns, or special characters (. for current, $ for last line).
+命令通常由一个地址或范围加上一个命令字母组成。地址可以是行号、模式或特殊字符（`.` 表示当前行，`$` 表示最后一行）。
 
-ed is useful for scripted editing, as commands can be piped to it. Its minimal interface makes it valuable for emergency system recovery when full-screen editors aren't available.
+ed 适用于脚本化编辑，因为命令可以通过管道传入。它的极简接口使其在全屏编辑器不可用时对紧急系统恢复很有价值。
 
 # CAVEATS
 
-No visual feedback by default. Errors reported with "?" unless verbose. Learning curve for command syntax. Not suitable for casual editing.
+默认没有可视化反馈。错误仅以 "?" 报告，除非启用 verbose。命令语法有一定学习曲线。不适合日常随意编辑。
 
 # HISTORY
 
-ed was written by **Ken Thompson** at Bell Labs in **1969**, making it one of the earliest Unix programs. Its design influenced sed, ex, vi, and ultimately modern text editors.
+ed 由 **Ken Thompson** 于 **1969 年**在贝尔实验室编写，是最早的 Unix 程序之一。它的设计影响了 sed、ex、vi，并最终影响到现代文本编辑器。
 
 # INSTALL
 

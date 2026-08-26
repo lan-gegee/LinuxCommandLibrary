@@ -1,22 +1,22 @@
 # TAGLINE
 
-create image from container changes
+根据容器的更改创建镜像
 
 # TLDR
 
-**Create image from container**
+**从容器创建镜像**
 
 ```docker commit [container_id] [image_name:tag]```
 
-**Commit with author info**
+**附带作者信息**提交
 
 ```docker commit --author "[name]" [container_id] [image:tag]```
 
-**Commit with message**
+**附带说明**提交
 
 ```docker commit -m "[Added config files]" [container_id] [image:tag]```
 
-**Commit with changed CMD**
+**以修改后的 CMD** 提交
 
 ```docker commit --change "CMD ['/app/start.sh']" [container_id] [image:tag]```
 
@@ -27,30 +27,30 @@ create image from container changes
 # PARAMETERS
 
 **-a**, **--author** _string_
-> Author of the image.
+> 镜像的作者。
 
 **-c**, **--change** _list_
-> Apply Dockerfile instructions to the image.
+> 对镜像应用 Dockerfile 指令。
 
 **-m**, **--message** _string_
-> Commit message.
+> 提交说明。
 
 **-p**, **--pause**
-> Pause container during commit (default true).
+> 提交期间暂停容器（默认为 true）。
 
 # DESCRIPTION
 
-**docker commit** creates a new image from a container's changes. This captures the current state of a container's filesystem as a new image layer by examining all modifications made since the container was created.
+**docker commit** 根据容器的更改创建新镜像。它通过检查容器自创建以来的所有修改，将容器文件系统的当前状态捕获为一个新的镜像层。
 
-While useful for debugging, experimentation, or saving a working state, this approach is not recommended for production workflows. Dockerfiles provide better reproducibility, version control, and documentation of the build process. Committed images lack the transparent layer history that Dockerfiles provide, making them harder to maintain and audit.
+虽然它在调试、实验或保存工作状态时很有用，但不推荐在生产工作流中使用这种方式。Dockerfile 能提供更好的可复现性、版本控制和构建过程文档。commit 得到的镜像缺少 Dockerfile 那样透明的层历史，因此更难维护和审计。
 
 # CAVEATS
 
-Does not include data in volumes mounted into the container. The resulting image lacks meaningful build history and is not reproducible from source. By default the container is paused for the duration of the commit (**--pause=true**); pass **--pause=false** to keep it running, at the risk of capturing an inconsistent filesystem snapshot if writes are in flight.
+不包含挂载进容器的卷中的数据。得到的镜像缺乏有意义的构建历史，无法从源码复现。默认情况下，容器会在整个提交期间被暂停（**--pause=true**）；传入 **--pause=false** 可保持其运行，但若仍有写入正在进行，就有捕获到不一致的文件系统快照的风险。
 
 # HISTORY
 
-**docker commit** has been in the Docker CLI since the project's first public release in **2013**. It predates Dockerfiles and was the original way to build images; modern workflows prefer **docker build** for reproducibility and **docker commit** for ad-hoc debug snapshots only.
+**docker commit** 自 **2013 年** Docker 项目首次公开发布起就存在于 Docker CLI 中。它早于 Dockerfile，是最初构建镜像的方式；现代工作流更倾向于用 **docker build** 保证可复现性，而只在临时调试快照时使用 **docker commit**。
 
 # INSTALL
 

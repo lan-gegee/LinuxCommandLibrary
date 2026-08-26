@@ -1,26 +1,26 @@
 # TAGLINE
 
-authentication failure tracking and lockout manager
+认证失败跟踪与锁定管理工具
 
 # TLDR
 
-List **login failures** of current user
+列出当前用户的**登录失败**记录
 
 ```faillock```
 
-**Reset** failure records of current user
+重置当前用户的失败记录
 
 ```faillock --reset```
 
-List login failures of **all** users
+列出**所有**用户的登录失败记录
 
 ```sudo faillock```
 
-List failures of **specific** user
+列出**指定**用户的失败记录
 
 ```sudo faillock --user [user]```
 
-Reset failures of **specific** user
+重置**指定**用户的失败记录
 
 ```sudo faillock --user [user] --reset```
 
@@ -30,29 +30,29 @@ Reset failures of **specific** user
 
 # DESCRIPTION
 
-**faillock** displays and modifies authentication failure record files. Part of the PAM pam_faillock module, it tracks failed login attempts and can lock out accounts after too many failures.
+**faillock** 显示和修改身份验证失败记录文件。它是 PAM pam_faillock 模块的一部分，跟踪失败的登录尝试，并可在失败次数过多后锁定账户。
 
-Used for security monitoring and account lockout management.
+用于安全监控和账户锁定管理。
 
 # PARAMETERS
 
 **--user** _user_
-> Operate on specific user
+> 操作指定用户
 
 **--reset**
-> Reset failure records
+> 重置失败记录
 
 **--dir** _dir_
-> Use alternate tally directory
+> 使用备用计数目录
 
 # CONFIGURATION
 
 **/etc/security/faillock.conf**
-> Configuration for pam_faillock module including lockout thresholds and duration.
+> pam_faillock 模块的配置，包括锁定阈值和持续时间。
 
 # CAVEATS
 
-Part of the Linux-PAM package. Records stored in /var/run/faillock/ by default. Requires root to view other users' records.
+属于 Linux-PAM 软件包的一部分。记录默认存储在 /var/run/faillock/ 中。查看其他用户的记录需要 root 权限。
 
 # INSTALL
 

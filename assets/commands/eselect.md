@@ -1,30 +1,30 @@
 # TAGLINE
 
-Gentoo system configuration and management tool
+Gentoo 系统配置和管理工具
 
 # TLDR
 
-List all **available modules**
+列出所有**可用模块**
 
 ```eselect modules list```
 
-Display **help** for a specific module
+显示特定模块的**帮助**
 
 ```eselect [module] help```
 
-**List** available options for a module
+**列出**某个模块可用的选项
 
 ```eselect [module] list```
 
-**Show** the current setting for a module
+**显示**某个模块当前的设置
 
 ```eselect [module] show```
 
-**Set** a target for a module
+**为某个模块设置**目标
 
 ```sudo eselect [module] set [target]```
 
-Select the active **kernel** sources
+选择生效的**内核**源码
 
 ```sudo eselect kernel set [number]```
 
@@ -35,63 +35,63 @@ Select the active **kernel** sources
 # GLOBAL OPTIONS
 
 **--brief**
-> Reduce output verbosity.
+> 降低输出的详细程度。
 
 **--colour=**_yes_|_no_|_auto_
-> Control colored output (default: auto).
+> 控制彩色输出（默认：auto）。
 
 # DESCRIPTION
 
-**eselect** is Gentoo Linux's multi-purpose configuration and system management tool. It provides a unified, modular framework for managing various system settings that would otherwise require editing configuration files or managing symlinks manually. Common uses include selecting kernel sources, switching compiler versions, managing Java implementations, configuring locales, and setting system profiles.
+**eselect** 是 Gentoo Linux 的多用途配置和系统管理工具。它提供统一、模块化的框架来管理各种系统设置，否则这些设置就需要手动编辑配置文件或管理符号链接。常见用途包括选择内核源码、切换编译器版本、管理 Java 实现、配置 locale 以及设置系统 profile。
 
-The tool's modular design means each aspect of system configuration is handled by a dedicated module with consistent syntax (list, set, show, help). This makes system administration more accessible and reduces the risk of configuration errors. Additional modules can be provided by packages, extending eselect's capabilities as needed for specific software.
+该工具的模块化设计意味着系统配置的每个方面都由一个专用模块以一致的语法处理（list、set、show、help）。这让系统管理更加便捷，并降低了配置出错的风险。额外的模块可以由软件包提供，按需扩展 eselect 对特定软件的支持能力。
 
 # PARAMETERS
 
 **list**
-> List available options.
+> 列出可用的选项。
 
 **set** _target_
-> Set the specified target.
+> 设置指定的目标。
 
 **show**
-> Display current setting.
+> 显示当前设置。
 
 **help**
-> Show module help.
+> 显示模块帮助。
 
 **update**
-> Refresh configuration if unset or invalid.
+> 在配置未设置或无效时刷新配置。
 
 **version**
-> Display module version.
+> 显示模块版本。
 
 # COMMON MODULES
 
 **kernel**
-> Configure /usr/src/linux symlink.
+> 配置 /usr/src/linux 符号链接。
 
 **profile**
-> Manage the make.profile symlink.
+> 管理 make.profile 符号链接。
 
 **locale**
-> Set the LANG environment variable.
+> 设置 LANG 环境变量。
 
 **gcc**
-> Select active GCC compiler version.
+> 选择生效的 GCC 编译器版本。
 
 **editor**
-> Manage the EDITOR environment variable.
+> 管理 EDITOR 环境变量。
 
 **repository**
-> Manage ebuild repositories.
+> 管理 ebuild 软件仓库。
 
 **news**
-> Read Gentoo news items.
+> 阅读 Gentoo 新闻条目。
 
 # CAVEATS
 
-Gentoo Linux specific. Available modules depend on installed packages. Some modules require root privileges.
+仅适用于 Gentoo Linux。可用模块取决于已安装的软件包。部分模块需要 root 权限。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-download container images from registries
+从镜像仓库下载容器镜像
 
 # TLDR
 
-**Pull an image**
+**拉取一个镜像**
 
 ```docker pull [image]```
 
-**Pull specific tag**
+**拉取指定标签**
 
 ```docker pull [image]:[tag]```
 
-**Pull all tags**
+**拉取所有标签**
 
 ```docker pull -a [image]```
 
-**Pull from private registry**
+**从私有镜像仓库拉取**
 
 ```docker pull [registry.example.com/image]:[tag]```
 
-**Pull by digest**
+**按摘要拉取**
 
 ```docker pull [image]@sha256:[digest]```
 
-**Pull specific platform**
+**拉取特定平台的镜像**
 
 ```docker pull --platform linux/arm64 [image]```
 
@@ -35,20 +35,20 @@ download container images from registries
 # PARAMETERS
 
 **-a**, **--all-tags**
-> Download all tagged images in the repository.
+> 下载软件仓库中所有带标签的镜像。
 
 **--disable-content-trust**
-> Skip image verification.
+> 跳过镜像验证。
 
 **--platform** _string_
-> Set platform (e.g., linux/amd64, linux/arm64).
+> 设置平台（例如 linux/amd64、linux/arm64）。
 
 **-q**, **--quiet**
-> Suppress verbose output.
+> 抑制详细输出。
 
 # DESCRIPTION
 
-**docker pull** downloads an image from a registry. Pulls from Docker Hub by default. If no tag is specified, pulls the latest tag. Images are downloaded in layers, and Docker caches these layers to optimize subsequent pulls. Supports multi-platform images with automatic platform detection.
+**docker pull** 从镜像仓库下载镜像，默认从 Docker Hub 拉取。未指定标签时拉取 latest 标签。镜像按层下载，Docker 会缓存这些层以优化后续拉取。支持多平台镜像并自动检测平台。
 
 # INSTALL
 
@@ -71,4 +71,3 @@ download container images from registries
 # SEE ALSO
 
 [docker-image-pull](/man/docker-image-pull)(1), [docker-run](/man/docker-run)(1), [docker-images](/man/docker-images)(1)
-

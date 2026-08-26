@@ -1,22 +1,22 @@
 # TAGLINE
 
-show the commit, author, and timestamp that last modified each row of a Dolt table
+显示最后修改 Dolt 表每一行的提交、作者和时间戳
 
 # TLDR
 
-**Blame every row** of a table
+对表的**每一行执行 blame**
 
 ```dolt blame [table_name]```
 
-**Show blame by primary-key value** (filter after the fact)
+**按主键值查看 blame**（事后过滤）
 
 ```dolt blame [table_name] | grep "[key_value]"```
 
-**Query blame via SQL** for custom columns/filtering
+通过 SQL **查询 blame** 以自定义列/过滤条件
 
 ```dolt sql -q "SELECT * FROM dolt_blame_[table_name]"```
 
-**Show only rows modified by an author**
+**只显示某位作者修改的行**
 
 ```dolt sql -q "SELECT * FROM dolt_blame_[table_name] WHERE committer = '[alice]'"```
 
@@ -27,21 +27,21 @@ show the commit, author, and timestamp that last modified each row of a Dolt tab
 # PARAMETERS
 
 _TABLE_
-> The table to blame. Rows are identified by their primary key.
+> 要追溯的表。各条目通过其主键标识。
 
 # DESCRIPTION
 
-**dolt blame** prints a row-per-primary-key table showing the timestamp, author, commit message, and commit hash of the last commit that modified that row. It is the row-level equivalent of `git blame`, adapted to a database.
+**dolt blame** 输出一张每个主键占一行的表格，显示最后一次修改该行的提交的时间戳、作者、提交消息和提交哈希。它相当于行级别的 `git blame`，适配到了数据库场景。
 
-The CLI form shows a fixed set of columns. For more flexible queries (joins with other system tables, filtering by commit range, custom projections) use the equivalent SQL system view `dolt_blame_$tablename` — its columns include every primary key of the table plus `commit_hash`, `committer`, `email`, `date`, and `message`.
+CLI 形式只显示一组固定列。如果需要更灵活的查询（与其他系统表连接、按提交范围过滤、自定义投影），请使用等价的 SQL 系统视图 `dolt_blame_$tablename` —— 它的列包含该表的全部主键以及 `commit_hash`、`committer`、`email`、`date` 和 `message`。
 
 # CAVEATS
 
-Only reports the **most recent** modification per row — no full history. Schema changes are currently counted as a change to every row, so a single `ALTER TABLE` blames every row to that commit. Large tables with deep history can take a while; prefer the SQL view with `LIMIT`/`WHERE` in those cases.
+只报告每一行的**最近一次**修改——不提供完整历史。目前表结构变更会计为对所有行的修改，因此一条 `ALTER TABLE` 就会把所有行都归因于该提交。历史深长的大表可能耗时较久；这类情况建议改用带 `LIMIT`/`WHERE` 的 SQL 视图。
 
 # HISTORY
 
-**dolt blame** is part of **Dolt**, the versioned SQL database ("Git for data") by **DoltHub**. It brings Git-style per-row provenance to relational tables.
+**dolt blame** 是 **DoltHub** 出品的版本化 SQL 数据库 **Dolt**（"数据界的 Git"）的一部分。它把 Git 风格的行级溯源带到了关系型表中。
 
 # INSTALL
 

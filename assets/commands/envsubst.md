@@ -1,30 +1,30 @@
 # TAGLINE
 
-substitute environment variables in text
+替换文本中的环境变量
 
 # TLDR
 
-**Substitute environment variables** in a file
+**替换文件中的环境变量**
 
 ```envsubst < [template.txt]```
 
-**Substitute and save** to a new file
+**替换并保存**到新文件
 
 ```envsubst < [template.txt] > [output.txt]```
 
-**Substitute only specific variables**
+只**替换特定变量**
 
 ```envsubst '$USER $HOME' < [template.txt]```
 
-**Substitute from piped input**
+**从管道输入替换**
 
 ```echo 'Hello $USER' | envsubst```
 
-**List all referenced variables** in a template
+**列出模板中引用的所有变量**
 
 ```envsubst --variables < [template.txt]```
 
-**Substitute in a config template**
+**在配置模板中替换**
 
 ```cat [nginx.conf.template] | envsubst '$SERVER_NAME $PORT' > [nginx.conf]```
 
@@ -35,36 +35,36 @@ substitute environment variables in text
 # PARAMETERS
 
 **-v**, **--variables**
-> Output the variables occurring in SHELL-FORMAT or stdin.
+> 输出 SHELL-FORMAT 或标准输入中出现的变量。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 _SHELL-FORMAT_
-> Space-separated list of variables to substitute. If specified, only these variables are replaced; others remain as literal text.
+> 要替换的变量列表，以空格分隔。指定后只替换这些变量，其余保持字面文本不变。
 
 # DESCRIPTION
 
-**envsubst** substitutes environment variable references in shell format strings. It reads text from stdin, replaces **$VAR** and **${VAR}** patterns with their values from the environment, and writes the result to stdout.
+**envsubst** 替换 shell 格式字符串中的环境变量引用。它从标准输入读取文本，将 **$VAR** 和 **${VAR}** 模式替换为环境中的对应值，并把结果写到标准输出。
 
-This tool is essential for generating configuration files from templates in deployment pipelines and containerized environments. A template might contain **${DATABASE_HOST}** which gets replaced with the actual value at deployment time.
+该工具是在部署流水线和容器化环境中从模板生成配置文件的必备手段。模板中可以包含 **${DATABASE_HOST}**，部署时会被替换为实际值。
 
-When called without a variable list, envsubst replaces all environment variable references. To substitute only specific variables (leaving others as literal text), provide a SHELL-FORMAT argument listing the desired variables.
+不带变量列表调用时，envsubst 替换所有环境变量引用。若只想替换特定变量（其余保留为字面文本），请提供列出所需变量的 SHELL-FORMAT 参数。
 
-The tool handles both **$VAR** and **${VAR}** syntax. Missing variables are replaced with empty strings. The **${VAR:-default}** syntax for defaults is NOT supported; envsubst performs simple substitution only.
+该工具同时支持 **$VAR** 和 **${VAR}** 两种语法。缺失的变量会被替换为空字符串。不支持用于默认值的 **${VAR:-default}** 语法；envsubst 只做简单替换。
 
-Common uses include Docker entrypoint scripts that configure services at runtime, CI/CD pipelines generating configs, and any scenario where configuration needs to adapt to the runtime environment.
+常见用途包括：Docker 入口脚本在运行时配置服务、CI/CD 流水线生成配置，以及任何需要让配置适应运行环境的场景。
 
 # CAVEATS
 
-Does not support shell parameter expansion features like **${VAR:-default}** or **${VAR:+value}**. All variables must exist in the environment; missing ones become empty strings. Dollar signs that should remain literal need escaping as **$$**. Part of gettext package.
+不支持 **${VAR:-default}**、**${VAR:+value}** 之类的 shell 参数展开特性。所有变量都必须存在于环境中；缺失的变量会变成空字符串。需要保持字面含义的美元符号要用 **$$** 转义。属于 gettext 软件包的一部分。
 
 # HISTORY
 
-**envsubst** is part of GNU **gettext**, the internationalization toolkit. While gettext is primarily for software translation, envsubst became widely adopted as a general-purpose template tool, particularly in the DevOps community for configuration management. It's available on virtually all Unix-like systems as part of the gettext-base package.
+**envsubst** 是国际化工具包 GNU **gettext** 的一部分。虽然 gettext 主要面向软件翻译，envsubst 却被广泛用作通用模板工具，尤其在 DevOps 社区中用于配置管理。它随 gettext-base 包发布，几乎所有类 Unix 系统上都可用。
 
 # INSTALL
 

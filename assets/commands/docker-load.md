@@ -1,26 +1,26 @@
 # TAGLINE
 
-load Docker images from tar archives
+从 tar 归档加载 Docker 镜像
 
 # TLDR
 
-**Load image from tar file**
+**从 tar 文件加载镜像**
 
 ```docker load -i [image.tar]```
 
-**Load from stdin**
+**从标准输入加载**
 
 ```cat [image.tar] | docker load```
 
-**Load a gzip-compressed archive**
+**加载 gzip 压缩的归档**
 
 ```docker load -i [image.tar.gz]```
 
-**Load with quiet output**
+**静默模式加载**
 
 ```docker load -q -i [image.tar]```
 
-**Load from a remote URL via curl**
+**通过 curl 从远程 URL 加载**
 
 ```curl -sSL [https://example.com/image.tar.gz] | docker load```
 
@@ -31,17 +31,17 @@ load Docker images from tar archives
 # PARAMETERS
 
 **-i**, **--input** _file_
-> Read from a tar archive file instead of STDIN. The tarball may be compressed with gzip, bzip2, or xz.
+> 从 tar 归档文件读取而不是 STDIN。tar 包可以用 gzip、bzip2 或 xz 压缩。
 
 **-q**, **--quiet**
-> Suppress the load output and progress bar.
+> 抑制加载输出和进度条。
 
 **--platform** _string_
-> Load only the specified platform image from a multi-platform archive (e.g., linux/amd64).
+> 从多平台归档中仅加载指定平台的镜像（例如 linux/amd64）。
 
 # DESCRIPTION
 
-**docker load** loads an image from a tar archive or STDIN. Restores both images and tags saved by **docker save**. This command is the counterpart to docker save, enabling image transfer between systems without using a registry. Useful for air-gapped environments or offline distribution.
+**docker load** 从 tar 归档或标准输入加载镜像，可恢复由 **docker save** 保存的镜像及其标签。该命令是 docker save 的对应操作，可在不使用镜像仓库的情况下在系统之间传输镜像。适用于隔离网络环境或离线分发。
 
 # INSTALL
 
@@ -64,4 +64,3 @@ load Docker images from tar archives
 # SEE ALSO
 
 [docker-image-load](/man/docker-image-load)(1), [docker-save](/man/docker-save)(1), [docker-images](/man/docker-images)(1), [docker-pull](/man/docker-pull)(1), [docker](/man/docker)(1)
-

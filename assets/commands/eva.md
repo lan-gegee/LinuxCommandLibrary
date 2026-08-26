@@ -1,30 +1,30 @@
 # TAGLINE
 
-calculator REPL with arbitrary precision
+支持任意精度的计算器 REPL
 
 # TLDR
 
-**Calculate expression**
+**计算表达式**
 
 ```eva "[2 + 3 * 4]"```
 
-**Calculate with functions**
+**使用函数计算**
 
 ```eva "[sin(pi/2)]"```
 
-**Use radian mode for trigonometric functions**
+三角函数**使用弧度模式**
 
 ```eva --radian "[sin(pi/2)]"```
 
-**Interactive REPL mode**
+**交互式 REPL 模式**
 
 ```eva```
 
-**Set decimal precision** (number of fixed decimal places, 1-64)
+**设置小数精度**（固定小数位数，1-64）
 
 ```eva --fix [20] "[pi]"```
 
-**Change output radix/base** (1-36)
+**更改输出的进制**（1-36）
 
 ```eva --base [16] "[255]"```
 
@@ -35,38 +35,38 @@ calculator REPL with arbitrary precision
 # PARAMETERS
 
 _INPUT_
-> Mathematical expression string to evaluate (non-interactive).
+> 要求值的数学表达式字符串（非交互模式）。
 
 **-f**, **--fix** _N_
-> Number of decimal places in output (1-64, default 10).
+> 输出的小数位数（1-64，默认 10）。
 
 **-b**, **--base** _N_
-> Radix of calculation output (1-36, default 10).
+> 计算结果的进制（1-36，默认 10）。
 
 **-r**, **--radian**
-> Use radians for trigonometric functions.
+> 三角函数使用弧度。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**eva** is a calculator REPL and CLI written in Rust for evaluating mathematical expressions. It supports standard arithmetic, trigonometric functions, logarithms, and constants like **pi** and **e**.
+**eva** 是一个用 Rust 编写的计算器 REPL 和命令行工具，用于求值数学表达式。它支持标准算术运算、三角函数、对数以及 **pi** 和 **e** 等常量。
 
-In interactive REPL mode, previous results are available as **_** and history can be recalled. Pass an expression directly on the command line for one-off evaluation.
+在交互式 REPL 模式下，之前的结果可以通过 **_** 引用，并且可以调出历史记录。直接在命令行传入表达式即可进行一次性求值。
 
-eva provides a quick command-line calculator with more intuitive syntax than **bc**.
+eva 提供了一个快捷的命令行计算器，语法比 **bc** 更直观。
 
 # CAVEATS
 
-Complex expressions may need quoting to avoid shell interpretation. Variables do not persist in one-shot command mode; use the interactive REPL for multi-step calculations.
+复杂的表达式可能需要加引号，以免被 shell 解释。变量在一次性命令模式下不会保留；多步计算请使用交互式 REPL。
 
 # HISTORY
 
-eva was created as a modern command-line calculator, providing an alternative to bc and similar tools with a more intuitive syntax and additional features.
+eva 作为一个现代命令行计算器而创建，凭借更直观的语法和更多功能，成为 bc 及类似工具的替代品。
 
 # INSTALL
 

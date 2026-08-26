@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage database read replicas
+管理数据库只读副本
 
 # TLDR
 
-**List replicas**
+**列出副本**
 
 ```doctl databases replica list [cluster_id]```
 
-**Create a read replica** in another region
+**在其他区域创建只读副本**
 
 ```doctl databases replica create [cluster_id] [replica_name] --region [fra1] --size [db-s-1vcpu-1gb]```
 
-**Get replica info**
+**获取副本信息**
 
 ```doctl databases replica get [cluster_id] [replica_name]```
 
-**Retrieve connection details** for a replica
+**获取副本的连接详情**
 
 ```doctl databases replica connection [cluster_id] [replica_name]```
 
-**Delete a replica**
+**删除一个副本**
 
 ```doctl databases replica delete [cluster_id] [replica_name]```
 
-**Promote a replica** to a standalone primary cluster
+**将副本提升为独立的主集群**
 
 ```doctl databases replica promote [cluster_id] [replica_name]```
 
@@ -35,51 +35,51 @@ manage database read replicas
 # SUBCOMMANDS
 
 **list** _cluster-id_
-> Retrieve the list of read-only replicas for a cluster.
+> 获取某个集群的只读副本列表。
 
 **create** _cluster-id_ _name_
-> Create a read-only replica. Accepts **--region**, **--size**, and **--private-network-uuid**.
+> 创建一个只读副本。接受 **--region**、**--size** 和 **--private-network-uuid**。
 
 **get** _cluster-id_ _name_
-> Retrieve information about a read-only replica.
+> 获取某个只读副本的信息。
 
 **delete** _cluster-id_ _name_
-> Delete a read-only replica. **-f**, **--force** skips the confirmation prompt.
+> 删除一个只读副本。**-f**, **--force** 可跳过确认提示。
 
 **connection** _cluster-id_ _name_
-> Retrieve the connection string, host, port, user, and password for a replica.
+> 获取副本的连接字符串、主机、端口、用户和密码。
 
 **promote** _cluster-id_ _name_
-> Promote a read-only replica to become an independent primary cluster.
+> 将一个只读副本提升为独立的主集群。
 
 # OPTIONS
 
 **--region** _SLUG_
-> Region to place the replica in, e.g. `nyc1` or `fra1`. Defaults to the primary's region.
+> 副本所在区域，例如 `nyc1` 或 `fra1`。默认与主集群相同区域。
 
 **--size** _SLUG_
-> Machine size for the replica, e.g. `db-s-1vcpu-1gb`.
+> 副本的机器规格，例如 `db-s-1vcpu-1gb`。
 
 **--private-network-uuid** _UUID_
-> VPC to attach the replica to.
+> 要将副本接入的 VPC。
 
 **-o**, **--output** _FORMAT_
-> Output format: `text` (default) or `json`.
+> 输出格式：`text`（默认）或 `json`。
 
 **--format** _FIELDS_
-> Comma-separated list of columns to display.
+> 以逗号分隔的要显示的列。
 
 # DESCRIPTION
 
-**doctl databases replica** manages read replicas for DigitalOcean managed database clusters. Read replicas are read-only copies of a primary database that provide horizontal scaling for read-heavy workloads and geographic distribution of data.
+**doctl databases replica** 管理 DigitalOcean 托管数据库集群的只读副本。只读副本是主数据库的只读拷贝，为读取密集型工作负载提供横向扩展能力，并支持数据的地理分布。
 
-Replicas asynchronously replicate data from the primary cluster, allowing applications to distribute read queries across multiple database instances. This reduces load on the primary and improves query performance. Replicas can be placed in different regions for lower latency to geographically distributed users.
+副本从主集群异步复制数据，使应用可以把读取查询分散到多个数据库实例上。这可以减轻主集群的负载并提高查询性能。副本还可以部署在不同区域，让地理上分散的用户获得更低的延迟。
 
-In disaster recovery scenarios, replicas can be promoted to standalone clusters, creating an independent database cluster from the replica. This provides failover capabilities and data migration options.
+在灾难恢复场景中，可以将副本提升为独立的集群，即基于该副本创建一个全新的数据库集群。这提供了故障转移能力和数据迁移选项。
 
 # CAVEATS
 
-Replication is asynchronous, so a replica can lag behind the primary and serve slightly stale rows. **promote** is irreversible: the replica becomes an independent cluster, stops following the primary, and is billed as a full cluster from then on. Read replicas are not offered for every engine or plan (they are unavailable on the smallest shared-CPU tiers and on some engines), and each replica is billed at the price of its own size.
+复制是异步的，副本可能落后于主集群并提供略微过期的数据。**promote** 操作不可逆：副本将成为独立集群，不再跟随主集群，并从那时起按完整集群计费。并非所有引擎或套餐都提供只读副本（最小的共享 CPU 档位和某些引擎不支持），每个副本按其自身规格的价格单独计费。
 
 # INSTALL
 
@@ -106,4 +106,3 @@ Replication is asynchronous, so a replica can lag behind the primary and serve s
 ```[Documentation](https://docs.digitalocean.com/reference/doctl/reference/databases/replica/)```
 
 <!-- verified: 2026-07-14 -->
-

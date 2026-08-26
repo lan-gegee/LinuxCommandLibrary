@@ -1,22 +1,22 @@
 # TAGLINE
 
-return failure exit status
+返回失败退出状态
 
 # TLDR
 
-**Return failure status**
+**返回失败状态**
 
 ```false```
 
-**Use in conditional**
+在条件判断中使用
 
 ```if false; then echo "never"; fi```
 
-**Chain with or**
+与 or 连用
 
 ```false || echo "false returned failure"```
 
-**Infinite loop idiom** (until never succeeds)
+无限循环惯用法（until 永不成功）
 
 ```until false; do :; done```
 
@@ -27,26 +27,26 @@ return failure exit status
 # PARAMETERS
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**false** does nothing and returns a failure exit status (1). It's the counterpart to true and is used in shell scripts for flow control, testing, and as a placeholder.
+**false** 不做任何事情，返回失败的退出状态（1）。它是 true 的对应物，在 shell 脚本中用于流程控制、测试和占位。
 
-The command takes no operands and always exits with status 1, indicating failure. This makes it useful in conditional statements, loops that should never execute, and testing error handling.
+该命令不接受操作数，总是以状态码 1（表示失败）退出。这使它适用于条件语句、永不执行的循环以及错误处理测试。
 
-false is a POSIX-standard command and shell builtin, providing a guaranteed failure exit status.
+false 是 POSIX 标准命令，同时也是 shell 内建命令，提供保证失败的退出状态。
 
 # CAVEATS
 
-As a builtin, behavior may vary slightly between shells. Exit status is always 1 (or non-zero). Does absolutely nothing else.
+作为内建命令，行为在不同 shell 之间可能略有差异。退出状态始终为 1（或非零）。除此之外什么也不做。
 
 # HISTORY
 
-false has been part of Unix since **Version 7** (1979). It's one of the simplest Unix commands, existing solely to return a failure status. It's specified by POSIX and implemented as both a standalone utility and shell builtin.
+false 自 **Version 7**（1979 年）起就是 Unix 的一部分。它是最简单的 Unix 命令之一，存在的唯一目的就是返回失败状态。由 POSIX 规定，既有独立工具实现也有 shell 内建实现。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Show disk usage of Docker build cache
+显示 Docker 构建缓存的磁盘占用
 
 # TLDR
 
-**Show build cache** disk usage
+**查看构建缓存**的磁盘占用
 
 ```docker buildx du```
 
-**Show detailed** disk usage with all metadata
+**显示包含全部元数据的详细**磁盘占用
 
 ```docker buildx du --verbose```
 
-**Show disk usage** for a specific builder
+**查看指定构建器的**磁盘占用
 
 ```docker buildx du --builder [builder_name]```
 
-**Filter** cache records by age
+按缓存记录年龄**过滤**
 
 ```docker buildx du --filter until=[24h]```
 
-**Filter** cache records by type
+按类型**过滤**缓存记录
 
 ```docker buildx du --filter type=[regular]```
 
@@ -31,23 +31,23 @@ Show disk usage of Docker build cache
 # PARAMETERS
 
 **--filter** _key=value_
-> Filter output using key-value selectors (e.g., `until=24h`, `type=...`).
+> 使用键值选择器过滤输出（例如 `until=24h`、`type=...`）。
 
 **--verbose**
-> Show detailed output with additional metadata.
+> 显示带有附加元数据的详细输出。
 
 **--builder** _name_
-> Target a specific builder instance (overrides the default).
+> 针对指定的构建器实例（覆盖默认设置）。
 
 # DESCRIPTION
 
-**docker buildx du** displays disk usage information for the build cache of the currently selected (or specified) builder instance. The output lists cache records with their IDs, whether they are reclaimable, their size, and when they were last accessed.
+**docker buildx du** 显示当前选定（或指定）构建器实例构建缓存的磁盘占用信息。输出会列出各条缓存记录及其 ID、是否可回收、大小以及最近访问时间。
 
-This command is useful for understanding how much disk space the build cache consumes before deciding to prune it with **docker buildx prune**.
+此命令有助于在决定用 **docker buildx prune** 清理之前了解构建缓存占用了多少磁盘空间。
 
 # CAVEATS
 
-Asterisks in the output indicate mutable records (size may change) or shared storage that overlaps with other resources. The reported sizes may not reflect actual reclaimable space when records are shared between builds.
+输出中的星号表示可变记录（大小可能变化）或与其他资源重叠的共享存储。当记录被多个构建共享时，报告的大小可能并不反映实际可回收的空间。
 
 # INSTALL
 

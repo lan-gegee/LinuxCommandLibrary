@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive coding agent for DwarfStar local LLM inference
+DwarfStar 本地 LLM 推理的交互式编程智能体
 
 # TLDR
 
-**Start the agent** with a model and large context
+以大上下文**启动智能体**并加载模型
 
 ```ds4-agent -m [ds4flash.gguf] --ctx [100000]```
 
-**Run a single non-interactive turn**
+**运行单个非交互式轮次**
 
 ```ds4-agent -m [ds4flash.gguf] --non-interactive -p "[fix the failing test]"```
 
-**Lower GPU power** for quieter runs
+**降低 GPU 功率**以获得更安静的运行
 
 ```ds4-agent -m [ds4flash.gguf] --power [50]```
 
-**Write a debug trace** of prompts and tool calls
+将提示词和工具调用的调试轨迹**写入文件**
 
 ```ds4-agent -m [ds4flash.gguf] --trace [agent.trace]```
 
-**Change working directory** before loading assets
+在加载资源前**更改工作目录**
 
 ```ds4-agent -m [ds4flash.gguf] --chdir [/path/to/project]```
 
-**Disable thinking** for direct answers
+**禁用思考**以获得直接回答
 
 ```ds4-agent -m [ds4flash.gguf] --nothink```
 
@@ -35,51 +35,51 @@ Interactive coding agent for DwarfStar local LLM inference
 # PARAMETERS
 
 **-m**, **--model** _FILE_
-> Path to the GGUF model. Default: **ds4flash.gguf**.
+> GGUF 模型路径。默认：**ds4flash.gguf**。
 
 **-c**, **--ctx** _N_
-> Allocated context length in tokens.
+> 分配的上下文长度（以 token 计）。
 
 **-p**, **--prompt** _TEXT_
-> Submit an initial prompt after startup (or a single turn with **--non-interactive**).
+> 启动后提交初始提示词（配合 **--non-interactive** 时为单轮对话）。
 
 **--non-interactive**
-> Run without the TUI. With **-p**: one turn then exit; without **-p**: read repeated prompts from stdin.
+> 不带 TUI 运行。有 **-p**：执行一轮后退出；无 **-p**：从标准输入重复读取提示词。
 
 **-sys**, **--system** _TEXT_
-> Extra system prompt text. Empty string disables the extra text.
+> 额外的系统提示词文本。传空字符串可禁用额外文本。
 
 **--trace** _FILE_
-> Write prompt, token, and DSML tool-call debug output.
+> 写出提示词、token 和 DSML 工具调用的调试输出。
 
 **--chdir** _DIR_
-> Change working directory before loading runtime assets (useful so relative project paths resolve correctly).
+> 加载运行时资源前先切换工作目录（让相对项目路径能正确解析时很有用）。
 
 **--power** _N_
-> GPU duty-cycle target from 1 to 100. Default: **100**.
+> GPU 占空比目标，取值 1 到 100。默认：**100**。
 
 **--metal** | **--cuda** | **--rocm** | **--cpu**
-> Select the inference backend explicitly.
+> 显式选择推理后端。
 
 **--ssd-streaming**
-> Stream model weights from SSD when full residency does not fit.
+> 当完整驻留放不下时，从 SSD 流式读取模型权重。
 
 **--think** / **--think-max** / **--nothink**
-> Control model thinking/reasoning mode.
+> 控制模型的思考/推理模式。
 
 # DESCRIPTION
 
-**ds4-agent** is the integrated coding agent that ships with **DwarfStar** (**ds4**). It loads the same specialized GGUF models as the interactive **ds4** CLI and **ds4-server**, then runs a tool-using agent loop aimed at local development work (reading files, editing, running commands via the model's DSML tool protocol).
+**ds4-agent** 是随 **DwarfStar**（**ds4**）发布的集成编程智能体。它加载与交互式 **ds4** CLI 和 **ds4-server** 相同的专用 GGUF 模型，然后运行一个使用工具的智能体循环，面向本地开发工作（读取文件、编辑、经由模型的 DSML 工具协议执行命令）。
 
-In the interactive TUI you can manage long-lived sessions with slash commands: **/save** and **/list** / **/switch** for session persistence under **~/.ds4/kvcache**, **/compact** to shrink context, **/history**, **/new**, and **/power**. The agent is designed to work with the project's end-to-end local stack rather than as a generic agent framework.
+在交互式 TUI 中，你可以用斜杠命令管理长期会话：**/save** 与 **/list** / **/switch** 用于在 **~/.ds4/kvcache** 下持久化会话，**/compact** 压缩上下文，还有 **/history**、**/new** 和 **/power**。该智能体设计为与本项目的端到端本地技术栈协作，而非通用的智能体框架。
 
 # CAVEATS
 
-Marked **alpha** quality by upstream relative to the rest of DwarfStar. Requires a DwarfStar-compatible GGUF and a suitable GPU backend for practical speed. Tool use and long sessions can consume large amounts of context and disk for KV checkpoints. The sibling interactive inference binary is also named **ds4**, which collides with unrelated DualShock 4 utilities of the same name.
+上游将其标记为 **alpha** 质量，逊于 DwarfStar 其余部分。需要 DwarfStar 兼容的 GGUF 以及合适的 GPU 后端才能达到实用速度。工具使用和长会话可能消耗大量上下文和磁盘空间来存放 KV 检查点。同系列的交互式推理二进制也叫 **ds4**，与同名但无关的 DualShock 4 工具重名。
 
 # HISTORY
 
-**ds4-agent** was added to the **DwarfStar** project after the core inference CLI and HTTP server, as part of the goal of shipping model + engine + agent together for local coding workflows on high-memory machines and SSD-streamed setups.
+**ds4-agent** 是在核心推理 CLI 和 HTTP 服务器之后加入 **DwarfStar** 项目的，属于"模型 + 引擎 + 智能体"一体交付目标的一部分，面向高内存机器和 SSD 流式配置上的本地编程工作流。
 
 # SEE ALSO
 

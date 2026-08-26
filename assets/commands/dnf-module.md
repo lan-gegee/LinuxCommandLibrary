@@ -1,22 +1,22 @@
 # TAGLINE
 
-manage modularity streams for packages
+管理软件包的模块化流
 
 # TLDR
 
-View **modularity overview**
+查看**模块化概览**
 
 ```dnf module list```
 
-View modularity of **specific package**
+查看**特定软件包**的模块化信息
 
 ```dnf module list [package_name]```
 
-**Enable** a module stream
+**启用**模块流
 
 ```sudo dnf module enable [package_name]:[stream]```
 
-**Install** a specific module version
+**安装**指定的模块版本
 
 ```dnf module install [package_name]:[stream]```
 
@@ -26,33 +26,33 @@ View modularity of **specific package**
 
 # DESCRIPTION
 
-**dnf module** manages package modularity, allowing multiple versions of software to coexist in repositories. Modules group packages with a specific purpose, and streams represent different versions.
+**dnf module** 管理软件包模块化，允许多个版本的软件在同一仓库中共存。模块将具有特定用途的软件包组织在一起，流则代表不同的版本。
 
-Modularity is used in RHEL 8+ and Fedora for software like Python, Node.js, and PHP where multiple versions need to be available.
+模块化用于 RHEL 8+ 和 Fedora 中需要在多版本间选择的软件，如 Python、Node.js 和 PHP。
 
 # PARAMETERS
 
 **list**
-> List available modules
+> 列出可用模块
 
 **enable** _module:stream_
-> Enable a module stream
+> 启用模块流
 
 **disable** _module_
-> Disable a module
+> 禁用模块
 
 **install** _module:stream_
-> Install module packages
+> 安装模块软件包
 
 **remove** _module_
-> Remove module packages
+> 移除模块软件包
 
 **reset** _module_
-> Reset module state
+> 重置模块状态
 
 # CAVEATS
 
-Only one stream of a module can be active at a time. Enabling a stream doesn't install packages; use install for that. Available on RHEL 8+ and recent Fedora.
+同一模块一次只能激活一个流。启用流并不会安装软件包；安装需使用 install 命令。适用于 RHEL 8+ 和较新的 Fedora。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mathematical equation preprocessor for troff
+troff 的数学公式预处理器
 
 # TLDR
 
-**Process equations** in troff input
+**处理 troff 输入中的公式**
 
 ```eqn [document.ms] | troff -ms```
 
-**Process with groff**
+**配合 groff 处理**
 
 ```groff -e -ms [document.ms]```
 
-**Process to stdout**
+**处理后输出到标准输出**
 
 ```eqn [equations.eqn]```
 
@@ -23,38 +23,38 @@ Mathematical equation preprocessor for troff
 # PARAMETERS
 
 _FILES_
-> Input files containing equations.
+> 包含公式的输入文件。
 
 **-d** _XY_
-> Set delimiters for inline equations.
+> 设置行内公式的分隔符。
 
 **-f** _FONT_
-> Set font for equations.
+> 设置公式字体。
 
 **-s** _SIZE_
-> Set point size.
+> 设置磅值大小。
 
 **-p** _N_
-> Subscript/superscript size reduction.
+> 下标/上标的大小缩减量。
 
 **-C**
-> Recognize .EQ and .EN even in comments.
+> 即使在注释中也识别 .EQ 和 .EN。
 
 # DESCRIPTION
 
-**eqn** is a preprocessor for troff that formats mathematical equations. It converts a high-level equation description language into troff commands for typeset output.
+**eqn** 是 troff 的预处理器，用于排版数学公式。它把高级公式描述语言转换为 troff 命令，产生排版输出。
 
-Equations are enclosed between .EQ and .EN macros or inline delimiters. The language uses words like "over" for fractions, "sup" for superscripts, and "sqrt" for roots.
+公式写在 .EQ 与 .EN 宏之间，或用行内分隔符括起。该语言用 "over" 表示分数、"sup" 表示上标、"sqrt" 表示根号等单词。
 
-eqn is typically used in a pipeline with troff/groff for producing technical documents with mathematical notation.
+eqn 通常与 troff/groff 组成管道，用于生成带数学符号的技术文档。
 
 # CAVEATS
 
-Syntax differs from LaTeX. Output requires troff processing. Complex equations need careful formatting. Limited symbol set compared to TeX.
+语法与 LaTeX 不同。输出需要经过 troff 处理。复杂公式需要仔细排版。相比 TeX 符号集较为有限。
 
 # HISTORY
 
-eqn was written by **Brian Kernighan** and **Lorinda Cherry** at Bell Labs in the 1970s. It was one of the first tools for typesetting mathematics and influenced later systems.
+eqn 由 **Brian Kernighan** 和 **Lorinda Cherry** 于 20 世纪 70 年代在贝尔实验室编写。它是最早的数学排版工具之一，影响了后来的系统。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-ESP-IDF Installation Manager
+ESP-IDF 安装管理器
 
 # TLDR
 
-**Install a specific ESP-IDF version**
+**安装特定的 ESP-IDF 版本**
 
 ```eim install -i [v5.3.2]```
 
-**Install interactively** (with prompts)
+**以交互方式安装**（带提示）
 
 ```eim install -i [v5.3.2] -n false```
 
-**List installed ESP-IDF versions**
+**列出已安装的 ESP-IDF 版本**
 
 ```eim list```
 
-**Select a version as active** for IDE use
+**选择一个版本设为活动版本**供 IDE 使用
 
 ```eim select [version]```
 
-**Rename an installed version**
+**重命名已安装的版本**
 
 ```eim rename [old_name] [new_name]```
 
-**Remove a specific ESP-IDF version**
+**移除特定的 ESP-IDF 版本**
 
 ```eim remove [version]```
 
@@ -35,48 +35,48 @@ ESP-IDF Installation Manager
 # PARAMETERS
 
 _COMMAND_
-> Operation: install, list, select, rename, remove, run, purge.
+> 操作：install、list、select、rename、remove、run、purge。
 
 **install** [**-i** _version_]
-> Install an ESP-IDF version. Runs non-interactively (headless) by default.
+> 安装 ESP-IDF 版本。默认以非交互（无头）方式运行。
 
 **list**
-> List installed ESP-IDF versions.
+> 列出已安装的 ESP-IDF 版本。
 
 **select** _version_
-> Set the active ESP-IDF version (updates eim_idf.json for IDE integration).
+> 设置活动的 ESP-IDF 版本（更新 eim_idf.json 以供 IDE 集成）。
 
 **rename** _old_ _new_
-> Rename an installed ESP-IDF version.
+> 重命名已安装的 ESP-IDF 版本。
 
 **remove** _version_
-> Remove a specific ESP-IDF version.
+> 移除特定的 ESP-IDF 版本。
 
 **run** _version_ _command_
-> Run a command in the context of a specific ESP-IDF version.
+> 在特定 ESP-IDF 版本的环境下运行命令。
 
 **purge**
-> Remove all ESP-IDF installations.
+> 移除所有 ESP-IDF 安装。
 
 **-n** _bool_
-> Set interactive mode (true/false, default: true for headless install).
+> 设置交互模式（true/false，无头安装时默认：true）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**eim** (ESP-IDF Installation Manager) is a cross-platform tool by Espressif for managing ESP-IDF (Espressif IoT Development Framework) installations. It handles downloading, installing, and switching between multiple ESP-IDF versions for ESP32 development.
+**eim**（ESP-IDF Installation Manager）是乐鑫（Espressif）推出的跨平台工具，用于管理 ESP-IDF（Espressif IoT Development Framework）安装。它负责下载、安装以及在多个 ESP-IDF 版本之间切换，服务于 ESP32 开发。
 
-The tool supports both interactive and non-interactive (headless) installation modes, making it suitable for both manual setup and CI/CD automation. It integrates with IDEs through the eim_idf.json configuration file.
+该工具同时支持交互式和非交互式（无头）安装模式，既适合手动配置也适合 CI/CD 自动化。它通过 eim_idf.json 配置文件与 IDE 集成。
 
 # CAVEATS
 
-Requires build dependencies for the ESP-IDF toolchain. Installation may take significant time and disk space. The **purge** command removes all installed versions irreversibly.
+需要 ESP-IDF 工具链的构建依赖。安装可能耗费大量时间和磁盘空间。**purge** 命令会不可逆地移除所有已安装的版本。
 
 # HISTORY
 
-**eim** was developed by **Espressif Systems** as a streamlined installer for the ESP-IDF development framework, replacing manual setup procedures.
+**eim** 由 **Espressif Systems** 开发，作为 ESP-IDF 开发框架的精简安装器，取代了手动配置流程。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Prevent automatic pipeline stage re-execution
+防止流水线阶段被自动重新执行
 
 # TLDR
 
-**Freeze a stage**
+**冻结一个阶段**
 
 ```dvc freeze [stage_name]```
 
-**Freeze multiple stages**
+**冻结多个阶段**
 
 ```dvc freeze [stage1] [stage2]```
 
-**Freeze with verbose output**
+**冻结并显示详细输出**
 
 ```dvc freeze -v [stage_name]```
 
@@ -23,26 +23,26 @@ Prevent automatic pipeline stage re-execution
 # PARAMETERS
 
 _targets_
-> Stage names or .dvc files to freeze.
+> 要冻结的阶段名或 .dvc 文件。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助消息并退出。
 
 **-q**, **--quiet**
-> Do not write anything to standard output.
+> 不向标准输出写入任何内容。
 
 **-v**, **--verbose**
-> Display detailed tracing information.
+> 显示详细的跟踪信息。
 
 # DESCRIPTION
 
-**dvc freeze** freezes pipeline stages so they are considered unchanged by **dvc status** and not re-executed during **dvc repro**. Frozen stages will not regenerate outputs even if their dependencies have changed, even with **--force**.
+**dvc freeze** 冻结流水线阶段，使 **dvc status** 将其视为未更改，且在 **dvc repro** 期间不会被重新执行。即使其依赖项发生了变化，已冻结的阶段也不会重新生成输出，即使使用 **--force** 也是如此。
 
-Freezing is useful to avoid re-running expensive upstream stages while iterating on downstream stages in a pipeline.
+在流水线的下游阶段进行迭代时，冻结可用于避免重新运行开销较大的上游阶段。
 
 # CAVEATS
 
-Frozen stages will not be reproduced even when dependencies change. Use **dvc unfreeze** to restore normal behavior. The freeze state is stored in the **dvc.yaml** file as a `frozen: true` field on the stage. In DVC 2.0+, you can also set this field manually in **dvc.yaml** instead of using the command.
+即使依赖项发生变化，已冻结的阶段也不会被重现。使用 **dvc unfreeze** 可恢复正常行为。冻结状态以 `frozen: true` 字段的形式存储在阶段对应的 **dvc.yaml** 文件中。在 DVC 2.0 及以上版本，你也可以直接在 **dvc.yaml** 中手动设置该字段，而不使用此命令。
 
 # INSTALL
 
@@ -55,4 +55,3 @@ Frozen stages will not be reproduced even when dependencies change. Use **dvc un
 # SEE ALSO
 
 [dvc-unfreeze](/man/dvc-unfreeze)(1), [dvc](/man/dvc)(1)
-

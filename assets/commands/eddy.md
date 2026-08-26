@@ -1,18 +1,18 @@
 # TAGLINE
 
-Debian package installer for elementary OS
+面向 elementary OS 的 Debian 软件包安装器
 
 # TLDR
 
-**Install** a .deb package file
+**安装** .deb 软件包文件
 
 ```eddy [package.deb]```
 
-**Install** multiple .deb packages at once
+**一次安装**多个 .deb 软件包
 
 ```eddy [package1.deb] [package2.deb]```
 
-**Launch** the graphical installer
+**启动**图形化安装器
 
 ```eddy```
 
@@ -23,17 +23,17 @@ Debian package installer for elementary OS
 # PARAMETERS
 
 **--debug**
-> Enable debug output for troubleshooting.
+> 启用调试输出以便排查问题。
 
 # DESCRIPTION
 
-**eddy** is a graphical Debian package installer designed for elementary OS. It provides a simple GTK-based interface to install, update, uninstall, and view information about .deb packages. It uses PackageKit as its backend, which also provides limited support for other package formats like .rpm.
+**eddy** 是一个专为 elementary OS 设计的图形化 Debian 软件包安装器。它提供基于 GTK 的简洁界面，用于安装、更新、卸载和查看 .deb 软件包的信息。它使用 PackageKit 作为后端，这也使其对 .rpm 等其他软件包格式提供有限的支持。
 
-The application is intended as a user-friendly alternative to command-line package management for handling individual package files downloaded outside of the system package manager.
+该应用旨在作为命令行软件包管理的用户友好替代方案，用于处理在系统软件包管理器之外下载的单个软件包文件。
 
 # CAVEATS
 
-Designed primarily for elementary OS but may work on other GTK-based distributions. Requires PackageKit for its backend. Not a full package manager replacement; intended for installing individual package files.
+主要面向 elementary OS 设计，但可能适用于其他基于 GTK 的发行版。其后端依赖 PackageKit。并非完整的软件包管理器替代品；仅用于安装单个软件包文件。
 
 # INSTALL
 

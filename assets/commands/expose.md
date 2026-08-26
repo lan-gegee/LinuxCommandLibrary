@@ -1,26 +1,26 @@
 # TAGLINE
 
-localhost tunneling service for public URL access
+将本地服务器暴露为公网 URL 的隧道服务
 
 # TLDR
 
-**Expose local server**
+**暴露本地服务器**
 
 ```expose share [http://localhost:8000]```
 
-**Expose with custom subdomain**
+**使用自定义子域名**暴露
 
 ```expose share [http://localhost:3000] --subdomain [myapp]```
 
-**Expose with basic authentication**
+**使用基本认证**暴露
 
 ```expose share [http://localhost:8000] --auth [user:password]```
 
-**Set authentication token**
+**设置**身份验证令牌
 
 ```expose token [your_auth_token]```
 
-**Expose with a custom domain**
+**使用自定义域名**暴露
 
 ```expose share [http://localhost:8000] --domain [example.com]```
 
@@ -31,45 +31,45 @@ localhost tunneling service for public URL access
 # PARAMETERS
 
 **share** _URL_
-> Create tunnel to local server.
+> 创建到本地服务器的隧道。
 
 **token** _TOKEN_
-> Set the authentication token.
+> 设置身份验证令牌。
 
 **--subdomain** _NAME_
-> Use a custom subdomain.
+> 使用自定义子域名。
 
 **--auth** _USER:PASS_
-> Add basic HTTP authentication to the tunnel.
+> 为隧道添加 HTTP 基本认证。
 
 **--domain** _DOMAIN_
-> Use a custom domain.
+> 使用自定义域名。
 
 **--server** _SERVER_
-> Connect to a specific Expose server.
+> 连接到指定的 Expose 服务器。
 
 **--server-host** _HOST_
-> Specify the server host.
+> 指定服务器主机。
 
 **--server-port** _PORT_
-> Specify the server port.
+> 指定服务器端口。
 
 **--dns** _DNS_
-> Specify a DNS server.
+> 指定 DNS 服务器。
 
 # DESCRIPTION
 
-**Expose** is a tunneling service written in PHP that creates secure HTTPS tunnels to expose local servers to the internet. It provides public URLs for development, testing, and demos without deploying.
+**Expose** 是一个用 PHP 编写的隧道服务，可创建安全的 HTTPS 隧道，把本地服务器暴露到互联网。它提供公共 URL，方便开发、测试和演示，无需部署。
 
-Custom subdomains and domains allow memorable URLs for presentations or client demos. The tool is an open-source alternative to ngrok, built by BeyondCode.
+自定义子域名和域名可以为演示或客户演示会生成易记的 URL。该工具是 ngrok 的开源替代品，由 BeyondCode 开发。
 
 # CAVEATS
 
-Free tier has limitations on tunnel duration and custom subdomains. Tunnel URLs may change on reconnect. Not intended for production use. Requires an authentication token for the hosted service.
+免费版对隧道时长和自定义子域名有限制。重连后隧道 URL 可能改变。不适合生产环境使用。使用托管服务需要身份验证令牌。
 
 # HISTORY
 
-Expose is one of several localhost tunneling services, providing developers a way to share local development servers without deployment or firewall configuration.
+Expose 是众多本地主机隧道服务之一，让开发者无需部署或配置防火墙即可共享本地开发服务器。
 
 # SEE ALSO
 

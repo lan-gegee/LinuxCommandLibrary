@@ -1,30 +1,30 @@
 # TAGLINE
 
-.NET project compiler and builder
+.NET 项目编译构建工具
 
 # TLDR
 
-**Build current project**
+**构建当前项目**
 
 ```dotnet build```
 
-**Build in Release** configuration
+**以 Release** 配置构建
 
 ```dotnet build -c Release```
 
-**Build specific project**
+**构建指定项目**
 
 ```dotnet build [path/to/project.csproj]```
 
-**Build without restoring**
+**不还原直接构建**
 
 ```dotnet build --no-restore```
 
-**Build for specific** framework
+**面向指定框架**构建
 
 ```dotnet build -f [net8.0]```
 
-**Build with specific** output directory
+**输出到指定目录**构建
 
 ```dotnet build -o [./output]```
 
@@ -35,44 +35,44 @@
 # PARAMETERS
 
 _PROJECT_
-> Project or solution file to build.
+> 要构建的项目或解决方案文件。
 
 **-c**, **--configuration** _CONFIG_
-> Build configuration (Debug, Release).
+> 构建配置（Debug、Release）。
 
 **-f**, **--framework** _FRAMEWORK_
-> Target framework.
+> 目标框架。
 
 **-o**, **--output** _DIR_
-> Output directory.
+> 输出目录。
 
 **--no-restore**
-> Build without restoring dependencies.
+> 构建时不还原依赖项。
 
 **--no-dependencies**
-> Ignore project-to-project references.
+> 忽略项目到项目的引用。
 
 **-v**, **--verbosity** _LEVEL_
-> Verbosity: quiet, minimal, normal, detailed.
+> 详细程度：quiet、minimal、normal、detailed。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dotnet build** compiles .NET projects and their dependencies, producing assemblies and other output files. It invokes MSBuild under the hood with .NET-specific configurations.
+**dotnet build** 编译 .NET 项目及其依赖项，生成程序集和其他输出文件。它在底层调用 MSBuild 并应用 .NET 特有的配置。
 
-The command automatically restores NuGet packages before building unless --no-restore is specified. It supports building multiple projects in a solution file and handles project references.
+除非指定 --no-restore，否则该命令会在构建前自动还原 NuGet 包。它支持构建解决方案文件中的多个项目，并能处理项目引用。
 
-Output includes compiled assemblies (.dll), debug symbols, and any content files configured in the project.
+输出包括编译后的程序集（.dll）、调试符号以及项目中配置的所有内容文件。
 
 # CAVEATS
 
-Incremental builds may miss some changes; use **dotnet clean** before rebuilding if needed. Multi-targeting requires listing frameworks in the project file. The default configuration is Debug unless **-c Release** is specified.
+增量构建可能遗漏某些更改；如有需要可在重新构建前使用 **dotnet clean**。多目标框架要求在项目文件中列出框架。默认配置是 Debug，除非指定 **-c Release**。
 
 # HISTORY
 
-dotnet build is part of the **.NET CLI** introduced with .NET Core. It provides a cross-platform build experience replacing platform-specific build tools.
+dotnet build 是随 .NET Core 推出的 **.NET CLI** 的一部分。它提供了跨平台的构建体验，取代了各平台专属的构建工具。
 
 # INSTALL
 

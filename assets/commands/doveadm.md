@@ -1,34 +1,34 @@
 # TAGLINE
 
-Dovecot mail server administration tool
+Dovecot 邮件服务器管理工具
 
 # TLDR
 
-**Show mailbox status**
+**显示邮箱状态**
 
 ```doveadm mailbox status -u [user@example.com] all '*'```
 
-**List user mailboxes**
+**列出用户邮箱**
 
 ```doveadm mailbox list -u [user@example.com]```
 
-**Search messages**
+**搜索邮件**
 
 ```doveadm search -u [user@example.com] mailbox INBOX subject "[test]"```
 
-**Expunge deleted messages**
+**清除已删除的邮件**
 
 ```doveadm expunge -u [user@example.com] mailbox Trash all```
 
-**Force user reindex**
+**强制用户重建索引**
 
 ```doveadm index -u [user@example.com] INBOX```
 
-**Show user quota**
+**显示用户配额**
 
 ```doveadm quota get -u [user@example.com]```
 
-**Sync mailboxes**
+**同步邮箱**
 
 ```doveadm sync -u [user@example.com] [remote_host]```
 
@@ -38,53 +38,53 @@ Dovecot mail server administration tool
 
 # DESCRIPTION
 
-**doveadm** is the administration tool for Dovecot IMAP/POP3 server. It provides commands for managing mailboxes, users, and server operations without directly manipulating mail storage.
+**doveadm** 是 Dovecot IMAP/POP3 服务器的管理工具。它提供管理邮箱、用户和服务器操作的命令，无需直接操作邮件存储。
 
-The tool handles tasks like mailbox maintenance, message search and manipulation, quota management, and replication control.
+该工具负责邮箱维护、邮件搜索与操作、配额管理和复制控制等任务。
 
 # PARAMETERS
 
 **-u** _user_
-> Target user for operation.
+> 操作的目标用户。
 
 **-A**
-> Apply to all users.
+> 应用于所有用户。
 
 **-D**
-> Enable debug output.
+> 启用调试输出。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-f** _format_
-> Output format (flow, pager, tab, table).
+> 输出格式（flow、pager、tab、table）。
 
 **-o** _setting=value_
-> Override configuration.
+> 覆盖配置项。
 
 # COMMANDS
 
-**mailbox list/status/create/delete/rename**: Mailbox management
-**search**: Find messages
-**fetch**: Retrieve message data
-**expunge**: Delete messages
-**index**: Reindex mailboxes
-**quota**: Quota operations
-**sync**: Dsync replication
-**user**: User information
+**mailbox list/status/create/delete/rename**：邮箱管理
+**search**：查找邮件
+**fetch**：获取邮件数据
+**expunge**：删除邮件
+**index**：为邮箱重建索引
+**quota**：配额操作
+**sync**：Dsync 复制
+**user**：用户信息
 
 # CONFIGURATION
 
 **/etc/dovecot/dovecot.conf**
-> Main Dovecot configuration file controlling mail storage, authentication, and protocols.
+> Dovecot 主配置文件，控制邮件存储、身份验证和协议。
 
 # CAVEATS
 
-Requires proper Dovecot configuration. Some commands need root or dovecot user. Operations on large mailboxes can be slow. User must exist in Dovecot's user database.
+需要正确的 Dovecot 配置。某些命令需要 root 或 dovecot 用户权限。对大型邮箱的操作可能较慢。用户必须存在于 Dovecot 的用户数据库中。
 
 # HISTORY
 
-**doveadm** was introduced in **Dovecot 2.0** around **2010**, replacing older administrative scripts. **Dovecot** itself was created by **Timo Sirainen** in **2002** as a secure, high-performance IMAP server. Doveadm unified various administrative tasks into a single, consistent interface.
+**doveadm** 于 **2010 年**前后随 **Dovecot 2.0** 推出，取代了较早的管理脚本。**Dovecot** 本身由 **Timo Sirainen** 于 **2002 年**创建，是一个安全、高性能的 IMAP 服务器。Doveadm 将各种管理任务统一到单一一致的接口之下。
 
 # INSTALL
 

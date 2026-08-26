@@ -1,22 +1,22 @@
 # TAGLINE
 
-LLVM pattern-matching testing tool
+LLVM 模式匹配测试工具
 
 # TLDR
 
-**Run FileCheck on** file
+**对文件运行 FileCheck**
 
 ```FileCheck [check-file] < [input]```
 
-**Check with patterns** from stdin
+**使用来自标准输入的模式检查**
 
 ```FileCheck --input-file=[input] [check-file]```
 
-**Enable verbose output**
+**启用详细输出**
 
 ```FileCheck -v [check-file] < [input]```
 
-**Require full line matches**
+**要求整行匹配**
 
 ```FileCheck --match-full-lines [check-file] < [input]```
 
@@ -27,53 +27,53 @@ LLVM pattern-matching testing tool
 # PARAMETERS
 
 _CHECK-FILE_
-> File containing CHECK directives.
+> 包含 CHECK 指令的文件。
 
 **--input-file** _FILE_
-> Input file to verify.
+> 要验证的输入文件。
 
 **-v**, **--verbose**
-> Print good matches.
+> 打印成功匹配的内容。
 
 **--match-full-lines**
-> Require full line matches.
+> 要求整行匹配。
 
 **--strict-whitespace**
-> Strict whitespace matching.
+> 严格匹配空白字符。
 
 **--check-prefix** _PREFIX_
-> Use custom check prefix (default: CHECK).
+> 使用自定义检查前缀（默认：CHECK）。
 
 **--check-prefixes** _PREFIXES_
-> Comma-separated list of check prefixes.
+> 以逗号分隔的检查前缀列表。
 
 **-vv**
-> Print information useful for diagnostic analysis.
+> 打印有助于诊断分析的信息。
 
 **--dump-input** _MODE_
-> Dump annotated input on failure (help, always, fail, never).
+> 失败时转储带标注的输入（help、always、fail、never）。
 
 **--allow-empty**
-> Allow the check file to be empty.
+> 允许检查文件为空。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**FileCheck** is an LLVM testing tool that verifies text output matches specified patterns. It reads a file containing CHECK directives and verifies they match against input, commonly compiler output.
+**FileCheck** 是 LLVM 的测试工具，用来验证文本输出是否匹配指定的模式。它读取一个包含 CHECK 指令的文件，然后核对这些指令与输入（通常是编译器输出）是否相符。
 
-The tool supports various check types: CHECK for sequential matching, CHECK-NEXT for consecutive lines, CHECK-NOT for absence, CHECK-SAME for same-line matches, CHECK-DAG for unordered matches, CHECK-LABEL for scoping, and CHECK-EMPTY for blank lines.
+该工具支持多种检查类型：CHECK 用于顺序匹配，CHECK-NEXT 用于紧邻行，CHECK-NOT 用于断言不存在，CHECK-SAME 用于同行匹配，CHECK-DAG 用于无序匹配，CHECK-LABEL 用于划定作用域，CHECK-EMPTY 用于空行。
 
-FileCheck is essential for LLVM and compiler testing, validating generated code matches expected patterns.
+在 LLVM 与编译器测试中，FileCheck 是验证生成代码符合预期模式的必备工具。
 
 # CAVEATS
 
-Pattern syntax uses a subset of regular expressions with LLVM-specific extensions like variable captures (`[[VAR:regex]]`). Whitespace is canonicalized by default (multiple spaces match one). Primarily designed for LLVM/compiler testing but usable for any text verification.
+其模式语法使用正则表达式的一个子集，并带有 LLVM 特有的扩展，比如变量捕获（`[[VAR:regex]]`）。空白默认会被规范化（多个连续空格视作一个）。它主要为 LLVM/编译器测试而设计，但同样可用于任何文本校验场合。
 
 # HISTORY
 
-FileCheck was developed as part of **LLVM's testing infrastructure**. It provides a flexible pattern-matching system for validating compiler output in regression tests.
+FileCheck 是作为 **LLVM 测试基础设施**的一部分开发的。它提供灵活的模式匹配系统，用于在回归测试中校验编译器输出。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-Docker container management commands
+Docker 容器管理命令
 
 # TLDR
 
-**List running containers**
+**列出运行中的容器**
 
 ```docker container ls```
 
-**List all containers including stopped ones**
+**列出所有容器，包括已停止的**
 
 ```docker container ls -a```
 
-**Create and run a container interactively**
+**以交互方式创建并运行容器**
 
 ```docker container run -it [image] [command]```
 
-**Run a container in the background**
+**在后台运行容器**
 
 ```docker container run -d -p [host_port]:[container_port] --name [name] [image]```
 
-**Start a stopped container**
+**启动已停止的容器**
 
 ```docker container start [container]```
 
-**Stop a running container**
+**停止运行中的容器**
 
 ```docker container stop [container]```
 
-**Remove a stopped container**
+**移除已停止的容器**
 
 ```docker container rm [container]```
 
-**Execute a command in a running container**
+**在运行中的容器内执行命令**
 
 ```docker container exec -it [container] [command]```
 
-**View container logs**
+**查看容器日志**
 
 ```docker container logs -f [container]```
 
@@ -47,58 +47,58 @@ Docker container management commands
 # SUBCOMMANDS
 
 **ls**
-> List containers.
+> 列出容器。
 
 **run**
-> Create and run a container.
+> 创建并运行容器。
 
 **start**
-> Start stopped containers.
+> 启动已停止的容器。
 
 **stop**
-> Stop running containers.
+> 停止运行中的容器。
 
 **rm**
-> Remove containers.
+> 移除容器。
 
 **exec**
-> Execute command in container.
+> 在容器内执行命令。
 
 **logs**
-> View container logs.
+> 查看容器日志。
 
 **inspect**
-> Display detailed information.
+> 显示详细信息。
 
 **cp**
-> Copy files between container and host.
+> 在容器与宿主机之间复制文件。
 
 **stats**
-> Display resource usage statistics.
+> 显示资源使用统计。
 
 **restart**
-> Restart one or more containers.
+> 重启一个或多个容器。
 
 **rename**
-> Rename a container.
+> 重命名容器。
 
 **prune**
-> Remove all stopped containers.
+> 移除所有已停止的容器。
 
 **top**
-> Display running processes of a container.
+> 显示容器的运行进程。
 
 **attach**
-> Attach to a running container's STDIN, STDOUT, and STDERR.
+> 附着到运行中容器的 STDIN、STDOUT 和 STDERR。
 
 **wait**
-> Block until containers stop, then print exit codes.
+> 阻塞直到容器停止，然后打印退出码。
 
 # DESCRIPTION
 
-**docker container** manages Docker containers. It provides commands for the full container lifecycle: creation, execution, monitoring, and removal.
+**docker container** 管理 Docker 容器。它提供覆盖容器完整生命周期的命令：创建、执行、监控和移除。
 
-This is the modern syntax; most subcommands also work as direct docker commands (e.g., **docker ps** = **docker container ls**).
+这是现代语法；大多数子命令也可以作为直接的 docker 命令使用（例如 **docker ps** = **docker container ls**）。
 
 # INSTALL
 

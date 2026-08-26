@@ -1,18 +1,18 @@
 # TAGLINE
 
-next-generation DNF package manager
+新一代 DNF 软件包管理器
 
 # TLDR
 
-This command is an alias of **dnf**.
+本命令是 **dnf** 的别名。
 
-See documentation for the original command.
+请参阅原命令的文档。
 
 ```tldr dnf```
 
 # DESCRIPTION
 
-**dnf5** is the next-generation DNF package manager. On Fedora 37-40, `dnf` runs DNF v4 while `dnf5` runs DNF v5. From Fedora 41+, `dnf` defaults to v5.
+**dnf5** 是新一代 DNF 软件包管理器。Fedora 37-40 上，`dnf` 运行的是 DNF v4，而 `dnf5` 运行 DNF v5。从 Fedora 41 起，`dnf` 默认为 v5。
 
 # INSTALL
 

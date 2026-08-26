@@ -1,30 +1,30 @@
 # TAGLINE
 
-distributed search and analytics engine
+分布式搜索与分析引擎
 
 # TLDR
 
-**Start Elasticsearch**
+**启动 Elasticsearch**
 
 ```elasticsearch```
 
-**Start with specific config**
+**使用指定配置启动**
 
 ```elasticsearch -Epath.conf=[/etc/elasticsearch]```
 
-**Start as a background daemon**
+**以后台守护进程方式启动**
 
 ```elasticsearch -d -p [/var/run/elasticsearch.pid]```
 
-**Check cluster health**
+**检查集群健康状况**
 
 ```curl -X GET "localhost:9200/_cluster/health?pretty"```
 
-**List indices**
+**列出索引**
 
 ```curl -X GET "localhost:9200/_cat/indices?v"```
 
-**Create index**
+**创建索引**
 
 ```curl -X PUT "localhost:9200/[index_name]"```
 
@@ -35,50 +35,50 @@ distributed search and analytics engine
 # PARAMETERS
 
 **-d**, **--daemonize**
-> Run as daemon.
+> 以守护进程运行。
 
 **-p** _pidfile_
-> Write PID to file.
+> 将 PID 写入文件。
 
 **-E** _setting=value_
-> Configure setting.
+> 配置设置项。
 
 **-q**, **--quiet**
-> Quiet output.
+> 安静输出。
 
 **-s**, **--silent**
-> Silent output.
+> 静默输出。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Elasticsearch** is a distributed search and analytics engine built on Apache Lucene. It provides full-text search, structured search, and analytics capabilities through a RESTful API.
+**Elasticsearch** 是一个构建于 Apache Lucene 之上的分布式搜索与分析引擎。它通过 RESTful API 提供全文搜索、结构化搜索和分析能力。
 
-Data is stored as JSON documents in indices (analogous to databases). Elasticsearch automatically distributes data across nodes for scalability and replication. It's commonly used with Kibana for visualization and as part of the ELK stack (Elasticsearch, Logstash, Kibana).
+数据以 JSON 文档的形式存储在索引中（类似于数据库）。Elasticsearch 自动将数据分布到多个节点上，以实现可扩展性和副本冗余。它通常与 Kibana 配合进行可视化，并作为 ELK 技术栈（Elasticsearch、Logstash、Kibana）的一部分使用。
 
 # CONFIGURATION
 
 **/etc/elasticsearch/elasticsearch.yml**
-> Main configuration file for cluster settings, network configuration, and paths.
+> 主配置文件，包含集群设置、网络配置和路径。
 
 **/etc/elasticsearch/jvm.options**
-> JVM heap size and garbage collection settings.
+> JVM 堆大小和垃圾回收设置。
 
 **config/elasticsearch.keystore**
-> Secure storage for sensitive settings like passwords.
+> 密码等敏感设置的安全存储。
 
 # CAVEATS
 
-Requires Java runtime. Memory-intensive; configure heap size appropriately. Security disabled by default in older versions. Single-node development mode differs from production clusters. Index mappings should be defined before heavy indexing.
+需要 Java 运行时。内存占用大；应合理配置堆大小。旧版本默认关闭安全特性。单节点开发模式与生产集群不同。索引映射应在大量写入之前定义好。
 
 # HISTORY
 
-Elasticsearch was created by **Shay Banon** and first released in **2010**. It grew from his earlier work on Compass. Elastic (the company) was founded in **2012**, and the product became the foundation of the Elastic Stack used for observability and security analytics.
+Elasticsearch 由 **Shay Banon** 创建，于 **2010 年**首次发布。它源自他早期开发的 Compass。Elastic 公司成立于 **2012 年**，该产品成为用于可观测性和安全分析的 Elastic Stack 的基础。
 
 # INSTALL
 

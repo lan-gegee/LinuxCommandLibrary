@@ -1,34 +1,34 @@
 # TAGLINE
 
-Fast, interactive codebase-wide find and replace
+快速的交互式全代码库查找替换工具
 
 # TLDR
 
-**Replace a string interactively** across the current directory
+**交互式替换字符串**于当前目录
 
 ```fastmod "[old_string]" "[new_string]"```
 
-**Replace using a regex** with multiline matching
+**使用正则表达式替换**并支持多行匹配
 
 ```fastmod -m "[pattern]" "[replacement]"```
 
-**Replace in a specific directory**
+**在指定目录中替换**
 
 ```fastmod "[old]" "[new]" [path/to/directory]```
 
-**Replace only in files** with specific extensions
+**只在具有指定扩展名的文件中替换**
 
 ```fastmod -e "[py,js]" "[old]" "[new]"```
 
-**Accept all replacements** without prompting
+**接受所有替换**而不逐个提示
 
 ```fastmod --accept-all "[old]" "[new]"```
 
-**Preview matches** without modifying files
+**预览匹配结果**而不修改文件
 
 ```fastmod --print-only "[old]" "[new]"```
 
-**Treat pattern as a literal string** instead of regex
+**将模式视为字面字符串**而非正则表达式
 
 ```fastmod --fixed-strings "[old.string()]" "[new.string()]"```
 
@@ -38,51 +38,51 @@ Fast, interactive codebase-wide find and replace
 
 # DESCRIPTION
 
-**fastmod** performs fast, interactive codemod operations across files. It searches for regex patterns and prompts for confirmation before each replacement, making bulk code changes safer.
+**fastmod** 对文件执行快速、交互式的 codemod 操作。它搜索正则表达式模式，并在每次替换前提示确认，使批量代码修改更安全。
 
-The tool uses the same regex engine as ripgrep for fast searching combined with interactive review of changes. By default, patterns are treated as regular expressions. If no replacement is given, fastmod deletes the matched text. If no paths are given, it searches the current directory recursively.
+该工具使用与 ripgrep 相同的正则引擎进行快速搜索，并结合对变更的交互式审查。默认情况下，模式被视为正则表达式。如果未提供替换文本，fastmod 会删除匹配的文本。如果未提供路径，它会递归搜索当前目录。
 
-During interactive mode, press **y** to accept, **n** to skip, **e** to edit the replacement, **a** to accept all remaining, or **q** to quit.
+交互模式下，按 **y** 接受、**n** 跳过、**e** 编辑替换文本、**a** 接受所有剩余项，或 **q** 退出。
 
 # PARAMETERS
 
 **-m**, **--multiline**
-> Enable multiline regex matching (dot matches newlines).
+> 启用多行正则匹配（`.` 可匹配换行符）。
 
 **-i**, **--ignore-case**
-> Case insensitive matching.
+> 不区分大小写匹配。
 
 **-e**, **--extensions** _exts_
-> Comma-separated list of file extensions to process (e.g., py,js,ts).
+> 要处理的文件扩展名的逗号分隔列表（如 py,js,ts）。
 
 **--accept-all**
-> Apply all replacements without interactive prompting.
+> 应用所有替换，不进行交互式确认。
 
 **--print-only**
-> Show matches without modifying files.
+> 只显示匹配项，不修改文件。
 
 **-d**, **--dir** _path_
-> Set the root search directory (default: current directory).
+> 设置根搜索目录（默认：当前目录）。
 
 **--glob** _pattern_
-> Include/exclude files by glob pattern (prefix with ! to exclude).
+> 按 glob 模式包含/排除文件（加 ! 前缀表示排除）。
 
 **--hidden**
-> Include hidden files and directories in the search.
+> 在搜索中包含隐藏文件和目录。
 
 **--fixed-strings**, **-F**
-> Treat the pattern as a literal string, not a regex.
+> 将模式视为字面字符串，而非正则表达式。
 
 **--count**
-> Display the total number of matches/replacements.
+> 显示匹配/替换的总数。
 
 # CAVEATS
 
-Uses Rust's regex syntax, which may differ from PCRE or POSIX regex in some edge cases. Interactive mode requires a terminal. When using **--accept-all**, changes are applied without confirmation -- use **--print-only** first to preview.
+使用 Rust 的正则语法，在某些边界情况下可能与 PCRE 或 POSIX 正则不同。交互模式需要终端。使用 **--accept-all** 时，变更将在无确认的情况下应用——请先用 **--print-only** 预览。
 
 # HISTORY
 
-**fastmod** was developed at **Facebook** (Meta) as a tool for large-scale code modifications. It addresses the need for interactive, safe refactoring across massive codebases. Released as open source, it is written in Rust for performance.
+**fastmod** 由 **Facebook**（Meta）开发，是用于大规模代码修改的工具。它满足了在海量代码库中进行交互式、安全重构的需求。该项目以开源形式发布，用 Rust 编写以保证性能。
 
 # INSTALL
 

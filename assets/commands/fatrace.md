@@ -1,30 +1,30 @@
 # TAGLINE
 
-trace file access events in real-time
+实时追踪文件访问事件
 
 # TLDR
 
-Print file access events on **all** filesystems
+在**所有**文件系统上打印文件访问事件
 
 ```sudo fatrace```
 
-Limit to a specific **command** name
+限定特定的**命令**名称
 
 ```sudo fatrace -C [program_name]```
 
-Print events on **current mount** only
+只在**当前挂载点**上打印事件
 
 ```sudo fatrace -c```
 
-Add **timestamps** to output
+在输出中添加**时间戳**
 
 ```sudo fatrace -t```
 
-Show only **read and write** events
+只显示**读取和写入**事件
 
 ```sudo fatrace -f RW```
 
-Stop after **10 seconds** and write to file
+**10 秒后**停止并写入文件
 
 ```sudo fatrace -s [10] -o [output.log]```
 
@@ -34,39 +34,39 @@ Stop after **10 seconds** and write to file
 
 # DESCRIPTION
 
-**fatrace** reports file access events from the kernel's fanotify interface. It shows which processes are accessing which files in real-time, helping identify processes causing unnecessary disk activity or wake-ups.
+**fatrace** 报告来自内核 fanotify 接口的文件访问事件。它实时显示哪些进程正在访问哪些文件，帮助找出造成不必要磁盘活动或唤醒的进程。
 
-Useful for debugging, security monitoring, and understanding application file access patterns.
+可用于调试、安全监控，以及理解应用程序的文件访问模式。
 
 # PARAMETERS
 
 **-c**, **--current-mount**
-> Only record events on the partition/mount of the current directory.
+> 只记录当前目录所在分区/挂载点上的事件。
 
 **-C**, **--command** _COMMAND_
-> Show only events for this command name.
+> 只显示此命令名称的事件。
 
 **-f**, **--filter** _TYPES_
-> Show only the given event types: C (close), R (read), O (open), W (write), D (delete), + (create), < (move).
+> 只显示给定的事件类型：C（关闭）、R（读取）、O（打开）、W（写入）、D（删除）、+（创建）、<（移动）。
 
 **-o**, **--output** _FILE_
-> Write events to the given file instead of standard output.
+> 将事件写入指定文件而不是标准输出。
 
 **-p**, **--ignore-pid** _PID_
-> Ignore events for this process ID. Can be specified multiple times.
+> 忽略此进程 ID 的事件。可多次指定。
 
 **-s**, **--seconds** _SECONDS_
-> Stop after the given number of seconds.
+> 在给定的秒数后停止。
 
 **-t**, **--timestamp**
-> Add timestamps to events. Specify twice for epoch format.
+> 为事件添加时间戳。指定两次则以 epoch 格式显示。
 
 **-h**, **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 # CAVEATS
 
-Requires root privileges. Uses fanotify which requires Linux 2.6.37+. May impact system performance on busy systems.
+需要 root 权限。使用 fanotify，要求 Linux 2.6.37 及以上版本。在繁忙的系统上可能影响性能。
 
 # INSTALL
 

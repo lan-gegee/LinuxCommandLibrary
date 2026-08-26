@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Copr repositories with DNF5
+用 DNF5 管理 Copr 软件仓库
 
 # TLDR
 
-**Enable** a Copr repository
+**启用** Copr 仓库
 
 ```sudo dnf5 copr enable [owner]/[project]```
 
-Enable a Copr repository for a specific **chroot**
+为特定 **chroot** 启用 Copr 仓库
 
 ```sudo dnf5 copr enable [owner]/[project] [fedora-rawhide-ppc64le]```
 
-Enable a Copr repository from a specific **hub**
+从特定 **hub** 启用 Copr 仓库
 
 ```sudo dnf5 copr enable [hub]/[owner]/[project]```
 
-**Disable** a Copr repository
+**禁用** Copr 仓库
 
 ```sudo dnf5 copr disable [owner]/[project]```
 
-**Remove** a Copr repository
+**移除** Copr 仓库
 
 ```sudo dnf5 copr remove [owner]/[project]```
 
-**List** configured Copr repositories
+**列出**已配置的 Copr 仓库
 
 ```dnf5 copr list```
 
-Print **debug** information about the system
+打印系统的**调试**信息
 
 ```dnf5 copr debug```
 
@@ -39,42 +39,42 @@ Print **debug** information about the system
 # PARAMETERS
 
 **list**
-> List Copr repositories configured on the system
+> 列出系统上已配置的 Copr 仓库
 
 **enable** _project-spec_ [_chroot_]
-> Download repository info from a Copr server and install it as a `/etc/yum.repos.d/*.repo` file
+> 从 Copr 服务器下载仓库信息并安装为 `/etc/yum.repos.d/*.repo` 文件
 
 **disable** _project-spec_
-> Disable the specified Copr repository (sets `enabled=0`; keeps the `.repo` file)
+> 禁用指定的 Copr 仓库（设置 `enabled=0`；保留 `.repo` 文件）
 
 **remove** _project-spec_
-> Remove the specified Copr repository and its `/etc/yum.repos.d/*.repo` file
+> 移除指定的 Copr 仓库及其 `/etc/yum.repos.d/*.repo` 文件
 
 **debug**
-> Print system information useful for debugging
+> 打印有助于调试的系统信息
 
 **--hub** _hostname_
-> Copr hub (web-UI/API server) hostname; default is `copr.fedorainfracloud.org`
+> Copr hub（Web UI/API 服务器）主机名；默认为 `copr.fedorainfracloud.org`
 
 **project-spec**
-> Project ID as `OWNER/PROJECT` or `HUB/OWNER/PROJECT` (owner may be a username or `@@groupname`)
+> 项目 ID，格式为 `OWNER/PROJECT` 或 `HUB/OWNER/PROJECT`（owner 可以是用户名或 `@@groupname`）
 
 **chroot**
-> Chroot in `NAME-RELEASE-ARCH` form (e.g. `fedora-rawhide-ppc64le`); auto-detected when omitted
+> chroot，采用 `NAME-RELEASE-ARCH` 形式（如 `fedora-rawhide-ppc64le`）；省略时自动检测
 
 # DESCRIPTION
 
-**dnf5 copr** manages Copr repositories on Fedora-based systems. Copr (Cool Other Package Repo) hosts community and third-party package repositories that can be enabled with a single command.
+**dnf5 copr** 管理 Fedora 系系统上的 Copr 仓库。Copr（Cool Other Package Repo）托管社区和第三方软件包仓库，一条命令即可启用。
 
-Enabling a project installs a repository definition under `/etc/yum.repos.d/`. Disabling keeps the definition but turns it off; removing deletes the definition entirely.
+启用项目会在 `/etc/yum.repos.d/` 下安装仓库定义。禁用会保留定义但将其关闭；移除则彻底删除该定义。
 
 # CAVEATS
 
-Copr projects are user-maintained and are not official Fedora packages. Review project pages before enabling. Incorrect chroots may install packages built for the wrong distribution or architecture.
+Copr 项目由用户自行维护，并非 Fedora 官方软件包。启用前请先查看项目页面。错误的 chroot 可能安装为其他发行版或架构构建的软件包。
 
 # HISTORY
 
-**copr** is a DNF5 plugin for Fedora's Copr build service, replacing the older `dnf copr` plugin from DNF4.
+**copr** 是面向 Fedora Copr 构建服务的 DNF5 插件，取代了 DNF4 中较旧的 `dnf copr` 插件。
 
 # SEE ALSO
 

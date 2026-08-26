@@ -1,26 +1,26 @@
 # TAGLINE
 
-Embedded Ruby template processor
+嵌入式 Ruby（ERB）模板处理器
 
 # TLDR
 
-**Process ERB template**
+**处理 ERB 模板**
 
 ```erb [template.erb]```
 
-**Process with Ruby variables**
+**配合 Ruby 变量处理**
 
 ```erb -r [./vars.rb] [template.erb]```
 
-**Output to file**
+**输出到文件**
 
 ```erb [template.erb] > [output.html]```
 
-**Trim mode for cleaner output**
+**使用修剪模式获得更整洁的输出**
 
 ```erb -T - [template.erb]```
 
-**Print result without newline**
+**打印结果且不带换行符**
 
 ```erb -P [template.erb]```
 
@@ -31,34 +31,34 @@ Embedded Ruby template processor
 # PARAMETERS
 
 **-r** _library_
-> Require Ruby library before processing.
+> 处理前先加载（require）Ruby 库。
 
 **-T** _mode_
-> Trim mode: 0, 1, 2, or -.
+> 修剪模式：0、1、2 或 -。
 
 **-P**
-> Don't print newline after output.
+> 输出后不打印换行符。
 
 **-e**
-> Ignore RUBYOPT environment variable.
+> 忽略 RUBYOPT 环境变量。
 
 **-x**
-> Print Ruby script instead of executing.
+> 打印 Ruby 脚本而不执行。
 
 **-n**
-> Print line numbers in output.
+> 在输出中打印行号。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**erb** processes ERB (Embedded Ruby) templates, allowing Ruby code to be embedded within text files. ERB is commonly used in Rails views and configuration file generation.
+**erb** 处理 ERB（Embedded Ruby）模板，允许在文本文件中嵌入 Ruby 代码。ERB 常用于 Rails 视图和配置文件生成。
 
-Templates use special tags: `<%= expr %>` outputs the expression result, `<% code %>` executes code without output, and `<%# comment %>` is for comments.
+模板使用特殊标签：`<%= expr %>` 输出表达式结果，`<% code %>` 执行代码但不产生输出，`<%# comment %>` 用于注释。
 
 # TEMPLATE SYNTAX
 
@@ -83,11 +83,11 @@ Templates use special tags: `<%= expr %>` outputs the expression result, `<% cod
 
 # CAVEATS
 
-Embedded Ruby executes with full permissions. Input should be trusted. Complex logic belongs in code, not templates. Whitespace handling may need trim mode adjustment.
+嵌入的 Ruby 以完全权限执行。输入必须可信。复杂逻辑应放在代码中而非模板里。空白处理可能需要调整修剪模式。
 
 # HISTORY
 
-ERB was created by **Masatoshi Seki** and included in Ruby's standard library. It became popular with Ruby on Rails as the default view template engine, though Rails now often uses alternatives like Slim or Haml.
+ERB 由 **Masatoshi Seki** 创建，并纳入 Ruby 标准库。它曾作为默认视图模板引擎随 Ruby on Rails 流行起来，不过 Rails 现在常改用 Slim 或 Haml 等替代方案。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-versatile resource statistics tool
+多功能资源统计工具
 
 # TLDR
 
-Display **CPU, disk, net, paging, system** statistics
+显示 **CPU、磁盘、网络、分页、系统**统计信息
 
 ```dstat```
 
-Display statistics every **5 seconds, 4 times**
+每 **5 秒显示一次，共 4 次**
 
 ```dstat 5 4```
 
-Display **CPU and memory** only
+只显示 **CPU 和内存**
 
 ```dstat -c -m```
 
-**List** available plugins
+**列出**可用插件
 
 ```dstat --list```
 
-Display **top memory and CPU** processes
+显示占用**内存和 CPU 最高的进程**
 
 ```dstat --top-mem --top-cpu```
 
-Display **battery** information
+显示**电池**信息
 
 ```dstat --battery --battery-remain```
 
@@ -34,57 +34,57 @@ Display **battery** information
 
 # DESCRIPTION
 
-**dstat** is a versatile system resource statistics generator that unifies the functionality of vmstat, iostat, netstat, and ifstat in a single tool. It provides real-time monitoring of CPU, memory, disk I/O, network, processes, and other system resources with colorful, easy-to-read output.
+**dstat** 是一款多功能的系统资源统计生成器，将 vmstat、iostat、netstat 和 ifstat 的功能统一到一个工具中。它实时监控 CPU、内存、磁盘 I/O、网络、进程及其他系统资源，输出彩色且易读。
 
-The tool's plugin architecture allows for extensible monitoring capabilities beyond the standard metrics. Users can display top CPU and memory consumers, battery information, and custom statistics through third-party plugins. Output updates at configurable intervals, making it suitable for both quick system checks and continuous monitoring.
+该工具的插件架构让监控能力可以扩展到标准指标之外。用户可以通过第三方插件显示 CPU 和内存占用大户、电池信息和自定义统计。输出按可配置的间隔刷新，既适合快速系统检查，也适合持续监控。
 
-dstat's strength lies in its ability to correlate metrics across different subsystems in one view. For example, you can simultaneously monitor CPU usage, disk I/O, and network traffic to understand system bottlenecks.
+dstat 的强项在于能在同一个视图中关联不同子系统的指标。例如，你可以同时监控 CPU 使用率、磁盘 I/O 和网络流量来理解系统瓶颈。
 
-Important note: dstat is deprecated and no longer maintained. The Python 2 codebase has not been updated for modern systems. Users should consider alternatives like dool (a maintained fork), or use the traditional sysstat tools (vmstat, iostat, sar) which continue to be actively maintained.
+重要提示：dstat 已被弃用且不再维护。其 Python 2 代码库没有为现代系统更新过。用户应考虑替代品，如 dool（一个仍在维护的分叉），或使用持续活跃维护的传统 sysstat 工具（vmstat、iostat、sar）。
 
 # PARAMETERS
 
 **-c, --cpu**
-> CPU statistics
+> CPU 统计
 
 **-m, --mem**
-> Memory statistics
+> 内存统计
 
 **-d, --disk**
-> Disk statistics
+> 磁盘统计
 
 **-n, --net**
-> Network statistics
+> 网络统计
 
 **--top-cpu**
-> Process using most CPU
+> 占用 CPU 最多的进程
 
 **--top-mem**
-> Process using most memory
+> 占用内存最多的进程
 
 **--list**
-> List available plugins
+> 列出可用插件
 
 **-a, --all**
-> Equivalent to **-cdngy**, the default set
+> 等价于 **-cdngy**，即默认集合
 
 **-f, --full**
-> Expand aggregated statistics into one column per CPU, disk, or interface
+> 将聚合统计展开为每个 CPU、磁盘或接口一列
 
 **--output** _file_
-> Also write the statistics to a CSV file
+> 同时将统计写入 CSV 文件
 
 # CAVEATS
 
-**dstat is deprecated and unmaintained.** It was written for Python 2, and while distributions carry patches to keep it importable under Python 3, it breaks on modern systems in ways nobody upstream is fixing. Some plugins fail outright, and a few crash on newer kernels.
+**dstat 已被弃用且无人维护。**它为 Python 2 编写，虽然各发行版带着补丁使其在 Python 3 下仍可导入，但在现代系统上出的问题上游无人修复。一些插件完全失效，少数插件在新内核上会崩溃。
 
-The direct replacement is **dool**, a maintained Python 3 fork that keeps the same command-line interface, so `dool -cdngy` behaves like the dstat you remember. Otherwise, the sysstat suite (`vmstat`, `iostat`, `sar`, `pidstat`) covers the same ground and is actively maintained, at the cost of needing several commands where dstat used one.
+直接的替代品是 **dool**——一个维护中的 Python 3 分叉，保留了相同的命令行界面，因此 `dool -cdngy` 的行为与你记忆中的 dstat 一致。此外，sysstat 套件（`vmstat`、`iostat`、`sar`、`pidstat`）覆盖同样的场景并持续维护，代价是过去一条命令的事现在需要几条命令。
 
-Note also that the first line of output is an average since boot rather than a measurement of the interval, which is a trap it shares with `vmstat`: discard it, or use a count of at least two.
+另请注意，输出的第一行是自启动以来的平均值而非本次区间的测量值，这是它与 `vmstat` 共有的陷阱：丢弃第一行，或者至少计数两次。
 
 # HISTORY
 
-dstat was written by **Dag Wieers** in **2004**, and its pitch was straightforward: `vmstat`, `iostat`, `netstat`, and `ifstat` each showed you one part of the picture, in a different format, on a different schedule, and correlating them by eye across four terminals was miserable. dstat put them in one aligned, colour-coded, plugin-extensible table with a shared timeline, which turned out to be exactly what people wanted when hunting a bottleneck. Its dependence on Python 2 eventually outlived Python 2 itself, and the project was retired in favour of the **dool** fork.
+dstat 由 **Dag Wieers** 于 **2004 年**编写，其卖点很直接：`vmstat`、`iostat`、`netstat` 和 `ifstat` 各自只展示画面的一部分，格式不同、刷新节奏不同，在四个终端之间用肉眼对照简直苦不堪言。dstat 把它们放进一张对齐、色彩标记、可插拔扩展的表格里，并共享同一条时间线——事实证明，这正是排查瓶颈的人们想要的。它对 Python 2 的依赖最终比 Python 2 本身活得更久，项目随后退役，由 **dool** 分叉接棒。
 
 # INSTALL
 
@@ -109,4 +109,3 @@ dstat was written by **Dag Wieers** in **2004**, and its pitch was straightforwa
 ```[Source code](https://github.com/dagwieers/dstat)```
 
 <!-- verified: 2026-07-14 -->
-

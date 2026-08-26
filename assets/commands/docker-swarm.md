@@ -1,34 +1,34 @@
 # TAGLINE
 
-native Docker clustering and orchestration
+Docker 原生集群与编排
 
 # TLDR
 
-**Initialize a swarm**
+**初始化一个 swarm**
 
 ```docker swarm init```
 
-**Initialize with advertised address**
+**初始化时指定通告地址**
 
 ```docker swarm init --advertise-addr [ip:port]```
 
-**Join swarm as worker**
+**以工作节点身份加入 swarm**
 
 ```docker swarm join --token [token] [manager:port]```
 
-**Get join token**
+**获取加入令牌**
 
 ```docker swarm join-token [worker|manager]```
 
-**Leave the swarm**
+**离开 swarm**
 
 ```docker swarm leave```
 
-**Force leave as manager**
+**以管理节点身份强制离开**
 
 ```docker swarm leave --force```
 
-**Update swarm configuration**
+**更新 swarm 配置**
 
 ```docker swarm update --autolock=[true]```
 
@@ -39,32 +39,32 @@ native Docker clustering and orchestration
 # SUBCOMMANDS
 
 **init**
-> Initialize a swarm.
+> 初始化一个 swarm。
 
 **join**
-> Join a swarm as node.
+> 以节点身份加入 swarm。
 
 **join-token**
-> Manage join tokens.
+> 管理加入令牌。
 
 **leave**
-> Leave the swarm.
+> 离开 swarm。
 
 **update**
-> Update swarm configuration.
+> 更新 swarm 配置。
 
 **ca**
-> Manage swarm CA.
+> 管理 swarm CA。
 
 **unlock**
-> Unlock swarm.
+> 解锁 swarm。
 
 **unlock-key**
-> Manage unlock key.
+> 管理解锁密钥。
 
 # DESCRIPTION
 
-**docker swarm** manages a Docker Swarm cluster. Swarm mode enables native clustering, service orchestration, load balancing, and secure communication between nodes.
+**docker swarm** 管理 Docker Swarm 集群。Swarm 模式提供原生集群能力、服务编排、负载均衡以及节点之间的安全通信。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ native Docker clustering and orchestration
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

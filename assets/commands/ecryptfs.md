@@ -1,30 +1,30 @@
 # TAGLINE
 
-stacked cryptographic filesystem
+堆叠式加密文件系统
 
 # TLDR
 
-**Mount encrypted directory**
+**挂载加密目录**
 
 ```sudo mount -t ecryptfs [/encrypted] [/mnt/decrypted]```
 
-**Setup encrypted private directory**
+**设置加密私有目录**
 
 ```ecryptfs-setup-private```
 
-**Mount user's private directory**
+**挂载用户私有目录**
 
 ```ecryptfs-mount-private```
 
-**Unmount private directory**
+**卸载私有目录**
 
 ```ecryptfs-umount-private```
 
-**Add passphrase to keyring**
+**将口令加入密钥环**
 
 ```ecryptfs-add-passphrase```
 
-**Recover encrypted directory**
+**恢复加密目录**
 
 ```ecryptfs-recover-private```
 
@@ -35,31 +35,31 @@ stacked cryptographic filesystem
 # PARAMETERS
 
 **ecryptfs_cipher** _cipher_
-> Encryption cipher (aes, blowfish, des3_ede).
+> 加密算法（aes、blowfish、des3_ede）。
 
 **ecryptfs_key_bytes** _bytes_
-> Key size in bytes (16, 24, 32).
+> 密钥长度（字节）（16、24、32）。
 
 **ecryptfs_passthrough** _yes|no_
-> Allow unencrypted files.
+> 允许未加密的文件。
 
 **ecryptfs_enable_filename_crypto** _yes|no_
-> Encrypt filenames.
+> 加密文件名。
 
 **ecryptfs_sig** _sig_
-> Mount signature for key.
+> 密钥的挂载签名。
 
 **ecryptfs_fnek_sig** _sig_
-> Filename encryption key signature.
+> 文件名加密密钥签名。
 
 **no_sig_cache**
-> Don't cache signature.
+> 不缓存签名。
 
 # DESCRIPTION
 
-**eCryptfs** is a stacked cryptographic filesystem for Linux. It encrypts files at the filesystem level, storing encrypted data in a lower directory while presenting decrypted files through a mount point.
+**eCryptfs** 是 Linux 上的堆叠式加密文件系统。它在文件系统层面加密文件：加密后的数据存放在下层目录中，同时通过挂载点呈现解密后的文件。
 
-Unlike block-level encryption, eCryptfs encrypts individual files, allowing encrypted and unencrypted files to coexist. Metadata is stored in file headers, making backup and recovery straightforward.
+与块级加密不同，eCryptfs 对单个文件加密，允许加密文件与未加密文件共存。元数据存储在文件头部，使备份和恢复变得简单直接。
 
 # SETUP EXAMPLE
 
@@ -75,11 +75,11 @@ sudo mount -t ecryptfs /encrypted /decrypted
 
 # CAVEATS
 
-Filename encryption requires additional setup. Performance overhead compared to block encryption. Key management requires understanding of kernel keyrings. Deprecated in favor of fscrypt for ext4. Not recommended for new deployments.
+文件名加密需要额外设置。与块级加密相比存在性能开销。密钥管理需要理解内核密钥环。对 ext4 而言已被 fscrypt 取代。不建议用于新部署。
 
 # HISTORY
 
-eCryptfs was developed by **IBM** and first included in the Linux kernel in **2006**. It was used by Ubuntu for encrypted home directories. The project has been largely superseded by **fscrypt** (native ext4/F2FS encryption) but remains available for legacy use.
+eCryptfs 由 **IBM** 开发，于 **2006 年**首次进入 Linux 内核。Ubuntu 曾用它实现主目录加密。该项目已在很大程度上被 **fscrypt**（原生 ext4/F2FS 加密）取代，但仍可用于遗留场景。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-shell history expansion syntax
+Shell 历史展开语法
 
 # TLDR
 
-**Repeat** the last command
+**重复**上一条命令
 
 ```!!```
 
-**Rerun** the last command with sudo
+用 sudo **重新运行**上一条命令
 
 ```sudo !!```
 
-**Repeat** the last command starting with a string
+**重复**最近一条以某字符串开头的命令
 
 ```![string]```
 
-**Repeat** command number N from history
+**重复**历史记录中编号为 N 的命令
 
 ```![N]```
 
-**Repeat** the Nth previous command
+**重复**倒数第 N 条命令
 
 ```!-[N]```
 
-**Reuse** the last argument of the previous command
+**复用**上一条命令的最后一个参数
 
 ```[command] !$```
 
-**Repeat** the last command with a substitution
+**重复**上一条命令并做替换
 
 ```^[old]^[new]```
 
-**Print** an expansion instead of running it
+只**打印**展开结果而不执行
 
 ```!![:p]```
 
@@ -45,112 +45,112 @@ shell history expansion syntax
 # EVENT DESIGNATORS
 
 **!!**
-> The previous command. Shorthand for **!-1**.
+> 上一条命令。等价于 **!-1** 的简写。
 
 **!n**
-> Command line number n, as shown by **history**.
+> 历史记录中的第 n 条命令行，即 **history** 显示的编号。
 
 **!-n**
-> The command n lines back.
+> 往前数第 n 条命令。
 
 **!string**
-> The most recent command starting with _string_.
+> 最近一条以 _string_ 开头的命令。
 
 **!?string?**
-> The most recent command containing _string_. The trailing **?** is optional at end of line.
+> 最近一条包含 _string_ 的命令。行尾处的末尾 **?** 可省略。
 
 **!#**
-> The current command line typed so far.
+> 迄今为止输入的当前命令行。
 
 **^old^new**
-> Quick substitution: repeat the previous command replacing the first occurrence of _old_ with _new_. Equivalent to **!!:s/old/new/**.
+> 快速替换：重复上一条命令，把第一处出现的 _old_ 替换为 _new_。等同于 **!!:s/old/new/**。
 
 # WORD DESIGNATORS
 
-Words are numbered from **0**, and are separated from the event by a colon. The colon may be omitted when the designator starts with **^**, **$**, **\***, **-** or **%**.
+单词从 **0** 开始编号，并以冒号与事件分隔。当指示符以 **^**、**$**、**\***、**-** 或 **%** 开头时，冒号可以省略。
 
 **:0**
-> The command name.
+> 命令名。
 
 **:n**
-> The nth word, counting the command as word 0. So **:1** is the first argument.
+> 第 n 个单词（命令本身计为第 0 个）。因此 **:1** 是第一个参数。
 
 **:^**
-> The first argument. Same as **:1**.
+> 第一个参数。等同 **:1**。
 
 **:$**
-> The last argument.
+> 最后一个参数。
 
 **:%**
-> The word matched by the most recent **?string?** search.
+> 最近一次 **?string?** 搜索匹配到的单词。
 
 **:\***
-> All words except the 0th. Same as **:1-$**, and expands to nothing if there is only one word.
+> 除第 0 个之外的所有单词。等同 **:1-$**；若只有一个词则展开为空。
 
 **:n-m**
-> The range of words from n to m.
+> 从第 n 个到第 m 个单词的范围。
 
 **:n\***
-> From word n to the last. Same as **:n-$**.
+> 从第 n 个到最后一个单词。等同 **:n-$**。
 
 **:n-**
-> From word n to the second-to-last word.
+> 从第 n 个到倒数第二个单词。
 
 # MODIFIERS
 
 **:h**
-> Head: remove the trailing pathname component, leaving the directory.
+> 头部：去掉末尾的路径成分，保留目录部分。
 
 **:t**
-> Tail: remove all leading pathname components, leaving the filename.
+> 尾部：去掉前面的所有路径成分，保留文件名。
 
 **:r**
-> Root: remove the trailing file extension.
+> 根名：去掉末尾的文件扩展名。
 
 **:e**
-> Extension: remove all but the extension.
+> 扩展名：只保留扩展名。
 
 **:s/old/new/**
-> Substitute the first occurrence of _old_ with _new_.
+> 将第一处出现的 _old_ 替换为 _new_。
 
 **:gs/old/new/**
-> Substitute all occurrences. **g** is a prefix that repeats the following modifier.
+> 替换所有出现的位置。**g** 是一个前缀，表示对后续修饰符进行全局重复应用。
 
 **:&**
-> Repeat the previous substitution.
+> 重复上一次替换。
 
 **:p**
-> Print the resulting command without executing it, and add it to the history.
+> 只打印生成的命令而不执行，并将其加入历史记录。
 
 **:q**
-> Quote the result, protecting it from further expansion.
+> 给结果加引号，防止其被进一步展开。
 
 **:x**
-> Like **:q**, but split into words on whitespace.
+> 类似 **:q**，但会按空白拆分成多个单词。
 
 # DESCRIPTION
 
-History expansion lets you rebuild a previous command without retyping it. It is a feature of the shell's interactive history mechanism, present in **bash**, **zsh**, **csh** and **tcsh**, and is performed very early: the line is rewritten before quoting, parameter expansion, or any other processing takes place.
+历史展开让你无需重新输入即可重建之前的命令。它是 shell 交互式历史机制的一项功能，存在于 **bash**、**zsh**、**csh** 和 **tcsh** 中，并且执行得非常早：这一行会在引号处理、参数展开或任何其他处理发生之前就被重写。
 
-A reference has three parts. The **event designator** selects a line from history, an optional **word designator** picks words out of it, and any number of **modifiers** transform the result. So **!!** repeats the whole previous line, **!!:1** takes only its first argument, and **!!:1:h** takes that argument's directory.
+一个引用由三部分组成。**事件指示符**从历史中选择一行，可选的**单词指示符**从中挑选单词，任意数量的**修饰符**则对结果进行变换。因此 **!!** 重复上一整行，**!!:1** 只取其第一个参数，而 **!!:1:h** 则取该参数所在的目录。
 
-Several forms are common enough to be worth memorizing. **sudo !!** rerunning the previous command with privileges is the classic. **!$** grabs the last argument of the previous line, which is usually the file you were just working with, making **vim !$** a natural follow-on to **ls some/long/path/file.txt**. **^old^new** fixes a typo in the previous command in place.
+有几种形式十分常用，值得牢记。**sudo !!** 以特权重新运行上一条命令是经典用法。**!$** 取上一行的最后一个参数——通常正是你刚才操作的文件——因此 **vim !$** 自然成为 **ls some/long/path/file.txt** 的后续操作。**^old^new** 可以就地修正上一条命令中的笔误。
 
-Because expansion happens on the input line rather than at execution, the expanded text is echoed back before it runs, so you can see exactly what the shell made of your reference.
+由于展开发生在输入行上而非执行时，展开后的文本会在运行前回显出来，你可以确切看到 shell 对你的引用做出了什么。
 
 # CAVEATS
 
-The **!** character keeps its special meaning inside **double quotes**. Writing **echo "hello!"** or a password containing **!** can trigger an unexpected expansion or an "event not found" error. Single quotes suppress it, as does a backslash escape. In bash, **set +H** turns history expansion off entirely, which is a common line in **.bashrc** for people who never use it.
+**!** 字符在**双引号**内仍保持特殊含义。编写 **echo "hello!"** 或包含 **!** 的密码时，可能触发意外的展开或 "event not found" 错误。单引号可以抑制它，反斜杠转义也可以。在 bash 中，**set +H** 会完全关闭历史展开，这是从不使用此功能的人在 **.bashrc** 中常见的配置行。
 
-History expansion is only enabled in interactive shells, so it is not available in scripts and cannot be relied on for portable scripting.
+历史展开仅在交互式 Shell 中启用，因此脚本中不可用，也不能指望它在可移植脚本中生效。
 
-**!string** silently reruns whatever it matches, which may not be the command you had in mind if your history has moved on. Append **:p** first to see the expansion before committing to it, especially with anything destructive.
+**!string** 会静默地重新运行匹配到的任何内容，如果你的历史已经向前推进，那可能不是你想要的命令。先附加 **:p** 在真正执行前查看展开结果，尤其是涉及破坏性操作时更要如此。
 
-Details differ between shells: zsh supports extra modifiers such as **:G**, and csh's implementation, where the syntax originated, differs in a number of corners.
+各 shell 的细节存在差异：zsh 支持诸如 **:G** 的额外修饰符，而 csh（该语法的发源地）的实现也有若干不同之处。
 
 # HISTORY
 
-History expansion originated in the **C shell**, written by **Bill Joy** at Berkeley in the late **1970s**, and its syntax was carried into **tcsh**, **bash** and **zsh** largely unchanged. In bash it is implemented by the **history library** that ships with **GNU Readline**.
+历史展开起源于 **C shell**，由 **Bill Joy** 于 **20 世纪 70 年代**末在伯克利编写，其语法几乎原封不动地沿用到 **tcsh**、**bash** 和 **zsh**。在 bash 中，它由随 **GNU Readline** 附带的 **history 库**实现。
 
 # SEE ALSO
 

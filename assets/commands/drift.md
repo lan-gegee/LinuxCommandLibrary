@@ -1,22 +1,22 @@
 # TAGLINE
 
-Spark-native embedding lifecycle for vector search
+面向向量搜索的 Spark 原生嵌入生命周期管理
 
 # TLDR
 
-**Embed a table into a vector sink**
+**将表嵌入向量接收端**
 
 ```drift embed --table [catalog.table] --text-col [body] --model [openai/text-embedding-3-small] --sink [qdrant://localhost:6333/demo]```
 
-**Incrementally refresh changed rows via Delta CDC**
+**通过 Delta CDC 增量刷新变更行**
 
 ```drift watch --table [catalog.table] --text-col [body] --sink [qdrant://localhost:6333/demo]```
 
-**Migrate embeddings to a new model**
+**将嵌入迁移到新模型**
 
 ```drift migrate --from [openai/text-embedding-ada-002] --to [openai/text-embedding-3-small] --sink [qdrant://localhost:6333/demo] --strategy [drift-adapter]```
 
-**Show sink status**
+**显示接收端状态**
 
 ```drift status --sink [qdrant://localhost:6333/demo]```
 
@@ -26,50 +26,50 @@ Spark-native embedding lifecycle for vector search
 
 # DESCRIPTION
 
-**drift** is the CLI for **drift-spark**, a Spark-native toolkit that manages the full embedding lifecycle: initial production, incremental CDC refresh, model migration, and cost or provenance auditing. It replaces hand-rolled scripts that re-embed entire tables nightly.
+**drift** 是 **drift-spark** 的 CLI，后者是一套 Spark 原生工具包，管理嵌入的完整生命周期：初次生成、增量 CDC 刷新、模型迁移，以及成本或来源审计。它取代了过去每晚重新嵌入整张表的手写脚本。
 
-The **embed** subcommand batches text through an embedding provider, deduplicates across runs by content hash, and writes idempotent point IDs to a configured sink (Qdrant or pgvector). **watch** reads Delta Change Data Feed from a source table and re-embeds only inserted, updated, or deleted rows. **migrate** upgrades vectors to a new model using either a full **dual-write** reindex or a **drift-adapter** orthogonal rotation that avoids reindexing. **status** reports the current state of a sink.
+**embed** 子命令批量调用嵌入提供方处理文本，按内容哈希跨运行去重，并将幂等的 point ID 写入配置的接收端（Qdrant 或 pgvector）。**watch** 从源表读取 Delta Change Data Feed，只重新嵌入插入、更新或删除的行。**migrate** 使用完整的 **dual-write** 重建索引，或采用避免重建索引的 **drift-adapter** 正交旋转，把向量升级到新模型。**status** 报告接收端的当前状态。
 
-A local SQLite ledger at **~/.drift/ledger.db** records per-run cost, deduplication stats, and per-vector provenance. **--shadow-mode** uses deterministic mock vectors with no API key, useful for development and CI.
+位于 **~/.drift/ledger.db** 的本地 SQLite 台账记录每次运行的成本、去重统计以及每个向量的来源。**--shadow-mode** 使用确定性 mock 向量且不需要 API 密钥，便于开发和 CI 使用。
 
-Install with **pip install drift-spark**. Optional extras: **[qdrant]**, **[pgvector]**, **[spark]**. Requires Python **3.11+**.
+通过 **pip install drift-spark** 安装。可选扩展：**[qdrant]**、**[pgvector]**、**[spark]**。需要 Python **3.11+**。
 
 # PARAMETERS
 
 **embed**
 
 **--table** _name_
-> Source Delta or Spark table.
+> 源 Delta 或 Spark 表。
 
 **--text-col** _column_
-> Column containing text to embed.
+> 包含待嵌入文本的列。
 
 **--model** _provider/model_
-> Embedding model, e.g. **openai/text-embedding-3-small**.
+> 嵌入模型，例如 **openai/text-embedding-3-small**。
 
 **--sink** _uri_
-> Target sink URI, e.g. **qdrant://host:port/collection**.
+> 目标接收端 URI，例如 **qdrant://host:port/collection**。
 
 **--shadow-mode**
-> Use deterministic mock vectors; no API calls.
+> 使用确定性 mock 向量；不发起 API 调用。
 
 **watch**
 
 **--table**, **--text-col**, **--sink**, **--model**, **--since-version**, **--shadow-mode**
-> Incremental CDC refresh; **since-version** defaults to the ledger watermark.
+> 增量 CDC 刷新；**since-version** 默认取台账中的水位线。
 
 **migrate**
 
 **--from**, **--to**, **--sink**, **--strategy**
-> Model migration; strategies are **dual-write** or **drift-adapter**.
+> 模型迁移；策略为 **dual-write** 或 **drift-adapter**。
 
 # CAVEATS
 
-**embed()** collects texts to the Spark driver via **toPandas()**, which is practical up to roughly 2 million rows. pgvector sink supports writes but not CDC delete or migrate yet. API pricing in the tool is hardcoded; verify current provider rates before budgeting. Requires Delta Lake with CDF enabled for **watch**.
+**embed()** 通过 **toPandas()** 把文本收集到 Spark driver，实际可用规模约为 200 万行。pgvector 接收端目前支持写入，但尚不支持 CDC 删除和 migrate。工具内的 API 定价是硬编码的；做预算前请核实提供方的最新费率。**watch** 需要启用了 CDF 的 Delta Lake。
 
 # HISTORY
 
-**drift-spark** was created by aayush4vedi, with the **drift-adapter** migration strategy based on the Drift-Adapter paper (arXiv:2509.23471, EMNLP 2025). Version 0.5.0 shipped **embed**, **watch**, **migrate**, and the SQLite lineage ledger.
+**drift-spark** 由 aayush4vedi 创建，其 **drift-adapter** 迁移策略基于 Drift-Adapter 论文（arXiv:2509.23471, EMNLP 2025）。0.5.0 版本发布了 **embed**、**watch**、**migrate** 以及 SQLite 血缘台账。
 
 # INSTALL
 

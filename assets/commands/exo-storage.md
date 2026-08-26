@@ -1,30 +1,30 @@
 # TAGLINE
 
-Exoscale S3-compatible object storage management
+Exoscale S3 兼容对象存储管理
 
 # TLDR
 
-**List buckets**
+**列出存储桶**
 
 ```exo storage list```
 
-**Create a bucket**
+**创建存储桶**
 
 ```exo storage mb --zone [ch-gva-2] sos://[bucket-name]```
 
-**Upload file**
+**上传文件**
 
 ```exo storage upload [file] sos://[bucket]/[path]```
 
-**Download file**
+**下载文件**
 
 ```exo storage download sos://[bucket]/[file] [local_path]```
 
-**List bucket contents**
+**列出存储桶内容**
 
 ```exo storage list sos://[bucket]```
 
-**Delete object**
+**删除对象**
 
 ```exo storage delete sos://[bucket]/[file]```
 
@@ -35,54 +35,54 @@ Exoscale S3-compatible object storage management
 # SUBCOMMANDS
 
 **list**
-> List buckets or objects.
+> 列出存储桶或对象。
 
 **mb**
-> Create (make) a bucket.
+> 创建（make）存储桶。
 
 **rb**
-> Remove a bucket.
+> 删除（remove）存储桶。
 
 **upload**
-> Upload files to a bucket.
+> 上传文件到存储桶。
 
 **download**
-> Download files from a bucket.
+> 从存储桶下载文件。
 
 **delete**
-> Delete an object.
+> 删除对象。
 
 **show**
-> Show bucket or object details.
+> 显示存储桶或对象的详情。
 
 **presign**
-> Generate a presigned URL for an object.
+> 为对象生成预签名 URL。
 
 **setacl**
-> Set bucket/object ACL permissions.
+> 设置存储桶/对象的 ACL 权限。
 
 **cors**
-> Manage CORS configuration (add, delete).
+> 管理 CORS 配置（add、delete）。
 
 **headers**
-> Manage custom HTTP headers (add, delete).
+> 管理自定义 HTTP 头（add、delete）。
 
 **metadata**
-> Manage object metadata (add, delete).
+> 管理对象元数据（add、delete）。
 
 **bucket**
-> Manage bucket settings (object-ownership, replication, versioning).
+> 管理存储桶设置（object-ownership、replication、versioning）。
 
 **purge**
-> Remove all objects from a bucket.
+> 清空存储桶中的所有对象。
 
 # DESCRIPTION
 
-**exo storage** manages Exoscale Simple Object Storage (SOS), an S3-compatible object storage service. Store and retrieve files with HTTP access.
+**exo storage** 用于管理 Exoscale Simple Object Storage（SOS），一种 S3 兼容的对象存储服务。可通过 HTTP 访问存取文件。
 
-SOS provides scalable object storage for backups, static assets, media files, and data lakes. Being S3-compatible, it works with standard tools like s3cmd, rclone, and AWS SDKs.
+SOS 提供可扩展的对象存储，适用于备份、静态资源、媒体文件和数据湖。由于兼容 S3，它可以与 s3cmd、rclone 和 AWS SDK 等标准工具配合使用。
 
-The tool supports bucket management, file uploads/downloads, presigned URLs for temporary access, and CORS configuration for web applications.
+该工具支持存储桶管理、文件上传/下载、用于临时访问的预签名 URL，以及面向 Web 应用的 CORS 配置。
 
 # INSTALL
 
@@ -99,4 +99,3 @@ The tool supports bucket management, file uploads/downloads, presigned URLs for 
 # SEE ALSO
 
 [exo](/man/exo)(1), [aws-s3](/man/aws-s3)(1)
-

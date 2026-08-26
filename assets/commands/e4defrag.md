@@ -1,26 +1,26 @@
 # TAGLINE
 
-ext4 filesystem defragmentation tool
+ext4 文件系统碎片整理工具
 
 # TLDR
 
-**Defragment** a whole mounted filesystem
+对整个已挂载的文件系统进行**碎片整理**
 
 ```sudo e4defrag [/dev/sdXN]```
 
-Defragment a **single file**
+**整理单个文件**
 
 ```sudo e4defrag [path/to/file]```
 
-Defragment a **directory** and everything below it
+**整理目录**及其下所有内容
 
 ```sudo e4defrag [path/to/directory]```
 
-Check the **fragmentation level** without defragmenting
+检查**碎片程度**而不做整理
 
 ```sudo e4defrag -c [path/to/file_or_device]```
 
-Print **verbose** per-file information
+打印**详细**的逐文件信息
 
 ```sudo e4defrag -v [/dev/sdXN]```
 
@@ -30,24 +30,24 @@ Print **verbose** per-file information
 
 # DESCRIPTION
 
-**e4defrag** defragments an ext4 filesystem. It can operate on entire filesystems, directories, or individual files.
+**e4defrag** 对 ext4 文件系统进行碎片整理。它可以作用于整个文件系统、目录或单个文件。
 
-Unlike offline defragmenters, e4defrag can run while the filesystem is mounted and in use.
+与离线碎片整理工具不同，e4defrag 可以在文件系统已挂载并正在使用的情况下运行。
 
 # PARAMETERS
 
 **-c**
-> Check the current fragmentation state and print a fragmentation score without defragmenting. No root privileges are needed for files you own.
+> 检查当前碎片状态并打印碎片评分，而不进行整理。对你拥有的文件无需 root 权限。
 
 **-v**
-> Verbose output, printing the result for each file
+> 详细输出，打印每个文件的结果
 
 _target_
-> Device, directory, or file to defragment. A device must be mounted.
+> 要整理的设备、目录或文件。设备必须处于挂载状态。
 
 # CAVEATS
 
-ext4 only: the kernel's EXT4_IOC_MOVE_EXT ioctl is what does the work, so ext2/ext3 filesystems are rejected. The target filesystem must be mounted, since e4defrag operates online. Defragmentation needs free contiguous space, so it is largely ineffective on nearly full filesystems. Files with a fragmentation score under 30 are already considered fine and are left alone.
+仅限 ext4：实际工作由内核的 EXT4_IOC_MOVE_EXT ioctl 完成，因此 ext2/ext3 文件系统会被拒绝。目标文件系统必须处于挂载状态，因为 e4defrag 是在线操作的。碎片整理需要连续的空闲空间，因此对几乎占满的文件系统基本无效。碎片评分低于 30 的文件已被认为状态良好，不会被动。
 
 # INSTALL
 

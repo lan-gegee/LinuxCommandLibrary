@@ -1,30 +1,30 @@
 # TAGLINE
 
-prime factorization utility
+质因数分解工具
 
 # TLDR
 
-**Factorize a number**
+**分解一个数**
 
 ```factor [12]```
 
-**Factorize multiple numbers**
+**分解多个数**
 
 ```factor [12] [100] [256]```
 
-**Read numbers from stdin**
+从 stdin 读取数字
 
 ```echo "[123456]" | factor```
 
-**Factorize numbers interactively**
+交互式分解数字
 
 ```factor```
 
-**Factorize a large number**
+**分解一个大数**
 
 ```factor [9999999999999999999999]```
 
-**Show prime factors using exponent notation**
+以指数记法显示质因数
 
 ```factor -h [1024]```
 
@@ -35,36 +35,36 @@ prime factorization utility
 # PARAMETERS
 
 **-h**, **--exponents**
-> Print factors in the form p^e instead of repeating prime p e times. If the exponent e is 1, it is omitted.
+> 以 p^e 的形式输出因数，而不是把质数 p 重复 e 次。若指数 e 为 1 则省略。
 
 **--help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 _NUMBER_
-> One or more integers to factorize. If no numbers are given, reads from stdin.
+> 一个或多个要分解的整数。未给出时从 stdin 读取。
 
 # DESCRIPTION
 
-**factor** prints the prime factors of each specified integer. For each input number, it outputs the number followed by a colon and its prime factors in ascending order, with repeated factors shown multiple times.
+**factor** 对每个指定的整数进行质因数分解并输出结果。对每个输入数字，它先输出该数字，后跟冒号和按升序排列的质因数，重复的因数会重复列出。
 
-For example, **factor 12** outputs **12: 2 2 3** because 12 = 2 × 2 × 3. Prime numbers return themselves as the only factor. The number 1 has no prime factors and returns just **1:**.
+例如，**factor 12** 输出 **12: 2 2 3**，因为 12 = 2 × 2 × 3。质数只返回其自身作为唯一因数。数字 1 没有质因数，只返回 **1:**。
 
-When called without arguments, factor enters interactive mode, reading numbers from stdin one per line. This is useful for factoring many numbers or integrating with pipes.
+不带参数调用时，factor 进入交互模式，从 stdin 逐行读取数字。这对分解大量数字或与管道结合使用很有用。
 
-The implementation uses trial division for small factors and Pollard's rho algorithm for larger numbers. GNU coreutils factor can handle arbitrarily large numbers when built with GNU MP support, while some implementations have size limits.
+实现上对小因数使用试除法，对较大的数使用 Pollard's rho 算法。启用 GNU MP 支持构建的 GNU coreutils factor 可以处理任意大的数字，而某些实现则有大小限制。
 
-Common uses include mathematical exploration, cryptography education, number theory problems, and verifying primality (a prime number has only itself as a factor).
+常见用途包括数学探索、密码学教学、数论问题，以及验证素性（质数的因数只有它自身）。
 
 # CAVEATS
 
-Very large numbers take longer to factor. Some implementations have limits on number size. Input must be positive integers. Zero has no prime factorization. Performance for large semiprimes (products of two large primes) is limited by fundamental mathematical constraints.
+非常大的数字分解耗时更长。某些实现对数字大小有限制。输入必须是正整数。零没有质因数分解。大半素数（两个大质数的乘积）的性能受基本数学规律的限制。
 
 # HISTORY
 
-**factor** is a classic Unix utility included in Version 1 Unix at Bell Labs in **1971**. It has remained part of Unix and Unix-like systems, now included in GNU coreutils. The command is one of the simpler mathematical utilities from Unix's early days, alongside **primes** which lists prime numbers.
+**factor** 是一款经典 Unix 工具，**1971 年**随 Version 1 Unix 出自贝尔实验室。它一直是 Unix 及类 Unix 系统的一部分，现收录于 GNU coreutils。该命令是 Unix 早期较简单的数学工具之一，与之相伴的还有列出质数的 **primes**。
 
 # INSTALL
 

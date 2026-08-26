@@ -1,26 +1,26 @@
 # TAGLINE
 
-ELF file information viewer
+ELF 文件信息查看器
 
 # TLDR
 
-Display **all** information from ELF file
+显示 ELF 文件的**全部**信息
 
 ```eu-readelf [-a|--all] [path/to/file]```
 
-Display the ELF **file header**
+显示 ELF **文件头**
 
 ```eu-readelf [-h|--file-header] [path/to/file]```
 
-Display **section** headers
+显示**节区（section）**头
 
 ```eu-readelf [-S|--section-headers] [path/to/file]```
 
-Display the **symbol** table
+显示**符号**表
 
 ```eu-readelf [-s|--symbols] [path/to/file]```
 
-Display **NOTE** segments/sections
+显示 **NOTE** 段/节区
 
 ```eu-readelf [-n|--notes] [path/to/file]```
 
@@ -30,33 +30,33 @@ Display **NOTE** segments/sections
 
 # DESCRIPTION
 
-**eu-readelf** displays information about ELF (Executable and Linkable Format) files. Part of the elfutils package, it shows headers, sections, symbols, and other ELF metadata.
+**eu-readelf** 显示 ELF（Executable and Linkable Format）文件的信息。它是 elfutils 软件包的一部分，可展示文件头、节区、符号及其他 ELF 元数据。
 
-Alternative to GNU readelf with additional features for debugging and analysis.
+它是 GNU readelf 的替代品，并带有用于调试和分析的额外功能。
 
 # PARAMETERS
 
 **-a, --all**
-> Display all extractable information
+> 显示所有可提取的信息
 
 **-n, --notes** [_section_]
-> Display NOTE segments/sections
+> 显示 NOTE 段/节区
 
 **-h, --file-header**
-> Display file header
+> 显示文件头
 
 **-S, --sections**
-> Display section headers
+> 显示节区头
 
 **-s, --symbols**
-> Display symbol table
+> 显示符号表
 
 **-d, --dynamic**
-> Display dynamic section
+> 显示动态段
 
 # CAVEATS
 
-Part of elfutils package. Output format differs slightly from GNU readelf. Used for analyzing compiled binaries and shared libraries.
+属于 elfutils 软件包。输出格式与 GNU readelf 略有差异。用于分析编译后的二进制文件和共享库。
 
 # INSTALL
 

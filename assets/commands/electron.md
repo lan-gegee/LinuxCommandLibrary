@@ -1,30 +1,30 @@
 # TAGLINE
 
-Cross-platform desktop apps with web technologies
+用 Web 技术构建跨平台桌面应用
 
 # TLDR
 
-**Run Electron app**
+**运行 Electron 应用**
 
 ```electron [.]```
 
-**Run specific directory**
+**运行指定目录**
 
 ```electron [path/to/app]```
 
-**Run with remote debugging**
+**启用远程调试运行**
 
 ```electron --remote-debugging-port=[9222] [.]```
 
-**Show version**
+**显示版本**
 
 ```electron --version```
 
-**Run with verbose logging**
+**以详细日志运行**
 
 ```electron --enable-logging [.]```
 
-**Disable GPU acceleration**
+**禁用 GPU 加速**
 
 ```electron --disable-gpu [.]```
 
@@ -35,34 +35,34 @@ Cross-platform desktop apps with web technologies
 # PARAMETERS
 
 _path_
-> Path to app directory or package.json.
+> 应用目录或 package.json 的路径。
 
 **--version**
-> Show Electron version.
+> 显示 Electron 版本。
 
 **--remote-debugging-port** _port_
-> Enable remote debugging.
+> 启用远程调试。
 
 **--enable-logging**
-> Enable logging to console.
+> 启用控制台日志输出。
 
 **--disable-gpu**
-> Disable GPU hardware acceleration.
+> 禁用 GPU 硬件加速。
 
 **--no-sandbox**
-> Disable sandbox (not recommended).
+> 禁用沙箱（不推荐）。
 
 **--inspect** _port_
-> Enable Node.js inspector.
+> 启用 Node.js 调试器。
 
 **--inspect-brk** _port_
-> Enable inspector and break on start.
+> 启用调试器并在启动时中断。
 
 # DESCRIPTION
 
-**Electron** is a framework for building cross-platform desktop applications using web technologies (HTML, CSS, JavaScript). It embeds Chromium for rendering and Node.js for backend functionality.
+**Electron** 是一个使用 Web 技术（HTML、CSS、JavaScript）构建跨平台桌面应用的框架。它内嵌 Chromium 负责渲染，内嵌 Node.js 提供后端功能。
 
-Applications are packaged with their own Electron runtime, enabling deployment without system dependencies. Popular Electron apps include VS Code, Slack, Discord, and Atom.
+应用会连同各自的 Electron 运行时一起打包，从而在没有系统依赖的情况下部署。知名的 Electron 应用包括 VS Code、Slack、Discord 和 Atom。
 
 # PROJECT STRUCTURE
 
@@ -77,11 +77,11 @@ my-app/
 
 # CAVEATS
 
-Large application size due to bundled Chromium. High memory usage. Security requires proper configuration (context isolation, preload scripts). Updates require careful handling. Multiple processes (main and renderer).
+由于捆绑了 Chromium，应用体积较大。内存占用高。安全性需要正确配置（上下文隔离、preload 脚本）。更新需要谨慎处理。存在多个进程（主进程和渲染进程）。
 
 # HISTORY
 
-Electron was originally developed by **GitHub** as **Atom Shell** for the Atom editor in **2013**. It was renamed to Electron in **2015** and released as open source. The project revolutionized desktop app development by enabling web developers to build native applications.
+Electron 最初由 **GitHub** 为 Atom 编辑器开发，当时名为 **Atom Shell**，诞生于 **2013 年**。它于 **2015 年**更名为 Electron 并开源发布。该项目让 Web 开发者能够构建原生应用，彻底改变了桌面应用的开发方式。
 
 # INSTALL
 

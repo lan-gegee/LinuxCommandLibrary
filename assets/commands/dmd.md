@@ -1,34 +1,34 @@
 # TAGLINE
 
-D programming language reference compiler
+D 编程语言参考编译器
 
 # TLDR
 
-**Compile D source** file
+**编译 D 源文件**
 
 ```dmd [file.d]```
 
-**Compile with output** name
+**指定输出名称**编译
 
 ```dmd -of=[output] [file.d]```
 
-**Compile with optimizations**
+**启用优化**编译
 
 ```dmd -O [file.d]```
 
-**Compile to object** file only
+**只编译为目标**文件
 
 ```dmd -c [file.d]```
 
-**Include import paths**
+**添加导入路径**
 
 ```dmd -I[/path/to/imports] [file.d]```
 
-**Enable all warnings**
+**启用所有警告**
 
 ```dmd -w [file.d]```
 
-**Generate debug info**
+**生成调试信息**
 
 ```dmd -g [file.d]```
 
@@ -39,55 +39,55 @@ D programming language reference compiler
 # PARAMETERS
 
 _FILE_
-> D source file(s) to compile.
+> 要编译的 D 源文件。
 
 **-of**=_FILE_
-> Output file name.
+> 输出文件名。
 
 **-O**
-> Enable optimizations.
+> 启用优化。
 
 **-c**
-> Compile only (no link).
+> 仅编译（不链接）。
 
 **-I**_PATH_
-> Add import path.
+> 添加导入路径。
 
 **-w**
-> Enable all warnings.
+> 启用所有警告。
 
 **-g**
-> Generate debug information.
+> 生成调试信息。
 
 **-release**
-> Compile for release (disable asserts).
+> 以发布模式编译（禁用断言）。
 
 **-unittest**
-> Compile and run unit tests.
+> 编译并运行单元测试。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
-**/etc/dmd.conf** or **~/.dmd/dmd.conf**
-> Import paths, library paths, and default compiler flags.
+**/etc/dmd.conf** 或 **~/.dmd/dmd.conf**
+> 导入路径、库路径和默认编译器标志。
 
 # DESCRIPTION
 
-**dmd** is the reference compiler for the D programming language. It compiles D source code to native machine code, supporting the full D language specification including templates, mixins, and compile-time function execution.
+**dmd** 是 D 编程语言的参考编译器。它将 D 源代码编译为原生机器码，支持完整的 D 语言规范，包括模板、mixin 和编译期函数执行。
 
-D combines the power of low-level programming with modern language features like garbage collection, closures, and built-in unit testing. dmd provides fast compilation suitable for rapid development cycles.
+D 语言兼具底层编程的能力和垃圾回收、闭包、内置单元测试等现代语言特性。dmd 编译速度快，适合快速开发迭代。
 
-The compiler includes a standard library (Phobos) with extensive functionality for common programming tasks, and supports interfacing with C and C++ code.
+该编译器附带标准库（Phobos），为常见编程任务提供丰富功能，并支持与 C 和 C++ 代码交互。
 
 # CAVEATS
 
-Reference implementation may have performance differences from alternative compilers (LDC, GDC). Some optimizations less aggressive than LLVM-based compilers. Platform support varies.
+参考实现与其他编译器（LDC、GDC）可能存在性能差异。某些优化的激进程度不及基于 LLVM 的编译器。各平台支持情况不一。
 
 # HISTORY
 
-dmd was created by **Walter Bright**, who began developing D in **1999** as a successor to C and C++. The first public release was in **2001**. D draws on experience from compiler development and aims to fix perceived issues in C++.
+dmd 由 **Walter Bright** 创建。他于 **1999 年**开始开发 D 语言，作为 C 和 C++ 的后继者。首个公开版本于 **2001 年**发布。D 汲取了多年编译器开发经验，致力于解决 C++ 中被认为存在的问题。
 
 # INSTALL
 

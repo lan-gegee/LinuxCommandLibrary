@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage package groups in DNF5
+在 DNF5 中管理软件包组
 
 # TLDR
 
-**List all available and installed groups**
+**列出所有可用和已安装的组**
 
 ```dnf5 group list```
 
-**List only installed groups**
+**仅列出已安装的组**
 
 ```dnf5 group list --installed```
 
-**Show detailed info about a group**
+**显示组的详细信息**
 
 ```dnf5 group info [group_name]```
 
-**Install a group (mandatory and default packages)**
+**安装组（必选和默认软件包）**
 
 ```dnf5 group install [group_name]```
 
-**Install a group including optional packages**
+**安装组并包括可选软件包**
 
 ```dnf5 group install --with-optional [group_name]```
 
-**Remove a group and its exclusive packages**
+**移除组及其专属软件包**
 
 ```dnf5 group remove [group_name]```
 
-**Upgrade a group**
+**升级一个组**
 
 ```dnf5 group upgrade [group_name]```
 
@@ -41,43 +41,43 @@ manage package groups in DNF5
 # PARAMETERS
 
 **list**
-> List all matching groups, either installed or available.
+> 列出所有匹配的组，可以是已安装或可用的。
 
 **info**
-> Print detailed information about groups. Accepts the same options as list.
+> 打印组的详细信息。接受与 list 相同的选项。
 
 **install**
-> Mark the group installed and install its mandatory and default packages.
+> 将该组标记为已安装，并安装其必选和默认软件包。
 
 **remove**
-> Mark the group removed and remove packages that do not belong to another installed group.
+> 将该组标记为已移除，并删除不属于其他已安装组的软件包。
 
 **upgrade**
-> Upgrade the group definition and the packages belonging to the group.
+> 升级组的定义及属于该组的软件包。
 
 **--available**
-> Show only available (not installed) groups.
+> 仅显示可用（未安装）的组。
 
 **--installed**
-> Show only installed groups.
+> 仅显示已安装的组。
 
 **--hidden**
-> Show also hidden groups.
+> 同时显示隐藏的组。
 
 **--contains-pkgs** _PACKAGE_NAME_
-> Show only groups containing packages with specified names. Supports globs.
+> 仅显示包含指定名称软件包的组。支持通配符。
 
 **--with-optional**
-> Include optional packages from the group (install only).
+> 包含组中的可选软件包（仅限 install）。
 
 **--no-packages**
-> Operate on the group without manipulating any packages (install/remove).
+> 只操作组本身而不改动任何软件包（install/remove）。
 
 # DESCRIPTION
 
-**dnf5 group** manages virtual collections of packages in DNF5. Groups bundle related packages together, such as "Development Tools" or "Server".
+**dnf5 group** 管理 DNF5 中的虚拟软件包集合。组将相关的软件打包在一起，例如"Development Tools"或"Server"。
 
-Note: From Fedora 37 to 40 (inclusive), `dnf` runs DNF v4 while `dnf5` runs DNF v5. Starting with Fedora 41, `dnf` is an alias for `dnf5`.
+注意：Fedora 37 至 40 上，`dnf` 运行的是 DNF v4，而 `dnf5` 运行 DNF v5。从 Fedora 41 开始，`dnf` 成为 `dnf5` 的别名。
 
 # INSTALL
 

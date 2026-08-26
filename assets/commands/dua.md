@@ -1,42 +1,42 @@
 # TAGLINE
 
-fast parallel disk usage analyzer
+快速的并行磁盘用量分析器
 
 # TLDR
 
-**Analyze current directory**
+**分析当前目录**
 
 ```dua```
 
-**Analyze specific path**
+**分析指定路径**
 
 ```dua [/path/to/directory]```
 
-**Interactive mode**
+**交互模式**
 
 ```dua i```
 
-**Interactive with specific path**
+**针对指定路径的交互模式**
 
 ```dua i [/path/to/directory]```
 
-**Show apparent size** instead of disk usage
+**显示表面大小**而非磁盘用量
 
 ```dua -A [/path/to/directory]```
 
-**Use a specific number of threads**
+**使用指定数量的线程**
 
 ```dua -t [4] [/path/to/directory]```
 
-**Print sizes in a chosen unit**
+**以选定单位显示大小**
 
 ```dua -f [MB] [/path/to/directory]```
 
-**Stay on one filesystem**, not crossing mount points
+**不跨文件系统**，不越过挂载点
 
 ```dua -x [/path/to/directory]```
 
-**Show version**
+**显示版本**
 
 ```dua --version```
 
@@ -47,104 +47,104 @@ fast parallel disk usage analyzer
 # COMMANDS
 
 **i**, **interactive**
-> Launch the terminal user interface.
+> 启动终端用户界面。
 
 **a**, **aggregate**
-> Aggregate the space consumed by the given paths. This is the default when no subcommand is given.
+> 汇总给定路径占用的空间。未给出子命令时这是默认行为。
 
 **config edit** / **config show-default**
-> Open the configuration file in `$EDITOR`, or print the defaults.
+> 在 `$EDITOR` 中打开配置文件，或打印默认配置。
 
 **completions** _SHELL_
-> Generate a shell completion script.
+> 生成 shell 补全脚本。
 
 # PARAMETERS
 
 **-A**, **--apparent-size**
-> Show apparent size instead of disk usage.
+> 显示表面大小而非磁盘用量。
 
 **-t**, **--threads** _COUNT_
-> Threads to use. **0** means one per logical processor and is the default on Linux; macOS defaults to 3, since more threads measurably hurt there. Set 1 for a single thread.
+> 使用的线程数。**0** 表示每个逻辑处理器一个线程，也是 Linux 上的默认值；macOS 默认为 3，因为更多线程在那里反而明显变慢。设为 1 表示单线程。
 
 **-f**, **--format** _FORMAT_
-> Byte format: `metric`, `binary`, `bytes`, `GB`, `GiB`, `MB`, `MiB`. Defaults to binary, except on macOS where it is metric.
+> 字节格式：`metric`、`binary`、`bytes`、`GB`、`GiB`、`MB`、`MiB`。默认为 binary，macOS 上则为 metric。
 
 **-l**, **--count-hard-links**
-> Count hard-linked files each time they are seen, rather than once.
+> 硬链接文件每遇到一次就计数一次，而不是只计一次。
 
 **-x**, **--stay-on-filesystem**
-> Do not cross filesystems or traverse mount points.
+> 不跨越文件系统，也不遍历挂载点。
 
 **-i**, **--ignore-dirs** _PATH_...
-> Absolute directories to skip when reached during traversal. On Linux this defaults to `/proc`, `/dev`, `/sys`, and `/run`. A directory passed explicitly as an input path is still scanned.
+> 遍历时到达即跳过的绝对路径目录。Linux 上默认为 `/proc`、`/dev`、`/sys` 和 `/run`。作为输入路径显式传入的目录仍会被扫描。
 
 **--stats**
-> Print traversal statistics to stderr (aggregate mode).
+> 将遍历统计信息打印到标准错误（aggregate 模式）。
 
 **--no-sort** / **--no-total**
-> Keep the command-line order rather than sorting by size, or omit the total row for multiple inputs.
+> 保持命令行给出的顺序而不按大小排序，或对多个输入省略总计行。
 
 **-h**, **--help** / **-V**, **--version**
-> Display help, or version information.
+> 显示帮助，或版本信息。
 
 # INTERACTIVE KEYS
 
-**j**/**k** or **Down**/**Up**
-> Navigate entries.
+**j**/**k** 或 **Down**/**Up**
+> 在条目间导航。
 
-**Enter** or **l**
-> Enter directory.
+**Enter** 或 **l**
+> 进入目录。
 
-**u** or **h**
-> Go up to parent.
+**u** 或 **h**
+> 返回上级目录。
 
 **o**
-> Open in file manager.
+> 在文件管理器中打开。
 
 **d**
-> Mark for deletion.
+> 标记待删除。
 
 **Space**
-> Toggle expansion.
+> 展开/收起。
 
 **s**
-> Sort by size.
+> 按大小排序。
 
 **r**
-> Refresh.
+> 刷新。
 
 **g**
-> Go to top.
+> 跳转到顶部。
 
 **G**
-> Go to bottom.
+> 跳转到底部。
 
-**Ctrl+c** or **q**
-> Quit.
+**Ctrl+c** 或 **q**
+> 退出。
 
 # DESCRIPTION
 
-**dua** (Disk Usage Analyzer) is a fast disk space analyzer with an optional interactive interface. It scans directories and displays sizes.
+**dua**（Disk Usage Analyzer）是一个快速的磁盘空间分析器，带有可选的交互式界面。它扫描目录并显示大小。
 
-Default mode shows aggregate sizes for paths. Interactive mode (**dua i**) provides a navigable tree view for exploring disk usage.
+默认模式显示各路径的汇总大小。交互模式（**dua i**）提供可导航的树状视图，便于探索磁盘占用情况。
 
-Parallel traversal is what makes dua fast: it saturates an SSD rather than walking the tree one directory at a time, and on a large tree it comfortably outruns `du`. On spinning disks the advantage largely disappears, since the bottleneck is seek time rather than CPU.
+并行遍历是 dua 快的原因：它能跑满 SSD，而不是一次走一个目录地遍历树，在大目录树上轻松胜过 `du`。在机械硬盘上这一优势基本消失，因为瓶颈在于寻道时间而非 CPU。
 
-Apparent size (**-A**) is the size of the file's contents. Without it, dua reports the space actually occupied on disk, which is what you care about when freeing space: a sparse file or a heavily compressed btrfs/ZFS dataset can occupy far less than its apparent size, and many small files occupy considerably more, because each one rounds up to a block.
+表面大小（**-A**）指文件内容本身的大小。不加该选项时，dua 报告的是磁盘上实际占用的空间——释放空间时你关心的正是这个：稀疏文件或高度压缩的 btrfs/ZFS 数据集占用的空间可能远小于其表面大小，而大量小文件占用的空间则可能大得多，因为每个文件都要向上取整到一个块。
 
-In interactive mode, mark entries with **d** and they are deleted when you confirm. Deleting from the TUI is dua's real selling point over `du`, and it is deliberately faster than `rm` on large trees.
+在交互模式下，用 **d** 标记条目，确认后即被删除。从 TUI 中删除文件是 dua 相对 `du` 的真正卖点，而且在大型目录树上它刻意做到了比 `rm` 更快。
 
 # CAVEATS
 
-**Deletion in the TUI is permanent.** Nothing goes to a trash folder and there is no undo, so it is worth pausing before confirming a marked selection.
+**TUI 中的删除是永久性的。** 文件不会进入回收站，也无法撤销，因此确认删除已标记的选择前值得停顿一下。
 
-Note that **-l**/**--count-hard-links** *disables* the default deduplication: by default a hard-linked file is counted once, which is usually what you want, and this flag makes each link count in full.
+注意 **-l**/**--count-hard-links** 会*禁用*默认的去重：默认情况下硬链接的文件只计一次（通常这正是你想要的），而该标志会让每个链接都完整计入。
 
-Numbers from dua and `du` will not always agree, and neither is wrong: they differ on whether hard links are counted once, whether mount points are crossed, and whether apparent or on-disk size is reported. Compare like with like before concluding that one of them is lying.
+dua 和 `du` 给出的数字并不总是一致，但两者都没有错：它们在硬链接是否只计一次、是否跨越挂载点、报告的是表面大小还是磁盘占用这几方面存在差异。在下结论说谁在撒谎之前，先确保比较的是同类指标。
 
 # HISTORY
 
-dua was created by **Sebastian Thiel** (Byron), who also wrote gitoxide, and first released around **2019**. Written in Rust, it belongs to the generation of tools that revisited the classic Unix utilities on the assumption that the machine has many cores and a fast SSD, neither of which was true when `du` was designed. Its distinguishing feature over `ncdu` and `dust` is that deletion is a first-class operation, not an afterthought.
+dua 由 **Sebastian Thiel**（Byron）创建，他也编写了 gitoxide，dua 于 **2019 年**前后首次发布。它用 Rust 编写，属于重新审视经典 Unix 工具的那一代工具，前提假设是机器拥有多核和高速 SSD——而 `du` 设计时这两者都不成立。相比 `ncdu` 和 `dust`，它的独特之处在于删除是一等操作，而非事后补充。
 
 # INSTALL
 
@@ -163,4 +163,3 @@ dua was created by **Sebastian Thiel** (Byron), who also wrote gitoxide, and fir
 ```[Source code](https://github.com/Byron/dua-cli)```
 
 <!-- verified: 2026-07-14 -->
-

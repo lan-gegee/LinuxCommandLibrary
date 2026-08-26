@@ -1,18 +1,18 @@
 # TAGLINE
 
-page cache inspector for files
+文件页缓存检查工具
 
 # TLDR
 
-Display **cache details** for a file
+显示文件的**缓存详情**
 
 ```fincore [path/to/file]```
 
-Display **all** possible data columns
+显示**所有**可用的数据列
 
 ```fincore --output-all [path/to/file]```
 
-Display **help**
+显示**帮助**
 
 ```fincore [-h|--help]```
 
@@ -22,45 +22,45 @@ Display **help**
 
 # DESCRIPTION
 
-**fincore** displays how much of a file is currently cached in memory by the kernel's page cache. It shows the number of pages and bytes cached.
+**fincore** 显示文件当前有多大比例已被内核页缓存保存在内存中，给出已缓存的页数和字节数。
 
-Useful for understanding memory usage and cache behavior.
+有助于了解内存使用情况与缓存行为。
 
 # PARAMETERS
 
 **-n**, **--noheadings**
-> Do not print a header line.
+> 不打印标题行。
 
 **-b**, **--bytes**
-> Print sizes in bytes (not human-readable units).
+> 以字节为单位打印大小（不使用人类可读的单位）。
 
 **-c**, **--total**
-> Print a grand total of results.
+> 打印所有结果的总计值。
 
 **-o**, **--output** _list_
-> Specify output columns (use _+list_ to extend defaults).
+> 指定要输出的列（用 _+list_ 可在默认基础上扩展）。
 
 **--output-all**
-> Show all available columns.
+> 显示全部可用列。
 
 **-r**, **--raw**
-> Produce output in raw format.
+> 以原始格式输出。
 
 **-J**, **--json**
-> Use JSON output format.
+> 使用 JSON 输出格式。
 
 **-R**, **--recursive**
-> Recurse into directories.
+> 递归进入子目录。
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-V**, **--version**
-> Print version.
+> 打印版本号。
 
 # CAVEATS
 
-Part of util-linux. Shows point-in-time snapshot of cache state. Cache contents change dynamically based on system activity.
+属于 util-linux。显示的是某一时刻缓存状态的快照。缓存内容会随系统活动动态变化。
 
 # INSTALL
 

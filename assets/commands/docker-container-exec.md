@@ -1,34 +1,34 @@
 # TAGLINE
 
-execute a command in a running container
+在运行中的容器内执行命令
 
 # TLDR
 
-**Execute a command in a container**
+**在容器中执行命令**
 
 ```docker container exec [container] [command]```
 
-**Start an interactive shell in a container**
+**在容器中启动交互式 shell**
 
 ```docker container exec -it [container] /bin/bash```
 
-**Run a command as a specific user**
+**以指定用户身份运行命令**
 
 ```docker container exec -u [user] [container] [command]```
 
-**Set environment variables and execute a command**
+**设置环境变量并执行命令**
 
 ```docker container exec -e [VAR=value] [container] [command]```
 
-**Execute a command in a specific working directory**
+**在指定工作目录中执行命令**
 
 ```docker container exec -w [/path] [container] [command]```
 
-**Run a command in the background (detached)**
+**在后台（分离模式）运行命令**
 
 ```docker container exec -d [container] [command]```
 
-**Load environment variables from a file**
+**从文件加载环境变量**
 
 ```docker container exec --env-file [env.list] [container] [command]```
 
@@ -39,37 +39,37 @@ execute a command in a running container
 # PARAMETERS
 
 **-i**, **--interactive**
-> Keep STDIN open even if not attached.
+> 即使未附着也保持 STDIN 打开。
 
 **-t**, **--tty**
-> Allocate a pseudo-TTY.
+> 分配一个伪终端。
 
 **-u**, **--user** _user_
-> Username or UID (format: user, user:group, uid, uid:gid).
+> 用户名或 UID（格式：user、user:group、uid、uid:gid）。
 
 **-w**, **--workdir** _dir_
-> Working directory inside the container.
+> 容器内的工作目录。
 
 **-e**, **--env** _list_
-> Set environment variables.
+> 设置环境变量。
 
 **--env-file** _file_
-> Read environment variables from a file.
+> 从文件读取环境变量。
 
 **-d**, **--detach**
-> Run command in the background.
+> 在后台运行命令。
 
 **--detach-keys** _string_
-> Override the key sequence for detaching a container.
+> 覆盖分离容器所用的按键序列。
 
 **--privileged**
-> Give extended privileges to the command.
+> 为该命令赋予扩展权限。
 
 # DESCRIPTION
 
-**docker container exec** runs a new command in a running container. The command runs in the default working directory of the container or the directory specified with **--workdir**. The command must be an executable; chained or quoted commands do not work.
+**docker container exec** 在运行中的容器内执行新命令。命令在容器的默认工作目录或用 **--workdir** 指定的目录中运行。命令必须是可执行文件；串联或加引号的 shell 命令无法直接使用。
 
-This is the long form of **docker exec** and behaves identically.
+这是 **docker exec** 的长格式，行为完全一致。
 
 # INSTALL
 

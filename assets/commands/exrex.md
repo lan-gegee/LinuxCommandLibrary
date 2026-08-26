@@ -1,30 +1,30 @@
 # TAGLINE
 
-reverse regex matching string generator
+正则反向匹配字符串生成器
 
 # TLDR
 
-**Generate all strings** matching a regex
+**生成所有匹配**某正则表达式的字符串
 
 ```exrex '[a-z]{2}'```
 
-Generate a single **random** matching string
+生成单个**随机**的匹配字符串
 
 ```exrex -r '[A-Za-z0-9]{8}'```
 
-**Count** the number of matching strings
+**统计**匹配字符串的数量
 
 ```exrex -c '[0-9]{3}'```
 
-**Limit** the range size for unbounded quantifiers (+, *)
+为无界量词（+、*）**限制**范围大小
 
 ```exrex -l [5] '[0-9]+'```
 
-Cap the **maximum number** of generated strings
+限制生成字符串的**最大数量**
 
 ```exrex -m [10] '[a-z]+'```
 
-Use a custom output **delimiter**
+使用自定义输出**分隔符**
 
 ```exrex -d ', ' '[ab]{2}'```
 
@@ -35,50 +35,50 @@ Use a custom output **delimiter**
 # PARAMETERS
 
 _REGEX_
-> Regular expression pattern to generate strings from.
+> 用于生成字符串的正则表达式模式。
 
 **-r**, **--random**
-> Return a single random string that matches the regex.
+> 返回一个匹配该正则表达式的随机字符串。
 
 **-c**, **--count**
-> Print the number of matching strings instead of the strings.
+> 输出匹配字符串的数量而非字符串本身。
 
 **-l** _N_, **--limit** _N_
-> Maximum range size for unbounded quantifiers (+, *). Default is 20.
+> 无界量词（+、*）的最大范围大小。默认为 20。
 
 **-m** _N_, **--max-number** _N_
-> Maximum number of strings to generate. Default is -1 (all).
+> 可生成的字符串最大数量。默认为 -1（全部）。
 
 **-o** _FILE_, **--output** _FILE_
-> Write output to FILE instead of standard output.
+> 将输出写入 FILE 而非标准输出。
 
 **-d** _DELIM_, **--delimiter** _DELIM_
-> Output delimiter (default newline).
+> 输出分隔符（默认为换行符）。
 
 **-s**, **--simplify**
-> Simplify the regular expression.
+> 化简正则表达式。
 
 **-v**, **--verbose**
-> Verbose mode.
+> 详细输出模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**exrex** is a command-line tool and Python library that generates all or random strings matching a given regular expression. It's useful for testing, fuzzing, and generating sample data.
+**exrex** 是一个命令行工具和 Python 库，可以生成所有或随机匹配给定正则表达式的字符串。适用于测试、模糊测试和样例数据生成。
 
-The tool parses regex patterns and produces strings that would match, rather than matching existing strings. It supports most common regex features including character classes, quantifiers, groups, and alternation.
+该工具解析正则表达式模式并构造出能与之匹配的字符串，而不是去匹配已有的字符串。它支持大多数常见的正则特性，包括字符类、量词、分组和多选分支。
 
-exrex is particularly useful for generating test inputs, creating wordlists, or understanding what patterns a regex would match.
+exrex 特别适合生成测试输入、构建字典文件，或者理解某个正则会匹配什么样的内容。
 
 # CAVEATS
 
-Unlimited quantifiers (*, +) are bounded by default. Complex patterns may generate massive output. Not all regex features supported. Memory usage scales with output size.
+无界量词（*、+）默认会被限制范围。复杂的模式可能产生海量输出。并非支持所有正则特性。内存占用随输出规模增长。
 
 # HISTORY
 
-exrex is a Python-based regex string generator created for testing and security research, providing reverse regex matching capabilities for generating test data and wordlists.
+exrex 是一个基于 Python 的正则字符串生成器，面向测试和安全研究而创建，提供反向正则匹配能力，用于生成测试数据和字典文件。
 
 # SEE ALSO
 

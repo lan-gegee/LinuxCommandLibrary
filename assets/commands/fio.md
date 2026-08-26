@@ -1,26 +1,26 @@
 # TAGLINE
 
-flexible I/O tester and benchmark
+灵活的 I/O 测试与基准测试工具
 
 # TLDR
 
-**Sequential read test**
+**顺序读测试**
 
 ```fio --name=test --rw=read --size=[1G]```
 
-**Random write test**
+**随机写测试**
 
 ```fio --name=test --rw=randwrite --size=[1G]```
 
-**Run job file**
+**运行作业文件**
 
 ```fio [jobfile.fio]```
 
-**Mixed read/write**
+**混合读写测试**
 
 ```fio --name=test --rw=randrw --rwmixread=[70] --size=[1G]```
 
-**Measure latency**
+**测量延迟**
 
 ```fio --name=test --rw=randread --size=[1G] --lat_percentiles=1```
 
@@ -31,50 +31,50 @@ flexible I/O tester and benchmark
 # PARAMETERS
 
 _JOBFILES_
-> Job definition files.
+> 作业定义文件。
 
 **--name** _NAME_
-> Job name.
+> 作业名称。
 
 **--rw** _TYPE_
-> I/O type: read, write, randread, randwrite, randrw.
+> I/O 类型：read、write、randread、randwrite、randrw。
 
 **--size** _SIZE_
-> Total I/O size.
+> I/O 总大小。
 
 **--bs** _SIZE_
-> Block size.
+> 块大小。
 
 **--iodepth** _N_
-> I/O queue depth.
+> I/O 队列深度。
 
 **--numjobs** _N_
-> Number of parallel jobs.
+> 并行作业数量。
 
 **--runtime** _SEC_
-> Test duration.
+> 测试持续时间。
 
 **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fio** (Flexible I/O Tester) is a versatile I/O benchmark tool for testing storage performance. It simulates various workload patterns and measures throughput, IOPS, and latency.
+**fio**（Flexible I/O Tester）是一款多用途的 I/O 基准测试工具，用于检验存储性能。它能模拟各种负载模式，并测量吞吐量、IOPS 和延迟。
 
-The tool supports numerous I/O engines including sync, libaio, io_uring, and network protocols. Job files define complex test scenarios with multiple workloads.
+该工具支持众多 I/O 引擎，包括 sync、libaio、io_uring 以及各类网络协议。作业文件可以定义包含多种负载的复杂测试场景。
 
-fio is the standard tool for storage benchmarking, used for disk selection, filesystem tuning, and performance validation.
+fio 是存储基准测试领域的标准工具，常用于磁盘选型、文件系统调优和性能验证。
 
 # CAVEATS
 
-Results vary with test parameters. May fill disk with test files. Requires understanding of I/O patterns for meaningful results.
+结果会随测试参数而变化。可能会用测试文件占满磁盘。要想获得有意义的结果，需要对 I/O 模式有所了解。
 
 # HISTORY
 
-fio was created by **Jens Axboe**, the Linux block layer maintainer. It's the most comprehensive open source storage benchmark, supporting virtually every I/O pattern and storage backend.
+fio 由 Linux 块层维护者 **Jens Axboe** 开发。它是功能最全面的开源存储基准测试工具，几乎所有 I/O 模式和存储后端都在其支持范围内。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Python code linter and style checker
+Python 代码检查与风格检查工具
 
 # TLDR
 
-**Check Python file**
+**检查 Python 文件**
 
 ```flake8 [file.py]```
 
-**Check directory**
+**检查目录**
 
 ```flake8 [src/]```
 
-**Show specific errors**
+**只显示指定错误**
 
 ```flake8 --select=[E,W] [file.py]```
 
-**Ignore specific errors**
+**忽略指定错误**
 
 ```flake8 --ignore=[E501] [file.py]```
 
-**Set max line** length
+**设置最大行宽**
 
 ```flake8 --max-line-length=[120] [file.py]```
 
@@ -31,55 +31,55 @@ Python code linter and style checker
 # PARAMETERS
 
 _FILES_
-> Python files or directories to check.
+> 要检查的 Python 文件或目录。
 
 **--select** _ERRORS_
-> Check only specific error codes.
+> 只检查指定的错误代码。
 
 **--ignore** _ERRORS_
-> Ignore specific error codes.
+> 忽略指定的错误代码。
 
 **--max-line-length** _N_
-> Maximum line length (default 79).
+> 最大行宽（默认 79）。
 
 **--exclude** _PATTERNS_
-> Exclude matching files/directories.
+> 排除匹配的文件/目录。
 
 **--config** _FILE_
-> Configuration file.
+> 指定配置文件。
 
 **--format** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **setup.cfg**
-> Project-level flake8 configuration in the [flake8] section.
+> 项目级 flake8 配置，位于 [flake8] 小节。
 
 **.flake8**
-> Dedicated flake8 configuration file for project settings.
+> 项目专用的 flake8 配置文件。
 
 **~/.config/flake8**
-> User-level global configuration file.
+> 用户级全局配置文件。
 
 # DESCRIPTION
 
-**flake8** is a Python linting tool combining PyFlakes, pycodestyle, and McCabe complexity checker. It finds programming errors, style issues, and overly complex code.
+**flake8** 是一款 Python 代码检查工具，融合了 PyFlakes、pycodestyle 和 McCabe 复杂度检查。它能够发现编程错误、风格问题以及过度复杂的代码。
 
-The tool enforces PEP 8 style guidelines and catches common errors like undefined variables, unused imports, and syntax problems. Plugins extend checking for additional frameworks and patterns.
+该工具执行 PEP 8 风格规范，并能捕获未定义变量、无用导入和语法问题等常见错误。通过插件可以针对更多框架和模式扩展检查功能。
 
-flake8 integrates with editors, CI pipelines, and pre-commit hooks for automated code quality enforcement.
+flake8 可以集成到编辑器、CI 流水线和 pre-commit 钩子中，实现自动化的代码质量管控。
 
 # CAVEATS
 
-Strict defaults may require customization. Some checks overlap with other tools. Plugin ecosystem varies in quality.
+默认规则相当严格，可能需要自行调整。某些检查项与其他工具有重叠。插件生态的质量良莠不齐。
 
 # HISTORY
 
-flake8 was created by **Tarek Ziadé** to unify Python linting tools. It wraps multiple checkers under a single interface with consistent configuration and output.
+flake8 由 **Tarek Ziadé** 创建，旨在统一各类 Python 代码检查工具。它把多个检查器整合到一个界面之下，提供一致的配置方式与输出格式。
 
 # INSTALL
 

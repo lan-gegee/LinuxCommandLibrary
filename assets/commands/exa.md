@@ -1,38 +1,38 @@
 # TAGLINE
 
-modern ls replacement written in Rust
+用 Rust 编写的现代 ls 替代品
 
 # TLDR
 
-**List files** with colors
+带颜色**列出文件**
 
 ```exa```
 
-**Long format** with details
+以**长格式**显示详细信息
 
 ```exa -l```
 
-**Show hidden files**
+**显示隐藏文件**
 
 ```exa -a```
 
-**Tree view**
+**树状视图**
 
 ```exa --tree```
 
-**Show git status**
+**显示 git 状态**
 
 ```exa -l --git```
 
-**Sort by modified** time
+**按修改时间排序**
 
 ```exa -l --sort=modified```
 
-**Show file sizes** human-readable
+**以人类可读格式显示文件大小**
 
 ```exa -lh```
 
-**Extended attributes**
+**扩展属性**
 
 ```exa -l --extended```
 
@@ -43,50 +43,50 @@ modern ls replacement written in Rust
 # PARAMETERS
 
 _FILES_
-> Files or directories to list.
+> 要列出的文件或目录。
 
 **-l**, **--long**
-> Long format.
+> 长格式。
 
 **-a**, **--all**
-> Show hidden files.
+> 显示隐藏文件。
 
 **--tree**
-> Tree view.
+> 树状视图。
 
 **--git**
-> Show git status.
+> 显示 git 状态。
 
 **-s**, **--sort** _FIELD_
-> Sort by field.
+> 按指定字段排序。
 
 **-h**, **--header**
-> Show header row.
+> 显示表头行。
 
 **--icons**
-> Show file icons.
+> 显示文件图标。
 
 **--color** _WHEN_
-> Color mode: always, auto, never.
+> 颜色模式：always、auto、never。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**exa** is a modern replacement for ls written in Rust. It provides colorful output, git integration, tree view, and more detailed file information in a user-friendly format.
+**exa** 是一个用 Rust 编写的现代 ls 替代品。它提供彩色输出、git 集成、树状视图，以及以友好格式呈现的更详细的文件信息。
 
-The tool defaults to human-readable sizes and sensible colors. Git integration shows file status in repository directories. Extended attributes and metadata are easily accessible.
+该工具默认使用人类可读的大小单位和合理的配色。git 集成可在仓库目录中显示文件状态。扩展属性和元数据也易于查看。
 
-exa is faster than ls for most operations while providing significantly more features.
+在大多数操作上 exa 比 ls 更快，同时提供多得多的功能。
 
 # CAVEATS
 
-Different output format than ls. May break scripts expecting ls output. Icons need font support. Unmaintained since 2023 (see eza fork).
+输出格式与 ls 不同。可能破坏依赖 ls 输出的脚本。图标需要字体支持。自 2023 年起不再维护（见 eza 分支）。
 
 # HISTORY
 
-exa was created by **Benjamin Sago** (ogham) starting around **2014** as a modern ls replacement. Development stopped in **2023**, with **eza** continuing as an active fork.
+exa 由 **Benjamin Sago**（ogham）于 **2014 年**前后创建，作为现代化的 ls 替代品。其开发于 **2023 年**停止，由活跃维护的分支 **eza** 延续。
 
 # INSTALL
 

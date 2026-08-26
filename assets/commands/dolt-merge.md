@@ -1,34 +1,34 @@
 # TAGLINE
 
-join branch histories and table changes
+连接分支历史并合并表变更
 
 # TLDR
 
-**Merge branch into** current branch
+将分支**合并到**当前分支
 
 ```dolt merge [branch_name]```
 
-**Merge with commit** message
+带提交消息**合并**
 
 ```dolt merge [branch_name] -m "[Merge message]"```
 
-**Abort in-progress merge**
+**中止进行中的合并**
 
 ```dolt merge --abort```
 
-**Squash merge** into the working set, without a merge commit
+**压缩合并**进工作集，不产生合并提交
 
 ```dolt merge --squash [branch_name]```
 
-**Always create a merge commit**, even for a fast-forward
+**总是创建合并提交**，即使是快进合并
 
 ```dolt merge --no-ff -m "[Merge message]" [branch_name]```
 
-**Refuse the merge** unless it fast-forwards
+**拒绝合并**，除非能够快进
 
 ```dolt merge --ff-only [branch_name]```
 
-**Inspect conflicts** left behind by a merge
+**检查合并遗留的冲突**
 
 ```dolt sql -q "SELECT * FROM dolt_conflicts"```
 
@@ -45,45 +45,45 @@ join branch histories and table changes
 # PARAMETERS
 
 **-m**, **--message** _MSG_
-> Use _MSG_ as the commit message for the merge commit.
+> 使用 _MSG_ 作为合并提交的提交消息。
 
 **--squash**
-> Merge the changes into the working set without updating the commit history.
+> 将变更并入工作集，但不更新提交历史。
 
 **--no-ff**
-> Create a merge commit even when the merge resolves as a fast-forward.
+> 即使合并以快进方式解决，也强制创建合并提交。
 
 **--ff-only**
-> Refuse to merge unless HEAD is already up to date or the merge resolves as a fast-forward.
+> 除非 HEAD 已经是最新的，或合并能以快进方式解决，否则拒绝合并。
 
 **--commit**
-> Perform the merge and commit the result. This is the default.
+> 执行合并并提交结果。这是默认行为。
 
 **--no-commit**
-> Perform the merge but stop just before creating the merge commit.
+> 执行合并，但在创建合并提交之前停下。
 
 **--no-edit**
-> Use an auto-generated commit message instead of opening an editor.
+> 使用自动生成的提交消息，而不打开编辑器。
 
 **--author** _NAME_ <_EMAIL_>
-> Record an explicit author for the merge commit.
+> 为合并提交记录明确的作者。
 
 **--abort**
-> Abort an in-progress merge and return the working set to its pre-merge state.
+> 中止进行中的合并，让工作集回到合并前的状态。
 
 # DESCRIPTION
 
-**dolt merge** joins two histories by incorporating the changes from another branch into the current one. Because Dolt's unit of change is a row rather than a line of text, the merge is a three-way merge over table data and schema: rows touched on only one side are taken directly, and rows changed on both sides are compared cell by cell, so two branches that edit different columns of the same row still merge cleanly.
+**dolt merge** 通过把另一分支的变更并入当前分支来连接两条历史。由于 Dolt 的变更单位是行而不是文本行，合并是对表数据和表结构的三方合并：只有一侧触碰过的行会被直接采用；两侧都修改过的行则逐单元格比较，因此即便两个分支编辑了同一行的不同列，依然可以干净地合并。
 
-A conflict is raised when both branches change the *same cell* to different values, or when the schemas diverge incompatibly. Unlike Git, Dolt does not write markers into your data. Conflicts are recorded in the `dolt_conflicts` and `dolt_conflicts_<table>` system tables, which you query and resolve with SQL before committing. Schema and constraint violations land in `dolt_schema_conflicts` and `dolt_constraint_violations`.
+当两侧把*同一个单元格*改成不同的值，或表结构发生不兼容的分叉时，就会产生冲突。与 Git 不同，Dolt 不会向你的数据写入冲突标记。冲突记录在 `dolt_conflicts` 和 `dolt_conflicts_<table>` 系统表中，需要在提交前用 SQL 查询并解决。表结构与约束问题则分别落在 `dolt_schema_conflicts` 和 `dolt_constraint_violations` 中。
 
 # CAVEATS
 
-Conflicts must be resolved through the system tables, not by editing files; a merge cannot be committed while rows remain in `dolt_conflicts`. **--squash** applies the changes but leaves no link to the merged branch's history, so a later merge of the same branch will reconsider the same commits. The working set must be clean before merging. Merges may also succeed at the row level yet break a foreign key or unique constraint, which surfaces as a constraint violation rather than a conflict.
+冲突必须通过系统表解决，而不能靠编辑文件；只要 `dolt_conflicts` 里还有记录，合并就无法提交。**--squash** 应用变更后不会保留与被合并分支历史的关联，因此日后再次合并同一分支时，相同的提交会被重新考量。合并前工作集必须处于干净状态。合并也可能在行级别成功却违反外键或唯一约束——这种情况会表现为约束违规，而不是冲突。
 
 # HISTORY
 
-dolt merge implements **git merge** semantics for relational data, which is the whole point of the project: making database changes reviewable and mergeable the way code is. Cell-wise three-way merge, schema merge, and the conflict system tables were built out over successive releases as Dolt matured from a data-sharing tool into a MySQL-compatible database.
+dolt merge 为关系型数据实现了 **git merge** 的语义，这正是整个项目的核心追求：让数据库变更能像代码一样被审阅和合并。逐单元格三方合并、表结构合并以及冲突系统表是在后续版本中逐步构建起来的，Dolt 也由此从一个数据共享工具成长为 MySQL 兼容数据库。
 
 # INSTALL
 
@@ -106,4 +106,3 @@ dolt merge implements **git merge** semantics for relational data, which is the 
 ```[Documentation](https://www.dolthub.com/docs/cli-reference/cli/)```
 
 <!-- verified: 2026-07-14 -->
-

@@ -1,22 +1,22 @@
 # TAGLINE
 
-remove one or more images
+删除一个或多个镜像
 
 # TLDR
 
-**Remove an image**
+**删除一个镜像**
 
 ```docker image rm [image]```
 
-**Remove multiple images**
+**删除多个镜像**
 
 ```docker image rm [image1] [image2]```
 
-**Force remove**
+**强制删除**
 
 ```docker image rm -f [image]```
 
-**Remove by image ID**
+**按镜像 ID 删除**
 
 ```docker image rm [image_id]```
 
@@ -27,18 +27,18 @@ remove one or more images
 # PARAMETERS
 
 **-f**, **--force**
-> Force removal.
+> 强制删除。
 
 **--no-prune**
-> Do not delete untagged parents.
+> 不删除无标签的父镜像。
 
 # DESCRIPTION
 
-**docker image rm** removes one or more images from the local Docker image cache, freeing disk space occupied by their layers. Images can be specified by repository:tag or by their unique image ID.
+**docker image rm** 从本地 Docker 镜像缓存中删除一个或多个镜像，释放其各层占用的磁盘空间。镜像可以通过 repository:tag 或其唯一的镜像 ID 来指定。
 
-An image cannot be removed if any containers (running or stopped) depend on it, unless the **-f** force flag is used. Forcing removal of an image that containers depend on can lead to issues when those containers are restarted, as they will be unable to access their image layers.
+如果有任何容器（无论运行中还是已停止）依赖于某个镜像，则该镜像无法被删除，除非使用 **-f** 强制选项。强制删除容器依赖的镜像可能导致这些容器在重启时出问题，因为它们将无法访问自己的镜像层。
 
-When an image is removed, Docker also removes any untagged parent images that are no longer referenced by other images, unless **--no-prune** is specified. This automatic cleanup helps maintain a lean image cache.
+删除镜像时，Docker 还会删除不再被其他镜像引用的无标签父镜像，除非指定 **--no-prune**。这种自动清理有助于保持镜像缓存精简。
 
 # INSTALL
 

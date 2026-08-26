@@ -1,22 +1,22 @@
 # TAGLINE
 
-start one or more stopped containers
+启动一个或多个已停止的容器
 
 # TLDR
 
-**Start a stopped container**
+**启动已停止的容器**
 
 ```docker container start [container]```
 
-**Start multiple containers**
+**启动多个容器**
 
 ```docker container start [container1] [container2]```
 
-**Start with attached output**
+**启动并附着输出**
 
 ```docker container start -a [container]```
 
-**Start interactively**
+**以交互方式启动**
 
 ```docker container start -ai [container]```
 
@@ -27,16 +27,16 @@ start one or more stopped containers
 # PARAMETERS
 
 **-a**, **--attach**
-> Attach STDOUT/STDERR.
+> 附着 STDOUT/STDERR。
 
 **-i**, **--interactive**
-> Attach STDIN.
+> 附着 STDIN。
 
 # DESCRIPTION
 
-**docker container start** starts one or more stopped containers, resuming them from their previous state. Unlike **docker container run**, which creates a new container, this command operates on existing containers that have been stopped.
+**docker container start** 启动一个或多个已停止的容器，使其从先前的状态恢复运行。与创建新容器的 **docker container run** 不同，此命令作用于已存在的、已停止的容器。
 
-The container resumes with its original configuration, including environment variables, volumes, network settings, and the command that was initially specified. This makes it useful for restarting services or resuming work in development containers.
+容器会以其原有配置恢复运行，包括环境变量、卷、网络设置以及最初指定的命令。这使它适合重启服务或在开发容器中继续工作。
 
 # INSTALL
 

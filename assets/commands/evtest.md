@@ -1,22 +1,22 @@
 # TAGLINE
 
-Input device event monitor and query tool
+输入设备事件监视与查询工具
 
 # TLDR
 
-**List** all detected input devices
+**列出**所有检测到的输入设备
 
 ```sudo evtest```
 
-Display **events** from a specific device
+显示指定设备的**事件**
 
 ```sudo evtest /dev/input/event[number]```
 
-**Grab** device exclusively (prevent other apps from receiving events)
+**独占抓取**设备（阻止其他应用接收事件）
 
 ```sudo evtest --grab /dev/input/event[number]```
 
-**Query** state of a specific key or button
+**查询**特定按键或按钮的状态
 
 ```sudo evtest --query /dev/input/event[number] EV_KEY [KEY_A]```
 
@@ -29,20 +29,20 @@ Display **events** from a specific device
 # PARAMETERS
 
 **--grab**
-> Grab device exclusively using EVIOCGRAB, preventing other processes from receiving events.
+> 使用 EVIOCGRAB 独占抓取设备，阻止其他进程接收事件。
 
 **--query** _device_ _type_ _code_
-> Query state of a specific key/button/switch. Type can be EV_KEY, EV_SW, EV_SND, EV_LED or a numeric value. Returns exit code 0 if unset, 10 if set.
+> 查询特定按键/按钮/开关的状态。type 可以是 EV_KEY、EV_SW、EV_SND、EV_LED 或数字值。未按下时返回退出码 0，按下时返回 10。
 
 # DESCRIPTION
 
-**evtest** displays information from input device drivers using the Linux input subsystem. In capture mode, it shows all events supported by the device and then monitors it to display all generated events like key presses, mouse movements, and touch events.
+**evtest** 显示来自 Linux 输入子系统设备驱动的信息。在捕获模式下，它会显示设备支持的所有事件，然后持续监视该设备并展示产生的全部事件，如按键、鼠标移动和触摸事件。
 
-In query mode, it performs a one-shot query of the state of a specific key, switch, sound, or LED value.
+在查询模式下，它对特定按键、开关、声音或 LED 的状态执行一次性查询。
 
 # CAVEATS
 
-Requires root privileges to read from /dev/input/ devices. Grabbing a device prevents other applications from receiving events until evtest quits.
+需要 root 权限才能读取 /dev/input/ 设备。抓取设备后，在 evtest 退出之前其他应用都无法收到事件。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-lightweight log shipper for Elastic Stack
+Elastic Stack 的轻量级日志采集器
 
 # TLDR
 
-**Start filebeat** with default configuration
+**以默认配置启动 filebeat**
 
 ```filebeat```
 
-**Start with a specific configuration** file
+**以指定的配置文件启动**
 
 ```filebeat -c [path/to/filebeat.yml]```
 
-**Test configuration** file syntax
+**测试配置文件**语法
 
 ```filebeat test config```
 
-**Test output connectivity** (Elasticsearch, Logstash, etc.)
+**测试输出连通性**（Elasticsearch、Logstash 等）
 
 ```filebeat test output```
 
-**Enable a module**
+**启用一个模块**
 
 ```filebeat modules enable [nginx]```
 
-**List available modules**
+**列出可用模块**
 
 ```filebeat modules list```
 
-**Set up dashboards and index templates**
+**设置仪表盘和索引模板**
 
 ```filebeat setup```
 
-**Run once and exit** (process existing files)
+**运行一次后退出**（处理已有文件）
 
 ```filebeat --once```
 
@@ -43,90 +43,90 @@ lightweight log shipper for Elastic Stack
 # COMMANDS
 
 **run**
-> Run Filebeat (default command if none specified).
+> 运行 Filebeat（未指定命令时的默认命令）。
 
 **test config**
-> Test configuration file syntax.
+> 测试配置文件语法。
 
 **test output**
-> Test connectivity to configured outputs.
+> 测试与已配置输出的连通性。
 
 **modules enable** _MODULE_...
-> Enable one or more modules.
+> 启用一个或多个模块。
 
 **modules disable** _MODULE_...
-> Disable one or more modules.
+> 禁用一个或多个模块。
 
 **modules list**
-> List available and enabled modules.
+> 列出可用及已启用的模块。
 
 **setup**
-> Set up index templates, dashboards, and pipelines.
+> 设置索引模板、仪表盘和管道。
 
 **export config**
-> Export current configuration to stdout.
+> 将当前配置导出到标准输出。
 
 **export template**
-> Export index template to stdout.
+> 将索引模板导出到标准输出。
 
 **export dashboard**
-> Export a Kibana dashboard to stdout.
+> 将一个 Kibana 仪表盘导出到标准输出。
 
 # PARAMETERS
 
 **-c** _FILE_
-> Specify configuration file (default: filebeat.yml).
+> 指定配置文件（默认：filebeat.yml）。
 
 **-e**
-> Log to stderr instead of syslog/file.
+> 把日志记录到 stderr 而不是 syslog/文件。
 
 **--modules** _MODULES_
-> Comma-separated list of modules to run.
+> 要运行的模块列表，以逗号分隔。
 
 **--once**
-> Run harvesters once and exit when done.
+> 采集器只运行一轮，完成后退出。
 
 **--path.config** _PATH_
-> Path to configuration files.
+> 配置文件的路径。
 
 **--path.data** _PATH_
-> Path to data directory.
+> 数据目录的路径。
 
 **--path.logs** _PATH_
-> Path to log files.
+> 日志文件的路径。
 
 **--strict.perms**
-> Enforce strict permission checking on config files (default: true).
+> 对配置文件强制执行严格权限检查（默认：true）。
 
 **-v**
-> Enable verbose logging.
+> 启用详细日志输出。
 
 **-d** _SELECTOR_
-> Enable debug output for specific components.
+> 为特定组件启用调试输出。
 
 # CONFIGURATION
 
 **filebeat.yml**
-> Main configuration file specifying inputs, outputs, modules, and processing options.
+> 主配置文件，定义输入、输出、模块和处理选项。
 
 **/etc/filebeat/modules.d/*.yml**
-> Module-specific configuration files for pre-built log parsers.
+> 各模块专属的配置文件，对应内置的日志解析器。
 
 # DESCRIPTION
 
-**Filebeat** is a lightweight log shipper from the Elastic Stack (ELK). It monitors log files, collects log events, and forwards them to Elasticsearch, Logstash, or other outputs for indexing and analysis.
+**Filebeat** 是来自 Elastic Stack（ELK）的轻量级日志采集器。它监控日志文件、收集日志事件，并将其转发给 Elasticsearch、Logstash 或其他输出进行索引和分析。
 
-Filebeat uses harvesters to read log files line by line and sends the data to configured outputs. It maintains state information to track read positions, ensuring reliable delivery even after restarts. Modules provide pre-built configurations for common applications like nginx, Apache, MySQL, and system logs.
+Filebeat 使用采集器（harvester）逐行读取日志文件，再把数据发送到配置好的输出端。它会维护状态信息来跟踪读取位置，即使重启之后也能保证可靠送达。模块则为 nginx、Apache、MySQL 和系统日志等常见应用提供预置配置。
 
-Configuration is defined in filebeat.yml, specifying inputs (log paths), outputs (Elasticsearch/Logstash endpoints), and processing options.
+配置在 filebeat.yml 中定义，内容包括输入（日志路径）、输出（Elasticsearch/Logstash 端点）以及处理选项。
 
 # CAVEATS
 
-Configuration files require strict permissions (owner read/write only) by default. When running via systemd, the -e flag may override logging settings. Modules must be enabled before use. Index templates and dashboards require Elasticsearch and Kibana connectivity during setup.
+配置文件默认要求严格权限（仅所有者可读写）。通过 systemd 运行时，-e 标志可能覆盖日志相关设置。模块必须先启用才能使用。设置索引模板和仪表盘时需要能够连接 Elasticsearch 与 Kibana。
 
 # HISTORY
 
-Filebeat is part of the **Beats** family of lightweight data shippers developed by **Elastic**. It evolved from Logstash Forwarder (Lumberjack) to provide a more resource-efficient solution for log collection. The Beats platform was introduced around **2015**, with Filebeat becoming the primary choice for log shipping in the Elastic Stack.
+Filebeat 是 **Elastic** 开发的 **Beats** 轻量级数据采集器家族的一员。它由 Logstash Forwarder（Lumberjack）演化而来，提供了资源占用更低的日志收集方案。Beats 平台在 **2015 年**前后推出，此后 Filebeat 成为 Elastic Stack 中日志采集的首选。
 
 # INSTALL
 

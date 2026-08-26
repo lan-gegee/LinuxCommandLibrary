@@ -1,26 +1,26 @@
 # TAGLINE
 
-remove one or more containers
+移除一个或多个容器
 
 # TLDR
 
-**Remove a container**
+**移除容器**
 
 ```docker container rm [container]```
 
-**Remove multiple containers**
+**移除多个容器**
 
 ```docker container rm [container1] [container2]```
 
-**Force remove running container**
+**强制移除运行中的容器**
 
 ```docker container rm -f [container]```
 
-**Remove container and volumes**
+**移除容器及其卷**
 
 ```docker container rm -v [container]```
 
-**Remove all stopped containers**
+**移除所有已停止的容器**
 
 ```docker container rm $(docker container ls -aq -f status=exited)```
 
@@ -31,25 +31,25 @@ remove one or more containers
 # PARAMETERS
 
 **-f**, **--force**
-> Force the removal of a running container (uses SIGKILL).
+> 强制移除运行中的容器（使用 SIGKILL）。
 
 **-v**, **--volumes**
-> Remove anonymous volumes.
+> 移除匿名卷。
 
 **-l**, **--link**
-> Remove the specified inter-container network link rather than the container itself.
+> 移除指定的容器间网络链接，而非容器本身。
 
 # DESCRIPTION
 
-**docker container rm** removes one or more containers from the Docker host, freeing disk space occupied by the container's read-write layer and metadata. Containers must be stopped before removal unless the **-f** flag is used to force removal of running containers.
+**docker container rm** 从 Docker 主机上移除一个或多个容器，释放容器的读写层和元数据占用的磁盘空间。除非使用 **-f** 标志强制移除运行中的容器，否则必须先停止容器才能移除。
 
-The **-v** option also removes anonymous volumes associated with the container, which is useful for complete cleanup. Named volumes are preserved by default to prevent accidental data loss.
+**-v** 选项还会移除与容器关联的匿名卷，适合做彻底清理。命名卷默认会被保留，以防误删数据。
 
-The shorthand **docker rm** is equivalent to **docker container rm**.
+简写形式 **docker rm** 等价于 **docker container rm**。
 
 # CAVEATS
 
-Forcing removal of a running container with **-f** sends SIGKILL without giving the process a chance to clean up. To prune all stopped containers in one step use **docker container prune**.
+用 **-f** 强制移除运行中的容器会发送 SIGKILL，不给进程清理善后的机会。若要一步清理所有已停止的容器，请使用 **docker container prune**。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Docker TUI inspired by k9s
+受 k9s 启发的 Docker TUI
 
 # TLDR
 
-**Launch** the Docker TUI
+**启动** Docker TUI
 
 ```ducker```
 
-**Export default configuration file**
+**导出默认配置文件**
 
 ```ducker --export-default-config```
 
@@ -19,65 +19,65 @@ Docker TUI inspired by k9s
 # PARAMETERS
 
 **-e, --export-default-config**
-> Write default config to the default location, overwriting any existing config
+> 将默认配置写入默认位置，覆盖已有配置
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **-V, --version**
-> Display version and exit
+> 显示版本并退出
 
 # DESCRIPTION
 
-**ducker** is a terminal user interface for Docker inspired by the Kubernetes tool k9s. It provides an efficient, keyboard-driven interface for managing Docker containers, images, volumes, and networks without typing long Docker commands.
+**ducker** 是一个面向 Docker 的终端用户界面，灵感来自 Kubernetes 工具 k9s。它提供高效、键盘驱动的界面来管理 Docker 容器、镜像、卷和网络，无需输入冗长的 Docker 命令。
 
-The tool features a familiar UI pattern for those coming from k9s, with resource views, filtering, shortcuts for common actions, and real-time updates. It is configured via a YAML file (typically `~/.config/ducker/config.yaml` on Linux).
+对于来自 k9s 的用户来说，该工具的 UI 模式十分熟悉：资源视图、过滤、常用操作快捷键和实时更新一应俱全。它通过 YAML 文件配置（Linux 上通常位于 `~/.config/ducker/config.yaml`）。
 
 # KEYBINDINGS
 
 **:**
-> Command mode
+> 命令模式
 
 **/**
-> Filter resources
+> 过滤资源
 
 **↑/↓**
-> Navigate resources
+> 在资源间导航
 
 **Enter**
-> View resource details
+> 查看资源详情
 
 **d**
-> Describe resource
+> 描述资源
 
 **l**
-> View logs
+> 查看日志
 
 **e**
-> Edit resource
+> 编辑资源
 
 **s**
-> Shell into container
+> 进入容器 shell
 
 **r**
-> Restart container
+> 重启容器
 
 **ctrl-d**
-> Delete resource
+> 删除资源
 
 **q**
-> Quit
+> 退出
 
 **?**
-> Show help
+> 显示帮助
 
 # CAVEATS
 
-Requires Docker daemon access. When installing with cargo, use `--locked` to avoid upstream dependency breakage. Terminal must support the full range of characters used in the UI.
+需要 Docker 守护进程访问权限。使用 cargo 安装时请加 `--locked`，以避免上游依赖损坏。终端必须支持 UI 中使用的全部字符。
 
 # HISTORY
 
-**ducker** was developed to bring the k9s experience to Docker users, providing a powerful TUI for container management. It aims to make Docker management faster and more efficient for developers who prefer terminal-based workflows.
+**ducker** 的开发目的是把 k9s 的体验带给 Docker 用户，为容器管理提供一个强大的 TUI。它致力于让偏爱终端工作流的开发者更快、更高效地管理 Docker。
 
 # INSTALL
 

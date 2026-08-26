@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage sensitive data in Docker Swarm
+管理 Docker Swarm 中的敏感数据
 
 # TLDR
 
-**Create secret from file**
+**从文件创建 secret**
 
 ```docker secret create [name] [file]```
 
-**Create secret from stdin**
+**从标准输入创建 secret**
 
 ```echo "[secret_value]" | docker secret create [name] -```
 
-**List secrets**
+**列出 secrets**
 
 ```docker secret ls```
 
-**Inspect a secret**
+**查看一个 secret**
 
 ```docker secret inspect [name]```
 
-**Remove a secret**
+**删除一个 secret**
 
 ```docker secret rm [name]```
 
@@ -31,24 +31,24 @@ manage sensitive data in Docker Swarm
 # SUBCOMMANDS
 
 **create**
-> Create a secret from file or STDIN.
+> 从文件或 STDIN 创建 secret。
 
 **ls**
-> List secrets.
+> 列出 secrets。
 
 **inspect**
-> Display detailed information.
+> 显示详细信息。
 
 **rm**
-> Remove secrets.
+> 删除 secrets。
 
 # DESCRIPTION
 
-**docker secret** manages Swarm secrets, which are sensitive data like passwords, certificates, or API keys. Secrets are encrypted and only available to services that need them. The secret content itself is never exposed in inspect output, only metadata. Secrets are mounted into service containers as files in /run/secrets.
+**docker secret** 管理 Swarm secrets，即密码、证书或 API 密钥等敏感数据。Secret 经过加密，只有需要它的服务才能访问。inspect 输出中永远不会暴露 secret 的内容本身，只显示元数据。Secret 以文件形式挂载到服务容器的 /run/secrets 目录中。
 
 # CAVEATS
 
-Only available in Swarm mode. Secrets cannot be updated; create a new version and rotate services.
+仅在 Swarm 模式下可用。Secret 无法更新；需要创建新版本并轮换服务。
 
 # INSTALL
 
@@ -79,4 +79,3 @@ Only available in Swarm mode. Secrets cannot be updated; create a new version an
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

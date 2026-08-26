@@ -1,26 +1,26 @@
 # TAGLINE
 
-Command-line tool for useful command examples
+提供实用命令示例的命令行工具
 
 # TLDR
 
-**Show** examples for a command
+**显示**某个命令的示例
 
 ```eg [command]```
 
-**Show** examples for a subcommand
+**显示**子命令的示例
 
 ```eg git log```
 
-**List** all available example topics
+**列出**所有可用的示例主题
 
 ```eg --list```
 
-**Use a custom examples directory**
+**使用自定义示例目录**
 
 ```eg --examples-dir [path/to/examples] [command]```
 
-**Use a custom pager** for output
+**使用自定义分页器**显示输出
 
 ```eg --pager-cmd [less] [command]```
 
@@ -31,44 +31,44 @@ Command-line tool for useful command examples
 # PARAMETERS
 
 **--list**
-> List all available commands with examples.
+> 列出所有有示例的命令。
 
 **--color**
-> Colorize output.
+> 为输出着色。
 
 **--squeeze**
-> Remove blank lines from output.
+> 从输出中移除空行。
 
 **--pager-cmd** _PAGER_
-> Use specified pager program for output.
+> 使用指定的分页程序显示输出。
 
 **--examples-dir** _DIR_
-> Use custom examples directory.
+> 使用自定义示例目录。
 
 **--custom-dir** _DIR_
-> Use custom user-provided examples directory.
+> 使用用户自定义的示例目录。
 
 **-v**, **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 **-h**, **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 # DESCRIPTION
 
-**eg** is a command-line tool that provides practical examples for common commands. Unlike traditional man pages that focus on comprehensive documentation, eg shows the most common and useful usage patterns with clear explanations.
+**eg** 是一个为常用命令提供实用示例的命令行工具。与侧重全面文档的传统 man page 不同，eg 展示最常见、最有用的用法模式，并配有清晰的解释。
 
-Written in Python, eg works out of the box with no configuration required. It depends only on standard Python libraries and supports both Python 2 and 3. Users can add custom examples by placing files in a custom directory alongside the built-in examples.
+eg 用 Python 编写，开箱即用，无需任何配置。它只依赖 Python 标准库，同时支持 Python 2 和 3。用户可以把自定义示例文件放在自定义目录中，与内置示例配合使用。
 
-The tool is particularly helpful for developers who know what they want to do but need a quick reminder of the exact syntax. It covers popular tools like git, docker, and many Unix utilities.
+该工具对那些知道自己想做什么但需要快速确认确切语法的开发者特别有帮助。它覆盖 git、docker 等热门工具以及许多 Unix 实用程序。
 
 # CAVEATS
 
-Example database may not cover all command variations. Examples prioritize common use cases over edge cases. Updates to built-in examples require updating the tool itself. Custom examples can supplement but not override built-in ones by default.
+示例库可能无法覆盖所有命令变体。示例优先考虑常见用例而非边缘情况。更新内置示例需要更新工具本身。默认情况下，自定义示例只能补充而不能覆盖内置示例。
 
 # HISTORY
 
-**eg** was created by **Sam Sudar** to provide a more practical alternative to man pages, focusing on real-world usage examples that developers actually need in their daily work. The source is available on GitHub at **github.com/srsudar/eg**.
+**eg** 由 **Sam Sudar** 创建，旨在提供比 man page 更实用的替代方案，专注于开发者在日常工作中真正需要的真实用法示例。源代码可在 GitHub 的 **github.com/srsudar/eg** 获取。
 
 # INSTALL
 

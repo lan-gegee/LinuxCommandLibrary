@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage DVC configuration settings
+管理 DVC 配置设置
 
 # TLDR
 
-**Set a configuration value**
+**设置一个配置值**
 
 ```dvc config [core.remote] [myremote]```
 
-**Get a configuration value**
+**读取一个配置值**
 
 ```dvc config [core.remote]```
 
-**Set a global configuration value**
+**设置一个全局配置值**
 
 ```dvc config --global [core.autostage] true```
 
-**Set a project-level (local) configuration value**
+**设置一个项目级（本地）配置值**
 
 ```dvc config --local [core.remote] [myremote]```
 
-**List all configuration entries**
+**列出所有配置项**
 
 ```dvc config --list```
 
-**Unset a configuration value**
+**取消一个配置值**
 
 ```dvc config --unset [core.remote]```
 
@@ -35,55 +35,55 @@ manage DVC configuration settings
 # PARAMETERS
 
 _NAME_
-> Configuration key.
+> 配置键。
 
 _VALUE_
-> Configuration value.
+> 配置值。
 
 **--global**
-> Use global configuration.
+> 使用全局配置。
 
 **--system**
-> Use system configuration.
+> 使用系统配置。
 
 **--local**
-> Use project-level configuration (.dvc/config.local, Git-ignored).
+> 使用项目级配置（.dvc/config.local，被 Git 忽略）。
 
 **--project**
-> Use project-level configuration (.dvc/config, tracked by Git).
+> 使用项目级配置（.dvc/config，由 Git 跟踪）。
 
 **--list**, **-l**
-> List all configuration entries.
+> 列出所有配置项。
 
 **--unset**
-> Remove a configuration entry.
+> 移除一个配置项。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **.dvc/config**
-> Repository-level DVC configuration file.
+> 仓库级 DVC 配置文件。
 
 **~/.config/dvc/config**
-> Global user configuration file.
+> 全局用户配置文件。
 
 # DESCRIPTION
 
-**dvc config** manages DVC configuration at project, local, global, and system levels. Configuration controls behavior including default remote storage, caching, and automation settings.
+**dvc config** 在项目、本地、全局和系统级别管理 DVC 配置。配置控制多种行为，包括默认远程存储、缓存和自动化设置。
 
-Configuration precedence from highest to lowest: local (Git-ignored), project (Git-tracked), global (user), system. Common configuration sections include `core` (remote, autostage), `cache` (type, dir), and `remote` (url, credentials).
+配置的优先级从高到低依次为：本地（被 Git 忽略）、项目（由 Git 跟踪）、全局（用户）、系统。常见的配置节包括 `core`（remote、autostage）、`cache`（type、dir）和 `remote`（url、credentials）。
 
-Setting `core.autostage` to true automatically stages .dvc file changes with Git, reducing manual steps. The default remote is set with `core.remote`.
+将 `core.autostage` 设为 true 可自动将 .dvc 文件的更改暂存到 Git，减少手动操作步骤。默认远程存储通过 `core.remote` 设置。
 
 # CAVEATS
 
-Some options need repository context. Invalid keys may be accepted. Requires appropriate permissions for system config.
+某些选项需要仓库上下文。无效的键可能仍会被接受。修改系统配置需要相应的权限。
 
 # HISTORY
 
-dvc config follows conventions from **Git config**, providing familiar configuration management for DVC settings.
+dvc config 遵循 **Git config** 的约定，为 DVC 设置提供熟悉的配置管理方式。
 
 # INSTALL
 

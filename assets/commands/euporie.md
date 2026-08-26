@@ -1,30 +1,30 @@
 # TAGLINE
 
-Jupyter notebooks, consoles, and previews in the terminal
+在终端中使用 Jupyter 笔记本、控制台和预览
 
 # TLDR
 
-**Open a notebook** in the terminal editor
+在终端编辑器中**打开笔记本**
 
 ```euporie notebook [notebook.ipynb]```
 
-**Start a Jupyter console** connected to a kernel
+**启动 Jupyter 控制台**并连接到内核
 
 ```euporie console --kernel [python3]```
 
-**Render a notebook** to the terminal without opening it
+**将笔记本渲染到终端**而不打开它
 
 ```euporie preview [notebook.ipynb]```
 
-**Save a rendered preview** to a file
+**将渲染好的预览保存到**文件
 
 ```euporie preview --save-as [output.txt] [notebook.ipynb]```
 
-**Run euporie as a multi-user SSH hub**
+将 euporie 作为多用户 SSH hub 运行
 
 ```euporie hub --host [0.0.0.0] --port [8022]```
 
-**Pick a color scheme**
+**选择配色方案**
 
 ```euporie notebook --color-scheme [dark] [notebook.ipynb]```
 
@@ -37,101 +37,101 @@ Jupyter notebooks, consoles, and previews in the terminal
 # APPS / SUBCOMMANDS
 
 **notebook**
-> Interactive notebook editor with Jupyter-like keybindings.
+> 交互式笔记本编辑器，采用类似 Jupyter 的按键绑定。
 
 **console**
-> Line-by-line REPL against any Jupyter kernel.
+> 可连接任意 Jupyter 内核的逐行 REPL。
 
 **preview**
-> Render a notebook to stdout, a pager, or a file (no kernel required).
+> 将笔记本渲染到标准输出、分页器或文件（无需内核）。
 
 **hub**
-> Multi-user SSH server — each client gets their own notebook editor.
+> 多用户 SSH 服务器 — 每个客户端都拥有自己的笔记本编辑器。
 
 # PARAMETERS
 
 **--kernel** _NAME_
-> Jupyter kernel to connect to (e.g. `python3`, `ir`, `julia-1.10`).
+> 要连接的 Jupyter 内核（如 `python3`、`ir`、`julia-1.10`）。
 
 **--no-kernel**
-> Open the notebook without starting a kernel.
+> 打开笔记本但不启动内核。
 
 **--color-scheme** _NAME_
-> Color scheme: `default`, `light`, `dark`, `inverse`, or a custom scheme.
+> 配色方案：`default`、`light`、`dark`、`inverse` 或自定义方案。
 
 **--syntax-theme** _NAME_
-> Pygments theme for code cells.
+> 代码单元格使用的 Pygments 主题。
 
 **--tab-size** _N_
-> Number of spaces per tab.
+> 每个制表符对应的空格数。
 
 **--terminal-graphics** _MODE_
-> Image protocol: `sixel`, `iterm`, `kitty`, or `none`.
+> 图像协议：`sixel`、`iterm`、`kitty` 或 `none`。
 
 **--log-level** _LEVEL_
-> Logging verbosity (`debug`, `info`, `warning`, `error`).
+> 日志详细程度（`debug`、`info`、`warning`、`error`）。
 
 **--log-file** _FILE_
-> Path to a log file.
+> 日志文件路径。
 
-**--host** _HOST_ (hub)
-> Bind address for the SSH hub.
+**--host** _HOST_（hub）
+> SSH hub 的绑定地址。
 
-**--port** _PORT_ (hub)
-> Listen port for the SSH hub.
+**--port** _PORT_（hub）
+> SSH hub 的监听端口。
 
-**--save-as** _FILE_ (preview)
-> Write rendered output to _FILE_ instead of stdout.
+**--save-as** _FILE_（preview）
+> 将渲染输出写入 _FILE_ 而非标准输出。
 
-**--page** (preview)
-> Pipe rendered output to `$PAGER`.
+**--page**（preview）
+> 将渲染输出通过管道传给 `$PAGER`。
 
 **-v**, **--version**
-> Show version and exit.
+> 显示版本并退出。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**euporie** is a suite of terminal applications that bring the Jupyter ecosystem to the shell. Each subcommand is a self-contained app sharing the same rendering engine for markdown, LaTeX, syntax-highlighted code, and rich output (including inline images via sixel, iTerm2, or kitty graphics protocols).
+**euporie** 是一套把 Jupyter 生态系统带入 Shell 的终端应用。每个子命令都是一个独立的应用，共享同一套渲染引擎，可渲染 markdown、LaTeX、语法高亮代码和富文本输出（包括通过 sixel、iTerm2 或 kitty 图形协议显示的内联图像）。
 
-The **notebook** app is a full editor that can execute cells, manage kernels, and save `.ipynb` files. The **console** app is a REPL front-end for any installed Jupyter kernel. The **preview** app is non-interactive and suitable for CI pipelines or scripting. The **hub** exposes the notebook editor over SSH so multiple users can share a server's resources.
+**notebook** 应用是一个完整的编辑器，可以执行单元格、管理内核并保存 `.ipynb` 文件。**console** 应用是任意已安装 Jupyter 内核的 REPL 前端。**preview** 应用是非交互式的，适合 CI 流水线或脚本使用。**hub** 通过 SSH 暴露笔记本编辑器，让多个用户共享服务器的资源。
 
 # CONFIGURATION
 
-Per-app configuration can be set via environment variables prefixed with the app name, e.g. `EUPORIE_NOTEBOOK_COLOR_SCHEME=dark`, `EUPORIE_CONSOLE_KERNEL=python3`. A config file at `~/.config/euporie/euporie.toml` is loaded by all apps.
+每个应用都可以通过以应用名作为前缀的环境变量进行配置，例如 `EUPORIE_NOTEBOOK_COLOR_SCHEME=dark`、`EUPORIE_CONSOLE_KERNEL=python3`。所有应用都会加载 `~/.config/euporie/euporie.toml` 配置文件。
 
 # KEYBINDINGS (notebook)
 
 **Enter / Esc**
-> Toggle edit and command mode in the current cell.
+> 在当前单元格中切换编辑模式和命令模式。
 
 **a** / **b**
-> Insert cell above / below.
+> 在上方 / 下方插入单元格。
 
 **dd**
-> Delete current cell.
+> 删除当前单元格。
 
 **y** / **m** / **r**
-> Change cell type to code / markdown / raw.
+> 将单元格类型更改为 code / markdown / raw。
 
 **Ctrl-Enter** / **Shift-Enter**
-> Run cell / run and go to next.
+> 运行单元格 / 运行并跳到下一个。
 
 **Ctrl-S**
-> Save notebook.
+> 保存笔记本。
 
 **Ctrl-Q**
-> Quit.
+> 退出。
 
 # CAVEATS
 
-Rich output (images, plots) requires a terminal that implements sixel, iTerm2, or kitty graphics. Complex JavaScript-based widgets (ipywidgets) have limited support. The hub app needs a host key and user authentication — see the docs for hub configuration.
+富文本输出（图像、图表）需要支持 sixel、iTerm2 或 kitty 图形的终端。基于 JavaScript 的复杂组件（ipywidgets）支持有限。hub 应用需要主机密钥和用户认证 — hub 配置请参阅文档。
 
 # HISTORY
 
-**euporie** is developed by **Josiah Outram Halstead** (joouha) and written in **Python** on top of **prompt_toolkit**. It is distributed on PyPI as `euporie` (install with `pip install euporie`).
+**euporie** 由 **Josiah Outram Halstead**（joouha）开发，用 **Python** 基于 **prompt_toolkit** 编写。它在 PyPI 上以 `euporie` 发行（用 `pip install euporie` 安装）。
 
 # INSTALL
 

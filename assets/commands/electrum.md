@@ -1,38 +1,38 @@
 # TAGLINE
 
-Lightweight Bitcoin wallet with SPV verification
+支持 SPV 验证的轻量级比特币钱包
 
 # TLDR
 
-**Start Electrum GUI**
+**启动 Electrum 图形界面**
 
 ```electrum```
 
-**Create a new wallet**
+**创建新钱包**
 
 ```electrum create```
 
-**Get wallet balance**
+**获取钱包余额**
 
 ```electrum getbalance```
 
-**List all addresses** in the wallet
+**列出钱包中的所有地址**
 
 ```electrum listaddresses```
 
-**Generate a new receiving address**
+**生成新的接收地址**
 
 ```electrum createnewaddress```
 
-**Send Bitcoin** to an address
+**向某个地址发送比特币**
 
 ```electrum payto [address] [amount]```
 
-**Start the daemon** for background operation
+**启动守护进程**以便后台运行
 
 ```electrum daemon start```
 
-**Load a specific wallet** in the daemon
+**在守护进程中加载指定钱包**
 
 ```electrum load_wallet -w [path/to/wallet]```
 
@@ -47,108 +47,108 @@ Lightweight Bitcoin wallet with SPV verification
 # PARAMETERS
 
 **-w**, **--wallet** _PATH_
-> Use wallet from specified path
+> 使用指定路径的钱包
 
 **-o**, **--offline**
-> Run in offline mode without network access
+> 以离线模式运行，不访问网络
 
 **-g**, **--gui** _GUI_
-> Select user interface (qt, text)
+> 选择用户界面（qt、text）
 
 **-s**, **--server** _HOST:PORT:PROTOCOL_
-> Set server address
+> 设置服务器地址
 
 **-p**, **--proxy** _TYPE:HOST:PORT_
-> Set proxy server
+> 设置代理服务器
 
 **-v**, **--verbose**
-> Show debugging information
+> 显示调试信息
 
 **-P**, **--portable**
-> Use portable wallet mode
+> 使用便携钱包模式
 
 **-L**, **--lang** _LANGUAGE_
-> Set default language for GUI
+> 设置 GUI 的默认语言
 
 **--testnet**
-> Use Bitcoin testnet
+> 使用比特币测试网
 
 **--mainnet**
-> Use Bitcoin mainnet (default)
+> 使用比特币主网（默认）
 
 **-a**, **--all**
-> Show all addresses
+> 显示所有地址
 
 **-h**, **--help**
-> Show help message and exit
+> 显示帮助消息并退出
 
 **--version**
-> Show program version
+> 显示程序版本
 
 # COMMANDS
 
 **create**
-> Create a new wallet
+> 创建新钱包
 
 **restore**
-> Restore wallet from seed
+> 从种子恢复钱包
 
 **getbalance**
-> Display wallet balance
+> 显示钱包余额
 
 **listaddresses**
-> List all wallet addresses
+> 列出所有钱包地址
 
 **createnewaddress**
-> Generate a new receiving address
+> 生成新的接收地址
 
 **getaddresshistory** _ADDRESS_
-> Show transaction history for an address
+> 显示某地址的交易历史
 
 **history**
-> Show wallet transaction history
+> 显示钱包交易历史
 
 **payto** _ADDRESS_ _AMOUNT_
-> Create and send a transaction
+> 创建并发送一笔交易
 
 **broadcast** _TX_
-> Broadcast a signed transaction
+> 广播已签名的交易
 
 **signmessage** _ADDRESS_ _MESSAGE_
-> Sign a message with an address
+> 用某个地址对消息签名
 
 **verifymessage** _ADDRESS_ _SIGNATURE_ _MESSAGE_
-> Verify a signed message
+> 验证已签名的消息
 
 **commands**
-> List all available commands
+> 列出所有可用命令
 
 # DESCRIPTION
 
-**electrum** is a lightweight Bitcoin wallet that connects to remote servers instead of downloading the entire blockchain. It supports both a graphical interface and command-line operations, making it suitable for desktop use and scripted automation.
+**electrum** 是一个轻量级比特币钱包，它连接远程服务器而不是下载整条区块链。它同时支持图形界面和命令行操作，既适合桌面使用，也适合脚本化自动化。
 
-The wallet uses hierarchical deterministic (HD) key generation from a mnemonic seed phrase, allowing full wallet recovery from the seed alone. It supports multi-signature wallets, hardware wallet integration (Trezor, Ledger), and watch-only wallets.
+该钱包使用由助记词种子短语生成的分层确定性（HD）密钥，仅凭种子即可完整恢复钱包。它支持多重签名钱包、硬件钱包集成（Trezor、Ledger）以及只读观察钱包。
 
-For command-line operations, the daemon can run in the background handling network communication while CLI commands interact with it. Some commands work offline without the daemon using the **-o** flag. The special argument **!** means "maximum amount available" and **-** reads from stdin.
+对于命令行操作，守护进程可以在后台运行并处理网络通信，CLI 命令则与它交互。某些命令使用 **-o** 标志即可在无守护进程的情况下离线工作。特殊参数 **!** 表示"可用最大金额"，**-** 表示从 stdin 读取。
 
 # CONFIGURATION
 
 **~/.electrum/config**
-> Main configuration file for wallet settings and server preferences.
+> 主配置文件，包含钱包设置和服务器偏好。
 
 **~/.electrum/wallets/**
-> Directory containing encrypted wallet files.
+> 存放加密钱包文件的目录。
 
 **~/.electrum/daemon**
-> Daemon socket and process information.
+> 守护进程套接字和进程信息。
 
 # CAVEATS
 
-Electrum connects to third-party servers that can see your addresses and transaction history, though they cannot access your funds. For maximum privacy, run your own Electrum server. The wallet file is encrypted by default but should be backed up securely. Hardware wallet integration requires additional packages.
+Electrum 连接的第三方服务器可以看到你的地址和交易历史，但无法访问你的资金。要获得最大隐私，请运行自己的 Electrum 服务器。钱包文件默认加密，但仍应安全备份。硬件钱包集成需要额外的软件包。
 
 # HISTORY
 
-Electrum was created by **Thomas Voegtlin** and first released in **November 2011**. It was one of the first lightweight Bitcoin wallets, pioneering the use of SPV (Simplified Payment Verification) with remote servers. The name comes from the Latin word for amber, chosen because amber produces static electricity when rubbed. Electrum introduced the concept of seed phrases for wallet backup, which became a standard across the cryptocurrency industry.
+Electrum 由 **Thomas Voegtlin** 创建，于 **2011 年 11 月**首次发布。它是最早的轻量级比特币钱包之一，开创了结合远程服务器的 SPV（简化支付验证）。其名字来自拉丁语的"琥珀"，因为琥珀摩擦会产生静电。Electrum 引入了用于钱包备份的助记词概念，后来成为整个加密货币行业的标准。
 
 # INSTALL
 

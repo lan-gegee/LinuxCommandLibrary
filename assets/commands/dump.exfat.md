@@ -1,26 +1,26 @@
 # TAGLINE
 
-exFAT filesystem information display
+exFAT 文件系统信息显示工具
 
 # TLDR
 
-Print on-disk information for **exFAT filesystem**
+打印 **exFAT 文件系统**的磁盘结构信息
 
 ```dump.exfat [/dev/sdXY]```
 
-Show **directory entry** information for a specific path
+显示指定路径的**目录项**信息
 
 ```dump.exfat -d [/path/to/file] [/dev/sdXY]```
 
-**Scan** directory entries from a given path **recursively**
+从给定路径开始**递归扫描**目录项
 
 ```dump.exfat -s [/] -r [/dev/sdXY]```
 
-Show **cluster chain** along with directory entries
+在目录项之外同时显示**簇链**
 
 ```dump.exfat -d [/path/to/file] -c [/dev/sdXY]```
 
-Print **version** information
+打印**版本**信息
 
 ```dump.exfat -V```
 
@@ -30,37 +30,37 @@ Print **version** information
 
 # DESCRIPTION
 
-**dump.exfat** displays detailed on-disk structural information for exFAT (Extended File Allocation Table) filesystems. It reads and presents filesystem metadata including boot sector parameters, FAT (File Allocation Table) region layout, cluster sizes, volume serial numbers, and other low-level details.
+**dump.exfat** 显示 exFAT（Extended File Allocation Table）文件系统的详细磁盘结构信息。它读取并展示文件系统元数据，包括引导扇区参数、FAT（文件分配表）区域布局、簇大小、卷序列号以及其他底层细节。
 
-The tool is primarily used for forensic analysis, debugging filesystem issues, and understanding exFAT structure. It reveals information like volume label, filesystem version, bytes per sector, sectors per cluster, FAT offset and length, cluster heap offset, and root directory location.
+该工具主要用于取证分析、排查文件系统问题以及理解 exFAT 结构。它能揭示卷标、文件系统版本、每扇区字节数、每簇扇区数、FAT 偏移与长度、簇堆偏移和根目录位置等信息。
 
-exFAT is commonly used on flash media (SD cards, USB drives) and external drives due to its support for large files and broad compatibility across Windows, macOS, and Linux. dump.exfat helps diagnose corruption, verify filesystem parameters, and analyze how data is organized on the storage device.
+exFAT 因支持大文件并且在 Windows、macOS 和 Linux 上兼容性广泛，常用于闪存介质（SD 卡、U 盘）和外部硬盘。dump.exfat 有助于诊断损坏、核对文件系统参数，并分析数据在存储设备上的组织方式。
 
-The tool operates as a read-only utility and does not modify the filesystem. For accurate results, the filesystem should ideally be unmounted, though read-only access to mounted filesystems is possible.
+该工具以只读方式运行，不会修改文件系统。为获得准确的结果，最好先卸载文件系统，不过对已挂载的文件系统进行只读访问也是可行的。
 
 # PARAMETERS
 
 **-V**
-> Print version and exit.
+> 打印版本并退出。
 
 **-d**, **--dentry-set=**_path_
-> Print directory entry information for a given path on the device.
+> 打印设备上给定路径的目录项信息。
 
 **-s**, **--scan-dir=**_dir-path_
-> Scan and print directory entry information from a given path.
+> 从给定路径扫描并打印目录项信息。
 
 **-r**, **--recursive**
-> Scan directory entries recursively. Only works with **-s**.
+> 递归扫描目录项。只能与 **-s** 配合使用。
 
 **-c**, **--cluster-chain**
-> Print cluster chain information alongside directory entries. Only works with **-d** or **-s**.
+> 在目录项之外同时打印簇链信息。只能与 **-d** 或 **-s** 配合使用。
 
 _device_
-> The device containing the exFAT filesystem.
+> 包含 exFAT 文件系统的设备。
 
 # CAVEATS
 
-Part of exfatprogs package. Read-only operation. Absence of doubly-allocated clusters does not guarantee they are not doubly-allocated unless scanning starts from the root directory recursively.
+属于 exfatprogs 软件包。只读操作。除非从根目录开始递归扫描，否则未发现双重分配的簇并不能保证它们没有被双重分配。
 
 # INSTALL
 

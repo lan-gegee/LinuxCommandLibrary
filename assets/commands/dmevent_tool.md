@@ -1,22 +1,22 @@
 # TAGLINE
 
-device-mapper event monitoring control
+device-mapper 事件监控控制工具
 
 # TLDR
 
-**List registered events**
+**列出已注册的事件**
 
 ```dmevent_tool -l```
 
-**Register device** for monitoring
+**注册设备**进行监控
 
 ```dmevent_tool -R [device_name]```
 
-**Unregister device** from monitoring
+**注销设备**的监控
 
 ```dmevent_tool -U [device_name]```
 
-**Check monitor status**
+**检查监控状态**
 
 ```dmevent_tool -s [device_name]```
 
@@ -27,38 +27,38 @@ device-mapper event monitoring control
 # PARAMETERS
 
 _DEVICE_
-> Device mapper device name.
+> device-mapper 设备名。
 
 **-l**, **--list**
-> List registered devices.
+> 列出已注册的设备。
 
 **-R**, **--register**
-> Register device for monitoring.
+> 注册设备进行监控。
 
 **-U**, **--unregister**
-> Unregister device from monitoring.
+> 注销设备的监控。
 
 **-s**, **--status**
-> Show device monitoring status.
+> 显示设备监控状态。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dmevent_tool** is a utility for interacting with the device-mapper event daemon (dmeventd). It allows registering and unregistering device mapper devices for event monitoring and querying their status.
+**dmevent_tool** 用于与 device-mapper 事件守护进程（dmeventd）交互。它可以注册和注销 device-mapper 设备的事件监控，并查询其状态。
 
-The device-mapper event daemon monitors DM devices for events like failures, threshold crossings, or configuration changes. When events occur, dmeventd can trigger configured responses such as alerting or automatic repair.
+device-mapper 事件守护进程监控 DM 设备的故障、阈值越过或配置变化等事件。事件发生时，dmeventd 可以触发预设的响应，例如告警或自动修复。
 
-This tool is typically used with LVM thin provisioning, RAID, and other device-mapper-based storage configurations that benefit from event-driven monitoring.
+该工具通常配合 LVM 精简配置、RAID 以及其他受益于事件驱动监控的 device-mapper 存储方案使用。
 
 # CAVEATS
 
-Requires dmeventd running. Root privileges needed. Only works with device-mapper devices. Event handling depends on configured plugins.
+需要 dmeventd 正在运行。需要 root 权限。仅适用于 device-mapper 设备。事件处理取决于已配置的插件。
 
 # HISTORY
 
-dmevent_tool is part of the **LVM2** device-mapper tools developed by **Red Hat**. The device-mapper event monitoring infrastructure provides reactive storage management for enterprise Linux deployments.
+dmevent_tool 属于 **Red Hat** 开发的 **LVM2** device-mapper 工具集。device-mapper 事件监控基础设施为 Linux 企业部署提供了响应式存储管理。
 
 # INSTALL
 

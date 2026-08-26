@@ -1,46 +1,46 @@
 # TAGLINE
 
-self-hosted Platform-as-a-Service powered by Docker
+基于 Docker 的自托管平台即服务
 
 # TLDR
 
-**Create an app**
+**创建应用**
 
 ```dokku apps:create [app_name]```
 
-**Deploy via git push**
+**通过 git push 部署**
 
 ```git push dokku main```
 
-**List all apps**
+**列出所有应用**
 
 ```dokku apps:list```
 
-**View app logs**
+**查看应用日志**
 
 ```dokku logs [app_name]```
 
-**Set environment variable**
+**设置环境变量**
 
 ```dokku config:set [app_name] [KEY]=[value]```
 
-**Link database**
+**关联数据库**
 
 ```dokku postgres:link [db_name] [app_name]```
 
-**Scale app processes**
+**伸缩应用进程**
 
 ```dokku ps:scale [app_name] web=[2]```
 
-**Add domain**
+**添加域名**
 
 ```dokku domains:add [app_name] [example.com]```
 
-**Enable HTTPS** with a Let's Encrypt certificate
+使用 Let's Encrypt 证书**启用 HTTPS**
 
 ```dokku letsencrypt:enable [app_name]```
 
-**Install a plugin** (as root)
+**安装插件**（以 root 身份）
 
 ```sudo dokku plugin:install [https://github.com/dokku/dokku-postgres.git]```
 
@@ -48,67 +48,67 @@ self-hosted Platform-as-a-Service powered by Docker
 
 **dokku** _plugin_:_command_ [_app_] [_arguments_]
 
-Most commands follow a `namespace:verb` naming scheme, where the namespace is the plugin that provides them.
+大多数命令遵循 `namespace:verb` 的命名模式，其中 namespace 就是提供该命令的插件。
 
 # COMMANDS
 
 **apps:create** _app_ / **apps:list** / **apps:destroy** _app_
-> Create, list, and destroy applications.
+> 创建、列出和销毁应用。
 
 **apps:rename** _app_ _new-name_
-> Rename an application and rebuild it.
+> 重命名应用并重新构建。
 
 **config:set** _app_ _KEY=VALUE_ / **config:unset** _app_ _KEY_ / **config:show** _app_
-> Manage environment variables. Setting or unsetting restarts the app unless **--no-restart** is passed.
+> 管理环境变量。设置或取消设置都会重启应用，除非传入 **--no-restart**。
 
 **ps:scale** _app_ _proc_=_n_
-> Scale a process type from the Procfile to _n_ containers.
+> 将 Procfile 中的某个进程类型伸缩为 _n_ 个容器。
 
 **ps:restart** _app_ / **ps:rebuild** _app_ / **ps:stop** _app_
-> Restart the running containers, rebuild the app from source, or stop it.
+> 重启正在运行的容器、从源码重建应用或将其停止。
 
 **logs** _app_
-> Show application logs. **-t** follows them, **-n** _N_ limits the number of lines.
+> 显示应用日志。**-t** 持续跟踪日志，**-n** _N_ 限制行数。
 
 **domains:add** _app_ _domain_ / **domains:remove** _app_ _domain_ / **domains:report** _app_
-> Manage the virtual hosts routed to the app.
+> 管理路由到该应用的虚拟主机。
 
 **letsencrypt:enable** _app_
-> Request and install a Let's Encrypt certificate (requires the `dokku-letsencrypt` plugin).
+> 申请并安装 Let's Encrypt 证书（需要 `dokku-letsencrypt` 插件）。
 
 **proxy:ports-add** _app_ _scheme_:_host-port_:_container-port_
-> Map an external port onto a container port.
+> 将外部端口映射到容器端口。
 
 **run** _app_ _command_
-> Run a one-off command in a new container from the app's image.
+> 用应用镜像在新容器中运行一次性命令。
 
 **enter** _app_ [_process_]
-> Open a shell inside a running container.
+> 在运行中的容器内打开 Shell。
 
 **postgres:create** _service_ / **postgres:link** _service_ _app_
-> Create a database service and expose its credentials to an app. Equivalents exist for `mysql`, `redis`, `mongo`, and others, each from its own plugin.
+> 创建数据库服务并将其凭据提供给应用。`mysql`、`redis`、`mongo` 等也有对应命令，各自来自独立的插件。
 
 **plugin:install** _git-url_ / **plugin:list**
-> Install and list plugins. Must be run as root.
+> 安装和列出插件。必须以 root 身份运行。
 
 **version**
-> Print the installed Dokku version.
+> 打印已安装的 Dokku 版本。
 
 # DESCRIPTION
 
-**Dokku** is a self-hosted Platform-as-a-Service (PaaS) that implements a Heroku-like workflow on a single machine. Adding the server as a git remote and pushing to it is the whole deploy: Dokku detects the application type, builds an image, and cuts traffic over to the new containers.
+**Dokku** 是一个自托管的平台即服务（PaaS），在单台机器上实现了类似 Heroku 的工作流。把服务器添加为 git remote 并向其推送代码就是全部的部署过程：Dokku 会检测应用类型、构建镜像，然后将流量切换到新容器。
 
-Applications are built either with **Herokuish** buildpacks, a **Dockerfile**, or Cloud Native Buildpacks, and are then run as Docker containers behind an nginx proxy that Dokku configures for you. A `Procfile` defines the process types, which **ps:scale** turns into container counts.
+应用可以使用 **Herokuish** buildpacks、**Dockerfile** 或 Cloud Native Buildpacks 构建，随后作为 Docker 容器运行在 nginx 反向代理之后（代理配置由 Dokku 自动完成）。`Procfile` 定义进程类型，**ps:scale** 将其转换为容器数量。
 
-Nearly everything beyond the core is a plugin: `dokku-postgres`, `dokku-mysql`, `dokku-redis`, and friends provide backing services that are linked into an app as environment variables, while `dokku-letsencrypt` automates TLS certificates. This keeps the base install small while covering most of what Heroku offers.
+核心之外的一切几乎都是插件：`dokku-postgres`、`dokku-mysql`、`dokku-redis` 等提供后端服务，并作为环境变量关联到应用；`dokku-letsencrypt` 则自动管理 TLS 证书。这种设计使基础安装保持精简，同时覆盖了 Heroku 的大部分能力。
 
 # CAVEATS
 
-Dokku targets a single host; there is no built-in clustering or zero-downtime failover across machines, and scaling means more containers on the same box. It expects a fresh server, since it takes ownership of nginx and Docker configuration. Plugin commands must be installed as **root** even though app commands run as the `dokku` user. Zero-downtime deploys depend on correctly configured `CHECKS`, otherwise a push briefly drops requests, and builds can be memory-hungry enough to fail on the smallest VPS sizes without swap.
+Dokku 面向单台主机：没有内置的跨机集群或零停机故障转移，所谓伸缩也只是同一台机器上更多的容器。它要求全新的服务器，因为会接管 nginx 和 Docker 配置。插件命令必须以 **root** 身份安装，尽管应用命令以 `dokku` 用户运行。零停机部署依赖正确配置的 `CHECKS` 文件，否则推送期间会短暂丢失请求；构建过程也可能非常吃内存，在没有 swap 的最小规格 VPS 上可能失败。
 
 # HISTORY
 
-Dokku was created by **Jeff Lindsay** in **2013** as a "docker-powered mini-Heroku" written in a few hundred lines of shell. It quickly outgrew that, and maintenance passed to **Jose Diaz-Gonzalez**, who still leads the project. It remains one of the most widely used self-hosted PaaS options, and its git-push workflow is deliberately close to Heroku's so that apps can move between the two.
+Dokku 由 **Jeff Lindsay** 于 **2013 年**创建，最初是一个只用几百行 Shell 写成的"docker 驱动的迷你 Heroku"。项目很快超越了这一规模，维护工作移交给了至今仍领导项目的 **Jose Diaz-Gonzalez**。它至今仍是最流行的自托管 PaaS 方案之一，其 git push 工作流刻意与 Heroku 保持接近，方便应用在两者之间迁移。
 
 # INSTALL
 
@@ -129,4 +129,3 @@ Dokku was created by **Jeff Lindsay** in **2013** as a "docker-powered mini-Hero
 ```[Documentation](https://dokku.com/docs/)```
 
 <!-- verified: 2026-07-14 -->
-

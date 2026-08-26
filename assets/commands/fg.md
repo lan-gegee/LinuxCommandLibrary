@@ -1,26 +1,26 @@
 # TAGLINE
 
-bring job to foreground
+将任务调至前台
 
 # TLDR
 
-**Resume** the current job in the foreground
+**在前台恢复**当前任务
 
 ```fg```
 
-**Resume** job number 1
+**恢复**编号为 1 的任务
 
 ```fg %[1]```
 
-**Resume** the job whose command starts with a string
+**恢复**命令以某字符串开头的任务
 
 ```fg %[vim]```
 
-**Resume** the job whose command contains a string
+**恢复**命令包含某字符串的任务
 
 ```fg %?[config]```
 
-**Resume** the previous job
+**恢复**上一个任务
 
 ```fg %-```
 
@@ -31,48 +31,48 @@ bring job to foreground
 # PARAMETERS
 
 _jobspec_
-> The job to resume. Defaults to the current job when omitted.
+> 要恢复的任务。省略时默认为当前任务。
 
 **%N**
-> Job number N.
+> 编号为 N 的任务。
 
 **%string**
-> The job whose command line starts with _string_.
+> 命令行以 _string_ 开头的任务。
 
 **%?string**
-> The job whose command line contains _string_.
+> 命令行包含 _string_ 的任务。
 
-**%%** or **%+**
-> The current job: the one most recently suspended or backgrounded.
+**%%** 或 **%+**
+> 当前任务：最近一次被挂起或转入后台的那个。
 
 **%-**
-> The previous job.
+> 上一个任务。
 
 # DESCRIPTION
 
-**fg** resumes a suspended or background job, brings it into the foreground and makes it the terminal's controlling process, so it receives your keystrokes and signals again. The shell waits for the job to finish or stop before printing another prompt.
+**fg** 恢复被挂起或后台运行的任务，把它调到前台并让它成为终端的控制进程，从而重新接收你的按键和信号。Shell 会等待该任务结束或停止之后才打印新的提示符。
 
-Jobs reach the background either by suspending a running command with **Ctrl+Z**, or by starting it with a trailing **&**. **jobs** lists them with their numbers and status; **fg** picks one back up and **bg** restarts one in the background instead. With no argument, **fg** resumes the current job, the one marked **+** in the **jobs** output.
+任务进入后台有两种方式：用 **Ctrl+Z** 挂起正在运行的命令，或者在启动命令时在末尾加上 **&**。**jobs** 会列出这些任务及其编号和状态；**fg** 把其中某个任务调回前台，而 **bg** 则让它在后台继续运行。不带参数时，**fg** 恢复当前任务，即 **jobs** 输出中标记为 **+** 的那一个。
 
-The **%** prefix is a job specification, not a process ID. It is interpreted by the shell against its own job table, which is why job numbers are meaningful only inside the shell that started them.
+**%** 前缀是任务标识（jobspec），不是进程 ID。它由 Shell 根据自己的任务表来解释，因此任务编号只在启动它们的那个 Shell 里有效。
 
-The exit status of **fg** is that of the resumed command, or non-zero if job control is disabled or the job does not exist.
+**fg** 的退出状态就是被恢复命令的退出状态；若作业控制被禁用或任务不存在，则返回非零值。
 
 # CAVEATS
 
-**fg** requires job control, which is enabled by default in interactive shells but not in scripts. In a non-interactive shell it fails with "no job control"; **set -m** can enable it if the shell supports doing so.
+**fg** 需要作业控制（job control）支持，交互式 Shell 默认启用该功能，但脚本中没有。在非交互式 Shell 中它会失败并提示 "no job control"；如果 Shell 支持，可用 **set -m** 启用它。
 
-Job numbers are reused as jobs finish, so a **%N** that was correct a moment ago can refer to a different job later. Prefer **%string** in anything you type from memory.
+任务结束后其编号会被复用，所以刚才还正确的 **%N** 稍后可能指向另一个任务。凭记忆手动输入时，建议优先使用 **%string**。
 
-A backgrounded job keeps running and can still write to your terminal, interleaving its output with your prompt. A job stopped by **Ctrl+Z** is genuinely paused (**SIGTSTP**) and makes no progress until it is resumed.
+转入后台的任务仍在运行，并且可能继续向你的终端写入内容，其输出会和提示符交错在一起。被 **Ctrl+Z** 停止的任务则是真正暂停了（**SIGTSTP**），在被恢复之前不会取得任何进展。
 
-If a background job tries to read from the terminal it is stopped with **SIGTTIN**, showing as "stopped (tty input)"; bring it forward with **fg** to let it read.
+如果后台任务试图从终端读取数据，它会被 **SIGTTIN** 信号停止，显示为 "stopped (tty input)"；用 **fg** 把它调到前台即可让它读取输入。
 
-Jobs removed from the table with **disown** can no longer be reached by **fg**.
+用 **disown** 从任务表中移除的任务无法再通过 **fg** 访问。
 
 # HISTORY
 
-Job control originated in the **C shell** at Berkeley around **1980**, and was later adopted by **ksh**, **bash** and other Bourne shell derivatives. **fg** is standardized by **POSIX** as part of the optional User Portability Utilities job control feature. It is necessarily a shell builtin, since only the shell knows its own job table.
+作业控制起源于伯克利的 **C shell**，时间大约在 **1980 年**，后来被 **ksh**、**bash** 及其他 Bourne Shell 衍生版本采纳。**POSIX** 将 **fg** 标准化为可选的 User Portability Utilities 作业控制特性的一部分。它必然是 Shell 内建命令，因为只有 Shell 自己知道它的任务表。
 
 # SEE ALSO
 

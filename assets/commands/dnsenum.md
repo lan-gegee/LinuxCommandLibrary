@@ -1,30 +1,30 @@
 # TAGLINE
 
-DNS enumeration and reconnaissance tool
+DNS 枚举与侦察工具
 
 # TLDR
 
-**Enumerate DNS information** for domain
+为域名**枚举 DNS 信息**
 
 ```dnsenum [domain.com]```
 
-**Use specific DNS** server
+**使用指定的 DNS** 服务器
 
 ```dnsenum --dnsserver [8.8.8.8] [domain.com]```
 
-**Enumerate with brute** force
+**结合暴力破解枚举**
 
 ```dnsenum --enum -f [wordlist.txt] [domain.com]```
 
-**Save output to file**
+**将输出保存到文件**
 
 ```dnsenum -o [output.xml] [domain.com]```
 
-**Specify threads** for brute force
+为暴力破解**指定线程数**
 
 ```dnsenum --threads [10] [domain.com]```
 
-**Skip reverse** lookups
+**跳过反向**查询
 
 ```dnsenum --noreverse [domain.com]```
 
@@ -35,59 +35,59 @@ DNS enumeration and reconnaissance tool
 # PARAMETERS
 
 _DOMAIN_
-> Target domain to enumerate.
+> 要枚举的目标域名。
 
 **--dnsserver** _SERVER_
-> DNS server to query.
+> 要查询的 DNS 服务器。
 
 **--enum**
-> Shortcut equivalent to --threads 5 -s 15 -w.
+> 快捷方式，等价于 --threads 5 -s 15 -w。
 
 **-f** _FILE_
-> Subdomain wordlist for brute force.
+> 用于暴力破解的子域名字典文件。
 
 **--threads** _N_
-> Number of threads for parallel queries.
+> 并行查询的线程数。
 
 **-o** _FILE_
-> Write output to FILE in XML (magictree) format.
+> 将输出以 XML（magictree）格式写入 FILE。
 
 **--noreverse**
-> Skip reverse lookups.
+> 跳过反向查询。
 
 **--private**
-> Show and save private (RFC 1918) IP addresses.
+> 显示并保存私有（RFC 1918）IP 地址。
 
 **-p** _N_, **--pages** _N_
-> Number of Google search pages to scrape (default 5).
+> 要抓取的 Google 搜索结果页数（默认 5）。
 
 **-s** _N_, **--scrap** _N_
-> Maximum number of subdomains scraped from Google.
+> 从 Google 抓取的最大子域名数量。
 
 **-r**, **--recursion**
-> Recurse on discovered subdomains.
+> 对发现的子域名递归执行枚举。
 
 **-w**, **--whois**
-> Perform whois queries on class C network ranges.
+> 对 C 类网络段执行 whois 查询。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dnsenum** is a DNS enumeration tool that gathers information about a domain's DNS infrastructure. It performs multiple queries to discover hosts, name servers, mail servers, and potential subdomains.
+**dnsenum** 是一款 DNS 枚举工具，用于收集域名 DNS 基础设施的相关信息。它通过多次查询来发现主机、域名服务器、邮件服务器和潜在的子域名。
 
-The tool attempts zone transfers, performs reverse lookups, and can brute force subdomains using wordlists. It also scrapes search engines for additional subdomain information and integrates results from multiple sources.
+该工具会尝试区域传送、执行反向查询，并能使用字典对子域名进行暴力枚举。它还会抓取搜索引擎获取更多子域名信息，并整合多个来源的结果。
 
-dnsenum is commonly used in penetration testing and security assessments to map an organization's DNS footprint and identify potential attack vectors.
+dnsenum 常用于渗透测试和安全评估中，以摸清一个组织的 DNS 足迹并发现潜在攻击面。
 
 # CAVEATS
 
-Only perform on domains you have authorization to test. Zone transfers typically blocked on properly configured servers. Brute forcing may be detected and blocked. Search scraping may hit rate limits.
+只能对获得授权的域名进行测试。配置正确的服务器通常会阻止区域传送。暴力枚举可能被检测并封锁。搜索抓取可能触发限速。
 
 # HISTORY
 
-dnsenum is a Perl-based tool developed for the security community. It became a standard reconnaissance tool in penetration testing distributions like Kali Linux, providing comprehensive DNS enumeration capabilities.
+dnsenum 是一款基于 Perl 的工具，由安全社区开发。它已成为 Kali Linux 等渗透测试发行版中的标准侦察工具，提供全面的 DNS 枚举能力。
 
 # INSTALL
 

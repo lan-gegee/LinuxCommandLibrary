@@ -1,30 +1,30 @@
 # TAGLINE
 
-Remove Docker Buildx build cache
+清除 Docker Buildx 构建缓存
 
 # TLDR
 
-**Prune all build cache** with confirmation prompt
+**清理所有构建缓存**，带确认提示
 
 ```docker buildx prune```
 
-**Force prune** without confirmation
+**强制清理**，无需确认
 
 ```docker buildx prune -f```
 
-**Prune all cache** including internal and frontend images
+**清理全部缓存**，包括内部镜像和 frontend 镜像
 
 ```docker buildx prune --all```
 
-**Prune cache** older than 24 hours
+**清理超过 24 小时**的缓存
 
 ```docker buildx prune --filter until=[24h]```
 
-**Prune cache** and keep at most 2 GB
+**清理缓存**并最多保留 2 GB
 
 ```docker buildx prune --max-used-space [2gb]```
 
-**Prune cache** ensuring at least 10 GB free disk space
+**清理缓存**并确保至少有 10 GB 可用磁盘空间
 
 ```docker buildx prune --min-free-space [10gb]```
 
@@ -35,38 +35,38 @@ Remove Docker Buildx build cache
 # PARAMETERS
 
 **-a**, **--all**
-> Remove all cache including internal and frontend images.
+> 清除全部缓存，包括内部镜像和 frontend 镜像。
 
 **-f**, **--force**
-> Skip the confirmation prompt.
+> 跳过确认提示。
 
 **--filter** _key=value_
-> Filter cache records to prune (e.g., until=24h, type, inuse, shared).
+> 过滤要清理的缓存记录（例如 until=24h、type、inuse、shared）。
 
 **--max-used-space** _size_
-> Maximum total disk space for the cache (e.g., 2gb, 512mb).
+> 缓存可占用的最大磁盘空间总量（例如 2gb、512mb）。
 
 **--min-free-space** _size_
-> Target amount of free disk space after pruning.
+> 清理后目标保留的可用磁盘空间量。
 
 **--reserved-space** _size_
-> Minimum disk space permanently reserved for cache.
+> 永久为缓存预留的最小磁盘空间。
 
 **--timeout** _duration_
-> Override default timeout for loading builder status (default: 20s).
+> 覆盖加载构建器状态的默认超时时间（默认：20s）。
 
 **--verbose**
-> Show detailed output.
+> 显示详细输出。
 
 # DESCRIPTION
 
-**docker buildx prune** clears the build cache of the currently selected builder instance. By default it removes only reclaimable cache entries, prompting for confirmation. With **--all**, it also removes internal and frontend images.
+**docker buildx prune** 清除当前选定构建器实例的构建缓存。默认只移除可回收的缓存条目，并提示确认。配合 **--all** 时还会移除内部镜像和 frontend 镜像。
 
-The space management flags (**--max-used-space**, **--min-free-space**, **--reserved-space**) allow fine-grained control over disk usage. The **--filter** flag supports selectors like **until**, **id**, **type**, **inuse**, **mutable**, **shared**, and **private**, combined with AND logic.
+空间管理标志（**--max-used-space**、**--min-free-space**、**--reserved-space**）允许对磁盘占用进行精细控制。**--filter** 标志支持 **until**、**id**、**type**、**inuse**、**mutable**、**shared** 和 **private** 等选择器，多个条件按 AND 逻辑组合。
 
 # CAVEATS
 
-Without **--all**, internal images and frontend cache are preserved. Space flags accept human-readable values (e.g., 128mb, 2gb). When multiple space flags are specified, all constraints are honored simultaneously.
+不带 **--all** 时，内部镜像和 frontend 缓存会被保留。空间标志接受人类可读的值（如 128mb、2gb）。同时指定多个空间标志时，所有约束会一并生效。
 
 # INSTALL
 

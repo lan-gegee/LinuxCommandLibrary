@@ -1,30 +1,30 @@
 # TAGLINE
 
-.NET CLI tool package manager
+.NET CLI 工具包管理器
 
 # TLDR
 
-**Install global tool**
+**安装全局工具**
 
 ```dotnet tool install -g [tool-name]```
 
-**List global tools**
+**列出全局工具**
 
 ```dotnet tool list -g```
 
-**Update global tool**
+**更新全局工具**
 
 ```dotnet tool update -g [tool-name]```
 
-**Uninstall global tool**
+**卸载全局工具**
 
 ```dotnet tool uninstall -g [tool-name]```
 
-**Install local tool**
+**安装本地工具**
 
 ```dotnet tool install [tool-name]```
 
-**Restore local tools**
+**还原本地工具**
 
 ```dotnet tool restore```
 
@@ -35,52 +35,52 @@
 # PARAMETERS
 
 _COMMAND_
-> Operation: install, list, update, uninstall, restore.
+> 操作类型：install、list、update、uninstall、restore。
 
 **install** _PACKAGE_
-> Install tool package.
+> 安装工具包。
 
 **list**
-> List installed tools.
+> 列出已安装的工具。
 
 **update** _PACKAGE_
-> Update tool to latest version.
+> 将工具更新到最新版本。
 
 **uninstall** _PACKAGE_
-> Remove tool.
+> 移除工具。
 
 **restore**
-> Restore local tools from manifest.
+> 从清单还原本地工具。
 
 **-g**, **--global**
-> Global installation (user-wide).
+> 全局安装（用户范围）。
 
 **--tool-path** _PATH_
-> Custom installation directory.
+> 自定义安装目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **dotnet-tools.json**
-> Manifest file specifying local tool dependencies and versions for the project.
+> 清单文件，声明项目所需的本地工具依赖及其版本。
 
 # DESCRIPTION
 
-**dotnet tool** manages .NET CLI tools, which are NuGet packages containing console applications. Tools can be installed globally (user-wide) or locally (project-specific).
+**dotnet tool** 管理 .NET CLI 工具，这类工具是包含控制台应用程序的 NuGet 包。工具可以全局安装（用户范围）或本地安装（针对项目）。
 
-Global tools are available from any directory and installed in a user-specific location. Local tools are specified in a manifest file (dotnet-tools.json) and installed per-project.
+全局工具可从任意目录调用，安装在用户专属的位置。本地工具在清单文件（dotnet-tools.json）中声明，按项目安装。
 
-Popular tools include dotnet-ef (Entity Framework), dotnet-format (code formatting), and various analyzers and generators.
+常用工具包括 dotnet-ef（Entity Framework）、dotnet-format（代码格式化），以及各种分析器和生成器。
 
 # CAVEATS
 
-Global tools may have version conflicts. Local tools require manifest restoration. Tool versions should match project requirements. PATH configuration needed for global tools.
+全局工具可能出现版本冲突。本地工具需要还原清单。工具版本应与项目要求匹配。全局工具需要配置 PATH。
 
 # HISTORY
 
-dotnet tool was introduced in **.NET Core 2.1** (**2018**) to provide extensibility through NuGet-distributed CLI tools, enabling ecosystem growth beyond the built-in commands.
+dotnet tool 于 **.NET Core 2.1**（**2018 年**）推出，旨在通过 NuGet 分发的 CLI 工具提供扩展能力，推动生态在内置命令之外继续成长。
 
 # INSTALL
 

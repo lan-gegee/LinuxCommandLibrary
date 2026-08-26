@@ -1,26 +1,26 @@
 # TAGLINE
 
-replay ext filesystem undo logs
+重放 ext 文件系统的撤销日志
 
 # TLDR
 
-Display **undo file info**
+显示**撤销文件信息**
 
 ```e2undo -h [path/to/undo_file] [/dev/sdXN]```
 
-**Dry run** showing candidate blocks
+**试运行**并显示候选块
 
 ```e2undo -nv [path/to/undo_file] [/dev/sdXN]```
 
-Perform **undo operation**
+执行**撤销操作**
 
 ```e2undo [path/to/undo_file] [/dev/sdXN]```
 
-Perform undo with **verbose output**
+以**详细输出**执行撤销
 
 ```e2undo -v [path/to/undo_file] [/dev/sdXN]```
 
-Create **backup undo file** before overwriting
+覆盖前创建**备份撤销文件**
 
 ```e2undo -z [path/to/file.e2undo] [path/to/undo_file] [/dev/sdXN]```
 
@@ -30,33 +30,33 @@ Create **backup undo file** before overwriting
 
 # DESCRIPTION
 
-**e2undo** replays undo logs for ext2/ext3/ext4 filesystems. This can reverse a failed or unwanted operation by e2fsprogs tools like e2fsck, resize2fs, or tune2fs, providing a safety mechanism for filesystem modifications.
+**e2undo** 重放 ext2/ext3/ext4 文件系统的撤销日志。它可以撤销 e2fsck、resize2fs 或 tune2fs 等 e2fsprogs 工具失败或不合预期的操作，为文件系统修改提供一种安全机制。
 
-Undo files are created when these tools are run with the -z option. The undo file records all blocks modified during the operation, allowing precise rollback to the pre-operation state. This is particularly valuable when testing filesystem modifications or recovering from interrupted operations.
+当这些工具带 -z 选项运行时会生成撤销文件。撤销文件记录操作期间所有被修改的块，从而能够精确回滚到操作前的状态。这在测试文件系统修改或从被中断的操作中恢复时尤其有价值。
 
 # PARAMETERS
 
 **-f**
-> Force the undo even when the filesystem UUID or superblock does not match the undo file
+> 即使文件系统 UUID 或超级块与撤销文件不匹配也强制撤销
 
 **-h**
-> Display information about the undo file without applying it
+> 显示撤销文件的信息而不应用它
 
 **-n**
-> Dry run: show what would be replayed without modifying the filesystem
+> 试运行：显示将要重放的内容而不修改文件系统
 
 **-o** _offset_
-> Byte offset of the filesystem within the device or image file
+> 文件系统在设备或镜像文件中的字节偏移
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-z** _file_
-> Write a new undo file recording the blocks this undo operation overwrites
+> 写一个新的撤销文件，记录本次撤销操作覆盖的块
 
 # CAVEATS
 
-Requires an undo file, which the e2fsprogs tools only create when run with their own **-z** option (for example `e2fsck -z undo.e2undo /dev/sda1`). The filesystem must be unmounted. e2undo refuses to run if the filesystem has changed since the undo file was written, unless **-f** is given, which risks corrupting the filesystem. Part of the **e2fsprogs** package.
+需要撤销文件，而 e2fsprogs 工具只有在带各自的 **-z** 选项运行时才会创建它（例如 `e2fsck -z undo.e2undo /dev/sda1`）。文件系统必须处于卸载状态。如果文件系统自撤销文件写入后发生过变化，e2undo 会拒绝运行；除非给出 **-f**，但这有损坏文件系统的风险。属于 **e2fsprogs** 软件包。
 
 # INSTALL
 

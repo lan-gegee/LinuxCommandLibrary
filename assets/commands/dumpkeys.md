@@ -1,30 +1,30 @@
 # TAGLINE
 
-console keyboard translation table dumper
+控制台键盘转换表导出工具
 
 # TLDR
 
-**Dump current keymap**
+**导出当前键盘映射**
 
 ```dumpkeys```
 
-**Dump in full format**
+**以完整格式导出**
 
 ```dumpkeys --full-table```
 
-**Show only key definitions**
+**只显示按键定义**
 
 ```dumpkeys --keys-only```
 
-**Dump function key strings**
+**导出功能键字符串**
 
 ```dumpkeys --funcs-only```
 
-**Output action codes numerically (hex)**
+**以数字（十六进制）形式输出动作码**
 
 ```dumpkeys -n```
 
-**Save keymap to file**
+**将键盘映射保存到文件**
 
 ```dumpkeys > [keymap.map]```
 
@@ -35,49 +35,49 @@ console keyboard translation table dumper
 # PARAMETERS
 
 **-f**, **--full-table**
-> Output all key bindings in canonical form (keymaps line followed by rows for all modifier combinations).
+> 以规范形式输出所有按键绑定（keymaps 行加上所有修饰键组合对应的行）。
 
 **-1**, **--separate-lines**
-> Write one line per (modifier, keycode) pair; prefix plain keycodes with "plain".
+> 每个（修饰键, 键码）对占一行；普通键码加 "plain" 前缀。
 
 **-S** _shape_, **--shape**=_shape_
-> Select output format: 2 (default), 4 (one line per keycode), 8 (one line per modifier-keycode), or 16 (stop at first gap).
+> 选择输出格式：2（默认）、4（每个键码一行）、8（每个修饰键-键码一行）或 16（遇到第一个空缺即停止）。
 
 **-n**, **--numeric**
-> Output action codes in hexadecimal rather than symbolic notation.
+> 以十六进制而非符号记法输出动作码。
 
 **-t**, **--funcs-only**
-> Output only function key string definitions.
+> 只输出功能键字符串定义。
 
 **-k**, **--keys-only**
-> Output only key bindings, excluding function strings.
+> 只输出按键绑定，不包括功能键字符串。
 
 **-d**, **--compose-only**
-> Output only compose key combinations (requires kernel compose support).
+> 只输出组合键序列（需要内核组合键支持）。
 
 **-c** _charset_, **--charset**=_charset_
-> Interpret character codes using the given charset (iso-8859-1..iso-8859-9).
+> 使用给定字符集解释字符编码（iso-8859-1..iso-8859-9）。
 
 **-C** _dev_, **--console**=_dev_
-> Target the specified console device.
+> 针对指定的控制台设备。
 
 **-i**, **--short-info**
-> Display keyboard driver characteristics (keycode range, bindable actions, function key count).
+> 显示键盘驱动特征（键码范围、可绑定的动作、功能键数量）。
 
 **-l**, **-s**, **--long-info**
-> Display long-form info: short-info plus a list of action symbols and values.
+> 显示长格式信息：短格式信息外加动作符号及取值列表。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-V**, **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 # DESCRIPTION
 
-**dumpkeys** outputs the current keyboard translation tables used by the Linux console. The output format is compatible with **loadkeys**, allowing keymaps to be saved, modified, and restored.
+**dumpkeys** 输出 Linux 控制台当前使用的键盘转换表。其输出格式与 **loadkeys** 兼容，因此键盘映射可以被保存、修改和恢复。
 
-The command reads from the kernel's keyboard driver and produces a keymap file showing what actions are bound to each key and modifier combination. This is used for console keyboard customization.
+该命令读取内核键盘驱动的数据，生成一个键映射文件，展示每个按键及修饰键组合所绑定的动作。它用于控制台键盘的自定义。
 
 # OUTPUT FORMAT
 
@@ -90,11 +90,11 @@ shift keycode  14 = Delete
 
 # CAVEATS
 
-Only works on Linux console, not X11 or Wayland. Requires access to console device. Output format varies with options. Virtual terminals share the same keymap. Use loadkeys to restore or modify keymaps.
+只能在 Linux 控制台上工作，不适用于 X11 或 Wayland。需要访问控制台设备。输出格式随选项而异。各虚拟终端共享同一份键盘映射。请使用 loadkeys 恢复或修改键盘映射。
 
 # HISTORY
 
-dumpkeys is part of the **kbd** package for Linux console keyboard utilities. It has been included in Linux distributions since the early **1990s** as a companion to loadkeys, providing a way to export and backup keyboard configurations.
+dumpkeys 是 Linux 控制台键盘工具集 **kbd** 软件包的一部分。自 **20 世纪 90 年代初**起，它便作为 loadkeys 的配套工具被纳入各个 Linux 发行版，提供导出和备份键盘配置的途径。
 
 # INSTALL
 

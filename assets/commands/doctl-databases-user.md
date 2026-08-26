@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage database cluster users
+管理数据库集群的用户
 
 # TLDR
 
-**List database users**
+**列出数据库用户**
 
 ```doctl databases user list [cluster_id]```
 
-**Create a user**
+**创建一个用户**
 
 ```doctl databases user create [cluster_id] [username]```
 
-**Get user info**
+**获取用户信息**
 
 ```doctl databases user get [cluster_id] [username]```
 
-**Reset user auth** password or MySQL auth plugin
+**重置用户认证**密码或 MySQL 认证插件
 
 ```doctl databases user reset [cluster_id] [username] [new_auth_mode]```
 
-**Create a user** with a specific MySQL auth plugin
+**创建使用指定 MySQL 认证插件的**用户
 
 ```doctl databases user create [cluster_id] [username] --mysql-auth-plugin [caching_sha2_password]```
 
-**List users** with custom output format
+**以自定义输出格式列出用户**
 
 ```doctl databases user list [cluster_id] --format Name,Role```
 
-**Delete a user**
+**删除一个用户**
 
 ```doctl databases user delete [cluster_id] [username]```
 
@@ -39,47 +39,47 @@ manage database cluster users
 # SUBCOMMANDS
 
 **list**
-> Retrieve a list of database users.
+> 获取数据库用户的列表。
 
 **create**
-> Create a database user. New users are given a role of normal and an automatically-generated password.
+> 创建一个数据库用户。新用户的角色为 normal，并自动生成密码。
 
 **get**
-> Retrieve details about a database user.
+> 获取某个数据库用户的详情。
 
 **delete**
-> Delete a database user.
+> 删除一个数据库用户。
 
 **reset**
-> Reset the auth password or the MySQL authorization plugin for a given user and return new credentials.
+> 重置指定用户的认证密码或 MySQL 授权插件，并返回新凭据。
 
 # PARAMETERS
 
 **--mysql-auth-plugin** _PLUGIN_
-> Set MySQL authorization plugin (caching_sha2_password or mysql_native_password). Used with create.
+> 设置 MySQL 授权插件（caching_sha2_password 或 mysql_native_password）。与 create 一起使用。
 
 **--acl** _RULES_
-> Comma-separated Kafka ACL rules in topic:permission format. Used with create.
+> 以逗号分隔的 Kafka ACL 规则，格式为 topic:permission。与 create 一起使用。
 
 **--opensearch-acl** _RULES_
-> Comma-separated OpenSearch ACL rules in index:permission format. Used with create.
+> 以逗号分隔的 OpenSearch ACL 规则，格式为 index:permission。与 create 一起使用。
 
 **--format** _COLUMNS_
-> Columns for output (e.g., Name,Role).
+> 输出列（例如 Name,Role）。
 
 **--no-header**
-> Omit the header row from output.
+> 输出中省略表头行。
 
 **--output** _FORMAT_
-> Output format: text or json (default: text).
+> 输出格式：text 或 json（默认：text）。
 
 # DESCRIPTION
 
-**doctl databases user** manages users for DigitalOcean managed database clusters. Users represent authentication credentials that applications and administrators use to connect to databases.
+**doctl databases user** 管理 DigitalOcean 托管数据库集群的用户。用户代表应用和管理员连接数据库时使用的身份验证凭据。
 
-Each user has associated credentials (username and password) and potentially different privileges depending on the database engine. User management includes creating users for different applications or services, rotating credentials via password reset, and removing users when access is no longer needed.
+每个用户都有关联的凭据（用户名和密码），并根据数据库引擎拥有不同的权限。用户管理包括为不同的应用或服务创建用户、通过密码重置轮换凭据，以及在不再需要访问时删除用户。
 
-Proper user management follows security best practices: creating dedicated users for each application, regularly rotating credentials, and removing unused accounts to minimize security exposure.
+正确的用户管理应遵循安全最佳实践：为每个应用创建专用用户、定期轮换凭据，以及删除不再使用的账户以尽量减少安全暴露面。
 
 # INSTALL
 

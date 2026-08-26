@@ -1,34 +1,34 @@
 # TAGLINE
 
-Local AWS cloud emulator for integration tests
+面向集成测试的本地 AWS 云模拟器
 
 # TLDR
 
-**Start the emulator** on _http://localhost:4566_
+启动模拟器（监听 _http://localhost:4566_）
 
 ```fakecloud```
 
-**Install fakecloud** via the one-line installer
+通过一行安装命令安装 fakecloud
 
 ```curl -fsSL https://raw.githubusercontent.com/faiscadev/fakecloud/main/install.sh | bash```
 
-**Enable SigV4 signature verification** (closer to real AWS)
+启用 SigV4 签名验证（更接近真实 AWS）
 
 ```fakecloud --verify-sigv4```
 
-**Enable strict IAM policy enforcement**
+启用严格的 IAM 策略强制执行
 
 ```fakecloud --iam [strict]```
 
-**Create an SQS queue** against the running emulator
+针对运行中的模拟器创建 SQS 队列
 
 ```aws --endpoint-url http://localhost:4566 sqs create-queue --queue-name [my-queue]```
 
-**Install with Cargo**
+用 Cargo 安装
 
 ```cargo install fakecloud```
 
-**Run inside Docker**
+在 Docker 中运行
 
 ```docker run -p 4566:4566 faisca/fakecloud```
 
@@ -39,35 +39,35 @@ Local AWS cloud emulator for integration tests
 # PARAMETERS
 
 **--verify-sigv4**
-> Enable cryptographic signature verification so that clients must sign requests exactly as they would for real AWS.
+> 启用加密签名验证，客户端必须像访问真实 AWS 那样对请求进行签名。
 
 **--iam** _MODE_
-> IAM policy enforcement. _soft_ evaluates but does not block; _strict_ denies unauthorized calls. Defaults to off.
+> IAM 策略强制执行。_soft_ 只评估但不阻止；_strict_ 会拒绝未授权调用。默认关闭。
 
 **--port** _PORT_
-> Listen on an alternate TCP port (default _4566_).
+> 监听其他 TCP 端口（默认 _4566_）。
 
 **--host** _ADDR_
-> Bind to a specific interface (default _127.0.0.1_).
+> 绑定到指定网络接口（默认 _127.0.0.1_）。
 
 **--data-dir** _DIR_
-> Directory used to persist emulated state between runs.
+> 用于在多次运行之间持久化模拟状态的目录。
 
 **-h**, **--help**
-> Show help and exit.
+> 显示帮助信息并退出。
 
 **-V**, **--version**
-> Print version and exit.
+> 输出版本信息并退出。
 
 # DESCRIPTION
 
-**fakecloud** is a single self-contained binary (~19 MB, ~10 MiB RSS, ~500 ms startup) that emulates the most common AWS services locally — S3, SQS, SNS, DynamoDB, Lambda, IAM, and more — so that integration tests do not need cloud credentials or internet access. Point any AWS SDK or the **aws** CLI at _http://localhost:4566_ with dummy credentials (**access_key=test**, **secret_key=test**) and it responds with the same wire protocol as the real service.
+**fakecloud** 是一个自包含的单二进制程序（约 19 MB，约 10 MiB RSS，约 500 ms 启动），在本地模拟最常用的 AWS 服务——S3、SQS、SNS、DynamoDB、Lambda、IAM 等——让集成测试无需云凭据或互联网访问。将任何 AWS SDK 或 **aws** CLI 指向 _http://localhost:4566_ 并使用虚拟凭据（**access_key=test**、**secret_key=test**），它会以与真实服务相同的线上协议作出响应。
 
-First-party test SDKs exist for TypeScript, Python, Go, PHP, Java, and Rust. fakecloud itself has no runtime dependency on Docker, though a container image is provided for CI convenience.
+官方测试 SDK 支持 TypeScript、Python、Go、PHP、Java 和 Rust。fakecloud 本身在运行时不依赖 Docker，不过为了方便 CI 也提供了容器镜像。
 
 # CONFIGURATION
 
-Typical test configuration in TypeScript:
+TypeScript 中的典型测试配置：
 
 ```
 import { S3Client } from "@aws-sdk/client-s3";
@@ -80,15 +80,15 @@ const s3 = new S3Client({
 });
 ```
 
-State can be persisted between test runs by passing **--data-dir**; otherwise each start is a clean slate.
+传入 **--data-dir** 可以在多次测试运行之间持久化状态；否则每次启动都是全新环境。
 
 # CAVEATS
 
-fakecloud covers the common AWS services but is not bit-for-bit identical with production AWS — obscure error codes, quota behaviors, and eventual-consistency edge cases may differ. Only use it for integration tests, not as a production replacement. The project is licensed **AGPL-3.0**, which matters if you plan to redistribute it as part of a SaaS.
+fakecloud 覆盖常用的 AWS 服务，但与生产环境的 AWS 并非逐位一致——冷门的错误码、配额行为和最终一致性的边缘情况可能不同。只应将其用于集成测试，而不是作为生产替代品。本项目采用 **AGPL-3.0** 许可证，如果你计划将其作为 SaaS 的一部分再分发，这一点需要留意。
 
 # HISTORY
 
-**fakecloud** was launched by **faiscadev** in early **2026** after **LocalStack** announced its shift to a proprietary license, giving teams a free-forever, open-source alternative for fully local AWS testing.
+**fakecloud** 由 **faiscadev** 于 **2026 年**初推出。当时 **LocalStack** 宣布转向专有许可证，fakecloud 为团队提供了一个永久免费的开源替代方案，实现完全本地的 AWS 测试。
 
 # INSTALL
 

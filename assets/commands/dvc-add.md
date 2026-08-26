@@ -1,18 +1,18 @@
 # TAGLINE
 
-track data files with DVC
+用 DVC 跟踪数据文件
 
 # TLDR
 
-**Track a file**
+**跟踪一个文件**
 
 ```dvc add [data.csv]```
 
-**Track a directory**
+**跟踪一个目录**
 
 ```dvc add [data/]```
 
-**Track with external storage**
+**跟踪外部存储中的文件**
 
 ```dvc add --external [/external/data]```
 
@@ -23,24 +23,24 @@ track data files with DVC
 # PARAMETERS
 
 **-f**, **--file** _file_
-> Specify .dvc filename.
+> 指定 .dvc 文件名。
 
 **--external**
-> Track external files.
+> 跟踪仓库外部的文件。
 
 **--no-commit**
-> Don't auto-commit to git.
+> 不自动提交到 git。
 
 **--glob**
-> Use glob patterns.
+> 使用 glob 模式。
 
 # DESCRIPTION
 
-**dvc add** is the fundamental command for bringing data files under DVC version control. When you add a file, DVC computes its hash, moves it to the DVC cache, and creates a lightweight .dvc metadata file in its place.
+**dvc add** 是把数据文件纳入 DVC 版本控制的基础命令。添加文件时，DVC 会计算其哈希值，把它移入 DVC 缓存，并在原位置创建一个轻量的 .dvc 元数据文件。
 
-The .dvc file contains the hash and path information needed to retrieve the original file from cache or remote storage. DVC automatically adds the original filename to .gitignore so the large data file isn't committed to Git, only the small .dvc metadata file.
+.dvc 文件包含从缓存或远程存储取回原文件所需的哈希和路径信息。DVC 会自动把原始文件名加入 .gitignore，这样大的数据文件不会提交进 Git，只有小的 .dvc 元数据文件被提交。
 
-This two-file approach allows Git to track data versions (via .dvc file) without storing the actual large files in the repository. The cached data can then be pushed to remote storage for team sharing. Directories are tracked recursively with a single .dvc file tracking all contents.
+这种双文件方案让 Git 能够跟踪数据版本（通过 .dvc 文件），而无需把实际的大文件存入仓库。缓存的数据随后可以推送到远程存储供团队共享。目录会被递归跟踪，单个 .dvc 文件即可覆盖其全部内容。
 
 # INSTALL
 
@@ -51,5 +51,4 @@ This two-file approach allows Git to track data versions (via .dvc file) without
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-
 

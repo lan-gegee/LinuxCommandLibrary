@@ -1,26 +1,26 @@
 # TAGLINE
 
-list Docker images stored locally
+列出本地存储的 Docker 镜像
 
 # TLDR
 
-**List all images**
+**列出所有镜像**
 
 ```docker images```
 
-**List with digests**
+**列出镜像及其摘要**
 
 ```docker images --digests```
 
-**List only image IDs**
+**仅列出镜像 ID**
 
 ```docker images -q```
 
-**Filter by repository**
+**按软件仓库过滤**
 
 ```docker images [repository]```
 
-**Show dangling images**
+**显示悬空镜像**
 
 ```docker images -f dangling=true```
 
@@ -31,26 +31,26 @@ list Docker images stored locally
 # PARAMETERS
 
 **-a**, **--all**
-> Show all images (including intermediate layers).
+> 显示所有镜像（包括中间层）。
 
 **-q**, **--quiet**
-> Only show image IDs.
+> 仅显示镜像 ID。
 
 **--digests**
-> Show digests.
+> 显示摘要。
 
 **-f**, **--filter** _filter_
-> Filter output.
+> 过滤输出。
 
 **--format** _string_
-> Format output using a custom template: table, table TEMPLATE, json, or a Go template string.
+> 使用自定义模板格式化输出：table、table TEMPLATE、json 或 Go 模板字符串。
 
 **--no-trunc**
-> Don't truncate output.
+> 不截断输出。
 
 # DESCRIPTION
 
-**docker images** lists images stored on the local system. Shorthand for docker image ls. Shows repository, tag, image ID, creation time, and size. Images are the templates from which containers are created, containing the filesystem and configuration needed to run an application.
+**docker images** 列出存储在本地系统上的镜像，是 docker image ls 的简写形式。显示软件仓库、标签、镜像 ID、创建时间和大小。镜像是创建容器的模板，包含运行应用程序所需的文件系统和配置。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ list Docker images stored locally
 # SEE ALSO
 
 [docker-image-ls](/man/docker-image-ls)(1), [docker-rmi](/man/docker-rmi)(1), [docker-pull](/man/docker-pull)(1)
-

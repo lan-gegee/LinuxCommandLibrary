@@ -1,26 +1,26 @@
 # TAGLINE
 
-fixed-string search without regex
+不使用正则的固定字符串搜索
 
 # TLDR
 
-**Search for literal** string
+**搜索字面**字符串
 
 ```fgrep "[search string]" [file.txt]```
 
-**Search multiple files**
+**搜索多个文件**
 
 ```fgrep "[pattern]" [file1.txt] [file2.txt]```
 
-**Case insensitive search**
+**不区分大小写搜索**
 
 ```fgrep -i "[pattern]" [file.txt]```
 
-**Show line numbers**
+**显示行号**
 
 ```fgrep -n "[pattern]" [file.txt]```
 
-**Recursive search**
+**递归搜索**
 
 ```fgrep -r "[pattern]" [directory]```
 
@@ -31,47 +31,47 @@ fixed-string search without regex
 # PARAMETERS
 
 _PATTERN_
-> Fixed string to search for.
+> 要搜索的固定字符串。
 
 _FILES_
-> Files to search.
+> 要搜索的文件。
 
 **-i**, **--ignore-case**
-> Case insensitive matching.
+> 不区分大小写匹配。
 
 **-n**, **--line-number**
-> Show line numbers.
+> 显示行号。
 
 **-r**, **--recursive**
-> Search directories recursively.
+> 递归搜索目录。
 
 **-l**, **--files-with-matches**
-> Show only filenames.
+> 仅显示文件名。
 
 **-c**, **--count**
-> Count matching lines.
+> 统计匹配的行数。
 
 **-v**, **--invert-match**
-> Show non-matching lines.
+> 显示不匹配的行。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fgrep** searches for fixed strings rather than regular expressions. It's equivalent to grep -F and is faster when searching for literal text without regex metacharacters.
+**fgrep** 搜索的是固定字符串而非正则表达式。它等价于 grep -F，在搜索不含正则元字符的字面文本时速度更快。
 
-The tool treats the pattern as a plain string, so characters like ., *, and [ have no special meaning. This makes it ideal for searching log files, code, or any text containing regex metacharacters.
+该工具把模式当作普通字符串处理，因此 .、* 和 [ 等字符不具有特殊含义。这使它非常适合搜索日志文件、代码或任何包含正则元字符的文本。
 
-fgrep is particularly useful when the search pattern comes from user input or variables that might contain special characters.
+当搜索模式来自用户输入或可能包含特殊字符的变量时，fgrep 尤其实用。
 
 # CAVEATS
 
-No regex support by design. Deprecated in favor of grep -F; GNU grep 3.8 (2022) and later print a deprecation warning when invoked as fgrep. Multiple patterns require the -f option.
+设计上不支持正则表达式。已被弃用，建议改用 grep -F；GNU grep 3.8（2022 年）及更高版本在以 fgrep 身份调用时会打印弃用警告。要指定多个模式需使用 -f 选项。
 
 # HISTORY
 
-fgrep (fast grep) originated in **Unix Version 7** as an optimized grep variant for literal strings. Modern implementations typically link to grep with the -F flag.
+fgrep（fast grep）起源于 **Unix Version 7**，是一个针对字面字符串优化过的 grep 变体。现代实现通常是指向 grep 并附带 -F 标志的链接。
 
 # INSTALL
 

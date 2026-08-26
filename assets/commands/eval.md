@@ -1,26 +1,26 @@
 # TAGLINE
 
-shell builtin for dynamic command execution
+用于动态执行命令的 Shell 内建命令
 
 # TLDR
 
-**Execute dynamically** built command
+**执行动态构建的**命令
 
 ```cmd="ls -la"; eval "$cmd"```
 
-**Expand variables** twice (variable indirection)
+**两次展开变量**（变量间接引用）
 
 ```var="PATH"; eval "echo \$$var"```
 
-**Set a variable** with a dynamic name
+**用动态名称设置变量**
 
 ```key="myvar"; eval "$key=hello"; echo "$myvar"```
 
-**Execute a command stored** in a variable with pipes
+**执行存储在变量中、带管道的**命令
 
 ```cmd="ps aux | grep bash"; eval "$cmd"```
 
-**Use eval with command substitution**
+**将 eval 与命令替换结合使用**
 
 ```eval "$(ssh-agent -s)"```
 
@@ -31,23 +31,23 @@ shell builtin for dynamic command execution
 # PARAMETERS
 
 _ARGUMENT_
-> Arguments to concatenate and execute.
+> 要拼接并执行的参数。
 
 # DESCRIPTION
 
-**eval** is a POSIX special shell builtin that concatenates its arguments separated by spaces, then reads and executes the resulting string as a shell command. This enables dynamic command construction and double expansion of variables.
+**eval** 是一个 POSIX 特殊 shell 内建命令，它把各个参数以空格拼接起来，然后将得到的字符串作为 shell 命令读取并执行。这使得动态构建命令和对变量进行双重展开成为可能。
 
-The command is useful when command strings are built programmatically or stored in variables. It allows variable indirection (accessing a variable whose name is in another variable). A common real-world use is initializing ssh-agent with `eval "$(ssh-agent -s)"`.
+当命令字符串需要以编程方式构建或存储在变量中时，该命令非常有用。它还支持变量间接引用（访问名字存放在另一个变量中的变量）。一个常见的实际用法是用 `eval "$(ssh-agent -s)"` 初始化 ssh-agent。
 
-If there are no arguments or only null arguments, eval returns exit status 0. Otherwise it returns the exit status of the executed command.
+如果没有参数或只有空参数，eval 返回退出状态 0。否则返回所执行命令的退出状态。
 
 # CAVEATS
 
-Security risk with untrusted input. Because arguments are re-parsed by the shell, **eval** with user-supplied strings is functionally equivalent to **system(unsanitized)** in C - it can run arbitrary commands, including via metacharacters and command substitution. Quoting must be planned in two layers (the layer eval sees and the layer the resulting command sees), which makes debugging difficult. Prefer arrays (**"$cmd[@]"** in bash/zsh) or **printf -v** when only variable indirection is needed, and reserve **eval** for cases like **eval "$(ssh-agent -s)"** where the input is trusted.
+对不可信输入存在安全风险。由于参数会被 shell 重新解析，把用户提供的字符串交给 **eval** 在功能上等同于 C 语言中的 **system(未消毒输入)** — 它可以运行任意命令，包括通过元字符和命令替换注入的命令。引号必须按两层规划（eval 看到的一层和最终执行命令看到的一层），这让调试变得困难。如果只需要变量间接引用，优先使用数组（bash/zsh 中的 **"$cmd[@]"**）或 **printf -v**；把 **eval** 留给 **eval "$(ssh-agent -s)"** 这类输入可信的场景。
 
 # HISTORY
 
-**eval** is a standard POSIX special shell builtin defined in **IEEE Std 1003.1** (POSIX.1), present in the original Bourne shell and all its derivatives including bash, zsh, ksh, and dash. It provides essential metaprogramming capabilities for shell scripts.
+**eval** 是 **IEEE Std 1003.1**（POSIX.1）定义的标准 POSIX 特殊 shell 内建命令，最早出现在原始 Bourne shell 及其所有衍生版本中，包括 bash、zsh、ksh 和 dash。它为 shell 脚本提供了重要的元编程能力。
 
 # SEE ALSO
 

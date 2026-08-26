@@ -1,22 +1,22 @@
 # TAGLINE
 
-Translate find command lines to equivalent Perl code
+将 find 命令行翻译成等价的 Perl 代码
 
 # TLDR
 
-**Convert a find command to a Perl script**
+**将 find 命令转换为 Perl 脚本**
 
 ```find2perl [directory] -name "[*.txt]"```
 
-**Generate a script with -exec translation**
+**生成包含 -exec 翻译的脚本**
 
 ```find2perl [.] -type f -exec cat {} \;```
 
-**Translate a complex find expression and save to a file**
+**翻译复杂的 find 表达式并保存到文件**
 
 ```find2perl [/var] -mtime +[30] -name "[*.log]" > [cleanup.pl]```
 
-**Run the generated Perl script directly**
+**直接运行生成的 Perl 脚本**
 
 ```find2perl [.] -name "[*.bak]" | perl```
 
@@ -27,45 +27,45 @@ Translate find command lines to equivalent Perl code
 # PARAMETERS
 
 _PATHS_
-> Starting directories to search.
+> 搜索的起始目录。
 
 _PREDICATES_
-> find-style expressions translated to Perl equivalents.
+> find 风格的表达式，会被翻译为对应的 Perl 代码。
 
 **-name** _PATTERN_
-> Match filename against shell glob pattern.
+> 用 shell glob 模式匹配文件名。
 
 **-type** _TYPE_
-> File type: f (regular file), d (directory), l (symbolic link).
+> 文件类型：f（普通文件）、d（目录）、l（符号链接）。
 
 **-mtime** _N_
-> Modification time in days (+N older, -N newer, N exactly).
+> 以天计的修改时间（+N 更早，-N 更新，N 表示恰好）。
 
 **-size** _N_
-> File size.
+> 文件大小。
 
 **-exec** _CMD_
-> Execute command on matching files.
+> 对匹配的文件执行命令。
 
 **-print**
-> Print matching paths (default action).
+> 打印匹配的路径（默认动作）。
 
 **-depth**
-> Process directory contents before the directory itself.
+> 先处理目录的内容，再处理目录本身。
 
 # DESCRIPTION
 
-**find2perl** translates find command expressions into equivalent Perl scripts using the File::Find module. The generated Perl code typically runs faster than the original find command and can be modified to add custom processing beyond what find supports.
+**find2perl** 利用 File::Find 模块把 find 命令表达式翻译成等价的 Perl 脚本。生成的 Perl 代码通常比原来的 find 命令跑得更快，而且可以再加工，添加 find 本身不支持的自定义处理。
 
-The tool helps users migrate from shell-based find commands to Perl for complex file processing tasks. The output is a complete Perl script that can be piped directly to perl or saved and modified.
+该工具帮助用户在复杂的文件处理任务中从 shell 层面的 find 命令迁移到 Perl。它的输出是一个完整的 Perl 脚本，既可以直接用管道传给 perl，也可以保存下来再做修改。
 
 # CAVEATS
 
-Not all find predicates are supported. The generated code may need manual cleanup for edge cases. find2perl was **removed from Perl core in version 5.22.0** (2015) and deprecated since Perl 5.20.0. It is available separately from CPAN as the **App::find2perl** distribution.
+并非所有 find 谓词都受支持。遇到边界情况时，生成的代码可能需要手动清理。find2perl 已在 **5.22.0 版本中从 Perl 核心移除**（2015 年），自 Perl 5.20.0 起就被标记弃用。现在可以从 CPAN 单独获取 **App::find2perl** 发行包。
 
 # HISTORY
 
-find2perl was included with **Perl** as a utility for translating find commands. It was removed from the Perl core distribution in **Perl 5.22.0** and must now be installed separately from CPAN.
+find2perl 曾随 **Perl** 一同附带，是用于翻译 find 命令的工具。它在 **Perl 5.22.0** 中被移出核心发行版，如今必须从 CPAN 单独安装。
 
 # INSTALL
 

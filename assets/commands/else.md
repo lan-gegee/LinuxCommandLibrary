@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fallback branch in shell conditional statements
+Shell 条件语句中的兜底分支
 
 # TLDR
 
-**Use else in** bash script
+**在 bash 脚本中使用 else**
 
 ```if [condition]; then echo "true"; else echo "false"; fi```
 
-**Else after elif**
+**elif 之后的 else**
 
 ```if [ $x -lt 0 ]; then echo "negative"; elif [ $x -eq 0 ]; then echo "zero"; else echo "positive"; fi```
 
-**Fall back when a file is missing**
+**文件缺失时的兜底处理**
 
 ```if [ -f [config.yml] ]; then echo "using config"; else echo "using defaults"; fi```
 
@@ -22,19 +22,19 @@ Fallback branch in shell conditional statements
 
 # DESCRIPTION
 
-**else** is a shell keyword providing an alternative branch in conditional statements. It executes when the preceding if (and any elif) conditions are false.
+**else** 是一个 shell 关键字，为条件语句提供替代分支。当前面的 if（及任何 elif）条件都为假时，它会被执行。
 
-else appears after if/elif blocks and before fi. It cannot have a condition - it catches all remaining cases. Only one else block is allowed per if statement.
+else 出现在 if/elif 块之后、fi 之前。它不能带条件——它捕获所有剩余情况。每个 if 语句只允许一个 else 块。
 
-This is a fundamental shell scripting construct for handling the "otherwise" case in conditional logic.
+这是 shell 脚本中处理条件逻辑"否则"情形的基础构造。
 
 # CAVEATS
 
-else is a shell reserved word, not a program, so it cannot be used outside an if block. Unlike if and elif it takes no condition and no **then**, and only one else may appear per if statement, always as the last branch before **fi**. A `case` statement has no else: its catch-all is the `*)` pattern.
+else 是 shell 保留字而不是程序，因此不能在 if 块之外使用。与 if 和 elif 不同，它不带条件也没有 **then**，且每个 if 语句只能有一个 else，始终作为 **fi** 之前的最后一个分支。`case` 语句没有 else：它的兜底分支是 `*)` 模式。
 
 # HISTORY
 
-else is part of POSIX shell syntax from the Bourne shell, created by **Stephen Bourne** at Bell Labs. It provides the standard fallback mechanism in shell conditional statements.
+else 是 POSIX shell 语法的一部分，源自贝尔实验室 **Stephen Bourne** 创建的 Bourne shell。它在 shell 条件语句中提供了标准的回退机制。
 
 # SEE ALSO
 

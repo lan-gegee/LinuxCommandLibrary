@@ -1,26 +1,26 @@
 # TAGLINE
 
-arithmetic evaluation and expansion
+算术求值与展开
 
 # TLDR
 
-**Arithmetic evaluation**
+**算术求值**
 
 ```(( x = 5 + 3 ))```
 
-**Increment variable**
+**递增变量**
 
 ```(( count++ ))```
 
-**Conditional test**
+**条件测试**
 
 ```(( x > 10 )) && echo "big"```
 
-**Capture arithmetic result**
+**捕获算术结果**
 
 ```result=$(( a * b ))```
 
-**Complex expression**
+**复杂表达式**
 
 ```(( result = (a + b) * c / d ))```
 
@@ -32,27 +32,27 @@ arithmetic evaluation and expansion
 
 # OPERATORS
 
-**Arithmetic**: +, -, *, /, % (modulo), ** (exponent)
+**算术**：+、-、*、/、%（取模）、**（幂）
 
-**Assignment**: =, +=, -=, *=, /=, %=
+**赋值**：=、+=、-=、*=、/=、%=
 
-**Comparison**: ==, !=, <, >, <=, >=
+**比较**：==、!=、<、>、<=、>=
 
-**Logical**: && (and), || (or), ! (not)
+**逻辑**：&&（与）、||（或）、!（非）
 
-**Bitwise**: &, |, ^, ~, <<, >>
+**位运算**：&、|、^、~、<<、>>
 
-**Increment/Decrement**: ++, --
+**自增/自减**：++、--
 
-**Ternary**: condition ? true : false
+**三元**：condition ? true : false
 
 # DESCRIPTION
 
-**((  ))** is the shell's arithmetic evaluation construct. It evaluates mathematical expressions and returns success (0) if the result is non-zero, failure (1) if zero.
+**((  ))** 是 shell 的算术求值结构。它计算数学表达式，结果非零时返回成功（0），为零时返回失败（1）。
 
-Inside **((...))**, variables don't need the **$** prefix and whitespace is ignored. Standard C-style operators work as expected.
+在 **((...))** 内部，变量不需要 **$** 前缀，空白会被忽略。标准的 C 风格运算符按预期工作。
 
-**$((...))** performs arithmetic expansion, substituting the result. **((...))** evaluates without substitution (for side effects like assignment).
+**$((...))** 执行算术展开，替换为结果。**((...))** 只求值不替换（用于赋值等副作用）。
 
 ```bash
 # Evaluation (for conditionals/assignments)
@@ -65,19 +65,19 @@ echo "Result: $(( 5 + 3 ))"
 
 # CAVEATS
 
-Two different constructs are easily confused. **$((...))**, arithmetic *expansion*, **is POSIX** and works in every shell including dash. **((...))**, the arithmetic *command*, is **not** POSIX: it comes from ksh and works in bash, ksh, and zsh, but not in dash. In a `#!/bin/sh` script use `[ "$(( a + b ))" -gt 0 ]` rather than `(( a + b > 0 ))`.
+两种不同的结构很容易混淆。**$((...))** 这种算术*展开* **符合 POSIX**，在任何 shell 中都能用，包括 dash。**((...))** 这个算术*命令***不是** POSIX：它源自 ksh，可在 bash、ksh 和 zsh 中使用，但在 dash 中不行。在 `#!/bin/sh` 脚本里应写 `[ "$(( a + b ))" -gt 0 ]` 而非 `(( a + b > 0 ))`。
 
-Only **integers** are supported. `$(( 5 / 2 ))` is **2**, not 2.5, and there is no way to get a fractional result: use **bc** or **awk** for real arithmetic.
+只支持**整数**。`$(( 5 / 2 ))` 得到 **2** 而不是 2.5，也没有办法得到小数结果：真正的算术请用 **bc** 或 **awk**。
 
-The exit status is inverted relative to the value, which trips up almost everyone once. A non-zero result means success (status 0) and a zero result means failure (status 1), because the construct is designed to read as a C-style truth test. The practical consequence is that `(( count-- ))` as the last line of a function returns failure when `count` reaches zero, and under `set -e` that will terminate the script. Write `(( count-- )) || true` when the value may be zero.
+退出状态与数值大小相反，这一点几乎人人都会踩一次坑。非零结果是成功（状态 0），零结果是失败（状态 1），因为这个结构被设计成读起来像 C 风格的真值判断。实际后果是：把 `(( count-- ))` 放在函数最后一行，当 `count` 减到零时会返回失败，而在 `set -e` 下这会终止脚本。当值可能为零时应写成 `(( count-- )) || true`。
 
-Beware also that a leading zero makes a number **octal** inside arithmetic context: `$(( 010 ))` is 8. This bites scripts handling zero-padded dates, where `$(( 08 ))` is an error rather than eight. Force base ten with `10#`, as in `$(( 10#$month ))`.
+还要注意，算术上下文中前导零会使数字按**八进制**解释：`$(( 010 ))` 是 8。这对处理补零日期的脚本是灾难，因为 `$(( 08 ))` 会直接报错而不是得到八。可用 `10#` 强制十进制，如 `$(( 10#$month ))`。
 
-**\*\*** (exponentiation) is a bash/ksh/zsh extension and is not available everywhere, and the operator is not defined in POSIX arithmetic.
+**\*\***（乘方）是 bash/ksh/zsh 的扩展，并非到处可用，POSIX 算术也未定义该运算符。
 
 # HISTORY
 
-Arithmetic in the original Bourne shell meant calling out to the external **expr** command, which was slow and needed escaping for almost every operator. The **Korn shell** introduced both `let` and the `((...))` command to make arithmetic a first-class part of the language, and POSIX subsequently standardised the `$((...))` expansion form, though not the `((...))` command. bash and zsh support all of them, which is why the same script can be written three different ways and why `expr` still turns up in old code.
+原始 Bourne shell 中的算术意味着调用外部 **expr** 命令，速度慢且几乎每个运算符都要转义。**Korn shell** 引入了 `let` 和 `((...))` 命令，使算术成为语言的一等公民；POSIX 随后标准化了 `$((...))` 展开形式，但没有标准化 `((...))` 命令。bash 和 zsh 对两者都支持，所以同一段脚本可以有三种写法，也是 `expr` 至今仍出现在旧代码里的原因。
 
 # SEE ALSO
 

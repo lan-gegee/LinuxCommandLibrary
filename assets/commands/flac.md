@@ -1,34 +1,34 @@
 # TAGLINE
 
-free lossless audio codec encoder and decoder
+免费无损音频编解码器
 
 # TLDR
 
-**Encode WAV to FLAC**
+**将 WAV 编码为 FLAC**
 
 ```flac [audio.wav]```
 
-**Decode FLAC to WAV**
+**将 FLAC 解码为 WAV**
 
 ```flac -d [audio.flac]```
 
-**Maximum compression**
+**最高压缩级别**
 
 ```flac -8 [audio.wav]```
 
-**Fast compression**
+**快速压缩**
 
 ```flac --fast [audio.wav]```
 
-**Test file integrity**
+**测试文件完整性**
 
 ```flac -t [audio.flac]```
 
-**Add metadata tags** during encoding
+编码时**添加元数据标签**
 
 ```flac -T "ARTIST=[Name]" -T "TITLE=[Song]" [audio.wav]```
 
-**Output to specific file**
+**输出到指定文件**
 
 ```flac -o [output.flac] [input.wav]```
 
@@ -38,64 +38,64 @@ free lossless audio codec encoder and decoder
 
 # DESCRIPTION
 
-**flac** encodes and decodes audio in the Free Lossless Audio Codec format. FLAC provides lossless compression, meaning the audio is identical to the original after decoding.
+**flac** 对 Free Lossless Audio Codec 格式的音频进行编码和解码。FLAC 提供无损压缩，即解码之后的音频与原始音频完全相同。
 
-The tool handles encoding, decoding, testing, and metadata operations. FLAC files are typically 50-60% of the original size while maintaining perfect audio fidelity.
+该工具负责编码、解码、测试以及元数据操作。FLAC 文件通常只有原文件的 50-60% 大小，同时保持完美的音频保真度。
 
 # PARAMETERS
 
 **-d**, **--decode**
-> Decode FLAC to WAV.
+> 将 FLAC 解码为 WAV。
 
 **-t**, **--test**
-> Test file integrity.
+> 测试文件完整性。
 
 **-a**, **--analyze**
-> Analyze file.
+> 分析文件。
 
-**-0** to **-8**
-> Compression level (0=fast, 8=best).
+**-0** 到 **-8**
+> 压缩级别（0 最快，8 效果最好）。
 
 **--fast**
-> Same as -0.
+> 等价于 -0。
 
 **--best**
-> Same as -8.
+> 等价于 -8。
 
 **-o** _file_
-> Output file name.
+> 输出文件名。
 
 **-c**, **--stdout**
-> Write output to stdout.
+> 将输出写入标准输出。
 
 **-f**, **--force**
-> Force overwriting of output files.
+> 强制覆盖输出文件。
 
 **-T**, **--tag=** _FIELD=VALUE_
-> Add a Vorbis comment tag (may be repeated).
+> 添加一个 Vorbis 注释标签（可重复使用）。
 
 **--tag-from-file=** _FIELD=FILENAME_
-> Read the tag value from a file.
+> 从文件中读取标签值。
 
 **--delete-input-file**
-> Delete input after successful encoding/decoding.
+> 成功编码/解码后删除输入文件。
 
 **-s**, **--silent**
-> Suppress runtime statistics.
+> 不显示运行时的统计信息。
 
 **-V**, **--verify**
-> Verify by decoding in parallel during encoding.
+> 编码过程中并行解码以校验结果。
 
 **-w**, **--warnings-as-errors**
-> Treat all warnings as errors.
+> 把所有警告视为错误。
 
 # CAVEATS
 
-Higher compression levels slower but not much smaller. Decoding speed consistent regardless of level. Some players don't support all FLAC features.
+更高的压缩级别编码更慢，但体积并不会小多少。解码速度不受压缩级别影响，始终如一。部分播放器不支持所有 FLAC 特性。
 
 # HISTORY
 
-**FLAC** was created by **Josh Coalson** starting in **2000**. It became the leading open source lossless audio format, gaining support in most media players and devices. The project became part of the Xiph.Org Foundation alongside Ogg Vorbis.
+**FLAC** 由 **Josh Coalson** 从 **2000 年**开始开发。它已成为最主要的开源无损音频格式，得到大多数媒体播放器和设备的支持。该项目与 Ogg Vorbis 一起归入 Xiph.Org 基金会。
 
 # INSTALL
 

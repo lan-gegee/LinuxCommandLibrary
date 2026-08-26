@@ -1,30 +1,30 @@
 # TAGLINE
 
-DNS delegation tracing tool
+DNS 委派追踪工具
 
 # TLDR
 
-Trace DNS **resolution path**
+追踪 DNS **解析路径**
 
 ```dnstracer [www.example.com]```
 
-Start with **specific DNS server**
+从**指定的 DNS 服务器**开始追踪
 
 ```dnstracer -s [dns.example.org] [www.example.com]```
 
-Query **IPv4 servers only**
+只查询 **IPv4 服务器**
 
 ```dnstracer -4 [www.example.com]```
 
-**Retry** failed requests 5 times
+失败时**重试** 5 次
 
 ```dnstracer -r [5] [www.example.com]```
 
-Display **all steps**
+显示**所有步骤**
 
 ```dnstracer -v [www.example.com]```
 
-Display **overview** of answers
+显示应答的**概览**
 
 ```dnstracer -o [www.example.com]```
 
@@ -34,33 +34,33 @@ Display **overview** of answers
 
 # DESCRIPTION
 
-**dnstracer** determines where a DNS server gets its information from by tracing the DNS resolution path from root servers down to the authoritative nameserver.
+**dnstracer** 通过追踪从根服务器到权威域名服务器的 DNS 解析路径，确定某个 DNS 服务器的信息来源。
 
-Useful for debugging DNS issues and understanding DNS delegation.
+可用于调试 DNS 问题以及理解 DNS 委派机制。
 
 # PARAMETERS
 
 **-s** _server_
-> Start with specified DNS server
+> 从指定的 DNS 服务器开始追踪
 
 **-4**
-> Only query IPv4 servers
+> 只查询 IPv4 服务器
 
 **-6**
-> Only query IPv6 servers
+> 只查询 IPv6 服务器
 
 **-r** _count_
-> Number of retries on failure
+> 失败时的重试次数
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-o**
-> Overview of all received answers
+> 显示所有收到的应答概览
 
 # CAVEATS
 
-Requires network access to DNS servers. Tracing may take time for complex delegations. Some DNS servers may block tracing queries.
+需要能够访问 DNS 服务器的网络。对于复杂的委派链，追踪可能耗时较长。某些 DNS 服务器可能会阻止追踪查询。
 
 # INSTALL
 

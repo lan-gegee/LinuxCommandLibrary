@@ -1,30 +1,30 @@
 # TAGLINE
 
-Official image viewer for the GNOME desktop
+GNOME 桌面的官方图片查看器
 
 # TLDR
 
-**Open** an image file
+**打开**图片文件
 
 ```eog [path/to/image.png]```
 
-Open **multiple** images
+打开**多张**图片
 
 ```eog [image1.jpg] [image2.png]```
 
-Open images in **fullscreen** mode
+以**全屏**模式打开图片
 
 ```eog --fullscreen [path/to/image.jpg]```
 
-Start a **slideshow**
+启动**幻灯片放映**
 
 ```eog --slide-show [path/to/directory]```
 
-Open a single image **without** image gallery
+打开单张图片且**不显示**图片集面板
 
 ```eog --disable-gallery [path/to/image.jpg]```
 
-Open an image in a **new** instance
+在**新的**实例中打开图片
 
 ```eog --new-instance [path/to/image.jpg]```
 
@@ -34,47 +34,47 @@ Open an image in a **new** instance
 
 # DESCRIPTION
 
-**eog** (Eye of GNOME) is the official image viewer for the GNOME desktop environment. It provides a fast, lightweight interface for displaying images in many formats including JPEG, PNG, GIF, SVG, TIFF, BMP, and more. The viewer supports slideshows, fullscreen viewing, zoom, rotation, and basic image operations.
+**eog**（Eye of GNOME）是 GNOME 桌面环境的官方图片查看器。它提供快速、轻量的界面，可显示 JPEG、PNG、GIF、SVG、TIFF、BMP 等多种格式的图片。该查看器支持幻灯片放映、全屏浏览、缩放、旋转以及基本的图像操作。
 
-The application integrates with GNOME desktop services and file managers, supporting drag-and-drop, thumbnail generation, and EXIF metadata display. While designed for GNOME, eog can run on other desktop environments, though some features may require GNOME libraries.
+该应用与 GNOME 桌面服务和文件管理器深度集成，支持拖放、缩略图生成和 EXIF 元数据显示。虽然为 GNOME 设计，eog 也可以在其他桌面环境中运行，但部分功能可能依赖 GNOME 库。
 
 # PARAMETERS
 
 **-f**, **--fullscreen**
-> Open in fullscreen mode.
+> 以全屏模式打开。
 
 **-s**, **--slide-show**
-> Open in slideshow mode.
+> 以幻灯片放映模式打开。
 
 **-g**, **--disable-gallery**
-> Disable the image gallery panel.
+> 禁用图片集（gallery）面板。
 
 **-n**, **--new-instance**
-> Open in a new instance rather than reusing an existing one.
+> 在新实例中打开，而不是复用已有实例。
 
 **-w**, **--single-window**
-> Force all images to be opened in a single window.
+> 强制所有图片在同一个窗口中打开。
 
 **--display=**_DISPLAY_
-> X display to use.
+> 要使用的 X display。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **-?**, **--help**
-> Show help message.
+> 显示帮助消息。
 
 # CONFIGURATION
 
 **~/.config/eog/**
-> User configuration directory for preferences managed through GNOME.
+> 用户配置目录，存放通过 GNOME 管理的首选项。
 
 **dconf/gsettings**
-> Settings accessible via `gsettings` for the `org.gnome.eog` schema controlling UI, plugins, and behavior.
+> 可通过 `gsettings` 访问的设置，对应 `org.gnome.eog` schema，控制界面、插件和行为。
 
 # CAVEATS
 
-Designed for GNOME desktop; some features may not work outside GNOME. Large images may consume significant memory. As of GNOME 43, eog has been superseded in many distributions by **Loupe** (the new default GNOME image viewer written in Rust).
+为 GNOME 桌面设计；部分功能在 GNOME 之外可能无法使用。大图可能占用大量内存。自 GNOME 43 起，许多发行版已用 **Loupe**（用 Rust 编写的新一代 GNOME 默认图片查看器）取代 eog。
 
 # INSTALL
 

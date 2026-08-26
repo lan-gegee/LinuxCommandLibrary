@@ -1,30 +1,30 @@
 # TAGLINE
 
-Desktop RSS/Atom news aggregator
+桌面端 RSS/Atom 新闻聚合器
 
 # TLDR
 
-Print count of **unread** articles
+打印**未读**文章数
 
 ```feedreader --unreadCount```
 
-**Add** a feed URL
+**添加**源 URL
 
 ```feedreader --addFeed=[feed_url]```
 
-**Grab** a specific article
+抓取特定文章
 
 ```feedreader --grabArticle=[article_url]```
 
-Download **images** from article
+下载文章中的**图片**
 
 ```feedreader --url=[feed_url] --grabImages=[article_path]```
 
-**Play** media from URL
+播放 URL 中的**媒体**
 
 ```feedreader --playMedia=[article_url]```
 
-**Run** with verbose debug output
+以详细调试输出**运行**
 
 ```feedreader --verbose```
 
@@ -34,45 +34,45 @@ Download **images** from article
 
 # DESCRIPTION
 
-**feedreader** is a GTK desktop RSS/Atom feed client. It aggregates news feeds from multiple sources and provides desktop notifications for new articles. The application supports various feed services including Feedly, Inoreader, and local feed reading, with features like article synchronization, tagging, and full-text search.
+**feedreader** 是一款 GTK 桌面 RSS/Atom 订阅客户端。它聚合来自多个来源的新闻订阅，并为新文章提供桌面通知。该应用支持多种订阅服务，包括 Feedly、Inoreader 和本地订阅阅读，具备文章同步、标签和全文搜索等功能。
 
-Note: FeedReader is no longer being maintained. Users are encouraged to migrate to actively developed alternatives like NewsFlash.
+注意：FeedReader 已不再维护。建议用户迁移到 NewsFlash 等仍在积极开发的替代品。
 
 # PARAMETERS
 
 **--unreadCount**
-> Show current count of unread articles in the database.
+> 显示数据库中当前未读文章的数量。
 
 **--addFeed**=_URL_
-> Add the feed to the collection.
+> 将源添加到收藏。
 
 **--grabArticle**=_URL_
-> Use the ContentGrabber to grab the given URL.
+> 使用 ContentGrabber 抓取给定的 URL。
 
 **--grabImages**=_PATH_
-> Download all images of the html-document.
+> 下载 html 文档中的所有图片。
 
 **--url**=_URL_
-> URL of the article needed for grabImages.
+> grabImages 所需的文章 URL。
 
 **--playMedia**=_URL_
-> Start media player with the given URL.
+> 用给定的 URL 启动媒体播放器。
 
 **--ping**=_URL_
-> Test the ping function with the given URL.
+> 用给定的 URL 测试 ping 功能。
 
 **--verbose**
-> Output all debug information.
+> 输出所有调试信息。
 
 **--about**
-> Show the about dialog.
+> 显示关于对话框。
 
 **--version**
-> Show FeedReader version number.
+> 显示 FeedReader 版本号。
 
 # CAVEATS
 
-Project is no longer maintained. Consider alternatives like NewsFlash. Supports various feed services like Feedly and Inoreader.
+项目已停止维护。可考虑 NewsFlash 等替代品。支持 Feedly 和 Inoreader 等多种订阅服务。
 
 # INSTALL
 

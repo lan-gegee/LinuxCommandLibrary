@@ -1,22 +1,22 @@
 # TAGLINE
 
-save images to tar archives
+将镜像保存为 tar 归档
 
 # TLDR
 
-**Save image to tar archive**
+**将镜像保存为 tar 归档**
 
 ```docker image save -o [image.tar] [image]```
 
-**Save to stdout**
+**保存到标准输出**
 
 ```docker image save [image] > [image.tar]```
 
-**Save multiple images**
+**保存多个镜像**
 
 ```docker image save -o [images.tar] [image1] [image2]```
 
-**Save with compression**
+**保存时压缩**
 
 ```docker image save [image] | gzip > [image.tar.gz]```
 
@@ -27,23 +27,23 @@ save images to tar archives
 # PARAMETERS
 
 **-o**, **--output** _file_
-> Write to file instead of stdout.
+> 写入文件而不是标准输出。
 
 # DESCRIPTION
 
-**docker image save** saves one or more Docker images to a tar archive, packaging all image layers, configuration, and metadata into a single file. This command is designed for transferring images between systems without using a registry, backing up important images, or distributing images via offline media.
+**docker image save** 将一个或多个 Docker 镜像保存为 tar 归档，把所有镜像层、配置和元数据打包成单个文件。该命令适用于在不使用镜像仓库的情况下在系统之间传输镜像、备份重要镜像，或通过离线介质分发镜像。
 
-The resulting tar archive contains the complete image structure, including all filesystem layers, image manifests, and configuration JSON. Multiple images can be saved to a single archive, which is useful for bundling related images together.
+生成的 tar 归档包含完整的镜像结构，包括所有文件系统层、镜像清单和配置 JSON。可以将多个镜像保存到同一个归档中，便于把相关镜像打包在一起。
 
-Output can be directed to a file with **-o** or to stdout, allowing for flexible integration with compression tools like gzip or transmission over network connections. Use **docker image load** to restore images from these archives.
+输出可以通过 **-o** 重定向到文件，也可以写到标准输出，从而灵活地与 gzip 等压缩工具集成或通过网络连接传输。使用 **docker image load** 可以从这些归档中恢复镜像。
 
 # CAVEATS
 
-The archive contains the image's filesystem layers as raw tar files; it is **not** identical to a **docker export** archive (which dumps a running container's filesystem flat without history). Saving by image **ID** rather than name preserves no repository tags in the archive; pass a **name:tag** to retain them. Archives produced by newer Docker engines use the OCI manifest format and may not load cleanly into very old engines.
+归档中以原始 tar 文件形式包含镜像的文件系统层；它与 **docker export** 的归档**并不**相同（后者会将运行中容器的文件系统平铺导出且不含历史记录）。按镜像 **ID** 而不是名称保存时，归档中不会保留任何软件仓库标签；传入 **name:tag** 才能保留它们。较新 Docker 引擎生成的归档使用 OCI 清单格式，可能无法顺利加载到非常旧的引擎中。
 
 # HISTORY
 
-**docker save** was part of the original Docker CLI from **2013**. The subcommand was reorganized under the **docker image** namespace in **Docker 1.13** (January 2017) while keeping the legacy short form as an alias.
+**docker save** 自 **2013 年**起就是 Docker CLI 的一部分。在 **Docker 1.13**（2017 年 1 月）中，该子命令被重组到 **docker image** 命名空间下，同时保留了旧版简写形式作为别名。
 
 # INSTALL
 

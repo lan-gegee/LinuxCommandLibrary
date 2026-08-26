@@ -1,14 +1,14 @@
 # TAGLINE
 
-display version and build information
+显示版本和构建信息
 
 # TLDR
 
-**Show Dolt version**
+**显示 Dolt 版本**
 
 ```dolt version```
 
-**Show detailed version** info
+**显示详细的版本**信息
 
 ```dolt version --verbose```
 
@@ -19,27 +19,27 @@ display version and build information
 # PARAMETERS
 
 **--verbose**, **-v**
-> Show detailed version information.
+> 显示详细的版本信息。
 
 **--feature**
-> Show feature version.
+> 显示特性版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dolt version** displays the installed Dolt version and build information. The verbose flag provides additional details including the Go version used for compilation and build metadata.
+**dolt version** 显示已安装的 Dolt 版本和构建信息。verbose 标志会提供更多细节，包括编译所用的 Go 版本和构建元数据。
 
-Version information is useful for troubleshooting, ensuring compatibility with repositories, and verifying installations. Different Dolt versions may have different storage formats or feature support.
+版本信息可用于故障排查、确认与仓库的兼容性以及验证安装是否正确。不同的 Dolt 版本可能采用不同的存储格式或支持不同的特性。
 
 # CAVEATS
 
-Version numbers follow semantic versioning. Repository format versions may differ from tool version. Older versions may not read newer repository formats.
+版本号遵循语义化版本规范。仓库格式版本可能与工具版本不同步。旧版本可能无法读取较新的仓库格式。
 
 # HISTORY
 
-dolt version follows standard version reporting conventions, providing essential information for support and compatibility verification in the **Dolt** ecosystem.
+dolt version 遵循标准的版本信息输出惯例，为 **Dolt** 生态中的技术支持和兼容性验证提供必要依据。
 
 # INSTALL
 

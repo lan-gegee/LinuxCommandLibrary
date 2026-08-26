@@ -1,34 +1,34 @@
 # TAGLINE
 
-Go programming language debugger
+Go 编程语言调试器
 
 # TLDR
 
-**Debug an executable**
+**调试可执行文件**
 
 ```dlv exec [./binary]```
 
-**Debug with arguments**
+**带参数调试**
 
 ```dlv exec [./binary] -- [arg1] [arg2]```
 
-**Debug a Go package**
+**调试 Go 包**
 
 ```dlv debug [package]```
 
-**Attach to process**
+**附加到进程**
 
 ```dlv attach [pid]```
 
-**Debug a test**
+**调试测试**
 
 ```dlv test [package]```
 
-**Start headless server**
+**启动无界面服务器**
 
 ```dlv debug --headless --listen=:[2345]```
 
-**Connect to remote**
+**连接到远程**
 
 ```dlv connect [localhost:2345]```
 
@@ -39,47 +39,47 @@ Go programming language debugger
 # PARAMETERS
 
 _COMMAND_
-> Operation: debug, exec, test, attach, connect, etc.
+> 操作类型：debug、exec、test、attach、connect 等。
 
 **debug** [_PACKAGE_]
-> Build and debug Go package.
+> 构建并调试 Go 包。
 
 **exec** _BINARY_
-> Debug prebuilt binary.
+> 调试已构建的二进制文件。
 
 **test** [_PACKAGE_]
-> Debug tests.
+> 调试测试。
 
 **attach** _PID_
-> Attach to running process.
+> 附加到正在运行的进程。
 
 **connect** _ADDR_
-> Connect to headless server.
+> 连接到无界面服务器。
 
 **--headless**
-> Run in headless mode.
+> 以无界面模式运行。
 
 **--listen** _ADDR_
-> Listen address for headless mode.
+> 无界面模式的监听地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**dlv** (Delve) is a debugger for the Go programming language. It provides source-level debugging with support for goroutines, breakpoints, variable inspection, and expression evaluation.
+**dlv**（Delve）是 Go 编程语言的调试器。它提供源码级调试，支持 goroutine、断点、变量检查和表达式求值。
 
-Delve understands Go's runtime, correctly handling goroutine scheduling, garbage collection, and other Go-specific features. It supports both local debugging and remote debugging through its headless mode.
+Delve 了解 Go 的运行时，能正确处理 goroutine 调度、垃圾回收等 Go 特有的机制。它既支持本地调试，也支持通过无界面模式进行远程调试。
 
-The debugger integrates with editors and IDEs via the Debug Adapter Protocol (DAP), enabling graphical debugging in VS Code, GoLand, and other editors.
+该调试器通过调试适配协议（DAP）与编辑器和 IDE 集成，可在 VS Code、GoLand 等编辑器中实现图形化调试。
 
 # CAVEATS
 
-Requires Go binaries with debug info (default). Some optimizations may affect debugging. Attaching to processes needs appropriate permissions. Core dumps require compatible Go version.
+要求 Go 二进制文件包含调试信息（默认包含）。某些优化可能影响调试效果。附加到进程需要相应权限。核心转储调试要求 Go 版本兼容。
 
 # HISTORY
 
-Delve was created by **Derek Parker** and released in **2014**. It was developed to provide Go developers with a debugger that understands Go's concurrency model and runtime, replacing GDB for most Go debugging tasks.
+Delve 由 **Derek Parker** 开发并于 **2014 年**发布。其目标是提供一款理解 Go 并发模型和运行时的调试器，以取代 GDB 完成大多数 Go 调试任务。
 
 # INSTALL
 

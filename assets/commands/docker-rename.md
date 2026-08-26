@@ -1,10 +1,10 @@
 # TAGLINE
 
-change container name identifier
+更改容器的名称标识
 
 # TLDR
 
-**Rename a container**
+**重命名一个容器**
 
 ```docker rename [old_name] [new_name]```
 
@@ -14,7 +14,7 @@ change container name identifier
 
 # DESCRIPTION
 
-**docker rename** renames an existing container. Works on both running and stopped containers. Useful for giving meaningful names to containers created without --name. Container names must be unique within the Docker host and follow naming conventions (alphanumeric characters, underscores, periods, and hyphens).
+**docker rename** 用于重命名现有容器，对运行中和已停止的容器都有效。适合为创建时未使用 --name 的容器起一个有意义的名字。容器名称在 Docker 主机内必须唯一，并遵循命名约定（字母数字字符、下划线、句点和连字符）。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ change container name identifier
 ```[Documentation](https://docs.docker.com/reference/cli/docker/)```
 
 <!-- verified: 2026-07-11 -->
-

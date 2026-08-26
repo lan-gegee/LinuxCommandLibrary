@@ -1,26 +1,26 @@
 # TAGLINE
 
-enhanced conditional expression for bash/zsh
+bash/zsh 的增强条件表达式
 
 # TLDR
 
-**Test condition (bash/zsh extended)**
+**测试条件（bash/zsh 扩展）**
 
 ```[[ -f [file] ]] && echo "exists"```
 
-**Pattern matching**
+**模式匹配**
 
 ```[[ "[string]" == pattern* ]]```
 
-**Regex matching**
+**正则匹配**
 
 ```[[ "[string]" =~ ^[0-9]+$ ]]```
 
-**Safe variable comparison (no quoting needed)**
+**安全的变量比较（无需加引号）**
 
 ```[[ $var == "value" ]]```
 
-**Combine conditions**
+**组合多个条件**
 
 ```[[ -f [file] && -r [file] ]]```
 
@@ -30,31 +30,31 @@ enhanced conditional expression for bash/zsh
 
 # OPERATORS
 
-**File tests**: Same as **[** (-f, -d, -e, -r, -w, -x, etc.)
+**文件测试**：与 **[** 相同（-f、-d、-e、-r、-w、-x 等）
 
-**String comparison**:
-- **==** or **=**: Pattern match (glob)
-- **!=**: Not pattern match
-- **=~**: Regex match
-- **<**, **>**: Lexicographic order
+**字符串比较**：
+- **==** 或 **=**：模式匹配（glob）
+- **!=**：不匹配模式
+- **=~**：正则匹配
+- **<**, **>**：字典序比较
 
-**Numeric**: -eq, -ne, -lt, -le, -gt, -ge
+**数值比较**：-eq、-ne、-lt、-le、-gt、-ge
 
-**Logical**:
-- **&&**: AND
-- **||**: OR
-- **!**: NOT
+**逻辑运算**：
+- **&&**：与
+- **||**：或
+- **!**：非
 
 # DESCRIPTION
 
-**[[** is bash/zsh's enhanced conditional expression. It provides safer and more powerful tests than **[**.
+**[[** 是 bash/zsh 的增强条件表达式。它比 **[** 更安全也更强大。
 
-Key advantages over **[**:
-- No word splitting on variables (unquoted $var is safe)
-- Pattern matching with **==** and **!=**
-- Regular expression matching with **=~**
-- **&&** and **||** work inside the brackets
-- **<** and **>** don't need escaping
+相对于 **[** 的主要优势：
+- 变量不做分词（不加引号的 $var 也是安全的）
+- 用 **==** 和 **!=** 进行模式匹配
+- 用 **=~** 进行正则表达式匹配
+- **&&** 和 **||** 可以直接用在括号内
+- **<** 和 **>** 无需转义
 
 ```bash
 # Pattern matching
@@ -71,23 +71,23 @@ fi
 
 # CAVEATS
 
-**[[** is a reserved word in bash, zsh, and ksh, but it is **not POSIX**. Scripts with a `#!/bin/sh` shebang must use **[** instead, since `/bin/sh` is `dash` on Debian and Ubuntu and will fail with a syntax error.
+**[[** 是 bash、zsh 和 ksh 的保留字，但**不是 POSIX**。带有 `#!/bin/sh` shebang 的脚本必须改用 **[**，因为 Debian 和 Ubuntu 上 `/bin/sh` 是 `dash`，遇到 `[[` 会报语法错误。
 
-The quoting rules are inverted from what people expect, and this is the most common source of bugs:
+它的引号规则与人们的直觉相反，这也是最常见的 bug 来源：
 
-Quote the right-hand side of **==** to compare literally. Unquoted, it is a **glob pattern**, so `[[ $x == pattern* ]]` matches a prefix while `[[ $x == "pattern*" ]]` matches the literal asterisk.
+**==** 的右侧加引号表示字面比较。不加引号时它是 **glob 模式**，所以 `[[ $x == pattern* ]]` 匹配前缀，而 `[[ $x == "pattern*" ]]` 匹配字面的星号。
 
-Do **not** quote a regex after **=~**. Quoting turns the pattern into a literal string, so `[[ $x =~ "^test" ]]` looks for the characters `^test` rather than anchoring the match. Store the pattern in a variable if it needs to contain spaces.
+**=~** 之后的正则**不要**加引号。加了引号模式就变成字面字符串，`[[ $x =~ "^test" ]]` 会查找字符 `^test` 而不是锚定匹配。如果模式需要包含空格，把它存进变量。
 
-The regex dialect is **ERE**, and captured groups land in the `BASH_REMATCH` array, with the whole match in element 0.
+其正则方言是 **ERE**，捕获组保存在 `BASH_REMATCH` 数组里，整体匹配位于第 0 个元素。
 
-**<** and **>** compare strings lexicographically, not numerically: `[[ 10 < 9 ]]` is true. Use `((` `))` or the `-lt`/`-gt` operators for numbers.
+**<** 和 **>** 按字典序而非数值比较字符串：`[[ 10 < 9 ]]` 为真。数字请用 `((` `))` 或 `-lt`/`-gt` 运算符。
 
 # HISTORY
 
-**[[** originated in the **Korn shell** (ksh88), where David Korn added it to fix the long-standing traps in the `test` command: `[` is an ordinary command, so its arguments are subject to word splitting and glob expansion, which is why an empty or unset variable turns `[ $x = y ]` into a syntax error. Making the construct a reserved word instead let the shell parse it before expansion, which is exactly what removes the need for defensive quoting.
+**[[** 起源于 **Korn shell**（ksh88），David Korn 加入它是为了修复 `test` 命令长期存在的陷阱：`[` 只是一个普通命令，其参数会经历分词和 glob 展开，这就是为什么空变量或未设置的变量会让 `[ $x = y ]` 变成语法错误。把这一结构改为保留字后，shell 可以在展开之前解析它，这正是免除防御性引号的原因。
 
-bash adopted it in version 2.02 (**1998**), zsh has it as well, and it is now standard practice in scripts that are not required to be POSIX. It was proposed for POSIX but rejected, so `[` remains the only portable option.
+bash 在 2.02 版（**1998 年**）采纳了它，zsh 也支持，如今它已成为无 POSIX 要求脚本的标准做法。它曾被提议纳入 POSIX 但遭到拒绝，因此 `[` 仍是唯一可移植的选择。
 
 # SEE ALSO
 

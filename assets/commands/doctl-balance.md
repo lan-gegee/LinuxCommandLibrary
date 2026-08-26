@@ -1,18 +1,18 @@
 # TAGLINE
 
-retrieve DigitalOcean account billing balance
+查询 DigitalOcean 账户的账单余额
 
 # TLDR
 
-**Get current account balance**
+**获取当前账户余额**
 
 ```doctl balance get```
 
-**Get balance in JSON format**
+**以 JSON 格式获取余额**
 
 ```doctl balance get --output json```
 
-**Show only month-to-date usage**
+**只显示本月至今的用量**
 
 ```doctl balance get --format MonthToDateUsage```
 
@@ -23,32 +23,32 @@ retrieve DigitalOcean account billing balance
 # PARAMETERS
 
 **get**
-> Retrieve current account balance, month-to-date usage, and balance as of last invoice.
+> 获取当前账户余额、本月至今用量以及截至上次账单的余额。
 
 **--format** _COLUMNS_
-> Display specific columns (e.g., MonthToDateUsage, AccountBalance, MonthToDateBalance, GeneratedAt).
+> 显示指定列（例如 MonthToDateUsage、AccountBalance、MonthToDateBalance、GeneratedAt）。
 
 **--output** _FORMAT_
-> Output format: text or json.
+> 输出格式：text 或 json。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**doctl balance** retrieves billing balance information for your DigitalOcean account. It shows the current balance, month-to-date usage, and account balance as of the last invoice.
+**doctl balance** 查询你的 DigitalOcean 账户的账单余额信息，显示当前余额、本月至今用量以及截至上次账单的账户余额。
 
-The command provides a quick way to check spending and remaining credits without accessing the web console. This is useful for monitoring costs in automated workflows or scripts.
+该命令无需访问网页控制台即可快速查看支出和剩余额度，适合在自动化工作流或脚本中监控成本。
 
-The **get** subcommand (alias **g**) is the only available subcommand.
+**get** 子命令（别名 **g**）是唯一可用的子命令。
 
 # CAVEATS
 
-Balance updates may have a slight delay from real-time usage. Does not show detailed per-resource cost breakdowns. Requires a valid API token with billing access configured via **doctl auth init**.
+余额更新与实际用量之间可能略有延迟。不显示按资源细分的详细费用。需要通过 **doctl auth init** 配置具有账单访问权限的有效 API 令牌。
 
 # HISTORY
 
-**doctl balance** is part of the **doctl** CLI tool, developed and maintained by **DigitalOcean** for programmatic access to their cloud platform services.
+**doctl balance** 是 **DigitalOcean** 开发和维护的 **doctl** CLI 工具的一部分，用于以编程方式访问其云平台服务。
 
 # SEE ALSO
 
