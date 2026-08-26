@@ -87,7 +87,7 @@ Kubernetes 命令行工具
 
 **kubectl** 是 Kubernetes 的官方命令行界面，用于与集群的 API 服务器通信以管理和检查资源。它支持 Kubernetes 对象的完整生命周期，包括通过声明式清单或命令式命令创建、读取、更新和删除 Pod、deployment、service、configmap 等各类资源。
 
-该工具从 kubeconfig 文件读取连接详情，其中定义的集群、用户和上下文决定了 kubectl 面向哪个集群和命名空间。除了基本的资源管理外，kubectl 还提供日志获取和 exec 会话调试、工作负载伸缩、发布更新、向 Pod 端口转发，以及应用 YAML 或 JSON 清单中的配置更改等能力。集群侧基于角色的访问控制（RBAC）决定每个已认证用户可以执行哪些操作。
+该工具从 kubeconfig 文件读取连接详情，其中定义的集群、用户和上下文决定了 kubectl 面向哪个集群和命名空间。除了基本的资源管理外，kubectl 还提供日志获取和 exec 会话调试、工作负载伸缩、滚动更新（rollout）、向 Pod 端口转发，以及应用 YAML 或 JSON 清单中的配置更改等能力。集群侧基于角色的访问控制（RBAC）决定每个已认证用户可以执行哪些操作。
 
 # CAVEATS
 

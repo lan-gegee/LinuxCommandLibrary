@@ -71,7 +71,7 @@
 ```[git](/man/git) commit -m "remove ignored files"```
 
 ## 贮藏
-把未提交的工作暂存到一边，得到干净的工作目录，之后再取回。**-u** 会包含未跟踪的文件。
+把未提交的工作贮藏到一边，得到干净的工作目录，之后再取回。**-u** 会包含未跟踪的文件。
 ```[git](/man/git) stash -u```
 ```[git](/man/git) stash list```
 ```[git](/man/git) stash pop```

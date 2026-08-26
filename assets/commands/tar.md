@@ -28,11 +28,11 @@
 
 ```tar -xzvf [archive.tar.gz]```
 
-解压到指定目录
+**解压到指定目录**
 
 ```tar -xvf [archive.tar] -C [directory/]```
 
-列出归档的**内容**
+**列出归档内容**
 
 ```tar -tvf [archive.tar]```
 
