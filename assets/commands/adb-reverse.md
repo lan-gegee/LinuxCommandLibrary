@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set up reverse port forwarding from device to host
+设置从设备到主机的反向端口转发
 
 # TLDR
 
-**Reverse forward** device port to local port
+将设备端口**反向转发**到本地端口
 
 ```adb reverse tcp:[8080] tcp:[8080]```
 
-**List** all reverse forwards
+**列出**所有反向转发
 
 ```adb reverse --list```
 
-**Remove** a specific reverse forward
+**移除**特定的反向转发规则
 
 ```adb reverse --remove tcp:[8080]```
 
-Remove **all** reverse forwards
+移除**所有**反向转发规则
 
 ```adb reverse --remove-all```
 
@@ -28,37 +28,37 @@ Remove **all** reverse forwards
 
 # DESCRIPTION
 
-**adb reverse** sets up reverse port forwarding from the Android device to your computer. This allows apps on the device to connect to services running on your development machine as if they were running locally on the device.
+**adb reverse** 建立从 Android 设备到电脑的反向端口转发。这让设备上的应用可以连接开发机上运行的服务，就像它们运行在设备本地一样。
 
-This is commonly used for connecting React Native apps to the Metro bundler, or allowing device apps to access local development servers.
+常见用途包括：让 React Native 应用连接 Metro 打包器，或让设备上的应用访问本地开发服务器。
 
 # PARAMETERS
 
 **tcp:**_port_
-> TCP port number
+> TCP 端口号
 
 **localabstract:**_name_
-> Unix domain socket in abstract namespace
+> 抽象命名空间中的 Unix 域套接字
 
 **--no-rebind**
-> Fail if remote port is already forwarded
+> 若远程端口已被转发则失败
 
 **--list**
-> List all active reverse forwards
+> 列出所有活动的反向转发
 
 **--remove** _remote_
-> Remove specific reverse forward rule
+> 移除指定的反向转发规则
 
 **--remove-all**
-> Remove all reverse forward rules
+> 移除所有反向转发规则
 
 # CAVEATS
 
-Reverse forwarding is available on Android 5.0+ only. The feature requires the adb server to maintain the connection. Reverse forwards are lost when the device disconnects or adb server restarts.
+反向转发仅在 Android 5.0 及以上版本可用。该功能要求 adb 服务器维持连接。设备断开或 adb 服务器重启后，反向转发会丢失。
 
 # HISTORY
 
-**adb reverse** was added in Android 5.0 Lollipop (**2014**) to support development workflows where device apps need to connect to services on the development machine.
+**adb reverse** 在 Android 5.0 Lollipop（**2014** 年）中加入，用于支持设备应用需要连接开发机服务的开发工作流。
 
 # INSTALL
 

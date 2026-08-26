@@ -1,34 +1,34 @@
 # TAGLINE
 
-Convert AsciiDoc markup to HTML and DocBook
+将 AsciiDoc 标记转换为 HTML 和 DocBook
 
 # TLDR
 
-**Convert an AsciiDoc file** to HTML
+**将 AsciiDoc 文件转换**为 HTML
 
 ```asciidoc [document.txt]```
 
-**Convert to HTML5** format
+**转换为 HTML5** 格式
 
 ```asciidoc -b html5 [document.txt]```
 
-**Convert to DocBook** format
+**转换为 DocBook** 格式
 
 ```asciidoc -b docbook [document.txt]```
 
-**Generate a man page**
+**生成 man page**
 
 ```asciidoc -b html5 -d manpage [command.1.txt]```
 
-**Set document attributes** (table of contents, icons)
+**设置文档属性**（目录、图标）
 
 ```asciidoc -a toc -a icons [document.txt]```
 
-**Specify output file**
+**指定输出文件**
 
 ```asciidoc -o [output.html] [document.txt]```
 
-**Enable section numbering**
+**启用章节编号**
 
 ```asciidoc --section-numbers [document.txt]```
 
@@ -39,66 +39,66 @@ Convert AsciiDoc markup to HTML and DocBook
 # PARAMETERS
 
 **-b** _backend_, **--backend=**_backend_
-> Output format: html, html5, xhtml11, html4, docbook, docbook45, docbook5, slidy, wordpress, latex
+> 输出格式：html、html5、xhtml11、html4、docbook、docbook45、docbook5、slidy、wordpress、latex
 
 **-d** _doctype_, **--doctype=**_doctype_
-> Document type: article (default), book, manpage
+> 文档类型：article（默认）、book、manpage
 
 **-o** _file_, **--out-file=**_file_
-> Write output to file (default: input filename with new extension)
+> 将输出写入文件（默认：输入文件名换用新扩展名）
 
 **-a** _name=value_, **--attribute=**_name=value_
-> Set a document attribute
+> 设置一个文档属性
 
 **-f** _file_, **--conf-file=**_file_
-> Use additional configuration file
+> 使用额外的配置文件
 
 **-e**, **--no-conf**
-> Exclude implicitly loaded configuration files
+> 不加载隐式加载的配置文件
 
 **-n**, **--section-numbers**
-> Auto-number section titles
+> 为章节标题自动编号
 
 **-s**, **--no-header-footer**
-> Output document body only (no HTML head/body tags)
+> 只输出文档主体（不含 HTML head/body 标签）
 
 **--safe**
-> Enable safe mode (disable potentially dangerous features)
+> 启用安全模式（禁用有潜在危险的功能）
 
 **-v**, **--verbose**
-> Print processing information to stderr
+> 向 stderr 打印处理信息
 
 **--help** _topic_
-> Print help (topics: syntax, manpage)
+> 打印帮助（主题：syntax、manpage）
 
 **--version**
-> Print version number
+> 打印版本号
 
 # DESCRIPTION
 
-**asciidoc** converts plain text documents written in AsciiDoc markup to HTML, DocBook, and other formats. AsciiDoc is a lightweight markup language designed for writing documentation, articles, books, and man pages.
+**asciidoc** 将以 AsciiDoc 标记编写的纯文本文档转换为 HTML、DocBook 等格式。AsciiDoc 是一种轻量级标记语言，适合编写文档、文章、书籍和 man page。
 
-The default backend is HTML (xhtml11). DocBook output can be further processed with tools like **dblatex** for PDF generation or **xmlto** for various formats. The tool reads configuration from **/etc/asciidoc/** and **~/.asciidoc/**.
+默认后端为 HTML（xhtml11）。DocBook 输出可进一步使用 **dblatex**（生成 PDF）或 **xmlto**（生成各种格式）等工具处理。该工具从 **/etc/asciidoc/** 和 **~/.asciidoc/** 读取配置。
 
-Document attributes control output features like table of contents (**-a toc**), embedded images (**-a data-uri**), icons (**-a icons**), and maximum width (**-a max-width=55em**). Attributes can also be set within the document itself.
+文档属性控制输出特性，例如目录（**-a toc**）、内嵌图片（**-a data-uri**）、图标（**-a icons**）和最大宽度（**-a max-width=55em**）。属性也可以在文档内部设置。
 
-If FILE is **-**, input is read from standard input, enabling pipeline processing.
+如果 FILE 为 **-**，则从标准输入读取内容，从而支持管道处理。
 
 # CONFIGURATION
 
 **/etc/asciidoc/**
-> System-wide configuration files, filters, and backend templates.
+> 系统级配置文件、过滤器以及后端模板。
 
 **~/.asciidoc/**
-> User-specific configuration files and custom backends.
+> 用户专属配置文件和自定义后端。
 
 # CAVEATS
 
-The original Python-based **asciidoc** is considered legacy. **Asciidoctor** (written in Ruby) is the actively maintained implementation with more features and faster processing. Some advanced features may differ between implementations.
+最初的 Python 版 **asciidoc** 已被视为遗留软件。**Asciidoctor**（Ruby 编写）是积极维护的实现，功能更多、处理更快。某些高级特性在两种实现之间存在差异。
 
 # HISTORY
 
-AsciiDoc was created by **Stuart Rackham** in **2002** as a more readable alternative to DocBook XML. The format was designed to be human-readable while still capable of producing professional documentation. **Asciidoctor**, a modern reimplementation, was started in **2012** by **Dan Allen** and has become the primary implementation, used by projects like GitHub, GitLab, and the Eclipse Foundation.
+AsciiDoc 由 **Stuart Rackham** 于 **2002** 年创建，作为比 DocBook XML 更易读的替代方案。这种格式在设计上既便于人类阅读，又能生成专业级的文档。现代化的重实现 **Asciidoctor** 由 **Dan Allen** 于 **2012** 年启动，如今已是主要的实现，被 GitHub、GitLab 和 Eclipse 基金会等项目采用。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-command-line client for the **aptdaemon** package management service
+**aptdaemon** 软件包管理服务的命令行客户端
 
 # TLDR
 
-**Install** packages via aptd
+通过 aptd **安装**软件包
 
 ```aptdcon --install "[package1 package2]"```
 
-**Remove** packages
+**删除**软件包
 
 ```aptdcon --remove "[package]"```
 
-**Purge** packages (remove config too)
+**彻底清除**软件包（连同配置文件）
 
 ```aptdcon --purge "[package]"```
 
-**Upgrade named packages**
+**升级**指定的软件包
 
 ```aptdcon --upgrade "[package]"```
 
-**Upgrade the whole system**
+**升级整个系统**
 
 ```aptdcon --upgrade-system```
 
-**Refresh the package cache**
+**刷新**软件包缓存
 
 ```aptdcon --refresh```
 
-**Fix broken dependencies**
+**修复**损坏的依赖
 
 ```aptdcon --fix-depends```
 
-**Install packages while showing dpkg's terminal output**
+**安装软件包并显示 dpkg 的终端输出**
 
 ```aptdcon --install "[package]" --show-terminal```
 
@@ -42,85 +42,85 @@ command-line client for the **aptdaemon** package management service
 
 # DESCRIPTION
 
-**aptdcon** is a command-line client for **aptdaemon**, a system-wide D-Bus service that serializes APT operations and performs PolicyKit-based authentication. It exposes the same backend used by GNOME Software, Software-Properties-GTK, and update-manager, so actions dispatched via `aptdcon` cooperate cleanly with running GUI package managers.
+**aptdcon** 是 **aptdaemon** 的命令行客户端。aptdaemon 是一个系统级 D-Bus 服务，负责序列化 APT 操作并执行基于 PolicyKit 的身份验证。它暴露与 GNOME Software、Software-Properties-GTK 和 update-manager 相同的后端，因此通过 `aptdcon` 发起的操作能与正在运行的 GUI 软件包管理器顺畅协作。
 
-Operations are queued on the daemon; multiple `aptdcon` invocations simply hand off to `aptd`, which runs them in sequence. PolicyKit prompts for authentication as needed (via a graphical or tty agent).
+操作会在守护进程上排队；多个 `aptdcon` 调用只是把任务交给 `aptd`，由其按顺序执行。PolicyKit 会按需提示进行身份验证（通过图形界面或 tty 代理）。
 
 # PARAMETERS
 
 **-i** _PKGS_, **--install** _PKGS_
-> Install the listed packages.
+> 安装列出的软件包。
 
 **--reinstall** _PKGS_
-> Reinstall the listed packages.
+> 重新安装列出的软件包。
 
 **-r** _PKGS_, **--remove** _PKGS_
-> Remove the listed packages (keep config files).
+> 删除列出的软件包（保留配置文件）。
 
 **-p** _PKGS_, **--purge** _PKGS_
-> Remove and purge the listed packages (delete config files too).
+> 删除并彻底清除列出的软件包（连同配置文件一起删除）。
 
 **-u** _PKGS_, **--upgrade** _PKGS_
-> Upgrade the listed packages.
+> 升级列出的软件包。
 
 **--upgrade-system**
-> Upgrade all packages on the system (equivalent to `apt upgrade`).
+> 升级系统上的所有软件包（相当于 `apt upgrade`）。
 
 **--refresh**
-> Update the package lists.
+> 更新软件包列表。
 
 **--fix-install**
-> Complete a previously cancelled installation via dpkg.
+> 通过 dpkg 完成先前被取消的安装。
 
 **--fix-depends**
-> Attempt to resolve unsatisfied dependencies.
+> 尝试解决未满足的依赖。
 
 **--add-vendor-key** _PUBLIC_KEY_FILE_
-> Install a vendor signing key from a file.
+> 从文件安装厂商签名密钥。
 
 **--add-vendor-key-from-keyserver** _KEY_ID_
-> Fetch and install a vendor key from a keyserver.
+> 从密钥服务器获取并安装厂商密钥。
 
 **--key-server** _KEYSERVER_
-> Use _KEYSERVER_ for key downloads.
+> 使用 _KEYSERVER_ 下载密钥。
 
 **--remove-vendor-key** _FINGERPRINT_
-> Remove the vendor key with the given fingerprint.
+> 删除具有给定指纹的厂商密钥。
 
 **--list-trusted-vendors**
-> List trusted software vendors and their keys.
+> 列出受信任的软件供应商及其密钥。
 
 **--add-repository** _'DEB_LINE'_
-> Add the given `deb` line to sources.
+> 将给定的 `deb` 行添加到软件源。
 
 **--sources-file** _FILE_
-> Alternative sources.list location for repository management.
+> 仓库管理使用的替代 sources.list 位置。
 
 **--show-terminal**
-> Attach to dpkg's interactive terminal (prompts, progress).
+> 连接到 dpkg 的交互式终端（提示与进度信息）。
 
 **--hide-terminal**
-> Suppress dpkg terminal output.
+> 抑制 dpkg 的终端输出。
 
 **--allow-unauthenticated**
-> Allow install of packages that are not from a trusted vendor.
+> 允许安装非受信任供应商来源的软件包。
 
 **-d**, **--debug**
-> Print extra diagnostic information.
+> 打印额外的诊断信息。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-v**, **--version**
-> Show aptdcon version.
+> 显示 aptdcon 版本。
 
 # CAVEATS
 
-Requires the **aptdaemon** service. On systems without aptd (modern Ubuntu/Debian are migrating to `packagekit`), `apt` or `apt-get` is the direct replacement. PolicyKit authorization is required for all mutating actions, so expect a password prompt in a GUI agent or tty.
+需要 **aptdaemon** 服务。在没有 aptd 的系统上（现代 Ubuntu/Debian 正迁移到 `packagekit`），可直接用 `apt` 或 `apt-get` 替代。所有修改性操作都需要 PolicyKit 授权，因此在 GUI 代理或 tty 中会出现密码提示。
 
 # HISTORY
 
-**aptdaemon** (and its clients `aptdcon` and `aptd-cli`) was written by **Sebastian Heinlein** for Ubuntu to provide a single D-Bus-coordinated place for PackageKit/Software Center/Update Manager to call APT.
+**aptdaemon**（及其客户端 `aptdcon` 与 `aptd-cli`）由 **Sebastian Heinlein** 为 Ubuntu 编写，目的是为 PackageKit/Software Center/Update Manager 提供统一的 D-Bus 协调入口来调用 APT。
 
 # SEE ALSO
 

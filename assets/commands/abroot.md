@@ -1,34 +1,34 @@
 # TAGLINE
 
-immutable root partition manager with A/B switching
+支持 A/B 切换的不可变根分区管理器
 
 # TLDR
 
-**Add** packages to the local image
+向本地镜像**添加**软件包
 
 ```sudo abroot pkg add [package]```
 
-**Remove** packages from the local image
+从本地镜像**移除**软件包
 
 ```sudo abroot pkg remove [package]```
 
-**List** packages in the local image
+**列出**本地镜像中的软件包
 
 ```sudo abroot pkg list```
 
-**Apply** changes in the local image
+在本地镜像中**应用**更改
 
 ```sudo abroot pkg apply```
 
-**Rollback** your system to previous state
+将系统**回滚**到之前的状态
 
 ```sudo abroot rollback```
 
-Edit or view **kernel parameters**
+编辑或查看**内核参数**
 
 ```sudo abroot kargs [edit|show]```
 
-Display **status**
+显示**状态**
 
 ```sudo abroot status```
 
@@ -38,49 +38,49 @@ Display **status**
 
 # DESCRIPTION
 
-**abroot** is a utility providing full immutability and atomicity by transacting between two root partition states (A⟺B). Updates are performed using OCI images to ensure the system is always in a consistent state.
+**abroot** 是一个通过在两个根分区状态（A⟺B）之间进行事务切换来提供完全不可变性与原子性的实用工具。更新通过 OCI 镜像执行，以确保系统始终处于一致状态。
 
-This approach allows safe system updates where changes can be rolled back if issues occur. The system boots from one root partition while changes are applied to the other.
+这种方式允许安全的系统更新：如果出现问题，更改可以回滚。系统从一个根分区启动，而更改则应用于另一个分区。
 
 # PARAMETERS
 
 **pkg add PACKAGE**
-> Add packages to the local image; requires apply to take effect
+> 向本地镜像添加软件包；需要执行 apply 才能生效
 
 **pkg remove PACKAGE**
-> Remove packages from the local image; requires apply to take effect
+> 从本地镜像移除软件包；需要执行 apply 才能生效
 
 **pkg list**
-> List packages in the local image
+> 列出本地镜像中的软件包
 
 **pkg apply**
-> Apply pending package changes; requires reboot
+> 应用待处理的软件包更改；需要重启系统
 
 **upgrade**
-> Update the boot partition to the latest OCI image
+> 将启动分区更新为最新的 OCI 镜像
 
 **rollback**
-> Rollback to the previous system state
+> 回滚到之前的系统状态
 
 **kargs edit**
-> Edit kernel parameters
+> 编辑内核参数
 
 **kargs show**
-> Display current kernel parameters
+> 显示当前的内核参数
 
 **status**
-> Display current system status
+> 显示当前系统状态
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Package changes require running **pkg apply** followed by a system **reboot** before they take effect.
+软件包更改需要先运行 **pkg apply**，再重启系统后才能生效。
 
 # HISTORY
 
-Developed for **Vanilla OS**, a Linux distribution focused on providing an immutable and atomic desktop experience using A/B partition scheme.
+为 **Vanilla OS** 开发，这是一个专注于通过 A/B 分区方案提供不可变、原子化桌面体验的 Linux 发行版。
 
 # INSTALL
 

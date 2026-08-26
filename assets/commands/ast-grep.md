@@ -1,38 +1,38 @@
 # TAGLINE
 
-Structural code search and rewrite using AST patterns
+基于 AST 模式的结构化代码搜索与重写工具
 
 # TLDR
 
-**Search for a pattern** in the current directory
+在当前目录中**搜索模式**
 
 ```ast-grep --pattern 'console.log($ARG)'```
 
-**Search with a specific language**
+用**指定语言**搜索
 
 ```ast-grep --pattern 'async function $NAME() {}' --lang typescript```
 
-**Search and rewrite** code
+**搜索并重写**代码
 
 ```ast-grep --pattern '$OLD.forEach($FN)' --rewrite '$OLD.map($FN)'```
 
-**Interactive rewrite** with confirmation
+**交互式重写**并逐条确认
 
 ```ast-grep --pattern '$A == $B' --rewrite '$A === $B' --interactive```
 
-**Output matches as JSON**
+**以 JSON 格式输出**匹配结果
 
 ```ast-grep --pattern 'var $X = $Y' --json```
 
-**Scan using rule configuration** files
+使用规则配置文件进行**扫描**
 
 ```ast-grep scan```
 
-**Search with context lines**
+**带上下文行**搜索
 
 ```ast-grep run --pattern '$FUNC()' --context 3```
 
-**Filter files with a glob** pattern
+用 glob 模式**过滤文件**
 
 ```ast-grep run --pattern '$X' --globs '*.ts'```
 
@@ -45,73 +45,73 @@ Structural code search and rewrite using AST patterns
 # PARAMETERS
 
 **run**
-> Run a one-time search or rewrite (default command).
+> 运行一次性的搜索或重写（默认命令）。
 
 **scan**
-> Scan and rewrite code using YAML configuration rules.
+> 使用 YAML 配置规则扫描并重写代码。
 
 **test**
-> Test ast-grep rules against test cases.
+> 用测试用例验证 ast-grep 规则。
 
 **new**
-> Create new ast-grep project, rules, or tests via scaffolding.
+> 通过脚手架创建新的 ast-grep 项目、规则或测试。
 
 **lsp**
-> Start language server for IDE integration.
+> 启动语言服务器以集成到 IDE。
 
 **-p** _pattern_, **--pattern** _pattern_
-> AST pattern to search for. Use $VAR for metavariables.
+> 要搜索的 AST 模式。使用 $VAR 表示元变量。
 
 **-r** _replacement_, **--rewrite** _replacement_
-> Replacement pattern for matches. Use $VAR to reference captured metavariables.
+> 匹配项的替换模式。使用 $VAR 引用捕获到的元变量。
 
 **-l** _lang_, **--lang** _lang_
-> Target language (javascript, typescript, python, rust, go, c, cpp, java, etc.).
+> 目标语言（javascript、typescript、python、rust、go、c、cpp、java 等）。
 
 **-i**, **--interactive**
-> Interactive mode for confirming rewrites one by one.
+> 交互模式，逐个确认重写操作。
 
 **--json** [_style_]
-> Output in JSON format (pretty, stream, compact).
+> 以 JSON 格式输出（pretty、stream、compact）。
 
 **-A** _num_, **--after** _num_
-> Show num lines after each match.
+> 显示每个匹配之后的 num 行。
 
 **-B** _num_, **--before** _num_
-> Show num lines before each match.
+> 显示每个匹配之前的 num 行。
 
 **-C** _num_, **--context** _num_
-> Show num lines around each match.
+> 显示每个匹配前后的 num 行。
 
 **--globs** _pattern_
-> Include or exclude files matching the given glob. May be specified multiple times.
+> 包含或排除匹配给定 glob 的文件。可多次指定。
 
 **--stdin**
-> Read code from standard input.
+> 从标准输入读取代码。
 
 **--threads** _num_
-> Number of threads (0 for auto-detection).
+> 线程数（0 表示自动检测）。
 
 **-c** _file_, **--config** _file_
-> Path to config file (default: sgconfig.yml).
+> 配置文件路径（默认：sgconfig.yml）。
 
 # DESCRIPTION
 
-**ast-grep** (also invoked as **sg**) is a structural code search and rewriting tool. Unlike text-based grep, it parses code into an Abstract Syntax Tree (AST) and matches patterns at the syntactic level, ensuring matches respect code structure.
+**ast-grep**（也可通过 **sg** 调用）是一款结构化代码搜索与重写工具。与基于文本的 grep 不同，它将代码解析为抽象语法树（AST），并在语法层面匹配模式，确保匹配结果遵循代码结构。
 
-Patterns use a code-like syntax where **$METAVARIABLES** match any expression. For example, **console.log($MSG)** matches any console.log call regardless of its argument. This enables precise refactoring that text-based tools cannot achieve.
+模式采用类代码语法，其中 **$METAVARIABLES** 可匹配任意表达式。例如，**console.log($MSG)** 可以匹配任何 console.log 调用，而不论其参数是什么。这实现了基于文本的工具无法做到的精确重构。
 
-The tool supports multiple languages through tree-sitter parsers, including JavaScript, TypeScript, Python, Rust, Go, C, C++, Java, and more. The **scan** command applies rules from YAML configuration files, enabling project-wide linting and enforcement of code patterns.
+该工具通过 tree-sitter 解析器支持多种语言，包括 JavaScript、TypeScript、Python、Rust、Go、C、C++、Java 等。**scan** 命令应用 YAML 配置文件中的规则，实现项目级的代码检查与代码模式强制约束。
 
-Configuration files (**sgconfig.yml**) define rule directories and project settings. Individual rules specify patterns, rewrites, severity levels, and file filters.
+配置文件（**sgconfig.yml**）定义规则目录和项目设置。每条规则指定模式、重写内容、严重级别和文件过滤器。
 
 # CAVEATS
 
-The **sg** alias may conflict with other commands on some systems. Pattern syntax varies slightly by language due to AST differences. Complex patterns may require understanding tree-sitter node types.
+在某些系统上，**sg** 别名可能与其他命令冲突。由于 AST 差异，不同语言的模式语法略有区别。复杂模式可能需要了解 tree-sitter 节点类型。
 
 # HISTORY
 
-**ast-grep** was created by **Herrington Darkholme** and released in **2022**. Written in Rust for performance, it was designed to bring structural code search to the command line, inspired by tools like Semgrep and Comby.
+**ast-grep** 由 **Herrington Darkholme** 创建，于 **2022** 年发布。它使用 Rust 编写以保证性能，旨在将结构化代码搜索带到命令行，灵感来自 Semgrep 和 Comby 等工具。
 
 # INSTALL
 

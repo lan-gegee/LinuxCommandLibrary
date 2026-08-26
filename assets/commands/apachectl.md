@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control the Apache HTTP Server
+控制 Apache HTTP 服务器
 
 # TLDR
 
-**Start** the server
+**启动**服务器
 
 ```sudo apachectl start```
 
-**Restart** the server
+**重启**服务器
 
 ```sudo apachectl restart```
 
-**Stop** the server
+**停止**服务器
 
 ```sudo apachectl stop```
 
-Test **configuration file** validity
+测试**配置文件**是否有效
 
 ```apachectl configtest```
 
-Check server **status** (requires lynx browser)
+检查服务器**状态**（需要 lynx 浏览器）
 
 ```apachectl status```
 
-**Reload** configuration without dropping connections
+不断开连接地**重载**配置
 
 ```sudo apachectl graceful```
 
-Print full **Apache configuration**
+打印完整的 **Apache 配置**
 
 ```apachectl -S```
 
@@ -40,73 +40,73 @@ Print full **Apache configuration**
 
 # DESCRIPTION
 
-**apachectl** is a front end to the Apache HyperText Transfer Protocol (HTTP) server designed to help administrators manage the Apache daemon. It can operate in SysV init mode with simple commands or pass arguments directly to httpd.
+**apachectl** 是 Apache 超文本传输协议（HTTP）服务器的前端工具，旨在帮助管理员管理 Apache 守护进程。它既能以 SysV init 模式执行简单命令，也能把参数直接传给 httpd。
 
 # PARAMETERS
 
 **start**
-> Start the Apache daemon
+> 启动 Apache 守护进程
 
 **stop**
-> Stop the Apache daemon
+> 停止 Apache 守护进程
 
 **restart**
-> Restart Apache; starts if not running
+> 重启 Apache；未运行时则启动
 
 **graceful**
-> Graceful restart without terminating active connections
+> 优雅重启，不终止活动连接
 
 **graceful-stop**
-> Graceful stop without aborting current connections
+> 优雅停止，不中断当前连接
 
 **configtest**
-> Validate syntax in configuration files
+> 校验配置文件中的语法
 
 **status**
-> Display brief operational status (requires lynx and mod_status)
+> 显示简要运行状态（需要 lynx 和 mod_status）
 
 **fullstatus**
-> Display comprehensive status report
+> 显示完整的状态报告
 
 **-S**
-> Print full Apache configuration (parsed vhosts)
+> 打印完整的 Apache 配置（解析后的虚拟主机）
 
 **-t**
-> Test configuration syntax
+> 测试配置语法
 
 **-M**
-> List loaded modules (passed to httpd)
+> 列出已加载模块（传给 httpd）
 
 **-V**
-> Show httpd compile-time settings and version
+> 显示 httpd 编译时设置和版本
 
 **-l**
-> List statically compiled modules
+> 列出静态编译的模块
 
 **-h**
-> Display help
+> 显示帮助
 
 # CONFIGURATION
 
 **/etc/httpd/conf/httpd.conf**
-> Main configuration file on RHEL/CentOS/Fedora systems.
+> RHEL/CentOS/Fedora 系统上的主配置文件。
 
 **/etc/apache2/apache2.conf**
-> Main configuration file on Debian/Ubuntu systems.
+> Debian/Ubuntu 系统上的主配置文件。
 
 **/etc/httpd/conf.d/**
-> Directory for additional configuration files on RHEL-based systems.
+> 基于 RHEL 的系统中存放附加配置文件的目录。
 
 **/etc/apache2/sites-available/**
-> Virtual host configuration files on Debian-based systems.
+> 基于 Debian 系统中的虚拟主机配置文件。
 
 # CAVEATS
 
-The **status** and **fullstatus** commands require the lynx text browser and mod_status to be enabled.
+**status** 和 **fullstatus** 命令需要 lynx 文本浏览器并启用 mod_status。
 
 # HISTORY
 
-Part of the **Apache HTTP Server** project, developed by the Apache Software Foundation since **1995**.
+**Apache HTTP Server** 项目的一部分，由 Apache 软件基金会自 **1995 年**起开发。
 
 # INSTALL
 

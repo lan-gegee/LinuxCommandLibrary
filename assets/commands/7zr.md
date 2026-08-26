@@ -1,26 +1,26 @@
 # TAGLINE
 
-minimal 7z-only file archiver
+仅支持 7z 格式的精简版文件归档工具
 
 # TLDR
 
-**Create 7z archive**
+**创建 7z 归档**
 
 ```7zr a [archive.7z] [files...]```
 
-**Extract 7z archive**
+**解压 7z 归档**
 
 ```7zr x [archive.7z]```
 
-**List archive contents**
+**列出归档内容**
 
 ```7zr l [archive.7z]```
 
-**Test archive integrity**
+**测试归档完整性**
 
 ```7zr t [archive.7z]```
 
-**Create with maximum compression**
+以最大压缩率创建
 
 ```7zr a -mx=9 [archive.7z] [files]```
 
@@ -31,55 +31,55 @@ minimal 7z-only file archiver
 # COMMANDS
 
 **a**
-> Add files to archive
+> 向归档添加文件
 
 **x**
-> Extract with full paths
+> 按完整路径解压
 
 **e**
-> Extract (flat, no paths)
+> 解压（扁平化，不带路径）
 
 **l**
-> List archive contents
+> 列出归档内容
 
 **t**
-> Test archive integrity
+> 测试归档完整性
 
 **d**
-> Delete from archive
+> 从归档中删除
 
 **u**
-> Update archive
+> 更新归档
 
 # PARAMETERS
 
 **-o**_dir_
-> Output directory
+> 输出目录
 
 **-mx=**_n_
-> Compression level (0-9)
+> 压缩级别（0-9）
 
 **-r**
-> Recurse subdirectories
+> 递归处理子目录
 
 **-y**
-> Assume yes to queries
+> 询问时自动回答 yes
 
 # DESCRIPTION
 
-**7zr** is a minimal, reduced version of the 7-Zip command-line tool that only supports the 7z format. It is the lightest-weight option in the 7-Zip family.
+**7zr** 是 7-Zip 命令行工具的最小化精简版本，仅支持 7z 格式。它是 7-Zip 家族中最轻量的选择。
 
-7zr is ideal when only the 7z format is needed, when minimal dependencies are desired, or when embedding in scripts or systems with size constraints.
+当只需要 7z 格式、希望依赖最少，或要在脚本及有体积限制的系统中内嵌时，7zr 是理想选择。
 
-The command syntax matches 7z and 7za. For 7z-only operations, 7zr provides the smallest footprint.
+其命令语法与 7z 和 7za 一致。对于仅涉及 7z 的操作，7zr 占用的资源最小。
 
 # CAVEATS
 
-7zr only handles the 7z format. It cannot process ZIP, TAR, GZIP, or any other formats.
+7zr 只能处理 7z 格式。它无法处理 ZIP、TAR、GZIP 或任何其他格式。
 
-No encryption support in some builds.
+部分构建版本不支持加密。
 
-The "r" stands for "reduced" - minimal format support, not recursive.
+"r" 代表 "reduced"（精简）——指支持的格式少，并非递归之意。
 
 # INSTALL
 

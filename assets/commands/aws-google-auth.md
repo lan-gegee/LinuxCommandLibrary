@@ -1,30 +1,30 @@
 # TAGLINE
 
-Acquire AWS credentials via Google Workspace SSO
+通过 Google Workspace SSO 获取 AWS 凭据
 
 # TLDR
 
-**Authenticate and get AWS credentials** using Google SSO
+**使用 Google SSO 认证并获取 AWS 凭据**
 
 ```aws-google-auth```
 
-**Authenticate with a specific profile**
+**使用指定配置文件认证**
 
 ```aws-google-auth -p [profile-name]```
 
-**Authenticate with explicit Google IDP and SP IDs**
+**显式指定 Google IDP 和 SP ID 进行认证**
 
 ```aws-google-auth -I [google-idp-id] -S [google-sp-id] -u [user@domain.com]```
 
-**Authenticate and assume a specific role**
+**认证并担任特定角色**
 
 ```aws-google-auth -R [arn:aws:iam::account:role/role-name]```
 
-**Set credential duration** in seconds
+**以秒为单位设置凭据有效期**
 
 ```aws-google-auth -d [3600]```
 
-**Authenticate using environment variables**
+**通过环境变量认证**
 
 ```GOOGLE_USERNAME=[user@domain.com] GOOGLE_IDP_ID=[abc123] GOOGLE_SP_ID=[xyz789] aws-google-auth```
 
@@ -34,51 +34,51 @@ Acquire AWS credentials via Google Workspace SSO
 
 # DESCRIPTION
 
-**aws-google-auth** is a command-line tool that acquires AWS temporary (STS) credentials using Google Workspace (formerly G Suite) as a federated SAML identity provider. It enables single sign-on (SSO) from Google accounts to AWS.
+**aws-google-auth** 是一款命令行工具，它以 Google Workspace（前身为 G Suite）作为联合 SAML 身份提供方，获取 AWS 临时（STS）凭据，实现从 Google 账户到 AWS 的单点登录（SSO）。
 
-The tool authenticates against Google, retrieves a SAML assertion, and exchanges it for AWS temporary credentials stored in the AWS credentials file. It supports MFA including TOTP and U2F security keys.
+该工具向 Google 完成认证后获取 SAML 断言，并将其兑换为 AWS 临时凭据存入 AWS 凭据文件。它支持包括 TOTP 和 U2F 安全密钥在内的 MFA。
 
 # PARAMETERS
 
 **-u, --username**
-> Google account email address
+> Google 账户电子邮件地址
 
 **-I, --idp-id**
-> Google Identity Provider ID
+> Google 身份提供方 ID
 
 **-S, --sp-id**
-> Google Service Provider ID for AWS
+> AWS 所用的 Google 服务提供方 ID
 
 **-R, --role-arn**
-> AWS IAM role ARN to assume
+> 要担任的 AWS IAM 角色 ARN
 
 **-d, --duration**
-> Credential duration in seconds (default: 3600)
+> 凭据有效期，单位为秒（默认：3600）
 
 **-p, --profile**
-> AWS profile name to store credentials
+> 用于存储凭据的 AWS 配置文件名称
 
 **-a, --ask-role**
-> Prompt for role selection even if only one available
+> 即使只有一个可用角色也提示进行选择
 
 **--no-cache**
-> Disable caching of IDP and SP IDs
+> 禁用对 IDP 和 SP ID 的缓存
 
 # CONFIGURATION
 
 **~/.aws/credentials**
-> Stores temporary AWS credentials obtained after authentication.
+> 存储认证后获得的临时 AWS 凭据。
 
 **~/.aws/config**
-> AWS profile configuration including region and output format. Profile-specific google_config.google_idp_id and google_config.google_sp_id can be set here.
+> AWS 配置文件的配置，包括区域和输出格式。可在此处设置配置文件专属的 google_config.google_idp_id 和 google_config.google_sp_id。
 
 # CAVEATS
 
-Requires SAML SSO configuration between Google Workspace and AWS IAM. U2F security keys do not work in Docker containers due to USB device access limitations. The Google IDP and SP IDs must be obtained from the Google Admin console under SAML Apps settings.
+需要先在 Google Workspace 与 AWS IAM 之间完成 SAML SSO 配置。由于 USB 设备访问受限，U2F 安全密钥无法在 Docker 容器中使用。Google IDP 和 SP ID 必须从 Google Admin 控制台的 SAML Apps 设置中获取。
 
 # HISTORY
 
-Created by **Cevo Australia** as an open-source tool to bridge Google Workspace authentication with AWS. First released around **2017** to address the need for Google-based SSO to AWS accounts. Available via PyPI and Docker Hub.
+由 **Cevo Australia** 创建的开源工具，用于衔接 Google Workspace 认证与 AWS。最初发布于 **2017 年** 前后，旨在满足基于 Google 的 SSO 登录 AWS 账户的需求。可通过 PyPI 和 Docker Hub 获取。
 
 # INSTALL
 

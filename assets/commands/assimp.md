@@ -1,38 +1,38 @@
 # TAGLINE
 
-Import and convert 3D model file formats
+导入和转换 3D 模型文件格式
 
 # TLDR
 
-**Convert** a 3D model between formats
+在不同格式间**转换** 3D 模型
 
 ```assimp export [input.fbx] [output.obj]```
 
-**Show** model information and statistics
+**显示**模型信息和统计数据
 
 ```assimp info [model.fbx]```
 
-List all supported **import** file extensions
+列出所有支持的**导入**文件扩展名
 
 ```assimp listext```
 
-List all supported **export** formats
+列出所有支持的**导出**格式
 
 ```assimp listexport```
 
-Check if a file **extension** is supported
+检查文件**扩展名**是否受支持
 
 ```assimp knowext [fbx]```
 
-Extract **embedded textures** from a model
+提取模型中的**内嵌纹理**
 
 ```assimp extract [model.fbx]```
 
-**Dump** model structure to text for debugging
+将模型结构**导出**为文本以便调试
 
 ```assimp dump [model.fbx] [output.assxml]```
 
-Show **help** for a specific subcommand
+显示特定子命令的**帮助**信息
 
 ```assimp [export] --help```
 
@@ -42,49 +42,49 @@ Show **help** for a specific subcommand
 
 # DESCRIPTION
 
-**assimp** is the command-line interface for the Open Asset Import Library. It supports import and export of numerous 3D file formats, including OBJ, FBX, COLLADA (.dae), glTF/glTF2 (.gltf, .glb), STL, 3DS, PLY, X3D, and many more.
+**assimp** 是 Open Asset Import Library 的命令行界面。它支持众多 3D 文件格式的导入与导出，包括 OBJ、FBX、COLLADA（.dae）、glTF/glTF2（.gltf、.glb）、STL、3DS、PLY、X3D 等等。
 
-The tool can convert between formats, display model information, extract embedded textures, and dump model structures for debugging. Use `assimp <verb> --help` for detailed help on each subcommand.
+该工具可以在不同格式之间转换、显示模型信息、提取内嵌纹理，以及导出模型结构以便调试。使用 `assimp <verb> --help` 可查看各子命令的详细帮助。
 
 # PARAMETERS
 
 **export** _input_ _output_
-> Convert a 3D model between file formats.
+> 在文件格式之间转换 3D 模型。
 
 **info** _file_
-> Display statistics and structure of a 3D model.
+> 显示 3D 模型的统计信息和结构。
 
 **listext**
-> List all known import file extensions.
+> 列出所有已知的导入文件扩展名。
 
 **listexport**
-> List all supported export formats.
+> 列出所有支持的导出格式。
 
 **knowext** _extension_
-> Check whether a file extension is recognized by Assimp.
+> 检查某个文件扩展名是否能被 Assimp 识别。
 
 **extract** _file_
-> Extract an embedded texture from a model.
+> 从模型中提取内嵌纹理。
 
 **dump** _file_ [_output_]
-> Convert a model to binary or XML dumps (ASSBIN/ASSXML).
+> 将模型转换为二进制或 XML 转储（ASSBIN/ASSXML）。
 
 **cmpdump** _file1_ _file2_
-> Compare two file dumps produced with assimp dump.
+> 比较由 assimp dump 生成的两个转储文件。
 
 **version**
-> Display Assimp version information.
+> 显示 Assimp 版本信息。
 
 **help**
-> Show help message.
+> 显示帮助消息。
 
 # CAVEATS
 
-Conversion quality varies by format. Some features may be lost in translation. Complex materials may not convert perfectly. Large models consume significant memory.
+转换质量因格式而异。某些特性可能在转换过程中丢失。复杂材质可能无法完美转换。大型模型会占用大量内存。
 
 # HISTORY
 
-The **Open Asset Import Library** was created around **2008** to provide a unified interface for loading 3D models across game engines and graphics applications.
+**Open Asset Import Library** 大约创建于 **2008** 年，旨在为游戏引擎和图形应用程序提供统一的 3D 模型加载接口。
 
 # INSTALL
 

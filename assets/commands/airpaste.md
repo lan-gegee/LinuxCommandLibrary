@@ -1,26 +1,26 @@
 # TAGLINE
 
-Pipe data between two machines on the local network using mDNS discovery
+利用 mDNS 发现机制在本地网络的两台机器之间传输管道数据
 
 # TLDR
 
-**Wait** for a peer to connect (prints received data to stdout)
+**等待**对等端连接（将收到的数据打印到 stdout）
 
 ```airpaste```
 
-Send **text** to the waiting peer
+向等待中的对等端发送**文本**
 
 ```echo "Hello" | airpaste```
 
-Send a **file**
+发送一个**文件**
 
 ```airpaste < [file.txt]```
 
-Receive and **save** to file
+接收并**保存**到文件
 
 ```airpaste > [received.txt]```
 
-Use a **named channel** so only peers with the same name connect
+使用**命名通道**，只有同名对等端才会互相连接
 
 ```airpaste [channel_name]```
 
@@ -30,22 +30,22 @@ Use a **named channel** so only peers with the same name connect
 
 # DESCRIPTION
 
-**airpaste** is a 1-to-1 network pipe that auto-discovers another peer on the same local network using mDNS (multicast DNS), so you do not need to know the other machine's IP address. Data is transferred over TCP.
+**airpaste** 是一条一对一的网络管道，它使用 mDNS（多播 DNS）自动发现同一本地网络上的另一个对等端，因此你不需要知道对方机器的 IP 地址。数据通过 TCP 传输。
 
-Run **airpaste** on two machines: whatever you pipe into one is streamed to the other. Pass an optional channel name so that only peers using the same name connect to each other. It works across different operating systems and requires no server setup.
+在两台机器上运行 **airpaste**：凡是输入到其中一端的数据都会流式传输到另一端。可以传入一个可选的通道名称，使只有使用相同名称的对等端互相连接。它可以跨不同操作系统工作，并且无需任何服务器设置。
 
 # PARAMETERS
 
 _name_
-> Optional channel name; only peers using the same name connect to each other
+> 可选的通道名称；只有使用相同名称的对等端才会互相连接
 
 # CAVEATS
 
-Only works on local networks where mDNS multicast is reachable. Data moves over the network without encryption and could be captured, so it is intended for use on trusted networks only. It connects two peers at a time, not a broadcast to many.
+只能在 mDNS 多播可达的本地网络上工作。数据在网络中明文传输且可能被截获，因此仅适合在可信网络中使用。它一次只连接两个对等端，不支持一对多广播。
 
 # HISTORY
 
-**airpaste** was created by Mathias Buus (mafintosh) as a simple way to pipe data and files between machines during development, leveraging mDNS for zero-configuration networking. It is written in JavaScript and distributed via npm.
+**airpaste** 由 Mathias Buus（mafintosh）创建，作为开发期间在机器之间传输数据和文件的简便方式，借助 mDNS 实现零配置组网。它用 JavaScript 编写并通过 npm 分发。
 
 # SEE ALSO
 

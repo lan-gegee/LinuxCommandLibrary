@@ -1,26 +1,26 @@
 # TAGLINE
 
-Upload container images to remote registries.
+将容器镜像上传到远程注册表。
 
 # TLDR
 
-Push a container to the **Container Library**
+将容器推送到 **Container Library**
 
 ```apptainer push [path/to/image.sif] library://[user/collection/container]:[tag]```
 
-Push a container to an **OCI registry**
+将容器推送到 **OCI 注册表**
 
 ```apptainer push [path/to/image.sif] oras://[registry/namespace/image]:[tag]```
 
-Push an **unsigned container** (skip the signature requirement)
+推送**未签名的容器**（跳过签名要求）
 
 ```apptainer push -U [path/to/image.sif] library://[user/collection/container]:[tag]```
 
-Push to an OCI registry using a **specific auth file**
+使用**特定的认证文件**推送到 OCI 注册表
 
 ```apptainer push --authfile [path/to/auth.json] [path/to/image.sif] oras://[registry/namespace/image]:[tag]```
 
-Push a container with a **description** (library only)
+推送带**描述信息**的容器（仅限 library）
 
 ```apptainer push -D "[description]" [path/to/image.sif] library://[user/collection/container]:[tag]```
 
@@ -30,30 +30,30 @@ Push a container with a **description** (library only)
 
 # DESCRIPTION
 
-**apptainer push** uploads container images to remote registries including the Sylabs Container Library and OCI-compatible registries. This enables sharing containers with collaborators and deploying containers to production environments.
+**apptainer push** 将容器镜像上传到远程注册表，包括 Sylabs Container Library 和兼容 OCI 的注册表。这样可以与协作者共享容器，或将容器部署到生产环境。
 
-Authentication is required for most registries. Use **apptainer remote login** to configure credentials before pushing.
+大多数注册表都需要身份验证。推送前请使用 **apptainer remote login** 配置凭据。
 
 # PARAMETERS
 
 **-U, --allow-unsigned**
-> Allow pushing unsigned containers (by default a valid signature is required for library:// pushes).
+> 允许推送未签名的容器（默认情况下，推送到 library:// 需要有效签名）。
 
 **-D, --description** _text_
-> Attach a description to the container (library:// only).
+> 为容器附加描述（仅限 library://）。
 
 **--library** _url_
-> Specify the Container Library URL to push to.
+> 指定要推送到的 Container Library URL。
 
 **--authfile** _path_
-> Docker-style authentication file for OCI registry credentials (oras://).
+> 用于 OCI 注册表凭据（oras://）的 Docker 风格认证文件。
 
 **--no-https**
-> Use HTTP instead of HTTPS for docker://, oras://, and library:// URIs.
+> 对 docker://、oras:// 和 library:// URI 使用 HTTP 而不是 HTTPS。
 
 # CAVEATS
 
-Pushing to the Container Library requires a Sylabs account and API token. Large images may take considerable time to upload depending on network bandwidth. Unsigned containers may be rejected by some registries.
+推送到 Container Library 需要 Sylabs 账户和 API 令牌。视网络带宽而定，大型镜像的上传可能耗时较长。某些注册表可能会拒绝未签名的容器。
 
 # INSTALL
 

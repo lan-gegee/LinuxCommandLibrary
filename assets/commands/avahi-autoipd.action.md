@@ -1,22 +1,22 @@
 # TAGLINE
 
-Handle IPv4 link-local address events
+处理 IPv4 链路本地地址事件
 
 # TLDR
 
-**Add** an acquired IPv4LL address to a network interface (BIND event)
+将获取到的 IPv4LL 地址**添加**到网络接口（BIND 事件）
 
 ```/etc/avahi/avahi-autoipd.action BIND [interface] [ip_address]```
 
-**Remove** address due to conflict detection (CONFLICT event)
+因检测到地址冲突而**移除**地址（CONFLICT 事件）
 
 ```/etc/avahi/avahi-autoipd.action CONFLICT [interface] [ip_address]```
 
-**Remove** address when routable address becomes available (UNBIND event)
+在有可路由地址可用时**移除**地址（UNBIND 事件）
 
 ```/etc/avahi/avahi-autoipd.action UNBIND [interface] [ip_address]```
 
-**Remove** address on daemon shutdown (STOP event)
+守护进程关闭时**移除**地址（STOP 事件）
 
 ```/etc/avahi/avahi-autoipd.action STOP [interface] [ip_address]```
 
@@ -27,33 +27,33 @@ Handle IPv4 link-local address events
 # PARAMETERS
 
 **_event_**
-> Event type: **BIND**, **CONFLICT**, **UNBIND**, or **STOP**
+> 事件类型：**BIND**、**CONFLICT**、**UNBIND** 或 **STOP**
 
 **_interface_**
-> Network interface name (e.g., eth0, wlan0)
+> 网络接口名称（如 eth0、wlan0）
 
 **_address_**
-> IPv4LL address from the 169.254.0.0/16 range
+> 位于 169.254.0.0/16 范围内的 IPv4LL 地址
 
 # DESCRIPTION
 
-**avahi-autoipd.action** is the action script automatically called by **avahi-autoipd** whenever an IPv4 Link-Local address has been acquired or when an IP address conflict is detected. The script handles adding or removing the specified address from the network interface.
+**avahi-autoipd.action** 是由 **avahi-autoipd** 自动调用的动作脚本，每当获取到 IPv4 链路本地地址或检测到 IP 地址冲突时触发。该脚本负责在网络接口上添加或移除指定地址。
 
-The script receives three arguments: an event string, the network interface name, and the IPv4LL address. Based on the event type, it performs the appropriate network configuration:
+脚本接收三个参数：事件字符串、网络接口名称和 IPv4LL 地址。根据事件类型，它会执行相应的网络配置：
 
-> **BIND** - An IP address has been successfully acquired; the script adds it to the network interface
+> **BIND** - 已成功获取 IP 地址；脚本将其添加到网络接口
 
-> **CONFLICT** - avahi-autoipd detected the IP address is already in use on the local network; the script removes the configured address
+> **CONFLICT** - avahi-autoipd 检测到该 IP 地址已被本地网络中的其他主机使用；脚本移除已配置的地址
 
-> **UNBIND** - A routable address has been configured to the interface by another program; the script removes the IPv4LL address to avoid conflicts
+> **UNBIND** - 其他程序已为接口配置了可路由地址；脚本移除 IPv4LL 地址以避免冲突
 
-> **STOP** - avahi-autoipd is shutting down; the script removes the IP address from the interface
+> **STOP** - avahi-autoipd 正在关闭；脚本从接口上移除该 IP 地址
 
-The default script typically uses **ip** or **ifconfig** commands to manipulate interface addresses. Users can customize this script to integrate with specific network management systems or add additional configuration steps.
+默认脚本通常使用 **ip** 或 **ifconfig** 命令操作接口地址。用户可以自定义此脚本，以便与特定的网络管理系统集成，或添加额外的配置步骤。
 
 # CAVEATS
 
-The script runs with elevated privileges and is executed automatically by **avahi-autoipd**. Modifications to this script should be tested carefully as errors can prevent proper IPv4LL address configuration. Always maintain a backup before customization.
+该脚本以提升的权限运行，并由 **avahi-autoipd** 自动执行。修改此脚本前应仔细测试，因为错误可能导致 IPv4LL 地址无法正确配置。自定义前务必保留备份。
 
 # SEE ALSO
 

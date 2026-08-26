@@ -1,42 +1,42 @@
 # TAGLINE
 
-Secure, multilingual package manager for Arch Linux and the AUR.
+面向 Arch Linux 和 AUR 的安全多语言软件包管理器。
 
 # TLDR
 
-**Search** AUR packages
+**搜索** AUR 软件包
 
 ```aura -As [keyword]```
 
-**Install** from AUR
+从 AUR **安装**
 
 ```aura -A [package]```
 
-**Update** AUR packages
+**更新** AUR 软件包
 
 ```aura -Akua```
 
-Install from **official** repos
+从**官方**仓库安装
 
 ```aura -S [package]```
 
-**Sync** and upgrade official packages
+**同步并升级**官方软件包
 
 ```aura -Syu```
 
-**Remove** package and dependencies
+**移除**软件包及其依赖
 
 ```aura -Rsu [package]```
 
-**Save** current package state
+**保存**当前软件包状态
 
 ```aura -B```
 
-**Restore** a saved package state
+**恢复**已保存的软件包状态
 
 ```aura -Br```
 
-Remove **orphan** packages
+移除**孤儿**软件包
 
 ```aura -Oj```
 
@@ -46,56 +46,56 @@ Remove **orphan** packages
 
 # DESCRIPTION
 
-**aura** is a secure, multilingual package manager for Arch Linux that handles both official repository packages and AUR (Arch User Repository) packages. It provides a unified interface for all package management tasks.
+**aura** 是一款面向 Arch Linux 的安全多语言软件包管理器，同时处理官方仓库软件包和 AUR（Arch User Repository）软件包。它为所有软件包管理任务提供统一接口。
 
 # PARAMETERS
 
 **-A, --aursync**
-> Synchronize with the AUR
+> 与 AUR 同步
 
 **-As, --search**
-> Search AUR packages
+> 搜索 AUR 软件包
 
 **-S, --sync**
-> Synchronize with official repositories
+> 与官方仓库同步
 
 **-Syu**
-> Sync database and upgrade packages
+> 同步数据库并升级软件包
 
 **-R, --remove**
-> Remove packages
+> 移除软件包
 
 **-s, --recursive**
-> Remove dependencies recursively
+> 递归移除依赖
 
 **-u, --unneeded**
-> Remove unneeded packages
+> 移除不再需要的软件包
 
 **-B, --backup**
-> Save or restore package state snapshots
+> 保存或恢复软件包状态快照
 
 **-O, --orphans**
-> List orphan packages
+> 列出孤儿软件包
 
 **-j, --abandon**
-> Remove orphan packages
+> 移除孤儿软件包
 
 **-k, --diff**
-> Show PKGBUILD diff before building
+> 构建前显示 PKGBUILD 差异
 
 **--hotedit**
-> Edit PKGBUILD before building
+> 构建前编辑 PKGBUILD
 
 **--delmakedeps**
-> Remove make dependencies after install
+> 安装后移除构建依赖
 
 # CAVEATS
 
-AUR packages are user-submitted and not officially supported. Review PKGBUILDs before installing for security. Building from source may require additional dependencies.
+AUR 软件包由用户提交，不受官方支持。出于安全考虑，安装前应审查 PKGBUILD。从源码构建可能需要额外的依赖。
 
 # HISTORY
 
-**aura** was created as a Haskell-based alternative to other AUR helpers, emphasizing security and multilingual support.
+**aura** 作为其他 AUR 助手的 Haskell 实现替代品而创建，强调安全性和多语言支持。
 
 # INSTALL
 

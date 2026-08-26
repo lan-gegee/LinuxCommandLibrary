@@ -1,12 +1,12 @@
 # TAGLINE
 
-automatic bug reporting tool alias
+自动错误报告工具的别名
 
 # TLDR
 
-This command is an **alias** of abrt-cli
+此命令是 abrt-cli 的**别名**
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr abrt-cli```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**abrt** is an alias for **abrt-cli**, the command-line interface for the Automatic Bug Reporting Tool. See **abrt-cli** for full documentation.
+**abrt** 是 **abrt-cli** 的别名，后者是 Automatic Bug Reporting Tool（自动错误报告工具）的命令行界面。完整文档参见 **abrt-cli**。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Track changes in external attack surface over time
+跟踪外部攻击面随时间的变化
 
 # TLDR
 
-**Track** changes between enumerations
+在不同枚举之间**跟踪**变化
 
 ```amass track -d [example.com]```
 
-Track since **specific date**
+自**指定日期**起进行跟踪
 
 ```amass track -d [example.com] -since "2024-01-01"```
 
-Compare with **previous enumeration**
+与**上一次枚举**比较
 
 ```amass track -d [example.com] -last [2]```
 
-Output **differences** to file
+将**差异**输出到文件
 
 ```amass track -d [example.com] -o [changes.txt]```
 
@@ -26,44 +26,44 @@ Output **differences** to file
 
 # DESCRIPTION
 
-**amass track** compares results from different enumeration runs to identify changes in an organization's external attack surface. It detects new subdomains, removed assets, and infrastructure changes.
+**amass track** 比较不同枚举运行的结果，以识别组织外部攻击面的变化。它能检测新增的子域名、被移除的资产以及基础设施变更。
 
-This is useful for continuous monitoring of an organization's digital footprint, alerting security teams to potential shadow IT or unauthorized changes.
+这对于持续监控组织的数字足迹非常有用，可以让安全团队及时了解潜在的影子 IT 或未经授权的变更。
 
-Note that **track** is a legacy subcommand. In Amass v4 it was moved out of the core **amass** binary into the separate oam-tools package (as **oam_track**), and the workflow was reworked again in Amass v5. On current Amass installations the **amass track** subcommand may not be available; check the version with **amass -version**.
+注意 **track** 是一个遗留子命令。在 Amass v4 中，它被移出核心 **amass** 二进制文件，放入独立的 oam-tools 包（即 **oam_track**），并且在 Amass v5 中工作流又被重新设计。在当前的 Amass 安装中，**amass track** 子命令可能不可用；请用 **amass -version** 检查版本。
 
 # PARAMETERS
 
 **-d** _domain_
-> Domain to track
+> 要跟踪的域名
 
 **-since** _date_
-> Compare against enumerations since date
+> 与指定日期以来的枚举进行比较
 
 **-last** _n_
-> Compare against the last n enumerations
+> 与最近 n 次枚举进行比较
 
 **-history**
-> Show all historical changes
+> 显示所有历史变化
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-dir** _path_
-> Database directory
+> 数据库目录
 
 # CONFIGURATION
 
 **~/.config/amass/config.ini**
-> Amass configuration file defining data sources, API keys, and scope settings.
+> Amass 配置文件，定义数据源、API 密钥和范围设置。
 
 # CAVEATS
 
-Requires multiple enumeration runs stored in the database. Detection quality depends on consistency of enumeration settings. Large organizations may have frequent legitimate changes. The **track** subcommand is deprecated: it was removed from the core **amass** binary in v4 (moved to oam-tools as **oam_track**) and reworked again in v5, so it may be unavailable on current installations.
+需要数据库中存有多次枚举运行的结果。检测质量取决于枚举设置的一致性。大型组织的正常变更可能很频繁。**track** 子命令已被弃用：它在 v4 中被移出核心 **amass** 二进制文件（移至 oam-tools 的 **oam_track**），并在 v5 中又被重新设计，因此在当前安装中可能不可用。
 
 # HISTORY
 
-**amass track** was introduced to support continuous monitoring use cases, allowing security teams to detect attack surface changes over time. With the Amass v4 redesign the subcommand was split out into the oam-tools package as **oam_track**, and the tracking workflow was further reworked in Amass v5.
+**amass track** 的引入是为了支持持续监控场景，让安全团队能够检测攻击面随时间的变化。随着 Amass v4 的重新设计，该子命令被拆分到 oam-tools 包中成为 **oam_track**，跟踪工作流又在 Amass v5 中得到进一步改造。
 
 # INSTALL
 

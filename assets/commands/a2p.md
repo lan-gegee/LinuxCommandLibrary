@@ -1,18 +1,18 @@
 # TAGLINE
 
-Translate awk scripts to Perl
+将 awk 脚本转换为 Perl
 
 # TLDR
 
-**Convert** an awk script to Perl
+**转换** awk 脚本为 Perl
 
 ```a2p [script.awk] > [script.pl]```
 
-Convert with a **specific field separator**
+以**指定字段分隔符**转换
 
 ```a2p -F: [script.awk] > [script.pl]```
 
-Convert and **disable split** on whitespace
+转换并**禁用空白切分**
 
 ```a2p -n [script.awk] > [script.pl]```
 
@@ -22,33 +22,33 @@ Convert and **disable split** on whitespace
 
 # DESCRIPTION
 
-**a2p** (awk to perl) is a translator that converts awk scripts into Perl programs. It reads an awk script specified on the command line (or from stdin if no file is given) and outputs equivalent Perl code to stdout.
+**a2p**（awk to perl）是一个把 awk 脚本转换为 Perl 程序的翻译器。它读取命令行指定的 awk 脚本（未给文件时从标准输入读取），并将等价的 Perl 代码输出到标准输出。
 
-The generated Perl code attempts to mimic the behavior of awk as closely as possible, including handling of the implicit input loop, field splitting, pattern matching, and output formatting. While the output may not be the most elegant Perl, it provides a functional starting point for migration.
+生成的 Perl 代码会尽量贴近地模仿 awk 的行为，包括隐式输入循环、字段切分、模式匹配和输出格式的处理。虽然输出可能不是最优雅的 Perl 代码，但它为迁移提供了可用的起点。
 
 # PARAMETERS
 
 **-D**_number_
-> Set debugging flags
+> 设置调试标志
 
 **-F**_character_
-> Specify the field separator character (corresponds to awk's -F option). By default, fields are split on whitespace
+> 指定字段分隔符（对应 awk 的 -F 选项）。默认按空白字符切分字段
 
 **-n**
-> Disable the automatic split() on input lines. Use this when you want to handle line splitting manually
+> 禁用对输入行的自动 split()。想手动处理行切分时使用此选项
 
 **-o**
-> Print the old awk script as comments in the output Perl code. Useful for comparing the original and converted code
+> 在输出的 Perl 代码中以注释形式打印原 awk 脚本。便于对比原始代码与转换后的代码
 
 # CAVEATS
 
-The generated Perl code may require manual cleanup for optimal style and performance. Some complex awk constructs or GNU awk extensions may not translate perfectly. The translator assumes POSIX awk behavior.
+生成的 Perl 代码可能需要手动清理，才能获得更好的风格和性能。一些复杂的 awk 结构或 GNU awk 扩展可能无法完美转换。该翻译器假定的是 POSIX awk 行为。
 
-**a2p** is deprecated and was removed from the core Perl distribution in Perl 5.22 (2015). It is no longer shipped with modern Perl. Use it only on older systems, or rewrite awk scripts in Perl directly.
+**a2p** 已被弃用，并在 Perl 5.22（2015 年）中从 Perl 核心发行版中移除。现代 Perl 不再附带它。请只在较旧的系统上使用它，或者直接用 Perl 重写 awk 脚本。
 
 # HISTORY
 
-**a2p** was written by Larry Wall, the creator of Perl, and first appeared with Perl 1.0 in **1987**. It was one of the earliest tools designed to help users migrate from Unix scripting tools to Perl during a time when Perl was being positioned as a replacement for awk, sed, and shell scripting. It was removed from the Perl core distribution in Perl 5.22 (2015).
+**a2p** 由 Perl 之父 Larry Wall 编写，最早随 **1987 年**发布的 Perl 1.0 一同出现。在 Perl 被定位为 awk、sed 和 shell 脚本替代品的年代，它是最早一批帮助用户从 Unix 脚本工具迁移到 Perl 的工具之一。它在 Perl 5.22（2015 年）中被移出 Perl 核心发行版。
 
 # INSTALL
 

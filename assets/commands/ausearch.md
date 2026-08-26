@@ -1,34 +1,34 @@
 # TAGLINE
 
-Search and query audit log events
+搜索和查询审计日志事件
 
 # TLDR
 
-Search for **SELinux AVC** denials
+搜索 **SELinux AVC** 拒绝事件
 
 ```sudo ausearch -m avc```
 
-Search by **executable**
+按**可执行文件**搜索
 
 ```sudo ausearch -c httpd```
 
-Search by **user**
+按**用户**搜索
 
 ```sudo ausearch -ui 1000```
 
-Search **recent** events
+搜索**最近**的事件
 
 ```sudo ausearch -ts recent```
 
-Search **failed logins**
+搜索**失败的登录**
 
 ```sudo ausearch -m user_login -sv no```
 
-Search by **file**
+按**文件**搜索
 
 ```sudo ausearch -f path/to/file```
 
-Output **raw** format
+输出**原始**格式
 
 ```sudo ausearch -m avc --raw```
 
@@ -38,67 +38,67 @@ Output **raw** format
 
 # DESCRIPTION
 
-**ausearch** queries the Linux audit log for events. It can search by message type, user, process, file, time range, and other criteria, making it essential for security analysis and incident investigation.
+**ausearch** 在 Linux 审计日志中查询事件。它可以按消息类型、用户、进程、文件、时间范围等条件进行搜索，是安全分析和事件调查的必备工具。
 
 # PARAMETERS
 
 **-m, --message** _type_
-> Search for specific message types (avc, user_login, etc.)
+> 搜索特定消息类型（avc、user_login 等）
 
 **-c, --comm** _name_
-> Search by command/executable name
+> 按命令/可执行文件名搜索
 
 **-ui, --uid** _uid_
-> Search by user ID
+> 按用户 ID 搜索
 
 **-f, --file** _path_
-> Search for events related to a specific file
+> 搜索与特定文件相关的事件
 
 **-ts, --start** _time_
-> Start time for search (recent, today, or timestamp)
+> 搜索的开始时间（recent、today 或时间戳）
 
 **-te, --end** _time_
-> End time for search
+> 搜索的结束时间
 
 **-sv, --success** _yes|no_
-> Filter by success or failure
+> 按成功或失败过滤
 
 **--raw**
-> Output in raw format for further processing
+> 以原始格式输出以便进一步处理
 
 **-i, --interpret**
-> Interpret numeric values (UIDs, syscalls, etc.)
+> 解读数值（UID、系统调用等）
 
 **-k, --key** _key_
-> Search for events matching the specified audit key
+> 搜索匹配指定审计键的事件
 
 **-p, --pid** _pid_
-> Search by process ID
+> 按进程 ID 搜索
 
 **-sc, --syscall** _syscall_
-> Search by system call name or number
+> 按系统调用名称或编号搜索
 
 **-x, --executable** _path_
-> Search for events matching the executable path
+> 搜索匹配可执行文件路径的事件
 
 **--input-logs**
-> Read from specific audit log files
+> 从指定的审计日志文件读取
 
 # CONFIGURATION
 
 **/etc/audit/auditd.conf**
-> Main audit daemon configuration, controls log file location and retention policy.
+> 审计守护进程的主配置文件，控制日志文件位置和保留策略。
 
 **/etc/audit/audit.rules**
-> Defines which events are logged by the audit system. Determines what events are searchable.
+> 定义审计系统记录哪些事件，决定哪些事件可以被搜索到。
 
 # CAVEATS
 
-Requires root privileges to access audit logs. The audit daemon must be running and logging events. Large audit logs may slow searches; use time filters to narrow results.
+访问审计日志需要 root 权限。审计守护进程必须正在运行并记录事件。过大的审计日志会拖慢搜索速度；使用时间过滤器缩小结果范围。
 
 # HISTORY
 
-**ausearch** is part of the **audit** package, providing search capabilities for the Linux Audit Framework.
+**ausearch** 属于 **audit** 软件包，为 Linux 审计框架提供搜索功能。
 
 # INSTALL
 

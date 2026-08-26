@@ -1,22 +1,22 @@
 # TAGLINE
 
-networked aerial combat flight simulator
+联网空战飞行模拟器
 
 # TLDR
 
-**Start** the aerial combat game
+**启动**空战游戏
 
 ```acm```
 
-Connect to a **server** for multiplayer
+连接**服务器**进行多人游戏
 
 ```acm -server [hostname]```
 
-Host a **multiplayer game** as server
+作为服务器主持**多人游戏**
 
 ```acm -host```
 
-Set **callsign** for multiplayer
+为多人游戏设置**呼号**
 
 ```acm -name [callsign]```
 
@@ -26,37 +26,37 @@ Set **callsign** for multiplayer
 
 # DESCRIPTION
 
-**acm** (Aerial Combat Multiplayer) is a flight combat simulator that allows networked dogfighting between players. The game simulates aerial combat with various aircraft types, featuring realistic flight physics and weapons systems.
+**acm**（Aerial Combat Multiplayer）是一款飞行战斗模拟器，允许玩家之间进行网络空战缠斗。游戏模拟多种机型的空战，具有逼真的飞行动力学和武器系统。
 
-The game can be played in single-player mode against AI opponents or in multiplayer mode across a network. Players control jet aircraft, engaging in air-to-air combat with guns and missiles.
+游戏可以单人对战 AI 对手，也可以通过网络进行多人对战。玩家驾驶喷气式战机，使用机炮和导弹进行空对空作战。
 
 # PARAMETERS
 
 **-server** _host_
-> Connect to specified multiplayer server
+> 连接到指定的多人游戏服务器
 
 **-host**
-> Run as a multiplayer server
+> 以多人游戏服务器身份运行
 
 **-name** _callsign_
-> Set your pilot callsign
+> 设置你的飞行员呼号
 
 **-plane** _type_
-> Select aircraft type
+> 选择机型
 
 **-team** _n_
-> Join specified team number
+> 加入指定的队伍编号
 
 **-geometry** _WxH_
-> Set window geometry
+> 设置窗口几何尺寸
 
 # CAVEATS
 
-Requires X Window System for display. Network play requires proper firewall configuration for UDP traffic. Performance depends on graphics hardware and network latency for multiplayer games.
+显示需要 X Window System。网络对战需要对 UDP 流量正确配置防火墙。性能取决于图形硬件；多人游戏的体验还受网络延迟影响。
 
 # HISTORY
 
-**acm** was developed in the early **1990s** as one of the first networked multiplayer combat flight simulators for Unix/X11 systems. It demonstrated the potential of networked gaming on Unix workstations during an era when such games were primarily found on dedicated gaming platforms.
+**acm** 开发于 **20 世纪 90 年代**初，是最早面向 Unix/X11 系统的联网多人战斗飞行模拟器之一。在网络游戏主要还局限于专用游戏平台的时代，它展示了 Unix 工作站上联网游戏的潜力。
 
 # SEE ALSO
 

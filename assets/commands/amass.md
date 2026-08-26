@@ -1,26 +1,26 @@
 # TAGLINE
 
-Attack surface mapping and asset discovery
+攻击面测绘与资产发现
 
 # TLDR
 
-**Enumerate** subdomains passively
+**被动枚举**子域名
 
 ```amass enum -passive -d [example.com]```
 
-**Active** enumeration with DNS resolution and brute forcing
+结合 DNS 解析和暴力破解的**主动**枚举
 
 ```amass enum -active -brute -d [example.com]```
 
-Enumerate with **output file**
+使用**输出文件**进行枚举
 
 ```amass enum -d [example.com] -o [output.txt]```
 
-Retrieve discovered **subdomain names** from the database
+从数据库获取发现的**子域名名称**
 
 ```amass subs -names -d [example.com]```
 
-Find **associations** between discovered assets
+查找已发现资产之间的**关联**
 
 ```amass assoc -d [example.com]```
 
@@ -30,71 +30,71 @@ Find **associations** between discovered assets
 
 # DESCRIPTION
 
-**amass** is an OWASP project for in-depth attack surface mapping and asset discovery. It performs DNS enumeration, subdomain brute-forcing, and leverages numerous data sources including search engines, certificate transparency logs, and APIs.
+**amass** 是一个 OWASP 项目，用于深度攻击面测绘和资产发现。它执行 DNS 枚举和子域名暴力破解，并利用众多数据源，包括搜索引擎、证书透明度日志和各种 API。
 
-The tool builds a comprehensive map of an organization's external network footprint, identifying subdomains, related domains, and network blocks. Collected data is stored in a graph database; **enum** populates the database while **subs**, **assoc**, and **viz** present results from it.
+该工具会构建组织外部网络足迹的完整地图，识别子域名、关联域名和网络区块。收集到的数据存储在图数据库中；**enum** 负责填充数据库，而 **subs**、**assoc** 和 **viz** 则从中呈现结果。
 
-Since version 5.0 the engine and collection are separated: **enum** drives the collection engine, and analysis subcommands query the stored graph afterwards.
+自 5.0 版本起，引擎与数据收集相互分离：**enum** 驱动采集引擎，分析类子命令则事后查询已存储的图数据库。
 
 # PARAMETERS
 
 **enum**
-> Interface with the engine to perform asset discovery and network mapping.
+> 与采集引擎交互，执行资产发现和网络映射。
 
 **subs**
-> Analyze and present discovered subdomains from the graph database.
+> 分析并呈现图数据库中发现的子域名。
 
 **assoc**
-> Find associations between discovered assets.
+> 查找已发现资产之间的关联。
 
 **track**
-> Identify newly discovered assets over time.
+> 识别随时间新发现的资产。
 
 **viz**
-> Generate graph visualizations of collected data.
+> 为收集到的数据生成图形可视化。
 
 **-d** _domain_
-> Target domain names (comma-separated).
+> 目标域名（逗号分隔）。
 
 **-passive**
-> Only use passive data sources (no DNS resolution).
+> 仅使用被动数据源（不做 DNS 解析）。
 
 **-active**
-> Use active methods such as zone transfers and certificate grabbing.
+> 使用主动方法，如区域传送和证书抓取。
 
 **-brute**
-> Execute subdomain brute forcing after searches.
+> 在搜索之后执行子域名暴力破解。
 
 **-ip**
-> Show IP addresses of discovered names.
+> 显示发现名称的 IP 地址。
 
 **-names**
-> With **subs**, print only the discovered names.
+> 配合 **subs** 时，仅打印发现的名称。
 
 **-o** _file_
-> Output file path.
+> 输出文件路径。
 
 **-dir** _path_
-> Directory containing the output and graph database.
+> 存放输出和图数据库的目录。
 
 **-config** _file_
-> YAML configuration file.
+> YAML 配置文件。
 
 **-timeout** _minutes_
-> Number of minutes to run before quitting.
+> 运行多少分钟后退出。
 
 # CONFIGURATION
 
 **~/.config/amass/config.yaml**
-> Main configuration file for data sources, API keys, and enumeration settings (YAML since v4).
+> 主配置文件，用于数据源、API 密钥和枚举设置（v4 起为 YAML 格式）。
 
 # CAVEATS
 
-Active enumeration generates significant DNS traffic and may be detected. Many data sources require API keys for full access. Results vary based on configured sources. As of v5, results are written to the graph database; use **subs** to retrieve names rather than relying solely on **enum -o**.
+主动枚举会产生大量 DNS 流量，且可能被发现。许多数据源需要 API 密钥才能完整访问。结果因所配置的数据源而异。自 v5 起，结果会写入图数据库；请使用 **subs** 获取名称，而不是只依赖 **enum -o**。
 
 # HISTORY
 
-**amass** was created by Jeff Foley and became an official OWASP project. It gained widespread adoption in the security community for reconnaissance and bug bounty hunting.
+**amass** 由 Jeff Foley 创建，后来成为 OWASP 官方项目。它凭借在侦察和漏洞赏金挖掘领域的表现，在安全社区中得到广泛采用。
 
 # INSTALL
 

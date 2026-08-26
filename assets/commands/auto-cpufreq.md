@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automatic CPU speed and power optimizer
+自动 CPU 速度与功耗优化器
 
 # TLDR
 
-**Monitor** CPU frequency and power
+**监控** CPU 频率和功耗
 
 ```sudo auto-cpufreq --monitor```
 
-Run in **live** mode (temporary optimization)
+以 **live** 模式运行（临时优化）
 
 ```sudo auto-cpufreq --live```
 
-Show **statistics**
+显示**统计信息**
 
 ```sudo auto-cpufreq --stats```
 
-**Install** as system service
+**安装**为系统服务
 
 ```sudo auto-cpufreq --install```
 
-**Remove** system service
+**移除**系统服务
 
 ```sudo auto-cpufreq --remove```
 
-**Force** a specific governor
+**强制**使用指定的调速器
 
 ```sudo auto-cpufreq --force=powersave```
 
-**Reset** a forced governor back to automatic behavior
+**重置**被强制的调速器，恢复自动行为
 
 ```sudo auto-cpufreq --force=reset```
 
-**Update** auto-cpufreq
+**更新** auto-cpufreq
 
 ```sudo auto-cpufreq --update```
 
@@ -42,58 +42,58 @@ Show **statistics**
 
 # DESCRIPTION
 
-**auto-cpufreq** is an automatic CPU speed and power optimizer for Linux. It dynamically adjusts CPU frequency scaling and turbo boost based on system load and power source (AC/battery) to optimize performance and battery life.
+**auto-cpufreq** 是一款 Linux 自动 CPU 速度与功耗优化工具。它根据系统负载和供电来源（交流电/电池）动态调整 CPU 频率调节和睿频加速，兼顾性能与电池续航。
 
 # PARAMETERS
 
 **--monitor**
-> Monitor CPU frequency, governor, and power information
+> 监控 CPU 频率、调速器和电源信息
 
 **--live**
-> Run in live mode with temporary optimization
+> 以 live 模式运行并进行临时优化
 
 **--stats**
-> Display statistics from daemon mode
+> 显示守护进程模式的统计信息
 
 **--install**
-> Install auto-cpufreq as a system service
+> 将 auto-cpufreq 安装为系统服务
 
 **--remove**
-> Remove auto-cpufreq system service
+> 移除 auto-cpufreq 系统服务
 
 **--update**
-> Update auto-cpufreq to latest version
+> 将 auto-cpufreq 更新到最新版本
 
 **--force=GOVERNOR**
-> Force a specific governor (powersave, performance) or use reset to return to automatic mode
+> 强制使用指定的调速器（powersave、performance），或用 reset 回到自动模式
 
 **--turbo=MODE**
-> Force turbo boost behavior (always, never, auto)
+> 强制睿频加速行为（always、never、auto）
 
 **--config=PATH**
-> Use a custom configuration file
+> 使用自定义配置文件
 
 **--debug**
-> Show debug information
+> 显示调试信息
 
 **--version**
-> Show the installed auto-cpufreq version
+> 显示已安装的 auto-cpufreq 版本
 
 # CONFIGURATION
 
 **/etc/auto-cpufreq.conf**
-> System-wide configuration file. Defines governor and turbo boost preferences per power source (charger/battery).
+> 系统级配置文件。按供电来源（充电/电池）定义调速器和睿频加速偏好。
 
 **$XDG_CONFIG_HOME/auto-cpufreq/auto-cpufreq.conf**
-> Per-user configuration file, checked before the system-wide path. A file given with --config takes precedence over both.
+> 每个用户的配置文件，优先于系统级路径检查。通过 --config 指定的文件优先级最高。
 
 # CAVEATS
 
-Using --install creates a systemd service for automatic operation. The --live and --monitor modes are for testing and do not persist after reboot. For laptops, auto-cpufreq automatically switches between performance and powersave based on power source.
+使用 --install 会创建 systemd 服务以实现自动化运行。--live 与 --monitor 模式仅用于测试，重启后不会保留。对于笔记本电脑，auto-cpufreq 会根据供电来源在 performance 与 powersave 之间自动切换。
 
 # HISTORY
 
-**auto-cpufreq** was created to provide automatic CPU frequency optimization without manual tuning, particularly useful for laptops to extend battery life while maintaining performance when needed.
+**auto-cpufreq** 的诞生是为了免去手动调优即可实现 CPU 频率自动优化，对笔记本电脑尤为实用，可在延长电池续航的同时在需要时保持性能。
 
 # INSTALL
 

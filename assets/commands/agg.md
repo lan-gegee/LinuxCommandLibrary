@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert terminal recordings to animated GIFs
+把终端录制转换为动画 GIF
 
 # TLDR
 
-**Convert** asciinema recording to GIF
+**将 asciinema 录制转换为 GIF**
 
 ```agg [recording.cast] [output.gif]```
 
-Set **font size**
+设置**字号**
 
 ```agg --font-size [20] [recording.cast] [output.gif]```
 
-Set **playback speed**
+设置**播放速度**
 
 ```agg --speed [2] [recording.cast] [output.gif]```
 
-Use **custom theme**
+使用**自定义主题**
 
 ```agg --theme [monokai] [recording.cast] [output.gif]```
 
-Set output **dimensions**
+设置输出**尺寸**
 
 ```agg --cols [80] --rows [24] [recording.cast] [output.gif]```
 
@@ -30,58 +30,58 @@ Set output **dimensions**
 
 # DESCRIPTION
 
-**agg** (asciinema gif generator) converts asciinema terminal recordings to animated GIF files. It renders terminal sessions including colors, cursor, and all formatting into a high-quality GIF suitable for documentation or sharing.
+**agg**（asciinema gif generator）把 asciinema 终端录制转换为动画 GIF 文件。它会渲染终端会话的颜色、光标和所有格式，生成适合放进文档或分享的高质量 GIF。
 
-The tool is written in Rust and provides options for customizing output appearance including themes, fonts, dimensions, and playback speed.
+该工具用 Rust 编写，提供丰富的输出外观定制选项，包括主题、字体、尺寸和播放速度。
 
 # PARAMETERS
 
 **--font-size** _size_
-> Font size in pixels (default: 16).
+> 字体大小，单位像素（默认：16）。
 
 **--font-family** _name_
-> Comma-separated list of font families to use.
+> 要使用的字体家族列表，逗号分隔。
 
 **--font-dir** _dir_
-> Additional directory to scan for fonts.
+> 额外扫描字体文件的目录。
 
 **--line-height** _factor_
-> Line height as a multiple of the font size (default: 1.4).
+> 行高，以字号的倍数表示（默认：1.4）。
 
 **--speed** _factor_
-> Playback speed multiplier (default: 1).
+> 播放速度倍率（默认：1）。
 
 **--theme** _name_
-> Color theme (asciinema, dracula, github-dark, github-light, gruvbox-dark, kanagawa, monokai, nord, solarized-dark, solarized-light). Default: dracula.
+> 配色主题（asciinema、dracula、github-dark、github-light、gruvbox-dark、kanagawa、monokai、nord、solarized-dark、solarized-light）。默认：dracula。
 
 **--cols** _n_
-> Override terminal width in columns (default: from the recording).
+> 覆盖终端宽度（列数）（默认：沿用录制内容）。
 
 **--rows** _n_
-> Override terminal height in rows (default: from the recording).
+> 覆盖终端高度（行数）（默认：沿用录制内容）。
 
 **--fps-cap** _n_
-> Maximum frames per second (default: 30).
+> 最大帧率，每秒帧数（默认：30）。
 
 **--renderer** _type_
-> Rendering backend: swash (default) or resvg.
+> 渲染后端：swash（默认）或 resvg。
 
 **--idle-time-limit** _seconds_
-> Limit idle time between frames to this many seconds (default: 5).
+> 把帧间空闲时间限制为指定秒数（默认：5）。
 
 **--no-loop**
-> Disable looping; play the animation only once.
+> 禁用循环；动画只播放一次。
 
 **--last-frame-duration** _seconds_
-> How long to hold the last frame (default: 3).
+> 最后一帧的停留时长（默认：3 秒）。
 
 # CAVEATS
 
-Large or long recordings produce large GIF files. Consider adjusting speed or idle-time-limit to reduce file size. Font rendering quality depends on available system fonts.
+较大或较长的录制会生成体积可观的 GIF 文件。可考虑调整播放速度或 idle-time-limit 来缩小文件。字体渲染效果取决于系统可用的字体。
 
 # HISTORY
 
-**agg** was created as a Rust-based alternative to other asciinema-to-GIF tools, providing better performance and rendering quality. It's maintained as part of the asciinema ecosystem.
+**agg** 作为其他 asciinema 转 GIF 工具的 Rust 实现替代方案而创建，性能更好、渲染质量更高。它作为 asciinema 生态的一部分持续维护。
 
 # INSTALL
 

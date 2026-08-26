@@ -1,22 +1,22 @@
 # TAGLINE
 
-Register mDNS/DNS-SD services on the local network
+在本地网络上注册 mDNS/DNS-SD 服务
 
 # TLDR
 
-**Publish** mDNS service
+**发布** mDNS 服务
 
 ```avahi-publish-service [MyService] [_http._tcp] [80]```
 
-Publish with **service text**
+带**服务文本记录**发布
 
 ```avahi-publish-service [MyService] [_http._tcp] [80] ["path=/api"]```
 
-Publish on a **specific host**
+在**特定主机**上发布
 
 ```avahi-publish-service -H [myhost.local] [MyService] [_http._tcp] [80]```
 
-Publish with **subtype**
+带**子类型**发布
 
 ```avahi-publish-service --subtype=[_printer._sub._http._tcp] [MyPrinter] [_http._tcp] [631]```
 
@@ -26,42 +26,42 @@ Publish with **subtype**
 
 # DESCRIPTION
 
-**avahi-publish-service** registers a mDNS/DNS-SD service on the local network via the Avahi daemon. It allows services to be discovered by other devices using Avahi or Bonjour-compatible service discovery. This command is equivalent to **avahi-publish -s** and provides a convenient shortcut specifically for service registration.
+**avahi-publish-service** 通过 Avahi 守护进程在本地网络上注册 mDNS/DNS-SD 服务，让其他使用 Avahi 或 Bonjour 兼容服务发现的设备可以发现这些服务。此命令等同于 **avahi-publish -s**，是专门用于服务注册的便捷快捷方式。
 
-The tool requires a service name, a DNS-SD service type (e.g., **_http._tcp**), and a port number. Optional TXT record strings can provide additional metadata about the service. Service subtypes can be registered for more specific categorization.
+该工具需要服务名称、DNS-SD 服务类型（如 **_http._tcp**）和端口号。可选的 TXT 记录字符串可提供关于服务的附加元数据。还可以注册服务子类型以实现更细的分类。
 
-The registration persists only while the process is running. When terminated, the service advertisement is automatically withdrawn from the network.
+注册仅在进程运行期间有效。进程终止时，服务通告会自动从网络中撤销。
 
 # PARAMETERS
 
 **-H**, **--host=**_HOSTNAME_
-> Specify a host name for the service if it does not reside on the local host. Must be fully qualified and resolvable via mDNS or unicast DNS.
+> 若服务不在本机上，为其指定主机名。必须是完全限定名，且可通过 mDNS 或单播 DNS 解析。
 
 **-d**, **--domain=**_DOMAIN_
-> Publish in the specified domain. If omitted, the Avahi daemon publishes in its default domain (usually .local).
+> 在指定域中发布。若省略，Avahi 守护进程将在其默认域（通常为 .local）中发布。
 
 **--subtype=**_SUBTYPE_
-> Register the service with an additional subtype. May be passed multiple times.
+> 为服务注册一个附加子类型。可多次传入。
 
 **-f**, **--no-fail**
-> Don't fail if the daemon is not running. Wait for it to appear and reconnect if it disconnects.
+> 守护进程未运行时不失败。等待其出现，断开时自动重连。
 
 **-v**, **--verbose**
-> Enable verbose mode.
+> 启用详细模式。
 
 **-V**, **--version**
-> Show version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 # CAVEATS
 
-Requires avahi-daemon running. Service persists only while command is running. Firewall must allow mDNS (UDP port 5353). Service names must be unique on the network.
+需要 avahi-daemon 正在运行。服务仅在命令运行期间存在。防火墙必须放行 mDNS（UDP 端口 5353）。服务名称在网络中必须唯一。
 
 # HISTORY
 
-**avahi-publish-service** is part of the Avahi project, created by Lennart Poettering as a free implementation of Apple's Bonjour/Zeroconf protocol, first released around **2005**.
+**avahi-publish-service** 是 Avahi 项目的一部分，由 Lennart Poettering 创建，作为 Apple Bonjour/Zeroconf 协议的自由实现，于 **2005 年**前后首次发布。
 
 # INSTALL
 

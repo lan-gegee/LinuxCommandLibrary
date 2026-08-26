@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate configure scripts from templates
+从模板生成 configure 脚本
 
 # TLDR
 
-**Generate** configure script
+**生成** configure 脚本
 
 ```autoconf```
 
-Generate with **specific template**
+使用**指定模板**生成
 
 ```autoconf -o [configure] [configure.ac]```
 
-**Trace** a specific macro in configure.ac
+**追踪** configure.ac 中的特定宏
 
 ```autoconf --trace=[AC_CHECK_LIB]```
 
-Show **version**
+显示**版本**
 
 ```autoconf --version```
 
@@ -26,47 +26,47 @@ Show **version**
 
 # DESCRIPTION
 
-**autoconf** generates configure scripts from templates (configure.ac or configure.in). These scripts probe the system for available features, libraries, and tools, producing Makefiles tailored to the build environment.
+**autoconf** 从模板（configure.ac 或 configure.in）生成 configure 脚本。这些脚本会探测系统的可用特性、库和工具，生成适配构建环境的 Makefile。
 
-Autoconf is part of the GNU Build System (autotools), used by thousands of open source projects.
+Autoconf 是 GNU 构建系统（autotools）的一部分，被成千上万的开源项目使用。
 
 # PARAMETERS
 
 **-o** _file_
-> Output file (default: configure)
+> 输出文件（默认：configure）
 
 **-W** _category_
-> Warning category
+> 警告类别
 
 **-I** _dir_
-> Add directory to search path
+> 向搜索路径添加目录
 
 **-f**, **--force**
-> Force regeneration
+> 强制重新生成
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **--trace=**_macro_
-> Trace macro calls in configure.ac
+> 追踪 configure.ac 中的宏调用
 
 **-B** _dir_
-> Prepend directory to search path
+> 将目录添加到搜索路径最前面
 
 # WORKFLOW
 
-1. Write configure.ac
-2. Run **autoconf** to generate configure
-3. Distribute configure with source
-4. Users run ./configure to generate Makefile
+1. 编写 configure.ac
+2. 运行 **autoconf** 生成 configure
+3. 随源码一起分发 configure
+4. 用户运行 ./configure 生成 Makefile
 
 # CAVEATS
 
-Requires M4 macro processor. Complex syntax based on M4. Generated configure scripts are large. Learning curve is steep.
+依赖 M4 宏处理器。语法基于 M4，较为复杂。生成的 configure 脚本体量很大。学习曲线陡峭。
 
 # HISTORY
 
-**Autoconf** was created by David MacKenzie in **1991** to address the portability problems of Unix software. It became the standard build system for GNU and many other projects.
+**Autoconf** 由 David MacKenzie 于 **1991 年**创建，用于解决 Unix 软件的可移植性问题。后来成为 GNU 及众多其他项目的标准构建系统。
 
 # INSTALL
 

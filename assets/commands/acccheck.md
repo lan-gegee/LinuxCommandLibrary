@@ -1,26 +1,26 @@
 # TAGLINE
 
-Windows SMB password dictionary attack tool
+Windows SMB 密码字典攻击工具
 
 # TLDR
 
-**Check** for blank passwords on a target
+**检查**目标是否存在空密码
 
 ```acccheck -t [192.168.1.1]```
 
-Use a **password list** against a single user
+对单个用户使用**密码列表**
 
 ```acccheck -t [192.168.1.1] -u [administrator] -P [passwords.txt]```
 
-Use **username and password lists**
+使用**用户名和密码列表**
 
 ```acccheck -t [192.168.1.1] -U [users.txt] -P [passwords.txt]```
 
-Attack **multiple targets** from a file
+从文件攻击**多个目标**
 
 ```acccheck -T [targets.txt] -U [users.txt] -P [passwords.txt]```
 
-Check with **verbose** output
+以**详细输出**模式检查
 
 ```acccheck -t [192.168.1.1] -U [users.txt] -P [passwords.txt] -v```
 
@@ -30,40 +30,40 @@ Check with **verbose** output
 
 # DESCRIPTION
 
-**acccheck** is a password dictionary attack tool designed specifically for Windows SMB authentication. It attempts to connect to the Windows IPC$ and ADMIN$ shares using provided credentials to identify valid username/password combinations.
+**acccheck** 是一款专为 Windows SMB 身份验证设计的密码字典攻击工具。它使用提供的凭据尝试连接 Windows 的 IPC$ 和 ADMIN$ 共享，以识别有效的用户名/密码组合。
 
-The tool is useful during penetration testing to identify weak or default passwords on Windows systems. It can test single credentials or iterate through wordlists for both usernames and passwords.
+该工具在渗透测试中可用于发现 Windows 系统上的弱口令或默认密码。它既可以测试单一凭据，也可以遍历用户名和密码字典列表。
 
 # PARAMETERS
 
 **-t** _target_
-> Single target IP address.
+> 单个目标 IP 地址。
 
 **-T** _file_
-> File containing list of target IPs.
+> 包含目标 IP 列表的文件。
 
 **-u** _username_
-> Single username to test.
+> 要测试的单个用户名。
 
 **-U** _file_
-> File containing list of usernames.
+> 包含用户名列表的文件。
 
 **-p** _password_
-> Single password to test.
+> 要测试的单个密码。
 
 **-P** _file_
-> File containing list of passwords.
+> 包含密码列表的文件。
 
 **-v**
-> Verbose mode (show all attempts).
+> 详细模式（显示所有尝试过程）。
 
 # CAVEATS
 
-Intended for authorized security testing only. Unauthorized access attempts are illegal. **acccheck** is a Perl wrapper around **smbclient**, so it depends on a working Samba client installation. Successful login pairs are appended to a file named **cracked** in the current working directory. Account lockout policies may trigger after multiple failed attempts, and the tool relies on SMB connectivity (ports 139/445).
+仅限用于获得授权的安全测试。未经授权的访问尝试属于违法行为。**acccheck** 是围绕 **smbclient** 的 Perl 封装，因此依赖可正常工作的 Samba 客户端。成功登录的用户名/密码组合会被追加写入当前工作目录下名为 **cracked** 的文件。多次失败尝试可能触发账户锁定策略；该工具依赖 SMB 连通性（端口 139/445）。
 
 # HISTORY
 
-**acccheck** was written by Faisal Dean (Faiz) and released as part of various penetration testing tool collections. It became part of Kali Linux and other security-focused distributions for Windows network security assessments.
+**acccheck** 由 Faisal Dean（Faiz）编写，作为多种渗透测试工具合集的一部分发布。后来被收录进 Kali Linux 及其他注重安全的发行版，用于 Windows 网络安全评估。
 
 # SEE ALSO
 

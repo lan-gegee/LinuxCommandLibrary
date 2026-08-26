@@ -1,26 +1,26 @@
 # TAGLINE
 
-Marketplace CLI to install developer tools and Kubernetes apps
+安装开发者工具和 Kubernetes 应用的应用市场 CLI
 
 # TLDR
 
-**Download** popular CLIs into PATH
+将常用 CLI **下载**到 PATH
 
 ```arkade get [kubectl] [kind] [terraform]```
 
-**List** available CLI packages
+**列出**可用的 CLI 软件包
 
 ```arkade get --help```
 
-**Install** a Kubernetes app (OpenFaaS example)
+**安装** Kubernetes 应用（以 OpenFaaS 为例）
 
 ```arkade install [openfaas]```
 
-**Install** a system package (e.g. Go)
+**安装**系统软件包（如 Go）
 
 ```arkade system install [go]```
 
-**Install** a binary from an OCI image
+**安装**来自 OCI 镜像的二进制文件
 
 ```arkade oci install [ghcr.io/org/tool]```
 
@@ -30,37 +30,37 @@ Marketplace CLI to install developer tools and Kubernetes apps
 
 # DESCRIPTION
 
-**arkade** installs pinned versions of common developer CLIs and Kubernetes applications with simple commands. **arkade get** downloads static binaries (kubectl, helm, terraform, jq, …) without package-manager delays; **arkade install** deploys charts/apps to a cluster; **arkade system** and **arkade oci** cover host packages and image-packaged tools. Maintained by Alex Ellis / OpenFaaS community.
+**arkade** 用简单的命令安装固定版本的常见开发者 CLI 和 Kubernetes 应用。**arkade get** 下载静态二进制文件（kubectl、helm、terraform、jq 等），无需等待包管理器；**arkade install** 将 chart/应用部署到集群；**arkade system** 和 **arkade oci** 则覆盖主机软件包和镜像打包的工具。由 Alex Ellis / OpenFaaS 社区维护。
 
 # PARAMETERS
 
 **get** *tool*[@version]...
 
-> Download CLI binaries to the arkade bin directory (often **$HOME/.arkade/bin**).
+> 将 CLI 二进制文件下载到 arkade 的 bin 目录（通常为 **$HOME/.arkade/bin**）。
 
 **install** *app*
 
-> Install a Kubernetes application with sensible defaults and flags.
+> 以合理的默认值和标志安装 Kubernetes 应用。
 
 **uninstall** *app*
 
-> Remove a previously installed app.
+> 移除先前安装的应用。
 
 **system install** *package*
 
-> Install host-level tools (Go, containerd, …).
+> 安装主机级工具（Go、containerd 等）。
 
 **oci install** *image* [*path*]
 
-> Extract/install from an OCI container image.
+> 从 OCI 容器镜像中提取/安装。
 
 **info** / **chart** / **version**
 
-> Introspection helpers—see **arkade --help**.
+> 内省辅助命令——参见 **arkade --help**。
 
 # CAVEATS
 
-Downloading binaries from the internet requires trust in upstream release artifacts. Kubernetes installs need a working kubeconfig. Keep **$HOME/.arkade/bin** on your PATH.
+从互联网下载二进制文件需要信任上游发布产物。Kubernetes 安装需要可用的 kubeconfig。请确保 **$HOME/.arkade/bin** 在 PATH 中。
 
 # INSTALL
 

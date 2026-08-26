@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display AWS CLI command documentation
+显示 AWS CLI 命令文档
 
 # TLDR
 
-**Get** general help
+**查看**常规帮助
 
 ```aws help```
 
-**Service** help
+**服务**帮助
 
 ```aws s3 help```
 
-**Command** help
+**命令**帮助
 
 ```aws s3 cp help```
 
-**Subcommand** help
+**子命令**帮助
 
 ```aws ec2 describe-instances help```
 
-**List** available help topics
+**列出**可用帮助主题
 
 ```aws help topics```
 
@@ -30,27 +30,27 @@ Display AWS CLI command documentation
 
 # DESCRIPTION
 
-**aws help** displays comprehensive documentation for AWS CLI commands. It shows syntax, parameters, examples, and related commands using a pager interface.
+**aws help** 显示 AWS CLI 命令的完整文档，通过分页器界面展示语法、参数、示例和相关命令。
 
-Help is available at every level: general CLI help, service-specific help, and individual command help.
+帮助覆盖每个层级：CLI 总体帮助、特定服务的帮助以及单个命令的帮助。
 
 # FEATURES
 
-Documentation includes:
-- Command syntax and structure
-- Parameter descriptions and types
-- Usage examples
-- Available subcommands
-- Output format details
-- Related commands
+文档内容包括：
+- 命令语法和结构
+- 参数说明与类型
+- 用法示例
+- 可用子命令
+- 输出格式细节
+- 相关命令
 
 # NAVIGATION
 
-Within help pager:
-- **Space** - Page down
-- **b** - Page up
-- **/** - Search
-- **q** - Quit
+在帮助分页器中：
+- **Space** - 向下翻页
+- **b** - 向上翻页
+- **/** - 搜索
+- **q** - 退出
 
 # WORKFLOW
 
@@ -70,11 +70,11 @@ aws ec2 describe-instances help
 
 # CAVEATS
 
-Opens in pager by default (use --no-cli-pager to disable). Requires internet connection for complete documentation in some cases. Help text can be very long for complex commands.
+默认在分页器中打开（可用 --no-cli-pager 禁用）。某些情况下需要联网才能获取完整文档。复杂命令的帮助文本可能非常长。
 
 # HISTORY
 
-The **help** command has been part of the AWS CLI since its initial release in **2013**, providing inline documentation for all services and commands.
+**help** 命令自 **2013 年** AWS CLI 首次发布以来就是其中的一部分，为所有服务和命令提供内联文档。
 
 # INSTALL
 

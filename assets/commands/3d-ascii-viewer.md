@@ -1,22 +1,22 @@
 # TAGLINE
 
-Render 3D models as ASCII art in the terminal
+在终端中将 3D 模型渲染为 ASCII 艺术
 
 # TLDR
 
-**View an OBJ** model as ASCII art in the terminal
+**查看 OBJ** 模型的 ASCII 终端艺术呈现
 
 ```3d-ascii-viewer [path/to/model.obj]```
 
-**View an STL** model
+**查看 STL** 模型
 
 ```3d-ascii-viewer [path/to/model.stl]```
 
-**Enable color** using materials referenced in the OBJ's MTL file
+利用 OBJ 配套 MTL 文件中引用的材质**启用颜色**
 
 ```3d-ascii-viewer --color [model.obj]```
 
-**Show help** and list all supported options
+**显示帮助**并列出所有支持的选项
 
 ```3d-ascii-viewer --help```
 
@@ -27,29 +27,29 @@ Render 3D models as ASCII art in the terminal
 # PARAMETERS
 
 _model_file_
-> Path to a Wavefront `.obj` or `.stl` model file.
+> Wavefront `.obj` 或 `.stl` 模型文件的路径。
 
 **--color**
-> Use the **diffuse color** of each material referenced in the companion MTL file. Requires a terminal supporting color redefinition and enough ncurses color pairs.
+> 使用配套 MTL 文件中所引用各材质的**漫反射颜色**。需要终端支持颜色重定义并有足够的 ncurses 颜色对。
 
 **--help**
-> Print usage information and exit.
+> 打印用法信息并退出。
 
 # DESCRIPTION
 
-**3d-ascii-viewer** (by autopawn) is a minimal viewer that renders 3D models as animated ASCII art directly in the terminal, using ncurses and no graphics library. It continuously rotates the model, with characters of varying density representing surface shading and depth.
+**3d-ascii-viewer**（由 autopawn 开发）是一个极简查看器，它仅借助 ncurses、不依赖任何图形库，就能把 3D 模型渲染成动态 ASCII 艺术，直接呈现在终端里。它会持续旋转模型，用不同疏密的字符表现表面明暗和深度。
 
-The viewer supports Wavefront `.obj` and `.stl` files. For OBJ files, an accompanying `.mtl` material file can be used together with **--color** to tint each face by its diffuse material color.
+该查看器支持 Wavefront `.obj` 和 `.stl` 文件。对于 OBJ 文件，可以配合随附的 `.mtl` 材质文件和 **--color** 选项，按每个面的漫反射材质颜色为其着色。
 
-Because output is text in a standard terminal, the viewer is useful over SSH, in tmux panes, or in any environment where a full 3D GUI is not available.
+由于输出只是标准终端里的文本，这个查看器非常适合在 SSH 会话、tmux 面板或任何没有完整 3D GUI 的环境中使用。
 
 # CAVEATS
 
-Requires the ncurses developer libraries to build (`libncurses-dev` on Debian-based systems). Complex, high-polygon models may render slowly or lose detail. The visual result depends strongly on the terminal's font, aspect ratio, and color capabilities; very small windows may produce unrecognizable output. The **--color** mode needs a terminal that supports redefining colors and enough color pairs.
+构建需要 ncurses 开发库（Debian 系系统上为 `libncurses-dev`）。复杂的高面数模型可能渲染缓慢或丢失细节。视觉效果在很大程度上取决于终端的字体、宽高比和颜色能力；过小的窗口可能产生难以辨认的输出。**--color** 模式需要终端支持颜色重定义且有足够的颜色对。
 
 # HISTORY
 
-**3d-ascii-viewer** is an open-source experiment by `autopawn` demonstrating real-time 3D rasterization to ASCII characters without any graphics libraries. It continues a long tradition of terminal 3D renderers from the demoscene and ASCII-art communities.
+**3d-ascii-viewer** 是 `autopawn` 的开源实验项目，展示了在不借助任何图形库的情况下进行实时 3D 光栅化并输出为 ASCII 字符的技术。它延续了 demo 圈和 ASCII 艺术社区用终端做 3D 渲染的悠久传统。
 
 # INSTALL
 

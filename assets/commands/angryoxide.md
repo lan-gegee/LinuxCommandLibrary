@@ -1,30 +1,30 @@
 # TAGLINE
 
-802.11 WiFi attack and penetration testing tool
+802.11 WiFi 攻击与渗透测试工具
 
 # TLDR
 
-**Start scanning** on a wireless interface
+在无线接口上**开始扫描**
 
 ```sudo angryoxide -i [wlan0]```
 
-**Scan specific channels**
+**扫描特定信道**
 
 ```sudo angryoxide -i [wlan0] -c [1,6,11]```
 
-**Target a specific network**
+**针对特定网络**
 
 ```sudo angryoxide -i [wlan0] -t [AA:BB:CC:DD:EE:FF]```
 
-**Run in passive mode** without transmitting attack frames
+**以被动模式运行**，不发送攻击帧
 
 ```sudo angryoxide -i [wlan0] --notransmit```
 
-**Scan an entire band** with auto-hunt
+配合自动猎取**扫描整个频段**
 
 ```sudo angryoxide -i [wlan0] -b [5] --autohunt```
 
-**Run headless** with custom output
+**无界面运行**并自定义输出
 
 ```sudo angryoxide -i [wlan0] --headless -o [output_prefix]```
 
@@ -35,66 +35,66 @@
 # PARAMETERS
 
 **-i**, **--interface** _interface_
-> Wireless interface to use (required)
+> 要使用的无线接口（必需）
 
 **-c**, **--channel** _channels_
-> Specific channel(s) to scan (default: 1,6,11)
+> 要扫描的特定信道（默认：1,6,11）
 
 **-b**, **--band** _band_
-> Scan an entire band (2, 5, 6, or 60)
+> 扫描整个频段（2、5、6 或 60）
 
 **-t** _target_
-> Target specific MAC or SSID (repeatable)
+> 针对特定 MAC 或 SSID（可重复使用）
 
 **-w** _target_
-> Whitelist a MAC or SSID from attacks (repeatable)
+> 将某个 MAC 或 SSID 列入白名单以免受攻击（可重复使用）
 
 **--targetlist** _file_
-> Load targets from a file
+> 从文件加载目标列表
 
 **--whitelist** _file_
-> Load whitelist from a file
+> 从文件加载白名单
 
 **-o**, **--output** _prefix_
-> Custom output filename prefix
+> 自定义输出文件名前缀
 
 **-r**, **--rate** _level_
-> Attack aggressiveness: 1 (low), 2 (default), 3 (high)
+> 攻击强度：1（低）、2（默认）、3（高）
 
 **--notransmit**
-> Passive collection only, no attack frames sent
+> 仅被动收集，不发送攻击帧
 
 **--autohunt**
-> Auto-discover target channels, then focus on them
+> 自动发现目标信道，然后聚焦于这些信道
 
 **--headless**
-> Run without the terminal UI
+> 无终端 UI 运行
 
 **--autoexit**
-> Exit when all targets have valid hashlines
+> 当所有目标都有有效 hashline 时退出
 
 **--combine**
-> Merge all .hc22000 files into a single output
+> 将所有 .hc22000 文件合并为单个输出
 
 **--gpsd** _ip:port_
-> Connect to GPS daemon for wardriving
+> 连接 GPS 守护进程以进行 wardriving
 
 **-h**, **--help**
-> Display help
+> 显示帮助
 
 # DESCRIPTION
 
-**angryoxide** is an 802.11 WiFi attack tool written in Rust that autonomously collects WPA/WPA2/WPA3 hash material (EAPOL handshakes and PMKIDs) for offline cracking with Hashcat. It features a real-time TUI built with Ratatui showing discovered networks, captured handshakes, and attack status.
+**angryoxide** 是一款用 Rust 编写的 802.11 WiFi 攻击工具，能够自主收集 WPA/WPA2/WPA3 哈希素材（EAPOL 握手和 PMKID），供 Hashcat 离线破解使用。它具有基于 Ratatui 构建的实时 TUI，可以显示发现的网络、捕获的握手和攻击状态。
 
-The attack engine performs PMKID collection, hidden SSID retrieval, anonymous reassociation (MFP bypass), Channel Switch Announcement attacks, RSN downgrade, and WiFi 6e disassociation. Output files include Hashcat-compatible .hc22000 hashlines, .pcapng packet captures, and Kismet-compatible .kismetdb databases.
+攻击引擎支持 PMKID 收集、隐藏 SSID 获取、匿名重关联（绕过 MFP）、信道切换通告攻击、RSN 降级以及 WiFi 6e 解除关联。输出文件包括与 Hashcat 兼容的 .hc22000 hashline、.pcapng 抓包文件和 Kismet 兼容的 .kismetdb 数据库。
 
 # CAVEATS
 
-Requires root/sudo privileges and a wireless adapter supporting monitor mode and packet injection. Intended strictly for authorized security testing and research. Rate-controlled transmission reduces but does not eliminate detection by wireless IDS.
+需要 root/sudo 权限以及支持监听模式和包注入的无线适配器。严格用于授权的安全测试和研究。速率受限的传输方式可以降低但无法完全避免被无线 IDS 检测到。
 
 # HISTORY
 
-**angryoxide** was created by **Ragnt** (rage), inspired by hcxdumptool. Written in Rust and licensed under GPL-3.0, it is under heavy active development.
+**angryoxide** 由 **Ragnt**（rage）创建，其灵感来自 hcxdumptool。项目使用 Rust 编写，采用 GPL-3.0 许可证，正处于高强度活跃开发中。
 
 # INSTALL
 

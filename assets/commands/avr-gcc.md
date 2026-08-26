@@ -1,30 +1,30 @@
 # TAGLINE
 
-GNU C compiler for AVR microcontrollers
+面向 AVR 微控制器的 GNU C 编译器
 
 # TLDR
 
-**Compile C code** for an AVR microcontroller
+为 AVR 微控制器**编译 C 代码**
 
 ```avr-gcc -mmcu=[atmega328p] -o [output.elf] [source.c]```
 
-**Compile with optimization** for size
+以优化体积的方式**编译**
 
 ```avr-gcc -mmcu=[atmega328p] -Os -o [output.elf] [source.c]```
 
-**Compile with debugging** symbols
+带调试符号**编译**
 
 ```avr-gcc -mmcu=[atmega328p] -g -O0 -o [output.elf] [source.c]```
 
-**Generate hex file** for flashing
+**生成用于烧录的 hex 文件**
 
 ```avr-gcc -mmcu=[atmega328p] -Os -o [output.elf] [source.c] && avr-objcopy -O ihex [output.elf] [output.hex]```
 
-**Compile with warnings** and link relaxation
+带警告和链接器松弛**编译**
 
 ```avr-gcc -mmcu=[atmega328p] -Wall -Os -Wl,--relax -o [output.elf] [source.c]```
 
-**Compile for freestanding** environment (no hosted library)
+针对自由独立（freestanding）环境**编译**（不依赖宿主库）
 
 ```avr-gcc -mmcu=[atmega328p] -ffreestanding -Os -o [output.elf] [source.c]```
 
@@ -35,69 +35,69 @@ GNU C compiler for AVR microcontrollers
 # PARAMETERS
 
 **-mmcu=**_mcu_
-> Target MCU (atmega328p, attiny85, atmega2560, etc.); required for correct code generation
+> 目标 MCU（atmega328p、attiny85、atmega2560 等）；生成正确代码所必需
 
 **-Os**
-> Optimize for size (recommended for embedded)
+> 优化代码体积（嵌入式开发推荐）
 
 **-O0**, **-O1**, **-O2**, **-O3**
-> Optimization levels (0=none, 3=maximum)
+> 优化级别（0=无，3=最高）
 
 **-g**
-> Include debugging information
+> 包含调试信息
 
 **-Wall**
-> Enable all common warnings
+> 启用所有常见警告
 
 **-ffreestanding**
-> Assume freestanding environment (no standard library assumptions)
+> 假定为自由独立环境（不对标准库做任何假设）
 
 **-fno-jump-tables**
-> Disable jump tables (required for bootloaders on >64KB devices)
+> 禁用跳转表（在大于 64KB 的设备上编写 bootloader 时必需）
 
 **-mrelax**
-> Enable linker relaxation to use shorter instructions when possible
+> 启用链接器松弛，尽可能使用更短的指令
 
 **-Wl,--relax**
-> Pass relaxation option to linker
+> 将松弛选项传递给链接器
 
 **-Wl,-gc-sections**
-> Remove unused code sections to reduce binary size
+> 移除未使用的代码段以减小二进制体积
 
 **-mcall-prologues**
-> Use subroutines for function prologues/epilogues (saves space)
+> 用子程序实现函数的序言/尾声（节省空间）
 
 **-DF_CPU=**_freq_
-> Define CPU frequency in Hz (e.g., -DF_CPU=16000000)
+> 以赫兹定义 CPU 频率（如 -DF_CPU=16000000）
 
 **-I**_path_
-> Add include directory
+> 添加头文件搜索目录
 
 **-L**_path_
-> Add library search directory
+> 添加库文件搜索目录
 
 **-l**_library_
-> Link with library
+> 链接指定的库
 
 # DESCRIPTION
 
-**avr-gcc** is the GNU Compiler Collection configured for AVR 8-bit microcontrollers. It compiles C and C++ code into machine code for Atmel/Microchip AVR chips used in Arduino and embedded systems.
+**avr-gcc** 是面向 AVR 8 位微控制器配置的 GNU 编译器套件。它将 C 和 C++ 代码编译成 Atmel/Microchip AVR 芯片的机器码，这类芯片广泛用于 Arduino 和嵌入式系统。
 
-The **-mmcu** option is essential as it configures code generation, memory layout, and available instructions for the specific target MCU. Common targets include atmega328p (Arduino Uno), atmega2560 (Arduino Mega), and attiny85.
+**-mmcu** 选项至关重要，它为目标 MCU 配置代码生成、内存布局和可用指令。常见目标包括 atmega328p（Arduino Uno）、atmega2560（Arduino Mega）和 attiny85。
 
-Output is typically an ELF file, which is converted to Intel HEX format using **avr-objcopy** for flashing to hardware via tools like **avrdude**.
+输出通常是 ELF 文件，需用 **avr-objcopy** 转换为 Intel HEX 格式，再通过 **avrdude** 等工具烧录到硬件。
 
-The **-Os** optimization is preferred for embedded development as it minimizes code size while maintaining reasonable performance. The **-ffreestanding** flag is appropriate since AVR programs run without an operating system.
+嵌入式开发首选 **-Os** 优化，因为它在保持合理性能的同时最小化代码体积。由于 AVR 程序在没有操作系统的情况下运行，使用 **-ffreestanding** 标志是合适的做法。
 
-AVR-GCC is typically installed as part of the **avr-libc** toolchain, which includes the C library, header files, and additional tools.
+AVR-GCC 通常作为 **avr-libc** 工具链的一部分安装，该工具链包含 C 库、头文件和其他工具。
 
 # CAVEATS
 
-The **-mmcu** option must match the target hardware exactly. Optimization level **-O3** often increases code size significantly on AVR. Programs should avoid heavy stack usage due to limited RAM. Integer math defaults to 16-bit; use explicit types for larger values.
+**-mmcu** 选项必须与目标硬件完全匹配。优化级别 **-O3** 在 AVR 上常常会显著增大代码体积。由于 RAM 有限，程序应避免大量使用栈。整数运算默认是 16 位的；更大的数值请显式指定类型。
 
 # HISTORY
 
-**AVR-GCC** emerged from the GCC project's support for the AVR architecture, initially developed by **Denis Chertykov** in the late **1990s**. Combined with **AVR-LibC**, it became the standard open-source toolchain for AVR development. The toolchain gained widespread adoption through the Arduino project starting in **2005**, making AVR programming accessible to hobbyists and educators.
+**AVR-GCC** 源自 GCC 项目对 AVR 架构的支持，最初由 **Denis Chertykov** 在 **20 世纪 90 年代**末开发。与 **AVR-LibC** 结合后，它成为 AVR 开发的标准开源工具链。自 **2005** 年起，该工具链借助 Arduino 项目得到广泛应用，让爱好者和教育工作者也能轻松进行 AVR 编程。
 
 # INSTALL
 

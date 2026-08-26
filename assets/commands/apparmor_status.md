@@ -1,12 +1,12 @@
 # TAGLINE
 
-Report the current AppArmor confinement state.
+报告当前的 AppArmor 约束状态。
 
 # TLDR
 
-This command is an **alias** of aa-status
+此命令是 aa-status 的**别名**
 
-View documentation for the original command
+查看原始命令的文档
 
 ```tldr aa-status```
 
@@ -16,7 +16,7 @@ View documentation for the original command
 
 # DESCRIPTION
 
-**apparmor_status** is an alias for **aa-status**, which reports various aspects of the current state of AppArmor confinement. See **aa-status** for full documentation.
+**apparmor_status** 是 **aa-status** 的别名，后者报告 AppArmor 约束当前状态的各种信息。完整文档请参见 **aa-status**。
 
 # INSTALL
 

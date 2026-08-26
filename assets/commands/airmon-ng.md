@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enable and manage wireless monitor mode
+启用和管理无线监听模式
 
 # TLDR
 
-**List** wireless interfaces
+**列出**无线接口
 
 ```sudo airmon-ng```
 
-**Enable** monitor mode
+**启用**监听模式
 
 ```sudo airmon-ng start [wlan0]```
 
-Enable on **specific channel**
+在**指定信道**上启用
 
 ```sudo airmon-ng start [wlan0] [6]```
 
-**Disable** monitor mode
+**禁用**监听模式
 
 ```sudo airmon-ng stop [wlan0mon]```
 
-**Kill** interfering processes
+**终止**干扰进程
 
 ```sudo airmon-ng check kill```
 
@@ -30,38 +30,38 @@ Enable on **specific channel**
 
 # DESCRIPTION
 
-**airmon-ng** manages wireless interfaces for monitor mode operation. Monitor mode allows capturing all wireless packets in range, not just those addressed to your device, which is required for wireless security auditing.
+**airmon-ng** 管理无线接口以进入监听模式。监听模式允许捕获范围内所有的无线数据包，而不仅仅是发往你设备的数据包，这是无线安全审计所必需的。
 
-The tool can identify and kill processes that might interfere with monitor mode operation, such as NetworkManager and wpa_supplicant.
+该工具可以识别并终止可能干扰监听模式运行的进程，例如 NetworkManager 和 wpa_supplicant。
 
 # PARAMETERS
 
 **start** _interface_
-> Enable monitor mode on interface
+> 在接口上启用监听模式
 
 **stop** _interface_
-> Disable monitor mode
+> 禁用监听模式
 
 **check**
-> List processes that may interfere
+> 列出可能造成干扰的进程
 
 **check kill**
-> Kill interfering processes
+> 终止干扰进程
 
 **channel**
-> Lock interface to specific channel
+> 将接口锁定到特定信道
 
 # OUTPUT
 
-Without arguments, **airmon-ng** lists the PHY name, interface name, driver in use, and chipset for each detected wireless device.
+不带参数时，**airmon-ng** 会为每个检测到的无线设备列出 PHY 名称、接口名称、正在使用的驱动程序和芯片组。
 
 # CAVEATS
 
-Enabling monitor mode disconnects from any connected network. Some drivers don't support monitor mode. Killing interfering processes may disable normal WiFi connectivity until restarted.
+启用监听模式会断开所有已连接的网络。有些驱动不支持监听模式。终止干扰进程可能导致正常 WiFi 连接受影响，直到这些进程重新启动。
 
 # HISTORY
 
-**airmon-ng** is part of the aircrack-ng suite, evolved from earlier airmon scripts. The "-ng" version was released in **2006** with improved driver support and process management.
+**airmon-ng** 是 aircrack-ng 套件的一部分，由早期的 airmon 脚本演化而来。"-ng" 版本于 **2006** 年发布，改进了驱动支持和进程管理。
 
 # INSTALL
 

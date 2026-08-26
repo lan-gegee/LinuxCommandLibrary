@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build and deploy full-stack web and mobile applications
+构建和部署全栈 Web 与移动应用
 
 # TLDR
 
-**Create** a new Amplify app
+**创建**新的 Amplify 应用
 
 ```aws amplify create-app --name [app_name] --repository [repo_url]```
 
-**List** all Amplify apps in your account
+**列出**账户中的所有 Amplify 应用
 
 ```aws amplify list-apps```
 
-**Create** a new branch for an app
+为应用**创建**新分支
 
 ```aws amplify create-branch --app-id [app_id] --branch-name [branch_name]```
 
-**Start** a deployment job
+**启动**部署作业
 
 ```aws amplify start-job --app-id [app_id] --branch-name [branch_name] --job-type RELEASE```
 
-**Get** details about a specific app
+**获取**特定应用的详细信息
 
 ```aws amplify get-app --app-id [app_id]```
 
-**Associate** a custom domain with an app
+为应用**关联**自定义域名
 
 ```aws amplify create-domain-association --app-id [app_id] --domain-name [example.com]```
 
-**Delete** an Amplify app
+**删除**Amplify 应用
 
 ```aws amplify delete-app --app-id [app_id]```
 
@@ -38,93 +38,93 @@ Build and deploy full-stack web and mobile applications
 
 # DESCRIPTION
 
-**AWS Amplify** enables developers to develop and deploy cloud-powered mobile and web applications with integrated CI/CD workflows. The service consists of two main components: **Amplify Hosting** for continuous delivery and hosting, and the **Amplify Framework** providing SDKs, libraries, and tools for client app development.
+**AWS Amplify** 让开发者能够借助集成的 CI/CD 工作流开发和部署由云驱动的移动与 Web 应用。该服务由两个主要部分组成：用于持续交付和托管的 **Amplify Hosting**，以及为客户端应用开发提供 SDK、库和工具的 **Amplify Framework**。
 
-**Amplify Hosting** provides a fully managed hosting service with continuous deployment capabilities directly from Git repositories. It automatically builds and deploys web applications on every code commit, supporting modern frameworks like React, Angular, Vue, Next.js, and static site generators.
+**Amplify Hosting** 提供完全托管、可直接对接 Git 仓库的持续部署托管服务。每次代码提交都会自动构建并部署 Web 应用，支持 React、Angular、Vue、Next.js 等现代框架以及静态站点生成器。
 
-The service offers features including:
+该服务提供以下功能：
 
-> **Continuous Deployment** - Automatically build and deploy from Git branches with every commit
+> **持续部署** - 每次提交都自动从 Git 分支构建并部署
 
-> **Branch Deployments** - Deploy different branches to separate environments for feature testing and staging
+> **分支部署** - 将不同分支部署到独立的环境，用于功能测试和预发布
 
-> **Custom Domains** - Associate custom domains with SSL/TLS certificates managed automatically
+> **自定义域名** - 关联自定义域名，SSL/TLS 证书自动管理
 
-> **Backend Environments** - Connect frontend branches to different backend environments
+> **后端环境** - 将前端分支连接到不同的后端环境
 
-> **Access Control** - Protect branches with password authentication for preview environments
+> **访问控制** - 通过密码认证保护分支的预览环境
 
-**Amplify Framework** provides client-side libraries and CLI tools for integrating AWS services like authentication, APIs, storage, and analytics into mobile and web applications without managing backend infrastructure.
+**Amplify Framework** 提供客户端库和 CLI 工具，可将认证、API、存储和分析等 AWS 服务集成到移动与 Web 应用中，无需管理后端基础设施。
 
 # AVAILABLE COMMANDS
 
 **create-app**
-> Create a new Amplify app from a repository or manual deployment
+> 从仓库或手动部署创建新的 Amplify 应用
 
 **delete-app**
-> Permanently delete an Amplify app and all associated resources
+> 永久删除 Amplify 应用及其所有关联资源
 
 **get-app**
-> Retrieve detailed information about a specific app
+> 检索特定应用的详细信息
 
 **list-apps**
-> List all Amplify apps in the current region
+> 列出当前区域的所有 Amplify 应用
 
 **update-app**
-> Update app configuration including build settings and environment variables
+> 更新应用配置，包括构建设置和环境变量
 
 **create-branch**
-> Create a new branch for continuous deployment
+> 创建用于持续部署的新分支
 
 **delete-branch**
-> Delete a branch and stop its deployments
+> 删除分支并停止其部署
 
 **list-branches**
-> List all branches for an app
+> 列出应用的所有分支
 
 **start-job**
-> Manually trigger a build and deployment job
+> 手动触发构建和部署作业
 
 **stop-job**
-> Cancel a running build or deployment job
+> 取消正在运行的构建或部署作业
 
 **list-jobs**
-> List build and deployment jobs for a branch
+> 列出某个分支的构建和部署作业
 
 **create-deployment**
-> Create a deployment for manually deployed apps
+> 为手动部署的应用创建部署
 
 **start-deployment**
-> Start a manual deployment
+> 启动手动部署
 
 **create-domain-association**
-> Associate a custom domain with an Amplify app
+> 为 Amplify 应用关联自定义域名
 
 **update-domain-association**
-> Update domain configuration and SSL settings
+> 更新域名配置和 SSL 设置
 
 **delete-domain-association**
-> Remove custom domain association
+> 移除自定义域名的关联
 
 **create-webhook**
-> Create a webhook for triggering builds from external sources
+> 创建 webhook 以便从外部来源触发构建
 
 **create-backend-environment**
-> Create a backend environment for an app
+> 为应用创建后端环境
 
 **get-job**
-> Get details of a specific build and deployment job
+> 获取特定构建和部署作业的详情
 
 **tag-resource**
-> Add metadata tags to Amplify resources
+> 为 Amplify 资源添加元数据标签
 
 # CAVEATS
 
-Git repository integration requires valid credentials and appropriate repository permissions. Custom domain verification requires DNS configuration changes. Build failures may occur if build settings don't match the project's framework requirements. Deleting an app permanently removes all branches, deployments, and associated data.
+Git 仓库集成需要有效的凭证以及相应的仓库权限。自定义域名验证需要更改 DNS 配置。如果构建设置与项目的框架要求不匹配，构建可能失败。删除应用会永久移除所有分支、部署及关联数据。
 
 # HISTORY
 
-**AWS Amplify** was announced at **AWS re:Invent 2017** as a framework and toolchain for mobile and web app development. **Amplify Console** (now Amplify Hosting) launched in **November 2018**, providing continuous deployment and hosting capabilities for modern web applications.
+**AWS Amplify** 在 **AWS re:Invent 2017** 上发布，是面向移动与 Web 应用开发的框架和工具链。**Amplify Console**（现名 Amplify Hosting）于 **2018 年 11 月**上线，为现代 Web 应用提供持续部署和托管能力。
 
 # INSTALL
 

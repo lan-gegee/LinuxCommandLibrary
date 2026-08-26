@@ -1,26 +1,26 @@
 # TAGLINE
 
-Resolve mDNS hostnames and addresses
+解析 mDNS 主机名和地址
 
 # TLDR
 
-**Resolve** a hostname to an IP address
+**将**主机名解析为 IP 地址
 
 ```avahi-resolve -n [hostname.local]```
 
-**Resolve** a hostname to an IPv4 address only
+将主机名只**解析**为 IPv4 地址
 
 ```avahi-resolve -4 -n [hostname.local]```
 
-**Resolve** a hostname to an IPv6 address only
+将主机名只**解析**为 IPv6 地址
 
 ```avahi-resolve -6 -n [hostname.local]```
 
-**Resolve** an IP address to a hostname (reverse lookup)
+**将** IP 地址解析为主机名（反向查询）
 
 ```avahi-resolve -a [ip_address]```
 
-**Resolve** several names at once
+一次**解析**多个名称
 
 ```avahi-resolve -n [host1.local] [host2.local]```
 
@@ -30,34 +30,34 @@ Resolve mDNS hostnames and addresses
 
 # DESCRIPTION
 
-**avahi-resolve** translates between mDNS/DNS-SD hostnames and IP addresses using the Avahi daemon. It supports two resolution modes: forward lookup (**--name**) resolves a hostname like **myhost.local** to its IP address, while reverse lookup (**--address**) resolves an IP address back to its mDNS hostname.
+**avahi-resolve** 通过 Avahi 守护进程在 mDNS/DNS-SD 主机名与 IP 地址之间进行转换。它支持两种解析模式：正向查询（**--name**）将 **myhost.local** 之类的主机名解析为其 IP 地址，反向查询（**--address**）则将 IP 地址解析回其 mDNS 主机名。
 
-The tool queries the local network using multicast DNS rather than traditional unicast DNS servers. Resolution is limited to the local network segment where mDNS traffic is visible. Results can be filtered to IPv4 only (**-4**) or IPv6 only (**-6**).
+该工具使用多播 DNS 查询本地网络，而非传统的单播 DNS 服务器。解析范围仅限于 mDNS 流量可见的本地网段。结果可以限定为仅 IPv4（**-4**）或仅 IPv6（**-6**）。
 
 # PARAMETERS
 
 **-n, --name** _hostname_
-> Resolve hostname to IP address
+> 将主机名解析为 IP 地址
 
 **-a, --address** _ip_
-> Resolve IP address to hostname (reverse lookup)
+> 将 IP 地址解析为主机名（反向查询）
 
 **-4**
-> Resolve to IPv4 addresses only
+> 只解析为 IPv4 地址
 
 **-6**
-> Resolve to IPv6 addresses only
+> 只解析为 IPv6 地址
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 # CAVEATS
 
-Only works with mDNS-enabled hosts (typically using .local domain). The Avahi daemon must be running. Network firewalls may block mDNS traffic (port 5353/UDP).
+仅对启用 mDNS 的主机有效（通常使用 .local 域）。Avahi 守护进程必须正在运行。网络防火墙可能阻止 mDNS 流量（UDP 端口 5353）。
 
 # HISTORY
 
-**avahi-resolve** is part of the **Avahi** package, providing mDNS/DNS-SD name resolution on Linux.
+**avahi-resolve** 是 **Avahi** 软件包的一部分，在 Linux 上提供 mDNS/DNS-SD 名称解析功能。
 
 # INSTALL
 

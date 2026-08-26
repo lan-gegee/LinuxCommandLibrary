@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate Expect scripts by recording interactive sessions
+通过录制交互会话生成 Expect 脚本
 
 # TLDR
 
-Spawn a shell and **generate a script** from the session
+启动 shell 并根据会话**生成脚本**
 
 ```autoexpect```
 
-Run a command and **generate a script** from it
+运行一条命令并据此**生成脚本**
 
 ```autoexpect [command]```
 
-Generate a script and **save to a specific file**
+生成脚本并**保存到指定文件**
 
 ```autoexpect -f [path/to/file] [command]```
 
-**Use prompt mode** to match only the last line of output
+**使用提示符模式**，只匹配输出的最后一行
 
 ```autoexpect -p [command]```
 
-**Use conservative mode** with slight delays between characters
+**使用保守模式**，字符之间加入轻微延迟
 
 ```autoexpect -c [command]```
 
@@ -30,40 +30,40 @@ Generate a script and **save to a specific file**
 
 # DESCRIPTION
 
-**autoexpect** watches an interactive session and generates an Expect script that can replay the session automatically. It records user input and program responses, creating a script suitable for automating repetitive interactive tasks.
+**autoexpect** 会监视一次交互会话，并生成可自动重放该会话的 Expect 脚本。它记录用户输入和程序响应，创建适合自动化重复性交互任务的脚本。
 
-The generated script is saved as **script.exp** by default. This script can be modified and reused to automate the recorded interaction.
+生成的脚本默认保存为 **script.exp**。可以修改并复用该脚本，以自动化录制的交互过程。
 
 # PARAMETERS
 
 **-f** _file_
-> Save the generated script to the specified file instead of script.exp.
+> 将生成的脚本保存到指定文件，而非 script.exp。
 
 **-p**
-> Enable prompt mode. Autoexpect only matches the last line of program output (usually the prompt), making scripts less sensitive to output changes.
+> 启用提示符模式。autoexpect 只匹配程序输出的最后一行（通常是提示符），使脚本对输出变化不那么敏感。
 
 **-P** _key_
-> Define a key to toggle prompt mode on and off during the session.
+> 定义一个按键，用于在会话过程中开关提示符模式。
 
 **-c**
-> Enable conservative mode. Autoexpect pauses briefly (one tenth of a second) before sending each character, improving reliability on slow systems.
+> 启用保守模式。autoexpect 在发送每个字符前短暂暂停（十分之一秒），提高在慢速系统上的可靠性。
 
 **-C** _key_
-> Define a key to toggle conservative mode on and off during the session.
+> 定义一个按键，用于在会话过程中开关保守模式。
 
 **-Q** _key_
-> Define a quote character to enter characters that autoexpect would otherwise consume as toggle keys.
+> 定义一个引号字符，用于输入那些会被 autoexpect 当作切换键消费的字符。
 
 **-quiet**
-> Disable informational messages produced by autoexpect.
+> 关闭 autoexpect 产生的信息性消息。
 
 # CAVEATS
 
-Generated scripts may need manual editing for robustness. Passwords and sensitive data entered during recording are captured in the script. The timing of interactions may need adjustment for reliable playback.
+生成的脚本可能需要手动编辑才能足够健壮。录制期间输入的密码和敏感数据会被写入脚本。为保证可靠回放，可能需要调整交互的时序。
 
 # HISTORY
 
-**autoexpect** is part of the Expect package, created by Don Libes at NIST. Expect was first released in **1990** and has been widely used for automating interactive applications.
+**autoexpect** 属于 Expect 软件包，由 NIST 的 Don Libes 创建。Expect 于 **1990 年**首次发布，被广泛用于自动化交互式应用。
 
 # INSTALL
 

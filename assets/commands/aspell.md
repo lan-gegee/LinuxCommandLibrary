@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interactive spell checker
+交互式拼写检查器
 
 # TLDR
 
-**Check** a file
+**检查**一个文件
 
 ```aspell check [file.txt]```
 
-Check with **specific language**
+使用**指定语言**检查
 
 ```aspell --lang=[es] check [file.txt]```
 
-**List** available dictionaries
+**列出**可用的词典
 
 ```aspell dicts```
 
-Check from **stdin**
+从 **stdin** 检查
 
 ```echo "speling errror" | aspell list```
 
-**Check a TeX/LaTeX file** (ignoring TeX commands)
+**检查 TeX/LaTeX 文件**（忽略 TeX 命令）
 
 ```aspell --mode=tex check [file.tex]```
 
-Create **personal dictionary**
+创建**个人词典**
 
 ```aspell --lang=[en] create master [./custom.rws] < [wordlist.txt]```
 
@@ -34,66 +34,66 @@ Create **personal dictionary**
 
 # DESCRIPTION
 
-**aspell** is a spell checker designed to replace ispell. It can check individual files, work as a pipe filter, or provide a C library interface for other programs.
+**aspell** 是一款旨在取代 ispell 的拼写检查器。它可以检查单个文件、作为管道过滤器工作，或为其他程序提供 C 库接口。
 
-The tool supports multiple languages, personal dictionaries, and has better suggestion algorithms than older spell checkers.
+该工具支持多种语言和个人词典，其建议算法比旧的拼写检查器更好。
 
 # PARAMETERS
 
 **check** _file_
-> Interactively check file
+> 交互式检查文件
 
 **list**
-> List misspelled words from stdin
+> 从 stdin 列出拼写错误的单词
 
 **pipe**
-> Output misspelled words with position info (used by editors)
+> 输出带位置信息的拼写错误单词（供编辑器使用）
 
 **-c** _file_
-> Same as check (GNU ispell compatibility)
+> 与 check 相同（GNU ispell 兼容）
 
 **--lang=**_code_
-> Language code (en, es, fr, etc.)
+> 语言代码（en、es、fr 等）
 
 **--mode=**_mode_
-> Parsing mode (tex, html, markdown, etc.)
+> 解析模式（tex、html、markdown 等）
 
 **--encoding=**_enc_
-> File encoding
+> 文件编码
 
 **--add-extra-dicts=**_list_
-> Additional dictionaries
+> 额外的词典
 
 **--personal=**_file_
-> Personal dictionary file
+> 个人词典文件
 
 **--ignore=**_n_
-> Ignore words ≤ n characters
+> 忽略长度不超过 n 个字符的单词
 
 **--ignore-case**
-> Case insensitive checking
+> 检查时不区分大小写
 
 **dicts**
-> List available dictionaries
+> 列出可用的词典
 
 **dump** _mode_
-> Dump dictionary information
+> 导出词典信息
 
 # CONFIGURATION
 
 **/etc/aspell.conf**
-> System-wide configuration for default language, dictionary paths, and options.
+> 系统级配置，用于设置默认语言、词典路径和选项。
 
 **~/.aspell.conf**
-> Per-user configuration overriding system defaults.
+> 用户级配置，覆盖系统默认值。
 
 # CAVEATS
 
-Language dictionaries must be installed separately. Personal dictionary format differs from ispell. Some applications use hunspell instead.
+语言词典需要单独安装。个人词典格式与 ispell 不同。一些应用程序改用 hunspell。
 
 # HISTORY
 
-**aspell** was created by Kevin Atkinson and first released in **2001** as an improvement over ispell, featuring better suggestion algorithms and Unicode support.
+**aspell** 由 Kevin Atkinson 创建，于 **2001** 年首次发布，作为 ispell 的改进版本，具有更好的建议算法和 Unicode 支持。
 
 # INSTALL
 

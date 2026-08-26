@@ -1,30 +1,30 @@
 # TAGLINE
 
-Discover hosts on local networks via ARP requests.
+通过 ARP 请求发现本地网络中的主机。
 
 # TLDR
 
-**Scan** local network
+**扫描**本地网络
 
 ```sudo arp-scan -l```
 
-Scan **specific subnet**
+扫描**指定子网**
 
 ```sudo arp-scan [192.168.1.0/24]```
 
-Scan with **interface**
+使用**指定接口**扫描
 
 ```sudo arp-scan -I [eth0] -l```
 
-Scan a specific **IP range**
+扫描指定的 **IP 范围**
 
 ```sudo arp-scan [192.168.1.1-192.168.1.50]```
 
-**Quiet** output (responding hosts only)
+**安静**输出（仅显示响应的主机）
 
 ```sudo arp-scan -l -q```
 
-Scan using a **custom source** MAC address
+使用**自定义源** MAC 地址扫描
 
 ```sudo arp-scan -l --srcaddr=[00:11:22:33:44:55]```
 
@@ -34,51 +34,51 @@ Scan using a **custom source** MAC address
 
 # DESCRIPTION
 
-**arp-scan** discovers hosts on a local network by sending ARP requests. It's faster than ping-based scanning because ARP works at layer 2 and hosts cannot easily hide from it.
+**arp-scan** 通过发送 ARP 请求来发现本地网络中的主机。它比基于 ping 的扫描更快，因为 ARP 工作在第 2 层，主机难以对其隐藏。
 
-The tool shows IP addresses, MAC addresses, and optionally vendor names from the IEEE OUI database.
+该工具会显示 IP 地址、MAC 地址，以及可选的来自 IEEE OUI 数据库的厂商名称。
 
 # PARAMETERS
 
 **-l**, **--localnet**
-> Scan all addresses on local network
+> 扫描本地网络上的所有地址
 
 **-I** _interface_
-> Network interface to use
+> 要使用的网络接口
 
 **-q**, **--quiet**
-> Quiet mode (only show responding hosts)
+> 安静模式（仅显示响应的主机）
 
 **-r** _n_, **--retry**=_n_
-> Number of retries per host (default 2).
+> 每台主机的重试次数（默认 2）。
 
 **-t** _ms_, **--timeout**=_ms_
-> Timeout in milliseconds per host (default 500).
+> 每台主机的超时时间，单位毫秒（默认 500）。
 
 **-B**, **--bandwidth**=_bps_
-> Limit outbound bandwidth (e.g., 256000).
+> 限制出站带宽（例如 256000）。
 
 **-x**, **--ignoredups**
-> Ignore duplicate ARP responses.
+> 忽略重复的 ARP 响应。
 
 **--srcaddr**=_mac_
-> Set the source MAC address in outgoing packets.
+> 设置发出数据包中的源 MAC 地址。
 
 **-D**, **--destaddr**=_mac_
-> Set the destination MAC address (default ff:ff:ff:ff:ff:ff).
+> 设置目标 MAC 地址（默认 ff:ff:ff:ff:ff:ff）。
 
 # CONFIGURATION
 
 **/etc/arp-scan/mac-vendor.txt**
-> MAC address to vendor name mapping database used for OUI resolution.
+> 用于 OUI 解析的 MAC 地址到厂商名称映射数据库。
 
 # CAVEATS
 
-Requires root/sudo for raw socket access. Only works on local network segment (can't scan across routers). Some hosts may rate-limit ARP responses.
+需要 root/sudo 权限以访问原始套接字。只能在本网段内工作（无法跨路由器扫描）。部分主机可能会对 ARP 响应进行速率限制。
 
 # HISTORY
 
-**arp-scan** was written by Roy Hills and has been maintained since the early **2000s** as a reliable network discovery tool.
+**arp-scan** 由 Roy Hills 编写，自 **2000** 年代初以来一直作为可靠的网络发现工具维护至今。
 
 # INSTALL
 

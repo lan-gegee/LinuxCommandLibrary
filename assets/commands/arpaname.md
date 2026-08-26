@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert IP addresses to reverse DNS ARPA names.
+将 IP 地址转换为反向 DNS ARPA 名称。
 
 # TLDR
 
-Translate an **IP address** to its corresponding ARPA name
+将 **IP 地址**转换为其对应的 ARPA 名称
 
 ```arpaname [ip_address]```
 
-Translate an **IPv6 address** to ARPA format
+将 **IPv6 地址**转换为 ARPA 格式
 
 ```arpaname [2001:db8::1]```
 
@@ -18,17 +18,17 @@ Translate an **IPv6 address** to ARPA format
 
 # DESCRIPTION
 
-**arpaname** converts IP addresses (both IPv4 and IPv6) to their corresponding reverse DNS ARPA domain names. These names are used for reverse DNS lookups, which map IP addresses back to hostnames.
+**arpaname** 将 IP 地址（IPv4 和 IPv6）转换为其对应的反向 DNS ARPA 域名。这些名称用于反向 DNS 查询，即把 IP 地址映射回主机名。
 
-For IPv4 addresses, the output is in the **in-addr.arpa** domain. For IPv6 addresses, the output is in the **ip6.arpa** domain with each hexadecimal digit reversed and separated by dots.
+对于 IPv4 地址，输出位于 **in-addr.arpa** 域；对于 IPv6 地址，输出位于 **ip6.arpa** 域，每个十六进制数字逆序排列并以点分隔。
 
 # CAVEATS
 
-This is a simple conversion utility that does not perform DNS queries. It only formats IP addresses into ARPA notation. Use **dig** or **host** with the **-x** flag to perform actual reverse DNS lookups.
+这是一个简单的转换工具，不会执行 DNS 查询。它只是把 IP 地址格式化为 ARPA 记法。要执行真正的反向 DNS 查询，请使用带 **-x** 选项的 **dig** 或 **host**。
 
 # HISTORY
 
-**arpaname** is part of the BIND (Berkeley Internet Name Domain) utilities, the most widely used DNS software. ARPA names follow the format defined in RFC 1035 for IPv4 and RFC 3596 for IPv6.
+**arpaname** 是 BIND（Berkeley Internet Name Domain）工具集的一部分，BIND 是使用最广泛的 DNS 软件。ARPA 名称遵循 RFC 1035（针对 IPv4）和 RFC 3596（针对 IPv6）定义的格式。
 
 # INSTALL
 

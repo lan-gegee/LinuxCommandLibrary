@@ -1,18 +1,18 @@
 # TAGLINE
 
-make a directed graph acyclic
+将有向图变为无环图
 
 # TLDR
 
-**Output** a copy of the graph with enough edges reversed to make it acyclic
+**输出**图的副本，其中反转了足够的边使其成为无环图
 
 ```acyclic [graph.dot]```
 
-**Write** the acyclic result to a file
+将无环化结果**写入**文件
 
 ```acyclic -o [output.dot] [graph.dot]```
 
-**Test** only whether the graph is acyclic (no output, check exit status)
+仅**测试**图是否无环（无输出，检查退出状态即可）
 
 ```acyclic -nv [graph.dot]```
 
@@ -22,35 +22,35 @@ make a directed graph acyclic
 
 # DESCRIPTION
 
-**acyclic** is a Graphviz filter that takes a directed graph as input and outputs a copy of the graph with sufficient edges reversed to make the graph acyclic. Each reversed edge inherits all of the attributes of the original edge. By default the program reads from stdin and writes to stdout; an optional file argument specifies where the input graph is stored.
+**acyclic** 是一个 Graphviz 过滤器，接收有向图作为输入，输出该图的副本，其中反转了足够多的边使图变为无环。被反转的边继承原边的全部属性。默认情况下程序从 stdin 读取并向 stdout 写入；可选的文件参数用于指定输入图的存储位置。
 
-This tool is useful for preprocessing graphs before layout algorithms that require acyclic input, or for verifying dependency graphs where cycles would indicate errors. The exit status reports whether the input was acyclic, contained a cycle, or was undirected.
+该工具可用于对图进行预处理，以满足要求无环输入的布局算法；也可用于验证依赖关系图——出现环通常意味着错误。退出状态会报告输入是无环的、含环的还是无向的。
 
 # PARAMETERS
 
 **-n**
-> Produce no output; the return value indicates whether the graph is acyclic.
+> 不产生输出；返回值指示图是否无环。
 
 **-v**
-> Print information about whether the file is acyclic, has a cycle, or is undirected.
+> 打印文件是无环、含环还是无向的信息。
 
 **-o** _outfile_
-> Write output to the specified file instead of stdout.
+> 将输出写入指定文件而非 stdout。
 
 **-?**
-> Print usage information.
+> 打印用法信息。
 
 # RETURN CODES
 
-**acyclic** returns **0** if the graph is acyclic, **1** if the graph has a cycle, **2** if the graph is undirected, and **255** if there are any errors.
+若图无环，**acyclic** 返回 **0**；若图含环，返回 **1**；若图为无向图，返回 **2**；发生任何错误时返回 **255**。
 
 # CAVEATS
 
-Only works with directed graphs in DOT format. acyclic makes a graph acyclic by reversing edges, never by removing them. If the graph is strict and contains a cycle of length 2, the attributes of the reversed edge are lost. Some edge attributes are non-symmetric (referring to either the head or tail node) and are not switched when an edge is reversed.
+仅适用于 DOT 格式的有向图。acyclic 通过反转边（绝不删除边）使图无环。若图为 strict 图且包含长度为 2 的环，反转后的边会丢失属性。部分边属性是非对称的（指向头节点或尾节点），边反转时不会随之切换。
 
 # HISTORY
 
-**acyclic** is part of the Graphviz project, developed at AT&T Labs Research starting in **1991**. The tool was included to support preprocessing of graphs for hierarchical layout algorithms like **dot**, which require acyclic input graphs.
+**acyclic** 属于 Graphviz 项目，该项目自 **1991** 年起在 AT&T Labs Research 开发。收录此工具是为了给 **dot** 等层次布局算法提供图预处理支持，这些算法要求输入图为无环图。
 
 # INSTALL
 

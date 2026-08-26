@@ -1,38 +1,38 @@
 # TAGLINE
 
-Store and manage secrets securely
+安全地存储和管理机密信息
 
 # TLDR
 
-**Create a new secret**
+**创建新机密**
 
 ```aws secretsmanager create-secret --name [secret_name] --secret-string "[secret_value]"```
 
-**Retrieve a secret value**
+**获取机密值**
 
 ```aws secretsmanager get-secret-value --secret-id [secret_name]```
 
-**List all secrets**
+**列出所有机密**
 
 ```aws secretsmanager list-secrets```
 
-**Update a secret value**
+**更新机密值**
 
 ```aws secretsmanager put-secret-value --secret-id [secret_name] --secret-string "[new_value]"```
 
-**Delete a secret** (with recovery window)
+**删除机密**（带恢复窗口）
 
 ```aws secretsmanager delete-secret --secret-id [secret_name] --recovery-window-in-days [30]```
 
-**Delete immediately** without recovery
+**立即删除**且不可恢复
 
 ```aws secretsmanager delete-secret --secret-id [secret_name] --force-delete-without-recovery```
 
-**Restore a deleted secret**
+**恢复已删除的机密**
 
 ```aws secretsmanager restore-secret --secret-id [secret_name]```
 
-**Rotate a secret**
+**轮换机密**
 
 ```aws secretsmanager rotate-secret --secret-id [secret_name]```
 
@@ -43,68 +43,68 @@ Store and manage secrets securely
 # PARAMETERS
 
 **create-secret**
-> Create a new secret.
+> 创建新机密。
 
 **get-secret-value**
-> Retrieve the encrypted value of a secret.
+> 获取机密的加密值。
 
 **list-secrets**
-> List secrets in the account.
+> 列出账户中的机密。
 
 **put-secret-value**
-> Store a new value for an existing secret.
+> 为现有机密存储新值。
 
 **update-secret**
-> Update secret metadata or value.
+> 更新机密的元数据或值。
 
 **delete-secret**
-> Mark a secret for deletion.
+> 将机密标记为待删除。
 
 **restore-secret**
-> Restore a previously deleted secret.
+> 恢复先前删除的机密。
 
 **rotate-secret**
-> Trigger secret rotation.
+> 触发机密轮换。
 
 **describe-secret**
-> Get metadata about a secret.
+> 获取机密的元数据。
 
 **batch-get-secret-value**
-> Retrieve values for multiple secrets in a single call.
+> 在单次调用中获取多个机密的值。
 
 **tag-resource**
-> Add tags to a secret.
+> 为机密添加标签。
 
 **--secret-id** _id_
-> Secret name or ARN.
+> 机密名称或 ARN。
 
 **--secret-string** _value_
-> Secret value as a string.
+> 以字符串表示的机密值。
 
 **--secret-binary** _blob_
-> Secret value as base64-encoded binary.
+> 以 base64 编码二进制表示的机密值。
 
 **--kms-key-id** _key_
-> KMS key for encryption (optional).
+> 用于加密的 KMS 密钥（可选）。
 
 **--recovery-window-in-days** _days_
-> Waiting period before permanent deletion (7-30 days).
+> 永久删除前的等待期（7-30 天）。
 
 # DESCRIPTION
 
-**AWS Secrets Manager** is a service for securely storing and managing sensitive information like database credentials, API keys, and passwords. The **aws secretsmanager** commands provide CLI access to create, retrieve, rotate, and manage secrets.
+**AWS Secrets Manager** 是一项用于安全存储和管理敏感信息（如数据库凭证、API 密钥和密码）的服务。**aws secretsmanager** 命令提供创建、获取、轮换和管理机密的 CLI 访问能力。
 
-Secrets are encrypted at rest using AWS KMS and can be automatically rotated on a schedule using Lambda functions. Access is controlled through IAM policies, and all access is logged to CloudTrail for auditing.
+机密使用 AWS KMS 进行静态加密，可通过 Lambda 函数按计划自动轮换。访问由 IAM 策略控制，所有访问都会记录到 CloudTrail 供审计。
 
-Secrets can store strings up to 64KB, supporting JSON for structured data like database credentials. Applications retrieve secrets at runtime, eliminating hardcoded credentials in code or configuration files.
+机密可存储最大 64KB 的字符串，支持以 JSON 表示数据库凭证等结构化数据。应用程序在运行时获取机密，从而避免在代码或配置文件中硬编码凭证。
 
 # CAVEATS
 
-Retrieving secrets incurs per-request charges. Deleted secrets have a recovery window by default; use **--force-delete-without-recovery** cautiously. Automatic rotation requires a configured Lambda function. Cross-region replication requires explicit configuration. Secrets Manager is separate from Systems Manager Parameter Store (another secrets option).
+获取机密会产生按请求计费的费用。已删除的机密默认有恢复窗口；请谨慎使用 **--force-delete-without-recovery**。自动轮换需要配置 Lambda 函数。跨区域复制需要显式配置。Secrets Manager 与 Systems Manager Parameter Store（另一种机密管理方案）相互独立。
 
 # HISTORY
 
-AWS Secrets Manager was launched in **April 2018** to address the challenge of managing application secrets securely. It was built on lessons learned from AWS Systems Manager Parameter Store, adding features like automatic rotation, cross-region replication, and native integration with RDS, Redshift, and DocumentDB for credential management.
+AWS Secrets Manager 于 **2018 年 4 月**上线，旨在解决安全管理工作应用机密的难题。它借鉴了 AWS Systems Manager Parameter Store 的经验，增加了自动轮换、跨区域复制以及与 RDS、Redshift 和 DocumentDB 的原生凭证管理集成等功能。
 
 # INSTALL
 

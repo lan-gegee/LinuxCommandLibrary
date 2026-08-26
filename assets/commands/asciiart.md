@@ -1,30 +1,30 @@
 # TAGLINE
 
-Convert images to ASCII art
+将图片转换为 ASCII 艺术
 
 # TLDR
 
-Read an image from a **file** and print in ASCII
+从**文件**读取图片并以 ASCII 打印
 
 ```asciiart [path/to/image.jpg]```
 
-Read an image from a **URL** and print in ASCII
+从 **URL** 读取图片并以 ASCII 打印
 
 ```asciiart [www.example.com/image.jpg]```
 
-Choose the output **width**
+选择输出**宽度**
 
 ```asciiart -w [50] [path/to/image.jpg]```
 
-**Colorize** the ASCII output
+为 ASCII 输出**着色**
 
 ```asciiart -c [path/to/image.jpg]```
 
-Choose the output **format**
+选择输出**格式**
 
 ```asciiart -f [text|html] [path/to/image.jpg]```
 
-**Invert** the character map
+**反转**字符映射
 
 ```asciiart -i [path/to/image.jpg]```
 
@@ -34,37 +34,37 @@ Choose the output **format**
 
 # DESCRIPTION
 
-**asciiart** converts images to ASCII art, rendering pictures using text characters. It analyzes the brightness of each region in the image and maps it to appropriate ASCII characters.
+**asciiart** 将图片转换为 ASCII 艺术，用文本字符渲染图像。它分析图像中每个区域的亮度，并将其映射为合适的 ASCII 字符。
 
-The tool supports reading images from local files or URLs and can output plain text or HTML. Color output uses ANSI escape codes for terminal display.
+该工具支持从本地文件或 URL 读取图片，并可输出纯文本或 HTML。彩色输出使用 ANSI 转义码在终端中显示。
 
 # PARAMETERS
 
 **-w, --width** _n_
-> Set the output width in characters (default: 100)
+> 以字符数设置输出宽度（默认：100）
 
 **-c, --color**
-> Enable colorized output using ANSI codes
+> 使用 ANSI 码启用彩色输出
 
 **-f, --format** _type_
-> Output format: **text** (default) or **html**
+> 输出格式：**text**（默认）或 **html**
 
 **-i, --invert-chars**
-> Invert the character mapping (swap light and dark)
+> 反转字符映射（明暗互换）
 
 **-v, --version**
-> Display the version number
+> 显示版本号
 
 **-h, --help**
-> Show the help message
+> 显示帮助信息
 
 # CAVEATS
 
-Output quality depends on the terminal font and character width. Monospace fonts produce the best results. HTML output can be viewed in web browsers for better color support. Very wide images may wrap in terminals.
+输出质量取决于终端字体和字符宽度。等宽字体效果最佳。HTML 输出可在浏览器中查看，颜色支持更好。非常宽的图片在终端中可能会折行。
 
 # HISTORY
 
-**asciiart** is a Ruby gem written by Stephen Schor (nodanaonlyzuul). It is packaged for Debian and Ubuntu and installed via **gem install asciiart**.
+**asciiart** 是 Stephen Schor（nodanaonlyzuul）编写的 Ruby gem。它已打包进 Debian 和 Ubuntu，也可通过 **gem install asciiart** 安装。
 
 # SEE ALSO
 

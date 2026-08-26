@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Prometheus Alertmanager from the command line
+从命令行管理 Prometheus Alertmanager
 
 # TLDR
 
-**List all current alerts**
+**列出当前所有告警**
 
 ```amtool alert```
 
-**Query alerts matching a label**
+**查询匹配某个标签的告警**
 
 ```amtool alert query [alertname="HighMemory"]```
 
-**Create a silence** for an alert
+为告警**创建静默**
 
 ```amtool silence add [alertname="HighMemory"] --comment="[Maintenance]" --duration=[2h]```
 
-**List all active silences**
+**列出所有生效中的静默**
 
 ```amtool silence query```
 
-**Expire a silence** by ID
+按 ID 使**静默过期**
 
 ```amtool silence expire [silence_id]```
 
-**Check Alertmanager configuration**
+**检查 Alertmanager 配置**
 
 ```amtool check-config [alertmanager.yml]```
 
-**Show cluster status**
+**显示集群状态**
 
 ```amtool cluster show```
 
@@ -39,85 +39,85 @@ Manage Prometheus Alertmanager from the command line
 # PARAMETERS
 
 **alert query**
-> View and search through current alerts.
+> 查看和搜索当前告警。
 
 **alert add**
-> Add a new alert to Alertmanager.
+> 向 Alertmanager 添加新告警。
 
 **silence add** _matchers_
-> Create a new silence matching the specified labels.
+> 创建一个匹配指定标签的新静默。
 
 **silence query**
-> List active silences.
+> 列出生效中的静默。
 
 **silence update** _id_
-> Update an existing silence (e.g., extend its duration).
+> 更新已有的静默（如延长其持续时间）。
 
 **silence expire** _id_
-> Remove a silence by its ID.
+> 按 ID 移除静默。
 
 **silence import**
-> Import silences from a JSON file or stdin.
+> 从 JSON 文件或标准导入静默。
 
 **check-config** _file_
-> Validate Alertmanager configuration files.
+> 校验 Alertmanager 配置文件。
 
 **cluster show**
-> Display cluster membership status and peers.
+> 显示集群成员状态和对等节点。
 
 **config show**
-> Display the current Alertmanager configuration.
+> 显示当前的 Alertmanager 配置。
 
 **config routes show**
-> Display routing tree from configuration.
+> 显示配置中的路由树。
 
 **config routes test** _labels_
-> Test which route matches given labels.
+> 测试给定的标签会匹配哪条路由。
 
 **template render**
-> Render a template definition for testing.
+> 渲染模板定义以供测试。
 
 **--alertmanager.url** _url_
-> Alertmanager URL (default: **http://localhost:9093/**).
+> Alertmanager URL（默认：**http://localhost:9093/**）。
 
 **--comment** _text_
-> Comment for a silence (required unless configured otherwise).
+> 静默的备注（除非另有配置，否则必填）。
 
 **--author** _name_
-> Author of a silence (CreatedBy field).
+> 静默的作者（CreatedBy 字段）。
 
 **--duration** _duration_
-> Duration for a silence (default: 1h, e.g., 30m, 2h).
+> 静默的持续时间（默认：1h，如 30m、2h）。
 
 **--end** _time_
-> Set silence expiration as an RFC3339 timestamp.
+> 以 RFC3339 时间戳设置静默的过期时间。
 
 **--timeout** _duration_
-> Timeout for API requests (default: 30s).
+> API 请求的超时时间（默认：30s）。
 
 **-o**, **--output** _format_
-> Output format: simple, extended, json (default: simple).
+> 输出格式：simple、extended、json（默认：simple）。
 
 # DESCRIPTION
 
-**amtool** is the official command-line client for interacting with Prometheus Alertmanager. It provides capabilities for querying alerts, managing silences, testing routing configurations, and validating configuration files.
+**amtool** 是与 Prometheus Alertmanager 交互的官方命令行客户端。它提供查询告警、管理静默、测试路由配置和校验配置文件等功能。
 
-The tool connects to an Alertmanager instance via its HTTP API to perform operations. It is particularly useful for creating silences during maintenance windows, debugging alert routing, and integrating Alertmanager management into automation scripts.
+该工具通过 Alertmanager 实例的 HTTP API 执行操作。它在维护窗口期间创建静默、调试告警路由，以及将 Alertmanager 管理集成到自动化脚本中时特别有用。
 
-Configuration can be validated offline using **check-config** without requiring a running Alertmanager instance. The **config routes test** command helps verify that alerts will be routed to expected receivers based on their labels.
+可以使用 **check-config** 在离线状态下校验配置，无需运行中的 Alertmanager 实例。**config routes test** 命令有助于验证告警是否会根据其标签路由到预期的接收器。
 
 # CONFIGURATION
 
 **~/.config/amtool/config.yml**
-> Persistent configuration for the Alertmanager URL, author, and output format defaults.
+> 持久化保存 Alertmanager URL、作者和输出格式默认值的配置文件。
 
 # CAVEATS
 
-Requires network access to the Alertmanager API endpoint. Silences require a comment; creating them without **--comment** will fail. The **--alertmanager.url** must be specified if Alertmanager is not running on localhost:9093. Configuration file validation may not catch all runtime issues.
+需要能访问 Alertmanager API 端点的网络。静默必须附带备注；缺少 **--comment** 时创建会失败。如果 Alertmanager 不在 localhost:9093 上运行，则必须指定 **--alertmanager.url**。配置文件校验可能无法发现所有运行时问题。
 
 # HISTORY
 
-**amtool** was developed alongside Alertmanager as part of the Prometheus ecosystem. It was created to provide operators with a scriptable interface for alert management, complementing the web UI for automation and CI/CD integration. The tool is maintained by the Prometheus project and distributed as part of the Alertmanager release.
+**amtool** 与 Alertmanager 一同开发，是 Prometheus 生态的一部分。它的诞生是为了给运维人员提供可脚本化的告警管理接口，与 Web UI 形成互补，便于自动化和 CI/CD 集成。该工具由 Prometheus 项目维护，随 Alertmanager 发布一同分发。
 
 # INSTALL
 

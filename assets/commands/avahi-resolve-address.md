@@ -1,16 +1,16 @@
 # TAGLINE
 
-Resolve IP addresses to hostnames via mDNS
+通过 mDNS 将 IP 地址解析为主机名
 
 # TLDR
 
-This command is an alias of **avahi-resolve --address**.
+此命令是 **avahi-resolve --address** 的别名。
 
-**Resolve** an IP address to a hostname
+**将** IP 地址解析为主机名
 
 ```avahi-resolve-address [ip_address]```
 
-**Resolve** several addresses at once
+一次**解析**多个地址
 
 ```avahi-resolve-address [ip1] [ip2]```
 
@@ -20,7 +20,7 @@ This command is an alias of **avahi-resolve --address**.
 
 # DESCRIPTION
 
-**avahi-resolve-address** resolves IP addresses to hostnames using mDNS/DNS-SD via the Avahi daemon. It is equivalent to running **avahi-resolve** with the **--address** flag.
+**avahi-resolve-address** 通过 Avahi 守护进程使用 mDNS/DNS-SD 将 IP 地址解析为主机名。它等同于带 **--address** 标志运行 **avahi-resolve**。
 
 # INSTALL
 

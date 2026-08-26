@@ -1,46 +1,46 @@
 # TAGLINE
 
-Official command-line tool for Arduino development
+Arduino 开发的官方命令行工具
 
 # TLDR
 
-**List connected boards**
+**列出已连接的板卡**
 
 ```arduino-cli board list```
 
-**Compile a sketch** for a specific board
+为指定板卡**编译 sketch**
 
 ```arduino-cli compile --fqbn [arduino:avr:uno] [path/to/sketch]```
 
-**Upload a compiled sketch** to a board
+将编译好的 sketch **上传**到板卡
 
 ```arduino-cli upload --port [/dev/ttyACM0] --fqbn [arduino:avr:uno] [path/to/sketch]```
 
-**Compile and upload** in one command
+一条命令完成**编译并上传**
 
 ```arduino-cli compile --fqbn [arduino:avr:uno] --port [/dev/ttyACM0] -u [path/to/sketch]```
 
-**Create a new sketch**
+**创建新的 sketch**
 
 ```arduino-cli sketch new [MySketch]```
 
-**Install a board platform**
+**安装板卡平台**
 
 ```arduino-cli core install [arduino:avr]```
 
-**Search for a library**
+**搜索库**
 
 ```arduino-cli lib search [servo]```
 
-**Install a library**
+**安装库**
 
 ```arduino-cli lib install "[Servo]"```
 
-**Open serial monitor** on a port
+在端口上**打开串口监视器**
 
 ```arduino-cli monitor --port [/dev/ttyACM0]```
 
-**Update platform index** and upgrade all installed platforms
+**更新平台索引**并升级所有已安装的平台
 
 ```arduino-cli core update-index && arduino-cli core upgrade```
 
@@ -51,90 +51,90 @@ Official command-line tool for Arduino development
 # PARAMETERS
 
 **board list**
-> List connected Arduino boards with ports and FQBNs
+> 列出已连接的 Arduino 板卡及其端口和 FQBN
 
 **board listall**
-> List all known board types
+> 列出所有已知的板卡类型
 
 **compile**
-> Compile an Arduino sketch
+> 编译 Arduino sketch
 
 **upload**
-> Upload compiled binaries to a board
+> 将编译好的二进制文件上传到板卡
 
 **sketch new** _name_
-> Create a new sketch in the sketchbook
+> 在 sketchbook 中创建新 sketch
 
 **core install** _platform_
-> Install a board platform (e.g., arduino:avr)
+> 安装板卡平台（如 arduino:avr）
 
 **core update-index**
-> Update the platform index
+> 更新平台索引
 
 **lib install** _name_
-> Install a library from the library manager
+> 从库管理器安装库
 
 **lib search** _query_
-> Search for libraries
+> 搜索库
 
 **lib list**
-> List installed libraries
+> 列出已安装的库
 
 **monitor**
-> Open serial monitor to communicate with the board
+> 打开串口监视器与板卡通信
 
 **config init**
-> Create a default configuration file
+> 创建默认配置文件
 
 **core upgrade**
-> Upgrade all installed board platforms to the latest version
+> 将所有已安装的板卡平台升级到最新版本
 
 **-b**, **--fqbn** _string_
-> Fully Qualified Board Name (e.g., arduino:avr:uno)
+> 完全限定板卡名称（如 arduino:avr:uno）
 
 **-p**, **--port** _string_
-> Port address (e.g., /dev/ttyACM0 or COM3)
+> 端口地址（如 /dev/ttyACM0 或 COM3）
 
 **-u**, **--upload**
-> Upload the binary after compilation (use with compile)
+> 编译后上传二进制文件（配合 compile 使用）
 
 **-e**, **--export-binaries**
-> Export compiled binaries to the sketch folder
+> 将编译产物导出到 sketch 文件夹
 
 **--output-dir** _path_
-> Directory for compiled artifacts
+> 编译产物目录
 
 **-t**, **--verify**
-> Verify uploaded binary after upload
+> 上传后校验上传的二进制文件
 
 **-v**, **--verbose**
-> Enable verbose output during compile or upload
+> 编译或上传时启用详细输出
 
 **-P**, **--programmer** _name_
-> Use a specific programmer for upload
+> 上传时使用指定的编程器
 
 # DESCRIPTION
 
-**arduino-cli** is the official command-line tool for Arduino development. It provides board and library management, sketch compilation, upload functionality, and serial monitoring without requiring the Arduino IDE.
+**arduino-cli** 是 Arduino 开发的官方命令行工具。它无需 Arduino IDE 即可进行板卡和库管理、sketch 编译、上传以及串口监视。
 
-The tool uses Fully Qualified Board Names (FQBNs) to identify target boards, formatted as **vendor:architecture:board** (e.g., arduino:avr:uno). Board platforms must be installed before compiling for them.
+该工具使用完全限定板卡名称（FQBN）标识目标板卡，格式为 **vendor:architecture:board**（如 arduino:avr:uno）。编译前必须先安装对应的板卡平台。
 
-Typical workflow: install the target platform with **core install**, compile the sketch with **compile**, and upload with **upload**. The **--upload** flag can be added to compile to perform both steps together.
+典型工作流：用 **core install** 安装目标平台，用 **compile** 编译 sketch，再用 **upload** 上传。给 compile 加上 **--upload** 标志可一步完成两个步骤。
 
-The tool supports custom libraries via **--libraries** flag, board configuration via **--build-property**, and integrates well with IDEs like VS Code for Arduino development workflows.
+该工具支持通过 **--libraries** 标志使用自定义库，通过 **--build-property** 配置板卡参数，并能很好地集成到 VS Code 等 IDE 的 Arduino 开发工作流中。
 
 # CONFIGURATION
 
 **~/.arduino15/arduino-cli.yaml**
-> Main configuration file controlling board manager URLs, library paths, logging, and build defaults.
+> 主配置文件，控制板卡管理器 URL、库路径、日志记录和构建默认值。
 
 # CAVEATS
 
-Upload requires appropriate permissions for serial ports; on Linux, users typically need membership in the **dialout** or **uucp** group. The **upload** command does not compile automatically; use **compile --upload** for a combined operation. Board platforms must be installed before first use.
+上传需要串口有相应权限；在 Linux 上用户通常需要加入 **dialout** 或 **uucp** 组。**upload** 命令不会自动编译；要合并两步请使用 **compile --upload**。首次使用前必须安装板卡平台。
 
 # HISTORY
 
-**arduino-cli** was developed by **Arduino** and released in **2018** as a modern replacement for the older Arduino command-line tools. It was created to enable headless Arduino development, support CI/CD pipelines, and provide a foundation for third-party IDE integrations. The tool shares its core with the Arduino IDE 2.0 and is actively maintained.
+**arduino-cli** 由 **Arduino** 开发并于 **2018** 年发布，作为旧版 Arduino 命令行工具的现代替代品。它的目标是支持无界面的 Arduino 开发、支撑 CI/CD 流水线，并为第三方 IDE 集成奠定基础。该工具与 Arduino IDE 2.0 共享同一核心，目前仍在积极维护。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Azure neural text-to-speech from the command line
+命令行使用 Azure 神经网络文字转语音
 
 # TLDR
 
-**Speak** text with a voice
+用某种声音**朗读**文本
 
 ```aspeak -t "[Hello world]" -v [en-US-JennyNeural]```
 
-**Read** a file
+**读取**文件
 
 ```aspeak -f [text.txt] -o [out.mp3]```
 
-**List** voices
+**列出**可用声音
 
 ```aspeak -l```
 
@@ -22,35 +22,35 @@ Azure neural text-to-speech from the command line
 
 # DESCRIPTION
 
-**aspeak** is a CLI client for Azure Cognitive Services Text-to-Speech (neural voices). Synthesize speech from text or files, select locales/voices, and write audio to files or play it. Install via **pip install aspeak** or Cargo builds documented upstream.
+**aspeak** 是 Azure Cognitive Services 文字转语音（神经网络语音）的 CLI 客户端。可以从文本或文件合成语音，选择语言区域/声音，并将音频写入文件或直接播放。可通过 **pip install aspeak** 安装，Cargo 构建方式见上游文档。
 
 # PARAMETERS
 
 **-t**, **--text** *string*
 
-> Text to synthesize.
+> 要合成的文本。
 
 **-f**, **--file** *path*
 
-> Input text file.
+> 输入文本文件。
 
 **-v**, **--voice** *name*
 
-> Voice name.
+> 声音名称。
 
 **-o**, **--output** *file*
 
-> Output audio path.
+> 输出音频路径。
 
 **-l**, **--list-voices**
 
-> List available voices (requires auth).
+> 列出可用的声音（需要身份验证）。
 
-Authentication uses Azure speech keys/region via env vars or config—see upstream docs.
+身份验证通过环境变量或配置提供 Azure 语音密钥/区域——详见上游文档。
 
 # CAVEATS
 
-Requires Azure Speech credentials and network access; usage is billable. Voice availability varies by region.
+需要 Azure Speech 凭据和网络访问；使用会产生计费。声音的可用性因地区而异。
 
 # INSTALL
 

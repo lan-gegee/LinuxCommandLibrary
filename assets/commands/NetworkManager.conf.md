@@ -1,22 +1,22 @@
 # TAGLINE
 
-main configuration file for NetworkManager
+NetworkManager 的主配置文件
 
 # TLDR
 
-**Basic configuration**
+**基本配置**
 
 ```[main]\nplugins=ifupdown,keyfile```
 
-**Set DNS mode**
+**设置 DNS 模式**
 
 ```[main]\ndns=dnsmasq```
 
-**Disable MAC randomization**
+**禁用 MAC 随机化**
 
 ```[device]\nwifi.scan-rand-mac-address=no```
 
-**Set hostname mode**
+**设置主机名模式**
 
 ```[main]\nhostname-mode=dhcp```
 
@@ -27,64 +27,64 @@ main configuration file for NetworkManager
 # PARAMETERS
 
 **[main]**
-> Main configuration section.
+> 主配置节。
 
 **plugins**
-> System settings plugin names (keyfile is always appended).
+> 系统设置插件名（keyfile 总会被追加）。
 
 **dns**
-> DNS processing mode (default, dnsmasq, systemd-resolved, none).
+> DNS 处理模式（default、dnsmasq、systemd-resolved、none）。
 
 **dhcp**
-> DHCP client to use (internal, dhcpcd).
+> 要使用的 DHCP 客户端（internal、dhcpcd）。
 
 **hostname-mode**
-> How the transient hostname is managed (default, dhcp, none).
+> 临时主机名的管理方式（default、dhcp、none）。
 
 **no-auto-default**
-> Devices for which no automatic default connection is created.
+> 不为其自动创建默认连接的设备。
 
 **[keyfile]**
-> Keyfile plugin-specific settings.
+> keyfile 插件的专属设置。
 
 **[ifupdown]**
-> Settings for the ifupdown plugin (Debian/Ubuntu).
+> ifupdown 插件的设置（Debian/Ubuntu）。
 
 **managed**
-> Whether devices listed in /etc/network/interfaces are managed by NetworkManager (true/false).
+> /etc/network/interfaces 中列出的设备是否由 NetworkManager 管理（true/false）。
 
 **[connection]**
-> Default values for connection properties.
+> 连接属性的默认值。
 
 **[device]**
-> Per-device persistent configuration.
+> 每个设备的持久化配置。
 
 **[logging]**
-> Controls logging output.
+> 控制日志输出。
 
 **level**
-> Log verbosity level (OFF, ERR, WARN, INFO, DEBUG, TRACE).
+> 日志详细级别（OFF、ERR、WARN、INFO、DEBUG、TRACE）。
 
 **domains**
-> Filter log messages by topic (PLATFORM, WIFI, DHCP4, DNS, VPN, etc.).
+> 按主题过滤日志消息（PLATFORM、WIFI、DHCP4、DNS、VPN 等）。
 
 **[connectivity]**
-> Optional internet connectivity checking.
+> 可选的互联网连通性检查。
 
 **uri**
-> URL to check for connectivity.
+> 用于连通性检查的 URL。
 
 **interval**
-> Check frequency in seconds (default: 300).
+> 检查频率，单位为秒（默认：300）。
 
 **[global-dns]**
-> System-wide DNS configuration that overrides per-connection settings.
+> 覆盖各连接设置的全局 DNS 配置。
 
 # DESCRIPTION
 
-**NetworkManager.conf** is the main configuration file for NetworkManager. It controls DNS handling, plugins, device management, and various global settings. The file uses an ini-style key file format with sections of key-value pairs.
+**NetworkManager.conf** 是 NetworkManager 的主配置文件。它控制 DNS 处理、插件、设备管理以及各种全局设置。该文件采用 ini 风格的键值文件格式，由若干键值对小节组成。
 
-Additional configuration can be placed in /etc/NetworkManager/conf.d/ as drop-in files.
+额外的配置可以以 drop-in 文件的形式放在 /etc/NetworkManager/conf.d/ 中。
 
 # EXAMPLE CONFIG
 
@@ -117,7 +117,7 @@ none             - No DNS management
 
 # CAVEATS
 
-Syntax errors may prevent NetworkManager from starting. Use conf.d/ for drop-in files. Restart NetworkManager after changes with `systemctl restart NetworkManager`.
+语法错误可能导致 NetworkManager 无法启动。drop-in 文件请使用 conf.d/。修改后需用 `systemctl restart NetworkManager` 重启 NetworkManager。
 
 # SEE ALSO
 

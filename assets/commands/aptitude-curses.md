@@ -1,10 +1,10 @@
 # TAGLINE
 
-Interactive terminal package browser
+交互式终端软件包浏览器
 
 # TLDR
 
-**Start** aptitude TUI
+**启动** aptitude TUI
 
 ```sudo aptitude-curses```
 
@@ -14,17 +14,17 @@ Interactive terminal package browser
 
 # DESCRIPTION
 
-**aptitude-curses** launches the curses-based text user interface for aptitude. This is typically invoked as just **aptitude** when run without subcommands.
+**aptitude-curses** 启动基于 curses 的 aptitude 文本用户界面。不带子命令运行时通常直接以 **aptitude** 调用。
 
-The TUI provides an interactive package browser with dependency tracking, search, and advanced filtering capabilities.
+该 TUI 提供交互式软件包浏览器，具备依赖跟踪、搜索和高级过滤功能。
 
 # PARAMETERS
 
-All options are the same as **aptitude**.
+所有选项与 **aptitude** 相同。
 
 # CAVEATS
 
-This is the same as running **aptitude** without arguments. The separate command exists for explicit invocation of the TUI mode.
+等同于不带参数运行 **aptitude**。单独的命令是为了显式调用 TUI 模式。
 
 # INSTALL
 

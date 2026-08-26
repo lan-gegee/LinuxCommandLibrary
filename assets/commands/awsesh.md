@@ -1,34 +1,34 @@
 # TAGLINE
 
-AWS SSO session and credential manager with an interactive terminal UI
+带交互式终端 UI 的 AWS SSO 会话与凭证管理器
 
 # TLDR
 
-**Launch the interactive TUI** to select an SSO profile, account, and role
+**启动交互式 TUI**，选择 SSO profile、账户和角色
 
 ```sesh```
 
-**Authenticate directly** with a specific SSO, account, and role
+直接向指定的 SSO、账户和角色**认证**
 
 ```sesh [MyOrg] [MyAccount] [AdminRole]```
 
-**Open the AWS console in the browser** for a specific session
+为特定会话**在浏览器中打开 AWS 控制台**
 
 ```sesh [MyOrg] [MyAccount] [AdminRole] -b```
 
-**Set credentials with a specific region**
+以指定区域**设置凭证**
 
 ```sesh [MyOrg] [MyAccount] [AdminRole] -r [eu-west-1]```
 
-**Use a custom AWS profile name**
+**使用自定义的 AWS profile 名称**
 
 ```sesh [MyOrg] [MyAccount] [AdminRole] --profile [production]```
 
-**Show the current session identity**
+**显示当前会话的身份**
 
 ```sesh -w```
 
-**Output environment variables** for shell eval integration
+**输出环境变量**，供 Shell eval 集成使用
 
 ```sesh --eval [MyOrg] [MyAccount]```
 
@@ -39,54 +39,54 @@ AWS SSO session and credential manager with an interactive terminal UI
 # PARAMETERS
 
 **-v**, **--version**
-> Display version information and exit
+> 显示版本信息并退出
 
 **-b**, **--browser**
-> Open the AWS console in the default browser instead of setting credentials
+> 在默认浏览器中打开 AWS 控制台，而不是设置凭证
 
 **-w**, **--whoami**
-> Print the current AWS account name and ID for the active session
+> 打印活动会话对应的 AWS 账户名称和 ID
 
 **-r** _region_, **--region** _region_
-> Specify the AWS region to use for the session
+> 指定会话使用的 AWS 区域
 
 **-e**, **--eval**
-> Output shell export commands to stdout for setting AWS environment variables; used for shell integration
+> 向 stdout 输出用于设置 AWS 环境变量的 shell export 命令；供 shell 集成使用
 
 **-p** _name_, **--profile** _name_
-> Use a custom AWS profile name for the credentials entry; the tool remembers profile names per account and role combination
+> 为凭证条目使用自定义的 AWS profile 名称；工具会记住每个账户与角色组合对应的 profile 名称
 
 # DESCRIPTION
 
-**awsesh** (invoked as **sesh**) is a lightweight command-line tool for managing AWS SSO sessions and credentials. It provides an interactive terminal user interface built with Charm libraries (Bubble Tea, Bubbles, Lip Gloss) that allows users to browse SSO profiles, filter accounts by name with fuzzy search, select roles, and establish authenticated sessions.
+**awsesh**（调用名为 **sesh**）是一款轻量级命令行工具，用于管理 AWS SSO 会话和凭证。它提供了基于 Charm 库（Bubble Tea、Bubbles、Lip Gloss）构建的交互式终端用户界面，用户可以浏览 SSO profile、通过模糊搜索按名称筛选账户、选择角色并建立已认证的会话。
 
-The tool operates in two primary modes. In interactive TUI mode, running **sesh** without positional arguments launches a full-screen terminal interface where users can add, edit, and delete SSO profiles, browse accounts with filtering, set per-account regions, assign custom profile names, and open accounts directly in the AWS console. In CLI mode, providing an SSO name, account name, and optionally a role name on the command line performs direct session authentication without the TUI.
+该工具有两种主要运行模式。在交互式 TUI 模式下，不带位置参数运行 **sesh** 会启动全屏终端界面，用户可以在其中添加、编辑和删除 SSO profile，浏览账户并进行筛选，设置每个账户的区域，指定自定义 profile 名称，以及直接在 AWS 控制台中打开账户。在 CLI 模式下，在命令行中提供 SSO 名称、账户名称以及可选的角色名称即可直接完成会话认证，无需 TUI。
 
-When a session is established, awsesh writes temporary credentials to the AWS shared credentials file (typically **~/.aws/credentials**) and can set the following environment variables via shell integration: **AWS_PROFILE**, **AWS_REGION**, **AWS_ACCESS_KEY_ID**, **AWS_SECRET_ACCESS_KEY**, **AWS_SESSION_TOKEN**, and **AWS_SESSION_EXPIRATION**. For organizations with over 100 SSO accounts, roles are lazy-loaded to avoid AWS API rate limiting.
+会话建立后，awsesh 会将临时凭证写入 AWS 共享凭证文件（通常为 **~/.aws/credentials**），并可通过 shell 集成设置以下环境变量：**AWS_PROFILE**、**AWS_REGION**、**AWS_ACCESS_KEY_ID**、**AWS_SECRET_ACCESS_KEY**、**AWS_SESSION_TOKEN** 和 **AWS_SESSION_EXPIRATION**。对于拥有超过 100 个 SSO 账户的组织，角色采用懒加载方式，以避免触发 AWS API 速率限制。
 
 # CONFIGURATION
 
-awsesh follows the XDG Base Directory specification for its own configuration and respects the standard AWS configuration environment variables:
+awsesh 自身的配置遵循 XDG Base Directory 规范，同时尊重标准的 AWS 配置环境变量：
 
 **AWS_CONFIG_FILE**
-> Path to the AWS config file (default: ~/.aws/config)
+> AWS 配置文件路径（默认：~/.aws/config）
 
 **AWS_SHARED_CREDENTIALS_FILE**
-> Path to the AWS shared credentials file (default: ~/.aws/credentials)
+> AWS 共享凭证文件路径（默认：~/.aws/credentials）
 
-Shell integration is configured by adding a wrapper function to your shell profile (~/.bashrc, ~/.zshrc, or fish config):
+Shell 集成通过在你的 shell 配置文件（~/.bashrc、~/.zshrc 或 fish 配置）中添加一个包装函数来配置：
 
 ```sesh() { eval "$(command sesh --eval "$@")"; }```
 
-This enables environment variables to be set in the current shell session, which is required for compatibility with tools like **Starship** prompt.
+这样环境变量就能在当前 shell 会话中生效，这是兼容 **Starship** 提示符等工具所必需的。
 
 # CAVEATS
 
-The application directly modifies the AWS credentials file (~/.aws/credentials. Users with complex or hand-maintained credential configurations should back up the file before first use. The tool is currently in beta and has not reached a stable 1.0 release. A TypeScript rewrite is available on the beta branch with an API-based architecture for plugin and scripting support.
+该应用会直接修改 AWS 凭证文件（~/.aws/credentials。拥有复杂或手工维护的凭证配置的用户应在首次使用前备份该文件。此工具目前处于 beta 阶段，尚未发布稳定的 1.0 版本。beta 分支上有一个基于 API 架构的 TypeScript 重写版本，支持插件和脚本扩展。
 
 # HISTORY
 
-**awsesh** was created by **Alvin Johansson** and **Sebastian Bille** at **Elva Labs** with the repository published on GitHub in **March 2025**. The first tagged release (v0.0.1) appeared on **March 25, 2025**. The project is written in Go, licensed under the MIT license, and continues active development with beta releases through 2026.
+**awsesh** 由 **Elva Labs** 的 **Alvin Johansson** 和 **Sebastian Bille** 创建，仓库于 **2025 年 3 月**发布在 GitHub 上。首个打标签的版本（v0.0.1）于 **2025 年 3 月 25 日**发布。该项目使用 Go 编写，基于 MIT 许可证授权，并在 2026 年间持续以 beta 版本积极开发。
 
 # SEE ALSO
 

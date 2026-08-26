@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display help for Alire package manager commands.
+显示 Alire 软件包管理器命令的帮助信息。
 
 # TLDR
 
-**Display help** for a specific alr command
+**显示**特定 alr 命令的**帮助**
 
 ```alr help [command]```
 
-**List all available** alr commands
+**列出所有可用的** alr 命令
 
 ```alr help```
 
-**Display global options** and general help
+**显示全局选项**和一般帮助信息
 
 ```alr --help```
 
@@ -23,13 +23,13 @@ Display help for Alire package manager commands.
 # PARAMETERS
 
 **command**
-> The name of the alr subcommand to get help for.
+> 要获取帮助的 alr 子命令名称。
 
 # DESCRIPTION
 
-**alr help** displays detailed help information for Alire (Ada/SPARK package manager) commands. When run without arguments, it shows a list of all available commands. When a command name is provided, it displays detailed usage information for that specific command.
+**alr help** 显示 Alire（Ada/SPARK 软件包管理器）命令的详细帮助信息。不带参数运行时，它会列出所有可用命令；提供命令名称时，则显示该特定命令的详细用法信息。
 
-Alire is a source package manager for Ada/SPARK, similar to Rust's cargo or OCaml's opam. The **alr** command-line tool manages dependencies, builds projects, and incorporates libraries from the Alire catalog.
+Alire 是面向 Ada/SPARK 的源码软件包管理器，类似于 Rust 的 cargo 或 OCaml 的 opam。**alr** 命令行工具负责管理依赖、构建项目，并从 Alire 目录引入库。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Amazon Managed Streaming for Apache Kafka clusters.
+管理 Amazon Managed Streaming for Apache Kafka 集群。
 
 # TLDR
 
-**Create a new MSK cluster**
+**创建新的 MSK 集群**
 
 ```aws kafka create-cluster --cluster-name [my-cluster] --kafka-version [3.5.1] --number-of-broker-nodes 3 --broker-node-group-info file://[broker-config.json]```
 
-**List all MSK clusters**
+**列出所有 MSK 集群**
 
 ```aws kafka list-clusters```
 
-**Describe a cluster** and get its details
+**获取集群及其详情**
 
 ```aws kafka describe-cluster --cluster-arn [arn:aws:kafka:region:account:cluster/name/id]```
 
-**Get bootstrap broker endpoints** for client connections
+**获取用于客户端连接的引导代理端点**
 
 ```aws kafka get-bootstrap-brokers --cluster-arn [arn:aws:kafka:region:account:cluster/name/id]```
 
-**Update the number of brokers**
+**更新代理数量**
 
 ```aws kafka update-broker-count --cluster-arn [arn:aws:kafka:region:account:cluster/name/id] --current-version [K1234] --target-number-of-broker-nodes 6```
 
-**List** all MSK configurations
+**列出**所有 MSK 配置
 
 ```aws kafka list-configurations```
 
-**List compatible Kafka versions** for upgrade
+**列出可用于升级的兼容 Kafka 版本**
 
 ```aws kafka get-compatible-kafka-versions --cluster-arn [arn:aws:kafka:region:account:cluster/name/id]```
 
-**Delete a cluster**
+**删除集群**
 
 ```aws kafka delete-cluster --cluster-arn [arn:aws:kafka:region:account:cluster/name/id]```
 
@@ -42,58 +42,58 @@ Manage Amazon Managed Streaming for Apache Kafka clusters.
 
 # DESCRIPTION
 
-**aws kafka** is the AWS CLI interface for Amazon Managed Streaming for Apache Kafka (MSK), a fully managed service for running Apache Kafka. MSK handles cluster provisioning, configuration, patching, and monitoring while maintaining compatibility with open-source Kafka.
+**aws kafka** 是 Amazon Managed Streaming for Apache Kafka（MSK）的 AWS CLI 接口。MSK 是一项运行 Apache Kafka 的全托管服务，负责集群预置、配置、修补和监控，同时保持与开源 Kafka 的兼容性。
 
-MSK supports both provisioned and serverless deployment modes, SASL/SCRAM and IAM authentication, encryption at rest and in transit, and integration with AWS services like Lambda, Kinesis Data Firehose, and Glue.
+MSK 支持预置和无服务器两种部署模式、SASL/SCRAM 与 IAM 认证、静态及传输中加密，并可与 Lambda、Kinesis Data Firehose 和 Glue 等 AWS 服务集成。
 
 # COMMANDS
 
 **create-cluster**
-> Create a new MSK cluster
+> 创建新的 MSK 集群
 
 **delete-cluster**
-> Delete an MSK cluster
+> 删除 MSK 集群
 
 **describe-cluster**
-> Get cluster configuration and status
+> 获取集群配置和状态
 
 **list-clusters**
-> List all clusters in the account
+> 列出账户中的所有集群
 
 **get-bootstrap-brokers**
-> Get broker endpoints for client connections
+> 获取用于客户端连接的代理端点
 
 **update-broker-count**
-> Scale the number of brokers
+> 扩缩代理数量
 
 **update-broker-storage**
-> Increase broker storage capacity
+> 增加代理存储容量
 
 **update-cluster-kafka-version**
-> Upgrade Kafka version
+> 升级 Kafka 版本
 
 **create-configuration**
-> Create a custom broker configuration
+> 创建自定义代理配置
 
 **reboot-broker**
-> Restart a specific broker
+> 重启特定代理
 
 **update-cluster-configuration**
-> Update the cluster's broker configuration
+> 更新集群的代理配置
 
 **list-cluster-operations**
-> List cluster operations
+> 列出集群操作
 
 **list-configurations**
-> List all MSK configurations
+> 列出所有 MSK 配置
 
 # CAVEATS
 
-Broker count can only be increased, not decreased. Storage can only be increased. Kafka version upgrades are one-way and cannot be rolled back. Cluster creation takes 15-20 minutes. MSK Serverless has different quotas than provisioned clusters.
+代理数量只能增加，不能减少。存储只能扩大。Kafka 版本升级是单向的，无法回滚。创建集群需要 15-20 分钟。MSK Serverless 的配额与预置集群不同。
 
 # HISTORY
 
-Amazon MSK launched in **December 2018** as a managed Kafka service. MSK Connect for managed connectors was added in **2021**, and MSK Serverless launched in **2022** for automatic scaling without capacity planning. Tiered storage for cost optimization came in **2023**.
+Amazon MSK 于 **2018 年 12 月** 作为托管 Kafka 服务推出。用于托管连接器的 MSK Connect 于 **2021 年** 加入；无需容量规划即可自动扩缩的 MSK Serverless 于 **2022 年** 推出。用于成本优化的分层存储于 **2023 年** 推出。
 
 # INSTALL
 

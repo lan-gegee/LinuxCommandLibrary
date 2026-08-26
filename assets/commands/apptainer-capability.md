@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Linux capabilities for Apptainer container users and groups
+管理 Apptainer 容器用户和组的 Linux capabilities
 
 # TLDR
 
-**List capabilities** granted to a specific user
+**列出授予特定用户的 capabilities**
 
 ```sudo apptainer capability list --user [username]```
 
-**Grant a capability** to a user
+**为用户授予一个 capability**
 
 ```sudo apptainer capability add --user [username] [CAP_NET_RAW]```
 
-**Drop a capability** from a user
+**从用户移除一个 capability**
 
 ```sudo apptainer capability drop --user [username] [CAP_NET_RAW]```
 
-**Grant all capabilities** to a group
+**为组授予所有 capabilities**
 
 ```sudo apptainer capability add --group [groupname] all```
 
-**List all available** Linux capabilities with descriptions
+**列出全部可用**的 Linux capabilities 及其说明
 
 ```apptainer capability avail```
 
-**Drop all capabilities** from a user
+**移除用户的全部 capabilities**
 
 ```sudo apptainer capability drop --user [username] all```
 
@@ -34,35 +34,35 @@ Manage Linux capabilities for Apptainer container users and groups
 
 # DESCRIPTION
 
-**apptainer capability** manages Linux capabilities granted to users and groups for use inside Apptainer containers. Administrators use this command to authorize specific users or groups to request particular capabilities at container runtime.
+**apptainer capability** 管理授予用户和组、供其在 Apptainer 容器内使用的 Linux capabilities。管理员使用此命令授权特定用户或组在容器运行时请求特定的 capabilities。
 
-Capabilities are stored in a **capability.json** file maintained by Apptainer. Granting a capability does not automatically enable it inside containers — users must explicitly request granted capabilities at runtime using the **--add-caps** flag with commands like **apptainer exec** or **apptainer run**.
+Capabilities 存储在 Apptainer 维护的 **capability.json** 文件中。授予 capability 并不会自动在容器内启用它——用户必须在运行时通过 **--add-caps** 标志显式请求已授予的 capabilities，配合 **apptainer exec** 或 **apptainer run** 等命令使用。
 
 # SUBCOMMANDS
 
 **add**
-> Grant one or more Linux capabilities to a user or group. Requires root.
+> 为用户或组授予一个或多个 Linux capabilities。需要 root 权限。
 
 **drop**
-> Revoke one or more Linux capabilities from a user or group. Requires root.
+> 从用户或组撤销一个或多个 Linux capabilities。需要 root 权限。
 
 **list**
-> Display capabilities currently assigned to a user or group.
+> 显示当前分配给用户或组的 capabilities。
 
 **avail**
-> Show all recognized Linux capabilities with brief descriptions.
+> 显示所有可识别的 Linux capabilities 及其简要说明。
 
 # PARAMETERS
 
 **--user** _name_
-> Target a specific user for add, drop, or list operations.
+> 针对 add、drop 或 list 操作指定目标用户。
 
 **--group** _name_
-> Target a specific group for add, drop, or list operations.
+> 针对 add、drop 或 list 操作指定目标组。
 
 # CAVEATS
 
-Granting Linux capabilities to users is usually equivalent to granting root-level access on the host system. Most capabilities allow users to break out of containers and escalate privileges. This feature is intended for trusted environments, not multi-tenant HPC clusters. Both **add** and **drop** accept the case-insensitive keyword **all** to operate on every available capability at once.
+向用户授予 Linux capabilities 通常等同于授予主机系统的 root 级访问权限。大多数 capabilities 都能让用户突破容器并提升权限。此功能面向受信任的环境，而非多租户 HPC 集群。**add** 和 **drop** 都接受大小写不敏感的关键字 **all**，可一次性对所有可用的 capabilities 进行操作。
 
 # INSTALL
 

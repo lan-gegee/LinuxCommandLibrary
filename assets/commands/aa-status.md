@@ -1,34 +1,34 @@
 # TAGLINE
 
-Report AppArmor profile and confinement status
+报告 AppArmor 配置文件与约束状态
 
 # TLDR
 
-Check **AppArmor status**
+检查 **AppArmor 状态**
 
 ```sudo aa-status```
 
-Display status in **JSON format**
+以 **JSON 格式**显示状态
 
 ```sudo aa-status --json```
 
-Display status in **pretty JSON format**
+以**格式化 JSON 格式**显示状态
 
 ```sudo aa-status --pretty-json```
 
-Display the number of **loaded policies**
+显示**已加载策略**的数量
 
 ```sudo aa-status --profiled```
 
-Display the number of **enforcing policies**
+显示**强制模式策略**的数量
 
 ```sudo aa-status --enforced```
 
-Display the number of **complaining policies**
+显示**投诉模式策略**的数量
 
 ```sudo aa-status --complaining```
 
-Display the number of policies in **kill mode**
+显示处于 **kill 模式**的策略数量
 
 ```sudo aa-status --kill```
 
@@ -38,71 +38,71 @@ Display the number of policies in **kill mode**
 
 # DESCRIPTION
 
-**aa-status** reports the current state of AppArmor confinement on the system. By default, it displays a summary of loaded profiles grouped by enforcement mode (enforce, complain, kill, unconfined), the number of confined processes, and which profiles apply to them. Individual flags can query specific counters for use in scripts. The **--json** and **--pretty-json** flags provide machine-parseable output suitable for monitoring and automation pipelines.
+**aa-status** 报告系统上 AppArmor 约束的当前状态。默认情况下，它会按执行模式（enforce、complain、kill、unconfined）分组展示已加载配置文件的摘要、受约束进程的数量，以及各进程适用的配置文件。各个标志可用于在脚本中查询特定计数器。**--json** 和 **--pretty-json** 标志提供机器可解析的输出，适合监控和自动化流水线使用。
 
 # PARAMETERS
 
 **--enabled**
-> Returns error code if AppArmor is not enabled
+> 若 AppArmor 未启用则返回错误码
 
 **--profiled**
-> Shows count of loaded AppArmor policies
+> 显示已加载的 AppArmor 策略数量
 
 **--enforced**
-> Shows count of enforcing policies
+> 显示强制模式的策略数量
 
 **--complaining**
-> Shows count of non-enforcing (complain mode) policies
+> 显示非强制（投诉模式）策略的数量
 
 **--kill**
-> Shows count of enforcing policies that terminate tasks on violations
+> 显示违规时终止任务的强制模式策略数量
 
 **--prompt**
-> Shows count of enforcing policies with fallback to userspace mediation
+> 显示回退到用户态裁决的强制模式策略数量
 
 **--special-unconfined**
-> Shows count of unconfined mode policies
+> 显示 unconfined 模式策略的数量
 
 **--process-mixed**
-> Shows count of processes confined by profile stacks with profiles in different modes
+> 显示被包含不同模式配置文件的配置文件栈所约束的进程数量
 
 **--verbose**
-> Displays comprehensive AppArmor policy data (default behavior)
+> 显示全面的 AppArmor 策略数据（默认行为）
 
 **--json**
-> Outputs policy data in JSON format for machine processing
+> 以 JSON 格式输出策略数据，便于机器处理
 
 **--pretty-json**
-> Provides human and machine-readable JSON output
+> 提供人类和机器都可读的 JSON 输出
 
 **--count**
-> Shows only counts for selected information
+> 只显示所选信息的计数
 
 **--show** _TYPE_
-> Specify what to display: processes, profiles, or all (default: all)
+> 指定要显示的内容：processes、profiles 或 all（默认：all）
 
 **--filter.mode** _REGEX_
-> Filter output by profile mode using a POSIX regular expression
+> 使用 POSIX 正则表达式按配置文件模式过滤输出
 
 **--filter.profiles** _REGEX_
-> Filter output by confining profile name using a POSIX regular expression
+> 使用 POSIX 正则表达式按约束配置文件的名称过滤输出
 
 **--filter.pid** _REGEX_
-> Filter output by process PID using a POSIX regular expression
+> 使用 POSIX 正则表达式按进程 PID 过滤输出
 
 **--filter.exe** _REGEX_
-> Filter output by executable name using a POSIX regular expression
+> 使用 POSIX 正则表达式按可执行文件名过滤输出
 
 **--help**
-> Displays usage information
+> 显示用法信息
 
 # CAVEATS
 
-Exit codes indicate different states: **0** = enabled with policy, **1** = not enabled, **2** = enabled but no policy, **3** = control files unavailable, **4** = insufficient privileges.
+退出码代表不同状态：**0** = 已启用且有策略，**1** = 未启用，**2** = 已启用但无策略，**3** = 控制文件不可用，**4** = 权限不足。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

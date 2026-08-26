@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage serverless ETL jobs and data catalog
+管理无服务器 ETL 任务和数据目录
 
 # TLDR
 
-**Create a crawler** to discover data schema
+**创建爬虫以发现数据模式**
 
 ```aws glue create-crawler --name [my-crawler] --role [arn:aws:iam::account:role/glue-role] --database-name [my-database] --targets S3Targets=[{Path=s3://my-bucket/data/}]```
 
-**Start a crawler**
+**启动爬虫**
 
 ```aws glue start-crawler --name [my-crawler]```
 
-**List all databases** in the Data Catalog
+**列出 Data Catalog 中的所有数据库**
 
 ```aws glue get-databases```
 
-**List tables** in a database
+**列出数据库中的表**
 
 ```aws glue get-tables --database-name [my-database]```
 
-**Get table schema** from the catalog
+**从目录获取表模式**
 
 ```aws glue get-table --database-name [my-database] --name [my-table]```
 
-**Create and start a Glue job**
+**创建并启动 Glue 任务**
 
 ```aws glue create-job --name [my-job] --role [arn:aws:iam::account:role/glue-role] --command Name=glueetl,ScriptLocation=s3://my-bucket/scripts/job.py```
 
-**Start a job run** with arguments
+**带参数启动任务运行**
 
 ```aws glue start-job-run --job-name [my-job] --arguments '{"--input_path":"s3://bucket/input","--output_path":"s3://bucket/output"}'```
 
-**Get job run status**
+**查看任务运行状态**
 
 ```aws glue get-job-run --job-name [my-job] --run-id [jr_abc123]```
 
@@ -42,55 +42,55 @@ Manage serverless ETL jobs and data catalog
 
 # DESCRIPTION
 
-**aws glue** is the AWS CLI interface for AWS Glue, a serverless data integration service for ETL (extract, transform, load) workloads. Glue discovers, prepares, and combines data for analytics, machine learning, and application development.
+**aws glue** 是 AWS Glue 的 AWS CLI 接口。AWS Glue 是一项面向 ETL（提取、转换、加载）工作负载的无服务器数据集成服务，可为分析、机器学习和应用开发发现、准备和整合数据。
 
-Key components include the **Data Catalog** (central metadata repository), **Crawlers** (automatic schema discovery), **Jobs** (ETL scripts in Python or Scala), and **Triggers** (job orchestration). Glue integrates with S3, Redshift, RDS, and other data stores.
+关键组件包括 **Data Catalog**（中央元数据存储库）、**Crawler（爬虫）**（自动发现模式）、**Job（任务）**（以 Python 或 Scala 编写的 ETL 脚本）和 **Trigger（触发器）**（任务编排）。Glue 与 S3、Redshift、RDS 及其他数据存储集成。
 
 # COMMANDS
 
 **create-database**
-> Create a database in the Data Catalog
+> 在 Data Catalog 中创建数据库
 
 **create-table**
-> Register a table definition in the catalog
+> 在目录中注册表定义
 
 **create-crawler**
-> Create a crawler for schema discovery
+> 创建用于模式发现的爬虫
 
 **start-crawler**
-> Run a crawler to populate the catalog
+> 运行爬虫填充目录
 
 **get-databases**
-> List databases in the Data Catalog
+> 列出 Data Catalog 中的数据库
 
 **get-tables**
-> List tables in a database
+> 列出数据库中的表
 
 **get-table**
-> Get schema details for a table
+> 获取表的模式详情
 
 **create-job**
-> Create an ETL job
+> 创建 ETL 任务
 
 **start-job-run**
-> Execute a job
+> 执行任务
 
 **get-job-run**
-> Check job run status
+> 查看任务运行状态
 
 **create-trigger**
-> Create a job trigger
+> 创建任务触发器
 
 **get-crawlers**
-> List all crawlers
+> 列出所有爬虫
 
 # CAVEATS
 
-Crawlers can take significant time on large datasets. Job cold start adds latency; use job bookmarks for incremental processing. DPU (Data Processing Unit) costs accumulate during job runs. The Data Catalog has limits on tables per database (200,000).
+爬虫处理大型数据集时可能耗时较长。任务冷启动会增加延迟；可使用作业书签（job bookmark）做增量处理。DPU（数据处理单元）费用会在任务运行期间持续累积。Data Catalog 对每个数据库的表数量有限制（200,000 个）。
 
 # HISTORY
 
-AWS Glue launched in **August 2017** as a serverless ETL service. Glue Studio for visual ETL authoring came in **2020**. Data Quality features were added in **2022**, and Glue for Ray (distributed Python) launched in **2023** for data science workloads.
+AWS Glue 于 **2017 年 8 月** 作为无服务器 ETL 服务推出。用于可视化编写 ETL 的 Glue Studio 于 **2020 年** 推出。数据质量功能于 **2022 年** 加入，面向数据科学工作负载的 Glue for Ray（分布式 Python）于 **2023 年** 推出。
 
 # INSTALL
 

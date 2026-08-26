@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control and manage Linux audit system rules.
+控制和管理 Linux 审计系统的规则。
 
 # TLDR
 
-Show **status**
+显示**状态**
 
 ```sudo auditctl -s```
 
-**List** all rules
+**列出**所有规则
 
 ```sudo auditctl -l```
 
-**Delete** all rules
+**删除**所有规则
 
 ```sudo auditctl -D```
 
-**Enable/disable** auditing
+**启用/禁用**审计
 
 ```sudo auditctl -e 1```
 
-**Watch** file for changes
+**监视**文件的更改
 
 ```sudo auditctl -a always,exit -F arch=b64 -F path=/path/to/file -F perm=wa```
 
-Watch **directory** recursively
+递归监视**目录**
 
 ```sudo auditctl -a always,exit -F arch=b64 -F dir=/path/to/dir/ -F perm=wa```
 
-Watch file with a filter **key** for easy searching
+用过滤**键**监视文件以便于搜索
 
 ```sudo auditctl -w /etc/passwd -p wa -k passwd_changes```
 
-**Delete** a specific rule
+**删除**特定规则
 
 ```sudo auditctl -W /etc/passwd```
 
@@ -42,72 +42,72 @@ Watch file with a filter **key** for easy searching
 
 # DESCRIPTION
 
-**auditctl** controls the behavior and manages rules of the Linux Auditing System. It can enable or disable auditing, add or remove audit rules, and display the current audit status and configuration.
+**auditctl** 控制 Linux 审计系统的行为并管理其规则。它可以启用或禁用审计、添加或删除审计规则，以及显示当前的审计状态和配置。
 
-Rules can monitor specific files and directories for access, track system calls by process attributes, and filter events by user, group, or architecture. The tool communicates directly with the kernel audit subsystem to apply rules immediately, though these runtime rules are lost on reboot unless persisted to the audit rules file.
+规则可以监视对特定文件和目录的访问、按进程属性跟踪系统调用，以及按用户、组或架构过滤事件。该工具直接与内核审计子系统通信以立即应用规则，但这些运行时规则在重启后会丢失，除非将其持久化到审计规则文件中。
 
 # PARAMETERS
 
 **-s**
-> Display the audit system status
+> 显示审计系统状态
 
 **-l**
-> List all currently loaded audit rules
+> 列出当前已加载的所有审计规则
 
 **-D**
-> Delete all audit rules
+> 删除所有审计规则
 
 **-b** _backlog_
-> Set max number of outstanding audit buffers (kernel default: 64)
+> 设置待处理审计缓冲区的最大数量（内核默认：64）
 
 **-e** _0|1|2_
-> Disable (0), enable (1), or lock (2) audit configuration. Locked config cannot be changed without reboot.
+> 禁用（0）、启用（1）或锁定（2）审计配置。锁定后的配置必须重启才能更改。
 
 **-f** _0|1|2_
-> Set failure mode: 0=silent, 1=printk, 2=panic
+> 设置失败模式：0=静默，1=printk，2=panic
 
 **-r** _rate_
-> Set message rate limit in messages/sec (0=none)
+> 设置消息速率限制（条/秒）（0=不限制）
 
 **-a** _list,action_
-> Append a rule to the end of a list (e.g., always,exit)
+> 将一条规则追加到列表末尾（如 always,exit）
 
 **-d** _list,action_
-> Delete a matching rule from the specified list
+> 从指定列表删除匹配的规则
 
 **-w** _path_
-> Place a watch on a file or directory for changes
+> 对文件或目录设置监视以观察更改
 
 **-W** _path_
-> Remove a watch from a file or directory
+> 移除对文件或目录的监视
 
 **-F** _field=value_
-> Add a field comparison (path, perm, arch, uid, pid, etc.)
+> 添加字段比较条件（path、perm、arch、uid、pid 等）
 
 **-S** _syscall_
-> Specify a syscall name or number to audit (use with -a)
+> 指定要审计的系统调用名称或编号（与 -a 一起使用）
 
 **-k** _key_
-> Set a filter key on an audit rule for easier log searching
+> 为审计规则设置过滤键，便于搜索日志
 
 **-p** _permissions_
-> Permissions filter (r=read, w=write, x=execute, a=attribute change)
+> 权限过滤器（r=读，w=写，x=执行，a=属性变更）
 
 **-R** _file_
-> Read and execute auditctl commands from a file
+> 从文件中读取并执行 auditctl 命令
 
 # CONFIGURATION
 
 **/etc/audit/audit.rules**
-> Persistent audit rules loaded at boot by auditd. Rules added with auditctl are lost on reboot unless saved here.
+> 由 auditd 在启动时加载的持久化审计规则。用 auditctl 添加的规则若未保存到这里，重启后即丢失。
 
 # CAVEATS
 
-Requires root privileges. Rules added with auditctl are not persistent across reboots; use /etc/audit/audit.rules for persistence. Excessive auditing can impact system performance.
+需要 root 权限。用 auditctl 添加的规则在重启后不会保留；如需持久化请写入 /etc/audit/audit.rules。过度的审计会影响系统性能。
 
 # HISTORY
 
-**auditctl** is part of the **audit** package, providing the Linux Audit Framework for security monitoring and compliance.
+**auditctl** 是 **audit** 软件包的一部分，为安全监控和合规性提供 Linux 审计框架。
 
 # INSTALL
 

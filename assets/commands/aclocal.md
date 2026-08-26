@@ -1,26 +1,26 @@
 # TAGLINE
 
-autoconf macro collector for GNU build system
+GNU 构建系统的 autoconf 宏收集器
 
 # TLDR
 
-**Generate** aclocal.m4 from configure.ac
+从 configure.ac **生成** aclocal.m4
 
 ```aclocal```
 
-Search for macros in **additional directories**
+在**额外目录**中查找宏
 
 ```aclocal -I [m4/]```
 
-**Print** macro search directories
+**打印**宏搜索目录
 
 ```aclocal --print-ac-dir```
 
-Generate with **warnings** for obsolete macros
+生成时对过时宏给出**警告**
 
 ```aclocal --warnings=obsolete```
 
-**Install** third-party macros to local m4 directory
+将第三方宏**安装**到本地 m4 目录
 
 ```aclocal -I [m4/] --install```
 
@@ -30,49 +30,49 @@ Generate with **warnings** for obsolete macros
 
 # DESCRIPTION
 
-**aclocal** is part of the GNU Automake build system. It generates an aclocal.m4 file by scanning configure.ac (or configure.in) for macro invocations and collecting the required macro definitions from installed .m4 files.
+**aclocal** 是 GNU Automake 构建系统的一部分。它通过扫描 configure.ac（或 configure.in）中的宏调用，并从已安装的 .m4 文件中收集所需的宏定义，生成 aclocal.m4 文件。
 
-The generated aclocal.m4 file contains all the M4 macros needed by autoconf to process configure.ac. This tool is essential for projects using the GNU build system (autotools) as it bridges Automake and Autoconf.
+生成的 aclocal.m4 文件包含 autoconf 处理 configure.ac 所需的全部 M4 宏。对于使用 GNU 构建系统（autotools）的项目而言，这个工具是连接 Automake 与 Autoconf 的桥梁，不可或缺。
 
 # PARAMETERS
 
 **-I** _dir_
-> Add directory to search path for .m4 files
+> 将目录加入 .m4 文件的搜索路径
 
 **--output=**_file_
-> Write output to specified file instead of aclocal.m4
+> 将输出写入指定文件而非 aclocal.m4
 
 **--print-ac-dir**
-> Print the directory where system .m4 files are stored
+> 打印存放系统 .m4 文件的目录
 
 **--warnings=**_category_
-> Enable warnings: syntax, unsupported, obsolete, all, none, error
+> 启用警告：syntax、unsupported、obsolete、all、none、error
 
 **--install**
-> Copy third-party macros to the local m4 directory (requires -I)
+> 将第三方宏复制到本地 m4 目录（需配合 -I）
 
 **--force**
-> Always regenerate output file
+> 总是重新生成输出文件
 
 **--dry-run**
-> Do not actually create or modify any files
+> 不实际创建或修改任何文件
 
 **--verbose**
-> Print names of files being processed
+> 打印正在处理的文件的名称
 
 **--version**
-> Print version information
+> 打印版本信息
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Must be run before autoconf when building from source. The search order for .m4 files matters; local directories specified with -I are searched before system directories. Changes to configure.ac require re-running aclocal.
+从源码构建时必须在 autoconf 之前运行。.m4 文件的搜索顺序很重要；用 -I 指定的本地目录会先于系统目录被搜索。configure.ac 发生更改后需要重新运行 aclocal。
 
 # HISTORY
 
-**aclocal** was created as part of GNU Automake by David MacKenzie and Tom Tromey, first released in **1994**. It was designed to simplify the process of gathering M4 macros required for Autoconf-based build systems.
+**aclocal** 作为 GNU Automake 的一部分由 David MacKenzie 和 Tom Tromey 创建，首次发布于 **1994** 年。它的设计目标是简化基于 Autoconf 的构建系统收集 M4 宏的过程。
 
 # INSTALL
 

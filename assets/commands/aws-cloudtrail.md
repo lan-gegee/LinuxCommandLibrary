@@ -1,34 +1,34 @@
 # TAGLINE
 
-Track and audit API activity across cloud services.
+跟踪并审计跨云服务的 API 活动。
 
 # TLDR
 
-**Look up recent events** by username
+**按用户名查找近期事件**
 
 ```aws cloudtrail lookup-events --lookup-attributes AttributeKey=Username,AttributeValue=[user@example.com]```
 
-**Look up events** by event name
+**按事件名称查找事件**
 
 ```aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=[RunInstances]```
 
-**Look up events** in a time range
+**在时间范围内查找事件**
 
 ```aws cloudtrail lookup-events --start-time [2024-01-01T00:00:00Z] --end-time [2024-01-02T00:00:00Z]```
 
-**Create a multi-region trail**
+**创建多区域跟踪**
 
 ```aws cloudtrail create-trail --name [my-trail] --s3-bucket-name [my-bucket] --is-multi-region-trail```
 
-**Start logging** for a trail
+**为跟踪启动日志记录**
 
 ```aws cloudtrail start-logging --name [my-trail]```
 
-**List all trails**
+**列出所有跟踪**
 
 ```aws cloudtrail describe-trails```
 
-**Get trail status**
+**获取跟踪状态**
 
 ```aws cloudtrail get-trail-status --name [my-trail]```
 
@@ -39,94 +39,94 @@ Track and audit API activity across cloud services.
 # PARAMETERS
 
 **lookup-events**
-> Search management events from the last 90 days
+> 搜索最近 90 天的管理事件
 
 **create-trail**
-> Create a new trail for logging API activity
+> 创建用于记录 API 活动的新跟踪
 
 **describe-trails**
-> List trails and their configuration
+> 列出跟踪及其配置
 
 **get-trail-status**
-> Get logging status of a trail
+> 获取跟踪的日志记录状态
 
 **start-logging**
-> Begin logging events to a trail
+> 开始向跟踪记录事件
 
 **stop-logging**
-> Pause logging events to a trail
+> 暂停向跟踪记录事件
 
 **update-trail**
-> Modify trail configuration
+> 修改跟踪配置
 
 **delete-trail**
-> Remove a trail (logs remain in S3)
+> 删除跟踪（日志仍保留在 S3 中）
 
 **put-event-selectors**
-> Configure which events to log
+> 配置要记录哪些事件
 
 **put-insight-selectors**
-> Enable CloudTrail Insights
+> 启用 CloudTrail Insights
 
 **--name** _trail-name_
-> Trail name or ARN
+> 跟踪名称或 ARN
 
 **--s3-bucket-name** _bucket_
-> S3 bucket for log storage
+> 用于存储日志的 S3 存储桶
 
 **--is-multi-region-trail**
-> Log events from all regions
+> 记录所有区域的事件
 
 **--is-organization-trail**
-> Log events for all accounts in organization
+> 记录组织中所有账户的事件
 
 **--kms-key-id** _key_
-> KMS key for log encryption
+> 用于日志加密的 KMS 密钥
 
 **--lookup-attributes** _attr_
-> Filter events (AttributeKey=Type,AttributeValue=Value)
+> 筛选事件（AttributeKey=Type,AttributeValue=Value）
 
 **--start-time** _timestamp_
-> Start of time range for lookup
+> 查找时间范围的起点
 
 **--end-time** _timestamp_
-> End of time range for lookup
+> 查找时间范围的终点
 
 # LOOKUP ATTRIBUTES
 
-**EventId** - Unique event identifier
+**EventId** - 唯一的事件标识符
 
-**EventName** - API action (RunInstances, CreateBucket)
+**EventName** - API 操作（RunInstances、CreateBucket）
 
-**Username** - IAM user or role name
+**Username** - IAM 用户或角色名称
 
-**ResourceType** - AWS resource type
+**ResourceType** - AWS 资源类型
 
-**ResourceName** - Resource identifier
+**ResourceName** - 资源标识符
 
-**EventSource** - Service (ec2.amazonaws.com)
+**EventSource** - 服务（ec2.amazonaws.com）
 
-**AccessKeyId** - Access key used
+**AccessKeyId** - 所使用的访问密钥
 
 # DESCRIPTION
 
-**aws cloudtrail** manages AWS CloudTrail, which logs API activity and events across AWS services for auditing, compliance, and security analysis.
+**aws cloudtrail** 管理 AWS CloudTrail。CloudTrail 会记录跨 AWS 服务的 API 活动和事件，用于审计、合规与安全分析。
 
-**lookup-events** searches management events from the last 90 days without needing a trail configured. It's rate-limited to 2 requests per second per region.
+**lookup-events** 可搜索最近 90 天的管理事件，无需预先配置跟踪。每个区域的限速为每秒 2 个请求。
 
-**Trails** deliver logs to S3 buckets for long-term storage. Multi-region trails capture activity from all regions. Organization trails log events for all accounts in AWS Organizations.
+**跟踪（Trail）** 将日志传送到 S3 存储桶进行长期保存。多区域跟踪会捕获所有区域的活动。组织跟踪会为 AWS Organizations 中的所有账户记录事件。
 
-**Event selectors** filter which events to log (management events, data events for S3/Lambda, or Insights events for anomaly detection).
+**事件选择器** 用于筛选要记录的事件（管理事件、S3/Lambda 的数据事件，或用于异常检测的 Insights 事件）。
 
-Logs include who made the request, services used, actions performed, parameters, and response elements.
+日志内容包括请求发起者、所用的服务、执行的操作、参数以及响应元素。
 
 # CAVEATS
 
-lookup-events only searches the last 90 days; use Athena on S3 logs for older events. Rate limited to 2 requests/second. Only one lookup attribute per query. Trail creation requires S3 bucket and bucket policy configuration. Log delivery has a delay of several minutes.
+lookup-events 只能搜索最近 90 天的事件；更早的事件需配合 Athena 查询 S3 日志。限速为每秒 2 个请求。每次查询只能使用一个查找属性。创建跟踪需要先配置 S3 存储桶及存储桶策略。日志传送会有数分钟延迟。
 
 # HISTORY
 
-**AWS CloudTrail** launched in **November 2013** as AWS's audit logging service. It became a critical component for security, compliance, and governance. CloudTrail Insights for anomaly detection was added in **2019**. CloudTrail Lake for SQL-based event querying launched in **2022**.
+**AWS CloudTrail** 于 **2013 年 11 月** 推出，是 AWS 的审计日志服务。它已成为安全、合规与治理的关键组件。用于异常检测的 CloudTrail Insights 于 **2019 年** 加入。支持基于 SQL 的事件查询的 CloudTrail Lake 于 **2022 年** 推出。
 
 # INSTALL
 

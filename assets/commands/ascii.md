@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display ASCII character table and aliases
+显示 ASCII 字符表和别名
 
 # TLDR
 
-Show **aliases** for character
+显示字符的**别名**
 
 ```ascii a```
 
-**Script-friendly** output
+**适合脚本**的输出
 
 ```ascii -t a```
 
-Show for **multiple** characters
+处理**多个**字符
 
 ```ascii -s tldr```
 
-Table in **decimal**
+以**十进制**显示表
 
 ```ascii -d```
 
-Table in **hexadecimal**
+以**十六进制**显示表
 
 ```ascii -x```
 
-Table in **binary**
+以**二进制**显示表
 
 ```ascii -b```
 
@@ -34,41 +34,41 @@ Table in **binary**
 
 # DESCRIPTION
 
-**ascii** displays ASCII character information including aliases, numeric codes in various bases, and provides quick ASCII table lookups for character encoding reference.
+**ascii** 显示 ASCII 字符信息，包括别名和各种进制的数值编码，可作为字符编码参考，快速查询 ASCII 表。
 
 # PARAMETERS
 
 **-t**
-> Terse mode for script-friendly output
+> 简洁模式，输出适合脚本处理
 
 **-s**
-> Process multiple characters in string
+> 处理字符串中的多个字符
 
 **-d**
-> Display ASCII table in decimal
+> 以十进制显示 ASCII 表
 
 **-x**
-> Display ASCII table in hexadecimal
+> 以十六进制显示 ASCII 表
 
 **-o**
-> Display ASCII table in octal
+> 以八进制显示 ASCII 表
 
 **-b**
-> Display ASCII table in binary
+> 以二进制显示 ASCII 表
 
 **-h**, **-?**
-> Display a summary of options and a simple ASCII table
+> 显示选项摘要和一张简易 ASCII 表
 
 **-v**
-> Display program version
+> 显示程序版本
 
 # CAVEATS
 
-Without arguments, shows an options summary and the complete ASCII table. The base flags (**-d**, **-x**, **-o**, **-b**) have dual behavior: with no argument they print the full table in that base; with arguments they interpret those values in that base and print only the matching character records. Character aliases include common names like NUL, TAB, LF, CR, ESC, DEL for control characters.
+不带参数时，显示选项摘要和完整的 ASCII 表。进制选项（**-d**、**-x**、**-o**、**-b**）具有双重行为：不带参数时按该进制打印完整表格；带参数时则按该进制解释这些值，只打印匹配的字符记录。字符别名包括控制字符的常见名称，如 NUL、TAB、LF、CR、ESC、DEL。
 
 # HISTORY
 
-**ascii** was written by Eric S. Raymond as a handy ASCII reference utility.
+**ascii** 由 Eric S. Raymond 编写，是一款便捷的 ASCII 参考工具。
 
 # INSTALL
 

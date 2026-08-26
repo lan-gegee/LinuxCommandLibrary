@@ -1,34 +1,34 @@
 # TAGLINE
 
-Self-contained terminal coding agent with multi-provider and offline support
+支持多提供商与离线运行的自包含终端编码代理
 
 # TLDR
 
-**Launch interactive terminal UI**
+**启动交互式终端界面**
 
 ```ante```
 
-**Run a one-shot headless task**
+**运行一次性无头任务**
 
 ```ante -p "[add error handling to src/main.rs]"```
 
-**Pipe a diff for review**
+**通过管道传入 diff 进行审查**
 
 ```git diff | ante -p "[review this for security issues]"```
 
-**Use a specific provider and model**
+**使用指定的提供商和模型**
 
 ```ante --provider [openai] --model [gpt-5.5] -p "[refactor the database module]"```
 
-**Run fully offline with a local GGUF model**
+**配合本地 GGUF 模型完全离线运行**
 
 ```ante --offline-model [~/.ante/models/model.gguf] -p "[add tests]"```
 
-**Resume a saved session**
+**恢复已保存的会话**
 
 ```ante --resume [ses_...] -p "[now add tests]"```
 
-**Update to the latest release**
+**更新到最新版本**
 
 ```ante update```
 
@@ -45,91 +45,91 @@ Self-contained terminal coding agent with multi-provider and offline support
 # PARAMETERS
 
 **-p**, **--prompt** _PROMPT_
-> Run in headless mode with the given prompt and exit when done
+> 以无头模式运行给定提示词的任务，完成后退出
 
 **-m**, **--model** _MODEL_
-> Override the model name
+> 覆盖模型名称
 
 **--provider** _PROVIDER_
-> Override the API provider (for example anthropic, openai, gemini, xai, openrouter, local)
+> 覆盖 API 提供商（例如 anthropic、openai、gemini、xai、openrouter、local）
 
 **--profile** _NAME_
-> Use **~/.ante/**_NAME_**.settings.json** instead of the default settings; **ANTE_PROFILE** is equivalent
+> 使用 **~/.ante/**_NAME_**.settings.json** 代替默认设置；等价于环境变量 **ANTE_PROFILE**
 
 **--effort** _LEVEL_
-> Override model effort: min, low, medium, high, xhigh, or max
+> 覆盖模型努力程度：min、low、medium、high、xhigh 或 max
 
 **--yolo**
-> Skip all interactive tool approval prompts
+> 跳过所有交互式工具审批提示
 
 **--output-format** _FORMAT_
-> Headless output format: json, human, or minimal (default: minimal)
+> 无头输出格式：json、human 或 minimal（默认：minimal）
 
 **--offline-model** _PATH_
-> Path to a local GGUF model file; boots built-in local inference and uses the local provider
+> 本地 GGUF 模型文件的路径；启动内置本地推理引擎并使用 local 提供商
 
 **-r**, **--resume** _SESSION_ID_
-> Resume a previously saved session by ID
+> 按 ID 恢复先前保存的会话
 
 **--no-session-save**
-> Do not persist a transcript or resumable snapshot
+> 不保存会话记录或可恢复的快照
 
 **--check**
-> After the main task, run a verification pass on the work
+> 在主任务完成后对工作成果执行一轮验证
 
 **--system-prompt** _PROMPT_
-> Replace the default system prompt entirely
+> 完全替换默认系统提示词
 
 **--system-prompt-file** _PATH_
-> Read a replacement system prompt from a UTF-8 file
+> 从 UTF-8 文件读取替代的系统提示词
 
 **--append-system-prompt** _TEXT_
-> Append text to the system prompt
+> 向系统提示词追加文本
 
 **--no-skills**
-> Skip skill discovery; no skills are advertised or invocable
+> 跳过技能发现；不宣告也不调用任何技能
 
 **--tools** _TOOLS_...
-> Replace the default tool set with exactly these tools
+> 用恰好这些工具替换默认工具集
 
 **--include-tools** _TOOLS_...
-> Add tools on top of the default or **--tools** set
+> 在默认或 **--tools** 工具集的基础上添加工具
 
 **--exclude-tools** _TOOLS_...
-> Remove tools after **--tools** and **--include-tools**
+> 在 **--tools** 和 **--include-tools** 处理之后再移除这些工具
 
 # COMMANDS
 
 **serve**
-> Run as a long-lived daemon over a structured JSONL protocol for editor plugins and integrations
+> 以结构化 JSONL 协议作为长期运行的守护进程，供编辑器插件和集成使用
 
 **gateway**
-> Run Ante as a Slack or Discord bot
+> 将 Ante 作为 Slack 或 Discord 机器人运行
 
 **update**
-> Install the latest release; supports **--channel** and **--version**
+> 安装最新版本；支持 **--channel** 和 **--version**
 
 # DESCRIPTION
 
-**ante** is a self-contained coding agent from Antigma Labs that runs in the terminal. It is distributed as a single Rust binary (~15MB) with no runtime language dependencies. Day-to-day use is an interactive TUI (**ante** with no arguments); headless one-shots use **-p** / **--prompt**.
+**ante** 是 Antigma Labs 出品的一款自包含编码代理，运行于终端之中。它以单个 Rust 二进制文件分发（约 15MB），没有运行时语言依赖。日常使用是交互式 TUI（不带参数运行 **ante**）；无头一次性任务则使用 **-p** / **--prompt**。
 
-It works with many cloud providers (Anthropic, OpenAI, Gemini, Grok/xAI, Open Router, and OpenAI-compatible endpoints) via API keys or OAuth, and can also run fully offline against a local GGUF model through a built-in inference engine. Configuration lives under **~/.ante/** (settings, catalog, and optional named profiles).
+它可通过 API 密钥或 OAuth 与多家云提供商协作（Anthropic、OpenAI、Gemini、Grok/xAI、Open Router 以及 OpenAI 兼容端点），也能借助内置推理引擎配合本地 GGUF 模型完全离线运行。配置存放在 **~/.ante/** 下（设置、目录以及可选的命名 profile）。
 
-Subcommands cover programmatic embedding (**ante serve**), chat-platform bots (**ante gateway**), and self-updates (**ante update**). Features include multi-agent orchestration, skills, MCP servers, and persistent memory across sessions.
+子命令涵盖程序化嵌入（**ante serve**）、聊天平台机器人（**ante gateway**）和自我更新（**ante update**）。功能包括多代理编排、技能、MCP 服务器以及跨会话的持久记忆。
 
 # CAVEATS
 
-Ante is in alpha/preview: expect breaking changes and incomplete functionality. Official support is macOS and Linux (Windows users are directed to WSL). Headless mode implies auto-approval of tool calls (yolo). Cloud providers need credentials (for example **ANTHROPIC_API_KEY**, **OPENAI_API_KEY**); offline mode needs a local GGUF. The prebuilt binary is free to use during the alpha under separate binary terms; open-source parts of the repository are Apache-2.0. Install via the official script (**curl -fsSL https://ante.run/install.sh | bash**); distro packages named **ante** are typically a different project (the Ante programming language).
+Ante 处于 alpha/预览阶段：可能出现破坏性变更和功能不完整的情况。官方仅支持 macOS 和 Linux（Windows 用户请使用 WSL）。无头模式意味着自动批准所有工具调用（yolo）。云提供商需要凭据（如 **ANTHROPIC_API_KEY**、**OPENAI_API_KEY**）；离线模式需要本地 GGUF 模型。预构建二进制文件在 alpha 阶段依据单独的二进制条款免费使用；仓库中的开源部分采用 Apache-2.0 协议。请通过官方脚本安装（**curl -fsSL https://ante.run/install.sh | bash**）；发行版中名为 **ante** 的软件包通常是另一个项目（Ante 编程语言）。
 
 # CONFIGURATION
 
-Default settings: **~/.ante/settings.json**
+默认设置：**~/.ante/settings.json**
 
-Named profiles: **~/.ante/**_name_**.settings.json** (select with **--profile** or **ANTE_PROFILE**)
+命名 profile：**~/.ante/**_name_**.settings.json**（用 **--profile** 或 **ANTE_PROFILE** 选择）
 
-Provider/model catalog overrides: **~/.ante/catalog.json**
+提供商/模型目录覆盖：**~/.ante/catalog.json**
 
-Binary install location defaults to **~/.ante/bin** (override with **ANTE_INSTALL_DIR** during install)
+二进制安装位置默认为 **~/.ante/bin**（安装时可用 **ANTE_INSTALL_DIR** 覆盖）
 
 # SEE ALSO
 

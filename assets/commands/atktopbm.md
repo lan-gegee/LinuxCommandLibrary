@@ -1,10 +1,10 @@
 # TAGLINE
 
-Convert Andrew Toolkit raster images to PBM format
+将 Andrew Toolkit 位图图像转换为 PBM 格式
 
 # TLDR
 
-**Convert** Andrew Toolkit raster to PBM
+**转换** Andrew Toolkit 位图为 PBM
 
 ```atktopbm [input.atk] > [output.pbm]```
 
@@ -14,22 +14,22 @@ Convert Andrew Toolkit raster images to PBM format
 
 # DESCRIPTION
 
-**atktopbm** converts Andrew Toolkit raster format files to PBM (Portable Bitmap) format. The Andrew Toolkit was a widget set and application framework from Carnegie Mellon University.
+**atktopbm** 将 Andrew Toolkit 光栅格式的文件转换为 PBM（Portable Bitmap）格式。Andrew Toolkit 是卡内基梅隆大学开发的一套部件集与应用框架。
 
-This converter handles legacy ATK format graphics.
+此转换器用于处理遗留的 ATK 格式图形。
 
 # PARAMETERS
 
 **atkfile**
-> Input ATK raster file (or stdin)
+> 输入的 ATK 光栅文件（或 stdin）
 
 # CAVEATS
 
-ATK format is obsolete. Primarily for converting legacy files. Few modern applications produce ATK rasters.
+ATK 格式已经过时。主要用于转换旧文件。很少有现代应用程序会生成 ATK 位图。
 
 # HISTORY
 
-Part of Netpbm, supporting the Andrew Toolkit format which was developed at Carnegie Mellon in the **1980s**.
+属于 Netpbm 的一部分，支持 **1980 年代**卡内基梅隆大学开发的 Andrew Toolkit 格式。
 
 # INSTALL
 

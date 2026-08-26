@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage relational database instances
+管理关系数据库实例
 
 # TLDR
 
-**Create a MySQL database instance**
+**创建 MySQL 数据库实例**
 
 ```aws rds create-db-instance --db-instance-identifier [my-db] --db-instance-class db.t3.micro --engine mysql --master-username admin --master-user-password [password] --allocated-storage 20```
 
-**List all database instances**
+**列出所有数据库实例**
 
 ```aws rds describe-db-instances```
 
-**Describe a specific instance**
+**描述特定实例**
 
 ```aws rds describe-db-instances --db-instance-identifier [my-db]```
 
-**Create a manual snapshot**
+**创建手动快照**
 
 ```aws rds create-db-snapshot --db-instance-identifier [my-db] --db-snapshot-identifier [my-snapshot]```
 
-**Restore from a snapshot**
+**从快照恢复**
 
 ```aws rds restore-db-instance-from-db-snapshot --db-instance-identifier [new-db] --db-snapshot-identifier [my-snapshot]```
 
-**Modify instance** (resize, change settings)
+**修改实例**（调整大小、更改设置）
 
 ```aws rds modify-db-instance --db-instance-identifier [my-db] --db-instance-class db.t3.small --apply-immediately```
 
-**Create a read replica**
+**创建只读副本**
 
 ```aws rds create-db-instance-read-replica --db-instance-identifier [my-replica] --source-db-instance-identifier [my-db]```
 
-**Delete an instance** (skip final snapshot)
+**删除实例**（跳过最终快照）
 
 ```aws rds delete-db-instance --db-instance-identifier [my-db] --skip-final-snapshot```
 
@@ -42,64 +42,64 @@ Manage relational database instances
 
 # DESCRIPTION
 
-**aws rds** is the AWS CLI interface for Amazon Relational Database Service (RDS), a managed service for relational databases. RDS handles provisioning, patching, backups, and recovery for MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
+**aws rds** 是 AWS CLI 中用于管理 Amazon Relational Database Service（RDS）的接口。这是一项托管关系数据库服务，为 MySQL、PostgreSQL、MariaDB、Oracle、SQL Server 和 Amazon Aurora 处理预置、修补、备份和恢复。
 
-RDS provides automated backups, point-in-time recovery, read replicas for scaling, Multi-AZ deployments for high availability, and encryption at rest. Aurora extends RDS with MySQL and PostgreSQL-compatible databases with enhanced performance.
+RDS 提供自动备份、时间点恢复、用于扩展的只读副本、面向高可用性的 Multi-AZ 部署以及静态加密。Aurora 在 RDS 基础上扩展出兼容 MySQL 和 PostgreSQL 的数据库，并具备更强的性能。
 
 # COMMANDS
 
 **create-db-instance**
-> Create a new database instance
+> 创建新的数据库实例
 
 **delete-db-instance**
-> Terminate a database instance
+> 终止数据库实例
 
 **describe-db-instances**
-> List and describe instances
+> 列出并描述实例
 
 **modify-db-instance**
-> Change instance configuration
+> 更改实例配置
 
 **reboot-db-instance**
-> Restart a database instance
+> 重启数据库实例
 
 **start-db-instance**
-> Start a stopped instance
+> 启动已停止的实例
 
 **stop-db-instance**
-> Stop a running instance
+> 停止运行中的实例
 
 **create-db-snapshot**
-> Create a manual backup
+> 创建手动备份
 
 **restore-db-instance-from-db-snapshot**
-> Restore from backup
+> 从备份恢复
 
 **create-db-instance-read-replica**
-> Create a read replica
+> 创建只读副本
 
 **create-db-cluster**
-> Create an Aurora cluster
+> 创建 Aurora 集群
 
 **describe-db-snapshots**
-> List and describe snapshots
+> 列出并描述快照
 
 **delete-db-snapshot**
-> Delete a manual snapshot
+> 删除手动快照
 
 **failover-db-cluster**
-> Trigger Aurora failover
+> 触发 Aurora 故障转移
 
 **add-tags-to-resource**
-> Tag an RDS resource
+> 为 RDS 资源打标签
 
 # CAVEATS
 
-Instance modifications may cause brief downtime unless Multi-AZ is enabled. Storage can only be increased, not decreased. Some engine versions cannot be downgraded. Final snapshots are recommended before deletion but incur storage costs.
+除非启用了 Multi-AZ，否则修改实例可能导致短暂停机。存储只能增加，不能减少。某些引擎版本无法降级。建议在删除前创建最终快照，但这会产生存储费用。
 
 # HISTORY
 
-Amazon RDS launched in **October 2009** with MySQL support. PostgreSQL was added in **2013**, Aurora in **2014**. Multi-AZ deployments, read replicas, and encryption options have expanded over time. Blue/Green deployments for zero-downtime upgrades launched in **2022**.
+Amazon RDS 于 **2009 年 10 月**上线，最初支持 MySQL。PostgreSQL 于 **2013 年**加入，Aurora 于 **2014 年**加入。Multi-AZ 部署、只读副本和加密选项随时间不断扩展。支持零停机升级的蓝/绿部署于 **2022 年**推出。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Feature-rich KDE music player
+功能丰富的 KDE 音乐播放器
 
 # TLDR
 
-**Start** Amarok
+**启动** Amarok
 
 ```amarok```
 
-Open with **specific file**
+打开**指定文件**
 
 ```amarok [music.mp3]```
 
-**Enqueue** files to current playlist
+将文件**加入**当前播放列表
 
 ```amarok --enqueue [file1.mp3] [file2.mp3]```
 
-**Play/Pause** currently playing track
+**播放/暂停**当前曲目
 
 ```amarok --play-pause```
 
-**Skip** to next track
+**跳到**下一曲
 
 ```amarok --next```
 
-Show **previous** track
+显示**上一**曲目
 
 ```amarok --previous```
 
@@ -34,60 +34,60 @@ Show **previous** track
 
 # DESCRIPTION
 
-**amarok** is a powerful music player for Linux/KDE with support for many audio formats, podcast management, and integration with online music services. It features a sophisticated collection manager, dynamic playlists, and extensive plugin support.
+**amarok** 是一款面向 Linux/KDE 的强大音乐播放器，支持多种音频格式、播客管理以及与在线音乐服务的集成。它拥有完善的媒体库管理器、动态播放列表和丰富的插件支持。
 
-The player can scan your music library, fetch album art and lyrics, and provides scriptable interfaces for automation.
+该播放器可以扫描你的音乐库、获取专辑封面和歌词，并提供可脚本化的接口以便自动化操作。
 
 # PARAMETERS
 
 **--play**
-> Start playback
+> 开始播放
 
 **--play-pause**
-> Toggle play/pause
+> 切换播放/暂停
 
 **--pause**
-> Pause playback
+> 暂停播放
 
 **--stop**
-> Stop playback
+> 停止播放
 
 **--next**
-> Skip to next track
+> 跳到下一曲
 
 **--previous**
-> Go to previous track
+> 回到上一曲
 
 **--enqueue** _files_
-> Add files to playlist without playing
+> 将文件加入播放列表但不播放
 
 **--append** _files_
-> Append files to playlist
+> 将文件追加到播放列表
 
 **--load** _files_
-> Load and replace playlist
+> 加载文件并替换播放列表
 
 **-s**, **--stop-after-current**
-> Stop after current track
+> 播完当前曲目后停止
 
 **--volume** _percent_
-> Set volume level
+> 设置音量级别
 
 **--engine** _engine_
-> Use specific audio engine
+> 使用指定的音频引擎
 
 # CONFIGURATION
 
-**~/.config/amarokrc** (KF5/Qt5 builds), **~/.kde/share/config/amarokrc** (KDE4 builds)
-> Main configuration file storing player settings, collection paths, and plugin preferences.
+**~/.config/amarokrc**（KF5/Qt5 版本）、**~/.kde/share/config/amarokrc**（KDE4 版本）
+> 主配置文件，存储播放器设置、媒体库路径和插件偏好。
 
 # CAVEATS
 
-Heavy on system resources compared to simpler players. Some features require KDE frameworks. Plugin compatibility varies with version.
+与更简单的播放器相比较消耗系统资源。部分功能需要 KDE 框架。插件兼容性因版本而异。
 
 # HISTORY
 
-**Amarok** was first released in **2003** as a KDE music player. Version 2.0 in 2008 brought a major rewrite. It was one of the most feature-rich Linux music players, though development has slowed in recent years.
+**Amarok** 于 **2003** 年首次发布，是一款 KDE 音乐播放器。2008 年的 2.0 版本带来了大规模重写。它曾是功能最丰富的 Linux 音乐播放器之一，不过近年开发节奏已放缓。
 
 # INSTALL
 

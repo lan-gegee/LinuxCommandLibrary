@@ -1,26 +1,26 @@
 # TAGLINE
 
-Search manual page descriptions by keyword
+按关键字搜索 man page 描述
 
 # TLDR
 
-**Search** man pages by keyword
+**按关键字搜索** man page
 
 ```apropos [keyword]```
 
-Search with **exact match**
+以**精确匹配**方式搜索
 
 ```apropos -e [keyword]```
 
-Search in **specific sections**
+在**特定章节**中搜索
 
 ```apropos -s [1,8] [keyword]```
 
-Search with **regex**
+使用**正则表达式**搜索
 
 ```apropos -r "[network.*config]"```
 
-**Match all** keywords (AND)
+**匹配所有**关键字（AND）
 
 ```apropos -a [keyword1] [keyword2]```
 
@@ -30,37 +30,37 @@ Search with **regex**
 
 # DESCRIPTION
 
-**apropos** searches the manual page names and short descriptions for keywords, helping you find relevant commands when you don't know the exact name.
+**apropos** 在 man page 名称和简短描述中搜索关键字，当你不知道命令的确切名称时，它可以帮助你找到相关的命令。
 
-The search queries the whatis database built by mandb. By default each keyword is treated as a regular expression. Multiple keywords are OR'd together; use **-a** to require all of them to match.
+搜索查询由 mandb 构建的 whatis 数据库。默认情况下，每个关键字都被视为正则表达式。多个关键字之间是 OR 关系；使用 **-a** 可要求全部匹配。
 
 # PARAMETERS
 
 **-e**, **--exact**
-> Search for exact keyword match
+> 搜索与关键字完全匹配的结果
 
 **-r**, **--regex**
-> Interpret each keyword as a regular expression. This is the default behaviour.
+> 将每个关键字解释为正则表达式。这是默认行为。
 
 **-w**, **--wildcard**
-> Interpret keyword as shell wildcard
+> 将关键字解释为 Shell 通配符模式
 
 **-s** _list_, **--sections** _list_
-> Search only specified manual sections
+> 只在指定的手册章节中搜索
 
 **-l**, **--long**
-> Do not trim output to the terminal width.
+> 不将输出裁剪到终端宽度。
 
 **-a**, **--and**
-> Require all keywords to match
+> 要求所有关键字都匹配
 
 # CAVEATS
 
-Results depend on the whatis database being up to date. Run **mandb** to update if new packages were installed. Some man pages may have poor descriptions.
+搜索结果依赖 whatis 数据库保持最新。如果刚安装了新软件包，请运行 **mandb** 更新。某些 man page 的描述可能写得比较差。
 
 # HISTORY
 
-**apropos** has been part of Unix systems since early versions, helping users discover relevant commands. It's equivalent to **man -k**.
+**apropos** 从 Unix 早期版本起就是系统的一部分，帮助用户发现相关命令。它等价于 **man -k**。
 
 # INSTALL
 

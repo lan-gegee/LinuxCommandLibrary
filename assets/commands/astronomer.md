@@ -1,28 +1,28 @@
 # TAGLINE
 
-Deploy and manage Apache Airflow on the Astronomer platform
+在 Astronomer 平台上部署和管理 Apache Airflow
 
 # TLDR
 
-> The CLI binary is invoked as **astro**.
+> 该 CLI 的二进制名称为 **astro**。
 
-**Initialize** a new Airflow project
+**初始化**一个新的 Airflow 项目
 
 ```astro dev init```
 
-**Start** a local Airflow environment
+**启动**本地 Airflow 环境
 
 ```astro dev start```
 
-**Stop** the local environment
+**停止**本地环境
 
 ```astro dev stop```
 
-**Log in** to Astronomer
+**登录** Astronomer
 
 ```astro login```
 
-**Deploy** code to a Deployment
+将代码**部署**到 Deployment
 
 ```astro deploy```
 
@@ -32,49 +32,49 @@ Deploy and manage Apache Airflow on the Astronomer platform
 
 # DESCRIPTION
 
-**astro** is the command-line interface for Astronomer, a platform for running Apache Airflow. It makes it easy to create, test, and deploy Airflow DAGs, providing tools for local Airflow development with Docker, deployment to Astro or Astronomer Software, and management of workspaces and deployments.
+**astro** 是 Astronomer 的命令行界面，Astronomer 是一个运行 Apache Airflow 的平台。它简化了 Airflow DAG 的创建、测试与部署，提供了基于 Docker 的本地 Airflow 开发工具、向 Astro 或 Astronomer Software 的部署功能，以及对工作空间和 Deployment 的管理能力。
 
-The tool streamlines Airflow workflows, from local testing to production deployment.
+该工具让 Airflow 工作流程更加顺畅，覆盖从本地测试到生产部署的全过程。
 
 # PARAMETERS
 
 **dev init**
-> Create the files needed for a new Airflow project in the current directory.
+> 在当前目录创建新 Airflow 项目所需的文件。
 
 **dev start**
-> Build the project and start a local Airflow environment in Docker containers.
+> 构建项目并在 Docker 容器中启动本地 Airflow 环境。
 
 **dev stop**
-> Pause the Docker containers running the local Airflow environment.
+> 暂停运行本地 Airflow 环境的 Docker 容器。
 
 **dev restart**
-> Stop, rebuild, and restart the local environment.
+> 停止、重建并重启本地环境。
 
 **deploy**
-> Deploy project code to a Deployment.
+> 将项目代码部署到 Deployment。
 
 **login**
-> Authenticate to the Astro CLI.
+> 登录 Astro CLI 进行身份认证。
 
 **logout**
-> Sign out of the Astro CLI.
+> 从 Astro CLI 登出。
 
 **workspace list**
-> List available workspaces.
+> 列出可用的工作空间。
 
 **deployment list**
-> List deployments.
+> 列出 Deployment。
 
 **version**
-> Show the CLI version.
+> 显示 CLI 版本。
 
 # CAVEATS
 
-Requires Docker for local development. Deployment requires an Astronomer account. Some commands are specific to either Astro (cloud) or Astronomer Software.
+本地开发需要 Docker。部署需要 Astronomer 账户。部分命令仅适用于 Astro（云版）或 Astronomer Software 其中之一。
 
 # HISTORY
 
-The **Astro CLI** is developed by Astronomer (astronomer/astro-cli) to simplify Apache Airflow deployment and management. The single **astro** executable was introduced with version 1.0 to provide a shared framework across Astronomer products.
+**Astro CLI** 由 Astronomer 开发（astronomer/astro-cli），旨在简化 Apache Airflow 的部署与管理。统一的 **astro** 可执行文件自 1.0 版起推出，为 Astronomer 各产品线提供共享框架。
 
 # SEE ALSO
 

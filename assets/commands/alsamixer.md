@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive ncurses audio mixer
+交互式 ncurses 音频混音器
 
 # TLDR
 
-Select the **soundcard** to use
+选择要使用的**声卡**
 
 ```alsamixer -c [soundcard_number]```
 
-Select **mixer device** to control
+选择要控制的**混音器设备**
 
 ```alsamixer -D [device_name]```
 
-Start in **playback** view mode
+以**播放**视图模式启动
 
 ```alsamixer -V playback```
 
-Start with **black background**
+以**黑色背景**启动
 
 ```alsamixer -B```
 
@@ -26,73 +26,73 @@ Start with **black background**
 
 # DESCRIPTION
 
-**alsamixer** is an ncurses mixer program for use with the ALSA soundcard drivers. It supports multiple soundcards with multiple devices and provides a graphical interface for adjusting audio levels.
+**alsamixer** 是一款配合 ALSA 声卡驱动使用的 ncurses 混音器程序。它支持多块声卡上的多个设备，并提供图形化界面来调节音频电平。
 
 # PARAMETERS
 
 **-c, --card number**
-> Select soundcard (numbered from 0)
+> 选择声卡（从 0 开始编号）
 
 **-D, --device id**
-> Select mixer device to control
+> 选择要控制的混音器设备
 
 **-V, --view mode**
-> Set starting view (playback, capture, or all)
+> 设置起始视图（playback、capture 或 all）
 
 **-B, --black-background**
-> Use black background color
+> 使用黑色背景色
 
 **-g, --no-color**
-> Disable colors
+> 禁用彩色显示
 
 # KEYBOARD SHORTCUTS
 
-**Navigation:**
-> Left/Right arrows or n/p: select channels
-> Up/Down arrows or +/-: adjust volume
+**导航：**
+> 左/右方向键或 n/p：选择声道
+> 上/下方向键或 +/-：调整音量
 
-**Volume Control:**
-> PageUp/PageDown: increase/decrease by 5
-> Home: set to 100%
-> End: set to 0%
-> 0-9: set to 0-90% volume
-> Q/W/E: raise left/both/right
-> Z/X/C: lower left/both/right
+**音量控制：**
+> PageUp/PageDown：增加/减少 5
+> Home：设为 100%
+> End：设为 0%
+> 0-9：设为 0-90% 音量
+> Q/W/E：升高左/双/右声道
+> Z/X/C：降低左/双/右声道
 
-**Muting & Capture:**
-> M: toggle mute (both channels)
-> , or <: mute left channel only
-> . or >: mute right channel only
-> Space: enable recording for current channel
+**静音与采集：**
+> M：切换静音（双声道）
+> , 或 <：仅静音左声道
+> . 或 >：仅静音右声道
+> Space：为当前声道启用录音
 
-**View Modes:**
-> F1 or ?: help screen
-> F2 or /: system information
-> F3/F4/F5: playback/capture/all modes
-> Tab: toggle views circularly
-> F6 or S: select sound card
+**视图模式：**
+> F1 或 ?：帮助界面
+> F2 或 /：系统信息
+> F3/F4/F5：播放/采集/全部模式
+> Tab：循环切换视图
+> F6 或 S：选择声卡
 
-**Other:**
-> H: show keyboard shortcuts reminder
-> B or =: balance left/right channels
-> L: redraw screen
-> Esc or Alt+Q: quit
+**其他：**
+> H：显示快捷键提醒
+> B 或 =：平衡左右声道
+> L：重绘屏幕
+> Esc 或 Alt+Q：退出
 
 # CONFIGURATION
 
 **/etc/asound.conf**
-> System-wide ALSA configuration file.
+> 系统级 ALSA 配置文件。
 
 **~/.asoundrc**
-> Per-user ALSA configuration file for custom device definitions and plugin settings.
+> 每用户 ALSA 配置文件，用于自定义设备定义和插件设置。
 
 # CAVEATS
 
-Requires ALSA drivers to be installed and configured. Some options may not be available depending on the soundcard capabilities.
+需要已安装并配置 ALSA 驱动。部分选项是否可用取决于声卡的能力。
 
 # HISTORY
 
-Part of the **ALSA** (Advanced Linux Sound Architecture) utilities package, which replaced OSS as the standard Linux sound system.
+属于 **ALSA**（Advanced Linux Sound Architecture）工具集的一部分，该框架取代 OSS 成为 Linux 的标准声音系统。
 
 # INSTALL
 

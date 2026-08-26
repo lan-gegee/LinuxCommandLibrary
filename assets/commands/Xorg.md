@@ -1,34 +1,34 @@
 # TAGLINE
 
-X Window System display server
+X Window System 显示服务器
 
 # TLDR
 
-**Start X server** on default display
+在默认显示上**启动 X 服务器**
 
 ```Xorg```
 
-**Start on specific display**
+**在指定显示上启动**
 
 ```Xorg :1```
 
-**Configure and test** without starting
+**配置并测试**但不启动
 
 ```Xorg -configure```
 
-**Start with specific config file**
+**使用指定的配置文件启动**
 
 ```Xorg -config [/path/to/xorg.conf]```
 
-**Start on specific virtual terminal**
+**在指定的虚拟终端上启动**
 
 ```Xorg vt7```
 
-**Query supported modes** for display
+查询显示器支持的**显示模式**
 
 ```Xorg -query [hostname]```
 
-**Retro probe only** (no server start)
+仅**探测**（不启动服务器）
 
 ```Xorg -retro -probeonly```
 
@@ -39,56 +39,56 @@ X Window System display server
 # PARAMETERS
 
 **:**_DISPLAY_
-> Display number to use (default: 0).
+> 要使用的显示号（默认：0）。
 
 **-config** _FILE_
-> Use specified configuration file instead of default.
+> 使用指定的配置文件代替默认文件。
 
 **-configure**
-> Probe hardware and generate xorg.conf.
+> 探测硬件并生成 xorg.conf。
 
 **-logfile** _FILE_
-> Write log to specified file.
+> 将日志写入指定文件。
 
 **-modulepath** _PATH_
-> Search path for loadable modules.
+> 可加载模块的搜索路径。
 
 **-retro**
-> Start with classic X stipple background.
+> 以经典 X 点纹背景启动。
 
 **-probeonly**
-> Probe hardware without starting server.
+> 只探测硬件，不启动服务器。
 
 **-query** _HOST_
-> Connect to XDMCP host.
+> 连接到 XDMCP 主机。
 
 **-verbose** [_N_]
-> Verbosity level (0-7).
+> 详细程度（0-7）。
 
 **vt**_N_
-> Use virtual terminal N.
+> 使用虚拟终端 N。
 
 **-nolisten** _PROTO_
-> Disable listening on protocol (e.g., tcp).
+> 禁止在该协议上监听（如 tcp）。
 
 **-novtswitch**
-> Don't automatically switch VT at startup.
+> 启动时不自动切换虚拟终端。
 
 # DESCRIPTION
 
-**Xorg** is the X Window System server implementation from X.Org Foundation. It provides the foundation for graphical user interfaces on Unix-like systems, managing displays, input devices, and graphics hardware.
+**Xorg** 是来自 X.Org 基金会的 X Window System 服务器实现。它为类 Unix 系统上的图形用户界面提供基础，管理显示、输入设备和图形硬件。
 
-The server reads configuration from /etc/X11/xorg.conf or files in /etc/X11/xorg.conf.d/. Modern systems often run without explicit configuration, relying on automatic hardware detection.
+服务器从 /etc/X11/xorg.conf 或 /etc/X11/xorg.conf.d/ 目录下的文件读取配置。现代系统通常无需显式配置即可运行，依靠自动硬件检测。
 
-Xorg is typically started by a display manager (GDM, SDDM, LightDM) or the **startx** script rather than directly. It runs on a virtual terminal and provides the display connection for X clients.
+Xorg 通常由显示管理器（GDM、SDDM、LightDM）或 **startx** 脚本启动，而不是直接运行。它运行在一个虚拟终端上，并为 X 客户端提供显示连接。
 
 # CAVEATS
 
-Running Xorg requires appropriate permissions (typically root or membership in video group). Many systems now use Wayland compositors instead of Xorg. Configuration errors can leave the system without a graphical interface; keep a backup configuration or use fallback options.
+运行 Xorg 需要适当的权限（通常是 root 或 video 组成员身份）。许多系统现在改用 Wayland 合成器。配置错误可能导致系统没有图形界面；请保留备份配置或准备回退方案。
 
 # HISTORY
 
-X.Org Server is the successor to XFree86 and the reference implementation of the X Window System. The X.Org Foundation was formed in **2004** after a licensing dispute with XFree86. Xorg has been the standard X server on Linux and BSD systems, though Wayland is increasingly replacing it for desktop use.
+X.Org Server 是 XFree86 的后继者，也是 X Window System 的参考实现。在与 XFree86 发生许可证纠纷后，X.Org 基金会于 **2004 年**成立。Xorg 一直是 Linux 和 BSD 系统上的标准 X 服务器，不过在桌面场景中 Wayland 正日益取代它。
 
 # INSTALL
 

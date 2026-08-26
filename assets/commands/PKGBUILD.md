@@ -1,34 +1,34 @@
 # TAGLINE
 
-Arch Linux package build script format
+Arch Linux 软件包构建脚本格式
 
 # TLDR
 
-**Build package**
+**构建软件包**
 
 ```makepkg```
 
-**Build and install**
+**构建并安装**
 
 ```makepkg -si```
 
-**Update checksums**
+**更新校验和**
 
 ```updpkgsums```
 
-**Check PKGBUILD**
+**检查 PKGBUILD**
 
 ```namcap PKGBUILD```
 
 # SYNOPSIS
 
-PKGBUILD specification file for Arch Linux packaging
+用于 Arch Linux 打包的 PKGBUILD 规范文件
 
 # DESCRIPTION
 
-**PKGBUILD** is a shell script containing build instructions for Arch Linux packages. It defines metadata, sources, and functions for compiling and packaging software.
+**PKGBUILD** 是一个 shell 脚本，包含 Arch Linux 软件包的构建指令。它定义了元数据、源码以及用于编译和打包软件的函数。
 
-Used by makepkg to create .pkg.tar.zst packages.
+makepkg 使用它来创建 .pkg.tar.zst 软件包。
 
 # BASIC STRUCTURE
 
@@ -83,11 +83,11 @@ package()   - Install to $pkgdir
 
 # CAVEATS
 
-Must be named PKGBUILD. Arch-specific format. Always verify checksums. Test with namcap.
+文件必须命名为 PKGBUILD。这是 Arch 特有的格式。务必核对校验和。可用 namcap 进行测试。
 
 # HISTORY
 
-PKGBUILD format was designed for **Arch Linux** by **Judd Vinet**, enabling simple, transparent package building.
+PKGBUILD 格式由 **Judd Vinet** 为 **Arch Linux** 设计，使软件包构建变得简单而透明。
 
 # SEE ALSO
 

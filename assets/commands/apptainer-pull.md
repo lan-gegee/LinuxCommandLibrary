@@ -1,34 +1,34 @@
 # TAGLINE
 
-Download container images from remote registries.
+从远程注册表下载容器镜像。
 
 # TLDR
 
-Pull a container from **Docker Hub**
+从 **Docker Hub** 拉取容器
 
 ```apptainer pull [path/to/image.sif] docker://[image]:[tag]```
 
-Pull a container from the **Container Library**
+从 **Container Library** 拉取容器
 
 ```apptainer pull [path/to/image.sif] library://[user/collection/container]:[tag]```
 
-Pull a container from an **OCI registry**
+从 **OCI 注册表**拉取容器
 
 ```apptainer pull [path/to/image.sif] oras://[registry/namespace/image]:[tag]```
 
-Pull a container for a **specific architecture**
+拉取**特定架构**的容器
 
 ```apptainer pull --arch [amd64|arm64|ppc64le] [path/to/image.sif] library://[image]:[tag]```
 
-**Force overwrite** an existing image file
+**强制覆盖**已有的镜像文件
 
 ```apptainer pull -F [path/to/image.sif] docker://[image]:[tag]```
 
-Pull a container as a **writable sandbox** directory
+以**可写沙箱**目录的形式拉取容器
 
 ```apptainer pull --sandbox [path/to/directory] docker://[image]:[tag]```
 
-Pull a container **without using the cache**
+拉取容器时**不使用缓存**
 
 ```apptainer pull --disable-cache [path/to/image.sif] docker://[image]:[tag]```
 
@@ -38,41 +38,41 @@ Pull a container **without using the cache**
 
 # DESCRIPTION
 
-**apptainer pull** downloads container images from remote registries and converts them to the SIF (Singularity Image Format). Supported sources include Docker Hub (**docker://**), the Sylabs Container Library (**library://**), OCI registries (**oras://**), Shub (**shub://**), and HTTP/HTTPS URLs.
+**apptainer pull** 从远程注册表下载容器镜像并转换为 SIF（Singularity Image Format）。支持的来源包括 Docker Hub（**docker://**）、Sylabs Container Library（**library://**）、OCI 注册表（**oras://**）、Shub（**shub://**）以及 HTTP/HTTPS URL。
 
-Downloaded images are cached locally to speed up subsequent operations. The resulting SIF file is portable and can be run on any system with Apptainer installed.
+下载的镜像会缓存到本地，以加快后续操作。生成的 SIF 文件是可移植的，可以在任何安装了 Apptainer 的系统上运行。
 
 # PARAMETERS
 
 **--arch** _architecture_
-> Pull image for a specific CPU architecture.
+> 拉取特定 CPU 架构的镜像。
 
 **--arch-variant** _variant_
-> Pull image for a specific architecture variant (e.g., 6 for armv6).
+> 拉取特定架构变体的镜像（例如 armv6 用 6）。
 
 **-F**, **--force**
-> Overwrite an existing local image file.
+> 覆盖已存在的本地镜像文件。
 
 **--sandbox**
-> Create a writable directory instead of a SIF file.
+> 创建可写目录而不是 SIF 文件。
 
 **--disable-cache**
-> Do not use or update the image cache.
+> 不使用也不更新镜像缓存。
 
 **--no-https**
-> Use HTTP instead of HTTPS for downloads.
+> 下载时使用 HTTP 而不是 HTTPS。
 
 **--dir** _path_
-> Download images to the specified directory.
+> 将镜像下载到指定目录。
 
 # CONFIGURATION
 
 **/etc/apptainer/apptainer.conf**
-> Main configuration file controlling cache directories, registry defaults, and download behavior.
+> 主配置文件，控制缓存目录、注册表默认值和下载行为。
 
 # CAVEATS
 
-Large images may take significant time and bandwidth to download. Docker images are converted on-the-fly which can add overhead. Some Docker images may not convert perfectly due to differences in runtime expectations.
+大型镜像的下载可能耗费大量时间和带宽。Docker 镜像需要即时转换，这会带来额外开销。由于运行时预期的差异，某些 Docker 镜像可能无法完美转换。
 
 # INSTALL
 

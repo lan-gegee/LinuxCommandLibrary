@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for the Avo analytics tracking plan platform
+Avo 分析埋点计划平台的命令行工具
 
 # TLDR
 
-**Initialize** an Avo workspace in the current folder
+在当前文件夹**初始化** Avo 工作区
 
 ```avo init```
 
-**Pull** analytics wrappers from your Avo workspace
+从你的 Avo 工作区**拉取**分析包装代码
 
 ```avo pull```
 
-**Pull** a specific source
+**拉取**指定的 source
 
 ```avo pull [source_name]```
 
-**Check implementation status**
+**检查**实现状态
 
 ```avo status```
 
-**Switch** to a different Avo branch
+**切换**到另一个 Avo 分支
 
 ```avo checkout [branch]```
 
-**Merge** the Avo main branch into your current branch
+将 Avo 的 main 分支**合并**到当前分支
 
 ```avo merge main```
 
-**Log into** the Avo platform
+**登录** Avo 平台
 
 ```avo login```
 
@@ -39,59 +39,59 @@ CLI for the Avo analytics tracking plan platform
 # PARAMETERS
 
 **init**
-> Initialize an Avo workspace in the current folder.
+> 在当前文件夹初始化一个 Avo 工作区。
 
 **pull** [_source_]
-> Pull analytics wrappers from your Avo workspace.
+> 从你的 Avo 工作区拉取分析包装代码。
 
 **checkout** _branch_
-> Switch to a different Avo branch.
+> 切换到另一个 Avo 分支。
 
 **source** _command_
-> Manage sources for the current project.
+> 管理当前项目的 source。
 
 **status** [_source_]
-> Show the status of the Avo implementation.
+> 显示 Avo 实现的状态。
 
 **merge main**
-> Pull the Avo main branch into your current branch.
+> 将 Avo 的 main 分支拉取到你的当前分支。
 
 **conflict**
-> Resolve git conflicts in Avo files.
+> 解决 Avo 文件中的 git 冲突。
 
 **edit**
-> Open the Avo workspace in the browser.
+> 在浏览器中打开 Avo 工作区。
 
 **login**
-> Log into the Avo platform.
+> 登录 Avo 平台。
 
 **logout**
-> Log out from the Avo platform.
+> 退出 Avo 平台。
 
 **whoami**
-> Show the currently logged in username.
+> 显示当前登录的用户名。
 
 **-v**, **--verbose**
-> Make output more verbose.
+> 输出更详细的信息。
 
 **-f**, **--force**
-> Proceed with merge when incoming branch is open.
+> 当传入分支处于打开状态时仍继续合并。
 
 **--version**
-> Show version number.
+> 显示版本号。
 
 **--help**
-> Show help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**avo** is the command-line interface for the Avo analytics tracking plan platform. It lets you pull type-safe analytics wrappers (codegen) from your Avo workspace directly into your project, ensuring analytics implementations match your tracking plan.
+**avo** 是 Avo 分析埋点计划平台的命令行界面。它让你把类型安全的分析包装代码（codegen）从 Avo 工作区直接拉取到项目中，确保分析实现与埋点计划保持一致。
 
-The main workflow is running `avo pull` to fetch the latest generated analytics code based on your tracking plan defined at avo.app. On first run, it prompts you to select which Avo source to generate code for and where to save it. This configuration is stored in the **avo.json** file.
+主要工作流是运行 `avo pull`，根据你在 avo.app 上定义的埋点计划获取最新生成的分析代码。首次运行时，它会提示你选择要为其生成代码的 Avo source 以及保存位置。此配置存储在 **avo.json** 文件中。
 
 # CAVEATS
 
-Requires Node.js >= 14.16. Must be authenticated via `avo login` before pulling. Configuration is stored in avo.json in the project root.
+需要 Node.js >= 14.16。拉取前必须先通过 `avo login` 完成认证。配置存储在项目根目录的 avo.json 中。
 
 # SEE ALSO
 

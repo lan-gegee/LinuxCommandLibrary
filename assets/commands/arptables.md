@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage ARP packet filtering rules.
+管理 ARP 数据包过滤规则。
 
 # TLDR
 
-**List** ARP rules
+**列出** ARP 规则
 
 ```sudo arptables -L```
 
-**Drop** packets from IP
+**丢弃**来自某 IP 的数据包
 
 ```sudo arptables -A INPUT -s 192.168.0.1 -j DROP```
 
-**Delete** rule by number
+**按编号删除**规则
 
 ```sudo arptables -D INPUT rule_number```
 
-**Flush** all rules
+**清空**所有规则
 
 ```sudo arptables -F```
 
-Set **default policy**
+设置**默认策略**
 
 ```sudo arptables -P OUTPUT ACCEPT```
 
-**Save** rules to file
+将规则**保存**到文件
 
 ```sudo arptables-save > path/to/file```
 
@@ -34,71 +34,71 @@ Set **default policy**
 
 # DESCRIPTION
 
-**arptables** manages ARP (Address Resolution Protocol) packet filtering rules. It is similar to iptables but operates at the ARP level, allowing control over which ARP requests and replies are accepted or dropped.
+**arptables** 用于管理 ARP（地址解析协议）数据包过滤规则。它与 iptables 类似，但工作在 ARP 层面，可以控制接受或丢弃哪些 ARP 请求和应答。
 
 # PARAMETERS
 
 **-L, --list**
-> List all rules in selected chain or all chains
+> 列出所选链或所有链中的全部规则
 
 **-A, --append**
-> Append rule to the end of chain
+> 将规则追加到链的末尾
 
 **-I, --insert** _chain_ [_rulenum_]
-> Insert rule at the given position (default: top of chain)
+> 在给定位置插入规则（默认：链的顶部）
 
 **-R, --replace** _chain_ _rulenum_
-> Replace an existing rule by number
+> 按编号替换一条已有规则
 
 **-D, --delete**
-> Delete matching rule or rule by number
+> 删除匹配的规则或按编号删除规则
 
 **-F, --flush**
-> Flush all rules
+> 清空所有规则
 
 **-Z, --zero**
-> Zero packet and byte counters in a chain
+> 将链中的数据包和字节计数器归零
 
 **-P, --policy**
-> Set default policy for a chain
+> 为链设置默认策略
 
 **-N, --new-chain** _name_
-> Create a new user-defined chain
+> 创建新的用户自定义链
 
 **-X, --delete-chain** [_name_]
-> Delete a user-defined chain
+> 删除用户自定义链
 
 **-s, --source-ip** _address_
-> Match source IP address
+> 匹配源 IP 地址
 
 **-d, --destination-ip** _address_
-> Match destination IP address
+> 匹配目标 IP 地址
 
 **--source-mac** _address_
-> Match source MAC address
+> 匹配源 MAC 地址
 
 **--destination-mac** _address_
-> Match destination MAC address
+> 匹配目标 MAC 地址
 
 **-i, --in-interface** _name_
-> Match the input interface (INPUT, FORWARD)
+> 匹配入站接口（INPUT、FORWARD）
 
 **-o, --out-interface** _name_
-> Match the output interface (OUTPUT, FORWARD)
+> 匹配出站接口（OUTPUT、FORWARD）
 
 **--opcode** _code_
-> Match the ARP opcode (e.g., Request, Reply)
+> 匹配 ARP 操作码（如 Request、Reply）
 
 **-j, --jump** _target_
-> Target for rule (ACCEPT, DROP, etc.)
+> 规则的目标动作（ACCEPT、DROP 等）
 
 # CAVEATS
 
-Requires root privileges. Uses the nftables backend on modern systems. The nft-based **arptables** provides only the **INPUT** and **OUTPUT** chains; the **FORWARD** chain exists only in the legacy implementation. ARP filtering operates at the layer 2/3 boundary and may affect network connectivity if misconfigured. Use **arptables-save** and **arptables-restore** to persist and reload rule sets.
+需要 root 权限。在现代系统上使用 nftables 后端。基于 nft 的 **arptables** 只提供 **INPUT** 和 **OUTPUT** 链；**FORWARD** 链仅存在于旧版实现中。ARP 过滤工作在二层/三层的交界处，配置不当可能影响网络连通性。使用 **arptables-save** 和 **arptables-restore** 来持久化和重新加载规则集。
 
 # HISTORY
 
-**arptables** is part of the **xtables-nft** suite, providing ARP packet filtering integrated with the netfilter framework.
+**arptables** 是 **xtables-nft** 套件的一部分，提供与 netfilter 框架集成的 ARP 数据包过滤。
 
 # INSTALL
 

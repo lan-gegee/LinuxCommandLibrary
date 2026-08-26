@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create virtual tunnel interfaces for encrypted WiFi traffic
+为加密 WiFi 流量创建虚拟隧道接口
 
 # TLDR
 
-**Create** a virtual tunnel interface
+**创建**虚拟隧道接口
 
 ```sudo airtun-ng -a [AP_BSSID] [wlan0mon]```
 
-Create tunnel with **WEP key**
+用 **WEP 密钥**创建隧道
 
 ```sudo airtun-ng -a [AP_BSSID] -w [hex_key] [wlan0mon]```
 
-Create tunnel with **WPA passphrase**
+用 **WPA 口令**创建隧道
 
 ```sudo airtun-ng -a [AP_BSSID] -p [passphrase] -e [SSID] [wlan0mon]```
 
-Bidirectional tunnel (**inject and receive**)
+双向隧道（**收发兼备**）
 
 ```sudo airtun-ng -a [AP_BSSID] -w [hex_key] -b [wlan0mon]```
 
@@ -26,49 +26,49 @@ Bidirectional tunnel (**inject and receive**)
 
 # DESCRIPTION
 
-**airtun-ng** creates virtual tunnel interfaces (at0, at1, etc.) that allow sending and receiving decrypted traffic to/from a wireless network. This enables using standard network tools with encrypted WiFi networks when you know the key.
+**airtun-ng** 创建虚拟隧道接口（at0、at1 等），允许与无线网络之间收发已解密的流量。这样，当你知道密钥时，就可以在加密 WiFi 网络上使用标准网络工具。
 
-The tool can operate in WEP or WPA mode, creating a virtual ethernet interface that handles encryption/decryption transparently.
+该工具可在 WEP 或 WPA 模式下工作，创建一个透明处理加密/解密的虚拟以太网接口。
 
 # PARAMETERS
 
 **-a** _bssid_
-> Access point MAC address
+> 接入点 MAC 地址
 
 **-w** _key_
-> WEP key in hexadecimal (encrypt outgoing packets)
+> 十六进制形式的 WEP 密钥（加密发出的数据包）
 
 **-y** _file_
-> Read PRGA (keystream) from file instead of a WEP key
+> 从文件读取 PRGA（密钥流）而不是 WEP 密钥
 
 **-p** _passphrase_
-> WPA passphrase (decrypt packets; use with **-a** and **-e**)
+> WPA 口令（解密数据包；与 **-a** 和 **-e** 配合使用）
 
 **-e** _essid_
-> Network name (required for WPA)
+> 网络名称（WPA 必需）
 
 **-i** _iface_
-> Capture packets from this additional interface
+> 从这个附加接口捕获数据包
 
 **-t** _tods_
-> Frame destination: 0 = to client, 1 = to AP, 2 = WDS/Bridge
+> 帧目的地：0 = 发往客户端，1 = 发往 AP，2 = WDS/桥接
 
 **-b**
-> Bidirectional mode (send and receive)
+> 双向模式（收发兼备）
 
 **-r** _file_
-> Read frames to inject from a pcap file
+> 从 pcap 文件读取待注入的帧
 
 **-h** _mac_
-> Source MAC address
+> 源 MAC 地址
 
 # CAVEATS
 
-For authorized testing only. Interface must be in monitor mode. WPA mode requires the 4-way handshake to be completed. Virtual interface must be configured (IP, etc.) after creation.
+仅限经授权的测试使用。接口必须处于监听模式。WPA 模式要求已完成四次握手。虚拟接口创建后还需进行配置（IP 等）。
 
 # HISTORY
 
-**airtun-ng** was added to the aircrack-ng suite to enable post-exploitation scenarios where captured keys could be used to interact with the network using standard tools.
+**airtun-ng** 被加入 aircrack-ng 套件，是为了支持后渗透场景：利用已获取的密钥，通过标准工具与目标网络交互。
 
 # INSTALL
 

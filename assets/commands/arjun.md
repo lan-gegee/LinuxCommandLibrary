@@ -1,38 +1,38 @@
 # TAGLINE
 
-Discover hidden HTTP parameters in web applications
+发现 Web 应用中隐藏的 HTTP 参数
 
 # TLDR
 
-**Find GET parameters** for a URL
+**查找某 URL 的 GET 参数**
 
 ```arjun -u [https://example.com/page]```
 
-**Find POST parameters**
+**查找 POST 参数**
 
 ```arjun -u [https://example.com/api] -m POST```
 
-**Scan with a custom wordlist**
+**使用自定义字典扫描**
 
 ```arjun -u [https://example.com] -w [path/to/wordlist.txt]```
 
-**Scan multiple URLs** from a file
+从文件**扫描多个 URL**
 
 ```arjun -i [urls.txt]```
 
-**Use JSON body** for parameter discovery
+使用 **JSON 请求体**进行参数发现
 
 ```arjun -u [https://example.com/api] -m JSON```
 
-**Set custom headers**
+**设置自定义请求头**
 
 ```arjun -u [https://example.com] --headers "[Cookie: session=abc]"```
 
-**Output results** to a JSON file
+将结果**输出**到 JSON 文件
 
 ```arjun -u [https://example.com] -o [results.json]```
 
-**Set number of threads**
+**设置线程数**
 
 ```arjun -u [https://example.com] -t [20]```
 
@@ -43,73 +43,73 @@ Discover hidden HTTP parameters in web applications
 # PARAMETERS
 
 **-u**, **--url** _url_
-> Target URL to scan for parameters.
+> 要扫描参数的目标 URL。
 
 **-i**, **--input** _file_
-> File containing URLs to scan (one per line).
+> 包含待扫描 URL 的文件（每行一个）。
 
 **-m**, **--method** _method_
-> HTTP method to use (GET, POST, JSON, XML). Default: GET.
+> 要使用的 HTTP 方法（GET、POST、JSON、XML）。默认：GET。
 
 **-w**, **--wordlist** _file_
-> Custom wordlist for parameter names.
+> 参数名使用的自定义字典。
 
 **-o** _file_
-> Save results to a JSON output file.
+> 将结果保存到 JSON 输出文件。
 
 **-oT** _file_
-> Save results to a text output file.
+> 将结果保存到文本输出文件。
 
 **-oB** [_proxy_]
-> Send results to Burp Suite proxy.
+> 将结果发送到 Burp Suite 代理。
 
 **-t**, **--threads** _n_
-> Number of concurrent threads (default: 5).
+> 并发线程数（默认：5）。
 
 **--json**
-> Send POST data as JSON instead of form data.
+> 以 JSON 而非表单数据发送 POST 数据。
 
 **--headers** _headers_
-> Custom headers in format "Header: value".
+> 自定义请求头，格式为 "Header: value"。
 
 **--passive**
-> Use passive sources to find parameters.
+> 使用被动来源查找参数。
 
 **--stable**
-> Use more reliable but slower detection.
+> 使用更可靠但更慢的检测方式。
 
 **-d**, **--delay** _seconds_
-> Delay between requests.
+> 请求之间的延迟。
 
 **--include** _params_
-> Parameters to always include in requests.
+> 始终包含在请求中的参数。
 
 **-T**, **--timeout** _seconds_
-> HTTP request timeout in seconds (default: 15).
+> HTTP 请求超时时间，单位秒（默认：15）。
 
 **-c** _n_, **--chunks** _n_
-> Number of parameters to send per request.
+> 每个请求发送的参数数量。
 
 **-q**, **--quiet**
-> Suppress output except results.
+> 除结果外抑制输出。
 
 # DESCRIPTION
 
-**Arjun** is a parameter discovery tool designed for web application security testing. It identifies hidden or undocumented HTTP parameters by sending crafted requests and analyzing responses for differences that indicate valid parameters.
+**Arjun** 是一款面向 Web 应用安全测试的参数发现工具。它通过发送精心构造的请求并分析响应差异来识别隐藏或未公开的 HTTP 参数，差异表明该参数有效。
 
-The tool uses a combination of techniques to detect parameters: it monitors response length, status codes, and content changes when different parameter names are submitted. This allows it to find parameters that trigger distinct server behavior, even when the application doesn't explicitly advertise them.
+该工具综合多种技术检测参数：提交不同参数名时监控响应长度、状态码和内容变化。这使它能找到会触发特定服务器行为的参数，即使应用并未明确公布它们。
 
-Arjun includes a built-in wordlist of common parameter names but supports custom wordlists for targeted testing. It can discover parameters in GET requests (query strings), POST form data, and JSON bodies. The passive mode queries external sources like web archives and search engines for known parameters.
+Arjun 内置了常见参数名词典，同时支持自定义字典进行针对性测试。它可以发现 GET 请求（查询字符串）、POST 表单数据和 JSON 请求体中的参数。被动模式会查询网页存档和搜索引擎等外部来源获取已知参数。
 
-The tool is commonly used in penetration testing and bug bounty hunting to find attack surface that might be missed during initial reconnaissance. Parameters discovered may reveal hidden functionality, debug modes, or additional attack vectors.
+该工具常用于渗透测试和漏洞赏金挖掘，用于发现在初步侦察阶段可能遗漏的攻击面。发现的参数可能揭示隐藏功能、调试模式或额外的攻击向量。
 
 # CAVEATS
 
-Should only be used on applications you have permission to test. High thread counts or no delay may trigger rate limiting or WAF blocks. Detection is heuristic-based and may produce false positives/negatives. Large wordlists significantly increase scan time.
+只应用于你有权测试的应用。高线程数或不加延迟可能触发速率限制或 WAF 拦截。检测基于启发式算法，可能出现误报或漏报。大型字典会显著增加扫描时间。
 
 # HISTORY
 
-**Arjun** was created by Somdev Sangwan (s0md3v) and released as an open-source security tool. It gained popularity in the bug bounty and penetration testing community for its effectiveness at finding hidden parameters. The tool is written in Python and actively maintained with updates for new detection techniques.
+**Arjun** 由 Somdev Sangwan（s0md3v）开发并以开源安全工具形式发布。它凭借发现隐藏参数的高效性在漏洞赏金和渗透测试社区广受欢迎。该工具用 Python 编写，目前仍在积极维护并更新新的检测技术。
 
 # INSTALL
 

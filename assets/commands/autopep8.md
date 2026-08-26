@@ -1,34 +1,34 @@
 # TAGLINE
 
-Automatically format Python code to PEP 8 style
+自动将 Python 代码格式化为 PEP 8 风格
 
 # TLDR
 
-**Format a Python file in place**
+**原地格式化 Python 文件**
 
 ```autopep8 --in-place [file.py]```
 
-**Format with aggressive fixes (repeat -a for more aggression)**
+**应用激进修复进行格式化**（重复 -a 可提高激进程度）
 
 ```autopep8 --in-place --aggressive --aggressive [file.py]```
 
-**Show diff instead of modifying the file**
+**显示 diff 而不修改文件**
 
 ```autopep8 --diff [file.py]```
 
-**Format all Python files in a directory recursively**
+递归**格式化目录中的所有 Python 文件**
 
 ```autopep8 --in-place --recursive [directory/]```
 
-**Fix only specific error codes**
+**只修复特定错误代码**
 
 ```autopep8 --select E501,W293 --in-place [file.py]```
 
-**Format using multiple parallel jobs**
+**使用多个并行任务格式化**
 
 ```autopep8 --in-place --recursive --jobs 4 [directory/]```
 
-**Set a custom maximum line length**
+**设置自定义最大行宽**
 
 ```autopep8 --max-line-length 120 --in-place [file.py]```
 
@@ -38,96 +38,96 @@ Automatically format Python code to PEP 8 style
 
 # DESCRIPTION
 
-**autopep8** automatically formats Python code to conform to the PEP 8 style guide. It fixes issues like whitespace, indentation, and line length while preserving code semantics.
+**autopep8** 自动将 Python 代码格式化为符合 PEP 8 风格指南的形式。它在保持代码语义的前提下修复空白、缩进、行宽等问题。
 
-The tool integrates with editors and CI pipelines to enforce consistent Python style. It uses pycodestyle to detect style violations and applies fixes accordingly.
+该工具可集成到编辑器和 CI 流水线中以强制统一的 Python 风格。它使用 pycodestyle 检测风格违规并相应地应用修复。
 
 # PARAMETERS
 
 **-i**, **--in-place**
-> Modify files in place.
+> 原地修改文件。
 
 **-d**, **--diff**
-> Print the unified diff of changes instead of modifying the file.
+> 打印更改的统一 diff 而不修改文件。
 
 **-r**, **--recursive**
-> Process directories recursively. Requires `--in-place` or `--diff`.
+> 递归处理目录。需要配合 `--in-place` 或 `--diff`。
 
 **-a**, **--aggressive**
-> Enable more aggressive fixes beyond whitespace. Repeatable for increasing aggressiveness (e.g., -aa).
+> 启用空白之外的更激进修复。可重复使用以提高激进程度（如 -aa）。
 
 **-j** _n_, **--jobs** _n_
-> Number of parallel jobs. Values less than 1 use all available CPUs.
+> 并行任务数。小于 1 的值表示使用所有可用 CPU。
 
 **--select** _errors_
-> Fix only the specified error codes (e.g., E501,W293).
+> 只修复指定的错误代码（如 E501,W293）。
 
 **--ignore** _errors_
-> Ignore the specified error codes (default: E226,E24,W50,W690).
+> 忽略指定的错误代码（默认：E226,E24,W50,W690）。
 
 **--max-line-length** _n_
-> Maximum allowed line length (default: 79).
+> 允许的最大行宽（默认：79）。
 
 **--range** _start_ _end_
-> Only fix errors on lines within the specified range.
+> 只修复指定行范围内的错误。
 
 **--exclude** _patterns_
-> Exclude files and directories matching the specified comma-separated glob patterns.
+> 排除匹配指定逗号分隔 glob 模式的文件和目录。
 
 **--experimental**
-> Enable experimental code-shortening features.
+> 启用实验性的代码缩短特性。
 
 **--list-fixes**
-> List available error codes that can be used with `--select` and `--ignore`.
+> 列出可与 `--select` 和 `--ignore` 一起使用的错误代码。
 
 **-v**, **--verbose**
-> Print verbose messages. Can be repeated for more verbosity.
+> 打印详细消息。可重复使用以获得更多信息。
 
 **-p** _n_, **--pep8-passes** _n_
-> Maximum number of additional formatting passes (default: infinite until no more changes).
+> 额外格式化遍数的最大次数（默认：无限次，直到不再有变化）。
 
 **--hang-closing**
-> Hang the closing bracket instead of matching indentation of the opening line.
+> 让闭括号悬挂缩进，而不是与起始行对齐。
 
 **--exit-code**
-> Return exit code 2 when changes were made with `--diff` or `--in-place`.
+> 当使用 `--diff` 或 `--in-place` 且有更改时返回退出码 2。
 
 **--global-config** _filename_
-> Specify a custom global configuration file for pycodestyle rules.
+> 指定 pycodestyle 规则的自定义全局配置文件。
 
 **--ignore-local-config**
-> Skip reading local configuration files.
+> 不读取本地配置文件。
 
 **--version**
-> Show version number and exit.
+> 显示版本号并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # ERROR CODES
 
-Based on PEP 8:
-- **E**: Errors (e.g., E501 line too long, E302 expected blank lines)
-- **W**: Warnings (e.g., W291 trailing whitespace, W293 whitespace before a comment)
+基于 PEP 8：
+- **E**: 错误（如 E501 行过长、E302 缺少空行）
+- **W**: 警告（如 W291 行尾空白、W293 注释前有空白）
 
 # CONFIGURATION
 
 **setup.cfg**
-> Project-level configuration under `[pycodestyle]` section.
+> 项目级配置，位于 `[pycodestyle]` 小节下。
 
 **pyproject.toml**
-> Project-level configuration under `[tool.autopep8]` section.
+> 项目级配置，位于 `[tool.autopep8]` 小节下。
 
 **~/.config/pycodestyle**
-> User-level default configuration for pycodestyle rules.
+> pycodestyle 规则的用户级默认配置。
 
 # CAVEATS
 
-May conflict with other formatters like **black**. Aggressive mode can change code logic in rare cases; review changes before committing. For opinionated formatting, **black** is now more widely adopted.
+可能与 **black** 等其他格式化工具冲突。激进模式在极少数情况下可能改变代码逻辑；提交前请检查更改。若偏好强风格约束，**black** 目前更为流行。
 
 # HISTORY
 
-**autopep8** was created by Hideo Hattori to provide automatic PEP 8 compliance, released around **2010**.
+**autopep8** 由 Hideo Hattori 创建，于 **2010 年**前后发布，用于自动实现 PEP 8 合规。
 
 # INSTALL
 

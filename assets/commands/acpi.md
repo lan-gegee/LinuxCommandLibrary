@@ -1,30 +1,30 @@
 # TAGLINE
 
-display battery, thermal, and power information
+显示电池、温度和电源信息
 
 # TLDR
 
-Show **battery** information
+显示**电池**信息
 
 ```acpi```
 
-Show **thermal** information
+显示**温度**信息
 
 ```acpi -t```
 
-Show **cooling device** information
+显示**散热设备**信息
 
 ```acpi -c```
 
-Show thermal information in **Fahrenheit**
+以**华氏度**显示温度信息
 
 ```acpi -t -f```
 
-Show **all** information
+显示**全部**信息
 
 ```acpi -V```
 
-Extract information from **/proc** instead of /sys
+从 **/proc** 而非 /sys 提取信息
 
 ```acpi -p```
 
@@ -34,58 +34,58 @@ Extract information from **/proc** instead of /sys
 
 # DESCRIPTION
 
-**acpi** shows information from the /proc or /sys filesystem, such as battery status, AC adapter status, thermal zone temperatures, and cooling device status. It is primarily used on laptops and portable devices to monitor battery charge levels, remaining time, and system temperatures from the command line.
+**acpi** 显示来自 /proc 或 /sys 文件系统的信息，例如电池状态、交流适配器状态、温区温度和散热设备状态。它主要用于笔记本电脑和便携设备上，在命令行监控电池电量、剩余时间和系统温度。
 
-By default, it displays battery information. Additional flags enable viewing thermal zones, AC adapter state, and cooling device activity. Temperature output can be displayed in Celsius, Fahrenheit, or Kelvin. The tool reads ACPI data exposed by the kernel, making it a lightweight alternative to graphical power management applets.
+默认显示电池信息。附加标志可查看温区、交流适配器状态和散热设备活动。温度输出可以摄氏度、华氏度或开尔文显示。该工具读取内核暴露的 ACPI 数据，是图形化电源管理小程序的轻量替代方案。
 
 # PARAMETERS
 
 **-b, --battery**
-> Display battery status information
+> 显示电池状态信息
 
 **-a, --ac-adapter**
-> Display AC adapter status
+> 显示交流适配器状态
 
 **-t, --thermal**
-> Display thermal/temperature information
+> 显示温度相关信息
 
 **-c, --cooling**
-> Display cooling device details
+> 显示散热设备详情
 
 **-V, --everything**
-> Show all devices (overrides other options)
+> 显示所有设备（覆盖其他选项）
 
 **-r, --remaining-time**
-> Display remaining (dis)charge time
+> 显示剩余充/放电时间
 
 **-e, --end-time**
-> Display when (dis)charge will complete
+> 显示充/放电完成的预计时间
 
 **-i, --details**
-> Provide battery capacity and temperature trip points
+> 提供电池容量和温度阈值信息
 
 **-f, --fahrenheit**
-> Use Fahrenheit instead of Celsius
+> 使用华氏度而非摄氏度
 
 **-k, --kelvin**
-> Use Kelvin instead of Celsius
+> 使用开尔文而非摄氏度
 
 **-p, --proc**
-> Use legacy /proc interface (/sys is default)
+> 使用旧的 /proc 接口（默认使用 /sys）
 
 **-s, --show-empty**
-> Include non-operational devices in output
+> 在输出中包含非工作状态的设备
 
 **-d, --directory dir**
-> Specify custom ACPI info path
+> 指定自定义的 ACPI 信息路径
 
 # CAVEATS
 
-Some options may not work on all systems depending on ACPI support and kernel configuration. Legacy /proc interface may not be available on newer kernels.
+取决于 ACPI 支持情况和内核配置，某些选项可能并非在所有系统上都可用。旧式 /proc 接口在较新的内核上可能不可用。
 
 # HISTORY
 
-Created to provide a simple command-line interface to ACPI information on Linux laptops and desktops.
+为在 Linux 笔记本和台式机上提供简单的 ACPI 信息命令行接口而创建。
 
 # INSTALL
 

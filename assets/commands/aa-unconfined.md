@@ -1,22 +1,22 @@
 # TAGLINE
 
-Find network-listening processes without AppArmor profiles
+查找没有 AppArmor 配置文件的网络监听进程
 
 # TLDR
 
-**List unconfined processes** with open network sockets (using ss by default)
+**列出持有开放网络套接字的未受约束进程**（默认使用 ss）
 
 ```sudo aa-unconfined```
 
-**Use netstat** instead of ss to detect open network sockets
+改用 **netstat** 代替 ss 来检测开放的网络套接字
 
 ```sudo aa-unconfined --with-netstat```
 
-**Show all processes** from /proc with TCP/UDP ports without confinement
+**显示 /proc 中所有**监听 TCP/UDP 端口且未受约束的进程
 
 ```sudo aa-unconfined --paranoid```
 
-**Show only server processes** (those with listening sockets)
+**只显示服务类进程**（拥有监听套接字的进程）
 
 ```sudo aa-unconfined --show=server```
 
@@ -26,34 +26,34 @@ Find network-listening processes without AppArmor profiles
 
 # DESCRIPTION
 
-**aa-unconfined** identifies processes that listen on network sockets but lack AppArmor security profiles. It accomplishes this by checking processes with open TCP or UDP connections against loaded kernel AppArmor policies.
+**aa-unconfined** 用于识别那些监听网络套接字但没有 AppArmor 安全配置文件的进程。它通过将持有开放 TCP 或 UDP 连接的进程与内核中已加载的 AppArmor 策略进行比对来实现这一点。
 
-This tool is useful for identifying services that may benefit from AppArmor confinement.
+该工具有助于找出可能值得添加 AppArmor 约束的服务。
 
 # PARAMETERS
 
 **--paranoid**
-> Examines all processes from the /proc filesystem that have active TCP or UDP ports without AppArmor confinement. Equivalent to --show=all.
+> 检查 /proc 文件系统中所有持有活动 TCP 或 UDP 端口且未受 AppArmor 约束的进程。等价于 --show=all。
 
 **--show=**_MODE_
-> Determines the set of processes displayed: all (all processes), network (processes with any sockets), server (processes with listening sockets), client (processes with non-listening sockets).
+> 决定要显示的进程集合：all（所有进程）、network（有任何套接字的进程）、server（有监听套接字的进程）、client（有非监听套接字的进程）。
 
 **--with-ss**
-> Uses the ss(8) utility to identify network socket listeners (default).
+> 使用 ss(8) 工具识别网络套接字监听者（默认）。
 
 **--with-netstat**
-> Uses the netstat(8) command for network socket discovery instead of ss. Used as fallback when ss is not available.
+> 使用 netstat(8) 命令而非 ss 来发现网络套接字。在 ss 不可用时作为后备方案。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-The tool must run with **root privileges** and has limitations: it cannot reliably handle deleted executables, may miss processes started before profile loading, and is susceptible to race conditions. It only monitors TCP and UDP protocols.
+该工具必须以 **root 权限**运行，且存在一些局限：无法可靠处理已被删除的可执行文件，可能遗漏在配置文件加载之前启动的进程，并易受竞态条件影响。它只监控 TCP 和 UDP 协议。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

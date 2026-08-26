@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run periodic jobs on systems not running continuously
+在不连续开机的系统上运行周期性任务
 
 # TLDR
 
-**Run** anacron jobs now
+立即**运行** anacron 任务
 
 ```sudo anacron -n```
 
-Run in **foreground**
+在**前台**运行
 
 ```sudo anacron -d```
 
-**Test** run (don't execute jobs)
+**测试**运行（不实际执行任务）
 
 ```anacron -T```
 
-Force run regardless of **timestamps**
+无视**时间戳**强制运行
 
 ```sudo anacron -f```
 
-Use **specific config** file
+使用**指定的配置**文件
 
 ```sudo anacron -t [/etc/anacrontab]```
 
@@ -30,51 +30,51 @@ Use **specific config** file
 
 # DESCRIPTION
 
-**anacron** is a cron-like job scheduler that doesn't assume the computer is running continuously. It's ideal for laptops and desktop machines that aren't powered on 24/7, ensuring periodic jobs run even if the scheduled time was missed.
+**anacron** 是一个类似 cron 的任务调度器，但它不假设计算机持续开机运行。它非常适合并非全天候开机的笔记本电脑和台式机，即使错过了计划时间也能保证周期性任务得到执行。
 
-Unlike cron, which runs jobs at specific times, anacron runs jobs based on periods (daily, weekly, monthly) and tracks the last run date. If a job's period has elapsed since the last run, it executes the job.
+与在特定时刻运行任务的 cron 不同，anacron 按周期（每天、每周、每月）运行任务，并记录上次运行日期。如果自上次运行以来某个任务的周期已经过去，就会执行该任务。
 
 # PARAMETERS
 
 **-f**
-> Force execution ignoring timestamps
+> 忽略时间戳，强制执行
 
 **-n**
-> Run jobs now, ignoring delays
+> 立即运行任务，忽略延迟设置
 
 **-d**
-> Run in foreground (no daemon)
+> 在前台运行（不作为守护进程）
 
 **-s**
-> Serialize job execution (sequential)
+> 串行化任务执行（按顺序）
 
 **-T**
-> Test configuration file syntax only
+> 仅测试配置文件语法
 
 **-t** _file_
-> Use alternate anacrontab file
+> 使用替代的 anacrontab 文件
 
 **-S** _dir_
-> Use alternate spool directory
+> 使用替代的 spool 目录
 
 **-u**
-> Update timestamps only, don't run jobs
+> 仅更新时间戳，不运行任务
 
 # CONFIGURATION
 
 **/etc/anacrontab**
-> Defines periodic jobs with their period in days, delay in minutes, identifier, and command to execute.
+> 定义周期性任务，包括以天为单位的周期、以分钟为单位的延迟、标识符和要执行的命令。
 
 **/var/spool/anacron/**
-> Timestamp files tracking the last execution date of each job.
+> 时间戳文件，记录每个任务上次执行的日期。
 
 # CAVEATS
 
-Runs as root by default; user-level jobs require additional configuration. Job delay settings are randomized to avoid resource spikes. Not suitable for time-critical tasks.
+默认以 root 运行；用户级任务需要额外配置。任务的延迟设置会被随机化，以避免资源峰值。不适合对时间敏感的任务。
 
 # HISTORY
 
-**anacron** was created by Christian Schwarz and first released in **1998** to address cron's unsuitability for machines that aren't always on. Most modern Linux distributions include it alongside traditional cron.
+**anacron** 由 Christian Schwarz 创建，于 **1998** 年首次发布，旨在解决 cron 不适合非持续开机机器的问题。如今大多数现代 Linux 发行版都将它与传统 cron 一同提供。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Pair with an Android device for wireless debugging
+与 Android 设备配对以进行无线调试
 
 # TLDR
 
-**Pair** with a device using pairing code
+使用配对码与设备**配对**
 
 ```adb pair [192.168.1.100]:[port]```
 
@@ -14,28 +14,28 @@ Pair with an Android device for wireless debugging
 
 # DESCRIPTION
 
-**adb pair** establishes a secure wireless debugging connection with an Android 11+ device using a pairing code. This eliminates the need for initial USB connection to enable wireless debugging.
+**adb pair** 使用配对码与 Android 11 及以上版本的设备建立安全的无线调试连接。这样无需先进行 USB 连接即可启用无线调试。
 
-To use this feature, enable "Wireless debugging" in Developer Options on the device, then tap "Pair device with pairing code" to get the pairing port and code. After pairing, use **adb connect** with the connection port shown in Wireless debugging settings.
+要使用此功能，请在设备的开发者选项中启用"无线调试"，然后点按"使用配对码配对设备"以获取配对端口和配对码。配对完成后，使用无线调试设置中显示的连接端口执行 **adb connect**。
 
 # PARAMETERS
 
 **host**
-> IP address of the Android device
+> Android 设备的 IP 地址
 
 **port**
-> Pairing port shown on the device (different from connection port)
+> 设备上显示的配对端口（不同于连接端口）
 
 **pairing_code**
-> Six-digit code shown on device (prompted if not provided)
+> 设备上显示的六位配对码（未提供时会提示输入）
 
 # CAVEATS
 
-Only available on Android 11 (API 30) and later. The pairing port is different from the connection port used with **adb connect**. Pairing codes expire quickly. Both devices must be on the same network.
+仅适用于 Android 11（API 30）及更高版本。配对端口不同于 **adb connect** 使用的连接端口。配对码很快就会过期。两台设备必须处于同一网络。
 
 # HISTORY
 
-Wireless debugging with pairing was introduced in Android 11, released in **2020**. This feature was designed to improve the developer experience by removing the requirement for initial USB connection.
+带配对的无线调试随 **2020** 年发布的 Android 11 引入。该功能旨在取消先进行 USB 连接的要求，改善开发者体验。
 
 # INSTALL
 

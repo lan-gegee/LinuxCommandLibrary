@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove orphaned AppArmor profiles from the kernel
+从内核中移除孤立的 AppArmor 配置文件
 
 # TLDR
 
-Perform a **dry run** to see which profiles would be removed
+先执行**试运行**，查看哪些配置文件会被移除
 
 ```sudo aa-remove-unknown -n```
 
-**Remove** profiles that are no longer present in the configuration directory
+**移除**配置目录中已不存在对应文件的配置文件
 
 ```sudo aa-remove-unknown```
 
@@ -18,23 +18,23 @@ Perform a **dry run** to see which profiles would be removed
 
 # DESCRIPTION
 
-**aa-remove-unknown** removes AppArmor profiles that are currently loaded in the kernel but no longer have corresponding profile files in the configuration directory (**/etc/apparmor.d**). This helps clean up orphaned profiles after packages are removed or profiles are deleted.
+**aa-remove-unknown** 会移除那些已加载到内核中、但在配置目录（**/etc/apparmor.d**）里不再有对应文件的 AppArmor 配置文件。这有助于在软件包卸载或配置文件删除之后清理孤立的配置文件。
 
 # PARAMETERS
 
 **-n, --dry-run**
-> Show which profiles would be removed without actually removing them
+> 只显示哪些配置文件将被移除，而不实际移除
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Running without the **-n** flag will immediately unload orphaned profiles from the kernel. Use dry-run first to verify which profiles will be affected.
+不带 **-n** 标志运行会立即从内核卸载孤立的配置文件。请先使用试运行确认将影响哪些配置文件。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Administrative interface for Amanda backup management
+Amanda 备份管理的管理界面
 
 # TLDR
 
-Dump the full internal **configuration** representation
+转储完整的内部**配置**表示
 
 ```amadmin [config_name] config```
 
-Show when each disk was last dumped and the next planned **level**
+显示每个磁盘上次转储时间及下一个计划的**级别**
 
 ```amadmin [config_name] info [hostname]```
 
-Force a **new full backup** of a host on the next run
+在下次运行时强制对主机进行**全新完整备份**
 
 ```amadmin [config_name] force [hostname]```
 
-**Remove** a host or disk from the configuration database
+从配置数据库中**移除**主机或磁盘
 
 ```amadmin [config_name] delete [hostname]```
 
-Show how backups are **balanced** across run days
+显示备份在各运行日之间如何**均衡**
 
 ```amadmin [config_name] balance```
 
-List the **disks** in the configuration
+列出配置中的**磁盘**
 
 ```amadmin [config_name] disklist```
 
@@ -34,51 +34,51 @@ List the **disks** in the configuration
 
 # DESCRIPTION
 
-**amadmin** is the administrative interface for Amanda (Advanced Maryland Automatic Network Disk Archiver), an open-source backup solution. It performs interactive maintenance on a backup configuration: forcing full dumps, inspecting the backup database, and querying where past dumps were stored.
+**amadmin** 是 Amanda（Advanced Maryland Automatic Network Disk Archiver）的管理界面，Amanda 是一款开源备份解决方案。它对备份配置执行交互式维护：强制完整转储、检查备份数据库以及查询过往转储的存放位置。
 
-The first argument is always the configuration name, followed by a subcommand. **amadmin** operates on Amanda's own database and schedule; it does not run backups itself (use **amdump**) or label volumes (use **amlabel**).
+第一个参数始终是配置名称，其后是子命令。**amadmin** 操作的是 Amanda 自己的数据库和调度；它本身不运行备份（请用 **amdump**），也不为介质写标签（请用 **amlabel**）。
 
 # PARAMETERS
 
 **config**
-> Dump the full internal representation of the configuration in text format
+> 以文本格式转储配置的完整内部表示
 
 **info** [_host_ [_disk_]]
-> Show the current information Amanda has recorded for hosts and disks
+> 显示 Amanda 为各主机和磁盘记录的当前信息
 
 **disklist** [_host_ [_disk_]]
-> List the disklist entries Amanda will back up
+> 列出 Amanda 将备份的 disklist 条目
 
 **force** _host_ [_disk_]
-> Force a full backup of the host or disk on the next run
+> 在下次运行时强制对指定主机或磁盘做完整备份
 
 **unforce** _host_ [_disk_]
-> Undo a previous force request
+> 撤销之前的强制请求
 
 **delete** _host_ [_disk_]
-> Remove a host or disk from the Amanda database (does not change the disklist file)
+> 从 Amanda 数据库中移除主机或磁盘（不会修改 disklist 文件）
 
 **balance** [**--days** _num_]
-> Show how full backups are balanced across the run cycle
+> 显示完整备份在整个运行周期内如何均衡分布
 
 **find** [_host_ [_disk_]]
-> Show which volumes hold the dumps for the given hosts and disks
+> 显示哪些介质保存了给定主机和磁盘的转储数据
 
 # CONFIGURATION
 
 **/etc/amanda/<config>/amanda.conf**
-> Main Amanda configuration file defining backup schedules, tape types, and holding disks.
+> Amanda 主配置文件，定义备份计划、磁带类型和暂存盘。
 
 **/etc/amanda/<config>/disklist**
-> Lists hosts and disks to be backed up for a given configuration.
+> 列出给定配置中要备份的主机和磁盘。
 
 # CAVEATS
 
-Requires Amanda to be properly installed and configured. Some operations require appropriate permissions. Changes affect the next scheduled backup run.
+需要正确安装和配置 Amanda。某些操作需要适当的权限。更改会影响下一次计划备份运行。
 
 # HISTORY
 
-**Amanda** was developed at the University of Maryland starting in **1991**. It became one of the most widely used open-source backup solutions for Unix systems, with amadmin providing its administrative interface.
+**Amanda** 自 **1991** 年起由马里兰大学开发。它成为 Unix 系统上使用最广泛的开源备份解决方案之一，amadmin 提供其管理界面。
 
 # INSTALL
 

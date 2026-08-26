@@ -1,22 +1,22 @@
 # TAGLINE
 
-Find alternate files for source and test switching
+查找源文件与测试文件的对应关系，便于相互切换
 
 # TLDR
 
-**Find** alternate file for a source file
+为一个源文件**查找**对应文件
 
 ```alt [path/to/file.rb]```
 
-**Find** alternate showing only the **top** result
+**查找**对应文件且只显示排名最**靠前**的结果
 
 ```alt --truncate [1] [path/to/file.rb]```
 
-**Find** alternates including **hidden** files
+**查找**对应文件，包含**隐藏**文件
 
 ```alt -a [path/to/file.rb]```
 
-**Find** alternate reading file list from **stdin**
+从**标准输入**读取文件列表来**查找**对应文件
 
 ```find . -type f -print | alt -f - [path/to/file.rb]```
 
@@ -26,36 +26,36 @@ Find alternate files for source and test switching
 
 # DESCRIPTION
 
-**alt** finds the "alternate file" for a given source file, typically switching between implementation and test files. It ranks all files in the project by similarity to the given path and outputs them in ranked order.
+**alt** 为给定的源文件查找"对应文件"，通常用于在实现文件和测试文件之间切换。它会按与给定路径的相似度对项目中的所有文件排序，并按排名顺序输出。
 
-For example, given **app/models/user.rb**, it would find **test/models/user_test.rb** or **spec/models/user_spec.rb**. This makes it easy to jump between code and tests in editor integrations such as Vim, NeoVim, and VS Code.
+例如，给定 **app/models/user.rb**，它会找到 **test/models/user_test.rb** 或 **spec/models/user_spec.rb**。这使得在 Vim、NeoVim 和 VS Code 等编辑器集成中于代码与测试之间跳转变得十分方便。
 
-By default, **alt** ignores hidden directory entries, globs defined in a **.ignore** file, and globs defined in the project's **.gitignore** and global **.gitignore**.
+默认情况下，**alt** 会忽略隐藏目录项、**.ignore** 文件中定义的 glob 模式，以及项目的 **.gitignore** 和全局 **.gitignore** 中定义的模式。
 
 # PARAMETERS
 
 **-a**
-> Include hidden files and directories in the search.
+> 在搜索中包含隐藏文件和目录。
 
 **-f** _-_
-> Read file paths from standard input instead of scanning the directory.
+> 从标准输入读取文件路径，而不是扫描目录。
 
 **-t** _N_, **--truncate** _N_
-> Truncate output to N alternate files (default 0, meaning show all).
+> 将输出截断为 N 个对应文件（默认 0，表示显示全部）。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Alternate file matching relies on path similarity ranking based on common naming conventions; unusual project structures may produce unexpected results. By default, all possible alternates are shown in ranked order; use **--truncate 1** to get only the best match.
+对应文件匹配依赖于基于常见命名约定的路径相似度排名；不寻常的项目结构可能产生意外结果。默认按排名顺序显示所有可能的对应文件；使用 **--truncate 1** 可只获取最佳匹配。
 
 # HISTORY
 
-**alt** was created by **Drew De Ponte** (uptech) as a fast, editor-independent command-line tool for finding alternate files. Written in Rust, it was originally designed for Vim integration but works with any editor or shell workflow.
+**alt** 由 **Drew De Ponte**（uptech）创建，是一款快速、不依赖特定编辑器的查找对应文件的命令行工具。它使用 Rust 编写，最初为 Vim 集成而设计，但也可配合任何编辑器或 Shell 工作流使用。
 
 # SEE ALSO
 

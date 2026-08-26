@@ -1,34 +1,34 @@
 # TAGLINE
 
-Run SQL queries on data stored in Amazon S3
+对存储在 Amazon S3 中的数据运行 SQL 查询
 
 # TLDR
 
-**Start a query execution**
+**启动查询执行**
 
 ```aws athena start-query-execution --query-string "[SELECT * FROM table LIMIT 10]" --work-group [primary]```
 
-**Start a query** with output location
+带输出位置**启动查询**
 
 ```aws athena start-query-execution --query-string "[SELECT * FROM logs]" --result-configuration OutputLocation=s3://[bucket/results/]```
 
-**Get query execution status**
+**获取查询执行状态**
 
 ```aws athena get-query-execution --query-execution-id [query-id]```
 
-**Get query results**
+**获取查询结果**
 
 ```aws athena get-query-results --query-execution-id [query-id]```
 
-**List query executions**
+**列出查询执行记录**
 
 ```aws athena list-query-executions --work-group [primary]```
 
-**Create a database**
+**创建数据库**
 
 ```aws athena start-query-execution --query-string "CREATE DATABASE [mydb]" --work-group [primary]```
 
-**List databases** in a catalog
+**列出**数据目录中的数据库
 
 ```aws athena list-databases --catalog-name AwsDataCatalog```
 
@@ -39,73 +39,73 @@ Run SQL queries on data stored in Amazon S3
 # PARAMETERS
 
 **start-query-execution**
-> Execute a SQL query asynchronously
+> 异步执行 SQL 查询
 
 **get-query-execution**
-> Get information about a query execution
+> 获取查询执行的信息
 
 **get-query-results**
-> Retrieve results of a completed query
+> 检索已完成查询的结果
 
 **stop-query-execution**
-> Cancel a running query
+> 取消正在运行的查询
 
 **list-query-executions**
-> List query execution IDs
+> 列出查询执行 ID
 
 **list-databases**
-> List databases in a data catalog
+> 列出数据目录中的数据库
 
 **list-table-metadata**
-> List tables in a database
+> 列出数据库中的表
 
 **create-work-group**
-> Create a workgroup for queries
+> 创建用于查询的工作组
 
 **get-work-group**
-> Get workgroup configuration
+> 获取工作组配置
 
 **--query-string** _sql_
-> SQL statement to execute
+> 要执行的 SQL 语句
 
 **--query-execution-id** _id_
-> Identifier of query execution
+> 查询执行的标识符
 
 **--work-group** _name_
-> Workgroup to run the query in
+> 运行查询所用的工作组
 
 **--query-execution-context** _context_
-> Database and catalog context (Database=db,Catalog=catalog)
+> 数据库和数据目录上下文（Database=db,Catalog=catalog）
 
 **--result-configuration** _config_
-> Output location and encryption settings (OutputLocation=s3://path/)
+> 输出位置和加密设置（OutputLocation=s3://path/）
 
 **--max-results** _n_
-> Maximum results to return
+> 返回结果的最大数量
 
 **--next-token** _token_
-> Pagination token from a previous response
+> 上一次响应返回的分页令牌
 
 **--catalog-name** _name_
-> Data catalog to query (e.g., AwsDataCatalog)
+> 要查询的数据目录（如 AwsDataCatalog）
 
 # DESCRIPTION
 
-**aws athena** manages Amazon Athena, an interactive query service for analyzing data in Amazon S3 using standard SQL. Athena is serverless, requiring no infrastructure setup.
+**aws athena** 管理 Amazon Athena——一项使用标准 SQL 分析 Amazon S3 中数据的交互式查询服务。Athena 无服务器化运行，无需搭建任何基础设施。
 
-Queries are executed asynchronously via **start-query-execution**, which returns a query execution ID. Use **get-query-execution** to check status and **get-query-results** to retrieve results once complete. Results are also stored in the specified S3 output location.
+查询通过 **start-query-execution** 异步执行，它会返回一个查询执行 ID。使用 **get-query-execution** 检查状态，完成后使用 **get-query-results** 检索结果。结果同时也会存储在指定的 S3 输出位置中。
 
-Workgroups organize queries and control settings like result locations, encryption, and query limits. The **--query-execution-context** parameter specifies which database and data catalog to query against.
+工作组用于组织查询，并控制结果位置、加密和查询限制等设置。**--query-execution-context** 参数指定要查询哪个数据库和数据目录。
 
-Athena uses the AWS Glue Data Catalog to store table metadata, or you can use an external Hive metastore. Tables are created over data in S3 using DDL statements like CREATE EXTERNAL TABLE.
+Athena 使用 AWS Glue Data Catalog 存储表元数据，也可以使用外部的 Hive metastore。表通过 CREATE EXTERNAL TABLE 等 DDL 语句建立在 S3 数据之上。
 
 # CAVEATS
 
-Queries are charged based on data scanned; use partitioning and columnar formats (Parquet, ORC) to reduce costs. Query results expire after a configured period. Long-running queries may timeout. Requires appropriate IAM permissions for S3 data access and Glue catalog.
+查询按扫描的数据量计费；请使用分区和列式格式（Parquet、ORC）来降低成本。查询结果会在配置的保留期后过期。长时间运行的查询可能超时。访问 S3 数据和 Glue 目录需要相应的 IAM 权限。
 
 # HISTORY
 
-**Amazon Athena** was launched in **November 2016** as a serverless query service based on Presto. It enables SQL queries on S3 data without provisioning infrastructure. Athena integrates with AWS Glue for schema discovery and supports ANSI SQL with extensions for nested data types common in analytics workloads.
+**Amazon Athena** 于 **2016 年 11 月**推出，是基于 Presto 的无服务器查询服务。它让用户无需配置基础设施即可对 S3 数据执行 SQL 查询。Athena 与 AWS Glue 集成以实现 schema 发现，支持 ANSI SQL 并针对分析工作负载常见的嵌套数据类型做了扩展。
 
 # INSTALL
 

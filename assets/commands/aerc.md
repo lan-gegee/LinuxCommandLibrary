@@ -1,26 +1,26 @@
 # TAGLINE
 
-Terminal email client with tabs and embedded terminal
+带标签页与内嵌终端的终端邮件客户端
 
 # TLDR
 
-**Launch aerc**
+**启动 aerc**
 
 ```aerc```
 
-**Open with a specific account only**
+**仅加载指定账户**打开
 
 ```aerc -a [account_name]```
 
-**Compose a new email** to an address
+向某地址**撰写新邮件**
 
 ```aerc mailto:[user@example.com]```
 
-**Open an mbox file**
+**打开 mbox 文件**
 
 ```aerc mbox:[path/to/file.mbox]```
 
-**Use a custom configuration file**
+**使用自定义配置文件**
 
 ```aerc -C [path/to/aerc.conf]```
 
@@ -31,47 +31,47 @@ Terminal email client with tabs and embedded terminal
 # PARAMETERS
 
 **-h**, **--help**
-> Show usage help and exit
+> 显示用法帮助并退出
 
 **-v**, **--version**
-> Print the installed version and exit
+> 打印已安装的版本并退出
 
 **-a** _name_, **--account** _name_
-> Load only the named account(s); comma-separated or repeated
+> 只加载指定的账户；可用逗号分隔或重复该选项
 
 **-C** _path_, **--aerc-conf** _path_
-> Use a custom aerc.conf configuration file
+> 使用自定义的 aerc.conf 配置文件
 
 **-A** _path_, **--accounts-conf** _path_
-> Use a custom accounts.conf file
+> 使用自定义的 accounts.conf 文件
 
 **-B** _path_, **--binds-conf** _path_
-> Use a custom key bindings configuration file
+> 使用自定义的按键绑定配置文件
 
 **-I**, **--no-ipc**
-> Run commands directly instead of over IPC to an existing instance
+> 直接运行命令，而不是通过 IPC 发送给已有实例
 
 # DESCRIPTION
 
-**aerc** is a terminal-based email client written in Go, designed for power users and developers. It features a tabbed interface allowing multiple accounts and emails to be open simultaneously, an embedded terminal emulator for running shell commands alongside email tasks, and vim-style keybindings with an ex-command system.
+**aerc** 是一个用 Go 编写的终端邮件客户端，面向高级用户和开发者。它拥有标签页界面，可以同时打开多个账户和多封邮件；内嵌终端模拟器让你能在处理邮件的同时运行 Shell 命令；还提供 vim 风格的按键绑定和 ex 命令系统。
 
-aerc supports IMAP, JMAP, Maildir, Notmuch, and Mbox backends with SMTP and sendmail for sending. It handles email threading, PGP signing and encryption via GnuPG, HTML email rendering through external filters, syntax-highlighted patches and diffs, CardDAV contact lookups, and template-based composition. The UI never locks up due to network issues thanks to asynchronous IMAP and JMAP support.
+aerc 支持 IMAP、JMAP、Maildir、Notmuch 和 Mbox 后端，发送时可使用 SMTP 和 sendmail。它能处理邮件会话（threading）、通过 GnuPG 实现 PGP 签名与加密、借助外部过滤器渲染 HTML 邮件、补丁与 diff 的语法高亮、CardDAV 联系人查询以及基于模板的邮件撰写。得益于异步 IMAP 和 JMAP 支持，界面绝不会因网络问题而卡死。
 
 # CONFIGURATION
 
-Configuration files are stored in **$XDG_CONFIG_HOME/aerc/** (typically ~/.config/aerc/):
+配置文件存放在 **$XDG_CONFIG_HOME/aerc/**（通常为 ~/.config/aerc/）：
 
-**aerc.conf** -- Main application configuration (UI, logging, filters)
-**accounts.conf** -- Email account definitions (server, credentials, backend type)
-**binds.conf** -- Key binding customizations
+**aerc.conf** -- 主应用配置（UI、日志、过滤器）
+**accounts.conf** -- 邮件账户定义（服务器、凭据、后端类型）
+**binds.conf** -- 按键绑定自定义
 
 # CAVEATS
 
-HTML email rendering requires **w3m** to be installed. Homebrew builds on macOS do not include notmuch support; compile from source if needed. The project uses a mailing-list-based patch submission workflow via git-send-email rather than pull requests.
+渲染 HTML 邮件需要安装 **w3m**。macOS 上的 Homebrew 构建不包含 notmuch 支持；如有需要请从源码编译。该项目通过 git-send-email 采用基于邮件列表的补丁提交流程，而不使用拉取请求。
 
 # HISTORY
 
-**aerc** was originally created by **Drew DeVault** (sircmpwn) with the first commit in **January 2018** and the 0.1.0 pre-release announced in **June 2019**. After the original project became unmaintained, **Robin Jarry** forked and took over active maintenance. The project is hosted on SourceHut and licensed under the MIT license.
+**aerc** 最初由 **Drew DeVault**（sircmpwn）创建，首次提交于 **2018 年 1 月**，0.1.0 预发布版于 **2019 年 6 月**公布。在原项目无人维护之后，**Robin Jarry** 分叉并接管了活跃维护工作。项目托管在 SourceHut 上，采用 MIT 许可证。
 
 # INSTALL
 

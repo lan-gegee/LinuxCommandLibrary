@@ -1,22 +1,22 @@
 # TAGLINE
 
-Search for files within packages.
+在软件包中搜索文件。
 
 # TLDR
 
-**Update** the metadata database
+**更新**元数据数据库
 
 ```sudo apt update```
 
-**Search** for packages that contain a file or path
+**搜索**包含某个文件或路径的软件包
 
 ```apt-file search [path/to/file]```
 
-**List** the contents of a specific package
+**列出**特定软件包的内容
 
 ```apt-file show [package]```
 
-Search for packages that match a **regex**
+搜索匹配**正则表达式**的软件包
 
 ```apt-file search -x [regex]```
 
@@ -26,52 +26,52 @@ Search for packages that match a **regex**
 
 # DESCRIPTION
 
-**apt-file** searches for files in apt packages, including packages that are not yet installed. This is useful for finding which package provides a specific file or command.
+**apt-file** 在 apt 软件包中搜索文件，包括尚未安装的软件包。这对于查找哪个软件包提供了特定的文件或命令很有用。
 
 # PARAMETERS
 
 **search, find pattern**
-> Search for packages containing files matching pattern
+> 搜索包含与 pattern 匹配文件的软件包
 
 **show, list package**
-> List the contents of a specific package
+> 列出特定软件包的内容
 
 **update**
-> Update the package contents cache (usually via apt update)
+> 更新软件包内容缓存（通常通过 apt update 完成）
 
 **-x, --regexp**
-> Treat pattern as a regular expression
+> 将 pattern 视为正则表达式
 
 **-l, --package-only**
-> Only show package names, not file paths
+> 只显示软件包名称，不显示文件路径
 
 **-F, --fixed-string**
-> Do not treat pattern as a regex (faster)
+> 不将 pattern 视为正则表达式（更快）
 
 **-i, --ignore-case**
-> Case-insensitive search
+> 不区分大小写地搜索
 
 **-a, --architecture arch**
-> Search for a specific architecture
+> 搜索特定架构
 
 **-D, --dummy**
-> Run without taking action (used for testing)
+> 空运行，不执行实际操作（用于测试）
 
 **-N, --non-interactive**
-> Do not prompt for input; suitable for scripts
+> 不提示输入；适合脚本使用
 
 # CONFIGURATION
 
 **/etc/apt/apt-file.conf**
-> Configuration file controlling cache location and default options.
+> 控制缓存位置和默认选项的配置文件。
 
 # CAVEATS
 
-Requires the apt-file package to be installed. The database must be updated before searching.
+需要安装 apt-file 软件包。搜索前必须先更新数据库。
 
 # HISTORY
 
-Part of the **APT** (Advanced Package Tool) ecosystem for Debian-based systems.
+属于面向基于 Debian 系统的 **APT**（Advanced Package Tool）生态系统的一部分。
 
 # INSTALL
 

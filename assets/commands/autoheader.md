@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate template header files for configure
+为 configure 生成模板头文件
 
 # TLDR
 
-**Generate** config.h.in
+**生成** config.h.in
 
 ```autoheader```
 
-Generate from **specific input**
+从**指定输入**生成
 
 ```autoheader [configure.ac]```
 
-Force **regeneration**
+强制**重新生成**
 
 ```autoheader --force```
 
@@ -22,44 +22,44 @@ Force **regeneration**
 
 # DESCRIPTION
 
-**autoheader** creates a template header file (config.h.in) for configure to use. It scans configure.ac for AC_DEFINE macros and generates corresponding #define statements.
+**autoheader** 为 configure 创建模板头文件（config.h.in）。它会扫描 configure.ac 中的 AC_DEFINE 宏，并生成相应的 #define 语句。
 
-This is part of the autotools workflow, typically run before autoconf.
+这是 autotools 工作流的一部分，通常在 autoconf 之前运行。
 
 # PARAMETERS
 
 **-f**, **--force**
-> Force regeneration even if current
+> 即使已是最新也强制重新生成
 
 **-W** _category_, **--warnings=**_category_
-> Report warnings for the given category (e.g. all, none, error, obsolete).
+> 报告给定类别的警告（如 all、none、error、obsolete）。
 
 **-I** _dir_, **--include=**_dir_
-> Append dir to the include search path. Accumulates over multiple uses.
+> 将 dir 追加到包含搜索路径。多次使用会累积。
 
 **-B** _dir_, **--prepend-include=**_dir_
-> Prepend dir to the include search path.
+> 将 dir 前置到包含搜索路径。
 
 **-v**, **--verbose**
-> Report processing steps.
+> 报告处理步骤。
 
 **-d**, **--debug**
-> Do not remove the temporary files.
+> 不删除临时文件。
 
 # WORKFLOW
 
-1. Write configure.ac with AC_DEFINE macros
-2. Run **autoheader** to generate config.h.in
-3. Run autoconf to generate configure
-4. Users run ./configure to generate config.h
+1. 在 configure.ac 中编写 AC_DEFINE 宏
+2. 运行 **autoheader** 生成 config.h.in
+3. 运行 autoconf 生成 configure
+4. 用户运行 ./configure 生成 config.h
 
 # CAVEATS
 
-Part of autotools; typically called by autoreconf. Output is template; actual config.h created by configure. Not needed for all projects.
+属于 autotools；通常由 autoreconf 调用。其输出只是模板，实际的 config.h 由 configure 创建。并非所有项目都需要它。
 
 # HISTORY
 
-**autoheader** is part of GNU Autoconf, developed to manage configuration header files in portable software since the early **1990s**.
+**autoheader** 是 GNU Autoconf 的一部分，自 **20 世纪 90 年代初**起就用于在可移植软件中管理配置头文件。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ Part of autotools; typically called by autoreconf. Output is template; actual co
 ```[Documentation](https://www.gnu.org/software/autoconf/manual/)```
 
 <!-- verified: 2026-06-17 -->
-

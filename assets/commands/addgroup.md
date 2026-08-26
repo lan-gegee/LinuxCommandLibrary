@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create groups and manage group membership
+创建组并管理组成员身份
 
 # TLDR
 
-**Create** a new group
+**创建**新组
 
 ```sudo addgroup [groupname]```
 
-Create a **system** group
+创建**系统**组
 
 ```sudo addgroup --system [groupname]```
 
-Add a **user** to an existing group
+将**用户**添加到现有组
 
 ```sudo addgroup [username] [groupname]```
 
-Create group with **specific GID**
+以**指定 GID** 创建组
 
 ```sudo addgroup --gid [1001] [groupname]```
 
@@ -28,42 +28,42 @@ Create group with **specific GID**
 
 # DESCRIPTION
 
-**addgroup** is a Debian/Ubuntu friendly frontend to the low-level **groupadd** command. It creates new groups or adds existing users to groups, following the naming policies and conventions defined in adduser.conf.
+**addgroup** 是 Debian/Ubuntu 上一个友好的前端，封装了底层的 **groupadd** 命令。它遵循 adduser.conf 中定义的命名策略和约定，用于创建新组或将现有用户加入组。
 
-When adding a user to a group, it modifies /etc/group to include the user as a member. This is the recommended way to manage group membership on Debian-based systems.
+把用户加入组时，它会修改 /etc/group 以将该用户列为成员。这是基于 Debian 的系统上管理组成员身份的推荐方式。
 
 # PARAMETERS
 
 **--gid** _id_
-> Specify the group ID (GID) for the new group
+> 指定新组的组 ID（GID）
 
 **--system**
-> Create a system group (GID from system range)
+> 创建系统组（GID 取自系统范围）
 
 **--allow-bad-names**
-> Allow group names that don't conform to naming conventions
+> 允许不符合命名规范的组名
 
 **--conf** _file_
-> Use alternate configuration file
+> 使用备用配置文件
 
 **--quiet**
-> Suppress informational messages
+> 抑制提示性消息
 
 **--debug**
-> Print debug information
+> 打印调试信息
 
 # CONFIGURATION
 
 **/etc/adduser.conf**
-> Controls default behavior for addgroup and adduser, including GID ranges for normal and system groups, naming policies, and group creation defaults.
+> 控制 addgroup 和 adduser 的默认行为，包括普通组和系统组的 GID 范围、命名策略以及组创建的默认设置。
 
 # CAVEATS
 
-Group names must follow naming rules defined in adduser.conf. System groups typically have GIDs below 1000. Users must log out and back in for new group memberships to take effect.
+组名必须遵循 adduser.conf 中定义的命名规则。系统组的 GID 通常低于 1000。用户需要注销并重新登录后，新的组成员身份才会生效。
 
 # HISTORY
 
-**addgroup** was created as part of the adduser package for Debian, providing a user-friendly interface for group management that follows distribution policies. It has been part of Debian since the mid-**1990s**.
+**addgroup** 作为 Debian adduser 软件包的一部分而创建，提供了一个遵循发行版策略的友好组管理界面。自 **1990** 年代中期起它便是 Debian 的一部分。
 
 # INSTALL
 

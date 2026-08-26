@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage the Apache HTTP Server on Debian
+在 Debian 上管理 Apache HTTP 服务器
 
 # TLDR
 
-**Start** the Apache daemon
+**启动** Apache 守护进程
 
 ```sudo apache2ctl start```
 
-**Stop** the Apache daemon
+**停止** Apache 守护进程
 
 ```sudo apache2ctl stop```
 
-**Restart** the Apache daemon
+**重启** Apache 守护进程
 
 ```sudo apache2ctl restart```
 
-Test **syntax** of the configuration file
+测试配置文件的**语法**
 
 ```sudo apache2ctl -t```
 
-List **loaded modules**
+列出**已加载模块**
 
 ```sudo apache2ctl -M```
 
-Restart **gracefully** without dropping connections
+**优雅**重启且不断开连接
 
 ```sudo apache2ctl graceful```
 
@@ -36,73 +36,73 @@ Restart **gracefully** without dropping connections
 
 # DESCRIPTION
 
-**apache2ctl** is a front end to the Apache HyperText Transfer Protocol (HTTP) server designed to help administrators manage the Apache daemon. This command comes with Debian-based operating systems; for RHEL-based ones see **httpd**.
+**apache2ctl** 是 Apache 超文本传输协议（HTTP）服务器的前端工具，旨在帮助管理员管理 Apache 守护进程。该命令随基于 Debian 的操作系统提供；基于 RHEL 的系统请参见 **httpd**。
 
 # PARAMETERS
 
 **start**
-> Start the Apache daemon; errors if already running
+> 启动 Apache 守护进程；若已在运行则报错
 
 **stop**
-> Stop the Apache daemon
+> 停止 Apache 守护进程
 
 **restart**
-> Restart Apache via SIGHUP; includes config validation
+> 通过 SIGHUP 重启 Apache；包含配置校验
 
 **graceful**
-> Restart without terminating active connections
+> 重启但不终止活动连接
 
 **graceful-stop**
-> Stop Apache without aborting current connections
+> 停止 Apache 但不中断当前连接
 
 **status**
-> Show brief operational status report
+> 显示简要的运行状态报告
 
 **fullstatus**
-> Display comprehensive status via mod_status (requires lynx)
+> 通过 mod_status 显示完整状态（需要 lynx）
 
 **configtest**
-> Validate syntax in configuration files
+> 校验配置文件中的语法
 
 **-t**
-> Test configuration file syntax
+> 测试配置文件语法
 
 **-M**
-> List loaded (static and shared) modules
+> 列出已加载模块（静态与共享）
 
 **-S**
-> Show the parsed virtual host settings and listening ports
+> 显示解析后的虚拟主机配置和监听端口
 
 **-V**
-> Show version, build settings, and compile-time configuration
+> 显示版本、构建设置和编译时配置
 
 **-l**
-> List modules compiled into the server
+> 列出编译进服务器的模块
 
 # CONFIGURATION
 
 **/etc/apache2/apache2.conf**
-> Main configuration file on Debian/Ubuntu systems.
+> Debian/Ubuntu 系统上的主配置文件。
 
 **/etc/apache2/sites-available/**
-> Virtual host configuration files, enabled via a2ensite.
+> 虚拟主机配置文件，通过 a2ensite 启用。
 
 **/etc/apache2/mods-available/**
-> Module configuration files, enabled via a2enmod.
+> 模块配置文件，通过 a2enmod 启用。
 
 **/etc/apache2/envvars**
-> Environment variables for the Apache process (user, group, pid file).
+> Apache 进程的环境变量（用户、组、pid 文件）。
 
 **/etc/apache2/ports.conf**
-> Listen directives specifying which ports Apache binds to.
+> Listen 指令，指定 Apache 绑定哪些端口。
 
 # CAVEATS
 
-Debian requires environment variables **APACHE_RUN_USER**, **APACHE_RUN_GROUP**, and **APACHE_PID_FILE** set in /etc/apache2/envvars.
+Debian 要求在 /etc/apache2/envvars 中设置环境变量 **APACHE_RUN_USER**、**APACHE_RUN_GROUP** 和 **APACHE_PID_FILE**。
 
 # HISTORY
 
-Part of the **Apache HTTP Server** project, one of the oldest and most widely used web servers, developed by the Apache Software Foundation.
+**Apache HTTP Server** 项目的一部分，是最古老、使用最广泛的 Web 服务器之一，由 Apache 软件基金会开发。
 
 # INSTALL
 

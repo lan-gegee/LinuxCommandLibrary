@@ -1,22 +1,22 @@
 # TAGLINE
 
-Scan APKs for hardcoded secrets and keys
+扫描 APK 中的硬编码机密和密钥
 
 # TLDR
 
-**Scan** APK for hardcoded secrets
+**扫描** APK 中的硬编码机密
 
 ```apkleaks -f [app.apk]```
 
-Scan with **JSON output**
+以 **JSON 输出**扫描
 
 ```apkleaks -f [app.apk] -o [results.json]```
 
-Scan with **custom patterns**
+使用**自定义模式**扫描
 
 ```apkleaks -f [app.apk] -p [patterns.json]```
 
-**Verbose** output
+**详细**输出
 
 ```apkleaks -f [app.apk] -v```
 
@@ -26,49 +26,49 @@ Scan with **custom patterns**
 
 # DESCRIPTION
 
-**apkleaks** scans Android APK files for hardcoded secrets, API keys, and sensitive information. It decompiles the APK, searches through code and resources using regex patterns, and reports potential security issues.
+**apkleaks** 扫描 Android APK 文件中的硬编码机密、API 密钥和敏感信息。它会反编译 APK，使用正则表达式模式搜索代码和资源，并报告潜在的安全问题。
 
-The tool helps identify accidental exposure of credentials, private keys, URLs with tokens, and other sensitive data that developers may have inadvertently included in their applications.
+该工具有助于识别凭据、私钥、带 token 的 URL 等敏感数据的意外泄露——这些往往是开发者无意间打包进应用的。
 
 # PARAMETERS
 
 **-f** _file_
-> APK file to analyze
+> 要分析的 APK 文件
 
 **-o** _file_
-> Output file for results
+> 结果的输出文件
 
 **-p** _file_
-> Custom patterns file (JSON)
+> 自定义模式文件（JSON）
 
 **-a** _args_
-> Additional arguments to pass to the jadx decompiler.
+> 传递给 jadx 反编译器的附加参数。
 
 **--json**
-> Output results in JSON format.
+> 以 JSON 格式输出结果。
 
 **-v**, **--verbose**
-> Verbose output, including matched line numbers.
+> 详细输出，包括匹配行的行号。
 
 **--disassemble**
-> Disassemble bytecode (slower, may catch additional secrets).
+> 反汇编字节码（较慢，可能发现更多机密）。
 
 # DETECTED PATTERNS
 
-- API keys (AWS, Google, Facebook, etc.)
-- Private keys and certificates
-- Tokens and secrets in URLs
-- Hardcoded passwords
-- Database credentials
-- Custom regex patterns
+- API 密钥（AWS、Google、Facebook 等）
+- 私钥和证书
+- URL 中的 token 和机密
+- 硬编码密码
+- 数据库凭据
+- 自定义正则表达式模式
 
 # CAVEATS
 
-May produce false positives requiring manual verification. Only detects string-based secrets; encrypted or obfuscated data won't be found. Decompilation may fail for heavily protected APKs.
+可能产生需要人工核实的误报。只能检测基于字符串的机密；加密或混淆的数据无法找到。受到高度保护的 APK 可能反编译失败。
 
 # HISTORY
 
-**apkleaks** was created for Android security assessments, automating the process of identifying leaked secrets that manual code review might miss.
+**apkleaks** 为 Android 安全评估而创建，将人工代码审查可能遗漏的机密泄露识别过程自动化。
 
 # INSTALL
 

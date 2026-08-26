@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display weather in the terminal with ANSI colors
+在终端中以 ANSI 颜色显示天气
 
 # TLDR
 
-**Get** weather for a city
+**获取**某个城市的天气
 
 ```ansiweather -l [London,UK]```
 
-Show **forecast**
+显示**预报**
 
 ```ansiweather -l [Paris,FR] -f [5]```
 
-Use **Celsius**
+使用**摄氏度**
 
 ```ansiweather -l [Tokyo,JP] -u metric```
 
-Use **Fahrenheit**
+使用**华氏度**
 
 ```ansiweather -l [New York,US] -u imperial```
 
-Show **wind and humidity** data
+显示**风速和湿度**数据
 
 ```ansiweather -l [Berlin,DE] -w true -h true```
 
-Show **five-day** forecast
+显示**五天**预报
 
 ```ansiweather -l [Berlin,DE] -F```
 
-Display **UV index** information
+显示**紫外线指数**信息
 
 ```ansiweather -l [Berlin,DE] -i true```
 
@@ -38,63 +38,63 @@ Display **UV index** information
 
 # DESCRIPTION
 
-**ansiweather** is a shell script that displays current weather conditions in your terminal using ANSI colors and Unicode symbols. It fetches data from OpenWeatherMap API and formats it for terminal display.
+**ansiweather** 是一个 Shell 脚本，它使用 ANSI 颜色和 Unicode 符号在终端中显示当前天气状况。它从 OpenWeatherMap API 获取数据并格式化为适合终端显示的样式。
 
-The tool provides a quick, colorful weather overview without leaving the command line.
+该工具让你无需离开命令行即可快速获得彩色的天气概览。
 
 # PARAMETERS
 
 **-l** _location_
-> Location (City,CountryCode format)
+> 地点（City,CountryCode 格式）
 
 **-u** _units_
-> Units: metric (Celsius) or imperial (Fahrenheit)
+> 单位：metric（摄氏度）或 imperial（华氏度）
 
 **-f** _days_
-> Forecast days (1-5)
+> 预报天数（1-5）
 
 **-F**
-> Toggle forecast mode for the next five days.
+> 开启未来五天的预报模式。
 
 **-a** _bool_
-> Toggle ANSI colors display (true/false).
+> 开关 ANSI 颜色显示（true/false）。
 
 **-s** _bool_
-> Toggle Unicode symbols display (true/false).
+> 开关 Unicode 符号显示（true/false）。
 
 **-k** _key_
-> Specify OpenWeatherMap API key.
+> 指定 OpenWeatherMap API 密钥。
 
 **-d** _bool_
-> Toggle daylight data display: sunrise/sunset (true/false).
+> 开关日照数据显示：日出/日落（true/false）。
 
 **-w** _bool_
-> Toggle wind data display (true/false).
+> 开关风速数据显示（true/false）。
 
 **-p** _bool_
-> Toggle pressure data display (true/false).
+> 开关气压数据显示（true/false）。
 
 **-h** _bool_
-> Toggle humidity data display (true/false).
+> 开关湿度数据显示（true/false）。
 
 **-i** _bool_
-> Toggle UV index display (true/false).
+> 开关紫外线指数显示（true/false）。
 
 **-v**
-> Display version information.
+> 显示版本信息。
 
 # CONFIGURATION
 
 **~/.ansiweatherrc**
-> User configuration file for default location, units, API key, and display options.
+> 用户配置文件，用于设置默认地点、单位、API 密钥和显示选项。
 
 # CAVEATS
 
-Requires OpenWeatherMap API key for some features. Free API has rate limits. Location matching can be imprecise; use country codes for accuracy.
+部分功能需要 OpenWeatherMap API 密钥。免费 API 有速率限制。地点匹配可能不够精确；请使用国家代码以确保准确。
 
 # HISTORY
 
-**ansiweather** was created as a simple, colorful terminal weather tool, leveraging OpenWeatherMap's free API tier for weather data.
+**ansiweather** 是一款简单而多彩的终端天气工具，利用 OpenWeatherMap 的免费 API 层级获取天气数据。
 
 # INSTALL
 

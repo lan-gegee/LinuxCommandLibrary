@@ -1,14 +1,14 @@
 # TAGLINE
 
-Visual front end for display configuration
+显示器配置的可视化前端
 
 # TLDR
 
-**Launch the graphical display configuration** tool
+**启动图形化显示器配置**工具
 
 ```arandr```
 
-**Configure a different display** while showing GUI on current display
+在当前显示屏上显示 GUI 的同时**配置其他显示器**
 
 ```arandr --randr-display [DISPLAY]```
 
@@ -19,31 +19,31 @@ Visual front end for display configuration
 # PARAMETERS
 
 **--randr-display=**_DISPLAY_
-> Use a specific X display for xrandr operations while showing the GUI on the display from the environment
+> 为 xrandr 操作使用指定的 X display，而 GUI 显示在环境变量指定的显示屏上
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**ARandR** (Another RandR) is a graphical front end for the XRandR 1.2 extension. It provides a visual interface for configuring display outputs, resolutions, refresh rates, and multi-monitor layouts.
+**ARandR**（Another RandR）是 XRandR 1.2 扩展的图形前端。它提供可视化界面，用于配置显示输出、分辨率、刷新率和多显示器布局。
 
-The application shows connected monitors as draggable rectangles, allowing intuitive arrangement of display positions. Changes take effect immediately, and configurations can be saved as executable shell scripts for later use or automatic execution at login.
+该应用将已连接的显示器显示为可拖动的矩形，可以直观地排列显示器位置。更改立即生效，配置可保存为可执行的 Shell 脚本，供日后使用或登录时自动执行。
 
-Key features include drag-and-drop monitor positioning with edge snapping, support for rotation, resolution selection, and enabling/disabling outputs. Saved scripts are plain text and can be edited to include additional commands.
+主要功能包括支持边缘吸附的拖放式显示器定位、旋转、分辨率选择以及启用/禁用输出。保存的脚本是纯文本，可以编辑以加入其他命令。
 
-For command-line control of display settings, use **xrandr** directly. ARandR generates xrandr commands internally and is useful for visualizing and experimenting with multi-monitor setups.
+若要通过命令行控制显示设置，请直接使用 **xrandr**。ARandR 在内部生成 xrandr 命令，适合可视化和试验多显示器布局。
 
 # CAVEATS
 
-Requires a running X server with XRandR 1.2 or later support. Does not work with Wayland compositors; use their native display configuration tools instead. Saved configurations only persist if the script is executed at login (via ~/.xprofile, ~/.xinitrc, or session autostart).
+需要运行中的 X server 且支持 XRandR 1.2 或更高版本。不适用于 Wayland 合成器；请改用其原生的显示器配置工具。保存的配置只有在登录时执行脚本才会生效（通过 ~/.xprofile、~/.xinitrc 或会话自启动）。
 
 # HISTORY
 
-**ARandR** was created by **Christian Aichinger** as an alternative to GNOME and KDE display configuration tools for users of lightweight window managers. The project aims to provide a simple, desktop-environment-independent way to configure displays visually while remaining portable and minimal.
+**ARandR** 由 **Christian Aichinger** 开发，作为 GNOME 和 KDE 显示器配置工具的替代品，面向轻量级窗口管理器的用户。该项目旨在提供一种简单、独立于桌面环境的显示器可视化配置方式，同时保持轻便和精简。
 
 # INSTALL
 

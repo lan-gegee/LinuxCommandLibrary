@@ -1,14 +1,14 @@
 # TAGLINE
 
-Bundle aptitude state for bug reports
+打包 aptitude 状态用于错误报告
 
 # TLDR
 
-**Create** state bundle for bug reports
+**创建**用于错误报告的状态包
 
 ```aptitude-create-state-bundle [bundle.tar.bz2]```
 
-Create with **verbose** output
+以**详细输出**模式创建
 
 ```aptitude-create-state-bundle --verbose [bundle.tar.bz2]```
 
@@ -18,31 +18,31 @@ Create with **verbose** output
 
 # DESCRIPTION
 
-**aptitude-create-state-bundle** creates a compressed archive containing aptitude's state information. This bundle is useful for submitting bug reports, as it captures the exact state needed to reproduce issues.
+**aptitude-create-state-bundle** 创建包含 aptitude 状态信息的压缩归档。该状态包对提交错误报告很有用，因为它捕获了重现问题所需的准确状态。
 
-The bundle includes package lists, aptitude settings, and resolver state.
+状态包包含软件包列表、aptitude 设置和依赖解析器状态。
 
 # PARAMETERS
 
 **--force-bzip2**
-> Force bzip2 compression regardless of file extension.
+> 无论文件扩展名如何都强制使用 bzip2 压缩。
 
 **--force-gzip**
-> Force gzip compression even if bzip2 is available.
+> 即使 bzip2 可用也强制使用 gzip 压缩。
 
 **--print-inputs**
-> Display the list of files and directories that would be included without creating the bundle.
+> 显示将要包含的文件和目录列表，但不创建状态包。
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 # CAVEATS
 
-Bundle may contain system-specific information. Used primarily for debugging aptitude issues. Large bundle sizes possible on systems with many packages.
+状态包可能包含系统特定信息。主要用于调试 aptitude 问题。在装有大量软件包的系统上可能产生较大的状态包。
 
 # HISTORY
 
-**aptitude-create-state-bundle** was added to help developers reproduce and debug aptitude dependency resolution issues.
+**aptitude-create-state-bundle** 的加入是为了帮助开发者重现和调试 aptitude 的依赖解析问题。
 
 # INSTALL
 

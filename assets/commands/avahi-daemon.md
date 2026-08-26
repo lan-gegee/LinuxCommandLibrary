@@ -1,30 +1,30 @@
 # TAGLINE
 
-Multicast DNS/DNS-SD service discovery daemon
+多播 DNS/DNS-SD 服务发现守护进程
 
 # TLDR
 
-**Start** the Avahi mDNS/DNS-SD daemon
+**启动** Avahi mDNS/DNS-SD 守护进程
 
 ```avahi-daemon```
 
-**Start** and daemonize (run in background)
+**启动**并守护进程化（后台运行）
 
 ```avahi-daemon --daemonize```
 
-**Check** if the daemon is running
+**检查**守护进程是否正在运行
 
 ```avahi-daemon --check```
 
-**Reload** configuration and service definitions
+**重新加载**配置和服务定义
 
 ```avahi-daemon --reload```
 
-**Kill** a running daemon
+**终止**正在运行的守护进程
 
 ```avahi-daemon --kill```
 
-**Enable debug** output with verbose logging
+**启用调试**输出并记录详细日志
 
 ```avahi-daemon --debug```
 
@@ -35,74 +35,74 @@ Multicast DNS/DNS-SD service discovery daemon
 # PARAMETERS
 
 **-f, --file=**_FILE_
-> Specify configuration file (default: /etc/avahi/avahi-daemon.conf)
+> 指定配置文件（默认：/etc/avahi/avahi-daemon.conf）
 
 **-D, --daemonize**
-> Daemonize after startup; implies --syslog
+> 启动后转为守护进程；隐含 --syslog
 
 **-s, --syslog**
-> Log to syslog instead of STDERR
+> 记录到 syslog 而非 STDERR
 
 **--debug**
-> Increase verbosity to debug level
+> 将日志级别提高到调试级
 
 **--no-rlimits**
-> Don't enforce resource limits from configuration file
+> 不强制执行配置文件中的资源限制
 
 **--no-drop-root**
-> Don't drop root privileges (not recommended for security)
+> 不放弃 root 权限（出于安全考虑不推荐）
 
 **--no-chroot**
-> Disable chroot operation (requires compile-time support)
+> 禁用 chroot 操作（需要编译期支持）
 
 **--no-proc-title**
-> Don't change process name during execution
+> 执行期间不更改进程名
 
 **-k, --kill**
-> Terminate running daemon by sending SIGTERM
+> 通过发送 SIGTERM 终止正在运行的守护进程
 
 **-r, --reload**
-> Reread resolv.conf and service definitions by sending SIGHUP
+> 通过发送 SIGHUP 重新读取 resolv.conf 和服务定义
 
 **-c, --check**
-> Return 0 if daemon is running, non-zero otherwise
+> 守护进程正在运行则返回 0，否则返回非零值
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-v, --version**
-> Show version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**avahi-daemon** implements Apple's Zeroconf architecture (also known as **Rendezvous** or **Bonjour**) on Linux and other Unix-like systems. It registers local IP addresses and static services using **mDNS** (Multicast DNS) and **DNS-SD** (DNS Service Discovery) protocols.
+**avahi-daemon** 在 Linux 及其他类 Unix 系统上实现了 Apple 的 Zeroconf 架构（也称 **Rendezvous** 或 **Bonjour**）。它使用 **mDNS**（多播 DNS）和 **DNS-SD**（DNS 服务发现）协议注册本地 IP 地址和静态服务。
 
-The daemon provides **service discovery** functionality, allowing applications and devices on a local network to automatically discover each other without requiring manual configuration or a central DNS server. It publishes services and responds to service discovery queries from other hosts.
+该守护进程提供**服务发现**功能，让本地网络中的应用程序和设备无需手动配置或中央 DNS 服务器即可自动相互发现。它发布服务并响应来自其他主机的服务发现查询。
 
-At startup, **avahi-daemon** reads its configuration from **/etc/avahi/avahi-daemon.conf** and loads XML service definitions from **/etc/avahi/services/\*.service**. When enabled, it also processes **/etc/resolv.conf** for unicast DNS server information.
+启动时，**avahi-daemon** 从 **/etc/avahi/avahi-daemon.conf** 读取配置，并从 **/etc/avahi/services/\*.service** 加载 XML 服务定义。启用相应功能后，它还会处理 **/etc/resolv.conf** 以获取单播 DNS 服务器信息。
 
-The daemon provides two IPC APIs: a simple protocol used by **avahi-dnsconfd** and **nss-mdns**, plus a comprehensive **D-Bus** interface for application integration.
+该守护进程提供两个 IPC API：一个是由 **avahi-dnsconfd** 和 **nss-mdns** 使用的简单协议，另一个是用于应用集成的完整 **D-Bus** 接口。
 
-**Signal handling**: **SIGINT** and **SIGTERM** trigger shutdown, **SIGHUP** reloads DNS server data and service definitions, and **SIGUSR1** dumps cached resource records to syslog for debugging.
+**信号处理**：**SIGINT** 和 **SIGTERM** 触发关闭，**SIGHUP** 重新加载 DNS 服务器数据和服务定义，**SIGUSR1** 将缓存的资源记录转储到 syslog 以便调试。
 
 # CONFIGURATION
 
 **/etc/avahi/avahi-daemon.conf**
-> Main daemon configuration file controlling server settings, network interfaces, publishing options, and resource limits.
+> 守护进程的主配置文件，控制服务器设置、网络接口、发布选项和资源限制。
 
 **/etc/avahi/hosts**
-> Static hostname-to-address mappings published via mDNS.
+> 通过 mDNS 发布的主机名到地址的静态映射。
 
 **/etc/avahi/services/*.service**
-> XML service definition files for persistent static service registration.
+> XML 服务定义文件，用于持久化的静态服务注册。
 
 # CAVEATS
 
-Requires network multicast support to function properly. IPv4 link-local addresses (169.254.0.0/16) and multicast addresses must be accessible. Some restrictive firewalls may block mDNS traffic on UDP port 5353.
+需要网络多播支持才能正常工作。必须能够访问 IPv4 链路本地地址（169.254.0.0/16）和多播地址。某些严格的防火墙可能阻止 UDP 端口 5353 上的 mDNS 流量。
 
 # HISTORY
 
-**Avahi** was developed as a free software implementation of Apple's **Bonjour** (originally Rendezvous) protocol suite. The project began in **2004** and has become the de facto standard mDNS/DNS-SD implementation on Linux systems, integrated into major distributions.
+**Avahi** 作为 Apple 的 **Bonjour**（最初名为 Rendezvous）协议族的自由软件实现而开发。项目始于 **2004 年**，现已成为 Linux 系统上事实标准的 mDNS/DNS-SD 实现，并被各大发行版集成。
 
 # INSTALL
 

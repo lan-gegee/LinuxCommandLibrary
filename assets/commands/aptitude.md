@@ -1,46 +1,46 @@
 # TAGLINE
 
-Advanced package management with dependency resolution
+支持依赖解析的高级软件包管理工具
 
 # TLDR
 
-**Synchronize** list of packages and versions
+**同步**软件包及其版本列表
 
 ```sudo aptitude update```
 
-**Install** a new package
+**安装**新软件包
 
 ```sudo aptitude install [package]```
 
-**Search** for a package
+**搜索**软件包
 
 ```aptitude search [package]```
 
-Search for an **installed** package
+搜索**已安装**的软件包
 
 ```aptitude search '?installed([package])'```
 
-**Remove** a package and all packages depending on it
+**删除**软件包及所有依赖它的软件包
 
 ```sudo aptitude remove [package]```
 
-**Upgrade** installed packages
+**升级**已安装的软件包
 
 ```sudo aptitude upgrade```
 
-**Full upgrade** including removing obsolete packages
+**完整升级**，包括删除过时的软件包
 
 ```sudo aptitude full-upgrade```
 
-**Simulate** an install without making changes
+**模拟**安装而不做任何更改
 
 ```sudo aptitude install -s [package]```
 
-**Show why** a package is installed
+**查看**软件包为何被安装
 
 ```aptitude why [package]```
 
-**Hold** a package to prevent automatic upgrades
+**锁定**软件包以阻止自动升级
 
 ```sudo aptitude hold '?installed([package])'```
 
@@ -50,118 +50,118 @@ Search for an **installed** package
 
 # DESCRIPTION
 
-**aptitude** is a powerful package management utility for Debian and Ubuntu systems. It provides both a command-line interface and an interactive ncurses-based interface with advanced dependency resolution and search capabilities.
+**aptitude** 是 Debian 和 Ubuntu 系统上功能强大的软件包管理工具。它同时提供命令行界面和基于 ncurses 的交互式界面，具有高级依赖解析和搜索能力。
 
 # PARAMETERS
 
 **update**
-> Synchronize package index files from sources
+> 从软件源同步软件包索引文件
 
 **install package**
-> Install or upgrade specified packages
+> 安装或升级指定软件包
 
 **remove package**
-> Remove packages and dependent packages
+> 删除软件包及其依赖它的软件包
 
 **purge package**
-> Remove packages, configurations, and dependent packages
+> 删除软件包、配置文件及依赖它的软件包
 
 **upgrade**
-> Upgrade installed packages to newest versions
+> 将已安装的软件包升级到最新版本
 
 **full-upgrade**
-> Upgrade packages, removing obsolete ones as needed
+> 升级软件包，必要时删除过时的软件包
 
 **search pattern**
-> Search for packages matching pattern
+> 搜索匹配模式的软件包
 
 **show package**
-> Display detailed package information
+> 显示软件包详细信息
 
 **hold package**
-> Prevent package from being upgraded
+> 阻止软件包被升级
 
 **unhold package**
-> Allow package to be upgraded
+> 允许软件包被升级
 
 **safe-upgrade**
-> Upgrade packages conservatively
+> 以保守方式升级软件包
 
 **clean**
-> Remove downloaded package files
+> 删除已下载的软件包文件
 
 **autoclean**
-> Remove old downloaded package files
+> 删除旧的已下载软件包文件
 
 **why package**
-> Explain why a package is installed or required
+> 解释某软件包为何被安装或需要
 
 **why-not package**
-> Explain why a package cannot be installed
+> 解释某软件包为何无法安装
 
 **download package**
-> Download .deb file without installing
+> 下载 .deb 文件但不安装
 
 **reinstall package**
-> Reinstall an already-installed package
+> 重新安装已安装的软件包
 
 **versions package**
-> List available versions of a package
+> 列出软件包的可用版本
 
 **forbid-version package**
-> Prevent upgrade to a specific package version
+> 阻止升级到特定软件包版本
 
 **markauto package**
-> Mark package as automatically installed
+> 将软件包标记为自动安装
 
 **unmarkauto package**
-> Mark package as manually installed
+> 将软件包标记为手动安装
 
 **-s**, **--simulate**
-> Preview changes without applying them
+> 预览更改而不实际应用
 
 **-y**, **--assume-yes**
-> Skip confirmation prompts
+> 跳过确认提示
 
 **-D**, **--show-deps**
-> Show explanations for automatic installations and removals
+> 显示自动安装和删除的原因说明
 
 **-V**, **--show-versions**
-> Display package version details in listings
+> 在列表中显示软件包版本详情
 
 **-P**, **--prompt**
-> Always display a confirmation prompt before changes
+> 在更改前总是显示确认提示
 
 **-R**, **--without-recommends**
-> Do not treat recommended packages as dependencies
+> 不将推荐软件包视为依赖
 
 **-t** _release_
-> Set the target release for package installation
+> 设置安装软件包的目标发行版
 
 **-q**, **--quiet**
-> Suppress progress indicators
+> 抑制进度指示器
 
 **changelog** _package_
-> Download and display the changelog for a package
+> 下载并显示软件包的更新日志
 
 # CONFIGURATION
 
 **~/.aptitude/config**
-> User-specific aptitude configuration.
+> 用户专属的 aptitude 配置。
 
 **/etc/apt/apt.conf**
-> APT configuration shared with apt and apt-get.
+> 与 apt 和 apt-get 共享的 APT 配置。
 
 **/etc/apt/apt.conf.d/**
-> Directory for additional APT configuration fragments.
+> 存放额外 APT 配置片段的目录。
 
 # CAVEATS
 
-Aptitude uses its own search syntax with special terms like **?installed**, **?automatic**, etc. Different from apt-cache search syntax.
+Aptitude 使用自己的搜索语法，包含 **?installed**、**?automatic** 等特殊术语，与 apt-cache 的搜索语法不同。
 
 # HISTORY
 
-Created as an alternative to apt-get with more advanced features. First released for Debian in **2001** by Daniel Burrows.
+作为 apt-get 的替代品而开发，功能更高级。由 Daniel Burrows 于 **2001** 年首次为 Debian 发布。
 
 # INSTALL
 

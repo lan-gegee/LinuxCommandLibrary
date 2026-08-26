@@ -1,14 +1,14 @@
 # TAGLINE
 
-list connected Android devices
+列出已连接的 Android 设备
 
 # TLDR
 
-**List** all connected devices
+**列出**所有已连接的设备
 
 ```adb devices```
 
-List devices with **extended info**
+以**扩展信息**列出设备
 
 ```adb devices -l```
 
@@ -18,14 +18,14 @@ List devices with **extended info**
 
 # DESCRIPTION
 
-**adb devices** lists all Android devices currently connected to the computer, whether via USB or wireless connection. The output shows device serial numbers and their connection states.
+**adb devices** 列出当前连接到电脑的所有 Android 设备，无论是通过 USB 还是无线连接。输出显示设备的序列号及其连接状态。
 
-Device states include: **device** (connected and ready), **offline** (not responding), **unauthorized** (USB debugging not authorized), **no permissions** (Linux udev rules issue), and **bootloader** (in fastboot mode).
+设备状态包括：**device**（已连接且就绪）、**offline**（无响应）、**unauthorized**（USB 调试未授权）、**no permissions**（Linux udev 规则问题）和 **bootloader**（处于 fastboot 模式）。
 
 # PARAMETERS
 
 **-l**
-> Long output format showing additional device information (product, model, device, transport_id)
+> 长格式输出，显示额外的设备信息（product、model、device、transport_id）
 
 # OUTPUT FORMAT
 
@@ -34,18 +34,18 @@ List of devices attached
 [serial]    [state]
 ```
 
-With -l flag:
+使用 -l 标志时：
 ```
 [serial]    [state] product:[name] model:[name] device:[name] transport_id:[id]
 ```
 
 # CAVEATS
 
-Devices showing "unauthorized" require you to accept the RSA key prompt on the device. "No permissions" errors on Linux usually require udev rules for your device. Emulators appear as emulator-5554 or similar.
+显示 "unauthorized" 的设备需要你在设备上确认 RSA 密钥提示。Linux 上的 "no permissions" 错误通常需要为你的设备添加 udev 规则。模拟器显示为 emulator-5554 或类似名称。
 
 # HISTORY
 
-The **adb devices** command has been part of adb since its initial release with the Android SDK in **2008**. The -l flag for extended information was added later to help distinguish between multiple devices of the same model.
+**adb devices** 命令自 **2008** 年 Android SDK 首次发布起就是 adb 的一部分。用于扩展信息的 -l 标志是后来加入的，帮助区分多台同型号设备。
 
 # INSTALL
 

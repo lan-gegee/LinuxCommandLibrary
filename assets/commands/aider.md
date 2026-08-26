@@ -1,26 +1,26 @@
 # TAGLINE
 
-AI pair programming in the terminal
+终端里的 AI 结对编程
 
 # TLDR
 
-**Start** aider with files
+**启动** aider 并加载文件
 
 ```aider [file1.py] [file2.py]```
 
-Use **specific model**
+使用**指定模型**
 
 ```aider --model [gpt-4] [file.py]```
 
-Start in **architect mode**
+以**架构师模式**启动
 
 ```aider --architect [file.py]```
 
-Enable **auto commits**
+启用**自动提交**
 
 ```aider --auto-commits [file.py]```
 
-Use **local Ollama** model
+使用**本地 Ollama** 模型
 
 ```aider --model ollama/[llama2] [file.py]```
 
@@ -30,60 +30,60 @@ Use **local Ollama** model
 
 # DESCRIPTION
 
-**aider** is an AI pair programming assistant that works in your terminal. It lets you have conversations with AI models (GPT-4, Claude, Ollama models, etc.) about your code, and the AI can directly edit your source files.
+**aider** 是一个在你的终端中工作的 AI 结对编程助手。它可以让你就代码与 AI 模型（GPT-4、Claude、Ollama 模型等）对话，AI 能够直接编辑你的源文件。
 
-The tool integrates with git, can automatically commit changes, and understands your entire codebase context. You can add files to the conversation, ask questions, request changes, and watch the AI implement them.
+该工具与 git 集成，可自动提交更改，并能理解你整个代码库的上下文。你可以将文件加入对话、提出问题、请求修改，然后看着 AI 实现这些修改。
 
 # PARAMETERS
 
 **--model** _name_
-> AI model to use (gpt-4, gpt-3.5-turbo, claude-3-opus, etc.)
+> 要使用的 AI 模型（gpt-4、gpt-3.5-turbo、claude-3-opus 等）
 
 **--architect**
-> Use architect mode: an architect model proposes changes, then a separate editor model implements the file edits
+> 使用架构师模式：由架构师模型提出修改方案，再由单独的编辑器模型实施文件编辑
 
 **--edit-format** _format_
-> Edit format: diff, whole, diff-fenced
+> 编辑格式：diff、whole、diff-fenced
 
 **--auto-commits**
-> Automatically commit AI changes (enabled by default)
+> 自动提交 AI 的更改（默认启用）
 
 **--no-auto-commits**
-> Disable automatic commits
+> 禁用自动提交
 
 **--dark-mode**
-> Use colors for dark terminal background
+> 使用适合深色终端背景的颜色
 
 **--light-mode**
-> Use colors for light terminal background
+> 使用适合浅色终端背景的颜色
 
 **--map-tokens** _n_
-> Max tokens for repository map
+> 仓库映射的最大 token 数
 
 **--no-git**
-> Disable git integration
+> 禁用 git 集成
 
 **--yes**
-> Automatically confirm all prompts
+> 自动确认所有提示
 
 **--message** _text_
-> Send a message and exit
+> 发送一条消息后退出
 
 # CONFIGURATION
 
 **.aider.conf.yml**
-> Per-project configuration file for default options, model selection, and behavior settings.
+> 每个项目的配置文件，用于默认选项、模型选择和行为设置。
 
 **.aiderignore**
-> Files and directories to exclude from the repository map, using .gitignore syntax.
+> 从仓库映射中排除的文件和目录，使用 .gitignore 语法。
 
 # CAVEATS
 
-Requires API keys for cloud models (OPENAI_API_KEY, ANTHROPIC_API_KEY, etc.). Token usage can be significant for large codebases. Review AI-generated changes before accepting them.
+云模型需要 API 密钥（OPENAI_API_KEY、ANTHROPIC_API_KEY 等）。对于大型代码库，token 用量可能相当可观。接受 AI 生成的更改前请先审查。
 
 # HISTORY
 
-**aider** was created by Paul Gauthier and released in **2023**. It was designed to leverage large language models for practical code editing, evolving rapidly with new AI model releases.
+**aider** 由 Paul Gauthier 创建并于 **2023** 年发布。它的设计目标是利用大语言模型进行实用的代码编辑，并随着新 AI 模型的发布快速演进。
 
 # INSTALL
 

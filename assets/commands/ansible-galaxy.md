@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Ansible roles and collections from Galaxy
+从 Galaxy 管理 Ansible role 和 collection
 
 # TLDR
 
-**Install** a role from Galaxy
+从 Galaxy **安装**一个 role
 
 ```ansible-galaxy install [username.role_name]```
 
-Install **collection** from Galaxy
+从 Galaxy 安装 **collection**
 
 ```ansible-galaxy collection install [community.docker]```
 
-Install from **requirements file**
+从 **requirements 文件**安装
 
 ```ansible-galaxy install -r [requirements.yml]```
 
-**List** installed roles
+**列出**已安装的 role
 
 ```ansible-galaxy list```
 
-**Initialize** a new role
+**初始化**新 role
 
 ```ansible-galaxy init [role_name]```
 
-**Search** for roles
+**搜索** role
 
 ```ansible-galaxy search [nginx]```
 
@@ -34,69 +34,69 @@ Install from **requirements file**
 
 # DESCRIPTION
 
-**ansible-galaxy** manages Ansible roles and collections from Ansible Galaxy and other sources. Galaxy is a public repository of community-contributed content, providing reusable automation components.
+**ansible-galaxy** 管理来自 Ansible Galaxy 及其他来源的 Ansible role 和 collection。Galaxy 是社区贡献内容的公共仓库，提供可复用的自动化组件。
 
-The tool can install, create, and manage roles (traditional content) and collections (bundled content including modules, plugins, and roles). Subcommands are grouped by content type as **ansible-galaxy role** _command_ and **ansible-galaxy collection** _command_; if the type is omitted, role is assumed (for example, "ansible-galaxy install" is equivalent to "ansible-galaxy role install").
+该工具可以安装、创建和管理 role（传统内容）以及 collection（打包内容，包括模块、插件和 role）。子命令按内容类型分组为 **ansible-galaxy role** _command_ 和 **ansible-galaxy collection** _command_；如果省略类型，则默认为 role（例如 "ansible-galaxy install" 等价于 "ansible-galaxy role install"）。
 
 # PARAMETERS
 
 **install** _name_
-> Install a role (or use "collection install" for a collection)
+> 安装一个 role（安装 collection 则使用 "collection install"）
 
 **init** _name_
-> Create a new role or collection scaffold
+> 创建新的 role 或 collection 脚手架
 
 **list**
-> List installed roles or collections
+> 列出已安装的 role 或 collection
 
 **search** _query_
-> Search Galaxy for roles
+> 在 Galaxy 中搜索 role
 
 **info** _name_
-> Show detailed information about a role or collection
+> 显示某个 role 或 collection 的详细信息
 
 **remove** _name_
-> Remove an installed role or collection
+> 移除已安装的 role 或 collection
 
 **build**
-> Build a collection artifact (collection only)
+> 构建 collection 归档产物（仅限 collection）
 
 **publish** _tarball_
-> Publish a collection to a Galaxy server (collection only)
+> 将 collection 发布到 Galaxy 服务器（仅限 collection）
 
 **-r** _file_, **--role-file** _file_, **--requirements-file** _file_
-> Install items listed in a YAML requirements file
+> 按 YAML requirements 文件中的清单安装
 
 **-p** _path_, **--roles-path** _path_
-> Installation path for roles (--collections-path for collections)
+> role 的安装路径（collection 使用 --collections-path）
 
 **--force**
-> Force overwrite of an existing role or collection
+> 强制覆盖已存在的 role 或 collection
 
 **-s** _server_, **--server** _server_
-> Galaxy API server URL
+> Galaxy API 服务器 URL
 
 **--offline**
-> Work offline (init/install/verify, using installed content only)
+> 离线工作（init/install/verify，仅使用已安装的内容）
 
 # CONFIGURATION
 
 **/etc/ansible/ansible.cfg**
-> System-wide Ansible configuration, including Galaxy server URL and roles path.
+> 系统级 Ansible 配置，包括 Galaxy 服务器 URL 和 role 路径。
 
 **~/.ansible.cfg**
-> Per-user Ansible configuration overriding system defaults.
+> 每用户 Ansible 配置，覆盖系统默认值。
 
 **ansible.cfg**
-> Project-level configuration in the current directory, highest priority.
+> 当前目录中的项目级配置，优先级最高。
 
 # CAVEATS
 
-Galaxy content is community-maintained; review before use in production. Collection names are namespaced (namespace.collection). Roles and collections have different installation paths.
+Galaxy 内容由社区维护；在生产环境使用前请先行审查。collection 名称带命名空间（namespace.collection）。role 和 collection 的安装路径不同。
 
 # HISTORY
 
-**ansible-galaxy** was introduced with Ansible Galaxy in **2013** to share and distribute roles. Collections support was added in Ansible 2.9 (**2019**) as a new content distribution format.
+**ansible-galaxy** 随 Ansible Galaxy 于 **2013** 年推出，用于分享和分发 role。collection 支持于 Ansible 2.9（**2019** 年）加入，成为一种新的内容分发格式。
 
 # INSTALL
 

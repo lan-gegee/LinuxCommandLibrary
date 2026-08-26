@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display documentation for Ansible modules and plugins
+显示 Ansible 模块和插件的文档
 
 # TLDR
 
-**Show** documentation for a module
+**查看**某个模块的文档
 
 ```ansible-doc [apt]```
 
-**List** all available modules
+**列出**所有可用模块
 
 ```ansible-doc -l```
 
-List modules matching **pattern**
+列出匹配**模式**的模块
 
 ```ansible-doc -l | grep [docker]```
 
-Show **snippet** for module usage
+显示模块用法的**代码片段**
 
 ```ansible-doc -s [yum]```
 
-Show documentation for **collection** module
+显示 **collection** 模块的文档
 
 ```ansible-doc [community.docker.docker_container]```
 
-List **plugins** of a type
+列出某类**插件**
 
 ```ansible-doc -t [callback] -l```
 
@@ -34,48 +34,48 @@ List **plugins** of a type
 
 # DESCRIPTION
 
-**ansible-doc** displays documentation for Ansible modules, plugins, and collections. It shows module parameters, return values, examples, and notes, serving as a quick reference without needing to access online documentation.
+**ansible-doc** 显示 Ansible 模块、插件和 collection 的文档。它会展示模块参数、返回值、示例和注意事项，可作为快速参考，无需访问在线文档。
 
-The tool can list all available modules and filter by plugin type, making it useful for discovering available automation options.
+该工具可以列出所有可用模块并按插件类型过滤，有助于发现可用的自动化选项。
 
 # PARAMETERS
 
 **-l** [_filter_], **--list** [_filter_]
-> List available plugins; optional filter can be a namespace or collection name
+> 列出可用插件；可选过滤器可以是命名空间或 collection 名称
 
 **-s**, **--snippet**
-> Show a playbook snippet (for inventory, lookup, and module plugin types)
+> 显示 playbook 片段（适用于 inventory、lookup 和 module 插件类型）
 
 **-t** _type_, **--type** _type_
-> Plugin type to look up (default: module). Choices include module, become, cache, callback, cliconf, connection, httpapi, inventory, lookup, netconf, shell, vars, strategy, test, filter, role, keyword
+> 要查询的插件类型（默认：module）。可选值包括 module、become、cache、callback、cliconf、connection、httpapi、inventory、lookup、netconf、shell、vars、strategy、test、filter、role、keyword
 
 **-F**, **--list_files**
-> Show plugin names and their source files (implies --list)
+> 显示插件名称及其源文件（隐含 --list）
 
 **-e** _entry_point_, **--entry-point** _entry_point_
-> Select the entry point for a role (with -t role)
+> 选择 role 的入口点（配合 -t role 使用）
 
 **-j**, **--json**
-> Change output into JSON format
+> 将输出改为 JSON 格式
 
 **-M** _path_, **--module-path** _path_
-> Prepend colon-separated path(s) to the module library
+> 将冒号分隔的路径添加到模块库搜索路径之前
 
 # CONFIGURATION
 
 **ansible.cfg**
-> Main Ansible configuration file, searched in current directory, ~/.ansible.cfg, or /etc/ansible/ansible.cfg.
+> Ansible 主配置文件，按当前目录、~/.ansible.cfg、/etc/ansible/ansible.cfg 的顺序查找。
 
 **ANSIBLE_CONFIG**
-> Environment variable to specify an alternate configuration file path.
+> 用于指定替代配置文件路径的环境变量。
 
 # CAVEATS
 
-Documentation quality varies between core and community modules. Some modules may have outdated documentation. Collection modules use fully qualified names.
+核心模块与社区模块的文档质量参差不齐。某些模块的文档可能已过时。collection 模块使用完全限定名称。
 
 # HISTORY
 
-**ansible-doc** has been part of Ansible since early versions, providing offline access to module documentation. Collections support was added with Ansible 2.9 in **2019**.
+自早期版本起，**ansible-doc** 就是 Ansible 的一部分，提供对模块文档的离线访问。collection 支持随 Ansible 2.9 于 **2019** 年加入。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Register valid login shells
+注册有效的登录 Shell
 
 # TLDR
 
-**Add** a shell to /etc/shells
+将 Shell **添加**到 /etc/shells
 
 ```sudo add-shell [/usr/local/bin/zsh]```
 
-Add **multiple** shells
+添加**多个**Shell
 
 ```sudo add-shell [/bin/fish] [/bin/zsh]```
 
@@ -18,22 +18,22 @@ Add **multiple** shells
 
 # DESCRIPTION
 
-**add-shell** is a Debian utility that safely adds new shell paths to /etc/shells. The /etc/shells file lists valid login shells that users can select with **chsh**.
+**add-shell** 是 Debian 的实用工具，用于安全地向 /etc/shells 添加新的 Shell 路径。/etc/shells 文件列出用户可通过 **chsh** 选择的有效登录 Shell。
 
-It copies /etc/shells to /etc/shells.tmp, appends any given shells that are not already present, then copies the temporary file back over /etc/shells. Skipping already-present entries makes it safe to call repeatedly from package maintainer scripts. Its counterpart **remove-shell** deletes entries.
+它会先把 /etc/shells 复制为 /etc/shells.tmp，追加其中尚未存在的给定 Shell，再把临时文件复制回 /etc/shells。由于会跳过已存在的条目，因此可在软件包维护者脚本中放心地重复调用。与之对应的 **remove-shell** 则用于删除条目。
 
 # PARAMETERS
 
 **shell**
-> Absolute path to the shell executable to add
+> 要添加的 Shell 可执行文件的绝对路径
 
 # CAVEATS
 
-Requires root privileges. The shell executable must exist and be valid. Not available on all distributions; on systems without this command, manually edit /etc/shells.
+需要 root 权限。Shell 可执行文件必须存在且有效。并非所有发行版都提供此命令；在没有该命令的系统上，请手动编辑 /etc/shells。
 
 # HISTORY
 
-**add-shell** is part of the Debian packaging utilities, created to provide safe manipulation of /etc/shells during package installation scripts.
+**add-shell** 是 Debian 打包实用工具的一部分，其诞生是为了在软件包安装脚本中对 /etc/shells 进行安全的操作。
 
 # INSTALL
 

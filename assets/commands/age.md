@@ -1,30 +1,30 @@
 # TAGLINE
 
-Simple and modern file encryption
+简单而现代的文件加密
 
 # TLDR
 
-**Encrypt** a file with a passphrase
+使用口令**加密**文件
 
 ```age -p [file.txt] > [file.txt.age]```
 
-**Decrypt** a file with passphrase
+使用口令**解密**文件
 
 ```age -d [file.txt.age] > [file.txt]```
 
-Encrypt with **recipient's public key**
+使用**接收者公钥**加密
 
 ```age -r [age1publickey...] [file.txt] > [file.txt.age]```
 
-Encrypt with **multiple recipients**
+使用**多个接收者**加密
 
 ```age -r [key1] -r [key2] [file.txt] > [file.txt.age]```
 
-Encrypt using **SSH public key**
+使用 **SSH 公钥**加密
 
 ```age -R [~/.ssh/id_ed25519.pub] [file.txt] > [file.txt.age]```
 
-Decrypt with **identity file**
+使用**身份文件**解密
 
 ```age -d -i [key.txt] [file.txt.age] > [file.txt]```
 
@@ -34,43 +34,43 @@ Decrypt with **identity file**
 
 # DESCRIPTION
 
-**age** is a simple, modern file encryption tool with small explicit keys, no config options, and composable with Unix pipes. It's designed as a replacement for GPG with a cleaner interface and fewer footguns.
+**age** 是一款简单、现代的文件加密工具：密钥短小明确，没有任何配置选项，并且能与 Unix 管道自由组合。它被设计为 GPG 的替代品，界面更干净，也不容易踩坑。
 
-age supports encryption to one or more recipients, passphrase encryption, and can use SSH keys for recipient-based encryption. The format is designed to be simple and auditable.
+age 支持面向一个或多个接收者加密、口令加密，还可以使用 SSH 密钥做基于接收者的加密。整个格式的设计目标是简单且易于审计。
 
 # PARAMETERS
 
 **-e**, **--encrypt**
-> Encrypt input (default operation)
+> 加密输入（默认操作）
 
 **-d**, **--decrypt**
-> Decrypt input
+> 解密输入
 
 **-p**, **--passphrase**
-> Encrypt with passphrase
+> 使用口令加密
 
 **-r**, **--recipient** _recipient_
-> Encrypt to recipient public key (repeatable).
+> 加密给指定接收者的公钥（可重复）。
 
 **-R**, **--recipients-file** _file_
-> Read recipients from file, one per line (repeatable).
+> 从文件读取接收者列表，每行一个（可重复）。
 
 **-i**, **--identity** _identity_
-> Identity (private key) file for decryption (repeatable). May also be used with **-e** for SSH or encrypted identities.
+> 解密用的身份（私钥）文件（可重复）。与 **-e** 搭配时也可用于 SSH 身份或已加密的身份。
 
 **-o** _file_
-> Output file (default: stdout)
+> 输出文件（默认：标准输出）
 
 **-a**, **--armor**
-> Use ASCII armored format
+> 使用 ASCII armor 封装格式
 
 # CAVEATS
 
-age does not sign files; use age + signify or minisign for authenticated encryption. Keys are not interchangeable with GPG keys. No built-in key management; keys are just files.
+age 不提供文件签名；需要认证加密时，请将 age 与 signify 或 minisign 搭配使用。其密钥与 GPG 密钥不能互换。没有内置的密钥管理；密钥只是普通文件。
 
 # HISTORY
 
-**age** was designed by Ben Cartwright-Cox and Filippo Valsorda and first released in **2019**. It was created to address the complexity and usability issues of GPG while providing a secure, simple encryption tool suitable for modern use cases.
+**age** 由 Ben Cartwright-Cox 和 Filippo Valsorda 设计，并于 **2019** 年首次发布。它的诞生是为了解决 GPG 的复杂性与易用性问题，同时提供一个安全、简洁、契合现代使用场景的加密工具。
 
 # INSTALL
 

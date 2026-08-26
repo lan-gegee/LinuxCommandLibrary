@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage tables and items in Amazon DynamoDB.
+管理 Amazon DynamoDB 中的表和项目。
 
 # TLDR
 
-**Create a table** with a partition key
+**创建带分区键的表**
 
 ```aws dynamodb create-table --table-name [my-table] --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --billing-mode PAY_PER_REQUEST```
 
-**Put an item** into a table
+**向表中写入项目**
 
 ```aws dynamodb put-item --table-name [my-table] --item '{"id": {"S": "[item-id]"}, "name": {"S": "[value]"}}'```
 
-**Get an item** by primary key
+**按主键获取项目**
 
 ```aws dynamodb get-item --table-name [my-table] --key '{"id": {"S": "[item-id]"}}'```
 
-**Query items** by partition key
+**按分区键查询项目**
 
 ```aws dynamodb query --table-name [my-table] --key-condition-expression "id = :id" --expression-attribute-values '{":id": {"S": "[item-id]"}}'```
 
-**Scan all items** in a table
+**扫描表中的所有项目**
 
 ```aws dynamodb scan --table-name [my-table]```
 
-**Update an item** attribute
+**更新项目的属性**
 
 ```aws dynamodb update-item --table-name [my-table] --key '{"id": {"S": "[item-id]"}}' --update-expression "SET #n = :val" --expression-attribute-names '{"#n": "name"}' --expression-attribute-values '{":val": {"S": "[new-value]"}}'```
 
-**Delete an item** by key
+**按键删除项目**
 
 ```aws dynamodb delete-item --table-name [my-table] --key '{"id": {"S": "[item-id]"}}'```
 
@@ -38,58 +38,58 @@ Manage tables and items in Amazon DynamoDB.
 
 # DESCRIPTION
 
-**aws dynamodb** is the AWS CLI interface for Amazon DynamoDB, a fully managed NoSQL key-value and document database. DynamoDB provides single-digit millisecond performance at any scale with built-in security, backup, and in-memory caching.
+**aws dynamodb** 是 Amazon DynamoDB 的 AWS CLI 接口。DynamoDB 是一项全托管的 NoSQL 键值和文档数据库，可在任意规模下提供个位数毫秒级性能，并内置安全性、备份和内存缓存功能。
 
-Tables store items identified by primary keys (partition key, or partition + sort key). DynamoDB supports on-demand and provisioned capacity modes, global tables for multi-region replication, and transactions for ACID operations.
+表通过主键（分区键，或分区键 + 排序键）标识其中的项目。DynamoDB 支持按需容量模式和预置容量模式、用于多区域复制的全局表，以及满足 ACID 要求的事务操作。
 
 # COMMANDS
 
 **create-table**
-> Create a new DynamoDB table
+> 创建新的 DynamoDB 表
 
 **delete-table**
-> Delete a table
+> 删除表
 
 **describe-table**
-> Get table metadata and status
+> 获取表的元数据和状态
 
 **put-item**
-> Insert or replace an item
+> 插入或替换项目
 
 **get-item**
-> Retrieve an item by primary key
+> 按主键检索项目
 
 **update-item**
-> Modify item attributes
+> 修改项目属性
 
 **delete-item**
-> Remove an item by primary key
+> 按主键删除项目
 
 **query**
-> Retrieve items by partition key with optional filtering
+> 按分区键检索项目，可选择附加过滤条件
 
 **scan**
-> Read all items in a table
+> 读取表中的所有项目
 
 **batch-write-item**
-> Write or delete multiple items across tables (up to 25 per request)
+> 跨表写入或删除多个项目（每次请求最多 25 个）
 
 **batch-get-item**
-> Retrieve multiple items by key across tables (up to 100 per request)
+> 跨表按键检索多个项目（每次请求最多 100 个）
 
 **transact-write-items**
-> Execute multiple writes atomically
+> 以原子方式执行多个写入操作
 
 **list-tables**
-> List table names in the current region
+> 列出当前区域的表名
 
 # CAVEATS
 
-Item size is limited to 400KB. Scan operations read the entire table and can be expensive on large tables. Query is preferred over scan for performance. Provisioned capacity can lead to throttling if exceeded. Eventually consistent reads are the default; strongly consistent reads cost more.
+项目大小上限为 400 KB。Scan 操作会读取整张表，在大表上开销可能很高。出于性能考虑，应优先使用 Query 而非 Scan。预置容量超限会导致限流。默认为最终一致读取；强一致读取的成本更高。
 
 # HISTORY
 
-Amazon DynamoDB launched in **January 2012** as a successor to SimpleDB. Global Tables for multi-region replication came in **2017**, on-demand capacity mode in **2018**, and PartiQL query language support in **2020**. It remains one of AWS's most widely used database services.
+Amazon DynamoDB 于 **2012 年 1 月** 作为 SimpleDB 的后继者推出。用于多区域复制的全局表于 **2017 年** 推出，按需容量模式于 **2018 年** 推出，PartiQL 查询语言支持于 **2020 年** 加入。它至今仍是 AWS 使用最广泛的数据库服务之一。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate AppArmor profiles by monitoring program behavior
+通过监控程序行为生成 AppArmor 配置文件
 
 # TLDR
 
-Start generating a **profile** for a program
+开始为程序生成**配置文件**
 
 ```sudo aa-genprof [/path/to/program]```
 
-Specify a **custom directory** for profiles
+为配置文件指定**自定义目录**
 
 ```sudo aa-genprof -d [/path/to/profiles] [/path/to/program]```
 
-Specify a **custom logfile** for profiling
+为分析指定**自定义日志文件**
 
 ```sudo aa-genprof -f [/path/to/logfile] [/path/to/program]```
 
@@ -22,33 +22,33 @@ Specify a **custom logfile** for profiling
 
 # DESCRIPTION
 
-**aa-genprof** is a profile generation utility for AppArmor that automates the creation of security profiles by monitoring program behavior. If no profile exists, it creates one using **aa-autodep**. It then sets the profile to complain mode, writes a mark to the system log, and instructs the user to exercise the application in another window.
+**aa-genprof** 是 AppArmor 的配置文件生成工具，它通过监控程序行为自动创建安全配置文件。如果尚无配置文件，它会先用 **aa-autodep** 创建一个。随后它将该配置文件设为投诉模式，向系统日志写入一个标记，并提示用户在另一个窗口中操作该应用程序。
 
-When the user selects **(S)can**, aa-genprof parses complain mode logs and iterates through violations using **aa-logprof**. When **(F)inish** is selected, all generated profiles are set to enforce mode.
+当用户选择 **(S)can** 时，aa-genprof 解析投诉模式日志，并借助 **aa-logprof** 逐条处理违规记录。当用户选择 **(F)inish** 时，所有生成的配置文件都会被设为强制模式。
 
 # PARAMETERS
 
 **-d, --dir** _/path/to/profiles_
-> Specifies where to look for the AppArmor security profile set; defaults to /etc/apparmor.d
+> 指定查找 AppArmor 安全配置文件集的位置；默认为 /etc/apparmor.d
 
 **-f, --file** _/path/to/logfile_
-> Specifies the location of the logfile; default locations are read from /etc/apparmor/logprof.conf
+> 指定日志文件位置；默认位置从 /etc/apparmor/logprof.conf 读取
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CONFIGURATION
 
 **/etc/apparmor/logprof.conf**
-> Controls default logfile location, repository settings, and other options used during profile generation.
+> 控制默认日志文件位置、软件仓库设置以及配置文件生成过程中使用的其他选项。
 
 # CAVEATS
 
-Profile generation requires running the target application through all its normal operations to capture the necessary access patterns. Incomplete testing may result in profiles that block legitimate functionality. Requires root privileges.
+生成配置文件需要让目标应用程序执行其所有常规操作，以捕获必要的访问模式。测试不充分可能生成阻碍正常功能的配置文件。需要 root 权限。
 
 # HISTORY
 
-Part of the **apparmor-utils** package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **apparmor-utils** 软件包。
 
 # INSTALL
 

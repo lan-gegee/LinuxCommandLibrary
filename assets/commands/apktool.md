@@ -1,30 +1,30 @@
 # TAGLINE
 
-Reverse engineer Android APK files
+对 Android APK 文件进行逆向工程
 
 # TLDR
 
-**Decode** (decompile) an APK
+**解码**（反编译）APK
 
 ```apktool d [app.apk]```
 
-Decode to **specific directory**
+解码到**指定目录**
 
 ```apktool d [app.apk] -o [output_dir]```
 
-**Build** (recompile) an APK
+**构建**（重新编译）APK
 
 ```apktool b [decoded_dir]```
 
-Build with **output name**
+以**指定输出名**构建
 
 ```apktool b [decoded_dir] -o [output.apk]```
 
-Decode **without resources**
+解码时**不含资源**
 
 ```apktool d [app.apk] -r```
 
-Decode **without sources**
+解码时**不含源码**
 
 ```apktool d [app.apk] -s```
 
@@ -34,51 +34,51 @@ Decode **without sources**
 
 # DESCRIPTION
 
-**apktool** is a reverse engineering tool for Android APK files. It decodes resources to nearly original form, allowing inspection and modification of manifests, layouts, and other XML resources. It also disassembles Dalvik bytecode to smali.
+**apktool** 是一款 Android APK 逆向工程工具。它将资源解码为接近原始形态，便于检查和修改 manifest、布局及其他 XML 资源。它还能将 Dalvik 字节码反汇编为 smali。
 
-After modifications, apktool can rebuild the APK, which then needs to be signed before installation.
+修改完成后，apktool 可以重新构建 APK，随后需签名才能安装。
 
 # PARAMETERS
 
 **d**, **decode**
-> Decode APK to directory
+> 将 APK 解码到目录
 
 **b**, **build**
-> Build APK from directory
+> 从目录构建 APK
 
 **-o** _path_, **--output** _path_
-> Output file/directory
+> 输出文件/目录
 
 **-r**, **--no-res**
-> Don't decode resources
+> 不解码资源
 
 **-s**, **--no-src**
-> Don't decode sources (smali)
+> 不解码源码（smali）
 
 **-f**, **--force**
-> Force overwrite existing files
+> 强制覆盖现有文件
 
 **--frame-path** _dir_
-> Framework files directory
+> 框架文件目录
 
 **-p** _dir_, **--frame-path** _dir_
-> Store/load framework files
+> 存取框架文件的位置
 
 **--use-aapt2**
-> Use aapt2 instead of aapt
+> 使用 aapt2 而不是 aapt
 
 # CONFIGURATION
 
 **~/.local/share/apktool/framework/**
-> Directory for stored framework files used during decoding and rebuilding.
+> 存放框架文件的目录，供解码和重建时使用。
 
 # CAVEATS
 
-Rebuilt APKs must be signed before installation. Some protection schemes may prevent successful decoding. Resource decoding may fail for heavily modified framework.
+重建的 APK 必须签名后才能安装。某些保护方案可能阻止成功解码。对于被大幅修改过的框架，资源解码可能失败。
 
 # HISTORY
 
-**apktool** was created by Brut.all (Connor Tumbleson maintains the fork) and first released around **2010**. It became the standard tool for Android APK reverse engineering.
+**apktool** 由 Brut.all 创建（Connor Tumbleson 维护其分支），约于 **2010 年**首次发布。它已成为 Android APK 逆向工程的标准工具。
 
 # INSTALL
 

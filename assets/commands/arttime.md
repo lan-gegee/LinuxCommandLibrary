@@ -1,18 +1,18 @@
 # TAGLINE
 
-ASCII/text art clock, timer, and pattern time manager
+ASCII/文本艺术时钟、计时器与模式时间管理器
 
 # TLDR
 
-**Start** arttime (art + clock)
+**启动** arttime（艺术 + 时钟）
 
 ```arttime```
 
-**Timer mode** / pattern timers
+**计时器模式** / 模式计时
 
 ```arttime -t [25m]```
 
-**Select** art style interactively
+**交互式选择**艺术样式
 
 ```arttime```
 
@@ -22,19 +22,19 @@ ASCII/text art clock, timer, and pattern time manager
 
 # DESCRIPTION
 
-**arttime** blends looping text/ASCII art with a clock, timer, and pattern-based time manager in the terminal. Aimed at delightful focus sessions rather than minimal stopwatches. Install via upstream install scripts or packages documented in the repository.
+**arttime** 将循环播放的文本/ASCII 艺术与终端中的时钟、计时器和基于模式的时间管理融为一体。它的目标是带来愉悦的专注时段，而非做一款极简秒表。可通过上游安装脚本或代码仓库中记录的软件包安装。
 
 # PARAMETERS
 
 **-t** *duration*
 
-> Timer-related modes (see **arttime -h** for pattern syntax).
+> 计时器相关模式（模式语法见 **arttime -h**）。
 
-Interactive keybindings change art, toggle views, and control timers once running. Full option list: **arttime --help**.
+运行期间，交互式按键可切换艺术样式、切换视图并控制计时器。完整选项列表见 **arttime --help**。
 
 # CAVEATS
 
-Needs a UTF-8 capable terminal with adequate size for art. Not a scheduling daemon—process must keep running.
+需要支持 UTF-8 且尺寸足以容纳艺术的终端。它不是调度守护进程——进程必须保持运行。
 
 # INSTALL
 

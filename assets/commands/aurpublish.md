@@ -1,14 +1,14 @@
 # TAGLINE
 
-Publish packages to the Arch User Repository
+将软件包发布到 Arch 用户仓库（AUR）
 
 # TLDR
 
-**Publish** a package to the AUR
+将软件包**发布**到 AUR
 
 ```aurpublish [package_name]```
 
-**Add githooks** to the current repository
+向当前仓库**添加 githooks**
 
 ```aurpublish setup```
 
@@ -18,23 +18,23 @@ Publish packages to the Arch User Repository
 
 # DESCRIPTION
 
-**aurpublish** streamlines publishing packages to the Arch User Repository. It verifies PKGBUILD integrity, generates **.SRCINFO** files, creates commit message templates, and handles the git push to the AUR.
+**aurpublish** 用于简化将软件包发布到 Arch 用户仓库的流程。它会验证 PKGBUILD 完整性、生成 **.SRCINFO** 文件、创建提交信息模板，并处理推送到 AUR 的 git push。
 
-The tool is designed for AUR package maintainers to simplify the update and publishing workflow.
+该工具专为 AUR 软件包维护者设计，用于简化更新和发布工作流。
 
 # SUBCOMMANDS
 
 **setup**
-> Install git hooks in the current repository for automated checks
+> 在当前仓库中安装 git 钩子以执行自动化检查
 
 # PARAMETERS
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires AUR SSH access to be configured. The PKGBUILD must pass validation before publishing. Existing **.SRCINFO** files will be regenerated automatically.
+需要先配置好 AUR 的 SSH 访问。PKGBUILD 必须通过校验才能发布。已有的 **.SRCINFO** 文件会被自动重新生成。
 
 # INSTALL
 

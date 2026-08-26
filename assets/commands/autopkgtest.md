@@ -1,26 +1,26 @@
 # TAGLINE
 
-Run DEP-8 tests for Debian packages
+为 Debian 软件包运行 DEP-8 测试
 
 # TLDR
 
-Build the package and **run all tests** directly on the system
+构建软件包并直接在系统上**运行全部测试**
 
 ```autopkgtest -- null```
 
-Run a **specific test** for the package
+运行软件包的**某个指定测试**
 
 ```autopkgtest --test-name=[test_name] -- null```
 
-Download a **specific package** and run all tests
+下载**指定软件包**并运行全部测试
 
 ```autopkgtest [package] -- null```
 
-Test using a **new root directory** (chroot)
+使用**全新根目录**（chroot）进行测试
 
 ```autopkgtest -- chroot [path/to/new_root]```
 
-Test the package **without rebuilding** it
+**不重新构建**软件包直接测试
 
 ```autopkgtest -B -- null```
 
@@ -30,56 +30,56 @@ Test the package **without rebuilding** it
 
 # DESCRIPTION
 
-**autopkgtest** runs tests defined in Debian source packages according to the DEP-8 (autopkgtest) specification. It supports various virtualization backends for isolated testing environments.
+**autopkgtest** 按照 DEP-8（autopkgtest）规范运行 Debian 源码包中定义的测试。它支持多种虚拟化后端来提供隔离的测试环境。
 
-The tool separates the test specification from the execution environment using a **--** separator. The virtualization backend (null, chroot, schroot, lxc, qemu, etc.) determines how tests are isolated.
+该工具通过 **--** 分隔符将测试说明与执行环境分离。虚拟化后端（null、chroot、schroot、lxc、qemu 等）决定测试如何隔离。
 
 # PARAMETERS
 
 **--test-name=**_name_
-> Run only the named test.
+> 只运行指定名称的测试。
 
 **--skip-test=**_name_
-> Skip the named test.
+> 跳过指定名称的测试。
 
 **-B, --no-built-binaries**
-> Do not build the package before testing; use the provided binaries.
+> 测试前不构建软件包；使用现成的二进制文件。
 
 **--setup-commands=**_commands_
-> Run the given shell commands in the testbed before the tests.
+> 在测试开始前于测试床中运行给定的 shell 命令。
 
 **-U, --apt-upgrade**
-> Run apt-get update and dist-upgrade in the testbed before testing.
+> 测试前在测试床中运行 apt-get update 和 dist-upgrade。
 
 **-s, --shell-fail**
-> Open a shell in the testbed if a test fails, for debugging.
+> 测试失败时在测试床中打开一个 shell 以便调试。
 
 **--shell**
-> Open a shell in the testbed after every test.
+> 每个测试结束后都在测试床中打开一个 shell。
 
 **-o** _directory_, **--output-dir=**_directory_
-> Write test artifacts and logs to the specified directory.
+> 将测试产物和日志写入指定目录。
 
 # VIRTUALIZATION BACKENDS
 
 **null**
-> Run tests directly on the current system (no isolation)
+> 直接在当前系统上运行测试（无隔离）
 
 **chroot** _path_
-> Use a chroot environment
+> 使用 chroot 环境
 
 **schroot** _name_
-> Use a schroot environment
+> 使用 schroot 环境
 
 **lxc** _container_
-> Use an LXC container
+> 使用 LXC 容器
 
 **qemu** _image_
-> Use a QEMU virtual machine
+> 使用 QEMU 虚拟机
 
 # CAVEATS
 
-The **null** backend modifies the system directly and may leave changes behind. Chroot and other backends provide better isolation. Test definitions must follow the DEP-8 specification in **debian/tests/control**.
+**null** 后端会直接修改系统，可能留下残余变更。chroot 及其他后端能提供更好的隔离。测试定义必须遵循 **debian/tests/control** 中的 DEP-8 规范。
 
 # INSTALL
 

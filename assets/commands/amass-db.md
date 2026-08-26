@@ -1,30 +1,30 @@
 # TAGLINE
 
-query and manage stored amass enumeration results
+查询和管理已存储的 amass 枚举结果
 
 # TLDR
 
-**List** enumerations for a domain
+**列出**某个域名的枚举记录
 
 ```amass db -list -d [example.com]```
 
-**Show** results from a specific enumeration index
+**显示**特定枚举索引的结果
 
 ```amass db -show -d [example.com] -enum [1]```
 
-**Print discovered names** only
+仅**打印发现的名称**
 
 ```amass db -names -d [example.com]```
 
-**Show discovered IP addresses** for a domain
+**显示**某个域名发现的 IP 地址
 
 ```amass db -show -ip -d [example.com]```
 
-**Export** all results for a domain to JSON
+将某个域名的全部结果**导出**为 JSON
 
 ```amass db -d [example.com] -json [output.json]```
 
-**Print ASN summary** for a domain
+**打印**某个域名的 ASN **摘要**
 
 ```amass db -summary -d [example.com]```
 
@@ -34,84 +34,84 @@ query and manage stored amass enumeration results
 
 # DESCRIPTION
 
-**amass db** queries the local graph database that stores results from previous **amass enum** runs. It lists past enumerations, prints their findings, exports them to JSON, and can scope queries by domain, enumeration index, and data source.
+**amass db** 查询本地图数据库，其中存储了以往 **amass enum** 运行的结果。它可以列出过去的枚举记录、打印发现结果、导出为 JSON，并可按域名、枚举索引和数据源限定查询范围。
 
-The database persists discovered assets so changes between scans can be tracked and results correlated across runs.
+数据库会持久保存发现的资产，因此可以跟踪多次扫描之间的变化，并在多次运行之间关联结果。
 
 # PARAMETERS
 
 **-d** _domain_
-> Domain name(s) to filter by, comma-separated. May be repeated.
+> 用于过滤的域名，逗号分隔。可重复使用。
 
 **-df** _file_
-> File containing root domain names, one per line.
+> 包含根域名的文件，每行一个。
 
 **-list**
-> Print a numbered list of enumerations, filtered by the provided domains.
+> 打印带编号的枚举列表，按提供的域名过滤。
 
 **-show**
-> Print results for the enumeration index and domains provided.
+> 打印所提供枚举索引和域名的结果。
 
 **-enum** _index_
-> Identify an enumeration via the index from **-list**.
+> 通过 **-list** 输出的索引标识某次枚举。
 
 **-names**
-> Print only the discovered DNS names.
+> 仅打印发现的 DNS 名称。
 
 **-ip**
-> Show IP addresses for discovered names.
+> 显示发现名称对应的 IP 地址。
 
 **-ipv4**
-> Show only IPv4 addresses.
+> 仅显示 IPv4 地址。
 
 **-ipv6**
-> Show only IPv6 addresses.
+> 仅显示 IPv6 地址。
 
 **-src**
-> Print the data source for each discovered name.
+> 打印每个发现名称的数据来源。
 
 **-summary**
-> Print the ASN table summary only.
+> 仅打印 ASN 表摘要。
 
 **-demo**
-> Censor output to make it suitable for demonstrations.
+> 对输出进行遮蔽处理，使其适合演示场合。
 
 **-nocolor**
-> Disable colorized output.
+> 禁用彩色输出。
 
 **-silent**
-> Disable all output during execution (useful with **-json**/**-o**).
+> 执行期间禁用所有输出（配合 **-json**/**-o** 时很有用）。
 
 **-config** _file_
-> Path to the INI configuration file.
+> INI 配置文件的路径。
 
 **-dir** _path_
-> Path to the directory containing the graph database (default: `~/.config/amass`).
+> 图数据库所在目录的路径（默认：`~/.config/amass`）。
 
 **-json** _file_
-> Path to a JSON output file.
+> JSON 输出文件的路径。
 
 **-o** _file_
-> Path to a text file capturing stdout/stderr.
+> 捕获 stdout/stderr 的文本文件路径。
 
 **-h**, **-help**
-> Show the program usage message.
+> 显示程序用法信息。
 
 # CONFIGURATION
 
 **~/.config/amass/config.ini**
-> Amass configuration file defining data sources, API keys, and scope settings.
+> Amass 配置文件，定义数据源、API 密钥和范围设置。
 
 **~/.config/amass/**
-> Default location of the graph database (overridable with **-dir**).
+> 图数据库的默认位置（可通过 **-dir** 覆盖）。
 
 # CAVEATS
 
-The database can grow large over time; periodic pruning or rotating the **-dir** path is sensible. The **db** subcommand was deprecated in Amass v4 in favor of the standalone **oam_subs** / **oam-tools** utilities; this page documents the v3-era CLI still found in many distributions.
+数据库会随时间增长得很大；定期清理或轮换 **-dir** 路径是明智的做法。**db** 子命令在 Amass v4 中已被弃用，由独立的 **oam_subs** / **oam-tools** 工具取代；本页面记录的是仍存在于许多发行版中的 v3 时代命令行界面。
 
 # HISTORY
 
-**amass** is an **OWASP** project originally created by **Jeff Foley** (caffix) for in-depth attack surface mapping. The graph database and **db** subcommand were added in the v3 series to support persistent storage of enumeration results and change tracking. In **v4** the database tooling was split out into **oam-tools** (`oam_subs`, etc.).
+**amass** 是 **OWASP** 项目，最初由 **Jeff Foley**（caffix）创建，用于深度攻击面测绘。图数据库和 **db** 子命令在 v3 系列中加入，以支持枚举结果的持久存储和变化跟踪。在 **v4** 中，数据库工具被拆分为 **oam-tools**（`oam_subs` 等）。
 
 # INSTALL
 

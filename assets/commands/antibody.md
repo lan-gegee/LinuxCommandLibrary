@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast Zsh plugin manager
+快速的 Zsh 插件管理器
 
 # TLDR
 
-**Bundle** plugins
+**打包加载**插件
 
 ```antibody bundle < [plugins.txt]```
 
-Bundle a **single plugin**
+打包加载**单个插件**
 
 ```antibody bundle [zsh-users/zsh-autosuggestions]```
 
-**Update** all plugins
+**更新**所有插件
 
 ```antibody update```
 
-**List** installed plugins
+**列出**已安装插件
 
 ```antibody list```
 
-**Initialize** in zshrc
+在 zshrc 中**初始化**
 
 ```source <(antibody init)```
 
@@ -30,41 +30,41 @@ Bundle a **single plugin**
 
 # DESCRIPTION
 
-**antibody** is a fast shell plugin manager written in Go. It downloads and loads Zsh plugins from GitHub or other sources, similar to Antigen but with faster performance.
+**antibody** 是一个用 Go 编写的快速 Shell 插件管理器。它从 GitHub 或其他来源下载并加载 Zsh 插件，类似 Antigen 但性能更快。
 
-Plugins are specified in a text file with one repository per line. Antibody bundles them into shell code that can be sourced in your .zshrc.
+插件在一个文本文件中指定，每行一个仓库。Antibody 将它们打包成可在 .zshrc 中 source 的 Shell 代码。
 
-> **antibody is deprecated.** No new features or bugfixes are being added. The maintainer recommends **antidote** as a drop-in replacement.
+> **antibody 已被弃用。** 不再添加新功能或修复缺陷。维护者推荐使用 **antidote** 作为直接替代品。
 
 # PARAMETERS
 
 **bundle** [_plugin_]
-> Download and print source commands for plugins
+> 下载插件并打印其 source 加载命令
 
 **update**
-> Update all installed plugins
+> 更新所有已安装插件
 
 **list**
-> List installed plugins
+> 列出已安装插件
 
 **init**
-> Output initialization code
+> 输出初始化代码
 
 **purge** _plugin_
-> Remove a plugin
+> 移除一个插件
 
 **home**
-> Print antibody home directory
+> 打印 antibody 的主目录
 
 # USAGE
 
-Typical setup in .zshrc:
+典型的 .zshrc 配置：
 ```
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
 ```
 
-Or for faster startup:
+或者更快的启动方式：
 ```
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 source ~/.zsh_plugins.sh
@@ -72,11 +72,11 @@ source ~/.zsh_plugins.sh
 
 # CAVEATS
 
-Plugin updates require running antibody update; they don't auto-update. Static loading (generated file) is faster but requires regeneration after changes.
+插件更新需要手动运行 antibody update；不会自动更新。静态加载（使用生成的文件）速度更快，但更改后需要重新生成。
 
 # HISTORY
 
-**antibody** was created by **Carlos Alexandro Becker** as a faster alternative to Antigen, the popular Zsh plugin manager, using Go for improved performance. The project has since been deprecated and superseded by **antidote**, a Zsh reimplementation by mattmc3.
+**antibody** 由 **Carlos Alexandro Becker** 创建，作为流行的 Zsh 插件管理器 Antigen 的更快替代品，利用 Go 语言提升了性能。该项目后来已被弃用，由 mattmc3 用 Zsh 重写的 **antidote** 取代。
 
 # INSTALL
 

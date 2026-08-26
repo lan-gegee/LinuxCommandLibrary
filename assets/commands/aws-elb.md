@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Classic Load Balancers
+管理 Classic Load Balancer
 
 # TLDR
 
-**List all Classic Load Balancers**
+**列出所有 Classic Load Balancer**
 
 ```aws elb describe-load-balancers```
 
-**Describe a specific load balancer**
+**查看特定负载均衡器**
 
 ```aws elb describe-load-balancers --load-balancer-names [lb_name]```
 
-**Check the health** of registered instances
+**检查已注册实例的健康状况**
 
 ```aws elb describe-instance-health --load-balancer-name [lb_name]```
 
-**Register an instance** with a load balancer
+**将实例注册到负载均衡器**
 
 ```aws elb register-instances-with-load-balancer --load-balancer-name [lb_name] --instances [i-xxxxxxxx]```
 
-**Deregister an instance** from a load balancer
+**将实例从负载均衡器注销**
 
 ```aws elb deregister-instances-from-load-balancer --load-balancer-name [lb_name] --instances [i-xxxxxxxx]```
 
-**Create a Classic Load Balancer**
+**创建 Classic Load Balancer**
 
 ```aws elb create-load-balancer --load-balancer-name [lb_name] --listeners Protocol=HTTP,LoadBalancerPort=80,InstanceProtocol=HTTP,InstancePort=80 --subnets [subnet-id] --security-groups [sg-id]```
 
-**Delete a load balancer**
+**删除负载均衡器**
 
 ```aws elb delete-load-balancer --load-balancer-name [lb_name]```
 
@@ -38,120 +38,120 @@ Manage Classic Load Balancers
 
 # DESCRIPTION
 
-**aws elb** is a subcommand of the AWS CLI that manages Classic Load Balancers (CLB), the original Elastic Load Balancing service. Classic Load Balancers distribute incoming traffic across multiple EC2 instances in one or more Availability Zones.
+**aws elb** 是 AWS CLI 的子命令，用于管理 Classic Load Balancer（CLB），即最早的 Elastic Load Balancing 服务。经典负载均衡器将传入流量分发到一个或多个可用区内的多台 EC2 实例。
 
-CLB operates at both Layer 4 (TCP) and Layer 7 (HTTP/HTTPS), routing traffic based on application or network level information. It performs health checks on registered instances and only routes traffic to healthy targets.
+CLB 同时工作在第 4 层（TCP）和第 7 层（HTTP/HTTPS），根据应用层或网络层信息路由流量。它会对已注册的实例执行健康检查，只将流量路由到健康的目标。
 
-Classic Load Balancers support sticky sessions, SSL termination, and integration with Auto Scaling groups for dynamic instance management.
+经典负载均衡器支持会话保持（sticky session）、SSL 卸载，并可与 Auto Scaling 组集成，实现实例的动态管理。
 
 # PARAMETERS
 
 **describe-load-balancers**
-> List load balancers and their configuration.
+> 列出负载均衡器及其配置。
 
 **create-load-balancer**
-> Create a new Classic Load Balancer.
+> 创建新的 Classic Load Balancer。
 
 **delete-load-balancer**
-> Remove a load balancer.
+> 删除负载均衡器。
 
 **describe-instance-health**
-> Check health status of registered instances.
+> 检查已注册实例的健康状态。
 
 **register-instances-with-load-balancer**
-> Add instances to a load balancer.
+> 将实例添加到负载均衡器。
 
 **deregister-instances-from-load-balancer**
-> Remove instances from a load balancer.
+> 将实例从负载均衡器移除。
 
 **configure-health-check**
-> Set health check parameters.
+> 设置健康检查参数。
 
 **create-load-balancer-listeners**
-> Add listener configurations.
+> 添加监听器配置。
 
 **delete-load-balancer-listeners**
-> Remove listeners.
+> 移除监听器。
 
 **set-load-balancer-listener-ssl-certificate**
-> Update the SSL certificate for an HTTPS listener.
+> 更新 HTTPS 监听器的 SSL 证书。
 
 **describe-load-balancer-attributes**
-> Retrieve attributes such as connection draining and access log settings.
+> 检索连接排空（connection draining）、访问日志设置等属性。
 
 **modify-load-balancer-attributes**
-> Modify attributes such as connection draining and idle timeout.
+> 修改连接排空和空闲超时等属性。
 
 **describe-load-balancer-policies**
-> List policies associated with load balancers.
+> 列出与负载均衡器关联的策略。
 
 **create-load-balancer-policy**
-> Create a new policy for a load balancer.
+> 为负载均衡器创建新策略。
 
 **delete-load-balancer-policy**
-> Remove a policy from a load balancer.
+> 从负载均衡器删除策略。
 
 **create-app-cookie-stickiness-policy**
-> Enable application-controlled session stickiness.
+> 启用由应用程序控制的会话保持。
 
 **create-lb-cookie-stickiness-policy**
-> Enable load balancer-controlled session stickiness.
+> 启用由负载均衡器控制的会话保持。
 
 **attach-load-balancer-to-subnets**
-> Add subnets to a load balancer (VPC only).
+> 为负载均衡器添加子网（仅限 VPC）。
 
 **detach-load-balancer-from-subnets**
-> Remove subnets from a load balancer.
+> 从负载均衡器移除子网。
 
 **enable-availability-zones-for-load-balancer**
-> Add Availability Zones to a load balancer (EC2-Classic).
+> 为负载均衡器添加可用区（EC2-Classic）。
 
 **disable-availability-zones-for-load-balancer**
-> Remove Availability Zones from a load balancer.
+> 从负载均衡器移除可用区。
 
 **apply-security-groups-to-load-balancer**
-> Associate security groups with a VPC load balancer.
+> 将安全组关联到 VPC 负载均衡器。
 
 **add-tags**
-> Add or overwrite tags on a load balancer.
+> 在负载均衡器上添加或覆盖标签。
 
 **remove-tags**
-> Remove tags from a load balancer.
+> 从负载均衡器移除标签。
 
 **describe-tags**
-> List tags on one or more load balancers.
+> 列出一个或多个负载均衡器上的标签。
 
 **describe-account-limits**
-> Show ELB service limits for the account.
+> 显示账户的 ELB 服务限制。
 
 **wait**
-> Wait until a load balancer reaches a specified state.
+> 等待负载均衡器达到指定状态。
 
 **--load-balancer-name** _name_
-> Name of the load balancer.
+> 负载均衡器名称。
 
 **--load-balancer-names** _names_
-> List of load balancer names.
+> 负载均衡器名称列表。
 
 **--instances** _ids_
-> EC2 instance IDs.
+> EC2 实例 ID。
 
 **--listeners** _config_
-> Listener protocol and port mappings.
+> 监听器的协议和端口映射。
 
 **--subnets** _ids_
-> VPC subnets for the load balancer.
+> 负载均衡器所在的 VPC 子网。
 
 **--security-groups** _ids_
-> Security groups to assign.
+> 要分配的安全组。
 
 # CAVEATS
 
-Classic Load Balancers are a previous generation service. AWS recommends using Application Load Balancers (ALB) for HTTP/HTTPS or Network Load Balancers (NLB) for TCP/UDP workloads. CLB does not support path-based routing, host-based routing, or WebSocket natively. New features are not being added to CLB.
+经典负载均衡器属于上一代服务。AWS 建议 HTTP/HTTPS 工作负载改用 Application Load Balancer（ALB），TCP/UDP 工作负载改用 Network Load Balancer（NLB）。CLB 原生不支持基于路径的路由、基于主机的路由或 WebSocket。CLB 不再添加新功能。
 
 # HISTORY
 
-Elastic Load Balancing launched in **2009** as one of AWS's earliest services. The Classic Load Balancer was the only load balancer type until **August 2016** when Application Load Balancer was introduced. Network Load Balancer followed in **2017**. Classic Load Balancers remain supported but are considered legacy, with AWS encouraging migration to newer types.
+Elastic Load Balancing 于 **2009 年** 推出，是 AWS 最早的服务之一。在 **2016 年 8 月** Application Load Balancer 问世之前，Classic Load Balancer 一直是唯一的负载均衡器类型。Network Load Balancer 于 **2017 年** 推出。经典负载均衡器目前仍受支持，但已被视为遗留产品，AWS 鼓励用户迁移到更新的类型。
 
 # INSTALL
 

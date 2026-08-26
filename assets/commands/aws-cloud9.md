@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage cloud-based development environments.
+管理基于云的开发环境。
 
 # TLDR
 
-**Create a new Cloud9 EC2 environment** with a t2.micro instance
+用 t2.micro 实例**创建新的 Cloud9 EC2 环境**
 
 ```aws cloud9 create-environment-ec2 --name [my-env] --instance-type t2.micro --image-id amazonlinux-2023-x86_64```
 
-**List all Cloud9 environments** in the account
+**列出账户中的所有 Cloud9 环境**
 
 ```aws cloud9 list-environments```
 
-**Describe specific environments** by ID
+按 ID **描述特定环境**
 
 ```aws cloud9 describe-environments --environment-ids [env-id-1] [env-id-2]```
 
-**Get the status** of an environment
+**获取环境的状态**
 
 ```aws cloud9 describe-environment-status --environment-id [env-id]```
 
-**Add a member** to an environment with read-write permissions
+以读写权限向环境**添加成员**
 
 ```aws cloud9 create-environment-membership --environment-id [env-id] --user-arn [arn:aws:iam::account:user/username] --permissions read-write```
 
-**Delete an environment** and its associated EC2 instance
+**删除环境**及其关联的 EC2 实例
 
 ```aws cloud9 delete-environment --environment-id [env-id]```
 
@@ -34,43 +34,43 @@ Manage cloud-based development environments.
 
 # DESCRIPTION
 
-**aws cloud9** is the AWS CLI interface for AWS Cloud9, a cloud-based integrated development environment (IDE) for writing, running, and debugging code. Cloud9 provides a browser-based editor, debugger, and terminal, and comes pre-configured with essential tools for popular programming languages.
+**aws cloud9** 是 AWS Cloud9 的 AWS CLI 接口。AWS Cloud9 是一款基于云的集成开发环境（IDE），用于编写、运行和调试代码。Cloud9 提供基于浏览器的编辑器、调试器和终端，并预配置了主流编程语言所需的常用工具。
 
-Cloud9 environments run on EC2 instances and support collaborative development with real-time pair programming capabilities.
+Cloud9 环境运行在 EC2 实例上，支持具备实时结对编程能力的协作开发。
 
 # COMMANDS
 
 **create-environment-ec2**
-> Create a new development environment with an EC2 instance
+> 使用 EC2 实例创建新的开发环境
 
 **delete-environment**
-> Delete an environment and terminate its EC2 instance
+> 删除环境并终止其 EC2 实例
 
 **describe-environments**
-> Get details about one or more environments
+> 获取一个或多个环境的详细信息
 
 **describe-environment-status**
-> Check the current status of an environment
+> 检查环境的当前状态
 
 **list-environments**
-> List all environment IDs in the account
+> 列出账户中的所有环境 ID
 
 **create-environment-membership**
-> Add a user to an environment
+> 将用户添加到环境
 
 **update-environment-membership**
-> Change a member's permissions
+> 更改成员的权限
 
 **delete-environment-membership**
-> Remove a user from an environment
+> 将用户从环境中移除
 
 # CAVEATS
 
-AWS Cloud9 is no longer available to new customers as of **2024**; AWS recommends migrating to AWS IDE Toolkits or AWS CloudShell. Existing customers can continue using the service. **create-environment-ec2** now requires **--image-id** (for example amazonlinux-2023-x86_64, ubuntu-22.04-x86_64; older AMIs such as ubuntu-18.04 are deprecated). Environments incur EC2 costs even when the IDE is not actively used unless auto-hibernation via **--automatic-stop-time-minutes** is configured.
+自 **2024 年**起，AWS Cloud9 不再对新客户开放；AWS 建议迁移到 AWS IDE Toolkits 或 AWS CloudShell。现有客户可以继续使用该服务。**create-environment-ec2** 现在需要 **--image-id**（例如 amazonlinux-2023-x86_64、ubuntu-22.04-x86_64；ubuntu-18.04 等较早的 AMI 已弃用）。除非配置了通过 **--automatic-stop-time-minutes** 实现的自动休眠，否则即使 IDE 未被主动使用，环境也会产生 EC2 费用。
 
 # HISTORY
 
-AWS Cloud9 was acquired by Amazon in **2016** after being founded as an independent company in **2010**. It was integrated into AWS as a managed service, providing browser-based IDE capabilities. In **2024**, AWS announced Cloud9 would no longer accept new customers.
+AWS Cloud9 于 **2010 年**作为独立公司创立，**2016 年**被 Amazon 收购。它被整合进 AWS 作为托管服务，提供基于浏览器的 IDE 能力。**2024 年**，AWS 宣布 Cloud9 不再接受新客户。
 
 # INSTALL
 

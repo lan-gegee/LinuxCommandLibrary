@@ -1,34 +1,34 @@
 # TAGLINE
 
-Git-aware Python AST static review CLI
+感知 Git 的 Python AST 静态审查 CLI
 
 # TLDR
 
-**Review** Python files changed versus Git HEAD (plus untracked `.py` files)
+**审查**相对 Git HEAD 有改动的 Python 文件（外加未跟踪的 `.py` 文件）
 
 ```avouch```
 
-Print findings as **JSON**
+以 **JSON** 格式打印检查结果
 
 ```avouch --json```
 
-Review **every eligible** Python file (the mode that works in CI)
+审查**每一个符合条件的** Python 文件（适用于 CI 的模式）
 
 ```avouch --all-files```
 
-Review only **staged** files
+仅审查已**暂存**的文件
 
 ```avouch --staged```
 
-Review `.py` files **without a Git repository**
+在**没有 Git 仓库**的情况下审查 `.py` 文件
 
 ```avouch --not-git```
 
-Print a **compact diff** of changed files instead of the findings report
+打印已更改文件的**精简 diff**，而不是检查结果报告
 
 ```avouch --changed```
 
-Analyze and return only the **exit code** (no report)
+只做分析并返回**退出码**（不输出报告）
 
 ```avouch --quiet```
 
@@ -43,73 +43,73 @@ Analyze and return only the **exit code** (no report)
 # PARAMETERS
 
 **--json**
-> Print one versioned JSON document on stdout (schema `version` 1). Human report is omitted. Combines with any review-scope flag.
+> 在 stdout 上输出一份带版本号的 JSON 文档（schema `version` 为 1）。省略人类可读报告。可与任何审查范围标志组合使用。
 
 **--quiet**
-> Run the same analysis but print no report. Errors still go to stderr. Exit codes are unchanged.
+> 执行同样的分析但不打印报告。错误仍然输出到 stderr。退出码不变。
 
 **--verbose**
-> Print step-by-step diagnostics to stderr (config source, ignore paths, review set).
+> 将分步诊断信息打印到 stderr（配置来源、忽略路径、审查集合）。
 
 **--ignore-path** _PATH_
-> Exclude a repository-relative file or directory. Repeatable. Combined with `ignore_paths` from `avouch.toml`.
+> 排除一个相对于仓库根目录的文件或目录。可重复使用。与 `avouch.toml` 中的 `ignore_paths` 合并生效。
 
 **--changed**
-> Show added and deleted lines of files changed versus HEAD instead of the findings report. Mutually exclusive with **--staged** and **--all-files**.
+> 显示相对 HEAD 有改动文件的新增和删除行，而不是检查结果报告。与 **--staged** 和 **--all-files** 互斥。
 
 **--staged**
-> Review only files with staged Git changes (`git diff --cached --name-only`). Mutually exclusive with **--changed** and **--all-files**.
+> 仅审查有 Git 暂存变更的文件（`git diff --cached --name-only`）。与 **--changed** 和 **--all-files** 互斥。
 
 **--all-files**
-> Review every eligible Python file in the repository (`git ls-files`). Use this in CI: a clean checkout has nothing changed versus HEAD.
+> 审查仓库中每一个符合条件的 Python 文件（`git ls-files`）。在 CI 中请使用此选项：干净的检出相对 HEAD 没有任何改动。
 
 **--not-git**
-> Walk the current directory for `.py` files and skip the Git requirement. Cannot be combined with **--changed** or **--staged**.
+> 遍历当前目录查找 `.py` 文件并跳过对 Git 的要求。不能与 **--changed** 或 **--staged** 组合。
 
 **--docs**
-> Print built-in documentation and exit 0 without reviewing. Interactive pager on a TTY; plain text when piped.
+> 打印内置文档并以退出码 0 结束，不做审查。在 TTY 上使用交互式分页器；通过管道时输出纯文本。
 
 **--version**
-> Print the Avouch package version and exit.
+> 打印 Avouch 软件包版本并退出。
 
 **--help**
-> Show the argparse help and exit.
+> 显示 argparse 帮助并退出。
 
 # DESCRIPTION
 
-**avouch** is a local, Git-aware static-analysis CLI for Python. It asks Git which files the next commit will touch, parses each changed `.py` file with the standard-library `ast` module, and reports structural problems against limits you configure in `avouch.toml`.
+**avouch** 是一个本地的、感知 Git 的 Python 静态分析 CLI。它会询问 Git 下一次提交将涉及哪些文件，用标准库的 `ast` 模块解析每个改动的 `.py` 文件，并根据你在 `avouch.toml` 中配置的上限报告结构性问题。
 
-The default review set is tracked files modified versus `HEAD` plus untracked `.py` files. Deleted paths, non-Python files, and generated-looking names (`generated.py`, `*_generated.py`, `codegen.py`, `autogen.py`, and similar) are skipped. Committed, untouched files never appear in the output.
+默认的审查集合是相对 `HEAD` 有修改的被跟踪文件加上未跟踪的 `.py` 文件。被删除的路径、非 Python 文件以及看起来是生成产物的名字（`generated.py`、`*_generated.py`、`codegen.py`、`autogen.py` 等）会被跳过。已提交且未改动的文件永远不会出现在输出中。
 
-Findings are **warnings** produced by 17 rule identifiers (SCR001–SCR017) plus cyclomatic-complexity checks on functions and classes. Metrics such as parameter counts, nesting depth, and line spans come from the AST. An unreadable or syntactically broken file becomes an `ERROR` entry; one broken file does not cancel the rest of the review.
+检查结果是**警告**，由 17 个规则标识符（SCR001–SCR017）以及针对函数和类的圈复杂度检查产生。参数数量、嵌套深度、行跨度等指标均来自 AST。无法读取或语法错误的文件会成为一条 `ERROR` 记录；单个损坏的文件不会取消其余文件的审查。
 
-Avouch reviews; it does not rewrite files. Enforcement belongs to whatever calls it. Exit codes are **0** (clean), **1** (findings reported), and **2** (Avouch could not run). Colors are emitted only when stdout is a TTY.
+Avouch 只做审查；它不会重写文件。强制执行由调用它的工具负责。退出码为 **0**（干净）、**1**（报告了问题）、**2**（Avouch 无法运行）。仅在 stdout 是 TTY 时才输出颜色。
 
-Requires **Python 3.10+** (`ast.Match`, `tomllib`) and **Git** on `PATH` unless **--not-git** is used. Install with `pip install avouch`, which registers the `avouch` console script.
+需要 **Python 3.10+**（`ast.Match`、`tomllib`）；除非使用 **--not-git**，否则需要 `PATH` 上有 **Git**。用 `pip install avouch` 安装，会注册 `avouch` 控制台脚本。
 
 # CONFIGURATION
 
 **avouch.toml**
-> Optional TOML file in the **current working directory** only (no parent search). Missing or empty means built-in defaults, with no warning.
+> 可选的 TOML 文件，只查找**当前工作目录**（不向上级搜索）。缺失或为空时使用内置默认值，且不会警告。
 
 **[limits]**
-> Numeric thresholds. Unset keys keep their defaults. Examples: `max_parameters` (5), `max_nesting` (5), `max_function_lines` (300), `max_class_lines` (200), `max_file_lines` (1000), `max_complexity` (40), `max_boolean_conditions` (5), `max_if_chain` (5), `max_local_variables` (30), `max_return_statements` (6), `max_lambda_nodes` (10), `max_large_comprehensions` (40).
+> 数值阈值。未设置的键保持默认值。示例：`max_parameters`（5）、`max_nesting`（5）、`max_function_lines`（300）、`max_class_lines`（200）、`max_file_lines`（1000）、`max_complexity`（40）、`max_boolean_conditions`（5）、`max_if_chain`（5）、`max_local_variables`（30）、`max_return_statements`（6）、`max_lambda_nodes`（10）、`max_large_comprehensions`（40）。
 
 **[rules]**
-> Per-rule on/off toggles (`true`/`false`). Keys match the rule modules (`bare_except`, `nested_function`, `max_parameters`, …). Setting a toggle to `false` disables that rule.
+> 按规则的开/关切换（`true`/`false`）。键名对应规则模块（`bare_except`、`nested_function`、`max_parameters` 等）。将某个开关设为 `false` 即禁用该规则。
 
 **ignore_paths**
-> Top-level TOML list of repository-relative paths to skip (must be a list). Matching is component-wise: `tests` skips `tests/` and `tests/x.py` but not `tests.py`. Combined with repeatable **--ignore-path**.
+> 顶层的 TOML 列表，列出要跳过的仓库相对路径（必须是列表）。匹配按路径组件进行：`tests` 会跳过 `tests/` 和 `tests/x.py`，但不会跳过 `tests.py`。可与可重复使用的 **--ignore-path** 合并生效。
 
-There are no configuration environment variables. `AVOUCH_FONT` only selects an optional terminal font via OSC 50 on capable terminals. Unknown TOML keys are ignored silently. Malformed TOML or a non-list `ignore_paths` exits **2**.
+没有用于配置的环境变量。`AVOUCH_FONT` 只是通过 OSC 50 在支持的终端上选择可选的终端字体。未知的 TOML 键会被静默忽略。格式错误的 TOML 或非列表的 `ignore_paths` 会以退出码 **2** 结束。
 
 # CAVEATS
 
-Default mode against a clean Git checkout prints `error: nothing to review` and exits **2** — use **--all-files** in CI. Configuration is CWD-only, so running from a subdirectory will not see a repo-root `avouch.toml`. Unknown config keys do not warn. Limit values are not type-checked at load time. Only Python is reviewed. `self` on methods counts toward `max_parameters`. Nested `async def` is not flagged by SCR015. The declared `rich` dependency is not used by the reporter.
+在干净的 Git 检出上运行默认模式会打印 `error: nothing to review` 并以退出码 **2** 结束——CI 中请使用 **--all-files**。配置只识别当前工作目录，因此在子目录中运行看不到仓库根目录下的 `avouch.toml`。未知的配置键不会警告。上限值在加载时不做类型检查。只审查 Python。方法上的 `self` 也计入 `max_parameters`。嵌套的 `async def` 不会被 SCR015 标记。声明依赖的 `rich` 并未被报告器使用。
 
 # HISTORY
 
-Avouch is a Python CLI by **Mukund** (`mukundzha`), first published on PyPI as package **avouch**. It targets a pre-push, diff-scoped review rather than a whole-repository lint. The console-script entry point is `avouch.cli:main`.
+Avouch 是 **Mukund**（`mukundzha`）开发的 Python CLI，首次以软件包 **avouch** 的名义发布在 PyPI 上。它面向推送前的、按 diff 划定范围的审查，而非整个仓库的 lint。控制台脚本入口点是 `avouch.cli:main`。
 
 # SEE ALSO
 

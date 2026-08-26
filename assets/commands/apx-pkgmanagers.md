@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage package manager configurations for apx subsystems
+管理 apx 子系统的软件包管理器配置
 
 # TLDR
 
-Interactively **create** a new package manager configuration
+交互式**创建**新的软件包管理器配置
 
 ```apx pkgmanagers new```
 
-**Create** a package manager with specific commands
+用指定的命令**创建**软件包管理器配置
 
 ```apx pkgmanagers new --name [name] --install '[install_cmd]' --remove '[remove_cmd]' --update '[update_cmd]'```
 
-**List** all available package manager configurations
+**列出**所有可用的软件包管理器配置
 
 ```apx pkgmanagers list```
 
-**Remove** a package manager configuration
+**删除**软件包管理器配置
 
 ```apx pkgmanagers rm --name [name]```
 
-Display **information** about a specific package manager
+显示特定软件包管理器的**信息**
 
 ```apx pkgmanagers show [name]```
 
@@ -30,37 +30,37 @@ Display **information** about a specific package manager
 
 # DESCRIPTION
 
-**apx pkgmanagers** manages package manager configurations in apx. These configurations define how packages are installed, updated, and removed within subsystems.
+**apx pkgmanagers** 管理 apx 中的软件包管理器配置。这些配置定义了在子系统内如何安装、更新和删除软件包。
 
-User-created package manager configurations are stored in **~/.local/share/apx/pkgmanagers**. Built-in configurations for common package managers like apt, dnf, and pacman are provided by default.
+用户创建的软件包管理器配置存储在 **~/.local/share/apx/pkgmanagers**。默认提供 apt、dnf 和 pacman 等常见软件包管理器的内置配置。
 
 # SUBCOMMANDS
 
 **new**
-> Create a new package manager configuration (interactively or with flags).
+> 创建新的软件包管理器配置（交互式或通过标志指定）。
 
 **list**
-> Display all available package manager configurations.
+> 显示所有可用的软件包管理器配置。
 
 **rm**
-> Remove a package manager configuration.
+> 删除软件包管理器配置。
 
 **show**
-> Display details about a specific package manager.
+> 显示特定软件包管理器的详细信息。
 
 # PARAMETERS
 
 **--name** _string_
-> Specify the package manager name.
+> 指定软件包管理器名称。
 
 **--install** _string_
-> The install command for the package manager.
+> 该软件包管理器的安装命令。
 
 **--remove** _string_
-> The remove command for the package manager.
+> 该软件包管理器的删除命令。
 
 **--update** _string_
-> The update command for the package manager.
+> 该软件包管理器的更新命令。
 
 # INSTALL
 

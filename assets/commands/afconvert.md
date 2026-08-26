@@ -1,30 +1,30 @@
 # TAGLINE
 
-macOS audio file format converter
+macOS 音频文件格式转换工具
 
 # TLDR
 
-**Convert** audio file to AAC
+**将音频文件转换为 AAC**
 
 ```afconvert -f m4af -d aac [input.wav] [output.m4a]```
 
-Convert to **ALAC** (Apple Lossless)
+转换为 **ALAC**（Apple Lossless）
 
 ```afconvert -f m4af -d alac [input.wav] [output.m4a]```
 
-Convert to **AIFF**
+转换为 **AIFF**
 
 ```afconvert -f AIFF -d BEI16 [input.mp3] [output.aiff]```
 
-Set **bit rate** for AAC encoding
+为 AAC 编码设置**比特率**
 
 ```afconvert -f m4af -d aac -b [128000] [input.wav] [output.m4a]```
 
-Convert with VBR **strategy**
+以 VBR **策略**转换
 
 ```afconvert -f m4af -d aac -s 3 -b [128000] [input.wav] [output.m4a]```
 
-List supported **formats**
+列出支持的**格式**
 
 ```afconvert -hf```
 
@@ -34,64 +34,64 @@ List supported **formats**
 
 # DESCRIPTION
 
-**afconvert** is a macOS command-line tool for converting between audio file formats. It supports all audio formats handled by Core Audio, including WAV, AIFF, MP3, AAC, ALAC, CAF, and more. If no output file is specified, the name is generated automatically and saved in the same directory as the input.
+**afconvert** 是 macOS 上用于在各音频文件格式之间转换的命令行工具。它支持 Core Audio 能处理的所有音频格式，包括 WAV、AIFF、MP3、AAC、ALAC、CAF 等。如果未指定输出文件，文件名会自动生成并保存在与输入相同的目录中。
 
-The tool provides access to Apple's audio codecs and can perform sample rate conversion, bit depth conversion, and channel remapping along with format conversion.
+该工具可调用 Apple 的音频编解码器，并在格式转换的同时执行采样率转换、位深转换和声道重映射。
 
 # PARAMETERS
 
 **-f**, **--file** _format_
-> Output file format (m4af, WAVE, AIFF, caff, etc.).
+> 输出文件格式（m4af、WAVE、AIFF、caff 等）。
 
 **-d**, **--data** _format_
-> Audio data format (aac, alac, BEI16, LEF32, etc.). Can include sample rate and format flags.
+> 音频数据格式（aac、alac、BEI16、LEF32 等）。可附带采样率和格式标志。
 
 **-b**, **--bitrate** _rate_
-> Total bit rate in bits per second for compressed formats.
+> 压缩格式的总比特率（单位：比特/秒）。
 
 **-c**, **--channels** _number_
-> Number of output channels.
+> 输出声道数。
 
 **-l**, **--channellayout** _tag_
-> Channel layout tag.
+> 声道布局标签。
 
 **-q**, **--quality** _quality_
-> Codec quality (0-127, higher is better).
+> 编解码器质量（0-127，越高越好）。
 
 **-r**, **--src-quality** _quality_
-> Sample rate converter quality (0-127, default: 127).
+> 采样率转换器质量（0-127，默认：127）。
 
 **--src-complexity** _complexity_
-> Sample rate converter complexity (line, norm, bats).
+> 采样率转换器的复杂度（line、norm、bats）。
 
 **-s**, **--strategy** _strategy_
-> Bitrate allocation strategy (0=CBR, 1=ABR, 2=VBR_constrained, 3=VBR).
+> 比特率分配策略（0=CBR、1=ABR、2=VBR_constrained、3=VBR）。
 
 **-o** _filename_
-> Specify output file path.
+> 指定输出文件路径。
 
 **--dither** _algorithm_
-> Dither algorithm (1 or 2).
+> 抖动（dither）算法（1 或 2）。
 
 **--mix**
-> Enable channel downmixing.
+> 启用声道下混。
 
 **-v**, **--verbose**
-> Display progress information.
+> 显示进度信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-hf**, **--help-formats**
-> List all supported file and data formats.
+> 列出所有受支持的文件格式和数据格式。
 
 # CAVEATS
 
-This tool is macOS-only. Some format conversions may be lossy. AAC encoding quality varies with bit rate settings. Not all format combinations are valid. Use **-hf** to see which formats are supported on your system.
+此工具仅限 macOS。某些格式转换可能是有损的。AAC 编码质量随比特率设置而变化。并非所有格式组合都有效。使用 **-hf** 可以查看你的系统支持哪些格式。
 
 # HISTORY
 
-**afconvert** has been part of macOS since Mac OS X, providing command-line access to the same audio conversion capabilities used by iTunes and other Apple applications.
+**afconvert** 自 Mac OS X 时代起便是 macOS 的一部分，让用户能通过命令行使用与 iTunes 及其他 Apple 应用相同的音频转换能力。
 
 # SEE ALSO
 

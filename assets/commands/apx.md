@@ -1,34 +1,34 @@
 # TAGLINE
 
-Package manager with containerized subsystem support
+支持容器化子系统的软件包管理器
 
 # TLDR
 
-View documentation for managing **package managers**
+查看管理**软件包管理器**的文档
 
 ```apx pkgmanagers --help```
 
-View documentation for managing **stacks**
+查看管理**栈**的文档
 
 ```apx stacks --help```
 
-View documentation for managing **subsystems**
+查看管理**子系统**的文档
 
 ```apx subsystems --help```
 
-**Enter** a subsystem shell
+**进入**子系统 Shell
 
 ```apx [subsystem] enter```
 
-**Install** a package in a subsystem
+在子系统中**安装**软件包
 
 ```apx [subsystem] install [package]```
 
-**Run** a command in a subsystem
+在子系统中**运行**命令
 
 ```apx [subsystem] run [command]```
 
-**Export** an application from a subsystem to the host
+将应用从子系统**导出**到主机
 
 ```apx [subsystem] export --app [application]```
 
@@ -38,63 +38,63 @@ View documentation for managing **subsystems**
 
 # DESCRIPTION
 
-**apx** is a package management utility for Vanilla OS that supports multiple package sources through containerized subsystems. It allows installing packages from different Linux distributions (Debian, Fedora, Arch, etc.) without affecting the host system.
+**apx** 是 Vanilla OS 的软件包管理工具，通过容器化子系统支持多种软件来源。它允许从不同的 Linux 发行版（Debian、Fedora、Arch 等）安装软件包，而不影响主机系统。
 
-Packages are installed in isolated subsystems based on Podman containers. Applications can be exported to the host system and integrated with the desktop environment while maintaining separation from the immutable host OS.
+软件包安装在基于 Podman 容器的隔离子系统中。应用可以导出到主机系统并与桌面环境集成，同时保持与不可变主机操作系统的分离。
 
 # SUBCOMMANDS
 
 **pkgmanagers**
-> Manage package manager configurations
+> 管理软件包管理器配置
 
 **stacks**
-> Manage stack configurations (base images and package managers)
+> 管理栈配置（基础镜像和软件包管理器）
 
 **subsystems**
-> Manage subsystems (container environments)
+> 管理子系统（容器环境）
 
 **enter**
-> Enter a subsystem's shell
+> 进入子系统的 Shell
 
 **install**
-> Install packages in a subsystem
+> 在子系统中安装软件包
 
 **remove**
-> Remove packages from a subsystem
+> 从子系统中删除软件包
 
 **run**
-> Run a command in a subsystem
+> 在子系统中运行命令
 
 **search**
-> Search for packages in a subsystem
+> 在子系统中搜索软件包
 
 **update**
-> Update the list of available packages in a subsystem
+> 更新子系统中可用软件包的列表
 
 **upgrade**
-> Upgrade installed packages in a subsystem
+> 升级子系统中已安装的软件包
 
 **export**
-> Export an application or binary from a subsystem to the host system
+> 将应用或二进制文件从子系统导出到主机系统
 
 **unexport**
-> Remove a previously exported application or binary
+> 移除先前导出的应用或二进制文件
 
 # CONFIGURATION
 
 **/etc/apx/apx.json**
-> System-wide configuration defining the container storage path, apnx storage path, and default stack settings.
+> 系统级配置，定义容器存储路径、apnx 存储路径和默认栈设置。
 
 **~/.local/share/apx/**
-> Per-user directory containing stacks, subsystems, and package manager configurations.
+> 每用户目录，包含栈、子系统和软件包管理器配置。
 
 # CAVEATS
 
-Requires Podman for container management. First-time subsystem creation downloads container images which may be large. Exported applications run inside containers, which may have slight performance overhead.
+需要 Podman 进行容器管理。首次创建子系统会下载可能较大的容器镜像。导出的应用在容器内运行，可能有轻微的性能开销。
 
 # HISTORY
 
-**apx** was developed as part of Vanilla OS, an immutable Linux distribution first released in **2022**. It provides a novel approach to package management that preserves system immutability while allowing users to install software from multiple Linux ecosystems.
+**apx** 作为 Vanilla OS 的一部分开发，该不可变 Linux 发行版于 **2022** 年首次发布。它提供了一种新颖的软件包管理方式，在保持系统不可变性的同时，允许用户从多个 Linux 生态系统安装软件。
 
 # INSTALL
 

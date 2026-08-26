@@ -1,22 +1,22 @@
 # TAGLINE
 
-Play audio files via ALSA
+通过 ALSA 播放音频文件
 
 # TLDR
 
-**Play** a specific file
+**播放**指定文件
 
 ```aplay [path/to/file]```
 
-Play the first **10 seconds** at 2500 Hz
+以 2500 Hz 播放前 **10 秒**
 
 ```aplay -d 10 -r 2500 [path/to/file]```
 
-Play a **raw file** with specific format
+以指定格式播放**原始文件**
 
 ```aplay -c 1 -t raw -r 22050 -f mu_law [path/to/file]```
 
-List available **audio devices**
+列出可用的**音频设备**
 
 ```aplay -l```
 
@@ -26,58 +26,58 @@ List available **audio devices**
 
 # DESCRIPTION
 
-**aplay** is a command-line sound player for ALSA soundcard drivers. It supports various audio formats and can automatically determine sampling rate, bit depth, and other parameters from the file format.
+**aplay** 是面向 ALSA 声卡驱动的命令行声音播放器。它支持多种音频格式，并能根据文件格式自动确定采样率、位深等参数。
 
 # PARAMETERS
 
 **-d, --duration seconds**
-> Stop playback after the specified number of seconds
+> 在指定秒数后停止播放
 
 **-r, --rate rate**
-> Sampling rate in Hz
+> 采样率（Hz）
 
 **-c, --channels count**
-> Number of channels (1 for mono, 2 for stereo)
+> 声道数（1 为单声道，2 为立体声）
 
 **-t, --file-type type**
-> File type (voc, wav, raw, au)
+> 文件类型（voc、wav、raw、au）
 
 **-f, --format format**
-> Sample format (S16_LE, U8, mu_law, etc.)
+> 采样格式（S16_LE、U8、mu_law 等）
 
 **-l, --list-devices**
-> List all available audio devices
+> 列出所有可用音频设备
 
 **-L, --list-pcms**
-> List all PCM devices
+> 列出所有 PCM 设备
 
 **-D, --device name**
-> Select PCM device by name
+> 按名称选择 PCM 设备
 
 **-q, --quiet**
-> Quiet mode; suppress messages
+> 安静模式；不显示消息
 
 **-v, --verbose**
-> Verbose mode; show PCM structure and setup
+> 详细模式；显示 PCM 结构和设置
 
 **-i, --interactive**
-> Allow interactive operation via stdin (pause/resume with space or enter key)
+> 允许通过 stdin 进行交互式操作（按空格或回车键暂停/恢复）
 
 # CONFIGURATION
 
 **/etc/asound.conf**
-> System-wide ALSA configuration file for device defaults and plugin definitions.
+> 系统级 ALSA 配置文件，用于设备默认值和插件定义。
 
 **~/.asoundrc**
-> Per-user ALSA configuration overriding system defaults.
+> 每用户 ALSA 配置，覆盖系统默认值。
 
 # CAVEATS
 
-Requires ALSA drivers to be installed and configured. Raw files require explicit format specification.
+需要安装并配置 ALSA 驱动。原始文件需要显式指定格式。
 
 # HISTORY
 
-Part of **ALSA** (Advanced Linux Sound Architecture) utilities package, which replaced OSS as the standard Linux sound system.
+**ALSA**（Advanced Linux Sound Architecture）实用工具包的一部分，ALSA 取代 OSS 成为标准的 Linux 声音系统。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Advent of Code puzzle helper (download, read, submit)
+Advent of Code 谜题助手（下载、阅读、提交）
 
 # TLDR
 
-**Download** today's puzzle input
+**下载**今天的谜题输入
 
 ```aoc download```
 
-**Download** a specific day
+**下载**指定日期的谜题
 
 ```aoc download --day [1]```
 
-**Submit** an answer
+**提交**答案
 
 ```aoc submit [1] [answer]```
 
-**Show** the calendar / stars
+**查看**日历 / 星星进度
 
 ```aoc calendar```
 
-**Read** puzzle description
+**阅读**谜题描述
 
 ```aoc read```
 
@@ -30,35 +30,35 @@ Advent of Code puzzle helper (download, read, submit)
 
 # DESCRIPTION
 
-**aoc** (from the **aoc-cli** crate) talks to [Advent of Code](https://adventofcode.com) using your session cookie: download descriptions and inputs, submit answers, and view star progress from the terminal. Install via **cargo install aoc-cli**, Homebrew taps, or release binaries.
+**aoc**（来自 **aoc-cli** crate）使用你的会话 cookie 与 [Advent of Code](https://adventofcode.com) 交互：在终端中下载谜题描述和输入、提交答案并查看星星进度。可通过 **cargo install aoc-cli**、Homebrew tap 或发布版二进制文件安装。
 
-Authenticate by placing the session cookie in an environment variable or config file as documented upstream (**AOC_SESSION**, etc.).
+按照上游文档，将会话 cookie 放入环境变量或配置文件即可完成认证（**AOC_SESSION** 等）。
 
 # PARAMETERS
 
 **download** | **d**
 
-> Save puzzle statement and/or input files.
+> 保存谜题描述和/或输入文件。
 
 **submit** | **s**
 
-> Submit part 1/2 answers.
+> 提交第 1/2 部分的答案。
 
 **read** | **r**
 
-> Show puzzle description.
+> 显示谜题描述。
 
 **calendar** | **c**
 
-> Show calendar and collected stars.
+> 显示日历和已收集的星星。
 
 **--day** *n* / **--year** *y*
 
-> Select puzzle day/year (defaults to current event day when in December).
+> 选择谜题的日期/年份（12 月活动期间默认为当天）。
 
 # CAVEATS
 
-Requires a valid AoC session cookie; do not commit it. Respect the event's automation rules and rate limits. Puzzle content is copyright Eric Wastl.
+需要有效的 AoC 会话 cookie；切勿提交到代码库。请遵守活动的自动化规则和速率限制。谜题内容版权归 Eric Wastl 所有。
 
 # SEE ALSO
 

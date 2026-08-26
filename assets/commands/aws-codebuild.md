@@ -1,42 +1,42 @@
 # TAGLINE
 
-Run managed continuous integration builds.
+运行托管的持续集成构建。
 
 # TLDR
 
-**Start a build** for a project
+**为项目启动构建**
 
 ```aws codebuild start-build --project-name [my-project]```
 
-**Start a build** with environment variable overrides
+**启动构建并覆盖环境变量**
 
 ```aws codebuild start-build --project-name [my-project] --environment-variables-override name=MY_VAR,value=myvalue```
 
-**Create a project** from JSON configuration
+**从 JSON 配置创建项目**
 
 ```aws codebuild create-project --cli-input-json file://[project.json]```
 
-**Generate project template** JSON
+**生成项目模板 JSON**
 
 ```aws codebuild create-project --generate-cli-skeleton > [project.json]```
 
-**List all projects**
+**列出所有项目**
 
 ```aws codebuild list-projects```
 
-**List recent build IDs** across the account
+**列出账户中最近的构建 ID**
 
 ```aws codebuild list-builds```
 
-**Get build details**
+**获取构建详情**
 
 ```aws codebuild batch-get-builds --ids [build-id]```
 
-**Stop a running build**
+**停止正在运行的构建**
 
 ```aws codebuild stop-build --id [build-id]```
 
-**View build logs**
+**查看构建日志**
 
 ```aws codebuild batch-get-builds --ids [build-id] --query "builds[0].logs"```
 
@@ -47,79 +47,79 @@ Run managed continuous integration builds.
 # PARAMETERS
 
 **start-build**
-> Start a build run for a project
+> 为项目启动一次构建
 
 **start-build-batch**
-> Start a batch build
+> 启动批量构建
 
 **stop-build**
-> Stop a running build
+> 停止正在运行的构建
 
 **create-project**
-> Create a new build project
+> 创建新的构建项目
 
 **update-project**
-> Modify project configuration
+> 修改项目配置
 
 **delete-project**
-> Remove a build project
+> 删除构建项目
 
 **list-projects**
-> List all build projects
+> 列出所有构建项目
 
 **batch-get-builds**
-> Get details of one or more builds
+> 获取一个或多个构建的详细信息
 
 **batch-get-projects**
-> Get details of one or more projects
+> 获取一个或多个项目的详细信息
 
 **list-builds**
-> List build IDs across the account, most recent first
+> 列出整个账户的构建 ID，最新的在前
 
 **list-builds-for-project**
-> List builds for a specific project
+> 列出特定项目的构建
 
 **--project-name** _name_
-> Name of the build project
+> 构建项目的名称
 
 **--id** _build-id_
-> Build identifier
+> 构建标识符
 
 **--ids** _build-ids_
-> Space-separated list of build IDs
+> 以空格分隔的构建 ID 列表
 
 **--source-version** _ref_
-> Source version (branch, tag, commit ID)
+> 源版本（分支、标签、提交 ID）
 
 **--environment-variables-override** _vars_
-> Override environment variables (name=KEY,value=VAL)
+> 覆盖环境变量（name=KEY,value=VAL）
 
 **--buildspec-override** _path_
-> Override buildspec file
+> 覆盖 buildspec 文件
 
 **--cli-input-json** _file_
-> Read parameters from JSON file
+> 从 JSON 文件读取参数
 
 **--generate-cli-skeleton**
-> Output JSON template for project creation
+> 输出用于创建项目的 JSON 模板
 
 # DESCRIPTION
 
-**aws codebuild** manages AWS CodeBuild, a fully managed continuous integration service that compiles source code, runs tests, and produces deployable artifacts.
+**aws codebuild** 管理 AWS CodeBuild。这是一项全托管的持续集成服务，可编译源代码、运行测试并生成可部署的制品。
 
-**Projects** define the build environment, source location (CodeCommit, S3, GitHub, Bitbucket), build commands (buildspec.yml), and output artifacts. Use **create-project** with a JSON configuration file to define all settings.
+**项目（Project）** 定义构建环境、源码位置（CodeCommit、S3、GitHub、Bitbucket）、构建命令（buildspec.yml）以及输出制品。可使用 **create-project** 配合 JSON 配置文件定义全部设置。
 
-**Builds** are triggered with **start-build**, which can override project defaults for source version, environment variables, and buildspec. Builds run in isolated Docker containers with configurable compute resources.
+**构建（Build）** 通过 **start-build** 触发，可覆盖源版本、环境变量和 buildspec 的项目默认值。构建在相互隔离的 Docker 容器中运行，计算资源可配置。
 
-Build output includes logs (stored in CloudWatch Logs and/or S3) and artifacts (stored in S3). Use **batch-get-builds** to retrieve build status, logs location, and timing information.
+构建输出包括日志（存储在 CloudWatch Logs 和/或 S3）和制品（存储在 S3）。可使用 **batch-get-builds** 获取构建状态、日志位置和计时信息。
 
 # CAVEATS
 
-Build timeouts default to 60 minutes; configure appropriately for long builds. IAM service role must have permissions for source access and artifact storage. Build cache helps speed up subsequent builds but must be configured. Concurrent build limits apply per account.
+构建超时默认为 60 分钟；长时间构建请合理设置。IAM 服务角色必须拥有访问源码和存储制品的权限。构建缓存有助于加快后续构建速度，但需要进行配置。并发构建数量受账户级上限约束。
 
 # HISTORY
 
-**AWS CodeBuild** launched in **December 2016** at AWS re:Invent as part of the AWS developer tools suite. It was designed to eliminate the need for managing Jenkins or other CI servers. Build batches for parallel builds were added in **2020**, improving performance for complex build matrices.
+**AWS CodeBuild** 于 **2016 年 12 月** 在 AWS re:Invent 上作为 AWS 开发者工具套件的一部分推出，旨在免除管理 Jenkins 或其他 CI 服务器的负担。支持并行构建的构建批处理于 **2020 年** 加入，提升了复杂构建矩阵的性能。
 
 # INSTALL
 

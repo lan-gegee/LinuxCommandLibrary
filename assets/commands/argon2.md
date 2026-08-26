@@ -1,26 +1,26 @@
 # TAGLINE
 
-Hash passwords using the Argon2 algorithm
+使用 Argon2 算法对密码进行哈希
 
 # TLDR
 
-**Hash** a password
+对密码进行**哈希**
 
 ```echo -n "password" | argon2 [salt] -e```
 
-Hash with **Argon2id** variant
+用 **Argon2id** 变体做哈希
 
 ```echo -n "password" | argon2 [salt] -id -e```
 
-Hash with **custom parameters**
+用**自定义参数**做哈希
 
 ```echo -n "password" | argon2 [salt] -t [3] -m [16] -p [4] -e```
 
-**Output raw bytes** instead of encoded form
+**输出原始字节**而非编码形式
 
 ```echo -n "password" | argon2 [salt] -r```
 
-**Pin to Argon2 version 13** (current standard)
+**固定为 Argon2 版本 13**（现行标准）
 
 ```echo -n "password" | argon2 [salt] -v [13] -e```
 
@@ -30,52 +30,52 @@ Hash with **custom parameters**
 
 # DESCRIPTION
 
-**argon2** is a command-line tool for the Argon2 password hashing algorithm, winner of the Password Hashing Competition in 2015. It provides strong, memory-hard password hashing resistant to GPU and ASIC attacks.
+**argon2** 是 Argon2 密码哈希算法的命令行工具。Argon2 是 2015 年密码哈希竞赛（Password Hashing Competition）的获胜者，提供强健的内存困难型密码哈希，可抵抗 GPU 和 ASIC 攻击。
 
-The tool supports Argon2d (data-dependent), Argon2i (data-independent), and Argon2id (hybrid) variants.
+该工具支持 Argon2d（数据相关）、Argon2i（数据无关）和 Argon2id（混合）三种变体。
 
 # PARAMETERS
 
 **-d**
-> Use Argon2d (data-dependent, GPU-resistant). Default is Argon2i.
+> 使用 Argon2d（数据相关，抗 GPU）。默认为 Argon2i。
 
 **-i**
-> Use Argon2i (data-independent, side-channel resistant). This is the default if no variant flag is given.
+> 使用 Argon2i（数据无关，抗侧信道）。未指定变体标志时即为默认。
 
 **-id**
-> Use Argon2id (hybrid; recommended for password hashing).
+> 使用 Argon2id（混合；推荐用于密码哈希）。
 
 **-t** _N_
-> Time cost (iterations). Default: _3_.
+> 时间开销（迭代次数）。默认：_3_。
 
 **-m** _N_
-> Memory cost expressed as 2^_N_ KiB. Default: _12_ (4 MiB).
+> 内存开销，表示为 2^_N_ KiB。默认：_12_（4 MiB）。
 
 **-p** _N_
-> Parallelism (threads). Default: _1_.
+> 并行度（线程数）。默认：_1_。
 
 **-l** _N_
-> Output hash length in bytes. Default: _32_.
+> 输出哈希长度，单位字节。默认：_32_。
 
 **-e**
-> Print only the encoded hash (PHC string format).
+> 只输出编码后的哈希（PHC 字符串格式）。
 
 **-r**
-> Print only the raw hash bytes.
+> 只输出原始哈希字节。
 
 **-v** _10|13_
-> Argon2 algorithm version. Default: _13_.
+> Argon2 算法版本。默认：_13_。
 
 **-h**
-> Display tool usage and exit.
+> 显示工具用法并退出。
 
 # CAVEATS
 
-Salt must be provided as a positional argument and should be at least 8 random bytes. Higher memory/time costs improve security but increase computation time. Argon2id is recommended for password hashing. The CLI hashes only — there is no built-in verification mode; verify hashes from a library that understands the PHC-encoded output.
+盐值必须作为位置参数提供，且应至少为 8 个随机字节。更高的内存/时间开销可提升安全性，但会增加计算时间。密码哈希推荐使用 Argon2id。此 CLI 只做哈希——没有内置的验证模式；请使用理解 PHC 编码输出的库来验证哈希。
 
 # HISTORY
 
-**Argon2** was designed by Alex Biryukov, Daniel Dinu, and Dmitry Khovratovich, winning the Password Hashing Competition in **2015**. It's recommended by OWASP for password hashing.
+**Argon2** 由 Alex Biryukov、Daniel Dinu 和 Dmitry Khovratovich 设计，于 **2015** 年赢得密码哈希竞赛。OWASP 推荐将其用于密码哈希。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate random passwords
+生成随机密码
 
 # TLDR
 
-**Generate** random passwords
+**生成**随机密码
 
 ```apg```
 
-Generate with **specific length**
+以**指定长度**生成
 
 ```apg -m [16] -x [20]```
 
-Generate **pronounceable** passwords
+生成**可发音**的密码
 
 ```apg -a 0```
 
-Generate **random character** passwords
+生成**随机字符**密码
 
 ```apg -a 1```
 
-Generate with **specific character set**
+使用**指定字符集**生成
 
 ```apg -M SNCL```
 
-Generate without **ambiguous characters**
+生成时排除**易混淆字符**
 
 ```apg -E "0O1lI"```
 
@@ -34,52 +34,52 @@ Generate without **ambiguous characters**
 
 # DESCRIPTION
 
-**apg** (Automated Password Generator) creates random passwords using either a pronounceable password algorithm (based on phoneme sequences) or completely random characters.
+**apg**（Automated Password Generator）创建随机密码，既可使用可发音密码算法（基于音素序列），也可使用完全随机的字符。
 
-Pronounceable passwords are easier to remember but potentially less secure. Random passwords offer maximum entropy but are harder to memorize.
+可发音的密码更容易记忆，但安全性可能较低。随机密码具有最大的熵，但更难记住。
 
 # PARAMETERS
 
 **-a** _algorithm_
-> Algorithm: 0=pronounceable, 1=random
+> 算法：0=可发音，1=随机
 
 **-m** _length_
-> Minimum password length
+> 最小密码长度
 
 **-x** _length_
-> Maximum password length
+> 最大密码长度
 
 **-n** _count_
-> Number of passwords to generate
+> 要生成的密码数量
 
 **-M** _mode_
-> Character classes: S=special, N=numeric, C=capital, L=lowercase. Prefix with uppercase to require the class.
+> 字符类别：S=特殊字符、N=数字、C=大写字母、L=小写字母。用大写作为前缀表示必须包含该类别。
 
 **-E** _chars_
-> Exclude specific characters
+> 排除特定字符
 
 **-r** _file_
-> Check against dictionary file for password filtering
+> 对照字典文件进行密码过滤检查
 
 **-t**
-> Print pronunciation for pronounceable passwords
+> 为可发音密码打印发音
 
 **-q**
-> Quiet mode (passwords only)
+> 安静模式（只输出密码）
 
 **-s**
-> Prompt for random seed from keyboard input
+> 提示通过键盘输入随机种子
 
 **-l**
-> Spell generated passwords phonetically
+> 按发音拼读生成的密码
 
 # CAVEATS
 
-Pronounceable passwords may have patterns that reduce entropy. For high-security applications, use random mode with sufficient length. Output goes to terminal; pipe to clip for clipboard.
+可发音密码可能存在降低熵的模式。对高安全场景请使用足够长度的随机模式。输出到终端；可通过管道送入 clip 以复制到剪贴板。
 
 # HISTORY
 
-**apg** was created by Adel I. Mirzazhanov, implementing both random and pronounceable password generation algorithms for Unix systems.
+**apg** 由 Adel I. Mirzazhanov 创建，为 Unix 系统同时实现了随机和可发音两种密码生成算法。
 
 # INSTALL
 

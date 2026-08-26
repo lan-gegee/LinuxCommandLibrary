@@ -1,30 +1,30 @@
 # TAGLINE
 
-Android package manager shell interface
+Android 软件包管理器 shell 接口
 
 # TLDR
 
-**List** all installed packages
+**列出**所有已安装的软件包
 
 ```adb shell pm list packages```
 
-List only **system** packages
+只列出**系统**软件包
 
 ```adb shell pm list packages -s```
 
-List only **third-party** packages
+只列出**第三方**软件包
 
 ```adb shell pm list packages -3```
 
-**Uninstall** a package
+**卸载**软件包
 
 ```adb shell pm uninstall [com.example.app]```
 
-**Clear** app data and cache
+**清除**应用数据和缓存
 
 ```adb shell pm clear [com.example.app]```
 
-Get **path** to APK
+获取 APK 的**路径**
 
 ```adb shell pm path [com.example.app]```
 
@@ -34,49 +34,49 @@ Get **path** to APK
 
 # DESCRIPTION
 
-**pm** (Package Manager) is an Android shell command for managing installed applications. It provides functionality for listing, installing, uninstalling, and querying information about packages on the device.
+**pm**（Package Manager，软件包管理器）是用于管理已安装应用的 Android shell 命令。它提供列出、安装、卸载以及查询设备上软件包信息的功能。
 
-This tool is more powerful than the standard adb install/uninstall commands, offering options to manage permissions, disable packages, and query detailed package information.
+该工具比标准的 adb install/uninstall 命令更强大，提供了管理权限、禁用软件包和查询详细软件包信息的选项。
 
 # PARAMETERS
 
 **list packages** [_-f_] [_-d_] [_-e_] [_-s_] [_-3_] [_-i_] [_-u_] [_filter_]
-> List packages (-f: with APK path, -d: disabled, -e: enabled, -s: system, -3: third-party, -i: with installer, -u: include uninstalled)
+> 列出软件包（-f：含 APK 路径，-d：已禁用，-e：已启用，-s：系统，-3：第三方，-i：含安装来源，-u：包含已卸载）
 
 **path** _package_
-> Print path to the APK
+> 打印 APK 的路径
 
 **install** [_-r_] [_-t_] [_-d_] _path_
-> Install package from device path
+> 从设备路径安装软件包
 
 **uninstall** [_-k_] _package_
-> Remove package (-k: keep data)
+> 移除软件包（-k：保留数据）
 
 **clear** _package_
-> Delete all data associated with package
+> 删除与软件包关联的所有数据
 
 **enable** _package_
-> Enable a disabled package
+> 启用被禁用的软件包
 
 **disable** _package_
-> Disable a package
+> 禁用软件包
 
 **grant** _package_ _permission_
-> Grant a permission to a package
+> 向软件包授予权限
 
 **revoke** _package_ _permission_
-> Revoke a permission from a package
+> 撤销软件包的权限
 
 **dump** _package_
-> Print package information
+> 打印软件包信息
 
 # CAVEATS
 
-Some operations require system or root privileges. Disabling system packages may cause instability. Package names are case-sensitive. Uninstalling system apps may require root.
+部分操作需要 system 或 root 权限。禁用系统软件包可能导致不稳定。软件包名区分大小写。卸载系统应用可能需要 root 权限。
 
 # HISTORY
 
-The package manager command has been part of Android since its initial release in **2008**, providing command-line access to the PackageManager system service.
+软件包管理器命令自 **2008** 年 Android 首次发布起就存在，为 PackageManager 系统服务提供命令行访问入口。
 
 # INSTALL
 

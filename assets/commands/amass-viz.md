@@ -1,26 +1,26 @@
 # TAGLINE
 
-Visualize attack surface enumeration data
+可视化攻击面枚举数据
 
 # TLDR
 
-**Generate D3.js HTML visualization**
+**生成 D3.js HTML 可视化**
 
 ```amass viz -d3 -d [example.com]```
 
-**Export to Graphviz DOT format**
+**导出为 Graphviz DOT 格式**
 
 ```amass viz -dot -d [example.com] -o [graph.dot]```
 
-**Generate GEXF file for Gephi**
+**生成供 Gephi 使用的 GEXF 文件**
 
 ```amass viz -gexf -d [example.com] -o [graph.gexf]```
 
-**Export for Maltego**
+**导出为 Maltego 格式**
 
 ```amass viz -maltego -d [example.com] -o [graph.csv]```
 
-**Use a specific enumeration from the database**
+**使用数据库中的特定枚举记录**
 
 ```amass viz -d3 -enum [1] -d [example.com]```
 
@@ -30,46 +30,46 @@ Visualize attack surface enumeration data
 
 # DESCRIPTION
 
-**amass viz** generates visualizations from enumeration data stored in the amass database. It can create interactive web-based graphs, export to standard graph formats, or integrate with visualization platforms.
+**amass viz** 根据 amass 数据库中存储的枚举数据生成可视化。它可以创建交互式的网页图表、导出为标准图形格式，或与可视化平台集成。
 
-Visual representations help understand the relationships between discovered assets, identify patterns, and communicate findings to stakeholders.
+可视化的呈现方式有助于理解已发现资产之间的关系、识别规律，并向相关方传达发现结果。
 
 # PARAMETERS
 
 **-d3**
-> Generate D3.js HTML visualization
+> 生成 D3.js HTML 可视化
 
 **-dot**
-> Export in Graphviz DOT format
+> 以 Graphviz DOT 格式导出
 
 **-gexf**
-> Export in GEXF format (for Gephi)
+> 以 GEXF 格式导出（供 Gephi 使用）
 
 **-graphistry**
-> Generate Graphistry visualization
+> 生成 Graphistry 可视化
 
 **-maltego**
-> Export for Maltego
+> 导出为 Maltego 格式
 
 **-d** _domain_
-> Filter by domain
+> 按域名过滤
 
 **-enum** _index_
-> Use specific enumeration
+> 使用特定的枚举记录
 
 **-o** _file_
-> Output file path
+> 输出文件路径
 
 **-dir** _path_
-> Database directory
+> 数据库目录
 
 # CAVEATS
 
-Large enumerations produce complex visualizations that may be slow to render. D3 visualizations require a web browser. Some formats require specific software to view.
+大规模枚举会产生复杂的可视化结果，渲染可能较慢。D3 可视化需要网页浏览器。某些格式需要特定软件才能查看。
 
 # HISTORY
 
-**amass viz** was added to help security professionals visualize and communicate enumeration results, supporting multiple output formats for different use cases.
+**amass viz** 的加入是为了帮助安全专业人员对枚举结果进行可视化和交流，支持多种输出格式以满足不同的使用场景。
 
 # INSTALL
 

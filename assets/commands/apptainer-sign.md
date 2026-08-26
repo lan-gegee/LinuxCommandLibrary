@@ -1,26 +1,26 @@
 # TAGLINE
 
-Cryptographically sign SIF container images
+对 SIF 容器镜像进行加密签名
 
 # TLDR
 
-**Sign** a container image using the default PGP key
+使用默认 PGP 密钥**签名**容器镜像
 
 ```apptainer sign [path/to/image.sif]```
 
-Sign a container image using a **specific private key** file
+使用**特定私钥**文件签名容器镜像
 
 ```apptainer sign --key [path/to/private.pem] [path/to/image.sif]```
 
-Sign a container image using a **specific PGP key index**
+使用**特定的 PGP 密钥索引**签名容器镜像
 
 ```apptainer sign -k [key_index] [path/to/image.sif]```
 
-Sign a **specific object group** within the image
+签名镜像内的**特定对象组**
 
 ```apptainer sign -g [group_id] [path/to/image.sif]```
 
-Sign a **specific object by ID** within the image
+按 ID 签名镜像内的**特定对象**
 
 ```apptainer sign -i [object_id] [path/to/image.sif]```
 
@@ -30,27 +30,27 @@ Sign a **specific object by ID** within the image
 
 # DESCRIPTION
 
-**apptainer sign** adds digital signatures to SIF container images, enabling verification of image integrity and authenticity. Signatures can use PGP keys or X.509 certificates.
+**apptainer sign** 为 SIF 容器镜像添加数字签名，从而可以验证镜像的完整性和真实性。签名可以使用 PGP 密钥或 X.509 证书。
 
-Signing containers is essential for establishing trust in shared container images and meeting security requirements in production environments.
+为容器签名对于在共享容器镜像时建立信任、以及满足生产环境的安全要求至关重要。
 
 # PARAMETERS
 
 **--key** _file_
-> Path to a private key file for signing
+> 用于签名的私钥文件路径
 
 **-k, --keyidx** _index_
-> Index of the PGP key to use from the keyring
+> 要使用的密钥环中 PGP 密钥的索引
 
 **-g, --group-id** _id_
-> Sign only a specific object group within the SIF
+> 只签名 SIF 内的特定对象组
 
 **-i, --sif-id** _id_
-> Sign only a specific object by ID within the SIF
+> 按 ID 只签名 SIF 内的特定对象
 
 # CAVEATS
 
-A PGP key pair or X.509 certificate must be configured before signing. The private key must be kept secure; compromised keys should be revoked immediately.
+签名前必须配置好 PGP 密钥对或 X.509 证书。私钥必须妥善保管；一旦泄露应立即吊销。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interactive console for managing the Asterisk PBX server
+管理 Asterisk PBX 服务器的交互式控制台
 
 # TLDR
 
-**Connect to the running Asterisk** console
+**连接**到正在运行的 Asterisk 控制台
 
 ```asterisk -r```
 
-**Connect with verbose output**
+**连接并输出详细日志**
 
 ```asterisk -rvvv```
 
-**Execute a CLI command** from shell
+从 Shell **执行 CLI 命令**
 
 ```asterisk -rx "sip show peers"```
 
-**Reload the dialplan**
+**重新加载拨号计划**
 
 ```asterisk -rx "dialplan reload"```
 
-**Show active calls**
+**显示当前通话**
 
 ```asterisk -rx "core show channels"```
 
-**Show SIP registrations**
+**显示 SIP 注册状态**
 
 ```asterisk -rx "sip show registry"```
 
-**Gracefully shutdown** Asterisk
+**优雅关闭** Asterisk
 
 ```asterisk -rx "core stop gracefully"```
 
@@ -41,95 +41,95 @@ Interactive console for managing the Asterisk PBX server
 # PARAMETERS
 
 **-r**
-> Connect to a running Asterisk instance via remote console
+> 通过远程控制台连接到正在运行的 Asterisk 实例
 
 **-R**
-> Same as -r, but attempt reconnection if disconnected
+> 与 -r 相同，但断开连接后会尝试重新连接
 
 **-v**
-> Increase verbosity (can be repeated: -vvv for more detail)
+> 提高详细程度（可重复使用：-vvv 表示更详细）
 
 **-x** _command_
-> Execute a CLI command and exit
+> 执行一条 CLI 命令后退出
 
 **-c**
-> Start Asterisk in console mode (foreground)
+> 以控制台模式（前台）启动 Asterisk
 
 **-g**
-> Dump core on crash (for debugging)
+> 崩溃时转储核心（用于调试）
 
 **-n**
-> Disable ANSI color output
+> 禁用 ANSI 彩色输出
 
 # CLI COMMANDS
 
 **core show help** [_command_]
-> Display help for CLI commands
+> 显示 CLI 命令的帮助信息
 
 **core show channels**
-> List active channels and calls
+> 列出活动的通道和通话
 
 **core show applications**
-> List available dialplan applications
+> 列出可用的拨号计划应用程序
 
 **dialplan reload**
-> Reload the dialplan configuration
+> 重新加载拨号计划配置
 
 **sip show peers**
-> Display configured SIP peers
+> 显示已配置的 SIP 对端
 
 **sip show registry**
-> Show SIP registration status
+> 显示 SIP 注册状态
 
 **pjsip show endpoints**
-> Display PJSIP endpoints (modern SIP stack)
+> 显示 PJSIP 端点（现代 SIP 协议栈）
 
 **module reload** _module_
-> Reload a specific module
+> 重新加载指定模块
 
 **logger reload**
-> Reload logging configuration
+> 重新加载日志配置
 
 **core stop gracefully**
-> Stop Asterisk after calls complete
+> 待通话结束后停止 Asterisk
 
 **core stop now**
-> Stop Asterisk immediately
+> 立即停止 Asterisk
 
 **database show** [_family_]
-> Display AstDB database contents
+> 显示 AstDB 数据库内容
 
 # DESCRIPTION
 
-**Asterisk CLI** is the command-line interface for managing the Asterisk PBX (Private Branch Exchange) server. It provides real-time monitoring, configuration reloading, and administrative control over the telephony system.
+**Asterisk CLI** 是用于管理 Asterisk PBX（专用交换机）服务器的命令行界面。它提供对电话系统的实时监控、配置重载和管理控制。
 
-Connect to a running Asterisk instance with **asterisk -r**. For scripts and automation, use **asterisk -rx "command"** to execute commands non-interactively. Tab completion is available for commands within the interactive console.
+使用 **asterisk -r** 连接到正在运行的 Asterisk 实例。对于脚本和自动化场景，使用 **asterisk -rx "command"** 以非交互方式执行命令。交互式控制台内支持命令的 Tab 补全。
 
-The CLI provides access to all Asterisk subsystems including SIP/PJSIP peers, active channels, dialplan, voicemail, queues, and the internal database. Verbosity levels (-v flags) control the amount of real-time event output displayed.
+CLI 可访问所有 Asterisk 子系统，包括 SIP/PJSIP 对端、活动通道、拨号计划、语音信箱、队列以及内部数据库。详细级别（-v 标志）控制实时事件输出的数量。
 
-Configuration changes typically require module reloads rather than full restarts. Use **dialplan reload** for extensions.conf changes or **module reload** for specific modules.
+配置更改通常需要重新加载模块而非完全重启。修改 extensions.conf 后使用 **dialplan reload**，或针对特定模块使用 **module reload**。
 
 # CONFIGURATION
 
 **/etc/asterisk/asterisk.conf**
-> Main Asterisk configuration file controlling global settings, module paths, and logging.
+> 主配置文件，控制全局设置、模块路径和日志。
 
 **/etc/asterisk/extensions.conf**
-> Dialplan configuration defining call routing rules and IVR logic.
+> 拨号计划配置，定义呼叫路由规则和 IVR 逻辑。
 
 **/etc/asterisk/sip.conf**
-> Legacy SIP peer and trunk configuration.
+> 传统 SIP 对端和中继配置。
 
 **/etc/asterisk/pjsip.conf**
-> Modern PJSIP endpoint and transport configuration.
+> 现代 PJSIP 端点与传输配置。
 
 # CAVEATS
 
-The Asterisk daemon must be running before connecting with **-r**. Some commands require specific modules to be loaded. The legacy **chan_sip** module uses **sip** commands while modern deployments use **pjsip** commands. Heavy verbosity can impact performance on busy systems.
+必须先启动 Asterisk 守护进程才能用 **-r** 连接。某些命令需要加载特定模块。传统 **chan_sip** 模块使用 **sip** 命令，而现代部署使用 **pjsip** 命令。过高的详细级别会影响繁忙系统的性能。
 
 # HISTORY
 
-**Asterisk** was created by **Mark Spencer** at Digium (now Sangoma) and first released in **1999**. It pioneered software-based PBX systems and VoIP telephony. The CLI has evolved alongside Asterisk, with the introduction of PJSIP in Asterisk 12 (2013) providing a modern SIP stack alongside the legacy chan_sip module.
+**Asterisk** 由 Digium（现 Sangoma）的 **Mark Spencer** 创建，于 **1999** 年首次发布。它开创了基于软件的 PBX 系统和 VoIP 电话。CLI 随 Asterisk 一同演进，Asterisk 12（2013 年）引入 PJSIP，在传统 chan_sip 模块之外提供了现代 SIP 协议栈。
 
 # INSTALL
 

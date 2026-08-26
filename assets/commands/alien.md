@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert between Linux package formats.
+在各种 Linux 软件包格式之间转换。
 
 # TLDR
 
-Convert a file to **Debian format** (.deb)
+将文件转换为 **Debian 格式**（.deb）
 
 ```sudo alien -d [path/to/file]```
 
-Convert a file to **Red Hat format** (.rpm)
+将文件转换为 **Red Hat 格式**（.rpm）
 
 ```sudo alien -r [path/to/file]```
 
-Convert a file to **Slackware format** (.tgz)
+将文件转换为 **Slackware 格式**（.tgz）
 
 ```sudo alien -t [path/to/file]```
 
-Convert to Debian format and **install** on the system
+转换为 Debian 格式并**安装**到系统
 
 ```sudo alien -d -i [path/to/file]```
 
-Convert **keeping the original version** number
+转换时**保留原始版本号**
 
 ```sudo alien -k [path/to/file]```
 
@@ -30,62 +30,62 @@ Convert **keeping the original version** number
 
 # DESCRIPTION
 
-**alien** is a program that converts between Red Hat rpm, Debian deb, Stampede slp, Slackware tgz, and Solaris pkg file formats. It enables users to convert packages from one Linux distribution format to another and install them.
+**alien** 是一个在 Red Hat rpm、Debian deb、Stampede slp、Slackware tgz 和 Solaris pkg 文件格式之间转换的程序。它让用户能够把软件包从一种 Linux 发行版格式转换为另一种并进行安装。
 
 # PARAMETERS
 
 **-d, --to-deb**
-> Create Debian packages (default)
+> 创建 Debian 软件包（默认）
 
 **-r, --to-rpm**
-> Create RPM packages
+> 创建 RPM 软件包
 
 **-t, --to-tgz**
-> Create TGZ (Slackware) packages
+> 创建 TGZ（Slackware）软件包
 
 **--to-slp**
-> Create SLP (Stampede) packages
+> 创建 SLP（Stampede）软件包
 
 **-p, --to-pkg**
-> Create Solaris pkg packages
+> 创建 Solaris pkg 软件包
 
 **-i, --install**
-> Install generated packages automatically
+> 自动安装生成的软件包
 
 **-g, --generate**
-> Create temporary directory for manual package building
+> 创建临时目录以便手动构建软件包
 
 **-k, --keep-version**
-> Don't increment version numbers
+> 不递增版本号
 
 **-c, --scripts**
-> Convert installation/removal scripts
+> 转换安装/卸载脚本
 
 **--fixperms**
-> Sanitize file permissions (Debian only)
+> 规范文件权限（仅限 Debian）
 
 **-v, --verbose**
-> Display executed commands
+> 显示执行的命令
 
 **-T, --test**
-> Test generated packages with lintian
+> 用 lintian 测试生成的软件包
 
 **--bump**=_N_
-> Increment version number by N instead of 1
+> 版本号递增 N 而不是 1
 
 **-h, --help**
-> Display usage summary
+> 显示用法摘要
 
 **--version**
-> Display alien version
+> 显示 alien 版本
 
 # CAVEATS
 
-Converted packages may not work perfectly as distribution-specific dependencies and scripts may not translate correctly between formats.
+发行版特有的依赖和脚本可能无法在格式间正确转换，因此转换后的软件包未必能完美工作。
 
 # HISTORY
 
-Created to help users install software from other Linux distributions when native packages are not available.
+它的诞生是为了帮助用户在原生软件包不可用时安装来自其他 Linux 发行版的软件。
 
 # INSTALL
 

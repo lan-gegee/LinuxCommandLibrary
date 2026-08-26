@@ -1,18 +1,18 @@
 # TAGLINE
 
-List pending jobs in the at queue
+列出 at 队列中待处理的作业
 
 # TLDR
 
-**List** pending jobs
+**列出**待处理的作业
 
 ```atq```
 
-List jobs in a **specific queue**
+列出**指定队列**中的作业
 
 ```atq -q [a]```
 
-Custom **time format** for listed jobs
+为列出的作业指定自定义**时间格式**
 
 ```atq -o [%Y-%m-%d %H:%M]```
 
@@ -22,32 +22,32 @@ Custom **time format** for listed jobs
 
 # DESCRIPTION
 
-**atq** lists jobs pending in the at queue. It shows job numbers, execution times, and queue designations for scheduled one-time jobs.
+**atq** 列出 at 队列中待处理的作业。它显示已安排的一次性作业的编号、执行时间和队列标识。
 
-This is equivalent to **at -l**.
+这等价于 **at -l**。
 
 # PARAMETERS
 
 **-q** _queue_
-> Show only jobs in the specified queue. A queue designation consists of a single letter (a-z or A-Z). The default queue for **at** jobs is **a** and for **batch** jobs is **b**.
+> 仅显示指定队列中的作业。队列标识由单个字母（a-z 或 A-Z）组成。**at** 作业的默认队列为 **a**，**batch** 作业的默认队列为 **b**。
 
 **-o** _fmt_
-> Use the specified **strftime**-style format for the date and time shown in the listing.
+> 对列表中显示的日期和时间使用指定的 **strftime** 风格格式。
 
 **-V**
-> Print the version number to standard error and exit.
+> 将版本号打印到标准错误后退出。
 
 # OUTPUT FORMAT
 
-Each line shows the job number, the scheduled execution date and time, the queue letter, and the owning username.
+每行显示作业编号、计划执行的日期和时间、队列字母以及所属用户名。
 
 # CAVEATS
 
-Non-root users can only see their own jobs; the superuser sees everyone's jobs. Jobs do not run while the **atd** daemon is not running, and past jobs that could not run are still listed until removed.
+非 root 用户只能看到自己的作业；超级用户可以看到所有人的作业。**atd** 守护进程未运行时作业不会执行，错过执行时机的过期作业仍会列在队列中，直到被移除为止。
 
 # HISTORY
 
-**atq** is part of the at command suite, scheduling deferred command execution in Unix since the **1970s**.
+**atq** 是 at 命令套件的一部分，自 **1970 年代**起就在 Unix 中提供延迟命令执行功能。
 
 # INSTALL
 

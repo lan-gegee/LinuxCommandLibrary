@@ -1,22 +1,22 @@
 # TAGLINE
 
-Record MIDI events to a Standard MIDI File
+将 MIDI 事件录制为标准 MIDI 文件
 
 # TLDR
 
-**List** available sequencer ports
+**列出**可用的音序器端口
 
 ```arecordmidi -l```
 
-**Record** MIDI from a port (client:port) to a file
+将某端口（client:port）的 MIDI **录制**到文件
 
 ```arecordmidi -p [20:0] [recording.mid]```
 
-Record with a **specific tempo** (BPM)
+以**指定速度**（BPM）录制
 
 ```arecordmidi -p [20:0] -b [120] [recording.mid]```
 
-Record with a **metronome** on another port
+在另一个端口上播放**节拍器**并录制
 
 ```arecordmidi -p [20:0] -m [128:0] [recording.mid]```
 
@@ -26,43 +26,43 @@ Record with a **metronome** on another port
 
 # DESCRIPTION
 
-**arecordmidi** records MIDI data from ALSA sequencer ports to a Standard MIDI File. It captures note events, control changes, and other MIDI messages from connected keyboards or controllers.
+**arecordmidi** 将 ALSA 音序器端口的 MIDI 数据录制为标准 MIDI 文件。它从连接的键盘或控制器捕获音符事件、控制变更和其他 MIDI 消息。
 
-Ports are addressed as _client:port_ (for example **20:0**) or by name, as listed by the **-l** option. The tool is useful for capturing performances without running a full DAW application.
+端口以 _client:port_ 形式（例如 **20:0**）或名称寻址，可通过 **-l** 选项查看。该工具适合在不运行完整 DAW 应用的情况下捕捉演奏。
 
 # PARAMETERS
 
 **-p** _client:port_[_,..._], **--port** _client:port_
-> Sequencer source port(s) to record from (required)
+> 要录制的音序器源端口（必需）
 
 **-l**, **--list**
-> List possible input ports, then exit
+> 列出可能的输入端口后退出
 
 **-b** _bpm_, **--bpm** _bpm_
-> Tempo in beats per minute (default: 120)
+> 速度，单位为每分钟节拍数（默认：120）
 
 **-t** _ticks_, **--ticks** _ticks_
-> Timing resolution in ticks per beat (default: 384)
+> 时间分辨率，单位为每拍 tick 数（默认：384）
 
 **-f** _frames_, **--fps** _frames_
-> Use SMPTE timing instead of musical ticks (24, 25, 29.97, or 30 fps)
+> 使用 SMPTE 计时而非音乐节拍（24、25、29.97 或 30 fps）
 
 **-s**, **--split-channels**
-> Write each MIDI channel to a separate track (format 1 file)
+> 将每个 MIDI 通道写入单独的轨道（format 1 文件）
 
 **-m** _client:port_, **--metronome** _client:port_
-> Play a metronome click on the specified port
+> 在指定端口上播放节拍器滴答声
 
 **-i** _num:den_, **--timesig** _num:den_
-> Time signature; denominator must be a power of two (default: 4:4)
+> 拍号；分母必须是 2 的幂（默认：4:4）
 
 # CAVEATS
 
-Recording starts immediately; no countdown by default. **arecordmidi** reads from ALSA sequencer ports only, not raw MIDI devices, so connect raw hardware through the sequencer (for example with **amidi** or a virtual raw-MIDI port) first. Stop the recording with **Ctrl-C**; the file is written on exit.
+录制立即开始；默认没有倒计时。**arecordmidi** 只从 ALSA 音序器端口读取，不读取原始 MIDI 设备，因此需先通过音序器连接原始硬件（例如用 **amidi** 或虚拟 raw-MIDI 端口）。用 **Ctrl-C** 停止录制；文件在退出时写入。
 
 # HISTORY
 
-**arecordmidi** is part of the ALSA utilities, providing basic MIDI recording capability since ALSA's introduction in the early **2000s**.
+**arecordmidi** 是 ALSA 实用工具的一部分，自 **2000 年代初** ALSA 推出以来一直提供基本的 MIDI 录制功能。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Enable Apache2 configuration files
+启用 Apache2 配置文件
 
 # TLDR
 
-**Enable** a configuration file
+**启用**一个配置文件
 
 ```sudo a2enconf [configuration_file]```
 
-Don't show **informative messages**
+不显示**提示信息**
 
 ```sudo a2enconf -q [configuration_file]```
 
@@ -18,25 +18,25 @@ Don't show **informative messages**
 
 # DESCRIPTION
 
-**a2enconf** is a Debian-specific utility that enables Apache2 configuration files by creating symbolic links in **/etc/apache2/conf-enabled** pointing to files in **/etc/apache2/conf-available**.
+**a2enconf** 是一个 Debian 特有的工具，它在 **/etc/apache2/conf-enabled** 中创建指向 **/etc/apache2/conf-available** 中文件的符号链接，从而启用 Apache2 配置文件。
 
-The tool works alongside **a2disconf**, which disables configurations. After enabling a configuration, Apache must be restarted or reloaded for changes to take effect.
+该工具与负责禁用配置的 **a2disconf** 配合使用。启用配置后，必须重启或重新加载 Apache 才能使更改生效。
 
 # PARAMETERS
 
 **-q, --quiet**
-> Don't show informative messages
+> 不显示提示信息
 
 **-m, --maintmode**
-> Enables maintainer mode; the program invocation is effectuated automatically by a maintainer script
+> 启用维护者模式；程序调用由维护者脚本自动执行
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions. Configuration changes require an Apache restart or reload to take effect.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用。配置更改需要重启或重新加载 Apache 才能生效。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. The manual page was authored by Arno Toell and dates to **February 2012**.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建。手册页由 Arno Toell 编写，可追溯到 **2012 年 2 月**。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Automatically scale EC2 instance groups based on demand
+根据需求自动扩缩 EC2 实例组
 
 # TLDR
 
-**Create an Auto Scaling group** with a launch template
+用启动模板**创建 Auto Scaling 组**
 
 ```aws autoscaling create-auto-scaling-group --auto-scaling-group-name [my-asg] --launch-template LaunchTemplateId=[lt-12345] --min-size [1] --max-size [5] --vpc-zone-identifier "[subnet-abc,subnet-def]"```
 
-**List Auto Scaling groups**
+**列出 Auto Scaling 组**
 
 ```aws autoscaling describe-auto-scaling-groups```
 
-**Update group capacity**
+**更新组容量**
 
 ```aws autoscaling update-auto-scaling-group --auto-scaling-group-name [my-asg] --desired-capacity [3]```
 
-**Set scaling policy** (target tracking)
+**设置扩展策略**（目标跟踪）
 
 ```aws autoscaling put-scaling-policy --auto-scaling-group-name [my-asg] --policy-name [cpu-policy] --policy-type TargetTrackingScaling --target-tracking-configuration file://[config.json]```
 
-**Describe instances** in a group
+**描述组内实例**
 
 ```aws autoscaling describe-auto-scaling-instances```
 
-**Roll out a new launch template** version with an instance refresh
+通过实例刷新**上线新的启动模板版本**
 
 ```aws autoscaling start-instance-refresh --auto-scaling-group-name [my-asg]```
 
-**Attach a load balancer** target group
+**挂载负载均衡器**目标组
 
 ```aws autoscaling attach-load-balancer-target-groups --auto-scaling-group-name [my-asg] --target-group-arns [arn:aws:elasticloadbalancing:...]```
 
-**Delete an Auto Scaling group**
+**删除一个 Auto Scaling 组**
 
 ```aws autoscaling delete-auto-scaling-group --auto-scaling-group-name [my-asg] --force-delete```
 
@@ -43,82 +43,82 @@ Automatically scale EC2 instance groups based on demand
 # PARAMETERS
 
 **create-auto-scaling-group**
-> Create a new Auto Scaling group
+> 创建新的 Auto Scaling 组
 
 **describe-auto-scaling-groups**
-> List Auto Scaling groups and their configuration
+> 列出 Auto Scaling 组及其配置
 
 **update-auto-scaling-group**
-> Modify group settings (capacity, health checks, etc.)
+> 修改组设置（容量、健康检查等）
 
 **delete-auto-scaling-group**
-> Delete an Auto Scaling group
+> 删除一个 Auto Scaling 组
 
 **put-scaling-policy**
-> Create or update a scaling policy
+> 创建或更新扩展策略
 
 **describe-scaling-activities**
-> View scaling activity history
+> 查看扩展活动历史
 
 **start-instance-refresh**
-> Replace instances to roll out a new launch template version
+> 替换实例以上线新的启动模板版本
 
 **put-scheduled-update-group-action**
-> Create a scheduled scaling action
+> 创建计划扩展操作
 
 **set-desired-capacity**
-> Set the desired number of instances
+> 设置期望的实例数量
 
 **attach-load-balancer-target-groups**
-> Attach target groups to the group
+> 将目标组挂载到该组
 
 **create-launch-configuration**
-> Create a launch configuration (legacy)
+> 创建启动配置（旧式做法）
 
 **--auto-scaling-group-name** _name_
-> Name of the Auto Scaling group
+> Auto Scaling 组的名称
 
 **--launch-template** _spec_
-> Launch template ID or name and version
+> 启动模板 ID 或名称及版本
 
 **--min-size** _n_
-> Minimum number of instances
+> 最小实例数
 
 **--max-size** _n_
-> Maximum number of instances
+> 最大实例数
 
 **--desired-capacity** _n_
-> Desired number of instances
+> 期望的实例数量
 
 **--vpc-zone-identifier** _subnets_
-> Comma-separated subnet IDs
+> 以逗号分隔的子网 ID
 
 **--health-check-type** _type_
-> EC2 or ELB health check type
+> EC2 或 ELB 健康检查类型
 
 **--health-check-grace-period** _seconds_
-> Seconds before health checks start
+> 健康检查开始前的等待秒数
 
 **--force-delete**
-> Delete even with running instances
+> 即使存在运行中的实例也强制删除
 
 # DESCRIPTION
 
-**aws autoscaling** manages Amazon EC2 Auto Scaling groups that automatically adjust the number of EC2 instances based on demand or schedules. Groups maintain application availability and allow automatic scaling up during demand spikes and scaling down to reduce costs.
+**aws autoscaling** 管理 Amazon EC2 Auto Scaling 组，根据需求或计划自动调整 EC2 实例的数量。这些组维持应用可用性，在需求高峰时自动扩容，并在需求回落时缩容以降低成本。
 
-Launch templates or launch configurations define instance settings (AMI, instance type, security groups). Scaling policies determine when and how to scale based on metrics like CPU utilization or request count.
+启动模板或启动配置定义实例设置（AMI、实例类型、安全组）。扩展策略根据 CPU 利用率或请求数等指标决定何时以及如何扩缩。
 
-**Target tracking scaling** maintains a specific metric value (e.g., 50% CPU). **Step scaling** adjusts capacity in steps based on alarm thresholds. **Scheduled scaling** changes capacity at specified times.
+**目标跟踪扩展**维持特定的指标值（如 50% CPU）。**分步扩展**根据告警阈值分步调整容量。**计划扩展**在指定时间改变容量。
 
-Health checks (EC2 or ELB) detect unhealthy instances for automatic replacement. The **health-check-grace-period** prevents premature termination of instances still initializing.
+健康检查（EC2 或 ELB）检测不健康的实例以便自动替换。**health-check-grace-period** 可防止仍在初始化中的实例被过早终止。
 
 # CAVEATS
 
-Launch templates are recommended over legacy launch configurations. Deleting a group with running instances requires **--force-delete**. Scaling activities have rate limits. Instances may take time to become healthy, affecting scaling responsiveness.
+建议使用启动模板而非旧式的启动配置。删除含有运行中实例的组需要 **--force-delete**。扩展活动有速率限制。实例可能需要一些时间才能变为健康状态，这会影响扩缩的响应速度。
 
 # HISTORY
 
-**Amazon EC2 Auto Scaling** launched in **May 2009** as one of AWS's earliest services for elastic compute capacity. Originally using launch configurations, AWS introduced launch templates in **2017** for more flexibility. The service has expanded to support mixed instance types, predictive scaling, and warm pools for faster scaling.
+**Amazon EC2 Auto Scaling** 于 **2009 年 5 月**上线，是 AWS 最早的弹性计算容量服务之一。最初使用启动配置，AWS 于 **2017 年**推出了更灵活的启动模板。此后该服务不断扩展，支持了混合实例类型、预测式扩展以及加速扩容的暖池（warm pools）。
 
 # INSTALL
 

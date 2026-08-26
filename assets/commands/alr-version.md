@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display Alire version and build information.
+显示 Alire 版本及构建信息。
 
 # TLDR
 
-**Display alr version** and build information
+**显示 alr 版本**和构建信息
 
 ```alr version```
 
-**Display version** with diagnostic information
+**显示版本**及诊断信息
 
 ```alr --version```
 
@@ -18,9 +18,9 @@ Display Alire version and build information.
 
 # DESCRIPTION
 
-**alr version** displays the version number and build information for the Alire command-line tool. This is useful for troubleshooting, reporting issues, and verifying installation.
+**alr version** 显示 Alire 命令行工具的版本号和构建信息。可用于故障排查、报告问题以及验证安装。
 
-Alire is a source package manager for Ada/SPARK projects, providing dependency management and build process automation.
+Alire 是面向 Ada/SPARK 项目的源码软件包管理器，提供依赖管理和构建过程自动化。
 
 # INSTALL
 

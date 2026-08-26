@@ -1,22 +1,22 @@
 # TAGLINE
 
-Automated multi-threaded network reconnaissance
+自动化多线程网络侦察工具
 
 # TLDR
 
-Scan **target** host
+扫描**目标**主机
 
 ```sudo autorecon 192.168.1.1```
 
-Scan from **file**
+从**文件**读取目标进行扫描
 
 ```sudo autorecon -t targets.txt```
 
-Specify **output** directory
+指定**输出**目录
 
 ```sudo autorecon -o /path/to/results 192.168.1.1```
 
-Scan specific **ports**
+扫描特定**端口**
 
 ```sudo autorecon -p T:21-25,80,443,U:53 192.168.1.1```
 
@@ -26,48 +26,48 @@ Scan specific **ports**
 
 # DESCRIPTION
 
-**autorecon** is a multi-threaded network reconnaissance tool that performs automated enumeration of services. It runs various scanning tools in parallel and organizes results by host and service type.
+**autorecon** 是一款多线程网络侦察工具，可对服务执行自动化枚举。它并行运行各种扫描工具，并按主机和服务类型整理结果。
 
-The tool first performs port scanning using **nmap**, then launches service-specific enumeration scripts based on detected open ports. Results are organized into per-target directories with structured output for each scanning phase. It supports custom scan profiles and plugin-based service enumeration, making it extensible for different penetration testing methodologies.
+该工具先用 **nmap** 进行端口扫描，然后根据检测到的开放端口启动针对特定服务的枚举脚本。结果按目标分别存入各自目录，每个扫描阶段都有结构化的输出。它支持自定义扫描配置档和基于插件的服务枚举，可适配不同的渗透测试方法论。
 
 # PARAMETERS
 
 **-t, --target-file** _file_
-> Read targets from file
+> 从文件读取目标
 
 **-o, --output** _dir_
-> Output results to specified directory (default: ./results)
+> 将结果输出到指定目录（默认：./results）
 
 **-p, --ports** _ports_
-> Limit scanning to specific ports (T: TCP, U: UDP, B: both)
+> 将扫描限制到特定端口（T: TCP，U: UDP，B: 两者）
 
 **--single-target**
-> Place results directly in the output directory instead of per-target subdirectories
+> 结果直接放入输出目录，而不是为每个目标建子目录
 
 **-v, --verbose**
-> Enable verbose output; repeat (-vv, -vvv) for more detail
+> 启用详细输出；重复使用（-vv、-vvv）可获得更多细节
 
 **--heartbeat** _seconds_
-> Interval between status update messages (default: 60)
+> 状态更新消息之间的间隔（默认：60）
 
 **-m, --max-scans** _number_
-> Maximum number of concurrent scans to run
+> 并发扫描的最大数量
 
 **--nmap** _options_
-> Override the default nmap options used for port scanning
+> 覆盖用于端口扫描的默认 nmap 选项
 
 # CONFIGURATION
 
 **~/.config/AutoRecon/**
-> Directory for custom scan profiles and plugin configurations.
+> 存放自定义扫描配置档和插件配置的目录。
 
 # CAVEATS
 
-Requires root privileges for certain scan types. Results are saved to a results directory organized by target. This tool should only be used on systems you have authorization to scan.
+某些扫描类型需要 root 权限。结果保存到按目标组织的 results 目录中。此工具只能用于你获得扫描授权的系统。
 
 # HISTORY
 
-**autorecon** was created for penetration testing and CTF competitions to automate initial reconnaissance.
+**autorecon** 为渗透测试和 CTF 竞赛而创建，用于自动化初始侦察阶段。
 
 # SEE ALSO
 
@@ -78,4 +78,3 @@ Requires root privileges for certain scan types. Results are saved to a results 
 ```[Source code](https://github.com/Tib3rius/AutoRecon)```
 
 <!-- verified: 2026-06-17 -->
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Vote for AUR packages from the command line
+从命令行为 AUR 软件包投票
 
 # TLDR
 
-Interactively **configure** AUR credentials
+以交互方式**配置** AUR 凭据
 
 ```aurvote --configure```
 
-**Vote** for one or more AUR packages
+为一个或多个 AUR 软件包**投票**
 
 ```aurvote [package1] [package2] ...```
 
-**Unvote** one or more AUR packages
+为一个或多个 AUR 软件包**取消投票**
 
 ```aurvote -u [package1] [package2] ...```
 
-**Check** if packages have already been voted
+**检查**软件包是否已被投票
 
 ```aurvote -c [package1] [package2] ...```
 
-**Show version** information
+**显示版本**信息
 
 ```aurvote -V```
 
@@ -30,33 +30,33 @@ Interactively **configure** AUR credentials
 
 # DESCRIPTION
 
-**aurvote** allows voting for packages in the Arch User Repository from the command line. Voting helps indicate package popularity and is useful feedback for maintainers.
+**aurvote** 允许从命令行对 Arch 用户仓库中的软件包投票。投票有助于反映软件包的热门程度，也是对维护者有用的反馈。
 
-Credentials are stored in **~/.config/aurvote** and must be configured before use. The file contains your AUR username and password.
+凭据存储在 **~/.config/aurvote** 中，使用前必须先完成配置。该文件包含你的 AUR 用户名和密码。
 
 # PARAMETERS
 
 **--configure**
-> Interactively create the credentials file.
+> 以交互方式创建凭据文件。
 
 **-v**, **--vote**
-> Vote for specified packages (default action).
+> 为指定软件包投票（默认动作）。
 
 **-u**, **--unvote**
-> Remove votes from specified packages.
+> 取消对指定软件包的投票。
 
 **-c**, **--check**
-> Check if packages have been voted.
+> 检查软件包是否已被投票。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Requires an AUR account. Credentials are stored in plain text in **~/.config/aurvote**. Voting requires authentication with the AUR website.
+需要有 AUR 账户。凭据以明文形式存储在 **~/.config/aurvote** 中。投票需要对 AUR 网站进行身份验证。
 
 # SEE ALSO
 

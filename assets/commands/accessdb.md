@@ -1,18 +1,18 @@
 # TAGLINE
 
-dump the man-db database in readable form
+以可读形式转储 man-db 数据库
 
 # TLDR
 
-**Dump** the man-db database contents
+**转储** man-db 数据库内容
 
 ```accessdb```
 
-Dump a **specific** database file
+转储**指定的**数据库文件
 
 ```accessdb [/var/cache/man/index.db]```
 
-Display with **debug** information
+显示**调试**信息
 
 ```accessdb -d [database_path]```
 
@@ -22,25 +22,25 @@ Display with **debug** information
 
 # DESCRIPTION
 
-**accessdb** is a utility that dumps the contents of the man-db database to standard output in a human-readable format. The database contains indexed information about manual pages, including their locations, names, descriptions, and timestamps.
+**accessdb** 是一个实用工具，它把 man-db 数据库的内容以人类可读的格式转储到标准输出。数据库包含手册页的索引信息，包括它们的位置、名称、描述和时间戳。
 
-This tool is primarily useful for debugging man-db issues, verifying that manual pages are properly indexed, or understanding how the manpage caching system works.
+该工具主要用于调试 man-db 问题、验证手册页是否被正确索引，或者了解手册页缓存系统的工作原理。
 
 # PARAMETERS
 
 **-d**, **--debug**
-> Print debugging information
+> 打印调试信息
 
 **database**
-> Path to database file (defaults to system man-db location)
+> 数据库文件的路径（默认为系统 man-db 位置）
 
 # CAVEATS
 
-The database format is specific to man-db and may change between versions. This tool is mainly for debugging; regular users rarely need to interact with the database directly. The database must be built using **mandb** before it can be accessed.
+数据库格式为 man-db 特有，可能随版本变化。该工具主要用于调试；普通用户很少需要直接与数据库交互。必须先用 **mandb** 构建数据库才能访问。
 
 # HISTORY
 
-**accessdb** is part of the **man-db** package, which was originally written by John W. Eaton and later maintained by Colin Watson. The man-db project began in **1994** as a replacement for the older man package, introducing database caching for faster manual page lookups.
+**accessdb** 属于 **man-db** 软件包，该软件包最初由 John W. Eaton 编写，后来由 Colin Watson 维护。man-db 项目始于 **1994** 年，用以取代旧的 man 软件包，引入了数据库缓存以加快手册页查找速度。
 
 # INSTALL
 

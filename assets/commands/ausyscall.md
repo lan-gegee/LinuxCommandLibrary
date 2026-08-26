@@ -1,30 +1,30 @@
 # TAGLINE
 
-map between Linux system-call names and numbers
+在 Linux 系统调用名称与编号之间相互映射
 
 # TLDR
 
-**Look up the number of a syscall** by name
+按名称**查找系统调用的编号**
 
 ```ausyscall [openat]```
 
-**Look up the name** of a syscall by number
+按编号**查找系统调用的名称**
 
 ```ausyscall [257]```
 
-**Dump the whole syscall table** for the current architecture
+**导出当前架构的完整系统调用表**
 
 ```ausyscall --dump```
 
-**Dump the syscall table** for a specific architecture
+**导出特定架构的系统调用表**
 
 ```ausyscall [i386] --dump```
 
-**Look up a syscall** on a specific architecture
+在特定架构上**查找系统调用**
 
 ```ausyscall [arm64] [connect]```
 
-**Require an exact match** (no substring)
+**要求精确匹配**（不做子串匹配）
 
 ```ausyscall --exact [open]```
 
@@ -37,39 +37,39 @@ map between Linux system-call names and numbers
 # PARAMETERS
 
 _ARCH_
-> Target architecture: `b32` / `b64` (biarch shortcuts) or an explicit name such as `i386`, `x86_64`, `aarch64`/`arm64`, `arm`, `ppc`, `ppc64le`, `s390x`, `riscv64`. Defaults to the running kernel's architecture.
+> 目标架构：`b32` / `b64`（双架构快捷方式），或明确指定名称，如 `i386`、`x86_64`、`aarch64`/`arm64`、`arm`、`ppc`、`ppc64le`、`s390x`、`riscv64`。默认为当前运行内核的架构。
 
 _NAME_
-> System-call name (e.g. `openat`, `execve`). A substring match is used unless `--exact` is given.
+> 系统调用名称（如 `openat`、`execve`）。除非给定 `--exact`，否则采用子串匹配。
 
 _NUMBER_
-> Numeric system-call number.
+> 数字形式的系统调用编号。
 
 **--dump**
-> List every syscall name and number for the selected architecture.
+> 列出所选架构的所有系统调用名称和编号。
 
 **--exact**
-> Require an exact name match instead of substring.
+> 要求名称精确匹配，而非子串匹配。
 
 **-h**, **--help**
-> Show help.
+> 显示帮助。
 
 **-V**, **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**ausyscall** is a small lookup utility from the **Linux audit** framework. It is the canonical place to translate syscall numbers seen in audit logs, `strace` output, `seccomp` filters, and BPF programs into their human-readable names (and vice-versa) for any supported architecture.
+**ausyscall** 是 **Linux audit** 框架中的一个小型查询工具。它是将审计日志、`strace` 输出、`seccomp` 过滤器和 BPF 程序中出现的系统调用编号翻译成人类可读名称（或反向转换）的权威工具，适用于所有受支持的架构。
 
-Syscall numbers differ between architectures — `openat` is 257 on x86_64 but 295 on i386 — so always pass the correct architecture when inspecting logs produced on a different machine.
+不同架构的系统调用编号并不相同 —— `openat` 在 x86_64 上是 257，而在 i386 上是 295 —— 因此在查看由另一台机器产生的日志时，务必传入正确的架构。
 
 # CAVEATS
 
-Part of the **audit** package (`audit-userspace`). The syscall table is baked in at build time; very new syscalls may be missing on older audit builds. On multi-arch kernels, use `b32`/`b64` shortcuts to pick the right ABI.
+属于 **audit** 软件包（`audit-userspace`）。系统调用表在构建时被固化进来；较旧的 audit 版本可能缺少最新的系统调用。在多架构内核上，请使用 `b32`/`b64` 快捷方式选择正确的 ABI。
 
 # HISTORY
 
-**ausyscall** ships with the Linux Audit user-space tools originally developed by **Red Hat** (primarily **Steve Grubb**). It uses the syscall tables maintained in the audit source tree alongside `auparse`.
+**ausyscall** 随最初由 **Red Hat** 开发（主要贡献者为 **Steve Grubb**）的 Linux Audit 用户空间工具一同发布。它使用与 `auparse` 同存于 audit 源码树中的系统调用表。
 
 # INSTALL
 

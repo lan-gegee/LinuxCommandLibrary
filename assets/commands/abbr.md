@@ -1,30 +1,30 @@
 # TAGLINE
 
-fish shell abbreviation manager
+fish shell 缩写管理器
 
 # TLDR
 
-**Add** a new abbreviation
+**添加**一个新缩写
 
 ```abbr --add [abbreviation_name] [command] [arguments]```
 
-**Rename** an existing abbreviation
+**重命名**一个已有缩写
 
 ```abbr --rename [old_name] [new_name]```
 
-**Erase** an existing abbreviation
+**删除**一个已有缩写
 
 ```abbr --erase [abbreviation_name]```
 
-**List** all abbreviation names
+**列出**所有缩写名
 
 ```abbr --list```
 
-**Show** all abbreviations in exportable format
+以可导出的格式**显示**所有缩写
 
 ```abbr --show```
 
-Import abbreviations from another host over **SSH**
+通过 **SSH** 从其他主机导入缩写
 
 ```ssh [hostname] abbr --show | source```
 
@@ -34,52 +34,52 @@ Import abbreviations from another host over **SSH**
 
 # DESCRIPTION
 
-**abbr** manages abbreviations for the fish shell. Abbreviations are user-defined words that expand into longer phrases when entered at the command line and confirmed with space or enter. Unlike aliases, which are simple command substitutions, abbreviations allow the user to see and edit the expanded text before execution.
+**abbr** 管理 fish shell 的缩写。缩写是用户自定义的词，在命令行输入并以空格或回车确认后展开为更长的内容。与别名这种简单的命令替换不同，缩写允许用户在执行前查看并编辑展开后的文本。
 
-Abbreviations only apply to interactively typed commands and are not expanded in scripts or functions. They can be scoped to trigger only at command position or anywhere on the line, and support regex patterns and dynamic expansions through shell functions.
+缩写只作用于交互式输入的命令，在脚本或函数中不会展开。它们可以限定为只在命令位置触发，或在行内任意位置触发，还支持正则表达式模式以及通过 shell 函数实现的动态展开。
 
 # PARAMETERS
 
 **--add NAME EXPANSION**
-> Create a new abbreviation that expands NAME to EXPANSION
+> 创建一个新缩写，将 NAME 展开为 EXPANSION
 
 **--erase NAME**
-> Remove one or more abbreviations
+> 移除一个或多个缩写
 
 **--rename OLD_WORD NEW_WORD**
-> Rename an existing abbreviation
+> 重命名一个已有缩写
 
 **--show**
-> Display all abbreviations in a format suitable for export
+> 以适合导出的格式显示所有缩写
 
 **--list**
-> Print only the abbreviation names
+> 只打印缩写名
 
 **--query NAME**
-> Check if NAME is a defined abbreviation
+> 检查 NAME 是否为已定义的缩写
 
 **--position command|anywhere**
-> Where the abbreviation expands; default is command position only
+> 缩写在何处展开；默认只在命令位置展开
 
 **--regex PATTERN**
-> Match using PCRE2 regular expression pattern instead of literal text
+> 使用 PCRE2 正则表达式模式而非字面文本进行匹配
 
 **--set-cursor[=MARKER]**
-> Position cursor at marker location after expansion; default marker is %
+> 展开后把光标定位到标记处；默认标记为 %
 
 **--function FUNCTION**
-> Use function output for dynamic expansion instead of static text
+> 使用函数输出进行动态展开，而不是静态文本
 
 **--command COMMAND**
-> Expand only when used as argument to the specified command
+> 仅当作为指定命令的参数使用时才展开
 
 # CAVEATS
 
-Abbreviations only expand for interactively typed commands, not in scripts or functions. Fish shell specific; not available in other shells.
+缩写只对交互式输入的命令展开，在脚本或函数中无效。这是 fish shell 特有的功能，其他 shell 中不可用。
 
 # HISTORY
 
-Part of the **fish shell** (friendly interactive shell), a modern command-line shell focused on usability.
+属于 **fish shell**（friendly interactive shell），一个专注于易用性的现代命令行 Shell。
 
 # SEE ALSO
 

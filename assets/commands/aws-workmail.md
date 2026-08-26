@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage business email and calendaring organizations and users.
+管理企业邮件与日历的组织和用户。
 
 # TLDR
 
-**List all organizations**
+**列出所有组织**
 
 ```aws workmail list-organizations```
 
-**Describe an organization**
+**描述组织**
 
 ```aws workmail describe-organization --organization-id [m-1234567890abcdef0]```
 
-**List users** in an organization
+**列出**组织中的**用户**
 
 ```aws workmail list-users --organization-id [m-1234567890abcdef0]```
 
-**Create a user**
+**创建用户**
 
 ```aws workmail create-user --organization-id [m-1234567890abcdef0] --name [username] --display-name "[Display Name]" --password [password]```
 
-**Reset a user password**
+**重置用户密码**
 
 ```aws workmail reset-password --organization-id [m-1234567890abcdef0] --user-id [user-id] --password [new-password]```
 
-**List groups** in an organization
+**列出**组织中的**组**
 
 ```aws workmail list-groups --organization-id [m-1234567890abcdef0]```
 
-**List mail domains**
+**列出邮件域**
 
 ```aws workmail list-mail-domains --organization-id [m-1234567890abcdef0]```
 
@@ -38,9 +38,9 @@ Manage business email and calendaring organizations and users.
 
 # DESCRIPTION
 
-**aws workmail** is the AWS CLI interface for Amazon WorkMail, a secure, managed business email and calendaring service. WorkMail supports existing desktop and mobile email clients including Microsoft Outlook, iOS, and Android applications.
+**aws workmail** 是 AWS CLI 中用于管理 Amazon WorkMail 的接口。WorkMail 是一项安全的托管企业邮件与日历服务，支持现有的桌面和移动邮件客户端，包括 Microsoft Outlook、iOS 和 Android 应用。
 
-The CLI provides management capabilities for WorkMail organizations, users, groups, resources (meeting rooms, equipment), mail domains, and mobile device access policies.
+该 CLI 提供对 WorkMail 组织、用户、组、资源（会议室、设备）、邮件域以及移动设备访问策略的管理能力。
 
 # SUBCOMMANDS
 
@@ -70,11 +70,11 @@ The CLI provides management capabilities for WorkMail organizations, users, grou
 
 # CAVEATS
 
-Organization IDs are required for most operations and follow the format **m-** followed by alphanumeric characters. User and resource management requires the entity to be registered with WorkMail before email operations work. Mailbox export jobs are asynchronous and require an S3 bucket for output.
+大多数操作都需要组织 ID，其格式为 **m-** 后接字母数字字符。用户和资源必须先注册到 WorkMail，邮件操作才能生效。邮箱导出任务是异步的，需要提供 S3 存储桶作为输出位置。
 
 # HISTORY
 
-Amazon WorkMail launched in **January 2015** as a managed email and calendaring service for businesses. It was designed as an alternative to Microsoft Exchange and Google Workspace, with enterprise features like encryption, compliance, and directory integration.
+Amazon WorkMail 于 **2015 年 1 月**上线，是一项面向企业的托管邮件与日历服务。它被设计为 Microsoft Exchange 和 Google Workspace 的替代方案，具备加密、合规和目录集成等企业级特性。
 
 # INSTALL
 

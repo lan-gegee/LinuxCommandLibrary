@@ -1,26 +1,26 @@
 # TAGLINE
 
-Translate addresses to source file locations
+将地址转换为源文件位置
 
 # TLDR
 
-Display the **filename and line number** from an instruction address
+根据指令地址显示**文件名和行号**
 
 ```addr2line -e [path/to/executable] [address]```
 
-Display the **function name**, filename, and line number
+显示**函数名**、文件名和行号
 
 ```addr2line -e [path/to/executable] -f [address]```
 
-**Demangle** the function name for C++ code
+为 C++ 代码**还原**修饰过的函数名
 
 ```addr2line -e [path/to/executable] -f -C [address]```
 
-**Pretty-print** with inlined frames
+**美化打印**含内联帧的结果
 
 ```addr2line -e [path/to/executable] -f -C -i -p [address]```
 
-**Read addresses from stdin** (e.g., from a stack trace)
+**从标准输入读取地址**（例如来自栈回溯）
 
 ```cat [addresses.txt] | addr2line -e [path/to/executable] -f -C```
 
@@ -30,49 +30,49 @@ Display the **function name**, filename, and line number
 
 # DESCRIPTION
 
-**addr2line** translates addresses into file names and line numbers. Given an address in an executable or relocatable object, it uses the debugging information to figure out which file name and line number are associated with it.
+**addr2line** 将地址转换为文件名和行号。给定可执行文件或可重定位目标中的一个地址，它会利用调试信息找出与之关联的文件名和行号。
 
-This is particularly useful for interpreting crash dumps and debugging information from stack traces.
+这对于解读崩溃转储以及来自栈回溯的调试信息特别有用。
 
 # PARAMETERS
 
 **-e, --exe executable**
-> Specify the executable to examine
+> 指定要分析的可执行文件
 
 **-f, --functions**
-> Display function names as well as file and line number information
+> 除文件和行号信息外还显示函数名
 
 **-C, --demangle**
-> Decode (demangle) low-level symbol names into user-level names (useful for C++)
+> 将底层符号名解码（还原）为用户级名称（对 C++ 很有用）
 
 **-s, --basenames**
-> Display only the base of each file name rather than the full path
+> 只显示每个文件名的基础名称，而不是完整路径
 
 **-i, --inlines**
-> If the address belongs to an inlined function, also print the caller information
+> 如果地址属于内联函数，则同时打印调用者信息
 
 **-p, --pretty-print**
-> Print output in a human-readable format
+> 以人类可读的格式打印输出
 
 **-a, --addresses**
-> Display the address before the function name, file, and line
+> 在函数名、文件和行号之前显示地址
 
 **-j, --section** _NAME_
-> Treat input addresses as offsets within the named section.
+> 将输入地址视为指定节内的偏移量。
 
 **--target** _BFDNAME_
-> Specify the binary format of the object file (auto-detected by default).
+> 指定目标文件的二进制格式（默认自动检测）。
 
 **-r, --no-recurse-limit**
-> Disable the demangler's recursion limit.
+> 禁用符号还原器的递归限制。
 
 # CAVEATS
 
-Requires the executable to be compiled with debugging information (e.g., **-g** flag for gcc). Stripped executables will not provide useful output.
+要求可执行文件编译时带有调试信息（例如 gcc 的 **-g** 标志）。已剥离（strip）的可执行文件无法给出有用的输出。
 
 # HISTORY
 
-Part of **GNU Binutils**, a collection of binary tools for working with object files and executables.
+属于 **GNU Binutils**，这是一套用于处理目标文件和可执行文件的二进制工具集合。
 
 # INSTALL
 

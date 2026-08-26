@@ -1,14 +1,14 @@
 # TAGLINE
 
-Remove jobs from the at queue
+从 at 队列中移除作业
 
 # TLDR
 
-**Remove** scheduled job
+**移除**已安排的作业
 
 ```atrm [job_number]```
 
-Remove **multiple** jobs
+移除**多个**作业
 
 ```atrm [1] [2] [3]```
 
@@ -18,22 +18,22 @@ Remove **multiple** jobs
 
 # DESCRIPTION
 
-**atrm** removes jobs from the at queue. Jobs are identified by their job numbers as shown by **atq**.
+**atrm** 从 at 队列中移除作业。作业通过 **atq** 显示的作业编号来标识。
 
-Users can only remove their own jobs; root can remove any job.
+用户只能移除自己的作业；root 可以移除任何作业。
 
 # PARAMETERS
 
 **job**
-> Job number(s) to remove
+> 要移除的作业编号
 
 # CAVEATS
 
-Cannot remove already-running jobs. Job numbers can be found with atq. Removal is immediate and cannot be undone.
+无法移除已经在运行的作业。作业编号可通过 atq 查询。移除操作立即生效且不可撤销。
 
 # HISTORY
 
-**atrm** is part of the **at** command suite for one-time job scheduling, available in Unix systems since the early 1980s.
+**atrm** 是 **at** 命令套件（一次性作业调度）的一部分，自 1980 年代初期起就存在于 Unix 系统中。
 
 # INSTALL
 

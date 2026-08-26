@@ -1,26 +1,26 @@
 # TAGLINE
 
-Argos Translate package manager for offline translation models
+用于离线翻译模型的 Argos Translate 软件包管理器
 
 # TLDR
 
-**Update** the remote package index
+**更新**远程软件包索引
 
 ```argospm update```
 
-**Search** for a translation package
+**搜索**翻译软件包
 
 ```argospm search --from-lang [en] --to-lang [es]```
 
-**Install** a translation package
+**安装**翻译软件包
 
 ```argospm install [translate-en_es]```
 
-**List** installed translation packages
+**列出**已安装的翻译软件包
 
 ```argospm list```
 
-**Remove** an installed translation package
+**删除**已安装的翻译软件包
 
 ```argospm remove [translate-en_es]```
 
@@ -31,36 +31,36 @@ Argos Translate package manager for offline translation models
 # PARAMETERS
 
 **update**
-> Download the remote package index from the Argos Translate package repository.
+> 从 Argos Translate 软件包仓库下载远程软件包索引。
 
 **search**
-> Search for available translation packages in the remote index. Use **--from-lang** and **--to-lang** to filter by language pair.
+> 在远程索引中搜索可用的翻译软件包。使用 **--from-lang** 和 **--to-lang** 按语言对过滤。
 
 **install**
-> Install a translation package by name (e.g., translate-en_es).
+> 按名称安装翻译软件包（如 translate-en_es）。
 
 **list**
-> List all currently installed translation packages.
+> 列出当前已安装的所有翻译软件包。
 
 **remove**
-> Remove an installed translation package by name.
+> 按名称删除已安装的翻译软件包。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**argospm** is the package management CLI for **Argos Translate**, an open-source offline translation library. It manages the download and installation of translation language packages (neural machine translation models) that enable offline text translation between language pairs.
+**argospm** 是 **Argos Translate** 的软件包管理 CLI。Argos Translate 是一个开源离线翻译库，argospm 负责管理翻译语言包（神经机器翻译模型）的下载与安装，从而实现语言对之间的离线文本翻译。
 
-Each package provides translation between a specific source and target language. Packages are downloaded from the Argos Translate package index and stored locally for use by the **argos-translate** Python library and **LibreTranslate** web interface.
+每个软件包提供特定源语言与目标语言之间的翻译。软件包从 Argos Translate 软件包索引下载并存储在本地，供 **argos-translate** Python 库和 **LibreTranslate** Web 界面使用。
 
 # CAVEATS
 
-Translation packages can be large as they contain neural network models. The package index must be updated with **argospm update** before searching or installing new packages. Quality varies between language pairs — well-resourced language pairs like English-Spanish have better translation quality than less common pairs.
+翻译软件包包含神经网络模型，体积可能较大。搜索或安装新软件包前必须先用 **argospm update** 更新软件包索引。质量因语言对而异——英语-西班牙语等资源丰富的语言对比不常见的语言对翻译质量更好。
 
 # HISTORY
 
-**argospm** is part of the **Argos Translate** project, an open-source neural machine translation library built in **Python** using **OpenNMT**. The project was created by **Argos Open Technologies** to provide free, offline translation capabilities as an alternative to cloud-based services. It also powers **LibreTranslate**, a self-hosted translation API.
+**argospm** 是 **Argos Translate** 项目的一部分，该项目是用 **Python** 基于 **OpenNMT** 构建的开源神经机器翻译库。项目由 **Argos Open Technologies** 创建，旨在提供免费、离线的翻译能力，作为基于云的服务的替代方案。它同样是可自托管翻译 API **LibreTranslate** 的底层引擎。
 
 # SEE ALSO
 

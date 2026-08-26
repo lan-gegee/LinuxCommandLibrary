@@ -1,18 +1,18 @@
 # TAGLINE
 
-Encode images into AVIF format
+将图像编码为 AVIF 格式
 
 # TLDR
 
-**Convert** a PNG image to AVIF
+将 PNG 图像**转换**为 AVIF
 
 ```avifenc [path/to/input.png] [path/to/output.avif]```
 
-Encode with a **specific speed** (0=slowest, 10=fastest)
+以**指定速度**编码（0=最慢，10=最快）
 
 ```avifenc --speed [2] [path/to/input.png] [path/to/output.avif]```
 
-Set **quality** level (0-100, higher is better)
+设置**质量**级别（0-100，越高越好）
 
 ```avifenc --qcolor [60] [path/to/input.png] [path/to/output.avif]```
 
@@ -22,43 +22,43 @@ Set **quality** level (0-100, higher is better)
 
 # DESCRIPTION
 
-**avifenc** encodes images into the AV1 Image File Format (AVIF), a modern image format based on the AV1 video codec. AVIF provides excellent compression efficiency, often achieving smaller file sizes than JPEG and WebP at equivalent quality.
+**avifenc** 将图像编码为 AV1 图像文件格式（AVIF），这是一种基于 AV1 视频编解码器的现代图像格式。AVIF 具有出色的压缩效率，在同等画质下通常能获得比 JPEG 和 WebP 更小的文件。
 
-The encoder supports input from PNG, JPEG, and Y4M formats and can produce both lossy and lossless AVIF images.
+该编码器支持 PNG、JPEG 和 Y4M 格式的输入，可以生成有损和无损的 AVIF 图像。
 
 # PARAMETERS
 
 **-q**, **--qcolor** _n_
-> Quality for color (0-100, where 100 is lossless; default 60)
+> 彩色通道质量（0-100，100 为无损；默认 60）
 
 **--qalpha** _n_
-> Quality for alpha channel (0-100, where 100 is lossless; default 100)
+> alpha 通道质量（0-100，100 为无损；默认 100）
 
 **-s**, **--speed** _n_
-> Encoding speed (0-10, default 6). Lower values produce better quality but take longer
+> 编码速度（0-10，默认 6）。数值越低质量越好但耗时越长
 
 **-l**, **--lossless**
-> Encode losslessly (sets quality to 100 for both color and alpha)
+> 无损编码（将彩色和 alpha 的质量都设为 100）
 
 **-d**, **--depth** _bits_
-> Output bit depth (8, 10, or 12)
+> 输出位深（8、10 或 12）
 
 **-j**, **--jobs** _n_
-> Number of parallel encoding jobs, or `all` to use all available cores (default: all)
+> 并行编码任务数，或用 `all` 表示使用所有可用核心（默认：all）
 
 **-o**, **--output** _file_
-> Output filename (alternative to positional argument)
+> 输出文件名（位置参数之外的另一种指定方式）
 
 **--min** _n_, **--max** _n_
-> Deprecated: minimum/maximum quantizer (0-63, lower is better quality). Replaced by `--qcolor`
+> 已弃用：最小/最大量化器（0-63，数值越低质量越好）。已被 `--qcolor` 取代
 
 # CAVEATS
 
-Encoding at low speed values can be extremely slow. AVIF support in browsers and image viewers is still growing but not universal. Very high quality settings may produce larger files than the original. The older `--min`/`--max` quantizer flags were deprecated in libavif 1.2.0 in favour of `--qcolor`/`--qalpha`.
+低速度值的编码可能极其缓慢。浏览器和图像查看器对 AVIF 的支持仍在增长，但尚未普及。极高的质量设置可能产生比原图更大的文件。旧的 `--min`/`--max` 量化器选项已在 libavif 1.2.0 中弃用，由 `--qcolor`/`--qalpha` 取代。
 
 # HISTORY
 
-AVIF was developed by the Alliance for Open Media and finalized in **2019**. It is based on the AV1 video codec, which itself was designed to be a royalty-free alternative to HEVC/H.265.
+AVIF 由开放媒体联盟（Alliance for Open Media）开发，于 **2019** 年定稿。它基于 AV1 视频编解码器，而 AV1 本身被设计为 HEVC/H.265 的免版税替代方案。
 
 # INSTALL
 

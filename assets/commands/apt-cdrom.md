@@ -1,22 +1,22 @@
 # TAGLINE
 
-Add CD-ROM or DVD-ROM as an APT package source
+将 CD-ROM 或 DVD-ROM 添加为 APT 软件包源
 
 # TLDR
 
-**Add** CD-ROM to sources
+将 CD-ROM **添加**到软件源
 
 ```sudo apt-cdrom add```
 
-Add without **mounting**
+添加时**不挂载**
 
 ```sudo apt-cdrom add -m```
 
-**Identify** CD-ROM contents
+**识别** CD-ROM 内容
 
 ```sudo apt-cdrom ident```
 
-Add with **specific mount point**
+使用**特定挂载点**添加
 
 ```sudo apt-cdrom add -d [/media/cdrom]```
 
@@ -26,48 +26,48 @@ Add with **specific mount point**
 
 # DESCRIPTION
 
-**apt-cdrom** adds CD-ROMs or DVD-ROMs to APT's list of available sources. It scans the disc, identifies packages, and adds appropriate entries to /etc/apt/sources.list.
+**apt-cdrom** 将 CD-ROM 或 DVD-ROM 添加到 APT 的可用软件源列表。它会扫描光盘、识别其中的软件包，并将相应的条目添加到 /etc/apt/sources.list。
 
-This is useful for offline installations or when using distribution media without internet access.
+这对于离线安装或在无法访问互联网时使用发行版介质很有用。
 
 # PARAMETERS
 
 **add**
-> Add disc to sources list
+> 将光盘添加到软件源列表
 
 **ident**
-> Report disc identity without adding
+> 报告光盘标识而不进行添加
 
 **-d** _path_
-> CD-ROM mount point
+> CD-ROM 挂载点
 
 **-m**, **--no-mount**
-> Don't mount/unmount the disc
+> 不挂载/卸载光盘
 
 **-r**, **--rename**
-> Prompt for disc label
+> 提示输入光盘标签
 
 **-f**, **--fast**
-> Fast copy (assume disc structure)
+> 快速复制（假定已知光盘结构）
 
 **-a**, **--thorough**
-> Thorough scan for packages
+> 彻底扫描软件包
 
 # CONFIGURATION
 
 **/etc/apt/sources.list**
-> File where CD-ROM entries are added as package sources.
+> CD-ROM 条目作为软件包源被添加到的文件。
 
 **/etc/apt/apt.conf**
-> APT configuration file where CD-ROM mount point and behavior options can be set.
+> APT 配置文件，可在其中设置 CD-ROM 挂载点和行为选项。
 
 # CAVEATS
 
-CD-ROM sources are lower priority than network repositories. Physical media can degrade over time. Most modern installations use network sources instead.
+CD-ROM 软件源的优先级低于网络仓库。物理介质会随时间老化。大多数现代安装都改用网络源。
 
 # HISTORY
 
-**apt-cdrom** was essential when Linux distributions were primarily distributed on physical media. It remains available but is rarely used since broadband internet became common.
+在 Linux 发行版主要通过物理介质分发的年代，**apt-cdrom** 是必不可少的工具。它至今仍然可用，但自从宽带互联网普及后就很少被使用了。
 
 # INSTALL
 

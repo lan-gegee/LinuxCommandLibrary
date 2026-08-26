@@ -1,26 +1,26 @@
 # TAGLINE
 
-Automatic crash reporting and diagnostics system
+自动崩溃报告与诊断系统
 
 # TLDR
 
-Show **crash report** for a PID
+显示某个 PID 的**崩溃报告**
 
 ```apport-retrace -s [/var/crash/_bin_foo.1000.crash]```
 
-**List** pending crash reports
+**列出**待处理的崩溃报告
 
 ```ls /var/crash/```
 
-**Unpack** a crash report
+**解包**崩溃报告
 
 ```apport-unpack [/var/crash/report.crash] [output_dir]```
 
-**Enable** apport crash reporting
+**启用** apport 崩溃报告
 
 ```sudo systemctl enable apport```
 
-File bug report **from crash**
+从崩溃文件提交错误报告
 
 ```ubuntu-bug [/var/crash/report.crash]```
 
@@ -30,39 +30,39 @@ File bug report **from crash**
 
 # DESCRIPTION
 
-**apport** is Ubuntu's crash reporting system that automatically collects data when applications crash, including core dumps, package versions, and system information. It stores crash reports in /var/crash/ for later submission.
+**apport** 是 Ubuntu 的崩溃报告系统，在应用程序崩溃时自动收集数据，包括核心转储、软件包版本和系统信息。它将崩溃报告存储在 /var/crash/ 中，供之后提交。
 
-When enabled, apport intercepts segmentation faults and other crashes, creating .crash files that can be reported to Launchpad or analyzed locally.
+启用后，apport 会拦截段错误和其他崩溃，生成可提交到 Launchpad 或在本地分析的 .crash 文件。
 
 # CONFIGURATION
 
 **/etc/default/apport**
-> Main configuration file. Set enabled=1 to collect crash reports or enabled=0 to disable.
+> 主配置文件。设置 enabled=1 以收集崩溃报告，或设置 enabled=0 禁用。
 
 **/var/crash/**
-> Directory where crash report files are stored.
+> 存储崩溃报告文件的目录。
 
 # RELATED COMMANDS
 
 **apport-cli**
-> Command-line crash report handler
+> 命令行崩溃报告处理工具
 
 **apport-unpack**
-> Extract crash report contents
+> 提取崩溃报告内容
 
 **apport-retrace**
-> Regenerate stack traces
+> 重新生成堆栈跟踪
 
 **ubuntu-bug**
-> Report bugs to Launchpad
+> 向 Launchpad 报告错误
 
 # CAVEATS
 
-Core dumps can consume significant disk space. Crash reports may contain sensitive information. Disabled by default in production environments.
+核心转储可能占用大量磁盘空间。崩溃报告可能包含敏感信息。在生产环境中默认禁用。
 
 # HISTORY
 
-**Apport** was created for Ubuntu, first appearing in **2006**. It integrates with Launchpad to facilitate automated bug reporting from desktop and server crashes.
+**Apport** 为 Ubuntu 而创建，最早出现于 **2006** 年。它与 Launchpad 集成，以便从桌面和服务器的崩溃中自动报告错误。
 
 # SEE ALSO
 

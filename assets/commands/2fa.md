@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line two-factor authentication code generator
+命令行双因素认证验证码生成器
 
 # TLDR
 
-**Add a new TOTP secret** for an account
+为账户**添加新的 TOTP 密钥**
 
 ```2fa -add [account_name]```
 
-**Generate a TOTP code** for a specific account
+为指定账户**生成 TOTP 验证码**
 
 ```2fa [account_name]```
 
-**List all configured accounts**
+**列出所有已配置的账户**
 
 ```2fa -list```
 
-**Add a counter-based (HOTP) account**
+添加基于计数器的（HOTP）账户
 
 ```2fa -add -hotp [account_name]```
 
-**Add an account that produces 8-digit codes**
+添加生成 8 位验证码的账户
 
 ```2fa -add -8 [account_name]```
 
-**Generate codes for all TOTP accounts**
+**为所有 TOTP 账户生成验证码**
 
 ```2fa```
 
@@ -39,38 +39,38 @@ command-line two-factor authentication code generator
 # PARAMETERS
 
 **-add**
-> Add a new account with the given name. Prompts for the base32-encoded TOTP/HOTP key.
+> 以给定名称添加新账户。会提示输入 base32 编码的 TOTP/HOTP 密钥。
 
 **-list**
-> List all configured account names.
+> 列出所有已配置的账户名。
 
 **-7**
-> When adding a key, generate 7-digit codes instead of the default 6.
+> 添加密钥时，生成 7 位验证码而非默认的 6 位。
 
 **-8**
-> When adding a key, generate 8-digit codes instead of the default 6.
+> 添加密钥时，生成 8 位验证码而非默认的 6 位。
 
 **-hotp**
-> When adding a key, treat it as a counter-based HOTP key rather than time-based TOTP.
+> 添加密钥时，将其视为基于计数器的 HOTP 密钥，而非基于时间的 TOTP 密钥。
 
 **-clip**
-> Copy the generated code to the system clipboard instead of printing it.
+> 将生成的验证码复制到系统剪贴板，而不是打印出来。
 
 # DESCRIPTION
 
-**2fa** is a command-line two-factor authentication agent that generates one-time passwords compatible with services like Google Authenticator. It supports both time-based (TOTP) and counter-based (HOTP) keys, producing 6-digit codes by default (or 7 or 8 with **-7**/**-8**). TOTP codes refresh every 30 seconds.
+**2fa** 是一个命令行双因素认证工具，可生成与 Google Authenticator 等服务兼容的一次性密码。它同时支持基于时间的（TOTP）和基于计数器的（HOTP）密钥，默认生成 6 位验证码（使用 **-7**/**-8** 可生成 7 或 8 位）。TOTP 验证码每 30 秒刷新一次。
 
-The tool reads keys in base32 format (the same format shown when setting up 2FA on websites). When run without arguments, it displays codes for all configured TOTP accounts. Specify an account name to get only that code.
+该工具读取 base32 格式的密钥（与网站上设置双因素认证时显示的格式相同）。不带参数运行时，它会显示所有已配置 TOTP 账户的验证码。指定账户名则只获取该账户的验证码。
 
-Secrets are stored in **~/.2fa** by default. The file should be protected with appropriate permissions as it contains sensitive authentication material.
+密钥默认存储在 **~/.2fa** 中。该文件包含敏感的认证信息，应设置合适的权限加以保护。
 
 # CAVEATS
 
-Secrets are stored unencrypted in a plain text file. Ensure proper file permissions (**chmod 600**) on the storage file. System clock must be accurate for TOTP codes to work correctly; time drift will cause authentication failures.
+密钥以未加密形式存储在纯文本文件中。请确保存储文件的权限正确（**chmod 600**）。TOTP 验证码要正常工作，系统时钟必须准确；时间漂移会导致认证失败。
 
 # HISTORY
 
-The **2fa** command was created by Russ Cox and released as an open-source Go utility. It provides a minimal Unix-philosophy approach to TOTP generation, designed for users who prefer command-line tools over mobile authenticator apps.
+**2fa** 命令由 Russ Cox 开发，作为开源 Go 工具发布。它以极简的 Unix 哲学方式实现 TOTP 生成，专为偏好命令行工具而非手机验证器应用的用户设计。
 
 # INSTALL
 

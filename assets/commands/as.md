@@ -1,22 +1,22 @@
 # TAGLINE
 
-Translate assembly language source into object files.
+将汇编语言源代码翻译成目标文件。
 
 # TLDR
 
-**Assemble** a file, writing output to a.out
+**汇编**一个文件，输出写入 a.out
 
 ```as [path/to/file.s]```
 
-Assemble to a **specific output file**
+汇编到**指定的输出文件**
 
 ```as [path/to/file.s] -o [path/to/output.o]```
 
-Generate output **faster** by skipping whitespace preprocessing
+跳过空白预处理，**更快**地生成输出
 
 ```as -f [path/to/file.s]```
 
-Add a directory to the **include search path**
+将目录添加到 **include 搜索路径**
 
 ```as -I [path/to/directory] [path/to/file.s]```
 
@@ -26,52 +26,52 @@ Add a directory to the **include search path**
 
 # DESCRIPTION
 
-**as** is the GNU assembler, part of the GNU Binutils collection. It translates assembly language source files into object files that can be linked with **ld** to create executables.
+**as** 是 GNU 汇编器，属于 GNU Binutils 工具集。它将汇编语言源文件翻译成目标文件，这些文件可再用 **ld** 链接生成可执行文件。
 
-While primarily intended to assemble output from compilers like **gcc**, it can also be used directly for low-level programming. The assembler supports multiple target architectures and output formats.
+它主要用于汇编 **gcc** 等编译器的输出，但也可以直接用于底层编程。该汇编器支持多种目标架构和输出格式。
 
 # PARAMETERS
 
 **-o** _file_
-> Write the output object file to _file_ instead of a.out
+> 将输出的目标文件写入 _file_，而非 a.out
 
 **-f**
-> Fast mode: skip whitespace and comment preprocessing (use only with trusted compiler output)
+> 快速模式：跳过空白和注释预处理（只应用于可信的编译器输出）
 
 **-I** _directory_
-> Add _directory_ to the search path for **.include** directives
+> 将 _directory_ 添加到 **.include** 指令的搜索路径
 
 **-g**
-> Generate debugging information
+> 生成调试信息
 
 **--32** / **--64**
-> Generate 32-bit or 64-bit code (x86)
+> 生成 32 位或 64 位代码（x86）
 
 **-W**, **--no-warn**
-> Suppress warning messages.
+> 不显示警告消息。
 
 **--warn**
-> Do not suppress warnings (default).
+> 不抑制警告（默认）。
 
 **--fatal-warnings**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **-a**[_letters_]
-> Turn on listings; suboptions include _h_ (high-level), _l_ (assembly), _s_ (symbols), _n_ (omit forms processing).
+> 开启清单输出；子选项包括 _h_（高级语言）、_l_（汇编）、_s_（符号）、_n_（省略 forms 处理）。
 
 **--statistics**
-> Print processing statistics (max-space, total-time).
+> 打印处理统计信息（最大空间、总耗时）。
 
 **-march=**_CPU_
-> Assemble for a specific CPU architecture.
+> 为特定 CPU 架构进行汇编。
 
 # CAVEATS
 
-Assembly syntax varies between architectures. GNU as uses AT&T syntax by default on x86, which differs from Intel syntax. Use **.intel_syntax noprefix** directive for Intel syntax. The **-f** flag should only be used with compiler-generated output, since it skips whitespace and comment preprocessing that hand-written sources may rely on.
+不同架构的汇编语法各不相同。GNU as 在 x86 上默认使用 AT&T 语法，与 Intel 语法不同。要使用 Intel 语法，请使用 **.intel_syntax noprefix** 指令。**-f** 选项只应配合编译器生成的输出使用，因为它会跳过手写源码可能依赖的空白和注释预处理。
 
 # HISTORY
 
-The GNU assembler was developed as part of the GNU project starting in the 1980s. It became part of GNU Binutils and supports virtually all architectures that GCC targets.
+GNU 汇编器作为 GNU 计划的一部分始于 1980 年代。后来它成为 GNU Binutils 的一部分，支持几乎所有 GCC 面向的架构。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Unicast DNS server configuration daemon using mDNS
+基于 mDNS 的单播 DNS 服务器配置守护进程
 
 # TLDR
 
-**Start the DNS configuration daemon**
+**启动 DNS 配置守护进程**
 
 ```avahi-dnsconfd```
 
-**Start as a background daemon**
+**作为后台守护进程启动**
 
 ```avahi-dnsconfd --daemonize```
 
-**Start with syslog** logging
+**以 syslog 记录日志**启动
 
 ```avahi-dnsconfd --syslog```
 
-**Kill a running instance**
+**终止正在运行的实例**
 
 ```avahi-dnsconfd --kill```
 
-**Refresh DNS server data** (send SIGHUP)
+**刷新 DNS 服务器数据**（发送 SIGHUP）
 
 ```killall -HUP avahi-dnsconfd```
 
@@ -31,54 +31,54 @@ Unicast DNS server configuration daemon using mDNS
 # PARAMETERS
 
 **-D**, **--daemonize**
-> Run as a background daemon and log to syslog
+> 作为后台守护进程运行并记录到 syslog
 
 **-s**, **--syslog**
-> Log to syslog instead of stderr
+> 记录到 syslog 而非 stderr
 
 **-k**, **--kill**
-> Kill an already running avahi-dnsconfd instance
+> 终止已在运行的 avahi-dnsconfd 实例
 
 **--refresh**
-> Refresh DNS server information
+> 刷新 DNS 服务器信息
 
 **--check**
-> Check if daemon is running
+> 检查守护进程是否正在运行
 
 **-h**, **--help**
-> Display help message
+> 显示帮助消息
 
 **-v**, **--version**
-> Show version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**avahi-dnsconfd** is a daemon that configures unicast DNS servers based on mDNS/DNS-SD announcements on the local network. It connects to a running **avahi-daemon** and monitors for DNS server announcements.
+**avahi-dnsconfd** 是一个根据本地网络上的 mDNS/DNS-SD 通告来配置单播 DNS 服务器的守护进程。它连接到正在运行的 **avahi-daemon**，并监控 DNS 服务器的通告。
 
-When a unicast DNS server is announced or removed from the network, avahi-dnsconfd executes the action script **/etc/avahi/avahi-dnsconfd.action** to update the system's DNS configuration. This provides DHCP-like DNS server discovery using mDNS.
+当网络上有单播 DNS 服务器被通告或被移除时，avahi-dnsconfd 会执行动作脚本 **/etc/avahi/avahi-dnsconfd.action** 来更新系统的 DNS 配置。这相当于用 mDNS 实现了类似 DHCP 的 DNS 服务器发现。
 
-The daemon requires avahi-daemon to be running. It is useful in environments where DNS servers are dynamically announced via Zeroconf/Bonjour protocols rather than configured through traditional DHCP.
+该守护进程要求 avahi-daemon 先行运行。它适用于通过 Zeroconf/Bonjour 协议动态通告 DNS 服务器、而非通过传统 DHCP 配置的环境。
 
 # SIGNALS
 
 **SIGINT**, **SIGTERM**
-> Shutdown the daemon
+> 关闭守护进程
 
 **SIGHUP**
-> Refresh DNS server data
+> 刷新 DNS 服务器数据
 
 # CONFIGURATION
 
 **/etc/avahi/avahi-dnsconfd.action**
-> Shell script executed when DNS servers are discovered or removed on the network. Receives action type and DNS server address as arguments.
+> 在网络上发现或移除 DNS 服务器时执行的 Shell 脚本。以动作类型和 DNS 服务器地址作为参数。
 
 # CAVEATS
 
-Requires avahi-daemon to be running first. The action script must be properly configured to update DNS resolver settings. May conflict with other DNS management tools like NetworkManager or systemd-resolved if not properly integrated.
+需要先运行 avahi-daemon。必须正确配置动作脚本才能更新 DNS 解析器设置。若未妥善集成，可能与 NetworkManager 或 systemd-resolved 等其他 DNS 管理工具冲突。
 
 # HISTORY
 
-**Avahi** was created by **Lennart Poettering** and **Trent Lloyd** starting in **2005** as a free implementation of Zeroconf/mDNS/DNS-SD for Linux. The avahi-dnsconfd component was designed to integrate zero-configuration DNS server discovery with traditional unicast DNS resolution, allowing networks to operate without manual DNS configuration.
+**Avahi** 由 **Lennart Poettering** 和 **Trent Lloyd** 自 **2005 年**起创建，是 Linux 上 Zeroconf/mDNS/DNS-SD 的自由实现。avahi-dnsconfd 组件的设计目标是将零配置的 DNS 服务器发现与传统的单播 DNS 解析集成起来，让网络无需手动配置 DNS 即可运作。
 
 # INSTALL
 

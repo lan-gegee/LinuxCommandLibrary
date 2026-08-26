@@ -1,22 +1,22 @@
 # TAGLINE
 
-Discover domains and infrastructure for an organization
+发现某个组织的域名和基础设施
 
 # TLDR
 
-**Discover** root domains for an organization
+**发现**某组织的根域名
 
 ```amass intel -org "[Company Name]"```
 
-Find domains from **ASN**
+从 **ASN** 查找域名
 
 ```amass intel -asn [AS12345]```
 
-Reverse lookup by **IP range**
+按 **IP 范围**反向查找
 
 ```amass intel -cidr [192.168.1.0/24]```
 
-Find domains from **whois** data
+从 **whois** 数据中查找域名
 
 ```amass intel -whois -d [example.com]```
 
@@ -26,54 +26,54 @@ Find domains from **whois** data
 
 # DESCRIPTION
 
-**amass intel** gathers intelligence to identify domains and infrastructure owned by an organization. It uses various techniques including ASN lookup, WHOIS analysis, certificate transparency, and reverse IP lookups.
+**amass intel** 收集情报以识别某个组织拥有的域名和基础设施。它使用多种技术，包括 ASN 查询、WHOIS 分析、证书透明度日志和反向 IP 查找。
 
-This command is typically used at the beginning of reconnaissance to identify all root domains before detailed enumeration.
+此命令通常在信息收集初期使用，用于在进行详细枚举之前找出所有根域名。
 
 # PARAMETERS
 
 **-org** _name_
-> Search string matched against AS description information
+> 用于匹配 AS 描述信息的搜索字符串
 
 **-asn** _number_
-> ASNs separated by commas (can be used multiple times)
+> 逗号分隔的 ASN（可多次使用）
 
 **-cidr** _range_
-> CIDRs separated by commas (can be used multiple times)
+> 逗号分隔的 CIDR（可多次使用）
 
 **-addr** _ips_
-> IPs and ranges (for example 192.168.1.1-254) separated by commas
+> 逗号分隔的 IP 和范围（例如 192.168.1.1-254）
 
 **-whois**
-> Run all discovered domains through reverse WHOIS
+> 对所有发现的域名执行反向 WHOIS 查询
 
 **-d** _domain_
-> Domain names separated by commas (can be used multiple times)
+> 逗号分隔的域名（可多次使用）
 
 **-active**
-> Enable active recon methods
+> 启用主动信息收集方法
 
 **-ip**
-> Show the IP addresses for discovered names
+> 显示发现名称对应的 IP 地址
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-config** _file_
-> Configuration file
+> 配置文件
 
 # CONFIGURATION
 
 **~/.config/amass/config.ini**
-> Amass configuration file defining data sources, API keys, and scope settings.
+> Amass 配置文件，定义数据源、API 密钥和范围设置。
 
 # CAVEATS
 
-Organization name matching is fuzzy; review results for accuracy. WHOIS data may be privacy-protected. ASN information may not cover all organizational assets.
+组织名称匹配是模糊的；请核查结果的准确性。WHOIS 数据可能受到隐私保护。ASN 信息可能未覆盖组织的全部资产。
 
 # HISTORY
 
-**amass intel** was added to provide organizational-level reconnaissance capabilities, complementing the domain-focused enum command.
+**amass intel** 的加入提供了组织级别的信息收集能力，与专注于域名的 enum 命令互为补充。
 
 # INSTALL
 

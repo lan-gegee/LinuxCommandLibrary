@@ -1,26 +1,26 @@
 # TAGLINE
 
-List installed packages on an Android device
+列出 Android 设备上已安装的软件包
 
 # TLDR
 
-**List** all packages
+**列出**所有软件包
 
 ```adb shell pm list packages```
 
-Show packages with **APK paths**
+显示软件包的 **APK 路径**
 
 ```adb shell pm list packages -f```
 
-List **system apps** only
+只列出**系统应用**
 
 ```adb shell pm list packages -s```
 
-List **user-installed apps** only
+只列出**用户安装的应用**
 
 ```adb shell pm list packages -3```
 
-**Search** for a package
+**搜索**软件包
 
 ```adb shell pm list packages | grep [keyword]```
 
@@ -30,40 +30,40 @@ List **user-installed apps** only
 
 # DESCRIPTION
 
-**pm list packages** enumerates installed applications on an Android device. It is a subcommand of the package manager's **pm list** group, restricted to listing application packages.
+**pm list packages** 枚举 Android 设备上已安装的应用。它是软件包管理器 **pm list** 命令组的子命令，专门用于列示应用软件包。
 
-Output is in the format **package:com.example.app** with one package per line. An optional _filter_ argument limits results to packages whose name contains the given text. Use grep or other tools for more complex filtering.
+输出格式为 **package:com.example.app**，每行一个软件包。可选的 _filter_ 参数将结果限制为名称包含指定文本的软件包。更复杂的过滤可配合 grep 等工具使用。
 
 # PARAMETERS
 
 **-f**
-> Include APK file path
+> 包含 APK 文件路径
 
 **-d**
-> Only disabled packages
+> 只显示已禁用的软件包
 
 **-e**
-> Only enabled packages
+> 只显示已启用的软件包
 
 **-s**
-> Only system packages
+> 只显示系统软件包
 
 **-3**
-> Only third-party (user-installed) packages
+> 只显示第三方（用户安装的）软件包
 
 **-i**
-> Show package installer
+> 显示软件包的安装来源
 
 **-u**
-> Include uninstalled packages with data
+> 包含已卸载但仍有数据的软件包
 
 # CAVEATS
 
-The output format is consistent but verbose. Pipe through **cut -d: -f2** to get just package names. Results may differ between device users on multi-user devices.
+输出格式一致但较为冗长。通过管道传给 **cut -d: -f2** 可以只提取软件包名。在多用户设备上，不同设备用户的结果可能不同。
 
 # HISTORY
 
-Part of the Android Package Manager since the platform's initial release in **2008**, this command remains one of the most commonly used adb shell operations for device management and debugging.
+自 **2008** 年平台首次发布起就是 Android 软件包管理器的一部分。该命令至今仍是设备管理和调试中最常用的 adb shell 操作之一。
 
 # INSTALL
 

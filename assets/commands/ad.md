@@ -1,26 +1,26 @@
 # TAGLINE
 
-Adaptable modal text editor
+可扩展的模态文本编辑器
 
 # TLDR
 
-**Open a file** for editing
+**打开文件**进行编辑
 
 ```ad [path/to/file]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```ad [file1] [file2]```
 
-**Run an edit script** on files
+对文件**执行编辑脚本**
 
 ```ad -e "[script]" [path/to/file]```
 
-**Run an edit script** from a file
+从文件**运行编辑脚本**
 
 ```ad -f [path/to/script] [path/to/file]```
 
-**List open editor sessions**
+**列出打开的编辑器会话**
 
 ```ad --list-sessions```
 
@@ -31,42 +31,42 @@ Adaptable modal text editor
 # PARAMETERS
 
 **-e**, **--expression** _script_
-> Execute an edit script inline
+> 内联执行编辑脚本
 
 **-f**, **--script-file** _file_
-> Load and execute an edit script from a file
+> 从文件加载并执行编辑脚本
 
 **-c**, **--config** _path_
-> Use a custom configuration file
+> 使用自定义配置文件
 
 **--default-config**
-> Override user config and use defaults
+> 忽略用户配置并使用默认设置
 
 **-l**, **--list-sessions**
-> Display open editor sessions
+> 显示打开的编辑器会话
 
 **--rm-sockets**
-> Clean up unresponsive socket files
+> 清理无响应的套接字文件
 
 **-h**, **--help**
-> Display usage information
+> 显示用法信息
 
 **-v**, **--version**
-> Show version details
+> 显示版本详情
 
 # DESCRIPTION
 
-**ad** is a modal text editor written in Rust that combines vim-style modal editing with the extensibility philosophy of Plan 9's Acme editor. It features vim/kakoune-style text navigation and selection, emacs-inspired mini-buffer minor modes, sam/acme-style editing commands, and extension through external client programs via a built-in 9P file server.
+**ad** 是一个用 Rust 编写的模态文本编辑器，它将 vim 风格的模态编辑与 Plan 9 Acme 编辑器的可扩展性理念相结合。其特性包括 vim/kakoune 风格的文本导航与选择、借鉴 emacs 的迷你缓冲区次模式、sam/acme 风格的编辑命令，以及通过内置 9P 文件服务器接入外部客户端程序实现扩展。
 
-The editor supports tree-sitter based syntax highlighting, LSP completions, mouse-based navigation and UI resizing, multiple columns and buffers, scratch buffers, and customizable keybindings. Configuration is done through a TOML file.
+该编辑器支持基于 tree-sitter 的语法高亮、LSP 补全、鼠标导航与界面缩放、多栏与多缓冲区、临时缓冲区以及可自定义的按键绑定。通过 TOML 文件进行配置。
 
 # CAVEATS
 
-Still in active development with breaking changes between versions. Limited documentation beyond the built-in **:help** command. Requires familiarity with modal editing concepts.
+仍处于积极开发阶段，版本之间可能存在破坏性变更。除内置的 **:help** 命令外文档有限。需要熟悉模态编辑概念。
 
 # HISTORY
 
-**ad** was created by **Innes Anderson-Morrison** (sminez) as an experimental editor combining ideas from vim, kakoune, emacs, and Plan 9's acme. Written in Rust and released under the MIT license, it reached version 0.4.0 in December 2025.
+**ad** 由 **Innes Anderson-Morrison**（sminez）创建，是一款融合 vim、kakoune、emacs 和 Plan 9 acme 理念的实验性编辑器。用 Rust 编写并以 MIT 许可证发布，于 2025 年 12 月达到 0.4.0 版本。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage OpenSearch Service domains for search and analytics.
+管理用于搜索和分析的 OpenSearch Service 域。
 
 # TLDR
 
-**List all OpenSearch domains**
+**列出所有 OpenSearch 域**
 
 ```aws opensearch list-domain-names```
 
-**Describe a domain**
+**描述域**
 
 ```aws opensearch describe-domain --domain-name [domain_name]```
 
-**Get domain configuration**
+**获取域配置**
 
 ```aws opensearch describe-domain-config --domain-name [domain_name]```
 
-**Create a new domain**
+**创建新域**
 
 ```aws opensearch create-domain --domain-name [domain_name] --engine-version OpenSearch_2.11 --cluster-config InstanceType=t3.small.search,InstanceCount=1```
 
-**Update domain configuration**
+**更新域配置**
 
 ```aws opensearch update-domain-config --domain-name [domain_name] --cluster-config InstanceType=r6g.large.search```
 
-**Delete a domain**
+**删除域**
 
 ```aws opensearch delete-domain --domain-name [domain_name]```
 
-**List available engine versions**
+**列出可用的引擎版本**
 
 ```aws opensearch list-versions```
 
-**Get upgrade history**
+**获取升级历史**
 
 ```aws opensearch get-upgrade-history --domain-name [domain_name]```
 
@@ -42,69 +42,69 @@ Manage OpenSearch Service domains for search and analytics.
 
 # DESCRIPTION
 
-**aws opensearch** is a subcommand of the AWS CLI that manages Amazon OpenSearch Service, a managed search and analytics engine. It is the successor to Amazon Elasticsearch Service and is compatible with OpenSearch and legacy Elasticsearch APIs.
+**aws opensearch** 是 AWS CLI 的一个子命令，用于管理 Amazon OpenSearch Service。这是一项托管的搜索与分析引擎服务，是 Amazon Elasticsearch Service 的后继者，兼容 OpenSearch 及旧版 Elasticsearch API。
 
-OpenSearch domains are clusters that run the OpenSearch engine. Each domain has a cluster configuration (instance types, counts), storage settings (EBS volumes), access policies, and optional features like fine-grained access control and encryption.
+OpenSearch 域是运行 OpenSearch 引擎的集群。每个域都有集群配置（实例类型、数量）、存储设置（EBS 卷）、访问策略，以及细粒度访问控制和加密等可选功能。
 
-The service supports use cases including log analytics, full-text search, application monitoring, and SIEM. OpenSearch Dashboards provides visualization capabilities.
+该服务支持的用例包括日志分析、全文搜索、应用监控和 SIEM。OpenSearch Dashboards 提供可视化功能。
 
 # PARAMETERS
 
 **list-domain-names**
-> List all domains in the account.
+> 列出账户中的所有域。
 
 **describe-domain**
-> Get domain status and configuration.
+> 获取域的状态和配置。
 
 **describe-domain-config**
-> Get detailed configuration settings.
+> 获取详细的配置设置。
 
 **create-domain**
-> Create a new OpenSearch domain.
+> 创建新的 OpenSearch 域。
 
 **update-domain-config**
-> Modify domain settings.
+> 修改域的设置。
 
 **delete-domain**
-> Remove a domain.
+> 删除域。
 
 **list-versions**
-> List available OpenSearch and Elasticsearch versions.
+> 列出可用的 OpenSearch 和 Elasticsearch 版本。
 
 **upgrade-domain**
-> Initiate a version upgrade.
+> 启动版本升级。
 
 **get-upgrade-status**
-> Check upgrade progress.
+> 检查升级进度。
 
 **--domain-name** _name_
-> Name of the domain.
+> 域的名称。
 
 **--engine-version** _version_
-> OpenSearch or Elasticsearch version.
+> OpenSearch 或 Elasticsearch 版本。
 
 **--cluster-config** _config_
-> Instance type, count, and zone awareness.
+> 实例类型、数量和可用区感知设置。
 
 **--ebs-options** _options_
-> EBS volume configuration.
+> EBS 卷配置。
 
 **--access-policies** _json_
-> Resource-based access policy.
+> 基于资源的访问策略。
 
 **--vpc-options** _options_
-> VPC configuration for private domains.
+> 私有域的 VPC 配置。
 
 **--encryption-at-rest-options** _options_
-> Enable encryption at rest.
+> 启用静态加密。
 
 # CAVEATS
 
-Domain names must be lowercase and unique within a region. Configuration changes can take 15-30 minutes to apply. Domains in a VPC cannot be made public later. Version upgrades may require blue/green deployment. Fine-grained access control requires HTTPS and node-to-node encryption. Deleting a domain permanently removes all data.
+域名必须为小写且在一个区域内唯一。配置更改可能需要 15-30 分钟才能生效。位于 VPC 中的域之后无法改为公开访问。版本升级可能需要蓝/绿部署。细粒度访问控制要求启用 HTTPS 和节点间加密。删除域会永久移除所有数据。
 
 # HISTORY
 
-**Amazon Elasticsearch Service** launched in **October 2015** as a managed Elasticsearch offering. Following the Elasticsearch license change, AWS forked the project and rebranded the service as **Amazon OpenSearch Service** in **September 2021**, based on the open-source OpenSearch project. The service has added features like UltraWarm storage tiers, serverless collections, and vector search for AI applications.
+**Amazon Elasticsearch Service** 于 **2015 年 10 月**上线，是一项托管的 Elasticsearch 服务。在 Elasticsearch 更改许可证后，AWS 分叉了该项目，并于 **2021 年 9 月**将该服务更名为 **Amazon OpenSearch Service**，基于开源的 OpenSearch 项目。此后该服务陆续增加了 UltraWarm 存储层、无服务器集合以及面向 AI 应用的向量搜索等功能。
 
 # INSTALL
 

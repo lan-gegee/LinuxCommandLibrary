@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enable Apache2 modules
+启用 Apache2 模块
 
 # TLDR
 
-**Enable** a module
+**启用**一个模块
 
 ```sudo a2enmod [module]```
 
-**Enable** a module and **reload** Apache
+**启用**模块并**重新加载** Apache
 
 ```sudo a2enmod [module] && sudo systemctl reload apache2```
 
-**Enable the rewrite** module
+**启用 rewrite** 模块
 
 ```sudo a2enmod rewrite```
 
-**Enable SSL** module
+**启用 SSL** 模块
 
 ```sudo a2enmod ssl```
 
-Don't show **informative messages**
+不显示**提示信息**
 
 ```sudo a2enmod -q [module]```
 
@@ -30,25 +30,25 @@ Don't show **informative messages**
 
 # DESCRIPTION
 
-**a2enmod** is a Debian-specific utility that enables Apache2 modules by creating symbolic links in **/etc/apache2/mods-enabled** pointing to module files in **/etc/apache2/mods-available**. The tool handles both **.load** and associated **.conf** files for each module.
+**a2enmod** 是一个 Debian 特有的工具，它在 **/etc/apache2/mods-enabled** 中创建指向 **/etc/apache2/mods-available** 中模块文件的符号链接，从而启用 Apache2 模块。该工具会同时处理每个模块的 **.load** 文件和关联的 **.conf** 文件。
 
-The tool works alongside **a2dismod**, which disables modules. After enabling a module, Apache must be restarted or reloaded for changes to take effect.
+该工具与负责禁用模块的 **a2dismod** 配合使用。启用模块后，必须重启或重新加载 Apache 才能使更改生效。
 
 # PARAMETERS
 
 **-q, --quiet**
-> Don't show informative messages
+> 不显示提示信息
 
 **-m, --maintmode**
-> Enables maintainer mode; the program invocation is effectuated automatically by a maintainer script
+> 启用维护者模式；程序调用由维护者脚本自动执行
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions. Enabling a module may require enabling its dependencies first. Module changes require an Apache restart or reload to take effect.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用。启用某个模块可能需要先启用其依赖的模块。模块更改需要重启或重新加载 Apache 才能生效。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. The manual page was authored by Daniel Stone and dates to **October 2006**.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建。手册页由 Daniel Stone 编写，可追溯到 **2006 年 10 月**。
 
 # INSTALL
 

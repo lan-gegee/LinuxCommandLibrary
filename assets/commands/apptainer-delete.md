@@ -1,26 +1,26 @@
 # TAGLINE
 
-Delete container images from a remote library.
+从远程库删除容器镜像。
 
 # TLDR
 
-**Delete an image** from the Container Library
+从 Container Library **删除镜像**
 
 ```apptainer delete library://[user/collection/container]:[tag]```
 
-Delete an image for a **specific architecture**
+删除**特定架构**的镜像
 
 ```apptainer delete -A [amd64|arm64|ppc64le] library://[user/collection/container]:[tag]```
 
-**Force delete** an image without confirmation
+**不经确认强制删除**镜像
 
 ```apptainer delete -F library://[user/collection/container]:[tag]```
 
-Delete an image from a **specific library server**
+从**特定的库服务器**删除镜像
 
 ```apptainer delete --library [https://library.example.com] library://[user/collection/container]:[tag]```
 
-Delete an image using **HTTP** instead of HTTPS
+使用 **HTTP** 而不是 HTTPS 删除镜像
 
 ```apptainer delete --no-https library://[hostname/user/collection/container]:[tag]```
 
@@ -30,27 +30,27 @@ Delete an image using **HTTP** instead of HTTPS
 
 # DESCRIPTION
 
-**apptainer delete** removes container images from a remote Container Library. This is a destructive operation that permanently removes the specified image or image tag from the remote registry.
+**apptainer delete** 从远程 Container Library 中移除容器镜像。这是一项破坏性操作，会永久地从远程注册表中移除指定的镜像或镜像标签。
 
-The command requires authentication with the target library and appropriate permissions to delete images.
+该命令需要先对目标库进行身份验证，并拥有删除镜像的相应权限。
 
 # PARAMETERS
 
 **-A, --arch** _architecture_
-> Delete the image for a specific CPU architecture (default: amd64).
+> 删除特定 CPU 架构的镜像（默认：amd64）。
 
 **-F, --force**
-> Force delete without confirmation prompt.
+> 不经确认提示强制删除。
 
 **--library** _url_
-> Specify the Container Library URL to delete from.
+> 指定要从中删除的 Container Library URL。
 
 **--no-https**
-> Use HTTP instead of HTTPS for the library connection.
+> 库连接使用 HTTP 而不是 HTTPS。
 
 # CAVEATS
 
-This operation is irreversible. Deleted images cannot be recovered. Ensure you have backups of important container images before deletion. Only the image owner or library administrators can delete images.
+此操作不可逆。已删除的镜像无法恢复。删除前请确保已备份重要的容器镜像。只有镜像所有者或库管理员才能删除镜像。
 
 # INSTALL
 

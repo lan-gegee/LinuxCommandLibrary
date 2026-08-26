@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Amazon Aurora relational database clusters via AWS CLI
+通过 AWS CLI 管理 Amazon Aurora 关系型数据库集群
 
 # TLDR
 
-**Create an Aurora MySQL cluster**
+**创建 Aurora MySQL 集群**
 
 ```aws rds create-db-cluster --db-cluster-identifier [my-cluster] --engine aurora-mysql --master-username [admin] --master-user-password [password]```
 
-**Create an Aurora PostgreSQL cluster**
+**创建 Aurora PostgreSQL 集群**
 
 ```aws rds create-db-cluster --db-cluster-identifier [my-cluster] --engine aurora-postgresql --master-username [admin] --master-user-password [password]```
 
-**Create a database instance** in the cluster
+在集群中**创建数据库实例**
 
 ```aws rds create-db-instance --db-instance-identifier [my-instance] --db-cluster-identifier [my-cluster] --engine aurora-mysql --db-instance-class [db.r5.large]```
 
-**List Aurora clusters**
+**列出 Aurora 集群**
 
 ```aws rds describe-db-clusters --query "DBClusters[?Engine=='aurora-mysql' || Engine=='aurora-postgresql']"```
 
-**Create a cluster snapshot**
+**创建集群快照**
 
 ```aws rds create-db-cluster-snapshot --db-cluster-identifier [my-cluster] --db-cluster-snapshot-identifier [my-snapshot]```
 
-**Delete an Aurora cluster**
+**删除 Aurora 集群**
 
 ```aws rds delete-db-cluster --db-cluster-identifier [my-cluster] --skip-final-snapshot```
 
@@ -35,88 +35,88 @@ Manage Amazon Aurora relational database clusters via AWS CLI
 # PARAMETERS
 
 **create-db-cluster**
-> Create a new Aurora DB cluster
+> 创建新的 Aurora DB 集群
 
 **create-db-instance**
-> Create a database instance in a cluster
+> 在集群中创建数据库实例
 
 **describe-db-clusters**
-> List DB clusters and their details
+> 列出 DB 集群及其详情
 
 **modify-db-cluster**
-> Modify cluster configuration
+> 修改集群配置
 
 **delete-db-cluster**
-> Delete an Aurora cluster
+> 删除一个 Aurora 集群
 
 **create-db-cluster-snapshot**
-> Create a manual snapshot of a cluster
+> 为集群创建手动快照
 
 **restore-db-cluster-from-snapshot**
-> Restore a cluster from a snapshot
+> 从快照恢复集群
 
 **create-db-cluster-endpoint**
-> Create a custom endpoint for read replicas
+> 为只读副本创建自定义端点
 
 **failover-db-cluster**
-> Force a failover to a replica
+> 强制故障转移到一个副本
 
 **--db-cluster-identifier** _name_
-> Unique identifier for the cluster
+> 集群的唯一标识符
 
 **--engine** _type_
-> Database engine: aurora-mysql, aurora-postgresql
+> 数据库引擎：aurora-mysql、aurora-postgresql
 
 **--engine-version** _version_
-> Specific engine version
+> 指定的引擎版本
 
 **--master-username** _name_
-> Master user account name
+> 主用户账户名
 
 **--master-user-password** _password_
-> Master user password (or use --manage-master-user-password)
+> 主用户密码（或使用 --manage-master-user-password）
 
 **--db-instance-class** _class_
-> Instance type (db.r5.large, db.r6g.xlarge, etc.)
+> 实例类型（db.r5.large、db.r6g.xlarge 等）
 
 **--db-subnet-group-name** _name_
-> Subnet group for the cluster
+> 集群的子网组
 
 **--vpc-security-group-ids** _ids_
-> Security groups for network access
+> 用于网络访问的安全组
 
 **--engine-mode** _mode_
-> provisioned or serverless.
+> provisioned 或 serverless。
 
 **--serverless-v2-scaling-configuration** _config_
-> Min/max ACU capacity for Aurora Serverless v2.
+> Aurora Serverless v2 的最小/最大 ACU 容量。
 
 **--storage-type** _type_
-> Storage type: aurora (standard) or aurora-iopt1 (I/O-Optimized).
+> 存储类型：aurora（标准）或 aurora-iopt1（I/O 优化）。
 
 **--manage-master-user-password**
-> Let AWS Secrets Manager manage the master password.
+> 让 AWS Secrets Manager 自动管理主密码。
 
 **--skip-final-snapshot**
-> Skip creating a final snapshot when deleting a cluster.
+> 删除集群时跳过创建最终快照。
 
 # DESCRIPTION
 
-**aws rds** commands manage Amazon Aurora, a MySQL and PostgreSQL-compatible relational database built for the cloud. Aurora commands operate under the RDS service namespace rather than a separate Aurora namespace.
+**aws rds** 命令管理 Amazon Aurora——一款为云构建的 MySQL 和 PostgreSQL 兼容关系型数据库。Aurora 命令在 RDS 服务命名空间下运行，而非独立的 Aurora 命名空间。
 
-Aurora clusters consist of a primary writer instance and up to 15 read replicas. Create the cluster first with **create-db-cluster**, then add instances with **create-db-instance**. Aurora handles replication automatically across Availability Zones.
+Aurora 集群由一个主写入实例和最多 15 个只读副本组成。先用 **create-db-cluster** 创建集群，再用 **create-db-instance** 添加实例。Aurora 会自动处理跨可用区的复制。
 
-**Aurora Serverless** (engine-mode serverless) automatically scales capacity based on demand. **Aurora I/O-Optimized** (storage-type aurora-iopt1) provides predictable pricing for I/O-intensive workloads.
+**Aurora Serverless**（engine-mode serverless）根据需求自动扩缩容量。**Aurora I/O-Optimized**（storage-type aurora-iopt1）为 I/O 密集型工作负载提供可预测的定价。
 
-Use **--manage-master-user-password** to have AWS Secrets Manager automatically manage the master password instead of specifying it directly.
+使用 **--manage-master-user-password** 可让 AWS Secrets Manager 自动管理主密码，而不必直接指定密码。
 
 # CAVEATS
 
-Creating a cluster does not automatically create instances; you must add them separately. Deleting a cluster without **--skip-final-snapshot** requires specifying a final snapshot identifier. VPC, subnet groups, and security groups must be configured before cluster creation.
+创建集群并不会自动创建实例；你必须单独添加。不带 **--skip-final-snapshot** 删除集群时需要指定最终快照标识符。VPC、子网组和安全组必须在创建集群之前配置好。
 
 # HISTORY
 
-**Amazon Aurora** was announced at **AWS re:Invent 2014** and became generally available in **July 2015**. It was designed to provide MySQL compatibility with significantly improved performance and availability. Aurora PostgreSQL followed in **2017**, and Aurora Serverless launched in **2018** for variable workloads.
+**Amazon Aurora** 于 **AWS re:Invent 2014** 上发布，**2015 年 7 月**正式商用。它旨在提供 MySQL 兼容性，同时显著提升性能和可用性。Aurora PostgreSQL 于 **2017 年**推出，面向波动工作负载的 Aurora Serverless 则于 **2018 年**上线。
 
 # INSTALL
 

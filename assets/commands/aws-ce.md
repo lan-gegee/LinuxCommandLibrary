@@ -1,30 +1,30 @@
 # TAGLINE
 
-Analyze cloud cost and usage data.
+分析云成本与用量数据。
 
 # TLDR
 
-**Get cost and usage data** for the last month grouped by service
+**获取上个月的成本与用量数据**，按服务分组
 
 ```aws ce get-cost-and-usage --time-period Start=[YYYY-MM-DD],End=[YYYY-MM-DD] --granularity MONTHLY --metrics "BlendedCost" --group-by Type=DIMENSION,Key=SERVICE```
 
-**Get a cost forecast** for the next month
+**获取下个月的成本预测**
 
 ```aws ce get-cost-forecast --time-period Start=[YYYY-MM-DD],End=[YYYY-MM-DD] --metric BLENDED_COST --granularity MONTHLY```
 
-**List all cost anomalies** detected in the last 30 days
+**列出最近 30 天检测到的所有成本异常**
 
 ```aws ce get-anomalies --date-interval StartDate=[YYYY-MM-DD],EndDate=[YYYY-MM-DD]```
 
-**Get reservation utilization** for the current month
+**获取本月的预留实例使用率**
 
 ```aws ce get-reservation-utilization --time-period Start=[YYYY-MM-DD],End=[YYYY-MM-DD]```
 
-**Get savings plans coverage** by service
+**按服务获取节省计划的覆盖情况**
 
 ```aws ce get-savings-plans-coverage --time-period Start=[YYYY-MM-DD],End=[YYYY-MM-DD] --group-by Type=DIMENSION,Key=SERVICE```
 
-**Get rightsizing recommendations** for EC2 instances
+**获取 EC2 实例的容量调整建议**
 
 ```aws ce get-rightsizing-recommendation --service AmazonEC2```
 
@@ -34,52 +34,52 @@ Analyze cloud cost and usage data.
 
 # DESCRIPTION
 
-**aws ce** is the AWS CLI interface for AWS Cost Explorer, enabling programmatic access to cost and usage data. It allows querying aggregated data like total monthly costs or granular metrics such as daily operations for specific services.
+**aws ce** 是 AWS Cost Explorer 的 AWS CLI 接口，支持以编程方式访问成本与用量数据。它既能查询聚合数据（如月度总成本），也能查询细粒度指标（如特定服务的每日操作量）。
 
-Cost Explorer provides insights into spending patterns, forecasting, anomaly detection, and recommendations for reserved instances and savings plans. All requests go through the **us-east-1** regional endpoint.
+Cost Explorer 提供对支出模式的洞察、预测、异常检测，以及针对预留实例和节省计划的建议。所有请求都经由 **us-east-1** 区域端点。
 
 # COMMANDS
 
 **get-cost-and-usage**
-> Retrieve cost and usage metrics with filtering and grouping
+> 检索带过滤和分组的成本与用量指标
 
 **get-cost-forecast**
-> Generate cost predictions based on historical data
+> 根据历史数据生成成本预测
 
 **get-anomalies**
-> List detected spending anomalies
+> 列出检测到的支出异常
 
 **get-reservation-utilization**
-> Check reserved instance utilization rates
+> 检查预留实例的使用率
 
 **get-savings-plans-coverage**
-> Analyze savings plans coverage across services
+> 分析节省计划在各服务上的覆盖情况
 
 **get-rightsizing-recommendation**
-> Get EC2 instance rightsizing suggestions
+> 获取 EC2 实例的容量调整建议
 
 **get-dimension-values**
-> List available values for a filter dimension (for example SERVICE)
+> 列出某个过滤维度的可用值（例如 SERVICE）
 
 **get-usage-forecast**
-> Forecast usage quantity for a future period
+> 预测未来周期的用量
 
 **create-anomaly-monitor**
-> Set up automatic anomaly detection monitoring
+> 设置自动异常检测监控
 
 **create-anomaly-subscription**
-> Subscribe to alerts for a detected anomaly monitor
+> 订阅某个异常监控器的告警
 
 **create-cost-category-definition**
-> Define custom cost categorization rules
+> 定义自定义的成本归类规则
 
 # CAVEATS
 
-Cost Explorer API has usage charges beyond the free tier. Data is typically delayed by 24-48 hours. Historical data is available for the last 13 months only. The **us-east-1** endpoint must be used regardless of where resources are deployed.
+Cost Explorer API 的使用超出免费额度会产生费用。数据通常有 24-48 小时的延迟。历史数据仅保留最近 13 个月。无论资源部署在何处，都必须使用 **us-east-1** 端点。
 
 # HISTORY
 
-AWS Cost Explorer launched in **2017** as a visualization tool in the AWS Console. The Cost Explorer API was introduced in **2018** to enable programmatic access. Anomaly detection was added in **2020**, and commitment purchase analysis features expanded through **2023-2024**.
+AWS Cost Explorer 于 **2017 年**作为 AWS 控制台中的可视化工具推出。Cost Explorer API 于 **2018 年**引入，以支持编程访问。异常检测于 **2020 年**加入，承诺购买分析功能在 **2023-2024** 年间持续扩展。
 
 # INSTALL
 

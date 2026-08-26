@@ -1,22 +1,22 @@
 # TAGLINE
 
-Web-based digital forensics analysis interface
+基于 Web 的数字取证分析界面
 
 # TLDR
 
-**Start** Autopsy server
+**启动** Autopsy 服务器
 
 ```autopsy```
 
-Start on **specific port**
+在**指定端口**启动
 
 ```autopsy -p [9999]```
 
-Restrict access to **specific host**
+限制访问来自**特定主机**
 
 ```autopsy [localhost]```
 
-Specify **evidence locker** directory
+指定**证据柜**目录
 
 ```autopsy -d [path/to/locker]```
 
@@ -26,46 +26,46 @@ Specify **evidence locker** directory
 
 # DESCRIPTION
 
-**autopsy** is a graphical interface for The Sleuth Kit forensic analysis tools. It starts a local web server and provides a browser-based interface for disk analysis, file recovery, and forensic investigation.
+**autopsy** 是 The Sleuth Kit 取证分析工具的图形界面。它启动一个本地 Web 服务器，提供基于浏览器的界面，用于磁盘分析、文件恢复和取证调查。
 
-The tool allows examiners to analyze file systems, recover deleted files, create timelines, and search for evidence without command-line knowledge.
+该工具让调查人员无需命令行知识即可分析文件系统、恢复已删除的文件、创建时间线和搜索证据。
 
 # PARAMETERS
 
 **-p** _port_
-> HTTP server port (default: 9999)
+> HTTP 服务器端口（默认：9999）
 
 **-c**
-> Force cookie inclusion in URL (even for localhost)
+> 强制在 URL 中包含 cookie（即使对 localhost 也如此）
 
 **-C**
-> Force no cookie in URL
+> 强制 URL 中不含 cookie
 
 **-d** _dir_
-> Specify evidence locker directory (overrides default)
+> 指定证据柜目录（覆盖默认值）
 
 **-i** _device filesystem mnt_
-> Enable live analysis mode (specify device, filesystem type, and mount point)
+> 启用实时分析模式（需指定设备、文件系统类型和挂载点）
 
 _addr_
-> IP address or hostname restricting which client can connect
+> 用于限制哪些客户端可以连接的 IP 地址或主机名
 
 # FEATURES
 
-- File system analysis
-- Deleted file recovery
-- Timeline creation
-- Keyword searching
-- Hash filtering
-- Image mounting
+- 文件系统分析
+- 已删除文件的恢复
+- 时间线创建
+- 关键字搜索
+- 哈希过滤
+- 镜像挂载
 
 # CAVEATS
 
-For authorized forensic investigation only. Web interface requires browser. Legacy version (v2); Autopsy 4 is a standalone Java desktop application. The Sleuth Kit tools must be installed.
+仅限经授权的取证调查使用。Web 界面需要浏览器。这是旧版本（v2）；Autopsy 4 是独立的 Java 桌面应用。必须先安装 The Sleuth Kit 工具。
 
 # HISTORY
 
-**Autopsy** was created by **Brian Carrier** as a web-based front-end for The Sleuth Kit, first released in **2001**. Version 4 (2015) moved to a Java desktop application.
+**Autopsy** 由 **Brian Carrier** 创建，作为 The Sleuth Kit 的 Web 前端，于 **2001 年**首次发布。第 4 版（2015 年）转为 Java 桌面应用。
 
 # INSTALL
 

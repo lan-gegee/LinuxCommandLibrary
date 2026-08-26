@@ -1,30 +1,30 @@
 # TAGLINE
 
-Highly configurable tiling window manager for X11
+高度可配置的 X11 平铺窗口管理器
 
 # TLDR
 
-**Start awesome** window manager
+**启动 awesome** 窗口管理器
 
 ```awesome```
 
-**Start with a specific configuration** file
+以指定的配置文件**启动**
 
 ```awesome -c [~/.config/awesome/rc.lua]```
 
-**Check configuration** for errors
+**检查配置**中的错误
 
 ```awesome -k```
 
-**Check specific config file** for errors
+**检查指定配置文件**中的错误
 
 ```awesome -k -c [path/to/rc.lua]```
 
-**Display version** information
+**显示版本**信息
 
 ```awesome -v```
 
-**Replace a running window manager**
+**替换正在运行的窗口管理器**
 
 ```awesome --replace```
 
@@ -35,56 +35,56 @@ Highly configurable tiling window manager for X11
 # PARAMETERS
 
 **-v**, **--version**
-> Display version information and exit
+> 显示版本信息并退出
 
 **-h**, **--help**
-> Display help message and exit
+> 显示帮助信息并退出
 
 **-c** _FILE_, **--config** _FILE_
-> Use specified Lua configuration file instead of default
+> 使用指定的 Lua 配置文件代替默认配置
 
 **-k**, **--check**
-> Check configuration file syntax and exit
+> 检查配置文件的语法并退出
 
 **-s**, **--search** _DIR_
-> Add directory to Lua library search path
+> 将目录添加到 Lua 库搜索路径
 
 **-a**, **--no-argb**
-> Disable ARGB visuals (transparency)
+> 禁用 ARGB 视觉效果（透明）
 
 **-r**, **--replace**
-> Replace an existing window manager
+> 替换已存在的窗口管理器
 
 # DESCRIPTION
 
-**awesome** is a highly configurable, tiling window manager for X11. It manages windows in tiled, floating, and other layouts, maximizing screen space efficiency for keyboard-driven workflows.
+**awesome** 是一款高度可配置的 X11 平铺窗口管理器。它以平铺、浮动等多种布局管理窗口，为键盘驱动的工作流最大化屏幕空间利用率。
 
-Configuration is done through **~/.config/awesome/rc.lua** using the Lua programming language, allowing extensive customization of layouts, keybindings, widgets, and appearance. The default configuration provides a functional starting point with sensible defaults.
+配置通过 Lua 编程语言编写在 **~/.config/awesome/rc.lua** 中完成，可深度自定义布局、按键绑定、组件和外观。默认配置提供了带有合理默认值、开箱即用的起点。
 
-Key concepts include tags (virtual desktops), layouts (tiling algorithms), and widgets (status bar components). The Mod4 key (typically Windows/Super key) is the default modifier for keybindings.
+关键概念包括 tag（虚拟桌面）、layout（平铺算法）和 widget（状态栏组件）。Mod4 键（通常是 Windows/Super 键）是按键绑定的默认修饰键。
 
-Default keybindings include:
-- **Mod4 + Enter**: Open terminal
-- **Mod4 + r**: Run prompt
-- **Mod4 + j/k**: Focus next/previous client
-- **Mod4 + Shift + c**: Close focused client
-- **Mod4 + Space**: Cycle layouts
-- **Mod4 + 1-9**: Switch to tag
+默认按键绑定包括：
+- **Mod4 + Enter**：打开终端
+- **Mod4 + r**：运行提示符
+- **Mod4 + j/k**：聚焦下一个/上一个客户端
+- **Mod4 + Shift + c**：关闭当前聚焦的客户端
+- **Mod4 + Space**：循环切换布局
+- **Mod4 + 1-9**：切换到对应 tag
 
-The window manager includes a built-in menu, notification system, and status bar with system information.
+该窗口管理器内置菜单、通知系统以及显示系统信息的状态栏。
 
 # CONFIGURATION
 
 **~/.config/awesome/rc.lua**
-> Main configuration file written in Lua. Controls layouts, keybindings, widgets, themes, and all window manager behavior.
+> 用 Lua 编写的主配置文件。控制布局、按键绑定、组件、主题以及窗口管理器的所有行为。
 
 # CAVEATS
 
-Requires X11; does not support Wayland. Configuration errors in rc.lua will cause awesome to fall back to defaults. Some features require a compositor for transparency effects. The learning curve for Lua configuration can be steep for new users.
+需要 X11；不支持 Wayland。rc.lua 中的配置错误会导致 awesome 回退到默认配置。某些功能需要合成器才能实现透明效果。对新手而言，Lua 配置的学习曲线可能较陡峭。
 
 # HISTORY
 
-**awesome** was created by **Julien Danjou** and first released in **2007**. It was designed as a successor to dwm with greater extensibility through Lua scripting. The name is a playful reference to being "awesome" rather than just "good." The project continues active development with a focus on stability and customization.
+**awesome** 由 **Julien Danjou** 创建，于 **2007** 年首次发布。它被设计为 dwm 的继任者，通过 Lua 脚本获得了更强的可扩展性。其名字是对"awesome（了不起）"而非仅仅"good（不错）"的俏皮呼应。项目仍在活跃开发中，重点是稳定性和可定制性。
 
 # INSTALL
 

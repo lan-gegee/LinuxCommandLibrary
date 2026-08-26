@@ -1,26 +1,26 @@
 # TAGLINE
 
-Clean AppArmor profiles by removing redundant rules
+通过删除冗余规则清理 AppArmor 配置文件
 
 # TLDR
 
-**Clean** a profile to remove unused rules
+**清理**一个配置文件以移除无用的规则
 
 ```sudo aa-cleanprof [profile_name]```
 
-Clean **multiple profiles** at once
+一次清理**多个配置文件**
 
 ```sudo aa-cleanprof [profile1] [profile2]```
 
-Specify the **directory** containing profiles
+指定配置文件所在的**目录**
 
 ```sudo aa-cleanprof -d /path/to/profiles [profile_name]```
 
-Run **silently** without prompts
+以**静默**方式运行，不做提示
 
 ```sudo aa-cleanprof -s [profile_name]```
 
-Prevent profile **reload** after cleaning
+清理后阻止重新加载配置文件
 
 ```sudo aa-cleanprof --no-reload [profile_name]```
 
@@ -30,29 +30,29 @@ Prevent profile **reload** after cleaning
 
 # DESCRIPTION
 
-**aa-cleanprof** removes superfluous rules from AppArmor security profiles, including rules that are already covered by an include directive or another rule. The utility also reorders rules to group similar ones together and removes all comments from the profile file.
+**aa-cleanprof** 会移除 AppArmor 安全配置文件中的多余规则，包括已被 include 指令或其他规则覆盖的规则。该工具还会重排规则，把相似的规则归为一组，并删除配置文件中的所有注释。
 
 # PARAMETERS
 
 **-d, --dir /path/to/profiles**
-> Specifies the directory containing AppArmor profiles; defaults to /etc/apparmor.d
+> 指定存放 AppArmor 配置文件的目录；默认为 /etc/apparmor.d
 
 **--no-reload**
-> Prevents the profile from being reloaded after modifications
+> 修改后不重新加载配置文件
 
 **-s, --silent**
-> Automatically overwrites the profile without prompting the user
+> 不询问用户，自动覆盖配置文件
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-This utility removes all comments from profile files, which may eliminate useful documentation or notes within the profiles.
+此工具会移除配置文件中的所有注释，可能丢失配置文件中有用的文档或备注。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

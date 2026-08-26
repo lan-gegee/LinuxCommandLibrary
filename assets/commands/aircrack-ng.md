@@ -1,26 +1,26 @@
 # TAGLINE
 
-Crack WEP and WPA/WPA2 wireless encryption keys
+破解 WEP 和 WPA/WPA2 无线加密密钥
 
 # TLDR
 
-**Crack WPA/WPA2** with wordlist
+使用字典文件**破解 WPA/WPA2**
 
 ```aircrack-ng -w [wordlist.txt] [capture.cap]```
 
-Crack WEP with **captured IVs**
+用**捕获的 IV** 破解 WEP
 
 ```aircrack-ng [capture.cap]```
 
-Specify **target BSSID**
+指定**目标 BSSID**
 
 ```aircrack-ng -b [00:11:22:33:44:55] [capture.cap]```
 
-Use **multiple wordlists**
+使用**多个字典文件**
 
 ```aircrack-ng -w [list1.txt],[list2.txt] [capture.cap]```
 
-Show **cracking statistics**
+显示**破解统计信息**
 
 ```aircrack-ng -S [capture.cap]```
 
@@ -30,64 +30,64 @@ Show **cracking statistics**
 
 # DESCRIPTION
 
-**aircrack-ng** is a WiFi security auditing tool that cracks WEP and WPA/WPA2-PSK encryption keys. For WPA/WPA2, it uses dictionary attacks against captured 4-way handshakes. For WEP, it exploits cryptographic weaknesses using statistical methods.
+**aircrack-ng** 是一款 WiFi 安全审计工具，可破解 WEP 和 WPA/WPA2-PSK 加密密钥。对于 WPA/WPA2，它对捕获的四次握手进行字典攻击。对于 WEP，它利用统计方法攻击其密码学弱点。
 
-The tool reads packet capture files containing wireless traffic, identifies encryption types and captured handshakes, and attempts to recover the passphrase.
+该工具读取包含无线流量的抓包文件，识别加密类型和捕获到的握手，然后尝试恢复口令。
 
 # PARAMETERS
 
 **-w** _file_
-> Wordlist for WPA/WPA2 cracking
+> 用于 WPA/WPA2 破解的字典文件
 
 **-b** _bssid_
-> Target access point MAC address
+> 目标接入点的 MAC 地址
 
 **-e** _essid_
-> Target network name
+> 目标网络名称
 
 **-a** _mode_
-> Attack mode (1: WEP, 2: WPA/WPA2)
+> 攻击模式（1：WEP，2：WPA/WPA2）
 
 **-l** _file_
-> Write found key to file
+> 将找到的密钥写入文件
 
 **-q**
-> Quiet mode (no status display)
+> 静默模式（不显示状态）
 
 **-S**
-> WPA cracking speed test (benchmark)
+> WPA 破解速度测试（基准测试）
 
 **-p** _threads_
-> Number of CPU threads to use
+> 要使用的 CPU 线程数
 
 **-K**
-> Use KoreK attack instead of PTW for WEP cracking (PTW is the faster modern default)
+> WEP 破解时使用 KoreK 攻击而非 PTW（PTW 是更快的现代默认方式）
 
 **-x**
-> Disable last keybyte brute-force (WEP). -x1 enables (default), -x2 brute-forces last two keybytes
+> 禁用最后一个密钥字节的暴力破解（WEP）。-x1 表示启用（默认），-x2 表示暴力破解最后两个密钥字节
 
 **-y**
-> Experimental single brute-force attack, used when standard attacks fail with over 1 million IVs
+> 实验性单一暴力破解攻击，在标准攻击在超过 100 万个 IV 时仍然失败时使用
 
 **-z**
-> Use PTW attack for WEP cracking (default)
+> WEP 破解使用 PTW 攻击（默认）
 
 **-D**, **--wep-decloak**
-> WEP decloak mode, skips broken keystreams
+> WEP decloak 模式，跳过损坏的密钥流
 
 **-M** _num_
-> Maximum number of IVs to use for WEP cracking
+> WEP 破解可使用的最大 IV 数量
 
 **-1**, **--oneshot**
-> Run only one try to crack key with PTW
+> 仅运行一次 PTW 密钥破解尝试
 
 # CAVEATS
 
-For authorized security testing only. WPA/WPA2 cracking requires a captured 4-way handshake. Success depends on wordlist quality; complex passwords may be uncrackable. GPU-accelerated tools like hashcat are faster for WPA.
+仅限经授权的安全测试使用。WPA/WPA2 破解需要捕获到四次握手。成功与否取决于字典文件的质量；复杂密码可能无法破解。对于 WPA，hashcat 等 GPU 加速工具速度更快。
 
 # HISTORY
 
-**aircrack-ng** evolved from the original aircrack tool, with the "-ng" (next generation) version first released in **2006**. It became the standard open-source WiFi security assessment toolkit.
+**aircrack-ng** 由最初的 aircrack 工具演化而来，"-ng"（next generation，下一代）版本于 **2006** 年首次发布。它已成为开源 WiFi 安全评估的标准工具集。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Browse for mDNS/DNS-SD network services
+浏览 mDNS/DNS-SD 网络服务
 
 # TLDR
 
-**Browse all** services and resolve addresses
+**浏览全部**服务并解析地址
 
 ```avahi-browse -a -r```
 
-Browse all services, **terminate** after dump (for scripts)
+浏览全部服务，转储后即**终止**（用于脚本）
 
 ```avahi-browse -a -t -p```
 
-Browse for a **specific service type**
+浏览**特定服务类型**
 
 ```avahi-browse _http._tcp```
 
-List **domains**
+列出**域**
 
 ```avahi-browse -D```
 
-Search specific **domain**
+搜索特定**域**
 
 ```avahi-browse -a --domain=[example.local]```
 
-Browse and ignore **local** services
+浏览并忽略**本地**服务
 
 ```avahi-browse -a -r -l```
 
@@ -34,52 +34,52 @@ Browse and ignore **local** services
 
 # DESCRIPTION
 
-**avahi-browse** displays services and hosts exposed on the local network via mDNS/DNS-SD (Multicast DNS Service Discovery). It is compatible with Apple's Bonjour/Zeroconf protocol.
+**avahi-browse** 显示本地网络上通过 mDNS/DNS-SD（多播 DNS 服务发现）暴露的服务和主机。它与 Apple 的 Bonjour/Zeroconf 协议兼容。
 
-By default, the tool runs continuously and displays services as they appear or disappear on the network, prefixed with **"+"** for new and **"-"** for removed entries. When used with **--resolve**, it also looks up hostnames and port numbers for discovered services. The **--terminate** flag causes it to exit after dumping all currently known services, which is useful for scripting.
+默认情况下，该工具持续运行，并在服务出现或消失于网络时实时显示，新增条目以 **"+"** 为前缀，被移除的条目以 **"-"** 为前缀。配合 **--resolve** 使用时，还会查询所发现服务的主机名和端口号。**--terminate** 标志使其在转储当前所有已知服务后退出，便于脚本使用。
 
 # PARAMETERS
 
 **-a, --all**
-> Show all services
+> 显示所有服务
 
 **-r, --resolve**
-> Resolve discovered services to addresses and ports
+> 将发现的服务解析为地址和端口
 
 **-l, --ignore-local**
-> Ignore services on the local machine
+> 忽略本机上的服务
 
 **-t, --terminate**
-> Terminate after dumping a list (don't wait for more)
+> 转储列表后终止（不再继续等待）
 
 **-p, --parsable**
-> Output in parsable format for scripts
+> 以便于脚本处理的可解析格式输出
 
 **-D, --browse-domains**
-> Browse for domains instead of services
+> 浏览域而不是服务
 
 **--domain** _domain_
-> Limit search to a specific domain
+> 将搜索限制到特定域
 
 **-f, --no-fail**
-> Don't fail if the daemon is not running; wait until it appears
+> 守护进程未运行时不失败；等待其出现
 
 **-k, --no-db-lookup**
-> Don't look up service types in the service type database
+> 不在服务类型数据库中查找服务类型
 
 **-b, --dump-db**
-> Dump the service type database
+> 转储服务类型数据库
 
 **-v, --verbose**
-> Enable verbose output
+> 启用详细输出
 
 # CAVEATS
 
-Requires the Avahi daemon to be running. Services must be advertised via mDNS to be discovered. Network configuration and firewall settings may affect discovery.
+需要 Avahi 守护进程正在运行。服务必须通过 mDNS 通告才能被发现。网络配置和防火墙设置可能影响发现效果。
 
 # HISTORY
 
-**avahi-browse** is part of the **Avahi** package, providing mDNS/DNS-SD service discovery on Linux, compatible with Apple's Bonjour.
+**avahi-browse** 是 **Avahi** 软件包的一部分，在 Linux 上提供与 Apple Bonjour 兼容的 mDNS/DNS-SD 服务发现功能。
 
 # INSTALL
 

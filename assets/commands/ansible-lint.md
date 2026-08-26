@@ -1,30 +1,30 @@
 # TAGLINE
 
-Check playbooks for best practices
+检查 playbook 是否符合最佳实践
 
 # TLDR
 
-**Lint** a playbook
+对 playbook 进行 **lint 检查**
 
 ```ansible-lint [playbook.yml]```
 
-Lint **all files** in directory
+对目录中的**所有文件**进行 lint 检查
 
 ```ansible-lint```
 
-Lint with **specific profile**
+使用**指定 profile** 进行 lint 检查
 
 ```ansible-lint --profile [production] [playbook.yml]```
 
-**List** all rules
+**列出**所有规则
 
 ```ansible-lint -L```
 
-**Skip** specific rules
+**跳过**指定规则
 
 ```ansible-lint --skip-list [yaml,risky-shell-pipe] [playbook.yml]```
 
-Output in **JSON** format
+以 **JSON** 格式输出
 
 ```ansible-lint -f json [playbook.yml]```
 
@@ -34,60 +34,60 @@ Output in **JSON** format
 
 # DESCRIPTION
 
-**ansible-lint** checks Ansible playbooks, roles, and collections for practices and behaviors that could potentially be improved. It identifies deprecated syntax, security concerns, style issues, and best practice violations.
+**ansible-lint** 检查 Ansible playbook、role 和 collection 中可能需要改进的实践和行为。它会识别已弃用的语法、安全隐患、风格问题以及违反最佳实践之处。
 
-The tool helps maintain consistent, high-quality Ansible code and catch common mistakes before deployment.
+该工具有助于保持 Ansible 代码的一致性和高质量，并在部署前发现常见错误。
 
 # PARAMETERS
 
 **-L**, **--list-rules**
-> List all available rules
+> 列出所有可用规则
 
 **-T**, **--list-tags**
-> List all the tags and the rules they cover
+> 列出所有标签及其涵盖的规则
 
 **-x** _rules_, **--skip-list** _rules_
-> Skip specific rules or tags
+> 跳过指定的规则或标签
 
 **-w** _rules_, **--warn-list** _rules_
-> Treat the listed rules or tags as warnings only
+> 将列出的规则或标签仅视为警告
 
 **--profile** _profile_
-> Select a rule profile: min, basic, moderate, safety, shared, or production
+> 选择规则 profile：min、basic、moderate、safety、shared 或 production
 
 **-f** _format_, **--format** _format_
-> Output format: brief, full, md, json (alias of codeclimate), codeclimate, quiet, pep8, sarif
+> 输出格式：brief、full、md、json（codeclimate 的别名）、codeclimate、quiet、pep8、sarif
 
 **--fix** [_rules_]
-> Auto-fix violations, optionally limited to specific rules or tags
+> 自动修复违规项，可选地限定于特定规则或标签
 
 **-q**, **--quiet**
-> Quieter output (may be given twice)
+> 更安静的输出（可重复使用两次）
 
 **--strict**
-> Return a non-zero exit code on warnings
+> 出现警告时返回非零退出码
 
 **--offline**
-> Disable installation of requirements and dependencies
+> 禁用安装 requirements 和依赖项
 
 **-c** _file_, **--config-file** _file_
-> Use the specified configuration file
+> 使用指定的配置文件
 
 # CONFIGURATION
 
 **.ansible-lint**
-> Project-level configuration file for rule selection, skip lists, and profiles.
+> 项目级配置文件，用于规则选择、跳过列表和 profile。
 
 **~/.config/ansible-lint/config.yml**
-> User-level default configuration.
+> 用户级默认配置。
 
 # CAVEATS
 
-Not all rules apply to all use cases; configure skip-list appropriately. The --fix option may not handle all issues. False positives may occur with complex variable usage.
+并非所有规则都适用于所有场景；请合理配置 skip-list。--fix 选项未必能处理所有问题。复杂的变量用法可能导致误报。
 
 # HISTORY
 
-**ansible-lint** was created to help enforce best practices in Ansible projects. It became an official Ansible project and has been actively maintained with evolving rule sets.
+**ansible-lint** 的创建目的是在 Ansible 项目中推行最佳实践。它已成为官方的 Ansible 项目，并随规则集的不断演进而持续维护。
 
 # INSTALL
 

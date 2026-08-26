@@ -1,26 +1,26 @@
 # TAGLINE
 
-display user connect time statistics
+显示用户连接时间统计
 
 # TLDR
 
-Print how long the **current user** has been connected in hours
+以小时为单位输出**当前用户**的连接时长
 
 ```ac```
 
-Print how long **all users** have been connected in hours
+以小时为单位输出**所有用户**的连接时长
 
 ```ac -p```
 
-Print how long a **particular user** has been connected
+输出**特定用户**的连接时长
 
 ```ac -p [username]```
 
-Print connection time **per day** with totals
+按**天**显示连接时长并给出合计
 
 ```ac -d -p [username]```
 
-Display additional **compatibility** details
+显示额外的**兼容性**细节
 
 ```ac --compatibility```
 
@@ -30,53 +30,53 @@ Display additional **compatibility** details
 
 # DESCRIPTION
 
-**ac** generates a report of connect time in hours based on the logins and logouts recorded in the system's **wtmp** file. It calculates the difference between login and logout timestamps to determine how long each user has been connected. Output can be broken down by individual user, by day, or presented as an aggregate total. The wtmp file is maintained automatically by login-related system utilities such as **login**, **sshd**, and **init**.
+**ac** 根据系统 **wtmp** 文件中记录的登录和登出事件生成以小时为单位的连接时间报告。它通过计算登录与登出时间戳之差来确定每个用户的连接时长。输出可以按单个用户或按天细分，也可以呈现为汇总总计。wtmp 文件由 **login**、**sshd**、**init** 等与登录相关的系统工具自动维护。
 
 # PARAMETERS
 
 **-d, --daily-totals**
-> Display totals for each calendar day instead of a single aggregate total
+> 按每个自然日显示合计，而不是单一的汇总总计
 
 **-p, --individual-totals**
-> Show connection time for each user separately plus overall total
+> 分别显示每个用户的连接时长以及总时长
 
 **people**
-> Calculate combined connect time for specified usernames (space-separated list)
+> 计算指定用户名（以空格分隔的列表）的合计连接时长
 
 **-f, --file filename**
-> Read accounting data from specified file instead of system wtmp
+> 从指定文件而非系统 wtmp 读取记账数据
 
 **-a, --all-days**
-> Include daily records even when no login activity occurred
+> 即使某天没有登录活动也包含该日的记录
 
 **-y, --print-year**
-> Display year alongside date information
+> 在日期信息旁显示年份
 
 **-z, --print-zeros**
-> Print category totals that equal zero
+> 输出等于零的分类合计
 
 **--complain**
-> Display errors when wtmp file contains anomalies
+> 当 wtmp 文件存在异常时显示错误
 
 **--reboots**
-> Include time accrued between user login and system reboot events
+> 包含用户登录到系统重启事件之间累积的时间
 
 **--supplants**
-> Count time from login to next login when logout records are missing
+> 在缺少登出记录时，计入从登录到下一次登录的时间
 
 **--timewarps**
-> Include time when chronological inconsistencies occur in wtmp
+> 包含 wtmp 中出现时序不一致时的时间
 
 **--compatibility**
-> Enable all three compatibility flags (reboots, supplants, timewarps)
+> 同时启用全部三个兼容性标志（reboots、supplants、timewarps）
 
 # CAVEATS
 
-Connect time calculations depend on accurate wtmp records. System crashes or improper shutdowns may result in incomplete or inaccurate data.
+连接时间的计算依赖于准确的 wtmp 记录。系统崩溃或不当关机可能导致数据不完整或不准确。
 
 # HISTORY
 
-Part of **GNU Accounting Utilities**, based on traditional UNIX accounting tools. The GNU version offers enhanced functionality compared to traditional implementations.
+属于 **GNU Accounting Utilities**，源自传统 UNIX 记账工具。GNU 版本相比传统实现提供了增强的功能。
 
 # INSTALL
 

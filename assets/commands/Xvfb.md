@@ -1,34 +1,34 @@
 # TAGLINE
 
-Virtual framebuffer X server
+虚拟帧缓冲 X 服务器
 
 # TLDR
 
-**Start virtual display**
+**启动虚拟显示**
 
 ```Xvfb :99```
 
-**Start with specific screen size**
+**以指定屏幕尺寸启动**
 
 ```Xvfb :99 -screen 0 [1920x1080x24]```
 
-**Start with multiple screens**
+**以多屏幕方式启动**
 
 ```Xvfb :1 -screen 0 [1280x1024x24] -screen 1 [800x600x16]```
 
-**Use shared memory**
+**使用共享内存**
 
 ```Xvfb :99 -shmem -screen 0 [1024x768x24]```
 
-**Store framebuffer in directory**
+**将帧缓冲存储到目录**
 
 ```Xvfb :99 -fbdir [/tmp/xvfb]```
 
-**Run application with xvfb-run**
+**用 xvfb-run 运行应用程序**
 
 ```xvfb-run -a [application]```
 
-**xvfb-run with custom screen**
+**xvfb-run 配合自定义屏幕**
 
 ```xvfb-run -s "-screen 0 1280x1024x24" [application]```
 
@@ -39,63 +39,63 @@ Virtual framebuffer X server
 # PARAMETERS
 
 **:display**
-> Display number (default: 0).
+> 显示号（默认：0）。
 
 **-screen** _num_ _WxHxD_
-> Configure screen: number, width x height x depth.
+> 配置屏幕：编号、宽 x 高 x 色深。
 
 **-pixdepths** _list_
-> Additional pixmap depths to support.
+> 要支持的额外像素图深度。
 
 **-fbdir** _dir_
-> Directory for memory-mapped framebuffer files.
+> 存放内存映射帧缓冲文件的目录。
 
 **-shmem**
-> Use shared memory for framebuffer.
+> 为帧缓冲使用共享内存。
 
 **-linebias** _n_
-> Adjust line pixelization.
+> 调整线条的像素化处理。
 
 **-blackpixel** _value_
-> Set black pixel value.
+> 设置黑色像素值。
 
 **-whitepixel** _value_
-> Set white pixel value.
+> 设置白色像素值。
 
 # XVFB-RUN OPTIONS
 
 **-a**, **--auto-servernum**
-> Find available display number automatically.
+> 自动寻找可用的显示号。
 
 **-s** _args_
-> Arguments to pass to Xvfb.
+> 传给 Xvfb 的参数。
 
 **-e** _file_
-> File to store Xvfb error output.
+> 存储 Xvfb 错误输出的文件。
 
 **-f** _file_
-> Authority file to use.
+> 要使用的授权文件。
 
 **-n** _num_
-> Server number to use.
+> 要使用的服务器编号。
 
 # DESCRIPTION
 
-**Xvfb** (X Virtual FrameBuffer) is an X server that performs all graphical operations in memory without any physical display. It implements the X11 protocol, allowing X applications to run without visible output.
+**Xvfb**（X Virtual FrameBuffer）是一种 X 服务器，它在内存中完成所有图形操作，不需要任何物理显示设备。它实现了 X11 协议，使 X 应用程序能够在没有可见输出的情况下运行。
 
-Common use cases include running GUI applications on headless servers, automated testing of graphical applications, rendering graphics for web services, and CI/CD pipelines that require X applications.
+常见用途包括：在无头服务器上运行 GUI 应用、对图形应用进行自动化测试、为 Web 服务渲染图形，以及需要 X 应用的 CI/CD 流水线。
 
-The **xvfb-run** wrapper script simplifies usage by automatically selecting a display number and handling authentication.
+**xvfb-run** 包装脚本可简化使用：它会自动选择一个显示号并处理认证。
 
-Default screen configuration is 1280x1024x24 (width x height x depth in bits).
+默认屏幕配置为 1280x1024x24（宽 x 高 x 位深）。
 
 # CAVEATS
 
-No GPU acceleration. Some applications may behave differently without real display. Memory usage scales with screen size and depth. Applications expecting specific display features may fail.
+没有 GPU 加速。缺少真实显示器时，某些应用的行为可能不同。内存占用随屏幕尺寸和色深增加。期望特定显示特性的应用可能无法正常工作。
 
 # HISTORY
 
-**Xvfb** has been part of the X.Org server distribution since the X11R5 release. It was developed to enable X applications to run on systems without display hardware, supporting server-side rendering and automated testing long before headless browser technologies.
+**Xvfb** 自 X11R5 发布起就是 X.Org 服务器发行版的一部分。它的开发目的是让 X 应用能够运行在没有显示硬件的系统上，早在无头浏览器技术出现之前就支撑着服务端渲染和自动化测试。
 
 # INSTALL
 

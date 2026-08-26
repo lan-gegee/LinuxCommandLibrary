@@ -1,30 +1,30 @@
 # TAGLINE
 
-Discover mDNS browsing domains on the network
+发现网络上的 mDNS 浏览域
 
 # TLDR
 
-**Browse** for browsing domains on the local network
+在本地网络上**浏览**浏览域
 
 ```avahi-browse-domains```
 
-**Browse** with verbose output
+以详细输出**浏览**
 
 ```avahi-browse-domains --verbose```
 
-**Terminate** after dumping a complete list
+输出完整列表后即**终止**
 
 ```avahi-browse-domains --terminate```
 
-**Browse** in a specific domain
+在特定域中**浏览**
 
 ```avahi-browse-domains --domain=[domain_name]```
 
-**Parsable output** for use in scripts (semicolon-separated)
+供脚本使用的**可解析输出**（分号分隔）
 
 ```avahi-browse-domains --parsable```
 
-**Ignore local** services and show only remote ones
+**忽略本地**服务，只显示远程服务
 
 ```avahi-browse-domains --ignore-local```
 
@@ -35,58 +35,58 @@ Discover mDNS browsing domains on the network
 # PARAMETERS
 
 **-d, --domain=**_DOMAIN_
-> Specify search domain (defaults to local)
+> 指定搜索域（默认为 local）
 
 **-v, --verbose**
-> Enable verbose output with detailed information
+> 启用包含详细信息的详细输出
 
 **-t, --terminate**
-> Exit after displaying a complete list of domains
+> 显示完整的域列表后退出
 
 **-c, --cache**
-> Exit after dumping all cached entries
+> 输出所有缓存条目后退出
 
 **-l, --ignore-local**
-> Show only remote services, exclude local ones
+> 只显示远程服务，排除本地服务
 
 **-r, --resolve**
-> Automatically resolve discovered services
+> 自动解析发现的服务
 
 **-a, --all**
-> Browse for all service types registered on the LAN, not just the one specified
+> 浏览局域网上注册的所有服务类型，而不只是指定的那一种
 
 **-f, --no-fail**
-> Wait for daemon if unavailable; reconnect if disconnected
+> 守护进程不可用时等待；断开时重连
 
 **-p, --parsable**
-> Format output for script usage (semicolon-separated fields, escaped service names)
+> 以便于脚本处理的格式输出（字段以分号分隔，服务名转义）
 
 **-k, --no-db-lookup**
-> Skip service type database lookups
+> 跳过服务类型数据库查询
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Show version details
+> 显示版本详情
 
 # DESCRIPTION
 
-**avahi-browse-domains** browses for mDNS/DNS-SD browsing domains on the local network using the Avahi daemon. This command is equivalent to **avahi-browse --browse-domains** and provides a convenient shortcut for discovering available browsing domains.
+**avahi-browse-domains** 通过 Avahi 守护进程浏览本地网络上的 mDNS/DNS-SD 浏览域。此命令等同于 **avahi-browse --browse-domains**，为发现可用的浏览域提供了便捷入口。
 
-The tool connects to the Avahi daemon and displays browsing domains as they appear on the network. Network items appearing are shown with a **"+"** prefix, disappearing items use **"-"**, and resolved items display with **"="** when the resolve flag is enabled.
+该工具连接到 Avahi 守护进程并显示网络中出现的浏览域。新出现的网络条目带 **"+"** 前缀，消失的条目用 **"-"** 表示，启用 resolve 标志时已解析的条目显示为 **"="**。
 
-By default, **avahi-browse-domains** searches in the **local** domain, but can be configured to search in other domains using the **--domain** option. The output can be formatted for easy parsing in scripts using the **--parsable** option, which separates fields with semicolons.
+默认情况下，**avahi-browse-domains** 在 **local** 域中搜索，但可通过 **--domain** 选项配置为在其他域中搜索。使用 **--parsable** 选项可将输出格式化为易于脚本解析的形式，各字段以分号分隔。
 
-The tool runs continuously by default, monitoring for domain changes. Use **--terminate** to exit after displaying the initial complete list, or **--cache** to dump only cached entries and exit immediately.
+该工具默认持续运行并监控域的变化。使用 **--terminate** 可在显示初始完整列表后退出，或使用 **--cache** 仅转储缓存的条目并立即退出。
 
 # CAVEATS
 
-Requires the **avahi-daemon** to be running. If the daemon is not available, the command will fail unless **--no-fail** is specified, which makes it wait for the daemon to become available.
+需要 **avahi-daemon** 正在运行。如果守护进程不可用，除非指定 **--no-fail**（使命令等待守护进程变为可用），否则命令会失败。
 
 # HISTORY
 
-Part of the **Avahi** suite, developed as a free software implementation of Apple's Bonjour/Zeroconf protocols. Avahi enables service discovery on local networks without requiring configuration, standardized by **IETF** as mDNS and DNS-SD protocols.
+属于 **Avahi** 工具套件，该项目是对 Apple 的 Bonjour/Zeroconf 协议的自由软件实现。Avahi 无需配置即可在本地网络上实现服务发现，其 mDNS 和 DNS-SD 协议由 **IETF** 标准化。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ Part of the **Avahi** suite, developed as a free software implementation of Appl
 ```[Source code](https://github.com/avahi/avahi)```
 
 <!-- verified: 2026-06-17 -->
-

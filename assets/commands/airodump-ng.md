@@ -1,26 +1,26 @@
 # TAGLINE
 
-Capture wireless packets and discover nearby networks
+捕获无线数据包并发现附近网络
 
 # TLDR
 
-**Scan** all wireless networks
+**扫描**所有无线网络
 
 ```sudo airodump-ng [wlan0mon]```
 
-Capture packets on **specific channel**
+在**指定信道**上捕获数据包
 
 ```sudo airodump-ng -c [6] --bssid [00:11:22:33:44:55] -w [capture] [wlan0mon]```
 
-Scan only **5GHz** networks
+只扫描 **5GHz** 网络
 
 ```sudo airodump-ng --band a [wlan0mon]```
 
-Scan with **manufacturer info**
+显示**厂商信息**进行扫描
 
 ```sudo airodump-ng --manufacturer [wlan0mon]```
 
-Scan showing **WPS** information
+扫描并显示 **WPS** 信息
 
 ```sudo airodump-ng --wps [wlan0mon]```
 
@@ -30,55 +30,55 @@ Scan showing **WPS** information
 
 # DESCRIPTION
 
-**airodump-ng** is a wireless packet capture and network discovery tool. It displays detected access points and clients in real-time, capturing packets to files for later analysis with aircrack-ng.
+**airodump-ng** 是一款无线数据包捕获和网络发现工具。它实时显示检测到的接入点和客户端，并将数据包捕获到文件中，供之后使用 aircrack-ng 分析。
 
-The tool shows network names, encryption types, signal strength, channel, MAC addresses, and associated clients, making it essential for wireless reconnaissance.
+该工具显示网络名称、加密类型、信号强度、信道、MAC 地址和关联的客户端，是无线侦察的必备工具。
 
 # PARAMETERS
 
 **-c** _channel_
-> Lock to specific channel
+> 锁定到特定信道
 
 **--bssid** _mac_
-> Filter by access point MAC
+> 按接入点 MAC 过滤
 
 **-w** _prefix_
-> Output file prefix (creates .cap, .csv, .kismet.csv, .kismet.netxml)
+> 输出文件前缀（生成 .cap、.csv、.kismet.csv、.kismet.netxml）
 
 **--band** _band_
-> Band(s) to scan: a (5GHz), b and g (2.4GHz). Letters can be combined, e.g. abg
+> 要扫描的频段：a（5GHz）、b 和 g（2.4GHz）。字母可以组合，例如 abg
 
 **-a**
-> Filter out (hide) unassociated clients
+> 过滤掉（隐藏）未关联的客户端
 
 **--encrypt** _suite_
-> Filter access points by encryption (e.g. WEP, WPA, WPA2, OPN)
+> 按加密方式过滤接入点（如 WEP、WPA、WPA2、OPN）
 
 **--essid** _essid_
-> Filter access points by ESSID
+> 按 ESSID 过滤接入点
 
 **--write-interval** _seconds_
-> Time between file writes
+> 两次文件写入之间的时间间隔
 
 **--manufacturer**
-> Show manufacturer from OUI
+> 显示来自 OUI 的厂商信息
 
 **--wps**
-> Show WPS information
+> 显示 WPS 信息
 
 **--output-format** _formats_
-> Output formats: pcap, ivs, csv, gps, kismet, netxml
+> 输出格式：pcap、ivs、csv、gps、kismet、netxml
 
 **-r** _file_
-> Read from capture file instead of live capture
+> 从抓包文件读取而不是实时捕获
 
 # CAVEATS
 
-For authorized security testing only. Requires monitor mode interface. Capture files can become very large. Some information requires being on the correct channel.
+仅限经授权的安全测试使用。需要监听模式的接口。抓包文件可能变得非常大。某些信息要求停留在正确的信道上。
 
 # HISTORY
 
-**airodump-ng** is a core component of the aircrack-ng suite, first released in **2006**. It replaced the original airodump with improved features and stability.
+**airodump-ng** 是 aircrack-ng 套件的核心组件之一，于 **2006** 年首次发布。它取代了最初的 airodump，功能更完善且稳定性更好。
 
 # INSTALL
 

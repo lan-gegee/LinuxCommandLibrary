@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate and work with MIDI melody files
+生成并处理 MIDI 旋律文件
 
 # TLDR
 
-**Show help**
+**显示帮助**
 
 ```atm -h```
 
-**Generate a single MIDI** from a pitch sequence
+从音高序列**生成单个 MIDI** 文件
 
 ```atm gen single 'C:4,D:4,E:4,F:4,G:4,A:4,B:4,C:5' [test.mid]```
 
-**Brute-force generate** melodies into a gzip tar (depth 2 partitions)
+**暴力生成**旋律并存入 gzip tar（分区深度 2）
 
 ```atm gen tar-gz -p [2] 'C:4,D:4,E:4,F:4,G:4,A:4,B:4,C:5' [8] [output.tar]```
 
-**Locate partition** for a melody
+**定位旋律所在的分区**
 
 ```atm partition -p [2] 'C:4,C:4,C:4,C:4,C:4,C:4,C:4,C:5'```
 
-**Estimate** storage backend sizes
+**估算**存储后端的大小
 
 ```atm estimate --help```
 
@@ -30,43 +30,43 @@ Generate and work with MIDI melody files
 
 # DESCRIPTION
 
-**atm** (**atm-cli**) is a command-line tool for generating and working with MIDI files. It was built for All the Music, LLC to help generate large sets of melodies (including brute-force ranges) and to organize output across partitioned storage backends. It uses the **libatm** Rust library.
+**atm**（**atm-cli**）是一款用于生成和处理 MIDI 文件的命令行工具。它为 All the Music, LLC 开发，帮助生成大规模旋律集合（包括暴力枚举的范围），并将输出组织到分区的存储后端中。它基于 **libatm** Rust 库。
 
-Subcommands:
+子命令：
 
-- **gen** – generate melodies (single file or bulk backends such as tar/gzip layouts)
-- **partition** – map a pitch sequence to its partition path for a given scheme
-- **estimate** – estimate output size of storage backends
+- **gen** – 生成旋律（单个文件或批量后端，如 tar/gzip 布局）
+- **partition** – 将音高序列映射到给定方案下的分区路径
+- **estimate** – 估算存储后端的输出大小
 
-Pitch sequences use note:**octave** tokens separated by commas (for example **C:4,D:4,E:4**).
+音高序列使用 音符:**八度** 标记并以逗号分隔（例如 **C:4,D:4,E:4**）。
 
-Build from source: clone the repo, **git submodule update --init**, then **cargo build --release**. Run **cargo run --release -- -h** for usage without installing.
+从源码构建：克隆仓库，执行 **git submodule update --init**，然后执行 **cargo build --release**。运行 **cargo run --release -- -h** 可在不安装的情况下查看用法。
 
 # PARAMETERS
 
 **gen single** *melody* *outfile*
 
-> Write one MIDI file for the given pitch sequence.
+> 为给定的音高序列写出一个 MIDI 文件。
 
 **gen** *backend* ...
 
-> Bulk generation into tar, tar-gz, or other backends documented by **atm gen --help**. **-p** sets partition depth (limits files per directory).
+> 批量生成到 tar、tar-gz 或 **atm gen --help** 中记载的其他后端。**-p** 设置分区深度（限制每个目录的文件数）。
 
 **partition** [**-p** *depth*] *melody*
 
-> Print which partition directory holds the melody (default depth 1).
+> 打印该旋律所在的分区目录（默认深度为 1）。
 
 **estimate**
 
-> Help choose storage backends by estimating output size.
+> 通过估算输出大小来辅助选择存储后端。
 
 **-h**, **--help** / **-V**, **--version**
 
-> Help and version.
+> 帮助与版本信息。
 
 # CAVEATS
 
-Tailored for bulk melody generation, not a general DAW or multi-track MIDI editor. Compiling needs a Rust toolchain and submodules. Output volume for long sequences grows factorially; use **estimate** and partitioned backends carefully. License is CC BY 4.0 (not public domain), unlike some ATM datasets.
+专为批量旋律生成设计，并非通用 DAW 或多轨 MIDI 编辑器。编译需要 Rust 工具链和子模块。长序列的输出量会呈阶乘级增长；请谨慎使用 **estimate** 和分区后端。许可证为 CC BY 4.0（非公有领域），与部分 ATM 数据集不同。
 
 # SEE ALSO
 

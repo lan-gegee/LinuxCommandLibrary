@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Virtual Private Cloud networks, subnets, and gateways.
+管理 Virtual Private Cloud 网络、子网和网关。
 
 # TLDR
 
-**List all VPCs**
+**列出所有 VPC**
 
 ```aws ec2 describe-vpcs```
 
-**Create a VPC**
+**创建 VPC**
 
 ```aws ec2 create-vpc --cidr-block [10.0.0.0/16]```
 
-**List subnets**
+**列出子网**
 
 ```aws ec2 describe-subnets --filters Name=vpc-id,Values=[vpc-xxxxxxxx]```
 
-**Create a subnet**
+**创建子网**
 
 ```aws ec2 create-subnet --vpc-id [vpc-xxxxxxxx] --cidr-block [10.0.1.0/24] --availability-zone [us-east-1a]```
 
-**Create an internet gateway**
+**创建互联网网关**
 
 ```aws ec2 create-internet-gateway```
 
-**Attach internet gateway** to VPC
+将**互联网网关附加到** VPC
 
 ```aws ec2 attach-internet-gateway --vpc-id [vpc-xxxxxxxx] --internet-gateway-id [igw-xxxxxxxx]```
 
-**List route tables**
+**列出路由表**
 
 ```aws ec2 describe-route-tables --filters Name=vpc-id,Values=[vpc-xxxxxxxx]```
 
-**Add a route** to internet gateway
+向互联网网关**添加路由**
 
 ```aws ec2 create-route --route-table-id [rtb-xxxxxxxx] --destination-cidr-block 0.0.0.0/0 --gateway-id [igw-xxxxxxxx]```
 
@@ -42,75 +42,75 @@ Manage Virtual Private Cloud networks, subnets, and gateways.
 
 # DESCRIPTION
 
-**aws-vpc** refers to VPC (Virtual Private Cloud) commands within the AWS CLI ec2 namespace. VPC provides isolated virtual networks in AWS where you launch resources with complete control over IP addressing, subnets, routing, and security.
+**aws-vpc** 指 AWS CLI 的 ec2 命名空间中的 VPC（Virtual Private Cloud）命令。VPC 在 AWS 中提供隔离的虚拟网络，你可以完全掌控 IP 编址、子网、路由和安全来启动资源。
 
-Key components include **VPCs** (the network container), **subnets** (IP address ranges in availability zones), **route tables** (traffic routing rules), **internet gateways** (public internet access), **NAT gateways** (outbound-only internet for private subnets), and **security groups** (instance firewalls).
+关键组件包括 **VPC**（网络容器）、**子网**（可用区中的 IP 地址范围）、**路由表**（流量路由规则）、**互联网网关**（公网访问）、**NAT 网关**（为私有子网提供仅出站的互联网访问）和**安全组**（实例防火墙）。
 
-VPC Peering connects VPCs privately. Transit Gateway connects multiple VPCs and on-premises networks at scale. VPC Endpoints provide private access to AWS services without internet traversal.
+VPC Peering 以私有方式连接 VPC。Transit Gateway 可大规模连接多个 VPC 和本地网络。VPC Endpoints 无需经过互联网即可私有访问 AWS 服务。
 
 # PARAMETERS
 
 **describe-vpcs**
-> List VPCs and their details.
+> 列出 VPC 及其详情。
 
 **create-vpc**
-> Create a new VPC.
+> 创建新 VPC。
 
 **delete-vpc**
-> Remove a VPC (must be empty).
+> 删除 VPC（必须为空）。
 
 **describe-subnets**
-> List subnets.
+> 列出子网。
 
 **create-subnet**
-> Create a subnet in a VPC.
+> 在 VPC 中创建子网。
 
 **delete-subnet**
-> Remove a subnet.
+> 删除子网。
 
 **describe-internet-gateways**
-> List internet gateways.
+> 列出互联网网关。
 
 **create-internet-gateway**
-> Create an internet gateway.
+> 创建互联网网关。
 
 **attach-internet-gateway**
-> Attach gateway to VPC.
+> 将网关附加到 VPC。
 
 **describe-route-tables**
-> List route tables.
+> 列出路由表。
 
 **create-route**
-> Add a route to a table.
+> 向路由表添加路由。
 
 **describe-nat-gateways**
-> List NAT gateways.
+> 列出 NAT 网关。
 
 **create-nat-gateway**
-> Create a NAT gateway.
+> 创建 NAT 网关。
 
 **--vpc-id** _id_
-> VPC identifier.
+> VPC 标识符。
 
 **--cidr-block** _cidr_
-> IP address range in CIDR notation.
+> CIDR 表示法的 IP 地址范围。
 
 **--subnet-id** _id_
-> Subnet identifier.
+> 子网标识符。
 
 **--availability-zone** _az_
-> Availability zone for subnet.
+> 子网所在的可用区。
 
 **--filters** _filters_
-> Filter results by attributes.
+> 按属性过滤结果。
 
 # CAVEATS
 
-VPC CIDR blocks cannot overlap with peered VPCs. Each subnet exists in one availability zone. Public subnets need route to internet gateway and public IPs enabled. NAT gateways incur hourly and data charges. Default VPC has different behavior than custom VPCs. Security group rules are stateful; network ACLs are stateless.
+VPC 的 CIDR 块不能与已建立对等连接的 VPC 重叠。每个子网只存在于一个可用区中。公有子网需要有指向互联网网关的路由并启用公网 IP。NAT 网关会产生按小时和数据量的费用。默认 VPC 与自定义 VPC 的行为不同。安全组规则是有状态的；网络 ACL 是无状态的。
 
 # HISTORY
 
-**Amazon VPC** launched in **August 2009** as one of AWS's foundational networking services, allowing customers to define isolated networks. Initially, EC2 ran in a shared network (EC2-Classic), but VPC became the default for new accounts in **2013**. **VPC Peering** added in **2014**. **NAT Gateway** as a managed service launched in **2015**. **Transit Gateway** introduced at **re:Invent 2018** for hub-and-spoke architectures. EC2-Classic was fully retired in **2022**.
+**Amazon VPC** 于 **2009 年 8 月**上线，是 AWS 的基础网络服务之一，让客户可以定义隔离的网络。最初 EC2 运行在共享网络（EC2-Classic）中，但自 **2013 年**起 VPC 成为新账户的默认选择。**VPC Peering** 于 **2014 年**加入。作为托管服务的 **NAT Gateway** 于 **2015 年**推出。**Transit Gateway** 在 **re:Invent 2018** 上发布，用于中心辐射型架构。EC2-Classic 于 **2022 年**全面退役。
 
 # INSTALL
 

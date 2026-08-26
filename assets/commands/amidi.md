@@ -1,26 +1,26 @@
 # TAGLINE
 
-Send and receive raw MIDI data
+发送和接收原始 MIDI 数据
 
 # TLDR
 
-**List** MIDI hardware ports
+**列出** MIDI 硬件端口
 
 ```amidi -l```
 
-**Send** a MIDI file to a port
+向端口**发送** MIDI 文件
 
 ```amidi -p [hw:1,0,0] -s [file.syx]```
 
-**Receive** MIDI data to file
+将 MIDI 数据**接收**到文件
 
 ```amidi -p [hw:1,0,0] -r [output.syx]```
 
-**Dump** incoming MIDI messages
+**转储**收到的 MIDI 消息
 
 ```amidi -p [hw:1,0,0] -d```
 
-Send **system exclusive** data
+发送**系统专有**数据
 
 ```amidi -p [hw:1,0,0] -S "F0 43 10 4C 00 00 7E 00 F7"```
 
@@ -30,52 +30,52 @@ Send **system exclusive** data
 
 # DESCRIPTION
 
-**amidi** is an ALSA utility for sending and receiving raw MIDI data. It works at the byte level, making it suitable for sending system exclusive (SysEx) messages, firmware updates to MIDI devices, or capturing MIDI dumps.
+**amidi** 是一个用于发送和接收原始 MIDI 数据的 ALSA 工具。它在字节层面工作，适合发送系统专有（SysEx）消息、向 MIDI 设备推送固件更新或捕获 MIDI 转储数据。
 
-Unlike higher-level MIDI sequencers, amidi doesn't interpret MIDI timing or song structure; it transfers raw data to and from hardware ports.
+与更高层的 MIDI 音序器不同，amidi 不解释 MIDI 时序或乐曲结构；它只是在硬件端口之间传输原始数据。
 
 # PARAMETERS
 
 **-l**, **--list-devices**
-> List available hardware MIDI ports
+> 列出可用的硬件 MIDI 端口
 
 **-L**, **--list-rawmidis**
-> List all RawMIDI definitions (useful when debugging configuration files)
+> 列出所有 RawMIDI 定义（调试配置文件时很有用）
 
 **-p** _port_, **--port=**_port_
-> RawMIDI port to use (e.g., hw:1,0,0). Defaults to port 0 on card 0
+> 要使用的 RawMIDI 端口（如 hw:1,0,0）。默认为卡 0 上的端口 0
 
 **-s** _file_, **--send=**_file_
-> Send the raw MIDI commands in file to the port (e.g., a .syx file)
+> 将 file 中的原始 MIDI 命令发送到端口（如 .syx 文件）
 
 **-r** _file_, **--receive=**_file_
-> Receive data from the port and write it to file
+> 从端口接收数据并写入 file
 
 **-S** _hex_, **--send-hex=**_hex_
-> Send the bytes given as hexadecimal numbers to the port
+> 将以十六进制表示的字节发送到端口
 
 **-d**, **--dump**
-> Print received data as hexadecimal bytes
+> 以十六进制字节形式打印接收到的数据
 
 **-t** _seconds_, **--timeout=**_seconds_
-> Stop receiving when no data arrives for the given time
+> 在给定时间内没有数据到达时停止接收
 
 **-a**, **--active-sensing**
-> Do not ignore Active Sensing bytes (FEh)
+> 不忽略 Active Sensing 字节（FEh）
 
 **-c**, **--clock**
-> Do not ignore Clock bytes (F8h)
+> 不忽略 Clock 字节（F8h）
 
 **-i** _ms_, **--sysex-interval=**_ms_
-> Add a delay between each SysEx message sent, useful for firmware updates
+> 在每条 SysEx 消息之间加入延迟，固件更新时很有用
 
 # CAVEATS
 
-Works only with hardware MIDI ports, not virtual/software ports. SysEx transfers can be large and slow. Some devices require specific timing between messages.
+仅支持硬件 MIDI 端口，不支持虚拟/软件端口。SysEx 传输可能数据量大且速度慢。某些设备对消息间的时序有特殊要求。
 
 # HISTORY
 
-**amidi** is part of the ALSA utilities, providing low-level MIDI access since ALSA replaced OSS in the Linux kernel in the early **2000s**.
+**amidi** 是 ALSA 工具集的一部分，自 **2000** 年代初 ALSA 在 Linux 内核中取代 OSS 以来一直提供底层 MIDI 访问能力。
 
 # INSTALL
 

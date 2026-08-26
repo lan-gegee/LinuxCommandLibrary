@@ -1,30 +1,30 @@
 # TAGLINE
 
-Interact with Claude AI from the command line
+从命令行与 Claude AI 交互
 
 # TLDR
 
-**Send a simple message** to Claude
+向 Claude **发送简单消息**
 
 ```anthropic -g user "Hello, Claude!"```
 
-**Send a message** with a specific model
+使用指定模型**发送消息**
 
 ```anthropic -g user "[prompt]" -m [claude-opus-4-8]```
 
-**Analyze an image** with Claude
+让 Claude **分析图像**
 
 ```anthropic -g user "Describe this image" -i [path/to/image.png]```
 
-**Set a system prompt** for context
+**设置系统提示词**以提供上下文
 
 ```anthropic -g user "[prompt]" -s "You are a helpful coding assistant"```
 
-**Multi-turn conversation** with assistant response
+带助手回复的**多轮对话**
 
 ```anthropic -g user "Hello!" -g assistant "Hi there!" -g user "How are you?"```
 
-**Control response length** and randomness
+**控制响应长度**与随机性
 
 ```anthropic -g user "[prompt]" -x [2048] -t [0.7]```
 
@@ -35,42 +35,42 @@ Interact with Claude AI from the command line
 # PARAMETERS
 
 **-g**, **--message** _role_ _content_
-> Add a message with the specified role (user/assistant) and content. Can be repeated for multi-turn conversations.
+> 添加一条具有指定角色（user/assistant）和内容的消息。可重复使用以进行多轮对话。
 
 **-m**, **--model** _model_
-> Specify the Claude model to use. The built-in default is claude-3-opus-20240229, which has since been retired, so pass a current model such as claude-opus-4-8 or claude-sonnet-4-6.
+> 指定要使用的 Claude 模型。内置默认值是 claude-3-opus-20240229，该模型现已退役，因此请传入当前可用的模型，例如 claude-opus-4-8 或 claude-sonnet-4-6。
 
 **-s**, **--system** _prompt_
-> System message providing context or instructions for the conversation.
+> 为对话提供上下文或指令的系统消息。
 
 **-i**, **--image** _path_
-> Path to an image file (PNG, JPEG, or PDF) for vision tasks.
+> 用于视觉任务的图像文件路径（PNG、JPEG 或 PDF）。
 
 **-t**, **--temperature** _value_
-> Controls response randomness. Higher values produce more creative outputs.
+> 控制响应的随机性。值越高输出越有创造性。
 
 **-k**, **--top_k** _value_
-> Restricts sampling to the top k most likely tokens.
+> 将采样限制在概率最高的前 k 个 token 内。
 
 **-p**, **--top_p** _value_
-> Nucleus sampling; restricts to tokens with cumulative probability above threshold.
+> 核采样；仅考虑累积概率高于阈值的 token。
 
 **-x**, **--max_tokens** _count_
-> Maximum number of tokens in the response. Default: 1024.
+> 响应中的最大 token 数。默认：1024。
 
 # DESCRIPTION
 
-**anthropic** is a command-line interface for interacting with Anthropic's Claude AI models. It provides direct access to the Claude API from the terminal, allowing users to send text messages and images for analysis.
+**anthropic** 是一个用于与 Anthropic 的 Claude AI 模型交互的命令行界面。它让用户可以从终端直接访问 Claude API，发送文本消息和图像进行分析。
 
-The tool supports multi-turn conversations by chaining multiple **-g** flags, enabling context-aware interactions. It handles various image formats including PNG, JPEG, and PDF files for vision tasks. The CLI integrates well with shell pipelines, making it useful for scripting and automation workflows.
+该工具通过链式使用多个 **-g** 标志支持多轮对话，实现具备上下文感知能力的交互。它支持多种图像格式，包括 PNG、JPEG 和 PDF 文件，可用于视觉任务。此 CLI 与 Shell 管道集成良好，适合脚本编写和自动化工作流。
 
 # CAVEATS
 
-Requires an **ANTHROPIC_API_KEY** environment variable to be set with valid API credentials. PDF processing requires the **Poppler** library (used by **pdf2image**) to be installed on the system; it is not needed if you never pass PDFs. The hardcoded default model (claude-3-opus-20240229) has been retired, so supply a current model with **-m**. API usage incurs costs based on token consumption.
+需要设置包含有效 API 凭据的 **ANTHROPIC_API_KEY** 环境变量。处理 PDF 需要系统上安装 **Poppler** 库（由 **pdf2image** 使用）；如果不传 PDF 则无需安装。硬编码的默认模型（claude-3-opus-20240229）已退役，因此需用 **-m** 提供当前可用的模型。API 使用会按 token 消耗量产生费用。
 
 # HISTORY
 
-The anthropic-cli tool is a community project by **dvcrn** that provides command-line access to Anthropic's Claude models. It wraps the official Anthropic Python SDK and was created for developers who prefer terminal-based workflows over web interfaces. It is distributed on PyPI as **anthropic-cli** and is unrelated to Anthropic's own **claude** (Claude Code) and **ant** command-line tools.
+anthropic-cli 是 **dvcrn** 开发的社区项目，提供访问 Anthropic Claude 模型的命令行途径。它封装了官方 Anthropic Python SDK，面向偏好终端工作流而非网页界面的开发者。它以 **anthropic-cli** 的名称发布在 PyPI 上，与 Anthropic 官方的 **claude**（Claude Code）和 **ant** 命令行工具无关。
 
 # SEE ALSO
 

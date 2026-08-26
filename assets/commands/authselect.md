@@ -1,38 +1,38 @@
 # TAGLINE
 
-Configure system authentication sources via profiles
+通过配置档（profile）配置系统认证来源
 
 # TLDR
 
-**List available profiles**
+**列出可用的配置档**
 
 ```authselect list```
 
-**Show current configuration**
+**显示当前配置**
 
 ```authselect current```
 
-**Select the SSSD profile** for LDAP/FreeIPA authentication
+**选择 SSSD 配置档**用于 LDAP/FreeIPA 认证
 
 ```sudo authselect select sssd --force```
 
-**Select SSSD profile** with fingerprint authentication
+**选择 SSSD 配置档**并启用指纹认证
 
 ```sudo authselect select sssd with-fingerprint --force```
 
-**Select the Winbind profile** for Active Directory
+**选择 Winbind 配置档**用于 Active Directory
 
 ```sudo authselect select winbind --force```
 
-**Enable a feature** on current profile
+在当前配置档上**启用一个特性**
 
 ```sudo authselect enable-feature with-mkhomedir```
 
-**Backup current configuration**
+**备份当前配置**
 
 ```sudo authselect backup [backup-name]```
 
-**Restore from backup**
+**从备份恢复**
 
 ```sudo authselect backup-restore [backup-name]```
 
@@ -43,100 +43,100 @@ Configure system authentication sources via profiles
 # PARAMETERS
 
 **list**
-> List available profiles
+> 列出可用的配置档
 
 **show** _profile_
-> Display information about a profile
+> 显示某个配置档的信息
 
 **current**
-> Show currently selected profile and features
+> 显示当前选定的配置档和已启用的特性
 
 **select** _profile_ [_features_]
-> Activate a profile with optional features
+> 激活一个配置档，可选附加特性
 
 **enable-feature** _feature_
-> Enable a feature on the current profile
+> 在当前配置档上启用某特性
 
 **disable-feature** _feature_
-> Disable a feature on the current profile
+> 在当前配置档上禁用某特性
 
 **backup** [_name_]
-> Backup current system configuration
+> 备份当前的系统配置
 
 **backup-restore** _name_
-> Restore configuration from backup
+> 从备份恢复配置
 
 **backup-list**
-> List available backups
+> 列出可用的备份
 
 **opt-out**
-> Remove authselect management of configuration
+> 取消 authselect 对配置的管理
 
 **--force**
-> Overwrite existing non-authselect configuration
+> 覆盖已有的非 authselect 配置
 
 **-b**, **--backup**
-> Create backup before making changes
+> 在更改前创建备份
 
 **-q**, **--quiet**
-> Suppress output messages
+> 不输出提示消息
 
 # PROFILES
 
 **sssd**
-> System Security Services Daemon for LDAP, FreeIPA, Active Directory
+> 系统安全服务守护进程（SSSD），用于 LDAP、FreeIPA、Active Directory
 
 **winbind**
-> Samba Winbind for direct Active Directory integration
+> Samba Winbind，用于直接集成 Active Directory
 
 **nis**
-> Legacy Network Information Service compatibility
+> 旧式网络信息服务（NIS）兼容
 
 **minimal**
-> Local users and groups only (system files)
+> 仅本地用户和组（系统文件）
 
 # COMMON FEATURES
 
 **with-mkhomedir**
-> Automatically create home directories on first login
+> 首次登录时自动创建家目录
 
 **with-fingerprint**
-> Enable fingerprint authentication
+> 启用指纹认证
 
 **with-smartcard**
-> Enable smart card authentication
+> 启用智能卡认证
 
 **with-faillock**
-> Enable account lockout after failed attempts
+> 启用多次失败后的账户锁定
 
 **with-sudo**
-> Enable SSSD as source for sudo rules
+> 启用 SSSD 作为 sudo 规则来源
 
 # DESCRIPTION
 
-**authselect** configures system authentication sources by managing PAM stack and nsswitch.conf files through predefined profiles. It replaced **authconfig** starting with Fedora 28 and RHEL 8.
+**authselect** 通过预定义的配置档管理 PAM 栈和 nsswitch.conf 文件，从而配置系统认证来源。自 Fedora 28 和 RHEL 8 起，它取代了 **authconfig**。
 
-Profiles define how users are authenticated and where identity information is retrieved. The **sssd** profile is most common for enterprise environments using LDAP, FreeIPA, or Active Directory. The **winbind** profile provides an alternative for Active Directory integration.
+配置档定义用户如何通过认证以及从何处获取身份信息。**sssd** 配置档在使用 LDAP、FreeIPA 或 Active Directory 的企业环境中最常见。**winbind** 配置档提供了集成 Active Directory 的另一种方式。
 
-Authselect only configures PAM and nsswitch; it does not configure the underlying daemons (SSSD, Winbind). Use tools like **realm join** or **ipa-client-install** to set up domain membership, which automatically configure authselect.
+Authselect 只配置 PAM 和 nsswitch，不配置底层的守护进程（SSSD、Winbind）。请使用 **realm join** 或 **ipa-client-install** 之类工具来加入域，它们会自动完成 authselect 配置。
 
-Custom profiles can be created by copying and modifying existing profiles in **/etc/authselect/custom/**.
+自定义配置档可通过复制并修改 **/etc/authselect/custom/** 中已有的配置档来创建。
 
 # CONFIGURATION
 
 **/etc/authselect/authselect.conf**
-> Records the currently active profile and enabled features.
+> 记录当前激活的配置档及已启用的特性。
 
 **/etc/authselect/custom/**
-> Directory for user-created custom profiles. Copy and modify existing profiles here.
+> 存放用户自建配置档的目录。可将现有配置档复制到此目录再修改。
 
 # CAVEATS
 
-Using **--force** is required when switching from manually configured systems. Do not modify authselect profiles configured by **ipa-client-install** or **realm join**. Changes to nsswitch.conf or PAM files outside authselect will be overwritten on profile changes.
+从手工配置的系统切换时必须使用 **--force**。不要改动由 **ipa-client-install** 或 **realm join** 配置好的 authselect 配置档。在 authselect 之外对 nsswitch.conf 或 PAM 文件所做的修改会在切换配置档时被覆盖。
 
 # HISTORY
 
-**authselect** was developed by Red Hat and introduced in **Fedora 28** (2018) as a replacement for authconfig. It was designed to provide a simpler, more maintainable approach to authentication configuration using predefined profiles rather than individual option flags. By **Fedora 35**, authconfig was fully removed, making authselect the standard tool.
+**authselect** 由 Red Hat 开发，于 **Fedora 28**（2018 年）作为 authconfig 的替代品推出。其设计目标是使用预定义配置档而非零散的选项开关，从而提供更简单、更易维护的认证配置方式。到 **Fedora 35** 时，authconfig 已被彻底移除，authselect 成为标准工具。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Open a terminal and prompt for login
+打开终端并提示登录
 
 # TLDR
 
-Connect stdin to a **port** with an optional baud rate
+把标准输入连接到某个**端口**，可选指定波特率
 
 ```agetty [tty] [115200]```
 
-Set a **timeout** for the login
+为登录设置**超时**
 
 ```agetty -t [timeout_in_seconds] -```
 
-Assume the tty is **8-bit clean** and override the TERM variable
+假定 tty 为 **8-bit clean** 并覆盖 TERM 变量
 
 ```agetty -8 - [term_var]```
 
-Skip the login and invoke **another login program**
+跳过登录并调用**另一个登录程序**
 
 ```agetty -n -l [login_program] [tty]```
 
-Do not display the **pre-login issue** file
+不显示**登录前 issue** 文件
 
 ```agetty -i -```
 
@@ -30,61 +30,61 @@ Do not display the **pre-login issue** file
 
 # DESCRIPTION
 
-**agetty** opens a tty port, prompts for a login name, and invokes the /bin/login command. It is normally invoked by **init**(8). The command provides features useful for hardwired and dial-in connections, including automatic parity detection, baud rate deduction from modem messages, and optional hardware flow control.
+**agetty** 打开一个 tty 端口，提示输入登录名，然后调用 /bin/login 命令。它通常由 **init**(8) 调起。该命令提供了对固定接线和拨入连接都实用的功能，包括自动奇偶校验检测、从调制解调器消息推断波特率，以及可选的硬件流控。
 
 # PARAMETERS
 
 **-8, --8bits**
-> Disable parity detection for 8-bit clean terminals
+> 为 8-bit clean 终端禁用奇偶校验检测
 
 **-a, --autologin username**
-> Automatic login without prompting for username
+> 自动登录，不提示输入用户名
 
 **-h, --flow-control**
-> Enable RTS/CTS hardware flow control
+> 启用 RTS/CTS 硬件流控
 
 **-i, --noissue**
-> Skip displaying /etc/issue
+> 跳过显示 /etc/issue
 
 **-J, --noclear**
-> Don't clear screen before login prompt
+> 在登录提示前不清屏
 
 **-l, --login-program program**
-> Use alternative login executable
+> 使用替代的登录可执行程序
 
 **-L, --local-line**
-> Control carrier detect requirement
+> 控制载波检测要求
 
 **-m, --extract-baud**
-> Extract baud rate from modem status messages
+> 从调制解调器状态消息中提取波特率
 
 **-n, --skip-login**
-> Don't prompt for login name
+> 不提示输入登录名
 
 **-r, --chroot directory**
-> Change the root directory
+> 更改根目录
 
 **-H, --host hostname**
-> Write a specific fake host into the utmp file
+> 向 utmp 文件写入指定的伪造主机名
 
 **-t, --timeout seconds**
-> Terminate if no input within timeout
+> 在超时时间内没有输入则终止
 
 # CONFIGURATION
 
 **/etc/issue**
-> Pre-login message displayed before the login prompt. Supports escape codes for system information.
+> 登录提示之前显示的预登录消息。支持转义码来展示系统信息。
 
 **/etc/os-release**
-> Operating system identification data used by agetty for \S escape in /etc/issue.
+> 操作系统标识数据，agetty 用它来处理 /etc/issue 中的 \S 转义符。
 
 # CAVEATS
 
-The baud rate is the speed of data transfer between a terminal and a device over a serial connection. Default is 9600 for serial terminals.
+波特率指终端与设备之间经串行链路传输数据的速度。串行终端默认为 9600。
 
 # HISTORY
 
-Part of **util-linux** package. Alternative to the traditional **getty** command with additional features for modern Linux systems.
+属于 **util-linux** 软件包。是传统 **getty** 命令的替代品，为现代 Linux 系统增加了更多功能。
 
 # INSTALL
 

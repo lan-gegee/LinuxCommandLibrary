@@ -1,22 +1,22 @@
 # TAGLINE
 
-ACPI event daemon
+ACPI 事件守护进程
 
 # TLDR
 
-**Start** the ACPI daemon
+**启动** ACPI 守护进程
 
 ```sudo acpid```
 
-Start in **foreground** for debugging
+以前台模式启动以便调试
 
 ```sudo acpid -f```
 
-Start with custom **configuration directory**
+以自定义**配置目录**启动
 
 ```sudo acpid -c [/etc/acpi/events]```
 
-Start with increased **debug** output
+以增强的**调试**输出启动
 
 ```sudo acpid -d```
 
@@ -26,51 +26,51 @@ Start with increased **debug** output
 
 # DESCRIPTION
 
-**acpid** (ACPI Event Daemon) monitors ACPI events from the kernel and executes corresponding shell scripts or programs. It handles hardware events such as power button presses, lid closing, AC adapter changes, and battery status changes.
+**acpid**（ACPI Event Daemon）监视来自内核的 ACPI 事件并执行相应的 shell 脚本或程序。它处理电源键按下、合上笔记本盖、交流适配器变化、电池状态变化等硬件事件。
 
-The daemon reads event configuration files from /etc/acpi/events/ and runs the associated scripts when matching events occur. This enables automatic responses to hardware events like suspending when the laptop lid closes or shutting down when the power button is pressed.
+守护进程从 /etc/acpi/events/ 读取事件配置文件，并在匹配的事件发生时运行关联的脚本。由此可以自动响应硬件事件，例如合盖时挂起、按下电源键时关机。
 
 # PARAMETERS
 
 **-c** _dir_
-> Configuration directory for event files (default: /etc/acpi/events)
+> 事件文件的配置目录（默认：/etc/acpi/events）
 
 **-d**
-> Enable debug mode with increased verbosity
+> 启用详细输出的调试模式
 
 **-e** _file_
-> Event source file (default: /proc/acpi/event or /dev/input/event*)
+> 事件源文件（默认：/proc/acpi/event 或 /dev/input/event*）
 
 **-f**
-> Run in foreground (don't daemonize)
+> 前台运行（不守护进程化）
 
 **-g** _group_
-> Set socket group ownership
+> 设置套接字的属组
 
 **-l** _file_
-> Log file location (default: /var/log/acpid)
+> 日志文件位置（默认：/var/log/acpid）
 
 **-p** _file_
-> PID file location
+> PID 文件位置
 
 **-s** _file_
-> Socket file for client connections
+> 用于客户端连接的套接字文件
 
 # CONFIGURATION
 
 **/etc/acpi/events/**
-> Directory containing event rule files. Each file defines an event pattern and an action (script) to execute when that event occurs.
+> 存放事件规则文件的目录。每个文件定义一个事件模式和事件发生时执行的动作（脚本）。
 
 **/etc/acpi/handler.sh**
-> Default event handler script invoked by acpid when events match. Receives the event type and parameters as arguments.
+> 事件匹配时由 acpid 调用的默认事件处理脚本。它以参数形式接收事件类型和相关参数。
 
 # CAVEATS
 
-Requires root privileges or appropriate permissions to access ACPI events. Event scripts must be executable. Modern systems using systemd may handle ACPI events through logind instead. Misconfigured scripts can interfere with power management.
+访问 ACPI 事件需要 root 权限或相应权限。事件脚本必须可执行。使用 systemd 的现代系统可能改为通过 logind 处理 ACPI 事件。配置不当的脚本可能干扰电源管理。
 
 # HISTORY
 
-**acpid** was developed in the early **2000s** as Linux transitioned from APM (Advanced Power Management) to ACPI. Tim Hockin was an early maintainer. The daemon became a standard component for laptop power management on Linux systems.
+**acpid** 开发于 **21 世纪初**，正值 Linux 从 APM（Advanced Power Management）向 ACPI 过渡之际。Tim Hockin 是早期维护者之一。此后该守护进程成为 Linux 系统上笔记本电脑电源管理的标准组件。
 
 # INSTALL
 

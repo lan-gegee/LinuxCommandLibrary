@@ -1,18 +1,18 @@
 # TAGLINE
 
-Extract debconf templates from Debian packages.
+从 Debian 软件包中提取 debconf 模板。
 
 # TLDR
 
-**Extract** debconf templates from packages
+从软件包中**提取** debconf 模板
 
 ```apt-extracttemplates [package.deb]```
 
-Extract to **specific directory**
+提取到**特定目录**
 
 ```apt-extracttemplates -t [/tmp/templates] [package.deb]```
 
-Extract from **multiple packages**
+从**多个软件包**提取
 
 ```apt-extracttemplates [package1.deb] [package2.deb]```
 
@@ -22,28 +22,28 @@ Extract from **multiple packages**
 
 # DESCRIPTION
 
-**apt-extracttemplates** extracts debconf templates and configuration scripts from Debian packages. It's used internally by APT during package installation to gather configuration information.
+**apt-extracttemplates** 从 Debian 软件包中提取 debconf 模板和配置脚本。APT 在软件包安装过程中内部使用它来收集配置信息。
 
-For each package, it outputs four lines: package name, version, template filename, and config script filename. The extracted templates contain questions that debconf uses to configure packages during installation.
+对每个软件包，它会输出四行内容：软件包名、版本、模板文件名和配置脚本文件名。提取出的模板包含 debconf 在安装期间用于配置软件包的问题。
 
 # PARAMETERS
 
 **-t** _dir_, **--tempdir** _dir_
-> Directory for extracted files
+> 提取文件的存放目录
 
 **-c** _file_, **--config-file** _file_
-> Configuration file
+> 配置文件
 
 **-o** _option_
-> Set an arbitrary APT configuration option
+> 设置任意的 APT 配置选项
 
 # CAVEATS
 
-This is primarily an internal APT tool. Most users interact with debconf through frontend tools rather than directly extracting templates.
+这主要是一个 APT 内部工具。大多数用户通过前端工具与 debconf 交互，而不是直接提取模板。
 
 # HISTORY
 
-**apt-extracttemplates** is part of the APT package management infrastructure, supporting the debconf configuration system.
+**apt-extracttemplates** 是 APT 软件包管理基础设施的组成部分，为 debconf 配置系统提供支持。
 
 # INSTALL
 

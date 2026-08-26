@@ -1,26 +1,26 @@
 # TAGLINE
 
-Control ALSA soundcard mixer from the command line
+从命令行控制 ALSA 声卡混音器
 
 # TLDR
 
-Turn up the **master volume** by 10%
+将**主音量**调高 10%
 
 ```amixer -D pulse sset Master 10%+```
 
-Turn down the **master volume** by 10%
+将**主音量**调低 10%
 
 ```amixer -D pulse sset Master 10%-```
 
-**Mute** the master channel
+**静音**主声道
 
 ```amixer -D pulse sset Master mute```
 
-**Unmute** the master channel
+**取消静音**主声道
 
 ```amixer -D pulse sset Master unmute```
 
-List all **simple mixer controls**
+列出所有**简单混音器控件**
 
 ```amixer scontrols```
 
@@ -30,60 +30,60 @@ List all **simple mixer controls**
 
 # DESCRIPTION
 
-**amixer** is a command-line mixer control for the ALSA soundcard driver. It can adjust volume levels, toggle mute states, and query mixer control settings for any available soundcard. Running it without arguments displays current mixer settings for the default soundcard.
+**amixer** 是 ALSA 声卡驱动的命令行混音器控制工具。它可以调节音量、切换静音状态，以及查询任何可用声卡的混音器控件设置。不带参数运行时会显示默认声卡的当前混音器设置。
 
-The tool provides both simple and full mixer interfaces. The simple interface (commands prefixed with **s**) uses human-readable control names like "Master" or "PCM", while the full interface operates on numeric control identifiers. Volume can be specified as absolute values, percentages, or decibels.
+该工具提供简单和完整两种混音器接口。简单接口（以 **s** 为前缀的命令）使用人类可读的控件名称，如 "Master" 或 "PCM"；完整接口则操作数字形式的控件标识符。音量可以用绝对值、百分比或分贝表示。
 
 # PARAMETERS
 
 **-c card**
-> Select card number (e.g., 0, 1, 2)
+> 选择卡编号（如 0、1、2）
 
 **-D device**
-> Select device name (default: 'default')
+> 选择设备名称（默认：'default'）
 
 **-s, --stdin**
-> Read and execute commands from stdin sequentially
+> 从标准输入顺序读取并执行命令
 
 **-q**
-> Quiet mode; suppress output
+> 安静模式；抑制输出
 
 **-R**
-> Raw value for percentage evaluation (default)
+> 使用原始值计算百分比（默认）
 
 **-M**
-> Mapped volume for percentage evaluation
+> 使用映射音量计算百分比
 
 # COMMANDS
 
 **scontrols**
-> List all simple mixer controls
+> 列出所有简单混音器控件
 
 **scontents**
-> List simple mixer controls with their contents
+> 列出简单混音器控件及其内容
 
 **set/sset NAME PARAMETER**
-> Configure mixer control contents (supports percentage, dB values, mute/unmute/toggle)
+> 配置混音器控件内容（支持百分比、dB 值、mute/unmute/toggle）
 
 **get/sget NAME**
-> Display simple mixer control contents
+> 显示简单混音器控件内容
 
 **controls**
-> List all card controls
+> 列出所有声卡控件
 
 **contents**
-> List card controls with their contents
+> 列出声卡控件及其内容
 
 **info**
-> Show mixer device information
+> 显示混音器设备信息
 
 # CAVEATS
 
-Mixer control names vary between sound cards. Use **scontrols** to list available controls for your card.
+混音器控件名称因声卡而异。请使用 **scontrols** 列出你的声卡上可用的控件。
 
 # HISTORY
 
-Part of **ALSA** (Advanced Linux Sound Architecture) utilities package.
+属于 **ALSA**（Advanced Linux Sound Architecture）工具集。
 
 # INSTALL
 

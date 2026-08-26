@@ -1,26 +1,26 @@
 # TAGLINE
 
-Inject packets into wireless networks for security testing
+向无线网络注入数据包用于安全测试
 
 # TLDR
 
-**Deauthenticate** a client
+对客户端执行**去认证**攻击
 
 ```sudo aireplay-ng -0 [5] -a [AP_BSSID] -c [CLIENT_MAC] [wlan0mon]```
 
-**Fake authentication** to AP
+向接入点进行**伪认证**
 
 ```sudo aireplay-ng -1 0 -a [AP_BSSID] -e [SSID] [wlan0mon]```
 
-**ARP replay** attack for WEP
+针对 WEP 的 **ARP 重放**攻击
 
 ```sudo aireplay-ng -3 -b [AP_BSSID] [wlan0mon]```
 
-**Inject packets** interactively
+交互式地**注入数据包**
 
 ```sudo aireplay-ng -2 -b [AP_BSSID] -r [capture.cap] [wlan0mon]```
 
-**Fragmentation** attack
+**分片**攻击
 
 ```sudo aireplay-ng -5 -b [AP_BSSID] [wlan0mon]```
 
@@ -30,70 +30,70 @@ Inject packets into wireless networks for security testing
 
 # DESCRIPTION
 
-**aireplay-ng** is a packet injection tool for wireless networks. It can generate traffic to increase data capture for WEP cracking, force clients to disconnect (enabling handshake capture), and perform various wireless attacks.
+**aireplay-ng** 是一款面向无线网络的数据包注入工具。它能够生成流量以增加 WEP 破解所需的数据捕获量、迫使客户端断开连接（从而捕获握手），并执行各种无线攻击。
 
-The tool requires a wireless interface in monitor mode with injection capability.
+该工具需要一个处于监听模式且具备注入能力的无线接口。
 
 # PARAMETERS
 
 **-0** _count_
-> Deauthentication attack (0 = continuous)
+> 去认证攻击（0 = 持续不断）
 
 **-1** _delay_
-> Fake authentication attack
+> 伪认证攻击
 
 **-2**
-> Interactive packet replay
+> 交互式数据包重放
 
 **-3**
-> ARP request replay attack
+> ARP 请求重放攻击
 
 **-4**
-> KoreK chopchop attack
+> KoreK chopchop 攻击
 
 **-5**
-> Fragmentation attack
+> 分片攻击
 
 **-6**
-> Caffe-Latte attack (capture WEP key from a client)
+> Caffe-Latte 攻击（从客户端捕获 WEP 密钥）
 
 **-7**
-> Client-oriented fragmentation attack (cfrag)
+> 面向客户端的分片攻击（cfrag）
 
 **-9**
-> Injection test
+> 注入测试
 
 **-a** _bssid_
-> Access point MAC address (filter or replay)
+> 接入点 MAC 地址（用于过滤或重放）
 
 **-b** _bssid_
-> Access point MAC address (attack-specific, e.g. ARP replay and fragmentation)
+> 接入点 MAC 地址（特定攻击使用，如 ARP 重放和分片攻击）
 
 **-c** _client_
-> Target client MAC
+> 目标客户端 MAC
 
 **-e** _essid_
-> Target network name
+> 目标网络名称
 
 **-h** _mac_
-> Source MAC address (your interface or a connected client)
+> 源 MAC 地址（你的接口或某个已连接的客户端）
 
 **-x** _pps_
-> Number of packets per second to inject
+> 每秒注入的数据包数量
 
 **-D**
-> Disable AP detection (do not wait for the AP to be seen)
+> 禁用接入点检测（不等待发现接入点）
 
 **-r** _file_
-> Read packets to inject from a capture file
+> 从抓包文件读取待注入的数据包
 
 # CAVEATS
 
-For authorized penetration testing only. Requires interface with injection support. Deauthentication attacks are detectable by WIDS. Some attacks only work against WEP networks.
+仅限经授权的渗透测试使用。需要支持注入的接口。去认证攻击会被 WIDS 检测到。某些攻击仅对 WEP 网络有效。
 
 # HISTORY
 
-**aireplay-ng** is a core component of the aircrack-ng suite, first released in **2006**. It consolidated various wireless attack techniques into a single tool.
+**aireplay-ng** 是 aircrack-ng 套件的核心组件之一，于 **2006** 年首次发布。它将各种无线攻击技术整合到了同一个工具中。
 
 # INSTALL
 

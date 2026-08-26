@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage containerized subsystems for isolated package installations
+管理容器化子系统，实现隔离的软件包安装
 
 # TLDR
 
-**Create** new subsystem interactively
+交互式**创建**新子系统
 
 ```apx subsystems new```
 
-**Create** a subsystem from a named stack
+从指定栈**创建**子系统
 
 ```apx subsystems new --name [name] --stack [stack]```
 
-**List** subsystems
+**列出**子系统
 
 ```apx subsystems list```
 
-**Reset** subsystem
+**重置**子系统
 
 ```apx subsystems reset -n name```
 
-**Force** reset
+**强制**重置
 
 ```apx subsystems reset -n name -f```
 
-**Remove** subsystem
+**删除**子系统
 
 ```apx subsystems rm -n name```
 
-**Force** remove
+**强制**删除
 
 ```apx subsystems rm -n name -f```
 
@@ -38,47 +38,47 @@ Manage containerized subsystems for isolated package installations
 
 # DESCRIPTION
 
-**apx subsystems** manages containerized subsystems in the apx package manager. Subsystems are containers created from pre-existing stacks, allowing isolated package installations with different package managers.
+**apx subsystems** 管理 apx 软件包管理器中的容器化子系统。子系统基于现有栈创建的容器，允许使用不同软件包管理器进行隔离的软件包安装。
 
 # PARAMETERS
 
 **new**
-> Create a new subsystem. Interactive unless name and stack are given.
+> 创建新子系统。未提供 name 和 stack 时为交互式。
 
 **list**
-> List all available subsystems
+> 列出所有可用的子系统
 
 **reset**
-> Reset a subsystem to its initial state
+> 将子系统重置到初始状态
 
 **rm**
-> Remove a subsystem
+> 删除子系统
 
 **-n, --name** _name_
-> Specify the subsystem name (new, reset, rm)
+> 指定子系统名称（供 new、reset、rm 使用）
 
 **-s, --stack** _stack_
-> Specify the stack to base the subsystem on (new)
+> 指定作为子系统基础的栈（供 new 使用）
 
 **-H, --home** _path_
-> Set a custom home directory for the subsystem (new)
+> 为子系统设置自定义主目录（供 new 使用）
 
 **-i, --init**
-> Use systemd inside the subsystem container (new)
+> 在子系统容器内使用 systemd（供 new 使用）
 
 **-j, --json**
-> Output the subsystem list as JSON (list)
+> 以 JSON 格式输出子系统列表（供 list 使用）
 
 **-f, --force**
-> Force the operation without confirmation (reset, rm)
+> 强制执行操作而不确认（供 reset、rm 使用）
 
 # CAVEATS
 
-Subsystems require container runtime support. Removing or resetting a subsystem destroys its contents. Creating subsystems requires a compatible stack to be available.
+子系统需要容器运行时支持。删除或重置子系统会销毁其内容。创建子系统需要有兼容的栈可用。
 
 # HISTORY
 
-**apx** is the package manager for **Vanilla OS**, providing subsystem-based package management with support for multiple package managers.
+**apx** 是 **Vanilla OS** 的软件包管理器，提供基于子系统的软件包管理，支持多种软件包管理器。
 
 # INSTALL
 

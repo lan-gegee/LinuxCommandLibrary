@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates device files in /dev
+在 /dev 中创建设备文件
 
 # TLDR
 
-**Create standard devices**
+**创建标准设备**
 
 ```MAKEDEV std```
 
-**Create specific device**
+**创建特定设备**
 
 ```MAKEDEV [sda]```
 
-**Create all devices**
+**创建所有设备**
 
 ```MAKEDEV generic```
 
-**Create console devices**
+**创建控制台设备**
 
 ```MAKEDEV console```
 
-**Create tty devices**
+**创建 tty 设备**
 
 ```MAKEDEV tty```
 
@@ -31,38 +31,37 @@ creates device files in /dev
 # PARAMETERS
 
 _DEVICE_
-> Device name or group.
+> 设备名或设备组。
 
 **std**
-> Standard devices.
+> 标准设备。
 
 **generic**
-> Generic device set.
+> 通用设备集。
 
 **console**
-> Console devices.
+> 控制台设备。
 
 **-d** _DIR_
-> Device directory.
+> 设备目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**MAKEDEV** creates device files in /dev. It sets up device nodes with correct permissions and types.
+**MAKEDEV** 在 /dev 中创建设备文件。它会以正确的权限和类型建立设备节点。
 
-The tool is largely obsolete with udev. Used in static /dev setups or initial ramdisks.
+在 udev 出现后，该工具已基本过时。现用于静态 /dev 环境或初始内存盘。
 
 # CAVEATS
 
-Obsolete with udev/devtmpfs. Requires root. Static device creation only.
+在 udev/devtmpfs 时代已过时。需要 root 权限。只能静态地创建设备。
 
 # HISTORY
 
-MAKEDEV was the traditional way to create device files before **udev** automated device management.
+MAKEDEV 是 **udev** 自动化设备管理出现之前创建设备文件的传统方式。
 
 # SEE ALSO
 
 [mknod](/man/mknod)(1), [udevadm](/man/udevadm)(8)
-

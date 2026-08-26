@@ -1,26 +1,26 @@
 # TAGLINE
 
-Modern PHP unit testing framework
+现代 PHP 单元测试框架
 
 # TLDR
 
-**Run** tests
+**运行**测试
 
 ```atoum -f [tests/units/MyTest.php]```
 
-Run **all tests** in directory
+运行目录中的**所有测试**
 
 ```atoum -d [tests/units]```
 
-Run with **code coverage**
+以**代码覆盖率**模式运行
 
 ```atoum -d [tests/] -c```
 
-Generate **HTML** coverage report
+生成 **HTML** 覆盖率报告
 
 ```atoum -d [tests/] --coverage-html [coverage/]```
 
-Run tests in **debug** mode
+以**调试**模式运行测试
 
 ```atoum -d [tests/] --debug```
 
@@ -30,51 +30,51 @@ Run tests in **debug** mode
 
 # DESCRIPTION
 
-**atoum** is a modern PHP unit testing framework emphasizing simplicity and clarity. It provides an intuitive API for writing tests with minimal boilerplate, featuring mocking, code coverage, and parallel execution.
+**atoum** 是一款强调简洁清晰的现代 PHP 单元测试框架。它提供直观的 API，只需极少的样板代码即可编写测试，具备 mock、代码覆盖率和并行执行等特性。
 
-The framework uses a natural, fluent assertion syntax and includes tools for test isolation and dependency injection.
+该框架采用自然流畅的断言语法，并包含用于测试隔离和依赖注入的工具。
 
 # PARAMETERS
 
 **-f** _file_
-> Run specific test file
+> 运行指定的测试文件
 
 **-d** _directory_
-> Run all tests in directory
+> 运行目录中的所有测试
 
 **-c**, **--coverage**
-> Generate code coverage
+> 生成代码覆盖率
 
 **--coverage-html** _dir_
-> HTML coverage report
+> HTML 覆盖率报告
 
 **--coverage-xml** _file_
-> XML coverage report
+> XML 覆盖率报告
 
 **--debug**
-> Debug mode
+> 调试模式
 
 **-l**, **--loop**
-> Run tests in continuous mode
+> 以持续模式运行测试
 
 **-p** _n_, **--max-children-number** _n_
-> Parallel test execution
+> 并行执行测试
 
 **--fail-if-void-methods**
-> Fail if test methods are empty
+> 若测试方法为空则判定失败
 
 # CONFIGURATION
 
 **.atoum.php**
-> Project-level configuration file for test runners, reports, and coverage settings.
+> 项目级配置文件，用于测试运行器、报告和覆盖率设置。
 
 # CAVEATS
 
-Requires PHP 5.6+. Less widely adopted than PHPUnit. Some IDE integrations may be limited. Documentation primarily in French.
+需要 PHP 5.6 及以上版本。普及程度不及 PHPUnit。部分 IDE 集成可能受限。文档主要以法语撰写。
 
 # HISTORY
 
-**atoum** was created by Frédéric Hardy and first released in **2011** as a modern alternative to PHPUnit, emphasizing developer experience and test clarity.
+**atoum** 由 Frédéric Hardy 创建，于 **2011** 年首次发布，作为 PHPUnit 的现代化替代品，注重开发者体验和测试的可读性。
 
 # SEE ALSO
 

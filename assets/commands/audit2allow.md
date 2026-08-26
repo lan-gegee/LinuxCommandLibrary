@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate SELinux policy allow rules from audit logs.
+根据审计日志生成 SELinux 策略 allow 规则。
 
 # TLDR
 
-Generate **allow** rules
+生成 **allow** 规则
 
 ```sudo audit2allow -a```
 
-From **log file**
+基于**日志文件**
 
 ```sudo audit2allow -i /var/log/audit/audit.log```
 
-Create **policy module**
+创建**策略模块**
 
 ```sudo audit2allow -a -M my_module```
 
-**Explain** denials
+**解释**拒绝原因
 
 ```sudo audit2allow -a -w```
 
-Generate **reference** policy
+生成**参考**策略
 
 ```sudo audit2allow -a -R```
 
-For specific **service**
+针对特定**服务**
 
 ```sudo ausearch -m avc -c httpd | audit2allow -M httpd_policy```
 
@@ -34,73 +34,73 @@ For specific **service**
 
 # DESCRIPTION
 
-**audit2allow** generates SELinux policy allow rules from audit logs. It reads denial messages from the audit subsystem and creates type enforcement rules that would permit the denied operations.
+**audit2allow** 从审计日志生成 SELinux 策略 allow 规则。它读取来自审计子系统的拒绝消息，并创建允许这些被拒操作的 type enforcement 规则。
 
-The tool can produce simple allow rules for quick troubleshooting or generate complete loadable policy modules with the **-M** option. When used with **-R**, it generates reference policy using standard macros, producing cleaner and more maintainable rules. It is typically used after **audit2why** has identified the root cause of denials.
+该工具可以生成简单的 allow 规则用于快速排障，也可以通过 **-M** 选项生成完整的可加载策略模块。配合 **-R** 使用时，它使用标准宏生成参考策略，产出更整洁、更易维护的规则。通常在 **audit2why** 找出拒绝的根本原因之后使用本工具。
 
 # PARAMETERS
 
 **-a, --all**
-> Read input from audit and message logs.
+> 从审计日志和系统消息日志读取输入。
 
 **-b, --boot**
-> Read input from audit messages since the last boot.
+> 读取自上次启动以来的审计消息作为输入。
 
 **-d, --dmesg**
-> Read input from dmesg output.
+> 从 dmesg 输出读取输入。
 
 **-i, --input** _file_
-> Read input from the specified file.
+> 从指定文件读取输入。
 
 **-l, --lastreload**
-> Read only AVC denials since the last policy reload.
+> 只读取自上次策略重载以来的 AVC 拒绝记录。
 
 **-m, --module** _name_
-> Generate module output (source, not packaged).
+> 生成模块输出（源码形式，不打包）。
 
 **-M** _name_
-> Generate a loadable policy module package (.pp).
+> 生成可加载的策略模块包（.pp）。
 
 **-o, --output** _file_
-> Append output to the given file.
+> 将输出追加到指定文件。
 
 **-D, --dontaudit**
-> Generate dontaudit rules instead of allow rules.
+> 生成 dontaudit 规则而非 allow 规则。
 
 **-R, --reference**
-> Generate reference policy using installed interface macros.
+> 使用已安装的接口宏生成参考策略。
 
 **-N, --noreference**
-> Do not generate reference policy; use traditional allow rules.
+> 不生成参考策略；使用传统 allow 规则。
 
 **-w, --why**
-> Translate audit messages into a description of why access was denied.
+> 将审计消息转换为说明访问被拒原因的描述。
 
 **-e, --explain**
-> Fully explain the generated output.
+> 完整解释生成的输出。
 
 **-x, --xperms**
-> Generate extended permission (ioctl) rules.
+> 生成扩展权限（ioctl）规则。
 
 **-t, --type** _regex_
-> Filter output by type regular expression.
+> 按类型正则表达式过滤输出。
 
 **-C**
-> Generate CIL (Common Intermediate Language) output.
+> 生成 CIL（Common Intermediate Language）格式的输出。
 
 **-r, --requires**
-> Generate require statements for loadable modules.
+> 为可加载模块生成 require 语句。
 
 **-v, --verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 # CAVEATS
 
-Generated policies should be reviewed before installation. Blindly allowing all denials can create security vulnerabilities. Use audit2why first to understand why denials occurred.
+生成的策略在安装前应经过审查。盲目允许所有拒绝操作可能带来安全漏洞。请先用 audit2why 弄清拒绝发生的原因。
 
 # HISTORY
 
-**audit2allow** is part of **policycoreutils-python-utils**, providing SELinux policy development tools.
+**audit2allow** 属于 **policycoreutils-python-utils** 软件包，提供 SELinux 策略开发工具。
 
 # SEE ALSO
 

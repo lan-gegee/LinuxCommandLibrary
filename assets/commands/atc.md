@@ -1,22 +1,22 @@
 # TAGLINE
 
-Text-based air traffic control simulation game
+文本界面空中交通管制模拟游戏
 
 # TLDR
 
-**Start** the air traffic control game
+**启动**空中交通管制游戏
 
 ```atc```
 
-Start with a **specific game**
+以**指定关卡**启动
 
 ```atc -g [game]```
 
-**List** available games
+**列出**可用的关卡
 
 ```atc -l```
 
-Show **high scores**
+显示**高分榜**
 
 ```atc -s```
 
@@ -36,44 +36,44 @@ Show **high scores**
 
 # DESCRIPTION
 
-**atc** is a classic text-based air traffic control simulation game from the BSD games collection. Players guide jets and propeller planes to their destinations via exits and airports while avoiding collisions, managing multiple aircraft simultaneously.
+**atc** 是 BSD games 合集中的经典文本界面空中交通管制模拟游戏。玩家引导喷气机和螺旋桨飞机经由出口和机场抵达目的地，同时避免碰撞，并需要同时管理多架飞机。
 
-Jets move every update tick while prop planes move every other tick. Planes enter the airspace at 7,000 feet and must leave via exits at 9,000 feet or land at airports. The game ends if two planes get too close. Score is based on the number of planes safely handled.
+喷气机每个更新周期移动一次，而螺旋桨飞机每两个周期移动一次。飞机在 7000 英尺高度进入空域，必须在 9000 英尺经出口离开或降落在机场。若两架飞机靠得过近，游戏结束。得分取决于安全处置的飞机数量。
 
 # PARAMETERS
 
 **-g** _game_, **-f** _game_
-> Select a specific game/airport layout to play
+> 选择要玩的指定关卡/机场布局
 
 **-l**
-> List available game files
+> 列出可用的关卡文件
 
 **-s**, **-t**
-> Display high score rankings
+> 显示高分排名
 
 **-r** _seed_
-> Set random seed for reproducible games
+> 设置随机种子，以获得可复现的游戏
 
 **-p**
-> Print the path to the game's private files directory
+> 打印游戏私有文件目录的路径
 
 **-u**, **-?**
-> Display usage information
+> 显示用法信息
 
 # CONTROLS
 
-Commands are entered as sequences:
-- Letters select aircraft
-- Numbers and letters control actions (altitude, turns, direction)
-- Airport/beacon letters for navigation targets
+命令以序列方式输入：
+- 字母用于选择飞机
+- 数字和字母控制动作（高度、转弯、方向）
+- 机场/信标字母作为导航目标
 
 # CAVEATS
 
-Requires terminal with character-based display. Steep learning curve. Game over if planes collide or get too close. Part of the bsd-games package on most systems.
+需要基于字符显示的终端。学习曲线较陡。若飞机相撞或靠得太近则游戏结束。在大多数系统上是 bsd-games 软件包的一部分。
 
 # HISTORY
 
-**atc** was written by **Ed James** at UC Berkeley and has been included in BSD games collections since the **1980s**.
+**atc** 由加州大学伯克利分校的 **Ed James** 编写，自 **1980 年代**起就被收入 BSD games 合集。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage IoT devices, certificates, and message routing.
+管理 IoT 设备、证书和消息路由。
 
 # TLDR
 
-**List all IoT things**
+**列出所有 IoT 事物**
 
 ```aws iot list-things```
 
-**Create a new thing**
+**创建新的事物**
 
 ```aws iot create-thing --thing-name [device_name]```
 
-**Describe a thing**
+**查看事物详情**
 
 ```aws iot describe-thing --thing-name [device_name]```
 
-**Create keys and certificate** for a device
+**为设备创建密钥和证书**
 
 ```aws iot create-keys-and-certificate --set-as-active --certificate-pem-outfile [cert.pem] --private-key-outfile [private.key]```
 
-**Attach a policy** to a certificate
+**为证书附加策略**
 
 ```aws iot attach-policy --policy-name [policy_name] --target [certificate_arn]```
 
-**Attach a certificate** to a thing
+**将证书附加到事物**
 
 ```aws iot attach-thing-principal --thing-name [device_name] --principal [certificate_arn]```
 
-**Get the IoT endpoint** for your account
+**获取账户的 IoT 端点**
 
 ```aws iot describe-endpoint --endpoint-type iot:Data-ATS```
 
-**List certificates**
+**列出证书**
 
 ```aws iot list-certificates```
 
@@ -42,90 +42,90 @@ Manage IoT devices, certificates, and message routing.
 
 # DESCRIPTION
 
-**aws iot** is a subcommand of the AWS CLI that manages AWS IoT Core, a platform for connecting IoT devices to the cloud. It handles device registry, security, and message routing.
+**aws iot** 是 AWS CLI 的子命令，用于管理 AWS IoT Core——一个将 IoT 设备连接到云端的平台。它负责设备注册表、安全和消息路由。
 
-Things are representations of physical devices in the registry. Each thing can have attributes, types, and groups for organization. Devices authenticate using X.509 certificates and policies control what actions they can perform.
+事物（thing）是物理设备在注册表中的表示。每个事物可拥有属性、类型和组以便组织管理。设备使用 X.509 证书进行认证，策略则控制它们可以执行的操作。
 
-The message broker uses MQTT, HTTPS, and WebSocket protocols. Rules engine processes incoming messages and routes them to AWS services like Lambda, S3, DynamoDB, or other IoT topics.
+消息代理使用 MQTT、HTTPS 和 WebSocket 协议。规则引擎处理传入的消息，并将其路由到 Lambda、S3、DynamoDB 等 AWS 服务或其他 IoT 主题。
 
 # PARAMETERS
 
 **list-things**
-> List registered things.
+> 列出已注册的事物。
 
 **create-thing**
-> Register a new thing.
+> 注册新的事物。
 
 **describe-thing**
-> Get thing details.
+> 获取事物详情。
 
 **delete-thing**
-> Remove a thing from registry.
+> 从注册表中移除事物。
 
 **create-keys-and-certificate**
-> Generate a new certificate and key pair.
+> 生成新的证书和密钥对。
 
 **list-certificates**
-> List certificates in the account.
+> 列出账户中的证书。
 
 **attach-policy**
-> Attach an IoT policy to a certificate or identity.
+> 将 IoT 策略附加到证书或身份。
 
 **detach-policy**
-> Remove a policy attachment.
+> 移除策略附加关系。
 
 **attach-thing-principal**
-> Associate a certificate with a thing.
+> 将证书与事物关联。
 
 **describe-endpoint**
-> Get the IoT endpoint for connections.
+> 获取用于连接的 IoT 端点。
 
 **create-policy**
-> Create an IoT policy document.
+> 创建 IoT 策略文档。
 
 **list-thing-groups**
-> List thing groups.
+> 列出事物组。
 
 **create-topic-rule**
-> Create a rule for routing messages.
+> 创建用于路由消息的规则。
 
 **search-index**
-> Search the thing index.
+> 搜索事物索引。
 
 **create-job**
-> Create a remote job for target devices.
+> 为目标设备创建远程作业。
 
 **list-topic-rules**
-> List topic rules.
+> 列出主题规则。
 
 **--thing-name** _name_
-> Name of the thing.
+> 事物名称。
 
 **--certificate-pem-outfile** _file_
-> File to write certificate PEM.
+> 用于写入证书 PEM 的文件。
 
 **--private-key-outfile** _file_
-> File to write private key.
+> 用于写入私钥的文件。
 
 **--policy-name** _name_
-> Name of the IoT policy.
+> IoT 策略名称。
 
 **--endpoint-type** _type_
-> Endpoint type (iot:Data-ATS recommended).
+> 端点类型（推荐 iot:Data-ATS）。
 
 **--set-as-active**
-> Set a newly created certificate as active.
+> 将新建的证书设为激活状态。
 
 **--target** _arn_
-> Target ARN to attach a policy to (certificate or Cognito identity).
+> 要附加策略的目标 ARN（证书或 Cognito 身份）。
 
 # CAVEATS
 
-Certificates must be activated before use. Deleting a thing does not delete its certificates or policies. Use ATS (Amazon Trust Services) endpoints for production. Thing names are unique per account/region. Policies are separate from IAM policies and follow IoT-specific syntax.
+证书必须先激活才能使用。删除事物不会删除其证书或策略。生产环境应使用 ATS（Amazon Trust Services）端点。事物名称在每个账户/区域内唯一。IoT 策略独立于 IAM 策略，遵循 IoT 特有的语法。
 
 # HISTORY
 
-**AWS IoT** was announced at **AWS re:Invent 2015** and launched in general availability in **January 2016**. The platform has expanded to include IoT Greengrass for edge computing, IoT Analytics for data analysis, IoT Device Management for fleet operations, and IoT SiteWise for industrial data. The core service continues to evolve with features like fleet provisioning and configurable endpoints.
+**AWS IoT** 在 **AWS re:Invent 2015** 上发布，并于 **2016 年 1 月** 正式可用。该平台已扩展至面向边缘计算的 IoT Greengrass、用于数据分析的 IoT Analytics、用于设备车队运维的 IoT Device Management，以及面向工业数据的 IoT SiteWise。核心服务仍在持续演进，加入了车队预置（fleet provisioning）和可配置端点等特性。
 
 # INSTALL
 

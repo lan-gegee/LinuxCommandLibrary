@@ -1,30 +1,30 @@
 # TAGLINE
 
-Acquire IPv4 link-local addresses automatically
+自动获取 IPv4 链路本地地址
 
 # TLDR
 
-**Start** the daemon on an interface to auto-configure an IPv4LL address
+在接口上**启动**守护进程以自动配置 IPv4LL 地址
 
 ```avahi-autoipd [interface]```
 
-**Run in background** (daemonize) after startup
+启动后在**后台运行**（守护进程化）
 
 ```avahi-autoipd -D [interface]```
 
-**Kill** a running daemon on an interface
+**终止**接口上正在运行的守护进程
 
 ```avahi-autoipd --kill [interface]```
 
-**Refresh** and re-announce the acquired IP address
+**刷新**并重新通告已获取的 IP 地址
 
 ```avahi-autoipd --refresh [interface]```
 
-**Check** if daemon is running on an interface
+**检查**守护进程是否在接口上运行
 
 ```avahi-autoipd --check [interface]```
 
-**Wait** for successful IP acquisition before detaching
+成功获取 IP 后再**脱离**终端
 
 ```avahi-autoipd --wait [interface]```
 
@@ -35,64 +35,64 @@ Acquire IPv4 link-local addresses automatically
 # PARAMETERS
 
 **-D, --daemonize**
-> Daemonize after startup; implies syslog logging
+> 启动后转为守护进程；隐含启用 syslog 日志
 
 **-k, --kill**
-> Terminate running daemon on specified interface
+> 终止指定接口上正在运行的守护进程
 
 **-r, --refresh**
-> Re-announce acquired IP address (equivalent to SIGHUP)
+> 重新通告已获取的 IP 地址（等效于 SIGHUP）
 
 **-c, --check**
-> Return 0 if daemon is running on interface
+> 若守护进程正在接口上运行则返回 0
 
 **-s, --syslog**
-> Log to syslog instead of STDERR
+> 记录到 syslog 而非 STDERR
 
 **--debug**
-> Enable verbose mode for detailed logging
+> 启用详细模式以输出详细日志
 
 **--no-drop-root**
-> Retain root privileges (not recommended for security)
+> 保留 root 权限（出于安全考虑不推荐）
 
 **--no-chroot**
-> Skip chroot operation
+> 跳过 chroot 操作
 
 **-S, --start=**_address_
-> Acquire the specified IPv4LL address
+> 获取指定的 IPv4LL 地址
 
 **-w, --wait**
-> Wait for successful IP acquisition before detaching
+> 成功获取 IP 后再脱离终端
 
 **--force-bind**
-> Acquire IPv4LL address even if routable address is present
+> 即使存在可路由地址也获取 IPv4LL 地址
 
 **--no-proc-title**
-> Don't modify process name during operation
+> 运行期间不修改进程名
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-v, --version**
-> Show version details
+> 显示版本详情
 
 # DESCRIPTION
 
-**avahi-autoipd** implements IPv4LL (_Dynamic Configuration of IPv4 Link-Local Addresses_), a protocol defined in **IETF RFC3927** for automatic IP address configuration from the link-local **169.254.0.0/16** range without requiring a central server.
+**avahi-autoipd** 实现了 IPv4LL（_IPv4 链路本地地址的动态配置_），这是 **IETF RFC3927** 定义的协议，可在无需中央服务器的情况下，从链路本地 **169.254.0.0/16** 范围内自动配置 IP 地址。
 
-Primarily intended for **ad-hoc networks** which lack a DHCP server, it serves as a core component of the **Zeroconf stack**. The daemon can operate standalone or integrate with DHCP clients as a fallback mechanism when DHCP is unavailable.
+它主要面向没有 DHCP 服务器的**自组网（ad-hoc 网络）**，是 **Zeroconf 协议栈**的核心组件。该守护进程既可独立运行，也可作为 DHCP 不可用时的回退机制与 DHCP 客户端集成。
 
-When started, **avahi-autoipd** probes the network for address conflicts, acquires an available link-local address, and continuously monitors for conflicts. Upon successful acquisition, it executes **/etc/avahi/avahi-autoipd.action** script to configure the network interface.
+启动后，**avahi-autoipd** 会探测网络中的地址冲突，获取一个可用的链路本地地址，并持续监控冲突。获取成功后，它会执行 **/etc/avahi/avahi-autoipd.action** 脚本来配置网络接口。
 
-The daemon responds to signals: **SIGINT** and **SIGTERM** trigger shutdown, while **SIGHUP** forces re-announcement of the current IP address.
+该守护进程响应信号：**SIGINT** 和 **SIGTERM** 触发关闭，**SIGHUP** 强制重新通告当前 IP 地址。
 
 # CAVEATS
 
-Link-local addresses (**169.254.0.0/16**) only enable communication within the same network segment, with no routing to other networks. Won't assign addresses if a routable IP already exists unless **--force-bind** is used.
+链路本地地址（**169.254.0.0/16**）只能在同一网段内通信，无法路由到其他网络。若已存在可路由的 IP 地址，则不会分配链路本地地址，除非使用 **--force-bind**。
 
 # HISTORY
 
-Part of the **Avahi** project, developed as a free software implementation of Apple's Bonjour/Zeroconf protocols. IPv4LL support was standardized in **RFC3927** in **2005**, with **avahi-autoipd** emerging as a lightweight standalone implementation for Linux systems.
+属于 **Avahi** 项目的一部分，该项目是对 Apple 的 Bonjour/Zeroconf 协议的自由软件实现。IPv4LL 支持于 **2005 年**在 **RFC3927** 中标准化，**avahi-autoipd** 则成为 Linux 系统上一个轻量的独立实现。
 
 # INSTALL
 
@@ -114,4 +114,3 @@ Part of the **Avahi** project, developed as a free software implementation of Ap
 ```[Source code](https://github.com/avahi/avahi)```
 
 <!-- verified: 2026-06-17 -->
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Android application installer
+Android 应用安装器
 
 # TLDR
 
-**Install** an APK
+**安装** APK
 
 ```adb install [app.apk]```
 
-**Reinstall** existing application, keeping its data
+**重新安装**现有应用并保留其数据
 
 ```adb install -r [app.apk]```
 
-Allow installation of a **test APK**
+允许安装**测试 APK**
 
 ```adb install -t [app.apk]```
 
-Install allowing **version downgrade**
+安装时允许**版本降级**
 
 ```adb install -d [app.apk]```
 
-Install **granting all permissions**
+安装时**授予全部权限**
 
 ```adb install -g [app.apk]```
 
@@ -30,49 +30,49 @@ Install **granting all permissions**
 
 # DESCRIPTION
 
-**adb install** pushes an Android application package (APK) to a connected device and installs it. The APK is copied to the device's temporary storage, installed by the package manager, and then the temporary file is removed.
+**adb install** 将 Android 应用软件包（APK）推送到已连接的设备并进行安装。APK 先被复制到设备的临时存储，由软件包管理器安装，然后临时文件会被删除。
 
-The command provides various options to control installation behavior, including replacing existing apps, downgrading versions, and automatically granting runtime permissions.
+该命令提供多种选项控制安装行为，包括替换现有应用、版本降级以及自动授予运行时权限。
 
 # PARAMETERS
 
 **-r**
-> Reinstall an existing app, keeping its data
+> 重新安装已有应用并保留其数据
 
 **-t**
-> Allow installation of test APKs
+> 允许安装测试 APK
 
 **-d**
-> Allow version code downgrade
+> 允许版本号降级
 
 **-g**
-> Grant all runtime permissions listed in the manifest
+> 授予清单中列出的所有运行时权限
 
 **-f**
-> Install package on the internal system memory
+> 将软件包安装到内部系统存储
 
 **-i** _installer_package_name_
-> Specify the installer package name
+> 指定安装来源软件包名称
 
 **--user** _user_id_
-> Install the package for a specific user (default: all users)
+> 为特定用户安装软件包（默认：所有用户）
 
 **--install-location** _location_
-> Set install location: 0 (default), 1 (internal), 2 (external media)
+> 设置安装位置：0（默认）、1（内部存储）、2（外部存储介质）
 
 **--fastdeploy**
-> Update only the changed parts of an already installed package
+> 只更新已安装软件包中发生变化的部分
 
 **--incremental**
-> Stream the APK in the background; launch before fully installed (requires APK Signature Scheme v4). Append **--wait** to block until done, or use **--no-incremental** to disable
+> 在后台流式传输 APK；可在完全安装前启动（要求 APK Signature Scheme v4）。追加 **--wait** 可阻塞直至完成，或用 **--no-incremental** 禁用
 
 # CAVEATS
 
-Installation may fail if the APK is signed with a different key than the existing installation (requires uninstall first). Some devices restrict installation from unknown sources. Downgrading an installed version requires the **-d** flag. To install an app split into multiple APKs, use **adb install-multiple** instead.
+如果 APK 的签名密钥与已安装的应用不同，安装会失败（需先卸载）。某些设备限制安装来自未知来源的应用。降级已安装的版本需要 **-d** 标志。要安装拆分为多个 APK 的应用，请改用 **adb install-multiple**。
 
 # HISTORY
 
-**adb install** has been available since the initial Android SDK release in **2008**. Options have expanded over time to support split APKs, instant apps, and Android App Bundles.
+**adb install** 自 **2008** 年 Android SDK 首次发布起即可用。选项随时间不断扩展，以支持拆分 APK、即时应用和 Android App Bundle。
 
 # INSTALL
 

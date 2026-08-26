@@ -1,10 +1,10 @@
 # TAGLINE
 
-Print the machine hardware architecture
+打印机器硬件架构
 
 # TLDR
 
-**Print** machine architecture
+**打印**机器架构
 
 ```arch```
 
@@ -14,23 +14,23 @@ Print the machine hardware architecture
 
 # DESCRIPTION
 
-**arch** prints the machine hardware architecture. On Linux this is the GNU coreutils command, equivalent to **uname -m**. There are no options other than **--help** and **--version**.
+**arch** 打印机器硬件架构。在 Linux 上这是 GNU coreutils 命令，等同于 **uname -m**。除 **--help** 和 **--version** 外没有其他选项。
 
-Common outputs include:
-- **x86_64**: 64-bit Intel/AMD
-- **aarch64** or **arm64**: 64-bit ARM
-- **i686** or **i386**: 32-bit Intel
-- **armv7l**: 32-bit ARM
-- **ppc64le**: 64-bit PowerPC little-endian
-- **riscv64**: 64-bit RISC-V
+常见输出包括：
+- **x86_64**: 64 位 Intel/AMD
+- **aarch64** 或 **arm64**: 64 位 ARM
+- **i686** 或 **i386**: 32 位 Intel
+- **armv7l**: 32 位 ARM
+- **ppc64le**: 64 位 PowerPC 小端序
+- **riscv64**: 64 位 RISC-V
 
 # CAVEATS
 
-The reported value depends on the kernel personality, not the silicon — running under **setarch** or in a 32-bit chroot can make a 64-bit machine report **i686**. On macOS the system **arch** binary is unrelated; it _switches_ a process to a different architecture instead of printing one.
+报告的值取决于内核 personality 而非实际芯片——在 **setarch** 下运行或处于 32 位 chroot 中时，64 位机器可能报告为 **i686**。macOS 上的系统 **arch** 二进制文件与此无关；它的作用是把进程切换到另一种架构，而不是打印架构。
 
 # HISTORY
 
-**arch** has been available on Unix systems since BSD. On Linux, it's part of coreutils and provides a simple wrapper around uname.
+**arch** 自 BSD 时代起就在 Unix 系统上可用。在 Linux 上它是 coreutils 的一部分，是对 uname 的简单封装。
 
 # INSTALL
 

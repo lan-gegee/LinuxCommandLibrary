@@ -1,14 +1,14 @@
 # TAGLINE
 
-Command-line compiler for Arduino sketches
+Arduino sketch 的命令行编译器
 
 # TLDR
 
-**Compile** a sketch
+**编译** sketch
 
 ```arduino-builder -hardware [/usr/share/arduino/hardware] -tools [/usr/share/arduino/tools-builder] -libraries [/usr/share/arduino/libraries] -fqbn [arduino:avr:uno] [sketch.ino]```
 
-Compile with **verbose** output
+以**详细输出**模式编译
 
 ```arduino-builder -verbose -fqbn [arduino:avr:uno] [sketch.ino]```
 
@@ -18,43 +18,43 @@ Compile with **verbose** output
 
 # DESCRIPTION
 
-**arduino-builder** is the command-line tool that compiles Arduino sketches. It was the build system used by Arduino IDE and can be invoked separately for automated builds.
+**arduino-builder** 是编译 Arduino sketch 的命令行工具。它是 Arduino IDE 所使用的构建系统，也可以单独调用以实现自动化构建。
 
-The tool handles preprocessing, compilation, and linking of Arduino sketches with required libraries and core files.
+该工具负责 Arduino sketch 及所需库和核心文件的预处理、编译与链接。
 
 # PARAMETERS
 
 **-hardware** _path_
-> Hardware definitions directory
+> 硬件定义目录
 
 **-tools** _path_
-> Tools (compilers, uploaders) directory
+> 工具（编译器、上传器）目录
 
 **-libraries** _path_
-> Libraries directory
+> 库目录
 
 **-fqbn** _board_
-> Fully qualified board name
+> 完全限定板卡名称
 
 **-build-path** _dir_
-> Build output directory
+> 构建输出目录
 
 **-verbose**
-> Verbose output
+> 详细输出
 
 **-warnings** _level_
-> Warning level (none, default, more, all)
+> 警告级别（none、default、more、all）
 
 **-prefs** _key=value_
-> Build preferences
+> 构建首选项
 
 # CAVEATS
 
-Deprecated in favor of arduino-cli. Requires specifying multiple paths. Board packages must be installed separately.
+已被 arduino-cli 取代而弃用。需要指定多个路径。板卡软件包须单独安装。
 
 # HISTORY
 
-**arduino-builder** was developed as a standalone build tool extracted from the Arduino IDE. It has been superseded by **arduino-cli** for most use cases.
+**arduino-builder** 是从 Arduino IDE 中抽取出来的独立构建工具。对大多数用例而言，现已被 **arduino-cli** 取代。
 
 # INSTALL
 

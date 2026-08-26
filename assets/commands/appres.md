@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display X application resource settings
+显示 X 应用程序的资源配置
 
 # TLDR
 
-**Show** resources for an application by class name
+**按类名查看**应用程序的资源
 
 ```appres [XTerm]```
 
-Show resources with **class and instance** name
+同时指定**类名与实例名**查看资源
 
 ```appres [XTerm] [xterm]```
 
-Show **specific resource** by filtering output
+通过过滤输出查看**特定资源**
 
 ```appres [Emacs] | grep [font]```
 
-Show resources for a **specific widget** path
+查看**特定 widget 路径**的资源
 
 ```appres [XTerm] [xterm] -xrm "*VT100*"```
 
@@ -26,28 +26,28 @@ Show resources for a **specific widget** path
 
 # DESCRIPTION
 
-**appres** displays X application resources. It queries the X Resource Manager database and shows resources that would be applied to a specified application based on its class and instance names.
+**appres** 显示 X 应用程序的资源。它查询 X Resource Manager 数据库，并根据类名和实例名显示会应用到指定应用程序的资源。
 
-This is useful for debugging X11 application appearance and behavior, understanding which resources are being applied.
+这对于调试 X11 应用程序的外观和行为、了解哪些资源正在生效很有用。
 
 # PARAMETERS
 
 **class**
-> Application class name (typically capitalized)
+> 应用程序类名（通常首字母大写）
 
 **instance**
-> Application instance name (typically lowercase)
+> 应用程序实例名（通常为小写）
 
 **-xrm** _resourcestring_
-> Add extra resource string for matching
+> 添加额外的资源字符串用于匹配
 
 # CAVEATS
 
-Only applies to X11 applications using Xlib resources. Modern toolkit applications (GTK, Qt) may not use X resources. Output depends on resources defined in .Xresources or .Xdefaults.
+仅适用于使用 Xlib 资源的 X11 应用程序。现代工具包应用（GTK、Qt）可能不使用 X 资源。输出取决于 .Xresources 或 .Xdefaults 中定义的资源。
 
 # HISTORY
 
-**appres** is a standard X11 utility that has been part of the X Window System since the X11R4 release in **1989**.
+**appres** 是标准的 X11 工具，自 **1989** 年 X11R4 发布以来一直是 X Window System 的一部分。
 
 # INSTALL
 

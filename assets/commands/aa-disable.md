@@ -1,22 +1,22 @@
 # TAGLINE
 
-Disable AppArmor security profiles
+禁用 AppArmor 安全配置文件
 
 # TLDR
 
-**Disable** a profile
+**禁用**一个配置文件
 
 ```sudo aa-disable [path/to/profile]```
 
-Disable **multiple profiles**
+禁用**多个配置文件**
 
 ```sudo aa-disable [path/to/profile1] [path/to/profile2]```
 
-Disable profiles in a **directory**
+禁用某个**目录**中的配置文件
 
 ```sudo aa-disable --dir [path/to/profiles]```
 
-Disable a profile **without reloading** the policy
+禁用一个配置文件且**不重新加载**策略
 
 ```sudo aa-disable --no-reload [path/to/profile]```
 
@@ -26,25 +26,25 @@ Disable a profile **without reloading** the policy
 
 # DESCRIPTION
 
-**aa-disable** is used to disable one or more AppArmor profiles. This command will unload the profile from the kernel and prevent the profile from being loaded on AppArmor startup.
+**aa-disable** 用于禁用一个或多个 AppArmor 配置文件。该命令会从内核中卸载配置文件，并阻止其在 AppArmor 启动时被加载。
 
-A symbolic link to the profile is created in **/etc/apparmor.d/disable/**, which keeps the profile from being loaded automatically when AppArmor is restarted. The profile file itself remains in **/etc/apparmor.d** but is not active. Use **aa-enforce** or **aa-complain** to re-enable a disabled profile.
+它会在 **/etc/apparmor.d/disable/** 中创建指向该配置文件的符号链接，从而防止 AppArmor 重启时自动加载该文件。配置文件本身仍保留在 **/etc/apparmor.d** 中，但处于未激活状态。要重新启用被禁用的配置文件，请使用 **aa-enforce** 或 **aa-complain**。
 
 # PARAMETERS
 
 **-d, --dir /path/to/profiles**
-> Specifies the directory containing AppArmor profiles; defaults to /etc/apparmor.d
+> 指定存放 AppArmor 配置文件的目录；默认为 /etc/apparmor.d
 
 **--no-reload**
-> Do not reload the profile after modifying it
+> 修改后不重新加载配置文件
 
 # CAVEATS
 
-Disabling a profile removes security protections for the associated application. The application will run without AppArmor confinement until the profile is re-enabled.
+禁用配置文件会移除对相应应用的安全保护。在该配置文件重新启用之前，应用将在没有 AppArmor 约束的情况下运行。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Package management daemon via D-Bus
+通过 D-Bus 提供服务的软件包管理守护进程
 
 # TLDR
 
-**Start** the APT daemon
+**启动** APT 守护进程
 
 ```sudo aptd```
 
-Run in **foreground** with debugging
+以**前台**模式运行并开启调试
 
 ```sudo aptd --disable-timeout --debug```
 
@@ -18,42 +18,42 @@ Run in **foreground** with debugging
 
 # DESCRIPTION
 
-**aptd** is the APT daemon that provides a D-Bus interface for package management. It allows GUI applications like Update Manager and Software Center to perform package operations without requiring direct root access to APT.
+**aptd** 是提供 D-Bus 接口的 APT 守护进程，用于软件包管理。它让 Update Manager 和 Software Center 等 GUI 应用无需直接以 root 权限访问 APT 即可执行软件包操作。
 
-The daemon handles authentication through PolicyKit and queues package operations for execution.
+该守护进程通过 PolicyKit 处理身份验证，并将软件包操作排队执行。
 
 # PARAMETERS
 
 **--disable-timeout**
-> Don't exit after idle timeout
+> 空闲超时后不退出
 
 **--debug**
-> Enable debug output
+> 启用调试输出
 
 **--dummy**
-> Run in simulation mode
+> 以模拟模式运行
 
 **-h**, **--help**
-> Show help
+> 显示帮助
 
 # CONFIGURATION
 
 **/etc/apt/apt.conf.d/**
-> APT configuration fragments used by the daemon.
+> 守护进程使用的 APT 配置片段。
 
 **/usr/share/dbus-1/system-services/org.debian.apt.service**
-> D-Bus service activation file for aptd.
+> aptd 的 D-Bus 服务激活文件。
 
 **/usr/share/polkit-1/actions/org.debian.apt.policy**
-> PolicyKit policy file controlling authentication requirements.
+> 控制身份验证要求的 PolicyKit 策略文件。
 
 # CAVEATS
 
-Typically started automatically by D-Bus activation. GUI package managers depend on this service. Manual invocation is rarely needed.
+通常由 D-Bus 自动激活启动。GUI 软件包管理器依赖此服务，很少需要手动调用。
 
 # HISTORY
 
-**aptd** was developed for Ubuntu to provide a user-friendly interface for package management, enabling GUI tools to safely perform root operations.
+**aptd** 为 Ubuntu 开发，旨在为软件包管理提供友好的接口，让 GUI 工具能够安全地执行 root 操作。
 
 # SEE ALSO
 

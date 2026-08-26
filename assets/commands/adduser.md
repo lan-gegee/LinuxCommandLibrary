@@ -1,30 +1,30 @@
 # TAGLINE
 
-Debian-friendly user and group management frontend
+Debian 友好的用户与组管理前端
 
 # TLDR
 
-Create a new user with a **default home directory** and prompt for a password
+创建新用户并使用**默认主目录**，同时提示设置密码
 
 ```adduser [username]```
 
-Create a new user **without** a home directory
+创建**没有**主目录的新用户
 
 ```adduser --no-create-home [username]```
 
-Create a new user with a home directory at a **specified path**
+以**指定路径**创建带主目录的新用户
 
 ```adduser --home [path/to/home] [username]```
 
-Create a new user with a **specified shell**
+以**指定 Shell** 创建新用户
 
 ```adduser --shell [path/to/shell] [username]```
 
-Create a new user belonging to a **specified group**
+创建属于**指定组**的新用户
 
 ```adduser --ingroup [group] [username]```
 
-Add an existing user to a **group**
+将现有用户添加到**组**
 
 ```adduser [username] [group]```
 
@@ -34,75 +34,75 @@ Add an existing user to a **group**
 
 # DESCRIPTION
 
-**adduser** adds users and groups to the system according to command line options and configuration in /etc/adduser.conf. It is a Debian-specific front end to the **useradd**, **groupadd**, and **usermod** programs with policy-compliant defaults.
+**adduser** 依据命令行选项和 /etc/adduser.conf 中的配置向系统添加用户和组。它是 **useradd**、**groupadd** 和 **usermod** 程序的 Debian 专用前端，提供符合发行版策略的默认值。
 
-The utility chooses appropriate UID/GID values, creates home directories with skeletal configuration files, and supports both regular and system accounts.
+该工具会选取合适的 UID/GID 值，创建带有骨架配置文件的主目录，并同时支持普通账户和系统账户。
 
 # PARAMETERS
 
 **--home dir**
-> Specify home directory
+> 指定主目录
 
 **--no-create-home**
-> Skip home directory creation
+> 跳过创建主目录
 
 **--shell shell**
-> Set login shell
+> 设置登录 Shell
 
 **--uid ID**
-> Specify user ID
+> 指定用户 ID
 
 **--gid GID**
-> Set primary group ID
+> 设置主组 ID
 
 **--ingroup GROUP**
-> Set primary group by name
+> 按名称设置主组
 
 **--system**
-> Create system account
+> 创建系统账户
 
 **--group**
-> Create group (or named group for system user)
+> 创建组（或为系统用户创建同名组）
 
 **--disabled-login**
-> Disable login (no password set, login not possible until enabled)
+> 禁用登录（未设置密码，启用前无法登录）
 
 **--disabled-password**
-> Do not set a password (login via other methods like SSH keys still possible)
+> 不设置密码（仍可通过 SSH 密钥等其他方式登录）
 
 **--gecos GECOS**
-> Set GECOS field (full name, room, phone, etc.) without interactive prompt
+> 无需交互提示即设置 GECOS 字段（全名、房间、电话等）
 
 **--add-extra-groups**
-> Add user to EXTRA_GROUPS defined in config
+> 将用户加入配置中定义的 EXTRA_GROUPS
 
 **--firstuid ID**
-> Override the first UID in the range for new users
+> 覆盖新用户 UID 范围的起始值
 
 **--lastuid ID**
-> Override the last UID in the range for new users
+> 覆盖新用户 UID 范围的结束值
 
 **--quiet**
-> Suppress informational messages, only show warnings and errors
+> 抑制提示性消息，只显示警告和错误
 
 **--debug**
-> Be verbose, useful for troubleshooting
+> 输出详细日志，便于排查问题
 
 **--conf file**
-> Use alternate configuration file instead of /etc/adduser.conf
+> 使用替代配置文件而非 /etc/adduser.conf
 
 # CONFIGURATION
 
 **/etc/adduser.conf**
-> Controls default behavior including home directory base path, default shell, skeleton directory, UID/GID ranges, and whether to add users to extra groups automatically.
+> 控制各种默认行为，包括主目录的基础路径、默认 Shell、骨架目录、UID/GID 范围，以及是否自动将用户加入额外组。
 
 # CAVEATS
 
-This is a **Debian/Ubuntu specific** frontend; other distributions may use **useradd** directly with different defaults. The adduser command has stricter name validation by default.
+这是 **Debian/Ubuntu 专用**的前端；其他发行版可能直接使用默认值不同的 **useradd**。adduser 命令默认采用更严格的名称校验。
 
 # HISTORY
 
-Developed as a **Debian-specific** tool to provide a friendlier interface to user management with policy-compliant defaults.
+作为 **Debian 专用**工具开发，旨在通过符合策略的默认值提供更友好的用户管理界面。
 
 # INSTALL
 

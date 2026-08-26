@@ -1,14 +1,14 @@
 # TAGLINE
 
-TUI client for the aria2 download manager
+aria2 下载管理器的 TUI 客户端
 
 # TLDR
 
-**Launch aria2tui** (connects to configured aria2c daemon)
+**启动 aria2tui**（连接到已配置的 aria2c 守护进程）
 
 ```aria2tui```
 
-**Show help** with available keybindings
+**显示帮助**及可用按键绑定
 
 ```Press ? inside aria2tui```
 
@@ -18,26 +18,26 @@ TUI client for the aria2 download manager
 
 # DESCRIPTION
 
-**aria2tui** is a terminal user interface (TUI) client for the **aria2c** download utility. It communicates with an aria2c daemon over RPC, providing an interactive interface for managing downloads, torrents, and queues without leaving the terminal.
+**aria2tui** 是 **aria2c** 下载工具的终端用户界面（TUI）客户端。它通过 RPC 与 aria2c 守护进程通信，提供交互式界面来管理下载、种子和队列，无需离开终端。
 
-Features include bulk downloading and torrent management, queue control and download prioritization, fine-tuning of download options such as piece length, user-agent, maximum speed, and proxy settings, as well as real-time monitoring of active transfers. The interface supports multiple aria2c daemon instances, switchable with **{** and **}**.
+功能包括批量下载和种子管理、队列控制与下载优先级调整、下载选项的精细调节（如分片长度、user-agent、最大速度和代理设置），以及对活跃任务的实时监控。界面支持多个 aria2c 守护进程实例，可用 **{** 和 **}** 切换。
 
-On first launch, aria2tui presents a configuration form where users enter the aria2c daemon URL, port, and authentication token. This creates a configuration file at **~/.config/aria2tui/config.toml**.
+首次启动时，aria2tui 会显示配置表单，用户在其中填写 aria2c 守护进程的 URL、端口和身份验证令牌。这会在 **~/.config/aria2tui/config.toml** 创建配置文件。
 
-Key navigation controls include **?** to view all keybindings, **'** to toggle the right sidebar, **"** to cycle sidebar views, and **Ctrl-L** to redraw the screen. A pin cursor mode (toggled via backtick then typing **pc**) keeps the cursor fixed at its position while downloads reorder. Auto-refresh can be disabled via the settings menu (**~**) to preserve selections during bulk operations.
+按键导航包括：**?** 查看所有按键绑定，**'** 切换右侧边栏，**"** 循环切换边栏视图，**Ctrl-L** 重绘屏幕。固定光标模式（先按反引号再输入 **pc** 切换）可在下载重新排序时保持光标位置不变。可通过设置菜单（**~**）禁用自动刷新，以便在批量操作期间保留选中状态。
 
 # CONFIGURATION
 
 **~/.config/aria2tui/config.toml**
-> Main configuration file created on first launch. Stores the aria2c daemon URL, port, and RPC authentication token.
+> 首次启动时创建的主配置文件。存储 aria2c 守护进程 URL、端口和 RPC 身份验证令牌。
 
 # CAVEATS
 
-Requires a running **aria2c** daemon with RPC enabled. Changing download options for an active or paused task will most likely restart that download. External tools are needed for full functionality: **yazi** for torrent file selection, **neovim** for editing download options and adding URIs, **plotille** for graph visualization, and **pyperclip** for clipboard integration. Runs only on Unix-based operating systems.
+需要运行中的 **aria2c** 守护进程且已启用 RPC。更改活跃或暂停任务中的下载选项很可能导致该下载重启。完整功能需要外部工具配合：**yazi** 用于选择种子文件，**neovim** 用于编辑下载选项和添加 URI，**plotille** 用于图形可视化，**pyperclip** 用于剪贴板集成。仅能在 Unix 系操作系统上运行。
 
 # HISTORY
 
-**aria2tui** was created by **Grim** (grimandgreedy) and is written in Python using the curses library. It is available on PyPI and installable via **pip**. The project is licensed under the MIT license.
+**aria2tui** 由 **Grim**（grimandgreedy）开发，使用 Python 和 curses 库编写。可从 PyPI 获取并通过 **pip** 安装。项目采用 MIT 许可证。
 
 # INSTALL
 

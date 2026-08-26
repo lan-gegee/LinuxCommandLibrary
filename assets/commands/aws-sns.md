@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Simple Notification Service topics and subscriptions.
+管理 Simple Notification Service 主题和订阅。
 
 # TLDR
 
-**Create a new SNS topic**
+**创建新 SNS 主题**
 
 ```aws sns create-topic --name [topic-name]```
 
-**List all topics**
+**列出所有主题**
 
 ```aws sns list-topics```
 
-**Publish a message** to a topic
+向主题**发布消息**
 
 ```aws sns publish --topic-arn [arn:aws:sns:region:account:topic-name] --message "[Hello World]"```
 
-**Subscribe an email endpoint** to a topic
+将**邮箱端点订阅到**主题
 
 ```aws sns subscribe --topic-arn [arn:aws:sns:region:account:topic-name] --protocol email --notification-endpoint [user@example.com]```
 
-**Subscribe a Lambda function** to a topic
+将 **Lambda 函数订阅到**主题
 
 ```aws sns subscribe --topic-arn [arn:aws:sns:region:account:topic-name] --protocol lambda --notification-endpoint [arn:aws:lambda:region:account:function:name]```
 
-**Unsubscribe from a topic**
+**取消订阅**主题
 
 ```aws sns unsubscribe --subscription-arn [arn:aws:sns:region:account:topic-name:subscription-id]```
 
-**List subscriptions** for a topic
+**列出**主题的**订阅**
 
 ```aws sns list-subscriptions-by-topic --topic-arn [arn:aws:sns:region:account:topic-name]```
 
-**Delete a topic**
+**删除主题**
 
 ```aws sns delete-topic --topic-arn [arn:aws:sns:region:account:topic-name]```
 
@@ -42,9 +42,9 @@ Manage Simple Notification Service topics and subscriptions.
 
 # DESCRIPTION
 
-**aws sns** is the AWS CLI interface for Amazon Simple Notification Service (SNS), a fully managed messaging service for application-to-application (A2A) and application-to-person (A2P) communication.
+**aws sns** 是 AWS CLI 中用于管理 Amazon Simple Notification Service（SNS）的接口。SNS 是一项全托管的消息传递服务，支持应用程序间（A2A）和应用程序对人（A2P）的通信。
 
-SNS enables pub/sub messaging where publishers send messages to topics, and subscribers receive notifications via protocols including HTTP/HTTPS, email, SMS, SQS, Lambda, and mobile push notifications.
+SNS 支持发布/订阅消息模式：发布者向主题发送消息，订阅者通过 HTTP/HTTPS、电子邮件、SMS、SQS、Lambda 和移动推送通知等协议接收通知。
 
 # SUBCOMMANDS
 
@@ -68,11 +68,11 @@ SNS enables pub/sub messaging where publishers send messages to topics, and subs
 
 # CAVEATS
 
-Email subscriptions require confirmation by the recipient before they receive messages. SMS messages have regional restrictions and may require spending limit increases. Message size is limited to 256KB for standard topics. FIFO topics require compatible SQS FIFO queue subscribers.
+邮件订阅需要收件人确认后才能接收消息。SMS 消息有区域限制，可能需要提高消费限额。标准主题的消息大小上限为 256KB。FIFO 主题需要兼容的 SQS FIFO 队列订阅者。
 
 # HISTORY
 
-Amazon SNS launched in **April 2010** as a push notification service. It has evolved from simple pub/sub messaging to support mobile push notifications, SMS, and advanced features like message filtering, dead-letter queues, and FIFO topics.
+Amazon SNS 于 **2010 年 4 月**上线，最初是一项推送通知服务。它已从简单的发布/订阅消息模式发展为支持移动推送通知、SMS，以及消息过滤、死信队列和 FIFO 主题等高级特性。
 
 # INSTALL
 

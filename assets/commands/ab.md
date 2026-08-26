@@ -1,22 +1,22 @@
 # TAGLINE
 
-HTTP server benchmarking tool
+HTTP 服务器基准测试工具
 
 # TLDR
 
-**Benchmark** a URL with 100 requests using 10 concurrent connections
+以 10 个并发连接对 URL 发起 100 个请求进行**基准测试**
 
 ```ab -n 100 -c 10 [http://example.com/]```
 
-**POST** data to a URL
+向 URL **POST** 数据
 
 ```ab -n 100 -c 10 -p [data.json] -T application/json [http://example.com/api]```
 
-Use **keep-alive** connections
+使用 **keep-alive** 连接
 
 ```ab -n 100 -c 10 -k [http://example.com/]```
 
-Set a **custom header**
+设置**自定义请求头**
 
 ```ab -n 100 -c 10 -H "Authorization: Bearer [token]" [http://example.com/]```
 
@@ -26,76 +26,76 @@ Set a **custom header**
 
 # DESCRIPTION
 
-**ab** (Apache Benchmark) is a command-line tool for benchmarking HTTP servers. It generates load by sending multiple requests to a specified URL and measures server response times, throughput, and other performance metrics.
+**ab**（Apache Benchmark）是一个用于 HTTP 服务器基准测试的命令行工具。它通过向指定的 URL 发送多个请求来产生负载，并测量服务器的响应时间、吞吐量和其他性能指标。
 
-The tool reports statistics including requests per second, time per request, transfer rate, and connection times broken down by percentiles. It supports both HTTP and HTTPS, custom headers, POST data, cookies, and HTTP authentication.
+该工具报告的统计信息包括每秒请求数、每请求耗时、传输速率以及按百分位细分的连接时间。它同时支持 HTTP 和 HTTPS，可自定义请求头、发送 POST 数据、携带 Cookie 以及使用 HTTP 认证。
 
 # PARAMETERS
 
 **-n** _requests_
-> Number of requests to perform for the benchmarking session
+> 本轮测试要执行的请求总数
 
 **-c** _concurrency_
-> Number of multiple requests to perform at a time (simultaneous connections)
+> 同时执行的请求数（并发连接数）
 
 **-t** _timelimit_
-> Maximum number of seconds to spend benchmarking (implies -n 50000)
+> 基准测试的最长秒数（隐含 -n 50000）
 
 **-k**
-> Enable HTTP KeepAlive feature (persistent connections)
+> 启用 HTTP KeepAlive 特性（持久连接）
 
 **-p** _file_
-> File containing data to POST
+> 包含要 POST 数据的文件
 
 **-T** _content-type_
-> Content-type header for POST/PUT data
+> POST/PUT 数据的 Content-type 请求头
 
 **-H** _header_
-> Append extra header to the request (repeatable)
+> 为请求追加额外请求头（可重复使用）
 
 **-A** _auth_
-> HTTP Basic Authentication credentials (user:password)
+> HTTP Basic 认证凭据（user:password）
 
 **-C** _cookie_
-> Add a Cookie header (name=value)
+> 添加 Cookie 请求头（name=value）
 
 **-s** _timeout_
-> Maximum seconds to wait before socket times out (default 30)
+> 套接字超时前的最长等待秒数（默认 30）
 
 **-v** _verbosity_
-> Verbosity level (2=warnings, 3=response codes, 4+=headers)
+> 详细程度（2=警告，3=响应码，4 及以上=响应头）
 
 **-u** _file_
-> File containing data to PUT (also set -T)
+> 包含要 PUT 数据的文件（需同时设置 -T）
 
 **-X** _proxy[:port]_
-> Use a proxy server for the requests
+> 通过代理服务器发送请求
 
 **-e** _csv-file_
-> Write a CSV file with response time percentiles (1%-100%)
+> 输出包含响应时间百分位（1%-100%）的 CSV 文件
 
 **-g** _gnuplot-file_
-> Write measured values as a gnuplot/TSV file
+> 将测量值写成 gnuplot/TSV 文件
 
 **-i**
-> Use HEAD requests instead of GET
+> 使用 HEAD 请求代替 GET
 
 **-l**
-> Accept variable document length (for dynamic pages)
+> 接受可变长度的文档（针对动态页面）
 
 **-r**
-> Don't exit on socket receive errors
+> 套接字接收出错时不退出
 
 **-q**
-> Suppress progress messages on stderr (for >150 requests)
+> 抑制 stderr 上的进度信息（针对超过 150 个请求的情况）
 
 # CAVEATS
 
-**ab** creates synthetic load that may not reflect real-world traffic patterns. It does not parse HTML or execute JavaScript, so it only tests raw HTTP performance. Results can be misleading if the server implements rate limiting or caching. For more realistic load testing, consider tools like **wrk**, **siege**, or **k6**.
+**ab** 制造的是合成负载，未必反映真实流量模式。它不解析 HTML 也不执行 JavaScript，因此只测试原始的 HTTP 性能。如果服务器实现了限速或缓存，结果可能产生误导。如需更真实的负载测试，可以考虑 **wrk**、**siege** 或 **k6** 等工具。
 
 # HISTORY
 
-**ab** was created as part of the Apache HTTP Server project in the late **1990s**. It was designed as a simple benchmarking tool for testing Apache configurations during development. The tool has remained largely unchanged and is bundled with Apache HTTPD installations worldwide.
+**ab** 是 Apache HTTP Server 项目于上世纪 **90 年代末**创建的组件。它的设计初衷是开发过程中测试 Apache 配置的简单基准测试工具。该工具多年来几乎没有变化，如今随全球的 Apache HTTPD 安装一起分发。
 
 # INSTALL
 

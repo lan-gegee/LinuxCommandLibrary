@@ -1,26 +1,26 @@
 # TAGLINE
 
-Delete objects from S3
+从 S3 删除对象
 
 # TLDR
 
-**Delete a single object** from S3
+从 S3 **删除单个对象**
 
 ```aws s3 rm s3://[bucket-name]/[file.txt]```
 
-**Recursively delete** all objects under a prefix
+**递归删除**某个前缀下的所有对象
 
 ```aws s3 rm s3://[bucket-name]/[prefix/] --recursive```
 
-**Delete all objects** in a bucket
+**删除存储桶中的所有对象**
 
 ```aws s3 rm s3://[bucket-name] --recursive```
 
-**Delete all except** certain file types
+**删除时排除**某些文件类型之外的所有对象
 
 ```aws s3 rm s3://[bucket-name]/ --recursive --exclude "*.jpg"```
 
-**Preview delete operation** without executing
+**预览删除操作**而不实际执行
 
 ```aws s3 rm s3://[bucket-name]/ --recursive --dryrun```
 
@@ -30,39 +30,39 @@ Delete objects from S3
 
 # DESCRIPTION
 
-**aws s3 rm** deletes objects from Amazon S3. By default, it deletes a single object. Use the **--recursive** option to delete all objects under a specified prefix.
+**aws s3 rm** 从 Amazon S3 删除对象。默认只删除单个对象。使用 **--recursive** 选项可删除指定前缀下的所有对象。
 
-The command supports pattern matching with **--include** and **--exclude** options to selectively delete objects matching specific criteria.
+该命令支持通过 **--include** 和 **--exclude** 选项进行模式匹配，从而按条件选择性地删除对象。
 
 # PARAMETERS
 
 **S3Uri**
-> The S3 URI of the object or prefix to delete (s3://bucket-name/key)
+> 要删除的对象或前缀的 S3 URI（s3://bucket-name/key）
 
 **--recursive**
-> Delete all objects under the specified prefix
+> 删除指定前缀下的所有对象
 
 **--dryrun**
-> Display operations that would be performed without executing them
+> 显示将要执行的操作但不实际执行
 
 **--quiet**
-> Suppress output during the delete operation
+> 在删除过程中抑制输出
 
 **--include** _pattern_
-> Include objects matching the pattern (used with --exclude)
+> 包含匹配模式的对象（与 --exclude 配合使用）
 
 **--exclude** _pattern_
-> Exclude objects matching the pattern from deletion
+> 从删除中排除匹配模式的对象
 
 **--only-show-errors**
-> Display only errors and warnings, suppressing successful operations
+> 仅显示错误和警告，抑制成功操作的输出
 
 **--page-size** _value_
-> Number of objects to retrieve per API call (default: 1000)
+> 每次 API 调用获取的对象数（默认：1000）
 
 # CAVEATS
 
-This command deletes non-versioned objects. For versioned buckets, deletion creates delete markers but does not permanently remove previous versions. To permanently delete versioned objects, use **aws s3api delete-object** with **--version-id**. Deletion is permanent for non-versioned buckets and cannot be undone.
+此命令删除的是未版本化的对象。对于启用版本控制的存储桶，删除操作只会创建删除标记，并不会永久移除之前的版本。要永久删除已版本化的对象，请使用 **aws s3api delete-object** 配合 **--version-id**。对未版本化的存储桶而言，删除是永久性的，无法撤销。
 
 # INSTALL
 

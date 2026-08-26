@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Docker container image repositories on AWS.
+管理 AWS 上的 Docker 容器镜像仓库。
 
 # TLDR
 
-**Authenticate Docker** to an ECR registry
+**向 ECR 注册表认证 Docker**
 
 ```aws ecr get-login-password | docker login --username AWS --password-stdin [account-id].dkr.ecr.[region].amazonaws.com```
 
-**Create a new repository**
+**创建新仓库**
 
 ```aws ecr create-repository --repository-name [my-repo]```
 
-**List all repositories** in the registry
+**列出注册表中的所有仓库**
 
 ```aws ecr describe-repositories```
 
-**List images** in a repository
+**列出仓库中的镜像**
 
 ```aws ecr list-images --repository-name [my-repo]```
 
-**Describe image details** including vulnerabilities
+**查看镜像详情**（含漏洞信息）
 
 ```aws ecr describe-images --repository-name [my-repo] --image-ids imageTag=[latest]```
 
-**Delete an image** by tag
+**按标签删除镜像**
 
 ```aws ecr batch-delete-image --repository-name [my-repo] --image-ids imageTag=[v1.0]```
 
-**Set a lifecycle policy** to expire old images
+**设置生命周期策略以过期旧镜像**
 
 ```aws ecr put-lifecycle-policy --repository-name [my-repo] --lifecycle-policy-text file://[policy.json]```
 
@@ -38,49 +38,49 @@ Manage Docker container image repositories on AWS.
 
 # DESCRIPTION
 
-**aws ecr** is the AWS CLI interface for Amazon Elastic Container Registry (ECR), a fully managed Docker container registry. ECR makes it easy to store, manage, and deploy Docker container images with integration into Amazon ECS and EKS.
+**aws ecr** 是 Amazon Elastic Container Registry（ECR）的 AWS CLI 接口。ECR 是一项全托管的 Docker 容器注册表，与 Amazon ECS 和 EKS 集成，可轻松存储、管理和部署 Docker 容器镜像。
 
-ECR provides private repositories with IAM-based access control, automatic image scanning for vulnerabilities, cross-region and cross-account replication, and lifecycle policies for image retention management.
+ECR 提供带基于 IAM 访问控制的私有仓库，支持自动镜像漏洞扫描、跨区域和跨账户复制，以及用于管理镜像保留的生命周期策略。
 
 # COMMANDS
 
 **get-login-password**
-> Get authentication token for Docker login
+> 获取用于 Docker 登录的认证令牌
 
 **create-repository**
-> Create a new image repository
+> 创建新的镜像仓库
 
 **describe-repositories**
-> List repository details
+> 列出仓库详情
 
 **list-images**
-> List images in a repository
+> 列出仓库中的镜像
 
 **describe-images**
-> Get detailed image information
+> 获取镜像的详细信息
 
 **batch-delete-image**
-> Delete one or more images
+> 删除一个或多个镜像
 
 **put-lifecycle-policy**
-> Set image retention rules
+> 设置镜像保留规则
 
 **start-image-scan**
-> Initiate vulnerability scanning
+> 发起漏洞扫描
 
 **describe-image-scan-findings**
-> Get scan results
+> 获取扫描结果
 
 **put-replication-configuration**
-> Configure cross-region replication
+> 配置跨区域复制
 
 # CAVEATS
 
-Authentication tokens expire after 12 hours. Image tags are mutable by default; enable tag immutability for production. Lifecycle policies run asynchronously and may take time to delete images. Image scanning must be enabled per repository or at registry level.
+认证令牌 12 小时后过期。镜像标签默认是可变的；生产环境建议启用标签不可变性。生命周期策略异步执行，删除镜像可能需要一些时间。镜像扫描需要在每个仓库或注册表级别启用。
 
 # HISTORY
 
-Amazon ECR launched in **December 2015** alongside Amazon ECS. Cross-region replication was added in **2020**, and enhanced scanning powered by Amazon Inspector launched in **2021**. ECR Public for public container images became available in **2020**.
+Amazon ECR 于 **2015 年 12 月** 随 Amazon ECS 一同推出。跨区域复制于 **2020 年** 加入，由 Amazon Inspector 提供支持的增强扫描于 **2021 年** 推出。面向公共容器镜像的 ECR Public 于 **2020 年** 上线。
 
 # INSTALL
 

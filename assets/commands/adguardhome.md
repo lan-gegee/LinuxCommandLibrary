@@ -1,26 +1,26 @@
 # TAGLINE
 
-Network-wide ad and tracker blocking DNS server
+全网范围的广告与跟踪器拦截 DNS 服务器
 
 # TLDR
 
-**Start** AdGuard Home
+**启动** AdGuard Home
 
 ```sudo adguardhome -s start```
 
-**Install** as a system service
+**安装**为系统服务
 
 ```sudo adguardhome -s install```
 
-**Uninstall** the system service
+**卸载**系统服务
 
 ```sudo adguardhome -s uninstall```
 
-Check service **status**
+检查服务**状态**
 
 ```sudo adguardhome -s status```
 
-Start with **custom config**
+以**自定义配置**启动
 
 ```adguardhome -c [/path/to/config.yaml]```
 
@@ -30,48 +30,48 @@ Start with **custom config**
 
 # DESCRIPTION
 
-**AdGuard Home** is a network-wide software for blocking ads, tracking, and malicious domains. It operates as a DNS server, filtering requests based on blocklists and custom rules before forwarding legitimate queries upstream.
+**AdGuard Home** 是一款全网范围的广告、跟踪与恶意域名拦截软件。它以 DNS 服务器的形式运行，先根据拦截列表和自定义规则过滤请求，再把合法查询转发到上游。
 
-The application provides a web interface for configuration and statistics, supports DNS-over-HTTPS, DNS-over-TLS, and DNS-over-QUIC, and can replace your router's DHCP server.
+该应用提供用于配置和统计数据的 Web 界面，支持 DNS-over-HTTPS、DNS-over-TLS 和 DNS-over-QUIC，并且可以取代路由器的 DHCP 服务器。
 
 # PARAMETERS
 
 **-s** _command_
-> Service control: start, stop, restart, status, install, uninstall
+> 服务控制：start、stop、restart、status、install、uninstall
 
 **-c** _path_
-> Path to configuration file
+> 配置文件的路径
 
 **-w** _path_
-> Path to working directory
+> 工作目录的路径
 
 **-h** _host_
-> Web interface bind host
+> Web 界面绑定的主机
 
 **-p** _port_
-> Web interface bind port
+> Web 界面绑定的端口
 
 **--no-check-update**
-> Don't check for updates
+> 不检查更新
 
 **--pidfile** _path_
-> Path to PID file
+> PID 文件的路径
 
 **--verbose**
-> Enable verbose logging
+> 启用详细日志输出
 
 # CONFIGURATION
 
 **AdGuardHome.yaml**
-> Main configuration file, typically located in the working directory (e.g. /opt/AdGuardHome/). Controls DNS settings, upstream servers, filtering rules, DHCP, clients, and web interface options.
+> 主配置文件，通常位于工作目录（例如 /opt/AdGuardHome/）中。控制 DNS 设置、上游服务器、过滤规则、DHCP、客户端以及 Web 界面选项。
 
 # CAVEATS
 
-Running as a DNS server requires port 53, which may conflict with systemd-resolved or other DNS services. First-time setup requires accessing the web interface to complete configuration.
+作为 DNS 服务器运行需要占用端口 53，这可能与 systemd-resolved 或其他 DNS 服务冲突。首次设置需要访问 Web 界面来完成配置。
 
 # HISTORY
 
-**AdGuard Home** was developed by AdGuard Software Limited, first released in **2018** as an open-source network-wide ad blocker. It was designed as a self-hosted alternative to Pi-hole with additional features like encrypted DNS protocols.
+**AdGuard Home** 由 AdGuard Software Limited 开发，于 **2018** 年首次发布，是一款开源的全网广告拦截器。它被设计为可自托管的 Pi-hole 替代方案，并额外提供加密 DNS 协议等特性。
 
 # INSTALL
 

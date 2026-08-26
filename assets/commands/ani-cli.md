@@ -1,34 +1,34 @@
 # TAGLINE
 
-Search and stream anime from the terminal
+从终端搜索并观看动漫
 
 # TLDR
 
-**Search** and watch anime
+**搜索**并观看动漫
 
 ```ani-cli [anime_name]```
 
-**Continue** watching from history
+从历史记录**继续**观看
 
 ```ani-cli -c```
 
-**Download** instead of streaming
+**下载**而不是在线播放
 
 ```ani-cli -d [anime_name]```
 
-Select specific **quality**
+选择特定**画质**
 
 ```ani-cli -q [720] [anime_name]```
 
-Use **VLC** player
+使用 **VLC** 播放器
 
 ```ani-cli -v [anime_name]```
 
-Watch **dubbed** version
+观看**配音版**
 
 ```ani-cli --dub [anime_name]```
 
-Watch specific **episode** range
+观看指定的**剧集**范围
 
 ```ani-cli -e [1-5] [anime_name]```
 
@@ -38,81 +38,81 @@ Watch specific **episode** range
 
 # DESCRIPTION
 
-**ani-cli** is a command-line tool for searching and streaming anime from various sources. It provides a terminal-based interface for selecting anime, choosing episodes, and playing them in your preferred video player.
+**ani-cli** 是一个从多个来源搜索和播放动漫的命令行工具。它提供基于终端的界面，可用于选择动漫、挑选剧集，并在你偏好的视频播放器中播放。
 
-The tool scrapes anime streaming sites to find available content, presenting options in an interactive menu format.
+该工具抓取动漫流媒体站点以查找可用内容，并以交互式菜单形式呈现选项。
 
 # PARAMETERS
 
 **-c**, **--continue**
-> Continue watching from history
+> 从历史记录继续观看
 
 **-d**, **--download**
-> Download instead of stream
+> 下载而不是在线播放
 
 **-e**, **--episode** _range_
-> Specify episode number or range (e.g., 1-5)
+> 指定集数或范围（如 1-5）
 
 **-q** _quality_
-> Specify video quality (best, worst, 360, 480, 720, 1080). Default is best.
+> 指定视频画质（best、worst、360、480、720、1080）。默认为 best。
 
 **-v**, **--vlc**
-> Use VLC player instead of mpv
+> 使用 VLC 播放器而不是 mpv
 
 **-D**, **--delete**
-> Delete watch history
+> 删除观看历史
 
 **-s**, **--syncplay**
-> Watch together with friends using Syncplay (mpv only)
+> 使用 Syncplay 与朋友一起观看（仅限 mpv）
 
 **-N**, **--non-interactive**
-> Disable the interactive menu
+> 禁用交互式菜单
 
 **-S** _index_, **--select-nth** _index_
-> Select nth search result without prompting
+> 直接选择第 n 个搜索结果而不询问
 
 **--dub**
-> Play the dubbed version instead of subbed
+> 播放配音版而不是字幕版
 
 **--skip**
-> Use ani-skip to skip episode intros (mpv only)
+> 使用 ani-skip 跳过片头（仅限 mpv）
 
 **--no-detach**
-> Don't detach the player (useful for in-terminal playback)
+> 不分离播放器（适合在终端内播放）
 
 **--rofi**
-> Use rofi instead of fzf for the interactive menu
+> 交互式菜单使用 rofi 而不是 fzf
 
 **-U**, **--update**
-> Update ani-cli
+> 更新 ani-cli
 
 **-h**, **--help**
-> Show help information
+> 显示帮助信息
 
 # CONFIGURATION
 
 **ANI_CLI_MODE**
-> Controls media mode: sub or dub. Default is sub.
+> 控制媒体模式：sub 或 dub。默认为 sub。
 
 **ANI_CLI_QUALITY**
-> Controls video quality (best, worst, 360, 480, 720, 1080). Default is best.
+> 控制视频画质（best、worst、360、480、720、1080）。默认为 best。
 
 **ANI_CLI_DOWNLOAD_DIR**
-> Download directory. Default is the current directory.
+> 下载目录。默认为当前目录。
 
 **ANI_CLI_EXTERNAL_MENU**
-> Set to 1 to use rofi dmenu instead of fzf. Default is 0.
+> 设为 1 时使用 rofi dmenu 而不是 fzf。默认为 0。
 
 **ANI_CLI_SKIP_INTRO**
-> Set to 1 to use ani-skip for intro skipping (mpv only). Default is 0.
+> 设为 1 时使用 ani-skip 跳过片头（仅限 mpv）。默认为 0。
 
 # CAVEATS
 
-Depends on external streaming sources that may change or become unavailable. Quality and availability vary by title. Requires mpv or vlc for playback. May not work in all regions. Requires curl, sed, grep, and fzf as dependencies.
+依赖可能变化或失效的外部流媒体来源。画质和可用性因作品而异。需要 mpv 或 vlc 进行播放。可能并非在所有地区都可用。依赖 curl、sed、grep 和 fzf 作为前置组件。
 
 # HISTORY
 
-**ani-cli** was created as a community project for anime fans who prefer command-line tools. It has been actively maintained with updates to support changing streaming sources.
+**ani-cli** 作为社区项目而创建，服务于偏爱命令行工具的动漫爱好者。项目一直得到积极维护，持续更新以适应不断变化的流媒体来源。
 
 # INSTALL
 

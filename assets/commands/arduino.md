@@ -1,26 +1,26 @@
 # TAGLINE
 
-Integrated development environment for Arduino boards
+Arduino 板卡的集成开发环境
 
 # TLDR
 
-**Start** Arduino IDE
+**启动** Arduino IDE
 
 ```arduino```
 
-**Open** a sketch
+**打开** sketch
 
 ```arduino [sketch.ino]```
 
-**Compile** a sketch
+**编译** sketch
 
 ```arduino --verify [sketch.ino]```
 
-**Upload** to board
+**上传**到板卡
 
 ```arduino --upload [sketch.ino]```
 
-Specify **board** and **port**
+指定**板卡**和**端口**
 
 ```arduino --board [arduino:avr:uno] --port [/dev/ttyACM0] --upload [sketch.ino]```
 
@@ -30,51 +30,51 @@ Specify **board** and **port**
 
 # DESCRIPTION
 
-**arduino** is the Arduino Integrated Development Environment (IDE) for programming Arduino microcontroller boards. It provides a code editor, compiler, and upload functionality for Arduino sketches.
+**arduino** 是用于给 Arduino 微控制器板卡编程的 Arduino 集成开发环境（IDE）。它提供代码编辑器、编译器以及上传 Arduino sketch 的功能。
 
-The command-line interface enables headless compilation and upload, useful for CI/CD pipelines and scripting.
+命令行界面支持无界面的编译与上传，适用于 CI/CD 流水线和脚本编写。
 
 # PARAMETERS
 
 **--verify**
-> Compile sketch without uploading
+> 只编译 sketch 不上传
 
 **--upload**
-> Compile and upload to board
+> 编译并上传到板卡
 
 **--board** _fqbn_
-> Fully qualified board name
+> 完全限定板卡名称
 
 **--port** _port_
-> Serial port for upload
+> 上传使用的串口
 
 **--pref** _name=value_
-> Set preference
+> 设置首选项
 
 **--save-prefs**
-> Save preferences and exit
+> 保存首选项并退出
 
 **--get-pref** _name_
-> Print preference value
+> 打印首选项的值
 
 **--install-boards** _package:platform_
-> Install board package
+> 安装板卡软件包
 
 **--install-library** _name_
-> Install library
+> 安装库
 
 # CONFIGURATION
 
 **~/.arduino15/preferences.txt**
-> IDE preferences including board defaults, editor settings, and additional board manager URLs.
+> IDE 首选项文件，包括板卡默认值、编辑器设置和额外的板卡管理器 URL。
 
 # CAVEATS
 
-These command-line flags belong to the **legacy Arduino IDE 1.x**, which is no longer in active development. Arduino IDE 2.x and the standalone **arduino-cli** are the recommended tools for headless builds and scripting. Board support packages may need installation for non-AVR boards, and serial port permissions may require adding your user to the **dialout** group on Linux.
+这些命令行标志属于**旧版 Arduino IDE 1.x**，该版本已不再积极开发。对于无界面构建和脚本编写，推荐使用 Arduino IDE 2.x 和独立的 **arduino-cli**。非 AVR 板卡可能需要安装板卡支持包；在 Linux 上串口权限可能需要将用户加入 **dialout** 组。
 
 # HISTORY
 
-The **Arduino** project was started at the Ivrea Interaction Design Institute in **2005**. The classic IDE (and its `arduino` command-line interface) served as the primary development environment until it was superseded by **Arduino IDE 2.x** and **arduino-cli**.
+**Arduino** 项目于 **2005** 年始于伊夫雷亚交互设计学院。经典 IDE（及其 `arduino` 命令行接口）曾是主要的开发环境，直到被 **Arduino IDE 2.x** 和 **arduino-cli** 取代。
 
 # INSTALL
 

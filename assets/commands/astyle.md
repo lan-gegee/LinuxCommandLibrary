@@ -1,26 +1,26 @@
 # TAGLINE
 
-Source code formatter for C, C++, C#, and Java
+面向 C、C++、C# 和 Java 的源代码格式化工具
 
 # TLDR
 
-**Format** C++ code
+**格式化** C++ 代码
 
 ```astyle [file.cpp]```
 
-Format with **specific style**
+用**指定风格**格式化
 
 ```astyle --style=google [file.cpp]```
 
-Format **in place** (overwrite)
+**原地**格式化（覆盖原文件）
 
 ```astyle --suffix=none [file.cpp]```
 
-Format **recursively**
+**递归**格式化
 
 ```astyle --recursive "*.cpp,*.h"```
 
-Format with **custom options**
+用**自定义选项**格式化
 
 ```astyle --indent=spaces=4 --style=kr [file.cpp]```
 
@@ -30,63 +30,63 @@ Format with **custom options**
 
 # DESCRIPTION
 
-**astyle** (Artistic Style) is a source code indenter and formatter for C, C++, C++/CLI, Objective-C, C#, and Java. It reformats code to follow consistent style guidelines, improving readability and maintainability.
+**astyle**（Artistic Style）是一款面向 C、C++、C++/CLI、Objective-C、C# 和 Java 的源代码缩进与格式化工具。它按照统一的风格规范重排代码，提升可读性和可维护性。
 
-The tool supports various predefined styles (Google, Mozilla, GNU, etc.) and extensive customization.
+该工具支持多种预定义风格（Google、Mozilla、GNU 等），并支持大量自定义选项。
 
 # PARAMETERS
 
 **--style=**_name_
-> Predefined style: allman, java, kr, stroustrup, whitesmith, vtk, ratliff, gnu, linux, horstmann, 1tbs, google, mozilla, webkit, pico, lisp.
+> 预定义风格：allman、java、kr、stroustrup、whitesmith、vtk、ratliff、gnu、linux、horstmann、1tbs、google、mozilla、webkit、pico、lisp。
 
 **--indent=**_type_
-> Indentation: spaces=n, tab, force-tab=n.
+> 缩进方式：spaces=n、tab、force-tab=n。
 
 **--attach-braces** / **--break-braces**
-> Attach or break opening braces from headers (replaces the older **--brackets** option).
+> 将左大括号附着到语句头或从语句头断开（取代较旧的 **--brackets** 选项）。
 
 **--indent-classes**
-> Indent class blocks
+> 缩进 class 块
 
 **--indent-switches**
-> Indent switch blocks
+> 缩进 switch 块
 
 **--pad-oper**
-> Pad operators with spaces
+> 在运算符两侧填充空格
 
 **--pad-header**
-> Pad headers (if, for, while)
+> 在关键字头（if、for、while）后填充空格
 
 **--unpad-paren**
-> Remove padding inside parentheses
+> 移除括号内的填充空格
 
 **--suffix=**_suffix_
-> Backup file suffix (none to overwrite)
+> 备份文件后缀（none 表示覆盖原文件）
 
 **--recursive**
-> Process directories recursively
+> 递归处理目录
 
 **-n**, **--suffix=none**
-> Don't create backup files
+> 不创建备份文件
 
 **--dry-run**
-> Show changes without applying
+> 仅显示更改而不实际应用
 
 # CONFIGURATION
 
 **~/.astylerc**
-> User-level default options file. Each line contains one option (e.g., --style=google).
+> 用户级默认选项文件。每行包含一个选项（如 --style=google）。
 
 **.astylerc**
-> Project-level options file in the current directory, overrides user defaults.
+> 当前目录下的项目级选项文件，优先于用户默认值。
 
 # CAVEATS
 
-Always backup code before formatting entire projects. May conflict with version control diffs. Team should agree on style before applying. Some styles may clash with existing code conventions.
+格式化整个项目之前务必备份代码。可能与版本控制的 diff 产生冲突。团队应在应用前就代码风格达成一致。某些风格可能与现有代码约定相冲突。
 
 # HISTORY
 
-**Artistic Style** was created by Tal Davidson and Jim Pattee, with the first release in **1998**. It has become a standard code formatting tool for C-family languages.
+**Artistic Style** 由 Tal Davidson 和 Jim Pattee 创建，于 **1998** 年首次发布，如今已成为 C 系语言的标准代码格式化工具之一。
 
 # INSTALL
 

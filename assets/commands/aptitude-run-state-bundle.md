@@ -1,14 +1,14 @@
 # TAGLINE
 
-Replay aptitude state from a bundle
+从状态包重放 aptitude 状态
 
 # TLDR
 
-**Run** aptitude with state bundle
+使用状态包**运行** aptitude
 
 ```aptitude-run-state-bundle [bundle.tar.bz2]```
 
-Run with **specific aptitude args**
+带**指定的 aptitude 参数**运行
 
 ```aptitude-run-state-bundle [bundle.tar.bz2] -- search [pattern]```
 
@@ -18,25 +18,25 @@ Run with **specific aptitude args**
 
 # DESCRIPTION
 
-**aptitude-run-state-bundle** runs aptitude using state from a previously created bundle. This allows reproducing exact package states for debugging or testing dependency resolution.
+**aptitude-run-state-bundle** 使用先前创建的状态包中的状态运行 aptitude。这可以重现精确的软件包状态，用于调试或测试依赖解析。
 
-The tool extracts the bundle, configures aptitude to use the extracted state, and runs aptitude with any provided arguments.
+该工具会解包状态包，配置 aptitude 使用解包后的状态，并带上提供的参数运行 aptitude。
 
 # PARAMETERS
 
 **bundle**
-> State bundle file (.tar.bz2)
+> 状态包文件（.tar.bz2）
 
 **-- args**
-> Arguments to pass to aptitude
+> 传递给 aptitude 的参数
 
 # CAVEATS
 
-Used for debugging purposes. The bundle's state may not match current repository state. Primarily useful for aptitude developers.
+用于调试目的。状态包中的状态可能与当前软件仓库状态不一致。主要对 aptitude 开发者有用。
 
 # HISTORY
 
-**aptitude-run-state-bundle** complements aptitude-create-state-bundle, enabling developers to reproduce reported issues.
+**aptitude-run-state-bundle** 与 aptitude-create-state-bundle 配套，让开发者能够重现报告的问题。
 
 # INSTALL
 

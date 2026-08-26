@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display image sequences as animations (ImageMagick 6)
+以动画形式显示图像序列（ImageMagick 6）
 
 # TLDR
 
-**Animate** images (ImageMagick 6)
+**播放**图像动画（ImageMagick 6）
 
 ```animate.im6 [image1.png] [image2.png]```
 
-Play **animated GIF**
+播放**动态 GIF**
 
 ```animate.im6 [animation.gif]```
 
-Set **frame delay**
+设置**帧延迟**
 
 ```animate.im6 -delay [10] [*.png]```
 
-Set **infinite loop**
+设置**无限循环**
 
 ```animate.im6 -loop [0] [animation.gif]```
 
@@ -26,34 +26,34 @@ Set **infinite loop**
 
 # DESCRIPTION
 
-**animate.im6** is the ImageMagick 6 version of the animate command, used on systems where both ImageMagick 6 and 7 are installed. It displays sequences of images as animations in an X Window.
+**animate.im6** 是 animate 命令的 ImageMagick 6 版本，用于同时安装了 ImageMagick 6 和 7 的系统。它在 X Window 中将图像序列显示为动画。
 
-The .im6 suffix distinguishes it from the ImageMagick 7 version, allowing both versions to coexist on the same system.
+.im6 后缀将其与 ImageMagick 7 版本区分开，使两个版本可以在同一系统上共存。
 
 # PARAMETERS
 
 **-delay** _ticks_
-> Delay between frames (centiseconds)
+> 帧间延迟（百分之一秒）
 
 **-loop** _count_
-> Loop count (0 = infinite)
+> 循环次数（0 = 无限）
 
 **-geometry** _WxH_
-> Display geometry
+> 显示几何尺寸
 
 **-coalesce**
-> Merge GIF animation layers
+> 合并 GIF 动画图层
 
 **-remote**
-> Enable remote control
+> 启用远程控制
 
 # CAVEATS
 
-This is the ImageMagick 6 version; syntax may differ slightly from ImageMagick 7. Requires X Window System. Some options may be deprecated in newer versions.
+这是 ImageMagick 6 版本；语法可能与 ImageMagick 7 略有不同。需要 X Window 系统。某些选项在较新版本中可能已被弃用。
 
 # HISTORY
 
-The .im6 naming convention was introduced when ImageMagick 7 was released in **2016**, allowing parallel installation of both major versions.
+.im6 命名约定是在 **2016** 年 ImageMagick 7 发布时引入的，允许两个主要版本并行安装。
 
 # SEE ALSO
 

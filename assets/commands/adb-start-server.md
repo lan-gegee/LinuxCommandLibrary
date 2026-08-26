@@ -1,14 +1,14 @@
 # TAGLINE
 
-Start the Android Debug Bridge background server
+启动 Android Debug Bridge 后台服务器
 
 # TLDR
 
-**Start** the adb server
+**启动** adb 服务器
 
 ```adb start-server```
 
-Start server with **specific port**
+以**指定端口**启动服务器
 
 ```ANDROID_ADB_SERVER_PORT=[5038] adb start-server```
 
@@ -18,17 +18,17 @@ Start server with **specific port**
 
 # DESCRIPTION
 
-**adb start-server** explicitly starts the adb server daemon if it's not already running. The server is a background process that manages communication between adb clients and connected Android devices.
+**adb start-server** 在 adb 服务器尚未运行时显式启动它。服务器是一个后台进程，负责管理 adb 客户端与已连接 Android 设备之间的通信。
 
-Normally, the server starts automatically when you run any adb command. This command is useful when you want to ensure the server is running before connecting devices or in scripts where you want explicit control over server startup.
+通常，运行任何 adb 命令都会自动启动服务器。当你想在连接设备前确保服务器已在运行，或在脚本中希望显式控制服务器启动时机时，这个命令很有用。
 
 # CAVEATS
 
-The server typically starts on port 5037. Only one adb server can run at a time on a given port. If another instance is running, this command has no effect. The server may fail to start if the port is in use by another process.
+服务器通常在端口 5037 上启动。给定端口上同一时间只能运行一个 adb 服务器。如果另一个实例正在运行，此命令不会产生任何效果。若端口被其他进程占用，服务器可能无法启动。
 
 # HISTORY
 
-The adb server architecture has been part of the Android SDK since its initial release in **2008**. The client-server model allows multiple adb clients to share device connections efficiently.
+adb 服务器架构自 **2008** 年 Android SDK 首次发布起就是其组成部分。客户端-服务器模型使多个 adb 客户端能够高效共享设备连接。
 
 # INSTALL
 

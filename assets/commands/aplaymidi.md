@@ -1,18 +1,18 @@
 # TAGLINE
 
-Play MIDI files through ALSA sequencer
+通过 ALSA 音序器播放 MIDI 文件
 
 # TLDR
 
-**Play** MIDI file
+**播放** MIDI 文件
 
 ```aplaymidi -p [hw:1,0] [file.mid]```
 
-**List** available MIDI ports
+**列出**可用的 MIDI 端口
 
 ```aplaymidi -l```
 
-Play with **delay** after the end of each file
+在每个文件结束后**延迟**一段时间再继续
 
 ```aplaymidi -p [hw:1,0] -d [2] [file.mid]```
 
@@ -22,34 +22,34 @@ Play with **delay** after the end of each file
 
 # DESCRIPTION
 
-**aplaymidi** plays MIDI files through ALSA sequencer ports. It sends MIDI events to connected hardware synthesizers, software synths, or other MIDI applications.
+**aplaymidi** 通过 ALSA 音序器端口播放 MIDI 文件。它将 MIDI 事件发送到已连接的硬件合成器、软件合成器或其他 MIDI 应用。
 
-Unlike audio players, aplaymidi only sends MIDI messages; actual sound generation depends on the receiving device or software.
+与音频播放器不同，aplaymidi 只发送 MIDI 消息；实际发声取决于接收端设备或软件。
 
 # PARAMETERS
 
 **-p** _client:port_, **--port** _client:port_
-> Set the sequencer port(s) to which MIDI events are sent. A client can be specified by number, name, or name prefix.
+> 设置接收 MIDI 事件的音序器端口。客户端可以用编号、名称或名称前缀指定。
 
 **-l**, **--list**
-> List available MIDI ports
+> 列出可用的 MIDI 端口
 
 **-d** _seconds_, **--delay** _seconds_
-> Delay after the end of each MIDI file, to allow the last notes to die away.
+> 每个 MIDI 文件结束后的延迟时间，让最后的音符自然衰减。
 
 **-h**, **--help**
-> Print a list of options.
+> 打印选项列表。
 
 **-V**, **--version**
-> Print the current version.
+> 打印当前版本。
 
 # CAVEATS
 
-Requires a connected MIDI synthesizer (hardware or software) to produce sound. Port numbers may change if MIDI devices are reconnected. Only plays Standard MIDI Files (SMF).
+需要连接 MIDI 合成器（硬件或软件）才能发声。重新连接 MIDI 设备后端口号可能变化。只能播放标准 MIDI 文件（SMF）。
 
 # HISTORY
 
-**aplaymidi** is part of the ALSA utilities, providing basic MIDI file playback since ALSA became the standard Linux audio architecture in the early **2000s**.
+**aplaymidi** 是 ALSA 实用工具的一部分。自 **21 世纪初** ALSA 成为标准 Linux 音频架构以来，它一直提供基础的 MIDI 文件播放功能。
 
 # INSTALL
 

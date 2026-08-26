@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create S3 buckets
+创建 S3 存储桶
 
 # TLDR
 
-**Create a new S3 bucket** in the default region
+在默认区域**创建新 S3 存储桶**
 
 ```aws s3 mb s3://[bucket-name]```
 
-**Create a bucket** in a specific region
+在指定区域**创建存储桶**
 
 ```aws s3 mb s3://[bucket-name] --region [us-west-1]```
 
@@ -18,24 +18,24 @@ Create S3 buckets
 
 # DESCRIPTION
 
-**aws s3 mb** (make bucket) creates a new Amazon S3 bucket. The bucket name must be globally unique across all AWS accounts and comply with S3 naming rules.
+**aws s3 mb**（make bucket）创建新的 Amazon S3 存储桶。存储桶名称必须在所有 AWS 账户间全局唯一，并遵守 S3 命名规则。
 
-By default, the bucket is created in the region specified in your AWS configuration. Use the **--region** option to create the bucket in a different region.
+默认情况下，存储桶创建在 AWS 配置中指定的区域。可使用 **--region** 选项在其他区域创建存储桶。
 
 # PARAMETERS
 
 **S3Uri**
-> The S3 URI for the bucket to create in the format s3://bucket-name
+> 要创建的存储桶的 S3 URI，格式为 s3://bucket-name
 
 **--region** _value_
-> Create the bucket in the specified AWS region (overrides the region from config or environment)
+> 在指定的 AWS 区域创建存储桶（覆盖来自配置或环境的区域设置）
 
 **--tags** _key_ _value_
-> Add tags to the bucket. Specify multiple times to set several tags.
+> 为存储桶添加标签。可多次指定以设置多个标签。
 
 # CAVEATS
 
-Bucket names must be globally unique across all AWS accounts and regions. Names must be 3-63 characters, contain only lowercase letters, numbers, and hyphens, and cannot be formatted as IP addresses. Bucket creation may fail if the name is already taken by another AWS account.
+存储桶名称必须在所有 AWS 账户和区域内全局唯一。名称必须为 3-63 个字符，只能包含小写字母、数字和连字符，且不能是 IP 地址格式。如果名称已被其他 AWS 账户占用，创建将失败。
 
 # INSTALL
 

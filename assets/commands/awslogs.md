@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query and stream CloudWatch log groups from the terminal.
+在终端中查询和流式查看 CloudWatch 日志组。
 
 # TLDR
 
-**Stream** CloudWatch logs in real-time
+实时**流式查看** CloudWatch 日志
 
 ```awslogs get [/aws/lambda/my-function] --watch```
 
-Get logs from a **specific time** range
+从**指定时间**范围获取日志
 
 ```awslogs get [/aws/lambda/my-function] --start='[2h ago]'```
 
-**Filter** logs by pattern
+按模式**过滤**日志
 
 ```awslogs get [/aws/lambda/my-function] --filter-pattern '[ERROR]'```
 
-List available **log groups**
+列出可用的**日志组**
 
 ```awslogs groups```
 
-List **log streams** within a group
+列出日志组内的**日志流**
 
 ```awslogs streams [/aws/lambda/my-function]```
 
@@ -30,72 +30,72 @@ List **log streams** within a group
 
 # DESCRIPTION
 
-**awslogs** is a command-line tool for querying and streaming AWS CloudWatch Logs. It provides a simple interface for viewing logs from Lambda functions, EC2 instances, ECS containers, and other AWS services.
+**awslogs** 是一款用于查询和流式查看 AWS CloudWatch Logs 的命令行工具。它提供了简单的界面，可查看来自 Lambda 函数、EC2 实例、ECS 容器和其他 AWS 服务的日志。
 
-The tool offers real-time log streaming and time-based filtering without using the AWS Console.
+该工具支持实时日志流式输出和基于时间的过滤，无需使用 AWS 控制台。
 
 # PARAMETERS
 
 **get** _log-group_ [_stream-expression_]
-> Fetch logs matching the optional stream expression from a log group.
+> 从日志组中获取与可选流表达式匹配的日志。
 
 **groups**
-> List available log groups.
+> 列出可用的日志组。
 
 **streams** _log-group_
-> List streams within a log group.
+> 列出某个日志组内的日志流。
 
 **--watch**, **-w**
-> Watch logs as they are created (stream in real-time).
+> 持续监视新生成的日志（实时流式输出）。
 
 **--watch-interval**, **-i** _seconds_
-> Interval in seconds to poll for new log events with --watch.
+> 配合 --watch 轮询新日志事件的时间间隔（秒）。
 
 **--start** _time_, **-s** _time_
-> Start time (e.g., '2h ago', '2023-01-01').
+> 开始时间（如 '2h ago'、'2023-01-01'）。
 
 **--end** _time_, **-e** _time_
-> End time.
+> 结束时间。
 
 **--filter-pattern** _pattern_, **-f** _pattern_
-> CloudWatch Logs filter pattern.
+> CloudWatch Logs 过滤模式。
 
 **--query** _query_, **-q** _query_
-> JMESPath-style query to extract fields from JSON log events.
+> 用于从 JSON 日志事件中提取字段的 JMESPath 风格查询。
 
 **--timestamp**
-> Print the timestamp of each event.
+> 打印每个事件的时间戳。
 
 **--ingestion-time**
-> Print the ingestion time of each event.
+> 打印每个事件的摄取时间。
 
 **--profile** _profile_
-> AWS CLI profile to use.
+> 要使用的 AWS CLI profile。
 
 **--aws-region** _region_
-> AWS region (or set the AWS_REGION environment variable).
+> AWS 区域（或设置 AWS_REGION 环境变量）。
 
 **--no-group**, **-G**
-> Do not display the log group name.
+> 不显示日志组名称。
 
 **--no-stream**, **-S**
-> Do not display the log stream name.
+> 不显示日志流名称。
 
 # TIME SPECIFICATIONS
 
-- **2h ago** - 2 hours ago
-- **30m ago** - 30 minutes ago
-- **2d ago** - 2 days ago
-- **2023-01-01** - Specific date
-- **2023-01-01 10:30** - Specific datetime
+- **2h ago** - 2 小时前
+- **30m ago** - 30 分钟前
+- **2d ago** - 2 天前
+- **2023-01-01** - 具体日期
+- **2023-01-01 10:30** - 具体日期时间
 
 # CAVEATS
 
-Requires AWS credentials configured. Large log queries may be slow. CloudWatch Logs costs apply. Time specifications are in UTC. --watch can consume API calls quickly.
+需要已配置 AWS 凭证。大范围的日志查询可能较慢。会产生 CloudWatch Logs 费用。时间规格采用 UTC。--watch 可能很快消耗大量 API 调用。
 
 # HISTORY
 
-**awslogs** was created by Jorge Bastida around **2015** to provide a better command-line experience for viewing CloudWatch Logs compared to the official AWS CLI.
+**awslogs** 由 Jorge Bastida 于 **2015 年**前后创建，旨在相比官方 AWS CLI 提供更好的 CloudWatch Logs 命令行查看体验。
 
 # INSTALL
 

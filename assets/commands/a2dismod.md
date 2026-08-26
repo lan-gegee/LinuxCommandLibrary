@@ -1,22 +1,22 @@
 # TAGLINE
 
-disable an Apache2 module
+禁用 Apache2 模块
 
 # TLDR
 
-**Disable** a module
+**禁用**一个模块
 
 ```sudo a2dismod [module]```
 
-Don't show **informative messages**
+不显示**提示信息**
 
 ```sudo a2dismod -q [module]```
 
-**Force** disable a module even if it does not exist or is already disabled
+**强制**禁用一个模块，即使它不存在或已被禁用
 
 ```sudo a2dismod -f [module]```
 
-Disable a module and **purge** all traces from the internal state database
+禁用一个模块并从内部状态数据库中**清除**其所有痕迹
 
 ```sudo a2dismod -p [module]```
 
@@ -26,31 +26,31 @@ Disable a module and **purge** all traces from the internal state database
 
 # DESCRIPTION
 
-**a2dismod** is a Debian-specific utility that disables Apache2 modules by removing symbolic links from **/etc/apache2/mods-enabled**. It manages both **.load** files and associated **.conf** files for each module.
+**a2dismod** 是一个 Debian 特有的工具，它通过删除 **/etc/apache2/mods-enabled** 中的符号链接来禁用 Apache2 模块。它会同时管理每个模块的 **.load** 文件和关联的 **.conf** 文件。
 
-The tool works alongside **a2enmod**, which enables modules. After disabling a module, Apache must be restarted or reloaded for changes to take effect.
+该工具与负责启用模块的 **a2enmod** 配合使用。禁用模块后，必须重启或重新加载 Apache 才能使更改生效。
 
 # PARAMETERS
 
 **-q, --quiet**
-> Don't show informative messages
+> 不显示提示信息
 
 **-f, --force**
-> Do not complain if the specified module does not exist or is already disabled
+> 如果指定的模块不存在或已被禁用，也不报错
 
 **-m, --maintmode**
-> Enables maintainer mode; the program invocation is effectuated automatically by a maintainer script
+> 启用维护者模式；程序调用由维护者脚本自动执行
 
 **-p, --purge**
-> When disabling a module, purge all traces from the internal state database
+> 禁用模块时，从内部状态数据库中清除其所有痕迹
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions (also works on Ubuntu and derivatives). After disabling a module, you must restart or reload Apache for changes to take effect.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用（Ubuntu 及其衍生版同样可用）。禁用模块后，必须重启或重新加载 Apache 才能使更改生效。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. The manual page was authored by Daniel Stone and dates to **October 2006**.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建。手册页由 Daniel Stone 编写，可追溯到 **2006 年 10 月**。
 
 # INSTALL
 

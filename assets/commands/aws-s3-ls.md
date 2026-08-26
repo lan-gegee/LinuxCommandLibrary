@@ -1,30 +1,30 @@
 # TAGLINE
 
-List S3 buckets and objects
+列出 S3 存储桶和对象
 
 # TLDR
 
-**List all S3 buckets** in your account
+**列出账户中的所有 S3 存储桶**
 
 ```aws s3 ls```
 
-**List objects** in a bucket
+**列出**存储桶中的**对象**
 
 ```aws s3 ls s3://[bucket-name]/```
 
-**List objects** under a specific prefix
+**列出**特定前缀下的**对象**
 
 ```aws s3 ls s3://[bucket-name]/[prefix/]```
 
-**Recursively list** all objects in a bucket
+**递归列出**存储桶中的所有对象
 
 ```aws s3 ls s3://[bucket-name] --recursive```
 
-**List with human-readable sizes** and summary
+以**人类可读的大小**列出并显示汇总信息
 
 ```aws s3 ls s3://[bucket-name] --recursive --human-readable --summarize```
 
-**List buckets** starting with a specific prefix
+**列出**以特定前缀开头的**存储桶**
 
 ```aws s3 ls --bucket-name-prefix [my-prefix]```
 
@@ -34,36 +34,36 @@ List S3 buckets and objects
 
 # DESCRIPTION
 
-**aws s3 ls** lists S3 objects and common prefixes under a specified prefix, or lists all S3 buckets when no URI is provided. The output shows the last modified date, size, and object key for each item.
+**aws s3 ls** 列出指定前缀下的 S3 对象和公共前缀（common prefix），未提供 URI 时则列出所有 S3 存储桶。输出会显示每一项的最后修改日期、大小和对象键。
 
-When listing bucket contents, objects are displayed with timestamps and sizes, while common prefixes (similar to directories) are shown with a **PRE** indicator. The command supports recursive listing to show all objects under a prefix.
+列出的存储桶内容中，对象会带时间戳和大小显示，而公共前缀（类似于目录）则以 **PRE** 标识显示。该命令支持递归列出，可显示某个前缀下的所有对象。
 
 # PARAMETERS
 
 **--recursive**
-> List all objects under the specified prefix, including nested objects
+> 列出指定前缀下的所有对象，包括嵌套对象
 
 **--human-readable**
-> Display file sizes in human-readable format (KB, MB, GB)
+> 以人类可读的格式（KB、MB、GB）显示文件大小
 
 **--summarize**
-> Display summary information including total number of objects and total size
+> 显示汇总信息，包括对象总数和总大小
 
 **--page-size** _value_
-> Number of results to return in each response (default: 1000)
+> 每个响应返回的结果数（默认：1000）
 
 **--request-payer** _value_
-> Confirm that the requester will pay for request and data transfer costs
+> 确认请求方将承担请求和数据传输费用
 
 **--bucket-name-prefix** _value_
-> Filter bucket list to names beginning with the specified prefix
+> 将存储桶列表过滤为以指定前缀开头的名称
 
 **--bucket-region** _value_
-> Filter bucket list to buckets in the specified AWS Region
+> 将存储桶列表过滤为位于指定 AWS 区域的存储桶
 
 # CAVEATS
 
-The **--output** and **--no-paginate** global arguments are ignored for this command. Output format is fixed and cannot be changed to JSON or other formats. For programmatic access to S3 listings with flexible output, use **aws s3api list-objects-v2** instead.
+全局参数 **--output** 和 **--no-paginate** 在此命令中会被忽略。输出格式是固定的，无法更改为 JSON 或其他格式。若要以灵活的输出对 S3 列表进行编程式访问，请改用 **aws s3api list-objects-v2**。
 
 # INSTALL
 

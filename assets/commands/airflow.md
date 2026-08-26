@@ -1,46 +1,46 @@
 # TAGLINE
 
-Platform to author, schedule, and monitor data workflows
+用于编写、调度和监控数据工作流的平台
 
 # TLDR
 
-**Start the Airflow scheduler**
+**启动 Airflow 调度器**
 
 ```airflow scheduler```
 
-**Start the web server** on a specific port
+**在指定端口启动 Web 服务器**
 
 ```airflow webserver --port [8080]```
 
-**List all DAGs**
+**列出所有 DAG**
 
 ```airflow dags list```
 
-**Trigger a DAG run**
+**触发一次 DAG 运行**
 
 ```airflow dags trigger [dag_id]```
 
-**Trigger a DAG** with configuration parameters
+**触发 DAG** 并附带配置参数
 
 ```airflow dags trigger [dag_id] --conf '{"key": "value"}'```
 
-**Test a specific task** in a DAG
+**测试 DAG 中指定的任务**
 
 ```airflow tasks test [dag_id] [task_id] [execution_date]```
 
-**Pause a DAG** (stop scheduling)
+**暂停 DAG**（停止调度）
 
 ```airflow dags pause [dag_id]```
 
-**Unpause a DAG** (resume scheduling)
+**恢复 DAG**（继续调度）
 
 ```airflow dags unpause [dag_id]```
 
-**List all DAG runs** for a specific DAG
+**列出指定 DAG 的所有运行记录**
 
 ```airflow dags list-runs -d [dag_id]```
 
-**Initialize the database**
+**初始化数据库**
 
 ```airflow db migrate```
 
@@ -51,78 +51,78 @@ Platform to author, schedule, and monitor data workflows
 # PARAMETERS
 
 **scheduler**
-> Start the Airflow scheduler daemon to trigger DAG runs
+> 启动 Airflow 调度器守护进程以触发 DAG 运行
 
 **webserver**
-> Start the Airflow web interface server
+> 启动 Airflow Web 界面服务器
 
 **triggerer**
-> Start the async trigger service for deferrable operators
+> 为可延迟操作符（deferrable operators）启动异步触发服务
 
 **dags**
-> Manage DAGs (list, trigger, pause, unpause, test, delete, backfill)
+> 管理 DAG（list、trigger、pause、unpause、test、delete、backfill）
 
 **tasks**
-> Manage and test individual tasks (run, test, clear, list, render)
+> 管理并测试单个任务（run、test、clear、list、render）
 
 **db**
-> Database operations (migrate, reset, clean, check, shell)
+> 数据库操作（migrate、reset、clean、check、shell）
 
 **connections**
-> Manage connection configurations (add, delete, list, export, import)
+> 管理连接配置（add、delete、list、export、import）
 
 **variables**
-> Manage Airflow variables (get, set, delete, list, export, import)
+> 管理 Airflow 变量（get、set、delete、list、export、import）
 
 **pools**
-> Manage resource pools for task concurrency control
+> 管理资源池，用于控制任务并发
 
 **users**
-> Manage Airflow users (create, delete, list)
+> 管理 Airflow 用户（create、delete、list）
 
 **config**
-> View and manage configuration settings
+> 查看和管理配置设置
 
 **providers**
-> Display information about installed providers
+> 显示已安装 provider 的信息
 
 **info**
-> Show system and environment information
+> 显示系统和环境信息
 
 **version**
-> Display Airflow version
+> 显示 Airflow 版本
 
 **-o**, **--output** _format_
-> Output format: table, json, yaml, plain
+> 输出格式：table、json、yaml、plain
 
 **-v**, **--verbose**
-> Enable verbose logging
+> 启用详细日志输出
 
 # DESCRIPTION
 
-**Apache Airflow** is a platform for programmatically authoring, scheduling, and monitoring workflows. The CLI provides comprehensive control over DAGs (Directed Acyclic Graphs), tasks, connections, and the Airflow services.
+**Apache Airflow** 是一个以编程方式编写、调度和监控工作流的平台。该 CLI 提供对 DAG（有向无环图）、任务、连接以及 Airflow 各服务的全面控制。
 
-Workflows are defined as Python code, creating DAGs that describe how tasks should be organized and executed. The scheduler triggers tasks based on defined schedules and dependencies, while the web interface provides monitoring and manual intervention capabilities.
+工作流以 Python 代码定义，创建出描述任务应如何组织和执行的 DAG。调度器根据定义的计划和依赖关系触发任务，而 Web 界面则提供监控和人工干预能力。
 
-The tool manages connections to external systems (databases, APIs, cloud services) and variables for configuration. Resource pools allow controlling task concurrency. The database stores metadata about DAG runs, task states, and history.
+该工具管理到外部系统（数据库、API、云服务）的连接以及用于配置的变量。资源池可用于控制任务并发。数据库存储有关 DAG 运行、任务状态和历史记录的元数据。
 
-Common workflows include initializing the database with **db migrate**, starting the **scheduler** and **webserver**, and using **dags trigger** to manually start DAG runs. Tasks can be tested individually without affecting production state using **tasks test**.
+常见流程包括：使用 **db migrate** 初始化数据库，启动 **scheduler** 和 **webserver**，以及使用 **dags trigger** 手动启动 DAG 运行。可以使用 **tasks test** 单独测试任务而不影响生产状态。
 
 # CONFIGURATION
 
 **~/airflow/airflow.cfg**
-> Main configuration file controlling executor type, database connection, web server settings, scheduler behavior, and logging. Can also be overridden via environment variables prefixed with AIRFLOW__.
+> 主配置文件，控制执行器类型、数据库连接、Web 服务器设置、调度器行为和日志。也可通过以 AIRFLOW__ 为前缀的环境变量覆盖。
 
 **~/airflow/webserver_config.py**
-> Web server authentication and security configuration, including RBAC settings and authentication backends.
+> Web 服务器的认证与安全配置，包括 RBAC 设置和认证后端。
 
 # CAVEATS
 
-Requires proper configuration via **airflow.cfg** or environment variables before first use. The scheduler must be running for DAGs to execute on schedule. Database must be initialized with **airflow db migrate** before starting services. Some features require additional dependencies or executor configurations (Celery, Kubernetes).
+首次使用前需要通过 **airflow.cfg** 或环境变量完成正确配置。DAG 要按计划执行必须保持调度器运行。启动服务之前必须先用 **airflow db migrate** 初始化数据库。某些功能需要额外的依赖或执行器配置（Celery、Kubernetes）。
 
 # HISTORY
 
-Apache Airflow was created at **Airbnb** in **2014** by Maxime Beauchemin to manage their complex data pipelines. It was open-sourced in **2015** and became an Apache Incubator project in **2016**. It graduated to a top-level Apache project in **2019**. The platform has grown to become one of the most widely used workflow orchestration tools, with version 2.0 released in **December 2020** introducing significant architectural improvements, and version 3.0 bringing further enhancements.
+Apache Airflow 由 Maxime Beauchemin 于 **2014** 年在 **Airbnb** 创建，用于管理其复杂的数据管道。它于 **2015** 年开源，**2016** 年成为 Apache 孵化器项目，**2019** 年毕业为 Apache 顶级项目。该平台已发展成为使用最广泛的工作流编排工具之一：**2020 年 12 月**发布的 2.0 版本带来了重大架构改进，3.0 版本进一步增强。
 
 # SEE ALSO
 

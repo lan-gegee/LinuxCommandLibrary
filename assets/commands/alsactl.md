@@ -1,34 +1,34 @@
 # TAGLINE
 
-Save and restore ALSA sound card settings.
+保存和恢复 ALSA 声卡设置。
 
 # TLDR
 
-**Store** current sound card settings
+**保存**当前声卡设置
 
 ```sudo alsactl store```
 
-**Restore** saved settings
+**恢复**已保存的设置
 
 ```sudo alsactl restore```
 
-Store settings for **specific card**
+保存**特定声卡**的设置
 
 ```sudo alsactl store [0]```
 
-**Initialize** sound cards to default
+将声卡**初始化**为默认状态
 
 ```sudo alsactl init```
 
-Restore using a **specific state file**
+使用**指定的状态文件**恢复
 
 ```sudo alsactl -f [/path/to/asound.state] restore```
 
-**Monitor** driver events
+**监视**驱动程序事件
 
 ```sudo alsactl monitor```
 
-Restore with **debug output**
+带**调试输出**地恢复
 
 ```sudo alsactl -d restore```
 
@@ -38,60 +38,60 @@ Restore with **debug output**
 
 # DESCRIPTION
 
-**alsactl** is an ALSA soundcard control utility that manages sound card configuration state. It can save and restore mixer settings, volume levels, and other audio parameters.
+**alsactl** 是一个 ALSA 声卡控制工具，用于管理声卡的配置状态。它可以保存和恢复混音器设置、音量级别及其他音频参数。
 
-The tool is typically called automatically during system startup and shutdown to preserve audio settings across reboots.
+该工具通常在系统启动和关机时自动调用，以便在重启后保留音频设置。
 
 # PARAMETERS
 
 **store** [_card_]
-> Save current state to file
+> 将当前状态保存到文件
 
 **restore** [_card_]
-> Restore state from file
+> 从文件恢复状态
 
 **init** [_card_]
-> Initialize card to default state
+> 将声卡初始化为默认状态
 
 **nrestore** [_card_]
-> Restore but don't fail on missing state file
+> 恢复状态，但在缺少状态文件时不报错
 
 **monitor**
-> Monitor driver events
+> 监视驱动程序事件
 
 **-f** _file_
-> State file (default: /var/lib/alsa/asound.state)
+> 状态文件（默认：/var/lib/alsa/asound.state）
 
 **-d**
-> Debug mode
+> 调试模式
 
 **-F**
-> Force restore, try to restore as many controls as possible
+> 强制恢复，尽可能多地恢复控件
 
 **-g**, **--ignore**
-> Ignore missing soundcards (no error message or exit code)
+> 忽略缺失的声卡（不输出错误信息或返回错误码）
 
 **-P**, **--pedantic**
-> Don't restore mismatching control elements
+> 不恢复不匹配的控件元素
 
 **-I**, **--no-init-fallback**
-> Don't initialize cards if restore fails
+> 恢复失败时不初始化声卡
 
 **-r**, **--runstate** _file_
-> Save restore/init state to file for error reporting
+> 将恢复/初始化状态保存到文件以供错误报告
 
 # CONFIGURATION
 
 **/var/lib/alsa/asound.state**
-> Default state file where mixer settings and volume levels are saved and restored from. Can also be located at /etc/asound.state on some distributions.
+> 默认的状态文件，混音器设置和音量级别从中保存和恢复。在某些发行版上也可能位于 /etc/asound.state。
 
 # CAVEATS
 
-Requires root privileges for system-wide operations. State files are card-specific; moving a card to a different slot may cause issues. Some driver updates may invalidate saved state.
+系统级操作需要 root 权限。状态文件是针对特定声卡的；将声卡移动到不同插槽可能会导致问题。某些驱动程序更新可能会使已保存的状态失效。
 
 # HISTORY
 
-**alsactl** has been part of the ALSA (Advanced Linux Sound Architecture) project since ALSA replaced OSS (Open Sound System) as the standard Linux audio framework in the early **2000s**.
+**alsactl** 是 ALSA（Advanced Linux Sound Architecture）项目的一部分，自 **2000** 年代初 ALSA 取代 OSS（Open Sound System）成为 Linux 标准音频框架以来就一直存在。
 
 # INSTALL
 

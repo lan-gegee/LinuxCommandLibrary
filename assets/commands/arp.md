@@ -1,34 +1,34 @@
 # TAGLINE
 
-View and manipulate the ARP cache
+查看和操作 ARP 缓存
 
 # TLDR
 
-**Display ARP table in BSD style**
+**以 BSD 风格显示 ARP 表**
 
 ```arp -a```
 
-**Display ARP table in numeric format without DNS resolution**
+**以数字格式显示 ARP 表**，不做 DNS 解析
 
 ```arp -an```
 
-**Display ARP table in default Linux format**
+**以默认 Linux 格式显示 ARP 表**
 
 ```arp -e```
 
-**Add a static ARP entry**
+**添加一条静态 ARP 条目**
 
 ```sudo arp -s [192.168.1.1] [00:11:22:33:44:55]```
 
-**Delete an ARP entry**
+**删除一条 ARP 条目**
 
 ```sudo arp -d [192.168.1.1]```
 
-**Show entries for a specific interface**
+**显示指定接口的条目**
 
 ```arp -i [eth0] -a```
 
-**Load entries from a file**
+**从文件加载条目**
 
 ```sudo arp -f [/etc/ethers]```
 
@@ -38,49 +38,49 @@ View and manipulate the ARP cache
 
 # DESCRIPTION
 
-**arp** manipulates the system's ARP (Address Resolution Protocol) cache. ARP maps IPv4 addresses to MAC (hardware) addresses on a local network segment.
+**arp** 用于操作系统的 ARP（地址解析协议）缓存。ARP 在本地网段内将 IPv4 地址映射为 MAC（硬件）地址。
 
-The ARP table is built dynamically as the system communicates, but entries can be manually added, deleted, or viewed for network troubleshooting.
+ARP 表随着系统的通信动态建立，但也可以手动添加、删除或查看条目，用于网络故障排查。
 
 # PARAMETERS
 
 **-a**
-> Display all entries in BSD style output format.
+> 以 BSD 风格的输出格式显示所有条目。
 
 **-e**
-> Display entries in default Linux style with fixed columns.
+> 以默认 Linux 风格、固定列宽显示条目。
 
 **-n**, **--numeric**
-> Show numerical addresses instead of resolving hostnames.
+> 显示数字地址，而不解析主机名。
 
 **-d** _address_
-> Delete an entry for the specified address. Requires root.
+> 删除指定地址对应的条目。需要 root 权限。
 
 **-s** _address_ _hw_addr_
-> Add a static ARP entry. Add **temp** to make it non-permanent.
+> 添加一条静态 ARP 条目。加上 **temp** 可使其成为非永久条目。
 
 **-i** _If_, **--device** _If_
-> Limit display to a specific network interface.
+> 将显示限制在指定的网络接口。
 
 **-D**, **--use-device**
-> Use the hardware address of the specified interface instead of a hw_addr.
+> 使用指定接口的硬件地址而非 hw_addr。
 
 **-f** _filename_, **--file** _filename_
-> Load address entries from a file (default: /etc/ethers).
+> 从文件加载地址条目（默认：/etc/ethers）。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-H** _type_, **--hw-type** _type_
-> Hardware type (ether, arcnet, pronet, ax25, netrom).
+> 硬件类型（ether、arcnet、pronet、ax25、netrom）。
 
 # CAVEATS
 
-The arp command is deprecated in favor of **ip neigh** on modern Linux. Static entries do not survive reboots by default. ARP is only used for IPv4; IPv6 uses Neighbor Discovery Protocol (NDP).
+在现代 Linux 上，arp 命令已被 **ip neigh** 取代。静态条目默认在重启后不会保留。ARP 仅用于 IPv4；IPv6 使用邻居发现协议（NDP）。
 
 # HISTORY
 
-**arp** has been part of Unix networking since the early days of TCP/IP in the **1980s**. On Linux, it is part of the **net-tools** package, which is being superseded by **iproute2**.
+**arp** 自 **1980** 年代 TCP/IP 早期就一直是 Unix 网络工具的一部分。在 Linux 上它属于 **net-tools** 软件包，而该软件包正被 **iproute2** 取代。
 
 # INSTALL
 

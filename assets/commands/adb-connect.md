@@ -1,18 +1,18 @@
 # TAGLINE
 
-wireless Android device connector
+无线 Android 设备连接器
 
 # TLDR
 
-**Connect** to a device over Wi-Fi
+通过 Wi-Fi **连接**设备
 
 ```adb connect [192.168.1.100]:5555```
 
-Connect using **default port** (5555)
+使用**默认端口**（5555）连接
 
 ```adb connect [192.168.1.100]```
 
-Connect to **emulator**
+连接**模拟器**
 
 ```adb connect [localhost]:5554```
 
@@ -22,25 +22,25 @@ Connect to **emulator**
 
 # DESCRIPTION
 
-**adb connect** establishes a TCP/IP connection to an Android device for wireless debugging. Once connected, you can use all adb commands over the network instead of USB.
+**adb connect** 建立到 Android 设备的 TCP/IP 连接，用于无线调试。连接建立后，所有 adb 命令都可以通过网络执行，而不必使用 USB。
 
-Before connecting wirelessly, the device typically needs to be configured via USB first using **adb tcpip 5555** to enable TCP/IP mode. Android 11+ supports direct wireless pairing without initial USB connection.
+在无线连接之前，通常需要先通过 USB 用 **adb tcpip 5555** 配置设备以启用 TCP/IP 模式。Android 11 及以上版本支持直接无线配对，无需先进行 USB 连接。
 
 # PARAMETERS
 
 **host**
-> IP address or hostname of the Android device
+> Android 设备的 IP 地址或主机名
 
 **port**
-> TCP port number (default: 5555)
+> TCP 端口号（默认：5555）
 
 # CAVEATS
 
-Both computer and device must be on the same network. The device reverts to USB mode after reboot, requiring reconfiguration. Wireless connections are less secure than USB; use only on trusted networks. Connection may be slow compared to USB.
+电脑和设备必须处于同一网络。设备重启后会恢复为 USB 模式，需要重新配置。无线连接不如 USB 安全；请只在可信网络中使用。与 USB 相比，连接速度可能较慢。
 
 # HISTORY
 
-Wireless ADB debugging has been available since early Android versions but required initial USB setup. Android 11 (released **2020**) introduced wireless debugging with pairing codes, eliminating the USB requirement.
+无线 ADB 调试自早期 Android 版本起就已可用，但需要先通过 USB 设置。Android 11（发布于 **2020** 年）引入了带配对码的无线调试，不再需要 USB。
 
 # INSTALL
 

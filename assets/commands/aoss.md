@@ -1,18 +1,18 @@
 # TAGLINE
 
-Run OSS applications using ALSA emulation
+通过 ALSA 仿真运行 OSS 应用
 
 # TLDR
 
-**Run an application with ALSA OSS emulation**
+**以 ALSA OSS 仿真运行应用程序**
 
 ```aoss [application]```
 
-**Run a game that requires OSS audio**
+**运行需要 OSS 音频的游戏**
 
 ```aoss [game_binary]```
 
-**Choose the ALSA PCM device** the OSS /dev/dsp maps to
+**选择 OSS /dev/dsp 映射到的 ALSA PCM 设备**
 
 ```ALSA_OSS_PCM_DEVICE=[plughw:0,0] aoss [application]```
 
@@ -22,19 +22,19 @@ Run OSS applications using ALSA emulation
 
 # DESCRIPTION
 
-**aoss** is a wrapper script that enables applications written for the Open Sound System (OSS) API to work with ALSA (Advanced Linux Sound Architecture). It preloads a compatibility library that intercepts OSS system calls and translates them to ALSA equivalents.
+**aoss** 是一个包装脚本，让为开放声音系统（OSS）API 编写的应用能够配合 ALSA（Advanced Linux Sound Architecture）工作。它会预加载一个兼容性库，拦截 OSS 系统调用并将其转换为对应的 ALSA 调用。
 
-Many older Linux applications and games were written to use the OSS **/dev/dsp** and **/dev/mixer** device interfaces. Since modern Linux systems primarily use ALSA, these applications would fail to produce sound without a compatibility layer. The aoss wrapper provides this translation transparently.
+许多较早的 Linux 应用和游戏使用 OSS 的 **/dev/dsp** 和 **/dev/mixer** 设备接口编写。由于现代 Linux 系统主要使用 ALSA，没有兼容层这些应用将无法发声。aoss 包装器透明地提供了这种转换。
 
-The wrapper sets the **LD_PRELOAD** environment variable to load **libaoss.so**, which hooks into the application's file operations on OSS device nodes and redirects them through ALSA's PCM interface. The PCM device to open can be set explicitly with the **ALSA_OSS_PCM_DEVICE** environment variable, overriding the default (dsp0).
+该包装器设置 **LD_PRELOAD** 环境变量来加载 **libaoss.so**，它挂接应用对 OSS 设备节点的文件操作，并通过 ALSA 的 PCM 接口进行重定向。要打开的 PCM 设备可通过 **ALSA_OSS_PCM_DEVICE** 环境变量显式指定，覆盖默认值（dsp0）。
 
 # CAVEATS
 
-Does not work with statically linked applications or applications that directly use kernel interfaces. Some complex OSS features may not be fully emulated. 32-bit applications on 64-bit systems require the 32-bit version of the ALSA OSS library. Applications using ALSA natively do not need this wrapper.
+对静态链接的应用或直接使用内核接口的应用无效。某些复杂的 OSS 特性可能无法完全仿真。64 位系统上的 32 位应用需要 32 位版本的 ALSA OSS 库。原生使用 ALSA 的应用不需要此包装器。
 
 # HISTORY
 
-The aoss wrapper was developed as part of the **alsa-oss** package to ease the transition from OSS to ALSA during the **early 2000s**. OSS was the original Linux sound system but was largely replaced by ALSA, which became the standard in Linux kernel 2.6. The wrapper remains useful for running legacy applications that were never updated to use ALSA or PulseAudio.
+aoss 包装器作为 **alsa-oss** 软件包的一部分开发，目的是在 **21 世纪初**缓解从 OSS 向 ALSA 过渡的问题。OSS 是 Linux 最初的声音系统，但后来基本被 ALSA 取代，后者自 Linux 内核 2.6 起成为标准。对于从未更新为使用 ALSA 或 PulseAudio 的旧应用，这个包装器至今仍然有用。
 
 # SEE ALSO
 

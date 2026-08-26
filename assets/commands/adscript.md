@@ -1,18 +1,18 @@
 # TAGLINE
 
-Audio and digital signal processing language compiler
+音频与数字信号处理语言编译器
 
 # TLDR
 
-**Compile** an ADscript file
+**编译** ADscript 文件
 
 ```adscript [script.ad]```
 
-Compile with **output file**
+编译并指定**输出文件**
 
 ```adscript [script.ad] -o [output]```
 
-**Run** an ADscript directly
+**直接运行** ADscript 文件
 
 ```adscript -r [script.ad]```
 
@@ -22,34 +22,34 @@ Compile with **output file**
 
 # DESCRIPTION
 
-**adscript** is a compiler for the ADscript programming language, a domain-specific language designed for audio and digital signal processing applications. It generates optimized code for audio processing tasks.
+**adscript** 是 ADscript 编程语言的编译器。ADscript 是一门为音频和数字信号处理应用设计的领域专用语言。它为音频处理任务生成优化代码。
 
-ADscript combines functional programming concepts with audio-specific primitives, making it suitable for developing audio plugins, synthesis engines, and signal processing algorithms.
+ADscript 将函数式编程概念与音频专用原语相结合，适合开发音频插件、合成引擎和信号处理算法。
 
 # PARAMETERS
 
 **-o** _file_
-> Specify output file name
+> 指定输出文件名
 
 **-r**
-> Run the script directly instead of compiling
+> 直接运行脚本而不是编译
 
 **-O** _level_
-> Optimization level (0-3)
+> 优化级别（0-3）
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-ADscript is a specialized language; general-purpose programming may be better suited to other languages. Performance depends on target platform and optimization settings.
+ADscript 是一门专门化语言；通用编程可能更适合选用其他语言。性能取决于目标平台和优化设置。
 
 # HISTORY
 
-ADscript was developed for audio programming applications, providing a high-level abstraction over low-level audio processing operations while maintaining performance characteristics needed for real-time audio.
+ADscript 为音频编程应用而开发，在低层音频处理操作之上提供高层的抽象，同时保有实时音频所需的性能特征。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create audio loopback between ALSA devices.
+在 ALSA 设备之间创建音频环回。
 
 # TLDR
 
-**Loop** audio from capture to playback device
+将音频从采集设备**循环转发**到播放设备
 
 ```alsaloop -C [hw:0,0] -P [hw:1,0]```
 
-Loop with **specific sample rate**
+以**指定采样率**进行循环转发
 
 ```alsaloop -C [hw:0,0] -P [hw:1,0] -r [48000]```
 
-Loop with **specific format**
+以**指定格式**进行循环转发
 
 ```alsaloop -C [hw:0,0] -P [hw:1,0] -f [S16_LE]```
 
-Run in **daemon** mode
+以**守护进程**模式运行
 
 ```alsaloop -C [hw:0,0] -P [hw:1,0] -d```
 
@@ -26,52 +26,52 @@ Run in **daemon** mode
 
 # DESCRIPTION
 
-**alsaloop** creates a loopback between an ALSA capture device and playback device. It reads audio from one device and writes it to another in real-time, useful for routing audio between different hardware interfaces.
+**alsaloop** 在 ALSA 采集设备和播放设备之间创建环回。它从一个设备实时读取音频并写入另一个设备，可用于在不同硬件接口之间路由音频。
 
-The tool handles buffer management, sample rate conversion if needed, and attempts to maintain synchronization between devices.
+该工具会处理缓冲区管理，必要时进行采样率转换，并尽力保持设备之间的同步。
 
 # PARAMETERS
 
 **-C**, **--cdevice** _device_
-> Capture (input) PCM device. Default is **default**.
+> 采集（输入）PCM 设备。默认为 **default**。
 
 **-P**, **--pdevice** _device_
-> Playback (output) PCM device. Default is **default**.
+> 播放（输出）PCM 设备。默认为 **default**。
 
 **-r**, **--rate** _rate_
-> Sample rate in Hz. Default is **48000**.
+> 采样率，单位为 Hz。默认为 **48000**。
 
 **-f**, **--format** _format_
-> Sample format such as S16_LE or S32_LE. Default is **S16_LE**.
+> 采样格式，如 S16_LE 或 S32_LE。默认为 **S16_LE**。
 
 **-c**, **--channels** _channels_
-> Number of channels. Default is **2**.
+> 声道数。默认为 **2**。
 
 **-d**, **--daemonize**
-> Daemonize the main process and log messages to syslog.
+> 将主进程转为守护进程，并将日志写入 syslog。
 
 **-s**, **--seconds** _seconds_
-> Duration of the loop in seconds.
+> 循环转发的时长，单位为秒。
 
 **-t**, **--tlatency** _usec_
-> Requested latency in microseconds (1/1000000 sec).
+> 期望的延迟，单位为微秒（1/1000000 秒）。
 
 **-S**, **--sync** _mode_
-> Synchronization mode: none, simple, captshift, playshift, samplerate, or auto.
+> 同步模式：none、simple、captshift、playshift、samplerate 或 auto。
 
 **-n**, **--resample**
-> Enable rate resampling using alsa-lib.
+> 使用 alsa-lib 启用采样率重采样。
 
 **-T**, **--thread** _number_
-> Thread number; -1 creates a unique thread. Jobs with the same number share a thread.
+> 线程编号；-1 表示创建唯一线程。相同编号的任务共享一个线程。
 
 # CAVEATS
 
-Latency depends on buffer sizes and hardware capabilities. Different sample rates between devices require resampling. CPU usage increases with lower latency settings.
+延迟取决于缓冲区大小和硬件能力。设备之间采样率不同时需要进行重采样。更低的延迟设置会增加 CPU 占用。
 
 # HISTORY
 
-**alsaloop** is part of the alsa-utils package, providing a simple tool for audio routing that complements the more complex ALSA loopback kernel module.
+**alsaloop** 是 alsa-utils 软件包的一部分，提供了一个简单的音频路由工具，与更复杂的 ALSA 环回内核模块互为补充。
 
 # INSTALL
 

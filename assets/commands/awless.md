@@ -1,22 +1,22 @@
 # TAGLINE
 
- hierarchical AWS CLI with templates and local infrastructure graph
+ 带模板和本地基础设施图的分层式 AWS CLI
 
 # TLDR
 
-**List** EC2 instances
+**列出** EC2 实例
 
 ```awless list instances```
 
-**SSH** to an instance (smart SSH)
+通过 **SSH** 连接实例（智能 SSH）
 
 ```awless ssh [instance-id-or-name]```
 
-**Run** a create template
+**运行**一个创建型模板
 
 ```awless run [template.awless]```
 
-**Sync** local graph of the account
+**同步**账户的本地关系图
 
 ```awless sync```
 
@@ -26,35 +26,35 @@
 
 # DESCRIPTION
 
-**awless** is an alternative AWS CLI focusing on a small hierarchical command set, infrastructure templating, local graph sync for offline exploration, and “smart SSH” into instances. It logs cloud-modifying actions for review/revert workflows. Install from GitHub releases or package managers.
+**awless** 是一款替代的 AWS CLI，专注于精简的分层命令集、基础设施模板化、用于离线浏览的本地关系图同步，以及"智能 SSH"连接实例。它会记录修改云端资源的操作，便于审查/回滚工作流。可通过 GitHub releases 或软件包管理器安装。
 
 # PARAMETERS
 
 **list** *resources*
 
-> List AWS resources of a type.
+> 列出某一类型的 AWS 资源。
 
 **create** / **delete** / **update**
 
-> Mutating operations (confirm carefully).
+> 修改类操作（务必谨慎确认）。
 
 **run** *template*
 
-> Execute an awless template.
+> 执行一个 awless 模板。
 
 **ssh** *target*
 
-> Connect using discovered connection details.
+> 使用自动发现的连接详情进行连接。
 
 **sync**
 
-> Refresh the local infrastructure graph.
+> 刷新本地基础设施关系图。
 
-Auth uses standard AWS credentials/regions.
+认证使用标准的 AWS 凭证/区域配置。
 
 # CAVEATS
 
-Project activity may lag official **aws** CLI features—verify against current AWS APIs. Templates that create resources incur cost. Prefer least-privilege IAM credentials.
+项目活跃度可能落后于官方 **aws** CLI 的功能——请对照当前的 AWS API 加以验证。创建资源的模板会产生费用。建议使用最小权限的 IAM 凭证。
 
 # INSTALL
 

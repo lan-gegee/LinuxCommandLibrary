@@ -1,14 +1,14 @@
 # TAGLINE
 
-Import old personal dictionaries into GNU Aspell
+将旧的个人词典导入 GNU Aspell
 
 # TLDR
 
-**Import** old personal dictionaries (Ispell and Aspell) automatically
+**自动导入**旧的个人词典（Ispell 和 Aspell）
 
 ```aspell-import```
 
-**Invoke explicitly** through Perl if /usr/bin/perl is missing
+若缺少 /usr/bin/perl，**通过 Perl 显式调用**
 
 ```perl $(which aspell-import)```
 
@@ -18,21 +18,21 @@ Import old personal dictionaries into GNU Aspell
 
 # DESCRIPTION
 
-**aspell-import** is a Perl script that searches for old personal dictionaries from **Ispell** and earlier versions of **Aspell**, then imports them into the current user's GNU Aspell personal word list. It is intended to be run once after installing Aspell or upgrading from Ispell.
+**aspell-import** 是一个 Perl 脚本，它会搜索来自 **Ispell** 和早期版本 **Aspell** 的旧个人词典，然后将它们导入当前用户的 GNU Aspell 个人词表。它适合在安装 Aspell 或从 Ispell 升级后运行一次。
 
-The script scans the user's home directory and standard dictionary locations, converts each entry, and writes a header line so the result is a valid Aspell personal dictionary.
+脚本会扫描用户主目录和标准字典位置，转换每个条目，并写入一行头部信息，使结果成为有效的 Aspell 个人词典。
 
 # PARAMETERS
 
-This command takes no command-line options. Run it without arguments.
+此命令不接受任何命令行选项。直接不带参数运行即可。
 
 # CAVEATS
 
-The script must be able to find a working Perl interpreter at `/usr/bin/perl`. If Perl is installed elsewhere, invoke the script with `perl /path/to/aspell-import`. Existing Aspell personal dictionaries may be overwritten, so back them up first. Ispell affix rules are not migrated, only word lists.
+脚本必须能在 `/usr/bin/perl` 找到可用的 Perl 解释器。如果 Perl 安装在其他位置，请用 `perl /path/to/aspell-import` 调用脚本。现有的 Aspell 个人词典可能被覆盖，因此请先备份。Ispell 的词缀规则不会被迁移，只迁移词表。
 
 # HISTORY
 
-**aspell-import** ships with **GNU Aspell** and was added so users could migrate accumulated personal word lists when moving from Ispell to Aspell.
+**aspell-import** 随 **GNU Aspell** 一起发布，添加它是为了让用户在从 Ispell 迁移到 Aspell 时能够带走积累的个人词表。
 
 # INSTALL
 

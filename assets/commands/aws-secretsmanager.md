@@ -1,38 +1,38 @@
 # TAGLINE
 
-Store and manage secrets securely
+安全地存储和管理机密信息
 
 # TLDR
 
-**Create a new secret**
+**创建新机密**
 
 ```aws secretsmanager create-secret --name [secret-name] --secret-string "[secret-value]"```
 
-**Get the value** of a secret
+**获取机密的值**
 
 ```aws secretsmanager get-secret-value --secret-id [secret-name]```
 
-**List all secrets**
+**列出所有机密**
 
 ```aws secretsmanager list-secrets```
 
-**Update a secret** value
+**更新机密值**
 
 ```aws secretsmanager put-secret-value --secret-id [secret-name] --secret-string "[new-value]"```
 
-**Delete a secret** (with recovery window)
+**删除机密**（带恢复窗口）
 
 ```aws secretsmanager delete-secret --secret-id [secret-name] --recovery-window-in-days [7]```
 
-**Delete a secret immediately** (no recovery)
+**立即删除机密**（不可恢复）
 
 ```aws secretsmanager delete-secret --secret-id [secret-name] --force-delete-without-recovery```
 
-**Rotate a secret**
+**轮换机密**
 
 ```aws secretsmanager rotate-secret --secret-id [secret-name]```
 
-**Generate a random password**
+**生成随机密码**
 
 ```aws secretsmanager get-random-password --password-length [32]```
 
@@ -42,9 +42,9 @@ Store and manage secrets securely
 
 # DESCRIPTION
 
-**aws secretsmanager** is the AWS CLI interface for Amazon Secrets Manager, a service for securely storing, managing, and retrieving secrets such as database credentials, API keys, and other sensitive information.
+**aws secretsmanager** 是 AWS CLI 中用于管理 Amazon Secrets Manager 的接口。Secrets Manager 是一项用于安全存储、管理和检索机密的服务，可保存数据库凭证、API 密钥和其他敏感信息。
 
-Secrets Manager enables automatic rotation of secrets, fine-grained access control through IAM policies, and audit logging via CloudTrail. It supports replication across regions for disaster recovery.
+Secrets Manager 支持自动轮换机密、通过 IAM 策略进行细粒度访问控制，以及通过 CloudTrail 记录审计日志。它还支持跨区域复制以实现灾难恢复。
 
 # SUBCOMMANDS
 
@@ -71,11 +71,11 @@ Secrets Manager enables automatic rotation of secrets, fine-grained access contr
 
 # CAVEATS
 
-Deleted secrets enter a recovery window (default 30 days) before permanent deletion; use **--force-delete-without-recovery** to skip this. Secret values have a 64KB size limit. Automatic rotation requires a Lambda function. Secrets Manager charges per secret per month plus per API call.
+已删除的机密会进入恢复窗口（默认 30 天），之后才被永久删除；使用 **--force-delete-without-recovery** 可跳过这一步。机密值大小上限为 64KB。自动轮换需要 Lambda 函数。Secrets Manager 按每个机密每月收费，另加每次 API 调用的费用。
 
 # HISTORY
 
-AWS Secrets Manager was launched in **April 2018** to provide a centralized secrets management service with built-in rotation capabilities. It replaced ad-hoc solutions like storing secrets in environment variables, configuration files, or Parameter Store.
+AWS Secrets Manager 于 **2018 年 4 月**上线，提供带内置轮换功能的集中式机密管理服务。它取代了将机密存放在环境变量、配置文件或 Parameter Store 中的临时性方案。
 
 # INSTALL
 

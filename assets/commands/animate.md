@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display image sequences as animations
+以动画形式显示图像序列
 
 # TLDR
 
-**Animate** a sequence of images
+**播放**图像序列动画
 
 ```animate [image1.png] [image2.png] [image3.png]```
 
-Animate a **GIF** file
+播放 **GIF** 文件
 
 ```animate [animation.gif]```
 
-Set **delay** between frames (in centiseconds)
+设置帧间**延迟**（单位为百分之一秒）
 
 ```animate -delay [50] [*.png]```
 
-**Loop** animation
+**循环**播放动画
 
 ```animate -loop [0] [animation.gif]```
 
-Set **display size**
+设置**显示尺寸**
 
 ```animate -geometry [800x600] [animation.gif]```
 
@@ -30,52 +30,52 @@ Set **display size**
 
 # DESCRIPTION
 
-**animate** is an ImageMagick utility that displays a sequence of images as an animation in an X Window. It supports numerous image formats and can play animated GIFs, multi-page files, or sequences of separate images.
+**animate** 是一款 ImageMagick 工具，可在 X Window 中将图像序列显示为动画。它支持众多图像格式，可以播放动态 GIF、多页文件或独立图像组成的序列。
 
-The viewer provides interactive controls for playback, including pause, single-step, speed adjustment, and looping options.
+该查看器提供交互式播放控制，包括暂停、单步播放、速度调节和循环选项。
 
 # PARAMETERS
 
 **-delay** _ticks_
-> Inter-frame delay (centiseconds)
+> 帧间延迟（百分之一秒）
 
 **-loop** _count_
-> Number of loops (0 = infinite)
+> 循环次数（0 = 无限）
 
 **-geometry** _WxH_
-> Window size
+> 窗口尺寸
 
 **-colorspace** _type_
-> Image colorspace
+> 图像色彩空间
 
 **-coalesce**
-> Merge a GIF animation sequence into full frames
+> 将 GIF 动画序列合并为完整帧
 
 **-dispose** _method_
-> Frame disposal method
+> 帧处置方式
 
 **-display** _server_
-> X server to display the animation on
+> 显示动画的 X server
 
 **-backdrop**
-> Display the image centered on a backdrop
+> 在背景上居中显示图像
 
 **-window** _id_
-> Display in an existing window
+> 在已有窗口中显示
 
 **-remote** _command_
-> Send a command to an already running animate program
+> 向已在运行的 animate 程序发送命令
 
 **-pause** _seconds_
-> Extra pause at the end of each animation loop
+> 每次动画循环结束后的额外停顿
 
 # CAVEATS
 
-Requires X Window System. Large animations consume significant memory. Frame timing may not be precise on all systems. Superseded by display command with -coalesce for some use cases.
+需要 X Window 系统。大型动画会占用大量内存。并非所有系统上的帧时序都精确。在某些使用场景下已被带 -coalesce 的 display 命令取代。
 
 # HISTORY
 
-**animate** has been part of ImageMagick since the early **1990s**, providing animation preview capabilities for image processing workflows.
+自 **1990** 年代初以来，**animate** 就一直是 ImageMagick 的一部分，为图像处理工作流提供动画预览功能。
 
 # INSTALL
 

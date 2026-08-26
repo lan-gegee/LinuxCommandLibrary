@@ -1,34 +1,34 @@
 # TAGLINE
 
-List and filter installed Android packages
+列出并过滤已安装的 Android 软件包
 
 # TLDR
 
-**List** all installed packages
+**列出**所有已安装的软件包
 
 ```adb shell pm list packages```
 
-List with **APK paths**
+以 **APK 路径**列出
 
 ```adb shell pm list packages -f```
 
-List **system** packages only
+只列出**系统**软件包
 
 ```adb shell pm list packages -s```
 
-List **third-party** packages only
+只列出**第三方**软件包
 
 ```adb shell pm list packages -3```
 
-List **disabled** packages
+列出**已禁用**的软件包
 
 ```adb shell pm list packages -d```
 
-List packages with **version codes**
+列出带**版本号**的软件包
 
 ```adb shell pm list packages --show-versioncode```
 
-**Filter** packages by name
+按名称**过滤**软件包
 
 ```adb shell pm list packages [google]```
 
@@ -38,58 +38,58 @@ List packages with **version codes**
 
 # DESCRIPTION
 
-**pm list packages** displays installed applications on an Android device. The output can be filtered by package type (system, third-party, enabled, disabled) and optionally include APK file paths.
+**pm list packages** 显示 Android 设备上已安装的应用。输出可以按软件包类型（系统、第三方、已启用、已禁用）过滤，还可选择包含 APK 文件路径。
 
-The filter argument performs a substring match on package names, useful for finding packages from a specific vendor or with a specific component.
+filter 参数对软件包名做子串匹配，适合查找特定厂商或包含特定组件的软件包。
 
 # PARAMETERS
 
 **-f**
-> Show associated APK file path.
+> 显示关联的 APK 文件路径。
 
 **-a**
-> Show all known packages (excluding APEXes).
+> 显示所有已知软件包（不含 APEX）。
 
 **-d**
-> Show only disabled packages.
+> 只显示已禁用的软件包。
 
 **-e**
-> Show only enabled packages.
+> 只显示已启用的软件包。
 
 **-s**
-> Show only system packages.
+> 只显示系统软件包。
 
 **-3**
-> Show only third-party packages.
+> 只显示第三方软件包。
 
 **-i**
-> Show installer for each package.
+> 显示每个软件包的安装来源。
 
 **-U**
-> Show the package UID.
+> 显示软件包的 UID。
 
 **-u**
-> Include uninstalled packages.
+> 包含已卸载的软件包。
 
 **--show-versioncode**
-> Show the version code of each package.
+> 显示每个软件包的版本号。
 
 **--apex-only**
-> Show only APEX packages.
+> 只显示 APEX 软件包。
 
 **--uid** _UID_
-> Filter to only show packages with the given UID.
+> 过滤为只显示具有给定 UID 的软件包。
 
 **--user** _user_id_
-> List packages for a specific user.
+> 列出特定用户的软件包。
 
 # CAVEATS
 
-Output format may vary slightly between Android versions. System packages include both true system apps and apps installed in the system partition. Some packages may be hidden and not appear in standard listings. Flags like `--show-versioncode` and `--apex-only` require newer Android versions.
+输出格式在 Android 版本之间可能略有差异。系统软件包既包括真正的系统应用，也包括安装在系统分区中的应用。某些软件包可能被隐藏，不会出现在标准列表中。`--show-versioncode` 和 `--apex-only` 等标志需要较新的 Android 版本。
 
 # HISTORY
 
-The package listing functionality has been available since Android 1.0 in **2008**, with filtering options added in subsequent versions to accommodate the growing number of installed applications.
+软件包列表功能自 **2008** 年 Android 1.0 起即可用，后续版本陆续加入过滤选项，以应对日益增多的已安装应用。
 
 # INSTALL
 

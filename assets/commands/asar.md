@@ -1,26 +1,26 @@
 # TAGLINE
 
-Pack and extract Electron application archives.
+打包和提取 Electron 应用归档。
 
 # TLDR
 
-**Create** asar archive
+**创建** asar 归档
 
 ```asar pack [dir/] [output.asar]```
 
-**Extract** asar archive
+**提取** asar 归档
 
 ```asar extract [archive.asar] [output_dir/]```
 
-**List** contents
+**列出**内容
 
 ```asar list [archive.asar]```
 
-Extract **single file**
+提取**单个文件**
 
 ```asar extract-file [archive.asar] [path/in/archive] [output_file]```
 
-Pack while keeping files **unpacked**
+打包时将部分文件保持为**不打包**状态
 
 ```asar pack [dir/] [output.asar] --unpack [*.node]```
 
@@ -30,43 +30,43 @@ Pack while keeping files **unpacked**
 
 # DESCRIPTION
 
-**asar** creates and extracts Electron archive files. ASAR (Atom Shell Archive) is a tar-like format used by Electron applications to package source files into a single file while maintaining random access capability.
+**asar** 用于创建和提取 Electron 归档文件。ASAR（Atom Shell Archive）是一种类似 tar 的格式，Electron 应用用它把源文件打包成单个文件，同时保持随机访问能力。
 
-The format allows Electron to read files directly from the archive without extraction, improving load times. The tool is distributed on npm as **@electron/asar** (formerly the standalone **asar** package).
+这种格式让 Electron 无需解包即可直接从归档中读取文件，从而缩短加载时间。该工具以 **@electron/asar** 的名义发布在 npm 上（前身为独立的 **asar** 软件包）。
 
 # PARAMETERS
 
-**pack** _dir_ _output_ (alias **p**)
-> Create archive from directory
+**pack** _dir_ _output_（别名 **p**）
+> 从目录创建归档
 
-**extract** _archive_ _dest_ (alias **e**)
-> Extract archive to directory
+**extract** _archive_ _dest_（别名 **e**）
+> 将归档提取到目录
 
-**list** _archive_ (alias **l**)
-> List archive contents
+**list** _archive_（别名 **l**）
+> 列出归档内容
 
-**extract-file** _archive_ _file_ _dest_ (alias **ef**)
-> Extract single file
+**extract-file** _archive_ _file_ _dest_（别名 **ef**）
+> 提取单个文件
 
 **--unpack** _glob_
-> Keep files matching the glob unpacked (stored in a sibling app.asar.unpacked directory)
+> 让匹配 glob 的文件保持不打包状态（存放在同级的 app.asar.unpacked 目录）
 
 **--unpack-dir** _glob_
-> Keep directories matching the glob unpacked
+> 让匹配 glob 的目录保持不打包状态
 
 **--exclude-hidden**
-> Exclude hidden (dotfile) files from the archive
+> 将隐藏文件（点文件）排除在归档之外
 
 **--ordering** _file_
-> Pack files in the order listed in the given file
+> 按给定文件中所列的顺序打包文件
 
 # CAVEATS
 
-ASAR archives are not encrypted; contents can be easily extracted. Some Electron apps may integrity-check their archives. Not suitable for sensitive data.
+ASAR 归档未加密，其内容很容易被提取。某些 Electron 应用可能对自身归档做完整性校验。不适合存放敏感数据。
 
 # HISTORY
 
-**ASAR** was developed for the Atom text editor (later Electron framework) as a way to package Node.js applications efficiently.
+**ASAR** 为 Atom 文本编辑器（即后来的 Electron 框架）而开发，用于高效地打包 Node.js 应用。
 
 # INSTALL
 

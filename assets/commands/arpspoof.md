@@ -1,18 +1,18 @@
 # TAGLINE
 
-Forge ARP replies for man-in-the-middle interception.
+伪造 ARP 应答以进行中间人拦截。
 
 # TLDR
 
-**Poison** all hosts for target
+针对目标主机**毒化**所有主机
 
 ```sudo arpspoof -i wlan0 host_ip```
 
-Poison specific **target**
+毒化指定的**目标**
 
 ```sudo arpspoof -i wlan0 -t target_ip host_ip```
 
-**Bidirectional** poisoning
+**双向**毒化
 
 ```sudo arpspoof -i wlan0 -r -t target_ip host_ip```
 
@@ -22,32 +22,32 @@ Poison specific **target**
 
 # DESCRIPTION
 
-**arpspoof** forges ARP replies to intercept network packets. It sends fake ARP responses to redirect traffic through the attacker's machine, enabling man-in-the-middle attacks for network analysis and security testing.
+**arpspoof** 通过伪造 ARP 应答来拦截网络数据包。它发送虚假的 ARP 响应，将流量重定向到攻击者的机器，从而实现中间人攻击，用于网络分析和安全测试。
 
 # PARAMETERS
 
 **-i** _interface_
-> Network interface to use
+> 要使用的网络接口
 
 **-c** _own_|_host_|_both_
-> Which hardware address to use when restoring the ARP configuration on cleanup (default: own)
+> 清理恢复 ARP 配置时使用哪个硬件地址（默认：own）
 
 **-t** _target_
-> Target IP address to poison (poisons all hosts if omitted). May be repeated to specify multiple targets
+> 要毒化的目标 IP 地址（省略时毒化所有主机）。可重复使用以指定多个目标
 
 **-r**
-> Poison both host and target to capture traffic in both directions (only valid in conjunction with -t)
+> 同时毒化 host 和 target 以捕获双向流量（仅在与 -t 一起使用时有效）
 
 **host**
-> IP address of the host to impersonate (usually the gateway)
+> 要冒充的主机的 IP 地址（通常是网关）
 
 # CAVEATS
 
-This is a penetration testing tool that can disrupt network traffic. Only use on networks you own or have explicit authorization to test. Requires root privileges and IP forwarding enabled for traffic to flow.
+这是一个渗透测试工具，可能中断网络流量。只在你拥有或获得明确测试授权的网络上使用。需要 root 权限并启用 IP 转发，流量才能正常流动。
 
 # HISTORY
 
-**arpspoof** is part of the **dsniff** package, a collection of network auditing tools for penetration testing and security analysis.
+**arpspoof** 是 **dsniff** 软件包的一部分，该软件包是一组面向渗透测试和安全分析的网络审计工具。
 
 # INSTALL
 

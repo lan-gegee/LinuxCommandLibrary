@@ -1,30 +1,30 @@
 # TAGLINE
 
-next-generation Android resource compiler and packager
+新一代 Android 资源编译与打包工具
 
 # TLDR
 
-**Compile a single resource file**
+**编译单个资源文件**
 
 ```aapt2 compile [path/to/resource.xml] -o [output_directory]```
 
-**Compile all resources in a directory**
+**编译目录中的所有资源**
 
 ```aapt2 compile --dir [path/to/res] -o [resources.zip]```
 
-**Link compiled resources into an APK**
+**链接编译后的资源生成 APK**
 
 ```aapt2 link -o [output.apk] -I [android.jar] [compiled_resources.flat] --manifest [AndroidManifest.xml]```
 
-**Dump APK information**
+**导出 APK 信息**
 
 ```aapt2 dump [badging|permissions|resources] [path/to/app.apk]```
 
-**Convert between APK formats**
+**在 APK 格式之间转换**
 
 ```aapt2 convert -o [output.apk] [input.apk]```
 
-**Optimize an APK**
+**优化 APK**
 
 ```aapt2 optimize -o [optimized.apk] [input.apk]```
 
@@ -35,56 +35,56 @@ next-generation Android resource compiler and packager
 # PARAMETERS
 
 **compile**
-> Compile individual resource files into binary format (.flat files).
+> 把单个资源文件编译为二进制格式（.flat 文件）。
 
 **link**
-> Merge compiled resources and generate the final APK or resource table.
+> 合并编译后的资源，生成最终的 APK 或资源表。
 
 **dump**
-> Print information about an APK (badging, permissions, resources, configurations).
+> 打印 APK 信息（badging、permissions、resources、configurations）。
 
 **diff**
-> Compare two APKs and show differences.
+> 比较两个 APK 并显示差异。
 
 **optimize**
-> Optimize APK resources for size and performance.
+> 从体积和性能角度优化 APK 资源。
 
 **convert**
-> Convert APK between binary and proto formats.
+> 在 APK 的二进制与 proto 格式之间转换。
 
 **-o** _file_
-> Specify output file or directory.
+> 指定输出文件或目录。
 
 **-I** _path_
-> Add an Android JAR or APK to the include path (typically android.jar).
+> 向 include 路径添加一个 Android JAR 或 APK（通常为 android.jar）。
 
 **--dir** _path_
-> Compile all resources in the specified directory.
+> 编译指定目录中的所有资源。
 
 **--manifest** _file_
-> Specify the AndroidManifest.xml file during linking.
+> 链接时指定 AndroidManifest.xml 文件。
 
 **-v**
-> Enable verbose output.
+> 启用详细输出。
 
 **--help**
-> Display help for a specific command.
+> 显示某个具体命令的帮助。
 
 # DESCRIPTION
 
-**aapt2** (Android Asset Packaging Tool 2) is Google's next-generation tool for compiling and packaging Android application resources. It replaces the original aapt tool with a faster, incremental compilation approach.
+**aapt2**（Android Asset Packaging Tool 2）是 Google 用于编译和打包 Android 应用资源的下一代工具。它以更快的增量编译方式取代了原版 aapt 工具。
 
-The tool operates in two main phases: **compile** transforms individual resource files (XML, PNG, etc.) into an intermediate binary format (.flat files), while **link** combines these compiled resources with the manifest to produce the final APK or resource archive. This separation enables incremental builds where only changed resources need recompilation.
+该工具分两个主要阶段工作：**compile** 将单个资源文件（XML、PNG 等）转换为中间二进制格式（.flat 文件），**link** 则把这些编译好的资源与清单合并，产出最终的 APK 或资源归档。这种分离机制支持增量构建——只有发生变化的资源才需要重新编译。
 
-aapt2 is typically invoked automatically by build systems like Gradle, but can be used directly for custom build pipelines, debugging resource issues, or inspecting APK contents.
+aapt2 通常由 Gradle 等构建系统自动调用，但也可以直接用于自定义构建流水线、调试资源问题或检查 APK 内容。
 
 # CAVEATS
 
-aapt2 has stricter validation than the original aapt and will fail on malformed resources that aapt silently accepted. Resource file names must be lowercase and contain only **a-z**, **0-9**, and underscores. The tool is distributed as part of the Android SDK Build Tools and requires the appropriate android.jar for the target API level.
+aapt2 的校验比原版 aapt 更严格，对于 aapt 默默接受的畸形资源会直接报错。资源文件名必须为小写，且只能包含 **a-z**、**0-9** 和下划线。该工具随 Android SDK Build Tools 分发，并且需要与目标 API 级别对应的 android.jar。
 
 # HISTORY
 
-**aapt2** was introduced by Google in **2017** as part of Android Studio 3.0 and the Android Gradle Plugin 3.0. It was developed to address performance limitations of the original aapt tool, particularly for large projects with many resources. The incremental compilation model significantly reduces build times by avoiding reprocessing unchanged resources.
+**aapt2** 由 Google 于 **2017 年**随 Android Studio 3.0 和 Android Gradle Plugin 3.0 推出。其开发目的是解决原版 aapt 工具的性能局限，尤其是拥有大量资源的大型项目的构建速度。增量编译模型避免了重新处理未变化的资源，显著缩短了构建时间。
 
 # INSTALL
 

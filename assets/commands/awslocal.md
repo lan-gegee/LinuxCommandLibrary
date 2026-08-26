@@ -1,22 +1,22 @@
 # TAGLINE
 
-AWS CLI wrapper for LocalStack
+LocalStack 的 AWS CLI 包装器
 
 # TLDR
 
-**List Kinesis streams** on LocalStack
+在 LocalStack 上**列出 Kinesis 流**
 
 ```awslocal kinesis list-streams```
 
-**Same as aws with LocalStack endpoint**
+**与 aws 相同，但使用 LocalStack 端点**
 
 ```awslocal s3 ls```
 
-**Create a local bucket**
+**创建本地存储桶**
 
 ```awslocal s3 mb s3://[my-bucket]```
 
-**Invoke Lambda** locally
+本地**调用 Lambda**
 
 ```awslocal lambda list-functions```
 
@@ -26,35 +26,35 @@ AWS CLI wrapper for LocalStack
 
 # DESCRIPTION
 
-**awslocal** is a thin wrapper around the **aws** CLI for use with [LocalStack](https://github.com/localstack/localstack). Instead of passing **--endpoint-url=http://localhost:4566** on every call, run the same subcommands via **awslocal**.
+**awslocal** 是 **aws** CLI 的一层薄包装，配合 [LocalStack](https://github.com/localstack/localstack) 使用。无需每次调用都传入 **--endpoint-url=http://localhost:4566**，直接通过 **awslocal** 运行相同的子命令即可。
 
-Install with **pip install awscli-local** (wrapper only) or **pip install awscli-local[ver1]** to also pull AWS CLI v1. Usage matches **aws**; see **aws help**.
+使用 **pip install awscli-local** 安装（仅包装器），或使用 **pip install awscli-local[ver1]** 同时安装 AWS CLI v1。用法与 **aws** 一致；参见 **aws help**。
 
 # PARAMETERS
 
-All arguments are forwarded to the underlying **aws** CLI (services, subcommands, and flags). There is no separate command tree.
+所有参数都会转发给底层的 **aws** CLI（服务、子命令和选项）。没有独立的命令树。
 
 # CONFIGURATION
 
-Environment variables:
+环境变量：
 
 **AWS_ENDPOINT_URL**
 
-> Endpoint to use (takes precedence over deprecated vars below).
+> 要使用的端点（优先于下述已弃用的变量）。
 
-**LOCALSTACK_HOST** (deprecated)
+**LOCALSTACK_HOST**（已弃用）
 
-> **hostname:port** for LocalStack (default **localhost:4566**).
+> LocalStack 的 **hostname:port**（默认 **localhost:4566**）。
 
-**USE_SSL** (deprecated)
+**USE_SSL**（已弃用）
 
-> Whether to use SSL when connecting (default false).
+> 连接时是否使用 SSL（默认 false）。
 
-Standard AWS credential and region variables still apply for the CLI; LocalStack often accepts test credentials.
+标准的 AWS 凭证与区域变量对 CLI 仍然生效；LocalStack 通常接受测试凭证。
 
 # CAVEATS
 
-AWS CLI v2 is not auto-installed from PyPI; **awslocal** can still work if v2 is already on PATH, with known gaps (for example some **cloudformation package** endpoint cases). Prefer LocalStack docs for service coverage and ports. Not a substitute for production **aws** against real AWS.
+AWS CLI v2 无法从 PyPI 自动安装；如果 v2 已存在于 PATH 中，**awslocal** 仍然可以工作，但存在已知缺口（例如某些 **cloudformation package** 的端点场景）。服务的覆盖范围和端口请以 LocalStack 文档为准。它不能替代针对真实 AWS 的生产级 **aws**。
 
 # SEE ALSO
 

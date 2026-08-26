@@ -1,38 +1,38 @@
 # TAGLINE
 
-Deprecated APT key management utility for package authentication
+已废弃的 APT 密钥管理工具，用于软件包认证
 
 # TLDR
 
-**List** trusted keys
+**列出**受信任的密钥
 
 ```apt-key list```
 
-**Add** a key to the trusted keystore
+向受信任的密钥库**添加**密钥
 
 ```apt-key add [public_key_file.asc]```
 
-**Delete** a key from the trusted keystore
+从受信任的密钥库**删除**密钥
 
 ```apt-key del [key_id]```
 
-Add a **remote key** to the trusted keystore
+将**远程密钥**添加到受信任的密钥库
 
 ```wget -qO - [https://host.tld/filename.key] | apt-key add -```
 
-Add a key from **keyserver** with only key ID
+仅凭密钥 ID 从 **keyserver** 添加密钥
 
 ```apt-key adv --keyserver pgp.mit.edu --recv [KEYID]```
 
-**Export** all trusted keys
+**导出**所有受信任的密钥
 
 ```apt-key exportall```
 
-**Modern replacement**: download a key directly into trusted.gpg.d (no apt-key needed)
+**现代替代方案**：直接将密钥下载到 trusted.gpg.d（无需 apt-key）
 
 ```curl -fsSL [https://example.com/key.gpg] | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/[example].gpg```
 
-**Modern replacement**: use signed-by in sources.list
+**现代替代方案**：在 sources.list 中使用 signed-by
 
 ```echo "deb [signed-by=/usr/share/keyrings/[example].gpg] [https://repo.example.com] [stable] main" | sudo tee /etc/apt/sources.list.d/[example].list```
 
@@ -42,57 +42,57 @@ Add a key from **keyserver** with only key ID
 
 # DESCRIPTION
 
-**apt-key** is a deprecated key management utility for the APT Package Manager on Debian and Ubuntu. It manages the list of keys used by apt to authenticate packages.
+**apt-key** 是 Debian 和 Ubuntu 上 APT 软件包管理器的一个已废弃的密钥管理工具。它管理 apt 用于认证软件包的密钥列表。
 
-**Note:** apt-key is deprecated since Debian 11 (Bullseye) and Ubuntu 22.04 (Jammy). The recommended approach is to place keyring files directly in /etc/apt/trusted.gpg.d/ (with .gpg or .asc extension) or in /usr/share/keyrings/ and reference them via the `signed-by` option in sources.list entries. Only `apt-key del` remains supported for use in maintainer scripts.
+**注意：** apt-key 自 Debian 11（Bullseye）和 Ubuntu 22.04（Jammy）起已被废弃。推荐的做法是将密钥环文件直接放在 /etc/apt/trusted.gpg.d/（使用 .gpg 或 .asc 扩展名），或放在 /usr/share/keyrings/ 中，并通过 sources.list 条目中的 `signed-by` 选项引用它们。只有 `apt-key del` 仍受支持，可用于维护者脚本。
 
 # PARAMETERS
 
 **list**
-> List all trusted keys with fingerprints
+> 列出所有受信任的密钥及其指纹
 
 **add file**
-> Add a new key to the list of trusted keys
+> 向受信任密钥列表添加新密钥
 
 **del keyid**
-> Remove a key from the list of trusted keys
+> 从受信任密钥列表移除密钥
 
 **adv**
-> Pass advanced options to gpg
+> 向 gpg 传递高级选项
 
 **update**
-> Update the local keyring with the archive keyring
+> 使用归档密钥环更新本地密钥环
 
 **net-update**
-> Update the local keyring, fetching missing keys from a keyserver
+> 更新本地密钥环，从 keyserver 获取缺失的密钥
 
 **export keyid**
-> Output the key to standard output
+> 将密钥输出到标准输出
 
 **exportall**
-> Output all trusted keys to standard output
+> 将所有受信任的密钥输出到标准输出
 
 **finger**
-> List fingerprints of trusted keys (deprecated)
+> 列出受信任密钥的指纹（已废弃）
 
 **--keyring** _filename_
-> Operate on a specific keyring file (deprecated)
+> 操作特定的密钥环文件（已废弃）
 
 # CONFIGURATION
 
 **/etc/apt/trusted.gpg.d/**
-> Directory for trusted keyring files in GPG format.
+> 存放 GPG 格式受信任密钥环文件的目录。
 
 **/usr/share/keyrings/**
-> System-wide keyrings referenced via signed-by in sources.list.
+> 系统级密钥环，通过 sources.list 中的 signed-by 引用。
 
 # CAVEATS
 
-**Deprecated** in favor of placing keyring files directly in /etc/apt/trusted.gpg.d/ or using signed-by in apt sources. Only apt-key del should be used in maintainer scripts.
+**已废弃**：应改为将密钥环文件直接放入 /etc/apt/trusted.gpg.d/ 或在 apt 源中使用 signed-by。维护者脚本中只应使用 apt-key del。
 
 # HISTORY
 
-Part of the **APT** (Advanced Package Tool) suite. Deprecated starting with Debian 11 and Ubuntu 22.04 in favor of trusted.gpg.d directory.
+属于 **APT**（Advanced Package Tool）工具套件。自 Debian 11 和 Ubuntu 22.04 起被废弃，由 trusted.gpg.d 目录取代。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mount archive files as virtual filesystems via FUSE
+通过 FUSE 将归档文件挂载为虚拟文件系统
 
 # TLDR
 
-**Mount** an archive to a specific mountpoint
+将归档**挂载**到指定挂载点
 
 ```archivemount [path/to/archive] [path/to/mount_point]```
 
-Mount an archive as **read-only**
+将归档挂载为**只读**
 
 ```archivemount -o readonly [path/to/archive] [path/to/mount_point]```
 
-**Unmount** the archive filesystem
+**卸载**归档文件系统
 
 ```fusermount -u [path/to/mount_point]```
 
@@ -22,31 +22,31 @@ Mount an archive as **read-only**
 
 # DESCRIPTION
 
-**archivemount** is a FUSE-based filesystem that mounts archives as virtual directories. It supports a wide variety of archive formats including tar, zip, cpio, ISO 9660, and compressed variants (gzip, bzip2, xz, lzma).
+**archivemount** 是一个基于 FUSE 的文件系统，可将归档挂载为虚拟目录。它支持多种归档格式，包括 tar、zip、cpio、ISO 9660 以及压缩变体（gzip、bzip2、xz、lzma）。
 
-Once mounted, the archive contents can be accessed like a normal directory. This is useful for browsing or extracting specific files from large archives without fully extracting them.
+挂载后即可像访问普通目录一样访问归档内容。这对于浏览大型归档或从中提取特定文件非常有用，无需完整解压。
 
 # PARAMETERS
 
 **-o readonly**
-> Mount the archive as read-only
+> 将归档挂载为只读
 
 **-o nosave**
-> Do not save changes to the archive when unmounting
+> 卸载时不保存对归档的更改
 
 **-o nobackup**
-> Do not create a backup before modifying the archive
+> 修改归档前不创建备份
 
 **-f**
-> Run in foreground (do not daemonize)
+> 在前台运行（不守护进程化）
 
 # CAVEATS
 
-Write support is experimental and may not work reliably with all archive formats. Modifications are buffered in memory and only written when unmounting, which can consume significant RAM for large changes. The archive format must be supported by libarchive.
+写入支持尚属实验性，并非对所有归档格式都可靠。修改内容先缓存在内存中，只在卸载时写入，大量更改可能占用较多内存。归档格式必须受 libarchive 支持。
 
 # HISTORY
 
-**archivemount** was created as part of the FUSE ecosystem to provide transparent access to archive contents. It leverages **libarchive** for format support and has been available since the mid-2000s.
+**archivemount** 作为 FUSE 生态系统的一部分而开发，用于提供对归档内容的透明访问。它利用 **libarchive** 实现格式支持，自 2000 年代中期起可用。
 
 # INSTALL
 

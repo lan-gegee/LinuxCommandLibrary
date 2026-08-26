@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create and manage writable overlay filesystems for containers.
+为容器创建和管理可写的 overlay 文件系统。
 
 # TLDR
 
-**Add a writable overlay** to an existing SIF image
+向已有的 SIF 镜像**添加可写 overlay**
 
 ```apptainer overlay create -s [size] [path/to/image.sif]```
 
-Create a **standalone EXT3** writable overlay image
+创建**独立的 EXT3** 可写 overlay 镜像
 
 ```apptainer overlay create -s [size] [path/to/overlay.img]```
 
-Create a **sparse overlay** image
+创建**稀疏 overlay** 镜像
 
 ```apptainer overlay create -s [size] -S [path/to/overlay.img]```
 
-Create an overlay for use with **fakeroot**
+创建供 **fakeroot** 使用的 overlay
 
 ```apptainer overlay create -f -s [size] [path/to/overlay.img]```
 
-Create an overlay with a **specific directory** in the layout
+创建在布局中带**特定目录**的 overlay
 
 ```apptainer overlay create --create-dir [path/to/directory] [path/to/overlay.img]```
 
@@ -30,27 +30,27 @@ Create an overlay with a **specific directory** in the layout
 
 # DESCRIPTION
 
-**apptainer overlay** manages EXT3 writable overlay filesystems for Apptainer containers. Overlays allow persistent writes on top of immutable SIF container images without modifying the original image.
+**apptainer overlay** 管理 Apptainer 容器的 EXT3 可写 overlay 文件系统。Overlay 允许在不修改原始镜像的情况下，在不可变的 SIF 容器镜像之上进行持久化写入。
 
-Overlays can be embedded directly into a SIF file or created as standalone image files that are attached at runtime. This enables persistent storage of modifications, logs, and user data while maintaining container immutability.
+Overlay 可以直接嵌入 SIF 文件中，也可以创建为独立镜像文件并在运行时挂载。这样既能持久保存修改、日志和用户数据，又能保持容器的不可变性。
 
 # PARAMETERS
 
 **-s, --size** _size_
-> Size of the EXT3 writable overlay in MiB (default: 64).
+> EXT3 可写 overlay 的大小，单位 MiB（默认：64）。
 
 **-S, --sparse**
-> Create a sparse file instead of allocating full disk space.
+> 创建稀疏文件而不是一次性分配全部磁盘空间。
 
 **-f, --fakeroot**
-> Make the overlay layout usable by actions run with --fakeroot.
+> 使 overlay 布局可供以 --fakeroot 运行的 action 使用。
 
 **--create-dir** _path_
-> Directory to create as part of the overlay layout (can be repeated).
+> 作为 overlay 布局一部分创建的目录（可重复使用）。
 
 # CAVEATS
 
-Overlays require filesystem support for loop devices and EXT3. Sparse overlays save disk space but may cause performance issues with some workloads. Overlay size cannot be easily changed after creation.
+Overlay 需要内核支持回环设备和 EXT3。稀疏 overlay 可节省磁盘空间，但在某些工作负载下可能导致性能问题。Overlay 大小在创建后不易更改。
 
 # INSTALL
 

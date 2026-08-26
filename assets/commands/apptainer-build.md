@@ -1,34 +1,34 @@
 # TAGLINE
 
-Build Apptainer container images from definition files or remote sources.
+从定义文件或远程源构建 Apptainer 容器镜像。
 
 # TLDR
 
-Build a container from a **definition file**
+从**定义文件**构建容器
 
 ```apptainer build [path/to/image.sif] [path/to/definition.def]```
 
-Build a container from **Docker Hub**
+从 **Docker Hub** 构建容器
 
 ```apptainer build [path/to/image.sif] docker://[image]:[tag]```
 
-Build a container from the **Container Library**
+从 **Container Library** 构建容器
 
 ```apptainer build [path/to/image.sif] library://[user/collection/container]:[tag]```
 
-Build a **writable sandbox** directory instead of an image file
+构建**可写沙箱**目录而不是镜像文件
 
 ```apptainer build -s [path/to/directory] docker://[image]:[tag]```
 
-Build a container **without using the cache**
+构建容器时**不使用缓存**
 
 ```apptainer build --disable-cache [path/to/image.sif] docker://[image]:[tag]```
 
-**Force overwrite** an existing image file
+**强制覆盖**已有的镜像文件
 
 ```apptainer build -F [path/to/image.sif] [path/to/definition.def]```
 
-Build using **fakeroot** for unprivileged builds
+使用 **fakeroot** 进行非特权构建
 
 ```apptainer build -f [path/to/image.sif] [path/to/definition.def]```
 
@@ -38,53 +38,53 @@ Build using **fakeroot** for unprivileged builds
 
 # DESCRIPTION
 
-**apptainer build** creates Apptainer container images from various sources including definition files, Docker Hub, OCI registries, and the Sylabs Container Library. The resulting SIF (Singularity Image Format) file is a portable, immutable container image.
+**apptainer build** 从多种来源创建 Apptainer 容器镜像，包括定义文件、Docker Hub、OCI 注册表和 Sylabs Container Library。生成的 SIF（Singularity Image Format）文件是一个可移植的不可变容器镜像。
 
-Definition files (**.def**) provide a reproducible way to specify base images, software installation steps, environment variables, and runscripts. The sandbox mode creates a writable directory structure useful for development and testing.
+定义文件（**.def**）以可复现的方式指定基础镜像、软件安装步骤、环境变量和运行脚本。沙箱模式则创建一个可写的目录结构，适合开发和测试。
 
 # PARAMETERS
 
 **-s, --sandbox**
-> Build a writable directory instead of an immutable SIF image
+> 构建可写目录，而不是不可变的 SIF 镜像
 
 **-F, --force**
-> Overwrite an existing image file without prompting
+> 不提示直接覆盖已存在的镜像文件
 
 **-f, --fakeroot**
-> Build using fakeroot, appearing to run as root (default for unprivileged definition builds).
+> 使用 fakeroot 构建，表现为以 root 身份运行（非特权定义构建的默认方式）。
 
 **--disable-cache**
-> Do not use or create cached images during the build process.
+> 在构建过程中不使用也不创建缓存镜像。
 
 **--no-cleanup**
-> Retain the temporary build directory after a failed build (for debugging).
+> 构建失败后保留临时构建目录（用于调试）。
 
 **-u, --update**
-> Run the definition over an existing sandbox container, rerunning sections such as %post.
+> 在现有沙箱容器上重新执行定义文件，重跑 %post 等部分。
 
 **-T, --notest**
-> Build the container without running the %test section.
+> 构建容器但不执行 %test 部分。
 
 **--section** _name_
-> Run only the given definition sections instead of all of them (e.g. post, environment).
+> 只运行给定的定义部分而不是全部（如 post、environment）。
 
 **-e, --encrypt**
-> Build an image with an encrypted filesystem (set APPTAINER_ENCRYPTION_PASSPHRASE or APPTAINER_ENCRYPTION_PEM_PATH).
+> 构建带有加密文件系统的镜像（需设置 APPTAINER_ENCRYPTION_PASSPHRASE 或 APPTAINER_ENCRYPTION_PEM_PATH）。
 
 **--build-arg** _key=value_
-> Replace {{ key }} placeholders in the definition file with the given value.
+> 用给定值替换定义文件中的 {{ key }} 占位符。
 
 **--arch** _arch_
-> Architecture to build for (default: amd64).
+> 要构建的目标架构（默认：amd64）。
 
 # CONFIGURATION
 
 **/etc/apptainer/apptainer.conf**
-> Main configuration file controlling build behavior, security settings, bind paths, and fakeroot mappings.
+> 主配置文件，控制构建行为、安全设置、绑定路径和 fakeroot 映射。
 
 # CAVEATS
 
-Building containers often requires elevated privileges or fakeroot configuration. Some base images may not be compatible with fakeroot builds. Large builds can consume significant disk space in the cache directory.
+构建容器通常需要提升的权限或 fakeroot 配置。某些基础镜像可能与 fakeroot 构建不兼容。大型构建可能在缓存目录中占用大量磁盘空间。
 
 # INSTALL
 

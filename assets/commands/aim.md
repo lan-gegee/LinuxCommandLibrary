@@ -1,30 +1,30 @@
 # TAGLINE
 
-Command-line download/upload tool with resume
+支持断点续传的命令行下载/上传工具
 
 # TLDR
 
-**Download a file** to the current directory
+**下载文件**到当前目录
 
 ```aim [https://domain.com/file.tar.gz] .```
 
-**Upload a local file**
+**上传本地文件**
 
 ```aim [local.file] [https://domain.com/destination.file]```
 
-**Download and auto-decompress** an archive
+**下载并自动解压**归档
 
 ```aim [https://domain.com/file.tar.gz] +```
 
-**Browse a remote directory interactively**
+**交互式浏览远程目录**
 
 ```aim [http://192.168.1.5:8080] -i```
 
-**Serve the current directory** over HTTP
+**通过 HTTP 共享当前目录**
 
 ```aim .```
 
-**Download with SHA256 checksum** validation
+**下载并进行 SHA256 校验和**验证
 
 ```aim [https://domain.com/file] . [sha256hash]```
 
@@ -35,27 +35,27 @@ Command-line download/upload tool with resume
 # PARAMETERS
 
 **-i**, **--interactive**
-> Navigate remote directories with fuzzy search before downloading
+> 下载前通过模糊搜索浏览远程目录
 
 **--update**
-> Self-update the binary in place
+> 就地自更新二进制文件
 
 **--no-follow-redirects**
-> Disable automatic HTTP redirect following
+> 禁用自动跟随 HTTP 重定向
 
 # DESCRIPTION
 
-**aim** is a command-line download and upload tool with resume capabilities, positioned as an alternative to aria2 for users who do not need torrent support. It supports HTTP(S), FTP, SFTP, SSH, and S3 protocols, with resume support for HTTP(S), FTP, and SFTP transfers. The action (download or upload) is determined by the order of parameters.
+**aim** 是一个支持断点续传的命令行下载和上传工具，定位于不需要种子下载支持的用户的 aria2 替代品。它支持 HTTP(S)、FTP、SFTP、SSH 和 S3 协议，其中 HTTP(S)、FTP 和 SFTP 传输支持断点续传。具体动作（下载或上传）由参数顺序决定。
 
-Written in Rust, aim features interactive fuzzy-search navigation of remote directories, automatic archive decompression, SHA256 checksum verification, folder sharing over HTTP, pipe-compatible output, and support for .netrc and AWS credentials for authentication.
+aim 用 Rust 编写，具有交互式模糊搜索远程目录、自动解压归档、SHA256 校验和验证、通过 HTTP 共享文件夹、兼容管道的输出，以及支持 .netrc 和 AWS 凭据认证等特性。
 
 # CAVEATS
 
-Resume is not supported for SSH and S3 protocols. Interactive mode is only available for HTTP(S). SSH key types are auto-detected (id_ed25519, id_rsa). Default output is stdout when no destination is specified.
+SSH 和 S3 协议不支持断点续传。交互模式仅适用于 HTTP(S)。SSH 密钥类型会被自动检测（id_ed25519、id_rsa）。未指定目标位置时，默认输出到 stdout。
 
 # HISTORY
 
-**aim** was created by **Mihai Galos** as an open-source Rust project under the MIT license. It is available on crates.io and as pre-built binaries from GitHub releases.
+**aim** 由 **Mihai Galos** 创建，是 MIT 许可证下的开源 Rust 项目。它可在 crates.io 上获取，也可从 GitHub releases 下载预构建的二进制文件。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Linux audit daemon for tracking security-relevant events.
+用于追踪安全相关事件的 Linux 审计守护进程。
 
 # TLDR
 
-**Start** audit daemon
+**启动**审计守护进程
 
 ```sudo auditd```
 
-Run in the **foreground** for debugging
+在前台运行以便调试
 
 ```sudo auditd -f```
 
-Do **not fork** (for systemd or inittab)
+**不 fork**（供 systemd 或 inittab 使用）
 
 ```sudo auditd -n```
 
-Use an **alternate config directory**
+使用**备用配置目录**
 
 ```sudo auditd -c [/path/to/config_dir]```
 
-Start without changing the kernel **enabled flag**
+启动时不修改内核的**启用标志**
 
 ```sudo auditd -s nochange```
 
@@ -30,45 +30,45 @@ Start without changing the kernel **enabled flag**
 
 # DESCRIPTION
 
-**auditd** is the Linux Audit daemon that collects audit events from the kernel and writes them to disk. It's part of the Linux Audit framework for tracking security-relevant events.
+**auditd** 是 Linux 审计守护进程，它从内核收集审计事件并写入磁盘。它是 Linux 审计框架的一部分，用于追踪安全相关事件。
 
-The daemon logs file accesses, system calls, authentication events, and other activities based on configured rules.
+守护进程根据配置的规则记录文件访问、系统调用、认证事件及其他活动。
 
 # PARAMETERS
 
 **-f**
-> Leave the daemon in the foreground for debugging. Messages also go to stderr rather than the audit log.
+> 让守护进程保持在前台运行以便调试。消息同时输出到 stderr 而非审计日志。
 
 **-l**
-> Allow the daemon to follow symbolic links for config files.
+> 允许守护进程在读取配置文件时跟随符号链接。
 
 **-n**
-> Do not fork. Useful for running from inittab or systemd.
+> 不 fork。适合从 inittab 或 systemd 运行。
 
 **-s** _disable|enable|nochange_
-> Set the kernel audit enabled flag state at startup. The default enables the flag on start and disables it on termination. The flag can also be changed at runtime with **auditctl**.
+> 在启动时设置内核审计启用标志的状态。默认行为是启动时启用该标志、终止时禁用它。该标志也可通过 **auditctl** 在运行时更改。
 
 **-c** _config_dir_
-> Use an alternate config directory. The same directory is also passed to the dispatcher (default: /etc/audit/).
+> 使用备用配置目录。同一目录也会传递给分发器（默认：/etc/audit/）。
 
 # CONFIGURATION
 
 **/etc/audit/auditd.conf**
-> Main daemon configuration controlling log file location, retention, disk space handling, and dispatcher settings.
+> 主配置文件，控制日志文件位置、保留策略、磁盘空间处理和分发器设置。
 
 **/etc/audit/rules.d/**
-> Directory containing audit rule files compiled by **augenrules** into the active ruleset. Rules define which system calls and file accesses to monitor.
+> 存放审计规则文件的目录，由 **augenrules** 编译成生效的规则集。规则定义要监控哪些系统调用和文件访问。
 
 **/etc/audit/plugins.d/**
-> Directory of plugin (dispatcher) configuration files for routing events to external programs.
+> 插件（分发器）配置文件目录，用于将事件路由到外部程序。
 
 # CAVEATS
 
-Requires root privileges. Heavy auditing can impact performance, and log files grow quickly with verbose rules. On modern systems the daemon should be started, stopped, and reloaded through its service manager (for example **systemctl** or **service auditd rotate**) rather than by sending signals directly.
+需要 root 权限。高强度的审计会影响性能，且详细规则会让日志快速增长。在现代系统上，应通过服务管理器（例如 **systemctl** 或 **service auditd rotate**）来启动、停止和重载守护进程，而不是直接发送信号。
 
 # HISTORY
 
-**auditd** was developed as part of the Linux Audit project to meet Common Criteria security requirements, becoming part of the mainline kernel in **2.6.6** (2004).
+**auditd** 作为 Linux Audit 项目的一部分开发，旨在满足 Common Criteria 安全要求，并于 **2.6.6**（2004 年）进入主线内核。
 
 # INSTALL
 

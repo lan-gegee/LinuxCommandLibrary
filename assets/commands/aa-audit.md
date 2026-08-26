@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set AppArmor profiles to audit mode
+将 AppArmor 配置文件设为审计模式
 
 # TLDR
 
-Set a profile to **audit mode**
+将一个配置文件设为**审计模式**
 
 ```sudo aa-audit [profile_name]```
 
-Set **multiple profiles** to audit mode
+将**多个配置文件**设为审计模式
 
 ```sudo aa-audit [profile1] [profile2]```
 
-Set a profile to audit mode from a **specific directory**
+从**指定目录**将配置文件设为审计模式
 
 ```sudo aa-audit -d /path/to/profiles [profile_name]```
 
-Set a profile to audit mode **without reloading** it
+将配置文件设为审计模式且**不重新加载**
 
 ```sudo aa-audit --no-reload [profile_name]```
 
@@ -26,29 +26,29 @@ Set a profile to audit mode **without reloading** it
 
 # DESCRIPTION
 
-**aa-audit** configures AppArmor security profiles to operate in audit mode. In this mode, security policy is enforced and **all access attempts** (both successes and failures) are logged to the system log. This allows administrators to monitor application behavior while still enforcing security policies.
+**aa-audit** 将 AppArmor 安全配置文件设为审计模式运行。在该模式下，安全策略仍然强制执行，并且**所有访问尝试**（无论成败）都会被记录到系统日志中。这使管理员能够在继续实施安全策略的同时监视应用行为。
 
 # PARAMETERS
 
 **-d, --dir /path/to/profiles**
-> Specifies the directory containing AppArmor profiles; defaults to /etc/apparmor.d
+> 指定存放 AppArmor 配置文件的目录；默认为 /etc/apparmor.d
 
 **--no-reload**
-> Prevents automatic profile reloading after modifications
+> 修改后不自动重新加载配置文件
 
 **-r, --remove**
-> Disable audit mode for the specified profile (reverses the effect of aa-audit).
+> 为指定配置文件关闭审计模式（撤销 aa-audit 的效果）。
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Audit mode generates significant log output as it records all access attempts. This can impact system performance and fill up log files quickly on busy systems.
+审计模式会记录所有访问尝试，产生大量日志输出。这可能影响系统性能，并在繁忙的系统上迅速填满日志文件。
 
 # HISTORY
 
-Part of the **AppArmor** application security framework, developed as an alternative to SELinux for Linux systems. AppArmor was originally developed by **Immunix** and later acquired by **Novell** in 2005.
+属于 **AppArmor** 应用安全框架的一部分，该框架作为 SELinux 的替代方案而开发。AppArmor 最初由 **Immunix** 开发，后于 2005 年被 **Novell** 收购。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create and manage static library archives
+创建和管理静态库归档
 
 # TLDR
 
-**Create** archive from files
+从文件**创建**归档
 
 ```ar rcs [archive.a] [file1.o] [file2.o]```
 
-**List** archive contents
+**列出**归档内容
 
 ```ar t [archive.a]```
 
-**Extract** all files
+**解压**所有文件
 
 ```ar x [archive.a]```
 
-**Extract** specific file
+**解压**指定文件
 
 ```ar x [archive.a] [file.o]```
 
-**Add** file to archive
+向归档中**添加**文件
 
 ```ar r [archive.a] [newfile.o]```
 
-**Delete** file from archive
+从归档中**删除**文件
 
 ```ar d [archive.a] [file.o]```
 
@@ -34,49 +34,49 @@ Create and manage static library archives
 
 # DESCRIPTION
 
-**ar** creates, modifies, and extracts from archives. It's primarily used to create static libraries (.a files) from object files for use with the linker.
+**ar** 用于创建、修改归档以及从中提取文件。它主要用于从目标文件创建静态库（.a 文件），供链接器使用。
 
-Archives contain multiple files with a table of contents for quick access. Unlike tar, ar is optimized for random access to individual members.
+归档包含多个文件并带有目录表，便于快速访问。与 tar 不同，ar 针对单个成员的随机访问做了优化。
 
 # PARAMETERS
 
 **r**
-> Insert (replace) files
+> 插入（替换）文件
 
 **c**
-> Create archive
+> 创建归档
 
 **s**
-> Create/update archive index (ranlib)
+> 创建/更新归档索引（相当于 ranlib）
 
 **t**
-> Table of contents
+> 显示目录表
 
 **x**
-> Extract files
+> 提取文件
 
 **d**
-> Delete files
+> 删除文件
 
 **p**
-> Print file contents to stdout
+> 将文件内容打印到标准输出
 
 **q**
-> Quick append (no checking)
+> 快速追加（不检查）
 
 **v**
-> Verbose output
+> 详细输出
 
 **u**
-> Update only newer files
+> 只更新较新的文件
 
 # CAVEATS
 
-Primarily used for static libraries. For general archiving, use tar instead. Archive index (s) is needed for linker to use the library. No compression.
+主要用于静态库。一般性归档请改用 tar。链接器要使用该库需要归档索引（s）。不提供压缩。
 
 # HISTORY
 
-**ar** dates back to early Unix in the **1970s**. It predates tar and was originally a general-purpose archiver before becoming specialized for library creation.
+**ar** 可追溯到 **1970 年代**的早期 Unix。它比 tar 更早出现，最初是通用归档工具，后来专门用于库创建。
 
 # INSTALL
 

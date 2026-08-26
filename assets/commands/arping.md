@@ -1,26 +1,26 @@
 # TAGLINE
 
-Send ARP requests to discover and test network hosts
+发送 ARP 请求以发现和测试网络主机
 
 # TLDR
 
-**Ping a host using ARP**
+**使用 ARP ping 一台主机**
 
 ```sudo arping [192.168.1.1]```
 
-**Ping using a specific interface**
+**通过指定接口进行 ping**
 
 ```sudo arping -I [eth0] [192.168.1.1]```
 
-**Send a specific number of requests**
+**发送指定数量的请求**
 
 ```sudo arping -c [5] [192.168.1.1]```
 
-**Detect duplicate IP addresses on the network**
+**检测网络中的重复 IP 地址**
 
 ```sudo arping -D [192.168.1.1]```
 
-**Quit after first reply** (check if host is alive)
+**收到第一个应答后退出**（检查主机是否存活）
 
 ```sudo arping -f [192.168.1.1]```
 
@@ -30,55 +30,55 @@ Send ARP requests to discover and test network hosts
 
 # DESCRIPTION
 
-**arping** sends ARP requests to a target host and displays responses. Unlike ICMP ping, ARP operates at layer 2 and cannot be blocked by IP firewalls.
+**arping** 向目标主机发送 ARP 请求并显示响应。与 ICMP ping 不同，ARP 工作在第 2 层，无法被 IP 防火墙拦截。
 
-The tool is useful for verifying layer 2 connectivity, finding MAC addresses, and detecting duplicate IP addresses on a network.
+该工具可用于验证二层连通性、查找 MAC 地址以及检测网络中的重复 IP 地址。
 
 # PARAMETERS
 
 **-c** _count_
-> Stop after sending _count_ ARP REQUEST packets.
+> 在发送 _count_ 个 ARP REQUEST 包后停止。
 
 **-I** _interface_
-> Network interface to send ARP requests on.
+> 发送 ARP 请求所用的网络接口。
 
 **-D**
-> Duplicate address detection mode (DAD). See RFC 2131.
+> 重复地址检测模式（DAD）。参见 RFC 2131。
 
 **-A**
-> ARP reply mode (gratuitous ARP reply).
+> ARP 应答模式（免费 ARP 应答）。
 
 **-U**
-> Unsolicited ARP mode to update neighbours' ARP caches. No replies are expected.
+> 主动 ARP 模式，用于更新邻居的 ARP 缓存。不期待收到应答。
 
 **-b**
-> Send only MAC-level broadcasts; do not switch to unicast after reply.
+> 只发送 MAC 层广播；收到应答后不切换为单播。
 
 **-q**
-> Quiet mode; nothing is displayed.
+> 安静模式；不显示任何内容。
 
 **-s** _source_
-> Source IP address to use in ARP packets.
+> ARP 包中使用的源 IP 地址。
 
 **-w** _deadline_
-> Timeout in seconds before exiting regardless of packets sent or received.
+> 超时时间，单位秒，无论已收发多少数据包都会在到期后退出。
 
 **-i** _interval_
-> Interval in seconds between packets.
+> 数据包之间的发送间隔，单位秒。
 
 **-f**
-> Quit after the first reply confirming target is alive.
+> 收到第一个确认目标存活的应答后退出。
 
 **-V**
-> Print version and exit.
+> 打印版本信息并退出。
 
 # CAVEATS
 
-Requires root/sudo for raw socket access. Only works on local network segment. Cannot ping across routers.
+需要 root/sudo 权限以访问原始套接字。只能在本网段内工作。无法跨路由器进行 ping。
 
 # HISTORY
 
-**arping** has existed in various forms since the early **2000s**. The most common implementation is in the **iputils** package maintained as part of Linux networking tools. A separate implementation by Thomas Habets provides additional features.
+**arping** 自 **2000** 年代初以来就以各种形式存在。最常见的实现位于作为 Linux 网络工具一部分维护的 **iputils** 软件包中。Thomas Habets 的另一个独立实现提供了更多功能。
 
 # INSTALL
 

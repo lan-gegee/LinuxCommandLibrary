@@ -1,34 +1,34 @@
 # TAGLINE
 
-Send and manage email through AWS
+通过 AWS 发送和管理电子邮件
 
 # TLDR
 
-**Send an email** with subject and body
+**发送带主题和正文的电子邮件**
 
 ```aws ses send-email --from [sender@example.com] --to [recipient@example.com] --subject "[Subject]" --text "[Body text]"```
 
-**Verify an email identity**
+**验证电子邮箱身份**
 
 ```aws ses verify-email-identity --email-address [email@example.com]```
 
-**List verified identities**
+**列出已验证的身份**
 
 ```aws ses list-identities```
 
-**Get sending quota** and limits
+**获取发送配额**和限制
 
 ```aws ses get-send-quota```
 
-**Get sending statistics**
+**获取发送统计信息**
 
 ```aws ses get-send-statistics```
 
-**Create an email template**
+**创建邮件模板**
 
 ```aws ses create-template --template file://[template.json]```
 
-**Send a templated email**
+**发送模板化邮件**
 
 ```aws ses send-templated-email --source [sender@example.com] --destination ToAddresses=[recipient@example.com] --template [template-name] --template-data '{"name":"value"}'```
 
@@ -38,9 +38,9 @@ Send and manage email through AWS
 
 # DESCRIPTION
 
-**aws ses** is the AWS CLI interface for Amazon Simple Email Service (SES), a cloud-based email sending service for transactional email, marketing messages, and high-volume email communications.
+**aws ses** 是 AWS CLI 中用于管理 Amazon Simple Email Service（SES）的接口。SES 是一项基于云的邮件发送服务，适用于事务性邮件、营销消息和高流量邮件通信。
 
-SES provides email sending capabilities with features like deliverability tracking, bounce and complaint handling, email templates, and configuration sets for managing sending behavior.
+SES 提供邮件发送能力，并具备送达率跟踪、退信与投诉处理、邮件模板以及用于管理发送行为的配置集等功能。
 
 # SUBCOMMANDS
 
@@ -64,11 +64,11 @@ SES provides email sending capabilities with features like deliverability tracki
 
 # CAVEATS
 
-New SES accounts start in sandbox mode, which limits sending to verified email addresses only. Request production access to send to any address. Email identities (addresses or domains) must be verified before sending. SES charges per 1,000 emails sent plus data transfer fees.
+新的 SES 账户以沙盒模式启动，只能发送给已验证的邮箱地址。需申请生产访问权限才能向任意地址发送。邮箱身份（地址或域名）在发送前必须完成验证。SES 按每发送 1000 封邮件计费，另加数据传输费。
 
 # HISTORY
 
-Amazon SES launched in **January 2011** as AWS's email sending service, providing developers with a cost-effective way to send email at scale. The service has evolved to include receiving capabilities, templates, and advanced deliverability features.
+Amazon SES 于 **2011 年 1 月**上线，是 AWS 的邮件发送服务，为开发者提供了大规模发送邮件的经济方式。该服务后来逐步增加了接收功能、模板和高级送达率特性。
 
 # INSTALL
 

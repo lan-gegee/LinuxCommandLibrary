@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate Makefile.in templates from Makefile.am
+从 Makefile.am 生成 Makefile.in 模板
 
 # TLDR
 
-**Generate** Makefile.in
+**生成** Makefile.in
 
 ```automake --add-missing```
 
-Generate with **copy** instead of symlink
+以**复制**方式而非符号链接生成
 
 ```automake --add-missing --copy```
 
-Generate for **specific version**
+针对**特定版本**生成
 
 ```automake-1.16```
 
@@ -22,50 +22,50 @@ Generate for **specific version**
 
 # DESCRIPTION
 
-**automake** generates Makefile.in templates from Makefile.am files. It works with autoconf to create the complete GNU Build System, handling compilation, installation, and distribution tasks.
+**automake** 从 Makefile.am 文件生成 Makefile.in 模板。它与 autoconf 配合构建完整的 GNU 构建系统，处理编译、安装和分发任务。
 
-Automake provides portable makefiles that work across Unix-like systems.
+Automake 提供可在各类类 Unix 系统上工作的可移植 makefile。
 
 # PARAMETERS
 
 **-a**, **--add-missing**
-> Add missing standard auxiliary files (install-sh, missing, etc.).
+> 补充缺失的标准辅助文件（install-sh、missing 等）。
 
 **-c**, **--copy**
-> Copy auxiliary files instead of symlinking them.
+> 复制辅助文件而不是创建符号链接。
 
 **--force-missing**
-> Replace standard auxiliary files even if they already exist.
+> 即使标准辅助文件已存在也进行替换。
 
 **-W** _category_, **--warnings=**_category_
-> Report warnings for the given category (e.g. all, none, error, portability).
+> 报告给定类别的警告（如 all、none、error、portability）。
 
 **--gnu**
-> Require conformance to GNU coding standards (the default).
+> 要求符合 GNU 编码规范（默认行为）。
 
 **--foreign**
-> Relax checks; allow files that GNU standards require to be absent.
+> 放宽检查；允许缺少 GNU 规范要求的文件。
 
 **--gnits**
-> Apply the stricter GNU Gnits standards.
+> 应用更严格的 GNU Gnits 规范。
 
 **-i**, **--ignore-deps**
-> Disable generation of automatic dependency tracking.
+> 禁用自动依赖跟踪的生成。
 
 # WORKFLOW
 
-1. Write Makefile.am
-2. Run **automake** to generate Makefile.in
-3. Run **autoconf** to generate configure
-4. Users run ./configure to generate Makefile
+1. 编写 Makefile.am
+2. 运行 **automake** 生成 Makefile.in
+3. 运行 **autoconf** 生成 configure
+4. 用户运行 ./configure 生成 Makefile
 
 # CAVEATS
 
-Steep learning curve. Generated Makefiles are complex. Requires understanding of autotools conventions. Many projects now use CMake or Meson instead.
+学习曲线陡峭。生成的 Makefile 很复杂。需要理解 autotools 的各种约定。许多项目现在改用 CMake 或 Meson。
 
 # HISTORY
 
-**Automake** was created by David MacKenzie and Tom Tromey, first released in **1994** to complement autoconf with makefile generation.
+**Automake** 由 David MacKenzie 和 Tom Tromey 创建，于 **1994 年**首次发布，为 autoconf 补充了 makefile 生成能力。
 
 # INSTALL
 

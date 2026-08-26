@@ -1,42 +1,42 @@
 # TAGLINE
 
-Alpine Linux package manager
+Alpine Linux 软件包管理器
 
 # TLDR
 
-**Update** repository indexes and upgrade all packages
+**更新**仓库索引并升级所有软件包
 
 ```apk upgrade -U```
 
-Only update **repository indexes**
+只更新**仓库索引**
 
 ```apk update```
 
-**Install** a new package
+**安装**新软件包
 
 ```apk add [package]```
 
-**Install** without caching the index (common in Dockerfiles)
+**安装**时不缓存索引（Dockerfile 中的常见做法）
 
 ```apk add --no-cache [package]```
 
-**Remove** a package
+**删除**软件包
 
 ```apk del [package]```
 
-**Repair/Reinstall** a package without modifying main dependencies
+在不改动主依赖的情况下**修复/重装**软件包
 
 ```apk fix [package]```
 
-**Search** for packages by name with descriptions
+按名称并附带描述**搜索**软件包
 
 ```apk search -v [keyword]```
 
-Search for packages by **description**
+按**描述**搜索软件包
 
 ```apk search -d [keyword]```
 
-Display **information** about a specific package
+显示指定软件包的**信息**
 
 ```apk info [package]```
 
@@ -46,94 +46,94 @@ Display **information** about a specific package
 
 # DESCRIPTION
 
-**apk** (Alpine Package Keeper) is the package management tool for Alpine Linux. It handles installation, upgrade, and removal of packages, as well as repository management and system maintenance.
+**apk**（Alpine Package Keeper）是 Alpine Linux 的软件包管理工具。它负责软件包的安装、升级和删除，以及仓库管理和系统维护。
 
 # PARAMETERS
 
 **add**
-> Add or modify constraints and commit changes
+> 添加或修改约束并提交更改
 
 **del**
-> Remove constraints and commit changes
+> 移除约束并提交更改
 
 **fix**
-> Fix, reinstall, or upgrade packages without modifying world
+> 在不修改 world 集合的情况下修复、重装或升级软件包
 
 **update**
-> Update repository indexes
+> 更新仓库索引
 
 **upgrade**
-> Install upgrades available from repositories
+> 安装仓库中可用的升级
 
 **cache**
-> Manage the local package cache
+> 管理本地软件包缓存
 
 **search**
-> Search for packages by name or description
+> 按名称或描述搜索软件包
 
 **info**
-> Display detailed information about packages
+> 显示软件包的详细信息
 
 **list**
-> List packages matching a pattern or criteria
+> 列出匹配某个模式或条件的软件包
 
 **query**
-> Interrogate installed database and indexes
+> 查询已安装数据库和索引
 
 **policy**
-> Show repository policy for packages
+> 显示软件包的仓库策略
 
 **version**
-> Compare package versions or check for available upgrades
+> 比较软件包版本或检查可用升级
 
 **fetch**
-> Download packages from repositories to the current directory
+> 将软件包从仓库下载到当前目录
 
 **stats**
-> Show statistics about the package database
+> 显示软件包数据库的统计信息
 
 **-U, --update-cache**
-> Update package lists before the operation (alias for --cache-max-age 0)
+> 在操作前更新软件包列表（--cache-max-age 0 的别名）
 
 **-v, --verbose**
-> Print more verbose information (repeat for more detail)
+> 打印更详细的信息（重复使用可获得更多细节）
 
 **-q, --quiet**
-> Print less information
+> 打印更少的信息
 
 **-d, --description**
-> Search in package descriptions
+> 在软件包描述中搜索
 
 **--no-cache**
-> Do not use or update any local cache; fetch the index directly
+> 不使用也不更新任何本地缓存；直接获取索引
 
 **--allow-untrusted**
-> Install packages with untrusted or missing signatures
+> 安装签名不可信或缺失的软件包
 
 **-X, --repository** _url_
-> Specify a supplemental repository
+> 指定补充仓库
 
 **-p, --root** _dir_
-> Manage a filesystem rooted at the given directory
+> 管理以给定目录为根的文件系统
 
 # CONFIGURATION
 
 **/etc/apk/repositories**
-> List of package repository URLs, one per line.
+> 软件包仓库 URL 列表，每行一个。
 
 **/etc/apk/world**
-> List of explicitly installed packages and version constraints.
+> 显式安装的软件包及版本约束列表。
 
 **/etc/apk/keys/**
-> Directory containing trusted repository signing keys.
+> 存放受信任仓库签名密钥的目录。
 
 # CAVEATS
 
-Alpine Linux specific; not available on other distributions. Uses a minimal package format designed for size and simplicity.
+仅适用于 Alpine Linux；其他发行版上不可用。使用为体积和简洁性设计的极简软件包格式。
 
 # HISTORY
 
-Developed for **Alpine Linux**, a security-oriented, lightweight Linux distribution. Alpine is widely used in container environments due to its small footprint.
+为 **Alpine Linux** 开发，这是一个面向安全、轻量级的 Linux 发行版。Alpine 因其占用空间小而被广泛用于容器环境。
 
 # INSTALL
 

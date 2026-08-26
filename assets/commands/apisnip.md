@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI for trimming OpenAPI specifications
+用于裁剪 OpenAPI 规范的 TUI 工具
 
 # TLDR
 
-**Open a local OpenAPI spec file**
+**打开本地 OpenAPI 规范文件**
 
 ```apisnip [input.yaml]```
 
-**Trim and save to a specific output file**
+**裁剪并保存到指定的输出文件**
 
 ```apisnip [input.yaml] [output.yaml]```
 
-**Open a remote OpenAPI spec** from a URL
+从 URL **打开远程 OpenAPI 规范**
 
 ```apisnip [https://petstore.swagger.io/v2/swagger.json] [output.yaml]```
 
@@ -23,24 +23,24 @@ TUI for trimming OpenAPI specifications
 # PARAMETERS
 
 _input_
-> Local file path or remote URL to an OpenAPI specification (required)
+> OpenAPI 规范的本地文件路径或远程 URL（必填）
 
 _output_
-> Output file path (default: apisnip.out.yaml)
+> 输出文件路径（默认：apisnip.out.yaml）
 
 # DESCRIPTION
 
-**apisnip** is a terminal user interface for selectively trimming OpenAPI specifications. It presents an interactive list of all API endpoints where you can toggle which ones to keep, then generates a smaller specification file containing only the selected endpoints with all necessary $ref references and components preserved.
+**apisnip** 是一个用于选择性裁剪 OpenAPI 规范的终端用户界面。它以交互式列表展示所有 API 端点，你可以切换每个端点的保留状态，然后生成一个只包含所选端点的更小的规范文件，同时保留所有必要的 $ref 引用和组件。
 
-Written in Rust using Ratatui, apisnip supports both JSON and YAML formats, fuzzy search with weighted scoring, HTTP method syntax highlighting, automatic theme detection, mouse support, and smart grouping of selected endpoints at the top of the list.
+apisnip 使用 Rust 和 Ratatui 编写，支持 JSON 和 YAML 两种格式、带加权评分的模糊搜索、HTTP 方法语法高亮、自动主题检测、鼠标操作，以及将所选端点智能分组到列表顶部的功能。
 
 # CAVEATS
 
-Output preserves the original specification structure and ordering. Only endpoints can be selectively included; component schemas are automatically resolved based on selected endpoint references.
+输出会保留原始规范的结构和顺序。只有端点可以被选择性包含；组件 schema 会根据所选端点的引用自动解析。
 
 # HISTORY
 
-**apisnip** was created by **Michiel Roos** (Tuurlijk) as an open-source Rust project under the MIT license.
+**apisnip** 由 **Michiel Roos**（Tuurlijk）创建，是一个采用 MIT 许可证的开源 Rust 项目。
 
 # SEE ALSO
 

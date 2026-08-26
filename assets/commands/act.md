@@ -1,34 +1,34 @@
 # TAGLINE
 
-local GitHub Actions runner
+本地 GitHub Actions 运行器
 
 # TLDR
 
-**Run** the default workflow
+**运行**默认工作流
 
 ```act```
 
-**List** all available workflows
+**列出**所有可用的工作流
 
 ```act -l```
 
-Run a **specific workflow**
+运行**特定的工作流**
 
 ```act -W [.github/workflows/ci.yml]```
 
-Run a **specific job**
+运行**特定的作业**
 
 ```act -j [build]```
 
-Run with **secrets** from file
+从文件加载**机密（secrets）**运行
 
 ```act --secret-file [.secrets]```
 
-**Dry run** to see what would be executed
+**试运行**，查看将执行的内容
 
 ```act -n```
 
-Run with a specific **platform image**
+以指定的**平台镜像**运行
 
 ```act -P ubuntu-latest=catthehacker/ubuntu:act-latest```
 
@@ -38,75 +38,75 @@ Run with a specific **platform image**
 
 # DESCRIPTION
 
-**act** allows you to run GitHub Actions workflows locally using Docker containers. It parses workflow YAML files and executes jobs in containers that simulate the GitHub Actions environment, enabling rapid iteration and debugging without pushing to GitHub.
+**act** 允许你使用 Docker 容器在本地运行 GitHub Actions 工作流。它解析工作流 YAML 文件，并在模拟 GitHub Actions 环境的容器中执行作业，无需推送到 GitHub 即可快速迭代和调试。
 
-The tool supports most GitHub Actions features including matrix builds, secrets, environment variables, and artifacts. It downloads and caches action repositories automatically.
+该工具支持大部分 GitHub Actions 功能，包括矩阵构建、机密、环境变量和制品。它会自动下载并缓存 action 仓库。
 
 # PARAMETERS
 
 **-W** _file_, **--workflows** _file_
-> Path to workflow file(s) (default: .github/workflows/)
+> 工作流文件的路径（默认：.github/workflows/）
 
 **-j** _job_, **--job** _job_
-> Run a specific job
+> 运行特定的作业
 
 **-e** _file_, **--eventpath** _file_
-> Path to event JSON file
+> 事件 JSON 文件的路径
 
 **--secret-file** _file_
-> Load secrets from file (KEY=VALUE format)
+> 从文件加载机密（KEY=VALUE 格式）
 
 **-s** _secret_, **--secret** _secret_
-> Set a secret (KEY=VALUE)
+> 设置一个机密（KEY=VALUE）
 
 **--env-file** _file_
-> Load environment variables from file
+> 从文件加载环境变量
 
 **-P** _platform_, **--platform** _platform_
-> Custom Docker image for platform (e.g., ubuntu-latest=catthehacker/ubuntu:act-latest)
+> 为平台指定自定义 Docker 镜像（如 ubuntu-latest=catthehacker/ubuntu:act-latest）
 
 **--input** _input_
-> Set a workflow input (KEY=VALUE)
+> 设置一个工作流输入（KEY=VALUE）
 
 **--input-file** _file_
-> Load workflow inputs from file
+> 从文件加载工作流输入
 
 **--matrix** _matrix_
-> Select specific matrix configuration to run
+> 选择要运行的特定矩阵配置
 
 **--action-offline-mode**
-> Don't pull images or fetch remote actions if already cached
+> 若已缓存则不拉取镜像或获取远程 action
 
 **-l**, **--list**
-> List available workflows and jobs
+> 列出可用的工作流和作业
 
 **-n**, **--dryrun**
-> Show what would be run without executing
+> 显示将要运行的内容但不实际执行
 
 **-r**, **--reuse**
-> Reuse containers between runs
+> 在多次运行之间复用容器
 
 **-b**, **--bind**
-> Bind working directory instead of copying
+> 以绑定方式挂载工作目录而非复制
 
 **--container-architecture** _arch_
-> Container architecture (amd64, arm64)
+> 容器体系结构（amd64、arm64）
 
 # CONFIGURATION
 
 **~/.actrc**
-> User-level default flags applied to every act invocation. Each line contains a single command-line flag (e.g., `-P ubuntu-latest=catthehacker/ubuntu:act-latest`).
+> 用户级默认标志，应用于每次 act 调用。每行包含一个命令行标志（如 `-P ubuntu-latest=catthehacker/ubuntu:act-latest`）。
 
 **.actrc**
-> Project-level defaults, same format as the user-level file. Overrides user-level settings when present.
+> 项目级默认配置，格式与用户级文件相同。存在时覆盖用户级设置。
 
 # CAVEATS
 
-Not all GitHub Actions features are supported; some hosted runner features like service containers have limitations. Large workflow images can be slow to download initially. Some actions may behave differently locally than on GitHub. Docker must be running.
+并非所有 GitHub Actions 功能都受支持；服务容器等托管运行器功能存在局限。大型工作流镜像初次下载可能很慢。某些 action 在本地的行为可能与在 GitHub 上不同。Docker 必须处于运行状态。
 
 # HISTORY
 
-**act** was created by Casey Lee (nektos) and first released in **2019**. It was developed to address the slow feedback loop of GitHub Actions by enabling local execution. The project quickly gained popularity in the CI/CD community.
+**act** 由 Casey Lee（nektos）创建，首次发布于 **2019** 年。它旨在通过支持本地执行来改善 GitHub Actions 反馈周期缓慢的问题。该项目很快在 CI/CD 社区中流行起来。
 
 # INSTALL
 

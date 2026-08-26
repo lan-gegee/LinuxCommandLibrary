@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create, view, and extract archives graphically.
+以图形方式创建、查看和解压归档。
 
 # TLDR
 
-**Extract** a specific archive into the current directory
+将指定归档**解压**到当前目录
 
 ```ark -b [path/to/archive]```
 
-Extract an archive into a **specific directory**
+将归档解压到**指定目录**
 
 ```ark -b -o [path/to/directory] [path/to/archive]```
 
-**Create** an archive and add specific files to it
+**创建**归档并向其中添加指定文件
 
 ```ark -t [path/to/archive] [path/to/file1] [path/to/file2]```
 
@@ -22,36 +22,36 @@ Extract an archive into a **specific directory**
 
 # DESCRIPTION
 
-**ark** is KDE's graphical archiving tool that supports creating, viewing, extracting, and modifying archives. It handles numerous formats including tar, gzip, bzip2, zip, rar, 7z, and many others through plugins.
+**ark** 是 KDE 的图形化归档工具，支持创建、查看、解压和修改归档。它通过插件支持众多格式，包括 tar、gzip、bzip2、zip、rar、7z 等。
 
-When run with command-line options, ark can operate in batch mode without displaying its GUI, making it useful for scripting and automation.
+配合命令行选项运行时，ark 可以在不显示 GUI 的批处理模式下操作，非常适合脚本编写和自动化。
 
 # PARAMETERS
 
 **-b, --batch**
-> Use batch mode (no GUI) to extract archives
+> 使用批处理模式（无 GUI）解压归档
 
 **-o, --destination** _directory_
-> Extract to the specified directory
+> 解压到指定目录
 
 **-t, --add-to** _archive_
-> Add files to an archive, creating it if necessary
+> 将文件添加到归档，必要时先创建归档
 
 **-c, --add**
-> Add files to an existing archive
+> 向现有归档添加文件
 
 **-e, --extract**
-> Open the extraction dialog
+> 打开解压对话框
 
 **-d, --dialog**
-> Show a dialog to choose extraction options instead of extracting silently
+> 显示对话框选择解压选项，而不是静默解压
 
 **-f, --changetofirstpath**
-> Use the first archive entry's path as the destination (with **-b**)
+> 使用第一个归档条目的路径作为目标路径（配合 **-b** 使用）
 
 # CAVEATS
 
-Some archive formats require additional plugins or external programs. RAR creation requires **rar** (proprietary), while extraction works with the free **unrar**. Format support depends on installed KDE archive plugins.
+某些归档格式需要额外的插件或外部程序。创建 RAR 需要 **rar**（专有软件），而解压可使用免费的 **unrar**。格式支持情况取决于已安装的 KDE 归档插件。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Load, replace, and manage AppArmor security profiles.
+加载、替换和管理 AppArmor 安全配置。
 
 # TLDR
 
-**Load** a profile into the kernel
+向内核**加载**一个配置
 
 ```sudo apparmor_parser -a [profile_file]```
 
-**Replace** an existing profile
+**替换**现有配置
 
 ```sudo apparmor_parser -r [profile_file]```
 
-**Remove** a profile from the kernel
+从内核**移除**一个配置
 
 ```sudo apparmor_parser -R [profile_name]```
 
-Load a profile in **complain mode**
+以 **complain 模式**加载配置
 
 ```sudo apparmor_parser -C -r [path/to/profile]```
 
-**Preprocess** a profile and write binary cache to file
+**预处理**配置并将二进制缓存写入文件
 
 ```apparmor_parser -p -o [path/to/output.cache] -Q [path/to/profile]```
 
-Replace a profile while **skipping cache** reads
+替换配置的同时**跳过缓存**读取
 
 ```sudo apparmor_parser -r -T [path/to/profile]```
 
@@ -34,79 +34,79 @@ Replace a profile while **skipping cache** reads
 
 # DESCRIPTION
 
-**apparmor_parser** is used to load, compile, and manage AppArmor security profiles. It parses profiles from text format and loads them into the kernel. The parser also handles profile caching for faster subsequent loads.
+**apparmor_parser** 用于加载、编译和管理 AppArmor 安全配置。它解析文本格式的配置并加载到内核中。解析器还支持配置缓存，加快后续加载速度。
 
 # PARAMETERS
 
 **-a, --add**
-> Add/load a profile into the kernel
+> 将配置添加/加载到内核
 
 **-r, --replace**
-> Replace an existing profile in the kernel
+> 替换内核中的现有配置
 
 **-R, --remove**
-> Remove a profile from the kernel
+> 从内核移除一个配置
 
 **-C, --Complain**
-> Force the profile to load in complain mode (logs violations but does not block).
+> 强制配置以 complain 模式加载（记录违规但不阻止）。
 
 **-B, --binary**
-> Treat the input as precompiled binary cache files rather than text profiles.
+> 将输入视为预编译的二进制缓存文件而非文本配置。
 
 **-p, --preprocess**
-> Preprocess the profile by flattening includes, without loading it.
+> 通过展开 include 预处理配置，但不加载。
 
 **-o, --ofile file**
-> Write the binary compiled profile to the given file.
+> 将编译后的二进制配置写入指定文件。
 
 **-S, --stdout**
-> Write the binary compiled profile to stdout.
+> 将编译后的二进制配置写到 stdout。
 
 **-Q, --skip-kernel-load**
-> Perform all actions except actually loading the profile into the kernel.
+> 执行除实际将配置加载进内核之外的所有操作。
 
 **-T, --skip-read-cache**
-> Skip reading from the cache; always recompile.
+> 跳过读取缓存；总是重新编译。
 
 **-W, --write-cache**
-> Write the compiled profile to the cache directory.
+> 将编译后的配置写入缓存目录。
 
 **-K, --skip-cache**
-> Disable both reading and writing of the cache.
+> 同时禁用缓存的读取和写入。
 
 **-L, --cache-loc dir**
-> Specify the cache directory location.
+> 指定缓存目录位置。
 
 **-m, --match-string string**
-> Override the kernel feature set used when compiling.
+> 覆盖编译时使用的内核特性集。
 
 **-v, --verbose**
-> Report each profile as it is loaded and show warnings.
+> 报告每个配置的加载情况并显示警告。
 
 **-d, --debug**
-> Check syntactic correctness; given twice, also dump the parser's interpretation.
+> 检查语法正确性；使用两次还会输出解析器的解释结果。
 
 **--warn=n**
-> Enable specific compilation warnings.
+> 启用特定的编译警告。
 
 **--abort-on-error**
-> Stop processing on the first error rather than continuing.
+> 在第一个错误处停止处理，而不是继续。
 
 # CONFIGURATION
 
 **/etc/apparmor.d/**
-> Directory containing AppArmor security profiles loaded at boot.
+> 存放启动时加载的 AppArmor 安全配置的目录。
 
 **/etc/apparmor.d/cache/**
-> Directory for compiled binary profile caches.
+> 存放已编译二进制配置缓存的目录。
 
 # CAVEATS
 
-Profiles must be syntactically correct or loading will fail. Use **-p** to preprocess and check for errors before loading.
+配置必须语法正确，否则加载会失败。加载前可用 **-p** 预处理并检查错误。
 
 # HISTORY
 
-Part of the **AppArmor** application security framework developed by Immunix and later acquired by Novell. Now maintained by Canonical.
+**AppArmor** 应用安全框架的一部分，由 Immunix 开发，后被 Novell 收购，现由 Canonical 维护。
 
 # INSTALL
 

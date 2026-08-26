@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Git repositories hosted on AWS CodeCommit.
+管理 AWS CodeCommit 上托管的 Git 仓库。
 
 # TLDR
 
-**Create a new repository**
+**创建新仓库**
 
 ```aws codecommit create-repository --repository-name [my-repo] --repository-description "[Description]"```
 
-**List all repositories** in the account
+**列出账户中的所有仓库**
 
 ```aws codecommit list-repositories```
 
-**Get details** about a repository
+**获取仓库详情**
 
 ```aws codecommit get-repository --repository-name [my-repo]```
 
-**Clone a repository** using git-remote-codecommit (install with pip install git-remote-codecommit)
+**使用 git-remote-codecommit 克隆仓库**（通过 pip install git-remote-codecommit 安装）
 
 ```git clone codecommit::[region]://[my-repo]```
 
-**Create a branch** from an existing commit
+**从现有提交创建分支**
 
 ```aws codecommit create-branch --repository-name [my-repo] --branch-name [feature-branch] --commit-id [abc123]```
 
-**Create a pull request**
+**创建拉取请求**
 
 ```aws codecommit create-pull-request --title "[PR Title]" --targets repositoryName=[my-repo],sourceReference=[feature-branch],destinationReference=main```
 
-**Put a file** directly to a repository
+**直接向仓库写入文件**
 
 ```aws codecommit put-file --repository-name [my-repo] --branch-name main --file-content file://[local-file.txt] --file-path [path/in/repo.txt] --commit-message "[message]"```
 
@@ -38,52 +38,52 @@ Manage Git repositories hosted on AWS CodeCommit.
 
 # DESCRIPTION
 
-**aws codecommit** is the AWS CLI interface for AWS CodeCommit, a fully managed source control service hosting secure Git repositories. CodeCommit eliminates the need to operate your own source control system and scales automatically to meet project needs.
+**aws codecommit** 是 AWS CodeCommit 的 AWS CLI 接口。CodeCommit 是一项全托管的源代码控制服务，托管安全的 Git 仓库。它免去了自行运维源代码控制系统的负担，并能自动扩展以满足项目需求。
 
-CodeCommit supports standard Git functionality including branches, commits, and merges. It adds AWS-specific features like pull request approval rules, repository triggers for event notifications, and integration with AWS IAM for access control.
+CodeCommit 支持分支、提交、合并等标准 Git 功能，还提供 AWS 特有的能力，例如拉取请求审批规则、用于事件通知的仓库触发器，以及与 AWS IAM 集成实现访问控制。
 
 # COMMANDS
 
 **create-repository**
-> Create a new CodeCommit repository
+> 创建新的 CodeCommit 仓库
 
 **delete-repository**
-> Delete a repository
+> 删除仓库
 
 **list-repositories**
-> List all repositories in the account
+> 列出账户中的所有仓库
 
 **get-repository**
-> Get metadata about a repository, including its clone URLs
+> 获取仓库元数据，包括其克隆 URL
 
 **create-branch**
-> Create a new branch
+> 创建新分支
 
 **create-pull-request**
-> Create a pull request between branches
+> 在分支之间创建拉取请求
 
 **merge-pull-request-by-fast-forward**
-> Merge a pull request using fast-forward
+> 以 fast-forward 方式合并拉取请求
 
 **put-file**
-> Add or update a file in a repository
+> 在仓库中添加或更新文件
 
 **get-file**
-> Retrieve file contents as base64
+> 以 base64 形式获取文件内容
 
 **create-commit**
-> Create a commit with multiple file changes
+> 创建包含多个文件更改的提交
 
 **create-approval-rule-template**
-> Define approval requirements for pull requests
+> 定义拉取请求的审批要求
 
 # CAVEATS
 
-AWS CodeCommit is no longer available to new customers as of mid-**2024**; existing customers can continue using it. CodeCommit uses AWS IAM for authentication rather than SSH keys or passwords by default. For HTTPS access, configure either the Git credential helper or git-remote-codecommit. Individual files are limited to 2GB and there are quotas on API requests per second.
+自 **2024 年** 年中起，AWS CodeCommit 不再向新客户开放；现有客户可继续使用。CodeCommit 默认使用 AWS IAM 进行身份验证，而非 SSH 密钥或密码。如需 HTTPS 访问，需配置 Git 凭据助手或 git-remote-codecommit。单个文件上限为 2 GB，且每秒 API 请求数有配额限制。
 
 # HISTORY
 
-AWS CodeCommit launched in **July 2015** as part of the AWS developer tools suite. It provided a Git-compatible managed repository as an alternative to GitHub Enterprise or self-hosted GitLab. Pull request support was added in **2017**, and approval templates for compliance workflows in **2019**.
+AWS CodeCommit 于 **2015 年 7 月** 作为 AWS 开发者工具套件的一部分推出，提供兼容 Git 的托管仓库，可作为 GitHub Enterprise 或自托管 GitLab 的替代方案。拉取请求支持于 **2017 年** 加入，面向合规工作流的审批模板于 **2019 年** 加入。
 
 # INSTALL
 

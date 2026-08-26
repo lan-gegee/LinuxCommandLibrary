@@ -1,22 +1,22 @@
 # TAGLINE
 
-Translate SELinux denial messages into human-readable explanations.
+将 SELinux 拒绝消息转换为人类可读的解释。
 
 # TLDR
 
-Explain the **most recent** SELinux denial
+解释**最近**的 SELinux 拒绝事件
 
 ```sudo audit2why```
 
-Explain SELinux denials from a **specific audit log** file
+解释**指定审计日志**文件中的 SELinux 拒绝
 
 ```sudo audit2why -i [path/to/audit.log]```
 
-Explain **all SELinux denials** from the audit log
+解释审计日志中的**所有 SELinux 拒绝**
 
 ```sudo ausearch -m avc | audit2why```
 
-Explain denials for a **specific service**
+解释**特定服务**的拒绝
 
 ```sudo ausearch -m avc -c [service_name] | audit2why```
 
@@ -26,39 +26,39 @@ Explain denials for a **specific service**
 
 # DESCRIPTION
 
-**audit2why** translates SELinux denial messages from audit logs into human-readable explanations. It identifies the cause of each denial and often suggests solutions such as boolean toggles, policy modules, or file context corrections.
+**audit2why** 将来自审计日志的 SELinux 拒绝消息转换为人类可读的解释。它会找出每次拒绝的原因，并常常给出解决方案，例如切换布尔值、创建策略模块或修正文件上下文。
 
-The tool reads audit events from standard input or a specified file. It is typically used in conjunction with **ausearch** to filter and analyze specific types of denials.
+该工具从标准输入或指定文件读取审计事件。它通常与 **ausearch** 配合使用，以过滤和分析特定类型的拒绝。
 
 # PARAMETERS
 
 **-a**, **--all**
-> Read input from both the audit log and the message log.
+> 同时从审计日志和系统消息日志读取输入。
 
 **-b**, **--boot**
-> Read input from audit messages since the last boot.
+> 读取自上次启动以来的审计消息作为输入。
 
 **-d**, **--dmesg**
-> Read input from the output of _dmesg_(1).
+> 从 _dmesg_(1) 的输出读取输入。
 
 **-i** _file_, **--input** _file_
-> Read audit events from the specified file instead of stdin.
+> 从指定文件而非 stdin 读取审计事件。
 
 **-l**, **--lastreload**
-> Read only audit events generated after the last policy reload.
+> 只读取上次策略重载之后生成的审计事件。
 
 **-p** _file_, **--policy** _file_
-> Use the given policy file for analysis instead of the active one.
+> 使用给定的策略文件而非当前生效的策略进行分析。
 
 **-w**, **--why**
-> Show the reason for each denial (default behavior for audit2why).
+> 显示每次拒绝的原因（audit2why 的默认行为）。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 # CAVEATS
 
-Requires root privileges to read audit logs. The tool only explains denials; it does not automatically fix them. Suggested booleans should be reviewed before enabling as they may have security implications. Part of the **policycoreutils-python-utils** package.
+读取审计日志需要 root 权限。该工具只负责解释拒绝，不会自动修复。启用建议的布尔值之前应仔细审查，因为它们可能带来安全影响。属于 **policycoreutils-python-utils** 软件包的一部分。
 
 # SEE ALSO
 

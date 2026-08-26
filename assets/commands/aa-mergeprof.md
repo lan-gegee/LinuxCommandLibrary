@@ -1,14 +1,14 @@
 # TAGLINE
 
-Merge AppArmor security profiles
+合并 AppArmor 安全配置文件
 
 # TLDR
 
-**Merge** one or more profile files into the default profile directory
+将一个或多个配置文件**合并**到默认的配置目录
 
 ```sudo aa-mergeprof [file1] [file2]```
 
-**Merge** profile files into a **specific directory**
+将配置文件**合并**到**指定目录**
 
 ```sudo aa-mergeprof -d /path/to/profiles [file1] [file2]```
 
@@ -18,23 +18,23 @@ Merge AppArmor security profiles
 
 # DESCRIPTION
 
-**aa-mergeprof** is an interactive tool that merges one or more AppArmor security profile files into the system profile directory. When conflicts exist between incoming and existing profiles, it presents the differences and allows the administrator to choose how to resolve them. This is useful for importing profiles from other systems, combining profiles from different sources, or consolidating profiles after a system migration.
+**aa-mergeprof** 是一个交互式工具，用于把一个或多个 AppArmor 安全配置文件合并进系统的配置目录。当传入的配置文件与现有配置文件存在冲突时，它会展示差异，并允许管理员选择如何解决。这在从其他系统导入配置文件、合并来自不同来源的配置文件，或在系统迁移后整合配置文件时很有用。
 
 # PARAMETERS
 
 **-d**, **--dir** _/path/to/profiles_
-> Specifies the target directory for merged profiles. Defaults to **/etc/apparmor.d**.
+> 指定合并后配置文件的目标目录。默认为 **/etc/apparmor.d**。
 
 **-h**, **--help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 # CAVEATS
 
-Merging profiles may overwrite existing profiles in the destination directory. The tool is interactive and requires manual conflict resolution -- it cannot be run unattended. Requires root privileges.
+合并配置文件可能覆盖目标目录中的现有配置文件。该工具是交互式的，需要手动解决冲突——无法无人值守运行。需要 root 权限。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove WEP cloaking from wireless capture files
+从无线抓包文件中移除 WEP 隐匿（cloaking）
 
 # TLDR
 
-**Remove cloaking** from a capture file filtered by BSSID
+**移除隐匿**，按 BSSID 过滤抓包文件
 
 ```airdecloak-ng -i [capture.cap] --bssid [00:11:22:33:44:55]```
 
-**Filter by ESSID** (network name)
+**按 ESSID 过滤**（网络名称）
 
 ```airdecloak-ng -i [capture.cap] --ssid [MyNetwork]```
 
-**Specify output** file for cleaned packets
+**为清洗后的数据包指定输出**文件
 
 ```airdecloak-ng -i [capture.cap] -o [output.pcap] --bssid [00:11:22:33:44:55]```
 
-**Treat null packets** as potentially cloaked
+**将空数据包视为**可能被隐匿的数据包
 
 ```airdecloak-ng -i [capture.cap] --bssid [00:11:22:33:44:55] --null-packets```
 
@@ -26,49 +26,49 @@ Remove WEP cloaking from wireless capture files
 
 # DESCRIPTION
 
-**airdecloak-ng** filters out WEP cloaking techniques from wireless capture files. Some access points implement cloaking by injecting fake or corrupted packets to confuse WEP cracking tools.
+**airdecloak-ng** 从无线抓包文件中过滤掉 WEP 隐匿技术产生的数据包。某些接入点通过注入伪造或损坏的数据包来实现隐匿，以干扰 WEP 破解工具。
 
-This tool identifies and removes these cloaking packets, producing a cleaner capture file that can be more effectively analyzed or cracked.
+该工具识别并移除这些隐匿数据包，生成一个更干净的抓包文件，便于更有效地分析或破解。
 
 # PARAMETERS
 
 **-i** _file_
-> Input capture file (pcap format).
+> 输入抓包文件（pcap 格式）。
 
 **-o** _file_
-> Output file for valid (cleaned) packets. Default: _<src>_-filtered.pcap.
+> 存放有效（已清洗）数据包的输出文件。默认：_<src>_-filtered.pcap。
 
 **-c** _file_
-> Output file for cloaked packets. Default: _<src>_-cloaked.pcap.
+> 存放隐匿数据包的输出文件。默认：_<src>_-cloaked.pcap。
 
 **-u** _file_
-> Output file for unknown/ignored packets. Default: invalid_status.pcap.
+> 存放未知/被忽略数据包的输出文件。默认：invalid_status.pcap。
 
 **--bssid** _mac_
-> Filter by access point MAC address.
+> 按接入点 MAC 地址过滤。
 
 **--ssid** _essid_
-> Filter by network ESSID.
+> 按网络 ESSID 过滤。
 
 **--filters** _list_
-> Apply filtering methods in order (signal, duplicate_sn, duplicate_sn_ap, duplicate_sn_client, consecutive_sn, duplicate_iv, signal_dup_consec_sn).
+> 按顺序应用过滤方法（signal、duplicate_sn、duplicate_sn_ap、duplicate_sn_client、consecutive_sn、duplicate_iv、signal_dup_consec_sn）。
 
 **--null-packets**
-> Treat null packets as potentially cloaked.
+> 将空数据包视为可能被隐匿的数据包。
 
 **--disable-base-filter**
-> Skip base filtering logic.
+> 跳过基础过滤逻辑。
 
 **--drop-frag**
-> Remove fragmented packets.
+> 移除分片数据包。
 
 # CAVEATS
 
-Only useful for captures from access points using WEP cloaking. Modern networks using WPA/WPA2 don't use these cloaking techniques. May remove legitimate packets if cloaking detection is too aggressive.
+只对来自使用 WEP 隐匿技术的接入点的抓包有用。使用 WPA/WPA2 的现代网络不采用这些隐匿技术。如果隐匿检测过于激进，可能会误删合法数据包。
 
 # HISTORY
 
-**airdecloak-ng** was added to the aircrack-ng suite to counter specific WEP protection mechanisms that some access point vendors implemented in the late **2000s**.
+**airdecloak-ng** 被加入 aircrack-ng 套件，是为了应对 **2000 年代后期**某些接入点厂商实施的特定 WEP 保护机制。
 
 # INSTALL
 

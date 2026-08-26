@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create machine accounts in Active Directory
+在 Active Directory 中创建机器账户
 
 # TLDR
 
-**Add** computer to Active Directory
+**向 Active Directory 添加**计算机
 
 ```addcomputer.py [domain]/[user]:[password] -computer-name [hostname]```
 
-Specify **domain controller** IP
+指定**域控制器** IP
 
 ```addcomputer.py [domain]/[user]:[password] -dc-ip [192.168.1.1] -computer-name [hostname]```
 
-Use **pass-the-hash** authentication
+使用**哈希传递**（pass-the-hash）认证
 
 ```addcomputer.py [domain]/[user] -hashes :[NTHASH] -computer-name [hostname]```
 
-Add computer with a **specific password** using LDAP method
+用 LDAP 方法以**指定密码**添加计算机
 
 ```addcomputer.py [domain]/[user]:[password] -computer-name [hostname] -computer-pass [password] -method LDAPS```
 
@@ -26,43 +26,43 @@ Add computer with a **specific password** using LDAP method
 
 # DESCRIPTION
 
-**addcomputer.py** (also known as add-computer.py) is an Impacket script for creating machine accounts in Active Directory. It leverages the default AD permission that allows any authenticated user to add computer accounts to the domain.
+**addcomputer.py**（也称为 add-computer.py）是一个 Impacket 脚本，用于在 Active Directory 中创建机器账户。它利用了 AD 的默认权限——允许任何已认证用户向域添加计算机账户。
 
-This capability is useful in penetration testing for setting up resource-based constrained delegation attacks or gaining additional footholds in the domain.
+在渗透测试中，这一能力可用于搭建基于资源的约束委派攻击，或在域内获取更多立足点。
 
 # PARAMETERS
 
 **-dc-ip** _ip_
-> IP address of the domain controller
+> 域控制器的 IP 地址
 
 **-computer-name** _name_
-> Name of the computer account to create
+> 要创建的计算机账户的名称
 
 **-computer-pass** _password_
-> Password for the computer account
+> 计算机账户的密码
 
 **-method** _SAMR|LDAPS_
-> Protocol to use for adding the computer (default: SAMR)
+> 添加计算机所用的协议（默认：SAMR）
 
 **-hashes** _LMHASH:NTHASH_
-> Authenticate using NT hash
+> 使用 NT 哈希进行身份验证
 
 **-k**, **--kerberos**
-> Use Kerberos authentication
+> 使用 Kerberos 身份验证
 
 **-no-pass**
-> Don't prompt for password
+> 不提示输入密码
 
 **-dc-host** _hostname_
-> Hostname of the domain controller
+> 域控制器的主机名
 
 # CAVEATS
 
-For authorized security testing only. The default ms-DS-MachineAccountQuota of 10 can be modified or set to 0 by administrators. Computer accounts created this way are visible to domain administrators.
+仅可用于经授权的安全测试。默认值为 10 的 ms-DS-MachineAccountQuota 可由管理员修改或设为 0。以这种方式创建的计算机账户对域管理员可见。
 
 # HISTORY
 
-Part of the Impacket suite maintained by SecureAuth, this tool gained prominence in security testing as resource-based constrained delegation attacks became more widely understood after **2018**.
+该工具属于 SecureAuth 维护的 Impacket 套件。**2018** 年之后，随着基于资源的约束委派攻击被更广泛地理解，它在安全测试领域声名鹊起。
 
 # INSTALL
 

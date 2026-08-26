@@ -1,26 +1,26 @@
 # TAGLINE
 
-Identify application protocols on network ports
+识别网络端口上的应用层协议
 
 # TLDR
 
-**Identify** the service on a port (application mapping is the default mode)
+**识别**端口上的服务（应用映射是默认模式）
 
 ```amap [192.168.1.1] [80]```
 
-Scan a **port range**
+扫描**端口范围**
 
 ```amap [192.168.1.1] [1-1000]```
 
-Just **grab banners** without sending triggers
+仅**抓取横幅信息**而不发送触发包
 
 ```amap -B [192.168.1.1] [80]```
 
-Identify a service over **UDP**
+通过 **UDP** 识别服务
 
 ```amap -u [192.168.1.1] [53]```
 
-Scan **quietly**, reporting only identified ports
+**安静地**扫描，只报告已识别的端口
 
 ```amap -q [192.168.1.1] [80]```
 
@@ -30,72 +30,72 @@ Scan **quietly**, reporting only identified ports
 
 # DESCRIPTION
 
-**amap** (Application Mapper) is a next-generation scanning tool that identifies applications and services running on network ports by sending trigger packets and analyzing responses. Unlike simple port scanners, it can identify services running on non-standard ports.
+**amap**（Application Mapper）是一款新一代扫描工具，通过发送触发包并分析响应来识别网络端口上运行的应用和服务。与简单的端口扫描器不同，它能够识别运行在非标准端口上的服务。
 
-The tool compares responses against a signature database to fingerprint applications, making it useful for security assessments and network auditing.
+该工具将响应与签名数据库进行比对来识别应用指纹，可用于安全评估和网络审计。
 
 # PARAMETERS
 
 **-A**
-> Map applications: send triggers and analyse responses (this is the default mode)
+> 应用映射：发送触发包并分析响应（这是默认模式）
 
 **-B**
-> Just grab banners, do not send triggers
+> 仅抓取横幅信息，不发送触发包
 
 **-P**
-> No banner or application identification: act as a full-connect port scanner
+> 不进行横幅或应用识别：作为全连接端口扫描器运行
 
 **-b**
-> Print ASCII banners when one is received
+> 收到 ASCII 横幅信息时将其打印出来
 
 **-u**
-> Ports given on the command line are UDP (default is TCP)
+> 命令行给定的端口为 UDP（默认为 TCP）
 
 **-6**
-> Use IPv6 instead of IPv4
+> 使用 IPv6 而不是 IPv4
 
 **-1**
-> Only send triggers to a port until the first identification
+> 对每个端口只在首次识别成功前发送触发包
 
 **-q**
-> Quiet: do not report closed or timed-out ports as unidentified
+> 安静模式：不将关闭或超时的端口报告为未识别
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-H**
-> Skip potentially harmful triggers
+> 跳过可能有害的触发包
 
 **-R**
-> Do not identify the RPC service
+> 不识别 RPC 服务
 
 **-p** _proto_
-> Send only the single named protocol trigger
+> 只发送指定单一协议的触发包
 
 **-i** _file_
-> Read hosts and ports from an nmap-generated machine-readable file
+> 从 nmap 生成的机器可读文件中读取主机和端口
 
 **-o** _file_
-> Log the output of amap to a file
+> 将 amap 的输出记录到文件
 
 **-m**
-> Make the log file output machine readable (colon separated)
+> 使日志文件输出为机器可读格式（冒号分隔）
 
 # CONFIGURATION
 
 **/etc/amap/appdefs.trig**
-> Trigger definitions file containing packets sent to identify services.
+> 触发定义文件，包含用于识别服务而发送的数据包。
 
 **/etc/amap/appdefs.resp**
-> Response signatures file used to match and identify application protocols.
+> 响应签名文件，用于匹配和识别应用层协议。
 
 # CAVEATS
 
-For authorized security testing only. May trigger intrusion detection systems. Some services may not respond to trigger packets. Signature database may not include newer applications.
+仅供授权的安全测试使用。可能触发入侵检测系统。某些服务可能不会响应触发包。签名数据库可能未收录较新的应用。
 
 # HISTORY
 
-**amap** was developed by THC (The Hacker's Choice) and released in the early **2000s** as a complement to port scanners, focusing on application-layer identification.
+**amap** 由 THC（The Hacker's Choice）开发，于 **2000** 年代初发布，作为端口扫描器的补充，专注于应用层识别。
 
 # SEE ALSO
 

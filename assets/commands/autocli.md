@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fetch structured data from websites and local tools via CLI
+通过命令行从网站和本地工具获取结构化数据
 
 # TLDR
 
-**Run** a site command (examples evolve with catalogs)
+**运行**站点命令（示例随目录更新而变化）
 
 ```autocli [site] [subcommand]```
 
-**Install** via install script
+通过安装脚本**安装**
 
 ```curl -fsSL https://raw.githubusercontent.com/nashsu/autocli/main/scripts/install.sh | sh```
 
-**Help** / list commands
+**帮助** / 列出命令
 
 ```autocli --help```
 
@@ -22,21 +22,21 @@ Fetch structured data from websites and local tools via CLI
 
 # DESCRIPTION
 
-**autocli** is a Rust rewrite of OpenCLI-style “public commands” for fetching information from many websites (social, video, news, etc.) and integrating with local tools (**gh**, **docker**, **kubectl**) from one binary. Emphasizes low memory use and a static binary install.
+**autocli** 是 OpenCLI 风格"公共命令"的 Rust 重写版，用一个二进制文件即可从众多网站（社交、视频、新闻等）抓取信息，并与本地工具（**gh**、**docker**、**kubectl**）集成。强调低内存占用和静态二进制安装。
 
-Command catalogs grow over time—use **autocli --help** and upstream docs for the current surface.
+命令目录会不断增长——请使用 **autocli --help** 和上游文档了解当前可用功能。
 
 # PARAMETERS
 
 *command*
 
-> Site or tool integration name.
+> 站点或工具集成的名称。
 
-Global flags cover JSON output, browser-backed commands, and auth where needed.
+全局选项涵盖 JSON 输出、基于浏览器的命令，以及必要时的身份验证。
 
 # CAVEATS
 
-Scraping sites can break when HTML changes and may violate third-party ToS. Browser-driven modes are heavier. Review privacy when fetching personal data.
+网页抓取在 HTML 结构变化时会失效，且可能违反第三方服务条款。浏览器驱动的模式开销更大。抓取个人数据时请注意隐私问题。
 
 # SEE ALSO
 

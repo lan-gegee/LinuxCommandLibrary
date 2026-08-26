@@ -1,38 +1,38 @@
 # TAGLINE
 
-CLI for building Angular web applications
+用于构建 Angular Web 应用的命令行界面
 
 # TLDR
 
-**Create a new Angular workspace** and application
+**创建新的 Angular 工作区**和应用
 
 ```ng new [project-name]```
 
-**Serve the application** with live reload
+**启动应用服务**并支持实时重载
 
 ```ng serve```
 
-**Serve on a specific port** and open browser
+**在指定端口上启动服务**并打开浏览器
 
 ```ng serve --port [4200] --open```
 
-**Generate a new component**
+**生成新组件**
 
 ```ng generate component [component-name]```
 
-**Generate a service**
+**生成服务**
 
 ```ng generate service [service-name]```
 
-**Build the application** for production
+面向生产环境**构建应用**
 
 ```ng build --configuration production```
 
-**Run unit tests**
+**运行单元测试**
 
 ```ng test```
 
-**Run end-to-end tests**
+**运行端到端测试**
 
 ```ng e2e```
 
@@ -43,93 +43,93 @@ CLI for building Angular web applications
 # PARAMETERS
 
 **new** (alias: **n**)
-> Create a new Angular workspace and initial application
+> 创建新的 Angular 工作区和初始应用
 
 **serve** (alias: **s**, **dev**)
-> Build and serve the application with live reload on file changes
+> 构建并提供应用服务，文件变更时实时重载
 
 **generate** (alias: **g**)
-> Generate components, services, modules, pipes, directives, and other schematics
+> 生成组件、服务、模块、管道、指令及其他 schematic
 
 **build** (alias: **b**)
-> Compile the application into the dist/ output directory
+> 将应用编译到 dist/ 输出目录
 
 **test** (alias: **t**)
-> Run unit tests using the configured test runner
+> 使用配置好的测试运行器执行单元测试
 
 **e2e** (alias: **e**)
-> Build, serve, and run end-to-end tests
+> 构建、启动服务并运行端到端测试
 
 **lint**
-> Run linting tools on the application code
+> 对应用代码运行 lint 工具
 
 **add**
-> Add support for an external library (installs and configures packages)
+> 为外部库添加支持（安装并配置软件包）
 
 **update**
-> Update the workspace and its dependencies
+> 更新工作区及其依赖
 
 **deploy**
-> Invoke the deploy builder for the project
+> 调用项目的部署构建器
 
 **config**
-> Get or set configuration values in angular.json
+> 获取或设置 angular.json 中的配置值
 
 **cache**
-> Configure and manage the persistent disk cache
+> 配置和管理持久化磁盘缓存
 
 **version** (alias: **v**)
-> Display Angular CLI version information
+> 显示 Angular CLI 版本信息
 
 **analytics**
-> Configure anonymous telemetry settings for the Angular CLI
+> 配置 Angular CLI 的匿名遥测设置
 
 **completion**
-> Set up Angular CLI shell autocompletion
+> 设置 Angular CLI 的 Shell 自动补全
 
 **run**
-> Run an Architect target in the workspace (e.g. my-project:build)
+> 在工作区中运行 Architect 目标（如 my-project:build）
 
 **extract-i18n**
-> Extract i18n messages from the source code
+> 从源代码提取 i18n 消息
 
 **--help**
-> Display help for any command
+> 显示任意命令的帮助
 
 **--dry-run**
-> Preview changes without writing files
+> 预览变更而不写入文件
 
 **--verbose**
-> Enable verbose logging output
+> 启用详细日志输出
 
 **--force**
-> Force overwriting of existing files (generators)
+> 强制覆盖已存在的文件（生成器）
 
 # DESCRIPTION
 
-**ng** is the command-line interface for Angular, a platform for building web applications. It provides tools for creating projects, generating code, building, testing, and deploying Angular applications.
+**ng** 是 Angular 的命令行界面，Angular 是一个 Web 应用构建平台。它提供创建项目、生成代码、构建、测试和部署 Angular 应用的工具。
 
-The CLI automates common development tasks through schematics - templates that generate boilerplate code for components, services, modules, and other Angular constructs. The **generate** command supports creating components, directives, pipes, services, classes, guards, interfaces, enums, and modules.
+CLI 通过 schematic（生成样板代码的模板）自动完成常见开发任务，可为组件、服务、模块和其他 Angular 结构生成代码。**generate** 命令支持创建组件、指令、管道、服务、类、守卫、接口、枚举和模块。
 
-Projects are configured through **angular.json**, which defines build targets, file paths, and environment-specific settings. The CLI supports multiple projects within a single workspace, enabling monorepo-style development.
+项目通过 **angular.json** 进行配置，其中定义了构建目标、文件路径和环境相关设置。CLI 支持在单个工作区内管理多个项目，从而实现 monorepo 式开发。
 
-The **serve** command provides a development server with hot module replacement, automatically rebuilding and refreshing the browser when source files change. Production builds use **build --configuration production** which enables optimizations like ahead-of-time compilation, tree shaking, and minification.
+**serve** 命令提供支持热模块替换的开发服务器，源文件变更时自动重新构建并刷新浏览器。生产构建使用 **build --configuration production**，启用预先编译、tree shaking 和压缩等优化。
 
 # CONFIGURATION
 
 **angular.json**
-> Project workspace configuration defining build targets, file paths, and environment settings.
+> 项目工作区配置，定义构建目标、文件路径和环境设置。
 
 **tsconfig.json**
-> TypeScript compiler configuration for the Angular project.
+> Angular 项目的 TypeScript 编译器配置。
 
 # CAVEATS
 
-Requires Node.js and npm to be installed. Global installation via **npm install -g @angular/cli** provides the ng command system-wide, but projects can also use locally installed versions. Some commands like **deploy** require additional packages to be installed first using **ng add**.
+需要已安装 Node.js 和 npm。通过 **npm install -g @angular/cli** 全局安装可在系统范围内使用 ng 命令，但项目也可以使用本地安装的版本。某些命令（如 **deploy**）需要先通过 **ng add** 安装额外的软件包。
 
 # HISTORY
 
-Angular CLI was introduced alongside **Angular 2** in **September 2016** to simplify project setup and development workflows. It replaced the manual configuration required for TypeScript compilation, module bundling, and build optimization. The CLI has evolved significantly, with major updates accompanying each Angular version, introducing features like differential loading, Ivy compilation, and standalone components.
+Angular CLI 于 **2016 年 9 月**随 **Angular 2** 一同推出，旨在简化项目搭建和开发工作流。它取代了 TypeScript 编译、模块打包和构建优化所需的手动配置。CLI 此后经历了显著演进，每个 Angular 版本都伴随重大更新，陆续引入了差分加载、Ivy 编译和独立组件等特性。
 
 # SEE ALSO
 

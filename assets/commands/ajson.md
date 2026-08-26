@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query JSON data using JSONPath expressions
+使用 JSONPath 表达式查询 JSON 数据
 
 # TLDR
 
-**Query** a JSON file using JSONPath
+使用 JSONPath **查询** JSON 文件
 
 ```ajson '$.store.book[*].author' [file.json]```
 
-Query from **stdin**
+从 **stdin** 查询
 
 ```echo '{"name":"John"}' | ajson '$.name'```
 
-Filter with **condition**
+按**条件**过滤
 
 ```ajson '$.store.book[?(@.price < 10)]' [file.json]```
 
-Read **multiline** JSON (one JSON object per line)
+读取**多行** JSON（每行一个 JSON 对象）
 
 ```ajson -m '$.name' [file.jsonl]```
 
-**Evaluate** an expression over JSON data
+对 JSON 数据**求值**表达式
 
 ```ajson 'avg($..price)' [file.json]```
 
@@ -30,31 +30,31 @@ Read **multiline** JSON (one JSON object per line)
 
 # DESCRIPTION
 
-**ajson** is a command-line tool written in Go for querying and evaluating JSON data using JSONPath expressions. It reads JSON from a file or stdin and supports filters, wildcards, recursive descent, and evaluation functions such as **avg**, **sum**, **length**, **first**, **last**, and math functions.
+**ajson** 是一个用 Go 编写的命令行工具，用于通过 JSONPath 表达式查询和求值 JSON 数据。它从文件或标准输入读取 JSON，支持过滤器、通配符、递归下降，以及 **avg**、**sum**、**length**、**first**、**last** 等求值函数和数学函数。
 
-JSONPath syntax is similar to XPath for XML, with **$** representing the root object, **.** for property access, **[]** for array indexing or filtering, and **..** for recursive descent.
+JSONPath 语法类似于面向 XML 的 XPath：**$** 表示根对象，**.** 表示属性访问，**[]** 用于数组索引或过滤，**..** 表示递归下降。
 
 # PARAMETERS
 
 **jsonpath**
-> JSONPath expression or evaluation string to evaluate.
+> 要求值的 JSONPath 表达式或求值字符串。
 
 **file**
-> Path to JSON file (reads stdin if omitted).
+> JSON 文件路径（省略时读取标准输入）。
 
 **-m**, **--multiline**
-> Read input as multiline JSON, where each line is a separate valid JSON object.
+> 将输入作为多行 JSON 读取，其中每一行都是一个独立的合法 JSON 对象。
 
 **-q**, **--quiet**
-> Do not print errors to stderr.
+> 不向 stderr 打印错误。
 
 # CAVEATS
 
-JSONPath implementations may vary in supported features. Complex nested queries may be slow on large files. Invalid JSONPath expressions produce errors rather than empty results.
+不同 JSONPath 实现支持的特性可能不同。复杂嵌套查询在大文件上可能较慢。非法的 JSONPath 表达式会产生错误而不是空结果。
 
 # HISTORY
 
-**ajson** implements the JSONPath query language proposed by Stefan Goessner in **2007**, providing command-line access to this popular JSON querying method.
+**ajson** 实现 Stefan Goessner 于 **2007** 年提出的 JSONPath 查询语言，为这种流行的 JSON 查询方法提供命令行入口。
 
 # SEE ALSO
 

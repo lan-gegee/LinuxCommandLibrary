@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Argo CD applications
+管理 Argo CD 应用
 
 # TLDR
 
-**List** all applications
+**列出**所有应用
 
 ```argocd app list```
 
-**Create** new application
+**创建**新应用
 
 ```argocd app create [name] --repo [repo_url] --path [path] --dest-server [cluster_url] --dest-namespace [namespace]```
 
-**Sync** application
+**同步**应用
 
 ```argocd app sync [name]```
 
-**Delete** application
+**删除**应用
 
 ```argocd app delete [name]```
 
-Get application **details**
+获取应用**详情**
 
 ```argocd app get [name]```
 
-**Diff** against Git
+与 Git 进行**差异对比**
 
 ```argocd app diff [name]```
 
@@ -34,67 +34,67 @@ Get application **details**
 
 # DESCRIPTION
 
-**argocd app** manages Argo CD applications, which represent deployed Kubernetes resources synced from Git repositories. Each application links a Git path to a Kubernetes destination.
+**argocd app** 管理 Argo CD 应用。应用表示从 Git 仓库同步部署的 Kubernetes 资源，每个应用将一个 Git 路径链接到一个 Kubernetes 目标。
 
-Applications can be synced manually or automatically, with Argo CD monitoring for drift between desired (Git) and live (cluster) state.
+应用可以手动或自动同步，Argo CD 会监控期望状态（Git）与实际状态（集群）之间的偏差。
 
 # PARAMETERS
 
 **create** _name_
-> Create new application
+> 创建新应用
 
 **list**
-> List all applications
+> 列出所有应用
 
 **get** _name_
-> Get application details
+> 获取应用详情
 
 **sync** _name_
-> Sync application with Git
+> 将应用与 Git 同步
 
 **delete** _name_
-> Delete application
+> 删除应用
 
 **diff** _name_
-> Show diff with Git state
+> 显示与 Git 状态的差异
 
 **history** _name_
-> Show deployment history
+> 显示部署历史
 
 **rollback** _name_ _id_
-> Rollback to previous revision
+> 回滚到先前的版本
 
 **set** _name_
-> Modify application settings
+> 修改应用设置
 
 **wait** _name_
-> Block until the application reaches a Healthy/Synced state
+> 阻塞直到应用达到 Healthy/Synced 状态
 
 **logs** _name_
-> Stream logs from the application's pods
+> 流式输出应用 Pod 的日志
 
 **--repo** _url_
-> Git repository URL
+> Git 仓库 URL
 
 **--path** _path_
-> Path within repository
+> 仓库内的路径
 
 **--dest-server** _url_
-> Kubernetes cluster URL
+> Kubernetes 集群 URL
 
 **--dest-namespace** _ns_
-> Target namespace
+> 目标命名空间
 
 **--sync-policy** _policy_
-> Sync policy (manual, automated)
+> 同步策略（manual、automated）
 
 # CAVEATS
 
-Applications require repository and cluster access configured. Automated sync should be used carefully in production. Pruning can delete resources.
+应用需要预先配置好仓库和集群访问权限。生产环境使用自动同步须谨慎。修剪操作可能删除资源。
 
 # HISTORY
 
-Application management is the core functionality of Argo CD, central to the GitOps workflow since the project's creation in **2018**.
+应用管理是 Argo CD 的核心功能，自 **2018** 年项目创建以来一直是 GitOps 工作流的中心。
 
 # INSTALL
 

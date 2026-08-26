@@ -1,26 +1,26 @@
 # TAGLINE
 
-2FA TOTP token manager TUI for the terminal
+终端中的 2FA TOTP 令牌管理 TUI
 
 # TLDR
 
-**Open an Aegis encrypted backup**
+**打开 Aegis 加密备份**
 
 ```andcli -t aegis [path/to/backup.json]```
 
-**Open an andOTP backup file**
+**打开 andOTP 备份文件**
 
 ```andcli [path/to/backup.json]```
 
-**Open a KeePass database**
+**打开 KeePass 数据库**
 
 ```andcli -t keepass [path/to/database.kdbx]```
 
-**Specify a custom clipboard command**
+**指定自定义剪贴板命令**
 
 ```andcli -c [pbcopy] [path/to/backup]```
 
-**Read password from stdin**
+**从标准输入读取密码**
 
 ```echo "[password]" | andcli --passwd-stdin [path/to/backup]```
 
@@ -31,33 +31,33 @@
 # PARAMETERS
 
 **-t**, **--type** _type_
-> Vault type: aegis, andotp, twofas, stratum, keepass, or proton
+> 保险库类型：aegis、andotp、twofas、stratum、keepass 或 proton
 
 **-c**, **--clipboard-cmd** _command_
-> Custom clipboard command (e.g., xclip, pbcopy)
+> 自定义剪贴板命令（如 xclip、pbcopy）
 
 **--passwd-stdin**
-> Read decryption password from stdin
+> 从标准输入读取解密密码
 
 **-v**, **--version**
-> Print version information
+> 打印版本信息
 
 **-h**, **--help**
-> Print help information
+> 打印帮助信息
 
 # DESCRIPTION
 
-**andcli** is a terminal user interface for managing TOTP two-factor authentication tokens. It reads encrypted backup files exported from popular authenticator apps including andOTP, Aegis, 2FAS, Stratum/Authenticator Pro, KeePass (.kdbx), and ProtonPass, then displays the tokens in an interactive TUI. All data remains in memory and is never written to disk.
+**andcli** 是一个用于管理 TOTP 双因素认证令牌的终端用户界面。它读取从流行认证器应用导出的加密备份文件，包括 andOTP、Aegis、2FAS、Stratum/Authenticator Pro、KeePass（.kdbx）和 ProtonPass，然后在交互式 TUI 中显示令牌。所有数据仅保留在内存中，绝不写入磁盘。
 
-Written in Go using the Bubbletea TUI framework, it supports vim-style navigation (j/k), fuzzy search (/), token visibility toggling (Enter), and clipboard copying (c/y).
+该工具使用 Go 编写，基于 Bubbletea TUI 框架，支持 Vim 风格导航（j/k）、模糊搜索（/）、令牌可见性切换（Enter）以及复制到剪贴板（c/y）。
 
 # CAVEATS
 
-Only TOTP entries are supported; HOTP and other OTP types are not. Requires a password-protected encrypted backup file from a supported authenticator app.
+仅支持 TOTP 条目；不支持 HOTP 及其他 OTP 类型。需要来自受支持认证器应用的带密码保护的加密备份文件。
 
 # HISTORY
 
-**andcli** was created by **tjblackheart** as an open-source Go project under the MIT license. The name derives from andOTP, one of the originally supported vault formats.
+**andcli** 由 **tjblackheart** 创建，是一个采用 MIT 许可证的开源 Go 项目。其名称源自最初支持的保险库格式之一 andOTP。
 
 # INSTALL
 

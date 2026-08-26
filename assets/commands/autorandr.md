@@ -1,26 +1,26 @@
 # TAGLINE
 
-Automatically manage display profiles
+自动管理显示器配置档
 
 # TLDR
 
-**Save** current layout
+**保存**当前布局
 
 ```autorandr -s profile_name```
 
-**List** saved profiles
+**列出**已保存的配置档
 
 ```autorandr```
 
-**Auto-detect** and apply profile
+**自动检测**并应用配置档
 
 ```autorandr -c```
 
-**Load** specific profile
+**加载**指定配置档
 
 ```autorandr -l profile_name```
 
-Set **default** profile
+设置**默认**配置档
 
 ```autorandr -d profile_name```
 
@@ -30,63 +30,63 @@ Set **default** profile
 
 # DESCRIPTION
 
-**autorandr** automatically detects connected displays and applies the appropriate screen layout based on saved profiles. It integrates with **xrandr** and can automatically switch profiles when monitors are connected or disconnected.
+**autorandr** 自动检测已连接的显示器，并根据保存的配置档应用合适的屏幕布局。它与 **xrandr** 集成，可在显示器接入或断开时自动切换配置档。
 
-Profiles are identified by the EDID fingerprint of connected displays, allowing seamless switching between different monitor configurations such as docking stations, projectors, or standalone laptop use. The tool can be triggered manually or run as a **udev** or **systemd** hook for fully automatic profile switching.
+配置档通过所连接显示器的 EDID 指纹识别，从而在扩展坞、投影仪或笔记本单独使用等不同显示器配置之间无缝切换。该工具可以手动触发，也可以作为 **udev** 或 **systemd** 钩子运行，实现全自动配置档切换。
 
 # PARAMETERS
 
 **-s, --save** _name_
-> Save current screen layout as a profile
+> 将当前屏幕布局保存为配置档
 
 **-l, --load** _name_
-> Load a specific profile
+> 加载指定的配置档
 
 **-c, --change**
-> Automatically detect and load the appropriate profile
+> 自动检测并加载合适的配置档
 
 **-d, --default** _name_
-> Set the default profile (used when no match is found)
+> 设置默认配置档（未找到匹配时使用）
 
 **--fingerprint**
-> Display the current setup's fingerprint
+> 显示当前设置的指纹
 
 **--remove** _name_
-> Remove a saved profile
+> 删除一个已保存的配置档
 
 **--list**
-> List all saved profiles
+> 列出所有已保存的配置档
 
 **--cycle**
-> Cycle through all detected profiles
+> 在所有检测到的配置档之间循环切换
 
 **--force**
-> Force reconfiguration even if the setup is already applied
+> 即使设置已经应用也强制重新配置
 
 **--dry-run**
-> Print the changes that would be made without applying them
+> 打印将进行的更改但不实际应用
 
 **--batch**
-> Run in batch mode (no confirmation)
+> 以批处理模式运行（无需确认）
 
 **--match-edid**
-> Match displays by EDID rather than by output name
+> 按 EDID 而非输出名称匹配显示器
 
 **--skip-options** _options_
-> Skip certain xrandr options when comparing
+> 比较时跳过某些 xrandr 选项
 
 # CONFIGURATION
 
 **~/.config/autorandr/**
-> Directory containing saved display profiles. Each profile is a subdirectory with setup and config files.
+> 存放已保存显示器配置档的目录。每个配置档是一个包含 setup 和 config 文件的子目录。
 
 # CAVEATS
 
-Requires xrandr to be installed. Profile matching is based on connected display EDIDs. Virtual displays or displays without valid EDID may not be matched correctly.
+需要安装 xrandr。配置档匹配基于已连接显示器的 EDID。虚拟显示器或没有有效 EDID 的显示器可能无法正确匹配。
 
 # HISTORY
 
-**autorandr** simplifies multi-monitor setup by automatically detecting and applying saved configurations, commonly used with laptop docking stations and external displays.
+**autorandr** 通过自动检测并应用已保存的配置来简化多显示器设置，常与笔记本扩展坞和外接显示器搭配使用。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ Requires xrandr to be installed. Profile matching is based on connected display 
 ```[Source code](https://github.com/phillipberndt/autorandr)```
 
 <!-- verified: 2026-06-17 -->
-

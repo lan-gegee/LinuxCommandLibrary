@@ -1,38 +1,38 @@
 # TAGLINE
 
-Secure self-hosted runtime for AI agent sandboxes
+面向 AI 代理沙箱的安全自托管运行时
 
 # TLDR
 
-**Check** that Docker and backends are available
+**检查** Docker 与各后端是否可用
 
 ```agentnest doctor```
 
-**Run a demo** sandbox (needs Docker)
+**运行演示**沙箱（需要 Docker）
 
 ```agentnest demo```
 
-**Execute Python** in a disposable sandbox
+在一次性沙箱中**执行 Python**
 
 ```agentnest run [script.py] --image [python:3.12-slim] --timeout [60]```
 
-**Run a shell** command in a sandbox
+在沙箱中**运行 Shell** 命令
 
 ```agentnest shell '[python -V]' --memory [256m] --cpus [0.5]```
 
-**Prune** orphaned sandboxes left after crashes
+**清理**崩溃后遗留的孤儿沙箱
 
 ```agentnest prune```
 
-**Start the remote API** (requires `agentnest[server]`)
+**启动远程 API**（需要 `agentnest[server]`）
 
 ```AGENTNEST_API_TOKEN=[secret] agentnest serve --host [127.0.0.1] --port [8765]```
 
-**Expose AgentNest over MCP** (requires `agentnest[mcp]`)
+**通过 MCP 暴露 AgentNest**（需要 `agentnest[mcp]`）
 
 ```agentnest mcp```
 
-**List** discovered runtime backends
+**列出**发现的运行时后端
 
 ```agentnest backends```
 
@@ -42,68 +42,68 @@ Secure self-hosted runtime for AI agent sandboxes
 
 # DESCRIPTION
 
-**agentnest** is the command-line interface for AgentNest, a self-hosted runtime that gives AI agents disposable, policy-controlled environments for Python, shell commands, files, packages, browsers, GPUs, and Git work.
+**agentnest** 是 AgentNest 的命令行接口。AgentNest 是一个自托管运行时，为 AI 代理提供一次性的、受策略控制的环境，可用于 Python、Shell 命令、文件、软件包、浏览器、GPU 和 Git 工作。
 
-Sandboxes run on backends you control (Docker by default; Kubernetes and others via plugins). Defaults favor isolation: non-root, read-only root filesystem, no Linux capabilities, denied networking, resource limits, and cleanup of expired resources. Optional egress allowlists can open only specific domains through a filtering proxy.
+沙箱运行在你掌控的后端之上（默认 Docker；Kubernetes 等可通过插件支持）。默认设置偏重隔离：非 root 用户、只读根文件系统、不赋予 Linux capabilities、拒绝网络、资源限额，以及对过期资源的清理。可选的出站白名单能通过过滤代理只放行特定域名。
 
-The primary programming surface is the Python `Sandbox` API; the CLI covers day-to-day operations such as one-off runs, health checks, reaping orphan containers, serving a remote API, and exposing tools over the Model Context Protocol (MCP).
+主要的编程入口是 Python 的 `Sandbox` API；CLI 则覆盖日常操作，例如一次性运行、健康检查、回收孤儿容器、对外提供远程 API，以及通过 Model Context Protocol（MCP）暴露工具。
 
 # PARAMETERS
 
 **run** _code_or_script_
-> Run Python source or a **.py** file in a new sandbox. Exit status matches the sandboxed process; stdout and stderr are preserved.
+> 在新沙箱中运行 Python 源码或 **.py** 文件。退出状态与沙箱内进程一致；stdout 和 stderr 原样保留。
 
 **shell** _script_
-> Run a shell script string in a new sandbox.
+> 在新沙箱中运行一段 Shell 脚本字符串。
 
 **demo**
-> Run a self-contained sandbox demo (no extra arguments). Requires a working Docker setup.
+> 运行自包含的沙箱演示（无需额外参数）。需要一个可正常工作的 Docker 环境。
 
 **doctor**
-> Check the local runtime environment. Prints machine-readable JSON and exits non-zero when Docker is unavailable.
+> 检查本地运行时环境。打印机器可读的 JSON；Docker 不可用时以非零状态退出。
 
 **backends**
-> List discovered runtime backend names.
+> 列出探测到的运行时后端名称。
 
 **prune** [**--all**]
-> Remove managed sandboxes left by crashes (expired resources). With **--all**, remove every managed sandbox, not only expired ones.
+> 清除崩溃遗留的受管沙箱（已过期资源）。加上 **--all** 则清除所有受管沙箱，而不仅是过期的那些。
 
 **serve** [**--host** _addr_] [**--port** _n_]
-> Start the remote runtime API (default **127.0.0.1:8765**). Requires `pip install 'agentnest[server]'`. Non-loopback hosts refuse to start without **AGENTNEST_API_TOKEN**.
+> 启动远程运行时 API（默认 **127.0.0.1:8765**）。需要 `pip install 'agentnest[server]'`。若未设置 **AGENTNEST_API_TOKEN**，则拒绝绑定非回环地址。
 
 **mcp**
-> Start the AgentNest MCP server for clients such as Claude Code or Cursor. Requires `pip install 'agentnest[mcp]'`.
+> 启动 AgentNest MCP 服务器，供 Claude Code 或 Cursor 之类的客户端使用。需要 `pip install 'agentnest[mcp]'`。
 
 **--version**
-> Print the AgentNest version.
+> 打印 AgentNest 版本。
 
-Options for **run** and **shell**:
+**run** 与 **shell** 的选项：
 
 **--image** _name_
-> Container image (default **python:3.12-slim**).
+> 容器镜像（默认 **python:3.12-slim**）。
 
 **--backend** _name_
-> Runtime backend (default **docker**).
+> 运行时后端（默认 **docker**）。
 
 **--timeout** _seconds_
-> Sandbox timeout in seconds (default **300**). A timed-out command is killed; the sandbox and its state can survive depending on usage.
+> 沙箱超时时间，单位为秒（默认 **300**）。超时的命令会被终止；视具体用法而定，沙箱及其状态可能继续保留。
 
 **--network**
-> Enable networking (denied by default).
+> 启用网络（默认拒绝网络）。
 
 **--memory** _limit_
-> Memory limit (default **512m**).
+> 内存上限（默认 **512m**）。
 
 **--cpus** _n_
-> CPU limit as a float (default **1.0**).
+> CPU 上限，浮点数（默认 **1.0**）。
 
 # CAVEATS
 
-Containers share the host kernel; choose an isolation boundary appropriate for your threat model before multi-tenant or hostile workloads. Docker must be available for the default backend. Optional features (**serve**, **mcp**, Kubernetes) need matching pip extras. Install with `pip install agentnest` (or `pip install 'agentnest[all]'` for extras).
+容器与主机共享内核；在运行多租户或不可信工作负载之前，请依据你的威胁模型选择恰当的隔离边界。默认后端必须有可用的 Docker。可选功能（**serve**、**mcp**、Kubernetes）需要安装对应的 pip extras。安装命令：`pip install agentnest`（或包含额外组件的 `pip install 'agentnest[all]'`）。
 
 # HISTORY
 
-**AgentNest** is an open-source, Apache-2.0 project for self-hosted AI agent sandboxes. It is distributed on PyPI as **agentnest** with a console script entry point of the same name.
+**AgentNest** 是一个开源的 Apache-2.0 项目，专注于自托管 AI 代理沙箱。它以 **agentnest** 之名发布于 PyPI，并附带同名的控制台脚本入口。
 
 # SEE ALSO
 

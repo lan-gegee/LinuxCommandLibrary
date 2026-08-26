@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage multi-account AWS environments
+管理多账户 AWS 环境
 
 # TLDR
 
-**Describe the organization**
+**描述组织**
 
 ```aws organizations describe-organization```
 
-**List all accounts** in the organization
+**列出组织中的所有账户**
 
 ```aws organizations list-accounts```
 
-**List organizational units** under a parent
+**列出**某个父节点下的**组织单元**
 
 ```aws organizations list-organizational-units-for-parent --parent-id [r-xxxx|ou-xxxx-xxxxxxxx]```
 
-**Create a new account**
+**创建新账户**
 
 ```aws organizations create-account --account-name "[Account Name]" --email [admin@example.com]```
 
-**Move an account** to a different OU
+将**账户移动到**另一个 OU
 
 ```aws organizations move-account --account-id [123456789012] --source-parent-id [ou-source] --destination-parent-id [ou-dest]```
 
-**List policies** of a specific type
+**列出**特定类型的**策略**
 
 ```aws organizations list-policies --filter SERVICE_CONTROL_POLICY```
 
-**Attach a policy** to an account or OU
+将**策略附加到**账户或 OU
 
 ```aws organizations attach-policy --policy-id [p-xxxxxxxx] --target-id [account-id|ou-id]```
 
-**List accounts for a parent** OU
+**列出**父 OU 下的**账户**
 
 ```aws organizations list-accounts-for-parent --parent-id [ou-xxxx-xxxxxxxx]```
 
@@ -42,75 +42,75 @@ Manage multi-account AWS environments
 
 # DESCRIPTION
 
-**aws organizations** is a subcommand of the AWS CLI that manages AWS Organizations, a service for centrally managing multiple AWS accounts. It enables consolidated billing, account creation, and policy-based governance.
+**aws organizations** 是 AWS CLI 的一个子命令，用于管理 AWS Organizations。这项服务用于集中管理多个 AWS 账户，支持合并账单、账户创建和基于策略的治理。
 
-Organizations have a hierarchical structure: a root containing organizational units (OUs) and accounts. Service Control Policies (SCPs) set permission guardrails that apply to all principals in target accounts or OUs, restricting what actions can be performed.
+组织采用层级结构：根（root）下包含组织单元（OU）和账户。服务控制策略（SCP）设置权限防护栏，作用于目标账户或 OU 中的所有主体，限制可执行的操作。
 
-The management account (formerly master) creates and controls the organization. Member accounts can be created within the organization or invited from existing accounts.
+管理账户（旧称 master）负责创建和控制组织。成员账户可以在组织内创建，也可以邀请现有账户加入。
 
 # PARAMETERS
 
 **describe-organization**
-> Get organization details and features.
+> 获取组织详情和功能状态。
 
 **list-accounts**
-> List all accounts in the organization.
+> 列出组织中的所有账户。
 
 **list-roots**
-> List organization roots.
+> 列出组织的根。
 
 **list-organizational-units-for-parent**
-> List OUs under a parent.
+> 列出某个父节点下的 OU。
 
 **list-accounts-for-parent**
-> List accounts directly in an OU.
+> 列出直接位于某 OU 中的账户。
 
 **create-account**
-> Create a new member account.
+> 创建新的成员账户。
 
 **create-organizational-unit**
-> Create a new OU.
+> 创建新的 OU。
 
 **move-account**
-> Move account between OUs.
+> 在 OU 之间移动账户。
 
 **list-policies**
-> List policies of a given type.
+> 列出指定类型的策略。
 
 **create-policy**
-> Create a new policy.
+> 创建新策略。
 
 **attach-policy**
-> Attach policy to a target.
+> 将策略附加到目标。
 
 **detach-policy**
-> Remove policy from a target.
+> 从目标移除策略。
 
 **describe-account**
-> Get account details.
+> 获取账户详情。
 
 **--parent-id** _id_
-> Root or OU identifier.
+> 根或 OU 的标识符。
 
 **--account-id** _id_
-> 12-digit AWS account ID.
+> 12 位 AWS 账户 ID。
 
 **--policy-id** _id_
-> Policy identifier.
+> 策略标识符。
 
 **--target-id** _id_
-> Account, OU, or root to target.
+> 要作为目标的账户、OU 或根。
 
 **--filter** _type_
-> Policy type filter: SERVICE_CONTROL_POLICY, TAG_POLICY, BACKUP_POLICY, AISERVICES_OPT_OUT_POLICY.
+> 策略类型过滤器：SERVICE_CONTROL_POLICY、TAG_POLICY、BACKUP_POLICY、AISERVICES_OPT_OUT_POLICY。
 
 # CAVEATS
 
-Organizations commands must run from the management account. SCPs do not grant permissions, only restrict them. The management account is not affected by SCPs. Account creation is asynchronous; check status with describe-create-account-status. Removing an account from an organization requires it to have payment method configured for standalone billing.
+Organizations 命令必须从管理账户运行。SCP 不授予权限，只做限制。管理账户不受 SCP 影响。账户创建是异步的；可用 describe-create-account-status 检查状态。将账户从组织中移除时，该账户必须已配置支付方式才能独立结算。
 
 # HISTORY
 
-**AWS Organizations** launched in **February 2017** to enable multi-account management. **Service Control Policies** provided centralized governance. **Consolidated Billing** merged from the older Consolidated Billing feature. Features expanded to include **Tag Policies**, **Backup Policies**, and **AI Services Opt-out Policies**. AWS Control Tower, launched in **2019**, builds on Organizations for landing zone automation.
+**AWS Organizations** 于 **2017 年 2 月**上线，用于实现多账户管理。**Service Control Policies** 提供了集中式治理。**Consolidated Billing** 由早期的合并账单功能合并而来。功能随后扩展至**标签策略**、**备份策略**和 **AI 服务退出策略**。于 **2019 年**发布的 AWS Control Tower 基于 Organizations 实现着陆区自动化。
 
 # INSTALL
 

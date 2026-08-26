@@ -1,42 +1,42 @@
 # TAGLINE
 
-Create and manage REST APIs for applications
+为应用创建和管理 REST API
 
 # TLDR
 
-**List all REST APIs**
+**列出所有 REST API**
 
 ```aws apigateway get-rest-apis```
 
-**Create a new REST API**
+**创建新的 REST API**
 
 ```aws apigateway create-rest-api --name "[MyAPI]" --description "[API description]"```
 
-**Create a regional API** endpoint
+**创建区域性 API** 端点
 
 ```aws apigateway create-rest-api --name "[MyAPI]" --endpoint-configuration types=REGIONAL```
 
-**Get API details** by ID
+按 ID **获取 API 详情**
 
 ```aws apigateway get-rest-api --rest-api-id [api-id]```
 
-**Create a resource** (path) in an API
+在 API 中**创建资源**（路径）
 
 ```aws apigateway create-resource --rest-api-id [api-id] --parent-id [parent-id] --path-part "[users]"```
 
-**Add an HTTP method** to a resource
+为资源**添加 HTTP 方法**
 
 ```aws apigateway put-method --rest-api-id [api-id] --resource-id [resource-id] --http-method [GET] --authorization-type NONE```
 
-**Deploy an API** to a stage
+将 API **部署到阶段**
 
 ```aws apigateway create-deployment --rest-api-id [api-id] --stage-name [prod]```
 
-**Import an API** from an OpenAPI definition
+从 OpenAPI 定义**导入 API**
 
 ```aws apigateway import-rest-api --body fileb://[api.json]```
 
-**Delete a REST API**
+**删除 REST API**
 
 ```aws apigateway delete-rest-api --rest-api-id [api-id]```
 
@@ -47,82 +47,82 @@ Create and manage REST APIs for applications
 # PARAMETERS
 
 **create-rest-api**
-> Create a new REST API
+> 创建新的 REST API
 
 **get-rest-apis**
-> List all REST APIs in the account
+> 列出账户中的所有 REST API
 
 **get-rest-api**
-> Get details of a specific REST API
+> 获取特定 REST API 的详情
 
 **delete-rest-api**
-> Delete a REST API
+> 删除一个 REST API
 
 **create-resource**
-> Create a resource (URL path segment) in an API
+> 在 API 中创建资源（URL 路径段）
 
 **get-resources**
-> List resources in an API
+> 列出 API 中的资源
 
 **put-method**
-> Add an HTTP method to a resource
+> 为资源添加 HTTP 方法
 
 **put-integration**
-> Set up backend integration for a method
+> 为方法配置后端集成
 
 **create-deployment**
-> Deploy an API to a stage
+> 将 API 部署到阶段
 
 **create-stage**
-> Create a deployment stage from a deployment
+> 从一次部署创建部署阶段
 
 **import-rest-api**
-> Create an API from an OpenAPI/Swagger definition
+> 根据 OpenAPI/Swagger 定义创建 API
 
 **put-rest-api**
-> Update an existing API from an OpenAPI/Swagger definition
+> 根据 OpenAPI/Swagger 定义更新现有 API
 
 **get-stages**
-> List deployment stages
+> 列出部署阶段
 
 **get-api-keys**
-> List API keys
+> 列出 API 密钥
 
 **create-api-key**
-> Create a new API key
+> 创建新的 API 密钥
 
 **--rest-api-id** _id_
-> The identifier of the REST API
+> REST API 的标识符
 
 **--name** _name_
-> Name for the API or resource
+> API 或资源的名称
 
 **--description** _text_
-> Description of the API
+> API 的描述
 
 **--endpoint-configuration** _config_
-> Endpoint type: EDGE, REGIONAL, or PRIVATE
+> 端点类型：EDGE、REGIONAL 或 PRIVATE
 
 **--stage-name** _name_
-> Deployment stage name (dev, staging, prod)
+> 部署阶段名称（dev、staging、prod）
 
 # DESCRIPTION
 
-**aws apigateway** manages Amazon API Gateway REST APIs through the AWS CLI. It creates and configures APIs that act as front doors for applications to access backend services, Lambda functions, or other AWS services.
+**aws apigateway** 通过 AWS CLI 管理 Amazon API Gateway 的 REST API。它创建和配置的 API 是应用访问后端服务、Lambda 函数或其他 AWS 服务的前门。
 
-The typical workflow involves creating an API with **create-rest-api**, defining resources (URL paths) with **create-resource**, adding HTTP methods with **put-method**, configuring backend integrations with **put-integration**, and deploying to a stage with **create-deployment**.
+典型工作流包括：用 **create-rest-api** 创建 API，用 **create-resource** 定义资源（URL 路径），用 **put-method** 添加 HTTP 方法，用 **put-integration** 配置后端集成，最后用 **create-deployment** 部署到阶段。
 
-Endpoint types control how the API is accessed: **EDGE** for CloudFront distribution (global), **REGIONAL** for same-region access, and **PRIVATE** for VPC-only access.
+端点类型决定 API 的访问方式：**EDGE** 用于 CloudFront 分发（全球）、**REGIONAL** 用于同区域访问、**PRIVATE** 用于仅限 VPC 内访问。
 
-API keys and usage plans provide access control and throttling. Stages represent different environments (dev, staging, prod) with independent configurations.
+API 密钥和使用计划提供访问控制与限流。阶段代表不同的环境（dev、staging、prod），各自拥有独立的配置。
 
 # CAVEATS
 
-Requires AWS credentials configured via **aws configure** or environment variables. REST API changes require deployment to take effect. API Gateway has quotas on resources, methods, and request rates. Private APIs require VPC endpoint configuration.
+需要通过 **aws configure** 或环境变量配置好 AWS 凭证。REST API 的变更需要重新部署才能生效。API Gateway 对资源数量、方法数量和请求速率设有配额。私有 API 需要 VPC 端点配置。
 
 # HISTORY
 
-**Amazon API Gateway** was launched in **July 2015** as a fully managed service for creating, publishing, and managing APIs. The AWS CLI commands provide programmatic access to API Gateway features. REST APIs were the original offering, with HTTP APIs (simpler, lower cost) and WebSocket APIs added later.
+**Amazon API Gateway** 于 **2015 年 7 月**推出，是一项用于创建、发布和管理 API 的完全托管服务。AWS CLI 命令提供了对 API Gateway 功能的程序化访问。REST API 是最初的产品形态，之后加入了 HTTP API（更简单、成本更低）和 WebSocket API。
 
 # INSTALL
 

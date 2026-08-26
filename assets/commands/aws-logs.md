@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage CloudWatch log groups, streams, and queries.
+管理 CloudWatch 日志组、日志流和查询。
 
 # TLDR
 
-**List all log groups**
+**列出所有日志组**
 
 ```aws logs describe-log-groups```
 
-**List log streams** in a group
+**列出**日志组中的**日志流**
 
 ```aws logs describe-log-streams --log-group-name [/aws/lambda/function-name]```
 
-**Get log events** from a stream
+从日志流中**获取日志事件**
 
 ```aws logs get-log-events --log-group-name [group_name] --log-stream-name [stream_name]```
 
-**Tail logs** in real-time
+实时**跟踪日志**
 
 ```aws logs tail [/aws/lambda/function-name] --follow```
 
-**Tail logs** from the last 10 minutes
+从最近 10 分钟开始**跟踪日志**
 
 ```aws logs tail [/aws/lambda/function-name] --since [10m]```
 
-**Filter logs** with a pattern
+用模式**过滤日志**
 
 ```aws logs filter-log-events --log-group-name [group_name] --filter-pattern "[ERROR]"```
 
-**Create a log group**
+**创建日志组**
 
 ```aws logs create-log-group --log-group-name [group_name]```
 
-**Set retention policy** on a log group
+为日志组**设置保留策略**
 
 ```aws logs put-retention-policy --log-group-name [group_name] --retention-in-days [30]```
 
-**Delete a log group**
+**删除日志组**
 
 ```aws logs delete-log-group --log-group-name [group_name]```
 
@@ -46,87 +46,87 @@ Manage CloudWatch log groups, streams, and queries.
 
 # DESCRIPTION
 
-**aws logs** is a subcommand of the AWS CLI that manages Amazon CloudWatch Logs, a service for monitoring, storing, and accessing log files from AWS resources and applications.
+**aws logs** 是 AWS CLI 的一个子命令，用于管理 Amazon CloudWatch Logs。这是一项用于监控、存储以及访问来自 AWS 资源和应用程序的日志文件的服务。
 
-Logs are organized into log groups (containers) and log streams (sequences of events from a single source). Log events contain a timestamp and raw message. Many AWS services like Lambda, ECS, and API Gateway automatically send logs to CloudWatch.
+日志按日志组（容器）和日志流（来自单一来源的事件序列）进行组织。日志事件包含时间戳和原始消息。许多 AWS 服务（如 Lambda、ECS 和 API Gateway）会自动将日志发送到 CloudWatch。
 
-CloudWatch Logs Insights enables SQL-like queries across log data. Metric filters extract metrics from log patterns. Subscription filters stream logs to Lambda, Kinesis, or Firehose in real-time.
+CloudWatch Logs Insights 支持以类似 SQL 的方式查询日志数据。指标过滤器可以从日志模式中提取指标。订阅过滤器可将日志实时流式传输到 Lambda、Kinesis 或 Firehose。
 
 # PARAMETERS
 
 **describe-log-groups**
-> List log groups with metadata.
+> 列出日志组及其元数据。
 
 **create-log-group**
-> Create a new log group.
+> 创建新的日志组。
 
 **delete-log-group**
-> Remove a log group and all its data.
+> 删除日志组及其所有数据。
 
 **describe-log-streams**
-> List log streams in a group.
+> 列出日志组中的日志流。
 
 **get-log-events**
-> Retrieve log events from a stream.
+> 从日志流中获取日志事件。
 
 **filter-log-events**
-> Search logs with a filter pattern.
+> 用过滤模式搜索日志。
 
 **tail**
-> Stream logs in real-time (like tail -f).
+> 实时流式输出日志（类似 tail -f）。
 
 **put-log-events**
-> Send log events to a stream.
+> 向日志流发送日志事件。
 
 **put-retention-policy**
-> Set log expiration period.
+> 设置日志过期期限。
 
 **delete-retention-policy**
-> Set logs to never expire.
+> 将日志设为永不过期。
 
 **put-metric-filter**
-> Create a metric filter.
+> 创建指标过滤器。
 
 **put-subscription-filter**
-> Stream logs to another service.
+> 将日志流式传输到其他服务。
 
 **start-query**
-> Run a CloudWatch Logs Insights query; returns a query ID.
+> 运行 CloudWatch Logs Insights 查询；返回查询 ID。
 
 **get-query-results**
-> Retrieve results for a query started with start-query.
+> 获取由 start-query 启动的查询的结果。
 
 **--log-group-name** _name_
-> Name of the log group.
+> 日志组的名称。
 
 **--log-stream-name** _name_
-> Name of the log stream.
+> 日志流的名称。
 
 **--filter-pattern** _pattern_
-> Pattern to match log events.
+> 用于匹配日志事件的模式。
 
 **--start-time** _timestamp_
-> Start time in milliseconds since epoch.
+> 开始时间，以自纪元以来的毫秒数表示。
 
 **--end-time** _timestamp_
-> End time in milliseconds since epoch.
+> 结束时间，以自纪元以来的毫秒数表示。
 
 **--follow**
-> Continuously stream new logs (tail command).
+> 持续流式输出新日志（tail 命令）。
 
 **--since** _time_
-> tail from a relative time like 5m, 2h, or 1d, or an absolute timestamp.
+> 从相对时间（如 5m、2h 或 1d）或绝对时间戳开始 tail。
 
 **--retention-in-days** _days_
-> Retention period (1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, or infinite).
+> 保留期限（1、3、5、7、14、30、60、90、120、150、180、365、400、545、731、1096、1827、2192、2557、2922、3288、3653 天或不限）。
 
 # CAVEATS
 
-Log groups have no default retention; logs are kept forever unless configured. The tail command requires aws-cli v2. Filter patterns have specific syntax different from regex. Stored log data incurs charges based on ingestion and storage volume. Cross-account log sharing requires subscription filters and destination policies.
+日志组没有默认保留策略；除非另行配置，日志会永久保留。tail 命令需要 aws-cli v2。过滤模式的语法较为特殊，与正则表达式不同。存储的日志数据会根据摄取量和存储量产生费用。跨账户日志共享需要订阅过滤器和目标策略。
 
 # HISTORY
 
-**Amazon CloudWatch Logs** launched in **July 2014** as an extension of CloudWatch monitoring. It initially supported EC2 logs via the CloudWatch agent. **CloudWatch Logs Insights** was introduced at **re:Invent 2018** for interactive log analysis. **Live Tail** was added in **2023** for real-time log streaming in the console. The service expanded to handle logs from virtually all AWS services.
+**Amazon CloudWatch Logs** 于 **2014 年 7 月**上线，是 CloudWatch 监控功能的扩展，最初通过 CloudWatch 代理支持 EC2 日志。**CloudWatch Logs Insights** 在 **re:Invent 2018** 上发布，用于交互式日志分析。**Live Tail** 于 **2023 年**推出，支持在控制台中实时流式查看日志。该服务已扩展到能够处理几乎所有 AWS 服务的日志。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Transform images into ASCII art for terminal display
+将图片转换为可在终端显示的 ASCII 艺术
 
 # TLDR
 
-**Convert image to ASCII art**
+**将图片转换为 ASCII 艺术**
 
 ```ascii-image-converter [image.png]```
 
-**Convert with color output**
+**以彩色输出转换**
 
 ```ascii-image-converter -C [image.png]```
 
-**Convert with specific width**
+**以指定宽度转换**
 
 ```ascii-image-converter -W [80] [image.png]```
 
-**Convert using braille characters**
+**使用盲文字符转换**
 
 ```ascii-image-converter -b [image.png]```
 
-**Use a custom character map** (darkest to lightest)
+**使用自定义字符映射**（由深到浅）
 
 ```ascii-image-converter -m " .:-=+*#%@" [image.png]```
 
-**Fit output to terminal width**
+**让输出适应终端宽度**
 
 ```ascii-image-converter -f [image.png]```
 
-**Save output as PNG image**
+**将输出保存为 PNG 图片**
 
 ```ascii-image-converter -s [output_dir] -C [image.png]```
 
@@ -38,79 +38,79 @@ Transform images into ASCII art for terminal display
 
 # DESCRIPTION
 
-**ascii-image-converter** transforms images into ASCII art. It analyzes pixel brightness and maps values to ASCII characters, creating text representations of images viewable in terminals.
+**ascii-image-converter** 将图片转换为 ASCII 艺术。它分析像素亮度并将数值映射为 ASCII 字符，生成可在终端查看的图像文本表示。
 
-The tool supports various image formats and can produce colored output using ANSI escape codes.
+该工具支持多种图片格式，并可使用 ANSI 转义码输出彩色结果。
 
 # PARAMETERS
 
 **-C**, **--color**
-> Display with colors from the original image
+> 使用原图的颜色显示
 
 **-b**, **--braille**
-> Use Braille characters instead of ASCII
+> 使用盲文字符代替 ASCII
 
 **-g**, **--grayscale**
-> Display in grayscale colors
+> 以灰度颜色显示
 
 **-n**, **--negative**
-> Invert colors
+> 反转颜色
 
 **-c**, **--complex**
-> Use a wider range of ASCII characters for more detail
+> 使用更宽泛的 ASCII 字符集以呈现更多细节
 
 **-m** _chars_, **--map** _chars_
-> Custom character string (darkest to lightest)
+> 自定义字符串（由深到浅）
 
 **-d** _width_,_height_, **--dimensions** _width_,_height_
-> Set width and height in character lengths
+> 按字符数设置宽度和高度
 
 **-W** _width_, **--width** _width_
-> Set width; height calculated by aspect ratio
+> 设置宽度；高度按纵横比计算
 
 **-H** _height_, **--height** _height_
-> Set height; width calculated by aspect ratio
+> 设置高度；宽度按纵横比计算
 
 **-f**, **--full**
-> Fit to terminal width while maintaining aspect ratio
+> 在保持纵横比的前提下适应终端宽度
 
 **-x**, **--flipX**
-> Flip horizontally
+> 水平翻转
 
 **-y**, **--flipY**
-> Flip vertically
+> 垂直翻转
 
 **--dither**
-> Apply dithering for braille art
+> 为盲文艺术应用抖动处理
 
 **--threshold** _value_
-> Threshold (0-255) for braille pixel comparison
+> 盲文像素比较的阈值（0-255）
 
 **--color-bg**
-> Apply color to character backgrounds instead of foregrounds
+> 将颜色应用到字符背景而非前景
 
 **-s** _dir_, **--save-img** _dir_
-> Save output as PNG image
+> 将输出保存为 PNG 图片
 
 **--save-txt** _dir_
-> Save output as TXT file
+> 将输出保存为 TXT 文件
 
 **--save-gif** _dir_
-> Save converted GIF as ASCII art GIF
+> 将转换后的 GIF 保存为 ASCII 艺术 GIF
 
 **--only-save**
-> Suppress terminal output when saving
+> 保存时不向终端输出
 
 **--formats**
-> Display supported input image formats
+> 显示支持的输入图片格式
 
 # CAVEATS
 
-Output quality depends on terminal font and size. Colored output requires a terminal with 24-bit or 8-bit ANSI color support. Braille characters require UTF-8 terminal support. Wide images need large terminal widths.
+输出质量取决于终端字体和大小。彩色输出需要支持 24 位或 8 位 ANSI 颜色的终端。盲文字符需要终端支持 UTF-8。宽幅图片需要足够大的终端宽度。
 
 # HISTORY
 
-**ascii-image-converter** is a modern Go-based tool for ASCII art generation, providing more features than traditional tools like jp2a.
+**ascii-image-converter** 是一个基于 Go 的现代 ASCII 艺术生成工具，比 jp2a 等传统工具功能更丰富。
 
 # INSTALL
 

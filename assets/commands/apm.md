@@ -1,26 +1,26 @@
 # TAGLINE
 
-Query Advanced Power Management status and battery info.
+查询高级电源管理状态和电池信息。
 
 # TLDR
 
-**Show** APM status (power/battery)
+**显示** APM 状态（电源/电池）
 
 ```apm```
 
-Show **verbose** status
+显示**详细**状态
 
 ```apm -v```
 
-**Minutes** of battery remaining
+以**分钟数**显示电池剩余时间
 
 ```apm -m```
 
-**Continuously monitor** and update status
+**持续监控**并更新状态
 
 ```apm -M```
 
-**Suspend** the system
+**挂起**系统
 
 ```sudo apm -s```
 
@@ -30,40 +30,40 @@ Show **verbose** status
 
 # DESCRIPTION
 
-**apm** queries Advanced Power Management (APM) status on Linux systems. It reports battery charge level, AC adapter status, and power management capabilities.
+**apm** 查询 Linux 系统上的高级电源管理（APM）状态。它报告电池电量、交流适配器状态和电源管理能力。
 
-APM has largely been superseded by ACPI on modern systems, but the command may still work for compatibility or on older hardware.
+APM 在现代系统上已在很大程度上被 ACPI 取代，但出于兼容性或在旧硬件上，该命令可能仍然可用。
 
 # PARAMETERS
 
 **-V**, **--version**
-> Print the version of the program and exit.
+> 打印程序版本后退出。
 
 **-v**, **--verbose**
-> Also print version information for the APM subsystem.
+> 额外打印 APM 子系统的版本信息。
 
 **-m**, **--minutes**
-> Print the time remaining as a number of minutes instead of hh:mm.
+> 以分钟数而不是 hh:mm 的形式打印剩余时间。
 
 **-M**, **--monitor**
-> Continuously monitor and update the status information.
+> 持续监控并更新状态信息。
 
 **-s**, **--suspend**
-> Request that the machine be put into the APM suspend state.
+> 请求机器进入 APM 挂起状态。
 
 **-S**, **--standby**
-> Request that the machine be put into the APM standby state.
+> 请求机器进入 APM 待机状态。
 
 **-d**, **--debug**
-> Print APM status information in a format more useful for debugging.
+> 以更适合调试的格式打印 APM 状态信息。
 
 # CAVEATS
 
-APM is deprecated in favor of ACPI on modern systems. Functionality may be limited or unavailable on ACPI-only systems. Use **acpi** command on modern hardware.
+现代系统上 APM 已被弃用，由 ACPI 取代。在仅支持 ACPI 的系统上功能可能受限或不可用。在现代硬件上请使用 **acpi** 命令。
 
 # HISTORY
 
-**apm** was the standard power management interface for Linux until ACPI (Advanced Configuration and Power Interface) became dominant in the mid-**2000s**. The command remains for legacy compatibility.
+在 ACPI（Advanced Configuration and Power Interface）于 **21 世纪初**中期成为主流之前，**apm** 是 Linux 的标准电源管理接口。该命令保留至今是为了兼容旧系统。
 
 # SEE ALSO
 

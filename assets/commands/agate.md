@@ -1,22 +1,22 @@
 # TAGLINE
 
-Serve content over the Gemini protocol
+通过 Gemini 协议提供内容服务
 
 # TLDR
 
-**Start** a Gemini server
+**启动** Gemini 服务器
 
 ```agate --content [/var/gemini] --hostname [example.com]```
 
-Use **custom certificates**
+使用**自定义证书**
 
 ```agate --content [/var/gemini] --hostname [example.com] --certs [/etc/agate/certs]```
 
-Run on **custom port**
+在**自定义端口**上运行
 
 ```agate --content [/var/gemini] --hostname [example.com] --addr [0.0.0.0:1965]```
 
-Enable **logging**
+启用**日志记录**
 
 ```agate --content [/var/gemini] --hostname [example.com] --log-ip```
 
@@ -26,52 +26,52 @@ Enable **logging**
 
 # DESCRIPTION
 
-**agate** is a simple, secure server for the Gemini protocol, a lightweight alternative to HTTP focused on privacy and simplicity. It serves static content over TLS with minimal configuration.
+**agate** 是一款简单而安全的 Gemini 协议服务器。Gemini 是一种轻量的 HTTP 替代协议，强调隐私与简洁。agate 只需极少配置即可通过 TLS 提供静态内容服务。
 
-The server automatically generates TLS certificates if not provided, handles multiple virtual hosts, and serves Gemini text files (.gmi) and other content types based on file extensions.
+如果未提供 TLS 证书，服务器会自动生成；它支持多个虚拟主机，并根据文件扩展名来提供 Gemini 文本文件（.gmi）和其他内容类型。
 
 # PARAMETERS
 
 **--content** _dir_
-> Root directory for content
+> 内容的根目录
 
 **--hostname** _host_
-> Hostname for the server (can be repeated for virtual hosting)
+> 服务器的主机名（做虚拟主机时可重复使用）
 
 **--addr** _address_
-> Address to bind (default: 0.0.0.0:1965)
+> 要绑定的地址（默认：0.0.0.0:1965）
 
 **--certs** _dir_
-> Directory holding the TLS certificate/key pairs (default: .certificates). Certificates are generated automatically per hostname if missing.
+> 存放 TLS 证书/密钥对的目录（默认：.certificates）。若证书缺失，会按主机名自动生成。
 
 **--lang** _code_
-> Default language code for text/gemini responses.
+> text/gemini 响应的默认语言代码。
 
 **--log-ip**
-> Log client IP addresses.
+> 记录客户端 IP 地址。
 
 **-C**, **--central-conf**
-> Read a single .meta configuration file from the content root instead of per-directory files.
+> 改为从内容根目录读取单个 .meta 配置文件，而不是各目录各自的文件。
 
 **--serve-secret**
-> Serve files and directories whose names start with a dot (served as hidden by default).
+> 提供名称以点号开头的文件和目录（默认视为隐藏而不提供服务）。
 
 **-3**, **--only-tls13**
-> Disable TLSv1.2, accepting only TLSv1.3 connections.
+> 禁用 TLSv1.2，仅接受 TLSv1.3 连接。
 
 **--skip-port-check**
-> Do not require the port in the request URL to match the listening port (useful behind a proxy).
+> 不要求请求 URL 中的端口与监听端口一致（在反向代理后面很有用）。
 
 **-s**, **--silent**
-> Disable logging output.
+> 关闭日志输出。
 
 # CAVEATS
 
-Gemini requires TLS; unencrypted connections are not supported. The default Gemini port 1965 may require root privileges on some systems. Client support is limited compared to HTTP browsers.
+Gemini 要求使用 TLS；不支持未加密的连接。默认的 Gemini 端口 1965 在某些系统上可能需要 root 权限。与 HTTP 浏览器相比，客户端支持较为有限。
 
 # HISTORY
 
-**agate** was created as part of the growing Gemini ecosystem after the Gemini protocol was designed by Solderpunk in **2019**. It provides a simple, Rust-based server implementation following the protocol's minimalist philosophy.
+Gemini 协议由 Solderpunk 于 **2019** 年设计。随着 Gemini 生态不断发展，**agate** 作为其中一员诞生了。它是一个用 Rust 编写的简洁服务器实现，秉持该协议的极简哲学。
 
 # INSTALL
 

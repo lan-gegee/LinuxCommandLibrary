@@ -1,22 +1,22 @@
 # TAGLINE
 
-Guided Arch Linux installer with interactive menus
+带交互式菜单的 Arch Linux 引导式安装器
 
 # TLDR
 
-Start the **interactive installer**
+启动**交互式安装器**
 
 ```archinstall```
 
-Run a specific **installation profile**
+运行指定的**安装配置文件**
 
 ```archinstall --script [minimal]```
 
-Run with a **configuration file**
+使用**配置文件**运行
 
 ```archinstall --config [/path/to/config.json]```
 
-Run in **silent mode** with predefined config
+以预定义配置在**静默模式**下运行
 
 ```archinstall --config [/path/to/config.json] --silent```
 
@@ -26,35 +26,35 @@ Run in **silent mode** with predefined config
 
 # DESCRIPTION
 
-**archinstall** is a guided Arch Linux installer that provides an interactive menu-driven installation experience. It simplifies the Arch Linux installation process while still providing flexibility and customization options.
+**archinstall** 是一个引导式的 Arch Linux 安装器，提供交互式菜单驱动的安装体验。它简化了 Arch Linux 的安装过程，同时保留了灵活性和自定义选项。
 
 # PARAMETERS
 
 **--config** _path_
-> Load configuration from a JSON file.
+> 从 JSON 文件加载配置。
 
 **--creds** _path_
-> Load credentials (passwords, keys) from a file.
+> 从文件加载凭据（密码、密钥）。
 
 **--disk-layout** _path_
-> Load disk layout configuration from a file.
+> 从文件加载磁盘布局配置。
 
 **--script** _name_
-> Run a specific installation profile (e.g., minimal, desktop).
+> 运行指定的安装配置文件（如 minimal、desktop）。
 
 **--silent**
-> Run without user prompts (requires --config).
+> 无用户提示运行（需要 --config）。
 
 **--dry-run**
-> Test the installation without making changes.
+> 测试安装过程而不做任何更改。
 
 # CAVEATS
 
-Requires network connectivity. Should only be run from the Arch Linux live installation environment. Creates partitions and formats disks; data loss may occur.
+需要网络连接。只应在 Arch Linux live 安装环境中运行。会创建分区并格式化磁盘；可能造成数据丢失。
 
 # HISTORY
 
-Developed by the **Arch Linux** community and officially included in the installation ISO since **2021** as an alternative to the traditional manual installation process.
+由 **Arch Linux** 社区开发，自 **2021** 年起正式纳入安装 ISO，作为传统手动安装流程的替代方案。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Control the Apache HTTP web server
+控制 Apache HTTP Web 服务器
 
 # TLDR
 
-**Start Apache** daemon
+**启动 Apache** 守护进程
 
 ```apachectl start```
 
-**Stop Apache** gracefully (finish current requests)
+**优雅停止 Apache**（完成当前请求）
 
 ```apachectl graceful-stop```
 
-**Gracefully restart** Apache (finish current requests, then restart)
+**优雅重启** Apache（先完成当前请求再重启）
 
 ```apachectl graceful```
 
-**Test configuration** for syntax errors
+**测试配置**是否有语法错误
 
 ```apachectl configtest```
 
-**Show Apache version**
+**显示 Apache 版本**
 
 ```apachectl -v```
 
-**Show compiled-in modules**
+**显示编译内置的模块**
 
 ```apachectl -l```
 
-**Show all loaded modules** (static and shared)
+**显示所有已加载模块**（静态与共享）
 
 ```apachectl -M```
 
-**Show parsed virtual host settings**
+**显示解析后的虚拟主机配置**
 
 ```apachectl -S```
 
@@ -45,67 +45,67 @@ Control the Apache HTTP web server
 # PARAMETERS
 
 **start**
-> Start the Apache httpd daemon.
+> 启动 Apache httpd 守护进程。
 
 **stop**
-> Stop the daemon immediately.
+> 立即停止守护进程。
 
 **restart**
-> Restart the daemon (aborts current connections).
+> 重启守护进程（中断当前连接）。
 
 **graceful**
-> Gracefully restart (finish current requests, then restart).
+> 优雅重启（先完成当前请求再重启）。
 
 **graceful-stop**
-> Gracefully stop (finish current requests, then stop).
+> 优雅停止（先完成当前请求再停止）。
 
 **configtest**
-> Check configuration file syntax.
+> 检查配置文件语法。
 
 **fullstatus**
-> Display full server status (requires **mod_status** and a text-based browser).
+> 显示完整的服务器状态（需要 **mod_status** 和基于文本的浏览器）。
 
 **-v**
-> Show version number.
+> 显示版本号。
 
 **-V**
-> Show version and build parameters.
+> 显示版本和构建参数。
 
 **-l**
-> List compiled-in modules.
+> 列出编译内置的模块。
 
 **-M**
-> List all loaded modules (static and shared).
+> 列出所有已加载模块（静态与共享）。
 
 **-t**
-> Test configuration syntax (same as configtest).
+> 测试配置语法（同 configtest）。
 
 **-S**
-> Show parsed virtual host settings.
+> 显示解析后的虚拟主机配置。
 
 **-f** _file_
-> Specify an alternate configuration file.
+> 指定替代的配置文件。
 
 **-D** _name_
-> Define a parameter for use in configuration conditionals.
+> 定义用于配置条件判断的参数。
 
 # DESCRIPTION
 
-**Apache HTTP Server** (httpd) is one of the most widely used web server software packages. It serves static and dynamic content over HTTP/HTTPS, supporting virtual hosting, URL rewriting, authentication, and extensive module-based extensibility.
+**Apache HTTP Server**（httpd）是使用最广泛的 Web 服务器软件之一。它通过 HTTP/HTTPS 提供静态和动态内容，支持虚拟主机、URL 重写、身份验证以及丰富的模块化扩展能力。
 
-The **apachectl** script provides a convenient interface for controlling the Apache daemon. It can operate as a simple front-end to the **httpd** command, or act as a SysV init script translating one-word arguments like **start**, **restart**, and **stop** into appropriate signals.
+**apachectl** 脚本为控制 Apache 守护进程提供了便捷接口。它既可以作为 **httpd** 命令的简单前端运行，也可以充当 SysV init 脚本，把 **start**、**restart**、**stop** 等单词参数转换为相应的信号。
 
-Configuration is primarily done through **httpd.conf** and related files. The modular architecture allows enabling features like SSL/TLS (mod_ssl), URL rewriting (mod_rewrite), proxying (mod_proxy), and dynamic content via CGI, PHP, or mod_wsgi.
+配置主要通过 **httpd.conf** 及相关文件完成。模块化架构允许启用 SSL/TLS（mod_ssl）、URL 重写（mod_rewrite）、代理（mod_proxy）等功能，并可通过 CGI、PHP 或 mod_wsgi 提供动态内容。
 
-Apache supports multiple Multi-Processing Modules: **prefork** (process-based) for compatibility, **worker** (threaded), and **event** (threaded with improved keep-alive handling) for higher concurrency.
+Apache 支持多种多处理模块：面向兼容性的 **prefork**（基于进程）、**worker**（多线程），以及面向更高并发、改进了 keep-alive 处理的 **event**（多线程）。
 
 # CAVEATS
 
-Configuration changes require a restart or reload. Syntax errors in configuration files prevent startup; always run **configtest** first. The **graceful** restart is preferred for production to avoid dropping active connections. Log files can grow large and require rotation. The **apachectl** script returns exit code 0 on success and >0 on error.
+配置更改需要重启或重载才能生效。配置文件中的语法错误会阻止启动；务必先运行 **configtest**。生产环境中首选 **graceful** 重启，以免断开活动连接。日志文件可能变得很大，需要进行轮转。**apachectl** 脚本成功时返回退出码 0，出错时返回大于 0 的值。
 
 # HISTORY
 
-The Apache HTTP Server originated from the **NCSA HTTPd** server at the University of Illinois. In **1995**, a group of developers began collaborating on patches, leading to the "patchy server" name that became Apache. The **Apache Software Foundation** was formed in **1999** to support its development. Apache dominated web server market share for over two decades, though nginx has gained significant ground since **2010**.
+Apache HTTP Server 源自伊利诺伊大学的 **NCSA HTTPd** 服务器。**1995 年**，一群开发者开始协作打补丁，"a patchy server"（打满补丁的服务器）之名由此演变为 Apache。**Apache 软件基金会**于 **1999 年**成立以支持其发展。Apache 曾主导 Web 服务器市场份额二十余年，不过自 **2010 年**起 nginx 已占据相当份额。
 
 # INSTALL
 

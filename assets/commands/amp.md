@@ -1,18 +1,18 @@
 # TAGLINE
 
-Vi/Vim-inspired terminal text editor
+受 Vi/Vim 启发的终端文本编辑器
 
 # TLDR
 
-**Open a file** for editing
+**打开文件**进行编辑
 
 ```amp [path/to/file]```
 
-**Open multiple files**
+**打开多个文件**
 
 ```amp [file1] [file2]```
 
-**Open a directory** to browse files
+**打开目录**浏览文件
 
 ```amp [path/to/directory]```
 
@@ -22,21 +22,21 @@ Vi/Vim-inspired terminal text editor
 
 # DESCRIPTION
 
-**amp** is a modal text editor for the terminal, inspired by Vim but designed with simplicity and zero configuration in mind. It includes all essential features out of the box with no plugin system: syntax highlighting for most languages, a file finder (Space), jump mode (f) for quick navigation, symbol jumping (Enter), Git integration, flexible YAML-based keymaps, theme support, and format-on-save.
+**amp** 是一款面向终端的模式化文本编辑器，灵感来自 Vim，但追求简洁与零配置。它开箱即用，内置所有必备功能且没有插件系统：支持大多数语言的语法高亮、文件查找器（Space）、用于快速导航的跳转模式（f）、符号跳转（Enter）、Git 集成、灵活的基于 YAML 的键位映射、主题支持以及保存时自动格式化。
 
-Written in Rust, amp uses a Vi-like modal interface (normal, insert, visual, command modes) with familiar keybindings. It supports 24-bit color, system clipboard integration including Wayland, and can suspend to the shell with **z**.
+amp 使用 Rust 编写，采用类 Vi 的模式界面（普通、插入、可视、命令模式），按键绑定符合习惯。它支持 24 位色彩、系统集成剪贴板（包括 Wayland），并可通过 **z** 挂起回到 Shell。
 
 # CONFIGURATION
 
-Configuration is via a YAML file in amp's config directory. Options include **theme**, **tab_width**, **soft_tabs**, **line_length_guide**, **line_wrapping**, per-file-type settings, custom keymaps, and format-on-save tools.
+配置通过 amp 配置目录中的 YAML 文件完成。可配置项包括 **theme**、**tab_width**、**soft_tabs**、**line_length_guide**、**line_wrapping**、按文件类型的设置、自定义键位映射以及保存时格式化工具。
 
 # CAVEATS
 
-Uses a custom license rather than a standard open-source license. Building from source requires libxcb, openssl, zlib, cmake, and python3. No plugin system by design.
+使用自定义许可证而非标准开源许可证。从源码构建需要 libxcb、openssl、zlib、cmake 和 python3。设计上不提供插件系统。
 
 # HISTORY
 
-**amp** was created by **Jordan MacDonald** (jmacdonald), who started the project around 2015 after growing frustrated with Vim. Written in Rust, it reached version 0.7.1 in 2024. MacDonald has been using amp as his daily editor since its creation.
+**amp** 由 **Jordan MacDonald**（jmacdonald）创建。他因对 Vim 感到失望，于 2015 年前后启动了这个项目。项目使用 Rust 编写，2024 年发布至 0.7.1 版。自创建以来，MacDonald 一直将 amp 作为日常编辑器使用。
 
 # INSTALL
 

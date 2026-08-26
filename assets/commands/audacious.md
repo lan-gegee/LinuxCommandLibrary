@@ -1,26 +1,26 @@
 # TAGLINE
 
-Lightweight audio player with plugin support
+支持插件的轻量级音频播放器
 
 # TLDR
 
-**Start** Audacious
+**启动** Audacious
 
 ```audacious```
 
-Play **specific files**
+播放**指定文件**
 
 ```audacious [file1.mp3] [file2.mp3]```
 
-**Enqueue** files
+将文件加入**播放队列**
 
 ```audacious -e [file.mp3]```
 
-Start **headless** (without GUI)
+**无界面**启动（不显示 GUI）
 
 ```audacious -H```
 
-**Show** current song
+**显示**当前曲目
 
 ```audacious -t```
 
@@ -30,60 +30,60 @@ Start **headless** (without GUI)
 
 # DESCRIPTION
 
-**audacious** is a lightweight, GTK-based audio player focusing on low resource usage and high audio quality. It supports numerous formats through plugins and features a Winamp-classic interface mode.
+**audacious** 是一款轻量级的基于 GTK 的音频播放器，注重低资源占用和高音质。它通过插件支持众多格式，并提供 Winamp 经典界面模式。
 
-The player emphasizes customization through skins and plugins while maintaining simplicity.
+该播放器在保持简洁的同时，强调通过皮肤和插件进行自定义。
 
 # PARAMETERS
 
 **-e**, **--enqueue**
-> Add files to playlist without playing
+> 将文件加入播放列表而不立即播放
 
 **-H**, **--headless**
-> Run without GUI
+> 不带 GUI 运行
 
 **-t**, **--show-main-window**
-> Show main window
+> 显示主窗口
 
 **-p**, **--play**
-> Start playback
+> 开始播放
 
 **-u**, **--pause**
-> Pause playback
+> 暂停播放
 
 **-s**, **--stop**
-> Stop playback
+> 停止播放
 
 **-f**, **--fwd**
-> Skip forward
+> 向后跳转
 
 **-r**, **--rew**
-> Skip backward
+> 向前跳转
 
 **--shuffle**
-> Toggle shuffle
+> 切换随机播放
 
 **--repeat**
-> Toggle repeat
+> 切换循环播放
 
 **-m**, **--show-jump-box**
-> Show jump to file dialog
+> 显示跳转到文件对话框
 
 # CONFIGURATION
 
 **~/.config/audacious/config**
-> Main configuration file for player settings and preferences.
+> 主配置文件，包含播放器设置和偏好。
 
 **~/.config/audacious/plugin-registry**
-> Registry of installed plugins and their enabled state.
+> 已安装插件及其启用状态的注册表。
 
 # CAVEATS
 
-Plugin availability varies by distribution. Some formats require additional codecs. GTK2 version (legacy) differs from GTK3/Qt versions.
+插件可用性因发行版而异。某些格式需要额外的编解码器。GTK2 版本（旧版）与 GTK3/Qt 版本存在差异。
 
 # HISTORY
 
-**Audacious** was forked from Beep Media Player (itself a fork of XMMS) in **2005**. It continues the Winamp-like interface tradition on Linux.
+**Audacious** 于 **2005** 年从 Beep Media Player（本身是 XMMS 的分支）分叉而来。它在 Linux 上延续了类 Winamp 界面的传统。
 
 # INSTALL
 

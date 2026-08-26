@@ -1,18 +1,18 @@
 # TAGLINE
 
-disable an Apache2 configuration file
+禁用 Apache2 配置文件
 
 # TLDR
 
-**Disable** a configuration file
+**禁用**一个配置文件
 
 ```sudo a2disconf [configuration_file]```
 
-Don't show **informative messages**
+不显示**提示信息**
 
 ```sudo a2disconf -q [configuration_file]```
 
-Disable a configuration and **purge** all traces from the internal state database
+禁用一个配置并从内部状态数据库中**清除**其所有痕迹
 
 ```sudo a2disconf -p [configuration_file]```
 
@@ -22,28 +22,28 @@ Disable a configuration and **purge** all traces from the internal state databas
 
 # DESCRIPTION
 
-**a2disconf** is a Debian-specific utility that disables Apache2 configuration files by removing symbolic links from **/etc/apache2/conf-enabled**. It works alongside **a2enconf**, which enables configurations.
+**a2disconf** 是一个 Debian 特有的工具，它通过删除 **/etc/apache2/conf-enabled** 中的符号链接来禁用 Apache2 配置文件。它与负责启用配置的 **a2enconf** 配合使用。
 
-The tool silently succeeds if the specified configuration is already disabled, making it safe for use in scripts. After disabling a configuration, Apache must be restarted or reloaded for changes to take effect.
+如果指定的配置已被禁用，该工具会静默地成功返回，因此在脚本中使用是安全的。禁用配置后，必须重启或重新加载 Apache 才能使更改生效。
 
 # PARAMETERS
 
 **-q, --quiet**
-> Don't show informative messages
+> 不显示提示信息
 
 **-m, --maintmode**
-> Enables maintainer mode; the program invocation is effectuated automatically by a maintainer script
+> 启用维护者模式；程序调用由维护者脚本自动执行
 
 **-p, --purge**
-> When disabling a configuration, purge all traces from the internal state database
+> 禁用配置时，从内部状态数据库中清除其所有痕迹
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions. Configuration changes require an Apache restart or reload to take effect.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用。配置更改需要重启或重新加载 Apache 才能生效。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. The manual page was authored by Arno Toell and dates to **February 2012**.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建。手册页由 Arno Toell 编写，可追溯到 **2012 年 2 月**。
 
 # INSTALL
 

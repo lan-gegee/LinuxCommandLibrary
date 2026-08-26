@@ -1,26 +1,26 @@
 # TAGLINE
 
-Show the events received at an ALSA sequencer port
+显示 ALSA 音序器端口接收到的事件
 
 # TLDR
 
-**Dump** MIDI events from all sources
+**转储**来自所有源的 MIDI 事件
 
 ```aseqdump```
 
-Dump from a **specific port**
+从**指定端口**转储
 
 ```aseqdump -p [20:0]```
 
-**List** available input ports
+**列出**可用的输入端口
 
 ```aseqdump -l```
 
-Show events with **normalized** MIDI 1.0 values
+以**规范化**的 MIDI 1.0 值显示事件
 
 ```aseqdump -p [20:0] -N```
 
-Show events as **percentages**
+以**百分比**显示事件
 
 ```aseqdump -p [20:0] -P```
 
@@ -30,46 +30,46 @@ Show events as **percentages**
 
 # DESCRIPTION
 
-**aseqdump** is a command-line utility that prints the ALSA sequencer events it receives as human-readable text. It is useful for debugging MIDI connections, testing keyboards, and monitoring MIDI data streams.
+**aseqdump** 是一个命令行工具，将它收到的 ALSA 音序器事件以人类可读的文本形式打印出来。它可用于调试 MIDI 连接、测试键盘以及监视 MIDI 数据流。
 
-The output shows event type, channel, note numbers, velocity, control changes, and other MIDI message details.
+输出内容包括事件类型、通道、音符编号、力度、控制变更以及其他 MIDI 消息细节。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Print a list of options
+> 打印选项列表
 
 **-V**, **--version**
-> Print the current version
+> 打印当前版本
 
 **-l**, **--list**
-> Print a list of possible input ports
+> 打印可用输入端口的列表
 
 **-p**, **--port**=_client:port,..._
-> Set the sequencer port(s) from which events are received. A client can be specified by its number, its name, or a prefix of its name. A port is specified by its number; for port 0, the ":0" part can be omitted
+> 设置接收事件的音序器端口。客户端可以用编号、名称或名称前缀指定。端口用编号指定；对于端口 0，":0" 部分可以省略
 
 **-u**, **--ump**=_version_
-> Set the client MIDI version. 0 is for legacy mode, 1 is UMP MIDI 1.0 mode, and 2 is UMP MIDI 2.0 mode
+> 设置客户端 MIDI 版本。0 为传统模式，1 为 UMP MIDI 1.0 模式，2 为 UMP MIDI 2.0 模式
 
 **-r**, **--raw**
-> Suppress the automatic conversion of events among UMP and legacy clients
+> 禁止在 UMP 客户端与传统客户端之间自动转换事件
 
 **-R**, **--raw-view**
-> Show the raw values as is. Channel numbers and UMP group numbers are 0-based. This is the default
+> 原样显示原始值。通道号和 UMP 组号从 0 开始计数。这是默认行为
 
 **-N**, **--normalized-view**
-> Show normalized values aligned with MIDI 1.0. Channel and group numbers are 1-based, velocity and data values are normalized between 0 and 127
+> 显示与 MIDI 1.0 对齐的规范化值。通道号和组号从 1 开始计数，力度和数据值被规范化到 0 至 127 之间
 
 **-P**, **--percent-view**
-> Show values as percentages. Channel and group numbers are 1-based
+> 以百分比显示数值。通道号和组号从 1 开始计数
 
 # CAVEATS
 
-Only displays ALSA sequencer events, not raw MIDI. Subscribe to specific ports to filter output. Events are displayed but not recorded.
+只显示 ALSA 音序器事件，不显示原始 MIDI。订阅特定端口可以过滤输出。事件只显示不记录。
 
 # HISTORY
 
-**aseqdump** is part of the **alsa-utils** package, providing MIDI debugging capabilities since ALSA's introduction.
+**aseqdump** 是 **alsa-utils** 软件包的一部分，自 ALSA 诞生以来就提供 MIDI 调试能力。
 
 # INSTALL
 

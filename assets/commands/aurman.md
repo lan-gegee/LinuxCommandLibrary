@@ -1,34 +1,34 @@
 # TAGLINE
 
-AUR helper with pacman-like interface
+具有 pacman 风格界面的 AUR 助手
 
 # TLDR
 
-**Synchronize and update** all packages
+**同步并更新**所有软件包
 
 ```aurman -Syu```
 
-Update all packages **without showing PKGBUILD** changes
+更新所有软件包且**不显示 PKGBUILD** 变更
 
 ```aurman -Syu --noedit```
 
-**Install** a new package
+**安装**一个新软件包
 
 ```aurman -S [package]```
 
-Install a package **without prompting**
+安装软件包且**不进行任何提示**
 
 ```aurman -S --noedit --noconfirm [package]```
 
-**Search** for a keyword in repositories and AUR
+在软件仓库和 AUR 中**搜索**关键字
 
 ```aurman -Ss [keyword]```
 
-**Remove** a package and its dependencies
+**删除**一个软件包及其依赖
 
 ```aurman --remove --recursive --nosave [package]```
 
-**Clear** the package cache
+**清理**软件包缓存
 
 ```aurman -Sc```
 
@@ -38,58 +38,58 @@ Install a package **without prompting**
 
 # DESCRIPTION
 
-**aurman** is an AUR helper for Arch Linux that provides a pacman-like interface for installing packages from both official repositories and the Arch User Repository. It handles dependency resolution, PKGBUILD review, and package building, and was aimed at advanced users already familiar with pacman, makepkg, and the AUR.
+**aurman** 是一个面向 Arch Linux 的 AUR 助手，提供类似 pacman 的界面，可用于安装来自官方软件仓库和 Arch 用户仓库（AUR）的软件包。它能处理依赖解析、PKGBUILD 审查和软件包构建，主要面向已熟悉 pacman、makepkg 和 AUR 的高级用户。
 
-The command follows pacman's option syntax, making it familiar to Arch Linux users. It combines repository and AUR package management into a single workflow. Note that aurman is no longer maintained and has been removed from the AUR; the entries below are kept for historical reference.
+该命令遵循 pacman 的选项语法，Arch Linux 用户很容易上手。它将软件仓库和 AUR 软件包管理整合到同一个工作流中。注意，aurman 已不再维护，并已从 AUR 中移除；以下条目仅作历史参考保留。
 
 # PARAMETERS
 
 **-S, --sync**
-> Synchronize packages
+> 同步软件包
 
 **-y, --refresh**
-> Download fresh package databases
+> 下载最新的软件包数据库
 
 **-u, --sysupgrade**
-> Upgrade installed packages
+> 升级已安装的软件包
 
 **-s, --search**
-> Search for packages matching a pattern
+> 搜索匹配模式的软件包
 
 **-c, --clean**
-> Remove old packages from cache
+> 从缓存中删除旧软件包
 
 **--noedit**
-> Do not show PKGBUILD changes before building
+> 构建前不显示 PKGBUILD 变更
 
 **--noconfirm**
-> Do not ask for confirmation
+> 不请求确认
 
 **--remove**
-> Remove a package
+> 删除软件包
 
 **--recursive**
-> Remove dependencies not required by other packages
+> 删除其他软件包不再需要的依赖
 
 **--devel**
-> Also consider development packages (VCS sources such as -git) for upgrades
+> 升级时同时考虑开发版软件包（如 -git 等 VCS 来源）
 
 **--pgp_fetch**
-> Automatically fetch unknown PGP keys needed to verify sources
+> 自动获取验证源码所需的未知 PGP 密钥
 
 **--aur**
-> Restrict the operation to AUR packages
+> 将操作限制为 AUR 软件包
 
 **--repo**
-> Restrict the operation to official repository packages
+> 将操作限制为官方软件仓库的软件包
 
 # CAVEATS
 
-**aurman** is no longer maintained and has been removed from the AUR. Use a current AUR helper such as **yay** or **paru** instead. Always review PKGBUILDs when installing from the AUR, as they contain user-submitted code that runs with your privileges.
+**aurman** 已不再维护，并已从 AUR 中移除。请改用仍在维护的 AUR 助手，例如 **yay** 或 **paru**。从 AUR 安装时务必审查 PKGBUILD，因为其中包含以你的权限运行的用户提交代码。
 
 # HISTORY
 
-**aurman** was a popular AUR helper known for its advanced dependency solver and interactive package selection. Development stopped and the package was eventually dropped from the AUR, leaving **yay** and **paru** as the commonly recommended replacements.
+**aurman** 曾是一个广受欢迎的 AUR 助手，以其先进的依赖求解器和交互式软件包选择而闻名。其开发已停止，软件包最终也从 AUR 中移除，**yay** 和 **paru** 成为通常推荐的替代品。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Schedule commands to execute at a specified time
+安排命令在指定时间执行
 
 # TLDR
 
-Create commands interactively and execute them in **5 minutes**
+交互式创建命令并在 **5 分钟后**执行
 
 ```at now + 5 minutes```
 
-Execute commands from stdin at a **specific time**
+在**指定时间**执行来自 stdin 的命令
 
 ```echo "command" | at 1000```
 
-Execute commands from a **file** at a specific time
+在指定时间执行**文件**中的命令
 
 ```at -f [path/to/file] 9:30 PM Tue```
 
-**List** all queued jobs
+**列出**所有排队中的作业
 
 ```at -l```
 
-**View** a specified job
+**查看**指定作业
 
 ```at -c [job_number]```
 
-**Remove** a job from the queue
+从队列中**移除**一个作业
 
 ```atrm [job_number]```
 
@@ -40,55 +40,55 @@ Execute commands from a **file** at a specific time
 
 # DESCRIPTION
 
-**at** executes commands at a specified time. Commands are read from standard input or a file and executed later. Results are sent to the user's mail. The **atd** daemon must be running for jobs to execute.
+**at** 在指定的时间执行命令。命令从标准输入或文件读取，稍后执行。结果会发送到用户的邮箱。必须有 **atd** 守护进程正在运行，作业才能执行。
 
 # PARAMETERS
 
 **-f file**
-> Read commands from file instead of standard input
+> 从文件而非标准输入读取命令
 
 **-l**
-> List all queued jobs (alias for atq)
+> 列出所有排队中的作业（等价于 atq）
 
 **-c job**
-> Print (cat) the commands of the specified job to standard output
+> 将指定作业的命令打印（cat）到标准输出
 
 **-m**
-> Send mail to the user when the job completes, even if there was no output
+> 作业完成时向用户发送邮件，即使没有任何输出
 
 **-M**
-> Never send mail to the user
+> 从不向用户发送邮件
 
 **-q queue**
-> Use the specified queue. A queue is a single letter (a-z, A-Z); queues with higher letters run with increased niceness. The "=" queue is reserved for currently running jobs.
+> 使用指定的队列。队列是单个字母（a-z、A-Z）；字母顺序越靠后的队列以更高的 nice 值运行。"=" 队列保留给当前正在运行的作业。
 
 **-t time**
-> Run the job at the given time, in the format [[CC]YY]MMDDhhmm[.ss]
+> 以 [[CC]YY]MMDDhhmm[.ss] 格式在给定时间运行作业
 
 **-r job**, **-d job**
-> Delete the specified job (alias for atrm)
+> 删除指定的作业（等价于 atrm）
 
 **-b**
-> Alias for batch
+> batch 的别名
 
 **-v**
-> Show the time the job will be executed before reading it
+> 在读取作业前显示其将被执行的时间
 
 # CONFIGURATION
 
 **/etc/at.allow**
-> If this file exists, only users listed in it can schedule jobs with at.
+> 若该文件存在，则只有列于其中的用户才能用 at 安排作业。
 
 **/etc/at.deny**
-> Users listed in this file are denied access to at. Ignored if at.allow exists.
+> 列于该文件中的用户被禁止使用 at。若 at.allow 存在，则忽略此文件。
 
 # CAVEATS
 
-Requires the **atd** daemon to be running. Time can be specified in various formats: HH:MM, midnight, noon, teatime (4pm), or relative times like "now + 5 minutes".
+需要 **atd** 守护进程正在运行。时间可用多种格式指定：HH:MM、midnight、noon、teatime（下午 4 点），或 "now + 5 minutes" 这类相对时间。
 
 # HISTORY
 
-Part of the traditional Unix job scheduling system, available since early Unix in the **1970s**. The modern Linux **at** package was mostly written by Thomas Koenig and has since been maintained by various Debian contributors.
+属于传统 Unix 作业调度系统的一部分，早在 **1970 年代**的早期 Unix 中就已可用。现代 Linux 的 **at** 软件包主要由 Thomas Koenig 编写，此后由多位 Debian 贡献者维护。
 
 # INSTALL
 

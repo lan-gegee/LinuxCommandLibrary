@@ -1,14 +1,14 @@
 # TAGLINE
 
-Sort package index files
+对软件包索引文件排序
 
 # TLDR
 
-**Sort** a Packages file
+对一个 Packages 文件**排序**
 
 ```apt-sortpkgs [Packages] > [Packages.sorted]```
 
-Sort **Sources** file
+对 **Sources** 文件排序
 
 ```apt-sortpkgs -s [Sources] > [Sources.sorted]```
 
@@ -18,28 +18,28 @@ Sort **Sources** file
 
 # DESCRIPTION
 
-**apt-sortpkgs** sorts Debian package index files (Packages or Sources files) into a consistent order. This is useful for comparing files or ensuring reproducible output.
+**apt-sortpkgs** 将 Debian 软件包索引文件（Packages 或 Sources 文件）按一致的顺序排列。这对于比较文件或确保可复现的输出很有用。
 
-The tool reads the index file, sorts packages alphabetically by name, and outputs the sorted version.
+该工具读取索引文件，按软件包名称的字母顺序排序，然后输出排序后的版本。
 
 # PARAMETERS
 
 **-s**, **--source**
-> Treat input as Sources file instead of Packages
+> 将输入视为 Sources 文件而不是 Packages
 
 **-o** _option_
-> Set configuration option
+> 设置配置选项
 
 **-c** _file_
-> Read additional configuration
+> 读取额外的配置
 
 # CAVEATS
 
-Primarily used for repository maintenance and comparison. Not needed for normal APT operation. Large files may consume significant memory.
+主要用于仓库维护和文件比较。正常的 APT 操作不需要它。大文件可能占用大量内存。
 
 # HISTORY
 
-**apt-sortpkgs** is part of the APT suite, useful for repository maintainers who need deterministic index file ordering.
+**apt-sortpkgs** 是 APT 套件的组成部分，供需要索引文件具有确定性顺序的仓库维护者使用。
 
 # INSTALL
 

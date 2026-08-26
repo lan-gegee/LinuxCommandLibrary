@@ -1,26 +1,26 @@
 # TAGLINE
 
-Read change data capture records from DynamoDB tables.
+从 DynamoDB 表读取变更数据捕获记录。
 
 # TLDR
 
-**List all streams** associated with a DynamoDB table
+**列出与 DynamoDB 表关联的所有流**
 
 ```aws dynamodbstreams list-streams --table-name [table_name]```
 
-**Describe a stream** to get details and shards
+**查看流的详情和分片**
 
 ```aws dynamodbstreams describe-stream --stream-arn [arn:aws:dynamodb:region:account:table/name/stream/timestamp]```
 
-**Get a shard iterator** to start reading records
+**获取分片迭代器以开始读取记录**
 
 ```aws dynamodbstreams get-shard-iterator --stream-arn [stream_arn] --shard-id [shard_id] --shard-iterator-type [TRIM_HORIZON|LATEST|AT_SEQUENCE_NUMBER]```
 
-**Read records** from a shard
+**从分片读取记录**
 
 ```aws dynamodbstreams get-records --shard-iterator [iterator_string]```
 
-**Get shard iterator at a specific sequence number**
+**获取特定序列号处的分片迭代器**
 
 ```aws dynamodbstreams get-shard-iterator --stream-arn [stream_arn] --shard-id [shard_id] --shard-iterator-type AT_SEQUENCE_NUMBER --sequence-number [seq_num]```
 
@@ -30,54 +30,54 @@ Read change data capture records from DynamoDB tables.
 
 # DESCRIPTION
 
-**aws dynamodbstreams** is a subcommand of the AWS CLI that reads change data capture records from DynamoDB Streams. When streams are enabled on a DynamoDB table, every modification (insert, update, delete) is captured as a stream record.
+**aws dynamodbstreams** 是 AWS CLI 的子命令，用于读取 DynamoDB Streams 的变更数据捕获（change data capture）记录。当在 DynamoDB 表上启用流后，每一次修改（插入、更新、删除）都会被捕获为一条流记录。
 
-Streams organize records into shards, which are containers for sequenced records. To read stream data, you first obtain a shard iterator and then use it to retrieve records. Each shard iterator expires after 15 minutes of inactivity.
+流将记录组织到分片（shard）中，分片是有序记录的容器。要读取流数据，需先获取一个分片迭代器，再用它检索记录。每个分片迭代器在不活动 15 分钟后过期。
 
-Stream records can include the old item image, new item image, or both, depending on the stream view type configured on the table. This enables use cases like replication, analytics, and triggering downstream workflows.
+根据表上配置的流视图类型，流记录可以包含旧的项目映像、新的项目映像或两者兼有。这使得复制、数据分析以及触发下游工作流等用例成为可能。
 
 # PARAMETERS
 
 **list-streams**
-> List stream ARNs for a table or all tables.
+> 列出某个表或所有表的流 ARN。
 
 **describe-stream**
-> Get stream metadata including shard information.
+> 获取流的元数据，包括分片信息。
 
 **get-shard-iterator**
-> Get an iterator for reading records from a shard.
+> 获取用于从分片读取记录的迭代器。
 
 **get-records**
-> Read stream records using a shard iterator.
+> 使用分片迭代器读取流记录。
 
 **--stream-arn** _arn_
-> The Amazon Resource Name of the stream.
+> 流的 Amazon 资源名称（ARN）。
 
 **--table-name** _name_
-> Filter streams by table name.
+> 按表名筛选流。
 
 **--shard-id** _id_
-> The identifier of the shard to read.
+> 要读取的分片的标识符。
 
 **--shard-iterator** _string_
-> Iterator returned by get-shard-iterator.
+> 由 get-shard-iterator 返回的迭代器。
 
 **--shard-iterator-type** _type_
-> Where to start reading: TRIM_HORIZON (oldest), LATEST (newest), AT_SEQUENCE_NUMBER, or AFTER_SEQUENCE_NUMBER.
+> 开始读取的位置：TRIM_HORIZON（最旧）、LATEST（最新）、AT_SEQUENCE_NUMBER 或 AFTER_SEQUENCE_NUMBER。
 
 **--sequence-number** _number_
-> Start at this sequence number (requires AT/AFTER_SEQUENCE_NUMBER type).
+> 从该序列号开始读取（需要 AT/AFTER_SEQUENCE_NUMBER 类型）。
 
 **--limit** _number_
-> Maximum number of records to return.
+> 返回记录的最大数量。
 
 # CAVEATS
 
-Shard iterators expire after 15 minutes. Stream records are retained for only 24 hours. Shards can split under high throughput, requiring logic to handle child shards. The get-records call may return empty results even when data exists due to internal shard mechanics; keep polling until the shard is closed.
+分片迭代器会在 15 分钟后过期。流记录仅保留 24 小时。高吞吐量下分片可能分裂，需要编写逻辑来处理子分片。由于分片的内部机制，即使存在数据，get-records 调用也可能返回空结果；应持续轮询直到分片关闭。
 
 # HISTORY
 
-DynamoDB Streams was announced at **AWS re:Invent 2014** and became generally available in **July 2015**. It was designed to enable real-time processing of DynamoDB changes, complementing the introduction of AWS Lambda triggers for DynamoDB. The feature supports cross-region replication through Global Tables.
+DynamoDB Streams 在 **AWS re:Invent 2014** 上发布，并于 **2015 年 7 月** 正式可用。其设计目标是实时处理 DynamoDB 的变更，与同期推出的面向 DynamoDB 的 AWS Lambda 触发器相辅相成。该功能可通过全局表支持跨区域复制。
 
 # INSTALL
 

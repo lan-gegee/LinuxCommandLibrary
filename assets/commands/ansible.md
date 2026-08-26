@@ -1,26 +1,26 @@
 # TAGLINE
 
-Agentless IT automation and configuration management
+无代理的 IT 自动化与配置管理工具
 
 # TLDR
 
-**Ping** all hosts in inventory
+**Ping** inventory 中的所有主机
 
 ```ansible all -m ping```
 
-Execute a **command** on hosts
+在主机上执行**命令**
 
 ```ansible [webservers] -a "uptime"```
 
-Execute with **sudo**
+以 **sudo** 执行
 
 ```ansible [webservers] -a "apt update" --become```
 
-Run an **ad-hoc module**
+运行**临时模块**
 
 ```ansible [hosts] -m [apt] -a "name=nginx state=present" --become```
 
-Use **specific inventory**
+使用**指定的 inventory**
 
 ```ansible -i [inventory.ini] all -m ping```
 
@@ -30,72 +30,72 @@ Use **specific inventory**
 
 # DESCRIPTION
 
-**ansible** is an agentless IT automation tool that executes tasks on remote systems over SSH. It uses a push-based model, requiring no software installation on managed nodes beyond Python and SSH access.
+**ansible** 是一款无代理的 IT 自动化工具，通过 SSH 在远程系统上执行任务。它采用推送模式，受管节点除 Python 和 SSH 访问外无需安装任何软件。
 
-For ad-hoc commands, ansible executes modules against hosts matching a pattern. For complex automation, use ansible-playbook with YAML playbooks.
+对于临时命令，ansible 会对匹配模式的主机执行模块。对于复杂的自动化，请配合 YAML playbook 使用 ansible-playbook。
 
 # PARAMETERS
 
 **-m** _module_, **--module-name** _module_
-> Name of the module to execute (default: command)
+> 要执行的模块名称（默认：command）
 
 **-a** _args_, **--args** _args_
-> Module arguments as key=value or JSON
+> 模块参数，采用 key=value 或 JSON 形式
 
 **-i** _inventory_, **--inventory** _inventory_
-> Inventory file/path or comma-separated host list
+> Inventory 文件/路径或逗号分隔的主机列表
 
 **-b**, **--become**
-> Run operations with privilege escalation (become)
+> 以权限提升方式（become）执行操作
 
 **-K**, **--ask-become-pass**
-> Prompt for privilege escalation password
+> 提示输入权限提升密码
 
 **-u** _user_, **--user** _user_
-> Connect as this user
+> 以该用户身份连接
 
 **-k**, **--ask-pass**
-> Prompt for SSH connection password
+> 提示输入 SSH 连接密码
 
 **-f** _forks_, **--forks** _forks_
-> Number of parallel processes (default: 5)
+> 并行进程数（默认：5）
 
 **-l** _pattern_, **--limit** _pattern_
-> Further limit selected hosts to an additional pattern
+> 用额外的模式进一步限制所选主机
 
 **-v**, **-vvv**, **--verbose**
-> Increase verbosity (repeat for more detail)
+> 提高输出详细程度（重复使用可获得更多细节）
 
 **-C**, **--check**
-> Dry run; predict changes without applying them
+> 试运行；预测变更但不实际应用
 
 **--diff**
-> Show differences in changed files (works with --check)
+> 显示被修改文件的差异（与 --check 配合使用）
 
 **--list-hosts**
-> Output a list of matching hosts; do not execute
+> 输出匹配主机的列表；不执行操作
 
 # CONFIGURATION
 
 **/etc/ansible/ansible.cfg**
-> System-wide Ansible configuration, including default module path, connection settings, and privilege escalation.
+> 系统级 Ansible 配置，包含默认模块路径、连接设置和权限提升配置。
 
 **~/.ansible.cfg**
-> Per-user Ansible configuration overriding system defaults.
+> 每用户 Ansible 配置，覆盖系统默认值。
 
 **ansible.cfg**
-> Project-level configuration in the current directory, highest priority.
+> 当前目录中的项目级配置，优先级最高。
 
 **/etc/ansible/hosts**
-> Default inventory file listing managed hosts and groups.
+> 默认的 inventory 文件，列出受管主机和组。
 
 # CAVEATS
 
-Requires Python on managed nodes. SSH key-based authentication is recommended. Windows hosts require WinRM instead of SSH. Large inventories benefit from using ansible-playbook.
+受管节点上需要有 Python。建议使用基于 SSH 密钥的身份验证。Windows 主机需要使用 WinRM 而非 SSH。大型 inventory 建议改用 ansible-playbook。
 
 # HISTORY
 
-**Ansible** was created by Michael DeHaan and released in **2012**. Red Hat acquired Ansible Inc. in **2015**. It has become one of the most popular configuration management and automation tools.
+**Ansible** 由 Michael DeHaan 创建并于 **2012 年**发布。Red Hat 于 **2015 年**收购了 Ansible 公司。它已成为最受欢迎的配置管理与自动化工具之一。
 
 # INSTALL
 

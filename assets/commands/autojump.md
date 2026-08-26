@@ -1,26 +1,26 @@
 # TAGLINE
 
-Quickly navigate to frequently used directories
+快速跳转到常用目录
 
 # TLDR
 
-**Jump** to directory
+**跳转**到目录
 
 ```j [project]```
 
-Jump to **child directory**
+跳转到**子目录**
 
 ```jc [src]```
 
-Open directory in **file manager**
+在**文件管理器**中打开目录
 
 ```jo [downloads]```
 
-Show **statistics**
+显示**统计信息**
 
 ```j --stat```
 
-**Increase** directory weight
+**增加**目录权重
 
 ```j -i [+10]```
 
@@ -30,50 +30,50 @@ Show **statistics**
 
 # DESCRIPTION
 
-**autojump** is a cd command replacement that learns your navigation patterns. It maintains a database of directories you visit, allowing quick jumps using partial names.
+**autojump** 是一个能学习你导航习惯的 cd 替代品。它维护一个你访问过的目录数据库，让你能用部分名称快速跳转。
 
-Instead of typing full paths, you can jump to frequently used directories with short, memorable patterns.
+不必输入完整路径，只需简短易记的模式即可跳转到常用目录。
 
 # PARAMETERS
 
 **directory**
-> Partial directory name to match.
+> 用于匹配的部分目录名。
 
 **-a** _path_, **--add** _path_
-> Manually add a path to the database.
+> 手动将一个路径添加到数据库。
 
 **-i** [_weight_], **--increase** [_weight_]
-> Increase the weight of the current directory.
+> 增加当前目录的权重。
 
 **-d** [_weight_], **--decrease** [_weight_]
-> Decrease the weight of the current directory.
+> 降低当前目录的权重。
 
 **--complete**
-> Used internally for tab completion.
+> 内部使用，用于 Tab 补全。
 
 **--purge**
-> Remove non-existent paths from the database.
+> 从数据库中移除不存在的路径。
 
 **-s**, **--stat**
-> Show database entries and their key weights.
+> 显示数据库条目及其关键权重。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # ALIASES
 
-- **j**: Main command
-- **jc**: Jump to child directory
-- **jo**: Open in file manager
-- **jco**: Open child in file manager
+- **j**: 主命令
+- **jc**: 跳转到子目录
+- **jo**: 在文件管理器中打开
+- **jco**: 在文件管理器中打开子目录
 
 # CAVEATS
 
-Requires shell integration (add to .bashrc/.zshrc). Database builds over time; new directories won't jump initially. Similar tool: z, zoxide.
+需要 shell 集成（添加到 .bashrc/.zshrc）。数据库随使用逐步积累，新目录起初无法跳转。类似工具：z、zoxide。
 
 # HISTORY
 
-**autojump** was created by Joël Schaerer around **2009** as one of the first "frecency" (frequency + recency) directory jumpers for shells.
+**autojump** 由 Joël Schaerer 于 **2009 年**前后创建，是最早面向 shell 的"frecency"（频率 + 近期度）目录跳转工具之一。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compile markdown skills into standalone Python agents
+把 markdown 技能编译为独立的 Python 代理
 
 # TLDR
 
-**Initialize** configuration and the LLM provider
+**初始化**配置和 LLM 提供方
 
 ```agenthatch init```
 
-**Register** a skill file
+**注册**技能文件
 
 ```agenthatch skills add [./my-skill/SKILL.md]```
 
-**Compile** a skill into an agent
+把技能**编译**为代理
 
 ```agenthatch hatch [my-skill]```
 
-**Run** a hatched agent interactively
+以交互方式**运行**孵化出的代理
 
 ```agenthatch run [my-skill]```
 
-**List** registered skills
+**列出**已注册的技能
 
 ```agenthatch skills list```
 
-**Diagnose** the environment
+**诊断**环境
 
 ```agenthatch doctor```
 
@@ -34,57 +34,57 @@ Compile markdown skills into standalone Python agents
 
 # DESCRIPTION
 
-**agenthatch** is a compiler that turns a markdown **SKILL.md** definition into a standalone, runnable Python AI agent. It parses the skill file, runs an AI inference pass to infer tools and structure, and generates a complete Python package with its own CLI entry point, type-annotated tool definitions, and MCP integration.
+**agenthatch** 是一个编译器，能把 markdown 格式的 **SKILL.md** 定义变成一个可独立运行的 Python AI 代理。它会解析技能文件，执行一轮 AI 推理来推断工具与结构，然后生成一个完整的 Python 软件包，带有自己的 CLI 入口点、带类型标注的工具定义以及 MCP 集成。
 
-Registered skills live in a local index (the "skillhouse"). The typical flow is to register a skill, **hatch** it to generate code, then **run** the resulting agent in an interactive terminal UI.
+已注册的技能存放在本地索引（“skillhouse”）里。典型流程是：注册技能，用 **hatch** 孵化生成代码，再在交互式终端 UI 中**运行**生成的代理。
 
 # COMMANDS
 
 **init**
-> Initialize configuration and set up the LLM provider.
+> 初始化配置并设置 LLM 提供方。
 
 **skills add** _path_
-> Register a SKILL.md file in the skillhouse index.
+> 在 skillhouse 索引中注册一个 SKILL.md 文件。
 
 **skills list**
-> Display all registered skills.
+> 显示所有已注册的技能。
 
 **skills delete** _name_
-> Remove a skill from the skillhouse.
+> 从 skillhouse 中移除一个技能。
 
 **hatch** _name_
-> Run the full compilation pipeline (parse, AI inference, code generation).
+> 运行完整的编译流水线（解析、AI 推理、代码生成）。
 
 **run** _name_
-> Launch a hatched agent in interactive terminal UI mode.
+> 以交互式终端 UI 模式启动已孵化的代理。
 
 **search** _query_
-> Query the skillhouse index.
+> 查询 skillhouse 索引。
 
 **assemble**
-> Rebuild an existing skillhouse agent.
+> 重建已有的 skillhouse 代理。
 
 **doctor**
-> Diagnose the environment and dependencies.
+> 诊断环境与依赖。
 
 # PARAMETERS
 
 **--no-generate**
-> Skip the code-generation phase so the inferred spec can be reviewed first (used with **hatch**).
+> 跳过代码生成阶段，以便先审阅推断出的规格（配合 **hatch** 使用）。
 
 **--force**
-> Overwrite an existing hatched agent.
+> 覆盖已存在的孵化代理。
 
 **--dry-run**
-> Preview the output without writing files.
+> 预览输出而不写入文件。
 
 # CAVEATS
 
-Requires Python 3.11 or later. Compilation calls an LLM provider (OpenAI, DeepSeek, Anthropic, or any OpenAI-compatible endpoint), configured via a TOML file, so an API key and network access are needed for the **hatch** step.
+需要 Python 3.11 或更高版本。编译过程会调用 LLM 提供方（OpenAI、DeepSeek、Anthropic 或任何 OpenAI 兼容端点），通过 TOML 文件配置，因此执行 **hatch** 步骤需要 API 密钥和网络连接。
 
 # HISTORY
 
-**agenthatch** is written in Python and released under the MIT license. It was published in 2026 around the idea of treating markdown skill files as source code that compiles into deployable agents.
+**agenthatch** 用 Python 编写，以 MIT 许可证发布。它于 2026 年推出，核心理念是把 markdown 技能文件当作源代码，编译成可部署的代理。
 
 # SEE ALSO
 

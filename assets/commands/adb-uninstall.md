@@ -1,22 +1,22 @@
 # TAGLINE
 
-Remove an application from an Android device
+从 Android 设备移除应用
 
 # TLDR
 
-**Uninstall** an application
+**卸载**应用
 
 ```adb uninstall [com.example.app]```
 
-Uninstall but **keep data** and cache
+卸载但**保留数据**和缓存
 
 ```adb uninstall -k [com.example.app]```
 
-Uninstall for a **specific user**
+为**特定用户**卸载
 
 ```adb uninstall --user [user_id] [com.example.app]```
 
-Uninstall **only if version code matches**
+仅在**版本号匹配时**卸载
 
 ```adb uninstall --versionCode [version_code] [com.example.app]```
 
@@ -26,31 +26,31 @@ Uninstall **only if version code matches**
 
 # DESCRIPTION
 
-**adb uninstall** removes an installed Android application from the device. The package is specified by its full package name (e.g., com.example.app), not the APK filename.
+**adb uninstall** 从设备中移除已安装的 Android 应用。软件包以其完整的包名（如 com.example.app）指定，而不是 APK 文件名。
 
-By default, uninstalling removes the app along with all its data, cache, and associated files for all users on the device. Use the **-k** flag to preserve application data.
+默认情况下，卸载会移除应用及其所有数据、缓存和相关文件，并作用于设备上的所有用户。使用 **-k** 标志可保留应用数据。
 
 # PARAMETERS
 
 **-k**
-> Keep the data and cache directories after package removal.
+> 移除软件包后保留数据目录和缓存目录。
 
 **--user** _user_id_
-> Remove the package only for the given user. Default removes for all users.
+> 仅为指定用户移除软件包。默认为所有用户移除。
 
 **--versionCode** _code_
-> Only uninstall if the installed app has the given version code.
+> 仅当已安装应用的版本号与给定的相同时才卸载。
 
 **package**
-> Full package name of the application to remove.
+> 要移除的应用的完整包名。
 
 # CAVEATS
 
-System applications cannot be uninstalled without root access or using **adb shell pm uninstall -k --user 0**. The package name is case-sensitive. Pre-installed apps may be disabled instead of fully removed.
+没有 root 权限无法卸载系统应用，除非使用 **adb shell pm uninstall -k --user 0**。包名区分大小写。预装应用可能只能被禁用，而无法彻底移除。
 
 # HISTORY
 
-**adb uninstall** has been available since the initial Android SDK release in **2008**, providing a simple way to remove applications during development and testing.
+**adb uninstall** 自 **2008** 年 Android SDK 首次发布起即可用，为开发和测试期间移除应用提供了简单方式。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-GitOps continuous delivery CLI for Kubernetes
+面向 Kubernetes 的 GitOps 持续交付 CLI
 
 # TLDR
 
-**Login** to Argo CD server
+**登录** Argo CD 服务器
 
 ```argocd login [argocd.example.com]```
 
-**List** applications
+**列出**应用
 
 ```argocd app list```
 
-**Create** application
+**创建**应用
 
 ```argocd app create [app-name] --repo [https://github.com/user/repo] --path [k8s/] --dest-server [https://kubernetes.default.svc]```
 
-**Sync** application
+**同步**应用
 
 ```argocd app sync [app-name]```
 
-**Get** application details
+**获取**应用详情
 
 ```argocd app get [app-name]```
 
@@ -30,54 +30,54 @@ GitOps continuous delivery CLI for Kubernetes
 
 # DESCRIPTION
 
-**argocd** is the CLI for Argo CD, a declarative GitOps continuous delivery tool for Kubernetes. It manages applications, clusters, repositories, and projects through the Argo CD server.
+**argocd** 是 Argo CD 的 CLI。Argo CD 是面向 Kubernetes 的声明式 GitOps 持续交付工具，该 CLI 通过 Argo CD 服务器管理应用、集群、仓库和项目。
 
-The tool enables GitOps workflows where Git repositories are the source of truth for Kubernetes application definitions.
+该工具支持 GitOps 工作流，即以 Git 仓库作为 Kubernetes 应用定义的唯一事实来源。
 
 # PARAMETERS
 
 **login** _server_
-> Authenticate with Argo CD server
+> 向 Argo CD 服务器进行身份验证
 
 **app** _command_
-> Application management commands
+> 应用管理命令
 
 **cluster** _command_
-> Cluster management commands
+> 集群管理命令
 
 **repo** _command_
-> Repository management commands
+> 仓库管理命令
 
 **proj** _command_
-> Project management commands
+> 项目管理命令
 
 **account** _command_
-> Account management commands
+> 账户管理命令
 
 **--server** _url_
-> Argo CD server address
+> Argo CD 服务器地址
 
 **--auth-token** _token_
-> Authentication token
+> 身份验证令牌
 
 **--grpc-web**
-> Use gRPC-Web for communication
+> 使用 gRPC-Web 通信
 
 **--insecure**
-> Skip TLS verification
+> 跳过 TLS 验证
 
 # CONFIGURATION
 
 **~/.config/argocd/config**
-> Stores authentication contexts for Argo CD servers including server addresses and auth tokens.
+> 存储 Argo CD 服务器的身份验证上下文，包括服务器地址和身份验证令牌。
 
 # CAVEATS
 
-Requires running Argo CD server. Server must have access to Git repositories and Kubernetes clusters. RBAC controls access to applications.
+需要运行中的 Argo CD 服务器。服务器必须能访问 Git 仓库和 Kubernetes 集群。RBAC 控制对应用的访问。
 
 # HISTORY
 
-**Argo CD** was created by Intuit and open-sourced in **2018**. It became a CNCF incubating project, establishing itself as a leading GitOps solution for Kubernetes.
+**Argo CD** 由 Intuit 创建并于 **2018** 年开源。它成为 CNCF 孵化项目，确立了其作为 Kubernetes 领先 GitOps 解决方案的地位。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create and extract ARC format archives
+创建和解压 ARC 格式归档
 
 # TLDR
 
-**Create** archive
+**创建**归档
 
 ```arc a [archive.arc] [files]```
 
-**Extract** archive
+**解压**归档
 
 ```arc x [archive.arc]```
 
-**List** archive contents
+**列出**归档内容
 
 ```arc l [archive.arc]```
 
-**Test** archive integrity
+**测试**归档完整性
 
 ```arc t [archive.arc]```
 
@@ -26,43 +26,43 @@ Create and extract ARC format archives
 
 # DESCRIPTION
 
-**arc** creates and manipulates archives in the ARC format, which was widely popular in the MS-DOS era during the 1980s. It supports creating new archives, extracting files, listing contents, and testing archive integrity.
+**arc** 创建和操作 ARC 格式的归档。该格式在 1980 年代的 MS-DOS 时代曾广为流行。它支持创建新归档、提取文件、列出内容和测试归档完整性。
 
-The tool handles various compression methods used in historical ARC files, including Squeeze, Crunch, and LZW variants. It is primarily used today for accessing legacy archive files rather than creating new ones, as modern formats like zip and tar.gz offer significantly better compression and features.
+该工具支持历史 ARC 文件中使用的多种压缩方法，包括 Squeeze、Crunch 和 LZW 变体。如今主要用于访问旧版归档文件而非创建新归档，因为 zip 和 tar.gz 等现代格式在压缩率和功能上都明显更优。
 
 # PARAMETERS
 
 **a**
-> Add files to archive
+> 向归档添加文件
 
 **x**
-> Extract files
+> 提取文件
 
 **e**
-> Extract to current directory
+> 提取到当前目录
 
 **l**
-> List contents
+> 列出内容
 
 **t**
-> Test archive
+> 测试归档
 
 **d**
-> Delete files from archive
+> 从归档中删除文件
 
 **p**
-> Print file contents
+> 打印文件内容
 
 **v**
-> View with details
+> 查看详细信息
 
 # CAVEATS
 
-The ARC format is obsolete; use modern formats like zip or tar.gz for new archives. Limited compression compared to modern algorithms. Mainly for legacy compatibility.
+ARC 格式已过时；新归档请使用 zip 或 tar.gz 等现代格式。压缩能力与现代算法相比很有限。主要用于旧格式兼容。
 
 # HISTORY
 
-The ARC format was created by System Enhancement Associates in **1985** and was one of the first popular file compression formats for personal computers.
+ARC 格式由 System Enhancement Associates 于 **1985** 年创建，是最早流行于个人计算机的文件压缩格式之一。
 
 # INSTALL
 

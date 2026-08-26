@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage multiple runtime versions with a single tool
+用一个工具管理多种运行时的版本
 
 # TLDR
 
-**Install** a plugin
+**安装**插件
 
 ```asdf plugin add [nodejs]```
 
-**List** all plugins
+**列出**所有插件
 
 ```asdf plugin list```
 
-**Install** a version
+**安装**某个版本
 
 ```asdf install [nodejs] [18.0.0]```
 
-Set **local** version in the current directory (0.16+)
+在当前目录设置 **local** 版本（0.16+）
 
 ```asdf set [nodejs] [18.0.0]```
 
-Set **global** version in your home directory (0.16+)
+在家目录设置 **global** 版本（0.16+）
 
 ```asdf set -u [nodejs] [18.0.0]```
 
-List **installed** versions
+列出已**安装**的版本
 
 ```asdf list [nodejs]```
 
@@ -34,71 +34,71 @@ List **installed** versions
 
 # DESCRIPTION
 
-**asdf** is a universal version manager supporting multiple languages and tools through plugins. It provides a single interface for managing versions of Node.js, Python, Ruby, Go, and dozens of other tools.
+**asdf** 是一个通用版本管理器，通过插件支持多种语言和工具。它为 Node.js、Python、Ruby、Go 以及数十种其他工具的版本管理提供单一界面。
 
-Versions are recorded in a .tool-versions file, which can live in your home directory (global default) or any project directory (per-project override).
+版本记录在 .tool-versions 文件中，该文件可以放在家目录（全局默认）或任意项目目录（按项目覆盖）。
 
-Note: the 0.16 release rewrote asdf in Go and removed the separate **global** and **local** commands, replacing both with **set**. Older 0.15.x and earlier installs still use **asdf global** and **asdf local**.
+注意：0.16 版本用 Go 重写了 asdf，并移除了独立的 **global** 和 **local** 命令，两者统一由 **set** 取代。较早的 0.15.x 及更早版本仍使用 **asdf global** 和 **asdf local**。
 
 # PARAMETERS
 
 **plugin add** _name_
-> Install plugin
+> 安装插件
 
 **plugin list**
-> List installed plugins
+> 列出已安装的插件
 
 **install** _plugin_ _version_
-> Install specific version
+> 安装指定版本
 
 **uninstall** _plugin_ _version_
-> Remove version
+> 移除版本
 
 **set** [_-u_|_--home_] [_-p_|_--parent_] _plugin_ _version_
-> Write the version to a .tool-versions file (0.16+). Defaults to the current directory; **-u** targets the home directory (global), **-p** the nearest parent directory. Replaces the old **global**/**local** commands.
+> 将版本写入 .tool-versions 文件（0.16+）。默认写入当前目录；**-u** 面向家目录（全局），**-p** 面向最近的父目录。取代旧的 **global**/**local** 命令。
 
 **global** _plugin_ _version_
-> Set global default (removed in 0.16; use **set -u**).
+> 设置全局默认版本（0.16 中已移除；请使用 **set -u**）。
 
 **local** _plugin_ _version_
-> Set project version (removed in 0.16; use **set**).
+> 设置项目版本（0.16 中已移除；请使用 **set**）。
 
 **list** _plugin_
-> List installed versions
+> 列出已安装的版本
 
 **list all** _plugin_
-> List all available versions
+> 列出所有可用版本
 
 **latest** _plugin_
-> Show the newest stable version available
+> 显示可用的最新稳定版本
 
 **current** [_plugin_]
-> Show current versions
+> 显示当前版本
 
 **which** _command_
-> Show the path to the executable that would run
+> 显示将被执行的可执行文件路径
 
 **reshim** [_plugin_] [_version_]
-> Rebuild shims
+> 重建 shim
 
 # CONFIGURATION
 
 **~/.asdfrc**
-> User configuration file for asdf settings like legacy version file support.
+> asdf 的用户配置文件，例如旧式版本文件支持等设置。
 
 **.tool-versions**
-> Per-project file specifying tool versions. Placed in the project root directory.
+> 按项目指定工具版本的文件。放在项目根目录下。
 
 **~/.tool-versions**
-> Global default tool versions used when no project-level file is found.
+> 在找不到项目级文件时使用的全局默认工具版本。
 
 # CAVEATS
 
-Requires plugins for each tool. Shell initialization needed (~/.bashrc or ~/.zshrc). Shims may need rebuilding after installing new executables.
+每种工具都需要对应的插件。需要初始化 shell（~/.bashrc 或 ~/.zshrc）。安装新的可执行文件后可能需要重建 shim。
 
 # HISTORY
 
-**asdf** was created by @HashNuke around **2014** to provide a single version manager replacing language-specific tools like nvm, rbenv, and pyenv. Originally a Bash/shim project, it was rewritten in Go for the **0.16** release in early 2025.
+**asdf** 由 @HashNuke 于 **2014** 年前后创建，旨在提供一个统一的版本管理器，取代 nvm、rbenv、pyenv 等语言专属工具。它最初是一个 Bash/shim 项目，后在 2025 年初的 **0.16** 版本中用 Go 重写。
 
 # INSTALL
 

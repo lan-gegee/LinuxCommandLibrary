@@ -1,18 +1,18 @@
 # TAGLINE
 
-Look up DNS address records
+查询 DNS 地址记录
 
 # TLDR
 
-Print an **A or AAAA record** associated with a hostname
+打印与主机名关联的 **A 或 AAAA 记录**
 
 ```ahost [example.com]```
 
-Display extra **debugging** output
+显示额外的**调试**输出
 
 ```ahost -d [example.com]```
 
-Display the record with a **specified type**
+显示具有**指定类型**的记录
 
 ```ahost -t [a|aaaa|u] [example.com]```
 
@@ -22,31 +22,31 @@ Display the record with a **specified type**
 
 # DESCRIPTION
 
-**ahost** is a DNS lookup utility that displays the A (IPv4) or AAAA (IPv6) records associated with a hostname or IP address. It uses the c-ares asynchronous DNS library to perform lookups, making it non-blocking and efficient.
+**ahost** 是一个 DNS 查询工具，用于显示与主机名或 IP 地址关联的 A（IPv4）或 AAAA（IPv6）记录。它使用 c-ares 异步 DNS 库执行查询，因此是非阻塞且高效的。
 
-Unlike the more common **host** or **dig** commands, ahost is specifically designed as a lightweight demonstration and utility tool from the c-ares library. It supports reverse lookups (when given an IP address) and can query for specific record types.
+与更常用的 **host** 或 **dig** 命令不同，ahost 是专门作为 c-ares 库的轻量级演示和实用工具而设计的。它支持反向查询（当给定 IP 地址时），并且可以查询特定的记录类型。
 
 # PARAMETERS
 
 **-d**
-> Display extra debugging output
+> 显示额外的调试输出
 
 **-s server**
-> Set the server list to use for DNS lookups
+> 设置用于 DNS 查询的服务器列表
 
 **-t type**
-> Display the record with a specified type: **a** for the A record, **aaaa** for the AAAA record, or **u** to look for both AAAA and A records (the default)
+> 显示指定类型的记录：**a** 表示 A 记录，**aaaa** 表示 AAAA 记录，**u** 表示同时查找 AAAA 和 A 记录（默认）
 
 **-D domain**
-> Specify the search domain instead of using the default values from /etc/resolv.conf (only on platforms that use /etc/resolv.conf)
+> 指定搜索域，而不是使用 /etc/resolv.conf 中的默认值（仅在使用 /etc/resolv.conf 的平台上可用）
 
 # CAVEATS
 
-Part of the c-ares library tools. May have different features compared to the more common **host** command.
+c-ares 库工具的一部分。与更常用的 **host** 命令相比可能具有不同的功能。
 
 # HISTORY
 
-Part of the **c-ares** asynchronous DNS resolver library, originally forked from the ares library.
+属于 **c-ares** 异步 DNS 解析库，最初从 ares 库分叉而来。
 
 # INSTALL
 

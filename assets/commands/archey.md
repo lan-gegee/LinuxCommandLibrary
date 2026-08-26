@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display system information with ASCII art logo
+以 ASCII 艺术标志展示系统信息
 
 # TLDR
 
-Print a **system summary** (OS, kernel, hardware)
+打印**系统摘要**（操作系统、内核、硬件）
 
 ```archey```
 
@@ -14,31 +14,31 @@ Print a **system summary** (OS, kernel, hardware)
 
 # DESCRIPTION
 
-**archey** is a simple tool for stylishly displaying system information in the terminal. It shows an ASCII art logo of the Linux distribution alongside system details like OS, kernel, uptime, packages, shell, resolution, desktop environment, and hardware information.
+**archey** 是一个简单的工具，可在终端中美观地展示系统信息。它在系统详情旁边显示 Linux 发行版的 ASCII 艺术标志，内容包括操作系统、内核、运行时间、软件包数量、Shell、分辨率、桌面环境和硬件信息等。
 
 # PARAMETERS
 
 **-c, --color**
-> Force colored output
+> 强制使用彩色输出
 
 **-n, --no-color**
-> Disable colored output
+> 禁用彩色输出
 
 # CONFIGURATION
 
 **~/.config/archey4/config.yaml**
-> User-specific configuration for archey4, controlling which entries to display, colors, and logo.
+> archey4 的用户级配置，控制要显示的条目、颜色和标志。
 
 **/etc/archey4/config.yaml**
-> System-wide configuration for archey4.
+> archey4 的系统级配置。
 
 # CAVEATS
 
-Different versions exist for different distributions (archey, archey3, archey4). Display varies based on the distribution and available system information.
+不同发行版存在不同的版本（archey、archey3、archey4）。显示内容因发行版和可用的系统信息而异。
 
 # HISTORY
 
-Originally created for **Arch Linux** by Melik Manukyan. Various forks exist including archey3 (Python 3) and archey4.
+最初由 Melik Manukyan 为 **Arch Linux** 开发。存在多个分支，包括 archey3（Python 3）和 archey4。
 
 # SEE ALSO
 

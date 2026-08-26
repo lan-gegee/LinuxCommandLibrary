@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage Apptainer container platform configuration
+管理 Apptainer 容器平台的配置
 
 # TLDR
 
-**Add fakeroot mapping** for a user
+**为用户添加 fakeroot 映射**
 
 ```sudo apptainer config fakeroot --add [username]```
 
-**Remove fakeroot mapping** for a user
+**移除用户的 fakeroot 映射**
 
 ```sudo apptainer config fakeroot --remove [username]```
 
-**Set a global configuration** directive
+**设置全局配置指令**
 
 ```sudo apptainer config global --set "[directive]" [value]```
 
-**Get the current value** of a global directive
+**获取全局指令的当前值**
 
 ```sudo apptainer config global --get "[directive]"```
 
-**Reset a global directive** to its default value
+**将全局指令重置**为默认值
 
 ```sudo apptainer config global --reset "[directive]"```
 
-**Preview changes** without writing to the config file
+**预览更改**而不写入配置文件
 
 ```sudo apptainer config global --dry-run --set "[directive]" [value]```
 
@@ -34,73 +34,73 @@ Manage Apptainer container platform configuration
 
 # DESCRIPTION
 
-**apptainer config** manages configuration for the Apptainer container platform. It provides administrative commands for managing fakeroot user mappings and editing the global **apptainer.conf** configuration file from the command line. Most operations require root privileges or an unprivileged installation.
+**apptainer config** 管理 Apptainer 容器平台的配置。它提供管理命令，用于管理 fakeroot 用户映射，以及从命令行编辑全局 **apptainer.conf** 配置文件。大多数操作需要 root 权限或非特权安装。
 
-The command operates through two subcommands: **fakeroot** for managing user namespace mappings that allow unprivileged users to build and run containers with apparent root access, and **global** for modifying system-wide configuration directives that control container behavior, bind paths, security settings, and resource limits.
+该命令通过两个子命令工作：**fakeroot** 用于管理用户命名空间映射（允许非特权用户以表面上的 root 权限构建和运行容器）；**global** 用于修改系统级配置指令，这些指令控制容器行为、绑定路径、安全设置和资源限制。
 
 # SUBCOMMANDS
 
 **fakeroot**
-> Manage fakeroot user mapping entries (root user only). Controls which users can use the fakeroot feature for building and running containers with simulated root privileges.
+> 管理 fakeroot 用户映射条目（仅限 root 用户）。控制哪些用户可以使用 fakeroot 功能，以模拟 root 权限构建和运行容器。
 
 **global**
-> Edit apptainer.conf configuration directives from the command line (root user only or unprivileged installation). Supports set, unset, get, and reset operations on configuration values.
+> 从命令行编辑 apptainer.conf 配置指令（仅限 root 用户或非特权安装）。支持对配置值进行 set、unset、get 和 reset 操作。
 
 # PARAMETERS
 
 **-a**, **--add**
-> Add a fakeroot mapping entry for a user (fakeroot subcommand)
+> 为用户添加 fakeroot 映射条目（fakeroot 子命令）
 
 **-r**, **--remove**
-> Remove a fakeroot mapping entry for a user (fakeroot subcommand)
+> 移除用户的 fakeroot 映射条目（fakeroot 子命令）
 
 **-e**, **--enable**
-> Enable an existing fakeroot mapping entry (fakeroot subcommand)
+> 启用已有的 fakeroot 映射条目（fakeroot 子命令）
 
 **-d**, **--disable**
-> Disable an existing fakeroot mapping entry (fakeroot subcommand)
+> 禁用已有的 fakeroot 映射条目（fakeroot 子命令）
 
 **--set**
-> Set a configuration directive value (global subcommand)
+> 设置配置指令的值（global 子命令）
 
 **--unset**
-> Remove a value from a configuration directive (global subcommand)
+> 从配置指令中移除一个值（global 子命令）
 
 **--get**
-> Retrieve the current value of a configuration directive (global subcommand)
+> 获取配置指令的当前值（global 子命令）
 
 **--reset**
-> Reset a configuration directive to its default value (global subcommand)
+> 将配置指令重置为默认值（global 子命令）
 
 **--dry-run**
-> Display the resulting configuration without writing to file (global subcommand)
+> 显示生成的配置但不写入文件（global 子命令）
 
 **-h**, **--help**
-> Display help for the config command
+> 显示 config 命令的帮助信息
 
 # CONFIGURATION
 
-The global subcommand modifies **/etc/apptainer/apptainer.conf** (or the equivalent path for unprivileged installations). Common directives include:
+global 子命令修改 **/etc/apptainer/apptainer.conf**（或非特权安装中的对应路径）。常见指令包括：
 
 **bind path**
-> Paths automatically bound into containers
+> 自动绑定进容器的路径
 
 **max loop devices**
-> Maximum number of loop devices for SIF images
+> SIF 镜像可用的回环设备最大数量
 
 **allow setuid**
-> Whether to allow setuid-root mode for container execution
+> 是否允许以 setuid-root 模式执行容器
 
 **allow net users / allow net groups / allow net networks**
-> Control which users and networks are allowed for container networking
+> 控制哪些用户和网络可以进行容器网络通信
 
 # CAVEATS
 
-Most config operations require root privileges. The fakeroot subcommand manages **/etc/subuid** and **/etc/subgid** entries, which affect system-wide user namespace mappings. Modifying global configuration can impact all users on the system. On systems with unprivileged installations, the global subcommand can be run without root but only affects that installation's configuration.
+大多数 config 操作需要 root 权限。fakeroot 子命令管理 **/etc/subuid** 和 **/etc/subgid** 条目，会影响整个系统的用户命名空间映射。修改全局配置可能影响系统上的所有用户。在采用非特权安装的系统上，global 子命令可以在没有 root 的情况下运行，但只影响该安装自身的配置。
 
 # HISTORY
 
-Apptainer originated as **Singularity**, created by **Gregory Kurtzer** at **Lawrence Berkeley National Laboratory** in **2015** to bring container technology to high-performance computing (HPC). In **November 2021**, the project joined the **Linux Foundation** and was renamed to **Apptainer**. The config subcommand provides administrative tooling that evolved alongside the platform's growing adoption in scientific computing and HPC environments worldwide.
+Apptainer 源自 **Singularity**，由 **Gregory Kurtzer** 于 **2015** 年在 **劳伦斯伯克利国家实验室** 创建，目的是将容器技术引入高性能计算（HPC）领域。**2021** 年 **11 月**，该项目加入 **Linux 基金会**并更名为 **Apptainer**。config 子命令提供的管理工具随平台在全球科学计算和 HPC 环境中的应用不断扩大而逐步演进。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage archives in various formats with a unified interface
+用统一接口管理多种格式的归档
 
 # TLDR
 
-**Extract an archive (auto-detects format)**
+**解压归档（自动检测格式）**
 
 ```atool -x [archive.tar.gz]```
 
-**List archive contents**
+**列出归档内容**
 
 ```atool -l [archive.zip]```
 
-**Create an archive from files or directories**
+**从文件或目录创建归档**
 
 ```atool -a [output.tar.gz] [file1] [file2]```
 
-**Extract into a specific directory**
+**解压到指定目录**
 
 ```atool -X [/path/to/dir] [archive.zip]```
 
-**Extract each archive in the current directory**
+**分别解压当前目录中的每个归档**
 
 ```atool -e -x *.zip```
 
-**Print a file from an archive to standard output**
+**将归档中的文件打印到标准输出**
 
 ```atool -c [archive.tar.gz] [path/inside/archive]```
 
-**Show the diff between two archives**
+**显示两个归档之间的差异**
 
 ```atool -d [old.tar.gz] [new.tar.gz]```
 
@@ -39,102 +39,102 @@ Manage archives in various formats with a unified interface
 # PARAMETERS
 
 **-l**, **--list**
-> List the contents of an archive.
+> 列出归档内容。
 
 **-x**, **--extract**
-> Extract files from an archive. By default a unique subdirectory is created if the archive is not already tidy.
+> 从归档中提取文件。默认情况下，若归档不够"整洁"（没有统一顶层目录），会创建一个唯一的子目录。
 
 **-X** _PATH_, **--extract-to=**_PATH_
-> Extract the archive into the given directory.
+> 将归档提取到指定目录。
 
 **-a**, **--add**
-> Create a new archive from the supplied files. The archive format is inferred from the output file's extension.
+> 用提供的文件创建新归档。归档格式根据输出文件的扩展名推断。
 
 **-c**, **--cat**
-> Extract a single file from the archive to standard output.
+> 将归档中的单个文件提取到标准输出。
 
 **-d**, **--diff**
-> Extract two archives and run **diff**(1) on their contents.
+> 提取两个归档并对其中内容运行 **diff**(1)。
 
 **-e**, **--each**
-> Perform the requested action on each of the remaining arguments individually (useful for batch extraction).
+> 对其余各个参数逐一执行所请求的操作（适合批量解压）。
 
 **-F** _EXT_, **--format=**_EXT_
-> Override automatic format detection.
+> 覆盖自动格式检测。
 
 **-O** _OPT_, **--format-option=**_OPT_
-> Pass an extra option to the underlying archiver (for example `-O-mx=9` to set 7z compression level).
+> 向底层归档工具传递额外选项（例如 `-O-mx=9` 设置 7z 的压缩级别）。
 
 **-D**, **--subdir**
-> Always create a subdirectory when extracting, even if the archive already contains a top-level directory.
+> 解压时始终创建子目录，即使归档本身已包含顶层目录。
 
 **-f**, **--force**
-> Overwrite existing files or archives without asking.
+> 不询问直接覆盖已存在的文件或归档。
 
 **-S**, **--simulate**
-> Show what would be done without modifying the filesystem.
+> 只显示将要执行的操作，不实际修改文件系统。
 
 **-E**, **--explain**
-> Print the underlying commands that atool runs.
+> 打印 atool 实际运行的底层命令。
 
 **-p**, **--page**
-> Pipe output through a pager.
+> 将输出通过分页器显示。
 
 **-q**, **--quiet**
-> Decrease verbosity.
+> 降低详细程度。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 提高详细程度。
 
 **-o** _KEY=VAL_, **--option=**_KEY=VAL_
-> Override a configuration setting on the command line.
+> 在命令行覆盖某个配置项。
 
 **--config=**_FILE_
-> Load a non-default configuration file.
+> 加载非默认的配置文件。
 
 # RELATED COMMANDS
 
 **aunpack** _archive_
-> Shortcut for `atool -x`; also cleans up if the archive is untidy.
+> `atool -x` 的快捷方式；若归档不整洁还会做清理。
 
 **apack** _archive_ _files..._
-> Shortcut for `atool -a`.
+> `atool -a` 的快捷方式。
 
 **als** _archive_
-> Shortcut for `atool -l`.
+> `atool -l` 的快捷方式。
 
 **acat** _archive_ _file_
-> Shortcut for `atool -c`.
+> `atool -c` 的快捷方式。
 
 **adiff** _archive1_ _archive2_
-> Shortcut for `atool -d`.
+> `atool -d` 的快捷方式。
 
 **arepack** _old_ _new_
-> Convert one archive format to another in a single step.
+> 一步完成归档格式之间的转换。
 
 # SUPPORTED FORMATS
 
-- tar (plain, gzip, bzip2, xz, lzma, zstd, compress)
-- zip, jar, war
-- rar, 7z, lzh, arj, arc
-- ar, cpio, shar
-- deb, rpm (for listing/extraction via backend tools)
+- tar（plain、gzip、bzip2、xz、lzma、zstd、compress）
+- zip、jar、war
+- rar、7z、lzh、arj、arc
+- ar、cpio、shar
+- deb、rpm（通过后端工具列出/解压）
 
 # CONFIGURATION
 
 **~/.atoolrc**
-> Per-user configuration file that sets defaults and format preferences.
+> 用户级配置文件，设置默认值和格式偏好。
 
 **/etc/atoolrc**
-> System-wide configuration file.
+> 系统级配置文件。
 
 # CAVEATS
 
-Requires the appropriate backend tools to be installed (tar, unzip, unrar, 7z, zstd, ...); atool only orchestrates them. Archive format detection is primarily based on file extension, so **-F** may be needed when extensions are missing or misleading.
+需要安装相应的后端工具（tar、unzip、unrar、7z、zstd 等）；atool 只负责调度它们。归档格式检测主要依据文件扩展名，因此当扩展名缺失或有误导性时可能需要使用 **-F**。
 
 # HISTORY
 
-**atool** is written in Perl by **Oskar Liljeblad** and is distributed by the GNU project (nongnu.org/atool). It was created to provide a unified front end for the large number of archive formats found on Unix systems.
+**atool** 由 **Oskar Liljeblad** 使用 Perl 编写，由 GNU 项目发行（nongnu.org/atool）。它的诞生是为了给 Unix 系统上数量繁多的归档格式提供一个统一的前端。
 
 # INSTALL
 

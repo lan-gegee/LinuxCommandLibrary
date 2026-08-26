@@ -1,30 +1,30 @@
 # TAGLINE
 
-Run a command repeatedly over groups of arguments.
+对成组的参数重复执行某个命令。
 
 # TLDR
 
-**Apply a command to each argument**
+**对每个参数应用一个命令**
 
 ```apply [command] [arg1] [arg2] [arg3]```
 
-**Apply a command using placeholders**
+**使用占位符应用命令**
 
 ```apply "diff %1 %2" [file1] [file2] [file3] [file4]```
 
-**Apply with a specific number of arguments per invocation**
+以**每次调用固定数量的参数**应用
 
 ```apply -2 diff [file1] [file2] [file3] [file4]```
 
-**Apply echo to each file** (acts like ls)
+**对每个文件执行 echo**（效果类似 ls）
 
 ```apply echo *```
 
-**Dry-run**: show the commands that would run without executing them
+**试运行**：显示将要运行的命令但不执行
 
 ```apply -d echo *```
 
-**Run a command once per argument with no arguments passed**
+**每个参数运行一次命令且不传入参数**
 
 ```apply -0 who [a] [b] [c]```
 
@@ -35,32 +35,32 @@ Run a command repeatedly over groups of arguments.
 # PARAMETERS
 
 **-a** _char_
-> Use _char_ as the placeholder (magic) character instead of the default **%**.
+> 使用 _char_ 作为占位符（magic）字符，代替默认的 **%**。
 
 **-#**
-> A numeric flag (e.g. **-2**) sets how many arguments to pass per invocation. The default is **-1** (one argument at a time). With **-0** the command runs once per argument with no arguments passed. Ignored if **%d** sequences appear in the command.
+> 数字标志（如 **-2**）设置每次调用传入多少个参数。默认是 **-1**（每次一个参数）。使用 **-0** 时，命令对每个参数运行一次但不传入任何参数。如果命令中出现 **%d** 序列则忽略此项。
 
 **-d**
-> Dry-run: print the commands that would be executed without running them.
+> 试运行：打印将被执行的命令但不实际运行。
 
 **%n**
-> In the command string, **%1**, **%2**, ... **%9** are replaced by the 1st, 2nd, ... following unused argument.
+> 在命令字符串中，**%1**、**%2**、... **%9** 分别替换为第 1、2、... 个尚未使用的参数。
 
 # DESCRIPTION
 
-**apply** runs a command repeatedly, passing a specified number of arguments to each invocation. It provides a simple alternative to **xargs** or shell loops for applying a command across multiple arguments.
+**apply** 反复运行一个命令，每次调用传入指定数量的参数。它为跨多个参数执行命令提供了 **xargs** 或 Shell 循环之外的简单替代方案。
 
-By default, apply passes one argument at a time to the command. With **-2**, it groups arguments in pairs, useful for commands like **diff** or **cmp** that take two files. The **%n** placeholders allow flexible positioning of arguments within the command string.
+默认情况下，apply 每次向命令传递一个参数。使用 **-2** 时会将参数两两分组，适用于 **diff** 或 **cmp** 这类接收两个文件的命令。**%n** 占位符允许在命令字符串中灵活安排参数位置。
 
-When the command contains spaces or special characters, it should be quoted. Without placeholders, arguments are appended to the end of the command.
+当命令包含空格或特殊字符时应当加引号。不使用占位符时，参数会追加到命令末尾。
 
 # CAVEATS
 
-This command is primarily available on BSD systems and macOS; it is not part of GNU coreutils. Linux users typically use **xargs** or shell loops instead. The argument count must divide evenly into the total arguments when using **-n**.
+此命令主要见于 BSD 系统和 macOS；不属于 GNU coreutils。Linux 用户通常改用 **xargs** 或 Shell 循环。使用 **-n** 时，参数总数必须能被 n 整除。
 
 # HISTORY
 
-The **apply** command originated in BSD Unix in the **1980s**. It provided a simple mechanism for command iteration before more sophisticated tools like **xargs** and **find -exec** became common. The command remains available in FreeBSD, OpenBSD, and macOS but was never widely adopted on Linux systems.
+**apply** 命令起源于 **20 世纪 80 年代**的 BSD Unix。在 **xargs** 和 **find -exec** 等更完善的工具普及之前，它提供了一种简单的命令迭代机制。该命令在 FreeBSD、OpenBSD 和 macOS 上仍然可用，但从未在 Linux 系统上广泛流行。
 
 # INSTALL
 

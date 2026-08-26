@@ -1,30 +1,30 @@
 # TAGLINE
 
-daemon that manages network connections
+管理网络连接的守护进程
 
 # TLDR
 
-**Show connection status**
+**查看连接状态**
 
 ```nmcli general status```
 
-**List connections**
+**列出连接**
 
 ```nmcli connection show```
 
-**Connect to WiFi**
+**连接 WiFi**
 
 ```nmcli device wifi connect "[SSID]" password "[password]"```
 
-**Show WiFi networks**
+**显示 WiFi 网络**
 
 ```nmcli device wifi list```
 
-**Bring up connection**
+**启用连接**
 
 ```nmcli connection up [connection_name]```
 
-**Create static connection**
+**创建静态连接**
 
 ```nmcli connection add type ethernet con-name [myeth] ifname [eth0] ip4 [192.168.1.10/24] gw4 [192.168.1.1]```
 
@@ -35,22 +35,22 @@ daemon that manages network connections
 # PARAMETERS
 
 **--debug**
-> Debug mode.
+> 调试模式。
 
 **--log-level** _level_
-> Logging level.
+> 日志级别。
 
 **--log-domains** _domains_
-> Logging domains.
+> 日志域。
 
 **--pid-file** _file_
-> PID file location.
+> PID 文件位置。
 
 # DESCRIPTION
 
-**NetworkManager** is a daemon that manages network connections. It provides automatic network detection and configuration, handling wired, wireless, mobile broadband, and VPN connections.
+**NetworkManager** 是一个管理网络连接的守护进程。它提供自动的网络检测和配置，处理有线、无线、移动宽带以及 VPN 连接。
 
-NetworkManager is controlled via nmcli, nmtui, or GUI applets.
+NetworkManager 通过 nmcli、nmtui 或 GUI 小程序进行控制。
 
 # CLI TOOL (nmcli)
 
@@ -72,11 +72,11 @@ nmcli networking off            # Disable networking
 
 # CAVEATS
 
-May conflict with other network tools. Connections stored in /etc/NetworkManager/. Some systems use alternatives.
+可能与其他网络工具冲突。连接保存在 /etc/NetworkManager/ 中。部分系统使用其他替代方案。
 
 # HISTORY
 
-NetworkManager was developed by **Red Hat** starting in **2004** to simplify network configuration on Linux desktops.
+NetworkManager 由 **Red Hat** 自 **2004 年**起开发，旨在简化 Linux 桌面上的网络配置。
 
 # INSTALL
 

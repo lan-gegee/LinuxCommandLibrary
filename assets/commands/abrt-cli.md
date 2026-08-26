@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for automatic bug reporting
+自动错误报告的命令行界面
 
 # TLDR
 
-**List all detected problems**
+**列出所有检测到的问题**
 
 ```abrt-cli list```
 
-**List only unreported problems**
+**仅列出未上报的问题**
 
 ```abrt-cli list -n```
 
-**Show detailed info about a specific problem**
+**显示某个问题的详细信息**
 
 ```abrt-cli info [problem_dir]```
 
-**Report a problem to the configured bug tracker**
+**将问题上报到已配置的错误跟踪器**
 
 ```abrt-cli report [problem_dir]```
 
-**Remove a crash report**
+**删除一条崩溃报告**
 
 ```abrt-cli remove [problem_dir]```
 
-**Show count of detected problems**
+**显示检测到的问题数量**
 
 ```abrt-cli status```
 
-**Enable or disable auto-reporting**
+**启用或禁用自动上报**
 
 ```abrt-cli auto-report [on|off]```
 
@@ -38,46 +38,46 @@ command-line interface for automatic bug reporting
 
 # DESCRIPTION
 
-**abrt-cli** is the command-line interface for the Automatic Bug Reporting Tool (ABRT) used on Fedora and RHEL systems. It manages detected application crashes, kernel oopses, and other software defects, allowing users to list, inspect, report, and remove problem data.
+**abrt-cli** 是 Automatic Bug Reporting Tool（ABRT，自动错误报告工具）的命令行界面，用于 Fedora 和 RHEL 系统。它管理检测到的应用程序崩溃、内核 oops 以及其他软件缺陷，让用户能够列出、检查、上报和删除问题数据。
 
-Crash information includes identifiers, timestamps, package names, crash reasons, and report status/URLs when applicable.
+崩溃信息包括标识符、时间戳、软件包名称、崩溃原因，以及适用时的上报状态和 URL。
 
 # PARAMETERS
 
 **list** [**-n**] [**--detailed**] [**--since** _NUM_] [**--until** _NUM_]
-> Display detected crashes. **-n** shows only unreported problems. **--detailed** shows full report. **--since**/**--until** filter by timestamp.
+> 显示检测到的崩溃。**-n** 仅显示未上报的问题。**--detailed** 显示完整报告。**--since**/**--until** 按时间戳过滤。
 
 **info** [**-d**] [**-s** _SIZE_] _PROBLEM_DIR_
-> Show details of a specific problem. **-d** for detailed output. **-s** abridges text larger than SIZE bytes.
+> 显示某个问题的详细信息。**-d** 表示详细输出。**-s** 截断超过 SIZE 字节的文本。
 
 **report** [**--delete**] [**--unsafe**] _PROBLEM_DIR_
-> Submit a problem for analysis and reporting. **--delete** removes the problem dir after reporting. **--unsafe** ignores security checks.
+> 提交问题进行分析和上报。**--delete** 在上报后删除问题目录。**--unsafe** 忽略安全检查。
 
 **remove** _PROBLEM_DIR_
-> Delete a problem from the system.
+> 从系统中删除一个问题。
 
 **status** [**-b**] [**--since** _NUM_]
-> Show count of detected problems. **-b** prints only the count (bare mode).
+> 显示检测到的问题数量。**-b** 仅输出数量（bare 模式）。
 
 **process** [**--since** _NUM_] [**--unsafe**] _PROBLEM_DIR_
-> Analyze and report problems in batch.
+> 批量分析并上报问题。
 
 **auto-report** [**on**|**off**]
-> Enable or disable automatic reporting of detected problems.
+> 启用或禁用对检测到的问题的自动上报。
 
 **-v**, **--verbose**
-> Increase verbosity.
+> 提高输出的详细程度。
 
 **-V**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # CAVEATS
 
-The reporting workflow opens a text editor. Editor selection uses environment variables in order: **$ABRT_EDITOR**, **$VISUAL**, **$EDITOR**, or defaults to **vi**. The ABRT daemon must be running for new problems to be detected.
+上报流程会打开一个文本编辑器。编辑器的选择按以下环境变量顺序确定：**$ABRT_EDITOR**、**$VISUAL**、**$EDITOR**，若均未设置则默认为 **vi**。ABRT 守护进程必须处于运行状态才能检测到新问题。
 
 # HISTORY
 
-Part of **ABRT** (Automatic Bug Reporting Tool), developed by **Red Hat** for Fedora-based systems starting around **2009** as a replacement for bug-buddy.
+属于 **ABRT**（Automatic Bug Reporting Tool，自动错误报告工具），由 **Red Hat** 自 **2009** 年前后开始为 Fedora 系系统开发，用于替代 bug-buddy。
 
 # INSTALL
 

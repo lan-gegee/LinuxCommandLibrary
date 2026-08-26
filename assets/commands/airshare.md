@@ -1,34 +1,34 @@
 # TAGLINE
 
-Share files between devices on the local network
+在本地网络设备之间共享文件
 
 # TLDR
 
-**Send** a file with a code
+用一个码**发送**文件
 
 ```airshare [mycode] [file.txt]```
 
-**Receive** files using a code
+使用一个码**接收**文件
 
 ```airshare [mycode]```
 
-**Send** multiple files
+**发送**多个文件
 
 ```airshare [mycode] [file1.txt] [file2.txt]```
 
-**Send text** content directly
+直接**发送文本**内容
 
 ```airshare [mycode] -t "[Hello, World!]"```
 
-**Host a receiving** (upload) server
+架设**接收（上传）服务器**
 
 ```airshare [mycode] -u```
 
-**Send clipboard** contents as text
+以文本形式**发送剪贴板**内容
 
 ```airshare [mycode] -cs```
 
-**Specify a custom port**
+**指定自定义端口**
 
 ```airshare [mycode] [file.txt] -p [9000]```
 
@@ -38,46 +38,46 @@ Share files between devices on the local network
 
 # DESCRIPTION
 
-**airshare** is a Python-based cross-platform file sharing tool that transfers files between devices on the same local network. It uses mDNS for device discovery and identifies transfers with a simple code word. Recipients access shared content by using the same code.
+**airshare** 是一款基于 Python 的跨平台文件共享工具，用于在同一本地网络上的设备之间传输文件。它使用 mDNS 进行设备发现，并用简单的代码字标识传输会话。接收方只需使用相同的码即可访问共享内容。
 
-The tool provides a simple alternative to complex file sharing setups, requiring no server configuration or account creation. Shared content can also be accessed via a web browser at `http://<code>.local:8000`.
+该工具为复杂的文件共享方案提供了简单的替代方式，无需配置服务器或创建账户。共享内容也可以通过 Web 浏览器在 `http://<code>.local:8000` 访问。
 
 # PARAMETERS
 
 _CODE_
-> An identifying code word for the sharing session.
+> 标识共享会话的代码字。
 
 _FILES_
-> File(s) or directories to send.
+> 要发送的一个或多个文件或目录。
 
 **-p**, **--port** _INTEGER_
-> Specify the port number for the server (default: 8000).
+> 指定服务器的端口号（默认：8000）。
 
 **-t**, **--text** _TEXT_
-> Send text content directly. Enclose multiple words in quotes.
+> 直接发送文本内容。多个单词需用引号括起。
 
 **-u**, **--upload**
-> Host a receiving server to accept uploaded files.
+> 架设接收服务器，接受上传的文件。
 
 **-cs**, **--clip-send**
-> Send clipboard contents as text.
+> 以文本形式发送剪贴板内容。
 
 **-cr**, **--clip-receive**
-> Receive content and copy it to the clipboard.
+> 接收内容并复制到剪贴板。
 
 **-fp**, **--file-path**
-> Send files whose paths have been copied to the clipboard.
+> 发送路径已复制到剪贴板的文件。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # CAVEATS
 
-Both devices must be on the same local network. Large files are processed in chunks but may take time depending on network speed. The tool requires mDNS support on the network.
+两台设备必须位于同一本地网络。大文件分块处理，但耗时取决于网络速度。该工具要求网络支持 mDNS。
 
 # HISTORY
 
-**airshare** was developed as a Python-based alternative to AirDrop for cross-platform local file sharing, leveraging mDNS for zero-configuration networking.
+**airshare** 作为 AirDrop 的基于 Python 的替代品而开发，用于跨平台本地文件共享，借助 mDNS 实现零配置组网。
 
 # INSTALL
 

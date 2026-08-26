@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Amazon MQ message brokers.
+管理 Amazon MQ 消息代理。
 
 # TLDR
 
-**List all brokers**
+**列出所有代理**
 
 ```aws mq list-brokers```
 
-**Create an ActiveMQ broker**
+**创建 ActiveMQ 代理**
 
 ```aws mq create-broker --broker-name [my-broker] --engine-type ACTIVEMQ --engine-version [5.17.6] --host-instance-type [mq.m5.large] --deployment-mode SINGLE_INSTANCE --users Username=[admin],Password=[password]```
 
-**Create a RabbitMQ broker**
+**创建 RabbitMQ 代理**
 
 ```aws mq create-broker --broker-name [my-broker] --engine-type RABBITMQ --engine-version [3.13] --host-instance-type [mq.m5.large] --deployment-mode SINGLE_INSTANCE --users Username=[admin],Password=[password]```
 
-**Describe a broker** and get its details
+**描述代理**并获取其详细信息
 
 ```aws mq describe-broker --broker-id [broker-id]```
 
-**List all configurations**
+**列出所有配置**
 
 ```aws mq list-configurations```
 
-**Reboot a broker**
+**重启代理**
 
 ```aws mq reboot-broker --broker-id [broker-id]```
 
-**Delete a broker**
+**删除代理**
 
 ```aws mq delete-broker --broker-id [broker-id]```
 
@@ -38,84 +38,84 @@ Manage Amazon MQ message brokers.
 
 # DESCRIPTION
 
-**aws mq** is the AWS CLI interface for Amazon MQ, a managed message broker service that supports **Apache ActiveMQ** and **RabbitMQ** engines. Amazon MQ provisions, operates, and maintains message brokers, handling infrastructure tasks like hardware provisioning, broker setup, software upgrades, and failure detection.
+**aws mq** 是 AWS CLI 中用于管理 Amazon MQ 的接口。Amazon MQ 是一项托管消息代理服务，支持 **Apache ActiveMQ** 和 **RabbitMQ** 引擎。Amazon MQ 负责预置、运行和维护消息代理，处理硬件预置、代理设置、软件升级和故障检测等基础设施任务。
 
-Amazon MQ provides compatibility with standard messaging APIs and protocols including JMS, NMS, AMQP, STOMP, MQTT, and WebSocket, allowing migration of existing messaging workloads to the cloud without rewriting application code.
+Amazon MQ 兼容标准消息传递 API 和协议，包括 JMS、NMS、AMQP、STOMP、MQTT 和 WebSocket，无需重写应用程序代码即可将现有消息传递工作负载迁移到云端。
 
-Brokers can be deployed in **single-instance** mode for development or **active/standby** mode for production high availability across multiple Availability Zones.
+代理可以部署为用于开发的**单实例**模式，也可以部署为跨多个可用区的**主/备（active/standby）**模式以实现生产环境高可用。
 
 # COMMANDS
 
 **create-broker**
-> Create a new message broker
+> 创建新的消息代理
 
 **delete-broker**
-> Delete an existing broker
+> 删除现有代理
 
 **describe-broker**
-> Get broker configuration, status, and endpoints
+> 获取代理的配置、状态和端点
 
 **describe-broker-engine-types**
-> List supported ActiveMQ and RabbitMQ engine versions
+> 列出支持的 ActiveMQ 和 RabbitMQ 引擎版本
 
 **describe-broker-instance-options**
-> List broker instance type options for a given engine and storage type
+> 列出给定引擎和存储类型可用的代理实例类型选项
 
 **list-brokers**
-> List all brokers in the account
+> 列出账户中的所有代理
 
 **reboot-broker**
-> Restart a broker
+> 重启代理
 
 **update-broker**
-> Modify broker configuration and maintenance settings
+> 修改代理配置和维护设置
 
 **promote**
-> Promote a data replication replica broker to be the primary
+> 将数据复制的副本代理提升为主代理
 
 **create-configuration**
-> Create a broker configuration (ActiveMQ XML or RabbitMQ Cuttlefish)
+> 创建代理配置（ActiveMQ XML 或 RabbitMQ Cuttlefish）
 
 **describe-configuration**
-> Get details of a configuration
+> 获取配置详情
 
 **describe-configuration-revision**
-> Get a specific configuration revision
+> 获取指定的配置修订版本
 
 **list-configurations**
-> List all configurations
+> 列出所有配置
 
 **list-configuration-revisions**
-> List revisions of a configuration
+> 列出某个配置的修订版本
 
 **update-configuration**
-> Update a configuration with a new revision
+> 以新修订版本更新配置
 
 **create-user**
-> Create a new ActiveMQ user on a broker
+> 在代理上创建新的 ActiveMQ 用户
 
 **update-user**
-> Update an existing ActiveMQ user (groups, password, console access)
+> 更新现有 ActiveMQ 用户（组、密码、控制台访问权限）
 
 **delete-user**
-> Delete an ActiveMQ user
+> 删除 ActiveMQ 用户
 
 **list-users**
-> List all ActiveMQ users on a broker
+> 列出代理上的所有 ActiveMQ 用户
 
 **describe-user**
-> Get details of an ActiveMQ user
+> 获取 ActiveMQ 用户详情
 
 **create-tags** / **delete-tags** / **list-tags**
-> Manage resource tags on brokers and configurations
+> 管理代理和配置上的资源标签
 
 # CAVEATS
 
-Broker creation takes several minutes. Instance types and storage cannot be changed without downtime. ActiveMQ and RabbitMQ configurations differ significantly; user management commands only apply to ActiveMQ brokers, while RabbitMQ users are managed through the RabbitMQ web console. Maximum message size is limited by the engine (ActiveMQ defaults to 100MB, RabbitMQ to 128MB).
+代理创建需要几分钟时间。实例类型和存储无法在不停机的情况下更改。ActiveMQ 与 RabbitMQ 的配置差异很大；用户管理命令仅适用于 ActiveMQ 代理，RabbitMQ 用户需通过 RabbitMQ Web 控制台管理。最大消息大小受引擎限制（ActiveMQ 默认 100MB，RabbitMQ 为 128MB）。
 
 # HISTORY
 
-Amazon MQ launched in **November 2017** with support for Apache ActiveMQ Classic. RabbitMQ engine support was added in **October 2020**. Support for ActiveMQ Artemis (the next-generation ActiveMQ) is not yet available through Amazon MQ.
+Amazon MQ 于 **2017 年 11 月**上线，最初支持 Apache ActiveMQ Classic。RabbitMQ 引擎支持于 **2020 年 10 月**加入。对 ActiveMQ Artemis（下一代 ActiveMQ）的支持目前尚未在 Amazon MQ 中提供。
 
 # INSTALL
 

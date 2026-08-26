@@ -1,22 +1,22 @@
 # TAGLINE
 
-Glance at the last 3 runs of your GitHub Actions
+一览 GitHub Actions 最近 3 次运行
 
 # TLDR
 
-**View last 3 runs** of all workflows in the current repository
+**查看当前仓库中所有工作流的最近 3 次运行**
 
 ```act3```
 
-**View runs for a specific repository**
+**查看特定仓库的运行**
 
 ```act3 -r [owner/repo]```
 
-**Output results in table format**
+**以表格格式输出结果**
 
 ```act3 --format table```
 
-**Open failed workflow pages** in the browser
+**在浏览器中打开失败的工作流页面**
 
 ```act3 -o```
 
@@ -27,27 +27,27 @@ Glance at the last 3 runs of your GitHub Actions
 # PARAMETERS
 
 **-r** _repo_
-> Specify the GitHub repository (owner/repo format)
+> 指定 GitHub 仓库（owner/repo 格式）
 
 **-o**
-> Open failed workflow run pages in the browser
+> 在浏览器中打开失败的工作流运行页面
 
 **--format** _format_
-> Output format: table or html
+> 输出格式：table 或 html
 
 # DESCRIPTION
 
-**act3** is a command-line tool that displays the results of the last three GitHub Actions workflow runs directly in the terminal. It auto-detects the GitHub repository from the current directory and shows the status of recent runs including success, failure, and cancelled states, providing a quick snapshot without needing to open the GitHub web interface.
+**act3** 是一个命令行工具，可直接在终端中显示最近三次 GitHub Actions 工作流运行的结果。它会自动从当前目录检测 GitHub 仓库，并显示近期运行的状态（成功、失败、已取消），无需打开 GitHub 网页界面即可快速了解概况。
 
-Written in Go, it is useful for developers who want to monitor CI/CD pipelines without leaving the terminal. It also supports HTML output for generating shareable reports.
+它用 Go 编写，适合希望不离开终端就能监控 CI/CD 流水线的开发者。还支持 HTML 输出，用于生成可分享的报告。
 
 # CAVEATS
 
-Requires a valid GitHub token for API access. Only shows the last three runs per workflow. Early-stage software with features still under development.
+需要有效的 GitHub token 才能访问 API。每个工作流只显示最近三次运行。属于早期软件，功能仍在开发中。
 
 # HISTORY
 
-**act3** was created by **Dhruva Thakur** (dhth) as an open-source Go project released under the MIT license on GitHub.
+**act3** 由 **Dhruva Thakur**（dhth）创建，是在 GitHub 上以 MIT 许可证发布的开源 Go 项目。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage the local Apptainer container cache
+管理本地 Apptainer 容器缓存
 
 # TLDR
 
-**List all cached images**
+**列出所有缓存的镜像**
 
 ```apptainer cache list```
 
-**List cached images with details**
+**列出缓存镜像及其详情**
 
 ```apptainer cache list -v```
 
-**List only OCI cached images**
+**仅列出 OCI 缓存镜像**
 
 ```apptainer cache list -T oci```
 
-**Clean all cached images**
+**清理所有缓存的镜像**
 
 ```apptainer cache clean```
 
-**Clean cache without confirmation**
+**不经确认直接清理缓存**
 
 ```apptainer cache clean -f```
 
-**Clean cache entries older than 30 days**
+**清理 30 天前的缓存条目**
 
 ```apptainer cache clean -D 30```
 
-**Dry run to see what would be cleaned**
+**试运行以查看将被清理的内容**
 
 ```apptainer cache clean -n```
 
@@ -38,38 +38,38 @@ Manage the local Apptainer container cache
 
 # DESCRIPTION
 
-**apptainer cache** manages the local Apptainer container image cache. When pulling or building containers, Apptainer stores intermediate images and layers locally to speed up subsequent operations. This command allows listing cache contents and cleaning up disk space.
+**apptainer cache** 管理本地 Apptainer 容器镜像缓存。拉取或构建容器时，Apptainer 会在本地存储中间镜像和层，以加快后续操作。此命令可用于列出缓存内容并清理磁盘空间。
 
-The cache is stored at **$HOME/.apptainer/cache** by default, or at the path specified by the **APPTAINER_CACHEDIR** environment variable.
+缓存默认存储在 **$HOME/.apptainer/cache**，或存储在 **APPTAINER_CACHEDIR** 环境变量指定的路径中。
 
 # SUBCOMMANDS
 
 **list**
-> Display the contents of the local cache, showing size and type of cached images
+> 显示本地缓存的内容，包括缓存镜像的大小和类型
 
 **clean**
-> Remove items from the local cache to reclaim disk space
+> 从本地缓存移除条目以回收磁盘空间
 
 # PARAMETERS
 
 **-T, --type** _strings_
-> Limit operation to specific cache types: **library**, **oci**, **shub**, **blob**, **net**, **oras**, **all** (default: all)
+> 将操作限制为特定缓存类型：**library**、**oci**、**shub**、**blob**、**net**、**oras**、**all**（默认：all）
 
 **-v, --verbose**
-> Display detailed information about cached images (list only)
+> 显示缓存镜像的详细信息（仅限 list）
 
 **-D, --days** _int_
-> Remove cache entries older than the specified number of days (clean only)
+> 移除早于指定天数的缓存条目（仅限 clean）
 
 **-n, --dry-run**
-> Show what would be deleted without actually removing anything (clean only)
+> 显示将要删除的内容，但实际不删除任何东西（仅限 clean）
 
 **-f, --force**
-> Suppress confirmation prompts and clean immediately (clean only)
+> 跳过确认提示，立即清理（仅限 clean）
 
 # CAVEATS
 
-Large builds and frequent pulls can consume significant disk space in the cache directory. The cache is per-user and does not affect other users on the system. Cleaning the cache forces re-download of images on next use.
+大型构建和频繁拉取可能使缓存目录占用大量磁盘空间。缓存是按用户隔离的，不会影响系统上的其他用户。清理缓存后，下次使用时会强制重新下载镜像。
 
 # INSTALL
 

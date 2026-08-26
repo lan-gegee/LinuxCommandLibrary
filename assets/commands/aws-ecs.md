@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Amazon Elastic Container Service resources
+管理 Amazon Elastic Container Service 资源
 
 # TLDR
 
-**List all ECS clusters**
+**列出所有 ECS 集群**
 
 ```aws ecs list-clusters```
 
-**List services** in a cluster
+**列出集群中的服务**
 
 ```aws ecs list-services --cluster [cluster_name]```
 
-**Describe a service** with details
+**查看服务详情**
 
 ```aws ecs describe-services --cluster [cluster_name] --services [service_name]```
 
-**List running tasks** in a cluster
+**列出集群中运行中的任务**
 
 ```aws ecs list-tasks --cluster [cluster_name]```
 
-**Run a new task** using a task definition
+**使用任务定义运行新任务**
 
 ```aws ecs run-task --cluster [cluster_name] --task-definition [task_def:revision]```
 
-**Update a service** to force new deployment
+**更新服务以强制重新部署**
 
 ```aws ecs update-service --cluster [cluster_name] --service [service_name] --force-new-deployment```
 
-**Execute a command** inside a running container
+**在运行中的容器内执行命令**
 
 ```aws ecs execute-command --cluster [cluster_name] --task [task_id] --container [container_name] --interactive --command "/bin/sh"```
 
-**Stop a running task**
+**停止运行中的任务**
 
 ```aws ecs stop-task --cluster [cluster_name] --task [task_arn]```
 
@@ -42,96 +42,96 @@ Manage Amazon Elastic Container Service resources
 
 # DESCRIPTION
 
-**aws ecs** is a subcommand of the AWS CLI that manages Amazon Elastic Container Service, a fully managed container orchestration service. ECS runs Docker containers on a cluster of EC2 instances or serverless with Fargate.
+**aws ecs** 是 AWS CLI 的子命令，用于管理 Amazon Elastic Container Service——一项全托管的容器编排服务。ECS 可在 EC2 实例集群上运行 Docker 容器，也可通过 Fargate 以无服务器方式运行。
 
-The core concepts are: **clusters** (logical grouping of resources), **task definitions** (blueprints for containers), **tasks** (running instances of task definitions), and **services** (maintain desired count of tasks). ECS integrates with load balancers, auto scaling, and IAM for production workloads.
+核心概念包括：**集群（cluster）**（资源的逻辑分组）、**任务定义（task definition）**（容器的蓝图）、**任务（task）**（任务定义的运行实例）和 **服务（service）**（维持任务的目标数量）。ECS 与负载均衡器、自动扩缩和 IAM 集成，可支撑生产工作负载。
 
-ECS Exec enables interactive shell access to running containers for debugging, similar to docker exec but through the SSM agent.
+ECS Exec 支持以交互式 Shell 访问运行中的容器进行调试，类似于 docker exec，但通过 SSM 代理实现。
 
 # PARAMETERS
 
 **list-clusters**
-> List all ECS clusters in the region.
+> 列出该区域的所有 ECS 集群。
 
 **describe-clusters**
-> Get detailed information about clusters.
+> 获取集群的详细信息。
 
 **create-cluster**
-> Create a new ECS cluster.
+> 创建新的 ECS 集群。
 
 **delete-cluster**
-> Remove an empty cluster.
+> 删除空集群。
 
 **list-services**
-> List services running in a cluster.
+> 列出集群中运行的服务。
 
 **describe-services**
-> Get service details, deployments, and events.
+> 获取服务的详情、部署和事件。
 
 **create-service**
-> Create a new service.
+> 创建新服务。
 
 **update-service**
-> Modify service configuration or trigger deployment.
+> 修改服务配置或触发部署。
 
 **delete-service**
-> Remove a service from the cluster.
+> 从集群中删除服务。
 
 **list-tasks**
-> List tasks in a cluster or service.
+> 列出集群或服务中的任务。
 
 **describe-tasks**
-> Get task details and container status.
+> 获取任务详情和容器状态。
 
 **run-task**
-> Start a standalone task.
+> 启动独立任务。
 
 **stop-task**
-> Terminate a running task.
+> 终止运行中的任务。
 
 **execute-command**
-> Run interactive command in a container.
+> 在容器中运行交互式命令。
 
 **register-task-definition**
-> Create a new task definition revision.
+> 创建新的任务定义修订版本。
 
 **deregister-task-definition**
-> Deregister a task definition revision.
+> 注销任务定义修订版本。
 
 **list-task-definitions**
-> List registered task definition families or revisions.
+> 列出已注册的任务定义系列或修订版本。
 
 **describe-task-definition**
-> Get full details of a task definition.
+> 获取任务定义的完整详情。
 
 **tag-resource**
-> Add tags to an ECS resource.
+> 为 ECS 资源添加标签。
 
 **wait**
-> Wait until a condition is met (e.g., services-stable, tasks-stopped).
+> 等待直到满足条件（如 services-stable、tasks-stopped）。
 
 **--cluster** _name_
-> Target cluster name or ARN.
+> 目标集群的名称或 ARN。
 
 **--service** _name_
-> Target service name or ARN.
+> 目标服务的名称或 ARN。
 
 **--task-definition** _name:revision_
-> Task definition family and revision.
+> 任务定义系列及修订版本。
 
 **--desired-count** _number_
-> Number of task instances to run.
+> 要运行的任务实例数量。
 
 **--force-new-deployment**
-> Force service to pull new image and redeploy.
+> 强制服务拉取新镜像并重新部署。
 
 # CAVEATS
 
-Deleting a cluster requires stopping all tasks and deleting all services first. Task definitions cannot be deleted, only deregistered. ECS Exec requires the SSM agent and proper IAM permissions on the task role. Fargate tasks must specify CPU and memory at the task level.
+删除集群前必须先停止所有任务并删除所有服务。任务定义无法删除，只能注销。ECS Exec 需要 SSM 代理以及任务角色上的相应 IAM 权限。Fargate 任务必须在任务级指定 CPU 和内存。
 
 # HISTORY
 
-Amazon ECS was announced at **AWS re:Invent 2014** and launched in **April 2015** as AWS's first container orchestration service. **Fargate** serverless compute was added in **November 2017**. ECS Exec for interactive debugging was introduced in **March 2021**. The service continues to evolve alongside AWS's container strategy including integration with EKS.
+Amazon ECS 在 **AWS re:Invent 2014** 上发布，并于 **2015 年 4 月** 正式推出，是 AWS 的首个容器编排服务。无服务器计算 **Fargate** 于 **2017 年 11 月** 加入。用于交互式调试的 ECS Exec 于 **2021 年 3 月** 引入。该服务随 AWS 的容器战略持续演进，包括与 EKS 的集成。
 
 # INSTALL
 

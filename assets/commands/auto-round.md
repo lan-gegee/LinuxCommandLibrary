@@ -1,34 +1,34 @@
 # TAGLINE
 
-Low-bit quantization toolkit for LLMs and VLMs
+面向大语言模型和多模态模型的低比特量化工具包
 
 # TLDR
 
-**Quantize a model** with the default recipe
+使用默认配方**量化模型**
 
 ```auto-round --model [Qwen/Qwen3-0.6B] --scheme "[W4A16]" --format "[auto_round]"```
 
-**Use the best recipe** (slower, higher accuracy)
+**使用 best 配方**（更慢，精度更高）
 
 ```auto-round-best --model [model_id] --scheme "[W4A16]"```
 
-**Use the light recipe** (faster)
+**使用 light 配方**（更快）
 
 ```auto-round-light --model [model_id] --scheme "[W4A16]"```
 
-**Quantize to 4-bit** with multiple export formats
+**量化为 4-bit** 并以多种格式导出
 
 ```auto-round --model [model_id] --bits 4 --group_size 128 --format "[auto_round,auto_awq,auto_gptq]" --output_dir [path/to/output]```
 
-**Calibration-free** RTN mode
+无需校准的 RTN 模式
 
 ```auto-round --model [model_id] --bits 4 --iters 0```
 
-**Multi-GPU** quantization
+**多 GPU** 量化
 
 ```auto-round --model [model_id] --device_map "[0,1,2,3]"```
 
-**Evaluate** an already-quantized model
+**评估**已量化的模型
 
 ```auto-round --model [path/to/quantized] --eval --tasks [mmlu,lambada_openai]```
 
@@ -42,95 +42,95 @@ Low-bit quantization toolkit for LLMs and VLMs
 
 # DESCRIPTION
 
-**auto-round** is a weight-only post-training quantization (PTQ) toolkit for **LLMs** and **VLMs**, developed by **Intel**. It uses signed gradient descent to jointly optimize weight rounding and clipping ranges, achieving high accuracy at ultra-low bit widths (down to 2 bits) with minimal calibration time.
+**auto-round** 是由 **Intel** 开发的面向 **LLM** 和 **VLM** 的仅权重量化训练后（PTQ）工具包。它采用符号梯度下降联合优化权重取整和裁剪范围，能在超低比特宽度（低至 2 bit）下以极短的校准时间获得高精度。
 
-The toolkit supports CPU, Intel GPU (XPU), HPU, and CUDA back-ends and exports to several popular quantization formats including **auto_round**, **auto_awq**, **auto_gptq**, and **gguf**, so models can be served via Transformers, vLLM, SGLang, or llm-compressor without re-quantization.
+该工具包支持 CPU、Intel GPU（XPU）、HPU 和 CUDA 后端，并可导出为多种流行的量化格式，包括 **auto_round**、**auto_awq**、**auto_gptq** 和 **gguf**，因此模型可以通过 Transformers、vLLM、SGLang 或 llm-compressor 直接服务，无需重新量化。
 
-Three recipes are provided: **auto-round** (default balance), **auto-round-best** (slowest, highest accuracy, 4–5× slower), and **auto-round-light** (fastest, 2–3× speedup).
+提供三种配方：**auto-round**（默认均衡）、**auto-round-best**（最慢、精度最高，慢 4–5 倍）和 **auto-round-light**（最快，提速 2–3 倍）。
 
 # PARAMETERS
 
 **--model** _MODEL_
-> Model identifier or local path (e.g. _Qwen/Qwen3-0.6B_).
+> 模型标识符或本地路径（如 _Qwen/Qwen3-0.6B_）。
 
 **--scheme** _SCHEME_
-> Quantization scheme such as _W4A16_, _W2A16_, _W8A16_.
+> 量化方案，如 _W4A16_、_W2A16_、_W8A16_。
 
 **--bits** _N_
-> Weight bit width: 2, 3, 4, or 8.
+> 权重位宽：2、3、4 或 8。
 
 **--group_size** _N_
-> Quantization group size (e.g. 32, 64, 128).
+> 量化分组大小（如 32、64、128）。
 
 **--format** _FORMAT_
-> Export format(s), comma-separated: _auto_round_, _auto_gptq_, _auto_awq_, _gguf:q4_k_m_, etc.
+> 导出格式，逗号分隔：_auto_round_、_auto_gptq_、_auto_awq_、_gguf:q4_k_m_ 等。
 
 **--output_dir** _PATH_
-> Directory where the quantized model is written.
+> 量化模型的输出目录。
 
 **--dataset** _SPEC_
-> Calibration data (local path or HuggingFace dataset). Supports _name:num=N_, _:concat=True_, _:apply_chat_template_, and comma-separated lists.
+> 校准数据（本地路径或 HuggingFace 数据集）。支持 _name:num=N_、_:concat=True_、_:apply_chat_template_ 以及逗号分隔列表。
 
 **--iters** _N_
-> Tuning iterations (_0_ for RTN, default _200_, up to _1000_ for best accuracy).
+> 调优迭代次数（RTN 为 _0_，默认 _200_，追求最佳精度可达 _1000_）。
 
 **--bs** _N_
-> Batch size (default 8).
+> 批大小（默认 8）。
 
 **--seqlen** _N_
-> Calibration sequence length (default 2048).
+> 校准序列长度（默认 2048）。
 
 **--nsamples** _N_
-> Number of calibration samples (default 128, up to 512 for best).
+> 校准样本数（默认 128，best 配方最多 512）。
 
 **--lr** _RATE_
-> Learning rate.
+> 学习率。
 
 **--device_map** _SPEC_
-> GPU assignment, e.g. _auto_ or _0,1,2,3_.
+> GPU 分配，如 _auto_ 或 _0,1,2,3_。
 
 **--low_gpu_mem_usage**
-> Reduce VRAM at the cost of more time.
+> 以更多时间为代价减少显存占用。
 
 **--enable_torch_compile**
-> Use **torch.compile** (requires PyTorch 2.6+).
+> 使用 **torch.compile**（需要 PyTorch 2.6+）。
 
 **--quant_lm_head**
-> Also quantize the language-model head (auto_round format only).
+> 同时量化语言模型头（仅限 auto_round 格式）。
 
 **--adam**
-> Use the **AdamW** optimizer instead of signed gradient descent.
+> 用 **AdamW** 优化器替代符号梯度下降。
 
 **--eval**
-> Evaluate the model after quantization.
+> 量化后评估模型。
 
 **--eval_backend** _BACKEND_
-> Evaluation engine, _vllm_ or default Hugging Face.
+> 评估引擎，_vllm_ 或默认的 Hugging Face。
 
 **--tasks** _LIST_
-> Comma-separated lm-eval-harness tasks (e.g. _mmlu,lambada_openai_).
+> 逗号分隔的 lm-eval-harness 任务（如 _mmlu,lambada_openai_）。
 
 # DESCRIPTION OF FORMATS
 
 **auto_round**
-> Native AutoRound format, supports lm-head quantization.
+> AutoRound 原生格式，支持 lm-head 量化。
 
 **auto_gptq**
-> GPTQ-compatible format.
+> 兼容 GPTQ 的格式。
 
 **auto_awq**
-> AWQ-compatible format.
+> 兼容 AWQ 的格式。
 
 **gguf:q4_k_m**, **gguf:q2_k_s**
-> GGUF formats for llama.cpp / Ollama-style runtimes.
+> 用于 llama.cpp / Ollama 类运行时的 GGUF 格式。
 
 # CAVEATS
 
-Calibration is sensitive to dataset quality and length; using domain-mismatched calibration data can degrade accuracy. Lower bit widths (2-3 bits) may need the **best** recipe to recover accuracy. Some export formats restrict feature combinations (e.g. **--quant_lm_head** only works with the auto_round format).
+校准效果对数据集质量和长度敏感；使用领域不匹配的校准数据可能降低精度。更低的比特宽度（2-3 bit）可能需要 **best** 配方才能恢复精度。某些导出格式会限制功能组合（例如 **--quant_lm_head** 仅支持 auto_round 格式）。
 
 # HISTORY
 
-**AutoRound** was introduced by **Intel** as part of its LLM quantization stack. It distinguishes itself from older PTQ methods such as **GPTQ** and **AWQ** by jointly optimizing rounding and clipping with signed gradient descent, narrowing the accuracy gap to QAT at low bit widths while remaining a calibration-only method.
+**AutoRound** 由 **Intel** 作为其 LLM 量化技术栈的一部分推出。它区别于 **GPTQ** 和 **AWQ** 等较早 PTQ 方法的地方在于：用符号梯度下降联合优化取整和裁剪，在保持仅需校准的同时，缩小了低比特宽度下与 QAT 的精度差距。
 
 # SEE ALSO
 

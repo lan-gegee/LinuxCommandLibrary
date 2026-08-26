@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert ASCII art to PGM grayscale image
+将 ASCII 艺术转换为 PGM 灰度图像
 
 # TLDR
 
-**Convert** ASCII art to PGM (note: height comes before width)
+**转换** ASCII 艺术为 PGM（注意：高度在前，宽度在后）
 
 ```asciitopgm [height] [width] < [ascii.txt] > [output.pgm]```
 
-**Brighten** the output with a divisor
+用除数**调亮**输出
 
 ```asciitopgm -divisor=[2] [height] [width] [ascii.txt] > [output.pgm]```
 
@@ -18,31 +18,31 @@ Convert ASCII art to PGM grayscale image
 
 # DESCRIPTION
 
-**asciitopgm** converts ASCII art text to PGM (Portable Graymap) image format. Each character becomes one pixel; a large character such as a capital M produces a dark pixel, while a small one such as a period produces a light pixel.
+**asciitopgm** 将 ASCII 艺术文本转换为 PGM（Portable Graymap）图像格式。每个字符对应一个像素；大字符（如大写 M）产生深色像素，小字符（如句点）产生浅色像素。
 
-This is useful for converting legacy ASCII artwork to image formats or for creating images from text patterns. Output values range from 0 to a maximum of 127.
+它可用于把早期的 ASCII 作品转换为图像格式，或从文本图案生成图像。输出值的范围是 0 到最大 127。
 
 # PARAMETERS
 
 **height**
-> Output image height in pixels (number of rows)
+> 输出图像的高度，单位为像素（行数）
 
 **width**
-> Output image width in pixels (number of columns)
+> 输出图像的宽度，单位为像素（列数）
 
 **asciifile**
-> Input ASCII file (reads from stdin if omitted)
+> 输入的 ASCII 文件（省略时从 stdin 读取）
 
 **-divisor** _integer_
-> Divide each character's blackness value, brightening the output. Default is 1; larger positive values produce brighter images.
+> 对每个字符的黑色程度值做除法，从而调亮输出。默认为 1；更大的正值会产生更亮的图像。
 
 # CAVEATS
 
-Character-to-grayscale mapping may not produce optimal results for all ASCII art styles. Output dimensions must be specified manually.
+字符到灰度的映射不一定对所有 ASCII 艺术风格都理想。输出尺寸必须手动指定。
 
 # HISTORY
 
-**asciitopgm** is part of the Netpbm image processing toolkit, which evolved from PBMPLUS in the late **1980s**.
+**asciitopgm** 是 Netpbm 图像处理工具集的一部分，该工具集在 **1980** 年代末由 PBMPLUS 演化而来。
 
 # INSTALL
 

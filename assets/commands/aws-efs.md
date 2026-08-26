@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Amazon Elastic File System resources
+管理 Amazon Elastic File System 资源
 
 # TLDR
 
-**List all file systems**
+**列出所有文件系统**
 
 ```aws efs describe-file-systems```
 
-**Create a new file system**
+**创建新的文件系统**
 
 ```aws efs create-file-system --creation-token [unique_token]```
 
-**Describe a specific file system**
+**查看特定文件系统**
 
 ```aws efs describe-file-systems --file-system-id [fs-xxxxxxxx]```
 
-**Create a mount target** in a subnet
+**在子网中创建挂载目标**
 
 ```aws efs create-mount-target --file-system-id [fs-xxxxxxxx] --subnet-id [subnet-xxxxxxxx] --security-groups [sg-xxxxxxxx]```
 
-**List mount targets** for a file system
+**列出文件系统的挂载目标**
 
 ```aws efs describe-mount-targets --file-system-id [fs-xxxxxxxx]```
 
-**Delete a file system**
+**删除文件系统**
 
 ```aws efs delete-file-system --file-system-id [fs-xxxxxxxx]```
 
-**Add a lifecycle policy** for infrequent access storage
+**为不常访问存储添加生命周期策略**
 
 ```aws efs put-lifecycle-configuration --file-system-id [fs-xxxxxxxx] --lifecycle-policies TransitionToIA=AFTER_30_DAYS```
 
@@ -38,63 +38,63 @@ Manage Amazon Elastic File System resources
 
 # DESCRIPTION
 
-**aws efs** is a subcommand of the AWS CLI that manages Amazon Elastic File System, a serverless NFS file system for EC2 instances and on-premises servers. EFS automatically grows and shrinks as files are added or removed.
+**aws efs** 是 AWS CLI 的子命令，用于管理 Amazon Elastic File System——一项面向 EC2 实例和本地服务器的无服务器 NFS 文件系统。随着文件的增删，EFS 会自动伸缩。
 
-File systems are accessed through mount targets, which provide IP addresses in your VPC subnets. Multiple EC2 instances can mount the same file system concurrently, making EFS suitable for shared workloads like web serving, content management, and container storage.
+文件系统通过挂载目标访问，挂载目标会在 VPC 子网中提供 IP 地址。多个 EC2 实例可以并发挂载同一个文件系统，因此 EFS 适合 Web 服务、内容管理和容器存储等共享工作负载。
 
-EFS supports two storage classes: Standard for frequently accessed data, and Infrequent Access (IA) for cost optimization. Lifecycle policies automatically move files between classes based on access patterns.
+EFS 支持两种存储类别：Standard 用于频繁访问的数据，Infrequent Access（IA）用于优化成本。生命周期策略会根据访问模式自动在两类存储之间移动文件。
 
 # PARAMETERS
 
 **describe-file-systems**
-> List file systems and their details.
+> 列出文件系统及其详情。
 
 **create-file-system**
-> Create a new EFS file system.
+> 创建新的 EFS 文件系统。
 
 **delete-file-system**
-> Remove a file system (must be empty).
+> 删除文件系统（必须为空）。
 
 **describe-mount-targets**
-> List mount targets for a file system.
+> 列出文件系统的挂载目标。
 
 **create-mount-target**
-> Create a mount target in a subnet.
+> 在子网中创建挂载目标。
 
 **delete-mount-target**
-> Remove a mount target.
+> 删除挂载目标。
 
 **put-lifecycle-configuration**
-> Set lifecycle policies for storage class transitions.
+> 设置存储类别转换的生命周期策略。
 
 **describe-lifecycle-configuration**
-> View current lifecycle policies.
+> 查看当前的生命周期策略。
 
 **--file-system-id** _id_
-> The file system identifier (fs-xxxxxxxx).
+> 文件系统标识符（fs-xxxxxxxx）。
 
 **--creation-token** _token_
-> Idempotency token for creating file systems.
+> 用于创建文件系统的幂等令牌。
 
 **--subnet-id** _id_
-> Subnet for the mount target.
+> 挂载目标所在的子网。
 
 **--security-groups** _ids_
-> Security groups for the mount target.
+> 挂载目标使用的安全组。
 
 **--performance-mode** _mode_
-> generalPurpose or maxIO.
+> generalPurpose 或 maxIO。
 
 **--throughput-mode** _mode_
-> bursting, provisioned, or elastic.
+> bursting、provisioned 或 elastic。
 
 # CAVEATS
 
-Delete all mount targets before deleting a file system. Mount targets require one per Availability Zone for high availability. Security groups must allow NFS traffic (port 2049). Performance mode cannot be changed after creation. Cross-region access requires VPC peering or Transit Gateway.
+删除文件系统前需先删除其所有挂载目标。为实现高可用性，每个可用区应有一个挂载目标。安全组必须放行 NFS 流量（端口 2049）。性能模式在创建后无法更改。跨区域访问需要 VPC 对等连接或 Transit Gateway。
 
 # HISTORY
 
-Amazon EFS was announced at **AWS re:Invent 2015** and became generally available in **June 2016**. It was AWS's first managed NFS service. **Infrequent Access** storage class was added in **2019** for cost optimization. **EFS One Zone** storage classes launched in **2021** for single-AZ workloads at lower cost. Elastic throughput mode was introduced in **2022**.
+Amazon EFS 在 **AWS re:Invent 2015** 上发布，并于 **2016 年 6 月** 正式可用，是 AWS 首个托管 NFS 服务。用于成本优化的 **Infrequent Access** 存储类别于 **2019 年** 加入。面向单可用区工作负载、成本更低的 **EFS One Zone** 存储类别于 **2021 年** 推出。弹性吞吐量模式于 **2022 年** 引入。
 
 # INSTALL
 

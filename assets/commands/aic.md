@@ -1,30 +1,30 @@
 # TAGLINE
 
-Fetch changelogs for AI coding assistants
+获取 AI 编程助手更新日志的工具
 
 # TLDR
 
-**Show the latest Claude Code changelog**
+**显示最新的 Claude Code 更新日志**
 
 ```aic claude```
 
-**List all available versions** for a tool
+**列出一个工具的所有可用版本**
 
 ```aic codex --list```
 
-**Show a specific version** changelog
+**显示指定版本**的更新日志
 
 ```aic gemini --version [0.1.0]```
 
-**Output changelog in JSON format**
+**以 JSON 格式输出**更新日志
 
 ```aic claude --json```
 
-**Show all releases from the last 24 hours**
+**显示最近 24 小时内的所有发布**
 
 ```aic latest```
 
-**Show status overview** of all tracked tools
+**显示所有受跟踪工具的状态概览**
 
 ```aic status```
 
@@ -35,35 +35,35 @@ Fetch changelogs for AI coding assistants
 # PARAMETERS
 
 **-j**, **--json**
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-m**, **--md**
-> Output in Markdown format
+> 以 Markdown 格式输出
 
 **-l**, **--list**
-> List all available versions
+> 列出所有可用版本
 
 **-p**, **--pick**
-> Interactive version selector
+> 交互式版本选择器
 
 **--version** _ver_
-> Fetch a specific version
+> 获取指定版本
 
 **-w**, **--web**
-> Open changelog in browser
+> 在浏览器中打开更新日志
 
 **-h**, **--help**
-> Show help documentation
+> 显示帮助文档
 
 # DESCRIPTION
 
-**aic** is a CLI tool that fetches and displays release notes and changelogs for popular AI coding assistants. It aggregates changelog information from multiple sources into a single unified interface, supporting tools like Claude Code, Codex CLI, OpenCode, Gemini CLI, Copilot CLI, Kimi CLI, Qwen Code, and Goose.
+**aic** 是一个命令行工具，用于获取并展示流行 AI 编程助手的发行说明和更新日志。它将来自多个来源的更新日志信息聚合到统一的界面中，支持 Claude Code、Codex CLI、OpenCode、Gemini CLI、Copilot CLI、Kimi CLI、Qwen Code 和 Goose 等工具。
 
-Written in Go, aic supports multiple output formats (text, JSON, Markdown), interactive version selection, browser integration, installed version detection, and a comprehensive status dashboard showing release frequency across all tracked tools.
+aic 用 Go 编写，支持多种输出格式（文本、JSON、Markdown）、交互式版本选择、浏览器集成、已安装版本检测，以及一个全面的状态仪表板，可展示所有受跟踪工具的发布频率。
 
 # CAVEATS
 
-Requires internet access to fetch changelogs from upstream sources. Available tools and their changelog formats depend on what each project publishes.
+需要联网才能从上游来源获取更新日志。可用工具及其更新日志格式取决于各项目的发布内容。
 
 # SEE ALSO
 

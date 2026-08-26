@@ -1,30 +1,30 @@
 # TAGLINE
 
-Securely store and access AWS credentials in the system keychain.
+在系统钥匙串中安全地存储和访问 AWS 凭证。
 
 # TLDR
 
-**Add** AWS credentials
+**添加** AWS 凭证
 
 ```aws-vault add [profile-name]```
 
-**Execute** command with credentials
+使用凭证**执行**命令
 
 ```aws-vault exec [profile-name] -- aws s3 ls```
 
-**Login** to AWS console
+**登录** AWS 控制台
 
 ```aws-vault login [profile-name]```
 
-**List** stored credentials
+**列出**已存储的凭证
 
 ```aws-vault list```
 
-**Remove** credentials
+**移除**凭证
 
 ```aws-vault remove [profile-name]```
 
-**Rotate** credentials
+**轮换**凭证
 
 ```aws-vault rotate [profile-name]```
 
@@ -34,59 +34,59 @@ Securely store and access AWS credentials in the system keychain.
 
 # DESCRIPTION
 
-**aws-vault** securely stores and accesses AWS credentials using your operating system's keychain. It generates temporary credentials using STS, avoiding long-lived access keys in plain text files.
+**aws-vault** 使用操作系统的钥匙串安全地存储和访问 AWS 凭证。它通过 STS 生成临时凭证，避免在纯文本文件中保存长期访问密钥。
 
-The tool provides defense-in-depth security for AWS credentials and enables easy switching between multiple AWS accounts.
+该工具为 AWS 凭证提供纵深防御的安全保障，并支持在多个 AWS 账户之间轻松切换。
 
 # PARAMETERS
 
 **add** _profile_
-> Add new credentials to keychain
+> 将新凭证添加到钥匙串
 
 **exec** _profile_ **--** _command_
-> Execute command with temporary credentials
+> 使用临时凭证执行命令
 
 **login** _profile_
-> Open AWS Console in browser
+> 在浏览器中打开 AWS 控制台
 
 **list**
-> List profiles and session status
+> 列出 profile 和会话状态
 
 **remove** _profile_
-> Remove credentials from keychain
+> 从钥匙串移除凭证
 
 **rotate** _profile_
-> Rotate access keys
+> 轮换访问密钥
 
 **export** _profile_
-> Export credentials as environment variables.
+> 将凭证导出为环境变量。
 
 **clear** _profile_
-> Clear temporary credentials from the session store.
+> 清除会话存储中的临时凭证。
 
 **--duration=**_time_
-> Session duration (e.g., 12h, 1h30m).
+> 会话时长（如 12h、1h30m）。
 
 **--mfa-token=**_token_
-> MFA token code.
+> MFA 验证码。
 
 **--no-session**
-> Use long-term credentials instead of creating an STS session.
+> 不创建 STS 会话而直接使用长期凭证。
 
 **--server**
-> Start a local EC2 metadata server instead of using environment variables.
+> 启动本地 EC2 元数据服务器，而不使用环境变量。
 
 **--backend=**_backend_
-> Credential storage backend (keychain, kwallet, pass, secret-service, file).
+> 凭证存储后端（keychain、kwallet、pass、secret-service、file）。
 
 # FEATURES
 
-- Secure credential storage in system keychain
-- Automatic MFA prompting
-- Temporary credential generation
-- Multiple AWS account support
-- Credential rotation
-- Console login generation
+- 在系统钥匙串中安全存储凭证
+- 自动提示输入 MFA
+- 生成临时凭证
+- 支持多个 AWS 账户
+- 凭证轮换
+- 生成控制台登录链接
 
 # WORKFLOW
 
@@ -100,18 +100,18 @@ aws-vault login work
 # CONFIGURATION
 
 **~/.aws/config**
-> AWS profile settings including role_arn, source_profile, mfa_serial, and region.
+> AWS profile 设置，包括 role_arn、source_profile、mfa_serial 和 region。
 
 **~/.aws/credentials**
-> Master credentials stored in system keychain; this file is read for profile discovery.
+> 主凭证保存在系统钥匙串中；此文件用于发现 profile。
 
 # CAVEATS
 
-Requires system keychain access (macOS Keychain, GNOME Keyring, etc.). MFA devices must be configured in AWS. Temporary credentials expire. Some tools don't work with session credentials.
+需要访问系统钥匙串（macOS Keychain、GNOME Keyring 等）。必须在 AWS 中配置好 MFA 设备。临时凭证会过期。某些工具无法使用会话凭证。
 
 # HISTORY
 
-**aws-vault** was created by 99designs in **2015** to provide secure credential management for AWS, addressing the security risks of storing credentials in plain text.
+**aws-vault** 由 99designs 于 **2015 年**创建，旨在为 AWS 提供安全的凭证管理，解决以明文形式存放凭证带来的安全风险。
 
 # INSTALL
 

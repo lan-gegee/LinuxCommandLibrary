@@ -1,10 +1,10 @@
 # TAGLINE
 
-Inform the kernel about a new partition
+告知内核存在新分区
 
 # TLDR
 
-Tell the kernel about the existence of a **partition**
+告知内核某个**分区**的存在
 
 ```addpart [device] [partition] [start] [length]```
 
@@ -14,31 +14,31 @@ Tell the kernel about the existence of a **partition**
 
 # DESCRIPTION
 
-**addpart** is a simple wrapper around the "add partition" ioctl that notifies the Linux kernel about a partition that exists on disk but was not detected automatically. This is useful when partition tables are modified while the disk is in use, or when the kernel's partition scanning missed an entry during boot.
+**addpart** 是对“添加分区” ioctl 的简单封装，用于通知 Linux 内核某个确实存在于磁盘上但未被自动识别的分区。当磁盘使用期间分区表被修改，或内核在启动时的分区扫描漏掉了某个条目时，这个命令很有用。
 
-The command only updates the kernel's in-memory partition table; it does not create or modify the actual partition table on disk.
+该命令只更新内核内存中的分区表；它不会创建或修改磁盘上的实际分区表。
 
 # PARAMETERS
 
 **device**
-> The block device containing the partition (e.g., /dev/sda)
+> 包含该分区的块设备（如 /dev/sda）
 
 **partition**
-> The partition number to add
+> 要添加的分区号
 
 **start**
-> The beginning of the partition, in 512-byte sectors
+> 分区的起始位置，以 512 字节扇区为单位
 
 **length**
-> The length of the partition, in 512-byte sectors
+> 分区的长度，以 512 字节扇区为单位
 
 # CAVEATS
 
-This command only informs the kernel about partitions; it does not create or modify the actual partition table on disk. Use tools like **fdisk** or **parted** to modify partition tables.
+此命令只向内核通报分区信息；不会创建或修改磁盘上的实际分区表。请使用 **fdisk** 或 **parted** 等工具来修改分区表。
 
 # HISTORY
 
-Part of the **util-linux** package, which provides essential system utilities for Linux.
+属于 **util-linux** 软件包，该包为 Linux 提供基础系统实用工具。
 
 # INSTALL
 

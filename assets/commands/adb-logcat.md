@@ -1,30 +1,30 @@
 # TAGLINE
 
-Android system log viewer
+Android 系统日志查看器
 
 # TLDR
 
-**View** device logs
+**查看**设备日志
 
 ```adb logcat```
 
-**Filter** by priority level (Verbose, Debug, Info, Warn, Error, Fatal)
+按优先级**过滤**（Verbose、Debug、Info、Warn、Error、Fatal）
 
 ```adb logcat *:[E]```
 
-Filter by **tag** and priority
+按**标签**和优先级过滤
 
 ```adb logcat [ActivityManager]:I *:S```
 
-**Clear** the log buffer
+**清空**日志缓冲区
 
 ```adb logcat -c```
 
-View logs from **specific buffer**
+查看来自**特定缓冲区**的日志
 
 ```adb logcat -b [main|system|crash|events]```
 
-Save logs to **file**
+将日志保存到**文件**
 
 ```adb logcat -f [logfile.txt]```
 
@@ -34,63 +34,63 @@ Save logs to **file**
 
 # DESCRIPTION
 
-**adb logcat** displays the Android system log in real-time. It shows log messages from the system, apps, and various Android components. The output includes timestamp, process ID, thread ID, priority level, tag, and message.
+**adb logcat** 实时显示 Android 系统日志。它显示来自系统、应用和各种 Android 组件的日志消息。输出包含时间戳、进程 ID、线程 ID、优先级、标签和消息。
 
-Filter expressions allow you to select which log messages to display based on tag name and minimum priority level. Multiple filters can be combined to create complex filtering rules.
+过滤表达式允许你根据标签名和最低优先级选择要显示的日志消息。多个过滤器可以组合成复杂的过滤规则。
 
 # PARAMETERS
 
 **-v** _format_
-> Output format: brief, process, tag, thread, raw, time, threadtime (default), long
+> 输出格式：brief、process、tag、thread、raw、time、threadtime（默认）、long
 
 **-b** _buffer_
-> Log buffer: main, system, radio, events, crash, all
+> 日志缓冲区：main、system、radio、events、crash、all
 
 **-c**
-> Clear the log buffers and exit
+> 清空日志缓冲区并退出
 
 **-d**
-> Dump log and exit (don't block)
+> 转储日志后退出（不阻塞）
 
 **-f** _file_
-> Write output to file
+> 将输出写入文件
 
 **-g**
-> Print the size of the specified log buffer and exit
+> 打印指定日志缓冲区的大小并退出
 
 **-n** _count_
-> Set the maximum number of rotated logs (default 4, requires -r)
+> 设置轮转日志的最大数量（默认 4，需配合 -r）
 
 **-r** _kbytes_
-> Rotate log every kbytes of output (default 16, requires -f)
+> 每输出 kbytes KB 就轮转一次日志（默认 16，需配合 -f）
 
 **-s**
-> Set default filter to silent (equivalent to *:S)
+> 将默认过滤器设为静默（等价于 *:S）
 
 **-e** _regex_
-> Only print lines matching regex
+> 只打印匹配正则表达式的行
 
 **--pid=**_pid_
-> Only show logs from specified process ID
+> 只显示指定进程 ID 的日志
 
 # FILTER FORMAT
 
-```tag:priority``` where priority is:
-- **V**: Verbose
-- **D**: Debug
-- **I**: Info
-- **W**: Warning
-- **E**: Error
-- **F**: Fatal
-- **S**: Silent (suppress output)
+```tag:priority``` 其中 priority 为：
+- **V**：Verbose
+- **D**：Debug
+- **I**：Info
+- **W**：Warning
+- **E**：Error
+- **F**：Fatal
+- **S**：Silent（抑制输出）
 
 # CAVEATS
 
-Log buffers have limited size; old messages are overwritten. Some system logs may require root access. Excessive logging can slow down the device. Use filters to reduce output volume.
+日志缓冲区大小有限；旧消息会被覆盖。某些系统日志可能需要 root 权限。过量的日志记录会拖慢设备。请使用过滤器减少输出量。
 
 # HISTORY
 
-Logcat has been part of the Android SDK since the initial release in **2008**, based on the Linux kernel's printk logging system but adapted for Android's needs with tag-based filtering.
+Logcat 自 **2008** 年 Android SDK 首次发布起就是其一部分。它基于 Linux 内核的 printk 日志系统，但针对 Android 的需求做了调整，增加了基于标签的过滤。
 
 # INSTALL
 

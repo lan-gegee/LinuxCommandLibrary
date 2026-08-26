@@ -35,30 +35,37 @@ def git_show(path: str) -> str | None:
     return r.stdout if r.returncode == 0 else None
 
 
+def _toggles(t: str) -> bool:
+    """镜像 MarkdownParser.splitByHeaders 的围栏判定：
+    行首为 ``` 且剩余部分不含第二个 ``` 才切换代码态。"""
+    return t.startswith("```") and "```" not in t[3:]
+
+
 def split_code_blocks(text: str):
-    """返回 (代码块列表, 非代码文本)。正确处理单行完整围栏 ```xxx```。"""
+    """按应用语义切分。返回 (多行代码块列表, 非代码文本, 行内码span列表)。"""
     lines = text.split("\n")
-    blocks, cur, prose = [], None, []
+    blocks, cur, prose, spans = [], None, [], []
     for ln in lines:
         s = ln.strip()
-        if cur is None and s.startswith("```") and s.endswith("```") and len(s) >= 6:
-            # 单行完整代码块
-            inner = s[3:-3]
-            if inner.strip():
-                blocks.append(inner)
-        elif s.startswith("```"):
-            if cur is None:
-                cur = []
+        if s.startswith("```"):
+            if _toggles(s):
+                if cur is None:
+                    cur = []
+                else:
+                    blocks.append("\n".join(cur))
+                    cur = None
+                continue
             else:
-                blocks.append("\n".join(cur))
-                cur = None
-        elif cur is not None:
+                m = re.match(r"^```(.+?)```", s)
+                if m:
+                    spans.append(m.group(1))
+        if cur is not None:
             cur.append(ln)
         else:
             prose.append(ln)
     if cur is not None:  # 未闭合围栏 → 结构破坏
         blocks.append(None)
-    return blocks, "\n".join(prose)
+    return blocks, "\n".join(prose), spans
 
 
 def header_structure(text: str) -> list[tuple[int, str]]:
@@ -74,6 +81,25 @@ def header_structure(text: str) -> list[tuple[int, str]]:
 def normalize_code(block: str) -> str:
     """代码块规范化: 链接只保留 URL，其余原样。"""
     return CODE_LINK_RE.sub(lambda m: m.group(1), block)
+
+
+def _has_cjk(t: str) -> bool:
+    return any("\u4e00" <= c <= "\u9fff" for c in t)
+
+
+def block_equivalent(a: str, b: str) -> bool:
+    """逐行比较：完全一致，或新行含中文（视为对歧义区域内散文的合法翻译）。
+    非中文的内容改动一律判为篡改。"""
+    la, lb = a.split("\n"), b.split("\n")
+    if len(la) != len(lb):
+        return False
+    for x, y in zip(la, lb):
+        if x == y:
+            continue
+        if _has_cjk(y):
+            continue
+        return False
+    return True
 
 
 def validate(path: str) -> list[str]:
@@ -101,16 +127,20 @@ def validate(path: str) -> list[str]:
         if [t for _, t in o_h] != [t for _, t in n_h]:
             errs.append(f"{path}: section 标题被改动\n  原: {[t for _, t in o_h]}\n  新: {[t for _, t in n_h]}")
 
-    # 2. 代码块数量与内容（链接文本除外）必须一致
-    ob, op = split_code_blocks(orig)
-    nb, np_ = split_code_blocks(new)
-    if len(ob) != len(nb) or any(b is None for b in nb):
+    # 2. 多行代码块数量与内容必须一致（允许歧义区域内散文被译为中文）
+    ob, op, os_ = split_code_blocks(orig)
+    nb, np_, ns_ = split_code_blocks(new)
+    if len(ob) != len(nb) or any(b is None for b in nb) or any(a is None for a in ob):
         errs.append(f"{path}: 代码块数量或闭合不一致 原{len(ob)} 新{len(nb)}")
     else:
         for i, (a, b) in enumerate(zip(ob, nb)):
-            if normalize_code(a) != normalize_code(b):
+            if not block_equivalent(normalize_code(a), normalize_code(b)):
                 errs.append(f"{path}: 第{i+1}个代码块内容被改动")
                 break
+
+    # 2b. 行内码 span 必须原样保留
+    if sorted(os_) != sorted(ns_):
+        errs.append(f"{path}: 行内码 span 不一致 原{len(os_)} 新{len(ns_)}")
 
     # 3. /man/ URL 集合一致（正文+代码块全体）
     if sorted(MAN_URL_RE.findall(orig)) != sorted(MAN_URL_RE.findall(new)):

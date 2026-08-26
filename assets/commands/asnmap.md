@@ -1,30 +1,30 @@
 # TAGLINE
 
-Map autonomous system numbers and IP ranges
+映射自治系统编号与 IP 网段
 
 # TLDR
 
-**Lookup** ASN for IP
+查询 IP 对应的 **ASN**
 
 ```asnmap -ip [8.8.8.8]```
 
-Lookup **domain**
+查询**域名**
 
 ```asnmap -d [google.com]```
 
-Lookup by **ASN number**
+按 **ASN 编号**查询
 
 ```asnmap -a [AS15169]```
 
-Lookup by **organization**
+按**组织**查询
 
 ```asnmap -org "[Google LLC]"```
 
-Lookup targets from a **file**
+从**文件**读取目标进行查询
 
 ```asnmap -f [targets.txt]```
 
-Output **CIDR ranges** as JSON
+以 JSON 输出 **CIDR 网段**
 
 ```asnmap -a [AS15169] -json```
 
@@ -34,52 +34,52 @@ Output **CIDR ranges** as JSON
 
 # DESCRIPTION
 
-**asnmap** quickly maps ASN (Autonomous System Number) information. It can lookup ASN from IP addresses, domains, or organization names, and return associated IP ranges.
+**asnmap** 可快速映射 ASN（自治系统编号）信息。它能从 IP 地址、域名或组织名称查询 ASN，并返回关联的 IP 网段。
 
-This is useful for reconnaissance, network mapping, and understanding organizational IP allocations.
+这对侦察、网络测绘以及了解组织的 IP 分配情况非常有用。
 
 # PARAMETERS
 
 **-ip** _address_
-> Lookup ASN for IP address
+> 查询 IP 地址对应的 ASN
 
 **-d** _domain_
-> Lookup ASN for domain
+> 查询域名对应的 ASN
 
 **-a** _asn_
-> Get IP ranges for ASN
+> 获取 ASN 的 IP 网段
 
 **-org** _name_
-> Search by organization name
+> 按组织名称搜索
 
 **-f**, **-file** _file_
-> Read targets to lookup from a file
+> 从文件读取要查询的目标
 
 **-j**, **-json**
-> Display output in JSON format
+> 以 JSON 格式显示输出
 
 **-c**, **-csv**
-> Display output in CSV format
+> 以 CSV 格式显示输出
 
 **-v6**
-> Display IPv6 CIDR ranges in CLI output
+> 在 CLI 输出中显示 IPv6 CIDR 网段
 
 **-silent**
-> Display silent output (results only)
+> 静默输出（只显示结果）
 
 **-o**, **-output** _file_
-> Write output to a file
+> 将输出写入文件
 
 **-up**, **-update**
-> Update asnmap to the latest version
+> 更新 asnmap 到最新版本
 
 # CAVEATS
 
-Data comes from public sources and may not be current. Some organizations have multiple ASNs. Results should be verified for security work.
+数据来自公开来源，可能不是最新的。有些组织拥有多个 ASN。用于安全工作时应对结果加以验证。
 
 # HISTORY
 
-**asnmap** was developed by ProjectDiscovery as part of their security reconnaissance toolkit.
+**asnmap** 由 ProjectDiscovery 开发，是其安全侦察工具集的一部分。
 
 # INSTALL
 

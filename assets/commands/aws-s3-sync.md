@@ -1,34 +1,34 @@
 # TAGLINE
 
-Synchronize directories and S3 prefixes
+同步目录与 S3 前缀
 
 # TLDR
 
-**Sync a local directory** to an S3 bucket
+将**本地目录同步到** S3 存储桶
 
 ```aws s3 sync [./local-dir] s3://[bucket-name]/```
 
-**Download S3 bucket** to local directory
+将 **S3 存储桶下载到**本地目录
 
 ```aws s3 sync s3://[bucket-name]/ [./local-dir]```
 
-**Sync between two S3 buckets**
+在**两个 S3 存储桶之间同步**
 
 ```aws s3 sync s3://[source-bucket] s3://[dest-bucket]```
 
-**Sync and delete** files not in source
+**同步并删除**源中不存在的文件
 
 ```aws s3 sync [./local-dir] s3://[bucket-name]/ --delete```
 
-**Sync excluding** certain file types
+**同步时排除**某些文件类型
 
 ```aws s3 sync [./local-dir] s3://[bucket-name]/ --exclude "*.log"```
 
-**Preview sync operation** without executing
+**预览同步操作**而不实际执行
 
 ```aws s3 sync [./local-dir] s3://[bucket-name]/ --dryrun```
 
-**Sync only new files** without overwriting
+**只同步新文件**而不覆盖
 
 ```aws s3 sync [./local-dir] s3://[bucket-name]/ --no-overwrite```
 
@@ -38,48 +38,48 @@ Synchronize directories and S3 prefixes
 
 # DESCRIPTION
 
-**aws s3 sync** synchronizes directories and S3 prefixes by recursively copying new and updated files from the source to the destination. It only transfers files that are new or have changed, making it efficient for incremental backups and deployments.
+**aws s3 sync** 通过递归地将新增和已更新的文件从源复制到目标来同步目录与 S3 前缀。它只传输新增或有变化的文件，因此非常适合增量备份和部署。
 
-By default, sync compares file size and last modified time to determine which files need updating. It creates folders in the destination only if they contain files.
+默认情况下，sync 通过比较文件大小和最后修改时间来判断哪些文件需要更新。只有当目标文件夹中包含文件时才会创建该文件夹。
 
 # PARAMETERS
 
 **--delete**
-> Delete destination files that don't exist in the source
+> 删除目标中不存在于源中的文件
 
 **--dryrun**
-> Display operations that would be performed without executing them
+> 显示将要执行的操作但不实际执行
 
 **--quiet**
-> Suppress all output except errors
+> 抑制除错误之外的所有输出
 
 **--no-overwrite**
-> Only transfer files not present at the destination
+> 只传输目标中不存在的文件
 
 **--size-only**
-> Use file size alone to determine if sync is needed (ignore timestamps)
+> 仅凭文件大小判断是否需要同步（忽略时间戳）
 
 **--exact-timestamps**
-> Match timestamps exactly when syncing from S3 to local
+> 从 S3 同步到本地时精确匹配时间戳
 
 **--include** _pattern_
-> Include files matching the pattern
+> 包含匹配模式的文件
 
 **--exclude** _pattern_
-> Exclude files matching the pattern from the sync
+> 从同步中排除匹配模式的文件
 
 **--acl** _value_
-> Set access control list: private, public-read, etc.
+> 设置访问控制列表：private、public-read 等
 
 **--storage-class** _value_
-> Specify storage class: STANDARD, STANDARD_IA, GLACIER, etc.
+> 指定存储类别：STANDARD、STANDARD_IA、GLACIER 等
 
 **--source-region** _value_
-> Source bucket region (required for cross-region S3 to S3 sync)
+> 源存储桶所在区域（跨区域 S3 到 S3 同步时必需）
 
 # CAVEATS
 
-The **--delete** option removes files from the destination that don't exist in the source; use with caution. Pattern matching with **--include** and **--exclude** is order-dependent. When syncing to local, directories are not created unless they contain files. Sync does not preserve symbolic links.
+**--delete** 选项会删除目标中不存在于源里的文件；请谨慎使用。**--include** 与 **--exclude** 的模式匹配与顺序有关。同步到本地时，除非目录中包含文件，否则不会创建目录。sync 不会保留符号链接。
 
 # INSTALL
 

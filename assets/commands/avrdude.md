@@ -1,22 +1,22 @@
 # TAGLINE
 
-Program AVR microcontroller flash and fuses
+对 AVR 微控制器的 flash 和熔丝位编程
 
 # TLDR
 
-**Upload** firmware to Arduino
+向 Arduino **上传**固件
 
 ```avrdude -p [atmega328p] -c [arduino] -P [/dev/ttyUSB0] -U flash:w:[firmware.hex]```
 
-**Read** flash memory
+**读取**flash 存储器
 
 ```avrdude -p [atmega328p] -c [usbasp] -U flash:r:[backup.hex]:i```
 
-Set **fuse bits**
+设置**熔丝位**
 
 ```avrdude -p [atmega328p] -c [usbasp] -U lfuse:w:[0xE2]:m```
 
-**Verify** without writing
+只**校验**而不写入
 
 ```avrdude -p [atmega328p] -c [arduino] -P [/dev/ttyUSB0] -U flash:v:[firmware.hex]```
 
@@ -26,82 +26,82 @@ Set **fuse bits**
 
 # DESCRIPTION
 
-**avrdude** (AVR Downloader Uploader) is a utility for programming Atmel AVR microcontrollers. It supports numerous programmers and can read/write flash, EEPROM, fuse bits, and lock bits.
+**avrdude**（AVR Downloader Uploader）是一款用于对 Atmel AVR 微控制器编程的工具。它支持众多编程器，可以读写 flash、EEPROM、熔丝位和锁定位。
 
-The tool is essential for Arduino development and embedded systems work with AVR chips.
+该工具是 Arduino 开发以及基于 AVR 芯片的嵌入式系统工作的必备工具。
 
 # PARAMETERS
 
 **-p** _partno_
-> Specify AVR device (e.g., atmega328p, attiny85)
+> 指定 AVR 器件（如 atmega328p、attiny85）
 
 **-c** _programmer_
-> Programmer type (arduino, usbasp, avrisp2)
+> 编程器类型（arduino、usbasp、avrisp2）
 
 **-P** _port_
-> Communication port (/dev/ttyUSB0, COM3)
+> 通信端口（/dev/ttyUSB0、COM3）
 
 **-U** _memtype:op:file:format_
-> Memory operation (flash:w:file.hex:i)
+> 存储器操作（flash:w:file.hex:i）
 
 **-b** _baudrate_
-> Override RS-232 baud rate for serial connections
+> 为串口连接覆盖 RS-232 波特率
 
 **-B** _bitclock_
-> JTAG/ISP bit clock period (microseconds or frequency)
+> JTAG/ISP 位时钟周期（微秒或频率）
 
 **-e**
-> Perform a chip erase, resetting flash and EEPROM to 0xFF
+> 执行整片擦除，将 flash 和 EEPROM 重置为 0xFF
 
 **-D**
-> Disable the automatic chip erase before flash write
+> 禁用写入 flash 前的自动整片擦除
 
 **-V**
-> Skip automatic verification after writing memory
+> 跳过写入存储器后的自动校验
 
 **-v**
-> Verbose output (repeat for more detail)
+> 详细输出（重复使用可获得更多信息）
 
 **-n**
-> Dry run, do not actually write to the device
+> 试运行，不实际写入器件
 
 **-F**
-> Force operation, override signature and init checks
+> 强制操作，覆盖签名和初始化检查
 
 **-t**
-> Enter interactive terminal mode for manual memory operations
+> 进入交互式终端模式，手动执行存储器操作
 
 # MEMORY OPERATIONS
 
 **flash**
-> Program memory
+> 程序存储器
 
 **eeprom**
-> Data memory
+> 数据存储器
 
 **lfuse**, **hfuse**, **efuse**
-> Configuration fuses
+> 配置熔丝
 
 **lock**
-> Lock bits
+> 锁定位
 
-Operations: **r** (read), **w** (write), **v** (verify)
+操作类型：**r**（读取）、**w**（写入）、**v**（校验）
 
 # CONFIGURATION
 
 **/etc/avrdude.conf**
-> System-wide configuration defining programmer types, part definitions, and default settings.
+> 全系统配置，定义编程器类型、器件定义和默认设置。
 
 **~/.avrduderc**
-> Per-user configuration overrides. Can add custom programmer definitions or modify part settings.
+> 每用户配置覆盖。可以添加自定义编程器定义或修改器件设置。
 
 # CAVEATS
 
-Incorrect fuse settings can brick the device. Requires proper permissions for serial ports. Wrong programmer selection causes failures. Always backup fuses before modification. USB connection issues common on some platforms.
+错误的熔丝设置可能把器件变砖。串口需要适当的权限。选错编程器会导致失败。修改熔丝前务必备份。某些平台上 USB 连接问题很常见。
 
 # HISTORY
 
-**avrdude** was created by Brian Dean in **2003** as an open-source alternative to Atmel's proprietary programming tools. It has become the standard tool for AVR programming.
+**avrdude** 由 Brian Dean 于 **2003** 年创建，作为 Atmel 专有编程工具的开源替代品。它已成为 AVR 编程的标准工具。
 
 # INSTALL
 

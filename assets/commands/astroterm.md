@@ -1,30 +1,30 @@
 # TAGLINE
 
-display real-time celestial maps in the terminal
+在终端中显示实时天体图
 
 # TLDR
 
-**Launch with color and constellations**
+**以彩色并显示星座**方式启动
 
 ```astroterm --color --constellations```
 
-**Set observer location by city name**
+**按城市名称设置观测位置**
 
 ```astroterm --city "[Boston]"```
 
-**Set observer location by latitude and longitude**
+**按经纬度设置观测位置**
 
 ```astroterm --latitude [42.36] --longitude [-71.06]```
 
-**Display a specific date and time** in UTC
+**显示指定的 UTC 日期和时间**
 
 ```astroterm --datetime [1969-07-16T13:32:00]```
 
-**Animate at high speed** with custom FPS
+以自定义 FPS **高速动画**播放
 
 ```astroterm --color --constellations --speed [10000] --fps [64]```
 
-**Draw with azimuthal grid and unicode characters**
+**绘制方位网格并使用 Unicode 字符**
 
 ```astroterm --grid --unicode --metadata```
 
@@ -35,63 +35,63 @@ display real-time celestial maps in the terminal
 # PARAMETERS
 
 **-a**, **--latitude** _degrees_
-> Observer latitude [-90, 90] (default: 0.0).
+> 观测者纬度 [-90, 90]（默认：0.0）。
 
 **-o**, **--longitude** _degrees_
-> Observer longitude [-180, 180] (default: 0.0).
+> 观测者经度 [-180, 180]（默认：0.0）。
 
 **-i**, **--city** _name_
-> Use latitude and longitude of the given city.
+> 使用指定城市的经纬度。
 
 **-d**, **--datetime** _yyyy-mm-ddThh:mm:ss_
-> Observation datetime in UTC (default: system time).
+> UTC 时间下的观测日期时间（默认：系统时间）。
 
 **-t**, **--threshold** _float_
-> Only render stars brighter than this magnitude (default: 5.0).
+> 只渲染亮于该星等的恒星（默认：5.0）。
 
 **-l**, **--label-thresh** _float_
-> Label stars brighter than this magnitude (default: 0.25).
+> 为亮于该星等的恒星添加标签（默认：0.25）。
 
 **-f**, **--fps** _int_
-> Frames per second (default: 24).
+> 每秒帧数（默认：24）。
 
 **-s**, **--speed** _float_
-> Animation speed multiplier (default: 1.0).
+> 动画速度倍率（默认：1.0）。
 
 **-c**, **--color**
-> Enable terminal colors.
+> 启用终端彩色输出。
 
 **-C**, **--constellations**
-> Draw constellation stick figures.
+> 绘制星座连线图。
 
 **-g**, **--grid**
-> Draw an azimuthal grid overlay.
+> 绘制方位网格叠加层。
 
 **-u**, **--unicode**
-> Use Unicode characters for rendering.
+> 使用 Unicode 字符进行渲染。
 
 **-m**, **--metadata**
-> Display metadata information.
+> 显示元数据信息。
 
 **-r**, **--aspect-ratio** _float_
-> Override the calculated terminal cell aspect ratio.
+> 覆盖自动计算的终端单元格纵横比。
 
 **-q**, **--quit-on-any**
-> Quit on any keypress (default: quit on 'q' or ESC only).
+> 按任意键退出（默认：仅按 'q' 或 ESC 退出）。
 
 **-h**, **--help**
-> Print help message.
+> 打印帮助消息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**astroterm** is a terminal-based planetarium written in C that renders real-time positions of stars, planets, constellations, and other astronomical objects directly in the console. It computes celestial positions based on the observer's location and time, providing an interactive sky map without a graphical desktop environment. Press **q** or **ESC** to quit (or any key with **--quit-on-any**).
+**astroterm** 是一款用 C 编写的基于终端的天象仪，可直接在控制台中渲染恒星、行星、星座及其他天体的实时位置。它根据观测者的位置和时间计算天体坐标，无需图形桌面环境即可提供交互式星图。按 **q** 或 **ESC** 退出（若启用 **--quit-on-any** 则按任意键退出）。
 
 # CAVEATS
 
-Color output requires **--color** flag and a terminal with 256-color or truecolor support. Display quality depends on terminal size and font. Without **--latitude**/**--longitude** or **--city**, the observer defaults to 0,0 (Gulf of Guinea).
+彩色输出需要 **--color** 标志以及支持 256 色或真彩色的终端。显示效果取决于终端大小和字体。若未提供 **--latitude**/**--longitude** 或 **--city**，观测位置默认为 0,0（几内亚湾）。
 
 # INSTALL
 

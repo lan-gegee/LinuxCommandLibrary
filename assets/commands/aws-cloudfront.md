@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage content delivery network distributions and caching.
+管理内容分发网络的分发和缓存。
 
 # TLDR
 
-**Create a cache invalidation** for specific paths
+为指定路径**创建缓存失效**
 
 ```aws cloudfront create-invalidation --distribution-id [EDFDVBD6EXAMPLE] --paths "/[path/to/file.jpg]" "/[images/*]"```
 
-**Invalidate all files** in a distribution
+**使分发中的所有文件失效**
 
 ```aws cloudfront create-invalidation --distribution-id [EDFDVBD6EXAMPLE] --paths "/*"```
 
-**List all distributions**
+**列出所有分发**
 
 ```aws cloudfront list-distributions```
 
-**Get distribution details**
+**获取分发详情**
 
 ```aws cloudfront get-distribution --id [EDFDVBD6EXAMPLE]```
 
-**Create a distribution** from config file
+从配置文件**创建分发**
 
 ```aws cloudfront create-distribution --distribution-config file://[distribution.json]```
 
-**List invalidations** for a distribution
+**列出一个分发的失效请求**
 
 ```aws cloudfront list-invalidations --distribution-id [EDFDVBD6EXAMPLE]```
 
-**Get invalidation status**
+**获取失效请求的状态**
 
 ```aws cloudfront get-invalidation --distribution-id [EDFDVBD6EXAMPLE] --id [I2J0I21PCUYOIK]```
 
-**Wait for a distribution to be deployed**
+**等待分发完成部署**
 
 ```aws cloudfront wait distribution-deployed --id [EDFDVBD6EXAMPLE]```
 
@@ -43,83 +43,83 @@ Manage content delivery network distributions and caching.
 # PARAMETERS
 
 **create-invalidation**
-> Invalidate cached objects in edge locations
+> 使边缘节点的缓存对象失效
 
 **list-invalidations**
-> List invalidation requests for a distribution
+> 列出某个分发的失效请求
 
 **get-invalidation**
-> Get status of an invalidation request
+> 获取失效请求的状态
 
 **create-distribution**
-> Create a new CloudFront distribution
+> 创建新的 CloudFront 分发
 
 **get-distribution**
-> Get distribution configuration and status
+> 获取分发的配置和状态
 
 **list-distributions**
-> List all distributions in the account
+> 列出账户中的所有分发
 
 **update-distribution**
-> Modify distribution settings
+> 修改分发设置
 
 **delete-distribution**
-> Remove a distribution (must be disabled first)
+> 移除一个分发（必须先禁用）
 
 **create-origin-access-control**
-> Create OAC for secure S3 access.
+> 创建 OAC 以实现安全的 S3 访问。
 
 **get-distribution-config**
-> Get only the distribution configuration (without status metadata).
+> 仅获取分发配置（不含状态元数据）。
 
 **create-function**
-> Create a CloudFront Function for lightweight edge compute.
+> 创建用于轻量级边缘计算的 CloudFront Function。
 
 **sign**
-> Sign CloudFront URLs or cookies for private content.
+> 为私有内容签名 CloudFront URL 或 cookie。
 
 **wait**
-> Wait for a distribution to reach a specific state (e.g., deployed).
+> 等待分发达到特定状态（如 deployed）。
 
 **--distribution-id** _id_
-> Distribution identifier (e.g., EDFDVBD6EXAMPLE)
+> 分发标识符（如 EDFDVBD6EXAMPLE）
 
 **--paths** _paths_
-> Space-separated paths to invalidate (supports wildcards with *)
+> 要使其失效的路径，以空格分隔（支持 * 通配符）
 
 **--invalidation-batch** _json_
-> JSON with paths and caller reference
+> 包含路径和调用者引用的 JSON
 
 **--distribution-config** _json_
-> Distribution configuration file
+> 分发配置文件
 
 **--id** _id_
-> Resource identifier (invalidation, distribution)
+> 资源标识符（失效请求、分发）
 
 **--if-match** _etag_
-> ETag for conditional updates/deletes
+> 用于条件更新/删除的 ETag
 
 # DESCRIPTION
 
-**aws cloudfront** manages Amazon CloudFront, a content delivery network (CDN) that caches content at edge locations worldwide for low-latency delivery.
+**aws cloudfront** 管理 Amazon CloudFront——一种内容分发网络（CDN），在全球边缘节点缓存内容以实现低延迟交付。
 
-**Invalidations** remove cached objects from edge locations before their TTL expires. Paths support wildcards (/images/*) to invalidate multiple files. The first 1,000 invalidation paths per month are free.
+**失效（invalidation）**会在 TTL 到期之前将缓存对象从边缘节点移除。路径支持通配符（/images/*），可一次使多个文件失效。每月前 1000 个失效路径免费。
 
-**Distributions** define origins (S3, ALB, custom HTTP), cache behaviors, SSL certificates, and other delivery settings. Changes propagate globally and may take 15-30 minutes.
+**分发（distribution）**定义源站（S3、ALB、自定义 HTTP）、缓存行为、SSL 证书及其他交付设置。更改会向全球传播，可能需要 15-30 分钟。
 
-**Origin Access Control (OAC)** secures S3 origins by restricting direct bucket access, requiring requests to go through CloudFront.
+**Origin Access Control（OAC）**通过限制对存储桶的直接访问来保护 S3 源站，要求请求必须经过 CloudFront。
 
-**CloudFront Functions** and **Lambda@Edge** allow running code at edge locations to customize request/response handling.
+**CloudFront Functions** 和 **Lambda@Edge** 允许在边缘节点运行代码，自定义请求/响应的处理逻辑。
 
-Use quotes around paths with wildcards in shell commands to prevent glob expansion.
+在 shell 命令中，含通配符的路径要用引号包裹，以防被 glob 展开。
 
 # CAVEATS
 
-Distribution deletion requires disabling first, then waiting for the status to change to `Deployed`. Invalidations have a cost after the first 1,000 paths per month. Distribution changes take time to propagate globally. Config updates require the current ETag value via **--if-match**.
+删除分发必须先禁用，然后等待状态变为 `Deployed`。每月前 1000 个失效路径之后会产生费用。分发的更改向全球传播需要时间。更新配置时需要通过 **--if-match** 提供当前的 ETag 值。
 
 # HISTORY
 
-**Amazon CloudFront** launched in **November 2008** as AWS's content delivery network service. It has grown from basic static content delivery to support dynamic content, streaming, WebSocket, and serverless compute at the edge via Lambda@Edge (2016) and CloudFront Functions (2021).
+**Amazon CloudFront** 于 **2008 年 11 月**推出，是 AWS 的内容分发网络服务。它已从基本的静态内容交付发展为支持动态内容、流媒体、WebSocket，并通过 Lambda@Edge（2016 年）和 CloudFront Functions（2021 年）支持边缘无服务器计算。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create shorthand names for commands
+为命令创建简短别名
 
 # TLDR
 
-**List** all aliases
+**列出**所有别名
 
 ```alias```
 
-**Create** a simple alias
+**创建**一个简单别名
 
 ```alias [ll]='ls -la'```
 
-Create alias with **arguments**
+创建带**参数**的别名
 
 ```alias [grep]='grep --color=auto'```
 
-**Remove** an alias
+**移除**一个别名
 
 ```unalias [ll]```
 
-Create **persistent** alias (add to ~/.bashrc or ~/.zshrc)
+创建**持久化**别名（添加到 ~/.bashrc 或 ~/.zshrc）
 
 ```echo "alias ll='ls -la'" >> ~/.bashrc```
 
@@ -30,34 +30,34 @@ Create **persistent** alias (add to ~/.bashrc or ~/.zshrc)
 
 # DESCRIPTION
 
-**alias** is a shell builtin that creates shorthand names for commands or command sequences. When you type an alias name, the shell substitutes the associated value before execution.
+**alias** 是一个 shell 内建命令，用于为命令或命令序列创建简称。当你输入别名时，shell 会在执行前将其替换为关联的值。
 
-Aliases are useful for creating shortcuts for frequently used commands with specific options, reducing typing and preventing repetitive mistakes.
+别名适合为带特定选项的常用命令创建快捷方式，减少敲击键盘并避免重复出错。
 
 # PARAMETERS
 
-Without arguments, **alias** displays all defined aliases. With **name**, it shows that alias's definition. With **name=value**, it creates or updates an alias.
+不带参数时，**alias** 显示所有已定义的别名。带 **name** 时显示该别名的定义。带 **name=value** 时创建或更新别名。
 
 # CAVEATS
 
-Aliases are not expanded in shell scripts by default. They don't accept arguments in the middle of the expansion (use functions for that). Aliases are shell-specific and must be defined in the shell's configuration file for persistence.
+在 shell 脚本中默认不展开别名。别名不接受出现在展开文本中间的参数（这种需求请用函数）。别名是特定于 shell 的，要持久化必须定义在该 shell 的配置文件里。
 
 # PERSISTENT ALIASES
 
-To make aliases permanent, add them to your shell configuration.
+要让别名永久生效，需将其添加到 shell 配置中。
 
 **Bash**
-> ~/.bashrc or ~/.bash_aliases
+> ~/.bashrc 或 ~/.bash_aliases
 
 **Zsh**
-> ~/.zshrc or ~/.zsh_aliases
+> ~/.zshrc 或 ~/.zsh_aliases
 
 **Fish**
-> Use **alias --save** or edit ~/.config/fish/config.fish
+> 使用 **alias --save** 或编辑 ~/.config/fish/config.fish
 
 # HISTORY
 
-The **alias** command has been a feature of Unix shells since the C shell (csh) in the late **1970s**. It was adopted by Bash, Zsh, and most other modern shells with similar syntax.
+**alias** 命令自 **1970 年代**末期的 C shell（csh）起就是 Unix shell 的特性。后来 Bash、Zsh 及大多数现代 shell 都采用了语法类似的版本。
 
 # SEE ALSO
 

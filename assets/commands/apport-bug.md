@@ -1,30 +1,30 @@
 # TAGLINE
 
-File bug reports with automatic system diagnostics.
+提交附带自动系统诊断信息的错误报告。
 
 # TLDR
 
-Report a bug about **the whole system**
+报告关于**整个系统**的错误
 
 ```apport-bug```
 
-Report a bug about a **specific package**
+报告关于**特定软件包**的错误
 
 ```apport-bug [package]```
 
-Report a bug about a **specific executable**
+报告关于**特定可执行文件**的错误
 
 ```apport-bug [path/to/executable]```
 
-Report a bug about a **specific process**
+报告关于**特定进程**的错误
 
 ```apport-bug [PID]```
 
-Report a bug about the **Linux kernel**
+报告关于 **Linux 内核**的错误
 
 ```apport-bug linux```
 
-Report a bug from an existing **crash file**
+从现有的**崩溃文件**报告错误
 
 ```apport-bug [/var/crash/_bin_bash.1000.crash]```
 
@@ -36,19 +36,19 @@ Report a bug from an existing **crash file**
 
 # DESCRIPTION
 
-**apport-bug** reports problems to your distribution's bug tracking system, using Apport to collect local system information that helps developers diagnose and fix issues more efficiently.
+**apport-bug** 向你所处发行版的缺陷跟踪系统报告问题，并利用 Apport 收集本地系统信息，帮助开发者更高效地诊断和修复问题。
 
-The recommended approach is to run the command without arguments to see a list of known symptoms and select the most relevant one. This generates the most useful bug reports.
+推荐的做法是不带参数直接运行命令，查看已知症状列表并选择最相关的一项。这样生成的错误报告最有价值。
 
-The tool automatically detects the desktop environment and launches **apport-gtk** or **apport-kde** accordingly. If neither is available, or the session does not run under X11, it falls back to **apport-cli** for command-line interaction.
+该工具会自动检测桌面环境，并相应地启动 **apport-gtk** 或 **apport-kde**。如果两者都不可用，或者会话不在 X11 下运行，则回退到 **apport-cli** 进行命令行交互。
 
 # CAVEATS
 
-Only available on Ubuntu and Ubuntu-based distributions. Requires a configured Launchpad account to submit bug reports. Crash files in **/var/crash/** are automatically removed after approximately 7 days.
+仅在 Ubuntu 及基于 Ubuntu 的发行版上可用。提交错误报告需要配置好的 Launchpad 账户。**/var/crash/** 中的崩溃文件会在大约 7 天后自动删除。
 
 # HISTORY
 
-Apport was developed by Canonical for Ubuntu, first introduced around **2006** as an automated crash reporting system. It evolved to include **apport-bug** as a user-facing tool for manually filing bug reports with automatically collected system diagnostics.
+Apport 由 Canonical 为 Ubuntu 开发，大约在 **2006** 年首次推出，是一个自动化崩溃报告系统。后来演进出 **apport-bug** 这一面向用户的工具，用于手动提交带有自动收集的系统诊断信息的错误报告。
 
 # SEE ALSO
 

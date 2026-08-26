@@ -1,18 +1,18 @@
 # TAGLINE
 
-Lightweight POSIX-compliant shell
+轻量级的 POSIX 兼容 Shell
 
 # TLDR
 
-**Start** ash shell
+**启动** ash shell
 
 ```ash```
 
-**Execute** a command
+**执行**一条命令
 
 ```ash -c "[command]"```
 
-Run **script**
+运行**脚本**
 
 ```ash [script.sh]```
 
@@ -22,48 +22,48 @@ Run **script**
 
 # DESCRIPTION
 
-**ash** (Almquist Shell) is a lightweight POSIX-compliant shell. It's smaller and faster than bash, making it suitable for embedded systems and as /bin/sh on minimal systems.
+**ash**（Almquist Shell）是一个轻量级的 POSIX 兼容 shell。它比 bash 更小更快，适合嵌入式系统，也可作为精简系统上的 /bin/sh。
 
-Many systems use dash (Debian Almquist Shell) as their ash implementation. BusyBox also includes an ash implementation.
+许多系统使用 dash（Debian Almquist Shell）作为其 ash 实现。BusyBox 也内置了一个 ash 实现。
 
 # PARAMETERS
 
 **-c** _command_
-> Execute command string
+> 执行命令字符串
 
 **-i**
-> Interactive mode
+> 交互模式
 
 **-l**
-> Login shell
+> 登录 shell
 
 **-s**
-> Read commands from stdin
+> 从 stdin 读取命令
 
 **-e**
-> Exit immediately if a command exits with a non-zero status (errexit).
+> 若某条命令以非零状态退出则立即退出（errexit）。
 
 **-x**
-> Print each command to stderr before executing it (xtrace).
+> 执行前将每条命令打印到 stderr（xtrace）。
 
 # CONFIGURATION
 
 **/etc/profile**
-> System-wide login shell initialization.
+> 系统级登录 shell 初始化。
 
 **~/.profile**
-> Per-user login shell initialization.
+> 每个用户的登录 shell 初始化。
 
 **$ENV**
-> If set, sourced for interactive shells (often points to ~/.ashrc).
+> 若已设置，交互式 shell 会加载它（通常指向 ~/.ashrc）。
 
 # CAVEATS
 
-Less feature-rich than bash; no arrays, extended globbing, or many bashisms. Scripts should use POSIX syntax only. Good for speed, not convenience.
+功能不如 bash 丰富；没有数组、扩展 glob 以及众多 bash 特有语法。脚本应只使用 POSIX 语法。它胜在速度，而非便利。
 
 # HISTORY
 
-**ash** was written by Kenneth Almquist for BSD Unix in **1989** as a POSIX-compliant replacement for the Bourne shell. It has been forked into dash and is used in BusyBox.
+**ash** 由 Kenneth Almquist 于 **1989** 年为 BSD Unix 编写，作为 Bourne shell 的 POSIX 兼容替代品。后来派生出 dash，并被 BusyBox 采用。
 
 # SEE ALSO
 

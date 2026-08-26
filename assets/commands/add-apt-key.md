@@ -1,18 +1,18 @@
 # TAGLINE
 
-Add GPG keys to the APT keyring
+向 APT 密钥环添加 GPG 密钥
 
 # TLDR
 
-**Add** a GPG key by key ID from the default keyserver
+从默认密钥服务器**按密钥 ID 添加**GPG 密钥
 
 ```sudo add-apt-key [KEY_ID]```
 
-**Add** a GPG key from a specific **keyserver**
+从指定的**密钥服务器添加**GPG 密钥
 
 ```sudo add-apt-key -k [keyserver.ubuntu.com] [KEY_ID]```
 
-**Add** a key with **verbose** output
+**添加**密钥并输出**详细**信息
 
 ```sudo add-apt-key -v [KEY_ID]```
 
@@ -22,35 +22,35 @@ Add GPG keys to the APT keyring
 
 # DESCRIPTION
 
-**add-apt-key** requests the specified GPG key from a public keyserver and inserts it into the APT keyring so that archives signed with that key will be trusted. The default keyserver can be configured in /etc/default/add-apt-key.
+**add-apt-key** 从公共密钥服务器请求指定的 GPG 密钥并将其插入 APT 密钥环，使由该密钥签名的软件归档受信任。默认密钥服务器可在 /etc/default/add-apt-key 中配置。
 
 # PARAMETERS
 
 **-h**, **--help**
-> Show usage information.
+> 显示用法信息。
 
 **-v**, **--verbose**
-> Verbose mode; show each command before it is executed.
+> 详细输出模式；在每条命令执行前先将其显示出来。
 
 **-k**, **--keyserver** _name_
-> Select a specific keyserver to use.
+> 选择要使用的特定密钥服务器。
 
 _keyid_
-> The GPG key identifier to add.
+> 要添加的 GPG 密钥标识符。
 
 # EXIT STATUS
 
-**0** - Key was added successfully.
+**0** - 密钥添加成功。
 
-**1** - Invalid arguments.
+**1** - 参数无效。
 
-**2** - GPG key ID cannot be retrieved or is malformed.
+**2** - 无法获取 GPG 密钥 ID 或其格式有误。
 
-**3** - Failure inserting key into APT keyring.
+**3** - 向 APT 密钥环插入密钥失败。
 
 # CAVEATS
 
-This tool may not be available on all distributions. The modern approach is to place repository keys in /etc/apt/keyrings/ and reference them directly in source list files with the signed-by option.
+并非所有发行版都提供此工具。现代做法是把软件仓库密钥放到 /etc/apt/keyrings/ 中，并在 source list 文件里用 signed-by 选项直接引用。
 
 # SEE ALSO
 

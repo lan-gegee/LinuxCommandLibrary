@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create software-based wireless access points for penetration testing
+创建基于软件的无线接入点用于渗透测试
 
 # TLDR
 
-**Create** a fake access point
+**创建**一个虚假接入点
 
 ```sudo airbase-ng -e "[FakeSSID]" -c [6] [wlan0mon]```
 
-Create AP with **WPA1/TKIP**
+创建带 **WPA1/TKIP** 的 AP
 
 ```sudo airbase-ng -e "[SSID]" -c [6] -z 2 [wlan0mon]```
 
-Create AP with **WPA2/CCMP**
+创建带 **WPA2/CCMP** 的 AP
 
 ```sudo airbase-ng -e "[SSID]" -c [6] -Z 4 [wlan0mon]```
 
-Respond to **all probes**
+响应**所有探测请求**
 
 ```sudo airbase-ng -e "[SSID]" -P -c [6] [wlan0mon]```
 
@@ -26,58 +26,58 @@ Respond to **all probes**
 
 # DESCRIPTION
 
-**airbase-ng** is an aircrack-ng suite tool that creates software access points for penetration testing. It can simulate access points, capture WPA handshakes, perform MITM attacks, and test client security.
+**airbase-ng** 是 aircrack-ng 套件中的一个工具，用于为渗透测试创建软件接入点。它可以模拟接入点、捕获 WPA 握手、执行中间人攻击以及测试客户端安全性。
 
-The tool creates virtual interfaces (at0) that can be used to route traffic, enabling network analysis of connected clients.
+该工具会创建可用于路由流量的虚拟接口（at0），从而对已连接的客户端进行网络分析。
 
 # PARAMETERS
 
 **-e** _essid_
-> Access point ESSID (network name)
+> 接入点的 ESSID（网络名称）
 
 **-c** _channel_
-> Operating channel
+> 工作信道
 
 **-a** _bssid_
-> Set the BSSID (MAC address) of the access point
+> 设置接入点的 BSSID（MAC 地址）
 
 **-W** _0|1_
-> Set the WEP flag advertised in beacons (0 = off, 1 = on; default 0)
+> 设置信标中广播的 WEP 标志（0 = 关，1 = 开；默认 0）
 
 **-z** _type_
-> Set WPA1 cipher: 1 = WEP40, 2 = TKIP, 4 = CCMP, 5 = WEP104
+> 设置 WPA1 加密套件：1 = WEP40，2 = TKIP，4 = CCMP，5 = WEP104
 
 **-Z** _type_
-> Same as **-z** but for WPA2
+> 与 **-z** 相同，但针对 WPA2
 
 **-P**
-> Respond to all probe requests, including those for other ESSIDs
+> 响应所有探测请求，包括针对其他 ESSID 的请求
 
 **-C** _seconds_
-> Enable beaconing of probed ESSID values (used with **-P**), at this interval
+> 以此间隔启用对被探测 ESSID 的信标广播（与 **-P** 配合使用）
 
 **-v**
-> Verbose output
+> 详细输出
 
 **-F** _prefix_
-> Write all sent and received frames to a pcap file with this prefix
+> 将所有收发的帧写入以此前缀命名的 pcap 文件
 
 **-I** _interval_
-> Set the beacon interval in milliseconds
+> 设置以毫秒为单位的信标间隔
 
 **--caffe-latte**
-> Caffe-Latte attack mode
+> Caffe-Latte 攻击模式
 
 **--cfrag**
-> PRGA attack using fragmentation
+> 利用分片的 PRGA 攻击
 
 # CAVEATS
 
-For authorized security testing only. Requires interface in monitor mode. Creating fake access points may violate local laws if used without permission. Clients may connect and expose traffic.
+仅限经授权的安全测试使用。要求接口处于监听模式。未经许可创建虚假接入点可能违反当地法律。客户端可能连接并暴露其流量。
 
 # HISTORY
 
-**airbase-ng** is part of the aircrack-ng suite, which evolved from aircrack in the mid-**2000s**. It was developed to test wireless security by simulating various access point scenarios.
+**airbase-ng** 是 aircrack-ng 套件的一部分，该套件于 **2000 年代中期**由 aircrack 演化而来。它的开发目的是通过模拟各种接入点场景来测试无线安全。
 
 # INSTALL
 

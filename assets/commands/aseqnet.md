@@ -1,26 +1,26 @@
 # TAGLINE
 
-ALSA MIDI sequencer over network
+通过网络传输 ALSA MIDI 音序器事件
 
 # TLDR
 
-**Start** MIDI network server
+**启动** MIDI 网络服务器
 
 ```aseqnet```
 
-Connect to **remote server**
+连接到**远程服务器**
 
 ```aseqnet [hostname]```
 
-Specify **port**
+指定**端口**
 
 ```aseqnet -p [40002] [hostname]```
 
-Auto-connect **read** port on startup
+启动时自动连接**读取**端口
 
 ```aseqnet -s [client:port] [hostname]```
 
-Auto-connect **write** port on startup
+启动时自动连接**写入**端口
 
 ```aseqnet -d [client:port] [hostname]```
 
@@ -30,37 +30,37 @@ Auto-connect **write** port on startup
 
 # DESCRIPTION
 
-**aseqnet** transmits ALSA sequencer events over a network connection. It enables MIDI communication between machines, allowing remote MIDI control or distributed music setups.
+**aseqnet** 通过网络连接传输 ALSA 音序器事件。它让机器之间能够进行 MIDI 通信，可用于远程 MIDI 控制或分布式音乐系统。
 
-Running without arguments starts a server; specifying a hostname connects as client. Ports created by aseqnet can be connected to other sequencer ports via [aconnect](/man/aconnect)(1).
+不带参数运行时启动服务器；指定主机名则以客户端身份连接。aseqnet 创建的端口可以通过 [aconnect](/man/aconnect)(1) 连接到其他音序器端口。
 
 # PARAMETERS
 
 **hostname**
-> Connect to this server (client mode)
+> 连接到此服务器（客户端模式）
 
 **-p** _port_
-> TCP port number or service name (default: 40002)
+> TCP 端口号或服务名（默认：40002）
 
 **-s** _addr_
-> Subscribe to the given address for read automatically (client:port)
+> 自动订阅给定地址用于读取（client:port）
 
 **-d** _addr_
-> Subscribe to the given address for write automatically (client:port)
+> 自动订阅给定地址用于写入（client:port）
 
 **-n** _name_
-> Specify the MIDI name of the process
+> 指定该进程的 MIDI 名称
 
 **-v**
-> Verbose output
+> 详细输出
 
 # CAVEATS
 
-No encryption; use SSH tunneling for security. Network latency affects MIDI timing.
+没有加密；需要安全时请使用 SSH 隧道。网络延迟会影响 MIDI 时序。
 
 # HISTORY
 
-**aseqnet** is part of the ALSA utilities, enabling network MIDI functionality for distributed audio setups.
+**aseqnet** 是 ALSA 实用工具的一部分，为分布式音频系统提供网络 MIDI 功能。
 
 # INSTALL
 

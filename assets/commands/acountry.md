@@ -1,18 +1,18 @@
 # TAGLINE
 
-IP address geolocation lookup via DNS
+基于 DNS 的 IP 地址地理归属查询
 
 # TLDR
 
-Print the **country** where an IPv4 address or host is located
+输出 IPv4 地址或主机所在的**国家**
 
 ```acountry [example.com]```
 
-Print extra **debugging** output
+输出额外的**调试**信息
 
 ```acountry -d [example.com]```
 
-Print more **verbose** information
+输出更**详细**的信息
 
 ```acountry -v [example.com]```
 
@@ -22,25 +22,25 @@ Print more **verbose** information
 
 # DESCRIPTION
 
-**acountry** prints the country where an IPv4 address or hostname is located. It works by performing DNS-based lookups against country code databases to determine the geographic origin of an IP address. The tool is part of the **c-ares** library utilities, which provide asynchronous DNS resolution capabilities.
+**acountry** 输出 IPv4 地址或主机名所在的国家。它通过对国家代码数据库执行基于 DNS 的查询来确定 IP 地址的地理归属。该工具属于 **c-ares** 库的工具集，c-ares 提供异步 DNS 解析能力。
 
-Unlike GeoIP database tools, acountry relies on DNS TXT record queries to specialized services that map IP ranges to country codes. This makes it lightweight and dependency-free but limited to country-level granularity.
+与 GeoIP 数据库工具不同，acountry 依靠对专门服务的 DNS TXT 记录查询来将 IP 段映射到国家代码。这使得它轻量且无依赖，但精度仅限于国家级。
 
 # PARAMETERS
 
 **-d**
-> Print extra debugging output
+> 输出额外的调试信息
 
 **-v**
-> Print more verbose information
+> 输出更详细的信息
 
 # CAVEATS
 
-Geographic IP location is approximate and may not reflect the actual physical location of the server or user. IP addresses can be reassigned or routed through different countries.
+IP 地理定位是近似值，可能不反映服务器或用户的实际物理位置。IP 地址可能被重新分配，也可能经其他国家路由。
 
 # HISTORY
 
-Part of the **c-ares** asynchronous DNS resolver library tools.
+属于 **c-ares** 异步 DNS 解析器库的工具集。
 
 # SEE ALSO
 

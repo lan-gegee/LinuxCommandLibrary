@@ -1,38 +1,38 @@
 # TAGLINE
 
-Catch AI-generated code smells and low-quality patterns left by coding agents
+捕捉 AI 编程代理留下的 AI 生成的坏味道和低质量模式
 
 # TLDR
 
-Scan the current directory for AI slop
+扫描当前目录中的 AI slop
 
 ```aislop scan```
 
-Scan only changed files and output JSON for CI
+只扫描有改动的文件并以 JSON 输出供 CI 使用
 
 ```aislop scan --changes --json```
 
-Auto-fix mechanical issues
+自动修复机械性问题
 
 ```aislop fix```
 
-Install a hook that runs after every agent edit (Claude Code example)
+安装每次代理编辑后运行的钩子（Claude Code 示例）
 
 ```aislop hook install --claude```
 
-Run in CI mode and fail the build below a threshold
+以 CI 模式运行并在低于阈值时使构建失败
 
 ```aislop ci```
 
-Scan staged files only
+只扫描已暂存的文件
 
 ```aislop scan --staged```
 
-Run with a custom config and fail CI if score drops below 80
+以自定义配置运行 CI，分数低于 80 时失败
 
 ```aislop ci --fail-below 80```
 
-Print the prompt you can hand to an agent for the remaining issues
+打印一份可以交给代理处理剩余问题的提示词
 
 ```aislop fix --prompt```
 
@@ -42,46 +42,46 @@ Print the prompt you can hand to an agent for the remaining issues
 
 # DESCRIPTION
 
-**aislop** is a fast, deterministic CLI that detects the characteristic patterns left behind by AI coding agents (Claude Code, Cursor, Codex, etc.). It scores code on a 0–100 scale and can automatically fix many mechanical issues.
+**aislop** 是一款快速、确定性的命令行工具，用于检测 AI 编程代理（Claude Code、Cursor、Codex 等）留下的特征性模式。它以 0–100 分为代码打分，并能自动修复许多机械性问题。
 
-Instead of relying on LLMs at runtime, aislop uses a combination of formatters, linters, AST analysis, and a large set of hand-written rules targeting narrative comments, trivial comments, `as any` casts, hallucinated imports, swallowed exceptions, dead code, oversized functions, and other "slop" patterns that compile and pass tests but degrade long-term maintainability.
+aislop 不依赖 LLM 实时判断，而是结合格式化工具、linter、AST 分析，以及大量手写规则，针对叙事性注释、无意义注释、`as any` 类型断言、幻觉导入、被吞掉的异常、死代码、超长函数等"能编译通过、能过测试但长期损害可维护性"的 slop 模式。
 
-The tool supports TypeScript/JavaScript, Python, Go, Rust, Ruby, PHP, and Java. It is designed to run in editors, pre-commit hooks, CI pipelines, and as a quality gate before accepting agent-generated changes.
+该工具支持 TypeScript/JavaScript、Python、Go、Rust、Ruby、PHP 和 Java。它被设计为可在编辑器、pre-commit 钩子、CI 管道中运行，作为接受代理生成变更前的质量关卡。
 
 # PARAMETERS
 
 **scan**  
-> Analyze code and report issues (default command when no subcommand given)
+> 分析代码并报告问题（未给出子命令时的默认命令）
 
 **fix**  
-> Automatically fix issues that can be fixed mechanically
+> 自动修复可以通过机械手段解决的问题
 
 **ci**  
-> Run in CI mode (JSON output, exits non-zero below threshold)
+> 以 CI 模式运行（JSON 输出，低于阈值时以非零值退出）
 
 **hook**  
-> Manage per-edit hooks for Claude, Cursor, and other agents
+> 管理 Claude、Cursor 及其他代理的单次编辑钩子
 
 **rules**  
-> List all active rules
+> 列出所有生效的规则
 
 **init**  
-> Create a .aislop/config.yml file
+> 创建 .aislop/config.yml 文件
 
-Common flags:
+通用标志：
 
 **--json**  
-> Output machine-readable JSON
+> 输出机器可读的 JSON
 
 **--sarif**  
-> Output SARIF 2.1.0 for GitHub Code Scanning
+> 输出适用于 GitHub Code Scanning 的 SARIF 2.1.0
 
-**-f**, **--force** (with fix)  
-> Apply aggressive fixes (unused dependencies, files, etc.)
+**-f**, **--force**（配合 fix）  
+> 应用激进的修复（未使用的依赖、文件等）
 
 # CONFIGURATION
 
-Create `.aislop/config.yml` to tune behavior:
+创建 `.aislop/config.yml` 来调整行为：
 
 ```yaml
 ci:

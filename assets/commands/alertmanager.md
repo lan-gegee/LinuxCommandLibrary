@@ -1,26 +1,26 @@
 # TAGLINE
 
-Handle alert deduplication, grouping, and routing for Prometheus
+为 Prometheus 处理告警去重、分组和路由
 
 # TLDR
 
-**Start Alertmanager** with default configuration
+使用默认配置**启动 Alertmanager**
 
 ```alertmanager --config.file=[alertmanager.yml]```
 
-**Start with custom storage path**
+以**自定义存储路径**启动
 
 ```alertmanager --config.file=[alertmanager.yml] --storage.path=[/var/lib/alertmanager]```
 
-**Start in cluster mode** with peers
+**以集群模式启动**并指定 peers
 
 ```alertmanager --config.file=[alertmanager.yml] --cluster.peer=[peer1:9094] --cluster.peer=[peer2:9094]```
 
-**Validate a configuration file** with amtool
+用 amtool **验证配置文件**
 
 ```amtool check-config [alertmanager.yml]```
 
-**Start with custom web listen address**
+以**自定义 Web 监听地址**启动
 
 ```alertmanager --config.file=[alertmanager.yml] --web.listen-address=[0.0.0.0:9093]```
 
@@ -31,60 +31,60 @@ Handle alert deduplication, grouping, and routing for Prometheus
 # PARAMETERS
 
 **--config.file** _path_
-> Path to the Alertmanager configuration file.
+> Alertmanager 配置文件的路径。
 
 **--storage.path** _path_
-> Base path for data storage of notification state and silences (default: **data/**).
+> 通知状态和静默数据存储的基础路径（默认：**data/**）。
 
 **--data.retention** _duration_
-> How long to keep notification and silence data (default: **120h**).
+> 通知和静默数据的保留时长（默认：**120h**）。
 
 **--web.listen-address** _address_
-> Address to listen on for the web UI and API (default: **:9093**).
+> Web UI 和 API 的监听地址（默认：**:9093**）。
 
 **--web.external-url** _url_
-> External URL for generating links back to Alertmanager.
+> 用于生成指回 Alertmanager 链接的外部 URL。
 
 **--cluster.listen-address** _address_
-> Address for cluster communication (default: **0.0.0.0:9094**).
+> 集群通信地址（默认：**0.0.0.0:9094**）。
 
 **--cluster.peer** _address_
-> Initial peer addresses for cluster formation (repeatable).
+> 组建集群时的初始 peer 地址（可重复）。
 
 **--cluster.advertise-address** _address_
-> Address to advertise in the cluster.
+> 在集群中通告的地址。
 
 **--log.level** _level_
-> Log level: debug, info, warn, error.
+> 日志级别：debug、info、warn、error。
 
 **--log.format** _format_
-> Log format: logfmt or json.
+> 日志格式：logfmt 或 json。
 
 **--web.route-prefix** _prefix_
-> Prefix for the internal routes of web endpoints (defaults to the path of **--web.external-url**).
+> Web 端点内部路由的前缀（默认取 **--web.external-url** 的路径）。
 
 # DESCRIPTION
 
-**Alertmanager** handles alerts sent by Prometheus and other monitoring systems. It manages deduplication, grouping, silencing, inhibition, and routing of alerts to notification receivers such as email, Slack, PagerDuty, and webhooks.
+**Alertmanager** 处理由 Prometheus 和其他监控系统发送的告警。它负责告警的去重、分组、静默、抑制，并将告警路由到邮件、Slack、PagerDuty、webhook 等通知接收端。
 
-When Prometheus detects a condition matching an alerting rule, it sends alerts to Alertmanager. Alertmanager groups related alerts together, waits for configured intervals to batch notifications, and routes them to appropriate receivers based on label matching rules.
+当 Prometheus 检测到符合告警规则的条件时，它会向 Alertmanager 发送告警。Alertmanager 将相关告警分组，等待设定的间隔以批量发送通知，并根据标签匹配规则将其路由到合适的接收端。
 
-Key features include **silences** to mute alerts during maintenance, **inhibition** rules to suppress alerts when related alerts are firing, and **high availability** through a gossip-based cluster protocol that ensures alerts are not duplicated across instances.
+关键特性包括：用于在维护期间屏蔽告警的 **silences（静默）**、在相关告警已触发时抑制其他告警的 **inhibition（抑制）**规则，以及基于 gossip 协议确保告警不会跨实例重复的**高可用**集群机制。
 
-The web UI at the configured listen address provides alert management, silence creation, and cluster status visibility.
+位于所配置监听地址上的 Web UI 提供告警管理、静默创建和集群状态可见性。
 
 # CONFIGURATION
 
 **/etc/alertmanager/alertmanager.yml**
-> Main configuration file defining routes, receivers, inhibition rules, and notification templates.
+> 主配置文件，定义路由、接收端、抑制规则和通知模板。
 
 # CAVEATS
 
-Alertmanager requires a properly configured YAML file; invalid configuration prevents startup. The binary has no dedicated config-check flag; validate configuration with **amtool check-config** before deploying. Cluster mode requires all peers to be mutually reachable on the cluster port. Notification state is stored locally; losing storage can cause duplicate notifications. Time-based grouping may delay critical alerts if intervals are set too long.
+Alertmanager 要求正确配置的 YAML 文件；无效配置会导致无法启动。该二进制程序没有专门的配置检查标志；部署前请用 **amtool check-config** 验证配置。集群模式要求所有 peer 在集群端口上互相可达。通知状态存储在本地；存储丢失可能导致重复通知。如果分组间隔设置过长，可能延迟关键告警。
 
 # HISTORY
 
-**Alertmanager** was developed by **SoundCloud** as part of the Prometheus ecosystem, first released in **2013**. It became a graduated project of the **Cloud Native Computing Foundation (CNCF)** alongside Prometheus in **2018**. The tool has evolved to support numerous notification integrations and high-availability deployments in modern cloud-native infrastructure.
+**Alertmanager** 由 **SoundCloud** 开发，属于 Prometheus 生态系统，于 **2013** 年首次发布。**2018** 年它与 Prometheus 一同成为 **云原生计算基金会（CNCF）**的毕业项目。在现代云原生基础设施中，该工具已发展为支持众多通知集成和高可用部署。
 
 # INSTALL
 

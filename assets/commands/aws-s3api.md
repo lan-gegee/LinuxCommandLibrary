@@ -1,38 +1,38 @@
 # TAGLINE
 
-Low-level S3 API operations
+底层 S3 API 操作
 
 # TLDR
 
-**List all buckets** in your account
+**列出账户中的所有存储桶**
 
 ```aws s3api list-buckets```
 
-**Get an object** from S3
+从 S3 **获取对象**
 
 ```aws s3api get-object --bucket [bucket-name] --key [object-key] [output-file]```
 
-**Upload an object** to S3
+向 S3 **上传对象**
 
 ```aws s3api put-object --bucket [bucket-name] --key [object-key] --body [file.txt]```
 
-**Delete an object** from S3
+从 S3 **删除对象**
 
 ```aws s3api delete-object --bucket [bucket-name] --key [object-key]```
 
-**List objects** in a bucket
+**列出**存储桶中的**对象**
 
 ```aws s3api list-objects-v2 --bucket [bucket-name]```
 
-**Attach a bucket policy** from a JSON file
+从 JSON 文件**附加存储桶策略**
 
 ```aws s3api put-bucket-policy --bucket [bucket-name] --policy file://[policy.json]```
 
-**Get bucket versioning** status
+**获取存储桶版本控制**状态
 
 ```aws s3api get-bucket-versioning --bucket [bucket-name]```
 
-**Create a bucket** with a specific configuration
+以指定配置**创建存储桶**
 
 ```aws s3api create-bucket --bucket [bucket-name] --create-bucket-configuration LocationConstraint=[us-west-2]```
 
@@ -42,9 +42,9 @@ Low-level S3 API operations
 
 # DESCRIPTION
 
-**aws s3api** provides low-level access to Amazon S3 API operations. Unlike the high-level **aws s3** commands, s3api exposes the full S3 API with fine-grained control over request parameters and response handling.
+**aws s3api** 提供对 Amazon S3 API 操作的底层访问。与高级 **aws s3** 命令不同，s3api 暴露完整的 S3 API，可对请求参数和响应处理进行细粒度控制。
 
-Use s3api when you need direct API access for operations not available in the high-level commands, such as managing bucket policies, configuring lifecycle rules, handling multipart uploads, or working with object versions.
+当高级命令无法覆盖某些操作时，例如管理存储桶策略、配置生命周期规则、处理分段上传或操作对象版本，可使用 s3api 直接访问 API。
 
 # SUBCOMMANDS
 
@@ -77,7 +77,7 @@ Use s3api when you need direct API access for operations not available in the hi
 
 # CAVEATS
 
-The s3api commands require more verbose syntax than the high-level **aws s3** commands but provide complete API coverage. When creating buckets outside us-east-1, you must specify **--create-bucket-configuration**. Object keys are case-sensitive. For large file uploads, consider using multipart upload operations.
+s3api 命令比高级 **aws s3** 命令需要更冗长的语法，但提供完整的 API 覆盖。在 us-east-1 之外创建存储桶时必须指定 **--create-bucket-configuration**。对象键区分大小写。上传大文件时建议使用分段上传操作。
 
 # INSTALL
 

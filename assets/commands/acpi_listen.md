@@ -1,10 +1,10 @@
 # TAGLINE
 
-ACPI event monitor
+ACPI 事件监视器
 
 # TLDR
 
-**Listen** to any ACPI event while the daemon is running
+在守护进程运行时**监听**任意 ACPI 事件
 
 ```acpi_listen```
 
@@ -14,22 +14,22 @@ ACPI event monitor
 
 # DESCRIPTION
 
-**acpi_listen** monitors and displays ACPI (Advanced Configuration and Power Interface) events from the kernel in real-time. Events include power button presses, lid open/close, AC adapter connection, battery status changes, and thermal events.
+**acpi_listen** 实时监视并显示来自内核的 ACPI（Advanced Configuration and Power Interface）事件。事件包括电源键按下、笔记本盖开合、交流适配器接入、电池状态变化以及温度事件。
 
-The tool connects to the **acpid** daemon socket to receive events. Each event is printed to standard output as it occurs.
+该工具连接 **acpid** 守护进程的套接字来接收事件。每个事件发生时都会被打印到标准输出。
 
 # PARAMETERS
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 # CAVEATS
 
-Requires the **acpid** daemon to be running. Events will not be received if acpid is not active or if the user lacks permission to access the ACPI socket.
+需要 **acpid** 守护进程正在运行。如果 acpid 未运行，或用户没有访问 ACPI 套接字的权限，将无法接收事件。
 
 # HISTORY
 
-Part of the **acpid** (ACPI daemon) package, which provides a framework for handling ACPI events on Linux systems.
+属于 **acpid**（ACPI 守护进程）软件包，该软件包为 Linux 系统处理 ACPI 事件提供了框架。
 
 # INSTALL
 

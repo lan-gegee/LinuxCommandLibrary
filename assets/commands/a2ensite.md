@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enable Apache2 virtual host sites
+启用 Apache2 虚拟主机站点
 
 # TLDR
 
-**Enable** a virtual host
+**启用**一个虚拟主机
 
 ```sudo a2ensite [virtual_host]```
 
-**Enable multiple** sites at once
+一次**启用多个**站点
 
 ```sudo a2ensite [site1] [site2]```
 
-**Enable the default** site
+**启用 default** 站点
 
 ```sudo a2ensite 000-default```
 
-Don't show **informative messages**
+不显示**提示信息**
 
 ```sudo a2ensite -q [virtual_host]```
 
-**Reload** Apache after enabling to apply changes
+启用后**重新加载** Apache 以应用更改
 
 ```sudo systemctl reload apache2```
 
@@ -30,41 +30,41 @@ Don't show **informative messages**
 
 # DESCRIPTION
 
-**a2ensite** is a Debian-specific utility that enables Apache2 virtual host configurations by creating symbolic links in **/etc/apache2/sites-enabled** pointing to site files in **/etc/apache2/sites-available**.
+**a2ensite** 是一个 Debian 特有的工具，它在 **/etc/apache2/sites-enabled** 中创建指向 **/etc/apache2/sites-available** 中站点文件的符号链接，从而启用 Apache2 虚拟主机配置。
 
-The first virtual host handles unmatched requests, so it should be named **000-default** to ensure it loads first alphabetically. The tool works alongside **a2dissite**, which disables sites.
+第一个虚拟主机负责处理未匹配的请求，因此应将其命名为 **000-default**，以保证按字母序最先加载。该工具与负责禁用站点的 **a2dissite** 配合使用。
 
 # PARAMETERS
 
 **-q, --quiet**
-> Don't show informative messages
+> 不显示提示信息
 
 **-m, --maintmode**
-> Enables maintainer mode; the program invocation is effectuated automatically by a maintainer script. Not intended for end users.
+> 启用维护者模式；程序调用由维护者脚本自动执行。并非为最终用户准备。
 
 # EXIT STATUS
 
-**0** - all sites processed successfully.
+**0** - 所有站点处理成功。
 
-**1** - an error occurred.
+**1** - 发生错误。
 
-**2** - an invalid option was used.
+**2** - 使用了无效选项。
 
 # FILES
 
 **/etc/apache2/sites-available/**
-> Directory containing available site configuration files.
+> 存放可用站点配置文件的目录。
 
 **/etc/apache2/sites-enabled/**
-> Directory of symlinks to enabled site configurations (managed by a2ensite/a2dissite).
+> 指向已启用站点配置的符号链接目录（由 a2ensite/a2dissite 管理）。
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions. Site changes require an Apache restart or reload to take effect. Virtual hosts are loaded alphabetically, so naming matters.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用。站点更改需要重启或重新加载 Apache 才能生效。虚拟主机按字母顺序加载，因此命名很重要。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. Part of the a2ensite/a2dissite family of utilities for managing Apache virtual hosts.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建，属于管理 Apache 虚拟主机的 a2ensite/a2dissite 工具家族。
 
 # INSTALL
 

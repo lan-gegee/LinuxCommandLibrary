@@ -1,30 +1,30 @@
 # TAGLINE
 
-Query Apache2 configuration state
+查询 Apache2 配置状态
 
 # TLDR
 
-List enabled Apache **modules**
+列出已启用的 Apache **模块**
 
 ```sudo a2query -m```
 
-Check if a **specific module** is enabled
+检查某个**特定模块**是否已启用
 
 ```sudo a2query -m [module_name]```
 
-List enabled **virtual hosts**
+列出已启用的**虚拟主机**
 
 ```sudo a2query -s```
 
-Display the currently enabled **Multi Processing Module**
+显示当前启用的**多处理模块（MPM）**
 
 ```sudo a2query -M```
 
-Display **Apache version**
+显示 **Apache 版本**
 
 ```sudo a2query -v```
 
-List enabled **configuration files**
+列出已启用的**配置文件**
 
 ```sudo a2query -c```
 
@@ -34,43 +34,43 @@ List enabled **configuration files**
 
 # DESCRIPTION
 
-**a2query** is a Debian-specific utility designed to retrieve configuration values from a locally installed Apache2 web server. It provides a robust interface primarily intended for use in maintainer scripts but also useful for system administrators.
+**a2query** 是一个 Debian 特有的工具，用于从本地安装的 Apache2 Web 服务器中获取配置值。它提供了一个稳健的接口，主要面向维护者脚本，但对系统管理员同样有用。
 
-Arguments for **-c**, **-m**, and **-s** options are compared flexibly, ignoring leading **mod_** prefixes and **.conf** or **.load** suffixes.
+**-c**、**-m** 和 **-s** 选项的参数采用灵活比较方式，会忽略开头的 **mod_** 前缀以及 **.conf** 或 **.load** 后缀。
 
 # PARAMETERS
 
 **-m [MODULE]**
-> Check whether a module is enabled; returns all enabled modules if no argument provided
+> 检查某个模块是否已启用；未提供参数时返回所有已启用的模块
 
 **-s [SITE]**
-> Check whether a site is enabled; returns all enabled sites if no argument provided
+> 检查某个站点是否已启用；未提供参数时返回所有已启用的站点
 
 **-c [CONF]**
-> Check if a configuration is enabled; returns all enabled configs if no argument provided
+> 检查某个配置是否已启用；未提供参数时返回所有已启用的配置
 
 **-M**
-> Returns the current Apache2 MPM (Multi Processing Module)
+> 返回当前使用的 Apache2 MPM（多处理模块）
 
 **-v**
-> Returns the installed Apache2 version
+> 返回已安装的 Apache2 版本
 
 **-a**
-> Displays the Apache2 Module Magic Version (API version) number
+> 显示 Apache2 Module Magic Version（API 版本）号
 
 **-q**
-> Suppresses output; useful when only return codes matter
+> 抑制输出；只关心返回码时有用
 
 **-h**
-> Shows usage help and exits
+> 显示用法帮助并退出
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions. Exit code **32** indicates the requested module, site, or configuration was not found.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用。退出码 **32** 表示所查询的模块、站点或配置不存在。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. Written by Arno Toell.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建。由 Arno Toell 编写。
 
 # INSTALL
 

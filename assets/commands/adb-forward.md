@@ -1,30 +1,30 @@
 # TAGLINE
 
-Android device port forwarder
+Android 设备端口转发器
 
 # TLDR
 
-**Forward** local port to device port
+将本地端口**转发**到设备端口
 
 ```adb forward tcp:[8080] tcp:[8080]```
 
-Forward to a **Unix abstract domain socket**
+转发到 **Unix 抽象域套接字**
 
 ```adb forward tcp:[8080] localabstract:[socket_name]```
 
-**List** all forwarded ports
+**列出**所有转发的端口
 
 ```adb forward --list```
 
-**Remove** a specific forward
+**移除**特定的转发规则
 
 ```adb forward --remove tcp:[8080]```
 
-Remove **all** forwards
+移除**所有**转发规则
 
 ```adb forward --remove-all```
 
-Forward to a **specific device** by serial number
+按序列号对**特定设备**进行转发
 
 ```adb -s [serial] forward tcp:[8080] tcp:[8080]```
 
@@ -36,49 +36,49 @@ Forward to a **specific device** by serial number
 
 # DESCRIPTION
 
-**adb forward** sets up port forwarding from a local port on your computer to a port on the connected Android device. This enables connecting to services running on the device as if they were running locally.
+**adb forward** 建立从电脑本地端口到所连 Android 设备端口的端口转发。这使得你可以像访问本地服务一样访问设备上运行的服务。
 
-Common uses include debugging apps with remote debuggers, accessing development servers running on the device, or connecting to app-specific sockets.
+常见用途包括：配合远程调试器调试应用、访问设备上运行的开发服务器，或连接应用专用的套接字。
 
 # PARAMETERS
 
 **tcp:**_port_
-> TCP port number. Remote may be "tcp:0" to pick any open port.
+> TCP 端口号。远程端口可为 "tcp:0"，表示自动选择任一空闲端口。
 
 **localabstract:**_name_
-> Unix domain socket in abstract namespace.
+> 抽象命名空间中的 Unix 域套接字。
 
 **localreserved:**_name_
-> Unix domain socket in reserved namespace.
+> 保留命名空间中的 Unix 域套接字。
 
 **localfilesystem:**_name_
-> Unix domain socket in filesystem namespace.
+> 文件系统命名空间中的 Unix 域套接字。
 
 **jdwp:**_pid_
-> JDWP (Java Debug Wire Protocol) for process ID.
+> 进程 ID 对应的 JDWP（Java Debug Wire Protocol）。
 
 **vsock:**_CID:port_
-> vsock address (CID and port).
+> vsock 地址（CID 和端口）。
 
 **--no-rebind**
-> Fail if local port is already forwarded
+> 若本地端口已被转发则失败
 
 **--list**
-> List all active port forwards
+> 列出所有活动的端口转发
 
 **--remove** _local_
-> Remove specific forward rule
+> 移除指定的转发规则
 
 **--remove-all**
-> Remove all forward rules
+> 移除所有转发规则
 
 # CAVEATS
 
-Port forwards persist until removed, the device disconnects, or the adb server restarts. Both local and remote ports must be available. Firewalls may block forwarded connections.
+端口转发会一直保留，直到被移除、设备断开或 adb 服务器重启。本地和远程端口都必须可用。防火墙可能阻止被转发的连接。
 
 # HISTORY
 
-Port forwarding has been a core adb feature since Android's initial release in **2008**, essential for remote debugging of Android applications through JDWP and other protocols.
+自 **2008** 年 Android 首次发布以来，端口转发一直是 adb 的核心功能，是通过 JDWP 等协议远程调试 Android 应用不可或缺的手段。
 
 # INSTALL
 

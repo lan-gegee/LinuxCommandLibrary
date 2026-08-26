@@ -1,26 +1,26 @@
 # TAGLINE
 
-Peer-to-peer battle royale in the terminal
+终端中的点对点大逃杀游戏
 
 # TLDR
 
-**Drop straight** into the public arena
+**直接进入**公共竞技场
 
 ```ascii-royale play```
 
-**Browse open games** and pick one
+**浏览开放对局**并选择加入
 
 ```ascii-royale browse```
 
-**Play offline** against bots
+**离线对战**机器人
 
 ```ascii-royale solo --bots [9]```
 
-**Host a match** for others to join
+**创建对局**供他人加入
 
 ```ascii-royale host```
 
-**Join a specific** match by ticket
+凭票据**加入指定**对局
 
 ```ascii-royale join [ticket]```
 
@@ -40,74 +40,74 @@ Peer-to-peer battle royale in the terminal
 
 # DESCRIPTION
 
-**ascii-royale** is a battle royale game played entirely in the terminal. Up to 16 combatants fight on a procedurally generated ASCII island, with a shrinking storm that forces players together until one is left standing. Bots fill any empty slots, so solo play works without other people.
+**ascii-royale** 是一款完全在终端中运行的大逃杀游戏。最多 16 名战斗者在程序生成的 ASCII 岛屿上厮杀，不断缩小的风暴迫使玩家互相靠近，直到只剩一人存活。空位由机器人补齐，因此单人游玩无需其他玩家。
 
-Matches are peer-to-peer over the iroh networking library, with no central game server and no accounts: the whole game is a single binary. Players can drop into the public arena, browse and join open games, host their own match, or run a headless arena server. The same game is also playable in a browser.
+对局通过 iroh 网络库以点对点方式进行，没有中央游戏服务器，也无需账号：整个游戏只是一个单一的二进制文件。玩家可以直接进入公共竞技场、浏览并加入开放对局、自建对局，或运行无头竞技场服务器。同一款游戏也可以在浏览器中玩。
 
 # COMMANDS
 
 **play**
-> Drop straight into the public arena.
+> 直接进入公共竞技场。
 
 **browse**
-> List open games and select one to join.
+> 列出开放对局并选择一个加入。
 
 **join** _ticket_
-> Join a specific match using its ticket.
+> 使用票据加入指定对局。
 
 **host**
-> Host a match. Accepts **--bots** _N_ and **--name** _NAME_.
+> 创建一局。接受 **--bots** _N_ 和 **--name** _NAME_。
 
 **solo --bots** _N_
-> Play offline against the given number of AI opponents.
+> 离线对抗指定数量的 AI 对手。
 
 **serve**
-> Run a headless arena server.
+> 运行无头竞技场服务器。
 
 # PARAMETERS
 
 **--bots** _N_
-> Number of bot players to add.
+> 要添加的机器人玩家数量。
 
 **--http-port** _PORT_
-> Serve the web interface on the given port.
+> 在给定端口上提供 Web 界面。
 
 **--ticket-file** _PATH_
-> Write the join ticket to a file.
+> 将加入票据写入文件。
 
 **--stats-file** _PATH_
-> Persist leaderboard data to a file.
+> 将排行榜数据持久化到文件。
 
 # CONTROLS
 
-**w a s d** / **arrows**
-> Move and set aim direction.
+**w a s d** / **方向键**
+> 移动并设定瞄准方向。
 
-**f** / **space**
-> Fire weapon (auto-aims at lined-up enemies).
+**f** / **空格**
+> 开火（对排成直线的敌人自动瞄准）。
 
 **e** / **g**
-> Pick up items.
+> 拾取物品。
 
 **h** / **m**
-> Use a medkit.
+> 使用医疗包。
 
 **t**
-> Throw a grenade.
+> 投掷手榴弹。
 
 **M**
-> Mute or unmute sound.
+> 静音或取消静音。
 
 **q** / **Esc**
-> Quit.
+> 退出。
 
 # CAVEATS
 
-Networking is peer-to-peer over iroh, so matches depend on direct connectivity between players. The project is built in Rust and is installed from source with a recent toolchain.
+网络基于 iroh 的点对点连接，因此对局依赖玩家之间的直接连通性。项目使用 Rust 构建，需要较新的工具链从源码安装。
 
 # HISTORY
 
-**ascii-royale** is written in **Rust** and distributed under the MIT license. It models the battle-royale genre in pure text, using iroh for serverless peer-to-peer play and 8-bit synthesized sound effects.
+**ascii-royale** 以 **Rust** 编写，采用 MIT 许可证发布。它以纯文本呈现大逃杀玩法，使用 iroh 实现无服务器的点对点联机，并配有 8 位合成音效。
 
 # SEE ALSO
 

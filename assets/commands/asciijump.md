@@ -1,14 +1,14 @@
 # TAGLINE
 
-ASCII art ski jumping game
+ASCII 艺术跳台滑雪游戏
 
 # TLDR
 
-**Start the game**
+**启动游戏**
 
 ```asciijump```
 
-**Start with a custom hill**
+**使用自定义跳台启动**
 
 ```asciijump -n [hillname]```
 
@@ -19,10 +19,10 @@ ASCII art ski jumping game
 # PARAMETERS
 
 **-n** _hillname_
-> Use the specified hill from the hills directory.
+> 使用 hills 目录中指定的跳台。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # PREVIEW
 
@@ -36,17 +36,17 @@ ______/________
 
 # DESCRIPTION
 
-**asciijump** is an ncurses-based ASCII-art ski jumping game. The player controls a ski jumper, timing the takeoff and landing to achieve maximum distance. The game features multiple hills, training and competition modes (selected from the in-game menu), and multiplayer support for up to 10 players.
+**asciijump** 是一个基于 ncurses 的 ASCII 艺术跳台滑雪游戏。玩家控制一名跳台滑雪运动员，把握起跳和落地的时机以获得最远距离。游戏包含多个跳台、训练和比赛模式（从游戏内菜单选择），并支持最多 10 名玩家的多人模式。
 
-Controls: press space at the edge of the jump to take off and again to land safely. Timing affects both distance and style points.
+操作方法：在跳台边缘按空格起跳，落地时再按一次即可平稳着陆。时机的好坏同时影响距离分和姿势分。
 
 # CAVEATS
 
-Requires a terminal with ncurses support. Custom hills can be created and placed in the hills directory.
+需要支持 ncurses 的终端。可以自行创建跳台并放入 hills 目录。
 
 # HISTORY
 
-**asciijump** was created by **Fabian Breitkreutz** as a terminal recreation of ski jumping competitions.
+**asciijump** 由 **Fabian Breitkreutz** 创建，是在终端中再现跳台滑雪竞赛的作品。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-GPU-accelerated terminal emulator
+GPU 加速的终端模拟器
 
 # TLDR
 
-**Start** Alacritty
+**启动** Alacritty
 
 ```alacritty```
 
-Open with **specific working directory**
+以**指定工作目录**打开
 
 ```alacritty --working-directory [/path/to/dir]```
 
-Execute a **command**
+执行一条**命令**
 
 ```alacritty -e [htop]```
 
-Open with **custom config**
+以**自定义配置**打开
 
 ```alacritty --config-file [~/.config/alacritty/custom.toml]```
 
-Set **window title**
+设置**窗口标题**
 
 ```alacritty --title "[My Terminal]"```
 
-**Migrate** an old YAML config to TOML
+将旧的 YAML 配置**迁移**为 TOML
 
 ```alacritty migrate```
 
@@ -36,72 +36,72 @@ Set **window title**
 
 # DESCRIPTION
 
-**alacritty** is a modern, GPU-accelerated terminal emulator focused on simplicity and performance. It leverages OpenGL for rendering, providing smooth scrolling and low latency input handling.
+**alacritty** 是一款注重简洁与性能的现代 GPU 加速终端模拟器。它利用 OpenGL 进行渲染，提供流畅的滚动和低延迟的输入处理。
 
-Configuration is done through a TOML or YAML file (depending on version), supporting customization of colors, fonts, keybindings, and behavior. It aims to have sensible defaults while remaining configurable.
+配置通过 TOML 或 YAML 文件完成（取决于版本），支持自定义颜色、字体、按键绑定和行为。它力求在保持可配置性的同时提供合理的默认值。
 
 # PARAMETERS
 
 **-e**, **--command** _command_ _args_
-> Execute command and arguments instead of the default shell (must be the last argument).
+> 执行命令及其参数而不是默认 shell（必须是最后一个参数）。
 
 **--working-directory** _path_
-> Start the shell in the specified working directory.
+> 在指定工作目录中启动 shell。
 
 **--config-file** _file_
-> Use an alternate configuration file.
+> 使用备用配置文件。
 
 **-T**, **--title** _title_
-> Set the window title.
+> 设置窗口标题。
 
 **--class** _class_
-> Set the window class hint on Linux/BSD (X11 only).
+> 在 Linux/BSD 上设置窗口类提示（仅限 X11）。
 
 **-o**, **--option** _key=value_
-> Override configuration file options.
+> 覆盖配置文件中的选项。
 
 **--hold**
-> Keep the window open after the child process exits.
+> 子进程退出后保持窗口打开。
 
 **--daemon**
-> Do not spawn an initial window (run in the background for IPC).
+> 不生成初始窗口（在后台运行以支持 IPC）。
 
 **--embed** _id_
-> X11 window ID to embed Alacritty within.
+> 用于嵌入 Alacritty 的 X11 窗口 ID。
 
 **--socket** _path_
-> Path for the IPC socket creation.
+> 创建 IPC 套接字的路径。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-q**, **-v**
-> Decrease (**-q**, **-qq**) or increase (**-v**, **-vv**, **-vvv**) verbosity.
+> 降低（**-q**、**-qq**）或提高（**-v**、**-vv**、**-vvv**）详细程度。
 
 **--print-events**
-> Print all events to stdout for debugging.
+> 将所有事件打印到 stdout 以便调试。
 
 **migrate**
-> Subcommand that converts an existing YAML configuration file to TOML.
+> 将现有 YAML 配置文件转换为 TOML 的子命令。
 
 **msg**
-> Subcommand to send IPC messages (for example **create-window**, **config**) to a running daemon instance.
+> 向正在运行的守护进程实例发送 IPC 消息（例如 **create-window**、**config**）的子命令。
 
 # CONFIGURATION
 
 **~/.config/alacritty/alacritty.toml**
-> Main configuration file for colors, fonts, keybindings, window settings, and shell behavior.
+> 主配置文件，用于颜色、字体、按键绑定、窗口设置和 shell 行为。
 
 **~/.config/alacritty/alacritty.yml**
-> Legacy YAML configuration file used in versions before 0.13.
+> 0.13 之前版本使用的旧版 YAML 配置文件。
 
 # CAVEATS
 
-Requires GPU with OpenGL 3.3+ support. No tabs or splits (use tmux/screen). Configuration format changed from YAML to TOML in version 0.13. Some features may require recent graphics drivers.
+需要支持 OpenGL 3.3+ 的 GPU。没有标签页或分屏功能（请使用 tmux/screen）。配置格式在 0.13 版本从 YAML 变更为 TOML。某些功能可能需要较新的显卡驱动。
 
 # HISTORY
 
-**alacritty** was created by Joe Wilm and first released in **2017**. It was the first major GPU-accelerated terminal emulator, inspiring similar projects and becoming popular for its performance and minimal design.
+**alacritty** 由 Joe Wilm 创建，于 **2017** 年首次发布。它是第一款主要的 GPU 加速终端模拟器，启发了类似项目，并因性能和极简设计而流行。
 
 # INSTALL
 

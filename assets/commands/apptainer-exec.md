@@ -1,38 +1,38 @@
 # TAGLINE
 
-Execute a command within an Apptainer container.
+在 Apptainer 容器内执行命令。
 
 # TLDR
 
-**Execute a command** inside a container
+在容器内**执行命令**
 
 ```apptainer exec [container.sif] [command]```
 
-**Run with bound directory** from host to container
+将目录从宿主机**绑定挂载到容器中运行**
 
 ```apptainer exec --bind [/host/path]:[/container/path] [container.sif] [command]```
 
-**Execute with writable overlay**
+以可写 overlay **执行**
 
 ```apptainer exec --overlay [overlay.img] [container.sif] [command]```
 
-**Run with GPU support** (NVIDIA)
+**启用 GPU 支持**（NVIDIA）运行
 
 ```apptainer exec --nv [container.sif] [command]```
 
-**Execute from Docker Hub** image
+从 Docker Hub 镜像**执行**
 
 ```apptainer exec docker://[image:tag] [command]```
 
-**Run with isolated network**
+在隔离网络中**运行**
 
 ```apptainer exec --net --network none [container.sif] [command]```
 
-**Execute with custom environment variable**
+使用自定义环境变量**执行**
 
 ```apptainer exec --env [VAR=value] [container.sif] [command]```
 
-**Run in a writable sandbox directory**
+在可写沙箱目录中**运行**
 
 ```apptainer exec --writable [sandbox/] [command]```
 
@@ -43,105 +43,105 @@ Execute a command within an Apptainer container.
 # PARAMETERS
 
 **--bind**, **-B** _src[:dest[:opts]]_
-> Bind mount a path from the host into the container.
+> 将宿主机的路径绑定挂载到容器中。
 
 **--overlay** _image_
-> Use an overlay filesystem for writable layer.
+> 使用 overlay 文件系统作为可写层。
 
 **--nv**
-> Enable NVIDIA GPU support inside the container.
+> 在容器内启用 NVIDIA GPU 支持。
 
 **--rocm**
-> Enable AMD ROCm GPU support.
+> 启用 AMD ROCm GPU 支持。
 
 **--contain**, **-c**
-> Use minimal /dev and empty other directories.
+> 使用最小化的 /dev，并将其他目录置空。
 
 **--containall**, **-C**
-> Full isolation: contain filesystems plus new PID and IPC namespaces and clean environment.
+> 完全隔离：包含文件系统，外加新的 PID 和 IPC 命名空间以及干净的环境。
 
 **--cleanenv**, **-e**
-> Clean environment before running container.
+> 运行容器前清理环境变量。
 
 **--env** _VAR=value_
-> Set environment variable in container.
+> 在容器内设置环境变量。
 
 **--env-file** _file_
-> Load environment variables from file.
+> 从文件加载环境变量。
 
 **--home** _path_
-> Set custom home directory.
+> 设置自定义主目录。
 
 **--cwd** _path_
-> Set initial working directory in container. (**--pwd** is a deprecated synonym.)
+> 设置容器内的初始工作目录。（**--pwd** 是已废弃的同义词。）
 
 **--net**
-> Enable network namespace.
+> 启用网络命名空间。
 
 **--network** _type_
-> Specify network type (none, bridge, etc.).
+> 指定网络类型（none、bridge 等）。
 
 **--fakeroot**
-> Run container with fake root privileges.
+> 以模拟的 root 权限运行容器。
 
 **--writable-tmpfs**
-> Add writable tmpfs overlay.
+> 添加可写的 tmpfs overlay。
 
 **--no-mount** _type_
-> Disable a specific mount point. Valid values: proc, sys, dev, devpts, home, tmp, hostfs, cwd.
+> 禁用特定的挂载点。有效值：proc、sys、dev、devpts、home、tmp、hostfs、cwd。
 
 **--no-home**
-> Do not mount the user's home directory into the container.
+> 不将用户的主目录挂载到容器中。
 
 **--writable**, **-w**
-> Make the container filesystem read-write (requires a writable image or sandbox directory).
+> 将容器文件系统设为读写（需要可写镜像或沙箱目录）。
 
 **--scratch**, **-S** _dir_
-> Include a scratch directory within the container that is linked to a temporary directory on the host.
+> 在容器内包含一个 scratch 目录，它链接到宿主机上的临时目录。
 
 **--workdir**, **-W** _path_
-> Working directory used for /tmp, /var/tmp, and $HOME overrides when using **--contain** or **--scratch**.
+> 使用 **--contain** 或 **--scratch** 时，用于覆盖 /tmp、/var/tmp 和 $HOME 的工作目录。
 
 **--ipc**, **-i**
-> Run container in a new IPC namespace.
+> 在新的 IPC 命名空间中运行容器。
 
 **--pid**, **-p**
-> Run container in a new PID namespace.
+> 在新的 PID 命名空间中运行容器。
 
 **--userns**, **-u**
-> Run container in a new user namespace.
+> 在新的用户命名空间中运行容器。
 
 **--uts**
-> Run container in a new UTS namespace.
+> 在新的 UTS 命名空间中运行容器。
 
 **--no-eval**
-> Do not shell-evaluate environment variables or OCI CMD/ENTRYPOINT.
+> 不对环境变量或 OCI CMD/ENTRYPOINT 进行 shell 求值。
 
 **--fusemount** _spec_
-> Mount a FUSE filesystem inside the container using the format: _type:fuse_command container_path_.
+> 在容器内挂载 FUSE 文件系统，格式为：_type:fuse_command container_path_。
 
 # DESCRIPTION
 
-**apptainer exec** runs a specified command inside an Apptainer container. Unlike **apptainer shell** which provides an interactive session, exec runs a single command and returns its exit status, making it ideal for batch processing and scripts.
+**apptainer exec** 在 Apptainer 容器内运行指定的命令。与提供交互式会话的 **apptainer shell** 不同，exec 运行单条命令并返回其退出状态，因此非常适合批处理和脚本场景。
 
-The container can be specified as a local SIF file, a library URI (library://), a Docker URI (docker://), or an OCI archive. The command and any arguments are executed within the container environment with the current user's identity preserved.
+容器可以是本地 SIF 文件、库 URI（library://）、Docker URI（docker://）或 OCI 归档。命令及其参数在容器环境中执行，并保留当前用户的身份。
 
-By default, Apptainer mounts the current directory, home directory, and standard system paths into the container. Additional paths can be bound using **--bind**. For HPC workloads, the **--nv** or **--rocm** flags enable GPU passthrough.
+默认情况下，Apptainer 会将当前目录、主目录和标准系统路径挂载进容器。可以使用 **--bind** 绑定更多路径。对于 HPC 工作负载，**--nv** 或 **--rocm** 标志可启用 GPU 直通。
 
-The command inherits the host's environment by default. Use **--cleanenv** for reproducibility or **--contain** for isolation. Exit status reflects the executed command's return code.
+该命令默认继承宿主机的环境变量。为了可复现性可使用 **--cleanenv**，为了隔离性可使用 **--contain**。退出状态反映所执行命令的返回码。
 
 # CONFIGURATION
 
 **/etc/apptainer/apptainer.conf**
-> Main configuration file controlling default bind paths, security options, GPU support, and namespace settings.
+> 主配置文件，控制默认绑定路径、安全选项、GPU 支持和命名空间设置。
 
 # CAVEATS
 
-User namespaces must be enabled in the kernel for rootless operation. Some containers may require **--writable-tmpfs** or **--overlay** to function properly. NVIDIA GPU support requires the nvidia-container-cli and compatible drivers. Network namespace requires root or appropriate privileges unless user namespaces are configured.
+无 root 运行要求内核启用用户命名空间。某些容器可能需要 **--writable-tmpfs** 或 **--overlay** 才能正常工作。NVIDIA GPU 支持需要 nvidia-container-cli 和兼容的驱动程序。除非配置了用户命名空间，否则网络命名空间需要 root 或相应权限。
 
 # HISTORY
 
-Apptainer is the continuation of the **Singularity** project after it joined the Linux Foundation in **2021**. The exec subcommand has been a core feature since Singularity's inception at Lawrence Berkeley National Laboratory in **2015**. Apptainer 1.0 was released in **2022**, maintaining full compatibility with Singularity container formats while adding new features.
+Apptainer 是 **Singularity** 项目于 **2021** 年加入 Linux 基金会之后的延续。exec 子命令自 **2015** 年 Singularity 在劳伦斯伯克利国家实验室诞生以来一直是核心功能。Apptainer 1.0 于 **2022** 年发布，在保持与 Singularity 容器格式完全兼容的同时加入了新特性。
 
 # INSTALL
 

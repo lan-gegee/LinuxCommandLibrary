@@ -1,34 +1,34 @@
 # TAGLINE
 
-Open-source PBX and telephony server
+开源 PBX 与电话服务器
 
 # TLDR
 
-**Connect** to running server
+**连接**到正在运行的服务器
 
 ```asterisk -r -vvv```
 
-Run **single command**
+运行**单条命令**
 
 ```asterisk -r -x "command"```
 
-Show **SIP peers**
+显示 **SIP 对端**
 
 ```asterisk -r -x "sip show peers"```
 
-Show **active calls**
+显示**当前通话**
 
 ```asterisk -r -x "core show channels"```
 
-Show **voicemail** users
+显示**语音信箱**用户
 
 ```asterisk -r -x "voicemail show users"```
 
-**Hangup** a channel
+**挂断**一个通道
 
 ```asterisk -r -x "hangup request channel_ID"```
 
-**Reload** SIP config
+**重新加载** SIP 配置
 
 ```asterisk -r -x "sip reload"```
 
@@ -38,58 +38,58 @@ Show **voicemail** users
 
 # DESCRIPTION
 
-**asterisk** runs and manages the Asterisk PBX (Private Branch Exchange) telephony server. It handles VoIP calls, traditional phone lines, and provides features like voicemail, conferencing, and interactive voice response (IVR).
+**asterisk** 用于运行和管理 Asterisk PBX（专用交换机）电话服务器。它处理 VoIP 呼叫和传统电话线路，提供语音信箱、会议、交互式语音应答（IVR）等功能。
 
 # PARAMETERS
 
 **-r**
-> Reconnect to a running Asterisk instance
+> 重新连接到正在运行的 Asterisk 实例
 
 **-R**
-> Same as -r but attempt reconnection if disconnected
+> 与 -r 相同，但断开连接后会尝试重新连接
 
 **-x** _command_
-> Execute a CLI command and exit
+> 执行一条 CLI 命令后退出
 
 **-v**
-> Increase verbosity (can be used multiple times)
+> 提高详细程度（可多次使用）
 
 **-c**
-> Start Asterisk in console mode (foreground)
+> 以控制台模式（前台）启动 Asterisk
 
 **-g**
-> Dump core on crash
+> 崩溃时转储核心
 
 **-n**
-> Disable ANSI color in console
+> 在控制台中禁用 ANSI 颜色
 
 # CONFIGURATION
 
 **/etc/asterisk/asterisk.conf**
-> Main configuration file controlling global settings, directory paths, and module loading.
+> 主配置文件，控制全局设置、目录路径和模块加载。
 
 **/etc/asterisk/extensions.conf**
-> Dialplan configuration defining call routing, IVR menus, and application logic.
+> 拨号计划配置，定义呼叫路由、IVR 菜单和应用逻辑。
 
 **/etc/asterisk/sip.conf**
-> Legacy SIP channel driver configuration for peers, trunks, and registrations.
+> 传统 SIP 通道驱动配置，用于对端、中继和注册。
 
 **/etc/asterisk/pjsip.conf**
-> Modern PJSIP stack configuration for endpoints, transports, and authentication.
+> 现代 PJSIP 协议栈配置，涵盖端点、传输与认证。
 
 **/etc/asterisk/voicemail.conf**
-> Voicemail system configuration including mailbox definitions and notification settings.
+> 语音信箱系统配置，包括邮箱定义和通知设置。
 
 **/etc/asterisk/modules.conf**
-> Controls which Asterisk modules are loaded at startup.
+> 控制 Asterisk 启动时加载哪些模块。
 
 # CAVEATS
 
-Requires proper configuration of SIP/PJSIP, dialplans, and extensions. Telephony requires understanding of VoIP protocols, codecs, and networking. Configuration is extensive and typically stored in /etc/asterisk/.
+需要正确配置 SIP/PJSIP、拨号计划和分机。电话系统要求理解 VoIP 协议、编解码器和网络知识。配置内容繁多，通常存放于 /etc/asterisk/ 目录。
 
 # HISTORY
 
-**Asterisk** is an open-source PBX and telephony toolkit created by Digium (now Sangoma). It powers communication solutions from small offices to large call centers.
+**Asterisk** 是由 Digium（现 Sangoma）创建的开源 PBX 和电话工具包，支撑着从小型办公室到大型呼叫中心的各种通信解决方案。
 
 # INSTALL
 

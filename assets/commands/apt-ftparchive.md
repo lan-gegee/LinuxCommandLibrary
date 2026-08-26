@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate index files for APT repositories.
+为 APT 仓库生成索引文件。
 
 # TLDR
 
-**Generate** Packages file
+**生成** Packages 文件
 
 ```apt-ftparchive packages [pool/] > [Packages]```
 
-Generate **Sources** file
+生成 **Sources** 文件
 
 ```apt-ftparchive sources [pool/] > [Sources]```
 
-Generate **Release** file
+生成 **Release** 文件
 
 ```apt-ftparchive release [dists/stable] > [Release]```
 
-Generate with **configuration file**
+使用**配置文件**生成
 
 ```apt-ftparchive generate [config.conf]```
 
@@ -26,46 +26,46 @@ Generate with **configuration file**
 
 # DESCRIPTION
 
-**apt-ftparchive** generates index files for APT repositories. It creates Packages, Sources, Contents, and Release files from a directory of .deb and .dsc files.
+**apt-ftparchive** 为 APT 仓库生成索引文件。它从一个存放 .deb 和 .dsc 文件的目录创建 Packages、Sources、Contents 和 Release 文件。
 
-This tool is essential for creating and maintaining local APT repositories or mirrors.
+此工具对于创建和维护本地 APT 仓库或镜像至关重要。
 
 # PARAMETERS
 
 **packages** _dir_
-> Generate Packages file from directory
+> 从目录生成 Packages 文件
 
 **sources** _dir_
-> Generate Sources file
+> 生成 Sources 文件
 
 **contents** _dir_
-> Generate Contents file
+> 生成 Contents 文件
 
 **release** _dir_
-> Generate Release file
+> 生成 Release 文件
 
 **generate** _config_
-> Generate files per configuration
+> 按配置生成文件
 
 **clean** _config_
-> Clean up database files
+> 清理数据库文件
 
 **-c** _file_
-> Configuration file
+> 配置文件
 
 **-d** _db_
-> Database directory
+> 数据库目录
 
 **--md5**, **--sha1**, **--sha256**, **--sha512**
-> Hash algorithms to generate
+> 要生成的哈希算法
 
 # CAVEATS
 
-Release files should be signed with gpg for secure repositories. Large repositories may take significant time to index. Database caching improves regeneration speed.
+Release 文件应使用 gpg 签名以构建安全的仓库。大型仓库的索引可能耗时较长。数据库缓存可以提升重新生成的速度。
 
 # HISTORY
 
-**apt-ftparchive** is part of APT, designed for repository maintainers to create the index files that APT clients use to find and download packages.
+**apt-ftparchive** 是 APT 的组成部分，专为仓库维护者设计，用于创建 APT 客户端查找和下载软件包所需的索引文件。
 
 # INSTALL
 

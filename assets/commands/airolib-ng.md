@@ -1,30 +1,30 @@
 # TAGLINE
 
-Pre-compute WPA/WPA2 PMK databases for faster cracking
+预计算 WPA/WPA2 PMK 数据库以加速破解
 
 # TLDR
 
-**Create** a new database
+**创建**一个新数据库
 
 ```airolib-ng [database.db] --init```
 
-**Import** a wordlist
+**导入**字典文件
 
 ```airolib-ng [database.db] --import passwd [wordlist.txt]```
 
-**Import** an ESSID
+**导入**一个 ESSID
 
 ```airolib-ng [database.db] --import essid [essid_file.txt]```
 
-**Batch process** (pre-compute PMKs)
+**批量处理**（预计算 PMK）
 
 ```airolib-ng [database.db] --batch```
 
-**Verify** database integrity
+**验证**数据库完整性
 
 ```airolib-ng [database.db] --verify```
 
-Show database **statistics**
+显示数据库**统计信息**
 
 ```airolib-ng [database.db] --stats```
 
@@ -34,49 +34,49 @@ Show database **statistics**
 
 # DESCRIPTION
 
-**airolib-ng** manages databases of pre-computed Pairwise Master Keys (PMKs) for WPA/WPA2 cracking. Computing PMKs is the slow part of WPA cracking; pre-computing them for common ESSIDs and passwords dramatically speeds up attacks.
+**airolib-ng** 管理用于 WPA/WPA2 破解的成对主密钥（PMK）预计算数据库。PMK 计算是 WPA 破解中最耗时的部分；针对常见 ESSID 和密码预先计算 PMK 可以显著加快攻击速度。
 
-The tool creates SQLite databases that aircrack-ng can use directly, trading storage space for cracking speed.
+该工具创建 aircrack-ng 可直接使用的 SQLite 数据库，用存储空间换取破解速度。
 
 # PARAMETERS
 
 **--init**
-> Initialize a new database
+> 初始化一个新数据库
 
 **--import passwd** _file_
-> Import passwords from wordlist
+> 从字典文件导入密码
 
 **--import essid** _file_
-> Import ESSIDs from file
+> 从文件导入 ESSID
 
 **--import cowpatty** _file_
-> Import cowpatty hash file
+> 导入 cowpatty 哈希文件
 
 **--batch**
-> Compute all missing PMKs
+> 计算所有缺失的 PMK
 
 **--batch --essid** _name_
-> Compute PMKs for specific ESSID
+> 为特定 ESSID 计算 PMK
 
 **--verify** [_all_]
-> Verify database integrity
+> 验证数据库完整性
 
 **--stats**
-> Show database statistics
+> 显示数据库统计信息
 
 **--clean** [_all_]
-> Remove computed PMKs
+> 移除已计算的 PMK
 
 **--sql** _query_
-> Execute SQL query
+> 执行 SQL 查询
 
 # CAVEATS
 
-Pre-computation only helps for known ESSIDs. Database files can become very large. PMKs are ESSID-specific; generic wordlist attacks don't benefit. Computing PMKs is CPU-intensive.
+预计算只对已知 ESSID 有帮助。数据库文件可能非常大。PMK 与 ESSID 绑定；通用字典攻击无法受益。计算 PMK 非常消耗 CPU。
 
 # HISTORY
 
-**airolib-ng** was added to the aircrack-ng suite to enable practical attacks against WPA/WPA2 networks by pre-computing the expensive PBKDF2 operations.
+**airolib-ng** 被加入 aircrack-ng 套件，是为了通过预计算开销巨大的 PBKDF2 运算，使对 WPA/WPA2 网络的实用化攻击成为可能。
 
 # INSTALL
 

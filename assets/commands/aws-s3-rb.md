@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove S3 buckets
+删除 S3 存储桶
 
 # TLDR
 
-**Delete an empty S3 bucket**
+**删除空的 S3 存储桶**
 
 ```aws s3 rb s3://[bucket-name]```
 
-**Force delete a bucket** and all its non-versioned objects
+**强制删除存储桶**及其所有未版本化的对象
 
 ```aws s3 rb s3://[bucket-name] --force```
 
-**Delete a bucket in a specific region**
+**删除特定区域中的存储桶**
 
 ```aws s3 rb s3://[bucket-name] --region [us-east-1]```
 
@@ -22,21 +22,21 @@ Remove S3 buckets
 
 # DESCRIPTION
 
-**aws s3 rb** (remove bucket) deletes an S3 bucket. By default, the bucket must be completely empty of objects before it can be deleted.
+**aws s3 rb**（remove bucket）删除 S3 存储桶。默认情况下，存储桶必须完全清空对象后才能删除。
 
-Use the **--force** option to automatically delete all non-versioned objects in the bucket before removing the bucket itself. This is a destructive operation that cannot be undone.
+使用 **--force** 选项可在删除存储桶本身之前自动删除桶中所有未版本化的对象。这是一个无法撤销的破坏性操作。
 
 # PARAMETERS
 
 **S3Uri**
-> The S3 URI of the bucket to delete (s3://bucket-name)
+> 要删除的存储桶的 S3 URI（s3://bucket-name）
 
 **--force**
-> Delete all objects in the bucket before deleting the bucket itself
+> 在删除存储桶本身之前删除桶中所有对象
 
 # CAVEATS
 
-The **--force** option only deletes non-versioned objects. If the bucket contains versioned objects or delete markers, the bucket deletion will fail even with **--force**. For buckets with versioning enabled, use **aws s3api delete-object** with **--version-id** to remove all object versions first, or configure a lifecycle policy to expire versions. Bucket deletion is permanent and the bucket name becomes available for others to use.
+**--force** 选项只删除未版本化的对象。如果存储桶中包含已版本化的对象或删除标记，即使加上 **--force** 删除也会失败。对于启用了版本控制的存储桶，请先使用 **aws s3api delete-object** 配合 **--version-id** 移除所有对象版本，或配置生命周期策略使版本过期。删除存储桶是永久性的，其名称将变为可被他人使用。
 
 # INSTALL
 

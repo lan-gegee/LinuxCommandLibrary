@@ -1,38 +1,38 @@
 # TAGLINE
 
-automated CD ripper and encoder
+自动化 CD 抓轨与编码工具
 
 # TLDR
 
-**Rip a CD** to the default format (usually Ogg Vorbis)
+将 CD **抓取**为默认格式（通常是 Ogg Vorbis）
 
 ```abcde```
 
-**Rip a CD** to MP3 format
+将 CD **抓取**为 MP3 格式
 
 ```abcde -o mp3```
 
-**Rip a CD** to FLAC format
+将 CD **抓取**为 FLAC 格式
 
 ```abcde -o flac```
 
-**Rip to multiple formats** simultaneously
+同时**抓取为多种格式**
 
 ```abcde -o flac,mp3,ogg```
 
-**Rip using multiple CPU cores** for faster encoding
+利用**多个 CPU 核心**抓轨以加快编码
 
 ```abcde -j [4]```
 
-**Rip in non-interactive mode** (no prompts)
+以**非交互模式**抓轨（不提示）
 
 ```abcde -N```
 
-**Rip specific tracks** from a CD
+只抓取 CD 上的**指定音轨**
 
 ```abcde [1] [3] [5]```
 
-**Rip from a specific CD device**
+从指定的 CD 设备抓轨
 
 ```abcde -d [/dev/sr0]```
 
@@ -43,96 +43,96 @@ automated CD ripper and encoder
 # PARAMETERS
 
 **-o** _format_
-> Output format: mp3, ogg, flac, opus, m4a, wav, spx, mpc, mka, wv, ape, mp2, tta, aiff
+> 输出格式：mp3、ogg、flac、opus、m4a、wav、spx、mpc、mka、wv、ape、mp2、tta、aiff
 
 **-d** _device_
-> Specify CD device (default: /dev/cdrom)
+> 指定 CD 设备（默认：/dev/cdrom）
 
 **-j** _n_
-> Run n encoding processes simultaneously (for multi-core systems)
+> 同时运行 n 个编码进程（适用于多核系统）
 
 **-a** _actions_
-> Specify actions: cddb, read, normalize, encode, tag, move, replaygain, playlist, clean
+> 指定动作：cddb、read、normalize、encode、tag、move、replaygain、playlist、clean
 
 **-N**
-> Non-interactive mode; never prompt for input
+> 非交互模式；从不请求输入
 
 **-n**
-> Skip CDDB lookup; use generic track names
+> 跳过 CDDB 查询；使用通用音轨名
 
 **-1**
-> Encode entire CD as a single track
+> 将整张 CD 编码为单一音轨
 
 **-c** _file_
-> Use specified configuration file
+> 使用指定的配置文件
 
 **-C** _discid_
-> Use specified CDDB disc ID for lookup
+> 使用指定的 CDDB 唱片 ID 进行查询
 
 **-p**
-> Pad track numbers with leading zeros
+> 音轨编号补前导零
 
 **-P**
-> Use Unix pipes for encoding (reduces disk usage)
+> 用 Unix 管道编码（减少磁盘占用）
 
 **-r** _host_
-> Remote ripping from specified host
+> 从指定主机远程抓轨
 
 **-S** _speed_
-> Set CD drive read speed
+> 设置光驱读取速度
 
 **-t** _n_
-> Start numbering tracks from n
+> 音轨从 n 开始编号
 
 **-T** _n_
-> Same as -t but also modifies playlist
+> 与 -t 相同，但还会修改播放列表
 
 **-x**
-> Eject CD after ripping completes
+> 抓轨完成后弹出 CD
 
 **-w** _comment_
-> Add comment to encoded files
+> 向编码后的文件添加注释
 
 **-W** _n_
-> Set disc number for multi-disc albums
+> 为多碟专辑设置碟号
 
 **-k**
-> Keep wav files after encoding
+> 编码后保留 wav 文件
 
 **-l**
-> Use low disk space mode
+> 使用低磁盘空间模式
 
 **-V**
-> Show version information
+> 显示版本信息
 
 **-h**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**abcde** (A Better CD Encoder) is a shell script that automates the process of ripping audio CDs and encoding them to various compressed formats. It handles the entire workflow from reading the disc to tagging the final files.
+**abcde**（A Better CD Encoder）是一个 shell 脚本，用于自动完成音频 CD 抓轨并编码为多种压缩格式的过程。它负责从读盘到给最终文件打标签的全部流程。
 
-The tool queries online databases (CDDB, MusicBrainz) to automatically retrieve track names, artist information, and album details. It uses backend programs like **cdparanoia** for secure ripping and encoders like **lame**, **oggenc**, **flac**, and **opusenc** for compression.
+该工具会查询在线数据库（CDDB、MusicBrainz）来自动获取音轨名称、艺术家信息和专辑详情。它使用 **cdparanoia** 等后端程序进行安全抓轨，并用 **lame**、**oggenc**、**flac**、**opusenc** 等编码器进行压缩。
 
-Multiple output formats can be generated in a single pass, and the encoding can be parallelized across multiple CPU cores using the **-j** option. Configuration is managed through **/etc/abcde.conf** or **~/.abcde.conf**, allowing customization of encoder settings, output paths, and naming conventions.
+一次运行即可生成多种输出格式，并可通过 **-j** 选项在多个 CPU 核心上并行编码。配置通过 **/etc/abcde.conf** 或 **~/.abcde.conf** 管理，可自定义编码器设置、输出路径和命名规则。
 
 # CONFIGURATION
 
 **/etc/abcde.conf**
-> System-wide configuration file with default settings for all users.
+> 面向所有用户的系统级默认配置文件。
 
 **~/.abcde.conf**
-> Per-user configuration file that overrides system defaults. Controls output format, encoder options, file naming templates, CDDB server, and post-processing actions.
+> 覆盖系统默认值的每用户配置文件。控制输出格式、编码器选项、文件命名模板、CDDB 服务器和后处理动作。
 
-Key configuration variables include **OUTPUTTYPE** (output format), **OUTPUTDIR** (destination directory), **LAMEOPTS** / **OGGENCOPTS** / **FLACOPTS** (encoder-specific options), **CDDBMETHOD** (metadata lookup method), and **MUNGEDFILENAME** (filename character handling).
+关键配置变量包括 **OUTPUTTYPE**（输出格式）、**OUTPUTDIR**（目标目录）、**LAMEOPTS** / **OGGENCOPTS** / **FLACOPTS**（各编码器专属选项）、**CDDBMETHOD**（元数据查询方式）和 **MUNGEDFILENAME**（文件名字符处理）。
 
 # CAVEATS
 
-Requires backend programs for ripping (cdparanoia or cdda2wav) and encoding (lame for MP3, oggenc for Ogg, flac for FLAC, etc.) to be installed separately. CDDB lookups require network connectivity. Some encoders like lame may need to be installed from non-free repositories due to patent considerations.
+需要单独安装抓轨后端（cdparanoia 或 cdda2wav）和编码器（MP3 用 lame、Ogg 用 oggenc、FLAC 用 flac 等）。CDDB 查询需要网络连接。出于专利考虑，lame 等部分编码器可能需要从 non-free 软件仓库安装。
 
 # HISTORY
 
-**abcde** was created by **Robert Woodcock** in **1998** as a simple way to automate CD ripping on Linux systems. The name stands for "A Better CD Encoder," reflecting its goal of simplifying what was previously a multi-step manual process. It has been actively maintained and expanded to support modern formats like Opus and AAC while remaining a pure shell script.
+**abcde** 由 **Robert Woodcock** 于 **1998 年**创建，目的是提供一种在 Linux 上自动抓取 CD 的简单方法。其名字意为"A Better CD Encoder"，反映出简化此前多步骤手动操作的目标。它一直得到积极维护，陆续支持了 Opus 和 AAC 等现代格式，同时始终保持纯 shell 脚本的实现。
 
 # INSTALL
 

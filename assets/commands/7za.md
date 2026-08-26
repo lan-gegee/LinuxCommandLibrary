@@ -1,26 +1,26 @@
 # TAGLINE
 
-standalone file archiver from the 7-Zip family
+7-Zip 家族中的独立版文件归档工具
 
 # TLDR
 
-**Create archive**
+**创建归档**
 
 ```7za a [archive.7z] [files...]```
 
-**Extract archive**
+**解压归档**
 
 ```7za x [archive.7z]```
 
-**List archive contents**
+**列出归档内容**
 
 ```7za l [archive.7z]```
 
-**Create zip archive**
+**创建 zip 归档**
 
 ```7za a -tzip [archive.zip] [files]```
 
-**Extract with password**
+带密码解压
 
 ```7za x -p[password] [archive.7z]```
 
@@ -31,70 +31,70 @@ standalone file archiver from the 7-Zip family
 # COMMANDS
 
 **a**
-> Add files to archive
+> 向归档添加文件
 
 **x**
-> Extract with full paths
+> 按完整路径解压
 
 **e**
-> Extract (flat, no paths)
+> 解压（扁平化，不带路径）
 
 **l**
-> List archive contents
+> 列出归档内容
 
 **t**
-> Test archive integrity
+> 测试归档完整性
 
 **d**
-> Delete from archive
+> 从归档中删除
 
 **u**
-> Update archive
+> 更新归档
 
 # PARAMETERS
 
 **-o**_dir_
-> Output directory
+> 输出目录
 
 **-p**_password_
-> Set password
+> 设置密码
 
 **-mx=**_n_
-> Compression level (0-9)
+> 压缩级别（0-9）
 
 **-t**_type_
-> Archive type (7z, zip, gzip, bzip2, xz, tar)
+> 归档类型（7z、zip、gzip、bzip2、xz、tar）
 
 **-r**
-> Recurse subdirectories
+> 递归处理子目录
 
 **-y**
-> Assume yes to queries
+> 询问时自动回答 yes
 
 **-si**
-> Read from stdin
+> 从标准输入读取
 
 **-so**
-> Write to stdout
+> 写到标准输出
 
 **-mhe=on**
-> Encrypt archive headers (7z format)
+> 加密归档头（7z 格式）
 
 # DESCRIPTION
 
-**7za** is the standalone version of the 7-Zip command-line tool. Unlike **7z** which may use external plugins, 7za includes all codecs in a single executable.
+**7za** 是 7-Zip 命令行工具的独立版本。与可能调用外部插件的 **7z** 不同，7za 将所有编解码器包含在单个可执行文件中。
 
-7za supports fewer formats than the full 7z but is more portable as a single binary. It handles 7z, ZIP, GZIP, BZIP2, XZ, TAR, and CAB formats.
+7za 支持的格式少于完整的 7z，但作为单一二进制文件更具可移植性。它可处理 7z、ZIP、GZIP、BZIP2、XZ、TAR 和 CAB 格式。
 
-The command syntax is identical to **7z**. For scripts that only need common formats, 7za is often preferred for its simplicity and reliability.
+其命令语法与 **7z** 完全相同。对于只需要常见格式的脚本，7za 因简单可靠而常被优先选用。
 
 # CAVEATS
 
-7za supports fewer formats than 7z. For RAR, CAB, or ISO extraction, use the full 7z command.
+7za 支持的格式少于 7z。要解压 RAR、CAB 或 ISO，请使用完整的 7z 命令。
 
-The "a" in 7za stands for "alone" (standalone), not "alpha" or "advanced".
+7za 中的 "a" 代表 "alone"（独立），而不是 "alpha" 或 "advanced"。
 
-Performance is identical to 7z for supported formats.
+对所支持的格式而言，性能与 7z 相同。
 
 # INSTALL
 

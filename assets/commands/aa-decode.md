@@ -1,22 +1,22 @@
 # TAGLINE
 
-Decode hex-encoded strings in AppArmor logs
+解码 AppArmor 日志中的十六进制编码字符串
 
 # TLDR
 
-**Decode** a single hex-encoded string
+**解码**单个十六进制编码字符串
 
 ```aa-decode [hexstring]```
 
-Decode hex-encoded paths in a **log file** via stdin
+通过标准输入解码**日志文件**中的十六进制编码路径
 
 ```aa-decode < [/var/log/audit/audit.log]```
 
-Pipe **kernel logs** through aa-decode
+将**内核日志**通过管道送入 aa-decode
 
 ```cat /var/log/kern.log | aa-decode```
 
-Decode the **current journal** AppArmor entries
+解码**当前 journal** 中的 AppArmor 条目
 
 ```journalctl -k | aa-decode```
 
@@ -26,22 +26,22 @@ Decode the **current journal** AppArmor entries
 
 # DESCRIPTION
 
-**aa-decode** decodes hexadecimal-encoded strings found in AppArmor log output. It processes audit logs from standard input and converts any hex-encoded AppArmor entries to human-readable format on standard output.
+**aa-decode** 用于解码 AppArmor 日志输出中出现的十六进制编码字符串。它处理来自标准输入的审计日志，并将其中所有十六进制编码的 AppArmor 条目转换成可读格式，写到标准输出。
 
-AppArmor encodes certain characters (like spaces and special characters) in hexadecimal format within log entries to prevent parsing issues. This utility converts those back to readable text.
+AppArmor 会把日志条目中的某些字符（如空格和特殊字符）以十六进制格式编码，以避免解析问题。此工具将这些内容还原为可读文本。
 
 # PARAMETERS
 
 **--help**
-> Displays usage information
+> 显示用法信息
 
 # CAVEATS
 
-The utility only decodes hexadecimal strings in the specific format used by AppArmor logs. Other hex-encoded data may not be decoded correctly.
+该工具只能解码 AppArmor 日志所用特定格式的十六进制字符串。其他十六进制编码的数据可能无法正确解码。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

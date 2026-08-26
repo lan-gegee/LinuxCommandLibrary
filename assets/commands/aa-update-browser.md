@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage browser abstraction includes in AppArmor profiles
+管理 AppArmor 配置文件中的浏览器抽象 include
 
 # TLDR
 
-**List** available browser abstraction profiles
+**列出**可用的浏览器抽象配置文件
 
 ```sudo aa-update-browser -l```
 
-Show what changes would be made **(dry-run)**
+显示将要进行的更改（**试运行**）
 
 ```sudo aa-update-browser -d [path/to/profile]```
 
-**Update** a profile with specific abstractions
+用指定的抽象**更新**配置文件
 
 ```sudo aa-update-browser -u [abstraction1,abstraction2] [path/to/profile]```
 
-**Remove** all abstractions from a profile
+**移除**配置文件中的所有抽象
 
 ```sudo aa-update-browser -u '' [path/to/profile]```
 
@@ -26,31 +26,31 @@ Show what changes would be made **(dry-run)**
 
 # DESCRIPTION
 
-**aa-update-browser** updates AppArmor browser profiles to use supported abstractions. This utility helps maintain browser profiles by allowing administrators to add, modify, or remove browser-specific abstraction includes.
+**aa-update-browser** 更新 AppArmor 浏览器配置文件，使其使用受支持的抽象。该工具让管理员能够添加、修改或删除浏览器相关的抽象 include，从而帮助维护浏览器配置文件。
 
-Browser abstractions provide pre-defined access rules for common browser operations, simplifying profile management.
+浏览器抽象为常见的浏览器操作提供预定义的访问规则，简化了配置文件的管理。
 
 # PARAMETERS
 
 **-l**
-> Show the supported browser abstractions.
+> 显示受支持的浏览器抽象。
 
 **-d**
-> Dry-run. Only show what would be done to the given profile without applying changes.
+> 试运行。只显示对给定配置文件将执行的操作，不实际应用更改。
 
 **-u** _ABSTRACTIONS_
-> Update the given profile with the comma-separated list of ABSTRACTIONS. Specifying '' removes all abstractions.
+> 用逗号分隔的 ABSTRACTIONS 列表更新给定配置文件。指定 '' 则移除所有抽象。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # CAVEATS
 
-Modifying browser profiles may affect browser functionality. Test changes in complain mode before enforcing.
+修改浏览器配置文件可能影响浏览器的功能。建议先在投诉模式下测试更改，再启用强制模式。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # SEE ALSO
 

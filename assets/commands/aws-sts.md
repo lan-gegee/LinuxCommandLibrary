@@ -1,30 +1,30 @@
 # TAGLINE
 
-Request temporary security credentials and verify identity.
+请求临时安全凭证并验证身份。
 
 # TLDR
 
-**Get the identity** of the current caller
+**获取**当前调用者的**身份**
 
 ```aws sts get-caller-identity```
 
-**Assume an IAM role**
+**担任 IAM 角色**
 
 ```aws sts assume-role --role-arn [arn:aws:iam::account:role/role-name] --role-session-name [session-name]```
 
-**Get temporary session credentials**
+**获取临时会话凭证**
 
 ```aws sts get-session-token --duration-seconds [3600]```
 
-**Assume a role with MFA**
+配合 MFA **担任角色**
 
 ```aws sts assume-role --role-arn [arn:aws:iam::account:role/role-name] --role-session-name [session-name] --serial-number [arn:aws:iam::account:mfa/device] --token-code [123456]```
 
-**Get account ID** from an access key
+从访问密钥**获取账户 ID**
 
 ```aws sts get-access-key-info --access-key-id [AKIAIOSFODNN7EXAMPLE]```
 
-**Decode an authorization error message**
+**解码授权错误消息**
 
 ```aws sts decode-authorization-message --encoded-message [encoded-message]```
 
@@ -34,9 +34,9 @@ Request temporary security credentials and verify identity.
 
 # DESCRIPTION
 
-**aws sts** is the AWS CLI interface for AWS Security Token Service (STS), which enables you to request temporary, limited-privilege credentials for IAM users or federated users.
+**aws sts** 是 AWS CLI 中用于管理 AWS Security Token Service（STS）的接口。STS 可为 IAM 用户或联合身份用户请求临时的、权限受限的凭证。
 
-STS is essential for cross-account access, identity federation, and implementing least-privilege security. Temporary credentials include an access key, secret key, and session token with configurable expiration.
+STS 对于跨账户访问、身份联合以及实施最小权限安全至关重要。临时凭证包括访问密钥、秘密密钥和会话令牌，过期时间可配置。
 
 # SUBCOMMANDS
 
@@ -58,30 +58,30 @@ STS is essential for cross-account access, identity federation, and implementing
 # PARAMETERS
 
 **--role-arn** _value_
-> The ARN of the role to assume
+> 要担任的角色的 ARN
 
 **--role-session-name** _value_
-> An identifier for the assumed role session
+> 担任角色会话的标识符
 
 **--duration-seconds** _value_
-> Duration of the temporary credentials (900-43200 seconds)
+> 临时凭证的有效时长（900-43200 秒）
 
 **--serial-number** _value_
-> The ARN of the MFA device for MFA-protected operations
+> 用于 MFA 保护操作的 MFA 设备 ARN
 
 **--token-code** _value_
-> The value from the MFA device
+> MFA 设备提供的验证码
 
 **--external-id** _value_
-> A unique identifier for cross-account access
+> 跨账户访问的唯一标识符
 
 # CAVEATS
 
-Temporary credentials have a maximum duration of 12 hours for role assumption (1 hour default). MFA-protected role assumptions require both **--serial-number** and **--token-code**. Chained role assumptions (assuming a role from an assumed role) have a maximum duration of 1 hour.
+担任角色的临时凭证最长有效期为 12 小时（默认 1 小时）。受 MFA 保护的角色担任需要同时提供 **--serial-number** 和 **--token-code**。链式角色担任（从已担任的角色再担任另一角色）最长有效期只有 1 小时。
 
 # HISTORY
 
-AWS STS has been available since the launch of IAM in **May 2011**, enabling temporary security credentials for AWS services. It has expanded to support web identity federation, SAML 2.0, and various assume-role scenarios.
+自 IAM 于 **2011 年 5 月**推出起，AWS STS 即已可用，为 AWS 服务提供临时安全凭证。它此后扩展出 Web 身份联合、SAML 2.0 以及多种角色担任场景的支持。
 
 # INSTALL
 

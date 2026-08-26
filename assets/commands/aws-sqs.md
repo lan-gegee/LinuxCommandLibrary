@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage Simple Queue Service queues and messages.
+管理 Simple Queue Service 队列和消息。
 
 # TLDR
 
-**Create a new queue**
+**创建新队列**
 
 ```aws sqs create-queue --queue-name [queue-name]```
 
-**List all queues**
+**列出所有队列**
 
 ```aws sqs list-queues```
 
-**Get the URL** of a queue
+**获取队列的 URL**
 
 ```aws sqs get-queue-url --queue-name [queue-name]```
 
-**Send a message** to a queue
+向队列**发送消息**
 
 ```aws sqs send-message --queue-url [queue-url] --message-body "[message content]"```
 
-**Receive messages** with long polling (waits up to 20s)
+以长轮询方式**接收消息**（最多等待 20 秒）
 
 ```aws sqs receive-message --queue-url [queue-url] --max-number-of-messages [10] --wait-time-seconds [20]```
 
-**Delete a message** after processing
+处理完成后**删除消息**
 
 ```aws sqs delete-message --queue-url [queue-url] --receipt-handle [handle]```
 
-**Purge all messages** from a queue
+**清空**队列中的所有消息
 
 ```aws sqs purge-queue --queue-url [queue-url]```
 
-**Delete a queue**
+**删除队列**
 
 ```aws sqs delete-queue --queue-url [queue-url]```
 
@@ -42,9 +42,9 @@ Manage Simple Queue Service queues and messages.
 
 # DESCRIPTION
 
-**aws sqs** is the AWS CLI interface for Amazon Simple Queue Service (SQS), a fully managed message queuing service for decoupling and scaling distributed systems and serverless applications.
+**aws sqs** 是 AWS CLI 中用于管理 Amazon Simple Queue Service（SQS）的接口。SQS 是一项全托管的消息队列服务，用于解耦和扩展分布式系统及无服务器应用。
 
-SQS offers two queue types: Standard queues with maximum throughput and at-least-once delivery, and FIFO queues with exactly-once processing and ordered delivery. Messages can be retained for up to 14 days.
+SQS 提供两种队列类型：具有最大吞吐量和至少一次投递保证的标准队列，以及提供精确一次处理和有序投递的 FIFO 队列。消息最长可保留 14 天。
 
 # SUBCOMMANDS
 
@@ -65,11 +65,11 @@ SQS offers two queue types: Standard queues with maximum throughput and at-least
 
 # CAVEATS
 
-Messages must be explicitly deleted after processing; SQS does not auto-delete consumed messages. The visibility timeout makes messages temporarily invisible to other consumers while processing. Standard queues may deliver duplicate messages; use FIFO queues for exactly-once processing. Maximum message size is 256KB; use S3 for larger payloads.
+消息在处理完成后必须显式删除；SQS 不会自动删除已消费的消息。可见性超时使正在处理的消息对其他消费者暂时不可见。标准队列可能重复投递消息；需要精确一次处理时请使用 FIFO 队列。单条消息最大为 256KB；更大的负载请使用 S3。
 
 # HISTORY
 
-Amazon SQS launched in **July 2006** as one of AWS's first services, predating S3. It was redesigned in **2014** with significant improvements to throughput and latency. FIFO queues were added in **2016** to support ordered message processing.
+Amazon SQS 于 **2006 年 7 月**上线，早于 S3，是 AWS 最早期服务之一。它于 **2014 年**重新设计，吞吐量和延迟得到显著改进。FIFO 队列于 **2016 年**加入，以支持有序的消息处理。
 
 # INSTALL
 

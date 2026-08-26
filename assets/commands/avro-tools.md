@@ -1,34 +1,34 @@
 # TAGLINE
 
-Utilities for working with Apache Avro data files
+处理 Apache Avro 数据文件的工具集
 
 # TLDR
 
-**Convert JSON to Avro**
+**将 JSON 转换为 Avro**
 
 ```avro-tools fromjson --schema-file [schema.avsc] [input.json] > [output.avro]```
 
-**Convert Avro to JSON**
+**将 Avro 转换为 JSON**
 
 ```avro-tools tojson [input.avro] > [output.json]```
 
-**Display Avro file schema**
+**显示 Avro 文件的 schema**
 
 ```avro-tools getschema [file.avro]```
 
-**Display file metadata**
+**显示文件元数据**
 
 ```avro-tools getmeta [file.avro]```
 
-**Concatenate Avro files**
+**拼接多个 Avro 文件**
 
 ```avro-tools concat [file1.avro] [file2.avro] [output.avro]```
 
-**Compile Avro schema to Java**
+**将 Avro schema 编译为 Java**
 
 ```avro-tools compile schema [schema.avsc] [output_directory]```
 
-**Generate random data from schema**
+**根据 schema 生成随机数据**
 
 ```avro-tools random --schema-file [schema.avsc] --count [100] [output.avro]```
 
@@ -39,56 +39,56 @@ Utilities for working with Apache Avro data files
 # PARAMETERS
 
 **fromjson**
-> Convert JSON to Avro format.
+> 将 JSON 转换为 Avro 格式。
 
 **tojson**
-> Convert Avro to JSON format.
+> 将 Avro 转换为 JSON 格式。
 
 **getschema**
-> Extract and print the schema from an Avro file.
+> 从 Avro 文件中提取并打印 schema。
 
 **getmeta**
-> Print metadata from an Avro file.
+> 打印 Avro 文件中的元数据。
 
 **concat**
-> Concatenate multiple Avro files with compatible schemas.
+> 拼接多个具有兼容 schema 的 Avro 文件。
 
 **compile**
-> Compile schema to Java source files.
+> 将 schema 编译为 Java 源文件。
 
 **idl**
-> Compile Avro IDL to schema.
+> 将 Avro IDL 编译为 schema。
 
 **random**
-> Generate random data based on a schema.
+> 根据 schema 生成随机数据。
 
 **recodec**
-> Change the codec of an Avro file.
+> 更改 Avro 文件的编解码器。
 
 **--schema-file** _file_
-> Path to Avro schema file (.avsc).
+> Avro schema 文件（.avsc）的路径。
 
 **--count** _n_
-> Number of records to generate (for random).
+> 要生成的记录数（用于 random）。
 
 **--codec** _name_
-> Compression codec (null, deflate, snappy, bzip2, zstd, xz).
+> 压缩编解码器（null、deflate、snappy、bzip2、zstd、xz）。
 
 # DESCRIPTION
 
-**avro-tools** is a collection of utilities for working with Apache Avro data files. Avro is a data serialization system that provides rich data structures, a compact binary format, and schema evolution capabilities.
+**avro-tools** 是一组用于处理 Apache Avro 数据文件的工具。Avro 是一种数据序列化系统，提供丰富的数据结构、紧凑的二进制格式以及 schema 演进能力。
 
-The tools enable conversion between Avro's binary format and human-readable JSON, schema extraction and validation, file manipulation, and code generation. Avro files are self-describing, containing their schema alongside the data, which avro-tools can extract and display.
+这些工具支持在 Avro 二进制格式与人类可读的 JSON 之间转换、schema 提取与校验、文件操作以及代码生成。Avro 文件是自描述的，数据旁边就带有自己的 schema，avro-tools 可以提取并显示它。
 
-Common workflows include inspecting Avro files produced by data pipelines, converting data between formats for debugging, generating test data, and compiling schemas to language-specific classes for application development.
+常见工作流包括：检查数据管道产出的 Avro 文件、为调试在格式之间转换数据、生成测试数据，以及将 schema 编译为特定语言的类以供应用开发使用。
 
 # CAVEATS
 
-JSON to Avro conversion requires a schema file; the JSON structure must match the schema. Large files may require increased JVM heap space (**-Xmx** option). Schema compatibility is enforced when concatenating files. The tool is distributed as a Java JAR file and requires a JRE.
+JSON 转 Avro 需要 schema 文件；JSON 结构必须与 schema 匹配。大文件可能需要增大 JVM 堆空间（**-Xmx** 选项）。拼接文件时会强制检查 schema 兼容性。该工具以 Java JAR 文件形式分发，需要 JRE。
 
 # HISTORY
 
-Apache Avro was created by **Doug Cutting** (also creator of Hadoop and Lucene) and first released in **2009**. It was developed to address limitations of existing serialization frameworks when working with big data systems like Hadoop. Avro became a top-level Apache project in **2010** and is widely used in data engineering, particularly with Kafka, Spark, and Hadoop ecosystems.
+Apache Avro 由 **Doug Cutting**（也是 Hadoop 和 Lucene 的创造者）创建，于 **2009** 年首次发布。它的开发是为了解决现有序列化框架在配合 Hadoop 等大数据系统工作时的局限性。Avro 于 **2010** 年成为 Apache 顶级项目，广泛应用于数据工程领域，尤其是 Kafka、Spark 和 Hadoop 生态。
 
 # INSTALL
 

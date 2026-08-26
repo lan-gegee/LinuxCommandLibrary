@@ -1,18 +1,18 @@
 # TAGLINE
 
-Diagnose and troubleshoot Java applications in real time.
+实时诊断和排查 Java 应用。
 
 # TLDR
 
-**Attach** to Java process
+**附加到** Java 进程
 
 ```java -jar arthas-boot.jar [PID]```
 
-Select process **interactively**
+**交互式**选择进程
 
 ```java -jar arthas-boot.jar```
 
-Attach with **specific port**
+以**指定端口**附加
 
 ```java -jar arthas-boot.jar --telnet-port [3658] --http-port [8563] [PID]```
 
@@ -22,62 +22,62 @@ Attach with **specific port**
 
 # DESCRIPTION
 
-**Arthas** is an Alibaba open-source Java diagnostic tool. It enables real-time monitoring and troubleshooting of Java applications without stopping them or modifying code.
+**Arthas** 是阿里巴巴开源的 Java 诊断工具。它可以在不停止应用、不修改代码的情况下对 Java 应用进行实时监控和故障排查。
 
-Features include method tracing, class decompilation, monitoring metrics, and OGNL expression evaluation on live JVMs.
+功能包括方法追踪、类反编译、监控指标，以及对运行中的 JVM 进行 OGNL 表达式求值。
 
 # PARAMETERS
 
 **pid**
-> Java process ID to attach
+> 要附加的 Java 进程 ID
 
 **--telnet-port** _port_
-> Telnet console port
+> Telnet 控制台端口
 
 **--http-port** _port_
-> HTTP API port
+> HTTP API 端口
 
 **--target-ip** _ip_
-> IP to bind
+> 要绑定的 IP 地址
 
 **--tunnel-server** _url_
-> Tunnel server URL
+> 隧道服务器 URL
 
 # COMMON COMMANDS
 
 **dashboard**
-> System overview
+> 系统总览
 
 **trace** _class_ _method_
-> Trace method execution
+> 追踪方法执行
 
 **watch** _class_ _method_
-> Watch method input/output
+> 观察方法的输入/输出
 
 **jad** _class_
-> Decompile class
+> 反编译类
 
 **sc** _pattern_
-> Search loaded classes
+> 搜索已加载的类
 
 **thread**
-> Show thread info
+> 显示线程信息
 
 **monitor** _class_ _method_
-> Monitor method stats
+> 监控方法的统计信息
 
 # CONFIGURATION
 
 **~/.arthas/arthas.properties**
-> Default configuration for telnet port, HTTP port, target IP, and tunnel server settings.
+> Telnet 端口、HTTP 端口、目标 IP 和隧道服务器等设置的默认配置。
 
 # CAVEATS
 
-Attaching to production JVMs should be done carefully. Some features may impact performance. Requires compatible JVM version.
+附加到生产环境的 JVM 应当谨慎操作。部分功能可能影响性能。需要版本兼容的 JVM。
 
 # HISTORY
 
-**Arthas** was developed by Alibaba and open-sourced in **2018**. It has become a popular Java diagnostic tool, especially in the Chinese developer community.
+**Arthas** 由阿里巴巴开发，于 **2018** 年开源。它已成为广受欢迎的 Java 诊断工具，在中文开发者社区尤为流行。
 
 # INSTALL
 

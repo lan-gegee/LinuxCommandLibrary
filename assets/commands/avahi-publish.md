@@ -1,30 +1,30 @@
 # TAGLINE
 
-Register mDNS/DNS-SD services and address mappings
+注册 mDNS/DNS-SD 服务和地址映射
 
 # TLDR
 
-**Register** a service on the local network
+在本地网络上**注册**一项服务
 
 ```avahi-publish -s "[service_name]" [service_type] [port]```
 
-**Register** a service with TXT records
+带 TXT 记录**注册**服务
 
 ```avahi-publish -s "[service_name]" _http._tcp [port] "path=/index.html"```
 
-**Register** a hostname to IP address mapping
+**注册**主机名到 IP 地址的映射
 
 ```avahi-publish -a [hostname] [ip_address]```
 
-**Register** a service in verbose mode
+以详细模式**注册**服务
 
 ```avahi-publish -s -v "[service_name]" [service_type] [port]```
 
-**Register** a service in a specific domain
+在特定域中**注册**服务
 
 ```avahi-publish -s --domain=[domain] "[service_name]" [service_type] [port]```
 
-**Register** with a subtype
+带子类型**注册**
 
 ```avahi-publish -s --subtype=[subtype] "[service_name]" [service_type] [port]```
 
@@ -37,54 +37,54 @@ Register mDNS/DNS-SD services and address mappings
 # PARAMETERS
 
 **-s, --service**
-> Register a service (requires name, service type, and port)
+> 注册一项服务（需要名称、服务类型和端口）
 
 **-a, --address**
-> Register hostname-to-address mapping
+> 注册主机名到地址的映射
 
 **-v, --verbose**
-> Enable verbose output with detailed information
+> 启用包含详细信息的详细输出
 
 **-H, --host=**_HOSTNAME_
-> Specify remote host name for the service
+> 为服务指定远程主机名
 
 **-d, --domain=**_DOMAIN_
-> Publish in specified domain (default: .local)
+> 在指定域中发布（默认：.local）
 
 **--subtype=**_SUBTYPE_
-> Add subtype registration to the primary service type (repeatable)
+> 为主服务类型添加子类型注册（可重复）
 
 **-R, --no-reverse**
-> Skip publishing reverse (address-to-name) entry
+> 跳过发布反向（地址到名称）条目
 
 **-f, --no-fail**
-> Continue and reconnect if daemon becomes unavailable
+> 守护进程不可用时继续等待并重连
 
 **-h, --help**
-> Display help information
+> 显示帮助信息
 
 **-V, --version**
-> Show version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**avahi-publish** is a command-line utility for registering mDNS/DNS-SD services or hostname-to-address mappings through the Avahi daemon. It enables network service advertisement and hostname resolution on local networks using **mDNS** (Multicast DNS) and **DNS-SD** (DNS Service Discovery) protocols.
+**avahi-publish** 是一个命令行工具，用于通过 Avahi 守护进程注册 mDNS/DNS-SD 服务或主机名到地址的映射。它借助 **mDNS**（多播 DNS）和 **DNS-SD**（DNS 服务发现）协议，在本地网络上实现网络服务通告和主机名解析。
 
-The tool operates in two primary modes:
+该工具有两种主要工作模式：
 
-> **Service Registration Mode** (**-s**): Registers a network service by specifying a DNS-SD service name (e.g., "Web Server"), a service type (e.g., _http._tcp), and an IP port number. Optional TXT record strings can be appended to provide additional service metadata like path, version, or configuration parameters.
+> **服务注册模式**（**-s**）：通过指定 DNS-SD 服务名称（如 "Web Server"）、服务类型（如 _http._tcp）和 IP 端口号来注册网络服务。可以追加可选的 TXT 记录字符串，提供路径、版本或配置参数等附加服务元数据。
 
-> **Address/Hostname Registration Mode** (**-a**): Registers a mapping between a fully qualified hostname and an IPv4 or IPv6 address, enabling name resolution via mDNS.
+> **地址/主机名注册模式**（**-a**）：注册完全限定主机名与 IPv4 或 IPv6 地址之间的映射，从而支持基于 mDNS 的名称解析。
 
-When started, **avahi-publish** connects to the Avahi daemon and maintains the registration until the process is terminated. The registration is automatically withdrawn when the process exits.
+启动后，**avahi-publish** 连接到 Avahi 守护进程并维持注册状态，直到进程被终止。进程退出时注册会自动撤销。
 
-Service types follow the DNS-SD naming convention: **_service._proto** where service identifies the application protocol (http, ssh, ftp) and proto is either _tcp or _udp. For example, **_http._tcp** for HTTP services or **_ssh._tcp** for SSH.
+服务类型遵循 DNS-SD 命名约定：**_service._proto**，其中 service 标识应用层协议（http、ssh、ftp），proto 为 _tcp 或 _udp。例如 HTTP 服务用 **_http._tcp**，SSH 用 **_ssh._tcp**。
 
-By default, services are published in the **.local** domain, but this can be changed using the **--domain** option. The tool also supports service subtypes via **--subtype**, allowing additional service categorization.
+默认情况下，服务发布在 **.local** 域中，但可以通过 **--domain** 选项更改。该工具还通过 **--subtype** 支持服务子类型，实现额外的服务分类。
 
 # CAVEATS
 
-Requires **avahi-daemon** to be running. The registration persists only while the **avahi-publish** process is active; terminating the process removes the service advertisement. For persistent service registration, use service definition files in **/etc/avahi/services/**.
+需要 **avahi-daemon** 正在运行。注册仅在 **avahi-publish** 进程存活期间有效；终止进程即撤销服务通告。如需持久的服务注册，请使用 **/etc/avahi/services/** 中的服务定义文件。
 
 # INSTALL
 

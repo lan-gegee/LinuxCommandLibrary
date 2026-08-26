@@ -1,38 +1,38 @@
 # TAGLINE
 
-Display metadata from container images.
+显示容器镜像中的元数据。
 
 # TLDR
 
-Show the **labels** of an image (default)
+显示镜像的**标签**（默认行为）
 
 ```apptainer inspect [path/to/image.sif]```
 
-Show the **definition file** used to build the image
+显示构建镜像所用的**定义文件**
 
 ```apptainer inspect -d [path/to/image.sif]```
 
-Show the **runscript** for the image
+显示镜像的 **runscript**
 
 ```apptainer inspect -r [path/to/image.sif]```
 
-Show the **environment variables** of the image
+显示镜像的**环境变量**
 
 ```apptainer inspect -e [path/to/image.sif]```
 
-Show the **startscript** for the image
+显示镜像的 **startscript**
 
 ```apptainer inspect -s [path/to/image.sif]```
 
-Inspect a **specific app** within the container
+检查容器内的**特定应用**
 
 ```apptainer inspect --app [app_name] [path/to/image.sif]```
 
-**List all apps** in the container
+**列出容器中的所有应用**
 
 ```apptainer inspect --list-apps [path/to/image.sif]```
 
-Show **all available data** in JSON format
+以 JSON 格式显示**所有可用数据**
 
 ```apptainer inspect --all [path/to/image.sif]```
 
@@ -42,44 +42,44 @@ Show **all available data** in JSON format
 
 # DESCRIPTION
 
-**apptainer inspect** displays metadata embedded in Apptainer container images. This includes labels, the definition file used to build the container, runscripts, environment settings, and information about bundled apps.
+**apptainer inspect** 显示嵌入在 Apptainer 容器镜像中的元数据，包括标签、构建容器所用的定义文件、runscript、环境设置以及所打包应用的信息。
 
-The metadata provides valuable information for understanding container provenance, reproducibility, and intended usage.
+这些元数据为了解容器的来源、可复现性和预期用途提供了有价值的信息。
 
 # PARAMETERS
 
 **-l, --labels**
-> Show the labels for the image (default behavior)
+> 显示镜像的标签（默认行为）
 
 **-d, --deffile**
-> Display the definition file used to build the container
+> 显示构建容器所用的定义文件
 
 **-r, --runscript**
-> Display the container's runscript
+> 显示容器的 runscript
 
 **-s, --startscript**
-> Display the startscript for the image
+> 显示镜像的 startscript
 
 **-t, --test**
-> Display the test script for the image
+> 显示镜像的测试脚本
 
 **-e, --environment**
-> Display environment variables set in the container
+> 显示容器中设置的环境变量
 
 **-H, --helpfile**
-> Display the runscript helpfile, if it exists
+> 显示 runscript 的帮助文件（如存在）
 
 **--app** _name_
-> Inspect a specific SCIF application within the container
+> 检查容器内特定的 SCIF 应用
 
 **--list-apps**
-> List all SCIF apps installed in the container
+> 列出容器中安装的所有 SCIF 应用
 
 **--all**
-> Display all available metadata (implies --json)
+> 显示所有可用元数据（隐含 --json）
 
 **-j, --json**
-> Output results in JSON format
+> 以 JSON 格式输出结果
 
 # INSTALL
 

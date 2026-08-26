@@ -1,34 +1,34 @@
 # TAGLINE
 
-Install packages from configured repositories.
+从已配置的仓库安装软件包。
 
 # TLDR
 
-**Install** a package or update it to the latest version
+**安装**软件包或将其更新到最新版本
 
 ```sudo apt install [package]```
 
-Display **verbose version information** during installation
+安装时显示**详细的版本信息**
 
 ```sudo apt install -V [package]```
 
-Install a **specific version** of a package
+安装软件包的**特定版本**
 
 ```sudo apt install [package]=[version]```
 
-Install **without prompting** for confirmation
+**不经确认提示**直接安装
 
 ```sudo apt install -y [package]```
 
-**Reinstall** an already installed package
+**重新安装**已安装的软件包
 
 ```sudo apt install --reinstall [package]```
 
-Install **without recommended** packages
+安装时**不包含推荐的**软件包
 
 ```sudo apt install --no-install-recommends [package]```
 
-**Fix broken** dependencies
+**修复损坏的**依赖关系
 
 ```sudo apt install -f```
 
@@ -38,50 +38,50 @@ Install **without recommended** packages
 
 # DESCRIPTION
 
-**apt install** is the standard command for installing packages on Debian-based distributions. It handles dependency resolution, downloads packages from configured repositories, and installs them on the system.
+**apt install** 是在基于 Debian 的发行版上安装软件包的标准命令。它负责解析依赖关系、从已配置的仓库下载软件包并将其安装到系统中。
 
-If the specified package is already installed, the command will upgrade it to the latest available version. Multiple packages can be specified in a single command.
+如果指定的软件包已经安装，该命令会将其升级到最新的可用版本。单条命令可以指定多个软件包。
 
 # PARAMETERS
 
 **-y, --yes**
-> Automatic yes to prompts; assume "yes" as answer to all prompts
+> 对提示自动回答 yes；将 "yes" 作为所有提示的答案
 
 **-V, --verbose-versions**
-> Show full versions for upgraded and installed packages
+> 显示被升级和被安装软件包的完整版本号
 
 **--reinstall**
-> Reinstall packages even if they are already up-to-date
+> 即使软件包已是最新也重新安装
 
 **--no-install-recommends**
-> Do not install recommended packages
+> 不安装推荐的软件包
 
 **-d, --download-only**
-> Download packages but do not install them
+> 只下载软件包，不进行安装
 
 **-f, --fix-broken**
-> Attempt to correct a system with broken dependencies
+> 尝试修复存在损坏依赖的系统
 
 **-s, --simulate**
-> Simulate the install without making changes
+> 模拟安装过程而不做任何更改
 
 **--no-install-suggests**
-> Do not install suggested packages
+> 不安装建议的软件包
 
 # CONFIGURATION
 
 **/etc/apt/sources.list**
-> Package source repositories.
+> 软件包源仓库列表。
 
 **/etc/apt/apt.conf**
-> Main APT configuration file.
+> APT 主配置文件。
 
 **/etc/apt/apt.conf.d/**
-> Directory for drop-in configuration fragments.
+> 存放即插式配置片段的目录。
 
 # CAVEATS
 
-Requires root privileges. The command may remove conflicting packages to satisfy dependencies. Use **apt-get install** in scripts for more stable output formatting.
+需要 root 权限。为了满足依赖关系，该命令可能会移除冲突的软件包。在脚本中建议使用 **apt-get install**，其输出格式更稳定。
 
 # INSTALL
 

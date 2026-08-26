@@ -1,38 +1,38 @@
 # TAGLINE
 
-Unified command-line interface for Amazon Web Services.
+Amazon Web Services 的统一命令行界面。
 
 # TLDR
 
-**Configure AWS credentials**
+**配置 AWS 凭证**
 
 ```aws configure```
 
-**List S3 buckets**
+**列出 S3 存储桶**
 
 ```aws s3 ls```
 
-**Copy file to S3**
+**复制文件到 S3**
 
 ```aws s3 cp [path/to/file] s3://[bucket]/[key]```
 
-**Sync directory to S3**
+**同步目录到 S3**
 
 ```aws s3 sync [path/to/directory] s3://[bucket]/[prefix]```
 
-**List EC2 instances**
+**列出 EC2 实例**
 
 ```aws ec2 describe-instances```
 
-**Get caller identity (verify credentials)**
+**获取调用者身份（验证凭证）**
 
 ```aws sts get-caller-identity```
 
-**Invoke a Lambda function**
+**调用 Lambda 函数**
 
 ```aws lambda invoke --function-name [function_name] [output.json]```
 
-**Use a specific profile**
+**使用指定的 profile**
 
 ```aws --profile [profile_name] s3 ls```
 
@@ -43,90 +43,90 @@ Unified command-line interface for Amazon Web Services.
 # PARAMETERS
 
 **configure**
-> Interactive setup for credentials and default region.
+> 交互式设置凭证和默认区域。
 
 **--profile** _name_
-> Use named profile from credentials file.
+> 使用凭证文件中的命名 profile。
 
 **--region** _region_
-> Override the default region.
+> 覆盖默认区域。
 
 **--output** _format_
-> Output format: json, yaml, text, table.
+> 输出格式：json、yaml、text、table。
 
 **--query** _expression_
-> JMESPath query to filter output.
+> 用于过滤输出的 JMESPath 查询。
 
 **--no-cli-pager**
-> Disable paging of output.
+> 禁用输出分页。
 
 **--no-paginate**
-> Disable automatic pagination of multi-page results.
+> 禁用多页结果的自动分页。
 
 **--endpoint-url** _url_
-> Override the default service endpoint URL.
+> 覆盖默认的服务端点 URL。
 
 **--cli-binary-format** _format_
-> Format for binary input/output (base64 or raw-in-base64-out).
+> 二进制输入/输出的格式（base64 或 raw-in-base64-out）。
 
 **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **--dry-run**
-> Preview operation without executing (supported commands).
+> 预览操作而不执行（仅限支持的命令）。
 
 **--cli-auto-prompt**
-> Enable interactive auto-prompt mode.
+> 启用交互式自动提示模式。
 
 # COMMON SERVICES
 
 **s3**
-> Simple Storage Service (object storage).
+> Simple Storage Service（对象存储）。
 
 **ec2**
-> Elastic Compute Cloud (virtual servers).
+> Elastic Compute Cloud（虚拟服务器）。
 
 **iam**
-> Identity and Access Management.
+> Identity and Access Management（身份与访问管理）。
 
 **lambda**
-> Serverless compute functions.
+> 无服务器计算函数。
 
 **sts**
-> Security Token Service.
+> Security Token Service（安全令牌服务）。
 
 **cloudformation**
-> Infrastructure as code stacks.
+> 基础设施即代码堆栈。
 
 **rds**
-> Relational Database Service.
+> Relational Database Service（关系型数据库服务）。
 
 **dynamodb**
-> NoSQL database service.
+> NoSQL 数据库服务。
 
 # DESCRIPTION
 
-**aws** is the official command-line interface for Amazon Web Services, providing unified access to all AWS services. It enables managing cloud infrastructure, deploying applications, and automating operations from the terminal.
+**aws** 是 Amazon Web Services 的官方命令行界面，提供对所有 AWS 服务的统一访问。它让你能在终端中管理云基础设施、部署应用并自动化运维。
 
-The CLI uses credentials stored in **~/.aws/credentials** and configuration in **~/.aws/config**. Multiple profiles support working with different AWS accounts or roles. Commands follow the pattern **aws service operation --parameters**.
+CLI 使用存储在 **~/.aws/credentials** 中的凭证和 **~/.aws/config** 中的配置。多个 profile 支持在不同的 AWS 账户或角色之间切换。命令遵循 **aws service operation --parameters** 的模式。
 
-Output can be formatted as JSON, YAML, text, or tables, and filtered using JMESPath queries with **--query**. The CLI supports shell completion and an interactive auto-prompt mode for discovering commands and parameters.
+输出可格式化为 JSON、YAML、文本或表格，并可使用 JMESPath 查询通过 **--query** 过滤。CLI 支持 shell 补全以及用于发现命令和参数的交互式自动提示模式。
 
 # CONFIGURATION
 
 **~/.aws/credentials**
-> Stores access key ID and secret access key, organized by named profiles.
+> 存储访问密钥 ID 和秘密访问密钥，按命名 profile 组织。
 
 **~/.aws/config**
-> Stores default region, output format, SSO settings, and role assumptions per profile.
+> 按 profile 存储默认区域、输出格式、SSO 设置和角色代入配置。
 
 # CAVEATS
 
-Credentials stored in plain text; use IAM roles on EC2 or credential helpers for better security. API rate limits apply to most AWS operations. Some commands incur AWS charges. Region must be specified or defaulted for most services. MFA-protected operations require session tokens.
+凭证以明文存储；为了更好的安全性，请在 EC2 上使用 IAM 角色或凭证辅助工具。大多数 AWS 操作受 API 速率限制。某些命令会产生 AWS 费用。大多数服务必须指定区域或有默认区域。受 MFA 保护的操作需要会话令牌。
 
 # HISTORY
 
-The AWS CLI was first released in **2012** to replace the older service-specific command-line tools. Version 2, released in **2020**, added features like auto-prompt, SSO integration, and native installers. The CLI is maintained by AWS and updated frequently to support new services and features, making it the primary tool for AWS automation and administration.
+AWS CLI 于 **2012 年**首次发布，用以取代较早的各服务专用命令行工具。**2020 年**发布的版本 2 增加了自动提示、SSO 集成和原生安装包等功能。该 CLI 由 AWS 维护并频繁更新以支持新服务和特性，是 AWS 自动化与管理的主要工具。
 
 # INSTALL
 

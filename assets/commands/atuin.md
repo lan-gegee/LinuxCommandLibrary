@@ -1,38 +1,38 @@
 # TAGLINE
 
-Magical shell history with sync and search
+支持同步和搜索的神奇 Shell 历史工具
 
 # TLDR
 
-**Search** command history interactively
+**交互式搜索**命令历史
 
 ```atuin search -i [query]```
 
-**Import** existing history from the current shell
+从当前 Shell **导入**现有历史
 
 ```atuin import auto```
 
-**Sync** history to server
+将历史**同步**到服务器
 
 ```atuin sync```
 
-Show **statistics** about shell usage
+显示 Shell 使用情况**统计**
 
 ```atuin stats```
 
-**Login** to sync server
+**登录**同步服务器
 
 ```atuin login```
 
-**Register** a new sync account
+**注册**新的同步账户
 
 ```atuin register -u [username] -e [email] -p [password]```
 
-**List** recent command history
+**列出**最近的命令历史
 
 ```atuin history list```
 
-Run **diagnostics** to check for common issues
+运行**诊断**以检查常见问题
 
 ```atuin doctor```
 
@@ -42,59 +42,59 @@ Run **diagnostics** to check for common issues
 
 # DESCRIPTION
 
-**atuin** replaces your shell history with a SQLite database, providing powerful search, context tracking, and optional end-to-end encrypted sync across machines.
+**atuin** 用 SQLite 数据库取代 Shell 自带的历史记录，提供强大的搜索、上下文跟踪，以及可选的跨机器端到端加密同步。
 
-It records additional context like exit status, duration, working directory, and hostname, making history search more powerful than traditional Ctrl+R.
+它会记录退出状态、耗时、工作目录和主机名等额外上下文，使历史搜索比传统的 Ctrl+R 更强大。
 
 # PARAMETERS
 
 **search** [_query_]
-> Interactive history search. Supports filtering by directory, session, host, or globally.
+> 交互式历史搜索。支持按目录、会话、主机过滤或全局搜索。
 
 **import** _source_
-> Import existing history (auto, bash, zsh, fish, nu, xonsh, resh, and others).
+> 导入现有历史（auto、bash、zsh、fish、nu、xonsh、resh 等）。
 
 **sync**
-> Synchronize history with the Atuin server (upload and download).
+> 与 Atuin 服务器同步历史（上传和下载）。
 
 **login**
-> Authenticate with sync server.
+> 登录同步服务器进行身份认证。
 
 **register**
-> Register a new account on the Atuin sync server.
+> 在 Atuin 同步服务器上注册新账户。
 
 **logout**
-> Remove authentication.
+> 移除认证信息。
 
 **key**
-> Display or set the encryption key used for end-to-end encrypted sync.
+> 显示或设置用于端到端加密同步的加密密钥。
 
 **stats**
-> Show usage statistics and command frequency.
+> 显示使用统计和命令频率。
 
 **history** _subcommand_
-> History management (list, delete, etc.).
+> 历史管理（list、delete 等）。
 
 **init** _shell_
-> Output shell setup code for bash, zsh, fish, or nu.
+> 输出 bash、zsh、fish 或 nu 的 Shell 初始化代码。
 
 **doctor**
-> Run diagnostics to check for common issues with the installation.
+> 运行诊断，检查安装中的常见问题。
 
 **info**
-> Display system and configuration information.
+> 显示系统与配置信息。
 
 **dotfiles**
-> Manage and sync shell aliases and environment variables.
+> 管理并同步 Shell 别名和环境变量。
 
 # SHELL INTEGRATION
 
-Add to shell rc file:
+添加到 Shell 的 rc 文件中：
 ```bash
 eval "$(atuin init bash)"  # or zsh, fish
 ```
 
-Optionally disable specific keybindings:
+可选择禁用特定按键绑定：
 ```bash
 eval "$(atuin init zsh --disable-up-arrow)"
 ```
@@ -102,15 +102,15 @@ eval "$(atuin init zsh --disable-up-arrow)"
 # CONFIGURATION
 
 **~/.config/atuin/config.toml**
-> Main configuration file for search settings, sync options, database path, filter mode, search mode, and UI preferences.
+> 主配置文件，涵盖搜索设置、同步选项、数据库路径、过滤模式、搜索模式和界面偏好。
 
 # CAVEATS
 
-Requires shell initialization code. Sync feature is optional (can be used fully offline). Database can grow large over time. Some shells require specific configuration for proper integration.
+需要在 Shell 中加载初始化代码。同步功能是可选的（完全可以离线使用）。数据库会随时间增长变大。某些 Shell 需要特定配置才能正确集成。
 
 # HISTORY
 
-**atuin** was created by Ellie Huxtable and released in **2021**, offering modern shell history with end-to-end encrypted sync, statistics, and improved search.
+**atuin** 由 Ellie Huxtable 创建，于 **2021** 年发布，提供了带端到端加密同步、统计功能和改进搜索的现代 Shell 历史方案。
 
 # INSTALL
 

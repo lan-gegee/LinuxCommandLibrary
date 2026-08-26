@@ -1,22 +1,22 @@
 # TAGLINE
 
-lightweight terminal session manager
+轻量级终端会话管理器
 
 # TLDR
 
-**Create** a new session with a command
+用一条命令**创建**新会话
 
 ```abduco -c [session_name] [command]```
 
-**Attach** to an existing session
+**接入**已有会话
 
 ```abduco -a [session_name]```
 
-**List** all active sessions
+**列出**所有活动会话
 
 ```abduco```
 
-Create a session and **detach** immediately
+创建会话并立即**脱离**
 
 ```abduco -n [session_name] [command]```
 
@@ -26,43 +26,43 @@ Create a session and **detach** immediately
 
 # DESCRIPTION
 
-**abduco** (Latin: "to lead away, carry off") is a lightweight session management tool that provides terminal session detachment and reattachment. It allows processes to continue running when you disconnect from a terminal and reattach later.
+**abduco**（拉丁语"带走、移走"之意）是一个轻量级的会话管理工具，提供终端会话的脱离与重新接入。它让进程在你断开终端后继续运行，稍后还能重新接上。
 
-Unlike **screen** or **tmux**, abduco focuses solely on session management without window multiplexing or split panes. This minimalist approach results in a small, fast, and reliable tool. For multiplexing features, it pairs well with **dvtm**.
+与 **screen** 或 **tmux** 不同，abduco 只专注会话管理，没有窗口复用或分屏面板。这种极简设计造就了一个小巧、快速且可靠的工具。若需要多路复用功能，它与 **dvtm** 是很好的搭配。
 
 # PARAMETERS
 
 **-c** _session_
-> Create a new session with the given name
+> 以给定名称创建新会话
 
 **-a** _session_
-> Attach to an existing session (read-only if already attached)
+> 接入已有会话（若已被他人接入则为只读）
 
 **-A** _session_
-> Attach to existing session or create if it doesn't exist
+> 接入已有会话，不存在则创建
 
 **-n** _session_
-> Create a new detached session
+> 创建一个新的已脱离会话
 
 **-e** _key_
-> Set the detach key (default: Ctrl+\\)
+> 设置脱离键（默认：Ctrl+\\）
 
 **-r**
-> Enable read-only mode when attaching
+> 接入时启用只读模式
 
 **-f**
-> Force creation even if session exists
+> 即使会话已存在也强制创建
 
 **-l**
-> Low bandwidth mode (reduced screen updates)
+> 低带宽模式（减少屏幕刷新）
 
 # CAVEATS
 
-**abduco** only handles session management; it does not provide window splitting or multiplexing. For those features, combine it with **dvtm**. Sessions are stored in /tmp or $ABDUCO_SOCKET_DIR and may be lost on system reboot unless configured otherwise.
+**abduco** 只负责会话管理，不提供窗口分割或复用功能。需要这些功能时请与 **dvtm** 组合使用。会话保存在 /tmp 或 $ABDUCO_SOCKET_DIR 中，除非另行配置，否则系统重启后会丢失。
 
 # HISTORY
 
-**abduco** was written by Marc Andre Tanner and first released in **2014**. It was designed as a minimal alternative to GNU Screen and tmux, following the Unix philosophy of doing one thing well. The tool is often paired with **dvtm** (dynamic virtual terminal manager) by the same author.
+**abduco** 由 Marc Andre Tanner 编写，于 **2014 年**首次发布。它的设计定位是 GNU Screen 和 tmux 的极简替代品，遵循"做好一件事"的 Unix 哲学。该工具常与同一作者的 **dvtm**（dynamic virtual terminal manager）搭配使用。
 
 # INSTALL
 

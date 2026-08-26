@@ -1,26 +1,26 @@
 # TAGLINE
 
-Decrypt WEP and WPA/WPA2 encrypted capture files
+解密 WEP 和 WPA/WPA2 加密的抓包文件
 
 # TLDR
 
-**Decrypt WEP** capture file
+**解密 WEP** 抓包文件
 
 ```airdecap-ng -w [hex_key] [capture.cap]```
 
-**Decrypt WPA/WPA2** capture file
+**解密 WPA/WPA2** 抓包文件
 
 ```airdecap-ng -p [passphrase] -e [SSID] [capture.cap]```
 
-**Keep 802.11 headers** (don't strip wireless headers)
+**保留 802.11 头部**（不剥离无线头部）
 
 ```airdecap-ng -l -w [hex_key] [capture.cap]```
 
-Decrypt with **BSSID filter**
+使用 **BSSID 过滤器**解密
 
 ```airdecap-ng -p [passphrase] -e [SSID] -b [00:11:22:33:44:55] [capture.cap]```
 
-Decrypt using a **Pairwise Master Key** (PMK)
+使用**成对主密钥**（PMK）解密
 
 ```airdecap-ng -k [pmk_hex] -e [SSID] [capture.cap]```
 
@@ -30,37 +30,37 @@ Decrypt using a **Pairwise Master Key** (PMK)
 
 # DESCRIPTION
 
-**airdecap-ng** decrypts WEP and WPA/WPA2 encrypted capture files when you know the key. It produces an unencrypted capture file (by default suffixed with **-dec.cap**) that can be analyzed with tools like Wireshark.
+**airdecap-ng** 在你已知密钥的情况下解密 WEP 和 WPA/WPA2 加密的抓包文件。它会生成一个未加密的抓包文件（默认后缀为 **-dec.cap**），可用 Wireshark 等工具进行分析。
 
-By default, 802.11 wireless headers are stripped so the output resembles a standard Ethernet capture. Use **-l** to preserve the original 802.11 frames.
+默认情况下会剥离 802.11 无线头部，使输出看起来像标准的以太网抓包。使用 **-l** 可保留原始的 802.11 帧。
 
 # PARAMETERS
 
 **-w** _key_
-> WEP key in hexadecimal
+> 十六进制形式的 WEP 密钥
 
 **-p** _passphrase_
-> WPA/WPA2 passphrase
+> WPA/WPA2 口令
 
 **-e** _essid_
-> Network name (required for WPA)
+> 网络名称（WPA 必需）
 
 **-b** _bssid_
-> Access point MAC address filter
+> 接入点 MAC 地址过滤器
 
 **-l**
-> Don't remove the 802.11 header from decrypted output (keep wireless frames).
+> 不从解密输出中移除 802.11 头部（保留无线帧）。
 
 **-k** _pmk_
-> Use the specified WPA/WPA2 Pairwise Master Key (in hex) instead of passphrase.
+> 使用指定的 WPA/WPA2 成对主密钥（十六进制）而不是口令。
 
 # CAVEATS
 
-For WPA decryption, you need the passphrase AND the SSID. The capture file must contain a valid 4-way handshake, and only data packets that follow a successful handshake will be decrypted. Output file is named _input_-dec.cap by default. Single file names are recommended over shell wildcards.
+要解密 WPA，你需要口令和 SSID 两者。抓包文件必须包含有效的四次握手，且只有握手成功之后的数据包才会被解密。输出文件默认命名为 _input_-dec.cap。建议使用单个文件名而不是 shell 通配符。
 
 # HISTORY
 
-**airdecap-ng** is part of the aircrack-ng suite, developed in the mid-**2000s**. It provides the complementary function to aircrack-ng: once a key is recovered, airdecap-ng can decrypt the traffic for analysis.
+**airdecap-ng** 是 aircrack-ng 套件的一部分，开发于 **2000 年代中期**。它提供与 aircrack-ng 互补的功能：一旦恢复了密钥，就可以用 airdecap-ng 解密流量以便分析。
 
 # INSTALL
 

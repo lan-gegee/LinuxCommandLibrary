@@ -1,18 +1,18 @@
 # TAGLINE
 
-analyze crash backtrace for duplication and quality
+分析崩溃回溯的重复性与质量
 
 # TLDR
 
-Analyze a backtrace **with verbose logging**
+以**详细日志模式**分析回溯
 
 ```abrt-action-analyze-backtrace -v```
 
-Analyze problem data in a **given dump directory**
+分析**指定转储目录**中的问题数据
 
 ```abrt-action-analyze-backtrace -d [path/to/directory]```
 
-Analyze the dump directory in the **current working directory**
+分析**当前工作目录**下的转储目录
 
 ```abrt-action-analyze-backtrace```
 
@@ -22,25 +22,25 @@ Analyze the dump directory in the **current working directory**
 
 # DESCRIPTION
 
-**abrt-action-analyze-backtrace** analyzes C/C++ backtraces and generates a duplication hash, backtrace rating, and identifies the crash function. The data is saved as new elements **duphash**, **rating**, and **crash_function** in the problem directory.
+**abrt-action-analyze-backtrace** 分析 C/C++ 回溯，生成重复性哈希值和回溯评级，并识别崩溃函数。这些数据作为新元素 **duphash**、**rating** 和 **crash_function** 保存在问题目录中。
 
-This tool works as a secondary analyzer after backtrace generation. The rating prevents low-quality backtraces from being reported, while the duplication hash helps identify previously filed similar crash reports.
+该工具作为回溯生成之后的二级分析器工作。评级可防止低质量回溯被上报，而重复性哈希有助于识别之前已提交过的类似崩溃报告。
 
 # PARAMETERS
 
 **-d DIR**
-> Specifies the path to the problem directory; defaults to current working directory
+> 指定问题目录的路径；默认为当前工作目录
 
 **-v**
-> Enables verbose output; can be used multiple times for increased verbosity
+> 启用详细输出；可多次使用以提高详细程度
 
 # CAVEATS
 
-Requires a backtrace file to already exist in the problem directory. Typically used as part of the ABRT event pipeline rather than directly by users.
+要求问题目录中已存在回溯文件。通常作为 ABRT 事件流水线的一部分使用，而非由用户直接调用。
 
 # HISTORY
 
-Part of **ABRT** (Automatic Bug Reporting Tool), developed by Red Hat for Fedora-based systems to detect, analyze, and report application crashes.
+属于 **ABRT**（Automatic Bug Reporting Tool，自动错误报告工具），由 Red Hat 为 Fedora 系系统开发，用于检测、分析和报告应用程序崩溃。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Enhanced chroot with automatic filesystem mounting
+带自动文件系统挂载的增强版 chroot
 
 # TLDR
 
-Start an **interactive shell** in a new root directory
+在新根目录中启动**交互式 Shell**
 
 ```arch-chroot [path/to/new_root]```
 
-Specify the **user** to run the shell as
+指定运行 Shell 的**用户**
 
 ```arch-chroot -u [user] [path/to/new_root]```
 
-Run a **custom command** in the new root directory
+在新根目录中运行**自定义命令**
 
 ```arch-chroot [path/to/new_root] [command] [arguments]```
 
-Specify a different **shell**
+指定其他 **Shell**
 
 ```arch-chroot [path/to/new_root] zsh```
 
@@ -26,31 +26,31 @@ Specify a different **shell**
 
 # DESCRIPTION
 
-**arch-chroot** is an enhanced chroot wrapper designed to simplify the Arch Linux installation and recovery process. Unlike plain chroot, it automatically mounts essential API filesystems (/proc, /sys, /dev, /dev/pts, and /run) before entering the chroot environment, and cleanly unmounts them upon exit.
+**arch-chroot** 是一个增强的 chroot 封装工具，旨在简化 Arch Linux 的安装与恢复过程。与普通的 chroot 不同，它会在进入 chroot 环境前自动挂载必要的 API 文件系统（/proc、/sys、/dev、/dev/pts 和 /run），并在退出时干净地卸载它们。
 
-This makes it significantly easier to perform system administration tasks on a mounted root filesystem, such as installing packages, configuring bootloaders, or repairing a broken system from a live environment. It can also run a single command and exit, or start an interactive shell as a specified user.
+这大大简化了在已挂载根文件系统上执行系统管理任务的过程，例如安装软件包、配置引导加载程序，或从 live 环境修复损坏的系统。它还可以运行单条命令后退出，或以指定用户身份启动交互式 Shell。
 
 # PARAMETERS
 
 **new_root**
-> Path to the directory to use as the new root filesystem
+> 用作新根文件系统的目录路径
 
 **-u** _user_[:_group_]
-> Run the shell or command as the specified non-root user and optional group.
+> 以指定的非 root 用户及可选组运行 Shell 或命令。
 
 **-N**
-> Unshare mode: create new mount and user namespaces with unshare, allowing a non-root user to run arch-chroot.
+> Unshare 模式：用 unshare 创建新的挂载命名空间和用户命名空间，允许非 root 用户运行 arch-chroot。
 
 **command**
-> Optional command to run instead of the default shell (Bash)
+> 可选命令，用于替代默认 Shell（Bash）
 
 # CAVEATS
 
-Part of the **arch-install-scripts** package. Automatically mounts /proc, /sys, /dev, /dev/pts, and /run. The target directory must have a valid Linux root filesystem.
+属于 **arch-install-scripts** 软件包。自动挂载 /proc、/sys、/dev、/dev/pts 和 /run。目标目录必须包含有效的 Linux 根文件系统。
 
 # HISTORY
 
-Part of the **arch-install-scripts** package developed for **Arch Linux** to simplify the installation process and system recovery tasks.
+属于为 **Arch Linux** 开发的 **arch-install-scripts** 软件包，旨在简化安装过程和系统恢复任务。
 
 # INSTALL
 

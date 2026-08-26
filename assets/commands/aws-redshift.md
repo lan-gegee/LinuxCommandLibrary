@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage data warehouse clusters
+管理数据仓库集群
 
 # TLDR
 
-**List all clusters**
+**列出所有集群**
 
 ```aws redshift describe-clusters```
 
-**Describe a specific cluster**
+**描述特定集群**
 
 ```aws redshift describe-clusters --cluster-identifier [cluster_name]```
 
-**Create a new cluster**
+**创建新集群**
 
 ```aws redshift create-cluster --cluster-identifier [cluster_name] --node-type dc2.large --master-username [admin] --master-user-password [password] --number-of-nodes [2]```
 
-**Create a single-node cluster**
+**创建单节点集群**
 
 ```aws redshift create-cluster --cluster-identifier [cluster_name] --node-type dc2.large --master-username [admin] --master-user-password [password] --cluster-type single-node```
 
-**Resize a cluster**
+**调整集群大小**
 
 ```aws redshift resize-cluster --cluster-identifier [cluster_name] --cluster-type multi-node --node-type ra3.xlplus --number-of-nodes [4]```
 
-**Create a snapshot**
+**创建快照**
 
 ```aws redshift create-cluster-snapshot --cluster-identifier [cluster_name] --snapshot-identifier [snapshot_name]```
 
-**Delete a cluster** (skip final snapshot)
+**删除集群**（跳过最终快照）
 
 ```aws redshift delete-cluster --cluster-identifier [cluster_name] --skip-final-cluster-snapshot```
 
-**Pause a cluster** to save costs
+**暂停集群**以节省成本
 
 ```aws redshift pause-cluster --cluster-identifier [cluster_name]```
 
@@ -42,75 +42,75 @@ Manage data warehouse clusters
 
 # DESCRIPTION
 
-**aws redshift** is a subcommand of the AWS CLI that manages Amazon Redshift, a fully managed petabyte-scale data warehouse service. Redshift uses columnar storage and parallel query execution for fast analytics on large datasets.
+**aws redshift** 是 AWS CLI 的一个子命令，用于管理 Amazon Redshift。这是一项全托管的 PB 级数据仓库服务，采用列式存储和并行查询执行，可在大型数据集上实现快速分析。
 
-Clusters consist of leader and compute nodes. The leader node manages connections and query planning, while compute nodes store data and execute queries. Redshift supports SQL queries through standard PostgreSQL drivers.
+集群由领导节点和计算节点组成。领导节点负责管理连接和查询规划，计算节点则存储数据并执行查询。Redshift 可通过标准 PostgreSQL 驱动执行 SQL 查询。
 
-Redshift Serverless provides a pay-per-use option without managing clusters. Data can be loaded from S3, DynamoDB, EMR, or streamed via Firehose.
+Redshift Serverless 提供按用量付费的选项，无需管理集群。数据可以从 S3、DynamoDB、EMR 加载，或通过 Firehose 流式传入。
 
 # PARAMETERS
 
 **describe-clusters**
-> List clusters and their details.
+> 列出集群及其详情。
 
 **create-cluster**
-> Launch a new cluster.
+> 启动新集群。
 
 **delete-cluster**
-> Terminate a cluster.
+> 终止集群。
 
 **modify-cluster**
-> Change cluster settings.
+> 更改集群设置。
 
 **resize-cluster**
-> Change node type or count.
+> 更改节点类型或数量。
 
 **pause-cluster**
-> Pause a cluster to stop billing.
+> 暂停集群以停止计费。
 
 **resume-cluster**
-> Resume a paused cluster.
+> 恢复已暂停的集群。
 
 **reboot-cluster**
-> Restart a cluster.
+> 重启集群。
 
 **create-cluster-snapshot**
-> Create a manual snapshot.
+> 创建手动快照。
 
 **restore-from-cluster-snapshot**
-> Create cluster from snapshot.
+> 从快照创建集群。
 
 **describe-cluster-snapshots**
-> List snapshots.
+> 列出快照。
 
 **--cluster-identifier** _name_
-> Unique cluster name.
+> 唯一的集群名称。
 
 **--node-type** _type_
-> Instance type (dc2.large, ra3.xlplus, etc.).
+> 实例类型（dc2.large、ra3.xlplus 等）。
 
 **--number-of-nodes** _count_
-> Number of compute nodes.
+> 计算节点数量。
 
 **--cluster-type** _type_
-> single-node or multi-node.
+> single-node 或 multi-node。
 
 **--master-username** _name_
-> Admin username.
+> 管理员用户名。
 
 **--master-user-password** _password_
-> Admin password.
+> 管理员密码。
 
 **--db-name** _name_
-> Default database name.
+> 默认数据库名称。
 
 # CAVEATS
 
-Cluster creation takes several minutes. Classic resize creates a new cluster and migrates data; elastic resize is faster but has limitations. **pause-cluster** / **resume-cluster** only work on **RA3** node types (DC2 clusters cannot be paused). Paused clusters still incur backup-storage costs. Multi-node clusters require a minimum of 2 nodes. Master passwords must meet complexity requirements. Public access requires proper security group and VPC settings.
+集群创建需要几分钟时间。经典调整大小（classic resize）会创建新集群并迁移数据；弹性调整大小（elastic resize）更快但有限制。**pause-cluster** / **resume-cluster** 仅适用于 **RA3** 节点类型（DC2 集群无法暂停）。已暂停的集群仍会产生备份存储费用。多节点集群至少需要 2 个节点。主密码必须满足复杂度要求。公开访问需要正确的安全组和 VPC 设置。
 
 # HISTORY
 
-**Amazon Redshift** launched in **February 2013** as AWS's first data warehouse service, named after the astronomical phenomenon. **Redshift Spectrum** was introduced in **2017** for querying data directly in S3. **RA3 nodes** with managed storage launched in **2019**, separating compute and storage. **Redshift Serverless** became generally available in **July 2022**. The service has added features like AQUA (Advanced Query Accelerator), ML integration, and data sharing.
+**Amazon Redshift** 于 **2013 年 2 月**上线，是 AWS 的第一个数据仓库服务，名称取自一种天文现象。**Redshift Spectrum** 于 **2017 年**推出，可直接在 S3 中查询数据。带托管存储的 **RA3 节点**于 **2019 年**推出，将计算与存储分离。**Redshift Serverless** 于 **2022 年 7 月**正式可用。该服务还陆续增加了 AQUA（Advanced Query Accelerator）、机器学习集成和数据共享等功能。
 
 # INSTALL
 

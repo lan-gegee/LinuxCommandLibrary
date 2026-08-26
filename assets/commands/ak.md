@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage the authentik identity provider
+管理 authentik 身份提供商
 
 # TLDR
 
-**Start the server**
+**启动服务器**
 
 ```ak server```
 
-**Run database migrations**
+**执行数据库迁移**
 
 ```ak migrate```
 
-**Create a superuser**
+**创建超级用户**
 
 ```ak createsuperuser```
 
-**Export configuration**
+**导出配置**
 
 ```ak export_blueprint```
 
-**Import a blueprint**
+**导入蓝图**
 
 ```ak import_blueprint [blueprint.yaml]```
 
-**Generate a recovery link valid for a number of minutes**
+**生成有效期为若干分钟的恢复链接**
 
 ```ak create_recovery_key [minutes] [username]```
 
-**Show version**
+**显示版本**
 
 ```ak version```
 
-**Run a worker process**
+**运行 worker 进程**
 
 ```ak worker```
 
@@ -43,76 +43,76 @@ Manage the authentik identity provider
 # COMMANDS
 
 **server**
-> Start the authentik web server.
+> 启动 authentik Web 服务器。
 
 **worker**
-> Start a background worker process.
+> 启动后台 worker 进程。
 
 **migrate**
-> Apply database migrations.
+> 应用数据库迁移。
 
 **createsuperuser**
-> Create an administrative user interactively.
+> 交互式创建管理员用户。
 
 **create_recovery_key** _minutes_ _user_
-> Generate an account recovery link valid for the given number of minutes.
+> 生成一个在给定分钟数内有效的账户恢复链接。
 
 **dump_config**
-> Print the full effective configuration as YAML.
+> 以 YAML 格式打印完整生效配置。
 
 **export_blueprint**
-> Export current configuration as blueprint YAML.
+> 将当前配置导出为 blueprint YAML。
 
 **import_blueprint** _file_
-> Import configuration from blueprint file.
+> 从 blueprint 文件导入配置。
 
 **version**
-> Display version information.
+> 显示版本信息。
 
 **repair**
-> Run diagnostic and repair routines.
+> 运行诊断和修复例程。
 
 **shell**
-> Open interactive Python shell with authentik context.
+> 打开带 authentik 上下文的交互式 Python shell。
 
 **dbshell**
-> Open database shell.
+> 打开数据库 shell。
 
 # PARAMETERS
 
 **--bind** _address_
-> Address for server to listen on.
+> 服务器的监听地址。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ak** is the command-line interface for authentik, an open-source identity provider. It manages the authentik server, workers, database operations, and configuration import/export.
+**ak** 是 authentik 的命令行界面。authentik 是一个开源身份提供商。ak 负责管理 authentik 服务器、worker、数据库操作以及配置的导入导出。
 
-The **server** command starts the web interface and API server. Background tasks like email sending and LDAP synchronization require a **worker** process running separately.
+**server** 命令启动 Web 界面和 API 服务器。邮件发送和 LDAP 同步等后台任务需要单独运行 **worker** 进程。
 
-Blueprints provide declarative configuration management. Export configurations with **export_blueprint** for version control or migration, and apply them with **import_blueprint**.
+蓝图（blueprint）提供声明式的配置管理。使用 **export_blueprint** 导出配置以便版本控制或迁移，再用 **import_blueprint** 应用它们。
 
-For account recovery when users are locked out, **create_recovery_key** generates a time-limited recovery URL. The first argument is the validity in minutes and the second is the username. This requires access to the server command line.
+当用户被锁定时，可用 **create_recovery_key** 生成有时效限制的恢复 URL 来找回账户。第一个参数是有效期（分钟），第二个参数是用户名。这需要在服务器命令行上操作。
 
-authentik supports various authentication protocols including SAML, OAuth2/OIDC, LDAP, SCIM, and proxy authentication for applications that don't support SSO natively.
+authentik 支持多种认证协议，包括 SAML、OAuth2/OIDC、LDAP、SCIM，以及为原生不支持 SSO 的应用提供的代理认证。
 
 # CONFIGURATION
 
 **/etc/authentik/config.yml**
-> Main authentik configuration file for database, secret key, email, and logging settings.
+> authentik 主配置文件，包含数据库、密钥、邮件和日志设置。
 
 **blueprints/**
-> Directory containing declarative YAML blueprints for configuration-as-code.
+> 存放声明式 YAML 蓝图的目录，实现配置即代码。
 
 # CAVEATS
 
-Requires Python environment with authentik installed. Database must be configured and accessible. Most administrative tasks are performed through the web interface; CLI is primarily for server operations and emergency recovery.
+需要已安装 authentik 的 Python 环境。数据库必须完成配置且可访问。大多数管理任务通过 Web 界面完成；CLI 主要用于服务器操作和紧急恢复。
 
 # HISTORY
 
-authentik was created by **Jens Langhammer** and first released in **2020** as a modern alternative to older identity providers. Built with Django and designed for containerized deployments, it provides comprehensive identity management features. The project gained popularity as a self-hosted alternative to commercial identity providers, offering features like application proxying, multi-factor authentication, and extensive protocol support.
+authentik 由 **Jens Langhammer** 创建，于 **2020** 年首次发布，是较老身份提供商的现代替代品。它基于 Django 构建，为容器化部署设计，提供全面的身份管理功能。该项目作为商业身份提供商的自托管替代品而广受欢迎，提供应用代理、多因素认证和广泛的协议支持。
 
 # SEE ALSO
 

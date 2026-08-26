@@ -1,18 +1,18 @@
 # TAGLINE
 
-Rebuild aspell dictionary hash files
+重建 aspell 字典哈希文件
 
 # TLDR
 
-**Rebuild** all aspell hash files
+**重建**所有 aspell 哈希文件
 
 ```sudo aspell-autobuildhash```
 
-**Force** a rebuild of every hash file
+**强制**重建每个哈希文件
 
 ```sudo aspell-autobuildhash --force```
 
-**Preview** what would be done without changing anything
+**预览**将要执行的操作而不做任何更改
 
 ```sudo aspell-autobuildhash --dry-run```
 
@@ -22,31 +22,31 @@ Rebuild aspell dictionary hash files
 
 # DESCRIPTION
 
-**aspell-autobuildhash** manages the autobuilding of aspell hash files for dictionary packages. It is part of the **dictionaries-common** package and is normally invoked automatically by dpkg triggers after a dictionary is installed or upgraded.
+**aspell-autobuildhash** 负责为字典软件包自动构建 aspell 哈希文件。它是 **dictionaries-common** 软件包的一部分，通常在字典安装或升级后由 dpkg 触发器自动调用。
 
-For each aspell dictionary configured to use it, the script decides whether the hash file must be rebuilt based on the aspell compatibility level, then regenerates the hash files used for fast spell checking.
+对每个配置使用它的 aspell 字典，脚本会根据 aspell 兼容级别判断是否需要重建哈希文件，然后重新生成用于快速拼写检查的哈希文件。
 
 # PARAMETERS
 
 **--force**
-> Rebuild the hash file for all dicts providing a compat file, regardless of the compatibility levels found.
+> 为所有提供兼容性文件的字典重建哈希文件，无论发现的兼容级别如何。
 
 **--dry-run**
-> Show what would be done, but make no actual changes.
+> 显示将要执行的操作，但不做任何实际更改。
 
 **--debug**
-> Show extra info about the script's internal work; also enables aspell affix validation.
+> 显示关于脚本内部工作的额外信息；同时启用 aspell 词缀校验。
 
 **--triggered**
-> Tell the script that it is running in the dpkg triggers stage.
+> 告知脚本它正运行在 dpkg 触发器阶段。
 
 # CAVEATS
 
-Requires root privileges to write to system dictionary directories. Automatically run by package managers after dictionary installation.
+写入系统字典目录需要 root 权限。安装字典后通常由软件包管理器自动运行。
 
 # HISTORY
 
-**aspell-autobuildhash** is provided by the Debian **dictionaries-common** package, written by Agustin Martin, to automatically regenerate aspell hash files after dictionary updates.
+**aspell-autobuildhash** 由 Debian 的 **dictionaries-common** 软件包提供，作者为 Agustin Martin，用于在字典更新后自动重新生成 aspell 哈希文件。
 
 # INSTALL
 

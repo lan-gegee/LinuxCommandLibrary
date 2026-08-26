@@ -1,30 +1,30 @@
 # TAGLINE
 
-Download, build, and add AUR packages to a local pacman repository
+下载、构建 AUR 软件包并将其加入本地 pacman 仓库
 
 # TLDR
 
-**Download and build** packages from the AUR
+从 AUR **下载并构建**软件包
 
 ```aur sync [package1] [package2] ...```
 
-**Upgrade** all AUR packages in the local repository
+**升级**本地仓库中的所有 AUR 软件包
 
 ```aur sync -u```
 
-**Build in a clean chroot**
+在干净的 chroot 中**构建**
 
 ```aur sync -c [package]```
 
-**Sync without viewing** PKGBUILD and without confirmation
+**不查看** PKGBUILD 且不确认直接同步
 
 ```aur sync --noview --noconfirm [package]```
 
-Upgrade but **ignore** specific packages
+升级但**忽略**指定软件包
 
 ```aur sync -u --ignore [package1] --ignore [package2]```
 
-**Rebuild** a package regardless of version
+无论版本如何都**强制重建**某个软件包
 
 ```aur sync -f [package]```
 
@@ -34,54 +34,54 @@ Upgrade but **ignore** specific packages
 
 # DESCRIPTION
 
-**aur sync** is the primary command in **aurutils** for downloading, building, and adding AUR packages to a local pacman repository. It resolves AUR dependencies, fetches PKGBUILDs, builds packages, and updates the local repository database.
+**aur sync** 是 **aurutils** 的核心命令，用于下载、构建 AUR 软件包并将其添加到本地 pacman 仓库。它会解析 AUR 依赖、获取 PKGBUILD、构建软件包并更新本地仓库数据库。
 
-By default, it opens PKGBUILDs for review using the file manager specified by **AUR_PAGER** (or **vifm**) before building. This behavior can be disabled with **--noview** for automated workflows.
+默认情况下，它在构建前会用 **AUR_PAGER**（或 **vifm**）指定的文件管理器打开 PKGBUILD 供审查。自动化场景可用 **--noview** 禁用此行为。
 
 # PARAMETERS
 
 **-u**, **--upgrades**
-> Check for and build upgrades to installed AUR packages.
+> 检查并构建已安装 AUR 软件包的升级版本。
 
 **-c**, **--chroot**
-> Build packages in a clean chroot using aur-chroot.
+> 使用 aur-chroot 在干净的 chroot 中构建软件包。
 
 **-f**, **--force**
-> Force rebuild regardless of version.
+> 无论版本如何均强制重建。
 
 **-n**, **--noconfirm**
-> Do not prompt for confirmation.
+> 不提示确认。
 
 **--noview**
-> Skip PKGBUILD review.
+> 跳过 PKGBUILD 审查。
 
 **--ignore** _package_
-> Skip a package during upgrades (repeatable).
+> 升级时跳过某个软件包（可重复使用）。
 
 **-d**, **--database** _name_
-> Use specified local repository database.
+> 使用指定的本地仓库数据库。
 
 **--no-ver**
-> Disable version checking (rebuild all).
+> 禁用版本检查（全部重建）。
 
 **--no-ver-argv**
-> Disable version checking for command-line arguments only.
+> 仅对命令行参数禁用版本检查。
 
 **--provides**
-> Consider provides when resolving dependencies.
+> 解析依赖时考虑 provides 关系。
 
 **-S**, **--sign**
-> Sign built packages with GPG.
+> 用 GPG 为构建好的软件包签名。
 
 **-k**, **--keep-going**
-> Continue building remaining packages if one fails.
+> 某个软件包失败后继续构建其余软件包。
 
 **--makepkg-args** _args_
-> Pass additional arguments to makepkg.
+> 向 makepkg 传递额外参数。
 
 # CAVEATS
 
-Requires a properly configured local pacman repository and **devtools** for chroot builds. PKGBUILD review is critical for security; use **--noview** cautiously since AUR packages are user-submitted and not officially vetted. The **--ignore** flag takes one package per flag (not comma-separated).
+需要正确配置的本地 pacman 仓库，chroot 构建还需要 **devtools**。审查 PKGBUILD 对安全至关重要；由于 AUR 软件包由用户提交、未经官方审核，请谨慎使用 **--noview**。**--ignore** 标志每次只能接受一个软件包（不支持逗号分隔）。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage real-time data streaming with Kinesis Data Streams.
+使用 Kinesis Data Streams 管理实时数据流。
 
 # TLDR
 
-**Create a new data stream**
+**创建新的数据流**
 
 ```aws kinesis create-stream --stream-name [my-stream] --shard-count 1```
 
-**List all streams** in the account
+**列出账户中的所有流**
 
 ```aws kinesis list-streams```
 
-**Put a record** into a stream
+**向流写入记录**
 
 ```aws kinesis put-record --stream-name [my-stream] --partition-key [key1] --data "[message data]"```
 
-**Get a shard iterator** for reading
+**获取用于读取的分片迭代器**
 
 ```aws kinesis get-shard-iterator --stream-name [my-stream] --shard-id [shardId-000000000000] --shard-iterator-type TRIM_HORIZON```
 
-**Get records** from a shard
+**从分片读取记录**
 
 ```aws kinesis get-records --shard-iterator [shard-iterator-value]```
 
-**Describe stream details**
+**查看流的详情**
 
 ```aws kinesis describe-stream --stream-name [my-stream]```
 
-**Increase stream retention** to 7 days
+**将流保留期延长至 7 天**
 
 ```aws kinesis increase-stream-retention-period --stream-name [my-stream] --retention-period-hours 168```
 
-**Delete a stream**
+**删除流**
 
 ```aws kinesis delete-stream --stream-name [my-stream]```
 
@@ -42,61 +42,61 @@ Manage real-time data streaming with Kinesis Data Streams.
 
 # DESCRIPTION
 
-**aws kinesis** is the AWS CLI interface for Amazon Kinesis Data Streams, a serverless service for real-time data streaming. Kinesis ingests and processes large amounts of data in real-time from sources like website clickstreams, IoT telemetry, and application logs.
+**aws kinesis** 是 Amazon Kinesis Data Streams 的 AWS CLI 接口。这是一项用于实时数据流的无服务器服务，可实时摄取和处理来自网站点击流、IoT 遥测和应用程序日志等来源的海量数据。
 
-Data streams consist of shards that provide throughput capacity. Each shard supports 1 MB/sec write and 2 MB/sec read. Kinesis retains data for 24 hours by default, extendable to 365 days for replay scenarios.
+数据流由提供吞吐能力的分片组成。每个分片支持每秒 1 MB 写入和每秒 2 MB 读取。Kinesis 默认将数据保留 24 小时，针对回放场景最长可延长至 365 天。
 
 # COMMANDS
 
 **create-stream**
-> Create a new data stream
+> 创建新的数据流
 
 **delete-stream**
-> Delete a stream
+> 删除流
 
 **describe-stream**
-> Get stream configuration and status
+> 获取流的配置和状态
 
 **list-streams**
-> List all streams
+> 列出所有流
 
 **put-record**
-> Write a single record
+> 写入单条记录
 
 **put-records**
-> Write multiple records in a batch
+> 批量写入多条记录
 
 **get-shard-iterator**
-> Get iterator for reading from a shard
+> 获取用于从分片读取数据的迭代器
 
 **get-records**
-> Retrieve records using an iterator
+> 使用迭代器检索记录
 
 **update-shard-count**
-> Scale stream capacity
+> 扩缩流容量
 
 **start-stream-encryption**
-> Enable server-side encryption
+> 启用服务器端加密
 
 **register-stream-consumer**
-> Register an enhanced fan-out consumer
+> 注册增强扇出（enhanced fan-out）消费者
 
 **merge-shards**
-> Merge two adjacent shards
+> 合并两个相邻分片
 
 **split-shard**
-> Split a shard into two
+> 将一个分片拆分为两个
 
 **list-tags-for-stream**
-> List tags for a stream
+> 列出流的标签
 
 # CAVEATS
 
-Shard iterators expire after 5 minutes. Each shard has throughput limits; exceeding them causes throttling. Record size is limited to 1 MB. GetRecords returns up to 10 MB or 10,000 records per call. Enhanced fan-out consumers have additional costs but dedicated throughput.
+分片迭代器会在 5 分钟后过期。每个分片都有吞吐限制；超限会导致限流。单条记录大小上限为 1 MB。GetRecords 每次调用最多返回 10 MB 或 10,000 条记录。增强扇出消费者会产生额外费用，但可获得专用吞吐量。
 
 # HISTORY
 
-Amazon Kinesis launched in **November 2013** as a real-time data streaming service. Enhanced fan-out was added in **2018** for dedicated consumer throughput. On-demand capacity mode launched in **2021**, eliminating the need to manage shard counts manually.
+Amazon Kinesis 于 **2013 年 11 月** 作为实时数据流服务推出。增强扇出于 **2018 年** 加入，为消费者提供专用吞吐量。按需容量模式于 **2021 年** 推出，免去了手动管理分片数量的负担。
 
 # INSTALL
 

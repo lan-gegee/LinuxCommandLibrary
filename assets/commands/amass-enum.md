@@ -1,26 +1,26 @@
 # TAGLINE
 
-Perform DNS enumeration and subdomain discovery
+执行 DNS 枚举和子域名发现
 
 # TLDR
 
-**Passive** subdomain enumeration
+**被动**子域名枚举
 
 ```amass enum -passive -d [example.com]```
 
-**Active** enumeration with brute force
+结合暴力破解的**主动**枚举
 
 ```amass enum -active -brute -d [example.com]```
 
-Enumerate with **configuration file**
+使用**配置文件**进行枚举
 
 ```amass enum -config [config.ini] -d [example.com]```
 
-Show **sources** for discovered names
+显示发现名称的**来源**
 
 ```amass enum -d [example.com] -src```
 
-Output with **IP addresses**
+输出包含 **IP 地址**
 
 ```amass enum -d [example.com] -ip -o [results.txt]```
 
@@ -30,63 +30,63 @@ Output with **IP addresses**
 
 # DESCRIPTION
 
-**amass enum** performs DNS enumeration and network mapping. It discovers subdomains using multiple passive and active techniques, including querying data sources, certificate transparency, DNS brute-forcing, and zone transfers.
+**amass enum** 执行 DNS 枚举和网络映射。它使用多种被动和主动技术发现子域名，包括查询数据源、证书透明度日志、DNS 暴力破解和区域传送。
 
-This is the primary command for subdomain discovery, offering extensive configuration for different reconnaissance needs.
+这是子域名发现的主要命令，为不同的信息收集需求提供了丰富的配置选项。
 
 # PARAMETERS
 
 **-d** _domain_
-> Target domain (repeatable for multiple domains)
+> 目标域名（可重复使用以指定多个域名）
 
 **-passive**
-> Use only passive data sources (no direct queries)
+> 仅使用被动数据源（不直接查询目标）
 
 **-active**
-> Perform active DNS resolution
+> 执行主动 DNS 解析
 
 **-brute**
-> Enable subdomain brute-forcing
+> 启用子域名暴力破解
 
 **-w** _file_
-> Wordlist for brute-forcing
+> 用于暴力破解的字典文件
 
 **-src**
-> Show which source discovered each name
+> 显示每个名称由哪个来源发现
 
 **-ip**
-> Include IP addresses in output
+> 在输出中包含 IP 地址
 
 **-ipv4**
-> Show only IPv4 addresses
+> 仅显示 IPv4 地址
 
 **-ipv6**
-> Show only IPv6 addresses
+> 仅显示 IPv6 地址
 
 **-o** _file_
-> Output file for discovered names
+> 保存发现名称的输出文件
 
 **-json** _file_
-> Output in JSON format
+> 以 JSON 格式输出
 
 **-config** _file_
-> Configuration file with API keys and settings
+> 包含 API 密钥和设置的配置文件
 
 **-timeout** _minutes_
-> Timeout for the enumeration
+> 枚举的超时时间
 
 # CONFIGURATION
 
 **~/.config/amass/config.ini**
-> Amass configuration file defining data sources, API keys, resolvers, and scope settings.
+> Amass 配置文件，定义数据源、API 密钥、解析器和范围设置。
 
 # CAVEATS
 
-Active mode generates DNS traffic that may trigger alerts. Brute-forcing can take significant time. Many data sources require API keys configured in config file.
+主动模式产生的 DNS 流量可能触发告警。暴力破解可能耗时较长。许多数据源需要在配置文件中设置 API 密钥。
 
 # HISTORY
 
-**amass enum** has been the core functionality since amass was first released. It has expanded to include dozens of data sources and multiple enumeration techniques.
+自 amass 首次发布以来，**amass enum** 就一直是其核心功能。它已扩展到包含数十个数据源和多种枚举技术。
 
 # INSTALL
 

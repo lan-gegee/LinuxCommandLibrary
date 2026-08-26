@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display an ASCII cow easter egg.
+显示 ASCII 奶牛彩蛋。
 
 # TLDR
 
-Show apt's **ASCII cow** easter egg
+显示 apt 的 **ASCII 奶牛**彩蛋
 
 ```apt moo```
 
@@ -14,13 +14,13 @@ Show apt's **ASCII cow** easter egg
 
 # DESCRIPTION
 
-**apt moo** is a classic APT easter egg that displays an ASCII art cow asking "Have you mooed today?". Both **apt moo** and **apt-get moo** produce the same cow.
+**apt moo** 是 APT 的经典彩蛋，会显示一头问"Have you mooed today?"（今天你哞了吗）的 ASCII 艺术奶牛。**apt moo** 和 **apt-get moo** 输出的是同一头奶牛。
 
-The "Super Cow Powers" reference is a separate joke: the line "This APT has Super Cow Powers." appears at the bottom of **apt help** and **apt-get help** output.
+"Super Cow Powers"（超级奶牛能力）是另一个梗：**apt help** 和 **apt-get help** 的输出底部会出现 "This APT has Super Cow Powers." 这一行。
 
 # HISTORY
 
-The moo easter egg has been part of APT since the early 2000s. It is an in-joke from the Debian culture of hiding playful features in software. The same cow is shown whether invoked via **apt moo** or **apt-get moo**.
+moo 彩蛋自 21 世纪初起就是 APT 的一部分。它是 Debian 文化中在软件里藏有趣功能的圈内笑话。无论是通过 **apt moo** 还是 **apt-get moo** 调用，显示的都是同一头奶牛。
 
 # INSTALL
 

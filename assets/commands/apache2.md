@@ -1,34 +1,34 @@
 # TAGLINE
 
-Apache HTTP Server daemon
+Apache HTTP 服务器守护进程
 
 # TLDR
 
-**Start** Apache server
+**启动** Apache 服务器
 
 ```sudo apache2```
 
-Start in **foreground** for debugging
+以**前台**模式启动以便调试
 
 ```sudo apache2 -X```
 
-Test **configuration syntax**
+测试**配置语法**
 
 ```apache2 -t```
 
-Show **loaded modules**
+显示**已加载模块**
 
 ```apache2 -M```
 
-Show **version** and build options
+显示**版本**和构建选项
 
 ```apache2 -V```
 
-Show **parsed virtual host** settings
+显示**解析后的虚拟主机**配置
 
 ```apache2 -S```
 
-Start with **specific config**
+使用**指定配置**启动
 
 ```sudo apache2 -f [/path/to/httpd.conf]```
 
@@ -38,81 +38,81 @@ Start with **specific config**
 
 # DESCRIPTION
 
-**apache2** is the Apache HTTP Server daemon, one of the most widely used web servers. It handles HTTP requests, serves static content, runs CGI scripts, and integrates with application servers through various modules.
+**apache2** 是 Apache HTTP 服务器守护进程，也是使用最广泛的 Web 服务器之一。它处理 HTTP 请求、提供静态内容、运行 CGI 脚本，并通过各种模块与应用服务器集成。
 
-On Debian/Ubuntu systems, apache2 is typically managed through systemctl or apache2ctl rather than direct invocation.
+在 Debian/Ubuntu 系统上，apache2 通常通过 systemctl 或 apache2ctl 管理，而非直接调用。
 
 # PARAMETERS
 
 **-t**
-> Test configuration file syntax
+> 测试配置文件语法
 
 **-X**
-> Run in single-process debugging mode
+> 以单进程调试模式运行
 
 **-M**
-> List loaded modules (compiled-in and shared)
+> 列出已加载模块（编译内置与共享）
 
 **-V**
-> Show version and compile settings
+> 显示版本和编译设置
 
 **-f** _file_
-> Specify configuration file
+> 指定配置文件
 
 **-d** _directory_
-> Server root directory
+> 服务器根目录
 
 **-D** _name_
-> Define parameter for <IfDefine>
+> 为 <IfDefine> 定义参数
 
 **-e** _level_
-> Startup error log level.
+> 启动错误日志级别。
 
 **-k** _command_
-> Signal command: start, stop, restart, graceful, graceful-stop.
+> 信号命令：start、stop、restart、graceful、graceful-stop。
 
 **-S**
-> Show parsed virtual host settings.
+> 显示解析后的虚拟主机配置。
 
 **-l**
-> List compiled-in modules.
+> 列出编译内置的模块。
 
 **-L**
-> List available configuration directives.
+> 列出可用的配置指令。
 
 **-C** _directive_
-> Process directive before reading config files.
+> 在读取配置文件之前处理该指令。
 
 **-c** _directive_
-> Process directive after reading config files.
+> 在读取配置文件之后处理该指令。
 
 **-h**
-> Display short summary of command-line options.
+> 显示命令行选项的简要摘要。
 
 # CONFIGURATION
 
 **/etc/apache2/apache2.conf**
-> Main configuration file on Debian/Ubuntu systems.
+> Debian/Ubuntu 系统上的主配置文件。
 
 **/etc/apache2/sites-available/**
-> Virtual host configuration files, enabled via a2ensite.
+> 虚拟主机配置文件，通过 a2ensite 启用。
 
 **/etc/apache2/mods-available/**
-> Module configuration files, enabled via a2enmod.
+> 模块配置文件，通过 a2enmod 启用。
 
 **/etc/apache2/envvars**
-> Environment variables for the Apache process (user, group, pid file).
+> Apache 进程的环境变量（用户、组、pid 文件）。
 
 **/etc/apache2/ports.conf**
-> Listen directives specifying which ports Apache binds to.
+> Listen 指令，指定 Apache 绑定哪些端口。
 
 # CAVEATS
 
-Direct invocation is rarely needed; use apache2ctl or systemctl. Configuration testing (-t) should be run before restarts. Running as root is required for ports below 1024.
+很少需要直接调用；请使用 apache2ctl 或 systemctl。重启前应先运行配置测试（-t）。绑定低于 1024 的端口需要 root 权限。
 
 # HISTORY
 
-Apache HTTP Server originated from NCSA HTTPd patches in **1995**, with "Apache" reportedly meaning "A Patchy Server." It has dominated the web server market for decades.
+Apache HTTP Server 源自 **1995 年**的 NCSA HTTPd 补丁，"Apache" 据称意为 "A Patchy Server"（打满补丁的服务器）。它已主导 Web 服务器市场数十年。
 
 # INSTALL
 

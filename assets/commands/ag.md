@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search code fast like ack but faster
+快速搜索代码，类似 ack 但更快
 
 # TLDR
 
-**Search** for a pattern recursively
+递归地**搜索**模式
 
 ```ag [pattern]```
 
-Search in **specific file types**
+在**指定文件类型**中搜索
 
 ```ag --python [pattern]```
 
-Search with **case insensitivity**
+**不区分大小写**搜索
 
 ```ag -i [pattern]```
 
-Show only **file names** containing matches
+只显示包含匹配项的**文件名**
 
 ```ag -l [pattern]```
 
-Search for **literal string** (no regex)
+搜索**字面字符串**（不用正则表达式）
 
 ```ag -Q "[literal string]"```
 
-Search with **context** lines
+搜索并带**上下文**行
 
 ```ag -C [3] [pattern]```
 
@@ -34,75 +34,75 @@ Search with **context** lines
 
 # DESCRIPTION
 
-**ag** (The Silver Searcher) is a code-searching tool similar to ack but faster. It searches through source code recursively, automatically ignoring files listed in .gitignore and .hgignore, and skipping hidden files and binary files.
+**ag**（The Silver Searcher）是一款类似于 ack 但速度更快的代码搜索工具。它递归地搜索源代码，自动忽略 .gitignore 和 .hgignore 中列出的文件，并跳过隐藏文件和二进制文件。
 
-The tool is optimized for speed, using multiple threads and memory-mapped I/O. It supports Perl-compatible regular expressions and provides colored output with context lines.
+该工具专为速度优化，采用多线程和内存映射 I/O。它支持 Perl 兼容正则表达式，并能提供带上下文行的彩色输出。
 
 # PARAMETERS
 
 **-i**, **--ignore-case**
-> Case insensitive search
+> 不区分大小写搜索
 
 **-s**, **--case-sensitive**
-> Case sensitive search
+> 区分大小写搜索
 
 **-v**, **--invert-match**
-> Invert the match
+> 反转匹配结果
 
 **-w**, **--word-regexp**
-> Match whole words only
+> 只匹配完整单词
 
 **-l**, **--files-with-matches**
-> Print only file names with matches
+> 只打印包含匹配项的文件名
 
 **-L**, **--files-without-matches**
-> Print file names without matches
+> 打印不包含匹配项的文件名
 
 **-c**, **--count**
-> Print count of matches per file
+> 打印每个文件的匹配次数
 
 **-C** _n_, **--context=**_n_
-> Print n lines of context
+> 打印 n 行上下文
 
 **-A** _n_, **--after=**_n_
-> Print n lines after match
+> 打印匹配行之后的 n 行
 
 **-B** _n_, **--before=**_n_
-> Print n lines before match
+> 打印匹配行之前的 n 行
 
 **-Q**, **--literal**
-> Treat pattern as literal string
+> 把模式当作字面字符串处理
 
 **--python**, **--js**, **--html**, etc.
-> Search only specific file types
+> 只搜索特定文件类型
 
 **-g** _pattern_
-> Search file names matching pattern
+> 搜索匹配模式的文件名
 
 **--hidden**
-> Search hidden files
+> 搜索隐藏文件
 
 **-u**, **--unrestricted**
-> Search all files (ignore .gitignore)
+> 搜索所有文件（忽略 .gitignore）
 
 **-z**, **--search-zip**
-> Search inside compressed files
+> 在压缩文件内部搜索
 
 # CONFIGURATION
 
 **~/.agignore**
-> Global file patterns to ignore during searches.
+> 搜索时全局忽略的文件模式。
 
 **.agignore**
-> Per-project file patterns to ignore, similar to .gitignore syntax.
+> 按项目忽略的文件模式，语法与 .gitignore 类似。
 
 # CAVEATS
 
-Not as fast as **ripgrep** on very large codebases. Some regex features may differ from grep. File type detection is based on extensions, not content.
+在超大规模代码库上不如 **ripgrep** 快。某些正则特性可能与 grep 不同。文件类型检测基于扩展名，而非内容。
 
 # HISTORY
 
-**ag** was created by Geoff Greer and first released in **2011**. It was designed as a faster alternative to ack, achieving significant speed improvements through parallelization and smarter file filtering. It inspired later tools like ripgrep.
+**ag** 由 Geoff Greer 创建，于 **2011** 年首次发布。它的定位是更快的 ack 替代品，凭借并行化和更智能的文件过滤带来了显著的速度提升。它也启发了后来 ripgrep 之类的工具。
 
 # INSTALL
 

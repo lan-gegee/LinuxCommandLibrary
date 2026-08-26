@@ -1,26 +1,26 @@
 # TAGLINE
 
-ALSA MIDI port connection manager
+ALSA MIDI 端口连接管理器
 
 # TLDR
 
-**List** all MIDI input and output ports
+**列出**所有 MIDI 输入和输出端口
 
 ```aconnect -l```
 
-**Connect** two MIDI ports
+**连接**两个 MIDI 端口
 
 ```aconnect [sender_client]:[port] [receiver_client]:[port]```
 
-**Disconnect** two MIDI ports
+**断开**两个 MIDI 端口
 
 ```aconnect -d [sender_client]:[port] [receiver_client]:[port]```
 
-Disconnect **all** connections
+断开**所有**连接
 
 ```aconnect -x```
 
-List only **input** ports
+只列出**输入**端口
 
 ```aconnect -i```
 
@@ -36,43 +36,43 @@ List only **input** ports
 
 # DESCRIPTION
 
-**aconnect** is an ALSA (Advanced Linux Sound Architecture) utility for connecting and disconnecting MIDI ports. It manages the ALSA sequencer connections that route MIDI data between applications, hardware MIDI interfaces, and virtual MIDI ports.
+**aconnect** 是一个 ALSA（Advanced Linux Sound Architecture）实用工具，用于连接和断开 MIDI 端口。它管理 ALSA 音序器连接，在应用程序、硬件 MIDI 接口和虚拟 MIDI 端口之间路由 MIDI 数据。
 
-The tool is essential for setting up MIDI routing in Linux audio workflows, allowing you to connect MIDI controllers to synthesizers, route between DAWs, or chain MIDI effects processors.
+在 Linux 音频工作流中设置 MIDI 路由时，这个工具不可或缺：可以把 MIDI 控制器连接到合成器、在 DAW 之间路由数据，或将 MIDI 效果处理器串联起来。
 
 # PARAMETERS
 
 **-l**, **--list**
-> List current MIDI ports and connections
+> 列出当前的 MIDI 端口和连接
 
 **-i**, **--input**
-> List only input (readable) ports
+> 只列出输入（可读）端口
 
 **-o**, **--output**
-> List only output (writable) ports
+> 只列出输出（可写）端口
 
 **-d**, **--disconnect**
-> Disconnect the specified ports
+> 断开指定的端口
 
 **-x**, **--removeall**
-> Remove all connections
+> 移除所有连接
 
 **-e**, **--exclusive**
-> Connect ports exclusively (no other connections allowed)
+> 以独占方式连接端口（不允许其他连接）
 
 **-r**, **--real** _queue_
-> Convert time-stamps using the given real-time queue
+> 使用给定的实时队列转换时间戳
 
 **-t**, **--tick** _queue_
-> Convert time-stamps using the given tick queue
+> 使用给定的 tick 队列转换时间戳
 
 # CAVEATS
 
-Connections made with aconnect are not persistent; they're lost when the MIDI device is disconnected or the system reboots. For persistent connections, use tools like **qjackctl** or write startup scripts. Client numbers may change between sessions.
+用 aconnect 建立的连接不是持久的；MIDI 设备拔出或系统重启后连接即失效。要建立持久连接，请使用 **qjackctl** 等工具或编写启动脚本。客户端编号在不同会话之间可能变化。
 
 # HISTORY
 
-**aconnect** was developed as part of the ALSA project in the late **1990s**. It provided a command-line interface for the ALSA sequencer system, which replaced the older OSS (Open Sound System) MIDI handling in Linux.
+**aconnect** 于 **20 世纪 90 年代**末作为 ALSA 项目的一部分开发。它为 ALSA 音序器系统提供了命令行接口，该系统取代了 Linux 中较旧的 OSS（Open Sound System）MIDI 处理机制。
 
 # INSTALL
 

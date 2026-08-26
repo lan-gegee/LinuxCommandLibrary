@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create and manage Android Virtual Devices
+创建和管理 Android 虚拟设备
 
 # TLDR
 
-**List all available Android Virtual Device targets**
+**列出所有可用的 Android 虚拟设备目标**
 
 ```avdmanager list target```
 
-**List all available device definitions**
+**列出所有可用的设备定义**
 
 ```avdmanager list device```
 
-**List all created AVDs**
+**列出所有已创建的 AVD**
 
 ```avdmanager list avd```
 
-**Create a new AVD**
+**创建新的 AVD**
 
 ```avdmanager create avd -n [avd_name] -k "[system_image]" -d "[device_id]"```
 
-**Create AVD with specific settings**
+**以指定配置创建 AVD**
 
 ```avdmanager create avd -n [avd_name] -k "system-images;android-[34];google_apis;x86_64" -d "pixel_6"```
 
-**Delete an AVD**
+**删除一个 AVD**
 
 ```avdmanager delete avd -n [avd_name]```
 
-**Move/rename an AVD**
+**移动/重命名一个 AVD**
 
 ```avdmanager move avd -n [old_name] -r [new_name]```
 
@@ -39,65 +39,65 @@ Create and manage Android Virtual Devices
 # PARAMETERS
 
 **list target**
-> List available Android targets for AVD creation.
+> 列出可用于创建 AVD 的 Android 目标。
 
 **list device**
-> List available device definitions (phone, tablet, TV).
+> 列出可用的设备定义（手机、平板、电视）。
 
 **list avd**
-> List all created Android Virtual Devices.
+> 列出所有已创建的 Android 虚拟设备。
 
 **create avd**
-> Create a new Android Virtual Device.
+> 创建一个新的 Android 虚拟设备。
 
 **delete avd**
-> Delete an existing AVD.
+> 删除一个已有的 AVD。
 
 **move avd**
-> Move or rename an AVD.
+> 移动或重命名一个 AVD。
 
 **-n**, **--name** _name_
-> Name for the AVD.
+> AVD 的名称。
 
 **-k**, **--package** _path_
-> System image package path (e.g. "system-images;android-34;google_apis;x86_64").
+> 系统镜像软件包路径（如 "system-images;android-34;google_apis;x86_64"）。
 
 **-d**, **--device** _id_
-> Device definition to use.
+> 要使用的设备定义。
 
 **-g**, **--tag** _tag_
-> System image tag to use (e.g. google_apis, default, google_apis_playstore).
+> 要使用的系统镜像标签（如 google_apis、default、google_apis_playstore）。
 
 **-b**, **--abi** _abi_
-> ABI to use for the AVD (e.g. x86_64, arm64-v8a). Auto-selected when the package has only one ABI.
+> AVD 要使用的 ABI（如 x86_64、arm64-v8a）。当软件包只有一个 ABI 时会自动选择。
 
 **-c**, **--sdcard** _value_
-> Path to a shared SD card image, or size of a new SD card (e.g. 512M).
+> 共享 SD 卡镜像的路径，或新 SD 卡的大小（如 512M）。
 
 **-p**, **--path** _directory_
-> Custom location for AVD files.
+> AVD 文件的自定义存放位置。
 
 **-r**, **--rename** _name_
-> New name when moving an AVD (used with **move avd**).
+> 移动 AVD 时使用的新名称（与 **move avd** 配合使用）。
 
 **-f**, **--force**
-> Force creation, overwriting existing AVD.
+> 强制创建，覆盖已存在的 AVD。
 
 # DESCRIPTION
 
-**avdmanager** is the Android SDK command-line tool for creating and managing Android Virtual Devices (AVDs). AVDs are emulator configurations that define the hardware profile and system image for Android emulator instances.
+**avdmanager** 是 Android SDK 中用于创建和管理 Android 虚拟设备（AVD）的命令行工具。AVD 是一种模拟器配置，为 Android 模拟器实例定义硬件配置文件和系统镜像。
 
-Each AVD specifies a device type (phone, tablet, TV, wear), Android API level, system image (with or without Google APIs/Play Store), and hardware characteristics like screen size, RAM, and storage. These configurations are used by the Android emulator to simulate various Android devices.
+每个 AVD 指定设备类型（手机、平板、电视、穿戴设备）、Android API 级别、系统镜像（含或不含 Google API/Play 商店），以及屏幕尺寸、内存和存储等硬件特性。Android 模拟器使用这些配置来模拟各种 Android 设备。
 
-The tool works alongside **sdkmanager** for downloading system images and **emulator** for running the virtual devices. AVDs are stored in **~/.android/avd/** by default.
+该工具与用于下载系统镜像的 **sdkmanager** 以及用于运行虚拟设备的 **emulator** 配合工作。AVD 默认存储在 **~/.android/avd/** 目录中。
 
 # CAVEATS
 
-Creating an AVD requires the corresponding system image to be installed via sdkmanager first. Hardware acceleration (KVM on Linux, HAXM on macOS/Windows) is strongly recommended for acceptable emulator performance. AVDs for different architectures (arm64, x86_64) are not interchangeable.
+创建 AVD 前需要先通过 sdkmanager 安装对应的系统镜像。强烈建议启用硬件加速（Linux 上是 KVM，macOS/Windows 上是 HAXM）以获得可接受的模拟器性能。不同架构（arm64、x86_64）的 AVD 不能互换使用。
 
 # HISTORY
 
-**avdmanager** was introduced in Android SDK Tools version 25.3 (2017) as a replacement for the **android** command's AVD management functionality. It is part of Google's effort to provide focused, standalone command-line tools for Android development. The tool is distributed as part of the Android SDK command-line tools package.
+**avdmanager** 于 Android SDK Tools 25.3 版（2017 年）引入，用于取代 **android** 命令中的 AVD 管理功能。它是 Google 为 Android 开发提供专注、独立命令行工具的努力的一部分。该工具作为 Android SDK command-line tools 软件包的一部分分发。
 
 # SEE ALSO
 

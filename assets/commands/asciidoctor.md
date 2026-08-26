@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert AsciiDoc documents to various output formats
+将 AsciiDoc 文档转换为多种输出格式
 
 # TLDR
 
-**Convert** to HTML
+**转换**为 HTML
 
 ```asciidoctor [document.adoc]```
 
-Convert to **PDF**
+转换为 **PDF**
 
 ```asciidoctor-pdf [document.adoc]```
 
-Convert with **custom output**
+以**自定义输出**转换
 
 ```asciidoctor -o [output.html] [document.adoc]```
 
-Convert with **backend**
+以指定**后端**转换
 
 ```asciidoctor -b [docbook] [document.adoc]```
 
-Enable **safe mode**
+启用**安全模式**
 
 ```asciidoctor -S [secure] [document.adoc]```
 
@@ -30,52 +30,52 @@ Enable **safe mode**
 
 # DESCRIPTION
 
-**asciidoctor** is a fast text processor for converting AsciiDoc markup to HTML, DocBook, man pages, and other formats. It's a Ruby implementation of the AsciiDoc standard, supporting extensions and customization.
+**asciidoctor** 是一个快速的文本处理器，用于将 AsciiDoc 标记转换为 HTML、DocBook、man page 等格式。它是 AsciiDoc 标准的 Ruby 实现，支持扩展和定制。
 
-AsciiDoc is a lightweight markup language for writing documentation, articles, books, and technical content.
+AsciiDoc 是一种轻量级标记语言，适合编写文档、文章、书籍和技术内容。
 
 # PARAMETERS
 
 **-b** _backend_
-> Output backend (html5, docbook5, manpage)
+> 输出后端（html5、docbook5、manpage）
 
 **-o** _file_
-> Output file
+> 输出文件
 
 **-D** _dir_
-> Output directory
+> 输出目录
 
 **-a** _attr=val_
-> Set document attribute
+> 设置文档属性
 
 **-r** _lib_
-> Require library/extension
+> 加载库/扩展
 
 **-S** _level_
-> Safe mode (unsafe, safe, server, secure)
+> 安全模式（unsafe、safe、server、secure）
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **--trace**
-> Show backtrace on errors
+> 出错时显示回溯信息
 
 **-s**, **--no-header-footer**
-> Output without HTML wrapper
+> 不带 HTML 包装输出
 
 **-e**, **--embedded**
-> Output an embeddable document (body only, no header, footer, or styling)
+> 输出可嵌入的文档（只含主体，无头部、页脚和样式）
 
 **-n**, **--section-numbers**
-> Auto-number section titles
+> 为章节标题自动编号
 
 # CAVEATS
 
-PDF output requires asciidoctor-pdf gem. Some features require additional gems. Safe mode restricts certain features.
+PDF 输出需要 asciidoctor-pdf gem。部分功能需要额外的 gem。安全模式会限制某些特性。
 
 # HISTORY
 
-**Asciidoctor** was created by Dan Allen and Ryan Waldron, first released in **2012** as a faster, Ruby-based alternative to the original Python AsciiDoc implementation.
+**Asciidoctor** 由 Dan Allen 和 Ryan Waldron 创建，于 **2012** 年首次发布，是比最初的 Python 版 AsciiDoc 实现更快的 Ruby 替代方案。
 
 # INSTALL
 

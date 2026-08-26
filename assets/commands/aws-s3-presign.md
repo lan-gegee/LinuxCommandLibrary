@@ -1,22 +1,22 @@
 # TAGLINE
 
-Generate pre-signed URLs for temporary S3 object access
+生成用于临时访问 S3 对象的预签名 URL
 
 # TLDR
 
-**Generate a pre-signed URL** with default 1-hour expiration
+**生成预签名 URL**，默认 1 小时后过期
 
 ```aws s3 presign s3://[bucket-name]/[file.txt]```
 
-**Generate a pre-signed URL** valid for 1 week (maximum)
+**生成有效期**为 1 周（最大值）的**预签名 URL**
 
 ```aws s3 presign s3://[bucket-name]/[file.txt] --expires-in 604800```
 
-**Generate a pre-signed URL** valid for 5 minutes
+**生成有效期**为 5 分钟的**预签名 URL**
 
 ```aws s3 presign s3://[bucket-name]/[file.txt] --expires-in 300```
 
-**Generate a pre-signed URL** for a specific region
+为特定区域**生成预签名 URL**
 
 ```aws s3 presign s3://[bucket-name]/[file.txt] --region [us-west-2]```
 
@@ -26,30 +26,30 @@ Generate pre-signed URLs for temporary S3 object access
 
 # DESCRIPTION
 
-**aws s3 presign** generates a pre-signed URL for an Amazon S3 object. Anyone with the pre-signed URL can retrieve the S3 object using an HTTP GET request without AWS credentials.
+**aws s3 presign** 为 Amazon S3 对象生成预签名 URL。任何持有该预签名 URL 的人都可以通过 HTTP GET 请求获取 S3 对象，而无需 AWS 凭证。
 
-Pre-signed URLs are useful for sharing private S3 objects temporarily, embedding download links in applications, or providing time-limited access to files. All pre-signed URLs use Signature Version 4 (SigV4) authentication.
+预签名 URL 适用于临时共享私有 S3 对象、在应用程序中嵌入下载链接或提供限时文件访问。所有预签名 URL 均使用 Signature Version 4（SigV4）认证。
 
 # PARAMETERS
 
 **S3Uri**
-> The S3 URI of the object to generate a pre-signed URL for (s3://bucket-name/key)
+> 要为其生成预签名 URL 的对象的 S3 URI（s3://bucket-name/key）
 
 **--expires-in** _value_
-> Number of seconds until the pre-signed URL expires (default: 3600, maximum: 604800)
+> 预签名 URL 过期前的秒数（默认：3600，最大：604800）
 
 **--region** _value_
-> The AWS region of the bucket (required for SigV4; overrides config/env settings).
+> 存储桶所在的 AWS 区域（SigV4 必需；覆盖配置/环境设置）。
 
 **--profile** _name_
-> Use a specific named profile from the credentials file.
+> 使用凭证文件中的指定命名配置。
 
 **--endpoint-url** _url_
-> Override the default endpoint URL (useful for S3-compatible services).
+> 覆盖默认端点 URL（对 S3 兼容服务很有用）。
 
 # CAVEATS
 
-The maximum expiration time is 604800 seconds (7 days). The region must be configured explicitly since all pre-signed URLs use SigV4 authentication. Pre-signed URLs produced by **aws s3 presign** grant read-only (GET) access; uploads require **aws s3api** with SigV4 query parameters or SDK helpers. The URL expires based on the credentials used to sign it; if using temporary credentials (STS), the URL cannot outlive those credentials.
+最长过期时间为 604800 秒（7 天）。由于所有预签名 URL 都使用 SigV4 认证，必须显式配置区域。**aws s3 presign** 生成的预签名 URL 只授予只读（GET）访问权限；上传需要配合 SigV4 查询参数使用 **aws s3api** 或 SDK 辅助工具。URL 的有效期受签署它所用的凭证限制；如果使用临时凭证（STS），URL 的有效期不能超过这些凭证本身。
 
 # INSTALL
 

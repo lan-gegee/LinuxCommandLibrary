@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate summary reports from audit logs
+根据审计日志生成汇总报告
 
 # TLDR
 
-Show **summary** of events
+显示事件**摘要**
 
 ```sudo aureport```
 
-Report on **logins**
+报告**登录**情况
 
 ```sudo aureport -l```
 
-Report on **syscalls**
+报告**系统调用**
 
 ```sudo aureport -s```
 
-Report on **executables**
+报告**可执行文件**
 
 ```sudo aureport -x```
 
-Report for **time range**
+按**时间范围**报告
 
 ```sudo aureport -ts start_time -te end_time```
 
-Report on **failed** events only
+仅报告**失败**事件
 
 ```sudo aureport -au --failed --summary```
 
@@ -34,67 +34,67 @@ Report on **failed** events only
 
 # DESCRIPTION
 
-**aureport** generates summary reports from the Linux audit logs. It provides overviews of various event types including logins, authentication, files, syscalls, and anomalies.
+**aureport** 根据 Linux 审计日志生成汇总报告。它提供多种事件类型的总览，包括登录、认证、文件、系统调用和异常情况。
 
 # PARAMETERS
 
 **-au, --auth**
-> Report on authentication attempts.
+> 报告认证尝试。
 
 **-l, --login**
-> Report on login events.
+> 报告登录事件。
 
 **-s, --syscall**
-> Report on syscall events.
+> 报告系统调用事件。
 
 **-x, --executable**
-> Report on executable events.
+> 报告可执行文件事件。
 
 **-f, --file**
-> Report on files and AF_UNIX sockets.
+> 报告文件和 AF_UNIX 套接字事件。
 
 **-u, --user**
-> Report on user events.
+> 报告用户事件。
 
 **-c, --config**
-> Report on configuration changes.
+> 报告配置变更。
 
 **-ts, --start** _time_
-> Start time for the report. Accepts keywords such as now, recent, today, yesterday, this-week, and boot.
+> 报告的开始时间。接受 now、recent、today、yesterday、this-week、boot 等关键字。
 
 **-te, --end** _time_
-> End time for the report. Accepts the same keywords as **-ts**.
+> 报告的结束时间。接受与 **-ts** 相同的关键字。
 
 **-t, --log**
-> Report the start and end times of each audit log file.
+> 报告每个审计日志文件的起止时间。
 
 **--success**
-> Process only successful events.
+> 只处理成功的事件。
 
 **--failed**
-> Process only failed events.
+> 只处理失败的事件。
 
 **--summary**
-> Include summary totals for the selected report.
+> 在所选报告中包含汇总统计。
 
 **-i, --interpret**
-> Interpret numeric entities (UIDs, syscalls, and so on) into human-readable names.
+> 将数字实体（UID、系统调用等）转换为人类可读的名称。
 
 # CONFIGURATION
 
 **/etc/audit/auditd.conf**
-> Main audit daemon configuration, controls log file location, size, and rotation.
+> 审计守护进程的主配置，控制日志文件位置、大小和轮转。
 
 **/etc/audit/audit.rules**
-> Defines which events the audit system logs. Determines what data is available for reporting.
+> 定义审计系统记录哪些事件。决定了可用于报告的数据范围。
 
 # CAVEATS
 
-Requires root privileges. Reports are generated from available audit logs, so completeness depends on what has been logged. Use time filters for large log files.
+需要 root 权限。报告基于现有的审计日志生成，完整性取决于已记录的内容。处理大型日志文件时请使用时间过滤。
 
 # HISTORY
 
-**aureport** is part of the **audit** package, providing reporting capabilities for the Linux Audit Framework.
+**aureport** 是 **audit** 软件包的一部分，为 Linux 审计框架提供报告能力。
 
 # INSTALL
 

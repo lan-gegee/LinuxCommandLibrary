@@ -1,22 +1,22 @@
 # TAGLINE
 
-Search a container library for available images.
+在容器库中搜索可用的镜像。
 
 # TLDR
 
-**Search** for container images matching a query
+**搜索**匹配查询的容器镜像
 
 ```apptainer search [query]```
 
-Search for container images for a **specific architecture**
+搜索**特定架构**的容器镜像
 
 ```apptainer search --arch [amd64|arm64|386|ppc64le|s390x] [query]```
 
-Search for only **signed** container images
+只搜索**已签名**的容器镜像
 
 ```apptainer search --signed [query]```
 
-Search in a **specific Container Library**
+在**特定的 Container Library** 中搜索
 
 ```apptainer search --library [library_url] [query]```
 
@@ -26,20 +26,20 @@ Search in a **specific Container Library**
 
 # DESCRIPTION
 
-**apptainer search** queries a Container Library for available container images matching the specified search terms. Results include image names, descriptions, and available tags.
+**apptainer search** 向 Container Library 查询与指定搜索词匹配的可用容器镜像。结果包括镜像名称、描述和可用的标签。
 
-By default, searches are performed against the Sylabs Container Library. Alternative libraries can be specified using the **--library** option.
+默认情况下，搜索针对 Sylabs Container Library 进行。可以使用 **--library** 选项指定其他库。
 
 # PARAMETERS
 
 **--arch** _architecture_
-> Filter results by CPU architecture (default: amd64).
+> 按 CPU 架构过滤结果（默认：amd64）。
 
 **--signed**
-> Only show containers with cryptographic signatures.
+> 只显示带有加密签名的容器。
 
 **--library** _url_
-> Specify an alternate Container Library URI to search.
+> 指定要搜索的其他 Container Library URI。
 
 # INSTALL
 

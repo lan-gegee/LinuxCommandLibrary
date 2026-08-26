@@ -1,22 +1,22 @@
 # TAGLINE
 
-Android resource packaging tool
+Android 资源打包工具
 
 # TLDR
 
-**List contents** of an APK file
+**列出** APK 文件的**内容**
 
 ```aapt list [app.apk]```
 
-**Dump** the AndroidManifest.xml from an APK
+从 APK 中**导出** AndroidManifest.xml
 
 ```aapt dump xmltree [app.apk] AndroidManifest.xml```
 
-**Extract package name** and version from an APK
+从 APK 中**提取包名**和版本号
 
 ```aapt dump badging [app.apk]```
 
-**Package** resources into an APK
+将资源**打包**进 APK
 
 ```aapt package -f -M [AndroidManifest.xml] -S [res/] -I [android.jar] -F [output.apk]```
 
@@ -26,46 +26,46 @@ Android resource packaging tool
 
 # DESCRIPTION
 
-**aapt** (Android Asset Packaging Tool) is a build tool used in Android development to package application resources into APK files. It compiles resources, generates the R.java file containing resource identifiers, and can inspect existing APK files.
+**aapt**（Android Asset Packaging Tool）是 Android 开发中使用的构建工具，用于把应用资源打包成 APK 文件。它编译资源、生成包含资源标识符的 R.java 文件，还能检查现有的 APK 文件。
 
-The tool handles resource compilation, XML processing, asset packaging, and APK creation. It reads AndroidManifest.xml, processes drawable, layout, and other resource files, and bundles them into the final application package. While largely superseded by aapt2 in modern Android development, aapt remains useful for APK inspection and legacy projects.
+该工具负责资源编译、XML 处理、资产打包和 APK 创建。它读取 AndroidManifest.xml，处理 drawable、layout 等资源文件，并把它们打包进最终的应用包。虽然在现代 Android 开发中已基本被 aapt2 取代，aapt 在检查 APK 和维护旧项目时仍然有用。
 
 # PARAMETERS
 
 **list**
-> List contents of a ZIP-compatible archive (APK)
+> 列出一个 ZIP 兼容归档（APK）的内容
 
 **dump**
-> Dump specific information from an APK: badging, permissions, resources, configurations, xmltree, xmlstrings
+> 从 APK 中导出特定信息：badging、permissions、resources、configurations、xmltree、xmlstrings
 
 **package**
-> Package resources and assets into an APK
+> 将资源和资产打包为 APK
 
 **-f**
-> Force overwrite of existing files
+> 强制覆盖已有文件
 
 **-M** _file_
-> Specify AndroidManifest.xml location
+> 指定 AndroidManifest.xml 的位置
 
 **-S** _dir_
-> Specify resource directory
+> 指定资源目录
 
 **-I** _jar_
-> Add an existing package to base include set (usually android.jar)
+> 向基础 include 集合添加一个已有的包（通常是 android.jar）
 
 **-F** _file_
-> Specify output APK file
+> 指定输出的 APK 文件
 
 **-v**
-> Verbose output
+> 详细输出
 
 # CAVEATS
 
-**aapt** has been superseded by **aapt2** in Android Gradle Plugin 3.0+. The older tool lacks incremental compilation support and has slower performance on large projects. Resource processing differences may cause issues when mixing tools.
+自 Android Gradle Plugin 3.0 起，**aapt** 已被 **aapt2** 取代。旧工具缺乏增量编译支持，在大项目上性能也较慢。混用两种工具时，资源处理差异可能导致问题。
 
 # HISTORY
 
-**aapt** was introduced as part of the Android SDK in **2008** with the initial public release of Android. It served as the primary resource packaging tool until **2017** when Google introduced aapt2 with improved performance and incremental build support. The original aapt remains included in the SDK for compatibility.
+**aapt** 于 **2008 年**作为 Android SDK 的一部分随 Android 首次公开发布推出。它一直是主要的资源打包工具，直到 **2017 年** Google 推出了性能更好、支持增量构建的 aapt2。出于兼容性考虑，原版 aapt 仍保留在 SDK 中。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-X11 compatibility layer for Wayland
+Wayland 的 X11 兼容层
 
 # TLDR
 
-**Start rootless** (typical usage by compositor)
+以 rootless 模式**启动**（合成器的典型用法）
 
 ```Xwayland :0 -rootless```
 
-**Start rootful for testing**
+以 rootful 模式**启动用于测试**
 
 ```Xwayland :1 -geometry [1920x1080]```
 
-**Start fullscreen rootful**
+以全屏 rootful 模式**启动**
 
 ```Xwayland :1 -fullscreen```
 
-**Start with decorations**
+带窗口装饰**启动**
 
 ```Xwayland :1 -decorate```
 
-**Force shared memory backend**
+强制使用共享内存后端
 
 ```Xwayland :0 -rootless -shm```
 
-**Enable verbose output**
+启用详细输出
 
 ```Xwayland :0 -rootless -verbose [2]```
 
@@ -35,67 +35,67 @@ X11 compatibility layer for Wayland
 # PARAMETERS
 
 **-rootless**
-> Run rootless, integrating X clients with Wayland desktop.
+> 以 rootless 模式运行，将 X 客户端融入 Wayland 桌面。
 
 **-fullscreen**
-> Run rootful window fullscreen.
+> 全屏运行 rootful 窗口。
 
 **-geometry** _WxH_
-> Set rootful window geometry.
+> 设置 rootful 窗口的几何尺寸。
 
 **-decorate**
-> Add decorations to rootful window.
+> 为 rootful 窗口添加装饰。
 
 **-output** _name_
-> Output for fullscreen rootful.
+> 全屏 rootful 模式使用的输出。
 
 **-host-grab**
-> Disable host shortcuts, confine pointer (Ctrl+Shift to release).
+> 禁用宿主快捷键并捕获指针（按 Ctrl+Shift 释放）。
 
 **-shm**
-> Force shared memory backend.
+> 强制使用共享内存后端。
 
 **-glamor**
-> Force OpenGL rendering (not GL ES).
+> 强制使用 OpenGL 渲染（而非 GL ES）。
 
 **-hidpi**
-> Adjust to output scale in rootful mode.
+> 在 rootful 模式下适配输出缩放。
 
 **-noTouchPointerEmulation**
-> Disable touch pointer emulation.
+> 禁用触摸指针模拟。
 
 **-nokeymap**
-> Ignore compositor keymap.
+> 忽略合成器的键盘映射。
 
 **-listenfd** _fd_
-> Add listen socket (used by compositor).
+> 添加监听套接字（由合成器使用）。
 
 **-wm** _fd_
-> Window manager socket (used by compositor).
+> 窗口管理器套接字（由合成器使用）。
 
 **-verbose** _n_
-> Set verbosity level.
+> 设置详细程度。
 
 **-version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**Xwayland** is an X server that runs X11 applications under Wayland compositors. It translates X11 protocol to Wayland, enabling legacy X applications to work in modern Wayland desktops.
+**Xwayland** 是一种 X 服务器，用于在 Wayland 合成器下运行 X11 应用程序。它把 X11 协议翻译为 Wayland，让传统的 X 应用能够在现代 Wayland 桌面中工作。
 
-In rootless mode (default), X windows integrate seamlessly with Wayland windows, managed by the compositor. In rootful mode, Xwayland runs in its own window for testing or isolation.
+在 rootless 模式（默认）下，X 窗口与 Wayland 窗口无缝融合，由合成器统一管理。在 rootful 模式下，Xwayland 运行在自己的窗口中，适合测试或隔离使用。
 
-Xwayland is typically spawned automatically by the Wayland compositor (GNOME, KDE Plasma, Sway, etc.) when X11 applications are launched.
+当 X11 应用启动时，Wayland 合成器（GNOME、KDE Plasma、Sway 等）通常会自动拉起 Xwayland。
 
-Input, clipboard, and drag-and-drop are bridged between X11 and Wayland contexts.
+输入、剪贴板和拖放在 X11 与 Wayland 上下文之间互通。
 
 # CAVEATS
 
-Some X11-specific features may not work (screen capture, global hotkeys). Performance may be lower than native Wayland. Rootful mode is mainly for testing. HiDPI scaling requires compositor support.
+部分 X11 特有功能可能不可用（屏幕捕获、全局热键）。性能可能低于原生 Wayland。rootful 模式主要用于测试。HiDPI 缩放需要合成器支持。
 
 # HISTORY
 
-**Xwayland** was developed as part of the X.Org server project to enable X11 compatibility during the transition to Wayland. It became essential for running applications that haven't been ported to Wayland natively.
+**Xwayland** 作为 X.Org 服务器项目的组成部分而开发，旨在向 Wayland 过渡期间保持 X11 兼容性。对于尚未移植为原生 Wayland 的应用而言，它已成为不可或缺的组件。
 
 # INSTALL
 

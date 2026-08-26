@@ -1,30 +1,30 @@
 # TAGLINE
 
-Download APKs from app stores
+从应用商店下载 APK
 
 # TLDR
 
-**Download** an APK from the default source (APKPure)
+从默认来源（APKPure）**下载** APK
 
 ```apkeep -a [com.example.app] .```
 
-Download a **specific version**
+下载**特定版本**
 
 ```apkeep -a [com.example.app]@[version] .```
 
-Download from **Google Play** using an account email and AAS token
+使用账号邮箱和 AAS token 从 **Google Play** 下载
 
 ```apkeep -a [com.example.app] -d google-play -e [user@gmail.com] -t [aas_token] .```
 
-Download from **F-Droid**
+从 **F-Droid** 下载
 
 ```apkeep -a [com.example.app] -d f-droid .```
 
-List available **versions**
+列出可用**版本**
 
 ```apkeep -a [com.example.app] -l```
 
-Download many apps listed in a **CSV file**
+批量下载 **CSV 文件**中列出的多个应用
 
 ```apkeep -c [apps.csv] .```
 
@@ -34,52 +34,52 @@ Download many apps listed in a **CSV file**
 
 # DESCRIPTION
 
-**apkeep** downloads APK files from several Android app sources. It can fetch current or specific historical versions of applications, useful for security research, app archival, or accessing apps without a device.
+**apkeep** 可从多个 Android 应用来源下载 APK 文件。它能够获取应用的当前版本或特定的历史版本，适用于安全研究、应用存档，或在没有设备的情况下获取应用。
 
-By default it downloads from APKPure, which requires no credentials. Downloading from Google Play requires an account email and an AAS token. Apps can be specified individually with **-a** or in bulk from a CSV file with **-c**.
+默认从 APKPure 下载，无需任何凭据。从 Google Play 下载需要账号邮箱和 AAS token。可以用 **-a** 逐个指定应用，也可以用 **-c** 从 CSV 文件批量获取。
 
 # PARAMETERS
 
 **-a, --app** _app_id[@version]_
-> App ID, optionally with @version (e.g. com.instagram.android).
+> 应用 ID，可选附加 @version（例如 com.instagram.android）。
 
 **-c, --csv** _file_
-> CSV file listing app IDs to download in bulk.
+> 列出待批量下载应用 ID 的 CSV 文件。
 
 **-f, --field** _n_
-> CSV field (column) containing app IDs. Default is **1**.
+> 包含应用 ID 的 CSV 字段（列）。默认是 **1**。
 
 **-v, --version-field** _n_
-> CSV field containing versions.
+> 包含版本号的 CSV 字段。
 
 **-d, --download-source** _source_
-> Where to download from: **apk-pure** (default), **google-play**, **f-droid**, **huawei-app-gallery**.
+> 下载来源：**apk-pure**（默认）、**google-play**、**f-droid**、**huawei-app-gallery**。
 
 **-l, --list-versions**
-> List the available versions of an app instead of downloading.
+> 列出应用的可用版本而不是下载。
 
 **-e, --email** _email_
-> Google account email address (required for google-play).
+> Google 账号邮箱地址（google-play 必需）。
 
 **-t, --aas-token** _token_
-> Google AAS token (required for google-play).
+> Google AAS token（google-play 必需）。
 
 **-o, --options** _opts_
-> Comma-separated extra options for the download source (e.g. arch=arm64-v8a).
+> 以逗号分隔的下载源额外选项（例如 arch=arm64-v8a）。
 
 **-r, --parallel** _n_
-> Number of parallel APK fetches to run at a time. Default is **4**.
+> 同时运行的并行 APK 抓取数量。默认为 **4**。
 
 **-s, --sleep-duration** _ms_
-> Sleep duration in milliseconds before each download request. Default is **0**.
+> 每次下载请求前的等待时长（毫秒）。默认为 **0**。
 
 # CAVEATS
 
-Google Play downloads require a valid account email and AAS token; see the project documentation for how to obtain one. Servers may rate-limit or block excessive downloads, so use **-s** to throttle. Downloaded APKs remain subject to their original license.
+从 Google Play 下载需要有效的账号邮箱和 AAS token；获取方法见项目文档。服务器可能对过量下载进行限速或封锁，请用 **-s** 进行节流。下载的 APK 仍受其原始许可证约束。
 
 # HISTORY
 
-**apkeep** was developed by the EFF Threat Lab and first released in **2021**, written in Rust, providing command-line access to multiple Android app sources for archival and security research.
+**apkeep** 由 EFF 威胁实验室开发，首个版本发布于 **2021 年**，以 Rust 编写，为存档和安全研究提供访问多个 Android 应用来源的命令行途径。
 
 # INSTALL
 

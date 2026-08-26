@@ -1,10 +1,10 @@
 # TAGLINE
 
-Add package repositories to APT sources
+向 APT 软件源添加软件仓库
 
 # TLDR
 
-This command is an alias of **add-apt-repository**.
+此命令是 **add-apt-repository** 的别名。
 
 # SYNOPSIS
 
@@ -12,7 +12,7 @@ This command is an alias of **add-apt-repository**.
 
 # DESCRIPTION
 
-**apt-add-repository** is an alternative name for **add-apt-repository**, used to add APT repositories to the system's sources list on Debian-based distributions.
+**apt-add-repository** 是 **add-apt-repository** 的另一个名称，用于在基于 Debian 的发行版上向系统的软件源列表添加 APT 仓库。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Verify Amanda backup configuration before a run
+在备份运行前验证 Amanda 备份配置
 
 # TLDR
 
-**Run all checks** (client and server) for a configuration
+为某个配置**运行全部检查**（客户端与服务器）
 
 ```amcheck [config_name]```
 
-**Run server-side checks** only (local and tape)
+仅**运行服务器端检查**（本地与磁带）
 
 ```amcheck -s [config_name]```
 
-**Run client host checks** only
+仅**运行客户端主机检查**
 
 ```amcheck -c [config_name]```
 
-**Run local tests** on the server (permissions, etc.)
+在服务器上**运行本地测试**（权限等）
 
 ```amcheck -l [config_name]```
 
-**Run tape tests** on the server
+在服务器上**运行磁带测试**
 
 ```amcheck -t [config_name]```
 
-**Check specific clients** only
+仅**检查特定客户端**
 
 ```amcheck -c [config_name] [client1] [client2]```
 
-**Override a configuration option**
+**覆盖某个配置选项**
 
 ```amcheck -o [tapetype=EXABYTE] [config_name]```
 
@@ -39,69 +39,69 @@ Verify Amanda backup configuration before a run
 # PARAMETERS
 
 **-s**
-> Run server-side checks (equivalent to -lt)
+> 运行服务器端检查（等同于 -lt）
 
 **-c**
-> Run client host checks; optionally specify specific clients
+> 运行客户端主机检查；可选指定具体客户端
 
 **-l**
-> Run local tests on the server host (permissions, configuration)
+> 在服务器主机上运行本地测试（权限、配置）
 
 **-t**
-> Run tape tests on the server host (verify correct tape is mounted)
+> 在服务器主机上运行磁带测试（确认已装入正确的磁带）
 
 **-m**
-> Send results via email to the address specified in amanda.conf
+> 通过电子邮件将结果发送到 amanda.conf 中指定的地址
 
 **-M** _address_
-> Send results to the specified email address
+> 将结果发送到指定的电子邮件地址
 
 **-w**
-> Enable a more thorough tape check that overwrites the tape label
+> 启用更彻底的磁带检查，会覆盖磁带标签
 
 **-a**
-> Skip client checks if they fail
+> 客户端检查失败时跳过
 
 **--client-verbose**
-> Print verbose client output
+> 打印详细的客户端输出
 
 **-o** _name=value_
-> Override a configuration option from amanda.conf
+> 覆盖 amanda.conf 中的某个配置选项
 
 _config_
-> Amanda configuration name to check
+> 要检查的 Amanda 配置名称
 
 _host_
-> Specific client hostname to check
+> 要检查的特定客户端主机名
 
 _disk_
-> Specific disk expression to check
+> 要检查的特定磁盘表达式
 
 # DESCRIPTION
 
-**amcheck** performs self-checks on both the Amanda backup server and client hosts before a backup run. It helps identify potential issues that could cause backup failures, such as incorrect tape mounting, permission problems, or unreachable clients.
+**amcheck** 在备份运行前对 Amanda 备份服务器和客户端主机执行自检。它有助于发现可能导致备份失败的问题，例如磁带装入错误、权限问题或客户端不可达。
 
-On the server side, amcheck verifies that the correct tape is mounted for the next scheduled backup and checks local configuration and permissions. On client hosts, it confirms that the Amanda client daemon is running and that the backup server has proper permissions to access the filesystems scheduled for backup.
+在服务器端，amcheck 会验证下一次计划备份是否装入了正确的磁带，并检查本地配置和权限。在客户端主机上，它会确认 Amanda 客户端守护进程正在运行，且备份服务器拥有访问计划备份文件系统的适当权限。
 
-The tool is typically run before scheduled backups or manually by administrators to verify the backup infrastructure is ready. Results can be displayed on standard output or sent via email using the **-m** option. The default behavior runs both client and server checks (**-cs**).
+该工具通常在计划备份之前运行，或由管理员手动运行以验证备份基础设施就绪。结果显示在标准输出上，也可通过 **-m** 选项以电子邮件发送。默认行为是同时运行客户端和服务器检查（**-cs**）。
 
-Client checks have a configurable timeout (default 30 seconds) controlled by the **ctimeout** setting in amanda.conf.
+客户端检查具有可配置的超时时间（默认 30 秒），由 amanda.conf 中的 **ctimeout** 设置控制。
 
 # CONFIGURATION
 
 **/etc/amanda/<config>/amanda.conf**
-> Amanda server configuration defining tape devices, holding disks, dump types, and scheduling parameters.
+> Amanda 服务器配置，定义磁带设备、暂存盘、转储类型和调度参数。
 
 **/etc/amanda/<config>/disklist**
-> List of client hosts and filesystems to back up.
+> 要备份的客户端主机和文件系统列表。
 
 # CAVEATS
 
-The **-w** option performs a destructive tape check that overwrites the tape label; use with caution. Client checks require network connectivity and running amandad service on clients. Server checks require appropriate permissions to access tape devices and configuration files.
+**-w** 选项会执行破坏性磁带检查并覆盖磁带标签；请谨慎使用。客户端检查需要网络连通性以及客户端上正在运行的 amandad 服务。服务器检查需要访问磁带设备和配置文件的适当权限。
 
 # HISTORY
 
-Amanda (Advanced Maryland Automatic Network Disk Archiver) was developed at the **University of Maryland** starting in **1991** by James da Silva. It became one of the most widely used open-source backup solutions for Unix systems. The project has been maintained by the Amanda community and **Zmanda** (later acquired by Carbonite) and continues to be actively developed.
+Amanda（Advanced Maryland Automatic Network Disk Archiver）由 James da Silva 于 **1991** 年起在**马里兰大学**开发。它是 Unix 系统上使用最广泛的开源备份解决方案之一。该项目由 Amanda 社区和 **Zmanda**（后被 Carbonite 收购）维护，目前仍在积极开发中。
 
 # INSTALL
 

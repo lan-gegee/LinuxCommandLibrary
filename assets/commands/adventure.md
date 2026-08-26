@@ -1,14 +1,14 @@
 # TAGLINE
 
-Original Colossal Cave text adventure game
+原版巨洞冒险（Colossal Cave）文字冒险游戏
 
 # TLDR
 
-**Start** the adventure game
+**启动**冒险游戏
 
 ```adventure```
 
-**Restore** from saved game
+**从存档恢复**游戏
 
 ```adventure -r```
 
@@ -29,22 +29,22 @@ OK
 
 # DESCRIPTION
 
-**adventure** (also known as Colossal Cave Adventure or ADVENT) is the original text adventure game. Players explore a cave system described entirely through text, interacting with the environment using simple verb-noun commands like "GO NORTH", "GET LAMP", or "KILL DRAGON".
+**adventure**（也称为 Colossal Cave Adventure 或 ADVENT）是最早的文字冒险游戏。玩家探索一个完全用文字描述的洞穴系统，使用简单的“动词 + 名词”命令与环境互动，例如 “GO NORTH”、“GET LAMP” 或 “KILL DRAGON”。
 
-The game features treasure hunting, puzzle solving, and exploration of a fantastical underground world inhabited by dwarves, a pirate, and a dragon. Commands are typically two words (verb + noun) or single words for movement.
+游戏包含寻宝、解谜以及对一个奇幻地下世界的探索，那里居住着矮人、海盗和一条龙。命令通常是两个词（动词 + 名词），移动则用单个词。
 
 # PARAMETERS
 
 **-r**
-> Restore a previously saved game
+> 恢复之前保存的游戏
 
 # CAVEATS
 
-The game uses a simple two-word parser that may not recognize complex sentences. Save your progress frequently as the game contains many ways to die or become stuck.
+游戏使用简单的双词解析器，可能无法识别复杂句子。请经常保存进度，因为游戏中有许多导致死亡或陷入困境的方式。
 
 # HISTORY
 
-**adventure** was created by Will Crowther in **1976** based on his experiences caving in Mammoth Cave, Kentucky. Don Woods expanded it in **1977**, adding fantasy elements. It is considered the first text adventure game and influenced the entire adventure game genre including Zork and countless others.
+**adventure** 由 Will Crowther 于 **1976** 年根据他在肯塔基州猛犸洞穴探洞的经历创作。Don Woods 在 **1977** 年对其加以扩展，加入了奇幻元素。它被公认为第一款文字冒险游戏，影响了包括 Zork 在内的整个冒险游戏类型及无数后来者。
 
 # INSTALL
 

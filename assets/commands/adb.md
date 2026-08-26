@@ -1,34 +1,34 @@
 # TAGLINE
 
-Android Debug Bridge client-server tool
+Android Debug Bridge 客户端-服务器工具
 
 # TLDR
 
-**List** connected devices
+**列出**已连接的设备
 
 ```adb devices```
 
-**Install** an APK
+**安装** APK
 
 ```adb install [app.apk]```
 
-**Copy file** from device to computer
+将文件从设备**复制到电脑**
 
 ```adb pull [/sdcard/file.txt] [./local/]```
 
-**Copy file** from computer to device
+将文件从电脑**复制到设备**
 
 ```adb push [local_file] [/sdcard/]```
 
-Open a **shell** on the device
+在设备上打开 **shell**
 
 ```adb shell```
 
-**Pair** with device for wireless debugging (Android 11+)
+与设备**配对**以进行无线调试（Android 11+）
 
 ```adb pair [host]:[port]```
 
-**Connect** wirelessly to a device
+无线**连接**设备
 
 ```adb connect [host]:[port]```
 
@@ -38,93 +38,93 @@ Open a **shell** on the device
 
 # DESCRIPTION
 
-**adb** (Android Debug Bridge) is a versatile command-line tool for communicating with Android devices. It provides access to a Unix shell for running commands, installing/uninstalling apps, transferring files, and debugging applications.
+**adb**（Android Debug Bridge）是一款多用途命令行工具，用于与 Android 设备通信。它提供 Unix shell 以执行命令、安装/卸载应用、传输文件和调试应用程序。
 
-The tool operates through a client-server architecture where the adb server runs on your computer and communicates with the adb daemon (adbd) on connected devices. Connections can be made via USB or wirelessly over TCP/IP.
+该工具采用客户端-服务器架构：adb 服务器运行在你的电脑上，与所连设备上的 adb 守护进程（adbd）通信。连接可以通过 USB 建立，也可以通过 TCP/IP 无线建立。
 
 # PARAMETERS
 
 **-d**
-> Direct command to the only connected USB device
+> 将命令定向到唯一连接的 USB 设备
 
 **-e**
-> Direct command to the only running emulator
+> 将命令定向到唯一运行的模拟器
 
 **-s** _serial_
-> Direct command to device with specified serial number
+> 将命令定向到具有指定序列号的设备
 
 **-t** _transport_id_
-> Direct command to device with given transport ID
+> 将命令定向到具有给定 transport ID 的设备
 
 **devices**
-> List all connected devices and their states
+> 列出所有已连接设备及其状态
 
 **install** [**-r**] [**-g**] _apk_
-> Install an APK file. -r reinstalls keeping data, -g grants all runtime permissions.
+> 安装 APK 文件。-r 表示重装并保留数据，-g 表示授予所有运行时权限。
 
 **uninstall** [**-k**] _package_
-> Remove an application by package name. -k keeps data and cache directories.
+> 按包名移除应用。-k 保留数据目录和缓存目录。
 
 **pair** _host_:_port_ [_pairing_code_]
-> Pair with a device for wireless debugging (Android 11+).
+> 与设备配对以进行无线调试（Android 11+）。
 
 **connect** _host_:_port_
-> Connect to a device over TCP/IP.
+> 通过 TCP/IP 连接设备。
 
 **push** _local_ _remote_
-> Copy file from computer to device
+> 将文件从电脑复制到设备
 
 **pull** _remote_ _local_
-> Copy file from device to computer
+> 将文件从设备复制到电脑
 
 **shell**
-> Open interactive shell or run command on device
+> 打开交互式 shell 或在设备上执行命令
 
 **logcat**
-> View device log output
+> 查看设备日志输出
 
 **forward** _local_ _remote_
-> Set up port forwarding
+> 设置端口转发
 
 **reverse** _remote_ _local_
-> Set up reverse port forwarding
+> 设置反向端口转发
 
 **reboot**
-> Reboot the device (bootloader, recovery options available)
+> 重启设备（可选 bootloader、recovery 模式）
 
 **start-server**
-> Start the adb server
+> 启动 adb 服务器
 
 **kill-server**
-> Stop the adb server
+> 停止 adb 服务器
 
 **sideload** _otapackage_
-> Sideload an OTA update package in recovery mode
+> 在 recovery 模式下侧载 OTA 更新包
 
 **bugreport** [_path_]
-> Generate a bug report and save to path
+> 生成错误报告并保存到 path
 
 # CONFIGURATION
 
 **~/.android/adb_usb.ini**
-> List of USB vendor IDs for device detection, one per line.
+> 用于设备检测的 USB 厂商 ID 列表，每行一个。
 
 **~/.android/adbkey**
-> RSA private key used for device authentication. The corresponding public key (adbkey.pub) is pushed to authorized devices.
+> 用于设备身份验证的 RSA 私钥。对应的公钥（adbkey.pub）会被推送到已授权的设备上。
 
 **ANDROID_ADB_SERVER_PORT**
-> Environment variable to override the default adb server port (5037).
+> 覆盖 adb 服务器默认端口（5037）的环境变量。
 
 **ADB_VENDOR_KEYS**
-> Environment variable specifying colon-separated paths to additional RSA key files for device authorization.
+> 指定冒号分隔的其他 RSA 密钥文件路径的环境变量，用于设备授权。
 
 # CAVEATS
 
-USB debugging must be enabled on the device. First connection requires authorizing the computer on the device. Some commands require root access. Wireless debugging requires initial USB setup or pairing (Android 11+).
+必须在设备上启用 USB 调试。首次连接需要在设备上授权这台电脑。部分命令需要 root 权限。无线调试需要先进行 USB 设置或配对（Android 11+）。
 
 # HISTORY
 
-**adb** was developed by Google as part of the Android SDK, first released with Android 1.0 in **2008**. It has evolved to support features like wireless debugging, scoped storage access, and improved security through RSA key authentication.
+**adb** 由 Google 作为 Android SDK 的一部分开发，随 **2008** 年 Android 1.0 首次发布。此后它不断演进，增加了无线调试、分区存储访问等特性，并通过 RSA 密钥认证提升了安全性。
 
 # INSTALL
 

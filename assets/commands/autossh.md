@@ -1,22 +1,22 @@
 # TAGLINE
 
-Maintain persistent SSH connections automatically
+自动维持持久的 SSH 连接
 
 # TLDR
 
-**Create** persistent SSH tunnel
+**创建**持久 SSH 隧道
 
 ```autossh -M [20000] -N -L [8080:localhost:80] [user@remote]```
 
-Tunnel with **no monitoring port**
+隧道**不使用监控端口**
 
 ```autossh -M 0 -N -L [8080:localhost:80] [user@remote]```
 
-**Reverse** tunnel
+**反向**隧道
 
 ```autossh -M [20000] -N -R [8080:localhost:80] [user@remote]```
 
-Run in **background**
+在**后台**运行
 
 ```autossh -f -M [20000] -N -L [8080:localhost:80] [user@remote]```
 
@@ -26,50 +26,50 @@ Run in **background**
 
 # DESCRIPTION
 
-**autossh** wraps SSH connections with automatic reconnection. It monitors the connection and restarts it if it dies, making SSH tunnels and connections persistent.
+**autossh** 为 SSH 连接提供自动重连功能。它会监控连接并在连接断开时重启，使 SSH 隧道和连接保持持久。
 
-The tool is essential for maintaining long-running SSH tunnels, remote port forwards, and SOCKS proxies.
+对于维持长时间运行的 SSH 隧道、远程端口转发和 SOCKS 代理，这个工具必不可少。
 
 # PARAMETERS
 
 **-M** _port_[:_port_]
-> Monitoring port(s). Use -M 0 to disable port monitoring
+> 监控端口。使用 -M 0 可禁用端口监控
 
 **-f**
-> Background after authentication
+> 认证完成后转入后台
 
 **-N**
-> No command execution (forwarding only)
+> 不执行命令（仅做转发）
 
 **-L** _port_:_host_:_port_
-> Local port forward
+> 本地端口转发
 
 **-R** _port_:_host_:_port_
-> Remote port forward
+> 远程端口转发
 
 **-D** _port_
-> SOCKS proxy
+> SOCKS 代理
 
-All other **ssh** options are supported.
+其余所有 **ssh** 选项均受支持。
 
 # ENVIRONMENT VARIABLES
 
 **AUTOSSH_GATETIME**
-> Seconds before first connection check (default: 30)
+> 第一次连接检查前的等待秒数（默认：30）
 
 **AUTOSSH_POLL**
-> Poll time in seconds (when monitoring disabled)
+> 轮询间隔秒数（监控禁用时生效）
 
 **AUTOSSH_DEBUG**
-> Enable debug logging
+> 启用调试日志
 
 # CAVEATS
 
-Monitoring ports must be free on both sides. ServerAliveInterval in SSH config can replace monitoring. May not detect all disconnection types. Recent SSH versions have built-in keepalives.
+监控端口在两端都必须空闲。SSH 配置中的 ServerAliveInterval 可以替代监控功能。可能无法检测到所有类型的断连。较新的 SSH 版本已内置保活机制。
 
 # HISTORY
 
-**autossh** was created by Carson Harding to address the problem of SSH connections dying without notification, first released around **2002**.
+**autossh** 由 Carson Harding 创建，用于解决 SSH 连接无提示中断的问题，于 **2002 年**前后首次发布。
 
 # INSTALL
 

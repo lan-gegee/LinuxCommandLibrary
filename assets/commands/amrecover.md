@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactively browse and restore Amanda backups
+交互式浏览和恢复 Amanda 备份
 
 # TLDR
 
-**Start recovery session** with a configuration
+使用某个配置**启动恢复会话**
 
 ```amrecover [config_name]```
 
-**Connect to a specific index server**
+**连接到特定的索引服务器**
 
 ```amrecover -s [index_server] [config_name]```
 
-**Specify tape server and device**
+**指定磁带服务器和设备**
 
 ```amrecover -t [tape_server] -d [/dev/nst0] [config_name]```
 
-**Recover files for a different host**
+**恢复其他主机的文件**
 
 ```amrecover -h [hostname] [config_name]```
 
-**Common interactive session workflow**
+**常见的交互会话工作流程**
 
 ```
 sethost [hostname]
@@ -38,86 +38,86 @@ extract
 # PARAMETERS
 
 **-C** _config_
-> Amanda configuration name to use
+> 要使用的 Amanda 配置名称
 
 **-s** _index-server_
-> Host running the index daemon
+> 运行索引守护进程的主机
 
 **-t** _tape-server_
-> Host running the tape server daemon
+> 运行磁带服务器守护进程的主机
 
 **-d** _tape-device_
-> Tape device to use on the tape server
+> 磁带服务器上要使用的磁带设备
 
 **-h** _hostname_
-> Hostname to restore; defaults to current system hostname
+> 要恢复的主机名；默认为当前系统的主机名
 
 # INTERACTIVE COMMANDS
 
 **sethost** _hostname_
-> Set the host to browse and restore from
+> 设置要浏览和从中恢复的主机
 
 **setdisk** _diskname_
-> Set the disk (filesystem) to browse
+> 设置要浏览的磁盘（文件系统）
 
 **setdate** _YYYY-MM-DD_
-> Set the date to view the backup state
+> 设置查看备份状态的日期
 
 **cd** _directory_
-> Change directory within the backup
+> 在备份内切换目录
 
 **ls**
-> List contents of current backup directory with dates
+> 列出当前备份目录的内容及日期
 
 **add** _pattern_
-> Add files or directories to restore list (supports wildcards)
+> 将文件或目录加入恢复列表（支持通配符）
 
 **delete** _pattern_
-> Remove items from restore list
+> 从恢复列表中移除条目
 
 **list**
-> Display current restore list
+> 显示当前的恢复列表
 
 **clear**
-> Clear the restore list
+> 清空恢复列表
 
 **extract**
-> Begin extraction of files in restore list
+> 开始提取恢复列表中的文件
 
 **history**
-> Show backup history for current host and disk
+> 显示当前主机和磁盘的备份历史
 
 **lcd** _directory_
-> Change local working directory
+> 切换本地工作目录
 
 **lpwd**
-> Display local working directory
+> 显示本地工作目录
 
 **quit**
-> Exit amrecover
+> 退出 amrecover
 
 # DESCRIPTION
 
-**amrecover** is an interactive tool for browsing Amanda backup indexes and restoring files. It provides an FTP-like interface for navigating through backup snapshots, selecting files for recovery, and extracting them from tape or other backup media.
+**amrecover** 是一个交互式工具，用于浏览 Amanda 备份索引并恢复文件。它提供类似 FTP 的界面，可用于浏览各备份快照、选择要恢复的文件，并从磁带或其他备份介质中提取数据。
 
-The tool connects to the Amanda index server to browse the backup catalog and determine which tapes contain the desired files. Users build a restore list by navigating directories and adding files, then initiate extraction which contacts the tape server to retrieve the data.
+该工具连接到 Amanda 索引服务器来浏览备份目录，确定哪些磁带包含所需文件。用户通过浏览目录并将文件加入列表来构建恢复清单，然后启动提取操作，由其联系磁带服务器获取数据。
 
-For in-place restores, run amrecover from the root of the backed-up filesystem or use **lcd** to change to that directory before extraction. Otherwise, a directory tree replicating the backup structure will be created in the current directory.
+若要进行原位恢复，请从被备份文件系统的根目录运行 amrecover，或在提取前使用 **lcd** 切换到该目录。否则，会在当前目录下创建一个复刻备份结构的目录树。
 
-The GNU readline library provides command history and editing when available.
+在可用时，GNU readline 库会提供命令历史和编辑功能。
 
 # CONFIGURATION
 
 **/etc/amanda/<config>/amanda.conf**
-> Amanda configuration defining index and tape server settings used during recovery.
+> Amanda 配置文件，定义恢复期间使用的索引服务器和磁带服务器设置。
 
 # CAVEATS
 
-Requires running amrecover from the appropriate directory for in-place restores. The index server and tape server must be accessible over the network. For client-encrypted or client-custom-compressed backups, use **amrestore** instead. Authentication must be properly configured between client and servers.
+原位恢复需要从适当的目录运行 amrecover。索引服务器和磁带服务器必须可以通过网络访问。对于客户端加密或客户端自定义压缩的备份，请改用 **amrestore**。客户端与服务器之间必须正确配置认证。
 
 # HISTORY
 
-Amanda (Advanced Maryland Automatic Network Disk Archiver) was developed at the **University of Maryland** starting in **1991**. The amrecover tool provides the primary user interface for file-level recovery, designed to make restores accessible without requiring direct tape manipulation. It has evolved to support various storage backends beyond traditional tape.
+Amanda（Advanced Maryland Automatic Network Disk Archiver）自 **1991** 年起在**马里兰大学**开发。amrecover 工具提供文件级恢复的主要用户界面，旨在让用户无需直接操作磁带即可完成恢复。它已发展为支持传统磁带之外的多种存储后端。
 
 # INSTALL
 

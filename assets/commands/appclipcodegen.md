@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate and validate Apple App Clip Codes
+生成并校验 Apple App Clip Codes
 
 # TLDR
 
-**Generate** an App Clip Code as SVG
+**生成** SVG 格式的 App Clip Code
 
 ```AppClipCodeGenerator generate --url [https://example.com] --type [cam] --foreground [FFFFFF] --background [000000] --output [output.svg]```
 
-**Generate** an NFC-enabled App Clip Code
+**生成**支持 NFC 的 App Clip Code
 
 ```AppClipCodeGenerator generate --url [https://example.com] --type [nfc] --foreground [FFFFFF] --background [000000] --output [output.svg]```
 
-**Validate colors** and get suggestions
+**校验颜色**并获得建议
 
 ```AppClipCodeGenerator suggest --foreground [FFFFFF] --background [000000]```
 
@@ -23,41 +23,41 @@ Generate and validate Apple App Clip Codes
 # PARAMETERS
 
 **generate**
-> Generate an App Clip Code SVG file
+> 生成 App Clip Code SVG 文件
 
 **suggest**
-> Validate color combinations and get suggestions
+> 校验颜色组合并获得建议
 
 **--url** _URL_
-> The URL that opens when the App Clip Code is scanned
+> 扫描 App Clip Code 时打开的 URL
 
 **--type** _cam|nfc_
-> Code type: **cam** for camera-only scanning or **nfc** for NFC-enabled codes
+> 代码类型：**cam** 表示仅可通过相机扫描，**nfc** 表示支持 NFC 的代码
 
 **--foreground** _RRGGBB_
-> Foreground color as a hex value
+> 前景色，十六进制值
 
 **--background** _RRGGBB_
-> Background color as a hex value
+> 背景色，十六进制值
 
 **--output** _path_
-> Output path for the generated SVG file
+> 生成的 SVG 文件输出路径
 
 # DESCRIPTION
 
-**AppClipCodeGenerator** is Apple's official command-line tool for creating and validating App Clip Codes. App Clip Codes are visually distinctive, scannable codes that launch App Clip experiences on iOS devices — lightweight app experiences that can be discovered without installing the full app.
+**AppClipCodeGenerator** 是 Apple 官方用于创建和校验 App Clip Codes 的命令行工具。App Clip Code 是外观独特、可扫描的代码，可在 iOS 设备上启动 App Clip 体验——一种无需安装完整应用即可发现的轻量应用体验。
 
-The tool generates App Clip Codes as SVG files with two code types: **cam** codes that are scannable by the device camera, and **nfc** codes that additionally support Near Field Communication for tap-to-open functionality. The **suggest** command validates that foreground and background color combinations meet Apple's contrast and readability requirements.
+该工具生成 SVG 格式的 App Clip Code，包含两种类型：**cam** 类型可被设备相机扫描；**nfc** 类型还额外支持近场通信（NFC）触碰即开。**suggest** 命令用于校验前景色与背景色组合是否满足 Apple 的对比度和可读性要求。
 
-App Clip Codes encode a URL that maps to a registered App Clip experience through Apple's App Store Connect configuration.
+App Clip Code 编码的 URL 通过 Apple App Store Connect 配置映射到已注册的 App Clip 体验。
 
 # CAVEATS
 
-Available only on **macOS** as part of Apple's developer tools. The tool must be downloaded separately from Apple's App Clip resources page. Generated codes require a registered App Clip experience configured in **App Store Connect** to function. Color combinations must meet Apple's contrast requirements — use the **suggest** command to validate colors before generating.
+仅在 **macOS** 上可用，属于 Apple 开发者工具的一部分。该工具必须从 Apple 的 App Clip 资源页面单独下载。生成的代码需要在 **App Store Connect** 中配置已注册的 App Clip 体验才能生效。颜色组合必须符合 Apple 的对比度要求——生成前请用 **suggest** 命令校验颜色。
 
 # HISTORY
 
-AppClipCodeGenerator was released by **Apple** alongside **App Clips** in **iOS 14** (2020). App Clips were introduced at **WWDC 2020** as a way to provide focused app experiences discoverable through Safari, Maps, NFC tags, and QR codes. The code generator tool enables developers to create the proprietary App Clip Code format that is visually distinct from standard QR codes.
+AppClipCodeGenerator 由 **Apple** 于 **iOS 14**（2020 年）随 **App Clips** 一同发布。App Clips 在 **WWDC 2020** 上亮相，旨在通过 Safari、地图、NFC 标签和二维码提供聚焦的应用体验。这款代码生成工具让开发者能够创建在外观上区别于标准二维码的专有 App Clip Code 格式。
 
 # SEE ALSO
 

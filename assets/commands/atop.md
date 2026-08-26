@@ -1,30 +1,30 @@
 # TAGLINE
 
-Advanced system and process activity monitor
+高级系统与进程活动监视器
 
 # TLDR
 
-**Start** atop
+**启动** atop
 
 ```atop```
 
-Display **memory** consumption for each process
+显示每个进程的**内存**占用
 
 ```atop -m```
 
-Display **disk** information
+显示**磁盘**信息
 
 ```atop -d```
 
-Display the full **command line** per process
+显示每个进程的完整**命令行**
 
 ```atop -c```
 
-Display **thread-specific** resource utilization
+显示**线程级别**的资源利用率
 
 ```atop -y```
 
-Display the number of **processes for each user**
+显示**每个用户的进程**数量
 
 ```atop -au```
 
@@ -34,66 +34,66 @@ Display the number of **processes for each user**
 
 # DESCRIPTION
 
-**atop** is an advanced interactive monitor for Linux systems that shows system-level activity and process-level activity. It highlights resources that have reached critical load and provides historical data logging capabilities.
+**atop** 是一款面向 Linux 系统的高级交互式监视器，同时展示系统级和进程级活动。它会突出显示已达到临界负载的资源，并提供历史数据记录功能。
 
 # PARAMETERS
 
 **-m**
-> Display memory consumption for each process
+> 显示每个进程的内存占用
 
 **-d**
-> Display disk information
+> 显示磁盘信息
 
 **-c**
-> Display the full command line (including arguments) for each process
+> 显示每个进程的完整命令行（包括参数）
 
 **-y**
-> Display thread-specific resource utilization
+> 显示线程级别的资源利用率
 
 **-a**
-> Display active processes only
+> 仅显示活动进程
 
 **-u**
-> Display user statistics
+> 显示用户统计信息
 
 **-g**
-> Display generic output (default)
+> 显示常规输出（默认）
 
 **-1**
-> Display averages per second instead of per interval
+> 显示每秒平均值而非每间隔平均值
 
 **-r file**
-> Read raw data from file instead of live system
+> 从文件读取原始数据而非实时系统
 
 **-w file**
-> Write raw data to file for later analysis
+> 将原始数据写入文件以供日后分析
 
 # KEYBOARD SHORTCUTS
 
-**g**: generic output
-**m**: memory details
-**d**: disk details
-**n**: network details
-**c**: command line per process
-**u**: user statistics
-**p**: process activity
-**?**: help
+**g**: 常规输出
+**m**: 内存详情
+**d**: 磁盘详情
+**n**: 网络详情
+**c**: 每个进程的命令行
+**u**: 用户统计
+**p**: 进程活动
+**?**: 帮助
 
 # CONFIGURATION
 
 **/etc/atoprc**
-> System-wide configuration for default display options and intervals.
+> 系统级配置，用于默认显示选项和间隔。
 
 **~/.atoprc**
-> Per-user configuration overriding system defaults.
+> 用户级配置，覆盖系统默认值。
 
 # CAVEATS
 
-Requires root privileges for some features. Can consume significant resources when monitoring at high frequencies.
+部分功能需要 root 权限。以高频监控时会消耗较多资源。
 
 # HISTORY
 
-Developed by Gerlof Langeveld. Designed to provide more detailed system monitoring than **top** with historical data logging.
+由 Gerlof Langeveld 开发。旨在提供比 **top** 更详细的系统监控，并支持历史数据记录。
 
 # INSTALL
 

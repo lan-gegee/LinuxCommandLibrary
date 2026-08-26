@@ -1,18 +1,18 @@
 # TAGLINE
 
-disable an Apache2 virtual host
+禁用 Apache2 虚拟主机
 
 # TLDR
 
-**Disable** a virtual host
+**禁用**一个虚拟主机
 
 ```sudo a2dissite [virtual_host]```
 
-Don't show **informative messages**
+不显示**提示信息**
 
 ```sudo a2dissite -q [virtual_host]```
 
-Disable a virtual host and **purge** all traces from the internal state database
+禁用一个虚拟主机并从内部状态数据库中**清除**其所有痕迹
 
 ```sudo a2dissite -p [virtual_host]```
 
@@ -22,28 +22,28 @@ Disable a virtual host and **purge** all traces from the internal state database
 
 # DESCRIPTION
 
-**a2dissite** is a Debian-specific utility that disables Apache2 virtual host configurations by removing symbolic links from **/etc/apache2/sites-enabled**. Site configuration files remain in **/etc/apache2/sites-available** and can be re-enabled later.
+**a2dissite** 是一个 Debian 特有的工具，它通过删除 **/etc/apache2/sites-enabled** 中的符号链接来禁用 Apache2 虚拟主机配置。站点配置文件仍保留在 **/etc/apache2/sites-available** 中，之后可以重新启用。
 
-The tool silently succeeds if the specified site is already disabled. After disabling a site, Apache must be restarted or reloaded for changes to take effect.
+如果指定的站点已被禁用，该工具会静默地成功返回。禁用站点后，必须重启或重新加载 Apache 才能使更改生效。
 
 # PARAMETERS
 
 **-q, --quiet**
-> Don't show informative messages
+> 不显示提示信息
 
 **-m, --maintmode**
-> Enables maintainer mode; the program invocation is effectuated automatically by a maintainer script
+> 启用维护者模式；程序调用由维护者脚本自动执行
 
 **-p, --purge**
-> When disabling a site, purge all traces from the internal state database
+> 禁用站点时，从内部状态数据库中清除其所有痕迹
 
 # CAVEATS
 
-This utility is **Debian-specific** and not available on other Linux distributions. Site changes require an Apache restart or reload to take effect.
+此工具为 **Debian 特有**，在其他 Linux 发行版上不可用。站点更改需要重启或重新加载 Apache 才能生效。
 
 # HISTORY
 
-Created as part of the Apache2 package for **Debian GNU/Linux**. Part of the a2ensite/a2dissite family of utilities for managing Apache virtual hosts.
+作为 **Debian GNU/Linux** Apache2 软件包的一部分创建，属于管理 Apache 虚拟主机的 a2ensite/a2dissite 工具家族。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Encrypt and decrypt sensitive data
+加密和解密敏感数据
 
 # TLDR
 
-**Create** a new encrypted file
+**创建**新的加密文件
 
 ```ansible-vault create [secrets.yml]```
 
-**Encrypt** an existing file
+**加密**现有文件
 
 ```ansible-vault encrypt [file.yml]```
 
-**Decrypt** a file
+**解密**文件
 
 ```ansible-vault decrypt [secrets.yml]```
 
-**Edit** an encrypted file
+**编辑**加密文件
 
 ```ansible-vault edit [secrets.yml]```
 
-**View** encrypted file contents
+**查看**加密文件内容
 
 ```ansible-vault view [secrets.yml]```
 
-**Encrypt** a string
+**加密**字符串
 
 ```ansible-vault encrypt_string '[secret_value]' --name '[variable_name]'```
 
-**Rekey** (change password)
+**重新设密**（更改密码）
 
 ```ansible-vault rekey [secrets.yml]```
 
@@ -38,75 +38,75 @@ Encrypt and decrypt sensitive data
 
 # DESCRIPTION
 
-**ansible-vault** encrypts sensitive data like passwords, keys, and credentials within Ansible projects. It uses AES256 encryption to protect files while allowing them to be used directly in playbooks.
+**ansible-vault** 对 Ansible 项目中的敏感数据（如密码、密钥和凭据）进行加密。它使用 AES256 加密保护文件，同时允许这些文件直接在 playbook 中使用。
 
-Encrypted files can be edited, viewed, and used in playbooks without manual decryption; ansible-playbook handles decryption automatically when provided with the vault password.
+加密后的文件可以直接编辑、查看并在 playbook 中使用，无需手动解密；只要提供 vault 密码，ansible-playbook 会自动完成解密。
 
 # PARAMETERS
 
 **create** _file_
-> Create new encrypted file
+> 创建新的加密文件
 
 **encrypt** _files_
-> Encrypt existing files
+> 加密现有文件
 
 **decrypt** _files_
-> Decrypt files
+> 解密文件
 
 **edit** _file_
-> Edit encrypted file in place
+> 就地编辑加密文件
 
 **view** _file_
-> View encrypted file contents
+> 查看加密文件内容
 
 **encrypt_string** _string_
-> Encrypt a string for embedding in a playbook or vars file
+> 加密一个字符串，以便嵌入 playbook 或 vars 文件
 
 **rekey** _files_
-> Re-encrypt files with a new password
+> 使用新密码重新加密文件
 
 **--vault-password-file** _file_
-> File containing the vault password
+> 存放 vault 密码的文件
 
 **--vault-id** _label@source_
-> Vault identity to use (label plus password source)
+> 要使用的 vault 身份（标签加密码来源）
 
 **-J**, **--ask-vault-pass**
-> Prompt for the vault password
+> 提示输入 vault 密码
 
 **-n** _name_, **--name** _name_
-> Variable name to assign (encrypt_string only)
+> 要赋予的变量名（仅限 encrypt_string）
 
 **--encrypt-vault-id** _id_
-> Vault id to use when encrypting (when several are provided)
+> 加密时使用的 vault id（当提供了多个时）
 
 **--output** _file_
-> Write output to the named file instead of stdout
+> 将输出写入指定文件而不是 stdout
 
 **--new-vault-password-file** _file_
-> Password file holding the new password for rekey
+> 为 rekey 保存新密码的密码文件
 
 **--new-vault-id** _id_
-> Vault id holding the new password for rekey
+> 为 rekey 保存新密码的 vault id
 
 # CONFIGURATION
 
 **/etc/ansible/ansible.cfg**
-> System-wide Ansible configuration, including vault password file path and vault identity settings.
+> 系统级 Ansible 配置，包含 vault 密码文件路径和 vault 身份设置。
 
 **~/.ansible.cfg**
-> Per-user Ansible configuration overriding system defaults.
+> 每用户 Ansible 配置，覆盖系统默认值。
 
 **ansible.cfg**
-> Project-level configuration in the current directory, highest priority.
+> 当前目录中的项目级配置，优先级最高。
 
 # CAVEATS
 
-Vault password must be available during playbook runs. Encrypted files should be committed to version control, not the password. Use vault-id for multiple passwords.
+运行 playbook 期间必须能获取 vault 密码。加密文件应提交到版本控制，但绝不能提交密码。需要多个密码时请使用 vault-id。
 
 # HISTORY
 
-**ansible-vault** was introduced in Ansible 1.5 (**2014**) to address the need for secure handling of sensitive data in automation. Multiple vault passwords support was added in Ansible 2.4.
+**ansible-vault** 在 Ansible 1.5（**2014 年**）中引入，用于满足自动化过程中安全处理敏感数据的需求。多 vault 密码支持在 Ansible 2.4 中加入。
 
 # INSTALL
 

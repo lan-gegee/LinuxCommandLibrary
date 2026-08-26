@@ -1,18 +1,18 @@
 # TAGLINE
 
-Wireless card server for remote access over TCP/IP
+通过 TCP/IP 远程访问无线网卡的服务器
 
 # TLDR
 
-**Start the wireless server on an interface with a specific channel and port**
+**在指定信道和端口上启动接口的无线服务器**
 
 ```sudo airserv-ng -d [wlan0mon] -c [6] -p [666]```
 
-**Start the server on the default port**
+**在默认端口上启动服务器**
 
 ```sudo airserv-ng -d [wlan0mon]```
 
-**Start with verbose debug output**
+**以详细调试输出启动**
 
 ```sudo airserv-ng -d [wlan0mon] -v [3]```
 
@@ -23,33 +23,33 @@ Wireless card server for remote access over TCP/IP
 # PARAMETERS
 
 **-d** _IFACE_
-> Wireless interface to serve (required).
+> 要提供服务的无线接口（必需）。
 
 **-c** _CHAN_
-> Lock the interface to a specific channel.
+> 将接口锁定到特定信道。
 
 **-p** _PORT_
-> TCP port to listen on (default: 666).
+> 要监听的 TCP 端口（默认：666）。
 
 **-v** _LEVEL_
-> Debug level. Level 1 shows client connect/disconnect (default), higher levels show more detail.
+> 调试级别。级别 1 显示客户端连接/断开（默认），更高级别显示更多细节。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**airserv-ng** is a wireless card server that allows multiple wireless application programs to independently use a wireless card via a client-server TCP network connection. All operating system and wireless card driver specific code is incorporated into the server.
+**airserv-ng** 是一个无线网卡服务器，允许多个无线应用程序通过客户端-服务器式的 TCP 网络连接独立使用同一块无线网卡。所有与操作系统和无线网卡驱动相关的代码都封装在服务器中。
 
-Clients connect by specifying **host:port** as the interface name instead of a local device. This enables using aircrack-ng tools on one machine while the wireless card is physically connected to another.
+客户端以 **host:port** 作为接口名来连接，而非使用本地设备。这使得可以在一台机器上运行 aircrack-ng 工具，而无线网卡物理连接在另一台机器上。
 
 # CAVEATS
 
-No built-in authentication or encryption; use SSH tunneling for secure remote access. Network latency may affect real-time packet injection. The wireless card should typically be in monitor mode before starting the server.
+没有内置的认证或加密；请使用 SSH 隧道实现安全的远程访问。网络延迟可能影响实时的数据包注入。通常应先将无线网卡置于监听模式再启动服务器。
 
 # HISTORY
 
-**airserv-ng** was created as part of the **aircrack-ng** suite to enable distributed wireless testing scenarios where the wireless hardware and analysis software run on different machines.
+**airserv-ng** 作为 **aircrack-ng** 套件的一部分而创建，用于支持分布式无线测试场景，即无线硬件与分析软件分别运行在不同机器上。
 
 # INSTALL
 

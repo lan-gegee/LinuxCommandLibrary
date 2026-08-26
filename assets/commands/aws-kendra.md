@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage ML-powered enterprise search indexes and data sources.
+管理由机器学习驱动的企业搜索索引和数据源。
 
 # TLDR
 
-**Create a new Kendra index**
+**创建新的 Kendra 索引**
 
 ```aws kendra create-index --name [my-index] --role-arn [arn:aws:iam::account:role/kendra-role]```
 
-**List all indexes** in the account
+**列出账户中的所有索引**
 
 ```aws kendra list-indices```
 
-**Submit a search query**
+**提交搜索查询**
 
 ```aws kendra query --index-id [index-id] --query-text "[search terms]"```
 
-**Add documents** to an index
+**向索引添加文档**
 
 ```aws kendra batch-put-document --index-id [index-id] --documents file://[documents.json]```
 
-**Create a data source** connector
+**创建数据源连接器**
 
 ```aws kendra create-data-source --index-id [index-id] --name [s3-source] --type S3 --configuration file://[s3-config.json] --role-arn [arn:aws:iam::account:role/kendra-role]```
 
-**Start a data source sync**
+**启动数据源同步**
 
 ```aws kendra start-data-source-sync-job --index-id [index-id] --id [data-source-id]```
 
-**Create a FAQ** for direct answers
+**创建 FAQ 以直接回答问题**
 
 ```aws kendra create-faq --index-id [index-id] --name [my-faq] --s3-path Bucket=[bucket],Key=[faq.csv] --role-arn [arn:aws:iam::account:role/kendra-role]```
 
@@ -38,49 +38,49 @@ Manage ML-powered enterprise search indexes and data sources.
 
 # DESCRIPTION
 
-**aws kendra** is the AWS CLI interface for Amazon Kendra, an intelligent enterprise search service powered by machine learning. Kendra provides natural language search capabilities across documents, FAQs, and other content sources.
+**aws kendra** 是 Amazon Kendra 的 AWS CLI 接口。Kendra 是一项由机器学习驱动的智能企业搜索服务，可跨文档、FAQ 和其他内容源提供自然语言搜索能力。
 
-Kendra indexes documents from various data sources including S3, SharePoint, Salesforce, ServiceNow, and databases. It understands natural language queries and returns relevant passages with highlighted answers, supporting semantic search beyond keyword matching.
+Kendra 可为 S3、SharePoint、Salesforce、ServiceNow 和数据库等多种数据源中的文档建立索引。它能理解自然语言查询，返回带高亮答案的相关段落，支持超越关键词匹配的语义搜索。
 
 # COMMANDS
 
 **create-index**
-> Create a new search index
+> 创建新的搜索索引
 
 **delete-index**
-> Delete an index
+> 删除索引
 
 **list-indices**
-> List all indexes
+> 列出所有索引
 
 **query**
-> Submit a search query
+> 提交搜索查询
 
 **batch-put-document**
-> Add documents to an index
+> 向索引添加文档
 
 **batch-delete-document**
-> Remove documents from an index
+> 从索引中移除文档
 
 **create-data-source**
-> Create a connector to external content
+> 创建连接外部内容的连接器
 
 **start-data-source-sync-job**
-> Trigger document synchronization
+> 触发文档同步
 
 **create-faq**
-> Add FAQ content for direct answers
+> 添加 FAQ 内容以直接回答问题
 
 **get-query-suggestions**
-> Get autocomplete suggestions
+> 获取自动补全建议
 
 # CAVEATS
 
-Index creation takes 15-30 minutes. Document ingestion costs apply per document scanned. Query capacity units (QCUs) determine concurrent query limits. Large document processing can be slow; use data sources for bulk content. Enterprise edition required for advanced features.
+创建索引需要 15-30 分钟。文档摄取按扫描的文档数量计费。查询容量单位（QCU）决定并发查询上限。大文档处理可能较慢；批量内容应使用数据源。高级功能需要企业版。
 
 # HISTORY
 
-Amazon Kendra launched in **December 2019** as an ML-powered enterprise search service. Query suggestions were added in **2021**, and featured results for promoted content in **2022**. The service has expanded data source connectors to support over 14 content repositories.
+Amazon Kendra 于 **2019 年 12 月** 作为由机器学习驱动的企业搜索服务推出。查询建议于 **2021 年** 加入，推广内容的精选结果于 **2022 年** 加入。该服务的连接器已扩展至支持超过 14 种内容存储库。
 
 # INSTALL
 

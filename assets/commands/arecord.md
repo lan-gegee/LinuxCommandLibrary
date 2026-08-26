@@ -1,30 +1,30 @@
 # TAGLINE
 
-Record audio from ALSA sound devices
+从 ALSA 声音设备录制音频
 
 # TLDR
 
-Record in **CD quality** (finish with Ctrl+C)
+以 **CD 音质**录制（用 Ctrl+C 结束）
 
 ```arecord -vv -f cd [path/to/file.wav]```
 
-Record with a **fixed duration** of 10 seconds
+以 **10 秒固定时长**录制
 
 ```arecord -vv -f cd -d 10 [path/to/file.wav]```
 
-Record and save as **MP3** (via lame)
+录制并保存为 **MP3**（通过 lame）
 
 ```arecord -vv -f cd -t raw | lame -r - [path/to/file.mp3]```
 
-**List** all sound cards and digital audio devices
+**列出**所有声卡和数字音频设备
 
 ```arecord -l```
 
-Allow **interactive** interface
+启用**交互式**界面
 
 ```arecord -i```
 
-**Test microphone** with a 5 second sample
+用 5 秒样本**测试麦克风**
 
 ```arecord -d 5 test-mic.wav && aplay test-mic.wav && rm test-mic.wav```
 
@@ -34,74 +34,74 @@ Allow **interactive** interface
 
 # DESCRIPTION
 
-**arecord** is a command-line sound recorder for ALSA soundcard drivers. It captures audio from sound cards and saves it in various formats including WAV, AU, VOC, and raw audio. The tool supports configurable sample rates, bit depths, and channel counts. The shorthand format **cd** sets 16-bit signed little-endian stereo at 44100 Hz. Raw output can be piped to encoders like **lame** for MP3 conversion. It is the recording counterpart to **aplay**.
+**arecord** 是面向 ALSA 声卡驱动的命令行录音工具。它从声卡采集音频并以多种格式保存，包括 WAV、AU、VOC 和原始音频。该工具支持可配置的采样率、位深和声道数。简写格式 **cd** 表示 44100 Hz 的 16 位有符号小端序立体声。原始输出可通过管道传给 **lame** 等编码器转换为 MP3。它是 **aplay** 的录音对应工具。
 
 # PARAMETERS
 
 **-d**, **--duration** _seconds_
-> Stop recording after the specified number of seconds.
+> 在指定的秒数后停止录音。
 
 **-f**, **--format** _format_
-> Sample format (cd, S16_LE, S16_BE, U8, S32_LE, etc.).
+> 采样格式（cd、S16_LE、S16_BE、U8、S32_LE 等）。
 
 **-r**, **--rate** _rate_
-> Sampling rate in Hz (2000-192000).
+> 采样率，单位 Hz（2000-192000）。
 
 **-c**, **--channels** _count_
-> Number of channels (1 for mono, 2 for stereo).
+> 声道数（1 为单声道，2 为立体声）。
 
 **-t**, **--file-type** _type_
-> File type (wav, raw, au, voc).
+> 文件类型（wav、raw、au、voc）。
 
 **-l**, **--list-devices**
-> List all soundcards and digital audio devices.
+> 列出所有声卡和数字音频设备。
 
 **-L**, **--list-pcms**
-> List all PCMs defined.
+> 列出所有已定义的 PCM。
 
 **-D**, **--device** _name_
-> Select PCM device by name.
+> 按名称选择 PCM 设备。
 
 **-M**, **--mmap**
-> Use memory-mapped I/O mode for the audio stream.
+> 对音频流使用内存映射 I/O 模式。
 
 **-N**, **--nonblock**
-> Open the audio device in non-blocking mode.
+> 以非阻塞模式打开音频设备。
 
 **-F**, **--period-time** _microseconds_
-> Distance between interrupts in microseconds.
+> 中断间隔时间，单位微秒。
 
 **-B**, **--buffer-time** _microseconds_
-> Buffer duration in microseconds.
+> 缓冲时长，单位微秒。
 
 **-V**, **--vumeter** _type_
-> VU meter type (stereo or mono).
+> VU 表类型（stereo 或 mono）。
 
 **-i**, **--interactive**
-> Allow interactive control via stdin.
+> 允许通过 stdin 进行交互式控制。
 
 **-v**, **--verbose**
-> Verbose mode; use -vv for more detail including VU meter.
+> 详细模式；用 -vv 获得更多信息，包括 VU 表。
 
 **-q**, **--quiet**
-> Quiet mode; suppress messages.
+> 安静模式；抑制消息。
 
 **--disable-resample**
-> Disable automatic rate resample.
+> 禁用自动采样率重采样。
 
 **--disable-channels**
-> Disable automatic channel conversions.
+> 禁用自动声道转换。
 
 **--disable-format**
-> Disable automatic format conversions.
+> 禁用自动格式转换。
 
 # CAVEATS
 
-Requires ALSA drivers to be installed and configured. The **cd** format is shorthand for 16-bit signed little-endian, 44100 Hz, stereo.
+需要安装并配置 ALSA 驱动。**cd** 格式是 16 位有符号小端序、44100 Hz、立体声的简写。
 
 # HISTORY
 
-Part of **ALSA** (Advanced Linux Sound Architecture) utilities package, which replaced OSS as the standard Linux sound system.
+属于 **ALSA**（Advanced Linux Sound Architecture）实用工具软件包，ALSA 取代 OSS 成为 Linux 标准声音系统。
 
 # INSTALL
 

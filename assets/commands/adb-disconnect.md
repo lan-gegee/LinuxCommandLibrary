@@ -1,14 +1,14 @@
 # TAGLINE
 
-wireless Android device disconnector
+无线 Android 设备断开器
 
 # TLDR
 
-**Disconnect** from a specific device
+**断开**特定设备
 
 ```adb disconnect [192.168.1.100]:5555```
 
-Disconnect from **all** wireless devices
+断开**所有**无线设备
 
 ```adb disconnect```
 
@@ -18,25 +18,25 @@ Disconnect from **all** wireless devices
 
 # DESCRIPTION
 
-**adb disconnect** terminates wireless adb connections. When called without arguments, it disconnects all connected TCP/IP devices. With a specific host and port, it disconnects only that device.
+**adb disconnect** 终止无线 adb 连接。不带参数调用时，断开所有已连接的 TCP/IP 设备。指定主机和端口时，仅断开该设备。
 
-This command only affects wireless connections; USB-connected devices remain connected until physically unplugged.
+此命令只影响无线连接；USB 连接的设备保持连接状态，直到物理拔除。
 
 # PARAMETERS
 
 **host**
-> IP address or hostname of the device to disconnect
+> 要断开的设备的 IP 地址或主机名
 
 **port**
-> TCP port number (default: 5555)
+> TCP 端口号（默认：5555）
 
 # CAVEATS
 
-Does not affect USB connections. The device remains in TCP/IP mode after disconnection; you can reconnect using **adb connect** without reconfiguration.
+不影响 USB 连接。断开后设备仍处于 TCP/IP 模式；无需重新配置即可用 **adb connect** 重新连接。
 
 # HISTORY
 
-**adb disconnect** has been available since wireless debugging was introduced in the Android SDK. It provides a clean way to terminate network connections without killing the entire adb server.
+**adb disconnect** 自 Android SDK 引入无线调试以来一直可用。它提供了一种干净地终止网络连接的方式，而无需杀死整个 adb 服务器。
 
 # INSTALL
 

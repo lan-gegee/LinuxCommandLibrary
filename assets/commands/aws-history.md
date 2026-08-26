@@ -1,18 +1,18 @@
 # TAGLINE
 
-Review and inspect past CLI command executions.
+回顾和检查过去的 CLI 命令执行记录。
 
 # TLDR
 
-**List recent CLI command history**
+**列出最近的 CLI 命令历史**
 
 ```aws history list```
 
-**Show detailed information** about a specific command
+**查看特定命令的详细信息**
 
 ```aws history show [command-id]```
 
-**Enable CLI history** recording
+**启用 CLI 历史**记录
 
 ```aws configure set cli_history enabled```
 
@@ -22,39 +22,39 @@ Review and inspect past CLI command executions.
 
 # DESCRIPTION
 
-**aws history** provides access to the history of AWS CLI commands executed over time. It allows reviewing past commands, their arguments, API calls made, and responses received for debugging and auditing purposes.
+**aws history** 提供对历次执行的 AWS CLI 命令历史的访问，可用于调试和审计目的，回顾过去的命令、其参数、发出的 API 调用以及收到的响应。
 
-History recording must be enabled by setting **cli_history = enabled** in the **~/.aws/config** file. Once enabled, the CLI records all command invocations for later inspection.
+必须在 **~/.aws/config** 文件中设置 **cli_history = enabled** 才会启用历史记录。启用后，CLI 会记录所有命令调用以便日后检查。
 
 # COMMANDS
 
 **list**
-> Display a list of previously executed commands with their IDs, timestamps, arguments, and return codes
+> 显示先前执行命令的列表，包括其 ID、时间戳、参数和返回码
 
 **show**
-> Display detailed information about a specific command execution including API calls and responses
+> 显示特定命令执行的详细信息，包括 API 调用和响应
 
 # PARAMETERS
 
 **--debug**
-> Enable debug logging
+> 启用调试日志
 
 **--output**
-> Output format (json, text, table)
+> 输出格式（json、text、table）
 
 **--query**
-> JMESPath query to filter results
+> 用于筛选结果的 JMESPath 查询
 
 **--profile**
-> Use a specific named profile
+> 使用指定的命名配置文件
 
 # CAVEATS
 
-History is stored locally and is not synced across machines. Enabling history may expose sensitive data in the stored records. The history database can grow large over time and should be periodically cleaned. History only records CLI commands, not SDK or console actions.
+历史记录存储在本地，不会跨机器同步。启用历史可能会在存储的记录中暴露敏感数据。历史数据库会随时间不断增大，应定期清理。历史只记录 CLI 命令，不记录 SDK 或控制台操作。
 
 # HISTORY
 
-The **aws history** command was introduced in **AWS CLI version 2** to provide better debugging and audit capabilities. It replaced the need for manual logging of CLI operations and integrates with the CLI's structured output system.
+**aws history** 命令于 **AWS CLI version 2** 中引入，旨在提供更好的调试和审计能力。它取代了手动记录 CLI 操作的做法，并与 CLI 的结构化输出系统集成。
 
 # INSTALL
 

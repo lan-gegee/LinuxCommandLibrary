@@ -1,30 +1,30 @@
 # TAGLINE
 
-Open-source graphical audio editor for recording and editing sounds.
+用于录制和编辑声音的开源图形化音频编辑器。
 
 # TLDR
 
-**Launch Audacity** graphical interface
+**启动 Audacity** 图形界面
 
 ```audacity```
 
-**Open an audio file** for editing
+**打开音频文件**进行编辑
 
 ```audacity [path/to/audio.wav]```
 
-**Open multiple audio files**
+**打开多个音频文件**
 
 ```audacity [file1.wav] [file2.mp3] [file3.ogg]```
 
-**Display version** information
+**显示版本**信息
 
 ```audacity -version```
 
-**Display help** for command line options
+**显示**命令行选项的**帮助**
 
 ```audacity -help```
 
-**Set block size** for disk writes
+设置磁盘写入的**块大小**
 
 ```audacity -blocksize [4096] [path/to/audio.wav]```
 
@@ -39,48 +39,48 @@ Open-source graphical audio editor for recording and editing sounds.
 # PARAMETERS
 
 **-help**
-> Display a brief list of command line options.
+> 显示命令行选项的简要列表。
 
 **-version**
-> Display the Audacity version number.
+> 显示 Audacity 版本号。
 
 **-blocksize** _nnn_
-> Set the Audacity block size for writing files to disk to nnn bytes.
+> 将 Audacity 写文件到磁盘时的块大小设置为 nnn 字节。
 
 **-test**
-> Run self-diagnostic tests (only present in development builds).
+> 运行自检测试（仅存在于开发版本中）。
 
 # DESCRIPTION
 
-**Audacity** is a free, open-source graphical audio editor for recording and editing sounds. It supports multiple audio formats including uncompressed formats (WAV, AIFF, AU) and compressed formats (MP3, Ogg Vorbis, FLAC) through external libraries.
+**Audacity** 是一款免费开源的图形化音频编辑器，用于录制和编辑声音。它支持多种音频格式，包括未压缩格式（WAV、AIFF、AU），以及借助外部库支持的压缩格式（MP3、Ogg Vorbis、FLAC）。
 
-Audacity provides multi-track editing, recording from various sources, effects processing, and format conversion. It supports LADSPA and Nyquist plugins for extended functionality. The editor is disk-based, meaning audio data is stored in a temporary directory during editing rather than entirely in memory.
+Audacity 提供多轨编辑、多来源录音、效果处理和格式转换功能。它支持 LADSPA 和 Nyquist 插件以扩展功能。编辑器基于磁盘工作，即编辑期间音频数据存储在临时目录中，而不是完全放在内存里。
 
-Audacity is primarily an interactive graphical application. For batch processing or command-line audio manipulation, tools like sox or ecasound are more suitable.
+Audacity 本质上是一个交互式图形应用程序。若需批处理或命令行音频处理，sox 或 ecasound 等工具更为合适。
 
 # FILES
 
 **~/.audacity-data/audacity.cfg**
-> Per-user configuration file (Linux). On newer versions, may be at **~/.config/audacity/audacity.cfg**.
+> 用户级配置文件（Linux）。较新版本中可能位于 **~/.config/audacity/audacity.cfg**。
 
 **/var/tmp/audacity-_user_/**
-> Default location of the temporary directory. Should be on a fast local disk with ample free space.
+> 临时目录的默认位置。应放置在有充足空闲空间的快速本地磁盘上。
 
 # ENVIRONMENT
 
 **AUDACITY_PATH**
-> Directories searched before standard locations for plugins and configuration files.
+> 在标准位置之前搜索插件和配置文件的目录。
 
 **LADSPA_PATH**
-> Additional directories searched for LADSPA plugins.
+> 额外搜索 LADSPA 插件的目录。
 
 # CAVEATS
 
-Audacity has limited command line functionality and is not designed for batch processing. The temporary directory requires significant disk space for large projects. Some audio formats (MP3, FFmpeg formats) require additional libraries to be installed.
+Audacity 的命令行功能有限，并非为批处理设计。临时目录在大项目下需要大量磁盘空间。部分音频格式（MP3、FFmpeg 格式）需要额外安装相关库。
 
 # HISTORY
 
-Audacity was started in **1999** by Dominic Mazzoni and Roger Dannenberg at Carnegie Mellon University. It became one of the most popular open-source audio editors, available across Linux, macOS, and Windows. In **2021**, the project was acquired by Muse Group, which led to community concerns about telemetry and privacy. The project continues development with regular releases.
+Audacity 由卡内基梅隆大学的 Dominic Mazzoni 和 Roger Dannenberg 于 **1999** 年发起。它成为最受欢迎的开源音频编辑器之一，覆盖 Linux、macOS 和 Windows 平台。**2021** 年，该项目被 Muse Group 收购，引发了社区对遥测与隐私问题的担忧。项目仍在持续开发并定期发布。
 
 # INSTALL
 

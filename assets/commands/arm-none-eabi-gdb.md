@@ -1,26 +1,26 @@
 # TAGLINE
 
-Debug bare-metal ARM firmware interactively.
+以交互方式调试裸机 ARM 固件。
 
 # TLDR
 
-**Start debugging an ARM firmware binary**
+**开始调试一个 ARM 固件二进制文件**
 
 ```arm-none-eabi-gdb [firmware.elf]```
 
-**Connect to a remote target** via OpenOCD
+**连接到远程目标**（通过 OpenOCD）
 
 ```arm-none-eabi-gdb -ex "target remote localhost:3333" [firmware.elf]```
 
-**Start with a command script**
+**使用命令脚本启动**
 
 ```arm-none-eabi-gdb -x [commands.gdb] [firmware.elf]```
 
-**Load and run firmware on target**
+**加载固件并在目标上运行**
 
 ```arm-none-eabi-gdb -ex "target remote :3333" -ex "load" -ex "continue" [firmware.elf]```
 
-**Start in TUI mode** with source display
+**以 TUI 模式启动**并显示源代码
 
 ```arm-none-eabi-gdb -tui [firmware.elf]```
 
@@ -31,78 +31,78 @@ Debug bare-metal ARM firmware interactively.
 # PARAMETERS
 
 **-ex** _command_
-> Execute a GDB command after loading the program.
+> 在加载程序后执行一条 GDB 命令。
 
 **-x** _file_
-> Execute commands from a script file.
+> 从脚本文件中执行命令。
 
 **-tui**
-> Start in Text User Interface mode with source window.
+> 以文本用户界面（TUI）模式启动并显示源代码窗口。
 
 **-q**, **--quiet**
-> Suppress introductory and copyright messages.
+> 不显示简介和版权信息。
 
 **-batch**
-> Run in batch mode for non-interactive use.
+> 以批处理模式运行，用于非交互式场景。
 
 **-cd** _directory_
-> Change to directory before running.
+> 运行前切换到指定目录。
 
 **-s** _file_
-> Read symbols from the specified file.
+> 从指定文件读取符号。
 
 **--args**
-> Pass remaining arguments to the program.
+> 将其余参数传递给程序。
 
 # COMMON GDB COMMANDS
 
 **target remote** _host:port_
-> Connect to remote debug server (OpenOCD, J-Link, etc.)
+> 连接到远程调试服务器（OpenOCD、J-Link 等）。
 
 **load**
-> Download program to target flash/RAM.
+> 将程序下载到目标的闪存/RAM。
 
 **monitor reset halt**
-> Reset target and halt at start.
+> 复位目标并在起始处暂停。
 
 **break** _location_
-> Set breakpoint at function or address.
+> 在函数或地址处设置断点。
 
 **continue** / **c**
-> Continue execution.
+> 继续执行。
 
 **step** / **next**
-> Step into / Step over source lines.
+> 单步进入 / 单步跳过源码行。
 
 **stepi** / **nexti**
-> Step by single instructions.
+> 按单条指令单步执行。
 
 **info registers**
-> Display CPU register contents.
+> 显示 CPU 寄存器内容。
 
 **x** _address_
-> Examine memory at address.
+> 检查指定地址处的内存。
 
 # DESCRIPTION
 
-**arm-none-eabi-gdb** is the GNU Debugger configured for bare-metal ARM targets (Cortex-M, Cortex-A without OS). It enables source-level debugging of firmware running on microcontrollers and embedded systems through JTAG/SWD debug probes.
+**arm-none-eabi-gdb** 是为裸机 ARM 目标（无操作系统的 Cortex-M、Cortex-A）配置的 GNU 调试器。它通过 JTAG/SWD 调试探针对运行在微控制器和嵌入式系统上的固件进行源代码级调试。
 
-The debugger connects to hardware targets via debug servers like OpenOCD, J-Link GDB Server, or ST-Link utilities. These servers provide the bridge between GDB's remote protocol and the physical debug interface on the microcontroller.
+该调试器通过 OpenOCD、J-Link GDB Server 或 ST-Link 工具等调试服务器连接到硬件目标。这些服务器在 GDB 的远程协议与微控制器上的物理调试接口之间提供桥梁。
 
-With an ELF file containing debug symbols, arm-none-eabi-gdb provides full source-level debugging: setting breakpoints, inspecting variables, stepping through code, and examining memory and registers. It supports ARM-specific features like viewing special registers and peripheral memory regions.
+配合包含调试符号的 ELF 文件，arm-none-eabi-gdb 提供完整的源代码级调试：设置断点、检查变量、逐行执行代码以及查看内存和寄存器。它还支持 ARM 特有的功能，例如查看特殊寄存器和外设内存区域。
 
 # CONFIGURATION
 
 **~/.gdbinit**
-> GDB initialization commands executed at startup, such as target connection settings and custom macros.
+> GDB 启动时执行的初始化命令，例如目标连接设置和自定义宏。
 
 # CAVEATS
 
-Requires a debug probe (J-Link, ST-Link, CMSIS-DAP) and debug server (OpenOCD, pyOCD) connected to the target. The ELF file must match the firmware on target exactly for symbols to align correctly. Hardware breakpoints are limited in number on most Cortex-M devices (typically 4-6). Optimized code may have confusing debug behavior due to reordering and inlining.
+需要连接到目标的调试探针（J-Link、ST-Link、CMSIS-DAP）和调试服务器（OpenOCD、pyOCD）。ELF 文件必须与目标上的固件完全一致，符号才能正确对应。大多数 Cortex-M 设备的硬件断点数量有限（通常为 4-6 个）。经过优化的代码由于重排和内联，调试行为可能令人困惑。
 
 # HISTORY
 
-The GNU Debugger (GDB) originated in **1986** as part of the GNU Project. ARM cross-compilation toolchains have included GDB builds targeting bare-metal ARM since the early **2000s**, supporting the growing embedded systems market. The **arm-none-eabi** prefix denotes the ARM architecture with no operating system (bare metal) using the Embedded ABI.
+GNU 调试器（GDB）起源于 **1986** 年，是 GNU 计划的一部分。自 **2000** 年代初以来，ARM 交叉编译工具链就包含了面向裸机 ARM 的 GDB 构建，以支持不断增长的嵌入式系统市场。**arm-none-eabi** 前缀表示使用嵌入式 ABI、不带操作系统（裸机）的 ARM 架构。
 
 # INSTALL
 

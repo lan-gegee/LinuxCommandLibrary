@@ -1,22 +1,22 @@
 # TAGLINE
 
-Userspace ARP cache daemon with persistent storage.
+带持久化存储的用户态 ARP 缓存守护进程。
 
 # TLDR
 
-**Start** the ARP daemon on an interface, using a database file
+在某个接口上**启动** ARP 守护进程，并使用数据库文件
 
 ```sudo arpd -b [/var/lib/arpd/arpd.db] [eth0]```
 
-Also **actively resolve** addresses (send up to N broadcast queries)
+同时**主动解析**地址（最多发送 N 次广播查询）
 
 ```sudo arpd -a [3] -b [/var/lib/arpd/arpd.db] [eth0]```
 
-**Dump** the ARP database to standard output and exit
+将 ARP 数据库**转储**到标准输出并退出
 
 ```arpd -l -b [/var/lib/arpd/arpd.db]```
 
-**Suppress** kernel broadcast queries (let arpd do the asking)
+**抑制**内核的广播查询（让 arpd 负责询问）
 
 ```sudo arpd -k [eth0]```
 
@@ -26,49 +26,49 @@ Also **actively resolve** addresses (send up to N broadcast queries)
 
 # DESCRIPTION
 
-**arpd** is a userspace ARP daemon that collects ARP information and stores it in a database. It can answer ARP requests from the kernel cache, reducing ARP traffic on large networks.
+**arpd** 是一个用户态 ARP 守护进程，它收集 ARP 信息并存储到数据库中。它可以直接从缓存回答内核的 ARP 请求，从而减少大型网络上的 ARP 流量。
 
-The daemon maintains a persistent ARP database that survives reboots, improving network performance and reducing broadcast traffic.
+该守护进程维护一个可在重启后保留的持久化 ARP 数据库，有助于提升网络性能并减少广播流量。
 
 # PARAMETERS
 
 **-l**
-> Dump the arpd database (interface index, IP address, MAC address) to standard output and exit
+> 将 arpd 数据库（接口索引、IP 地址、MAC 地址）转储到标准输出并退出
 
 **-a** _N_
-> Actively send broadcast ARP queries, making up to _N_ attempts before marking a host dead (otherwise arpd only listens passively)
+> 主动发送广播 ARP 查询，在把主机标记为失效前最多尝试 _N_ 次（否则 arpd 只被动监听）
 
 **-b** _file_
-> Location of the database file (default: **/var/lib/arpd/arpd.db**)
+> 数据库文件的位置（默认：**/var/lib/arpd/arpd.db**）
 
 **-f** _file_
-> Read and preload the database from a text file in the format produced by **-l**
+> 从 **-l** 输出格式的文本文件读取并预加载数据库
 
 **-k**
-> Suppress broadcast ARP queries sent by the kernel, so arpd performs the negotiation itself
+> 抑制内核发送的广播 ARP 查询，由 arpd 自行完成协商
 
 **-n** _time_
-> Timeout of the negative cache in seconds (default: 60)
+> 负缓存的超时时间，单位秒（默认：60）
 
 **-p** _interval_
-> Interval in seconds between polls of the kernel ARP table (default: 30)
+> 轮询内核 ARP 表的时间间隔，单位秒（默认：30）
 
 **-R** _rate_
-> Maximum steady rate of broadcasts sent by arpd, in packets per second (default: 1)
+> arpd 发送广播的最大稳态速率，单位为每秒数据包数（默认：1）
 
 **-B** _number_
-> Number of broadcasts arpd may send back to back (default: 3)
+> arpd 可连续背靠背发送的广播数量（默认：3）
 
 **interface**
-> Network interface(s) to monitor
+> 要监视的网络接口
 
 # CAVEATS
 
-Rarely needed on modern networks. May cause issues if the ARP cache becomes stale. Typically only useful on very large layer-2 networks. To use arpd, the kernel must be configured to push unresolved addresses to it via **app_solicit** in **/proc/sys/net/ipv4/neigh/**_iface_**/**.
+在现代网络中很少需要。ARP 缓存过期时可能引发问题。通常只在超大规模的二层网络中才有用。要使用 arpd，必须配置内核通过 **/proc/sys/net/ipv4/neigh/**_iface_**/** 中的 **app_solicit** 将未解析的地址推送给它。
 
 # HISTORY
 
-**arpd** is part of the **iproute2** package, providing userspace ARP table management for specialized networking scenarios.
+**arpd** 是 **iproute2** 软件包的一部分，为特定网络场景提供用户态的 ARP 表管理。
 
 # INSTALL
 

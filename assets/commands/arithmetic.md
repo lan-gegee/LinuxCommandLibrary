@@ -1,18 +1,18 @@
 # TAGLINE
 
-Practice basic math with a quiz game
+通过问答游戏练习基础数学
 
 # TLDR
 
-Start an **arithmetic quiz**
+开始**算术问答**
 
 ```arithmetic```
 
-Specify one or more **operation symbols** to practice
+指定要练习的一个或多个**运算符号**
 
 ```arithmetic -o [+|-|x|/]```
 
-Specify a **range** for problem numbers
+为题目数字指定**范围**
 
 ```arithmetic -r [7]```
 
@@ -22,25 +22,25 @@ Specify a **range** for problem numbers
 
 # DESCRIPTION
 
-**arithmetic** is a simple educational program that quizzes users on basic arithmetic problems. It generates random math problems and tracks the user's accuracy, providing a playful way to practice mental math.
+**arithmetic** 是一个简单的教育程序，通过算术题对用户进行测验。它会生成随机数学题并统计用户的正确率，以轻松有趣的方式练习心算。
 
-By default, problems use all four basic operations. The range option controls the magnitude of numbers used in problems.
+默认情况下题目使用全部四种基本运算。范围选项控制题目中数字的大小。
 
 # PARAMETERS
 
 **-o** _operations_
-> Specify which operations to include: **+** (addition), **-** (subtraction), **x** (multiplication), **/** (division). Defaults to **+** and **-**.
+> 指定要包含的运算：**+**（加法）、**-**（减法）、**x**（乘法）、**/**（除法）。默认为 **+** 和 **-**。
 
 **-r** _range_
-> Largest operand used in problems (default: **10**). For addition and multiplication the operands lie between 0 and _range_; for subtraction and division both the answer and the second operand lie in that range, so results are never negative or fractional.
+> 题目中使用的最大操作数（默认：**10**）。加法和乘法的操作数在 0 到 _range_ 之间；减法和除法的答案与第二个操作数都在该范围内，因此结果永远不会是负数或分数。
 
 # CAVEATS
 
-**arithmetic** asks problems repeatedly and weights operations you answer slowly or incorrectly, so they recur more often. Press **Ctrl-D** to end the session and print a summary of the number of correct answers and the time taken.
+**arithmetic** 会反复出题，并对回答慢或答错的运算加大权重，使其更频繁出现。按 **Ctrl-D** 结束会话并打印答对题数和所用时间的汇总。
 
 # HISTORY
 
-**arithmetic** is one of the classic BSD games, originating in the Unix games collection and carried into **4.4BSD**. It ships in the **bsdgames** package on most Linux distributions as a simple educational utility.
+**arithmetic** 是经典 BSD 游戏之一，源自 Unix 游戏合集，后被收入 **4.4BSD**。它随 **bsdgames** 软件包一起发布于大多数 Linux 发行版，作为一个简单的教育工具。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage stack configurations for apx subsystems
+管理 apx 子系统的栈配置
 
 # TLDR
 
-Interactively **create** a new stack configuration
+交互式**创建**新的栈配置
 
 ```apx stacks new```
 
-Interactively **update** a stack configuration
+交互式**更新**栈配置
 
 ```apx stacks update [name]```
 
-**List** all available stack configurations
+**列出**所有可用的栈配置
 
 ```apx stacks list```
 
-**Show** information about a specific stack
+**查看**特定栈的信息
 
 ```apx stacks show [name]```
 
-**Remove** a specified stack configuration
+**删除**指定的栈配置
 
 ```apx stacks rm --name [name]```
 
-**Import** a stack configuration from file
+从文件**导入**栈配置
 
 ```apx stacks import --input [path/to/stack.yml]```
 
-**Export** a stack configuration to file
+将栈配置**导出**到文件
 
 ```apx stacks export --name [name] --output [path/to/output_file]```
 
@@ -38,58 +38,58 @@ Interactively **update** a stack configuration
 
 # DESCRIPTION
 
-**apx stacks** manages stack configurations in apx. A stack defines a combination of a base container image and a package manager, serving as the foundation for subsystems.
+**apx stacks** 管理 apx 中的栈配置。栈定义了基础容器镜像与软件包管理器的组合，是子系统的基础。
 
-User-created stack configurations are stored in **~/.local/share/apx/stacks**. Stacks can be shared between systems by exporting and importing YAML configuration files.
+用户创建的栈配置存储在 **~/.local/share/apx/stacks**。通过导出和导入 YAML 配置文件，可以在不同系统之间共享栈。
 
 # SUBCOMMANDS
 
 **new**
-> Create a new stack configuration interactively
+> 交互式创建新的栈配置
 
 **update**
-> Modify an existing stack configuration
+> 修改现有的栈配置
 
 **list**
-> Display all available stack configurations
+> 显示所有可用的栈配置
 
 **show**
-> Show information about a specific stack
+> 显示特定栈的信息
 
 **rm**
-> Remove a stack configuration
+> 删除栈配置
 
 **import**
-> Import a stack from a YAML file
+> 从 YAML 文件导入栈
 
 **export**
-> Export a stack to a YAML file
+> 将栈导出为 YAML 文件
 
 # PARAMETERS
 
 **-n, --name** _string_
-> Specify the stack name
+> 指定栈名称
 
 **-b, --base** _string_
-> Base container image for the stack (used by new and update)
+> 栈的基础容器镜像（供 new 和 update 使用）
 
 **-p, --packages** _string_
-> Packages to preinstall (used by new and update)
+> 预装的软件包（供 new 和 update 使用）
 
 **-k, --pkg-manager** _string_
-> Package manager to use (used by new and update)
+> 要使用的软件包管理器（供 new 和 update 使用）
 
 **-y, --no-prompt** _string_
-> Assume default answers, do not prompt interactively
+> 采用默认答案，不进行交互式提示
 
 **-f, --force**
-> Remove the stack without asking for confirmation (used by rm)
+> 删除栈时不要求确认（供 rm 使用）
 
 **-i, --input** _path_
-> Path to the stack configuration file to import
+> 要导入的栈配置文件路径
 
 **-o, --output** _path_
-> Path for the exported stack file (defaults to current directory)
+> 导出的栈文件路径（默认为当前目录）
 
 # INSTALL
 

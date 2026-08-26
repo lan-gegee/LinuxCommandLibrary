@@ -1,26 +1,26 @@
 # TAGLINE
 
-Parse and display ASN.1 encoded data
+解析并显示 ASN.1 编码数据
 
 # TLDR
 
-**Parse** ASN.1 data
+**解析** ASN.1 数据
 
 ```openssl asn1parse -in [file.der]```
 
-Parse **PEM** encoded file
+解析 **PEM** 编码文件
 
 ```openssl asn1parse -in [file.pem] -inform PEM```
 
-Parse with **offset**
+从指定**偏移量**开始解析
 
 ```openssl asn1parse -in [file.der] -offset [100]```
 
-Show **structure** with hex dump
+以十六进制转储显示**结构**
 
 ```openssl asn1parse -in [file.der] -dump```
 
-Parse **nested** ASN.1 structure at a given offset
+解析给定偏移处的**嵌套** ASN.1 结构
 
 ```openssl asn1parse -in [file.pem] -strparse [offset]```
 
@@ -30,61 +30,61 @@ Parse **nested** ASN.1 structure at a given offset
 
 # DESCRIPTION
 
-**asn1parse** is an OpenSSL diagnostic utility that parses ASN.1 (Abstract Syntax Notation One) encoded data. It displays the structure of certificates, keys, and other cryptographic objects in a human-readable format.
+**asn1parse** 是 OpenSSL 的诊断工具，用于解析 ASN.1（抽象语法标记一）编码的数据。它以人类可读的格式显示证书、密钥和其他密码学对象的结构。
 
-The tool is invaluable for debugging certificate issues, understanding data structures, and analyzing encoded data.
+该工具对调试证书问题、理解数据结构以及分析编码数据非常有价值。
 
 # PARAMETERS
 
 **-help**
-> Print usage message.
+> 打印用法信息。
 
 **-in** _filename_
-> Input file, default is standard input.
+> 输入文件，默认为标准输入。
 
 **-inform** _DER|PEM_
-> Input format; the default is PEM.
+> 输入格式；默认为 PEM。
 
 **-out** _filename_
-> Output file to place the DER encoded data into.
+> 用于存放 DER 编码数据的输出文件。
 
 **-noout**
-> Don't output the parsed version of the input file.
+> 不输出输入文件的解析结果。
 
 **-offset** _number_
-> Starting offset to begin parsing, default is start of file.
+> 开始解析的起始偏移量，默认为文件开头。
 
 **-length** _number_
-> Number of bytes to parse, default is until end of file.
+> 要解析的字节数，默认解析到文件末尾。
 
 **-i**
-> Indent the output according to the depth of the structures.
+> 按结构的深度缩进输出。
 
 **-dump**
-> Dump unknown data in hex format.
+> 以十六进制格式转储未知数据。
 
 **-dlimit** _num_
-> Like **-dump**, but only the first num bytes are output.
+> 与 **-dump** 类似，但只输出前 num 个字节。
 
 **-strparse** _offset_
-> Parse the contents octets of the ASN.1 object starting at offset.
+> 解析从 offset 开始的 ASN.1 对象的内容八位组。
 
 **-genstr** _string_
-> Generate encoded data based on string using ASN1_generate_nconf format.
+> 根据 ASN1_generate_nconf 格式，基于字符串生成编码数据。
 
 **-genconf** _file_
-> Generate encoded data from file using ASN1_generate_nconf format.
+> 根据 ASN1_generate_nconf 格式，从文件生成编码数据。
 
 **-strictpem**
-> Ignore any data prior to the BEGIN marker or after END marker in PEM.
+> 忽略 PEM 中 BEGIN 标记之前或 END 标记之后的任何数据。
 
 # CAVEATS
 
-Requires understanding of ASN.1 structure. Output can be verbose for complex objects. Mainly for debugging, not routine use.
+需要理解 ASN.1 结构。对于复杂对象，输出可能很冗长。主要用于调试而非日常使用。
 
 # HISTORY
 
-**asn1parse** is part of OpenSSL, which has been the standard cryptographic toolkit since the late **1990s**.
+**asn1parse** 是 OpenSSL 的一部分，OpenSSL 自 **1990** 年代末以来一直是标准的密码学工具集。
 
 # SEE ALSO
 

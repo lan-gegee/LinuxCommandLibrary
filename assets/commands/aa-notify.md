@@ -1,30 +1,30 @@
 # TAGLINE
 
-Display and monitor AppArmor denial notifications
+显示并监控 AppArmor 拒绝通知
 
 # TLDR
 
-**Display summary** of AppArmor denials since last login
+**显示摘要**：自上次登录以来的 AppArmor 拒绝记录
 
 ```aa-notify --since-last```
 
-**Show summary** for the last N days
+**显示最近 N 天**的摘要
 
 ```aa-notify --since-days [7]```
 
-**Poll logs** and display desktop notifications
+**轮询日志**并显示桌面通知
 
 ```aa-notify --poll --user [username] --display $DISPLAY```
 
-**Search a specific file** for AppArmor messages
+在**指定文件中搜索** AppArmor 消息
 
 ```aa-notify --file [/var/log/audit/audit.log]```
 
-**Show verbose messages** with summaries
+**显示详细消息**及摘要
 
 ```aa-notify --since-days [3] --verbose```
 
-**Wait before displaying notifications** (useful at startup)
+**延迟显示通知**（启动时有用）
 
 ```aa-notify --poll --wait [10]```
 
@@ -35,47 +35,47 @@ Display and monitor AppArmor denial notifications
 # PARAMETERS
 
 **-p**, **--poll**
-> Poll AppArmor logs continuously and display desktop notifications for DENIED messages
+> 持续轮询 AppArmor 日志，并为 DENIED 消息显示桌面通知
 
 **-f** _FILE_, **--file=**_FILE_
-> Search FILE for AppArmor messages instead of the default log locations
+> 在 FILE 中搜索 AppArmor 消息，而不是默认的日志位置
 
 **-l**, **--since-last**
-> Show summary of messages since last login
+> 显示自上次登录以来消息的摘要
 
 **-s** _NUM_, **--since-days=**_NUM_
-> Show summary of messages for the last NUM days
+> 显示最近 NUM 天消息的摘要
 
 **-u** _USER_, **--user=**_USER_
-> Drop privileges to USER when running privileged; required with --poll for desktop notifications
+> 以特权身份运行时降权为 USER；配合 --poll 发送桌面通知时必须指定
 
 **-w** _NUM_, **--wait=**_NUM_
-> Wait NUM seconds before displaying notifications (useful for autostart)
+> 等待 NUM 秒后再显示通知（自动启动场景有用）
 
 **--display** _$DISPLAY_
-> Set the DISPLAY environment variable for desktop notifications
+> 为桌面通知设置 DISPLAY 环境变量
 
 **-v**, **--verbose**
-> Show full messages along with summaries
+> 在摘要之外同时显示完整消息
 
 **-h**, **--help**
-> Display usage information
+> 显示用法信息
 
 # DESCRIPTION
 
-**aa-notify** displays information about logged AppArmor security events, specifically DENIED messages that occur when applications attempt actions blocked by their AppArmor profiles.
+**aa-notify** 显示已记录的 AppArmor 安全事件信息，特别是应用尝试执行被其 AppArmor 配置文件阻止的操作时产生的 DENIED 消息。
 
-The tool operates in two modes: summary mode shows a report of past denials from a specified time period, while poll mode continuously monitors logs and delivers desktop notifications in real-time. This makes it useful for both auditing historical security events and receiving immediate alerts about policy violations.
+该工具有两种模式：摘要模式展示指定时间段内历史拒绝事件的报告；轮询模式持续监控日志并实时推送桌面通知。因此它既适合审计历史安全事件，也适合即时接收策略违规告警。
 
-AppArmor messages are read from the systemd journal, **/var/log/syslog**, **/var/log/kern.log**, or **/var/log/audit/audit.log** when auditd is installed. The tool requires appropriate privileges to read these logs, typically running under sudo.
+AppArmor 消息从 systemd journal、**/var/log/syslog**、**/var/log/kern.log** 读取；若安装了 auditd，则从 **/var/log/audit/audit.log** 读取。读取这些日志需要相应的权限，通常通过 sudo 运行。
 
 # CAVEATS
 
-Desktop notifications require a running display server and proper DISPLAY environment variable configuration. When using sudo, the DISPLAY variable may be reset, requiring explicit **--display** specification. For systems with auditd, the log file path must be explicitly set with **--file /var/log/audit/audit.log**.
+桌面通知需要正在运行的显示服务器以及正确的 DISPLAY 环境变量配置。使用 sudo 时 DISPLAY 变量可能被重置，需要显式指定 **--display**。对于装有 auditd 的系统，必须用 **--file /var/log/audit/audit.log** 显式设置日志路径。
 
 # HISTORY
 
-**aa-notify** is part of the AppArmor utilities suite. AppArmor originated at Immunix in the late **1990s** and was acquired by Novell in **2005**. It became part of the mainline Linux kernel in version **2.6.36** released in **2010**. The notification daemon was added to help administrators monitor security events in desktop environments.
+**aa-notify** 是 AppArmor 工具套件的一部分。AppArmor 起源于上世纪 **90 年代末**的 Immunix，于 **2005 年**被 Novell 收购，并在 **2010 年**发布的 Linux 内核 **2.6.36** 版本中进入主线。这个通知守护进程的加入是为了帮助管理员在桌面环境中监控安全事件。
 
 # INSTALL
 

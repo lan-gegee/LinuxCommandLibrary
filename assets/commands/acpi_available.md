@@ -1,14 +1,14 @@
 # TAGLINE
 
-test for ACPI support on the system
+检测系统是否支持 ACPI
 
 # TLDR
 
-**Check** if ACPI is available on the system
+**检查**系统上 ACPI 是否可用
 
 ```acpi_available && echo "ACPI supported"```
 
-Check exit status for **scripting**
+检查退出状态以便用于**脚本**
 
 ```if acpi_available; then echo "ACPI available"; fi```
 
@@ -18,17 +18,17 @@ Check exit status for **scripting**
 
 # DESCRIPTION
 
-**acpi_available** is a simple utility that tests whether ACPI (Advanced Configuration and Power Interface) support is available on the current system. It returns exit status 0 if ACPI is supported and 1 if not, making it useful in shell scripts for conditional execution.
+**acpi_available** 是一个简单的实用工具，用于测试当前系统是否支持 ACPI（Advanced Configuration and Power Interface）。若支持则返回退出状态 0，否则返回 1，因此非常适合在 shell 脚本中做条件判断。
 
-ACPI provides information about power management, thermal zones, batteries, and hardware configuration. This tool helps scripts determine whether they can use ACPI-dependent features like battery monitoring or suspend/hibernate functions.
+ACPI 提供有关电源管理、温区、电池和硬件配置的信息。该工具可帮助脚本判断能否使用依赖 ACPI 的功能，如电池监控或挂起/休眠。
 
 # CAVEATS
 
-This tool only checks for basic ACPI availability, not whether specific ACPI features (like battery or thermal) are supported. The tool is part of acpid and may not be installed by default on all systems.
+该工具只检查基本的 ACPI 可用性，不判断特定的 ACPI 功能（如电池或温度）是否受支持。它是 acpid 的一部分，并非所有系统都默认安装。
 
 # HISTORY
 
-**acpi_available** is part of the **acpid** (ACPI daemon) package, which has been a standard component in Linux power management since the early **2000s**. It was developed to help scripts and applications detect ACPI support.
+**acpi_available** 属于 **acpid**（ACPI 守护进程）软件包。自 **21 世纪初**以来，acpid 一直是 Linux 电源管理的标准组件。开发该工具是为了帮助脚本和应用检测 ACPI 支持。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Postman-like API client for the terminal
+类 Postman 的终端 API 客户端
 
 # TLDR
 
-**Launch the TUI** in the current directory
+在当前目录**启动 TUI**
 
 ```atac```
 
-**Specify a custom application directory**
+**指定自定义应用目录**
 
 ```atac -d [path/to/directory]```
 
-**Send a one-shot GET request**
+**发送一次性 GET 请求**
 
 ```atac try [https://api.example.com/endpoint]```
 
-**Send a request from a collection**
+**发送集合中的请求**
 
 ```atac request [collection/request_name] send```
 
-**Send a request using an environment**
+**使用环境发送请求**
 
 ```atac request [collection/request_name] send --env [my_env]```
 
-**Import a Postman collection**
+**导入 Postman 集合**
 
 ```atac import postman [path/to/collection.json]```
 
-**Import from a cURL command**
+**从 cURL 命令导入**
 
 ```atac import curl "[curl -X GET https://example.com]"```
 
-**Generate shell completions**
+**生成 Shell 补全脚本**
 
 ```atac completions [bash|zsh|fish]```
 
@@ -43,83 +43,83 @@ Postman-like API client for the terminal
 # PARAMETERS
 
 **-d** _directory_, **--directory** _directory_
-> Main application directory containing collection files, the atac.toml config file, and the atac.log file
+> 主应用目录，包含集合文件、atac.toml 配置文件和 atac.log 文件
 
 **--filter** _regex_
-> Only parse collection files whose names match the given regular expression
+> 仅解析名称匹配给定正则表达式的集合文件
 
 **--tui**
-> Run the TUI after executing a CLI subcommand
+> 执行 CLI 子命令后运行 TUI
 
 **--dry-run**
-> Avoid saving data to collection and environment files
+> 不将数据保存到集合和环境文件
 
 **--no-ansi-log**
-> Avoid using ANSI formatting in log file output
+> 日志文件输出中不使用 ANSI 格式
 
 **-v**, **--verbose**
-> Increase verbosity level; can be repeated for more detail
+> 提高详细程度；可重复使用以获得更多细节
 
 **collection**
-> Manage collections (list, create, delete, rename)
+> 管理集合（列出、创建、删除、重命名）
 
 **request**
-> Manage and send requests within a collection
+> 管理集合并发送其中的请求
 
 **try**
-> One-shot request sender for quick API calls without a saved collection
+> 一次性请求发送器，无需已保存的集合即可快速调用 API
 
 **env**
-> Manage environment files and variables
+> 管理环境文件和变量
 
 **import**
-> Import collections, requests, or environments from Postman v2.1.0, cURL, or OpenAPI formats
+> 从 Postman v2.1.0、cURL 或 OpenAPI 格式导入集合、请求或环境
 
 **completions**
-> Generate shell completion scripts for bash, zsh, or fish
+> 为 bash、zsh 或 fish 生成 Shell 补全脚本
 
 **man**
-> Generate the ATAC man page
+> 生成 ATAC 的 man page
 
 # DESCRIPTION
 
-**atac** (Arguably a Terminal API Client) is a feature-rich, terminal-based API testing tool written in Rust. It provides a Postman-like experience entirely within the terminal, supporting both an interactive TUI mode and a scriptable CLI mode.
+**atac**（Arguably a Terminal API Client）是一款功能丰富的基于终端的 API 测试工具，用 Rust 编写。它在终端内提供类 Postman 的体验，同时支持交互式 TUI 模式和可脚本化的 CLI 模式。
 
-The TUI presents a full interface for building and organizing HTTP requests, viewing responses with syntax highlighting, managing collections, and switching between environments. The CLI mode allows sending requests, managing collections, and importing data non-interactively, making it suitable for scripting and automation.
+TUI 提供完整界面，用于构建和组织 HTTP 请求、查看带语法高亮的响应、管理集合以及在环境之间切换。CLI 模式支持以非交互方式发送请求、管理集合和导入数据，适合脚本编写与自动化场景。
 
-atac supports all standard HTTP methods including GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD, TRACE, and CONNECT. Authentication options include Basic, Bearer token, Digest, and JWT. Request bodies can be JSON, XML, HTML, plain text, multipart form, URL-encoded form, or file uploads. Full response details are available including status codes, headers, cookies, and timing.
+atac 支持所有标准 HTTP 方法，包括 GET、POST、PUT、PATCH、DELETE、OPTIONS、HEAD、TRACE 和 CONNECT。认证方式包括 Basic、Bearer token、Digest 和 JWT。请求体可以是 JSON、XML、HTML、纯文本、multipart 表单、URL 编码表单或文件上传。响应详情完整可见，包括状态码、头部、Cookie 和耗时信息。
 
-Beyond HTTP, atac includes a WebSocket client supporting text, binary, ping, pong, and close messages. A built-in JavaScript runtime enables pre-request and post-request scripting for dynamic request modification and response processing.
+除 HTTP 外，atac 还内置 WebSocket 客户端，支持 text、binary、ping、pong 和 close 消息。内置的 JavaScript 运行时支持请求前和请求后脚本，可用于动态修改请求和处理响应。
 
-Collections and environments are stored as human-readable JSON or YAML files, designed to be committed to version control. Environment variables are defined in .env files and referenced in requests using **{{variable_name}}** syntax. The tool can import from Postman v2.1.0 collections, OpenAPI specifications, and cURL commands, and can export requests to cURL, PHP Guzzle, Node.js Axios, Rust Reqwest, and raw HTTP formats.
+集合与环境以人类可读的 JSON 或 YAML 文件存储，便于提交到版本控制。环境变量定义在 .env 文件中，并通过 **{{variable_name}}** 语法在请求中引用。该工具可以从 Postman v2.1.0 集合、OpenAPI 规范和 cURL 命令导入，并能将请求导出为 cURL、PHP Guzzle、Node.js Axios、Rust Reqwest 及原始 HTTP 格式。
 
 # CONFIGURATION
 
-**atac.toml** -- Main configuration file placed in the application directory. All keys are optional.
+**atac.toml** -- 放置在应用目录中的主配置文件。所有键均为可选。
 
 **disable_syntax_highlighting**
-> Set to true to disable response syntax highlighting (default: false)
+> 设为 true 可禁用响应语法高亮（默认：false）
 
 **disable_cors**
-> Set to true to disable CORS handling (default: false)
+> 设为 true 可禁用 CORS 处理（默认：false）
 
 **[proxy] http_proxy**
-> HTTP proxy URL
+> HTTP 代理 URL
 
 **[proxy] https_proxy**
-> HTTPS proxy URL
+> HTTPS 代理 URL
 
-Key bindings are configured via a separate TOML file specified by the **ATAC_KEY_BINDINGS** environment variable. Default and Vim-style key binding templates are provided.
+按键绑定通过单独的 TOML 文件配置，该文件由 **ATAC_KEY_BINDINGS** 环境变量指定。项目提供了默认及 Vim 风格的按键绑定模板。
 
-The **ATAC_MAIN_DIR** environment variable can be used as an alternative to the **-d** flag for specifying the application directory.
+**ATAC_MAIN_DIR** 环境变量可作为 **-d** 标志的替代方案来指定应用目录。
 
 # CAVEATS
 
-Requires Rust 1.82 or later to build from source. On macOS, binaries downloaded from GitHub releases may need the quarantine attribute removed with **xattr -rd com.apple.quarantine**. OAuth and AWS authentication are not yet supported. Only Postman v2.1.0 collection format is supported for import.
+从源码构建需要 Rust 1.82 或更高版本。在 macOS 上，从 GitHub releases 下载的二进制可能需要用 **xattr -rd com.apple.quarantine** 移除隔离属性。暂不支持 OAuth 和 AWS 认证。导入仅支持 Postman v2.1.0 集合格式。
 
 # HISTORY
 
-**atac** was created by **Julien Caposiena** (Julien-cpsn) and first published to crates.io in **April 2024**. The project is open source under the MIT license and hosted on GitHub. It was built to provide a free, account-less, offline-first alternative to graphical API clients like Postman and Insomnia.
+**atac** 由 **Julien Caposiena**（Julien-cpsn）创建，于 **2024** 年 **4 月**首次发布到 crates.io。该项目以 MIT 许可证开源，托管在 GitHub 上。其目标是提供一个免费、免账户、离线优先的替代方案，以取代 Postman 和 Insomnia 等图形化 API 客户端。
 
 # INSTALL
 

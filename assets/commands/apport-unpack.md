@@ -1,18 +1,18 @@
 # TAGLINE
 
-Extract fields from crash reports into individual files.
+将崩溃报告中的字段解包为单独的文件。
 
 # TLDR
 
-**Extract a crash report** to a directory
+**将崩溃报告解包**到目录
 
 ```apport-unpack [/var/crash/_usr_bin_app.1000.crash] [output_directory]```
 
-**Extract a crash report** from stdin
+从标准输入**解包崩溃报告**
 
 ```cat [report.crash] | apport-unpack - [output_directory]```
 
-**Extract core dump** for debugging
+**解包核心转储**以便调试
 
 ```apport-unpack [crash_file.crash] [extracted/] && gdb [/usr/bin/app] [extracted/CoreDump]```
 
@@ -23,28 +23,28 @@ Extract fields from crash reports into individual files.
 # PARAMETERS
 
 _report_
-> Path to an apport crash report file (.crash), or '-' to read from stdin
+> apport 崩溃报告文件（.crash）的路径，或用 '-' 从标准输入读取
 
 _target-directory_
-> Directory where extracted files will be written; must be nonexistent or empty
+> 解包出的文件写入的目标目录；必须不存在或为空
 
 # DESCRIPTION
 
-**apport-unpack** extracts the fields of an Apport problem report into separate files. Each key-value pair in the crash report becomes a separate file, with the key as the filename and the value as the file contents.
+**apport-unpack** 将 Apport 问题报告中的各个字段提取为单独的文件。崩溃报告中的每个键值对都会变成一个单独的文件：键作为文件名，值作为文件内容。
 
-Apport crash reports use RFC822 syntax and bundle multiple pieces of information including stack traces, system information, package details, and core dumps. This tool splits them apart for individual examination.
+Apport 崩溃报告使用 RFC822 语法，打包了多种信息，包括堆栈跟踪、系统信息、软件包详情和核心转储。此工具可将它们拆分开来逐一检查。
 
-The primary use case is extracting the **CoreDump** file for analysis with **gdb** or other debugging tools. Other extracted files include **ProcMaps**, **ProcStatus**, **Stacktrace**, **Package**, and various system information fields.
+主要用途是提取 **CoreDump** 文件，供 **gdb** 或其他调试工具分析。其他解包出的文件还包括 **ProcMaps**、**ProcStatus**、**Stacktrace**、**Package** 以及各种系统信息字段。
 
-Crash reports are typically stored in **/var/crash/** with names following the pattern **_usr_bin_program.uid.crash**.
+崩溃报告通常存储在 **/var/crash/** 中，命名遵循 **_usr_bin_program.uid.crash** 模式。
 
 # CAVEATS
 
-The target directory must be empty or nonexistent; the tool will not overwrite existing files. Only works with valid Apport crash reports; providing raw binary files like core dumps directly will fail. Binary fields like CoreDump may be large.
+目标目录必须为空或不存在；该工具不会覆盖已有文件。仅适用于有效的 Apport 崩溃报告；直接提供原始二进制文件（如核心转储）会失败。CoreDump 等二进制字段可能很大。
 
 # HISTORY
 
-**apport-unpack** was developed by **Martin Pitt** as part of the Apport crash reporting system for Ubuntu, introduced in **2006**. The tool addresses the need to extract and analyze individual components from bundled crash reports, particularly the core dump for detailed debugging.
+**apport-unpack** 由 **Martin Pitt** 开发，是 Ubuntu 的 Apport 崩溃报告系统的组成部分，于 **2006** 年推出。该工具满足了从打包的崩溃报告中提取并分析单个组件的需求，尤其是用于深入调试的核心转储。
 
 # SEE ALSO
 

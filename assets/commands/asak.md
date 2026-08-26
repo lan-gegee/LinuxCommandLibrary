@@ -1,34 +1,34 @@
 # TAGLINE
 
-Cross-platform audio recording/playback CLI tool with TUI
+带 TUI 的跨平台音频录制/播放命令行工具
 
 # TLDR
 
-**Record audio** to a WAV file
+**录制音频**到 WAV 文件
 
 ```asak rec [output]```
 
-**Play back** a WAV file
+**播放** WAV 文件
 
 ```asak play [input.wav]```
 
-**Play a file interactively** by selecting from WAV files in the current directory
+通过从当前目录的 WAV 文件中选择，**交互式播放文件**
 
 ```asak play```
 
-**Record using a specific audio device** by index
+按索引**使用指定音频设备录制**
 
 ```asak rec -d [device_index] [output]```
 
-**Monitor audio input** through the output device in real time
+实时**监听音频输入**并通过输出设备播放
 
 ```asak monitor```
 
-**Monitor with a custom buffer size**
+以自定义缓冲区大小进行**监听**
 
 ```asak monitor -b [2048]```
 
-**List available audio devices**
+**列出可用的音频设备**
 
 ```asak list```
 
@@ -47,35 +47,35 @@ Cross-platform audio recording/playback CLI tool with TUI
 # PARAMETERS
 
 **-j**, **--jack**
-> Use the JACK audio backend instead of the default. Only available on Linux, DragonFly BSD, FreeBSD, and NetBSD when built with the jack feature.
+> 使用 JACK 音频后端代替默认后端。仅在 Linux、DragonFly BSD、FreeBSD 和 NetBSD 上且以 jack 特性构建时可用。
 
 **-d** _index_, **--device** _index_
-> The audio device index to use for recording or playback. Run **asak list** to see available devices and their indices.
+> 用于录音或播放的音频设备索引。运行 **asak list** 可查看可用设备及其索引。
 
 **-b** _size_, **--buffer_size** _size_
-> Buffer size for audio input monitoring. Defaults to 1024. Higher values increase latency.
+> 音频输入监听的缓冲区大小。默认 1024。数值越大延迟越高。
 
 **-h**, **--help**
-> Display help information and exit.
+> 显示帮助信息并退出。
 
 **-V**, **--version**
-> Display version information and exit.
+> 显示版本信息并退出。
 
 # DESCRIPTION
 
-**asak** (audio Swiss Army knife) is a cross-platform audio recording and playback CLI tool with a terminal user interface, written in Rust. It aims to provide functionality similar to SoX but with an interactive and visual experience.
+**asak**（audio Swiss Army knife，音频瑞士军刀）是一个用 Rust 编写、带终端用户界面的跨平台音频录制与播放命令行工具。它旨在提供类似 SoX 的功能，同时带来交互式和可视化的体验。
 
-The tool provides four main subcommands. **rec** records audio from an input device to a WAV file; if no filename is given, it prompts interactively and suggests a UTC-timestamped default name. **play** plays back a WAV file; if no file is specified, it searches the current directory for WAV files and presents an interactive selection menu. **monitor** routes audio from the input device to the output device in real time with a visual scope display, useful for quickly testing a microphone or speaker setup. **list** displays all available audio input and output devices with their indices.
+该工具提供四个主要子命令。**rec** 将输入设备的音频录制成 WAV 文件；若未给出文件名，它会交互式提示并建议一个带 UTC 时间戳的默认名称。**play** 播放 WAV 文件；若未指定文件，它会在当前目录搜索 WAV 文件并提供交互式选择菜单。**monitor** 将输入设备的音频实时路由到输出设备，并带有可视化示波器显示，适合快速测试麦克风或音箱设置。**list** 显示所有可用的音频输入和输出设备及其索引。
 
-asak uses **cpal** as its audio backend and **ratatui** for its terminal UI, providing visual feedback such as level meters and playback animations. Audio resampling is handled via the **dasp** library when the source and target sample rates differ.
+asak 使用 **cpal** 作为音频后端，用 **ratatui** 构建终端 UI，提供电平表和播放动画等可视化反馈。当源与目标的采样率不同时，重采样由 **dasp** 库处理。
 
 # CAVEATS
 
-Only WAV format is supported for recording and playback at this time. The **monitor** subcommand requires the output device to match the system default settings. On Linux, the JACK audio backend requires **libjack-dev** (or equivalent) to be installed and the tool to be built with the **jack** feature flag. The project is under active development and some features like effects processing and live position control are not yet implemented.
+目前录制和播放仅支持 WAV 格式。**monitor** 子命令要求输出设备与系统默认设置一致。在 Linux 上，JACK 音频后端需要安装 **libjack-dev**（或等效库），并且工具需以 **jack** 特性标志构建。项目仍在积极开发中，效果处理和实时位置控制等部分功能尚未实现。
 
 # HISTORY
 
-**asak** was created by **Qichao Lan** (chaosprint), a developer at the University of Oslo who specializes in Rust audio programming and is also the author of **Glicol**, a graph-oriented live coding language. The first commits appeared in **early 2024** and the project was publicly announced on Hacker News in **December 2024**. The tool reached version 0.3.6 by mid-2025. It is licensed under the MIT license.
+**asak** 由奥斯陆大学开发者 **Qichao Lan**（chaosprint）创建，他专注于 Rust 音频编程，也是面向图的现场编程语言 **Glicol** 的作者。最早的提交出现在 **2024 年初**，项目于 **2024 年 12 月**在 Hacker News 上公开发布。到 2025 年年中，该工具已达到 0.3.6 版本。它采用 MIT 许可证授权。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display an animated ASCII art aquarium
+在终端中显示动态 ASCII 艺术水族箱
 
 # TLDR
 
-**Run** the aquarium
+**运行**水族箱
 
 ```asciiquarium```
 
-Run in **classic** mode (only the original 1.0 creatures)
+以**经典**模式运行（只保留 1.0 版原有的生物）
 
 ```asciiquarium -c```
 
@@ -27,26 +27,26 @@ Run in **classic** mode (only the original 1.0 creatures)
 
 # DESCRIPTION
 
-**asciiquarium** displays an animated ASCII art aquarium in your terminal. It features swimming fish, a castle, seaweed, bubbles, and the occasional shark or sea monster, providing a relaxing screensaver-like animation.
+**asciiquarium** 在终端中显示一个动态的 ASCII 艺术水族箱。其中有游动的鱼、城堡、海草、气泡，还有偶尔出没的鲨鱼或海怪，带来类似屏保的放松动画。
 
-The program runs until interrupted and adapts to terminal size.
+程序会一直运行直到被中断，并能自适应终端大小。
 
 # PARAMETERS
 
 **-c**
-> Classic mode: show only the species present in version 1.0.
+> 经典模式：只显示 1.0 版中已有的物种。
 
 # CONTROLS
 
-Press **q** to quit, **r** to redraw all entities, or **p** to toggle pause.
+按 **q** 退出，按 **r** 重绘所有实体，或按 **p** 切换暂停状态。
 
 # CAVEATS
 
-Requires Term::Animation Perl module. Works best with 256-color terminal support. High CPU usage on some systems.
+需要 Term::Animation Perl 模块。在支持 256 色的终端上效果最佳。在某些系统上 CPU 占用较高。
 
 # HISTORY
 
-**asciiquarium** was written by Kirk Baucom as a Perl script providing terminal entertainment through animated ASCII art.
+**asciiquarium** 由 Kirk Baucom 编写，是一个通过 ASCII 动画艺术提供终端娱乐的 Perl 脚本。
 
 # INSTALL
 

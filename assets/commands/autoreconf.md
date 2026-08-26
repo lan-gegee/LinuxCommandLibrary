@@ -1,22 +1,22 @@
 # TAGLINE
 
-Regenerate autotools build system files
+重新生成 autotools 构建系统文件
 
 # TLDR
 
-**Regenerate** all autotools files
+**重新生成**全部 autotools 文件
 
 ```autoreconf```
 
-Regenerate with **install** of missing files
+重新生成时**补装**缺失文件
 
 ```autoreconf --install```
 
-**Force** regeneration
+**强制**重新生成
 
 ```autoreconf --force --install```
 
-Regenerate **verbosely**
+以详细模式重新生成
 
 ```autoreconf --install --verbose```
 
@@ -26,42 +26,42 @@ Regenerate **verbosely**
 
 # DESCRIPTION
 
-**autoreconf** runs autoconf, autoheader, automake, and related tools in the correct order. It's the recommended way to regenerate configure scripts and related files in autotools projects.
+**autoreconf** 按正确顺序运行 autoconf、autoheader、automake 及相关工具。它是重新生成 autotools 项目中 configure 脚本及相关文件的推荐方式。
 
-The tool automatically determines which programs to run based on project configuration.
+该工具会根据项目配置自动判断需要运行哪些程序。
 
 # PARAMETERS
 
 **-i**, **--install**
-> Add missing auxiliary files
+> 补充缺失的辅助文件
 
 **-f**, **--force**
-> Force regeneration even if files are current
+> 即使文件是最新的也强制重新生成
 
 **-v**, **--verbose**
-> Verbose output
+> 详细输出
 
 **-s**, **--symlink**
-> When used with --install, install symbolic links instead of copying auxiliary files
+> 与 --install 连用时，以符号链接而非复制的方式安装辅助文件
 
 **-I** _dir_, **--include=**_dir_
-> Append dir to the include path searched by aclocal, autoconf, and autoheader
+> 将 dir 追加到 aclocal、autoconf 和 autoheader 搜索的包含路径
 
 **-m**, **--make**
-> When applicable, run ./config.status --recheck and ./config.status, then make to update everything
+> 在适用时运行 ./config.status --recheck 和 ./config.status，然后执行 make 更新一切
 
 **-W** _category_, **--warnings=**_category_
-> Report the warnings in category (all, none, error, or a specific category)
+> 报告指定类别的警告（all、none、error 或某个具体类别）
 
 **-d**, **--debug**
-> Don't remove the temporary files
+> 不删除临时文件
 
 **--no-recursive**
-> Don't rebuild files in subdirectories (configured packages)
+> 不重建子目录（被配置的软件包）中的文件
 
 # WORKFLOW
 
-Typical usage when building from git:
+从 git 构建时的典型用法：
 ```bash
 autoreconf --install
 ./configure
@@ -70,11 +70,11 @@ make
 
 # CAVEATS
 
-Requires autoconf, automake, and related tools installed. Can be slow on large projects. Modern alternatives (CMake, Meson) are often easier.
+需要安装 autoconf、automake 及相关工具。大型项目上速度较慢。现代替代方案（CMake、Meson）通常更简单。
 
 # HISTORY
 
-**autoreconf** was added to autoconf to simplify the complex process of regenerating autotools files in the correct order.
+**autoreconf** 被加入 autoconf，旨在简化按正确顺序重新生成 autotools 文件这一复杂过程。
 
 # INSTALL
 
@@ -102,4 +102,3 @@ Requires autoconf, automake, and related tools installed. Can be slow on large p
 ```[Documentation](https://www.gnu.org/software/autoconf/manual/)```
 
 <!-- verified: 2026-06-17 -->
-

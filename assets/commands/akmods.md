@@ -1,26 +1,26 @@
 # TAGLINE
 
-Rebuild out-of-tree kernel modules from akmod packages
+从 akmod 软件包重建树外内核模块
 
 # TLDR
 
-**Check and rebuild** missing or outdated modules for the running kernel
+为当前运行的内核**检查并重建**缺失或过期的模块
 
 ```sudo akmods```
 
-**Force rebuild** of all modules even if they failed or look up to date
+即使构建失败或看似最新也**强制重建**所有模块
 
 ```sudo akmods --rebuild --force```
 
-Build and install modules only for a **specific kernel** (same format as `uname -r`)
+只为**特定内核**（与 `uname -r` 格式相同）构建并安装模块
 
 ```sudo akmods --kernels [kernel_version]```
 
-Rebuild only one **akmod** package
+只重建一个 **akmod** 软件包
 
 ```sudo akmods --akmod [akmod_name]```
 
-Show status of the background **akmods service**
+查看后台 **akmods 服务**的状态
 
 ```systemctl status akmods```
 
@@ -30,41 +30,41 @@ Show status of the background **akmods service**
 
 # DESCRIPTION
 
-**akmods** checks installed **akmod** packages and rebuilds out-of-tree kernel modules when they are missing, outdated, or broken for a given kernel. It is the Fedora/RHEL-family counterpart to frameworks like DKMS: an **akmod** package ships module sources and build metadata; **akmods** compiles them on the local system (often into a matching **kmod-*** RPM) whenever a new kernel appears.
+**akmods** 检查已安装的 **akmod** 软件包，并在树外内核模块缺失、过期或对给定内核失效时重建它们。它是 Fedora/RHEL 系对 DKMS 这类框架的对等物：**akmod** 软件包附带模块源码和构建元数据；每当新内核出现时，**akmods** 就在本地系统上编译它们（通常编译成匹配的 **kmod-*** RPM）。
 
-Typical use is after installing or updating drivers from RPM Fusion (for example NVIDIA via **akmod-nvidia**). A systemd unit may run **akmods** at boot so modules for the current kernel are ready before they are needed. Manual runs are common when a build failed, **kernel-devel** was missing during an earlier attempt, or you need modules for a kernel other than the one currently running.
+典型用法是在从 RPM Fusion 安装或更新驱动之后（例如通过 **akmod-nvidia** 安装 NVIDIA）。systemd 单元可以在启动时运行 **akmods**，使当前内核的模块在需要之前就准备就绪。当某次构建失败、之前的尝试缺少 **kernel-devel**，或你需要为非当前运行的内核提供模块时，手动运行很常见。
 
-Builds need a compiler toolchain and matching kernel headers/devel packages for each target kernel. Secure Boot setups may also need module signing keys under **/etc/pki/akmods**.
+构建需要编译工具链以及每个目标内核匹配的内核头文件/devel 软件包。Secure Boot 配置可能还需要 **/etc/pki/akmods** 下的模块签名密钥。
 
 # OPTIONS
 
 **--force**
 
-> Try all akmods, including ones that failed on earlier runs.
+> 尝试所有 akmod，包括之前运行中失败的那些。
 
 **--kernels** _kernel_
 
-> Build and install only for the given kernel version string (same format as **uname -r**).
+> 只为给定的内核版本字符串（与 **uname -r** 格式相同）构建并安装。
 
 **--rebuild**
 
-> Rebuild all modules even when they already appear up to date.
+> 即使模块看起来已是最新，也全部重建。
 
 **--akmod** _akmod_
 
-> Build and install only the named akmod package.
+> 只构建并安装指定名称的 akmod 软件包。
 
 **--quiet**
 
-> Reduce output.
+> 减少输出。
 
 **--verbose**
 
-> Increase output.
+> 增加输出。
 
 # CAVEATS
 
-Failed builds often leave no usable **kmod** until headers, compiler tools, and enough disk space are available, then **akmods --force** or **--rebuild** is re-run. On ostree-based systems (Silverblue/Kinoite) module signing and rebuild timing can differ from classic package installs. The man page is sparse; log output under the **akmods** service and journal is usually the best diagnostic trail.
+构建失败后往往没有可用的 **kmod**，直到头文件、编译工具和足够的磁盘空间就绪后再重新运行 **akmods --force** 或 **--rebuild**。在基于 ostree 的系统（Silverblue/Kinoite）上，模块签名和重建时机可能与传统软件包安装不同。man page 内容较少；**akmods** 服务下的日志输出和 journal 通常是最好的诊断线索。
 
 # INSTALL
 

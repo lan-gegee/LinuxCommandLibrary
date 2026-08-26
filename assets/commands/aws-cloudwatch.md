@@ -1,38 +1,38 @@
 # TAGLINE
 
-Monitor resources with metrics, alarms, and dashboards.
+通过指标、警报和控制面板监控资源。
 
 # TLDR
 
-**Put custom metric data** to CloudWatch
+**向 CloudWatch 写入自定义指标数据**
 
 ```aws cloudwatch put-metric-data --namespace [MyApp] --metric-name [RequestCount] --value [1] --unit Count```
 
-**Get metric statistics** for an EC2 instance CPU
+**获取 EC2 实例 CPU 的指标统计数据**
 
 ```aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name CPUUtilization --dimensions Name=InstanceId,Value=[i-1234567890abcdef0] --start-time [2024-01-01T00:00:00Z] --end-time [2024-01-02T00:00:00Z] --period 3600 --statistics Average```
 
-**Create an alarm** for high CPU usage
+**为高 CPU 使用率创建警报**
 
 ```aws cloudwatch put-metric-alarm --alarm-name [high-cpu] --metric-name CPUUtilization --namespace AWS/EC2 --statistic Average --period 300 --threshold 80 --comparison-operator GreaterThanThreshold --evaluation-periods 2 --alarm-actions [arn:aws:sns:us-east-1:123456789012:my-topic] --dimensions Name=InstanceId,Value=[i-1234567890abcdef0]```
 
-**List all alarms** in the account
+**列出账户中的所有警报**
 
 ```aws cloudwatch describe-alarms```
 
-**List available metrics** for a namespace
+**列出某命名空间下的可用指标**
 
 ```aws cloudwatch list-metrics --namespace [AWS/EC2]```
 
-**Delete specific** alarms
+**删除指定的警报**
 
 ```aws cloudwatch delete-alarms --alarm-names [high-cpu] [low-disk]```
 
-**Disable actions** on an alarm
+**禁用警报的操作**
 
 ```aws cloudwatch disable-alarm-actions --alarm-names [high-cpu]```
 
-**Enable actions** on an alarm
+**启用警报的操作**
 
 ```aws cloudwatch enable-alarm-actions --alarm-names [high-cpu]```
 
@@ -42,61 +42,61 @@ Monitor resources with metrics, alarms, and dashboards.
 
 # DESCRIPTION
 
-**aws cloudwatch** is the AWS CLI interface for Amazon CloudWatch, a monitoring and observability service for AWS resources and applications. CloudWatch collects metrics, logs, and events, providing visibility into resource utilization, application performance, and operational health.
+**aws cloudwatch** 是 Amazon CloudWatch 的 AWS CLI 接口。CloudWatch 是一项面向 AWS 资源和应用程序的监控与可观测性服务，可收集指标、日志和事件，让你掌握资源利用率、应用性能和运行健康状况。
 
-CloudWatch enables setting alarms that trigger notifications or automated actions based on metric thresholds. It supports both built-in AWS service metrics and custom application metrics.
+CloudWatch 支持设置警报，在指标越过阈值时触发通知或自动化操作。它既支持 AWS 服务内置指标，也支持自定义应用指标。
 
 # COMMANDS
 
 **put-metric-data**
-> Publish custom metric data points
+> 发布自定义指标数据点
 
 **get-metric-data**
-> Retrieve metric values using queries
+> 通过查询检索指标值
 
 **get-metric-statistics**
-> Get statistics for a specific metric
+> 获取特定指标的统计数据
 
 **list-metrics**
-> List available metrics by namespace
+> 按命名空间列出可用指标
 
 **put-metric-alarm**
-> Create or update a metric alarm
+> 创建或更新指标警报
 
 **describe-alarms**
-> List configured alarms and their states
+> 列出已配置的警报及其状态
 
 **set-alarm-state**
-> Manually set alarm state for testing
+> 手动设置警报状态以便测试
 
 **put-dashboard**
-> Create or update a CloudWatch dashboard
+> 创建或更新 CloudWatch 控制面板
 
 **delete-alarms**
-> Delete one or more alarms
+> 删除一个或多个警报
 
 **enable-alarm-actions**
-> Enable actions for specified alarms
+> 为指定警报启用操作
 
 **disable-alarm-actions**
-> Disable actions for specified alarms
+> 为指定警报禁用操作
 
 **describe-alarms-for-metric**
-> List alarms associated with a specific metric
+> 列出与特定指标关联的警报
 
 **list-tags-for-resource**
-> List tags for a CloudWatch resource
+> 列出 CloudWatch 资源的标签
 
 **put-anomaly-detector**
-> Create an anomaly detection model for a metric
+> 为指标创建异常检测模型
 
 # CAVEATS
 
-Metric data older than 15 months is automatically deleted. High-resolution metrics (1-second granularity) incur additional costs. Custom metrics are charged per metric per month. Alarm evaluations may be delayed during service disruptions.
+超过 15 个月的指标数据会被自动删除。高分辨率指标（1 秒粒度）会产生额外费用。自定义指标按每月每个指标计费。服务中断期间，警报评估可能出现延迟。
 
 # HISTORY
 
-Amazon CloudWatch launched in **May 2009** alongside EC2 monitoring. Custom metrics were added in **2011**, dashboards in **2015**, and anomaly detection in **2019**. The service has evolved to become the central monitoring hub for all AWS services and is now integrated with CloudWatch Logs and EventBridge.
+Amazon CloudWatch 于 **2009 年 5 月** 随 EC2 监控一同推出。自定义指标于 **2011 年** 加入，控制面板于 **2015 年** 加入，异常检测于 **2019 年** 加入。该服务已发展为所有 AWS 服务的核心监控中枢，现已与 CloudWatch Logs 和 EventBridge 集成。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Query the APT package cache
+查询 APT 软件包缓存
 
 # TLDR
 
-**Search** for a package in your current sources
+在当前软件源中**搜索**软件包
 
 ```apt-cache search [query]```
 
-**Search** only in package names
+只在软件包名称中**搜索**
 
 ```apt-cache search --names-only [query]```
 
-Show **information** about a package
+显示软件包的**信息**
 
 ```apt-cache show [package]```
 
-Show whether a package is **installed and up to date**
+显示软件包是否**已安装且为最新版本**
 
 ```apt-cache policy [package]```
 
-Show **dependencies** for a package
+显示软件包的**依赖关系**
 
 ```apt-cache depends [package]```
 
-Show packages that **depend on** a particular package
+显示**依赖于**某个特定软件包的软件包
 
 ```apt-cache rdepends [package]```
 
-Show **available versions** in a table format
+以表格形式显示**可用版本**
 
 ```apt-cache madison [package]```
 
@@ -38,81 +38,81 @@ Show **available versions** in a table format
 
 # DESCRIPTION
 
-**apt-cache** queries the local APT package cache to search for packages, display detailed package information, and analyze dependency relationships. It reads the package index files downloaded by **apt update** and provides fast, offline access to package metadata without contacting remote repositories.
+**apt-cache** 查询本地 APT 软件包缓存，用于搜索软件包、显示详细的软件包信息以及分析依赖关系。它读取由 **apt update** 下载的软件包索引文件，无需联系远程仓库即可快速离线访问软件包元数据。
 
-Common operations include searching for packages by name or description, inspecting version and dependency details, checking installation policies, and listing reverse dependencies. The output is suitable for scripting and can help diagnose dependency conflicts or determine which repository provides a given package.
+常见操作包括按名称或描述搜索软件包、查看版本和依赖详情、检查安装策略以及列出反向依赖。其输出适合脚本处理，可帮助诊断依赖冲突或确定某个软件包来自哪个仓库。
 
 # PARAMETERS
 
 **search** _regex_
-> Search for packages matching the POSIX regex in names and descriptions
+> 在名称和描述中搜索匹配 POSIX 正则表达式的软件包
 
 **show** _package_
-> Show detailed package record for a package
+> 显示软件包的详细记录
 
 **showpkg** _package_
-> Show general information including versions and dependencies
+> 显示包括版本和依赖在内的常规信息
 
 **showsrc** _package_
-> Show all source package records for a package
+> 显示软件包的所有源码包记录
 
 **policy** [_package_]
-> Show policy settings, installation status, and repository priorities
+> 显示策略设置、安装状态和仓库优先级
 
 **depends** _package_
-> Show dependencies for a package
+> 显示软件包的依赖关系
 
 **rdepends** _package_
-> Show reverse dependencies (packages that depend on this one)
+> 显示反向依赖（依赖于该软件包的软件包）
 
 **madison** _package_
-> Show available versions in a tabular format
+> 以表格形式显示可用版本
 
 **pkgnames** [_prefix_]
-> List all package names in the cache, optionally filtered by prefix
+> 列出缓存中的所有软件包名称，可选按前缀过滤
 
 **stats**
-> Show cache statistics
+> 显示缓存统计信息
 
 **dump**
-> Show a short listing of every package in the cache
+> 简要列出缓存中的每个软件包
 
 **unmet**
-> Show a summary of all unmet dependencies in the cache
+> 显示缓存中所有未满足依赖的摘要
 
 **-f, --full**
-> Print full package records when searching
+> 搜索时打印完整的软件包记录
 
 **-n, --names-only**
-> Only search package names, not descriptions
+> 只搜索软件包名称，不搜索描述
 
 **-i, --important**
-> Print only Depends and Pre-Depends relations (for use with depends and unmet)
+> 只打印 Depends 和 Pre-Depends 关系（配合 depends 和 unmet 使用）
 
 **--installed**
-> Limit output to currently installed packages
+> 将输出限制为当前已安装的软件包
 
 **--recurse**
-> Make depends and rdepends recursive
+> 使 depends 和 rdepends 递归执行
 
 # CONFIGURATION
 
 **/etc/apt/sources.list**
-> Main file listing configured package repositories.
+> 列出已配置软件仓库的主文件。
 
 **/etc/apt/sources.list.d/**
-> Directory for additional repository source files.
+> 存放额外仓库源文件的目录。
 
 **/etc/apt/preferences.d/**
-> Directory for package pinning and priority preferences.
+> 存放软件包锁定（pinning）和优先级偏好设置的目录。
 
 # CAVEATS
 
-This tool operates on the local cache; run **apt update** first to ensure the cache is current.
+此工具基于本地缓存工作；请先运行 **apt update** 以确保缓存是最新的。
 
 # HISTORY
 
-Part of the **APT** (Advanced Package Tool) suite developed for Debian-based systems in the late 1990s.
+属于 **APT**（Advanced Package Tool）工具套件，于 20 世纪 90 年代末为基于 Debian 的系统开发。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-HTTP load testing tool with real-time TUI charts
+带实时 TUI 图表的 HTTP 负载测试工具
 
 # TLDR
 
-**Run a basic load test** against a URL
+对某个 URL **运行基本负载测试**
 
 ```ali [http://host.xz]```
 
-**Set custom request rate and duration**
+**设置自定义请求速率和持续时间**
 
 ```ali --rate=[500] --duration=[5m] [http://host.xz]```
 
-**Send a POST request** with a body file
+携带 body 文件**发送 POST 请求**
 
 ```ali --method=POST --body-file=[path/to/payload.json] [http://host.xz]```
 
-**Add custom headers** to the request
+为请求**添加自定义头部**
 
 ```ali -H "Authorization: Bearer [token]" [http://host.xz]```
 
-**Export results** to a directory for later analysis
+将结果**导出**到目录以便后续分析
 
 ```ali --export-to [path/to/results/] [http://host.xz]```
 
-**Load test with TLS verification disabled**
+禁用 TLS 验证进行**负载测试**
 
 ```ali --insecure [https://host.xz]```
 
-**Run at maximum speed** with no rate limit
+以**最大速度运行**，不限速率
 
 ```ali --rate=0 --duration=[30s] [http://host.xz]```
 
@@ -39,60 +39,60 @@ HTTP load testing tool with real-time TUI charts
 # PARAMETERS
 
 **-r**, **--rate** _n_
-> Requests per second; 0 for max speed (default: 50)
+> 每秒请求数；0 表示最大速度（默认：50）
 
 **-d**, **--duration** _duration_
-> Duration of the attack; 0s for infinite (default: 10s)
+> 攻击持续时间；0s 表示无限（默认：10s）
 
 **-w**, **--workers** _n_
-> Initial number of workers (default: 10)
+> 初始 worker 数量（默认：10）
 
 **-m**, **--method** _method_
-> HTTP method (default: GET)
+> HTTP 方法（默认：GET）
 
 **-t**, **--timeout** _duration_
-> Request timeout (default: 30s)
+> 请求超时时间（默认：30s）
 
 **-b**, **--body** _string_
-> Request body as a string
+> 以字符串形式给出的请求体
 
 **-B**, **--body-file** _file_
-> Path to file for request body
+> 请求体文件的路径
 
 **-H**, **--header** _header_
-> Custom header (repeatable)
+> 自定义头部（可重复）
 
 **-c**, **--connections** _n_
-> Max idle connections per host (default: 10000)
+> 每个主机的最大空闲连接数（默认：10000）
 
 **--export-to** _dir_
-> Directory to export results
+> 导出结果的目录
 
 **--insecure**
-> Skip TLS certificate verification
+> 跳过 TLS 证书验证
 
 **--no-http2**
-> Disable HTTP/2
+> 禁用 HTTP/2
 
 **-K**, **--no-keepalive**
-> Disable keep-alive connections
+> 禁用 keep-alive 连接
 
 **--resolvers** _addrs_
-> Custom DNS resolver addresses
+> 自定义 DNS 解析器地址
 
 # DESCRIPTION
 
-**ali** is a terminal-based HTTP load testing tool that generates HTTP load and plots the results in real-time directly in the terminal. It combines the load generation capabilities of tools like vegeta with live terminal charts showing latency, percentiles (p50, p90, p95, p99), throughput, and bytes in/out. The interactive TUI supports mouse-based zooming into charts for detailed analysis.
+**ali** 是一款基于终端的 HTTP 负载测试工具，它生成 HTTP 负载并将结果以图表形式实时绘制在终端中。它结合了 vegeta 等工具的负载生成能力与实时终端图表，展示延迟、分位数（p50、p90、p95、p99）、吞吐量以及输入/输出字节数。交互式 TUI 支持用鼠标缩放图表，便于详细分析。
 
-Written in Go, ali supports HTTP/2 by default, custom TLS certificates, configurable concurrency, and result exporting for downstream analysis.
+ali 用 Go 编写，默认支持 HTTP/2、自定义 TLS 证书、可配置的并发度，以及用于下游分析的结果导出。
 
 # CAVEATS
 
-The terminal UI requires a terminal that supports standard escape sequences. Running with very high request rates may be limited by system resources and network capacity. Setting duration to 0 runs the attack indefinitely until manually stopped.
+终端 UI 需要支持标准转义序列的终端。极高的请求速率可能受系统资源和网络容量限制。将持续时间设为 0 会让攻击无限持续，直到手动停止。
 
 # HISTORY
 
-**ali** was created by **Ryo Nakao** (nakabonne), a Go developer based in Tokyo, Japan. The tool was inspired by **vegeta** (HTTP load testing) and **jplot** (terminal plotting), combining both into a single real-time tool. It is open-source under the MIT license.
+**ali** 由 **Ryo Nakao**（nakabonne）创建，他是一位来自日本东京的 Go 开发者。该工具的灵感来自 **vegeta**（HTTP 负载测试）和 **jplot**（终端绘图），将二者融合为一个实时工具。它以 MIT 许可证开源。
 
 # INSTALL
 

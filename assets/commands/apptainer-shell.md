@@ -1,38 +1,38 @@
 # TAGLINE
 
-Open an interactive shell inside a container
+在容器内打开交互式 shell
 
 # TLDR
 
-**Start an interactive shell** inside a container
+在容器内**启动交互式 shell**
 
 ```apptainer shell [container.sif]```
 
-**Open shell with bound directory**
+**打开 shell 并绑定目录**
 
 ```apptainer shell --bind [/host/path]:[/container/path] [container.sif]```
 
-**Shell into a Docker Hub image**
+进入 Docker Hub 镜像的 **shell**
 
 ```apptainer shell docker://[ubuntu:latest]```
 
-**Start shell with NVIDIA GPU support**
+**启动支持 NVIDIA GPU 的 shell**
 
 ```apptainer shell --nv [container.sif]```
 
-**Open shell with clean environment**
+**以干净的环境打开 shell**
 
 ```apptainer shell --cleanenv [container.sif]```
 
-**Shell with full containment** (isolated from host)
+**完全隔离的 shell**（与宿主机隔离）
 
 ```apptainer shell --containall [container.sif]```
 
-**Start shell with writable overlay**
+**以可写 overlay 启动 shell**
 
 ```apptainer shell --overlay [overlay.img] [container.sif]```
 
-**Shell with fakeroot privileges**
+**具有 fakeroot 权限的 shell**
 
 ```apptainer shell --fakeroot [container.sif]```
 
@@ -43,70 +43,70 @@ Open an interactive shell inside a container
 # PARAMETERS
 
 **--bind**, **-B** _src[:dest[:opts]]_
-> Bind mount a host path into the container.
+> 将宿主机路径绑定挂载到容器中。
 
 **--overlay**, **-o** _image_
-> Use an overlay image for a writable layer.
+> 使用 overlay 镜像作为可写层。
 
 **--writable**, **-w**
-> Make the container filesystem read-write (default is read-only).
+> 将容器文件系统设为读写（默认只读）。
 
 **--writable-tmpfs**
-> Add a writable tmpfs overlay; changes are discarded on exit.
+> 添加可写的 tmpfs overlay；退出时更改会被丢弃。
 
 **--nv**
-> Enable NVIDIA GPU support.
+> 启用 NVIDIA GPU 支持。
 
 **--rocm**
-> Enable AMD ROCm GPU support.
+> 启用 AMD ROCm GPU 支持。
 
 **--contain**, **-c**
-> Use minimal /dev and empty other directories.
+> 使用最小化的 /dev，并将其他目录置空。
 
 **--containall**, **-C**
-> Full containment of filesystems, PID, IPC, and environment.
+> 完全隔离文件系统、PID、IPC 和环境变量。
 
 **--cleanenv**, **-e**
-> Clean environment before starting shell.
+> 启动 shell 前清理环境变量。
 
 **--env** _VAR=value_
-> Set an environment variable in the container.
+> 在容器内设置环境变量。
 
 **--home**, **-H** _path_
-> Set a custom home directory.
+> 设置自定义主目录。
 
 **--pwd** _path_
-> Initial working directory in the container.
+> 容器内的初始工作目录。
 
 **--fakeroot**, **-f**
-> Run with apparent root privileges without host root.
+> 在不使用宿主机 root 的情况下以表面上的 root 权限运行。
 
 **--net**, **-n**
-> Run in a new network namespace.
+> 在新的网络命名空间中运行。
 
 **--shell**, **-s** _path_
-> Specify the shell to use (default: /bin/sh).
+> 指定要使用的 shell（默认：/bin/sh）。
 
 **--no-home**
-> Do not bind the home directory.
+> 不绑定主目录。
 
 # DESCRIPTION
 
-**apptainer shell** starts an interactive shell session inside an Apptainer container. This provides a command-line environment within the container for exploration, debugging, and interactive work.
+**apptainer shell** 在 Apptainer 容器内启动交互式 shell 会话。它在容器内提供一个命令行环境，用于探索、调试和交互式操作。
 
-By default, the shell inherits your user identity, home directory, and current working directory. The host environment is largely preserved unless containment options are used. This makes the shell feel familiar while providing access to the container's filesystem and installed software.
+默认情况下，shell 会继承你的用户身份、主目录和当前工作目录。除非使用隔离选项，宿主机环境大体上会被保留。这让 shell 的体验保持熟悉，同时可以访问容器的文件系统和已安装的软件。
 
-The container can be specified as a local SIF file, a Docker reference (docker://), a library reference (library://), or an OCI archive. The default shell is **/bin/sh** but can be overridden with the **--shell** option if the container has other shells available.
+容器可以是本地 SIF 文件、Docker 引用（docker://）、库引用（library://）或 OCI 归档。默认 shell 为 **/bin/sh**，如果容器内有其他 shell 可用，可以通过 **--shell** 选项覆盖。
 
-For development work, combine **--overlay** or **--writable-tmpfs** to allow temporary modifications within the container. Use **--fakeroot** when operations require apparent root privileges without actual host root access.
+开发时，可结合 **--overlay** 或 **--writable-tmpfs** 允许在容器内进行临时修改。当操作需要表面上的 root 权限但又没有实际的宿主机 root 访问权限时，使用 **--fakeroot**。
 
 # CAVEATS
 
-Shell availability depends on what's installed in the container. Some minimal containers may only have /bin/sh. Environment leakage from host to container can cause unexpected behavior; use **--cleanenv** for reproducibility. Changes made during shell session are lost unless using writable overlays or bind mounts.
+shell 是否可用取决于容器内安装了什么。某些极简容器可能只有 /bin/sh。宿主机到容器的环境变量泄漏可能导致意外行为；为了可复现性请使用 **--cleanenv**。除非使用可写 overlay 或绑定挂载，否则 shell 会话中所做的更改会丢失。
 
 # HISTORY
 
-The shell command has been a core Singularity/Apptainer feature since the project's creation at Lawrence Berkeley National Laboratory in **2015**. It was designed to give users familiar interactive access to containers, supporting the HPC use case where users need to test and debug within container environments. Apptainer maintained full compatibility with this command when forking from Singularity in **2021**.
+自 **2015** 年项目在劳伦斯伯克利国家实验室创建以来，shell 命令一直是 Singularity/Apptainer 的核心功能。它的设计目的是让用户以熟悉的方式交互式访问容器，支持用户需要在容器环境中测试和调试的 HPC 使用场景。**2021** 年从 Singularity 分叉出 Apptainer 时，该命令保持了完全兼容。
 
 # INSTALL
 

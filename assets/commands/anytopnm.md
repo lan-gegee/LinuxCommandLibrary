@@ -1,14 +1,14 @@
 # TAGLINE
 
-Convert any image format to PNM (Netpbm)
+将任意图像格式转换为 PNM（Netpbm）
 
 # TLDR
 
-**Convert** any image to PNM format
+将任意图像**转换**为 PNM 格式
 
 ```anytopnm [input.jpg] > [output.pnm]```
 
-Convert with **verbose** output
+以**详细输出**模式转换
 
 ```anytopnm -v [input.png] > [output.pnm]```
 
@@ -18,25 +18,25 @@ Convert with **verbose** output
 
 # DESCRIPTION
 
-**anytopnm** is a Netpbm utility that converts images from virtually any format to PNM (Portable Any Map) format. It acts as a wrapper, detecting the input format and calling the appropriate converter automatically.
+**anytopnm** 是一款 Netpbm 工具，可将几乎所有格式的图像转换为 PNM（Portable Any Map）格式。它充当包装器，自动检测输入格式并调用相应的转换器。
 
-PNM is an intermediate format in the Netpbm toolkit, useful for image processing pipelines where a common format simplifies conversions between any two formats.
+PNM 是 Netpbm 工具集中的中间格式，适用于图像处理管道——借助统一格式可以简化任意两种格式之间的相互转换。
 
 # PARAMETERS
 
 **-v**
-> Verbose output showing conversion steps
+> 显示转换步骤的详细输出
 
 _file_
-> Input image file (uses stdin if omitted, but stdin must be seekable)
+> 输入图像文件（省略时使用 stdin，但 stdin 必须可寻址）
 
 # CAVEATS
 
-Depends on having the correct format-specific converter installed. Some formats may require additional libraries. Output is always PNM; use other tools to convert to different target formats.
+依赖已安装对应格式的专用转换器。某些格式可能需要额外的库。输出始终是 PNM；要转换为其他目标格式请使用其他工具。
 
 # HISTORY
 
-**anytopnm** is part of the Netpbm package, which evolved from the original PBMPLUS toolkit created by Jef Poskanzer in the late **1980s**.
+**anytopnm** 是 Netpbm 软件包的一部分，Netpbm 由 Jef Poskanzer 在 **20 世纪 80 年代**末创建的 PBMPLUS 工具集演化而来。
 
 # INSTALL
 

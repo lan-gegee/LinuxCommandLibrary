@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage user pools for authentication and user directories.
+管理用于认证和用户目录的用户池。
 
 # TLDR
 
-**Create a new user pool**
+**创建新的用户池**
 
 ```aws cognito-idp create-user-pool --pool-name [my-pool]```
 
-**Create a user** in a user pool
+**在用户池中创建用户**
 
 ```aws cognito-idp admin-create-user --user-pool-id [pool-id] --username [user@example.com]```
 
-**Self-register a user** (client-side sign-up)
+**自助注册用户**（客户端注册）
 
 ```aws cognito-idp sign-up --client-id [client-id] --username [user@example.com] --password [Password123!]```
 
-**List all users** in a user pool
+**列出用户池中的所有用户**
 
 ```aws cognito-idp list-users --user-pool-id [pool-id]```
 
-**Authenticate a user** (client-side, no admin credentials)
+**认证用户**（客户端方式，无需管理员凭据）
 
 ```aws cognito-idp initiate-auth --client-id [client-id] --auth-flow USER_PASSWORD_AUTH --auth-parameters USERNAME=[username],PASSWORD=[password]```
 
-**Authenticate a user** server-side as an administrator
+**以管理员身份在服务器端认证用户**
 
 ```aws cognito-idp admin-initiate-auth --user-pool-id [pool-id] --client-id [client-id] --auth-flow ADMIN_USER_PASSWORD_AUTH --auth-parameters USERNAME=[username],PASSWORD=[password]```
 
-**Create a user pool client** for an application
+**为应用创建用户池客户端**
 
 ```aws cognito-idp create-user-pool-client --user-pool-id [pool-id] --client-name [my-app]```
 
-**Set a user's password** permanently
+**永久设置用户的密码**
 
 ```aws cognito-idp admin-set-user-password --user-pool-id [pool-id] --username [user@example.com] --password [NewPassword123!] --permanent```
 
-**Add a user to a group**
+**将用户加入组**
 
 ```aws cognito-idp admin-add-user-to-group --user-pool-id [pool-id] --username [user@example.com] --group-name [admins]```
 
@@ -46,55 +46,55 @@ Manage user pools for authentication and user directories.
 
 # DESCRIPTION
 
-**aws cognito-idp** is the AWS CLI interface for Amazon Cognito User Pools, a user directory service for web and mobile app authentication. It handles user registration, authentication, account recovery, and integration with external identity providers like Google, Facebook, and SAML-based systems.
+**aws cognito-idp** 是 Amazon Cognito 用户池的 AWS CLI 接口。Cognito 用户池是一项面向 Web 和移动应用认证的用户目录服务，负责用户注册、认证、账户恢复，并可与 Google、Facebook 及基于 SAML 的系统等外部身份提供方集成。
 
-Cognito User Pools provides features including multi-factor authentication, password policies, email/SMS verification, and OAuth 2.0 token issuance. It can be used for both server-side administration and client-side user flows.
+Cognito 用户池提供多因素认证、密码策略、电子邮件/短信验证和 OAuth 2.0 令牌签发等功能，既可用于服务器端管理，也可用于客户端用户流程。
 
 # COMMANDS
 
 **create-user-pool**
-> Create a new user pool
+> 创建新的用户池
 
 **admin-create-user**
-> Create a user as an administrator
+> 以管理员身份创建用户
 
 **sign-up**
-> Register a user from the client side (self sign-up)
+> 从客户端注册用户（自助注册）
 
 **admin-delete-user**
-> Delete a user from the pool
+> 从用户池中删除用户
 
 **list-users**
-> List users in a user pool
+> 列出用户池中的用户
 
 **initiate-auth**
-> Start client-side authentication (USER_PASSWORD_AUTH, USER_SRP_AUTH, REFRESH_TOKEN_AUTH, CUSTOM_AUTH)
+> 启动客户端认证（USER_PASSWORD_AUTH、USER_SRP_AUTH、REFRESH_TOKEN_AUTH、CUSTOM_AUTH）
 
 **admin-initiate-auth**
-> Start server-side authentication (ADMIN_USER_PASSWORD_AUTH)
+> 启动服务器端认证（ADMIN_USER_PASSWORD_AUTH）
 
 **admin-respond-to-auth-challenge**
-> Respond to authentication challenges (MFA, new password)
+> 响应认证质询（MFA、新密码）
 
 **admin-set-user-password**
-> Set or reset a user's password
+> 设置或重置用户的密码
 
 **create-group**
-> Create a user group
+> 创建用户组
 
 **admin-add-user-to-group**
-> Add a user to a group
+> 将用户添加到组
 
 **create-user-pool-client**
-> Create an app client for authentication
+> 创建用于认证的应用客户端
 
 # CAVEATS
 
-User pool configuration cannot be changed after creation for some settings like username attributes. Tokens issued by Cognito have a maximum lifetime of 24 hours for access tokens. Custom authentication lambdas add latency to sign-in flows. SMS-based MFA incurs additional SNS charges.
+部分设置（如用户名属性）在用户池创建后无法更改。Cognito 签发的令牌中，访问令牌最长有效期为 24 小时。自定义认证 Lambda 会增加登录流程的延迟。基于短信的 MFA 会产生额外的 SNS 费用。
 
 # HISTORY
 
-Amazon Cognito User Pools launched in **July 2016** as a managed user directory. It built upon Cognito Identity (federated identities) which launched in **2014**. Advanced security features including adaptive authentication were added in **2017**, and WebAuthn/passkey support was introduced in **2023**.
+Amazon Cognito 用户池于 **2016 年 7 月** 作为托管用户目录推出，构建于 **2014 年** 推出的 Cognito Identity（联合身份）之上。自适应认证等高级安全功能于 **2017 年** 加入，WebAuthn/passkey 支持于 **2023 年** 引入。
 
 # INSTALL
 

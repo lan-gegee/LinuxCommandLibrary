@@ -1,30 +1,30 @@
 # TAGLINE
 
-Move files to, from, and between S3 buckets
+在 S3 存储桶之间及与本地之间移动文件
 
 # TLDR
 
-**Move a local file** to S3
+将**本地文件移动到** S3
 
 ```aws s3 mv [file.txt] s3://[bucket-name]/```
 
-**Move an S3 object** to another S3 location
+将 **S3 对象移动到**另一个 S3 位置
 
 ```aws s3 mv s3://[bucket-name]/[file.txt] s3://[bucket-name]/[new-path/file.txt]```
 
-**Download and delete** an S3 object
+**下载并删除** S3 对象
 
 ```aws s3 mv s3://[bucket-name]/[file.txt] [./local-file.txt]```
 
-**Recursively move** a directory to S3
+**递归移动**目录到 S3
 
 ```aws s3 mv [./local-dir] s3://[bucket-name]/[prefix/] --recursive```
 
-**Move excluding certain files**
+**移动时排除**某些文件
 
 ```aws s3 mv [./local-dir] s3://[bucket-name]/ --recursive --exclude "*.log"```
 
-**Preview move operation** without executing
+**预览移动操作**而不实际执行
 
 ```aws s3 mv [./local-dir] s3://[bucket-name]/ --recursive --dryrun```
 
@@ -34,69 +34,69 @@ Move files to, from, and between S3 buckets
 
 # DESCRIPTION
 
-**aws s3 mv** moves files between the local filesystem and Amazon S3, or between S3 locations. The command copies the source to the destination and then deletes the source object or file.
+**aws s3 mv** 在本地文件系统与 Amazon S3 之间或 S3 位置之间移动文件。该命令先将源复制到目标，然后删除源对象或文件。
 
-The source and destination can be a LocalPath or an S3Uri (s3://bucket-name/key). For S3 to S3 moves, the command performs a server-side copy followed by deletion of the source.
+源和目标可以是 LocalPath 或 S3Uri（s3://bucket-name/key）。对于 S3 到 S3 的移动，命令会先执行服务器端复制，再删除源。
 
 # PARAMETERS
 
 **--recursive**
-> Move all files and objects under the specified directory or S3 prefix
+> 移动指定目录或 S3 前缀下的所有文件和对象
 
 **--dryrun**
-> Display operations that would be performed without executing them
+> 显示将要执行的操作但不实际执行
 
 **--quiet**
-> Suppress output during the move operation
+> 在移动过程中抑制输出
 
 **--include** _pattern_
-> Include files matching the pattern (used with --exclude)
+> 包含匹配模式的文件（与 --exclude 配合使用）
 
 **--exclude** _pattern_
-> Exclude files matching the pattern from the move operation
+> 从移动操作中排除匹配模式的文件
 
 **--acl** _value_
-> Set access control list: private, public-read, public-read-write, authenticated-read
+> 设置访问控制列表：private、public-read、public-read-write、authenticated-read
 
 **--storage-class** _value_
-> Specify storage class: STANDARD, REDUCED_REDUNDANCY, STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, DEEP_ARCHIVE, GLACIER_IR
+> 指定存储类别：STANDARD、REDUCED_REDUNDANCY、STANDARD_IA、ONEZONE_IA、INTELLIGENT_TIERING、GLACIER、DEEP_ARCHIVE、GLACIER_IR
 
 **--sse** _value_
-> Enable server-side encryption: AES256 or aws:kms
+> 启用服务器端加密：AES256 或 aws:kms
 
 **--sse-kms-key-id** _value_
-> Customer-managed AWS KMS key ID for server-side encryption
+> 用于服务器端加密的客户托管 AWS KMS 密钥 ID
 
 **--content-type** _value_
-> Explicit content type for the object (overrides mime type guessing)
+> 对象的显式内容类型（覆盖 MIME 类型猜测）
 
 **--metadata** _map_
-> Key-value metadata pairs to attach to the object
+> 要附加到对象的键值元数据对
 
 **--cache-control** _value_
-> Specifies caching behavior along the request/reply chain
+> 指定请求/响应链路上的缓存行为
 
 **--no-overwrite**
-> Prevent overwriting existing files at the destination
+> 防止覆盖目标处已有的文件
 
 **--only-show-errors**
-> Display only errors and warnings in output
+> 输出中仅显示错误和警告
 
 **--no-progress**
-> Do not display the file transfer progress
+> 不显示文件传输进度
 
 **--follow-symlinks** | **--no-follow-symlinks**
-> Whether to follow symbolic links when uploading (default: follow)
+> 上传时是否跟随符号链接（默认：跟随）
 
 **--no-guess-mime-type**
-> Do not try to guess the mime type for uploaded files
+> 不尝试猜测上传文件的 MIME 类型
 
 **--validate-same-s3-paths**
-> Verify source and destination resolve to different locations (safety check)
+> 校验源和目标解析到不同的位置（安全检查）
 
 # CAVEATS
 
-When using access point ARNs or aliases, ensure source and destination resolve to different buckets to prevent accidental self-deletion. Use **--validate-same-s3-paths** for safety. The source is only deleted after successful copy; if the copy fails, the source remains intact.
+使用接入点 ARN 或别名时，确保源和目标解析到不同的存储桶，以防误删自身。建议使用 **--validate-same-s3-paths** 以保安全。源只有在复制成功后才会被删除；如果复制失败，源保持原样。
 
 # INSTALL
 

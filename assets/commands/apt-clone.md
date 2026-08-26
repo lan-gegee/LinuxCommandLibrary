@@ -1,30 +1,30 @@
 # TAGLINE
 
-Backup and restore installed package states
+备份和恢复已安装软件包的状态
 
 # TLDR
 
-**Clone** the package state of the current system into a directory
+将当前系统的软件包状态**克隆**到目录中
 
 ```sudo apt-clone clone [path/to/directory]```
 
-Clone with packages not available in **repositories**
+克隆时包含**仓库**中已不可用的软件包
 
 ```sudo apt-clone clone --with-dpkg-repack [path/to/directory]```
 
-**Restore** the package state from a clone file
+从克隆文件**恢复**软件包状态
 
 ```sudo apt-clone restore [path/to/apt-clone-state-hostname.tar.gz]```
 
-Restore into a **specific directory** (debootstrap)
+恢复到**特定目录**（debootstrap）
 
 ```sudo apt-clone restore [path/to/clone.tar.gz] --destination [path/to/directory]```
 
-Show **information** about a clone file
+显示克隆文件的**信息**
 
 ```apt-clone info [path/to/apt-clone-state-hostname.tar.gz]```
 
-Restore and **upgrade** to a new distribution release
+恢复并**升级**到新的发行版版本
 
 ```sudo apt-clone restore-new-distro [path/to/clone.tar.gz] [new_distro_codename]```
 
@@ -34,47 +34,47 @@ Restore and **upgrade** to a new distribution release
 
 # DESCRIPTION
 
-**apt-clone** creates and restores backups of the installed package state on Debian-based systems. It captures information about installed packages, their versions, and repository sources, enabling system migration or recovery.
+**apt-clone** 创建并恢复基于 Debian 的系统上已安装软件包状态的备份。它记录已安装软件包及其版本和仓库来源的信息，用于系统迁移或恢复。
 
-Clone files are compressed tar archives containing package lists and APT source configurations. This allows replicating a system's software configuration on another machine or after a fresh installation.
+克隆文件是压缩的 tar 归档，包含软件包列表和 APT 源配置。这使你能够在另一台机器上或在全新安装之后复刻一个系统的软件配置。
 
 # SUBCOMMANDS
 
 **clone** _destination_
-> Create a clone file of the current package state into the specified destination directory.
+> 在指定的目标目录中创建当前软件包状态的克隆文件。
 
 **restore** _source_ [**--destination** _path_]
-> Restore packages from a clone file. Optionally debootstrap into a specific directory.
+> 从克隆文件恢复软件包。可选择 debootstrap 到特定目录。
 
 **restore-new-distro** _source_ _new_distro_codename_
-> Restore a clone file while attempting to upgrade packages to a new distribution release.
+> 恢复克隆文件，并尝试将软件包升级到新的发行版版本。
 
 **info** _source_
-> Display information about a clone file.
+> 显示克隆文件的信息。
 
 # PARAMETERS
 
 **--source** _path_
-> Specify an alternative source directory for cloning (default is /).
+> 指定用于克隆的其他来源目录（默认为 /）。
 
 **--destination** _path_
-> Specify the destination directory for restore (debootstraps the clone into this directory).
+> 指定恢复的目标目录（将克隆 debootstrap 到该目录）。
 
 **--with-dpkg-repack**
-> Include package files for packages no longer available in repositories.
+> 包含仓库中已不再可用的软件包的软件包文件。
 
 **--with-dpkg-status**
-> Include the full dpkg status file.
+> 包含完整的 dpkg status 文件。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助信息并退出。
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 # CAVEATS
 
-Restoring a clone on a different release version may fail due to package incompatibilities; use **restore-new-distro** for cross-release restores. The clone and restore operations require root privileges. An active internet connection is needed to download packages during restore. Packages not available in configured repositories will be skipped unless **--with-dpkg-repack** was used during cloning.
+在不同发行版版本上恢复克隆可能因软件包不兼容而失败；跨版本恢复请使用 **restore-new-distro**。克隆和恢复操作需要 root 权限。恢复期间需要有效的网络连接来下载软件包。已配置仓库中不存在的软件包会被跳过，除非克隆时使用了 **--with-dpkg-repack**。
 
 # SEE ALSO
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage APT repository sources
+管理 APT 软件仓库源
 
 # TLDR
 
-**Add** a new apt repository
+**添加**新的 apt 软件仓库
 
 ```add-apt-repository [repository_spec]```
 
-**Remove** an apt repository
+**移除**apt 软件仓库
 
 ```add-apt-repository -r [repository_spec]```
 
-Add a repository **without** updating the package cache afterwards
+添加仓库后**不**更新软件包缓存
 
 ```add-apt-repository -n [repository_spec]```
 
-Allow **source packages** to be downloaded from the repository
+允许从仓库下载**源码包**
 
 ```add-apt-repository -s [repository_spec]```
 
-Add a **PPA** (Personal Package Archive)
+添加 **PPA**（个人软件包归档）
 
 ```add-apt-repository ppa:[user]/[ppa-name]```
 
-**List** currently configured repositories
+**列出**当前已配置的软件仓库
 
 ```add-apt-repository -L```
 
@@ -34,61 +34,61 @@ Add a **PPA** (Personal Package Archive)
 
 # DESCRIPTION
 
-**add-apt-repository** is a Debian/Ubuntu utility that manages third-party APT repository sources. It can add entries to /etc/apt/sources.list or create individual files in /etc/apt/sources.list.d/, and can also remove previously added repositories.
+**add-apt-repository** 是 Debian/Ubuntu 上的实用工具，用于管理第三方 APT 软件仓库源。它可以向 /etc/apt/sources.list 添加条目，或在 /etc/apt/sources.list.d/ 下创建单独的文件，也可以移除之前添加的软件仓库。
 
-The tool is most commonly used to add PPAs (Personal Package Archives) from Launchpad, handling both the source list entry and the associated GPG key import automatically. By default it updates the package cache after modifying sources; pass **-n** to skip this step.
+该工具最常用于添加来自 Launchpad 的 PPA（个人软件包归档），并自动处理 source list 条目和相应的 GPG 密钥导入。默认情况下，它在修改软件源后会更新软件包缓存；传入 **-n** 可跳过这一步。
 
 # PARAMETERS
 
 **-r, --remove**
-> Remove specified repository (disables matching lines; deletes empty source files)
+> 移除指定的软件仓库（禁用匹配的行；删除空的 source 文件）
 
 **-y, --yes**
-> Assume affirmative responses to prompts
+> 对交互提示一律自动应答为是
 
 **-n, --no-update**
-> Skip package cache updates after adding repository
+> 添加仓库后跳过软件包缓存更新
 
 **-s, --enable-source**
-> Allow downloading of source packages from the repository
+> 允许从该仓库下载源码包
 
 **-c, --component**
-> Specify repository component(s); defaults to 'main' if unspecified
+> 指定仓库组件；未指定时默认为 'main'
 
 **-p, --pocket**
-> Define pocket type (defaults to release pocket)
+> 定义 pocket 类型（默认为 release pocket）
 
 **-P, --ppa**
-> Add Ubuntu Launchpad Personal Package Archive (format: ppa:USER/PPA)
+> 添加 Ubuntu Launchpad 个人软件包归档（格式：ppa:USER/PPA）
 
 **-C, --cloud**
-> Add Ubuntu Cloud Archive (format: cloud-archive:CANAME)
+> 添加 Ubuntu Cloud Archive（格式：cloud-archive:CANAME）
 
 **-U, --uri**
-> Add archive via single URI
+> 通过单个 URI 添加归档源
 
 **-S, --sourceslist**
-> Add archive using full sources.list format line
+> 使用完整的 sources.list 格式行添加归档源
 
 **-L, --list**
-> List currently configured repositories
+> 列出当前已配置的软件仓库
 
 **-l, --login**
-> Authenticate to Launchpad for private PPA access
+> 登录 Launchpad 以访问私有 PPA
 
 **--dry-run**
-> Preview changes without executing them
+> 预览更改而不实际执行
 
 **-d, --debug**
-> Output debug information
+> 输出调试信息
 
 # CAVEATS
 
-This utility is **Debian/Ubuntu specific** and not available on other Linux distributions. Adding third-party repositories may introduce security risks.
+此工具为 **Debian/Ubuntu 专用**，在其他 Linux 发行版上不可用。添加第三方软件仓库可能引入安全风险。
 
 # HISTORY
 
-Developed for **Ubuntu** to simplify the process of adding PPAs (Personal Package Archives) and other third-party repositories.
+为 **Ubuntu** 开发，用于简化添加 PPA（个人软件包归档）及其他第三方软件仓库的过程。
 
 # SEE ALSO
 

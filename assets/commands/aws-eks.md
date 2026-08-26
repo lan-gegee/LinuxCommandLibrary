@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage Amazon Elastic Kubernetes Service clusters
+管理 Amazon Elastic Kubernetes Service 集群
 
 # TLDR
 
-**Create a new EKS cluster**
+**创建新的 EKS 集群**
 
 ```aws eks create-cluster --name [my-cluster] --role-arn [arn:aws:iam::account:role/eks-role] --resources-vpc-config subnetIds=[subnet-1],[subnet-2],securityGroupIds=[sg-123]```
 
-**List all EKS clusters** in the account
+**列出账户中的所有 EKS 集群**
 
 ```aws eks list-clusters```
 
-**Describe a cluster** and its status
+**查看集群及其状态**
 
 ```aws eks describe-cluster --name [my-cluster]```
 
-**Update kubeconfig** to access a cluster with kubectl
+**更新 kubeconfig 以便用 kubectl 访问集群**
 
 ```aws eks update-kubeconfig --name [my-cluster]```
 
-**Create a managed node group**
+**创建托管节点组**
 
 ```aws eks create-nodegroup --cluster-name [my-cluster] --nodegroup-name [my-nodes] --node-role [arn:aws:iam::account:role/node-role] --subnets [subnet-1] [subnet-2] --instance-types [t3.medium]```
 
-**List add-ons** installed on a cluster
+**列出集群上已安装的附加组件**
 
 ```aws eks list-addons --cluster-name [my-cluster]```
 
-**Delete a cluster**
+**删除集群**
 
 ```aws eks delete-cluster --name [my-cluster]```
 
@@ -38,52 +38,52 @@ Manage Amazon Elastic Kubernetes Service clusters
 
 # DESCRIPTION
 
-**aws eks** is the AWS CLI interface for Amazon Elastic Kubernetes Service (EKS), a managed Kubernetes service. EKS runs the Kubernetes control plane across multiple AWS availability zones, automatically detecting and replacing unhealthy control plane nodes.
+**aws eks** 是 Amazon Elastic Kubernetes Service（EKS）的 AWS CLI 接口。EKS 是一项托管 Kubernetes 服务，其控制平面横跨多个 AWS 可用区运行，并自动检测和替换不健康的控制平面节点。
 
-EKS integrates with AWS services for networking (VPC), security (IAM), load balancing (ELB), and storage (EBS/EFS). It supports managed node groups, self-managed nodes, and AWS Fargate for serverless containers.
+EKS 与 AWS 的网络（VPC）、安全（IAM）、负载均衡（ELB）和存储（EBS/EFS）服务深度集成。它支持托管节点组、自管理节点，以及用于无服务器容器的 AWS Fargate。
 
 # COMMANDS
 
 **create-cluster**
-> Create a new EKS cluster
+> 创建新的 EKS 集群
 
 **delete-cluster**
-> Delete an EKS cluster
+> 删除 EKS 集群
 
 **describe-cluster**
-> Get cluster details and status
+> 获取集群详情和状态
 
 **list-clusters**
-> List all clusters in the account
+> 列出账户中的所有集群
 
 **update-kubeconfig**
-> Configure kubectl for cluster access
+> 配置 kubectl 以访问集群
 
 **create-nodegroup**
-> Create a managed node group
+> 创建托管节点组
 
 **delete-nodegroup**
-> Delete a node group
+> 删除节点组
 
 **list-nodegroups**
-> List node groups in a cluster
+> 列出集群中的节点组
 
 **create-addon**
-> Install a cluster add-on
+> 安装集群附加组件
 
 **create-fargate-profile**
-> Create a Fargate profile for serverless pods
+> 为无服务器 Pod 创建 Fargate 配置文件
 
 **update-cluster-version**
-> Upgrade Kubernetes version
+> 升级 Kubernetes 版本
 
 # CAVEATS
 
-Cluster creation takes 10-15 minutes. The control plane and node groups must be upgraded separately and in order. IAM roles for service accounts (IRSA) requires OIDC provider configuration. Node groups cannot span multiple instance types in the same group.
+创建集群需要 10-15 分钟。控制平面和节点组必须分别且按顺序升级。服务账户的 IAM 角色（IRSA）需要先配置 OIDC 提供方。同一个节点组内不能混用多种实例类型。
 
 # HISTORY
 
-Amazon EKS launched in **June 2018** as a managed Kubernetes service. Fargate support was added in **December 2019**, managed node groups earlier that year. EKS Anywhere for on-premises deployments launched in **2021**, and Pod Identity simplified IAM access in **2023**.
+Amazon EKS 于 **2018 年 6 月** 作为托管 Kubernetes 服务推出。Fargate 支持于 **2019 年 12 月** 加入，托管节点组则在同年早些时候推出。面向本地部署的 EKS Anywhere 于 **2021 年** 推出，Pod Identity 于 **2023 年** 简化了 IAM 访问。
 
 # INSTALL
 

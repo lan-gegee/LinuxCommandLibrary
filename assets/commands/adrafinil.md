@@ -1,26 +1,26 @@
 # TAGLINE
 
-Keep macOS awake only while AI coding agents are working
+仅当 AI 编码代理工作时保持 macOS 唤醒
 
 # TLDR
 
-**Acquire** a sleep-blocking assertion when an agent session starts
+在代理会话开始时**获取**阻止睡眠的断言
 
 ```adrafinil acquire [session-key] --tool [claude-code] --reason "[long build]"```
 
-**Release** the assertion when the agent goes idle
+在代理空闲时**释放**断言
 
 ```adrafinil release [session-key]```
 
-**Hold** the Mac awake for a time-boxed background task
+为限时后台任务**保持** Mac 唤醒
 
 ```adrafinil hold --for [30m] --reason "[deploy]"```
 
-**Show** current assertion status
+**查看**当前断言状态
 
 ```adrafinil status```
 
-**Install** hook integrations for supported agents
+为受支持的代理**安装**钩子集成
 
 ```adrafinil install-hooks```
 
@@ -31,44 +31,44 @@ Keep macOS awake only while AI coding agents are working
 # PARAMETERS
 
 **acquire** _session-key_
-> Register an active agent session and block sleep while it is held. Called from agent hooks on session start or prompt submit.
+> 注册一个活动的代理会话，并在持有期间阻止系统睡眠。由代理钩子在会话开始或提交提示词时调用。
 
 **release** _session-key_
-> Drop a session assertion; sleep resumes when the last assertion is released.
+> 删除一条会话断言；最后一个断言被释放后即恢复睡眠。
 
 **hold** **--for** _duration_
-> Keep the Mac awake for a bounded time after the agent finishes (e.g. a long build or deploy).
+> 在代理完成后让 Mac 保持唤醒一段有限时间（例如漫长的构建或部署）。
 
 **mcp**
-> Serve the Model Context Protocol on stdio so MCP-capable agents can acquire and release holds.
+> 在标准输入输出上提供 Model Context Protocol 服务，使支持 MCP 的代理可以获取和释放保持锁。
 
 **status**
-> Print the daemon's assertion registry and whether sleep is currently blocked.
+> 打印守护进程的断言注册表，以及当前是否阻止了睡眠。
 
 **install-hooks** / **uninstall-hooks**
-> Add or remove Adrafinil hook entries in agent config files (Claude Code, Codex, Cursor, Gemini CLI, Aider, Hermes, OpenCode, Cline, Pi).
+> 在代理配置文件中添加或移除 Adrafinil 钩子条目（Claude Code、Codex、Cursor、Gemini CLI、Aider、Hermes、OpenCode、Cline、Pi）。
 
 **daemon-status**
-> Report whether the background daemon and privileged helper are running.
+> 报告后台守护进程和特权辅助程序是否正在运行。
 
 **version**
-> Print the CLI version.
+> 打印 CLI 版本。
 
 # DESCRIPTION
 
-**adrafinil** is the command-line interface for **Adrafinil**, a macOS utility that prevents system sleep — including **clamshell (lid-closed) sleep** — only while one or more AI coding agent sessions hold an active assertion. Unlike always-on tools such as **caffeinate** or Amphetamine, adrafinil does nothing when no agent is working; closing the lid lets the Mac sleep normally.
+**adrafinil** 是 **Adrafinil** 的命令行界面。Adrafinil 是一款 macOS 工具，只有在一个或多个 AI 编码代理会话持有活动断言时才阻止系统睡眠——包括**合盖（合上顶盖）睡眠**。与 **caffeinate** 或 Amphetamine 这类始终生效的工具不同，adrafinil 在没有任何代理工作时不会做任何事；此时合上盖子，Mac 会照常进入睡眠。
 
-Agent hook systems call **adrafinil acquire** when a turn starts and **adrafinil release** when the agent stops, so sleep is blocked only during actual work. A reference-counted daemon tracks overlapping sessions and asks a small privileged helper to toggle sleep blocking. The helper uses **IOPMAssertion** for idle sleep and **pmset disablesleep** for clamshell override.
+代理钩子系统会在一轮任务开始时调用 **adrafinil acquire**，在代理停止时调用 **adrafinil release**，因此只在真正工作期间阻止睡眠。一个采用引用计数的守护进程负责跟踪相互重叠的会话，并指挥一个小型特权辅助程序切换睡眠阻止状态。该辅助程序使用 **IOPMAssertion** 应对空闲睡眠，使用 **pmset disablesleep** 覆盖合盖行为。
 
-The CLI ships inside the Adrafinil.app bundle and is symlinked onto **PATH** during installation. Round-trip **acquire**/**release** calls target under 50 ms so hooks do not stall agent workflows.
+该 CLI 随 Adrafinil.app 应用包一同分发，并在安装过程中通过符号链接加入 **PATH**。**acquire**/**release** 调用的往返耗时目标低于 50 毫秒，以免钩子拖慢代理工作流。
 
 # CAVEATS
 
-macOS only; tested on **macOS Tahoe 26.4** and later. Overriding clamshell sleep requires a privileged helper installed via **SMAppService** (admin rights on first launch). The helper resets **pmset disablesleep** on respawn to avoid leaking a permanent sleep block after a crash. A thermal cutout force-releases all assertions if skin/CPU temperature crosses a threshold while the lid is closed.
+仅限 macOS；已在 **macOS Tahoe 26.4** 及更高版本上测试。要覆盖合盖睡眠，需要通过 **SMAppService** 安装特权辅助程序（首次启动需要管理员权限）。辅助程序在重启时会重置 **pmset disablesleep**，以避免崩溃后遗留永久性的睡眠阻止。如果在合盖状态下机身/CPU 温度越过阈值，热保护机制会强制释放所有断言。
 
 # HISTORY
 
-**Adrafinil** was created by **@kageroumado** and released in **2026** as an agent-aware alternative to blanket wake utilities. The name references the wakefulness-promoting compound adrafinil, matching the tool's behavior of keeping the machine awake only when work is in progress.
+**Adrafinil** 由 **@kageroumado** 创建，于 **2026** 年发布，作为能感知代理工作状态的替代方案，区别于一刀切的防休眠工具。其名称取自促醒化合物阿德拉非尼（adrafinil），恰好呼应了这款工具只在工作进行时保持机器唤醒的特性。
 
 # SEE ALSO
 

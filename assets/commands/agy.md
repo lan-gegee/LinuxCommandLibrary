@@ -1,30 +1,30 @@
 # TAGLINE
 
-Google Antigravity IDE launcher and command-line client
+Google Antigravity IDE 启动器与命令行客户端
 
 # TLDR
 
-**Launch Antigravity** in the current directory
+在当前目录**启动 Antigravity**
 
 ```agy .```
 
-**Open a specific project folder** in Antigravity
+在 Antigravity 中**打开指定的项目文件夹**
 
 ```agy [path/to/project]```
 
-**Open a specific file** for editing
+**打开指定文件**进行编辑
 
 ```agy [path/to/file]```
 
-**Open a file at a specific line**
+**在指定行打开文件**
 
 ```agy --goto [path/to/file]:[line]```
 
-**Start a new window** rather than reusing an existing one
+**启动新窗口**而不复用现有窗口
 
 ```agy --new-window [path/to/project]```
 
-**Show installed version**
+**显示已安装版本**
 
 ```agy --version```
 
@@ -35,59 +35,59 @@ Google Antigravity IDE launcher and command-line client
 # PARAMETERS
 
 **-n**, **--new-window**
-> Open a new window instead of reusing an existing one.
+> 打开新窗口而不是复用现有窗口。
 
 **-r**, **--reuse-window**
-> Reuse the most recently active window.
+> 复用最近处于活动状态的窗口。
 
 **-g**, **--goto** _file:line[:column]_
-> Open the file at the given line (and optional column).
+> 在指定行（及可选列）打开文件。
 
 **-d**, **--diff** _file1 file2_
-> Open a diff editor comparing two files.
+> 打开比较两个文件的 diff 编辑器。
 
 **-a**, **--add** _folder_
-> Add the folder to the most recently active window.
+> 把文件夹加入最近活动的窗口。
 
 **-w**, **--wait**
-> Wait for the files to be closed before returning.
+> 等文件关闭后再返回。
 
 **--user-data-dir** _DIR_
-> Use a custom directory for user data.
+> 为用户数据使用自定义目录。
 
 **--extensions-dir** _DIR_
-> Use a custom location for installed extensions.
+> 为已安装的扩展使用自定义位置。
 
 **--list-extensions**
-> List installed extensions and exit.
+> 列出已安装的扩展并退出。
 
 **--install-extension** _EXT_
-> Install or update the given extension.
+> 安装或更新给定的扩展。
 
 **--uninstall-extension** _EXT_
-> Uninstall the given extension.
+> 卸载给定的扩展。
 
 **-v**, **--version**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **-h**, **--help**
-> Print help and exit.
+> 打印帮助并退出。
 
 # DESCRIPTION
 
-**agy** is the command-line launcher for **Google Antigravity**, an AI-first development environment built on the Visual Studio Code foundation. It opens files, folders, and workspaces in the Antigravity editor and provides access to its agentic coding features, including the **Gemini**-powered agent panel and the Manager surface for coordinating multiple AI agents.
+**agy** 是 **Google Antigravity** 的命令行启动器。Antigravity 是一款构建在 Visual Studio Code 基础上的 AI 优先开发环境。它可以在 Antigravity 编辑器中打开文件、文件夹和工作区，并提供通往其代理式编码功能的入口，包括由 **Gemini** 驱动的代理面板以及用于协调多个 AI 代理的 Manager 界面。
 
-The launcher follows the conventions of VS Code style CLIs: paths passed as positional arguments are opened as either files or folders, and flags control window behavior, extensions, and user-data directories. On macOS it is typically installed via the "Install 'agy' command in PATH" action from inside Antigravity; on Linux distributions the binary may also be exposed as **antigravity**, in which case a symlink such as **/usr/local/bin/agy → /usr/bin/antigravity** is commonly used to satisfy tools that detect Antigravity by the **agy** name.
+该启动器遵循 VS Code 风格 CLI 的惯例：作为位置参数传入的路径会按文件或文件夹打开，各类标志则控制窗口行为、扩展与用户数据目录。在 macOS 上，通常通过 Antigravity 内部的 “Install 'agy' command in PATH” 操作来安装；在部分 Linux 发行版上，二进制可能以 **antigravity** 之名出现，此时常借助诸如 **/usr/local/bin/agy → /usr/bin/antigravity** 的符号链接，以满足那些按 **agy** 名称检测 Antigravity 的工具的需要。
 
-In addition to opening the GUI, **agy** is the integration point for the Gemini CLI and other tools that delegate edits or sessions to Antigravity. It does not run a headless agent itself; for that, Antigravity exposes separate companion binaries.
+除了打开图形界面，**agy** 还是 Gemini CLI 以及其他将编辑或会话委托给 Antigravity 的工具的集成点。它本身并不运行无头代理；这项能力由 Antigravity 提供的独立配套二进制承担。
 
 # CAVEATS
 
-On some Linux installations the binary is named **antigravity**; create a symlink to **agy** if other tooling (for example the Gemini CLI) expects that name. The CLI is in active development and flag behavior closely mirrors VS Code, so subtle differences may appear between releases.
+在某些 Linux 安装上，二进制名为 **antigravity**；如果其他工具（例如 Gemini CLI）期望的是 **agy** 这个名字，请创建相应的符号链接。该 CLI 处于活跃开发之中，标志行为与 VS Code 高度一致，因此各版本之间可能出现细微差别。
 
 # HISTORY
 
-Antigravity was introduced by **Google** in **November 2025** as an "agent-first" IDE fork of Visual Studio Code, with the **agy** launcher shipped alongside the desktop application for Linux, macOS, and Windows. The tool is closely tied to the Gemini model family and to Google's broader investment in agentic developer tools.
+Antigravity 由 **Google** 于 **2025 年 11 月**发布，是 Visual Studio Code 的一个“代理优先” IDE 分支，**agy** 启动器随面向 Linux、macOS 和 Windows 的桌面应用一并交付。该工具与 Gemini 模型家族联系紧密，也是 Google 在代理式开发者工具上更大规模投入的一环。
 
 # SEE ALSO
 

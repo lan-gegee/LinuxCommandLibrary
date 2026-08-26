@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage business intelligence dashboards and analytics
+管理商业智能仪表板和分析
 
 # TLDR
 
-**List all dashboards** in an account
+**列出账户中的所有仪表板**
 
 ```aws quicksight list-dashboards --aws-account-id [account-id]```
 
-**Describe a dashboard**
+**描述仪表板**
 
 ```aws quicksight describe-dashboard --aws-account-id [account-id] --dashboard-id [dashboard-id]```
 
-**Create a data source** from RDS
+从 RDS **创建数据源**
 
 ```aws quicksight create-data-source --aws-account-id [account-id] --data-source-id [source-id] --name [my-source] --type RDS --data-source-parameters file://[rds-params.json]```
 
-**Create a data set** from a data source
+从数据源**创建数据集**
 
 ```aws quicksight create-data-set --aws-account-id [account-id] --data-set-id [dataset-id] --name [my-dataset] --physical-table-map file://[table-map.json] --import-mode SPICE```
 
-**Generate an embed URL** for a dashboard
+为仪表板**生成嵌入 URL**
 
 ```aws quicksight generate-embed-url-for-registered-user --aws-account-id [account-id] --user-arn [arn:aws:quicksight:region:account:user/default/username] --experience-configuration Dashboard={InitialDashboardId=[dashboard-id]}```
 
-**Register a new user**
+**注册新用户**
 
 ```aws quicksight register-user --aws-account-id [account-id] --namespace default --email [user@example.com] --identity-type IAM --user-role READER --iam-arn [arn:aws:iam::account:user/username]```
 
@@ -34,61 +34,61 @@ Manage business intelligence dashboards and analytics
 
 # DESCRIPTION
 
-**aws quicksight** is the AWS CLI interface for Amazon QuickSight, a serverless business intelligence service for creating visualizations, dashboards, and performing ad-hoc analysis. QuickSight uses SPICE (Super-fast Parallel In-memory Calculation Engine) for fast query performance.
+**aws quicksight** 是 AWS CLI 中用于管理 Amazon QuickSight 的接口。QuickSight 是一项无服务器的商业智能服务，用于创建可视化、仪表板以及执行即席分析。QuickSight 使用 SPICE（Super-fast Parallel In-memory Calculation Engine）实现快速查询性能。
 
-QuickSight supports connections to various data sources including S3, Athena, Redshift, RDS, and third-party databases. Dashboards can be embedded in applications and shared with users across the organization.
+QuickSight 支持连接多种数据源，包括 S3、Athena、Redshift、RDS 和第三方数据库。仪表板可以嵌入应用程序中，并与组织内的用户共享。
 
 # COMMANDS
 
 **list-dashboards**
-> List all dashboards in the account
+> 列出账户中的所有仪表板
 
 **describe-dashboard**
-> Get dashboard details
+> 获取仪表板详情
 
 **create-data-source**
-> Create a connection to a data source
+> 创建到数据源的连接
 
 **create-data-set**
-> Define a dataset from a source
+> 基于数据源定义数据集
 
 **create-analysis**
-> Create an analysis for exploration
+> 创建用于探索的分析
 
 **create-dashboard**
-> Publish an analysis as a dashboard
+> 将分析发布为仪表板
 
 **register-user**
-> Add a QuickSight user
+> 添加 QuickSight 用户
 
 **generate-embed-url-for-registered-user**
-> Get embed URL for dashboard embedding
+> 获取用于嵌入仪表板的 URL
 
 **create-ingestion**
-> Refresh a SPICE dataset
+> 刷新 SPICE 数据集
 
 **list-data-sources**
-> List configured data sources
+> 列出已配置的数据源
 
 **list-data-sets**
-> List all datasets in the account
+> 列出账户中的所有数据集
 
 **delete-dashboard**
-> Delete a dashboard
+> 删除仪表板
 
 **update-dashboard**
-> Update an existing dashboard
+> 更新现有仪表板
 
 **describe-data-source**
-> Get data source details
+> 获取数据源详情
 
 # CAVEATS
 
-SPICE datasets have storage limits based on subscription tier. Dashboard refresh depends on data source refresh schedules. Embedded dashboards require proper CORS and domain configuration. User management is separate from IAM; QuickSight has its own user registry.
+SPICE 数据集的存储上限取决于订阅级别。仪表板的刷新取决于数据源的刷新计划。嵌入仪表板需要正确配置 CORS 和域名。用户管理与 IAM 相互独立；QuickSight 有自己的用户注册体系。
 
 # HISTORY
 
-Amazon QuickSight launched in **November 2016** as a cloud-native BI service. Q (natural language querying) was added in **2020**. The service has expanded to include paginated reports, APIs for programmatic dashboard creation, and ML-powered insights.
+Amazon QuickSight 于 **2016 年 11 月**上线，是一项云原生 BI 服务。Q（自然语言查询）于 **2020 年**推出。该服务此后扩展了分页报表、以编程方式创建仪表板的 API 以及机器学习驱动的洞察等功能。
 
 # INSTALL
 

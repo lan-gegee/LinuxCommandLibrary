@@ -1,38 +1,38 @@
 # TAGLINE
 
-Laravel's command-line interface for PHP development tasks.
+Laravel 面向 PHP 开发任务的命令行界面。
 
 # TLDR
 
-**List all available commands**
+**列出所有可用命令**
 
 ```php artisan list```
 
-**Start the development server**
+**启动开发服务器**
 
 ```php artisan serve```
 
-**Run database migrations**
+**运行数据库迁移**
 
 ```php artisan migrate```
 
-**Create a new controller**
+**创建新的控制器**
 
 ```php artisan make:controller [UserController]```
 
-**Create a new model** with migration
+**创建新的模型**并附带迁移
 
 ```php artisan make:model [Post] --migration```
 
-**Generate application key**
+**生成应用密钥**
 
 ```php artisan key:generate```
 
-**Clear all caches**
+**清除所有缓存**
 
 ```php artisan optimize:clear```
 
-**Open interactive shell** (Tinker)
+**打开交互式 Shell**（Tinker）
 
 ```php artisan tinker```
 
@@ -43,112 +43,112 @@ Laravel's command-line interface for PHP development tasks.
 # PARAMETERS
 
 **list**
-> Display all available commands
+> 显示所有可用命令
 
 **serve**
-> Start the built-in development server
+> 启动内置开发服务器
 
 **migrate**
-> Run database migrations
+> 运行数据库迁移
 
 **migrate:rollback**
-> Rollback the last database migration
+> 回滚最近一次数据库迁移
 
 **migrate:fresh**
-> Drop all tables and re-run every migration
+> 删除所有表并重新执行全部迁移
 
 **db:seed**
-> Run database seeders
+> 运行数据库填充器
 
 **make:controller** _name_
-> Create a new controller class
+> 创建新的控制器类
 
 **make:model** _name_
-> Create a new Eloquent model
+> 创建新的 Eloquent 模型
 
 **make:migration** _name_
-> Create a new migration file
+> 创建新的迁移文件
 
 **make:command** _name_
-> Create a new Artisan command
+> 创建新的 Artisan 命令
 
 **make:seeder** _name_
-> Create a new database seeder class
+> 创建新的数据库填充器类
 
 **make:factory** _name_
-> Create a new model factory
+> 创建新的模型工厂
 
 **cache:clear**
-> Clear the application cache
+> 清除应用缓存
 
 **config:cache**
-> Cache the configuration files
+> 缓存配置文件
 
 **route:list**
-> List all registered routes
+> 列出所有已注册的路由
 
 **queue:work**
-> Process jobs from the queue
+> 处理队列中的任务
 
 **schedule:run**
-> Run the scheduled tasks that are due
+> 运行到期的计划任务
 
 **vendor:publish**
-> Publish package assets and configuration files
+> 发布软件包的资源和配置文件
 
 **about**
-> Display a summary of the application's environment and configuration
+> 显示应用环境与配置的摘要
 
 **tinker**
-> Open an interactive REPL shell
+> 打开交互式 REPL shell
 
 **key:generate**
-> Generate application encryption key
+> 生成应用加密密钥
 
 **optimize**
-> Cache configuration, routes, and views
+> 缓存配置、路由和视图
 
 **optimize:clear**
-> Clear all cached files
+> 清除所有缓存文件
 
 **--help**, **-h**
-> Display help for a command
+> 显示某个命令的帮助信息
 
 **-v**, **-vv**, **-vvv**
-> Increase verbosity of output
+> 提高输出的详细程度
 
 **--quiet**, **-q**
-> Suppress all output
+> 抑制全部输出
 
 **--no-interaction**, **-n**
-> Do not ask any interactive questions
+> 不提出任何交互式问题
 
 **--version**, **-V**
-> Display the application version
+> 显示应用版本
 
 **--ansi**, **--no-ansi**
-> Force or disable colored output
+> 强制启用或禁用彩色输出
 
 **--env=**_environment_
-> Run command in a specific environment
+> 在指定的环境中运行命令
 
 # DESCRIPTION
 
-**Artisan** is Laravel's command-line interface for PHP web application development. It provides commands for common tasks like database migrations, code generation, cache management, and queue processing.
+**Artisan** 是 Laravel 面向 PHP Web 应用开发的命令行界面。它为数据库迁移、代码生成、缓存管理和队列处理等常见任务提供命令。
 
-The tool automates repetitive development tasks through its **make:** commands, which generate boilerplate code for controllers, models, migrations, tests, and other Laravel components. Database management is handled through migration commands that version-control schema changes.
+该工具通过 **make:** 系列命令自动完成重复性的开发工作，为控制器、模型、迁移、测试等 Laravel 组件生成样板代码。数据库管理则通过迁移命令完成，迁移会对模式变更进行版本控制。
 
-**Tinker** provides an interactive REPL (Read-Eval-Print Loop) for exploring the application, testing code snippets, and interacting with Eloquent models directly.
+**Tinker** 提供交互式 REPL（读取-求值-打印循环），可用于探索应用、测试代码片段，以及直接与 Eloquent 模型交互。
 
-Custom commands can be created with **make:command** and registered automatically from the **app/Console/Commands** directory. Commands support arguments, options, user prompts, and formatted output including tables and progress bars.
+自定义命令可通过 **make:command** 创建，并从 **app/Console/Commands** 目录自动注册。命令支持参数、选项、用户提示，以及包括表格和进度条在内的格式化输出。
 
 # CAVEATS
 
-Must be run from the Laravel project root directory where the **artisan** file exists. Requires PHP to be installed and in the system PATH. Some commands like **migrate** require database configuration. When using Laravel Sail (Docker), prefix commands with **sail** instead of **php**.
+必须在存在 **artisan** 文件的 Laravel 项目根目录下运行。需要安装 PHP 并将其加入系统 PATH。部分命令（如 **migrate**）需要先配置数据库。使用 Laravel Sail（Docker）时，请以 **sail** 而非 **php** 作为命令前缀。
 
 # HISTORY
 
-Artisan was introduced with **Laravel 3** in **2012** by Taylor Otwell, inspired by Symfony Console. It has grown with each Laravel release, adding new generators and utilities. The name references Laravel's positioning as "the framework for web artisans." Laravel Tinker, powered by PsySH, was added to provide interactive debugging capabilities.
+Artisan 由 Taylor Otwell 于 **2012** 年随 **Laravel 3** 推出，其灵感来自 Symfony Console。它随着每个 Laravel 版本不断成长，新增了各种生成器和实用工具。这个名字呼应了 Laravel "面向网页工匠的框架" 的定位。由 PsySH 驱动的 Laravel Tinker 后来被加入，用于提供交互式调试能力。
 
 # INSTALL
 

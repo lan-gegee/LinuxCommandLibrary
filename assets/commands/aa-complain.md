@@ -1,22 +1,22 @@
 # TAGLINE
 
-Set AppArmor profiles to complain mode
+将 AppArmor 配置文件设为投诉模式
 
 # TLDR
 
-Set a profile to **complain mode**
+将一个配置文件设为**投诉模式**
 
 ```sudo aa-complain [path/to/profile]```
 
-Set **multiple profiles** to complain mode
+将**多个配置文件**设为投诉模式
 
 ```sudo aa-complain [path/to/profile1] [path/to/profile2]```
 
-Set profiles in a **directory** to complain mode
+将某个**目录**中的所有配置文件设为投诉模式
 
 ```sudo aa-complain -d [path/to/profiles]```
 
-Set a profile to complain mode **without reloading**
+将配置文件设为投诉模式且**不重新加载**
 
 ```sudo aa-complain --no-reload [path/to/profile]```
 
@@ -26,23 +26,23 @@ Set a profile to complain mode **without reloading**
 
 # DESCRIPTION
 
-**aa-complain** switches AppArmor security profiles into complain mode. In this mode, security policy is **not enforced** but access violations are logged to the system log. This is useful for testing and developing new profiles without blocking application functionality.
+**aa-complain** 将 AppArmor 安全配置文件切换到投诉模式。在该模式下，安全策略**不会被强制执行**，但访问违规行为会被记录到系统日志中。这对在不阻碍应用功能的前提下测试和开发新配置文件非常有用。
 
 # PARAMETERS
 
 **-d, --dir /path/to/profiles**
-> Specifies the directory containing AppArmor profiles; defaults to /etc/apparmor.d
+> 指定存放 AppArmor 配置文件的目录；默认为 /etc/apparmor.d
 
 **--no-reload**
-> Prevents automatic profile reloading after modifications
+> 修改后不自动重新加载配置文件
 
 # CAVEATS
 
-**Deny rules remain active** even when complain mode is enabled. Complain mode only affects allow rules, so explicit denials will still block access.
+即使启用了投诉模式，**拒绝规则依然生效**。投诉模式只影响允许规则，显式拒绝仍会阻止访问。
 
 # HISTORY
 
-Part of the **AppArmor** utilities package for managing application security profiles on Linux systems.
+属于 Linux 系统上管理应用安全配置文件的 **AppArmor** 工具包。
 
 # INSTALL
 

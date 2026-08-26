@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage bloom filters for password checking
+管理用于密码检查的布隆过滤器
 
 # TLDR
 
-**Create** a new bloom filter from a dictionary file
+从字典文件**创建**新的布隆过滤器
 
 ```apgbfm -f [filter.bf] -d [dictionary.txt]```
 
-**Create** an empty bloom filter for a specific number of words
+为指定数量的单词**创建**空布隆过滤器
 
 ```apgbfm -f [filter.bf] -n [50000]```
 
-**Check** if a word exists in the filter
+**检查**某个单词是否存在于过滤器中
 
 ```apgbfm -f [filter.bf] -c [password]```
 
-**Add** a single word to an existing filter
+向现有过滤器**添加**单个单词
 
 ```apgbfm -f [filter.bf] -a [word]```
 
-**Add** words from a dictionary file to an existing filter
+将字典文件中的单词**添加**到现有过滤器
 
 ```apgbfm -f [filter.bf] -A [dictionary.txt]```
 
-**Display** filter information
+**显示**过滤器信息
 
 ```apgbfm -i [filter.bf]```
 
@@ -41,55 +41,55 @@ Manage bloom filters for password checking
 
 # DESCRIPTION
 
-**apgbfm** (APG Bloom Filter Manager) creates and manages bloom filters for the apg password generator. Bloom filters enable fast dictionary checking without loading entire dictionaries into memory. It uses SHA-1 as its hash function.
+**apgbfm**（APG Bloom Filter Manager）为 apg 密码生成器创建和管理布隆过滤器。布隆过滤器无需将整个字典载入内存即可进行快速字典检查。它使用 SHA-1 作为哈希函数。
 
-This tool can be used standalone or with apg/apgd to avoid generating passwords that appear in common password dictionaries.
+该工具可以独立使用，也可配合 apg/apgd 使用，避免生成出现在常见密码字典中的密码。
 
 # PARAMETERS
 
 **-f** _filter_
-> Bloom filter filename to use
+> 要使用的布隆过滤器文件名
 
 **-n** _numofwords_
-> Create new empty filter for the specified number of words
+> 为指定数量的单词创建新的空过滤器
 
 **-d** _dictfile_
-> Create new filter from dictionary file
+> 从字典文件创建新过滤器
 
 **-a** _word_
-> Add a single word to the filter
+> 向过滤器添加单个单词
 
 **-A** _dictfile_
-> Add all words from dictionary file to the filter
+> 将字典文件中的所有单词加入过滤器
 
 **-c** _word_
-> Check if a word exists in the filter
+> 检查某个单词是否存在于过滤器中
 
 **-C** _dictfile_
-> Check every word from dictionary file against the filter
+> 用过滤器检查字典文件中的每个单词
 
 **-i** _filter_
-> Display filter information
+> 显示过滤器信息
 
 **-s**
-> Create filter in case-insensitive mode
+> 以不区分大小写模式创建过滤器
 
 **-q**
-> Quiet mode
+> 安静模式
 
 **-v**
-> Print version information
+> 打印版本信息
 
 **-h**
-> Print help information
+> 打印帮助信息
 
 # CAVEATS
 
-Bloom filters have false positives but no false negatives. A rejected password might not actually be in the dictionary, but an accepted one definitely isn't. Filter size affects accuracy.
+布隆过滤器存在误报但不会漏报。被拒绝的密码可能实际上并不在字典里，但被接受的密码一定不在字典中。过滤器大小影响准确度。
 
 # HISTORY
 
-**apgbfm** was created as a companion tool to apg, using bloom filters to efficiently check generated passwords against large dictionaries.
+**apgbfm** 作为 apg 的配套工具而创建，利用布隆过滤器高效地将生成的密码与大型字典进行比对。
 
 # INSTALL
 

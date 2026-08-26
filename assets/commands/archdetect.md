@@ -1,10 +1,10 @@
 # TAGLINE
 
-Detect Debian installer system architecture
+检测 Debian 安装器的系统架构
 
 # TLDR
 
-**Detect** system architecture
+**检测**系统架构
 
 ```archdetect```
 
@@ -15,13 +15,13 @@ Detect Debian installer system architecture
 # PARAMETERS
 
 **-g**
-> Guess a generic subarchitecture that may be compatible with this machine, useful for new subarchitectures not yet recognized.
+> 猜测一个可能与本机兼容的通用子架构，对尚未被识别的新子架构很有用。
 
 # DESCRIPTION
 
-**archdetect** displays the current machine architecture and subarchitecture in the format used by the Debian installer. The architecture corresponds to that built into dpkg and describes CPU (and possibly kernel) types. The subarchitecture distinguishes machines with different boot arrangements.
+**archdetect** 以 Debian 安装器使用的格式显示当前机器的架构和子架构。架构与 dpkg 内置的架构一致，描述 CPU（以及可能的内核）类型。子架构用于区分启动方式不同的机器。
 
-This is primarily used by the Debian installer to determine which kernel and packages to install.
+它主要供 Debian 安装器用于确定要安装哪个内核和哪些软件包。
 
 # OUTPUT FORMAT
 
@@ -29,18 +29,18 @@ This is primarily used by the Debian installer to determine which kernel and pac
 architecture/subarchitecture
 ```
 
-Examples:
+示例：
 - amd64/generic
 - i386/686
 - arm64/generic
 
 # CAVEATS
 
-Specific to Debian-based systems. Output format is for installer use, not general system identification. May not be available on all distributions.
+仅适用于基于 Debian 的系统。输出格式面向安装器使用，不适合一般性的系统识别。并非所有发行版都提供该工具。
 
 # HISTORY
 
-**archdetect** was created for the Debian installer to standardize architecture detection across installation media.
+**archdetect** 为 Debian 安装器而开发，用于在各安装介质间统一架构检测方式。
 
 # SEE ALSO
 

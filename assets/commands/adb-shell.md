@@ -1,22 +1,22 @@
 # TAGLINE
 
-Run a remote shell on an Android device
+在 Android 设备上运行远程 shell
 
 # TLDR
 
-**Open** an interactive shell on the device
+在设备上**打开**交互式 shell
 
 ```adb shell```
 
-**Run** a single command
+**运行**单条命令
 
 ```adb shell [ls /sdcard]```
 
-Run command as **root** (if available)
+以 **root** 身份运行命令（如可用）
 
 ```adb shell su -c "[command]"```
 
-**List** files with details
+带详情**列出**文件
 
 ```adb shell ls -la [/system/]```
 
@@ -26,34 +26,34 @@ Run command as **root** (if available)
 
 # DESCRIPTION
 
-**adb shell** provides shell access to a connected Android device. Without arguments, it opens an interactive shell session. With arguments, it executes the specified command and returns the output.
+**adb shell** 提供对已连接 Android 设备的 shell 访问。不带参数时，打开交互式 shell 会话；带参数时，执行指定的命令并返回输出。
 
-The shell is a limited Unix environment with access to Android-specific commands like **am** (activity manager), **pm** (package manager), **dumpsys**, and **content**. Available commands depend on the device and whether root access is available.
+该 shell 是一个受限的 Unix 环境，可访问 **am**（activity manager）、**pm**（package manager）、**dumpsys**、**content** 等 Android 专用命令。可用命令取决于设备以及是否具有 root 权限。
 
 # PARAMETERS
 
 **-e** _char_
-> Set escape character (default: ~)
+> 设置转义字符（默认：~）
 
 **-n**
-> Don't read from stdin
+> 不从 stdin 读取
 
 **-T**
-> Disable PTY allocation
+> 禁用 PTY 分配
 
 **-t**
-> Force PTY allocation
+> 强制 PTY 分配
 
 **-x**
-> Disable remote exit codes
+> 禁用远程退出码
 
 # CAVEATS
 
-Shell commands run as the "shell" user with limited permissions. Root access requires an unlocked bootloader or rooted device. Not all standard Unix commands are available. The shell environment may vary between Android versions and manufacturers.
+Shell 命令以权限受限的 "shell" 用户身份运行。root 访问需要已解锁的引导加载程序或已获取 root 的设备。并非所有标准 Unix 命令都可用。shell 环境可能因 Android 版本和厂商而异。
 
 # HISTORY
 
-**adb shell** has been part of the Android SDK since its initial release in **2008**. The shell has evolved from a basic Toolbox implementation to the more capable Toybox on modern Android versions.
+**adb shell** 自 **2008** 年 Android SDK 首次发布起就是其组成部分。shell 已从最初简单的 Toolbox 实现演变为现代 Android 版本上功能更完善的 Toybox。
 
 # INSTALL
 

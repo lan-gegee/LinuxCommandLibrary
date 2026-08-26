@@ -1,18 +1,18 @@
 # TAGLINE
 
-Install packages from apt: protocol URLs
+从 apt: 协议 URL 安装软件包
 
 # TLDR
 
-**Install** package via apt: URL
+通过 apt: URL **安装**软件包
 
 ```apturl apt:firefox```
 
-Install **multiple** packages
+安装**多个**软件包
 
 ```apturl "apt:vim,git,curl"```
 
-Install from a specific **repository section**
+从特定的**仓库分区**安装
 
 ```apturl "apt:[package]?section=universe"```
 
@@ -22,37 +22,37 @@ Install from a specific **repository section**
 
 # DESCRIPTION
 
-**apturl** is a simple graphical application that takes an apt-protocol URL as a command line option and handles package installation. When a user clicks an apt: link in a web browser, apturl launches and prompts for confirmation before installing the specified packages.
+**apturl** 是一个简单的图形应用程序，它接受 apt 协议的 URL 作为命令行参数并处理软件包安装。当用户在网页浏览器中点击 apt: 链接时，apturl 会启动并在安装指定软件包前提示确认。
 
-It has been pre-installed on Ubuntu since version 7.10, providing a user-friendly way to install software without using the command line.
+自 Ubuntu 7.10 起预装于 Ubuntu，提供一种无需命令行的友好软件安装方式。
 
 # PARAMETERS
 
 **-p**, **--http-proxy**
-> Specify an HTTP proxy for package downloads
+> 为软件包下载指定 HTTP 代理
 
 **apt:_package_**
-> Package to install
+> 要安装的软件包
 
 **apt:_package1_,_package2_**
-> Multiple packages to install
+> 要安装的多个软件包
 
 **?channel=**
-> Repository or PPA source (e.g., ?channel=lucid-partner)
+> 软件仓库或 PPA 源（如 ?channel=lucid-partner）
 
 **?section=**
-> Repository section to enable (e.g., ?section=universe)
+> 要启用的仓库分区（如 ?section=universe）
 
 **?refresh=yes**
-> Force a repository refresh before looking for the package
+> 在查找软件包前强制刷新仓库
 
 # CAVEATS
 
-Requires a graphical environment (X11/Wayland). Should only be used with trusted links. Verification dialogs should be read carefully. Exit codes: 0 = success, 1 = cancelled, 2 = error, 3 = invalid arguments.
+需要图形环境（X11/Wayland）。只应使用受信任的链接，验证对话框务必仔细阅读。退出码：0 = 成功，1 = 已取消，2 = 错误，3 = 参数无效。
 
 # HISTORY
 
-**apturl** was developed for Ubuntu to simplify software installation, allowing websites to offer direct installation links for Linux packages.
+**apturl** 为 Ubuntu 开发，旨在简化软件安装，让网站能为 Linux 软件包提供直接安装链接。
 
 # SEE ALSO
 

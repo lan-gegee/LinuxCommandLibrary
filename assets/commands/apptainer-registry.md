@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage OCI/Docker registry authentication
+管理 OCI/Docker 注册表认证
 
 # TLDR
 
-**List** all configured OCI registry credentials
+**列出**所有已配置的 OCI 注册表凭据
 
 ```apptainer registry list```
 
-**Login** to a Docker registry
+**登录** Docker 注册表
 
 ```apptainer registry login --username [user] docker://[docker.io]```
 
-**Login** to an OCI registry with **password from stdin**
+**登录** OCI 注册表，**密码从标准输入读取**
 
 ```apptainer registry login --username [user] --password-stdin oras://[registry.example.com]```
 
-**Logout** from a registry
+从注册表**登出**
 
 ```apptainer registry logout docker://[docker.io]```
 
-**Login** using a custom **auth file**
+使用自定义**认证文件登录**
 
 ```apptainer registry login --authfile [path/to/authfile.json] --username [user] docker://[registry.example.com]```
 
@@ -31,31 +31,31 @@ Manage OCI/Docker registry authentication
 # PARAMETERS
 
 **-c, --config** _string_
-> Path to the registry configuration file (default ~/.apptainer/remote.yaml)
+> 注册表配置文件的路径（默认 ~/.apptainer/remote.yaml）
 
 **-h, --help**
-> Display help for the registry command
+> 显示 registry 命令的帮助信息
 
 # DESCRIPTION
 
-**apptainer registry** manages authentication to standalone OCI/Docker registries accessed via **docker://** or **oras://** protocols. It provides subcommands for logging in, logging out, and listing configured credentials for container registries.
+**apptainer registry** 管理通过 **docker://** 或 **oras://** 协议访问的独立 OCI/Docker 注册表的认证。它提供登录、登出以及列出已配置注册表凭据的子命令。
 
-This command handles credentials separately from Apptainer's remote endpoints, allowing direct authentication against any OCI-compatible registry such as Docker Hub, GitHub Container Registry, or private registries.
+该命令将凭据与 Apptainer 的远程端点分开管理，可以直接向任何兼容 OCI 的注册表（如 Docker Hub、GitHub Container Registry 或私有注册表）进行认证。
 
 # SUBCOMMANDS
 
 **apptainer registry list**
-> Display all configured OCI registry credentials
+> 显示所有已配置的 OCI 注册表凭据
 
 **apptainer registry login**
-> Authenticate to an OCI/Docker registry
+> 向 OCI/Docker 注册表进行身份验证
 
 **apptainer registry logout**
-> Remove authentication from an OCI/Docker registry
+> 移除对 OCI/Docker 注册表的身份验证
 
 # CAVEATS
 
-Registry credentials are stored in the Apptainer configuration file at **~/.apptainer/remote.yaml** by default. This file should be kept secure as it contains authentication tokens. Credentials configured via **apptainer registry** are separate from those managed by **apptainer remote**, which handles Sylabs Cloud and library endpoints.
+注册表凭据默认存储在 Apptainer 配置文件 **~/.apptainer/remote.yaml** 中。该文件包含认证令牌，应妥善保管。通过 **apptainer registry** 配置的凭据与 **apptainer remote** 管理的凭据相互独立，后者负责 Sylabs Cloud 和库端点。
 
 # INSTALL
 

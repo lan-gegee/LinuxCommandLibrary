@@ -1,42 +1,42 @@
 # TAGLINE
 
-Verify cryptographic signatures on container images
+验证容器镜像上的加密签名
 
 # TLDR
 
-**Verify** a container image using the default PGP keyring
+使用默认 PGP 密钥环**验证**容器镜像
 
 ```apptainer verify [path/to/image.sif]```
 
-Verify a container image using a **specific public key** file
+使用**特定公钥**文件验证容器镜像
 
 ```apptainer verify --key [path/to/public.pem] [path/to/image.sif]```
 
-Verify a container image using a **certificate** file
+使用**证书**文件验证容器镜像
 
 ```apptainer verify --certificate [path/to/certificate.pem] [path/to/image.sif]```
 
-Verify **all objects** in the image
+验证镜像中的**所有对象**
 
 ```apptainer verify -a [path/to/image.sif]```
 
-Verify a **specific object group** within the image
+验证镜像内的**特定对象组**
 
 ```apptainer verify -g [group_id] [path/to/image.sif]```
 
-Verify a **specific object by ID** within the image
+按 ID 验证镜像内的**特定对象**
 
 ```apptainer verify -i [object_id] [path/to/image.sif]```
 
-Output verification results in **JSON format**
+以 **JSON 格式**输出验证结果
 
 ```apptainer verify -j [path/to/image.sif]```
 
-Verify using only **local keys** in the keyring
+仅使用密钥环中的**本地密钥**进行验证
 
 ```apptainer verify -l [path/to/image.sif]```
 
-Verify **legacy** (insecure) signatures
+验证**旧式**（不安全的）签名
 
 ```apptainer verify --legacy-insecure [path/to/image.sif]```
 
@@ -46,51 +46,51 @@ Verify **legacy** (insecure) signatures
 
 # DESCRIPTION
 
-**apptainer verify** validates the cryptographic signatures on SIF container images. This confirms that the image has not been tampered with and was signed by a trusted party.
+**apptainer verify** 校验 SIF 容器镜像上的加密签名。这可以确认镜像未被篡改，并且是由受信任的一方签名的。
 
-Verification can use PGP public keys, X.509 certificates, or keys fetched from a keyserver. The command exits with a non-zero status if verification fails.
+验证可以使用 PGP 公钥、X.509 证书或从密钥服务器获取的密钥。如果验证失败，命令会以非零状态退出。
 
 # PARAMETERS
 
 **--key** _file_
-> Path to a public key file for verification
+> 用于验证的公钥文件路径
 
 **--certificate** _file_
-> Path to a certificate file for verification
+> 用于验证的证书文件路径
 
 **-a, --all**
-> Verify all objects in the SIF image
+> 验证 SIF 镜像中的所有对象
 
 **-g, --group-id** _id_
-> Verify only a specific object group
+> 只验证特定的对象组
 
 **-i, --sif-id** _id_
-> Verify only a specific object by ID
+> 按 ID 只验证特定对象
 
 **-j, --json**
-> Output results in JSON format
+> 以 JSON 格式输出结果
 
 **-l, --local**
-> Only verify with local key(s) in keyring
+> 仅用密钥环中的本地密钥验证
 
 **-u, --url** _string_
-> Specify a URL for a key server
+> 指定密钥服务器的 URL
 
 **--legacy-insecure**
-> Enable verification of (insecure) legacy signatures
+> 启用对（不安全的）旧式签名的验证
 
 **--certificate-intermediates** _file_
-> Path to pool of intermediate certificates
+> 中间证书池的路径
 
 **--certificate-roots** _file_
-> Path to pool of root certificates
+> 根证书池的路径
 
 **--ocsp-verify**
-> Enable online revocation check for certificates
+> 启用证书的在线吊销检查
 
 # CAVEATS
 
-Verification requires the public key or certificate corresponding to the signing key. Unsigned containers will fail verification. Keys from untrusted sources should not be used for verification.
+验证需要与签名密钥对应的公钥或证书。未签名的容器将无法通过验证。不应使用来自不受信任来源的密钥进行验证。
 
 # INSTALL
 

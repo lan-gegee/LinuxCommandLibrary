@@ -1,38 +1,38 @@
 # TAGLINE
 
-Monitor AMD GPU utilization in real time
+实时监控 AMD GPU 利用率
 
 # TLDR
 
-**Start the TUI** to monitor AMD GPU usage
+**启动 TUI** 监控 AMD GPU 使用情况
 
 ```amdgpu_top```
 
-**Launch the graphical interface** mode
+**启动图形界面**模式
 
 ```amdgpu_top --gui```
 
-**Launch simple TUI mode** similar to nvidia-smi
+**启动类似 nvidia-smi 的简易 TUI 模式**
 
 ```amdgpu_top --smi```
 
-**Dump AMDGPU info** (specifications, VRAM, PCI, VBIOS)
+**导出 AMDGPU 信息**（规格、VRAM、PCI、VBIOS）
 
 ```amdgpu_top -d```
 
-**Output JSON formatted data** for scripting
+**输出 JSON 格式数据**供脚本使用
 
 ```amdgpu_top -d --json```
 
-**Display GPU processes** and memory usage per process
+**显示 GPU 进程**及各进程的内存占用
 
 ```amdgpu_top -p```
 
-**Select a specific GPU** by instance number
+按实例编号**选择特定 GPU**
 
 ```amdgpu_top -i [0]```
 
-**Dump GPU metrics** for all AMD GPUs
+为所有 AMD GPU **导出 GPU 指标**
 
 ```amdgpu_top --gpu-metrics```
 
@@ -43,108 +43,108 @@ Monitor AMD GPU utilization in real time
 # PARAMETERS
 
 **-d**, **--dump**
-> Dump AMDGPU info including specifications, VRAM, PCI, ResizableBAR, VBIOS, and video caps.
+> 导出 AMDGPU 信息，包括规格、VRAM、PCI、ResizableBAR、VBIOS 和视频能力。
 
 **--list**
-> Display a list of available AMDGPU devices.
+> 显示可用 AMDGPU 设备列表。
 
 **-J**, **--json**
-> Output JSON formatted data. Can be combined with the -d or --gpu-metrics option.
+> 输出 JSON 格式数据。可与 -d 或 --gpu-metrics 选项组合使用。
 
 **--gui**
-> Launch graphical interface mode.
+> 启动图形界面模式。
 
 **--smi**
-> Launch simple TUI mode similar to nvidia-smi or rocm-smi.
+> 启动类似 nvidia-smi 或 rocm-smi 的简易 TUI 模式。
 
 **-p**, **--process**
-> Dump all GPU processes and memory usage per process.
+> 导出所有 GPU 进程及各进程的内存占用。
 
 **-i** _INDEX_
-> Select GPU instance by index number.
+> 按索引编号选择 GPU 实例。
 
 **--pci** _PATH_
-> Specify PCI path in domain:bus:dev.func format.
+> 以 domain:bus:dev.func 格式指定 PCI 路径。
 
 **--apu**, **--select-apu**
-> Select APU instance.
+> 选择 APU 实例。
 
 **--single**, **--single-gpu**
-> Display only the selected APU/GPU.
+> 仅显示选定的 APU/GPU。
 
 **--no-pc**
-> Disable reading performance counters (GRBM, GRBM2). Useful to avoid deactivating power saving features.
+> 禁用性能计数器读取（GRBM、GRBM2）。可用于避免关闭节能功能。
 
 **-gm**, **--gpu_metrics**, **--gpu-metrics**
-> Dump gpu_metrics for all AMD GPUs.
+> 为所有 AMD GPU 导出 gpu_metrics。
 
 **--pp_table**, **--pp-table**
-> Dump power/performance table from sysfs and VBIOS for all AMD GPUs.
+> 从 sysfs 和 VBIOS 为所有 AMD GPU 导出功耗/性能表。
 
 **--drm-info**
-> Dump DRM information.
+> 导出 DRM 信息。
 
 **--json_fifo**, **--json-fifo** _PATH_
-> Output JSON formatted data to a FIFO (named pipe) for other applications and scripts.
+> 将 JSON 格式数据输出到 FIFO（命名管道），供其他应用程序和脚本使用。
 
 **--decode-gm**, **--decode-gpu-metrics** _PATH_
-> Decode the specified gpu_metrics file.
+> 解码指定的 gpu_metrics 文件。
 
 **-s** _MS_
-> Set refresh interval in milliseconds for JSON mode (default: 1000ms).
+> 设置 JSON 模式的刷新间隔，单位为毫秒（默认：1000ms）。
 
 **-n** _COUNT_
-> Set maximum iteration count for JSON mode (0 = infinite).
+> 设置 JSON 模式的最大迭代次数（0 = 无限）。
 
 **-u**, **--update-process-index** _SEC_
-> Update interval in seconds for fdinfo (default: 5s).
+> fdinfo 的更新间隔，单位为秒（默认：5s）。
 
 **--dark**, **--dark-mode**
-> Enable dark mode for TUI/GUI.
+> 为 TUI/GUI 启用深色模式。
 
 **--light**, **--light-mode**
-> Enable light mode for TUI/GUI.
+> 为 TUI/GUI 启用浅色模式。
 
 **--gl**, **--opengl**
-> Use OpenGL API for GUI backend.
+> GUI 后端使用 OpenGL API。
 
 **--vk**, **--vulkan**
-> Use Vulkan API for GUI backend.
+> GUI 后端使用 Vulkan API。
 
 **-V**, **--version**
-> Print version information.
+> 打印版本信息。
 
 **-h**, **--help**
-> Print help information.
+> 打印帮助信息。
 
 # DESCRIPTION
 
-**amdgpu_top** is an AMD GPU monitoring tool that displays real-time utilization data similar to htop but specifically for AMD graphics hardware. It gathers information from performance counters (GRBM, GRBM2), sensors, fdinfo, and the AMDGPU driver to provide comprehensive GPU metrics.
+**amdgpu_top** 是一款 AMD GPU 监控工具，以类似 htop 的方式显示实时利用率数据，但专门针对 AMD 图形硬件。它从性能计数器（GRBM、GRBM2）、传感器、fdinfo 和 AMDGPU 驱动收集信息，提供全面的 GPU 指标。
 
-The tool offers three display modes: a full-featured TUI (default), a simplified SMI-style TUI, and a graphical interface. It monitors GPU activity, VRAM usage, temperature, power consumption, fan speed, and per-process GPU utilization.
+该工具提供三种显示模式：功能完整的 TUI（默认）、简化的 SMI 风格 TUI 以及图形界面。它可以监控 GPU 活动、VRAM 占用、温度、功耗、风扇转速以及每个进程的 GPU 利用率。
 
 # TUI KEYBINDINGS
 
-**g** - Toggle GRBM performance counter
-**r** - Toggle GRBM2 performance counter
-**v** - Toggle VRAM/GTT usage display
-**f** - Toggle fdinfo display
-**n** - Toggle sensors display
-**m** - Toggle GPU metrics display
-**h** - Change update interval (high=100ms, low=1000ms)
-**P** - Sort fdinfo by PID
-**M** - Sort fdinfo by VRAM usage
-**G** - Sort fdinfo by GFX usage
-**R** - Reverse sort order
-**q** - Quit application
+**g** - 切换 GRBM 性能计数器
+**r** - 切换 GRBM2 性能计数器
+**v** - 切换 VRAM/GTT 占用显示
+**f** - 切换 fdinfo 显示
+**n** - 切换传感器显示
+**m** - 切换 GPU 指标显示
+**h** - 更改更新间隔（high=100ms，low=1000ms）
+**P** - 按 PID 对 fdinfo 排序
+**M** - 按 VRAM 占用对 fdinfo 排序
+**G** - 按 GFX 使用率对 fdinfo 排序
+**R** - 反转排序顺序
+**q** - 退出程序
 
 # CAVEATS
 
-Reading performance counters (GRBM, GRBM2) may prevent the GPU from entering power-saving states on some APUs. Use **--no-pc** to disable performance counter reading if this is a concern. Requires the AMDGPU kernel driver and appropriate permissions to access GPU sysfs entries.
+在某些 APU 上，读取性能计数器（GRBM、GRBM2）可能阻止 GPU 进入节能状态。如果存在此问题，可使用 **--no-pc** 禁用性能计数器读取。需要 AMDGPU 内核驱动以及访问 GPU sysfs 条目的相应权限。
 
 # HISTORY
 
-**amdgpu_top** was created by Umio-Yasuno as a modern alternative to radeontop, written in **Rust**. It provides features that radeontop lacks, such as temperature monitoring, GPU metrics, and a graphical interface. The project is actively maintained and available on GitHub.
+**amdgpu_top** 由 Umio-Yasuno 创建，使用 **Rust** 编写，是 radeontop 的现代替代品。它提供了 radeontop 所缺少的功能，如温度监控、GPU 指标和图形界面。该项目在 GitHub 上持续活跃维护。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Reboot a connected Android device
+重启已连接的 Android 设备
 
 # TLDR
 
-**Reboot** the device normally
+正常**重启**设备
 
 ```adb reboot```
 
-Reboot into **bootloader/fastboot** mode
+重启进入 **bootloader/fastboot** 模式
 
 ```adb reboot bootloader```
 
-Reboot into **recovery** mode
+重启进入 **recovery** 模式
 
 ```adb reboot recovery```
 
-Reboot into **sideload** mode
+重启进入 **sideload** 模式
 
 ```adb reboot sideload```
 
-Reboot into sideload mode and **automatically reboot** when done
+重启进入 sideload 模式并在完成后**自动重启**
 
 ```adb reboot sideload-auto-reboot```
 
@@ -30,29 +30,29 @@ Reboot into sideload mode and **automatically reboot** when done
 
 # DESCRIPTION
 
-**adb reboot** restarts the connected Android device. Without arguments, it performs a normal reboot. With mode arguments, it can reboot into special modes like bootloader (fastboot), recovery, or sideload for flashing firmware or installing updates.
+**adb reboot** 重启已连接的 Android 设备。不带参数时执行常规重启。带模式参数时可重启进入特殊模式，如 bootloader（fastboot）、recovery 或 sideload，用于刷写固件或安装更新。
 
 # PARAMETERS
 
 **bootloader**
-> Reboot into bootloader/fastboot mode for low-level flashing
+> 重启进入 bootloader/fastboot 模式，用于底层刷机
 
 **recovery**
-> Reboot into recovery mode for system recovery or updates
+> 重启进入 recovery 模式，用于系统恢复或更新
 
 **sideload**
-> Reboot into sideload mode for ADB sideloading
+> 重启进入 sideload 模式，用于 ADB 侧载
 
 **sideload-auto-reboot**
-> Reboot into sideload mode and automatically reboot after sideload completes
+> 重启进入 sideload 模式，并在侧载完成后自动重启
 
 # CAVEATS
 
-Bootloader and recovery modes may require unlocked bootloader or specific device states. Some devices use vendor-specific boot modes. Rebooting to bootloader terminates the adb connection; use **fastboot** commands afterward.
+Bootloader 和 recovery 模式可能要求已解锁的引导加载程序或特定的设备状态。某些设备使用厂商专有的启动模式。重启到 bootloader 会终止 adb 连接；之后请改用 **fastboot** 命令。
 
 # HISTORY
 
-**adb reboot** has been available since the initial Android SDK release in **2008**. Boot mode options were added to facilitate ROM development and device recovery operations.
+**adb reboot** 自 **2008** 年 Android SDK 首次发布起即可用。启动模式选项是为方便 ROM 开发和设备恢复操作而加入的。
 
 # INSTALL
 

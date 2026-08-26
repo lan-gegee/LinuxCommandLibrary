@@ -1,30 +1,30 @@
 # TAGLINE
 
-Java-based build automation tool
+基于 Java 的构建自动化工具
 
 # TLDR
 
-**Run** default target
+**运行**默认目标
 
 ```ant```
 
-Run **specific target**
+运行**指定目标**
 
 ```ant [build]```
 
-Run with **build file**
+使用**构建文件**运行
 
 ```ant -f [build.xml] [target]```
 
-Run with **property**
+携带**属性**运行
 
 ```ant -Dproperty=[value] [target]```
 
-**List** available targets
+**列出**可用目标
 
 ```ant -p```
 
-Run **quietly**
+**安静**运行
 
 ```ant -q [target]```
 
@@ -34,73 +34,73 @@ Run **quietly**
 
 # DESCRIPTION
 
-**ant** (Another Neat Tool) is a Java-based build tool using XML configuration files. It automates software build processes including compiling, testing, packaging, and deploying Java applications.
+**ant**（Another Neat Tool）是一款基于 Java、使用 XML 配置文件的构建工具。它自动化软件构建流程，包括编译、测试、打包和部署 Java 应用。
 
-Build files (typically build.xml) define targets containing tasks. Ant executes tasks in dependency order, similar to make but using XML syntax and platform-independent operation.
+构建文件（通常是 build.xml）定义包含任务的 target。Ant 按依赖顺序执行任务，类似 make，但采用 XML 语法并可跨平台运行。
 
 # PARAMETERS
 
 **-f** _file_, **-buildfile** _file_
-> Build file (default: build.xml)
+> 构建文件（默认：build.xml）
 
 **-D** _prop=val_
-> Set property value
+> 设置属性值
 
 **-p**, **-projecthelp**
-> List available targets
+> 列出可用目标
 
 **-q**, **-quiet**
-> Minimal output
+> 最少输出
 
 **-v**, **-verbose**
-> Verbose output
+> 详细输出
 
 **-d**, **-debug**
-> Debug output
+> 调试输出
 
 **-e**, **-emacs**
-> Output without adornment
+> 无装饰的输出
 
 **-S**, **-silent**
-> Print nothing but task outputs and build failures
+> 只打印任务输出和构建失败信息
 
 **-k**, **-keep-going**
-> Execute all targets that do not depend on failed targets
+> 继续执行所有不依赖失败目标的目标
 
 **-lib** _path_
-> Specify a path to search for jars and classes
+> 指定搜索 jar 包和类的路径
 
 **-l** _file_, **-logfile** _file_
-> Write log output to the given file
+> 将日志输出写入给定文件
 
 **-logger** _classname_
-> Class that performs logging
+> 执行日志记录的类
 
 **-propertyfile** _name_
-> Load all properties from file (-D properties take precedence)
+> 从文件加载所有属性（-D 属性优先级更高）
 
 **-noinput**
-> Do not allow interactive input
+> 不允许交互式输入
 
 **-s** _file_, **-find** _file_
-> Search for the buildfile towards the root of the filesystem and use it
+> 向文件系统根目录方向搜索构建文件并使用它
 
 **-nice** _number_
-> Niceness for the main thread: 1 (lowest) to 10 (highest), default 5
+> 主线程的 nice 值：1（最低）到 10（最高），默认 5
 
 **-diagnostics**
-> Print information helpful for diagnosing problems and exit
+> 打印有助于诊断问题的信息后退出
 
 **-version**
-> Show version
+> 显示版本
 
 # CAVEATS
 
-Requires Java Runtime Environment. XML build files can become verbose for complex projects. Largely superseded by Maven and Gradle for modern Java projects.
+需要 Java 运行环境。对于复杂项目，XML 构建文件可能变得冗长。在现代 Java 项目中已基本被 Maven 和 Gradle 取代。
 
 # HISTORY
 
-**Apache Ant** was created by James Duncan Davidson as part of the Tomcat project, with the first standalone release in **2000**. It was the dominant Java build tool until Maven gained popularity in the mid-2000s.
+**Apache Ant** 由 James Duncan Davidson 作为 Tomcat 项目的一部分创建，首个独立版本于 **2000 年**发布。在 Maven 于 2000 年代中期流行起来之前，它一直是主流的 Java 构建工具。
 
 # INSTALL
 

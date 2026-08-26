@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate encryption key pairs for age
+为 age 生成加密密钥对
 
 # TLDR
 
-**Generate** a new key pair (printed to stdout)
+**生成**新的密钥对（打印到标准输出）
 
 ```age-keygen```
 
-**Save** key to a file
+**保存**密钥到文件
 
 ```age-keygen -o [key.txt]```
 
-**Extract public key** from an existing identity file
+从现有身份文件**提取公钥**
 
 ```age-keygen -y [key.txt]```
 
-**Extract public key** from an SSH ed25519 key
+从 SSH ed25519 密钥**提取公钥**
 
 ```age-keygen -y [~/.ssh/id_ed25519]```
 
-**Generate** a hybrid post-quantum key pair (age v1.3.0+)
+**生成**混合后量子密钥对（age v1.3.0+）
 
 ```age-keygen -pq -o [key.txt]```
 
@@ -33,16 +33,16 @@ Generate encryption key pairs for age
 # PARAMETERS
 
 **-o** _file_
-> Write key to file instead of stdout. Will not overwrite if file exists.
+> 把密钥写入文件而不是标准输出。文件已存在时不会覆盖。
 
 **-y** [_file_]
-> Read an identity file (or stdin) and output the corresponding public key (recipient). Works with age private keys and ed25519 SSH keys.
+> 读取身份文件（或标准输入）并输出对应的公钥（recipient）。支持 age 私钥和 ed25519 SSH 密钥。
 
 **-pq**
-> Generate hybrid post-quantum keys using ML-KEM-768 + X25519 (age v1.3.0+).
+> 使用 ML-KEM-768 + X25519 生成混合后量子密钥（age v1.3.0+）。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # OUTPUT FORMAT
 
@@ -52,21 +52,21 @@ Generate encryption key pairs for age
 AGE-SECRET-KEY-1...
 ```
 
-Post-quantum keys use prefixes **age1pq1...** (public) and **AGE-SECRET-KEY-PQ-1...** (private).
+后量子密钥使用前缀 **age1pq1...**（公钥）和 **AGE-SECRET-KEY-PQ-1...**（私钥）。
 
 # DESCRIPTION
 
-**age-keygen** generates X25519 key pairs for use with the age encryption tool. The private key (identity) is printed to stdout or written to a file, while the public key is included as a comment in the output.
+**age-keygen** 生成供 age 加密工具使用的 X25519 密钥对。私钥（身份）会被打印到标准输出或写入文件，而公钥则以注释的形式包含在输出中。
 
-The generated keys are simple text strings: public keys start with "age1" and private keys start with "AGE-SECRET-KEY-1". The **-y** flag extracts the public key from an existing identity, useful for sharing your recipient without exposing the private key.
+生成的密钥就是简单的文本字符串：公钥以 “age1” 开头，私钥以 “AGE-SECRET-KEY-1” 开头。**-y** 标志可以从现有身份中提取公钥，方便你在不暴露私钥的情况下分享自己的 recipient 信息。
 
 # CAVEATS
 
-Keep the private key secret; anyone with it can decrypt files meant for you. There is no key revocation mechanism. Back up your keys securely. The **-o** flag will not overwrite existing files. Post-quantum recipients are approximately 2000 characters long.
+务必保管好私钥；任何拿到它的人都能解密本属于你的文件。age 没有密钥吊销机制。请安全地备份你的密钥。**-o** 标志不会覆盖已存在的文件。后量子 recipient 的长度约为 2000 个字符。
 
 # HISTORY
 
-**age-keygen** was released alongside age in **2019** by **Filippo Valsorda**. It provides a minimal key generation tool that follows the same design philosophy as age itself: simple, secure, and with no unnecessary options. Version **1.3.0** added hybrid post-quantum key generation with the **-pq** flag.
+**age-keygen** 由 **Filippo Valsorda** 于 **2019** 年与 age 一同发布。它提供了一个极简的密钥生成工具，延续 age 本身的设计哲学：简单、安全、没有多余的选项。版本 **1.3.0** 通过 **-pq** 标志加入了混合后量子密钥生成能力。
 
 # INSTALL
 

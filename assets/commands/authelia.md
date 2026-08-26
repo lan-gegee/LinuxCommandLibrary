@@ -1,38 +1,38 @@
 # TAGLINE
 
-Authentication and authorization server with multi-factor support
+支持多因素认证与授权的服务器
 
 # TLDR
 
-**Validate configuration file**
+**校验配置文件**
 
 ```authelia validate-config --config [config.yml]```
 
-**Generate password hash**
+**生成密码哈希**
 
 ```authelia crypto hash generate argon2```
 
-**Generate random secret**
+**生成随机密钥**
 
 ```authelia crypto rand --length [64]```
 
-**Generate RSA keypair**
+**生成 RSA 密钥对**
 
 ```authelia crypto pair rsa generate```
 
-**Generate TOTP secret**
+**生成 TOTP 密钥**
 
 ```authelia crypto totp generate --issuer [MyApp]```
 
-**Hash a password interactively**
+以交互方式**哈希密码**
 
 ```authelia crypto hash generate argon2 --password```
 
-**Show version**
+**显示版本**
 
 ```authelia --version```
 
-**Run the server**
+**运行服务器**
 
 ```authelia --config [/etc/authelia/config.yml]```
 
@@ -43,87 +43,87 @@ Authentication and authorization server with multi-factor support
 # COMMANDS
 
 **crypto** hash|pair|rand|certificate|totp
-> Cryptographic utilities for generating secrets and hashes.
+> 用于生成密钥和哈希的加密工具集。
 
 **validate-config**
-> Validate configuration file syntax and values.
+> 校验配置文件的语法和取值。
 
 **storage** migrate|schema-info|user|encryption
-> Database storage management and migrations.
+> 数据库存储管理与迁移。
 
 **access-control** check-policy
-> Test access control rules against requests.
+> 针对请求测试访问控制规则。
 
 **build-info**
-> Display build information.
+> 显示构建信息。
 
 # CRYPTO SUBCOMMANDS
 
 **crypto hash generate** argon2|pbkdf2|sha2crypt|bcrypt
-> Generate password hash using specified algorithm.
+> 使用指定算法生成密码哈希。
 
 **crypto pair** rsa|ecdsa|ed25519
-> Generate cryptographic key pairs.
+> 生成加密密钥对。
 
 **crypto rand**
-> Generate random bytes or strings.
+> 生成随机字节或字符串。
 
 **crypto certificate** rsa|ecdsa|ed25519
-> Generate self-signed certificates.
+> 生成自签名证书。
 
 **crypto totp generate**
-> Generate TOTP secret and QR code.
+> 生成 TOTP 密钥和二维码。
 
 # PARAMETERS
 
 **--config**, **-c** _path_
-> Path to configuration file(s).
+> 配置文件的路径。
 
 **--password**
-> Read password interactively.
+> 以交互方式读取密码。
 
 **--length** _n_
-> Length for random generation.
+> 随机生成的长度。
 
 **--issuer** _name_
-> TOTP issuer name.
+> TOTP 签发者名称。
 
 **--algorithm** _algo_
-> Hashing or encryption algorithm.
+> 哈希或加密算法。
 
 **--help**, **-h**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**authelia** is the CLI for Authelia, an open-source authentication and authorization server. It provides multi-factor authentication and single sign-on for applications behind a reverse proxy.
+**authelia** 是 Authelia 的命令行界面。Authelia 是一个开源的身份认证与授权服务器，可为反向代理后面的应用提供多因素认证和单点登录。
 
-The **crypto** commands generate secrets, password hashes, certificates, and TOTP configurations needed for Authelia setup. Use **crypto hash generate argon2** to create password hashes for the user database.
+**crypto** 系列命令用于生成 Authelia 部署所需的密钥、密码哈希、证书和 TOTP 配置。使用 **crypto hash generate argon2** 可为用户数据库创建密码哈希。
 
-Configuration validation with **validate-config** checks YAML syntax and setting values before deployment. This catches common configuration errors.
+通过 **validate-config** 进行的配置校验会在部署前检查 YAML 语法和设置取值，从而捕获常见的配置错误。
 
-The **storage** commands manage the user database, including migrations between versions and encryption key rotation. Authelia stores user credentials, TOTP secrets, and session data.
+**storage** 系列命令管理用户数据库，包括跨版本的迁移和加密密钥轮换。Authelia 存储用户凭据、TOTP 密钥和会话数据。
 
-Authelia integrates with reverse proxies like Nginx, Traefik, and HAProxy to protect web applications with authentication portals and access policies.
+Authelia 可与 Nginx、Traefik、HAProxy 等反向代理集成，通过认证门户和访问策略保护 Web 应用。
 
 # CONFIGURATION
 
 **/etc/authelia/configuration.yml**
-> Main configuration file defining authentication backends, session settings, access control rules, and storage options.
+> 主配置文件，定义认证后端、会话设置、访问控制规则和存储选项。
 
 **/etc/authelia/users_database.yml**
-> File-based user database when using the file authentication backend. Contains usernames, password hashes, and group memberships.
+> 使用文件认证后端时的基于文件的用户数据库，包含用户名、密码哈希和组成员关系。
 
 # CAVEATS
 
-Authelia runs as a service behind a reverse proxy; the CLI is for configuration and utilities. Requires proper reverse proxy configuration for authentication flow. User database and session storage must be configured. Some features require Redis for session storage in HA deployments.
+Authelia 作为服务运行在反向代理之后，CLI 主要用于配置和实用操作。认证流程依赖正确的反向代理配置。用户数据库与会话存储必须先行配置。在高可用部署中，某些功能需要 Redis 作为会话存储。
 
 # HISTORY
 
-Authelia was created by **Clement Michaud** in **2016** as a simple authentication portal. The project evolved to support multiple second-factor methods (TOTP, WebAuthn, Duo) and advanced access control. Version 4 brought major architectural improvements and became widely adopted for self-hosted authentication. The project emphasizes security, privacy, and ease of deployment with container-first design.
+Authelia 由 **Clement Michaud** 于 **2016 年** 创建，最初只是一个简单的认证门户。项目逐步发展出多种第二因素认证方式（TOTP、WebAuthn、Duo）和高级访问控制。第 4 版带来重大架构改进，并在自托管认证领域得到广泛采用。项目强调安全性和隐私，并以容器优先的设计追求易部署性。
 
 # INSTALL
 
