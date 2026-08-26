@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage GitHub Actions workflow runs
+管理 GitHub Actions 工作流运行
 
 # TLDR
 
-**List workflow runs**
+**列出工作流运行**
 
 ```gh run list```
 
-**View run details**
+**查看运行详情**
 
 ```gh run view [run-id]```
 
-**Watch a run**
+**监视一次运行**
 
 ```gh run watch [run-id]```
 
-**Download artifacts**
+**下载产物**
 
 ```gh run download [run-id]```
 
-**Rerun failed jobs**
+**重新运行失败的作业**
 
 ```gh run rerun [run-id] --failed```
 
@@ -31,48 +31,48 @@ Manage GitHub Actions workflow runs
 # PARAMETERS
 
 **list**
-> List recent workflow runs.
+> 列出最近的工作流运行。
 
 **view** _RUN-ID_
-> View run details.
+> 查看运行详情。
 
 **watch** _RUN-ID_
-> Watch run progress live.
+> 实时监视运行进度。
 
 **download** _RUN-ID_
-> Download run artifacts.
+> 下载该运行的产物。
 
 **rerun** _RUN-ID_
-> Rerun a workflow run.
+> 重新运行某次工作流运行。
 
 **cancel** _RUN-ID_
-> Cancel a running workflow.
+> 取消正在运行的工作流。
 
 **--workflow** _NAME_
-> Filter by workflow name.
+> 按工作流名称过滤。
 
 **--branch** _BRANCH_
-> Filter by branch.
+> 按分支过滤。
 
 **--failed**
-> Only rerun failed jobs.
+> 只重新运行失败的作业。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh run** manages GitHub Actions workflow runs from the command line. It provides visibility into CI/CD execution including logs, status, and artifacts without visiting github.com.
+**gh run** 用于在命令行中管理 GitHub Actions 工作流运行。无需访问 github.com 即可掌握 CI/CD 执行情况，包括日志、状态和产物。
 
-The watch command provides live progress updates for running workflows. Download retrieves artifacts produced by workflows, and rerun enables retriggering workflows with options for full or partial reruns.
+watch 命令实时显示正在运行的工作流的进度。download 可获取工作流产出的产物；rerun 可重新触发工作流，并支持完整或部分重跑。
 
 # CAVEATS
 
-Requires Actions enabled on repository. Log access may be limited. Artifacts have retention limits.
+需要仓库启用 Actions。日志访问可能受限。产物有保留期限限制。
 
 # HISTORY
 
-gh run was added to the **GitHub CLI** alongside broader GitHub Actions integration, enabling workflow management from the command line.
+随着更全面的 GitHub Actions 集成，gh run 被加入 **GitHub CLI**，使工作流管理可以在命令行中完成。
 
 # INSTALL
 

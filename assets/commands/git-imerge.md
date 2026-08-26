@@ -1,34 +1,34 @@
 # TAGLINE
 
-Incremental bisect-style merging
+增量式、类似 bisect 的合并
 
 # TLDR
 
-**Start an incremental merge** of a branch
+**开始某个分支的增量合并**
 
 ```git imerge start --name=[merge-name] [branch]```
 
-**Start an incremental rebase** onto current branch
+**开始向当前分支的增量变基**
 
 ```git imerge rebase [branch]```
 
-**Continue resolving** after fixing a conflict
+**修复冲突后继续解决**
 
 ```git imerge continue```
 
-**Show visual merge** progress diagram
+**显示可视化的合并**进度图
 
 ```git imerge diagram```
 
-**Finish the merge** when all conflicts are resolved
+**所有冲突解决后完成合并**
 
 ```git imerge finish```
 
-**List all in-progress** incremental merges
+**列出所有进行中的**增量合并
 
 ```git imerge list```
 
-**Abort and remove** the incremental merge
+**中止并移除**增量合并
 
 ```git imerge remove```
 
@@ -39,75 +39,75 @@ Incremental bisect-style merging
 # PARAMETERS
 
 **start**
-> Begin incremental merge.
+> 开始增量合并。
 
 **merge**
-> Start an incremental merge (shorthand for start --goal merge).
+> 开始增量合并（start --goal merge 的简写）。
 
 **rebase**
-> Start an incremental rebase (shorthand for start --goal rebase).
+> 开始增量变基（start --goal rebase 的简写）。
 
 **continue**
-> Continue resolving conflicts.
+> 继续解决冲突。
 
 **finish**
-> Complete the incremental merge.
+> 完成增量合并。
 
 **remove**
-> Abort and remove incremental merge state.
+> 中止并移除增量合并状态。
 
 **diagram**
-> Show visual merge status grid.
+> 显示可视化的合并状态网格。
 
 **list**
-> List all in-progress incremental merges.
+> 列出所有进行中的增量合并。
 
 **autofill**
-> Attempt to fill in all merge blocks automatically.
+> 尝试自动填充所有合并块。
 
 **simplify**
-> Simplify the merge history after finishing.
+> 在完成后简化合并历史。
 
 **init**
-> Initialize an imerge from existing merge state.
+> 从现有合并状态初始化一个 imerge。
 
 **record**
-> Record the result of a merge done manually.
+> 记录手动完成的合并的结果。
 
 **drop**
-> Drop a commit from the merge.
+> 从合并中丢弃一个提交。
 
 **revert**
-> Revert a commit in the merge.
+> 在合并中还原一个提交。
 
 **--name** _NAME_
-> Name for the incremental merge.
+> 增量合并的名称。
 
 **--goal** _GOAL_
-> Merge goal: merge, rebase, rebase-with-history, border, border-with-history.
+> 合并目标：merge、rebase、rebase-with-history、border、border-with-history。
 
 **--first-parent**
-> Handle first-parent history only.
+> 只处理 first-parent 历史。
 
 **--force**
-> Force start even if one is already in progress.
+> 即使已有进行中的合并也强制开始。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git imerge** performs incremental, bisect-style merges. Instead of one large merge with many conflicts, it merges commits one at a time, making conflict resolution more manageable and helping identify exactly which commits cause conflicts.
+**git imerge** 执行增量式的、类似 bisect 的合并。它不是一次性进行包含大量冲突的大合并，而是逐个提交地合并，使冲突解决更易于管理，并帮助精确定位是哪些提交引发了冲突。
 
-The tool tracks merge progress visually via the diagram command and allows conflicts to be resolved independently. This approach is particularly valuable for difficult merges between long-diverged branches.
+该工具通过 diagram 命令以可视化方式跟踪合并进度，并允许独立解决各个冲突。这种方式对于长期分叉的分支之间难以处理的合并尤其有价值。
 
 # CAVEATS
 
-Separate installation required. More complex than simple merge. Best for difficult merges.
+需要单独安装。比简单合并更复杂。最适合用于困难的合并场景。
 
 # HISTORY
 
-git imerge was created by **Michael Haggerty** to address the pain of large, conflict-heavy merges by breaking them into smaller pieces.
+git imerge 由 **Michael Haggerty** 创建，通过把庞大且冲突繁多的合并拆分为更小的片段来化解其痛点。
 
 # INSTALL
 

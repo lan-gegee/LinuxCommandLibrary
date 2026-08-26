@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage GitLab issues from the command line
+在命令行中管理 GitLab 议题
 
 # TLDR
 
-**List issues**
+**列出议题**
 
 ```glab issue list```
 
-**Create issue**
+创建议题
 
 ```glab issue create```
 
-**View issue**
+查看议题
 
 ```glab issue view [number]```
 
-**Close issue**
+关闭议题
 
 ```glab issue close [number]```
 
-**Reopen issue**
+重新打开议题
 
 ```glab issue reopen [number]```
 
-**Create with title**
+带标题创建
 
 ```glab issue create -t "[title]" -d "[description]"```
 
@@ -35,64 +35,64 @@ Manage GitLab issues from the command line
 # SUBCOMMANDS
 
 **list**
-> List issues.
+> 列出议题。
 
 **create**
-> Create an issue.
+> 创建议题。
 
 **view**
-> View an issue.
+> 查看议题。
 
 **update**
-> Update an issue (title, description, labels, etc.).
+> 更新议题（标题、描述、标签等）。
 
 **close**
-> Close an issue.
+> 关闭议题。
 
 **reopen**
-> Reopen an issue.
+> 重新打开议题。
 
 **note**
-> Add a comment/note to an issue.
+> 向议题添加评论/备注。
 
 **subscribe**
-> Subscribe to an issue.
+> 订阅议题。
 
 **unsubscribe**
-> Unsubscribe from an issue.
+> 取消订阅议题。
 
 **board**
-> View or manage issue boards.
+> 查看或管理议题看板。
 
 **delete**
-> Delete an issue.
+> 删除议题。
 
 # PARAMETERS
 
 **-t**, **--title** _title_
-> Issue title.
+> 议题标题。
 
 **-d**, **--description** _text_
-> Issue description.
+> 议题描述。
 
 **-l**, **--label** _labels_
-> Add labels (comma-separated).
+> 添加标签（逗号分隔）。
 
 **-a**, **--assignee** _users_
-> Assign users (comma-separated usernames).
+> 分配用户（逗号分隔的用户名）。
 
 **-m**, **--milestone** _name_
-> Assign milestone.
+> 分配里程碑。
 
 **-c**, **--confidential**
-> Create as a confidential issue.
+> 创建为机密议题。
 
 **-w**, **--web**
-> Open in browser.
+> 在浏览器中打开。
 
 # DESCRIPTION
 
-**glab issue** manages GitLab issues from the command line. It provides subcommands for creating, viewing, listing, closing, and commenting on issues without leaving the terminal.
+**glab issue** 在命令行中管理 GitLab 议题。它提供创建、查看、列出、关闭和评论议题等子命令，无需离开终端。
 
 # INSTALL
 

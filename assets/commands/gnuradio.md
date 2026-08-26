@@ -1,30 +1,30 @@
 # TAGLINE
 
-software-defined radio signal processing toolkit
+软件无线电信号处理工具集
 
 # TLDR
 
-**Start GNU Radio Companion**
+**启动 GNU Radio Companion**
 
 ```gnuradio-companion```
 
-**Run flowgraph**
+**运行流图**
 
 ```python3 [flowgraph.py]```
 
-**Check version**
+**检查版本**
 
 ```gnuradio-config-info --version```
 
-**Compile a flowgraph** without launching the GUI
+不启动图形界面直接**编译流图**
 
 ```gnuradio-companion -c [flowgraph.grc]```
 
-**Compile a flowgraph** to a specific output directory
+**将流图编译**到指定的输出目录
 
 ```gnuradio-companion -c -d [output_dir] [flowgraph.grc]```
 
-**Create OOT module**
+**创建 OOT 模块**
 
 ```gr_modtool newmod [mymodule]```
 
@@ -35,25 +35,25 @@ software-defined radio signal processing toolkit
 # PARAMETERS
 
 _file.grc_
-> GNU Radio Companion flowgraph file.
+> GNU Radio Companion 流图文件。
 
 **-c**, **--compile**
-> Only compile the GRC file to Python without launching the GUI.
+> 只把 GRC 文件编译为 Python，不启动图形界面。
 
 **-d**, **--output-dir** _DIR_
-> Output path for the generated Python file.
+> 生成的 Python 文件的输出路径。
 
 **-v**, **--version**
-> Show program version number and exit.
+> 显示程序版本号并退出。
 
 **-h**, **--help**
-> Show help message and exit.
+> 显示帮助消息并退出。
 
 # DESCRIPTION
 
-**GNU Radio** is a free software toolkit for signal processing. It provides blocks for building software-defined radios (SDRs) and signal processing systems.
+**GNU Radio** 是一个自由软件信号处理工具集。它提供各种处理块，用于构建软件无线电（SDR）和信号处理系统。
 
-GNU Radio Companion (GRC) is the graphical flowgraph editor. Flowgraphs connect processing blocks to create radio receivers, transmitters, and signal analyzers. Flowgraphs compile to Python code.
+GNU Radio Companion（GRC）是图形化的流图编辑器。流图将处理块连接起来，构建无线电接收机、发射机和信号分析仪。流图会编译为 Python 代码。
 
 # COMPONENTS
 
@@ -66,23 +66,23 @@ uhd_fft                Spectrum analyzer (for USRP)
 
 # COMMON BLOCKS
 
-- **Signal Sources**: Noise, oscillators, file sources
-- **Filters**: Low/high/band pass, FFT
-- **Modulation**: AM, FM, PSK, QAM
-- **Hardware**: RTL-SDR, USRP, HackRF
+- **Signal Sources（信号源）**：噪声、振荡器、文件源
+- **Filters（滤波器）**：低通/高通/带通、FFT
+- **Modulation（调制）**：AM、FM、PSK、QAM
+- **Hardware（硬件）**：RTL-SDR、USRP、HackRF
 
 # CONFIGURATION
 
 **~/.gnuradio/config.conf**
-> User configuration file for GNU Radio preferences and block paths.
+> 用户配置文件，保存 GNU Radio 偏好设置和处理块路径。
 
 # CAVEATS
 
-Requires compatible SDR hardware for RF work. Complex signal processing needs understanding of DSP. High sample rates need fast CPU. Python knowledge helpful.
+射频工作需要兼容的 SDR 硬件。复杂的信号处理需要 DSP 知识。高采样率需要较快的 CPU。懂 Python 会有帮助。
 
 # HISTORY
 
-GNU Radio was started by **Eric Blossom** in **2001**. It became the leading open-source SDR framework, used in academia, amateur radio, and commercial applications. The project is now community-maintained.
+GNU Radio 由 **Eric Blossom** 于 **2001** 年启动。它已成长为领先的开源 SDR 框架，广泛应用于学术界、业余无线电和商业领域。该项目现由社区维护。
 
 # INSTALL
 

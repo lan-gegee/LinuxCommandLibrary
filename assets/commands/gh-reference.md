@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display a markdown reference of all GitHub CLI commands
+显示所有 GitHub CLI 命令的 Markdown 参考
 
 # TLDR
 
-**Display the full command reference**
+**显示完整的命令参考**
 
 ```gh reference```
 
-**Pipe the reference to a pager** for easier reading
+**将参考内容管道传给分页器**以便阅读
 
 ```gh reference | less```
 
@@ -18,17 +18,17 @@ Display a markdown reference of all GitHub CLI commands
 
 # DESCRIPTION
 
-**gh reference** outputs a comprehensive markdown-formatted reference of all GitHub CLI commands. It provides a complete listing of every command, subcommand, and their flags in a single document.
+**gh reference** 输出一份涵盖所有 GitHub CLI 命令的完整 Markdown 格式参考。它在单个文档中完整列出每一条命令、子命令及其标志。
 
-The reference is useful for discovering available commands and getting an overview of gh's capabilities. Unlike individual help pages (`gh <command> --help`), it shows all commands together for easier exploration.
+这份参考有助于发现可用命令，并概览 gh 的整体能力。与逐个查看帮助页面（`gh <command> --help`）不同，它将所有命令集中在一起，更便于探索。
 
 # CAVEATS
 
-Output is lengthy; consider piping to a pager such as `less`. The locally generated reference reflects the installed version of gh.
+输出内容较长；建议通过管道传给 `less` 等分页器查看。本地生成的参考对应已安装的 gh 版本。
 
 # HISTORY
 
-gh reference was added to the **GitHub CLI** to provide a comprehensive command reference, complementing the per-command help system.
+gh reference 被加入 **GitHub CLI**，用于提供全面的命令参考，补充逐命令的帮助系统。
 
 # INSTALL
 

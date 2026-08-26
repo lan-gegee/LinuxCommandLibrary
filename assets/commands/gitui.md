@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast terminal UI for Git written in Rust
+用 Rust 编写的高速 Git 终端界面
 
 # TLDR
 
-**Start GitUI**
+**启动 GitUI**
 
 ```gitui```
 
-**Start in specific directory**
+在指定目录中启动
 
 ```gitui -d [path]```
 
-**Use custom theme**
+使用自定义主题
 
 ```gitui --theme [theme.ron]```
 
-**Use a file-system watcher** instead of polling
+使用文件系统监视器而非轮询
 
 ```gitui --watcher```
 
-**Generate a bug report**
+生成错误报告
 
 ```gitui --bugreport```
 
@@ -31,62 +31,62 @@ Fast terminal UI for Git written in Rust
 # PARAMETERS
 
 **-d** _PATH_, **--directory** _PATH_
-> Set the git directory (defaults to `.` or `$GIT_DIR`).
+> 设置 git 目录（默认为 `.` 或 `$GIT_DIR`）。
 
 **-w** _PATH_, **--workdir** _PATH_
-> Set the working directory (defaults to the current directory or `$GIT_WORK_TREE`).
+> 设置工作目录（默认为当前目录或 `$GIT_WORK_TREE`）。
 
 **-t** _FILE_, **--theme** _FILE_
-> Set the color theme filename, loaded from the config directory (default: `theme.ron`).
+> 设置颜色主题文件名，从配置目录加载（默认：`theme.ron`）。
 
 **-f** _FILE_, **--file** _FILE_
-> Select a file in the file tab on startup.
+> 启动时在文件标签页中选中某个文件。
 
 **-k** _FILE_, **--key-bindings** _FILE_
-> Use a custom keybindings file.
+> 使用自定义按键绑定文件。
 
 **-s** _FILE_, **--key-symbols** _FILE_
-> Use a custom symbols file.
+> 使用自定义符号文件。
 
 **-l**, **--logging**
-> Store logging output into a file in the cache directory.
+> 将日志输出保存到缓存目录下的文件中。
 
 **--logfile** _FILE_
-> Store logging output into the specified file (implies **--logging**).
+> 将日志输出保存到指定文件（隐含 **--logging**）。
 
 **--watcher**
-> Use a notify-based file system watcher instead of the default tick-based polling.
+> 使用基于 notify 的文件系统监视器，替代默认的基于 tick 的轮询。
 
 **--bugreport**
-> Generate a bug report.
+> 生成错误报告。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gitui** is a fast terminal UI for Git. It provides a keyboard-driven interface for staging, committing, branching, and viewing diffs, all within the terminal.
+**gitui** 是一个高速的 Git 终端界面。它提供键盘驱动的操作方式，可在终端内完成暂存、提交、分支管理和查看 diff。
 
-Written in Rust, **gitui** is lightweight and responsive. It displays status, log, diff, and staging information in a split-pane interface with vim-like key bindings.
+**gitui** 用 Rust 编写，轻量且响应迅速。它在分栏界面中显示状态、日志、diff 和暂存信息，并采用类 vim 的按键绑定。
 
 # CONFIGURATION
 
 **~/.config/gitui/theme.ron**
-> Theme configuration file in RON format for customizing colors and appearance.
+> RON 格式的主题配置文件，用于自定义颜色和外观。
 
 **~/.config/gitui/key_bindings.ron**
-> Key binding customization file.
+> 按键绑定自定义文件。
 
 # CAVEATS
 
-Terminal UI needs appropriate terminal. Some features limited compared to full GUI. Themes require RON format. By default, gitui polls the working directory for changes every few seconds; pass **--watcher** for faster, notify-based change detection on platforms where it works reliably.
+终端界面需要合适的终端支持。与完整 GUI 相比部分功能受限。主题须采用 RON 格式。默认情况下，gitui 每隔几秒轮询一次工作目录的变化；在 notify 可靠可用的平台上，传入 **--watcher** 可以获得更快的变更检测。
 
 # HISTORY
 
-gitui was created by **Stephan Dilly** as a fast, keyboard-centric terminal UI for git written in Rust.
+gitui 由 **Stephan Dilly** 创建，是一个用 Rust 编写的高速、以键盘为中心的 git 终端界面。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Python toolkit for manipulating font files
+用于操作字体文件的 Python 工具集
 
 # TLDR
 
-Show top-level **fonttools** help and subcommands
+显示 **fonttools** 的顶层帮助和子命令
 
 ```fonttools --help```
 
-Subset a TTF to the **Basic Latin** Unicode range
+将 TTF 子集化为 **Basic Latin** Unicode 范围
 
 ```fonttools subset [path/to/font.ttf] --unicodes=U+0000-007F```
 
@@ -19,41 +19,41 @@ Subset a TTF to the **Basic Latin** Unicode range
 # PARAMETERS
 
 **subset**
-> Subset font files to include only specific glyphs or Unicode ranges
+> 将字体文件子集化，只包含特定字形或 Unicode 范围
 
 **ttx**
-> Convert font binaries to/from XML format
+> 在字体二进制与 XML 格式之间转换
 
 **merge**
-> Merge multiple font files into one
+> 将多个字体文件合并为一个
 
 **help**
-> Display help for fonttools or a specific subcommand
+> 显示 fonttools 或某个子命令的帮助
 
 **--unicodes=**_RANGE_
-> Specify Unicode ranges to include (e.g., U+0000-007F)
+> 指定要包含的 Unicode 范围（如 U+0000-007F）
 
 **--output-file=**_FILE_
-> Specify output file path
+> 指定输出文件路径
 
 **--help**
-> Display help message
+> 显示帮助信息
 
 # DESCRIPTION
 
-**fonttools** is a Python library and command-line toolkit for manipulating font files. It provides tools for converting, subsetting, merging, and inspecting TrueType (TTF), OpenType (OTF), and other font formats.
+**fonttools** 是一个用于操作字体文件的 Python 库与命令行工具集。它提供转换、子集化、合并和检查 TrueType（TTF）、OpenType（OTF）及其他字体格式的工具。
 
-The most common use cases include subsetting fonts for web optimization (reducing file size by including only needed glyphs), converting between binary and XML representations for inspection or editing, and merging font families.
+最常见的用例包括：为 Web 优化而将字体子集化（只包含所需字形以减小文件体积）、在二进制与 XML 表示之间转换以便检查或编辑，以及合并字族。
 
-Requires Python 3.10 or later. Install via pip with **pip install fonttools**.
+需要 Python 3.10 或更高版本。可通过 pip 安装：**pip install fonttools**。
 
 # CAVEATS
 
-Some features require optional dependencies like **brotli** for WOFF2 compression or **zopfli** for optimized WOFF compression. Complex font operations may require deep understanding of font table structures.
+部分功能需要可选依赖，例如 WOFF2 压缩所需的 **brotli**，或优化 WOFF 压缩所需的 **zopfli**。复杂的字体操作可能需要对字体表结构有深入理解。
 
 # HISTORY
 
-fonttools originated in the late 1990s, created by Just van Rossum. It became one of the earliest tools for programmatic font manipulation in Python. The project has evolved significantly and is now maintained by the open-source community on GitHub, becoming a foundational tool in the font development ecosystem.
+fonttools 起源于 1990 年代末，由 Just van Rossum 创建。它是最早一批用 Python 以编程方式操作字体的工具之一。该项目已大幅演进，目前由开源社区在 GitHub 上维护，已成为字体开发生态中的基础工具。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-official Go implementation of Ethereum protocol
+以太坊协议的官方 Go 实现
 
 # TLDR
 
-**Start Ethereum node**
+**启动以太坊节点**
 
 ```geth```
 
-**Sync mainnet**
+**同步主网**
 
 ```geth --syncmode [snap]```
 
-**Start with console**
+**附带控制台启动**
 
 ```geth console```
 
-**Attach to running** node
+**连接到运行中的**节点
 
 ```geth attach```
 
-**Create new account**
+**创建新账户**
 
 ```geth account new```
 
@@ -31,62 +31,62 @@ official Go implementation of Ethereum protocol
 # PARAMETERS
 
 _COMMAND_
-> Subcommand: console, attach, account, etc.
+> 子命令：console、attach、account 等。
 
 **--syncmode** _MODE_
-> Sync mode: full, snap (light mode is deprecated post-Merge).
+> 同步模式：full、snap（light 模式在 The Merge 之后已弃用）。
 
 **--datadir** _PATH_
-> Data directory.
+> 数据目录。
 
 **--http**
-> Enable HTTP RPC.
+> 启用 HTTP RPC。
 
 **--ws**
-> Enable WebSocket RPC.
+> 启用 WebSocket RPC。
 
 **console**
-> Interactive JavaScript console.
+> 交互式 JavaScript 控制台。
 
 **attach**
-> Attach to running node.
+> 连接到运行中的节点。
 
 **account** _CMD_
-> Account management.
+> 账户管理。
 
 **--port** _PORT_
-> Network listening port (default: 30303).
+> 网络监听端口（默认：30303）。
 
 **--maxpeers** _N_
-> Maximum number of network peers.
+> 最大网络对等节点数量。
 
 **--networkid** _ID_
-> Network identifier (1=mainnet, 5=goerli).
+> 网络标识符（1=主网，5=goerli）。
 
 **--goerli**
-> Connect to Goerli test network.
+> 连接 Goerli 测试网络。
 
 **--sepolia**
-> Connect to Sepolia test network.
+> 连接 Sepolia 测试网络。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**geth** (go-ethereum) is the official Go implementation of the Ethereum protocol. It runs a full Ethereum node, enabling blockchain synchronization, transaction validation, mining operations, and smart contract deployment.
+**geth**（go-ethereum）是以太坊协议的官方 Go 实现。它运行完整的以太坊节点，支持区块链同步、交易验证、挖矿操作和智能合约部署。
 
-The client provides multiple sync modes: "snap" for fast syncing with state snapshots and "full" for complete blockchain validation. Light sync mode is deprecated and non-functional since the Merge to proof-of-stake. It exposes JSON-RPC APIs over HTTP, WebSocket, and IPC for application integration.
+该客户端提供多种同步模式："snap" 借助状态快照快速同步，"full" 进行完整的区块链验证。light 同步模式自转向权益证明（The Merge）以来已被弃用且无法使用。它通过 HTTP、WebSocket 和 IPC 暴露 JSON-RPC API，便于应用程序集成。
 
-geth includes an interactive JavaScript console for direct blockchain interaction, account management for creating and managing Ethereum wallets, and support for both mainnet and test networks. It's the most widely used Ethereum client for running production nodes and development environments.
+geth 包含用于直接与区块链交互的交互式 JavaScript 控制台、用于创建和管理以太坊钱包的账户管理功能，并支持主网和测试网络。它是运行生产节点和开发环境时使用最广泛的以太坊客户端。
 
 # CAVEATS
 
-Full sync requires significant disk space. Resource intensive. Mainnet sync takes time.
+完整同步需要大量磁盘空间。资源占用高。主网同步耗时较长。
 
 # HISTORY
 
-geth is developed by the **Ethereum Foundation** as the official Go implementation. It was one of the original Ethereum clients and remains the most popular for running nodes.
+geth 由 **Ethereum Foundation** 开发，是其官方 Go 实现。它是最早的以太坊客户端之一，至今仍是运行节点时最受欢迎的选择。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Scripts triggered at Git workflow points
+在 Git 工作流的关键节点触发的脚本
 
 # TLDR
 
-**Create pre-commit hook**
+**创建 pre-commit 钩子**
 
 ```echo '#!/bin/sh' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit```
 
-**List available hooks**
+**列出可用的钩子**
 
 ```ls .git/hooks/*.sample```
 
-**Enable sample hook**
+**启用示例钩子**
 
 ```mv .git/hooks/pre-commit.sample .git/hooks/pre-commit```
 
 # DESCRIPTION
 
-**Git hooks** are scripts that run automatically at key points in the Git workflow. They enable automation of tasks like linting, testing, and commit message validation.
+**Git 钩子（hooks）**是在 Git 工作流的关键节点自动运行的脚本。它们可以实现代码检查、测试和提交信息校验等任务的自动化。
 
-Hooks are stored in **.git/hooks/** and must be executable. Common hooks include pre-commit (before commit), prepare-commit-msg (edit message), commit-msg (validate message), and pre-push (before push).
+钩子存放在 **.git/hooks/** 中且必须可执行。常见钩子包括 pre-commit（提交之前）、prepare-commit-msg（编辑信息）、commit-msg（校验信息）和 pre-push（推送之前）。
 
-# HOOK TYPES
+# 钩子类型
 
-**Client-side hooks:**
+**客户端钩子：**
 ```
 pre-commit         Run before commit
 prepare-commit-msg Edit commit message template
@@ -36,7 +36,7 @@ post-merge         After merge completes
 pre-push           Before push
 ```
 
-**Server-side hooks:**
+**服务端钩子：**
 ```
 pre-receive        Before accepting push
 update             Per-branch pre-receive
@@ -47,14 +47,14 @@ post-update        After all refs updated
 # CONFIGURATION
 
 **.git/hooks/**
-> Default directory containing hook scripts for the repository. Scripts must be executable.
+> 存放仓库钩子脚本的默认目录。脚本必须可执行。
 
 **core.hooksPath**
-> Git config variable to override the hooks directory (since Git 2.9). Set with `git config core.hooksPath <path>`.
+> 用于覆盖钩子目录的 Git 配置变量（自 Git 2.9 起）。通过 `git config core.hooksPath <path>` 设置。
 
 # CAVEATS
 
-Hooks are not version-controlled in .git/hooks. Use tools like Husky or pre-commit to share hooks. Hooks can be bypassed with --no-verify. Keep hooks fast to avoid workflow friction.
+.git/hooks 中的钩子不受版本控制。可使用 Husky 或 pre-commit 等工具共享钩子。钩子可以通过 --no-verify 绕过。请保持钩子执行迅速，以免拖累工作流。
 
 # INSTALL
 

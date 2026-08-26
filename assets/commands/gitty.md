@@ -1,14 +1,14 @@
 # TAGLINE
 
-Show contextual GitHub/GitLab info for the current repo
+显示当前仓库的 GitHub/GitLab 上下文信息
 
 # TLDR
 
-**Show** issues, PRs, and CI for this repository
+**显示**本仓库的 issue、PR 和 CI 信息
 
 ```gitty```
 
-**Open** in a specific directory
+在指定目录中**打开**
 
 ```gitty -p [path/to/repo]```
 
@@ -18,19 +18,19 @@ Show contextual GitHub/GitLab info for the current repo
 
 # DESCRIPTION
 
-**gitty** prints a concise dashboard of remote project context—open issues, pull requests, and pipeline/CI hints—based on the git remote of the current repository. Built by Christian Muehlhaeuser (muesli); pairs well with **gh** for deeper actions.
+**gitty** 根据当前仓库的 git 远程地址，输出一份简洁的远程项目信息面板——开放的 issue、pull request 以及流水线/CI 提示。由 Christian Muehlhaeuser（muesli）开发；与 **gh** 搭配使用可执行更深入的操作。
 
 # PARAMETERS
 
 **-p**, **--path** *dir*
 
-> Repository path (default: current directory).
+> 仓库路径（默认：当前目录）。
 
-Other flags control provider tokens and output—see **gitty --help**. Uses **GITHUB_TOKEN** / host config when required for API access.
+其他标志控制服务提供方令牌和输出——参见 **gitty --help**。API 访问需要时使用 **GITHUB_TOKEN** / 主机配置。
 
 # CAVEATS
 
-Needs network access and API credentials for private repos. Output depends on remote hosting (GitHub/GitLab support varies by version).
+私有仓库需要网络访问和 API 凭据。输出取决于远程托管平台（对 GitHub/GitLab 的支持程度随版本而异）。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-static type checker for JavaScript
+JavaScript 静态类型检查器
 
 # TLDR
 
-**Type check project**
+对项目进行**类型检查**
 
 ```flow check```
 
-**Start Flow server**
+**启动 Flow 服务器**
 
 ```flow server```
 
-**Check single file**
+**检查单个文件**
 
 ```flow check-contents < [file.js]```
 
-**Initialize Flow config**
+**初始化 Flow 配置**
 
 ```flow init```
 
-**Get type at** position
+**获取位置处的类型**
 
 ```flow type-at-pos [file.js] [10] [5]```
 
@@ -31,49 +31,49 @@ static type checker for JavaScript
 # PARAMETERS
 
 _COMMAND_
-> Operation: check, server, status, init, etc.
+> 操作类型：check、server、status、init 等。
 
 **check**
-> Type check all files.
+> 对所有文件进行类型检查。
 
 **server**
-> Start background server.
+> 启动后台服务器。
 
 **status**
-> Show server status and errors.
+> 显示服务器状态和错误。
 
 **init**
-> Create .flowconfig file.
+> 创建 .flowconfig 文件。
 
 **stop**
-> Stop background server.
+> 停止后台服务器。
 
 **type-at-pos** _FILE_ _LINE_ _COL_
-> Get type at position.
+> 获取指定位置的类型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**flow** is a static type checker for JavaScript from Facebook. It adds gradual typing through type annotations and inference, catching errors before runtime.
+**flow** 是 Facebook 出品的 JavaScript 静态类型检查器。它通过类型注解和类型推断实现渐进式类型化，在运行之前捕获错误。
 
-The tool runs as a background server for fast incremental checking. Type annotations use a superset of JavaScript syntax, stripped at build time.
+该工具以后台服务器方式运行，可实现快速的增量检查。类型注解使用 JavaScript 语法的超集，会在构建阶段剥离。
 
-Flow integrates with editors for real-time type checking and provides detailed error messages with suggested fixes.
+Flow 与编辑器集成以进行实时类型检查，并提供包含修复建议的详细错误信息。
 
 # CONFIGURATION
 
 **.flowconfig**
-> Configuration file controlling which files Flow checks, library definitions, linting rules, and options for type checking behavior.
+> 配置文件，控制 Flow 检查哪些文件、库定义、lint 规则以及类型检查行为的相关选项。
 
 # CAVEATS
 
-Requires .flowconfig file. Not compatible with all JavaScript patterns. Build step needed to strip annotations.
+需要 .flowconfig 文件。并非与所有 JavaScript 编写模式兼容。需要构建步骤来剥离类型注解。
 
 # HISTORY
 
-Flow was created at **Facebook** (now Meta) in 2014 to add type safety to their JavaScript codebase. It competed with TypeScript, offering a different approach to gradual typing.
+Flow 由 **Facebook**（现 Meta）于 2014 年创建，目的是为其 JavaScript 代码库增加类型安全。它与 TypeScript 竞争，提供了一种不同的渐进式类型化方案。
 
 # INSTALL
 

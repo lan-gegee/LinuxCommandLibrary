@@ -1,42 +1,42 @@
 # TAGLINE
 
-Temporarily save uncommitted changes for later
+临时保存未提交的改动以备后用
 
 # TLDR
 
-**Stash changes**
+**贮藏改动**
 
 ```git stash```
 
-**Stash with message**
+**带信息贮藏**
 
 ```git stash push -m "[message]"```
 
-**List stashes**
+**列出贮藏**
 
 ```git stash list```
 
-**Apply latest stash**
+**应用最新的贮藏**
 
 ```git stash apply```
 
-**Pop latest stash**
+**弹出最新的贮藏**
 
 ```git stash pop```
 
-**Apply specific stash**
+**应用指定的贮藏**
 
 ```git stash apply stash@{[n]}```
 
-**Show stash contents**
+**查看贮藏内容**
 
 ```git stash show -p```
 
-**Drop a stash**
+**删除一个贮藏**
 
 ```git stash drop stash@{[n]}```
 
-**Clear all stashes**
+**清空所有贮藏**
 
 ```git stash clear```
 
@@ -47,48 +47,48 @@ Temporarily save uncommitted changes for later
 # SUBCOMMANDS
 
 **push**
-> Stash changes.
+> 贮藏改动。
 
 **list**
-> List stashes.
+> 列出贮藏。
 
 **show**
-> Show stash contents.
+> 查看贮藏内容。
 
 **apply**
-> Apply without removing.
+> 应用但不移除。
 
 **pop**
-> Apply and remove.
+> 应用并移除。
 
 **drop**
-> Remove a stash.
+> 删除某个贮藏。
 
 **clear**
-> Remove all stashes.
+> 删除所有贮藏。
 
 **branch**
-> Create branch from stash.
+> 从贮藏创建分支。
 
 # PARAMETERS
 
 **-m**, **--message** _msg_
-> Stash message.
+> 贮藏说明信息。
 
 **-u**, **--include-untracked**
-> Include untracked files.
+> 包含未跟踪的文件。
 
 **-a**, **--all**
-> Include ignored files.
+> 包含被忽略的文件。
 
 **-p**, **--patch**
-> Interactive stashing.
+> 交互式贮藏。
 
 # DESCRIPTION
 
-**git stash** temporarily shelves uncommitted changes so you can work on something else. It saves both staged and unstaged modifications, then reverts the working directory to match HEAD.
+**git stash** 将未提交的改动暂时搁置，让你可以先去做别的事情。它会同时保存已暂存和未暂存的修改，然后把工作目录还原到与 HEAD 一致的状态。
 
-Use `pop` to restore and remove a stash, or `apply` to restore while keeping it. Stashes are stored as a stack, with the most recent at `stash@{0}`.
+用 `pop` 可以恢复并移除贮藏，或用 `apply` 在恢复的同时保留它。贮藏以栈的形式存放，最近一次位于 `stash@{0}`。
 
 # INSTALL
 

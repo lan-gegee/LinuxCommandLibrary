@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage GitHub releases and distribution assets
+管理 GitHub 发布和分发资源
 
 # TLDR
 
-**List releases**
+**列出发布**
 
 ```gh release list```
 
-**Create a release**
+**创建发布**
 
 ```gh release create [tag]```
 
-**Create with title and notes**
+**创建带标题和说明的发布**
 
 ```gh release create [tag] -t "[title]" -n "[notes]"```
 
-**Create with assets**
+**创建带资源文件的发布**
 
 ```gh release create [tag] [file1] [file2]```
 
-**Create draft release**
+**创建草稿发布**
 
 ```gh release create [tag] --draft```
 
-**Download release assets**
+**下载发布资源文件**
 
 ```gh release download [tag]```
 
-**View a release**
+**查看发布**
 
 ```gh release view [tag]```
 
-**Delete a release**
+**删除发布**
 
 ```gh release delete [tag]```
 
@@ -43,78 +43,78 @@ Manage GitHub releases and distribution assets
 # SUBCOMMANDS
 
 **list**
-> List releases.
+> 列出发布。
 
 **create**
-> Create a release.
+> 创建发布。
 
 **view**
-> View a release.
+> 查看发布。
 
 **download**
-> Download assets.
+> 下载资源文件。
 
 **delete**
-> Delete a release.
+> 删除发布。
 
 **upload**
-> Upload assets.
+> 上传资源文件。
 
 **edit**
-> Edit a release.
+> 编辑发布。
 
 # PARAMETERS
 
 **-t**, **--title** _title_
-> Release title.
+> 发布标题。
 
 **-n**, **--notes** _notes_
-> Release notes.
+> 发布说明。
 
 **-F**, **--notes-file** _file_
-> Read notes from file.
+> 从文件读取发布说明。
 
 **--draft**
-> Create as draft.
+> 以草稿形式创建。
 
 **--prerelease**
-> Mark as prerelease.
+> 标记为预发布。
 
 **--generate-notes**
-> Auto-generate notes from commits and PRs.
+> 根据提交和 PR 自动生成发布说明。
 
 **--target** _branch_
-> Target branch or commit SHA for tag creation.
+> 创建标签时使用的目标分支或提交 SHA。
 
 **--latest**
-> Mark as latest release.
+> 标记为最新发布。
 
 **--verify-tag**
-> Abort release if the given tag does not exist in the remote repository.
+> 若远程仓库中不存在指定标签，则中止发布。
 
 **--notes-start-tag** _tag_
-> Tag to use as the starting point for generating release notes.
+> 用作生成发布说明起点的标签。
 
 **--discussion-category** _name_
-> Start a discussion in the specified category.
+> 在指定分类中发起讨论。
 
 **-R**, **--repo** _OWNER/REPO_
-> Select a different repository.
+> 选择其他仓库。
 
 **-p**, **--pattern** _pattern_
-> Download only assets matching glob pattern.
+> 只下载匹配 glob 模式的资源文件。
 
 **--archive** _format_
-> Download source archive (zip or tar.gz).
+> 下载源码归档（zip 或 tar.gz）。
 
 **--clobber**
-> Overwrite existing assets of the same name (upload).
+> 覆盖同名的现有资源文件（用于上传）。
 
 # DESCRIPTION
 
-**gh release** manages GitHub releases for versioned software distribution. Releases package git tags with release notes and downloadable binary assets, providing an official distribution mechanism.
+**gh release** 管理 GitHub 发布（release），用于软件的版本化分发。发布将 git 标签、发布说明和可下载的二进制资源组合在一起，提供一种官方分发机制。
 
-The command supports creating releases from existing tags or creating tags automatically. Release notes can be written manually, loaded from files, or auto-generated from commit messages and merged pull requests using the --generate-notes flag. Assets like compiled binaries, packages, and archives can be uploaded during creation or added later.
+该命令支持基于现有标签创建发布，也可以自动创建标签。发布说明可以手动撰写、从文件加载，或使用 --generate-notes 标志根据提交信息和已合并的拉取请求自动生成。编译后的二进制文件、软件包和归档等资源可以在创建时上传，也可以稍后添加。
 
 # INSTALL
 

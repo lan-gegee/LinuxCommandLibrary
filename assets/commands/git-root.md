@@ -1,14 +1,14 @@
 # TAGLINE
 
-Show the repository root directory path
+显示仓库根目录路径
 
 # TLDR
 
-**Show repository root**
+**显示仓库根目录**
 
 ```git root```
 
-**Change to root directory**
+**切换到根目录**
 
 ```cd $(git root)```
 
@@ -18,17 +18,17 @@ Show the repository root directory path
 
 # DESCRIPTION
 
-**git root** displays the absolute path to the repository's top-level directory. Part of git-extras, it provides a concise alternative to `git rev-parse --show-toplevel`.
+**git root** 显示仓库顶层目录的绝对路径。它属于 git-extras，是 `git rev-parse --show-toplevel` 的一个简洁替代方案。
 
-The command is useful in scripts that need consistent paths or for quick navigation to the repository root regardless of the current working directory.
+在需要一致路径的脚本中，或者想无视当前工作目录快速跳转到仓库根目录时，这个命令很有用。
 
 # CAVEATS
 
-Part of git-extras package. Alternative: git rev-parse --show-toplevel. Fails outside git repo.
+属于 git-extras 软件包。替代方案：git rev-parse --show-toplevel。在 git 仓库外会失败。
 
 # HISTORY
 
-git root is part of **git-extras**, providing a convenient shorthand for the common operation of finding the repository root.
+git root 是 **git-extras** 的一部分，为"查找仓库根目录"这一常见操作提供了便捷的简写方式。
 
 # INSTALL
 

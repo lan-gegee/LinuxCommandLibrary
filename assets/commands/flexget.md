@@ -1,34 +1,34 @@
 # TAGLINE
 
-multipurpose media automation tool
+多用途媒体自动化工具
 
 # TLDR
 
-**Run all tasks**
+**运行所有任务**
 
 ```flexget execute```
 
-**Run specific task**
+**运行特定任务**
 
 ```flexget execute --task [task_name]```
 
-**Test configuration**
+**测试配置**
 
 ```flexget check```
 
-**Start daemon**
+**启动守护进程**
 
 ```flexget daemon start```
 
-**Stop daemon**
+**停止守护进程**
 
 ```flexget daemon stop```
 
-**Show task status**
+**显示任务状态**
 
 ```flexget status```
 
-**List series**
+**列出剧集**
 
 ```flexget series list```
 
@@ -39,55 +39,55 @@ multipurpose media automation tool
 # SUBCOMMANDS
 
 **execute**
-> Run tasks.
+> 运行任务。
 
 **check**
-> Validate config.
+> 校验配置。
 
 **daemon**
-> Manage daemon.
+> 管理守护进程。
 
 **status**
-> Show status.
+> 显示状态。
 
 **series**
-> Manage series.
+> 管理剧集。
 
 **movie-list**
-> Manage movie lists.
+> 管理电影列表。
 
 **entry-list**
-> Manage entry lists.
+> 管理条目列表。
 
 **seen**
-> Manage seen entries.
+> 管理已见条目。
 
 # PARAMETERS
 
 **--task** _name_
-> Run specific task.
+> 运行特定任务。
 
 **-c**, **--config** _file_
-> Config file.
+> 配置文件。
 
 **--test**
-> Test mode (no actions).
+> 测试模式（不执行任何动作）。
 
 **--no-cache**
-> Disable caching.
+> 禁用缓存。
 
 # CONFIGURATION
 
 **~/.flexget/config.yml**
-> Main configuration file defining tasks, feeds, and filters for automation workflows.
+> 主配置文件，定义自动化工作流中的任务、订阅源和过滤器。
 
 # DESCRIPTION
 
-**FlexGet** is a powerful automation tool for managing media content through customizable tasks and plugins. It monitors RSS feeds, torrent sites, and other sources to automatically download and organize TV shows, movies, podcasts, and other media based on user-defined rules and filters.
+**FlexGet** 是一款强大的媒体内容自动化管理工具，通过可自定义的任务和插件运作。它监控 RSS 订阅源、种子站点和其他来源，根据用户自定义的规则和过滤器自动下载并整理电视剧、电影、播客等媒体内容。
 
-The tool operates on a task-based system defined in YAML configuration files. Tasks can filter content by quality, series tracking, release groups, or custom patterns. FlexGet integrates with download clients like Transmission, Deluge, and qBittorrent, as well as media management tools like Plex and Kodi.
+该工具基于在 YAML 配置文件中定义的任务系统运作。任务可以按画质、剧集追踪、发布组或自定义模式过滤内容。FlexGet 与 Transmission、Deluge、qBittorrent 等下载客户端以及 Plex、Kodi 等媒体管理工具集成。
 
-FlexGet can run as a daemon for continuous monitoring or execute tasks on-demand. It maintains a database of seen entries to prevent duplicate downloads and supports series tracking with automatic episode progression. The plugin architecture enables extensive customization for specific workflows.
+FlexGet 可以作为守护进程持续监控运行，也可以按需执行任务。它维护一个已见条目的数据库以防止重复下载，并支持自动跟进剧集进度的剧集追踪。插件架构支持针对特定工作流进行深度定制。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ FlexGet can run as a daemon for continuous monitoring or execute tasks on-demand
 ```[Source code](https://github.com/Flexget/Flexget)```
 
 <!-- verified: 2026-07-15 -->
-

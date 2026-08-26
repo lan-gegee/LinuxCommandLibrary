@@ -1,26 +1,26 @@
 # TAGLINE
 
-.desktop file generator for Linux applications
+面向 Linux 应用程序的 .desktop 文件生成器
 
 # TLDR
 
-**Generate a desktop file from a PKGBUILD** in the current directory
+**从当前目录的 PKGBUILD 生成 desktop 文件**
 
 ```gendesk```
 
-**Generate a desktop file with package name**
+**带软件包名生成 desktop 文件**
 
 ```gendesk -n --pkgname=[appname]```
 
-**Generate with a custom display name**
+**使用自定义显示名称生成**
 
 ```gendesk --name="[App Name]" --pkgname=[appname]```
 
-**Specify the exec command and categories**
+**指定 exec 命令和类别**
 
 ```gendesk --pkgname=[app] --exec="[/usr/bin/app %U]" --categories="[Development;IDE]"```
 
-**Generate a terminal application entry**
+**生成终端应用程序条目**
 
 ```gendesk --pkgname=[app] --terminal```
 
@@ -31,53 +31,53 @@
 # PARAMETERS
 
 **--pkgname** _NAME_
-> Package name (used for filename and defaults).
+> 软件包名（用作文件名及各项默认值）。
 
 **--name** _NAME_
-> Application display name.
+> 应用程序显示名称。
 
 **--exec** _CMD_
-> Command to execute (supports field codes like %U, %F).
+> 要执行的命令（支持 %U、%F 等字段代码）。
 
 **--categories** _LIST_
-> Semicolon-separated application categories (e.g., Development;IDE).
+> 以分号分隔的应用程序类别（例如 Development;IDE）。
 
 **--comment** _TEXT_
-> Short description comment.
+> 简短的描述注释。
 
 **--genericname** _NAME_
-> Generic name for the application (e.g., "Text Editor").
+> 应用程序的通用名称（例如 "文本编辑器"）。
 
 **--mimetype** _LIST_
-> Semicolon-separated MIME types the application can open.
+> 该应用程序可打开的 MIME 类型，以分号分隔。
 
 **--terminal**
-> Set Terminal=true in the desktop file.
+> 在 desktop 文件中设置 Terminal=true。
 
 **--path** _DIR_
-> Working directory for the application.
+> 应用程序的工作目录。
 
 **-n**
-> Don't include Name field if same as pkgname.
+> 若 Name 与 pkgname 相同则不包含 Name 字段。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gendesk** generates .desktop files for Linux applications following the freedesktop.org Desktop Entry specification. It can read values from a PKGBUILD file in the current directory or accept them as command-line flags.
+**gendesk** 按照 freedesktop.org Desktop Entry 规范为 Linux 应用程序生成 .desktop 文件。它可以从当前目录的 PKGBUILD 文件读取值，也可以通过命令行标志接受这些值。
 
-The tool simplifies creating desktop files during package building by generating entries with proper formatting, handling icon references, categories, MIME types, and exec paths. Supported PKGBUILD variables include _name, _genericname, _comment, _mimetype, _exec, and _categories.
+该工具通过生成格式正确的条目简化了软件包构建过程中的 desktop 文件创建工作，处理图标引用、类别、MIME 类型和 exec 路径。支持的 PKGBUILD 变量包括 _name、_genericname、_comment、_mimetype、_exec 和 _categories。
 
-gendesk is commonly used in Arch Linux package building (PKGBUILDs).
+gendesk 常用于 Arch Linux 的软件包构建（PKGBUILD）中。
 
 # CAVEATS
 
-Primarily designed for Arch Linux packaging workflows. Desktop file standards may vary between environments. Manual tweaking may be needed for complex entries.
+主要为 Arch Linux 打包工作流设计。desktop 文件标准在不同环境之间可能有所差异。复杂条目可能需要手动调整。
 
 # HISTORY
 
-gendesk was created by **Alexander F. Rodseth** for **Arch Linux** packaging to simplify .desktop file generation during package builds, reducing boilerplate in PKGBUILDs.
+gendesk 由 **Alexander F. Rodseth** 为 **Arch Linux** 打包而创建，旨在简化软件包构建过程中的 .desktop 文件生成，减少 PKGBUILD 中的样板代码。
 
 # INSTALL
 

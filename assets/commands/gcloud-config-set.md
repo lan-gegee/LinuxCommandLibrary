@@ -1,26 +1,26 @@
 # TAGLINE
 
-set persistent gcloud configuration properties
+设置 gcloud 持久配置属性
 
 # TLDR
 
-**Set default project**
+**设置默认项目**
 
 ```gcloud config set project [project-id]```
 
-**Set default region**
+**设置默认大区**
 
 ```gcloud config set compute/region [us-central1]```
 
-**Set default zone**
+**设置默认区域**
 
 ```gcloud config set compute/zone [us-central1-a]```
 
-**Set account**
+**设置账号**
 
 ```gcloud config set account [email@example.com]```
 
-**Disable usage reporting**
+**禁用使用情况报告**
 
 ```gcloud config set disable_usage_reporting true```
 
@@ -31,41 +31,41 @@ set persistent gcloud configuration properties
 # PARAMETERS
 
 _PROPERTY_
-> Configuration property name.
+> 配置属性名称。
 
 _VALUE_
-> Value to set.
+> 要设置的值。
 
 **project**
-> Default project ID.
+> 默认项目 ID。
 
 **compute/region**
-> Default Compute region.
+> 默认 Compute 大区。
 
 **compute/zone**
-> Default Compute zone.
+> 默认 Compute 区域。
 
 **account**
-> Active account.
+> 当前活动账号。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud config set** assigns values to gcloud configuration properties, establishing defaults that apply to all subsequent gcloud commands. This eliminates repetitive specification of common parameters like project ID, region, and zone.
+**gcloud config set** 为 gcloud 配置属性赋值，建立适用于后续所有 gcloud 命令的默认值。这样就无需在每次执行时重复指定项目 ID、大区和区域等常见参数。
 
-Properties follow a hierarchical naming scheme, with some scoped to specific services (like compute/region for Compute Engine operations) and others applying globally (like project). The command validates property names but may not immediately validate values, which could lead to errors in future commands if invalid.
+属性采用分层命名方案：有些作用于特定服务（如用于 Compute Engine 操作的 compute/region），另一些则全局生效（如 project）。该命令会校验属性名，但可能不会立即校验值的有效性——无效的值可能导致后续命令报错。
 
-Command-line flags always take precedence over configured properties, allowing temporary overrides without changing stored configuration. Properties are saved to the active configuration, so switching configurations changes the effective property values. This property-based system is central to efficient gcloud usage, particularly for users managing resources across multiple zones or projects.
+命令行标志始终优先于已配置的属性，因此可以临时覆盖而不改变存储的配置。属性保存在活动配置中，切换配置即改变生效的属性值。这套基于属性的机制是高效使用 gcloud 的关键，对跨多个区域或项目管理资源的用户尤为重要。
 
 # CAVEATS
 
-Command-line options override settings. Invalid values may cause errors later. Settings are per-configuration.
+命令行选项会覆盖设置。无效的值可能在之后引发错误。设置按配置隔离。
 
 # HISTORY
 
-gcloud config set is the property setter for the **Google Cloud SDK** configuration system, enabling default values for CLI operations.
+gcloud config set 是 **Google Cloud SDK** 配置系统的属性设置器，为 CLI 操作提供默认值能力。
 
 # SEE ALSO
 

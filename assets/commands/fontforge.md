@@ -1,26 +1,26 @@
 # TAGLINE
 
-comprehensive font editor for creating and modifying fonts
+用于创建和修改字体的综合性字体编辑器
 
 # TLDR
 
-**Open FontForge GUI**
+**打开 FontForge 图形界面**
 
 ```fontforge```
 
-**Open font file**
+**打开字体文件**
 
 ```fontforge [font.ttf]```
 
-**Convert font format**
+**转换字体格式**
 
 ```fontforge -c 'Open($1); Generate($2)' [input.otf] [output.ttf]```
 
-**Run script**
+**运行脚本**
 
 ```fontforge -script [convert.pe]```
 
-**Export to web** fonts
+将字体**导出为 Web** 字体
 
 ```fontforge -c 'Open($1); Generate($2)' [font.ttf] [font.woff2]```
 
@@ -31,38 +31,38 @@ comprehensive font editor for creating and modifying fonts
 # PARAMETERS
 
 _FILES_
-> Font files to open.
+> 要打开的字体文件。
 
 **-c** _SCRIPT_
-> Execute script command.
+> 执行脚本命令。
 
 **-script** _FILE_
-> Run script file.
+> 运行脚本文件。
 
 **-lang** _LANGUAGE_
-> Scripting language (ff, py).
+> 脚本语言（ff、py）。
 
 **-nosplash**
-> Start without splash screen.
+> 启动时不显示启动画面。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fontforge** is a comprehensive font editor supporting OpenType, TrueType, and many other formats. It provides tools for creating, editing, and converting fonts.
+**fontforge** 是一个支持 OpenType、TrueType 及许多其他格式的综合性字体编辑器。它提供创建、编辑和转换字体的工具。
 
-The application offers glyph editing, metrics adjustment, kerning, hinting, and OpenType feature development. Scripting support enables batch operations and automated font processing.
+该应用提供字形编辑、度量调整、字距微调（kerning）、hinting 以及 OpenType 特性开发等功能。脚本支持使批量操作和自动化字体处理成为可能。
 
-FontForge handles professional font development workflows from initial design to production-ready output.
+FontForge 涵盖从初步设计到可投产输出的专业字体开发全流程。
 
 # CAVEATS
 
-Steep learning curve for font design. GUI can be complex. Some formats have limited support.
+字体设计学习曲线陡峭。图形界面可能较为复杂。部分格式的支持有限。
 
 # HISTORY
 
-FontForge (originally PfaEdit) was created by **George Williams** starting in 2000. It's the most capable open source font editor, used by type designers and font developers worldwide.
+FontForge（最初名为 PfaEdit）由 **George Williams** 于 2000 年起开发。它是最强大的开源字体编辑器，被世界各地的字体设计师和字体开发者使用。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Rename a Git tag locally and on the remote
+在本地和远程重命名 Git 标签
 
 # TLDR
 
-**Rename a tag**
+**重命名标签**
 
 ```git rename-tag [old_name] [new_name]```
 
@@ -14,11 +14,11 @@ Rename a Git tag locally and on the remote
 
 # DESCRIPTION
 
-**git rename-tag** renames a tag both locally and on the remote. Part of git-extras, it creates the new tag pointing at the old tag's commit, deletes the old tag locally, then pushes the new tag and the old tag's deletion to `origin`.
+**git rename-tag** 在本地和远程同时重命名标签。它是 git-extras 的一部分：先创建指向旧标签所在提交的新标签，删除本地的旧标签，然后将新标签和旧标签的删除操作推送到 `origin`。
 
 # CAVEATS
 
-Always pushes to the remote named `origin`; it does not accept a different remote as an argument.
+总是推送到名为 `origin` 的远程；不支持通过参数指定其他远程。
 
 # INSTALL
 

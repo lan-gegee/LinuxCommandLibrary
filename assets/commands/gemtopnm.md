@@ -1,10 +1,10 @@
 # TAGLINE
 
-GEM IMG to PNM converter
+GEM IMG 转 PNM 转换器
 
 # TLDR
 
-**Convert GEM IMG to PNM**
+**将 GEM IMG 转换为 PNM**
 
 ```gemtopnm [input.img] > [output.pnm]```
 
@@ -14,7 +14,7 @@ GEM IMG to PNM converter
 
 # DESCRIPTION
 
-**gemtopnm** converts GEM IMG format images to PNM (Portable Any Map) format. Handles both monochrome and color GEM images.
+**gemtopnm** 将 GEM IMG 格式图像转换为 PNM（Portable Any Map）格式。支持单色和彩色 GEM 图像。
 
 # INSTALL
 
@@ -37,4 +37,3 @@ GEM IMG to PNM converter
 # SEE ALSO
 
 [gemtopbm](/man/gemtopbm)(1)
-

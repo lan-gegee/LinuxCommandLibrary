@@ -1,26 +1,26 @@
 # TAGLINE
 
-image gallery downloader for multiple sites
+支持多站点的图片画廊下载器
 
 # TLDR
 
-**Download from URL**
+**从 URL 下载**
 
 ```gallery-dl [https://example.com/gallery]```
 
-**Set output directory**
+**设置输出目录**
 
 ```gallery-dl -d [/path/to/downloads] [url]```
 
-**List supported sites**
+**列出支持的站点**
 
 ```gallery-dl --list-extractors```
 
-**Download with metadata**
+**连同元数据一起下载**
 
 ```gallery-dl --write-metadata [url]```
 
-**Authentication**
+**身份验证**
 
 ```gallery-dl -u [username] -p [password] [url]```
 
@@ -31,49 +31,49 @@ image gallery downloader for multiple sites
 # PARAMETERS
 
 _URLS_
-> Gallery or image URLs.
+> 画廊或图片 URL。
 
 **-d** _PATH_, **--dest** _PATH_
-> Destination directory.
+> 目标目录。
 
 **-u** _USER_, **--username** _USER_
-> Site username.
+> 站点用户名。
 
 **-p** _PASS_, **--password** _PASS_
-> Site password.
+> 站点密码。
 
 **--write-metadata**
-> Save metadata as JSON.
+> 将元数据保存为 JSON。
 
 **--list-extractors**
-> List supported sites.
+> 列出支持的站点。
 
 **-o** _KEY=VALUE_
-> Set config option.
+> 设置配置选项。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/gallery-dl/config.json**
-> Main configuration file for output paths, filename patterns, authentication, and site-specific options.
+> 主配置文件，定义输出路径、文件名模式、身份验证和站点专属选项。
 
 # DESCRIPTION
 
-**gallery-dl** downloads image galleries from websites. It supports hundreds of image hosting sites, social media, and art communities through site-specific extractors.
+**gallery-dl** 用于从网站下载图片画廊。它通过针对特定站点的提取器，支持数百个图床网站、社交媒体和艺术社区。
 
-The tool handles pagination, authentication, rate limiting, and metadata extraction automatically. Downloads can be organized with customizable directory and filename patterns.
+该工具自动处理分页、身份验证、速率限制和元数据提取。下载内容可通过自定义的目录和文件名模式进行组织。
 
-gallery-dl is commonly used for archiving content from image boards, artist portfolios, and social media.
+gallery-dl 常用于归档图片论坛、艺术家作品集和社交媒体上的内容。
 
 # CAVEATS
 
-Site support may break with updates. Respect site terms of service. Large downloads may be throttled.
+站点支持可能随更新失效。请尊重各站点的服务条款。大量下载可能被限速。
 
 # HISTORY
 
-gallery-dl was created as a counterpart to youtube-dl for images. It provides comprehensive image downloading with support for hundreds of sites through Python-based extractors.
+gallery-dl 作为图片版的 youtube-dl 对应工具而诞生。它通过基于 Python 的提取器支持数百个网站，提供全面的图片下载能力。
 
 # INSTALL
 

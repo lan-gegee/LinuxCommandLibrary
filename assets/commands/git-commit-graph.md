@@ -1,18 +1,18 @@
 # TAGLINE
 
-Write and verify commit graph files
+写入和校验提交图文件
 
 # TLDR
 
-**Write commit graph**
+**写入提交图**
 
 ```git commit-graph write```
 
-**Write with reachable commits**
+**连同所有可达提交一起写入**
 
 ```git commit-graph write --reachable```
 
-**Verify commit graph**
+**校验提交图**
 
 ```git commit-graph verify```
 
@@ -23,46 +23,46 @@ Write and verify commit graph files
 # SUBCOMMANDS
 
 **write**
-> Write commit graph file.
+> 写入提交图文件。
 
 **verify**
-> Verify commit graph.
+> 校验提交图。
 
 # PARAMETERS
 
 **--reachable**
-> Include reachable commits.
+> 包含所有可达的提交。
 
 **--stdin-commits**
-> Read commits from stdin.
+> 从标准输入读取提交。
 
 **--stdin-packs**
-> Scan pack indexes listed on stdin for commits.
+> 扫描标准输入中列出的 pack 索引以查找提交。
 
 **--append**
-> Add to existing graph.
+> 追加到现有提交图。
 
 **--split**[=_STRATEGY_]
-> Use incremental graph.
+> 使用增量式提交图。
 
 **--changed-paths**
-> Compute Bloom filters for changed paths, speeding up history queries like **git log -- path**.
+> 为变更路径计算布隆过滤器，加速 **git log -- path** 等历史查询。
 
 **--object-dir** _DIR_
-> Object directory used to store the graph.
+> 用于存储提交图的对象目录。
 
 **--shallow**
-> With **verify**, only check the tip file of a split commit graph.
+> 配合 **verify** 时，仅检查增量提交图的顶端文件。
 
 # DESCRIPTION
 
-**git commit-graph** manages commit-graph files, a performance optimization feature that stores commit metadata in a format optimized for fast graph traversal operations. These files significantly accelerate common operations like git log, git merge-base, and reachability checks in repositories with deep history.
+**git commit-graph** 管理 commit-graph 文件。这是一项性能优化特性，以针对快速图遍历操作优化的格式存储提交元数据。这些文件能显著加速历史悠久的仓库中的常见操作，如 git log、git merge-base 和可达性检查。
 
-The commit graph stores a pre-computed representation of the commit DAG (directed acyclic graph), including commit parent relationships, generation numbers, and tree object IDs. This avoids repeatedly parsing commit objects during graph walks, providing dramatic performance improvements for large repositories.
+提交图存储了提交 DAG（有向无环图）的预计算表示，包括父提交关系、代数（generation number）和树对象 ID。这避免了在图遍历时反复解析提交对象，为大型仓库带来巨大的性能提升。
 
-The write subcommand generates or updates the commit graph, either for all reachable commits (--reachable) or for commits provided via stdin (--stdin-commits). Incremental graphs (--split) allow updating the graph efficiently as new commits are added without rewriting the entire file.
+write 子命令生成或更新提交图，可以针对所有可达提交（--reachable），也可以针对通过标准输入提供的提交（--stdin-commits）。增量提交图（--split）可以在新增提交时高效更新，无需重写整个文件。
 
-Modern Git versions include commit-graph maintenance as part of git gc and git maintenance, so manual invocation is rarely necessary. The verify subcommand checks graph integrity, ensuring the data structure remains consistent with repository state.
+现代 Git 版本已将提交图维护纳入 git gc 和 git maintenance，因此很少需要手动调用。verify 子命令用于检查提交图的完整性，确保数据结构与仓库状态保持一致。
 
 # INSTALL
 
@@ -95,4 +95,3 @@ Modern Git versions include commit-graph maintenance as part of git gc and git m
 ```[Documentation](https://git-scm.com/docs/git-commit-graph)```
 
 <!-- verified: 2026-07-17 -->
-

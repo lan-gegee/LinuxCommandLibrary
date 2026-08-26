@@ -1,14 +1,14 @@
 # TAGLINE
 
-Store credentials in plain-text file
+将凭据存储在纯文本文件中
 
 # TLDR
 
-**Store credentials in file**
+**将凭据存储到文件**
 
 ```git config credential.helper store```
 
-**Store in specific file**
+**存储到指定文件**
 
 ```git config credential.helper 'store --file ~/.git-credentials'```
 
@@ -19,27 +19,27 @@ Store credentials in plain-text file
 # PARAMETERS
 
 **--file** _path_
-> Credential file path.
+> 凭据文件的路径。
 
 # DESCRIPTION
 
-**git credential-store** is a credential helper that permanently stores authentication credentials in a plain-text file on disk. By default, credentials are stored in ~/.git-credentials, but a custom path can be specified with the --file option.
+**git credential-store** 是一个凭据助手，将身份验证凭据永久存储在磁盘上的纯文本文件中。默认存储于 ~/.git-credentials，也可以用 --file 选项指定自定义路径。
 
-When configured, it saves credentials after the first successful authentication and automatically provides them for subsequent operations. The file format is simple: each line contains a URL with embedded credentials in the form https://username:password@hostname/path.
+配置之后，它会在首次成功验证后保存凭据，并为后续操作自动提供。文件格式很简单：每行包含一条内嵌凭据的 URL，形式为 https://username:password@hostname/path。
 
-While convenient for eliminating password prompts permanently, this approach has significant security implications. Credentials are stored unencrypted and readable by anyone with filesystem access. For better security, consider platform-specific alternatives like macOS Keychain, Windows Credential Manager, or git-credential-cache for temporary memory-only storage.
+这种方式可以永久消除密码提示，非常方便，但有重大的安全隐患。凭据以未加密形式存储，任何能访问文件系统的人都可以读取。为了更好的安全性，请考虑平台专属的替代方案，如 macOS 钥匙串（Keychain）、Windows 凭据管理器，或仅存内存的临时方案 git-credential-cache。
 
 # CONFIGURATION
 
 **~/.git-credentials**
-> Default plain-text file where credentials are stored, one URL per line.
+> 默认的纯文本凭据存储文件，每行一条 URL。
 
 **$XDG_CONFIG_HOME/git/credentials**
-> Second lookup location, used only if ~/.git-credentials doesn't exist.
+> 第二查找位置，仅在 ~/.git-credentials 不存在时使用。
 
 # CAVEATS
 
-Credentials are stored in plain text. Consider using a credential manager or git-credential-cache for better security.
+凭据以纯文本存储。为了更好的安全性，建议改用凭据管理器或 git-credential-cache。
 
 # INSTALL
 

@@ -1,46 +1,46 @@
 # TAGLINE
 
-Add metadata to commits
+为提交添加元数据
 
 # TLDR
 
-**Add note to HEAD**
+**为 HEAD 添加注释**
 
 ```git notes add -m "[note text]"```
 
-**Add note to specific commit**
+**为特定提交添加注释**
 
 ```git notes add -m "[note]" [commit]```
 
-**Show notes** for a commit
+**查看某个提交的注释**
 
 ```git notes show [commit]```
 
-**List all notes**
+**列出所有注释**
 
 ```git notes list```
 
-**Edit existing note**
+**编辑现有注释**
 
 ```git notes edit [commit]```
 
-**Append text** to an existing note
+**向现有注释追加文本**
 
 ```git notes append -m "[more text]" [commit]```
 
-**Copy a note** from one commit to another
+**将注释从一个提交复制到另一个**
 
 ```git notes copy [from_commit] [to_commit]```
 
-**Remove note**
+**移除注释**
 
 ```git notes remove [commit]```
 
-**Push notes** to remote
+**推送注释**到远程
 
 ```git push origin refs/notes/*```
 
-**Fetch notes** from remote
+**从远程抓取注释**
 
 ```git fetch origin refs/notes/*:refs/notes/*```
 
@@ -51,68 +51,68 @@ Add metadata to commits
 # PARAMETERS
 
 **add**
-> Add a new note to the given object (default: HEAD). Fails if a note already exists unless **-f** is used.
+> 为给定对象添加新注释（默认：HEAD）。若已存在注释则失败，除非使用 **-f**。
 
 **show**
-> Print the note for the given object.
+> 打印给定对象的注释。
 
 **list**
-> List notes for the given object, or list all notes if no object is specified.
+> 列出给定对象的注释；未指定对象时列出全部注释。
 
 **edit**
-> Edit existing note in the configured editor.
+> 在配置的编辑器中编辑现有注释。
 
 **append**
-> Append new content to an existing note.
+> 向现有注释追加新内容。
 
 **copy** _from_ _to_
-> Copy the note from one object to another.
+> 将注释从一个对象复制到另一个。
 
 **remove**
-> Remove notes for the given objects.
+> 移除给定对象的注释。
 
 **prune**
-> Remove notes attached to objects that no longer exist.
+> 移除附加到已不存在对象上的注释。
 
 **merge** _ref_
-> Merge notes from another notes ref.
+> 合并来自另一 notes ref 的注释。
 
 **get-ref**
-> Print the current notes ref.
+> 打印当前的 notes ref。
 
 **-m** _MSG_
-> Use given message as the note text.
+> 将给定信息用作注释文本。
 
 **-F** _FILE_
-> Read note text from a file.
+> 从文件读取注释文本。
 
 **-C** _OBJECT_
-> Reuse note from given object.
+> 复用给定对象的注释。
 
 **-c** _OBJECT_
-> Reuse and edit note from given object.
+> 复用并编辑给定对象的注释。
 
 **-f**, **--force**
-> Overwrite an existing note.
+> 覆盖已存在的注释。
 
 **--ref** _REF_
-> Use the given notes ref instead of the default **refs/notes/commits**.
+> 使用给定的 notes ref 而非默认的 **refs/notes/commits**。
 
 # DESCRIPTION
 
-**git notes** adds metadata to commits without modifying them. Notes are stored as separate refs under **refs/notes/**, allowing annotations, code review comments, build status, or other metadata to be attached after commits are created and even after they have been pushed.
+**git notes** 在不修改提交的情况下为提交添加元数据。注释作为独立的引用存储在 **refs/notes/** 下，因此可以在提交创建之后、甚至推送到远程之后，再附加批注、代码评审意见、构建状态或其他元数据。
 
-Notes can be organized in namespaces using the **--ref** option. Since notes don't change commit hashes, they provide a non-destructive way to enrich commit history with additional context.
+注释可以通过 **--ref** 选项组织到不同的命名空间中。由于注释不会改变提交哈希，它提供了一种非破坏性的方式来为提交历史补充上下文。
 
-The default notes ref is **refs/notes/commits**, but you can keep separate notes namespaces (e.g. **refs/notes/review**, **refs/notes/build**) by using **--ref** or by setting **core.notesRef** in git config.
+默认的 notes ref 是 **refs/notes/commits**，但你可以通过 **--ref** 或在 git config 中设置 **core.notesRef** 来维护独立的注释命名空间（例如 **refs/notes/review**、**refs/notes/build**）。
 
 # CAVEATS
 
-Notes are stored as separate refs and are not pushed or fetched by default. Use explicit refspecs like **refs/notes/*:refs/notes/*** to sync notes between repositories. Concurrent edits can cause notes-merge conflicts.
+注释存储在独立的引用中，默认不会被推送或抓取。需要使用 **refs/notes/*:refs/notes/*** 这类显式 refspec 才能在仓库之间同步注释。并发编辑可能引发 notes 合并冲突。
 
 # HISTORY
 
-**git notes** was added to Git in version **1.6.6** (December 2009) to allow attaching metadata to commits without rewriting history.
+**git notes** 在 Git **1.6.6**（2009 年 12 月）中加入，用于在不改写历史的前提下为提交附加元数据。
 
 # INSTALL
 

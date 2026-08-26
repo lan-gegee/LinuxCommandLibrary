@@ -1,22 +1,22 @@
 # TAGLINE
 
-HTML coverage report generator from lcov trace files
+从 lcov 跟踪文件生成 HTML 覆盖率报告
 
 # TLDR
 
-**Generate HTML report**
+**生成 HTML 报告**
 
 ```genhtml [coverage.info] -o [html_output]```
 
-**Add title**
+**添加标题**
 
 ```genhtml --title "[Coverage Report]" [coverage.info] -o [html_output]```
 
-**Show branch coverage**
+**显示分支覆盖率**
 
 ```genhtml --branch-coverage [coverage.info] -o [html_output]```
 
-**Prefix path**
+**前缀路径**
 
 ```genhtml --prefix [/src] [coverage.info] -o [html_output]```
 
@@ -27,41 +27,41 @@ HTML coverage report generator from lcov trace files
 # PARAMETERS
 
 _TRACEFILE_
-> lcov coverage data file.
+> lcov 覆盖率数据文件。
 
 **-o** _DIR_, **--output-directory** _DIR_
-> Output directory.
+> 输出目录。
 
 **--title** _TEXT_
-> Report title.
+> 报告标题。
 
 **--branch-coverage**
-> Include branch coverage.
+> 包含分支覆盖率。
 
 **--prefix** _PATH_
-> Remove source prefix.
+> 移除源码路径前缀。
 
 **--legend**
-> Include coverage legend.
+> 包含覆盖率图例。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**genhtml** creates HTML coverage reports from lcov trace files. It generates navigable reports showing line, function, and branch coverage with source highlighting.
+**genhtml** 从 lcov 跟踪文件创建 HTML 覆盖率报告。它生成可导航的报告，通过源代码高亮显示行、函数和分支覆盖率。
 
-The tool processes coverage data to produce visual reports for reviewing test coverage. Multiple trace files can be combined into a single report.
+该工具处理覆盖率数据，生成用于审阅测试覆盖情况的可视化报告。多个跟踪文件可以合并到一份报告中。
 
-genhtml is the visualization component of the lcov coverage toolkit.
+genhtml 是 lcov 覆盖率工具套件的可视化组件。
 
 # CAVEATS
 
-Requires lcov trace files. Large codebases produce large reports. Browser needed for viewing.
+需要 lcov 跟踪文件。大型代码库会产生很大的报告。查看需要浏览器。
 
 # HISTORY
 
-genhtml is part of **lcov**, the Linux Test Project coverage tool. It provides HTML visualization for coverage data collected by lcov from gcov.
+genhtml 是 **lcov**（Linux Test Project 的覆盖率工具）的一部分。它为 lcov 从 gcov 收集的覆盖率数据提供 HTML 可视化。
 
 # INSTALL
 

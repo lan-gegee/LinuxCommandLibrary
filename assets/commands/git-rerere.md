@@ -1,26 +1,26 @@
 # TAGLINE
 
-Reuse recorded resolution of conflicted merges
+复用已记录的合并冲突解决方案
 
 # TLDR
 
-**Enable rerere**
+**启用 rerere**
 
 ```git config rerere.enabled true```
 
-**Show recorded resolutions**
+**显示已记录的解决方案**
 
 ```git rerere status```
 
-**Show diff of resolution**
+**显示解决方案的差异**
 
 ```git rerere diff```
 
-**Clear recorded resolutions**
+**清除已记录的解决方案**
 
 ```git rerere clear```
 
-**Forget resolution**
+**忘记某个解决方案**
 
 ```git rerere forget [file]```
 
@@ -31,41 +31,41 @@ Reuse recorded resolution of conflicted merges
 # PARAMETERS
 
 **status**
-> Show paths with recorded resolutions.
+> 显示已有记录解决方案的路径。
 
 **diff**
-> Show diff for current resolutions.
+> 显示当前解决方案的差异。
 
 **clear**
-> Clear recorded resolutions.
+> 清除已记录的解决方案。
 
 **forget** _PATH_
-> Forget resolution for path.
+> 忘记某个路径的解决方案。
 
 **gc**
-> Prune old recordings.
+> 清理旧的记录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git rerere** (reuse recorded resolution) remembers how you resolved merge conflicts and automatically reapplies those resolutions in future merges. This is especially valuable during repeated merges and rebases.
+**git rerere**（reuse recorded resolution，复用已记录的解决方案）会记住你解决合并冲突的方式，并在之后的合并中自动套用这些方案。在反复进行合并和变基时尤其有价值。
 
-When enabled, Git records conflict resolutions. On subsequent merges with identical conflicts, the previous resolution is applied automatically, eliminating repetitive conflict resolution work.
+启用后，Git 会记录冲突的解决方案。当后续合并出现相同冲突时，之前的解决方案会被自动应用，免去重复解决冲突的工作。
 
 # CONFIGURATION
 
 **rerere.enabled**
-> Set to `true` in git config to enable automatic recording of conflict resolutions.
+> 在 git config 中设为 `true`，即可启用冲突解决方案的自动记录。
 
 # CAVEATS
 
-Must be enabled in config. Records are local. May apply wrong resolution if contexts differ.
+必须在配置中启用。记录仅保存在本地。若上下文不同，可能会应用错误的解决方案。
 
 # HISTORY
 
-git rerere was added to **Git** to address the pain of resolving the same merge conflicts repeatedly, particularly during long-running branches and rebases.
+git rerere 被加入 **Git** 是为了解决重复解决同一合并冲突的痛点，尤其是在长期分支和变基场景下。
 
 # INSTALL
 

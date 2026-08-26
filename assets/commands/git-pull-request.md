@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create pull request from the command line
+从命令行创建拉取请求
 
 # TLDR
 
-**Create a pull request interactively**
+**以交互方式创建拉取请求**
 
 ```git pull-request```
 
-**Create a pull request with a title**
+**带标题创建拉取请求**
 
 ```git pull-request -m "[title]"```
 
-**Create a pull request targeting a specific base branch**
+**创建指向特定 base 分支的拉取请求**
 
 ```git pull-request -b [base_branch]```
 
-**Create a pull request with title and body**
+**带标题和正文创建拉取请求**
 
 ```git pull-request -m "[title]" -m "[body]"```
 
-**Create a pull request from a specific head branch**
+**从特定的 head 分支创建拉取请求**
 
 ```git pull-request -h [feature_branch] -b [main]```
 
@@ -31,24 +31,24 @@ Create pull request from the command line
 # PARAMETERS
 
 **-m**, **--message** _text_
-> PR title/message. Use twice to set title and body separately.
+> PR 标题/信息。使用两次可分别设置标题和正文。
 
 **-b**, **--base** _branch_
-> Target base branch for the pull request.
+> 拉取请求的目标 base 分支。
 
 **-h**, **--head** _branch_
-> Source head branch (defaults to current branch).
+> 源 head 分支（默认为当前分支）。
 
 **-i**, **--issue** _number_
-> Convert an existing issue into a pull request.
+> 将现有 issue 转换为拉取请求。
 
 # DESCRIPTION
 
-**git pull-request** creates a GitHub pull request from the command line. Part of the **hub** CLI tool (by GitHub), it pushes the current branch if needed and opens a pull request to the specified base branch.
+**git pull-request** 从命令行创建 GitHub 拉取请求。它是 **hub** CLI 工具（GitHub 出品）的一部分，会在需要时推送当前分支，并向指定的 base 分支发起拉取请求。
 
-The command can extract PR title and body from commit messages or prompt for them interactively. When invoked without **-m**, an editor opens for composing the message. The first line becomes the title, and subsequent lines become the body.
+该命令可以从提交信息中提取 PR 标题和正文，也可以交互式地询问。在不带 **-m** 调用时会打开编辑器撰写信息：第一行成为标题，后续行成为正文。
 
-Note: The **hub** tool is now in maintenance mode. The official replacement is **gh pr create** from the GitHub CLI, which provides more comprehensive GitHub integration.
+注意：**hub** 工具现已进入维护模式。官方替代品是 GitHub CLI 的 **gh pr create**，它提供更全面的 GitHub 集成。
 
 # INSTALL
 

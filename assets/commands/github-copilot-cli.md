@@ -1,22 +1,22 @@
 # TAGLINE
 
-AI-powered command-line assistant for shell commands
+面向 shell 命令的 AI 命令行助手
 
 # TLDR
 
-**Launch the interactive Copilot agent**
+**启动交互式 Copilot 智能体**
 
 ```gh copilot```
 
-**Run a one-off prompt** non-interactively
+以非交互方式运行一次性提示词
 
 ```gh copilot -p "[how do I rebase onto main?]"```
 
-**Pick a specific model**
+**选择特定模型**
 
 ```gh copilot --model [claude-sonnet-4.5]```
 
-**Remove the bundled Copilot binary**
+**移除内置的 Copilot 二进制文件**
 
 ```gh copilot --remove```
 
@@ -27,50 +27,50 @@ AI-powered command-line assistant for shell commands
 # PARAMETERS
 
 **-p**, **--prompt** _TEXT_
-> Run a one-off prompt and print the response.
+> 运行一次性提示词并输出响应。
 
 **--model** _MODEL_
-> Select the LLM model used by Copilot.
+> 选择 Copilot 使用的 LLM 模型。
 
 **--allow-tool** _TOOL_, **--deny-tool** _TOOL_, **--allow-all-tools**
-> Per-tool execution policy for the agent's built-in tools.
+> 针对智能体内置工具的逐工具执行策略。
 
 **--banner**
-> Force the startup banner (useful inside scripts).
+> 强制显示启动横幅（在脚本中很有用）。
 
 **--experimental**
-> Opt in to experimental features.
+> 启用实验性功能。
 
 **--remove**
-> Uninstall the bundled standalone **copilot** binary managed by **gh**.
+> 卸载由 **gh** 管理的独立 **copilot** 二进制文件。
 
 # SLASH COMMANDS (interactive mode)
 
 **/login**
-> Authenticate with GitHub Copilot.
+> 进行 GitHub Copilot 身份验证。
 
 **/model**
-> Switch the active model.
+> 切换当前使用的模型。
 
 **/lsp**
-> Configure Language Server Protocol integrations.
+> 配置语言服务器协议（LSP）集成。
 
 **/feedback**
-> Send feedback to GitHub.
+> 向 GitHub 发送反馈。
 
 # DESCRIPTION
 
-**gh copilot** (previously an extension with **suggest** and **explain** subcommands) is now a thin launcher that downloads and runs the standalone **copilot** binary — GitHub's agentic coding assistant. The older **suggest**/**explain**/**config**/**alias** subcommands are deprecated; invoke **copilot** for an interactive agent session or pass **-p** for scripted use.
+**gh copilot**（此前是带有 **suggest** 和 **explain** 子命令的扩展）现在是一个轻量启动器，用于下载并运行独立的 **copilot** 二进制文件——GitHub 的智能体编程助手。旧的 **suggest**/**explain**/**config**/**alias** 子命令已被弃用；请直接调用 **copilot** 进入交互式智能体会话，或在脚本中通过 **-p** 使用。
 
-The tool supports various shells and command-line tools, providing interactive suggestions that can be copied or executed directly.
+该工具支持多种 shell 和命令行工具，提供可复制或直接执行的交互式建议。
 
 # CAVEATS
 
-Requires GitHub Copilot subscription. Needs internet connection. Suggestions may not always be accurate. Review commands before executing. Privacy considerations for command data.
+需要 GitHub Copilot 订阅。需要联网。建议不一定总是准确，执行前请仔细检查命令。注意命令数据的隐私问题。
 
 # HISTORY
 
-GitHub Copilot CLI was released as a GitHub CLI extension after the success of GitHub Copilot for code. It extends AI assistance from code editors to the command line.
+GitHub Copilot for code 取得成功后，GitHub Copilot CLI 作为 GitHub CLI 扩展发布。它将 AI 辅助从代码编辑器延伸到了命令行。
 
 # INSTALL
 

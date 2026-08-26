@@ -1,14 +1,14 @@
 # TAGLINE
 
-Copy files from a remote repository's working directory via rsync
+通过 rsync 从远程仓库的工作目录复制文件
 
 # TLDR
 
-**Copy specific files from a remote** into the current directory
+**从远程复制指定文件**到当前目录
 
 ```git rscp [remote] [file]```
 
-**Copy a remote directory**
+**复制远程的目录**
 
 ```git rscp [remote] [directory]```
 
@@ -18,13 +18,13 @@ Copy files from a remote repository's working directory via rsync
 
 # DESCRIPTION
 
-**git rscp** is the reverse direction of git-extras' `git scp`: it copies the given files or directories from a remote's working directory to the current working directory using rsync. It is the same script as `git-scp`, just invoked under a different name, which switches it into "pull" mode instead of scp's default "push and stage" mode.
+**git rscp** 是 git-extras 的 `git scp` 的反向操作：它使用 rsync 将给定的文件或目录从远程的工作目录复制到当前工作目录。它与 `git-scp` 是同一个脚本，只是以不同的名字调用，这会让它切换到"拉取"模式，而不是 scp 默认的"推送并暂存"模式。
 
-The destination path is derived from the named remote's configured URL, so the remote must already exist in `git remote`.
+目标路径由所指定 remote 配置的 URL 推导而来，因此该 remote 必须已存在于 `git remote` 中。
 
 # CAVEATS
 
-Part of git-extras package; requires `rsync` and, for SSH remotes, `ssh` to be installed. Unlike `git scp`, files copied this way are not automatically staged.
+属于 git-extras 软件包；需要安装 `rsync`，SSH 远程还需要 `ssh`。与 `git scp` 不同，这样复制来的文件不会被自动暂存。
 
 # INSTALL
 

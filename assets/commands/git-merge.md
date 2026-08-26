@@ -1,34 +1,34 @@
 # TAGLINE
 
-Join development histories together
+将开发历史汇合到一起
 
 # TLDR
 
-**Merge branch into current**
+**将分支合并到当前分支**
 
 ```git merge [branch-name]```
 
-**Merge with commit message**
+**带提交信息合并**
 
 ```git merge [branch] -m "[message]"```
 
-**Merge without fast-forward (preserve topology)**
+**禁止 fast-forward 合并（保留拓扑结构）**
 
 ```git merge --no-ff [branch]```
 
-**Only allow fast-forward, otherwise fail**
+**只允许 fast-forward，否则失败**
 
 ```git merge --ff-only [branch]```
 
-**Squash merge (single staged changeset, no merge commit)**
+**压缩合并（单个暂存变更集，无合并提交）**
 
 ```git merge --squash [branch]```
 
-**Favor our or their side on conflicts**
+**发生冲突时偏向我方或对方**
 
 ```git merge -X ours [branch]```
 
-**Abort or continue an in-progress merge**
+**中止或继续进行中的合并**
 
 ```git merge --abort``` / ```git merge --continue```
 
@@ -41,74 +41,74 @@ Join development histories together
 # PARAMETERS
 
 _COMMIT_
-> Branch or commit to merge into current branch.
+> 要合并进当前分支的分支或提交。
 
 **--no-ff**
-> Always create a merge commit, even when fast-forward is possible.
+> 总是创建合并提交，即使可以 fast-forward。
 
 **--ff-only**
-> Refuse to merge unless the current HEAD can be fast-forwarded.
+> 若当前 HEAD 无法 fast-forward 则拒绝合并。
 
 **--squash**
-> Produce working tree/index as if a real merge happened, but do not make a commit.
+> 让工作区/索引呈现为真实合并后的状态，但不创建提交。
 
 **--no-commit**
-> Perform the merge but stop before creating a commit (allows inspection).
+> 执行合并但在创建提交前停止（便于检查）。
 
 **-m** _MESSAGE_
-> Set the commit message for the merge commit.
+> 设置合并提交的信息。
 
 **-e**, **--edit**
-> Invoke the editor to refine the auto-generated commit message.
+> 调用编辑器完善自动生成的提交信息。
 
 **--abort**
-> Abort the current conflict resolution and reconstruct the pre-merge state.
+> 中止当前的冲突解决过程，重建合并前的状态。
 
 **--continue**
-> Continue the merge after conflicts have been resolved.
+> 冲突解决完成后继续本次合并。
 
 **--quit**
-> Forget about the current merge in progress without restoring the pre-merge state.
+> 忘记当前进行中的合并，但不恢复合并前的状态。
 
 **-s** _STRATEGY_, **--strategy=**_STRATEGY_
-> Select merge strategy: `ort` (default), `resolve`, `octopus`, `ours`, or `subtree`.
+> 选择合并策略：`ort`（默认）、`resolve`、`octopus`、`ours` 或 `subtree`。
 
 **-X** _OPTION_, **--strategy-option=**_OPTION_
-> Pass a strategy-specific option (e.g., `ours`, `theirs`, `ignore-all-space`, `find-renames`).
+> 传入策略专属选项（例如 `ours`、`theirs`、`ignore-all-space`、`find-renames`）。
 
 **--autostash**
-> Automatically stash and restore local changes around the merge.
+> 在合并前后自动 stash 并恢复本地更改。
 
 **--allow-unrelated-histories**
-> Merge histories that do not share a common ancestor.
+> 合并不共享共同祖先的历史。
 
 **--verify-signatures**
-> Require a valid GPG signature on the side branch tip.
+> 要求被合并分支末端具有有效的 GPG 签名。
 
 **-S**[_KEYID_], **--gpg-sign**[=_KEYID_]
-> GPG-sign the resulting merge commit.
+> 为生成的合并提交添加 GPG 签名。
 
 **--log**[=_N_]
-> Include one-line descriptions of the merged commits in the merge commit message.
+> 在合并提交信息中包含被合并提交的单行描述。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git merge** incorporates changes from the named commits (typically branch tips) into the current branch. It is also invoked internally by **git pull** to integrate fetched changes.
+**git merge** 将指定提交（通常是分支末端）的更改并入当前分支。**git pull** 内部也会调用它来整合抓取到的更改。
 
-A fast-forward merge simply advances the current branch pointer to the merged commit without creating a new commit; `--no-ff` forces a merge commit to preserve branch topology, while `--ff-only` refuses the merge unless it is a fast-forward. Squash merges (`--squash`) collapse all incoming changes into a single staged changeset without recording a merge commit.
+fast-forward 合并只是把当前分支指针前移到被合并的提交，不创建新提交；`--no-ff` 强制创建合并提交以保留分支拓扑，而 `--ff-only` 在不是 fast-forward 时拒绝合并。压缩合并（`--squash`）把所有传入更改折叠成单个暂存变更集，不记录合并提交。
 
-When textual conflicts occur, conflict markers are written into affected files; resolve them, `git add` the files, then run `git merge --continue` (or `git commit`). The default strategy is **ort** ("Ostensibly Recursive's Twin"), which replaced the older **recursive** strategy in Git 2.33 and handles three-way merges with rename detection.
+发生文本冲突时，冲突标记会被写入受影响的文件；解决冲突后 `git add` 这些文件，再运行 `git merge --continue`（或 `git commit`）。默认策略是 **ort**（"Ostensibly Recursive's Twin"），它在 Git 2.33 中取代了旧的 **recursive** 策略，能够处理带重命名检测的三方合并。
 
 # CAVEATS
 
-Conflicts require manual resolution before the merge can complete. Fast-forward merges discard branch topology unless `--no-ff` is used. Using `-X ours`/`-X theirs` silently discards one side's changes on conflict. The `--strategy=ours` option is very different from `-X ours` and keeps only the current branch's tree.
+出现冲突时必须手动解决，合并才能完成。fast-forward 合约会丢失分支拓扑，除非使用 `--no-ff`。使用 `-X ours`/`-X theirs` 会在冲突时静默丢弃一方的更改。`--strategy=ours` 与 `-X ours` 差异极大：前者只保留当前分支的目录树。
 
 # HISTORY
 
-**git merge** has been a core **Git** command since its earliest releases. The default strategy was renamed from **recursive** to **ort** in Git 2.33 (August 2021) for correctness and performance improvements. `--autostash` was added in Git 2.27, and `--quit` in Git 2.11.
+**git merge** 自 **Git** 最早的发布以来就是核心命令。默认策略在 Git 2.33（2021 年 8 月）中从 **recursive** 更名为 **ort**，以改进正确性和性能。`--autostash` 在 Git 2.27 中加入，`--quit` 在 Git 2.11 中加入。
 
 # INSTALL
 

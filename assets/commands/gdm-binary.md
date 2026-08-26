@@ -1,14 +1,14 @@
 # TAGLINE
 
-GNOME Display Manager daemon process
+GNOME 显示管理器守护进程
 
 # TLDR
 
-**Start GNOME Display Manager**
+**启动 GNOME 显示管理器**
 
 ```gdm-binary```
 
-**Start with debugging**
+**带调试信息启动**
 
 ```gdm-binary --debug```
 
@@ -19,21 +19,21 @@ GNOME Display Manager daemon process
 # PARAMETERS
 
 **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--nodaemon**
-> Don't become a daemon.
+> 不转为守护进程。
 
 **--preserve-ld-vars**
-> Preserve LD_* environment variables.
+> 保留 LD_* 环境变量。
 
 # DESCRIPTION
 
-**gdm-binary** is the actual daemon executable for the GNOME Display Manager. It handles the low-level operations of managing graphical login screens, authenticating users, and launching desktop sessions. This binary is the core GDM process that runs with elevated privileges to manage display servers and user session creation.
+**gdm-binary** 是 GNOME 显示管理器（GDM）的实际守护进程可执行文件。它负责管理图形登录界面、验证用户身份以及启动桌面会话等底层操作。该二进制文件是 GDM 的核心进程，以提升后的权限运行，用于管理显示服务器和创建用户会话。
 
-On modern systems, gdm-binary is typically started and managed by systemd rather than being invoked directly by users or administrators. The gdm service wrapper handles process management, while gdm-binary performs the actual display manager functions.
+在现代系统中，gdm-binary 通常由 systemd 启动和管理，而非由用户或管理员直接调用。gdm 服务包装器负责进程管理，而 gdm-binary 则执行实际的显示管理器功能。
 
-Users rarely need to interact with gdm-binary directly, as system management commands like systemctl or the gdm wrapper script are the preferred interfaces for controlling the display manager.
+用户很少需要直接操作 gdm-binary，因为 systemctl 等系统管理命令或 gdm 包装脚本才是控制显示管理器的首选接口。
 
 # INSTALL
 
@@ -58,4 +58,3 @@ Users rarely need to interact with gdm-binary directly, as system management com
 ```[Source code](https://gitlab.gnome.org/GNOME/gdm)```
 
 <!-- verified: 2026-07-15 -->
-

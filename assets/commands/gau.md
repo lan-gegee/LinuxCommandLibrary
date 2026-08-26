@@ -1,26 +1,26 @@
 # TAGLINE
 
-URL fetcher from multiple archive sources
+从多个归档来源抓取 URL
 
 # TLDR
 
-**Fetch URLs for** domain
+**抓取域名的** URL
 
 ```gau [example.com]```
 
-**Output to file**
+**输出到文件**
 
 ```gau [example.com] -o [urls.txt]```
 
-**Fetch with providers**
+**指定数据源抓取**
 
 ```gau --providers [wayback,otx] [example.com]```
 
-**Include subdomains**
+**包含子域名**
 
 ```gau --subs [example.com]```
 
-**Filter by date**
+**按日期过滤**
 
 ```gau --from [202201] --to [202212] [example.com]```
 
@@ -31,41 +31,41 @@ URL fetcher from multiple archive sources
 # PARAMETERS
 
 _DOMAINS_
-> Target domains to fetch URLs for.
+> 要抓取 URL 的目标域名。
 
 **-o** _FILE_, **--o** _FILE_
-> Output file.
+> 输出文件。
 
 **--providers** _LIST_
-> URL sources: wayback, otx, commoncrawl.
+> URL 来源：wayback、otx、commoncrawl。
 
 **--subs**
-> Include subdomains.
+> 包含子域名。
 
 **--from** _DATE_
-> Start date (YYYYMM).
+> 起始日期（YYYYMM）。
 
 **--to** _DATE_
-> End date (YYYYMM).
+> 结束日期（YYYYMM）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gau** (Get All URLs) fetches known URLs for domains from multiple sources including Wayback Machine, Common Crawl, and AlienVault OTX. It's used for reconnaissance and security research.
+**gau**（Get All URLs）从 Wayback Machine、Common Crawl 和 AlienVault OTX 等多个来源抓取域名的已知 URL。它被用于侦察和安全研究。
 
-The tool aggregates historical URLs that may reveal hidden endpoints, parameters, or old vulnerabilities. Results include archived pages, API endpoints, and file paths.
+该工具汇总历史 URL，这些 URL 可能暴露隐藏的端点、参数或旧漏洞。结果包括存档页面、API 端点和文件路径。
 
-gau enables discovering attack surface by finding URLs that were once publicly accessible.
+gau 通过找出曾经公开可访问的 URL，帮助发现攻击面。
 
 # CAVEATS
 
-Results include historical dead URLs. May produce large output. Subject to source rate limits.
+结果包含已失效的历史 URL。输出可能非常庞大。受各数据源速率限制约束。
 
 # HISTORY
 
-gau was created for security research and bug bounty hunting, providing easy access to archived URL databases for reconnaissance purposes.
+gau 为安全研究和漏洞赏金挖掘而创建，让侦察工作可以方便地访问存档 URL 数据库。
 
 # INSTALL
 

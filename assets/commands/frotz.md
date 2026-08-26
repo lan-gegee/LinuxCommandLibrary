@@ -1,30 +1,30 @@
 # TAGLINE
 
-Z-machine interactive fiction interpreter
+Z-machine 文字冒险游戏解释器
 
 # TLDR
 
-**Play Z-machine game**
+**运行 Z-machine 游戏**
 
 ```frotz [game.z5]```
 
-**Set screen width and height**
+**设置屏幕宽高**
 
 ```frotz -w [80] -h [24] [game.z5]```
 
-**Play in dumb terminal mode**
+以哑终端模式游玩
 
 ```dfrotz [game.z5]```
 
-**Load a saved game on startup**
+**启动时加载存档**
 
 ```frotz -L [savefile] [game.z5]```
 
-**Restrict file access to a directory**
+**限制文件访问范围到一个目录**
 
 ```frotz -R [/path/to/directory] [game.z5]```
 
-**Play with abbreviation expansion and ignore errors**
+开启缩写展开并忽略错误进行游戏
 
 ```frotz -x -i [game.z5]```
 
@@ -44,106 +44,106 @@ field west of a house.
 
 # DESCRIPTION
 
-**frotz** is an interpreter for Infocom-style interactive fiction (Z-machine games). It runs text adventure games in formats from Z3 through Z8, including classic titles and modern IF works.
+**frotz** 是 Infocom 风格文字冒险游戏（Z-machine 游戏）的解释器。它可以运行 Z3 到 Z8 各格式的文字冒险游戏，包括经典作品和现代 IF 作品。
 
-The tool provides terminal and graphical interfaces for playing these games, with support for save/restore, transcripts, and input recording.
+该工具提供终端和图形界面来运行这些游戏，支持保存/恢复、记录文本（transcript）和输入录制。
 
 # PARAMETERS
 
 **-a**
-> Watch attribute setting.
+> 监视属性设置。
 
 **-A**
-> Watch attribute testing.
+> 监视属性测试。
 
 **-b** _color_
-> Background color.
+> 背景色。
 
 **-c** _n_
-> Context lines for scrolling.
+> 滚动时保留的上下文行数。
 
 **-d**
-> Disable color output.
+> 禁用彩色输出。
 
 **-e**
-> Enable sound effects.
+> 启用音效。
 
 **-f** _color_
-> Foreground color.
+> 前景色。
 
 **-F**
-> Force color mode even if disabled in config.
+> 即使配置中禁用也强制启用颜色模式。
 
 **-h** _rows_
-> Screen height.
+> 屏幕高度（行数）。
 
 **-i**
-> Ignore fatal Z-machine errors.
+> 忽略致命的 Z-machine 错误。
 
 **-I** _n_
-> Interpreter number to report to the game.
+> 报告给游戏的解释器编号。
 
 **-l** _n_
-> Left margin in characters.
+> 左边距（字符数）。
 
 **-L** _file_
-> Load a saved game file on startup.
+> 启动时加载存档文件。
 
 **-m**
-> Enable mouse support.
+> 启用鼠标支持。
 
 **-o**
-> Watch object movement.
+> 监视对象移动。
 
 **-O**
-> Watch object locating.
+> 监视对象定位。
 
 **-p**
-> Plain ASCII output only (no accented characters).
+> 仅输出纯 ASCII（不带重音字符）。
 
 **-P**
-> Alter piracy opcode.
+> 修改盗版检测 opcode。
 
 **-q**
-> Quiet mode (disable sound effects).
+> 安静模式（禁用音效）。
 
 **-r** _n_
-> Right margin in characters.
+> 右边距（字符数）。
 
 **-R** _directory_
-> Restrict file read/write to specified directory.
+> 将文件读写限制在指定目录内。
 
 **-s** _n_
-> Random number seed value.
+> 随机数种子值。
 
 **-S** _n_
-> Set transcript width (0 to disable line splitting).
+> 设置记录宽度（0 表示禁用换行拆分）。
 
 **-t**
-> Set Tandy bit.
+> 设置 Tandy 位。
 
 **-u** _n_
-> Number of undo slots.
+> 撤销槽位数量。
 
 **-v**
-> Show version information.
+> 显示版本信息。
 
 **-w** _columns_
-> Screen width.
+> 屏幕宽度（列数）。
 
 **-x**
-> Expand abbreviations "g", "x", "z" to "again", "examine", "wait".
+> 将缩写 "g"、"x"、"z" 展开为 "again"、"examine"、"wait"。
 
 **-Z** _n_
-> Error checking mode (0=none, 1=first, 2=all, 3=exit on error; default 1).
+> 错误检查模式（0=不检查，1=首个错误，2=全部，3=出错即退出；默认 1）。
 
 # CAVEATS
 
-Some games require specific Z-machine versions. Color support depends on terminal capabilities. Save format may not be portable between different interpreters. Three variants exist: **frotz** (curses), **dfrotz** (dumb terminal), and **sfrotz** (SDL graphical).
+部分游戏需要特定的 Z-machine 版本。颜色支持取决于终端能力。存档格式在不同解释器之间未必通用。共有三个变体：**frotz**（curses）、**dfrotz**（哑终端）和 **sfrotz**（SDL 图形界面）。
 
 # HISTORY
 
-**Frotz** was written by **Stefan Jokisch** in the mid-**1990s** as a portable Z-machine interpreter. It became one of the most popular interpreters for Infocom games and modern interactive fiction. The name references the spell from Zork.
+**Frotz** 由 **Stefan Jokisch** 于 **20 世纪 90 年代中期**编写，是一个可移植的 Z-machine 解释器。它成为运行 Infocom 游戏和现代文字冒险游戏最受欢迎的解释器之一。其名字来自 Zork 中的一个咒语。
 
 # INSTALL
 

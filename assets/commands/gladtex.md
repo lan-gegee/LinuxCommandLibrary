@@ -1,22 +1,22 @@
 # TAGLINE
 
-Convert LaTeX formulas in HTML to images
+将 HTML 中的 LaTeX 公式转换为图片
 
 # TLDR
 
-**Convert HTML with LaTeX**
+**转换含 LaTeX 的 HTML**
 
 ```gladtex [input.htex]```
 
-**Specify output file**
+**指定输出文件**
 
 ```gladtex -o [output.html] [input.htex]```
 
-**Set image directory**
+**设置图片目录**
 
 ```gladtex -d [images/] [input.htex]```
 
-**Set resolution**
+**设置分辨率**
 
 ```gladtex -r [150] [input.htex]```
 
@@ -27,36 +27,36 @@ Convert LaTeX formulas in HTML to images
 # PARAMETERS
 
 _FILE_
-> Input .htex file.
+> 输入的 .htex 文件。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-d** _DIR_
-> Image directory.
+> 图片目录。
 
 **-r** _DPI_
-> Image resolution.
+> 图片分辨率。
 
 **-b** _COLOR_
-> Background color.
+> 背景颜色。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gladtex** converts LaTeX formulas embedded in HTML documents to images. It processes `.htex` files containing LaTeX math markup and produces standard HTML with rendered formula images.
+**gladtex** 将 HTML 文档中嵌入的 LaTeX 公式转换为图片。它处理包含 LaTeX 数学标记的 `.htex` 文件，并生成带有已渲染公式图片的标准 HTML。
 
-The tool enables embedding mathematical notation in web pages by rendering formulas through LaTeX and converting them to images that display in any browser.
+该工具通过 LaTeX 渲染公式并将其转换为可在任何浏览器中显示的图片，从而实现在网页中嵌入数学符号。
 
 # CAVEATS
 
-Requires LaTeX installation. Output is images, not MathML. Consider MathJax for modern sites.
+需要安装 LaTeX。输出的是图片而非 MathML。现代网站可考虑使用 MathJax。
 
 # HISTORY
 
-gladtex was created to enable mathematical formulas in HTML before widespread browser support for MathML and JavaScript math rendering.
+gladtex 的诞生是为了在浏览器广泛支持 MathML 和 JavaScript 数学渲染之前，让 HTML 能够显示数学公式。
 
 # INSTALL
 

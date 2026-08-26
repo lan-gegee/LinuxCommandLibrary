@@ -1,26 +1,26 @@
 # TAGLINE
 
-Google Compute Engine resource management
+Google Compute Engine 资源管理
 
 # TLDR
 
-**List VM instances**
+**列出虚拟机实例**
 
 ```gcloud compute instances list```
 
-**Create instance**
+**创建实例**
 
 ```gcloud compute instances create [name] --zone=[zone]```
 
-**SSH to instance**
+**SSH 连接到实例**
 
 ```gcloud compute ssh [instance] --zone=[zone]```
 
-**Stop instance**
+**停止实例**
 
 ```gcloud compute instances stop [name] --zone=[zone]```
 
-**List disks**
+**列出磁盘**
 
 ```gcloud compute disks list```
 
@@ -31,64 +31,64 @@ Google Compute Engine resource management
 # SUBCOMMANDS
 
 **instances** _CMD_
-> VM instance lifecycle (create, list, start, stop, delete, describe).
+> 虚拟机实例生命周期（create、list、start、stop、delete、describe）。
 
 **disks** _CMD_
-> Persistent disk operations.
+> 持久磁盘操作。
 
 **images** _CMD_
-> Manage custom and public VM images.
+> 管理自定义和公共虚拟机镜像。
 
 **snapshots** _CMD_
-> Create and manage disk snapshots.
+> 创建和管理磁盘快照。
 
 **networks** _CMD_
-> VPC networks, subnets and peering.
+> VPC 网络、子网和对等连接。
 
 **firewall-rules** _CMD_
-> Manage VPC firewall rules.
+> 管理 VPC 防火墙规则。
 
 **ssh** _INSTANCE_
-> SSH into an instance (automatically manages keys).
+> SSH 进入实例（自动管理密钥）。
 
 **scp** _SRC_ _DEST_
-> Copy files to or from an instance over SSH.
+> 通过 SSH 在实例与本地之间复制文件。
 
 # PARAMETERS
 
 **--zone** _ZONE_
-> Compute zone for the resource (e.g. us-central1-a).
+> 资源所在的计算区域（如 us-central1-a）。
 
 **--region** _REGION_
-> Compute region for regional resources.
+> 区域性资源所在的计算大区。
 
 **--project** _PROJECT_
-> Google Cloud project ID to target.
+> 要操作的 Google Cloud 项目 ID。
 
 **--format** _FORMAT_
-> Output format (json, yaml, table, value).
+> 输出格式（json、yaml、table、value）。
 
 **--filter** _EXPR_
-> Filter results by expression.
+> 按表达式过滤结果。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud compute** is the command-line interface for Google Compute Engine, Google's Infrastructure-as-a-Service offering. It provides complete control over virtual machines, persistent disks, networks, load balancers, and other infrastructure primitives.
+**gcloud compute** 是 Google Compute Engine 的命令行界面，Compute Engine 是 Google 的基础设施即服务产品。它提供对虚拟机、持久磁盘、网络、负载均衡器及其他基础设施要素的完整控制。
 
-The instances subcommand handles VM lifecycle operations including creation with customizable machine types, starting and stopping instances, and deletion. Network resources like VPCs, subnets, firewall rules, and routes are managed through their respective subcommands.
+instances 子命令处理虚拟机生命周期操作，包括使用自定义机型创建实例、启动和停止实例以及删除。VPC、子网、防火墙规则和路由等网络资源通过各自对应的子命令管理。
 
-Special convenience features include built-in SSH access via gcloud compute ssh, which automatically manages SSH keys and connection details, and gcloud compute scp for secure file transfers. The command group supports advanced features like custom images, snapshots, instance groups, and managed instance groups for autoscaling. All operations respect zones and regions, which must be specified either per-command or via configuration defaults.
+一些便利特性包括：内置的 gcloud compute ssh 可自动管理 SSH 密钥和连接细节；gcloud compute scp 支持安全的文件传输。该命令组还支持自定义镜像、快照、实例组以及用于自动扩缩的代管实例组等高级功能。所有操作都遵循区域和大区概念，必须逐命令指定或通过配置默认值指定。
 
 # CAVEATS
 
-Resources incur costs. Zone selection affects availability. Some operations take time.
+资源会产生费用。区域选择影响可用性。某些操作耗时较长。
 
 # HISTORY
 
-gcloud compute is part of the **Google Cloud SDK** for managing Compute Engine, Google's Infrastructure-as-a-Service offering for running virtual machines.
+gcloud compute 属于 **Google Cloud SDK**，用于管理 Compute Engine——Google 用于运行虚拟机的基础设施即服务产品。
 
 # SEE ALSO
 

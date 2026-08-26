@@ -1,14 +1,14 @@
 # TAGLINE
 
-open a feedback form for the Google Cloud CLI
+打开 Google Cloud CLI 的反馈表单
 
 # TLDR
 
-**Open the feedback form** in the browser
+在浏览器中**打开反馈表单**
 
 ```gcloud feedback```
 
-**Attach a log file** to the feedback
+**附上日志文件**
 
 ```gcloud feedback --log-file [path/to/gcloud.log]```
 
@@ -19,20 +19,20 @@ open a feedback form for the Google Cloud CLI
 # PARAMETERS
 
 **--log-file** _FILE_
-> Path to a `gcloud` log file to attach (typically from `~/.config/gcloud/logs/`). When provided, gcloud reads the log and pastes a link to it into the new-issue URL along with the trace info so the CLI team can reproduce the problem.
+> 要附上的 `gcloud` 日志文件路径（通常位于 `~/.config/gcloud/logs/`）。提供该选项时，gcloud 会读取日志并将指向它的链接连同追踪信息一起粘贴到新建 issue 的 URL 中，便于 CLI 团队复现问题。
 
 **gcloud wide flags**
-> All global flags apply: `--help`, `--quiet`, `--verbosity`, `--configuration`, `--user-output-enabled`, `--log-http`, etc.
+> 所有全局标志均适用：`--help`、`--quiet`、`--verbosity`、`--configuration`、`--user-output-enabled`、`--log-http` 等。
 
 # DESCRIPTION
 
-**gcloud feedback** opens the official Google Cloud CLI issue tracker in your default browser, pre-filled with system information (gcloud version, platform, Python version) so reports don't start empty. It is the recommended way to report bugs or request features for the CLI itself; for feedback on specific Google Cloud products, use their in-console "Send feedback" widgets.
+**gcloud feedback** 会在默认浏览器中打开 Google Cloud CLI 的官方 issue 跟踪器，并预填系统信息（gcloud 版本、平台、Python 版本），避免报告从空白开始。这是向 CLI 本身报告缺陷或请求功能的推荐方式；若要反馈具体的 Google Cloud 产品，请使用其控制台内的"发送反馈"组件。
 
-With `--log-file`, gcloud opens the log, strips sensitive headers, and makes it easy to share a recent failure trace with the filed report.
+配合 `--log-file` 使用时，gcloud 会打开日志、剔除敏感头部信息，方便把最近的失败轨迹随报告一起分享。
 
 # CAVEATS
 
-Requires a browser — on headless machines the URL is printed to stdout instead. Logs may contain resource names and project IDs; review before pasting into a public issue. For security vulnerabilities, use the private security contact, not the public issue tracker.
+需要浏览器——在无头（headless）机器上会把 URL 打印到 stdout。日志可能包含资源名称和项目 ID；粘贴到公开 issue 前请先检查。安全漏洞请通过私密的安全联系方式报告，不要使用公开的 issue 跟踪器。
 
 # SEE ALSO
 

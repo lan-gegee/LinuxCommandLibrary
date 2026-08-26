@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create and manipulate portable bundle files
+创建和操作可移植的 bundle 文件
 
 # TLDR
 
-**Create bundle of entire repository**
+**创建整个仓库的 bundle**
 
 ```git bundle create [repo.bundle] --all```
 
-**Create bundle of branch**
+**创建分支的 bundle**
 
 ```git bundle create [branch.bundle] [branch]```
 
-**Create bundle since commit**
+**创建某提交以来的 bundle**
 
 ```git bundle create [recent.bundle] [commit]..HEAD```
 
-**Verify bundle**
+**校验 bundle**
 
 ```git bundle verify [repo.bundle]```
 
-**Clone from bundle**
+**从 bundle 克隆**
 
 ```git clone [repo.bundle] [directory]```
 
-**List bundle contents**
+**列出 bundle 内容**
 
 ```git bundle list-heads [repo.bundle]```
 
@@ -35,29 +35,29 @@ Create and manipulate portable bundle files
 # SUBCOMMANDS
 
 **create**
-> Create a bundle.
+> 创建 bundle。
 
 **verify**
-> Verify a bundle.
+> 校验 bundle。
 
 **list-heads**
-> List references.
+> 列出引用。
 
 **unbundle**
-> Extract objects.
+> 解出对象。
 
 # PARAMETERS
 
 **--all**
-> Include all refs.
+> 包含所有引用。
 
 # DESCRIPTION
 
-**git bundle** creates and manipulates bundle files for transferring repository data offline. Bundles are portable binary archives containing Git objects and references, functioning as standalone repository snapshots.
+**git bundle** 用于创建和操作 bundle 文件，以便离线传输仓库数据。bundle 是包含 Git 对象和引用的可移植二进制归档，相当于独立的仓库快照。
 
-The primary use case is sharing repository data without network access, such as air-gapped environments or slow connections. Bundles can contain entire repositories or specific branches and commit ranges. They act as read-only remotes when cloned or fetched from.
+其主要用途是在没有网络的情况下共享仓库数据，例如隔离网络环境或网络缓慢的场景。bundle 可以包含整个仓库，也可以只包含特定分支和提交范围。在从中克隆或拉取时，它们表现得像只读远程。
 
-Unlike archives, bundles preserve Git history and can be incrementally fetched from. They're verified cryptographically to ensure data integrity. Common workflows include creating bundles on one machine, physically transferring them, and cloning or fetching on another machine.
+与归档不同，bundle 保留了 Git 历史，并且可以从中增量拉取。bundle 经过加密校验以确保数据完整性。常见的工作流是：在一台机器上创建 bundle，物理传输到另一台机器后进行克隆或拉取。
 
 # INSTALL
 
@@ -80,4 +80,3 @@ Unlike archives, bundles preserve Git history and can be incrementally fetched f
 # SEE ALSO
 
 [git-archive](/man/git-archive)(1), [git-clone](/man/git-clone)(1), [git-fetch](/man/git-fetch)(1), [git-pull](/man/git-pull)(1)
-

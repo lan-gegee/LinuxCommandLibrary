@@ -1,26 +1,26 @@
 # TAGLINE
 
-Merge pull requests using GitHub API
+使用 GitHub API 合并拉取请求
 
 # TLDR
 
-**Merge current PR**
+**合并当前 PR**
 
 ```gh pr merge```
 
-**Merge with squash**
+**以 squash 方式合并**
 
 ```gh pr merge --squash```
 
-**Merge with rebase**
+**以 rebase 方式合并**
 
 ```gh pr merge --rebase```
 
-**Delete branch after merge**
+**合并后删除分支**
 
 ```gh pr merge --delete-branch```
 
-**Auto-merge when ready**
+**条件满足时自动合并**
 
 ```gh pr merge --auto```
 
@@ -31,45 +31,45 @@ Merge pull requests using GitHub API
 # PARAMETERS
 
 _PR-NUMBER_
-> Pull request number (defaults to current branch).
+> 拉取请求编号（默认为当前分支）。
 
 **--merge**
-> Create a standard merge commit.
+> 创建标准的合并提交。
 
 **--squash**
-> Squash commits into one.
+> 将提交压缩为一个。
 
 **--rebase**
-> Rebase commits onto base branch.
+> 将提交变基（rebase）到 base 分支上。
 
 **--delete-branch**
-> Delete branch after merge.
+> 合并后删除分支。
 
 **--auto**
-> Enable auto-merge when requirements met.
+> 满足全部要求后自动合并。
 
 **--admin**
-> Merge with admin privileges.
+> 以管理员权限合并。
 
 **--body** _TEXT_
-> Custom merge commit message.
+> 自定义合并提交信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh pr merge** merges pull requests using GitHub's merge API. It supports all merge strategies: merge commits, squash merging, and rebasing. The command can wait for required checks and approvals before proceeding.
+**gh pr merge** 通过 GitHub 的合并 API 来合并拉取请求。它支持所有合并策略：合并提交（merge commit）、squash 合并和变基合并。该命令可以先等待必需检查和批准完成后再执行合并。
 
-Auto-merge (--auto) sets a PR to merge automatically once all requirements are satisfied, useful for approved PRs waiting on CI. The --delete-branch option cleans up feature branches after merging.
+自动合并（--auto）会将 PR 设置为在所有要求满足后自动合并，适合已获批准但仍在等待 CI 的 PR。--delete-branch 选项会在合并后清理功能分支。
 
 # CAVEATS
 
-Branch protection rules may prevent merging. Auto-merge requires repository feature enabled. Admin flag overrides protections.
+分支保护规则可能阻止合并。自动合并需要在仓库中启用该功能。管理员标志可绕过保护规则。
 
 # HISTORY
 
-gh pr merge is part of the **GitHub CLI**, implementing all merge strategies available through GitHub's web interface.
+gh pr merge 是 **GitHub CLI** 的组成部分，实现了 GitHub 网页界面上可用的全部合并策略。
 
 # INSTALL
 

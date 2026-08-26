@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays supplementary help topics
+显示补充帮助主题
 
 # TLDR
 
-**List available topics**
+**列出可用主题**
 
 ```gcloud topic```
 
-**View specific topic**
+**查看特定主题**
 
 ```gcloud topic [configurations]```
 
-**View auth topic**
+**查看 auth 主题**
 
 ```gcloud topic [auth]```
 
-**View formats topic**
+**查看 formats 主题**
 
 ```gcloud topic [formats]```
 
@@ -27,29 +27,29 @@ displays supplementary help topics
 # TOPICS
 
 **configurations**
-> Named configurations.
+> 命名配置。
 
 **auth**
-> Authentication information.
+> 身份验证信息。
 
 **formats**
-> Output formats.
+> 输出格式。
 
 **filters**
-> Filter expressions.
+> 过滤表达式。
 
 **projections**
-> Resource projections.
+> 资源投影。
 
 **escaping**
-> Escaping and quoting.
+> 转义与引号处理。
 
 **startup**
-> SDK startup.
+> SDK 启动。
 
 # DESCRIPTION
 
-**gcloud topic** displays supplementary help topics for gcloud commands. Topics provide detailed information about various gcloud concepts and features.
+**gcloud topic** 显示 gcloud 命令的补充帮助主题。这些主题提供有关各种 gcloud 概念和特性的详细信息。
 
 # SEE ALSO
 
@@ -60,4 +60,3 @@ displays supplementary help topics
 ```[Documentation](https://cloud.google.com/sdk/gcloud/reference/topic)```
 
 <!-- verified: 2026-07-15 -->
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Append an identifier stamp to the last commit message
+在最近一次提交信息后追加标识戳
 
 # TLDR
 
-**Stamp the last commit** with an id and message
+**为最近一次提交加盖标识戳**，含 id 和消息
 
 ```git stamp [Reviewed-by] "[Jane Doe]"```
 
-**Stamp with just an id**
+**只带 id 加戳**
 
 ```git stamp [Fixes-123]```
 
-**Replace any previous stamp** with the same id
+**替换已有的同 id 标识戳**
 
 ```git stamp --replace [Reviewed-by] "[Jane Doe]"```
 
@@ -23,23 +23,23 @@ Append an identifier stamp to the last commit message
 # PARAMETERS
 
 _ID_
-> Stamp identifier (e.g. `Reviewed-by`, `Fixes`).
+> 戳的标识符（如 `Reviewed-by`、`Fixes`）。
 
 _MESSAGE_
-> Optional text appended after the id.
+> 可选文本，附加在 id 之后。
 
 **-r**, **--replace**
-> Remove any existing stamp lines with the same id (case-insensitive) before appending the new one.
+> 在追加新戳之前，先移除消息中所有具有相同 id（不区分大小写）的既有戳行。
 
 # DESCRIPTION
 
-**git stamp** amends the most recent commit, appending a new paragraph of the form `<id> <message>` to its message. Part of git-extras, it is a quick way to tag a commit with metadata like `Reviewed-by`, `Tested-by`, or an issue reference without hand-editing the commit message.
+**git stamp** 会修补最近一次提交，在其消息中追加一个形如 `<id> <message>` 的新段落。它属于 git-extras，可以快速给提交打上 `Reviewed-by`、`Tested-by` 或 issue 引用之类的元数据，无需手动编辑提交信息。
 
-With `--replace`, any prior paragraph in the message starting with the same id is stripped before the new stamp is added, so re-running the command updates rather than duplicates the stamp.
+使用 `--replace` 时，消息中所有以相同 id 开头的既有段落都会先被剔除，然后再加入新戳，因此重复运行该命令是更新而非叠加。
 
 # CAVEATS
 
-Amends HEAD, so it rewrites the commit hash; don't use it on a commit that has already been pushed and shared.
+它会修补 HEAD，因此会重写提交哈希；不要对已经推送并分享给他人的提交使用。
 
 # INSTALL
 

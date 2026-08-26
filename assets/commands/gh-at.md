@@ -1,30 +1,30 @@
 # TAGLINE
 
-Download and verify artifact attestations (alias for gh attestation)
+下载并验证工件证明（gh attestation 的别名）
 
 # TLDR
 
-**Verify an artifact** against a repository's attestations
+针对仓库的证明**验证工件**
 
 ```gh at verify [example.bin] --repo [owner/repo]```
 
-**Verify an artifact** against an organization's attestations
+针对组织的证明**验证工件**
 
 ```gh at verify [example.bin] --owner [org-name]```
 
-**Verify an OCI image**
+**验证 OCI 镜像**
 
 ```gh at verify [oci://image-uri] --owner [org-name]```
 
-**Verify and print full JSON** result
+**验证并以完整 JSON 输出**结果
 
 ```gh at verify [example.bin] --owner [org-name] --format [json]```
 
-**Download attestations** for offline verification
+**下载证明**以供离线验证
 
 ```gh at download [example.bin] --repo [owner/repo]```
 
-**Output the trusted root** for offline verification
+**输出受信任根**用于离线验证
 
 ```gh at trusted-root --repo [owner/repo]```
 
@@ -35,59 +35,59 @@ Download and verify artifact attestations (alias for gh attestation)
 # PARAMETERS
 
 **verify** [_file-path_ | _oci://image-uri_]
-> Verify the integrity and provenance of an artifact using its associated attestations.
+> 使用关联的证明验证工件的完整性与来源。
 
 **download** [_file-path_ | _oci://image-uri_]
-> Download an artifact's attestations for offline use.
+> 下载工件的证明以供离线使用。
 
 **trusted-root**
-> Output trusted_root.jsonl contents, for offline verification.
+> 输出 trusted_root.jsonl 内容，用于离线验证。
 
 **-o**, **--owner** _string_
-> GitHub organization to scope the attestation lookup by.
+> 用于限定证明查找范围的 GitHub 组织。
 
 **-R**, **--repo** _string_
-> Repository name in the format _owner/repo_.
+> 仓库名称，格式为 _owner/repo_。
 
 # VERIFY FLAGS
 
 **-d**, **--digest-alg** _string_
-> Digest algorithm used to compute the artifact's digest: sha256 or sha512 (default sha256).
+> 计算工件摘要所用的摘要算法：sha256 或 sha512（默认 sha256）。
 
 **--cert-identity** _string_
-> Enforce an exact match of the certificate's SubjectAlternativeName.
+> 强制要求证书的 SubjectAlternativeName 精确匹配。
 
 **-i**, **--cert-identity-regex** _string_
-> Enforce a regex match of the certificate's SubjectAlternativeName.
+> 强制要求证书的 SubjectAlternativeName 匹配正则表达式。
 
 **--cert-oidc-issuer** _string_
-> Enforce the OIDC token issuer (default https://token.actions.githubusercontent.com).
+> 强制指定 OIDC 令牌签发者（默认 https://token.actions.githubusercontent.com）。
 
 **--signer-repo** _string_
-> Enforce a match on the signer workflow's repository.
+> 强制匹配签名工作流所在的仓库。
 
 **--signer-workflow** _string_
-> Enforce a match on the signer workflow's path.
+> 强制匹配签名工作流的路径。
 
 **-b**, **--bundle** _string_
-> Verify using a bundle stored on disk instead of fetching from GitHub.
+> 使用磁盘上保存的 bundle 进行验证，而不是从 GitHub 获取。
 
 **--bundle-from-oci**
-> Fetch the attestation bundle from the OCI registry instead of GitHub.
+> 从 OCI 注册表而非 GitHub 获取证明 bundle。
 
 **--format** _string_
-> Output format; currently only **json** is supported.
+> 输出格式；目前仅支持 **json**。
 
 **-L**, **--limit** _int_
-> Maximum number of attestations to fetch (default 30).
+> 获取证明的最大数量（默认 30）。
 
 # DESCRIPTION
 
-**gh at** is the built-in alias for **gh attestation**, part of the official **GitHub CLI**. It downloads and verifies build provenance attestations, cryptographically signed records that tie an artifact back to the GitHub repository, commit, and workflow that built it (via Sigstore). It's used to confirm that a downloaded binary, package, or container image genuinely came from the claimed source and build pipeline.
+**gh at** 是 **gh attestation** 的内建别名，属于官方 **GitHub CLI**。它下载并验证构建来源证明——通过 Sigstore 加密签名的记录，把工件与构建它的 GitHub 仓库、提交和工作流关联起来。它用于确认下载的二进制文件、软件包或容器镜像确实来自声称的来源和构建流水线。
 
 # CAVEATS
 
-Requires either **--owner** or **--repo** to scope the lookup. Verification depends on network access to GitHub and Sigstore's public-good instance unless **--custom-trusted-root** or **--bundle** is used for fully offline verification.
+需要提供 **--owner** 或 **--repo** 来限定查找范围。验证依赖对 GitHub 和 Sigstore 公共实例的网络访问；除非使用 **--custom-trusted-root** 或 **--bundle** 进行完全离线验证。
 
 # INSTALL
 

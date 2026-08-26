@@ -1,34 +1,34 @@
 # TAGLINE
 
-client for foot terminal server
+foot 终端服务器的客户端
 
 # TLDR
 
-**Open a new terminal window** via foot server
+通过 foot 服务器**打开新的终端窗口**
 
 ```footclient```
 
-**Open a terminal running** a specific command
+**打开运行特定命令的终端**
 
 ```footclient [command]```
 
-**Open a terminal in** a specific directory
+**在指定目录中打开终端**
 
 ```footclient -D [path/to/directory]```
 
-**Open a terminal with** a custom title
+**打开带自定义标题的终端**
 
 ```footclient -T "[My Terminal]"```
 
-**Connect to a custom socket** path
+**连接到自定义套接字**路径
 
 ```footclient --server-socket=[path/to/foot.sock]```
 
-**Open a maximized terminal** window
+**打开最大化的终端**窗口
 
 ```footclient --maximized```
 
-**Open a fullscreen terminal** window
+**打开全屏的终端**窗口
 
 ```footclient --fullscreen```
 
@@ -39,50 +39,50 @@ client for foot terminal server
 # PARAMETERS
 
 **-D**, **--working-directory**=_DIR_
-> Start terminal in specified directory.
+> 在指定目录中启动终端。
 
 **-T**, **--title**=_TITLE_
-> Set initial window title.
+> 设置初始窗口标题。
 
 **-a**, **--app-id**=_ID_
-> Set Wayland app-id (for window manager matching).
+> 设置 Wayland app-id（供窗口管理器匹配）。
 
 **-m**, **--maximized**
-> Start window maximized.
+> 以最大化方式启动窗口。
 
 **-F**, **--fullscreen**
-> Start window in fullscreen mode.
+> 以全屏模式启动窗口。
 
 **-s**, **--server-socket**=_PATH_
-> Connect to foot server at specified socket path.
+> 连接到指定套接字路径上的 foot 服务器。
 
 **-H**, **--hold**
-> Keep terminal open after command exits.
+> 命令退出后保持终端开启。
 
 **-N**, **--no-wait**
-> Detach from server immediately (don't wait for window close).
+> 立即与服务器断开（不等待窗口关闭）。
 
 **-h**, **--help**
-> Display help message.
+> 显示帮助信息。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**footclient** is a client for the foot terminal emulator's server mode. When foot runs as a server (**foot --server**), footclient connects to it to open new terminal windows. This architecture provides faster startup times and reduced memory usage since fonts, glyph caches, and configuration are shared across all terminal windows.
+**footclient** 是 foot 终端模拟器服务器模式的客户端。当 foot 以服务器模式运行（**foot --server**）时，footclient 连接到它以打开新终端窗口。这种架构提供了更快的启动速度和更低的内存占用，因为字体、字形缓存和配置在所有终端窗口之间共享。
 
-The server listens on a Unix socket, defaulting to **$XDG_RUNTIME_DIR/foot-$WAYLAND_DISPLAY.sock**. Footclient remains running until the associated terminal window closes, unless **--no-wait** is specified.
+服务器监听一个 Unix 套接字，默认为 **$XDG_RUNTIME_DIR/foot-$WAYLAND_DISPLAY.sock**。除非指定 **--no-wait**，footclient 会一直运行到关联的终端窗口关闭为止。
 
-Typical usage involves starting **foot --server** at login (often via systemd socket activation) and using footclient for all subsequent terminal launches.
+典型用法是在登录时启动 **foot --server**（通常借助 systemd socket activation），之后所有终端都通过 footclient 启动。
 
 # CAVEATS
 
-Requires foot server to be running. All terminals share the same server process, so a server crash affects all windows. Heavy load on multiple terminals may reduce performance compared to standalone foot instances. Only works on Wayland; foot does not support X11.
+需要 foot 服务器正在运行。所有终端共享同一个服务器进程，因此服务器崩溃会影响所有窗口。多终端高负载时性能可能不如独立运行的 foot 实例。仅支持 Wayland；foot 不支持 X11。
 
 # HISTORY
 
-Foot was created by Daniel Eklöf as a fast, lightweight terminal emulator designed specifically for Wayland compositors. The server/client architecture was implemented to address the startup time and memory overhead of launching multiple terminal instances. Foot has gained popularity in the Wayland ecosystem for its performance and simplicity.
+Foot 由 Daniel Eklöf 创建，是专为 Wayland 合成器设计的快速轻量终端模拟器。实现服务器/客户端架构是为了解决启动多个终端实例时的启动时间和内存开销问题。Foot 凭借其性能与简洁性在 Wayland 生态中广受欢迎。
 
 # INSTALL
 

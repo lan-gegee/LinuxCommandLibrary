@@ -1,26 +1,26 @@
 # TAGLINE
 
-command-driven graphing and plotting utility
+命令驱动的绘图工具
 
 # TLDR
 
-**Start interactive mode**
+**启动交互模式**
 
 ```gnuplot```
 
-**Run script**
+**运行脚本**
 
 ```gnuplot [script.gp]```
 
-**Quick plot**
+**快速绘图**
 
 ```gnuplot -e "plot sin(x)"```
 
-**Persist window**
+**保持窗口打开**
 
 ```gnuplot -p -e "plot sin(x)"```
 
-**Set terminal**
+**设置终端类型**
 
 ```gnuplot -e "set terminal png; set output 'plot.png'; plot sin(x)"```
 
@@ -31,38 +31,38 @@ command-driven graphing and plotting utility
 # PARAMETERS
 
 _FILES_
-> Script files to run.
+> 要运行的脚本文件。
 
 **-e** _COMMAND_
-> Execute command.
+> 执行命令。
 
 **-p**, **--persist**
-> Keep window after script.
+> 脚本执行后保持窗口打开。
 
 **-c** _FILE_
-> Call script with args.
+> 带参数调用脚本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gnuplot** is a command-driven graphing utility for creating 2D and 3D plots of functions and data. It supports many output formats for publication-quality graphics.
+**gnuplot** 是一个命令驱动的绘图工具，用于创建函数和数据的二维及三维图形。它支持多种输出格式，可生成出版级质量的图形。
 
-The tool uses its own scripting language for plot customization. It supports terminals for X11, PNG, PDF, SVG, and many others. It is widely used in scientific visualization and data analysis.
+该工具使用自己的脚本语言定制绘图。它支持 X11、PNG、PDF、SVG 等多种终端类型。它在科学可视化和数据分析领域被广泛使用。
 
 # CONFIGURATION
 
 **~/.gnuplot**
-> Initialization file executed on startup, used for default settings and custom functions.
+> 启动时执行的初始化文件，用于默认设置和自定义函数。
 
 # CAVEATS
 
-Learning curve for advanced features. Script syntax unique to gnuplot. Many terminal types available.
+高级功能有一定学习曲线。脚本语法是 gnuplot 特有的。可用的终端类型很多。
 
 # HISTORY
 
-gnuplot was created in **1986** by Thomas Williams and Colin Kelley, becoming a standard tool for scientific and technical plotting.
+gnuplot 由 Thomas Williams 和 Colin Kelley 于 **1986** 年创建，现已成为科学与技术绘图的标准工具。
 
 # INSTALL
 

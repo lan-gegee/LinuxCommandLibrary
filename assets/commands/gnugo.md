@@ -1,30 +1,30 @@
 # TAGLINE
 
-play the game of Go against the computer
+与计算机对弈围棋
 
 # TLDR
 
-**Start a game with ASCII display**
+**以 ASCII 显示开始对局**
 
 ```gnugo --mode gtp```
 
-**Play with a specific board size**
+**用指定的棋盘尺寸对弈**
 
 ```gnugo --boardsize [9]```
 
-**Set AI difficulty level**
+**设置 AI 难度等级**
 
 ```gnugo --level [10]```
 
-**Play interactively in ASCII mode**
+**在 ASCII 模式下交互对弈**
 
 ```gnugo --mode ascii```
 
-**Replay an SGF game file**
+**回放 SGF 棋谱文件**
 
 ```gnugo -l [game.sgf] --mode ascii```
 
-**Score a finished game**
+**为已结束的对局计分**
 
 ```gnugo -l [game.sgf] --score finish```
 
@@ -35,40 +35,40 @@ play the game of Go against the computer
 # PARAMETERS
 
 **--mode** _MODE_
-> Interface mode: ascii, gtp, or gmp.
+> 界面模式：ascii、gtp 或 gmp。
 
 **--boardsize** _N_
-> Board size (default: 19). Common sizes: 9, 13, 19.
+> 棋盘尺寸（默认：19）。常见尺寸：9、13、19。
 
 **--level** _N_
-> AI thinking level (0-10, default: 10).
+> AI 思考等级（0-10，默认：10）。
 
 **--handicap** _N_
-> Number of handicap stones.
+> 让子数量。
 
 **--color** _COLOR_
-> Choose color: black or white.
+> 选择颜色：black 或 white。
 
 **--komi** _N_
-> Set komi (compensation points, default: 5.5).
+> 设置贴目数（补偿点数，默认：5.5）。
 
 **-l**, **--infile** _FILE_
-> Load an SGF game file for analysis or replay.
+> 加载 SGF 棋谱文件用于分析或回放。
 
 **-L**, **--until** _MOVE_
-> Stop loading the SGF file just before the specified move is played.
+> 在指定着法落下之前停止加载 SGF 文件。
 
 **-o**, **--outfile** _FILE_
-> Save the game to an SGF file.
+> 将对局保存为 SGF 文件。
 
 **--score** _MODE_
-> Estimate or finalize the score of a loaded game (_estimate_, _finish_, _aftermath_).
+> 估算或确定已加载对局的得分（_estimate_、_finish_、_aftermath_）。
 
 **--printboard**
-> Print the board after each move.
+> 每步之后打印棋盘。
 
 **--quiet**
-> Suppress informational messages.
+> 抑制提示性消息。
 
 # PREVIEW
 
@@ -83,17 +83,17 @@ play the game of Go against the computer
 
 # DESCRIPTION
 
-**gnugo** is a program that plays the board game Go against the user. It supports multiple board sizes, adjustable AI strength, and can communicate through the Go Text Protocol (GTP) for integration with graphical frontends.
+**gnugo** 是一个与用户对弈围棋的程序。它支持多种棋盘尺寸、可调节的 AI 棋力，并能通过 Go Text Protocol（GTP）通信以便与图形前端集成。
 
-In ASCII mode, moves are entered as coordinates (e.g., "C4"). The AI analyzes board positions using pattern matching and reading ahead. Use **pass** to pass your turn and **quit** to exit.
+在 ASCII 模式下，以坐标形式输入着法（如 "C4"）。AI 使用模式匹配和向前推演来分析盘面。输入 **pass** 虚着一手，输入 **quit** 退出。
 
 # CAVEATS
 
-Requires no special terminal support in ASCII mode. The AI is moderately strong but not competitive with modern Go engines like KataGo. GTP mode is intended for use with graphical frontends.
+ASCII 模式不需要特殊的终端支持。其 AI 具有中等棋力，但无法与 KataGo 等现代围棋引擎抗衡。GTP 模式供图形前端使用。
 
 # HISTORY
 
-**GNU Go** has been developed by the **Free Software Foundation** since **1989**. It was one of the strongest open-source Go programs before the advent of neural network-based engines.
+**GNU Go** 自 **1989** 年起由 **自由软件基金会（Free Software Foundation）** 开发。在神经网络引擎出现之前，它曾是最强的开源围棋程序之一。
 
 # INSTALL
 

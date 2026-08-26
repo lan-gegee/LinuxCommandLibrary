@@ -1,14 +1,14 @@
 # TAGLINE
 
-Merge repository into subdirectory
+将仓库合并到子目录
 
 # TLDR
 
-**Merge another repository**
+**合并另一个仓库**
 
 ```git merge-repo [repo-url] [branch] [directory]```
 
-**Merge repo into subdirectory**
+**将仓库合并到子目录**
 
 ```git merge-repo [https://github.com/owner/repo.git] main [lib/]```
 
@@ -19,32 +19,32 @@ Merge repository into subdirectory
 # PARAMETERS
 
 _URL_
-> Repository URL to merge.
+> 要合并的仓库 URL。
 
 _BRANCH_
-> Branch to merge from.
+> 从哪个分支合并。
 
 _DIRECTORY_
-> Target subdirectory.
+> 目标子目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git merge-repo** merges another repository into a subdirectory while preserving its full commit history. It is a thin wrapper around `git subtree add -P <directory> <repo> <branch>`, so the incoming history is grafted in rather than squashed away.
+**git merge-repo** 将另一个仓库合并到子目录中，同时保留其完整提交历史。它是 `git subtree add -P <directory> <repo> <branch>` 的薄封装，因此引入的历史是被嫁接进来的，而不是被压缩掉。
 
-Passing `.` as the directory is a special case: the repo is first added into a temporary subdirectory, then its files are moved up into the repository root (flattening it) instead of staying nested.
+传入 `.` 作为目录是一种特殊情况：仓库先被加入一个临时子目录，然后其中的文件会被上移到仓库根目录（扁平化），而不是保持嵌套。
 
-The command is useful for incorporating external libraries, consolidating multiple repositories into a monorepo, or absorbing a project that was previously maintained separately.
+该命令适用于整合外部库、把多个仓库合并成 monorepo，或吸收此前独立维护的项目。
 
 # CAVEATS
 
-Part of git-extras package. Requires `git subtree` to be available. May need conflict resolution if paths collide.
+属于 git-extras 软件包。要求 `git subtree` 可用。路径冲突时可能需要手动解决冲突。
 
 # HISTORY
 
-git merge-repo is part of **git-extras**, providing repository consolidation functionality for monorepo creation and library incorporation.
+git merge-repo 是 **git-extras** 的一部分，为创建 monorepo 和整合外部库提供仓库合并功能。
 
 # INSTALL
 

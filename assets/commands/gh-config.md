@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage GitHub CLI settings and preferences
+管理 GitHub CLI 的设置与偏好
 
 # TLDR
 
-**Get config value**
+**获取配置值**
 
 ```gh config get [key]```
 
-**Set config value**
+**设置配置值**
 
 ```gh config set [key] [value]```
 
-**List all configuration**
+**列出全部配置**
 
 ```gh config list```
 
-**Set default editor**
+**设置默认编辑器**
 
 ```gh config set editor [vim]```
 
-**Set default browser**
+**设置默认浏览器**
 
 ```gh config set browser [firefox]```
 
@@ -31,40 +31,40 @@ manage GitHub CLI settings and preferences
 # PARAMETERS
 
 **get** _KEY_
-> Get a configuration value.
+> 获取配置值。
 
 **set** _KEY_ _VALUE_
-> Set a configuration value.
+> 设置配置值。
 
 **list**
-> List all configuration settings.
+> 列出所有配置项。
 
 **--host** _HOSTNAME_
-> Apply to specific GitHub host.
+> 应用于特定的 GitHub 主机。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh config** manages configuration for the GitHub CLI. It controls behavior settings like preferred editor, browser, default prompts, and protocol preferences.
+**gh config** 管理 GitHub CLI 的配置。它控制偏好编辑器、浏览器、默认提示方式、协议选择等行为设置。
 
-Configuration is stored per-host, allowing different settings for github.com and GitHub Enterprise instances. Settings can be environment-specific or global.
+配置按主机存储，因此 github.com 和 GitHub Enterprise 实例可以有不同的设置。设置可以是特定环境的或全局的。
 
-Common settings include git_protocol (https/ssh), editor, browser, and pager.
+常见设置包括 git_protocol（https/ssh）、editor、browser 和 pager。
 
 # CONFIGURATION
 
 **~/.config/gh/config.yml**
-> Main configuration file storing user preferences, default settings, and per-host configurations.
+> 主配置文件，存放用户偏好、默认设置和按主机的配置。
 
 # CAVEATS
 
-Config stored in ~/.config/gh/config.yml. Environment variables may override settings. Some settings require reauthentication to take effect.
+配置保存在 ~/.config/gh/config.yml 中。环境变量可能覆盖设置。某些设置需要重新认证才能生效。
 
 # HISTORY
 
-gh config is part of the **GitHub CLI**, providing user customization following XDG Base Directory conventions on Unix systems.
+gh config 是 **GitHub CLI** 的一部分，遵循 Unix 系统上的 XDG Base Directory 规范提供用户自定义能力。
 
 # INSTALL
 

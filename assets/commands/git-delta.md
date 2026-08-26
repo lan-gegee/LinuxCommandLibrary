@@ -1,22 +1,22 @@
 # TAGLINE
 
-List files that differ from another branch
+列出与另一分支存在差异的文件
 
 # TLDR
 
-**List files that differ from master** (added, copied, or modified by default)
+**列出与 master 不同的文件**（默认为新增、复制或修改）
 
 ```git delta```
 
-**List files that differ from a specific branch**
+**列出与指定分支不同的文件**
 
 ```git delta [branch]```
 
-**Show only modified and renamed files** compared to master
+**只显示与 master 相比修改和重命名的文件**
 
 ```git delta master MR```
 
-**Show only deleted files** compared to a branch
+**只显示与某分支相比删除的文件**
 
 ```git delta [branch] D```
 
@@ -27,22 +27,22 @@ List files that differ from another branch
 # PARAMETERS
 
 _branch_
-> Branch to compare against. Defaults to **master** if not specified.
+> 用于比较的基准分支。未指定时默认为 **master**。
 
 _filter_
-> Diff filter characters to select file status types. Uses the same filter letters as **git diff --diff-filter**: **A** (added), **C** (copied), **D** (deleted), **M** (modified), **R** (renamed). Multiple letters can be combined (e.g., **MR**). Defaults to **ACM** (added, copied, modified).
+> 差异过滤字符，用于选择文件状态类型。使用与 **git diff --diff-filter** 相同的过滤字母：**A**（added，新增）、**C**（copied，复制）、**D**（deleted，删除）、**M**（modified，修改）、**R**（renamed，重命名）。多个字母可以组合（如 **MR**）。默认为 **ACM**（新增、复制、修改）。
 
 # DESCRIPTION
 
-**git delta** lists files that differ from a given branch, showing only file names without content differences. By default it compares against the **master** branch and shows files that have been added, copied, or modified.
+**git delta** 列出与指定分支存在差异的文件，仅显示文件名而不显示内容差异。默认与 **master** 分支比较，并显示已新增、复制或修改的文件。
 
-The filter parameter allows narrowing results to specific change types using git's diff-filter notation. This is useful for code review preparation, deployment planning, or quickly assessing the scope of changes on a feature branch.
+filter 参数允许使用 git 的 diff-filter 记法将结果限定为特定的变更类型。这有助于准备代码评审、制定部署计划，或快速评估特性分支上改动的范围。
 
-Part of the **git-extras** suite. Not to be confused with the separate **delta** project (dandavison/delta), which is a syntax-highlighting pager for git diff output.
+它是 **git-extras** 套件的组成部分。不要与独立的 **delta** 项目（dandavison/delta）混淆，后者是一个用于 git diff 输出的语法高亮分页器。
 
 # CAVEATS
 
-Requires the **git-extras** package to be installed. Only shows file names, not content differences. The default comparison branch is **master**, not **main** -- this may need adjustment for repositories using **main** as their default branch.
+需要安装 **git-extras** 软件包。只显示文件名，不显示内容差异。默认比较分支是 **master** 而非 **main**——对于以 **main** 作为默认分支的仓库可能需要调整。
 
 # INSTALL
 

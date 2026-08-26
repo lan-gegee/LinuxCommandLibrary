@@ -1,22 +1,22 @@
 # TAGLINE
 
-PBM to HP ZjStream converter
+PBM 转 HP ZjStream 转换器
 
 # TLDR
 
-**Convert PBM to** HP format
+**将 PBM 转换为** HP 格式
 
 ```foo2hp [options] < [input.pbm] > [output.prn]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2hp -r [600] < [input.pbm] > [output.prn]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2hp -p [letter] < [input.pbm] > [output.prn]```
 
-**Color mode**
+**彩色模式**
 
 ```foo2hp -c < [input.ppm] > [output.prn]```
 
@@ -27,41 +27,41 @@ PBM to HP ZjStream converter
 # PARAMETERS
 
 **-r** _DPI_
-> Resolution (300, 600, 1200).
+> 分辨率（300、600、1200）。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-c**
-> Color mode (requires PPM input).
+> 彩色模式（需要 PPM 输入）。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-d** _DUPLEX_
-> Duplex mode.
+> 双面打印模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2hp** converts PBM/PPM images to HP's proprietary ZjStream format for certain HP Color LaserJet printers. It enables printing on printers that lack native Linux drivers.
+**foo2hp** 将 PBM/PPM 图像转换为某些 HP Color LaserJet 打印机所需的 HP 专有 ZjStream 格式。它让缺乏原生 Linux 驱动的打印机也能打印。
 
-The tool handles raster-to-printer protocol conversion, managing page setup, color handling, and HP-specific encoding. It works as a CUPS filter backend.
+该工具负责栅格到打印机协议的转换，处理页面设置、色彩管理以及 HP 专属编码。它作为 CUPS 过滤器后端工作。
 
-foo2hp supports HP Color LaserJet 1600, 2600n, and similar models using ZjStream protocol.
+foo2hp 支持 HP Color LaserJet 1600、2600n 及其他使用 ZjStream 协议的类似机型。
 
 # CAVEATS
 
-Only for specific HP printer models. Quality depends on input resolution. May not support all printer features.
+仅适用于特定 HP 打印机型号。质量取决于输入分辨率。可能不支持全部打印机特性。
 
 # HISTORY
 
-foo2hp is part of **foo2zjs**, Rick Richardson's open source driver collection. It reverse-engineered HP's ZjStream protocol to provide Linux support for GDI-based HP printers.
+foo2hp 属于 **foo2zjs**——Rick Richardson 的开源驱动集合。它通过逆向工程 HP 的 ZjStream 协议，使基于 GDI 的 HP 打印机获得了 Linux 支持。
 
 # INSTALL
 

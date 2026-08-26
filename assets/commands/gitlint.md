@@ -1,38 +1,38 @@
 # TAGLINE
 
-Lint and enforce commit message conventions
+检查并强制执行提交信息规范
 
 # TLDR
 
-**Lint the most recent commit**
+**检查最近一次提交**
 
 ```gitlint```
 
-**Lint a specific commit**
+**检查特定提交**
 
 ```gitlint --commit [commit-hash]```
 
-**Lint a range of commits**
+**检查一段提交范围**
 
 ```gitlint --commits [HEAD~5..HEAD]```
 
-**Lint a message from stdin**
+**检查来自 stdin 的提交信息**
 
 ```echo "Fix bug" | gitlint --stdin-msg```
 
-**Generate a default config file**
+**生成默认配置文件**
 
 ```gitlint generate-config```
 
-**Install as a commit-msg git hook**
+**安装为 commit-msg git 钩子**
 
 ```gitlint install-hook```
 
-**Uninstall the commit-msg hook**
+**卸载 commit-msg 钩子**
 
 ```gitlint uninstall-hook```
 
-**Lint with a specific config file**
+使用指定配置文件进行检查
 
 ```gitlint --config [.gitlint] --commits [main..HEAD]```
 
@@ -43,92 +43,92 @@ Lint and enforce commit message conventions
 # PARAMETERS
 
 **--commit** _SHA_
-> Check a specific commit.
+> 检查特定提交。
 
 **--commits** _RANGE_
-> Check a range of commits.
+> 检查一段提交范围。
 
 **--stdin-msg**
-> Read commit message from stdin instead of git log.
+> 从 stdin 而非 git log 读取提交信息。
 
 **--msg-filename** _FILE_
-> Read commit message from a file.
+> 从文件读取提交信息。
 
 **-c** _RULE.OPTION=VALUE_
-> Set a rule option on the command line.
+> 在命令行上设置某条规则的选项。
 
 **-C**, **--config** _FILE_
-> Use a specific config file.
+> 使用指定的配置文件。
 
 **--ignore** _RULES_
-> Comma-separated list of rules to ignore.
+> 要忽略规则的逗号分隔列表。
 
 **--contrib** _RULES_
-> Comma-separated list of contrib rules to enable (e.g., contrib-title-conventional-commits).
+> 要启用的 contrib 规则的逗号分隔列表（如 contrib-title-conventional-commits）。
 
 **--target** _DIRECTORY_
-> Path of the target git repository (default: current working directory).
+> 目标 git 仓库的路径（默认：当前工作目录）。
 
 **-e**, **--extra-path** _PATH_
-> Path to a directory or Python module with extra user-defined rules.
+> 包含额外用户自定义规则的目录或 Python 模块的路径。
 
 **--ignore-stdin**
-> Ignore any stdin data. Useful for running in CI server.
+> 忽略任何 stdin 数据。适合在 CI 服务器上运行。
 
 **--staged**
-> Smart detection of metadata for staged commits.
+> 智能检测暂存提交的元数据。
 
 **--fail-without-commits**
-> Hard fail when the target commit range is empty.
+> 当目标提交范围为空时直接失败。
 
 **-v**, **--verbose**
-> Verbosity, use multiple times for more output (e.g., -v, -vv, -vvv).
+> 详细程度，多次使用可输出更多信息（如 -v、-vv、-vvv）。
 
 **-s**, **--silent**
-> Silent mode (no output). Takes precedence over -v.
+> 静默模式（无输出）。优先于 -v。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--version**
-> Show version and exit.
+> 显示版本并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # COMMANDS
 
 **lint**
-> Lint a git repository (default command).
+> 检查 git 仓库（默认命令）。
 
 **generate-config**
-> Create a default .gitlint configuration file.
+> 创建默认的 .gitlint 配置文件。
 
 **install-hook**
-> Install gitlint as a git commit-msg hook.
+> 将 gitlint 安装为 git commit-msg 钩子。
 
 **uninstall-hook**
-> Remove the gitlint commit-msg hook.
+> 移除 gitlint commit-msg 钩子。
 
 **run-hook**
-> Run the gitlint commit-msg hook.
+> 运行 gitlint commit-msg 钩子。
 
 # DESCRIPTION
 
-**gitlint** enforces commit message conventions by checking that messages follow configured rules for format, length, and content. This ensures consistent, readable commit history across a project.
+**gitlint** 通过检查提交信息是否遵循关于格式、长度和内容的既定规则来强制执行提交信息规范，确保整个项目的提交历史一致且易读。
 
-Default rules include title max length (72 chars), title not ending with a period, body max line length (80 chars), and a blank line between title and body. Contrib rules add support for Conventional Commits and other formats.
+默认规则包括：标题最大长度（72 字符）、标题不以句号结尾、正文最大行长（80 字符）、标题与正文之间须有空行等。Contrib 规则还增加了对 Conventional Commits 等格式的支持。
 
-Custom Python rules can be written to enforce project-specific conventions. The tool integrates naturally into CI pipelines by linting commit ranges with **--commits**.
+可以编写自定义 Python 规则以强制执行项目特有的约定。通过 **--commits** 检查提交范围，该工具可以自然地集成到 CI 流水线中。
 
 # CONFIGURATION
 
 **.gitlint**
-> Project-level configuration file defining commit message rules, ignored rules, and custom settings. Uses INI format with sections for each rule.
+> 项目级配置文件，定义提交信息规则、要忽略的规则及自定义设置。采用 INI 格式，每条规则一个区块。
 
 # CAVEATS
 
-Requires Python 3. When used as a hook, only the latest commit message is checked. The **--commits** flag is needed for CI to check all commits in a branch. Custom rules require writing Python classes.
+需要 Python 3。作为钩子使用时只检查最近一次提交信息。CI 中需要 **--commits** 标志才能检查分支上的所有提交。自定义规则需要编写 Python 类。
 
 # INSTALL
 

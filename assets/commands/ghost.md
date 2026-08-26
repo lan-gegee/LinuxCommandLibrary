@@ -1,34 +1,34 @@
 # TAGLINE
 
-Command-line interface for the Ghost publishing platform
+Ghost 发布平台的命令行界面
 
 # TLDR
 
-**Start Ghost in development**
+**在开发模式下启动 Ghost**
 
 ```ghost start```
 
-**Start in production**
+**在生产模式下启动**
 
 ```ghost start --production```
 
-**Stop Ghost**
+**停止 Ghost**
 
 ```ghost stop```
 
-**Restart Ghost**
+**重启 Ghost**
 
 ```ghost restart```
 
-**Check status**
+**查看状态**
 
 ```ghost status```
 
-**Install Ghost**
+**安装 Ghost**
 
 ```ghost install```
 
-**Update Ghost**
+**更新 Ghost**
 
 ```ghost update```
 
@@ -39,74 +39,74 @@ Command-line interface for the Ghost publishing platform
 # SUBCOMMANDS
 
 **install**
-> Install Ghost.
+> 安装 Ghost。
 
 **start**
-> Start Ghost.
+> 启动 Ghost。
 
 **stop**
-> Stop Ghost.
+> 停止 Ghost。
 
 **restart**
-> Restart Ghost.
+> 重启 Ghost。
 
 **status**
-> Show status.
+> 显示状态。
 
 **update**
-> Update Ghost.
+> 更新 Ghost。
 
 **setup**
-> Configure Ghost.
+> 配置 Ghost。
 
 **config**
-> View/set configuration.
+> 查看/设置配置。
 
 **log**
-> View logs.
+> 查看日志。
 
 **doctor**
-> Check installation.
+> 检查安装状况。
 
 **run**
-> Start Ghost without process manager (for debugging).
+> 不经进程管理器直接启动 Ghost（用于调试）。
 
 **backup**
-> Create a zip backup of site data.
+> 创建站点数据的 zip 备份。
 
 **uninstall**
-> Remove Ghost installation and data.
+> 移除 Ghost 安装及其数据。
 
 # PARAMETERS
 
 **--production**
-> Run in production mode.
+> 以生产模式运行。
 
 **-D**, **--development**
-> Run in development mode.
+> 以开发模式运行。
 
 **-d**, **--dir** _path_
-> Installation directory.
+> 安装目录。
 
 **--enable**
-> Restart Ghost automatically on server reboot.
+> 服务器重启时自动重启 Ghost。
 
 **--no-prompt**
-> Skip confirmation prompts.
+> 跳过确认提示。
 
 # DESCRIPTION
 
-**ghost** is the command-line interface for Ghost, a modern open-source publishing platform built on Node.js. It provides complete lifecycle management for Ghost installations, including initial setup, updates, configuration, and process management.
+**ghost** 是 Ghost 的命令行界面。Ghost 是一个基于 Node.js 构建的现代开源发布平台。该 CLI 为 Ghost 安装提供完整的生命周期管理，包括初始设置、更新、配置和进程管理。
 
-The CLI automates database setup, SSL certificate installation, systemd service configuration, and nginx proxy setup. It handles migrations during updates and provides diagnostic tools through the doctor command.
+CLI 可以自动完成数据库设置、SSL 证书安装、systemd 服务配置以及 nginx 反向代理搭建。它会在更新期间处理数据库迁移，并通过 doctor 命令提供诊断功能。
 
 # CONFIGURATION
 
 **config.production.json**
-> Production environment configuration for database, URL, mail, and server settings.
+> 生产环境配置，涵盖数据库、URL、邮件和服务器等设置。
 
 **config.development.json**
-> Development environment configuration.
+> 开发环境配置。
 
 # INSTALL
 

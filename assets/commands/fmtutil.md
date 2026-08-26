@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage TeX format files and Metafont bases
+管理 TeX 格式文件和 Metafont 基础
 
 # TLDR
 
-**Rebuild all** formats (prefer the sys/user wrappers)
+**重建全部**格式（优先使用 sys/user 包装器）
 
 ```fmtutil --sys --all```
 
-**Create missing** formats only
+仅**创建缺失的**格式
 
 ```fmtutil --sys --missing```
 
-**Rebuild one** format by name
+按名称**重建一个**格式
 
 ```fmtutil --sys --byfmt pdflatex```
 
-**Rebuild formats** for a given engine
+为指定引擎**重建格式**
 
 ```fmtutil --sys --byengine pdftex```
 
-**List** configured formats
+**列出**已配置的格式
 
 ```fmtutil --sys --listcfg```
 
@@ -30,78 +30,78 @@ manage TeX format files and Metafont bases
 
 # DESCRIPTION
 
-**fmtutil** rebuilds and manages TeX format files and Metafont bases (collectively called "formats"). Formats are pre-dumped engine states (for example **pdflatex.fmt**) that make subsequent TeX runs much faster.
+**fmtutil** 重建并管理 TeX 格式文件与 Metafont 基础（统称"formats"）。格式是预先转储的引擎状态（例如 **pdflatex.fmt**），可让后续 TeX 运行快得多。
 
-As of TeX Live 2017, prefer the explicit wrappers **fmtutil-sys** and **fmtutil-user**, or pass **-sys** / **-user**. Invoking bare **fmtutil** without a mode prints a warning. Best practice for almost all installations is **system mode** so generated files land under TEXMFSYSVAR and stay consistent with package updates.
+自 TeX Live 2017 起，应优先使用显式包装器 **fmtutil-sys** 和 **fmtutil-user**，或传入 **-sys** / **-user**。不带模式调用裸 **fmtutil** 会打印警告。对几乎所有安装而言，最佳实践是使用**系统模式**，让生成的文件落在 TEXMFSYSVAR 下并与软件包更新保持一致。
 
-Exactly one command must be given (except in **mktexfmt** mode). Configuration is merged from all **fmtutil.cnf** files found via **kpsewhich**.
+必须给出恰好一个命令（**mktexfmt** 模式除外）。配置由通过 **kpsewhich** 找到的所有 **fmtutil.cnf** 文件合并而来。
 
 # PARAMETERS
 
 **-sys**
-> Use system trees TEXMFSYSVAR / TEXMFSYSCONFIG (same as **fmtutil-sys**)
+> 使用系统树 TEXMFSYSVAR / TEXMFSYSCONFIG（同 **fmtutil-sys**）
 
 **-user**
-> Use user trees TEXMFVAR / TEXMFCONFIG (same as **fmtutil-user**)
+> 使用用户树 TEXMFVAR / TEXMFCONFIG（同 **fmtutil-user**）
 
 **--all**
-> Recreate all format files
+> 重新创建所有格式文件
 
 **--missing**
-> Create all missing format files
+> 创建所有缺失的格式文件
 
 **--byfmt** _FORMAT_
-> (Re)create format FORMAT
+> （重新）创建格式 FORMAT
 
 **--byengine** _ENGINE_
-> (Re)create formats built with ENGINE
+> （重新）创建用 ENGINE 构建的格式
 
 **--byhyphen** _HYPHENFILE_
-> (Re)create formats that depend on HYPHENFILE
+> （重新）创建依赖 HYPHENFILE 的格式
 
 **--refresh**
-> Recreate only formats that already exist
+> 仅重新创建已存在的格式
 
 **--enablefmt** _FORMAT_[/_ENGINE_]
-> Enable FORMAT (optionally for a specific engine)
+> 启用 FORMAT（可针对特定引擎）
 
 **--disablefmt** _FORMAT_[/_ENGINE_]
-> Disable FORMAT
+> 禁用 FORMAT
 
 **--listcfg**
-> List enabled and disabled configurations for available formats
+> 列出可用格式的启用与禁用配置
 
 **--showhyphen** _FORMAT_
-> Print the hyphen file name for FORMAT
+> 打印 FORMAT 对应的连字符文件名
 
 **--cnffile** _FILE_
-> Read FILE instead of the default **fmtutil.cnf** (may be repeated)
+> 读取 FILE 而非默认的 **fmtutil.cnf**（可重复）
 
 **--fmtdir** _DIR_
-> Write formats under DIR instead of TEXMF[SYS]VAR
+> 将格式写入 DIR 而非 TEXMF[SYS]VAR
 
 **--dry-run**, **-n**
-> Do not actually build formats
+> 不实际构建格式
 
 **--quiet**
-> Be silent
+> 静默模式
 
 **--nohash**
-> Do not update ls-R files
+> 不更新 ls-R 文件
 
 **--no-strict**
-> Exit successfully even if a format fails to build
+> 即使某个格式构建失败也正常退出
 
 **--version**, **--help**
-> Show version or help and exit
+> 显示版本或帮助并退出
 
 # CAVEATS
 
-Running in **user** mode once writes formats under TEXMFVAR that permanently override system formats until those user files are removed. Prefer **fmtutil-sys** / **-sys** unless you intentionally maintain private formats. Building all formats can take a long time and needs a complete TeX Live engine set.
+以**用户**模式运行一次后，TEXMFVAR 下写入的格式会永久覆盖系统格式，直到删除这些用户文件为止。除非有意维护私有格式，否则请优先使用 **fmtutil-sys** / **-sys**。构建全部格式可能耗时很长，并且需要完整的 TeX Live 引擎集合。
 
 # HISTORY
 
-Originally written by Thomas Esser for teTeX; maintained as part of TeX Live. The **-user** / **-sys** split and dedicated **fmtutil-user** / **fmtutil-sys** commands were introduced around TeX Live 2017.
+最初由 Thomas Esser 为 teTeX 编写；现作为 TeX Live 的一部分维护。**-user** / **-sys** 的划分以及专用的 **fmtutil-user** / **fmtutil-sys** 命令大约在 TeX Live 2017 中引入。
 
 # INSTALL
 

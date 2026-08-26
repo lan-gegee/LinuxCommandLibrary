@@ -1,14 +1,14 @@
 # TAGLINE
 
-GML to Graphviz DOT format converter
+GML 到 Graphviz DOT 格式的转换器
 
 # TLDR
 
-**Convert GML to DOT**
+**将 GML 转换为 DOT**
 
 ```gml2gv [input.gml] -o [output.gv]```
 
-**Convert to stdout**
+**输出到 stdout**
 
 ```gml2gv [input.gml]```
 
@@ -19,33 +19,33 @@ GML to Graphviz DOT format converter
 # PARAMETERS
 
 _FILES_
-> GML input files. Reads from stdin if omitted.
+> GML 输入文件。省略时从 stdin 读取。
 
 **-o** _FILE_
-> Output file. Writes to stdout if omitted.
+> 输出文件。省略时写入 stdout。
 
 **-g** _NAME_
-> Name for the generated graph. Subsequent graphs get an appended integer.
+> 生成的图的名称。后续生成的图会追加一个整数。
 
 **-v**
-> Verbose mode.
+> 详细模式。
 
 **-?**
-> Display usage information and exit.
+> 显示用法信息并退出。
 
 # DESCRIPTION
 
-**gml2gv** converts graphs from GML (Graph Modelling Language) format to DOT format used by Graphviz. It enables using GML graphs with Graphviz visualization tools.
+**gml2gv** 将图从 GML（Graph Modelling Language）格式转换为 Graphviz 使用的 DOT 格式。它让 GML 格式的图能够配合 Graphviz 可视化工具使用。
 
-GML is a portable format for graph description. The converter preserves graph structure for rendering with dot, neato, or other Graphviz layout engines.
+GML 是一种可移植的图描述格式。该转换器会保留图的结构，以便用 dot、neato 或其他 Graphviz 布局引擎进行渲染。
 
 # CAVEATS
 
-Part of Graphviz. Some GML features may not have DOT equivalents. Check attribute preservation.
+属于 Graphviz 的一部分。某些 GML 特性可能没有对应的 DOT 表达方式。请注意检查属性的保留情况。
 
 # HISTORY
 
-gml2gv is part of **Graphviz**, providing format conversion between common graph description languages.
+gml2gv 是 **Graphviz** 的一部分，提供常见图描述语言之间的格式转换。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-bitmap font to SFNT converter
+位图字体转 SFNT 转换器
 
 # TLDR
 
-**Convert BDF to** sfnt
+**将 BDF 转换为** sfnt
 
 ```fonttosfnt -o [output.ttf] [input.bdf]```
 
-**Convert PCF font**
+**转换 PCF 字体**
 
 ```fonttosfnt -o [output.otb] [input.pcf]```
 
-**Verbose output**
+**详细输出**
 
 ```fonttosfnt -v -o [output.ttf] [input.bdf]```
 
-**Process multiple fonts**
+**处理多个字体**
 
 ```fonttosfnt -o [output.ttf] [font1.bdf] [font2.bdf]```
 
@@ -27,38 +27,38 @@ bitmap font to SFNT converter
 # PARAMETERS
 
 _INPUT-FILES_
-> BDF or PCF font files.
+> BDF 或 PCF 字体文件。
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-g** _N_
-> Gamma correction value.
+> 伽马校正值。
 
 **-m**
-> Merge glyphs into single font.
+> 将字形合并为单一字体。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fonttosfnt** converts bitmap fonts (BDF, PCF) to SFNT format (TrueType/OpenType with bitmap data). It preserves bitmap glyphs while providing modern font file format.
+**fonttosfnt** 将位图字体（BDF、PCF）转换为 SFNT 格式（含位图数据的 TrueType/OpenType）。它在保留位图字形的同时采用现代字体文件格式。
 
-The tool embeds bitmap strikes in SFNT wrappers, enabling use of legacy bitmap fonts in systems expecting modern font formats. Multiple input fonts can be merged.
+该工具将位图 strike 封装进 SFNT 容器，使旧式位图字体可用于要求现代字体格式的系统。多个输入字体可以合并。
 
-fonttosfnt bridges classic X11 bitmap fonts with contemporary font infrastructure.
+fonttosfnt 在经典 X11 位图字体与当代字体基础设施之间架起桥梁。
 
 # CAVEATS
 
-Output remains bitmap, not vector. Limited font metadata support. Best for specific sizes.
+输出仍是位图而非矢量。字体元数据支持有限。最适合特定尺寸。
 
 # HISTORY
 
-fonttosfnt is part of the **X.Org** font utilities, providing conversion between traditional X11 bitmap formats and modern SFNT containers for compatibility with newer systems.
+fonttosfnt 是 **X.Org** 字体工具的一部分，用于在传统 X11 位图格式与现代 SFNT 容器之间进行转换，以兼容较新的系统。
 
 # INSTALL
 

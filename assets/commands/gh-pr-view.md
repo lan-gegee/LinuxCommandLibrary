@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display pull request details and metadata
+显示拉取请求详情和元数据
 
 # TLDR
 
-**View current PR**
+**查看当前 PR**
 
 ```gh pr view```
 
-**View specific PR**
+**查看特定 PR**
 
 ```gh pr view [pr-number]```
 
-**Open PR in browser**
+**在浏览器中打开 PR**
 
 ```gh pr view --web```
 
-**View as JSON**
+**以 JSON 查看**
 
 ```gh pr view --json [title,body,state]```
 
-**View PR comments**
+**查看 PR 评论**
 
 ```gh pr view --comments```
 
@@ -31,39 +31,39 @@ Display pull request details and metadata
 # PARAMETERS
 
 _PR-NUMBER_
-> Pull request number (defaults to current branch).
+> 拉取请求编号（默认为当前分支）。
 
 **--web**
-> Open in browser instead of terminal.
+> 在浏览器而非终端中打开。
 
 **--comments**
-> Show PR comments.
+> 显示 PR 评论。
 
 **--json** _FIELDS_
-> Output specific fields as JSON.
+> 以 JSON 输出指定字段。
 
 **-q** _QUERY_, **--jq** _QUERY_
-> Filter JSON output with jq syntax.
+> 使用 jq 语法过滤 JSON 输出。
 
 **-t**, **--template** _TEMPLATE_
-> Format output using a Go template.
+> 使用 Go template 格式化输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh pr view** displays detailed information about a pull request including title, body, state, reviewers, labels, and merge status. It renders markdown content in the terminal.
+**gh pr view** 显示拉取请求的详细信息，包括标题、正文、状态、审查者、标签和合并状态。它会在终端中渲染 Markdown 内容。
 
-The command defaults to the pull request for the current branch if no number is specified. JSON output enables scripted access to PR data with optional jq filtering.
+未指定编号时，命令默认显示当前分支对应的拉取请求。JSON 输出便于脚本访问 PR 数据，还可配合 jq 过滤。
 
 # CAVEATS
 
-Markdown rendering is simplified for terminal. Large PRs may be truncated. JSON fields vary by PR state.
+终端中的 Markdown 渲染有所简化。过大的 PR 可能被截断。JSON 字段随 PR 状态而异。
 
 # HISTORY
 
-gh pr view is part of **GitHub CLI's** pull request commands, providing terminal-based PR inspection as an alternative to the web interface.
+gh pr view 属于 **GitHub CLI** 的拉取请求命令集，提供基于终端的 PR 查看，可作为网页界面的替代方案。
 
 # INSTALL
 

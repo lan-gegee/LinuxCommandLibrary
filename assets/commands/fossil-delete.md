@@ -1,18 +1,18 @@
 # TAGLINE
 
-remove files from version control
+从版本控制中移除文件
 
 # TLDR
 
-**Delete a file**
+**删除文件**
 
 ```fossil delete [file]```
 
-**Delete with dry run**
+**以 dry run 方式删除**
 
 ```fossil delete --dry-run [file]```
 
-**Delete with force**
+**强制删除**
 
 ```fossil delete -f [file]```
 
@@ -23,28 +23,28 @@ remove files from version control
 # PARAMETERS
 
 **-n**, **--dry-run**
-> Show what would happen without modifying anything.
+> 显示将要发生的变化而不做任何修改。
 
 **--hard**
-> Also delete the files from the working check-out, not only from version control.
+> 同时从工作检出中删除文件，而不仅是版本控制。
 
 **--soft**
-> Keep files in the working check-out (this is the default). Overrides **--hard** if both are given.
+> 保留工作检出中的文件（默认行为）。同时给出时覆盖 **--hard**。
 
 **--case-sensitive** _BOOL_
-> Override the repository case-sensitivity setting for the file name match.
+> 文件名匹配时覆盖仓库的大小写敏感设置。
 
 **--reset**
-> Undo a prior, uncommitted deletion — the files return to normal tracking status. Cannot be combined with flags other than **--verbose** and **--dry-run**.
+> 撤销先前未提交的删除——文件恢复到正常跟踪状态。不能与 **--verbose** 和 **--dry-run** 之外的标志组合使用。
 
 **-v**, **--verbose**
-> Used with **--reset** to print each restored file.
+> 与 **--reset** 配合，打印每个恢复的文件。
 
 # DESCRIPTION
 
-**fossil delete** is an alias for **fossil rm**. It schedules files for removal from version control on the next commit.
+**fossil delete** 是 **fossil rm** 的别名。它安排文件在下次提交时从版本控制中移除。
 
-This command is provided for convenience and compatibility. All options and behaviors are identical to **fossil rm**. By default, files remain on disk and are only removed from version control.
+提供此命令是为了方便和兼容性。所有选项和行为与 **fossil rm** 相同。默认情况下文件保留在磁盘上，只是从版本控制中移除。
 
 # INSTALL
 
@@ -67,4 +67,3 @@ This command is provided for convenience and compatibility. All options and beha
 # SEE ALSO
 
 [fossil-rm](/man/fossil-rm)(1), [fossil-add](/man/fossil-add)(1), [fossil-forget](/man/fossil-forget)(1), [fossil-commit](/man/fossil-commit)(1)
-

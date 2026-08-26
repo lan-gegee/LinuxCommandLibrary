@@ -1,18 +1,18 @@
 # TAGLINE
 
-untrack files without deleting them
+取消跟踪文件但不删除它们
 
 # TLDR
 
-**Forget a file**
+**忘记文件**
 
 ```fossil forget [file]```
 
-**Forget multiple files**
+**忘记多个文件**
 
 ```fossil forget [file1] [file2]```
 
-**Forget with dry run**
+**以 dry run 方式忘记**
 
 ```fossil forget --dry-run [file]```
 
@@ -23,13 +23,13 @@ untrack files without deleting them
 # PARAMETERS
 
 **--dry-run**
-> Show what would be forgotten.
+> 显示将被忘记的内容。
 
 # DESCRIPTION
 
-**fossil forget** removes files from source control but leaves them in the working directory. This is useful when you've added files by mistake and want to untrack them without deleting them.
+**fossil forget** 将文件从源代码控制中移除，但把它们留在工作目录中。当你误添加了文件、想取消跟踪而不删除它们时，这很有用。
 
-Unlike **fossil rm** or **fossil delete**, forgotten files remain on disk untouched. The command only affects the staging area, removing the scheduled addition of files that haven't been committed yet.
+与 **fossil rm** 或 **fossil delete** 不同，被忘记的文件在磁盘上原样保留。该命令只影响暂存区，移除尚未提交文件的计划添加。
 
 # INSTALL
 
@@ -60,4 +60,3 @@ Unlike **fossil rm** or **fossil delete**, forgotten files remain on disk untouc
 ```[Documentation](https://fossil-scm.org/home/help?cmd=forget)```
 
 <!-- verified: 2026-07-15 -->
-

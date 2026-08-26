@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create a tree object from the current index
+从当前索引创建树对象
 
 # TLDR
 
-**Write tree from index**
+**从索引写入树对象**
 
 ```git write-tree```
 
-**Write with prefix**
+**以指定前缀写入**
 
 ```git write-tree --prefix=[subdir/]```
 
-**Missing OK**
+**允许缺失对象**
 
 ```git write-tree --missing-ok```
 
@@ -23,16 +23,16 @@ Create a tree object from the current index
 # PARAMETERS
 
 **--prefix** _prefix_
-> Write subtree.
+> 写入子树。
 
 **--missing-ok**
-> Allow missing objects.
+> 允许存在缺失的对象。
 
 # DESCRIPTION
 
-**git write-tree** creates a tree object from the current index contents and prints the resulting tree object's SHA to standard output. It is a low-level plumbing command used internally by `git commit` to snapshot the staged file structure into a tree object in the Git object database.
+**git write-tree** 根据当前索引内容创建一个树对象，并将生成的树对象的 SHA 打印到标准输出。它是一个底层 plumbing 命令，`git commit` 内部使用它把暂存的文件结构快照成 Git 对象数据库中的一个树对象。
 
-The index must be in a fully merged state before running this command; typically `git update-index` is used first to sync the index with the working directory.
+运行此命令前索引必须处于完全合并的状态；通常先用 `git update-index` 将索引与工作目录同步。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Transparent file-level encryption for Git, powered by age
+基于 age 的 Git 透明文件级加密
 
 # TLDR
 
-**Initialise** the current Git repository for transparent encryption
+**初始化**当前 Git 仓库以启用透明加密
 
 ```git agecrypt init```
 
-**Register** an age identity (private key) for decryption
+**注册**用于解密的 age 身份（私钥）
 
 ```git-agecrypt config add -i [path/to/age.key]```
 
-**Register** an age recipient for one or more paths
+为一个或多个路径**注册** age 接收方
 
 ```git-agecrypt config add -r [age1...] -p [secrets/prod.env]```
 
-**List** the current recipients and identities
+**列出**当前的接收方和身份
 
 ```git-agecrypt config list```
 
-**Remove** a previously registered recipient
+**移除**之前注册的接收方
 
 ```git-agecrypt config remove -r [age1...] -p [secrets/prod.env]```
 
-**Show** which tracked files are encrypted
+**显示**哪些被跟踪的文件已加密
 
 ```git-agecrypt status```
 
-**Tear down** the integration in this repository
+**拆除**本仓库中的集成
 
 ```git-agecrypt deinit```
 
@@ -40,58 +40,58 @@ Transparent file-level encryption for Git, powered by age
 # PARAMETERS
 
 **init**
-> Install the **clean**, **smudge**, and **textconv** filters into _.git/config_ so encryption / decryption happen automatically on commit and checkout.
+> 将 **clean**、**smudge** 和 **textconv** 过滤器安装到 _.git/config_，使加密/解密在提交和检出时自动进行。
 
 **deinit**
-> Remove the filter integration from the current repository. Tracked encrypted blobs are unaffected.
+> 从当前仓库中移除过滤器集成。已被跟踪的加密 blob 不受影响。
 
 **config add -r** _recipient_ **-p** _path..._
-> Register an age _recipient_ (public key) that should be able to decrypt the listed _paths_. Repeat to grant access to multiple keys. SSH **ed25519** public keys and age **age1...** keys are both accepted.
+> 注册一个 age _接收方_（公钥），使其能够解密所列的 _路径_。可重复执行以授予多个密钥的访问权。同时接受 SSH **ed25519** 公钥和 age **age1...** 密钥。
 
 **config add -i** _identity_
-> Register an age _identity_ (private key file) used by the local checkout to decrypt files. Stored in **.git/config**, never committed.
+> 注册一个 age _身份_（私钥文件），供本地检出解密文件时使用。存储在 **.git/config** 中，绝不会被提交。
 
 **config remove -r** _recipient_ [**-p** _path..._]
-> Revoke a recipient, optionally limited to specific paths.
+> 撤销一个接收方，可选地仅限于特定路径。
 
 **config remove -i** _identity_
-> Forget a local identity.
+> 忘记一个本地身份。
 
 **config list**
-> Print the configured recipients (per-path) and registered local identities.
+> 打印已配置的接收方（按路径）和已注册的本地身份。
 
 **status**
-> Report which tracked paths are configured for encryption and whether the working copy matches the encrypted blob.
+> 报告哪些被跟踪的路径配置了加密，以及工作副本是否与加密 blob 一致。
 
 **clean**
-> Internal filter entry point: read plaintext from stdin and write ciphertext to stdout. Invoked by Git via the **filter.agecrypt.clean** hook.
+> 内部过滤器入口：从标准输入读取明文，将密文写到标准输出。由 Git 通过 **filter.agecrypt.clean** 钩子调用。
 
 **smudge**
-> Internal filter entry point: read ciphertext from stdin and write plaintext to stdout. Invoked by Git on checkout.
+> 内部过滤器入口：从标准输入读取密文，将明文写到标准输出。由 Git 在检出时调用。
 
 **textconv** _file_
-> Internal helper used by **git diff** to render encrypted blobs as plaintext for diffing without leaking ciphertext into the working copy.
+> **git diff** 使用的内部辅助程序，将加密 blob 渲染为明文以便比较差异，同时避免密文泄漏到工作副本中。
 
 **-v**, **--verbose**
-> Increase logging verbosity.
+> 提高日志详细程度。
 
 **--help**
-> Print help for the chosen subcommand.
+> 打印所选子命令的帮助。
 
 **--version**
-> Print version and exit.
+> 打印版本并退出。
 
 # DESCRIPTION
 
-**git-agecrypt** is a Git integration that keeps secrets in a repository encrypted at rest while exposing plaintext to the working tree. It is an alternative to **git-crypt**, swapping **GPG** for **age**, with smaller key material and support for **SSH** keys and age plugin stubs (for example **age-plugin-yubikey**).
+**git-agecrypt** 是一个 Git 集成工具，让仓库中的机密在静态存储时保持加密状态，而在工作树中以明文呈现。它是 **git-crypt** 的替代方案，用 **age** 取代了 **GPG**，密钥材料更小，并支持 **SSH** 密钥和 age 插件存根（例如 **age-plugin-yubikey**）。
 
-After **git-agecrypt init**, the repository's _.git/config_ contains **clean**, **smudge**, and **textconv** filter entries pointing at the binary. Every file matched by a path pattern in _.gitattributes_ (typically **filter=agecrypt diff=agecrypt**) is encrypted on its way into the object store and decrypted on its way out. Recipients and per-path scoping live in a committed _git-agecrypt.toml_, while local private identities live in _.git/config_ so they never leave the developer's machine.
+运行 **git-agecrypt init** 之后，仓库的 _.git/config_ 中会出现指向该二进制文件的 **clean**、**smudge** 和 **textconv** 过滤器条目。_.gitattributes_ 中被路径模式匹配到的每个文件（通常为 **filter=agecrypt diff=agecrypt**）都会在进入对象库时被加密、在离开时被解密。接收方及按路径划分的作用范围保存在一个会被提交的 _git-agecrypt.toml_ 中，而本地私有身份则保存在 _.git/config_ 里，因此永远不会离开开发者的机器。
 
-Because age encryption is non-deterministic, git-agecrypt records a **BLAKE3** hash of each plaintext under _.git/git-agecrypt/_; if the plaintext has not changed, the previously stored ciphertext is reused so commits do not produce noisy churn.
+由于 age 加密是非确定性的，git-agecrypt 会在 _.git/git-agecrypt/_ 下记录每个明文的 **BLAKE3** 哈希；如果明文未变，就复用先前存储的密文，从而避免提交产生无意义的变动。
 
 # CONFIGURATION
 
-**git-agecrypt.toml** (committed) declares recipients and the paths they can decrypt:
+**git-agecrypt.toml**（会被提交）声明接收方及其可解密的路径：
 
 ```
 [[recipient]]
@@ -103,14 +103,14 @@ key = "ssh-ed25519 AAAA... user@host"
 paths = ["secrets/*.env"]
 ```
 
-**.gitattributes** marks which files are subject to encryption:
+**.gitattributes** 标记哪些文件需要加密：
 
 ```
 secrets/*.env  filter=agecrypt diff=agecrypt
 deploy/*.yaml  filter=agecrypt diff=agecrypt
 ```
 
-**.git/config** (per-checkout, never committed) stores identity locations and the filter wiring written by **init**:
+**.git/config**（每个检出各一份，绝不会被提交）存储身份位置以及由 **init** 写入的过滤器接线：
 
 ```
 [filter "agecrypt"]
@@ -125,11 +125,11 @@ deploy/*.yaml  filter=agecrypt diff=agecrypt
 
 # CAVEATS
 
-Both **git-crypt** and **git-agecrypt** rely on Git filters, which means **git log -p**, **git blame**, and similar tools can leak plaintext through **textconv** unless tooling is run on a checkout that lacks the identity. **age** is an authenticated stream cipher rather than a deterministic format, so encrypted blobs change on every encryption unless git-agecrypt's hash cache is preserved - clearing _.git/git-agecrypt/_ will produce diffs even when the plaintext is unchanged. Revoking a leaked recipient requires rewriting history; like every Git-level encryption tool, **git-agecrypt** cannot un-publish ciphertext that already left the repository.
+**git-crypt** 和 **git-agecrypt** 都依赖 Git 过滤器，这意味着除非在没有身份的检出上运行相关工具，否则 **git log -p**、**git blame** 等工具可能通过 **textconv** 泄漏明文。**age** 是一种认证流密码而非确定性格式，因此除非保留 git-agecrypt 的哈希缓存，每次加密产生的密文都不同——清空 _.git/git-agecrypt/_ 后即使明文未变也会产生 diff。撤销一个已泄漏的接收方需要重写历史；与所有 Git 层面的加密工具一样，**git-agecrypt** 无法撤回已经离开仓库的密文。
 
 # HISTORY
 
-**git-agecrypt** was created by **vlaci** and is maintained as an open-source project on GitHub. It builds on **age**, the modern file encryption tool by **Filippo Valsorda**, and is positioned as a lighter, more flexible successor to **git-crypt** for teams that already use age or SSH keys for secrets management.
+**git-agecrypt** 由 **vlaci** 创建，作为开源项目在 GitHub 上维护。它构建于 **Filippo Valsorda** 开发的现代文件加密工具 **age** 之上，定位为 **git-crypt** 更轻量、更灵活的后继者，适合已经在使用 age 或 SSH 密钥管理机密的团队。
 
 # INSTALL
 

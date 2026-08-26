@@ -1,10 +1,10 @@
 # TAGLINE
 
-Delete both local and remote branches
+同时删除本地和远程分支
 
 # TLDR
 
-**Delete local and remote branch**
+**删除本地和远程分支**
 
 ```git delete-branch [branch]```
 
@@ -15,17 +15,17 @@ Delete both local and remote branches
 # PARAMETERS
 
 _branch_
-> Name of the branch to delete locally and remotely.
+> 要在本地和远程删除的分支名。
 
 # DESCRIPTION
 
-**git delete-branch** deletes a branch both locally and on the remote in a single command. Part of the **git-extras** collection, it simplifies branch cleanup by combining what would normally require separate **git branch -D** and **git push origin --delete** operations.
+**git delete-branch** 用一条命令同时删除本地和远程的分支。它属于 **git-extras** 合集，将通常需要分开执行的 **git branch -D** 和 **git push origin --delete** 两步操作合并，简化了分支清理工作。
 
-The command is particularly useful in pull request workflows where feature branches become obsolete after merging. Multiple branches can be passed and will each be deleted in turn.
+该命令在拉取请求工作流中特别有用——功能分支合并后即告过时。可以传入多个分支，它们会被依次删除。
 
 # CAVEATS
 
-Requires **git-extras** to be installed. Remote deletion requires push access to the remote. Local deletion uses **-D** (force), so unmerged work can be lost.
+需要安装 **git-extras**。远程删除需要对远程的推送权限。本地删除使用 **-D**（强制），未合并的工作可能丢失。
 
 # INSTALL
 

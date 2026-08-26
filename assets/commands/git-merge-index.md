@@ -1,14 +1,14 @@
 # TAGLINE
 
-Run merge program for unmerged files
+为未合并的文件运行合并程序
 
 # TLDR
 
-**Run merge for unmerged files**
+**对未合并的文件运行合并程序**
 
 ```git merge-index [merge-program] -a```
 
-**Merge specific file**
+**合并特定文件**
 
 ```git merge-index [merge-program] [file]```
 
@@ -19,19 +19,19 @@ Run merge program for unmerged files
 # PARAMETERS
 
 **-a**
-> Run on all unmerged entries.
+> 对所有未合并的条目运行。
 
 **-o**
-> Don't stop on error.
+> 出错时不停止。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 # DESCRIPTION
 
-**git merge-index** runs a specified merge program for each file needing merging. This low-level plumbing command is part of Git's internal merge machinery, invoked during three-way merge operations to handle unmerged files in the index.
+**git merge-index** 为每个需要合并的文件运行指定的合并程序。这个底层（plumbing）命令是 Git 内部合并机制的一部分，在三方合并操作期间被调用，用于处理索引中未合并的文件。
 
-The command passes file information (including base, ours, and theirs versions with their object IDs) to the specified merge program. Most users never need to call this directly, as `git merge` handles it automatically. It is exposed for custom merge workflows and understanding Git internals.
+该命令会把文件信息（包括 base、ours 和 theirs 版本及其对象 ID）传给指定的合并程序。大多数用户从不需要直接调用它，因为 `git merge` 会自动处理。它主要供自定义合并工作流以及了解 Git 内部原理使用。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Record and recover reference movements
+记录并恢复引用的移动历史
 
 # TLDR
 
-**Show reflog**
+**显示 reflog**
 
 ```git reflog```
 
-**Show reflog for branch**
+**显示分支的 reflog**
 
 ```git reflog [branch]```
 
-**Show with timestamps**
+**带时间戳显示**
 
 ```git reflog --date=relative```
 
-**Expire old entries**
+**使旧条目过期**
 
 ```git reflog expire --expire=[90.days] --all```
 
-**Delete specific entry**
+**删除特定条目**
 
 ```git reflog delete HEAD@{2}```
 
@@ -31,42 +31,42 @@ Record and recover reference movements
 # PARAMETERS
 
 **show** _REF_
-> Show reflog for ref (default).
+> 显示引用的 reflog（默认）。
 
 **expire**
-> Prune old reflog entries.
+> 清除过期的 reflog 条目。
 
 **delete**
-> Delete specific entries.
+> 删除特定条目。
 
 **--all**
-> Process all refs.
+> 处理所有引用。
 
 **--expire** _TIME_
-> Expire older than time.
+> 使早于该时间的条目过期。
 
 **--date** _FORMAT_
-> Date format.
+> 日期格式。
 
 **-n** _NUM_
-> Limit entries shown.
+> 限制显示的条目数。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git reflog** records when refs (like HEAD and branch tips) are updated, providing a safety net for recovering lost commits. After accidental resets, rebases, or branch deletions, the reflog shows where refs previously pointed, allowing recovery of otherwise unreachable commits.
+**git reflog** 记录引用（如 HEAD 和分支末端）何时被更新，为找回丢失的提交提供安全保障。在误操作 reset、rebase 或删除分支之后，reflog 能显示这些引用之前指向的位置，从而恢复原本已不可达的提交。
 
-Entries expire after a configurable period: reachable entries after 90 days (`gc.reflogExpire`), unreachable ones after 30 days (`gc.reflogExpireUnreachable`). The reflog is local only and is not shared between repositories.
+条目会在可配置的时间后过期：可达条目保留 90 天（`gc.reflogExpire`），不可达条目保留 30 天（`gc.reflogExpireUnreachable`）。reflog 仅存在于本地，不会在仓库之间共享。
 
 # CAVEATS
 
-Local only, not pushed. Entries expire (90 days reachable, 30 days unreachable, by default). Won't help after gc removes the underlying objects.
+仅限本地，不会被推送。条目会过期（默认可达条目 90 天、不可达条目 30 天）。若 gc 已删除底层对象，reflog 也无能为力。
 
 # HISTORY
 
-git reflog is a core **Git** safety feature, providing local history of ref movements to enable recovery from destructive operations.
+git reflog 是 **Git** 的核心安全特性，提供引用移动的本地历史，使用户能从破坏性操作中恢复。
 
 # INSTALL
 

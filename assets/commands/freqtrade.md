@@ -1,38 +1,38 @@
 # TAGLINE
 
-cryptocurrency trading bot framework
+加密货币交易机器人框架
 
 # TLDR
 
-**Start trading** with a configuration and strategy
+使用配置和策略**开始交易**
 
 ```freqtrade trade --config [config.json] --strategy [StrategyName]```
 
-**Run backtesting** on historical data
+对历史数据**运行回测**
 
 ```freqtrade backtesting --config [config.json] --strategy [StrategyName]```
 
-**Download historical data** for backtesting
+为回测**下载历史数据**
 
 ```freqtrade download-data --config [config.json] --pairs [BTC/USDT] --timeframes [1h]```
 
-**Create a new configuration file** interactively
+以交互方式**创建新的配置文件**
 
 ```freqtrade new-config```
 
-**Optimize strategy parameters** with hyperopt
+用 hyperopt **优化策略参数**
 
 ```freqtrade hyperopt --config [config.json] --strategy [StrategyName] --hyperopt-loss [SharpeHyperOptLoss]```
 
-**List available exchanges**
+**列出可用的交易所**
 
 ```freqtrade list-exchanges```
 
-**List trading pairs** on an exchange
+列出某个交易所的**交易对**
 
 ```freqtrade list-pairs --config [config.json] --exchange [binance]```
 
-**Start the web UI**
+**启动 Web UI**
 
 ```freqtrade webserver --config [config.json]```
 
@@ -47,111 +47,111 @@ cryptocurrency trading bot framework
 # PARAMETERS
 
 **-c**, **--config** _PATH_
-> Specify configuration file (default: config.json)
+> 指定配置文件（默认：config.json）。
 
 **-s**, **--strategy** _NAME_
-> Specify strategy class name
+> 指定策略类名。
 
 **--strategy-path** _PATH_
-> Additional strategy lookup path
+> 额外的策略查找路径。
 
 **-d**, **--datadir** _PATH_
-> Path to historical data directory
+> 历史数据目录路径。
 
 **--userdir** _PATH_
-> Path to user data directory
+> 用户数据目录路径。
 
 **-v**, **--verbose**
-> Verbose mode (-vv for more, -vvv for all)
+> 详细模式（-vv 输出更多，-vvv 输出全部）。
 
 **--logfile** _FILE_
-> Log to specified file
+> 将日志写入指定文件。
 
 **--no-color**
-> Disable colorized output
+> 禁用彩色输出。
 
 **--db-url** _URL_
-> Database URL for trade storage
+> 用于存储交易的数据库 URL。
 
 **--dry-run**
-> Run in simulation mode without real trades
+> 以模拟模式运行，不进行真实交易。
 
 **-V**, **--version**
-> Show version number
+> 显示版本号。
 
 **-h**, **--help**
-> Show help message
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **config.json**
-> Main configuration file specifying exchange, API keys, trading parameters, stake amount, and strategy settings.
+> 主配置文件，指定交易所、API 密钥、交易参数、投入金额（stake amount）和策略设置。
 
 **user_data/strategies/**
-> Directory containing custom trading strategy Python classes.
+> 存放自定义交易策略 Python 类的目录。
 
 # COMMANDS
 
 **trade**
-> Start live or dry-run trading
+> 开始实盘或模拟交易。
 
 **backtesting**
-> Test strategy on historical data
+> 在历史数据上测试策略。
 
 **hyperopt**
-> Optimize strategy parameters
+> 优化策略参数。
 
 **download-data**
-> Download historical OHLCV data
+> 下载历史 OHLCV 数据。
 
 **new-config**
-> Create new configuration interactively
+> 以交互方式创建新配置。
 
 **create-userdir**
-> Create user data directory structure
+> 创建用户数据目录结构。
 
 **list-exchanges**
-> Print available exchanges
+> 列出可用的交易所。
 
 **list-pairs**
-> Print available trading pairs
+> 列出可用的交易对。
 
 **list-strategies**
-> Print available strategies
+> 列出可用的策略。
 
 **list-timeframes**
-> Print available timeframes
+> 列出可用的时间周期。
 
 **show-trades**
-> Display trades from database
+> 显示数据库中的交易记录。
 
 **plot-dataframe**
-> Plot strategy signals on chart
+> 将策略信号绘制到图表上。
 
 **plot-profit**
-> Plot profit over time
+> 绘制随时间变化的收益曲线。
 
 **webserver**
-> Start the FreqUI web interface
+> 启动 FreqUI Web 界面。
 
 **install-ui**
-> Install the FreqUI web interface
+> 安装 FreqUI Web 界面。
 
 # DESCRIPTION
 
-**freqtrade** is an open-source cryptocurrency trading bot written in Python. It supports automated trading on major exchanges including Binance, Kraken, Coinbase, and many others through the CCXT library.
+**freqtrade** 是一个用 Python 编写的开源加密货币交易机器人。它通过 CCXT 库支持在 Binance、Kraken、Coinbase 等主要交易所进行自动化交易。
 
-The bot executes user-defined trading strategies that specify entry and exit conditions based on technical indicators. Strategies are Python classes that can be backtested against historical data before live deployment. The hyperopt feature uses machine learning to optimize strategy parameters.
+该机器人执行用户自定义的交易策略，这些策略基于技术指标指定入场和出场条件。策略是 Python 类，可以在实盘部署前先对历史数据进行回测。hyperopt 功能利用机器学习优化策略参数。
 
-Freqtrade operates in dry-run mode by default, simulating trades without real money. It can be controlled via Telegram bot or the FreqUI web interface. Trade data is stored in a SQLite database for analysis and the plot commands visualize strategy performance.
+Freqtrade 默认在 dry-run 模式下运行，即模拟交易而不动真钱。它可以通过 Telegram 机器人或 FreqUI Web 界面控制。交易数据存储在 SQLite 数据库中以便分析，plot 命令可将策略表现可视化。
 
 # CAVEATS
 
-Cryptocurrency trading carries significant financial risk. Backtesting results do not guarantee future performance. Exchange APIs may have rate limits that affect bot operation. Strategies require thorough testing in dry-run mode before live trading. Configuration files contain API keys and should be secured properly. The bot requires continuous operation and stable network connectivity.
+加密货币交易具有重大财务风险。回测结果不能保证未来的表现。交易所 API 可能有限速，影响机器人运行。策略在实盘交易前必须在 dry-run 模式下充分测试。配置文件包含 API 密钥，应妥善保管。机器人需要持续运行和稳定的网络连接。
 
 # HISTORY
 
-Freqtrade was started in **2017** as a community-driven open-source project. Written in **Python 3**, it grew from a simple trading bot to a comprehensive trading framework with backtesting, optimization, and visualization tools. The project gained significant traction during the 2020-2021 cryptocurrency bull market. It introduced FreqAI in **2022** for machine learning-based adaptive strategies. Development continues actively on GitHub with regular releases.
+Freqtrade 于 **2017** 年作为社区驱动的开源项目启动。它以 **Python 3** 编写，从一个简单的交易机器人发展为集回测、优化和可视化工具于一体的完整交易框架。该项目在 2020-2021 年加密货币牛市期间获得大量关注，并于 **2022** 年推出用于机器学习自适应策略的 FreqAI。开发仍在 GitHub 上活跃进行，并定期发布新版本。
 
 # SEE ALSO
 

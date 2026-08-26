@@ -1,38 +1,38 @@
 # TAGLINE
 
-gcloud CLI configuration management
+gcloud CLI 配置管理
 
 # TLDR
 
-**Set the default project**
+**设置默认项目**
 
 ```gcloud config set project [project-id]```
 
-**Set the default Compute Engine region and zone**
+**设置默认的 Compute Engine 大区和区域**
 
 ```gcloud config set compute/region [us-central1] && gcloud config set compute/zone [us-central1-a]```
 
-**Get the value of a property**
+**获取某个属性的值**
 
 ```gcloud config get-value [project]```
 
-**Unset a property**
+**取消某个属性**
 
 ```gcloud config unset [compute/zone]```
 
-**List all properties in the active configuration**
+**列出活动配置中的所有属性**
 
 ```gcloud config list```
 
-**Create a new named configuration**
+**创建新的命名配置**
 
 ```gcloud config configurations create [name]```
 
-**Activate a named configuration**
+**激活命名配置**
 
 ```gcloud config configurations activate [name]```
 
-**List all configurations**
+**列出所有配置**
 
 ```gcloud config configurations list```
 
@@ -43,50 +43,50 @@ gcloud CLI configuration management
 # PARAMETERS
 
 **set** _SECTION/PROPERTY_ _VALUE_
-> Set a configuration property to a given value.
+> 将配置属性设置为给定值。
 
 **get-value** _SECTION/PROPERTY_
-> Print the value of a property.
+> 打印某个属性的值。
 
 **unset** _SECTION/PROPERTY_
-> Remove a property from the active configuration.
+> 从活动配置中移除某个属性。
 
 **list**
-> List all properties in the active configuration.
+> 列出活动配置中的所有属性。
 
 **configurations create** _NAME_
-> Create a new named configuration.
+> 创建新的命名配置。
 
 **configurations activate** _NAME_
-> Switch to a named configuration.
+> 切换到命名配置。
 
 **configurations delete** _NAME_
-> Delete a named configuration. Cannot delete the active configuration.
+> 删除命名配置。不能删除当前活动的配置。
 
 **configurations describe** _NAME_
-> Display details of a named configuration.
+> 显示命名配置的详细信息。
 
 **configurations list**
-> List all available configurations.
+> 列出所有可用配置。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud config** manages persistent configuration properties for the gcloud command-line tool. Properties set through this command become defaults used by all gcloud commands unless explicitly overridden with command-line flags.
+**gcloud config** 管理 gcloud 命令行工具的持久配置属性。通过此命令设置的属性将成为所有 gcloud 命令使用的默认值，除非被命令行标志显式覆盖。
 
-Common properties include the default project, Compute Engine region and zone, and active account. These eliminate the need to specify frequently-used values on every command, significantly reducing command verbosity for regular workflows.
+常见属性包括默认项目、Compute Engine 大区与区域以及活动账号。这些默认值免去了在每条命令中重复输入常用值的麻烦，显著简化日常工作的命令长度。
 
-Named configurations enable managing multiple independent sets of properties, making it easy to switch between different projects, accounts, or environments. Each configuration is a complete set of property values that can be activated with a single command. This is essential for developers working across multiple GCP projects or organizations, as it prevents accidentally running commands in the wrong project context.
+命名配置让你能管理多套相互独立的属性集，方便在不同项目、账号或环境之间切换。每个配置都是一组完整的属性值，一条命令即可激活。对于跨多个 GCP 项目或组织工作的开发者而言，这一点至关重要，可避免在错误的项目上下文中误执行命令。
 
 # CAVEATS
 
-Per-command options override config. Configuration is user-specific. Some properties require valid values. The active configuration cannot be deleted.
+单条命令的选项优先于配置。配置仅对当前用户有效。某些属性要求有效值。活动配置无法删除。
 
 # HISTORY
 
-gcloud config is part of the **Google Cloud SDK** configuration system, providing persistent settings management for the CLI.
+gcloud config 属于 **Google Cloud SDK** 配置系统，为 CLI 提供持久设置管理。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-screenshot tool with annotation capabilities
+带标注功能的截图工具
 
 # TLDR
 
-Create a **fullscreen screenshot**
+创建**全屏截图**
 
 ```flameshot full```
 
-Create a screenshot **interactively** (select region and annotate)
+以**交互方式**创建截图（选择区域并添加标注）
 
 ```flameshot gui```
 
-Create a screenshot and **save to a specific path**
+创建截图并**保存到指定路径**
 
 ```flameshot gui -p [path/to/directory]```
 
-Create a screenshot and **copy to clipboard**
+创建截图并**复制到剪贴板**
 
 ```flameshot gui -c```
 
-Create a screenshot and **print to stdout** (raw PNG)
+创建截图并**输出到标准输出**（原始 PNG）
 
 ```flameshot gui -r```
 
-Create a screenshot from a **specific monitor**
+从**指定显示器**创建截图
 
 ```flameshot screen -n [monitor_number]```
 
-Create a screenshot with a **delay** in milliseconds
+以毫秒为单位**延迟**后创建截图
 
 ```flameshot full -d [5000]```
 
-Open the **launcher dialog** for advanced options
+打开用于高级选项的**启动器对话框**
 
 ```flameshot launcher```
 
@@ -43,59 +43,59 @@ Open the **launcher dialog** for advanced options
 # PARAMETERS
 
 **gui**
-> Interactive mode to select region and annotate
+> 交互模式，用于选择区域并添加标注
 
 **full**
-> Capture all monitors simultaneously
+> 同时捕获所有显示器
 
 **screen**
-> Capture a specific monitor
+> 捕获指定的显示器
 
 **launcher**
-> Open dialog for advanced screenshot options
+> 打开高级截图选项对话框
 
 **config**
-> Configure application settings
+> 配置应用设置
 
 **-c, --clipboard**
-> Copy capture to clipboard
+> 将捕获内容复制到剪贴板
 
 **-d, --delay** _ms_
-> Wait specified milliseconds before capture
+> 捕获前等待指定的毫秒数
 
 **-p, --path** _directory_
-> Save screenshot to specified directory
+> 将截图保存到指定目录
 
 **-r, --raw**
-> Output PNG data to stdout
+> 将 PNG 数据输出到标准输出
 
 **-u, --upload**
-> Upload screenshot to external service
+> 将截图上传到外部服务
 
 **--region** _WxH+X+Y_
-> Capture specific region dimensions
+> 捕获指定尺寸的区域
 
 **-n, --number** _monitor_
-> Select monitor by number (for screen subcommand)
+> 按编号选择显示器（用于 screen 子命令）
 
 # DESCRIPTION
 
-**Flameshot** is a powerful yet simple screenshot tool for Linux featuring an intuitive GUI for region selection and built-in annotation capabilities. It supports drawing shapes, adding text, arrows, and markers directly on screenshots before saving.
+**Flameshot** 是一款功能强大而简洁的 Linux 截图工具，具有直观的图形界面用于区域选择，并内置标注功能。它支持在保存之前直接在截图上绘制形状、添加文字、箭头和标记。
 
-The tool integrates with the system tray for quick access and supports both X11 and Wayland display servers. Screenshots can be saved to files, copied to clipboard, or uploaded to image hosting services. A D-Bus interface enables scripting and integration with other applications.
+该工具与系统托盘集成以便快速访问，同时支持 X11 和 Wayland 显示服务器。截图可以保存为文件、复制到剪贴板或上传到图床服务。D-Bus 接口使其支持脚本化以及与其他应用集成。
 
 # CONFIGURATION
 
 **~/.config/flameshot/flameshot.ini**
-> Configuration file for UI settings, default save paths, and keyboard shortcuts.
+> 用于界面设置、默认保存路径和键盘快捷键的配置文件。
 
 # CAVEATS
 
-On Wayland, some features may require additional permissions or compositor-specific configurations. The **gui** mode may behave differently depending on the compositor used. When using **--raw** output, ensure the receiving application can handle binary PNG data via stdin.
+在 Wayland 下，某些功能可能需要额外的权限或特定于合成器的配置。根据所用合成器的不同，**gui** 模式的表现可能有所差异。使用 **--raw** 输出时，请确保接收程序能通过标准输入处理二进制 PNG 数据。
 
 # HISTORY
 
-Flameshot was created by **lupoDharkael** and first released in **2017**. It was designed as a modern alternative to older screenshot tools, drawing inspiration from Greenshot (Windows). The project is written in **C++** using the Qt framework and has become one of the most popular screenshot utilities in the Linux ecosystem.
+Flameshot 由 **lupoDharkael** 创建，首次发布于 **2017 年**。它被设计为旧式截图工具的现代替代品，灵感来自 Greenshot（Windows 平台）。该项目使用 **C++** 和 Qt 框架编写，已成为 Linux 生态中最受欢迎的截图工具之一。
 
 # INSTALL
 

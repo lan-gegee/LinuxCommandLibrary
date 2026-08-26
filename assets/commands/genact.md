@@ -1,18 +1,18 @@
 # TAGLINE
 
-Nonsense activity generator for the terminal
+终端里的无意义活动生成器
 
 # TLDR
 
-**Run** random fake activity scenes
+**运行**随机的假活动场景
 
 ```genact```
 
-**Show help** and options
+**显示帮助**和选项
 
 ```genact --help```
 
-**Run selected modules** only
+**仅运行选定的模块**
 
 ```genact -m [cargo]```
 
@@ -22,33 +22,33 @@ Nonsense activity generator for the terminal
 
 # DESCRIPTION
 
-**genact** pretends to be busy in the terminal: it plays fake scenes (compilers, network dumps, installs, and similar eye candy) so it looks like serious work is happening when nothing useful is. Multiple instances increase the chaos. There is also a WebAssembly web build at the project homepage.
+**genact** 在终端里假装很忙：它播放各种假场景（编译器、网络转储、安装过程之类的视觉表演），让看起来正在干大事，实际上什么有用的事都没做。多开几个实例可以让混乱加倍。项目主页上还有一个 WebAssembly 网页版。
 
-Install via release binaries, **cargo install genact**, Homebrew, FreeBSD **pkg**, Scoop, and other packages. No external services required.
+可通过发布二进制文件、**cargo install genact**、Homebrew、FreeBSD **pkg**、Scoop 及其他软件包安装。无需外部服务。
 
 # PARAMETERS
 
-Common options (see **genact --help** for the authoritative list of your build):
+常用选项（权威列表请以你的构建版本中的 **genact --help** 为准）：
 
 **-l**, **--list-modules**
 
-> List available scenes/modules.
+> 列出可用的场景/模块。
 
 **-m**, **--modules** *name*
 
-> Run only selected modules.
+> 只运行选定的模块。
 
 **-s**, **--speed-factor** *n*
 
-> Speed multiplier.
+> 速度倍率。
 
 **-h**, **--help** / **-V**, **--version**
 
-> Help and version.
+> 帮助与版本信息。
 
 # CAVEATS
 
-Purely cosmetic; does not perform real builds or network work (beyond what a scene might simulate). Intended as humor and demos, not production tooling.
+纯粹为了视觉效果；不会执行真实的构建或网络工作（超出场景模拟的范围）。定位是幽默和演示用途，不是生产工具。
 
 # INSTALL
 

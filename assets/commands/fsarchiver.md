@@ -1,30 +1,30 @@
 # TAGLINE
 
-filesystem backup and restore tool
+文件系统备份与恢复工具
 
 # TLDR
 
-**Save filesystem to archive**
+将文件系统**保存到归档**
 
 ```sudo fsarchiver savefs [archive.fsa] [/dev/sda1]```
 
-**Restore filesystem from archive**
+**从归档恢复文件系统**
 
 ```sudo fsarchiver restfs [archive.fsa] id=0,dest=[/dev/sda1]```
 
-**Save multiple filesystems**
+**保存多个文件系统**
 
 ```sudo fsarchiver savefs [archive.fsa] [/dev/sda1] [/dev/sda2]```
 
-**List archive contents**
+**列出归档内容**
 
 ```fsarchiver archinfo [archive.fsa]```
 
-**Save with compression**
+以压缩方式**保存**
 
 ```sudo fsarchiver savefs -z9 [archive.fsa] [/dev/sda1]```
 
-**Save with encryption**
+以加密方式**保存**
 
 ```sudo fsarchiver savefs -c [password] [archive.fsa] [/dev/sda1]```
 
@@ -35,45 +35,45 @@ filesystem backup and restore tool
 # PARAMETERS
 
 **savefs**
-> Save filesystem(s) to archive.
+> 将文件系统保存到归档。
 
 **restfs**
-> Restore filesystem from archive.
+> 从归档恢复文件系统。
 
 **archinfo**
-> Show archive information.
+> 显示归档信息。
 
 **probe**
-> Show detected filesystems.
+> 显示检测到的文件系统。
 
 **-z** _level_
-> Compression level (0-9).
+> 压缩级别（0-9）。
 
 **-j** _jobs_
-> Parallel compression jobs.
+> 并行压缩任务数。
 
 **-c** _password_
-> Encrypt archive.
+> 加密归档。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-A**
-> Allow restoring to smaller filesystem.
+> 允许恢复到更小的文件系统。
 
 # DESCRIPTION
 
-**fsarchiver** saves and restores filesystems to/from archive files. Unlike tar, it preserves filesystem attributes, ACLs, extended attributes, and can restore to different sized partitions.
+**fsarchiver** 将文件系统保存到归档文件或从中恢复。与 tar 不同，它会保留文件系统属性、ACL 和扩展属性，并且可以恢复到不同大小的分区。
 
-The tool works at the filesystem level, saving used blocks only. It supports ext2/3/4, XFS, Btrfs, NTFS, and other filesystems, with optional compression and encryption.
+该工具在文件系统层面工作，只保存已使用的块。它支持 ext2/3/4、XFS、Btrfs、NTFS 等文件系统，并可选压缩和加密。
 
 # CAVEATS
 
-Filesystems must be unmounted for reliable backup. Different filesystem types can be restored if target supports features. Restoration may change UUIDs. Archive corruption protection with checksums.
+要获得可靠的备份，必须先卸载文件系统。只要目标支持相应特性，就可以跨不同文件系统类型恢复。恢复可能会改变 UUID。归档带有校验和保护，可检测损坏。
 
 # HISTORY
 
-fsarchiver was created by **Francois Dupoux** as a more flexible alternative to partition imaging tools like partimage. It was designed to overcome limitations of block-level backup by working at the filesystem level.
+fsarchiver 由 **Francois Dupoux** 创建，是 partimage 等分区镜像工具更灵活的替代方案。它的设计目标是通过在文件系统层面工作来克服块级备份的局限。
 
 # INSTALL
 

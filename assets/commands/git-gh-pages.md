@@ -1,10 +1,10 @@
 # TAGLINE
 
-Create a GitHub Pages orphan branch
+创建用于 GitHub Pages 的孤儿分支
 
 # TLDR
 
-**Create a gh-pages branch**
+**创建 gh-pages 分支**
 
 ```git gh-pages```
 
@@ -14,13 +14,13 @@ Create a GitHub Pages orphan branch
 
 # DESCRIPTION
 
-**git gh-pages** creates and sets up a **gh-pages** branch for GitHub Pages hosting. This is a **git-extras** command that automates the creation of an orphan branch with an empty history, suitable for hosting static websites independent of the main project history.
+**git gh-pages** 创建并配置用于 GitHub Pages 托管的 **gh-pages** 分支。这是一条 **git-extras** 命令，自动创建具有空历史的孤儿分支，适合承载与主项目历史相互独立的静态网站。
 
-The command creates the orphan branch, removes all tracked files, and makes an initial empty commit. After creation, the gh-pages branch can be populated with HTML, CSS, and JavaScript files. When pushed to GitHub, the repository content becomes accessible as a website at **https://username.github.io/repository**.
+该命令创建孤儿分支，移除所有被跟踪的文件，并做一个初始空提交。创建之后，即可向 gh-pages 分支填充 HTML、CSS 和 JavaScript 文件。推送到 GitHub 后，仓库内容就能以 **https://username.github.io/repository** 的形式作为网站访问。
 
 # CAVEATS
 
-Requires the **git-extras** package to be installed. The command switches the working directory to the new gh-pages branch. Modern GitHub Pages can also deploy from a subdirectory (e.g., /docs) on the main branch or via GitHub Actions, making the orphan branch approach less common than it once was.
+需要安装 **git-extras** 软件包。该命令会将工作目录切换到新的 gh-pages 分支。现代 GitHub Pages 也可以从主分支的子目录（如 /docs）部署，或通过 GitHub Actions 部署，这使得孤儿分支方案已不如从前常见。
 
 # INSTALL
 

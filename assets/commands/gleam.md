@@ -1,38 +1,38 @@
 # TAGLINE
 
-Gleam programming language compiler and build tool
+Gleam 编程语言的编译器与构建工具
 
 # TLDR
 
-**Create new project**
+**创建新项目**
 
 ```gleam new [project_name]```
 
-**Build project**
+**构建项目**
 
 ```gleam build```
 
-**Run project**
+**运行项目**
 
 ```gleam run```
 
-**Run tests**
+**运行测试**
 
 ```gleam test```
 
-**Add a Hex dependency**
+**添加 Hex 依赖**
 
 ```gleam add [package_name]```
 
-**Remove a dependency**
+**移除依赖**
 
 ```gleam remove [package_name]```
 
-**Format source code**
+**格式化源代码**
 
 ```gleam format```
 
-**Generate HTML documentation**
+**生成 HTML 文档**
 
 ```gleam docs build```
 
@@ -43,68 +43,68 @@ Gleam programming language compiler and build tool
 # PARAMETERS
 
 **new** _NAME_
-> Create a new project with standard directory structure.
+> 以标准目录结构创建新项目。
 
 **build**
-> Compile the project and its dependencies.
+> 编译项目及其依赖。
 
 **run**
-> Build and run the project.
+> 构建并运行项目。
 
 **test**
-> Build and run the test suite.
+> 构建并运行测试套件。
 
 **add** _PACKAGE_
-> Add a Hex package dependency.
+> 添加 Hex 软件包依赖。
 
 **remove** _PACKAGE_
-> Remove a dependency.
+> 移除依赖。
 
 **check**
-> Type-check the project without producing build artifacts.
+> 对项目进行类型检查，但不产生构建产物。
 
 **format**
-> Format source code files.
+> 格式化源代码文件。
 
 **docs build**
-> Generate HTML documentation.
+> 生成 HTML 文档。
 
 **docs publish**
-> Publish documentation to HexDocs.
+> 将文档发布到 HexDocs。
 
 **publish**
-> Publish the package to Hex.
+> 将软件包发布到 Hex。
 
 **shell**
-> Start an Erlang shell with the project loaded.
+> 启动一个已加载项目的 Erlang shell。
 
 **export erlang-shipment**
-> Export a standalone Erlang release for deployment.
+> 导出用于部署的独立 Erlang 发布包。
 
 **--target** _TARGET_
-> Compile target: erlang or javascript.
+> 编译目标：erlang 或 javascript。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gleam** is the build tool and compiler for the Gleam programming language, a type-safe functional language that compiles to Erlang and JavaScript. It manages projects, dependencies, compilation, testing, and documentation.
+**gleam** 是 Gleam 编程语言的构建工具和编译器。Gleam 是一门类型安全的函数式语言，可编译为 Erlang 和 JavaScript。该工具负责管理项目、依赖、编译、测试和文档。
 
-Gleam integrates with the Hex package manager for the Erlang/Elixir ecosystem and can interoperate with Erlang and Elixir code. The JavaScript target allows Gleam to run in browsers and Node.js/Deno/Bun.
+Gleam 与 Erlang/Elixir 生态的 Hex 软件包管理器集成，并可与 Erlang 和 Elixir 代码互操作。JavaScript 目标使 Gleam 能够在浏览器以及 Node.js/Deno/Bun 中运行。
 
 # CONFIGURATION
 
 **gleam.toml**
-> Project configuration file defining name, version, target, dependencies, and build options.
+> 项目配置文件，定义名称、版本、目标平台、依赖和构建选项。
 
 # CAVEATS
 
-Requires Erlang/OTP for the BEAM target. The JavaScript target needs Node.js, Deno, or Bun. Gleam has no runtime exceptions by design -- exhaustive pattern matching is enforced at compile time.
+BEAM 目标需要 Erlang/OTP。JavaScript 目标需要 Node.js、Deno 或 Bun。Gleam 在设计上没有运行时异常——穷尽性模式匹配在编译期强制执行。
 
 # HISTORY
 
-Gleam was created by **Louis Pilfold** starting in **2018** to bring static type safety to the BEAM virtual machine ecosystem while maintaining compatibility with Erlang and Elixir libraries. Version 1.0 was released in **March 2024**.
+Gleam 由 **Louis Pilfold** 自 **2018** 年起创建，目标是在保持与 Erlang 和 Elixir 库兼容的同时，为 BEAM 虚拟机生态带来静态类型安全。1.0 版本于 **2024 年 3 月**发布。
 
 # INSTALL
 

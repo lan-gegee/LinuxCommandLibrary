@@ -1,38 +1,38 @@
 # TAGLINE
 
-Google Cloud Platform command-line interface
+Google Cloud Platform 命令行界面
 
 # TLDR
 
-**Initialize gcloud** and set up configuration
+**初始化 gcloud** 并完成配置
 
 ```gcloud init```
 
-**Login to Google** Cloud
+**登录 Google** Cloud
 
 ```gcloud auth login```
 
-**Set the active project**
+**设置当前项目**
 
 ```gcloud config set project [project-id]```
 
-**List all projects**
+**列出所有项目**
 
 ```gcloud projects list```
 
-**Create a Compute Engine VM** instance
+**创建 Compute Engine VM** 实例
 
 ```gcloud compute instances create [name] --zone=[zone]```
 
-**List running VM** instances
+**列出运行中的 VM** 实例
 
 ```gcloud compute instances list```
 
-**Get application-default** credentials for local development
+**获取用于本地开发的 application-default** 凭据
 
 ```gcloud auth application-default login```
 
-**Format output as JSON** for scripting
+**将输出格式化为 JSON** 以便脚本处理
 
 ```gcloud compute instances list --format=json```
 
@@ -43,85 +43,85 @@ Google Cloud Platform command-line interface
 # PARAMETERS
 
 _GROUP_
-> Service group: compute, container, iam, sql, storage, functions, run, etc.
+> 服务组：compute、container、iam、sql、storage、functions、run 等。
 
 **auth**
-> Authentication and credential commands.
+> 身份验证与凭据相关命令。
 
 **config**
-> Configuration management.
+> 配置管理。
 
 **compute**
-> Compute Engine commands.
+> Compute Engine 命令。
 
 **container**
-> Kubernetes Engine commands.
+> Kubernetes Engine 命令。
 
 **projects**
-> Project management.
+> 项目管理。
 
 **--project** _ID_
-> Override the default project for this command.
+> 为本次命令覆盖默认项目。
 
 **--format** _FORMAT_
-> Output format: json, yaml, csv, table, text, value, etc.
+> 输出格式：json、yaml、csv、table、text、value 等。
 
 **--filter** _EXPRESSION_
-> Filter results (e.g. 'name~prod').
+> 过滤结果（例如 'name~prod'）。
 
 **--quiet**, **-q**
-> Disable interactive prompts and use defaults.
+> 禁用交互式提示并使用默认值。
 
 **--verbosity** _LEVEL_
-> Logging verbosity: debug, info, warning, error, critical, none.
+> 日志详细程度：debug、info、warning、error、critical、none。
 
 **--account** _ACCOUNT_
-> Override the default account for this command.
+> 为本次命令覆盖默认账户。
 
 **--region** _REGION_
-> Override the default region for this command.
+> 为本次命令覆盖默认区域（region）。
 
 **--zone** _ZONE_
-> Override the default zone for this command.
+> 为本次命令覆盖默认可用区（zone）。
 
 **--configuration** _NAME_
-> Use a named configuration instead of the active one.
+> 使用指定的命名配置而非当前活动配置。
 
 **--flags-file** _FILE_
-> Read flags from a YAML or JSON file.
+> 从 YAML 或 JSON 文件读取标志。
 
 **--flatten** _KEY_
-> Flatten nested list or map output.
+> 展平嵌套的列表或映射输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/gcloud/configurations/config_default**
-> Default configuration properties including project, region, zone, and account settings.
+> 默认配置属性，包括项目、区域、可用区和账户设置。
 
 **~/.config/gcloud/credentials.db**
-> Encrypted credentials database for authenticated accounts.
+> 已认证账户的加密凭据数据库。
 
 **~/.config/gcloud/application_default_credentials.json**
-> Application default credentials for local development.
+> 用于本地开发的 application default 凭据。
 
 # DESCRIPTION
 
-**gcloud** is the Google Cloud Platform CLI for managing cloud resources. It provides commands for all GCP services including Compute Engine, Kubernetes Engine, Cloud SQL, Cloud Run, Cloud Functions, and more.
+**gcloud** 是用于管理云资源的 Google Cloud Platform CLI。它为所有 GCP 服务提供命令，包括 Compute Engine、Kubernetes Engine、Cloud SQL、Cloud Run、Cloud Functions 等。
 
-The tool handles authentication, configuration, and resource management. Commands are organized by service groups with subcommands for specific operations. The **--format** and **--filter** flags are available on all commands for scripting and automation. Output formats include json, yaml, csv, table, text, value, and more.
+该工具负责身份验证、配置和资源管理。命令按服务组组织，每个操作对应相应的子命令。所有命令都支持 **--format** 和 **--filter** 标志，便于脚本化和自动化。输出格式包括 json、yaml、csv、table、text、value 等多种。
 
-Multiple named configurations can be managed with **gcloud config configurations** for switching between projects and accounts.
+可以通过 **gcloud config configurations** 管理多个命名配置，以便在不同项目和账户之间切换。
 
 # CAVEATS
 
-Requires a GCP account and project. Actions may incur costs. Some commands need specific IAM permissions. The **gcloud** CLI is part of the Google Cloud SDK, which must be installed separately from most package managers.
+需要 GCP 账户和项目。某些操作可能产生费用。部分命令需要特定的 IAM 权限。**gcloud** CLI 是 Google Cloud SDK 的一部分，而后者在大多数软件包管理器中需要单独安装。
 
 # HISTORY
 
-**gcloud** is part of the **Google Cloud SDK**, first released in **2013** as the primary CLI for Google Cloud Platform administration and automation. It has grown to cover hundreds of GCP services and is continuously updated with new features.
+**gcloud** 是 **Google Cloud SDK** 的组成部分，于 **2013 年**首次发布，作为 Google Cloud Platform 管理与自动化的主要 CLI。它现已覆盖数百个 GCP 服务，并持续更新新功能。
 
 # SEE ALSO
 

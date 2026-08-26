@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage remote repository clones in a structured directory hierarchy
+在结构化的目录层级中管理远程仓库的克隆
 
 # TLDR
 
-**Clone a repository**
+**克隆一个仓库**
 
 ```ghq get [https://github.com/owner/repo]```
 
-**Clone a repository via SSH**
+**通过 SSH 克隆仓库**
 
 ```ghq get -p [owner/repo]```
 
-**List managed repositories**
+**列出受管理的仓库**
 
 ```ghq list```
 
-**List with full paths**
+**列出完整路径**
 
 ```ghq list -p```
 
-**Get repository root**
+**获取仓库根目录**
 
 ```ghq root```
 
-**Create new repository**
+**创建新仓库**
 
 ```ghq create [owner]/[repo]```
 
-**Remove a local repository**
+**删除本地仓库**
 
 ```ghq rm [owner/repo]```
 
-**Update an already cloned repository**
+**更新已克隆的仓库**
 
 ```ghq get -u [owner/repo]```
 
@@ -43,71 +43,71 @@ Manage remote repository clones in a structured directory hierarchy
 # PARAMETERS
 
 **get** _URL_
-> Clone a repository. Alias: clone.
+> 克隆一个仓库。别名：clone。
 
 **list** [_query_]
-> List local repositories, optionally filtered by query.
+> 列出本地仓库，可按查询条件过滤。
 
 **root**
-> Show repository root path.
+> 显示仓库根路径。
 
 **create** _NAME_
-> Create a new repository locally.
+> 在本地创建一个新仓库。
 
 **rm** _NAME_
-> Remove a local repository clone.
+> 删除本地仓库克隆。
 
 **-p**
-> Clone via SSH (get) or show full paths (list).
+> 通过 SSH 克隆（get）或显示完整路径（list）。
 
 **-u**, **--update**
-> Update existing repository (pull --ff-only).
+> 更新已有仓库（pull --ff-only）。
 
 **--shallow**
-> Shallow clone (depth 1, Git only).
+> 浅克隆（深度为 1，仅 Git）。
 
 **--branch** _BRANCH_
-> Clone a specific branch.
+> 克隆指定分支。
 
 **--bare**
-> Perform a bare clone (Git only).
+> 执行裸克隆（bare clone，仅 Git）。
 
 **--no-recursive**
-> Do not clone git submodules.
+> 不克隆 git 子模块。
 
 **-e**, **--exact**
-> Require exact query match (list).
+> 要求查询完全匹配（list）。
 
 **--dry-run**
-> Show path without deleting (rm).
+> 仅显示路径而不删除（rm）。
 
 **--vcs** _VCS_
-> Specify VCS backend: git, svn, hg, darcs, fossil, bzr.
+> 指定版本控制后端：git、svn、hg、darcs、fossil、bzr。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ghq** manages remote repository clones in a structured directory hierarchy. It clones repositories into organized paths based on their URLs, enabling consistent repository organization across projects.
+**ghq** 在结构化的目录层级中管理远程仓库的克隆。它根据仓库 URL 将其克隆到有组织的路径中，从而实现跨项目一致的仓库组织方式。
 
-The tool integrates with shell workflows and fuzzy finders like **fzf** for quick repository navigation. It supports GitHub, GitLab, Bitbucket, and custom Git hosts.
+该工具可与 Shell 工作流以及 **fzf** 等模糊查找器集成，实现快速导航仓库。它支持 GitHub、GitLab、Bitbucket 以及自定义 Git 主机。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> Configure repository root path with `ghq.root` setting, default user with `ghq.user`, and per-URL VCS with `ghq.<url>.vcs`.
+> 使用 `ghq.root` 设置配置仓库根路径，使用 `ghq.user` 设置默认用户，使用 `ghq.<url>.vcs` 为特定 URL 指定版本控制系统。
 
 **GHQ_ROOT**
-> Environment variable to override all ghq.root settings.
+> 用于覆盖所有 ghq.root 设置的环境变量。
 
 # CAVEATS
 
-Requires git. Default root is ~/ghq or configurable via ghq.root in gitconfig or GHQ_ROOT env var. URL parsing determines directory structure. Supports multiple VCS backends beyond Git.
+需要 git。默认根目录为 ~/ghq，可通过 gitconfig 中的 ghq.root 或环境变量 GHQ_ROOT 配置。目录结构由 URL 解析结果决定。支持 Git 以外的多种版本控制后端。
 
 # HISTORY
 
-ghq was created by **motemen** as a tool for organizing Git repositories, inspired by go get's directory structure conventions.
+ghq 由 **motemen** 创建，是一个用于组织 Git 仓库的工具，灵感来自 go get 的目录结构约定。
 
 # INSTALL
 

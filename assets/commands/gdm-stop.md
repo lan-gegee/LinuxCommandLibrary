@@ -1,10 +1,10 @@
 # TAGLINE
 
-stop the GNOME Display Manager service
+停止 GNOME 显示管理器服务
 
 # TLDR
 
-**Stop GNOME Display Manager**
+**停止 GNOME 显示管理器**
 
 ```sudo gdm-stop```
 
@@ -14,13 +14,13 @@ stop the GNOME Display Manager service
 
 # DESCRIPTION
 
-**gdm-stop** stops the GNOME Display Manager service entirely, terminating all graphical sessions and shutting down the graphical login interface. The system returns to text console mode (TTY), making this useful for troubleshooting graphics issues, performing system maintenance, or switching to a different display manager.
+**gdm-stop** 完全停止 GNOME 显示管理器服务，终止所有图形会话并关闭图形登录界面。系统返回文本控制台模式（TTY），这对于排查图形问题、执行系统维护或切换到其他显示管理器非常有用。
 
-All logged-in users will be forcibly logged out when GDM stops. On systemd-based systems, this is typically a wrapper for `systemctl stop gdm`. After stopping GDM, you can start it again with `systemctl start gdm` or access text consoles directly.
+GDM 停止时，所有已登录的用户都会被强制注销。在基于 systemd 的系统上，这通常是 `systemctl stop gdm` 的包装。停止 GDM 后，可以用 `systemctl start gdm` 再次启动它，或直接访问文本控制台。
 
 # CAVEATS
 
-Stopping GDM will terminate all graphical sessions. Save your work before running this command.
+停止 GDM 会终止所有图形会话。运行此命令前请保存工作。
 
 # INSTALL
 
@@ -39,4 +39,3 @@ Stopping GDM will terminate all graphical sessions. Save your work before runnin
 # SEE ALSO
 
 [gdm-restart](/man/gdm-restart)(1), [gdm](/man/gdm)(8), [systemctl](/man/systemctl)(1)
-

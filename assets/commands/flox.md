@@ -1,26 +1,26 @@
 # TAGLINE
 
-reproducible development environments built on Nix
+基于 Nix 构建的可复现开发环境
 
 # TLDR
 
-**Initialize environment**
+**初始化环境**
 
 ```flox init```
 
-**Install package**
+**安装软件包**
 
 ```flox install [ripgrep]```
 
-**Activate environment**
+**激活环境**
 
 ```flox activate```
 
-**Search for packages**
+**搜索软件包**
 
 ```flox search [nodejs]```
 
-**List installed packages**
+**列出已安装的软件包**
 
 ```flox list```
 
@@ -31,47 +31,47 @@ reproducible development environments built on Nix
 # PARAMETERS
 
 _COMMAND_
-> Operation: init, install, activate, search, list, etc.
+> 操作类型：init、install、activate、search、list 等。
 
 **init**
-> Initialize new environment.
+> 初始化新环境。
 
 **install** _PACKAGES_
-> Install packages.
+> 安装软件包。
 
 **activate**
-> Enter environment shell.
+> 进入环境 Shell。
 
 **search** _QUERY_
-> Search for packages.
+> 搜索软件包。
 
 **list**
-> Show installed packages.
+> 显示已安装的软件包。
 
 **uninstall** _PACKAGES_
-> Remove packages.
+> 移除软件包。
 
 **push**
-> Publish environment.
+> 发布环境。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**flox** is a virtual environment manager built on Nix. It creates reproducible development environments with declarative package management, shareable across machines and teams.
+**flox** 是一款构建在 Nix 之上的虚拟环境管理器。它通过声明式软件包管理创建可复现的开发环境，可在不同机器和团队之间共享。
 
-Environments are defined in a manifest file and can be pushed to FloxHub for sharing. Unlike traditional virtual environments, flox handles any language or tool from the Nix package collection.
+环境在一个清单文件中定义，可以推送到 FloxHub 进行共享。与传统虚拟环境不同，flox 可以处理 Nix 软件集合中的任何语言或工具。
 
-flox simplifies Nix's complexity while preserving its reproducibility guarantees.
+flox 简化了 Nix 的复杂性，同时保留了其可复现性保证。
 
 # CAVEATS
 
-Requires Nix installation. Large initial downloads for Nix store. Some packages may not be available.
+需要安装 Nix。Nix 存储的初次下载量较大。某些软件包可能不可用。
 
 # HISTORY
 
-flox was created to make **Nix** accessible to mainstream developers. It provides familiar virtual environment workflows backed by Nix's reproducible package management.
+flox 的创建目的是让主流开发者也能用上 **Nix**。它以熟悉的虚拟环境工作流为基础，背后是 Nix 可复现的软件包管理。
 
 # SEE ALSO
 

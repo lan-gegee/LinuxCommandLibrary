@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage GitHub secrets
+管理 GitHub secret
 
 # TLDR
 
-**List repository secrets**
+**列出仓库 secret**
 
 ```gh secret list```
 
-**Set a secret**
+**设置 secret**
 
 ```gh secret set [SECRET_NAME]```
 
-**Set secret from a value**
+**从值设置 secret**
 
 ```gh secret set [SECRET_NAME] --body "[secret_value]"```
 
-**Set secret from file**
+**从文件设置 secret**
 
 ```gh secret set [SECRET_NAME] < [secret.txt]```
 
-**Set secrets from a dotenv file**
+**从 dotenv 文件批量设置 secret**
 
 ```gh secret set --env-file [.env]```
 
-**Delete a secret**
+**删除 secret**
 
 ```gh secret delete [SECRET_NAME]```
 
-**List org secrets**
+**列出组织级 secret**
 
 ```gh secret list --org [orgname]```
 
-**Set a secret for a specific application**
+**为特定应用设置 secret**
 
 ```gh secret set [SECRET_NAME] --app [actions|codespaces|dependabot]```
 
@@ -43,60 +43,60 @@ Manage GitHub secrets
 # PARAMETERS
 
 **list**
-> List secrets.
+> 列出 secret。
 
 **set** _NAME_
-> Create or update a secret.
+> 创建或更新 secret。
 
 **delete** _NAME_
-> Delete a secret.
+> 删除 secret。
 
 **--org** _ORGNAME_
-> Target organization secrets.
+> 面向组织级 secret。
 
 **--env** _ENVIRONMENT_
-> Target environment secrets.
+> 面向环境级 secret。
 
 **-a**, **--app** _APP_
-> Target application: actions, codespaces, or dependabot.
+> 目标应用：actions、codespaces 或 dependabot。
 
 **-b**, **--body** _STRING_
-> Provide the secret value directly (reads from stdin if omitted).
+> 直接提供 secret 值（省略时从标准输入读取）。
 
 **-f**, **--env-file** _FILE_
-> Import secret names and values from a dotenv-formatted file.
+> 从 dotenv 格式的文件导入 secret 名称和值。
 
 **--visibility** _SCOPE_
-> Secret visibility for org secrets (all, private, selected). Default: private.
+> 组织级 secret 的可见性（all、private、selected）。默认：private。
 
 **--repos** _REPOS_
-> Repositories for selected visibility.
+> selected 可见性对应的仓库列表。
 
 **-u**, **--user**
-> Set or list a secret for your user (Codespaces).
+> 为你的用户账户设置或列出 secret（Codespaces）。
 
 **-R**, **--repo** _[HOST/]OWNER/REPO_
-> Target a specific repository.
+> 指定目标仓库。
 
 **--no-store**
-> Output the encrypted, base64-encoded value without storing on GitHub.
+> 输出加密并 base64 编码后的值，但不存储到 GitHub。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh secret** manages encrypted secrets for GitHub Actions, Codespaces, and Dependabot. Secrets are encrypted and only exposed to workflows at runtime, providing secure credential storage for CI/CD pipelines.
+**gh secret** 管理 GitHub Actions、Codespaces 和 Dependabot 的加密 secret。Secret 经过加密，只在运行时才暴露给工作流，为 CI/CD 流水线提供安全的凭据存储。
 
-The command supports repository, organization, environment, and user-level secrets. Organization secrets can be scoped to specific repositories via **--visibility** and **--repos**. Values are encrypted before transmission and storage. The **--app** flag selects which application the secret is for (actions, codespaces, or dependabot).
+该命令支持仓库级、组织级、环境级和用户级 secret。组织级 secret 可通过 **--visibility** 和 **--repos** 限定到特定仓库。值在传输和存储前都会被加密。**--app** 标志用于选择 secret 所属的应用（actions、codespaces 或 dependabot）。
 
 # CAVEATS
 
-Secrets are write-only; values cannot be retrieved. Admin access required for org secrets. Secret names are case-insensitive.
+Secret 为只写，其值无法读取。组织级 secret 需要管理员权限。Secret 名称不区分大小写。
 
 # HISTORY
 
-gh secret was added to the **GitHub CLI** to support GitHub Actions secret management, critical for secure CI/CD workflows.
+gh secret 被加入 **GitHub CLI** 以支持 GitHub Actions 的 secret 管理，这对安全的 CI/CD 工作流至关重要。
 
 # INSTALL
 

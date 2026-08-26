@@ -1,30 +1,30 @@
 # TAGLINE
 
-start and track Copilot coding agent sessions
+启动并跟踪 Copilot 编码智能体会话
 
 # TLDR
 
-**Create** a new agent task from a prompt
+从提示词**创建**新的智能体任务
 
 ```gh agent-task create "[refactor the auth module]"```
 
-**Create** a task and follow the session log live
+**创建**任务并实时跟踪会话日志
 
 ```gh agent-task create "[fix the failing tests]" --follow```
 
-**Create** a task against a different base branch
+针对其他基础分支**创建**任务
 
 ```gh agent-task create "[add caching]" --base [develop]```
 
-**Read** the prompt from a file or standard input
+从文件或标准输入**读取**提示词
 
 ```gh agent-task create --from-file [prompt.md]```
 
-**List** your most recent agent tasks
+**列出**你最近的智能体任务
 
 ```gh agent-task list```
 
-**View** a task and stream its logs
+**查看**某个任务并流式输出其日志
 
 ```gh agent-task view [123] --log --follow```
 
@@ -35,68 +35,68 @@ start and track Copilot coding agent sessions
 # SUBCOMMANDS
 
 **create** [_prompt_]
-> Create a new agent task on the current repository. With no prompt, you are asked to enter one interactively.
+> 在当前仓库创建新的智能体任务。不带提示词时，会交互式地要求输入。
 
 **list**
-> List your most recent agent tasks.
+> 列出你最近的智能体任务。
 
 **view** [_number_]
-> View details of an agent task, or of the task associated with a pull request.
+> 查看某个智能体任务的详情，或查看与某个 pull request 关联的任务详情。
 
 # PARAMETERS
 
 **-b**, **--base** _branch_
-> create: base branch for the pull request. Defaults to the repository's default branch.
+> create：pull request 的基础分支。默认为仓库的默认分支。
 
 **-a**, **--custom-agent** _name_
-> create: use a custom agent, e.g. **my-agent** refers to the **my-agent.md** agent file.
+> create：使用自定义智能体，例如 **my-agent** 对应 **my-agent.md** 智能体文件。
 
 **-F**, **--from-file** _file_
-> create: read the task description from a file; use **-** for standard input.
+> create：从文件读取任务描述；用 **-** 表示标准输入。
 
 **--follow**
-> create, view: follow the agent session logs in real time.
+> create、view：实时跟踪智能体会话日志。
 
 **--log**
-> view: show the agent session logs.
+> view：显示智能体会话日志。
 
 **-R**, **--repo** _[HOST/]OWNER/REPO_
-> Select another repository instead of the current one.
+> 选择其他仓库而非当前仓库。
 
 **-L**, **--limit** _int_
-> list: maximum number of agent tasks to fetch (default **30**).
+> list：获取智能体任务的最大数量（默认 **30**）。
 
 **--json** _fields_
-> list, view: output JSON with the specified fields.
+> list、view：以 JSON 输出指定字段。
 
 **-q**, **--jq** _expression_
-> list, view: filter JSON output using a jq expression.
+> list、view：用 jq 表达式过滤 JSON 输出。
 
 **-t**, **--template** _string_
-> list, view: format JSON output using a Go template.
+> list、view：用 Go 模板格式化 JSON 输出。
 
 **-w**, **--web**
-> list, view: open agent tasks in the browser.
+> list、view：在浏览器中打开智能体任务。
 
 # DESCRIPTION
 
-**gh agent-task** delegates work to the **GitHub Copilot coding agent** from the command line. The agent is asynchronous and autonomous: when you create a task it opens a draft pull request, works on the changes in the background, then requests your review when it is done.
+**gh agent-task** 从命令行把工作委派给 **GitHub Copilot coding agent**。该智能体是异步且自主的：创建任务后它会打开一个草稿 pull request，在后台完成更改，然后在完成后请求你审查。
 
-**gh agent-task create** starts a session against the current repository, using your prompt as the task description. Because the agent runs remotely, the command returns immediately unless **--follow** is given, in which case it streams the session log until the agent finishes.
+**gh agent-task create** 针对当前仓库启动一个会话，你的提示词即为任务描述。由于智能体远程运行，命令会立即返回；除非指定 **--follow**，此时它会流式输出会话日志直到智能体完成。
 
-**gh agent-task list** shows running and past sessions, and **gh agent-task view** inspects one of them, optionally streaming its logs. Both support **--json** for scripting; available JSON fields include **id**, **name**, **state**, **createdAt**, **completedAt**, **repository**, **pullRequestNumber**, **pullRequestState**, **pullRequestTitle** and **pullRequestUrl**.
+**gh agent-task list** 显示正在运行和过去的会话，**gh agent-task view** 查看其中之一，可选地流式输出其日志。两者都支持用于脚本化的 **--json**；可用的 JSON 字段包括 **id**、**name**、**state**、**createdAt**、**completedAt**、**repository**、**pullRequestNumber**、**pullRequestState**、**pullRequestTitle** 和 **pullRequestUrl**。
 
-The command group can also be invoked as **gh agent**, **gh agents** or **gh agent-tasks**.
+该命令组也可以写作 **gh agent**、**gh agents** 或 **gh agent-tasks** 来调用。
 
 # CAVEATS
 
-Requires **GitHub CLI 2.80.0** or later and an account with **Copilot coding agent** access. The command set is a **public preview** and is subject to change, so flags and output may shift between releases.
+需要 **GitHub CLI 2.80.0** 或更高版本以及具有 **Copilot coding agent** 访问权限的账户。这组命令处于**公开预览**阶段且可能变化，因此各版本之间的标志和输出可能有所调整。
 
-Tasks consume Copilot premium requests, and the agent pushes commits to a draft pull request on your behalf. Review its changes before merging.
+任务会消耗 Copilot 高级请求配额，并且智能体会在草稿 pull request 中以你的名义推送提交。合并前请先审查其更改。
 
 # HISTORY
 
-The **agent-task** command set was added to the GitHub CLI in **v2.80.0** and announced in **September 2025**, bringing Copilot coding agent sessions to the terminal.
+**agent-task** 命令集于 **v2.80.0** 加入 GitHub CLI，并在 **2025 年 9 月**发布，将 Copilot 编码智能体会话带入终端。
 
 # INSTALL
 

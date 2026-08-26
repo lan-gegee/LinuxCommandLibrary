@@ -1,26 +1,26 @@
 # TAGLINE
 
-FUSE filesystem mount manager
+FUSE 文件系统挂载管理器
 
 # TLDR
 
-**Unmount FUSE filesystem**
+**卸载 FUSE 文件系统**
 
 ```fusermount -u [mountpoint]```
 
-**Force unmount** (lazy)
+**强制卸载**（延迟卸载）
 
 ```fusermount -uz [mountpoint]```
 
-**Show version**
+**显示版本**
 
 ```fusermount -V```
 
-**List all FUSE mounts**
+**列出所有 FUSE 挂载**
 
 ```mount -t fuse```
 
-**Unmount with options**
+**带选项卸载**
 
 ```fusermount -u -o [option] [mountpoint]```
 
@@ -30,42 +30,42 @@ FUSE filesystem mount manager
 
 # DESCRIPTION
 
-**fusermount** is a utility for mounting and unmounting FUSE (Filesystem in Userspace) filesystems. It's primarily used for unmounting, as mounting is typically done by the filesystem program itself.
+**fusermount** 是一个用于挂载和卸载 FUSE（用户空间文件系统）的工具。它主要用于卸载操作，因为挂载通常由文件系统程序自身完成。
 
-The tool enables non-root users to mount and unmount filesystems, subject to proper permissions and configuration.
+该工具让非 root 用户也能挂载和卸载文件系统，前提是拥有适当的权限和配置。
 
 # PARAMETERS
 
 **-u**
-> Unmount filesystem.
+> 卸载文件系统。
 
 **-z**
-> Lazy unmount (like umount -l).
+> 延迟卸载（类似 umount -l）。
 
 **-q**
-> Quiet mode.
+> 安静模式。
 
 **-o** _options_
-> Mount options.
+> 挂载选项。
 
 **-V**
-> Display version.
+> 显示版本。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # CONFIGURATION
 
 **/etc/fuse.conf**
-> Controls system-wide FUSE settings including user_allow_other and mount_max.
+> 控制系统级 FUSE 设置，包括 user_allow_other 和 mount_max。
 
 # CAVEATS
 
-Lazy unmount may leave filesystem in use. Regular users need proper permissions. Some options require root. Mount must be from fusermount or user_allow_other.
+延迟卸载可能使文件系统仍处于使用状态。普通用户需要适当的权限。某些选项需要 root。挂载必须来自 fusermount 或启用了 user_allow_other。
 
 # HISTORY
 
-**fusermount** is part of the **FUSE** (Filesystem in Userspace) project, originally created by **Miklos Szeredi** around **2001**. FUSE enables userspace programs to export filesystems to the kernel, revolutionizing filesystem development on Linux.
+**fusermount** 属于 **FUSE**（用户空间文件系统）项目，由 **Miklos Szeredi** 于 **2001 年**前后创建。FUSE 让用户空间程序能够向内核导出文件系统，彻底改变了 Linux 上的文件系统开发方式。
 
 # INSTALL
 

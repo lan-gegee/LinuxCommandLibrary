@@ -1,34 +1,34 @@
 # TAGLINE
 
-View GitHub repository rulesets (alias for gh ruleset)
+查看 GitHub 仓库规则集（gh ruleset 的别名）
 
 # TLDR
 
-**List rulesets** for the current repository
+**列出当前仓库的规则集**
 
 ```gh rs list```
 
-**List rulesets** for a different repository, including inherited ones
+**列出其他仓库的规则集**，包括继承的规则集
 
 ```gh rs list --repo [owner/repo] --parents```
 
-**List organization-wide** rulesets
+**列出组织范围**的规则集
 
 ```gh rs list --org [org-name]```
 
-**View a specific ruleset** by ID
+**按 ID 查看特定规则集**
 
 ```gh rs view [43]```
 
-**Open a ruleset** in the web browser
+**在网页浏览器中打开规则集**
 
 ```gh rs view [43] --web```
 
-**Check rules** that apply to the current branch
+**查看适用于当前分支的规则**
 
 ```gh rs check```
 
-**Check rules** that apply to the default branch of another repository
+**查看适用于另一仓库默认分支的规则**
 
 ```gh rs check --default --repo [owner/repo]```
 
@@ -39,49 +39,49 @@ View GitHub repository rulesets (alias for gh ruleset)
 # PARAMETERS
 
 **list**
-> List rulesets for a repository or organization.
+> 列出仓库或组织的规则集。
 
 **view** [_ruleset-id_]
-> View information about a ruleset. Prompts interactively if no ID is given.
+> 查看规则集的信息。未提供 ID 时以交互方式提示选择。
 
 **check** [_branch_]
-> View rules that would apply to a given branch. Uses the current branch if none is given.
+> 查看将应用于指定分支的规则。未指定分支时使用当前分支。
 
 **-R**, **--repo** _[HOST/]OWNER/REPO_
-> Select another repository instead of the current one.
+> 选择其他仓库而非当前仓库。
 
 # LIST FLAGS
 
 **-L**, **--limit** _int_
-> Maximum number of rulesets to list (default 30).
+> 最多列出的规则集数量（默认 30）。
 
 **-o**, **--org** _string_
-> List organization-wide rulesets. Requires the **admin:org** token scope.
+> 列出组织范围的规则集。需要 **admin:org** 令牌权限范围。
 
 **-p**, **--parents**
-> Include rulesets configured at higher levels that also apply (default true).
+> 包含在更高层级配置、且同样生效的规则集（默认 true）。
 
 **-w**, **--web**
-> Open the list of rulesets in the web browser.
+> 在网页浏览器中打开规则集列表。
 
 # VIEW/CHECK FLAGS
 
 **-o**, **--org** _string_
-> Organization name, when the ID given to **view** is an organization-level ruleset.
+> 组织名称，当传给 **view** 的 ID 是组织级规则集时使用。
 
 **--default**
-> With **check**, view rules on the repository's default branch.
+> 配合 **check** 使用，查看仓库默认分支上的规则。
 
 **-w**, **--web**
-> Open the ruleset or branch rules page in the web browser.
+> 在网页浏览器中打开规则集或分支规则页面。
 
 # DESCRIPTION
 
-**gh rs** is the built-in alias for **gh ruleset**, part of the official **GitHub CLI**. Rulesets let repository and organization admins enforce rules (required reviews, status checks, branch naming, force-push restrictions, etc.) on branches and tags. This command group is read-only: it lists and inspects rulesets and shows which rules apply to a given branch, but does not create or edit rulesets.
+**gh rs** 是官方 **GitHub CLI** 中 **gh ruleset** 的内置别名。规则集让仓库和组织管理员能够在分支和标签上强制执行规则（必需审查、状态检查、分支命名、禁止强推等）。这组命令是只读的：它会列出并检查规则集，并显示哪些规则适用于给定分支，但不会创建或编辑规则集。
 
 # CAVEATS
 
-Read-only: rulesets themselves are created and edited on GitHub.com or via the API, not through **gh ruleset**. Listing organization-wide rulesets with **--org** requires a token with the **admin:org** scope, obtainable via **gh auth refresh -s admin:org**.
+只读：规则集本身需要在 GitHub.com 网页上或通过 API 创建和编辑，不能通过 **gh ruleset** 完成。使用 **--org** 列出组织范围的规则集需要具有 **admin:org** 权限范围的令牌，可通过 **gh auth refresh -s admin:org** 获取。
 
 # INSTALL
 

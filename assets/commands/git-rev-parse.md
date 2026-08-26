@@ -1,38 +1,38 @@
 # TAGLINE
 
-Pick out and massage parameters for other git commands
+为其他 git 命令挑选并整理参数
 
 # TLDR
 
-**Get commit hash**
+**获取提交哈希值**
 
 ```git rev-parse HEAD```
 
-**Get short hash**
+**获取短哈希值**
 
 ```git rev-parse --short HEAD```
 
-**Get branch name**
+**获取分支名**
 
 ```git rev-parse --abbrev-ref HEAD```
 
-**Get repository root**
+**获取仓库根目录**
 
 ```git rev-parse --show-toplevel```
 
-**Check if in git repository**
+**检查是否在 git 仓库中**
 
 ```git rev-parse --is-inside-work-tree```
 
-**Get git directory**
+**获取 git 目录**
 
 ```git rev-parse --git-dir```
 
-**Verify** a ref exists (exits non-zero if invalid)
+**验证**某个引用是否存在（无效时以非零值退出）
 
 ```git rev-parse --verify [ref]```
 
-**Get path** from repo root to current directory
+**获取**从仓库根目录到当前目录的路径
 
 ```git rev-parse --show-prefix```
 
@@ -43,49 +43,49 @@ Pick out and massage parameters for other git commands
 # PARAMETERS
 
 **--short** [_length_]
-> Abbreviated hash.
+> 缩短的哈希值。
 
 **--abbrev-ref**
-> Show short ref name.
+> 显示短引用名。
 
 **--verify**
-> Verify object exists.
+> 验证对象是否存在。
 
 **--show-toplevel**
-> Show repository root.
+> 显示仓库根目录。
 
 **--git-dir**
-> Show .git directory.
+> 显示 .git 目录。
 
 **--is-inside-work-tree**
-> Check if in work tree.
+> 检查是否在工作树内。
 
 **--show-prefix**
-> Show path of current directory relative to repository root.
+> 显示当前目录相对于仓库根目录的路径。
 
 **--show-cdup**
-> Show path from current directory to repository root.
+> 显示从当前目录回到仓库根目录的路径。
 
 **--is-bare-repository**
-> Print "true" if the repository is bare, "false" otherwise.
+> 若仓库为裸仓库则输出 "true"，否则输出 "false"。
 
 **--absolute-git-dir**
-> Like --git-dir, but output is always an absolute path.
+> 类似 --git-dir，但输出始终是绝对路径。
 
 **--symbolic**
-> Show symbolic name instead of SHA-1.
+> 显示符号名称而不是 SHA-1。
 
 **--symbolic-full-name**
-> Like --symbolic but show full ref name (e.g., refs/heads/master).
+> 类似 --symbolic，但显示完整引用名（例如 refs/heads/master）。
 
 **--quiet**
-> Only meaningful with --verify. Do not output error message on failure, just exit with non-zero status.
+> 仅与 --verify 搭配时有意义。失败时不输出错误信息，只以非零状态退出。
 
 # DESCRIPTION
 
-**git rev-parse** translates ref names, symbolic references, and other arguments into SHA-1 hashes. It also provides information about the repository structure, such as the root directory, git directory, and current branch.
+**git rev-parse** 将引用名、符号引用及其他参数转换为 SHA-1 哈希值。它还能提供仓库结构相关的信息，例如根目录、git 目录和当前分支。
 
-This plumbing command is widely used in scripts for resolving refs and querying repository metadata.
+这个底层（plumbing）命令在脚本中被广泛使用，用于解析引用和查询仓库元数据。
 
 # INSTALL
 

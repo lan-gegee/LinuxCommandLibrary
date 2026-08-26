@@ -1,14 +1,14 @@
 # TAGLINE
 
-Initialize a repo and commit all existing files
+初始化仓库并提交所有现存文件
 
 # TLDR
 
-**Create a new repo** in the current directory with an initial commit
+**在当前目录创建新仓库**并完成初始提交
 
 ```git setup```
 
-**Setup a repo** in a specific **directory**
+**在指定的**目录中**初始化仓库**
 
 ```git setup [path/to/directory]```
 
@@ -19,21 +19,21 @@ Initialize a repo and commit all existing files
 # PARAMETERS
 
 _DIRECTORY_
-> Directory to set up (default: current directory).
+> 要初始化的目录（默认：当前目录）。
 
 # DESCRIPTION
 
-**git setup** initializes a new Git repository and makes an initial commit with all existing files. Part of the **git-extras** package, it combines `git init`, `git add .`, and `git commit -m "Initial commit"` into a single command.
+**git setup** 初始化一个新的 Git 仓库，并将所有现存文件提交为初始提交。它属于 **git-extras** 软件包，把 `git init`、`git add .` 和 `git commit -m "Initial commit"` 合并为一条命令。
 
-This is useful for quickly turning an existing directory of files into a Git repository with a clean starting snapshot.
+适合快速把一个现有的文件目录变成带有干净起始快照的 Git 仓库。
 
 # CAVEATS
 
-Part of the **git-extras** package and must be installed separately. Commits all files immediately, so ensure a **.gitignore** file is in place first to avoid tracking unwanted files.
+属于 **git-extras** 软件包，需单独安装。它会立即提交所有文件，因此请先准备好 **.gitignore** 文件，以免跟踪不想要的文件。
 
 # HISTORY
 
-git setup is part of **git-extras**, a collection of useful Git utilities created by **TJ Holowaychuk**. It combines common initialization steps for new repositories.
+git setup 是 **git-extras** 的一部分，后者是由 **TJ Holowaychuk** 创建的一组实用 Git 工具。它将新仓库常见的初始化步骤合并到了一起。
 
 # INSTALL
 

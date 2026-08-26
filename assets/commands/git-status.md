@@ -1,38 +1,38 @@
 # TAGLINE
 
-Show the working tree status
+显示工作树状态
 
 # TLDR
 
-**Show working tree status**
+**显示工作树状态**
 
 ```git status```
 
-**Short format output**
+**短格式输出**
 
 ```git status -s```
 
-**Show short format with branch info**
+**显示带分支信息的短格式**
 
 ```git status -sb```
 
-**Show ignored files**
+**显示被忽略的文件**
 
 ```git status --ignored```
 
-**Machine-readable output** for scripting
+供脚本使用的**机器可读输出**
 
 ```git status --porcelain```
 
-**Show untracked files**
+**显示未跟踪的文件**
 
 ```git status -u```
 
-**Show verbose diff of staged changes**
+**显示已暂存改动的详细差异**
 
 ```git status -v```
 
-**Show status for a specific path**
+**显示指定路径的状态**
 
 ```git status [path/to/file_or_directory]```
 
@@ -43,48 +43,48 @@ Show the working tree status
 # PARAMETERS
 
 **-s**, **--short**
-> Short format output with two-column status codes (XY).
+> 短格式输出，使用两列状态码（XY）。
 
 **-b**, **--branch**
-> Show branch and tracking info in short format.
+> 在短格式中显示分支和跟踪信息。
 
 **--porcelain**[**=v1**|**v2**]
-> Machine-readable format. Version 2 includes more detail.
+> 机器可读格式。版本 2 包含更多细节。
 
 **-u**[_mode_], **--untracked-files**[**=**_mode_]
-> Show untracked files. Mode can be: no, normal (default), all.
+> 显示未跟踪的文件。模式可为：no、normal（默认）、all。
 
 **--ignored**[**=**_mode_]
-> Show ignored files. Mode can be: traditional, no, matching.
+> 显示被忽略的文件。模式可为：traditional、no、matching。
 
 **-v**, **--verbose**
-> Show staged diff. Use **-vv** to also show unstaged diff.
+> 显示已暂存的差异。使用 **-vv** 可同时显示未暂存的差异。
 
 **--ahead-behind**
-> Show ahead/behind counts relative to upstream branch.
+> 显示相对于上游分支的超前/落后计数。
 
 **--no-ahead-behind**
-> Suppress ahead/behind counts (faster for large repos).
+> 不显示超前/落后计数（对大型仓库更快）。
 
 **--long**
-> Long format output (default).
+> 长格式输出（默认）。
 
 **--column**[**=**_options_]
-> Display untracked files in columns.
+> 以多列形式显示未跟踪文件。
 
 **-z**
-> Terminate entries with NUL instead of newline (for scripting).
+> 条目以 NUL 而不是换行符结尾（便于脚本处理）。
 
 **--renames**, **--no-renames**
-> Enable or disable rename detection.
+> 启用或禁用重命名检测。
 
 # DESCRIPTION
 
-**git status** displays the state of the working tree and the staging area. It shows which changes have been staged, which are unstaged, and which files are untracked by Git.
+**git status** 显示工作树和暂存区的状态。它会展示哪些改动已暂存、哪些未暂存，以及哪些文件未被 Git 跟踪。
 
-In short format (**-s**), each file is shown with a two-character status code: the first column shows the index (staging area) status and the second shows the working tree status. Common codes include **M** (modified), **A** (added), **D** (deleted), **R** (renamed), **?** (untracked), and **!** (ignored).
+在短格式（**-s**）下，每个文件都带有一个两字符状态码：第一列表示索引（暂存区）状态，第二列表示工作树状态。常见的代码包括 **M**（修改）、**A**（新增）、**D**（删除）、**R**（重命名）、**?**（未跟踪）和 **!**（忽略）。
 
-The **--porcelain** format provides stable, machine-readable output suitable for scripting, while the default long format is designed for human readability. Use **--porcelain=v2** for richer machine-readable output including rename and copy information.
+**--porcelain** 格式提供稳定、机器可读的输出，适合脚本处理；默认的长格式则面向人类阅读。需要更丰富的机器可读输出（含重命名和复制信息）时，可使用 **--porcelain=v2**。
 
 # INSTALL
 

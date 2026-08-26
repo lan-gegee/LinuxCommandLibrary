@@ -1,22 +1,22 @@
 # TAGLINE
 
-Kerberoasting attack tool for service accounts
+面向服务账户的 Kerberoasting 攻击工具
 
 # TLDR
 
-**Enumerate SPN accounts**
+**枚举 SPN 账户**
 
 ```GetUserSPNs.py [domain]/[username]:[password] -dc-ip [dc_ip]```
 
-**Request service tickets**
+**请求服务票据**
 
 ```GetUserSPNs.py [domain]/[username]:[password] -dc-ip [dc_ip] -request```
 
-**Output for hashcat**
+**输出为 hashcat 格式**
 
 ```GetUserSPNs.py [domain]/[username]:[password] -dc-ip [dc_ip] -request -outputfile [hashes.txt]```
 
-**Using NTLM hash**
+**使用 NTLM 哈希**
 
 ```GetUserSPNs.py [domain]/[username] -hashes :[ntlm_hash] -dc-ip [dc_ip]```
 
@@ -27,38 +27,37 @@ Kerberoasting attack tool for service accounts
 # PARAMETERS
 
 _DOMAIN/USER_
-> Domain and username.
+> 域名和用户名。
 
 **-dc-ip** _IP_
-> Domain controller IP.
+> 域控制器 IP。
 
 **-request**
-> Request TGS tickets.
+> 请求 TGS 票据。
 
 **-hashes** _LMHASH:NTHASH_
-> Use NTLM hashes.
+> 使用 NTLM 哈希。
 
 **-outputfile** _FILE_
-> Output file for hashes.
+> 哈希的输出文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**GetUserSPNs.py** performs Kerberoasting attacks against Active Directory. It identifies service accounts with SPNs and requests service tickets containing crackable password hashes.
+**GetUserSPNs.py** 针对 Active Directory 执行 Kerberoasting 攻击。它识别带有 SPN 的服务账户，并请求包含可破解密码哈希的服务票据。
 
-The tool queries AD for accounts with servicePrincipalName attributes, then requests TGS tickets. These tickets contain password material crackable offline.
+该工具在 AD 中查询具有 servicePrincipalName 属性的账户，然后请求 TGS 票据。这些票据包含可以离线破解的密码材料。
 
-GetUserSPNs.py is used in penetration testing for credential attacks.
+GetUserSPNs.py 在渗透测试中用于凭据攻击。
 
 # CAVEATS
 
-**Authorized testing only.** Requires domain credentials. Results need offline cracking.
+**仅限授权测试。**需要域凭据。结果需要离线破解。
 
 # HISTORY
 
-GetUserSPNs.py is part of **Impacket**, implementing the Kerberoasting attack technique documented in Active Directory security research.
+GetUserSPNs.py 是 **Impacket** 的一部分，实现了 Active Directory 安全研究中记载的 Kerberoasting 攻击技术。
 
 # SEE ALSO
-

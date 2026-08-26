@@ -1,18 +1,18 @@
 # TAGLINE
 
-TUI Git client inspired by Magit
+受 Magit 启发的 TUI Git 客户端
 
 # TLDR
 
-**Launch** gitu in current repository
+在当前仓库中启动 gitu
 
 ```gitu```
 
-**Open** specific file
+打开特定文件
 
 ```gitu [filename]```
 
-**Start** in specific directory
+在特定目录中启动
 
 ```gitu [directory]```
 
@@ -23,65 +23,65 @@ TUI Git client inspired by Magit
 # PARAMETERS
 
 **-c, --config** _FILE_
-> Configuration file path
+> 配置文件路径
 
 **--log-level** _LEVEL_
-> Set logging level
+> 设置日志级别
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**gitu** is a terminal user interface for Git inspired by Magit (Emacs). It provides a keyboard-driven interface for common Git operations with visual staging, committing, branching, and rebasing.
+**gitu** 是一个受 Magit（Emacs）启发的 Git 终端用户界面。它提供键盘驱动的常用 Git 操作界面，可视化地完成暂存、提交、分支和变基。
 
-The tool shows the repository status with sections for staged/unstaged changes, branches, and recent commits, making it easy to perform complex Git operations without memorizing commands.
+该工具按已暂存/未暂存更改、分支和最近提交等分区显示仓库状态，让复杂的 Git 操作无需死记命令即可轻松完成。
 
 # KEYBINDINGS
 
 **s**
-> Stage file/hunk
+> 暂存文件/hunk
 
 **u**
-> Unstage file/hunk
+> 取消暂存文件/hunk
 
 **c**
-> Commit
+> 提交
 
 **b**
-> Branch menu
+> 分支菜单
 
 **r**
-> Rebase menu
+> 变基菜单
 
 **l**
-> Log view
+> 日志视图
 
 **d**
-> Diff view
+> 差异视图
 
 **p**
-> Push
+> 推送
 
 **P**
-> Pull
+> 拉取
 
 **q**
-> Quit
+> 退出
 
 **?**
-> Help
+> 帮助
 
 # CAVEATS
 
-Requires Git repository. Some advanced Git features may not be supported. Large repositories may have performance issues.
+需要在 Git 仓库中运行。部分高级 Git 功能可能不受支持。大型仓库可能有性能问题。
 
 # HISTORY
 
-**gitu** was inspired by Magit and created to bring similar functionality to a standalone terminal application.
+**gitu** 受 Magit 启发而创建，目的是把类似的功能带到独立的终端应用中。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Add co-author attribution to the last commit
+为最后一次提交添加共同作者署名
 
 # TLDR
 
-**Add a coauthor to the last commit**
+**为最后一次提交添加共同作者**
 
 ```git coauthor "[Name]" "[email@example.com]"```
 
-**Add a second coauthor** (run again against the same commit)
+**添加第二位共同作者**（对同一提交再次运行）
 
 ```git coauthor "[Name2]" "[email2@example.com]"```
 
@@ -19,26 +19,26 @@ Add co-author attribution to the last commit
 # PARAMETERS
 
 _NAME_
-> Coauthor's name. Required.
+> 共同作者的姓名。必填。
 
 _EMAIL_
-> Coauthor's email. Required.
+> 共同作者的邮箱。必填。
 
 # DESCRIPTION
 
-**git coauthor** is a **git-extras** command that amends the last commit message to add a **Co-authored-by:** trailer, the format GitHub and GitLab recognize to credit multiple contributors on one commit.
+**git coauthor** 是一个 **git-extras** 命令，它会修改最后一次提交信息，添加 **Co-authored-by:** 尾注——这是 GitHub 和 GitLab 用来在同一个提交上署名多位贡献者的格式。
 
-It takes exactly one name and one email per invocation. To credit several people, run the command once per coauthor: since it appends to any **Co-authored-by:** trailers already present rather than replacing them, running it repeatedly against the same commit stacks up multiple coauthors.
+每次调用只接受一个姓名和一个邮箱。若要署名多人，请为每位共同作者各运行一次：由于它是在已有的 **Co-authored-by:** 尾注之后追加而非替换，对同一提交反复运行即可累积多位共同作者。
 
-This supports pair programming, mob programming, and collaborative workflows where attribution should reflect everyone who contributed, not just whoever typed **git commit**.
+这支持结对编程、群体编程等协作工作流，让署名反映所有贡献者，而不仅仅是执行 **git commit** 的那个人。
 
 # CAVEATS
 
-Part of the **git-extras** package. Amends the last commit, which rewrites its hash, so avoid using it on commits already pushed to a shared branch. Both name and email are required; the command has no flags and does not validate its arguments. Coauthor emails must match the contributor's platform account for GitHub/GitLab to link the attribution to a profile.
+属于 **git-extras** 软件包。它会修改最后一次提交并重写其哈希，因此不要对已推送到共享分支的提交使用。姓名和邮箱均为必填；该命令没有任何标志，也不校验参数。共同作者的邮箱必须与贡献者的平台账号一致，GitHub/GitLab 才能将署名关联到其个人主页。
 
 # HISTORY
 
-git coauthor is part of **git-extras**, the community-maintained collection of Git utility scripts, added to support GitHub's co-author trailer convention for attributing collaborative work.
+git coauthor 是社区维护的 Git 实用脚本合集 **git-extras** 的一部分，为支持 GitHub 的共同作者尾注约定、给协作成果署名而加入。
 
 # INSTALL
 

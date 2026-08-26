@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compare content of tree objects
+比较树对象的内容
 
 # TLDR
 
-**Compare two trees**
+**比较两棵树**
 
 ```git diff-tree [tree1] [tree2]```
 
-**Show changes in commit**
+**显示提交中的改动**
 
 ```git diff-tree -p [commit]```
 
-**Show changed files**
+**显示被更改的文件**
 
 ```git diff-tree --name-only [commit]```
 
-**Raw output**
+**原始格式输出**
 
 ```git diff-tree --raw [commit]```
 
@@ -27,37 +27,37 @@ Compare content of tree objects
 # PARAMETERS
 
 **-r**
-> Recurse into subtrees.
+> 递归进入子树。
 
 **-p**, **--patch**
-> Generate patch.
+> 生成补丁。
 
 **--raw**
-> Raw diff format.
+> 原始 diff 格式。
 
 **--name-only**
-> Show file names only.
+> 只显示文件名。
 
 **--name-status**
-> Show status and names.
+> 显示状态和名称。
 
 **-s**
-> Suppress diff output.
+> 抑制 diff 输出。
 
 **--stdin**
-> Read commits from stdin, one per line; each is compared with its parent(s).
+> 从 stdin 读取提交，每行一个；每个提交与其父提交进行比较。
 
 **--root**
-> Include the initial commit as a big-bang diff against the empty tree (only meaningful with **--stdin** or a single _tree-ish_).
+> 将初始提交作为针对空树的巨大差异包含进来（仅在与 **--stdin** 或单个 _tree-ish_ 一起使用时有意义）。
 
 **-c**, **--cc**
-> Show a combined diff for merge commits instead of only listing changed files.
+> 为合并提交显示组合差异，而不是只列出被更改的文件。
 
 # DESCRIPTION
 
-**git diff-tree** compares the content and mode of blobs found via two tree objects, providing low-level access to Git's internal tree comparison mechanism. This plumbing command forms the foundation for examining differences between commits, branches, or any tree-like structures in Git's object database.
+**git diff-tree** 比较通过两个树对象找到的 blob 的内容与模式，提供对 Git 内部树比较机制的底层访问。这个 plumbing 命令构成了检查 Git 对象数据库中提交、分支或任何树状结构之间差异的基础。
 
-The command accepts one or two tree-ish arguments and outputs the differences in various formats. It can process commits via stdin, enabling efficient batch processing of history. While rarely needed in daily Git use, it underpins many higher-level operations and is essential for scripts and custom diff tools.
+该命令接受一个或两个 tree-ish 参数，并以多种格式输出差异。它可以通过 stdin 处理提交，从而高效地批量处理历史。虽然在日常 Git 使用中很少直接用到，但它支撑着许多更高层的操作，对脚本和自定义 diff 工具而言不可或缺。
 
 # INSTALL
 

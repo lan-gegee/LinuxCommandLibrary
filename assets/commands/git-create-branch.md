@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create and optionally switch to new branch
+创建新分支并可选择切换过去
 
 # TLDR
 
-**Create and switch to branch**
+**创建并切换到分支**
 
 ```git create-branch [branch_name]```
 
-**Create and switch to branch from a specific starting point**
+**从指定起点创建并切换到分支**
 
 ```git create-branch [name] [start_point]```
 
-**Create and push to remote**
+**创建并推送到远程**
 
 ```git create-branch -r [name]```
 
@@ -23,13 +23,13 @@ Create and optionally switch to new branch
 # PARAMETERS
 
 **-r**, **--remote**
-> Setup a remote tracking branch as well. Creates the branch locally, pushes it to origin, and sets up tracking.
+> 同时建立远程跟踪分支。会在本地创建分支、推送到 origin 并设置跟踪。
 
 # DESCRIPTION
 
-**git create-branch** is a convenience command from git-extras that simplifies branch creation workflows. It creates a new branch and switches to it. With the **-r** flag, it additionally pushes the branch to origin and sets up remote tracking, combining several manual steps into one command.
+**git create-branch** 是 git-extras 提供的便捷命令，用于简化创建分支的工作流。它会创建新分支并切换过去。加上 **-r** 标志时，还会把分支推送到 origin 并设置远程跟踪，将多个手动步骤合并为一条命令。
 
-Without the -r flag, the command creates a local branch and switches to it, equivalent to **git checkout -b**. You can optionally specify a starting point (commit hash or branch name); otherwise, the branch starts from HEAD.
+不带 -r 标志时，该命令创建本地分支并切换过去，等价于 **git checkout -b**。可以可选地指定起始点（提交哈希或分支名）；否则分支从 HEAD 开始。
 
 # INSTALL
 
@@ -52,4 +52,3 @@ Without the -r flag, the command creates a local branch and switches to it, equi
 # SEE ALSO
 
 [git-branch](/man/git-branch)(1), [git-checkout](/man/git-checkout)(1), [git-switch](/man/git-switch)(1), [git-delete-branch](/man/git-delete-branch)(1), [git-extras](/man/git-extras)(1)
-

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Dynamic instrumentation toolkit for developers and security researchers
+面向开发者与安全研究人员的动态插桩工具集
 
 # TLDR
 
-**Attach** to a running process by name
+按名称**附加到**正在运行的进程
 
 ```frida [process_name]```
 
-**Attach** to a process by **PID**
+按 **PID 附加到**进程
 
 ```frida -p [pid]```
 
-**Spawn** a new process and instrument it
+**启动**新进程并对其进行插桩
 
 ```frida -f [/path/to/binary]```
 
-**Load** a JavaScript instrumentation script
+**加载** JavaScript 插桩脚本
 
 ```frida -l [script.js] [process_name]```
 
-**Attach** to an app on a **USB-connected** device
+**附加到****USB 连接的**设备上的应用
 
 ```frida -U -n [app_name]```
 
-**Spawn** an app on a USB device and **pause** the main thread
+在 USB 设备上**启动**应用并**暂停**主线程
 
 ```frida -U -f [com.example.app] --pause```
 
-**Evaluate** inline JavaScript code against a process
+对一个进程**执行**内联 JavaScript 代码
 
 ```frida -e "console.log('hello')" [process_name]```
 
@@ -39,87 +39,87 @@ Dynamic instrumentation toolkit for developers and security researchers
 # PARAMETERS
 
 **-f** _TARGET_, **--file** _TARGET_
-> Spawn FILE as a new process
+> 将 FILE 作为新进程启动。
 
 **-F**, **--attach-frontmost**
-> Attach to the frontmost application
+> 附加到最前端的应用。
 
 **-n** _NAME_, **--attach-name** _NAME_
-> Attach to process by name
+> 按名称附加到进程。
 
 **-p** _PID_, **--attach-pid** _PID_
-> Attach to process by PID
+> 按 PID 附加到进程。
 
 **-U**, **--usb**
-> Connect to USB device
+> 连接到 USB 设备。
 
 **-R**, **--remote**
-> Connect to remote frida-server
+> 连接到远程 frida-server。
 
 **-H** _HOST_, **--host** _HOST_
-> Connect to remote frida-server on HOST
+> 连接到 HOST 上的远程 frida-server。
 
 **-D** _ID_, **--device** _ID_
-> Connect to device with the given ID
+> 连接到具有给定 ID 的设备。
 
 **-l** _SCRIPT_, **--load** _SCRIPT_
-> Load JavaScript SCRIPT (may be specified multiple times)
+> 加载 JavaScript 脚本 SCRIPT（可多次指定）。
 
 **-e** _CODE_, **--eval** _CODE_
-> Evaluate JavaScript CODE
+> 执行 JavaScript 代码 CODE。
 
 **-c** _URI_, **--codeshare** _URI_
-> Load script from Frida CodeShare
+> 从 Frida CodeShare 加载脚本。
 
 **-C** _CMODULE_, **--cmodule** _CMODULE_
-> Load a C module
+> 加载一个 C 模块。
 
 **-P** _JSON_, **--parameters** _JSON_
-> Parameters as JSON, same as Gadget
+> 以 JSON 形式给出的参数，与 Gadget 相同。
 
 **--runtime** {**qjs**,**v8**}
-> Script runtime to use
+> 要使用的脚本运行时。
 
 **--debug**
-> Enable Node.js compatible script debugger
+> 启用与 Node.js 兼容的脚本调试器。
 
 **-q**, **--quiet**
-> Quiet mode (no prompt), quit after -l and -e
+> 安静模式（无提示符），执行完 -l 和 -e 后退出。
 
 **-t** _SECS_, **--timeout** _SECS_
-> Seconds to wait before terminating in quiet mode
+> 安静模式下终止前等待的秒数。
 
 **-o** _FILE_, **--output** _FILE_
-> Output to log file
+> 输出到日志文件。
 
 **--pause**
-> Leave main thread paused after spawning program
+> 启动程序后让主线程保持暂停。
 
 **--kill-on-exit**
-> Kill the spawned program when Frida exits
+> Frida 退出时杀掉被启动的程序。
 
 **--eternalize**
-> Eternalize the script before exit
+> 退出前将脚本永久化（eternalize）。
 
 **--auto-perform**
-> Wrap entered code with Java.perform
+> 将输入的代码用 Java.perform 包装。
 
 **--no-auto-reload**
-> Disable auto reload of scripts on file change
+> 禁用文件变化时的脚本自动重载。
 
 # DESCRIPTION
 
-**frida** is the interactive REPL (Read-Eval-Print Loop) interface to the Frida dynamic instrumentation toolkit. It allows injecting JavaScript snippets into running processes for runtime analysis, debugging, and modification. You can attach to running processes, spawn new ones, load scripts, hook functions, and inspect or modify application behavior at runtime.
+**frida** 是 Frida 动态插桩工具集的交互式 REPL（Read-Eval-Print Loop）界面。它允许向运行中的进程注入 JavaScript 片段，进行运行时分析、调试和修改。你可以附加到运行中的进程、启动新进程、加载脚本、挂钩函数，以及在运行时检查或修改应用行为。
 
-Frida works across **Windows**, **macOS**, **GNU/Linux**, **iOS**, **Android**, **FreeBSD**, and **QNX**. For remote targets (phones, embedded devices), a **frida-server** binary must be running on the target device.
+Frida 可运行于 **Windows**、**macOS**、**GNU/Linux**、**iOS**、**Android**、**FreeBSD** 和 **QNX**。对于远程目标（手机、嵌入式设备），目标设备上必须运行 **frida-server** 二进制程序。
 
 # CAVEATS
 
-Injecting into other processes typically requires **root** or elevated privileges. On Android, frida-server must run as root. On iOS, a jailbreak is typically needed. Many applications (especially mobile banking and DRM-protected apps) implement Frida detection mechanisms and may terminate when instrumentation is detected. Bugs in injected scripts can crash the target process. Frida should only be used on software you own or have explicit authorization to test.
+向其他进程注入通常需要 **root** 或提升的权限。在 Android 上，frida-server 必须以 root 运行。在 iOS 上通常需要越狱。许多应用（尤其是移动银行和受 DRM 保护的应用）实现了 Frida 检测机制，检测到插桩时可能会自行终止。注入脚本中的 bug 可能使目标进程崩溃。Frida 只应用于你拥有或已获明确授权测试的软件。
 
 # HISTORY
 
-Frida was created by **Ole Andre Vadla Ravnas** who began building a generic code instrumentation library in C around **2008**. The project was publicly released in **2014**, with Frida 1.6.0 (May 2014) adding Android support. The project is sponsored by **NowSecure**. Today Frida supports bindings for Node.js, Python, Swift, .NET, Go, and C, and is a standard tool referenced in the **OWASP Mobile Security Testing Guide**.
+Frida 由 **Ole Andre Vadla Ravnas** 创建，他大约从 **2008** 年开始用 C 构建一个通用的代码插桩库。该项目于 **2014** 年公开发布，其中 Frida 1.6.0（2014 年 5 月）加入了对 Android 的支持。项目由 **NowSecure** 赞助。如今 Frida 提供针对 Node.js、Python、Swift、.NET、Go 和 C 的绑定，并且是 **OWASP Mobile Security Testing Guide** 中引用的标准工具。
 
 # SEE ALSO
 

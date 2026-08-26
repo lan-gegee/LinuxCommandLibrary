@@ -1,38 +1,38 @@
 # TAGLINE
 
-Show differences between commits and files
+显示提交与文件之间的差异
 
 # TLDR
 
-**Show unstaged changes**
+**显示未暂存的改动**
 
 ```git diff```
 
-**Show staged changes**
+**显示已暂存的改动**
 
 ```git diff --staged```
 
-**Diff between branches**
+**分支之间的差异**
 
 ```git diff [branch1]..[branch2]```
 
-**Diff specific file**
+**指定文件的差异**
 
 ```git diff [file.txt]```
 
-**Show word-level diff**
+**显示词级别的差异**
 
 ```git diff --word-diff```
 
-**Show stat summary**
+**显示统计摘要**
 
 ```git diff --stat```
 
-**Diff between commits**
+**提交之间的差异**
 
 ```git diff [commit1] [commit2]```
 
-**Diff against merge base** (changes on a branch since it diverged)
+**与合并基准比较差异**（分支自分叉以来的改动）
 
 ```git diff [main]...[feature-branch]```
 
@@ -43,49 +43,49 @@ Show differences between commits and files
 # PARAMETERS
 
 **--staged**, **--cached**
-> Compare staged changes to last commit.
+> 将已暂存的改动与上一次提交进行比较。
 
 **--stat**
-> Show diffstat summary.
+> 显示 diffstat 摘要。
 
 **--word-diff**
-> Show word-level changes.
+> 显示词级别的改动。
 
 **--color-words**
-> Colored word diff.
+> 带颜色的词级差异。
 
 **--name-only**
-> Show only changed file names.
+> 只显示被更改的文件名。
 
 **--name-status**
-> Show names and change status.
+> 显示文件名和更改状态。
 
 **-U** _n_, **--unified** _n_
-> Lines of context.
+> 上下文行数。
 
 **--no-index**
-> Compare files outside repository.
+> 比较仓库之外的文件。
 
 **--diff-filter** _filter_
-> Filter by change type (A, D, M, R).
+> 按更改类型过滤（A、D、M、R）。
 
 **-b**, **--ignore-space-change**
-> Ignore whitespace changes.
+> 忽略空白字符的变化。
 
 **-w**, **--ignore-all-space**
-> Ignore all whitespace.
+> 忽略所有空白字符。
 
 **-M**, **--find-renames**
-> Detect and report renamed files.
+> 检测并报告重命名的文件。
 
 **-C**, **--find-copies**
-> Detect and report copied files.
+> 检测并报告复制的文件。
 
 # DESCRIPTION
 
-**git diff** shows differences between commits, branches, working directory, and staging area. It is essential for reviewing changes before committing and understanding what changed between versions.
+**git diff** 显示提交、分支、工作目录和暂存区之间的差异。它对于在提交前审查改动以及了解版本之间发生了什么变化至关重要。
 
-By default, it shows unstaged changes (working directory vs index). With --staged, it shows what will be committed. When given two commits or branches, it shows all changes between them.
+默认情况下，它显示未暂存的改动（工作目录与索引的比较）。使用 --staged 时，它显示将要提交的内容。给定两个提交或分支时，它会显示两者之间的所有改动。
 
 # INSTALL
 

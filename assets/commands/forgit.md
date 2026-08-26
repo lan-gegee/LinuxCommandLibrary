@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive git commands with fzf
+用 fzf 实现的交互式 git 命令
 
 # TLDR
 
-**Interactive** git log viewer
+**交互式** git log 查看器
 
 ```forgit log```
 
-**Interactive** git diff viewer
+**交互式** git diff 查看器
 
 ```forgit diff```
 
-**Interactive** git add
+**交互式** git add
 
 ```forgit add```
 
-**Interactive** git stash viewer
+**交互式** git stash 查看器
 
 ```forgit stash```
 
@@ -27,49 +27,49 @@ Interactive git commands with fzf
 # PARAMETERS
 
 **log**
-> Interactive git log browser
+> 交互式 git log 浏览器
 
 **diff**
-> Interactive diff viewer
+> 交互式 diff 查看器
 
 **add**
-> Interactive staging selector
+> 交互式暂存选择器
 
 **reset**
-> Interactive unstage selector
+> 交互式取消暂存选择器
 
 **stash**
-> Interactive stash viewer
+> 交互式 stash 查看器
 
 **ignore**
-> Interactive .gitignore generator
+> 交互式 .gitignore 生成器
 
 **clean**
-> Interactive clean selector
+> 交互式清理选择器
 
 **rebase**
-> Interactive rebase commit selector
+> 交互式 rebase 提交选择器
 
 **cherry-pick**
-> Interactive cherry-pick commit selector
+> 交互式 cherry-pick 提交选择器
 
-**checkout**> Interactive branch/checkout selector
+**checkout**> 交互式分支/检出选择器
 
-**branch**> Interactive branch manager
+**branch**> 交互式分支管理器
 
-**-h, --help**> Display help and exit
+**-h, --help**> 显示帮助并退出
 
-**--version**> Display version and exit
+**--version**> 显示版本并退出
 
 # DESCRIPTION
 
-**forgit** wraps common git commands with interactive fzf interfaces. It provides fuzzy-finding capabilities for git operations like viewing logs, diffs, staging files, and managing branches.
+**forgit** 为常见的 git 命令封装了交互式 fzf 界面。它为查看日志、diff、暂存文件和管理分支等 git 操作提供模糊查找能力。
 
-The tool requires fzf to be installed and enhances git workflows by making it easy to search and select from large sets of commits, branches, or files.
+该工具需要安装 fzf，让从大量提交、分支或文件中搜索和选择变得容易，从而增强 git 工作流。
 
 # COMMANDS
 
-Each command wraps the git equivalent with an interactive fzf interface:
+每个命令都用交互式 fzf 界面封装对应的 git 功能：
 
 ```
 forgit log      → git log with fuzzy search
@@ -81,11 +81,11 @@ forgit checkout → git checkout with branch picker
 
 # CAVEATS
 
-Requires fzf to be installed. Terminal must support interactive TUIs. Large repositories may be slow to load. Some commands may not support all git flags.
+需要安装 fzf。终端必须支持交互式 TUI。大型仓库加载可能较慢。部分命令可能不支持所有 git 标志。
 
 # HISTORY
 
-**forgit** was created to combine the power of fzf with common git operations, making it easier to navigate large git repositories interactively.
+**forgit** 的诞生是为了把 fzf 的能力与常见 git 操作结合起来，使大型 git 仓库的交互式导航更加容易。
 
 # INSTALL
 

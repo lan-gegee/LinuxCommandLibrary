@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compute and report repository size metrics
+计算并报告仓库的体积指标
 
 # TLDR
 
-**Analyze repository size**
+**分析仓库体积**
 
 ```git-sizer```
 
-**Verbose output** showing all statistics
+**详细输出**，显示所有统计信息
 
 ```git-sizer -v```
 
-**JSON output** for machine processing
+用于机器处理的 **JSON 输出**
 
 ```git-sizer --json```
 
-**Show only critical** statistics
+**仅显示关键**统计信息
 
 ```git-sizer --critical```
 
@@ -27,37 +27,37 @@ Compute and report repository size metrics
 # PARAMETERS
 
 **-v**, **--verbose**
-> Report all statistics, equivalent to --threshold=0
+> 报告全部统计信息，等价于 --threshold=0
 
 **--json**
-> JSON output format
+> JSON 输出格式
 
 **--json-version** _n_
-> JSON format version (1 or 2)
+> JSON 格式版本（1 或 2）
 
 **--threshold** _n_
-> Minimum concern level to report (0=all, 1=default, 30=critical only)
+> 要报告的最低关注级别（0=全部，1=默认，30=仅关键项）
 
 **--critical**
-> Only report critical statistics (equivalent to --threshold=30)
+> 只报告关键统计信息（等价于 --threshold=30）
 
 **--names** _mode_
-> Display names of large objects (none, hash, or full)
+> 显示大对象的名称（none、hash 或 full）
 
 **--no-progress**
-> Suppress progress output
+> 抑制进度输出
 
 **--show-refs**
-> List the references being processed
+> 列出正在处理的引用
 
 **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**git-sizer** computes various size metrics for a Git repository, identifying potential performance problems such as oversized files, deep histories, or wide directory trees.
+**git-sizer** 为 Git 仓库计算多项体积指标，找出可能导致性能问题的因素，例如过大的文件、过深的历史或过宽的目录树。
 
-The tool reports metrics with concern levels shown as asterisks (*), helping maintainers understand whether their repository structure may cause issues with cloning, fetching, or general Git operations. It must be run from within a Git repository.
+该工具以星号（*）标示各项指标的关注级别，帮助维护者判断仓库结构是否会在克隆、拉取或其他常规 Git 操作中引发问题。必须在 Git 仓库内运行。
 
 # INSTALL
 

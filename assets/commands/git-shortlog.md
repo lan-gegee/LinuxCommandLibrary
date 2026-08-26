@@ -1,26 +1,26 @@
 # TAGLINE
 
-Summarize git log output grouped by author
+按作者分组汇总 git log 输出
 
 # TLDR
 
-**Summarize commits by author**
+**按作者汇总提交**
 
 ```git shortlog```
 
-**Show commit counts**
+**显示提交数量**
 
 ```git shortlog -sn```
 
-**Show email addresses**
+**显示邮箱地址**
 
 ```git shortlog -sne```
 
-**Shortlog for range**
+**某个范围的 shortlog**
 
 ```git shortlog [v1.0..v2.0]```
 
-**Group by committer**
+**按提交者分组**
 
 ```git shortlog -c```
 
@@ -31,44 +31,44 @@ Summarize git log output grouped by author
 # PARAMETERS
 
 _REVISION-RANGE_
-> Commits to summarize.
+> 要汇总的提交。
 
 **-s**, **--summary**
-> Show counts only.
+> 仅显示数量。
 
 **-n**, **--numbered**
-> Sort by count.
+> 按数量排序。
 
 **-e**, **--email**
-> Show email addresses.
+> 显示邮箱地址。
 
 **-c**, **--committer**
-> Group by committer.
+> 按提交者分组。
 
 **--group** _FIELD_
-> Group by field.
+> 按指定字段分组。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git shortlog** summarizes `git log` output by grouping commits under each author. It is commonly used for generating release notes and contributor acknowledgments.
+**git shortlog** 将提交按作者归组，从而对 `git log` 的输出做汇总。它常用于生成发布说明和贡献者致谢名单。
 
-The command can show commit counts per author, sort by contribution size, and use the mailmap for identity normalization across different name/email variations.
+该命令可以显示每位作者的提交数量、按贡献量排序，并利用 mailmap 在不同的姓名/邮箱变体之间做身份归一。
 
 # CONFIGURATION
 
 **.mailmap**
-> Maps author identities to canonical names and emails, used by git shortlog for deduplication.
+> 将作者身份映射到规范的姓名和邮箱，git shortlog 用它来做去重。
 
 # CAVEATS
 
-Reads from stdin or revision range. Uses mailmap for identity consolidation. Different from git log --oneline.
+从 stdin 或修订范围读取。使用 mailmap 合并同一身份。与 git log --oneline 不同。
 
 # HISTORY
 
-git shortlog is a core **Git** command for generating contributor summaries, commonly used for release notes and acknowledgments.
+git shortlog 是用于生成贡献者汇总的核心 **Git** 命令，常见于发布说明和致谢名单中。
 
 # INSTALL
 

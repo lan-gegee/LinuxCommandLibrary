@@ -1,22 +1,22 @@
 # TAGLINE
 
-PBM to SLX converter for Lexmark printers
+面向 Lexmark 打印机的 PBM 转 SLX 转换器
 
 # TLDR
 
-**Convert PBM to** SLX format
+**将 PBM 转换为** SLX 格式
 
 ```foo2slx [options] < [input.pbm] > [output.prn]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2slx -r [600] < [input.pbm] > [output.prn]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2slx -p [letter] < [input.pbm] > [output.prn]```
 
-**Color mode**
+**彩色模式**
 
 ```foo2slx -c < [input.ppm] > [output.prn]```
 
@@ -27,41 +27,41 @@ PBM to SLX converter for Lexmark printers
 # PARAMETERS
 
 **-r** _DPI_
-> Resolution.
+> 分辨率。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-c**
-> Color mode.
+> 彩色模式。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-d** _DUPLEX_
-> Duplex mode.
+> 双面打印模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2slx** converts PBM/PPM images to SLX format for Lexmark C500 and similar printers. It encodes raster data in Lexmark's Software Imaging Solutions protocol.
+**foo2slx** 将 PBM/PPM 图像转换为 Lexmark C500 及类似打印机所需的 SLX 格式。它以 Lexmark 的 Software Imaging Solutions 协议编码栅格数据。
 
-The tool manages printer-specific encoding, compression, and page formatting. It functions as a CUPS filter backend for supported Lexmark printers.
+该工具处理打印机专属的编码、压缩和页面格式化。它作为受支持 Lexmark 打印机的 CUPS 过滤器后端工作。
 
-foo2slx enables Linux printing on Lexmark color laser printers using SLX protocol.
+foo2slx 使使用 SLX 协议的 Lexmark 彩色激光打印机得以在 Linux 上打印。
 
 # CAVEATS
 
-Only for SLX-compatible Lexmark printers. Limited model support. Some features may not work.
+仅适用于兼容 SLX 的 Lexmark 打印机。支持的型号有限。部分特性可能无法工作。
 
 # HISTORY
 
-foo2slx is part of **foo2zjs**, providing Linux support for Lexmark printers using the SLX protocol through reverse-engineered drivers.
+foo2slx 是 **foo2zjs** 的一部分，通过逆向工程驱动为使用 SLX 协议的 Lexmark 打印机提供 Linux 支持。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Print the kernel scancode-to-keycode mapping table
+打印内核的扫描码到键码映射表
 
 # TLDR
 
-**Display keyboard scancodes**
+**显示键盘扫描码**
 
 ```getkeycodes```
 
@@ -15,26 +15,26 @@ Print the kernel scancode-to-keycode mapping table
 # PARAMETERS
 
 **-V**, **--version**
-> Print version number.
+> 打印版本号。
 
 **-h**, **--help**
-> Print usage message.
+> 打印用法信息。
 
 # DESCRIPTION
 
-**getkeycodes** displays the kernel scancode-to-keycode mapping table. It shows how raw keyboard scancodes are translated to key codes used by applications.
+**getkeycodes** 显示内核的扫描码到键码映射表。它展示原始键盘扫描码如何被翻译成应用程序使用的键码。
 
-The output shows scancode ranges and their corresponding keycodes. This mapping is used by the Linux input system to translate hardware key presses.
+输出内容为扫描码范围及其对应的键码。Linux 输入子系统使用这一映射来转换硬件按键动作。
 
-getkeycodes is useful for debugging keyboard issues and understanding key mapping.
+getkeycodes 可用于调试键盘问题和理解键位映射。
 
 # CAVEATS
 
-Requires access to the Linux console (will not work in X11 or Wayland terminal emulators). Output format is dense with hexadecimal scan codes and decimal key codes. Shows kernel-level mapping only, not X11 or desktop keymaps.
+需要访问 Linux 控制台（在 X11 或 Wayland 终端模拟器中无法工作）。输出格式紧凑，包含十六进制扫描码和十进制键码。只显示内核级映射，不包括 X11 或桌面键盘布局。
 
 # HISTORY
 
-getkeycodes is part of the **kbd** package, providing keyboard utilities for Linux console management.
+getkeycodes 是 **kbd** 软件包的一部分，该软件包为 Linux 控制台管理提供键盘工具。
 
 # INSTALL
 

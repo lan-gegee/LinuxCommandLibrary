@@ -1,14 +1,14 @@
 # TAGLINE
 
-Extract patch from email message
+从邮件中提取补丁
 
 # TLDR
 
-**Extract patch info**
+**提取补丁信息**
 
 ```git mailinfo [msg.txt] [patch.txt] < [email.txt]```
 
-**Keep subject prefix**
+**保留主题前缀**
 
 ```git mailinfo -k [msg.txt] [patch.txt] < [email.txt]```
 
@@ -19,39 +19,39 @@ Extract patch from email message
 # PARAMETERS
 
 _MSG_
-> Output file for commit message.
+> 用于保存提交信息的输出文件。
 
 _PATCH_
-> Output file for patch.
+> 用于保存补丁的输出文件。
 
 **-k**
-> Keep subject line intact.
+> 保持主题行原样不变。
 
 **-b**
-> Strip bracketed strings from subject.
+> 从主题中剥离方括号包裹的字符串。
 
 **-u**
-> Encode as UTF-8.
+> 以 UTF-8 编码。
 
 **--scissors**
-> Remove text before scissors line.
+> 移除剪刀线之前的内容。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git mailinfo** extracts patch and commit information from email messages. It parses email headers and body, separating the commit message from the patch content, and handles encoding and author extraction.
+**git mailinfo** 从邮件中提取补丁和提交信息。它解析邮件头和正文，将提交信息与补丁内容分离，并处理编码和作者信息的提取。
 
-The command is a plumbing tool used internally by `git am`. It processes the email format used in patch-based development workflows, such as those used by the Linux kernel project.
+该命令是 `git am` 内部使用的底层（plumbing）工具。它处理基于补丁的开发工作流所用的邮件格式，例如 Linux 内核项目采用的工作流。
 
 # CAVEATS
 
-Plumbing command. Usually called by git am. Input must be proper email format.
+底层（plumbing）命令。通常由 git am 调用。输入必须符合标准邮件格式。
 
 # HISTORY
 
-git mailinfo is part of **Git's** email patch workflow, supporting the patch-by-email development model used by the Linux kernel.
+git mailinfo 是 **Git** 邮件补丁工作流的一部分，支撑 Linux 内核所采用的邮件补丁开发模式。
 
 # INSTALL
 

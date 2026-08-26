@@ -1,26 +1,26 @@
 # TAGLINE
 
-Dart package dependency manager for Flutter
+Flutter 的 Dart 软件包依赖管理器
 
 # TLDR
 
-**Get dependencies**
+**获取依赖**
 
 ```flutter pub get```
 
-**Update dependencies**
+**更新依赖**
 
 ```flutter pub upgrade```
 
-**Add package**
+**添加软件包**
 
 ```flutter pub add [package_name]```
 
-**Remove package**
+**移除软件包**
 
 ```flutter pub remove [package_name]```
 
-**Run build runner**
+**运行 build runner**
 
 ```flutter pub run build_runner build```
 
@@ -31,64 +31,64 @@ Dart package dependency manager for Flutter
 # PARAMETERS
 
 _COMMAND_
-> Operation: get, upgrade, add, remove, run, etc.
+> 操作类型：get、upgrade、add、remove、run 等。
 
 **get**
-> Install dependencies from pubspec.yaml.
+> 根据 pubspec.yaml 安装依赖。
 
 **upgrade**
-> Update to latest compatible versions.
+> 更新到最新的兼容版本。
 
 **add** _PACKAGE_
-> Add package to dependencies.
+> 将软件包添加到依赖。
 
 **remove** _PACKAGE_
-> Remove package from dependencies.
+> 从依赖中移除软件包。
 
 **run** _SCRIPT_
-> Run package script.
+> 运行软件包脚本。
 
 **outdated**
-> Show outdated packages.
+> 显示过时的软件包。
 
 **deps**
-> Show the dependency tree.
+> 显示依赖树。
 
 **publish**
-> Publish the package to **pub.dev**.
+> 将软件包发布到 **pub.dev**。
 
 **downgrade**
-> Downgrade dependencies to the lowest versions allowed by **pubspec.yaml**.
+> 将依赖降级到 **pubspec.yaml** 允许的最低版本。
 
 **cache**
-> Inspect, repair, or clean the local pub package cache.
+> 检查、修复或清理本地 pub 软件包缓存。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**flutter pub** manages Dart package dependencies for Flutter projects. It installs, updates, and resolves packages from pub.dev, the Dart package repository.
+**flutter pub** 为 Flutter 项目管理 Dart 软件包依赖。它从 Dart 软件包仓库 pub.dev 安装、更新和解析软件包。
 
-The tool reads pubspec.yaml for dependency specifications and generates pubspec.lock for reproducible builds. It handles transitive dependencies and version conflicts automatically.
+该工具读取 pubspec.yaml 中的依赖声明，并生成 pubspec.lock 以确保可复现构建。它会自动处理传递依赖和版本冲突。
 
-flutter pub enables code reuse through thousands of community packages for networking, state management, UI components, and more.
+借助数千个社区软件包，flutter pub 支持在网络请求、状态管理、UI 组件等方面的代码复用。
 
 # CONFIGURATION
 
 **pubspec.yaml**
-> Project configuration file defining dependencies, dev dependencies, and package metadata.
+> 项目配置文件，定义依赖、开发依赖以及软件包元数据。
 
 **pubspec.lock**
-> Generated lock file ensuring reproducible dependency versions across environments.
+> 生成的锁定文件，确保各环境中依赖版本可复现。
 
 # CAVEATS
 
-Version conflicts may require manual resolution. Some packages are platform-specific. Large dependency trees slow first build. **flutter pub run** is deprecated for executable scripts — prefer **dart run** (or **flutter pub run** only when the executable depends on the Flutter SDK).
+版本冲突可能需要手动解决。某些软件包仅限特定平台。庞大的依赖树会拖慢首次构建。**flutter pub run** 对于可执行脚本已弃用——请改用 **dart run**（只有当可执行文件依赖 Flutter SDK 时才使用 **flutter pub run**）。
 
 # HISTORY
 
-flutter pub wraps the **Dart pub** tool for Flutter development. The pub.dev repository serves both Dart and Flutter packages, managed through the shared package specification format.
+flutter pub 封装了 **Dart 的 pub** 工具以便用于 Flutter 开发。pub.dev 仓库同时服务于 Dart 和 Flutter 软件包，通过共享的软件包规范格式管理。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Reapply commits on new base
+将提交重新应用到新的基底上
 
 # TLDR
 
-**Rebase onto branch**
+**变基到某分支之上**
 
 ```git rebase [branch]```
 
-**Interactive rebase**
+**交互式变基**
 
 ```git rebase -i [commit]```
 
-**Rebase last N commits**
+**对最近 N 个提交进行交互式变基**
 
 ```git rebase -i HEAD~[n]```
 
-**Continue after conflict**
+**解决冲突后继续**
 
 ```git rebase --continue```
 
-**Abort rebase**
+**中止变基**
 
 ```git rebase --abort```
 
-**Skip current commit**
+**跳过当前提交**
 
 ```git rebase --skip```
 
-**Rebase onto specific base**
+**变基到指定基底**
 
 ```git rebase --onto [newbase] [oldbase] [branch]```
 
@@ -39,41 +39,41 @@ Reapply commits on new base
 # PARAMETERS
 
 **-i**, **--interactive**
-> Interactive mode.
+> 交互模式。
 
 **--onto** _newbase_
-> Rebase onto different base.
+> 变基到另一个不同的基底。
 
 **--continue**
-> Continue after resolving.
+> 解决冲突后继续。
 
 **--abort**
-> Cancel rebase.
+> 取消变基。
 
 **--skip**
-> Skip current patch.
+> 跳过当前补丁。
 
 **--autosquash**
-> Auto-apply fixup/squash.
+> 自动应用 fixup/squash 提交。
 
 **--autostash**
-> Auto-stash changes.
+> 自动 stash 更改。
 
 **-x** _cmd_
-> Run command after each commit.
+> 在每个提交之后运行命令。
 
 **-r**, **--rebase-merges**
-> Recreate merge commits instead of flattening history (replaces the deprecated `--preserve-merges`).
+> 重建合并提交而不是将历史压平（取代已弃用的 `--preserve-merges`）。
 
 # DESCRIPTION
 
-**git rebase** reapplies commits on top of another base tip, producing a linear project history. It finds the common ancestor of the current branch and the upstream, then replays each commit from the current branch onto the upstream tip.
+**git rebase** 将提交重新应用到另一基底末端之上，从而产生线性的项目历史。它会查找当前分支与上游的共同祖先，然后将当前分支上的每个提交依次重放到上游末端。
 
-Interactive mode (`-i`) allows reordering, squashing, editing, or dropping commits during the replay, making it a powerful tool for cleaning up commit history. The `--onto` option enables advanced workflows like moving a branch to an entirely new base. Autosquash automatically applies fixup! and squash! commits, supporting the iterative fixup workflow.
+交互模式（`-i`）允许在重放过程中重新排序、压缩、编辑或丢弃提交，是清理提交历史的强大工具。`--onto` 选项支持高级工作流，例如把分支移到全新的基底。Autosquash 会自动应用 fixup! 和 squash! 提交，支持迭代式的修补工作流。
 
 # CAVEATS
 
-Rebasing rewrites history. Don't rebase commits that have been pushed to shared branches.
+变基会改写历史。不要对已经推送到共享分支的提交执行变基。
 
 # INSTALL
 

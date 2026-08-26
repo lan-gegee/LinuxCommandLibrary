@@ -1,14 +1,14 @@
 # TAGLINE
 
-displays backup information
+显示备份信息
 
 # TLDR
 
-**Describe a backup**
+**查看备份详情**
 
 ```gcloud sql backups describe [backup_id] --instance [instance_name]```
 
-**Describe in JSON format**
+**以 JSON 格式查看备份详情**
 
 ```gcloud sql backups describe [backup_id] --instance [instance] --format json```
 
@@ -19,17 +19,16 @@ displays backup information
 # PARAMETERS
 
 **--instance** _name_
-> Cloud SQL instance name.
+> Cloud SQL 实例名称。
 
 **--format** _format_
-> Output format.
+> 输出格式。
 
 # DESCRIPTION
 
-**gcloud sql backups describe** displays detailed information about a specific Cloud SQL backup. It retrieves metadata including backup status, type (on-demand or automatic), creation timestamp, completion time, and backup size.
+**gcloud sql backups describe** 显示特定 Cloud SQL 备份的详细信息。它会获取包括备份状态、类型（按需或自动）、创建时间戳、完成时间和备份大小在内的元数据。
 
-The command is useful for verifying backup completion, checking backup integrity before restoration, and auditing backup operations. Output can be formatted as JSON or YAML for programmatic processing or integration with automation scripts.
+该命令可用于确认备份是否完成、在恢复前检查备份完整性，以及审计备份操作。输出可格式化为 JSON 或 YAML，以便进行程序化处理或与自动化脚本集成。
 
 # SEE ALSO
-
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-simple Python packaging and publishing
+简洁的 Python 打包与发布工具
 
 # TLDR
 
-**Initialize new project**
+**初始化新项目**
 
 ```flit init```
 
-**Build package**
+**构建软件包**
 
 ```flit build```
 
-**Install in development mode**
+**以开发模式安装**
 
 ```flit install --symlink```
 
-**Publish to PyPI**
+**发布到 PyPI**
 
 ```flit publish```
 
-**Publish to TestPyPI**
+**发布到 TestPyPI**
 
 ```flit publish --repository testpypi```
 
-**Install only dependencies** (not the package itself)
+**只安装依赖**（不安装包本身）
 
 ```flit install --only-deps```
 
-**Check project configuration**
+**检查项目配置**
 
 ```flit check```
 
@@ -39,43 +39,43 @@ simple Python packaging and publishing
 # PARAMETERS
 
 **init**
-> Create pyproject.toml interactively.
+> 以交互方式创建 pyproject.toml。
 
 **build**
-> Build wheel and sdist.
+> 构建 wheel 和 sdist。
 
 **install**
-> Install locally.
+> 在本地安装。
 
 **install --symlink**
-> Symlink module into site-packages for development.
+> 以符号链接方式将模块链接到 site-packages 进行开发。
 
 **install --pth-file**
-> Use .pth file for development (works on Windows).
+> 使用 .pth 文件进行开发（在 Windows 上可用）。
 
 **install --deps** _DEPS_
-> Which dependencies to install: all, production, develop, or none (default: all).
+> 安装哪些依赖：all、production、develop 或 none（默认：all）。
 
 **install --only-deps**
-> Install dependencies only, not the package itself.
+> 只安装依赖，不安装包本身。
 
 **install --python** _PATH_
-> Install for a different Python interpreter.
+> 为其他 Python 解释器安装。
 
 **publish**
-> Upload to PyPI.
+> 上传到 PyPI。
 
 **publish --repository** _name_
-> Target repository (pypi, testpypi).
+> 目标仓库（pypi、testpypi）。
 
 **check**
-> Validate project configuration.
+> 校验项目配置。
 
 # DESCRIPTION
 
-**flit** is a simple Python packaging tool that uses pyproject.toml for configuration. It handles building wheels and source distributions and publishing to PyPI with minimal setup.
+**flit** 是一款简单的 Python 打包工具，使用 pyproject.toml 进行配置。它只需极少的设置即可完成 wheel 和源码发行版的构建以及发布到 PyPI。
 
-Flit is designed for pure Python packages with simple needs. It reads package metadata from the module's docstring and __version__ attribute, requiring minimal configuration.
+Flit 面向需求简单的纯 Python 包设计。它从模块的 docstring 和 __version__ 属性读取包元数据，因此所需配置非常少。
 
 # PYPROJECT.TOML EXAMPLE
 
@@ -95,11 +95,11 @@ mycli = "mypackage:main"
 
 # CAVEATS
 
-Best for pure Python packages without complex build requirements. No support for compiled extensions. Requires module docstring for description. Publishing needs PyPI credentials.
+最适合没有复杂构建需求的纯 Python 包。不支持编译扩展。需要模块 docstring 作为描述。发布需要 PyPI 凭据。
 
 # HISTORY
 
-flit was created by **Thomas Kluyver** as a simpler alternative to setuptools for pure Python packages. It helped drive the adoption of pyproject.toml and was an early implementation of PEP 517/518 build standards.
+flit 由 **Thomas Kluyver** 创建，作为纯 Python 包使用 setuptools 的更简替代方案。它推动了 pyproject.toml 的普及，也是 PEP 517/518 构建标准的早期实现之一。
 
 # INSTALL
 

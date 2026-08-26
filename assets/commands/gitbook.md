@@ -1,42 +1,42 @@
 # TAGLINE
 
-Build books and documentation from Markdown
+用 Markdown 构建图书和文档
 
 # TLDR
 
-**Initialize new book**
+**初始化新书**
 
 ```gitbook init```
 
-**Serve book locally**
+**本地预览书籍**
 
 ```gitbook serve```
 
-**Build static site**
+**构建静态站点**
 
 ```gitbook build```
 
-**Build to specific output directory**
+**构建到指定输出目录**
 
 ```gitbook build [.] [output_dir]```
 
-**Serve with a specific version**
+**以特定版本构建**
 
 ```gitbook build --gitbook=[2.0.1]```
 
-**Install plugins**
+**安装插件**
 
 ```gitbook install```
 
-**List locally installed versions**
+**列出本地已安装版本**
 
 ```gitbook ls```
 
-**List remote versions available** on NPM
+列出 NPM 上可用的远程版本
 
 ```gitbook ls-remote```
 
-**Install a specific version**
+**安装特定版本**
 
 ```gitbook fetch [version]```
 
@@ -47,71 +47,71 @@ Build books and documentation from Markdown
 # PARAMETERS
 
 **init**
-> Initialize book structure with README.md and SUMMARY.md.
+> 用 README.md 和 SUMMARY.md 初始化书籍结构。
 
 **serve**
-> Build and serve book on localhost:4000.
+> 构建书籍并在 localhost:4000 上提供服务。
 
 **build**
-> Build static website.
+> 构建静态网站。
 
 **install**
-> Install plugins from book.json.
+> 从 book.json 安装插件。
 
 **pdf**
-> Generate PDF (requires Calibre).
+> 生成 PDF（需要 Calibre）。
 
 **epub**
-> Generate ePub.
+> 生成 ePub。
 
 **mobi**
-> Generate Mobi.
+> 生成 Mobi。
 
 **ls**
-> List locally installed GitBook versions.
+> 列出本地已安装的 GitBook 版本。
 
 **ls-remote**
-> List remote versions available on NPM.
+> 列出 NPM 上可用的远程版本。
 
 **fetch** _version_
-> Download and install a specific version.
+> 下载并安装特定版本。
 
 **update**
-> Update to the latest GitBook version.
+> 更新到最新的 GitBook 版本。
 
 **uninstall** _version_
-> Remove a specific installed version.
+> 移除特定的已安装版本。
 
 **--gitbook** _version_
-> Force a specific GitBook version for the command.
+> 强制该命令使用特定的 GitBook 版本。
 
 **-d**, **--debug**
-> Enable verbose error output with stack traces.
+> 启用带堆栈跟踪的详细错误输出。
 
 **--log** _level_
-> Log level: debug, info, warn, error, disabled.
+> 日志级别：debug、info、warn、error、disabled。
 
 # DESCRIPTION
 
-**gitbook** is a command-line tool for building books and documentation from Markdown files. It generates static HTML sites or other formats like PDF and ePub.
+**gitbook** 是一个用于从 Markdown 文件构建图书和文档的命令行工具。它可以生成静态 HTML 站点或 PDF、ePub 等其他格式。
 
-The tool uses a `book.json` configuration file and organizes content through `SUMMARY.md` for structure. Plugins extend functionality with custom features.
+该工具使用 `book.json` 配置文件，并通过 `SUMMARY.md` 组织内容结构。插件可以扩展功能、提供自定义特性。
 
 # CONFIGURATION
 
 **book.json**
-> Project configuration file defining title, description, plugins, and build settings.
+> 项目配置文件，定义标题、描述、插件和构建设置。
 
 **GITBOOK_DIR**
-> Environment variable to specify custom directory for storing GitBook versions (default: ~/.gitbook).
+> 环境变量，指定存放 GitBook 版本的自定义目录（默认：~/.gitbook）。
 
 # CAVEATS
 
-Legacy CLI is no longer under active development. Requires older Node.js versions (may not work with Node 12+). Only supports gitbook versions >=2.0.0. Plugins may be unmaintained. PDF/ePub/Mobi generation requires Calibre.
+旧版 CLI 已不再积极开发。需要较旧的 Node.js 版本（在 Node 12+ 上可能无法工作）。仅支持 gitbook 2.0.0 及以上版本。插件可能无人维护。PDF/ePub/Mobi 生成需要 Calibre。
 
 # HISTORY
 
-**GitBook** was created by **Samy Pesse** and **Aaron O'Mullan** around **2014**. It became popular for technical documentation and books. The company pivoted to a commercial platform, leaving the CLI as a legacy tool. Community forks continue development.
+**GitBook** 由 **Samy Pesse** 和 **Aaron O'Mullan** 在 **2014 年**前后创建。它曾广泛用于技术文档和图书出版。后来公司转向商业平台，CLI 遂成为遗留工具。社区分支仍在继续开发。
 
 # SEE ALSO
 

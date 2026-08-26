@@ -1,34 +1,34 @@
 # TAGLINE
 
-Verify connectivity and validity of repository objects
+验证仓库对象的连接性与有效性
 
 # TLDR
 
-**Check repository integrity**
+**检查仓库完整性**
 
 ```git fsck```
 
-**Check with unreachable objects**
+**检查并显示不可达对象**
 
 ```git fsck --unreachable```
 
-**Check connectivity only** (faster, skips blob content)
+**仅检查连通性**（更快，跳过 blob 内容）
 
 ```git fsck --connectivity-only```
 
-**Write dangling objects** to .git/lost-found for recovery
+**将悬空对象写入 .git/lost-found** 以便恢复
 
 ```git fsck --lost-found```
 
-**Verbose check with named objects**
+**带对象命名的详细检查**
 
 ```git fsck --verbose --name-objects```
 
-**Check without reflog references**
+**不考虑 reflog 引用的检查**
 
 ```git fsck --no-reflogs```
 
-**Strict check** for stricter validation
+**严格检查**以进行更严格的验证
 
 ```git fsck --strict```
 
@@ -39,54 +39,54 @@ Verify connectivity and validity of repository objects
 # PARAMETERS
 
 **--unreachable**
-> Print objects that exist but are not reachable from any reference node.
+> 打印存在但无法从任何引用节点到达的对象。
 
 **--dangling**
-> Print objects that exist but are never directly used (default).
+> 打印存在但从未被直接使用的对象（默认）。
 
 **--no-dangling**
-> Omit dangling object information from output.
+> 从输出中省略悬空对象信息。
 
 **--full**
-> Check objects in alternate object pools and pack files. This is now the default.
+> 检查备用对象库和包文件中的对象。这现在是默认行为。
 
 **--connectivity-only**
-> Check only connectivity of reachable objects, skipping blob content. Faster but cannot detect corrupt blobs.
+> 只检查可达对象的连通性，跳过 blob 内容。速度更快，但无法检测损坏的 blob。
 
 **--strict**
-> Enable stricter checking, e.g. catching file modes with g+w bit set.
+> 启用更严格的检查，例如捕获设置了 g+w 位的文件模式。
 
 **--lost-found**
-> Write dangling objects to .git/lost-found/commit/ or .git/lost-found/other/.
+> 将悬空对象写入 .git/lost-found/commit/ 或 .git/lost-found/other/。
 
 **--no-reflogs**
-> Do not consider reflog entries when determining reachability.
+> 判断可达性时不考虑 reflog 条目。
 
 **--cache**
-> Consider objects in the index as head nodes for reachability traces.
+> 将索引中的对象视为可达性追踪的起始节点。
 
 **--root**
-> Report root nodes.
+> 报告根节点。
 
 **--tags**
-> Report tags.
+> 报告标签。
 
 **--name-objects**
-> Display a descriptive name showing how objects are reachable (e.g. HEAD~25^2:src/).
+> 显示描述性名称，说明对象如何可达（如 HEAD~25^2:src/）。
 
 **--verbose**
-> Be chatty.
+> 输出详细信息。
 
 **--progress**, **--no-progress**
-> Force or suppress progress status reporting.
+> 强制或抑制进度状态报告。
 
 # DESCRIPTION
 
-**git fsck** (file system check) performs integrity verification on all objects in the Git object database. It validates that objects are well-formed, correctly connected, and that the repository structure is consistent and uncorrupted.
+**git fsck**（file system check）对 Git 对象数据库中的所有对象执行完整性验证。它验证对象格式是否良好、连接是否正确，以及仓库结构是否一致且未损坏。
 
-The command checks for corrupted objects, broken links, invalid object types, and unreachable objects that exist but are not referenced by any branch or tag. Unreachable objects are often the result of rebases, amended commits, or deleted branches, and can be useful for recovering accidentally deleted work via the --lost-found option.
+该命令检查损坏的对象、断裂的链接、无效的对象类型，以及存在但未被任何分支或标签引用的不可达对象。不可达对象通常源于变基、修正提交或删除分支等操作，可以通过 --lost-found 选项找回意外删除的工作。
 
-Regular fsck runs are recommended after suspected repository corruption, disk errors, or hardware failures. The --full option (now default) extends checking to objects inside pack files. Use --connectivity-only for faster checks that skip blob content validation.
+建议在怀疑仓库损坏、磁盘出错或硬件故障之后定期运行 fsck。--full 选项（现为默认）将检查范围扩展到包文件内的对象。需要更快的检查时可使用 --connectivity-only，它会跳过 blob 内容的验证。
 
 # INSTALL
 

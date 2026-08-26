@@ -1,26 +1,26 @@
 # TAGLINE
 
-display Go package and symbol documentation
+显示 Go 软件包和符号的文档
 
 # TLDR
 
-**Show package documentation**
+**显示包文档**
 
 ```go doc [fmt]```
 
-**Show function documentation**
+**显示函数文档**
 
 ```go doc [fmt.Println]```
 
-**Show all documentation**
+**显示全部文档**
 
 ```go doc -all [package]```
 
-**Show unexported symbols**
+**显示未导出的符号**
 
 ```go doc -u [package]```
 
-**Show source code**
+**显示源代码**
 
 ```go doc -src [fmt.Println]```
 
@@ -31,48 +31,48 @@ display Go package and symbol documentation
 # PARAMETERS
 
 _PACKAGE_
-> Package to document.
+> 要查看文档的软件包。
 
 _SYMBOL_
-> Symbol to look up.
+> 要查找的符号。
 
 **-all**
-> Show all documentation.
+> 显示全部文档。
 
 **-u**
-> Include unexported.
+> 包含未导出的符号。
 
 **-src**
-> Show source code.
+> 显示源代码。
 
 **-c**
-> Case-sensitive matching.
+> 匹配时区分大小写。
 
 **-cmd**
-> Treat a command (package main) like a regular package, showing its exported symbols.
+> 将命令（main 包）当作普通软件包对待，显示其导出的符号。
 
 **-short**
-> Print a one-line representation for each symbol.
+> 为每个符号打印一行简要描述。
 
 **-http**
-> Serve HTML documentation over HTTP instead of printing to stdout.
+> 通过 HTTP 提供 HTML 文档，而不是打印到 stdout。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**go doc** shows documentation for Go packages and symbols. It extracts documentation from source code comments following Go documentation conventions.
+**go doc** 显示 Go 软件包和符号的文档。它遵循 Go 文档约定，从源代码注释中提取文档。
 
-The command displays documentation for packages, types, functions, and methods. It can show source code and unexported symbols for development reference.
+该命令显示包、类型、函数和方法的文档。它可以显示源代码和未导出符号供开发参考。
 
 # CAVEATS
 
-Reads from source, not installed docs. Standard library always available. Custom packages need source.
+从源码读取，而非已安装的文档。标准库始终可用。自定义软件包需要有源码。
 
 # HISTORY
 
-go doc is part of the **Go** toolchain, providing documentation access following Go's convention of documentation in source code.
+go doc 是 **Go** 工具链的一部分，遵循 Go"文档写在源代码中"的惯例提供文档访问。
 
 # INSTALL
 

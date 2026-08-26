@@ -1,22 +1,22 @@
 # TAGLINE
 
-Automatically commit changes when files are modified
+文件被修改时自动提交更改
 
 # TLDR
 
-**Watch directory and auto-commit**
+**监视目录并自动提交**
 
 ```gitwatch [path]```
 
-**Watch with custom message**
+使用自定义信息进行监视
 
 ```gitwatch -m "[Auto commit]" [path]```
 
-**Watch and push**
+监视并推送
 
 ```gitwatch -r [remote] -b [branch] [path]```
 
-**Watch specific branch**
+监视特定分支
 
 ```gitwatch -b [branch] [path]```
 
@@ -27,62 +27,62 @@ Automatically commit changes when files are modified
 # PARAMETERS
 
 **-s** _seconds_
-> Delay before committing after a change is detected (default: 2).
+> 检测到更改后提交前的延迟时间（默认：2 秒）。
 
 **-d** _format_
-> Timestamp format string used in the default commit message (see `man date`).
+> 默认提交信息中使用的时间戳格式字符串（参见 `man date`）。
 
 **-r** _remote_
-> Remote to push to after each commit (default: no push).
+> 每次提交后推送到的远程仓库（默认：不推送）。
 
 **-R**
-> Run `git pull --rebase` before pushing.
+> 推送前先运行 `git pull --rebase`。
 
 **-b** _branch_
-> Branch to push commits to.
+> 要推送提交到的分支。
 
 **-g** _path_
-> Location of the `.git` directory (auto-detected by default).
+> `.git` 目录的位置（默认自动检测）。
 
 **-m** _message_
-> Commit message template; `%d` is replaced with the timestamp.
+> 提交信息模板；`%d` 会被替换为时间戳。
 
 **-c** _command_
-> Command whose output is used as the commit message instead of `-m`.
+> 以该命令的输出作为提交信息，取代 `-m`。
 
 **-C**
-> Pipe the list of changed files to the `-c` command via stdin.
+> 将已更改文件的列表通过 stdin 管道传给 `-c` 命令。
 
 **-l** _lines_, **-L** _lines_
-> Include changed lines in the commit message, colored (`-l`) or uncolored (`-L`); `0` includes all lines.
+> 在提交信息中包含已更改的行，带颜色（`-l`）或不带颜色（`-L`）；`0` 表示包含所有行。
 
 **-e** _events_
-> inotifywait events to monitor for changes.
+> 用于监视更改的 inotifywait 事件。
 
 **-x** _pattern_
-> Exclude paths matching pattern from being watched.
+> 排除匹配模式的路径，不进行监视。
 
 **-f**
-> Commit any pending changes immediately on startup.
+> 启动时立即提交所有待处理的更改。
 
 **-M**
-> Skip auto-committing while a git merge is in progress.
+> 在 git 合并进行期间跳过自动提交。
 
 **-v**
-> Verbose/debug output.
+> 详细/调试输出。
 
 **-h**
-> Display help message.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gitwatch** watches a directory and automatically commits changes whenever files are modified. It uses inotifywait (on Linux, via inotify-tools) or fswatch (on macOS/BSD) to detect file changes in real time, then waits a short delay before committing so rapid successive edits are batched into a single commit.
+**gitwatch** 监视一个目录，每当文件被修改时自动提交更改。它使用 inotifywait（Linux 上，通过 inotify-tools）或 fswatch（macOS/BSD 上）实时检测文件变化，然后在提交前等待一小段延迟，以便将快速连续的编辑合并为单次提交。
 
-The tool is useful for automatic version control of notes, configuration files, or any directory where you want every change tracked without manual commits, and can optionally push each commit to a remote.
+该工具适用于对笔记、配置文件或任何希望完整追踪每个变更而无需手动提交的目录进行自动版本控制，并且可以选择将每次提交推送到远程仓库。
 
 # CAVEATS
 
-Requires **inotify-tools** on Linux or **fswatch** on macOS/BSD to be installed. Only tracks changes gitwatch itself observes while running; it does not replay changes made while it was stopped.
+需要在 Linux 上安装 **inotify-tools** 或在 macOS/BSD 上安装 **fswatch**。只跟踪 gitwatch 运行期间自身观察到的变化；不会补录其停止运行期间发生的变化。
 
 # INSTALL
 

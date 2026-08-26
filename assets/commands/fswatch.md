@@ -1,38 +1,38 @@
 # TAGLINE
 
-cross-platform file change monitor
+跨平台文件变化监控器
 
 # TLDR
 
-**Watch directory** for changes
+**监视目录**的变化
 
 ```fswatch [/path/to/directory]```
 
-**Watch and execute command** on change
+**监视并在变化时执行命令**
 
 ```fswatch -o [/path/to/directory] | xargs -n1 -I{} [command]```
 
-**Watch with recursive monitoring**
+以递归方式**监视**
 
 ```fswatch -r [/path/to/directory]```
 
-**Watch specific file types**
+**监视特定文件类型**
 
 ```fswatch --include ".*\\.txt$" --exclude ".*" [/path/to/directory]```
 
-**Watch with one event per change**
+每次变化只产生一个事件地**监视**
 
 ```fswatch -1 [/path/to/directory]```
 
-**Watch multiple paths**
+**监视多个路径**
 
 ```fswatch [/path/dir1] [/path/dir2]```
 
-**Verbose output** with timestamps
+带时间戳的**详细输出**
 
 ```fswatch -t [/path/to/directory]```
 
-**Watch with latency** (debounce)
+带延迟（防抖）地**监视**
 
 ```fswatch -l [2] [/path/to/directory]```
 
@@ -42,57 +42,57 @@ cross-platform file change monitor
 
 # DESCRIPTION
 
-**fswatch** is a cross-platform file change monitor that detects filesystem changes and outputs affected paths. It uses native platform APIs (inotify on Linux, FSEvents on macOS, kqueue on BSD) for efficient monitoring.
+**fswatch** 是一个跨平台的文件变化监控器，检测文件系统变化并输出受影响的路径。它使用各平台的原生 API（Linux 上的 inotify、macOS 上的 FSEvents、BSD 上的 kqueue）实现高效监控。
 
-The tool outputs changed file paths to stdout, which can be piped to other commands for automated workflows like rebuilding projects, running tests, or reloading services. It supports recursive monitoring and filtering by file patterns.
+该工具将发生变化的文件路径输出到 stdout，可以通过管道传给其他命令，构建重建项目、运行测试或重载服务等自动化工作流。它支持递归监控和按文件模式过滤。
 
-fswatch is useful for development workflows, build automation, backup triggers, and any scenario where actions should be triggered by file modifications.
+fswatch 适用于开发工作流、构建自动化、备份触发以及任何需要由文件修改触发操作的场景。
 
 # PARAMETERS
 
 **-o**, **--one-per-batch**
-> Print single event per batch (for counting).
+> 每批只输出一个事件（便于计数）。
 
 **-r**, **--recursive**
-> Recurse into subdirectories.
+> 递归进入子目录。
 
 **-t**, **--timestamp**
-> Print timestamps with events.
+> 为事件附带时间戳。
 
 **-l** _seconds_, **--latency=** _seconds_
-> Set latency (debounce period).
+> 设置延迟（防抖周期）。
 
 **-1**, **--one-event**
-> Exit after first event.
+> 第一个事件发生后退出。
 
 **-0**, **--print0**
-> Separate paths with NUL character.
+> 用 NUL 字符分隔路径。
 
 **--event** _type_
-> Filter by event type.
+> 按事件类型过滤。
 
 **--include** _regex_
-> Include only matching files.
+> 只包括匹配的文件。
 
 **--exclude** _regex_
-> Exclude matching files.
+> 排除匹配的文件。
 
 **-m** _monitor_, **--monitor=** _monitor_
-> Use specific monitor backend.
+> 使用指定的监控后端。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-n**, **--numeric**
-> Print numeric event codes.
+> 输出数字形式的事件代码。
 
 # CAVEATS
 
-System limits on inotify watches may affect large directory monitoring (adjustable via /proc/sys/fs/inotify/max_user_watches). Different backends have different capabilities. Latency affects responsiveness vs. batching trade-off.
+系统对 inotify watch 数量的限制可能影响大目录的监控（可通过 /proc/sys/fs/inotify/max_user_watches 调整）。不同后端的能力不同。延迟设置影响响应速度与批量处理的权衡。
 
 # HISTORY
 
-**fswatch** was created by **Enrico M. Crisostomo** in **2014** to provide a unified, cross-platform file monitoring solution. It was designed to replace platform-specific tools with a single utility that uses native APIs. The project continues to be maintained and supports Linux, macOS, Windows, and BSD systems.
+**fswatch** 由 **Enrico M. Crisostomo** 于 **2014** 年创建，旨在提供统一的跨平台文件监控方案。它被设计为使用原生 API 的单一工具来取代平台专用工具。该项目仍在持续维护，支持 Linux、macOS、Windows 和 BSD 系统。
 
 # INSTALL
 

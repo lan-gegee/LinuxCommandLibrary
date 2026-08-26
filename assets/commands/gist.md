@@ -1,46 +1,46 @@
 # TAGLINE
 
-create and manage GitHub Gists from the command line
+从命令行创建和管理 GitHub Gists
 
 # TLDR
 
-**Authenticate** once on this computer
+**在本机上进行一次身份验证**
 
 ```gist --login```
 
-**Create** a public gist from a file
+**从文件创建**公开 gist
 
 ```gist [file.rb]```
 
-**Create** a private gist
+**创建**私有 gist
 
 ```gist -p [file.rb]```
 
-**Create** a gist from standard input, naming the file
+**从标准输入创建** gist 并为文件命名
 
 ```echo "[content]" | gist -f [snippet.txt]```
 
-**Create** a gist with a description
+**创建**带描述的 gist
 
 ```gist -d "[what this does]" [file.rb]```
 
-**Create** a gist and copy its URL to the clipboard
+**创建** gist 并将其 URL 复制到剪贴板
 
 ```gist -c [file.rb]```
 
-**List** your gists
+**列出**你的 gist
 
 ```gist -l```
 
-**Read** a gist to standard output
+将 gist **读取**到标准输出
 
 ```gist -r [gist_id]```
 
-**Update** an existing gist
+**更新**已有的 gist
 
 ```gist -u [gist_id] [file.rb]```
 
-**Delete** a gist
+**删除** gist
 
 ```gist --delete [gist_id]```
 
@@ -53,106 +53,106 @@ create and manage GitHub Gists from the command line
 # PARAMETERS
 
 **-p**, **--private**
-> Make the gist private. Gists are **public** by default.
+> 将 gist 设为私有。Gist 默认是**公开**的。
 
 **--no-private**
-> Force a public gist, overriding an earlier **-p**.
+> 强制创建公开 gist，覆盖之前出现的 **-p**。
 
 **-d**, **--description** _DESCRIPTION_
-> Add a description to the gist.
+> 为 gist 添加描述。
 
 **-f**, **--filename** [_NAME.EXTENSION_]
-> Set the filename and syntax type. Mainly useful when reading from standard input.
+> 设置文件名和语法类型。主要用于从标准输入读取时。
 
 **-t**, **--type** [_EXTENSION_]
-> Set the file extension and syntax type.
+> 设置文件扩展名和语法类型。
 
 **-l**, **--list** [_USER_]
-> List gists. With no argument, lists your own; with a username, lists that user's public gists.
+> 列出 gist。不带参数时列出你自己的；带用户名时列出该用户的公开 gist。
 
 **-r**, **--read** _ID_ [_FILENAME_]
-> Read a gist and print its contents to standard output.
+> 读取一个 gist 并将其内容打印到标准输出。
 
 **-u**, **--update** [_URL_ | _ID_]
-> Update an existing gist.
+> 更新已有的 gist。
 
 **--delete** [_URL_ | _ID_]
-> Delete a gist.
+> 删除 gist。
 
 **-c**, **--copy**
-> Copy the resulting URL to the clipboard.
+> 将生成的 URL 复制到剪贴板。
 
 **-e**, **--embed**
-> Copy the embed code for the gist to the clipboard.
+> 将 gist 的嵌入代码复制到剪贴板。
 
 **-o**, **--open**
-> Open the resulting URL in a browser.
+> 在浏览器中打开生成的 URL。
 
 **--no-open**
-> Do not open a browser.
+> 不打开浏览器。
 
 **-P**, **--paste**
-> Create the gist from the clipboard contents.
+> 用剪贴板内容创建 gist。
 
 **-R**, **--raw**
-> Display the raw URL of the new gist.
+> 显示新 gist 的原始 URL。
 
 **-s**, **--shorten**
-> Shorten the gist URL using git.io.
+> 使用 git.io 缩短 gist URL。
 
 **--skip-empty**
-> Skip empty files instead of gisting them.
+> 跳过空文件，而不是为它们创建 gist。
 
 **--login**
-> Authenticate gist on this computer and store a token.
+> 在本机上对 gist 进行身份验证并存储令牌。
 
 **-h**, **--help**
-> Show the help message.
+> 显示帮助消息。
 
 **-v**, **--version**
-> Print the version.
+> 打印版本号。
 
 # DESCRIPTION
 
-**gist** uploads files to **GitHub Gists** from the command line. Gists are a lightweight way to share code snippets, logs and notes without creating a repository, and each one is a real git repository underneath, with revision history, forking and comments.
+**gist** 从命令行将文件上传到 **GitHub Gists**。Gist 是一种轻量级方式，无需创建仓库即可分享代码片段、日志和笔记；每个 gist 底层都是一个真正的 git 仓库，具备修订历史、复刻（fork）和评论功能。
 
-Given one or more filenames it uploads them and prints the resulting URL. Given nothing it reads from standard input, which makes it natural at the end of a pipeline: **command | gist -f output.log**. Because the filename determines the syntax highlighting GitHub applies, **-f** or **-t** is worth setting when piping.
+给定一个或多个文件名时，它会上传这些文件并打印生成的 URL。不给任何参数时则从标准输入读取，这使它天然适合放在管道末尾：**command | gist -f output.log**。由于文件名决定了 GitHub 应用的语法高亮，在管道中使用时值得设置 **-f** 或 **-t**。
 
-Authentication happens once via **gist --login**, which stores an OAuth token in **~/.gist**. Without a token, uploads are anonymous where the API still allows it.
+身份验证只需通过 **gist --login** 进行一次，它会在 **~/.gist** 中存储一个 OAuth 令牌。没有令牌时，在 API 仍允许的情况下会上传为匿名 gist。
 
 # CONFIGURATION
 
 **~/.gist**
-> Stores the OAuth2 access token written by **gist --login**.
+> 存储 **gist --login** 写入的 OAuth2 访问令牌。
 
 **GITHUB_URL**
-> Point gist at a GitHub Enterprise instance instead of github.com.
+> 让 gist 指向 GitHub Enterprise 实例而不是 github.com。
 
 **GIST_CLIENT_ID**
-> OAuth client id, enabling the device-code flow against an Enterprise instance.
+> OAuth 客户端 ID，用于对 Enterprise 实例启用设备码流程。
 
 **GIST_USE_USERNAME_AND_PASSWORD**
-> Use the deprecated username and password flow.
+> 使用已弃用的用户名加密码流程。
 
 **HTTP_PROXY**, **http_proxy**
-> Route requests through an HTTP proxy.
+> 通过 HTTP 代理路由请求。
 
 **BROWSER**
-> Browser used by **-o**.
+> **-o** 使用的浏览器。
 
 # CAVEATS
 
-Gists are **public by default**. **-p** makes one private, and there is no way to change the visibility of a gist after it is created, so a snippet uploaded without **-p** is world-readable from the moment it exists. Check before pasting anything with credentials in it.
+Gist 默认**公开**。**-p** 可将其设为私有，且 gist 创建后无法更改可见性，因此未带 **-p** 上传的片段从存在那一刻起就对全世界可读。粘贴任何包含凭据的内容前请三思。
 
-A "private" (secret) gist is unlisted, not access-controlled: anyone with the URL can read it, and it is not encrypted. Do not treat it as a secret store.
+"私有"（secret）gist 只是不被列出，并非访问受控：任何拿到 URL 的人都能读取它，而且它并未加密。不要把它当作密钥保险箱。
 
-**-c**, **-e** and **-P** need a working clipboard tool, which on Linux means **xclip** or **xsel** being installed.
+**-c**、**-e** 和 **-P** 需要可用的剪贴板工具，在 Linux 上意味着必须安装 **xclip** 或 **xsel**。
 
-GitHub's official **gh gist** subcommand covers much of the same ground and ships with the GitHub CLI, so it is the lower-friction choice if you already have **gh** installed and authenticated.
+GitHub 官方的 **gh gist** 子命令覆盖了大部分相同功能，且随 GitHub CLI 附带，如果你已经安装并认证了 **gh**，它是更省事的选择。
 
 # HISTORY
 
-**gist** is a Ruby gem written by **Chris Wanstrath** (**defunkt**), a GitHub co-founder, and is one of the oldest GitHub command line tools, predating the official **gh** CLI by roughly a decade. It is installed with **gem install gist**.
+**gist** 是由 GitHub 联合创始人 **Chris Wanstrath**（**defunkt**）编写的 Ruby gem，是最古老的 GitHub 命令行工具之一，比官方 **gh** CLI 早了大约十年。通过 **gem install gist** 安装。
 
 # INSTALL
 

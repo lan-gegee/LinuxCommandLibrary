@@ -1,38 +1,38 @@
 # TAGLINE
 
-Wayland gaming micro-compositor
+Wayland 游戏微合成器
 
 # TLDR
 
-Run a program with **gamescope**
+用 **gamescope** 运行程序
 
 ```gamescope -- [program]```
 
-Run a game with gamescope through **Steam**
+通过 **Steam** 用 gamescope 运行游戏
 
 ```gamescope -- %command%```
 
-**Upscale** a 720p game to 1440p with integer scaling
+以整数缩放将 720p 游戏**放大**到 1440p
 
 ```gamescope -h 720 -H 1440 -S integer -- [command]```
 
-**Limit** a vsynced game to 30 FPS
+将开启垂直同步的游戏**限制**到 30 FPS
 
 ```gamescope -r 30 -- [command]```
 
-Launch **Steam in Big Picture Mode** with gamescope integration
+以 gamescope 集成方式**在 Big Picture 模式下启动 Steam**
 
 ```gamescope -e -- /usr/bin/steam -tenfoot```
 
-Specify which **display** to prefer
+指定优先使用的**显示器**
 
 ```gamescope -O [HDMI-A-1|DP-3|...] -- [program]```
 
-Toggle **fullscreen**
+切换**全屏**
 
 ```Super+f```
 
-Display **help**
+显示**帮助**
 
 ```gamescope --help```
 
@@ -43,71 +43,71 @@ Display **help**
 # PARAMETERS
 
 **-h**, **--nested-height** _HEIGHT_
-> Set internal (nested) resolution height
+> 设置内部（嵌套）分辨率高度
 
 **-H**, **--output-height** _HEIGHT_
-> Set output resolution height
+> 设置输出分辨率高度
 
 **-w**, **--nested-width** _WIDTH_
-> Set internal (nested) resolution width
+> 设置内部（嵌套）分辨率宽度
 
 **-W**, **--output-width** _WIDTH_
-> Set output resolution width
+> 设置输出分辨率宽度
 
 **-r**, **--nested-refresh** _RATE_
-> Set internal refresh rate (FPS limit for vsync games)
+> 设置内部刷新率（对开启垂直同步的游戏相当于 FPS 上限）
 
 **-S**, **--scaler** _SCALER_
-> Scaling filter: auto, integer, fit, fill, stretch
+> 缩放滤镜：auto、integer、fit、fill、stretch
 
 **-e**, **--steam**
-> Enable Steam integration mode
+> 启用 Steam 集成模式
 
 **-O**, **--prefer-output** _OUTPUT_
-> Preferred display output
+> 优先使用的显示输出
 
 **-f**, **--fullscreen**
-> Start in fullscreen mode
+> 以全屏模式启动
 
 **-b**, **--borderless**
-> Start in borderless windowed mode
+> 以无边框窗口模式启动
 
 **-F**, **--filter** _FILTER_
-> Upscaler filter: linear, nearest, fsr, nis, pixel.
+> 放大算法：linear、nearest、fsr、nis、pixel。
 
 **--hdr-enabled**
-> Enable HDR output (requires compatible display and hardware).
+> 启用 HDR 输出（需要兼容的显示器和硬件）。
 
 **--mangoapp**
-> Launch MangoHud overlay (mangoapp) alongside gamescope.
+> 与 gamescope 一起启动 MangoHud 覆盖层（mangoapp）。
 
 **--force-grab-cursor**
-> Always use relative mouse mode instead of flipping between relative and absolute.
+> 始终使用相对鼠标模式，而不是在相对与绝对之间来回切换。
 
 **--adaptive-sync**
-> Enable adaptive sync / VRR on the output if supported.
+> 在支持的输出上启用自适应同步 / VRR。
 
 # DESCRIPTION
 
-**gamescope** is a Wayland micro-compositor developed by Valve for gaming. It acts as an intermediary layer between games and the display server, providing features like resolution scaling, frame limiting, HDR support, and improved game compatibility.
+**gamescope** 是 Valve 开发的面向游戏的 Wayland 微合成器。它充当游戏与显示服务器之间的中间层，提供分辨率缩放、帧率限制、HDR 支持以及更好的游戏兼容性等特性。
 
-Key features include FSR (FidelityFX Super Resolution) upscaling, integer scaling for retro games, independent refresh rate control, and seamless fullscreen management. It's the basis for the Steam Deck's gaming mode compositor.
+主要功能包括 FSR（FidelityFX Super Resolution）放大、适合复古游戏的整数缩放、独立的刷新率控制以及无缝的全屏管理。它是 Steam Deck 游戏模式合成器的基础。
 
-When used with Steam (**-e** flag), it integrates directly with Steam's overlay and game management features.
+与 Steam 配合使用（**-e** 标志）时，它可直接集成 Steam 的覆盖层和游戏管理功能。
 
 # KEYBOARD SHORTCUTS
 
-**Super+F** - Toggle fullscreen
-**Super+S** - Take screenshot
-**Super+G** - Toggle FPS limiter
+**Super+F** - 切换全屏
+**Super+S** - 截图
+**Super+G** - 切换 FPS 限制器
 
 # CAVEATS
 
-Requires Vulkan support. Some games may have compatibility issues. HDR support requires appropriate hardware and display. Performance overhead is minimal but present.
+需要 Vulkan 支持。某些游戏可能存在兼容性问题。HDR 支持需要相应的硬件和显示器。性能开销很小，但确实存在。
 
 # HISTORY
 
-gamescope was developed by Valve Software and first released in **2020**. It was created primarily for the Steam Deck handheld gaming PC, providing the foundation for SteamOS 3.0's gaming compositor. The project evolved from earlier work on the steamcompmgr compositor.
+gamescope 由 Valve Software 开发，首次发布于 **2020 年**。它主要为 Steam Deck 掌上游戏机而创建，是 SteamOS 3.0 游戏模式合成器的基础。该项目由更早的 steamcompmgr 合成器演进而来。
 
 # INSTALL
 

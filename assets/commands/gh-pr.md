@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage GitHub pull requests from the command line
+在命令行中管理 GitHub 拉取请求
 
 # TLDR
 
-**Create a pull request**
+**创建拉取请求**
 
 ```gh pr create```
 
-**List open pull requests**
+**列出打开的拉取请求**
 
 ```gh pr list```
 
-**Check out a PR branch**
+**检出 PR 分支**
 
 ```gh pr checkout [pr-number]```
 
-**View PR in browser**
+**在浏览器中查看 PR**
 
 ```gh pr view --web```
 
-**Merge a pull request**
+**合并拉取请求**
 
 ```gh pr merge [pr-number]```
 
@@ -31,51 +31,51 @@ Manage GitHub pull requests from the command line
 # PARAMETERS
 
 **create**
-> Create a new pull request.
+> 创建新的拉取请求。
 
 **list**
-> List pull requests.
+> 列出拉取请求。
 
 **checkout**
-> Check out a PR branch locally.
+> 在本地检出 PR 分支。
 
 **view**
-> View pull request details.
+> 查看拉取请求详情。
 
 **merge**
-> Merge a pull request.
+> 合并拉取请求。
 
 **close**
-> Close a pull request.
+> 关闭拉取请求。
 
 **reopen**
-> Reopen a pull request.
+> 重新打开拉取请求。
 
 **ready**
-> Mark PR as ready for review.
+> 将 PR 标记为可审查。
 
 **checks**
-> Show CI status checks.
+> 显示 CI 状态检查。
 
 **review**
-> Add a review to a PR.
+> 为 PR 添加审查。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh pr** manages GitHub pull requests from the command line. It provides full pull request lifecycle management including creation, review, merging, and CI status monitoring.
+**gh pr** 用于在命令行中管理 GitHub 拉取请求。它提供完整的拉取请求生命周期管理，包括创建、审查、合并以及 CI 状态监控。
 
-The command integrates with git workflows, automatically detecting the current branch's pull request context. It supports interactive creation with editor integration and automated creation for scripted workflows.
+该命令与 git 工作流集成，会自动识别当前分支对应的拉取请求上下文。它既支持结合编辑器的交互式创建，也支持面向脚本化工作流的自动化创建。
 
 # CAVEATS
 
-Requires repository write access for most operations. PR creation needs branch pushed to remote. Merge may require approvals or passing checks.
+大多数操作需要仓库写权限。创建 PR 前需将分支推送到远程。合并可能需要获得批准或通过检查。
 
 # HISTORY
 
-gh pr is a core command in the **GitHub CLI**, providing the pull request workflows that are central to GitHub's collaboration model.
+gh pr 是 **GitHub CLI** 的核心命令之一，承载着作为 GitHub 协作模式核心的拉取请求工作流。
 
 # INSTALL
 

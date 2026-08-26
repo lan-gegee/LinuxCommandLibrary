@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line webcam image capture
+命令行网络摄像头图像采集工具
 
 # TLDR
 
-**Capture image**
+**采集图像**
 
 ```fswebcam [image.jpg]```
 
-**Capture from specific device**
+从指定设备**采集**
 
 ```fswebcam -d [/dev/video0] [image.jpg]```
 
-**Set resolution**
+**设置分辨率**
 
 ```fswebcam -r [1280x720] [image.jpg]```
 
-**Remove banner**
+**去除横幅**
 
 ```fswebcam --no-banner [image.jpg]```
 
-**Add timestamp**
+**添加时间戳**
 
 ```fswebcam --timestamp "%Y-%m-%d %H:%M" [image.jpg]```
 
-**Set frame count for better quality**
+**设置帧数以提高画质**
 
 ```fswebcam -F [10] -S [5] [image.jpg]```
 
@@ -35,68 +35,68 @@ command-line webcam image capture
 # PARAMETERS
 
 **-d**, **--device** _dev_
-> Video device (default /dev/video0).
+> 视频设备（默认 /dev/video0）。
 
 **-r**, **--resolution** _WxH_
-> Capture resolution.
+> 采集分辨率。
 
 **-F**, **--frames** _n_
-> Capture n frames.
+> 采集 n 帧。
 
 **-S**, **--skip** _n_
-> Skip n frames before capture.
+> 正式采集前跳过 n 帧。
 
 **--no-banner**
-> Remove info banner.
+> 去除信息横幅。
 
 **--timestamp** _format_
-> Add timestamp overlay.
+> 添加时间戳叠加层。
 
 **--title** _text_
-> Set banner title.
+> 设置横幅标题。
 
 **--subtitle** _text_
-> Set banner subtitle.
+> 设置横幅副标题。
 
 **-q**, **--quiet**
-> Suppress output.
+> 抑制输出。
 
 **--png** _level_
-> Save as PNG with compression level (0-9, or -1 for automatic).
+> 以 PNG 保存并指定压缩级别（0-9，或 -1 表示自动）。
 
 **--jpeg** _quality_
-> JPEG quality (0-95, or -1 for automatic).
+> JPEG 质量（0-95，或 -1 表示自动）。
 
 **-i**, **--input** _input_
-> Set the input to use (number or name, default "0").
+> 设置要使用的输入（编号或名称，默认 "0"）。
 
 **--flip** _direction_
-> Flip the image (h for horizontal, v for vertical).
+> 翻转图像（h 为水平，v 为垂直）。
 
 **--list-inputs**
-> List available inputs for the selected source.
+> 列出所选源可用的输入。
 
 **--list-controls**
-> List available controls and their current values.
+> 列出可用的控制项及其当前值。
 
 # CONFIGURATION
 
 **~/.fswebcam**
-> Optional configuration file for default settings.
+> 可选的配置文件，用于保存默认设置。
 
 # DESCRIPTION
 
-**fswebcam** is a small and simple command-line webcam capture utility. It captures images from V4L2 (Video4Linux) devices and saves them as JPEG or PNG files. Source modules include V4L2, V4L1, FILE, RAW, and TEST.
+**fswebcam** 是一个小巧简洁的命令行网络摄像头采集工具。它从 V4L2（Video4Linux）设备采集图像并保存为 JPEG 或 PNG 文件。源模块包括 V4L2、V4L1、FILE、RAW 和 TEST。
 
-The tool is useful for timelapse photography, security camera snapshots, and automated image capture. It supports overlays, timestamps, banners, and various image adjustments.
+该工具适用于延时摄影、安防摄像头快照和自动化图像采集。它支持叠加层、时间戳、横幅以及各种图像调节功能。
 
 # CAVEATS
 
-Requires V4L2 compatible webcam. Initial frames may be dark (use -S to skip). Resolution must be supported by camera. Some cameras need time to adjust exposure.
+需要 V4L2 兼容的网络摄像头。最初几帧可能偏暗（用 -S 跳过）。分辨率必须为摄像头所支持。部分摄像头需要时间调整曝光。
 
 # HISTORY
 
-fswebcam was written by **Philip Heron** as a simple command-line tool for capturing webcam images on Linux. It's designed for scripting and automation rather than interactive use.
+fswebcam 由 **Philip Heron** 编写，是 Linux 上采集摄像头图像的简单命令行工具。它面向脚本和自动化场景设计，而非交互式使用。
 
 # INSTALL
 

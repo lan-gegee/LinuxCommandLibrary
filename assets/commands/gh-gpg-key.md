@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage GPG keys on GitHub for commit signing
+管理 GitHub 上用于提交签名的 GPG 密钥
 
 # TLDR
 
-**List GPG keys** on your GitHub account
+**列出你 GitHub 账户上的 GPG 密钥**
 
 ```gh gpg-key list```
 
-**Add a GPG key** from a file
+**从文件添加 GPG 密钥**
 
 ```gh gpg-key add [key.pub]```
 
-**Add a GPG key** from stdin
+**从标准输入添加 GPG 密钥**
 
 ```gpg --armor --export [key_id] | gh gpg-key add -```
 
-**Add a GPG key with a title**
+**添加带标题的 GPG 密钥**
 
 ```gh gpg-key add [key.pub] --title "[Work laptop]"```
 
-**Delete a GPG key** by ID
+**按 ID 删除 GPG 密钥**
 
 ```gh gpg-key delete [key_id]```
 
@@ -31,31 +31,31 @@ Manage GPG keys on GitHub for commit signing
 # SUBCOMMANDS
 
 **list**
-> List the GPG keys associated with the authenticated user.
+> 列出与已认证用户关联的 GPG 密钥。
 
 **add** [_key-file_]
-> Add a GPG public key to your GitHub account. Reads from stdin if **-** is passed instead of a file.
+> 向你的 GitHub 账户添加 GPG 公钥。若传入 **-** 而非文件，则从标准输入读取。
 
 **delete** _key-id_
-> Remove a GPG key from your GitHub account by its numeric ID.
+> 按数字 ID 从你的 GitHub 账户移除 GPG 密钥。
 
 # PARAMETERS
 
 **-t**, **--title** _string_
-> Title of the new key (used by **add**).
+> 新密钥的标题（由 **add** 使用）。
 
 **--yes**
-> Skip the interactive confirmation prompt (used by **delete**).
+> 跳过交互式确认提示（由 **delete** 使用）。
 
 # DESCRIPTION
 
-**gh gpg-key** manages GPG keys associated with your GitHub account. GitHub uses these keys to verify signed commits and tags, displaying a "Verified" badge in the web UI when signatures match a registered key.
+**gh gpg-key** 管理与你 GitHub 账户关联的 GPG 密钥。GitHub 用这些密钥验证经过签名的提交和标签，当签名与已注册密钥匹配时，会在网页 UI 中显示 "Verified" 徽章。
 
-Keys must be exported in ASCII-armored format (e.g. via **gpg --armor --export**). To enable verification, the key's email must also match a verified email on the account, and commits must be signed locally (e.g. via **git config commit.gpgsign true**).
+密钥必须以 ASCII 封装（ASCII-armored）格式导出（例如通过 **gpg --armor --export**）。要启用验证，密钥中的邮箱还必须与账户上某个已验证邮箱一致，且提交必须在本地完成签名（例如通过 **git config commit.gpgsign true**）。
 
 # CAVEATS
 
-Requires authentication via **gh auth login**. The acting user must have **admin:gpg_key** scope on their token. Keys uploaded to GitHub cannot be used to decrypt anything — GitHub only stores public keys for signature verification.
+需要通过 **gh auth login** 进行身份验证。执行操作的用户其令牌必须具有 **admin:gpg_key** 权限范围。上传到 GitHub 的密钥不能用于解密任何内容——GitHub 只存储公钥用于签名验证。
 
 # INSTALL
 

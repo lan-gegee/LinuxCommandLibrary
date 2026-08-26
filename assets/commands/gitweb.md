@@ -1,18 +1,18 @@
 # TAGLINE
 
-Web interface for browsing Git repositories
+用于浏览 Git 仓库的 Web 界面
 
 # TLDR
 
-**Start a quick local gitweb** server with git instaweb
+通过 git instaweb 快速启动本地 gitweb 服务器
 
 ```git instaweb --httpd=[webrick]```
 
-**Stop the instaweb** server
+停止 instaweb 服务器
 
 ```git instaweb --stop```
 
-**Configure gitweb** project root
+配置 gitweb 项目根目录
 
 ```git config --global instaweb.httpd [webrick]```
 
@@ -22,25 +22,25 @@ Web interface for browsing Git repositories
 
 # DESCRIPTION
 
-**gitweb** is a web interface for Git repositories, implemented as a Perl CGI script. It provides browsing of repository contents, commit history, branches, tags, diffs, blame annotations, and search functionality through a web browser.
+**gitweb** 是 Git 仓库的 Web 界面，以 Perl CGI 脚本实现。它提供通过网页浏览器浏览仓库内容、提交历史、分支、标签、diff、blame 注释以及搜索功能。
 
-**gitweb** is typically deployed behind a web server (Apache, nginx, lighttpd) for shared repository browsing. For quick local browsing, use **git instaweb** which starts a temporary web server automatically. The configuration file uses Perl syntax to set variables controlling display and behavior.
+**gitweb** 通常部署在 Web 服务器（Apache、nginx、lighttpd）之后供共享浏览仓库使用。如需快速本地浏览，可使用 **git instaweb**，它会自动启动一个临时 Web 服务器。配置文件使用 Perl 语法设置控制显示和行为的变量。
 
 # CONFIGURATION
 
 **/etc/gitweb.conf**
-> System-wide configuration file specifying project root, site name, and display options.
+> 系统级配置文件，指定项目根目录、站点名称和显示选项。
 
 **gitweb_config.perl**
-> Per-instance configuration file (in same directory as gitweb CGI script), takes precedence over /etc/gitweb.conf.
+> 每实例的配置文件（与 gitweb CGI 脚本位于同一目录），优先于 /etc/gitweb.conf。
 
 # CAVEATS
 
-CGI script, requires a web server for production use. No authentication built-in; rely on web server authentication. Read-only interface; cannot push or modify repositories.
+CGI 脚本，生产使用需要 Web 服务器。没有内置身份验证；需依赖 Web 服务器的认证机制。只读界面；无法推送或修改仓库。
 
 # HISTORY
 
-gitweb is part of the **Git** distribution, providing web repository browsing since Git's early versions. It is the predecessor to modern git hosting interfaces like Gitea and GitLab.
+gitweb 是 **Git** 发行版的一部分，自 Git 早期版本就提供网页端仓库浏览功能。它是 Gitea 和 GitLab 等现代 git 托管界面的前身。
 
 # INSTALL
 

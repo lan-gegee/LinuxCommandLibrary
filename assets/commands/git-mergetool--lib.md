@@ -1,10 +1,10 @@
 # TAGLINE
 
-Internal tool integration library
+内部工具集成库
 
 # TLDR
 
-**Source for tool scripts**
+**供工具脚本 source 引用**
 
 ```. "$(git --exec-path)/git-mergetool--lib"```
 
@@ -14,17 +14,17 @@ Internal tool integration library
 
 # DESCRIPTION
 
-**git-mergetool--lib** is a shell library used internally by `git-mergetool` and `git-difftool`. It provides common functions for tool selection, invocation, and configuration handling.
+**git-mergetool--lib** 是 `git-mergetool` 和 `git-difftool` 内部使用的 shell 库。它提供用于工具选择、调用和配置处理的公共函数。
 
-The library is sourced by scripts that need merge or diff tool functionality. It handles tool detection, path configuration, and tool-specific setup. This is internal infrastructure and not intended for direct use.
+需要合并或 diff 工具功能的脚本会 source 该库。它负责工具检测、路径配置以及特定工具的设置。这属于内部基础设施，不供直接使用。
 
 # CAVEATS
 
-Internal library, not a command. Sourced by other git scripts. Not intended for direct use.
+内部库，不是命令。由其他 git 脚本 source 引用。不供直接使用。
 
 # HISTORY
 
-git-mergetool--lib is part of **Git's** internal infrastructure, providing shared code for merge and diff tool integration.
+git-mergetool--lib 是 **Git** 内部基础设施的一部分，为合并与 diff 工具集成提供共享代码。
 
 # INSTALL
 

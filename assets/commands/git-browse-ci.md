@@ -1,14 +1,14 @@
 # TAGLINE
 
-open the CI page of a repository in the browser
+在浏览器中打开仓库的 CI 页面
 
 # TLDR
 
-**Open** the CI page for the current branch's remote
+**打开**当前分支远程的 CI 页面
 
 ```git browse-ci```
 
-**Open** the CI page for a specific remote
+**打开**特定远程的 CI 页面
 
 ```git browse-ci [upstream]```
 
@@ -19,33 +19,33 @@ open the CI page of a repository in the browser
 # PARAMETERS
 
 _remote_
-> The remote whose CI page to open. Defaults to the remote configured for the current branch, falling back to **origin**.
+> 要打开其 CI 页面的远程。默认使用当前分支配置的远程，若无则回退到 **origin**。
 
 # DESCRIPTION
 
-**git browse-ci** is a git-extras helper that opens the continuous integration page for your repository in a web browser, saving a trip through the hosting provider's web interface.
+**git browse-ci** 是 git-extras 的辅助命令，可在网页浏览器中打开仓库的持续集成页面，省去手动访问托管平台网页界面的步骤。
 
-It works purely from the remote URL. The remote is normalized from either SSH (**git@host:owner/repo.git**) or HTTP form into a browsable URL, and a per-host suffix is appended to reach the CI section:
+它完全依据远程 URL 工作。远程地址会从 SSH（**git@host:owner/repo.git**）或 HTTP 形式规范化为一个可浏览的 URL，并根据主机追加相应的后缀以进入 CI 部分：
 
-- **GitHub** hosts get **/actions**
-- **GitLab** hosts get **/-/pipelines**
-- **Bitbucket** hosts get **/addon/pipelines/home**
+- **GitHub** 主机追加 **/actions**
+- **GitLab** 主机追加 **/-/pipelines**
+- **Bitbucket** 主机追加 **/addon/pipelines/home**
 
-The resulting URL is handed to the platform's opener: **open** on macOS, **start** on Git-Bash, **powershell.exe start** under WSL, and **xdg-open** on Linux and the BSDs.
+得到的 URL 会交给平台对应的打开工具：macOS 上是 **open**，Git-Bash 上是 **start**，WSL 下是 **powershell.exe start**，Linux 和 BSD 上是 **xdg-open**。
 
 # CAVEATS
 
-Only **GitHub**, **GitLab** and **Bitbucket** are recognized, and the match is a substring test against the remote URL. Self-hosted instances on a domain that does not contain one of those three words are not detected, and neither are standalone CI services such as CircleCI, Travis CI, Jenkins or Drone, regardless of what the repository actually uses.
+仅识别 **GitHub**、**GitLab** 和 **Bitbucket**，且匹配方式只是对远程 URL 做子串检测。托管域名中不含这三个词之一的自建实例不会被识别，CircleCI、Travis CI、Jenkins、Drone 等独立 CI 服务同样不被识别，无论仓库实际使用的是哪种 CI。
 
-When the host is not recognized the CI URL ends up empty, and rather than reporting the problem the command asks the browser to open nothing.
+当主机未被识别时，CI URL 会为空，命令不会报告问题，而是直接让浏览器打开空内容。
 
-The URL is built by string manipulation on the remote, so it is a guess, not a lookup. It does not check whether CI is configured, or even whether the page exists.
+URL 是通过对远程字符串做拼接得到的，因此只是推测而非查询。它不会检查 CI 是否已配置，甚至不会检查页面是否存在。
 
-SSH remotes are rewritten to **http://** rather than **https://**, relying on the host to redirect.
+SSH 远程会被改写为 **http://** 而非 **https://**，依赖主机端的重定向。
 
 # HISTORY
 
-**git browse-ci** is part of **git-extras**, the collection of git helper scripts started by **TJ Holowaychuk** in **2010** and now community-maintained.
+**git browse-ci** 是 **git-extras** 的一部分。git-extras 是由 **TJ Holowaychuk** 于 **2010 年**发起的一组 git 辅助脚本合集，现由社区维护。
 
 # INSTALL
 

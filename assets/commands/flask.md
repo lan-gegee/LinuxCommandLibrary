@@ -1,38 +1,38 @@
 # TAGLINE
 
-Python web microframework CLI
+Python Web 微框架的命令行界面
 
 # TLDR
 
-**Run the development server**
+**运行开发服务器**
 
 ```flask run```
 
-**Run with debug mode** and auto-reload
+**以调试模式运行**并自动重载
 
 ```flask run --debug```
 
-**Run on a specific host and port**
+**在指定的主机和端口上运行**
 
 ```flask run --host [0.0.0.0] --port [8080]```
 
-**Start an interactive Python shell** with app context
+**在应用上下文中启动交互式 Python shell**
 
 ```flask shell```
 
-**List all routes** in the application
+**列出应用中的所有路由**
 
 ```flask routes```
 
-**Initialize a database** (if using Flask-Migrate)
+**初始化数据库**（如果使用 Flask-Migrate）
 
 ```flask db init```
 
-**Run database migrations**
+**执行数据库迁移**
 
 ```flask db upgrade```
 
-**Set the application module**
+**设置应用模块**
 
 ```FLASK_APP=[app.py] flask run```
 
@@ -43,65 +43,65 @@ Python web microframework CLI
 # PARAMETERS
 
 **--app** _module_
-> Specify the Flask application module (or set FLASK_APP environment variable).
+> 指定 Flask 应用模块（或设置 FLASK_APP 环境变量）。
 
 **--debug** / **--no-debug**
-> Enable/disable debug mode with auto-reloader and debugger.
+> 启用/禁用带自动重载器和调试器的调试模式。
 
 **run** [_--host host_] [_--port port_]
-> Run the development server.
+> 运行开发服务器。
 
 **shell**
-> Open an interactive Python shell with application context.
+> 在应用上下文中打开交互式 Python shell。
 
 **routes** [_--sort endpoint|methods|rule_]
-> Show all registered URL rules.
+> 显示所有已注册的 URL 规则。
 
 **--version**
-> Show Flask version.
+> 显示 Flask 版本。
 
 **--help**
-> Show help for a command.
+> 显示某个命令的帮助。
 
 # RUN OPTIONS
 
 **--host** _address_
-> Network interface to bind to (default: 127.0.0.1).
+> 要绑定的网络接口（默认：127.0.0.1）。
 
 **--port** _port_
-> Port to listen on (default: 5000).
+> 要监听的端口（默认：5000）。
 
 **--reload** / **--no-reload**
-> Enable/disable auto-reload on code changes.
+> 启用/禁用代码更改时的自动重载。
 
 **--debugger** / **--no-debugger**
-> Enable/disable the interactive debugger.
+> 启用/禁用交互式调试器。
 
 **--cert** _path_
-> SSL certificate file for HTTPS.
+> 用于 HTTPS 的 SSL 证书文件。
 
 **--key** _path_
-> SSL key file for HTTPS.
+> 用于 HTTPS 的 SSL 密钥文件。
 
 # DESCRIPTION
 
-**flask** is the command-line interface for Flask, a popular Python web microframework. It provides commands for running development servers, opening application shells, and executing custom commands defined by Flask extensions or the application.
+**flask** 是 Flask 的命令行界面，Flask 是一个流行的 Python Web 微框架。它提供用于运行开发服务器、打开应用 shell 以及执行由 Flask 扩展或应用定义的自定义命令。
 
-The CLI discovers the Flask application through the **FLASK_APP** environment variable or **--app** option. It supports loading from modules (app), module:app patterns (myapp:create_app()), or factory functions.
+CLI 通过 **FLASK_APP** 环境变量或 **--app** 选项来发现 Flask 应用。它支持从模块加载、模块:工厂 模式或工厂函数。
 
-The development server (flask run) includes an auto-reloader that restarts when code changes and an interactive debugger that appears in the browser on errors. These features should only be used in development, never in production.
+开发服务器包含在代码更改时自动重启的自动重载器，以及在出现错误时显示在浏览器中的交互式调试器。这些功能只应在开发环境中使用，绝不能在生产环境中使用。
 
-Flask extensions often add their own CLI commands. Flask-Migrate adds **flask db** commands for database migrations, Flask-Admin might add admin commands, etc. Applications can define custom commands using the **@app.cli.command()** decorator.
+Flask 扩展通常会添加自己的 CLI 命令。Flask-Migrate 添加了用于数据库迁移的 **flask db** 命令，Flask-Admin 可能会添加管理命令，等等。应用程序可以使用 **@app.cli.command()** 装饰器定义自定义命令。
 
-The shell command provides an interactive Python session with the application and its context pre-loaded, useful for testing and debugging.
+shell 命令提供一个已预加载应用及其上下文的交互式 Python 会话，便于测试和调试。
 
 # CAVEATS
 
-The development server is not suitable for production use. Debug mode exposes sensitive information and should never be enabled in production. The server is single-threaded by default. Use a production WSGI server like Gunicorn or uWSGI for deployment.
+开发服务器不适合生产环境使用。调试模式会暴露敏感信息，在生产环境中绝不应当启用。该服务器默认是单线程的。部署时请使用 Gunicorn 或 uWSGI 等生产级 WSGI 服务器。
 
 # HISTORY
 
-**Flask** was created by Armin Ronacher in **2010** as part of an April Fools' joke that became popular. The CLI was added in Flask 0.11 (**2016**), replacing the older flask-script extension and server startup method. Flask has become one of the most widely used Python web frameworks.
+**Flask** 由 Armin Ronacher 于 **2010 年**创建，最初是一个愚人节玩笑却意外走红。CLI 在 Flask 0.11（**2016 年**）中加入，取代了旧的 flask-script 扩展和服务器启动方式。Flask 已成为使用最广泛的 Python Web 框架之一。
 
 # INSTALL
 

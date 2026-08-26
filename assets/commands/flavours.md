@@ -1,26 +1,26 @@
 # TAGLINE
 
-Base16 color scheme manager
+Base16 配色方案管理器
 
 # TLDR
 
-**Apply a theme**
+**应用主题**
 
 ```flavours apply [theme-name]```
 
-**List available themes**
+**列出可用主题**
 
 ```flavours list```
 
-**Generate shell completions**
+**生成 Shell 补全**
 
 ```flavours generate [bash|zsh|fish]```
 
-**Build templates**
+**构建模板**
 
 ```flavours build [template-path]```
 
-**Update schemes**
+**更新配色方案**
 
 ```flavours update schemes```
 
@@ -31,38 +31,38 @@ Base16 color scheme manager
 # PARAMETERS
 
 **apply** _theme_
-> Apply Base16 theme to configured applications.
+> 将 Base16 主题应用到已配置的应用程序。
 
 **list**
-> List available themes.
+> 列出可用主题。
 
 **info** _theme_
-> Show theme information.
+> 显示主题信息。
 
 **build** _template_
-> Build configuration from template.
+> 从模板构建配置文件。
 
 **update** _target_
-> Update schemes, templates, or all.
+> 更新配色方案、模板或全部内容。
 
 **generate** _shell_
-> Generate shell completions.
+> 生成 Shell 补全脚本。
 
 **current**
-> Show currently applied theme.
+> 显示当前已应用的主题。
 
 # DESCRIPTION
 
-**flavours** is a Base16 theme manager written in Rust. It applies consistent color schemes across multiple applications by generating configuration files from templates.
+**flavours** 是一个用 Rust 编写的 Base16 主题管理器。它通过从模板生成配置文件，将统一的配色方案应用到多个应用程序。
 
-Base16 provides 16-color schemes designed to work across terminals, editors, and other applications. flavours automates applying these schemes to all configured applications simultaneously.
+Base16 提供 16 色 scheme，设计上可跨终端、编辑器和其他应用程序工作。flavours 自动将这些方案同时应用到所有已配置的应用程序。
 
 # CONFIGURATION
 
 **~/.config/flavours/config.toml**
-> Defines which applications receive theme updates and their template mappings. Each item specifies a target file, template name, and optional subtemplate.
+> 定义哪些应用程序接收主题更新及其模板映射。每个条目指定目标文件、模板名称以及可选的子模板。
 
-Example configuration:
+配置示例：
 ```toml
 [[items]]
 file = "~/.config/alacritty/alacritty.yml"
@@ -76,11 +76,11 @@ template = "vim"
 
 # CAVEATS
 
-Requires templates for each application. Not all applications support Base16. Applications may need restart after theme change. Template syntax must be correct.
+每个应用程序都需要对应的模板。并非所有应用都支持 Base16。主题更改后可能需要重启应用。模板语法必须正确。
 
 # HISTORY
 
-flavours was created as a Rust alternative to existing Base16 managers. Base16 itself was created by **Chris Kempson** to provide a consistent theming architecture across different applications.
+flavours 作为现有 Base16 管理器的 Rust 替代品而创建。Base16 本身由 **Chris Kempson** 创建，旨在为不同应用程序提供一致的主题架构。
 
 # INSTALL
 
@@ -91,4 +91,3 @@ flavours was created as a Rust alternative to existing Base16 managers. Base16 i
 <!-- packages: 2026-07-22 -->
 
 # SEE ALSO
-

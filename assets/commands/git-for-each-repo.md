@@ -1,18 +1,18 @@
 # TAGLINE
 
-Execute Git commands across multiple repositories
+在多个仓库中执行 Git 命令
 
 # TLDR
 
-**Run a git command in each repo listed in a config key**
+**在配置键列出的每个仓库中运行 git 命令**
 
 ```git for-each-repo --config=[maintenance.repo] [fetch]```
 
-**Run maintenance on all registered repos**
+**对所有已注册的仓库执行维护**
 
 ```git for-each-repo --config=[maintenance.repo] maintenance run```
 
-**Continue on failure**
+**失败后继续执行**
 
 ```git for-each-repo --config=[maintenance.repo] --keep-going [gc]```
 
@@ -23,21 +23,21 @@ Execute Git commands across multiple repositories
 # PARAMETERS
 
 **--config** _key_
-> Multi-valued config key listing absolute paths to repositories.
+> 列出各仓库绝对路径的多值配置键。
 
 **--keep-going**
-> Continue with remaining repositories if the command fails on one. The exit code still indicates failure.
+> 命令在某个仓库上失败时继续处理其余仓库。退出码仍会指示失败。
 
 # DESCRIPTION
 
-**git for-each-repo** executes a specified Git command across multiple repositories defined in a Git configuration value. The command reads a multi-valued configuration key where each value is an absolute path to a Git repository, then runs the provided command in each one.
+**git for-each-repo** 在由 Git 配置值定义的多个仓库中执行指定的 Git 命令。该命令读取一个多值配置键，其中每个值都是一个 Git 仓库的绝对路径，然后在每个仓库中运行所提供的命令。
 
-The primary use case is git-maintenance, which uses for-each-repo to run maintenance tasks like gc, fetch, or repack across all registered repositories on a schedule. Config values are loaded from system, global, and local Git config. If run outside a Git repository, only system and global config is used.
+它的主要用例是 git-maintenance，后者利用 for-each-repo 按计划在所有已注册的仓库上运行 gc、fetch 或 repack 等维护任务。配置值从系统、全局和本地 Git 配置中加载。如果在 Git 仓库之外运行，则只使用系统和全局配置。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> Contains multi-valued configuration keys listing repository paths for batch operations.
+> 包含列出仓库路径以供批量操作使用的多值配置键。
 
 # INSTALL
 

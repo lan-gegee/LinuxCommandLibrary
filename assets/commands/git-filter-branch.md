@@ -1,26 +1,26 @@
 # TAGLINE
 
-Rewrite branch history by applying filters
+通过应用过滤器重写分支历史
 
 # TLDR
 
-**Remove file from history**
+**从历史中移除文件**
 
 ```git filter-branch --tree-filter 'rm -f [file]' HEAD```
 
-**Rewrite author**
+**重写作者**
 
 ```git filter-branch --env-filter 'GIT_AUTHOR_EMAIL="[new@email]"' HEAD```
 
-**Subdirectory filter**
+**子目录过滤器**
 
 ```git filter-branch --subdirectory-filter [dir] HEAD```
 
-**Remove empty commits**
+**移除空提交**
 
 ```git filter-branch --prune-empty HEAD```
 
-**Force rewrite**
+**强制重写**
 
 ```git filter-branch -f --tree-filter '[command]' HEAD```
 
@@ -31,50 +31,50 @@ Rewrite branch history by applying filters
 # PARAMETERS
 
 **--env-filter** _cmd_
-> Rewrite author/committer environment variables (name, email, date).
+> 重写作者/提交者的环境变量（姓名、邮箱、日期）。
 
 **--tree-filter** _cmd_
-> Rewrite tree and contents; checks out each commit, so slow on large repos.
+> 重写树及其内容；需要检出每个提交，因此在大型仓库上很慢。
 
 **--index-filter** _cmd_
-> Rewrite the index without checking out the tree; much faster than **--tree-filter**. Commonly used with **git rm --cached**.
+> 无需检出树即可重写索引；比 **--tree-filter** 快得多。常与 **git rm --cached** 一起使用。
 
 **--parent-filter** _cmd_
-> Rewrite a commit's parent list.
+> 重写提交的父提交列表。
 
 **--msg-filter** _cmd_
-> Rewrite commit messages.
+> 重写提交信息。
 
 **--commit-filter** _cmd_
-> Replace the commit-creation step entirely.
+> 完全替换创建提交的步骤。
 
 **--tag-name-filter** _cmd_
-> Rewrite tag names pointing at rewritten commits.
+> 重写指向被改写提交的标签名称。
 
 **--subdirectory-filter** _dir_
-> Only rewrite history touching _dir_, and make it the new project root.
+> 只重写涉及 _dir_ 的历史，并将其作为新的项目根目录。
 
 **--prune-empty**
-> Remove commits that become empty after filtering.
+> 移除过滤后变为空提交的提交。
 
 **--original** _namespace_
-> Namespace for backup refs (default **refs/original**).
+> 备份引用的命名空间（默认 **refs/original**）。
 
 **-d** _dir_
-> Temporary directory to use (e.g. tmpfs, for I/O speed).
+> 要使用的临时目录（例如 tmpfs，以提升 I/O 速度）。
 
 **-f**, **--force**
-> Force the operation, overwriting an existing backup namespace.
+> 强制执行操作，覆盖已存在的备份命名空间。
 
 # DESCRIPTION
 
-**git filter-branch** is a powerful but deprecated tool for rewriting Git history by applying filter commands to every commit in a branch. It walks through the entire commit history, allowing modifications to trees, commit messages, author information, or other metadata.
+**git filter-branch** 是一个功能强大但已被弃用的工具，它通过对分支中的每个提交应用过滤命令来重写 Git 历史。它会遍历整个提交历史，允许修改树、提交信息、作者信息或其他元数据。
 
-The subdirectory-filter is particularly useful for extracting a subdirectory into a new repository with its history intact. Performance is notably poor on large repositories because it must check out every commit's tree. This limitation led to the development of git-filter-repo as the official replacement.
+subdirectory-filter 特别适用于将一个子目录提取为保留了完整历史的新仓库。它在大型仓库上性能明显较差，因为必须检出每个提交的树。这一局限促成了 git-filter-repo 作为官方替代品的诞生。
 
 # CAVEATS
 
-**Officially deprecated** in favor of git-filter-repo. Slow on large repositories. Changes history, invalidating commit hashes and requiring force pushes. Collaborators must reclone. Creates backup refs that must be manually cleaned.
+**官方已弃用**，建议改用 git-filter-repo。在大型仓库上很慢。会改变历史，使提交哈希失效并需要强制推送。协作者必须重新克隆。会创建需要手动清理的备份引用。
 
 # INSTALL
 

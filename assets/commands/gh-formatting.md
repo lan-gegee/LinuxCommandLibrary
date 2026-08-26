@@ -1,10 +1,10 @@
 # TAGLINE
 
-display output formatting documentation
+显示输出格式化文档
 
 # TLDR
 
-**View formatting help**
+**查看格式化帮助**
 
 ```gh formatting```
 
@@ -14,11 +14,11 @@ display output formatting documentation
 
 # DESCRIPTION
 
-**gh formatting** displays comprehensive help about GitHub CLI output formatting capabilities. It documents the template syntax for customizing output, JSON output modes for machine-readable data, and field selection options.
+**gh formatting** 显示关于 GitHub CLI 输出格式化功能的完整帮助。其中介绍了用于自定义输出的模板语法、输出机器可读数据的 JSON 输出模式，以及字段选择选项。
 
-Many gh commands support the --json flag to output structured data that can be processed by tools like jq. Template formatting uses Go template syntax to create custom output layouts. The --jq flag provides direct integration with jq for JSON filtering.
+许多 gh 命令支持 --json 标志，输出可供 jq 等工具处理的结构化数据。模板格式化使用 Go template 语法来创建自定义输出布局。--jq 标志提供与 jq 的直接集成，用于 JSON 过滤。
 
-Understanding formatting options is essential for integrating gh into scripts and automated workflows.
+理解格式化选项对于将 gh 集成到脚本和自动化工作流中至关重要。
 
 # INSTALL
 
@@ -49,4 +49,3 @@ Understanding formatting options is essential for integrating gh into scripts an
 ```[Source code](https://github.com/cli/cli)```
 
 <!-- verified: 2026-07-15 -->
-

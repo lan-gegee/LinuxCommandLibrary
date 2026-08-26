@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line interface for GnuCash reports and quotes
+GnuCash 报表和报价的命令行界面
 
 # TLDR
 
-**Update quotes for all securities**
+**更新所有证券的报价**
 
 ```gnucash-cli --quotes get [file.gnucash]```
 
-**Show Finance::Quote version and sources**
+**显示 Finance::Quote 的版本和数据源**
 
 ```gnucash-cli --quotes info```
 
-**Dump quotes for specific securities**
+**导出特定证券的报价**
 
 ```gnucash-cli --quotes dump [namespace] [symbol1] [symbol2]```
 
-**List available reports**
+**列出可用的报表**
 
 ```gnucash-cli --report list```
 
-**Run a report**
+**运行一个报表**
 
 ```gnucash-cli --report run --name "[Balance Sheet]" [file.gnucash]```
 
-**Export report to file**
+**将报表导出到文件**
 
 ```gnucash-cli --report run --name "[report]" --output-file [output.html] [file.gnucash]```
 
@@ -35,51 +35,51 @@ command-line interface for GnuCash reports and quotes
 # PARAMETERS
 
 **-h**, **--help**
-> Show help message.
+> 显示帮助消息。
 
 **-v**, **--version**
-> Show GnuCash version.
+> 显示 GnuCash 版本。
 
 **-Q**, **--quotes** _command_
-> Quotes mode: info, get, dump.
+> 报价模式：info、get、dump。
 
 **--namespace** _regexp_
-> Regular expression for commodity namespace (for quotes dump).
+> 商品命名空间的正则表达式（用于 quotes dump）。
 
 **-R**, **--report** _command_
-> Report mode: run, show, list.
+> 报表模式：run、show、list。
 
 **--name** _name_
-> Report name for run command.
+> run 命令使用的报表名称。
 
 **--output-file** _file_
-> Output file for report.
+> 报表的输出文件。
 
 **--export-type** _type_
-> Export format type.
+> 导出格式类型。
 
 **--debug**
-> Enable debugging mode.
+> 启用调试模式。
 
 **--extra**
-> Enable developer/debugging features.
+> 启用开发者/调试功能。
 
 **--log** _arg_
-> Log level overrides (can be specified multiple times).
+> 日志级别覆盖（可多次指定）。
 
 **--logto** _file_
-> File to log into (use "stderr" or "stdout" for those streams).
+> 日志写入的文件（可用 "stderr" 或 "stdout" 表示对应流）。
 
 **-V**, **--verbose**
-> Show extended Finance::Quote parameters (with quotes dump).
+> 显示扩展的 Finance::Quote 参数（与 quotes dump 配合使用）。
 
 # DESCRIPTION
 
-**gnucash-cli** is the command-line interface for GnuCash, a personal and small business financial accounting application. It operates in two modes: quotes mode for fetching and updating security prices, and report mode for generating financial reports. This allows automation of price updates and report generation without opening the GUI.
+**gnucash-cli** 是 GnuCash（一款个人及小型企业财务记账应用）的命令行界面。它有两种工作模式：用于获取和更新证券价格的报价模式，以及用于生成财务报表的报表模式。这样无需打开图形界面即可自动完成价格更新和报表生成。
 
 # CAVEATS
 
-Quotes functionality requires Finance::Quote to be properly configured. Database URIs are supported for MySQL and PostgreSQL backends.
+报价功能需要正确配置 Finance::Quote。MySQL 和 PostgreSQL 后端支持数据库 URI。
 
 # INSTALL
 

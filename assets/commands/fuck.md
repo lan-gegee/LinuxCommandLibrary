@@ -1,22 +1,22 @@
 # TAGLINE
 
-command correction suggester
+命令纠错建议工具
 
 # TLDR
 
-**Fix previous command**
+**修正上一条命令**
 
 ```fuck```
 
-**Confirm before running**
+运行前先确认
 
 ```fuck --yeah```
 
-**Use specific correction**
+**使用指定的修正方案**
 
 ```fuck --yes [number]```
 
-**Show available fixes**
+**显示可用的修复**
 
 ```fuck --help```
 
@@ -27,31 +27,31 @@ command correction suggester
 # PARAMETERS
 
 **--yeah**, **--yes**
-> Confirm fix immediately.
+> 立即确认修正。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.config/thefuck/settings.py**
-> Configuration for rules, excluded commands, priority, and aliases.
+> 配置规则、排除的命令、优先级和别名。
 
 # DESCRIPTION
 
-**fuck** is the command from The Fuck application that corrects previous console commands. It analyzes the previous failed command and suggests corrections.
+**fuck** 是 The Fuck 应用中用于修正上一条控制台命令的命令。它会分析上一条失败的命令并提出修正建议。
 
-When you mistype a command or forget sudo, running fuck proposes the corrected command. It learns from your shell history and supports many common mistake patterns.
+当你输错命令或忘记 sudo 时，运行 fuck 会给出修正后的命令。它从你的 shell 历史中学习，支持许多常见的错误模式。
 
-fuck integrates with shells through aliases or key bindings for quick access.
+fuck 通过别名或按键绑定与 shell 集成，便于快速调用。
 
 # CAVEATS
 
-Alias setup required. May not catch all errors. Some corrections may not be appropriate. Use with caution.
+需要设置别名。可能无法捕获所有错误。某些修正未必合适。请谨慎使用。
 
 # HISTORY
 
-fuck is part of **The Fuck** project created by Vladimir Iakovlev. The application provides an amusing yet practical way to correct command-line mistakes through Python-based rule matching.
+fuck 是 Vladimir Iakovlev 创建的 **The Fuck** 项目的一部分。该应用通过基于 Python 的规则匹配，提供一种有趣而实用的方式来纠正命令行错误。
 
 # INSTALL
 

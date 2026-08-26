@@ -1,34 +1,34 @@
 # TAGLINE
 
-remove Go build artifacts and cached data
+删除 Go 构建产物和缓存数据
 
 # TLDR
 
-**Clean build cache**
+**清理构建缓存**
 
 ```go clean```
 
-**Clean test cache**
+**清理测试缓存**
 
 ```go clean -testcache```
 
-**Clean module cache**
+**清理模块缓存**
 
 ```go clean -modcache```
 
-**Clean all caches**
+**清理全部缓存**
 
 ```go clean -cache -testcache -modcache```
 
-**Clean fuzz test cache**
+**清理模糊测试缓存**
 
 ```go clean -fuzzcache```
 
-**Dry run showing what would be removed**
+**演练模式，显示将要删除的内容**
 
 ```go clean -n [package]```
 
-**Clean verbosely showing remove commands**
+**详细清理并显示删除命令**
 
 ```go clean -x -cache```
 
@@ -39,45 +39,45 @@ remove Go build artifacts and cached data
 # PARAMETERS
 
 _PACKAGES_
-> Packages to clean.
+> 要清理的软件包。
 
 **-cache**
-> Remove the entire build cache.
+> 删除整个构建缓存。
 
 **-testcache**
-> Expire all test results in the build cache.
+> 使构建缓存中的所有测试结果过期。
 
 **-modcache**
-> Remove the entire module download cache.
+> 删除整个模块下载缓存。
 
 **-fuzzcache**
-> Remove files stored in the build cache for fuzz testing.
+> 删除构建缓存中为模糊测试保存的文件。
 
 **-i**
-> Remove the corresponding installed archive or binary.
+> 删除对应的已安装归档或二进制文件。
 
 **-r**
-> Apply recursively to all dependencies of the named packages.
+> 递归应用到指定软件包的所有依赖。
 
 **-n**
-> Print the remove commands that would be executed, but do not run them.
+> 打印将要执行的删除命令，但不执行。
 
 **-x**
-> Print remove commands as they are executed.
+> 在删除命令执行时打印出来。
 
 # DESCRIPTION
 
-**go clean** removes object files and cached data. It cleans build artifacts, test results, and downloaded modules to free disk space or force rebuilding.
+**go clean** 删除目标文件和缓存数据。它清理构建产物、测试结果和已下载的模块，以释放磁盘空间或强制重新构建。
 
-The command can target specific caches or packages. Cleaning the module cache removes all downloaded dependencies, requiring re-download on next build.
+该命令可以针对特定的缓存或软件包。清理模块缓存会移除所有已下载的依赖，下次构建时需要重新下载。
 
 # CAVEATS
 
-Module cache clean affects all projects. Test cache clean forces test reruns. May need re-download dependencies.
+模块缓存清理会影响所有项目。测试缓存清理会强制重新运行测试。可能需要重新下载依赖。
 
 # HISTORY
 
-go clean is part of the **Go** toolchain, providing cache and artifact management.
+go clean 是 **Go** 工具链的一部分，提供缓存和构建产物管理。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-simple text formatter that rewraps paragraphs
+对段落进行重排的简易文本格式化工具
 
 # TLDR
 
-**Reformat a text file** to 75 columns (default)
+将文本文件**重新格式化**为 75 列（默认）
 
 ```fmt [path/to/file.txt]```
 
-**Reformat to a specific width**
+**按指定宽度重新格式化**
 
 ```fmt -w [60] [path/to/file.txt]```
 
-**Reformat text from stdin**
+**从标准输入重新格式化文本**
 
 ```echo "[long text here]" | fmt```
 
-**Preserve paragraph indentation**
+**保留段落缩进**
 
 ```fmt -p [prefix] [file.txt]```
 
-**Split long lines only** (don't join short lines)
+**只拆分过长的行**（不合并短行）
 
 ```fmt -s [file.txt]```
 
-**Set goal and maximum width**
+**设置目标宽度和最大宽度**
 
 ```fmt -g [70] -w [80] [file.txt]```
 
-**Uniform spacing** (one space between words, two after sentences)
+**统一空格间距**（词间一个空格，句后两个空格）
 
 ```fmt -u [file.txt]```
 
-**Format multiple files**
+**格式化多个文件**
 
 ```fmt [file1.txt] [file2.txt]```
 
@@ -43,51 +43,51 @@ simple text formatter that rewraps paragraphs
 # PARAMETERS
 
 **-w**, **--width** _n_
-> Maximum line width (default: 75).
+> 最大行宽（默认：75）。
 
 **-g**, **--goal** _n_
-> Goal width (optimal line length, default: 93% of width).
+> 目标宽度（最佳行长度，默认为宽度的 93%）。
 
 **-s**, **--split-only**
-> Split long lines but do not join short ones.
+> 只拆分长行，不合并短行。
 
 **-u**, **--uniform-spacing**
-> One space between words, two after sentences.
+> 词间一个空格，句后两个空格。
 
 **-c**, **--crown-margin**
-> Preserve first two lines' indentation.
+> 保留前两行的缩进。
 
 **-p**, **--prefix** _string_
-> Only reformat lines starting with prefix.
+> 只对以指定前缀开头的行重新排版。
 
 **-t**, **--tagged-paragraph**
-> Preserve indentation of first line.
+> 保留第一行的缩进。
 
 **--help**
-> Display help and exit.
+> 显示帮助并退出。
 
 **--version**
-> Display version and exit.
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**fmt** is a simple text formatter that rewraps paragraphs to fit within a specified line width. It reads text from files or stdin, reformats it, and outputs to stdout.
+**fmt** 是一款简易的文本格式化工具，将段落重排到指定的行宽以内。它从文件或标准输入读取文本、重新排版并输出到标准输出。
 
-The tool intelligently handles paragraphs: consecutive non-blank lines are treated as a single paragraph and reflowed together. Blank lines, indentation changes, and other formatting cues mark paragraph boundaries.
+该工具能智能处理段落：连续的非空行被视为一个段落并一起重排。空行、缩进变化以及其他排版标记则表示段落边界。
 
-The formatting algorithm aims for the goal width while staying under the maximum width. This produces more natural-looking text than simply breaking at exactly the maximum width. Words are never hyphenated or broken.
+排版算法在不超过最大宽度的前提下尽量接近目标宽度。这比简单地在最大宽度处断行产生的外观更自然。单词永远不会被连字符断开或截断。
 
-Common uses include formatting text for emails, documentation, code comments, and improving readability of text files. The **-s** option is useful when you only want to break overly long lines without affecting properly formatted text.
+常见用途包括为电子邮件、文档和代码注释排版文本，以及提高文本文件的可读性。当你只想折断过长的行而不影响已正确排版的文本时，**-s** 选项很有用。
 
-Unlike more complex formatters, fmt handles plain text only. It doesn't understand markup, code blocks, or special formatting. It's designed for simple prose paragraphs.
+与更复杂的格式化工具不同，fmt 只处理纯文本。它不理解标记语言、代码块或特殊排版格式，专为简单的散文段落设计。
 
 # CAVEATS
 
-Does not preserve exact spacing or formatting. May break intentionally formatted text like code or tables. Does not handle markup languages. Very long words that exceed width are not broken. Different implementations may behave slightly differently.
+不会精确保留原有的空格和排版。可能会破坏代码或表格等有意排版的文本。不支持标记语言。超过行宽的超长单词不会被断开。不同实现的行为可能略有差异。
 
 # HISTORY
 
-**fmt** originated in BSD Unix around **1979**, based on an earlier tool. It was designed as a simple text formatter for preparing documents and emails. The command has been included in GNU coreutils and remains part of standard Unix-like systems.
+**fmt** 起源于 **1979 年**前后的 BSD Unix，基于更早的一个工具。它被设计为用于准备文档和电子邮件的简易文本格式化工具。该命令后来被纳入 GNU coreutils，至今仍是类 Unix 系统的标准组成部分。
 
 # INSTALL
 

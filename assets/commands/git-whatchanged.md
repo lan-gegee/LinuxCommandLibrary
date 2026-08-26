@@ -1,26 +1,26 @@
 # TAGLINE
 
-Show commit logs with file-level diff information
+显示提交日志及文件级差异信息
 
 # TLDR
 
-**Show commit logs with diffs**
+**显示带差异信息的提交日志**
 
 ```git whatchanged```
 
-**Show for specific file**
+**针对特定文件显示**
 
 ```git whatchanged [file]```
 
-**Show with stat**
+**显示统计信息**
 
 ```git whatchanged --stat```
 
-**Limit output**
+**限制输出数量**
 
 ```git whatchanged -n [10]```
 
-**Show since date**
+**显示指定日期之后的记录**
 
 ```git whatchanged --since="[2 weeks ago]"```
 
@@ -31,27 +31,27 @@ Show commit logs with file-level diff information
 # PARAMETERS
 
 **-n** _num_
-> Limit number of commits.
+> 限制提交的数量。
 
 **--stat**
-> Show diffstat.
+> 显示 diffstat（差异统计）。
 
 **--since** _date_
-> Commits since date.
+> 显示指定日期之后的提交。
 
 **--until** _date_
-> Commits until date.
+> 显示指定日期之前的提交。
 
 **-p**
-> Show patch.
+> 显示补丁。
 
 # DESCRIPTION
 
-**git whatchanged** shows logs with the difference each commit introduces. It is essentially equivalent to `git log --raw --no-merges`, making it easier to see which files were affected by each commit.
+**git whatchanged** 显示每次提交所引入的差异的日志。它本质上等同于 `git log --raw --no-merges`，便于查看每次提交影响了哪些文件。
 
 # CAVEATS
 
-This command is deprecated and scheduled for removal in a future Git release. Use `git log --raw` instead. When limiting output to a path, add `--` before the path to avoid ambiguity with branch names, e.g. `git whatchanged -- [file]`.
+此命令已被弃用，并计划在未来某个 Git 版本中移除。请改用 `git log --raw`。当按路径限制输出时，需在路径前添加 `--` 以避免与分支名产生歧义，例如 `git whatchanged -- [file]`。
 
 # INSTALL
 

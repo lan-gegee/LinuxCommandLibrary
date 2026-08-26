@@ -1,26 +1,26 @@
 # TAGLINE
 
-Rewrite commit authorship history
+改写提交的作者信息历史
 
 # TLDR
 
-**Change the email address** of matching commits
+**更改匹配提交的邮箱地址**
 
 ```git reauthor -o [old@email.com] -e [new@email.com]```
 
-**Change both name and email**
+**同时更改姓名和邮箱**
 
 ```git reauthor -o [old@email.com] -n "[New Name]" -e [new@email.com]```
 
-**Use values from `git config user.name` / `user.email`**
+**使用 `git config user.name` / `user.email` 中的值**
 
 ```git reauthor --use-config -o [old@email.com]```
 
-**Rewrite all identities** (prompts interactively)
+**改写所有身份**（交互式询问）
 
 ```git reauthor --all```
 
-**Rewrite only the committer** (not author)
+**只改写 committer**（不改 author）
 
 ```git reauthor -o [old@email.com] -e [new@email.com] -t committer```
 
@@ -31,39 +31,39 @@ Rewrite commit authorship history
 # PARAMETERS
 
 **-o**, **--old-email** _EMAIL_
-> Email address to match on existing commits.
+> 用于匹配现有提交的邮箱地址。
 
 **-e**, **--correct-email** _EMAIL_
-> Replacement email address.
+> 替换后的邮箱地址。
 
 **-n**, **--correct-name** _NAME_
-> Replacement author/committer name.
+> 替换后的作者/committer 姓名。
 
 **-c**, **--use-config**
-> Take the replacement name/email from the current **git config** values.
+> 从当前的 **git config** 值中取替换用的姓名/邮箱。
 
 **-a**, **--all**
-> Rewrite all identities found in history (interactive).
+> 改写历史中发现的所有身份（交互式）。
 
 **-t**, **--type** _TYPE_
-> Which identity to rewrite: **author**, **committer**, or **both** (default).
+> 要改写的身份：**author**、**committer** 或 **both**（默认）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git reauthor** rewrites commit history to correct author (and/or committer) information. It updates names and email addresses across all local branches and tags for every commit whose identity matches the supplied old email.
+**git reauthor** 改写提交历史以修正作者（和/或 committer）信息。对于身份与所给旧邮箱匹配的每个提交，它会更新所有本地分支和标签上的姓名与邮箱地址。
 
-The command is useful for fixing incorrect attribution, consolidating identities after email changes, or correcting authorship before publishing a repository. Because it rewrites history and changes every commit SHA in the rewritten range, it should only be used on branches that have not been shared.
+该命令适合修正错误的归属、在更换邮箱后合并多个身份，或在发布仓库之前修正作者信息。由于它会改写历史并改变改写范围内每个提交的 SHA，因此只应用于尚未共享的分支。
 
 # CAVEATS
 
-Part of git-extras package. **Rewrites history.** Don't use on shared branches. All commit hashes change.
+属于 git-extras 软件包。**会改写历史。**不要在共享分支上使用。所有提交哈希都会改变。
 
 # HISTORY
 
-git reauthor is part of **git-extras**, providing a convenient wrapper for the common task of fixing author information.
+git reauthor 是 **git-extras** 的一部分，为修正作者信息这一常见任务提供了便捷封装。
 
 # INSTALL
 

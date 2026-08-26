@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage command aliases for GitLab CLI
+管理 GitLab CLI 的命令别名
 
 # TLDR
 
-**List aliases**
+**列出别名**
 
 ```glab alias list```
 
-**Set alias**
+**设置别名**
 
 ```glab alias set [name] "[command]"```
 
-**Delete alias**
+**删除别名**
 
 ```glab alias delete [name]```
 
-**Set an alias that expands through a shell**
+设置一个通过 shell 展开的别名
 
 ```glab alias set [name] --shell "[command]"```
 
@@ -27,24 +27,24 @@ Manage command aliases for GitLab CLI
 # SUBCOMMANDS
 
 **list**
-> List aliases.
+> 列出别名。
 
 **set** _name_ _expansion_
-> Create an alias for a glab command, or for an external command with **--shell**.
+> 为 glab 命令创建别名，或通过 **--shell** 为外部命令创建别名。
 
 **delete** _name_
-> Remove an alias.
+> 移除一个别名。
 
 # PARAMETERS
 
 **-s**, **--shell**
-> Interpret the alias expansion as a shell command instead of a glab command, allowing pipes (`|`) and redirects (`>`). Use `$1`, `$2`, ... to reference passed arguments and `$@` for all of them.
+> 将别名展开内容解释为 shell 命令而非 glab 命令，允许使用管道（`|`）和重定向（`>`）。用 `$1`、`$2`、... 引用传入的参数，`$@` 表示所有参数。
 
 # DESCRIPTION
 
-**glab alias** manages command aliases for the GitLab CLI. It allows creating shortcuts for frequently used glab commands, making common workflows faster to execute.
+**glab alias** 管理 GitLab CLI 的命令别名。它可以为常用的 glab 命令创建快捷方式，让常见工作流程执行得更快。
 
-Aliases are stored in the glab configuration file and can reference any valid glab command with arguments, or, with **--shell**, an arbitrary shell command.
+别名存储在 glab 配置文件中，可以引用任何带参数的有效 glab 命令，或者在 **--shell** 下引用任意 shell 命令。
 
 # SEE ALSO
 

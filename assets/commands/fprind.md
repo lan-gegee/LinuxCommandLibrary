@@ -1,22 +1,22 @@
 # TAGLINE
 
-fingerprint reader daemon
+指纹读取器守护进程
 
 # TLDR
 
-**Start fingerprint daemon**
+**启动指纹守护进程**
 
 ```fprind```
 
-**Run in foreground**
+**在前台运行**
 
 ```fprind -f```
 
-**Debug mode**
+**调试模式**
 
 ```fprind -d```
 
-**Specify device**
+**指定设备**
 
 ```fprind --device [/dev/bus/usb/001/002]```
 
@@ -27,32 +27,32 @@ fingerprint reader daemon
 # PARAMETERS
 
 **-f**, **--foreground**
-> Run in foreground.
+> 在前台运行。
 
 **-d**, **--debug**
-> Enable debug output.
+> 启用调试输出。
 
 **--device** _PATH_
-> Fingerprint reader device.
+> 指纹读取器设备。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fprind** (fingerprint daemon) manages fingerprint reader devices for biometric authentication. It communicates with fingerprint hardware and provides enrollment and verification services.
+**fprind**（fingerprint daemon，指纹守护进程）管理用于生物识别认证的指纹读取器设备。它与指纹硬件通信，并提供录入和验证服务。
 
-The daemon interfaces with PAM for system authentication, allowing fingerprint login and sudo verification. It maintains enrolled fingerprint templates securely.
+该守护进程通过 PAM 接入系统认证，支持指纹登录和 sudo 验证。它会安全地保存已录入的指纹模板。
 
-fprind supports various USB fingerprint readers through libfprint.
+fprind 通过 libfprint 支持多种 USB 指纹读取器。
 
 # CAVEATS
 
-Requires supported hardware. Not all readers have Linux drivers. Security depends on implementation quality.
+需要受支持的硬件。并非所有读取器都有 Linux 驱动。安全性取决于具体实现的质量。
 
 # HISTORY
 
-fprind works with **libfprint** and fprintd to provide fingerprint authentication on Linux. The ecosystem enables biometric login across various Linux distributions.
+fprind 与 **libfprint** 及 fprintd 协同工作，为 Linux 提供指纹认证。这一生态让多种 Linux 发行版都能使用生物识别登录。
 
 # SEE ALSO
 

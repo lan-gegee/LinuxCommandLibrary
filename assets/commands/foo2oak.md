@@ -1,22 +1,22 @@
 # TAGLINE
 
-PBM to OAKT converter for Oak Technology printers
+面向 Oak Technology 打印机的 PBM 转 OAKT 转换器
 
 # TLDR
 
-**Convert PBM to** OAKT format
+**将 PBM 转换为** OAKT 格式
 
 ```foo2oak [options] < [input.pbm] > [output.prn]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2oak -r [600] < [input.pbm] > [output.prn]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2oak -p [letter] < [input.pbm] > [output.prn]```
 
-**Color mode**
+**彩色模式**
 
 ```foo2oak -c < [input.ppm] > [output.prn]```
 
@@ -27,41 +27,41 @@ PBM to OAKT converter for Oak Technology printers
 # PARAMETERS
 
 **-r** _DPI_
-> Resolution.
+> 分辨率。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-c**
-> Color mode.
+> 彩色模式。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-d** _DUPLEX_
-> Duplex mode.
+> 双面打印模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2oak** converts PBM/PPM images to OAKT protocol for certain HP and Kyocera printers. It encodes raster data for printers using Oak Technology chips.
+**foo2oak** 将 PBM/PPM 图像转换为某些 HP 和 Kyocera 打印机所需的 OAKT 协议。它为使用 Oak Technology 芯片的打印机编码栅格数据。
 
-The tool manages the proprietary OAKT encoding required by these printers, handling page setup and color conversion. It functions as a CUPS filter backend.
+该工具处理这些打印机所需的专有 OAKT 编码，负责页面设置和色彩转换。它作为 CUPS 过滤器后端工作。
 
-foo2oak supports printers like HP LaserJet 1000 and similar models using Oak Technology controllers.
+foo2oak 支持 HP LaserJet 1000 及其他使用 Oak Technology 控制器的类似机型。
 
 # CAVEATS
 
-Only for printers with Oak Technology chipsets. Printer model support varies. Not all features available.
+仅适用于配备 Oak Technology 芯片组的打印机。支持的打印机型号各有差异。并非所有特性都可用。
 
 # HISTORY
 
-foo2oak is part of **foo2zjs**, supporting printers using Oak Technology's OAKT protocol through reverse-engineered drivers.
+foo2oak 是 **foo2zjs** 的一部分，通过逆向工程驱动支持使用 Oak Technology 的 OAKT 协议的打印机。
 
 # INSTALL
 

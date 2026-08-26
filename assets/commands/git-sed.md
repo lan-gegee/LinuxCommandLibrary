@@ -1,22 +1,22 @@
 # TAGLINE
 
-Find and replace across tracked files
+在已跟踪的文件中查找并替换
 
 # TLDR
 
-**Find and replace in tracked files**
+**在已跟踪文件中查找并替换**
 
 ```git sed "[old]" "[new]"```
 
-**Replace with sed flags** (e.g. case-insensitive)
+**带 sed 标志替换**（例如忽略大小写）
 
 ```git sed -f [i] "[old]" "[new]"```
 
-**Limit to a path**
+**限定某个路径**
 
 ```git sed "[old]" "[new]" -- [path/]```
 
-**Replace and commit** the result
+**替换后提交**结果
 
 ```git sed -c "[old]" "[new]"```
 
@@ -27,23 +27,23 @@ Find and replace across tracked files
 # PARAMETERS
 
 _SEARCH_
-> Pattern to find.
+> 要查找的模式。
 
 _REPLACEMENT_
-> Text to substitute in.
+> 要替换进去的文本。
 
 **-f**, **--flags** _flags_
-> sed substitution flags to append (e.g. `g`, `i`); may also be given as a trailing positional argument.
+> 要附加的 sed 替换标志（如 `g`、`i`）；也可以作为末尾的位置参数给出。
 
 **-c**, **--commit**
-> Commit the change afterward; fails if the working tree isn't already clean.
+> 之后提交该改动；如果工作树原本不干净则会失败。
 
 **--** _pathspec_
-> Limit the replacement to matching files/paths.
+> 将替换范围限定在匹配的文件/路径。
 
 # DESCRIPTION
 
-**git sed** runs `git grep` to find matching files, then pipes them through `sed -i` to replace `search` with `replacement`, limiting changes to files tracked by Git so untracked or ignored files are never touched. Part of git-extras, it saves the separate `grep | xargs sed` pipeline for repository-wide renames.
+**git sed** 先运行 `git grep` 找出匹配的文件，再通过管道交给 `sed -i` 把 `search` 替换为 `replacement`，改动范围仅限于 Git 跟踪的文件，因此绝不会触碰未跟踪或被忽略的文件。它属于 git-extras，为全仓库范围的重命名省去了单独编写 `grep | xargs sed` 管道的麻烦。
 
 # INSTALL
 

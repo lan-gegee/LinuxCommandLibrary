@@ -1,22 +1,22 @@
 # TAGLINE
 
-manage TeX formats and Metafont bases for the current user
+为当前用户管理 TeX 格式和 Metafont 基础
 
 # TLDR
 
-**Rebuild all** user-local formats
+**重建全部**用户本地格式
 
 ```fmtutil-user --all```
 
-**Create missing** user formats
+**创建缺失的**用户格式
 
 ```fmtutil-user --missing```
 
-**Rebuild** a single format under the user tree
+在用户树中**重建单个**格式
 
 ```fmtutil-user --byfmt pdflatex```
 
-**List** user-visible format configuration
+**列出**用户可见的格式配置
 
 ```fmtutil-user --listcfg```
 
@@ -26,57 +26,57 @@ manage TeX formats and Metafont bases for the current user
 
 # DESCRIPTION
 
-**fmtutil-user** is the per-user form of **fmtutil**. It writes format files under TEXMFVAR (for example **~/.texliveYYYY/texmf-var**) and can read additional config from TEXMFCONFIG / TEXMFHOME. It is equivalent to **fmtutil --user**.
+**fmtutil-user** 是 **fmtutil** 的单用户形式。它将格式文件写入 TEXMFVAR（例如 **~/.texliveYYYY/texmf-var**），并可以从 TEXMFCONFIG / TEXMFHOME 读取额外配置。它等价于 **fmtutil --user**。
 
-User mode is only appropriate when formats must be private to one account (for example experimental engines under TEXMFHOME). For a normal single- or multi-user machine, **fmtutil-sys** is strongly preferred.
+只有当格式需要对某个账户私有（例如 TEXMFHOME 下的实验性引擎）时，用户模式才合适。对于普通单用户或多用户机器，强烈建议使用 **fmtutil-sys**。
 
-Exactly one command is required. Options match **fmtutil** / **fmtutil-sys**.
+必须且只能给出一个命令。选项与 **fmtutil** / **fmtutil-sys** 相同。
 
 # PARAMETERS
 
 **--all**
-> Recreate all format files in the user tree
+> 在用户树中重新创建所有格式文件
 
 **--missing**
-> Create all missing format files
+> 创建所有缺失的格式文件
 
 **--byfmt** _FORMAT_
-> (Re)create format FORMAT
+> （重新）创建格式 FORMAT
 
 **--byengine** _ENGINE_
-> (Re)create formats built with ENGINE
+> （重新）创建用 ENGINE 构建的格式
 
 **--refresh**
-> Recreate only existing format files
+> 仅重新创建已存在的格式文件
 
 **--listcfg**
-> List format configurations
+> 列出格式配置
 
 **--enablefmt** _FORMAT_[/_ENGINE_]
-> Enable FORMAT
+> 启用 FORMAT
 
 **--disablefmt** _FORMAT_[/_ENGINE_]
-> Disable FORMAT
+> 禁用 FORMAT
 
 **--cnffile** _FILE_
-> Read alternate **fmtutil.cnf**
+> 读取替代的 **fmtutil.cnf**
 
 **--dry-run**, **-n**
-> Do not actually build formats
+> 不实际构建格式
 
 **--quiet**
-> Be silent
+> 静默模式
 
 **--version**, **--help**
-> Show version or help and exit
+> 显示版本或帮助并退出
 
 # CAVEATS
 
-Running **fmtutil-user** once causes user-tree formats to **override** system formats for that account forever after. Later **fmtutil-sys** or package updates will not be visible until you remove the generated files under TEXMFVAR/web2c (after backing them up) or re-run **fmtutil-user** whenever the system formats change. Prefer **fmtutil-sys** unless you understand this trade-off.
+运行一次 **fmtutil-user** 之后，该账户的用户树格式将永远**覆盖**系统格式。此后系统格式的 **fmtutil-sys** 或软件包更新都不会生效，除非你（备份后）删除 TEXMFVAR/web2c 下生成的文件，或在系统格式变化时重新运行 **fmtutil-user**。除非理解这一取舍，否则请优先使用 **fmtutil-sys**。
 
 # HISTORY
 
-Introduced as an explicit counterpart to **fmtutil-sys** in TeX Live 2017 so bare **fmtutil** would no longer silently default to ambiguous tree selection.
+TeX Live 2017 中引入，作为 **fmtutil-sys** 的显式对应命令，使裸调用的 **fmtutil** 不再默认进行有歧义的树选择。
 
 # INSTALL
 

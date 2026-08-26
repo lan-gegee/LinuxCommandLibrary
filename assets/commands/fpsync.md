@@ -1,26 +1,26 @@
 # TAGLINE
 
-parallel rsync synchronization tool
+并行 rsync 同步工具
 
 # TLDR
 
-**Sync directories**
+**同步目录**
 
 ```fpsync [source/] [destination/]```
 
-**Set number of** jobs
+**设置任务数量**
 
 ```fpsync -n [4] [source/] [destination/]```
 
-**Set partition size**
+**设置分区大小**
 
 ```fpsync -f [1000] [source/] [destination/]```
 
-**Verbose output**
+**详细输出**
 
 ```fpsync -v [source/] [destination/]```
 
-**Resume sync**
+**恢复同步**
 
 ```fpsync -r [work_dir] [source/] [destination/]```
 
@@ -31,71 +31,71 @@ parallel rsync synchronization tool
 # PARAMETERS
 
 _SOURCE_
-> Source directory.
+> 源目录。
 
 _DESTINATION_
-> Destination directory.
+> 目标目录。
 
 **-n** _JOBS_
-> Number of concurrent sync jobs (default 2).
+> 并发同步任务数（默认为 2）。
 
 **-f** _FILES_
-> Maximum number of files per partition (default 2000).
+> 每个分区的最大文件数（默认为 2000）。
 
 **-s** _SIZE_
-> Maximum partition size in bytes (default 4096×1024).
+> 分区最大大小（字节，默认为 4096×1024）。
 
 **-v**
-> Verbose output (repeat for more verbosity).
+> 详细输出（重复使用可输出更多信息）。
 
 **-r** _DIR_
-> Resume a previous run from the given work directory.
+> 从给定的工作目录恢复上一次未完成的运行。
 
 **-w** _DIR_
-> Work directory to store partition and log files.
+> 用于存放分区文件和日志文件的工作目录。
 
 **-t** _DIR_
-> Temporary directory.
+> 临时目录。
 
 **-o** _OPTS_
-> Extra options passed to the underlying sync tool (e.g. rsync).
+> 传给底层同步工具（如 rsync）的额外选项。
 
 **-O** _OPTS_
-> Extra options passed to **fpart**.
+> 传给 **fpart** 的额外选项。
 
 **-m** _TOOL_
-> Sync tool to use: rsync, cpio, or tar.
+> 要使用的同步工具：rsync、cpio 或 tar。
 
 **-d** _DIR_
-> Shared work directory for distributed mode (sudo/ssh).
+> 分布式模式（sudo/ssh）使用的共享工作目录。
 
 **-q**
-> Queue mode: produce partitions without syncing.
+> 队列模式：只生成分区而不执行同步。
 
 **-l**
-> Use **lstat** instead of **stat** while partitioning.
+> 划分分区时使用 **lstat** 而非 **stat**。
 
 **-h**
-> Display help information.
+> 显示帮助信息。
 
 **-V**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**fpsync** performs parallel rsync synchronization by partitioning source files and running multiple rsync processes. It achieves higher throughput than single rsync for large transfers.
+**fpsync** 通过对源文件划分分区并运行多个 rsync 进程来执行并行 rsync 同步。对于大规模传输，它能获得比单个 rsync 更高的吞吐量。
 
-The tool divides the source into chunks and launches parallel rsync jobs. Resume capability allows continuing interrupted transfers. It's part of the fpart project.
+该工具将源内容切分成多个块，并启动并行 rsync 任务。断点续传能力支持从中断处继续传输。它是 fpart 项目的一部分。
 
-fpsync optimizes large file transfers by maximizing bandwidth utilization through parallelism.
+fpsync 通过并行化最大限度地利用带宽，从而优化大文件传输。
 
 # CAVEATS
 
-Requires rsync installed. Parallel transfers may overwhelm network or disk. Small files may not benefit.
+需要已安装 rsync。并行传输可能使网络或磁盘不堪重负。小文件可能无法从中受益。
 
 # HISTORY
 
-fpsync is part of **fpart**, a file partitioning tool for parallel operations. It addresses rsync's single-threaded limitation for large-scale file synchronization.
+fpsync 是 **fpart** 的一部分，fpart 是一个面向并行操作的文件划分工具。它解决了 rsync 在大规模文件同步中单线程的局限。
 
 # INSTALL
 

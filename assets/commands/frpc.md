@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast reverse proxy client
+高速反向代理客户端
 
 # TLDR
 
-**Start frp client**
+**启动 frp 客户端**
 
 ```frpc -c [frpc.ini]```
 
-**Verify configuration**
+**校验配置**
 
 ```frpc verify -c [frpc.ini]```
 
-**Reload configuration**
+**重载配置**
 
 ```frpc reload -c [frpc.ini]```
 
-**Show status**
+**显示状态**
 
 ```frpc status -c [frpc.ini]```
 
-**Show version**
+**显示版本**
 
 ```frpc -v```
 
@@ -31,46 +31,46 @@ fast reverse proxy client
 # PARAMETERS
 
 _COMMAND_
-> Operation: verify, reload, status.
+> 操作：verify、reload、status。
 
 **-c** _FILE_
-> Configuration file path.
+> 配置文件路径。
 
 **verify**
-> Verify configuration file.
+> 校验配置文件。
 
 **reload**
-> Reload configuration without restart.
+> 不重启进程即重载配置。
 
 **status**
-> Show proxy status.
+> 显示代理状态。
 
 **-v**, **--version**
-> Show version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **frpc.ini**
-> Client configuration file specifying server address, authentication token, and proxy definitions for each service to expose through the tunnel.
+> 客户端配置文件，指定服务器地址、认证令牌，以及每个要通过隧道暴露的服务的代理定义。
 
 # DESCRIPTION
 
-**frpc** is the client component of frp (fast reverse proxy). It runs on internal networks and establishes connections to the frps server, creating tunnels for exposed services.
+**frpc** 是 frp（fast reverse proxy）的客户端组件。它运行在内网中，与 frps 服务器建立连接，为要暴露的服务创建隧道。
 
-Configuration defines proxies for TCP, UDP, HTTP, and HTTPS services. The client maintains persistent connections and handles reconnection. Multiple services can be exposed through one client.
+配置可为 TCP、UDP、HTTP 和 HTTPS 服务定义代理。客户端维持持久连接并处理重连。一个客户端可以同时暴露多个服务。
 
-frpc enables accessing internal services through a public frps server.
+frpc 让你可以通过公网上的 frps 服务器访问内部服务。
 
 # CAVEATS
 
-Requires frps server running. Configuration must match server. Network connectivity required.
+需要有正在运行的 frps 服务器。配置必须与服务端匹配。需要网络连通性。
 
 # HISTORY
 
-frpc is part of **frp**, an open source reverse proxy project. It provides the client-side functionality for creating tunnels through NAT and firewalls.
+frpc 是开源反向代理项目 **frp** 的一部分。它提供穿过 NAT 与防火墙建立隧道所需的客户端功能。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-rewrite the author and committer of a commit
+改写某个提交的作者和提交者
 
 # TLDR
 
-**Reassign** a commit to another author
+将某个提交**重新归属**给另一位作者
 
 ```git blame-someone-else "[Author Name] <email@example.com>" [commit]```
 
-**Reassign** the most recent commit
+**重新归属**最近一次提交
 
 ```git blame-someone-else "[Name] <email@example.com>" HEAD```
 
-**Reassign** a commit by hash
+按哈希**重新归属**某个提交
 
 ```git blame-someone-else "[Name] <email@example.com>" [abc123]```
 
@@ -23,34 +23,34 @@ rewrite the author and committer of a commit
 # PARAMETERS
 
 _author_
-> New identity, in **"Name &lt;email&gt;"** format.
+> 新的身份，格式为 **"Name &lt;email&gt;"**。
 
 _commit_
-> The commit to rewrite.
+> 要改写的提交。
 
 # DESCRIPTION
 
-**git blame-someone-else** rewrites a commit so that it appears to have been made by someone else. It is a standalone script by **Jay Phelps**, written as a joke, and is not part of git-extras or core git.
+**git blame-someone-else** 改写一个提交，使它看起来像是由别人做出的。它是 **Jay Phelps** 编写的独立脚本，本意是个玩笑，不属于 git-extras 或核心 git。
 
-Mechanically it uses **git filter-branch** with **GIT_AUTHOR_NAME**, **GIT_AUTHOR_EMAIL**, **GIT_COMMITTER_NAME** and **GIT_COMMITTER_EMAIL** overridden for the target commit, then rewrites every commit from that point forward. Both the author and the committer are changed, not just the author.
+机制上，它使用 **git filter-branch** 并为该目标提交覆盖 **GIT_AUTHOR_NAME**、**GIT_AUTHOR_EMAIL**、**GIT_COMMITTER_NAME** 和 **GIT_COMMITTER_EMAIL**，然后重写自那之后的每个提交。作者和提交者都会被改变，而不只是作者。
 
-The one defensible use is repairing your own attribution: commits made with a misconfigured **user.email**, or from a shared machine, where the recorded identity is simply wrong.
+唯一说得过去的用途是修复你自己的归属信息：由于 **user.email** 配置错误或在共用机器上做出的提交，其记录的身份完全是错的。
 
 # CAVEATS
 
-This is a joke tool, and its author says so explicitly, along with a request not to run it against a production repository and complain if it eats everything. Treat it accordingly.
+这是一个玩笑工具，作者本人明确如此声明，并请求不要对生产仓库运行它然后在它毁掉一切时抱怨。请相应对待。
 
-It **rewrites history**. Every commit from the target onwards gets a new hash, so anyone who has already pulled the old commits will have a diverging history, and publishing the result needs a force push. Never run it on a shared branch.
+它会**重写历史**。从目标提交开始的每个提交都会得到新哈希，因此任何已经拉取过旧提交的人都会面临历史分叉，发布结果还需要强制推送。绝不要在共享分支上运行。
 
-It changes the **committer** as well as the author, so it does not merely correct attribution, it erases the record of who actually made the commit.
+它会同时更改**提交者**和作者，因此它不只是纠正归属，还抹掉了究竟是谁做出这个提交的记录。
 
-Attributing work to a real person who did not write it is dishonest, and on a repository you do not own it may violate the project's contribution terms. Signed commits do not survive: the rewrite invalidates any GPG signature, which is one of the few technical defences against exactly this.
+把工作归功于并未编写它的真实人物是不诚实的，在你不拥有的仓库上这样做还可能违反项目的贡献条款。签名提交也无法幸存：重写会使所有 GPG 签名失效，而这正是抵御此类行为的少数技术手段之一。
 
-Correcting your own identity does not need this tool. **git commit --amend --author="Name <email>"** fixes the most recent commit, and **git rebase -i** with **--reset-author** handles older ones with less collateral damage.
+修正你自己的身份并不需要这个工具。**git commit --amend --author="Name <email>"** 可修复最近一次提交，配合 **--reset-author** 的 **git rebase -i** 能以更小的附带损害处理更早的提交。
 
 # HISTORY
 
-**git blame-someone-else** was written by **Jay Phelps** in **2016** as a joke. Its README quotes an endorsement from **Linus Torvalds**, which is itself a fabricated commit produced by the tool to demonstrate that it works.
+**git blame-someone-else** 由 **Jay Phelps** 于 **2016 年**作为玩笑编写。其 README 引用了一段来自 **Linus Torvalds** 的"背书"，而那本身就是用该工具伪造的提交，用以演示它确实有效。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Undo recent commits while preserving changes
+撤销最近的提交同时保留改动
 
 # TLDR
 
-**Undo last commit**
+**撤销最近一次提交**
 
 ```git undo```
 
-**Undo N commits**
+**撤销 N 个提交**
 
 ```git undo [3]```
 
-**Undo and keep changes staged**
+**撤销并将改动保留在暂存区**
 
 ```git undo --soft```
 
-**Undo and discard changes**
+**撤销并丢弃改动**
 
 ```git undo --hard```
 
@@ -27,26 +27,26 @@ Undo recent commits while preserving changes
 # PARAMETERS
 
 _COUNT_
-> Number of commits to undo (default: 1).
+> 要撤销的提交数量（默认：1）。
 
 **--soft**
-> Keep changes staged.
+> 将改动保留在暂存区。
 
 **--hard**
-> Discard all changes.
+> 丢弃所有改动。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git undo** removes the last commit(s) while keeping changes in the working directory (unstaged). It is a convenient wrapper around `git reset` that defaults to a mixed reset, preserving all work.
+**git undo** 移除最近的提交，同时把改动保留在工作目录中（未暂存状态）。它是 `git reset` 的便捷封装，默认执行混合重置，不会丢失任何工作成果。
 
-Without arguments, it undoes the most recent commit. Pass a number to undo multiple commits. Use **--soft** to keep changes staged, or **--hard** to discard them entirely.
+不带参数时会撤销最近一次提交；传入数字可撤销多个提交。用 **--soft** 可让改动保留在暂存区，用 **--hard** 则将其完全丢弃。
 
 # CAVEATS
 
-Part of the **git-extras** package and must be installed separately. Only affects local commits that have not been pushed. **--hard** discards changes permanently and cannot be easily recovered.
+属于 **git-extras** 软件包，需单独安装。只影响尚未推送的本地提交。**--hard** 会永久丢弃改动，难以恢复。
 
 # INSTALL
 

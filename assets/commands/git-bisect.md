@@ -1,42 +1,42 @@
 # TAGLINE
 
-use binary search to find the commit that introduced a bug
+用二分查找定位引入 bug 的提交
 
 # TLDR
 
-**Start** a bisect session
+**开始**一次 bisect 会话
 
 ```git bisect start```
 
-**Start** with the bad and good commits given up front
+预先给出坏提交和好提交来**开始**
 
 ```git bisect start [HEAD] [v1.0]```
 
-**Mark** the current commit as broken
+将当前提交**标记**为有问题
 
 ```git bisect bad```
 
-**Mark** a commit as working
+将某个提交**标记**为正常
 
 ```git bisect good [commit]```
 
-**Skip** a commit that cannot be tested
+**跳过**无法测试的提交
 
 ```git bisect skip```
 
-**Automate** the search with a test script
+用测试脚本**自动化**搜索
 
 ```git bisect run [./test.sh]```
 
-**Automate** with an inline test command
+用内联测试命令**自动化**
 
 ```git bisect run [make test]```
 
-**Show** what has been marked so far
+**显示**目前为止的标记记录
 
 ```git bisect log```
 
-**End** the session and return to where you started
+**结束**会话并回到起点
 
 ```git bisect reset```
 
@@ -47,71 +47,71 @@ use binary search to find the commit that introduced a bug
 # PARAMETERS
 
 **start** [_bad_ [_good_...]] [**--**] [_paths_...]
-> Begin a session. Optionally give the bad and good commits immediately, and limit the search to _paths_.
+> 开始一次会话。可选地立即给出坏提交和好提交，并把搜索限制在 _paths_ 内。
 
 **bad** [_commit_]
-> Mark a commit as containing the bug. Defaults to the current commit.
+> 标记一个提交包含 bug。默认为当前提交。
 
 **good** [_commit_...]
-> Mark one or more commits as free of the bug.
+> 将一个或多个提交标记为不含 bug。
 
 **new** [_commit_], **old** [_commit_]
-> Aliases for **bad** and **good**, for hunting any change in behaviour rather than a bug.
+> **bad** 和 **good** 的别名，用于追查任何行为变化而不只是 bug。
 
 **terms** **--term-old**=_term_ **--term-new**=_term_
-> Use your own words, e.g. **--term-old=fast --term-new=slow**.
+> 使用你自己的措辞，例如 **--term-old=fast --term-new=slow**。
 
 **skip** [_commit_...]
-> Skip commits that cannot be tested, e.g. ones that do not build.
+> 跳过无法测试的提交，例如无法构建的那些。
 
 **run** _cmd_ [_args_...]
-> Run _cmd_ at each step and mark automatically from its exit status.
+> 在每一步运行 _cmd_，并根据其退出状态自动标记。
 
 **reset** [_commit_]
-> End the session and return to the original branch, or to _commit_.
+> 结束会话并回到原来的分支，或回到 _commit_。
 
 **log**
-> Print the log of what has been marked.
+> 打印已做标记的日志。
 
 **replay** _logfile_
-> Replay a bisect log, resuming a previous session.
+> 重放一份 bisect 日志，恢复之前的会话。
 
 **visualize**, **view**
-> Show the remaining candidate commits in gitk or **git log**.
+> 在 gitk 或 **git log** 中显示剩余的候选提交。
 
 **--first-parent**
-> Follow only the first parent of merge commits.
+> 只跟随合并提交的第一父提交。
 
 **--no-checkout**
-> Do not check out the tree; just update **BISECT_HEAD**. Useful when checkout is expensive.
+> 不检出树；只更新 **BISECT_HEAD**。当检出代价高昂时有用。
 
 # DESCRIPTION
 
-**git bisect** finds the commit that introduced a problem by binary search. You tell it one commit where the bug exists and one where it does not; it checks out a commit in the middle, you test and report the result, and it halves the remaining range each time. The search is logarithmic, so roughly **10** tests suffice for **1000** commits and **20** for a million.
+**git bisect** 通过二分查找定位引入问题的提交。你告诉它一个存在 bug 的提交和一个不存在的提交，它检出中间的那个，你测试并报告结果，然后它把剩余范围对半缩小。搜索是对数级的：约 **10** 次测试足以覆盖 **1000** 个提交，一百万个也只需 **20** 次。
 
-The **good**/**bad** vocabulary assumes you are hunting a bug, but the mechanism is general: any property that changed at some point can be bisected. **old**/**new**, and the custom **--term-old**/**--term-new**, exist for hunting a performance regression, a behaviour change, or even the commit that fixed something.
+**good**/**bad** 这套词汇假定你在追查 bug，但机制是通用的：任何在某个时点发生变化的属性都可以被二分。**old**/**new** 以及自定义的 **--term-old**/**--term-new** 就是为追查性能退化、行为变化甚至修复了某个问题的提交而存在的。
 
-**git bisect run** is where the command earns its reputation. Given a script that exits **0** for good and non-zero for bad, git drives the whole search unattended. The special exit code **125** means "cannot test this commit", producing the same effect as **skip**, and any exit code between **126** and **255** aborts the session. Because **run** takes a command line rather than only a file, **git bisect run make test** works directly.
+**git bisect run** 是这个命令赢得声誉的地方。给定一个以 **0** 表示好、非零表示坏的脚本，git 就能无人值守地驱动整个搜索。特殊的退出码 **125** 表示"无法测试此提交"，效果等同 **skip**；**126** 到 **255** 之间的任何退出码都会中止会话。由于 **run** 接受的是命令行而非只能是文件，**git bisect run make test** 可以直接使用。
 
-When the search finishes, git reports the first bad commit and leaves you at it. **git bisect reset** returns you to where you were.
+搜索结束时，git 会报告第一个坏提交并把你停在那里。**git bisect reset** 让你回到原处。
 
 # CAVEATS
 
-Exit code **1** means bad, but so do most failures, including a compile error or a missing dependency. A test script that cannot distinguish "the bug is present" from "this commit does not build" will blame the wrong commit. Return **125** for untestable commits.
+退出码 **1** 表示坏，但大多数失败也是如此，包括编译错误或依赖缺失。一个无法区分"bug 存在"和"此提交无法构建"的测试脚本会冤枉错误的提交。对不可测试的提交请返回 **125**。
 
-Avoid exit code **255** in a test script: it aborts the bisect. **grep** returns **1** when it finds nothing, which is convenient, but a script ending in a bare **grep** inverts the meaning you probably intended, so be explicit about the exit status.
+避免在测试脚本中使用退出码 **255**：它会中止 bisect。**grep** 找不到内容时返回 **1**，这很方便，但以裸 **grep** 结尾的脚本会反转你可能想要的意思，所以请明确处理退出状态。
 
-Bisect checks out arbitrary historical commits, so a dirty working tree can block the checkout or silently contaminate the test. Commit or stash first. Build artifacts and generated files also survive between checkouts and can mask the real result: clean them in the test script.
+Bisect 会检出任意的历史提交，因此脏的工作树可能阻碍检出或悄悄污染测试结果。先提交或储藏（stash）。构建产物和生成文件也会跨检出残留，可能掩盖真实结果：请在测试脚本中清理它们。
 
-**skip** does not narrow the range as effectively as a real answer, and skipping a whole region can leave git unable to identify a single culprit, reporting a range of candidates instead.
+**skip** 缩小范围的效果不如真实的回答，跳过整片区域可能让 git 无法锁定单一的罪魁祸首，转而报告一段候选范围。
 
-The result is only the first commit where your test fails, which is not always the commit that caused the problem. A bug can be introduced latent and only exposed later by an unrelated change.
+结果只是你的测试第一次失败的提交，未必就是造成问题的提交。bug 可能以潜伏形式引入，之后才被无关更改暴露出来。
 
-If history contains merges, the first bad commit may be a merge, and the actual change lives on the merged branch. **--first-parent** limits the search to the mainline, which is often what you want on a repository that merges feature branches.
+如果历史中包含合并，第一个坏提交可能是合并本身，而实际更改在被合并的分支上。**--first-parent** 把搜索限制在主线上，对于采用特性分支合并的仓库来说这往往正是你想要的。
 
 # HISTORY
 
-**git bisect** was added by **Linus Torvalds** in **2005**, in git's first year, initially as a shell script. **git bisect run** followed shortly after, contributed by **Christian Couder**, who also added the **old**/**new** terminology in git **2.7** (**2015**) for bisecting changes that are not bugs. The implementation was gradually rewritten in C over subsequent releases.
+**git bisect** 由 **Linus Torvalds** 于 **2005 年**（git 诞生的第一年）加入，最初是一个 shell 脚本。**git bisect run** 随后不久由 **Christian Couder** 贡献，他还在 git **2.7**（**2015 年**）中加入了 **old**/**new** 术语，用于对非 bug 类的变化进行二分。实现则在后续版本中被逐步重写为 C。
 
 # INSTALL
 

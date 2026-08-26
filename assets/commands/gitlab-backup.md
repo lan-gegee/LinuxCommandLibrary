@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create and restore GitLab instance backups
+创建和恢复 GitLab 实例备份
 
 # TLDR
 
-**Create a full GitLab backup**
+**创建完整的 GitLab 备份**
 
 ```sudo gitlab-backup create```
 
-**Create a backup, skipping selected components**
+**创建备份并跳过选定组件**
 
 ```sudo gitlab-backup create SKIP=db,uploads,registry```
 
-**Create an incremental backup**
+**创建增量备份**
 
 ```sudo gitlab-backup create INCREMENTAL=yes PREVIOUS_BACKUP=[backup_id]```
 
-**Restore from a backup file**
+**从备份文件恢复**
 
 ```sudo gitlab-backup restore BACKUP=[timestamp_version]```
 
-**Restore selected components only**
+只**恢复选定的组件**
 
 ```sudo gitlab-backup restore BACKUP=[timestamp] SKIP=registry,uploads```
 
@@ -31,47 +31,47 @@ Create and restore GitLab instance backups
 # SUBCOMMANDS
 
 **create**
-> Create a backup archive of the GitLab instance.
+> 创建 GitLab 实例的备份归档。
 
 **restore**
-> Restore a GitLab instance from a previously created backup.
+> 从先前创建的备份恢复 GitLab 实例。
 
 # PARAMETERS
 
 **SKIP** _components_
-> Comma-separated list of components to omit. Valid values: **db**, **repositories**, **uploads**, **builds**, **artifacts**, **lfs**, **registry**, **pages**, **terraform_state**, **packages**, **ci_secure_files**.
+> 要跳过的组件的逗号分隔列表。有效值：**db**、**repositories**、**uploads**、**builds**、**artifacts**、**lfs**、**registry**、**pages**、**terraform_state**、**packages**、**ci_secure_files**。
 
 **BACKUP** _id_
-> Identifier (timestamp_version) of the backup to restore. Required for **restore**.
+> 要恢复的备份标识符（timestamp_version）。执行 **restore** 时必需。
 
 **STRATEGY** _value_
-> Use **copy** to copy data to a tmp dir before tarring (safer for active sites); default streams directly.
+> 使用 **copy** 可在打包 tar 前先把数据复制到临时目录（对活跃站点更安全）；默认直接流式处理。
 
 **INCREMENTAL** _yes_
-> Create an incremental backup (requires existing PREVIOUS_BACKUP).
+> 创建增量备份（需要已存在的 PREVIOUS_BACKUP）。
 
 **PREVIOUS_BACKUP** _id_
-> Backup ID to base the incremental backup on.
+> 作为增量备份基础的备份 ID。
 
 **GITLAB_BACKUP_MAX_CONCURRENCY** _N_
-> Maximum number of concurrent processes for repository backups.
+> 仓库备份的最大并发进程数。
 
 **GZIP_RSYNCABLE** _yes_
-> Use gzip's --rsyncable mode so backups deduplicate efficiently with rsync.
+> 使用 gzip 的 --rsyncable 模式，使备份能通过 rsync 高效去重。
 
 # DESCRIPTION
 
-**gitlab-backup** creates and restores backups of a GitLab Omnibus or source installation. A backup bundles the database, Git repositories, uploads, CI artifacts, container registry, Pages content, and other components into a single tar archive named **TIMESTAMP_VERSION_gitlab_backup.tar**.
+**gitlab-backup** 用于创建和恢复 GitLab Omnibus 或源码安装的备份。备份将数据库、Git 仓库、上传文件、CI 产物、容器镜像仓库、Pages 内容等组件打包成单个名为 **TIMESTAMP_VERSION_gitlab_backup.tar** 的 tar 归档。
 
-Backups are written to the directory configured by **gitlab_rails['backup_path']** (default **/var/opt/gitlab/backups**). The configuration files (gitlab.rb, secrets.json) are **not** included and must be backed up separately.
+备份写入由 **gitlab_rails['backup_path']** 配置的目录（默认 **/var/opt/gitlab/backups**）。配置文件（gitlab.rb、secrets.json）**不**包含在内，必须单独备份。
 
 # CAVEATS
 
-Run as root (typically via **sudo**). Restore requires the same GitLab major.minor version as the backup. Stop **puma** and **sidekiq** before a restore (**gitlab-ctl stop puma sidekiq**). Configuration files (**/etc/gitlab/gitlab.rb**, **/etc/gitlab/gitlab-secrets.json**) are **not** included in the backup tarball — back them up separately or restore will fail to decrypt secrets.
+需以 root 身份运行（通常通过 **sudo**）。恢复要求 GitLab 的大版本.次版本与备份时相同。恢复前先停止 **puma** 和 **sidekiq**（**gitlab-ctl stop puma sidekiq**）。配置文件（**/etc/gitlab/gitlab.rb**、**/etc/gitlab/gitlab-secrets.json**）**不**包含在备份归档中——必须单独备份，否则恢复时将无法解密密钥。
 
 # HISTORY
 
-**gitlab-backup** is a wrapper around the **gitlab:backup:create** and **gitlab:backup:restore** Rake tasks, introduced in **GitLab 12.2** (August 2019) as the recommended interface for Omnibus installations.
+**gitlab-backup** 是对 **gitlab:backup:create** 和 **gitlab:backup:restore** Rake 任务的封装，于 **GitLab 12.2**（2019 年 8 月）引入，作为 Omnibus 安装的推荐操作界面。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage GitHub repositories from the command line
+在命令行中管理 GitHub 仓库
 
 # TLDR
 
-**Clone a repository**
+**克隆仓库**
 
 ```gh repo clone [owner]/[repo]```
 
-**Create a new repository**
+**创建新仓库**
 
 ```gh repo create [name] --public```
 
-**Fork a repository**
+**复刻（fork）仓库**
 
 ```gh repo fork [owner]/[repo]```
 
-**View repository**
+**查看仓库**
 
 ```gh repo view```
 
-**List your repositories**
+**列出你的仓库**
 
 ```gh repo list```
 
@@ -31,51 +31,51 @@ Manage GitHub repositories from the command line
 # PARAMETERS
 
 **clone** _REPO_
-> Clone a repository locally.
+> 在本地克隆仓库。
 
 **create** _NAME_
-> Create a new repository.
+> 创建新仓库。
 
 **fork** _REPO_
-> Fork a repository.
+> 复刻（fork）仓库。
 
 **view** _REPO_
-> View repository details.
+> 查看仓库详情。
 
 **list**
-> List accessible repositories.
+> 列出可访问的仓库。
 
 **delete** _REPO_
-> Delete a repository.
+> 删除仓库。
 
 **rename** _NEW-NAME_
-> Rename current repository.
+> 重命名当前仓库。
 
 **sync**
-> Sync fork with upstream.
+> 将 fork 与上游同步。
 
 **--public**
-> Make repository public.
+> 将仓库设为公开。
 
 **--private**
-> Make repository private.
+> 将仓库设为私有。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh repo** manages GitHub repositories from the command line. It provides repository creation, cloning, forking, and management without visiting github.com.
+**gh repo** 用于在命令行中管理 GitHub 仓库，无需访问 github.com 即可完成仓库创建、克隆、复刻（fork）和管理。
 
-The command supports both HTTPS and SSH cloning based on configuration. Repository creation includes options for visibility, description, license, and gitignore templates. Forking creates linked copies for contribution workflows.
+该命令可根据配置使用 HTTPS 或 SSH 方式克隆。创建仓库时可设置可见性、描述、许可证和 gitignore 模板等选项。复刻会创建相互关联的副本，便于开展贡献工作流。
 
 # CAVEATS
 
-Delete requires confirmation. Fork operations need network access. Some operations require owner permissions.
+删除操作需要确认。复刻操作需要网络访问。部分操作需要所有者权限。
 
 # HISTORY
 
-gh repo is a core command in the **GitHub CLI**, handling repository operations that were previously only available through the web interface or API.
+gh repo 是 **GitHub CLI** 的核心命令之一，承担了此前只能通过网页界面或 API 进行的仓库操作。
 
 # INSTALL
 

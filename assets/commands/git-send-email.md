@@ -1,22 +1,22 @@
 # TAGLINE
 
-Send patches as emails via SMTP
+通过 SMTP 以邮件形式发送补丁
 
 # TLDR
 
-**Send patches via email**
+**以邮件发送补丁**
 
 ```git send-email [*.patch]```
 
-**Send to specific address**
+**发送到指定地址**
 
 ```git send-email --to=[maintainer@project.org] [patch]```
 
-**Send with cover letter**
+**附带封面信发送**
 
 ```git send-email --cover-letter [*.patch]```
 
-**Dry run**
+**试运行**
 
 ```git send-email --dry-run [patch]```
 
@@ -27,65 +27,65 @@ Send patches as emails via SMTP
 # PARAMETERS
 
 _PATCHES_
-> Patch files to send.
+> 要发送的补丁文件。
 
 **--to** _ADDRESS_
-> Recipient email.
+> 收件人邮箱。
 
 **--cc** _ADDRESS_
-> CC recipient.
+> 抄送收件人。
 
 **--cover-letter**
-> Include cover letter.
+> 包含封面信。
 
 **--dry-run**
-> Show what would be sent.
+> 显示将要发送的内容。
 
 **--annotate**
-> Edit patches before sending.
+> 发送前编辑补丁。
 
 **--smtp-server** _HOST_
-> SMTP server.
+> SMTP 服务器。
 
 **--smtp-encryption** _tls|ssl_
-> Encryption method for the SMTP connection.
+> SMTP 连接的加密方式。
 
 **--suppress-cc** _category_
-> Suppress auto-CC of a category (e.g. self, author, cccmd).
+> 抑制某一类别的自动抄送（如 self、author、cccmd）。
 
 **--compose**
-> Edit an introductory message/cover letter before sending.
+> 发送前编写一段引导信息/封面信。
 
 **--in-reply-to** _MESSAGE-ID_
-> Thread the patches as replies to a given message.
+> 将补丁作为对给定消息的回复进行串联。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git send-email** sends patches as properly formatted emails. It is the standard way to submit patches to projects using email-based workflows, such as the Linux kernel.
+**git send-email** 将补丁作为格式规范的邮件发送。对于采用邮件工作流的项目（如 Linux 内核），这是提交补丁的标准方式。
 
-The command handles SMTP configuration, threading, and patch formatting. It integrates with `git format-patch` output and supports cover letters for patch series.
+该命令负责处理 SMTP 配置、邮件串联和补丁格式化。它与 `git format-patch` 的输出无缝衔接，并支持为补丁系列添加封面信。
 
 # CONFIGURATION
 
 **sendemail.smtpServer**
-> SMTP server hostname or path to sendmail binary, configured via `git config`.
+> SMTP 服务器主机名或 sendmail 可执行文件路径，通过 `git config` 配置。
 
 **sendemail.smtpUser**
-> SMTP username for authentication.
+> 用于身份验证的 SMTP 用户名。
 
 **sendemail.to**
-> Default recipient address.
+> 默认收件人地址。
 
 # CAVEATS
 
-Requires SMTP configuration. Some firewalls block SMTP. Cover letters need manual editing.
+需要配置 SMTP。某些防火墙会拦截 SMTP。封面信需要手动编辑。
 
 # HISTORY
 
-git send-email supports the **email-based patch workflow** used by the Linux kernel and other projects, sending properly formatted patch emails.
+git send-email 支持 Linux 内核及其他项目所使用的**基于邮件的补丁工作流**，负责发送格式规范的补丁邮件。
 
 # INSTALL
 

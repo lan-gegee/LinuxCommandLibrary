@@ -1,34 +1,34 @@
 # TAGLINE
 
-Reset current HEAD to a specified state
+将当前 HEAD 重置到指定状态
 
 # TLDR
 
-**Unstage files**
+**取消暂存文件**
 
 ```git reset [file]```
 
-**Soft reset (keep changes staged)**
+**软重置（保留改动在暂存区）**
 
 ```git reset --soft [commit]```
 
-**Mixed reset (unstage changes)**
+**混合重置（取消暂存改动）**
 
 ```git reset [commit]```
 
-**Hard reset (discard changes)**
+**硬重置（丢弃改动）**
 
 ```git reset --hard [commit]```
 
-**Reset to upstream**
+**重置到上游**
 
 ```git reset --hard @{u}```
 
-**Unstage all files**
+**取消暂存所有文件**
 
 ```git reset HEAD```
 
-**Reset single file to commit**
+**将单个文件重置到某提交**
 
 ```git reset [commit] -- [file]```
 
@@ -39,35 +39,35 @@ Reset current HEAD to a specified state
 # PARAMETERS
 
 **--soft**
-> Keep changes staged.
+> 保留改动在暂存区。
 
 **--mixed**
-> Unstage changes (default).
+> 取消暂存改动（默认）。
 
 **--hard**
-> Discard all changes.
+> 丢弃所有改动。
 
 **--keep**
-> Reset but keep local changes.
+> 重置但保留本地改动。
 
 **--merge**
-> Reset to merge state.
+> 重置到合并状态。
 
 **-p**, **--patch**
-> Interactive reset.
+> 交互式重置。
 
 **--recurse-submodules**
-> Update submodule working trees to match the superproject.
+> 更新子模块工作树以与父项目保持一致。
 
 # DESCRIPTION
 
-**git reset** moves the current HEAD to a specified state. It can unstage files, undo commits, or completely discard changes depending on the mode used.
+**git reset** 将当前 HEAD 移动到指定状态。根据所用的模式，它可以取消暂存文件、撤销提交，或完全丢弃改动。
 
-The three main modes are `--soft` (keeps changes staged), `--mixed` (unstages changes, the default), and `--hard` (discards all changes). When given file paths, it unstages those files without moving HEAD.
+三种主要模式是 `--soft`（保留改动在暂存区）、`--mixed`（取消暂存改动，默认）和 `--hard`（丢弃所有改动）。若给出文件路径，则只取消这些文件的暂存，而不移动 HEAD。
 
 # CAVEATS
 
-Hard reset discards changes permanently. Be careful with --hard on uncommitted work.
+硬重置会永久丢弃改动。对未提交的工作使用 --hard 时务必小心。
 
 # INSTALL
 

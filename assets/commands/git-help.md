@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display documentation for Git commands
+显示 Git 命令的文档
 
 # TLDR
 
-**Get help for command**
+**获取命令的帮助**
 
 ```git help [commit]```
 
-**Open in web browser**
+**在网页浏览器中打开**
 
 ```git help --web [rebase]```
 
-**Show all commands**
+**显示所有命令**
 
 ```git help --all```
 
-**Show guides**
+**显示指南**
 
 ```git help --guides```
 
-**Info format**
+**info 格式**
 
 ```git help -i [log]```
 
@@ -31,48 +31,48 @@ Display documentation for Git commands
 # PARAMETERS
 
 _COMMAND_
-> Git command to get help for.
+> 要获取帮助的 Git 命令。
 
 _GUIDE_
-> Git guide name.
+> Git 指南名称。
 
 **--all**, **-a**
-> List all commands.
+> 列出所有命令。
 
 **--guides**, **-g**
-> List available guides.
+> 列出可用的指南。
 
 **--web**, **-w**
-> Open in browser.
+> 在浏览器中打开。
 
 **--man**, **-m**
-> Use man format (default).
+> 使用 man 格式（默认）。
 
 **--info**, **-i**
-> Use info format.
+> 使用 info 格式。
 
 **--config**, **-c**
-> Print all configuration variable names known to Git.
+> 打印 Git 已知的所有配置变量名。
 
 **--verbose**, **-v**
-> Print a one-line description of each command with **--all**.
+> 与 **--all** 一起使用时，打印每个命令的单行描述。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git help** displays documentation for Git commands and conceptual guides. It opens manual pages by default, with options for web browser or info format display.
+**git help** 显示 Git 命令和概念性指南的文档。默认打开手册页，也可选择在网页浏览器或 info 格式中显示。
 
-The command provides access to both command documentation and conceptual guides covering topics like workflows, attributes, and revision specifications. Git includes extensive built-in documentation accessible through this interface. Running **git** _command_ **--help** is equivalent to **git help** _command_.
+该命令既提供命令文档，也提供涵盖工作流、属性、修订版本规范等主题的概念性指南。Git 内置了丰富的文档，都可以通过这一界面访问。运行 **git** _command_ **--help** 等同于 **git help** _command_。
 
 # CAVEATS
 
-Man pages may need separate installation. Web format requires browser. Some guides may be missing.
+手册页可能需要单独安装。Web 格式需要浏览器。某些指南可能缺失。
 
 # HISTORY
 
-git help is a core **Git** command providing documentation access, replacing direct man page invocation for git commands.
+git help 是提供文档访问的 **Git** 核心命令，取代了直接调用 man 页来查看 git 命令的方式。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Detect secrets and sensitive data in Git repositories
+检测 Git 仓库中的机密信息和敏感数据
 
 # TLDR
 
-**Scan a Git repository's history**
+**扫描 Git 仓库的历史**
 
 ```gitleaks git [path/to/repo]```
 
-**Scan a directory on disk** (no git history)
+**扫描磁盘上的目录**（不含 git 历史）
 
 ```gitleaks dir [path]```
 
-**Scan piped input**
+**扫描管道输入**
 
 ```cat [file] | gitleaks stdin```
 
-**Write a JSON report**
+**写出 JSON 报告**
 
 ```gitleaks git --report-format json --report-path [report.json]```
 
-**Use a custom config and ignore a baseline**
+**使用自定义配置并忽略基线**
 
 ```gitleaks git --config [.gitleaks.toml] --baseline-path [baseline.json]```
 
-**Deprecated form still accepted**
+仍然接受已弃用的旧形式
 
 ```gitleaks detect --source [path]```
 
@@ -35,75 +35,75 @@ Detect secrets and sensitive data in Git repositories
 # COMMANDS
 
 **git** [_path_]
-> Scan a Git repository's commit log. This is the replacement for the old `detect` command.
+> 扫描 Git 仓库的提交日志。它是旧 `detect` 命令的替代品。
 
-**dir** [_path_] (aliases: **files**, **directory**)
-> Scan a directory tree on disk without consulting git.
+**dir** [_path_]（别名：**files**、**directory**）
+> 扫描磁盘上的目录树，不参考 git。
 
 **stdin**
-> Read raw text from standard input and scan it. Useful for pre-commit hooks or piping diff output.
+> 从标准输入读取原始文本并进行扫描。适用于 pre-commit 钩子或通过管道传入 diff 输出。
 
 **version**
-> Print the gitleaks version.
+> 打印 gitleaks 版本。
 
 **completion** _shell_
-> Emit shell completion for bash, zsh, fish or powershell.
+> 为 bash、zsh、fish 或 powershell 输出 shell 补全脚本。
 
 **detect**, **protect**
-> Deprecated since v8.19.0 but still functional; hidden from `--help`. Prefer **git** or **stdin** instead.
+> 自 v8.19.0 起弃用但仍可使用；在 `--help` 中隐藏。建议改用 **git** 或 **stdin**。
 
 # PARAMETERS
 
 **-c**, **--config** _FILE_
-> Path to a gitleaks TOML configuration.
+> gitleaks TOML 配置文件的路径。
 
 **-f**, **--report-format** _FORMAT_
-> Output format: `json`, `csv`, `junit`, `sarif`, `template`.
+> 输出格式：`json`、`csv`、`junit`、`sarif`、`template`。
 
 **-r**, **--report-path** _FILE_
-> Output file path. Without it, findings only print to the terminal.
+> 输出文件路径。不指定时结果只打印到终端。
 
 **-b**, **--baseline-path** _FILE_
-> Ignore any finding already present in an earlier report (noise reduction).
+> 忽略先前报告中已存在的发现项（减少噪音）。
 
 **-v**, **--verbose**
-> Print each finding as it is discovered.
+> 在发现每个问题时立即打印。
 
 **-l**, **--log-level** _LEVEL_
-> Logger verbosity (debug, info, warn, error).
+> 日志详细程度（debug、info、warn、error）。
 
 **--exit-code** _N_
-> Exit code to emit when at least one leak is detected (default `1`).
+> 检测到至少一个泄漏时使用的退出码（默认 `1`）。
 
 **--max-decode-depth** _N_
-> Recursively decode base64/hex payloads up to this depth.
+> 递归解码 base64/hex 负载的最大深度。
 
 **--max-archive-depth** _N_
-> Descend into archives (zip, tar, …) up to this depth.
+> 深入归档文件（zip、tar 等）检查的最大深度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gitleaks** scans text for secrets such as API keys, tokens and passwords. It can inspect the entire commit log of a Git repository, arbitrary directories on disk, or a stream arriving on stdin.
+**gitleaks** 在文本中扫描 API 密钥、令牌和密码等机密信息。它可以检查 Git 仓库的全部提交日志、磁盘上的任意目录，或来自标准输入的数据流。
 
-Rules are regular expressions defined in the bundled default config or a user-supplied `.gitleaks.toml`. Each rule can carry an allowlist (paths, regexes, stopwords) to suppress known-false positives. Findings can be exported as JSON, CSV, JUnit or SARIF for CI ingestion.
+规则以正则表达式形式定义在自带的默认配置或用户提供的 `.gitleaks.toml` 中。每条规则都可附带白名单（路径、正则、停用词）来抑制已知误报。发现项可以导出为 JSON、CSV、JUnit 或 SARIF 格式供 CI 使用。
 
-A typical pre-commit hook runs `git diff --cached | gitleaks stdin --no-banner`; CI jobs use `gitleaks git --exit-code 2 --report-format sarif --report-path leaks.sarif`.
+典型的 pre-commit 钩子会运行 `git diff --cached | gitleaks stdin --no-banner`；CI 任务则常用 `gitleaks git --exit-code 2 --report-format sarif --report-path leaks.sarif`。
 
 # CONFIGURATION
 
 **.gitleaks.toml**
-> Custom rules configuration file defining regex patterns, allowlists, and scanning behavior. An `extend.useDefault = true` key inherits the shipped ruleset.
+> 自定义规则配置文件，定义正则模式、白名单和扫描行为。设置 `extend.useDefault = true` 可继承随附的默认规则集。
 
 # CAVEATS
 
-False positives are common — refine rules or add an allowlist. History scanning over large repos is slow; use **--baseline-path** to track only new findings. The legacy `protect` command has been superseded by `git`/`stdin`.
+误报较为常见——请优化规则或添加白名单。大型仓库的历史扫描较慢；使用 **--baseline-path** 只跟踪新出现的发现项。旧的 `protect` 命令已被 `git`/`stdin` 取代。
 
 # HISTORY
 
-gitleaks was created by **Zachary Rice** to address the security risk of secrets accidentally committed to git repositories. Version 8.19.0 reorganized the CLI around **git**, **dir** and **stdin**, deprecating the earlier `detect`/`protect` commands.
+gitleaks 由 **Zachary Rice** 创建，用于应对机密信息被意外提交到 git 仓库的安全风险。8.19.0 版本将 CLI 重组为 **git**、**dir** 和 **stdin**，弃用了早期的 `detect`/`protect` 命令。
 
 # INSTALL
 

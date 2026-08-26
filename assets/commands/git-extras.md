@@ -1,26 +1,26 @@
 # TAGLINE
 
-Collection of useful Git utilities and commands
+实用的 Git 工具与命令合集
 
 # TLDR
 
-**Show git-extras version**
+**显示 git-extras 版本**
 
 ```git extras --version```
 
-**Update git-extras** to the latest release
+**将 git-extras 更新**到最新版本
 
 ```git extras update```
 
-**List all git-extras commands**
+**列出所有 git-extras 命令**
 
 ```git extras --help```
 
-**Show a repository summary**
+**显示仓库摘要**
 
 ```git summary```
 
-**Generate a changelog from tags**
+**根据标签生成变更日志**
 
 ```git changelog```
 
@@ -31,21 +31,21 @@ Collection of useful Git utilities and commands
 # PARAMETERS
 
 **--version**
-> Print the installed git-extras version.
+> 打印已安装的 git-extras 版本。
 
 **--help**
-> Print the list of extra subcommands provided by git-extras.
+> 打印 git-extras 提供的额外子命令列表。
 
 **update**
-> Fetch and install the latest git-extras release from upstream.
+> 从上游获取并安装最新的 git-extras 版本。
 
 # DESCRIPTION
 
-**git extras** is a comprehensive collection of Git utility commands that extend Git's functionality beyond its core feature set. The package includes dozens of helper commands designed to streamline common Git workflows and provide shortcuts for repetitive tasks.
+**git extras** 是一套全面的 Git 实用命令合集，将 Git 的功能扩展到其核心特性之外。该软件包包含数十个辅助命令，旨在简化常见的 Git 工作流并为重复性任务提供捷径。
 
-Notable commands include git-summary for repository statistics, git-changelog for generating change logs, git-effort for tracking development activity, git-delete-branch for safe branch cleanup, git-ignore for template-based .gitignore creation, and git-undo for reverting recent changes.
+其中值得关注的命令包括：用于仓库统计的 git-summary、用于生成变更日志的 git-changelog、用于跟踪开发活动的 git-effort、用于安全清理分支的 git-delete-branch、基于模板创建 .gitignore 的 git-ignore，以及撤销近期改动的 git-undo。
 
-Installation methods vary by platform, with packages available through Homebrew, apt, yum, and manual installation from source. The tools are implemented primarily as shell scripts, making them portable and easy to customize.
+安装方式因平台而异，可通过 Homebrew、apt、yum 安装软件包，也可从源码手动安装。这些工具主要以 shell 脚本实现，因此具有良好的可移植性且易于定制。
 
 # INSTALL
 

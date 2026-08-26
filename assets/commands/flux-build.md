@@ -1,22 +1,22 @@
 # TAGLINE
 
-Build Flux manifests locally for inspection or piping to kubectl
+在本地构建 Flux 清单以便检查或管道传给 kubectl
 
 # TLDR
 
-**Build a Kustomization** and print the resulting manifests
+**构建 Kustomization** 并打印生成的清单
 
 ```flux build kustomization my-app --path ./path/to/local/manifests```
 
-**Build using a local Flux Kustomization file** without applying cluster state
+**使用本地的 Flux Kustomization 文件构建**而不改动集群状态
 
 ```flux build kustomization my-app --path ./path/to/local/manifests --kustomization-file ./my-app.yaml --dry-run```
 
-**Build and apply directly**
+**构建后直接应用**
 
 ```flux build kustomization my-app --path ./kustomize | kubectl apply -f -```
 
-**Package manifests into an artifact** tarball
+**将清单打包成 artifact** 压缩包
 
 ```flux build artifact --path ./path/to/local/manifests --output ./artifact.tgz```
 
@@ -28,55 +28,55 @@ Build Flux manifests locally for inspection or piping to kubectl
 
 # DESCRIPTION
 
-**flux build** renders Flux resources locally using controller-compatible logic, without applying them to the cluster. Supported subcommands are **kustomization** and **artifact**.
+**flux build** 使用与控制器兼容的逻辑在本地渲染 Flux 资源，不会将其应用到集群。支持的子命令有 **kustomization** 和 **artifact**。
 
-**flux build kustomization** fetches (or loads) a Flux Kustomization, applies its transformations against the local manifests at `--path`, and writes the resulting multi-doc YAML to stdout. Useful for previewing deploys, debugging overlays, or piping to `kubectl`.
+**flux build kustomization** 获取（或加载）一个 Flux Kustomization，将其变换应用到 `--path` 处的本地清单，并将生成的多文档 YAML 写到标准输出。适用于预览部署、调试 overlay 或管道传给 `kubectl`。
 
-**flux build artifact** packs a directory or single manifest file into a `.tgz` artifact suitable for source/OCI workflows.
+**flux build artifact** 将目录或单个清单文件打包成适用于 source/OCI 工作流的 `.tgz` artifact。
 
 # PARAMETERS
 
 **kustomization** _name_
-> Build the named Flux Kustomization against local manifests.
+> 基于本地清单构建指定的 Flux Kustomization。
 
 **artifact**
-> Build a tarball from local Kubernetes manifests.
+> 从本地 Kubernetes 清单打包压缩档。
 
 **-n**, **--namespace** _ns_
-> Namespace scope (default `flux-system`).
+> 命名空间范围（默认 `flux-system`）。
 
 **--timeout** _duration_
-> Timeout for the operation (default `5m0s`).
+> 操作超时时间（默认 `5m0s`）。
 
-**--path** _path_ (kustomization and artifact)
-> Path to local manifests / kustomization directory, or a single file for artifact builds.
+**--path** _path_ （kustomization 与 artifact）
+> 本地清单/kustomization 目录的路径；artifact 构建时为单个文件的路径。
 
 **--kustomization-file** _file_
-> Path to a local Flux Kustomization YAML instead of fetching it from the cluster.
+> 本地 Flux Kustomization YAML 的路径，而不是从集群获取。
 
 **--dry-run**
-> Dry-run mode without connecting to the cluster. Variable substitutions from Secrets and ConfigMaps are skipped.
+> 试运行模式，不连接集群。来自 Secret 和 ConfigMap 的变量替换会被跳过。
 
 **--recursive**, **-r**
-> Recursively build encountered Kustomizations.
+> 递归构建遇到的 Kustomization。
 
 **--local-sources** _Kind/namespace/name=path,..._
-> Map remote sources to local paths for recursive builds (e.g. `GitRepository/flux-system/my-repo=./path/to/local/git`).
+> 将远程源映射到本地路径以进行递归构建（例如 `GitRepository/flux-system/my-repo=./path/to/local/git`）。
 
 **--ignore-paths** _patterns_
-> Comma-separated `.gitignore`-style paths to exclude.
+> 要排除的 `.gitignore` 风格路径（逗号分隔）。
 
 **--strict-substitute**
-> Fail post-build substitution when a declared variable has no default and is missing from input vars.
+> 当声明的变量既没有默认值又不在输入变量中时，构建后的替换失败报错。
 
 **--in-memory-build**
-> Use an in-memory filesystem during the build (kustomization).
+> 构建期间使用内存文件系统（kustomization）。
 
 **-o**, **--output** _file_
-> Output path for the artifact tarball (default `artifact.tgz`).
+> artifact 压缩包的输出路径（默认 `artifact.tgz`）。
 
 **--resolve-symlinks**
-> Resolve symlinks by copying their targets into the artifact.
+> 解析符号链接，将其目标复制进 artifact 中。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-Read tree information into index
+将树信息读入索引
 
 # TLDR
 
-**Read tree into index**
+**将树读入索引**
 
 ```git read-tree [tree-ish]```
 
-**Merge trees**
+**合并树**
 
 ```git read-tree -m [base] [ours] [theirs]```
 
-**Read with prefix**
+**带前缀读取**
 
 ```git read-tree --prefix=[dir/] [tree-ish]```
 
-**Merge and update working tree**
+**合并并更新工作区**
 
 ```git read-tree -m -u [base] [ours] [theirs]```
 
-**Reset index**
+**重置索引**
 
 ```git read-tree --reset HEAD```
 
-**Empty the index**
+**清空索引**
 
 ```git read-tree --empty```
 
-**Dry run to check for errors**
+**试运行以检查错误**
 
 ```git read-tree -n -m [tree-ish]```
 
@@ -39,60 +39,60 @@ Read tree information into index
 # PARAMETERS
 
 _TREE-ISH_
-> Tree to read.
+> 要读取的树。
 
 **-m**
-> Merge mode.
+> 合并模式。
 
 **-u**
-> Update working tree.
+> 更新工作区。
 
 **--reset**
-> Same as -m, discard unmerged.
+> 与 -m 相同，但丢弃未合并的内容。
 
 **--prefix=**_DIR/_
-> Keep current index contents and read tree into subdirectory at prefix.
+> 保留当前索引内容，并把树读入前缀指定的子目录中。
 
 **-i**
-> Only update index, do not check working tree for consistency with current head.
+> 只更新索引，不检查工作区与当前 head 的一致性。
 
 **-n**, **--dry-run**
-> Check for errors without updating the index or working tree.
+> 只检查错误，不更新索引或工作区。
 
 **-v**
-> Show progress of checking files out.
+> 显示检出文件的进度。
 
 **--trivial**
-> Only perform merge for trivial cases, leave conflicts unresolved.
+> 仅对平凡情况执行合并，冲突保持未解决状态。
 
 **--aggressive**
-> Resolve more cases internally during three-way merge.
+> 在三方合并期间内部解决更多情况。
 
 **--index-output** _FILE_
-> Write results to specified file instead of $GIT_INDEX_FILE.
+> 将结果写入指定文件而非 $GIT_INDEX_FILE。
 
 **--empty**
-> Instead of reading tree into the index, empty it.
+> 不向索引导入树，而是将其清空。
 
 **--no-sparse-checkout**
-> Disable sparse checkout support even if core.sparseCheckout is true.
+> 即使 core.sparseCheckout 为 true 也禁用稀疏检出支持。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git read-tree** reads tree information into the index. It is a plumbing command used internally by porcelain commands like `git checkout` and `git merge` to manipulate the staging area.
+**git read-tree** 将树信息读入索引。它是一个底层（plumbing）命令，被 `git checkout` 和 `git merge` 等高层命令内部调用以操作暂存区。
 
-The command can read a single tree or perform three-way merges of trees. It updates the index without touching the working tree unless the `-u` flag is specified to synchronize the working directory.
+该命令可以读取单棵树，也可以对树执行三方合并。除非指定 `-u` 标志同步工作目录，否则它只更新索引而不触碰工作区。
 
 # CAVEATS
 
-Plumbing command. Usually invoked by other commands. Can overwrite index state.
+底层（plumbing）命令。通常由其他命令调用。可能覆盖索引状态。
 
 # HISTORY
 
-git read-tree is a core **Git** plumbing command implementing index manipulation, used internally by checkout, merge, and other commands.
+git read-tree 是 **Git** 实现索引操作的核心底层命令，被 checkout、merge 等命令内部使用。
 
 # INSTALL
 

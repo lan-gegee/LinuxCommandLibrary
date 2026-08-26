@@ -1,26 +1,26 @@
 # TAGLINE
 
-creates virtual raster mosaics
+创建虚拟栅格镶嵌
 
 # TLDR
 
-**Create virtual mosaic**
+**创建虚拟镶嵌**
 
 ```gdalbuildvrt [output.vrt] [input1.tif] [input2.tif]```
 
-**Create from file list**
+**从文件列表创建**
 
 ```gdalbuildvrt -input_file_list [files.txt] [output.vrt]```
 
-**Create with resolution**
+**指定分辨率创建**
 
 ```gdalbuildvrt -resolution [average] [output.vrt] [*.tif]```
 
-**Create with overwrite**
+**覆盖已有文件创建**
 
 ```gdalbuildvrt -overwrite [output.vrt] [*.tif]```
 
-**Create with band selection**
+**选择波段创建**
 
 ```gdalbuildvrt -b [1] -b [2] -b [3] [output.vrt] [input.tif]```
 
@@ -31,33 +31,33 @@ creates virtual raster mosaics
 # PARAMETERS
 
 **-input_file_list** _file_
-> Read inputs from file.
+> 从文件读取输入列表。
 
 **-resolution** _method_
-> Resolution calculation (highest, lowest, average, user).
+> 分辨率计算方式（highest、lowest、average、user）。
 
 **-overwrite**
-> Overwrite existing output.
+> 覆盖已有的输出。
 
 **-b** _band_
-> Select specific band.
+> 选择特定波段。
 
 **-separate**
-> Put each input in separate band.
+> 将每个输入放入单独的波段。
 
 **-allow_projection_difference**
-> Allow different projections.
+> 允许不同的投影。
 
 **-te** _xmin ymin xmax ymax_
-> Target extent.
+> 目标范围。
 
 # DESCRIPTION
 
-**gdalbuildvrt** creates a virtual raster dataset (VRT) that references multiple input files without copying data. VRT files are XML documents describing how to combine source rasters into a unified dataset, enabling on-the-fly mosaicking, stacking, and subsetting.
+**gdalbuildvrt** 创建虚拟栅格数据集（VRT），它引用多个输入文件而不复制数据。VRT 文件是描述如何将源栅格组合成统一数据集的 XML 文档，支持即时镶嵌、堆叠和子集提取。
 
-The tool can mosaic adjacent tiles into seamless coverages or stack bands from separate files into multi-band datasets. Resolution handling controls how inputs with different pixel sizes are combined. VRTs support mixing projections with appropriate flags.
+该工具可以将相邻的瓦片镶嵌为无缝覆盖层，或将来自不同文件的波段堆叠成多波段数据集。分辨率处理方式控制不同像素大小的输入如何组合。VRT 通过适当的标志还支持混合投影。
 
-Virtual datasets save disk space and processing time compared to creating physical mosaics. They're ideal for working with large tile collections, time series data, and multi-spectral imagery where logical combinations change frequently.
+与创建物理镶嵌相比，虚拟数据集可以节省磁盘空间和处理时间。它非常适合处理大型瓦片集合、时间序列数据和组合方式经常变化的多光谱影像。
 
 # INSTALL
 
@@ -78,4 +78,3 @@ Virtual datasets save disk space and processing time compared to creating physic
 ```[Source code](https://github.com/OSGeo/gdal)```
 
 <!-- verified: 2026-07-15 -->
-

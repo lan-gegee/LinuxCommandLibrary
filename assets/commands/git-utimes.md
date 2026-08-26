@@ -1,10 +1,10 @@
 # TAGLINE
 
-Restore file timestamps from commit history
+根据提交历史恢复文件时间戳
 
 # TLDR
 
-**Restore file timestamps**
+**恢复文件时间戳**
 
 ```git utimes```
 
@@ -14,17 +14,17 @@ Restore file timestamps from commit history
 
 # DESCRIPTION
 
-**git utimes** sets each tracked file's mtime to the timestamp of the last commit that modified it. Git intentionally stores no timestamps in the index — every checkout writes files with the time of the operation — and this command reverses that for tooling that depends on file dates (Make, find, sitemap generators, archive tools).
+**git utimes** 把每个被跟踪文件的 mtime 设置为最后一次修改它的提交的时间戳。Git 刻意不在索引中存储时间戳——每次检出都会以操作发生时的时间写入文件——而该命令可以扭转这一点，供依赖文件日期的工具使用（Make、find、站点地图生成器、归档工具等）。
 
-The command walks all tracked paths in the working tree and runs **touch -t** with the matching commit time, so subsequent **make**-style "modified since" comparisons match the commit history rather than the moment the repo was cloned.
+该命令遍历工作树中所有被跟踪的路径，并用对应的提交时间运行 **touch -t**，因此后续 **make** 风格的"自修改以来"比较会与提交历史相符，而不是与仓库克隆的时刻相符。
 
 # CAVEATS
 
-Part of **git-extras**. Affects only tracked files; ignored and untracked paths keep their current mtime. **Will invalidate any incremental build cache** that fingerprints by mtime — re-run after each rebuild rather than once per workday. Submodule contents are not touched.
+属于 **git-extras**。只影响被跟踪的文件；被忽略和未跟踪的路径保持其现有 mtime。**会使任何以 mtime 作为指纹的增量构建缓存失效**——请在每次重建后重新运行，而不是每个工作日只跑一次。子模块内容不受影响。
 
 # HISTORY
 
-git utimes is part of **git-extras**, addressing the common issue that git doesn't preserve file modification times.
+git utimes 是 **git-extras** 的一部分，解决的是 git 不保留文件修改时间这一常见问题。
 
 # INSTALL
 

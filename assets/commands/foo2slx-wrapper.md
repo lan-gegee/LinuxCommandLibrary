@@ -1,22 +1,22 @@
 # TAGLINE
 
-PostScript/PDF to SLX wrapper script
+PostScript/PDF 转 SLX 包装脚本
 
 # TLDR
 
-**Print PostScript file**
+**打印 PostScript 文件**
 
 ```foo2slx-wrapper [file.ps]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2slx-wrapper -p [a4] [file.ps]```
 
-**Color printing**
+**彩色打印**
 
 ```foo2slx-wrapper -c [file.ps]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2slx-wrapper -r [600] [file.ps]```
 
@@ -27,41 +27,41 @@ PostScript/PDF to SLX wrapper script
 # PARAMETERS
 
 _FILES_
-> PostScript or PDF files to print.
+> 要打印的 PostScript 或 PDF 文件。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-r** _DPI_
-> Resolution.
+> 分辨率。
 
 **-c**
-> Color printing.
+> 彩色打印。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2slx-wrapper** converts PostScript/PDF documents to SLX format for Lexmark printers. It combines Ghostscript rasterization with foo2slx encoding.
+**foo2slx-wrapper** 将 PostScript/PDF 文档转换为 Lexmark 打印机所需的 SLX 格式。它组合了 Ghostscript 栅格化与 foo2slx 编码。
 
-The wrapper handles the conversion pipeline for easy printing. It provides a command-line interface for supported Lexmark printers.
+该包装器处理转换流水线，让打印变得简单。它为受支持的 Lexmark 打印机提供命令行接口。
 
-foo2slx-wrapper simplifies printing to SLX protocol printers.
+foo2slx-wrapper 简化了向 SLX 协议打印机打印文档的流程。
 
 # CAVEATS
 
-Requires Ghostscript. Only for SLX-compatible Lexmark models. Feature support varies.
+需要 Ghostscript。仅适用于兼容 SLX 的 Lexmark 型号。特性支持各有差异。
 
 # HISTORY
 
-foo2slx-wrapper is part of the **foo2zjs** driver collection, providing easy printing for Lexmark printers using the SLX protocol.
+foo2slx-wrapper 是 **foo2zjs** 驱动集合的一部分，为使用 SLX 协议的 Lexmark 打印机提供便捷的打印方式。
 
 # INSTALL
 

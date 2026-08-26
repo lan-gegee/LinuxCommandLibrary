@@ -1,34 +1,34 @@
 # TAGLINE
 
-Display CI check status on pull requests
+显示拉取请求上的 CI 检查状态
 
 # TLDR
 
-**View checks for the current branch's PR**
+**查看当前分支 PR 的检查**
 
 ```gh pr checks```
 
-**View checks for a specific PR**
+**查看特定 PR 的检查**
 
 ```gh pr checks [pr-number]```
 
-**Watch checks until they finish**
+**持续监视检查直到完成**
 
 ```gh pr checks --watch```
 
-**Watch checks and exit on first failure**
+**监视检查并在首次失败时退出**
 
 ```gh pr checks --watch --fail-fast```
 
-**Show only required checks**
+**只显示必需检查**
 
 ```gh pr checks --required```
 
-**Output check results as JSON**
+**以 JSON 输出检查结果**
 
 ```gh pr checks --json [name,state,bucket]```
 
-**Open check details in a web browser**
+**在网页浏览器中打开检查详情**
 
 ```gh pr checks --web```
 
@@ -39,44 +39,44 @@ Display CI check status on pull requests
 # PARAMETERS
 
 _number_ | _url_ | _branch_
-> Pull request number, URL, or branch name (defaults to current branch).
+> 拉取请求编号、URL 或分支名（默认为当前分支）。
 
 **--watch**
-> Watch checks until they finish.
+> 持续监视检查直到全部结束。
 
 **-i**, **--interval** _SECONDS_
-> Refresh interval in seconds when watching (default 10).
+> 监视时的刷新间隔（秒）（默认 10）。
 
 **--fail-fast**
-> Exit watch mode on first check failure.
+> 首次检查失败即退出监视模式。
 
 **--required**
-> Only show checks that are required.
+> 只显示必需的检查。
 
 **-w**, **--web**
-> Open the web browser to show details about checks.
+> 打开网页浏览器查看检查详情。
 
 **--json** _fields_
-> Output JSON with the specified fields. Available fields: bucket, completedAt, description, event, link, name, startedAt, state, workflow.
+> 输出包含指定字段的 JSON。可用字段：bucket、completedAt、description、event、link、name、startedAt、state、workflow。
 
 **-q**, **--jq** _expression_
-> Filter JSON output using a jq expression.
+> 使用 jq 表达式过滤 JSON 输出。
 
 **-t**, **--template** _string_
-> Format JSON output using a Go template.
+> 使用 Go template 格式化 JSON 输出。
 
 **-R**, **--repo** _OWNER/REPO_
-> Select another repository using the [HOST/]OWNER/REPO format.
+> 以 [HOST/]OWNER/REPO 格式选择其他仓库。
 
 # DESCRIPTION
 
-**gh pr checks** displays the status of CI checks and status checks on a pull request. It shows each check's name, status (pending, passing, failing), and conclusion.
+**gh pr checks** 显示拉取请求上 CI 检查和状态检查的情况，包括每项检查的名称、状态（pending、passing、failing）以及结论。
 
-The watch mode enables waiting for checks to complete, useful in scripts that need to proceed only after successful CI runs. The command integrates with GitHub Actions and third-party CI services. When using **--json**, the **bucket** field categorizes the state into pass, fail, pending, skipping, or cancel.
+监视模式可以等待检查全部完成，适合只有在 CI 成功运行后才继续执行的脚本。该命令可与 GitHub Actions 及第三方 CI 服务集成。使用 **--json** 时，**bucket** 字段会把状态归类为 pass、fail、pending、skipping 或 cancel。
 
 # CAVEATS
 
-Only shows checks reported to GitHub. Some CI systems may have delays in reporting. The **--fail-fast** flag only works in combination with **--watch**. Watch mode is subject to API rate limits.
+只显示已上报到 GitHub 的检查。某些 CI 系统的上报可能有延迟。**--fail-fast** 标志必须与 **--watch** 配合使用。监视模式受 API 速率限制约束。
 
 # INSTALL
 

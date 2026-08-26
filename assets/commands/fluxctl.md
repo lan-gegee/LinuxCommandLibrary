@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI for Flux v1 GitOps tool
+Flux v1 GitOps 工具的命令行界面
 
 # TLDR
 
-**List workloads**
+**列出工作负载**
 
 ```fluxctl list-workloads```
 
-**List images for** workload
+**列出工作负载的镜像**
 
 ```fluxctl list-images --workload=[namespace:deployment/name]```
 
-**Release new image**
+**发布新镜像**
 
 ```fluxctl release --workload=[namespace:deployment/name] --update-image=[image:tag]```
 
-**Sync with git**
+**与 Git 同步**
 
 ```fluxctl sync```
 
-**Lock workload**
+**锁定工作负载**
 
 ```fluxctl lock --workload=[namespace:deployment/name]```
 
@@ -31,44 +31,44 @@ CLI for Flux v1 GitOps tool
 # PARAMETERS
 
 _COMMAND_
-> Operation: list-workloads, list-images, release, sync, etc.
+> 操作类型：list-workloads、list-images、release、sync 等。
 
 **list-workloads**
-> Show all managed workloads.
+> 显示所有被管理的工作负载。
 
 **list-images** _WORKLOAD_
-> Show available images.
+> 显示可用镜像。
 
 **release**
-> Update workload to new image.
+> 将工作负载更新到新镜像。
 
 **sync**
-> Synchronize with Git repository.
+> 与 Git 仓库同步。
 
 **lock** _WORKLOAD_
-> Prevent automated updates.
+> 阻止自动更新。
 
 **unlock** _WORKLOAD_
-> Allow automated updates.
+> 允许自动更新。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fluxctl** is the CLI for Flux v1, a GitOps tool for Kubernetes. It manages workloads, triggers deployments, and controls automated image updates from container registries.
+**fluxctl** 是 Flux v1 的命令行界面，Flux v1 是一款面向 Kubernetes 的 GitOps 工具。它管理工作负载、触发部署，并控制来自容器镜像仓库的自动镜像更新。
 
-The tool connects to the Flux daemon running in Kubernetes to list resources, release images, and trigger Git synchronization. It enables manual intervention in otherwise automated GitOps workflows.
+该工具连接到运行在 Kubernetes 中的 Flux 守护进程，用于列出资源、发布镜像和触发 Git 同步。它让用户可以在原本自动化的 GitOps 工作流中进行手动干预。
 
-fluxctl provides operational control over Flux-managed clusters.
+fluxctl 提供了对 Flux 管理的集群的运维控制能力。
 
 # CAVEATS
 
-Flux v1 is deprecated in favor of Flux v2. Requires Flux daemon access. Cluster context must be configured.
+Flux v1 已弃用，建议改用 Flux v2。需要能够访问 Flux 守护进程。必须先配置好集群上下文。
 
 # HISTORY
 
-fluxctl was part of **Flux v1** by Weaveworks. Flux pioneered GitOps for Kubernetes, using Git as the source of truth for cluster state. Flux v2 replaced it with the flux CLI.
+fluxctl 是 Weaveworks 出品 **Flux v1** 的一部分。Flux 开创了 Kubernetes 的 GitOps 实践，使用 Git 作为集群状态的唯一可信来源。Flux v2 用 flux CLI 取代了它。
 
 # SEE ALSO
 

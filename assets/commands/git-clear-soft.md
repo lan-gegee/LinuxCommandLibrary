@@ -1,10 +1,10 @@
 # TAGLINE
 
-Reset and clean the working directory, preserving ignored files
+重置并清理工作目录，但保留被忽略的文件
 
 # TLDR
 
-**Clear working directory** (prompts for confirmation)
+**清空工作目录**（会提示确认）
 
 ```git clear-soft```
 
@@ -14,17 +14,17 @@ Reset and clean the working directory, preserving ignored files
 
 # DESCRIPTION
 
-**git clear-soft** is a **git-extras** command that discards all uncommitted work: it removes untracked files and directories and resets tracked files back to **HEAD**. It is the gentler sibling of **git-clear**, since it leaves files matched by **.gitignore** untouched instead of deleting them too.
+**git clear-soft** 是一个 **git-extras** 命令，用于丢弃所有未提交的工作：它会移除未跟踪的文件和目录，并将已跟踪的文件重置回 **HEAD**。它是 **git-clear** 的温和版本，因为被 **.gitignore** 匹配的文件会被保留，而不会被一并删除。
 
-Under the hood it runs **git clean -d -f** followed by **git reset --hard**, after asking **"Sure? - This command may delete files that cannot be recovered. Files and directories in .gitignore will be preserved [y/N]:"**. Unlike **git-clear**, it takes no **-f**/**--force** flag, so the confirmation prompt cannot be skipped and the command cannot be used non-interactively.
+它在询问 **"Sure? - This command may delete files that cannot be recovered. Files and directories in .gitignore will be preserved [y/N]:"** 之后，依次执行 **git clean -d -f** 和 **git reset --hard**。与 **git-clear** 不同，它没有 **-f**/**--force** 选项，因此无法跳过确认提示，也无法以非交互方式使用。
 
 # CAVEATS
 
-Destructive and irreversible for untracked, non-ignored files: they are deleted, not stashed. Only available when **git-extras** is installed; it is not part of core Git.
+对未跟踪且未被忽略的文件具有破坏性且不可逆：这些文件会被直接删除，而不是暂存（stash）。仅在安装了 **git-extras** 时可用；它不属于核心 Git。
 
 # HISTORY
 
-git clear-soft was added to **git-extras**, the community-maintained collection of Git utility scripts, as a less destructive alternative to **git-clear** that spares ignored files.
+git clear-soft 被加入社区维护的 Git 实用脚本合集 **git-extras**，作为 **git-clear** 的低破坏性替代，可以保留被忽略的文件。
 
 # INSTALL
 

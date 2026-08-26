@@ -1,26 +1,26 @@
 # TAGLINE
 
-Store Git objects and refs inside PostgreSQL
+将 Git 对象和引用存储在 PostgreSQL 中
 
 # TLDR
 
-**Initialize** a new repository inside the database
+在数据库中**初始化**新仓库
 
 ```gitgres-backend init "[dbname=gitgres]" [repo_name]```
 
-**Push a local Git repo** into PostgreSQL
+**将本地 Git 仓库推送**进 PostgreSQL
 
 ```gitgres-backend push "[dbname=gitgres]" [repo_name] [path/to/repo]```
 
-**Clone** the database-backed repo back to disk
+把数据库中的仓库**克隆**回磁盘
 
 ```gitgres-backend clone "[dbname=gitgres]" [repo_name] [path/to/dest]```
 
-**List the refs** stored in the database
+**列出数据库中存储的引用**
 
 ```gitgres-backend ls-refs "[dbname=gitgres]" [repo_name]```
 
-**Import an existing repo** without compiling the backend
+无需编译后端即可**导入现有仓库**
 
 ```./import/gitgres-import.sh [path/to/repo] "[dbname=gitgres]" [repo_name]```
 
@@ -30,35 +30,35 @@ Store Git objects and refs inside PostgreSQL
 
 # DESCRIPTION
 
-**gitgres** stores Git objects and refs as rows in **PostgreSQL** tables. A small **libgit2**-based backend (**gitgres-backend**) translates standard Git protocol operations such as **push** and **clone** into SQL, so existing Git clients work against a database instead of a filesystem.
+**gitgres** 将 Git 对象和引用作为行存储在 **PostgreSQL** 表中。一个基于 **libgit2** 的小型后端（**gitgres-backend**）将标准 Git 协议操作（如 **push** 和 **clone**）转换为 SQL，使现有 Git 客户端可以直接面向数据库而非文件系统工作。
 
-The project's stated goal is to let Git forges (e.g. **Forgejo**, **Gitea**) drop their filesystem storage entirely and rely on the database for repositories, objects, refs, and reflog. The schema includes tables for repositories, objects, refs, and reflog, with helpers for hashing, the object store, and tree and commit parsing.
+项目的既定目标是让 Git 托管平台（如 **Forgejo**、**Gitea**）完全抛弃文件系统存储，改由数据库承载仓库、对象、引用和 reflog。其数据库模式包含仓库、对象、引用和 reflog 相关表，并提供哈希、对象存储以及树与提交解析等辅助功能。
 
 # COMMANDS
 
 **init** _conn_ _repo_
-> Create the database tables (if needed) and register a new repository named _repo_.
+> 创建所需的数据库表（如有必要）并注册名为 _repo_ 的新仓库。
 
 **push** _conn_ _repo_ _path_
-> Push the on-disk Git repository at _path_ into the database under name _repo_.
+> 将位于 _path_ 的磁盘 Git 仓库推送到数据库中，命名为 _repo_。
 
 **clone** _conn_ _repo_ _path_
-> Materialize the database-backed repository _repo_ to a normal on-disk Git repository at _path_.
+> 将数据库中的仓库 _repo_ 实体化为位于 _path_ 的普通磁盘 Git 仓库。
 
 **ls-refs** _conn_ _repo_
-> Print the refs currently stored in the database for _repo_.
+> 打印数据库中当前为 _repo_ 存储的引用。
 
 # REQUIREMENTS
 
-**PostgreSQL** with the **pgcrypto** extension is required. The backend links against **libgit2**, **libpq**, and **OpenSSL**. The shell-based importer (_./import/gitgres-import.sh_) needs only a working **psql** client and a Git checkout.
+需要带有 **pgcrypto** 扩展的 **PostgreSQL**。后端链接了 **libgit2**、**libpq** 和 **OpenSSL**。基于 shell 的导入器（_./import/gitgres-import.sh_）只需要一个可用的 **psql** 客户端和一个 Git 检出副本。
 
 # CAVEATS
 
-The project is research-grade: storing repositories in PostgreSQL incurs different I/O and locking patterns than a filesystem. Performance, vacuuming, and replication characteristics differ from traditional Git hosting and should be benchmarked before production use. Backups must include the database dump, not the working tree.
+该项目尚处于研究阶段：将仓库存入 PostgreSQL 会带来不同于文件系统的 I/O 与锁行为。其性能、清理（vacuum）和复制特性与传统 Git 托管不同，在生产使用前应先做基准测试。备份必须包含数据库转储，而不是工作树。
 
 # HISTORY
 
-**gitgres** was created by **Andrew Nesbitt** to explore eliminating filesystem dependencies for Git forges, motivated by the operational simplification of having a single backing store (PostgreSQL) for both metadata and Git data.
+**gitgres** 由 **Andrew Nesbitt** 创建，旨在探索消除 Git 托管平台对文件系统的依赖，动机是让元数据和 Git 数据共用单一后端存储（PostgreSQL）从而简化运维。
 
 # SEE ALSO
 

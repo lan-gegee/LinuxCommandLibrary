@@ -1,22 +1,22 @@
 # TAGLINE
 
-Perform merge without touching index or working tree
+在不触碰索引或工作区的情况下执行合并
 
 # TLDR
 
-**Preview merge result** (modern mode, Git 2.38+)
+**预览合并结果**（现代模式，Git 2.38+）
 
 ```git merge-tree [branch1] [branch2]```
 
-**Perform a three-way merge** with explicit base (deprecated mode)
+**以显式 base 执行三方合并**（已弃用模式）
 
 ```git merge-tree [base] [branch1] [branch2]```
 
-**Check for merge conflicts and show informational messages**
+**检查合并冲突并显示提示信息**
 
 ```git merge-tree --write-tree --messages [branch1] [branch2]```
 
-**Check if a branch can be cleanly merged** (exit code 0 = clean, 1 = conflicts)
+**检查分支能否干净地合并**（退出码 0 = 干净，1 = 有冲突）
 
 ```git merge-tree --write-tree --no-messages [branch1] [branch2]```
 
@@ -29,49 +29,49 @@ Perform merge without touching index or working tree
 # PARAMETERS
 
 _BRANCH1_
-> First branch to merge.
+> 要合并的第一个分支。
 
 _BRANCH2_
-> Second branch to merge.
+> 要合并的第二个分支。
 
 _BASE_
-> Common ancestor commit (deprecated trivial-merge mode only).
+> 共同祖先提交（仅限已弃用的 trivial-merge 模式）。
 
 **--write-tree**
-> Modern mode (default since Git 2.38): automatically finds the merge base and writes a result tree object. Reports conflicts via exit code and stdout.
+> 现代模式（Git 2.38 起为默认）：自动查找合并基并写入结果树对象。通过退出码和 stdout 报告冲突。
 
 **--trivial-merge**
-> Deprecated mode: reads three trees and outputs trivial merge results. Requires explicit base.
+> 已弃用模式：读取三棵树并输出平凡合并的结果。需要显式指定 base。
 
 **--[no-]messages**
-> Write informational messages such as "Auto-merging" and CONFLICT notices. Default: included when conflicts exist.
+> 输出提示性信息，例如 "Auto-merging" 和 CONFLICT 通知。默认：存在冲突时包含。
 
 **--name-only**
-> In the output, show only filenames instead of full merge details.
+> 输出中只显示文件名，而不显示完整合并细节。
 
 **--allow-unrelated-histories**
-> Allow merging branches that share no common history.
+> 允许合并没有共同历史的分支。
 
 **--merge-base** _commit_
-> Specify a merge base instead of computing one automatically. With this option, branch arguments can be trees instead of commits. Incompatible with --stdin.
+> 指定合并基，而不是自动计算。使用该选项后，分支参数可以是树而非提交。与 --stdin 不兼容。
 
 **--stdin**
-> Read commits to merge from standard input, one pair per line. Implies -z.
+> 从标准输入读取要合并的提交，每行一对。隐含 -z。
 
 **-z**
-> Use NUL characters as line terminators instead of newlines (for scripting).
+> 使用 NUL 字符而非换行符作为行终止符（便于脚本处理）。
 
 # DESCRIPTION
 
-**git merge-tree** performs a three-way merge without touching the index or working tree. It shows what a merge would produce, making it useful for previewing merges or performing scripted merge analysis.
+**git merge-tree** 在不触碰索引或工作区的情况下执行三方合并。它会展示合并将产生的结果，因此适合预览合并或进行脚本化的合并分析。
 
-The modern mode (default since Git 2.38) automatically finds the merge base, writes a result tree object, and reports conflicts. The exit code indicates success (0) or conflicts (1). This makes it ideal for CI pipelines and automation scripts that need to check mergeability without modifying any files.
+现代模式（Git 2.38 起为默认）会自动查找合并基、写入结果树对象并报告冲突。退出码表示成功（0）或有冲突（1）。这使它非常适合需要在修改任何文件之前检查可合并性的 CI 流水线和自动化脚本。
 
-The deprecated trivial-merge mode requires specifying the base commit explicitly and only handles trivial merges.
+已弃用的 trivial-merge 模式要求显式指定 base 提交，且只能处理平凡合并。
 
 # CAVEATS
 
-Plumbing command primarily intended for scripting. Output format differs between modern and deprecated modes. Modern mode requires Git 2.38 or later.
+底层（plumbing）命令，主要为脚本编写而设计。现代模式与弃用模式的输出格式不同。现代模式要求 Git 2.38 或更高版本。
 
 # INSTALL
 

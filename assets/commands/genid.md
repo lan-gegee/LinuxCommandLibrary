@@ -1,22 +1,22 @@
 # TAGLINE
 
-random identifier and UUID generator
+随机标识符与 UUID 生成器
 
 # TLDR
 
-**Generate random ID**
+**生成随机 ID**
 
 ```genid```
 
-**Generate UUID**
+**生成 UUID**
 
 ```genid --uuid```
 
-**Generate specific length**
+**生成指定长度的 ID**
 
 ```genid -l [32]```
 
-**Alphanumeric only**
+**仅使用字母和数字**
 
 ```genid --alphanumeric```
 
@@ -27,33 +27,33 @@ random identifier and UUID generator
 # PARAMETERS
 
 **-l** _LENGTH_
-> ID length.
+> ID 长度。
 
 **--uuid**
-> Generate UUID format.
+> 生成 UUID 格式。
 
 **--alphanumeric**
-> Use only letters and numbers.
+> 仅使用字母和数字。
 
 **--hex**
-> Hexadecimal output.
+> 十六进制输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**genid** generates random identifiers suitable for various purposes. It produces unique strings for use as IDs, tokens, or keys.
+**genid** 生成适用于各种用途的随机标识符。它产生唯一的字符串，可用作 ID、令牌或密钥。
 
-The tool supports multiple formats including UUID, alphanumeric strings, and custom lengths. Output is cryptographically suitable for non-security-critical uses.
+该工具支持多种格式，包括 UUID、字母数字字符串和自定义长度。其输出采用密码学安全的随机源，适用于非安全关键场景。
 
 # CAVEATS
 
-Not for cryptographic keys. Uniqueness not guaranteed. May vary between implementations.
+不可用于加密密钥。不保证唯一性。不同实现之间可能存在差异。
 
 # HISTORY
 
-genid is a utility for generating random identifiers, providing convenient access to random string generation for scripting and development purposes.
+genid 是一个用于生成随机标识符的工具，为脚本编写和开发提供便捷的随机字符串生成能力。
 
 # SEE ALSO
 

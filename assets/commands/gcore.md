@@ -1,18 +1,18 @@
 # TAGLINE
 
-generates process core dumps
+生成进程核心转储
 
 # TLDR
 
-**Generate core dump**
+**生成核心转储**
 
 ```gcore [pid]```
 
-**Specify output file**
+**指定输出文件**
 
 ```gcore -o [corefile] [pid]```
 
-**Generate for all** threads
+**对所有**线程生成转储
 
 ```gcore -a [pid]```
 
@@ -23,32 +23,32 @@ generates process core dumps
 # PARAMETERS
 
 _PID_
-> Process ID to dump.
+> 要转储的进程 ID。
 
 **-o** _FILE_
-> Output filename prefix.
+> 输出文件名前缀。
 
 **-a**
-> Dump all threads.
+> 转储所有线程。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcore** generates a core dump of a running process without terminating it. It captures the process memory state for debugging or analysis while the process continues running.
+**gcore** 在不终止进程的情况下生成正在运行的进程的核心转储。它捕获进程的内存状态供调试或分析之用，而进程本身继续运行。
 
-The tool attaches to the target process temporarily to create the dump. The resulting core file can be analyzed with debuggers like GDB to examine program state.
+该工具会临时附加到目标进程以创建转储。生成的核心文件可以用 GDB 等调试器分析，以检查程序状态。
 
-gcore is useful for debugging production systems without causing downtime.
+gcore 适用于在不造成停机的前提下调试生产系统。
 
 # CAVEATS
 
-Requires ptrace permissions. Large processes create large dumps. May briefly pause target process.
+需要 ptrace 权限。大型进程会产生很大的转储文件。可能会短暂暂停目标进程。
 
 # HISTORY
 
-gcore is part of **GDB** (GNU Debugger), providing non-destructive core dump generation for debugging running processes without interrupting service.
+gcore 是 **GDB**（GNU Debugger）的一部分，提供无损核心转储生成功能，可在不中断服务的情况下调试运行中的进程。
 
 # INSTALL
 

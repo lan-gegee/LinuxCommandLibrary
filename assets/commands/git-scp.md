@@ -1,18 +1,18 @@
 # TAGLINE
 
-Copy files to a remote Git repository via scp
+通过 scp 将文件复制到远程 Git 仓库
 
 # TLDR
 
-**Copy a single file to a remote**
+**将单个文件复制到远程**
 
 ```git scp [remote] [path/to/file]```
 
-**Copy multiple files to a remote**
+**将多个文件复制到远程**
 
 ```git scp [remote] [file1] [file2]```
 
-**Copy a file to a specific branch on remote**
+**将文件复制到远程的指定分支**
 
 ```git scp [remote] [path/to/file] --branch [branch_name]```
 
@@ -22,7 +22,7 @@ Copy files to a remote Git repository via scp
 
 # DESCRIPTION
 
-**git scp** copies files to a Git remote using scp. Part of **git-extras**, it uses the remote's URL from your Git configuration to determine the host and path, then transfers files via scp. To copy files from a remote, use **git rscp** instead.
+**git scp** 使用 scp 将文件复制到 Git 远程。它属于 **git-extras**，会利用 Git 配置中该远程的 URL 确定主机和路径，然后通过 scp 传输文件。要从远程复制文件，请改用 **git rscp**。
 
 # INSTALL
 

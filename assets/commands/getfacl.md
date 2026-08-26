@@ -1,18 +1,18 @@
 # TAGLINE
 
-file access control list viewer
+文件访问控制列表查看器
 
 # TLDR
 
-**Show** ACL
+**显示** ACL
 
 ```getfacl path/to/file```
 
-Show with **numeric** IDs
+以**数字** ID 显示
 
 ```getfacl -n path/to/file```
 
-**Tabular** output
+**表格**输出
 
 ```getfacl -t path/to/file```
 
@@ -22,35 +22,35 @@ Show with **numeric** IDs
 
 # DESCRIPTION
 
-**getfacl** displays file access control lists (ACLs). ACLs provide more fine-grained access control than traditional Unix permissions, allowing permissions for specific users and groups beyond owner/group/other.
+**getfacl** 显示文件的访问控制列表（ACL）。ACL 提供比传统 Unix 权限更细粒度的访问控制，允许在所有者/组/其他之外为特定用户和组设置权限。
 
 # PARAMETERS
 
 **-n, --numeric**
-> Display numeric user and group IDs
+> 以数字形式显示用户和组 ID
 
 **-t, --tabular**
-> Use tabular output format
+> 使用表格输出格式
 
 **-a, --access**
-> Display access ACL
+> 显示访问 ACL
 
 **-d, --default**
-> Display default ACL
+> 显示默认 ACL
 
 **-R, --recursive**
-> Recurse into directories
+> 递归进入目录
 
 **-p, --absolute-names**
-> Don't strip leading slashes
+> 不去除开头的斜杠
 
 # CAVEATS
 
-ACLs must be supported by the filesystem (mount with acl option). The default ACL only applies to directories and affects newly created files within. Use setfacl to modify ACLs.
+文件系统必须支持 ACL（挂载时使用 acl 选项）。默认 ACL 仅适用于目录，并影响其中新建的文件。修改 ACL 请使用 setfacl。
 
 # HISTORY
 
-**getfacl** is part of the **acl** package, providing POSIX ACL support on Linux.
+**getfacl** 是 **acl** 软件包的一部分，在 Linux 上提供 POSIX ACL 支持。
 
 # INSTALL
 

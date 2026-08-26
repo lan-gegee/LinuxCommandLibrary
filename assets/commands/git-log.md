@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display commit history
+显示提交历史
 
 # TLDR
 
-**Show commit history**
+**显示提交历史**
 
 ```git log```
 
-**Show compact log**
+**显示紧凑日志**
 
 ```git log --oneline```
 
-**Show graph view**
+**显示图形视图**
 
 ```git log --graph --oneline --all```
 
-**Show specific file history**
+**显示特定文件的历史**
 
 ```git log [file.txt]```
 
-**Show last N commits**
+**显示最近 N 条提交**
 
 ```git log -n [5]```
 
@@ -31,48 +31,48 @@ Display commit history
 # PARAMETERS
 
 **--oneline**
-> Compact one-line format.
+> 紧凑的单行格式。
 
 **--graph**
-> Show branch graph.
+> 显示分支图形。
 
 **--all**
-> Show all branches.
+> 显示所有分支。
 
 **-n** _NUM_
-> Limit to N commits.
+> 限制为 N 条提交。
 
 **--author** _AUTHOR_
-> Filter by author.
+> 按作者过滤。
 
 **--since** _DATE_
-> Show commits since date.
+> 显示指定日期之后的提交。
 
 **--stat**
-> Show changed files.
+> 显示变更的文件。
 
 **-p**, **--patch**
-> Show diffs.
+> 显示差异。
 
 **--format** _FORMAT_
-> Custom format string.
+> 自定义格式字符串。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git log** shows the commit history in reverse chronological order. Each entry displays the commit hash, author, date, and message. Extensive formatting and filtering options enable customized output for any use case.
+**git log** 按时间倒序显示提交历史。每个条目会显示提交哈希、作者、日期和提交信息。丰富的格式化和过滤选项可以为任何使用场景定制输出。
 
-The command supports filtering by author, date range, file path, and message content. Graph mode visualizes branch structure with ASCII art. Custom format strings enable scripted log processing and report generation.
+该命令支持按作者、日期范围、文件路径和提交内容进行过滤。图形模式用 ASCII 字符画直观呈现分支结构。自定义格式字符串便于对日志做脚本化处理和报告生成。
 
 # CAVEATS
 
-Large histories can be slow. Some options don't combine. Graph may need wide terminal.
+庞大的历史记录可能较慢。某些选项不能组合使用。图形视图可能需要较宽的终端。
 
 # HISTORY
 
-git log is a core **Git** command from initial release, providing the essential capability to view commit history.
+git log 是 **Git** 自初始发布就有的核心命令，提供查看提交历史这一基础能力。
 
 # INSTALL
 

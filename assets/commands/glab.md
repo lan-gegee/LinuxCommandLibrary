@@ -1,38 +1,38 @@
 # TAGLINE
 
-Official GitLab CLI tool
+GitLab 官方 CLI 工具
 
 # TLDR
 
-**Authenticate with GitLab**
+**向 GitLab 进行身份验证**
 
 ```glab auth login```
 
-**Create a merge request**
+**创建合并请求**
 
 ```glab mr create```
 
-**List merge requests**
+**列出合并请求**
 
 ```glab mr list```
 
-**View a merge request**
+**查看合并请求**
 
 ```glab mr view [number]```
 
-**Create an issue**
+**创建议题**
 
 ```glab issue create```
 
-**Clone a repository**
+**克隆仓库**
 
 ```glab repo clone [owner/repo]```
 
-**View CI/CD pipelines**
+**查看 CI/CD 流水线**
 
 ```glab ci list```
 
-**Make a raw API request**
+**发起原始 API 请求**
 
 ```glab api [/projects/:id/issues]```
 
@@ -43,59 +43,59 @@ Official GitLab CLI tool
 # PARAMETERS
 
 **mr** _subcommand_
-> Merge request operations (create, list, view, merge, close, checkout, approve).
+> 合并请求操作（create、list、view、merge、close、checkout、approve）。
 
 **issue** _subcommand_
-> Issue operations (create, list, view, close, reopen, note).
+> 议题操作（create、list、view、close、reopen、note）。
 
 **repo** _subcommand_
-> Repository operations (clone, fork, view, archive).
+> 仓库操作（clone、fork、view、archive）。
 
 **ci** _subcommand_
-> CI/CD pipeline operations (list, view, run, trace, retry).
+> CI/CD 流水线操作（list、view、run、trace、retry）。
 
 **auth** _subcommand_
-> Authentication (login, status, logout).
+> 身份验证（login、status、logout）。
 
 **release** _subcommand_
-> Manage releases (create, list, view, delete).
+> 管理发行版（create、list、view、delete）。
 
 **config** _subcommand_
-> Configuration management.
+> 配置管理。
 
 **api** _endpoint_
-> Make authenticated API requests to GitLab.
+> 向 GitLab 发起经过身份验证的 API 请求。
 
 **snippet** _subcommand_
-> Create and manage code snippets.
+> 创建和管理代码片段。
 
 **variable** _subcommand_
-> Manage CI/CD variables.
+> 管理 CI/CD 变量。
 
 **label** _subcommand_
-> Manage project labels.
+> 管理项目标签。
 
 **-R** _repo_, **--repo** _repo_
-> Target repository (owner/repo format).
+> 目标仓库（owner/repo 格式）。
 
 # DESCRIPTION
 
-**glab** is the official GitLab CLI tool. It provides command-line access to GitLab features including merge requests, issues, CI/CD pipelines, and repository management.
+**glab** 是 GitLab 官方的 CLI 工具。它提供对 GitLab 各项功能的命令行访问，包括合并请求、议题、CI/CD 流水线和仓库管理。
 
-The tool mirrors the `gh` CLI's approach for GitHub, providing a familiar interface for GitLab users. It supports both GitLab.com and self-hosted instances.
+该工具仿照 GitHub 的 `gh` CLI 的设计思路，为 GitLab 用户提供了熟悉的操作界面。它同时支持 GitLab.com 和自托管实例。
 
 # CONFIGURATION
 
 **~/.config/glab-cli/config.yml**
-> Configuration file storing authentication tokens, default settings, and host configurations.
+> 配置文件，保存身份验证令牌、默认设置和主机配置。
 
 # CAVEATS
 
-Requires GitLab access token. Some features may require specific permissions. Self-hosted instances need hostname configuration. API rate limits apply.
+需要 GitLab 访问令牌。部分功能可能需要特定权限。自托管实例需要进行主机名配置。API 有速率限制。
 
 # HISTORY
 
-glab was created by **Clement Sam** and later became the official GitLab CLI. It was inspired by GitHub's gh CLI and provides similar functionality for GitLab users.
+glab 由 **Clement Sam** 创建，后来成为 GitLab 官方 CLI。它的灵感来自 GitHub 的 gh CLI，为 GitLab 用户提供了类似的功能。
 
 # INSTALL
 

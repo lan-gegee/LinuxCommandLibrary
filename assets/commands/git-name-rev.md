@@ -1,30 +1,30 @@
 # TAGLINE
 
-Find symbolic names for commits
+查找提交的符号名称
 
 # TLDR
 
-**Find symbolic name for commit**
+**查找提交的符号名称**
 
 ```git name-rev [commit]```
 
-**Name multiple commits**
+**为多个提交命名**
 
 ```git name-rev [commit1] [commit2]```
 
-**Annotate commit hashes from stdin**
+**为来自标准输入的提交哈希添加标注**
 
 ```git log --oneline | git name-rev --annotate-stdin```
 
-**Only use tags to name a commit**
+**只用标签为提交命名**
 
 ```git name-rev --tags [commit]```
 
-**Exclude refs matching a pattern**
+**排除匹配模式的引用**
 
 ```git name-rev --exclude="refs/tags/*" [commit]```
 
-**Name all reachable commits from all refs**
+**为所有引用可达的全部提交命名**
 
 ```git name-rev --all```
 
@@ -37,34 +37,34 @@ Find symbolic names for commits
 # PARAMETERS
 
 **--annotate-stdin**
-> Transform stdin by substituting commit hashes with their symbolic names. Replaces deprecated --stdin.
+> 转换标准输入，把其中的提交哈希替换为对应的符号名称。取代已弃用的 --stdin。
 
 **--tags**
-> Only use tags to name the commits.
+> 只用标签为提交命名。
 
 **--refs** _pattern_
-> Only use refs whose names match a given shell pattern.
+> 只使用名称匹配给定 shell 模式的引用。
 
 **--exclude** _pattern_
-> Do not use any ref whose name matches a given shell pattern.
+> 不使用任何名称匹配给定 shell 模式的引用。
 
 **--all**
-> List all commits reachable from all refs.
+> 列出从所有引用可达的全部提交。
 
 **--name-only**
-> Print only the symbolic name, not the SHA-1.
+> 只打印符号名称，不打印 SHA-1。
 
 **--no-undefined**
-> Exit with error when a reference is undefined instead of printing "undefined".
+> 引用未定义时以错误退出，而不是打印 "undefined"。
 
 **--always**
-> Show uniquely abbreviated commit object as fallback when no name is found.
+> 找不到名称时退而显示唯一缩写的提交对象。
 
 # DESCRIPTION
 
-**git name-rev** finds symbolic names for given commit hashes, making them more human-readable. It shows the nearest ref (branch or tag) that can describe each commit, along with the number of commits from that ref (e.g., "main~3" means three commits before main).
+**git name-rev** 为给定的提交哈希查找符号名称，使其更易于人类阅读。它会显示最能描述每个提交的最近引用（分支或标签），以及距该引用的提交数（例如 "main~3" 表示 main 之前的第三个提交）。
 
-The `--annotate-stdin` option allows processing commit hashes from pipelines, enabling annotation of `git log` output or other commands that produce commit IDs. Filter options like `--tags` or `--refs` restrict which references are used for naming.
+`--annotate-stdin` 选项可以处理管道中的提交哈希，从而为 `git log` 输出或其他产生提交 ID 的命令添加标注。`--tags` 或 `--refs` 等过滤选项可限制用于命名的引用范围。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Merge a branch and delete it immediately
+合并分支并立即删除它
 
 # TLDR
 
-**Graft** a branch into the current branch
+**将某个分支 graft（嫁接）**到当前分支
 
 ```git graft [feature-branch]```
 
-**Graft** a branch into a specific **destination** branch
+**将某个分支 graft** 到指定的**目标**分支
 
 ```git graft [feature-branch] [dest-branch]```
 
@@ -19,20 +19,20 @@ Merge a branch and delete it immediately
 # PARAMETERS
 
 _src-branch_
-> The branch to merge and then delete
+> 要合并然后删除的分支
 
 _dest-branch_
-> The branch to merge into (defaults to the current branch)
+> 合并的目标分支（默认为当前分支）
 
 # DESCRIPTION
 
-**git graft** merges a branch then immediately deletes it, combining git merge followed by git branch -d into a single operation. It is useful for incorporating completed feature branches into the main history while cleaning up branch clutter.
+**git graft** 合并一个分支后立即删除它，把 git merge 加 git branch -d 组合为单一操作。它适用于将已完成的功能分支并入主历史的同时清理分支杂项。
 
-Part of the **git-extras** suite, the command simplifies the common merge-and-delete workflow for branches that should become part of history without keeping the branch reference.
+它是 **git-extras** 套件的组成部分，为那些应当成为历史一部分、无需保留分支引用的分支简化了常见的"合并并删除"工作流。
 
 # CAVEATS
 
-Requires the **git-extras** package. The source branch is deleted after merge. Only use for completed work where the branch reference is no longer needed. The merge must be a clean fast-forward or merge commit; conflicts will cause failure.
+需要安装 **git-extras** 软件包。源分支会在合并后被删除。只应用于已完成且不再需要保留分支引用的工作。合并必须是干净的快进或普通合并提交；出现冲突会导致失败。
 
 # INSTALL
 

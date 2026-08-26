@@ -1,38 +1,38 @@
 # TAGLINE
 
-GNU implementation of AWK text processor
+AWK 文本处理器的 GNU 实现
 
 # TLDR
 
-**Print specific columns** from a file
+**打印文件中的指定列**
 
 ```gawk '{print $1, $3}' [path/to/file]```
 
-**Use a different field separator**
+**使用不同的字段分隔符**
 
 ```gawk -F':' '{print $1}' [/etc/passwd]```
 
-**Sum values in a column**
+**对某一列求和**
 
 ```gawk '{sum += $1} END {print sum}' [file]```
 
-**Filter lines matching a pattern**
+**过滤匹配模式的行**
 
 ```gawk '/pattern/ {print}' [file]```
 
-**Print line numbers** with content
+**打印行号**及内容
 
 ```gawk '{print NR": "$0}' [file]```
 
-**Run an awk program from a file**
+**从文件运行 awk 程序**
 
 ```gawk -f [program.awk] [file]```
 
-**Use variables from command line**
+**使用命令行传入的变量**
 
 ```gawk -v name="[value]" '{print name, $0}' [file]```
 
-**Print lines where column 3 > 100**
+**打印第 3 列大于 100 的行**
 
 ```gawk '$3 > 100 {print}' [file]```
 
@@ -43,66 +43,66 @@ GNU implementation of AWK text processor
 # PARAMETERS
 
 **-F** _fs_
-> Set field separator (default: whitespace).
+> 设置字段分隔符（默认：空白字符）。
 
 **-f** _progfile_
-> Read program from file instead of command line.
+> 从文件读取程序而不是命令行。
 
 **-v** _var=value_
-> Assign value to variable before program execution.
+> 在程序执行前为变量赋值。
 
 **-b**, **--characters-as-bytes**
-> Treat all input data as single-byte characters.
+> 将所有输入数据视为单字节字符。
 
 **-c**, **--traditional**
-> Run in POSIX-compatible mode.
+> 以 POSIX 兼容模式运行。
 
 **-e** _'program'_
-> Specify program text (can use multiple -e options).
+> 指定程序文本（可多次使用 -e 选项）。
 
 **-i** _file_
-> Include library file.
+> 包含库文件。
 
 **-l** _lib_
-> Load extension library.
+> 加载扩展库。
 
 **-n**, **--non-decimal-data**
-> Recognize octal and hexadecimal values in input.
+> 识别输入中的八进制和十六进制数值。
 
 **-o** _file_
-> Pretty-print program to file.
+> 将程序美化输出到文件。
 
 **-p** _file_
-> Enable profiling, output to file.
+> 启用性能分析，输出到文件。
 
 **-S**, **--sandbox**
-> Disable system commands and file access.
+> 禁用系统命令和文件访问。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gawk** (GNU awk) is the GNU implementation of the AWK programming language, designed for text processing and data extraction. It processes input line by line, splitting each into fields that can be manipulated and transformed.
+**gawk**（GNU awk）是 AWK 编程语言的 GNU 实现，专为文本处理和数据提取设计。它逐行处理输入，把每行切分成字段进行操作和转换。
 
-An AWK program consists of patterns and actions: **pattern { action }**. When a line matches a pattern, the associated action executes. Special patterns **BEGIN** and **END** run before/after processing any input.
+AWK 程序由模式和动作组成：**pattern { action }**。当一行匹配某个模式时，对应的动作就会执行。特殊模式 **BEGIN** 和 **END** 分别在处理任何输入之前/之后运行。
 
-Built-in variables include: **$0** (entire line), **$1-$n** (fields), **NR** (record/line number), **NF** (number of fields), **FS** (field separator), **OFS** (output field separator), and **RS** (record separator).
+内置变量包括：**$0**（整行）、**$1-$n**（字段）、**NR**（记录/行号）、**NF**（字段数）、**FS**（字段分隔符）、**OFS**（输出字段分隔符）以及 **RS**（记录分隔符）。
 
-Gawk extends standard AWK with features like: network programming (TCP/UDP connections), time functions, bit manipulation, internationalization, and extension loading. It also supports regular expressions, arrays, user-defined functions, and getline for reading from files/pipes.
+Gawk 对标准 AWK 做了大量扩展：网络编程（TCP/UDP 连接）、时间函数、位操作、国际化和扩展加载等。它还支持正则表达式、数组、用户自定义函数，以及用于读取文件/管道的 getline。
 
-Common uses include: log analysis, CSV/TSV processing, report generation, data transformation, and quick text manipulation tasks that would be verbose in other languages.
+常见用途包括：日志分析、CSV/TSV 处理、报表生成、数据转换，以及其他语言中会显得繁琐的快捷文本处理任务。
 
 # CAVEATS
 
-Complex programs may be better suited for Python or Perl. Floating-point precision can be surprising. Different AWK implementations have subtle incompatibilities. Default field splitting may not handle quoted CSV properly (consider csvkit for that).
+复杂程序用 Python 或 Perl 可能更合适。浮点精度可能出人意料。不同 AWK 实现之间存在细微的不兼容。默认的字段切分无法正确处理带引号的 CSV（这类场景建议改用 csvkit）。
 
 # HISTORY
 
-AWK was created by Alfred Aho, Peter Weinberger, and Brian Kernighan at Bell Labs in **1977** (the name is their initials). **gawk** (GNU AWK) was developed by the GNU Project starting in **1986**, adding significant extensions while maintaining compatibility. It remains the most feature-rich AWK implementation.
+AWK 由贝尔实验室的 Alfred Aho、Peter Weinberger 和 Brian Kernighan 于 **1977 年**创建（名字取自三人姓氏首字母）。**gawk**（GNU AWK）由 GNU 计划自 **1986 年**起开发，在保持兼容的同时增加了大量扩展。它至今仍是功能最丰富的 AWK 实现。
 
 # INSTALL
 

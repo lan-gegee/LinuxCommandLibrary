@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage advisory file locks from shell scripts
+在 Shell 脚本中管理咨询性文件锁
 
 # TLDR
 
-Run command with **file lock**
+以**文件锁**运行命令
 
 ```flock /tmp/lock.lock command```
 
-Run with **non-blocking** lock (fail if locked)
+以**非阻塞**方式运行（已加锁则失败）
 
 ```flock -n /tmp/lock.lock command```
 
-Run with **timeout** of 10 seconds
+以 10 秒**超时**运行
 
 ```flock -w 10 /tmp/lock.lock command```
 
-Run with **custom exit code** on lock failure
+加锁失败时使用**自定义退出码**
 
 ```flock -n -E 42 /tmp/lock.lock command```
 
-Execute **shell command** with lock
+持锁执行 **shell 命令**
 
 ```flock /tmp/lock.lock -c "command1 && command2"```
 
-Use **shared** (read) lock
+使用**共享**（读）锁
 
 ```flock -s /tmp/lock.lock command```
 
@@ -38,47 +38,47 @@ Use **shared** (read) lock
 
 # DESCRIPTION
 
-**flock** manages file locks from shell scripts. It executes a command while holding a lock on a specified file or directory, creating the lock file if needed. By default, the command waits indefinitely for the lock to become available. This is useful for ensuring only one instance of a command runs at a time.
+**flock** 在 Shell 脚本中管理文件锁。它在持有指定文件或目录上的锁的同时执行命令，必要时会创建锁文件。默认情况下，该命令会无限等待锁变为可用。这可用于确保同一时间只有一个命令实例在运行。
 
 # PARAMETERS
 
 **-c, --command**
-> Execute a single command string via the shell
+> 通过 shell 执行单条命令字符串
 
 **-e, -x, --exclusive**
-> Obtain an exclusive (write) lock (default)
+> 获取排他（写）锁（默认）
 
 **-s, --shared**
-> Obtain a shared (read) lock
+> 获取共享（读）锁
 
 **-n, --nb, --nonblock**
-> Fail immediately if the lock is not available
+> 锁不可用时立即失败
 
 **-w, --wait, --timeout SECONDS**
-> Fail if the lock is not acquired within specified seconds
+> 若在指定秒数内未能获取锁则失败
 
 **-o, --close**
-> Close the file descriptor before executing the command
+> 在执行命令之前关闭文件描述符
 
 **-u, --unlock**
-> Manually drop the lock
+> 手动释放锁
 
 **-E, --conflict-exit-code NUM**
-> Exit code when lock fails with -n or timeout (default: 1)
+> 使用 -n 或超时而加锁失败时的退出码（默认：1）
 
 **-F, --no-fork**
-> Do not fork before executing the command
+> 执行命令之前不 fork
 
 **--verbose**
-> Report how long the lock took to acquire
+> 报告获取锁所花费的时间
 
 # CAVEATS
 
-**flock** does not detect deadlock situations. File locking has limited support on certain network filesystems like NFS and CIFS. When the -n or -w option is used and the lock cannot be acquired, flock exits with the code specified by -E (default 1).
+**flock** 不能检测死锁情况。在某些网络文件系统（如 NFS 和 CIFS）上，文件锁的支持有限。当使用 -n 或 -w 选项且无法获取锁时，flock 会以 -E 指定的退出码退出（默认 1）。
 
 # HISTORY
 
-**flock** is part of the **util-linux** package, providing shell-level access to the flock(2) system call.
+**flock** 是 **util-linux** 软件包的一部分，提供了对 flock(2) 系统调用的 shell 层访问。
 
 # INSTALL
 

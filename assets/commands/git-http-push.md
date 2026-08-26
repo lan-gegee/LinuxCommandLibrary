@@ -1,26 +1,26 @@
 # TAGLINE
 
-Push objects over HTTP/WebDAV
+通过 HTTP/WebDAV 推送对象
 
 # TLDR
 
-**Push a branch via HTTP/DAV to a remote**
+**通过 HTTP/DAV 向远程推送分支**
 
 ```git http-push [url] [refs]```
 
-**Push all refs via HTTP to a remote**
+**通过 HTTP 向远程推送所有引用**
 
 ```git http-push --all [url]```
 
-**Dry run to see what would be pushed**
+**试运行以查看将推送的内容**
 
 ```git http-push --dry-run [url] [refs]```
 
-**Force push via HTTP** overwriting remote ref
+**通过 HTTP 强制推送**，覆盖远程引用
 
 ```git http-push --force [url] [refs]```
 
-**Push with verbose output** showing object details
+**带详细输出的推送**，显示对象细节
 
 ```git http-push --verbose [url] [refs]```
 
@@ -31,39 +31,39 @@ Push objects over HTTP/WebDAV
 # PARAMETERS
 
 _URL_
-> Remote repository URL.
+> 远程仓库 URL。
 
 _REFS_
-> References to push.
+> 要推送的引用。
 
 **--all**
-> Push all refs. Verifies all objects in the entire local ref history exist in the remote repository rather than assuming completeness.
+> 推送所有引用。会验证整个本地引用历史中的所有对象都存在于远程仓库中，而不是假设其完整。
 
 **--force**
-> Allow updating a remote ref that is not an ancestor of the local ref (disables fast-forward check).
+> 允许更新并非本地引用祖先的远程引用（禁用快进检查）。
 
 **--dry-run**
-> Do everything except actually send the updates.
+> 执行除实际发送更新之外的一切操作。
 
 **--verbose**
-> Report the list of objects being walked locally and the list of objects successfully sent to the remote repository.
+> 报告本地遍历的对象列表以及成功发送到远程仓库的对象列表。
 
 **-d**, **-D**
-> Remove refs from the remote repository instead of pushing to them.
+> 从远程仓库移除引用而不是向其推送。
 
 # DESCRIPTION
 
-**git http-push** pushes objects and updates refs in a remote repository over HTTP/WebDAV. It is a low-level plumbing command used internally by **git push** when the remote uses the older DAV-based HTTP protocol.
+**git http-push** 通过 HTTP/WebDAV 向远程仓库推送对象并更新引用。它是一个底层 plumbing 命令，当远程使用较旧的基于 DAV 的 HTTP 协议时，会被 **git push** 在内部使用。
 
-This command is rarely used directly. Modern HTTP Git servers use the smart HTTP protocol which is handled by **git push** automatically. The DAV-based push requires the remote server to have WebDAV write access enabled and is considered legacy.
+该命令很少被直接使用。现代 HTTP Git 服务器使用智能 HTTP 协议，由 **git push** 自动处理。基于 DAV 的推送要求远程服务器启用 WebDAV 写访问权限，已被视为遗留方案。
 
 # CAVEATS
 
-Legacy protocol. Modern servers use smart HTTP. Rarely needed directly. The remote HTTP server must support WebDAV with write permissions. Authentication is handled via standard HTTP credentials.
+遗留协议。现代服务器使用智能 HTTP。很少需要直接使用。远程 HTTP 服务器必须支持具有写权限的 WebDAV。身份验证通过标准 HTTP 凭据处理。
 
 # HISTORY
 
-git http-push was one of the early remote protocols in **Git**, using WebDAV for HTTP push before the smart HTTP protocol was developed.
+git http-push 是 **Git** 早期的远程协议之一，在智能 HTTP 协议出现之前使用 WebDAV 进行 HTTP 推送。
 
 # INSTALL
 

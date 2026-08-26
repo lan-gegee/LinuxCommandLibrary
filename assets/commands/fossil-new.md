@@ -1,26 +1,26 @@
 # TAGLINE
 
-alias for fossil init
+fossil init 的别名
 
 # TLDR
 
-**Create new repository**
+**创建新仓库**
 
 ```fossil new [repo.fossil]```
 
-**Create with project name**
+**创建并设置项目名称**
 
 ```fossil new --project-name "[name]" [repo.fossil]```
 
-**Create with a specific admin user**
+**创建并指定管理员用户**
 
 ```fossil new -A [username] [repo.fossil]```
 
-**Create using settings from an existing repository as template**
+**以现有仓库的设置为模板创建**
 
 ```fossil new --template [existing.fossil] [repo.fossil]```
 
-**Create with project name and description**
+**创建并设置项目名称和描述**
 
 ```fossil new --project-name "[name]" --project-desc "[description]" [repo.fossil]```
 
@@ -31,28 +31,27 @@ alias for fossil init
 # PARAMETERS
 
 **-A, --admin-user** _USERNAME_
-> Select the given username as the admin user instead of the current login name.
+> 选择给定的用户名而非当前登录名作为管理员用户。
 
 **--template** _FILE_
-> Copy initial settings from the specified repository file. Almost all settings accessible from the setup page will be copied, but normal users and their permissions will not.
+> 从指定的仓库文件复制初始设置。几乎会复制所有可从 setup 页面访问的设置，但不会复制普通用户及其权限。
 
 **--project-name** _STRING_
-> Set the name of the project.
+> 设置项目名称。
 
 **--project-desc** _STRING_
-> Set the description of the project.
+> 设置项目描述。
 
 **--date-override** _DATETIME_
-> Use the specified datetime as the time of the initial check-in. Accepts "now" or "YYYY-MM-DDTHH:MM:SS.SSS" format with optional timezone offset.
+> 使用指定的日期时间作为初始 check-in 的时间。接受 "now" 或 "YYYY-MM-DDTHH:MM:SS.SSS" 格式（可带时区偏移）。
 
 **--sha1**
-> Use an initial hash policy of SHA1 instead of the default SHA3-256.
+> 初始哈希策略使用 SHA1 而非默认的 SHA3-256。
 
 # DESCRIPTION
 
-**fossil new** is an alias for **fossil init**. It creates a new Fossil repository file with identical functionality. All options and behaviors are identical to **fossil init**.
+**fossil new** 是 **fossil init** 的别名，功能完全相同。所有选项和行为与 **fossil init** 一致。
 
 # SEE ALSO
 
 [fossil-init](/man/fossil-init)(1), [fossil-commit](/man/fossil-commit)(1)
-

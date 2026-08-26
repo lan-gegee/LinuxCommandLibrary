@@ -1,22 +1,22 @@
 # TAGLINE
 
-Move files to trash bin instead of permanently deleting
+将文件移入回收站而不是永久删除
 
 # TLDR
 
-Move specific files to the **trash bin**
+将指定文件移入**回收站**
 
 ```gio trash [path/to/file_or_directory1] [path/to/file_or_directory2] ...```
 
-**List** trash bin items
+**列出**回收站中的项目
 
 ```gio trash --list```
 
-**Restore** a specific item from trash to its original location
+将指定项目从回收站**恢复**到原位置
 
 ```gio trash --restore trash:///[original/path/to/file]```
 
-**Empty** the trash bin permanently
+永久**清空**回收站
 
 ```gio trash --empty```
 
@@ -27,30 +27,30 @@ Move specific files to the **trash bin**
 # PARAMETERS
 
 **--list**
-> List items in the trash bin
+> 列出回收站中的项目
 
 **--empty**
-> Empty the trash bin permanently.
+> 永久清空回收站。
 
 **--restore**
-> Restore a file from trash to its original location. A URI beginning with trash:// is expected. If the original directory doesn't exist, it will be recreated.
+> 将文件从回收站恢复到原位置。需要提供以 trash:// 开头的 URI。如果原目录不存在，将会重新创建。
 
 **-f**, **--force**
-> Ignore non-existent and non-deletable files.
+> 忽略不存在的和不可删除的文件。
 
 # DESCRIPTION
 
-**gio trash** moves files to the trash bin instead of permanently deleting them, following the FreeDesktop.org Trash specification. Files are placed in **~/.local/share/Trash/** with metadata to enable restoration.
+**gio trash** 遵循 FreeDesktop.org 回收站规范，将文件移入回收站而不是永久删除。文件被放置在 **~/.local/share/Trash/** 中，并附带用于恢复的元数据。
 
-This is the command-line equivalent of dragging files to the trash in GNOME Files (Nautilus). Trashed files can be viewed in the file manager's Trash location or listed with **gio trash --list**. Files from external drives are trashed to a .Trash-UID directory on that drive.
+它相当于命令行版的"把文件拖入 GNOME 文件（Nautilus）的回收站"。被删除的文件可以在文件管理器的回收站位置查看，或用 **gio trash --list** 列出。来自外部驱动器的文件会被放入该驱动器上的 .Trash-UID 目录。
 
 # CAVEATS
 
-Trash storage is per-filesystem; trashing files from a full filesystem may fail. Very large files consume disk space until the trash is emptied. Some filesystems (like FAT on USB drives) may not support full trash metadata.
+回收站存储是按文件系统划分的；当某个文件系统已满时，从其中删除文件到回收站可能失败。非常大的文件在被清空之前会一直占用磁盘空间。某些文件系统（如 USB 驱动器上的 FAT）可能不支持完整的回收站元数据。
 
 # HISTORY
 
-gio trash replaced the older gvfs-trash command when GLib consolidated GVfs utilities into the gio tool in **2016**. The underlying FreeDesktop.org Trash specification dates back to **2004**.
+当 GLib 于 **2016 年**将 GVfs 工具整合进 gio 工具时，gio trash 取代了较旧的 gvfs-trash 命令。其底层的 FreeDesktop.org 回收站规范可追溯到 **2004 年**。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Generate a 3D model of your GitHub contribution history
+生成你 GitHub 贡献历史的 3D 模型
 
 # TLDR
 
-**Generate skyline for the current user and year**
+**为当前用户和当前年份生成 skyline**
 
 ```gh skyline```
 
-**Generate skyline for a specific user**
+**为特定用户生成 skyline**
 
 ```gh skyline --user [username]```
 
-**Generate skyline for a specific year**
+**为特定年份生成 skyline**
 
 ```gh skyline --year [2024]```
 
-**Generate skyline for a range of years**
+**为年份区间生成 skyline**
 
 ```gh skyline --year [2020]-[2024]```
 
-**Generate the full contribution history since joining GitHub**
+**生成自加入 GitHub 以来的完整贡献历史**
 
 ```gh skyline --full```
 
-**Show only the ASCII art preview without generating an STL file**
+**只显示 ASCII 字符画预览，不生成 STL 文件**
 
 ```gh skyline --art-only```
 
-**Specify a custom output filename**
+**指定自定义输出文件名**
 
 ```gh skyline --output [my-skyline.stl]```
 
-**Open the GitHub profile in a web browser**
+**在网页浏览器中打开 GitHub 个人主页**
 
 ```gh skyline --web```
 
@@ -43,31 +43,31 @@ Generate a 3D model of your GitHub contribution history
 # PARAMETERS
 
 **-u**, **--user** _username_
-> GitHub username to generate the skyline for. Defaults to the authenticated user.
+> 要为其生成 skyline 的 GitHub 用户名。默认为已认证用户。
 
 **-y**, **--year** _year_
-> Year or range of years (e.g. 2024 or 2020-2024). Must be between 2008 and the current year.
+> 年份或年份区间（例如 2024 或 2020-2024）。必须介于 2008 与当前年份之间。
 
 **-f**, **--full**
-> Generate the contribution graph from the user's join year to the current year.
+> 从用户加入的年份到当前年份生成完整的贡献图。
 
 **-a**, **--art-only**
-> Show the ASCII art preview without generating an STL file.
+> 只显示 ASCII 字符画预览，不生成 STL 文件。
 
 **-o**, **--output** _filename_
-> Output filename. Default is {username}-{year}-github-skyline.stl.
+> 输出文件名。默认为 {username}-{year}-github-skyline.stl。
 
 **-w**, **--web**
-> Open the GitHub profile in a web browser.
+> 在网页浏览器中打开 GitHub 个人主页。
 
 **-d**, **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 # DESCRIPTION
 
-**gh skyline** is a GitHub CLI extension that generates a 3D STL model of a user's GitHub contribution history. It transforms the contribution graph into a skyline where each day's contributions appear as buildings of varying heights. The output is a 3D-printable STL file.
+**gh skyline** 是一个 GitHub CLI 扩展，可将用户的 GitHub 贡献历史生成为 3D STL 模型。它把贡献图变换成天际线（skyline），每一天的贡献表现为高低不一的建筑物。输出是可用于 3D 打印的 STL 文件。
 
-An ASCII art preview of the skyline is displayed in the terminal. The model can be generated for any GitHub user, for specific years, or for the full contribution history since the user joined GitHub.
+终端中会显示天际线的 ASCII 字符画预览。模型可以为任意 GitHub 用户生成，可以针对特定年份，也可以覆盖用户自加入 GitHub 以来的完整贡献历史。
 
 # INSTALL
 

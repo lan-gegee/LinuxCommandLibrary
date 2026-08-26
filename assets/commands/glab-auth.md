@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage GitLab CLI authentication
+管理 GitLab CLI 的身份验证
 
 # TLDR
 
-**Login to GitLab**
+登录 GitLab
 
 ```glab auth login```
 
-**Login by piping a token** from a file
+通过管道从文件传入**令牌登录**
 
 ```glab auth login --stdin < [token.txt]```
 
-**Login to a self-hosted instance**
+登录到自托管实例
 
 ```glab auth login --hostname [gitlab.example.com]```
 
-**Show auth status**
+显示认证状态
 
 ```glab auth status```
 
-**Set up git credential helper**
+设置 git 凭据助手
 
 ```glab auth git-credential```
 
-**Logout**
+登出
 
 ```glab auth logout```
 
@@ -35,48 +35,48 @@ Manage GitLab CLI authentication
 # SUBCOMMANDS
 
 **login**
-> Authenticate with a GitLab instance, interactively or non-interactively.
+> 以交互或非交互方式向 GitLab 实例进行身份验证。
 
 **logout**
-> Log out of a GitLab instance.
+> 登出某个 GitLab 实例。
 
 **status**
-> Show authentication status for known hosts.
+> 显示已知主机的认证状态。
 
 **git-credential**
-> Implement a git-credential-helper for GitLab, usually invoked by git itself.
+> 实现 GitLab 的 git 凭据助手，通常由 git 自身调用。
 
 **configure-docker**
-> Configure glab as a credential helper for Docker.
+> 将 glab 配置为 Docker 的凭据助手。
 
 # PARAMETERS
 
 **-h**, **--hostname** _host_
-> GitLab host to authenticate with (default: gitlab.com).
+> 要认证的 GitLab 主机（默认：gitlab.com）。
 
 **-t**, **--token** _token_
-> An authentication token, provided via prompt, `--stdin`, or `$GITLAB_TOKEN`.
+> 认证令牌，可通过提示输入、`--stdin` 或 `$GITLAB_TOKEN` 提供。
 
 **--stdin**
-> Read the token from standard input rather than prompting.
+> 从标准输入读取令牌而非交互提示。
 
 **--api-host** _host_
-> API host, if different from the web host.
+> API 主机（若与 Web 主机不同）。
 
 **--api-protocol** _http|https_
-> Protocol to use for API requests.
+> API 请求使用的协议。
 
 **--git-protocol** _http|ssh_
-> Protocol to use for git operations.
+> git 操作使用的协议。
 
 **--use-keyring**
-> Store credentials in the system keyring instead of the plain-text config file.
+> 将凭据存储在系统密钥环中，而不是明文配置文件。
 
 # DESCRIPTION
 
-**glab auth** manages GitLab CLI authentication. It handles logging in to GitLab instances with personal access tokens or OAuth, and stores credentials for use by other glab commands.
+**glab auth** 管理 GitLab CLI 的身份验证。它处理使用个人访问令牌或 OAuth 登录 GitLab 实例的过程，并存储凭据供其他 glab 命令使用。
 
-For self-hosted GitLab instances, use the `--hostname` flag to specify the server address. Credentials are stored in the glab configuration file (`~/.config/glab-cli/config.yml` by default), or in the OS keyring with `--use-keyring`.
+对于自托管的 GitLab 实例，请使用 `--hostname` 标志指定服务器地址。凭据存储在 glab 配置文件中（默认 `~/.config/glab-cli/config.yml`），或在 `--use-keyring` 下存入操作系统密钥环。
 
 # INSTALL
 

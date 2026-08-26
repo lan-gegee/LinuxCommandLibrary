@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage GitHub project boards and work items
+管理 GitHub 项目看板和工作项
 
 # TLDR
 
-**List projects**
+**列出项目**
 
 ```gh project list```
 
-**View a project**
+**查看项目**
 
 ```gh project view [number]```
 
-**Create a project**
+**创建项目**
 
 ```gh project create --title "[title]"```
 
-**Add item to project**
+**向项目添加条目**
 
 ```gh project item-add [number] --url [issue_url]```
 
-**Delete a project**
+**删除项目**
 
 ```gh project delete [number]```
 
@@ -31,75 +31,75 @@ Manage GitHub project boards and work items
 # SUBCOMMANDS
 
 **list**
-> List projects.
+> 列出项目。
 
 **view**
-> View a project.
+> 查看项目。
 
 **create**
-> Create a project.
+> 创建项目。
 
 **copy**
-> Copy a project.
+> 复制项目。
 
 **edit**
-> Edit project settings.
+> 编辑项目设置。
 
 **close**
-> Close a project.
+> 关闭项目。
 
 **delete**
-> Delete a project.
+> 删除项目。
 
 **link** / **unlink**
-> Link or unlink a repository or team to a project.
+> 将仓库或团队与项目关联或解除关联。
 
 **mark-template**
-> Mark a project as a template.
+> 将项目标记为模板。
 
 **item-add**
-> Add an existing issue or PR to a project.
+> 将现有的 issue 或 PR 添加到项目。
 
 **item-create**
-> Create a draft item in a project.
+> 在项目中创建草稿条目。
 
 **item-edit**
-> Edit an item's field values.
+> 编辑条目的字段值。
 
 **item-archive**
-> Archive an item.
+> 归档条目。
 
 **item-delete**
-> Remove an item.
+> 移除条目。
 
 **item-list**
-> List project items.
+> 列出项目条目。
 
 **field-create** / **field-list** / **field-delete**
-> Manage custom fields on a project.
+> 管理项目上的自定义字段。
 
 # PARAMETERS
 
 **--owner** _owner_
-> Owner of the project (user or organization).
+> 项目所有者（用户或组织）。
 
 **--title** _title_
-> Project title.
+> 项目标题。
 
 **--url** _url_
-> Issue or PR URL to add.
+> 要添加的 issue 或 PR URL。
 
 **--format** _format_
-> Output format (e.g. json).
+> 输出格式（例如 json）。
 
 **-q**, **--jq** _expression_
-> Filter JSON output with a jq expression.
+> 使用 jq 表达式过滤 JSON 输出。
 
 # DESCRIPTION
 
-**gh project** manages GitHub Projects (project boards) from the command line. It enables organizing and tracking work with customizable views, fields, and automation.
+**gh project** 用于在命令行中管理 GitHub Projects（项目看板）。它借助可自定义的视图、字段和自动化能力来组织和跟踪工作。
 
-Projects can contain issues, pull requests, and draft items organized into boards with custom columns and filters. The command provides full lifecycle management from creation through closure.
+项目可以包含 issue、拉取请求和草稿条目，并通过自定义列和过滤器组织成看板。该命令提供从创建到关闭的完整生命周期管理。
 
 # INSTALL
 

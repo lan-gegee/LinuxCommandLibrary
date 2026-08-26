@@ -1,22 +1,22 @@
 # TAGLINE
 
-list available logs in Cloud Logging
+列出 Cloud Logging 中可用的日志
 
 # TLDR
 
-**List logs**
+**列出日志**
 
 ```gcloud logging logs list```
 
-**List with limit**
+**限制数量列出日志**
 
 ```gcloud logging logs list --limit [10]```
 
-**List in specific project**
+**在指定项目中列出日志**
 
 ```gcloud logging logs list --project [project_id]```
 
-**List in JSON format**
+**以 JSON 格式列出日志**
 
 ```gcloud logging logs list --format json```
 
@@ -27,22 +27,21 @@ list available logs in Cloud Logging
 # PARAMETERS
 
 **--limit** _num_
-> Maximum results.
+> 最大结果数。
 
 **--project** _id_
-> Project ID.
+> 项目 ID。
 
 **--format** _format_
-> Output format.
+> 输出格式。
 
 # DESCRIPTION
 
-**gcloud logging logs list** displays all log streams available in a Google Cloud project's Cloud Logging service. Each log name represents a distinct stream of log entries, typically corresponding to a specific service, application, or resource.
+**gcloud logging logs list** 显示 Google Cloud 项目的 Cloud Logging 服务中所有可用的日志流。每个日志名称代表一个独立的日志条目流，通常对应特定的服务、应用程序或资源。
 
-Logs are created automatically when services write entries to them. Common log names include those from Compute Engine instances, App Engine applications, Kubernetes clusters, and other GCP services. User applications can also write to custom logs.
+当日志服务写入条目时会自动创建日志。常见的日志名称包括来自 Compute Engine 实例、App Engine 应用程序、Kubernetes 集群以及其他 GCP 服务的日志。用户应用程序也可以写入自定义日志。
 
-This command is useful for discovering what logs are available before reading their contents with other logging commands. The output helps identify the correct log name to use when querying or tailing specific application or service logs.
+在使用其他日志命令读取内容之前，该命令可用于发现有哪些日志可用。其输出有助于确定查询或跟踪特定应用程序或服务日志时应使用的正确日志名称。
 
 # SEE ALSO
-
 

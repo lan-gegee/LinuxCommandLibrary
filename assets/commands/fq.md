@@ -1,22 +1,22 @@
 # TAGLINE
 
-jq for binary formats
+面向二进制格式的 jq
 
 # TLDR
 
-**Inspect** a binary file
+**查看**二进制文件
 
 ```fq . [file]```
 
-**Decode** specific format
+按指定格式**解码**
 
 ```fq -d [mp4|flac|jpeg|...] . [file]```
 
-**Query** specific fields
+**查询**特定字段
 
 ```fq '.tracks[0].duration' [file]```
 
-**Open** interactive REPL
+**打开**交互式 REPL
 
 ```fq -i [file]```
 
@@ -27,57 +27,57 @@ jq for binary formats
 # PARAMETERS
 
 **-d, --decode** _FORMAT_
-> Decode as specific format
+> 按指定格式解码。
 
 **-i, --interactive**
-> Start interactive REPL
+> 启动交互式 REPL。
 
 **-n, --null-input**
-> Use null as input value
+> 使用 null 作为输入值。
 
 **-r, --raw-output**
-> Output raw strings
+> 输出原始字符串。
 
 **-c, --compact-output**
-> Compact output (no pretty print)
+> 紧凑输出（不进行格式化打印）。
 
 **--help**
-> Display help and exit
+> 显示帮助并退出。
 
 **--version**
-> Display version and exit
+> 显示版本并退出。
 
 # DESCRIPTION
 
-**fq** is a tool for inspecting binary files using a jq-like query language. It can decode and query over 100 different binary formats including MP4, FLAC, JPEG, PCAP, ELF, and many more.
+**fq** 是一个使用类 jq 查询语言检查二进制文件的工具。它可以解码并查询 100 多种二进制格式，包括 MP4、FLAC、JPEG、PCAP、ELF 等。
 
-The tool provides a REPL with autocomplete, allowing interactive exploration of binary structures. It's useful for debugging, reverse engineering, and understanding file formats.
+该工具提供带自动补全的 REPL，支持以交互方式探索二进制结构。它适用于调试、逆向工程以及理解文件格式。
 
 # USAGE
 
-Basic inspection:
+基本查看：
 
 ```fq . file.mp4```
 
-Query specific field:
+查询特定字段：
 
 ```fq '.meta.moov.tracks[0].mdia.minf.stbl.sample_descriptions[0].width' video.mp4```
 
-Decode as raw bytes:
+按原始字节解码：
 
 ```fq -d raw '.[0:10]' file```
 
-List supported formats:
+列出支持的格式：
 
 ```fq -h```
 
 # CAVEATS
 
-Large files may consume significant memory. Some formats have incomplete support. Binary data output may require terminal with proper encoding support. Complex nested queries can be slow.
+大文件可能消耗大量内存。部分格式的支持尚不完整。输出二进制数据可能需要编码支持良好的终端。复杂的嵌套查询可能较慢。
 
 # HISTORY
 
-**fq** was created by **Mattias Wadman** and first released in **2021**, bringing the power of jq to binary data and making it easier to inspect and understand binary file formats without specialized tools.
+**fq** 由 **Mattias Wadman** 创建，于 **2021** 年首次发布，将 jq 的强大能力带入二进制数据领域，让检查和理解二进制文件格式不再需要专门的工具。
 
 # INSTALL
 

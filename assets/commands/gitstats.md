@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate statistics from Git repositories
+从 Git 仓库生成统计信息
 
 # TLDR
 
-**Generate stats for repository**
+**为仓库生成统计数据**
 
 ```gitstats [repo_path] [output_dir]```
 
-**Generate stats for** last 10 commits
+为最近 10 次提交**生成统计数据**
 
 ```gitstats -c commit_begin='HEAD~10' [repo] [output]```
 
-**Set project name** and max authors
+**设置项目名称**和作者数量上限
 
 ```gitstats -c project_name='[MyProject]' -c max_authors=[20] [repo] [output]```
 
@@ -23,45 +23,45 @@ Generate statistics from Git repositories
 # PARAMETERS
 
 **-c** _key=value_
-> Configuration option. Can be specified multiple times.
+> 配置选项。可以指定多次。
 
-### Configuration Keys
+### 配置键
 
 **project_name**
-> Project name shown on generated pages. Default: basename of repository directory.
+> 在生成页面上显示的项目名称。默认：仓库目录的 basename。
 
 **max_authors**
-> Maximum number of authors to show in the authors list.
+> 作者列表中显示的作者数量上限。
 
 **authors_top**
-> How many top authors to show.
+> 显示多少位头部作者。
 
 **max_domains**
-> Maximum number of domains to show in domains by commits.
+> 按提交统计的域名列表中显示的域名数量上限。
 
 **max_ext_length**
-> Maximum file extension length.
+> 文件扩展名的最大长度。
 
 **commit_begin**
-> Starting commit for statistics range.
+> 统计范围的起始提交。
 
 **commit_end**
-> Ending commit for statistics range.
+> 统计范围的结束提交。
 
 **start_date**
-> Starting date passed with --since to git.
+> 通过 --since 传给 git 的起始日期。
 
 **processes**
-> Number of concurrent processes for extracting data.
+> 提取数据时使用的并发进程数。
 
 **style**
-> CSS stylesheet to use.
+> 要使用的 CSS 样式表。
 
 # DESCRIPTION
 
-**gitstats** generates statistics from Git repositories and creates HTML reports with graphs showing commit activity, author contributions, file counts, and lines of code over time.
+**gitstats** 从 Git 仓库生成统计信息，并创建带图表的 HTML 报告，展示提交活跃度、作者贡献、文件数量和代码行数随时间的变化。
 
-The output is a static HTML site that can be viewed in any browser, providing a visual overview of project history and contributor patterns.
+输出是一个静态 HTML 站点，可在任何浏览器中查看，直观呈现项目历史和贡献者行为模式。
 
 # INSTALL
 

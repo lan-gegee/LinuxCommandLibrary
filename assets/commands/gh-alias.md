@@ -1,22 +1,22 @@
 # TAGLINE
 
-GitHub CLI command alias management
+GitHub CLI 命令别名管理
 
 # TLDR
 
-**List aliases**
+**列出别名**
 
 ```gh alias list```
 
-**Set an alias**
+**设置别名**
 
 ```gh alias set [name] "[command]"```
 
-**Delete an alias**
+**删除别名**
 
 ```gh alias delete [name]```
 
-**Set with shell expansion**
+**设置支持 shell 展开的别名**
 
 ```gh alias set --shell [name] "[shell command]"```
 
@@ -27,27 +27,27 @@ GitHub CLI command alias management
 # SUBCOMMANDS
 
 **list**
-> List defined aliases.
+> 列出已定义的别名。
 
 **set**
-> Create an alias.
+> 创建别名。
 
 **delete**
-> Remove an alias (use **--all** to remove all).
+> 移除别名（用 **--all** 移除全部）。
 
 **import**
-> Import aliases from a YAML file (or stdin with `-`).
+> 从 YAML 文件导入别名（或用 `-` 表示 stdin）。
 
 # PARAMETERS
 
 **--shell**
-> Expand as shell command.
+> 按 shell 命令展开。
 
 # DESCRIPTION
 
-**gh alias** manages command aliases for the GitHub CLI. Create shortcuts for frequently used or complex commands to streamline your GitHub workflow.
+**gh alias** 管理 GitHub CLI 的命令别名。为常用或复杂的命令创建快捷方式，简化你的 GitHub 工作流程。
 
-Aliases can simplify multi-step operations, provide shorthand for common tasks, and customize the CLI to match your development patterns. Shell aliases support piping and advanced command composition, while regular aliases work with gh subcommands and flags.
+别名可以简化多步操作、为常见任务提供简写形式，并让 CLI 更贴合你的开发习惯。Shell 别名支持管道和高级命令组合，而普通别名适用于 gh 子命令和标志。
 
 # INSTALL
 
@@ -70,4 +70,3 @@ Aliases can simplify multi-step operations, provide shorthand for common tasks, 
 # SEE ALSO
 
 [gh](/man/gh)(1), [gh-config](/man/gh-config)(1)
-

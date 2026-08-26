@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display commit activity and development effort per file
+显示每个文件的提交活动与开发投入
 
 # TLDR
 
-**Show effort for all files**
+**显示所有文件的投入情况**
 
 ```git effort```
 
-**Show effort for a specific directory**
+**显示指定目录的投入情况**
 
 ```git effort [src/]```
 
-**Only show files with more than N commits**
+**只显示提交数超过 N 的文件**
 
 ```git effort --above [50]```
 
-**Show effort for a specific file**
+**显示指定文件的投入情况**
 
 ```git effort [path/to/file.js]```
 
@@ -27,27 +27,27 @@ Display commit activity and development effort per file
 # PARAMETERS
 
 _PATH_
-> File or directory path to analyze. When omitted, analyzes the entire repository.
+> 要分析的文件或目录路径。省略时分析整个仓库。
 
 **--above** _N_
-> Only show files with more than N commits. Useful for filtering out low-activity files.
+> 只显示提交数超过 N 的文件。有助于过滤掉低活跃度的文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git effort** displays commit activity for files over time, showing which files receive the most attention through commit frequency and active days. The output ranks files by commit count and active days, helping identify hotspots and understand maintenance patterns in the codebase.
+**git effort** 按时间维度显示文件的提交活动，通过提交频率和活跃天数展示哪些文件最受关注。输出按提交数和活跃天数对文件排序，帮助识别热点并了解代码库的维护模式。
 
-Part of the git-extras suite, it reveals which areas of the codebase receive ongoing development effort, useful for planning code reviews and understanding project dynamics.
+它是 git-extras 套件的组成部分，能揭示代码库中哪些区域持续获得开发投入，可用于规划代码评审和理解项目动态。
 
 # CAVEATS
 
-Part of git-extras package. Can be slow on large repos. Measures commits, not lines changed.
+属于 git-extras 软件包。在大型仓库上可能较慢。衡量的是提交数而非变更行数。
 
 # HISTORY
 
-git effort is part of **git-extras**, created by **TJ Holowaychuk** to visualize development effort distribution.
+git effort 是 **git-extras** 的组成部分，由 **TJ Holowaychuk** 创建，用于可视化开发投入的分布。
 
 # INSTALL
 

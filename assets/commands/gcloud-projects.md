@@ -1,26 +1,26 @@
 # TAGLINE
 
-Google Cloud project management
+Google Cloud 项目管理
 
 # TLDR
 
-**List projects**
+**列出项目**
 
 ```gcloud projects list```
 
-**Create a project**
+**创建项目**
 
 ```gcloud projects create [project_id]```
 
-**Describe a project**
+**查看项目详情**
 
 ```gcloud projects describe [project_id]```
 
-**Delete a project**
+**删除项目**
 
 ```gcloud projects delete [project_id]```
 
-**Set IAM policy**
+**设置 IAM 政策**
 
 ```gcloud projects set-iam-policy [project_id] [policy.json]```
 
@@ -31,47 +31,46 @@ Google Cloud project management
 # SUBCOMMANDS
 
 **list**
-> List projects the active account has permission to view.
+> 列出当前账户有权查看的项目。
 
 **create** _PROJECT_ID_ [**--name=**_NAME_] [**--organization=**_ORG_] [**--folder=**_FOLDER_]
-> Create a new project. ID must be 6–30 characters, lowercase letters, digits, or hyphens.
+> 创建新项目。ID 必须为 6–30 个字符，只能包含小写字母、数字或连字符。
 
 **describe** _PROJECT_ID_
-> Show metadata (name, number, lifecycle state, labels) for a project.
+> 显示项目的元数据（名称、编号、生命周期状态、标签）。
 
 **delete** _PROJECT_ID_
-> Mark a project for deletion (it is soft-deleted for 30 days before permanent removal).
+> 将项目标记为待删除（在永久移除前会软删除保留 30 天）。
 
 **get-iam-policy** _PROJECT_ID_
-> Print the IAM policy attached to the project.
+> 输出绑定到该项目的 IAM 政策。
 
 **set-iam-policy** _PROJECT_ID_ _POLICY_FILE_
-> Replace the IAM policy with the one defined in the JSON or YAML file.
+> 用 JSON 或 YAML 文件中定义的政策替换现有 IAM 政策。
 
 **add-iam-policy-binding** _PROJECT_ID_ **--member=**_MEMBER_ **--role=**_ROLE_
-> Add a single member/role binding to the project's IAM policy.
+> 向项目的 IAM 政策添加单个成员/角色绑定。
 
 **remove-iam-policy-binding** _PROJECT_ID_ **--member=**_MEMBER_ **--role=**_ROLE_
-> Remove a member/role binding from the project's IAM policy.
+> 从项目的 IAM 政策中移除成员/角色绑定。
 
 **update** _PROJECT_ID_
-> Update project metadata such as display name or labels.
+> 更新项目元数据，例如显示名称或标签。
 
 **move** _PROJECT_ID_ **--organization=**_ORG_ | **--folder=**_FOLDER_
-> Move a project to a different organization or folder.
+> 将项目移动到其他组织或文件夹。
 
 **undelete** _PROJECT_ID_
-> Restore a soft-deleted project within the 30-day grace period.
+> 在 30 天宽限期内恢复软删除的项目。
 
 # DESCRIPTION
 
-**gcloud projects** provides commands for managing Google Cloud projects, which serve as the fundamental organizational unit in GCP. Every resource in Google Cloud belongs to exactly one project, and projects provide the basis for billing, access control, and resource isolation.
+**gcloud projects** 提供管理 Google Cloud 项目的命令。项目是 GCP 中最基本的组织单元，Google Cloud 中的每个资源都恰好属于一个项目，项目是计费、访问控制和资源隔离的基础。
 
-The command group supports the full project lifecycle including creation, deletion, and restoration of soft-deleted projects. It also handles IAM policy management at the project level, controlling which principals have access to project resources.
+该命令组支持完整的项目生命周期，包括创建、删除以及恢复软删除的项目。它还负责项目级别的 IAM 政策管理，控制哪些主体有权访问项目资源。
 
-Projects contain settings like project ID (immutable), project name (changeable), and project number (assigned by Google). Understanding project management is essential for organizing resources and managing costs in Google Cloud, as billing is tracked per project.
+项目包含若干设置：项目 ID（不可变）、项目名称（可更改）和项目编号（由 Google 分配）。由于计费按项目追踪，理解项目管理对于在 Google Cloud 中组织资源和管理成本至关重要。
 
 # SEE ALSO
 
 [gcloud](/man/gcloud)(1), [gcloud-config](/man/gcloud-config)(1)
-

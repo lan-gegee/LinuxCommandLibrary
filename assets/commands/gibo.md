@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate .gitignore files from community-maintained templates
+从社区维护的模板生成 .gitignore 文件
 
 # TLDR
 
-**List available boilerplates**
+**列出可用的样板模板**
 
 ```gibo list```
 
-**Combine multiple boilerplates to stdout**
+**组合多个样板模板并输出到标准输出**
 
 ```gibo dump [Python] [macOS] [VisualStudioCode]```
 
-**Search boilerplates by substring**
+**按子串搜索样板模板**
 
 ```gibo search [node]```
 
-**Append a boilerplate to your .gitignore**
+**将样板模板追加到你的 .gitignore**
 
 ```gibo dump [Python] >> .gitignore```
 
-**Update the locally cached boilerplate repository**
+**更新本地缓存的样板模板仓库**
 
 ```gibo update```
 
-**Show where boilerplates are stored on disk**
+**显示样板模板在磁盘上的存储位置**
 
 ```gibo root```
 
@@ -35,39 +35,39 @@ Generate .gitignore files from community-maintained templates
 # PARAMETERS
 
 **dump** _NAMES_...
-> Write the named boilerplates to standard output, separated by headers. Names are matched case-insensitively against templates from github.com/github/gitignore.
+> 将指定的样板模板写入标准输出，以标题分隔。名称与 github.com/github/gitignore 中的模板进行不区分大小写的匹配。
 
 **list**
-> List all available boilerplates, grouped by category.
+> 列出所有可用的样板模板，按类别分组。
 
 **search** _STR_
-> List boilerplates whose names contain _STR_.
+> 列出名称包含 _STR_ 的样板模板。
 
 **update**
-> Fetch the latest boilerplates from the upstream repository.
+> 从上游仓库获取最新的样板模板。
 
 **root**
-> Print the directory where gibo stores its local clone of the boilerplate repository.
+> 打印 gibo 存储样板模板本地克隆的目录。
 
 **version**
-> Print the current gibo version.
+> 打印当前 gibo 版本。
 
 **help**
-> Display help text.
+> 显示帮助文本。
 
 # DESCRIPTION
 
-**gibo** (gitignore boilerplates) generates .gitignore files from community-maintained templates hosted in GitHub's official gitignore repository. It provides templates for languages, frameworks, IDEs, and operating systems.
+**gibo**（gitignore boilerplates）根据托管在 GitHub 官方 gitignore 仓库中的社区维护模板生成 .gitignore 文件。它提供针对语言、框架、IDE 和操作系统的模板。
 
-Multiple boilerplates can be combined in a single command. The tool caches templates locally for offline use and supports searching by name.
+可以在一条命令中组合多个样板模板。该工具会将模板缓存到本地以便离线使用，并支持按名称搜索。
 
 # CAVEATS
 
-An initial `gibo update` is required the first time you use the tool, to clone the upstream boilerplate repository locally. Run `gibo update` periodically to pick up new templates. Boilerplate names are case-insensitive but must match a template file in github/gitignore; use `gibo list` or `gibo search` to discover valid names.
+首次使用该工具时需要先执行一次 `gibo update`，以将上游样板模板仓库克隆到本地。请定期运行 `gibo update` 以获取新模板。样板模板名称不区分大小写，但必须匹配 github/gitignore 中的某个模板文件；可使用 `gibo list` 或 `gibo search` 查找有效名称。
 
 # HISTORY
 
-**gibo** was created by **Simon Whitaker** as a shell script that wraps a local clone of **github.com/github/gitignore**. A Go rewrite (gibo-go) has since replaced the original shell implementation while keeping the same command surface.
+**gibo** 由 **Simon Whitaker** 创建，最初是一个包装 **github.com/github/gitignore** 本地克隆的 Shell 脚本。后来 Go 重写版（gibo-go）取代了原始的 Shell 实现，同时保持了相同的命令接口。
 
 # INSTALL
 

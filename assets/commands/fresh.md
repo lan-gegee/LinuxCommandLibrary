@@ -1,38 +1,38 @@
 # TAGLINE
 
-Dotfiles manager that sources shell configuration from multiple repos
+从多个仓库引入 Shell 配置的 Dotfiles 管理器
 
 # TLDR
 
-**Build shell configuration** and symlinks from freshrc
+从 freshrc **构建 Shell 配置**和符号链接
 
 ```fresh```
 
-**Update all sources** from remote repositories and rebuild
+**更新所有源仓库**并重新构建
 
 ```fresh update```
 
-**Update only local dotfiles** repository
+仅**更新本地 dotfiles 仓库**
 
 ```fresh update --local```
 
-**Update a specific GitHub user's** repositories
+**更新特定 GitHub 用户**的仓库
 
 ```fresh update [username]```
 
-**Search the fresh directory** for configuration examples
+**在 fresh 目录中搜索**配置示例
 
 ```fresh search [keyword]```
 
-**Edit your freshrc** configuration file
+**编辑你的 freshrc** 配置文件
 
 ```fresh edit```
 
-**Remove dead symlinks** and unused source repos
+**清理失效符号链接**和无用的源仓库
 
 ```fresh clean```
 
-**Show source references** for freshrc lines
+显示 freshrc 各行的**来源引用**
 
 ```fresh show```
 
@@ -43,57 +43,57 @@ Dotfiles manager that sources shell configuration from multiple repos
 # PARAMETERS
 
 **install**
-> Build shell configuration and create symlinks. This is the default when no command is given.
+> 构建 Shell 配置并创建符号链接。未给出命令时这是默认行为。
 
 **update** [_filter_]
-> Fetch latest changes from source repositories and rebuild. Optionally filter by **--local**, a GitHub _username_, or _username/repo_.
+> 从源仓库拉取最新更改并重新构建。可用 **--local**、GitHub _username_ 或 _username/repo_ 过滤。
 
 **clean**
-> Remove dead symlinks and unused source repositories.
+> 移除失效符号链接和无用的源仓库。
 
 **search** _keyword_
-> Query the fresh directory wiki for configuration examples matching _keyword_.
+> 在 fresh 目录 wiki 中查询与 _keyword_ 匹配的配置示例。
 
 **edit**
-> Open **~/.freshrc** in your default **$EDITOR**.
+> 在默认的 **$EDITOR** 中打开 **~/.freshrc**。
 
 **show**
-> Display freshrc lines with their matching source files.
+> 显示 freshrc 各行及其对应的源文件。
 
 **help**
-> Show usage documentation.
+> 显示用法文档。
 
 # DESCRIPTION
 
-**fresh** is a dotfiles manager that works like Bundler for your shell configuration. It aggregates aliases, functions, completions, and configuration files from your own dotfiles and from other users' GitHub repositories into a single built shell script and a set of symlinks.
+**fresh** 是一个 dotfiles 管理器，对你的 Shell 配置而言就像 Bundler 一样工作。它把你自己的 dotfiles 以及其他用户的 GitHub 仓库中的别名、函数、补全和配置文件聚合为一个构建好的 shell 脚本和一组符号链接。
 
-Configuration is defined in **~/.freshrc** using a simple DSL. Each line specifies a source file to include, optionally from a GitHub repository. When **fresh** runs, it concatenates all shell sources into **~/.fresh/build/shell.sh** and creates symlinks for non-shell config files. You source the built file from your shell rc to activate everything.
+配置通过简单的 DSL 在 **~/.freshrc** 中定义。每一行指定要引入的一个源文件，可选地来自某个 GitHub 仓库。当 **fresh** 运行时，它把所有 shell 源拼接成 **~/.fresh/build/shell.sh**，并为非 shell 配置文件创建符号链接。你在 shell 的 rc 文件中 source 构建产物即可启用一切。
 
-Fresh supports three types of sourced content: **shell files** (concatenated into the build script), **config files** (symlinked via **--file**), and **bin files** (made executable via **--bin**).
+Fresh 支持三种被引入的内容类型：**shell 文件**（拼接到构建脚本中）、**配置文件**（通过 **--file** 创建符号链接）以及 **bin 文件**（通过 **--bin** 使其可执行）。
 
 # FRESHRC OPTIONS
 
 **--file**[**=**_path_]
-> Link or build a configuration file. With a path like **--file=~/.vimrc**, the file is symlinked to that location. Without a path, files are concatenated into **~/.fresh/build/** using their original name.
+> 链接或构建配置文件。带路径时（如 **--file=~/.vimrc**），文件会被符号链接到该位置；不带路径时，文件按原名拼接到 **~/.fresh/build/** 中。
 
 **--bin**[**=**_path_]
-> Create an executable symlink in **~/bin/** (or a custom path). The source file is made executable automatically.
+> 在 **~/bin/**（或自定义路径）中创建可执行符号链接。源文件会自动被赋予可执行权限。
 
 **--ref=**_ref_
-> Lock a source to a specific git branch, tag, or commit hash.
+> 将源锁定到特定的 git 分支、标签或提交哈希。
 
 **--filter=**_command_
-> Pipe the source file through a shell command before including it (e.g. **--filter="gpg -d"**).
+> 在引入前将源文件通过一条 shell 命令处理（例如 **--filter="gpg -d"**）。
 
 **--marker=**_string_
-> Add comment markers around sourced content for identification in built files.
+> 在被引入内容周围添加注释标记，便于在构建产物中识别。
 
 **--ignore-missing**
-> Suppress errors when a source file is not available.
+> 当源文件不可用时抑制报错。
 
 # CONFIGURATION
 
-Fresh uses **~/.freshrc** as its configuration file. Sources are specified as:
+Fresh 使用 **~/.freshrc** 作为配置文件。源以下列方式指定：
 
 ```
 # Local file from ~/.dotfiles/
@@ -109,7 +109,7 @@ fresh git://example.com/repo.git file.conf --file=~/.config/app.conf
 fresh freshshell/fresh contrib/completion/fresh-completion.bash --bin
 ```
 
-Use **fresh-options** blocks to apply consistent flags to multiple lines:
+使用 **fresh-options** 块可为多行统一应用选项：
 
 ```
 fresh-options --file=~/.vimrc --marker='"'
@@ -118,23 +118,23 @@ fresh-options --file=~/.vimrc --marker='"'
 fresh-options
 ```
 
-Environment variables for customization:
+可自定义的环境变量：
 
-**FRESH_RCFILE** — configuration file path (default: **~/.freshrc**)
-**FRESH_PATH** — installation directory (default: **~/.fresh**)
-**FRESH_LOCAL** — local dotfiles repository (default: **~/.dotfiles**)
-**FRESH_BIN_PATH** — binary installation directory (default: **~/bin**)
-**FRESH_NO_LOCAL_CHECK** — disable local sourcing warnings
-**FRESH_NO_PATH_EXPORT** — skip automatic PATH modification
-**FRESH_NO_BIN_CONFLICT_CHECK** — suppress multi-source binary warnings
+**FRESH_RCFILE** — 配置文件路径（默认：**~/.freshrc**）
+**FRESH_PATH** — 安装目录（默认：**~/.fresh**）
+**FRESH_LOCAL** — 本地 dotfiles 仓库（默认：**~/.dotfiles**）
+**FRESH_BIN_PATH** — 可执行文件安装目录（默认：**~/bin**）
+**FRESH_NO_LOCAL_CHECK** — 禁用本地引入警告
+**FRESH_NO_PATH_EXPORT** — 跳过自动修改 PATH
+**FRESH_NO_BIN_CONFLICT_CHECK** — 抑制多来源二进制文件冲突警告
 
 # CAVEATS
 
-Fresh requires **git** and **bash** to be installed. All shell sources are concatenated into a single file, so naming conflicts between sourced functions or aliases from different repositories must be managed manually. The built shell script must be explicitly sourced from your **.bashrc** or **.zshrc** — fresh does not modify these files automatically.
+Fresh 需要已安装 **git** 和 **bash**。所有 shell 源都会拼接进同一个文件，因此不同仓库引入的函数或别名之间的命名冲突必须手动管理。构建出的 shell 脚本必须由你在 **.bashrc** 或 **.zshrc** 中显式 source —— fresh 不会自动修改这些文件。
 
 # HISTORY
 
-**fresh** was created by **Jason Weathered** (jasoncodes) and **Scott Barron** (twe4ked) as an open-source shell tool released under the **MIT license**. It was inspired by the concept of Bundler for Ruby, applying the same dependency-sourcing philosophy to dotfiles management across the shell ecosystem.
+**fresh** 由 **Jason Weathered**（jasoncodes）和 **Scott Barron**（twe4ked）创建，是以 **MIT license** 发布的开源 Shell 工具。它的灵感来自 Ruby 的 Bundler，把同样的依赖引入理念应用到了 Shell 生态中的 dotfiles 管理。
 
 # SEE ALSO
 

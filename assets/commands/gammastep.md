@@ -1,30 +1,30 @@
 # TAGLINE
 
-screen color temperature adjuster
+屏幕色温调节工具
 
 # TLDR
 
-**Start with automatic location**
+**以自动定位方式启动**
 
 ```gammastep```
 
-**Set manual location**
+**设置手动位置**
 
 ```gammastep -l [37.7749:-122.4194]```
 
-**Set color temperatures**
+**设置色温**
 
 ```gammastep -t [6500:3500]```
 
-**One-shot mode (apply once)**
+**一次性模式（只应用一次）**
 
 ```gammastep -O [3500]```
 
-**Reset screen**
+**重置屏幕**
 
 ```gammastep -x```
 
-**Use Wayland backend**
+**使用 Wayland 后端**
 
 ```gammastep -m wayland```
 
@@ -35,57 +35,57 @@ screen color temperature adjuster
 # PARAMETERS
 
 **-l** _lat:lon_
-> Manual location (latitude:longitude).
+> 手动位置（纬度:经度）。
 
 **-t** _day:night_
-> Color temperature (day:night Kelvin).
+> 色温（白天:夜间，开尔文）。
 
 **-b** _day:night_
-> Brightness (day:night, 0.1-1.0).
+> 亮度（白天:夜间，0.1-1.0）。
 
 **-O** _temp_
-> One-shot mode with temperature.
+> 指定色温的一次性模式。
 
 **-x**
-> Reset and exit.
+> 重置并退出。
 
 **-g** _R:G:B_
-> Additional gamma correction to apply.
+> 额外应用的伽马校正。
 
 **-m** _method_
-> Adjustment method: randr, wayland, drm (use -m list to see options).
+> 调节方法：randr、wayland、drm（用 -m list 查看可用选项）。
 
 **-c** _file_
-> Load settings from specified configuration file.
+> 从指定配置文件加载设置。
 
 **-o**
-> One-shot mode (apply once based on current time, do not continuously adjust).
+> 一次性模式（按当前时间应用一次，不持续调节）。
 
 **-p**
-> Print mode (only print parameters and exit).
+> 打印模式（仅打印参数后退出）。
 
 **-P**
-> Reset existing gamma ramps before applying.
+> 应用前先重置已有的伽马映射表。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-V**
-> Show program version.
+> 显示程序版本。
 
 **-r**
-> Disable fading between color temperatures.
+> 禁用色温之间的渐变过渡。
 
 # DESCRIPTION
 
-**gammastep** adjusts screen color temperature based on time of day to reduce eye strain and improve sleep. It makes screens warmer (redder) at night and cooler (bluer) during day.
+**gammastep** 根据一天中的时间调整屏幕色温，以减轻眼睛疲劳并改善睡眠。它让屏幕在夜间偏暖（偏红），白天偏冷（偏蓝）。
 
-Gammastep is a fork of Redshift with Wayland support. It's commonly used with tiling window managers and supports automatic location detection or manual coordinates.
+Gammastep 是 Redshift 的分支，增加了 Wayland 支持。它常与平铺窗口管理器搭配使用，支持自动定位或手动坐标。
 
 # CONFIGURATION
 
 **~/.config/gammastep/config.ini**
-> Configuration for color temperature, brightness, and location settings.
+> 用于配置色温、亮度和位置设置。
 
 # CONFIGURATION EXAMPLE
 
@@ -104,11 +104,11 @@ lon=-122.4194
 
 # CAVEATS
 
-Requires compatible display server (X11/Wayland). Automatic location needs geoclue or manual coordinates. Some applications may display colors inaccurately. Night light features in DEs may conflict.
+需要兼容的显示服务器（X11/Wayland）。自动定位需要 geoclue 或手动坐标。部分应用的颜色显示可能不准确。桌面环境的护眼夜光功能可能与之冲突。
 
 # HISTORY
 
-Gammastep was forked from **Redshift** by **Maxime Coste** to add Wayland support. Redshift was created by **Jon Lund Steffensen** in 2009 based on research about blue light's effects on circadian rhythms.
+Gammastep 由 **Maxime Coste** 从 **Redshift** 分支而来，目的是增加 Wayland 支持。Redshift 由 **Jon Lund Steffensen** 于 2009 年创建，其依据是关于蓝光影响昼夜节律的研究。
 
 # INSTALL
 

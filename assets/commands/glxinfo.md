@@ -1,30 +1,30 @@
 # TAGLINE
 
-OpenGL and GLX capability display tool
+OpenGL 与 GLX 能力显示工具
 
 # TLDR
 
-**Show OpenGL information**
+**显示 OpenGL 信息**
 
 ```glxinfo```
 
-**Show brief summary**
+**显示简要摘要**
 
 ```glxinfo -B```
 
-**Show only vendor and version**
+**只显示厂商和版本信息**
 
 ```glxinfo | grep "OpenGL"```
 
-**List supported extensions**
+**列出受支持的扩展**
 
 ```glxinfo | grep "GL_"```
 
-**Display on specific screen**
+**在指定屏幕上显示**
 
 ```DISPLAY=:0 glxinfo```
 
-**Show in-depth limits**
+**显示详细的限制信息**
 
 ```glxinfo -l```
 
@@ -35,45 +35,45 @@ OpenGL and GLX capability display tool
 # PARAMETERS
 
 **-B**
-> Brief output (summary only).
+> 简要输出（仅摘要）。
 
 **-l**
-> Display extended limits.
+> 显示扩展限制。
 
 **-v**
-> Verbose output for the visual list.
+> 以详细输出显示 visual 列表。
 
 **-t**
-> Produce a wider, more readable tabular format for the visual list.
+> 为 visual 列表生成更宽、更易读的表格格式。
 
 **-s**
-> Print a single extension per line.
+> 每行打印一个扩展。
 
 **-i**
-> Force indirect rendering.
+> 强制间接渲染。
 
 **-b**
-> Find the "best" visual and print its number.
+> 找出"最佳"的 visual 并打印其编号。
 
 **-display** _dpy_
-> Specify X display.
+> 指定 X display。
 
 **-h**
-> Display help.
+> 显示帮助。
 
 # DESCRIPTION
 
-**glxinfo** displays information about the GLX implementation and OpenGL capabilities of the graphics system. It is useful for diagnosing graphics driver issues and checking hardware capabilities.
+**glxinfo** 显示图形系统的 GLX 实现和 OpenGL 能力信息。它可用于诊断显卡驱动问题和检查硬件能力。
 
-The tool queries the X server and graphics driver, reporting OpenGL version, renderer, vendor, and supported extensions.
+该工具查询 X server 和显卡驱动，报告 OpenGL 版本、渲染器、厂商以及受支持的扩展。
 
 # CAVEATS
 
-Requires X server connection. Results depend on driver and configuration. Indirect rendering may show different capabilities. Wayland needs XWayland.
+需要连接 X server。结果取决于驱动和配置。间接渲染可能显示不同的能力。Wayland 下需要 XWayland。
 
 # HISTORY
 
-**glxinfo** is part of the **mesa-utils** package, associated with the **Mesa** 3D Graphics Library. Mesa was started by **Brian Paul** in **1993**, and glxinfo has been a standard diagnostic tool for OpenGL on X11 systems since the early days of GLX.
+**glxinfo** 是 **mesa-utils** 软件包的一部分，与 **Mesa** 3D 图形库相关联。Mesa 由 **Brian Paul** 于 **1993** 年启动，自 GLX 早期开始，glxinfo 就一直是 X11 系统上 OpenGL 的标准诊断工具。
 
 # INSTALL
 

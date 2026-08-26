@@ -1,34 +1,34 @@
 # TAGLINE
 
-BBC iPlayer TV and radio downloader
+BBC iPlayer 电视与广播节目下载器
 
 # TLDR
 
-**Search for programs**
+**搜索节目**
 
 ```get_iplayer "[search term]"```
 
-**Download a program**
+**下载节目**
 
 ```get_iplayer --get [index_number]```
 
-**Download by PID**
+**按 PID 下载**
 
 ```get_iplayer --pid [pid]```
 
-**List TV programs**
+**列出电视节目**
 
 ```get_iplayer --type=tv "[search]"```
 
-**List radio programs**
+**列出广播节目**
 
 ```get_iplayer --type=radio "[search]"```
 
-**Set output directory**
+**设置输出目录**
 
 ```get_iplayer --output [/path/to/dir] --get [index]```
 
-**Download in specific quality**
+**以指定画质下载**
 
 ```get_iplayer --tvmode=best --get [index]```
 
@@ -39,63 +39,63 @@ BBC iPlayer TV and radio downloader
 # PARAMETERS
 
 **--get** _index_
-> Download by index number.
+> 按索引号下载。
 
 **--pid** _pid_
-> Download by program PID.
+> 按节目 PID 下载。
 
 **--type** _type_
-> Media type (tv, radio, podcast).
+> 媒体类型（tv、radio、podcast）。
 
 **--output** _dir_
-> Output directory.
+> 输出目录。
 
 **--tvmode** _mode_
-> TV quality preference (fhd, hd, sd, web, mobile), comma-delimited in descending preference.
+> 电视画质偏好（fhd、hd、sd、web、mobile），以逗号分隔，按优先级从高到低排列。
 
 **--radiomode** _mode_
-> Radio quality preference (high, std, med, low).
+> 广播音质偏好（high、std、med、low）。
 
 **--pvr**
-> Run PVR scheduler.
+> 运行 PVR 调度器。
 
 **--refresh**
-> Refresh program cache.
+> 刷新节目缓存。
 
 **--url** _URL_
-> Record the PIDs from the specified iPlayer episode URLs.
+> 录制指定 iPlayer 节目 URL 中的 PID。
 
 **--subtitles**
-> Download subtitles when available.
+> 在可用时下载字幕。
 
 **--audio-only**
-> Only download the audio stream for TV programmes (produces .m4a file).
+> 只下载电视节目的音频流（生成 .m4a 文件）。
 
 **--file-prefix** _TEMPLATE_
-> Filename prefix template (excluding directory and extension).
+> 文件名前缀模板（不含目录和扩展名）。
 
 **--attempts** _N_
-> Number of attempts to make or resume a failed connection.
+> 建立或恢复失败连接的尝试次数。
 
 # CONFIGURATION
 
 **~/.get_iplayer/options**
-> User preferences file for default options and settings.
+> 用户偏好文件，存放默认选项和设置。
 
 **~/.get_iplayer/presets**
-> Custom quality and recording presets.
+> 自定义画质与录制预设。
 
 # DESCRIPTION
 
-**get_iplayer** downloads BBC iPlayer TV and radio programs from the BBC's streaming service. It provides search functionality across the iPlayer catalog, quality selection, and automated PVR-style scheduling for recording programs.
+**get_iplayer** 从 BBC 的流媒体服务下载 BBC iPlayer 的电视和广播节目。它提供跨 iPlayer 目录的搜索功能、画质选择，以及用于录制节目的自动化 PVR 式调度。
 
-The tool can download both on-demand and live content, with support for subtitles and metadata. It maintains a local cache of available programs for faster searching and supports batch downloads.
+该工具可以下载点播和直播内容，并支持字幕和元数据。它维护一个本地可用节目缓存以加快搜索速度，并支持批量下载。
 
-Programs on iPlayer are typically available for 30 days after broadcast, though some content may have different availability windows based on BBC rights agreements.
+iPlayer 上的节目通常在播出后可观看 30 天，不过部分内容可能因 BBC 版权协议而有不同的可用时间窗口。
 
 # CAVEATS
 
-Only works with BBC content and typically requires a UK IP address. Programs expire after 30 days on iPlayer (some content has different availability windows). Requires ffmpeg for downloading and converting streams.
+仅适用于 BBC 内容，且通常需要英国 IP 地址。节目在 iPlayer 上 30 天后过期（部分内容的可用窗口不同）。下载和转换流需要 ffmpeg。
 
 # INSTALL
 
@@ -110,4 +110,3 @@ Only works with BBC content and typically requires a UK IP address. Programs exp
 # SEE ALSO
 
 [youtube-dl](/man/youtube-dl)(1), [yt-dlp](/man/yt-dlp)(1), [ffmpeg](/man/ffmpeg)(1)
-

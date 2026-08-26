@@ -1,30 +1,30 @@
 # TAGLINE
 
-Tcl/Tk graphical interface for Git
+Git 的 Tcl/Tk 图形界面
 
 # TLDR
 
-**Start git gui**
+**启动 git gui**
 
 ```git gui```
 
-**Open blame viewer**
+**打开 blame 查看器**
 
 ```git gui blame [file.txt]```
 
-**Open blame at specific line**
+**在指定行打开 blame**
 
 ```git gui blame --line=[100] [file.txt]```
 
-**Browse repository tree at branch**
+**浏览分支处的仓库树**
 
 ```git gui browser [branch]```
 
-**Open citool for a single commit**
+**打开用于单次提交的 citool**
 
 ```git gui citool```
 
-**Amend the last commit with citool**
+**用 citool 修正上一次提交**
 
 ```git gui citool --amend```
 
@@ -35,39 +35,39 @@ Tcl/Tk graphical interface for Git
 # PARAMETERS
 
 **blame** _FILE_
-> Open blame viewer for file.
+> 打开文件的 blame 查看器。
 
 **browser** _REVISION_
-> Browse tree at revision.
+> 浏览指定修订版本处的树。
 
 **citool**
-> Start git gui and make exactly one commit before exiting.
+> 启动 git gui，完成恰好一次提交后退出。
 
 **version**
-> Show the currently running version of git gui.
+> 显示当前运行的 git gui 版本。
 
 **--line=**_NUMBER_
-> (blame) Scroll blame view to center on line NUMBER.
+> （blame）滚动 blame 视图使行 NUMBER 居中。
 
 **--amend**
-> (citool) Enter Amend Last Commit mode automatically.
+> （citool）自动进入 Amend Last Commit（修正上次提交）模式。
 
 **--nocommit**
-> (citool) Exit with zero status without making a commit.
+> （citool）不做提交，以零状态退出。
 
 # DESCRIPTION
 
-**git gui** is a Tcl/Tk graphical interface for Git. It provides visual tools for committing, browsing history, and viewing blame annotations.
+**git gui** 是 Git 的 Tcl/Tk 图形界面。它提供用于提交、浏览历史和查看 blame 注记的可视化工具。
 
-The interface shows staged and unstaged changes, allowing selective staging and commit message composition. The blame viewer shows line-by-line attribution with interactive navigation through the commit history.
+该界面会显示已暂存和未暂存的改动，支持选择性暂存和撰写提交信息。blame 查看器逐行展示归属信息，并可在提交历史中交互式导航。
 
 # CAVEATS
 
-Requires Tcl/Tk installed. Interface is dated compared to modern GUI tools. May not be installed by default.
+需要安装 Tcl/Tk。与现代 GUI 工具相比界面较为陈旧。可能未随默认安装提供。
 
 # HISTORY
 
-git gui was created by **Shawn O. Pearce** as the official Tcl/Tk GUI for Git, providing graphical operations since Git's early days.
+git gui 由 **Shawn O. Pearce** 创建，是 Git 官方的 Tcl/Tk 图形界面，自 Git 早期就提供图形化操作。
 
 # INSTALL
 

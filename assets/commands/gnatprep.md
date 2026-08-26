@@ -1,30 +1,30 @@
 # TAGLINE
 
-Ada source file preprocessor
+Ada 源文件预处理器
 
 # TLDR
 
-**Preprocess an Ada source file**
+**预处理 Ada 源文件**
 
 ```gnatprep [input.adb] [output.adb]```
 
-**Preprocess with symbol definitions file**
+**使用符号定义文件预处理**
 
 ```gnatprep [input.adb] [output.adb] [defs.txt]```
 
-**Define a symbol on command line**
+**在命令行定义符号**
 
 ```gnatprep -DDEBUG=True [input.adb] [output.adb]```
 
-**Replace preprocessor lines with blanks**
+**用空行替换预处理器行**
 
 ```gnatprep -b [input.adb] [output.adb]```
 
-**Retain preprocessor lines as comments**
+**将预处理器行保留为注释**
 
 ```gnatprep -c [input.adb] [output.adb]```
 
-**List defined symbols**
+**列出已定义的符号**
 
 ```gnatprep -s [input.adb] [output.adb] [defs.txt]```
 
@@ -35,36 +35,36 @@ Ada source file preprocessor
 # PARAMETERS
 
 **-b**
-> Replace preprocessor and deleted lines with blank lines.
+> 用空行替换预处理器行和被删除的行。
 
 **-c**
-> Retain preprocessor and deleted lines as comments.
+> 将预处理器行和被删除的行保留为注释。
 
 **-D**_symbol_=_value_
-> Define symbol on command line.
+> 在命令行上定义符号。
 
 **-s**
-> List symbol names and values to stdout.
+> 将符号名和值列出到 stdout。
 
 **-T**
-> Use only symbols defined on the command line or in the definitions file (do not use environment variables).
+> 只使用命令行或定义文件中定义的符号（不使用环境变量）。
 
 **-u**
-> Treat undefined symbols as FALSE.
+> 将未定义的符号视为 FALSE。
 
 **-r**
-> Generate source reference pragmas.
+> 生成源引用 pragma。
 
 **-v**
-> Verbose mode, display file names as they are processed.
+> 详细模式，处理时显示文件名。
 
 # DESCRIPTION
 
-**gnatprep** is a preprocessor for Ada programs. It processes conditional compilation directives (#if, #elsif, #else, #end if) and symbol substitutions ($symbol) in Ada source files. While designed for GNAT, it is not dependent on GNAT-specific features and can be used independently.
+**gnatprep** 是 Ada 程序的预处理器。它处理 Ada 源文件中的条件编译指令（#if、#elsif、#else、#end if）和符号替换（$symbol）。虽然它是为 GNAT 设计的，但并不依赖 GNAT 特有的功能，可以独立使用。
 
 # CAVEATS
 
-Neither -b nor -c preserves original line numbers. If both are absent, preprocessor and deleted lines are removed entirely unless -r is specified.
+-b 和 -c 都无法保留原始行号。若两者均未指定，除非给出 -r，否则预处理器行和被删除的行将被完全移除。
 
 # INSTALL
 

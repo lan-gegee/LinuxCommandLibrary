@@ -1,38 +1,38 @@
 # TAGLINE
 
-terminal markdown renderer
+终端 markdown 渲染器
 
 # TLDR
 
-**Render markdown file**
+**渲染 markdown 文件**
 
 ```glow [README.md]```
 
-**Render with pager**
+**使用分页器渲染**
 
 ```glow -p [file.md]```
 
-**Render from stdin**
+**从 stdin 渲染**
 
 ```cat [file.md] | glow```
 
-**Set width**
+**设置宽度**
 
 ```glow -w [80] [file.md]```
 
-**Browse local files**
+**浏览本地文件**
 
 ```glow```
 
-**Fetch and render a GitHub README**
+**抓取并渲染 GitHub README**
 
 ```glow github.com/charmbracelet/glow```
 
-**Read from stdin**
+**从 stdin 读取**
 
 ```cat [file.md] | glow -```
 
-**Edit the config file**
+**编辑配置文件**
 
 ```glow config```
 
@@ -45,47 +45,47 @@ terminal markdown renderer
 # PARAMETERS
 
 _SOURCE_
-> Markdown file, directory, GitHub/GitLab repo, or HTTP(S) URL to render. Reads stdin when given as `-`.
+> 要渲染的 markdown 文件、目录、GitHub/GitLab 仓库或 HTTP(S) URL。给定为 `-` 时从 stdin 读取。
 
 **-p**, **--pager**
-> Display output in the configured pager (defaults to `less -r`).
+> 在配置的分页器中显示输出（默认为 `less -r`）。
 
 **-w** _WIDTH_, **--width** _WIDTH_
-> Word wrap width. Defaults to the terminal width.
+> 自动换行宽度。默认为终端宽度。
 
 **-s** _STYLE_, **--style** _STYLE_
-> Style name (`auto`, `dark`, `light`) or a path to a custom JSON style file.
+> 样式名称（`auto`、`dark`、`light`）或自定义 JSON 样式文件的路径。
 
 **-a**, **--all**
-> Show system files and hidden directories (TUI mode only).
+> 显示系统文件和隐藏目录（仅限 TUI 模式）。
 
 **-l**, **--local**
-> Show local files only, disabling network sources (TUI mode only).
+> 仅显示本地文件，禁用网络来源（仅限 TUI 模式）。
 
 **--config** _FILE_
-> Use an alternate configuration file.
+> 使用其他配置文件。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**glow** renders markdown in the terminal with syntax highlighting and formatting. It displays markdown documents beautifully without leaving the command line.
+**glow** 在终端中以语法高亮和格式化的方式渲染 markdown。它让你无需离开命令行就能美观地显示 markdown 文档。
 
-The tool supports various styles and can browse markdown files interactively, including fetching README files straight from GitHub or GitLab repositories or arbitrary HTTP(S) URLs. It handles GitHub Flavored Markdown including tables and code blocks. Running **glow** with no arguments launches a TUI file browser.
+该工具支持多种样式，并可交互式浏览 markdown 文件，包括直接从 GitHub 或 GitLab 仓库以及任意 HTTP(S) URL 抓取 README。它支持 GitHub Flavored Markdown，包括表格和代码块。不带参数运行 **glow** 会启动 TUI 文件浏览器。
 
 # CONFIGURATION
 
 **~/.config/glow/glow.yml**
-> Configuration file for default style, width, and pager settings.
+> 配置文件，保存默认样式、宽度和分页器设置。
 
 # CAVEATS
 
-Terminal must support colors. Some features need true color support. Images not rendered.
+终端必须支持颜色。部分功能需要真彩色支持。不渲染图片。
 
 # HISTORY
 
-glow was created by **Charm** as part of their suite of terminal tools, bringing beautiful markdown rendering to the command line.
+glow 由 **Charm** 创建，是其终端工具套件的一部分，为命令行带来了美观的 markdown 渲染效果。
 
 # INSTALL
 

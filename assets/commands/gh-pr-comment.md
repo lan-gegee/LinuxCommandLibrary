@@ -1,22 +1,22 @@
 # TAGLINE
 
-Add comments to pull requests
+为拉取请求添加评论
 
 # TLDR
 
-**Add comment to PR**
+**为 PR 添加评论**
 
 ```gh pr comment [number] -b "[comment]"```
 
-**Comment interactively**
+**以交互方式评论**
 
 ```gh pr comment [number]```
 
-**Comment from file**
+**从文件读取评论内容**
 
 ```gh pr comment [number] -F [comment.md]```
 
-**Edit last comment**
+**编辑上一条评论**
 
 ```gh pr comment [number] --edit-last -b "[new text]"```
 
@@ -27,22 +27,22 @@ Add comments to pull requests
 # PARAMETERS
 
 **-b**, **--body** _text_
-> Comment body.
+> 评论正文。
 
 **-F**, **--body-file** _file_
-> Read body from file.
+> 从文件读取正文。
 
 **--edit-last**
-> Edit last comment.
+> 编辑上一条评论。
 
 **-R**, **--repo** _owner/repo_
-> Repository.
+> 仓库。
 
 # DESCRIPTION
 
-**gh pr comment** adds comments to pull requests from the command line. It provides flexible options for composing comments, including inline text, file input, and interactive editing.
+**gh pr comment** 在命令行中为拉取请求添加评论。它提供灵活的评论撰写方式，包括内联文本、文件输入和交互式编辑。
 
-When called without the --body flag, the command opens your default editor for composing the comment. Comments support full GitHub-flavored Markdown including code blocks, tables, task lists, and @ mentions. The --edit-last option allows modifying your most recent comment on a pull request.
+不带 --body 标志调用时，命令会打开你的默认编辑器来撰写评论。评论支持完整的 GitHub 风格 Markdown，包括代码块、表格、任务列表和 @ 提及。--edit-last 选项允许修改你在该拉取请求上的最近一条评论。
 
 # INSTALL
 

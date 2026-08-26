@@ -1,38 +1,38 @@
 # TAGLINE
 
-manage repository issues and bug reports
+管理仓库 issue 和错误报告
 
 # TLDR
 
-**List issues**
+**列出 issues**
 
 ```gh issue list```
 
-**Create an issue**
+**创建 issue**
 
 ```gh issue create```
 
-**View an issue**
+**查看 issue**
 
 ```gh issue view [number]```
 
-**Close an issue**
+**关闭 issue**
 
 ```gh issue close [number]```
 
-**Reopen an issue**
+**重新打开 issue**
 
 ```gh issue reopen [number]```
 
-**Edit an issue**
+**编辑 issue**
 
 ```gh issue edit [number]```
 
-**Search issues**
+**搜索 issues**
 
 ```gh issue list --search "[query]"```
 
-**List your issues**
+**列出分配给你的 issues**
 
 ```gh issue list --assignee @me```
 
@@ -43,53 +43,53 @@ manage repository issues and bug reports
 # SUBCOMMANDS
 
 **list**
-> List issues.
+> 列出 issues。
 
 **create**
-> Create an issue.
+> 创建 issue。
 
 **view**
-> View an issue.
+> 查看 issue。
 
 **close**
-> Close an issue.
+> 关闭 issue。
 
 **reopen**
-> Reopen an issue.
+> 重新打开 issue。
 
 **edit**
-> Edit an issue.
+> 编辑 issue。
 
 **comment**
-> Add comment.
+> 添加评论。
 
 **delete**
-> Delete an issue.
+> 删除 issue。
 
 **status**
-> Show status.
+> 显示状态。
 
 # PARAMETERS
 
 **-R**, **--repo** _owner/repo_
-> Repository.
+> 仓库。
 
 **-a**, **--assignee** _user_
-> Filter by assignee.
+> 按负责人过滤。
 
 **-l**, **--label** _label_
-> Filter by label.
+> 按标签过滤。
 
 **-s**, **--state** _state_
-> Filter by state.
+> 按状态过滤。
 
 # DESCRIPTION
 
-**gh issue** manages GitHub issues for tracking bugs, feature requests, tasks, and discussions. Issues form the core of project management on GitHub, supporting labels, assignees, milestones, and projects.
+**gh issue** 管理 GitHub issue，用于跟踪缺陷、功能请求、任务和讨论。Issue 是 GitHub 项目管理的核心，支持标签、负责人、里程碑和项目。
 
-The command provides comprehensive issue lifecycle management including creation, editing, commenting, status changes, and deletion. Filtering capabilities enable finding issues by assignee, label, state, and search queries. Issues can be managed across multiple repositories.
+该命令提供完整的 issue 生命周期管理，包括创建、编辑、评论、状态变更和删除。借助过滤功能，可以按负责人、标签、状态以及搜索查询查找 issue。Issue 还可以跨多个仓库进行管理。
 
-Integration with pull requests allows linking issues to code changes, with automatic closing when PRs merge using keywords in commit messages.
+通过与拉取请求集成，可以将 issue 关联到代码变更；提交信息中使用关键字时，PR 合并后会自动关闭对应的 issue。
 
 # INSTALL
 
@@ -120,4 +120,3 @@ Integration with pull requests allows linking issues to code changes, with autom
 ```[Source code](https://github.com/cli/cli)```
 
 <!-- verified: 2026-07-15 -->
-

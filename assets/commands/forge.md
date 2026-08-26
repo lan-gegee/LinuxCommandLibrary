@@ -1,34 +1,34 @@
 # TAGLINE
 
-open-source AI coding assistant for terminals
+面向终端的开源 AI 编程助手
 
 # TLDR
 
-**Start an interactive session**
+**启动交互式会话**
 
 ```forge```
 
-**Run a direct prompt without interactive mode**
+**不进入交互模式直接执行提示词**
 
 ```forge -p "[fix the bug in main.rs]"```
 
-**Execute commands from a file**
+**从文件执行命令**
 
 ```forge -c [commands.txt]```
 
-**Run a workflow**
+**运行工作流**
 
 ```forge -w [workflow.yaml]```
 
-**Start in a sandboxed git worktree**
+**在沙箱化的 git worktree 中启动**
 
 ```forge --sandbox```
 
-**Configure AI provider credentials**
+**配置 AI 提供商凭证**
 
 ```forge provider login```
 
-**List configured MCP servers**
+**列出已配置的 MCP 服务器**
 
 ```forge mcp list```
 
@@ -39,93 +39,93 @@ open-source AI coding assistant for terminals
 # PARAMETERS
 
 **-p**, **--prompt** _PROMPT_
-> Direct prompt to process without entering interactive mode
+> 直接处理的提示词，不进入交互模式
 
 **-c**, **--command** _FILE_
-> Path to a file containing initial commands to execute
+> 包含待执行初始命令的文件路径
 
 **-w**, **--workflow** _FILE_
-> Path to a file containing the workflow to execute
+> 包含待执行工作流的文件路径
 
 **-e**, **--event** _EVENT_
-> Dispatch an event to the workflow
+> 向工作流派发一个事件
 
 **--conversation-id** _ID_
-> Resume an existing conversation by its identifier
+> 按标识符恢复已有会话
 
 **-C**, **--directory** _DIR_
-> Set working directory before starting
+> 在启动前设置工作目录
 
 **--sandbox**
-> Create an isolated git worktree for safe experimentation
+> 创建隔离的 git worktree 以便安全实验
 
 **--agent** _AGENT_
-> Specify which agent to use for the session
+> 指定本次会话使用的智能体
 
 **-r**, **--restricted**
-> Use restricted shell (rbash) for enhanced security
+> 使用受限 Shell（rbash）以增强安全性
 
 **--verbose**
-> Enable verbose output mode
+> 启用详细输出模式
 
 **-h**, **--help**
-> Print help information
+> 打印帮助信息
 
 **-V**, **--version**
-> Print version
+> 打印版本号
 
 # CONFIGURATION
 
 **forge.yaml**
-> Project-level configuration for forge settings and preferences.
+> 项目级的 forge 设置与偏好配置。
 
 **.mcp.json**
-> Model Context Protocol server configuration.
+> Model Context Protocol（MCP）服务器配置。
 
 **~/.forge/config.yaml**
-> Global user configuration for API keys and defaults.
+> 全局用户配置，存放 API 密钥和默认设置。
 
 # COMMANDS
 
 **provider login**
-> Configure AI provider credentials interactively
+> 交互式配置 AI 提供商凭证
 
 **provider logout**
-> Remove provider credentials
+> 移除提供商凭证
 
 **provider list**
-> Show supported AI providers
+> 显示受支持的 AI 提供商
 
 **mcp list**
-> List all configured MCP servers
+> 列出所有已配置的 MCP 服务器
 
 **mcp add**
-> Add a new MCP server interactively
+> 交互式添加新的 MCP 服务器
 
 **mcp add-json**
-> Add an MCP server using JSON format
+> 用 JSON 格式添加 MCP 服务器
 
 **mcp get**
-> Get details of a specific MCP server
+> 查看特定 MCP 服务器的详情
 
 **mcp remove**
-> Remove an MCP server
+> 移除 MCP 服务器
 
 # DESCRIPTION
 
-**Forge** is an open-source AI coding assistant that works natively inside your terminal. Written in Rust, it integrates seamlessly with your existing shell (bash, zsh, fish) and provides AI-powered code assistance without requiring a separate IDE or GUI.
+**Forge** 是一个在你的终端中原生工作的开源 AI 编程助手。它用 Rust 编写，与你现有的 shell（bash、zsh、fish）无缝集成，提供 AI 驱动的代码辅助，无需单独的 IDE 或图形界面。
 
-Forge supports over 300 AI models including Claude, GPT, Gemini, Grok, and DeepSeek. It uses a multi-agent architecture with specialized agents: **Forge** for implementation, **Muse** for planning, **Prime** for documentation review, **Parker** for technical writing, and **Sage** for codebase exploration.
+Forge 支持 300 多种 AI 模型，包括 Claude、GPT、Gemini、Grok 和 DeepSeek。它采用多智能体架构，包含专门的智能体：负责实现的 **Forge**、负责规划的 **Muse**、负责文档审查的 **Prime**、负责技术写作的 **Parker**，以及负责代码库探索的 **Sage**。
 
-The tool analyzes project files, dependencies, and Git history to provide context-aware suggestions with sub-50ms startup time. All operations run locally, keeping your code on your machine for privacy and security.
+该工具分析项目文件、依赖项和 Git 历史，以低于 50ms 的启动时间提供上下文感知的建议。所有操作都在本地运行，代码保留在你自己的机器上，兼顾隐私和安全。
 
 # CAVEATS
 
-Requires API keys from supported AI providers, configured via **forge provider login**. The **--restricted** flag limits shell access for enhanced security but reduces functionality.
+需要来自受支持 AI 提供商的 API 密钥，通过 **forge provider login** 配置。**--restricted** 标志会限制 Shell 访问以增强安全性，但会降低功能性。
 
 # HISTORY
 
-Forge was developed by **Antinomy** as an open-source alternative to proprietary AI coding tools like Cursor and Claude Code. It is written in Rust for performance and released under an open-source license. The project is hosted at github.com/antinomyhq/forge.
+Forge 由 **Antinomy** 开发，作为 Cursor 和 Claude Code 等专有 AI 编程工具的开源替代品。它以 Rust 编写以保证性能，并以开源许可证发布。项目托管于 github.com/antinomyhq/forge。
 
 # INSTALL
 

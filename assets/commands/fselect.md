@@ -1,26 +1,26 @@
 # TAGLINE
 
-SQL-like query language for file searching
+用于文件搜索的类 SQL 查询语言
 
 # TLDR
 
-**Find files by** name
+**按名称查找文件**
 
 ```fselect name from [/path] where name = '[*.txt]'```
 
-**Find large files**
+**查找大文件**
 
 ```fselect name, size from [/path] where size > [1g]```
 
-**Find by extension**
+**按扩展名查找**
 
 ```fselect name from [/path] where ext = '[jpg]'```
 
-**Find recent files**
+**查找最近的文件**
 
 ```fselect name, modified from [/path] where modified > [yesterday]```
 
-**Show image dimensions**
+**显示图片尺寸**
 
 ```fselect name, width, height from [/path] where ext = '[png]'```
 
@@ -31,41 +31,41 @@ SQL-like query language for file searching
 # PARAMETERS
 
 _FIELDS_
-> Columns to output: name, size, modified, ext, width, etc.
+> 要输出的列：name、size、modified、ext、width 等。
 
 _PATHS_
-> Directories to search.
+> 要搜索的目录。
 
 _CONDITIONS_
-> Filter expressions.
+> 过滤表达式。
 
 **where**
-> Introduce filter conditions.
+> 引出过滤条件。
 
 **order by** _FIELD_
-> Sort results.
+> 对结果排序。
 
 **limit** _N_
-> Limit output count.
+> 限制输出数量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fselect** uses SQL-like syntax to find and query files. It treats the filesystem as a database, selecting attributes and filtering by conditions using familiar SQL syntax.
+**fselect** 使用类 SQL 语法查找和查询文件。它把文件系统当作数据库，用熟悉的 SQL 语法选择属性并按条件过滤。
 
-The tool extracts metadata including size, dates, permissions, and for images and audio, dimensions and tags. Aggregation functions like count and sum work on results.
+该工具可提取大小、日期、权限等元数据；对图片和音频还能提取尺寸与标签。count 和 sum 等聚合函数可用于结果之上。
 
-fselect bridges the gap between find's power and SQL's readability.
+fselect 弥合了 find 的强大与 SQL 的易读之间的鸿沟。
 
 # CAVEATS
 
-Complex queries may be slow on large directories. Some fields require reading file content. SQL syntax has some limitations.
+复杂查询在大目录上可能较慢。某些字段需要读取文件内容。SQL 语法存在一些限制。
 
 # HISTORY
 
-fselect was created to provide an intuitive query language for file searching. It applies database query concepts to filesystem operations for familiar and powerful searches.
+fselect 的创建目的是为文件搜索提供直观的查询语言。它将数据库查询概念应用到文件系统操作上，实现熟悉而强大的搜索。
 
 # INSTALL
 

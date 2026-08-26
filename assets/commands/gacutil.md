@@ -1,26 +1,26 @@
 # TAGLINE
 
-Global Assembly Cache management utility
+全局程序集缓存（GAC）管理工具
 
 # TLDR
 
-**Install assembly to GAC**
+**将程序集安装到 GAC**
 
 ```gacutil -i [assembly.dll]```
 
-**Uninstall assembly from GAC**
+**从 GAC 卸载程序集**
 
 ```gacutil -u [AssemblyName]```
 
-**List assemblies in GAC**
+**列出 GAC 中的程序集**
 
 ```gacutil -l```
 
-**List specific assembly**
+**列出指定程序集**
 
 ```gacutil -l [AssemblyName]```
 
-**Install from package**
+**从软件包安装**
 
 ```gacutil -i [assembly.dll] -package [name]```
 
@@ -31,48 +31,48 @@ Global Assembly Cache management utility
 # PARAMETERS
 
 **-i** _assembly_
-> Install assembly to GAC.
+> 将程序集安装到 GAC。
 
 **-u** _name_
-> Uninstall assembly from GAC.
+> 从 GAC 卸载程序集。
 
 **-l** [_name_]
-> List assemblies (optionally filtered).
+> 列出程序集（可按名称过滤）。
 
 **-il** _listfile_
-> Install assemblies from list file.
+> 从列表文件安装程序集。
 
 **-ul** _listfile_
-> Uninstall assemblies from list file.
+> 从列表文件卸载程序集。
 
 **-us** _assembly_
-> Uninstall assembly using its full name from the assembly file.
+> 使用程序集文件中的完整名称卸载程序集。
 
 **-package** _name_
-> Package name for installation; creates a symlink in prefix/lib/mono/NAME/.
+> 安装时的软件包名；会在 prefix/lib/mono/NAME/ 下创建符号链接。
 
 **-check_refs**
-> Check that installed assembly doesn't reference non-strong-named assemblies.
+> 检查已安装的程序集是否引用了非强命名的程序集。
 
 **-root** _dir_
-> Root directory prefix for GAC operations.
+> GAC 操作的根目录前缀。
 
 **-gacdir** _dir_
-> Specify GAC directory (deprecated, use -root instead).
+> 指定 GAC 目录（已弃用，请改用 -root）。
 
 # DESCRIPTION
 
-**gacutil** manages the Global Assembly Cache (GAC) for .NET assemblies. The GAC stores shared assemblies that can be used by multiple .NET applications.
+**gacutil** 管理 .NET 程序集的全局程序集缓存（GAC）。GAC 存储可被多个 .NET 应用程序共享的程序集。
 
-On Linux, gacutil is provided by Mono. It installs, uninstalls, and lists assemblies in the GAC. Strong-named assemblies can be shared across applications through the GAC.
+在 Linux 上，gacutil 由 Mono 提供。它负责在 GAC 中安装、卸载和列出程序集。强命名的程序集可以通过 GAC 在多个应用间共享。
 
 # CAVEATS
 
-Requires strong-named assemblies for GAC installation. Mono's GAC differs from Windows .NET GAC. Root privileges may be required. .NET Core doesn't use GAC; assemblies are self-contained.
+安装到 GAC 需要强命名的程序集。Mono 的 GAC 与 Windows 的 .NET GAC 不同。可能需要 root 权限。.NET Core 不使用 GAC；程序集是自包含的。
 
 # HISTORY
 
-The GAC was introduced with **.NET Framework 1.0** by Microsoft for assembly sharing. Mono implemented compatible tools including gacutil for cross-platform .NET development. With .NET Core/.NET 5+, the GAC model was replaced by NuGet packages.
+GAC 由 Microsoft 随 **.NET Framework 1.0** 推出，用于程序集共享。Mono 实现了包括 gacutil 在内的兼容工具，支持跨平台 .NET 开发。随着 .NET Core/.NET 5+ 的到来，GAC 模式被 NuGet 软件包取代。
 
 # INSTALL
 

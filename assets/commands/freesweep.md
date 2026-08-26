@@ -1,18 +1,18 @@
 # TAGLINE
 
-terminal minesweeper game
+终端扫雷游戏
 
 # TLDR
 
-**Start a default game**
+**开始一局默认游戏**
 
 ```freesweep```
 
-**Set board dimensions**
+**设置棋盘尺寸**
 
 ```freesweep --height [16] --width [30]```
 
-**Set number of mines**
+**设置地雷数量**
 
 ```freesweep --mines [99]```
 
@@ -23,34 +23,34 @@ terminal minesweeper game
 # PARAMETERS
 
 **-h**, **--height** _N_
-> Number of rows.
+> 行数。
 
 **-w**, **--width** _N_
-> Number of columns.
+> 列数。
 
 **-m**, **--mines** _N_
-> Number of mines.
+> 地雷数量。
 
 **-%**, **--percent** _N_
-> Set mines as percentage of board squares.
+> 以棋盘格子的百分比设置地雷数。
 
 **-f**, **--fast**
-> Skip the interactive setup dialog.
+> 跳过交互式设置对话框。
 
 **-i**, **--interactive**
-> Force interactive setup menu.
+> 强制显示交互式设置菜单。
 
 **-a**, **--alt-charset**
-> Toggle alternate character set for rendering.
+> 切换用于渲染的备用字符集。
 
 **-b**, **--show-best-times**
-> Show the best-times viewer.
+> 显示最佳成绩查看器。
 
 **-s**, **--save-prefs**
-> Save the current command-line preferences.
+> 保存当前命令行偏好设置。
 
 **-H**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # PREVIEW
 
@@ -63,17 +63,17 @@ terminal minesweeper game
 
 # DESCRIPTION
 
-**freesweep** is a curses-based minesweeper game for the terminal. The player reveals cells on a grid, using number clues to avoid hidden mines. Flagging suspected mines and clearing all safe cells wins the game.
+**freesweep** 是一个基于 curses 的终端扫雷游戏。玩家在网格上翻开格子，借助数字线索避开隐藏的地雷。标记可疑地雷并翻开所有安全格子即可获胜。
 
-Use arrow keys to move, space to reveal a cell, and **f** to flag a mine. Press **q** to quit.
+使用方向键移动，空格键翻格子，**f** 键标记地雷。按 **q** 退出。
 
 # CAVEATS
 
-Requires ncurses support. Board dimensions are limited by terminal size.
+需要 ncurses 支持。棋盘尺寸受终端大小限制。
 
 # HISTORY
 
-**freesweep** was written as a free terminal minesweeper clone. Minesweeper was popularized by its inclusion in **Microsoft Windows 3.1** in **1992**.
+**freesweep** 是作为免费的终端扫雷克隆版编写的。扫雷因 **1992** 年被收入 **Microsoft Windows 3.1** 而广为流行。
 
 # INSTALL
 

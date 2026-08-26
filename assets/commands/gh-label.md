@@ -1,38 +1,38 @@
 # TAGLINE
 
-manage issue and PR labels
+管理 issue 和 PR 标签
 
 # TLDR
 
-**List labels in the current repository**
+**列出当前仓库中的标签**
 
 ```gh label list```
 
-**List labels with a search query**
+**用搜索查询列出标签**
 
 ```gh label list --search "[bug]"```
 
-**Create a label with color and description**
+**创建带颜色和描述的标签**
 
 ```gh label create [name] -c [color] -d "[description]"```
 
-**Edit a label's name**
+**编辑标签名称**
 
 ```gh label edit [name] --name [new_name]```
 
-**Edit a label's color and description**
+**编辑标签的颜色和描述**
 
 ```gh label edit [name] -c [ff0000] -d "[new description]"```
 
-**Delete a label** (with confirmation)
+**删除标签**（需确认）
 
 ```gh label delete [name]```
 
-**Clone labels from another repository**
+**从另一个仓库克隆标签**
 
 ```gh label clone [owner/repo]```
 
-**Force-clone labels**, overwriting existing ones
+**强制克隆标签**，覆盖已有标签
 
 ```gh label clone [owner/repo] --force```
 
@@ -43,57 +43,57 @@ manage issue and PR labels
 # SUBCOMMANDS
 
 **list**
-> List labels in the repository.
+> 列出仓库中的标签。
 
 **create**
-> Create a new label.
+> 创建新标签。
 
 **edit**
-> Edit an existing label.
+> 编辑现有标签。
 
 **delete**
-> Delete a label.
+> 删除标签。
 
 **clone**
-> Clone labels from another repository.
+> 从另一个仓库克隆标签。
 
 # PARAMETERS
 
 **-c**, **--color** _color_
-> Label color as hex value (without the # prefix).
+> 标签颜色，十六进制值（不带 # 前缀）。
 
 **-d**, **--description** _text_
-> Label description text.
+> 标签描述文本。
 
 **--name** _name_
-> New label name (used with edit).
+> 新标签名称（配合 edit 使用）。
 
 **--force**
-> Overwrite existing labels when cloning.
+> 克隆时覆盖现有标签。
 
 **--search** _query_
-> Filter labels by search query.
+> 按搜索查询过滤标签。
 
 **-L**, **--limit** _int_
-> Maximum number of labels to list (default 30).
+> 最多列出的标签数量（默认 30）。
 
 **--sort** _field_
-> Sort by: created, name (default: created).
+> 排序依据：created、name（默认：created）。
 
 **--order** _direction_
-> Order: asc, desc (default: asc).
+> 排序方向：asc、desc（默认：asc）。
 
 **-w**, **--web**
-> Open the labels page in the web browser.
+> 在网页浏览器中打开标签页面。
 
 **-R**, **--repo** _owner/repo_
-> Select a different repository.
+> 选择其他仓库。
 
 # DESCRIPTION
 
-**gh label** manages repository labels used for categorizing and filtering issues and pull requests. Labels provide visual organization with customizable colors and descriptions, helping teams triage work and track issue types.
+**gh label** 用于管理仓库标签，对 issue 和拉取请求进行分类与过滤。标签通过可自定义的颜色和描述提供直观的组织方式，帮助团队分诊工作并跟踪 issue 类型。
 
-Common label patterns include bug/feature categorization, priority levels, status indicators, and area tags. The **clone** command copies an entire label scheme from another repository, useful for maintaining consistency across projects or setting up new repositories.
+常见标签模式包括 bug/feature 分类、优先级、状态指示和领域标记。**clone** 命令可以从另一个仓库复制整套标签方案，适合在项目之间保持一致，或用于初始化新仓库。
 
 # INSTALL
 
@@ -116,4 +116,3 @@ Common label patterns include bug/feature categorization, priority levels, statu
 # SEE ALSO
 
 [gh](/man/gh)(1), [gh-issue](/man/gh-issue)(1), [gh-pr](/man/gh-pr)(1)
-

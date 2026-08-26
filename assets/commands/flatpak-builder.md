@@ -1,34 +1,34 @@
 # TAGLINE
 
-build tool for Flatpak applications
+Flatpak 应用程序的构建工具
 
 # TLDR
 
-**Build** a Flatpak and export to a new repository
+**构建** Flatpak 并导出到新仓库
 
 ```flatpak-builder [path/to/build_directory] [path/to/manifest.json]```
 
-Build a Flatpak and export to a **specified repository**
+构建 Flatpak 并导出到**指定的仓库**
 
 ```flatpak-builder --repo [repository_name] [path/to/build_directory] [path/to/manifest.json]```
 
-Build a Flatpak and **install it locally**
+构建 Flatpak 并将其**安装到本地**
 
 ```flatpak-builder --install [path/to/build_directory] [path/to/manifest.json]```
 
-Build and **sign** a Flatpak with GPG
+用 GPG **签名**构建的 Flatpak
 
 ```flatpak-builder --gpg-sign [key_id] --repo [repository_name] [path/to/build_directory] [path/to/manifest.json]```
 
-**Run a shell** inside the application sandbox without installing
+不安装而在应用沙箱内**运行 shell**
 
 ```flatpak-builder --run [path/to/build_directory] [path/to/manifest.json] sh```
 
-Show **dependencies** required by the manifest
+显示清单文件所需的**依赖**
 
 ```flatpak-builder --show-deps [path/to/manifest.json]```
 
-Build with **ccache** enabled for faster rebuilds
+启用 **ccache** 构建以加快重新构建速度
 
 ```flatpak-builder --ccache [path/to/build_directory] [path/to/manifest.json]```
 
@@ -43,56 +43,56 @@ Build with **ccache** enabled for faster rebuilds
 # PARAMETERS
 
 **--repo** _name_
-> Export the build to the specified repository
+> 将构建结果导出到指定仓库
 
 **--install**
-> Install the built application locally for the current user
+> 为当前用户在本地安装构建好的应用程序
 
 **--gpg-sign** _key_id_
-> Sign the commit with the specified GPG key
+> 用指定的 GPG 密钥为提交签名
 
 **--arch** _arch_
-> Specify target architecture
+> 指定目标架构
 
 **--ccache**
-> Enable compiler caching for faster rebuilds
+> 启用编译器缓存以加快重新构建
 
 **--disable-cache**
-> Disable build cache, forcing full rebuild
+> 禁用构建缓存，强制完整重建
 
 **--force-clean**
-> Erase previous build directory contents
+> 清除之前构建目录中的内容
 
 **--run** _command_
-> Run a command inside the build sandbox
+> 在构建沙箱内运行命令
 
 **--build-shell** _module_
-> Open interactive shell at specified module for debugging
+> 在指定模块处打开交互式 shell 以便调试
 
 **--stop-at** _module_
-> Stop build after completing specified module
+> 完成指定模块后停止构建
 
 **--show-deps**
-> Display dependencies required by the manifest
+> 显示清单文件所需的依赖
 
 **--show-manifest**
-> Display the processed manifest
+> 显示处理后的清单文件
 
 # DESCRIPTION
 
-**Flatpak-builder** is a build automation tool that constructs Flatpak applications from manifest files. It wraps the core **flatpak build** command, providing a streamlined workflow for compiling applications and their dependencies within the Flatpak sandbox.
+**Flatpak-builder** 是一款构建自动化工具，用于从清单文件构建 Flatpak 应用程序。它封装了核心的 **flatpak build** 命令，提供了一套精简的工作流，可在 Flatpak 沙箱内编译应用及其依赖。
 
-The tool processes JSON or YAML manifests that define application metadata, runtime requirements, and module build instructions. It follows the standard **./configure && make && make install** pattern automatically and caches intermediate results for efficient incremental builds.
+该工具处理 JSON 或 YAML 格式的清单文件，其中定义了应用元数据、运行时要求以及各模块的构建指令。它会自动执行标准的 **./configure && make && make install** 流程，并缓存中间结果以实现高效的增量构建。
 
-Build stages include: downloading sources, initializing the application directory, building and installing each module, cleanup, and finalization. Results are cached per-module, allowing quick rebuilds when only specific components change.
+构建阶段包括：下载源码、初始化应用目录、构建并安装每个模块、清理和收尾。结果按模块缓存，当只有特定组件变化时可以快速重新构建。
 
 # CAVEATS
 
-Requires a valid Flatpak runtime and SDK to be installed. Large applications with many dependencies can take significant time and disk space on first build. The **--run** option provides a sandboxed environment that may not have full system access. Manifests must correctly specify all dependencies or builds will fail.
+需要已安装有效的 Flatpak 运行时和 SDK。依赖众多的庞大应用在首次构建时可能耗费大量时间和磁盘空间。**--run** 选项提供的沙箱环境可能没有完整的系统访问权限。清单文件必须正确声明所有依赖，否则构建会失败。
 
 # HISTORY
 
-Flatpak-builder was developed alongside **Flatpak** by Alexander Larsson at Red Hat, with initial releases around **2015-2016**. It emerged from the xdg-app project and became the standard tool for building Flatpak applications from source, enabling reproducible builds across different Linux distributions.
+Flatpak-builder 由 Red Hat 的 Alexander Larsson 与 **Flatpak** 一同开发，最初发布于 **2015-2016 年**前后。它源自 xdg-app 项目，后来成为从源代码构建 Flatpak 应用的标准工具，实现了跨不同 Linux 发行版的可复现构建。
 
 # INSTALL
 

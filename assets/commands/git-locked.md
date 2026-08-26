@@ -1,10 +1,10 @@
 # TAGLINE
 
-List files locked with git lock
+列出用 git lock 锁定的文件
 
 # TLDR
 
-**Show locked files**
+**显示锁定的文件**
 
 ```git locked```
 
@@ -14,17 +14,17 @@ List files locked with git lock
 
 # DESCRIPTION
 
-**git locked**, a git-extras command, lists files in the current repository that have been marked with the skip-worktree bit via `git lock`. Internally it runs `git ls-files -v` and filters for entries flagged **S**, Git's indicator for a skip-worktree file.
+**git locked** 是一个 git-extras 命令，列出当前仓库中通过 `git lock` 被设置了 skip-worktree 位的文件。它内部运行 `git ls-files -v` 并筛选出标记为 **S** 的条目——这是 Git 对 skip-worktree 文件的指示符。
 
-This gives quick visibility into which locally-tracked files have local-only edits protected from being picked up by `git status`/`git add`, such as machine-specific config files.
+由此可以快速了解哪些本地跟踪的文件拥有仅存在于本地的修改、且这些修改不会被 `git status`/`git add` 拾取，例如机器特定的配置文件。
 
 # CAVEATS
 
-Part of git-extras package, not core Git. Only shows the local, per-clone skip-worktree state, not any lock shared with teammates or a remote.
+该命令属于 git-extras 软件包，并非 Git 核心命令。它只显示本地、单个克隆范围内的 skip-worktree 状态，不反映与队友或远程共享的任何锁定。
 
 # HISTORY
 
-git locked is part of **git-extras**, complementing git lock and git unlock.
+git locked 是 **git-extras** 的一部分，与 git lock 和 git unlock 相辅相成。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-CI/CD job execution agent for GitLab
+GitLab 的 CI/CD 任务执行代理
 
 # TLDR
 
-**Register a new runner**
+**注册新的 runner**
 
 ```sudo gitlab-runner register```
 
-**List configured runners**
+**列出已配置的 runner**
 
 ```gitlab-runner list```
 
-**Start the runner service**
+**启动 runner 服务**
 
 ```sudo gitlab-runner start```
 
-**Stop the runner service**
+**停止 runner 服务**
 
 ```sudo gitlab-runner stop```
 
-**Run in foreground** (for debugging)
+在前台运行（用于调试）
 
 ```gitlab-runner run```
 
-**Verify runner connections**
+**验证 runner 连接**
 
 ```gitlab-runner verify```
 
-**Unregister a runner**
+**注销一个 runner**
 
 ```sudo gitlab-runner unregister --name [runner_name]```
 
-**Check runner status**
+**检查 runner 状态**
 
 ```gitlab-runner status```
 
-**Reset runner authentication token**
+**重置 runner 认证令牌**
 
 ```sudo gitlab-runner reset-token --name [runner_name]```
 
@@ -47,79 +47,79 @@ CI/CD job execution agent for GitLab
 # PARAMETERS
 
 **register**
-> Register a new runner with GitLab instance.
+> 向 GitLab 实例注册新的 runner。
 
 **list**
-> List all configured runners.
+> 列出所有已配置的 runner。
 
 **start**
-> Start the runner service.
+> 启动 runner 服务。
 
 **stop**
-> Stop the runner service.
+> 停止 runner 服务。
 
 **restart**
-> Restart the runner service.
+> 重启 runner 服务。
 
 **status**
-> Show runner service status.
+> 显示 runner 服务状态。
 
 **run**
-> Run the runner in foreground.
+> 在前台运行 runner。
 
 **run-single**
-> Execute a single build from a GitLab instance.
+> 从 GitLab 实例执行单次构建。
 
 **verify**
-> Verify runner connections to GitLab.
+> 验证 runner 与 GitLab 的连接。
 
 **unregister**
-> Remove a runner from GitLab.
+> 从 GitLab 移除 runner。
 
 **reset-token**
-> Reset a runner's authentication token.
+> 重置 runner 的认证令牌。
 
 **install**
-> Install as system service.
+> 安装为系统服务。
 
 **uninstall**
-> Remove system service.
+> 移除系统服务。
 
 **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **--log-level** _level_
-> Log level: debug, info, warn, error, fatal, panic.
+> 日志级别：debug、info、warn、error、fatal、panic。
 
 **--log-format** _format_
-> Log format: runner, text, json.
+> 日志格式：runner、text、json。
 
 **--config** _file_
-> Use alternate config file.
+> 使用替代配置文件。
 
 **--working-directory** _path_
-> Set custom working directory.
+> 设置自定义工作目录。
 
 # DESCRIPTION
 
-**gitlab-runner** is the agent that runs CI/CD jobs for GitLab. It connects to a GitLab instance, receives job requests, executes them in isolated environments, and reports results back. Runners can be shared across projects or dedicated to specific ones.
+**gitlab-runner** 是为 GitLab 运行 CI/CD 任务的代理。它连接到 GitLab 实例，接收任务请求，在隔离环境中执行任务，并将结果报告回去。Runner 可以跨项目共享，也可以专用于特定项目。
 
-The runner supports multiple executors: **shell** (directly on host), **docker** (in containers), **docker-machine** (auto-scaled Docker), **kubernetes** (in K8s pods), **virtualbox**, **parallels**, and **ssh**. The Docker executor is most common for isolated, reproducible builds.
+Runner 支持多种执行器：**shell**（直接在主机上）、**docker**（容器内）、**docker-machine**（自动扩缩的 Docker）、**kubernetes**（K8s Pod 内）、**virtualbox**、**parallels** 和 **ssh**。Docker 执行器最为常用，可提供隔离且可重现的构建。
 
-Registration requires a GitLab URL and registration token from the project/group/admin CI settings. Runners can operate as a system service or run in the foreground for debugging.
+注册需要提供 GitLab URL 以及来自项目/组/管理员 CI 设置中的注册令牌。Runner 可以作为系统服务运行，也可以为便于调试而在前台运行。
 
 # CONFIGURATION
 
 **/etc/gitlab-runner/config.toml**
-> Main configuration file where each registered runner appears as a `[[runners]]` section with its URL, token, executor, and settings.
+> 主配置文件，每个已注册的 runner 在其中表现为一个 `[[runners]]` 区块，包含其 URL、令牌、执行器和设置。
 
 # CAVEATS
 
-Shell executor provides no isolation between jobs. Docker executor requires Docker installed. Registration tokens should be kept secret. Runners have access to whatever secrets are passed to jobs. Resource limits should be configured to prevent runaway jobs.
+Shell 执行器不为作业之间提供隔离。Docker 执行器需要安装 Docker。注册令牌应妥善保密。Runner 能访问传递给作业的任何机密信息。应配置资源限制以防止失控的任务。
 
 # HISTORY
 
-**GitLab Runner** was developed by GitLab Inc. as part of their CI/CD platform, which became part of GitLab around **2015** when GitLab CI was integrated into the main product. The runner has evolved from simple shell execution to supporting multiple sophisticated executors, making it one of the most versatile CI job runners available.
+**GitLab Runner** 由 GitLab Inc. 开发，是其 CI/CD 平台的一部分；约在 **2015 年** GitLab CI 并入主产品后成为 GitLab 的组成部分。Runner 已从简单的 shell 执行发展为支持多种复杂执行器，成为现有最灵活多用的 CI 任务执行器之一。
 
 # INSTALL
 

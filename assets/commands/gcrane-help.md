@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display help information for gcrane commands
+显示 gcrane 命令的帮助信息
 
 # TLDR
 
-**Show general help** for gcrane
+**显示 gcrane 的常规帮助**
 
 ```gcrane help```
 
-**Show help for a specific** subcommand
+**显示特定子命令的帮助**
 
 ```gcrane help [copy]```
 
-**Show help for the gc** subcommand
+**显示 gc 子命令的帮助**
 
 ```gcrane help [gc]```
 
-**Show help using the --help** flag
+**使用 --help 标志显示帮助**
 
 ```gcrane --help```
 
@@ -26,9 +26,9 @@ Display help information for gcrane commands
 
 # DESCRIPTION
 
-**gcrane help** displays help information for gcrane and its subcommands. Without arguments, it shows an overview of all available commands with brief descriptions. When given a specific command name, it displays detailed usage information including all flags and parameters.
+**gcrane help** 显示 gcrane 及其子命令的帮助信息。不带参数时，它会列出所有可用命令的概览及简要说明。给定具体命令名时，它会显示详细的用法信息，包括所有标志和参数。
 
-The help system documents gcrane's GCR-specific extensions beyond standard crane functionality, including recursive copy operations and garbage collection commands.
+帮助系统记录了 gcrane 在标准 crane 功能之外针对 GCR 的扩展功能，包括递归复制操作和垃圾回收命令。
 
 # INSTALL
 
@@ -41,4 +41,3 @@ The help system documents gcrane's GCR-specific extensions beyond standard crane
 # SEE ALSO
 
 [gcrane](/man/gcrane)(1), [gcrane-copy](/man/gcrane-copy)(1), [gcrane-gc](/man/gcrane-gc)(1), [crane](/man/crane)(1)
-

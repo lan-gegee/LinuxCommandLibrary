@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate gitignore from templates
+从模板生成 gitignore 文件
 
 # TLDR
 
-**Generate gitignore for language**
+**为某种语言生成 gitignore**
 
 ```git ignore-io [Python]```
 
-**Generate for multiple types**
+**为多种类型生成**
 
 ```git ignore-io [Python] [macOS] [vim]```
 
-**Append to .gitignore** in current directory
+**追加到当前目录的 .gitignore**
 
 ```git ignore-io -a [Python] [vim]```
 
-**Replace .gitignore** in current directory
+**替换当前目录的 .gitignore**
 
 ```git ignore-io -r [Python] [macOS]```
 
-**List available templates** in table format
+**以表格形式列出可用模板**
 
 ```git ignore-io -l```
 
-**Search templates**
+**搜索模板**
 
 ```git ignore-io -s [node]```
 
@@ -35,45 +35,45 @@ Generate gitignore from templates
 # PARAMETERS
 
 _TEMPLATES_
-> Template names from gitignore.io.
+> 来自 gitignore.io 的模板名称。
 
 **-a**, **--append** _TYPES_
-> Append new content to .gitignore under current directory.
+> 将新内容追加到当前目录下的 .gitignore。
 
 **-r**, **--replace** _TYPES_
-> Replace .gitignore in current directory with new content.
+> 用新内容替换当前目录中的 .gitignore。
 
 **-l**, **--list-in-table**
-> List available templates in table format.
+> 以表格形式列出可用的模板。
 
 **-L**, **--list-alphabetically**
-> List available templates alphabetically.
+> 按字母顺序列出可用的模板。
 
 **-s**, **--search** _WORD_
-> Search for a word in available types.
+> 在可用类型中搜索单词。
 
 **-t**, **--show-update-time**
-> Show the last modified time of the cached type list.
+> 显示缓存的类型列表的最后修改时间。
 
 **-u**, **--update-list**
-> Update the cached type list.
+> 更新缓存的类型列表。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git ignore-io** generates .gitignore content from gitignore.io templates. It fetches curated ignore patterns for languages, frameworks, IDEs, and operating systems via the gitignore.io API.
+**git ignore-io** 从 gitignore.io 模板生成 .gitignore 内容。它通过 gitignore.io API 获取针对语言、框架、IDE 和操作系统精心整理的忽略模式。
 
-Multiple templates can be combined in a single request for comprehensive coverage. Part of the git-extras suite, it provides quick command-line access to the extensive gitignore.io template database.
+多个模板可以在一次请求中组合，实现全面覆盖。它是 git-extras 套件的组成部分，为庞大的 gitignore.io 模板数据库提供了快捷的命令行入口。
 
 # CAVEATS
 
-Part of git-extras package. Requires network access. Templates may need customization.
+属于 git-extras 软件包。需要网络连接。模板可能需要自行定制。
 
 # HISTORY
 
-git ignore-io is part of **git-extras**, providing command-line access to **gitignore.io**, the web service for generating gitignore files.
+git ignore-io 是 **git-extras** 的组成部分，为生成 gitignore 文件的网络服务 **gitignore.io** 提供命令行访问。
 
 # INSTALL
 

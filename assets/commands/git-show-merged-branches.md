@@ -1,10 +1,10 @@
 # TAGLINE
 
-List branches merged into the current branch
+列出已合并进当前分支的分支
 
 # TLDR
 
-**Show merged branches**
+**显示已合并的分支**
 
 ```git show-merged-branches```
 
@@ -14,11 +14,11 @@ List branches merged into the current branch
 
 # DESCRIPTION
 
-**git show-merged-branches** lists local branches that have been fully merged into HEAD. Part of git-extras, it runs `git branch --merged` and filters out the current branch and the repository's default branch (e.g. `main`/`master`), leaving only the branches that are genuine candidates for deletion.
+**git show-merged-branches** 列出已完全合并进 HEAD 的本地分支。它属于 git-extras，会运行 `git branch --merged` 并过滤掉当前分支和仓库的默认分支（如 `main`/`master`），只留下真正可以删除的候选分支。
 
 # CAVEATS
 
-Part of git-extras package; only inspects local branches. See `git-show-unmerged-branches` for the inverse view.
+属于 git-extras 软件包；仅检查本地分支。反向视图请见 `git-show-unmerged-branches`。
 
 # INSTALL
 

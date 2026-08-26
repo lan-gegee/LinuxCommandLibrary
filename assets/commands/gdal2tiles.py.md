@@ -1,26 +1,26 @@
 # TAGLINE
 
-generates web map tiles from rasters
+从栅格数据生成网络地图瓦片
 
 # TLDR
 
-**Generate tiles from** image
+**从图像生成瓦片**
 
 ```gdal2tiles.py [input.tif] [output_dir]```
 
-**Specify zoom levels**
+**指定缩放级别**
 
 ```gdal2tiles.py -z [5-18] [input.tif] [output_dir]```
 
-**Generate for Leaflet**
+**为 Leaflet 生成**
 
 ```gdal2tiles.py -w leaflet [input.tif] [output_dir]```
 
-**Use multiple processes**
+**使用多进程**
 
 ```gdal2tiles.py --processes=[4] [input.tif] [output_dir]```
 
-**Specify tile format**
+**指定瓦片格式**
 
 ```gdal2tiles.py --tileformat=[png] [input.tif] [output_dir]```
 
@@ -31,41 +31,41 @@ generates web map tiles from rasters
 # PARAMETERS
 
 _INPUT_
-> Input raster file (GeoTIFF, etc.).
+> 输入栅格文件（GeoTIFF 等）。
 
 _OUTPUT_DIRECTORY_
-> Directory for output tiles.
+> 输出瓦片的目录。
 
 **-z** _LEVELS_
-> Zoom levels (e.g., 5-18).
+> 缩放级别（例如 5-18）。
 
 **-w** _WEBVIEWER_
-> Web viewer: leaflet, openlayers, none.
+> Web 查看器：leaflet、openlayers、none。
 
 **--processes** _N_
-> Parallel processing.
+> 并行处理。
 
 **--tileformat** _FORMAT_
-> Tile format: png, jpeg, webp.
+> 瓦片格式：png、jpeg、webp。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gdal2tiles.py** generates map tiles from georeferenced raster images. It creates tile pyramids compatible with web mapping libraries like Leaflet and OpenLayers.
+**gdal2tiles.py** 从带有地理参考的栅格图像生成地图瓦片。它创建与 Leaflet 和 OpenLayers 等 Web 地图库兼容的瓦片金字塔。
 
-The tool produces XYZ or TMS tile structures with optional HTML viewer pages. It handles large images by generating multiple zoom levels with appropriate resampling.
+该工具生成 XYZ 或 TMS 瓦片结构，并可选择生成 HTML 查看器页面。它通过以适当重采样方式生成多个缩放级别来处理大图。
 
-gdal2tiles.py enables serving large geospatial imagery as web map tiles.
+gdal2tiles.py 让大型地理空间影像可以作为 Web 地图瓦片提供服务。
 
 # CAVEATS
 
-Large images need significant disk space. Processing time scales with zoom levels. Source must be georeferenced.
+大图需要大量磁盘空间。处理时间随缩放级别增加。源数据必须具有地理参考。
 
 # HISTORY
 
-gdal2tiles.py is part of **GDAL** (Geospatial Data Abstraction Library), providing tile generation for web mapping from geospatial raster data.
+gdal2tiles.py 是 **GDAL**（Geospatial Data Abstraction Library，地理空间数据抽象库）的一部分，用于从地理空间栅格数据生成 Web 地图瓦片。
 
 # INSTALL
 

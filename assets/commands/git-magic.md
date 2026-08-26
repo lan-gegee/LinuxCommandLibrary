@@ -1,30 +1,30 @@
 # TAGLINE
 
-Commit changes with an auto-generated commit message
+用自动生成的提交信息提交更改
 
 # TLDR
 
-**Commit staged changes** with a generated message
+**提交已暂存的更改**，并使用生成的提交信息
 
 ```git magic```
 
-**Stage all changes** (with confirmation) and commit
+**暂存所有更改**（需确认）并提交
 
 ```git magic -a```
 
-**Commit and push**
+**提交并推送**
 
 ```git magic -p```
 
-**Commit and force-push**
+**提交并强制推送**
 
 ```git magic -p -f```
 
-**Prepend a custom title** before the generated message
+**在生成的信息前添加自定义标题**
 
 ```git magic -m "[title]"```
 
-**Edit the generated message** before committing
+**提交前编辑生成的信息**
 
 ```git magic -e```
 
@@ -35,32 +35,32 @@ Commit changes with an auto-generated commit message
 # PARAMETERS
 
 **-a**
-> Stage all changes (after confirmation) before committing.
+> 提交前暂存所有更改（需确认）。
 
 **-m** _msg_
-> Prepend a custom message; the generated summary is appended after it.
+> 在前面添加自定义信息；自动生成的摘要会附在其后。
 
 **-e**
-> Open the editor to review the message instead of committing with `--no-edit`.
+> 打开编辑器审阅提交信息，而不是直接以 `--no-edit` 提交。
 
 **-p**
-> Push after committing.
+> 提交后推送。
 
 **-f**
-> Force-push; only takes effect combined with `-p`.
+> 强制推送；仅在与 `-p` 组合时生效。
 
 **-h**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**git magic** is a git-extras command that commits changes using an automatically generated commit message built from `git status --porcelain -uno`, so the message ends up listing the files that changed. By default the commit happens without opening an editor (`--no-edit`).
+**git magic** 是一个 git-extras 命令，它基于 `git status --porcelain -uno` 自动生成提交信息来完成提交，因此最终的信息会列出发生变更的文件。默认情况下，提交过程不打开编辑器（`--no-edit`）。
 
-Passing `-a` shows `git status`, asks for confirmation, then stages everything before committing. `-m` lets you prepend a real message before the auto-generated summary, `-e` opens an editor to adjust the final message, and `-p` (optionally with `-f` for a force-push) pushes immediately after the commit.
+传入 `-a` 会先显示 `git status`，请求确认，然后在提交前暂存所有内容。`-m` 允许你在自动生成的摘要前添加一段真实的信息，`-e` 会打开编辑器调整最终信息，而 `-p`（可配合 `-f` 进行强制推送）会在提交后立即推送。
 
 # CAVEATS
 
-Must be run inside a git working tree; it changes to the repository's top level automatically. The generated message is just a list of changed files, not a meaningful description, so this is best suited for quick WIP commits rather than history you intend to keep readable.
+必须在 git 工作区内运行；它会自动切换到仓库顶层目录。生成的信息只是变更文件的列表，并非有意义的描述，因此更适合快速 WIP 提交，而不适合希望长期保持可读性的历史。
 
 # INSTALL
 

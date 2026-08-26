@@ -1,34 +1,34 @@
 # TAGLINE
 
-Manage GitLab project releases
+管理 GitLab 项目发布版本
 
 # TLDR
 
-**List releases**
+**列出发布版本**
 
 ```glab release list```
 
-**Create release**
+创建发布
 
 ```glab release create [tag]```
 
-**Create with notes**
+带说明创建
 
 ```glab release create [tag] -N "[notes]"```
 
-**Create with assets**
+带附件资产创建
 
 ```glab release create [tag] [file1] [file2]```
 
-**Create from a specific ref**
+从特定引用创建
 
 ```glab release create [tag] --ref [commit-sha]```
 
-**View release**
+查看发布
 
 ```glab release view [tag]```
 
-**Delete release**
+删除发布
 
 ```glab release delete [tag]```
 
@@ -39,67 +39,67 @@ Manage GitLab project releases
 # SUBCOMMANDS
 
 **list**
-> List releases.
+> 列出发布版本。
 
 **create**
-> Create a new release.
+> 创建新的发布版本。
 
 **view**
-> View release details.
+> 查看发布详情。
 
 **delete**
-> Delete a release.
+> 删除发布版本。
 
 **upload**
-> Upload assets to an existing release.
+> 向现有发布上传资产。
 
 **download**
-> Download release assets.
+> 下载发布资产。
 
 # PARAMETERS (create)
 
 **-n**, **--name** _text_
-> Release title/name.
+> 发布标题/名称。
 
 **-N**, **--notes** _text_
-> Release notes (Markdown supported).
+> 发布说明（支持 Markdown）。
 
 **-F**, **--notes-file** _file_
-> Read release notes from a file, or `-` for stdin.
+> 从文件读取发布说明，`-` 表示 stdin。
 
 **-r**, **--ref** _ref_
-> Commit, tag, or branch to create the release from.
+> 用于创建发布的提交、标签或分支。
 
 **-m**, **--milestone** _milestone_
-> Associate a milestone; repeatable for multiple milestones.
+> 关联里程碑；可重复使用以关联多个里程碑。
 
 **-T**, **--tag-message** _text_
-> Message used when creating an annotated tag, if the tag doesn't already exist.
+> 创建附注标签时使用的消息（仅当标签尚不存在时）。
 
 **-D**, **--released-at** _datetime_
-> ISO 8601 date/time to record as the release date.
+> 记录为发布日期的 ISO 8601 日期时间。
 
 **-a**, **--assets-links** _json_
-> JSON array of extra asset links to attach to the release.
+> 要附加到发布的额外资产链接的 JSON 数组。
 
 **--no-close-milestone**
-> Don't close the associated milestone(s) after creating the release.
+> 创建发布后不关闭关联的里程碑。
 
 **--no-update**
-> Fail instead of updating if a release for the tag already exists.
+> 若该标签的发布已存在则报错，而不是更新。
 
 **--use-package-registry**
-> Upload the given assets to the generic package registry instead of as release links.
+> 将给定资产上传到通用软件包注册表，而非作为发布链接。
 
 **--package-name** _name_
-> Package name to use with **--use-package-registry**.
+> 与 **--use-package-registry** 配合使用的软件包名称。
 
 **-R**, **--repo** _OWNER/REPO_
-> Select another repository.
+> 选择另一个仓库。
 
 # DESCRIPTION
 
-**glab release** manages GitLab project releases from the command line. It provides subcommands for creating releases, uploading binary assets, writing release notes, and managing existing releases.
+**glab release** 在命令行中管理 GitLab 项目发布版本。它提供创建发布、上传二进制资产、撰写发布说明以及管理现有发布等子命令。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Graphical Git client GUI
+图形化的 Git 客户端 GUI
 
 # TLDR
 
-**Launch Git Cola**
+**启动 Git Cola**
 
 ```git cola```
 
-**Open with specific repository**
+**打开指定仓库**
 
 ```git cola [path/to/repo]```
 
-**Open in amend mode**
+**以修改模式打开**
 
 ```git cola --amend```
 
-**Open specific dialog**
+**打开特定对话框**
 
 ```git cola stash```
 
@@ -27,26 +27,26 @@ Graphical Git client GUI
 # PARAMETERS
 
 **--amend**
-> Start in amend mode.
+> 以修改模式启动。
 
 **--version**
-> Show version.
+> 显示版本。
 
 **--prompt**
-> Prompt for repository.
+> 提示输入仓库。
 
 # DESCRIPTION
 
-**git cola** is a feature-rich graphical Git client built with Python and Qt. It provides a user-friendly visual interface for common Git operations including staging hunks, committing changes, viewing diffs, managing branches, and browsing repository history.
+**git cola** 是一个用 Python 和 Qt 构建的功能丰富的图形化 Git 客户端。它为常见 Git 操作提供友好的可视化界面，包括暂存代码块、提交更改、查看差异、管理分支以及浏览仓库历史。
 
-The tool features a file browser, diff viewer with syntax highlighting, commit message editor with spell checking, and interactive staging that allows selecting specific lines or hunks to stage. Git Cola also includes specialized dialogs for stashing, branching, merging, and other advanced operations.
+该工具具有文件浏览器、带语法高亮的差异查看器、支持拼写检查的提交信息编辑器，以及允许选择特定行或代码块进行暂存的交互式暂存功能。Git Cola 还包含 stash、分支、合并及其他高级操作的专用对话框。
 
-Unlike simpler Git GUIs, Git Cola is designed for power users who want visual tools without sacrificing control. It complements command-line workflows and runs on Linux, macOS, and Windows. The interface is highly customizable with configurable key bindings, themes, and layout options.
+与更简单的 Git 图形工具不同，Git Cola 面向希望获得可视化工具又不牺牲控制力的进阶用户。它可以配合命令行工作流使用，支持 Linux、macOS 和 Windows。界面高度可定制，可配置快捷键绑定、主题和布局选项。
 
 # CONFIGURATION
 
 **~/.config/git-cola/**
-> User settings including window layout, theme preferences, and key bindings.
+> 用户设置，包括窗口布局、主题偏好和快捷键绑定。
 
 # INSTALL
 
@@ -65,4 +65,3 @@ Unlike simpler Git GUIs, Git Cola is designed for power users who want visual to
 # SEE ALSO
 
 [gitk](/man/gitk)(1), [git-gui](/man/git-gui)(1), [tig](/man/tig)(1), [lazygit](/man/lazygit)(1)
-

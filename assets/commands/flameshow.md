@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal-based flamegraph viewer
+基于终端的火焰图查看器
 
 # TLDR
 
-**View** a flamegraph file
+**查看**火焰图文件
 
 ```flameshow [profile.json]```
 
-**View** folded stacks
+**查看**折叠栈
 
 ```flameshow [stacks.folded]```
 
-**View** from stdin
+从标准输入**查看**
 
 ```cat [profile] | flameshow```
 
@@ -23,41 +23,41 @@ Terminal-based flamegraph viewer
 # PARAMETERS
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 **--version**
-> Display version and exit
+> 显示版本并退出
 
 **--theme** _THEME_
-> Color theme: dark, light
+> 配色主题：dark、light
 
 # DESCRIPTION
 
-**flameshow** is a Python-based terminal flamegraph viewer. It allows users to visualize profiling data directly in the terminal, making it easy to analyze performance data without leaving the command line.
+**flameshow** 是一个基于 Python 的终端火焰图查看器。它让用户可以直接在终端中可视化性能剖析数据，无需离开命令行即可轻松分析性能数据。
 
-The tool supports various profile formats and provides an interactive TUI for exploring flamegraphs, identifying hotspots, and understanding application performance.
+该工具支持多种剖析文件格式，并提供交互式 TUI 用于浏览火焰图、定位热点以及了解应用程序的性能表现。
 
 # KEYBINDINGS
 
 **↑/↓**
-> Navigate through frames
+> 在帧之间导航
 
 **Enter**
-> Expand/collapse frame
+> 展开/折叠帧
 
 **q**
-> Quit
+> 退出
 
 **?**
-> Show help
+> 显示帮助
 
 # CAVEATS
 
-Requires Python environment. May not support all profiler output formats. Performance depends on terminal capabilities. Large profiles may impact rendering speed.
+需要 Python 环境。可能不支持所有性能分析器的输出格式。性能取决于终端的能力。较大的剖析文件可能影响渲染速度。
 
 # HISTORY
 
-**flameshow** was developed as an alternative to browser-based flamegraph viewers, focusing on terminal-native display and quick profile inspection.
+**flameshow** 的开发目标是作为浏览器火焰图查看器的替代品，专注于终端原生显示和快速检查剖析文件。
 
 # SEE ALSO
 

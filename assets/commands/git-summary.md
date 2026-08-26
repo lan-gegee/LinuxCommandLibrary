@@ -1,30 +1,30 @@
 # TAGLINE
 
-Show repository summary with contribution statistics
+显示带贡献统计的仓库概要
 
 # TLDR
 
-**Show repository summary** with commit statistics per author
+**显示仓库概要**，包含每位作者的提交统计
 
 ```git summary```
 
-**Show line-based statistics** instead of commits
+改为**显示基于行数的统计**
 
 ```git summary --line```
 
-**Show line statistics for a specific path**
+**显示指定路径的行数统计**
 
 ```git summary --line [path/to/dir]```
 
-**Dedup authors by email**
+**按邮箱去重作者**
 
 ```git summary --dedup-by-email```
 
-**Exclude merge commits**
+**排除合并提交**
 
 ```git summary --no-merges```
 
-**Show output in tabular format**
+**以表格形式输出**
 
 ```git summary --output-style tabular```
 
@@ -35,20 +35,20 @@ Show repository summary with contribution statistics
 # PARAMETERS
 
 **--line**
-> Show line statistics instead of commits. Can take an optional path to filter.
+> 显示行数统计而不是提交数。可接受一个可选路径作为过滤条件。
 
 **--dedup-by-email**
-> Deduplicate authors by email address.
+> 按邮箱地址对作者去重。
 
 **--no-merges**
-> Exclude merge commits from the summary.
+> 从概要中排除合并提交。
 
 **--output-style** _style_
-> Output format: tabular or oneline.
+> 输出格式：tabular 或 oneline。
 
 # DESCRIPTION
 
-**git summary** outputs a repository overview including project age, number of active days, total commits, and per-author contribution statistics. Part of git-extras, it provides a quick snapshot of project activity.
+**git summary** 输出仓库的整体概况，包括项目年龄、活跃天数、总提交数以及每位作者的贡献统计。它属于 git-extras，可以快速了解项目的活跃状况。
 
 # INSTALL
 

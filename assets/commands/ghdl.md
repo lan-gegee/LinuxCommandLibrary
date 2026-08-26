@@ -1,46 +1,46 @@
 # TAGLINE
 
-Open-source VHDL simulator and synthesizer
+开源 VHDL 模拟器与综合器
 
 # TLDR
 
-**Analyze VHDL file**
+**分析 VHDL 文件**
 
 ```ghdl -a [file.vhdl]```
 
-**Elaborate design**
+**细化（elaborate）设计**
 
 ```ghdl -e [entity_name]```
 
-**Run simulation**
+**运行仿真**
 
 ```ghdl -r [entity_name]```
 
-**Run with VCD waveform output**
+**以 VCD 波形输出运行**
 
 ```ghdl -r [entity_name] --vcd=[output.vcd]```
 
-**Run with GHW waveform output**
+**以 GHW 波形输出运行**
 
 ```ghdl -r [entity_name] --wave=[output.ghw]```
 
-**Run simulation with stop time**
+**带停止时间运行仿真**
 
 ```ghdl -r [entity_name] --stop-time=[100ns]```
 
-**Elaborate and run** in one step
+一步完成**细化并运行**
 
 ```ghdl --elab-run [entity_name] --vcd=[output.vcd]```
 
-**Analyze, elaborate and run** using combined command
+用组合命令**分析、细化并运行**
 
 ```ghdl -c [file.vhdl] -r [entity_name]```
 
-**Import files**
+**导入文件**
 
 ```ghdl -i [file.vhdl]```
 
-**Syntax check only**
+**仅做语法检查**
 
 ```ghdl -s [file.vhdl]```
 
@@ -51,69 +51,69 @@ Open-source VHDL simulator and synthesizer
 # PARAMETERS
 
 **-a** _FILE_
-> Analyze VHDL source file.
+> 分析 VHDL 源文件。
 
 **-e** _ENTITY_
-> Elaborate design entity.
+> 细化设计实体。
 
 **-r** _ENTITY_
-> Run simulation.
+> 运行仿真。
 
 **-i** _FILE_
-> Import VHDL file.
+> 导入 VHDL 文件。
 
 **-s** _FILE_
-> Syntax check only.
+> 仅做语法检查。
 
 **--vcd** _FILE_
-> Generate VCD waveform output.
+> 生成 VCD 波形输出。
 
 **--wave** _FILE_
-> Generate GHW waveform output.
+> 生成 GHW 波形输出。
 
 **--stop-time** _TIME_
-> Simulation stop time (e.g., 100ns, 1us, 10ms).
+> 仿真停止时间（例如 100ns、1us、10ms）。
 
 **--std** _STANDARD_
-> VHDL standard to use: 87, 93, 93c, 00, 02, 08.
+> 使用的 VHDL 标准：87、93、93c、00、02、08。
 
 **--work** _NAME_
-> Set the work library name (default: work).
+> 设置 work 库的名称（默认：work）。
 
 **--workdir** _DIR_
-> Set the directory for the work library.
+> 设置 work 库所在的目录。
 
 **--ieee** _LIBRARY_
-> Select IEEE library flavor: none, standard, synopsys.
+> 选择 IEEE 库的变体：none、standard、synopsys。
 
 **-P** _DIRECTORY_
-> Add a library search path.
+> 添加库搜索路径。
 
 **--elab-run**
-> Elaborate and run the design in a single step.
+> 在单步中完成设计的细化与运行。
 
 **-m** _ENTITY_
-> Analyze outdated files and elaborate the design (make mode).
+> 分析过时文件并细化设计（make 模式）。
 
 **-c** _FILES_ **-r** _ENTITY_
-> Analyze and elaborate in a single command.
+> 在一条命令中完成分析与细化。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ghdl** is an open-source VHDL simulator and synthesizer. It analyzes, elaborates, and simulates VHDL designs, supporting VHDL-87, VHDL-93, VHDL-2002, and VHDL-2008 standards.
+**ghdl** 是一款开源的 VHDL 模拟器与综合器。它可以对 VHDL 设计进行分析、细化和仿真，支持 VHDL-87、VHDL-93、VHDL-2002 和 VHDL-2008 标准。
 
-The typical workflow involves three steps: analyzing source files (**-a**) to check syntax and compile, elaborating the design hierarchy (**-e**) to resolve all dependencies, and running the simulation (**-r**). Waveform outputs in VCD and GHW formats can be generated for viewing in tools like GTKWave.
+典型工作流分为三步：先分析源文件（**-a**）以检查语法并编译，再细化设计层次（**-e**）以解析全部依赖，最后运行仿真（**-r**）。可以生成 VCD 和 GHW 格式的波形输出，供 GTKWave 等工具查看。
 
 # CAVEATS
 
-Some advanced VHDL features may have limitations. Synthesis support is experimental. Large simulations can be memory-intensive.
+部分高级 VHDL 特性可能存在限制。综合支持仍属实验性质。大规模仿真可能占用大量内存。
 
 # HISTORY
 
-GHDL was started by **Tristan Gingold** and is written in Ada. It provides a free software alternative to commercial VHDL simulators.
+GHDL 由 **Tristan Gingold** 发起，使用 Ada 编写。它为商业 VHDL 模拟器提供了自由软件替代方案。
 
 # INSTALL
 

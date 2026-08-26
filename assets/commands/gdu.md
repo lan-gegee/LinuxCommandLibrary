@@ -1,38 +1,38 @@
 # TAGLINE
 
-Fast disk usage analyzer with interactive TUI
+带交互式 TUI 的快速磁盘用量分析工具
 
 # TLDR
 
-**Analyze disk usage** interactively (current directory)
+**交互式分析磁盘用量**（当前目录）
 
 ```gdu```
 
-**Analyze a specific directory**
+**分析特定目录**
 
 ```gdu [/path/to/directory]```
 
-**Analyze without interactive mode** (print results)
+**以非交互模式分析**（打印结果）
 
 ```gdu -n [/path/to/directory]```
 
-**Show apparent size** instead of disk usage
+**显示表观大小**而非磁盘占用
 
 ```gdu -a [/path/to/directory]```
 
-**Analyze ignoring specific directories**
+**分析时忽略特定目录**
 
 ```gdu -i "[.git,node_modules]" [/path]```
 
-**Export results to JSON**
+**将结果导出为 JSON**
 
 ```gdu -o json [/path] > [output.json]```
 
-**Analyze specific filesystem only** (don't cross mount points)
+**仅分析特定文件系统**（不跨越挂载点）
 
 ```gdu -x [/]```
 
-**Show version information**
+**显示版本信息**
 
 ```gdu -v```
 
@@ -43,72 +43,72 @@ Fast disk usage analyzer with interactive TUI
 # PARAMETERS
 
 **-n**, **--non-interactive**
-> Run in non-interactive mode (just print results).
+> 以非交互模式运行（只打印结果）。
 
 **-a**, **--apparent-size**
-> Show apparent file size instead of disk usage.
+> 显示文件的表观大小而非磁盘占用。
 
 **-x**, **--no-cross**
-> Don't cross filesystem boundaries.
+> 不跨越文件系统边界。
 
 **-i**, **--ignore-dirs** _paths_
-> Comma-separated paths to ignore.
+> 要忽略的逗号分隔路径。
 
 **-I**, **--ignore-dirs-pattern** _regex_
-> Ignore paths matching the given regular expression.
+> 忽略匹配给定正则表达式的路径。
 
 **-m**, **--max-cores** _n_
-> Set the maximum number of CPU cores to use.
+> 设置使用的最大 CPU 核心数。
 
 **-o**, **--output-file** _file_
-> Export results to a file (use with format flag).
+> 将结果导出到文件（配合格式标志使用）。
 
 **-f**, **--input-file** _file_
-> Read from exported JSON file instead of scanning.
+> 从导出的 JSON 文件读取而非重新扫描。
 
 **-c**, **--no-color**
-> Disable color output.
+> 禁用彩色输出。
 
 **-d**, **--show-disks**
-> Show all mounted disks.
+> 显示所有已挂载的磁盘。
 
 **-p**, **--no-progress**
-> Don't show progress during scan.
+> 扫描期间不显示进度。
 
 **-s**, **--summarize**
-> Show only a total for each argument.
+> 对每个参数只显示总计。
 
 **-L**, **--follow-symlinks**
-> Follow file symbolic links.
+> 跟随文件符号链接。
 
 **--top** _n_
-> Show only the top N largest files.
+> 只显示最大的前 N 个文件。
 
 **--si**
-> Use SI units (powers of 1000) instead of binary.
+> 使用 SI 单位（1000 的幂）而非二进制单位。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gdu** (go disk usage) is a fast disk usage analyzer with an interactive ncurses interface. Written in Go, it significantly outperforms traditional tools like **du** and **ncdu** when analyzing large directory structures.
+**gdu**（go disk usage）是一款带交互式 ncurses 界面的快速磁盘用量分析工具。它用 Go 编写，在分析大型目录结构时的性能显著优于 **du** 和 **ncdu** 等传统工具。
 
-The interactive interface shows directories sorted by size, with usage bars and file counts. Navigation uses arrow keys or vim-style hjkl. Press **d** to delete selected items, **Enter** to navigate into directories, **?** for help.
+交互式界面按大小排序显示目录，并带有用量条和文件计数。导航使用方向键或 vim 风格的 hjkl。按 **d** 删除选中项，按 **Enter** 进入目录，按 **?** 查看帮助。
 
-Color coding indicates directory types: blue for directories, red for large files, special colors for symlinks, sockets, etc. The progress indicator shows scanning status and estimated completion.
+颜色编码指示目录类型：蓝色表示目录，红色表示大文件，符号链接、套接字等有特殊颜色。进度指示器显示扫描状态和预计完成情况。
 
-Non-interactive mode (-n) outputs results suitable for scripting. JSON export enables integration with other tools or storing analysis results for later comparison. The tool can also read back exported JSON files for viewing without rescanning.
+非交互模式（-n）输出的结果适合脚本处理。JSON 导出便于与其他工具集成或保存分析结果以便日后比较。该工具还可以读取已导出的 JSON 文件进行查看，无需重新扫描。
 
-Performance comes from parallel scanning and efficient memory usage. It's particularly effective on SSDs and NVMe drives where I/O isn't the bottleneck.
+性能来自并行扫描和高效的内存使用。它在 I/O 不构成瓶颈的 SSD 和 NVMe 驱动器上尤为有效。
 
 # CAVEATS
 
-Interactive deletion is permanent (no trash). Some terminals may not render the UI correctly. Permission denied errors for inaccessible directories are shown but don't stop scanning. Memory usage scales with number of files/directories.
+交互式删除是永久的（无回收站）。某些终端可能无法正确渲染界面。对无法访问的目录会显示权限拒绝错误，但不会停止扫描。内存使用随文件/目录数量增加。
 
 # HISTORY
 
-**gdu** was created by Daniel Milde around **2020** as a faster alternative to ncdu. Written in Go for performance and easy cross-platform compilation, it quickly gained popularity among system administrators. The tool is available in package managers for most Linux distributions and Homebrew for macOS.
+**gdu** 由 Daniel Milde 于 **2020 年**前后创建，作为 ncdu 的更快替代品。它用 Go 编写以保证性能并便于跨平台编译，迅速受到系统管理员欢迎。该工具已进入大多数 Linux 发行版的软件包管理器和 macOS 的 Homebrew。
 
 # INSTALL
 

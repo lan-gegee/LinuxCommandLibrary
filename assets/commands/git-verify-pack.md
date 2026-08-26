@@ -1,18 +1,18 @@
 # TAGLINE
 
-Validate packed Git archive files
+校验 Git 打包归档文件
 
 # TLDR
 
-**Verify** a pack index file
+**校验**一个 pack 索引文件
 
 ```git verify-pack .git/objects/pack/pack-hash.idx```
 
-Verify and **list all objects** in the pack
+校验并**列出包内所有对象**
 
 ```git verify-pack -v .git/objects/pack/pack-hash.idx```
 
-Show only **delta chain statistics** without verifying
+只显示 **delta 链统计信息**而不进行校验
 
 ```git verify-pack -s .git/objects/pack/pack-hash.idx```
 
@@ -23,19 +23,19 @@ Show only **delta chain statistics** without verifying
 # PARAMETERS
 
 **-v**, **--verbose**
-> After verifying the pack, show the list of objects contained in the pack and a histogram of delta chain length
+> 校验 pack 后，显示包中包含的对象列表以及 delta 链长度的直方图
 
 **-s**, **--stat-only**
-> Do not verify the pack contents; only show the histogram of delta chain length. With **--verbose**, the list of objects is also shown
+> 不校验 pack 内容；只显示 delta 链长度的直方图。配合 **--verbose** 时还会显示对象列表
 
 **--**
-> Do not interpret any more arguments as options
+> 不再把后续参数解释为选项
 
 # DESCRIPTION
 
-**git verify-pack** reads each given idx file and verifies the corresponding pack file and its index. It reports any corruption or inconsistencies found.
+**git verify-pack** 读取每个给定的 idx 文件并校验对应的 pack 文件及其索引。它会报告发现的任何损坏或不一致。
 
-With **-v**, for non-deltified objects it shows: object-name, type, size, size-in-packfile, offset-in-packfile. For deltified objects it additionally shows: depth and base-object-name.
+使用 **-v** 时，对于非 delta 化的对象会显示：对象名、类型、大小、在 pack 文件中的大小、在 pack 文件中的偏移量。对于 delta 化的对象还会额外显示：深度和基础对象名。
 
 # INSTALL
 

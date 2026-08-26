@@ -1,14 +1,14 @@
 # TAGLINE
 
-Upload patches to IMAP drafts folder
+将补丁上传到 IMAP 草稿文件夹
 
 # TLDR
 
-**Send patches via IMAP**
+**通过 IMAP 发送补丁**
 
 ```git format-patch origin | git imap-send```
 
-**Send from file**
+**从文件发送**
 
 ```git imap-send < [patches.mbox]```
 
@@ -19,35 +19,35 @@ Upload patches to IMAP drafts folder
 # PARAMETERS
 
 **--curl**
-> Use libcurl for IMAP.
+> 对 IMAP 使用 libcurl。
 
 **-v**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git imap-send** uploads patches to an IMAP drafts folder, enabling review and composition of patch emails in your email client before sending. It reads mbox-formatted patches from stdin and uploads them to the configured IMAP server.
+**git imap-send** 将补丁上传到 IMAP 草稿文件夹，让你可以在发送之前在邮件客户端中审阅和撰写补丁邮件。它从 stdin 读取 mbox 格式的补丁，并将其上传到配置好的 IMAP 服务器。
 
-This supports the email-driven patch submission workflow used by projects like the Linux kernel, where patches are reviewed on mailing lists rather than through web-based pull requests.
+它支持 Linux 内核等项目采用的邮件驱动补丁提交工作流——这些项目通过邮件列表评审补丁，而不是基于网页的拉取请求。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> IMAP server configuration including host, user, port, and SSL settings under the [imap] section.
+> IMAP 服务器配置，包括 [imap] 区段中的主机、用户、端口和 SSL 设置。
 
 # CAVEATS
 
-Requires IMAP server configuration. SSL configuration may be complex. Alternative to git send-email.
+需要配置 IMAP 服务器。SSL 配置可能比较复杂。是 git send-email 的替代方案。
 
 # HISTORY
 
-git imap-send was created for projects using **email-based patch submission**, allowing integration with standard email clients.
+git imap-send 为采用**基于电子邮件的补丁提交**的项目而创建，可与标准邮件客户端集成。
 
 # INSTALL
 

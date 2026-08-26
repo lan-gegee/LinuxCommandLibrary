@@ -1,14 +1,14 @@
 # TAGLINE
 
-List branches not yet merged into the current branch
+列出尚未合并进当前分支的分支
 
 # TLDR
 
-**Show all unmerged branches**
+**显示所有未合并的分支**
 
 ```git show-unmerged-branches```
 
-**Show unmerged branches (equivalent native git)**
+**显示未合并的分支（等价的原生 git 命令）**
 
 ```git branch --no-merged```
 
@@ -18,13 +18,13 @@ List branches not yet merged into the current branch
 
 # DESCRIPTION
 
-**git show-unmerged-branches** lists all local branches that have not been merged into the current HEAD. It is part of the **git-extras** collection and is useful for identifying work-in-progress branches and outstanding feature work.
+**git show-unmerged-branches** 列出所有尚未合并进当前 HEAD 的本地分支。它是 **git-extras** 工具集的一员，适合用于识别进行中的分支和未完成的功能开发。
 
-Internally, it runs `git branch --no-merged` while filtering out the current branch and the default branch.
+内部实现是运行 `git branch --no-merged`，同时过滤掉当前分支和默认分支。
 
 # CAVEATS
 
-Requires **git-extras** to be installed. Only checks local branches, not remote tracking branches. Written by Paul Schreiber.
+需要安装 **git-extras**。只检查本地分支，不包括远程跟踪分支。作者为 Paul Schreiber。
 
 # INSTALL
 

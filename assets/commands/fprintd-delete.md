@@ -1,18 +1,18 @@
 # TAGLINE
 
-remove enrolled fingerprint data
+删除已录入的指纹数据
 
 # TLDR
 
-Remove **all fingerprints** for a specific user
+删除特定用户的**所有指纹**
 
 ```fprintd-delete [username]```
 
-Remove a **specific fingerprint** for a specific user
+删除特定用户的一枚**指定指纹**
 
 ```fprintd-delete [username] -f [left-thumb|left-index-finger|right-thumb|...]```
 
-Display **help**
+显示**帮助**
 
 ```fprintd-delete```
 
@@ -23,17 +23,17 @@ Display **help**
 # PARAMETERS
 
 **-f**, **--finger** _FINGER_
-> Specify which finger to delete: left-thumb, left-index-finger, left-middle-finger, left-ring-finger, left-little-finger, right-thumb, right-index-finger, right-middle-finger, right-ring-finger, right-little-finger
+> 指定要删除的手指：left-thumb、left-index-finger、left-middle-finger、left-ring-finger、left-little-finger、right-thumb、right-index-finger、right-middle-finger、right-ring-finger、right-little-finger。
 
 # DESCRIPTION
 
-**fprintd-delete** removes enrolled fingerprint data from the fprintd database. Without the **--finger** option, all fingerprints for the specified user are removed.
+**fprintd-delete** 从 fprintd 数据库中删除已录入的指纹数据。若不使用 **--finger** 选项，则删除指定用户的全部指纹。
 
-This command communicates with the fprintd daemon via D-Bus to perform the deletion. Fingerprint data is stored in **/var/lib/fprint** and requires appropriate permissions to modify.
+该命令通过 D-Bus 与 fprintd 守护进程通信来执行删除操作。指纹数据存储在 **/var/lib/fprint** 中，修改时需要相应的权限。
 
 # CAVEATS
 
-Deleting fingerprints cannot be undone. Users must re-enroll their fingerprints using **fprintd-enroll** if needed. Root privileges may be required to delete fingerprints for other users.
+删除指纹的操作无法撤销。如有需要，用户必须使用 **fprintd-enroll** 重新录入指纹。删除其他用户的指纹可能需要 root 权限。
 
 # INSTALL
 

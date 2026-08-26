@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove files from the working tree and index
+从工作树和索引中删除文件
 
 # TLDR
 
-**Remove file from tracking**
+**取消跟踪文件**
 
 ```git rm [file.txt]```
 
-**Remove directory**
+**删除目录**
 
 ```git rm -r [directory/]```
 
-**Remove from index only**
+**仅从索引中移除**
 
 ```git rm --cached [file.txt]```
 
-**Force remove**
+**强制删除**
 
 ```git rm -f [file.txt]```
 
-**Dry run**
+**试运行**
 
 ```git rm -n [file.txt]```
 
@@ -31,39 +31,39 @@ Remove files from the working tree and index
 # PARAMETERS
 
 _FILES_
-> Files to remove.
+> 要删除的文件。
 
 **--cached**
-> Remove from index only, keep file.
+> 仅从索引中移除，保留文件本身。
 
 **-r**
-> Recursive removal.
+> 递归删除。
 
 **-f**, **--force**
-> Force removal.
+> 强制删除。
 
 **-n**, **--dry-run**
-> Show what would be removed.
+> 显示将要删除的内容。
 
 **--ignore-unmatch**
-> Exit successfully even if no match.
+> 即使没有匹配项也以成功状态退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git rm** removes files from the working tree and the index, staging the removal for the next commit. The `--cached` option removes files from tracking while keeping them on disk, which is useful for files that should have been in `.gitignore`.
+**git rm** 从工作树和索引中删除文件，并将该删除暂存以待下次提交。`--cached` 选项只让文件脱离版本跟踪而保留在磁盘上，适用于本应写进 `.gitignore` 的文件。
 
-Without `--cached`, the file is deleted from both the working tree and the index.
+不带 `--cached` 时，文件会同时从工作树和索引中被删除。
 
 # CAVEATS
 
-Without --cached, deletes file from disk. Removal needs to be committed. Use --cached to untrack without deleting.
+不带 --cached 时会从磁盘删除文件。删除操作需要提交。用 --cached 可在不删除文件的情况下取消跟踪。
 
 # HISTORY
 
-git rm is a core **Git** command for removing files from version control, complementing git add.
+git rm 是 **Git** 中用于从版本控制中删除文件的核心命令，与 git add 互为补充。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-PBM to XQX converter for HP LaserJet printers
+面向 HP LaserJet 打印机的 PBM 转 XQX 转换器
 
 # TLDR
 
-**Convert PBM to** XQX format
+**将 PBM 转换为** XQX 格式
 
 ```foo2xqx [options] < [input.pbm] > [output.prn]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2xqx -r [600] < [input.pbm] > [output.prn]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2xqx -p [letter] < [input.pbm] > [output.prn]```
 
@@ -23,38 +23,38 @@ PBM to XQX converter for HP LaserJet printers
 # PARAMETERS
 
 **-r** _DPI_
-> Resolution (300, 600, 1200).
+> 分辨率（300、600、1200）。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-d** _DUPLEX_
-> Duplex mode.
+> 双面打印模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2xqx** converts PBM images to XQX format for HP LaserJet and compatible printers. It encodes raster data for printers using HP's XQX protocol.
+**foo2xqx** 将 PBM 图像转换为 HP LaserJet 及兼容打印机所需的 XQX 格式。它为使用 HP 的 XQX 协议的打印机编码栅格数据。
 
-The tool handles printer-specific encoding and compression for monochrome printing. It functions as a CUPS filter backend for supported HP printers.
+该工具处理单色打印所需的打印机专属编码与压缩。它作为受支持 HP 打印机的 CUPS 过滤器后端工作。
 
-foo2xqx enables Linux printing on certain HP LaserJet models that use XQX.
+foo2xqx 使某些使用 XQX 的 HP LaserJet 型号得以在 Linux 上打印。
 
 # CAVEATS
 
-Monochrome only. Limited to XQX-compatible printers. Model support varies.
+仅支持单色。仅限于兼容 XQX 的打印机。支持的型号各有差异。
 
 # HISTORY
 
-foo2xqx is part of **foo2zjs**, adding support for HP printers using the XQX protocol, reverse-engineered to provide Linux compatibility.
+foo2xqx 是 **foo2zjs** 的一部分，增加了对使用 XQX 协议的 HP 打印机的支持，该协议经过逆向工程以实现 Linux 兼容。
 
 # INSTALL
 

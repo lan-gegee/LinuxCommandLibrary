@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage deployment environments via gh-environments extension
+通过 gh-environments 扩展管理部署环境
 
 # TLDR
 
-**Install the gh-environments extension**
+**安装 gh-environments 扩展**
 
 ```gh extension install katiem0/gh-environments```
 
-**List environments for a repository**
+**列出某仓库的环境**
 
 ```gh environments list [owner] --repo [repo]```
 
-**List environments across all repos for an owner**
+**列出某所有者全部仓库的环境**
 
 ```gh environments list [owner]```
 
-**Create environments from a CSV file**
+**从 CSV 文件创建环境**
 
 ```gh environments create [owner] --from-file [envs.csv]```
 
-**List environment secrets to CSV**
+**将环境 secret 列表导出为 CSV**
 
 ```gh environments secrets list [owner] --repo [repo] -o [secrets.csv]```
 
-**List environment variables to CSV**
+**将环境变量列表导出为 CSV**
 
 ```gh environments variables list [owner] --repo [repo] -o [vars.csv]```
 
-**Create environment secrets from a CSV file**
+**从 CSV 文件创建环境 secret**
 
 ```gh environments secrets create --from-file [secrets.csv]```
 
@@ -39,54 +39,54 @@ manage deployment environments via gh-environments extension
 # SUBCOMMANDS
 
 **list**
-> Generate a CSV report of environments and metadata for a repository or owner.
+> 为仓库或所有者生成包含环境及元数据的 CSV 报告。
 
 **create**
-> Create environments and metadata from a CSV file.
+> 从 CSV 文件创建环境及其元数据。
 
 **secrets list**
-> Generate a CSV report of environment secrets.
+> 生成环境 secret 的 CSV 报告。
 
 **secrets create**
-> Create environment secrets from a CSV file.
+> 从 CSV 文件创建环境 secret。
 
 **variables list**
-> Generate a CSV report of environment variables.
+> 生成环境变量的 CSV 报告。
 
 **variables create**
-> Create environment variables from a CSV file.
+> 从 CSV 文件创建环境变量。
 
 # PARAMETERS
 
 **-t**, **--token** _token_
-> GitHub Personal Access Token (overrides `gh auth`).
+> GitHub 个人访问令牌（覆盖 `gh auth`）。
 
 **--hostname** _host_
-> GitHub Enterprise Server hostname.
+> GitHub Enterprise Server 主机名。
 
 **-o**, **--output-file** _file_
-> Output CSV filename for list commands.
+> list 命令输出 CSV 的文件名。
 
 **-f**, **--from-file** _file_
-> Path to CSV file used by create commands.
+> create 命令所用 CSV 文件的路径。
 
 **-d**, **--debug**
-> Enable debug logging.
+> 启用调试日志。
 
 **--help**
-> Show help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh-environments** is a GitHub CLI extension for managing repository deployment environments in bulk. It is not a built-in `gh` command; install it with `gh extension install katiem0/gh-environments`.
+**gh-environments** 是一个用于批量管理仓库部署环境的 GitHub CLI 扩展。它不是内置的 `gh` 命令；请通过 `gh extension install katiem0/gh-environments` 安装。
 
-Environments represent deployment targets (production, staging, etc.) with optional protection rules and environment-specific secrets and variables. The extension reads and writes CSV files, making it suitable for auditing or replicating environment configuration across many repositories.
+环境表示部署目标（生产、预发布等），可附带保护规则以及特定于环境的 secret 和变量。该扩展读写 CSV 文件，适合跨多个仓库审计或复制环境配置。
 
-For inspecting the **environment variables** that control the `gh` CLI itself, run `gh help environment`.
+若要查看控制 `gh` CLI 本身的**环境变量**，请运行 `gh help environment`。
 
 # CAVEATS
 
-This is a third-party extension, not a core `gh` subcommand. Protection rules (required reviewers, wait timer, branch restrictions) are not fully manageable via this extension — use the web UI or the REST API for advanced configuration.
+这是第三方扩展，不是核心 `gh` 子命令。保护规则（必需审查者、等待计时器、分支限制）无法完全通过此扩展管理——高级配置请使用网页 UI 或 REST API。
 
 # INSTALL
 

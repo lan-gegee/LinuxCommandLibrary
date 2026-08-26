@@ -1,38 +1,38 @@
 # TAGLINE
 
-sandboxed application distribution for Linux
+面向 Linux 的沙箱化应用分发系统
 
 # TLDR
 
-**Run** an installed application
+**运行**已安装的应用
 
 ```flatpak run com.example.app```
 
-**Install** an application from remote
+从远程仓库**安装**应用
 
 ```flatpak install flathub com.example.app```
 
-**List** installed applications
+**列出**已安装的应用
 
 ```flatpak list --app```
 
-**Update** all applications and runtimes
+**更新**所有应用和运行时
 
 ```flatpak update```
 
-**Add** a remote repository
+**添加**远程仓库
 
 ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
 
-**Remove** an application
+**移除**应用
 
 ```flatpak remove com.example.app```
 
-**Remove** unused applications and runtimes
+**移除**未使用的应用和运行时
 
 ```flatpak remove --unused```
 
-Show **info** about an application
+显示某个应用的**信息**
 
 ```flatpak info com.example.app```
 
@@ -42,50 +42,50 @@ Show **info** about an application
 
 # DESCRIPTION
 
-**flatpak** is a tool for managing applications and their associated runtimes. It enables building and distributing applications independently from the host system while providing sandbox isolation at runtime. The system supports both system-wide and per-user installation modes.
+**flatpak** 是一款管理应用程序及其关联运行时的工具。它使应用的构建和分发独立于宿主系统，同时在运行时提供沙箱隔离。该系统同时支持系统级和按用户两种安装模式。
 
 # PARAMETERS
 
 **-h, --help**
-> Show help options and exit
+> 显示帮助选项并退出
 
 **-v, --verbose**
-> Show debug information (use -vv for more detail)
+> 显示调试信息（用 -vv 获取更多细节）
 
 **--version**
-> Print version information and exit
+> 打印版本信息并退出
 
 **--default-arch**
-> Print the default architecture and exit
+> 打印默认架构并退出
 
 **--supported-arches**
-> Print supported architectures in order of priority
+> 按优先顺序打印支持的架构
 
 **--gl-drivers**
-> Print the list of active GL drivers
+> 打印活动 GL 驱动的列表
 
 **--installations**
-> Print paths of system installations
+> 打印系统安装位置的路径
 
 **--print-updated-env**
-> Print environment variables needed to use flatpak
+> 打印使用 flatpak 所需的环境变量
 
 **--user**
-> Work on per-user installation only
+> 仅作用于按用户的安装
 
 **--system**
-> Work on system-wide installation (default)
+> 作用于系统级安装（默认）
 
 **--installation=**_NAME_
-> Work on the specified installation (from /etc/flatpak/installations.d/)
+> 作用于指定的安装位置（来自 /etc/flatpak/installations.d/）
 
 # CAVEATS
 
-System-wide data is stored in $prefix/var/lib/flatpak/, while per-user data is in $HOME/.local/share/flatpak/. Flatpak uses OSTree repositories internally which can be manipulated directly using the **ostree** utility.
+系统级数据存储在 $prefix/var/lib/flatpak/ 中，而按用户的数据存储在 $HOME/.local/share/flatpak/ 中。Flatpak 内部使用 OSTree 仓库，可以直接用 **ostree** 工具操作。
 
 # HISTORY
 
-**flatpak** was originally developed as xdg-app by Alexander Larsson at Red Hat and was renamed to Flatpak in 2016. It provides a distribution-agnostic packaging format for Linux desktop applications.
+**flatpak** 最初由 Red Hat 的 Alexander Larsson 以 xdg-app 之名开发，2016 年更名为 Flatpak。它为 Linux 桌面应用提供了与发行版无关的打包格式。
 
 # INSTALL
 

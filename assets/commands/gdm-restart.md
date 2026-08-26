@@ -1,10 +1,10 @@
 # TAGLINE
 
-restart the GNOME Display Manager service
+重启 GNOME 显示管理器服务
 
 # TLDR
 
-**Restart GNOME Display Manager**
+**重启 GNOME 显示管理器**
 
 ```sudo gdm-restart```
 
@@ -14,13 +14,13 @@ restart the GNOME Display Manager service
 
 # DESCRIPTION
 
-**gdm-restart** restarts the GNOME Display Manager service, terminating all active graphical user sessions and returning to the login screen. This command is useful for applying configuration changes, recovering from display issues, or resetting the graphical environment without a full system reboot.
+**gdm-restart** 重启 GNOME 显示管理器服务，终止所有活动的图形用户会话并返回登录界面。该命令适用于应用配置更改、从显示问题中恢复，或在不完全重启系统的情况下重置图形环境。
 
-When executed, all logged-in users will be forcibly logged out, and any unsaved work will be lost. The display manager then reinitializes, presenting a fresh login screen. On modern systems using systemd, this is typically a wrapper for "systemctl restart gdm".
+执行时，所有已登录的用户都会被强制注销，任何未保存的工作都会丢失。随后显示管理器重新初始化，呈现全新的登录界面。在使用 systemd 的现代系统中，这通常是 "systemctl restart gdm" 的包装。
 
 # CAVEATS
 
-Restarting GDM will terminate all user sessions. Save your work before running this command.
+重启 GDM 会终止所有用户会话。运行此命令前请保存工作。
 
 # INSTALL
 
@@ -45,4 +45,3 @@ Restarting GDM will terminate all user sessions. Save your work before running t
 ```[Source code](https://gitlab.gnome.org/GNOME/gdm)```
 
 <!-- verified: 2026-07-15 -->
-

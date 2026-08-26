@@ -1,26 +1,26 @@
 # TAGLINE
 
-record changes to repository
+将变更记录到仓库
 
 # TLDR
 
-**Commit with message**
+**带提交信息提交**
 
 ```fossil commit -m "[message]"```
 
-**Commit interactively**
+**交互式提交**
 
 ```fossil commit```
 
-**Commit specific files**
+**提交特定文件**
 
 ```fossil commit [file1] [file2] -m "[message]"```
 
-**Commit to new branch**
+**提交到新分支**
 
 ```fossil commit --branch [branch_name] -m "[message]"```
 
-**Amend last commit**
+**修改最近一次提交**
 
 ```fossil amend [checkin] -m "[new message]"```
 
@@ -31,30 +31,30 @@ record changes to repository
 # PARAMETERS
 
 **-m**, **--comment** _text_
-> Commit message.
+> 提交信息。
 
 **--branch** _name_
-> Create new branch.
+> 创建新分支。
 
 **--tag** _name_
-> Add tag.
+> 添加标签。
 
 **--private**
-> Make commit private.
+> 使提交保持私有。
 
 **--allow-empty**
-> Allow empty commit.
+> 允许空提交。
 
 **--close**
-> Close branch after commit.
+> 提交后关闭分支。
 
 # DESCRIPTION
 
-**fossil commit** records changes in the working copy to the repository, creating a new check-in with the specified comment. All files previously added or modified are included in the commit.
+**fossil commit** 将工作副本中的变更记录到仓库，创建一个带有指定注释的新 check-in。所有先前添加或修改过的文件都会包含在提交中。
 
-The command opens an editor for the commit message if **-m** is not provided. Unlike Git, Fossil uses autosync by default, potentially pushing changes to configured remotes immediately after commit.
+如果未提供 **-m**，该命令会打开编辑器来输入提交信息。与 Git 不同，Fossil 默认启用 autosync，可能在提交后立即把变更推送到已配置的远程。
 
-Commits can create new branches, add tags, and include metadata like timestamps and user information. The **--private** option creates commits that won't be pushed to public repositories.
+提交可以创建新分支、添加标签，并包含时间戳和用户信息等元数据。**--private** 选项创建的提交不会被推送到公共仓库。
 
 # INSTALL
 
@@ -77,4 +77,3 @@ Commits can create new branches, add tags, and include metadata like timestamps 
 # SEE ALSO
 
 [fossil-add](/man/fossil-add)(1)
-

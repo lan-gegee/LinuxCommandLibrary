@@ -1,26 +1,26 @@
 # TAGLINE
 
-Create or update Flux custom resources from the command line
+从命令行创建或更新 Flux 自定义资源
 
 # TLDR
 
-**Create a Git source**
+**创建 Git 源**
 
 ```flux create source git my-repo --url https://github.com/org/repo --branch main```
 
-**Create a Kustomization** to sync a path from a source
+**创建 Kustomization** 以同步源中的路径
 
 ```flux create kustomization my-app --source my-repo --path ./k8s```
 
-**Create a HelmRelease**
+**创建 HelmRelease**
 
 ```flux create helmrelease my-release --chart mychart --source HelmRepository/myrepo```
 
-**Export YAML** to stdout instead of applying to the cluster
+将 YAML **导出到标准输出**而不应用到集群
 
 ```flux create source git my-repo --url https://github.com/org/repo --branch main --export```
 
-**Create a Git authentication secret**
+**创建 Git 认证 Secret**
 
 ```flux create secret git my-git-secret --url https://github.com/org/repo --username user --password pass```
 
@@ -30,42 +30,42 @@ Create or update Flux custom resources from the command line
 
 # DESCRIPTION
 
-**flux create** generates Flux custom resources (GitRepository, Kustomization, HelmRelease, HelmRepository, Secret, etc.) without writing YAML by hand.
+**flux create** 用于生成 Flux 自定义资源（GitRepository、Kustomization、HelmRelease、HelmRepository、Secret 等），无需手写 YAML。
 
-By default the resource is applied to the cluster. Pass **--export** to print the resource as YAML on stdout instead (for committing to Git or piping to other tools).
+默认情况下资源会被应用到集群。传入 **--export** 则改为将资源以 YAML 打印到标准输出（便于提交到 Git 或管道传给其他工具）。
 
-It supports the major Flux resource kinds and many common configuration options.
+它支持主要的 Flux 资源类型和许多常用配置选项。
 
 # COMMON KINDS
 
 **source git**, **source helm**, **source oci**
-> Create source repositories.
+> 创建源仓库。
 
 **kustomization**
-> Define a Kustomize sync.
+> 定义 Kustomize 同步。
 
 **helmrelease**
-> Deploy a Helm chart.
+> 部署 Helm chart。
 
 **secret git**, **secret helm**
-> Create credentials.
+> 创建凭据。
 
 **image**, **receiver**, **alert**, **tenant**
-> Image automation, notification receivers, alerts, and multi-tenancy helpers.
+> 镜像自动化、通知接收器、告警以及多租户辅助功能。
 
 # PARAMETERS
 
 **--export**
-> Export the resource in YAML format to stdout instead of applying it to the cluster.
+> 将资源以 YAML 格式导出到标准输出，而不是应用到集群。
 
 **--interval** _duration_
-> Source sync interval (default `1m0s`).
+> 源同步间隔（默认 `1m0s`）。
 
 **--label** _key=value_
-> Set labels on the resource (repeatable / comma-separated).
+> 为资源设置标签（可重复 / 逗号分隔）。
 
 **-n**, **--namespace** _ns_
-> Namespace scope (default `flux-system`).
+> 命名空间范围（默认 `flux-system`）。
 
 # INSTALL
 

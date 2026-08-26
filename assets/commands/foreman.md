@@ -1,30 +1,30 @@
 # TAGLINE
 
-process manager for Procfile-based applications
+基于 Procfile 的应用的进程管理器
 
 # TLDR
 
-**Start** an application with the Procfile in the current directory
+使用当前目录的 Procfile **启动**应用
 
 ```foreman start```
 
-Start an application with a **specified Procfile**
+以**指定的 Procfile** 启动应用
 
 ```foreman start -f [Procfile]```
 
-Start a **specific** application
+启动**特定**进程
 
 ```foreman start [process]```
 
-**Validate** Procfile format
+**校验** Procfile 格式
 
 ```foreman check```
 
-Run **one-off commands** with the process's environment
+用该进程的环境变量运行**一次性命令**
 
 ```foreman run [command]```
 
-Start all processes **except** the one named "worker"
+启动所有进程，但**排除**名为 "worker" 的进程
 
 ```foreman start -m all=1,worker=0```
 
@@ -35,58 +35,58 @@ Start all processes **except** the one named "worker"
 # PARAMETERS
 
 **start**
-> Start all processes defined in the Procfile
+> 启动 Procfile 中定义的所有进程
 
 **check**
-> Validate Procfile format
+> 校验 Procfile 格式
 
 **run**
-> Run a one-off command using the app's environment
+> 使用应用的环境运行一次性命令
 
 **export**
-> Export processes to another format (systemd, upstart, etc.)
+> 将进程导出为其他格式（systemd、upstart 等）
 
 **-f**, **--procfile** _FILE_
-> Specify an alternate Procfile
+> 指定替代的 Procfile
 
 **-d**, **--root** _DIR_
-> Specify an alternate application root
+> 指定替代的应用根目录
 
 **-e**, **--env** _FILE_
-> Specify environment file(s) to load
+> 指定要加载的环境文件
 
 **-m**, **--formation** _SPEC_
-> Specify process formation (e.g., web=2,worker=1)
+> 指定进程编组（如 web=2,worker=1）
 
 **-p**, **--port** _PORT_
-> Specify starting port number
+> 指定起始端口号
 
 **-t**, **--timeout** _SECONDS_
-> Specify shutdown timeout
+> 指定关机超时时间
 
 # CONFIGURATION
 
 **Procfile**
-> Defines process types as name:command lines (e.g., web: python app.py).
+> 以 name:command 行的形式定义进程类型（例如 web: python app.py）。
 
 **.env**
-> Environment variables loaded automatically by foreman.
+> foreman 自动加载的环境变量。
 
 # DESCRIPTION
 
-**foreman** is a process manager for Procfile-based applications. It reads a Procfile that declares the processes that comprise your application and runs them in development, making it easy to manage multiple processes.
+**foreman** 是一个面向 Procfile 应用的进程管理器。它读取声明了组成应用的各个进程的 Procfile，并在开发环境中运行它们，让多进程管理变得简单。
 
-A Procfile defines process types as lines with format **name: command**. For example: **web: python app.py** and **worker: python worker.py**. Foreman starts all defined processes and forwards their output to the terminal.
+Procfile 以 **name: command** 格式的行定义进程类型。例如：**web: python app.py** 和 **worker: python worker.py**。Foreman 启动所有已定义的进程并把它们的输出转发到终端。
 
-Foreman also loads environment variables from **.env** files and can export process definitions to system init formats like systemd, upstart, or launchd for production deployment.
+Foreman 还会从 **.env** 文件加载环境变量，并可将进程定义导出为 systemd、upstart 或 launchd 等系统 init 格式以便生产部署。
 
 # CAVEATS
 
-foreman is primarily designed for development environments. For production, export to a proper process manager. Port assignment is sequential starting from the **-p** value, which may conflict with existing services.
+foreman 主要为开发环境设计。生产环境请导出到合适的进程管理器。端口分配从 **-p** 的值开始按顺序递增，可能与现有服务冲突。
 
 # HISTORY
 
-foreman was created by David Dollar at Heroku in **2011** as a way to manage Procfile-based applications locally. The Procfile format became a standard for defining process types in twelve-factor applications and is used by many PaaS providers.
+foreman 由 David Dollar 于 **2011** 年在 Heroku 创建，用于在本地管理基于 Procfile 的应用。Procfile 格式成为十二要素（twelve-factor）应用中定义进程类型的标准，被许多 PaaS 提供商采用。
 
 # INSTALL
 

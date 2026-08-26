@@ -1,38 +1,38 @@
 # TAGLINE
 
-GNU Ada compiler toolchain
+GNU Ada 编译器工具链
 
 # TLDR
 
-**Compile an Ada program** to object file
+**将 Ada 程序编译**为目标文件
 
 ```gcc -c [program.adb]```
 
-**Build an Ada executable** with gnatmake
+用 gnatmake **构建 Ada 可执行文件**
 
 ```gnatmake [program.adb]```
 
-**Bind an Ada program**
+**绑定（bind）Ada 程序**
 
 ```gnatbind [program]```
 
-**Link an Ada program**
+**链接 Ada 程序**
 
 ```gnatlink [program]```
 
-**Compile with all warnings** enabled
+启用所有警告**进行编译**
 
 ```gnatmake -gnatwa [program.adb]```
 
-**Clean built files** for a project
+清理项目的**已构建文件**
 
 ```gnatclean [program]```
 
-**Check syntax only** without compilation
+只**检查语法**而不编译
 
 ```gcc -c -gnats [program.adb]```
 
-**Generate cross-reference** information
+**生成交叉引用**信息
 
 ```gnatxref [program.adb]```
 
@@ -49,74 +49,74 @@ GNU Ada compiler toolchain
 # COMMANDS
 
 **gnatmake**
-> Build Ada programs, handling compilation, binding, and linking automatically.
+> 构建 Ada 程序，自动处理编译、绑定和链接。
 
 **gnatbind**
-> Bind Ada program units, generating the main program wrapper.
+> 绑定 Ada 程序单元，生成主程序包装代码。
 
 **gnatlink**
-> Link object files to create executable.
+> 链接目标文件以创建可执行文件。
 
 **gnatclean**
-> Remove files produced by gnatmake.
+> 删除 gnatmake 生成的文件。
 
 **gnatfind**
-> Search for Ada identifier definitions and references.
+> 搜索 Ada 标识符的定义和引用。
 
 **gnatxref**
-> Generate cross-reference information.
+> 生成交叉引用信息。
 
 **gnatls**
-> List information about compiled Ada units.
+> 列出已编译 Ada 单元的信息。
 
 # PARAMETERS
 
 **-c**
-> Compile only, do not link (required for gcc with Ada). For gnatmake, compile and bind only, skipping the link step unless combined with **-b**.
+> 只编译，不链接（gcc 编译 Ada 时必需）。对 gnatmake 而言，只编译和绑定，跳过链接步骤，除非同时给出 **-b**。
 
 **-f**
-> Force recompilation of all sources, even if object files appear up to date (gnatmake).
+> 强制重新编译所有源文件，即使目标文件看似是最新的（gnatmake）。
 
 **-j** _N_
-> Use N processes for parallel compilation (gnatmake). Use 0 for all available cores.
+> 使用 N 个进程并行编译（gnatmake）。设为 0 表示使用所有可用核心。
 
 **-q**
-> Quiet mode: suppress the compilation commands gnatmake normally echoes.
+> 安静模式：抑制 gnatmake 通常回显的编译命令。
 
 **-gnatwa**
-> Enable all warnings.
+> 启用所有警告。
 
 **-gnato**
-> Enable numeric overflow checking.
+> 启用数值溢出检查。
 
 **-gnats**
-> Syntax check only.
+> 仅做语法检查。
 
 **-gnatc**
-> Semantic check only.
+> 仅做语义检查。
 
 **-gnatf**
-> Full errors (verbose error messages).
+> 输出完整错误（详细的错误信息）。
 
 **-O**[_N_]
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **-g**
-> Include debugging information.
+> 包含调试信息。
 
 # DESCRIPTION
 
-**GNAT** (GNU Ada Translator) is the Ada compiler in the GCC collection. It compiles Ada 83, Ada 95, Ada 2005, and Ada 2012 programs. Ada source files use .ads (specification) and .adb (body) extensions.
+**GNAT**（GNU Ada Translator）是 GCC 集合中的 Ada 编译器。它可编译 Ada 83、Ada 95、Ada 2005 和 Ada 2012 程序。Ada 源文件使用 .ads（规格说明）和 .adb（程序体）扩展名。
 
-The GNAT build process has three phases: compilation (gcc -c), binding (gnatbind), and linking (gnatlink). The **gnatmake** tool automates all three, determining dependencies and recompiling only what is necessary.
+GNAT 的构建过程分为三个阶段：编译（gcc -c）、绑定（gnatbind）和链接（gnatlink）。**gnatmake** 工具将这三个阶段自动化，分析依赖关系并只重新编译必要的部分。
 
 # CAVEATS
 
-Unlike C/C++, Ada programs cannot be compiled and linked in a single gcc invocation; the -c flag is required and binding must be performed separately. gnatmake handles this automatically and is the recommended build method for most projects.
+与 C/C++ 不同，Ada 程序无法在单次 gcc 调用中完成编译和链接；必须使用 -c 标志，且绑定必须单独执行。gnatmake 会自动处理这一切，是大多数项目推荐的构建方式。
 
 # HISTORY
 
-GNAT was developed by New York University under contract to the US Air Force, with the first public release in **1995**. It was subsequently maintained and enhanced by Ada Core Technologies (now AdaCore). GNAT became part of GCC and is the most widely used Ada compiler, supporting the full Ada language standard on numerous platforms.
+GNAT 由纽约大学根据美国空军合同开发，首个公开版本发布于 **1995** 年。随后由 Ada Core Technologies（现为 AdaCore）维护和增强。GNAT 后来成为 GCC 的一部分，是目前使用最广泛的 Ada 编译器，在众多平台上支持完整的 Ada 语言标准。
 
 # INSTALL
 

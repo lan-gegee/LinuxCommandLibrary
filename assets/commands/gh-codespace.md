@@ -1,34 +1,34 @@
 # TAGLINE
 
-manage cloud-hosted development environments
+管理云端托管的开发环境
 
 # TLDR
 
-**List codespaces**
+**列出 codespace**
 
 ```gh codespace list```
 
-**Create a codespace**
+**创建 codespace**
 
 ```gh codespace create```
 
-**Create for specific repo**
+为特定仓库创建
 
 ```gh codespace create -r [owner/repo]```
 
-**SSH into codespace**
+**SSH 进入 codespace**
 
 ```gh codespace ssh```
 
-**Stop a codespace**
+**停止 codespace**
 
 ```gh codespace stop -c [codespace_name]```
 
-**Delete a codespace**
+**删除 codespace**
 
 ```gh codespace delete -c [codespace_name]```
 
-**Open in VS Code**
+**在 VS Code 中打开**
 
 ```gh codespace code```
 
@@ -39,43 +39,43 @@ manage cloud-hosted development environments
 # SUBCOMMANDS
 
 **list**
-> List codespaces.
+> 列出 codespace。
 
 **create**
-> Create a codespace.
+> 创建 codespace。
 
 **ssh**
-> SSH into codespace.
+> SSH 进入 codespace。
 
 **code**
-> Open in VS Code.
+> 在 VS Code 中打开。
 
 **stop**
-> Stop a codespace.
+> 停止 codespace。
 
 **delete**
-> Delete a codespace.
+> 删除 codespace。
 
 **ports**
-> Manage ports.
+> 管理端口。
 
 **logs**
-> View logs.
+> 查看日志。
 
 # PARAMETERS
 
 **-r**, **--repo** _owner/repo_
-> Repository.
+> 仓库。
 
 **-c**, **--codespace** _name_
-> Codespace name.
+> Codespace 名称。
 
 **-m**, **--machine** _type_
-> Machine type.
+> 机器类型。
 
 # DESCRIPTION
 
-**gh codespace** manages GitHub Codespaces, cloud-hosted development environments. Create, connect, and manage codespaces from the CLI.
+**gh codespace** 管理 GitHub Codespaces——云端托管的开发环境。可以在 CLI 中创建、连接和管理 codespace。
 
 # INSTALL
 
@@ -106,4 +106,3 @@ manage cloud-hosted development environments
 ```[Source code](https://github.com/cli/cli)```
 
 <!-- verified: 2026-07-15 -->
-

@@ -1,18 +1,18 @@
 # TAGLINE
 
-schedule files for removal
+安排文件移除
 
 # TLDR
 
-**Remove a file**
+**移除文件**
 
 ```fossil rm [file]```
 
-**Remove with force**
+**强制移除**
 
 ```fossil rm -f [file]```
 
-**Remove with dry run**
+**以 dry run 方式移除**
 
 ```fossil rm --dry-run [file]```
 
@@ -23,21 +23,21 @@ schedule files for removal
 # PARAMETERS
 
 **--dry-run**
-> Show what would be removed.
+> 显示将被移除的内容。
 
 **-f**, **--force**
-> Force removal.
+> 强制移除。
 
 **--hard**
-> Also delete from disk.
+> 同时从磁盘删除。
 
 # DESCRIPTION
 
-**fossil rm** schedules files for removal from the repository on the next commit. By default, files remain on disk and are only removed from version control.
+**fossil rm** 安排文件在下次提交时从仓库中移除。默认情况下文件保留在磁盘上，只是从版本控制中移除。
 
-The **--hard** option deletes files from both the repository and the filesystem. This is useful for cleaning up unwanted files while also removing them from version control.
+**--hard** 选项会同时从仓库和文件系统中删除文件。这适合在清理不需要的文件的同时将其从版本控制中移除。
 
-Unlike **fossil forget**, which only works on files not yet committed, **fossil rm** handles files already tracked in the repository.
+与只对尚未提交文件生效的 **fossil forget** 不同，**fossil rm** 处理的是已在仓库中被跟踪的文件。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Unlike **fossil forget**, which only works on files not yet committed, **fossil 
 ```[Documentation](https://fossil-scm.org/home/help?cmd=rm)```
 
 <!-- verified: 2026-07-15 -->
-

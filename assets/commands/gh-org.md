@@ -1,18 +1,18 @@
 # TAGLINE
 
-Manage GitHub organization information from the command line
+在命令行中管理 GitHub 组织信息
 
 # TLDR
 
-**List organizations**
+**列出组织**
 
 ```gh org list```
 
-**View organization**
+**查看组织**
 
 ```gh org view [orgname]```
 
-**List organization members**
+**列出组织成员**
 
 ```gh api orgs/[orgname]/members```
 
@@ -23,27 +23,27 @@ Manage GitHub organization information from the command line
 # PARAMETERS
 
 **list**
-> List organizations you belong to.
+> 列出你所属的组织。
 
 **view** _ORGNAME_
-> View organization details.
+> 查看组织详情。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh org** manages GitHub organization information from the command line. It provides access to organization membership, details, and settings for organizations you belong to.
+**gh org** 用于在命令行中管理 GitHub 组织信息。它可以查看你所属组织的成员关系、详情和设置。
 
-The command enables viewing organization information without visiting github.com. For more complex organization management like team operations and member management, the **gh api** command provides full API access.
+该命令让你无需访问 github.com 即可查看组织信息。对于团队操作、成员管理等更复杂的组织管理任务，可使用 **gh api** 命令获得完整的 API 访问能力。
 
 # CAVEATS
 
-Available operations depend on your role in the organization. Some features require admin permissions. Full org management may need gh api.
+可用操作取决于你在组织中的角色。部分功能需要管理员权限。完整的组织管理可能需要借助 gh api。
 
 # HISTORY
 
-gh org was added to the **GitHub CLI** to provide basic organization commands, complementing the repository and user management features.
+gh org 被加入 **GitHub CLI** 以提供基础的组织命令，补充其仓库和用户管理功能。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Create, list, or delete object replacement refs
+创建、列出或删除对象替换引用
 
 # TLDR
 
-**Replace an object with another object**
+**用一个对象替换另一个对象**
 
 ```git replace [object] [replacement]```
 
-**Force replace an object, overwriting an existing replacement**
+**强制替换对象，覆盖已有的替换**
 
 ```git replace -f [object] [replacement]```
 
-**List all replacement refs**
+**列出所有替换引用**
 
 ```git replace --list```
 
-**List replacement refs matching a pattern**
+**列出匹配某模式的替换引用**
 
 ```git replace --list 'refs/replace/abc*'```
 
-**Delete a replacement ref**
+**删除一个替换引用**
 
 ```git replace -d [object]```
 
-**Edit an object interactively and create a replacement**
+**交互式编辑对象并创建替换**
 
 ```git replace --edit [object]```
 
-**Graft a commit to have different parents**
+**嫁接提交使其拥有不同的父提交**
 
 ```git replace --graft [commit] [parent1] [parent2]```
 
-**Convert legacy grafts file to replacement refs**
+**将旧式 grafts 文件转换为替换引用**
 
 ```git replace --convert-graft-file```
 
@@ -48,36 +48,36 @@ Create, list, or delete object replacement refs
 # PARAMETERS
 
 **-l** [_pattern_], **--list** [_pattern_]
-> List replacement refs. If a pattern is given via glob(7), only matching replacements are listed.
+> 列出替换引用。如果按 glob(7) 给出了模式，则只列出匹配的替换。
 
 **-d**, **--delete**
-> Delete existing replacement refs for the given objects.
+> 删除给定对象已有的替换引用。
 
 **-f**, **--force**
-> Overwrite an existing replace ref for the same object instead of failing.
+> 覆盖同一对象已有的替换引用，而不是失败退出。
 
 **--graft** _commit_ [_parent_...]
-> Create a graft commit. A new commit is created with the same content as the given commit but with the specified parents, then a replacement ref is created to replace the original commit.
+> 创建一个嫁接（graft）提交。新建一个内容与给定提交相同但父提交为指定值的提交，然后创建一个替换引用来替换原提交。
 
 **--convert-graft-file**
-> Convert all entries in `$GIT_DIR/info/grafts` to replace refs and delete the grafts file. This is a one-time migration from the legacy grafts mechanism.
+> 将 `$GIT_DIR/info/grafts` 中的所有条目转换为替换引用并删除 grafts 文件。这是从旧式 grafts 机制出发的一次性迁移。
 
 **--edit** _object_
-> Edit an object's content interactively. The existing content is pretty-printed into a temporary file, an editor is launched, and the result is used to create a replacement object.
+> 交互式编辑对象内容。现有内容会以美化格式写入临时文件，然后启动编辑器，其结果用于创建替换对象。
 
 **--raw**
-> When used with `--edit`, provide the raw object contents rather than pretty-printed ones. Useful for editing corrupted objects.
+> 与 `--edit` 搭配使用时，提供原始对象内容而非美化格式的内容。对编辑损坏的对象很有用。
 
 **--format**=_format_
-> Format for `--list` output: `short` (replaced SHA only), `medium` (replaced -> replacement), or `long` (includes object types). Default: `short`.
+> `--list` 输出的格式：`short`（仅显示被替换的 SHA）、`medium`（显示 被替换 -> 替换）或 `long`（包含对象类型）。默认：`short`。
 
 # DESCRIPTION
 
-**git replace** creates, lists, or deletes refs in the `refs/replace/` namespace that substitute one object for another. This allows changing how objects are viewed without modifying the original objects themselves.
+**git replace** 在 `refs/replace/` 命名空间中创建、列出或删除引用，用某个对象替代另一个对象。这样可以在不修改原始对象的情况下改变对象的呈现方式。
 
-Replacements are used by default in all Git commands except reachability traversal (prune, pack transfer, fsck). To bypass replacements, use `git --no-replace-objects` or set the `GIT_NO_REPLACE_OBJECTS` environment variable.
+除可达性遍历（prune、包传输、fsck）之外，所有 Git 命令默认都会应用替换。要绕过替换，可使用 `git --no-replace-objects` 或设置 `GIT_NO_REPLACE_OBJECTS` 环境变量。
 
-Common use cases include fixing published history, grafting histories together, or replacing large blobs. The `--graft` option simplifies rewriting commit parentage, replacing the legacy `$GIT_DIR/info/grafts` mechanism.
+常见用途包括修复已发布的历史、将不同历史嫁接在一起，或替换过大的 blob。`--graft` 选项简化了重写提交父级关系的过程，取代了旧式的 `$GIT_DIR/info/grafts` 机制。
 
 # INSTALL
 

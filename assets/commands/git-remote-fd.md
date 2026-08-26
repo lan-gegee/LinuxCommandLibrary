@@ -1,18 +1,18 @@
 # TAGLINE
 
-File descriptor transport helper for Git
+Git 的文件描述符传输辅助程序
 
 # TLDR
 
-**Clone using file descriptors** for input and output
+**使用文件描述符**进行输入和输出地克隆
 
 ```git clone "fd::[fd-in],[fd-out]"```
 
-**Fetch using pre-opened** file descriptor connections
+**使用预先打开的文件描述符连接抓取**
 
 ```git fetch "fd::17,18"```
 
-**Use a single file descriptor** for both input and output
+**对输入和输出使用单个文件描述符**
 
 ```git fetch "fd::17"```
 
@@ -23,25 +23,25 @@ File descriptor transport helper for Git
 # PARAMETERS
 
 _URL_
-> fd:: URL in the format fd::in[,out].
+> fd::in[,out] 格式的 fd:: URL。
 
 **in**
-> File descriptor number for reading from the remote. If out is omitted, this descriptor is used for both directions.
+> 用于从远程读取的文件描述符编号。若省略 out，则该描述符同时用于双向通信。
 
 **out**
-> File descriptor number for writing to the remote.
+> 用于向远程写入的文件描述符编号。
 
 # DESCRIPTION
 
-**git-remote-fd** is a Git remote helper program that uses pre-opened file descriptors for communication instead of establishing its own connections. When a URL in the form `fd::in[,out]` is used, Git invokes this helper to transfer data over the specified file descriptors.
+**git-remote-fd** 是一个 Git 远程辅助程序，它使用预先打开的文件描述符进行通信，而不是自行建立连接。当使用 `fd::in[,out]` 形式的 URL 时，Git 会调用该辅助程序在指定的文件描述符上传输数据。
 
-If only one file descriptor is provided, it is used for both reading and writing. If two are given separated by a comma, the first is used for reading from the remote and the second for writing.
+若只提供一个文件描述符，则读写共用。若以逗号分隔提供两个，则第一个用于从远程读取，第二个用于写入。
 
-This enables integration with connection brokers, process supervisors, or custom transport layers that manage connections externally. The file descriptors must be opened before invoking Git.
+这使得与外部管理连接的连接代理、进程监督器或自定义传输层集成成为可能。这些文件描述符必须在调用 Git 之前已经打开。
 
 # CAVEATS
 
-This is an advanced, low-level feature. File descriptors must be pre-opened by the calling process. Not suitable for everyday Git workflows; primarily useful for embedding Git in applications that manage their own connections.
+这是一个高级底层特性。文件描述符必须由调用进程预先打开。不适合日常 Git 工作流；主要用于把 Git 嵌入到自行管理连接的应用中。
 
 # INSTALL
 

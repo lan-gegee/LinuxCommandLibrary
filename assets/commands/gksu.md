@@ -1,30 +1,30 @@
 # TAGLINE
 
-Graphical frontend for su with GTK password dialog
+带 GTK 密码对话框的 su 图形前端
 
 # TLDR
 
-Run a command as a **specific user**
+以**特定用户**身份运行命令
 
 ```gksu -u [userid] [command]```
 
-Run the command while **preserving** the current environment
+在**保留**当前环境的同时运行命令
 
 ```gksu -u [userid] -k [command]```
 
-Force gksu to use **su** to run the command
+强制 gksu 使用 **su** 运行命令
 
 ```gksu -u [userid] -w [command]```
 
-Force gksu to use **sudo** to run the command
+强制 gksu 使用 **sudo** 运行命令
 
 ```gksu -u [userid] -S [command]```
 
-Output **debug** info for the given command
+为给定命令输出**调试**信息
 
 ```gksu -u [userid] -d [command]```
 
-Ask gksu to **print the password** to stdout
+让 gksu 将密码**打印到 stdout**
 
 ```gksu -p [command]```
 
@@ -35,53 +35,53 @@ Ask gksu to **print the password** to stdout
 # PARAMETERS
 
 **-u**, **--user** _USER_
-> Run command as specified user (default: root)
+> 以指定用户身份运行命令（默认：root）
 
 **-k**, **--preserve-env**
-> Preserve current environment variables, does not set `$HOME` or `$PATH`
+> 保留当前环境变量，不设置 `$HOME` 或 `$PATH`
 
 **-l**, **--login**
-> Make this a login shell (may cause problems with Xauthority)
+> 使其成为登录 shell（可能与 Xauthority 产生问题）
 
 **-w**, **--su-mode**
-> Force use of su for authentication
+> 强制使用 su 进行认证
 
 **-S**, **--sudo-mode**
-> Force use of sudo for authentication
+> 强制使用 sudo 进行认证
 
 **-d**, **--debug**
-> Output debug information
+> 输出调试信息
 
 **-g**, **--disable-grab**
-> Disable locking of the keyboard, mouse, and focus while asking for the password
+> 在询问密码时不锁定键盘、鼠标和焦点
 
 **-P**, **--prompt**
-> Ask the user before grabbing the keyboard and mouse
+> 抓取键盘和鼠标前先询问用户
 
 **-m**, **--message** _MSG_
-> Custom message in password dialog
+> 密码对话框中的自定义消息
 
 **-D**, **--description** _DESC_|_FILE_
-> Description for the command being run, used in the default message
+> 所运行命令的描述，用于默认消息中
 
 **-p**, **--print-pass**
-> Print the password to stdout, like ssh-askpass
+> 将密码打印到 stdout，类似 ssh-askpass
 
 # DESCRIPTION
 
-**gksu** is a graphical frontend for `su` that prompts for a password using a GTK dialog. It allows running graphical applications with elevated privileges from the command line or menu entries without needing a terminal.
+**gksu** 是 `su` 的图形前端，通过 GTK 对话框提示输入密码。它允许从命令行或菜单项以提升的权限运行图形应用程序，而无需终端。
 
-The tool can operate in either su mode (authenticate as target user, typically root) or sudo mode (use current user's sudo privileges), with automatic detection based on system configuration.
+该工具可以以 su 模式（认证为目标用户，通常是 root）或 sudo 模式（使用当前用户的 sudo 权限）运行，并根据系统配置自动检测。
 
-> **DEPRECATED**: gksu is no longer maintained and has security issues. Use **pkexec** from PolicyKit for graphical privilege escalation instead.
+> **已弃用**：gksu 不再维护且存在安全问题。请改用 PolicyKit 的 **pkexec** 进行图形化权限提升。
 
 # CAVEATS
 
-Deprecated and unmaintained. Running graphical applications as root can cause permission problems with user files (.Xauthority, config files). Modern desktop environments discourage running GUI apps as root entirely.
+已弃用且无人维护。以 root 身份运行图形应用程序可能导致用户文件（.Xauthority、配置文件）出现权限问题。现代桌面环境完全不鼓励以 root 身份运行 GUI 应用。
 
 # HISTORY
 
-gksu was created in the early 2000s for GNOME to provide a graphical password prompt for privileged operations. It was deprecated around **2012** in favor of PolicyKit (pkexec), which provides finer-grained authorization controls.
+gksu 创建于 2000 年代初期，为 GNOME 提供特权操作的图形密码提示。它在大约 **2012 年**被弃用，由提供更细粒度授权控制的 PolicyKit（pkexec）取代。
 
 # INSTALL
 

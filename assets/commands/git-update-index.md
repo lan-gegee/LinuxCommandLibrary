@@ -1,34 +1,34 @@
 # TAGLINE
 
-Modify index entries for tracked files
+修改已跟踪文件的索引条目
 
 # TLDR
 
-**Mark file as unchanged**
+**将文件标记为未改动**
 
 ```git update-index --assume-unchanged [file]```
 
-**Mark file as changed**
+**将文件标记为已改动**
 
 ```git update-index --no-assume-unchanged [file]```
 
-**Skip worktree**
+**跳过工作树**
 
 ```git update-index --skip-worktree [file]```
 
-**Refresh index**
+**刷新索引**
 
 ```git update-index --refresh```
 
-**Add file to index**
+**将文件加入索引**
 
 ```git update-index --add [file]```
 
-**Remove file from index**
+**从索引中移除文件**
 
 ```git update-index --remove [file]```
 
-**Read paths to update from stdin**
+**从 stdin 读取要更新的路径**
 
 ```find . -name "*.txt" | git update-index --add --stdin```
 
@@ -39,61 +39,61 @@ Modify index entries for tracked files
 # PARAMETERS
 
 **--assume-unchanged**
-> Ignore changes to file.
+> 忽略文件的改动。
 
 **--no-assume-unchanged**
-> Track changes again.
+> 恢复跟踪改动。
 
 **--skip-worktree**
-> Skip worktree bit.
+> 设置 skip-worktree 位。
 
 **--no-skip-worktree**
-> Clear skip-worktree.
+> 清除 skip-worktree 位。
 
 **--add**
-> Add file to index.
+> 将文件加入索引。
 
 **--remove**
-> Remove file from index.
+> 从索引中移除文件。
 
 **--refresh**
-> Refresh stat info; errors on paths that need updating unless **-q** is given.
+> 刷新 stat 信息；若路径需要更新则报错，除非同时给出 **-q**。
 
 **-q**
-> Used with **--refresh**: continue quietly even if paths need updating, instead of erroring out.
+> 与 **--refresh** 搭配：即使路径需要更新也安静地继续，而不是报错退出。
 
 **--really-refresh**
-> Like **--refresh**, but check stat information unconditionally, ignoring the assume-unchanged bit.
+> 类似 **--refresh**，但无条件检查 stat 信息，忽略 assume-unchanged 位。
 
 **--chmod=(+|-)x**
-> Set or unset the executable bit for updated paths.
+> 为更新的路径设置或取消可执行位。
 
 **--stdin**
-> Read list of paths from standard input instead of the command line, one per line (or NUL-separated with **-z**).
+> 从标准输入而不是命令行读取路径列表，每行一个（配合 **-z** 时以 NUL 分隔）。
 
 **--index-info**
-> Read index entries (mode, object, path) from standard input to add, replace, or remove entries directly.
+> 从标准输入读取索引条目（模式、对象、路径），直接添加、替换或移除条目。
 
 **--cacheinfo** _mode_,_object_,_path_
-> Directly insert an entry into the index without needing a corresponding file in the working tree.
+> 直接向索引中插入一个条目，无需工作树中存在对应文件。
 
 **-z**
-> Use NUL as the line terminator with **--stdin** or **--index-info**.
+> 配合 **--stdin** 或 **--index-info** 使用时，以 NUL 作为行结束符。
 
 **--ignore-submodules**
-> Skip submodule checks when used with **--refresh**.
+> 与 **--refresh** 搭配使用时跳过子模块检查。
 
 **--split-index**, **--no-split-index**
-> Enable or disable the split-index feature for large repositories.
+> 启用或禁用面向大型仓库的 split-index 特性。
 
 **--untracked-cache**, **--no-untracked-cache**
-> Enable or disable caching of untracked file information to speed up **git status**.
+> 启用或禁用对未跟踪文件信息的缓存，以加速 **git status**。
 
 # DESCRIPTION
 
-**git update-index** registers file contents in the working tree to the index. It is a low-level plumbing command used internally by `git add`.
+**git update-index** 将工作树中的文件内容登记到索引。它是一个底层（plumbing）命令，`git add` 内部就依赖它。
 
-The most common use is the `--assume-unchanged` flag, which tells Git to temporarily ignore changes to a tracked file. The `--skip-worktree` flag serves a similar purpose but is intended for files managed by sparse checkout.
+最常见的用法是 `--assume-unchanged` 标志，它告诉 Git 暂时忽略某个被跟踪文件的改动。`--skip-worktree` 标志用途类似，但面向的是由稀疏检出管理的文件。
 
 # INSTALL
 

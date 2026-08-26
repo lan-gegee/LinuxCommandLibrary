@@ -1,26 +1,26 @@
 # TAGLINE
 
-List tree object contents
+列出树对象的内容
 
 # TLDR
 
-**List tree contents**
+**列出树内容**
 
 ```git ls-tree HEAD```
 
-**List recursively**
+**递归列出**
 
 ```git ls-tree -r HEAD```
 
-**Show only names**
+**只显示名称**
 
 ```git ls-tree --name-only HEAD```
 
-**List specific directory**
+**列出特定目录**
 
 ```git ls-tree HEAD [src/]```
 
-**Show sizes**
+**显示大小**
 
 ```git ls-tree -l HEAD```
 
@@ -31,45 +31,45 @@ List tree object contents
 # PARAMETERS
 
 _TREE-ISH_
-> Tree or commit to list.
+> 要列出的树或提交。
 
 _PATH_
-> Limit to path.
+> 限定到指定路径。
 
 **-r**
-> Recurse into subtrees.
+> 递归进入子树。
 
 **-d**
-> Show only trees.
+> 只显示树。
 
 **--name-only**
-> Show only names.
+> 只显示名称。
 
 **--name-status**
-> Show names and status.
+> 显示名称和状态。
 
 **-l**, **--long**
-> Show object sizes.
+> 显示对象大小。
 
 **--abbrev** _N_
-> Abbreviate hashes.
+> 缩短哈希长度。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git ls-tree** lists the contents of a tree object, showing file names, modes, types, and object hashes for a specific commit's directory structure. It provides a snapshot of the repository's file layout at any given commit.
+**git ls-tree** 列出树对象的内容，显示特定提交目录结构中的文件名、模式、类型和对象哈希。它提供了仓库在任意提交时点文件布局的快照。
 
-The command is useful for scripting and understanding how Git stores directory contents internally. Recursive mode (`-r`) shows all files across all subdirectories, while `--name-only` provides clean output suitable for piping to other commands.
+该命令对脚本编写很有用，也有助于理解 Git 内部如何存储目录内容。递归模式（`-r`）会显示所有子目录下的全部文件，而 `--name-only` 提供干净的输出，适合通过管道传给其他命令。
 
 # CAVEATS
 
-Shows tree at specific commit. Plumbing command for scripts. Output format is machine-readable.
+显示特定提交时的树。这是面向脚本的底层（plumbing）命令。输出为机器可读格式。
 
 # HISTORY
 
-git ls-tree is a core **Git** plumbing command for examining tree objects, part of git's low-level interface.
+git ls-tree 是 **Git** 用于检查树对象的底层核心命令，属于 Git 底层接口的一部分。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Manage SSH keys for GitHub authentication
+管理用于 GitHub 身份验证的 SSH 密钥
 
 # TLDR
 
-**List SSH keys**
+**列出 SSH 密钥**
 
 ```gh ssh-key list```
 
-**Add an SSH key**
+**添加 SSH 密钥**
 
 ```gh ssh-key add [key.pub]```
 
-**Add with title**
+**添加带标题的 SSH 密钥**
 
 ```gh ssh-key add [key.pub] -t "[title]"```
 
-**Delete an SSH key**
+**删除 SSH 密钥**
 
 ```gh ssh-key delete [key_id]```
 
@@ -27,24 +27,24 @@ Manage SSH keys for GitHub authentication
 # SUBCOMMANDS
 
 **list**
-> List SSH keys.
+> 列出 SSH 密钥。
 
 **add**
-> Add an SSH key.
+> 添加 SSH 密钥。
 
 **delete**
-> Delete an SSH key.
+> 删除 SSH 密钥。
 
 # PARAMETERS
 
 **-t**, **--title** _title_
-> Key title.
+> 密钥标题。
 
 # DESCRIPTION
 
-**gh ssh-key** manages SSH public keys associated with your GitHub account for secure Git authentication. SSH keys provide an alternative to HTTPS authentication, enabling passwordless git operations.
+**gh ssh-key** 管理与你 GitHub 账户关联的 SSH 公钥，用于安全的 Git 身份验证。SSH 密钥是 HTTPS 身份验证之外的另一种选择，可实现免密码的 git 操作。
 
-The command supports adding new SSH keys from public key files, typically generated with **ssh-keygen**. Keys can be labeled with titles for identification when managing multiple keys across different machines. Deletion removes keys from your GitHub account, immediately revoking access.
+该命令支持从公钥文件添加新的 SSH 密钥，公钥通常使用 **ssh-keygen** 生成。跨多台机器管理多个密钥时，可以为密钥添加标题以便识别。删除操作会将密钥从你的 GitHub 账户移除，并立即吊销相应访问权限。
 
 # INSTALL
 

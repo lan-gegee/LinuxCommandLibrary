@@ -1,34 +1,34 @@
 # TAGLINE
 
-install applications from Flatpak repositories
+从 Flatpak 软件仓库安装应用程序
 
 # TLDR
 
-**Install an application** from configured remotes
+从已配置的远程仓库**安装应用程序**
 
 ```flatpak install [application_id]```
 
-**Install from a specific remote**
+**从指定的远程仓库安装**
 
 ```flatpak install [flathub] [org.gnome.gedit]```
 
-**Install for current user** only
+仅**为当前用户安装**
 
 ```flatpak install --user [application_id]```
 
-**Install from a .flatpakref** file
+**从 .flatpakref 文件安装**
 
 ```flatpak install --from [https://example.com/app.flatpakref]```
 
-**Install from a local bundle** file
+**从本地 bundle 文件安装**
 
 ```flatpak install --bundle [path/to/app.flatpak]```
 
-**Install or update** if already installed
+如果已安装则**改为更新**
 
 ```flatpak install --or-update [application_id]```
 
-**Install without confirmation** prompts
+**无需确认提示**直接安装
 
 ```flatpak install -y [application_id]```
 
@@ -41,56 +41,56 @@ install applications from Flatpak repositories
 # PARAMETERS
 
 **-u**, **--user**
-> Install in per-user installation directory.
+> 安装到按用户划分的安装目录。
 
 **--system**
-> Install in default system-wide installation.
+> 安装到默认的系统级安装位置。
 
 **--installation**=_NAME_
-> Install in a specific system-wide installation.
+> 安装到特定的系统级安装位置。
 
 **--reinstall**
-> Uninstall first if already installed.
+> 如果已安装则先卸载。
 
 **--or-update**
-> Update silently if already installed.
+> 如果已安装则静默更新。
 
 **--bundle**
-> Treat location as a single-bundle .flatpak file.
+> 将位置视为单个 bundle 的 .flatpak 文件。
 
 **--from**
-> Treat location as a .flatpakref application description.
+> 将位置视为 .flatpakref 应用描述文件。
 
 **-y**, **--assumeyes**
-> Automatically answer yes to all prompts.
+> 自动对所有提示回答 yes。
 
 **--no-deploy**
-> Download but do not deploy.
+> 只下载而不部署。
 
 **--no-pull**
-> Deploy from local cache without downloading.
+> 不下载，直接从本地缓存部署。
 
 **-v**, **--verbose**
-> Print debug information.
+> 打印调试信息。
 
 **-h**, **--help**
-> Show help and exit.
+> 显示帮助并退出。
 
 # DESCRIPTION
 
-**flatpak install** installs applications or runtimes from Flatpak repositories. The REF argument specifies what to install using the format **(app|runtime)/ID/ARCH/BRANCH**. Typically only the application ID is needed; other parts are matched automatically or prompt for selection when ambiguous.
+**flatpak install** 从 Flatpak 软件仓库安装应用程序或运行时。REF 参数使用 **(app|runtime)/ID/ARCH/BRANCH** 格式指定要安装的内容。通常只需要应用 ID；其余部分会被自动匹配，存在歧义时会提示选择。
 
-Installation sources include configured remotes (like Flathub), .flatpakref files (application description URLs), .flatpak bundle files, or OCI images. By default, applications install system-wide; use **--user** for per-user installation.
+安装来源包括已配置的远程仓库（如 Flathub）、.flatpakref 文件（应用描述 URL）、.flatpak bundle 文件或 OCI 镜像。默认情况下，应用程序安装到系统范围；使用 **--user** 可进行按用户安装。
 
-Dependencies (runtimes, extensions) are automatically resolved and installed. The command prompts for confirmation showing what will be downloaded and installed.
+依赖项（运行时、扩展）会被自动解析并安装。该命令会提示确认，显示将要下载和安装的内容。
 
 # CAVEATS
 
-System-wide installation requires root privileges or polkit authentication. Per-user installations are stored in ~/.local/share/flatpak/. Some applications require specific runtimes that will be installed automatically. Repository remotes must be configured before installing from them.
+系统级安装需要 root 权限或 polkit 身份验证。按用户安装的内容存储在 ~/.local/share/flatpak/ 中。某些应用需要特定的运行时，它们会被自动安装。安装之前必须先配置好相应的远程仓库。
 
 # HISTORY
 
-Flatpak was developed by Red Hat's Alexander Larsson, with the first stable release in **2015** (originally called xdg-app). It provides sandboxed application distribution independent of Linux distributions. Flathub, the primary Flatpak repository, launched in **2017** and has become the largest source of Flatpak applications.
+Flatpak 由 Red Hat 的 Alexander Larsson 开发，首个稳定版发布于 **2015 年**（最初名为 xdg-app）。它提供与 Linux 发行版无关的沙箱化应用分发方式。Flathub 是主要的 Flatpak 仓库，于 **2017 年**上线，如今已成为最大的 Flatpak 应用来源。
 
 # INSTALL
 

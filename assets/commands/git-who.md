@@ -1,22 +1,22 @@
 # TAGLINE
 
-List remote branches by author and last commit date
+按作者和最后提交日期列出远程分支
 
 # TLDR
 
-**Show** all remote branches by author
+按作者**显示**所有远程分支
 
 ```git-who```
 
-**Show** branches for specific author
+**显示**特定作者的分支
 
 ```git-who [author-name]```
 
-**Show** only stale branches (older than 30 days)
+只**显示**过期分支（超过 30 天）
 
 ```git-who --stale```
 
-**Sort** by last commit date
+按最后提交日期**排序**
 
 ```git-who --sort date```
 
@@ -27,44 +27,44 @@ List remote branches by author and last commit date
 # PARAMETERS
 
 **--stale**
-> Show only stale branches (30+ days old)
+> 只显示过期分支（超过 30 天）
 
 **--sort** _FIELD_
-> Sort by: date, author, name (default: date)
+> 排序依据：date、author、name（默认：date）
 
 **--remote** _REMOTE_
-> Specify remote (default: origin)
+> 指定远程仓库（默认：origin）
 
 **--format** _FORMAT_
-> Output format: table, csv, json
+> 输出格式：table、csv、json
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**git-who** lists remote Git branches showing the author and date of the last commit on each branch. It helps identify who owns which branches and how stale they are.
+**git-who** 列出远程 Git 分支，并显示每个分支上最后一次提交的作者和日期。它有助于识别哪些分支由谁负责以及分支有多久未更新。
 
-The tool is useful for repository cleanup, finding old branches, and understanding branch ownership in teams.
+该工具适用于仓库清理、查找旧分支以及了解团队中的分支归属情况。
 
 # OUTPUT
 
-Displays branches with:
-- Branch name
-- Author of last commit
-- Date of last commit
-- Days since last commit
+显示各分支的以下信息：
+- 分支名称
+- 最后一次提交的作者
+- 最后一次提交的日期
+- 距最后一次提交的天数
 
 # CAVEATS
 
-Requires access to remote repository. Fetch may be needed for accurate data. Performance depends on number of branches.
+需要能够访问远程仓库。可能需要执行 fetch 才能获得准确数据。性能取决于分支数量。
 
 # HISTORY
 
-**git-who** was created to help teams manage their Git branches by providing visibility into branch ownership and activity.
+**git-who** 的创建目的是通过提供分支归属和活跃度的可视化信息，帮助团队管理其 Git 分支。
 
 # INSTALL
 

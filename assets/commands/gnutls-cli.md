@@ -1,30 +1,30 @@
 # TAGLINE
 
-TLS/SSL connection testing and debugging client
+TLS/SSL 连接测试与调试客户端
 
 # TLDR
 
-**Connect to TLS server**
+**连接到 TLS 服务器**
 
 ```gnutls-cli [example.com]```
 
-**Connect on specific port**
+**在指定端口连接**
 
 ```gnutls-cli -p [443] [example.com]```
 
-**Show certificate chain**
+**显示证书链**
 
 ```gnutls-cli --print-cert [example.com]```
 
-**Test with specific protocol**
+**用特定协议测试**
 
 ```gnutls-cli --priority="NORMAL:-VERS-TLS-ALL:+VERS-TLS1.3" [example.com]```
 
-**Start with STARTTLS**
+**以 STARTTLS 方式启动**
 
 ```gnutls-cli --starttls-proto=[smtp] [mail.example.com]:587```
 
-**Verify certificate only**
+**仅验证证书**
 
 ```gnutls-cli --tofu [example.com] < /dev/null```
 
@@ -35,54 +35,54 @@ TLS/SSL connection testing and debugging client
 # PARAMETERS
 
 **-p**, **--port** _port_
-> Connect to port.
+> 要连接的端口。
 
 **-s**, **--starttls**
-> Establish a plain-text session first and switch to TLS on EOF or SIGALRM (generic STARTTLS).
+> 先建立明文会话，在收到 EOF 或 SIGALRM 时切换到 TLS（通用 STARTTLS）。
 
 **--print-cert**
-> Print server certificate.
+> 打印服务器证书。
 
 **--starttls-proto** _proto_
-> Use STARTTLS (smtp, pop3, imap, ftp, xmpp, ldap).
+> 使用 STARTTLS（smtp、pop3、imap、ftp、xmpp、ldap）。
 
 **--priority** _string_
-> Priority string for cipher selection.
+> 用于密码套件选择的优先级字符串。
 
 **-V**, **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--tofu**
-> Trust on first use.
+> 首次使用即信任（TOFU）。
 
 **--insecure**
-> Don't verify certificate.
+> 不验证证书。
 
 **-x**, **--x509cafile** _file_
-> CA certificate file.
+> CA 证书文件。
 
 **--benchmark-ciphers**
-> Benchmark cipher performance.
+> 对密码套件性能进行基准测试。
 
 **--list**
-> List supported algorithms.
+> 列出支持的算法。
 
 **-d**, **--debug** _LEVEL_
-> Set debugging verbosity level.
+> 设置调试详细级别。
 
 # DESCRIPTION
 
-**gnutls-cli** is a TLS/SSL client for testing and debugging secure connections. It connects to servers, displays certificate information, and allows testing of various TLS configurations.
+**gnutls-cli** 是一个用于测试和调试安全连接的 TLS/SSL 客户端。它可以连接服务器、显示证书信息，并允许测试各种 TLS 配置。
 
-The tool helps diagnose certificate issues, protocol support, and cipher suite negotiation. It can also serve as a simple secure client for interactive protocols.
+该工具有助于诊断证书问题、协议支持和密码套件协商。它还可以作为交互式协议的简单安全客户端使用。
 
 # CAVEATS
 
-Certificate verification requires proper CA setup. Priority string syntax complex. Some servers may behave differently with test clients.
+证书验证需要正确的 CA 配置。优先级字符串语法复杂。某些服务器对测试客户端的表现可能不同。
 
 # HISTORY
 
-**gnutls-cli** is part of **GnuTLS**, developed by **Nikos Mavrogiannopoulos** and others starting in **2000**. GnuTLS provides an alternative to OpenSSL under the LGPL license, and gnutls-cli serves as its diagnostic and testing tool.
+**gnutls-cli** 是 **GnuTLS** 的一部分，后者由 **Nikos Mavrogiannopoulos** 等人自 **2000** 年起开发。GnuTLS 在 LGPL 许可证下提供了 OpenSSL 的替代方案，而 gnutls-cli 则是其诊断和测试工具。
 
 # INSTALL
 

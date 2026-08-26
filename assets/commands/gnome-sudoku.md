@@ -1,10 +1,10 @@
 # TAGLINE
 
-GNOME Sudoku puzzle game
+GNOME 数独益智游戏
 
 # TLDR
 
-**Start GNOME Sudoku**
+**启动 GNOME Sudoku**
 
 ```gnome-sudoku```
 
@@ -15,33 +15,33 @@ GNOME Sudoku puzzle game
 # PARAMETERS
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**GNOME Sudoku** is a puzzle game where players fill a 9x9 grid so that each row, column, and 3x3 box contains digits 1-9 exactly once.
+**GNOME Sudoku** 是一款益智游戏，玩家需要在 9x9 的网格中填入数字，使每行、每列和每个 3x3 宫都恰好包含数字 1-9 各一次。
 
-The game generates puzzles at various difficulty levels and provides features like hints, notes (pencil marks), and error highlighting. It saves game progress automatically.
+游戏可以生成各种难度的谜题，并提供提示、笔记（铅笔标记）、错误高亮等功能。它会自动保存游戏进度。
 
 # FEATURES
 
-- Multiple difficulty levels
-- Pencil marks for notes
-- Hint system
-- Error highlighting
-- Game timer
-- Print puzzles
+- 多个难度级别
+- 铅笔标记笔记
+- 提示系统
+- 错误高亮
+- 游戏计时器
+- 打印谜题
 
 # CAVEATS
 
-Requires GNOME libraries. Generated puzzles may vary in difficulty even within the same level.
+需要 GNOME 库。即使在同一难度级别内，生成的谜题难度也可能有所差异。
 
 # HISTORY
 
-Sudoku became a worldwide puzzle phenomenon in the **2000s** after being popularized in Japan. GNOME Sudoku is part of the GNOME Games collection, providing a clean, modern implementation.
+数独在日本流行开来后，于 **21 世纪初**成为风靡全球的益智游戏。GNOME Sudoku 属于 GNOME Games 游戏合集，提供了简洁现代的实现。
 
 # INSTALL
 

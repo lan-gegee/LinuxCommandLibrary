@@ -1,26 +1,26 @@
 # TAGLINE
 
-command-line firmware update client
+命令行固件更新客户端
 
 # TLDR
 
-Display all **devices detected** by fwupd
+显示 fwupd 检测到的所有**设备**
 
 ```fwupdmgr get-devices```
 
-Download the latest **firmware metadata** from LVFS
+从 LVFS 下载最新**固件元数据**
 
 ```fwupdmgr refresh```
 
-List the **updates available** for devices on your system
+列出系统设备**可用的更新**
 
 ```fwupdmgr get-updates```
 
-**Install** firmware updates
+**安装**固件更新
 
 ```fwupdmgr update```
 
-Show firmware **update history**
+显示固件**更新历史**
 
 ```fwupdmgr get-history```
 
@@ -31,47 +31,47 @@ Show firmware **update history**
 # PARAMETERS
 
 **get-devices**
-> Show all devices detected by fwupd
+> 显示 fwupd 检测到的所有设备
 
 **refresh**
-> Download latest firmware metadata from Linux Vendor Firmware Service (LVFS)
+> 从 Linux Vendor Firmware Service（LVFS）下载最新固件元数据
 
 **get-updates**
-> List available firmware updates for detected devices
+> 列出检测到的设备的可用固件更新
 
 **update**
-> Download and install firmware updates
+> 下载并安装固件更新
 
 **get-history**
-> Show firmware update history
+> 显示固件更新历史
 
 **downgrade**
-> Downgrade firmware to older version
+> 将固件降级到旧版本
 
 **get-releases**
-> Show available firmware releases for a device
+> 显示设备的可用固件发行版本
 
 **reinstall**
-> Reinstall current firmware
+> 重新安装当前固件
 
 **--version**
-> Display fwupdmgr version
+> 显示 fwupdmgr 版本
 
 # DESCRIPTION
 
-**fwupdmgr** is the command-line client for fwupd, the Linux firmware update daemon. It enables updating device firmware including UEFI/BIOS, SSDs, Thunderbolt controllers, and other supported hardware.
+**fwupdmgr** 是 fwupd（Linux 固件更新守护进程）的命令行客户端。它可以更新 UEFI/BIOS、SSD、Thunderbolt 控制器以及其他受支持硬件的设备固件。
 
-The tool connects to the Linux Vendor Firmware Service (LVFS) to download signed firmware updates. Manufacturers submit firmware to LVFS, which is then distributed to Linux users. Updates are applied either immediately or scheduled for the next reboot, depending on the device type.
+该工具连接 Linux Vendor Firmware Service（LVFS）下载经签名的固件更新。厂商将固件提交至 LVFS，再分发给 Linux 用户。根据设备类型的不同，更新要么立即应用，要么安排在下一次重启时应用。
 
-UEFI updates require the EFI System Partition to be properly mounted and writable.
+UEFI 更新要求 EFI System Partition 已正确挂载且可写。
 
 # CAVEATS
 
-Firmware updates carry risk of bricking hardware if interrupted. Ensure stable power during updates. Some updates require a reboot to apply. The /boot or EFI partition may need to be remounted with write permissions before updating UEFI firmware.
+固件更新若被中断可能导致硬件变砖。更新期间请确保供电稳定。某些更新需要重启才能生效。更新 UEFI 固件前，可能需要以写权限重新挂载 /boot 或 EFI 分区。
 
 # HISTORY
 
-fwupdmgr is part of fwupd, created by Richard Hughes in **2015**. The project was developed to bring reliable firmware updates to Linux, partnering with hardware vendors through the Linux Vendor Firmware Service. Major vendors including Dell, Lenovo, HP, and Logitech now distribute firmware via LVFS.
+fwupdmgr 属于 fwupd，由 Richard Hughes 于 **2015 年**创建。该项目旨在为 Linux 带来可靠的固件更新，并通过 Linux Vendor Firmware Service 与硬件厂商合作。Dell、联想、HP 和罗技等主要厂商现在都通过 LVFS 分发固件。
 
 # INSTALL
 

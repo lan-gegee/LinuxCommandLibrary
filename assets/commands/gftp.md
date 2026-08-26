@@ -1,22 +1,22 @@
 # TAGLINE
 
-graphical FTP and SFTP client
+图形化 FTP 和 SFTP 客户端
 
 # TLDR
 
-**Start gFTP**
+**启动 gFTP**
 
 ```gftp```
 
-**Connect to server**
+**连接服务器**
 
 ```gftp [ftp.example.com]```
 
-**Connect with port**
+指定端口连接
 
 ```gftp [ftp://server:2121]```
 
-**Connect via SSH**
+通过 SSH 连接
 
 ```gftp [ssh://user@server]```
 
@@ -27,29 +27,29 @@ graphical FTP and SFTP client
 # PARAMETERS
 
 _URL_
-> Server URL to connect to.
+> 要连接的服务器 URL。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version.
+> 显示版本。
 
 # DESCRIPTION
 
-**gftp** is a graphical FTP, SFTP, and HTTP client for Linux. It provides a dual-pane file manager interface for transferring files between local and remote systems.
+**gftp** 是 Linux 上的图形化 FTP、SFTP 和 HTTP 客户端。它提供双窗格文件管理器界面，用于在本地和远程系统之间传输文件。
 
-The application supports multiple protocols, bookmarks, queue management, and recursive transfers. It handles resume for interrupted transfers.
+该应用程序支持多种协议、书签、队列管理和递归传输，并支持中断传输的断点续传。
 
-gftp offers a user-friendly alternative to command-line file transfer tools.
+gftp 是命令行文件传输工具之外的友好替代选择。
 
 # CAVEATS
 
-GTK application requires X/Wayland. FTP credentials sent in cleartext. Some features protocol-dependent.
+GTK 应用程序需要 X/Wayland。FTP 凭据以明文发送。部分功能取决于具体协议。
 
 # HISTORY
 
-gFTP was created by **Brian Masney** in 1998 as a GTK-based FTP client for Linux, later adding support for SFTP and other protocols.
+gFTP 由 **Brian Masney** 于 1998 年创建，是一个基于 GTK 的 Linux FTP 客户端，后来加入了对 SFTP 和其他协议的支持。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Remove all branches merged into current branch
+移除所有已合并入当前分支的分支
 
 # TLDR
 
-Remove local branches already **merged into the current branch**
+移除已经**合并入当前分支**的本地分支
 
 ```git delete-merged-branches```
 
@@ -14,9 +14,9 @@ Remove local branches already **merged into the current branch**
 
 # DESCRIPTION
 
-**git delete-merged-branches** deletes all branches that have been merged into the current branch, automating post-merge cleanup. Part of the git-extras toolkit, it identifies branches whose changes are fully incorporated into the current branch and removes them in batch.
+**git delete-merged-branches** 删除所有已合并入当前分支的分支，自动完成合并后的清理。作为 git-extras 工具集的一部分，它会识别哪些分支的更改已完全并入当前分支，并批量移除。
 
-The command uses Git's merge-base calculation to determine which branches are safe to delete, ensuring that only branches with no unique commits are removed. It is commonly run after release cycles or as part of repository maintenance routines to prevent branch sprawl.
+该命令利用 Git 的 merge-base 计算来判断哪些分支可以安全删除，确保只移除没有独有提交的分支。它常在发布周期结束后或仓库例行维护时运行，以防止分支泛滥。
 
 # INSTALL
 

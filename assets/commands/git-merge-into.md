@@ -1,18 +1,18 @@
 # TAGLINE
 
-Merge current branch into target
+将当前分支合并到目标分支
 
 # TLDR
 
-**Merge current branch into target**
+**将当前分支合并到目标分支**
 
 ```git merge-into [target-branch]```
 
-**Merge current branch into main**
+**将当前分支合并到 main**
 
 ```git merge-into main```
 
-**Merge the specified source into the target**
+**将指定的源分支合并到目标分支**
 
 ```git merge-into [source-branch] [target-branch]```
 
@@ -23,30 +23,30 @@ Merge current branch into target
 # PARAMETERS
 
 _SOURCE-BRANCH_
-> Optional branch to merge (defaults to the current branch).
+> 可选的要合并的分支（默认为当前分支）。
 
 _TARGET-BRANCH_
-> Branch that will receive the merge.
+> 接收合并的分支。
 
 **--ff-only**
-> Refuse the merge unless it can be resolved as a fast-forward.
+> 拒绝合并，除非它能以 fast-forward 方式完成。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git merge-into** merges the current (or specified) branch into another branch without manually switching contexts. It reverses the normal merge workflow, where one would first checkout the target branch, perform the merge, then switch back.
+**git merge-into** 将当前（或指定）分支合并到另一个分支，无需手动切换上下文。它颠倒了常规的合并流程——通常你得先检出目标分支、执行合并、然后再切回来。
 
-The command checks out the target, performs the merge, then returns to the original branch automatically. This saves the repetitive workflow of switching branches for a simple merge operation.
+该命令会检出目标分支、执行合并，然后自动返回原来的分支。这省去了为了简单合并操作而反复切换分支的重复流程。
 
 # CAVEATS
 
-Part of git-extras package. Requires clean working directory. Conflicts may leave you on target branch.
+属于 git-extras 软件包。要求工作目录干净。发生冲突时你可能会停留在目标分支上。
 
 # HISTORY
 
-git merge-into is part of **git-extras**, providing a convenience command for the reversed merge workflow.
+git merge-into 是 **git-extras** 的一部分，为这种反向合并工作流提供了便捷命令。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Retrieve and store authentication credentials for Git
+为 Git 检索和存储身份验证凭据
 
 # TLDR
 
-**Get credentials for a URL**
+**获取某个 URL 的凭据**
 
 ```echo "url=https://github.com" | git credential fill```
 
-**Store credentials in configured helpers**
+**将凭据存储到已配置的助手中**
 
 ```git credential approve << EOF
 url=https://github.com
@@ -16,7 +16,7 @@ username=user
 password=token
 EOF```
 
-**Reject (erase) stored credentials**
+**拒绝（擦除）已存储的凭据**
 
 ```git credential reject << EOF
 url=https://github.com
@@ -31,49 +31,49 @@ EOF```
 # PARAMETERS
 
 **fill**
-> Read credential attributes from stdin, look up matching credentials via configured helpers, and output the result including username and password.
+> 从标准输入读取凭据属性，通过已配置的助手查找匹配的凭据，并输出包含用户名和密码的结果。
 
 **approve**
-> Send credential attributes to all configured helpers for storage. No output is emitted.
+> 将凭据属性发送给所有已配置的助手以进行存储。不产生输出。
 
 **reject**
-> Notify all configured helpers to erase matching credentials. No output is emitted.
+> 通知所有已配置的助手擦除匹配的凭据。不产生输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git credential** is a low-level interface for storing and retrieving credentials using Git's credential helper system. It interfaces with configured helpers (cache, store, osxkeychain, manager, etc.) to retrieve, store, and erase credentials.
+**git credential** 是一个底层接口，通过 Git 的凭据助手系统存储和检索凭据。它与已配置的助手（cache、store、osxkeychain、manager 等）交互，完成凭据的检索、存储和擦除。
 
-The command is typically invoked automatically by Git during push/pull operations when authentication is needed. Direct use is primarily for debugging credential issues or scripting authentication workflows. Input and output use a key=value format on stdin/stdout with attributes like protocol, host, username, and password.
+该命令通常在需要身份验证时由 Git 在 push/pull 操作期间自动调用。直接使用主要用于调试凭据问题或编写身份验证工作流脚本。输入和输出在 stdin/stdout 上使用 key=value 格式，属性包括 protocol、host、username 和 password。
 
-Credential helpers are configured via **git config credential.helper**.
+凭据助手通过 **git config credential.helper** 配置。
 
 # INPUT ATTRIBUTES
 
 **protocol**
-> The protocol over which the credential will be used (e.g., https, ssh).
+> 凭据将使用的协议（如 https、ssh）。
 
 **host**
-> The remote hostname for which the credential is used.
+> 使用该凭据的远程主机名。
 
 **username**
-> The credential's username, if already known.
+> 凭据的用户名（如果已知）。
 
 **password**
-> The credential's password, if being provided or returned.
+> 凭据的密码（正在提供或返回时）。
 
 **path**
-> The path with which the credential will be used (e.g., for accessing remote https repositories).
+> 使用该凭据的路径（例如访问远程 https 仓库时）。
 
 # CAVEATS
 
-Usually called internally by Git, not directly by users. Credential helpers must be configured via **git config** for this command to be useful. The **reject** action requires the same credential attributes that were originally stored. Sensitive credentials may be exposed on stdin/stdout.
+通常由 Git 内部调用，而非用户直接调用。必须先通过 **git config** 配置好凭据助手，此命令才有用武之地。**reject** 操作需要提供与最初存储时相同的凭据属性。敏感凭据可能经由 stdin/stdout 暴露。
 
 # HISTORY
 
-The git credential subsystem was introduced in **Git 1.7.9** (2012) to standardize credential management across helpers, replacing the earlier ad-hoc authentication handling.
+git credential 子系统于 **Git 1.7.9**（2012 年）引入，用于在各助手之间统一凭据管理，取代了此前临时性的身份验证处理方式。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Resume tracking changes to a locked file
+恢复对已锁定文件的改动跟踪
 
 # TLDR
 
-**Unlock a file**
+**解锁文件**
 
 ```git unlock [file]```
 
@@ -14,13 +14,13 @@ Resume tracking changes to a locked file
 
 # DESCRIPTION
 
-**git unlock** runs `git update-index --no-skip-worktree` on a file, clearing the **skip-worktree** bit so Git resumes tracking local changes to it. This reverses `git lock`, which sets `--skip-worktree` to make Git ignore modifications to a file (typically one holding local config or secrets that shouldn't be committed).
+**git unlock** 对文件执行 `git update-index --no-skip-worktree`，清除 **skip-worktree** 位，使 Git 恢复对该文件本地改动的跟踪。它是 `git lock` 的逆操作——后者通过 `--skip-worktree` 让 Git 忽略某个文件的修改（通常是存放本地配置或不应提交的机密的文件）。
 
-Part of the **git-extras** package.
+属于 **git-extras** 软件包。
 
 # CAVEATS
 
-Uses the `skip-worktree` bit, not `assume-unchanged`; the two are similar but intended for different purposes, and tools that check one won't necessarily see the other.
+使用的是 `skip-worktree` 位而非 `assume-unchanged`；两者相似但用途不同，检查其中一个的工具不一定会看到另一个。
 
 # INSTALL
 

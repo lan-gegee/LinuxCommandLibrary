@@ -1,30 +1,30 @@
 # TAGLINE
 
-Browse repository via web interface
+通过网页界面浏览仓库
 
 # TLDR
 
-**Start web interface**
+**启动网页界面**
 
 ```git instaweb```
 
-**Start with specific HTTP daemon**
+**使用指定的 HTTP 守护进程启动**
 
 ```git instaweb --httpd=[lighttpd]```
 
-**Start on a specific port**
+**在指定端口启动**
 
 ```git instaweb --port=[8080]```
 
-**Start bound to localhost only**
+**仅绑定到 localhost 启动**
 
 ```git instaweb --local```
 
-**Stop the web server**
+**停止 Web 服务器**
 
 ```git instaweb --stop```
 
-**Restart the web server**
+**重启 Web 服务器**
 
 ```git instaweb --restart```
 
@@ -35,36 +35,36 @@ Browse repository via web interface
 # PARAMETERS
 
 **-d**, **--httpd** _daemon_
-> HTTP daemon to use (lighttpd, apache2, mongoose, plackup, python, webrick). Default: lighttpd.
+> 要使用的 HTTP 守护进程（lighttpd、apache2、mongoose、plackup、python、webrick）。默认：lighttpd。
 
 **-p**, **--port** _port_
-> Port number to bind. Default: 1234.
+> 要绑定的端口号。默认：1234。
 
 **-b**, **--browser** _browser_
-> Web browser to use for viewing.
+> 用于查看的 Web 浏览器。
 
 **-m**, **--module-path** _path_
-> Module path (only needed for Apache). Default: /usr/lib/apache2/modules.
+> 模块路径（仅 Apache 需要）。默认：/usr/lib/apache2/modules。
 
 **--start**
-> Start the httpd instance and exit.
+> 启动 httpd 实例后退出。
 
 **--stop**
-> Stop the httpd instance and exit.
+> 停止 httpd 实例后退出。
 
 **--restart**
-> Restart the httpd instance and exit.
+> 重启 httpd 实例后退出。
 
 **-l**, **--local**
-> Bind to localhost (127.0.0.1) only.
+> 仅绑定到 localhost（127.0.0.1）。
 
 # DESCRIPTION
 
-**git instaweb** instantly browses the working repository in gitweb by starting a temporary local web server. It provides a quick way to view repository history, branches, and files through a web interface without setting up a permanent server.
+**git instaweb** 通过启动临时本地 Web 服务器，让你立即在 gitweb 中浏览当前工作仓库。它提供了一种无需搭建永久服务器即可通过网页界面快速查看仓库历史、分支和文件的方式。
 
-The command launches a web server (lighttpd by default, or apache2, mongoose, plackup, python, webrick) on port 1234 and opens the repository in your default browser. The interface shows commits, file browsing, blame annotations, and diff viewing. When done, use `--stop` to shut down the server.
+该命令在端口 1234 上启动一个 Web 服务器（默认 lighttpd，也可以是 apache2、mongoose、plackup、python、webrick），并在默认浏览器中打开仓库。界面支持查看提交、浏览文件、blame 注记和 diff 查看。用完后，使用 `--stop` 关闭服务器。
 
-This is particularly useful for demonstrating repository history to others or when you prefer a graphical view but don't want to use a full GUI application. The web interface is read-only and doesn't require network access.
+它特别适用于向他人演示仓库历史，或者你偏好图形化视图但不想使用完整的 GUI 应用程序时。该网页界面是只读的，不需要网络访问。
 
 # INSTALL
 

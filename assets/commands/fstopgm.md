@@ -1,10 +1,10 @@
 # TAGLINE
 
-Usenix FaceSaver to PGM converter
+Usenix FaceSaver 转 PGM 转换器
 
 # TLDR
 
-**Convert Usenix FaceSaver to PGM**
+将 Usenix FaceSaver **转换为 PGM**
 
 ```fstopgm < [input.fs] > [output.pgm]```
 
@@ -14,13 +14,13 @@ Usenix FaceSaver to PGM converter
 
 # DESCRIPTION
 
-**fstopgm** converts Usenix FaceSaver format images to PGM (Portable Graymap) format. The Usenix FaceSaver was an early format used for storing grayscale face images in online directory systems. This tool is part of the Netpbm image processing toolkit, which provides utilities for converting between numerous graphics formats.
+**fstopgm** 将 Usenix FaceSaver 格式图像转换为 PGM（Portable Graymap）格式。Usenix FaceSaver 是早期用于在在线目录系统中存储灰度人脸图像的格式。该工具属于 Netpbm 图像处理工具集，该工具集提供了在众多图形格式之间转换的实用程序。
 
-The conversion reads from standard input and writes to standard output, making it suitable for pipeline operations with other Netpbm tools.
+转换过程从标准输入读取并向标准输出写入，因此适合与其他 Netpbm 工具进行管道操作。
 
 # CAVEATS
 
-The Usenix FaceSaver format is obsolete and rarely encountered today. This tool is part of the Netpbm suite and may not be included in all Netpbm distributions. Input must be in valid FaceSaver format or the conversion will fail.
+Usenix FaceSaver 格式已过时，如今很少遇到。该工具是 Netpbm 套件的一部分，可能未包含在所有 Netpbm 发行版中。输入必须是有效的 FaceSaver 格式，否则转换会失败。
 
 # INSTALL
 

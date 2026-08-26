@@ -1,30 +1,30 @@
 # TAGLINE
 
-Transparent encryption of files in Git repositories
+对 Git 仓库中的文件进行透明加密
 
 # TLDR
 
-**Initialize git-crypt in repo**
+**在仓库中初始化 git-crypt**
 
 ```git-crypt init```
 
-**Add GPG user**
+**添加 GPG 用户**
 
 ```git-crypt add-gpg-user [user@example.com]```
 
-**Unlock repository**
+**解锁仓库**
 
 ```git-crypt unlock```
 
-**Lock repository**
+**锁定仓库**
 
 ```git-crypt lock```
 
-**Export symmetric key**
+**导出对称密钥**
 
 ```git-crypt export-key [/path/to/key]```
 
-**Unlock with key file**
+**用密钥文件解锁**
 
 ```git-crypt unlock [/path/to/key]```
 
@@ -35,33 +35,33 @@ Transparent encryption of files in Git repositories
 # PARAMETERS
 
 **init** [**-k** _keyname_]
-> Generate a key and prepare the repository to use git-crypt.
+> 生成密钥并让仓库准备好使用 git-crypt。
 
 **add-gpg-user** [**-n**] [**--trusted**] _gpg-user-id_...
-> Add GPG user(s) who can unlock the repository. **-n**, **--no-commit** skips auto-committing the change; **--trusted** skips the GPG web-of-trust check.
+> 添加可以解锁仓库的 GPG 用户。**-n**, **--no-commit** 跳过自动提交该变更；**--trusted** 跳过 GPG 信任网检查。
 
 **unlock** [_keyfile_]
-> Decrypt the repository. Uses GPG-encrypted keys by default, or a symmetric key file if given.
+> 解密仓库。默认使用 GPG 加密的密钥，也可以指定对称密钥文件。
 
 **lock** [**-a**] [**-k** _keyname_] [**-f**]
-> Re-encrypt files and remove the cached key. **-a**, **--all** locks every key instead of just the default; **-f**, **--force** locks even if the working directory is unclean.
+> 重新加密文件并移除缓存的密钥。**-a**, **--all** 锁定所有密钥而不只是默认密钥；**-f**, **--force** 即使工作目录不干净也执行锁定。
 
 **export-key** [**-k** _keyname_] _file_
-> Export the symmetric key to _file_.
+> 将对称密钥导出到 _file_。
 
 **status** [**-e**] [**-u**] [**-f**]
-> Show encryption status of files. **-e** shows only encrypted files, **-u** only unencrypted files, **-f**, **--fix** encrypts files that should be encrypted but weren't.
+> 显示文件的加密状态。**-e** 只显示已加密文件，**-u** 只显示未加密文件，**-f**, **--fix** 会加密本应加密却未加密的文件。
 
 # DESCRIPTION
 
-**git-crypt** enables transparent encryption of files in a Git repository. Configured files are encrypted when committed and decrypted when checked out, allowing sensitive data to be stored securely alongside regular code.
+**git-crypt** 支持对 Git 仓库中的文件进行透明加密。被配置的文件在提交时加密、检出时解密，使敏感数据可以与普通代码一同安全保存。
 
-Encryption is configured via .gitattributes patterns. Users with the symmetric key or authorized GPG keys can unlock the repository to view and edit protected files.
+加密通过 .gitattributes 模式配置。持有对称密钥或获得授权 GPG 密钥的用户可以解锁仓库，查看和编辑受保护的文件。
 
 # CONFIGURATION
 
 **.gitattributes**
-> Defines which files are encrypted using filter and diff attributes.
+> 通过 filter 和 diff 属性定义哪些文件需要加密。
 
 ```
 secrets/** filter=git-crypt diff=git-crypt
@@ -71,11 +71,11 @@ secrets/** filter=git-crypt diff=git-crypt
 
 # CAVEATS
 
-Encrypted files appear as binary. File names are not encrypted. Requires GPG for multi-user access. History contains encrypted versions. Not for large files (use git-lfs).
+加密后的文件显示为二进制。文件名不会被加密。多用户访问需要 GPG。历史中保存的是加密版本。不适合大文件（请使用 git-lfs）。
 
 # HISTORY
 
-git-crypt was created by **Andrew Ayer** to solve the problem of storing secrets in git repositories. It provides simpler setup than alternative approaches like git-secret.
+git-crypt 由 **Andrew Ayer** 创建，用于解决在 git 仓库中存放机密信息的问题。相比 git-secret 等替代方案，它的设置更简单。
 
 # INSTALL
 

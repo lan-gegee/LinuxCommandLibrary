@@ -1,22 +1,22 @@
 # TAGLINE
 
-terminal login session manager
+终端登录会话管理器
 
 # TLDR
 
-**Start getty on** terminal
+在终端上**启动 getty**
 
 ```getty [tty1] [38400]```
 
-**Auto-login user**
+**自动登录用户**
 
 ```getty -a [username] [tty1]```
 
-**With specific term**
+指定终端类型
 
 ```getty -T [linux] [tty1] [38400]```
 
-**Wait for carrier**
+**等待载波信号**
 
 ```getty -w [ttyS0] [9600]```
 
@@ -27,49 +27,49 @@ terminal login session manager
 # PARAMETERS
 
 _PORT_
-> Terminal device (tty1, ttyS0).
+> 终端设备（tty1、ttyS0）。
 
 _BAUD_
-> Baud rate.
+> 波特率。
 
 **-a** _USER_, **--autologin** _USER_
-> Auto-login specified user.
+> 自动登录指定用户。
 
 **-n**, **--skip-login**
-> Don't prompt for login.
+> 不提示登录。
 
 **-T** _TERM_, **--term** _TERM_
-> Terminal type.
+> 终端类型。
 
 **-w**, **--wait-cr**
-> Wait for carrier/carriage return.
+> 等待载波信号/回车。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**getty** (get teletype) opens terminal ports, sets modes, and invokes login. It manages the login prompt on system consoles and serial ports.
+**getty**（get teletype）打开终端端口、设置工作模式并调用 login。它管理系统控制台和串口上的登录提示。
 
-The program is started by init/systemd for each terminal requiring login access. It handles baud rate detection for serial terminals and terminal type configuration.
+该程序由 init/systemd 为每个需要登录访问的终端启动。它负责串口终端的波特率检测和终端类型配置。
 
-getty provides the foundational login interface for Unix systems.
+getty 是 Unix 系统的基础登录接口。
 
 # CONFIGURATION
 
 **/etc/inittab**
-> System V init configuration defining getty instances for each terminal (legacy systems).
+> System V init 配置文件，为每个终端定义 getty 实例（传统系统）。
 
 **/etc/systemd/system/getty@.service**
-> Systemd service template for getty instances on modern Linux systems.
+> 现代 Linux 系统上 getty 实例使用的 systemd 服务模板。
 
 # CAVEATS
 
-Usually started by init/systemd. Direct invocation rare. Serial configuration complex.
+通常由 init/systemd 启动。直接调用较少见。串口配置较为复杂。
 
 # HISTORY
 
-getty dates back to **early Unix**, managing teletypes and terminals. Modern Linux uses agetty (alternative getty), which provides additional features.
+getty 可追溯至**早期 Unix**，当时用于管理电传打字机和终端。现代 Linux 使用 agetty（alternative getty），它提供了更多功能。
 
 # INSTALL
 

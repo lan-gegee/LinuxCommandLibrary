@@ -1,30 +1,30 @@
 # TAGLINE
 
-Node.js process daemon and monitor
+Node.js 进程守护与监控工具
 
 # TLDR
 
-**Start script as daemon**
+**以守护进程方式启动脚本**
 
 ```forever start [app.js]```
 
-**Stop daemon**
+**停止守护进程**
 
 ```forever stop [app.js]```
 
-**Stop all daemons**
+**停止所有守护进程**
 
 ```forever stopall```
 
-**List running processes**
+**列出运行中的进程**
 
 ```forever list```
 
-**Restart script**
+**重启脚本**
 
 ```forever restart [app.js]```
 
-**Start with log file**
+**启动时指定日志文件**
 
 ```forever start -l [forever.log] -o [out.log] -e [err.log] [app.js]```
 
@@ -35,71 +35,71 @@ Node.js process daemon and monitor
 # PARAMETERS
 
 **start** _script_
-> Start script as daemon.
+> 以守护进程方式启动脚本。
 
 **stop** _script|pid|index_
-> Stop running process.
+> 停止运行中的进程。
 
 **stopall**
-> Stop all processes.
+> 停止所有进程。
 
 **restart** _script|pid|index_
-> Restart process.
+> 重启进程。
 
 **restartall**
-> Restart all processes.
+> 重启所有进程。
 
 **list**
-> List running processes.
+> 列出运行中的进程。
 
 **logs** _script|pid|index_
-> Show log files.
+> 显示日志文件。
 
 **-l** _logfile_
-> Log file for forever output.
+> forever 输出的日志文件。
 
 **-o** _outfile_
-> Stdout log file.
+> stdout 日志文件。
 
 **-e** _errfile_
-> Stderr log file.
+> stderr 日志文件。
 
 **-w**, **--watch**
-> Watch for file changes.
+> 监视文件变化。
 
 **-m** _max_
-> Maximum restarts.
+> 最大重启次数。
 
 **-s**, **--silent**
-> Run script silencing stdout and stderr.
+> 运行脚本时静默 stdout 和 stderr。
 
 **-a**, **--append**
-> Append to log files instead of overwriting.
+> 追加写入日志文件而非覆盖。
 
 **--minUptime** _ms_
-> Minimum uptime before considering a restart as a crash (default: 1000ms).
+> 判定为崩溃前所需的最短运行时间（默认：1000ms）。
 
 **--killTree**
-> Kill the entire child process tree on stop.
+> 停止时杀死整个子进程树。
 
 # CONFIGURATION
 
 **~/.forever/config.json**
-> Global configuration for forever settings and defaults.
+> forever 设置与默认行为的全局配置。
 
 # DESCRIPTION
 
-**forever** runs Node.js scripts continuously, restarting them automatically if they crash. It's designed for production deployment of Node.js applications, ensuring applications stay running.
+**forever** 持续运行 Node.js 脚本，并在脚本崩溃时自动重启。它专为 Node.js 应用的生产部署设计，确保应用保持运行。
 
-The tool monitors processes and restarts them on exit. It supports logging, multiple instances, and can watch files for development auto-restart.
+该工具监控进程并在其退出时重启。它支持日志记录、多实例，并可监视文件变化以实现开发时的自动重启。
 
 # CAVEATS
 
-Node.js only. Consider PM2 for production use (more features). Log files can grow large. Watch mode may miss some changes. Process management is basic compared to alternatives.
+仅支持 Node.js。生产使用可考虑 PM2（功能更多）。日志文件可能变得很大。监视模式可能遗漏部分变化。与其他方案相比进程管理较为基础。
 
 # HISTORY
 
-forever was created by **Charlie Robbins** and the **Nodejitsu** team in the early **2010s** as one of the first process managers for Node.js. While PM2 has largely replaced it for production use, forever remains simple and functional.
+forever 由 **Charlie Robbins** 和 **Nodejitsu** 团队在 **2010** 年代初创建，是最早的 Node.js 进程管理器之一。虽然 PM2 已在生产用途中基本取代了它，forever 依然简单实用。
 
 # SEE ALSO
 

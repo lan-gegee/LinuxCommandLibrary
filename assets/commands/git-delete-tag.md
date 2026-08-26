@@ -1,14 +1,14 @@
 # TAGLINE
 
-Delete both local and remote tags
+同时删除本地与远程标签
 
 # TLDR
 
-**Delete a local and remote tag**
+**删除本地和远程标签**
 
 ```git delete-tag [tag_name]```
 
-**Delete multiple tags at once**
+**一次删除多个标签**
 
 ```git delete-tag [tag1] [tag2]```
 
@@ -18,9 +18,9 @@ Delete both local and remote tags
 
 # DESCRIPTION
 
-**git delete-tag** deletes a tag both locally and on the remote in a single operation. Part of the git-extras collection, it simplifies tag removal by combining what would normally require separate git tag -d and git push origin --delete commands.
+**git delete-tag** 在一次操作中同时删除本地和远程的标签。它是 git-extras 工具集的组成部分，将原本需要分别执行 git tag -d 和 git push origin --delete 的过程合并为一步，简化了标签删除操作。
 
-Tags typically mark release points or significant commits, but occasionally need removal due to mistakes, versioning changes, or release rollbacks. This command ensures synchronization between local and remote repositories, preventing scenarios where a deleted local tag still appears when fetching from the remote.
+标签通常用于标记发布节点或重要提交，但有时也会因失误、版本变更或发布回滚而需要删除。该命令确保本地与远程仓库保持同步，避免删除本地标签后从远程拉取时该标签仍然出现的情形。
 
 # INSTALL
 

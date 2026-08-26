@@ -1,34 +1,34 @@
 # TAGLINE
 
-GCR-enhanced container image management tool
+面向 GCR 增强的容器镜像管理工具
 
 # TLDR
 
-**List repositories and tags** in a GCR path
+**列出 GCR 路径中的仓库和标签**
 
 ```gcrane ls [gcr.io/project-id]```
 
-**List tags for a specific image**
+**列出特定镜像的标签**
 
 ```gcrane ls [gcr.io/project-id/image]```
 
-**Copy an image** to another location
+**将镜像复制**到另一个位置
 
 ```gcrane cp [gcr.io/project-id/image:tag] [gcr.io/other-project/image:tag]```
 
-**Copy images recursively** from one path to another
+**递归复制镜像**从一个路径到另一个路径
 
 ```gcrane cp -r [gcr.io/project-id/repo] [gcr.io/other-project/repo]```
 
-**Find untagged images** that can be garbage collected
+**查找可垃圾回收的无标签镜像**
 
 ```gcrane gc [gcr.io/project-id/repo]```
 
-**Delete untagged images** (garbage collection)
+**删除无标签镜像**（垃圾回收）
 
 ```gcrane gc [gcr.io/project-id/repo] | xargs -n1 gcrane delete```
 
-**Delete a specific image** by digest
+**按摘要删除特定镜像**
 
 ```gcrane delete [gcr.io/project-id/image@sha256:digest]```
 
@@ -39,55 +39,55 @@ GCR-enhanced container image management tool
 # COMMANDS
 
 **ls** _REPOSITORY_
-> List tags, manifests, and sub-repositories. More detailed than crane ls.
+> 列出标签、清单和子仓库。比 crane ls 更详细。
 
 **cp** [**-r**] _SRC_ _DST_
-> Copy images. Use -r for recursive copying of entire repositories.
+> 复制镜像。使用 -r 可递归复制整个仓库。
 
 **gc** _REPOSITORY_
-> List images that can be garbage collected (untagged images).
+> 列出可垃圾回收的镜像（无标签镜像）。
 
 **delete** _IMAGE_
-> Delete an image by reference (tag or digest).
+> 按引用（标签或摘要）删除镜像。
 
 **digest** _IMAGE_
-> Get the digest of an image.
+> 获取镜像的摘要。
 
 **manifest** _IMAGE_
-> Get the manifest of an image.
+> 获取镜像的清单。
 
 **config** _IMAGE_
-> Get the config of an image.
+> 获取镜像的配置。
 
 # PARAMETERS
 
 **-r**
-> Copy images recursively (for cp command).
+> 递归复制镜像（用于 cp 命令）。
 
 **--platform** _PLATFORM_
-> Specify platform for multi-arch images.
+> 为多架构镜像指定平台。
 
 **-v**, **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcrane** is a Google Container Registry-specific variant of **crane** with enhanced features for GCR and Artifact Registry. It implements a superset of crane commands plus GCR-specific operations.
+**gcrane** 是 **crane** 针对 Google Container Registry 的增强变体，为 GCR 和 Artifact Registry 提供了增强功能。它实现了 crane 命令的超集，并增加了 GCR 特有的操作。
 
-Key enhancements over crane include recursive copying with **-r** flag (useful for backups, geo-replication, or mass renaming), detailed repository exploration with richer ls output, and the ability to identify untagged images for cleanup via the **gc** command.
+相比 crane 的关键增强包括：通过 **-r** 标志进行递归复制（适用于备份、异地复制或批量重命名）、更丰富的 ls 输出以详细探索仓库，以及通过 **gc** 命令识别无标签镜像以便清理。
 
-gcrane relies on GCR implementation details that may not be consistent with the general OCI registry specification.
+gcrane 依赖 GCR 的实现细节，这些细节可能与通用的 OCI 镜像仓库规范不一致。
 
 # CAVEATS
 
-Relies on GCR-specific implementation details and may break with registry changes. Requires appropriate GCP authentication (gcloud auth, service account, etc.). The gc command only identifies candidates for deletion; actual deletion requires piping to gcrane delete.
+依赖 GCR 特有的实现细节，镜像仓库变更时可能出现问题。需要相应的 GCP 身份验证（gcloud auth、服务账号等）。gc 命令只识别删除候选对象；实际删除需要通过管道传给 gcrane delete。
 
 # HISTORY
 
-gcrane is part of the **go-containerregistry** project developed by Google. It was created to provide enhanced tooling for Google Container Registry and Artifact Registry users, extending the general-purpose crane tool with Google-specific features for container image management at scale.
+gcrane 是 Google 开发的 **go-containerregistry** 项目的一部分。它旨在为 Google Container Registry 和 Artifact Registry 用户提供增强的工具，在通用 crane 工具的基础上扩展了 Google 特有的容器镜像大规模管理功能。
 
 # INSTALL
 

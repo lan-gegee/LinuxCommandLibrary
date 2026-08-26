@@ -1,30 +1,30 @@
 # TAGLINE
 
-Upload local commits to remote
+将本地提交上传到远程
 
 # TLDR
 
-**Push to remote**
+**推送到远程**
 
 ```git push [origin] [branch]```
 
-**Push and set upstream**
+**推送并设置上游**
 
 ```git push -u [origin] [branch]```
 
-**Push all branches**
+**推送所有分支**
 
 ```git push --all```
 
-**Push tags**
+**推送标签**
 
 ```git push --tags```
 
-**Force push safely**
+**安全地强制推送**
 
 ```git push --force-with-lease```
 
-**Delete a remote branch**
+**删除远程分支**
 
 ```git push [origin] --delete [branch]```
 
@@ -35,69 +35,69 @@ Upload local commits to remote
 # PARAMETERS
 
 _REMOTE_
-> Remote repository name (e.g. origin).
+> 远程仓库名称（例如 origin）。
 
 _REFSPEC_
-> Refs to push (e.g. branch name or src:dst).
+> 要推送的引用（例如分支名或 src:dst）。
 
 **-u**, **--set-upstream**
-> Set upstream tracking reference for the branch.
+> 为分支设置上游跟踪引用。
 
 **--all**
-> Push all branches.
+> 推送所有分支。
 
 **--tags**
-> Push all refs under refs/tags.
+> 推送 refs/tags 下的所有引用。
 
 **--force**
-> Force update remote refs, even if not a fast-forward.
+> 强制更新远程引用，即使不是 fast-forward。
 
 **--force-with-lease**
-> Force push only if the remote ref matches what was last fetched.
+> 仅当远程引用与上次抓取的内容一致时才强制推送。
 
 **--force-if-includes**
-> Refuse to force-update if remote-tracking ref has updates not integrated locally.
+> 若远程跟踪引用存在尚未在本地整合的更新，则拒绝强制更新。
 
 **--delete**
-> Delete the specified remote refs.
+> 删除指定的远程引用。
 
 **--dry-run**
-> Do everything except actually send the updates.
+> 执行除实际发送更新之外的一切操作。
 
 **--no-verify**
-> Skip pre-push hooks.
+> 跳过 pre-push 钩子。
 
 **-q**, **--quiet**
-> Suppress all output, including the listing of updated refs.
+> 抑制全部输出，包括已更新引用的列表。
 
 **-v**, **--verbose**
-> Run verbosely.
+> 详细运行。
 
 **--progress**
-> Force progress status output even if stderr is not a terminal.
+> 即使 stderr 不是终端也强制输出进度状态。
 
 **--prune**
-> Remove remote branches that do not have a local counterpart.
+> 删除没有本地对应分支的远程分支。
 
 **-o** _option_, **--push-option** _option_
-> Transmit string to server-side receive hooks.
+> 向服务端 receive 钩子传递字符串。
 
 **--porcelain**
-> Produce machine-readable output.
+> 产生机器可读的输出。
 
 # DESCRIPTION
 
-**git push** uploads local commits to a remote repository, updating remote refs with local refs and transferring the objects needed to complete them. This is how local work becomes shared with collaborators.
+**git push** 将本地提交上传到远程仓库，用本地引用更新远程引用，并传输补全这些提交所需的对象。本地工作正是通过它才得以与协作者共享。
 
-The `--force-with-lease` option provides a safer alternative to `--force` by checking that the remote hasn't been updated since your last fetch before overwriting. The `-u` flag sets upstream tracking, simplifying future push and pull commands.
+`--force-with-lease` 选项是 `--force` 的更安全替代：它在覆盖之前会检查远程自你上次抓取以来是否被更新过。`-u` 标志设置上游跟踪，简化之后的 push 和 pull 命令。
 
 # CAVEATS
 
-Force push overwrites remote history. Use --force-with-lease for safety. Branch protection may restrict pushes.
+强制推送会覆盖远程历史。为安全起见请使用 --force-with-lease。分支保护规则可能限制推送。
 
 # HISTORY
 
-git push is a core **Git** command from initial release, implementing the distributed workflow by enabling commit sharing.
+git push 是 **Git** 自初始发布就有的核心命令，通过实现提交共享支撑了分布式工作流。
 
 # INSTALL
 

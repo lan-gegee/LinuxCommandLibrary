@@ -1,30 +1,30 @@
 # TAGLINE
 
-command-line tool for D-Bus introspection and interaction
+用于 D-Bus 内省与交互的命令行工具
 
 # TLDR
 
-List all names on the **session bus**
+列出**会话总线**上的所有名称
 
 ```gdbus list-names --session```
 
-List all names on the **system bus**
+列出**系统总线**上的所有名称
 
 ```gdbus list-names --system```
 
-**Introspect** an object to see its interfaces and methods
+**内省**对象以查看其接口和方法
 
 ```gdbus introspect --session --dest [destination_bus_name] --object-path /[path/to/object]```
 
-**Call a method** on an object with arguments
+**调用对象的方法**并传递参数
 
 ```gdbus call --session --dest [destination_bus_name] --object-path /[path/to/object] --method [interface.method_name] [args...]```
 
-**Emit a signal** from an object with arguments
+**从对象发出信号**并附带参数
 
 ```gdbus emit --session --object-path /[path/to/object] --signal [interface.signal_name] [args...]```
 
-**Monitor** all messages on the session bus
+**监视**会话总线上的所有消息
 
 ```gdbus monitor --session```
 
@@ -35,56 +35,56 @@ List all names on the **system bus**
 # PARAMETERS
 
 **list-names**
-> List all names on a bus
+> 列出总线上的所有名称
 
 **introspect**
-> Introspect a remote object
+> 内省远程对象
 
 **call**
-> Invoke a method on a remote object
+> 调用远程对象上的方法
 
 **emit**
-> Emit a signal
+> 发出信号
 
 **monitor**
-> Monitor a remote object
+> 监视远程对象
 
 **wait**
-> Wait for a bus name to appear
+> 等待某个总线名出现
 
 **--session**
-> Connect to the session bus (user-specific)
+> 连接到会话总线（用户专属）
 
 **--system**
-> Connect to the system bus (system-wide)
+> 连接到系统总线（系统级）
 
 **--dest** _NAME_
-> Destination bus name
+> 目标总线名
 
 **--object-path** _PATH_
-> D-Bus object path
+> D-Bus 对象路径
 
 **--method** _INTERFACE.METHOD_
-> Method to call
+> 要调用的方法
 
 **--signal** _INTERFACE.SIGNAL_
-> Signal to emit
+> 要发出的信号
 
 # DESCRIPTION
 
-**gdbus** is a command-line tool for interacting with D-Bus, the inter-process communication system used extensively in Linux desktop environments. It's part of GLib and provides a way to inspect, call methods on, and monitor D-Bus objects.
+**gdbus** 是一个与 D-Bus 交互的命令行工具。D-Bus 是 Linux 桌面环境中广泛使用的进程间通信系统。gdbus 属于 GLib 的一部分，可用于检查 D-Bus 对象、调用其方法并进行监视。
 
-The session bus is used for user applications (desktop notifications, media players, etc.), while the system bus handles system-wide services (NetworkManager, UPower, etc.).
+会话总线服务于用户应用程序（桌面通知、媒体播放器等），而系统总线处理系统级服务（NetworkManager、UPower 等）。
 
-Use **introspect** to discover available interfaces and methods on any D-Bus object before interacting with it.
+在与任何 D-Bus 对象交互之前，先用 **introspect** 发现其可用的接口和方法。
 
 # CAVEATS
 
-D-Bus method signatures must match exactly. Complex types require proper GVariant formatting. Some system bus operations require elevated privileges or PolicyKit authorization.
+D-Bus 方法签名必须完全匹配。复杂类型需要正确的 GVariant 格式。某些系统总线操作需要提升权限或 PolicyKit 授权。
 
 # HISTORY
 
-gdbus was introduced as part of GLib's GDBus implementation in **2010** (GLib 2.26), replacing the older dbus-glib bindings. It provides a more modern, GObject-based interface to D-Bus.
+gdbus 作为 GLib 的 GDBus 实现的一部分于 **2010 年**（GLib 2.26）推出，取代了较旧的 dbus-glib 绑定。它为 D-Bus 提供了更现代的、基于 GObject 的接口。
 
 # INSTALL
 

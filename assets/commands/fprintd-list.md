@@ -1,18 +1,18 @@
 # TAGLINE
 
-display enrolled fingerprints
+显示已录入的指纹
 
 # TLDR
 
-List enrolled fingerprints for a **specific user**
+列出**特定用户**已录入的指纹
 
 ```fprintd-list [username]```
 
-List enrolled fingerprints for **multiple users**
+列出**多个用户**已录入的指纹
 
 ```fprintd-list [username1] [username2] ...```
 
-Display **help**
+显示**帮助**
 
 ```fprintd-list```
 
@@ -22,13 +22,13 @@ Display **help**
 
 # DESCRIPTION
 
-**fprintd-list** displays the fingerprints enrolled in the fprintd database for specified users. The output shows which fingers have been registered for each user.
+**fprintd-list** 显示指定用户在 fprintd 数据库中已录入的指纹。输出会展示每个用户注册了哪些手指。
 
-The command queries the fprintd daemon via D-Bus to retrieve enrollment information. This is useful for verifying which fingers are registered before attempting authentication or deciding which additional fingers to enroll.
+该命令通过 D-Bus 查询 fprintd 守护进程以获取录入信息。在尝试认证之前，或决定还要录入哪些手指时，可以用它来确认哪些手指已经注册。
 
 # CAVEATS
 
-Requires the fprintd daemon to be running. May require appropriate permissions to list fingerprints for other users.
+需要 fprintd 守护进程正在运行。列出其他用户的指纹可能需要相应的权限。
 
 # INSTALL
 

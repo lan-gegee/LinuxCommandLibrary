@@ -1,22 +1,22 @@
 # TAGLINE
 
-Verify GPG signatures of tags
+验证标签的 GPG 签名
 
 # TLDR
 
-**Verify signed tag**
+**验证已签名的标签**
 
 ```git verify-tag [tag]```
 
-**Verify multiple tags**
+**验证多个标签**
 
 ```git verify-tag [tag1] [tag2]```
 
-**Show raw signature**
+**显示原始签名**
 
 ```git verify-tag --raw [tag]```
 
-**Verbose output**
+**详细输出**
 
 ```git verify-tag -v [tag]```
 
@@ -27,23 +27,23 @@ Verify GPG signatures of tags
 # PARAMETERS
 
 **-v**, **--verbose**
-> Print tag contents.
+> 输出标签内容。
 
 **--raw**
-> Print raw signature.
+> 打印原始签名。
 
 **--format** _format_
-> Format output.
+> 格式化输出。
 
 # DESCRIPTION
 
-**git verify-tag** checks GPG signatures of tags. It verifies that tags were signed with valid GPG keys, confirming the authenticity of tagged releases.
+**git verify-tag** 检查标签的 GPG 签名。它验证标签是否使用有效的 GPG 密钥签名，以确认所标记发布的真实性。
 
-This is commonly used to verify the integrity of release tags in security-sensitive workflows.
+它常用于在安全敏感的工作流程中验证发布标签的完整性。
 
 # CAVEATS
 
-The signer's public key must already be available in the local GPG keyring (or configured SSH/X.509 verifier); an unknown key causes verification to fail even for a well-formed signature. Exits non-zero if any given tag lacks a valid signature.
+签名者的公钥必须已经存在于本地 GPG 密钥环（或已配置的 SSH/X.509 验证器）中；密钥未知时即使是格式良好的签名也会导致验证失败。若任一给定标签缺少有效签名，则以非零状态退出。
 
 # INSTALL
 

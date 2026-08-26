@@ -1,30 +1,30 @@
 # TAGLINE
 
-mail header extraction and manipulation tool
+邮件头提取与处理工具
 
 # TLDR
 
-**Extract headers from email**
+**从邮件提取头部**
 
 ```formail -x [Subject:] < [email.txt]```
 
-**Add header to email**
+**向邮件添加头部**
 
 ```formail -a "[X-Custom: value]" < [email.txt]```
 
-**Split mbox into messages**
+**将 mbox 拆分为单封邮件**
 
 ```formail -s [command] < [mbox]```
 
-**Extract From line**
+**提取 From 行**
 
 ```formail -x From: < [email.txt]```
 
-**Force addition of header**
+**强制添加头部**
 
 ```formail -A "[X-Custom: value]" < [email.txt]```
 
-**Generate auto-reply**
+**生成自动回复**
 
 ```formail -r < [email.txt]```
 
@@ -35,48 +35,48 @@ mail header extraction and manipulation tool
 # PARAMETERS
 
 **-x** _header_
-> Extract specific header.
+> 提取特定头部。
 
 **-X** _header_
-> Extract header with continuation lines.
+> 连同续行一起提取头部。
 
 **-a** _header_
-> Add header if not present.
+> 若不存在则添加头部。
 
 **-A** _header_
-> Add header always.
+> 总是添加头部。
 
 **-i** _header_
-> Replace header.
+> 替换头部。
 
 **-u** _header_
-> Make header unique.
+> 使头部唯一。
 
 **-r**
-> Generate reply headers.
+> 生成回复头部。
 
 **-s** _command_
-> Split and process with command.
+> 拆分并用命令处理。
 
 **-b**
-> Don't escape body "From " lines.
+> 不转义正文中 "From " 开头的行。
 
 **-n** _count_
-> Output only first n messages.
+> 只输出前 n 封邮件。
 
 # DESCRIPTION
 
-**formail** is a mail processing utility from the procmail suite. It extracts headers, adds or modifies headers, splits mbox files, and helps generate automated replies.
+**formail** 是 procmail 套件中的邮件处理工具。它可以提取头部、添加或修改头部、拆分 mbox 文件，并帮助生成自动回复。
 
-The tool reads from stdin and writes to stdout, designed for use in pipelines and procmail recipes. It handles RFC 822 mail format intricacies.
+该工具从 stdin 读取并写入 stdout，专为在管道和 procmail 配方中使用而设计。它能够处理 RFC 822 邮件格式的各种细节。
 
 # CAVEATS
 
-Part of procmail suite which is no longer actively developed. MIME handling is limited. Complex headers may need careful extraction. Consider modern alternatives for new projects.
+属于已不再积极开发的 procmail 套件。MIME 处理能力有限。复杂头部可能需要仔细提取。新项目请考虑现代替代品。
 
 # HISTORY
 
-formail was developed by **Stephen van den Berg** as part of the **procmail** mail processing suite in the **1990s**. While procmail is no longer actively maintained, formail remains useful for mail processing scripts.
+formail 由 **Stephen van den Berg** 在 **1990** 年代作为 **procmail** 邮件处理套件的一部分开发。虽然 procmail 已不再活跃维护，formail 在邮件处理脚本中仍然有用。
 
 # INSTALL
 

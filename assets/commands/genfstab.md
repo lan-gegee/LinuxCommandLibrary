@@ -1,26 +1,26 @@
 # TAGLINE
 
-/etc/fstab generator from mounted filesystems
+基于已挂载文件系统生成 /etc/fstab
 
 # TLDR
 
-Generate **/etc/fstab** using volume UUIDs during Arch installation
+在 Arch 安装过程中使用卷 UUID 生成 **/etc/fstab**
 
 ```genfstab -U /mnt >> /mnt/etc/fstab```
 
-Display fstab-compatible output based on volume **labels**
+基于卷**标签**显示 fstab 兼容输出
 
 ```genfstab -L [path/to/mount_point]```
 
-Display fstab-compatible output based on volume **UUIDs**
+基于卷 **UUID** 显示 fstab 兼容输出
 
 ```genfstab -U [path/to/mount_point]```
 
-Display fstab-compatible output based on **specified identifier**
+基于**指定标识符**显示 fstab 兼容输出
 
 ```genfstab -t [LABEL|UUID|PARTLABEL|PARTUUID]```
 
-**Append** a volume into /etc/fstab for automatic mounting
+将卷**追加**到 /etc/fstab 以实现自动挂载
 
 ```genfstab -U [path/to/mount_point] | sudo tee -a /etc/fstab```
 
@@ -31,41 +31,41 @@ Display fstab-compatible output based on **specified identifier**
 # PARAMETERS
 
 **-U**
-> Use UUIDs for source identifiers
+> 使用 UUID 作为源标识符
 
 **-L**
-> Use filesystem labels for source identifiers
+> 使用文件系统标签作为源标识符
 
 **-t** _TAG_
-> Use specified tag: LABEL, UUID, PARTLABEL, or PARTUUID
+> 使用指定的标签：LABEL、UUID、PARTLABEL 或 PARTUUID
 
 **-f** _FILTER_
-> Restrict output to mountpoints matching the given prefix filter.
+> 将输出限制为匹配给定前缀过滤器的挂载点。
 
 **-p**
-> Exclude pseudofs mounts (default behavior).
+> 排除伪文件系统挂载点（默认行为）。
 
 **-P**
-> Include pseudofs mounts.
+> 包含伪文件系统挂载点。
 
 **-h**
-> Display usage and options.
+> 显示用法和选项。
 
 # DESCRIPTION
 
-**genfstab** generates output suitable for an /etc/fstab file by detecting mounted filesystems under a given root directory. It's primarily used during Arch Linux installation to create the fstab file for a new system.
+**genfstab** 通过检测给定根目录下已挂载的文件系统来生成适用于 /etc/fstab 文件的输出。它主要用于 Arch Linux 安装过程中为新系统创建 fstab 文件。
 
-The tool reads mount information from /proc/self/mountinfo and outputs proper fstab entries with the appropriate source identifiers (UUID, LABEL, etc.), mount points adjusted relative to the specified root, filesystem types, and mount options.
+该工具从 /proc/self/mountinfo 读取挂载信息，并输出规范的 fstab 条目，包括适当的源标识符（UUID、LABEL 等）、相对于指定根目录调整后的挂载点、文件系统类型和挂载选项。
 
-Using UUIDs (**-U**) is recommended as they remain stable across hardware changes, unlike device names like /dev/sda1 which can change.
+推荐使用 UUID（**-U**），因为它们在硬件变更后保持稳定，而不像 /dev/sda1 这类设备名可能会变化。
 
 # CAVEATS
 
-Must be run with appropriate permissions to read mount information. The target filesystems must be mounted before running genfstab. Verify the output before writing to /etc/fstab, as incorrect entries can prevent system boot.
+必须以适当权限运行才能读取挂载信息。目标文件系统必须在运行 genfstab 之前挂载好。写入 /etc/fstab 前请检查输出内容，错误的条目可能导致系统无法启动。
 
 # HISTORY
 
-genfstab is part of the **arch-install-scripts** package, developed for Arch Linux installation. It simplifies fstab creation, which was traditionally done manually or with less reliable methods. The tool has been adopted by other Arch-based distributions.
+genfstab 是 **arch-install-scripts** 软件包的一部分，为 Arch Linux 安装而开发。它简化了 fstab 的创建——传统上这一步需要手动完成或使用可靠性较差的方法。该工具已被其他基于 Arch 的发行版采用。
 
 # INSTALL
 

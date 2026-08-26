@@ -1,38 +1,38 @@
 # TAGLINE
 
-Meta-build system that generates Ninja files
+生成 Ninja 文件的元构建系统
 
 # TLDR
 
-**Generate** Ninja build files into an output directory
+**生成** Ninja 构建文件到输出目录
 
 ```gn gen [out/Default]```
 
-**Generate** with build arguments inline
+**内联指定构建参数**来**生成**
 
 ```gn gen [out/Default] --args='is_debug=true target_cpu="x64"'```
 
-**Open** the args editor for an output directory
+为输出目录**打开**参数编辑器
 
 ```gn args [out/Default]```
 
-**List** all available build arguments and their defaults
+**列出**所有可用的构建参数及其默认值
 
 ```gn args [out/Default] --list```
 
-**Describe** a build target (deps, sources, configs)
+**描述**构建目标（deps、sources、configs）
 
 ```gn desc [out/Default] [//base:base]```
 
-**List** every build target known to the build
+**列出**构建中已知的全部目标
 
 ```gn ls [out/Default]```
 
-**Check** include rules without writing build files
+不写构建文件而**检查** include 规则
 
 ```gn check [out/Default]```
 
-**Format** a BUILD.gn file in place
+就地**格式化** BUILD.gn 文件
 
 ```gn format [path/to/BUILD.gn]```
 
@@ -43,60 +43,60 @@ Meta-build system that generates Ninja files
 # PARAMETERS
 
 **gen** _out_dir_ [**--args=**_string_]
-> Generate Ninja build files for _out_dir_. **--args** sets build arguments inline; arguments are stored in _out_dir_/args.gn.
+> 为 _out_dir_ 生成 Ninja 构建文件。**--args** 内联设置构建参数；参数会保存到 _out_dir_/args.gn 中。
 
 **args** _out_dir_ [**--list**[=_arg_]] [**--short**] [**--overrides-only**]
-> Open _out_dir_/args.gn in **$EDITOR**, or list arguments. **--list** shows defaults and help text; pass an argument name for a single entry.
+> 在 **$EDITOR** 中打开 _out_dir_/args.gn，或列出参数。**--list** 显示默认值和帮助文本；传入参数名可查看单个条目。
 
 **desc** _out_dir_ _target_ [_what_]
-> Print information about _target_. _what_ may be **sources**, **deps**, **configs**, **public**, **defines**, **include_dirs**, **runtime_deps**, etc.
+> 打印关于 _target_ 的信息。_what_ 可以是 **sources**、**deps**、**configs**、**public**、**defines**、**include_dirs**、**runtime_deps** 等。
 
 **ls** _out_dir_ [_label_pattern_]
-> List matching targets. Pattern supports wildcards such as **//base/\***.
+> 列出匹配的目标。模式支持通配符，如 **//base/\***。
 
 **refs** _out_dir_ _target_ [**--all**]
-> Show targets that depend on _target_.
+> 显示依赖于 _target_ 的目标。
 
 **path** _out_dir_ _target1_ _target2_
-> Show a dependency path between two targets.
+> 显示两个目标之间的依赖路径。
 
 **check** _out_dir_ [_label_pattern_]
-> Run include-rule checking. Equivalent to **gn gen --check** without writing build files.
+> 运行 include 规则检查。等同于 **gn gen --check** 但不写构建文件。
 
 **format** [**--dry-run**] [**--stdin**] _file.gn_
-> Reformat a GN file in canonical style.
+> 按规范风格重新格式化 GN 文件。
 
 **clean** _out_dir_
-> Delete the contents of _out_dir_ except **args.gn**, then re-run **ninja** to repopulate.
+> 删除 _out_dir_ 中除 **args.gn** 外的内容，然后重新运行 **ninja** 来重建。
 
 **help** [_command_]
-> Print general help, or detailed help for a single command, target type, or built-in.
+> 打印一般帮助，或某条命令、某个目标类型或某个内置函数的详细帮助。
 
 **-q**
-> Suppress informational output.
+> 抑制提示性输出。
 
 **--root=**_path_
-> Override the source root (where the **.gn** file lives).
+> 覆盖源码根目录（**.gn** 文件所在处）。
 
 **--dotfile=**_path_
-> Use a non-default **.gn** dotfile.
+> 使用非默认的 **.gn** dotfile。
 
 **--script-executable=**_path_
-> Override the Python interpreter used by **exec_script**.
+> 覆盖 **exec_script** 所使用的 Python 解释器。
 
 **--time**
-> Print timing information for build steps.
+> 打印构建步骤的耗时信息。
 
 **--tracelog=**_file_
-> Write a Chrome-trace-format log of GN's execution.
+> 将 GN 的执行过程写成 Chrome trace 格式的日志。
 
 # DESCRIPTION
 
-**gn** is a meta-build system used by **Chromium**, **Fuchsia**, **V8**, **Skia**, **ANGLE**, **Dart**, and other large native projects. It reads **.gn** dotfiles and **BUILD.gn** files written in a small declarative language, then emits **Ninja** build files for fast incremental builds.
+**gn** 是一个元构建系统，被 **Chromium**、**Fuchsia**、**V8**、**Skia**、**ANGLE**、**Dart** 等大型原生项目使用。它读取用一种小型声明式语言编写的 **.gn** dotfile 和 **BUILD.gn** 文件，然后生成用于快速增量构建的 **Ninja** 构建文件。
 
-Targets are declared in **BUILD.gn** files using rules such as **executable**, **static_library**, **shared_library**, **source_set**, **group**, and **action**. Targets reference other targets via **deps** (private) and **public_deps**, and pull in compile flags via **configs**, **public_configs**, **defines**, **include_dirs**, and **sources**. Properties can be appended or removed per-target with **+=** and **-=**.
+目标在 **BUILD.gn** 文件中通过 **executable**、**static_library**、**shared_library**、**source_set**、**group** 和 **action** 等规则声明。目标通过 **deps**（私有）和 **public_deps** 引用其他目标，并通过 **configs**、**public_configs**、**defines**、**include_dirs** 和 **sources** 引入编译标志。属性可以用 **+=** 和 **-=** 按目标追加或移除。
 
-Build configuration lives in **args.gn** inside each output directory, allowing many parallel build configurations (debug, release, cross-compile, instrumented) without re-checking out the source tree. Cross-compilation is configured through **target_os** and **target_cpu** arguments.
+构建配置保存在每个输出目录内的 **args.gn** 中，因此可以并行维护多种构建配置（debug、release、交叉编译、插桩），而无需重新检出源码树。交叉编译通过 **target_os** 和 **target_cpu** 参数配置。
 
 # COMMON ARGS
 
@@ -109,21 +109,21 @@ symbol_level      0=none, 1=minimal, 2=full
 treat_warnings_as_errors
 ```
 
-Use **gn args [out/Default] --list** to see every argument exposed by the project.
+使用 **gn args [out/Default] --list** 可查看项目暴露的所有参数。
 
 # CONFIGURATION
 
-Each project has a **.gn** dotfile at the source root that points to the **BUILDCONFIG.gn** file and other defaults. Per-build-directory configuration is stored in **<out_dir>/args.gn** and edited with **gn args**. The **gn format** command enforces a single canonical style for **BUILD.gn** files; many projects run it as a presubmit check.
+每个项目都在源码根目录有一个 **.gn** dotfile，指向 **BUILDCONFIG.gn** 文件和其他默认值。各构建目录的配置保存在 **<out_dir>/args.gn** 中，可用 **gn args** 编辑。**gn format** 命令为 **BUILD.gn** 文件强制统一规范风格；许多项目将其作为提交前检查运行。
 
 # CAVEATS
 
-**gn** does not run the build itself - it only generates Ninja files. Run **ninja -C [out/Default]** afterwards. The **BUILD.gn** language is **not** Python: although it looks similar, it is intentionally restricted (no classes, no recursion, deterministic execution). Editing **args.gn** by hand is supported, but running **gn gen** afterwards is required to regenerate Ninja files.
+**gn** 本身不执行构建——它只生成 Ninja 文件。之后需运行 **ninja -C [out/Default]**。**BUILD.gn** 语言**不是** Python：虽然看起来相似，但它是有意受限的（没有类、不允许递归、执行是确定性的）。支持手动编辑 **args.gn**，但之后必须运行 **gn gen** 重新生成 Ninja 文件。
 
-For Chromium and Chromium-derived projects, **gn** is shipped via **depot_tools**; system-wide installs may lag behind the version expected by the source tree.
+对于 Chromium 及其衍生项目，**gn** 通过 **depot_tools** 提供；系统级安装的版本可能落后于源码树所需的版本。
 
 # HISTORY
 
-**GN** ("Generate Ninja") was created by **Brett Wilson** at **Google** as a faster replacement for **GYP** in the **Chromium** build. It first appeared in the Chromium tree around **2014** and progressively replaced GYP through **2017**. GN is now a standalone project hosted at **gn.googlesource.com/gn** and is used as the primary build system for Chromium, Fuchsia, V8, and several other large open-source codebases.
+**GN**（"Generate Ninja"）由 **Google** 的 **Brett Wilson** 创建，作为 **Chromium** 构建中 **GYP** 的更快替代品。它于 **2014** 年前后首次出现在 Chromium 代码树中，并在 **2017** 年之前逐步取代了 GYP。GN 现在是托管在 **gn.googlesource.com/gn** 的独立项目，被用作 Chromium、Fuchsia、V8 以及其他多个大型开源代码库的主要构建系统。
 
 # INSTALL
 

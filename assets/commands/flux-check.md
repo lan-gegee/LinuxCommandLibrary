@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check Flux prerequisites and the health of installed controllers
+检查 Flux 的前置条件和已安装控制器的健康状况
 
 # TLDR
 
-**Check prerequisites** before bootstrapping Flux
+在引导安装 Flux 之前**检查前置条件**
 
 ```flux check --pre```
 
-**Check the status** of the Flux installation on the cluster
+**检查集群上 Flux 安装的状态**
 
 ```flux check```
 
-**Check specific components** only
+仅**检查特定组件**
 
 ```flux check --components=source-controller,kustomize-controller```
 
-**Include extra components** such as image automation
+**包含额外组件**（例如镜像自动化）
 
 ```flux check --components-extra=image-reflector-controller,image-automation-controller```
 
@@ -26,31 +26,31 @@ Check Flux prerequisites and the health of installed controllers
 
 # DESCRIPTION
 
-**flux check** validates that the prerequisites for running Flux are met on the current machine and (when connected to a cluster) that the Flux controllers are healthy and ready.
+**flux check** 验证当前机器是否满足运行 Flux 的前置条件，以及（在连接到集群时）Flux 控制器是否健康就绪。
 
-`--pre` performs a client-side check (kubectl, permissions, network, etc.) and is typically run before `flux bootstrap`.
+`--pre` 执行客户端侧检查（kubectl、权限、网络等），通常在 `flux bootstrap` 之前运行。
 
-Without `--pre` it connects to the cluster and reports on the installed Flux components.
+不带 `--pre` 时会连接集群并报告已安装的 Flux 组件状态。
 
 # PARAMETERS
 
 **--pre**
-> Only perform pre-installation checks (no cluster connection required for most checks).
+> 仅执行预安装检查（大多数检查不需要连接集群）。
 
 **--components** _list_
-> Comma-separated list of components to check (default `source-controller,kustomize-controller,helm-controller,notification-controller`).
+> 要检查的组件列表（逗号分隔）（默认 `source-controller,kustomize-controller,helm-controller,notification-controller`）。
 
 **--components-extra** _list_
-> Additional components to check beyond those supplied or defaulted (comma-separated).
+> 在指定或默认组件之外额外检查的组件（逗号分隔）。
 
 **--poll-interval** _duration_
-> How often the health checker polls the cluster for resource state (default `5s`).
+> 健康检查器轮询集群资源状态的频率（默认 `5s`）。
 
 **--timeout** _duration_
-> Timeout for the operation (default `5m0s`).
+> 操作超时时间（默认 `5m0s`）。
 
 **-n**, **--namespace** _ns_
-> Namespace scope for the CLI request (default `flux-system`).
+> CLI 请求的命名空间范围（默认 `flux-system`）。
 
 # INSTALL
 

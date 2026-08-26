@@ -1,42 +1,42 @@
 # TAGLINE
 
-High-level branching model workflow commands
+高层分支模型工作流命令
 
 # TLDR
 
-**Initialize git flow**
+**初始化 git flow**
 
 ```git flow init```
 
-**Initialize with default branch names**
+**使用默认分支名初始化**
 
 ```git flow init -d```
 
-**Start feature branch**
+**开始特性分支**
 
 ```git flow feature start [feature-name]```
 
-**Finish feature**
+**完成特性**
 
 ```git flow feature finish [feature-name]```
 
-**Start release**
+**开始发布**
 
 ```git flow release start [version]```
 
-**Finish release**
+**完成发布**
 
 ```git flow release finish [version]```
 
-**Publish a feature branch to remote**
+**将特性分支发布到远程**
 
 ```git flow feature publish [feature-name]```
 
-**Start a hotfix**
+**开始热修复**
 
 ```git flow hotfix start [version]```
 
-**Finish a hotfix**
+**完成热修复**
 
 ```git flow hotfix finish [version]```
 
@@ -47,60 +47,60 @@ High-level branching model workflow commands
 # PARAMETERS
 
 **init**
-> Initialize repository for git-flow.
+> 为仓库初始化 git-flow。
 
 **feature** _ACTION_ _NAME_
-> Manage feature branches.
+> 管理特性分支。
 
 **release** _ACTION_ _VERSION_
-> Manage release branches.
+> 管理发布分支。
 
 **hotfix** _ACTION_ _NAME_
-> Manage hotfix branches.
+> 管理热修复分支。
 
 **support** _ACTION_ _NAME_
-> Manage support branches.
+> 管理 support 分支。
 
 **start**
-> Begin a new branch.
+> 开始一个新分支。
 
 **finish**
-> Complete and merge branch.
+> 完成并合并分支。
 
 **publish**
-> Push branch to the remote repository.
+> 将分支推送到远程仓库。
 
 **track**
-> Track a remote branch locally.
+> 在本地跟踪远程分支。
 
 **pull**
-> Pull a remote branch (deprecated in favor of track).
+> 拉取远程分支（已被弃用，建议改用 track）。
 
 **delete**
-> Delete a finished branch.
+> 删除已完成的分支。
 
 **list**
-> List existing branches of a given type.
+> 列出给定类型的现有分支。
 
 **-d**
-> Use default branch naming conventions during init.
+> 初始化时使用默认的分支命名约定。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git flow** implements Vincent Driessen's branching model, providing high-level commands for managing feature, release, and hotfix branches with consistent naming and merge strategies.
+**git flow** 实现了 Vincent Driessen 的分支模型，提供高层命令以一致的命名和合并策略管理特性、发布和热修复分支。
 
-The workflow uses develop as the integration branch and main/master for releases. Features branch from develop, releases prepare for production, and hotfixes go directly to main. This standardizes team branching workflows with clear conventions.
+该工作流使用 develop 作为集成分支，使用 main/master 进行发布。特性从 develop 分出，release 分支为上线做准备，热修复则直接进入 main。它以明确的约定规范了团队的分支工作流。
 
 # CAVEATS
 
-Opinionated workflow. May not suit all projects. Requires initialization per repo.
+属于带有主观倾向的工作流。可能不适合所有项目。每个仓库都需要单独初始化。
 
 # HISTORY
 
-git flow was created by **Vincent Driessen** in **2010** based on his successful git branching model blog post.
+git flow 由 **Vincent Driessen** 于 **2010 年**基于其广受欢迎的 git 分支模型博客文章创建。
 
 # INSTALL
 

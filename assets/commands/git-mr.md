@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check out GitLab merge requests
+检出 GitLab 合并请求
 
 # TLDR
 
-**Check out merge request from origin**
+**从 origin 检出合并请求**
 
 ```git mr [51]```
 
-**Check out merge request from a specific remote**
+**从特定远程检出合并请求**
 
 ```git mr [51] [upstream]```
 
-**Check out merge request by URL**
+**通过 URL 检出合并请求**
 
 ```git mr [https://gitlab.com/owner/repo/merge_requests/51]```
 
-**Clean up all local mr/ branches**
+**清理所有本地 mr/ 分支**
 
 ```git mr clean```
 
@@ -31,33 +31,33 @@ Check out GitLab merge requests
 # PARAMETERS
 
 _NUMBER_
-> Merge request number.
+> 合并请求编号。
 
 _REMOTE_
-> Remote name (default: origin).
+> 远程名称（默认：origin）。
 
 _URL_
-> GitLab merge request URL (e.g. https://gitlab.tld/owner/repo/merge_requests/453).
+> GitLab 合并请求 URL（例如 https://gitlab.tld/owner/repo/merge_requests/453）。
 
 **clean**
-> Delete all local mr/ branches.
+> 删除所有本地 mr/ 分支。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git mr** fetches a GitLab merge request head by its number or URL and checks it out in a local branch named mr/_number_. It handles ref fetching and branch creation in a single step, simplifying the code review workflow.
+**git mr** 通过编号或 URL 抓取 GitLab 合并请求的末端，并将其检出到名为 mr/_number_ 的本地分支。它把引用抓取和分支创建合为一步，简化了代码评审工作流。
 
-For GitHub repositories, the equivalent command is `git pr`.
+对于 GitHub 仓库，等价命令是 `git pr`。
 
 # CAVEATS
 
-Part of git-extras package. GitLab-specific functionality. GitHub equivalent is git pr.
+属于 git-extras 软件包。仅适用于 GitLab。GitHub 的等价命令是 git pr。
 
 # HISTORY
 
-git mr is part of **git-extras**, providing GitLab merge request checkout similar to git pr for GitHub pull requests.
+git mr 是 **git-extras** 的一部分，提供类似 git pr（针对 GitHub pull request）的 GitLab 合并请求检出功能。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-extend CLI functionality with community plugins
+通过社区插件扩展 CLI 功能
 
 # TLDR
 
-**Install an extension**
+**安装扩展**
 
 ```gh extension install [owner]/[repo]```
 
-**List installed extensions**
+**列出已安装的扩展**
 
 ```gh extension list```
 
-**Upgrade all extensions**
+**升级所有扩展**
 
 ```gh extension upgrade --all```
 
-**Remove an extension**
+**移除扩展**
 
 ```gh extension remove [name]```
 
-**Create a new extension**
+**创建新扩展**
 
 ```gh extension create [name]```
 
@@ -31,49 +31,49 @@ extend CLI functionality with community plugins
 # PARAMETERS
 
 **install** _REPO_
-> Install extension from repository.
+> 从仓库安装扩展。
 
 **list**
-> List installed extensions.
+> 列出已安装的扩展。
 
 **upgrade**
-> Upgrade installed extensions.
+> 升级已安装的扩展。
 
 **remove** _NAME_
-> Uninstall an extension.
+> 卸载扩展。
 
 **create** _NAME_
-> Scaffold a new extension.
+> 搭建新扩展的脚手架。
 
 **browse**
-> Browse available extensions.
+> 浏览可用扩展。
 
 **--all**
-> Apply to all extensions (upgrade).
+> 应用于所有扩展（用于升级）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh extension** manages GitHub CLI extensions. Extensions add new commands to gh, providing functionality beyond the built-in commands like accessibility testing, code review tools, or custom workflows.
+**gh extension** 用于管理 GitHub CLI 扩展。扩展为 gh 添加新命令，提供内建命令之外的功能，例如无障碍测试、代码审查工具或自定义工作流。
 
-Extensions are GitHub repositories containing executables that follow gh's extension protocol. They can be written in any language and distributed through GitHub. The extension system enables community contributions to gh.
+扩展是遵循 gh 扩展协议、内含可执行文件的 GitHub 仓库。它们可以用任何语言编写并通过 GitHub 分发。扩展系统让社区能够为 gh 添砖加瓦。
 
-gh extension provides full lifecycle management from installation to updates and removal.
+gh extension 提供从安装到更新、移除的完整生命周期管理。
 
 # CONFIGURATION
 
 **~/.local/share/gh/extensions/**
-> Directory where installed extensions are stored and executed from.
+> 已安装扩展的存放与执行目录。
 
 # CAVEATS
 
-Extensions run with user permissions. Review extension code before installing. Extensions are not officially supported by GitHub.
+扩展以用户权限运行。安装前请审查扩展代码。GitHub 不对扩展提供官方支持。
 
 # HISTORY
 
-The extension system was added to **GitHub CLI** in **2021**, enabling community-driven expansion of gh functionality through a plugin architecture.
+扩展系统于 **2021 年**加入 **GitHub CLI**，通过插件架构实现社区驱动的 gh 功能拓展。
 
 # INSTALL
 

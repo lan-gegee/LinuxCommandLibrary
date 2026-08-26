@@ -1,30 +1,30 @@
 # TAGLINE
 
-advanced calendar with holiday calculations
+支持节日计算的高级日历
 
 # TLDR
 
-**Show current month**
+**显示当前月份**
 
 ```gcal```
 
-**Show specific month**
+**显示指定月份**
 
 ```gcal [3] [2024]```
 
-**Show entire year**
+**显示全年**
 
 ```gcal [2024]```
 
-**Show with week numbers**
+**显示周数**
 
 ```gcal -K```
 
-**Show holidays**
+**显示节日**
 
 ```gcal -q [US]```
 
-**Show 3 months centered on current**
+显示以当前月为中心的 3 个月
 
 ```gcal .```
 
@@ -35,30 +35,30 @@ advanced calendar with holiday calculations
 # PARAMETERS
 
 **-K**
-> Show week numbers.
+> 显示周数。
 
 **-q** _country_
-> Show country holidays.
+> 显示国家节日。
 
 **-b** _number_
-> Months before current.
+> 当前月之前的月份数。
 
 **-a** _number_
-> Months after current.
+> 当前月之后的月份数。
 
 **-s** _day_
-> Start of week (0=Sunday).
+> 一周起始日（0=周日）。
 
 **--today**
-> Highlight today.
+> 高亮今天。
 
 # DESCRIPTION
 
-**gcal** is a feature-rich calendar program that goes far beyond simple date display. Unlike the standard cal utility, gcal supports extensive customization including week numbering, configurable week start days, and multi-month displays.
+**gcal** 是一款功能丰富的日历程序，远不止简单的日期显示。与标准的 cal 工具不同，gcal 支持大量自定义功能，包括周数显示、可配置的一周起始日以及多月显示。
 
-One of gcal's most powerful features is its holiday calculation capability, which can display holidays for various countries and religious traditions. The program also supports astronomical data, eternal holiday lists, and various international calendar systems.
+gcal 最强大的特性之一是节日计算能力，可显示多个国家和宗教传统的节日。该程序还支持天文数据、永久节日列表以及多种国际历法系统。
 
-gcal is highly scriptable and can be used for complex date calculations, making it valuable for both interactive use and automation tasks that require sophisticated calendar operations.
+gcal 高度可脚本化，可用于复杂的日期计算，无论交互使用还是需要精细日历运算的自动化任务都十分适用。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ gcal is highly scriptable and can be used for complex date calculations, making 
 ```[Documentation](https://www.gnu.org/software/gcal/manual/)```
 
 <!-- verified: 2026-07-15 -->
-

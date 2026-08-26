@@ -1,30 +1,30 @@
 # TAGLINE
 
-subscribe to gNMI streaming telemetry
+订阅 gNMI 流式遥测数据
 
 # TLDR
 
-**Subscribe to a path**
+**订阅一个路径**
 
 ```gnmic -a [host:port] sub --path [/state/port]```
 
-**Subscribe with sample interval**
+**按采样间隔订阅**
 
 ```gnmic -a [host:port] sub --path [/state/port] --sample-interval [30s]```
 
-**Subscribe with on-change mode**
+**以 on-change 模式订阅**
 
 ```gnmic -a [host:port] sub --path [/state/port] --stream-mode on_change```
 
-**Subscribe with heartbeat interval**
+**带心跳间隔订阅**
 
 ```gnmic -a [host:port] sub --path [/path] --stream-mode on_change --heartbeat-interval [1m]```
 
-**Subscribe to multiple paths**
+**订阅多个路径**
 
 ```gnmic -a [host:port] sub --path [/path1] --path [/path2]```
 
-**Subscribe with authentication**
+**带身份验证订阅**
 
 ```gnmic -a [host:port] -u [user] -p [pass] sub --path [/path]```
 
@@ -35,59 +35,59 @@ subscribe to gNMI streaming telemetry
 # PARAMETERS
 
 **--path** _path_
-> gNMI path to subscribe to.
+> 要订阅的 gNMI 路径。
 
 **--mode** _mode_
-> Subscription mode: STREAM, ONCE, POLL (default STREAM).
+> 订阅模式：STREAM、ONCE、POLL（默认 STREAM）。
 
 **--stream-mode** _mode_
-> Stream mode: sample, on_change, target_defined (default sample).
+> 流模式：sample、on_change、target_defined（默认 sample）。
 
 **--prefix** _prefix_
-> Set a common prefix for all paths.
+> 为所有路径设置公共前缀。
 
 **--target** _target_
-> Set path target in the SubscriptionList prefix field.
+> 在 SubscriptionList 的 prefix 字段中设置路径目标。
 
 **--qos** _value_
-> QoS marking for subscription responses (default 20, 0 to disable).
+> 订阅响应的 QoS 标记（默认 20，设为 0 表示禁用）。
 
 **--sample-interval** _duration_
-> Interval for target to send samples (e.g. 1s, 1m30s).
+> 设备发送采样的间隔（如 1s、1m30s）。
 
 **--heartbeat-interval** _duration_
-> Heartbeat interval for on_change or sample modes.
+> on_change 或 sample 模式的心跳间隔。
 
 **--suppress-redundant**
-> Suppress updates unless value has changed since last update.
+> 抑制冗余更新，除非自上次更新后值发生了变化。
 
 **--updates-only**
-> Only send updates, not initial state.
+> 只发送更新，不发送初始状态。
 
 **--quiet**
-> Do not output subscription responses to stdout.
+> 不将订阅响应输出到 stdout。
 
 **--format** _format_
-> Output format (json, protojson, prototext, event, flat).
+> 输出格式（json、protojson、prototext、event、flat）。
 
 **--name** _name_
-> Trigger predefined subscriptions from configuration file.
+> 触发配置文件中预定义的订阅。
 
 **--output** _output_
-> Select output provider(s) defined in configuration file.
+> 选择配置文件中定义的输出来源（如 Kafka 或 Prometheus 输出）。
 
 **--depth** _depth_
-> Set gNMI extension depth value.
+> 设置 gNMI 扩展的深度值。
 
 **--history-snapshot** _time_
-> Set history snapshot value (nanoseconds or RFC3339 format).
+> 设置历史快照值（纳秒或 RFC3339 格式）。
 
 **--set-target**
-> Set SubscribeRequest Prefix target to configured target name.
+> 将 SubscribeRequest Prefix 的 target 设置为已配置的目标名称。
 
 # DESCRIPTION
 
-**gnmic sub** (or **subscribe**) sends a gNMI Subscribe RPC to network devices for streaming telemetry. It supports multiple subscription modes: **once** (immediate single response), **poll** (on-demand), and **stream** (continuous updates). Stream mode supports **sample** (periodic), **on_change** (event-driven), and **target_defined** delivery.
+**gnmic sub**（即 **subscribe**）向网络设备发送 gNMI Subscribe RPC 以进行流式遥测采集。它支持多种订阅模式：**once**（立即单次响应）、**poll**（按需请求）和 **stream**（持续更新）。流模式支持 **sample**（周期性）、**on_change**（事件驱动）和 **target_defined** 三种投递方式。
 
 # INSTALL
 

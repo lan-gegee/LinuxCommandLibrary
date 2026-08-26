@@ -1,14 +1,14 @@
 # TAGLINE
 
-Terminal-based sequence editor for git interactive rebase
+基于终端的 git 交互式变基序列编辑器
 
 # TLDR
 
-**Use** as git sequence editor
+**用作** git 序列编辑器
 
 ```git rebase -i HEAD~5```
 
-**Configure** as default editor
+**配置**为默认编辑器
 
 ```git config --global sequence.editor interactive-rebase-tool```
 
@@ -19,83 +19,83 @@ Terminal-based sequence editor for git interactive rebase
 # PARAMETERS
 
 **--version**
-> Display version and exit
+> 显示版本并退出
 
 **--help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**interactive-rebase-tool** is a full-featured terminal-based sequence editor for git interactive rebase. It provides a visual interface for editing rebase todo files with features like syntax highlighting, undo/redo, and visual indicators.
+**interactive-rebase-tool** 是一个功能齐全的、基于终端的 git 交互式变基序列编辑器。它为编辑 rebase todo 文件提供可视化界面，具备语法高亮、撤销/重做和可视化指示等功能。
 
-The tool makes it easier to manage complex rebases by providing a clear view of commits and their operations (pick, squash, fixup, reword, edit, drop, etc.).
+该工具清晰地展示提交及其操作（pick、squash、fixup、reword、edit、drop 等），让复杂的变基更易于管理。
 
-# KEYBINDINGS
+# 快捷键
 
-**↑/↓** or **k/j**
-> Navigate commits
+**↑/↓** 或 **k/j**
+> 在提交之间导航
 
 **Page Up/Page Down**
-> Page navigation
+> 翻页导航
 
 **Home/End**
-> Jump to beginning/end
+> 跳到开头/结尾
 
 **p**
-> Pick commit
+> Pick 提交
 
 **r**
-> Reword commit
+> Reword 提交
 
 **e**
-> Edit commit
+> Edit 提交
 
 **s**
-> Squash commit
+> Squash 提交
 
 **f**
-> Fixup commit
+> Fixup 提交
 
 **d**
-> Drop commit
+> Drop 提交
 
 **b**
-> Toggle break action
+> 切换 break 动作
 
 **E**
-> Edit exec command
+> 编辑 exec 命令
 
 **v**
-> Toggle visual mode for batch operations
+> 切换可视化模式以进行批量操作
 
 **c**
-> Show commit information
+> 显示提交信息
 
 **Ctrl+z**
-> Undo
+> 撤销
 
 **Ctrl+y**
-> Redo
+> 重做
 
 **!**
-> Open in external editor
+> 在外部编辑器中打开
 
 **?**
-> Display built-in help
+> 显示内置帮助
 
 **w**
-> Save changes
+> 保存更改
 
 **q**
-> Abort rebase
+> 中止变基
 
 # CAVEATS
 
-Must be configured as Git's sequence editor via `git config --global sequence.editor interactive-rebase-tool`. Terminal must support required escape sequences.
+必须通过 `git config --global sequence.editor interactive-rebase-tool` 将其配置为 Git 的序列编辑器。终端需要支持所需的转义序列。
 
 # HISTORY
 
-**interactive-rebase-tool** was created to improve the git interactive rebase experience by providing a visual editor instead of editing todo files manually.
+**interactive-rebase-tool** 的诞生是为了改进 git 交互式变基的体验，用可视化编辑器取代手动编辑 todo 文件的方式。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-interactive GPT partitioning tool
+交互式 GPT 分区工具
 
 # TLDR
 
-**List** partitions
+**列出**分区
 
 ```sudo gdisk -l```
 
-Start the **interactive** partition manipulator
+启动**交互式**分区操作程序
 
 ```sudo gdisk /dev/sdX```
 
 # INTERACTIVE COMMANDS
 
 **?**
-> Open help menu
+> 打开帮助菜单
 
 **p**
-> Print partition table
+> 打印分区表
 
 **n**
-> Add new partition
+> 添加新分区
 
 **d**
-> Delete a partition
+> 删除分区
 
 **t**
-> Change partition type
+> 更改分区类型
 
 **c**
-> Change partition name
+> 更改分区名称
 
 **w**
-> Write table to disk and exit
+> 将分区表写入磁盘并退出
 
 **q**
-> Quit without saving changes
+> 不保存更改直接退出
 
 # SYNOPSIS
 
@@ -45,26 +45,26 @@ Start the **interactive** partition manipulator
 # PARAMETERS
 
 **-l**, **--list**
-> List partition tables for all devices and exit
+> 列出所有设备的分区表然后退出
 
 **device**
-> Device to partition (e.g., /dev/sda, /dev/nvme0n1)
+> 要分区的设备（例如 /dev/sda、/dev/nvme0n1）
 
 # DESCRIPTION
 
-**gdisk** is an interactive GPT (GUID Partition Table) partitioning tool, similar to fdisk but designed specifically for GPT disks. It can create, delete, and modify partitions on modern UEFI systems.
+**gdisk** 是一个交互式 GPT（GUID 分区表）分区工具，类似于 fdisk，但专为 GPT 磁盘设计。它可以在现代 UEFI 系统上创建、删除和修改分区。
 
-GPT is the modern partitioning scheme that replaces MBR (Master Boot Record), supporting disks larger than 2TB and more than 4 primary partitions (up to 128). gdisk maintains both primary and backup partition tables for redundancy.
+GPT 是取代 MBR（主引导记录）的现代分区方案，支持大于 2TB 的磁盘以及超过 4 个的主分区（最多 128 个）。gdisk 同时维护主分区表和备份分区表以实现冗余。
 
-gdisk can also convert MBR disks to GPT (and vice versa with **sgdisk**), though this should be done carefully with backups.
+gdisk 还可以将 MBR 磁盘转换为 GPT（用 **sgdisk** 可以反向转换），不过此操作需谨慎进行并做好备份。
 
 # CAVEATS
 
-Requires root privileges. Changes are only written when using **w** command. Converting between MBR and GPT can cause boot issues if not done correctly. Always backup important data before partitioning.
+需要 root 权限。更改只有在使用 **w** 命令时才会写入磁盘。MBR 与 GPT 之间的转换如果操作不当可能导致无法启动。分区前务必备份重要数据。
 
 # HISTORY
 
-gdisk (GPT fdisk) was created by Roderick W. Smith and first released around **2009**. It was developed to provide a text-mode GPT partitioning tool similar in interface to the classic fdisk, as UEFI and GPT became the standard for modern systems.
+gdisk（GPT fdisk）由 Roderick W. Smith 创建，于 **2009 年**前后首次发布。随着 UEFI 和 GPT 成为现代系统的标准，它被开发为一个界面类似经典 fdisk 的文本模式 GPT 分区工具。
 
 # INSTALL
 

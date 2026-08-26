@@ -1,18 +1,18 @@
 # TAGLINE
 
-Send commit patches to a pastebin service
+将提交补丁发送到 pastebin 服务
 
 # TLDR
 
-**Paste commits** not yet in the upstream branch
+**粘贴尚未进入上游分支的提交**
 
 ```git paste```
 
-**Paste a specific revision range**
+**粘贴特定的版本区间**
 
 ```git paste [HEAD~3..HEAD]```
 
-**Paste a single commit**
+**粘贴单个提交**
 
 ```git paste -1 [commit]```
 
@@ -23,17 +23,17 @@ Send commit patches to a pastebin service
 # PARAMETERS
 
 _ARGS_
-> Any arguments accepted by `git format-patch` (revision range, `-1`, `-n`, etc). Defaults to `@{u}` (commits ahead of the upstream branch) when omitted.
+> `git format-patch` 接受的任意参数（版本区间、`-1`、`-n` 等）。省略时默认为 `@{u}`（领先于上游分支的提交）。
 
 # DESCRIPTION
 
-**git paste** runs `git format-patch --stdout` over the given commits and pipes the resulting diff to **pastebinit**, printing the pastebin URL. Part of git-extras, it is a quick way to share a patch or a small commit series without creating a file first.
+**git paste** 对给定提交运行 `git format-patch --stdout`，并把得到的 diff 通过管道传给 **pastebinit**，最后打印出 pastebin URL。它是 git-extras 的一部分，提供一种无需先创建文件的快速分享补丁或小型提交序列的方式。
 
-Because it delegates to `pastebinit`, the destination pastebin service (and any API key) is whatever `pastebinit` is configured to use, not necessarily GitHub Gist.
+由于它委托给 `pastebinit`，目标 pastebin 服务（以及任何 API key）取决于 `pastebinit` 的配置，而不一定是 GitHub Gist。
 
 # CAVEATS
 
-Requires **pastebinit** to be installed separately; the command aborts with an error if it is missing. Pasted content is sent to a third-party service, so avoid pasting patches containing secrets.
+需要单独安装 **pastebinit**；缺失时该命令会报错中止。被粘贴的内容会发送到第三方服务，因此请避免粘贴包含机密的补丁。
 
 # INSTALL
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-Dynamic function call tracer using Frida
+基于 Frida 的动态函数调用跟踪器
 
 # TLDR
 
-**Trace** functions matching a pattern in a process
+**跟踪**进程中匹配某模式的函数
 
 ```frida-trace -i "[pattern]" [process_name]```
 
-**Trace** all functions in a specific **module**
+**跟踪**特定**模块**中的所有函数
 
 ```frida-trace -I "[module]" [process_name]```
 
-**Trace Objective-C** methods matching a pattern
+**跟踪**匹配模式的 Objective-C 方法
 
 ```frida-trace -m "[pattern]" [process_name]```
 
-**Trace Java** methods on an Android device
+在 Android 设备上**跟踪 Java** 方法
 
 ```frida-trace -U -f [com.example.app] -j "[pattern]"```
 
-**Spawn** a program and trace its **imports**
+**启动**一个程序并跟踪其**导入**
 
 ```frida-trace -T -f [/path/to/binary]```
 
-**Trace** a function at a specific **offset** in a stripped binary
+**跟踪**去符号二进制文件中特定**偏移处**的函数
 
 ```frida-trace -p [pid] -a "[module]![0xoffset]"```
 
-**Trace** functions on a **USB-connected** device with module decoration
+在 **USB 连接的**设备上带模块修饰地**跟踪**函数
 
 ```frida-trace -U --decorate -i "[pattern]" [app_name]```
 
-**Attach** to the **frontmost** application on a USB device
+**附加到** USB 设备上**最前端**的应用
 
 ```frida-trace -U -F -i "[pattern]"```
 
@@ -43,113 +43,113 @@ Dynamic function call tracer using Frida
 # PARAMETERS
 
 **-i** _FUNCTION_, **--include** _FUNCTION_
-> Include [MODULE!]FUNCTION (glob pattern)
+> 包括 [MODULE!]FUNCTION（glob 模式）。
 
 **-x** _FUNCTION_, **--exclude** _FUNCTION_
-> Exclude [MODULE!]FUNCTION (glob pattern)
+> 排除 [MODULE!]FUNCTION（glob 模式）。
 
 **-I** _MODULE_, **--include-module** _MODULE_
-> Include all functions in MODULE (glob pattern)
+> 包括 MODULE 中的所有函数（glob 模式）。
 
 **-X** _MODULE_, **--exclude-module** _MODULE_
-> Exclude all functions in MODULE (glob pattern)
+> 排除 MODULE 中的所有函数（glob 模式）。
 
 **-a** _MODULE!OFFSET_, **--add** _MODULE!OFFSET_
-> Add function at OFFSET in MODULE (for stripped binaries)
+> 添加 MODULE 中位于 OFFSET 处的函数（用于去符号的二进制文件）。
 
 **-T**, **--include-imports**
-> Include the program's imports
+> 包括程序的导入项。
 
 **-t** _MODULE_, **--include-module-imports** _MODULE_
-> Include MODULE's imports
+> 包括 MODULE 的导入项。
 
 **-m** _METHOD_, **--include-objc-method** _METHOD_
-> Include Objective-C METHOD (glob pattern)
+> 包括 Objective-C 方法 METHOD（glob 模式）。
 
 **-M** _METHOD_, **--exclude-objc-method** _METHOD_
-> Exclude Objective-C METHOD (glob pattern)
+> 排除 Objective-C 方法 METHOD（glob 模式）。
 
 **-y** _FUNC_, **--include-swift-func** _FUNC_
-> Include Swift FUNC (glob pattern)
+> 包括 Swift 函数 FUNC（glob 模式）。
 
 **-Y** _FUNC_, **--exclude-swift-func** _FUNC_
-> Exclude Swift FUNC (glob pattern)
+> 排除 Swift 函数 FUNC（glob 模式）。
 
 **-j** _METHOD_, **--include-java-method** _METHOD_
-> Include Java METHOD (glob pattern)
+> 包括 Java 方法 METHOD（glob 模式）。
 
 **-J** _METHOD_, **--exclude-java-method** _METHOD_
-> Exclude Java METHOD (glob pattern)
+> 排除 Java 方法 METHOD（glob 模式）。
 
 **-d**, **--decorate**
-> Add module name to generated onEnter log statement
+> 在生成的 onEnter 日志语句中添加模块名。
 
 **-q**, **--quiet**
-> Do not format output messages
+> 不对输出消息进行格式化。
 
 **-o** _FILE_, **--output** _FILE_
-> Dump messages to file
+> 将消息转储到文件。
 
 **-S** _PATH_, **--init-session** _PATH_
-> Path to JavaScript file used to initialize session
+> 用于初始化会话的 JavaScript 文件路径。
 
 **-s** _DEBUG_SYMBOL_, **--include-debug-symbol** _DEBUG_SYMBOL_
-> Include DEBUG_SYMBOL (glob pattern)
+> 包括 DEBUG_SYMBOL（glob 模式）。
 
 **-f** _TARGET_, **--file** _TARGET_
-> Spawn FILE as a new process
+> 将 FILE 作为新进程启动。
 
 **-F**, **--attach-frontmost**
-> Attach to frontmost application
+> 附加到最前端的应用。
 
 **-n** _NAME_, **--attach-name** _NAME_
-> Attach to process by name
+> 按名称附加到进程。
 
 **-N** _IDENTIFIER_, **--attach-identifier** _IDENTIFIER_
-> Attach to process by identifier
+> 按标识符附加到进程。
 
 **-p** _PID_, **--attach-pid** _PID_
-> Attach to process by PID
+> 按 PID 附加到进程。
 
 **-W** _PATTERN_, **--await** _PATTERN_
-> Await spawn matching PATTERN
+> 等待启动与 PATTERN 匹配的程序。
 
 **-U**, **--usb**
-> Connect to USB device
+> 连接到 USB 设备。
 
 **-R**, **--remote**
-> Connect to remote frida-server
+> 连接到远程 frida-server。
 
 **-H** _HOST_, **--host** _HOST_
-> Connect to remote frida-server on HOST
+> 连接到 HOST 上的远程 frida-server。
 
 **-D** _ID_, **--device** _ID_
-> Connect to device with the given ID
+> 连接到具有给定 ID 的设备。
 
 **--runtime** _{qjs,v8}_
-> Script runtime to use
+> 要使用的脚本运行时。
 
 **-O** _FILE_, **--options-file** _FILE_
-> Text file containing additional command line options
+> 包含额外命令行选项的文本文件。
 
 **-P** _JSON_, **--parameters** _JSON_
-> Parameters as JSON, exposed as a global named 'parameters'
+> 以 JSON 形式给出的参数，暴露为名为 parameters 的全局变量。
 
 # DESCRIPTION
 
-**frida-trace** is a tool for dynamically tracing function calls in running processes. It can hook **native functions** (C/C++), **Objective-C** methods, **Swift** functions, and **Java** methods, logging their invocation with arguments and return values.
+**frida-trace** 是一个用于动态跟踪运行进程中函数调用的工具。它可以挂钩**原生函数**（C/C++）、**Objective-C** 方法、**Swift** 函数和 **Java** 方法，并记录它们的调用参数和返回值。
 
-When you trace a function, frida-trace auto-generates JavaScript handler stubs in a **\_\_handlers\_\_/** directory that you can customize to log arguments, modify return values, or implement arbitrary instrumentation logic. If a handler file already exists, it will not be overwritten.
+当你跟踪一个函数时，frida-trace 会自动生成 JavaScript 处理器存根，放在 **\_\_handlers\_\_/** 目录中，你可以自定义这些存根来记录参数、修改返回值或实现任意插桩逻辑。如果处理器文件已存在，则不会被覆盖。
 
-The include (**-i**, **-I**) and exclude (**-x**, **-X**) options are procedural; each operates on the current working set of functions, so their order matters.
+包含（**-i**、**-I**）和排除（**-x**、**-X**）选项是按顺序处理的；每个选项都作用于当前的函数工作集，因此它们的顺序很重要。
 
 # CAVEATS
 
-Tracing many functions with broad glob patterns (like **-i "\*"**) can severely slow down or freeze the target process. For stripped binaries without symbol information, you must use **-a MODULE!OFFSET** which requires prior knowledge of function offsets from static analysis tools like Ghidra or IDA Pro. The handler directory (**\_\_handlers\_\_/**) is created in the current working directory; existing handlers are not overwritten, which can cause confusion if tracing targets change. Root or elevated privileges are typically required for cross-process injection on desktop systems.
+使用过宽的 glob 模式（如 **-i "\*"**）跟踪大量函数可能严重拖慢甚至冻结目标进程。对于没有符号信息的去符号二进制文件，必须使用 **-a MODULE!OFFSET**，这要求事先通过 Ghidra 或 IDA Pro 等静态分析工具了解函数偏移。处理器目录（**\_\_handlers\_\_/**）创建在当前工作目录中；已有的处理器不会被覆盖，当跟踪目标变化时这可能造成困扰。在桌面系统上进行跨进程注入通常需要 root 或提升的权限。
 
 # HISTORY
 
-**frida-trace** was one of the earliest tools built on top of the Frida core, included in the **frida-tools** package since Frida's public release in **2014**. Its function tracing capability leverages Frida's **Stalker** code tracing component. Over the years, support was added for Objective-C methods, Swift functions, and Java methods, reflecting the tool's evolution alongside the mobile security research community.
+**frida-trace** 是最早基于 Frida 核心构建的工具之一，自 Frida 于 **2014** 年公开发布起就包含在 **frida-tools** 软件包中。它的函数跟踪能力利用了 Frida 的 **Stalker** 代码跟踪组件。多年来陆续增加了对 Objective-C 方法、Swift 函数和 Java 方法的支持，反映了该工具随移动安全研究社区共同演进的过程。
 
 # SEE ALSO
 

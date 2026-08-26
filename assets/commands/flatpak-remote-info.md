@@ -1,30 +1,30 @@
 # TAGLINE
 
-query information about remote Flatpak packages
+查询远程 Flatpak 软件包的信息
 
 # TLDR
 
-Show **information** about a flatpak in a remote
+显示远程仓库中某个 flatpak 的**信息**
 
 ```flatpak remote-info [remote_name] [com.example.app]```
 
-Show a **log of previous versions** in a remote
+显示远程仓库中**历史版本的日志**
 
 ```flatpak remote-info --log [remote_name] [com.example.app]```
 
-Show information about a **specific commit**
+显示**特定提交**的信息
 
 ```flatpak remote-info --commit [COMMIT_HASH] [remote_name] [com.example.app]```
 
-Show only the **commit ID** (machine-readable)
+只显示**提交 ID**（机器可读）
 
 ```flatpak remote-info --show-commit [remote_name] [com.example.app]```
 
-Show the **metadata** of a remote application
+显示远程应用的**元数据**
 
 ```flatpak remote-info --show-metadata [remote_name] [com.example.app]```
 
-Show information for a specific **architecture**
+显示特定**架构**的信息
 
 ```flatpak remote-info --arch [x86_64] [remote_name] [com.example.app]```
 
@@ -35,62 +35,62 @@ Show information for a specific **architecture**
 # PARAMETERS
 
 **--user**
-> Use per-user configuration
+> 使用按用户的配置
 
 **--system**
-> Use default system-wide configuration
+> 使用默认的系统级配置
 
 **--installation** _name_
-> Use specified system-wide installation
+> 使用指定的系统级安装
 
 **--cached**
-> Use locally cached data when available
+> 尽可能使用本地缓存的数据
 
 **--runtime**
-> Assume ref is a runtime
+> 假定 ref 是一个运行时
 
 **--app**
-> Assume ref is an application
+> 假定 ref 是一个应用
 
 **--arch** _arch_
-> Target specific architecture
+> 针对特定架构
 
 **--commit** _commit_
-> Show information for a specific commit
+> 显示特定提交的信息
 
 **--log**
-> Display version history
+> 显示版本历史
 
 **-r, --show-ref**
-> Display the matched ref (machine-readable)
+> 显示匹配到的 ref（机器可读）
 
 **-c, --show-commit**
-> Display the commit ID (machine-readable)
+> 显示提交 ID（机器可读）
 
 **-p, --show-parent**
-> Display the parent commit
+> 显示父提交
 
 **-m, --show-metadata**
-> Display the metadata
+> 显示元数据
 
 **-v, --verbose**
-> Output debug information
+> 输出调试信息
 
 # DESCRIPTION
 
-**Flatpak remote-info** displays details about an application or runtime available in a remote repository. It shows information such as the application ID, architecture, branch, commit hash, download size, installed size, and runtime dependencies.
+**Flatpak remote-info** 显示远程仓库中可用应用程序或运行时的详细信息。它展示的信息包括应用 ID、架构、分支、提交哈希、下载大小、安装大小以及运行时依赖。
 
-By default, output is in human-readable format. Using **--show-*** options switches to machine-readable output suitable for scripting.
+默认输出为人类可读格式。使用 **--show-*** 选项则切换为适合脚本的机器可读输出。
 
-The **--log** option is useful for viewing available versions and finding specific commits for downgrade operations or version pinning.
+**--log** 选项可用于查看可用版本，并找到特定提交以便执行降级操作或固定版本。
 
 # CAVEATS
 
-Requires network access to query remote repositories unless **--cached** is specified. The cached option only works if the repository metadata has been previously fetched. Some information may not be available for all remotes or refs.
+除非指定 **--cached**，否则查询远程仓库需要网络访问。cached 选项只有在仓库元数据此前已被获取的情况下才有效。某些信息可能并非对所有远程仓库或 ref 都可用。
 
 # HISTORY
 
-Part of the **Flatpak** project developed by Alexander Larsson at Red Hat. Flatpak evolved from the xdg-app project around **2015** and has become a leading universal package format for Linux desktop applications.
+本命令是 Red Hat 的 Alexander Larsson 所开发 **Flatpak** 项目的一部分。Flatpak 约于 **2015 年**从 xdg-app 项目演化而来，如今已成为 Linux 桌面应用领先的通用软件包格式。
 
 # SEE ALSO
 

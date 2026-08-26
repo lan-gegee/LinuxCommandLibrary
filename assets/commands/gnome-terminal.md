@@ -1,22 +1,22 @@
 # TAGLINE
 
-GNOME desktop terminal emulator
+GNOME 桌面终端模拟器
 
 # TLDR
 
-Open a new **GNOME terminal window**
+打开一个新的 **GNOME 终端窗口**
 
 ```gnome-terminal```
 
-Run a **specific command** in a new terminal window
+在新终端窗口中运行**特定命令**
 
 ```gnome-terminal -- [command]```
 
-Open a new **tab** in the last opened window
+在最后打开的窗口中新建一个**标签页**
 
 ```gnome-terminal --tab```
 
-Set the **title** of the new tab
+设置新标签页的**标题**
 
 ```gnome-terminal --tab -t "[title]"```
 
@@ -27,53 +27,53 @@ Set the **title** of the new tab
 # PARAMETERS
 
 **--tab**
-> Open a new tab in existing window
+> 在现有窗口中打开新标签页
 
 **--window**
-> Open a new window
+> 打开新窗口
 
 **-t**, **--title** _TITLE_
-> Set initial terminal title
+> 设置终端初始标题
 
 **--working-directory** _DIR_
-> Set working directory
+> 设置工作目录
 
 **--geometry** _GEOMETRY_
-> Set window size and position (WIDTHxHEIGHT+X+Y)
+> 设置窗口大小和位置（WIDTHxHEIGHT+X+Y）
 
 **--profile** _PROFILE_
-> Use specified profile
+> 使用指定的配置文件（profile）
 
 **-e**, **--command** _CMD_
-> Execute command (deprecated, use -- instead)
+> 执行命令（已弃用，请改用 --）
 
 **--wait**
-> Wait until terminal exits
+> 等待终端退出
 
 **--maximize**
-> Start maximized
+> 以最大化方式启动
 
 **--full-screen**
-> Start in full-screen mode
+> 以全屏模式启动
 
 # DESCRIPTION
 
-**gnome-terminal** is the default terminal emulator for the GNOME desktop environment. It provides a feature-rich terminal with support for multiple tabs, profiles, and customization options.
+**gnome-terminal** 是 GNOME 桌面环境的默认终端模拟器。它是一个功能丰富的终端，支持多标签页、多种配置文件（profile）和自定义选项。
 
-Features include multiple profiles with different colors and fonts, transparent backgrounds, custom key bindings, and VTE-based terminal emulation with Unicode support.
+其特性包括多套不同颜色和字体的 profile、透明背景、自定义快捷键，以及基于 VTE 的终端模拟并支持 Unicode。
 
 # CONFIGURATION
 
 **dconf /org/gnome/terminal/**
-> Terminal settings stored in dconf, configurable via gsettings or the Preferences dialog.
+> 保存在 dconf 中的终端设置，可通过 gsettings 或首选项对话框修改。
 
 # CAVEATS
 
-On Wayland, some X11-specific features like geometry positioning may not work. The --geometry option is deprecated on modern setups. Heavy customization requires editing dconf settings.
+在 Wayland 上，某些 X11 特有的功能（如 geometry 定位）可能无法工作。--geometry 选项在现代环境下已弃用。深度自定义需要编辑 dconf 设置。
 
 # HISTORY
 
-gnome-terminal has been part of GNOME since version 1.0 in **1999**. It uses the VTE (Virtual Terminal Emulator) widget library, which is also used by other terminals like Terminator and Tilix. The application has evolved significantly through GNOME's various iterations.
+gnome-terminal 自 **1999** 年 GNOME 1.0 起就是其组成部分。它使用 VTE（Virtual Terminal Emulator）部件库，Terminator 和 Tilix 等其他终端也使用了该库。随着 GNOME 各个版本的迭代，该应用经历了显著演进。
 
 # INSTALL
 

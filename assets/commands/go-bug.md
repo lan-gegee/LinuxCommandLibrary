@@ -1,10 +1,10 @@
 # TAGLINE
 
-open Go issue tracker with system info
+打开 Go 问题跟踪器并附上系统信息
 
 # TLDR
 
-**Open bug report page**
+**打开 bug 报告页面**
 
 ```go bug```
 
@@ -14,17 +14,17 @@ open Go issue tracker with system info
 
 # DESCRIPTION
 
-**go bug** opens the Go issue tracker in a web browser with pre-filled system information. It collects Go version, platform, and environment details to streamline bug reports.
+**go bug** 在网页浏览器中打开 Go 问题跟踪器，并预填系统信息。它会收集 Go 版本、平台和环境细节，以简化 bug 报告流程。
 
-The command simplifies reporting issues to the Go project by automatically gathering relevant diagnostic information and opening the browser to the GitHub issue form.
+该命令自动收集相关的诊断信息并将浏览器打开到 GitHub issue 表单，从而简化向 Go 项目报告问题的过程。
 
 # CAVEATS
 
-Opens browser. Information may include environment variables. Review before submitting.
+会打开浏览器。信息可能包含环境变量。提交前请先检查。
 
 # HISTORY
 
-go bug was added to the **Go** toolchain to streamline bug reporting with automatic environment information collection.
+go bug 被加入 **Go** 工具链，通过自动收集环境信息来简化 bug 报告。
 
 # SEE ALSO
 

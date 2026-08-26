@@ -1,38 +1,38 @@
 # TAGLINE
 
-distributed version control with integrated project management
+集项目管理于一体的分布式版本控制
 
 # TLDR
 
-**Initialize new repository**
+**初始化新仓库**
 
 ```fossil init [repo.fossil]```
 
-**Clone a repository**
+**克隆仓库**
 
 ```fossil clone [url] [repo.fossil]```
 
-**Open repository in directory**
+**在目录中打开仓库**
 
 ```fossil open [repo.fossil]```
 
-**Check status**
+**查看状态**
 
 ```fossil status```
 
-**Add files**
+**添加文件**
 
 ```fossil add [file]```
 
-**Commit changes**
+**提交变更**
 
 ```fossil commit -m "[message]"```
 
-**View timeline**
+**查看时间线**
 
 ```fossil timeline```
 
-**Start web UI**
+**启动 Web UI**
 
 ```fossil ui```
 
@@ -43,75 +43,75 @@ distributed version control with integrated project management
 # SUBCOMMANDS
 
 **init**
-> Create new repository.
+> 创建新仓库。
 
 **clone**
-> Clone a repository.
+> 克隆仓库。
 
 **open**
-> Open repository checkout.
+> 打开仓库检出。
 
 **status**
-> Show working copy status.
+> 显示工作副本状态。
 
 **add**
-> Add files.
+> 添加文件。
 
 **commit**
-> Record changes.
+> 记录变更。
 
 **update**
-> Update the checkout to a later version or branch.
+> 将检出更新到更新的版本或分支。
 
 **diff**
-> Show changes in the working copy.
+> 显示工作副本中的变更。
 
 **revert**
-> Revert files to their committed state.
+> 将文件恢复到已提交状态。
 
 **branch**
-> Create or list branches.
+> 创建或列出分支。
 
 **pull**
-> Pull from remote.
+> 从远程拉取。
 
 **push**
-> Push to remote.
+> 推送到远程。
 
 **sync**
-> Sync with remote.
+> 与远程同步。
 
 **ui**
-> Start the built-in web interface (and open a browser).
+> 启动内置 Web 界面（并打开浏览器）。
 
 **timeline**
-> Show commit history.
+> 显示提交历史。
 
 # CONFIGURATION
 
 **_FOSSIL_**
-> SQLite database file containing repository, wiki, tickets, and all metadata.
+> 包含仓库、wiki、工单和所有元数据的 SQLite 数据库文件。
 
 **~/.fossil**
-> User settings and global ignore patterns.
+> 用户设置与全局忽略模式。
 
 # DESCRIPTION
 
-**fossil** is a distributed version control system designed for software projects, combining source control with bug tracking, wiki documentation, and web-based project management in a single tool. Unlike Git, Fossil stores everything in a single SQLite database file.
+**fossil** 是一个面向软件项目的分布式版本控制系统，将源代码管理、bug 跟踪、wiki 文档和基于 Web 的项目管理集成在单一工具中。与 Git 不同，Fossil 将所有内容存储在一个单独的 SQLite 数据库文件里。
 
-Created by D. Richard Hipp for managing the SQLite project, Fossil emphasizes simplicity and self-containment. The repository file includes complete project history, tickets, wiki pages, and technical notes. This design makes backups trivial and eliminates synchronization issues between separate systems.
+Fossil 由 D. Richard Hipp 为管理 SQLite 项目而创建，强调简洁和自包含。仓库文件包含完整的项目历史、工单、wiki 页面和技术笔记。这种设计让备份变得简单，并消除了不同系统之间的同步问题。
 
-Fossil includes a built-in web interface accessible via **fossil ui**, providing browsing, ticket management, and wiki editing without external tools. The system uses content-addressable storage and cryptographic checksums to ensure data integrity.
+Fossil 内置了通过 **fossil ui** 访问的 Web 界面，无需外部工具即可浏览、管理工单和编辑 wiki。该系统使用内容寻址存储和加密校验和来确保数据完整性。
 
-The autosync feature keeps repositories synchronized automatically, simplifying distributed development. Fossil's branching model encourages feature branches and includes timeline visualization showing development history graphically.
+autosync 特性自动保持仓库同步，简化了分布式开发。Fossil 的分支模型鼓励使用特性分支，并提供以图形方式展示开发历史的 timeline 可视化。
 
 # CAVEATS
 
-Different workflow from Git requires adjustment. Single repository file can grow large for projects with many binary assets. Less ecosystem support than Git for integrations and tools.
+与 Git 不同的工作流需要适应。包含大量二进制资源的项目中，单个仓库文件可能变得很大。相比 Git，其生态系统的集成与工具支持较少。
 
 # HISTORY
 
-**Fossil** was created by **D. Richard Hipp** in **2006** to manage the SQLite project. Frustrated with existing version control systems, Hipp designed Fossil to integrate all project management needs into one tool. It has been the primary version control for SQLite and other projects since its inception.
+**Fossil** 由 **D. Richard Hipp** 于 **2006** 年创建，用于管理 SQLite 项目。由于对现有版本控制系统感到失望，Hipp 将所有项目管理需求整合到一个工具中设计了 Fossil。自诞生以来，它一直是 SQLite 及其他项目的主要版本控制系统。
 
 # INSTALL
 
@@ -134,4 +134,3 @@ Different workflow from Git requires adjustment. Single repository file can grow
 # SEE ALSO
 
 [git](/man/git)(1), [hg](/man/hg)(1)
-

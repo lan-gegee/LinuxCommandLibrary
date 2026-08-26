@@ -1,26 +1,26 @@
 # TAGLINE
 
-terminal-based spaced repetition flashcards
+基于终端的间隔重复记忆卡片工具
 
 # TLDR
 
-Launch the **deck picker** UI
+启动**卡组选择器**界面
 
 ```flash```
 
-Show flash **system information**
+显示 flash 的**系统信息**
 
 ```flash -i```
 
-Use a custom **preview** program instead of bat
+使用自定义**预览**程序替代 bat
 
 ```flash -p [cat]```
 
-Print **version**
+打印**版本**
 
 ```flash -v```
 
-Show **help**
+显示**帮助**
 
 ```flash -h```
 
@@ -31,32 +31,32 @@ Show **help**
 # PARAMETERS
 
 **-i**
-> Display information about the flashcard system and deck location
+> 显示关于记忆卡系统及卡组位置的信息
 
 **-p** _previewer_
-> Change the card previewer (default: bat, fallback: cat)
+> 更改卡片预览程序（默认：bat，回退：cat）
 
 **-h**
-> Display help message
+> 显示帮助信息
 
 **-v**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**Flash** (fla.sh) is a terminal-based flashcard application implementing spaced repetition and active recall learning principles. It uses plain text CSV files as flashcard decks and presents cards in randomized study sessions.
+**Flash**（fla.sh）是一个基于终端的记忆卡片应用，实现了间隔重复和主动回忆的学习原则。它使用纯文本 CSV 文件作为记忆卡组，并以随机顺序呈现卡片进行学习。
 
-Cards are stored in colon-separated CSV format: **category:question:answer:score**. The score field manages card difficulty—lower scores cause cards to appear more frequently, while cards rated "Easy" receive higher scores and appear less often.
+卡片以冒号分隔的 CSV 格式存储：**category:question:answer:score**。分数字段用于管理卡片难度——分数越低的卡片出现得越频繁，而被评为 "Easy" 的卡片会获得更高的分数并较少出现。
 
-The tool uses **fzf** for fuzzy selection of decks and optionally **bat** for syntax-highlighted card display. Decks are stored in **~/.local/share/flash/** and support nested directory organization.
+该工具使用 **fzf** 对卡组进行模糊选择，还可选用 **bat** 来以语法高亮方式显示卡片。卡组存储在 **~/.local/share/flash/** 中，支持嵌套目录组织。
 
 # CAVEATS
 
-Requires **fzf** as a mandatory dependency for deck selection. On macOS, GNU coreutils must be installed via Homebrew for the **shuf** command used in randomization. The tool creates its data directory on first run if it does not exist.
+需要 **fzf** 作为卡组选择的必备依赖。在 macOS 上，必须通过 Homebrew 安装 GNU coreutils，以便使用随机化所需的 **shuf** 命令。该工具在首次运行时若数据目录不存在则会自动创建。
 
 # HISTORY
 
-Flash was created by **Bryan Jenks** (tallguyjenks) as a lightweight terminal alternative to graphical flashcard applications. Written entirely in **Bash**, it draws inspiration from spaced repetition systems like Anki while maintaining Unix philosophy simplicity.
+Flash 由 **Bryan Jenks**（tallguyjenks）创建，作为图形化记忆卡片应用的轻量级终端替代品。它完全用 **Bash** 编写，灵感来自 Anki 等间隔重复系统，同时保持了 Unix 哲学的简洁性。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-POSIX system configuration variable query tool
+POSIX 系统配置变量查询工具
 
 # TLDR
 
-List **all** configuration values available
+列出**所有**可用的配置值
 
 ```getconf -a```
 
-List the configuration values for a **specific directory**
+列出**特定目录**的配置值
 
 ```getconf -a [path/to/directory]```
 
-Check if the system is **32-bit or 64-bit**
+检查系统是 **32 位还是 64 位**
 
 ```getconf LONG_BIT```
 
-Check how many **processes** the current user can run at once
+检查当前用户同时可运行的**进程数**
 
 ```getconf CHILD_MAX```
 
-List every configuration value and filter with **grep**
+列出所有配置值并用 **grep** 过滤
 
 ```getconf -a | grep MAX```
 
@@ -32,53 +32,53 @@ List every configuration value and filter with **grep**
 # PARAMETERS
 
 **-a**
-> Display all configuration variables and their values
+> 显示所有配置变量及其值
 
 **-v** _SPEC_
-> Use specification _SPEC_ for configuration values
+> 使用规范 _SPEC_ 来确定配置值
 
 **LONG_BIT**
-> Number of bits in a long integer (32 or 64)
+> long 整数的位数（32 或 64）
 
 **CHILD_MAX**
-> Maximum number of processes per user
+> 每个用户的最大进程数
 
 **OPEN_MAX**
-> Maximum number of files a process can have open
+> 进程可同时打开的最大文件数
 
 **PAGE_SIZE**
-> System memory page size in bytes
+> 系统内存页大小（字节）
 
 **PATH_MAX**
-> Maximum length of a file path
+> 文件路径的最大长度
 
 **HOST_NAME_MAX**
-> Maximum length of a hostname
+> 主机名的最大长度
 
 **ARG_MAX**
-> Maximum length of arguments to the exec functions
+> exec 函数参数的最大长度
 
 **_NPROCESSORS_CONF**
-> Number of processors configured
+> 已配置的处理器数量
 
 **_NPROCESSORS_ONLN**
-> Number of processors currently online
+> 当前在线的处理器数量
 
 # DESCRIPTION
 
-**getconf** retrieves system configuration variables defined by POSIX and system-specific extensions. These values represent system limits and capabilities that applications can query to adapt their behavior.
+**getconf** 检索由 POSIX 和系统特定扩展定义的系统配置变量。这些值代表系统限制和能力，应用程序可以查询它们以调整自身行为。
 
-Variables fall into two categories: system-wide values (like CHILD_MAX, PAGE_SIZE) and pathname-specific values (like PATH_MAX, NAME_MAX) that may vary by filesystem.
+变量分为两类：系统级值（如 CHILD_MAX、PAGE_SIZE）和路径相关值（如 PATH_MAX、NAME_MAX），后者可能因文件系统而异。
 
-This is useful for shell scripts that need to query system limits without hardcoding values, ensuring portability across different systems.
+对于需要查询系统限制而不想硬编码数值的 shell 脚本来说，这个命令很有用，可确保在不同系统之间的可移植性。
 
 # CAVEATS
 
-Some values may be indeterminate (shown as "undefined"). Pathname-specific variables can return different values for different filesystems. Not all variables are supported on all systems.
+某些值可能是不确定的（显示为 "undefined"）。路径相关变量在不同文件系统上可能返回不同的值。并非所有系统都支持所有变量。
 
 # HISTORY
 
-getconf is part of the POSIX standard and has been available on Unix-like systems since the early 1990s. It provides a standardized way to query the same configuration values that the C functions sysconf(), pathconf(), and confstr() return.
+getconf 是 POSIX 标准的一部分，自 20 世纪 90 年代初起就在类 Unix 系统上可用。它提供一种标准化的方式来查询 C 函数 sysconf()、pathconf() 和 confstr() 所返回的相同配置值。
 
 # INSTALL
 

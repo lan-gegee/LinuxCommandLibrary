@@ -1,22 +1,22 @@
 # TAGLINE
 
-Three-way file merging
+三方文件合并
 
 # TLDR
 
-**Three-way merge files**
+**对文件进行三方合并**
 
 ```git merge-file [current] [base] [other]```
 
-**Merge with diff3 style**
+**以 diff3 风格合并**
 
 ```git merge-file --diff3 [current] [base] [other]```
 
-**Output to stdout**
+**输出到标准输出**
 
 ```git merge-file -p [current] [base] [other]```
 
-**Quiet mode**
+**安静模式**
 
 ```git merge-file -q [current] [base] [other]```
 
@@ -27,51 +27,51 @@ Three-way file merging
 # PARAMETERS
 
 _CURRENT_
-> Current version file.
+> 当前版本的文件。
 
 _BASE_
-> Common ancestor file.
+> 共同祖先文件。
 
 _OTHER_
-> Other version to merge.
+> 要合并的另一版本。
 
 **-p**, **--stdout**
-> Output to stdout.
+> 输出到标准输出。
 
 **--diff3**
-> Include base in conflicts.
+> 冲突中包含 base 版本。
 
 **-q**, **--quiet**
-> Suppress warnings.
+> 抑制警告。
 
 **--ours**
-> Resolve conflicts in favor of the "current" version.
+> 解决冲突时采用 "current" 版本。
 
 **--theirs**
-> Resolve conflicts in favor of the "other" version.
+> 解决冲突时采用 "other" 版本。
 
 **--union**
-> Take both sides of each conflict (append rather than mark).
+> 保留每个冲突的双方（追加而非标记）。
 
 **-L** _label_
-> Provide a label for a file (pass up to three times for current/base/other).
+> 为某个文件提供标签（最多可传三次，分别对应 current/base/other）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git merge-file** performs a three-way merge on individual files. Given the current version, common ancestor, and other version, it produces a merged result with conflict markers where automatic resolution is not possible.
+**git merge-file** 对单个文件执行三方合并。给定当前版本、共同祖先和另一版本，它生成合并结果，并在无法自动解决的位置留下冲突标记。
 
-The command operates on files outside of Git's normal merge workflow, making it useful for custom merge scenarios or merging files independently. The first file is modified in place with the merge result, and the exit code indicates whether conflicts occurred.
+该命令在 Git 常规合并工作流之外操作文件，因此适合自定义合并场景或独立合并文件。第一个文件会被合并结果就地修改，退出码指示是否发生了冲突。
 
 # CAVEATS
 
-Plumbing command. Modifies first file in place. Exit code indicates conflicts.
+底层（plumbing）命令。就地修改第一个文件。退出码指示是否存在冲突。
 
 # HISTORY
 
-git merge-file is a core **Git** plumbing command implementing the three-way merge algorithm used internally by git merge.
+git merge-file 是 **Git** 的核心底层命令，实现了 git merge 内部使用的三方合并算法。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-graphical login manager for GNOME
+GNOME 的图形登录管理器
 
 # TLDR
 
-**Start GDM**
+**启动 GDM**
 
 ```systemctl start gdm```
 
-**Stop GDM**
+**停止 GDM**
 
 ```systemctl stop gdm```
 
-**Enable at boot**
+**设置开机自启**
 
 ```systemctl enable gdm```
 
-**Restart GDM**
+**重启 GDM**
 
 ```systemctl restart gdm```
 
-**Check status**
+**查看状态**
 
 ```systemctl status gdm```
 
@@ -31,34 +31,34 @@ graphical login manager for GNOME
 # PARAMETERS
 
 **--version**
-> Display version.
+> 显示版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **/etc/gdm/custom.conf**
-> Main GDM configuration file controlling login behavior, auto-login, and session settings.
+> GDM 主配置文件，控制登录行为、自动登录和会话设置。
 
 **/etc/gdm3/custom.conf**
-> Alternative configuration path on Debian-based systems.
+> 基于 Debian 系统上的另一配置路径。
 
 # DESCRIPTION
 
-**gdm** (GNOME Display Manager) is the graphical login manager for GNOME. It provides the login screen, user authentication, and session management for desktop environments.
+**gdm**（GNOME Display Manager）是 GNOME 的图形登录管理器。它为桌面环境提供登录界面、用户身份验证和会话管理。
 
-GDM handles user selection, password authentication, and starting desktop sessions. It supports multiple sessions, accessibility features, and user switching.
+GDM 处理用户选择、密码验证和桌面会话的启动。它支持多会话、无障碍功能和用户切换。
 
-gdm is typically started by systemd and runs as a system service.
+gdm 通常由 systemd 启动，作为系统服务运行。
 
 # CAVEATS
 
-Requires X11 or Wayland. Configuration through dconf. Managed by systemd on modern systems.
+需要 X11 或 Wayland。通过 dconf 进行配置。在现代系统中由 systemd 管理。
 
 # HISTORY
 
-GDM was created as part of the **GNOME project** to provide a display manager integrated with the GNOME desktop environment. It replaced xdm for GNOME users.
+GDM 作为 **GNOME 项目**的一部分而创建，旨在提供与 GNOME 桌面环境集成的显示管理器。它为 GNOME 用户取代了 xdm。
 
 # INSTALL
 

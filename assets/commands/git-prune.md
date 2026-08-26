@@ -1,30 +1,30 @@
 # TAGLINE
 
-Prune unreachable objects from the object database
+从对象数据库中清除不可达的对象
 
 # TLDR
 
-**Prune unreachable** loose objects
+**清除不可达的**松散对象
 
 ```git prune```
 
-**Dry run** to see what would be removed
+**试运行**查看将被移除的内容
 
 ```git prune -n```
 
-**Verbose** output
+**详细**输出
 
 ```git prune -v```
 
-**Only prune objects** older than a given age
+**只清除早于指定时间的对象**
 
 ```git prune --expire=2.weeks.ago```
 
-**Prune everything** reachable-only right now (no grace period)
+**立即清除所有仅当前不可达的内容**（无宽限期）
 
 ```git prune --expire=now```
 
-**Keep objects reachable** from an extra head
+**保留可从一个额外 head 到达的对象**
 
 ```git prune -- [refs/heads/topic]```
 
@@ -35,38 +35,38 @@ Prune unreachable objects from the object database
 # PARAMETERS
 
 **-n**, **--dry-run**
-> Do not remove anything, just report what would be removed.
+> 不移除任何内容，只报告将会移除什么。
 
 **-v**, **--verbose**
-> Report all removed objects.
+> 报告所有被移除的对象。
 
 **--progress**
-> Show progress while pruning.
+> 清除过程中显示进度。
 
 **--expire** _time_
-> Only prune loose objects older than _time_ (e.g. `now`, `2.weeks.ago`).
+> 只清除早于 _time_ 的松散对象（例如 `now`、`2.weeks.ago`）。
 
 **--**
-> Treat the remaining arguments as heads rather than options.
+> 将其余参数视为 heads 而非选项。
 
 _heads_
-> Additional refs whose reachable objects should be kept, in addition to all packed refs.
+> 除所有已打包引用之外，额外需要保持其可达对象不被清除的引用。
 
 # DESCRIPTION
 
-**git prune** removes loose objects from `.git/objects` that are not reachable from any reference. Objects become unreachable when commits are amended, rebased away, branches deleted, or stashes dropped, leaving dangling content in the object database.
+**git prune** 从 `.git/objects` 中移除无法从任何引用到达的松散对象。当提交被 amend、被 rebase 丢弃、分支被删除或 stash 被丢弃时，对象就会变得不可达，在对象数据库中留下悬空内容。
 
-The command is normally invoked indirectly through **git gc**, which sets an appropriate **--expire** time (the `gc.pruneExpire` config, defaulting to `2.weeks.ago`) so that very recent objects are kept around for safety. The expiry window protects concurrent operations and recently created objects that the reflog has not yet started referencing.
+该命令通常经由 **git gc** 间接调用，后者会设置合适的 **--expire** 时间（即 `gc.pruneExpire` 配置，默认 `2.weeks.ago`），以便出于安全考虑暂时保留非常新的对象。这个过期宽限期用于保护并发操作以及 reflog 尚未开始引用的新建对象。
 
-Note that **git prune** only touches loose objects. Unreachable objects already inside a packfile are removed by **git repack -A**.
+注意 **git prune** 只处理松散对象。已经位于包文件内的不可达对象由 **git repack -A** 移除。
 
 # CAVEATS
 
-Aggressive expiry (`--expire=now`) can delete objects that are still useful for recovery via the reflog or that another git process is currently writing. Do not run prune manually while other git commands are running in the same repository. To prune stale worktree metadata under `.git/worktrees`, use **git worktree prune** instead.
+激进的过期设置（`--expire=now`)可能删除仍可用于通过 reflog 恢复的对象，或其他 git 进程正在写入的对象。同一仓库中还有其他 git 命令运行时，不要手动执行 prune。要清除 `.git/worktrees` 下过期的工作区元数据，请改用 **git worktree prune**。
 
 # HISTORY
 
-**git prune** is one of the original plumbing commands shipped with Git. Its day-to-day role has shifted toward being an internal step of **git gc**, but it remains useful for explicit cleanup after large rewrite operations.
+**git prune** 是 Git 最初发布时就自带的底层（plumbing）命令之一。它的日常角色已逐渐转变为 **git gc** 的内部步骤，但在大型改写操作之后进行显式清理时仍然有用。
 
 # INSTALL
 

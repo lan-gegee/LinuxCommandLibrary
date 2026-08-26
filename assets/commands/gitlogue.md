@@ -1,18 +1,18 @@
 # TAGLINE
 
-Cinematic animated replay of Git commit history
+电影感动画回放 Git 提交历史
 
 # TLDR
 
-**Replay** the current repository's history
+**回放**当前仓库的历史
 
 ```gitlogue```
 
-**Replay** a commit range
+**回放**一段提交范围
 
 ```gitlogue --commit [HEAD~10..HEAD]```
 
-**Replay** a specific commit
+**回放**特定提交
 
 ```gitlogue --commit [abc123]```
 
@@ -22,19 +22,19 @@ Cinematic animated replay of Git commit history
 
 # DESCRIPTION
 
-**gitlogue** turns Git history into an animated terminal story—typing effects, syntax highlighting, and file-tree transitions as commits are replayed. Fun for demos, onboarding, and visualizing how a codebase evolved. Install via install script, Homebrew, Cargo, or Nix.
+**gitlogue** 将 Git 历史变成一段终端动画故事——在回放提交时呈现打字效果、语法高亮和文件树切换。适合演示、新人入门以及可视化代码库的演进过程。可通过安装脚本、Homebrew、Cargo 或 Nix 安装。
 
 # PARAMETERS
 
 **--commit** *rev*|*range*
 
-> Start at a commit or animate a range.
+> 从某个提交开始，或动画化一个范围。
 
-Other flags control speed and theme—**gitlogue --help**.
+其他标志控制速度和主题——参见 **gitlogue --help**。
 
 # CAVEATS
 
-Large histories can take a long time to animate. Needs a git repository and a capable terminal.
+庞大的历史需要很长时间才能动画完成。需要 git 仓库和一个功能完善的终端。
 
 # INSTALL
 

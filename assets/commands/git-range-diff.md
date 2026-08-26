@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compare two commit ranges
+比较两个提交区间
 
 # TLDR
 
-**Compare two revision ranges**
+**比较两个版本区间**
 
 ```git range-diff [base1]..[rev1] [base2]..[rev2]```
 
-**Compare with upstream**
+**与上游比较**
 
 ```git range-diff @{u} @{1} @```
 
-**Compare rebase iterations**
+**比较 rebase 前后的版本**
 
 ```git range-diff [main]..@{1} [main]..@```
 
-**Show with color**
+**带颜色显示**
 
 ```git range-diff --color [range1] [range2]```
 
@@ -27,19 +27,19 @@ Compare two commit ranges
 # PARAMETERS
 
 **--creation-factor** _n_
-> Commit matching threshold.
+> 提交匹配的阈值。
 
 **--no-dual-color**
-> Disable dual color mode.
+> 禁用双色模式。
 
 **--notes** _ref_
-> Show notes.
+> 显示注释（notes）。
 
 # DESCRIPTION
 
-**git range-diff** compares two commit ranges, showing how a series of patches changed between versions. It performs a diff-of-diffs, matching commits between the two ranges based on content similarity and revealing what changed during a rebase, amend, or other history rewrite.
+**git range-diff** 比较两个提交区间，显示一系列补丁在版本之间发生了什么变化。它执行"差异的差异"，基于内容相似度在两个区间之间匹配提交，揭示 rebase、amend 或其他历史改写过程中产生的变化。
 
-Common use cases include comparing a feature branch before and after rebasing, reviewing how patches evolved during iterative development, or verifying that a rebase preserved intended changes. The output uses dual coloring to distinguish between the two levels of diff.
+常见用例包括：比较功能分支 rebase 前后的状态、评审补丁在迭代开发中的演变、或验证 rebase 是否保留了预期的更改。输出使用双色调色来区分两层 diff。
 
 # INSTALL
 

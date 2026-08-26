@@ -1,30 +1,30 @@
 # TAGLINE
 
-Compare changes using external visual diff tools
+使用外部可视化 diff 工具比较改动
 
 # TLDR
 
-**Compare using external tool**
+**使用外部工具比较**
 
 ```git difftool [file]```
 
-**Compare with specific tool**
+**使用指定的工具比较**
 
 ```git difftool -t [vimdiff] [file]```
 
-**Compare without prompts**
+**无需提示地进行比较**
 
 ```git difftool -y [file]```
 
-**Compare staged changes**
+**比较已暂存的改动**
 
 ```git difftool --staged```
 
-**Compare commits**
+**比较提交**
 
 ```git difftool [commit1] [commit2]```
 
-**Directory diff mode**
+**目录 diff 模式**
 
 ```git difftool -d [commit]```
 
@@ -35,58 +35,58 @@ Compare changes using external visual diff tools
 # PARAMETERS
 
 **-t** _tool_, **--tool** _tool_
-> Use specific diff tool instead of the configured default.
+> 使用指定的 diff 工具，而非配置中的默认工具。
 
 **-y**, **--no-prompt**
-> Don't prompt before launching each diff tool instance.
+> 启动每个 diff 工具实例前不再提示。
 
 **--prompt**
-> Prompt before each invocation (default behavior; overrides config).
+> 每次调用前提示（默认行为；覆盖配置）。
 
 **-d**, **--dir-diff**
-> Copy modified files to a temp location and diff entire directory trees at once. Never prompts.
+> 将修改过的文件复制到临时位置，一次性对整个目录树进行 diff。从不提示。
 
 **-g**, **--gui**
-> Use the tool configured in **diff.guitool** instead of **diff.tool**.
+> 使用 **diff.guitool** 中配置的工具，而不是 **diff.tool**。
 
 **--staged**
-> Compare staged changes (same as **git diff --staged**).
+> 比较已暂存的改动（等同于 **git diff --staged**）。
 
 **--tool-help**
-> List available tools recognized on this system.
+> 列出本系统能识别的可用工具。
 
 **-x** _cmd_, **--extcmd** _cmd_
-> Run a custom command as `cmd $LOCAL $REMOTE`, ignoring configured tools.
+> 以 `cmd $LOCAL $REMOTE` 的形式运行自定义命令，忽略已配置的工具。
 
 **--no-symlinks**
-> In dir-diff mode, copy files instead of symlinking unchanged ones (always on for Windows).
+> 在目录 diff 模式下复制文件而不是用符号链接指向未更改的文件（Windows 上始终如此）。
 
 **--trust-exit-code**
-> Exit with the invoked tool's exit code instead of ignoring it.
+> 以被调用工具的退出码退出，而不是忽略它。
 
 # DESCRIPTION
 
-**git difftool** launches external visual diff tools to review changes in Git repositories. It is a frontend to **git diff** and accepts the same options and arguments, but hands the actual comparison off to a graphical or terminal-based diff application instead of printing a unified diff.
+**git difftool** 启动外部可视化 diff 工具来审查 Git 仓库中的改动。它是 **git diff** 的前端，接受相同的选项和参数，但把实际的比较工作交给图形化或基于终端的 diff 应用程序，而不是打印统一格式的 diff。
 
-The command supports a wide variety of diff tools including vimdiff, meld, kdiff3, emerge, and opendiff; run **git difftool --tool-help** to see which are detected. Directory diff mode (**-d**) is particularly useful for graphical tools that support comparing entire directory trees simultaneously, since it stages a temporary copy of both trees rather than invoking the tool once per file.
+该命令支持多种 diff 工具，包括 vimdiff、meld、kdiff3、emerge 和 opendiff；运行 **git difftool --tool-help** 可以查看检测到了哪些。目录 diff 模式（**-d**）对支持同时比较整个目录树的图形化工具尤其有用，因为它会准备两棵树的临时副本，而不是对每个文件都调用一次工具。
 
 # CONFIGURATION
 
 **diff.tool**
-> Default tool used by difftool (and **--gui** falls back through merge.guitool, diff.tool, merge.tool).
+> difftool 使用的默认工具（**--gui** 会依次回退到 merge.guitool、diff.tool、merge.tool）。
 
 **difftool.\<tool\>.path**
-> Explicit path to a tool's executable, when it isn't on **PATH**.
+> 工具可执行文件的显式路径，用于该工具不在 **PATH** 中的情况。
 
 **difftool.\<tool\>.cmd**
-> Custom command line for a tool, with **$LOCAL**, **$REMOTE**, **$MERGED**, and **$BASE** available.
+> 工具的自定义命令行，其中 **$LOCAL**、**$REMOTE**、**$MERGED** 和 **$BASE** 可用。
 
 **difftool.prompt**
-> Whether to prompt before launching each instance (default true).
+> 是否在启动每个实例之前提示（默认为 true）。
 
 # CAVEATS
 
-Errors from the diff tool are ignored unless **--trust-exit-code** is set. Directory diff mode discards tool-specific per-file invocation, which can behave differently for tools expecting single-file input.
+除非设置了 **--trust-exit-code**，否则 diff 工具产生的错误会被忽略。目录 diff 模式放弃了针对单个文件的逐个调用方式，对于期望接收单文件输入的工具，行为可能有所不同。
 
 # INSTALL
 

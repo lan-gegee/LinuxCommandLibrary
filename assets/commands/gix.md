@@ -1,38 +1,38 @@
 # TAGLINE
 
-Pure Rust Git implementation CLI
+纯 Rust 实现的 Git CLI
 
 # TLDR
 
-**Clone a repository**
+**克隆仓库**
 
 ```gix clone [https://github.com/user/repo]```
 
-**Fetch updates** from remote
+从远程**获取更新**
 
 ```gix fetch```
 
-**Show repository status**
+显示仓库状态
 
 ```gix status```
 
-**List remotes**
+列出远程仓库
 
 ```gix remote list```
 
-**Show the commit log**
+显示提交日志
 
 ```gix log```
 
-**Blame a file**
+对文件执行 blame
 
 ```gix blame [path/to/file]```
 
-**Verify repository integrity**
+校验仓库完整性
 
 ```gix verify```
 
-**List available subcommands**
+列出可用子命令
 
 ```gix --help```
 
@@ -45,99 +45,99 @@ Pure Rust Git implementation CLI
 # COMMANDS
 
 **clone** _url_ [_path_]
-> Clone a repository into a new directory.
+> 将仓库克隆到新目录。
 
 **fetch** [_remote_]
-> Fetch data from remotes and store it in the repository.
+> 从远程获取数据并存入仓库。
 
 **status**
-> Compute and show repository status.
+> 计算并显示仓库状态。
 
 **commit** _subcommand_
-> Interact with commit objects.
+> 与提交对象交互。
 
 **branch** _subcommand_
-> Interact with branches.
+> 与分支交互。
 
 **tag** _subcommand_
-> Interact with tag objects.
+> 与标签对象交互。
 
 **remote** _subcommand_
-> Interact with the remote hosts.
+> 与远程主机交互。
 
 **log** [_path_]
-> List commits in the repository, optionally limited to those changing a path.
+> 列出仓库中的提交，可限定为更改某路径的提交。
 
 **diff**
-> Print all changes between two objects.
+> 打印两个对象之间的所有差异。
 
 **blame** _path_
-> Blame lines in a file.
+> 对文件中的行执行 blame。
 
 **worktree** _subcommand_
-> Handle worktrees.
+> 处理工作树。
 
 **submodule** _subcommand_
-> Interact with submodules.
+> 与子模块交互。
 
 **index** _subcommand_
-> Interact with a worktree index like `.git/index`.
+> 与 `.git/index` 等工作树索引交互。
 
 **mailmap**
-> Interact with the mailmap.
+> 与 mailmap 交互。
 
 **commit-graph** _subcommand_
-> Interact with commit-graph files.
+> 与 commit-graph 文件交互。
 
 **verify**
-> Verify the integrity of the entire repository.
+> 校验整个仓库的完整性。
 
 **credential**
-> A program just like `git credential`.
+> 一个与 `git credential` 类似的程序。
 
 **free** _subcommand_
-> Subcommands that need no Git repository to run (e.g. pack and index operations).
+> 无需 Git 仓库即可运行的子命令（例如 pack 和 index 操作）。
 
 **completions**
-> Generate shell completions to stdout or a directory.
+> 将 shell 补全脚本生成到 stdout 或目录中。
 
-This is a subset; run **gix --help** for the full, self-documenting list of subcommands (it has grown to cover archive, clean, fsck, odb, attributes, exclude, dirwalk, merge, and more).
+以上仅为子集；运行 **gix --help** 查看完整且自带说明的子命令列表（现已涵盖 archive、clean、fsck、odb、attributes、exclude、dirwalk、merge 等）。
 
 # PARAMETERS
 
 **-r**, **--repository** _path_
-> Use repository at specified path.
+> 使用指定路径的仓库。
 
 **-t**, **--threads** _num_
-> Number of threads to use.
+> 要使用的线程数。
 
 **--progress**
-> Show progress information.
+> 显示进度信息。
 
 **--verbose**
-> Enable verbose output.
+> 启用详细输出。
 
 **-h**, **--help**
-> Show help for command or subcommand.
+> 显示命令或子命令的帮助。
 
 **-V**, **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gix** (gitoxide) provides two CLI binaries: **gix** for low-level plumbing operations and **ein** for high-level porcelain commands. Written entirely in Rust, it aims to be a correct, performant, and safe Git implementation.
+**gix**（gitoxide）提供两个 CLI 可执行文件：**gix** 面向底层 plumbing 操作，**ein** 面向高层 porcelain 命令。它完全用 Rust 编写，目标是成为正确、高性能且安全的 Git 实现。
 
-The **gix** binary exposes low-level, self-documenting plumbing commands and serves as a testing and validation tool for the gitoxide API. The **ein** binary is the smaller, porcelain-facing counterpart, offering a handful of convenience commands (like **init**, **clone**, and repository-discovery tools under **tools**) aimed at everyday human use rather than API validation.
+**gix** 可执行文件暴露底层、自带文档的 plumbing 命令，并作为 gitoxide API 的测试与验证工具。**ein** 是面向 porcelain 的较小对应物，提供少量便利命令（如 **init**、**clone** 以及 **tools** 下的仓库发现工具），面向日常使用而非 API 验证。
 
-Both binaries access the same underlying **gix** library ecosystem, which provides pure Rust implementations of Git protocols, object storage, reference handling, and more.
+两个可执行文件都访问同一个底层 **gix** 库生态，该生态以纯 Rust 实现了 Git 协议、对象存储、引用处理等功能。
 
 # CAVEATS
 
-The CLI binaries are considered unstable and should not be relied upon in scripts. Feature coverage is incomplete compared to Git; some operations may not be implemented. The project is under active development with APIs subject to change.
+这些 CLI 可执行文件尚不稳定，不应在脚本中依赖它们。与 Git 相比功能覆盖不完整；某些操作可能未实现。项目正在积极开发中，API 可能变动。
 
 # HISTORY
 
-Gitoxide was created by **Sebastian Thiel** as an effort to rewrite Git in Rust. Development began with a focus on correctness first, then performance. The project has grown to include comprehensive Git functionality with multiple crates (gix-*) providing modular components.
+Gitoxide 由 **Sebastian Thiel** 发起，是一项用 Rust 重写 Git 的工程。开发初期优先关注正确性，其次才是性能。项目已发展为包含全面 Git 功能的体系，由多个 crate（gix-*）提供模块化组件。
 
 # SEE ALSO
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-Check whether two GIF images display identically
+检查两张 GIF 图片的显示效果是否相同
 
 # TLDR
 
-**Compare two GIF files** (exit status 0 = same, 1 = different)
+**比较两个 GIF 文件**（退出状态 0 = 相同，1 = 不同）
 
 ```gifdiff [file1.gif] [file2.gif]```
 
-**Brief mode** — exit status only, no output
+**简洁模式** —— 仅返回退出状态，无输出
 
 ```gifdiff -q [file1.gif] [file2.gif]```
 
-**Ignore frame-redraw differences** (frames that render identically but differ in redraw info)
+**忽略帧重绘差异**（渲染结果相同但重绘信息不同的帧）
 
 ```gifdiff -w [file1.gif] [file2.gif]```
 
-**Use in a shell script**
+**在 Shell 脚本中使用**
 
 ```gifdiff -q [file1.gif] [file2.gif] && echo "identical"```
 
@@ -27,26 +27,26 @@ Check whether two GIF images display identically
 # PARAMETERS
 
 **-q**, **--brief**
-> Produce no output; only return an exit status (0 if images display identically, 1 otherwise).
+> 不产生输出；只返回退出状态（图像显示效果相同时为 0，否则为 1）。
 
 **-w**, **--ignore-redraw**
-> Ignore differences that only affect how frames are redrawn. Two animations that render identically but encode redraws differently are still treated as equal.
+> 忽略仅影响帧重绘方式的差异。两个渲染结果相同但重绘编码方式不同的动画仍被视为相等。
 
 **-h**, **--help**
-> Print usage information and exit.
+> 打印用法信息并退出。
 
 **-v**, **--version**
-> Print the gifdiff version and exit.
+> 打印 gifdiff 版本并退出。
 
 # DESCRIPTION
 
-**gifdiff** compares two GIF image files and determines whether they display identically when rendered. Unlike a byte-wise comparison, it accounts for semantically irrelevant encoding differences (for example, different frame disposal methods that produce the same visible output).
+**gifdiff** 比较两个 GIF 图像文件，判断它们在渲染时的显示效果是否相同。与逐字节比较不同，它会考虑语义上无关紧要的编码差异（例如产生相同可见输出的不同帧处置方法）。
 
-gifdiff is part of the **gifsicle** toolkit and is primarily useful for regression testing of GIF generators and for confirming that two differently encoded files produce the same animation.
+gifdiff 是 **gifsicle** 工具集的一部分，主要用于对 GIF 生成器进行回归测试，以及确认两个不同编码的文件产生相同的动画。
 
 # CAVEATS
 
-gifdiff does **not** produce a visual diff image. For pixel-level visualization of differences use a tool like **compare(1)** from ImageMagick.
+gifdiff **不会**生成可视化的差异图像。如需像素级的差异可视化，请使用 ImageMagick 的 **compare(1)** 等工具。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-count graph components
+统计图的组成部分数量
 
 # TLDR
 
-**Count** nodes and edges in a graph (the default)
+**统计**图中的节点和边（默认行为）
 
 ```gc [graph.dot]```
 
-**Count** connected components
+**统计**连通分量数
 
 ```gc -c [graph.dot]```
 
-**Count** everything: nodes, edges, connected components and clusters
+**统计**所有内容：节点、边、连通分量和簇
 
 ```gc -a [graph.dot]```
 
-**Count** nodes only
+只**统计**节点
 
 ```gc -n [graph.dot]```
 
-**Recurse** into subgraphs and report counts for each
+**递归**进入子图并报告各自的计数
 
 ```gc -r [graph.dot]```
 
-**Read** a graph from standard input
+从标准输入**读取**图
 
 ```cat [graph.dot] | gc -a```
 
@@ -34,56 +34,56 @@ count graph components
 
 # DESCRIPTION
 
-**gc** is a graph analogue of **wc**: it reads one or more graphs in DOT format and prints counts of their nodes, edges, connected components and clusters to standard output. With no options it reports node and edge counts. When multiple graphs are given, a total line is printed at the end.
+**gc** 是 **wc** 的图论版本：它读取一个或多个 DOT 格式的图，并将其节点、边、连通分量和簇的数量输出到标准输出。不带选项时报告节点和边的数量。给定多个图时，最后会输出一行总计。
 
-Each input file may contain several graphs. Output is one line per graph, followed by the graph name, so results can be fed into other text tools. If no files are named, **gc** reads from standard input.
+每个输入文件可以包含多个图。每个图输出一行，后跟图的名称，因此结果可以直接交给其他文本工具处理。若未指定文件，**gc** 从标准输入读取。
 
-Clusters are subgraphs whose name begins with **cluster**, the same convention **dot** uses when drawing boxed groups.
+簇是名称以 **cluster** 开头的子图，与 **dot** 绘制分组框时使用的约定相同。
 
 # PARAMETERS
 
 **-n**
-> Count nodes.
+> 统计节点。
 
 **-e**
-> Count edges.
+> 统计边。
 
 **-c**
-> Count connected components.
+> 统计连通分量。
 
 **-C**
-> Count clusters (subgraphs whose name starts with **cluster**).
+> 统计簇（名称以 **cluster** 开头的子图）。
 
 **-a**
-> Count all of the above; equivalent to **-encC**.
+> 统计以上全部；等价于 **-encC**。
 
 **-r**
-> Recurse into subgraphs, reporting counts for each.
+> 递归进入子图，报告各自的数量。
 
 **-s**
-> Silent: suppress output and only set the exit status.
+> 静默模式：抑制输出，仅设置退出状态码。
 
 **-D**
-> Only process directed graphs.
+> 仅处理有向图。
 
 **-U**
-> Only process undirected graphs.
+> 仅处理无向图。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-?**
-> Print usage information.
+> 打印用法信息。
 
 # CAVEATS
 
-Input must be valid **DOT** format; malformed graphs cause errors rather than counts. For directed graphs, the components counted are weakly connected components. **-D** and **-U** skip graphs of the wrong kind, so a filtered run may print nothing at all.
+输入必须是有效的 **DOT** 格式；格式错误的图会报错而不是给出计数。对有向图而言，统计的是弱连通分量。**-D** 和 **-U** 会跳过类型不符的图，因此过滤后的运行可能什么也不输出。
 
-This command is unrelated to garbage collection. In PowerShell, **gc** is an alias for **Get-Content**, and some version control wrappers alias it to a commit shortcut, so check what is on your **PATH** before assuming.
+此命令与垃圾回收无关。在 PowerShell 中，**gc** 是 **Get-Content** 的别名；某些版本控制封装工具也把它别名为提交快捷方式，所以请先确认 **PATH** 上实际是什么程序。
 
 # HISTORY
 
-**gc** is part of the **Graphviz** suite, developed at **AT&T Labs Research** starting in the early **1990s** by **Stephen North**, **Eleftherios Koutsofios**, **Emden Gansner** and others. Graphviz was open-sourced in **2004** and remains actively maintained.
+**gc** 属于 **Graphviz** 套件，由 **Stephen North**、**Eleftherios Koutsofios**、**Emden Gansner** 等人自 **20 世纪 90 年代初**起在 **AT&T Labs Research** 开发。Graphviz 于 **2004 年**开源，至今仍在积极维护。
 
 # INSTALL
 

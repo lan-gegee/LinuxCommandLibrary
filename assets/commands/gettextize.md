@@ -1,26 +1,26 @@
 # TAGLINE
 
-gettext infrastructure initialization tool
+gettext 基础设施初始化工具
 
 # TLDR
 
-**Initialize gettext** infrastructure in current project
+在当前项目中**初始化 gettext** 基础设施
 
 ```gettextize```
 
-**Copy files** instead of creating symlinks
+以复制文件的方式代替创建符号链接
 
 ```gettextize --copy```
 
-**Force overwrite** of existing files
+**强制覆盖**现有文件
 
 ```gettextize -f```
 
-**Dry run** to see what would be done without making changes
+**演练模式**：查看将进行的操作但不实际更改
 
 ```gettextize -n```
 
-**Specify a PO directory** with existing translations
+**指定 PO 目录**（含现有翻译）
 
 ```gettextize --po-dir=[po]```
 
@@ -31,47 +31,47 @@ gettext infrastructure initialization tool
 # PARAMETERS
 
 _DIRECTORY_
-> Project directory (default: current).
+> 项目目录（默认：当前目录）。
 
 **-f, --force**
-> Force writing of new files even if old ones exist.
+> 即使旧文件存在也强制写入新文件。
 
 **--copy**
-> Copy files instead of symlinking (default behavior).
+> 复制文件而非建立符号链接（默认行为）。
 
 **--symlink**
-> Make symbolic links instead of copying files.
+> 建立符号链接而非复制文件。
 
 **-n, --dry-run**
-> Print modifications but don't perform them.
+> 打印将要做的修改但不执行。
 
 **--no-changelog**
-> Don't update or create ChangeLog files.
+> 不更新或创建 ChangeLog 文件。
 
 **--po-dir**=_DIR_
-> Specify directory containing PO files. Can be given multiple times.
+> 指定包含 PO 文件的目录。可多次给出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gettextize** prepares a source package for internationalization. It adds necessary gettext infrastructure files, autoconf macros, and directory structure.
+**gettextize** 为源代码包做国际化准备。它会添加必要的 gettext 基础设施文件、autoconf 宏和目录结构。
 
-The tool creates po/ directory, adds m4 macros, and updates build system configuration. It sets up the framework for adding translations to a project.
+该工具会创建 po/ 目录、添加 m4 宏并更新构建系统配置。它为项目添加翻译搭建好框架。
 
-gettextize is the first step in internationalizing an autotools-based project.
+gettextize 是国际化基于 autotools 的项目的第一步。
 
 # CAVEATS
 
-Modifies build system files. May require manual adjustments. Best for autotools projects.
+会修改构建系统文件。可能需要手动调整。最适合 autotools 项目。
 
 # HISTORY
 
-gettextize is part of **GNU gettext**, providing project initialization for the gettext internationalization framework.
+gettextize 是 **GNU gettext** 的一部分，为 gettext 国际化框架提供项目初始化功能。
 
 # INSTALL
 

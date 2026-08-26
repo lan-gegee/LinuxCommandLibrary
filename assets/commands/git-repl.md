@@ -1,22 +1,22 @@
 # TAGLINE
 
-Interactive read-eval-print loop for Git
+Git 的交互式读入-求值-打印循环（REPL）
 
 # TLDR
 
-**Start git REPL**
+**启动 git REPL**
 
 ```git repl```
 
-**Run command in REPL**
+**在 REPL 中运行命令**
 
 ```status```
 
-**Show log in REPL**
+**在 REPL 中查看日志**
 
 ```log --oneline -10```
 
-**Exit REPL**
+**退出 REPL**
 
 ```exit```
 
@@ -26,17 +26,17 @@ Interactive read-eval-print loop for Git
 
 # DESCRIPTION
 
-**git repl** provides an interactive shell for Git commands. Part of git-extras, it starts a read-eval-print loop where commands can be entered without the "git" prefix; input starting with `!` runs as a raw shell command instead, and `ls` is mapped to `git ls-files`.
+**git repl** 为 Git 命令提供一个交互式 Shell。它属于 git-extras，会启动一个读入-求值-打印循环，输入命令时无需带 "git" 前缀；以 `!` 开头的输入会作为原始 shell 命令执行，而 `ls` 被映射为 `git ls-files`。
 
-The REPL simplifies exploratory Git sessions by reducing typing. Command history (via readline) is available across the session. Exit with "exit", "quit", or Ctrl-D.
+这个 REPL 减少了敲键次数，让探索式的 Git 会话更加轻松。整个会话期间可以使用命令历史（通过 readline）。输入 "exit"、"quit" 或按 Ctrl-D 退出。
 
 # CAVEATS
 
-Part of git-extras package. Commands run without "git" prefix. Shell features limited.
+属于 git-extras 软件包。命令运行时不带 "git" 前缀。Shell 特性有限。
 
 # HISTORY
 
-git repl is part of **git-extras**, providing an interactive environment for frequent git users.
+git repl 是 **git-extras** 的一部分，为高频 Git 用户提供了一个交互式环境。
 
 # INSTALL
 

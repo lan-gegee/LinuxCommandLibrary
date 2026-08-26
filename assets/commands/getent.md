@@ -1,26 +1,26 @@
 # TAGLINE
 
-Name Service Switch database query tool
+Name Service Switch 数据库查询工具
 
 # TLDR
 
-Look up a **passwd** entry by UID
+按 UID 查找 **passwd** 条目
 
 ```getent passwd [1000]```
 
-List every entry in the **group** database
+列出 **group** 数据库中的所有条目
 
 ```getent group```
 
-Show members of one **group name**
+显示某个**组名**的成员
 
 ```getent group [group_name]```
 
-Resolve a hostname via **hosts** (NSS)
+通过 **hosts**（NSS）解析主机名
 
 ```getent hosts [hostname]```
 
-List known **services** from the services database
+列出 services 数据库中已知的**服务**
 
 ```getent services```
 
@@ -31,49 +31,49 @@ List known **services** from the services database
 # PARAMETERS
 
 **passwd**
-> User account database (/etc/passwd and NSS sources)
+> 用户账户数据库（/etc/passwd 及 NSS 来源）
 
 **group**
-> Group database (/etc/group and NSS sources)
+> 组数据库（/etc/group 及 NSS 来源）
 
 **hosts**
-> Hostname/IP resolution (like /etc/hosts, DNS)
+> 主机名/IP 解析（如 /etc/hosts、DNS）
 
 **services**
-> Network services (/etc/services)
+> 网络服务（/etc/services）
 
 **protocols**
-> Network protocols (/etc/protocols)
+> 网络协议（/etc/protocols）
 
 **networks**
-> Network names and addresses
+> 网络名称与地址
 
 **shadow**
-> Shadow password entries (requires root)
+> 影子密码条目（需要 root 权限）
 
 **aliases**
-> Mail aliases
+> 邮件别名
 
 # CONFIGURATION
 
 **/etc/nsswitch.conf**
-> Name Service Switch configuration determining which sources to query for each database type.
+> Name Service Switch 配置，决定每种数据库类型查询哪些来源。
 
 # DESCRIPTION
 
-**getent** queries entries from administrative databases configured in the Name Service Switch (NSS), including local files, LDAP, NIS, and other sources. It provides a unified interface to look up users, groups, hosts, and other system information regardless of where the data is stored.
+**getent** 从 Name Service Switch（NSS）配置的管理数据库中查询条目，这些数据库包括本地文件、LDAP、NIS 和其他来源。它提供一个统一接口来查找用户、组、主机和其他系统信息，而无需关心数据实际存储在哪里。
 
-Unlike directly reading files like /etc/passwd, getent returns results from all configured NSS sources, making it essential for systems using centralized authentication (LDAP, Active Directory, etc.).
+与直接读取 /etc/passwd 等文件不同，getent 会返回所有已配置 NSS 来源的结果，因此对使用集中式认证（LDAP、Active Directory 等）的系统至关重要。
 
-Without a key, getent lists all entries in the database. With a key, it returns only matching entries.
+不带键时，getent 列出数据库中的所有条目；带键时，只返回匹配的条目。
 
 # CAVEATS
 
-The shadow database requires root privileges. Some databases may not support enumeration (listing all entries). Results depend on NSS configuration in /etc/nsswitch.conf.
+shadow 数据库需要 root 权限。某些数据库可能不支持枚举（列出所有条目）。结果取决于 /etc/nsswitch.conf 中的 NSS 配置。
 
 # HISTORY
 
-getent has been part of the GNU C Library (glibc) since the implementation of the Name Service Switch in the early 1990s, providing a standard way to query system databases that may come from multiple sources.
+自 20 世纪 90 年代初实现 Name Service Switch 以来，getent 一直是 GNU C Library（glibc）的一部分，为查询可能来自多个来源的系统数据库提供了标准方式。
 
 # INSTALL
 

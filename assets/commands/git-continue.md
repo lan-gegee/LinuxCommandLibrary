@@ -1,10 +1,10 @@
 # TAGLINE
 
-Resume the in-progress rebase, merge, cherry-pick, or revert
+继续进行中的变基、合并、拣选或还原操作
 
 # TLDR
 
-**Continue whichever operation is currently paused**
+**继续当前暂停的任何操作**
 
 ```git continue```
 
@@ -14,19 +14,19 @@ Resume the in-progress rebase, merge, cherry-pick, or revert
 
 # DESCRIPTION
 
-**git continue** is a **git-extras** command that resumes whichever operation Git currently has paused, without you needing to remember or look up the exact command.
+**git continue** 是一个 **git-extras** 命令，用于恢复 Git 当前暂停的操作，无需记住或查找具体的命令。
 
-It checks the repository's git-dir for the state files Git leaves behind mid-operation (**CHERRY_PICK_HEAD**, **MERGE_HEAD**, **REBASE_HEAD**, **REVERT_HEAD**) to work out whether a cherry-pick, merge, rebase, or revert is in progress, then runs the matching **--continue** for it, e.g. **git rebase --continue**.
+它会检查仓库 git-dir 中 Git 在操作中途留下的状态文件（**CHERRY_PICK_HEAD**、**MERGE_HEAD**、**REBASE_HEAD**、**REVERT_HEAD**），判断当前是 cherry-pick、merge、rebase 还是 revert 进行中，然后执行对应的 **--continue**，例如 **git rebase --continue**。
 
-The same script also implements **git-abort** (installed as a second name pointing at the same file): it picks its behavior by inspecting its own invoked name, running **--abort** instead of **--continue** for whichever operation is detected.
+同一个脚本还实现了 **git-abort**（作为指向同一文件的另一个名字安装）：它根据自身被调用的名称决定行为，对检测到的操作执行 **--abort** 而非 **--continue**。
 
 # CAVEATS
 
-Errors out with "No active operation found" if nothing is paused, and lists all of them if it somehow detects more than one. Conflicts must still be resolved and staged yourself before continuing; this command only saves you from typing the operation-specific continue command. Requires **git-extras** to be installed.
+如果没有暂停的操作，会报错 "No active operation found"；如果检测到多个操作，则会把它们全部列出。冲突仍需你自己解决并暂存后才能继续；该命令只是省去了输入特定操作的 continue 命令。需要安装 **git-extras**。
 
 # HISTORY
 
-git continue is part of **git-extras**, the community-maintained collection of Git utility scripts.
+git continue 是社区维护的 Git 实用脚本合集 **git-extras** 的一部分。
 
 # INSTALL
 

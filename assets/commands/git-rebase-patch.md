@@ -1,10 +1,10 @@
 # TAGLINE
 
-Rebase with patch application
+通过应用补丁进行变基
 
 # TLDR
 
-**Rebase and apply patch**
+**变基并应用补丁**
 
 ```git rebase-patch [patch_file]```
 
@@ -14,13 +14,13 @@ Rebase with patch application
 
 # DESCRIPTION
 
-**git rebase-patch** finds where an old patch file still applies and replays it onto the current HEAD. This git-extras command is for patches that no longer apply cleanly to HEAD: it walks backward through parent commits, testing the patch against each historical tree with a temporary index, until it finds one it applies to. It then manufactures a commit there and cherry-picks it forward onto the current branch.
+**git rebase-patch** 查找旧补丁文件仍能应用的位置，并将其重放到当前 HEAD 上。这个 git-extras 命令针对的是无法再干净地应用到 HEAD 的补丁：它会沿父提交逐个向前回溯，用临时索引在每个历史树测试该补丁，直到找到一个可以应用的提交。随后它在该处构造一个提交，并通过 cherry-pick 将其带到当前分支上。
 
-This is useful for reviving an old, bit-rotted patch without manually figuring out which commit it was written against.
+这适用于恢复一个因代码演进而过时的旧补丁，而无需手动查明它当初是基于哪个提交编写的。
 
 # CAVEATS
 
-Part of git-extras package. Only searches back along the first-parent chain from HEAD; if the patch was based on a commit outside that chain, it will not be found.
+属于 git-extras 软件包。只沿 HEAD 的 first-parent 链向后搜索；如果补丁基于该链之外的提交，将无法找到。
 
 # INSTALL
 

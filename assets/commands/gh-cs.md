@@ -1,34 +1,34 @@
 # TAGLINE
 
-shorthand for codespaces management
+codespaces 管理的简写别名
 
 # TLDR
 
-**Create a codespace for a repository**
+**为仓库创建 codespace**
 
 ```gh cs create -R [owner/repo]```
 
-**List codespaces**
+**列出 codespaces**
 
 ```gh cs list```
 
-**Connect to codespace via SSH**
+**通过 SSH 连接到 codespace**
 
 ```gh cs ssh -c [codespace-name]```
 
-**Open codespace in VS Code**
+**在 VS Code 中打开 codespace**
 
 ```gh cs code```
 
-**Stop a running codespace**
+**停止运行中的 codespace**
 
 ```gh cs stop -c [codespace-name]```
 
-**Delete a codespace**
+**删除 codespace**
 
 ```gh cs delete -c [codespace-name]```
 
-**Copy files from codespace to local machine**
+**将文件从 codespace 复制到本地机器**
 
 ```gh cs cp remote:[/path/to/file] [local/path]```
 
@@ -39,66 +39,66 @@ shorthand for codespaces management
 # PARAMETERS
 
 **create**
-> Create a new codespace.
+> 创建新的 codespace。
 
 **list**
-> List available codespaces.
+> 列出可用的 codespaces。
 
 **ssh**
-> SSH into a codespace.
+> 通过 SSH 连入 codespace。
 
 **code**
-> Open codespace in Visual Studio Code.
+> 在 Visual Studio Code 中打开 codespace。
 
 **stop**
-> Stop a running codespace.
+> 停止运行中的 codespace。
 
 **delete**
-> Delete codespaces.
+> 删除 codespaces。
 
 **ports**
-> List and manage port forwarding.
+> 列出并管理端口转发。
 
 **cp**
-> Copy files between local and remote file systems.
+> 在本地与远程文件系统之间复制文件。
 
 **logs**
-> Access codespace logs.
+> 查看 codespace 日志。
 
 **rebuild**
-> Rebuild a codespace.
+> 重建 codespace。
 
 **view**
-> View details about a codespace.
+> 查看某个 codespace 的详细信息。
 
 **jupyter**
-> Open a codespace in JupyterLab.
+> 在 JupyterLab 中打开 codespace。
 
 **edit**
-> Edit a codespace.
+> 编辑 codespace。
 
 **-c** _CODESPACE_, **--codespace** _CODESPACE_
-> Target codespace name. If omitted, a list is displayed for selection.
+> 目标 codespace 名称。若省略，则显示列表供选择。
 
 **-R** _REPO_, **--repo** _REPO_
-> Repository for new codespace.
+> 新建 codespace 所用的仓库。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh cs** is the shorthand alias for **gh codespace**, managing GitHub Codespaces from the command line. Codespaces are cloud-hosted development environments that provide a full VS Code experience with configurable compute resources.
+**gh cs** 是 **gh codespace** 的简写别名，用于在命令行中管理 GitHub Codespaces。Codespaces 是云端托管的开发环境，提供完整的 VS Code 体验，且计算资源可配置。
 
-The command enables creating, connecting, and managing codespaces without visiting github.com. It supports SSH connections for terminal access, integration with local VS Code installations, and file copying between local and remote environments.
+该命令无需访问 github.com 即可创建、连接和管理 codespaces。它支持通过 SSH 进行终端访问、与本地安装的 VS Code 集成，以及在本地与远程环境之间复制文件。
 
 # CAVEATS
 
-Requires GitHub account with Codespaces access. Usage may incur charges. Codespaces have timeout and retention limits.
+需要拥有 Codespaces 访问权限的 GitHub 账户。使用可能产生费用。Codespaces 有超时和保留期限限制。
 
 # HISTORY
 
-gh cs was added to the **GitHub CLI** to support Codespaces, GitHub's cloud development environment launched in **2020**.
+gh cs 被加入 **GitHub CLI** 以支持 Codespaces——GitHub 于 **2020 年**推出的云开发环境。
 
 # INSTALL
 

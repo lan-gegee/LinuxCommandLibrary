@@ -1,10 +1,10 @@
 # TAGLINE
 
-GNOME Minesweeper puzzle game
+GNOME 扫雷益智游戏
 
 # TLDR
 
-**Start GNOME Mines**
+**启动 GNOME Mines**
 
 ```gnome-mines```
 
@@ -15,31 +15,31 @@ GNOME Minesweeper puzzle game
 # PARAMETERS
 
 **--help**
-> Display help.
+> 显示帮助。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**GNOME Mines** is the GNOME implementation of the classic Minesweeper puzzle game. The objective is to clear a minefield without detonating any mines, using numbered clues that indicate adjacent mines.
+**GNOME Mines** 是经典扫雷益智游戏的 GNOME 实现。游戏目标是借助标示相邻地雷数量的数字提示清除雷区，且不触任何地雷。
 
-The game provides multiple difficulty levels from beginner to expert, and custom board sizes. It tracks high scores and game statistics.
+游戏提供从初级到专家的多个难度级别以及自定义棋盘尺寸。它还记录高分和游戏统计数据。
 
 # GAMEPLAY
 
-- Left-click to reveal a square
-- Right-click to flag a suspected mine
-- Numbers indicate adjacent mine count
-- Clear all non-mine squares to win
+- 左键点击翻开方格
+- 右键点击标记疑似地雷
+- 数字表示相邻地雷的数量
+- 清除所有非地雷方格即获胜
 
 # CAVEATS
 
-Requires GNOME libraries. Game state not saved between sessions. Custom sizes limited by screen space.
+需要 GNOME 库。游戏状态不在会话之间保存。自定义尺寸受屏幕空间限制。
 
 # HISTORY
 
-Minesweeper originated in the **1960s** and became famous through Microsoft Windows. GNOME Mines is part of the gnome-games collection, providing a native Linux version following GNOME design guidelines.
+扫雷起源于 **20 世纪 60 年代**，后因 Microsoft Windows 而广为人知。GNOME Mines 属于 gnome-games 游戏合集，遵循 GNOME 设计规范提供了 Linux 原生版本。
 
 # INSTALL
 

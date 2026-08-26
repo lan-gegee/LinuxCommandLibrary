@@ -1,22 +1,22 @@
 # TAGLINE
 
-PostScript/PDF to QPDL wrapper script
+PostScript/PDF 转 QPDL 包装脚本
 
 # TLDR
 
-**Print PostScript file**
+**打印 PostScript 文件**
 
 ```foo2qpdl-wrapper [file.ps]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2qpdl-wrapper -p [a4] [file.ps]```
 
-**Color printing**
+**彩色打印**
 
 ```foo2qpdl-wrapper -c [file.ps]```
 
-**Print multiple copies**
+**打印多份**
 
 ```foo2qpdl-wrapper -n [3] [file.ps]```
 
@@ -27,56 +27,56 @@ PostScript/PDF to QPDL wrapper script
 # PARAMETERS
 
 _FILES_
-> PostScript or PDF files to print.
+> 要打印的 PostScript 或 PDF 文件。
 
 **-p** _PAPER_
-> Paper size (letter, legal, a4, a5, a6, b5, etc.).
+> 纸张大小（letter、legal、a4、a5、a6、b5 等）。
 
 **-r** _XRESxYRES_
-> Resolution in pixels/inch (default 1200x600).
+> 分辨率（每英寸像素数，默认 1200x600）。
 
 **-c**
-> Print in color (default is monochrome).
+> 以彩色打印（默认为单色）。
 
 **-n** _COPIES_
-> Number of copies (default 1).
+> 打印份数（默认 1）。
 
 **-m** _MEDIA_
-> Media type code (0=plain, 1=thick, 2=thin, 3=bond, 4=color, 5=card, 6=labels, 7=envelope).
+> 介质类型代码（0=普通纸，1=厚纸，2=薄纸，3=胶版纸，4=彩纸，5=卡片纸，6=标签纸，7=信封）。
 
 **-s** _SOURCE_
-> Input slot (1=auto, 2=manual, 3=multi, 4=tray1; default 255).
+> 输入纸槽（1=自动，2=手动，3=多页，4=tray1；默认 255）。
 
 **-d** _DUPLEX_
-> Duplex mode (1=off, 2=long edge, 3=short edge; default 1).
+> 双面打印模式（1=关闭，2=长边，3=短边；默认 1）。
 
 **-t**
-> Draft mode. Every other pixel is white.
+> 草稿模式。隔一个像素输出一个白色像素。
 
 **-z** _MODEL_
-> Printer model (0=CLP-300, 1=CLP-600, 2=CLP-310, 3=CLP-620).
+> 打印机型号（0=CLP-300，1=CLP-600，2=CLP-310，3=CLP-620）。
 
 **-D** _LEVEL_
-> Set debug level (default 0).
+> 设置调试级别（默认 0）。
 
 **-g** _GSOPTS_
-> Additional options to pass to Ghostscript.
+> 传给 Ghostscript 的额外选项。
 
 # DESCRIPTION
 
-**foo2qpdl-wrapper** converts PostScript/PDF documents to QPDL format for Samsung and Xerox laser printers. It chains Ghostscript rasterization with foo2qpdl encoding.
+**foo2qpdl-wrapper** 将 PostScript/PDF 文档转换为 Samsung 和 Xerox 激光打印机所需的 QPDL 格式。它将 Ghostscript 栅格化与 foo2qpdl 编码串联起来。
 
-The wrapper provides a simplified printing interface, handling the conversion pipeline automatically. It translates common print options to the underlying tools.
+该包装器提供简化的打印接口，自动处理转换流水线。它将常见打印选项转换为底层工具所需的参数。
 
-foo2qpdl-wrapper enables command-line printing to QPDL protocol printers.
+foo2qpdl-wrapper 支持以命令行向 QPDL 协议打印机打印文档。
 
 # CAVEATS
 
-Requires Ghostscript. Only for QPDL-compatible printers. Color quality varies by model.
+需要 Ghostscript。仅适用于兼容 QPDL 的打印机。色彩质量因型号而异。
 
 # HISTORY
 
-foo2qpdl-wrapper is part of the **foo2zjs** driver collection, simplifying document printing for Samsung printers using the QPDL protocol.
+foo2qpdl-wrapper 是 **foo2zjs** 驱动集合的一部分，简化了向使用 QPDL 协议的 Samsung 打印机打印文档的流程。
 
 # INSTALL
 

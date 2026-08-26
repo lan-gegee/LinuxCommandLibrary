@@ -1,18 +1,18 @@
 # TAGLINE
 
-low-level firmware manipulation tool
+底层固件操作工具
 
 # TLDR
 
-Display all **devices detected** by fwupd
+显示 fwupd 检测到的所有**设备**
 
 ```fwupdtool get-devices```
 
-**Install** firmware from a file
+**从文件安装**固件
 
 ```fwupdtool install [path/to/firmware]```
 
-Display **help**
+显示**帮助**
 
 ```fwupdtool -h```
 
@@ -23,42 +23,42 @@ Display **help**
 # PARAMETERS
 
 **get-devices**
-> List all devices detected by fwupd
+> 列出 fwupd 检测到的所有设备
 
 **install** _FILE_
-> Install firmware from a local cabinet (.cab) file
+> 从本地 cabinet（.cab）文件安装固件
 
 **get-details** _FILE_
-> Show details about a firmware file
+> 显示固件文件的详细信息
 
 **verify** _DEVICE_
-> Verify firmware on a device
+> 校验设备上的固件
 
 **firmware-parse** _FILE_
-> Parse and display firmware file structure
+> 解析并显示固件文件结构
 
 **firmware-convert** _FILE_
-> Convert firmware to different format
+> 将固件转换为其他格式
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-v**, **--verbose**
-> Enable verbose output
+> 启用详细输出
 
 # DESCRIPTION
 
-**fwupdtool** is a low-level firmware manipulation tool that works alongside fwupd. Unlike **fwupdmgr** which handles automated updates from LVFS, fwupdtool allows manual firmware operations including installing local firmware files, parsing firmware archives, and device verification.
+**fwupdtool** 是与 fwupd 配套的底层固件操作工具。与处理 LVFS 自动更新的 **fwupdmgr** 不同，fwupdtool 支持手动固件操作，包括安装本地固件文件、解析固件归档和设备校验。
 
-This tool is primarily used for debugging, development, and situations where firmware must be installed manually from a vendor-provided file rather than through the LVFS repository.
+该工具主要用于调试、开发，以及必须从厂商提供的文件手动安装固件而非通过 LVFS 软件仓库的场景。
 
 # CAVEATS
 
-Manual firmware installation bypasses LVFS signature verification. Only install firmware from trusted sources. Incorrect firmware can brick devices. Most users should prefer **fwupdmgr** for routine updates.
+手动安装固件会绕过 LVFS 签名校验。只应安装来自可信来源的固件。错误的固件可能使设备变砖。日常更新大多数用户应优先使用 **fwupdmgr**。
 
 # HISTORY
 
-fwupdtool is part of the fwupd project, created by Richard Hughes in **2015**. It serves as the development and debugging companion to the main fwupdmgr tool.
+fwupdtool 属于 fwupd 项目，由 Richard Hughes 于 **2015 年**创建。它是主工具 fwupdmgr 的开发与调试配套工具。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-fast Wayland terminal emulator
+快速的 Wayland 终端模拟器
 
 # TLDR
 
-**Spawn** a terminal
+**启动**一个终端
 
 ```foot```
 
-**Verify** your config
+**校验**配置文件
 
 ```foot -C```
 
-Start the **server** (use footclient to start terminal windows)
+启动**服务器**（用 footclient 启动终端窗口）
 
 ```foot -s```
 
-Display **help**
+显示**帮助**
 
 ```foot -h```
 
-Display **version**
+显示**版本**
 
 ```foot -v```
 
@@ -31,61 +31,61 @@ Display **version**
 # PARAMETERS
 
 **-c**, **--config=**_FILE_
-> Use configuration file _FILE_ instead of the default
+> 使用配置文件 _FILE_ 而非默认文件
 
 **-C**, **--check-config**
-> Verify configuration file and exit
+> 校验配置文件并退出
 
 **-s**, **--server**
-> Run as a server; use footclient to spawn terminals
+> 以服务器模式运行；用 footclient 启动终端
 
 **-t**, **--term=**_TERM_
-> Set TERM environment variable value
+> 设置 TERM 环境变量的值
 
 **-T**, **--title=**_TITLE_
-> Set initial window title
+> 设置初始窗口标题
 
 **-a**, **--app-id=**_ID_
-> Set Wayland app-id
+> 设置 Wayland app-id
 
 **-w**, **--window-size-pixels=**_WxH_
-> Set initial window size in pixels
+> 设置初始窗口大小（像素）
 
 **-W**, **--window-size-chars=**_COLSxROWS_
-> Set initial window size in characters
+> 设置初始窗口大小（字符）
 
 **-f**, **--font=**_FONT_
-> Override font from config
+> 覆盖配置中的字体设置
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息
 
 **-v**, **--version**
-> Display version information
+> 显示版本信息
 
 # DESCRIPTION
 
-**foot** is a fast, lightweight, and minimalistic terminal emulator designed for Wayland compositors. It emphasizes speed, low memory footprint, and simplicity while providing modern features.
+**foot** 是一个为 Wayland 合成器设计的快速、轻量、极简的终端模拟器。它强调速度、低内存占用和简洁性，同时提供现代特性。
 
-Key features include sixel image support, synchronized rendering to prevent tearing, font ligatures, scrollback search, and URL detection. It can run in server mode where a single daemon handles multiple terminal windows via **footclient**, reducing memory overhead.
+主要特性包括 sixel 图像支持、防止画面撕裂的同步渲染、字体连字、回滚搜索以及 URL 检测。它可以以服务器模式运行：单个守护进程通过 **footclient** 管理多个终端窗口，从而降低内存开销。
 
-Configuration is done through **~/.config/foot/foot.ini** with extensive customization options for colors, fonts, keybindings, and behavior.
+配置通过 **~/.config/foot/foot.ini** 完成，可为颜色、字体、按键绑定和行为提供大量自定义选项。
 
 # CONFIGURATION
 
 **~/.config/foot/foot.ini**
-> Main configuration file for colors, fonts, keybindings, scrollback, and terminal behavior.
+> 主配置文件，涵盖颜色、字体、按键绑定、回滚及终端行为。
 
 **~/.config/foot/colors.ini**
-> Optional separate color scheme configuration that can be included from foot.ini.
+> 可选的独立配色方案配置，可从 foot.ini 中包含进来。
 
 # CAVEATS
 
-foot is Wayland-only and does not support X11. Some applications expecting xterm-specific behavior may not work correctly. Server mode requires footclient for spawning additional terminals.
+foot 仅支持 Wayland，不支持 X11。某些依赖 xterm 特定行为的应用可能无法正常工作。服务器模式下需要用 footclient 来启动额外的终端。
 
 # HISTORY
 
-foot was created by Daniel Eklof and first released in **2020**. It was designed from the ground up for Wayland, avoiding the legacy baggage of X11 terminal emulators while achieving exceptional performance.
+foot 由 Daniel Eklof 开发，于 **2020** 年首次发布。它从零开始专为 Wayland 设计，避免了 X11 终端模拟器的历史包袱，同时实现了卓越的性能。
 
 # INSTALL
 

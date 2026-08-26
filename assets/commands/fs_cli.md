@@ -1,38 +1,38 @@
 # TAGLINE
 
-FreeSWITCH command-line interface
+FreeSWITCH 命令行界面
 
 # TLDR
 
-Connect to the **local FreeSWITCH** instance with an interactive session
+以交互会话连接到**本地 FreeSWITCH** 实例
 
 ```fs_cli```
 
-Connect to a **remote FreeSWITCH** server
+连接到**远程 FreeSWITCH** 服务器
 
 ```fs_cli -H [host] -P [port] -p [password]```
 
-Execute a **single command** and exit
+执行**单条命令**后退出
 
 ```fs_cli -x "[command]"```
 
-Show FreeSWITCH **system status**
+显示 FreeSWITCH **系统状态**
 
 ```fs_cli -x "status"```
 
-**Reload** FreeSWITCH XML configuration
+**重载** FreeSWITCH XML 配置
 
 ```fs_cli -x "reloadxml"```
 
-Check if a **module is loaded**
+检查某个**模块是否已加载**
 
 ```fs_cli -x "module_exists [module_name]"```
 
-Show **active calls**
+显示**当前通话**
 
 ```fs_cli -x "show calls"```
 
-**Retry** connection on failure
+连接失败时**重试**
 
 ```fs_cli -r```
 
@@ -43,49 +43,49 @@ Show **active calls**
 # PARAMETERS
 
 **-H**, **--host** _HOST_
-> Connect to remote FreeSWITCH server at _HOST_
+> 连接到位于 _HOST_ 的远程 FreeSWITCH 服务器。
 
 **-P**, **--port** _PORT_
-> Connect to Event Socket on _PORT_ (default: 8021)
+> 连接到 _PORT_ 上的 Event Socket（默认：8021）。
 
 **-p**, **--password** _PASSWORD_
-> Event Socket password (default: ClueCon)
+> Event Socket 密码（默认：ClueCon）。
 
 **-x**, **--execute** _COMMAND_
-> Execute command and exit
+> 执行命令并退出。
 
 **-r**, **--retry**
-> Retry connection on failure
+> 连接失败时重试。
 
 **-l**, **--loglevel** _LEVEL_
-> Set log level (0-7)
+> 设置日志级别（0-7）。
 
 **-q**, **--quiet**
-> Disable logging to console
+> 禁用向控制台输出日志。
 
 **-d**, **--debug** _LEVEL_
-> Debug level (0-7)
+> 调试级别（0-7）。
 
 # CONFIGURATION
 
 **/etc/freeswitch/autoload_configs/event_socket.conf.xml**
-> Event Socket Layer configuration controlling the listen address, port, and authentication password for ESL connections.
+> Event Socket Layer 配置，控制 ESL 连接的监听地址、端口和认证密码。
 
 # DESCRIPTION
 
-**fs_cli** is the FreeSWITCH command-line interface client that connects to a running FreeSWITCH server via the Event Socket Layer (ESL). It provides interactive access to FreeSWITCH's API for managing calls, configurations, and system status.
+**fs_cli** 是 FreeSWITCH 的命令行界面客户端，通过 Event Socket Layer（ESL）连接到正在运行的 FreeSWITCH 服务器。它提供对 FreeSWITCH API 的交互式访问，用于管理通话、配置和系统状态。
 
-The tool can operate in interactive mode for real-time control or execute single commands via the **-x** option for scripting and automation. It connects to the ESL port (default 8021) using configured credentials.
+该工具可以在交互模式下实时控制，也可以通过 **-x** 选项执行单条命令以用于脚本和自动化。它使用配置的凭据连接 ESL 端口（默认 8021）。
 
-Common operations include checking call status, reloading configurations, managing channels, and monitoring system health.
+常见操作包括查看通话状态、重载配置、管理通道以及监控系统健康状况。
 
 # CAVEATS
 
-Requires the Event Socket module to be loaded and properly configured in FreeSWITCH. Default password "ClueCon" should be changed in production. Network access to ESL port must be properly secured.
+需要在 FreeSWITCH 中加载并正确配置 Event Socket 模块。生产环境中应修改默认密码 "ClueCon"。必须妥善保护 ESL 端口的网络访问。
 
 # HISTORY
 
-fs_cli is part of the FreeSWITCH project, an open-source communications platform started in **2006** by Anthony Minessale II. It was created as a modern, scalable alternative to Asterisk for building telephony applications.
+fs_cli 是 FreeSWITCH 项目的一部分。FreeSWITCH 是由 Anthony Minessale II 于 **2006** 年发起的开源通信平台，旨在作为构建电话应用的现代化、可扩展的 Asterisk 替代方案。
 
 # INSTALL
 

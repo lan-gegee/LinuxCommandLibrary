@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNU D Compiler for the D programming language
+D 编程语言的 GNU D 编译器
 
 # TLDR
 
-**Compile D file**
+**编译 D 文件**
 
 ```gdc [source.d] -o [output]```
 
-**Compile with optimization**
+**开启优化编译**
 
 ```gdc -O2 [source.d] -o [output]```
 
-**Enable debug info**
+**启用调试信息**
 
 ```gdc -g [source.d] -o [output]```
 
-**Compile only**
+**仅编译**
 
 ```gdc -c [source.d]```
 
-**Link with library**
+**链接库**
 
 ```gdc [source.d] -l[library] -o [output]```
 
@@ -31,46 +31,46 @@ GNU D Compiler for the D programming language
 # PARAMETERS
 
 _FILES_
-> D source files to compile.
+> 要编译的 D 源文件。
 
 **-o** _FILE_
-> Output filename.
+> 输出文件名。
 
 **-c**
-> Compile only, no linking.
+> 仅编译，不链接。
 
 **-g**
-> Generate debug information.
+> 生成调试信息。
 
 **-O** _LEVEL_
-> Optimization level (0-3).
+> 优化级别（0-3）。
 
 **-I** _PATH_
-> Import path.
+> 导入路径。
 
 **-L** _FLAG_
-> Linker flag.
+> 链接器标志。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gdc** is the GNU D Compiler, providing a D programming language frontend for the GCC (GNU Compiler Collection) backend. It compiles D source code to native machine code using GCC's proven optimization infrastructure and code generation capabilities.
+**gdc** 是 GNU D 编译器，为 GCC（GNU 编译器套件）后端提供 D 编程语言前端。它借助 GCC 成熟的优化基础设施和代码生成能力，将 D 源代码编译为原生机器码。
 
-The compiler supports the D2 language specification, including modern features like compile-time function execution (CTFE), mixins, templates, and garbage collection. As a GCC frontend, gdc integrates seamlessly with the GNU toolchain, accepting familiar GCC flags for optimization levels, debugging, linking, and cross-compilation.
+该编译器支持 D2 语言规范，包括编译期函数执行（CTFE）、mixin、模板和垃圾回收等现代特性。作为 GCC 前端，gdc 与 GNU 工具链无缝集成，接受熟悉的 GCC 标志来控制优化级别、调试、链接和交叉编译。
 
-gdc benefits from GCC's extensive platform support, making D code portable across architectures that GCC supports. It leverages GCC's mature optimization passes, often producing highly efficient native code. The compiler can interoperate with C and C++ code through D's foreign function interface capabilities.
+gdc 受益于 GCC 广泛的平台支持，使 D 代码可以移植到 GCC 支持的各种架构上。它利用 GCC 成熟的优化过程，通常能生成高效的原生代码。该编译器还可以通过 D 的外部函数接口能力与 C 和 C++ 代码互操作。
 
-While the reference D compiler (DMD) typically implements new language features first, gdc provides broader platform support and benefits from GCC's optimization technology. It's a solid choice for D development when maximum portability, GCC ecosystem integration, or specific optimization characteristics are priorities.
+虽然参考实现 DMD 编译器通常率先实现新的语言特性，但 gdc 提供了更广泛的平台支持，并受益于 GCC 的优化技术。当优先考虑最大可移植性、GCC 生态集成或特定的优化特性时，它是 D 开发的可靠选择。
 
 # CAVEATS
 
-May lag behind reference DMD compiler. Some D features may differ. GCC version dependencies.
+可能落后于参考的 DMD 编译器。某些 D 特性可能存在差异。存在 GCC 版本依赖。
 
 # HISTORY
 
-gdc was developed to bring the D programming language to GCC, providing an alternative to the reference DMD compiler with broader platform support.
+gdc 的开发目的是将 D 编程语言引入 GCC，作为参考 DMD 编译器之外提供更广泛平台支持的选择。
 
 # INSTALL
 

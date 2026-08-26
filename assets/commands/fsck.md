@@ -1,30 +1,30 @@
 # TAGLINE
 
-filesystem check and repair utility
+文件系统检查与修复工具
 
 # TLDR
 
-**Check** filesystem
+**检查**文件系统
 
 ```sudo fsck /dev/sdXN```
 
-Check and **report** statistics upon completion
+检查并在完成后**报告**统计信息
 
 ```sudo fsck -r /dev/sdXN```
 
-**Automatically** repair without prompting
+**自动**修复而不提示
 
 ```sudo fsck -a /dev/sdXN```
 
-Check **all** filesystems from /etc/fstab
+检查 /etc/fstab 中的**所有**文件系统
 
 ```sudo fsck -A```
 
-**Force** check even if clean
+即使状态干净也**强制**检查
 
 ```sudo fsck -f /dev/sdXN```
 
-Show **progress**
+显示**进度**
 
 ```sudo fsck -C /dev/sdXN```
 
@@ -34,70 +34,70 @@ Show **progress**
 
 # DESCRIPTION
 
-**fsck** checks and repairs Linux filesystems. It is a front-end that calls filesystem-specific checking utilities (fsck.ext4, fsck.xfs, etc.). The filesystem should be unmounted when running fsck.
+**fsck** 用于检查和修复 Linux 文件系统。它是一个前端，会调用针对特定文件系统的检查工具（fsck.ext4、fsck.xfs 等）。运行 fsck 时应先卸载文件系统。
 
 # PARAMETERS
 
 **-a**
-> Automatically repair without prompting
+> 自动修复而不提示。
 
 **-A**
-> Check all filesystems listed in /etc/fstab
+> 检查 /etc/fstab 中列出的所有文件系统。
 
 **-C [FD]**
-> Show progress bar
+> 显示进度条。
 
 **-f**
-> Force check even if filesystem seems clean
+> 即使文件系统看似干净也强制检查。
 
 **-M**
-> Do not check mounted filesystems
+> 不检查已挂载的文件系统。
 
 **-N**
-> Dry run - show what would be done
+> 试运行 —— 只显示将执行的操作。
 
 **-P**
-> Check filesystems in parallel (with -A)
+> 并行检查文件系统（配合 -A）。
 
 **-R**
-> Skip root filesystem (with -A)
+> 跳过根文件系统（配合 -A）。
 
 **-r** _[fd]_
-> Report statistics for each fsck upon completion (exit status, time, memory)
+> 每个文件系统检查完成后输出统计信息（退出状态、耗时、内存）。
 
 **-l**
-> Lock the whole-disk device with an exclusive flock. Can only be used with one device (mutually exclusive with -A).
+> 用独占 flock 锁定整盘设备。只能用于单个设备（与 -A 互斥）。
 
 **-s**
-> Serialize fsck operations
+> 串行化 fsck 操作。
 
 **-T**
-> Do not show title on startup
+> 启动时不显示标题。
 
 **-t TYPE**
-> Specify filesystem type
+> 指定文件系统类型。
 
 **-V**
-> Verbose output
+> 详细输出。
 
 **-y**
-> Answer "yes" to all questions
+> 对所有问题回答 "yes"。
 
 **-n**
-> Answer "no" to all questions (read-only check)
+> 对所有问题回答 "no"（只读检查）。
 
 # CONFIGURATION
 
 **/etc/fstab**
-> Defines which filesystems are checked with the -A option and in what order (pass field).
+> 定义使用 -A 选项时检查哪些文件系统以及检查顺序（pass 字段）。
 
 # CAVEATS
 
-Never run fsck on a mounted filesystem (except in read-only mode). Automatic repair (**-a** or **-y**) may cause data loss. Always backup important data before repair.
+绝不要对已挂载的文件系统运行 fsck（只读模式除外）。自动修复（**-a** 或 **-y**）可能造成数据丢失。修复前务必备份重要数据。
 
 # HISTORY
 
-**fsck** is part of **util-linux**, providing a unified interface for filesystem checking across different filesystem types.
+**fsck** 是 **util-linux** 的一部分，为不同文件系统类型的检查提供统一接口。
 
 # INSTALL
 

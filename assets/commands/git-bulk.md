@@ -1,30 +1,30 @@
 # TAGLINE
 
-Execute Git commands across multiple repositories
+跨多个仓库执行 Git 命令
 
 # TLDR
 
-**Run a git command on all registered workspaces**
+**对所有已注册的工作区运行 git 命令**
 
 ```git bulk -a [git-command]```
 
-**Add a workspace from a directory**
+**从目录添加工作区**
 
 ```git bulk --addworkspace [name] [path]```
 
-**Add the current directory as a workspace**
+**将当前目录添加为工作区**
 
 ```git bulk --addcurrent [name]```
 
-**List all registered workspaces**
+**列出所有已注册的工作区**
 
 ```git bulk --listall```
 
-**Run command on a specific workspace**
+**对特定工作区运行命令**
 
 ```git bulk -w [name] [git-command]```
 
-**Run with confirmation prompt before each repository**
+**在每个仓库前弹出确认提示再运行**
 
 ```git bulk -g -a [git-command]```
 
@@ -35,36 +35,36 @@ Execute Git commands across multiple repositories
 # PARAMETERS
 
 **-a**
-> Run the git command on all registered workspaces and their repositories.
+> 对所有已注册工作区及其中的仓库运行 git 命令。
 
 **-w** _name_
-> Run the git command on the specified workspace.
+> 对指定工作区运行 git 命令。
 
 **-g**
-> Guarded mode: ask for confirmation before executing on each repository.
+> 保护模式：在每个仓库上执行前先请求确认。
 
 **--addworkspace** _name_ _path_
-> Register a workspace with a logical name and root directory path. All repositories under the root directory are included. Optionally use **--from** _url-or-file_ to clone repositories directly into the workspace.
+> 以逻辑名称和根目录路径注册一个工作区。根目录下的所有仓库都会被纳入。可选地使用 **--from** _url-or-file_ 直接将仓库克隆进工作区。
 
 **--removeworkspace** _name_
-> Remove the registered workspace with the given name.
+> 移除指定名称的已注册工作区。
 
 **--addcurrent** _name_
-> Add the current directory as a workspace.
+> 将当前目录添加为工作区。
 
 **--purge**
-> Remove all defined repository locations.
+> 移除所有已定义的仓库位置。
 
 **--listall**
-> List all registered workspaces and their paths.
+> 列出所有已注册的工作区及其路径。
 
 # DESCRIPTION
 
-**git bulk** is a git-extras utility that enables executing Git commands across multiple repositories simultaneously. It manages workspaces, which are collections of repository paths that can be organized by project, team, or any logical grouping.
+**git bulk** 是一个 git-extras 工具，可以在多个仓库上同时执行 Git 命令。它管理工作区（workspace），即可以按项目、团队或任意逻辑分组组织的仓库路径集合。
 
-The tool eliminates the need to manually navigate to each repository and run the same command repeatedly. Commands like status checks, branch updates, or pull operations can be performed across dozens of repositories in a single invocation.
+该工具免去了手动进入每个仓库重复执行相同命令的麻烦。状态检查、分支更新或拉取等操作可以在一次调用中作用于数十个仓库。
 
-Workspaces are stored in configuration, allowing you to define repository groups once and reuse them. This is invaluable for developers managing microservices, monorepo-adjacent architectures, or multiple client projects where synchronized operations are common.
+工作区保存在配置中，只需定义一次仓库分组即可反复使用。对于管理微服务、类 monorepo 架构或多个客户项目的开发者而言，同步操作十分常见，这一点尤其宝贵。
 
 # INSTALL
 
@@ -87,4 +87,3 @@ Workspaces are stored in configuration, allowing you to define repository groups
 # SEE ALSO
 
 [git-extras](/man/git-extras)(1)
-

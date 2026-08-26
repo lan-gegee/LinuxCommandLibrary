@@ -1,34 +1,34 @@
 # TAGLINE
 
-Retrieve raw EDID from a monitor via DDC
+通过 DDC 从显示器读取原始 EDID
 
 # TLDR
 
-**Fetch** raw EDID from the first found monitor (requires root)
+从第一个找到的显示器**读取**原始 EDID（需要 root 权限）
 
 ```sudo get-edid```
 
-**Fetch** EDID and **parse** it into an xorg.conf-style monitor section
+**读取** EDID 并**解析**成 xorg.conf 风格的显示器 section
 
 ```sudo get-edid | parse-edid```
 
-**Save** raw EDID to a file
+将原始 EDID **保存**到文件
 
 ```sudo get-edid > monitor.bin```
 
-**Scan only** a specific I2C bus
+**只扫描**指定的 I2C 总线
 
 ```sudo get-edid --bus 5 > monitor.bin```
 
-**Use only** the modern I2C interface
+**仅使用**现代 I2C 接口
 
 ```sudo get-edid --i2conly | parse-edid```
 
-**Use only** the older VBE/real-mode interface
+**仅使用**较旧的 VBE/实模式接口
 
 ```sudo get-edid --classiconly | parse-edid```
 
-**Quiet** mode (no progress messages on stderr)
+**安静**模式（不在 stderr 上输出进度信息）
 
 ```sudo get-edid -q > monitor.bin```
 
@@ -38,39 +38,39 @@ Retrieve raw EDID from a monitor via DDC
 
 # DESCRIPTION
 
-**get-edid** is part of the **read-edid** toolkit. It retrieves the raw Extended Display Identification Data (EDID) block from a connected monitor using the VESA Data Display Channel (DDC). It can talk to the display through Linux I2C (Enhanced DDC) or, on supported builds, through real-mode VBE DDC calls.
+**get-edid** 是 **read-edid** 工具集的一员。它使用 VESA Data Display Channel（DDC）从连接的显示器读取原始扩展显示识别数据（EDID）块。它可以通过 Linux I2C（Enhanced DDC）与显示器通信，或在受支持的构建中通过实模式 VBE DDC 调用通信。
 
-The program writes the binary EDID to standard output. Companion tool **parse-edid** reads that binary stream and prints a human-readable summary plus an **xorg.conf**-compatible Monitor section (modelines usable with **xrandr**). The usual workflow is to pipe the two together: **get-edid | parse-edid**.
+该程序将二进制 EDID 写入标准输出。配套工具 **parse-edid** 读取该二进制流并打印人类可读的摘要，外加一个与 **xorg.conf** 兼容的 Monitor section（其中的 modeline 可用于 **xrandr**）。通常的做法是把两者管道连接：**get-edid | parse-edid**。
 
-On modern systems, reading **/sys/class/drm/\*/edid** and decoding with **edid-decode** is often simpler and does not require root; **get-edid** remains useful when sysfs EDID is missing or when configuring displays from a lower-level DDC path.
+在现代系统上，读取 **/sys/class/drm/\*/edid** 并用 **edid-decode** 解码通常更简单且不需要 root 权限；当 sysfs 中缺少 EDID 或需要从更底层的 DDC 路径配置显示器时，**get-edid** 仍然有用。
 
 # PARAMETERS
 
 **-b** _BUS_, **--bus** _BUS_
-> Only scan I2C bus number _BUS_ (when built with i2c support).
+> 只扫描 I2C 总线编号 _BUS_（需在启用 i2c 支持的构建下）。
 
 **-c**, **--classiconly**
-> Use only the older VBE interface (when both i2c and VBE are available).
+> 仅使用较旧的 VBE 接口（当 i2c 和 VBE 都可用时）。
 
 **-h**, **--help**
-> Display a short help message and list build-supported options.
+> 显示简短帮助信息并列出当前构建支持的选项。
 
 **-i**, **--i2conly**
-> Use only the I2C interface (when both i2c and VBE are available).
+> 仅使用 I2C 接口（当 i2c 和 VBE 都可用时）。
 
 **-m** _NUM_, **--monitor** _NUM_
-> Request information for monitor number _NUM_ (VBE interface only).
+> 请求第 _NUM_ 号显示器的信息（仅限 VBE 接口）。
 
 **-q**, **--quiet**
-> Suppress status messages on standard error.
+> 抑制标准错误上的状态消息。
 
 # CAVEATS
 
-Usually needs root (or CAP_SYS_RAWIO / access to the relevant **/dev/i2c-*** devices). Not all video cards and monitors implement DDC reliably; some combinations return partial or empty data. Multi-monitor setups may require **--bus** or **--monitor** to select the right display. Prefer **edid-decode** on **/sys/class/drm/\*/edid** when kernel DRM exposes EDID for the connector.
+通常需要 root 权限（或 CAP_SYS_RAWIO / 访问相应的 **/dev/i2c-*** 设备）。并非所有显卡和显示器都可靠地实现了 DDC；某些组合会返回部分数据或空数据。多显示器环境可能需要 **--bus** 或 **--monitor** 来选择正确的显示器。当内核 DRM 为连接器暴露 EDID 时，优先使用 **edid-decode** 解析 **/sys/class/drm/\*/edid**。
 
 # HISTORY
 
-**read-edid** was originally written by **John Fremlin**. From version 1.4.2, **Matthew Kern** became maintainer and largely rewrote the tools for 3.0.0, adding I2C support and the current option set. Homepage: **http://www.polypux.org/projects/read-edid/**.
+**read-edid** 最初由 **John Fremlin** 编写。从版本 1.4.2 起，**Matthew Kern** 成为维护者，并在 3.0.0 版本中大幅重写了这些工具，加入 I2C 支持和当前的选项集合。主页：**http://www.polypux.org/projects/read-edid/**。
 
 # INSTALL
 

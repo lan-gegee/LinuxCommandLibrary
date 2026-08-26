@@ -1,22 +1,22 @@
 # TAGLINE
 
-spec-driven coding agent with machine-checkable proofs
+带机器可校验证明的规格驱动编码智能体
 
 # TLDR
 
-**Install** the CLI (requires a published release)
+**安装** CLI（需要已发布的 release）
 
 ```curl -fsSL https://forall.astrio.app/install.sh | bash```
 
-Check the **version**
+检查**版本**
 
 ```forall --version```
 
-**Initialize** Forall in a git repository
+在 git 仓库中**初始化** Forall
 
 ```forall init```
 
-Start the **interactive agent**
+启动**交互式智能体**
 
 ```forall```
 
@@ -26,17 +26,17 @@ Start the **interactive agent**
 
 # DESCRIPTION
 
-**forall** is a terminal coding agent from Astrio that aims to generate software from specifications together with machine-checkable proofs. It runs as an interactive CLI: after install, sign in with a Forall account API key or bring your own model key (OpenAI / OpenRouter), run **forall init** inside a git repository, and work through the agent workflow in the terminal.
+**forall** 是 Astrio 推出的终端编码智能体，目标是根据规格说明生成软件并附带机器可校验的证明。它以交互式 CLI 运行：安装后，用 Forall 账户的 API 密钥登录，或自带模型密钥（OpenAI / OpenRouter），在 git 仓库内运行 **forall init**，然后在终端中完成智能体工作流。
 
-Supported languages currently include TypeScript, Java, and Rust. For teams that prefer another editor agent, Forall also offers a verify-only MCP server (**@astrio/forall-mcp**) that reports verification results without replacing the main coding agent.
+目前支持的语言包括 TypeScript、Java 和 Rust。对于偏好其他编辑器智能体的团队，Forall 还提供仅做验证的 MCP 服务器（**@astrio/forall-mcp**），报告验证结果而不取代主编码智能体。
 
 # CAVEATS
 
-Install succeeds only when a binary is available on GitHub Releases. The agent needs network access and an API key for model inference. Proof and verification coverage depend on project language and tooling; treat generated proofs as part of a review process, not a substitute for testing.
+只有 GitHub Releases 上有可用的二进制文件时安装才会成功。该智能体需要网络访问以及用于模型推理的 API 密钥。证明与验证的覆盖程度取决于项目语言和工具链；应将生成的证明视为审查流程的一部分，而非测试的替代品。
 
 # HISTORY
 
-**forall** is developed by **Astrio Labs** and released under the Apache-2.0 license.
+**forall** 由 **Astrio Labs** 开发，以 Apache-2.0 许可证发布。
 
 # SEE ALSO
 

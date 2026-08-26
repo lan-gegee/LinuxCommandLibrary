@@ -1,34 +1,34 @@
 # TAGLINE
 
-compile Go packages and dependencies
+编译 Go 软件包及其依赖
 
 # TLDR
 
-**Build current package**
+**构建当前包**
 
 ```go build```
 
-**Build specific file**
+**构建指定文件**
 
 ```go build [main.go]```
 
-**Set output name**
+**设置输出名称**
 
 ```go build -o [binary-name]```
 
-**Cross-compile**
+**交叉编译**
 
 ```GOOS=[linux] GOARCH=[amd64] go build```
 
-**Build with race detector**
+**启用竞态检测器构建**
 
 ```go build -race```
 
-**Build with trimmed paths** (for reproducible builds)
+**裁剪路径构建**（用于可重现构建）
 
 ```go build -trimpath -o [binary-name]```
 
-**Build with profile-guided optimization**
+**基于剖析引导优化构建**
 
 ```go build -pgo=[profile.pprof] -o [binary-name]```
 
@@ -39,63 +39,63 @@ compile Go packages and dependencies
 # PARAMETERS
 
 _PACKAGES_
-> Packages to build.
+> 要构建的软件包。
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-race**
-> Enable race detector.
+> 启用竞态检测器。
 
 **-ldflags** _FLAGS_
-> Linker flags.
+> 链接器标志。
 
 **-tags** _TAGS_
-> Build tags.
+> 构建标签。
 
 **-trimpath**
-> Remove all file system paths from the resulting executable.
+> 从生成的可执行文件中移除所有文件系统路径。
 
 **-gcflags** _'[pattern=]arg list'_
-> Arguments passed to the Go compiler.
+> 传给 Go 编译器的参数。
 
 **-mod** _MODE_
-> Module download mode: readonly, vendor, or mod.
+> 模块下载模式：readonly、vendor 或 mod。
 
 **-pgo** _FILE_
-> Profile-guided optimization file (default: auto).
+> 剖析引导优化文件（默认：auto）。
 
 **-cover**
-> Enable code coverage instrumentation.
+> 启用代码覆盖率插桩。
 
 **-a**
-> Force rebuilding of packages already up-to-date.
+> 强制重新构建已是最新状态的软件包。
 
 **-n**
-> Print commands but do not run them.
+> 打印命令但不执行。
 
 **-x**
-> Print the commands as they are executed.
+> 在命令执行时打印出来。
 
 **-buildmode** _MODE_
-> Build mode (default, archive, c-archive, c-shared, shared, exe, pie, plugin).
+> 构建模式（default、archive、c-archive、c-shared、shared、exe、pie、plugin）。
 
 # DESCRIPTION
 
-**go build** compiles Go packages and dependencies. It produces an executable binary from the main package or checks compilation for library packages.
+**go build** 编译 Go 软件包及其依赖。对于 main 包它会生成可执行二进制文件；对于库包则只检查能否编译通过。
 
-The command handles dependency resolution, compilation, and linking. Cross-compilation is built-in via GOOS and GOARCH environment variables, requiring no additional toolchains.
+该命令负责依赖解析、编译和链接。交叉编译内置于 GOOS 和 GOARCH 环境变量中，无需额外的工具链。
 
 # CAVEATS
 
-Main package produces an executable; library packages only check compilation. CGO requires a C compiler. Use `go help build` for full documentation.
+main 包生成可执行文件；库包只检查编译。CGO 需要 C 编译器。完整文档见 `go help build`。
 
 # HISTORY
 
-go build is a core command of the **Go** toolchain, providing fast incremental compilation since Go's release.
+go build 是 **Go** 工具链的核心命令之一，自 Go 发布以来就提供快速的增量编译。
 
 # INSTALL
 

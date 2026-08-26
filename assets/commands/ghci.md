@@ -1,26 +1,26 @@
 # TAGLINE
 
-Interactive REPL environment for Haskell
+Haskell 的交互式 REPL 环境
 
 # TLDR
 
-**Start interactive session**
+**启动交互式会话**
 
 ```ghci```
 
-**Load a file**
+**加载文件**
 
 ```ghci [file.hs]```
 
-**Load module in session**
+**在会话中加载模块**
 
 ```:load [file.hs]```
 
-**Get type of expression**
+**获取表达式类型**
 
 ```:type [expression]```
 
-**Reload current module**
+**重新加载当前模块**
 
 ```:reload```
 
@@ -31,62 +31,62 @@ Interactive REPL environment for Haskell
 # PARAMETERS
 
 _FILES_
-> Haskell files to load.
+> 要加载的 Haskell 文件。
 
 **:load** _FILE_
-> Load a module.
+> 加载模块。
 
 **:reload**
-> Reload current modules.
+> 重新加载当前各模块。
 
 **:type**, **:t** _EXPR_
-> Show expression type.
+> 显示表达式的类型。
 
 **:kind**, **:k** _TYPE_
-> Show the kind of a type.
+> 显示类型的 kind。
 
 **:info** _NAME_
-> Show info about name, including definition and instances.
+> 显示该名称的信息，包括定义和实例。
 
 **:browse** _MODULE_
-> List identifiers exported by a module.
+> 列出某模块导出的标识符。
 
 **:set** _OPTION_
-> Set a GHCi or compiler option for the session.
+> 为会话设置 GHCi 或编译器选项。
 
 **:main** _ARGS_
-> Run the program's `main` with the given arguments.
+> 以给定参数运行程序的 `main`。
 
 **:quit**, **:q**
-> Exit GHCi.
+> 退出 GHCi。
 
 **-i** _DIR1:...:DIRn_
-> Add directories to the source file search path.
+> 将目录加入源文件搜索路径。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ghci** is the interactive environment for GHC (Glasgow Haskell Compiler). It provides a REPL for evaluating Haskell expressions, loading modules, and exploring types interactively.
+**ghci** 是 GHC（Glasgow Haskell Compiler）的交互式环境。它提供一个 REPL，可用于求值 Haskell 表达式、加载模块，以及交互式地探索类型。
 
-GHCi supports all GHC language extensions and can compile modules on the fly. It provides introspection commands for examining types, kinds, and documentation. Tab completion and command history enhance usability.
+GHCi 支持 GHC 的所有语言扩展，并能即时编译模块。它提供内省命令，用于检查类型、kind 和文档。Tab 补全和命令历史进一步提升了易用性。
 
 # CONFIGURATION
 
 **~/.ghci**
-> Per-user startup file loaded when GHCi starts, containing default settings, imports, and custom commands.
+> 用户级启动文件，GHCi 启动时加载，内含默认设置、导入和自定义命令。
 
 **./.ghci**
-> Project-local startup file loaded after the user file (must have safe permissions to be read).
+> 项目级启动文件，在用户文件之后加载（必须具备安全权限才会被读取）。
 
 # CAVEATS
 
-Some compiled code may behave differently in interpreter. Memory usage can grow with large expressions. Restart clears interpreter state.
+某些已编译代码在解释器中的行为可能不同。大型表达式可能导致内存占用增长。重启会清空解释器状态。
 
 # HISTORY
 
-GHCi was introduced with **GHC 5.0** in **2001**, providing interactive Haskell evaluation alongside the batch compiler.
+GHCi 随 **2001 年**发布的 **GHC 5.0** 推出，在批处理编译器之外提供了交互式的 Haskell 求值能力。
 
 # INSTALL
 

@@ -1,14 +1,14 @@
 # TAGLINE
 
-Display animated GIFs as colorful terminal art
+将动画 GIF 显示为彩色终端艺术
 
 # TLDR
 
-**Play** a GIF in the terminal
+**在终端中播放** GIF
 
 ```gif-for-cli [file.gif]```
 
-**Play** from a URL (if supported)
+**从 URL 播放**（如果支持）
 
 ```gif-for-cli "[https://example.com/a.gif]"```
 
@@ -18,19 +18,19 @@ Display animated GIFs as colorful terminal art
 
 # DESCRIPTION
 
-**gif-for-cli** (Google) renders GIF animations using ANSI/Unicode block characters so short clips can play inside a terminal. Useful for demos and easter eggs. Requires a color-capable terminal; **ffmpeg** is used in the processing pipeline.
+**gif-for-cli**（Google）使用 ANSI/Unicode 块字符渲染 GIF 动画，使短片可以在终端内播放。适用于演示和彩蛋。需要支持颜色的终端；处理管线中使用 **ffmpeg**。
 
 # PARAMETERS
 
 *gif*
 
-> Path or source for the animation.
+> 动画的路径或来源。
 
-Display size and color mode flags depend on version—**gif-for-cli --help**.
+显示尺寸和颜色模式相关选项取决于版本——见 **gif-for-cli --help**。
 
 # CAVEATS
 
-Performance depends on terminal emulator and GIF resolution. Not suitable for accessibility-critical output. Package install methods vary (pip/source).
+性能取决于终端模拟器和 GIF 分辨率。不适合对无障碍性要求高的输出。软件包安装方式各异（pip/源码）。
 
 # INSTALL
 

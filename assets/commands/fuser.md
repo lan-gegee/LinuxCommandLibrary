@@ -1,34 +1,34 @@
 # TAGLINE
 
-identify processes using files or sockets
+找出正在使用文件或套接字的进程
 
 # TLDR
 
-Find processes accessing a **file or directory**
+查找正在访问**文件或目录**的进程
 
 ```fuser path/to/file```
 
-Show **verbose** output with user and command
+显示包含用户和命令的**详细输出**
 
 ```fuser -v path/to/file```
 
-Find processes using a **TCP port**
+查找正在使用 **TCP 端口**的进程
 
 ```fuser 80/tcp```
 
-Find processes using a **UDP port**
+查找正在使用 **UDP 端口**的进程
 
 ```fuser 53/udp```
 
-**Kill** processes accessing a file
+**终止**正在访问文件的进程
 
 ```fuser -k path/to/file```
 
-Find processes accessing a **mounted filesystem**
+查找正在访问**已挂载文件系统**的进程
 
 ```fuser -m /mnt/usb```
 
-Kill processes on a **TCP port**
+终止占用 TCP 端口的进程
 
 ```fuser -k 8080/tcp```
 
@@ -38,65 +38,65 @@ Kill processes on a **TCP port**
 
 # DESCRIPTION
 
-**fuser** displays the PIDs of processes using specified files or file systems. It can identify which processes have files open, executables running, or sockets in use, and optionally terminate them.
+**fuser** 显示正在使用指定文件或文件系统的进程 PID。它可以识别哪些进程打开了文件、正在运行可执行文件或占用了套接字，并可选择将其终止。
 
 # ACCESS TYPE INDICATORS
 
-**c**: Current directory
-**e**: Executable being run
-**f**: Open file
-**F**: Open file for writing
-**r**: Root directory
-**m**: Memory-mapped file or shared library
+**c**: 当前目录
+**e**: 正在运行的可执行文件
+**f**: 打开的文件
+**F**: 以写方式打开的文件
+**r**: 根目录
+**m**: 内存映射文件或共享库
 
 # PARAMETERS
 
 **-a, --all**
-> Display all specified files, including those not accessed
+> 显示所有指定的文件，包括未被访问的
 
 **-k, --kill**
-> Kill processes accessing the file (SIGKILL by default)
+> 终止访问该文件的进程（默认发送 SIGKILL）
 
 **-i, --interactive**
-> Ask for confirmation before killing
+> 终止前请求确认
 
 **-m, --mount NAME**
-> Target processes accessing a mounted filesystem
+> 针对访问指定已挂载文件系统的进程
 
 **-M, --ismountpoint**
-> Only match if target is a mount point
+> 仅当目标是挂载点时才匹配
 
 **-n, --namespace SPACE**
-> Select namespace: file, tcp, or udp
+> 选择命名空间：file、tcp 或 udp
 
 **-u, --user**
-> Include process owner usernames
+> 附上进程所有者的用户名
 
 **-v, --verbose**
-> Display processes in ps-like format
+> 以类似 ps 的格式显示进程
 
 **-s, --silent**
-> Operate silently
+> 静默运行
 
 **-4, --ipv4**
-> Search IPv4 sockets only
+> 仅搜索 IPv4 套接字
 
 **-6, --ipv6**
-> Search IPv6 sockets only
+> 仅搜索 IPv6 套接字
 
 **-SIGNAL**
-> Send specified signal instead of SIGKILL
+> 发送指定的信号而不是 SIGKILL
 
 **-l, --list-signals**
-> List available signal names
+> 列出可用的信号名称
 
 # CAVEATS
 
-The **-k** option kills processes with SIGKILL by default, which cannot be caught. Use **-i** to confirm before killing. Root privileges may be needed to see all processes.
+**-k** 选项默认发送 SIGKILL 终止进程，该信号无法被捕获。使用 **-i** 可在终止前确认。查看所有进程可能需要 root 权限。
 
 # HISTORY
 
-**fuser** is part of the **psmisc** package, providing tools for managing processes by file access.
+**fuser** 属于 **psmisc** 软件包，该包提供了按文件访问管理进程的工具集。
 
 # INSTALL
 

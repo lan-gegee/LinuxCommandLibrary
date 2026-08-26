@@ -1,18 +1,18 @@
 # TAGLINE
 
-Alias for git add to stage changes
+git add 的别名，用于暂存改动
 
 # TLDR
 
-**Stage files**
+**暂存文件**
 
 ```git stage [file]```
 
-**Stage all changes**
+**暂存所有改动**
 
 ```git stage -A```
 
-**Interactive staging**
+**交互式暂存**
 
 ```git stage -p```
 
@@ -22,7 +22,7 @@ Alias for git add to stage changes
 
 # DESCRIPTION
 
-**git stage** is a built-in alias for `git add`. It stages changes for the next commit. The term "stage" more clearly describes the action of adding changes to the index than "add" does.
+**git stage** 是 `git add` 的内置别名。它将改动暂存以待下次提交。与 "add" 相比，"stage" 一词更贴切地描述了把改动加入索引这一动作。
 
 # INSTALL
 

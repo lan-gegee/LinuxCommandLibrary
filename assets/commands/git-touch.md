@@ -1,14 +1,14 @@
 # TAGLINE
 
-Create files and stage them for commit
+创建文件并暂存以待提交
 
 # TLDR
 
-**Touch and stage file**
+**创建并暂存文件**
 
 ```git touch [file.txt]```
 
-**Create multiple files**
+**创建多个文件**
 
 ```git touch [file1.txt] [file2.txt]```
 
@@ -19,24 +19,24 @@ Create files and stage them for commit
 # PARAMETERS
 
 _FILES_
-> Files to create and stage.
+> 要创建并暂存的文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git touch** creates files and stages them for commit. It combines the Unix `touch` command with `git add`, creating empty files that are immediately tracked.
+**git touch** 创建文件并将其暂存以待提交。它把 Unix 的 `touch` 命令与 `git add` 结合在一起，创建出的空文件会被立即纳入跟踪。
 
-The command is useful for creating placeholder files that will be committed. It saves the separate steps of creating files then adding them.
+该命令适合创建将要提交的占位文件。它省去了"先创建文件再添加跟踪"的单独步骤。
 
 # CAVEATS
 
-Part of git-extras package. Creates empty files. Files still need to be committed.
+属于 git-extras 软件包。创建的是空文件。文件仍需提交。
 
 # HISTORY
 
-git touch is part of **git-extras**, combining file creation with staging for convenience.
+git touch 是 **git-extras** 的一部分，为方便起见将文件创建与暂存合二为一。
 
 # INSTALL
 

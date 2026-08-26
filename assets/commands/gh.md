@@ -1,38 +1,38 @@
 # TAGLINE
 
-GitHub official command line interface
+GitHub 官方命令行界面
 
 # TLDR
 
-**Clone a repository**
+**克隆仓库**
 
 ```gh repo clone [owner]/[repo]```
 
-**Create a pull request**
+**创建拉取请求**
 
 ```gh pr create --title "[title]" --body "[description]"```
 
-**List open issues**
+**列出打开的 issues**
 
 ```gh issue list```
 
-**View pull request status**
+**查看拉取请求状态**
 
 ```gh pr status```
 
-**Create a new repo**
+**创建新仓库**
 
 ```gh repo create [name] --public```
 
-**View and check out a pull request**
+**查看并检出拉取请求**
 
 ```gh pr checkout [pr_number]```
 
-**View workflow run status**
+**查看工作流运行状态**
 
 ```gh run list```
 
-**Open repo in browser**
+**在浏览器中打开仓库**
 
 ```gh browse```
 
@@ -43,91 +43,91 @@ GitHub official command line interface
 # PARAMETERS
 
 **repo**
-> Manage repositories.
+> 管理仓库。
 
 **pr**
-> Manage pull requests.
+> 管理拉取请求。
 
 **issue**
-> Manage issues.
+> 管理 issues。
 
 **auth**
-> Authenticate with GitHub.
+> 向 GitHub 进行身份验证。
 
 **browse**
-> Open repository in browser.
+> 在浏览器中打开仓库。
 
 **gist**
-> Manage gists.
+> 管理 gists。
 
 **workflow**
-> Manage GitHub Actions workflows.
+> 管理 GitHub Actions 工作流。
 
 **run**
-> View and manage workflow runs.
+> 查看并管理工作流运行。
 
 **release**
-> Manage releases.
+> 管理发布（release）。
 
 **codespace**
-> Manage GitHub Codespaces.
+> 管理 GitHub Codespaces。
 
 **search**
-> Search repositories, issues, and pull requests across GitHub.
+> 全站搜索仓库、issues 和拉取请求。
 
 **project**
-> Manage GitHub Projects.
+> 管理 GitHub Projects。
 
 **cache**
-> Manage GitHub Actions caches.
+> 管理 GitHub Actions 缓存。
 
 **secret**
-> Manage secrets for GitHub Actions.
+> 管理 GitHub Actions 的 secret。
 
 **variable**
-> Manage GitHub Actions variables.
+> 管理 GitHub Actions 变量。
 
 **label**
-> Manage issue and PR labels.
+> 管理 issue 和 PR 标签。
 
 **extension**
-> Manage gh CLI extensions.
+> 管理 gh CLI 扩展。
 
 **api**
-> Make authenticated GitHub API requests.
+> 发起经过身份验证的 GitHub API 请求。
 
 **status**
-> Display status of relevant issues, pull requests, and notifications.
+> 显示相关 issue、拉取请求和通知的状态。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 # DESCRIPTION
 
-**gh** is GitHub's official command line tool. It brings GitHub features to the terminal, allowing you to manage repositories, issues, pull requests, and more without leaving your development environment.
+**gh** 是 GitHub 官方的命令行工具。它把 GitHub 的功能带到终端，让你无需离开开发环境即可管理仓库、issue、拉取请求等。
 
-The tool integrates deeply with git workflows, enabling seamless transitions between local development and GitHub collaboration. It supports interactive prompts for complex operations and scripted automation for CI/CD pipelines.
+该工具与 git 工作流深度集成，使本地开发与 GitHub 协作之间可以无缝衔接。它既为复杂操作提供交互式提示，也支持面向 CI/CD 流水线的脚本化自动化。
 
-gh provides a unified interface for GitHub's REST and GraphQL APIs with built-in authentication and configuration management.
+gh 为 GitHub 的 REST 和 GraphQL API 提供统一接口，并内置身份验证与配置管理。
 
 # CONFIGURATION
 
 **~/.config/gh/config.yml**
-> User configuration including default settings, authentication tokens, and preferences.
+> 用户配置文件，包含默认设置、身份验证令牌和个人偏好。
 
 **~/.config/gh/hosts.yml**
-> Authentication credentials for GitHub.com and GitHub Enterprise instances.
+> GitHub.com 与各 GitHub Enterprise 实例的身份验证凭据。
 
 # CAVEATS
 
-Requires authentication via **gh auth login**. Some features need appropriate repository permissions. API rate limits apply.
+需要通过 **gh auth login** 进行身份验证。部分功能需要相应的仓库权限。受 API 速率限制约束。
 
 # HISTORY
 
-gh was released by **GitHub** in **2020** as the successor to hub. It's written in Go and designed to be the official CLI companion to GitHub, supporting both github.com and GitHub Enterprise.
+gh 由 **GitHub** 于 **2020 年**发布，是 hub 的后继者。它使用 Go 语言编写，定位为 GitHub 的官方 CLI 伴侣工具，同时支持 github.com 和 GitHub Enterprise。
 
 # INSTALL
 

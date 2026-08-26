@@ -1,30 +1,30 @@
 # TAGLINE
 
-Find common ancestor commits for a merge
+查找合并所需的共同祖先提交
 
 # TLDR
 
-**Find the best common ancestor** of two branches
+**查找两个分支的最优共同祖先**
 
 ```git merge-base [branch1] [branch2]```
 
-**Find all common ancestors** (not just the best one)
+**查找所有共同祖先**（不只是最优的那个）
 
 ```git merge-base --all [branch1] [branch2]```
 
-**Check if a commit is an ancestor** of another (useful in scripts)
+**检查某个提交是否是另一个提交的祖先**（脚本中很有用）
 
 ```git merge-base --is-ancestor [commit1] [commit2]```
 
-**Find the fork point** where a topic branch diverged from upstream
+**查找主题分支从上游分叉的分叉点**
 
 ```git merge-base --fork-point [upstream_ref] [branch]```
 
-**Find octopus merge base** for multiple branches
+**为多个分支查找 octopus 合并基**
 
 ```git merge-base --octopus [branch1] [branch2] [branch3]```
 
-**List independent commits** that cannot be reached from each other
+**列出彼此不可达的独立提交**
 
 ```git merge-base --independent [commit1] [commit2] [commit3]```
 
@@ -39,25 +39,25 @@ Find common ancestor commits for a merge
 # PARAMETERS
 
 **-a**, **--all**
-> Output all merge bases for the commits, instead of just one.
+> 输出这些提交的所有合并基，而不只是一个。
 
 **--octopus**
-> Compute the best common ancestors of all supplied commits, in preparation for an n-way merge.
+> 计算所有给定提交的最优共同祖先，为 n 路合并做准备。
 
 **--independent**
-> Instead of printing merge bases, print a minimal subset of the supplied commits with the same ancestors. Lists commits which cannot be reached from any other.
+> 不打印合并基，而是打印与全部给定提交拥有相同祖先的最小子集。列出无法从其他任何提交到达的提交。
 
 **--is-ancestor**
-> Check if the first commit is an ancestor of the second. Exits with status 0 if true, status 1 if not. Errors are signaled by a non-zero status that is not 1.
+> 检查第一个提交是否是第二个提交的祖先。为真时以状态码 0 退出，否则为 1。错误通过非 0 且非 1 的状态码表示。
 
 **--fork-point**
-> Find the point at which a branch forked from another reference. Takes into account the reflog of the reference to detect forks from earlier incarnations of the branch (useful after history rewrites).
+> 查找一个分支从另一引用分叉的位置。它会参考该引用的 reflog，以检测分支更早版本上的分叉（在历史被改写后很有用）。
 
 # DESCRIPTION
 
-**git merge-base** finds the best common ancestor(s) between two commits to use in a three-way merge. A common ancestor is "best" if it is not an ancestor of any other common ancestor. One common ancestor that is an ancestor of all best common ancestors is a "merge base".
+**git merge-base** 查找两个提交之间用于三方合并的最优共同祖先。若某个共同祖先不是任何其他共同祖先的祖先，它就是"最优的"。如果某个共同祖先是所有最优共同祖先的祖先，那它就是一个"合并基"（merge base）。
 
-The `--fork-point` option finds where a branch diverged from an upstream branch, taking the reflog into account to handle history rewrites (e.g., after upstream rebase). The `--is-ancestor` option checks if one commit is an ancestor of another, which is useful in scripts for determining commit relationships. The `--independent` option filters a set of commits to only those not reachable from others. For octopus merges (merging more than two branches), the `--octopus` option computes a common base for multiple commits simultaneously.
+`--fork-point` 选项查找分支从上游分支分叉的位置，会考虑 reflog 以应对历史改写的情况（例如上游 rebase 之后）。`--is-ancestor` 选项检查一个提交是否是另一个提交的祖先，在脚本中用于判断提交关系很有用。`--independent` 选项将一组提交过滤为仅剩无法从其他提交到达的那些。对于 octopus 合并（合并两个以上分支），`--octopus` 选项同时计算多个提交的共同基。
 
 # INSTALL
 

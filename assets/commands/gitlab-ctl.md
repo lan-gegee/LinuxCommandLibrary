@@ -1,34 +1,34 @@
 # TAGLINE
 
-Control Omnibus GitLab services
+控制 Omnibus GitLab 服务
 
 # TLDR
 
-**Start GitLab**
+**启动 GitLab**
 
 ```sudo gitlab-ctl start```
 
-**Stop GitLab**
+**停止 GitLab**
 
 ```sudo gitlab-ctl stop```
 
-**Restart GitLab**
+**重启 GitLab**
 
 ```sudo gitlab-ctl restart```
 
-**Show status**
+**显示状态**
 
 ```sudo gitlab-ctl status```
 
-**Reconfigure GitLab**
+**重新配置 GitLab**
 
 ```sudo gitlab-ctl reconfigure```
 
-**View logs**
+**查看日志**
 
 ```sudo gitlab-ctl tail```
 
-**View specific service logs**
+查看特定服务的日志
 
 ```sudo gitlab-ctl tail [nginx]```
 
@@ -39,39 +39,39 @@ Control Omnibus GitLab services
 # SUBCOMMANDS
 
 **start**
-> Start all services.
+> 启动所有服务。
 
 **stop**
-> Stop all services.
+> 停止所有服务。
 
 **restart**
-> Restart all services.
+> 重启所有服务。
 
 **status**
-> Show service status.
+> 显示服务状态。
 
 **reconfigure**
-> Apply configuration.
+> 应用配置。
 
 **tail**
-> View logs.
+> 查看日志。
 
 **hup**
-> Send HUP signal.
+> 发送 HUP 信号。
 
 **console**
-> Rails console.
+> Rails 控制台。
 
 # DESCRIPTION
 
-**gitlab-ctl** controls an Omnibus GitLab installation. It manages all GitLab services (nginx, PostgreSQL, Redis, Puma, Sidekiq, etc.), applies configuration changes from `/etc/gitlab/gitlab.rb`, and provides debugging tools.
+**gitlab-ctl** 用于控制 Omnibus GitLab 安装。它管理所有 GitLab 服务（nginx、PostgreSQL、Redis、Puma、Sidekiq 等），应用来自 `/etc/gitlab/gitlab.rb` 的配置更改，并提供调试工具。
 
-The `reconfigure` command is used after modifying `gitlab.rb` to apply the new settings.
+修改 `gitlab.rb` 后使用 `reconfigure` 命令来应用新设置。
 
 # CONFIGURATION
 
 **/etc/gitlab/gitlab.rb**
-> Main configuration file for the Omnibus GitLab installation, controlling all services and settings.
+> Omnibus GitLab 安装的主配置文件，控制所有服务和设置。
 
 # SEE ALSO
 

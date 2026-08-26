@@ -1,30 +1,30 @@
 # TAGLINE
 
-subscribe to gNMI streaming telemetry (full form)
+订阅 gNMI 流式遥测数据（完整形式）
 
 # TLDR
 
-**Subscribe to a path**
+**订阅一个路径**
 
 ```gnmic -a [host:port] subscribe --path [/state/port]```
 
-**Subscribe with sample interval**
+**按采样间隔订阅**
 
 ```gnmic -a [host:port] subscribe --path [/state/port] --sample-interval [30s]```
 
-**Subscribe with on-change mode**
+**以 on-change 模式订阅**
 
 ```gnmic -a [host:port] subscribe --path [/state/port] --stream-mode on-change```
 
-**Subscribe with heartbeat interval**
+**带心跳间隔订阅**
 
 ```gnmic -a [host:port] subscribe --path [/path] --stream-mode on-change --heartbeat-interval [1m]```
 
-**Subscribe to multiple paths**
+**订阅多个路径**
 
 ```gnmic -a [host:port] subscribe --path [/path1] --path [/path2]```
 
-**Subscribe with authentication**
+**带身份验证订阅**
 
 ```gnmic -a [host:port] -u [user] -p [pass] subscribe --path [/path]```
 
@@ -35,46 +35,46 @@ subscribe to gNMI streaming telemetry (full form)
 # PARAMETERS
 
 **--path** _path_
-> gNMI path to subscribe to.
+> 要订阅的 gNMI 路径。
 
 **--mode** _mode_
-> Subscription mode: STREAM, ONCE, POLL.
+> 订阅模式：STREAM、ONCE、POLL。
 
 **--stream-mode** _mode_
-> Stream mode: SAMPLE, ON_CHANGE, TARGET_DEFINED.
+> 流模式：SAMPLE、ON_CHANGE、TARGET_DEFINED。
 
 **--sample-interval** _duration_
-> Sample interval for SAMPLE mode.
+> SAMPLE 模式的采样间隔。
 
 **--heartbeat-interval** _duration_
-> Heartbeat interval for ON_CHANGE mode.
+> ON_CHANGE 模式的心跳间隔。
 
 **--suppress-redundant**
-> Suppress redundant updates; only send updates when values actually change.
+> 抑制冗余更新；只在值真正发生变化时才发送更新。
 
 **--updates-only**
-> Only send updates, not the initial state snapshot.
+> 只发送更新，不发送初始状态快照。
 
 **--quiet**
-> Do not output to stdout.
+> 不输出到 stdout。
 
 **--prefix** _PATH_
-> Common prefix applied to all **--path** values.
+> 应用到所有 **--path** 值的公共前缀。
 
 **--qos** _N_
-> DSCP value for packet marking. Defaults to 20; set to 0 to disable.
+> 用于数据包标记的 DSCP 值。默认为 20；设为 0 表示禁用。
 
 **--output** _NAME_
-> Named output(s), from the config file, to write subscription results to (e.g. a Kafka or Prometheus output) instead of stdout.
+> 来自配置文件的命名输出（如 Kafka 或 Prometheus 输出），订阅结果写入其中而非 stdout。
 
 **--name** _NAME_
-> Run one or more subscriptions predefined in the configuration file, instead of specifying **--path** on the command line.
+> 运行配置文件中预定义的一个或多个订阅，而不是在命令行上指定 **--path**。
 
 # DESCRIPTION
 
-**gnmic subscribe** (aliased **gnmic sub**) sends a gNMI Subscribe RPC to network devices for streaming telemetry. It supports three subscription modes: STREAM (continuous updates, the default), ONCE (immediate single response), and POLL (on-demand). Stream mode supports SAMPLE (periodic, the default) and ON_CHANGE (event-driven) delivery.
+**gnmic subscribe**（别名 **gnmic sub**）向网络设备发送 gNMI Subscribe RPC 以进行流式遥测采集。它支持三种订阅模式：STREAM（持续更新，默认）、ONCE（立即单次响应）和 POLL（按需请求）。流模式支持 SAMPLE（周期性，默认）和 ON_CHANGE（事件驱动）两种投递方式。
 
-Results are printed to stdout by default, or routed to a configured output (file, Kafka, NATS, Prometheus, InfluxDB, etc.) via **--output**.
+结果默认打印到 stdout，也可通过 **--output** 路由到已配置的输出目标（file、Kafka、NATS、Prometheus、InfluxDB 等）。
 
 # INSTALL
 

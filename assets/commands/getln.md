@@ -1,18 +1,18 @@
 # TAGLINE
 
-read a line from the zsh buffer stack
+从 zsh 缓冲区栈中读取一行
 
 # TLDR
 
-**Read a line from the buffer stack into a variable**
+**从缓冲区栈读取一行到变量**
 
 ```getln [variable_name]```
 
-**Read a line and process it**
+**读取一行并处理**
 
 ```getln line && echo $line```
 
-**Push a line then retrieve it**
+**压入一行再取出**
 
 ```print -z "hello world" && getln [variable_name]```
 
@@ -22,19 +22,19 @@ read a line from the zsh buffer stack
 
 # DESCRIPTION
 
-**getln** is a zsh builtin that reads the top entry from the shell's **buffer stack** and assigns it to the named variable. It is equivalent to **read -zr**. The buffer stack is a LIFO (last-in, first-out) data structure where lines can be pushed using **print -z** or **pushln** and later retrieved with **getln**.
+**getln** 是一个 zsh 内建命令，从 shell 的**缓冲区栈**顶部读取一条记录并赋给指定变量。它等价于 **read -zr**。缓冲区栈是一种 LIFO（后进先出）数据结构，可以用 **print -z** 或 **pushln** 向其中压入文本行，之后再用 **getln** 取出。
 
-If multiple variable names are given, the line is split into words and assigned to each variable in order, similar to **read**. The line is read without word splitting on the whole (the **-r** behavior).
+如果给出了多个变量名，该行会被拆分成单词并按顺序赋给各个变量，类似于 **read**。整行读取时不做单词拆分（即 **-r** 行为）。
 
-The buffer stack is typically used for programmatic input manipulation, where a script prepares command lines to be executed or processed later.
+缓冲区栈通常用于程序化的输入操作：脚本预先准备好待执行的命令行，供稍后执行或处理。
 
 # CAVEATS
 
-Only available in **zsh**. The buffer stack is a zsh-specific feature not found in bash or other shells. If the buffer stack is empty, **getln** assigns an empty string. The buffer stack is separate from the command history. Lines pushed with **push-line** from the line editor also go onto this stack.
+仅在 **zsh** 中可用。缓冲区栈是 bash 和其他 shell 所没有的 zsh 特有特性。如果缓冲区栈为空，**getln** 会赋予空字符串。缓冲区栈与命令历史是分开的。通过行编辑器的 **push-line** 压入的行也会进入这个栈。
 
 # HISTORY
 
-**getln** is part of the **Z Shell** (zsh) buffer stack mechanism, available since early zsh versions. The buffer stack is a unique zsh feature for programmatic queuing and retrieval of text lines.
+**getln** 属于 **Z Shell**（zsh）的缓冲区栈机制，早在早期 zsh 版本中就已提供。缓冲区栈是 zsh 独有的特性，用于程序化地排队和取回文本行。
 
 # SEE ALSO
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-exports Cloud SQL data to storage
+将 Cloud SQL 数据导出到存储
 
 # TLDR
 
-**Export database to Cloud Storage**
+**将数据库导出到 Cloud Storage**
 
 ```gcloud sql export sql [instance] [gs://bucket/file.sql] --database [db_name]```
 
-**Export all databases**
+**导出所有数据库**
 
 ```gcloud sql export sql [instance] [gs://bucket/file.sql]```
 
-**Export asynchronously**
+**异步导出**
 
 ```gcloud sql export sql [instance] [gs://bucket/file.sql] --async```
 
@@ -23,23 +23,22 @@ exports Cloud SQL data to storage
 # PARAMETERS
 
 **--database** _name_
-> Database to export.
+> 要导出的数据库。
 
 **--table** _name_
-> Tables to export.
+> 要导出的表。
 
 **--async**
-> Don't wait for completion.
+> 不等待完成。
 
 **--offload**
-> Offload to replica.
+> 将导出任务卸载到只读副本执行。
 
 # DESCRIPTION
 
-**gcloud sql export sql** exports data from a Cloud SQL instance to a SQL dump file stored in Google Cloud Storage. The command creates a database backup in standard SQL format that can be imported into other database systems or restored to Cloud SQL instances.
+**gcloud sql export sql** 将 Cloud SQL 实例中的数据导出为存储在 Google Cloud Storage 中的 SQL 转储文件。该命令以标准 SQL 格式创建数据库备份，可导入其他数据库系统或恢复到 Cloud SQL 实例。
 
-The tool supports both MySQL and PostgreSQL instances. Exports can target specific databases or tables, or dump all databases at once. The async mode allows long-running exports to continue in the background without blocking the terminal. Offloading exports to read replicas minimizes performance impact on production instances.
+该工具同时支持 MySQL 和 PostgreSQL 实例。导出可以针对特定数据库或表，也可以一次转储所有数据库。异步模式让耗时较长的导出在后台继续进行，不阻塞终端。将导出卸载到只读副本可以最大程度减少对生产实例的性能影响。
 
 # SEE ALSO
-
 

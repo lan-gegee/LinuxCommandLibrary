@@ -1,26 +1,26 @@
 # TAGLINE
 
-verify a fingerprint against enrolled prints
+将指纹与已录入的指纹进行比对验证
 
 # TLDR
 
-Verify **all stored fingerprints** for the current user
+验证当前用户的**所有已存指纹**
 
 ```fprintd-verify```
 
-Verify a **specific fingerprint** for the current user
+验证当前用户的**指定指纹**
 
 ```fprintd-verify -f [left-thumb|left-index-finger|right-thumb|...]```
 
-Verify fingerprints for a **specific user**
+验证**特定用户**的指纹
 
 ```fprintd-verify [username]```
 
-Verify a **specific fingerprint** for a **specific user**
+验证**特定用户**的**指定指纹**
 
 ```fprintd-verify -f [finger_name] [username]```
 
-Display **help**
+显示**帮助**
 
 ```fprintd-verify -h```
 
@@ -31,20 +31,20 @@ Display **help**
 # PARAMETERS
 
 **-f**, **--finger** _FINGER_
-> Specify which finger to verify: left-thumb, left-index-finger, left-middle-finger, left-ring-finger, left-little-finger, right-thumb, right-index-finger, right-middle-finger, right-ring-finger, right-little-finger
+> 指定要验证的手指：left-thumb、left-index-finger、left-middle-finger、left-ring-finger、left-little-finger、right-thumb、right-index-finger、right-middle-finger、right-ring-finger、right-little-finger。
 
 **-h**, **--help**
-> Display help message
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fprintd-verify** tests enrolled fingerprints against the fprintd database. It prompts the user to scan their finger and reports whether the scan matches any enrolled fingerprint. It communicates with the fprintd daemon over D-Bus.
+**fprintd-verify** 将扫描到的指纹与 fprintd 数据库中已录入的指纹进行比对测试。它会提示用户扫描手指，并报告扫描结果是否与任何已录入的指纹匹配。它通过 D-Bus 与 fprintd 守护进程通信。
 
-This is useful for testing fingerprint enrollment quality and troubleshooting authentication issues. Without specifying a finger, the system attempts to match against any enrolled finger.
+该命令适合用来测试指纹录入的质量以及排查认证问题。若不指定手指，系统会尝试与所有已录入的手指进行比对。
 
 # CAVEATS
 
-Verification success depends on scan quality and may require multiple attempts. Environmental factors like moisture or dirt on the sensor can affect results. This command is for testing purposes; actual login authentication uses the PAM module **pam_fprintd**. The fprintd daemon must be running for this command to work.
+验证能否成功取决于扫描质量，可能需要多次尝试。传感器上的水分或污垢等环境因素会影响结果。此命令仅用于测试；实际登录认证使用 PAM 模块 **pam_fprintd**。fprintd 守护进程必须正在运行，此命令才能工作。
 
 # INSTALL
 

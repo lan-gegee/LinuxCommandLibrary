@@ -1,34 +1,34 @@
 # TAGLINE
 
-Graphical Git repository browser
+图形化 Git 仓库浏览器
 
 # TLDR
 
-**Start gitk**
+**启动 gitk**
 
 ```gitk```
 
-**Show all branches**
+**显示所有分支**
 
 ```gitk --all```
 
-**Show specific file history**
+**查看特定文件的历史**
 
 ```gitk [file.txt]```
 
-**Show specific range**
+**查看特定范围**
 
 ```gitk [v1.0..v2.0]```
 
-**Show since date**
+**显示指定日期之后的记录**
 
 ```gitk --since="[2 weeks ago]"```
 
-**Select a specific commit on load**
+**加载时选中特定提交**
 
 ```gitk --select-commit=[HEAD]```
 
-**Trace the history of a function**
+**追踪某个函数的历史**
 
 ```gitk -L:[function_name]:[file.c]```
 
@@ -39,69 +39,69 @@ Graphical Git repository browser
 # PARAMETERS
 
 _REVISION-RANGE_
-> Commits to display (e.g. `v1.0..v2.0`).
+> 要显示的提交范围（例如 `v1.0..v2.0`）。
 
 _PATH_...
-> Limit to commits touching the given paths.
+> 只限于触及给定路径的提交。
 
 **--all**
-> Show all refs (branches, tags, etc.) as if listed on the command line.
+> 显示所有引用（分支、标签等），如同它们都在命令行上列出一样。
 
 **--branches**[=_PATTERN_]
-> Show all branches, optionally limited to a glob pattern.
+> 显示所有分支，可用 glob 模式加以限定。
 
 **--tags**[=_PATTERN_]
-> Show all tags, optionally limited to a glob pattern.
+> 显示所有标签，可用 glob 模式加以限定。
 
 **--remotes**[=_PATTERN_]
-> Show all remote-tracking branches, optionally limited to a glob pattern.
+> 显示所有远程跟踪分支，可用 glob 模式加以限定。
 
 **--since** _DATE_
-> Show commits more recent than the given date.
+> 显示晚于给定日期的提交。
 
 **--until** _DATE_
-> Show commits older than the given date.
+> 显示早于给定日期的提交。
 
 **--date-order**
-> Sort commits by date rather than topologically.
+> 按日期而非拓扑顺序对提交排序。
 
 **--merge**
-> After a conflicted merge, show commits that modify the conflicted files on both branches.
+> 在发生合并冲突后，显示双方分支上都修改了冲突文件的提交。
 
 **--left-right**
-> Mark commits with `<` or `>` to indicate which side of a symmetric difference they come from.
+> 用 `<` 或 `>` 标记提交，表明其来自对称差异的哪一侧。
 
 **--full-history**
-> Don't prune history when filtering by path.
+> 按路径过滤时不裁剪历史。
 
 **--simplify-merges**
-> Used with **--full-history** to remove needless merges from the result.
+> 与 **--full-history** 配合使用，从结果中去掉不必要的合并。
 
 **-L** _start_,_end_:_file_ / **-L**:_funcname_:_file_
-> Trace the evolution of a line range or function within a file.
+> 追踪文件中某行范围或某函数的演变过程。
 
 **--argscmd** _COMMAND_
-> Command run each time gitk refreshes the revision range; its output lists additional revisions to show.
+> 每次 gitk 刷新修订范围时都会运行的命令；其输出列出要额外显示的修订。
 
 **--select-commit** _REF_
-> Select the given commit after loading the graph (default `HEAD`).
+> 加载图形后选中给定的提交（默认 `HEAD`）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gitk** is a graphical repository browser for Git. It displays commit history in a visual graph, showing branches, merges, and commit details in a GUI window.
+**gitk** 是 Git 的图形化仓库浏览器。它在 GUI 窗口中以可视化图形展示提交历史，呈现分支、合并及提交详情。
 
-The interface shows the commit graph, file changes, and diff content. It supports search, filtering, and visual exploration of repository history.
+界面显示提交图、文件变更和 diff 内容。它支持搜索、过滤以及直观地探索仓库历史。
 
 # CAVEATS
 
-Requires Tcl/Tk. Interface is dated. May not be installed by default.
+需要 Tcl/Tk。界面较为陈旧。可能未随系统默认安装。
 
 # HISTORY
 
-gitk was written by **Paul Mackerras** and is one of the original **Git** GUI tools, providing visual history browsing since Git's early days.
+gitk 由 **Paul Mackerras** 编写，是最早的 **Git** 图形工具之一，自 Git 诞生初期就提供可视化的历史浏览功能。
 
 # INSTALL
 

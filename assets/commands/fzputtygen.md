@@ -1,26 +1,26 @@
 # TAGLINE
 
-SSH key generator and format converter
+SSH 密钥生成器与格式转换器
 
 # TLDR
 
-**Generate SSH key** pair
+**生成 SSH 密钥**对
 
 ```fzputtygen -t [rsa] -o [key.ppk]```
 
-**Convert OpenSSH to** PuTTY format
+**将 OpenSSH 转换为** PuTTY 格式
 
 ```fzputtygen [key] -o [key.ppk]```
 
-**Export public key**
+**导出公钥**
 
 ```fzputtygen [key.ppk] -L```
 
-**Convert PuTTY to** OpenSSH
+**将 PuTTY 转换为** OpenSSH
 
 ```fzputtygen [key.ppk] -O private-openssh -o [key]```
 
-**Change passphrase**
+**更改密码短语**
 
 ```fzputtygen [key.ppk] -P```
 
@@ -31,41 +31,41 @@ SSH key generator and format converter
 # PARAMETERS
 
 _KEYFILE_
-> Key file to process.
+> 要处理的密钥文件。
 
 **-t** _TYPE_
-> Key type: rsa, dsa, ecdsa, ed25519.
+> 密钥类型：rsa、dsa、ecdsa、ed25519。
 
 **-o** _FILE_
-> Output file.
+> 输出文件。
 
 **-O** _FORMAT_
-> Output format.
+> 输出格式。
 
 **-L**
-> Output public key.
+> 输出公钥。
 
 **-P**
-> Change passphrase.
+> 更改密码短语。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fzputtygen** is FileZilla's key generator and converter based on PuTTYgen. It creates SSH keys and converts between PuTTY (.ppk) and OpenSSH formats.
+**fzputtygen** 是 FileZilla 基于 PuTTYgen 的密钥生成器和转换器。它可以创建 SSH 密钥，并在 PuTTY（.ppk）和 OpenSSH 格式之间转换。
 
-The tool generates RSA, DSA, ECDSA, and Ed25519 keys for SSH authentication. It handles format conversion needed when switching between PuTTY and OpenSSH clients.
+该工具可生成用于 SSH 身份验证的 RSA、DSA、ECDSA 和 Ed25519 密钥。它在 PuTTY 和 OpenSSH 客户端之间切换时所需的格式转换也由它完成。
 
-fzputtygen enables key management for FileZilla SFTP connections.
+fzputtygen 为 FileZilla 的 SFTP 连接提供密钥管理能力。
 
 # CAVEATS
 
-PPK format not universal. Passphrase protection recommended. Key type support varies.
+PPK 格式并非通用。建议使用密码短语保护。密钥类型支持因版本而异。
 
 # HISTORY
 
-fzputtygen is adapted from **PuTTYgen** for use with FileZilla. It provides key generation and format conversion supporting FileZilla's SFTP functionality.
+fzputtygen 改编自 **PuTTYgen**，供 FileZilla 使用。它提供密钥生成和格式转换功能，支撑 FileZilla 的 SFTP 能力。
 
 # INSTALL
 

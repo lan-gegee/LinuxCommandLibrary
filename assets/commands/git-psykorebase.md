@@ -1,22 +1,22 @@
 # TAGLINE
 
-Rebase a branch onto another using a single merge commit
+用单个合并提交将一个分支变基到另一个之上
 
 # TLDR
 
-**Rebase current branch onto another** using a merge commit
+**使用合并提交将当前分支变基到另一分支之上**
 
 ```git psykorebase [primary_branch]```
 
-**Rebase a specific branch onto another**
+**将特定分支变基到另一分支**
 
 ```git psykorebase [primary_branch] [secondary_branch]```
 
-**Force a merge commit** even if fast-forward is possible
+**即使可以 fast-forward 也强制生成合并提交**
 
 ```git psykorebase [primary_branch] --no-ff```
 
-**Continue after resolving conflicts**
+**解决冲突后继续**
 
 ```git psykorebase --continue```
 
@@ -29,26 +29,26 @@ Rebase a branch onto another using a single merge commit
 # PARAMETERS
 
 _PRIMARY-BRANCH_
-> Branch to rebase onto.
+> 要变基到的分支。
 
 _SECONDARY-BRANCH_
-> Branch being rebased; defaults to the current branch.
+> 被变基的分支；默认为当前分支。
 
 **--no-ff**
-> Force a merge commit instead of a fast-forward.
+> 强制生成合并提交而不是 fast-forward。
 
 **-c**, **--continue**
-> Resume after manually resolving a conflict.
+> 手动解决冲突后继续执行。
 
 # DESCRIPTION
 
-**git psykorebase** rebases a branch onto another by checking out the primary branch, branching from it, and merging the secondary branch in with a single generated merge commit, rather than replaying every individual commit like `git rebase` does. This git-extras command avoids re-resolving the same conflict once per commit, at the cost of collapsing the rebase into one merge point.
+**git psykorebase** 通过检出主分支、从其创建分支，然后用一个生成的合并提交合入次级分支来完成变基，而不像 `git rebase` 那样逐个重放每个提交。这个 git-extras 命令避免了每个提交都要重新解决一次相同冲突的问题，代价是把整个变基折叠成一个合并点。
 
-If the merge conflicts, it leaves a temporary `<secondary>-rebased-on-top-of-<primary>` branch checked out and tells you to resolve the conflict and commit, then run `git psykorebase --continue` to finish renaming the branches into place.
+如果合并发生冲突，它会停留在临时 `<secondary>-rebased-on-top-of-<primary>` 分支上，并提示你解决冲突并提交，然后运行 `git psykorebase --continue` 完成分支重命名的收尾工作。
 
 # CAVEATS
 
-Part of git-extras. Because it uses one merge instead of replaying commits, individual commit-level history from the secondary branch relative to the primary is not preserved the way an interactive rebase would.
+属于 git-extras。由于它用一次合并代替逐个重放提交，次级分支相对主分支的单个提交级别的历史不会像交互式 rebase 那样得到保留。
 
 # INSTALL
 

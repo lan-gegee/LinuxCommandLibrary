@@ -1,10 +1,10 @@
 # TAGLINE
 
-safely restart GDM only when no sessions active
+仅在没有活动会话时安全重启 GDM
 
 # TLDR
 
-**Safely restart GDM**
+**安全重启 GDM**
 
 ```sudo gdm-safe-restart```
 
@@ -14,9 +14,9 @@ safely restart GDM only when no sessions active
 
 # DESCRIPTION
 
-**gdm-safe-restart** provides a safer alternative to gdm-restart by only restarting the GNOME Display Manager when no users have active graphical sessions. This prevents accidentally terminating user work and ensures the restart only occurs when the system is at the login screen.
+**gdm-safe-restart** 提供比 gdm-restart 更安全的替代方案，只在没有用户处于活动图形会话时才重启 GNOME 显示管理器。这可以防止意外终止用户的工作，并确保只在系统处于登录界面时才执行重启。
 
-If any users are currently logged in, the command will check for active sessions and refuse to restart GDM, protecting users from losing unsaved work. This makes it appropriate for automated maintenance scripts or situations where you want to restart the display manager but only when it's safe to do so.
+如果当前有用户已登录，该命令会检查活动会话并拒绝重启 GDM，保护用户不丢失未保存的工作。因此它适合自动维护脚本，或希望在安全前提下重启显示管理器的场景。
 
 # SEE ALSO
 
@@ -27,4 +27,3 @@ If any users are currently logged in, the command will check for active sessions
 ```[Source code](https://gitlab.gnome.org/GNOME/gdm)```
 
 <!-- verified: 2026-07-15 -->
-

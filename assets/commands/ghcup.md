@@ -1,42 +1,42 @@
 # TAGLINE
 
-Universal installer for the Haskell toolchain
+Haskell 工具链的通用安装器
 
 # TLDR
 
-**Install GHC version**
+**安装指定版本的 GHC**
 
 ```ghcup install ghc [9.4.7]```
 
-**Install latest GHC**
+**安装最新版 GHC**
 
 ```ghcup install ghc```
 
-**Set default GHC**
+**设置默认 GHC**
 
 ```ghcup set ghc [9.4.7]```
 
-**Install Cabal**
+**安装 Cabal**
 
 ```ghcup install cabal```
 
-**Install HLS**
+**安装 HLS**
 
 ```ghcup install hls```
 
-**List available and installed tools**
+**列出可用及已安装的工具**
 
 ```ghcup list```
 
-**Remove a GHC version**
+**移除某个 GHC 版本**
 
 ```ghcup rm ghc [9.4.7]```
 
-**Interactive TUI**
+**交互式 TUI**
 
 ```ghcup tui```
 
-**Upgrade ghcup itself**
+**升级 ghcup 本身**
 
 ```ghcup upgrade```
 
@@ -47,59 +47,59 @@ Universal installer for the Haskell toolchain
 # SUBCOMMANDS
 
 **install**
-> Install tool.
+> 安装工具。
 
 **set**
-> Set default version.
+> 设置默认版本。
 
 **list**
-> List versions.
+> 列出版本。
 
 **rm**
-> Remove version.
+> 移除版本。
 
 **upgrade**
-> Upgrade ghcup.
+> 升级 ghcup。
 
 **tui**
-> Interactive interface.
+> 交互式界面。
 
 **whereis**
-> Show tool location.
+> 显示工具位置。
 
 **run**
-> Run a command with a specific toolchain version.
+> 使用指定的工具链版本运行命令。
 
 **gc**
-> Garbage collect old versions.
+> 清理（回收）旧版本。
 
 # PARAMETERS
 
 **ghc**
-> Glasgow Haskell Compiler.
+> Glasgow Haskell Compiler。
 
 **cabal**
-> Cabal build tool.
+> Cabal 构建工具。
 
 **hls**
-> Haskell Language Server.
+> Haskell Language Server。
 
 **stack**
-> Stack build tool.
+> Stack 构建工具。
 
 # DESCRIPTION
 
-**ghcup** is the universal installer and version manager for the Haskell toolchain. It provides a centralized way to install, manage, and switch between multiple versions of GHC, Cabal, Stack, and HLS (Haskell Language Server).
+**ghcup** 是 Haskell 工具链的通用安装器和版本管理器。它提供一种集中方式，用于安装、管理并在多个版本的 GHC、Cabal、Stack 和 HLS（Haskell Language Server）之间切换。
 
-The tool handles downloading, installing, and setting up PATH entries for all Haskell development tools. It supports installing specific versions, setting global defaults, and maintaining multiple versions side-by-side. The interactive TUI mode provides a visual interface for managing installations.
+该工具负责为所有 Haskell 开发工具完成下载、安装以及 PATH 条目的配置。它支持安装特定版本、设置全局默认版本，并支持多版本并存。交互式 TUI 模式则提供了可视化的安装管理界面。
 
 # CONFIGURATION
 
 **~/.ghcup/config.yaml**
-> Configuration file for ghcup settings, download mirrors, and caching preferences.
+> ghcup 的配置文件，包含下载镜像和缓存偏好等设置。
 
 **~/.ghcup/bin/**
-> Installation directory for all managed toolchain binaries.
+> 所有受管理工具链二进制文件的安装目录。
 
 # INSTALL
 

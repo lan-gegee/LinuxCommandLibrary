@@ -1,34 +1,34 @@
 # TAGLINE
 
-cross-platform system monitoring tool
+跨平台系统监控工具
 
 # TLDR
 
-**Start glances**
+**启动 glances**
 
 ```glances```
 
-**Web server mode**
+**Web 服务器模式**
 
 ```glances -w```
 
-**Client mode**
+**客户端模式**
 
 ```glances -c [server-ip]```
 
-**Export to CSV**
+**导出为 CSV**
 
 ```glances --export csv --export-csv-file [output.csv]```
 
-**Per-CPU stats** with 5-second refresh
+**每 CPU 统计**，5 秒刷新一次
 
 ```glances -1 -t 5```
 
-**Server mode** on a custom port
+在自定义端口上运行**服务器模式**
 
 ```glances -s -p [61210]```
 
-**Quiet mode**
+**安静模式**
 
 ```glances -q```
 
@@ -39,59 +39,59 @@ cross-platform system monitoring tool
 # PARAMETERS
 
 **-w**, **--webserver**
-> Start web server.
+> 启动 Web 服务器。
 
 **-c** _SERVER_, **--client** _SERVER_
-> Connect to server.
+> 连接到服务器。
 
 **-s**, **--server**
-> Start server mode.
+> 启动服务器模式。
 
 **-t** _SECONDS_
-> Refresh time.
+> 刷新时间。
 
 **--export** _FORMAT_
-> Export to format.
+> 导出为指定格式。
 
 **-p** _PORT_, **--port** _PORT_
-> TCP port for client/server/web mode (default: 61209).
+> 客户端/服务器/Web 模式使用的 TCP 端口（默认：61209）。
 
 **-1**, **--percpu**
-> Display per-CPU stats instead of aggregated.
+> 显示每个 CPU 的统计信息而非汇总值。
 
 **-b**, **--byte**
-> Display network I/O in bytes per second instead of bits.
+> 以字节/秒而非比特/秒显示网络 I/O。
 
 **-q**, **--quiet**
-> No display, background.
+> 不显示界面，后台运行。
 
 **--disable-plugin** _PLUGIN_
-> Disable a specific plugin (e.g., docker, gpu).
+> 禁用指定插件（如 docker、gpu）。
 
 **--stdout** _STATS_
-> Display stats to stdout (comma-separated list).
+> 将统计信息输出到 stdout（逗号分隔列表）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**glances** is a cross-platform system monitoring tool. It displays real-time CPU, memory, disk, network, and process information in a comprehensive terminal interface.
+**glances** 是一款跨平台系统监控工具。它在统一的终端界面中实时显示 CPU、内存、磁盘、网络和进程信息。
 
-The tool provides more information than top or htop in a single view. It supports client-server mode, a web interface, and exports to various formats for monitoring and analysis.
+相比 top 或 htop，该工具能在单一视图中呈现更多信息。它支持客户端-服务器模式、Web 界面，并可导出为多种格式用于监控和分析。
 
 # CONFIGURATION
 
 **~/.config/glances/glances.conf**
-> Main configuration file for thresholds, display options, and export settings.
+> 主配置文件，用于设置阈值、显示选项和导出配置。
 
 # CAVEATS
 
-Requires Python and psutil. Some features (web mode, Docker, GPU monitoring) need optional dependencies. Web mode requires a browser and the bottle/fastapi module. High refresh rates may increase CPU usage.
+需要 Python 和 psutil。某些功能（Web 模式、Docker、GPU 监控）需要可选依赖。Web 模式需要浏览器以及 bottle/fastapi 模块。过高的刷新频率可能增加 CPU 占用。
 
 # HISTORY
 
-glances was created by **Nicolas Hennion** as a comprehensive system monitoring solution that goes beyond traditional tools like top.
+glances 由 **Nicolas Hennion** 创建，旨在提供一个超越 top 等传统工具的全面系统监控方案。
 
 # INSTALL
 

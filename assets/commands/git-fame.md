@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate contribution statistics by author
+按作者生成贡献统计
 
 # TLDR
 
-**Show line statistics**
+**显示行数统计**
 
 ```git fame```
 
-**Sort by number of commits**
+**按提交数量排序**
 
 ```git fame --sort=commits```
 
-**Exclude paths (comma-separated or regex)**
+**排除路径（逗号分隔或正则表达式）**
 
 ```git fame --excl=[vendor/]```
 
-**Show specific directory**
+**显示指定目录**
 
 ```git fame [src/]```
 
-**Show emails instead of names**
+**显示邮箱而非姓名**
 
 ```git fame --show-email```
 
-**Detect moved/copied lines for more accurate attribution**
+**检测移动/复制的行以获得更准确的归属**
 
 ```git fame -M -C```
 
@@ -35,66 +35,66 @@ Generate contribution statistics by author
 # PARAMETERS
 
 _GITDIR_
-> Git directory to analyze (default: current directory). May be repeated.
+> 要分析的 Git 目录（默认：当前目录）。可以重复指定。
 
 **--branch** _BRANCH_
-> Branch or tag to analyze (default: HEAD).
+> 要分析的分支或标签（默认：HEAD）。
 
 **--sort** _KEY_
-> Sort by loc (default), commits, files, hours, or months.
+> 按 loc（默认）、commits、files、hours 或 months 排序。
 
 **--excl** _PATTERN_
-> Excluded files, comma-separated or regex.
+> 排除的文件，逗号分隔或正则表达式。
 
 **--incl** _PATTERN_
-> Included files (default: all).
+> 包含的文件（默认：全部）。
 
 **--loc** _TYPE_
-> Count surviving, insertions, or deletions.
+> 统计存活行数、插入行数或删除行数。
 
 **--since** _DATE_, **--until** _DATE_
-> Restrict to commits in a date range.
+> 限定某个日期范围内的提交。
 
 **--cost** _METHOD_
-> Estimate cost via months, cocomo, hours, or commits.
+> 通过 months、cocomo、hours 或 commits 估算成本。
 
 **-e**, **--show-email**
-> Show author emails instead of names.
+> 显示作者的邮箱而非姓名。
 
 **-w**, **--ignore-whitespace**
-> Ignore whitespace-only changes when attributing blame.
+> 在进行 blame 归属时忽略纯空白字符的改动。
 
 **-M**
-> Detect intra-file line moves and copies.
+> 检测文件内部行的移动和复制。
 
 **-C**
-> Detect inter-file line moves and copies.
+> 检测跨文件行的移动和复制。
 
 **-R**, **--recurse**
-> Recursively find repositories and submodules.
+> 递归查找仓库和子模块。
 
 **-t**, **--bytype**
-> Break down stats per file extension.
+> 按文件扩展名细分统计。
 
 **--format** _FORMAT_
-> Output format: pipe, md, yaml, json, csv, tsv, or tabulate.
+> 输出格式：pipe、md、yaml、json、csv、tsv 或 tabulate。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git fame** generates contribution statistics showing lines of code, commits, and files per author. It provides a comprehensive view of who contributed what to the codebase, using blame analysis to count current lines attributed to each author.
+**git fame** 生成贡献统计，展示每位作者的代码行数、提交数和文件数。它借助 blame 分析来统计当前归属于各作者的行数，全面呈现谁为代码库贡献了什么。
 
-Output includes percentages for relative contribution comparison, and can optionally estimate development cost using the COCOMO model or elapsed commit time. The tool is useful for understanding code ownership patterns and team contribution distribution.
+输出包含用于比较相对贡献占比的百分比，还可以选择使用 COCOMO 模型或提交耗时来估算开发成本。该工具有助于了解代码所有权模式和团队贡献分布。
 
 # CAVEATS
 
-Blame-based counting can be slow on large histories. Binary files are skipped by default (**--warn-binary** to be notified). Only the current tree's last modifier gets credit unless **-M**/**-C** are used to trace moved or copied lines back to their original author.
+基于 blame 的统计在大型历史上可能较慢。默认跳过二进制文件（使用 **--warn-binary** 可收到提示）。除非使用 **-M**/**-C** 将移动或复制的行追溯到原始作者，否则只有当前树中最后一次修改者会得到归属。
 
 # HISTORY
 
-git fame is a Python rewrite by **Casper da Costa-Luis**, distinct from the earlier **git-fame-rb** Ruby gem by Linus Oleander that inspired the name.
+git fame 是 **Casper da Costa-Luis** 用 Python 重写的版本，与早先启发其命名的 Linus Oleander 的 **git-fame-rb** Ruby gem 有所不同。
 
 # INSTALL
 

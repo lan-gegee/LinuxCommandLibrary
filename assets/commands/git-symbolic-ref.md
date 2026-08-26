@@ -1,22 +1,22 @@
 # TAGLINE
 
-Read and modify symbolic references like HEAD
+读取和修改 HEAD 之类的符号引用
 
 # TLDR
 
-**Show HEAD target**
+**查看 HEAD 指向的目标**
 
 ```git symbolic-ref HEAD```
 
-**Set HEAD to branch**
+**将 HEAD 设置为某分支**
 
 ```git symbolic-ref HEAD refs/heads/main```
 
-**Get short name**
+**获取短名称**
 
 ```git symbolic-ref --short HEAD```
 
-**Delete symbolic ref**
+**删除符号引用**
 
 ```git symbolic-ref -d HEAD```
 
@@ -27,36 +27,36 @@ Read and modify symbolic references like HEAD
 # PARAMETERS
 
 _NAME_
-> Symbolic ref name (usually HEAD).
+> 符号引用名（通常是 HEAD）。
 
 _REF_
-> Target ref to set.
+> 要设置的目标引用。
 
 **--short**
-> Show short name.
+> 显示短名称。
 
 **-d**, **--delete**
-> Delete symbolic ref.
+> 删除符号引用。
 
 **-q**, **--quiet**
-> Quiet mode.
+> 安静模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git symbolic-ref** reads and modifies symbolic references. HEAD is the most common symbolic ref, pointing to the currently checked-out branch. This plumbing command shows which branch HEAD points to or changes it programmatically.
+**git symbolic-ref** 用于读取和修改符号引用。HEAD 是最常见的符号引用，指向当前检出的分支。这个底层（plumbing）命令可以显示 HEAD 指向哪个分支，或以编程方式改变它。
 
-When HEAD is detached (pointing directly to a commit rather than a branch), this command will report an error, distinguishing it from `git rev-parse`.
+当 HEAD 处于分离状态（直接指向某个提交而非分支）时，该命令会报错，这也是它与 `git rev-parse` 的区别之一。
 
 # CAVEATS
 
-Plumbing command. HEAD is most common use. Detached HEAD is not a symbolic ref.
+底层（plumbing）命令。最常用于 HEAD。分离状态的 HEAD 不是符号引用。
 
 # HISTORY
 
-git symbolic-ref is a core **Git** plumbing command for managing symbolic references, fundamental to branch tracking.
+git symbolic-ref 是管理符号引用的核心 **Git** 底层（plumbing）命令，是分支跟踪机制的基础。
 
 # INSTALL
 

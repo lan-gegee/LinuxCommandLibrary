@@ -1,26 +1,26 @@
 # TAGLINE
 
-interactive debugger for compiled programs
+编译后程序的交互式调试器
 
 # TLDR
 
-**Debug program**
+**调试程序**
 
 ```gdb [program]```
 
-**Debug with core** file
+**配合 core 文件调试**
 
 ```gdb [program] [core]```
 
-**Attach to process**
+**附加到进程**
 
 ```gdb -p [pid]```
 
-**Run with arguments**
+**带参数运行**
 
 ```gdb --args [program] [arg1] [arg2]```
 
-**Execute commands**
+**执行命令脚本**
 
 ```gdb -x [commands.gdb] [program]```
 
@@ -31,57 +31,57 @@ interactive debugger for compiled programs
 # PARAMETERS
 
 _PROGRAM_
-> Executable to debug.
+> 要调试的可执行文件。
 
 _CORE_
-> Core dump file.
+> 核心转储文件。
 
 **-p** _PID_
-> Attach to running process.
+> 附加到正在运行的进程。
 
 **--args**
-> Pass arguments to program.
+> 向程序传递参数。
 
 **-x** _FILE_
-> Execute GDB commands from file.
+> 执行文件中的 GDB 命令。
 
 **-q**, **--quiet**
-> Suppress startup messages.
+> 抑制启动消息。
 
 **--tui**
-> Enable text user interface.
+> 启用文本用户界面。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.gdbinit**
-> User-specific GDB initialization commands executed on startup.
+> 用户专属的 GDB 初始化命令，启动时执行。
 
 **/etc/gdb/gdbinit**
-> System-wide initialization file for all users.
+> 面向所有用户的系统级初始化文件。
 
 **.gdbinit**
-> Project-local initialization file for directory-specific commands.
+> 项目本地的初始化文件，用于目录特定的命令。
 
 # DESCRIPTION
 
-**gdb** (GNU Debugger) is the standard debugger for C, C++, and other compiled languages on Unix-like systems. It provides comprehensive facilities for inspecting program state, setting breakpoints, stepping through code, examining variables, and analyzing memory contents during execution.
+**gdb**（GNU Debugger）是类 Unix 系统上 C、C++ 及其他编译型语言的标准调试器。它提供了全面的功能，可在程序执行期间检查程序状态、设置断点、单步执行代码、查看变量以及分析内存内容。
 
-The debugger operates by controlling program execution, allowing developers to pause at specific points, examine the call stack, modify variable values, and trace execution flow. It can debug running processes by attaching to them, analyze core dumps from crashed programs, and even perform remote debugging across network connections via gdbserver.
+调试器通过控制程序执行来工作，允许开发者在特定位置暂停、检查调用栈、修改变量值以及跟踪执行流程。它可以通过附加的方式调试运行中的进程，分析崩溃程序的核心转储，甚至可以通过 gdbserver 跨网络连接进行远程调试。
 
-gdb supports scripting through its command language and Python integration, enabling automated debugging sessions and custom commands. The Text User Interface (TUI) mode provides a split-screen view of source code, assembly, registers, and command prompt. Debugging symbols (compiled with -g flag) are essential for meaningful source-level debugging, though gdb can still work with stripped binaries at the assembly level.
+gdb 通过其命令语言和 Python 集成支持脚本化，可实现自动化调试会话和自定义命令。文本用户界面（TUI）模式提供源代码、汇编、寄存器和命令提示符的分屏视图。调试符号（使用 -g 标志编译）对于有效的源码级调试至关重要，不过 gdb 在汇编级别仍可处理剥离了符号的二进制文件。
 
-Common workflows include setting breakpoints at functions or line numbers, examining variables with print and display commands, stepping through code with next/step/continue, and analyzing crashes through backtrace. The tool is indispensable for diagnosing segmentation faults, memory corruption, race conditions, and complex logic errors in native applications.
+常见工作流包括：在函数或行号处设置断点、用 print 和 display 命令查看变量、用 next/step/continue 单步执行代码，以及通过 backtrace 分析崩溃。该工具是诊断原生应用程序中段错误、内存损坏、竞态条件和复杂逻辑错误的必备利器。
 
 # CAVEATS
 
-Requires debug symbols (-g). Optimized code may behave unexpectedly. Learning curve for commands.
+需要调试符号（-g）。优化后的代码可能出现意外行为。命令学习曲线较陡。
 
 # HISTORY
 
-gdb was written by **Richard Stallman** in 1986 as part of the GNU Project. It became the standard Unix debugger, supporting numerous architectures and languages.
+gdb 由 **Richard Stallman** 于 1986 年编写，是 GNU 计划的一部分。它成为 Unix 上的标准调试器，支持众多架构和语言。
 
 # INSTALL
 

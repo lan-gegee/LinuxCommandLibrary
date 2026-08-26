@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage GitLab merge requests from the command line
+在命令行中管理 GitLab 合并请求
 
 # TLDR
 
-**List merge requests**
+**列出合并请求**
 
 ```glab mr list```
 
-**Create merge request**
+创建合并请求
 
 ```glab mr create```
 
-**View merge request**
+查看合并请求
 
 ```glab mr view [number]```
 
-**Checkout merge request**
+检出合并请求
 
 ```glab mr checkout [number]```
 
-**Merge a merge request**
+合并一个合并请求
 
 ```glab mr merge [number]```
 
-**Approve merge request**
+批准合并请求
 
 ```glab mr approve [number]```
 
@@ -35,62 +35,62 @@ Manage GitLab merge requests from the command line
 # SUBCOMMANDS
 
 **list**
-> List merge requests.
+> 列出合并请求。
 
 **create**
-> Open a new merge request.
+> 创建新的合并请求。
 
 **view**
-> Display a merge request.
+> 显示合并请求。
 
 **checkout**
-> Check out a merge request branch locally.
+> 在本地检出合并请求的分支。
 
 **update**
-> Modify merge request details (title, description, labels, etc.).
+> 修改合并请求详情（标题、描述、标签等）。
 
 **merge**
-> Merge a merge request.
+> 合并一个合并请求。
 
 **rebase**
-> Rebase a merge request's source branch against its target.
+> 将合并请求的源分支变基到其目标分支上。
 
 **approve**
-> Approve a merge request.
+> 批准一个合并请求。
 
 **approvers**
-> View or manage merge request approvers.
+> 查看或管理合并请求的审批人。
 
 **revoke**
-> Revoke approval of a merge request.
+> 撤销对合并请求的批准。
 
 **close**
-> Close a merge request.
+> 关闭一个合并请求。
 
 **reopen**
-> Reopen a closed merge request.
+> 重新打开已关闭的合并请求。
 
 **delete**
-> Delete a merge request.
+> 删除合并请求。
 
 **diff**
-> Show changes in a merge request.
+> 显示合并请求中的更改。
 
 **note**
-> Add a comment to a merge request.
+> 向合并请求添加评论。
 
 **issues**
-> View issues linked to a merge request.
+> 查看与合并请求关联的议题。
 
 **subscribe** / **unsubscribe**
-> Subscribe to, or stop following, a merge request's notifications.
+> 订阅或取消关注合并请求的通知。
 
 **todo**
-> Add a merge request to your GitLab to-do list.
+> 将合并请求加入你的 GitLab 待办列表。
 
 # DESCRIPTION
 
-**glab mr** manages GitLab merge requests from the command line. It provides subcommands for creating, viewing, reviewing, approving, and merging MRs without leaving the terminal. Run `glab mr <subcommand> --help` for the flags of each subcommand.
+**glab mr** 在命令行中管理 GitLab 合并请求。它提供创建、查看、评审、批准和合并 MR 等子命令，无需离开终端。运行 `glab mr <subcommand> --help` 可查看各子命令的标志。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Graphical frontend for sudo with GTK password dialog
+带 GTK 密码对话框的 sudo 图形前端
 
 # TLDR
 
-Run a command as a **specific user**
+以**特定用户**身份运行命令
 
 ```gksudo -u [userid] [command]```
 
-Run the command while **preserving** the current environment
+在**保留**当前环境的同时运行命令
 
 ```gksudo -u [userid] -k [command]```
 
-Force gksudo to use **su** to run the command
+强制 gksudo 使用 **su** 运行命令
 
 ```gksudo -u [userid] -w [command]```
 
-Force gksudo to use **sudo** to run the command
+强制 gksudo 使用 **sudo** 运行命令
 
 ```gksudo -u [userid] -S [command]```
 
-Output **debug** info for the given command
+为给定命令输出**调试**信息
 
 ```gksudo -u [userid] -d [command]```
 
-Ask gksudo to **print the password** to stdout
+让 gksudo 将密码**打印到 stdout**
 
 ```gksudo -p [command]```
 
@@ -35,53 +35,53 @@ Ask gksudo to **print the password** to stdout
 # PARAMETERS
 
 **-u**, **--user** _USER_
-> Run command as specified user (default: root)
+> 以指定用户身份运行命令（默认：root）
 
 **-k**, **--preserve-env**
-> Preserve current environment variables, does not set `$HOME` or `$PATH`
+> 保留当前环境变量，不设置 `$HOME` 或 `$PATH`
 
 **-l**, **--login**
-> Make this a login shell (may cause problems with Xauthority)
+> 使其成为登录 shell（可能与 Xauthority 产生问题）
 
 **-w**, **--su-mode**
-> Force use of su for authentication
+> 强制使用 su 进行认证
 
 **-S**, **--sudo-mode**
-> Force use of sudo for authentication (default)
+> 强制使用 sudo 进行认证（默认）
 
 **-d**, **--debug**
-> Output debug information
+> 输出调试信息
 
 **-g**, **--disable-grab**
-> Disable locking of the keyboard, mouse, and focus while asking for the password
+> 在询问密码时不锁定键盘、鼠标和焦点
 
 **-P**, **--prompt**
-> Ask the user before grabbing the keyboard and mouse
+> 抓取键盘和鼠标前先询问用户
 
 **-m**, **--message** _MSG_
-> Custom message in password dialog
+> 密码对话框中的自定义消息
 
 **-D**, **--description** _DESC_|_FILE_
-> Description for the command being run, used in the default message
+> 所运行命令的描述，用于默认消息中
 
 **-p**, **--print-pass**
-> Print the password to stdout, like ssh-askpass
+> 将密码打印到 stdout，类似 ssh-askpass
 
 # DESCRIPTION
 
-**gksudo** is a graphical frontend for `sudo` that prompts for a password using a GTK dialog. It is essentially `gksu` configured to use sudo-mode by default, authenticating with the current user's password and sudo privileges.
+**gksudo** 是 `sudo` 的图形前端，通过 GTK 对话框提示输入密码。它本质上是默认使用 sudo 模式的 `gksu`，以当前用户的密码和 sudo 权限进行认证。
 
-This allows running graphical applications with elevated privileges while using sudo's configuration for permission control.
+这样可以在利用 sudo 的配置进行权限控制的同时，以提升的权限运行图形应用程序。
 
-> **DEPRECATED**: gksudo is no longer maintained and has security issues. Use **pkexec** from PolicyKit for graphical privilege escalation instead.
+> **已弃用**：gksudo 不再维护且存在安全问题。请改用 PolicyKit 的 **pkexec** 进行图形化权限提升。
 
 # CAVEATS
 
-Deprecated and unmaintained. Running graphical applications as root can cause permission problems with user config files and X authority. Modern systems discourage running GUI applications as root.
+已弃用且无人维护。以 root 身份运行图形应用程序可能导致用户配置文件和 X 授权出现权限问题。现代系统不鼓励以 root 身份运行 GUI 应用。
 
 # HISTORY
 
-gksudo was created alongside gksu for Ubuntu and other distributions that preferred sudo over su for privilege escalation. Both were deprecated around **2012** in favor of PolicyKit's pkexec mechanism.
+gksudo 与 gksu 一同诞生，面向偏好用 sudo 而非 su 提升权限的 Ubuntu 及其他发行版。两者都在大约 **2012 年**被弃用，由 PolicyKit 的 pkexec 机制取代。
 
 # SEE ALSO
 

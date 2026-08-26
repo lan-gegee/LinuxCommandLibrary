@@ -1,38 +1,38 @@
 # TAGLINE
 
-Get and set repository or global options
+读取和设置仓库或全局选项
 
 # TLDR
 
-**Set user name**
+**设置用户名**
 
 ```git config --global user.name "[Name]"```
 
-**Set user email**
+**设置用户邮箱**
 
 ```git config --global user.email "[email@example.com]"```
 
-**Get a value**
+**获取一个值**
 
 ```git config user.name```
 
-**Set the default branch name** for new repositories
+**为新仓库设置默认分支名**
 
 ```git config --global init.defaultBranch main```
 
-**Create a command alias**
+**创建命令别名**
 
 ```git config --global alias.co checkout```
 
-**Remove a setting**
+**移除一项设置**
 
 ```git config --global --unset [key]```
 
-**List all settings** and their origins
+**列出所有设置**及其来源
 
 ```git config --list --show-origin```
 
-**Edit config file**
+**编辑配置文件**
 
 ```git config --global --edit```
 
@@ -43,67 +43,67 @@ Get and set repository or global options
 # PARAMETERS
 
 _NAME_
-> Configuration key.
+> 配置键。
 
 _VALUE_
-> Value to set.
+> 要设置的值。
 
 **--global**
-> User-level config (~/.gitconfig).
+> 用户级配置（~/.gitconfig）。
 
 **--local**
-> Repository config (.git/config).
+> 仓库配置（.git/config）。
 
 **--system**
-> System-wide config.
+> 系统级配置。
 
 **--list**, **-l**
-> List all variables.
+> 列出所有变量。
 
 **--edit**, **-e**
-> Open config in editor.
+> 在编辑器中打开配置。
 
 **--get** _NAME_
-> Get the value for a given key (default behavior when only name is provided).
+> 获取给定键的值（只给键名时的默认行为）。
 
 **--get-all** _NAME_
-> Get all values for a multi-valued key.
+> 获取多值键的所有值。
 
 **--unset** _NAME_
-> Remove a setting.
+> 移除一项设置。
 
 **--show-origin**
-> Show the file where each config value comes from.
+> 显示每个配置值来自哪个文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git config** manages Git configuration variables that control all aspects of Git's behavior, from user identity and commit settings to advanced options like merge strategies, credential helpers, and performance tuning. Configuration is stored in INI-style text files at three hierarchical levels.
+**git config** 管理 Git 配置变量，这些变量控制着 Git 行为的方方面面，从用户身份和提交设置到合并策略、凭据助手和性能调优等高级选项。配置以 INI 风格的文本文件存储在三个层级中。
 
-System-level configuration (/etc/gitconfig) applies to all users on the system and requires administrator privileges to modify. Global configuration (~/.gitconfig or ~/.config/git/config) applies to the current user across all repositories. Local configuration (.git/config) applies only to the specific repository. Settings at lower levels override higher levels, allowing project-specific customization.
+系统级配置（/etc/gitconfig）作用于系统上的所有用户，修改需要管理员权限。全局配置（~/.gitconfig 或 ~/.config/git/config）对当前用户的所有仓库生效。本地配置（.git/config）只对特定仓库生效。低层级设置覆盖高层级设置，从而支持项目级的定制。
 
-Common configuration tasks include setting user identity (user.name and user.email, required for commits), defining command aliases (alias.*), configuring merge and diff tools (merge.tool, diff.tool), setting default branch names (init.defaultBranch), and managing credentials (credential.helper).
+常见配置任务包括：设置用户身份（user.name 和 user.email，提交所必需）、定义命令别名（alias.*）、配置合并与 diff 工具（merge.tool、diff.tool）、设置默认分支名（init.defaultBranch），以及管理凭据（credential.helper）。
 
 # CONFIGURATION
 
-**~/.gitconfig** or **~/.config/git/config**
-> Global user-level configuration file (--global).
+**~/.gitconfig** 或 **~/.config/git/config**
+> 全局用户级配置文件（--global）。
 
 **.git/config**
-> Repository-specific configuration file (--local).
+> 仓库专属配置文件（--local）。
 
 **/etc/gitconfig**
-> System-wide configuration file (--system).
+> 系统级配置文件（--system）。
 
 # CAVEATS
 
-Local settings override global, and global overrides system. When a key is set at multiple levels, the most specific scope wins. Some settings like **core.autocrlf** can cause unexpected behavior if set inconsistently across scopes. Credential helpers vary by platform and may require separate installation.
+本地设置覆盖全局设置，全局设置又覆盖系统设置。同一个键在多个层级都有设置时，作用域最具体的生效。某些设置（如 **core.autocrlf**）如果在不同层级间设置不一致，可能导致意外行为。凭据助手因平台而异，可能需要单独安装。
 
 # HISTORY
 
-git config is a core **Git** command from initial release, providing the configuration system that controls all git behavior.
+git config 是 **Git** 自最初发布就有的核心命令，提供了控制所有 git 行为的配置系统。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Nginx configuration security analyzer
+Nginx 配置安全分析器
 
 # TLDR
 
-**Analyze nginx config**
+**分析 nginx 配置**
 
 ```gixy [/etc/nginx/nginx.conf]```
 
-**Run only specific tests**
+只运行特定测试
 
 ```gixy --tests [http_splitting,ssrf] [/etc/nginx/nginx.conf]```
 
-**Output in JSON format**
+以 JSON 格式输出
 
 ```gixy -f json [/etc/nginx/nginx.conf]```
 
-**Skip specific tests**
+跳过特定测试
 
 ```gixy --skips [host_spoofing,low_keepalive_requests] [/etc/nginx/nginx.conf]```
 
-**Report only high severity issues**
+只报告高严重程度的问题
 
 ```gixy -lll [/etc/nginx/nginx.conf]```
 
@@ -31,48 +31,48 @@ Nginx configuration security analyzer
 # PARAMETERS
 
 _CONFIG_
-> Nginx configuration file.
+> Nginx 配置文件。
 
 **--tests** _TESTS_
-> Comma-separated list of tests to run.
+> 要运行的测试的逗号分隔列表。
 
 **--skips** _TESTS_
-> Comma-separated list of tests to skip.
+> 要跳过的测试的逗号分隔列表。
 
 **-l, --level**
-> Report issues of a given severity level or higher. Use -l for LOW, -ll for MEDIUM, -lll for HIGH.
+> 报告给定严重程度及以上的问题。-l 表示 LOW，-ll 表示 MEDIUM，-lll 表示 HIGH。
 
 **-f** _FORMAT_, **--format** _FORMAT_
-> Output format: text, json, console.
+> 输出格式：text、json、console。
 
 **-o** _FILE_, **--output** _FILE_
-> Write report to a file.
+> 将报告写入文件。
 
 **-c** _FILE_, **--config** _FILE_
-> Path to configuration file.
+> 配置文件的路径。
 
 **-d, --debug**
-> Enable debug mode.
+> 启用调试模式。
 
 **--disable-includes**
-> Disable processing of include directives.
+> 禁用对 include 指令的处理。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gixy** analyzes nginx configuration files for security issues. It detects common misconfigurations that could lead to vulnerabilities like SSRF, host spoofing, and path traversal.
+**gixy** 分析 nginx 配置文件中的安全问题。它检测可能导致 SSRF、主机欺骗和路径穿越等漏洞的常见错误配置。
 
-The tool includes plugins for various security checks and provides detailed explanations of issues found. It is used in security audits and CI pipelines to catch nginx misconfigurations before deployment.
+该工具内置多种安全检查插件，并为发现的问题提供详细说明。它被用于安全审计和 CI 流水线中，以便在部署前发现 nginx 配置错误。
 
 # CAVEATS
 
-Python tool. The original yandex/gixy project is unmaintained; gixy-next is a maintained fork. May need updates for latest nginx features. False positives possible. Some plugins expose additional options configurable via CLI flags or a configuration file.
+Python 工具。原始 yandex/gixy 项目已无人维护；gixy-next 是持续维护的分支。可能需要更新才能支持最新的 nginx 特性。可能出现误报。部分插件提供额外选项，可通过 CLI 标志或配置文件设置。
 
 # HISTORY
 
-gixy was created by **Yandex** to automate nginx security configuration review.
+gixy 由 **Yandex** 创建，用于自动化 nginx 安全配置审查。
 
 # INSTALL
 

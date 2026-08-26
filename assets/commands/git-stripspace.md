@@ -1,18 +1,18 @@
 # TAGLINE
 
-Clean up whitespace in Git messages
+清理 Git 消息中的空白字符
 
 # TLDR
 
-**Strip trailing whitespace**
+**去除行尾空白**
 
 ```git stripspace < [file]```
 
-**Strip comments**
+**去除注释行**
 
 ```git stripspace -s < [file]```
 
-**Comment out lines**
+**将行注释掉**
 
 ```git stripspace -c < [file]```
 
@@ -23,16 +23,16 @@ Clean up whitespace in Git messages
 # PARAMETERS
 
 **-s**, **--strip-comments**
-> Strip comment lines.
+> 去除注释行。
 
 **-c**, **--comment-lines**
-> Comment out lines.
+> 将行注释掉。
 
 # DESCRIPTION
 
-**git stripspace** filters text from stdin, stripping trailing whitespace and collapsing multiple consecutive blank lines. It is used internally by Git for commit message cleanup.
+**git stripspace** 对来自 stdin 的文本进行过滤，去掉行尾空白并将多个连续空行合并为一个。Git 内部就用它来清理提交信息。
 
-The command can also strip or add comment lines, making it useful for processing Git-formatted messages and templates.
+该命令还可以去除或添加注释行，因此也适合处理 Git 格式的消息和模板。
 
 # INSTALL
 

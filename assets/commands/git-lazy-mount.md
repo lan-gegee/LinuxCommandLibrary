@@ -1,18 +1,18 @@
 # TAGLINE
 
-Mount a Git repository without cloning it
+无需克隆即可挂载 Git 仓库
 
 # TLDR
 
-**Mount a remote repository** onto a local directory
+**将远程仓库挂载**到本地目录
 
 ```git lazy-mount [https://github.com/example/huge-repo] [~/huge-repo]```
 
-**Work in the mounted tree** with ordinary Git commands
+**在挂载的目录树中**使用普通 Git 命令工作
 
 ```cd [~/huge-repo] && git switch -c [feature]```
 
-**Build from source** with the FUSE feature enabled
+**从源码构建**，启用 FUSE 特性
 
 ```cargo build --release -p glm-cli --features fuse```
 
@@ -24,19 +24,19 @@ Mount a Git repository without cloning it
 
 # DESCRIPTION
 
-**git-lazy-mount** mounts a Git repository as a local working tree without first cloning it. Instead of downloading every object up front, it exposes the repository through a **FUSE** file system and fetches file contents on demand, the moment a file is opened, read, or edited. Files that are never touched are never downloaded, which makes very large repositories usable in seconds and with a fraction of the disk space.
+**git-lazy-mount** 无需先克隆即可将 Git 仓库挂载为本地工作树。它不会预先下载所有对象，而是通过 **FUSE** 文件系统暴露仓库，并在文件被打开、读取或编辑的那一刻按需获取文件内容。从未被触及的文件永远不会被下载，这使得超大型仓库可以在几秒内投入使用，且只占用一小部分磁盘空间。
 
-Because the mount looks like an ordinary checkout, normal Git commands work inside it: you can edit files, commit, create branches, and push. The project also ships a companion `sgrep` tool that queries a remote code-search index and overlays your uncommitted edits, so searching a huge repository does not require materializing it.
+由于挂载后的目录看起来就像一次普通的检出，常规的 Git 命令在其中都可以正常使用：你可以编辑文件、提交、创建分支和推送。该项目还附带了一个配套工具 `sgrep`，它可以查询远程代码搜索索引并叠加你未提交的修改，因此搜索超大仓库无需先将其实体化。
 
-It installs as a Git subcommand, so `git lazy-mount` and the underlying `git-lazy-mount` binary are equivalent. The tool is built in **Rust** and targets Linux, where it relies on the kernel FUSE interface.
+它以 Git 子命令的形式安装，因此 `git lazy-mount` 与底层的 `git-lazy-mount` 可执行文件是等价的。该工具使用 **Rust** 构建，面向 Linux，依赖内核的 FUSE 接口。
 
 # CAVEATS
 
-git-lazy-mount is **Linux only**; macOS and Windows are studied but not supported. It requires **libfuse3** and a system **Git of at least version 2.36**. Because file contents are fetched lazily over the network, accessing many files for the first time, or working offline, can be slow or fail, and the mount depends on the remote staying reachable. It is best suited to read-mostly work and targeted edits on large repositories rather than operations that scan the whole tree.
+git-lazy-mount **仅支持 Linux**；对 macOS 和 Windows 的支持尚在研究中。它需要 **libfuse3** 以及版本不低于 **2.36** 的系统 Git。由于文件内容通过网络延迟获取，首次访问大量文件或离线工作时可能很慢甚至失败，而且挂载依赖于远程仓库保持可达。它最适合以读取为主的工作和对大型仓库的定点编辑，而不适合需要扫描整棵树的操作。
 
 # HISTORY
 
-git-lazy-mount was created by **Mohsen Azimi** (mohsen1) and is dual-licensed under **MIT** and **Apache 2.0**. In the author's benchmarks across twenty repositories it used about 1.3 GB versus 23 GB for full clones, roughly eighteen times less, while preserving complete history.
+git-lazy-mount 由 **Mohsen Azimi**（mohsen1）创建，采用 **MIT** 和 **Apache 2.0** 双重许可。根据作者在二十个仓库上的基准测试，它约占用 1.3 GB，而完整克隆需要 23 GB，减少了大约十八倍，同时保留了完整历史。
 
 # INSTALL
 

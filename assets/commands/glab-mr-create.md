@@ -1,38 +1,38 @@
 # TAGLINE
 
-Create a new GitLab merge request
+创建新的 GitLab 合并请求
 
 # TLDR
 
-**Create MR interactively**
+**交互式创建 MR**
 
 ```glab mr create```
 
-**Create with title**
+带标题创建
 
 ```glab mr create -t "[title]"```
 
-**Create as draft**
+**创建为草稿**
 
 ```glab mr create --draft -t "[title]"```
 
-**Create with reviewers**
+指定评审人创建
 
 ```glab mr create -t "[title]" --reviewer [user1],[user2]```
 
-**Create to specific branch**
+创建到特定分支
 
 ```glab mr create --target-branch [main]```
 
-**Fill from commits**
+从提交信息自动填充
 
 ```glab mr create --fill```
 
-**Skip prompts and push the branch**
+跳过提示并推送分支
 
 ```glab mr create --fill --push --yes```
 
-**Create for a linked issue**
+为关联议题创建
 
 ```glab mr create --related-issue [issue-number]```
 
@@ -43,67 +43,67 @@ Create a new GitLab merge request
 # PARAMETERS
 
 **-t**, **--title** _title_
-> MR title.
+> MR 标题。
 
 **-d**, **--description** _text_
-> MR description. Use `-` to open an editor.
+> MR 描述。使用 `-` 打开编辑器。
 
 **--draft**, **--wip**
-> Mark the merge request as a draft.
+> 将合并请求标记为草稿。
 
 **-a**, **--assignee** _users_
-> Assign the MR to users by username; comma-separate or repeat the flag.
+> 按用户名将 MR 分配给用户；逗号分隔或重复使用该标志。
 
 **--reviewer** _users_
-> Request review from users by username; comma-separate or repeat the flag.
+> 按用户名请求用户评审；逗号分隔或重复使用该标志。
 
 **-b**, **--target-branch** _branch_
-> Target/base branch to merge into.
+> 要合并到的目标/基础分支。
 
 **-s**, **--source-branch** _branch_
-> Branch to create the MR from (default: current branch).
+> 用于创建 MR 的分支（默认：当前分支）。
 
 **-f**, **--fill**
-> Don't prompt for title/description, use commit info instead. Implies **--push**.
+> 不提示输入标题/描述，改用提交信息。隐含 **--push**。
 
 **--fill-commit-body**
-> When multiple commits exist, fill the description with every commit body. Requires **--fill**.
+> 当存在多个提交时，用每个提交的正文填充描述。需要 **--fill**。
 
 **-l**, **--label** _labels_
-> Add labels by name; comma-separate or repeat the flag.
+> 按名称添加标签；逗号分隔或重复使用该标志。
 
 **-m**, **--milestone** _milestone_
-> Assign a milestone by ID or title.
+> 按 ID 或标题分配里程碑。
 
 **-i**, **--related-issue** _issue_
-> Create the MR for an issue; uses the issue title if **--title** is omitted.
+> 为某个议题创建 MR；省略 **--title** 时会使用议题标题。
 
 **--push**
-> Push local commits to the source branch after creating the MR.
+> 创建 MR 后将本地提交推送到源分支。
 
 **--remove-source-branch**
-> Remove the source branch when the MR is merged.
+> MR 合并后删除源分支。
 
 **--squash-before-merge**
-> Squash commits into one when merging.
+> 合并时将提交压缩为一个。
 
 **-H**, **--head** _repo_
-> Use another head repository, as `OWNER/REPO`, `GROUP/NAMESPACE/REPO`, a project ID, or a full URL.
+> 使用另一个头仓库，格式为 `OWNER/REPO`、`GROUP/NAMESPACE/REPO`、项目 ID 或完整 URL。
 
 **--template** _name_
-> Use a template from `.gitlab/merge_request_templates/` to pre-fill the description.
+> 使用 `.gitlab/merge_request_templates/` 中的模板预填描述。
 
 **-y**, **--yes**
-> Skip the submission confirmation prompt. Use with **--fill** to skip all optional prompts.
+> 跳过提交确认提示。与 **--fill** 一起使用可跳过所有可选提示。
 
 **-w**, **--web**
-> Continue MR creation in the browser.
+> 在浏览器中继续创建 MR。
 
 # DESCRIPTION
 
-**glab mr create** creates a new GitLab merge request from the current branch. It supports drafts, reviewer assignment, labels, milestones, and auto-filling title and description from commit messages.
+**glab mr create** 从当前分支创建新的 GitLab 合并请求。它支持草稿、指派评审人、标签、里程碑，以及从提交信息自动填充标题和描述。
 
-When run without flags, it launches an interactive prompt for composing the merge request.
+不带任何标志运行时，它会启动交互式提示来撰写合并请求。
 
 # INSTALL
 

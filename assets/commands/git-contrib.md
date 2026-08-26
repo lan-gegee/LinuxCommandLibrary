@@ -1,14 +1,14 @@
 # TAGLINE
 
-Show author contribution summary
+显示作者的贡献摘要
 
 # TLDR
 
-**Show author contributions**
+**显示作者贡献**
 
 ```git contrib [author-name]```
 
-**Show contributions for email**
+**按邮箱查看贡献**
 
 ```git contrib "[email@example.com]"```
 
@@ -19,26 +19,26 @@ Show author contribution summary
 # PARAMETERS
 
 _AUTHOR_
-> Author name or email to search for.
+> 要搜索的作者姓名或邮箱。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git contrib** displays a summary of commits by a specific author. It shows commit count and commit details, providing a quick overview of someone's contributions to the repository.
+**git contrib** 显示特定作者的提交摘要。它展示提交数量和提交详情，让你快速了解某人对仓库的贡献情况。
 
-The command searches commits by author name or email pattern using substring matching. It's useful for reviewing a contributor's work, generating contribution reports, or verifying commit attribution.
+该命令使用子串匹配按作者姓名或邮箱模式搜索提交。它适用于审查贡献者的工作、生成贡献报告，或者核实提交署名。
 
-This provides a more focused view than **git log --author**, specifically designed for quickly assessing an individual's contributions to the project.
+它比 **git log --author** 的视图更聚焦，专为快速评估个人对项目的贡献而设计。
 
 # CAVEATS
 
-Part of git-extras package. Author matching is substring-based. Shows commits reachable from current branch.
+属于 git-extras 软件包。作者匹配基于子串。只显示当前分支可达的提交。
 
 # HISTORY
 
-git contrib is part of **git-extras**, created by **TJ Holowaychuk** to provide quick contributor summaries.
+git contrib 是 **git-extras** 的一部分，由 **TJ Holowaychuk** 创建，用于快速生成贡献者摘要。
 
 # INSTALL
 

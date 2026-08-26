@@ -1,22 +1,22 @@
 # TAGLINE
 
-convert font files to C source code arrays
+将字体文件转换为 C 源代码数组
 
 # TLDR
 
-**Convert font to** C array
+**将字体转换为** C 数组
 
 ```font2c [font.ttf] [output.c]```
 
-**Specify character range**
+**指定字符范围**
 
 ```font2c --range [32-126] [font.ttf] [output.c]```
 
-**Set pixel size**
+**设置像素大小**
 
 ```font2c --size [16] [font.ttf] [output.c]```
 
-**Generate header file**
+**生成头文件**
 
 ```font2c --header [font.ttf] [output.h]```
 
@@ -27,41 +27,41 @@ convert font files to C source code arrays
 # PARAMETERS
 
 _FONT-FILE_
-> Input font file (.ttf, .otf).
+> 输入的字体文件（.ttf、.otf）。
 
 _OUTPUT-FILE_
-> Output C source file.
+> 输出的 C 源文件。
 
 **--range** _CHARS_
-> Character range to include.
+> 要包含的字符范围。
 
 **--size** _PIXELS_
-> Font size in pixels.
+> 字体大小（以像素为单位）。
 
 **--header**
-> Generate header file.
+> 生成头文件。
 
 **--format** _FORMAT_
-> Output format.
+> 输出格式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**font2c** converts font files to C source code arrays for embedded systems. It renders characters at specified sizes and outputs bitmap data as C arrays.
+**font2c** 将字体文件转换为面向嵌入式系统的 C 源代码数组。它按指定尺寸渲染字符，并将位图数据输出为 C 数组。
 
-The tool enables using custom fonts on displays without font rendering libraries. Character ranges can be limited to reduce memory usage on constrained devices.
+借助该工具，无需字体渲染库即可在显示屏上使用自定义字体。字符范围可以限制，以减少受限设备上的内存占用。
 
-font2c produces data suitable for microcontrollers, OLED displays, and other embedded graphics applications.
+font2c 生成的数据适用于微控制器、OLED 显示屏以及其他嵌入式图形应用。
 
 # CAVEATS
 
-Output size depends on font and character count. Anti-aliasing may not work on all targets. Bitmap fonts lose scalability.
+输出大小取决于字体和字符数量。抗锯齿并非在所有目标平台上都可用。位图字体失去了可伸缩性。
 
 # HISTORY
 
-font2c tools exist in various forms for embedded development, converting vector fonts to bitmap arrays usable without runtime font rendering on resource-constrained devices.
+font2c 类工具以多种形式存在于嵌入式开发中，用于将矢量字体转换为位图数组，从而在资源受限设备上无需运行时字体渲染即可使用。
 
 # SEE ALSO
 

@@ -1,38 +1,38 @@
 # TAGLINE
 
-general-purpose command-line fuzzy finder
+通用命令行模糊查找器
 
 # TLDR
 
-**Interactive file finder**
+**交互式文件查找器**
 
 ```find . -type f | fzf```
 
-**Select with preview**
+**带预览的选择**
 
 ```fzf --preview 'cat {}'```
 
-**Multiple selection**
+**多选**
 
 ```fzf -m```
 
-**Filter command history**
+**过滤命令历史**
 
 ```history | fzf```
 
-**Fuzzy find and** edit
+**模糊查找并**编辑
 
 ```vim $(fzf)```
 
-**Exact match** mode
+**精确匹配**模式
 
 ```fzf -e```
 
-**Non-interactive filter** (fuzzy grep)
+**非交互式过滤**（模糊 grep）
 
 ```fzf -f "[query]"```
 
-**Auto-select single** match
+**唯一匹配时自动选中**
 
 ```fzf --select-1 -q "[query]"```
 
@@ -43,100 +43,100 @@ general-purpose command-line fuzzy finder
 # PARAMETERS
 
 **-m**, **--multi**
-> Enable multiple selection.
+> 启用多选。
 
 **--preview** _CMD_
-> Preview command.
+> 预览命令。
 
 **-q** _QUERY_, **--query** _QUERY_
-> Initial search query.
+> 初始搜索查询词。
 
 **--height** _HEIGHT_
-> Display height (rows or percentage).
+> 显示高度（行数或百分比）。
 
 **--reverse**
-> Layout from top.
+> 自顶向下的布局。
 
 **--border**
-> Draw border.
+> 绘制边框。
 
 **-e**, **--exact**
-> Enable exact-match mode instead of fuzzy.
+> 启用精确匹配模式而非模糊匹配。
 
 **-f** _QUERY_, **--filter** _QUERY_
-> Non-interactive filter mode (fuzzy grep).
+> 非交互式过滤模式（模糊 grep）。
 
 **-1**, **--select-1**
-> Auto-select if only one match.
+> 仅有一个匹配时自动选中。
 
 **-0**, **--exit-0**
-> Exit immediately if no match.
+> 无匹配时立即退出。
 
 **--ansi**
-> Enable ANSI color code processing.
+> 启用 ANSI 颜色代码处理。
 
 **-d** _DELIM_, **--delimiter** _DELIM_
-> Field delimiter regex for --nth.
+> 供 --nth 使用的字段分隔正则。
 
 **-n** _N_, **--nth** _N_
-> Limit search scope to specified fields.
+> 将搜索范围限定到指定字段。
 
 **--layout** _LAYOUT_
-> Display layout: default, reverse, reverse-list.
+> 显示布局：default、reverse、reverse-list。
 
 **--info** _STYLE_
-> Info display style: default, right, hidden, inline.
+> 信息栏样式：default、right、hidden、inline。
 
 **--header** _STR_
-> Display a sticky header string.
+> 显示固定的页眉字符串。
 
 **--bind** _KEYS_
-> Custom key bindings.
+> 自定义按键绑定。
 
 **--tac**
-> Reverse input order.
+> 反转输入顺序。
 
 **--no-sort**
-> Preserve original input order.
+> 保持输入的原有顺序。
 
 **--cycle**
-> Enable cyclic scrolling.
+> 启用循环滚动。
 
 **--print-query**
-> Print the query as the first output line.
+> 将查询词作为输出的第一行打印。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fzf** is a general-purpose fuzzy finder that filters any list interactively. It accepts input via stdin and outputs selected items, enabling powerful shell workflows.
+**fzf** 是一个通用的模糊查找器，可对任何列表进行交互式过滤。它从 stdin 接收输入并输出选中的条目，从而构建强大的 shell 工作流。
 
-The tool provides instant feedback while typing, fuzzy matching for typo tolerance, and preview windows for context. Shell integration adds keybindings for history, files, and directories.
+该工具在键入时即时反馈，模糊匹配可以容忍拼写错误，预览窗口则提供上下文。Shell 集成还为历史、文件和目录添加了快捷键。
 
-fzf transforms command-line workflows with interactive selection for files, processes, git branches, and more.
+fzf 为文件、进程、git 分支等带来交互式选择，彻底改变了命令行工作流。
 
 # SHELL INTEGRATION
 
-**CTRL-T**: Paste selected file paths onto command line
-**CTRL-R**: Search command history
-**ALT-C**: cd into selected directory
+**CTRL-T**: 将选中的文件路径粘贴到命令行
+**CTRL-R**: 搜索命令历史
+**ALT-C**: cd 进入选中的目录
 
 # ENVIRONMENT VARIABLES
 
 **FZF_DEFAULT_COMMAND**
-> Command to run when input is a terminal (replaces default find).
+> 输入为终端时要运行的命令（替代默认的 find）。
 
 **FZF_DEFAULT_OPTS**
-> Default options applied to every fzf invocation.
+> 应用于每次 fzf 调用的默认选项。
 
 # CAVEATS
 
-Requires terminal with full capabilities. Shell integration requires sourcing the fzf setup script. Large inputs may be slow.
+需要支持完整功能的终端。Shell 集成需要 source fzf 的设置脚本。大量输入可能较慢。
 
 # HISTORY
 
-fzf was created by **Junegunn Choi** in 2013. Written in Go for performance, it became essential tooling for command-line productivity, spawning integrations across shells, editors, and tools.
+fzf 由 **Junegunn Choi** 于 2013 年创建。它以 Go 编写以追求性能，成为命令行生产力的重要工具，催生了遍布 shell、编辑器和各种工具的集成。
 
 # INSTALL
 

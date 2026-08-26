@@ -1,22 +1,22 @@
 # TAGLINE
 
-PostScript/PDF to LAVAFLOW wrapper script
+PostScript/PDF 转 LAVAFLOW 包装脚本
 
 # TLDR
 
-**Print PostScript file**
+**打印 PostScript 文件**
 
 ```foo2lava-wrapper [file.ps]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2lava-wrapper -p [a4] [file.ps]```
 
-**Color printing**
+**彩色打印**
 
 ```foo2lava-wrapper -c [file.ps]```
 
-**Print multiple copies**
+**打印多份**
 
 ```foo2lava-wrapper -n [3] [file.ps]```
 
@@ -27,41 +27,41 @@ PostScript/PDF to LAVAFLOW wrapper script
 # PARAMETERS
 
 _FILES_
-> PostScript or PDF files to print.
+> 要打印的 PostScript 或 PDF 文件。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-r** _DPI_
-> Resolution.
+> 分辨率。
 
 **-c**
-> Color printing.
+> 彩色打印。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2lava-wrapper** converts PostScript/PDF documents to LAVAFLOW format for Konica Minolta magicolor printers. It chains Ghostscript rasterization with foo2lava encoding.
+**foo2lava-wrapper** 将 PostScript/PDF 文档转换为 Konica Minolta magicolor 打印机所需的 LAVAFLOW 格式。它将 Ghostscript 栅格化与 foo2lava 编码串联起来。
 
-The wrapper provides a simplified interface for printing, handling format conversion automatically. It translates standard print options to the underlying tools.
+该包装器自动处理格式转换，为打印提供简化接口。它将标准打印选项转换为底层工具所需的参数。
 
-foo2lava-wrapper enables direct command-line printing to supported Konica Minolta printers.
+foo2lava-wrapper 支持直接以命令行向受支持的 Konica Minolta 打印机打印文档。
 
 # CAVEATS
 
-Requires Ghostscript. Limited to supported printer models. Color output quality varies.
+需要 Ghostscript。仅限于受支持的打印机型号。彩色输出质量参差不齐。
 
 # HISTORY
 
-foo2lava-wrapper is part of the **foo2zjs** driver collection, providing easy document printing for Konica Minolta printers using the LAVAFLOW protocol.
+foo2lava-wrapper 是 **foo2zjs** 驱动集合的一部分，为使用 LAVAFLOW 协议的 Konica Minolta 打印机提供便捷的文档打印方式。
 
 # INSTALL
 

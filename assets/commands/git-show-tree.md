@@ -1,10 +1,10 @@
 # TAGLINE
 
-Display a decorated graph of commits across all branches
+显示跨所有分支的装饰化提交图
 
 # TLDR
 
-**Show branch tree**
+**显示分支树**
 
 ```git show-tree```
 
@@ -14,11 +14,11 @@ Display a decorated graph of commits across all branches
 
 # DESCRIPTION
 
-**git show-tree** is a git-extras shortcut for `git log --all --graph --decorate --oneline --simplify-by-decoration`. It draws an ASCII commit graph across every branch, showing only the commits that are branch/tag tips or merge points, which makes overall repository topology easy to see at a glance.
+**git show-tree** 是 `git log --all --graph --decorate --oneline --simplify-by-decoration` 的 git-extras 快捷方式。它会绘制一张横跨所有分支的 ASCII 提交图，只显示作为分支/标签顶端或合并点的提交，让仓库的整体拓扑一目了然。
 
 # CAVEATS
 
-Part of git-extras package. Only shows commits relevant to the graph shape (tips, merges, tags); use `git log --graph` directly if you need every commit.
+属于 git-extras 软件包。只显示与图形形状相关的提交（分支顶端、合并点、标签）；如果需要每一个提交，请直接使用 `git log --graph`。
 
 # INSTALL
 

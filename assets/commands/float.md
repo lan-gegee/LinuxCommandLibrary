@@ -1,30 +1,30 @@
 # TAGLINE
 
-Declare floating-point shell variables
+声明浮点型 Shell 变量
 
 # TLDR
 
-**Declare a float variable** with a value
+**声明浮点变量**并赋值
 
 ```float [myvar]=3.14```
 
-**Declare multiple float variables**
+**声明多个浮点变量**
 
 ```float [x]=1.5 [y]=2.7```
 
-**Declare a float with arithmetic expression**
+**用算术表达式声明浮点数**
 
 ```float [result]='10.0 / 3.0'```
 
-**List all float variables** currently set
+**列出**当前已设置的所有浮点变量
 
 ```float```
 
-**Declare a float and export** to environment
+**声明浮点变量并导出**到环境
 
 ```float -x [myvar]=9.81```
 
-**Make a float variable read-only**
+将浮点变量设为**只读**
 
 ```float -r [PI]=3.14159265```
 
@@ -35,44 +35,44 @@ Declare floating-point shell variables
 # PARAMETERS
 
 **-g**
-> Create global variable when used inside a function
+> 在函数内部使用时创建全局变量
 
 **-h**
-> Hide variable; do not export to child processes even if exported in outer scope
+> 隐藏变量；即使在外层作用域中已导出，也不导出给子进程
 
 **-l**
-> Left-justify and strip leading blanks
+> 左对齐并去除前导空白
 
 **-r**
-> Make variable read-only
+> 将变量设为只读
 
 **-t**
-> Tag the variable (user-defined attribute)
+> 为变量打标记（用户自定义属性）
 
 **-u**
-> Force uppercase on assignment (for string context)
+> 赋值时强制转为大写（针对字符串上下文）
 
 **-x**
-> Export variable to environment of child processes
+> 将变量导出到子进程的环境
 
 **+**_attr_
-> Remove the specified attribute
+> 移除指定的属性
 
 # DESCRIPTION
 
-**float** is a zsh builtin command that declares variables with the floating-point attribute. It is equivalent to **typeset -E**, causing the variable to be stored and displayed in floating-point (scientific) notation.
+**float** 是一个 zsh 内建命令，用于声明带浮点属性的变量。它等同于 **typeset -E**，使变量以浮点（科学计数法）形式存储和显示。
 
-When a value is assigned to a float variable, zsh performs arithmetic evaluation, allowing expressions like `float x=1.0/3.0`. The result is stored as a double-precision floating-point number. Variables declared with float display in scientific notation by default (e.g., `3.1400000000000000e+00`).
+当向浮点变量赋值时，zsh 会执行算术求值，因此可以写 `float x=1.0/3.0` 这样的表达式。结果以双精度浮点数存储。用 float 声明的变量默认以科学计数法显示（例如 `3.1400000000000000e+00`）。
 
-Without arguments, **float** lists all currently declared floating-point variables and their values.
+不带参数运行时，**float** 会列出当前声明的所有浮点变量及其值。
 
 # CAVEATS
 
-Only available in **zsh**; not a builtin in bash or other POSIX shells. Floating-point arithmetic is subject to the usual IEEE 754 precision limitations and rounding errors. Read-only float variables cannot be unset or modified.
+仅在 **zsh** 中可用；不是 bash 或其他 POSIX shell 的内建命令。浮点运算受 IEEE 754 常见的精度限制和舍入误差影响。只读的浮点变量无法被 unset 或修改。
 
 # HISTORY
 
-The **float** builtin was introduced in **zsh** as a convenience shorthand for **typeset -E**. Zsh has supported floating-point arithmetic since **version 4.0** (2001), part of its extended mathematical capabilities beyond what POSIX sh requires. The float, integer, and readonly builtins in zsh all serve as specialized wrappers around typeset.
+**float** 内建命令在 **zsh** 中引入，作为 **typeset -E** 的便捷简写。zsh 自 **4.0 版本**（2001 年）起支持浮点运算，这是其超出 POSIX sh 要求的扩展数学能力的一部分。zsh 中的 float、integer 和 readonly 内建命令都是围绕 typeset 的专用封装。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Merge and split repositories using subdirectories
+以子目录的方式合并和拆分仓库
 
 # TLDR
 
-**Add subtree**
+**添加子树**
 
 ```git subtree add --prefix=[dir] [repo] [branch]```
 
-**Pull subtree changes**
+**拉取子树的改动**
 
 ```git subtree pull --prefix=[dir] [repo] [branch]```
 
-**Push subtree changes**
+**推送子树的改动**
 
 ```git subtree push --prefix=[dir] [repo] [branch]```
 
-**Split subtree**
+**拆分子树**
 
 ```git subtree split --prefix=[dir] -b [new_branch]```
 
-**Merge subtree**
+**合并子树**
 
 ```git subtree merge --prefix=[dir] [commit]```
 
@@ -31,40 +31,40 @@ Merge and split repositories using subdirectories
 # SUBCOMMANDS
 
 **add**
-> Add repository as subtree.
+> 将仓库添加为子树。
 
 **pull**
-> Pull subtree changes.
+> 拉取子树的改动。
 
 **push**
-> Push subtree changes.
+> 推送子树的改动。
 
 **merge**
-> Merge subtree changes.
+> 合并子树的改动。
 
 **split**
-> Extract subtree history.
+> 提取子树的历史。
 
 # PARAMETERS
 
 **--prefix** _dir_
-> Subdirectory for subtree.
+> 子树所在的子目录。
 
 **--squash**
-> Squash history.
+> 压缩历史。
 
 **-b** _branch_
-> Branch name for split.
+> split 使用的分支名。
 
 # DESCRIPTION
 
-**git subtree** merges and splits repositories into subdirectories, providing an alternative to submodules. Unlike submodules, subtrees keep everything in a single repository with a unified history, so clones don't need any extra init/update step to get the vendored code.
+**git subtree** 把仓库合并为子目录，或从子目录中拆分出仓库，是子模块的替代方案。与子模块不同，子树把所有内容都保存在同一个仓库中并拥有统一的历史，因此克隆时无需任何额外的 init/update 步骤即可获得引入的代码。
 
-The `split` command extracts the history of a subdirectory into a separate branch, while `add`, `pull`, and `push` manage the ongoing synchronization with the upstream repository.
+`split` 命令将某个子目录的历史提取到一个独立分支中；`add`、`pull` 和 `push` 则负责与上游仓库保持持续同步。
 
 # CAVEATS
 
-Shipped as a `contrib` script, not part of the core `git` binary, so it isn't installed everywhere by default (e.g. some Linux distros package it separately, such as Debian/Ubuntu's `git-subtree` package). Merging a large upstream history in still adds all of its commits to your repository.
+它以 `contrib` 脚本的形式分发，不是核心 `git` 二进制的一部分，因此并非所有环境都默认安装（例如某些 Linux 发行版将其单独打包，如 Debian/Ubuntu 的 `git-subtree` 软件包）。合入庞大的上游历史时，其全部提交都会被加入你的仓库。
 
 # INSTALL
 

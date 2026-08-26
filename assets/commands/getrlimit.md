@@ -1,22 +1,22 @@
 # TAGLINE
 
-resource limit query and management interface
+资源限制查询与管理接口
 
 # TLDR
 
-**Get resource limits (shell)**
+**查看资源限制（shell）**
 
 ```ulimit -a```
 
-**Get specific limit (open files)**
+**查看特定限制（打开文件数）**
 
 ```ulimit -n```
 
-**Show resource limits of a process**
+**显示进程的资源限制**
 
 ```prlimit --pid [pid]```
 
-**Set open file limit for a command**
+**为某条命令设置打开文件数限制**
 
 ```prlimit --nofile=4096 [command]```
 
@@ -31,16 +31,16 @@ resource limit query and management interface
 # PARAMETERS
 
 _resource_
-> Resource type (RLIMIT_NOFILE, RLIMIT_NPROC, etc.).
+> 资源类型（RLIMIT_NOFILE、RLIMIT_NPROC 等）。
 
 _rlim_
-> Pointer to rlimit structure with soft/hard limits.
+> 指向包含软/硬限制的 rlimit 结构的指针。
 
 # DESCRIPTION
 
-**getrlimit()** and **setrlimit()** are system calls for querying and setting resource limits for the calling process. These limits control maximum values for various system resources.
+**getrlimit()** 和 **setrlimit()** 是用于查询和设置调用进程资源限制的系统调用。这些限制控制着各种系统资源的最大值。
 
-The **ulimit** shell built-in provides command-line access to these limits. Limits have soft (current) and hard (maximum) values.
+**ulimit** shell 内建命令提供了对这些限制的命令行访问方式。每个限制都有软（当前生效）和硬（上限）两种取值。
 
 # RESOURCES
 
@@ -69,14 +69,14 @@ ulimit -n 4096   # Set open files limit
 # CONFIGURATION
 
 **/etc/security/limits.conf**
-> PAM configuration for setting default resource limits per user or group.
+> PAM 配置文件，用于按用户或组设置默认资源限制。
 
 **/etc/systemd/system.conf**
-> Systemd-wide default resource limits for services and user sessions.
+> systemd 全局的默认资源限制设置，作用于服务和用户会话。
 
 # CAVEATS
 
-System call, not a command. Non-root users cannot raise hard limits. Some limits affect child processes. PAM may set limits at login.
+这是系统调用而非命令。非 root 用户不能提高硬限制。某些限制会影响子进程。PAM 可能在登录时设置限制。
 
 # SEE ALSO
 

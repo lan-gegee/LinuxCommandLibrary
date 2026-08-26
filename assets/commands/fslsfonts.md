@@ -1,26 +1,26 @@
 # TAGLINE
 
-list fonts from X font server
+列出 X 字体服务器中的字体
 
 # TLDR
 
-**List all fonts**
+**列出所有字体**
 
 ```fslsfonts```
 
-**List fonts matching** pattern
+**列出匹配模式的字体**
 
 ```fslsfonts -fn '[*-courier-*]'```
 
-**Show long listing**
+**显示长格式列表**
 
 ```fslsfonts -l```
 
-**List from specific** server
+从特定服务器**列出字体**
 
 ```fslsfonts -server [hostname:7100]```
 
-**Show font columns**
+**多列显示字体**
 
 ```fslsfonts -C```
 
@@ -31,50 +31,50 @@ list fonts from X font server
 # PARAMETERS
 
 _PATTERN_
-> Font pattern to match.
+> 要匹配的字体模式。
 
 **-fn** _PATTERN_
-> XLFD pattern of fonts to list (defaults to **\***).
+> 要列出的字体的 XLFD 模式（默认为 **\***）。
 
 **-l**
-> Long listing — show font properties. Repeat as **-ll** or **-lll** for progressively more detail.
+> 长格式列表 —— 显示字体属性。可用 **-ll** 或 **-lll** 逐级获得更多细节。
 
 **-m**
-> Include minimum and maximum character bounds in long listings.
+> 在长格式列表中包含字符的最小和最大边界。
 
 **-C**
-> Multi-column output.
+> 多列输出。
 
 **-1**
-> Single-column output (one font per line).
+> 单列输出（每行一个字体）。
 
 **-w** _WIDTH_
-> Set the column width used by **-C** (default 79).
+> 设置 **-C** 使用的列宽（默认 79）。
 
 **-n** _COLUMNS_
-> Force the output to use _COLUMNS_ columns (implies **-C**).
+> 强制输出使用 _COLUMNS_ 列（隐含 **-C**）。
 
 **-u**
-> Leave the output unsorted.
+> 输出不排序。
 
 **-server** _HOST:PORT_
-> Query the named font server (e.g. **tcp/host:7100**, **unix/:7100**) instead of the **FONTSERVER** environment variable.
+> 查询指定的字体服务器（如 **tcp/host:7100**、**unix/:7100**），而不是 **FONTSERVER** 环境变量指定的服务器。
 
 # DESCRIPTION
 
-**fslsfonts** lists fonts available from X font servers. It queries the font server and displays matching font names in XLFD (X Logical Font Description) format.
+**fslsfonts** 列出 X 字体服务器提供的字体。它查询字体服务器并以 XLFD（X Logical Font Description）格式显示匹配的字体名。
 
-The tool helps identify available fonts for X applications. Patterns can match specific font families, weights, or sizes. Long format shows additional font properties.
+该工具有助于确定 X 应用可用的字体。模式可以匹配特定的字体家族、字重或字号。长格式会显示额外的字体属性。
 
-fslsfonts is the font server equivalent of xlsfonts for local X fonts.
+fslsfonts 相当于字体服务器版的 xlsfonts（后者针对本地 X 字体）。
 
 # CAVEATS
 
-Requires running X font server. XLFD patterns can be complex. Less relevant with modern fontconfig.
+需要正在运行的 X 字体服务器。XLFD 模式可能比较复杂。在有了现代 fontconfig 之后用处有所下降。
 
 # HISTORY
 
-fslsfonts is part of the **X Window System** font server utilities. It queries xfs font servers, which were the standard way to share fonts across X terminals and workstations.
+fslsfonts 是 **X Window System** 字体服务器工具的一部分。它查询 xfs 字体服务器 —— 这曾是跨 X 终端和工作站共享字体的标准方式。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-Remove file from entire history
+从整个历史中移除文件
 
 # TLDR
 
-**Remove file from entire history**
+**从整个历史中移除文件**
 
 ```git obliterate [filename]```
 
-**Remove multiple files**
+**移除多个文件**
 
 ```git obliterate [file1] [file2]```
 
-**Limit the rewrite to a revision range**
+**将改写限制在某个版本区间内**
 
 ```git obliterate [filename] -- [since]..[until]```
 
@@ -22,13 +22,13 @@ Remove file from entire history
 
 # DESCRIPTION
 
-**git obliterate** completely removes one or more files from Git history. This git-extras command runs `git filter-branch --index-filter 'git rm -r --cached <files> --ignore-unmatch' --prune-empty --tag-name-filter cat` over `--all` refs (or over a revision range given after `--`), erasing the files from every rewritten commit while keeping tags pointed at their (now rewritten) commits.
+**git obliterate** 彻底地从 Git 历史中移除一个或多个文件。这个 git-extras 命令会对 `--all` 引用（或 `--` 之后给出的版本区间）运行 `git filter-branch --index-filter 'git rm -r --cached <files> --ignore-unmatch' --prune-empty --tag-name-filter cat`，从每个被改写的提交中抹除这些文件，同时让标签继续指向（被改写后的）相应提交。
 
-It is useful for removing accidentally committed secrets, credentials, or large files that should never have been tracked. It does not repack the repository afterward; old objects remain until you run garbage collection.
+它适合用来移除误提交的机密、凭证或不该被跟踪的大文件。它在完成后不会对仓库重新打包；旧对象会保留到你执行垃圾回收为止。
 
 # CAVEATS
 
-This rewrites history and changes all commit hashes. Coordinate with collaborators before using on shared branches. Run `git reflog expire --expire=now --all && git gc --prune=now --aggressive` afterward to actually reclaim disk space and drop the old blobs.
+该操作会改写历史并改变所有提交哈希。在共享分支上使用前请与协作者协调好。之后请运行 `git reflog expire --expire=now --all && git gc --prune=now --aggressive`，才能真正回收磁盘空间并丢弃旧的 blob。
 
 # INSTALL
 

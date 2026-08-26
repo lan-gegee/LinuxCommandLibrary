@@ -1,34 +1,34 @@
 # TAGLINE
 
-Distributed bug tracker embedded in git
+嵌入 git 的分布式缺陷跟踪器
 
 # TLDR
 
-**Add a new bug**
+**添加新缺陷**
 
 ```git bug add```
 
-**List bugs**
+**列出缺陷**
 
 ```git bug ls```
 
-**Show bug details**
+**显示缺陷详情**
 
 ```git bug show [bug-id]```
 
-**Add comment**
+**添加评论**
 
 ```git bug comment [bug-id]```
 
-**Push bugs to remote**
+**将缺陷推送到远程**
 
 ```git bug push```
 
-**Launch the web UI**
+**启动 Web 界面**
 
 ```git bug webui```
 
-**Open interactive terminal UI**
+**打开交互式终端界面**
 
 ```git bug termui```
 
@@ -39,62 +39,62 @@ Distributed bug tracker embedded in git
 # PARAMETERS
 
 **add** [**-t** _title_] [**-m** _message_]
-> Create a new bug.
+> 创建新缺陷。
 
 **ls**, **list**
-> List bugs.
+> 列出缺陷。
 
 **show** _ID_
-> Show bug details.
+> 显示缺陷详情。
 
 **comment** _ID_
-> Add comment to bug.
+> 为缺陷添加评论。
 
 **label** _ID_ _label_
-> Add or remove labels on a bug.
+> 为缺陷添加或移除标签。
 
 **status** _ID_
-> Display or change the status (open/close) of a bug.
+> 显示或更改缺陷的状态（打开/关闭）。
 
 **push** [_remote_]
-> Push bugs to a git remote.
+> 将缺陷推送到 git 远程。
 
 **pull** [_remote_]
-> Pull bugs from a git remote.
+> 从 git 远程拉取缺陷。
 
 **close** _ID_
-> Mark a bug as closed.
+> 将缺陷标记为已关闭。
 
 **open** _ID_
-> Reopen a closed bug.
+> 重新打开已关闭的缺陷。
 
 **user**
-> List, create, or adopt identities.
+> 列出、创建或采用身份。
 
 **webui**
-> Launch the web user interface.
+> 启动 Web 用户界面。
 
 **termui**
-> Launch the terminal user interface.
+> 启动终端用户界面。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git-bug** is a distributed bug tracker embedded in git. Bugs are stored as git objects, enabling offline bug management, distributed synchronization, and integration with git workflows.
+**git-bug** 是一个嵌入 git 的分布式缺陷跟踪器。缺陷以 git 对象的形式存储，从而支持离线缺陷管理、分布式同步以及与 git 工作流的集成。
 
-The tool provides full issue tracking including titles, descriptions, comments, labels, and status. Bugs sync with git push/pull, enabling decentralized issue management without relying on external services like GitHub Issues or Jira.
+该工具提供完整的 issue 跟踪能力，包括标题、描述、评论、标签和状态。缺陷可通过 git push/pull 同步，无需依赖 GitHub Issues 或 Jira 等外部服务即可实现去中心化的 issue 管理。
 
-Bugs are stored as git objects and can be managed entirely offline, syncing with collaborators through standard git push and pull operations.
+缺陷以 git 对象形式存储，可完全离线管理，并通过标准 git push 和 pull 操作与协作者同步。
 
 # CAVEATS
 
-Separate from GitHub/GitLab issues. Requires setup on collaborators' machines. Web UI available separately.
+与 GitHub/GitLab 的 issue 相互独立。需要协作者机器上也进行安装配置。Web 界面需单独启动。
 
 # HISTORY
 
-git-bug was created by **Michael Muré** to provide truly distributed bug tracking that lives alongside code in git repositories.
+git-bug 由 **Michael Muré** 创建，旨在提供真正分布式的缺陷跟踪，使缺陷与代码一同保存在 git 仓库中。
 
 # INSTALL
 

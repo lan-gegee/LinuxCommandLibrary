@@ -1,18 +1,18 @@
 # TAGLINE
 
-SELinux boolean state query tool
+SELinux 布尔值状态查询工具
 
 # TLDR
 
-Show the **current setting** of a boolean
+显示某个布尔值的**当前设置**
 
 ```getsebool httpd_can_connect_ftp```
 
-Show the current setting of **all** booleans
+显示**所有**布尔值的当前设置
 
 ```getsebool -a```
 
-Show all booleans with **explanations**
+显示所有布尔值及其**说明**
 
 ```sudo semanage boolean -l```
 
@@ -23,46 +23,46 @@ Show all booleans with **explanations**
 # PARAMETERS
 
 **-a**
-> List all SELinux booleans and their current values
+> 列出所有 SELinux 布尔值及其当前值
 
 **boolean**
-> Name of specific boolean to query
+> 要查询的特定布尔值名称
 
 # DESCRIPTION
 
-**getsebool** retrieves the current value of SELinux booleans. SELinux booleans are on/off switches that modify SELinux policy behavior at runtime without requiring policy recompilation.
+**getsebool** 检索 SELinux 布尔值的当前取值。SELinux 布尔值是开/关开关，可以在运行时修改 SELinux 策略行为，而无需重新编译策略。
 
-Booleans control specific policy features like whether Apache can connect to external networks (httpd_can_network_connect), whether users can run unconfined processes, or whether certain services can access home directories.
+布尔值控制着特定的策略特性，例如 Apache 能否连接外部网络（httpd_can_network_connect）、用户能否运行不受限进程，或某些服务能否访问主目录。
 
-Output shows the boolean name and its current state (on/off). Use **setsebool** to change values.
+输出内容为布尔值名称及其当前状态（on/off）。修改取值请使用 **setsebool**。
 
 # COMMON BOOLEANS
 
 **httpd_can_network_connect**
-> Allow Apache to initiate network connections
+> 允许 Apache 发起网络连接
 
 **httpd_can_connect_ftp**
-> Allow Apache to connect to FTP servers
+> 允许 Apache 连接 FTP 服务器
 
 **allow_user_exec_content**
-> Allow users to execute content in home/tmp
+> 允许用户在 home/tmp 中执行内容
 
 **virt_use_nfs**
-> Allow virtual machines to use NFS
+> 允许虚拟机使用 NFS
 
 **ssh_chroot_rw_homedirs**
-> Allow SSH to write to chrooted home directories
+> 允许 SSH 写入 chroot 后的主目录
 
 **samba_enable_home_dirs**
-> Allow Samba to share user home directories
+> 允许 Samba 共享用户主目录
 
 # CAVEATS
 
-Requires SELinux to be enabled. Boolean names and availability vary by distribution and installed policy modules. Use **semanage boolean -l** for descriptions of what each boolean controls.
+需要启用 SELinux。布尔值名称和可用性因发行版和已安装的策略模块而异。使用 **semanage boolean -l** 可查看每个布尔值控制内容的说明。
 
 # HISTORY
 
-SELinux booleans were introduced to provide flexibility in the policy without requiring policy source modifications. getsebool is part of the libselinux-utils package, providing command-line access to SELinux functionality.
+SELinux 布尔值的引入使策略更具灵活性，无需修改策略源码。getsebool 是 libselinux-utils 软件包的一部分，为 SELinux 功能提供命令行访问方式。
 
 # INSTALL
 

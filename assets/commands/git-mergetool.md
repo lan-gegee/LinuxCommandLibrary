@@ -1,26 +1,26 @@
 # TAGLINE
 
-Visual conflict resolution tool
+可视化冲突解决工具
 
 # TLDR
 
-**Run merge tool**
+**运行合并工具**
 
 ```git mergetool```
 
-**Use specific tool**
+**使用特定工具**
 
 ```git mergetool --tool=[vimdiff]```
 
-**Resolve specific file**
+**解决特定文件**
 
 ```git mergetool [file.txt]```
 
-**Don't prompt**
+**不进行提示**
 
 ```git mergetool --no-prompt```
 
-**Use configured tool**
+**使用已配置的工具**
 
 ```git mergetool -y```
 
@@ -31,36 +31,36 @@ Visual conflict resolution tool
 # PARAMETERS
 
 _FILE_
-> Specific file to resolve.
+> 要解决的特定文件。
 
 **--tool** _TOOL_
-> Use specified merge tool.
+> 使用指定的合并工具。
 
 **--tool-help**
-> List available tools.
+> 列出可用工具。
 
 **-y**, **--no-prompt**
-> Don't prompt before each file.
+> 处理每个文件前不提示。
 
 **--prompt**
-> Prompt before each file.
+> 处理每个文件前提示。
 
 **-g**, **--gui**
-> Use `merge.guitool` instead of `merge.tool`.
+> 使用 `merge.guitool` 而非 `merge.tool`。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git mergetool** runs a visual merge conflict resolution tool for each conflicted file. It launches configured tools like vimdiff, meld, or kdiff3, providing a three-way merge interface showing the base, local, and remote versions side by side.
+**git mergetool** 为每个存在冲突的文件运行可视化合并冲突解决工具。它会启动已配置的工具，如 vimdiff、meld 或 kdiff3，提供三方合并界面，将 base、本地和远程版本并排显示。
 
-After saving the merged result in the tool, the file is marked as resolved. Multiple conflicted files are processed sequentially, and you can choose to skip individual files.
+在工具中保存合并结果后，该文件即被标记为已解决。多个冲突文件会按顺序处理，你可以选择跳过个别文件。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> Configure default merge tool and tool-specific settings.
+> 配置默认合并工具及各工具的专属设置。
 
 ```
 [merge]
@@ -72,11 +72,11 @@ After saving the merged result in the tool, the file is marked as resolved. Mult
 
 # CAVEATS
 
-Requires configured merge tool. Creates .orig backup files. Some tools need installation.
+需要配置好合并工具。会创建 .orig 备份文件。部分工具需另行安装。
 
 # HISTORY
 
-git mergetool is a core **Git** command providing integration with external merge tools, essential for complex conflict resolution.
+git mergetool 是 **Git** 的核心命令，提供对外部合并工具的集成，对复杂冲突解决至关重要。
 
 # INSTALL
 

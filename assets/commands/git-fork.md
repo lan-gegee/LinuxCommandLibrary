@@ -1,18 +1,18 @@
 # TAGLINE
 
-Fork GitHub repository and clone locally
+Fork GitHub 仓库并克隆到本地
 
 # TLDR
 
-**Fork and clone repository by URL**
+**按 URL fork 并克隆仓库**
 
 ```git fork [https://github.com/owner/repo]```
 
-**Fork and clone repository by slug**
+**按 slug fork 并克隆仓库**
 
 ```git fork [owner/repo]```
 
-**Fork the current repo (run inside an existing clone)**
+**Fork 当前仓库（在现有克隆中运行）**
 
 ```git fork```
 
@@ -23,29 +23,29 @@ Fork GitHub repository and clone locally
 # PARAMETERS
 
 _URL_
-> Repository URL to fork.
+> 要 fork 的仓库 URL。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git fork** forks a GitHub repository and clones it locally, automating the common workflow of forking a project for contribution. Given a URL or `owner/repo` slug, it forks the repo via the GitHub API, clones the new fork into the current directory, and adds the original as a remote named **upstream**. Run with no argument inside an existing clone of a GitHub repo, it forks that repo, renames the existing **origin** remote to **upstream**, and adds the fork as the new **origin**. Remotes use SSH if configured, otherwise HTTPS.
+**git fork** 会 fork 一个 GitHub 仓库并克隆到本地，将"fork 项目以参与贡献"这一常见工作流自动化。给定 URL 或 `owner/repo` slug，它会通过 GitHub API fork 该仓库，把新的 fork 克隆到当前目录，并将原始仓库添加为名为 **upstream** 的远程。在 GitHub 仓库的现有克隆中不带参数运行时，它会 fork 该仓库，把现有的 **origin** 远程重命名为 **upstream**，并将 fork 添加为新的 **origin**。远程地址在已配置时使用 SSH，否则使用 HTTPS。
 
-Part of the git-extras suite, this command streamlines the fork-and-clone pattern that is fundamental to open-source collaboration on GitHub.
+它是 git-extras 套件的组成部分，简化了 GitHub 开源协作中基础的 fork-and-clone 模式。
 
 # CONFIGURATION
 
 **git-extras.github-personal-access-token**
-> Personal access token used to call the GitHub API; set globally with **git config --global --add git-extras.github-personal-access-token \<token\>**, or per-repo to override for a different account.
+> 用于调用 GitHub API 的个人访问令牌；可用 **git config --global --add git-extras.github-personal-access-token \<token\>** 全局设置，也可针对单个仓库设置以便使用其他账户。
 
 # CAVEATS
 
-Part of git-extras package. Requires a GitHub personal access token with the appropriate OAuth scopes. GitHub-specific functionality only.
+属于 git-extras 软件包。需要具有相应 OAuth 权限范围的 GitHub 个人访问令牌。仅支持 GitHub 相关功能。
 
 # HISTORY
 
-git fork is part of **git-extras**, created to automate the common GitHub fork workflow for contributing to projects.
+git fork 是 **git-extras** 的组成部分，为向项目贡献代码时常见的 GitHub fork 工作流而创建。
 
 # INSTALL
 

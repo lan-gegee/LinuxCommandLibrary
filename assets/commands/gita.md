@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage multiple Git repositories side by side
+并排管理多个 Git 仓库
 
 # TLDR
 
-Display **status of all registered** repositories
+显示所有已注册仓库的**状态**
 
 ```gita ll```
 
-**Register repositories** to be tracked
+**注册要跟踪的仓库**
 
 ```gita add [path/to/repo1] [path/to/repo2]```
 
-**Recursively discover and add** all repos under a directory
+**递归发现并添加**某个目录下的所有仓库
 
 ```gita add -a [path/to/parent]```
 
-**Run a git command** across all registered repos
+对所有已注册仓库**运行 git 命令**
 
 ```gita fetch```
 
-Run an **arbitrary git command** across specific repos
+对特定仓库运行**任意 git 命令**
 
 ```gita super [repo1] [repo2] -c "git [command]"```
 
-Run a **shell command** across all repos
+对所有仓库运行 **shell 命令**
 
 ```gita shell -c "[command]"```
 
-**List** all registered repository names
+**列出**所有已注册仓库名称
 
 ```gita ls```
 
-**Remove** a repository from tracking
+将仓库从跟踪中**移除**
 
 ```gita rm [repo_name]```
 
@@ -43,71 +43,71 @@ Run a **shell command** across all repos
 # PARAMETERS
 
 **add** _path(s)_
-> Register repositories to track. Use **-a** to recursively discover repos under a directory, **-b** for bare repos.
+> 注册要跟踪的仓库。使用 **-a** 可递归发现某目录下的所有仓库，**-b** 用于裸仓库。
 
 **rm** _repo(s)_
-> Unregister repositories from tracking.
+> 取消仓库的注册，不再跟踪。
 
 **ls**
-> List names of all registered repositories.
+> 列出所有已注册仓库的名称。
 
 **ll**
-> Display detailed status of all repos including branch, sync state, and modifications.
+> 显示所有仓库的详细状态，包括分支、同步状态和修改情况。
 
 **fetch**
-> Run git fetch across all registered repos.
+> 对所有已注册仓库执行 git fetch。
 
 **pull**
-> Run git pull across all registered repos.
+> 对所有已注册仓库执行 git pull。
 
 **super** [_repos_] **-c** _"git command"_
-> Delegate any arbitrary git command to specified repos (or all if none specified).
+> 将任意 git 命令委派给指定仓库（未指定则作用于全部）。
 
 **shell** [_repos_] **-c** _"command"_
-> Run any shell command in each repo's directory.
+> 在每个仓库目录中运行任意 shell 命令。
 
 **freeze**
-> Export repository paths and URLs for backup or sharing.
+> 导出仓库路径和 URL，用于备份或分享。
 
 **clone** _url_
-> Clone a repository and register it.
+> 克隆一个仓库并将其注册。
 
 **group add** _repos_ **-n** _name_
-> Create a named group of repositories.
+> 创建一个命名的仓库组。
 
 **group ll**
-> List all groups and their contents.
+> 列出所有组及其内容。
 
 **group rm** _name_
-> Delete a named group.
+> 删除一个命名组。
 
 **context** _group_
-> Limit subsequent commands to a specific group. Use **none** to clear.
+> 将后续命令限制在特定组内。使用 **none** 清除。
 
 **info**
-> Configure which information items are displayed in **ll** output.
+> 配置 **ll** 输出中显示哪些信息项。
 
 **color**
-> Manage color schemes for branch status display.
+> 管理分支状态显示的配色方案。
 
 **flags set** _repo_ _flags_
-> Set custom git flags for a specific repository.
+> 为特定仓库设置自定义 git 标志。
 
 # DESCRIPTION
 
-**gita** is a command-line tool for managing multiple Git repositories simultaneously. It provides a unified view of repository statuses and allows batch execution of git commands across all tracked repos from any working directory, without needing to cd into each one individually.
+**gita** 是一个用于同时管理多个 Git 仓库的命令行工具。它提供统一的仓库状态视图，并支持从任意工作目录对所跟踪的全部仓库批量执行 git 命令，无需逐个 cd 进入各仓库。
 
-Repositories are registered with **gita add** and their paths are stored in **$XDG_CONFIG_HOME/gita/repos.csv**. Once registered, **gita ll** displays a color-coded summary of each repo's branch, sync state (ahead/behind remote), and working tree modifications. Git commands like **fetch** and **pull** can be delegated to all repos at once, and arbitrary git or shell commands can be run via **super** and **shell** subcommands.
+仓库通过 **gita add** 注册，其路径存储在 **$XDG_CONFIG_HOME/gita/repos.csv** 中。注册后，**gita ll** 会以彩色编码的方式汇总每个仓库的分支、同步状态（领先/落后远程多少）以及工作树修改情况。像 **fetch** 和 **pull** 这类 git 命令可以一次性委派给所有仓库，任意 git 或 shell 命令也可通过 **super** 和 **shell** 子命令运行。
 
-Repos can be organized into named **groups** and scoped with **context** to limit operations to a subset. Configuration files for groups, colors, display info, and custom commands are stored in **$XDG_CONFIG_HOME/gita/**.
+仓库可以组织成命名的**组**，并通过 **context** 限定操作范围。组、配色、显示信息和自定义命令等配置文件存储在 **$XDG_CONFIG_HOME/gita/** 中。
 
 # CAVEATS
 
-Requires **Python 3.6+**. Batch operations run asynchronously across repos, but commands requiring user interaction (such as **log**, **difftool**, **mergetool**) run synchronously to avoid garbled output. By default only **fetch** and **pull** are allowed to run across all repos without specifying targets; other commands require explicit repo names unless custom configuration overrides this. On Windows, ANSI color output must be enabled manually.
+需要 **Python 3.6+**。批处理操作在各仓库间异步执行，但需要用户交互的命令（如 **log**、**difftool**、**mergetool**）会同步运行，以避免输出错乱。默认情况下只有 **fetch** 和 **pull** 允许在不指定目标的情况下跨所有仓库运行；其他命令需要显式指定仓库名，除非自定义配置改变了这一行为。在 Windows 上必须手动启用 ANSI 颜色输出。
 
 # HISTORY
 
-**gita** was created by **nosarthur** and first released in **January 2018**. Written in **Python**, it is distributed via PyPI and installable with pip, pipx, or uv. The name is a play on "git" with an added "a" suggesting management of multiple repos. The project is MIT-licensed and actively maintained.
+**gita** 由 **nosarthur** 创建，于 **2018 年 1 月**首次发布。它用 **Python** 编写，通过 PyPI 分发，可用 pip、pipx 或 uv 安装。名字是 "git" 加上一个 "a"，寓意管理多个仓库。该项目采用 MIT 许可证并持续活跃维护。
 
 # INSTALL
 

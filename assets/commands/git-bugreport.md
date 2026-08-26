@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate diagnostic information for reporting Git bugs
+生成用于报告 Git 缺陷的诊断信息
 
 # TLDR
 
-**Generate bug report**
+**生成缺陷报告**
 
 ```git bugreport```
 
-**Specify output directory**
+**指定输出目录**
 
 ```git bugreport --output-directory [path]```
 
-**Specify filename suffix**
+**指定文件名后缀**
 
 ```git bugreport --suffix [description]```
 
@@ -23,32 +23,32 @@ Generate diagnostic information for reporting Git bugs
 # PARAMETERS
 
 **--output-directory** _DIR_
-> Directory for report file.
+> 报告文件所在的目录。
 
 **--suffix** _SUFFIX_
-> Suffix for filename.
+> 文件名的后缀。
 
 **-s** _SUFFIX_
-> Short for --suffix.
+> --suffix 的简写形式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git bugreport** generates a template for reporting bugs to the Git project. It collects system information, git version, and configuration details needed for debugging.
+**git bugreport** 会生成一个用于向 Git 项目报告缺陷的模板。它收集调试所需的系统信息、git 版本和配置细节。
 
-The report includes environment information, installed hooks, and space for describing the problem. It outputs to a text file ready for submission to the git mailing list or issue tracker.
+报告中包含环境信息、已安装的钩子，以及用于描述问题的空间。输出为一个文本文件，可直接提交到 git 邮件列表或 issue 跟踪器。
 
-The generated report contains Git version, operating system details, shell information, and a template prompting for steps to reproduce the issue, expected behavior, and actual behavior.
+生成的报告包含 Git 版本、操作系统细节、shell 信息，以及提示你填写问题重现步骤、预期行为和实际行为的模板。
 
 # CAVEATS
 
-For reporting git bugs, not project bugs. May include sensitive config info. Review before submitting.
+用于报告 git 本身的缺陷，而非项目缺陷。可能包含敏感的配置信息，提交前请先检查。
 
 # HISTORY
 
-git bugreport was added to **Git** to standardize bug reporting and ensure necessary diagnostic information is included.
+git bugreport 被加入 **Git** 是为了规范缺陷报告流程，确保包含必要的诊断信息。
 
 # INSTALL
 

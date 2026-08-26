@@ -1,26 +1,26 @@
 # TAGLINE
 
-Azure Functions development CLI
+Azure Functions 开发 CLI
 
 # TLDR
 
-**Create new function**
+**创建新函数**
 
 ```func new```
 
-**Start local server**
+**启动本地服务器**
 
 ```func start```
 
-**Deploy to Azure**
+**部署到 Azure**
 
 ```func azure functionapp publish [appname]```
 
-**Create function from** template
+从模板**创建函数**
 
 ```func new --template "[HTTP trigger]" --name [MyFunction]```
 
-**List templates**
+**列出模板**
 
 ```func templates list```
 
@@ -31,49 +31,49 @@ Azure Functions development CLI
 # PARAMETERS
 
 _COMMAND_
-> Operation: new, start, deploy, init, etc.
+> 操作：new、start、deploy、init 等。
 
 **new**
-> Create new function.
+> 创建新函数。
 
 **start**
-> Start local Functions host.
+> 启动本地 Functions 主机。
 
 **init**
-> Initialize function project.
+> 初始化函数项目。
 
 **azure functionapp publish** _NAME_
-> Deploy to Azure.
+> 部署到 Azure。
 
 **templates list**
-> Show available templates.
+> 显示可用模板。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **local.settings.json**
-> Local development settings for runtime, connections, and app settings.
+> 本地开发设置，包括运行时、连接和应用设置。
 
 **host.json**
-> Global configuration for all functions in a function app.
+> 函数应用中所有函数的全局配置。
 
 # DESCRIPTION
 
-**func** is the Azure Functions Core Tools CLI for developing serverless functions locally. It creates, runs, and deploys Azure Functions across multiple languages.
+**func** 是 Azure Functions Core Tools 的 CLI，用于在本地开发无服务器函数。它可以创建、运行和部署多种语言的 Azure Functions。
 
-The tool provides local development with debugging support, mimicking the Azure environment. It handles project scaffolding, dependency management, and deployment workflows.
+该工具提供支持调试的本地开发环境，模拟 Azure 环境。它负责项目脚手架、依赖管理和部署工作流。
 
-func supports JavaScript, Python, C#, Java, and other languages for Azure Functions development.
+func 支持 JavaScript、Python、C#、Java 等语言的 Azure Functions 开发。
 
 # CAVEATS
 
-Requires Azure account for deployment. Local emulator has limitations. Language support varies by version.
+部署需要 Azure 账户。本地模拟器存在局限。语言支持因版本而异。
 
 # HISTORY
 
-func is part of **Azure Functions Core Tools** from Microsoft, enabling local development of serverless functions for the Azure platform.
+func 是 Microsoft **Azure Functions Core Tools** 的一部分，为 Azure 平台提供无服务器函数的本地开发能力。
 
 # INSTALL
 

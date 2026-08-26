@@ -1,34 +1,34 @@
 # TAGLINE
 
-React-based static site generator
+基于 React 的静态网站生成器
 
 # TLDR
 
-**Create new site**
+**创建新站点**
 
 ```gatsby new [site-name]```
 
-**Create from starter**
+**从 starter 创建**
 
 ```gatsby new [site-name] [https://github.com/user/starter]```
 
-**Start development server**
+**启动开发服务器**
 
 ```gatsby develop```
 
-**Build for production**
+**构建生产版本**
 
 ```gatsby build```
 
-**Serve production build**
+**运行生产构建**
 
 ```gatsby serve```
 
-**Clean cache**
+**清理缓存**
 
 ```gatsby clean```
 
-**Show info**
+**显示信息**
 
 ```gatsby info```
 
@@ -39,83 +39,82 @@ React-based static site generator
 # SUBCOMMANDS
 
 **new**
-> Create new site.
+> 创建新站点。
 
 **develop**
-> Start development server.
+> 启动开发服务器。
 
 **build**
-> Build production site.
+> 构建生产站点。
 
 **serve**
-> Serve production build.
+> 运行生产构建。
 
 **clean**
-> Clean cache and artifacts.
+> 清理缓存和构建产物。
 
 **info**
-> Show environment info.
+> 显示环境信息。
 
 **repl**
-> Interactive REPL.
+> 交互式 REPL。
 
 # PARAMETERS
 
 **-H**, **--host** _host_
-> Set host for develop/serve (default: localhost).
+> 为 develop/serve 设置主机（默认：localhost）。
 
 **-p**, **--port** _port_
-> Set port for develop/serve (default: 8000 for develop, 9000 for serve).
+> 为 develop/serve 设置端口（develop 默认 8000，serve 默认 9000）。
 
 **-o**, **--open**
-> Open the site in the default browser.
+> 在默认浏览器中打开站点。
 
 **-S**, **--https**
-> Enable HTTPS for the development server.
+> 为开发服务器启用 HTTPS。
 
 **--inspect**
-> Open a debugging port for Node.js inspector.
+> 打开 Node.js inspector 的调试端口。
 
 **--prefix-paths**
-> Build/serve with path prefix (requires pathPrefix in gatsby-config).
+> 以路径前缀构建/运行（需要在 gatsby-config 中配置 pathPrefix）。
 
 **--no-uglify**
-> Build without uglifying JS bundles (for debugging).
+> 构建时不压缩 JS bundle（用于调试）。
 
 **--profile**
-> Enable React profiling during build.
+> 构建期间启用 React 性能分析。
 
 **--verbose**
-> Turn on verbose output.
+> 开启详细输出。
 
 **-C**, **--clipboard**
-> Copy environment info to clipboard (gatsby info).
+> 将环境信息复制到剪贴板（gatsby info）。
 
 # CONFIGURATION
 
-**gatsby-config.js** (or **gatsby-config.ts**)
-> Main configuration file for plugins, site metadata, and build settings.
+**gatsby-config.js**（或 **gatsby-config.ts**）
+> 主配置文件，定义插件、站点元数据和构建设置。
 
-**gatsby-node.js** (or **gatsby-node.ts**)
-> Node API configuration for dynamic page creation and build-time customization.
+**gatsby-node.js**（或 **gatsby-node.ts**）
+> Node API 配置，用于动态页面创建和构建期定制。
 
 # DESCRIPTION
 
-**gatsby** is a React-based static site generator that creates fast, optimized websites using React components and GraphQL for data fetching. It combines modern web technologies with automatic code splitting, image optimization, and progressive enhancement.
+**gatsby** 是一个基于 React 的静态网站生成器，使用 React 组件和 GraphQL 获取数据，构建快速优化的网站。它将现代 Web 技术与自动代码分割、图片优化和渐进增强相结合。
 
-Gatsby builds static HTML at build time while maintaining React's interactive capabilities through hydration. The framework uses a rich plugin ecosystem for integrating CMSs, APIs, and services. GraphQL provides a unified data layer for querying content from multiple sources.
+Gatsby 在构建时生成静态 HTML，同时通过 hydration 保持 React 的交互能力。该框架拥有丰富的插件生态，可集成 CMS、API 和各类服务。GraphQL 提供统一的数据层，可从多个来源查询内容。
 
-The development server includes hot module replacement for rapid iteration, while production builds are optimized for performance with techniques like prefetching, lazy loading, and asset optimization.
+开发服务器内置热模块替换，支持快速迭代；生产构建则通过预取、懒加载和资源优化等技术针对性能做了优化。
 
 # CAVEATS
 
-Build times can be slow for large sites. GraphQL layer has learning curve. Some plugins may be outdated. Real-time data requires client-side fetching. Requires Node.js and npm.
+大型站点构建可能较慢。GraphQL 层有学习曲线。某些插件可能已过时。实时数据需要客户端获取。依赖 Node.js 和 npm。
 
 # HISTORY
 
-Gatsby was created by **Kyle Mathews** in **2015** as a modern static site generator. It gained popularity for combining React with GraphQL and was acquired by **Netlify** in **February 2023**. The framework helped popularize the Jamstack architecture. Gatsby 5, released in **November 2022**, introduced the Slice API and partial hydration.
+Gatsby 由 **Kyle Mathews** 于 **2015 年**创建，是一款现代静态网站生成器。它因结合 React 与 GraphQL 而广受欢迎，并于 **2023 年 2 月**被 **Netlify** 收购。该框架推动了 Jamstack 架构的普及。**2022 年 11 月**发布的 Gatsby 5 引入了 Slice API 和部分水合（partial hydration）。
 
 # SEE ALSO
 
 [npm](/man/npm)(1), [node](/man/node)(1), [hugo](/man/hugo)(1)
-

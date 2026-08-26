@@ -1,30 +1,30 @@
 # TAGLINE
 
-authenticated HTTP requests to GitHub REST and GraphQL APIs
+向 GitHub REST 和 GraphQL API 发送经过身份验证的 HTTP 请求
 
 # TLDR
 
-**Make GET request**
+**发起 GET 请求**
 
 ```gh api [/repos/owner/repo]```
 
-**Make POST request**
+**发起 POST 请求**
 
 ```gh api -X POST [/repos/owner/repo/issues] -f title="[title]"```
 
-**With JSON body**
+**带 JSON 请求体**
 
 ```gh api [/endpoint] --input [data.json]```
 
-**Use GraphQL**
+**使用 GraphQL**
 
 ```gh api graphql -f query='[query]'```
 
-**Paginate results**
+**对结果分页**
 
 ```gh api [/endpoint] --paginate```
 
-**Output specific field**
+**输出特定字段**
 
 ```gh api [/repos/owner/repo] --jq '.[field]'```
 
@@ -35,47 +35,47 @@ authenticated HTTP requests to GitHub REST and GraphQL APIs
 # PARAMETERS
 
 **-X**, **--method** _method_
-> HTTP method.
+> HTTP 方法。
 
 **-f**, **--raw-field** _key=value_
-> Add a string parameter.
+> 添加字符串参数。
 
 **-F**, **--field** _key=value_
-> Add a typed parameter (non-string values, file references with @, booleans, null).
+> 添加类型化参数（非字符串值、@ 文件引用、布尔值、null）。
 
 **--input** _file_
-> Read body from file.
+> 从文件读取请求体。
 
 **--jq** _query_
-> Filter JSON output.
+> 过滤 JSON 输出。
 
 **--paginate**
-> Fetch all pages of results.
+> 获取结果的所有分页。
 
 **--slurp**
-> With --paginate, combine all pages into a single JSON array.
+> 与 --paginate 配合，把所有分页合并为单个 JSON 数组。
 
 **-i**, **--include**
-> Include HTTP response headers in the output.
+> 在输出中包含 HTTP 响应头。
 
 **-p**, **--preview** _name_
-> Opt into a GitHub API preview feature.
+> 启用 GitHub API 预览特性。
 
 **-H**, **--header** _header_
-> Add HTTP header.
+> 添加 HTTP 头。
 
 **-t**, **--template** _template_
-> Format output with a Go template.
+> 用 Go 模板格式化输出。
 
 **--hostname** _host_
-> Make request against a specific GitHub hostname (for GHES).
+> 向指定的 GitHub 主机名发送请求（如 GHES）。
 
 **--cache** _duration_
-> Cache the response (e.g., 1h, 30m).
+> 缓存响应（如 1h、30m）。
 
 # DESCRIPTION
 
-**gh api** makes authenticated HTTP requests to the GitHub API. Supports both REST and GraphQL APIs with automatic authentication.
+**gh api** 向 GitHub API 发送经过身份验证的 HTTP 请求。同时支持 REST 和 GraphQL API，并提供自动认证。
 
 # INSTALL
 
@@ -98,4 +98,3 @@ authenticated HTTP requests to GitHub REST and GraphQL APIs
 # SEE ALSO
 
 [gh](/man/gh)(1), [curl](/man/curl)(1)
-

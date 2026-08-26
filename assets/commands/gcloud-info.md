@@ -1,22 +1,22 @@
 # TAGLINE
 
-display gcloud installation and configuration details
+显示 gcloud 安装与配置详情
 
 # TLDR
 
-**Show SDK information**
+**显示 SDK 信息**
 
 ```gcloud info```
 
-**Show installation path**
+**显示安装路径**
 
 ```gcloud info --format='value(installation.sdk_root)'```
 
-**Show account info**
+**显示账号信息**
 
 ```gcloud info --format='value(config.account)'```
 
-**Output as YAML**
+**以 YAML 输出**
 
 ```gcloud info --format=yaml```
 
@@ -27,32 +27,32 @@ display gcloud installation and configuration details
 # PARAMETERS
 
 **--format** _FORMAT_
-> Output format: yaml, json, value.
+> 输出格式：yaml、json、value。
 
 **--run-diagnostics**
-> Check connectivity and permissions.
+> 检查连接性和权限。
 
 **--anonymize**
-> Omit personal information.
+> 省略个人信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud info** provides a comprehensive snapshot of the Google Cloud SDK installation and runtime environment. The output includes SDK version, installation directory, Python interpreter location and version, configured account and project, and active configuration name.
+**gcloud info** 提供 Google Cloud SDK 安装及运行环境的完整快照。输出包括 SDK 版本、安装目录、Python 解释器位置和版本、已配置的账号与项目以及活动配置名称。
 
-This information is invaluable for troubleshooting when gcloud commands behave unexpectedly or when seeking help, as it reveals environmental factors that may affect command execution. The --run-diagnostics flag goes further by performing active connectivity tests to Google Cloud services, helping identify network or firewall issues.
+当 gcloud 命令行为异常或需要求助时，这些信息对排查问题极有价值，因为它揭示了可能影响命令执行的环境因素。--run-diagnostics 标志更进一步，会对 Google Cloud 服务执行主动连接测试，帮助定位网络或防火墙问题。
 
-The --format option allows extracting specific values programmatically, useful for scripts that need to determine installation paths or active configuration settings. The --anonymize flag removes personally identifiable information from the output, making it safe to include in bug reports or support requests without exposing account details.
+--format 选项允许以编程方式提取特定值，适合需要确定安装路径或活动配置设置的脚本。--anonymize 标志会从输出中移除个人可识别信息，使其可以安全地包含在缺陷报告或支持请求中而不泄露账号详情。
 
 # CAVEATS
 
-May contain sensitive account information. Diagnostic tests require network access.
+可能包含敏感账号信息。诊断测试需要网络访问。
 
 # HISTORY
 
-gcloud info is part of the **Google Cloud SDK** diagnostic tools, providing visibility into CLI configuration and environment.
+gcloud info 属于 **Google Cloud SDK** 诊断工具，用于查看 CLI 配置和环境。
 
 # SEE ALSO
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display Git objects such as commits, tags, and blobs
+显示提交、标签、blob 等各种 Git 对象
 
 # TLDR
 
-**Show last commit**
+**显示最近一次提交**
 
 ```git show```
 
-**Show specific commit**
+**显示指定提交**
 
 ```git show [commit-hash]```
 
-**Show tag**
+**显示标签**
 
 ```git show [v1.0.0]```
 
-**Show file at commit**
+**显示某次提交中的文件**
 
 ```git show [commit]:[file.txt]```
 
-**Show only stats**
+**仅显示统计信息**
 
 ```git show --stat```
 
@@ -31,39 +31,39 @@ Display Git objects such as commits, tags, and blobs
 # PARAMETERS
 
 _OBJECT_
-> Commit, tag, or tree to show.
+> 要显示的提交、标签或树。
 
 **--stat**
-> Show diffstat only.
+> 仅显示 diff 统计。
 
 **--name-only**
-> Show changed file names.
+> 显示变更的文件名。
 
 **--name-status**
-> Show names and status.
+> 显示文件名和状态。
 
 **--format** _FORMAT_
-> Output format.
+> 输出格式。
 
 **-p**, **--patch**
-> Show diff (default for commits).
+> 显示差异（对提交而言是默认行为）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git show** displays various types of Git objects. For commits, it shows the commit message and diff. For tags, it shows the tag annotation. For trees and blobs, it shows the contents directly.
+**git show** 可以显示多种类型的 Git 对象。对于提交，它会显示提交信息和差异；对于标签，会显示标签附注；对于树和 blob，则直接显示其内容。
 
-The command combines log and diff functionality into a convenient single-object inspector, making it the go-to tool for examining any Git object.
+该命令把 log 和 diff 的功能结合成一个便捷的单对象查看器，是检查任意 Git 对象的首选工具。
 
 # CAVEATS
 
-Output varies by object type. Large diffs may need paging. Binary files show as binary.
+输出因对象类型而异。大差异可能需要分页查看。二进制文件只显示为二进制。
 
 # HISTORY
 
-git show is a core **Git** command for displaying objects, providing a unified interface to inspect various git object types.
+git show 是用于显示对象的核心 **Git** 命令，为检查各类 git 对象提供了统一接口。
 
 # INSTALL
 

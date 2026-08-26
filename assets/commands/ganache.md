@@ -1,30 +1,30 @@
 # TAGLINE
 
-personal Ethereum blockchain for development
+用于开发的个人以太坊区块链
 
 # TLDR
 
-**Start Ganache CLI**
+**启动 Ganache CLI**
 
 ```ganache```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```ganache -p [8545]```
 
-**Start with specific accounts**
+**以指定数量的账户启动**
 
 ```ganache -a [20]```
 
-**Start with mnemonic**
+**以助记词启动**
 
 ```ganache -m "[word1 word2 ... word12]"```
 
-**Fork mainnet**
+**分叉主网**
 
 ```ganache -f [https://mainnet.infura.io/v3/KEY]```
 
-**Start with deterministic accounts**
+**以确定性账户启动**
 
 ```ganache -d```
 
@@ -35,72 +35,72 @@ personal Ethereum blockchain for development
 # PARAMETERS
 
 **-p**, **--port** _port_
-> Port to listen on (default 8545).
+> 监听端口（默认 8545）。
 
 **-h**, **--host** _host_
-> Hostname (default 127.0.0.1).
+> 主机名（默认 127.0.0.1）。
 
 **-a**, **--accounts** _num_
-> Number of accounts to generate (default: 10).
+> 生成的账户数量（默认 10）。
 
 **-e**, **--defaultBalanceEther** _amount_
-> Default account balance in ether (default: 100).
+> 默认账户余额，单位 ether（默认 100）。
 
 **-m**, **--mnemonic** _phrase_
-> BIP39 mnemonic for HD wallet.
+> HD 钱包的 BIP39 助记词。
 
 **-s**, **--seed** _seed_
-> Seed to use for HD wallet account generation.
+> HD 钱包账户生成所用的种子。
 
 **-d**, **--deterministic**
-> Generate deterministic addresses and mnemonic.
+> 生成确定性的地址和助记词。
 
 **-n**, **--secure**
-> Lock available accounts by default.
+> 默认锁定所有可用账户。
 
 **-u**, **--unlock** _accounts_
-> Specify accounts to unlock.
+> 指定要解锁的账户。
 
 **-f**, **--fork** _url_
-> Fork from network at URL.
+> 从 URL 指定的网络分叉。
 
 **-b**, **--blockTime** _seconds_
-> Block time for auto-mining (default: 0, instant mining).
+> 自动出块的区块时间（默认 0，即时打包）。
 
 **-g**, **--gasPrice** _price_
-> Gas price in wei (default: 20000000000).
+> gas 价格，单位 wei（默认 20000000000）。
 
 **-l**, **--gasLimit** _limit_
-> Block gas limit (default: 6721975).
+> 区块 gas 上限（默认 6721975）。
 
 **-i**, **--networkId** _id_
-> Network ID.
+> 网络 ID。
 
 **--chain.chainId** _id_
-> Chain ID.
+> 链 ID。
 
 **--db** _path_
-> Directory to save chain database for persistence.
+> 保存链数据库的目录，用于持久化。
 
 **--verbose**
-> Log all incoming requests to stdout.
+> 将所有传入请求记录到 stdout。
 
 **--allowUnlimitedContractSize**
-> Allow unlimited contract sizes for debugging.
+> 允许不限大小的合约，便于调试。
 
 # DESCRIPTION
 
-**Ganache** is a personal Ethereum blockchain for development. It simulates full client behavior, providing instant transaction mining, configurable accounts, and blockchain forking.
+**Ganache** 是一个面向开发的个人以太坊区块链。它模拟完整的客户端行为，提供即时交易打包、可配置账户和区块链分叉能力。
 
-Developers use Ganache to test smart contracts locally before deploying to testnets or mainnet. It integrates with Truffle, Hardhat, and other development frameworks.
+开发者用 Ganache 在部署到测试网或主网之前本地测试智能合约。它与 Truffle、Hardhat 及其他开发框架集成。
 
 # CAVEATS
 
-Not for production. Behavior may differ from mainnet. State is lost on restart (use --db for persistence). Forking requires archive node access. **Ganache was deprecated in December 2023** when Consensys sunset both Truffle and Ganache. Developers are encouraged to migrate to Hardhat or Foundry.
+不可用于生产环境。行为可能与主网不同。重启后状态会丢失（持久化请使用 --db）。分叉需要归档节点访问权限。**Ganache 已于 2023 年 12 月弃用**，当时 Consensys 同时停止维护 Truffle 和 Ganache。建议开发者迁移至 Hardhat 或 Foundry。
 
 # HISTORY
 
-Ganache was developed by **Truffle Suite** (part of Consensys). It evolved from TestRPC and was renamed Ganache around **2017**. The current version (Ganache 7+) was a complete rewrite supporting forking and improved compatibility. In **September 2023**, Consensys announced the sunset of both Truffle and Ganache, with codebases archived in December 2023.
+Ganache 由 **Truffle Suite**（Consensys 旗下）开发。它从 TestRPC 演进而来，约在 **2017 年**更名为 Ganache。当前版本（Ganache 7+）是一次彻底的重写，支持分叉并改进了兼容性。**2023 年 9 月**，Consensys 宣布停止维护 Truffle 和 Ganache，两个代码库于 2023 年 12 月归档。
 
 # SEE ALSO
 

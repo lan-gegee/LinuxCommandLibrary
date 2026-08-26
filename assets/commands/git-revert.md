@@ -1,30 +1,30 @@
 # TAGLINE
 
-Create commits that undo previous changes
+创建用于撤销先前改动的提交
 
 # TLDR
 
-**Revert a commit**
+**撤销一个提交**
 
 ```git revert [commit]```
 
-**Revert multiple commits**
+**撤销多个提交**
 
 ```git revert [commit1] [commit2]```
 
-**Revert without committing**
+**撤销但不创建提交**
 
 ```git revert -n [commit]```
 
-**Revert merge commit**
+**撤销合并提交**
 
 ```git revert -m [1] [merge_commit]```
 
-**Continue after conflict**
+**解决冲突后继续**
 
 ```git revert --continue```
 
-**Abort revert**
+**中止撤销**
 
 ```git revert --abort```
 
@@ -35,49 +35,49 @@ Create commits that undo previous changes
 # PARAMETERS
 
 **-n**, **--no-commit**
-> Apply revert to working tree and index without creating a commit.
+> 将撤销应用到工作树和索引，但不创建提交。
 
 **-e**, **--edit**
-> Edit the commit message before committing (default when run interactively).
+> 提交前编辑提交信息（交互式运行时的默认行为）。
 
 **--no-edit**
-> Use the default generated commit message.
+> 使用默认生成的提交信息。
 
 **-m** _parent-number_, **--mainline** _parent-number_
-> Specify the mainline parent (1-based) when reverting a merge commit.
+> 撤销合并提交时指定主线父提交（从 1 开始编号）。
 
 **-s**, **--signoff**
-> Add a `Signed-off-by` trailer to the commit message.
+> 在提交信息中添加 `Signed-off-by` 尾注。
 
 **-S**[_keyid_], **--gpg-sign**[=_keyid_]
-> GPG-sign the revert commit.
+> 为撤销提交进行 GPG 签名。
 
 **--cleanup=**_mode_
-> Control how the commit message is cleaned up (see git-commit).
+> 控制提交信息的清理方式（见 git-commit）。
 
 **--strategy=**_strategy_
-> Use the specified merge strategy.
+> 使用指定的合并策略。
 
 **-X** _option_, **--strategy-option=**_option_
-> Pass an option through to the merge strategy.
+> 将选项传递给合并策略。
 
 **--continue**
-> Continue the revert operation after resolving conflicts.
+> 解决冲突后继续撤销操作。
 
 **--skip**
-> Skip the current commit and continue with the remaining ones.
+> 跳过当前提交并继续处理剩余的提交。
 
 **--abort**
-> Cancel the in-progress revert and restore the pre-sequence state.
+> 取消进行中的撤销操作并恢复到序列开始前的状态。
 
 **--quit**
-> Forget about the current operation; leave index and working tree as-is.
+> 忘记当前操作；索引和工作树保持原样。
 
 # DESCRIPTION
 
-**git revert** creates new commits that undo the changes introduced by specified commits. Unlike `git reset`, it preserves history by adding inverse commits rather than removing existing ones.
+**git revert** 创建新的提交来撤销指定提交所引入的改动。与 `git reset` 不同，它通过添加反向提交来保留历史，而不是移除已有提交。
 
-This makes it safe for shared branches where rewriting history would cause problems. Use `-m` to specify the mainline parent when reverting merge commits.
+因此对共享分支而言它是安全的——重写历史在那种场景下会引发问题。撤销合并提交时用 `-m` 指定主线父提交。
 
 # INSTALL
 

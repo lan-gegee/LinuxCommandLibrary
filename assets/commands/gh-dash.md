@@ -1,18 +1,18 @@
 # TAGLINE
 
-Terminal UI dashboard for GitHub pull requests and issues
+面向 GitHub 拉取请求和 issue 的终端 UI 仪表板
 
 # TLDR
 
-**Open** the dashboard (requires authenticated **gh**)
+**打开**仪表板（需要已认证的 **gh**）
 
 ```gh dash```
 
-**Or run** the standalone binary
+**或运行**独立二进制文件
 
 ```gh-dash```
 
-**Install** as a GitHub CLI extension
+**作为 GitHub CLI 扩展安装**
 
 ```gh extension install dlvhdr/gh-dash```
 
@@ -24,29 +24,29 @@ Terminal UI dashboard for GitHub pull requests and issues
 
 # DESCRIPTION
 
-**gh-dash** (often installed as the **gh** extension **dash**) is a Bubble Tea terminal UI for GitHub. It shows configurable sections of pull requests and issues, supports vim-style keys, PR checkout/diff/comment workflows, and custom actions driven by a YAML config.
+**gh-dash**（常作为 **gh** 扩展 **dash** 安装）是一个基于 Bubble Tea 的 GitHub 终端 UI。它显示可配置的拉取请求和 issue 分区，支持 vim 风格按键、PR checkout/diff/comment 工作流，以及由 YAML 配置驱动的自定义操作。
 
-It relies on the official **gh** CLI for authentication and GitHub API access. Diff viewing commonly integrates with **delta**. Full configuration and keybinding docs live at https://gh-dash.dev.
+它依赖官方 **gh** CLI 进行身份验证并访问 GitHub API。查看 diff 时通常与 **delta** 集成。完整的配置和按键绑定文档见 https://gh-dash.dev。
 
 # PARAMETERS
 
-Most behavior is interactive inside the TUI. Common entry points:
+大多数操作都在 TUI 内交互完成。常见入口：
 
 **gh dash**
 
-> Launch the dashboard via the **gh** extension.
+> 通过 **gh** 扩展启动仪表板。
 
 **gh-dash**
 
-> Launch the standalone binary if installed that way.
+> 若按独立二进制方式安装，则直接启动该二进制文件。
 
-Configuration is typically under the user's config directory (see docs for **config.yml** path): section queries, keybindings, themes, and custom commands.
+配置通常位于用户的配置目录下（**config.yml** 的路径见文档）：分区查询、按键绑定、主题和自定义命令。
 
-Use **--help** on the installed binary for any CLI flags for the current version.
+对已安装的二进制文件使用 **--help**，可查看当前版本支持的命令行选项。
 
 # CAVEATS
 
-Requires a working **gh auth login** session and network access to GitHub. API rate limits apply. Feature set tracks GitHub permissions for the authenticated user/token.
+需要有效的 **gh auth login** 会话以及可访问 GitHub 的网络。受 API 速率限制约束。功能范围取决于已认证用户/令牌所拥有的 GitHub 权限。
 
 # INSTALL
 

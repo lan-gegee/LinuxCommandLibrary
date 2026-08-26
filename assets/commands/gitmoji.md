@@ -1,34 +1,34 @@
 # TAGLINE
 
-Interactive emoji guide for commit messages
+面向提交信息的交互式 emoji 指南
 
 # TLDR
 
-**Interactive commit**
+**交互式提交**
 
 ```gitmoji -c```
 
-**List available emojis**
+**列出可用的 emoji**
 
 ```gitmoji -l```
 
-**Search emoji**
+**搜索 emoji**
 
 ```gitmoji -s [bug]```
 
-**Initialize repo**
+**初始化仓库**
 
 ```gitmoji -i```
 
-**Configure gitmoji**
+**配置 gitmoji**
 
 ```gitmoji -g```
 
-**Remove commit hook**
+**移除提交钩子**
 
 ```gitmoji -r```
 
-**Update emoji list**
+**更新 emoji 列表**
 
 ```gitmoji -u```
 
@@ -39,45 +39,45 @@ Interactive emoji guide for commit messages
 # PARAMETERS
 
 **-c**, **--commit**
-> Interactive commit with emoji.
+> 使用 emoji 进行交互式提交。
 
 **-l**, **--list**
-> List all gitmojis.
+> 列出所有 gitmoji。
 
 **-s** _TEXT_, **--search** _TEXT_
-> Search for emoji.
+> 搜索 emoji。
 
 **-i**, **--init**
-> Initialize gitmoji as a commit hook.
+> 将 gitmoji 初始化为提交钩子。
 
 **-r**, **--remove**
-> Remove a previously initialized commit hook.
+> 移除先前初始化的提交钩子。
 
 **-g**, **--config**
-> Configure settings.
+> 配置各项设置。
 
 **-u**, **--update**
-> Sync emoji list with the repo.
+> 与上游仓库同步 emoji 列表。
 
 **-v**, **--version**
-> Print installed version.
+> 打印已安装的版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gitmoji** adds emoji to commit messages following a standardized convention. Each emoji represents a commit type (bug fix, feature, docs, etc.), making commit history more visual and scannable.
+**gitmoji** 按照标准化约定在提交信息中加入 emoji。每个 emoji 代表一种提交类型（修复 bug、新功能、文档等），使提交历史更直观、更易于浏览。
 
-The interactive mode guides through emoji selection and message composition. It can be installed as a Git hook for automatic emoji prompts on every commit.
+交互模式会引导你选择 emoji 并撰写信息。它还可以安装为 Git 钩子，在每次提交时自动弹出 emoji 选择提示。
 
 # CAVEATS
 
-Node.js tool. Team must agree on convention. Some tools may not render emojis.
+基于 Node.js 的工具。团队须就约定达成一致。某些工具可能无法渲染 emoji。
 
 # HISTORY
 
-gitmoji was created by **Carlos Cuesta** to standardize emoji use in commit messages, making repository history more expressive.
+gitmoji 由 **Carlos Cuesta** 创建，用于规范提交信息中 emoji 的使用，让仓库历史更具表现力。
 
 # INSTALL
 

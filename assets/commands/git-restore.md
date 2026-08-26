@@ -1,38 +1,38 @@
 # TAGLINE
 
-Restore working tree files or unstage changes
+恢复工作树文件或取消暂存改动
 
 # TLDR
 
-**Restore working tree file**
+**恢复工作树文件**
 
 ```git restore [file]```
 
-**Restore from specific commit**
+**从指定提交恢复**
 
 ```git restore --source=[commit] [file]```
 
-**Unstage file**
+**取消暂存文件**
 
 ```git restore --staged [file]```
 
-**Restore all files**
+**恢复所有文件**
 
 ```git restore .```
 
-**Restore both staged and working tree**
+**同时恢复暂存区和工作树**
 
 ```git restore --staged --worktree [file]```
 
-**Interactive restore**
+**交互式恢复**
 
 ```git restore -p [file]```
 
-**Restore your side of a conflicted merge**
+**恢复合并冲突中己方一侧的版本**
 
 ```git restore --ours [file]```
 
-**Restore the incoming side of a conflicted merge**
+**恢复合并冲突中对方一侧的版本**
 
 ```git restore --theirs [file]```
 
@@ -43,37 +43,37 @@ Restore working tree files or unstage changes
 # PARAMETERS
 
 **--source** _tree_
-> Restore from tree.
+> 从指定 tree 恢复。
 
 **-s** _tree_
-> Short for --source.
+> --source 的缩写。
 
 **--staged**
-> Restore index (unstage).
+> 恢复索引（取消暂存）。
 
 **--worktree**
-> Restore working tree.
+> 恢复工作树。
 
 **-S**
-> Short for --staged.
+> --staged 的缩写。
 
 **-W**
-> Short for --worktree.
+> --worktree 的缩写。
 
 **-p**, **--patch**
-> Interactive mode.
+> 交互模式。
 
 **--ours** / **--theirs**
-> During a conflicted merge, restore the current branch's or the merged-in branch's version.
+> 在合并冲突期间，恢复当前分支或被合入分支的版本。
 
 **-m**, **--merge**
-> Recreate the conflicted merge state in the file.
+> 在文件中重建冲突的合并状态。
 
 # DESCRIPTION
 
-**git restore** restores working tree files or unstages changes from the index. Introduced in Git 2.23 to provide a clearer alternative to the file-restoration aspects of `git checkout`.
+**git restore** 用于恢复工作树文件，或将改动从索引中取消暂存。它于 Git 2.23 引入，为 `git checkout` 中与文件恢复相关的功能提供了更清晰的替代方案。
 
-Use `--staged` to unstage files, `--worktree` (the default) to discard working tree changes, or both together to restore a file completely to a previous state.
+用 `--staged` 取消暂存文件，用 `--worktree`（默认）丢弃工作树中的改动，或者两者一起使用，将文件完全恢复到之前的状态。
 
 # INSTALL
 

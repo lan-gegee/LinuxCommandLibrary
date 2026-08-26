@@ -1,18 +1,18 @@
 # TAGLINE
 
-create new Fossil repository
+创建新的 Fossil 仓库
 
 # TLDR
 
-**Create new repository**
+**创建新仓库**
 
 ```fossil init [repo.fossil]```
 
-**Create with admin password**
+**创建并设置管理员密码**
 
 ```fossil init --admin-user [admin] [repo.fossil]```
 
-**Create with project name**
+**创建并设置项目名称**
 
 ```fossil init --project-name "[name]" [repo.fossil]```
 
@@ -23,27 +23,27 @@ create new Fossil repository
 # PARAMETERS
 
 **--admin-user** _name_
-> Set admin username.
+> 设置管理员用户名。
 
 **--project-name** _name_
-> Set project name.
+> 设置项目名称。
 
 **--project-desc** _text_
-> Set project description.
+> 设置项目描述。
 
 **--template** _repo_
-> Use template repository.
+> 使用模板仓库。
 
 **--date-override** _datetime_
-> Override initial check-in date.
+> 覆盖初始 check-in 的日期。
 
 # DESCRIPTION
 
-**fossil init** creates a new Fossil repository file. The repository is a single SQLite database that contains all history, wiki, tickets, and project metadata.
+**fossil init** 创建一个新的 Fossil 仓库文件。该仓库是一个单独的 SQLite 数据库，包含所有历史记录、wiki、工单和项目元数据。
 
-After initialization, use **fossil open** to create a working directory. The repository file can be hosted via **fossil ui** for web access or served over HTTP for remote collaboration.
+初始化后，使用 **fossil open** 创建工作目录。仓库文件可以通过 **fossil ui** 托管以供 Web 访问，或通过 HTTP 提供服务以支持远程协作。
 
-Repository settings include project name, description, and admin credentials. The **--template** option allows creating repositories based on existing ones, inheriting their configuration.
+仓库设置包括项目名称、描述和管理员凭证。**--template** 选项允许基于现有仓库创建新仓库并继承其配置。
 
 # INSTALL
 
@@ -66,4 +66,3 @@ Repository settings include project name, description, and admin credentials. Th
 # SEE ALSO
 
 [fossil](/man/fossil)(1)
-

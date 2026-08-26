@@ -1,30 +1,30 @@
 # TAGLINE
 
-test coverage analysis program
+测试覆盖率分析程序
 
 # TLDR
 
-Generate a **coverage report** named file.cpp.gcov
+生成名为 file.cpp.gcov 的**覆盖率报告**
 
 ```gcov [path/to/file.cpp]```
 
-Write individual execution counts for every **basic block**
+为每个**基本块**写出单独的执行计数
 
 ```gcov -a [path/to/file.cpp]```
 
-Write **branch frequencies** to output and print summary as percentage
+将**分支频率**写入输出并以百分比打印摘要
 
 ```gcov -b [path/to/file.cpp]```
 
-Write branch frequencies as **number of branches taken**
+以**被采纳分支的数量**形式写出分支频率
 
 ```gcov -c [path/to/file.cpp]```
 
-Do not create a **gcov output file**
+不创建 **gcov 输出文件**
 
 ```gcov -n [path/to/file.cpp]```
 
-Write file level and **function level summaries**
+写出文件级和**函数级摘要**
 
 ```gcov -f [path/to/file.cpp]```
 
@@ -35,47 +35,47 @@ Write file level and **function level summaries**
 # PARAMETERS
 
 **-a**, **--all-blocks**
-> Write individual execution counts for every basic block
+> 为每个基本块写出单独的执行计数
 
 **-b**, **--branch-probabilities**
-> Write branch frequencies to output file as percentages
+> 将分支频率以百分比形式写入输出文件
 
 **-c**, **--branch-counts**
-> Write branch frequencies as counts rather than percentages
+> 将分支频率以次数而非百分比形式写出
 
 **-f**, **--function-summaries**
-> Output summaries for each function in addition to file summary
+> 除文件摘要外，还为每个函数输出摘要
 
 **-n**, **--no-output**
-> Do not create gcov output file
+> 不创建 gcov 输出文件
 
 **-l**, **--long-file-names**
-> Use long file names for output files
+> 输出文件使用长文件名
 
 **-p**, **--preserve-paths**
-> Preserve complete path information in output file names
+> 在输出文件名中保留完整的路径信息
 
 **-o**, **--object-directory** _DIR_
-> Search for object files in _DIR_
+> 在 _DIR_ 中查找目标文件
 
 **-s**, **--source-prefix** _PREFIX_
-> Remove source path prefix for shorter output names
+> 移除源码路径前缀，使输出文件名更短
 
 # DESCRIPTION
 
-**gcov** is a test coverage program used with GCC to analyze which parts of a program have been executed during testing. It helps identify untested code paths, improving test suite completeness.
+**gcov** 是一个配合 GCC 使用的测试覆盖率程序，用于分析程序在测试期间执行了哪些部分。它帮助找出未经测试的代码路径，从而提高测试套件的完整性。
 
-To use gcov, compile your program with **-fprofile-arcs -ftest-coverage** (or **--coverage**). After running the program, gcov reads the generated .gcno and .gcda files to produce annotated source listings showing execution counts for each line.
+要使用 gcov，需要用 **-fprofile-arcs -ftest-coverage**（或 **--coverage**）编译程序。运行程序后，gcov 会读取生成的 .gcno 和 .gcda 文件，产出带注释的源代码清单，显示每行的执行计数。
 
-Output files (*.gcov) contain the original source code annotated with execution counts. Lines marked **#####** were never executed. Branch information helps identify untested conditional paths.
+输出文件（*.gcov）包含带有执行计数注释的原始源代码。标记为 **#####** 的行从未被执行过。分支信息有助于识别未测试的条件路径。
 
 # CAVEATS
 
-Requires programs to be compiled with special GCC flags. Only works with GCC-compiled code. Running the program multiple times accumulates coverage data unless .gcda files are deleted between runs. Inline functions may show misleading counts.
+要求程序使用特殊的 GCC 标志编译。只对 GCC 编译的代码有效。多次运行程序会累积覆盖率数据，除非在每次运行之间删除 .gcda 文件。内联函数可能显示具有误导性的计数。
 
 # HISTORY
 
-gcov has been part of the GNU Compiler Collection (GCC) since the early 1990s. It evolved alongside GCC's profiling capabilities and remains a fundamental tool for C/C++ code coverage analysis in the open-source ecosystem.
+gcov 自 20 世纪 90 年代初起就是 GNU 编译器套件（GCC）的一部分。它随 GCC 的性能剖析能力一同演进，至今仍是开源生态中进行 C/C++ 代码覆盖率分析的基础工具。
 
 # INSTALL
 

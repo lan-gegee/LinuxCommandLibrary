@@ -1,22 +1,22 @@
 # TAGLINE
 
-Display gitattributes information for files
+显示文件的 gitattributes 信息
 
 # TLDR
 
-**Check attribute for file**
+**检查文件的属性**
 
 ```git check-attr [attribute] [file]```
 
-**Check all attributes**
+**检查所有属性**
 
 ```git check-attr -a [file]```
 
-**Check for multiple files**
+**检查多个文件**
 
 ```git check-attr [attribute] [file1] [file2]```
 
-**Check from stdin**
+**从标准输入读取并检查**
 
 ```echo "[file]" | git check-attr --stdin [attribute]```
 
@@ -27,26 +27,26 @@ Display gitattributes information for files
 # PARAMETERS
 
 **-a**, **--all**
-> Check all attributes.
+> 检查所有属性。
 
 **--stdin**
-> Read pathnames from stdin.
+> 从标准输入读取路径名。
 
 **-z**
-> NUL-terminated output.
+> 以 NUL 字符结尾输出。
 
 # DESCRIPTION
 
-**git check-attr** displays gitattributes information for specified paths, revealing how Git will handle files according to .gitattributes configuration. This debugging tool shows the effective attribute values after all gitattributes rules are applied.
+**git check-attr** 显示指定路径的 gitattributes 信息，揭示 Git 将如何根据 .gitattributes 配置处理文件。这一调试工具展示的是应用所有 gitattributes 规则之后生效的属性值。
 
-Gitattributes control various behaviors including line ending conversion (text/eol), diff drivers, merge strategies, export handling, and language detection. The command resolves attribute values from .gitattributes files in the working tree, index, and repository.
+Gitattributes 控制多种行为，包括换行符转换（text/eol）、diff 驱动、合并策略、导出处理和语言检测。该命令会综合工作区、索引和仓库中的 .gitattributes 文件来解析属性值。
 
-Output shows each path with its attribute values, using "set", "unset", or "unspecified" status. This helps debug unexpected Git behavior related to file handling, such as incorrect line ending conversions or merge conflicts in generated files.
+输出会列出每个路径及其属性值，状态为 "set"、"unset" 或 "unspecified"。这有助于调试与文件处理相关的意外 Git 行为，例如不正确的换行符转换或生成文件中的合并冲突。
 
 # CONFIGURATION
 
 **.gitattributes**
-> File attribute patterns controlling line endings, diff behavior, merge strategies, and other file-specific Git operations.
+> 文件属性模式文件，控制换行符、diff 行为、合并策略以及其他针对特定文件的 Git 操作。
 
 # INSTALL
 

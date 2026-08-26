@@ -1,26 +1,26 @@
 # TAGLINE
 
-list files and directories from disk images
+从磁盘镜像中列出文件和目录
 
 # TLDR
 
-**List files in** image
+**列出镜像中的文件**
 
 ```fls [disk.img]```
 
-**List deleted files**
+**列出已删除文件**
 
 ```fls -d [disk.img]```
 
-**Recursive listing**
+**递归列出**
 
 ```fls -r [disk.img]```
 
-**List specific directory**
+**列出的特定目录**
 
 ```fls [disk.img] [inode]```
 
-**List with file** types
+**连同文件类型一起列出**
 
 ```fls -p [disk.img]```
 
@@ -31,47 +31,47 @@ list files and directories from disk images
 # PARAMETERS
 
 _IMAGE_
-> Disk image file.
+> 磁盘镜像文件。
 
 _INODE_
-> Starting inode (default: root).
+> 起始 inode（默认：根目录）。
 
 **-r**
-> Recursive listing.
+> 递归列出。
 
 **-d**
-> Show deleted entries.
+> 显示已删除的条目。
 
 **-l**
-> Long format output.
+> 以长格式输出。
 
 **-p**
-> Show full paths.
+> 显示完整路径。
 
 **-m** _PREFIX_
-> Output in mactime format.
+> 以 mactime 格式输出。
 
 **-o** _OFFSET_
-> Partition offset.
+> 分区偏移量。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fls** lists file and directory names from disk images. It's part of The Sleuth Kit forensics toolkit and examines filesystem structures directly without mounting.
+**fls** 从磁盘镜像中列出文件和目录名。它是 The Sleuth Kit 取证工具集的一部分，无需挂载即可直接检查文件系统结构。
 
-The tool shows regular and deleted file entries, useful for data recovery and forensic analysis. It works with various filesystems including NTFS, FAT, ext, and HFS+.
+该工具会显示正常和已删除的文件条目，可用于数据恢复和取证分析。它支持多种文件系统，包括 NTFS、FAT、ext 和 HFS+。
 
-fls enables examining disk images without modifying their contents, preserving forensic integrity.
+fls 可以在不修改镜像内容的情况下检查磁盘镜像，保持取证完整性。
 
 # CAVEATS
 
-Requires raw or forensic disk images. Deleted file recovery depends on filesystem state. Large images may be slow.
+需要原始镜像或取证磁盘镜像。已删除文件的恢复取决于文件系统的状态。大型镜像的处理速度可能较慢。
 
 # HISTORY
 
-fls is part of **The Sleuth Kit** created by Brian Carrier. It evolved from earlier forensic tools and provides cross-platform filesystem analysis for digital investigations.
+fls 是 Brian Carrier 所创建 **The Sleuth Kit** 的一部分。它由早期的取证工具演化而来，为数字调查提供跨平台的文件系统分析能力。
 
 # INSTALL
 

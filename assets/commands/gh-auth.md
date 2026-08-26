@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage GitHub CLI authentication and credentials
+管理 GitHub CLI 认证与凭据
 
 # TLDR
 
-**Login to GitHub**
+**登录 GitHub**
 
 ```gh auth login```
 
-**Login with specific host**
+**登录指定主机**
 
 ```gh auth login --hostname [github.example.com]```
 
-**Check authentication status**
+**检查认证状态**
 
 ```gh auth status```
 
-**Logout from GitHub**
+**退出 GitHub 登录**
 
 ```gh auth logout```
 
-**Refresh authentication**
+**刷新认证**
 
 ```gh auth refresh```
 
@@ -31,52 +31,52 @@ manage GitHub CLI authentication and credentials
 # PARAMETERS
 
 **login**
-> Authenticate with a GitHub host.
+> 向某个 GitHub 主机进行身份验证。
 
 **logout**
-> Log out of a GitHub host.
+> 从某个 GitHub 主机退出登录。
 
 **status**
-> View authentication status.
+> 查看认证状态。
 
 **refresh**
-> Refresh stored credentials.
+> 刷新存储的凭据。
 
 **token**
-> Print authentication token.
+> 打印认证令牌。
 
 **--hostname** _HOST_
-> GitHub hostname (for Enterprise).
+> GitHub 主机名（适用于 Enterprise）。
 
 **--web**
-> Open browser for authentication.
+> 打开浏览器进行认证。
 
 **--with-token**
-> Read token from stdin.
+> 从 stdin 读取令牌。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh auth** manages authentication for the GitHub CLI. It handles OAuth device flow, personal access tokens, and SSH key authentication across multiple GitHub hosts.
+**gh auth** 管理 GitHub CLI 的认证。它处理 OAuth 设备流、个人访问令牌和 SSH 密钥认证，可跨多个 GitHub 主机使用。
 
-The command stores credentials securely in the system keychain when available, falling back to encrypted file storage. It supports github.com and GitHub Enterprise Server instances simultaneously.
+该命令在系统密钥链可用时将凭据安全地存入其中，否则回退到加密文件存储。它支持同时使用 github.com 和 GitHub Enterprise Server 实例。
 
-gh auth provides the foundation for all authenticated gh operations.
+gh auth 是所有需要认证的 gh 操作的基础。
 
 # CONFIGURATION
 
 **~/.config/gh/hosts.yml**
-> Stores authentication tokens and host-specific settings for each GitHub instance.
+> 存储每个 GitHub 实例的认证令牌和主机特定设置。
 
 # CAVEATS
 
-Token scopes affect available commands. Enterprise instances may require SSO authentication. Credentials stored in keychain or config file.
+令牌作用域影响可用命令。Enterprise 实例可能需要 SSO 认证。凭据保存在密钥链或配置文件中。
 
 # HISTORY
 
-gh auth is part of the **GitHub CLI**, providing secure authentication workflows designed for both interactive and scripted use cases.
+gh auth 是 **GitHub CLI** 的一部分，为交互式和脚本化场景设计了安全的认证流程。
 
 # INSTALL
 

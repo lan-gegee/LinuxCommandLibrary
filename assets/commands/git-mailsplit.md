@@ -1,14 +1,14 @@
 # TAGLINE
 
-Split mbox into individual messages
+将 mbox 拆分为单封邮件
 
 # TLDR
 
-**Split mbox into messages**
+**将 mbox 拆分为多封邮件**
 
 ```git mailsplit -o [output-dir] [mbox]```
 
-**Split from stdin**
+**从标准输入读取并拆分**
 
 ```git mailsplit -o [output-dir]```
 
@@ -19,39 +19,39 @@ Split mbox into individual messages
 # PARAMETERS
 
 _MBOX_
-> Mailbox file to split.
+> 要拆分的邮箱文件。
 
 **-o** _DIR_
-> Output directory.
+> 输出目录。
 
 **-b**
-> Include mbox "From " line.
+> 保留 mbox 的 "From " 行。
 
 **-d** _DIGITS_
-> Number padding width.
+> 编号的填充位数。
 
 **-f** _NUM_
-> Start numbering from N.
+> 从 N 开始编号。
 
 **--keep-cr**
-> Keep carriage returns.
+> 保留回车符。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git mailsplit** splits an mbox file into individual email messages. Each email becomes a numbered file in the output directory, preparing patches for processing by `git am`.
+**git mailsplit** 将 mbox 文件拆分为单封邮件。每封邮件会成为输出目录中的一个编号文件，为 `git am` 处理补丁做好准备。
 
-The command is a plumbing tool used internally by `git am` to handle mailbox files containing multiple patches. It detects mbox format boundaries and separates each message into its own file.
+该命令是 `git am` 内部使用的底层（plumbing）工具，用于处理包含多个补丁的邮箱文件。它会检测 mbox 格式的边界，并将每封邮件分离到各自的文件中。
 
 # CAVEATS
 
-Plumbing command. Usually called by git am. Output is individual email files.
+底层（plumbing）命令。通常由 git am 调用。输出为单独的邮件文件。
 
 # HISTORY
 
-git mailsplit is part of **Git's** email patch workflow, breaking mailboxes into individual messages for processing.
+git mailsplit 是 **Git** 邮件补丁工作流的一部分，负责把邮箱拆分为单封邮件以便处理。
 
 # INSTALL
 

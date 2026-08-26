@@ -1,10 +1,10 @@
 # TAGLINE
 
-simple OpenGL rendering test
+简单的 OpenGL 渲染测试
 
 # TLDR
 
-**Run OpenGL demo**
+**运行 OpenGL 演示**
 
 ```glxdemo```
 
@@ -14,17 +14,17 @@ simple OpenGL rendering test
 
 # DESCRIPTION
 
-**glxdemo** is a simple OpenGL demonstration program that shows how to use GLX functions to create an OpenGL program running on top of an X server. It opens a window and renders a basic 3D scene to verify that OpenGL rendering is working correctly on the system.
+**glxdemo** 是一个简单的 OpenGL 演示程序，展示如何使用 GLX 函数创建运行在 X server 之上的 OpenGL 程序。它会打开一个窗口并渲染一个基础 3D 场景，以验证系统上的 OpenGL 渲染是否正常工作。
 
-The program is most useful when studied in source code form. If it runs successfully, OpenGL acceleration is properly configured.
+这个程序最有价值的用法是研究它的源代码。如果它能成功运行，说明 OpenGL 加速已正确配置。
 
 # CAVEATS
 
-Requires X11 and OpenGL. Part of mesa-utils (or mesa-demos). Basic functionality test only; accepts no command-line options.
+需要 X11 和 OpenGL。属于 mesa-utils（或 mesa-demos）的一部分。仅作基础功能测试；不接受任何命令行选项。
 
 # HISTORY
 
-glxdemo is part of **Mesa demos**, providing simple programs for testing OpenGL rendering on Linux/Unix systems.
+glxdemo 是 **Mesa demos** 的一部分，后者为 Linux/Unix 系统上的 OpenGL 渲染测试提供了多个简单程序。
 
 # INSTALL
 

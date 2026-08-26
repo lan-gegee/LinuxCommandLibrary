@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display Git logical variables
+显示 Git 的逻辑变量
 
 # TLDR
 
-**Show Git variables**
+**显示 Git 变量**
 
 ```git var -l```
 
-**Show editor**
+**显示编辑器**
 
 ```git var GIT_EDITOR```
 
-**Show author identity**
+**显示作者身份**
 
 ```git var GIT_AUTHOR_IDENT```
 
-**Show committer identity**
+**显示提交者身份**
 
 ```git var GIT_COMMITTER_IDENT```
 
-**Show configured pager**
+**显示配置的分页器**
 
 ```git var GIT_PAGER```
 
@@ -31,15 +31,15 @@ Display Git logical variables
 # PARAMETERS
 
 **-l**
-> List all variables.
+> 列出所有变量。
 
 # DESCRIPTION
 
-**git var** shows Git logical variables such as the configured editor, pager, and author/committer identity. These values are resolved from environment variables and Git configuration, following Git's own lookup order (e.g. `$GIT_EDITOR` falls back to `core.editor`, then `$VISUAL`, then `$EDITOR`).
+**git var** 显示 Git 的逻辑变量，例如配置的编辑器、分页器以及作者/提交者身份。这些值从环境变量和 Git 配置中解析而来，遵循 Git 自身的查找顺序（例如 `$GIT_EDITOR` 会回退到 `core.editor`，再回退到 `$VISUAL`，然后是 `$EDITOR`）。
 
-Other recognized variables include `GIT_SEQUENCE_EDITOR` (editor for `git rebase -i`), `GIT_DEFAULT_BRANCH`, `GIT_SHELL_PATH`, `GIT_ATTR_SYSTEM`/`GIT_ATTR_GLOBAL`, and `GIT_CONFIG_SYSTEM`/`GIT_CONFIG_GLOBAL`.
+其他可识别的变量包括 `GIT_SEQUENCE_EDITOR`（`git rebase -i` 使用的编辑器）、`GIT_DEFAULT_BRANCH`、`GIT_SHELL_PATH`、`GIT_ATTR_SYSTEM`/`GIT_ATTR_GLOBAL` 以及 `GIT_CONFIG_SYSTEM`/`GIT_CONFIG_GLOBAL`。
 
-The command is useful in scripts that need to query Git's resolved settings without parsing config files directly.
+在需要查询 Git 已解析设置的脚本中，该命令很有用，无需直接解析配置文件。
 
 # INSTALL
 

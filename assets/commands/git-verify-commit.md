@@ -1,22 +1,22 @@
 # TAGLINE
 
-Verify GPG signatures of commits
+验证提交的 GPG 签名
 
 # TLDR
 
-**Verify signed commit**
+**验证已签名的提交**
 
 ```git verify-commit [commit]```
 
-**Verify multiple commits**
+**验证多个提交**
 
 ```git verify-commit [commit1] [commit2]```
 
-**Show raw signature**
+**显示原始签名**
 
 ```git verify-commit --raw [commit]```
 
-**Verbose output**
+**详细输出**
 
 ```git verify-commit -v [commit]```
 
@@ -27,20 +27,20 @@ Verify GPG signatures of commits
 # PARAMETERS
 
 **-v**, **--verbose**
-> Print commit contents.
+> 输出提交内容。
 
 **--raw**
-> Print raw signature.
+> 打印原始签名。
 
 # DESCRIPTION
 
-**git verify-commit** checks GPG signatures of commits. It verifies that commits were signed with valid GPG keys, confirming the authenticity and integrity of the commit author.
+**git verify-commit** 检查提交的 GPG 签名。它验证提交是否使用有效的 GPG 密钥签名，以确认提交作者的真实性与完整性。
 
-This command is useful in workflows that require signed commits for security or compliance purposes.
+该命令适用于出于安全或合规目的要求提交必须签名的场景。
 
 # CAVEATS
 
-The signer's public key must already be available in the local GPG keyring (or configured SSH/X.509 verifier) for verification to succeed; an unknown key results in a failure even if the signature itself is valid. Exits non-zero if any given commit lacks a valid signature.
+签名者的公钥必须已经存在于本地 GPG 密钥环（或已配置的 SSH/X.509 验证器）中，验证才能成功；密钥未知时即使签名本身有效也会导致失败。若任一给定提交缺少有效签名，则以非零状态退出。
 
 # INSTALL
 

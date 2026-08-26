@@ -1,26 +1,26 @@
 # TAGLINE
 
-LVM filesystem management utility
+LVM 文件系统管理工具
 
 # TLDR
 
-**Check** filesystem for errors
+**检查**文件系统错误
 
 ```fsadm check /dev/vg_name/lv_name```
 
-**Dry-run** resize to specific size
+**试运行**调整到指定大小
 
 ```fsadm -n resize /dev/vg_name/lv_name 10G```
 
-**Grow** filesystem to fill device
+将文件系统**扩容**至占满设备
 
 ```fsadm resize /dev/vg_name/lv_name```
 
-Resize filesystem **and logical volume** together
+同时调整文件系统**与逻辑卷**的大小
 
 ```fsadm -l resize /dev/vg_name/lv_name 100G```
 
-Resize ext2/3/4 **offline**
+**离线**调整 ext2/3/4 文件系统大小
 
 ```fsadm -e resize /dev/vg_name/lv_name 20G```
 
@@ -32,41 +32,41 @@ Resize ext2/3/4 **offline**
 
 # DESCRIPTION
 
-**fsadm** checks or resizes filesystems on LVM logical volumes. It is a helper script that wraps filesystem-specific tools like resize2fs, xfs_growfs, and fsck.
+**fsadm** 用于检查或调整 LVM 逻辑卷上文件系统的大小。它是一个辅助脚本，封装了 resize2fs、xfs_growfs 和 fsck 等针对特定文件系统的工具。
 
 # PARAMETERS
 
 **check**
-> Check filesystem for errors
+> 检查文件系统错误。
 
 **resize**
-> Resize filesystem (grow or shrink)
+> 调整文件系统大小（扩大或缩小）。
 
 **-n, --dry-run**
-> Print what would be done without making changes
+> 只打印将要执行的操作而不实际更改。
 
 **-l, --lvresize**
-> Resize the underlying logical volume as well
+> 同时调整底层逻辑卷的大小。
 
 **-e, --ext-offline**
-> Unmount ext2/3/4 filesystem and resize offline
+> 卸载 ext2/3/4 文件系统并离线调整大小。
 
 **-f, --force**
-> Force operation without confirmation
+> 无需确认强制执行操作。
 
 **-v, --verbose**
-> Verbose mode
+> 详细模式。
 
 **-y, --yes**
-> Answer yes to all prompts
+> 对所有提示自动回答 yes。
 
 # CAVEATS
 
-If no size is specified with resize, the filesystem will be grown to fill the entire device. Shrinking filesystems requires careful planning and may require unmounting. Not all filesystems support shrinking (e.g., XFS).
+resize 时若未指定大小，文件系统将被扩容至占满整个设备。缩小文件系统需要谨慎规划，且可能需要卸载。并非所有文件系统都支持缩小（例如 XFS）。
 
 # HISTORY
 
-**fsadm** is part of **LVM2**, providing a unified interface for filesystem operations on logical volumes regardless of the underlying filesystem type.
+**fsadm** 是 **LVM2** 的一部分，为逻辑卷上的文件系统操作提供统一接口，无论底层文件系统类型是什么。
 
 # INSTALL
 

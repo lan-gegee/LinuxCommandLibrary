@@ -1,10 +1,10 @@
 # TAGLINE
 
-Extract blob contents to a temporary file
+将 blob 内容提取到临时文件
 
 # TLDR
 
-**Unpack blob to temp file**
+**将 blob 解包到临时文件**
 
 ```git unpack-file [blob_hash]```
 
@@ -14,11 +14,11 @@ Extract blob contents to a temporary file
 
 # DESCRIPTION
 
-**git unpack-file** creates a temporary file with a blob's contents and prints the filename. It is a low-level plumbing command for accessing blob contents outside of the working tree, used internally during merges and by scripts that need direct access to a blob's data.
+**git unpack-file** 创建一个包含指定 blob 内容的临时文件，并打印该文件名。它是一个底层（plumbing）命令，用于在工作树之外访问 blob 内容；Git 在合并过程中内部会用到它，需要直接访问 blob 数据的脚本也会使用。
 
 # CAVEATS
 
-Creates a file named **.merge_file_XXXXXX** in the current directory. Git does not remove it automatically; the caller is responsible for deleting it once done.
+会在当前目录创建名为 **.merge_file_XXXXXX** 的文件。Git 不会自动删除它；调用者负责在用完后将其删除。
 
 # INSTALL
 

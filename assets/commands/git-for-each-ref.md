@@ -1,30 +1,30 @@
 # TAGLINE
 
-Output information on each reference with custom formatting
+以自定义格式输出每个引用的信息
 
 # TLDR
 
-**List all refs**
+**列出所有引用**
 
 ```git for-each-ref```
 
-**List branches**
+**列出分支**
 
 ```git for-each-ref refs/heads```
 
-**List tags**
+**列出标签**
 
 ```git for-each-ref refs/tags```
 
-**Custom format**
+**自定义格式**
 
 ```git for-each-ref --format='%(refname:short) %(objectname:short)' refs/heads```
 
-**Sort by date**
+**按日期排序**
 
 ```git for-each-ref --sort=-committerdate refs/heads```
 
-**Show latest N refs**
+**显示最新的 N 个引用**
 
 ```git for-each-ref --count=[10] --sort=-committerdate refs/heads```
 
@@ -35,45 +35,45 @@ Output information on each reference with custom formatting
 # PARAMETERS
 
 **--format** _format_
-> Output format string using %(fieldname) placeholders (default: `%(objectname) %(objecttype)\t%(refname)`).
+> 使用 %(fieldname) 占位符的输出格式字符串（默认：`%(objectname) %(objecttype)\t%(refname)`）。
 
 **--sort** _key_
-> Sort by field name; prefix with **-** for descending. Repeatable, last key is primary.
+> 按字段名排序；加 **-** 前缀表示降序。可重复指定，最后一个键为主键。
 
 **--count** _n_
-> Stop after showing _n_ refs.
+> 显示 _n_ 个引用后停止。
 
 **--points-at** _object_
-> Only list refs pointing at the given object.
+> 只列出指向给定对象的引用。
 
 **--merged**[=_commit_]
-> Only list refs whose tips are reachable from _commit_ (default HEAD).
+> 只列出其末端可从 _commit_（默认 HEAD）到达的引用。
 
 **--no-merged**[=_commit_]
-> Only list refs whose tips are not reachable from _commit_ (default HEAD).
+> 只列出其末端不可从 _commit_（默认 HEAD）到达的引用。
 
 **--contains**[=_commit_]
-> Only list refs that contain the given commit.
+> 只列出包含给定提交的引用。
 
 **--exclude** _pattern_
-> Omit refs matching _pattern_.
+> 省略匹配 _pattern_ 的引用。
 
 **--stdin**
-> Read the list of patterns from standard input instead of the argument list.
+> 从标准输入而不是参数列表读取模式列表。
 
 **--ignore-case**
-> Case-insensitive sorting and filtering.
+> 不区分大小写的排序与过滤。
 
 **--shell**, **--perl**, **--python**, **--tcl**
-> Quote interpolated values as string literals for the given scripting language.
+> 以指定脚本语言的字符串字面量形式为插值后的值加引号。
 
 # DESCRIPTION
 
-**git for-each-ref** is a plumbing command that outputs detailed information about Git references (branches, tags, remote branches) in a highly customizable format. It serves as the foundation for many higher-level Git commands and scripts that need to process repository references.
+**git for-each-ref** 是一个 plumbing 命令，以高度可定制的格式输出 Git 引用（分支、标签、远程分支）的详细信息。它是许多需要处理仓库引用的高层 Git 命令和脚本的基础。
 
-The format string syntax supports field extraction using %(fieldname) placeholders, with available fields including refname, objecttype, objectname, author, committer, and many others. Sorting capabilities enable ordering references by any field, with support for reverse sorting using a minus prefix.
+格式字符串语法支持使用 %(fieldname) 占位符提取字段，可用字段包括 refname、objecttype、objectname、author、committer 等。排序功能支持按任意字段对引用排序，并可通过减号前缀实现反向排序。
 
-This command is primarily used in scripts and Git aliases rather than direct user interaction. The filtering options (--merged, --no-merged, --points-at) provide powerful selection mechanisms for finding references matching specific criteria.
+该命令主要用于脚本和 Git 别名中，而非直接的用户交互。过滤选项（--merged、--no-merged、--points-at）为查找符合特定条件的引用提供了强大的选择机制。
 
 # INSTALL
 

@@ -1,18 +1,18 @@
 # TAGLINE
 
-certificate authority for keyless code signing
+面向无密钥代码签名的证书颁发机构
 
 # TLDR
 
-**Start Fulcio server** with a config file
+使用配置文件**启动 Fulcio 服务器**
 
 ```fulcio serve --config-path [config.yaml]```
 
-**Start server** with file-based CA
+使用基于文件的 CA **启动服务器**
 
 ```fulcio serve --ca fileca --fileca-cert [ca.pem] --fileca-key [ca-key.pem]```
 
-**Start server** on a specific host and port
+在特定主机和端口上**启动服务器**
 
 ```fulcio serve --host [0.0.0.0] --port [8080]```
 
@@ -23,45 +23,45 @@ certificate authority for keyless code signing
 # PARAMETERS
 
 **serve**
-> Start Fulcio server.
+> 启动 Fulcio 服务器。
 
 **--ca** _type_
-> Certificate authority type: googleca, fileca, kmsca, tinkca, pkcs11ca, ephemeralca.
+> 证书颁发机构类型：googleca、fileca、kmsca、tinkca、pkcs11ca、ephemeralca。
 
 **--config-path** _file_
-> Path to Fulcio config YAML (default: /etc/fulcio-config/config.yaml).
+> Fulcio 配置 YAML 的路径（默认：/etc/fulcio-config/config.yaml）。
 
 **--host** _addr_
-> HTTP server listen address (default: 0.0.0.0).
+> HTTP 服务器监听地址（默认：0.0.0.0）。
 
 **--port** _num_
-> HTTP server port (default: 8080).
+> HTTP 服务器端口（默认：8080）。
 
 **--grpc-port** _num_
-> gRPC server port (default: 8081).
+> gRPC 服务器端口（默认：8081）。
 
 **--fileca-cert** _file_
-> Path to CA certificate (fileca only).
+> CA 证书路径（仅 fileca）。
 
 **--fileca-key** _file_
-> Path to CA encrypted private key (fileca only).
+> CA 加密私钥路径（仅 fileca）。
 
 **--ct-log-url** _url_
-> Certificate transparency log URL.
+> 证书透明度日志 URL。
 
 **version**
-> Show version.
+> 显示版本。
 
 # CONFIGURATION
 
 **/etc/fulcio-config/config.yaml**
-> Server configuration including OIDC provider settings, certificate policies, and CA parameters.
+> 服务器配置，包括 OIDC provider 设置、证书策略和 CA 参数。
 
 # DESCRIPTION
 
-**Fulcio** is a certificate authority for code signing, part of the Sigstore project. It issues short-lived certificates tied to OIDC identities (GitHub, Google, Microsoft), enabling keyless code signing.
+**Fulcio** 是一个用于代码签名的证书颁发机构，属于 Sigstore 项目。它签发与 OIDC 身份（GitHub、Google、Microsoft）绑定的短期证书，实现无密钥（keyless）代码签名。
 
-Fulcio eliminates the need for developers to manage long-term signing keys. Certificates are logged in the transparency log (Rekor) for verification.
+Fulcio 让开发者无需管理长期签名密钥。证书会记录到透明度日志（Rekor）中以供验证。
 
 # WORKFLOW
 
@@ -75,11 +75,11 @@ Fulcio eliminates the need for developers to manage long-term signing keys. Cert
 
 # CAVEATS
 
-Requires OIDC provider integration. Certificates are short-lived by design. Production requires proper CA management. Part of larger Sigstore ecosystem.
+需要集成 OIDC provider。证书按设计是短期的。生产环境需要妥善管理 CA。它是更大的 Sigstore 生态的一部分。
 
 # HISTORY
 
-Fulcio is part of **Sigstore**, initiated by **Google**, **Red Hat**, and **Purdue University** in **2021** to make code signing accessible. Named after a Roman consul, it provides the CA component of the keyless signing infrastructure.
+Fulcio 是 **Sigstore** 的一部分。Sigstore 由 **Google**、**Red Hat** 和 **Purdue University** 于 **2021** 年发起，旨在让代码签名变得触手可及。Fulcio 以一位罗马执政官命名，提供无密钥签名基础设施中的 CA 组件。
 
 # INSTALL
 

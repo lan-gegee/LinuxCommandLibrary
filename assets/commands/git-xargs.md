@@ -1,18 +1,18 @@
 # TAGLINE
 
-Make the same change across many GitHub repositories
+在众多 GitHub 仓库中批量执行相同的修改
 
 # TLDR
 
-**Run a command** in repos matching a query and open PRs
+在匹配查询的仓库中**运行命令**并打开 PR
 
 ```git-xargs --branch-name [update] --github-org [org] --commit-message "[msg]" -- [make] [format]```
 
-**Target** repos from a file
+从文件中读取目标仓库
 
 ```git-xargs --repos [repos.txt] --branch-name [chore] --commit-message "[msg]" -- [./script.sh]```
 
-**Dry run**
+**试运行**
 
 ```git-xargs --dry-run --github-org [org] -- [true]```
 
@@ -22,39 +22,39 @@ Make the same change across many GitHub repositories
 
 # DESCRIPTION
 
-**git-xargs** (Gruntwork) clones selected GitHub repositories, runs an arbitrary command in each, and can commit, push, and open pull requests with the results. Built for platform teams applying mechanical refactors or policy files across an organization.
+**git-xargs**（Gruntwork 出品）会克隆选定的 GitHub 仓库，在其中运行任意命令，并可提交、推送以及根据结果打开 pull request。专为需要在整个组织内套用机械化重构或策略文件的平台团队而构建。
 
 # PARAMETERS
 
 **--github-org** *org* / **--repos** *file* / repo selectors
 
-> Choose target repositories.
+> 选择目标仓库。
 
 **--branch-name** *name*
 
-> Branch for commits/PRs.
+> 用于提交/PR 的分支。
 
 **--commit-message** *msg*
 
-> Commit message when changes exist.
+> 存在变更时的提交信息。
 
 **--pr-title** / **--pr-body**
 
-> Pull request fields.
+> Pull request 的标题与正文字段。
 
 **--dry-run**
 
-> Print actions without modifying remotes.
+> 只打印将执行的操作，不修改远程仓库。
 
 **--** *command*
 
-> Command executed inside each clone.
+> 在每个克隆中执行的命令。
 
-Requires GitHub authentication (token with repo scope).
+需要 GitHub 身份验证（具有 repo 权限范围的令牌）。
 
 # CAVEATS
 
-Powerful and potentially destructive—test with **--dry-run** and a single repo first. Respect branch protection and CODEOWNERS. Disk and API rate limits matter at org scale.
+功能强大且可能造成破坏——先用 **--dry-run** 和单个仓库进行测试。注意遵守分支保护规则和 CODEOWNERS。组织规模下还需留意磁盘和 API 速率限制。
 
 # INSTALL
 

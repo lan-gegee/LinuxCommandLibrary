@@ -1,22 +1,22 @@
 # TAGLINE
 
-CLI typing game with source code challenges
+以源代码为挑战的 CLI 打字游戏
 
 # TLDR
 
-**Start** a typing challenge
+**开始**打字挑战
 
 ```gittype```
 
-**Practice** with specific language
+用特定语言**练习**
 
 ```gittype --lang rust```
 
-**Set** difficulty level
+设置难度级别
 
 ```gittype --difficulty hard```
 
-**View** statistics
+查看统计数据
 
 ```gittype --stats```
 
@@ -27,39 +27,39 @@ CLI typing game with source code challenges
 # PARAMETERS
 
 **--lang** _LANGUAGE_
-> Programming language: rust, python, go, javascript, etc.
+> 编程语言：rust、python、go、javascript 等。
 
 **--difficulty** _LEVEL_
-> Difficulty: easy, medium, hard
+> 难度：easy、medium、hard
 
 **--duration** _SECONDS_
-> Set challenge duration
+> 设置挑战时长
 
 **--stats**
-> Show typing statistics
+> 显示打字统计
 
 **--list-langs**
-> List available languages
+> 列出可用语言
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**gittype** is a typing practice game that uses real source code from open source repositories as typing challenges. It helps programmers practice typing code with proper syntax and special characters.
+**gittype** 是一个打字练习游戏，使用来自开源仓库的真实源代码作为打字挑战。它帮助程序员练习输入带有正确语法和特殊字符的代码。
 
-The tool fetches code snippets from GitHub and presents them as typing exercises, tracking speed (WPM) and accuracy.
+该工具从 GitHub 获取代码片段并作为打字练习呈现，同时跟踪速度（WPM）和准确率。
 
 # CAVEATS
 
-Requires internet connection to fetch code snippets. Code snippets may vary in complexity. Not suitable for learning actual programming concepts.
+获取代码片段需要联网。代码片段的复杂程度不一。不适合用来学习实际的编程概念。
 
 # HISTORY
 
-**gittype** was created as a fun way for developers to practice typing code with real-world examples instead of generic text.
+**gittype** 的创建目的是让开发者通过真实世界的示例而非普通文本，有趣地练习代码输入。
 
 # INSTALL
 

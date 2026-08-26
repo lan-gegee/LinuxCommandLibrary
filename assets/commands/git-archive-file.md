@@ -1,10 +1,10 @@
 # TAGLINE
 
-Export the current HEAD of the git repository to a zip archive
+将 git 仓库的当前 HEAD 导出为 zip 归档
 
 # TLDR
 
-**Create archive of current branch**
+**创建当前分支的归档**
 
 ```git archive-file```
 
@@ -14,11 +14,11 @@ Export the current HEAD of the git repository to a zip archive
 
 # DESCRIPTION
 
-**git archive-file** is a git-extras utility that exports the current HEAD of the repository into a zip archive with a descriptive filename. The generated filename includes the repository name and branch name (e.g., "project.main.zip"), or on a detached HEAD such as a tag, uses the tag name (e.g., "project.1.0.0.zip").
+**git archive-file** 是一个 git-extras 工具，将仓库的当前 HEAD 导出为文件名具有描述性的 zip 归档。生成的文件名包含仓库名和分支名（例如 "project.main.zip"）；在分离 HEAD 状态下（如处于某个标签时），则使用标签名（例如 "project.1.0.0.zip"）。
 
-The command takes no arguments or options. It always archives the current HEAD and writes the zip file to the current directory.
+该命令不接受任何参数或选项。它始终归档当前 HEAD，并将 zip 文件写到当前目录。
 
-As of git-extras 6.4, the assumed default branch name changed from master to main.
+自 git-extras 6.4 起，假定的默认分支名从 master 改为 main。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-CLI for Concourse CI system
+Concourse CI 系统的命令行界面
 
 # TLDR
 
-**Set build target**
+**设置构建目标**
 
 ```fly -t [target] set-pipeline```
 
-**Trigger job**
+**触发作业**
 
 ```fly -t [target] trigger-job -j [pipeline/job]```
 
-**Watch job logs**
+**查看作业日志**
 
 ```fly -t [target] watch -j [pipeline/job]```
 
-**Login to Concourse**
+**登录 Concourse**
 
 ```fly -t [target] login -c [https://ci.example.com]```
 
-**Sync fly version**
+**同步 fly 版本**
 
 ```fly -t [target] sync```
 
@@ -31,62 +31,62 @@ CLI for Concourse CI system
 # PARAMETERS
 
 _COMMAND_
-> Operation: login, set-pipeline, trigger-job, watch, etc.
+> 操作类型：login、set-pipeline、trigger-job、watch 等。
 
 **-t**, **--target** _TARGET_
-> Concourse target name saved in ~/.flyrc.
+> 保存在 ~/.flyrc 中的 Concourse 目标名称。
 
 **login**
-> Authenticate with a Concourse server (use **-c** _url_ for concourse URL, **-n** _team_ for team).
+> 向 Concourse 服务器进行身份验证（用 **-c** _url_ 指定 Concourse URL，**-n** _team_ 指定团队）。
 
 **logout**
-> Clear saved token for a target.
+> 清除目标的已保存令牌。
 
 **targets**
-> List all configured targets and their token expiration.
+> 列出所有已配置的目标及其令牌过期时间。
 
 **set-pipeline**
-> Create or update a pipeline from YAML (**-p** _pipeline_ **-c** _config.yml_).
+> 从 YAML 创建或更新流水线（**-p** _pipeline_ **-c** _config.yml_）。
 
 **get-pipeline**
-> Output a pipeline's current configuration (**-p** _pipeline_).
+> 输出流水线当前的配置（**-p** _pipeline_）。
 
 **destroy-pipeline**
-> Remove a pipeline (**-p** _pipeline_).
+> 移除流水线（**-p** _pipeline_）。
 
 **unpause-pipeline**, **pause-pipeline**
-> Enable or disable a pipeline.
+> 启用或禁用流水线。
 
 **trigger-job**
-> Start job execution (**-j** _pipeline/job_).
+> 开始执行作业（**-j** _pipeline/job_）。
 
 **watch**
-> Stream a build's output (**-j** _pipeline/job_ or **-b** _build_).
+> 流式查看某次构建的输出（**-j** _pipeline/job_ 或 **-b** _build_）。
 
 **execute**
-> Run a one-off task locally (**-c** _task.yml_).
+> 在本地运行一次性任务（**-c** _task.yml_）。
 
 **sync**
-> Update local fly binary to match server version.
+> 更新本地 fly 二进制文件以匹配服务器版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fly** is the CLI for Concourse CI, a container-based continuous integration system. It manages pipelines, triggers builds, and interacts with Concourse servers.
+**fly** 是 Concourse CI 的命令行界面，Concourse CI 是一个基于容器的持续集成系统。它管理流水线、触发构建并与 Concourse 服务器交互。
 
-The tool handles pipeline configuration, job management, and build monitoring. Each Concourse instance is registered as a named target for easy switching between CI servers.
+该工具处理流水线配置、作业管理和构建监控。每个 Concourse 实例都注册为一个命名目标，便于在不同 CI 服务器之间切换。
 
-fly enables scriptable CI/CD workflows and provides real-time access to build logs and status.
+fly 支持可脚本化的 CI/CD 工作流，并提供对构建日志和状态的实时访问。
 
 # CAVEATS
 
-Version must match server. Targets need periodic re-authentication. Pipeline YAML syntax is specific.
+版本必须与服务器匹配。目标需要定期重新认证。流水线的 YAML 语法比较特殊。
 
 # HISTORY
 
-fly is the CLI for **Concourse CI**, created by Pivotal (now VMware). Concourse pioneered treating CI pipelines as code with a focus on containers and reproducibility.
+fly 是 **Concourse CI** 的 CLI，由 Pivotal（现 VMware）创建。Concourse 开创了将 CI 流水线视为代码的做法，专注于容器和可复现性。
 
 # INSTALL
 

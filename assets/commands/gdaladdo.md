@@ -1,26 +1,26 @@
 # TAGLINE
 
-builds raster overview pyramids
+构建栅格概览金字塔
 
 # TLDR
 
-**Build overviews**
+**构建概览**
 
 ```gdaladdo [image.tif]```
 
-**Build specific levels**
+**构建指定级别**
 
 ```gdaladdo [image.tif] [2] [4] [8] [16]```
 
-**Build using average resampling**
+**使用平均重采样构建**
 
 ```gdaladdo -r average [image.tif]```
 
-**Build external overviews**
+**构建外部概览**
 
 ```gdaladdo -ro [image.tif]```
 
-**Build with compression**
+**带压缩构建**
 
 ```gdaladdo --config COMPRESS_OVERVIEW JPEG [image.tif]```
 
@@ -31,27 +31,27 @@ builds raster overview pyramids
 # PARAMETERS
 
 **-r** _method_
-> Resampling method (nearest, average, gauss, cubic).
+> 重采样方法（nearest、average、gauss、cubic）。
 
 **-ro**
-> Create external overview file.
+> 创建外部概览文件。
 
 **--config** _key_ _value_
-> Set configuration option.
+> 设置配置选项。
 
 **-b** _band_
-> Build for specific band only.
+> 仅为特定波段构建。
 
 **-clean**
-> Remove existing overviews.
+> 移除现有概览。
 
 # DESCRIPTION
 
-**gdaladdo** builds or rebuilds overview images (also called pyramids) for raster datasets. Overviews are downsampled versions of the original image at multiple resolutions, enabling efficient display and processing at different zoom levels.
+**gdaladdo** 为栅格数据集构建或重建概览图像（也称为金字塔）。概览是原始图像在多个分辨率下的降采样版本，可在不同缩放级别下高效显示和处理。
 
-Without specified levels, the tool generates default pyramids. Custom levels define the subsampling factors (e.g., 2, 4, 8 means half, quarter, eighth resolution). Different resampling methods affect quality and performance: nearest is fastest, average produces smoother results, and cubic provides highest quality.
+不指定级别时，该工具会生成默认金字塔。自定义级别定义降采样因子（例如 2、4、8 表示二分之一、四分之一、八分之一分辨率）。不同的重采样方法会影响质量和性能：nearest 最快，average 产生更平滑的结果，cubic 质量最高。
 
-Overviews can be stored internally in the file or as separate .ovr sidecar files. Compression settings reduce overview file size. gdaladdo is essential for working with large imagery in GIS applications and web mapping services.
+概览可以存储在文件内部，也可以作为单独的 .ovr 附带文件存储。压缩设置可减小概览文件大小。对于 GIS 应用和 Web 地图服务中处理大型影像而言，gdaladdo 至关重要。
 
 # INSTALL
 
@@ -72,4 +72,3 @@ Overviews can be stored internally in the file or as separate .ovr sidecar files
 ```[Source code](https://github.com/OSGeo/gdal)```
 
 <!-- verified: 2026-07-15 -->
-

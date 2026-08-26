@@ -1,38 +1,38 @@
 # TAGLINE
 
-Wayland application launcher with fuzzy search
+支持模糊搜索的 Wayland 应用启动器
 
 # TLDR
 
-**Run** applications
+**运行**应用
 
 ```fuzzel```
 
-Run fuzzel in **dmenu mode**
+以 **dmenu 模式**运行 fuzzel
 
 ```fuzzel -d```
 
-Display a **menu** of the output of a command
+把某个命令的输出显示为**菜单**
 
 ```ls | fuzzel -d```
 
-Display a menu with **custom items** separated by newline
+显示以换行分隔的**自定义选项**菜单
 
 ```echo -e "red\ngreen\nblue" | fuzzel -d```
 
-Let the user choose between items and **save** the selected one
+让用户在选项中选择并**保存**所选项目
 
 ```echo -e "red\ngreen\nblue" | fuzzel -d > color.txt```
 
-**Reset** apps usage count
+**重置**应用使用计数
 
 ```rm -v $HOME/.cache/fuzzel```
 
-Launch fuzzel on a **specific monitor**
+在**指定显示器**上启动 fuzzel
 
 ```fuzzel -o "DP-1"```
 
-Use fuzzel for **online search**
+用 fuzzel 进行**在线搜索**
 
 ```fuzzel -d -l 0 --placeholder "Type your search" | xargs firefox --search```
 
@@ -43,61 +43,61 @@ Use fuzzel for **online search**
 # PARAMETERS
 
 **-d**, **--dmenu**
-> Run in dmenu mode, reading items from stdin
+> 以 dmenu 模式运行，从 stdin 读取条目
 
 **-o**, **--output** _OUTPUT_
-> Show on specified Wayland output (monitor)
+> 在指定的 Wayland output（显示器）上显示
 
 **-l**, **--lines** _N_
-> Maximum number of lines to show (0 for single line)
+> 最大显示行数（0 表示单行）
 
 **-w**, **--width** _N_
-> Window width in characters
+> 窗口宽度（字符数）
 
 **-f**, **--font** _FONT_
-> Font specification
+> 字体规格
 
 **-b**, **--background** _COLOR_
-> Background color in RRGGBBAA format
+> 背景颜色，RRGGBBAA 格式
 
 **-t**, **--text-color** _COLOR_
-> Text color in RRGGBBAA format
+> 文本颜色，RRGGBBAA 格式
 
 **-p**, **--prompt** _TEXT_
-> Set prompt text
+> 设置提示符文本
 
 **--placeholder** _TEXT_
-> Placeholder text when input is empty
+> 输入为空时的占位文本
 
 **-i**, **--icon-theme** _THEME_
-> Icon theme name
+> 图标主题名称
 
 **-T**, **--terminal** _CMD_
-> Terminal command for launching terminal apps
+> 启动终端应用所用的终端命令
 
 # CONFIGURATION
 
 **~/.config/fuzzel/fuzzel.ini**
-> Appearance, behavior, keybindings, and default options.
+> 外观、行为、按键绑定及默认选项。
 
 **~/.cache/fuzzel**
-> Usage frequency tracking for application sorting.
+> 记录使用频率，用于应用排序。
 
 # DESCRIPTION
 
-**fuzzel** is a Wayland-native application launcher with fuzzy matching, inspired by rofi and dmenu. It scans XDG application directories and presents a searchable list of installed applications.
+**fuzzel** 是一款 Wayland 原生的应用启动器，支持模糊匹配，灵感来自 rofi 和 dmenu。它会扫描 XDG 应用目录，并列出已安装应用的可搜索清单。
 
-In dmenu mode (**-d**), fuzzel reads items from stdin and outputs the selected item to stdout, making it useful for scripting and building interactive menus. The fuzzy matching algorithm prioritizes matches at word boundaries and beginning of strings.
+在 dmenu 模式（**-d**）下，fuzzel 从 stdin 读取条目并将选中的条目输出到 stdout，非常适合脚本编写和构建交互式菜单。其模糊匹配算法优先匹配词边界和字符串开头的命中。
 
-Configuration is stored in **~/.config/fuzzel/fuzzel.ini** with extensive customization for appearance, behavior, and keybindings.
+配置保存在 **~/.config/fuzzel/fuzzel.ini**，可为外观、行为和按键绑定提供大量自定义选项。
 
 # CAVEATS
 
-Wayland-only; does not work on X11. Application icons require an icon theme installed. Cache file in **~/.cache/fuzzel** tracks usage frequency for sorting; delete to reset.
+仅支持 Wayland，不能在 X11 上运行。应用图标需要已安装图标主题。缓存文件 **~/.cache/fuzzel** 记录使用频率用于排序，删除即可重置。
 
 # HISTORY
 
-fuzzel was created by Daniel Eklof (the same developer as foot terminal) and first released around **2020**. It was designed specifically for Wayland compositors as a lightweight alternative to rofi, which primarily targets X11.
+fuzzel 由 Daniel Eklof（foot 终端的同一开发者）创建，首次发布于 **2020 年**前后。它是专为 Wayland 合成器设计的 rofi 轻量替代品，而 rofi 主要面向 X11。
 
 # INSTALL
 

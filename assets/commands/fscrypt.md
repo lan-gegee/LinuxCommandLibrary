@@ -1,26 +1,26 @@
 # TAGLINE
 
-Linux native filesystem encryption manager
+Linux 原生文件系统加密管理工具
 
 # TLDR
 
-Prepare the **root filesystem** for use with fscrypt
+为使用 fscrypt 准备**根文件系统**
 
 ```sudo fscrypt setup```
 
-Prepare a **specific mountpoint** for use with fscrypt
+为使用 fscrypt 准备**特定挂载点**
 
 ```fscrypt setup [path/to/directory]```
 
-**Enable encryption** for a directory
+为目录**启用加密**
 
 ```fscrypt encrypt [path/to/directory]```
 
-**Unlock** an encrypted directory
+**解锁**已加密的目录
 
 ```fscrypt unlock [path/to/encrypted_directory]```
 
-**Lock** an encrypted directory
+**锁定**已加密的目录
 
 ```fscrypt lock [path/to/encrypted_directory]```
 
@@ -31,49 +31,49 @@ Prepare a **specific mountpoint** for use with fscrypt
 # PARAMETERS
 
 **setup**
-> Initialize fscrypt on a filesystem or mountpoint
+> 在文件系统或挂载点上初始化 fscrypt。
 
 **encrypt**
-> Enable encryption on a directory
+> 为目录启用加密。
 
 **unlock**
-> Unlock an encrypted directory using the protector
+> 使用保护器（protector）解锁已加密的目录。
 
 **lock**
-> Lock an encrypted directory, making contents inaccessible
+> 锁定已加密的目录，使内容不可访问。
 
 **purge**
-> Remove keys from kernel keyring for a mountpoint
+> 从内核密钥环中移除某个挂载点的密钥。
 
 **status**
-> Display encryption status of a file or directory
+> 显示文件或目录的加密状态。
 
 **metadata**
-> Manage encryption metadata and policies
+> 管理加密元数据和策略。
 
 # CONFIGURATION
 
 **/.fscrypt**
-> Stores encryption metadata on each enabled mountpoint.
+> 在每个启用的挂载点上存储加密元数据。
 
 **~/.config/fscrypt/fscrypt.conf**
-> Global fscrypt configuration settings and protector definitions.
+> 全局 fscrypt 配置设置和保护器定义。
 
 # DESCRIPTION
 
-**fscrypt** is a high-level tool for managing Linux native filesystem encryption (fscrypt). It provides a user-friendly interface to the kernel's filesystem encryption capabilities, supporting ext4, F2FS, and UBIFS filesystems.
+**fscrypt** 是管理 Linux 原生文件系统加密（fscrypt）的高级工具。它为内核的文件系统加密能力提供友好的界面，支持 ext4、F2FS 和 UBIFS 文件系统。
 
-fscrypt uses "protectors" (passwords, PAM integration, or raw keys) to secure encryption keys. A directory can have multiple protectors, enabling shared access or recovery options. The encryption is transparent once unlocked.
+fscrypt 使用 "保护器"（密码、PAM 集成或原始密钥）来保护加密密钥。一个目录可以有多个保护器，从而支持共享访问或恢复选项。解锁之后，加密对用户是透明的。
 
-Setup requires kernel support (CONFIG_FS_ENCRYPTION) and filesystem configuration. The tool stores metadata in **/.fscrypt** on each enabled mountpoint.
+初始化需要内核支持（CONFIG_FS_ENCRYPTION）和相应的文件系统配置。该工具把元数据存储在每个启用挂载点的 **/.fscrypt** 中。
 
 # CAVEATS
 
-Only encrypts file contents and names, not metadata like file sizes or timestamps. Swap and temporary directories may leak data. The filesystem must be mounted with encryption support. Files created before encryption are not automatically encrypted.
+只加密文件内容和文件名，不加密文件大小或时间戳等元数据。交换空间和临时目录可能泄露数据。文件系统必须以支持加密的方式挂载。加密之前创建的文件不会被自动加密。
 
 # HISTORY
 
-fscrypt was developed by Google and first released in **2017** as a userspace tool for managing the Linux kernel's native filesystem encryption (fscrypt), which was introduced in kernel 4.1 for ext4 and later extended to other filesystems.
+fscrypt 由 Google 开发，于 **2017** 年首次发布，是管理 Linux 内核原生文件系统加密（fscrypt）的用户空间工具。该内核功能在 4.1 中面向 ext4 引入，随后扩展到其他文件系统。
 
 # INSTALL
 

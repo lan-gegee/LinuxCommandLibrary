@@ -1,22 +1,22 @@
 # TAGLINE
 
-PostScript/PDF to XQX wrapper script
+PostScript/PDF 转 XQX 包装脚本
 
 # TLDR
 
-**Print PostScript file**
+**打印 PostScript 文件**
 
 ```foo2xqx-wrapper [file.ps]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2xqx-wrapper -p [a4] [file.ps]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2xqx-wrapper -r [600] [file.ps]```
 
-**Print multiple copies**
+**打印多份**
 
 ```foo2xqx-wrapper -n [3] [file.ps]```
 
@@ -27,38 +27,38 @@ PostScript/PDF to XQX wrapper script
 # PARAMETERS
 
 _FILES_
-> PostScript or PDF files to print.
+> 要打印的 PostScript 或 PDF 文件。
 
 **-p** _PAPER_
-> Paper size (letter, a4, legal).
+> 纸张大小（letter、a4、legal）。
 
 **-r** _DPI_
-> Resolution.
+> 分辨率。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-m** _MEDIA_
-> Media type.
+> 介质类型。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2xqx-wrapper** converts PostScript/PDF documents to XQX format for HP LaserJet printers. It chains Ghostscript rasterization with foo2xqx encoding.
+**foo2xqx-wrapper** 将 PostScript/PDF 文档转换为 HP LaserJet 打印机所需的 XQX 格式。它将 Ghostscript 栅格化与 foo2xqx 编码串联起来。
 
-The wrapper provides simplified printing by handling the conversion pipeline automatically. It translates standard print options to the underlying tools.
+该包装器自动处理转换流水线，简化打印操作。它将标准打印选项转换为底层工具所需的参数。
 
-foo2xqx-wrapper enables command-line printing to XQX protocol HP printers.
+foo2xqx-wrapper 支持以命令行向使用 XQX 协议的 HP 打印机打印文档。
 
 # CAVEATS
 
-Requires Ghostscript. Monochrome only. Limited to XQX-compatible HP models.
+需要 Ghostscript。仅支持单色。仅限于兼容 XQX 的 HP 型号。
 
 # HISTORY
 
-foo2xqx-wrapper is part of the **foo2zjs** driver collection, providing document printing for HP printers using the XQX protocol.
+foo2xqx-wrapper 是 **foo2zjs** 驱动集合的一部分，为使用 XQX 协议的 HP 打印机提供文档打印能力。
 
 # INSTALL
 

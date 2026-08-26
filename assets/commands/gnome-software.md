@@ -1,22 +1,22 @@
 # TAGLINE
 
-GNOME graphical software manager
+GNOME 图形化软件管理器
 
 # TLDR
 
-Launch the **GNOME Software GUI**
+启动 **GNOME Software 图形界面**
 
 ```gnome-software```
 
-Launch and navigate to a **specific page**
+启动并跳转到**特定页面**
 
 ```gnome-software --mode [updates|updated|installed|overview]```
 
-Launch and view **details** of a specific package
+启动并查看特定软件包的**详情**
 
 ```gnome-software --details [package]```
 
-Display **version**
+显示**版本**
 
 ```gnome-software --version```
 
@@ -27,36 +27,36 @@ Display **version**
 # PARAMETERS
 
 **--mode** _MODE_
-> Start on specific page: updates, updated, installed, overview
+> 在指定页面启动：updates、updated、installed、overview
 
 **--details** _PACKAGE_
-> Show details for specified package
+> 显示指定软件包的详情
 
 **--search** _QUERY_
-> Open with search results for query
+> 打开并显示查询的搜索结果
 
 **--install** _PACKAGE_
-> Prompt to install specified package
+> 提示安装指定的软件包
 
 **--local-filename** _FILE_
-> Install from local package file
+> 从本地软件包文件安装
 
 **--details-pkg** _PKGNAME_
-> Show details by package name (not app ID)
+> 按软件包名（而非应用 ID）显示详情
 
 # DESCRIPTION
 
-**gnome-software** is GNOME's graphical application for managing software. It provides a user-friendly interface for browsing, installing, removing, and updating applications.
+**gnome-software** 是 GNOME 的图形化软件管理应用。它提供友好的界面，用于浏览、安装、移除和更新应用程序。
 
-The application aggregates software from multiple sources including distribution repositories (via PackageKit), Flatpak, and Snap, presenting them in a unified app store interface. It also handles system and firmware updates (via fwupd).
+该应用聚合来自多个来源的软件，包括发行版仓库（通过 PackageKit）、Flatpak 和 Snap，并以统一的应用商店界面呈现。它还负责系统和固件更新（通过 fwupd）。
 
 # CAVEATS
 
-Requires PackageKit, Flatpak, or Snap backends to be configured. Initial startup may be slow while loading metadata. Some repository operations require authentication via PolicyKit.
+需要配置 PackageKit、Flatpak 或 Snap 后端。首次启动时加载元数据可能较慢。某些仓库操作需要通过 PolicyKit 进行身份验证。
 
 # HISTORY
 
-gnome-software was introduced in GNOME 3.10 (**2013**) as a redesigned software center, replacing the older Ubuntu Software Center on GNOME-based distributions. It has evolved to support multiple package formats and provide a modern app store experience.
+gnome-software 于 GNOME 3.10（**2013** 年）推出，是重新设计的软件中心，在基于 GNOME 的发行版上取代了旧的 Ubuntu Software Center。它已发展为支持多种软件包格式并提供现代应用商店体验的工具。
 
 # INSTALL
 

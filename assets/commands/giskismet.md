@@ -1,26 +1,26 @@
 # TAGLINE
 
-wireless recon visualization tool for Kismet data
+用于 Kismet 数据的无线侦察可视化工具
 
 # TLDR
 
-**Import Kismet NETXML data**
+**导入 Kismet NETXML 数据**
 
 ```giskismet -x [kismet-output.netxml]```
 
-**Query for specific access points by ESSID**
+**按 ESSID 查询特定接入点**
 
 ```giskismet -q "select * from wireless where ESSID='[MyNetwork]'"```
 
-**Export results to KML file**
+**将结果导出为 KML 文件**
 
 ```giskismet -x [data.netxml] -o [output.kml]```
 
-**Filter by encryption type**
+**按加密类型过滤**
 
 ```giskismet -x [data.netxml] --encryption [WPA]```
 
-**Filter by BSSID**
+**按 BSSID 过滤**
 
 ```giskismet -x [data.netxml] --bssid [AA:BB:CC:DD:EE:FF]```
 
@@ -31,58 +31,57 @@ wireless recon visualization tool for Kismet data
 # PARAMETERS
 
 **-h**, **--help**
-> Display help.
+> 显示帮助。
 
 **-v**, **--version**
-> Display version.
+> 显示版本。
 
 **-x** _FILE_, **--xml** _FILE_
-> Parse Kismet NETXML file.
+> 解析 Kismet NETXML 文件。
 
 **--csv** _FILE_
-> Parse Kismet CSV file.
+> 解析 Kismet CSV 文件。
 
 **--bssid** _FILTER_
-> Filter by BSSID (file or comma-separated list).
+> 按 BSSID 过滤（文件或逗号分隔列表）。
 
 **--essid** _FILTER_
-> Filter by ESSID (file or comma-separated list).
+> 按 ESSID 过滤（文件或逗号分隔列表）。
 
 **--encryption** _FILTER_
-> Filter by encryption type (file or comma-separated list).
+> 按加密类型过滤（文件或逗号分隔列表）。
 
 **--channel** _FILTER_
-> Filter by channel (file or comma-separated list).
+> 按信道过滤（文件或逗号分隔列表）。
 
 **-a**, **--ap**
-> Insert only access points.
+> 仅插入接入点。
 
 **-q** _SQL_, **--query** _SQL_
-> Execute SQL query against the database.
+> 对数据库执行 SQL 查询。
 
 **-o** _FILE_, **--output** _FILE_
-> Specify output filename for KML export.
+> 指定 KML 导出的输出文件名。
 
 **-n** _NAME_, **--name** _NAME_
-> Set KML layer name.
+> 设置 KML 图层名称。
 
 **-s**, **--silent**
-> Suppress output when adding access points.
+> 添加接入点时抑制输出。
 
 **-d** _LEVEL_, **--debug** _LEVEL_
-> Debug information level.
+> 调试信息级别。
 
 # DESCRIPTION
 
-**giskismet** is a Perl-based tool that processes wireless recon data gathered by **Kismet** and stores it in a SQLite database. Users can run SQL queries against the data and generate **Google Earth KML** files for mapping access point locations.
+**giskismet** 是一个基于 Perl 的工具，处理由 **Kismet** 收集的无线侦察数据并将其存入 SQLite 数据库。用户可以对数据运行 SQL 查询，并生成 **Google Earth KML** 文件来绘制接入点位置的地图。
 
-The tool supports filtering by BSSID, ESSID, encryption type, and channel, making it useful for wireless security assessments and site surveys.
+该工具支持按 BSSID、ESSID、加密类型和信道过滤，适用于无线安全评估和站点勘测。
 
 # CAVEATS
 
-Requires Kismet NETXML output files as input. GPS data must be present in the Kismet capture for meaningful KML output. The tool is deprecated in favor of newer Kismet built-in visualization features.
+需要以 Kismet NETXML 输出文件作为输入。Kismet 捕获数据中必须包含 GPS 数据才能生成有意义的 KML 输出。该工具已被弃用，建议改用较新的 Kismet 内置可视化功能。
 
 # SEE ALSO
 
 [kismet](/man/kismet)(1), [aircrack-ng](/man/aircrack-ng)(1)
-

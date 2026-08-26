@@ -1,10 +1,10 @@
 # TAGLINE
 
-Create orphan branch with no commit history
+创建没有提交历史的孤儿分支
 
 # TLDR
 
-**Create orphan branch**
+**创建孤儿分支**
 
 ```git fresh-branch [branch_name]```
 
@@ -15,19 +15,19 @@ Create orphan branch with no commit history
 # PARAMETERS
 
 _NAME_
-> Name of the new branch to create.
+> 要创建的新分支的名称。
 
 # DESCRIPTION
 
-**git fresh-branch** creates a new orphan branch with no parent commits or history connection to the existing repository. It repoints HEAD at the new (as yet nonexistent) branch ref, clears the index, and runs **git clean -fdx** on the working tree, leaving a completely clean slate within the same repository.
+**git fresh-branch** 创建一个新的孤儿分支，它没有任何父提交，与仓库现有历史也没有关联。它会将 HEAD 指向新的（尚不存在的）分支引用，清空索引，并对工作树运行 **git clean -fdx**，从而在同一仓库内留下完全干净的一片天地。
 
-The primary use case is gh-pages branches for GitHub Pages hosting, where documentation or website content lives in the same repository but shares no history with the codebase. Other uses include documentation branches, experimental branches, or vendor branches for third-party code.
+它的主要用例是用于 GitHub Pages 托管的 gh-pages 分支，文档或网站内容与代码共存于同一仓库，但不共享历史。其他用途包括文档分支、实验分支，或存放第三方代码的 vendor 分支。
 
-If the working tree has untracked changes, the command prompts for confirmation before proceeding, since **git clean -fdx** deletes them irrecoverably.
+如果工作树中存在未跟踪的改动，该命令会先提示确认再继续，因为 **git clean -fdx** 会不可恢复地删除它们。
 
 # CAVEATS
 
-Part of git-extras package. Destroys untracked files and the index without a real backup; commit or stash anything you want to keep before running it. Equivalent in effect to **git checkout --orphan** _name_ followed by clearing the index and working tree.
+属于 git-extras 软件包。会在没有真正备份的情况下销毁未跟踪文件和索引；运行前请提交或储藏任何想要保留的内容。效果等同于 **git checkout --orphan** _name_ 之后再清空索引和工作树。
 
 # INSTALL
 

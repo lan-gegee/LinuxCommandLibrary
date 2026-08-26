@@ -1,34 +1,34 @@
 # TAGLINE
 
-Create new pull requests on GitHub
+在 GitHub 上创建新的拉取请求
 
 # TLDR
 
-**Create PR interactively**
+**以交互方式创建 PR**
 
 ```gh pr create```
 
-**Create with title and body**
+**带标题和正文创建**
 
 ```gh pr create -t "[title]" -b "[body]"```
 
-**Create as draft**
+**创建草稿 PR**
 
 ```gh pr create --draft -t "[title]"```
 
-**Create with reviewers**
+**创建并指定审查者**
 
 ```gh pr create -t "[title]" -r [reviewer1],[reviewer2]```
 
-**Create to specific base branch**
+**创建到指定的 base 分支**
 
 ```gh pr create --base [main] --head [feature]```
 
-**Create and fill from commits**
+**根据提交自动填充创建**
 
 ```gh pr create --fill```
 
-**Open in browser to create**
+**在浏览器中打开以创建**
 
 ```gh pr create -w```
 
@@ -39,43 +39,43 @@ Create new pull requests on GitHub
 # PARAMETERS
 
 **-t**, **--title** _title_
-> PR title.
+> PR 标题。
 
 **-b**, **--body** _body_
-> PR body.
+> PR 正文。
 
 **-d**, **--draft**
-> Create as draft.
+> 以草稿形式创建。
 
 **-r**, **--reviewer** _users_
-> Request reviewers.
+> 请求审查者。
 
 **-a**, **--assignee** _users_
-> Assign users.
+> 指派用户。
 
 **-l**, **--label** _labels_
-> Add labels.
+> 添加标签。
 
 **--base** _branch_
-> Base branch.
+> base 分支。
 
 **--head** _branch_
-> Head branch.
+> head 分支。
 
 **--fill**
-> Fill from commits.
+> 根据提交自动填充。
 
 **-w**, **--web**
-> Open in browser.
+> 在浏览器中打开。
 
 **-R**, **--repo** _owner/repo_
-> Repository.
+> 仓库。
 
 # DESCRIPTION
 
-**gh pr create** creates pull requests on GitHub from the command line. It streamlines the PR creation workflow by detecting the current branch context and offering multiple input modes.
+**gh pr create** 在命令行中于 GitHub 上创建拉取请求。它会检测当前分支上下文并提供多种输入模式，从而精简 PR 创建流程。
 
-When run without arguments, the command prompts interactively for title, body, and metadata. The --fill flag auto-populates the title from the first commit message and the body from all commit messages since branching. Draft PRs (--draft) allow pushing work-in-progress changes for early feedback without formal review requests.
+不带参数运行时，命令会交互式提示填写标题、正文和元数据。--fill 标志会用第一条提交信息自动填充标题，并用分支分叉以来的所有提交信息填充正文。草稿 PR（--draft）允许推送进行中的变更以尽早获得反馈，而不必正式请求审查。
 
 # INSTALL
 

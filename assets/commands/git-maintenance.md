@@ -1,34 +1,34 @@
 # TAGLINE
 
-Automated repository optimization
+自动化仓库维护优化
 
 # TLDR
 
-**Start background maintenance** for the current repository
+**为当前仓库启动后台维护**
 
 ```git maintenance start```
 
-**Run all enabled maintenance tasks** immediately
+**立即运行所有已启用的维护任务**
 
 ```git maintenance run```
 
-**Run a specific task**
+**运行特定任务**
 
 ```git maintenance run --task=[prefetch]```
 
-**Run tasks only if scheduled thresholds are met**
+**仅在达到计划阈值时运行任务**
 
 ```git maintenance run --schedule```
 
-**Stop background maintenance**
+**停止后台维护**
 
 ```git maintenance stop```
 
-**Register repository** for background maintenance
+**注册仓库**以进行后台维护
 
 ```git maintenance register```
 
-**Unregister repository** from background maintenance
+**取消注册仓库**的后台维护
 
 ```git maintenance unregister```
 
@@ -39,66 +39,66 @@ Automated repository optimization
 # PARAMETERS
 
 **run**
-> Run one or more maintenance tasks immediately.
+> 立即运行一个或多个维护任务。
 
 **start**
-> Enable background maintenance and schedule hourly runs via the system scheduler.
+> 启用后台维护，并通过系统调度器安排每小时运行。
 
 **stop**
-> Disable background maintenance schedule.
+> 禁用后台维护计划。
 
 **register**
-> Add the repository to the global maintenance list and apply recommended task schedules.
+> 将仓库加入全局维护列表并应用推荐的任务计划。
 
 **unregister**
-> Remove the repository from the global maintenance list.
+> 将仓库从全局维护列表中移除。
 
 **is-needed**
-> Exit 0 if maintenance tasks need to run, 1 otherwise.
+> 若需要运行维护任务则退出码为 0，否则为 1。
 
 **--task** _TASK_
-> Specific task to run. May be repeated. Valid tasks: gc, prefetch, commit-graph, loose-objects, incremental-repack, pack-refs, reflog-expire, rerere-gc, worktree-prune.
+> 要运行的特定任务。可重复指定。有效任务：gc、prefetch、commit-graph、loose-objects、incremental-repack、pack-refs、reflog-expire、rerere-gc、worktree-prune。
 
 **--schedule**
-> Only run tasks whose scheduled time threshold has been met.
+> 仅运行已到达计划时间阈值的任务。
 
 **--auto**
-> Only run tasks if their auto thresholds are met (e.g. gc.auto loose object count).
+> 仅在满足自动阈值时运行任务（例如 gc.auto 的松散对象数量）。
 
 **--quiet**
-> Suppress progress output to stderr.
+> 抑制输出到 stderr 的进度信息。
 
 **--scheduler** _SCHEDULER_
-> Background scheduler to use with start: auto, crontab, systemd-timer, launchctl, schtasks (default: auto).
+> start 使用的后台调度器：auto、crontab、systemd-timer、launchctl、schtasks（默认：auto）。
 
 **--force**
-> Used with unregister; suppress error if the repository is not registered.
+> 与 unregister 一起使用；当仓库未注册时不报错。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git maintenance** manages repository maintenance tasks automatically. It handles garbage collection, commit graph updates, prefetch, and incremental repack either on-demand or through scheduled background jobs.
+**git maintenance** 自动管理仓库维护任务。它按需或通过计划的后台作业处理垃圾回收、commit graph 更新、预取（prefetch）和增量重打包。
 
-Background maintenance improves repository performance over time without manual intervention. The `start` subcommand registers the repository and sets up a system scheduler (crontab, systemd, launchctl, or schtasks depending on platform) to run tasks periodically. The `register` subcommand configures recommended task schedules and sets `maintenance.strategy = incremental` while disabling foreground auto-gc.
+后台维护无需人工干预即可持续提升仓库性能。`start` 子命令会注册仓库并设置系统调度器（根据平台不同为 crontab、systemd、launchctl 或 schtasks）来周期性运行任务。`register` 子命令配置推荐的任务计划，设置 `maintenance.strategy = incremental` 并禁用前台的自动 gc。
 
-## Tasks
+## 任务
 
-- **gc** — Full garbage collection; repacks all objects into a single pack-file. Expensive.
-- **prefetch** — Fetches objects from all remotes into `refs/prefetch/` without updating remote-tracking branches.
-- **commit-graph** — Incrementally updates commit-graph files for faster graph traversal.
-- **loose-objects** — Packs loose objects into pack-files in batches (default batch: 50,000).
-- **incremental-repack** — Repacks small pack-files using the multi-pack-index.
-- **pack-refs** — Consolidates loose ref files into a single packed-refs file.
-- **reflog-expire** — Deletes reflog entries older than the expiry threshold.
-- **rerere-gc** — Cleans stale entries from the rerere cache.
-- **worktree-prune** — Removes stale or broken worktree records.
+- **gc** — 完整垃圾回收；将所有对象重新打包进单个包文件。开销较大。
+- **prefetch** — 从所有远程抓取对象到 `refs/prefetch/`，但不更新远程跟踪分支。
+- **commit-graph** — 增量更新 commit-graph 文件，加快图遍历速度。
+- **loose-objects** — 分批将松散对象打包进包文件（默认每批：50000 个）。
+- **incremental-repack** — 使用 multi-pack-index 重打包小型包文件。
+- **pack-refs** — 将零散的引用文件合并为单个 packed-refs 文件。
+- **reflog-expire** — 删除超过过期阈值的 reflog 条目。
+- **rerere-gc** — 清理 rerere 缓存中的过期条目。
+- **worktree-prune** — 移除过期或损坏的工作区记录。
 
 # CONFIGURATION
 
 **~/.gitconfig**
-> Global maintenance configuration for registered repositories and scheduled tasks.
+> 已注册仓库和计划任务的全局维护配置。
 
 ```
 [maintenance]
@@ -108,11 +108,11 @@ Background maintenance improves repository performance over time without manual 
 
 # CAVEATS
 
-Background jobs require a working system scheduler. The `gc` task is expensive and disruptive for large repositories; prefer `loose-objects` and `incremental-repack` for background use. Configuration is stored in git config.
+后台作业依赖可用的系统调度器。对大型仓库而言，`gc` 任务开销大且干扰性强；后台使用建议选择 `loose-objects` 和 `incremental-repack`。配置存储在 git config 中。
 
 # HISTORY
 
-git maintenance was added in **Git 2.29** to provide automated repository optimization, replacing manual gc invocation.
+git maintenance 在 **Git 2.29** 中引入，用于提供自动化仓库优化，取代手动调用 gc 的方式。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-file carving and data recovery tool
+文件雕刻与数据恢复工具
 
 # TLDR
 
-**Recover files from disk image**
+**从磁盘镜像恢复文件**
 
 ```foremost -i [disk.img] -o [output_dir]```
 
-**Recover specific file types**
+**恢复特定类型的文件**
 
 ```foremost -t [jpg,png,pdf] -i [disk.img]```
 
-**Recover from device**
+**从设备恢复**
 
 ```sudo foremost -i [/dev/sda1] -o [output_dir]```
 
-**Show all recoverable types**
+**显示所有可恢复的类型**
 
 ```foremost -h```
 
-**Verbose output**
+**详细输出**
 
 ```foremost -v -i [disk.img] -o [output_dir]```
 
-**Use custom config**
+**使用自定义配置**
 
 ```foremost -c [foremost.conf] -i [disk.img]```
 
@@ -34,55 +34,55 @@ file carving and data recovery tool
 
 # DESCRIPTION
 
-**foremost** is a file carving tool for recovering files from disk images or devices. It searches for file headers and footers, extracting data between them regardless of filesystem state.
+**foremost** 是一个从磁盘镜像或设备恢复文件的文件雕刻（file carving）工具。它搜索文件头和文件尾，并提取两者之间的数据，而不管文件系统的状态如何。
 
-The tool is useful for data recovery and forensic analysis, recovering files even from corrupted or partially overwritten media.
+该工具适用于数据恢复和取证分析，即使媒体损坏或被部分覆盖也能恢复文件。
 
 # PARAMETERS
 
 **-i** _input_
-> Input file or device.
+> 输入文件或设备。
 
 **-o** _directory_
-> Output directory.
+> 输出目录。
 
 **-t** _types_
-> File types to extract.
+> 要提取的文件类型。
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-V**
-> Display version.
+> 显示版本。
 
 **-q**
-> Quick mode.
+> 快速模式。
 
 **-a**
-> Write all headers.
+> 写入所有文件头。
 
 **-w**
-> Only write audit file.
+> 只写审计文件。
 
 # CONFIGURATION
 
 **/etc/foremost.conf**
-> Configuration file defining file signatures, headers, and footers for recovery.
+> 定义用于恢复的文件签名、文件头和文件尾的配置文件。
 
 # FILE TYPES
 
-Common types: jpg, gif, png, bmp, avi, exe, mpg, wav, riff, wmv, mov, pdf, ole, doc, zip, rar, htm, cpp
+常见类型：jpg、gif、png、bmp、avi、exe、mpg、wav、riff、wmv、mov、pdf、ole、doc、zip、rar、htm、cpp
 
 # CAVEATS
 
-Fragmented files may not recover correctly. Output directory must be empty. Large media requires significant space. Some file types need configuration.
+碎片化的文件可能无法正确恢复。输出目录必须为空。大容量介质需要大量空间。部分文件类型需要配置。
 
 # HISTORY
 
-**foremost** was developed by the **US Air Force Office of Special Investigations** and **The Center for Information Systems Security Studies and Research** around **2001**. It was designed for forensic file recovery and released as open source.
+**foremost** 由 **美国空军特别调查办公室** 与 **信息系统安全研究与研究中心** 在 **2001** 年前后开发。它为取证式文件恢复而设计，并以开源形式发布。
 
 # INSTALL
 

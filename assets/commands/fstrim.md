@@ -1,18 +1,18 @@
 # TAGLINE
 
-SSD TRIM command issuer
+SSD TRIM 命令发送工具
 
 # TLDR
 
-Trim **all** mounted partitions
+对**所有**已挂载分区执行 TRIM
 
 ```sudo fstrim -a```
 
-Trim **specific** partition
+对**特定**分区执行 TRIM
 
 ```sudo fstrim /```
 
-Trim with **verbose** output
+带**详细输出**执行 TRIM
 
 ```sudo fstrim -v /```
 
@@ -22,35 +22,35 @@ Trim with **verbose** output
 
 # DESCRIPTION
 
-**fstrim** discards unused blocks on a mounted filesystem, sending TRIM commands to the underlying storage device. This is primarily useful for SSDs and flash storage to maintain performance and extend device lifespan.
+**fstrim** 丢弃已挂载文件系统上未使用的块，向底层存储设备发送 TRIM 命令。这对 SSD 和闪存设备尤其有用，可以维持性能并延长设备寿命。
 
 # PARAMETERS
 
 **-a, --all**
-> Trim all mounted filesystems that support discard
+> 对所有支持 discard 的已挂载文件系统执行 TRIM。
 
 **-v, --verbose**
-> Display number of bytes trimmed
+> 显示丢弃的字节数。
 
 **-n, --dry-run**
-> Print what would be done without actually trimming
+> 只打印将执行的操作而不实际执行 TRIM。
 
 **-o, --offset** _offset_
-> Byte offset in filesystem to start trimming
+> 文件系统中开始 TRIM 的字节偏移。
 
 **-l, --length** _length_
-> Number of bytes to trim after offset
+> 从偏移处起要 TRIM 的字节数。
 
 **-m, --minimum** _size_
-> Minimum contiguous free range to trim
+> 要 TRIM 的最小连续空闲区间。
 
 # CAVEATS
 
-Only works on filesystems whose underlying storage supports discard (most SSDs, NVMe, thin-provisioned devices). Running too frequently provides no benefit; a weekly schedule via the **fstrim.timer** systemd unit is typical. Continuous **discard** mount option is an alternative but generally less efficient than periodic **fstrim**.
+仅对底层存储支持 discard 的文件系统有效（大多数 SSD、NVMe、精简配置设备）。过于频繁地运行没有收益；通常的做法是通过 **fstrim.timer** systemd 单元安排每周运行。挂载选项中的持续 **discard** 是另一种选择，但通常不如周期性 **fstrim** 高效。
 
 # HISTORY
 
-**fstrim** is part of the **util-linux** package, providing TRIM support for SSD optimization on Linux systems.
+**fstrim** 是 **util-linux** 软件包的一部分，为 Linux 系统上的 SSD 优化提供 TRIM 支持。
 
 # INSTALL
 

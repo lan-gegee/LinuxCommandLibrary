@@ -1,26 +1,26 @@
 # TAGLINE
 
-Google Kubernetes Engine cluster management
+Google Kubernetes Engine 集群管理
 
 # TLDR
 
-**Create GKE cluster**
+**创建 GKE 集群**
 
 ```gcloud container clusters create [name] --zone=[zone]```
 
-**List clusters**
+**列出集群**
 
 ```gcloud container clusters list```
 
-**Get credentials**
+**获取凭据**
 
 ```gcloud container clusters get-credentials [name] --zone=[zone]```
 
-**Delete cluster**
+**删除集群**
 
 ```gcloud container clusters delete [name] --zone=[zone]```
 
-**Resize node pool**
+**调整节点池大小**
 
 ```gcloud container clusters resize [name] --node-pool=[pool] --num-nodes=[3]```
 
@@ -31,41 +31,41 @@ Google Kubernetes Engine cluster management
 # PARAMETERS
 
 _RESOURCE_
-> Resource type: clusters, node-pools, images.
+> 资源类型：clusters、node-pools、images。
 
 **clusters** _CMD_
-> GKE cluster management.
+> GKE 集群管理。
 
 **node-pools** _CMD_
-> Node pool operations.
+> 节点池操作。
 
 **images** _CMD_
-> Container image operations.
+> 容器镜像操作。
 
 **get-credentials** _CLUSTER_
-> Configure kubectl for cluster.
+> 为集群配置 kubectl。
 
 **--zone** _ZONE_
-> Cluster zone.
+> 集群所在区域。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud container** provides comprehensive management for Google Kubernetes Engine (GKE), Google's managed Kubernetes service. It handles the complete lifecycle of Kubernetes clusters without requiring manual setup of master nodes or control plane components.
+**gcloud container** 为 Google Kubernetes Engine（GKE）——Google 托管的 Kubernetes 服务——提供全面的管理能力。它处理 Kubernetes 集群的完整生命周期，无需手动搭建主节点或控制平面组件。
 
-The clusters subcommand creates and manages GKE clusters with customizable node configurations, network settings, and Kubernetes versions. Node pools allow heterogeneous clusters with different machine types or configurations for different workload types. Scaling operations can adjust cluster capacity by modifying node pool sizes.
+clusters 子命令创建并管理 GKE 集群，可自定义节点配置、网络设置和 Kubernetes 版本。节点池允许构建异构集群，为不同负载类型使用不同机型或配置。扩缩容操作通过修改节点池大小来调整集群容量。
 
-A critical feature is get-credentials, which configures kubectl by writing cluster authentication details to your kubeconfig file. This seamlessly connects the standard Kubernetes CLI tools to your GKE clusters. The command integrates with Google Container Registry for private image storage and supports advanced features like cluster autoscaling, node auto-repair, and automatic Kubernetes version upgrades.
+一个关键特性是 get-credentials，它将集群身份验证信息写入 kubeconfig 文件来配置 kubectl，从而无缝连接标准 Kubernetes CLI 工具与你的 GKE 集群。该命令与 Google Container Registry 集成以支持私有镜像存储，并支持集群自动扩缩、节点自动修复以及 Kubernetes 版本自动升级等高级功能。
 
 # CAVEATS
 
-Clusters incur costs. Creation takes time. Kubectl configuration required for access.
+集群会产生费用。创建需要时间。访问需要先完成 kubectl 配置。
 
 # HISTORY
 
-gcloud container is part of the **Google Cloud SDK** for managing GKE, Google's managed Kubernetes service for running containerized applications.
+gcloud container 属于 **Google Cloud SDK**，用于管理 GKE——Google 用于运行容器化应用的托管 Kubernetes 服务。
 
 # SEE ALSO
 

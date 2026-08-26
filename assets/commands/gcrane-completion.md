@@ -1,38 +1,38 @@
 # TAGLINE
 
-generates shell autocompletion scripts
+生成 Shell 自动补全脚本
 
 # TLDR
 
-Generate the autocompletion script for your **shell**
+为你使用的 **Shell** 生成自动补全脚本
 
 ```gcrane completion [shell_name]```
 
-**Disable** completion descriptions
+**禁用**补全描述
 
 ```gcrane completion [shell_name] --no-descriptions```
 
-Load completions in your **current shell session** (Bash/Zsh)
+在**当前 Shell 会话**中加载补全（Bash/Zsh）
 
 ```source <(gcrane completion bash)```
 
-Load completions in your current shell session (**fish**)
+在当前 Shell 会话中加载补全（**fish**）
 
 ```gcrane completion fish | source```
 
-Load completions for **every new Bash session**
+为**每个新的 Bash 会话**加载补全
 
 ```gcrane completion bash > /etc/bash_completion.d/gcrane```
 
-Load completions for **every new Zsh session**
+为**每个新的 Zsh 会话**加载补全
 
 ```gcrane completion zsh > "${fpath[1]}/_gcrane"```
 
-Load completions for **every new fish session**
+为**每个新的 fish 会话**加载补全
 
 ```gcrane completion fish > ~/.config/fish/completions/gcrane.fish```
 
-Display **help**
+显示**帮助**
 
 ```gcrane completion [shell_name] -h```
 
@@ -43,34 +43,34 @@ Display **help**
 # PARAMETERS
 
 **bash**
-> Generate Bash completion script
+> 生成 Bash 补全脚本
 
 **zsh**
-> Generate Zsh completion script
+> 生成 Zsh 补全脚本
 
 **fish**
-> Generate fish completion script
+> 生成 fish 补全脚本
 
 **powershell**
-> Generate PowerShell completion script
+> 生成 PowerShell 补全脚本
 
 **--no-descriptions**
-> Disable completion descriptions
+> 禁用补全描述
 
 **-h**, **--help**
-> Display help for completion command
+> 显示 completion 命令的帮助信息
 
 # DESCRIPTION
 
-**gcrane completion** generates shell autocompletion scripts for the gcrane command-line tool. gcrane is a tool for working with container registries, part of Google's go-containerregistry project.
+**gcrane completion** 为 gcrane 命令行工具生成 Shell 自动补全脚本。gcrane 是一个操作容器镜像仓库的工具，属于 Google 的 go-containerregistry 项目。
 
-Completions provide tab-completion for gcrane commands, flags, and arguments, improving command-line efficiency. The generated scripts must be sourced or installed according to your shell's completion system.
+补全功能为 gcrane 的命令、标志和参数提供 Tab 补全，提高命令行操作效率。生成的脚本必须按照你所使用 Shell 的补全机制进行 source 或安装。
 
-For persistent completions, install the output to the appropriate location for your shell (bash_completion.d for Bash, fpath for Zsh, or ~/.config/fish/completions for fish).
+若要永久启用补全，请将输出安装到对应 Shell 的适当位置（Bash 为 bash_completion.d，Zsh 为 fpath，fish 为 ~/.config/fish/completions）。
 
 # CAVEATS
 
-Installation paths vary by system configuration. Zsh requires the completion directory to be in fpath before compinit is called. Some systems may require logging out and back in for changes to take effect.
+安装路径因系统配置而异。Zsh 要求在调用 compinit 之前补全目录已在 fpath 中。某些系统可能需要注销并重新登录才能生效。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-extract the first member of a ZIP or gzip archive from a pipe
+从管道中解压 ZIP 或 gzip 归档的第一个成员
 
 # TLDR
 
-**Extract first file from a ZIP archive via stdin**
+**通过 stdin 从 ZIP 归档中提取第一个文件**
 
 ```cat [file.zip] | funzip > [output]```
 
-**Extract from a gzip file via stdin**
+**通过 stdin 从 gzip 文件中提取**
 
 ```cat [file.gz] | funzip > [output]```
 
-**Download and extract in one step**
+**下载并解压一步完成**
 
 ```curl -s [url/file.zip] | funzip > [output]```
 
-**Extract from a file argument directly**
+**直接从文件参数提取**
 
 ```funzip [file.zip] > [output]```
 
-**Extract a password-protected ZIP archive**
+**解压受密码保护的 ZIP 归档**
 
 ```funzip -[password] [file.zip] > [output]```
 
-**Extract a tar.zip archive using a secondary archiver**
+**借助二级归档工具处理 tar.zip 归档**
 
 ```cat [archive.tar.zip] | funzip | tar xf -```
 
@@ -34,18 +34,18 @@ extract the first member of a ZIP or gzip archive from a pipe
 
 # DESCRIPTION
 
-**funzip** acts as a filter to extract the first member from a ZIP archive or a gzip file. Without a file argument, it reads from standard input and writes to standard output. When given a file argument, it reads from that file instead. It also handles gzip compressed files.
+**funzip** 作为过滤器，用于从 ZIP 归档或 gzip 文件中提取第一个成员。不带文件参数时，它从标准输入读取并写入标准输出；给定文件参数时，则改为从该文件读取。它也能处理 gzip 压缩文件。
 
-This is most useful for extracting single-file archives from pipes without creating intermediate files, or in combination with a secondary archiver like **tar**(1) for tape backups.
+它最适合在不生成中间文件的情况下从管道中提取单文件归档，或者与 **tar**(1) 等二级归档工具配合进行磁带备份。
 
 # PARAMETERS
 
 **-**_password_
-> Decryption password for encrypted ZIP archives. Passing passwords on the command line is insecure as they may be visible via ps(1).
+> 加密 ZIP 归档的解密密码。在命令行上传递密码不安全，因为可能会通过 ps(1) 被他人看到。
 
 # CAVEATS
 
-Only extracts the first member from a ZIP archive. For multi-file archives, use **unzip** instead. When the first member is a directory, funzip simply creates it and exits.
+只能提取 ZIP 归档的第一个成员。多文件归档请改用 **unzip**。当第一个成员是目录时，funzip 只会创建该目录然后退出。
 
 # INSTALL
 
@@ -68,4 +68,3 @@ Only extracts the first member from a ZIP archive. For multi-file archives, use 
 # SEE ALSO
 
 [gzip](/man/gzip)(1), [unzip](/man/unzip)(1), [unzipsfx](/man/unzipsfx)(1), [zip](/man/zip)(1), [zipinfo](/man/zipinfo)(1)
-

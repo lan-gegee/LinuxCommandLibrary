@@ -1,26 +1,26 @@
 # TAGLINE
 
-displays raster dataset information
+显示栅格数据集信息
 
 # TLDR
 
-**Show raster information**
+**显示栅格信息**
 
 ```gdalinfo [file.tif]```
 
-**Show statistics**
+**显示统计信息**
 
 ```gdalinfo -stats [file.tif]```
 
-**Show in JSON** format
+**以 JSON 格式显示**
 
 ```gdalinfo -json [file.tif]```
 
-**Check specific dataset**
+**检查特定数据集**
 
 ```gdalinfo [file.vrt]```
 
-**Show metadata**
+**显示元数据**
 
 ```gdalinfo -mm [file.tif]```
 
@@ -31,44 +31,44 @@ displays raster dataset information
 # PARAMETERS
 
 _DATASETNAME_
-> Input raster file.
+> 输入的栅格文件。
 
 **-json**
-> Output as JSON.
+> 以 JSON 格式输出。
 
 **-stats**
-> Compute and display statistics.
+> 计算并显示统计信息。
 
 **-mm**
-> Compute min/max values.
+> 计算最小值/最大值。
 
 **-hist**
-> Compute histogram.
+> 计算直方图。
 
 **-nogcp**
-> Suppress GCP output.
+> 不输出 GCP（地面控制点）。
 
 **-nomd**
-> Suppress metadata output.
+> 不输出元数据。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gdalinfo** displays information about raster datasets. It shows format, dimensions, coordinate system, bands, and metadata for geospatial raster files.
+**gdalinfo** 显示栅格数据集的信息。它会列出地理空间栅格文件的格式、尺寸、坐标系、波段和元数据。
 
-The tool reads header information and optionally computes statistics. It supports hundreds of raster formats through GDAL drivers.
+该工具读取文件头信息，并可选择计算统计值。它通过 GDAL 驱动支持数百种栅格格式。
 
-gdalinfo is the first step in understanding and validating geospatial raster data.
+gdalinfo 是理解和校验地理空间栅格数据的第一步。
 
 # CAVEATS
 
-Statistics computation reads entire file. Some formats have limited metadata. Large files may be slow.
+统计信息计算会读取整个文件。某些格式的元数据有限。大文件可能较慢。
 
 # HISTORY
 
-gdalinfo is part of **GDAL** (Geospatial Data Abstraction Library), providing raster inspection capabilities across hundreds of formats.
+gdalinfo 是 **GDAL**（Geospatial Data Abstraction Library，地理空间数据抽象库）的一部分，提供对数百种格式的栅格检查能力。
 
 # INSTALL
 

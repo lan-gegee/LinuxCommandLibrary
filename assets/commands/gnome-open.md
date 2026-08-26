@@ -1,18 +1,18 @@
 # TAGLINE
 
-open files with associated GNOME applications (deprecated)
+用关联的 GNOME 应用程序打开文件（已弃用）
 
 # TLDR
 
-**Open file with default app**
+**用默认应用打开文件**
 
 ```gnome-open [file.pdf]```
 
-**Open URL**
+**打开 URL**
 
 ```gnome-open [https://example.com]```
 
-**Open directory**
+**打开目录**
 
 ```gnome-open [/path/to/directory]```
 
@@ -23,24 +23,24 @@ open files with associated GNOME applications (deprecated)
 # PARAMETERS
 
 _LOCATION_
-> File, URL, or directory to open.
+> 要打开的文件、URL 或目录。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gnome-open** opens files, URLs, and directories with their associated applications. It uses GNOME's MIME type handling to determine the appropriate application.
+**gnome-open** 用关联的应用程序打开文件、URL 和目录。它使用 GNOME 的 MIME 类型处理机制来确定合适的应用程序。
 
-The command is deprecated in favor of xdg-open or gio open, which provide cross-desktop functionality. It remains available for backward compatibility.
+该命令已被弃用，推荐改用 xdg-open 或 gio open，它们提供跨桌面的功能。此命令仅为向后兼容而保留。
 
 # CAVEATS
 
-Deprecated; use xdg-open instead. GNOME-specific. May not work on other desktops.
+已弃用；请改用 xdg-open。这是 GNOME 特有的命令。在其他桌面上可能无法工作。
 
 # HISTORY
 
-gnome-open was part of **GNOME** utilities but has been superseded by **xdg-open** for cross-desktop compatibility.
+gnome-open 曾是 **GNOME** 实用工具的一部分，后来为了跨桌面兼容性被 **xdg-open** 取代。
 
 # SEE ALSO
 

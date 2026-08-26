@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast reverse proxy for NAT traversal
+用于 NAT 穿透的高速反向代理
 
 # TLDR
 
-**Start frp client**
+**启动 frp 客户端**
 
 ```frpc -c [frpc.toml]```
 
-**Start frp server**
+**启动 frp 服务端**
 
 ```frps -c [frps.toml]```
 
-**Verify client configuration**
+**校验客户端配置**
 
 ```frpc verify -c [frpc.toml]```
 
-**Reload client config without restart**
+**不重启即重载客户端配置**
 
 ```frpc reload -c [frpc.toml]```
 
-**Show proxy status**
+**显示代理状态**
 
 ```frpc status -c [frpc.toml]```
 
@@ -31,62 +31,62 @@ Fast reverse proxy for NAT traversal
 # COMMANDS
 
 **reload**
-> Hot-reload the client configuration without restarting the process.
+> 不重启进程即可热重载客户端配置。
 
 **verify**
-> Validate the configuration file syntax and exit.
+> 校验配置文件语法后退出。
 
 **status**
-> Print the status of all proxies defined for the client.
+> 输出客户端定义的所有代理的状态。
 
 **stop**
-> Stop the running frpc instance via its admin API.
+> 通过管理 API 停止正在运行的 frpc 实例。
 
 # PARAMETERS
 
 **-c**, **--config** _FILE_
-> Configuration file path (TOML, YAML, or JSON).
+> 配置文件路径（TOML、YAML 或 JSON）。
 
 **-L**, **--log_level** _LEVEL_
-> Log level (trace, debug, info, warn, error).
+> 日志级别（trace、debug、info、warn、error）。
 
 **-t**, **--token** _TOKEN_
-> Authentication token shared between client and server.
+> 客户端与服务端共享的认证令牌。
 
 **-s**, **--server_addr** _ADDR_
-> frps server address (frpc only).
+> frps 服务器地址（仅 frpc）。
 
 **-v**, **--version**
-> Print version information.
+> 输出版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **frpc.toml**
-> Client configuration: defines server connection, authentication token, and proxy definitions for services to expose.
+> 客户端配置：定义服务器连接、认证令牌，以及要对外暴露的服务的代理定义。
 
 **frps.toml**
-> Server configuration: specifies bind ports, dashboard settings, authentication tokens, and connection limits.
+> 服务端配置：指定绑定端口、仪表盘设置、认证令牌和连接数限制。
 
 # DESCRIPTION
 
-**frp** (fast reverse proxy) exposes local servers behind NAT or firewalls to the internet. It consists of a client (**frpc**) on the internal network and a server (**frps**) on a public host.
+**frp**（fast reverse proxy）将位于 NAT 或防火墙之后的本地服务器暴露到互联网。它由内网中的客户端（**frpc**）和公网主机上的服务端（**frps**）组成。
 
-The tool supports TCP, UDP, HTTP, HTTPS, STCP, SUDP, and XTCP protocols with features like encryption, compression, multiplexing, and authentication. It enables remote access to internal services, SSH tunnels, web applications, and peer-to-peer connections.
+该工具支持 TCP、UDP、HTTP、HTTPS、STCP、SUDP 和 XTCP 协议，并具备加密、压缩、多路复用和认证等特性。它可用于远程访问内部服务、SSH 隧道、Web 应用以及点对点连接。
 
-Since v0.52.0, frp supports **TOML**, **YAML**, and **JSON** configuration formats. The legacy **INI** format is deprecated and scheduled for removal.
+自 v0.52.0 起，frp 支持 **TOML**、**YAML** 和 **JSON** 配置格式。旧的 **INI** 格式已被弃用，计划移除。
 
-frp provides a self-hosted alternative to services like ngrok.
+frp 是 ngrok 等服务的自托管替代方案。
 
 # CAVEATS
 
-Requires a publicly reachable server. Each exposed service needs its own proxy entry in the client config. Security relies on a strong shared token and TLS configuration. INI configuration is deprecated; migrate to TOML.
+需要一台可从公网访问的服务器。每个暴露的服务都需要在客户端配置中有自己的代理条目。安全性依赖于强共享令牌和 TLS 配置。INI 配置已弃用，请迁移到 TOML。
 
 # HISTORY
 
-**frp** was created by **fatedier** as an open source alternative to commercial reverse proxy services. Written in Go, it provides self-hosted tunneling for developers and system administrators.
+**frp** 由 **fatedier** 创建，是商业反向代理服务的开源替代品。它以 Go 编写，为开发者和系统管理员提供自托管的隧道服务。
 
 # INSTALL
 

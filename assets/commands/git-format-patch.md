@@ -1,38 +1,38 @@
 # TAGLINE
 
-Prepare patches for email submission
+准备用于邮件提交的补丁
 
 # TLDR
 
-**Create patches for last N commits**
+**为最近 N 个提交创建补丁**
 
 ```git format-patch -[n]```
 
-**Create patch since commit**
+**自某提交以来创建补丁**
 
 ```git format-patch [commit]```
 
-**Create patch for range**
+**为某个范围创建补丁**
 
 ```git format-patch [commit1]..[commit2]```
 
-**Output to directory**
+**输出到目录**
 
 ```git format-patch -o [patches/] [commit]```
 
-**Create single combined patch**
+**创建单个合并补丁**
 
 ```git format-patch --stdout [commit] > [combined.patch]```
 
-**Include cover letter**
+**包含封面说明**
 
 ```git format-patch --cover-letter [commit]```
 
-**Create numbered, threaded patches with base info**
+**创建带编号、线程化的补丁并附带基底信息**
 
 ```git format-patch --numbered --thread --base=auto [commit]```
 
-**Add email recipients to patches**
+**为补丁添加邮件收件人**
 
 ```git format-patch --to=[maintainer@example.com] --cc=[list@example.com] -[3]```
 
@@ -43,66 +43,66 @@ Prepare patches for email submission
 # PARAMETERS
 
 **-n**, **--numbered**
-> Name output in [PATCH n/m] format.
+> 以 [PATCH n/m] 格式命名输出文件。
 
 **-N**, **--no-numbered**
-> Name output in [PATCH] format without numbers.
+> 以不带编号的 [PATCH] 格式命名输出文件。
 
 **-o**, **--output-directory** _dir_
-> Output directory for patch files.
+> 补丁文件的输出目录。
 
 **--stdout**
-> Output all patches to stdout instead of files.
+> 将所有补丁输出到 stdout 而不是文件。
 
 **--cover-letter**
-> Generate a cover letter template for the patch series.
+> 为补丁系列生成封面说明模板。
 
 **-s**, **--signoff**
-> Add Signed-off-by trailer.
+> 添加 Signed-off-by 尾注。
 
 **--subject-prefix** _prefix_
-> Use given prefix instead of [PATCH].
+> 使用给定的前缀代替 [PATCH]。
 
 **-v**, **--reroll-count** _n_
-> Mark patches as v_n_ of the series (e.g., [PATCH v2]).
+> 将补丁标记为该系列的第 _n_ 版（如 [PATCH v2]）。
 
 **--thread**[=_style_]
-> Generate In-Reply-To and References headers. Style: shallow (default) or deep.
+> 生成 In-Reply-To 和 References 头。style 可选 shallow（默认）或 deep。
 
 **--in-reply-to** _message-id_
-> Make first mail appear as a reply to given message.
+> 让第一封邮件显示为对指定消息的回复。
 
 **--to** _email_
-> Add To: header to patches. Can be used multiple times.
+> 为补丁添加 To: 头。可以多次使用。
 
 **--cc** _email_
-> Add Cc: header to patches. Can be used multiple times.
+> 为补丁添加 Cc: 头。可以多次使用。
 
 **--base**[=_commit_]
-> Record base tree info. Use "auto" for automatic selection.
+> 记录基底树信息。使用 "auto" 表示自动选择。
 
 **--no-stat**
-> Generate plain patches without diffstats.
+> 生成不带 diffstat 的普通补丁。
 
 **--no-binary**
-> Do not output binary file contents, only note changes.
+> 不输出二进制文件的内容，仅注明有变更。
 
 **--interdiff** _previous_
-> Insert interdiff into cover letter comparing to previous version.
+> 在封面说明中插入 interdiff，与上一版本比较。
 
 **--range-diff** _previous_
-> Insert range-diff into cover letter comparing to previous version.
+> 在封面说明中插入 range-diff，与上一版本比较。
 
 **--filename-max-length** _n_
-> Limit generated filenames to around _n_ bytes (default: 64).
+> 将生成的文件名限制在大约 _n_ 字节以内（默认：64）。
 
 # DESCRIPTION
 
-**git format-patch** generates patch files from commits in a format suitable for email-based code review and submission workflows. Each commit is formatted as a separate .patch file containing the diff, commit metadata, and message in mbox format.
+**git format-patch** 以适合基于电子邮件的代码评审和提交工作流的格式从提交生成补丁文件。每个提交被格式化为单独的 .patch 文件，以 mbox 格式包含 diff、提交元数据和提交信息。
 
-This command is fundamental to email-based development workflows used by projects like the Linux kernel and Git itself. The generated patches can be sent using git send-email or standard email clients, and applied with git am while preserving full commit information including author and date.
+该命令是 Linux 内核和 Git 自身等项目所采用的邮件驱动开发流程的基础。生成的补丁可以使用 git send-email 或标准邮件客户端发送，并用 git am 应用，同时完整保留包括作者和日期在内的提交信息。
 
-Cover letters (--cover-letter) provide a way to introduce patch series with context. Version numbering with -v supports iterative review cycles. The signoff option adds Signed-off-by trailers for Developer Certificate of Origin compliance.
+封面说明（--cover-letter）提供了为补丁系列添加背景说明的方式。-v 的版本号支持迭代的评审周期。signoff 选项会添加 Signed-off-by 尾注，以满足开发者原产地证明（DCO）的要求。
 
 # INSTALL
 

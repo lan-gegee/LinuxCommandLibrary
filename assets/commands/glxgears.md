@@ -1,30 +1,30 @@
 # TAGLINE
 
-OpenGL rotating gears demo and sanity check
+OpenGL 旋转齿轮演示与健全性检查工具
 
 # TLDR
 
-**Run the gears demo** (shows FPS in terminal)
+**运行齿轮演示**（在终端中显示 FPS）
 
 ```glxgears```
 
-**Run in fullscreen mode**
+**以全屏模式运行**
 
 ```glxgears -fullscreen```
 
-**Print OpenGL renderer information**
+**打印 OpenGL 渲染器信息**
 
 ```glxgears -info```
 
-**Run at specific window size**
+**以指定的窗口尺寸运行**
 
 ```glxgears -geometry [800x600]```
 
-**Run with stereo rendering** (if supported)
+**启用立体渲染运行**（如果受支持）
 
 ```glxgears -stereo```
 
-**Run without animation** (static image)
+**不播放动画运行**（静态画面）
 
 ```glxgears -iacknowledgethatthistoolisnotabenchmark```
 
@@ -35,40 +35,40 @@ OpenGL rotating gears demo and sanity check
 # PARAMETERS
 
 **-display** _display_
-> Specify X display to use.
+> 指定要使用的 X display。
 
 **-info**
-> Print OpenGL renderer and GLX visual information.
+> 打印 OpenGL 渲染器和 GLX visual 信息。
 
 **-stereo**
-> Enable stereo rendering (requires hardware support).
+> 启用立体渲染（需要硬件支持）。
 
 **-fullscreen**
-> Run in fullscreen mode.
+> 以全屏模式运行。
 
 **-geometry** _WxH_
-> Set window size (width x height).
+> 设置窗口尺寸（宽 x 高）。
 
 **-iacknowledgethatthistoolisnotabenchmark**
-> Disable animation (for static screenshots).
+> 禁用动画（用于静态截图）。
 
 # DESCRIPTION
 
-**glxgears** is an OpenGL demo that renders three rotating gears. It displays frames per second (FPS) in the terminal every 5 seconds, making it commonly used to verify that OpenGL and GPU acceleration are working correctly.
+**glxgears** 是一个渲染三个旋转齿轮的 OpenGL 演示程序。它每 5 秒在终端中显示一次帧率（FPS），因此常被用来验证 OpenGL 和 GPU 加速是否正常工作。
 
-The application creates a simple GLX window and renders the classic gears animation using OpenGL. When working properly, modern systems typically show several thousand FPS (capped by vsync to monitor refresh rate when composited, or much higher when unthrottled).
+该程序创建一个简单的 GLX 窗口，并用 OpenGL 渲染经典的齿轮动画。工作正常时，现代系统通常能显示数千 FPS（在合成器开启时受 vsync 限制为显示器刷新率，未限流时则可能高得多）。
 
-The FPS display makes **glxgears** useful for quick GPU sanity checks: if you see reasonable FPS (hundreds to thousands) and smooth animation, OpenGL acceleration is working. Very low FPS (under 60) may indicate software rendering or driver issues.
+FPS 显示让 **glxgears** 成为快速的 GPU 健全性检查工具：如果你看到合理的 FPS（几百到几千）且动画流畅，说明 OpenGL 加速正常。FPS 极低（低于 60）可能表示软件渲染或驱动存在问题。
 
-Despite common use as a "benchmark," glxgears tests very little of modern GPU capabilities. It uses ancient OpenGL features that aren't representative of real application performance.
+尽管常被当作"基准测试"使用，glxgears 对现代 GPU 能力的测试非常有限。它使用的是古老的 OpenGL 特性，不能代表真实应用的性能。
 
 # CAVEATS
 
-**NOT a valid benchmark** for GPU performance comparison. FPS varies wildly based on vsync, window size, compositing, and driver settings. Only tests minimal OpenGL functionality. Cannot detect many GPU driver issues. Stereo mode requires specific hardware.
+**不是有效的 GPU 性能基准测试**。FPS 会随 vsync、窗口大小、合成器和驱动设置大幅波动。只测试了最基础的 OpenGL 功能。无法检测许多 GPU 驱动问题。立体模式需要特定硬件。
 
 # HISTORY
 
-**glxgears** was written by Brian Paul around **1999** as part of Mesa, the open-source OpenGL implementation. It was created as a simple demo to test GLX (OpenGL Extension to X11) functionality. Despite disclaimers, it became widely misused as a benchmark due to its readily visible FPS counter. The "iacknowledgethatthistoolisnotabenchmark" flag was added as a humorous commentary on this misuse.
+**glxgears** 由 Brian Paul 于 **1999** 年前后编写，是开源 OpenGL 实现 Mesa 的一部分。它最初只是用来测试 GLX（X11 的 OpenGL 扩展）功能的简单演示。尽管附有免责声明，但由于 FPS 计数一目了然，它仍被广泛误用作基准测试。"iacknowledgethatthistoolisnotabenchmark" 这个标志正是对这种误用的幽默回应。
 
 # INSTALL
 

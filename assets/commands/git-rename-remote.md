@@ -1,10 +1,10 @@
 # TAGLINE
 
-Rename a Git remote
+重命名 Git 远程
 
 # TLDR
 
-**Rename remote**
+**重命名远程**
 
 ```git rename-remote [old_name] [new_name]```
 
@@ -14,11 +14,11 @@ Rename a Git remote
 
 # DESCRIPTION
 
-**git rename-remote** renames a Git remote. Part of git-extras, it is a convenience wrapper around `git remote rename`.
+**git rename-remote** 重命名 Git 远程。它是 git-extras 的一部分，是 `git remote rename` 的便捷封装。
 
 # CAVEATS
 
-Requires git-extras to be installed. The standard `git remote rename` command provides equivalent functionality and is available in all Git installations.
+需要安装 git-extras。标准的 `git remote rename` 命令提供等价功能，且所有 Git 安装都自带。
 
 # INSTALL
 

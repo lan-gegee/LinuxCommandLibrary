@@ -1,26 +1,26 @@
 # TAGLINE
 
-display command documentation and usage
+显示命令文档和用法
 
 # TLDR
 
-**Show general help**
+**显示常规帮助**
 
 ```gh help```
 
-**Get help for command**
+**获取某条命令的帮助**
 
 ```gh help [pr]```
 
-**Get help for subcommand**
+**获取某个子命令的帮助**
 
 ```gh help [pr] [create]```
 
-**Show environment variables**
+**显示环境变量**
 
 ```gh help environment```
 
-**List formatting options**
+**列出格式化选项**
 
 ```gh help formatting```
 
@@ -31,38 +31,38 @@ display command documentation and usage
 # PARAMETERS
 
 _COMMAND_
-> Command to get help for.
+> 要获取帮助的命令。
 
 _SUBCOMMAND_
-> Subcommand to get help for.
+> 要获取帮助的子命令。
 
 **environment**
-> Show environment variables.
+> 显示环境变量。
 
 **formatting**
-> Show output formatting options.
+> 显示输出格式化选项。
 
 **mintty**
-> Show MinTTY configuration help.
+> 显示 MinTTY 配置帮助。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh help** provides documentation for GitHub CLI commands. It displays usage information, available flags, examples, and related commands for any gh command or subcommand.
+**gh help** 提供 GitHub CLI 命令的文档。它会显示任意 gh 命令或子命令的用法信息、可用标志、示例和相关命令。
 
-The help system includes special topics like environment variables that affect gh behavior and formatting options for customizing output. Help content is built into the gh binary and available offline.
+帮助系统还包含一些特殊主题，例如影响 gh 行为的环境变量，以及用于自定义输出的格式化选项。帮助内容内置于 gh 二进制文件中，可离线查看。
 
-gh help is essential for discovering command capabilities and correct usage.
+gh help 是了解命令功能和正确用法的重要途径。
 
 # CAVEATS
 
-Help content matches installed gh version. Online documentation may be more current. Some help topics are platform-specific.
+帮助内容与已安装的 gh 版本对应。在线文档可能更新。部分帮助主题与特定平台相关。
 
 # HISTORY
 
-gh help follows Unix man page conventions, providing comprehensive command documentation as part of the **GitHub CLI**.
+gh help 遵循 Unix man page 惯例，作为 **GitHub CLI** 的一部分提供全面的命令文档。
 
 # INSTALL
 

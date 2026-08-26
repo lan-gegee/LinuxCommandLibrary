@@ -1,30 +1,30 @@
 # TAGLINE
 
-SFTP connection handler of FileZilla
+FileZilla 的 SFTP 连接处理模块
 
 # TLDR
 
-**Display version information**
+**显示版本信息**
 
 ```fzsftp -V```
 
-**Connect to a server**
+**连接到服务器**
 
 ```fzsftp [user@host]```
 
-**Connect on a specific port**
+**在指定端口连接**
 
 ```fzsftp -P [2222] [user@host]```
 
-**Use a specific private key file**
+**使用指定的私钥文件**
 
 ```fzsftp -i [key.ppk] [user@host]```
 
-**Run commands from a batch file**
+**从批处理文件运行命令**
 
 ```fzsftp -b [commands.txt] [user@host]```
 
-**Connect with verbose output**
+**以详细输出模式连接**
 
 ```fzsftp -v [user@host]```
 
@@ -35,71 +35,71 @@ SFTP connection handler of FileZilla
 # PARAMETERS
 
 **-V**
-> Print version information and exit.
+> 打印版本信息并退出。
 
 **-P** _port_
-> Connect to specified port.
+> 连接到指定端口。
 
 **-l** _user_
-> Connect with specified username.
+> 以指定用户名连接。
 
 **-pw** _password_
-> Login with specified password (insecure).
+> 用指定密码登录（不安全）。
 
 **-i** _keyfile_
-> Private key file for user authentication.
+> 用于用户身份验证的私钥文件。
 
 **-b** _file_
-> Use specified batch file.
+> 使用指定的批处理文件。
 
 **-bc**
-> Output batch file commands.
+> 回显批处理文件中的命令。
 
 **-be**
-> Don't stop batch file processing on errors.
+> 出错时不停止批处理文件的执行。
 
 **-batch**
-> Disable all interactive prompts.
+> 禁用所有交互式提示。
 
 **-v**
-> Show verbose messages.
+> 显示详细消息。
 
 **-C**
-> Enable compression.
+> 启用压缩。
 
 **-1**, **-2**
-> Force use of SSH protocol version 1 or 2.
+> 强制使用 SSH 协议版本 1 或 2。
 
 **-4**, **-6**
-> Force use of IPv4 or IPv6.
+> 强制使用 IPv4 或 IPv6。
 
 **-load** _session_
-> Load settings from saved session.
+> 从已保存的会话加载设置。
 
 **-noagent**
-> Disable use of Pageant.
+> 禁用 Pageant。
 
 **-agent**
-> Enable use of Pageant.
+> 启用 Pageant。
 
 **-hostkey** _fingerprint_
-> Manually specify a host key (may be repeated).
+> 手动指定主机密钥（可重复使用）。
 
 **-proxycmd** _command_
-> Use command as local proxy.
+> 将命令用作本地代理。
 
 **-sshlog** _file_
-> Log protocol details to a file.
+> 将协议细节记录到文件。
 
 # DESCRIPTION
 
-**fzsftp** is the SFTP backend module of FileZilla, based on the **psftp** component of PuTTY. It is called internally by the FileZilla GUI to handle SSH File Transfer Protocol connections and is not intended for direct interactive use.
+**fzsftp** 是 FileZilla 的 SFTP 后端模块，基于 PuTTY 的 **psftp** 组件。它由 FileZilla 图形界面内部调用，负责处理 SSH 文件传输协议连接，并非为直接交互使用而设计。
 
-The tool communicates with the FileZilla process via stdin/stdout. It supports PuTTY-format (.ppk) keys natively, batch file processing, and various SSH connection options inherited from PuTTY.
+该工具通过 stdin/stdout 与 FileZilla 进程通信。它原生支持 PuTTY 格式（.ppk）密钥、批处理文件处理，以及从 PuTTY 继承的多种 SSH 连接选项。
 
 # CAVEATS
 
-Not intended to be used directly; it is called internally by FileZilla. Password on command line is insecure and visible in process listings. PPK keys need conversion for use with other SSH clients.
+不应直接使用；它由 FileZilla 内部调用。命令行上的密码不安全，会在进程列表中可见。PPK 密钥需要转换后才能在其他 SSH 客户端中使用。
 
 # INSTALL
 

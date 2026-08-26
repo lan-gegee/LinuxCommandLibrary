@@ -1,14 +1,14 @@
 # TAGLINE
 
-Rename a Git branch locally and on the remote
+在本地和远程重命名 Git 分支
 
 # TLDR
 
-**Rename current branch**
+**重命名当前分支**
 
 ```git rename-branch [new_name]```
 
-**Rename specific branch**
+**重命名特定分支**
 
 ```git rename-branch [old_name] [new_name]```
 
@@ -18,21 +18,21 @@ Rename a Git branch locally and on the remote
 
 # DESCRIPTION
 
-**git rename-branch** renames a branch both locally and on the remote. Part of git-extras, it handles the local rename, pushes the new branch name to the remote, deletes the old remote branch, and updates the upstream tracking reference in a single command.
+**git rename-branch** 在本地和远程同时重命名分支。它是 git-extras 的一部分，用一条命令完成本地重命名、将新分支名推送到远程、删除旧远程分支以及更新上游跟踪引用。
 
-Without this tool, renaming a remote branch requires multiple steps: `git branch -m`, `git push origin new_name`, `git push origin --delete old_name`, and `git branch -u origin/new_name`.
+没有这个工具时，重命名远程分支需要多个步骤：`git branch -m`、`git push origin new_name`、`git push origin --delete old_name`，以及 `git branch -u origin/new_name`。
 
 # PARAMETERS
 
 **old_name**
-> The current name of the branch to rename. If omitted, the current branch is used.
+> 要重命名的分支的当前名称。若省略，则使用当前分支。
 
 **new_name**
-> The new name for the branch.
+> 分支的新名称。
 
 # CAVEATS
 
-Requires git-extras to be installed. Other collaborators must update their local references after the rename. Pull requests or merge requests targeting the old branch name may need manual updates.
+需要安装 git-extras。其他协作者在重命名后必须更新他们的本地引用。指向旧分支名的 pull request 或 merge request 可能需要手动更新。
 
 # INSTALL
 

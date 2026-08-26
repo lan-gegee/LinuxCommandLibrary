@@ -1,26 +1,26 @@
 # TAGLINE
 
-Switch branches or restore working tree files
+切换分支或恢复工作区文件
 
 # TLDR
 
-**Switch to branch**
+**切换到分支**
 
 ```git checkout [branch-name]```
 
-**Create and switch to branch**
+**创建并切换到分支**
 
 ```git checkout -b [new-branch]```
 
-**Restore a file**
+**恢复文件**
 
 ```git checkout -- [file.txt]```
 
-**Checkout specific commit**
+**检出特定提交**
 
 ```git checkout [commit-hash]```
 
-**Checkout from remote**
+**从远程检出**
 
 ```git checkout -t origin/[branch]```
 
@@ -31,50 +31,50 @@ Switch branches or restore working tree files
 # PARAMETERS
 
 _BRANCH_
-> Branch to switch to.
+> 要切换到的分支。
 
 **-b** _BRANCH_
-> Create and switch to new branch.
+> 创建并切换到新分支。
 
 **-t**, **--track**
-> Set up tracking for remote branch.
+> 为远程分支设置跟踪。
 
 **--** _FILE_
-> Restore file from index.
+> 从索引恢复文件。
 
 **-f**, **--force**
-> Force switch, discard changes.
+> 强制切换，丢弃更改。
 
 **-d**, **--detach**
-> Detach HEAD at the named commit instead of updating a branch.
+> 让 HEAD 分离到指定提交，而不是更新某个分支。
 
 **-p**, **--patch**
-> Interactively select hunks to restore from the index or tree.
+> 交互式选择要从索引或树中恢复的代码块。
 
 **-m**, **--merge**
-> Perform a 3-way merge between the current branch, your local changes, and the new branch.
+> 在当前分支、本地更改和新分支之间执行三方合并。
 
 **--orphan** _BRANCH_
-> Create orphan branch.
+> 创建孤儿分支。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git checkout** switches branches or restores files. It updates the working tree to match the specified branch, commit, or file version from history.
+**git checkout** 用于切换分支或恢复文件。它会将工作区更新为与指定的分支、提交或历史中的文件版本一致。
 
-The command serves multiple purposes: branch switching, branch creation with **-b**, file restoration with **--**, and detached HEAD operations. Since **Git 2.23**, the recommended approach is **git switch** for branches and **git restore** for files, which provide clearer separation of concerns.
+该命令有多种用途：切换分支、用 **-b** 创建分支、用 **--** 恢复文件，以及分离 HEAD 操作。自 **Git 2.23** 起，官方建议改用 **git switch** 切换分支、用 **git restore** 恢复文件，两者职责划分更清晰。
 
-Despite the newer alternatives, git checkout remains widely used for its versatility and is deeply embedded in existing workflows, documentation, and scripts.
+尽管有更新的替代命令，git checkout 因其多功能性仍被广泛使用，深深嵌入现有的工作流、文档和脚本之中。
 
 # CAVEATS
 
-Uncommitted changes may be lost with -f. Detached HEAD requires care. Consider git switch/restore for clarity.
+配合 -f 使用时未提交的更改可能丢失。分离 HEAD 状态需谨慎操作。为求语义清晰可考虑使用 git switch/restore。
 
 # HISTORY
 
-git checkout is an original **Git** command that combines several operations. **Git 2.23** introduced git switch and git restore as clearer alternatives.
+git checkout 是 **Git** 的原始命令之一，集多种操作于一身。**Git 2.23** 引入了职责更清晰的 git switch 和 git restore 作为替代。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Flask session cookie manipulation and cracking
+Flask 会话 cookie 的操作与破解
 
 # TLDR
 
-**Decode a Flask session cookie**
+**解码 Flask 会话 cookie**
 
 ```flask-unsign --decode --cookie "[cookie_value]"```
 
-**Brute force secret key**
+**暴力破解密钥**
 
 ```flask-unsign --unsign --cookie "[cookie]" --wordlist [wordlist.txt]```
 
-**Sign a cookie with known key**
+**用已知密钥签名 cookie**
 
 ```flask-unsign --sign --cookie "{'user':'admin'}" --secret "[key]"```
 
-**Fetch and decode** a cookie directly from a URL
+直接从 URL **获取并解码** cookie
 
 ```flask-unsign --decode --server https://[example.com]/```
 
-**Show cookie without verification**
+**不验证签名**直接显示 cookie
 
 ```flask-unsign --decode --cookie "[cookie]" --no-verify```
 
@@ -31,48 +31,48 @@ Flask session cookie manipulation and cracking
 # PARAMETERS
 
 **--decode**
-> Decode a session cookie and print its contents.
+> 解码会话 cookie 并打印其内容。
 
 **--unsign**
-> Brute-force the secret key from a signed session cookie.
+> 从已签名的会话 cookie 中暴力破解密钥。
 
 **--sign**
-> Sign a cookie value with a known secret key.
+> 用已知的密钥为 cookie 值签名。
 
 **--cookie** _value_
-> Session cookie value to operate on.
+> 要操作的会话 cookie 值。
 
 **--server** _url_
-> Automatically fetch the session cookie from the given URL.
+> 自动从给定 URL 获取会话 cookie。
 
 **--secret**, **-S** _key_
-> Secret key used to sign or verify a cookie.
+> 用于签名或校验 cookie 的密钥。
 
 **--wordlist** _file_
-> Wordlist file to use for brute-forcing the secret key.
+> 用于暴力破解密钥的字典文件。
 
 **--threads** _num_
-> Number of threads to use during brute-forcing.
+> 暴力破解期间使用的线程数。
 
 **--no-verify**
-> Skip signature verification when decoding.
+> 解码时跳过签名验证。
 
 **--salt** _salt_
-> Custom salt string (default: `cookie-session`).
+> 自定义盐值字符串（默认：`cookie-session`）。
 
 **--legacy**
-> Use the older itsdangerous signing algorithm for compatibility with older Flask apps.
+> 使用较旧的 itsdangerous 签名算法，以兼容旧版 Flask 应用。
 
 **--no-literal-eval**
-> Disable Python literal evaluation of wordlist entries.
+> 禁用对字典条目的 Python 字面量求值。
 
 # DESCRIPTION
 
-**Flask-unsign** is a security testing tool for analyzing and manipulating Flask session cookies. Flask stores session data in cryptographically signed cookies, and this tool can decode the contents, attempt to recover the secret key through brute-force attacks, and craft custom signed cookies.
+**Flask-unsign** 是一款用于分析和操作 Flask 会话 cookie 的安全测试工具。Flask 将会话数据存储在经过加密签名的 cookie 中，此工具可以解码其内容、通过暴力破解尝试恢复密钥，以及构造自定义的签名 cookie。
 
-The tool is primarily used in web application security assessments to test Flask applications for weak secret keys. If the secret key can be recovered, attackers could forge arbitrary session data, potentially leading to privilege escalation or authentication bypass vulnerabilities.
+该工具主要用于 Web 应用安全评估中测试 Flask 应用是否存在弱密钥问题。如果密钥被恢复，攻击者可以伪造任意会话数据，从而可能导致权限提升或身份验证绕过漏洞。
 
-Flask-unsign supports multithreaded brute-forcing, custom wordlists, and both encoding and decoding operations. It can work with sessions even when the signature verification fails, allowing inspection of tampered or expired cookies.
+Flask-unsign 支持多线程暴力破解、自定义字典以及编码和解码两种操作。即使签名验证失败它也能处理会话，便于检查被篡改或已过期的 cookie。
 
 # INSTALL
 
@@ -83,4 +83,3 @@ Flask-unsign supports multithreaded brute-forcing, custom wordlists, and both en
 # SEE ALSO
 
 [flask](/man/flask)(1), [hashcat](/man/hashcat)(1), [john](/man/john)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Debug gitignore patterns and ignored files
+调试 gitignore 模式与被忽略的文件
 
 # TLDR
 
-**Check if file is ignored**
+**检查文件是否被忽略**
 
 ```git check-ignore [file.txt]```
 
-**Show matching rule**
+**显示匹配到的规则**
 
 ```git check-ignore -v [file.txt]```
 
-**Check multiple files**
+**检查多个文件**
 
 ```git check-ignore [file1.txt] [file2.txt]```
 
-**Read paths from stdin**
+**从标准输入读取路径**
 
 ```echo "[path]" | git check-ignore --stdin```
 
-**Check all ignored files**
+**检查所有被忽略的文件**
 
 ```git check-ignore *```
 
@@ -31,52 +31,52 @@ Debug gitignore patterns and ignored files
 # PARAMETERS
 
 _PATHSPEC_
-> File paths to check.
+> 要检查的文件路径。
 
 **-v**, **--verbose**
-> Show source and pattern.
+> 显示来源和模式。
 
 **--stdin**
-> Read paths from stdin.
+> 从标准输入读取路径。
 
 **-z**
-> NUL-terminate output.
+> 以 NUL 字符结尾输出。
 
 **-n**, **--non-matching**
-> Show non-matching paths.
+> 显示未匹配的路径。
 
 **-q**, **--quiet**
-> Exit with status only.
+> 只以退出状态表示结果。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git check-ignore** debugs gitignore patterns. It reports whether paths are ignored and which pattern causes the ignore, helping troubleshoot gitignore rules.
+**git check-ignore** 用于调试 gitignore 模式。它报告路径是否被忽略，以及是哪条规则导致了忽略，帮助排查 gitignore 规则问题。
 
-The verbose mode (**-v**) shows the gitignore file, line number, and pattern responsible for ignoring a path. This is essential for debugging complex gitignore configurations with multiple .gitignore files at different directory levels.
+详细模式（**-v**）会显示导致路径被忽略的 gitignore 文件、行号和模式。对于在多个目录层级上分布着多个 .gitignore 文件的复杂配置，这一点至关重要。
 
-The **--non-matching** option combined with **-v** can also show why a file is _not_ being ignored, helping diagnose cases where files unexpectedly appear in git status output.
+将 **--non-matching** 选项与 **-v** 结合使用，还可以显示文件为何_没有_被忽略，有助于诊断文件意外出现在 git status 输出中的情况。
 
 # CONFIGURATION
 
 **.gitignore**
-> Pattern list specifying intentionally untracked files to ignore. Multiple .gitignore files can exist at different directory levels.
+> 指定要忽略的、有意不纳入跟踪文件的模式的列表。不同目录层级可以存在多个 .gitignore 文件。
 
 **~/.config/git/ignore**
-> User-level global ignore patterns applied to all repositories.
+> 用户级全局忽略模式，作用于所有仓库。
 
 **/etc/gitconfig**
-> System-wide core.excludesFile configuration pointing to global ignore file.
+> 系统级的 core.excludesFile 配置，指向全局忽略文件。
 
 # CAVEATS
 
-Only checks patterns, not actual files. Nested gitignore files have priority. Negation patterns can override ignores.
+只检查模式，不检查实际文件。嵌套的 gitignore 文件具有更高优先级。取反（negation）模式可以覆盖忽略规则。
 
 # HISTORY
 
-git check-ignore was added to **Git** to help debug gitignore rules, addressing common frustration with ignore pattern behavior.
+git check-ignore 被加入 **Git** 是为了帮助调试 gitignore 规则，解决忽略模式行为带来的常见困扰。
 
 # INSTALL
 

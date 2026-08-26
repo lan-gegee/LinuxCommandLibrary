@@ -1,30 +1,30 @@
 # TAGLINE
 
-personal and small-business financial accounting
+个人及小型企业财务记账软件
 
 # TLDR
 
-**Launch GnuCash**
+**启动 GnuCash**
 
 ```gnucash```
 
-**Open a specific file**
+**打开指定文件**
 
 ```gnucash [file.gnucash]```
 
-**Launch without loading last file**
+**启动时不加载上次的文件**
 
 ```gnucash --nofile```
 
-**Enable debugging mode**
+**启用调试模式**
 
 ```gnucash --debug```
 
-**Show version**
+**显示版本**
 
 ```gnucash --version```
 
-**Enable extra features**
+**启用额外功能**
 
 ```gnucash --extra```
 
@@ -35,40 +35,40 @@ personal and small-business financial accounting
 # PARAMETERS
 
 **-h**, **--help**
-> Show help message.
+> 显示帮助消息。
 
 **-v**, **--version**
-> Show GnuCash version.
+> 显示 GnuCash 版本。
 
 **--nofile**
-> Do not load last opened file.
+> 不加载上次打开的文件。
 
 **--debug**
-> Enable debugging mode.
+> 启用调试模式。
 
 **--extra**
-> Enable extra/development features.
+> 启用额外/开发功能。
 
 **--log** _arg_
-> Log level overrides (e.g., "modulename=debug").
+> 日志级别覆盖（如 "modulename=debug"）。
 
 **--logto** _file_
-> File to log into.
+> 日志写入的文件。
 
 **--help-gtk**
-> Show GTK options.
+> 显示 GTK 选项。
 
 # DESCRIPTION
 
-**GnuCash** is a personal and small-business financial accounting application. It supports double-entry bookkeeping, stock/bond/mutual fund accounts, scheduled transactions, and financial reports. **GnuCash** can import OFX, QIF, and CSV files and track income, expenses, bank accounts, and investments.
+**GnuCash** 是一款面向个人和小型企业的财务记账应用。它支持复式记账、股票/债券/共同基金账户、定期交易和财务报表。**GnuCash** 可以导入 OFX、QIF 和 CSV 文件，并跟踪收入、支出、银行账户和投资。
 
 # CONFIGURATION
 
 **~/.local/share/gnucash/**
-> User data directory containing saved reports, custom settings, and metadata.
+> 用户数据目录，包含保存的报表、自定义设置和元数据。
 
 **~/.config/gnucash/**
-> User configuration directory for preferences and UI state.
+> 用户配置目录，存放偏好设置和 UI 状态。
 
 # INSTALL
 

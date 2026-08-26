@@ -1,34 +1,34 @@
 # TAGLINE
 
-GLib resource file compiler
+GLib 资源文件编译器
 
 # TLDR
 
-**Compile resources** to a binary bundle
+**将资源编译**为二进制包
 
 ```glib-compile-resources [resources.gresource.xml]```
 
-**Compile with specific output** file
+**编译并指定输出**文件
 
 ```glib-compile-resources --target=[resources.gresource] [resources.gresource.xml]```
 
-**Generate C source code** instead of binary
+**生成 C 源代码**而非二进制
 
 ```glib-compile-resources --generate-source --target=[resources.c] [resources.gresource.xml]```
 
-**Generate C header file**
+**生成 C 头文件**
 
 ```glib-compile-resources --generate-header --target=[resources.h] [resources.gresource.xml]```
 
-**Specify source directory** for resource files
+**为资源文件指定源目录**
 
 ```glib-compile-resources --sourcedir=[path/to/resources] [resources.gresource.xml]```
 
-**Print dependencies** for build systems
+**为构建系统输出依赖列表**
 
 ```glib-compile-resources --generate-dependencies [resources.gresource.xml]```
 
-**Set C identifier prefix**
+**设置 C 标识符前缀**
 
 ```glib-compile-resources --c-name=[myapp] --generate-source [resources.gresource.xml]```
 
@@ -39,42 +39,42 @@ GLib resource file compiler
 # PARAMETERS
 
 **--target**=_TARGET_
-> Output file path. Defaults to basename of input with appropriate extension.
+> 输出文件路径。默认为输入文件的基本名加上相应的扩展名。
 
 **--sourcedir**=_DIR_
-> Directory containing resource files referenced in the XML.
+> XML 中引用的资源文件所在目录。
 
 **--generate-source**
-> Generate C source file instead of binary bundle.
+> 生成 C 源文件而非二进制资源包。
 
 **--generate-header**
-> Generate C header file for use with generated source.
+> 生成与生成的源码配套使用的 C 头文件。
 
 **--generate-dependencies**
-> Print list of referenced files to stdout.
+> 将引用文件的列表输出到 stdout。
 
 **--c-name**=_PREFIX_
-> Prefix for C identifiers in generated code.
+> 生成代码中 C 标识符的前缀。
 
 **--manual-register**
-> Generate manual register/unregister functions instead of auto-initialization.
+> 生成手动注册/注销函数，而非自动初始化。
 
 **--internal**
-> Generate internal symbols (not exported).
+> 生成内部符号（不导出）。
 
 # DESCRIPTION
 
-**glib-compile-resources** compiles application resources (images, UI files, CSS, icons, data) into binary bundles or C source for embedding in GLib/GTK applications. Resources are described in XML files (typically with .gresource.xml extension) that list files to include and optional preprocessing.
+**glib-compile-resources** 将应用程序资源（图片、UI 文件、CSS、图标、数据）编译为二进制包或 C 源码，以便嵌入 GLib/GTK 应用程序。资源在 XML 文件（通常以 .gresource.xml 为扩展名）中描述，其中列出要包含的文件及可选的预处理方式。
 
-The GResource system enables applications to access embedded resources through a virtual filesystem path (e.g., /org/myapp/data.txt) without external file dependencies. This simplifies deployment and improves load times.
+GResource 系统使应用程序能够通过虚拟文件系统路径（如 /org/myapp/data.txt）访问嵌入的资源，而无需依赖外部文件。这简化了部署并加快了加载速度。
 
 # CAVEATS
 
-Resource paths in the XML must match actual file locations relative to sourcedir. The xmllint tool may be required for XML preprocessing options. Large resources increase binary size significantly.
+XML 中的资源路径必须与相对于 sourcedir 的实际文件位置一致。使用 XML 预处理选项时可能需要 xmllint 工具。大型资源会显著增加二进制体积。
 
 # HISTORY
 
-glib-compile-resources was introduced with GLib 2.32 in **March 2012** as part of the GResource API. It replaced ad-hoc methods for embedding resources in GTK applications, providing a standardized approach that integrates with the GNOME build system.
+glib-compile-resources 随 GLib 2.32 于 **2012 年 3 月**推出，是 GResource API 的一部分。它取代了在 GTK 应用程序中嵌入资源的临时做法，提供了一种与 GNOME 构建系统集成的标准化方案。
 
 # INSTALL
 

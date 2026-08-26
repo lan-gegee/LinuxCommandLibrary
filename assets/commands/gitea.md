@@ -1,34 +1,34 @@
 # TAGLINE
 
-Self-hosted Git service with web interface
+带 Web 界面的自托管 Git 服务
 
 # TLDR
 
-**Start Gitea server**
+**启动 Gitea 服务器**
 
 ```gitea```
 
-**Start with config**
+**以指定配置启动**
 
 ```gitea --config [/etc/gitea/app.ini]```
 
-**Generate a secret key**
+**生成密钥**
 
 ```gitea generate secret [INTERNAL_TOKEN]```
 
-**Create admin user**
+**创建管理员用户**
 
 ```gitea admin user create --username [admin] --password [password] --email [admin@example.com] --admin```
 
-**Run health checks**
+**运行健康检查**
 
 ```gitea doctor check```
 
-**Dump full installation to an archive**
+**将完整安装转储为归档文件**
 
 ```gitea dump```
 
-**Run pending database migrations**
+**执行待处理的数据库迁移**
 
 ```gitea migrate```
 
@@ -39,71 +39,71 @@ Self-hosted Git service with web interface
 # PARAMETERS
 
 **web**
-> Start the web server.
+> 启动 Web 服务器。
 
 **admin**
-> Perform admin operations: manage users (**user**), auth sources (**auth**), or regenerate hooks/keys (**regenerate**).
+> 执行管理操作：管理用户（**user**）、认证源（**auth**），或重新生成钩子/密钥（**regenerate**）。
 
 **cert**
-> Generate a self-signed SSL certificate.
+> 生成自签名 SSL 证书。
 
 **doctor**
-> Diagnose and optionally repair problems with the installation (**check**, **recreate-table**).
+> 诊断并可选地修复安装问题（**check**、**recreate-table**）。
 
 **dump**
-> Export the full installation (database, repos, config, etc.) into a compressed archive.
+> 将完整安装（数据库、仓库、配置等）导出为压缩归档。
 
 **dump-repo** / **restore-repo**
-> Migrate repository data between Gitea instances.
+> 在 Gitea 实例之间迁移仓库数据。
 
 **generate**
-> Generate random secrets/tokens: `INTERNAL_TOKEN`, `JWT_SECRET`, `SECRET_KEY`, `LFS_JWT_SECRET`.
+> 生成随机密钥/令牌：`INTERNAL_TOKEN`、`JWT_SECRET`、`SECRET_KEY`、`LFS_JWT_SECRET`。
 
 **keys**
-> Provide the `AuthorizedKeysCommand` output used for SSHD integration.
+> 提供用于 SSHD 集成的 `AuthorizedKeysCommand` 输出。
 
 **manager**
-> Control a running instance: shutdown, restart, flush queues, adjust logging.
+> 控制正在运行的实例：关机、重启、刷新队列、调整日志。
 
 **migrate**
-> Run pending database migrations; typically run once before first startup.
+> 执行待处理的数据库迁移；通常在首次启动前运行一次。
 
 **-c**, **--config** _FILE_
-> Path to the configuration file (default `custom/conf/app.ini`).
+> 配置文件的路径（默认 `custom/conf/app.ini`）。
 
 **-w**, **--work-path** _PATH_
-> Gitea's base working directory.
+> Gitea 的基础工作目录。
 
 **-C**, **--custom-path** _PATH_
-> Path to the custom folder.
+> 自定义文件夹的路径。
 
 **--port** _PORT_
-> Server port (web command).
+> 服务器端口（web 命令）。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 **-h**, **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gitea** is a self-hosted Git service written in Go. It provides GitHub-like functionality including repositories, issues, pull requests, and CI/CD, all packaged in a single binary.
+**gitea** 是一个用 Go 编写的自托管 Git 服务。它提供类似 GitHub 的功能，包括仓库、议题、pull request 和 CI/CD，全部封装在单个二进制文件中。
 
-Gitea is lightweight and fast, suitable for personal or small team use. It supports OAuth, LDAP, and various database backends for enterprise deployments.
+Gitea 轻量快速，适合个人或小团队使用。它支持 OAuth、LDAP 以及多种数据库后端，可满足企业部署需求。
 
 # CONFIGURATION
 
 **/etc/gitea/app.ini**
-> Main configuration file controlling server settings, database, authentication, and repository defaults.
+> 主配置文件，控制服务器设置、数据库、身份验证和仓库默认值。
 
 # CAVEATS
 
-Requires configuration for production. Database setup needed. Reverse proxy recommended.
+生产环境需要进行配置。需要设置数据库。建议使用反向代理。
 
 # HISTORY
 
-Gitea was forked from **Gogs** in **2016**, becoming a community-driven project with active development and broader feature set.
+Gitea 于 **2016 年**从 **Gogs** 分叉而来，成为由社区驱动的项目，拥有活跃的开发和更丰富的功能集。
 
 # INSTALL
 

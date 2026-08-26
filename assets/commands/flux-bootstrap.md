@@ -1,18 +1,18 @@
 # TAGLINE
 
-Bootstrap Flux on a Kubernetes cluster using GitOps
+使用 GitOps 在 Kubernetes 集群上引导安装 Flux
 
 # TLDR
 
-**Bootstrap Flux** using a GitHub repository (personal account)
+使用 GitHub 仓库（个人账户）**引导安装 Flux**
 
 ```flux bootstrap github --owner [username] --repository [repo] --path [clusters/my-cluster] --personal```
 
-**Bootstrap using GitLab**
+**使用 GitLab 引导安装**
 
 ```flux bootstrap gitlab --owner [group] --repository [repo] --path [clusters/my-cluster]```
 
-**Bootstrap from a generic Git repository** over SSH
+通过 SSH **从通用 Git 仓库引导安装**
 
 ```flux bootstrap git --url ssh://git@example.com/repo.git --branch main --path ./clusters/my-cluster```
 
@@ -22,48 +22,48 @@ Bootstrap Flux on a Kubernetes cluster using GitOps
 
 # DESCRIPTION
 
-**flux bootstrap** installs Flux on a Kubernetes cluster by pushing the necessary manifests to a Git repository and configuring the cluster to sync from it. This establishes the GitOps control plane (source-controller, kustomize-controller, helm-controller, notification-controller, etc.).
+**flux bootstrap** 通过将必要的清单推送到 Git 仓库并配置集群从该仓库同步，从而在 Kubernetes 集群上安装 Flux。这会建立 GitOps 控制平面（source-controller、kustomize-controller、helm-controller、notification-controller 等）。
 
-It supports GitHub, GitLab, Gitea, Bitbucket Server, and generic Git repositories. The command creates the `flux-system` namespace, required secrets, and the initial GitRepository + Kustomization that keeps Flux itself up to date.
+它支持 GitHub、GitLab、Gitea、Bitbucket Server 以及通用 Git 仓库。该命令会创建 `flux-system` 命名空间、所需的 Secret，以及让 Flux 自身保持最新的初始 GitRepository + Kustomization。
 
-After bootstrap, the cluster is managed declaratively from Git.
+引导完成后，集群即可通过 Git 进行声明式管理。
 
 # PARAMETERS
 
-Common options across providers:
+各提供者通用的选项：
 
 **--owner** _name_
-> GitHub/GitLab owner or organization.
+> GitHub/GitLab 所有者或组织。
 
 **--repository** _name_
-> Name of the repository.
+> 仓库名称。
 
 **--path** _path_
-> Path within the repository where manifests live (e.g. `clusters/my-cluster`).
+> 清单在仓库中的路径（例如 `clusters/my-cluster`）。
 
 **--branch** _branch_
-> Git branch (default `main`).
+> Git 分支（默认 `main`）。
 
 **--personal**
-> Use a personal access token instead of an organization app.
+> 使用个人访问令牌而不是组织应用。
 
 **--private-key-file** _file_
-> Path to SSH private key.
+> SSH 私钥路径。
 
 **--components** _list_
-> Comma-separated list of components to install (default includes source, kustomize, helm, and notification controllers).
+> 要安装的组件列表（逗号分隔）（默认包括 source、kustomize、helm 和 notification 控制器）。
 
 **--components-extra** _list_
-> Additional components (e.g. `image-reflector-controller,image-automation-controller`).
+> 额外的组件（例如 `image-reflector-controller,image-automation-controller`）。
 
 **--token-auth**
-> Use a personal access token instead of an SSH deploy key.
+> 使用个人访问令牌而不是 SSH 部署密钥。
 
-Other provider-specific options exist (see `flux bootstrap --help`).
+还存在其他特定于提供者的选项（参见 `flux bootstrap --help`）。
 
 # CAVEATS
 
-Bootstrap requires a working `kubectl` context with cluster admin permissions and appropriate Git credentials. The repository must already exist (or be created by the command when using supported providers).
+引导过程需要一个具备集群管理员权限且可用的 `kubectl` 上下文，以及相应的 Git 凭据。仓库必须已存在（或者在使用受支持的提供者时由该命令创建）。
 
 # INSTALL
 

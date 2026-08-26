@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNU C++ compiler
+GNU C++ 编译器
 
 # TLDR
 
-**Compile C++ file**
+**编译 C++ 文件**
 
 ```g++ [source.cpp] -o [output]```
 
-**Compile with warnings**
+**带警告编译**
 
 ```g++ -Wall -Wextra [source.cpp] -o [output]```
 
-**Compile with optimization**
+**带优化编译**
 
 ```g++ -O2 [source.cpp] -o [output]```
 
-**Debug build**
+**调试构建**
 
 ```g++ -g [source.cpp] -o [output]```
 
-**Compile with C++** standard
+**按指定 C++ 标准编译**
 
 ```g++ -std=c++17 [source.cpp] -o [output]```
 
@@ -31,56 +31,56 @@ GNU C++ compiler
 # PARAMETERS
 
 _FILES_
-> Source files to compile.
+> 要编译的源文件。
 
 **-o** _FILE_
-> Output filename.
+> 输出文件名。
 
 **-c**
-> Compile only, no linking.
+> 仅编译，不链接。
 
 **-Wall**
-> Enable common warnings.
+> 启用常见警告。
 
 **-Wextra**
-> Enable additional warnings beyond -Wall.
+> 在 -Wall 之外启用更多警告。
 
 **-g**
-> Generate debug info.
+> 生成调试信息。
 
 **-O** _LEVEL_
-> Optimization level (0-3, s, fast).
+> 优化级别（0-3、s、fast）。
 
 **-std=**_STANDARD_
-> C++ standard (c++11, c++14, c++17, c++20, c++23).
+> C++ 标准（c++11、c++14、c++17、c++20、c++23）。
 
 **-I** _PATH_
-> Include path.
+> 头文件搜索路径。
 
 **-L** _PATH_
-> Library path.
+> 库搜索路径。
 
 **-l** _LIBRARY_
-> Link library.
+> 链接库。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**g++** is the GNU C++ compiler, part of the GNU Compiler Collection. It compiles C++ source code to executables or object files, supporting modern C++ standards.
+**g++** 是 GNU C++ 编译器，属于 GNU 编译器套件（GCC）。它将 C++ 源代码编译为可执行文件或目标文件，支持现代 C++ 标准。
 
-The compiler handles preprocessing, compilation, assembly, and linking. It provides extensive optimization options and warning controls for quality code production.
+编译器负责预处理、编译、汇编和链接全过程。它提供丰富的优化选项和警告控制，帮助产出高质量代码。
 
-g++ is the standard C++ compiler on Linux systems, supporting the full range of C++ language features.
+g++ 是 Linux 系统上的标准 C++ 编译器，支持完整的 C++ 语言特性。
 
 # CAVEATS
 
-Large codebases compile slowly. Template errors can be cryptic. Different standards have different feature sets.
+大型代码库编译较慢。模板错误信息可能难以理解。不同标准的特性集各不相同。
 
 # HISTORY
 
-g++ is part of **GCC** (GNU Compiler Collection), originally written by Richard Stallman. It evolved from the original GNU C Compiler to support multiple languages including C++.
+g++ 属于 **GCC**（GNU Compiler Collection），最初由 Richard Stallman 编写。它从最初的 GNU C 编译器演进而来，逐步支持包括 C++ 在内的多种语言。
 
 # INSTALL
 

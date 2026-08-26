@@ -1,14 +1,14 @@
 # TAGLINE
 
-List unpushed local commits
+列出尚未推送的本地提交
 
 # TLDR
 
-**Show local commits not pushed**
+**显示未推送的本地提交**
 
 ```git local-commits```
 
-**Show local commits with a graph**
+**以图形方式显示本地提交**
 
 ```git local-commits --graph```
 
@@ -19,17 +19,17 @@ List unpushed local commits
 # PARAMETERS
 
 _GIT-LOG-OPTIONS_
-> Any options accepted by **git log**; passed through unchanged.
+> **git log** 接受的任意选项；原样传递。
 
 # DESCRIPTION
 
-**git local-commits**, a git-extras command, lists commits on the current branch that haven't been pushed to its upstream tracking branch. It runs `git log @{upstream}..@`, so it requires HEAD to be tracking a remote branch. Any extra arguments are forwarded directly to `git log`, so flags like `--graph` or `--stat` work as expected.
+**git local-commits** 是一条 git-extras 命令，用于列出当前分支上尚未推送到其上游跟踪分支的提交。它运行 `git log @{upstream}..@`，因此要求 HEAD 正在跟踪一个远程分支。任何额外的参数都会直接转发给 `git log`，因此 `--graph` 或 `--stat` 等选项可以按预期工作。
 
-This provides a quick way to see what changes will be pushed before actually pushing them.
+这提供了一种在实际推送之前快速查看将要推送哪些改动的方式。
 
 # CAVEATS
 
-Requires the current branch to have an upstream set; otherwise Git reports an error about there being no upstream configured.
+要求当前分支已设置上游；否则 Git 会报错说没有配置上游。
 
 # INSTALL
 

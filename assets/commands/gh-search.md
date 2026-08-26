@@ -1,30 +1,30 @@
 # TAGLINE
 
-Search GitHub for repositories, code, issues, and more
+在 GitHub 上搜索仓库、代码、issue 等
 
 # TLDR
 
-**Search repositories**
+**搜索仓库**
 
 ```gh search repos [query]```
 
-**Search issues**
+**搜索 issues**
 
 ```gh search issues [query]```
 
-**Search pull requests**
+**搜索拉取请求**
 
 ```gh search prs [query]```
 
-**Search code**
+**搜索代码**
 
 ```gh search code [query]```
 
-**Search commits**
+**搜索提交**
 
 ```gh search commits [query]```
 
-**Search with filters**
+**使用过滤器搜索**
 
 ```gh search repos [query] --language [python] --stars "[>100]"```
 
@@ -35,60 +35,60 @@ Search GitHub for repositories, code, issues, and more
 # SUBCOMMANDS
 
 **repos**
-> Search repositories.
+> 搜索仓库。
 
 **issues**
-> Search issues.
+> 搜索 issues。
 
 **prs**
-> Search pull requests.
+> 搜索拉取请求。
 
 **code**
-> Search code.
+> 搜索代码。
 
 **commits**
-> Search commits.
+> 搜索提交。
 
 # PARAMETERS
 
 **--language** _lang_
-> Filter by programming language (repos, code, issues, prs).
+> 按编程语言过滤（repos、code、issues、prs）。
 
 **--stars** _range_
-> Filter by star count (repos only; e.g. `>100`).
+> 按 star 数量过滤（仅 repos；例如 `>100`）。
 
 **--owner** _user_
-> Filter by repository owner.
+> 按仓库所有者过滤。
 
 **--repo** _owner/repo_
-> Filter by repository (code, issues, prs, commits).
+> 按仓库过滤（code、issues、prs、commits）。
 
 **--topic** _topic_
-> Filter on topic (repos).
+> 按主题过滤（repos）。
 
 **--license** _key_
-> Filter based on license type (repos).
+> 按许可证类型过滤（repos）。
 
 **--sort** _field_
-> Sort fetched results (e.g. stars, forks, updated).
+> 对返回的结果排序（例如 stars、forks、updated）。
 
 **--order** _asc|desc_
-> Order of results (with --sort).
+> 结果排序方向（配合 --sort 使用）。
 
 **-L**, **--limit** _num_
-> Maximum number of results (default 30).
+> 结果数量上限（默认 30）。
 
 **--json** _fields_
-> Output JSON with the specified fields.
+> 输出包含指定字段的 JSON。
 
 **-w**, **--web**
-> Open search results in a browser.
+> 在浏览器中打开搜索结果。
 
 # DESCRIPTION
 
-**gh search** provides command-line access to GitHub's powerful search capabilities across repositories, code, issues, pull requests, and commits. It supports GitHub's full search syntax including qualifiers, filters, and boolean operators.
+**gh search** 在命令行中提供 GitHub 强大的搜索能力，可覆盖仓库、代码、issue、拉取请求和提交。它支持 GitHub 完整的搜索语法，包括限定符、过滤器和布尔运算符。
 
-Repository search enables finding projects by language, stars, topics, and other metadata. Code search indexes file contents across public repositories, useful for finding implementation examples. Issue and PR search support filtering by state, author, labels, and mentions.
+仓库搜索可按语言、star 数、主题和其他元数据查找项目。代码搜索会为公开仓库的文件内容建立索引，便于查找示例实现。Issue 与 PR 搜索支持按状态、作者、标签和提及进行过滤。
 
 # INSTALL
 

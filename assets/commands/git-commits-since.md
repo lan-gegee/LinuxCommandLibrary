@@ -1,22 +1,22 @@
 # TAGLINE
 
-List commits since a date
+列出某个日期以来的提交
 
 # TLDR
 
-**Show commits since yesterday**
+**显示昨天以来的提交**
 
 ```git commits-since yesterday```
 
-**Show commits since last week** (default when no date is given)
+**显示上周以来的提交**（未给日期时的默认行为）
 
 ```git commits-since "last week"```
 
-**Show commits since a specific date**
+**显示特定日期以来的提交**
 
 ```git commits-since "[2024-01-01]"```
 
-**Show commits since a relative time**
+**显示某个相对时间以来的提交**
 
 ```git commits-since "2 hours ago"```
 
@@ -26,11 +26,11 @@ List commits since a date
 
 # DESCRIPTION
 
-**git commits-since** is a convenience command from git-extras that displays commits made since a specified date. When invoked without arguments, it defaults to showing commits since "last week".
+**git commits-since** 是 git-extras 提供的便捷命令，用于显示自指定日期以来的提交。不带参数调用时，默认显示 "last week" 以来的提交。
 
-It accepts natural language date expressions like "yesterday", "last week", "2 hours ago", "3 o clock pm", or specific dates like "2024-01-01". The command wraps git log with appropriate date filtering, providing more readable output than manually constructing git log --since commands.
+它接受自然语言日期表达式，如 "yesterday"、"last week"、"2 hours ago"、"3 o clock pm"，也接受 "2024-01-01" 这样的具体日期。该命令封装了带日期过滤的 git log，比手动构造 git log --since 命令的输出更易读。
 
-This is particularly useful for stand-ups, weekly reviews, generating changelogs, or checking what changed since deploying a release.
+它特别适合每日站会、周报回顾、生成更新日志，或者查看某次发布部署以来有哪些变更。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ This is particularly useful for stand-ups, weekly reviews, generating changelogs
 # SEE ALSO
 
 [git-log](/man/git-log)(1), [git-extras](/man/git-extras)(1)
-

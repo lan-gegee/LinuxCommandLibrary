@@ -1,26 +1,26 @@
 # TAGLINE
 
-Copy files from index to working directory
+将索引中的文件复制到工作目录
 
 # TLDR
 
-**Copy all files to working tree**
+**将所有文件复制到工作区**
 
 ```git checkout-index -a```
 
-**Copy specific file**
+**复制特定文件**
 
 ```git checkout-index [file]```
 
-**Copy with force**
+**强制复制**
 
 ```git checkout-index -f [file]```
 
-**Copy to different directory**
+**复制到其他目录**
 
 ```git checkout-index --prefix=[dir/] -a```
 
-**Copy all including unmerged**
+**复制全部内容，包括未合并的文件**
 
 ```git checkout-index -a -f```
 
@@ -31,36 +31,36 @@ Copy files from index to working directory
 # PARAMETERS
 
 **-a**, **--all**
-> Check out all files.
+> 检出所有文件。
 
 **-f**, **--force**
-> Force overwrite.
+> 强制覆盖。
 
 **--prefix** _string_
-> Output prefix.
+> 输出前缀。
 
 **-u**, **--index**
-> Update stat information in the index file after checking out.
+> 检出后更新索引文件中的 stat 信息。
 
 **-n**, **--no-create**
-> Don't create new files, only refresh existing ones.
+> 不创建新文件，只刷新已有文件。
 
 **-z**
-> Separate input paths with NUL instead of newline (use with **--stdin**).
+> 输入路径用 NUL 而非换行符分隔（配合 **--stdin** 使用）。
 
 **--stdin**
-> Read the list of paths to check out from standard input.
+> 从标准输入读取要检出的路径列表。
 
 **--stage**=(_1_|_2_|_3_|_all_)
-> Copy out unmerged files from the given stage instead of the default.
+> 从指定 stage 复制未合并的文件，而不是默认值。
 
 # DESCRIPTION
 
-**git checkout-index** is a low-level plumbing command that copies files from Git's staging area (index) to the working directory. It provides fine-grained control over which index entries are materialized as working tree files.
+**git checkout-index** 是一个底层管道命令（plumbing），用于将 Git 暂存区（索引）中的文件复制到工作目录。它对哪些索引条目会被生成为工作区文件提供细粒度控制。
 
-Unlike the higher-level git checkout, this command operates purely on the index without switching branches or updating HEAD. It's primarily used in Git's internal operations and specialized scripts that need precise control over working tree population.
+与更高层的 git checkout 不同，该命令只操作索引本身，不切换分支也不更新 HEAD。它主要用于 Git 内部操作，以及需要精确控制工作区内容生成的专用脚本中。
 
-The --prefix option enables extracting the index to an alternate location, useful for creating clean checkouts or exporting specific versions. This command is essential for understanding Git's three-tree architecture (working directory, index, and HEAD) and how file state moves between them.
+--prefix 选项可将索引提取到另一个位置，适用于创建干净的检出或导出特定版本。要理解 Git 的三树架构（工作目录、索引和 HEAD）以及文件状态如何在三者之间流动，这个命令必不可少。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ The --prefix option enables extracting the index to an alternate location, usefu
 ```[Documentation](https://git-scm.com/docs/git-checkout-index)```
 
 <!-- verified: 2026-07-17 -->
-

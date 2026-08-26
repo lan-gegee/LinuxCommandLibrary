@@ -1,26 +1,26 @@
 # TAGLINE
 
-Move or rename tracked files
+移动或重命名已跟踪的文件
 
 # TLDR
 
-**Rename a file**
+**重命名文件**
 
 ```git mv [old-name.txt] [new-name.txt]```
 
-**Move file to directory**
+**移动文件到目录**
 
 ```git mv [file.txt] [directory/]```
 
-**Force overwrite**
+**强制覆盖**
 
 ```git mv -f [source] [destination]```
 
-**Move multiple files to a directory**
+**移动多个文件到目录**
 
 ```git mv [file1.txt] [file2.txt] [directory/]```
 
-**Dry run**
+**试运行**
 
 ```git mv -n [source] [destination]```
 
@@ -32,39 +32,39 @@ Move or rename tracked files
 # PARAMETERS
 
 _SOURCE_
-> File or directory to move.
+> 要移动的文件或目录。
 
 _DESTINATION_
-> Target path or directory.
+> 目标路径或目录。
 
 **-f**, **--force**
-> Force move/rename even if the destination exists.
+> 即使目标已存在也强制移动/重命名。
 
 **-k**
-> Skip move or rename actions that would lead to an error condition.
+> 跳过会导致错误条件的移动或重命名操作。
 
 **-n**, **--dry-run**
-> Show what would happen.
+> 显示将要执行的操作。
 
 **-v**, **--verbose**
-> Report moved files.
+> 报告被移动的文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git mv** moves or renames files and directories while updating the Git index. It is equivalent to moving the file with `mv`, deleting the old path with `git rm`, and adding the new path with `git add`.
+**git mv** 在更新 Git 索引的同时移动或重命名文件和目录。它等价于先用 `mv` 移动文件，再用 `git rm` 删除旧路径，最后用 `git add` 添加新路径。
 
-Using this command ensures the rename is properly staged for the next commit. While Git can detect renames automatically through content analysis, using `git mv` makes the intent explicit and updates the index in one step.
+使用该命令可以确保重命名被正确暂存以备下次提交。虽然 Git 可以通过内容分析自动检测重命名，但使用 `git mv` 能让意图更明确，并一步完成索引更新。
 
 # CAVEATS
 
-Actually a convenience wrapper. Git detects renames anyway. History follows content, not command.
+它实际上只是一个便捷封装。Git 反正能检测出重命名。历史跟随的是内容而非命令。
 
 # HISTORY
 
-git mv is a core **Git** command providing explicit rename/move tracking, though git can detect renames automatically through content analysis.
+git mv 是 **Git** 的核心命令，提供显式的重命名/移动跟踪；不过 Git 本身也能通过内容分析自动检测重命名。
 
 # INSTALL
 

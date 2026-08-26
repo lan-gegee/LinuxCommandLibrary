@@ -1,34 +1,34 @@
 # TAGLINE
 
-Switch between branches
+在分支之间切换
 
 # TLDR
 
-**Switch to branch**
+**切换到分支**
 
 ```git switch [branch]```
 
-**Create and switch**
+**创建并切换**
 
 ```git switch -c [new_branch]```
 
-**Switch to previous branch**
+**切换回上一个分支**
 
 ```git switch -```
 
-**Create from specific commit**
+**从指定提交创建**
 
 ```git switch -c [branch] [commit]```
 
-**Detach HEAD**
+**分离 HEAD**
 
 ```git switch --detach [commit]```
 
-**Force switch**
+**强制切换**
 
 ```git switch -f [branch]```
 
-**Create orphan branch**
+**创建孤立分支**
 
 ```git switch --orphan [branch]```
 
@@ -39,38 +39,38 @@ Switch between branches
 # PARAMETERS
 
 **-c**, **--create** _branch_
-> Create new branch.
+> 创建新分支。
 
 **-C**
-> Create or reset branch.
+> 创建或重置分支。
 
 **-d**, **--detach**
-> Detach HEAD.
+> 分离 HEAD。
 
 **--orphan** _branch_
-> Create orphan branch.
+> 创建孤立分支。
 
 **-f**, **--force**
-> Force switch.
+> 强制切换。
 
 **--guess**
-> Guess remote branch.
+> 猜测对应的远程分支。
 
 **--no-guess**
-> Don't guess remote.
+> 不猜测远程分支。
 
 **-t**, **--track**
-> Set up tracking.
+> 建立跟踪关系。
 
 # DESCRIPTION
 
-**git switch** changes the current branch. Introduced in Git 2.23 to provide a focused command for branch switching, separating this concern from `git checkout` which also handles file restoration.
+**git switch** 用于切换当前分支。它于 Git 2.23 引入，为分支切换提供了专一命令，把这一职责从同时负责文件恢复的 `git checkout` 中分离出来。
 
-Use `-c` to create a new branch and switch to it in one step, or `--detach` to move to a specific commit without being on any branch.
+用 `-c` 可以一步创建新分支并切换过去；用 `--detach` 可以移动到某个具体提交而不处于任何分支上。
 
 # CAVEATS
 
-Was marked experimental for several releases after its introduction; behavior has since stabilized, but check `git switch --help` on older Git installs for differences.
+引入后的几个版本中曾被标记为实验性；此后行为已趋于稳定，但在较旧的 Git 安装上请查阅 `git switch --help` 了解差异。
 
 # INSTALL
 

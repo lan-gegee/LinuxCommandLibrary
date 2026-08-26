@@ -1,30 +1,30 @@
 # TAGLINE
 
-Python CLI for the GitLab API
+GitLab API 的 Python 命令行客户端
 
 # TLDR
 
-**List projects**
+**列出项目**
 
 ```gitlab project list```
 
-**Create a project**
+**创建项目**
 
 ```gitlab project create --name "[name]"```
 
-**List merge requests for a project**
+**列出项目的合并请求**
 
 ```gitlab project-merge-request list --project-id [id]```
 
-**Create a merge request**
+**创建合并请求**
 
 ```gitlab project-merge-request create --project-id [id] --source-branch [feature] --target-branch [main] --title "[title]"```
 
-**Use YAML output**
+**使用 YAML 输出**
 
 ```gitlab -o yaml project list```
 
-**Use a specific GitLab instance from the config file**
+**使用配置文件中指定的 GitLab 实例**
 
 ```gitlab -g [instance-name] project list```
 
@@ -35,68 +35,68 @@ Python CLI for the GitLab API
 # OBJECTS
 
 **project**
-> Manage projects.
+> 管理项目。
 
 **project-merge-request**
-> Manage merge requests.
+> 管理合并请求。
 
 **project-issue**
-> Manage issues.
+> 管理议题。
 
 **user**
-> Manage users.
+> 管理用户。
 
 **group**
-> Manage groups.
+> 管理群组。
 
 **group-member** / **project-member**
-> Manage group/project membership.
+> 管理群组/项目成员。
 
 # PARAMETERS
 
 **--project-id** _id_
-> Project ID.
+> 项目 ID。
 
 **--name** _name_
-> Resource name.
+> 资源名称。
 
 **--title** _title_
-> Title.
+> 标题。
 
 **--source-branch** _branch_
-> Source branch.
+> 源分支。
 
 **--target-branch** _branch_
-> Target branch.
+> 目标分支。
 
 **-o**, **--output** _FORMAT_
-> Output format: `legacy` (default), `yaml`, or `json`.
+> 输出格式：`legacy`（默认）、`yaml` 或 `json`。
 
 **-f**, **--fields** _FIELDS_
-> Comma-separated list of fields to display.
+> 要显示字段的逗号分隔列表。
 
 **-c**, **--config-file** _FILE_
-> Use a specific configuration file instead of the default search path.
+> 使用指定的配置文件而非默认搜索路径。
 
 **-g**, **--gitlab** _NAME_
-> GitLab instance to use, as defined in the configuration file.
+> 要使用的 GitLab 实例，在配置文件中定义。
 
 **-v**, **--verbose**
-> Show detailed information about the retrieved object(s).
+> 显示所获取对象的详细信息。
 
 # DESCRIPTION
 
-**gitlab** is the python-gitlab CLI for interacting with the GitLab API. It manages projects, merge requests, issues, users, groups, and other GitLab resources from the command line.
+**gitlab** 是 python-gitlab 提供的 CLI，用于与 GitLab API 交互。它可在命令行中管理项目、合并请求、议题、用户、群组及其他 GitLab 资源。
 
-The tool follows an object-action pattern, where you specify the GitLab object type and the action to perform on it (e.g. `list`, `create`, `get`, `update`, `delete`).
+该工具遵循对象-动作模式：先指定 GitLab 对象类型，再指定对其执行的动作（例如 `list`、`create`、`get`、`update`、`delete`）。
 
 # CONFIGURATION
 
 **~/.python-gitlab.cfg**
-> User configuration file (INI format) containing GitLab instance URLs, private tokens, and default settings under a `[global]` section and one section per instance.
+> 用户配置文件（INI 格式），在 `[global]` 区块和每个实例各自的区块中保存 GitLab 实例 URL、私有令牌和默认设置。
 
 **/etc/python-gitlab.cfg**
-> System-wide configuration file, searched before the user config.
+> 系统级配置文件，查找顺序先于用户配置。
 
 # INSTALL
 

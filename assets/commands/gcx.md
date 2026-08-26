@@ -1,42 +1,42 @@
 # TAGLINE
 
-Grafana Cloud CLI optimized for agentic usage
+为智能体用法优化的 Grafana Cloud CLI
 
 # TLDR
 
-**Authenticate** to a Grafana Cloud or on-prem instance via browser OAuth
+**通过浏览器 OAuth 认证**到 Grafana Cloud 或本地部署实例
 
 ```gcx auth login --server [https://myorg.grafana.net]```
 
-**Run a PromQL** metrics query over the last hour
+**运行 PromQL** 指标查询，查询最近一小时的数据
 
 ```gcx metrics query '[rate(http_requests_total[5m])]' --since [1h]```
 
-**Run a LogQL** logs query against Loki
+**对 Loki 运行 LogQL** 日志查询
 
 ```gcx logs query '[{app="api"} |= "error"]' --since [30m]```
 
-**List alert rules** currently firing
+**列出当前正在告警的告警规则**
 
 ```gcx alert rules list --state [firing]```
 
-**Export dashboards and folders** to local YAML files
+**导出仪表盘和文件夹**到本地 YAML 文件
 
 ```gcx resources pull -p [./resources] -o [yaml]```
 
-**Validate and push** local resources back to Grafana
+**校验并将**本地资源推送回 Grafana
 
 ```gcx resources push -p [./resources] --on-error [abort]```
 
-**List Service Level** Objectives
+**列出服务级别目标**
 
 ```gcx slo definitions list```
 
-**Ask the Grafana Assistant** a question
+**向 Grafana Assistant 提问**
 
 ```gcx assistant prompt "[why is latency high on checkout?]"```
 
-**Generate shell completions**
+**生成 Shell 补全**
 
 ```gcx completion [bash]```
 
@@ -47,110 +47,110 @@ Grafana Cloud CLI optimized for agentic usage
 # PARAMETERS
 
 **auth login** **--server** _URL_
-> Start browser-based OAuth login against a Grafana instance.
+> 通过浏览器发起对 Grafana 实例的 OAuth 登录。
 
 **config set** _key value_
-> Set a configuration value (e.g. **contexts.my-grafana.grafana.token**).
+> 设置配置值（例如 **contexts.my-grafana.grafana.token**）。
 
 **config use-context** _name_
-> Switch the active configuration context.
+> 切换当前活动的配置上下文。
 
 **config check**
-> Verify the active authentication and connectivity.
+> 校验当前的身份验证和连接状态。
 
 **metrics query** _PROMQL_
-> Execute a PromQL query against Prometheus / Mimir.
+> 对 Prometheus / Mimir 执行 PromQL 查询。
 
 **logs query** _LOGQL_
-> Execute a LogQL query against Loki.
+> 对 Loki 执行 LogQL 查询。
 
 **traces query** _QUERY_
-> Query trace data from Tempo.
+> 从 Tempo 查询链路追踪数据。
 
 **profiles query** _QUERY_
-> Query profiling data from Pyroscope.
+> 从 Pyroscope 查询性能剖析数据。
 
 **alert rules list** [**--state** _STATE_]
-> Display alert rules and their state, health, and pause status.
+> 显示告警规则及其状态、健康度和暂停情况。
 
 **alert groups list**
-> Show alert groups.
+> 显示告警组。
 
 **resources pull** [**-p** _DIR_] [**-o** _FORMAT_]
-> Export dashboards, folders, and other resources to local files.
+> 将仪表盘、文件夹及其他资源导出为本地文件。
 
 **resources push** [**-p** _DIR_] [**--dry-run**] [**--on-error** _MODE_]
-> Deploy local resources back to Grafana.
+> 将本地资源部署回 Grafana。
 
 **resources delete**, **edit**, **validate**, **get**
-> Manage resources: remove, interactively modify, check, or list them.
+> 管理资源：删除、交互式修改、检查或列出。
 
 **slo definitions list**, **slo reports list**
-> Manage Service Level Objectives.
+> 管理服务级别目标。
 
 **synth checks list**, **synth probes list**
-> Synthetic monitoring checks and probes.
+> 合成监控的检查项与探测点。
 
 **irm oncall schedules list**, **irm incidents list**
-> Incident response and on-call management.
+> 事件响应与值班管理。
 
 **k6 load-tests list**, **k6 runs list**
-> Load testing with k6.
+> 使用 k6 进行负载测试。
 
 **fleet pipelines list**, **fleet collectors list**
-> Fleet management.
+> Fleet 管理。
 
 **kg status**, **kg search**, **kg entities show**
-> Grafana knowledge graph.
+> Grafana 知识图谱。
 
 **assistant investigations list**, **assistant prompt** _TEXT_
-> Drive the Grafana Assistant AI.
+> 驱动 Grafana Assistant AI。
 
 **frontend apps list**
-> Frontend observability.
+> 前端可观测性。
 
 **aio11y conversations list**, **aio11y agents list**
-> AI observability.
+> AI 可观测性。
 
 **dev scaffold**, **dev import**, **dev serve**, **dev lint**
-> Observability-as-code workflow: scaffold, import, live-reload, and lint.
+> 可观测性即代码工作流：脚手架生成、导入、热重载和 lint。
 
 **api** _PATH_
-> Raw passthrough to the Grafana HTTP API.
+> 直接透传调用 Grafana HTTP API。
 
 **skills list**, **skills install**
-> Show and deploy agent skill bundles.
+> 显示并部署智能体技能包。
 
 **completion** _SHELL_
-> Generate shell completions for bash, zsh, or fish.
+> 为 bash、zsh 或 fish 生成 Shell 补全。
 
 **--since** _DURATION_
-> Time window for queries (e.g. **1h**, **24h**).
+> 查询的时间窗口（例如 **1h**、**24h**）。
 
 **-o**, **--output** _FORMAT_
-> Output format: _json_ or _yaml_.
+> 输出格式：_json_ 或 _yaml_。
 
 **--dry-run**
-> Preview changes without applying them.
+> 预览更改而不实际应用。
 
 **--on-error** _MODE_
-> Error-handling strategy: _abort_, _fail_, or _ignore_.
+> 错误处理策略：_abort_、_fail_ 或 _ignore_。
 
 **-p** _PATH_
-> Resource directory used by _resources_ commands.
+> _resources_ 命令使用的资源目录。
 
 **-f** _FILE_
-> Input file for _resources_ commands.
+> _resources_ 命令使用的输入文件。
 
 # DESCRIPTION
 
-**gcx** is the official command-line interface for Grafana Cloud, with first-class support for querying signals (metrics, logs, traces, profiles), managing alert rules and SLOs, and performing observability-as-code workflows against dashboards and folders. It is designed to be usable both by humans and by agentic coding assistants that need structured access to production observability data.
+**gcx** 是 Grafana Cloud 的官方命令行界面，提供一流的信号查询支持（指标、日志、链路追踪、性能剖析），可管理告警规则和 SLO，并可针对仪表盘和文件夹执行可观测性即代码工作流。它既适合人类使用，也适合需要结构化访问生产可观测性数据的智能体编程助手。
 
-Each Grafana product has its own top-level command (**metrics**, **logs**, **traces**, **profiles**, **alert**, **slo**, **synth**, **irm**, **k6**, **fleet**, **assistant**, and so on), and resources can be exported to local YAML or JSON with **gcx resources pull** and pushed back with **gcx resources push**, enabling GitOps-style management of Grafana objects.
+每个 Grafana 产品都有自己的顶层命令（**metrics**、**logs**、**traces**、**profiles**、**alert**、**slo**、**synth**、**irm**、**k6**、**fleet**、**assistant** 等）。资源可以通过 **gcx resources pull** 导出为本地 YAML 或 JSON，再通过 **gcx resources push** 推送回去，从而实现 GitOps 风格的 Grafana 对象管理。
 
 # CONFIGURATION
 
-Configuration is stored in contexts that point at a Grafana server and an authentication token:
+配置存储在指向某个 Grafana 服务器和身份验证令牌的上下文（context）中：
 
 ```
 gcx config set contexts.my-grafana.grafana.server [https://your-instance.grafana.net]
@@ -158,15 +158,15 @@ gcx config set contexts.my-grafana.grafana.token [your-service-account-token]
 gcx config use-context [my-grafana]
 ```
 
-Environment variables **GRAFANA_SERVER**, **GRAFANA_TOKEN**, and **GRAFANA_CLOUD_TOKEN** are honored as well, which is convenient for CI. Use **gcx config check** to verify the active credentials.
+环境变量 **GRAFANA_SERVER**、**GRAFANA_TOKEN** 和 **GRAFANA_CLOUD_TOKEN** 同样会被识别，这在 CI 中非常方便。使用 **gcx config check** 可以校验当前凭据是否有效。
 
 # CAVEATS
 
-**gcx** supports Grafana Cloud, Grafana Enterprise, and Grafana OSS **12+**. Cloud-specific products (**slo**, **synth**, **irm**, parts of **fleet** and **kg**) require Grafana Cloud; feature availability varies by deployment type. Use service-account tokens rather than personal tokens for automation.
+**gcx** 支持 Grafana Cloud、Grafana Enterprise 以及 Grafana OSS **12+**。云专属产品（**slo**、**synth**、**irm** 以及 **fleet** 和 **kg** 的部分功能）需要 Grafana Cloud；功能可用性因部署类型而异。自动化场景应使用服务账号令牌而非个人令牌。
 
 # HISTORY
 
-**gcx** is published by **Grafana Labs** and is explicitly positioned as "optimized for agentic usage", closing the gap between AI coding tools that see only source code and production systems where the code actually runs.
+**gcx** 由 **Grafana Labs** 发布，明确定位为"为智能体用法优化"，弥合了只能看到源码的 AI 编程工具与代码实际运行的生产系统之间的鸿沟。
 
 # INSTALL
 

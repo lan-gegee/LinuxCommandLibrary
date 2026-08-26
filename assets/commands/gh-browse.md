@@ -1,38 +1,38 @@
 # TAGLINE
 
-open repository pages in web browser
+在网页浏览器中打开仓库页面
 
 # TLDR
 
-**Open repository in browser**
+**在浏览器中打开仓库**
 
 ```gh browse```
 
-**Open specific file**
+**打开特定文件**
 
 ```gh browse [path/to/file]```
 
-**Open at specific line**
+**打开到特定行**
 
 ```gh browse [path/to/file]:[line]```
 
-**Open a specific issue or PR** by number
+按编号**打开特定 issue 或 PR**
 
 ```gh browse [123]```
 
-**Open releases page**
+**打开发布页面**
 
 ```gh browse --releases```
 
-**Open specific branch**
+**打开特定分支**
 
 ```gh browse --branch [branch_name]```
 
-**Open a specific repository**
+**打开特定仓库**
 
 ```gh browse --repo [owner/repo]```
 
-**Print URL without opening**
+只打印 URL 不打开浏览器
 
 ```gh browse -n```
 
@@ -43,42 +43,42 @@ open repository pages in web browser
 # PARAMETERS
 
 **-a**, **--actions**
-> Open repository Actions page.
+> 打开仓库的 Actions 页面。
 
 **-b**, **--branch** _branch_
-> Select branch by name.
+> 按名称选择分支。
 
 **-c**, **--commit** _sha_
-> Select commit by SHA (defaults to the last commit).
+> 按 SHA 选择提交（默认为最近一次提交）。
 
 **-n**, **--no-browser**
-> Print URL instead of opening the browser.
+> 只打印 URL 而不打开浏览器。
 
 **-p**, **--projects**
-> Open repository projects.
+> 打开仓库的项目看板。
 
 **-r**, **--releases**
-> Open repository releases.
+> 打开仓库的发布页面。
 
 **-R**, **--repo** _[HOST/]OWNER/REPO_
-> Select another repository.
+> 选择其他仓库。
 
 **-s**, **--settings**
-> Open repository settings.
+> 打开仓库设置。
 
 **-w**, **--wiki**
-> Open repository wiki.
+> 打开仓库的 wiki。
 
 **--blame**
-> Open the blame view for a file.
+> 打开文件的 blame 视图。
 
 # DESCRIPTION
 
-**gh browse** opens the GitHub repository in a web browser. It intelligently navigates to specific repository pages, files, and even line numbers based on the arguments provided.
+**gh browse** 在网页浏览器中打开 GitHub 仓库。它能根据提供的参数智能跳转到特定的仓库页面、文件甚至行号。
 
-When run in a git repository, it automatically detects the GitHub remote and opens the corresponding page. The command supports opening various repository sections including issues, pull requests, wiki, settings, and releases. It can also navigate to specific files and line numbers, making it easy to share code references with others.
+在 git 仓库中运行时，它会自动检测 GitHub 远程地址并打开对应页面。该命令支持打开仓库的各种部分，包括 issues、pull requests、wiki、设置和发布页面。它还可以定位到特定文件和行号，便于与他人分享代码引用。
 
-The --no-browser flag allows printing URLs without opening them, useful for scripting and integration with other tools.
+--no-browser 标志允许只打印 URL 而不打开浏览器，方便脚本编写和与其他工具集成。
 
 # INSTALL
 
@@ -101,4 +101,3 @@ The --no-browser flag allows printing URLs without opening them, useful for scri
 # SEE ALSO
 
 [gh](/man/gh)(1), [gh-repo](/man/gh-repo)(1)
-

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Google Cloud authentication management
+Google Cloud 身份验证管理
 
 # TLDR
 
-**Login interactively**
+**交互式登录**
 
 ```gcloud auth login```
 
-**Activate service account**
+**激活服务账号**
 
 ```gcloud auth activate-service-account --key-file=[key.json]```
 
-**List accounts**
+**列出账号**
 
 ```gcloud auth list```
 
-**Print access token**
+**打印访问令牌**
 
 ```gcloud auth print-access-token```
 
-**Revoke credentials**
+**撤销凭据**
 
 ```gcloud auth revoke [account]```
 
@@ -31,50 +31,50 @@ Google Cloud authentication management
 # PARAMETERS
 
 _COMMAND_
-> Operation: login, list, revoke, etc.
+> 操作：login、list、revoke 等。
 
 **login**
-> Authenticate with user account.
+> 使用用户账号进行身份验证。
 
 **activate-service-account**
-> Authenticate with service account.
+> 使用服务账号进行身份验证。
 
 **list**
-> List authenticated accounts.
+> 列出已认证的账号。
 
 **print-access-token**
-> Output current access token.
+> 输出当前的访问令牌。
 
 **revoke** _ACCOUNT_
-> Revoke credentials.
+> 撤销凭据。
 
 **--key-file** _FILE_
-> Service account key file.
+> 服务账号密钥文件。
 
 **application-default**
-> Manage Application Default Credentials for local development and client libraries.
+> 管理用于本地开发和客户端库的默认应用凭据（ADC）。
 
 **configure-docker**
-> Register gcloud as a Docker credential helper for pushing/pulling to Artifact Registry and Container Registry.
+> 将 gcloud 注册为 Docker 凭据助手，用于推送/拉取 Artifact Registry 和 Container Registry 镜像。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud auth** manages authentication and authorization for Google Cloud Platform access. All gcloud operations require valid credentials, which this command group provides and maintains.
+**gcloud auth** 管理 Google Cloud Platform 访问的身份验证与授权。所有 gcloud 操作都需要有效凭据，这些凭据由该命令组提供和维护。
 
-For interactive use, the login command initiates a browser-based OAuth flow where you authenticate with your Google account. For automation and server environments, service accounts can be activated using JSON key files, providing non-interactive authentication suitable for CI/CD pipelines.
+交互式场景下，login 命令会发起基于浏览器的 OAuth 流程，用你的 Google 账号完成认证。自动化和服务器环境则可使用 JSON 密钥文件激活服务账号，提供适合 CI/CD 流水线的非交互式身份验证。
 
-The command supports multiple concurrent authenticated accounts, allowing you to switch between different Google accounts or between user accounts and service accounts. Only one account is active at a time, but switching is quick and preserves all credentials. Access tokens can be printed for use with external tools that need to authenticate to Google Cloud APIs.
+该命令支持多个并发认证账号，让你可以在不同 Google 账号之间、或在用户账号与服务账号之间切换。同一时刻只有一个账号处于活动状态，但切换很快且保留所有凭据。访问令牌可以打印出来，供需要向 Google Cloud API 认证的外部工具使用。
 
 # CAVEATS
 
-Browser required for user login. Service account keys are sensitive. Token expiration requires re-authentication.
+用户登录需要浏览器。服务账号密钥是敏感信息。令牌过期后需要重新认证。
 
 # HISTORY
 
-gcloud auth is part of the **Google Cloud SDK**, providing unified authentication management for all gcloud commands and GCP API access.
+gcloud auth 属于 **Google Cloud SDK**，为所有 gcloud 命令及 GCP API 访问提供统一的身份验证管理。
 
 # SEE ALSO
 

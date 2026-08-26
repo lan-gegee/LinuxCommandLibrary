@@ -1,18 +1,18 @@
 # TAGLINE
 
-garbage collects untagged images
+垃圾回收无标签的镜像
 
 # TLDR
 
-**Garbage collect untagged images**
+**垃圾回收无标签的镜像**
 
 ```gcrane gc [gcr.io/project/repo]```
 
-**Dry run**
+**试运行**
 
 ```gcrane gc --dry-run [gcr.io/project/repo]```
 
-**Garbage collect with grace period**
+**带宽限期进行垃圾回收**
 
 ```gcrane gc --grace [24h] [gcr.io/project/repo]```
 
@@ -23,16 +23,16 @@ garbage collects untagged images
 # PARAMETERS
 
 **--dry-run**
-> Show what would be deleted.
+> 显示将被删除的内容。
 
 **--grace** _duration_
-> Keep images newer than duration.
+> 保留比指定时长更新的镜像。
 
 # DESCRIPTION
 
-**gcrane gc** identifies untagged container images in Google Container Registry or Artifact Registry that are candidates for garbage collection. These orphaned images typically result from retagging or deleting tags, leaving unreferenced manifests that consume storage.
+**gcrane gc** 在 Google Container Registry 或 Artifact Registry 中找出可作为垃圾回收候选的无标签容器镜像。这些孤立镜像通常由重新打标签或删除标签产生，留下占用存储空间的未被引用的清单（manifest）。
 
-The command lists image digests that have no associated tags. It does not delete images directly; output should be piped to gcrane delete for actual removal. The grace period option protects recently created images from accidental deletion. Dry run mode shows what would be deleted without making changes, allowing safe preview before cleanup operations.
+该命令列出没有关联标签的镜像摘要（digest）。它不会直接删除镜像；输出应通过管道传给 gcrane delete 来实际执行删除。宽限期选项可保护最近创建的镜像不被误删。试运行模式在不做任何更改的情况下显示将被删除的内容，便于在清理前安全预览。
 
 # INSTALL
 
@@ -51,4 +51,3 @@ The command lists image digests that have no associated tags. It does not delete
 ```[Source code](https://github.com/google/go-containerregistry)```
 
 <!-- verified: 2026-07-15 -->
-

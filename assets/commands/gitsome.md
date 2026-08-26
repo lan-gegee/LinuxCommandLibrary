@@ -1,26 +1,26 @@
 # TAGLINE
 
-Enhanced Git/GitHub shell with auto-completion
+带自动补全的增强版 Git/GitHub Shell
 
 # TLDR
 
-**Start gitsome shell**
+**启动 gitsome shell**
 
 ```gitsome```
 
-**View GitHub feed**
+**查看 GitHub 动态**
 
 ```gh feed```
 
-**View trending repos**
+查看热门仓库
 
 ```gh trending [python]```
 
-**Search repos**
+**搜索仓库**
 
 ```gh search-repos [query]```
 
-**View user**
+**查看用户**
 
 ```gh user [username]```
 
@@ -30,17 +30,17 @@ Enhanced Git/GitHub shell with auto-completion
 
 # DESCRIPTION
 
-**gitsome** is a supercharged Git/GitHub command line interface. It provides an enhanced shell with GitHub integration, auto-completion, and syntax highlighting.
+**gitsome** 是一个功能增强的 Git/GitHub 命令行界面。它提供集成 GitHub 的增强 shell，具备自动补全和语法高亮。
 
-The tool combines Git commands with GitHub features like viewing feeds, trending repos, and notifications. It offers extensive auto-completion for Git commands and GitHub interactions, all within a customized shell environment.
+该工具将 Git 命令与 GitHub 功能相结合，例如查看动态、热门仓库和通知。它为 Git 命令和 GitHub 交互提供丰富的自动补全，全部封装在一个定制的 shell 环境中。
 
 # CAVEATS
 
-Python tool (installed via `pip3 install gitsome`, requires Python 3.4-3.7). GitHub features need authentication via `gh configure`. The `gh` command it provides is unrelated to GitHub's official `gh` CLI and conflicts with it if both are installed. The project has seen little maintenance since its last release (0.8.0, 2019).
+Python 工具（通过 `pip3 install gitsome` 安装，需要 Python 3.4-3.7）。GitHub 功能需要通过 `gh configure` 完成身份验证。它提供的 `gh` 命令与 GitHub 官方 `gh` CLI 无关，若两者都安装会产生冲突。该项目自上次发布（0.8.0，2019 年）以来几乎没有维护。
 
 # HISTORY
 
-gitsome was created by **Donne Martin**, built on the xonsh shell, to provide an enhanced command line experience for Git and GitHub users with autocompletion and integrated GitHub feeds.
+gitsome 由 **Donne Martin** 创建，构建于 xonsh shell 之上，旨在通过自动补全和集成的 GitHub 动态为 Git 和 GitHub 用户带来增强的命令行体验。
 
 # SEE ALSO
 

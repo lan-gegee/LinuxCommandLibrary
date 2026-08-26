@@ -1,26 +1,26 @@
 # TAGLINE
 
-Generate highly customizable changelogs from commits
+从提交记录生成高度可定制的更新日志
 
 # TLDR
 
-**Generate changelog**
+**生成更新日志**
 
 ```git cliff```
 
-**Generate since tag**
+**从指定标签开始生成**
 
 ```git cliff --tag [v1.0.0]```
 
-**Output to file**
+**输出到文件**
 
 ```git cliff -o CHANGELOG.md```
 
-**Preview unreleased**
+**预览未发布内容**
 
 ```git cliff --unreleased```
 
-**Custom config**
+**自定义配置**
 
 ```git cliff --config [cliff.toml]```
 
@@ -31,61 +31,61 @@ Generate highly customizable changelogs from commits
 # PARAMETERS
 
 **-o** _FILE_, **--output** _FILE_
-> Output file.
+> 输出文件。
 
 **--tag** _TAG_
-> Process commits until tag.
+> 处理到指定标签为止的提交。
 
 **--unreleased**
-> Only process unreleased commits.
+> 只处理未发布的提交。
 
 **-l**, **--latest**
-> Process commits starting from the latest tag.
+> 从最新标签开始处理提交。
 
 **--bump**
-> Bump the version for the unreleased changes based on conventional commits.
+> 基于 conventional commits 规范为未发布的更改递增版本号。
 
 **-c** _FILE_, **--config** _FILE_
-> Configuration file.
+> 配置文件。
 
 **-w** _DIR_, **--workdir** _DIR_
-> Run as if git-cliff was started in the given directory.
+> 以给定目录作为启动目录运行 git-cliff。
 
 **--prepend** _FILE_
-> Prepend to existing file.
+> 追加到现有文件的开头。
 
 **--context**
-> Print template context.
+> 打印模板上下文。
 
 **--init**
-> Generate a default configuration file.
+> 生成默认配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git cliff** generates changelogs from git history using conventional commit conventions. It parses commit messages to categorize changes and produces formatted output.
+**git cliff** 遵循 conventional commit 规范从 git 历史生成更新日志。它解析提交信息以归类变更，并产生格式化的输出。
 
-The tool is highly configurable through TOML files, supporting custom Tera templates, commit groups, scope-based filtering, and conditional sections. It integrates with CI/CD pipelines for automated release documentation.
+该工具可通过 TOML 文件高度定制，支持自定义 Tera 模板、提交分组、基于 scope 的过滤以及条件小节。它可以集成到 CI/CD 流水线中自动生成发布文档。
 
-git cliff supports conventional commits, Angular-style commits, and custom parsing rules, producing professional changelogs in Markdown, AsciiDoc, or custom template formats.
+git cliff 支持 conventional commits、Angular 风格的提交以及自定义解析规则，能产出 Markdown、AsciiDoc 或自定义模板格式的专业更新日志。
 
 # CONFIGURATION
 
 **cliff.toml**
-> Configuration file defining commit parsing rules, grouping logic, filtering patterns, and output templates using Tera template syntax.
+> 配置文件，定义提交解析规则、分组逻辑、过滤模式，以及采用 Tera 模板语法的输出模板。
 
 **~/.config/git-cliff/cliff.toml**
-> User-level default configuration for git-cliff settings.
+> 用户级的 git-cliff 默认配置。
 
 # CAVEATS
 
-Works best with conventional commits. Requires configuration for custom formats. Template customization needs Tera syntax knowledge.
+配合 conventional commits 使用效果最佳。自定义格式需要配置。模板定制需要了解 Tera 语法。
 
 # HISTORY
 
-git cliff was created by **Orhun Parmaksiz** as a highly customizable changelog generator, written in Rust for performance.
+git cliff 由 **Orhun Parmaksiz** 创建，是一个高度可定制的更新日志生成器，用 Rust 编写以保证性能。
 
 # INSTALL
 

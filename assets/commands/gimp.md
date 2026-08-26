@@ -1,26 +1,26 @@
 # TAGLINE
 
-Open-source image editor for photo retouching and graphic design
+用于照片修饰和图形设计的开源图像编辑器
 
 # TLDR
 
-**Start GIMP**
+**启动 GIMP**
 
 ```gimp```
 
-**Open an image**
+**打开一张图片**
 
 ```gimp [image.png]```
 
-**Open multiple images**
+**打开多张图片**
 
 ```gimp [image1.png] [image2.jpg]```
 
-**Run in batch mode without UI**
+**以无界面的批处理模式运行**
 
 ```gimp -i -b '(gimp-quit 0)'```
 
-**Start without splash**
+**启动时不显示启动画面**
 
 ```gimp --no-splash```
 
@@ -31,59 +31,59 @@ Open-source image editor for photo retouching and graphic design
 # PARAMETERS
 
 _FILES_
-> Image files to open.
+> 要打开的图像文件。
 
 **-b** _COMMAND_, **--batch** _COMMAND_
-> Run batch command non-interactively. May appear multiple times.
+> 以非交互方式运行批处理命令。可多次出现。
 
 **--batch-interpreter** _PROC_
-> Procedure to process batch commands (default: Script-Fu).
+> 处理批处理命令的解释过程（默认：Script-Fu）。
 
 **-n**, **--new-instance**
-> Start new instance.
+> 启动新实例。
 
 **-i**, **--no-interface**
-> Run without UI (for batch mode).
+> 无界面运行（用于批处理模式）。
 
 **--no-splash**
-> Don't show splash screen.
+> 不显示启动画面。
 
 **-d**, **--no-data**
-> Don't load patterns, gradients, or brushes.
+> 不加载图案、渐变或画笔。
 
 **-f**, **--no-fonts**
-> Don't load fonts.
+> 不加载字体。
 
 **--verbose**
-> Show detailed startup messages.
+> 显示详细的启动消息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gimp** (GNU Image Manipulation Program) is a powerful open-source image editor. It provides tools for photo retouching, image composition, and image authoring, supporting numerous file formats.
+**gimp**（GNU Image Manipulation Program）是一个功能强大的开源图像编辑器。它提供照片修饰、图像合成和图像创作工具，支持众多文件格式。
 
-GIMP features layers, masks, filters, color adjustments, and drawing tools. It supports scripting through Script-Fu and Python for automation. The plugin architecture enables extensive customization.
+GIMP 具备图层、蒙版、滤镜、色彩调整和绘图工具等特性。它支持通过 Script-Fu 和 Python 进行脚本化自动化。插件架构使其可以深度定制扩展。
 
 # CONFIGURATION
 
-**~/.config/GIMP/3.0/** (or **~/.config/GIMP/2.10/**)
-> User configuration directory, versioned per major release.
+**~/.config/GIMP/3.0/**（或 **~/.config/GIMP/2.10/**）
+> 用户配置目录，按主版本分别存放。
 
 **gimprc**
-> Main configuration file containing preferences and tool settings.
+> 主配置文件，包含首选项和工具设置。
 
 **sessionrc**
-> Session configuration storing window positions and dialog states.
+> 会话配置，保存窗口位置和对话框状态。
 
 # CAVEATS
 
-GTK application requires graphical environment. Large images can be memory-intensive. Plugin compatibility varies by version.
+作为 GTK 应用需要图形环境。处理大图片可能消耗较多内存。插件兼容性因版本而异。
 
 # HISTORY
 
-GIMP was started by **Spencer Kimball** and **Peter Mattis** in **1995** at UC Berkeley. It became a GNU project and remains one of the most popular open-source graphics applications. **GIMP 3.0** was released in **2025** with GTK3 support and non-destructive editing.
+GIMP 由 **Spencer Kimball** 和 **Peter Mattis** 于 **1995 年**在加州大学伯克利分校发起。它后来成为 GNU 项目的一员，至今仍是最流行的开源图形应用之一。**GIMP 3.0** 于 **2025 年**发布，带来 GTK3 支持和非破坏性编辑。
 
 # INSTALL
 

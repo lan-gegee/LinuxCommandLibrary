@@ -1,22 +1,22 @@
 # TAGLINE
 
-AI-powered command suggestions and explanations
+AI 驱动的命令建议与解释工具
 
 # TLDR
 
-**Ask Copilot a question**
+**向 Copilot 提问**
 
 ```gh copilot suggest "[how to find large files]"```
 
-**Explain a command**
+**解释一条命令**
 
 ```gh copilot explain "[git rebase -i HEAD~3]"```
 
-**Get shell command suggestions**
+**获取 shell 命令建议**
 
 ```gh copilot suggest -t shell "[task description]"```
 
-**Get gh CLI suggestions**
+**获取 gh CLI 建议**
 
 ```gh copilot suggest -t gh "[task description]"```
 
@@ -27,30 +27,30 @@ AI-powered command suggestions and explanations
 # SUBCOMMANDS
 
 **suggest**
-> Get command suggestions.
+> 获取命令建议。
 
 **explain**
-> Explain a command.
+> 解释一条命令。
 
 **config**
-> Configure Copilot.
+> 配置 Copilot。
 
 # PARAMETERS
 
 **-t**, **--target** _type_
-> Target type (shell, gh, git).
+> 目标类型（shell、gh、git）。
 
 # DESCRIPTION
 
-**gh copilot** provides AI-powered assistance using GitHub Copilot for the command line. It helps users discover and understand commands through natural language interactions.
+**gh copilot** 借助 GitHub Copilot 为命令行提供 AI 辅助。它通过自然语言交互帮助用户发现和理解命令。
 
-The suggest subcommand generates shell, git, or gh commands based on task descriptions, making it easier to find the right command syntax. The explain subcommand breaks down complex commands into understandable explanations, helping users learn what commands do before executing them.
+suggest 子命令根据任务描述生成 shell、git 或 gh 命令，更容易找到正确的命令语法。explain 子命令把复杂命令拆解成易于理解的说明，帮助用户在执行前弄清命令的作用。
 
-This integration brings GitHub Copilot's AI capabilities directly into the terminal workflow, requiring an active GitHub Copilot subscription.
+这一集成将 GitHub Copilot 的 AI 能力直接带入终端工作流，需要有效的 GitHub Copilot 订阅。
 
 # CAVEATS
 
-Deprecated. The **gh copilot** extension was archived in **October 2025** in favor of the standalone, agentic **GitHub Copilot CLI** (invoked as **copilot**). Existing installations still work, but new users should install the replacement instead.
+已弃用。**gh copilot** 扩展于 **2025 年 10 月**归档，被独立的智能体型 **GitHub Copilot CLI**（命令名为 **copilot**）取代。现有安装仍可使用，但新用户应改用替代品。
 
 # INSTALL
 
@@ -81,4 +81,3 @@ Deprecated. The **gh copilot** extension was archived in **October 2025** in fav
 ```[Documentation](https://docs.github.com/copilot/github-copilot-in-the-cli)```
 
 <!-- verified: 2026-07-15 -->
-

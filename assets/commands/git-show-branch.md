@@ -1,26 +1,26 @@
 # TAGLINE
 
-Show branches and their commits with relationship indicators
+显示分支及其提交的关系指示
 
 # TLDR
 
-**Show branch relationships**
+**显示分支关系**
 
 ```git show-branch```
 
-**Show specific branches**
+**显示指定分支**
 
 ```git show-branch [branch1] [branch2]```
 
-**Show all branches**
+**显示所有分支**
 
 ```git show-branch --all```
 
-**Show with more context**
+**显示更多上下文**
 
 ```git show-branch --more=[10]```
 
-**Show with color**
+**带颜色显示**
 
 ```git show-branch --color```
 
@@ -31,31 +31,31 @@ Show branches and their commits with relationship indicators
 # PARAMETERS
 
 **-a**, **--all**
-> Show all refs.
+> 显示所有引用。
 
 **-r**, **--remotes**
-> Show remote branches.
+> 显示远程分支。
 
 **--more** _n_
-> Show more commits.
+> 显示更多提交。
 
 **--list**
-> List mode.
+> 列表模式。
 
 **--topo-order**
-> Topological order.
+> 拓扑顺序。
 
 **--date-order**
-> Date order.
+> 日期顺序。
 
 **--color**
-> Color output.
+> 彩色输出。
 
 # DESCRIPTION
 
-**git show-branch** displays branches and their commits with visual indicators showing which commits belong to which branches. It provides a compact overview of branch divergence and shared history.
+**git show-branch** 显示各分支及其提交，并用直观的标记指示哪些提交属于哪些分支。它以紧凑的方式呈现分支的分叉情况和共享历史。
 
-This is useful for understanding how branches relate to each other, especially when multiple branches share common ancestors.
+当你想了解分支之间的相互关系时它很有用，尤其是多个分支共享共同祖先的时候。
 
 # INSTALL
 

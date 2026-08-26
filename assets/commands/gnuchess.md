@@ -1,34 +1,34 @@
 # TAGLINE
 
-GNU Chess engine
+GNU Chess 国际象棋引擎
 
 # TLDR
 
-**Start an interactive chess game**
+**开始交互式国际象棋对局**
 
 ```gnuchess```
 
-**Play in two-player mode** (user vs user)
+以**双人模式**对弈（用户对用户）
 
 ```gnuchess -u```
 
-**Play in easy mode** (no pondering)
+以**简单模式**对弈（不进行后台思考）
 
 ```gnuchess -e```
 
-**Load a game from a PGN file**
+**从 PGN 文件加载对局**
 
 ```gnuchess -l [game.pgn]```
 
-**Set search depth level**
+**设置搜索深度级别**
 
 ```gnuchess -S [5]```
 
-**Run as UCI engine**
+**作为 UCI 引擎运行**
 
 ```gnuchess --uci```
 
-**Run as XBoard engine**
+**作为 XBoard 引擎运行**
 
 ```gnuchess --xboard```
 
@@ -39,37 +39,37 @@ GNU Chess engine
 # PARAMETERS
 
 **-h**, **--help**
-> Display usage help.
+> 显示用法帮助。
 
 **-v**, **--version**
-> Display version information.
+> 显示版本信息。
 
 **-u**
-> Two-player mode (user vs user).
+> 双人模式（用户对用户）。
 
 **-e**
-> Easy mode. The engine does not think during the opponent's turn.
+> 简单模式。引擎在对手回合期间不思考。
 
 **-l** _PGNFILE_, **--load** _PGNFILE_
-> Load game from a PGN file.
+> 从 PGN 文件加载对局。
 
 **-S** _LEVEL_, **--setlevel** _LEVEL_
-> Set search depth level (1-10).
+> 设置搜索深度级别（1-10）。
 
 **--xboard**, **-x**
-> XBoard/WinBoard engine protocol mode.
+> XBoard/WinBoard 引擎协议模式。
 
 **--uci**
-> UCI engine protocol mode.
+> UCI 引擎协议模式。
 
 **--post**, **-p**
-> Show engine thinking output.
+> 显示引擎的思考过程输出。
 
 **--manual**, **-m**
-> Manual mode. The engine does not play until told to.
+> 手动模式。引擎在被指示之前不会行棋。
 
 **-M** _SIZE_, **--memory** _SIZE_
-> Set hash table memory size in MB.
+> 设置哈希表内存大小（MB）。
 
 # PREVIEW
 
@@ -84,17 +84,17 @@ GNU Chess engine
 
 # DESCRIPTION
 
-**gnuchess** is a free chess-playing program that can be used as a standalone interactive chess game or as a backend engine for graphical chess frontends like **XBoard** or **GNOME Chess**. It supports both the **XBoard** and **UCI** communication protocols.
+**gnuchess** 是一个自由的国际象棋程序，既可以作为独立的交互式对弈游戏，也可以作为 **XBoard** 或 **GNOME Chess** 等图形棋类前端的引擎后端。它同时支持 **XBoard** 和 **UCI** 通信协议。
 
-In interactive mode, enter moves in algebraic notation (e.g. e2e4, Nf3). Type **help** for a list of commands. The engine includes an opening book and uses alpha-beta search with iterative deepening.
+在交互模式下，以代数记法输入着法（如 e2e4、Nf3）。输入 **help** 可查看命令列表。该引擎内置开局库，使用带迭代加深的 alpha-beta 搜索。
 
 # CAVEATS
 
-The default opening book may not be installed on all systems. Engine strength depends on the search depth and available memory for hash tables.
+默认开局库未必在所有系统上都已安装。棋力取决于搜索深度和可用于哈希表的内存大小。
 
 # HISTORY
 
-GNU Chess was first written by **Stuart Cracraft** in **1984**, making it one of the earliest programs in the GNU Project. It has been maintained by numerous contributors over the decades and remains one of the most well-known free software chess engines.
+GNU Chess 由 **Stuart Cracraft** 于 **1984** 年首次编写，是 GNU 计划中最早的程序之一。几十年来由众多贡献者维护，至今仍是最著名的自由软件象棋引擎之一。
 
 # INSTALL
 
@@ -113,4 +113,3 @@ GNU Chess was first written by **Stuart Cracraft** in **1984**, making it one of
 # SEE ALSO
 
 [nbcheckers](/man/nbcheckers)(1), [gnugo](/man/gnugo)(1)
-

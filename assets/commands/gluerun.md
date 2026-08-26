@@ -1,30 +1,30 @@
 # TAGLINE
 
-Orchestration engine for parallel AI coding agents
+并行 AI 编程智能体的编排引擎
 
 # TLDR
 
-**Scaffold** configuration and documentation in the current repository
+在当前仓库中**搭建初始配置与文档**
 
 ```gluerun init```
 
-**Validate** dependencies and repository configuration
+**校验**依赖和仓库配置
 
 ```gluerun doctor```
 
-**Run one orchestration cycle** (import, recover, integrate, dispatch, snapshot)
+**运行一个编排周期**（import、recover、integrate、dispatch、snapshot）
 
 ```gluerun reconcile --actuate```
 
-**Execute a single task** through the agent pipeline
+**通过智能体流水线执行单个任务**
 
 ```gluerun drive [TASK-0001]```
 
-**Run the autonomy loop** within a wall-clock budget
+在限定时间内**运行自治循环**
 
 ```gluerun auto```
 
-**Pin** a specific engine version
+**固定**特定的引擎版本
 
 ```gluerun update [version]```
 
@@ -34,37 +34,37 @@ Orchestration engine for parallel AI coding agents
 
 # DESCRIPTION
 
-**gluerun** is an orchestration engine that coordinates multiple AI coding agents to work in parallel on a software repository. It implements a multi-tier scheduling model with lease management, audit workflows, and isolated execution using **git worktrees** so that concurrent agents do not interfere with each other.
+**gluerun** 是一个编排引擎，用于协调多个 AI 编程智能体在同一个软件仓库上并行工作。它实现了一个多层级调度模型，包含租约管理、审计工作流，并通过 **git worktrees** 进行隔离执行，使并发运行的智能体互不干扰。
 
-Each task is dispatched to a supported runner CLI (such as **claude** or **codex**), driven through a pipeline, and then integrated back with an audit trail of the evidence produced. The engine is installed once per machine and pinned per repository through a **.gluerun-version** file, so improvements propagate by bumping the version rather than re-copying scripts.
+每个任务会被分派到受支持的 runner CLI（如 **claude** 或 **codex**），经由流水线驱动执行，然后带着所产生的证据审计记录集成回来。该引擎每台机器安装一次，并通过 **.gluerun-version** 文件按仓库固定版本，因此改进只需提升版本号即可传播，无需重新复制脚本。
 
 # PARAMETERS
 
 **init**
-> Scaffold the initial configuration and documentation in a consumer repository.
+> 在使用方仓库中搭建初始配置与文档。
 
 **doctor**
-> Validate required dependencies and the repository configuration.
+> 校验所需的依赖和仓库配置。
 
 **reconcile** [**--actuate**]
-> Run one orchestration cycle: import, recover, integrate, dispatch, and snapshot. Without **--actuate** the cycle is a dry run.
+> 运行一个编排周期：import、recover、integrate、dispatch 和 snapshot。不带 **--actuate** 时该周期仅为演练（dry run）。
 
 **drive** _TASK-ID_
-> Execute a single task through the agent pipeline.
+> 通过智能体流水线执行单个任务。
 
 **auto**
-> Run the autonomy loop, dispatching work until a wall-clock budget is exhausted.
+> 运行自治循环，持续分派工作直到时间预算耗尽。
 
 **update** _version_
-> Pin a new engine version for the current repository.
+> 为当前仓库固定新的引擎版本。
 
 # CAVEATS
 
-Requires Bash 4 or newer, Python 3, Git, and at least one supported agent runner CLI on the PATH. Because the engine grants autonomous agents the ability to edit and commit code, run it only on repositories where you can review the resulting changes.
+需要 Bash 4 或更高版本、Python 3、Git，以及 PATH 中至少一个受支持的智能体 runner CLI。由于该引擎赋予自主智能体编辑和提交代码的能力，请只在你可以审查其变更的仓库上运行它。
 
 # HISTORY
 
-gluerun (glueRun-go) is a community project written primarily in Bash and Python, built around git-worktree isolation and task evidence for agentic coding workflows. It is distributed under the GPL-3.0 license.
+gluerun（glueRun-go）是一个社区项目，主要以 Bash 和 Python 编写，围绕 git-worktree 隔离机制和任务证据构建，面向智能体编程工作流。它以 GPL-3.0 许可证发布。
 
 # SEE ALSO
 

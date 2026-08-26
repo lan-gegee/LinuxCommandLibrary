@@ -1,26 +1,26 @@
 # TAGLINE
 
-Remove untracked files from working tree
+从工作区移除未跟踪的文件
 
 # TLDR
 
-**Preview files to remove**
+**预览将要删除的文件**
 
 ```git clean -n```
 
-**Remove untracked files**
+**删除未跟踪文件**
 
 ```git clean -f```
 
-**Remove untracked directories**
+**删除未跟踪目录**
 
 ```git clean -fd```
 
-**Remove ignored files**
+**删除被忽略的文件**
 
 ```git clean -fX```
 
-**Interactive clean**
+**交互式清理**
 
 ```git clean -i```
 
@@ -31,44 +31,44 @@ Remove untracked files from working tree
 # PARAMETERS
 
 **-n**, **--dry-run**
-> Show what would be removed.
+> 显示将会删除的内容。
 
 **-f**, **--force**
-> Actually remove files.
+> 实际执行删除。
 
 **-d**
-> Remove untracked directories.
+> 删除未跟踪的目录。
 
 **-x**
-> Remove ignored files too.
+> 连同被忽略的文件一起删除。
 
 **-X**
-> Remove only ignored files.
+> 只删除被忽略的文件。
 
 **-i**, **--interactive**
-> Interactive mode.
+> 交互模式。
 
 **-e** _PATTERN_
-> Exclude pattern.
+> 排除匹配的模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git clean** removes untracked files from the working tree. It cleans up generated files, build artifacts, and other files not tracked by git.
+**git clean** 从工作区中移除未跟踪的文件。它可以清理生成的文件、构建产物以及其他未被 git 跟踪的文件。
 
-The command requires **-f** to actually delete files, preventing accidental data loss. Dry run mode (**-n**) shows what would be removed without deleting anything. Options control whether ignored files (**-x**/**-X**) and directories (**-d**) are included.
+该命令要求必须带 **-f** 才会真正删除文件，以防意外丢失数据。试运行模式（**-n**）只显示将被删除的内容而不实际删除。选项可以控制是否包含被忽略的文件（**-x**/**-X**）和目录（**-d**）。
 
-Combined with **git reset --hard**, git clean provides a complete way to return the working tree to a pristine state matching the last commit. Always preview with **-n** first, as deleted untracked files cannot be recovered through Git.
+与 **git reset --hard** 组合使用时，git clean 提供了将工作区完全恢复到最后一次提交原始状态的完整手段。请务必先用 **-n** 预览，因为被删除的未跟踪文件无法通过 Git 找回。
 
 # CAVEATS
 
-**Deleted files cannot be recovered.** Always use -n first. Force required to prevent accidents.
+**删除的文件无法恢复。** 务必先用 -n 预览。必须强制执行以防误删。
 
 # HISTORY
 
-git clean is a core **Git** command for maintaining clean working directories, particularly useful for build cleanup and fresh starts.
+git clean 是 **Git** 的核心命令之一，用于维护干净的工作目录，在清理构建产物和重新开始工作时尤其有用。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Chinese national cryptographic algorithms toolkit
+中国国密算法工具集
 
 # TLDR
 
-**Generate SM2 key pair**
+**生成 SM2 密钥对**
 
 ```gmssl sm2keygen -pass [password] -out [key.pem]```
 
-**Compute SM3 hash of a file**
+**计算文件的 SM3 哈希**
 
 ```gmssl sm3 < [file]```
 
-**Encrypt with SM4**
+**用 SM4 加密**
 
 ```gmssl sm4 -encrypt -in [plaintext.txt] -out [ciphertext.bin]```
 
-**Decrypt with SM4**
+**用 SM4 解密**
 
 ```gmssl sm4 -decrypt -in [ciphertext.bin] -out [plaintext.txt]```
 
-**Generate random bytes**
+**生成随机字节**
 
 ```gmssl rand -hex [32]```
 
-**Sign with SM2**
+**用 SM2 签名**
 
 ```gmssl sm2sign -key [key.pem] -pass [password] -in [file] -out [sig]```
 
@@ -35,62 +35,62 @@ Chinese national cryptographic algorithms toolkit
 # SUBCOMMANDS
 
 **sm2keygen**
-> Generate SM2 key pair.
+> 生成 SM2 密钥对。
 
 **sm2sign**
-> Sign with SM2.
+> 用 SM2 签名。
 
 **sm2verify**
-> Verify SM2 signature.
+> 验证 SM2 签名。
 
 **sm2encrypt**
-> Encrypt with an SM2 public key.
+> 用 SM2 公钥加密。
 
 **sm2decrypt**
-> Decrypt with an SM2 private key.
+> 用 SM2 私钥解密。
 
 **sm3**
-> Compute SM3 hash.
+> 计算 SM3 哈希。
 
 **sm4**
-> SM4 encryption/decryption.
+> SM4 加密/解密。
 
 **rand**
-> Generate random data.
+> 生成随机数据。
 
 **version**
-> Display version.
+> 显示版本。
 
 # PARAMETERS
 
 **-in** _file_
-> Input file.
+> 输入文件。
 
 **-out** _file_
-> Output file.
+> 输出文件。
 
 **-pass** _password_
-> Key password.
+> 密钥口令。
 
 **-pubout** _file_
-> Write the derived public key to a file (used with **sm2keygen**).
+> 将导出的公钥写入文件（与 **sm2keygen** 配合使用）。
 
 **-encrypt**
-> Encrypt mode.
+> 加密模式。
 
 **-decrypt**
-> Decrypt mode.
+> 解密模式。
 
 **-hex**
-> Output in hexadecimal.
+> 以十六进制输出。
 
 # DESCRIPTION
 
-**GmSSL** is an open-source cryptographic toolkit supporting Chinese national cryptographic algorithms (GuoMi/GM). It provides implementations of SM2 (elliptic curve cryptography), SM3 (hash function), SM4 (block cipher), SM9 (identity-based cryptography), and ZUC (stream cipher). The command-line interface is similar to OpenSSL.
+**GmSSL** 是一个支持中国国家标准密码算法（国密/GM）的开源密码学工具集。它提供 SM2（椭圆曲线密码）、SM3（哈希函数）、SM4（分组密码）、SM9（标识密码）和 ZUC（流密码）的实现。其命令行界面与 OpenSSL 类似。
 
 # HISTORY
 
-GmSSL was developed to support China's cryptographic standards, which are mandated for use in Chinese government and financial systems. The project is maintained by Peking University and the open-source community.
+GmSSL 的开发是为了支持中国的密码标准，这些标准在中国政府和金融系统中被强制要求使用。该项目由北京大学和开源社区维护。
 
 # INSTALL
 

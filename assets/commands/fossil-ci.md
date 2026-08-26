@@ -1,22 +1,22 @@
 # TAGLINE
 
-shorthand for fossil commit
+fossil commit 的简写
 
 # TLDR
 
-**Commit changes**
+**提交变更**
 
 ```fossil ci -m "[message]"```
 
-**Commit with comment editor**
+**使用注释编辑器提交**
 
 ```fossil ci```
 
-**Commit specific files**
+**提交特定文件**
 
 ```fossil ci [file1] [file2] -m "[message]"```
 
-**Commit with branch**
+**提交到分支**
 
 ```fossil ci --branch [branch_name] -m "[message]"```
 
@@ -27,22 +27,22 @@ shorthand for fossil commit
 # PARAMETERS
 
 **-m**, **--comment** _text_
-> Commit message.
+> 提交信息。
 
 **--branch** _name_
-> Create new branch.
+> 创建新分支。
 
 **--private**
-> Make commit private.
+> 使提交保持私有。
 
 **--allow-empty**
-> Allow empty commit.
+> 允许空提交。
 
 # DESCRIPTION
 
-**fossil ci** is a shorthand alias for **fossil commit**. It records changes in the working directory to the repository with a commit message.
+**fossil ci** 是 **fossil commit** 的简写别名。它把工作目录中的变更连同提交信息一起记录到仓库中。
 
-This command is provided for convenience and compatibility with users familiar with other version control systems that use similar abbreviations. All options and behaviors are identical to **fossil commit**.
+提供此命令是为了方便熟悉其他使用类似缩写的版本控制系统的用户。所有选项和行为与 **fossil commit** 完全相同。
 
 # INSTALL
 
@@ -73,4 +73,3 @@ This command is provided for convenience and compatibility with users familiar w
 ```[Documentation](https://fossil-scm.org/home/help?cmd=commit)```
 
 <!-- verified: 2026-07-15 -->
-

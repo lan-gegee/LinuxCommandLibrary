@@ -1,18 +1,18 @@
 # TAGLINE
 
-Linux capabilities viewer for files
+Linux 文件能力查看器
 
 # TLDR
 
-Get **capabilities**
+获取**能力**
 
 ```getcap path/to/file```
 
-**Recursive** search
+**递归**搜索
 
 ```getcap -r path/to/dir```
 
-Show **all** entries
+显示**所有**条目
 
 ```getcap -v path/to/file```
 
@@ -22,26 +22,26 @@ Show **all** entries
 
 # DESCRIPTION
 
-**getcap** displays the capabilities of specified files. Linux capabilities allow fine-grained privileges instead of running as root, enabling specific elevated permissions without full root access.
+**getcap** 显示指定文件的能力。Linux capabilities 提供细粒度的特权控制，作为以 root 身份运行的替代方案，可以在不完全取得 root 权限的情况下赋予特定的提升权限。
 
 # PARAMETERS
 
 **-r**
-> Recursively search directories
+> 递归搜索目录
 
 **-v**
-> Display all searched entries even if no capabilities set
+> 即使未设置能力也显示所有被搜索的条目
 
 **-n**
-> Display numeric capability values
+> 以数字形式显示能力值
 
 # CAVEATS
 
-Capabilities are an alternative to setuid programs, providing more granular privilege control. Only files with capabilities set will show output by default.
+capabilities 是 setuid 程序的替代方案，提供更细粒度的特权控制。默认情况下只显示设置了能力的文件的输出。
 
 # HISTORY
 
-**getcap** is part of **libcap**, implementing POSIX 1003.1e capabilities on Linux.
+**getcap** 是 **libcap** 的一部分，在 Linux 上实现 POSIX 1003.1e capabilities。
 
 # INSTALL
 

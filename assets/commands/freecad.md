@@ -1,30 +1,30 @@
 # TAGLINE
 
-open-source parametric 3D CAD modeler
+开源参数化 3D CAD 建模器
 
 # TLDR
 
-**Start FreeCAD**
+**启动 FreeCAD**
 
 ```freecad```
 
-**Open file**
+**打开文件**
 
 ```freecad [model.FCStd]```
 
-**Start in console mode** (no GUI)
+**以控制台模式启动**（无 GUI）
 
 ```freecad -c```
 
-**Run a Python script** in console mode
+在控制台模式下**运行 Python 脚本**
 
 ```freecad -c [script.py]```
 
-**Import and export** a file to a different format
+将文件**导入并导出**为其他格式
 
 ```freecadcmd [model.FCStd] -o [output.step]```
 
-**Add an additional module path**
+**添加额外的模块路径**
 
 ```freecad -M [path/to/modules] [model.FCStd]```
 
@@ -35,59 +35,59 @@ open-source parametric 3D CAD modeler
 # PARAMETERS
 
 _file_
-> File to open (.FCStd, .step, .iges, etc.).
+> 要打开的文件（.FCStd、.step、.iges 等）。
 
 **-c**, **--console**
-> Start in console mode without GUI. Optionally followed by a Python script to execute.
+> 以无 GUI 的控制台模式启动。可选地在后面跟一个要执行的 Python 脚本。
 
 **-o** _file_
-> Output/export file (used with freecadcmd for format conversion).
+> 输出/导出文件（配合 freecadcmd 进行格式转换）。
 
 **-t**, **--run-test** _module_
-> Run the specified test module.
+> 运行指定的测试模块。
 
 **--write-log**
-> Write a log file to FreeCAD_Std.log in the user home directory.
+> 将日志文件写入用户主目录下的 FreeCAD_Std.log。
 
 **-M** _path_
-> Add an additional module search path.
+> 添加额外的模块搜索路径。
 
 **-u** _file_
-> Use the specified user configuration file.
+> 使用指定的用户配置文件。
 
 **-v**, **--version**
-> Show version information.
+> 显示版本信息。
 
 # CONFIGURATION
 
 **~/.config/FreeCAD/user.cfg**
-> User preferences including workbench settings, appearance, units, and default paths.
+> 用户偏好设置，包括工作台设置、外观、单位和默认路径。
 
 **~/.local/share/FreeCAD/Mod/**
-> User-installed workbenches and macros directory.
+> 用户安装的工作台和宏所在目录。
 
 # DESCRIPTION
 
-**FreeCAD** is an open-source parametric 3D CAD modeler. It supports multiple workbenches for different tasks: Part Design for mechanical parts, Sketcher for 2D drawings, Arch for architecture, and more.
+**FreeCAD** 是一个开源的参数化 3D CAD 建模器。它支持多个面向不同任务的工作台：Part Design 用于机械零件，Sketcher 用于 2D 绘图，Arch 用于建筑设计，等等。
 
-FreeCAD uses Python for scripting and macros, allowing automation and custom tools. It can import and export standard formats including STEP, IGES, STL, OBJ, and DXF.
+FreeCAD 使用 Python 进行脚本编写和宏录制，支持自动化和自定义工具。它可以导入导出 STEP、IGES、STL、OBJ、DXF 等标准格式。
 
 # WORKBENCHES
 
-- **Part Design**: Parametric solid modeling
-- **Sketcher**: 2D constraint-based sketching
-- **Draft**: 2D drawing tools
-- **Arch**: Architectural modeling
-- **FEM**: Finite element analysis
-- **Path**: CNC toolpath generation
+- **Part Design**: 参数化实体建模
+- **Sketcher**: 基于 2D 约束的草图绘制
+- **Draft**: 2D 绘图工具
+- **Arch**: 建筑建模
+- **FEM**: 有限元分析
+- **Path**: CNC 刀具路径生成
 
 # CAVEATS
 
-Large assemblies may be slow. Learning curve for parametric modeling. Some import/export formats have limitations. Stability varies by version.
+大型装配体可能运行缓慢。参数化建模有学习曲线。部分导入/导出格式存在限制。稳定性因版本而异。
 
 # HISTORY
 
-FreeCAD was started by **Jürgen Riegel** in **2002** and has been developed by a community of contributors. It became a significant open-source alternative to commercial CAD software, particularly for mechanical engineering and 3D printing.
+FreeCAD 由 **Jürgen Riegel** 于 **2002** 年发起，此后由贡献者社区持续开发。它已成为商业 CAD 软件的重要开源替代品，在机械工程和 3D 打印领域尤其如此。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-shell function definition keyword
+shell 函数定义关键字
 
 # TLDR
 
-**Define a function**
+**定义函数**
 
 ```function greet() { echo "Hello $1"; }```
 
-**Call the function**
+**调用函数**
 
 ```greet [World]```
 
-**List defined functions**
+**列出已定义的函数**
 
 ```declare -F```
 
-**Show function definition**
+**显示函数定义**
 
 ```declare -f [function_name]```
 
-**Unset function**
+**取消函数定义**
 
 ```unset -f [function_name]```
 
@@ -31,34 +31,34 @@ shell function definition keyword
 # PARAMETERS
 
 _NAME_
-> Function name.
+> 函数名称。
 
 _COMMANDS_
-> Function body commands.
+> 函数体的命令。
 
-**$1**, **$2**, etc.
-> Positional parameters.
+**$1**, **$2** 等
+> 位置参数。
 
 **$@**
-> All parameters.
+> 所有参数。
 
 **return** _N_
-> Exit function with status.
+> 以指定状态码退出函数。
 
 **local** _VAR_
-> Declare local variable.
+> 声明局部变量。
 
 # DESCRIPTION
 
-**function** is a shell keyword for defining reusable command groups. Functions encapsulate commands, accept parameters, and can return exit status values.
+**function** 是用于定义可复用命令组的 shell 关键字。函数可以封装命令、接受参数，并能返回退出状态值。
 
-Functions enable code reuse, modularity, and cleaner scripts. They have local scope for variables with the `local` keyword. Parameters are accessed through positional variables ($1, $2, etc.).
+函数支持代码复用、模块化，让脚本更整洁。使用 `local` 关键字可以为变量提供局部作用域。参数通过位置变量（$1、$2 等）访问。
 
-In bash, both `function name() { ...; }` and `name() { ...; }` syntax define functions. The POSIX-portable form omits the `function` keyword. In ksh and zsh, the `function` keyword is also supported.
+在 bash 中，`function name() { ...; }` 和 `name() { ...; }` 两种语法都可以定义函数。POSIX 可移植的形式省略 `function` 关键字。在 ksh 和 zsh 中，同样支持 `function` 关键字。
 
 # CAVEATS
 
-Functions must be defined before use. `return` only sets exit status (0-255), not output values — use command substitution to capture output. Variable scope requires explicit `local` declarations; without it, variables are global.
+函数必须先定义后使用。`return` 只能设置退出状态（0-255），不能返回输出值——要捕获输出请使用命令替换。变量作用域需要显式声明 `local`；否则变量是全局的。
 
 # SEE ALSO
 

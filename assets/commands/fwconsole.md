@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line interface for FreePBX administration
+FreePBX 管理的命令行界面
 
 # TLDR
 
-**Reload** FreePBX configurations
+**重新加载** FreePBX 配置
 
 ```fwconsole reload```
 
-**Start** Asterisk and other commands needed by FreePBX
+**启动** Asterisk 及 FreePBX 所需的其他服务
 
 ```fwconsole start```
 
-**Stop** Asterisk and other commands needed by FreePBX
+**停止** Asterisk 及 FreePBX 所需的其他服务
 
 ```fwconsole stop```
 
-View and **update settings**
+查看并**更新设置**
 
 ```fwconsole setting [keyword] [new_value]```
 
-List available **backups**
+列出可用的**备份**
 
 ```fwconsole backup --list```
 
-List available **FreePBX commands**
+列出可用的 **FreePBX 命令**
 
 ```fwconsole list```
 
-Change **ownership** of all FreePBX files to the apache user
+把所有 FreePBX 文件的**所有者**更改为 apache 用户
 
 ```fwconsole chown```
 
@@ -39,59 +39,59 @@ Change **ownership** of all FreePBX files to the apache user
 # PARAMETERS
 
 **reload**
-> Apply configuration changes without restarting Asterisk
+> 应用配置更改而无需重启 Asterisk
 
 **start** [_module_]
-> Start FreePBX and Asterisk services (optionally a single module)
+> 启动 FreePBX 和 Asterisk 服务（可选仅针对单个模块）
 
 **stop** [_module_]
-> Stop FreePBX and Asterisk services
+> 停止 FreePBX 和 Asterisk 服务
 
 **restart**
-> Restart FreePBX and Asterisk services
+> 重启 FreePBX 和 Asterisk 服务
 
 **setting** _keyword_ [_value_]
-> View or modify FreePBX settings
+> 查看或修改 FreePBX 设置
 
 **backup** [**--list** | **--file** _file_]
-> Manage or restore FreePBX backups
+> 管理或恢复 FreePBX 备份
 
 **chown**
-> Fix file ownership for web server access
+> 修复文件所有权以保证 Web 服务器访问
 
-**ma** (module admin)
-> Install, enable, disable, upgrade or remove FreePBX modules
+**ma**（module admin）
+> 安装、启用、禁用、升级或移除 FreePBX 模块
 
 **sysadmin**
-> System administration tasks
+> 系统管理任务
 
 **list**
-> Display all available fwconsole commands
+> 显示所有可用的 fwconsole 命令
 
 **-h**, **--help**
-> Display help for a given command
+> 显示指定命令的帮助
 
 **-v**, **-vv**, **-vvv**
-> Increase verbosity level
+> 提高输出详细程度
 
 **-q**, **--quiet**
-> Suppress output
+> 抑制输出
 
 # DESCRIPTION
 
-**fwconsole** is the command-line interface for managing FreePBX, an open-source web-based GUI for managing Asterisk PBX systems. It provides administrative control over the FreePBX configuration, modules, and underlying Asterisk server.
+**fwconsole** 是管理 FreePBX 的命令行界面。FreePBX 是一个基于 Web 的开源图形界面，用于管理 Asterisk PBX 系统。它提供对 FreePBX 配置、模块以及底层 Asterisk 服务器的管理控制。
 
-The tool handles configuration reloads, service management, module administration, backups, and system maintenance tasks. It's essential for automation, scripting, and troubleshooting FreePBX installations.
+该工具负责配置重载、服务管理、模块管理、备份和系统维护任务。它对 FreePBX 安装的自动化、脚本编写和故障排查至关重要。
 
-Configuration changes made through the web interface typically require **fwconsole reload** to apply to the running Asterisk instance.
+通过 Web 界面做出的配置更改通常需要执行 **fwconsole reload** 才能应用到运行中的 Asterisk 实例。
 
 # CAVEATS
 
-Most commands require root privileges or appropriate sudo access. Running reload during active calls may cause brief service interruption. The chown command is necessary after manual file modifications to maintain proper web server permissions.
+大多数命令需要 root 权限或相应的 sudo 权限。在有通话进行时执行 reload 可能导致短暂的服务中断。手动修改文件后需要执行 chown 命令，以保持 Web 服务器正确的访问权限。
 
 # HISTORY
 
-fwconsole is part of FreePBX, which began as a web GUI for Asterisk in **2004**. Originally known as AMP (Asterisk Management Portal), it was renamed to FreePBX in 2006. The fwconsole command-line tool was introduced as part of FreePBX's modernization efforts.
+fwconsole 属于 FreePBX，后者始于 **2004 年**，最初是 Asterisk 的一个 Web 图形界面。它原名 AMP（Asterisk Management Portal），2006 年更名为 FreePBX。fwconsole 命令行工具是 FreePBX 现代化进程的一部分。
 
 # SEE ALSO
 

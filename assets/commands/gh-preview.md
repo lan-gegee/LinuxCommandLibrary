@@ -1,22 +1,22 @@
 # TAGLINE
 
-Preview GitHub-flavored Markdown in a browser
+在浏览器中预览 GitHub 风格的 Markdown
 
 # TLDR
 
-**Preview a markdown file** (opens browser with live reload)
+**预览 Markdown 文件**（打开浏览器并支持实时刷新）
 
 ```gh markdown-preview [README.md]```
 
-**Preview in dark mode**
+**以深色模式预览**
 
 ```gh markdown-preview --dark-mode [file.md]```
 
-**Preview on a specific port**
+**在指定端口上预览**
 
 ```gh markdown-preview --port [8080] [file.md]```
 
-**Preview without auto-opening** the browser
+**预览但不自动打开**浏览器
 
 ```gh markdown-preview --disable-auto-open [file.md]```
 
@@ -27,40 +27,40 @@ Preview GitHub-flavored Markdown in a browser
 # PARAMETERS
 
 **--dark-mode**
-> Force dark mode rendering.
+> 强制以深色模式渲染。
 
 **--light-mode**
-> Force light mode rendering.
+> 强制以浅色模式渲染。
 
 **-p**, **--port** _port_
-> TCP port for the local server (default: 3333).
+> 本地服务器的 TCP 端口（默认：3333）。
 
 **--host** _hostname_
-> Hostname to bind the server to (default: localhost).
+> 服务器绑定的主机名（默认：localhost）。
 
 **--disable-auto-open**
-> Do not automatically open the browser.
+> 不自动打开浏览器。
 
 **--disable-reload**
-> Disable live reloading on file changes.
+> 禁用文件变更时的实时刷新。
 
 **--verbose**
-> Show verbose output.
+> 显示详细输出。
 
 **--version**
-> Show version.
+> 显示版本。
 
 # DESCRIPTION
 
-**gh markdown-preview** is a GitHub CLI extension that starts a local web server to preview Markdown files with GitHub-accurate rendering. It uses the GitHub Markdown API and CSS extracted from the GitHub website to produce output that looks exactly as it will appear on GitHub.
+**gh markdown-preview** 是一个 GitHub CLI 扩展，它会启动本地 Web 服务器，以与 GitHub 一致的渲染效果预览 Markdown 文件。它使用 GitHub Markdown API 以及从 GitHub 网站提取的 CSS，使输出看起来与在 GitHub 上完全一样。
 
-The extension supports live reloading, so edits to the file are reflected in the browser automatically. If no file is specified, it detects and opens the README in the current directory.
+该扩展支持实时刷新，对文件的修改会自动反映到浏览器中。未指定文件时，它会检测并打开当前目录下的 README。
 
-Install with: **gh extension install yusukebe/gh-markdown-preview**.
+安装方式：**gh extension install yusukebe/gh-markdown-preview**。
 
 # CAVEATS
 
-Requires the GitHub CLI (**gh**) and an internet connection for the GitHub Markdown API. The rendered output depends on GitHub's API availability. This is a community extension, not a built-in gh command.
+需要安装 GitHub CLI（**gh**），并且需要联网调用 GitHub Markdown API。渲染结果取决于 GitHub API 的可用性。这是一个社区扩展，不是内置的 gh 命令。
 
 # INSTALL
 

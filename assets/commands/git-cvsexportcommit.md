@@ -1,26 +1,26 @@
 # TAGLINE
 
-Export a single Git commit to a CVS checkout
+将单个 Git 提交导出到 CVS 检出目录
 
 # TLDR
 
-**Export a commit and automatically commit to CVS**
+**导出提交并自动提交到 CVS**
 
 ```git cvsexportcommit -v -c [commit]```
 
-**Export a commit to a specific CVS working directory**
+**将提交导出到指定的 CVS 工作目录**
 
 ```git cvsexportcommit -v -w [path/to/cvs_workdir] [commit]```
 
-**Export a commit with author information preserved**
+**导出提交并保留作者信息**
 
 ```git cvsexportcommit -v -c -a [commit]```
 
-**Force export even if CVS files are not up to date**
+**即使 CVS 文件不是最新也强制导出**
 
 ```git cvsexportcommit -f -c [commit]```
 
-**Update CVS files before exporting and committing**
+**在导出和提交前先更新 CVS 文件**
 
 ```git cvsexportcommit -u -v -c [commit]```
 
@@ -31,46 +31,46 @@ Export a single Git commit to a CVS checkout
 # PARAMETERS
 
 **-c**
-> Commit automatically if the patch applied cleanly. Will not commit if any hunks fail to apply or there were other problems.
+> 如果补丁应用干净则自动提交。若有任何代码块应用失败或出现其他问题，则不会提交。
 
 **-p**
-> Be pedantic (paranoid) when applying patches. Invokes patch with --fuzz=0.
+> 应用补丁时吹毛求疵（偏执模式）。会以 --fuzz=0 调用 patch。
 
 **-a**
-> Add authorship information. Adds Author line, and Committer (if different from Author) to the commit message.
+> 添加作者信息。会在提交信息中加入 Author 行，以及 Committer（若与 Author 不同）。
 
 **-d** _cvsroot_
-> Set an alternative CVSROOT to use. Corresponds to the CVS -d parameter.
+> 设置要使用的备用 CVSROOT。对应 CVS 的 -d 参数。
 
 **-f**
-> Force the merge even if the files are not up to date.
+> 即使文件不是最新也强制合并。
 
 **-P**
-> Force the parent commit, even if it is not a direct parent.
+> 强制指定父提交，即使它并非直接父提交。
 
 **-m** _msgprefix_
-> Prepend the commit message with the provided prefix. Useful for patch series.
+> 在提交信息前加上给定前缀。适用于补丁系列。
 
 **-u**
-> Update affected files from CVS repository before attempting export.
+> 在尝试导出之前，先从 CVS 仓库更新受影响的文件。
 
 **-k**
-> Reverse CVS keyword expansion (e.g., $Revision: 1.2.3.4$ becomes $Revision$) in the working CVS checkout before applying the patch.
+> 在应用补丁前，反转工作 CVS 检出中的 CVS 关键字展开（例如 $Revision: 1.2.3.4$ 变回 $Revision$）。
 
 **-w** _cvs-workdir_
-> Specify the location of the CVS checkout to use for the export. The default is the value of cvsexportcommit.cvsdir.
+> 指定用于导出的 CVS 检出位置。默认取 cvsexportcommit.cvsdir 的值。
 
 **-W**
-> Indicate that the current working directory is both a Git checkout and a CVS checkout. Git will reset the working directory to the parent commit before proceeding.
+> 表明当前工作目录既是 Git 检出也是 CVS 检出。Git 会先把工作目录重置到父提交再继续。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 # DESCRIPTION
 
-**git cvsexportcommit** exports a single Git commit to a CVS checkout, enabling migration of changes from Git to legacy CVS repositories. It applies a specific Git commit's changes to a CVS working directory, optionally committing them automatically.
+**git cvsexportcommit** 将单个 Git 提交导出到 CVS 检出目录，实现从 Git 向旧式 CVS 仓库迁移更改。它把特定 Git 提交的改动应用到 CVS 工作目录，并可选择自动提交。
 
-The command handles file additions, modifications, and deletions, translating Git's commit semantics into equivalent CVS operations. It is particularly useful in hybrid environments where teams are transitioning from CVS to Git but must maintain synchronization with CVS-dependent systems.
+该命令处理文件的增、改、删，将 Git 的提交语义转换为等价的 CVS 操作。在团队从 CVS 过渡到 Git、但又必须与依赖 CVS 的系统保持同步的混合环境中，它特别有用。
 
 # INSTALL
 

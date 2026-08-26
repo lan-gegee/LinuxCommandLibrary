@@ -1,22 +1,22 @@
 # TAGLINE
 
-Simple, fast fuzzy text selector for the terminal
+简单快速的终端模糊文本选择器
 
 # TLDR
 
-**Fuzzy-pick a line** from stdin
+从 stdin **模糊选择一行**
 
 ```[command] | fzy```
 
-**Pick a file** to edit
+**选择一个文件**进行编辑
 
 ```find . -type f | fzy | xargs -r $EDITOR```
 
-**Limit number of visible matches**
+**限制可见匹配数**
 
 ```[command] | fzy -l [20]```
 
-**Show help**
+**显示帮助**
 
 ```fzy --help```
 
@@ -26,41 +26,41 @@ Simple, fast fuzzy text selector for the terminal
 
 # DESCRIPTION
 
-**fzy** is a minimal fuzzy finder: it reads newline-separated candidates from stdin, interactively filters them as you type, and prints the selected line to stdout. It emphasizes ranking quality and speed with a small codebase, making it a lightweight alternative to heavier selectors.
+**fzy** 是一个极简的模糊查找器：它从 stdin 读取按换行分隔的候选内容，随输入实时过滤，并把选中的行输出到 stdout。它以精简的代码库强调排序质量和速度，是更重量级选择器的轻量替代品。
 
 # PARAMETERS
 
 **-l**, **--lines** *n*
 
-> Maximum number of matches shown (default often 10).
+> 最大显示匹配数（默认通常为 10）。
 
 **-p**, **--prompt** *text*
 
-> Input prompt string.
+> 输入提示字符串。
 
 **-q**, **--query** *text*
 
-> Initial query.
+> 初始查询词。
 
 **-e**, **--show-matches** *query*
 
-> Non-interactive: print sorted matches for *query* and exit.
+> 非交互模式：打印 *query* 的排序匹配结果并退出。
 
 **-t**, **--tty-only**
 
-> Only use /dev/tty (behavior depends on version).
+> 仅使用 /dev/tty（行为因版本而异）。
 
 **-0**, **--read-null**
 
-> Read NUL-separated input.
+> 读取以 NUL 分隔的输入。
 
 **-j** *workers*
 
-> Parallel scoring workers.
+> 并行评分的工作线程数。
 
 # CAVEATS
 
-Needs a TTY for interactive mode. Ranking differs from **fzf**; scripts may need adjustment when switching tools.
+交互模式需要 TTY。排序结果与 **fzf** 不同；切换工具时脚本可能需要调整。
 
 # INSTALL
 

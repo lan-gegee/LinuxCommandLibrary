@@ -1,22 +1,22 @@
 # TAGLINE
 
-displays SDK version information
+显示 SDK 版本信息
 
 # TLDR
 
-**Show gcloud version**
+**显示 gcloud 版本**
 
 ```gcloud version```
 
-**Show versions as JSON**
+**以 JSON 格式显示版本**
 
 ```gcloud version --format=json```
 
-**Brief version (top-level flag)**
+**简短版本输出（顶层标志）**
 
 ```gcloud --version```
 
-**Show versions as YAML**
+**以 YAML 格式显示版本**
 
 ```gcloud version --format=yaml```
 
@@ -27,26 +27,26 @@ displays SDK version information
 # PARAMETERS
 
 **--format** _FORMAT_
-> Output format: text, json, yaml.
+> 输出格式：text、json、yaml。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud version** displays the version of the Google Cloud SDK and installed components. It shows version numbers for gcloud, bq, gsutil, and other SDK tools.
+**gcloud version** 显示 Google Cloud SDK 及已安装组件的版本。它会列出 gcloud、bq、gsutil 以及其他 SDK 工具的版本号。
 
-The command helps verify which SDK version is installed and identify if updates are available. Component versions help with troubleshooting and compatibility checks.
+该命令有助于确认安装的 SDK 版本，并判断是否有可用更新。组件版本信息有助于故障排查和兼容性检查。
 
-gcloud version is useful for documenting environment details and ensuring consistency.
+gcloud version 可用于记录环境细节并确保环境一致性。
 
 # CAVEATS
 
-Version may differ from latest available. Component versions vary independently.
+版本可能不是最新可用版本。各组件版本独立更新。
 
 # HISTORY
 
-gcloud version is part of the **Google Cloud SDK** diagnostic commands, providing version information for all installed components.
+gcloud version 是 **Google Cloud SDK** 诊断命令的一部分，提供所有已安装组件的版本信息。
 
 # SEE ALSO
 

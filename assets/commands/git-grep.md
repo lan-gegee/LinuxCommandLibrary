@@ -1,26 +1,26 @@
 # TAGLINE
 
-Search patterns in tracked files
+在被跟踪的文件中搜索模式
 
 # TLDR
 
-**Search for pattern**
+**搜索模式**
 
 ```git grep "[pattern]"```
 
-**Search with line numbers**
+**显示行号搜索**
 
 ```git grep -n "[pattern]"```
 
-**Case insensitive search**
+**不区分大小写搜索**
 
 ```git grep -i "[pattern]"```
 
-**Search in specific commit**
+**在指定提交中搜索**
 
 ```git grep "[pattern]" [commit]```
 
-**Show only filenames**
+**只显示文件名**
 
 ```git grep -l "[pattern]"```
 
@@ -31,63 +31,63 @@ Search patterns in tracked files
 # PARAMETERS
 
 _PATTERN_
-> Search pattern (regex).
+> 搜索模式（正则表达式）。
 
 _REVISION_
-> Commit/branch to search.
+> 要搜索的提交/分支。
 
 **-n**, **--line-number**
-> Show line numbers.
+> 显示行号。
 
 **-i**, **--ignore-case**
-> Case insensitive.
+> 不区分大小写。
 
 **-l**, **--files-with-matches**
-> Show only filenames.
+> 只显示文件名。
 
 **-c**, **--count**
-> Show match counts.
+> 显示匹配次数。
 
 **-w**, **--word-regexp**
-> Match whole words.
+> 匹配整个单词。
 
 **-v**, **--invert-match**
-> Select non-matching lines.
+> 选择不匹配的行。
 
 **-A** _n_, **-B** _n_, **-C** _n_
-> Show _n_ lines of context after, before, or around each match.
+> 在每个匹配之后、之前或前后各显示 _n_ 行上下文。
 
 **-E**, **--extended-regexp**
-> Use extended (ERE) regex instead of the default basic (BRE) regex.
+> 使用扩展（ERE）正则表达式，而非默认的基础（BRE）正则表达式。
 
 **-F**, **--fixed-strings**
-> Treat pattern as literal strings, not regex.
+> 将模式视为字面字符串，而不是正则表达式。
 
 **--cached**
-> Search the index instead of the working tree.
+> 搜索索引而不是工作树。
 
 **--untracked**
-> Also search untracked files.
+> 同时搜索未跟踪的文件。
 
 **-e** _PATTERN_
-> Pattern argument; combine multiple **-e** with **--and**/**--or**/**--not**.
+> 模式参数；可将多个 **-e** 与 **--and**/**--or**/**--not** 组合使用。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git grep** searches tracked files for patterns, optimized specifically for Git repositories. Unlike regular grep, it ignores untracked files and can search any commit in the repository history.
+**git grep** 在被跟踪的文件中搜索模式，专门针对 Git 仓库进行了优化。与普通的 grep 不同，它会忽略未跟踪的文件，并且可以搜索仓库历史中的任意提交。
 
-The command is significantly faster on large repositories because it uses Git's index rather than scanning the filesystem directly. It supports the same regex syntax as grep and integrates seamlessly with Git's revision and path specifications.
+由于它使用 Git 的索引而不是直接扫描文件系统，因此在大型仓库上速度明显更快。它支持与 grep 相同的正则表达式语法，并与 Git 的修订版本和路径规范无缝集成。
 
 # CAVEATS
 
-Only searches tracked files. Regex syntax differs from grep. Binary files skipped by default.
+只搜索被跟踪的文件。正则表达式语法与 grep 有所不同。默认跳过二进制文件。
 
 # HISTORY
 
-git grep is a core **Git** command providing optimized search that understands git's object model and history.
+git grep 是 **Git** 的核心命令，提供理解 git 对象模型和历史的优化搜索能力。
 
 # INSTALL
 

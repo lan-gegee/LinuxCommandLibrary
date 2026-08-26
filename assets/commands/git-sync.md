@@ -1,22 +1,22 @@
 # TAGLINE
 
-Hard-reset a branch to match its remote, cleaning untracked files
+将分支硬重置为与其远程一致，并清理未跟踪文件
 
 # TLDR
 
-**Sync current branch** with its upstream
+**将当前分支**与其上游同步
 
 ```git sync```
 
-**Sync with a specific remote and branch**
+**与指定的远程和分支同步**
 
 ```git sync [origin] [main]```
 
-**Sync but keep untracked/ignored files**
+**同步但保留未跟踪/被忽略的文件**
 
 ```git sync --soft```
 
-**Sync without a confirmation prompt**
+**不弹出确认提示直接同步**
 
 ```git sync --force```
 
@@ -27,26 +27,26 @@ Hard-reset a branch to match its remote, cleaning untracked files
 # PARAMETERS
 
 _REMOTE_ _BRANCH_
-> Remote and branch to sync with; defaults to the current branch's configured upstream.
+> 要同步的远程和分支；默认为当前分支配置的上游。
 
 **-s**, **--soft**
-> Skip `git clean -d -f -x` after resetting, keeping untracked and ignored files.
+> 重置后跳过 `git clean -d -f -x`，保留未跟踪和被忽略的文件。
 
 **-f**, **--force**
-> Skip the confirmation prompt.
+> 跳过确认提示。
 
 **-h**, **--help**
-> Display usage information.
+> 显示用法信息。
 
 # DESCRIPTION
 
-**git sync** is a git-extras command that fetches the given (or upstream-tracked) remote branch and then runs `git reset --hard` to make the current branch match it exactly. Unless `-s`/`--soft` is given, it also runs `git clean -d -f -x` afterward, deleting every untracked and ignored file in the working tree.
+**git sync** 是一个 git-extras 命令：先拉取给定（或上游跟踪）的远程分支，然后执行 `git reset --hard` 使当前分支与之完全一致。除非指定 `-s`/`--soft`，否则它随后还会运行 `git clean -d -f -x`，删除工作树中所有未跟踪和被忽略的文件。
 
-It asks for confirmation before running unless `-f`/`--force` is passed.
+除非传入 `-f`/`--force`，否则它在运行前会请求确认。
 
 # CAVEATS
 
-This is destructive: local commits not on the remote, uncommitted changes, and (without `-s`) untracked/ignored files are all discarded. It is not a fetch-and-rebase or fetch-and-merge; unlike `git pull`, divergent local work is thrown away rather than integrated.
+该操作具有破坏性：不在远程上的本地提交、未提交的改动，以及（不带 `-s` 时的）未跟踪/被忽略的文件都会被丢弃。它不是 fetch 后变基或 fetch 后合并；与 `git pull` 不同，分叉的本地工作会被直接抛弃而不是整合进来。
 
 # INSTALL
 

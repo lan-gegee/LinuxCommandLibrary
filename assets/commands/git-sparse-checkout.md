@@ -1,34 +1,34 @@
 # TAGLINE
 
-Reduce working tree to a subset of tracked files
+将工作树缩减为已跟踪文件的一个子集
 
 # TLDR
 
-**Enable sparse checkout and set directories** (cone mode)
+**启用稀疏检出并设置目录**（cone 模式）
 
 ```git sparse-checkout set [dir1] [dir2]```
 
-**Add more directories to sparse checkout**
+**向稀疏检出添加更多目录**
 
 ```git sparse-checkout add [dir]```
 
-**List current sparse patterns**
+**列出当前的稀疏模式**
 
 ```git sparse-checkout list```
 
-**Reapply sparse patterns** after config changes
+**配置更改后重新应用稀疏模式**
 
 ```git sparse-checkout reapply```
 
-**Disable sparse checkout** and restore all files
+**禁用稀疏检出**并恢复所有文件
 
 ```git sparse-checkout disable```
 
-**Check which paths match sparse rules**
+**检查哪些路径符合稀疏规则**
 
 ```echo "[path/to/file]" | git sparse-checkout check-rules```
 
-**Preview files outside sparse definition** that would be removed
+**预览稀疏定义之外**会被移除的文件
 
 ```git sparse-checkout clean --dry-run```
 
@@ -39,70 +39,70 @@ Reduce working tree to a subset of tracked files
 # SUBCOMMANDS
 
 **init**
-> Deprecated. Use set instead to enable and configure sparse checkout.
+> 已弃用。请改用 set 来启用并配置稀疏检出。
 
 **set**
-> Define which directories/patterns to include in the working tree.
+> 定义工作树中要包含哪些目录/模式。
 
 **add**
-> Add additional directories/patterns to the sparse checkout.
+> 向稀疏检出添加更多目录/模式。
 
 **list**
-> List the current sparse checkout patterns.
+> 列出当前的稀疏检出模式。
 
 **disable**
-> Disable sparse checkout and restore all files.
+> 禁用稀疏检出并恢复所有文件。
 
 **reapply**
-> Reapply patterns after manual config changes.
+> 手动修改配置后重新应用模式。
 
 **check-rules**
-> Check if paths match the current sparsity rules.
+> 检查路径是否符合当前的稀疏规则。
 
 **clean**
-> Remove files outside the sparse-checkout definition. Requires -f unless clean.requireForce is false.
+> 移除稀疏检出定义之外的文件。除非 clean.requireForce 为 false，否则需要 -f。
 
 # PARAMETERS
 
 **--cone**
-> Use cone mode for directory-based patterns (default, faster).
+> 使用基于目录模式的 cone 模式（默认，速度更快）。
 
 **--no-cone**
-> Use full pattern mode for arbitrary gitignore-style patterns.
+> 使用完整模式匹配，支持任意 gitignore 风格的模式。
 
 **--sparse-index**
-> Enable sparse index format for improved performance.
+> 启用稀疏索引格式以提升性能。
 
 **--no-sparse-index**
-> Disable sparse index format for compatibility with external tools.
+> 禁用稀疏索引格式，以兼容外部工具。
 
 **--stdin**
-> Read patterns from stdin (one per line) instead of arguments.
+> 从 stdin 读取模式（每行一个），而不是从参数读取。
 
 **-f**, **--force**
-> Allow cleaning without clean.requireForce config (for clean subcommand).
+> 允许在没有 clean.requireForce 配置的情况下执行清理（用于 clean 子命令）。
 
 **--dry-run**
-> Preview what clean would remove without deleting anything.
+> 预览 clean 将移除的内容，但不实际删除任何东西。
 
 **--rules-file** _file_
-> Match against rules in specified file instead of current rules (for check-rules).
+> 与指定文件中的规则进行匹配，而不是当前规则（用于 check-rules）。
 
 **-z**
-> Use NUL-terminated paths for stdin and output (for check-rules).
+> stdin 输入和输出使用以 NUL 结尾的路径（用于 check-rules）。
 
 # DESCRIPTION
 
-**git sparse-checkout** enables partial repository checkouts, where only specified directories and files are materialized in the working tree. This significantly reduces working directory size for large monorepos.
+**git sparse-checkout** 支持部分仓库检出，即只有指定的目录和文件会出现在工作树中。对于大型 monorepo，这能显著减小工作目录的体积。
 
-Cone mode (the default) restricts patterns to directory-based inclusion, which is faster and simpler than full pattern matching. In cone mode, the set and add subcommands accept directory names rather than arbitrary gitignore patterns. Non-cone mode (--no-cone) allows arbitrary gitignore-style patterns but is deprecated due to poor performance and confusing semantics.
+cone 模式（默认）将模式限定为按目录包含，比完整模式匹配更快也更简单。在 cone 模式下，set 和 add 子命令接受的是目录名而非任意 gitignore 模式。非 cone 模式（--no-cone）允许任意 gitignore 风格的模式，但由于性能差、语义令人困惑，已被弃用。
 
-This command is experimental. Its behavior may change in the future.
+该命令是实验性的。其行为未来可能发生变化。
 
 # CONFIGURATION
 
 **.git/info/sparse-checkout**
-> File containing the sparse-checkout patterns that control which paths are checked out.
+> 存放稀疏检出模式的文件，控制哪些路径会被检出。
 
 # INSTALL
 

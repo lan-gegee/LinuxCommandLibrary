@@ -1,42 +1,42 @@
 # TAGLINE
 
-Manage embedded external repositories within a project
+管理项目中内嵌的外部仓库
 
 # TLDR
 
-**Add submodule**
+**添加子模块**
 
 ```git submodule add [url] [path]```
 
-**Initialize submodules**
+**初始化子模块**
 
 ```git submodule init```
 
-**Update submodules**
+**更新子模块**
 
 ```git submodule update```
 
-**Clone with submodules**
+**连同子模块一起克隆**
 
 ```git submodule update --init --recursive```
 
-**Show submodule status**
+**查看子模块状态**
 
 ```git submodule status```
 
-**Pull submodule changes**
+**拉取子模块的更新**
 
 ```git submodule update --remote```
 
-**Remove submodule**
+**移除子模块**
 
 ```git submodule deinit [path] && git rm [path]```
 
-**Run a command in each submodule**
+**在每个子模块中运行命令**
 
 ```git submodule foreach '[command]'```
 
-**Sync submodule URLs** from .gitmodules to local config
+**将子模块 URL 从 .gitmodules 同步到本地配置**
 
 ```git submodule sync --recursive```
 
@@ -47,77 +47,77 @@ Manage embedded external repositories within a project
 # SUBCOMMANDS
 
 **add** _URL_ [_path_]
-> Add a repository as a submodule at a given path.
+> 在给定路径上将某个仓库添加为子模块。
 
 **init** [_path_...]
-> Initialize submodules recorded in the index.
+> 初始化索引中记录的子模块。
 
 **update** [_path_...]
-> Update registered submodules to match the superproject.
+> 更新已注册的子模块以与父项目保持一致。
 
 **status** [_path_...]
-> Show status of submodules.
+> 显示子模块的状态。
 
 **deinit** [_path_...]
-> Unregister submodules and remove their work trees.
+> 注销子模块并删除其工作树。
 
 **sync** [_path_...]
-> Sync submodule remote URLs from .gitmodules to local config.
+> 将子模块的远程 URL 从 .gitmodules 同步到本地配置。
 
 **foreach** _command_
-> Run a shell command in each checked-out submodule.
+> 在每个已检出的子模块中执行一条 shell 命令。
 
 **summary** [_commit_] [_path_...]
-> Show commit summary between commit and working tree/index.
+> 显示某提交与工作树/索引之间的提交摘要。
 
 **set-branch** _path_
-> Set the default remote tracking branch for a submodule.
+> 设置子模块默认跟踪的远程分支。
 
 **set-url** _path_ _newurl_
-> Set the URL of a submodule.
+> 设置子模块的 URL。
 
 **absorbgitdirs**
-> Move submodule .git directories into the superproject's .git/modules/.
+> 将子模块的 .git 目录迁移到父项目的 .git/modules/ 中。
 
 # PARAMETERS
 
 **--init**
-> Initialize uninitialized submodules before updating.
+> 更新前先初始化尚未初始化的子模块。
 
 **--recursive**
-> Recurse into nested submodules.
+> 递归处理嵌套的子模块。
 
 **--remote**
-> Use the submodule's remote tracking branch instead of the superproject's recorded SHA-1.
+> 使用子模块的远程跟踪分支，而不是父项目记录的 SHA-1。
 
 **-f**, **--force**
-> Force checkout even if the submodule already matches.
+> 即使子模块已经一致也强制检出。
 
 **-b** _branch_, **--branch** _branch_
-> Branch of repository to track (add, set-branch).
+> 要跟踪的仓库分支（用于 add、set-branch）。
 
 **-j** _n_, **--jobs** _n_
-> Clone new submodules in parallel with n jobs.
+> 以 n 个并行任务克隆新的子模块。
 
 **-q**, **--quiet**
-> Only print error messages.
+> 只输出错误信息。
 
 **--depth** _depth_
-> Create a shallow clone with truncated history.
+> 创建历史被截断的浅克隆。
 
 **-N**, **--no-fetch**
-> Do not fetch new objects from the remote (update).
+> 不从远程获取新对象（update 时）。
 
 # DESCRIPTION
 
-**git submodule** manages submodules, which are external Git repositories embedded within a parent repository at specific paths. Each submodule tracks a particular commit of the external repository.
+**git submodule** 管理子模块——即嵌入在父仓库特定路径上的外部 Git 仓库。每个子模块都跟踪外部仓库的某一个特定提交。
 
-Submodules allow projects to include and track dependencies or shared components while keeping their histories separate. Use `update --init --recursive` after cloning to populate all submodule contents.
+借助子模块，项目可以包含并跟踪依赖或共享组件，同时保持各自的历史相互独立。克隆之后使用 `update --init --recursive` 即可填充所有子模块的内容。
 
 # CONFIGURATION
 
 **.gitmodules**
-> Configuration file mapping submodule names to their repository URLs and local paths.
+> 配置文件，记录子模块名称与其仓库 URL 及本地路径的对应关系。
 
 # INSTALL
 

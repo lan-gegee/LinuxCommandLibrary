@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage remote repository connections
+管理远程仓库连接
 
 # TLDR
 
-**List remotes**
+**列出远程**
 
 ```git remote -v```
 
-**Add remote**
+**添加远程**
 
 ```git remote add [name] [url]```
 
-**Remove remote**
+**移除远程**
 
 ```git remote remove [name]```
 
-**Rename remote**
+**重命名远程**
 
 ```git remote rename [old] [new]```
 
-**Show remote details**
+**显示远程详情**
 
 ```git remote show [origin]```
 
@@ -31,42 +31,42 @@ Manage remote repository connections
 # PARAMETERS
 
 **add** _NAME_ _URL_
-> Add new remote.
+> 添加新远程。
 
 **remove** _NAME_
-> Remove remote.
+> 移除远程。
 
 **rename** _OLD_ _NEW_
-> Rename remote.
+> 重命名远程。
 
 **show** _NAME_
-> Show remote info.
+> 显示远程信息。
 
 **set-url** _NAME_ _URL_
-> Change remote URL.
+> 更改远程 URL。
 
 **prune** _NAME_
-> Remove stale tracking branches.
+> 删除过期的跟踪分支。
 
 **get-url** _NAME_
-> Show URL for remote.
+> 显示远程的 URL。
 
 **-v**, **--verbose**
-> Show URLs.
+> 显示 URL。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git remote** manages tracked remote repositories. It configures URLs and refspecs for fetch and push operations, enabling interaction with multiple remote repositories in distributed workflows.
+**git remote** 管理被跟踪的远程仓库。它为 fetch 和 push 操作配置 URL 和 refspec，使分布式工作流中可以与多个远程仓库交互。
 
-Common operations include adding upstream remotes for fork-based development, changing URLs after repository migrations, renaming remotes, and inspecting remote configuration details like tracked branches and push/fetch URLs.
+常见操作包括：为基于 fork 的开发添加上游远程、仓库迁移后更改 URL、重命名远程，以及检查被跟踪分支、push/fetch URL 等远程配置细节。
 
 # CONFIGURATION
 
 **.git/config**
-> Repository remote configuration with URLs and refspecs.
+> 包含 URL 和 refspec 的仓库远程配置。
 
 ```
 [remote "origin"]
@@ -76,11 +76,11 @@ Common operations include adding upstream remotes for fork-based development, ch
 
 # CAVEATS
 
-Remote names are local aliases. URLs can differ for fetch and push. Removing remote keeps fetched objects.
+远程名称只是本地别名。fetch 与 push 可使用不同 URL。移除远程不会删除已抓取的对象。
 
 # HISTORY
 
-git remote is a core **Git** command for managing the remote repository connections essential to distributed version control.
+git remote 是 **Git** 用于管理远程仓库连接的核心命令，而远程连接正是分布式版本控制的关键。
 
 # INSTALL
 

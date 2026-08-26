@@ -1,14 +1,14 @@
 # TAGLINE
 
-traditional GNOME desktop panel and taskbar
+传统的 GNOME 桌面面板和任务栏
 
 # TLDR
 
-**Start GNOME Panel**
+**启动 GNOME Panel**
 
 ```gnome-panel```
 
-**Replace running panel**
+**替换正在运行的面板**
 
 ```gnome-panel --replace```
 
@@ -19,27 +19,27 @@ traditional GNOME desktop panel and taskbar
 # PARAMETERS
 
 **--replace**
-> Replace running panel.
+> 替换正在运行的面板。
 
 **--version**
-> Print version information and exit
+> 打印版本信息并退出
 
 **--help**
-> Display help information
+> 显示帮助信息
 
 # DESCRIPTION
 
-**gnome-panel** provides the classic GNOME 2-style panel used by the **GNOME Flashback** session. It hosts the application menu, window list, system tray, clock, notification area, workspace switcher, and any number of applets (PanelApplets), arranged across one or more screen-edge panels. Layouts, applets, and applet preferences are stored in **dconf** under **/org/gnome/gnome-panel/**.
+**gnome-panel** 提供 **GNOME Flashback** 会话使用的经典 GNOME 2 风格面板。它承载应用程序菜单、窗口列表、系统托盘、时钟、通知区域、工作区切换器以及任意数量的小程序（PanelApplet），分布在一条或多条屏幕边缘面板上。布局、小程序及其偏好设置存储在 **dconf** 的 **/org/gnome/gnome-panel/** 之下。
 
-The panel is launched automatically when a user logs into the GNOME Flashback session; **--replace** stops a running instance and starts a fresh one, useful after editing configuration or installing new applets.
+用户登录 GNOME Flashback 会话时，该面板会自动启动；**--replace** 会停止正在运行的实例并启动新的实例，在修改配置或安装新小程序后很有用。
 
 # CAVEATS
 
-Part of GNOME Flashback. Modern GNOME (3.x and later) uses **gnome-shell** instead, which does not load gnome-panel applets. Requires a working DBus session bus, **gnome-settings-daemon**, and the panel's GSettings schemas.
+属于 GNOME Flashback 的一部分。现代 GNOME（3.x 及更高版本）改用 **gnome-shell**，后者不加载 gnome-panel 小程序。需要可用的 DBus 会话总线、**gnome-settings-daemon** 以及面板的 GSettings schema。
 
 # HISTORY
 
-gnome-panel was the main **GNOME 2** panel, now maintained as part of GNOME Flashback for users preferring the classic desktop paradigm.
+gnome-panel 曾是 **GNOME 2** 的主面板，现在作为 GNOME Flashback 的一部分维护，供偏好经典桌面范式的用户使用。
 
 # INSTALL
 

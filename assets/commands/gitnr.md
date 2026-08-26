@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create .gitignore files from templates
+从模板创建 .gitignore 文件
 
 # TLDR
 
-**Create** .gitignore for current directory
+为当前目录**创建** .gitignore
 
 ```gitnr```
 
-**Create** .gitignore for specific language
+为特定语言**创建** .gitignore
 
 ```gitnr rust```
 
-**Create** .gitignore with multiple templates
+使用多个模板**创建** .gitignore
 
 ```gitnr rust python node```
 
-**List** available templates
+列出可用模板
 
 ```gitnr --list```
 
@@ -27,47 +27,47 @@ Create .gitignore files from templates
 # PARAMETERS
 
 **-l, --list**
-> List all available templates
+> 列出所有可用模板
 
 **-s, --search** _QUERY_
-> Search for templates
+> 搜索模板
 
 **-a, --append**
-> Append to existing .gitignore
+> 追加到已有的 .gitignore
 
 **-o, --output** _FILE_
-> Output to specific file
+> 输出到指定文件
 
 **-f, --force**
-> Overwrite existing file
+> 覆盖已有文件
 
 **-v, --version**
-> Display version and exit
+> 显示版本并退出
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**gitnr** creates .gitignore files using templates from the GitHub gitignore repository. It supports hundreds of templates for different languages, frameworks, and tools.
+**gitnr** 使用来自 GitHub gitignore 仓库的模板创建 .gitignore 文件。它支持数百种针对不同语言、框架和工具的模板。
 
-The tool fetches templates from GitHub's official gitignore repository and combines multiple templates when needed.
+该工具从 GitHub 官方 gitignore 仓库获取模板，并在需要时合并多个模板。
 
 # AVAILABLE TEMPLATES
 
-Common templates include:
-- Languages: rust, python, node, go, java
-- IDEs: vscode, intellij, vim
-- Tools: docker, terraform, ansible
-- OS: macos, windows, linux
+常见模板包括：
+- 语言：rust、python、node、go、java
+- IDE：vscode、intellij、vim
+- 工具：docker、terraform、ansible
+- 操作系统：macos、windows、linux
 
 # CAVEATS
 
-Requires internet connection to fetch templates. GitHub API rate limits may apply. Some templates may need customization for specific project needs.
+获取模板需要联网。可能受 GitHub API 速率限制。部分模板可能需要根据项目需求进行定制。
 
 # HISTORY
 
-**gitnr** was created as a convenient way to generate .gitignore files without browsing the GitHub repository manually.
+**gitnr** 的创建目的是免去手动浏览 GitHub 仓库，便捷地生成 .gitignore 文件。
 
 # INSTALL
 

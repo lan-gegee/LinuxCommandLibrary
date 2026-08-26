@@ -1,22 +1,22 @@
 # TAGLINE
 
-Create a commit object from a tree
+从树对象创建提交对象
 
 # TLDR
 
-**Create commit from tree**
+**从树对象创建提交**
 
 ```echo "[message]" | git commit-tree [tree_hash]```
 
-**Create with parent**
+**带父提交创建**
 
 ```echo "[message]" | git commit-tree [tree] -p [parent]```
 
-**Create with message file**
+**从消息文件创建**
 
 ```git commit-tree [tree] -F [message.txt]```
 
-**Create merge commit**
+**创建合并提交**
 
 ```git commit-tree [tree] -p [parent1] -p [parent2] -m "[message]"```
 
@@ -27,29 +27,29 @@ Create a commit object from a tree
 # PARAMETERS
 
 **-p** _parent_
-> Parent commit.
+> 父提交。
 
 **-m** _message_
-> A paragraph in the commit log message. Can be given more than once; each becomes its own paragraph.
+> 提交日志信息中的一个段落。可以多次给出，每段各成一段。
 
 **-F** _file_
-> Read the commit log message from the given file. Use - to read from stdin. Can be given more than once.
+> 从给定文件读取提交日志信息。用 - 表示从标准输入读取。可以多次给出。
 
 **-S**[_keyid_]
-> GPG sign commit. The keyid is optional and defaults to the committer identity; if specified, it must be attached to the option without a space.
+> 对提交进行 GPG 签名。keyid 可选，默认为提交者身份；若指定，必须不带空格地紧跟在选项后面。
 
 **--no-gpg-sign**
-> Countermand a previous --gpg-sign option.
+> 抵消先前的 --gpg-sign 选项。
 
 # DESCRIPTION
 
-**git commit-tree** is a low-level plumbing command that creates a new commit object directly from a tree object hash. Unlike git commit (a porcelain command), this bypasses the index and working directory, operating directly on Git's internal object database.
+**git commit-tree** 是一个底层管道命令（plumbing），直接根据树对象哈希创建新的提交对象。与 git commit（上层瓷器命令）不同，它绕过索引和工作目录，直接操作 Git 内部的对象数据库。
 
-This command is used internally by git commit but is also available for advanced scenarios like repository surgery, history reconstruction, or programmatic commit creation. It requires providing a tree hash (typically created by git write-tree or extracted from existing commits) and accepts optional parent commit hashes to establish lineage.
+git commit 内部就使用该命令，但它也适用于高级场景，例如仓库修复、历史重建或以编程方式创建提交。它要求提供树哈希（通常由 git write-tree 创建或从现有提交提取），并接受可选的父提交哈希来建立谱系。
 
-Multiple -p options create merge commits with multiple parents. The commit message can be provided inline with -m, read from a file with -F, or piped to stdin. Author and committer information come from git config unless overridden with environment variables (GIT_AUTHOR_NAME, GIT_COMMITTER_DATE, etc.).
+多个 -p 选项可创建拥有多个父提交的合并提交。提交信息可以用 -m 内联提供、用 -F 从文件读取，或通过管道送入标准输入。作者和提交者信息来自 git config，除非用环境变量覆盖（GIT_AUTHOR_NAME、GIT_COMMITTER_DATE 等）。
 
-This command outputs the SHA-1 hash of the newly created commit object. To make the commit visible, you typically need to update a branch reference using git update-ref or git reset. Most users never need this command directly, but it's essential for understanding Git's internal architecture and for advanced repository manipulation.
+该命令输出新建提交对象的 SHA-1 哈希。要让提交可见，通常需要用 git update-ref 或 git reset 更新分支引用。大多数用户不需要直接使用此命令，但它是理解 Git 内部架构和进行高级仓库操作的基础。
 
 # INSTALL
 

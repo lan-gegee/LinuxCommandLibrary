@@ -1,26 +1,26 @@
 # TAGLINE
 
-package manager for Ruby libraries
+Ruby 库的软件包管理器
 
 # TLDR
 
-**Install gem**
+**安装 gem**
 
 ```gem install [package_name]```
 
-**Install specific version**
+**安装特定版本**
 
 ```gem install [package_name] -v [1.2.3]```
 
-**List installed gems**
+**列出已安装的 gem**
 
 ```gem list```
 
-**Update gem**
+**更新 gem**
 
 ```gem update [package_name]```
 
-**Uninstall gem**
+**卸载 gem**
 
 ```gem uninstall [package_name]```
 
@@ -31,56 +31,56 @@ package manager for Ruby libraries
 # PARAMETERS
 
 _COMMAND_
-> Operation: install, uninstall, list, update, search, etc.
+> 操作：install、uninstall、list、update、search 等。
 
 **install** _GEM_
-> Install gem package.
+> 安装 gem 软件包。
 
 **uninstall** _GEM_
-> Remove gem.
+> 移除 gem。
 
 **list**
-> List installed gems.
+> 列出已安装的 gem。
 
 **update**
-> Update gems.
+> 更新 gem。
 
 **search** _TERM_
-> Search for gems.
+> 搜索 gem。
 
 **-v** _VERSION_
-> Specify version.
+> 指定版本。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **~/.gemrc**
-> User-specific gem configuration including default gem sources and installation options.
+> 用户专属的 gem 配置，包括默认 gem 源和安装选项。
 
 **/etc/gemrc**
-> System-wide gem configuration for all users.
+> 面向所有用户的系统级 gem 配置。
 
 # DESCRIPTION
 
-**gem** is RubyGems' command-line package manager for installing, managing, and distributing Ruby libraries and applications. It provides access to RubyGems.org, the central repository hosting hundreds of thousands of community-contributed Ruby packages called "gems".
+**gem** 是 RubyGems 的命令行软件包管理器，用于安装、管理和分发 Ruby 库和应用程序。它可以访问 RubyGems.org——托管数十万个社区贡献 Ruby 软件包（称为 "gems"）的中央仓库。
 
-The tool handles dependency resolution automatically, installing required gems and their dependencies in the correct order. It supports installing specific versions, updating existing gems, and managing multiple versions of the same gem simultaneously. Each gem includes metadata specifying its dependencies, Ruby version requirements, and other constraints.
+该工具自动处理依赖解析，按正确顺序安装所需的 gem 及其依赖。它支持安装特定版本、更新已有的 gem，以及同时管理同一 gem 的多个版本。每个 gem 都包含指定其依赖、Ruby 版本要求和其他约束条件的元数据。
 
-gem installs packages either system-wide (requiring sudo/administrator privileges) or in user-specific locations. It integrates with bundler for project-specific dependency management, allowing different projects to use different gem versions without conflict. The Gemfile and Gemfile.lock workflow, managed by bundler, has become the standard for Ruby applications.
+gem 可以系统级安装软件包（需要 sudo/管理员权限），也可以安装到用户专属位置。它与 bundler 集成实现项目级的依赖管理，让不同项目可以使用不同的 gem 版本而不冲突。由 bundler 管理的 Gemfile 和 Gemfile.lock 工作流已成为 Ruby 应用的标准。
 
-Beyond installation, gem provides commands for searching available packages, viewing documentation, building and publishing your own gems, and managing local gem caches. It's the cornerstone of Ruby's package ecosystem and an essential tool for all Ruby developers.
+除安装之外，gem 还提供搜索可用软件包、查看文档、构建和发布自己的 gem 以及管理本地 gem 缓存等命令。它是 Ruby 软件包生态的基石，也是所有 Ruby 开发者的必备工具。
 
-RubyGems has been part of Ruby's standard library since version 1.9, making gem available with every Ruby installation.
+自 Ruby 1.9 起，RubyGems 已成为 Ruby 标准库的一部分，因此每次安装 Ruby 都会附带 gem。
 
 # CAVEATS
 
-System gems may require sudo. Conflicts possible without bundler. Version resolution can be complex.
+系统级 gem 可能需要 sudo。没有 bundler 时可能出现冲突。版本解析可能较为复杂。
 
 # HISTORY
 
-RubyGems was created in 2004 to standardize Ruby library distribution. It became part of Ruby's standard library in Ruby 1.9, making gem the official Ruby package manager.
+RubyGems 创建于 2004 年，旨在标准化 Ruby 库的分发。它在 Ruby 1.9 中成为 Ruby 标准库的一部分，使 gem 成为官方的 Ruby 软件包管理器。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage TeX formats and Metafont bases system-wide
+以系统级方式管理 TeX 格式文件和 Metafont 基础库
 
 # TLDR
 
-**Rebuild all** system formats
+**重建所有**系统格式文件
 
 ```fmtutil-sys --all```
 
-**Create only missing** system formats
+只创建**缺失的**系统格式文件
 
 ```fmtutil-sys --missing```
 
-**Rebuild** the **pdflatex** format
+**重建 pdflatex** 格式
 
 ```fmtutil-sys --byfmt pdflatex```
 
-**Rebuild formats** for the **pdftex** engine
+**重建 pdftex** 引擎的**格式文件**
 
 ```fmtutil-sys --byengine pdftex```
 
-**List** format configuration
+**列出**格式配置
 
 ```fmtutil-sys --listcfg```
 
@@ -30,63 +30,63 @@ manage TeX formats and Metafont bases system-wide
 
 # DESCRIPTION
 
-**fmtutil-sys** is the system-wide form of **fmtutil**. It rebuilds TeX format files and Metafont bases into TEXMFSYSVAR (typically under the TeX Live tree), reading system configuration from trees such as TEXMFSYSCONFIG, TEXMFLOCAL, and TEXMFDIST.
+**fmtutil-sys** 是 **fmtutil** 的系统级形式。它将 TeX 格式文件和 Metafont 基础库重建到 TEXMFSYSVAR 中（通常位于 TeX Live 目录树下），并从 TEXMFSYSCONFIG、TEXMFLOCAL 和 TEXMFDIST 等目录树读取系统配置。
 
-This is the recommended mode for almost every installation: package managers and **tlmgr** updates expect formats in the system location. Prefer **fmtutil-sys** over **fmtutil-user** unless you deliberately maintain private per-user formats.
+对于几乎所有安装而言，这都是推荐的模式：软件包管理器和 **tlmgr** 更新都期望格式文件位于系统位置。除非你有意维护私有的按用户格式，否则请优先使用 **fmtutil-sys** 而非 **fmtutil-user**。
 
-Exactly one command is required (**--all**, **--missing**, **--byfmt**, and so on). See **fmtutil** for the full option set; **fmtutil-sys** is equivalent to **fmtutil --sys**.
+必须且只能给出一个命令（**--all**、**--missing**、**--byfmt** 等）。完整的选项集参见 **fmtutil**；**fmtutil-sys** 等同于 **fmtutil --sys**。
 
 # PARAMETERS
 
 **--all**
-> Recreate all format files
+> 重新创建所有格式文件
 
 **--missing**
-> Create all missing format files
+> 创建所有缺失的格式文件
 
 **--byfmt** _FORMAT_
-> (Re)create format FORMAT
+> （重新）创建 FORMAT 格式
 
 **--byengine** _ENGINE_
-> (Re)create formats built with ENGINE
+> （重新）创建用 ENGINE 构建的格式
 
 **--byhyphen** _HYPHENFILE_
-> (Re)create formats that depend on HYPHENFILE
+> （重新）创建依赖 HYPHENFILE 的格式
 
 **--refresh**
-> Recreate only existing format files
+> 仅重新创建已存在的格式文件
 
 **--listcfg**
-> List format configurations filtered to available formats
+> 列出经过滤的可用格式配置
 
 **--enablefmt** _FORMAT_[/_ENGINE_]
-> Enable FORMAT
+> 启用 FORMAT
 
 **--disablefmt** _FORMAT_[/_ENGINE_]
-> Disable FORMAT
+> 禁用 FORMAT
 
 **--cnffile** _FILE_
-> Read alternate **fmtutil.cnf** (may be repeated)
+> 读取替代的 **fmtutil.cnf**（可重复使用）
 
 **--fmtdir** _DIR_
-> Write formats under DIR
+> 将格式写入 DIR 目录下
 
 **--dry-run**, **-n**
-> Do not actually build formats
+> 不实际构建格式
 
 **--quiet**
-> Be silent
+> 保持静默
 
 **--version**, **--help**
-> Show version or help and exit
+> 显示版本或帮助并退出
 
 # CAVEATS
 
-Usually requires write access to the TeX Live system trees (root or the texlive admin account). If a user has previously run **fmtutil-user**, their TEXMFVAR formats still override system ones for that account until removed. Building **--all** can take several minutes.
+通常需要对 TeX Live 系统目录树的写权限（root 或 texlive 管理员账户）。如果用户此前运行过 **fmtutil-user**，那么在该账户下其 TEXMFVAR 中的格式文件仍会覆盖系统版本，直到被删除。执行 **--all** 构建可能需要几分钟。
 
 # HISTORY
 
-Part of TeX Live's multi-**fmtutil** design; **fmtutil-sys** selects system trees the way **updmap-sys** does for font maps. See the TeX Live sys-vs-user documentation for migration details.
+属于 TeX Live 多 **fmtutil** 设计的一部分；**fmtutil-sys** 选择系统目录树的方式与 **updmap-sys** 处理字体映射的方式一致。迁移细节请参阅 TeX Live 的 sys-vs-user 文档。
 
 # INSTALL
 

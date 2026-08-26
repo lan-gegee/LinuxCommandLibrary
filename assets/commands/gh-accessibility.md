@@ -1,26 +1,26 @@
 # TAGLINE
 
-manage accessibility settings for GitHub CLI
+管理 GitHub CLI 的无障碍设置
 
 # TLDR
 
-**Show accessibility guidance and settings**
+**显示无障碍指引和设置**
 
 ```gh accessibility```
 
-**Open the GitHub Accessibility site in the browser**
+**在浏览器中打开 GitHub Accessibility 网站**
 
 ```gh accessibility --web```
 
-**Enable accessible 4-bit color palette**
+**启用无障碍 4 位色板**
 
 ```gh config set accessible_colors enabled```
 
-**Enable accessible prompter for screen readers**
+**为屏幕阅读器启用无障碍提示器**
 
 ```gh config set accessible_prompter enabled```
 
-**Disable motion-based spinners in favor of text indicators**
+**禁用动画加载指示器，改用文本提示**
 
 ```gh config set spinner disabled```
 
@@ -31,28 +31,28 @@ manage accessibility settings for GitHub CLI
 # PARAMETERS
 
 **-w**, **--web**
-> Open the GitHub Accessibility site in the default web browser.
+> 在默认网页浏览器中打开 GitHub Accessibility 网站。
 
 **--help**
-> Show help for command.
+> 显示命令帮助。
 
 # DESCRIPTION
 
-**gh accessibility** displays guidance on GitHub CLI's accessibility experiences and how to enable them. It is aliased as **gh a11y**.
+**gh accessibility** 显示关于 GitHub CLI 无障碍体验及启用方式的指引。它的别名是 **gh a11y**。
 
-The command describes four areas of accessibility support:
+该命令描述四个方面的无障碍支持：
 
-**Accessible colors** — enables a 4-bit ANSI color palette with increased contrast based on terminal background (dark or light). This allows users to customize colors through their terminal preferences. Enable with `gh config set accessible_colors enabled` or the `GH_ACCESSIBLE_COLORS` environment variable.
+**无障碍颜色** — 启用一套基于终端背景（深色或浅色）、对比度更高的 4 位 ANSI 色板。这让用户可以通过自己的终端偏好来自定义颜色。用 `gh config set accessible_colors enabled` 或 `GH_ACCESSIBLE_COLORS` 环境变量启用。
 
-**Label colors** — displays issue and pull request label colors using their custom RGB hex values in terminals with true color support. Enable with `gh config set color_labels enabled` or the `GH_COLOR_LABELS` environment variable.
+**标签颜色** — 在支持真彩色的终端中按自定义 RGB 十六进制值显示 issue 和 pull request 标签的颜色。用 `gh config set color_labels enabled` 或 `GH_COLOR_LABELS` 环境变量启用。
 
-**Accessible prompter** — replaces cursor-manipulating interactive prompts with non-interactive equivalents that work correctly with speech synthesizers and braille displays. Enable with `gh config set accessible_prompter enabled` or the `GH_ACCESSIBLE_PROMPTER` environment variable.
+**无障碍提示器** — 用非交互式的等价形式取代操作光标的交互式提示，使其能与语音合成器和盲文显示器正确配合工作。用 `gh config set accessible_prompter enabled` 或 `GH_ACCESSIBLE_PROMPTER` 环境变量启用。
 
-**Text-based spinners** — replaces animated spinner characters with plain text progress indicators, removing motion that may cause discomfort or be misread by screen readers. Enable with `gh config set spinner disabled` or the `GH_SPINNER_DISABLED` environment variable.
+**纯文本加载指示器** — 用普通文本进度提示取代动画式加载字符，消除可能引起不适或被屏幕阅读器误读的动态效果。用 `gh config set spinner disabled` 或 `GH_SPINNER_DISABLED` 环境变量启用。
 
 # CAVEATS
 
-Accessibility features were introduced as a **public preview** in GitHub CLI v2.72.0. Individual features must be enabled explicitly via `gh config set` or environment variables; running `gh accessibility` alone only displays the guidance text.
+无障碍功能于 GitHub CLI v2.72.0 作为**公开预览版**引入。各项功能必须通过 `gh config set` 或环境变量显式启用；单独运行 `gh accessibility` 只会显示指引文字。
 
 # INSTALL
 

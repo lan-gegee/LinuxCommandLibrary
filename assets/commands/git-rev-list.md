@@ -1,30 +1,30 @@
 # TAGLINE
 
-List commit objects in reverse chronological order
+按时间倒序列出提交对象
 
 # TLDR
 
-**List all commits**
+**列出所有提交**
 
 ```git rev-list HEAD```
 
-**Count commits**
+**统计提交数量**
 
 ```git rev-list --count HEAD```
 
-**List commits in range**
+**列出范围内的提交**
 
 ```git rev-list [commit1]..[commit2]```
 
-**List with date order**
+**按日期顺序列出**
 
 ```git rev-list --date-order HEAD```
 
-**List reachable from multiple**
+**列出从多个引用可达的提交**
 
 ```git rev-list [branch1] [branch2] --not [main]```
 
-**First parent only**
+**仅沿第一父提交遍历**
 
 ```git rev-list --first-parent HEAD```
 
@@ -35,61 +35,61 @@ List commit objects in reverse chronological order
 # PARAMETERS
 
 **--count**
-> Show count only.
+> 仅显示数量。
 
 **--max-count** _n_
-> Limit output.
+> 限制输出条数。
 
 **--since** _date_
-> Commits after date.
+> 某日期之后的提交。
 
 **--until** _date_
-> Commits before date.
+> 某日期之前的提交。
 
 **--author** _pattern_
-> Filter by author.
+> 按作者过滤。
 
 **--first-parent**
-> Follow first parent only.
+> 仅沿第一父提交遍历。
 
 **--ancestry-path**
-> Show ancestry path.
+> 显示祖先路径。
 
 **--objects**
-> Include all referenced object IDs (trees, blobs), useful for packing.
+> 包含所有被引用的对象 ID（树、blob），对打包很有用。
 
 **--all**
-> Walk every ref under `refs/`, plus HEAD.
+> 遍历 `refs/` 下的所有引用，外加 HEAD。
 
 **--branches**[=_pattern_], **--tags**[=_pattern_], **--remotes**[=_pattern_]
-> Walk matching refs under the respective namespace.
+> 分别遍历对应命名空间下匹配的引用。
 
 **--no-merges**, **--merges**
-> Exclude or include merge commits (equivalent to `--max-parents=1` / `--min-parents=2`).
+> 排除或包含合并提交（等价于 `--max-parents=1` / `--min-parents=2`）。
 
 **--min-parents** _n_, **--max-parents** _n_
-> Filter commits by parent count.
+> 按父提交数量过滤提交。
 
 **--reverse**
-> Print commits in chronological order.
+> 按时间顺序输出提交。
 
 **--topo-order**, **--date-order**
-> Order output topologically or by commit date.
+> 按拓扑顺序或提交日期排序输出。
 
 **--left-right**
-> With `A...B`, mark commits as `<` (from A) or `>` (from B).
+> 配合 `A...B` 使用时，将提交标记为 `<`（来自 A）或 `>`（来自 B）。
 
 **--boundary**
-> Include excluded boundary commits, prefixed with `-`.
+> 包含被排除的边界提交，并以 `-` 作为前缀。
 
 **--grep** _pattern_, **--committer** _pattern_
-> Filter by commit message / committer identity, in addition to **--author**.
+> 在 **--author** 之外，再按提交信息 / 提交者身份过滤。
 
 # DESCRIPTION
 
-**git rev-list** lists commit objects in reverse chronological order. It is a low-level plumbing command used for enumerating reachable commits and objects, forming the basis for many higher-level Git commands.
+**git rev-list** 按时间倒序列出提交对象。它是一个底层（plumbing）命令，用于枚举可达的提交和对象，是许多上层 Git 命令的基础。
 
-Common uses include counting commits, finding merge bases, and building commit ranges for other tools.
+常见用途包括统计提交数量、查找合并基（merge base），以及为其他工具构建提交范围。
 
 # INSTALL
 

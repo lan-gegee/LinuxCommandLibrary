@@ -1,22 +1,22 @@
 # TAGLINE
 
-Kerberos ticket granting ticket requester
+Kerberos 票据授予票据请求工具
 
 # TLDR
 
-**Get a TGT with** a password
+使用密码**获取 TGT**
 
 ```getTGT.py [domain]/[username]:[password] -dc-ip [dc_ip]```
 
-**Get a TGT using** an NTLM hash
+使用 NTLM 哈希**获取 TGT**
 
 ```getTGT.py [domain]/[username] -hashes :[nthash] -dc-ip [dc_ip]```
 
-**Get a TGT using** an AES key
+使用 AES 密钥**获取 TGT**
 
 ```getTGT.py [domain]/[username] -aesKey [aes_key] -dc-ip [dc_ip]```
 
-**Prompt for the password** instead of passing it inline
+不内联传入密码，改为**交互式提示输入密码**
 
 ```getTGT.py [domain]/[username] -dc-ip [dc_ip]```
 
@@ -27,44 +27,44 @@ Kerberos ticket granting ticket requester
 # PARAMETERS
 
 _DOMAIN/USER_[:_PASSWORD_]
-> Target identity. The password is optional and is prompted for if omitted.
+> 目标身份。密码为可选；省略时会提示输入。
 
 **-dc-ip** _IP_
-> IP address of the domain controller. Defaults to the domain FQDN if omitted.
+> 域控制器的 IP 地址。省略时默认为域名 FQDN。
 
 **-hashes** _LMHASH:NTHASH_
-> NTLM hashes to authenticate with. The LM half may be left empty (`:NTHASH`).
+> 用于认证的 NTLM 哈希。LM 部分可以留空（`:NTHASH`）。
 
 **-aesKey** _KEY_
-> AES key (128 or 256 bit) for Kerberos authentication.
+> 用于 Kerberos 认证的 AES 密钥（128 或 256 位）。
 
 **-k**
-> Use Kerberos credentials from the ccache file (KRB5CCNAME), falling back to the supplied credentials.
+> 使用 ccache 文件（KRB5CCNAME）中的 Kerberos 凭据，失败时回退到所提供的凭据。
 
 **-no-pass**
-> Do not prompt for a password, useful together with -k.
+> 不提示输入密码，与 -k 配合使用很有用。
 
 **-debug**
-> Turn on DEBUG output.
+> 开启 DEBUG 输出。
 
 **-ts**
-> Add a timestamp to each log line.
+> 为每条日志行添加时间戳。
 
 # DESCRIPTION
 
-**getTGT.py** is an Impacket example script that requests a Kerberos Ticket Granting Ticket (TGT) from an Active Directory domain controller, given a password, an NTLM hash, or an AES key. The official description reads: "Given a password, hash or aesKey, it will request a TGT and save it as ccache."
+**getTGT.py** 是一个 Impacket 示例脚本，给定密码、NTLM 哈希或 AES 密钥时，向 Active Directory 域控制器请求 Kerberos 票据授予票据（TGT）。官方描述如下："Given a password, hash or aesKey, it will request a TGT and save it as ccache."
 
-The resulting ticket is written to a ccache file named after the principal (for example `username.ccache`). Set the **KRB5CCNAME** environment variable to that file and other Impacket tools, or native utilities, can reuse the ticket for pass-the-ticket authentication.
+生成的票据会写入以主体名命名的 ccache 文件（例如 `username.ccache`）。将 **KRB5CCNAME** 环境变量指向该文件后，其他 Impacket 工具或原生工具即可复用该票据进行 pass-the-ticket 认证。
 
-There is no dedicated output flag: the ccache filename is derived from the username automatically.
+该脚本没有专门的输出标志：ccache 文件名自动由用户名派生。
 
 # CAVEATS
 
-**Authorized testing only.** Requires valid credentials and clock sync with the domain controller, since large time skew breaks Kerberos. Tickets have a limited lifetime.
+**仅限授权测试。**需要有效凭据并与域控制器时钟同步，因为较大的时间偏差会导致 Kerberos 失败。票据的有效期有限。
 
 # HISTORY
 
-getTGT.py is part of **Impacket**, the Python network protocol toolkit for Active Directory security testing, originally by Core Security and now maintained by Fortra.
+getTGT.py 是 **Impacket** 的一部分。Impacket 是用于 Active Directory 安全测试的 Python 网络协议工具集，最初由 Core Security 开发，现由 Fortra 维护。
 
 # SEE ALSO
 

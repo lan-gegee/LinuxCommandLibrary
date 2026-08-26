@@ -1,26 +1,26 @@
 # TAGLINE
 
-random quotation and fortune display
+随机格言与签语显示
 
 # TLDR
 
-**Display random fortune**
+**显示随机格言**
 
 ```fortune```
 
-**Show short fortunes**
+**显示短格言**
 
 ```fortune -s```
 
-**Show offensive fortunes**
+**显示冒犯性格言**
 
 ```fortune -o```
 
-**Use specific database**
+**使用指定数据库**
 
 ```fortune [literature]```
 
-**Show fortune source**
+**显示格言来源**
 
 ```fortune -c```
 
@@ -31,47 +31,47 @@ random quotation and fortune display
 # PARAMETERS
 
 _DATABASES_
-> Fortune cookie files to use.
+> 要使用的 fortune 文件。
 
 **-s**
-> Short fortunes only (< 160 chars).
+> 仅显示短格言（< 160 字符）。
 
 **-l**
-> Long fortunes only.
+> 仅显示长格言。
 
 **-c**
-> Show the fortune file source.
+> 显示格言文件来源。
 
 **-o**
-> Include offensive fortunes.
+> 包含冒犯性格言。
 
 **-a**
-> Include all fortune files.
+> 包含所有 fortune 文件。
 
 **-f**
-> List available fortune files.
+> 列出可用的 fortune 文件。
 
 **-m** _PATTERN_
-> Match pattern in fortunes.
+> 匹配格言中的模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fortune** displays a random quotation, joke, or saying from its database files. It's the classic Unix program for adding whimsy to terminals and login sessions.
+**fortune** 从其数据库文件中随机显示引言、笑话或谚语。它是经典的 Unix 程序，为终端和登录会话增添趣味。
 
-Multiple fortune databases cover categories like literature, riddles, definitions, and jokes. Custom database files can be created with the strfile utility.
+多个 fortune 数据库涵盖文学、谜语、定义和笑话等类别。可以使用 strfile 工具创建自定义数据库文件。
 
-fortune is commonly added to shell startup files for daily motivation or amusement.
+fortune 常被加入 Shell 启动文件中，用于每日激励或消遣。
 
 # CAVEATS
 
-Offensive fortunes disabled by default. Database availability varies by installation. Some content may be dated.
+冒犯性格言默认禁用。数据库的可用性因安装而异。部分内容可能已过时。
 
 # HISTORY
 
-fortune originated in **Unix Version 7** (1979), inspired by fortune cookies. It became a standard part of Unix systems, providing entertainment and occasionally wisdom at the command line.
+fortune 起源于 **Unix Version 7**（1979 年），灵感来自幸运饼干。它成为 Unix 系统的标准组成部分，在命令行提供娱乐，偶尔也带来智慧。
 
 # INSTALL
 

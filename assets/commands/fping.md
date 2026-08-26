@@ -1,38 +1,38 @@
 # TAGLINE
 
-parallel ping utility for multiple hosts
+面向多主机的并行 ping 工具
 
 # TLDR
 
-**Ping multiple hosts**
+**Ping 多个主机**
 
 ```fping [host1] [host2] [host3]```
 
-**Ping hosts from a file**
+**从文件中读取主机并 Ping**
 
 ```fping -f [path/to/hosts.txt]```
 
-**Ping a range of IP addresses**
+**Ping 一段 IP 地址范围**
 
 ```fping -g [192.168.1.1] [192.168.1.254]```
 
-**Ping a CIDR range**
+**Ping 一个 CIDR 范围**
 
 ```fping -g [192.168.1.0/24]```
 
-**Show only alive hosts**
+**仅显示存活主机**
 
 ```fping -a [host1] [host2]```
 
-**Show only unreachable hosts**
+**仅显示不可达主机**
 
 ```fping -u [host1] [host2]```
 
-**Ping with statistics** (like ping)
+**Ping 并输出统计信息**（类似 ping）
 
 ```fping -s [host1] [host2]```
 
-**Continuous ping** with interval
+以指定间隔进行**持续 Ping**
 
 ```fping -l -p [1000] [host]```
 
@@ -43,75 +43,75 @@ parallel ping utility for multiple hosts
 # PARAMETERS
 
 **-a**
-> Show only alive (reachable) hosts.
+> 仅显示存活（可达）的主机。
 
 **-u**
-> Show only unreachable hosts.
+> 仅显示不可达的主机。
 
-**-g** _addr/mask_ or _start end_
-> Generate target list from CIDR or range.
+**-g** _addr/mask_ 或 _start end_
+> 从 CIDR 或地址范围生成目标列表。
 
 **-f** _file_
-> Read targets from file (- for stdin).
+> 从文件读取目标（`-` 表示标准输入）。
 
 **-c** _count_
-> Number of pings to send per target.
+> 对每个目标发送的 ping 次数。
 
 **-l**
-> Loop: keep pinging indefinitely.
+> 循环模式：无限持续 ping。
 
 **-p** _period_
-> Interval between pings to same target (ms).
+> 对同一目标两次 ping 之间的间隔（毫秒）。
 
 **-i** _interval_
-> Interval between pings to different targets (ms).
+> 对不同目标两次 ping 之间的间隔（毫秒）。
 
 **-t** _timeout_
-> Individual ping timeout in milliseconds.
+> 单次 ping 的超时时间（毫秒）。
 
 **-r** _retry_
-> Number of retries for unreachable hosts.
+> 对不可达主机的重试次数。
 
 **-s**
-> Print cumulative statistics at end.
+> 在结束时输出累计统计信息。
 
 **-q**
-> Quiet: only show summary.
+> 安静模式：仅显示摘要。
 
 **-e**
-> Show elapsed time for replies.
+> 显示每次响应的耗时。
 
 **-A**
-> Show targets by IP address.
+> 以 IP 地址形式显示目标。
 
 **-D**
-> Show timestamps before each line.
+> 在每行之前显示时间戳。
 
 **-S** _source_
-> Set source address.
+> 设置源地址。
 
 **-b** _size_
-> Ping packet size in bytes.
+> ping 数据包大小（字节）。
 
 # DESCRIPTION
 
-**fping** is designed for scripting and monitoring, offering significant advantages over the standard ping command for checking multiple hosts. It can ping many hosts in parallel and report results in formats suitable for parsing.
+**fping** 专为脚本和监控场景设计，在检查多个主机方面比标准 ping 命令有显著优势。它可以并行 ping 大量主机，并以适合解析的格式报告结果。
 
-Unlike ping which waits for each host to respond before continuing, fping sends probes in a round-robin fashion to all targets, then waits for responses. This parallelism makes it vastly faster when checking many hosts.
+与逐个等待每台主机响应的 ping 不同，fping 以轮询方式向所有目标发送探测包，然后等待响应。这种并行机制使它在检查大量主机时快得多。
 
-The tool is commonly used in network monitoring scripts, host discovery, and availability checking. The **-g** option for generating IP ranges enables quick subnet scans. Exit codes indicate overall reachability status, useful in scripts.
+该工具常用于网络监控脚本、主机发现和可用性检查。用于生成 IP 范围的 **-g** 选项可以快速扫描子网。退出码表示总体的可达性状态，便于在脚本中使用。
 
-Output modes range from verbose per-ping information to quiet mode showing only summaries. The alive-only (-a) and unreachable-only (-u) modes simplify parsing when you only need specific results.
+输出模式涵盖从每次 ping 的详细信息到只显示摘要的安静模式。仅显示存活（-a）或仅显示不可达（-u）的模式在你只需要特定结果时可以简化解析工作。
 
-fping can read targets from files or stdin, enabling integration with other tools. For continuous monitoring, loop mode (-l) with custom intervals provides ongoing status updates.
+fping 可以从文件或标准输入读取目标，便于与其他工具集成。对于持续监控，循环模式（-l）配合自定义间隔可提供持续的状态更新。
 
 # CAVEATS
 
-Requires root/sudo for raw socket access on some systems (or setuid installation). Very fast scanning may be detected as aggressive by network security. High probe rates can stress network infrastructure. Some hosts may block ICMP.
+在某些系统上需要 root/sudo 权限才能访问原始套接字（或以 setuid 方式安装）。极快的扫描可能被网络安全系统判定为攻击行为。过高的探测频率可能给网络基础设施带来压力。部分主机可能会屏蔽 ICMP。
 
 # HISTORY
 
-**fping** was written by Roland Schemers around **1992** at Stanford University to address limitations in the standard ping for network monitoring. It has become a standard tool for network administrators and is included in most Linux distribution repositories.
+**fping** 由 Roland Schemers 于 **1992** 年前后在斯坦福大学编写，目的是弥补标准 ping 在网络监控方面的不足。它已成为网络管理员的标准工具，并被收录进大多数 Linux 发行版的软件仓库。
 
 # INSTALL
 

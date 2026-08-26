@@ -1,26 +1,26 @@
 # TAGLINE
 
-List references in the local repository
+列出本地仓库中的引用
 
 # TLDR
 
-**List all refs**
+**列出所有引用**
 
 ```git show-ref```
 
-**Show heads only**
+**仅显示 heads**
 
 ```git show-ref --heads```
 
-**Show tags only**
+**仅显示标签**
 
 ```git show-ref --tags```
 
-**Verify ref exists**
+**验证引用是否存在**
 
 ```git show-ref --verify refs/heads/main```
 
-**Quiet mode**
+**安静模式**
 
 ```git show-ref -q --verify refs/heads/main```
 
@@ -37,51 +37,51 @@ List references in the local repository
 # PARAMETERS
 
 _PATTERN_
-> Match refs whose end matches the pattern (matched in complete parts).
+> 匹配结尾与该模式一致的引用（按完整片段匹配）。
 
 **--head**
-> Include the HEAD reference, which is filtered out by default.
+> 包含 HEAD 引用，默认会被过滤掉。
 
 **--branches**
-> Limit to local branches (refs/heads). Replaces the older **--heads**, which still works as an alias.
+> 仅限本地分支（refs/heads）。取代较旧的 **--heads**，后者仍可作为别名使用。
 
 **--tags**
-> Limit to local tags (refs/tags).
+> 仅限本地标签（refs/tags）。
 
 **--verify**
-> Require the argument to be an exact ref path (e.g. refs/heads/main). Errors if the ref does not exist.
+> 要求参数必须是精确的引用路径（例如 refs/heads/main）。若该引用不存在则报错。
 
 **--exists** _ref_
-> Check whether a ref exists. Exit code 0 = exists, 2 = missing, 1 = error.
+> 检查某个引用是否存在。退出码 0 = 存在，2 = 不存在，1 = 出错。
 
 **--exclude-existing**[=_pattern_]
-> Filter mode. Reads refs from stdin and prints those that do not exist locally, optionally limited to refs matching the pattern suffix.
+> 过滤模式。从 stdin 读取引用，打印其中本地不存在的那些，可选择仅限后缀匹配该模式的引用。
 
 **-q**, **--quiet**
-> Suppress output. Use the exit code only.
+> 抑制输出。仅通过退出码判断结果。
 
 **-s**, **--hash**[=_N_]
-> Print only the object name (optionally abbreviated to _N_ hex digits), not the ref name.
+> 只打印对象名（可选缩略为 _N_ 位十六进制数字），不打印引用名。
 
 **--abbrev**[=_N_]
-> Abbreviate the printed object name to _N_ hex digits (default uses **core.abbrev**).
+> 将打印的对象名缩略为 _N_ 位十六进制数字（默认遵循 **core.abbrev**）。
 
 **-d**, **--dereference**
-> For tag objects, also print the dereferenced commit, suffixed with **^{}**.
+> 对标签对象，同时打印解引用后的提交，并以 **^{}** 作为后缀。
 
 # DESCRIPTION
 
-**git show-ref** lists references in the local repository, showing SHA-1 hashes and ref names for branches, tags, and other refs. It is a plumbing command commonly used in scripts.
+**git show-ref** 列出本地仓库中的引用，显示分支、标签及其他引用的 SHA-1 哈希值和引用名。它是一个常用于脚本的底层（plumbing）命令。
 
-The verify mode checks whether a specific ref exists without listing all refs, returning an appropriate exit code.
+验证模式用于检查某个特定引用是否存在，而无需列出所有引用，并返回相应的退出码。
 
 # CAVEATS
 
-Plumbing command. Shows local refs only. Use git ls-remote for remote refs.
+底层（plumbing）命令。只显示本地引用。远程引用请用 git ls-remote。
 
 # HISTORY
 
-git show-ref is a core **Git** plumbing command for reference inspection, commonly used in scripts.
+git show-ref 是用于检查引用的核心 **Git** 底层（plumbing）命令，常见于各类脚本中。
 
 # INSTALL
 

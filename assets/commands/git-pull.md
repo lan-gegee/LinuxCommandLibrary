@@ -1,34 +1,34 @@
 # TAGLINE
 
-Fetch and integrate remote changes
+抓取并整合远程更改
 
 # TLDR
 
-**Pull from origin**
+**从 origin 拉取**
 
 ```git pull```
 
-**Pull from specific remote**
+**从特定远程拉取**
 
 ```git pull [remote]```
 
-**Pull specific branch**
+**拉取特定分支**
 
 ```git pull [remote] [branch]```
 
-**Pull with rebase**
+**以 rebase 方式拉取**
 
 ```git pull --rebase```
 
-**Pull all remotes**
+**拉取所有远程**
 
 ```git pull --all```
 
-**Pull without committing merge**
+**拉取但不自动提交合并**
 
 ```git pull --no-commit```
 
-**Pull with fast-forward only**
+**只允许 fast-forward 的拉取**
 
 ```git pull --ff-only```
 
@@ -39,57 +39,57 @@ Fetch and integrate remote changes
 # PARAMETERS
 
 **--rebase**[=_true|merges|false_]
-> Rebase current branch on top of upstream after fetching instead of merging.
+> 抓取后将当前分支变基到上游之上，而不是合并。
 
 **--no-rebase**
-> Merge upstream into current branch (overrides `pull.rebase` config).
+> 将上游合并进当前分支（覆盖 `pull.rebase` 配置）。
 
 **--ff-only**
-> Only update if fast-forward is possible, fail otherwise.
+> 仅在可以 fast-forward 时更新，否则失败。
 
 **--no-ff**
-> Always create a merge commit, even when fast-forward is possible.
+> 总是创建合并提交，即使可以 fast-forward。
 
 **--no-commit**
-> Perform the merge but stop before creating a commit.
+> 执行合并但在创建提交前停止。
 
 **--squash**
-> Squash all fetched commits into a single commit on the current branch.
+> 将所有抓取的提交压缩为当前分支上的单个提交。
 
 **--all**
-> Fetch from all remotes.
+> 从所有远程抓取。
 
 **--autostash**
-> Automatically stash and reapply uncommitted changes.
+> 自动 stash 未提交的更改并在之后重新应用。
 
 **--set-upstream**
-> Add upstream tracking reference for the pulled branch.
+> 为被拉取的分支添加上游跟踪引用。
 
 **--depth** _n_
-> Limit fetch to specified number of commits from remote tip.
+> 将抓取限制在距远程末端指定数量的提交内。
 
 **-t**, **--tags**
-> Fetch all tags from the remote.
+> 从远程抓取所有标签。
 
 **-q**, **--quiet**
-> Suppress output during fetch and merge.
+> 在抓取和合并过程中抑制输出。
 
 **-v**, **--verbose**
-> Be verbose.
+> 详细输出。
 
 # DESCRIPTION
 
-**git pull** fetches from a remote and integrates the changes with the current branch. It is equivalent to running `git fetch` followed by `git merge`, or `git rebase` when the `--rebase` option is used.
+**git pull** 从远程抓取更改并将其整合到当前分支。它等价于先运行 `git fetch` 再运行 `git merge`；若使用了 `--rebase` 选项，则等价于 `git rebase`。
 
-Pull strategies vary by workflow. Some teams prefer merge (preserving all history), others prefer rebase (linear history), and some use `--ff-only` to reject non-fast-forward updates and prevent unexpected merge commits. The `pull.rebase` configuration setting controls default behavior.
+拉取策略因工作流而异。有些团队偏好合并（保留全部历史），有些偏好变基（线性历史），还有些使用 `--ff-only` 拒绝非 fast-forward 更新、防止意外的合并提交。`pull.rebase` 配置项控制默认行为。
 
 # CAVEATS
 
-Pulling into a dirty working tree can cause conflicts. Use `--autostash` to automatically stash and reapply local changes. The default merge-or-rebase behavior is controlled by the `pull.rebase` configuration setting. Since Git 2.27, `git pull` warns if `pull.rebase` is not set.
+向脏工作区拉取可能引发冲突。可以使用 `--autostash` 自动 stash 并重新应用本地更改。默认的合并或变基行为由 `pull.rebase` 配置项控制。自 Git 2.27 起，未设置 `pull.rebase` 时 `git pull` 会发出警告。
 
 # HISTORY
 
-**git pull** has been part of Git since its initial release by Linus Torvalds in **2005**. The `--ff-only` option was added in Git 1.6.6. The `--autostash` option was added in Git 2.9.
+**git pull** 自 Linus Torvalds 于 **2005 年**发布 Git 之初就是其中一员。`--ff-only` 选项在 Git 1.6.6 中加入，`--autostash` 选项在 Git 2.9 中加入。
 
 # INSTALL
 

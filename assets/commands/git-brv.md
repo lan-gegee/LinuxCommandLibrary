@@ -1,10 +1,10 @@
 # TAGLINE
 
-List branches with verbose formatting and timing information
+以详细格式列出分支并附带时间信息
 
 # TLDR
 
-**List branches with details**
+**详细列出分支**
 
 ```git brv```
 
@@ -14,15 +14,15 @@ List branches with verbose formatting and timing information
 
 # PARAMETERS
 
-Takes no options; running **git brv** always lists every local branch, most recently committed first.
+不接受任何选项；运行 **git brv** 总是会列出所有本地分支，最近有提交的分支排在最前。
 
 # DESCRIPTION
 
-**git brv** is a git-extras command that provides an enhanced branch listing with rich contextual information. It displays branches along with their last commit date, abbreviated commit hash, relative time (e.g., "2 days ago"), and commit messages in a well-formatted table.
+**git brv** 是一个 git-extras 命令，提供带有丰富上下文信息的增强版分支列表。它以格式良好的表格显示分支及其最近提交日期、缩写的提交哈希、相对时间（如 "2 days ago"）和提交信息。
 
-The output is more informative than standard git branch -v, using color coding and improved spacing to make branch information easier to scan. This helps developers quickly identify stale branches, recent activity, and the current state of parallel development efforts.
+其输出比标准的 git branch -v 更具信息量，通过颜色标记和更合理的间距让分支信息一目了然。这有助于开发者快速识别过时分支、近期活动以及并行开发工作的当前状态。
 
-The command is particularly useful in repositories with many branches, where understanding branch status at a glance is valuable for maintenance and workflow management.
+在分支较多的仓库中，该命令尤为有用——快速掌握各分支状态对维护和工作流管理很有价值。
 
 # INSTALL
 
@@ -53,4 +53,3 @@ The command is particularly useful in repositories with many branches, where und
 ```[Documentation](https://github.com/tj/git-extras/blob/master/Commands.md#git-brv)```
 
 <!-- verified: 2026-07-17 -->
-

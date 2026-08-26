@@ -1,34 +1,34 @@
 # TAGLINE
 
-Identity and Access Management for Google Cloud
+Google Cloud 的身份与访问管理
 
 # TLDR
 
-**List service accounts in the current project**
+**列出当前项目中的服务账号**
 
 ```gcloud iam service-accounts list```
 
-**Create a service account**
+**创建服务账号**
 
 ```gcloud iam service-accounts create [name] --display-name="[description]"```
 
-**Create a key for a service account**
+**为服务账号创建密钥**
 
 ```gcloud iam service-accounts keys create [key.json] --iam-account=[email]```
 
-**List keys for a service account**
+**列出服务账号的密钥**
 
 ```gcloud iam service-accounts keys list --iam-account=[email]```
 
-**List all predefined roles**
+**列出所有预定义角色**
 
 ```gcloud iam roles list```
 
-**Describe a specific role and its permissions**
+**描述特定角色及其权限**
 
 ```gcloud iam roles describe [roles/editor]```
 
-**List grantable roles for a resource**
+**列出资源可授予的角色**
 
 ```gcloud iam list-grantable-roles [//cloudresourcemanager.googleapis.com/projects/my-project]```
 
@@ -39,41 +39,41 @@ Identity and Access Management for Google Cloud
 # PARAMETERS
 
 **service-accounts** _CMD_
-> Manage service accounts (create, delete, describe, list, update, add/get/set-iam-policy-binding, keys).
+> 管理服务账号（create、delete、describe、list、update、add/get/set-iam-policy-binding、keys）。
 
 **roles** _CMD_
-> Manage IAM roles (create, delete, describe, list, update, copy, undelete).
+> 管理 IAM 角色（create、delete、describe、list、update、copy、undelete）。
 
 **policies** _CMD_
-> Manage IAM deny policies.
+> 管理 IAM 拒绝策略（deny policies）。
 
 **workload-identity-pools** _CMD_
-> Manage workload identity pools for external identity federation.
+> 管理用于外部身份联合的工作负载身份池。
 
 **list-grantable-roles** _RESOURCE_
-> List grantable roles for a given resource.
+> 列出给定资源可授予的角色。
 
 **--iam-account** _EMAIL_
-> Service account email (used with service-accounts keys subcommands).
+> 服务账号邮箱（与 service-accounts keys 子命令配合使用）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud iam** provides command-line access to Google Cloud's Identity and Access Management system, which controls who (identity) has what access (role) to which resources.
+**gcloud iam** 提供对 Google Cloud 身份与访问管理系统的命令行访问，该系统控制谁（身份）以何种访问级别（角色）操作哪些资源。
 
-Service accounts represent non-human identities for applications and services. Keys can be created for service accounts to enable authentication from external environments. Roles bundle related permissions into assignable units. IAM policies bind roles to principals (users, groups, or service accounts) on specific resources.
+服务账号代表应用和服务的非人类身份。可以为服务账号创建密钥，以便从外部环境进行身份验证。角色将相关权限打包成可分配的单元。IAM 策略则把角色绑定到特定资源上的主体（用户、组或服务账号）。
 
-Note that adding role bindings to projects is done via **gcloud projects add-iam-policy-binding**, not through the **gcloud iam** command group directly.
+注意：向项目添加角色绑定要通过 **gcloud projects add-iam-policy-binding** 完成，而不是直接使用 **gcloud iam** 命令组。
 
 # CAVEATS
 
-IAM changes may take time to propagate. Service account keys are security-sensitive credentials and should be rotated regularly. Role bindings are additive; removing access requires explicit policy modification.
+IAM 变更可能需要一段时间才能传播生效。服务账号密钥是安全敏感凭据，应定期轮换。角色绑定是叠加式的；移除访问权限需要显式修改策略。
 
 # HISTORY
 
-gcloud iam is part of the **Google Cloud SDK** for managing IAM, Google Cloud's identity and access control system.
+gcloud iam 属于 **Google Cloud SDK**，用于管理 IAM——Google Cloud 的身份与访问控制系统。
 
 # SEE ALSO
 

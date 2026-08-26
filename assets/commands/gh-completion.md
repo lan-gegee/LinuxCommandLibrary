@@ -1,22 +1,22 @@
 # TAGLINE
 
-generate shell completion scripts
+生成 shell 补全脚本
 
 # TLDR
 
-**Generate bash completions**
+**生成 bash 补全**
 
 ```gh completion -s bash > ~/.local/share/bash-completion/completions/gh```
 
-**Generate zsh completions**
+**生成 zsh 补全**
 
 ```gh completion -s zsh > "${fpath[1]}/_gh"```
 
-**Generate fish completions**
+**生成 fish 补全**
 
 ```gh completion -s fish > ~/.config/fish/completions/gh.fish```
 
-**Generate PowerShell completions**
+**生成 PowerShell 补全**
 
 ```gh completion -s powershell | Out-String | Invoke-Expression```
 
@@ -27,26 +27,26 @@ generate shell completion scripts
 # PARAMETERS
 
 **-s** _SHELL_, **--shell** _SHELL_
-> Shell type: bash, zsh, fish, powershell.
+> Shell 类型：bash、zsh、fish、powershell。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gh completion** generates shell completion scripts for the GitHub CLI. These scripts enable tab completion for gh commands, subcommands, flags, and dynamic values like repository names and branches.
+**gh completion** 为 GitHub CLI 生成 shell 补全脚本。这些脚本支持 gh 命令、子命令、标志以及仓库名称和分支等动态值的 Tab 补全。
 
-The completions integrate with each shell's native completion system, providing context-aware suggestions. Dynamic completions query GitHub for repositories, issues, and pull requests.
+补全脚本与各 shell 的原生补全系统集成，提供上下文感知的建议。动态补全会向 GitHub 查询仓库、issue 和 pull request。
 
-Completion scripts should be regenerated after gh updates to include new commands.
+gh 更新后应重新生成补全脚本，以纳入新命令。
 
 # CAVEATS
 
-Output must be saved to appropriate shell completion directory. Shell may need restart or sourcing to load completions. Dynamic completions require authentication.
+输出必须保存到相应的 shell 补全目录。可能需要重启 shell 或重新 source 才能加载补全。动态补全需要认证。
 
 # HISTORY
 
-gh completion is built into the **GitHub CLI**, following Unix conventions for providing shell integration via completion scripts.
+gh completion 内置于 **GitHub CLI**，遵循 Unix 通过补全脚本提供 shell 集成的惯例。
 
 # INSTALL
 

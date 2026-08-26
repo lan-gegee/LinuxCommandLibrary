@@ -1,14 +1,14 @@
 # TAGLINE
 
-Reset a single file to a specific revision
+将单个文件重置到指定版本
 
 # TLDR
 
-**Reset file to HEAD**
+**将文件重置到 HEAD**
 
 ```git reset-file [file]```
 
-**Reset file to a specific commit**
+**将文件重置到指定提交**
 
 ```git reset-file [file] [commit]```
 
@@ -18,11 +18,11 @@ Reset a single file to a specific revision
 
 # DESCRIPTION
 
-**git reset-file** resets a single tracked file to its state at HEAD, or at a given commit if one is provided. Part of git-extras, it unstages the file and checks out its content from that revision, without touching the rest of the working tree or index.
+**git reset-file** 将单个已跟踪文件重置到它在 HEAD（或给定提交，如果提供了的话）时的状态。它属于 git-extras，会取消该文件的暂存并从该版本检出其内容，不影响工作树和索引中的其他部分。
 
 # CAVEATS
 
-The file argument comes first, followed by the optional commit; passing them in the wrong order silently fails since the second argument is treated as a commit-ish. The file must currently exist in the working tree.
+文件参数在前，可选的提交在后；顺序传错会静默失败，因为第二个参数会被当作 commit-ish。该文件当前必须存在于工作树中。
 
 # INSTALL
 

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Manage GitLab CI/CD pipelines
+管理 GitLab CI/CD 流水线
 
 # TLDR
 
-**List pipelines**
+**列出流水线**
 
 ```glab pipeline list```
 
-**View pipeline**
+查看流水线
 
 ```glab pipeline view [id]```
 
-**Run pipeline**
+运行流水线
 
 ```glab pipeline run```
 
-**Run with variables**
+带变量运行
 
 ```glab pipeline run --variables [KEY:VALUE]```
 
-**Show CI status**
+显示 CI 状态
 
 ```glab pipeline ci status```
 
-**View jobs**
+查看作业
 
 ```glab pipeline ci view```
 
@@ -35,34 +35,34 @@ Manage GitLab CI/CD pipelines
 # SUBCOMMANDS
 
 **list**
-> List pipelines.
+> 列出流水线。
 
 **view**
-> View pipeline details.
+> 查看流水线详情。
 
 **run**
-> Trigger pipeline.
+> 触发流水线。
 
 **status**
-> Show pipeline status.
+> 显示流水线状态。
 
 **delete**
-> Delete pipeline.
+> 删除流水线。
 
 **ci**
-> CI-related commands.
+> CI 相关命令。
 
 # PARAMETERS
 
 **--variables** _vars_
-> Pipeline variables.
+> 流水线变量。
 
 **--branch** _branch_
-> Branch to run on.
+> 要在其上运行的分支。
 
 # DESCRIPTION
 
-**glab pipeline** manages GitLab CI/CD pipelines from the command line. It provides subcommands for viewing, triggering, and monitoring pipelines, as well as inspecting individual job details and logs.
+**glab pipeline** 在命令行中管理 GitLab CI/CD 流水线。它提供查看、触发和监控流水线的子命令，还可以检查单个作业的详情和日志。
 
 # INSTALL
 

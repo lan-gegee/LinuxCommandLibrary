@@ -1,22 +1,22 @@
 # TAGLINE
 
-fast reverse proxy server
+高速反向代理服务端
 
 # TLDR
 
-**Start frp server**
+**启动 frp 服务端**
 
 ```frps -c [frps.toml]```
 
-**Verify configuration**
+**校验配置**
 
 ```frps verify -c [frps.toml]```
 
-**Simple server with** defaults
+使用默认值启动**简单服务端**
 
 ```frps --bind_port [7000]```
 
-**Show version**
+**显示版本**
 
 ```frps -v```
 
@@ -27,46 +27,46 @@ fast reverse proxy server
 # PARAMETERS
 
 _COMMAND_
-> Operation: verify.
+> 操作：verify。
 
 **-c** _FILE_
-> Configuration file path.
+> 配置文件路径。
 
 **--bind_port** _PORT_
-> Bind port for client connections.
+> 用于客户端连接的绑定端口。
 
 **--dashboard_port** _PORT_
-> Web dashboard port.
+> Web 仪表盘端口。
 
 **--token** _STRING_
-> Authentication token.
+> 认证令牌。
 
 **verify**
-> Verify configuration file.
+> 校验配置文件。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # CONFIGURATION
 
 **frps.toml**
-> Server configuration file (TOML since frp v0.52; previous releases used INI and YAML) controlling bind port, dashboard settings, authentication requirements, and connection policies.
+> 服务端配置文件（自 frp v0.52 起为 TOML；早期版本使用 INI 和 YAML），控制绑定端口、仪表盘设置、认证要求和连接策略。
 
 # DESCRIPTION
 
-**frps** is the server component of frp (fast reverse proxy). It runs on a public server and accepts connections from frpc clients, routing traffic to exposed internal services.
+**frps** 是 frp（fast reverse proxy）的服务端组件。它运行在公网服务器上，接受来自 frpc 客户端的连接，并将流量路由到被暴露的内部服务。
 
-The server manages client authentication, proxy routing, and port allocation. A web dashboard provides monitoring. Multiple clients can connect to one server.
+服务端负责管理客户端认证、代理路由和端口分配。Web 仪表盘提供监控功能。多个客户端可以连接到同一个服务器。
 
-frps provides the public endpoint for accessing services exposed by frpc clients.
+frps 为访问由 frpc 客户端暴露的服务提供公网入口。
 
 # CAVEATS
 
-Requires public server with open ports. Security depends on authentication setup. Resource usage scales with connections.
+需要有开放端口且可从公网访问的服务器。安全性取决于认证配置。资源消耗随连接数增长。
 
 # HISTORY
 
-frps is part of **frp**, providing server-side functionality for the reverse proxy system. It enables hosting your own tunnel infrastructure as an alternative to commercial services.
+frps 是 **frp** 的一部分，为该反向代理系统提供服务端功能。它让你能够自建隧道基础设施，作为商业服务的替代方案。
 
 # INSTALL
 

@@ -1,22 +1,22 @@
 # TAGLINE
 
-internationalization message catalog lookup
+国际化消息目录查找工具
 
 # TLDR
 
-**Display translated string**
+**显示翻译后的字符串**
 
 ```gettext [domain] "[message]"```
 
-**Translate from catalog**
+**从目录翻译**
 
 ```TEXTDOMAIN=[domain] gettext "[message]"```
 
-**With context**
+**带上下文**
 
 ```gettext -c "[context]" "[message]"```
 
-**Plural forms**
+**复数形式**
 
 ```ngettext "[singular]" "[plural]" [count]```
 
@@ -27,46 +27,46 @@ internationalization message catalog lookup
 # PARAMETERS
 
 _DOMAIN_
-> Message catalog domain.
+> 消息目录域。
 
 _MSGID_
-> Message to translate.
+> 待翻译的消息。
 
 **-d** _DOMAIN_
-> Text domain.
+> 文本域。
 
 **-e**
-> Enable escape interpretation.
+> 启用转义序列解释。
 
 **-E**
-> Preserve but don't interpret backslashes.
+> 保留反斜杠但不解释。
 
 **-c** _CONTEXT_
-> Message context.
+> 消息上下文。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gettext** retrieves translated strings from message catalogs. It's the runtime component of the GNU internationalization system, looking up translations based on the current locale.
+**gettext** 从消息目录中检索翻译后的字符串。它是 GNU 国际化系统的运行时组件，根据当前区域设置（locale）查找翻译。
 
-The tool searches .mo files for translations, returning the original if none found. It enables shell scripts and programs to produce localized output.
+该工具在 .mo 文件中搜索翻译，找不到时返回原文。它让 shell 脚本和程序能够产生本地化的输出。
 
-gettext enables internationalization of command-line applications.
+gettext 为命令行应用程序提供国际化能力。
 
 # CONFIGURATION
 
 **/usr/share/locale/[LANG]/LC_MESSAGES/[domain].mo**
-> Compiled message catalogs containing translations for specific domains and locales.
+> 已编译的消息目录，包含特定域和区域设置的翻译。
 
 # CAVEATS
 
-Requires compiled .mo catalogs. LANG/LC_MESSAGES must be set. Missing translations return original.
+需要已编译的 .mo 目录文件。必须设置 LANG/LC_MESSAGES。缺失的翻译会返回原文。
 
 # HISTORY
 
-gettext was developed by **GNU** for internationalization. It became the standard Unix localization system, enabling software to support multiple languages.
+gettext 由 **GNU** 为国际化而开发。它成为 Unix 上标准的本地化系统，使软件能够支持多种语言。
 
 # INSTALL
 

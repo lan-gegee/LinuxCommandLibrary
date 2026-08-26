@@ -1,18 +1,18 @@
 # TAGLINE
 
-initialize Google Cloud SDK configuration
+初始化 Google Cloud SDK 配置
 
 # TLDR
 
-**Initialize gcloud**
+**初始化 gcloud**
 
 ```gcloud init```
 
-**Initialize without browser**
+**不启动浏览器进行初始化**
 
 ```gcloud init --console-only```
 
-**Reinitialize with new configuration**
+**使用新配置重新初始化**
 
 ```gcloud init --skip-diagnostics```
 
@@ -23,23 +23,22 @@ initialize Google Cloud SDK configuration
 # PARAMETERS
 
 **--console-only**
-> Don't launch browser for login.
+> 登录时不启动浏览器。
 
 **--skip-diagnostics**
-> Skip network diagnostics.
+> 跳过网络诊断。
 
 **--configuration** _name_
-> Use specific configuration.
+> 使用指定的配置。
 
 # DESCRIPTION
 
-**gcloud init** is an interactive wizard that guides you through the initial setup of the Google Cloud SDK. It handles authentication by launching a browser for OAuth login, then helps you select a default project from those available to your account.
+**gcloud init** 是一个交互式向导，引导你完成 Google Cloud SDK 的初始设置。它通过启动浏览器进行 OAuth 登录来完成身份验证，然后帮助你从账户可用的项目中选择一个默认项目。
 
-The initialization process also prompts for default Compute Engine region and zone settings, which streamlines future commands by eliminating the need to specify these values repeatedly. The command creates or updates a configuration profile with these preferences.
+初始化过程还会提示设置默认的 Compute Engine 区域（region）和可用区（zone），从而免去在后续命令中反复指定这些值的麻烦，让命令执行更顺畅。该命令会创建或更新一个包含这些偏好设置的配置档案。
 
-gcloud init can be run multiple times to create different named configurations for working with multiple projects or accounts. It's the recommended first step after installing the Google Cloud SDK and the easiest way to switch between different GCP environments.
+gcloud init 可以多次运行，以创建不同的命名配置，便于处理多个项目或账户。它是安装 Google Cloud SDK 后推荐的第一步，也是在不同的 GCP 环境之间切换的最简单方式。
 
 # SEE ALSO
 
 [gcloud](/man/gcloud)(1)
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-manage GitHub Actions workflow caches
+管理 GitHub Actions 工作流缓存
 
 # TLDR
 
-**List caches** for the current repository
+**列出缓存**：当前仓库的所有缓存
 
 ```gh cache list```
 
-**List caches** sorted by size
+**列出缓存**：按大小排序
 
 ```gh cache list --sort size_in_bytes --order desc```
 
-**Filter caches** by key prefix
+**按键前缀筛选缓存**
 
 ```gh cache list --key [key_prefix]```
 
-**Delete a cache** by ID or key
+**删除单个缓存**（按 ID 或键）
 
 ```gh cache delete [cache_id_or_key]```
 
-**Delete all caches** for a specific ref
+**删除特定 ref 的所有缓存**
 
 ```gh cache delete --all --ref refs/heads/[branch]```
 
-**Delete all caches** in the repository
+**删除仓库中的所有缓存**
 
 ```gh cache delete --all```
 
@@ -35,53 +35,53 @@ manage GitHub Actions workflow caches
 # SUBCOMMANDS
 
 **list**
-> List caches for the current repository.
+> 列出当前仓库的缓存。
 
 **delete**
-> Delete one or more caches by ID, key, or all at once.
+> 按 ID、键删除一个或多个缓存，或一次性全部删除。
 
 # PARAMETERS
 
 **-k**, **--key** _prefix_
-> Filter by cache key prefix (list), or match by key (delete).
+> 按缓存键前缀筛选（list），或按键匹配（delete）。
 
 **-L**, **--limit** _N_
-> Maximum number of caches to fetch (default: 30). (list only)
+> 获取缓存的最大数量（默认：30）。（仅限 list）
 
 **-S**, **--sort** _field_
-> Sort by field: created_at, last_accessed_at, size_in_bytes (default: last_accessed_at). (list only)
+> 排序字段：created_at、last_accessed_at、size_in_bytes（默认：last_accessed_at）。（仅限 list）
 
 **-O**, **--order** _direction_
-> Order of results: asc or desc (default: desc). (list only)
+> 结果排序方式：asc 或 desc（默认：desc）。（仅限 list）
 
 **-r**, **--ref** _ref_
-> Filter or delete by ref, e.g. refs/heads/main or refs/pull/123/merge.
+> 按 ref 筛选或删除，例如 refs/heads/main 或 refs/pull/123/merge。
 
 **-a**, **--all**
-> Delete all caches. May be combined with --ref to limit scope.
+> 删除所有缓存。可与 --ref 组合以限定范围。
 
 **--succeed-on-no-caches**
-> Return exit code 0 if no caches are found (used with --all).
+> 未找到缓存时也返回退出码 0（与 --all 配合使用）。
 
 **--json** _fields_
-> Output JSON with specified fields. (list only)
+> 以 JSON 输出指定字段。（仅限 list）
 
 **-q**, **--jq** _expression_
-> Filter JSON output using a jq expression. (list only)
+> 用 jq 表达式过滤 JSON 输出。（仅限 list）
 
 **-t**, **--template** _format_
-> Format JSON output using a Go template. (list only)
+> 用 Go 模板格式化 JSON 输出。（仅限 list）
 
 **-R**, **--repo** _owner/repo_
-> Target a specific repository.
+> 针对特定仓库操作。
 
 # DESCRIPTION
 
-**gh cache** manages GitHub Actions caches for a repository. Caches store dependencies and build artifacts to speed up workflow execution by reusing data between runs.
+**gh cache** 管理仓库的 GitHub Actions 缓存。缓存存放依赖项和构建产物，通过在多次运行之间复用数据来加快工作流执行速度。
 
-The cache system uses key-based storage, where workflows save and restore cached data using unique keys. Cache entries have size limits and are automatically evicted based on usage policies. Managing caches manually helps troubleshoot workflow issues and reclaim storage.
+缓存系统采用基于键的存储，工作流使用唯一键保存和恢复缓存数据。缓存条目有大小限制，并根据使用策略自动清理。手动管理缓存有助于排查工作流问题和回收存储空间。
 
-`gh cache list` can also be invoked as `gh cache ls`.
+`gh cache list` 也可以写作 `gh cache ls` 来调用。
 
 # INSTALL
 

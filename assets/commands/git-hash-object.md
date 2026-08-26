@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compute object ID value
+计算对象 ID 值
 
 # TLDR
 
-**Compute object hash**
+**计算对象哈希**
 
 ```git hash-object [file]```
 
-**Compute and store object**
+**计算并存储对象**
 
 ```git hash-object -w [file]```
 
-**Hash from stdin**
+**从 stdin 计算哈希**
 
 ```echo "[content]" | git hash-object --stdin```
 
-**Specify object type**
+**指定对象类型**
 
 ```git hash-object -t [blob] [file]```
 
@@ -27,39 +27,39 @@ Compute object ID value
 # PARAMETERS
 
 **-w**
-> Write object to database.
+> 将对象写入数据库。
 
 **--stdin**
-> Read from stdin.
+> 从 stdin 读取。
 
 **-t** _type_
-> Object type (blob, commit, tree, tag).
+> 对象类型（blob、commit、tree、tag）。
 
 **--path** _path_
-> Hash as if at path.
+> 按照位于指定路径的情形来计算哈希。
 
 **--no-filters**
-> Don't apply filters.
+> 不应用过滤器。
 
 **--stdin-paths**
-> Read file paths from stdin, hashing each in turn.
+> 从 stdin 读取文件路径列表，逐个计算哈希。
 
 **--literally**
-> Allow hashing content that wouldn't form a valid object (debugging).
+> 允许对无法构成有效对象的内容进行哈希（用于调试）。
 
 # DESCRIPTION
 
-**git hash-object** computes the object ID (SHA-1, or SHA-256 in repositories using that format) for a file and optionally stores it in the Git object database. This low-level plumbing command exposes Git's internal object storage mechanism.
+**git hash-object** 为文件计算对象 ID（SHA-1，采用该格式的仓库则为 SHA-256），并可选地将其存储到 Git 对象数据库中。这个底层 plumbing 命令暴露了 Git 内部的对象存储机制。
 
-The command calculates the hash by formatting the file content as a Git object (with type and size header), then hashing it. With the -w option, it also writes the object to .git/objects/, making it part of the repository even if not yet referenced by any commit. The --stdin option enables hashing content from pipes or scripts; --stdin-paths reads a list of file paths instead.
+该命令通过将文件内容格式化为 Git 对象（带有类型和大小头部），然后对其计算哈希。使用 -w 选项时，它还会把对象写入 .git/objects/，使其成为仓库的一部分，即使尚未被任何提交引用。--stdin 选项支持对来自管道或脚本的内容计算哈希；--stdin-paths 则改为读取文件路径列表。
 
 # CAVEATS
 
-Without **-w**, the object is only hashed, not stored. Filters (like `clean` in `.gitattributes`) are applied by default unless **--no-filters** is given, which can change the resulting hash.
+不使用 **-w** 时，只会计算对象的哈希而不会存储。默认会应用过滤器（例如 `.gitattributes` 中的 `clean`），除非给出 **--no-filters**；这可能会改变最终的哈希值。
 
 # HISTORY
 
-**git hash-object** is a core plumbing command present since Git's earliest releases, exposing the object hashing used internally for blobs, trees, and commits.
+**git hash-object** 是自 Git 最早版本就存在的核心 plumbing 命令，暴露了内部用于 blob、树和提交的对象哈希机制。
 
 # INSTALL
 

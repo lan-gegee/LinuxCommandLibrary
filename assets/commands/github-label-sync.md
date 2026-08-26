@@ -1,26 +1,26 @@
 # TAGLINE
 
-Synchronize GitHub repository labels from a config file
+从配置文件同步 GitHub 仓库标签
 
 # TLDR
 
-**Sync labels to a repository**
+**将标签同步到仓库**
 
 ```github-label-sync --labels [labels.json] [owner/repo]```
 
-**Preview changes without applying them**
+**预览变更而不实际应用**
 
 ```github-label-sync --dry-run --labels [labels.json] [owner/repo]```
 
-**Keep labels not listed in the config instead of deleting them**
+保留配置中未列出的标签而不删除它们
 
 ```github-label-sync --allow-added-labels --labels [labels.json] [owner/repo]```
 
-**Use a specific access token**
+**使用指定的访问令牌**
 
 ```github-label-sync --access-token [token] --labels [labels.json] [owner/repo]```
 
-**Use a labels file hosted at a URL**
+**使用托管在 URL 上的标签文件**
 
 ```github-label-sync --labels [https://example.com/labels.json] [owner/repo]```
 
@@ -31,22 +31,22 @@ Synchronize GitHub repository labels from a config file
 # PARAMETERS
 
 **-l**, **--labels** _path-or-url_
-> Path or URL to the JSON labels configuration file.
+> JSON 标签配置文件的路径或 URL。
 
 **-d**, **--dry-run**
-> Calculate the required changes without applying them.
+> 计算所需的变更但不实际应用。
 
 **-a**, **--allow-added-labels**
-> Don't delete labels found on the repo that aren't listed in the config.
+> 不删除仓库上存在但配置中未列出的标签。
 
 **-A**, **--access-token** _token_
-> GitHub personal access token. Falls back to the `GITHUB_ACCESS_TOKEN` environment variable if omitted.
+> GitHub 个人访问令牌。若省略则回退到 `GITHUB_ACCESS_TOKEN` 环境变量。
 
 # DESCRIPTION
 
-**github-label-sync** synchronizes GitHub labels with a JSON configuration file. It ensures consistent labeling across repositories by defining labels declaratively, adding missing labels, updating changed ones, and (by default) removing labels not present in the configuration file.
+**github-label-sync** 将 GitHub 标签与 JSON 配置文件同步。它通过声明式定义标签来保证各仓库间标签的一致性：添加缺失的标签、更新已更改的标签，并且（默认情况下）删除配置文件中不存在的标签。
 
-The labels file is a JSON array of label objects, each with `name`, `color`, and optionally `description` and `aliases` (previous names to rename from, preserving existing issue/PR associations).
+标签文件是一个 JSON 数组，每个元素为一个标签对象，包含 `name`、`color`，以及可选的 `description` 和 `aliases`（用于重命名的旧名称，可保留现有的 issue/PR 关联）。
 
 # SEE ALSO
 

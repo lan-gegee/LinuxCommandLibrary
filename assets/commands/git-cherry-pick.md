@@ -1,38 +1,38 @@
 # TAGLINE
 
-Apply changes from existing commits
+应用现有提交中的更改
 
 # TLDR
 
-**Apply a commit to the current branch**
+**将一个提交应用到当前分支**
 
 ```git cherry-pick [commit]```
 
-**Cherry-pick multiple commits**
+**拣选多个提交**
 
 ```git cherry-pick [commit1] [commit2]```
 
-**Cherry-pick an exclusive range (excludes start, includes end)**
+**拣选一个开区间范围（不含起点，含终点）**
 
 ```git cherry-pick [start]..[end]```
 
-**Cherry-pick an inclusive range (includes both start and end)**
+**拣选一个闭区间范围（起点和终点都包含）**
 
 ```git cherry-pick [start]^..[end]```
 
-**Apply changes without committing**
+**只应用更改而不创建提交**
 
 ```git cherry-pick -n [commit]```
 
-**Continue after resolving conflicts**
+**解决冲突后继续**
 
 ```git cherry-pick --continue```
 
-**Abort and return to pre-cherry-pick state**
+**中止并回到拣选前的状态**
 
 ```git cherry-pick --abort```
 
-**Append a "cherry picked from" note to the commit message**
+**在提交信息末尾追加 "cherry picked from" 说明**
 
 ```git cherry-pick -x [commit]```
 
@@ -45,42 +45,42 @@ Apply changes from existing commits
 # PARAMETERS
 
 **-e**, **--edit**
-> Edit the commit message before committing.
+> 在创建提交前编辑提交信息。
 
 **-n**, **--no-commit**
-> Apply changes to the working tree and index without creating a commit.
+> 将更改应用到工作区和索引，但不创建提交。
 
 **-x**
-> Append a line saying "(cherry picked from commit ...)" to the original commit message. Useful for tracking backports on public branches.
+> 在原提交信息后追加一行 "(cherry picked from commit ...)"。便于追踪公共分支上的向后移植。
 
 **-s**, **--signoff**
-> Add a `Signed-off-by` trailer to the commit message.
+> 在提交信息中添加 `Signed-off-by` 尾注。
 
 **-m** _parent-number_, **--mainline** _parent-number_
-> Specify the parent number (starting from 1) to use as the mainline when cherry-picking a merge commit.
+> 拣选合并提交时，指定以哪个父提交（从 1 开始编号）作为主线。
 
 **--ff**
-> If HEAD is the same as the parent of the commit being cherry-picked, fast-forward HEAD instead of creating a new commit.
+> 如果 HEAD 与被拣选提交的父提交相同，则直接快进 HEAD 而不创建新提交。
 
 **--continue**
-> Continue the operation after resolving conflicts.
+> 解决冲突后继续操作。
 
 **--skip**
-> Skip the current commit and continue with the rest of the sequence.
+> 跳过当前提交并继续处理序列中的其余提交。
 
 **--abort**
-> Cancel the operation and return to the pre-cherry-pick state.
+> 取消操作并返回到拣选前的状态。
 
 **--quit**
-> Forget the current operation without restoring HEAD, leaving the working tree as-is.
+> 忘记当前操作但不恢复 HEAD，保持工作区现状。
 
 # DESCRIPTION
 
-**git cherry-pick** applies the changes introduced by existing commits onto the current branch, creating new commits with the same diff but different ancestry. This allows selective integration of specific changes without merging entire branches.
+**git cherry-pick** 将现有提交所引入的更改应用到当前分支上，创建内容相同但谱系不同的新提交。这样可以选择性地整合特定更改，而无需合并整个分支。
 
-The command is essential for backporting bug fixes to maintenance branches, incorporating specific features from development branches, and recovering commits from abandoned branches. Each cherry-picked commit gets a new SHA-1 hash reflecting its new parent.
+该命令对于将缺陷修复向后移植到维护分支、从开发分支引入特定功能，以及从被放弃的分支找回提交都必不可少。每个被拣选的提交都会获得一个新的 SHA-1 哈希，反映其新的父提交。
 
-When specifying a range with `..`, the start commit is excluded. To include both endpoints use `start^..end`. Cherry-picking can encounter conflicts when changes don't apply cleanly to the target branch's context. The operation can be paused to allow manual resolution before continuing with `--continue`.
+使用 `..` 指定范围时不包含起始提交。若要包含两端，请使用 `start^..end`。当更改无法干净地套用到目标分支的上下文时，拣选会遇到冲突。操作可以暂停以便手动解决冲突，然后用 `--continue` 继续。
 
 # INSTALL
 
@@ -103,4 +103,3 @@ When specifying a range with `..`, the start commit is excluded. To include both
 # SEE ALSO
 
 [git-rebase](/man/git-rebase)(1), [git-revert](/man/git-revert)(1), [git-cherry](/man/git-cherry)(1)
-

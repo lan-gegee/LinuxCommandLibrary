@@ -1,34 +1,34 @@
 # TAGLINE
 
-CLI for deploying apps on the Fly.io platform
+在 Fly.io 平台上部署应用的 CLI 工具
 
 # TLDR
 
-**Launch new app**
+**启动新应用**
 
 ```flyctl launch```
 
-**Deploy application**
+**部署应用**
 
 ```flyctl deploy```
 
-**List apps**
+**列出应用**
 
 ```flyctl apps list```
 
-**View logs**
+**查看日志**
 
 ```flyctl logs```
 
-**SSH into machine**
+**SSH 进入机器**
 
 ```flyctl ssh console```
 
-**Check app status**
+**检查应用状态**
 
 ```flyctl status```
 
-**Manage secrets**
+**管理密钥**
 
 ```flyctl secrets set [KEY=VALUE]```
 
@@ -39,64 +39,64 @@ CLI for deploying apps on the Fly.io platform
 # PARAMETERS
 
 _COMMAND_
-> Operation: launch, deploy, apps, logs, ssh, etc.
+> 操作类型：launch、deploy、apps、logs、ssh 等。
 
 **launch**
-> Create and deploy new app.
+> 创建并部署新应用。
 
 **deploy**
-> Deploy current directory.
+> 部署当前目录。
 
 **apps** _SUBCMD_
-> Manage applications.
+> 管理应用程序。
 
 **logs**
-> View application logs.
+> 查看应用日志。
 
 **ssh** _SUBCMD_
-> SSH access to machines.
+> 通过 SSH 访问机器。
 
 **secrets** _SUBCMD_
-> Manage secrets/environment.
+> 管理密钥/环境变量。
 
 **scale** _SUBCMD_
-> Adjust resources.
+> 调整资源。
 
 **status**
-> Show app deployment status.
+> 显示应用部署状态。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 **-t**, **--access-token** _TOKEN_
-> Fly API access token.
+> Fly API 访问令牌。
 
 **--verbose**
-> Verbose output.
+> 详细输出。
 
 **--debug**
-> Print additional logs and traces.
+> 打印额外的日志和跟踪信息。
 
 # DESCRIPTION
 
-**flyctl** (also available as fly) is the CLI for Fly.io, a platform for deploying applications globally on edge infrastructure. It manages applications, deployments, and platform resources.
+**flyctl**（也可用 fly 命名调用）是 Fly.io 的命令行界面，Fly.io 是一个在边缘基础设施上全球部署应用的平台。它管理应用程序、部署和平台资源。
 
-The tool deploys Docker containers or builds from source, distributing them across Fly's global network. It handles secrets, volumes, scaling, and networking configuration.
+该工具可部署 Docker 容器或从源码构建，并分发到 Fly 的全球网络。它处理密钥、卷、扩缩容和网络配置。
 
-flyctl enables full platform control from the command line, from initial launch to production management.
+flyctl 让你可以完全通过命令行控制整个平台，从初始启动到生产环境管理。
 
 # CONFIGURATION
 
 **fly.toml**
-> Application configuration file defining services, regions, build settings, and environment variables.
+> 应用配置文件，定义服务、区域、构建设置和环境变量。
 
 # CAVEATS
 
-Requires Fly.io account. Usage incurs costs. Some features region-dependent.
+需要 Fly.io 账户。使用会产生费用。某些功能取决于所在区域。
 
 # HISTORY
 
-flyctl is the CLI for **Fly.io**, a platform launched in 2017 focusing on edge deployment. It positions applications close to users worldwide using lightweight VMs.
+flyctl 是 **Fly.io** 的 CLI，该平台于 2017 年上线，专注于边缘部署。它使用轻量级虚拟机将应用部署在离全球用户更近的位置。
 
 # INSTALL
 

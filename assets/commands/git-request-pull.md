@@ -1,18 +1,18 @@
 # TAGLINE
 
-Generate a pull request summary for email submission
+生成适合邮件提交的拉取请求摘要
 
 # TLDR
 
-**Generate pull request summary**
+**生成拉取请求摘要**
 
 ```git request-pull [start] [url]```
 
-**Generate summary between a tag and a specific branch end point**
+**生成某个标签与指定分支端点之间的摘要**
 
 ```git request-pull [v1.0] [https://example.com/repo.git] [my-branch]```
 
-**Include patch text in the output**
+**在输出中包含补丁文本**
 
 ```git request-pull -p [v1.0] [https://example.com/repo.git]```
 
@@ -23,22 +23,22 @@ Generate a pull request summary for email submission
 # PARAMETERS
 
 **-p**
-> Include patch text in the output.
+> 在输出中包含补丁文本。
 
 _start_
-> Commit to start at. This names a commit that is already in the upstream history.
+> 起始提交。它指代一个已存在于上游历史中的提交。
 
 _url_
-> The repository URL to be pulled from.
+> 要从中拉取的仓库 URL。
 
 _end_
-> Commit to end at (defaults to HEAD). This names the commit at the tip of the history you are asking to be pulled.
+> 结束提交（默认为 HEAD）。它指代你请求拉取的历史顶端所在的提交。
 
 # DESCRIPTION
 
-**git request-pull** generates a summary of pending changes suitable for email submission. It creates a message describing the commits between a starting point and the current HEAD, along with the URL to pull from.
+**git request-pull** 生成一份适合通过邮件提交的待处理变更摘要。它会创建一条消息，描述起点与当前 HEAD 之间的提交，以及用于拉取的 URL。
 
-This command is commonly used in email-based patch workflows to ask maintainers to pull changes from your repository.
+该命令常用于基于邮件的补丁工作流中，请维护者从你的仓库拉取变更。
 
 # INSTALL
 

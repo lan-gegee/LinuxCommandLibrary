@@ -1,38 +1,38 @@
 # TAGLINE
 
-Manage GitLab repositories from the command line
+从命令行管理 GitLab 仓库
 
 # TLDR
 
-**Clone a repository**
+**克隆仓库**
 
 ```glab repo clone [owner/repo]```
 
-**Create a new repository**
+**创建新仓库**
 
 ```glab repo create [name]```
 
-**Fork a repository**
+**复刻（fork）仓库**
 
 ```glab repo fork [owner/repo]```
 
-**View repository details**
+**查看仓库详情**
 
 ```glab repo view [owner/repo]```
 
-**Archive repository**
+**归档仓库**
 
 ```glab repo archive [owner/repo]```
 
-**Search for repositories**
+**搜索仓库**
 
 ```glab repo search [query]```
 
-**List repositories**
+**列出仓库**
 
 ```glab repo list```
 
-**Delete a repository**
+**删除仓库**
 
 ```glab repo delete [owner/repo]```
 
@@ -43,52 +43,52 @@ Manage GitLab repositories from the command line
 # SUBCOMMANDS
 
 **clone**
-> Clone a repository.
+> 克隆仓库。
 
 **create**
-> Create new repository.
+> 创建新仓库。
 
 **fork**
-> Fork a repository.
+> 复刻（fork）仓库。
 
 **view**
-> View repository details.
+> 查看仓库详情。
 
 **archive**
-> Download repository archive.
+> 下载仓库归档。
 
 **search**
-> Search for repositories.
+> 搜索仓库。
 
 **list**
-> List repositories.
+> 列出仓库。
 
 **delete**
-> Delete a repository.
+> 删除仓库。
 
 # PARAMETERS
 
 **--public**
-> Create as public repository.
+> 创建为公开仓库。
 
 **--private**
-> Create as private repository.
+> 创建为私有仓库。
 
 **--description** _text_
-> Repository description.
+> 仓库描述。
 
 **--clone**
-> Clone after forking.
+> 复刻后克隆到本地。
 
 **--group** _name_
-> Create repository in a specific group/namespace.
+> 在指定的组/命名空间中创建仓库。
 
 **-y**, **--yes**
-> Skip confirmation prompts.
+> 跳过确认提示。
 
 # DESCRIPTION
 
-**glab repo** manages GitLab repositories from the command line. It provides subcommands for cloning, creating, forking, searching, and viewing repositories without leaving the terminal.
+**glab repo** 用于从命令行管理 GitLab 仓库。它提供克隆、创建、复刻、搜索和查看仓库等子命令，无需离开终端。
 
 # INSTALL
 

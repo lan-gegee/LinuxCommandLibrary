@@ -1,14 +1,14 @@
 # TAGLINE
 
-External command transport helper
+外部命令传输辅助程序
 
 # TLDR
 
-**Clone via external command**
+**通过外部命令克隆**
 
 ```git clone "ext::[command] [args]"```
 
-**Use with custom transport**
+**配合自定义传输使用**
 
 ```git remote add myremote "ext::[transport-cmd] %S [host]"```
 
@@ -19,39 +19,39 @@ External command transport helper
 # PARAMETERS
 
 _URL_
-> ext:: URL with command template.
+> 带命令模板的 ext:: URL。
 
 **%s**
-> Replaced with service name (e.g. `upload-pack`, `receive-pack`, `upload-archive`) without the `git-` prefix.
+> 替换为服务名（例如 `upload-pack`、`receive-pack`、`upload-archive`），不含 `git-` 前缀。
 
 **%S**
-> Replaced with long service name (e.g. `git-upload-pack`) including the `git-` prefix.
+> 替换为长服务名（例如 `git-upload-pack`），含 `git-` 前缀。
 
 **%G**
-> Placed as the first argument; suppresses the service-name argument so the remote command can accept extra positional arguments.
+> 作为第一个参数放置；抑制服务名参数，使远程命令可以接受额外的位置参数。
 
 **%V**
-> Only valid as the second argument; injects the Git protocol version (e.g. `version=2`) as an environment setting.
+> 仅可作为第二个参数；以环境设置的形式注入 Git 协议版本（例如 `version=2`）。
 
 **%%**
-> Literal percent sign.
+> 字面百分号。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git-remote-ext** is a remote helper that allows arbitrary external commands to handle Git transport. The `ext::` URL scheme specifies a command to run for communication, enabling custom transport mechanisms like specific SSH commands or non-standard protocols.
+**git-remote-ext** 是一个远程辅助程序（remote helper），允许任意外部命令处理 Git 传输。`ext::` URL 方案指定用于通信的命令，从而支持自定义传输机制，如特定的 SSH 命令或非标准协议。
 
-Template variables (such as `%s`, `%S`, `%G`) allow dynamic command construction based on the Git service being requested. This helper is typically not invoked directly but is used through `ext::` URLs in remote configurations.
+模板变量（如 `%s`、`%S`、`%G`）允许根据所请求的 Git 服务动态构造命令。该辅助程序通常不会被直接调用，而是通过远程配置中的 `ext::` URL 使用。
 
 # CAVEATS
 
-Security sensitive: commands run from URLs. Internal helper, not typically used directly. Used through ext:: URLs.
+安全敏感：命令来自 URL。属于内部辅助程序，通常不直接使用。通过 ext:: URL 使用。
 
 # HISTORY
 
-git-remote-ext is a **Git** remote helper enabling custom transport mechanisms through arbitrary command execution.
+git-remote-ext 是 **Git** 的远程辅助程序，通过任意命令执行实现自定义传输机制。
 
 # INSTALL
 

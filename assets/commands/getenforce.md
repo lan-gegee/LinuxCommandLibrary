@@ -1,10 +1,10 @@
 # TAGLINE
 
-SELinux enforcement mode checker
+SELinux 强制模式检查工具
 
 # TLDR
 
-Print SELinux mode: **Enforcing**, **Permissive**, or **Disabled**
+输出 SELinux 模式：**Enforcing**、**Permissive** 或 **Disabled**
 
 ```getenforce```
 
@@ -14,23 +14,23 @@ Print SELinux mode: **Enforcing**, **Permissive**, or **Disabled**
 
 # DESCRIPTION
 
-**getenforce** displays the current mode of SELinux (Security-Enhanced Linux). The command outputs one of three possible values:
+**getenforce** 显示 SELinux（Security-Enhanced Linux）的当前模式。该命令输出三个可能的值之一：
 
-**Enforcing** - SELinux security policy is enforced. Access violations are blocked and logged.
+**Enforcing** - SELinux 安全策略处于强制状态。违反访问规则的行为会被阻止并记录日志。
 
-**Permissive** - SELinux security policy is not enforced but violations are logged. Useful for troubleshooting and policy development.
+**Permissive** - SELinux 安全策略不强制执行，但违规行为会被记录。适用于故障排查和策略开发。
 
-**Disabled** - SELinux is completely disabled.
+**Disabled** - SELinux 完全禁用。
 
-This is a quick way to check SELinux status without parsing configuration files or using more verbose tools like **sestatus**.
+这是快速检查 SELinux 状态的方式，无需解析配置文件或使用 **sestatus** 这类更冗长的工具。
 
 # CAVEATS
 
-Returns "Disabled" if SELinux is not compiled into the kernel or if it was disabled at boot. The mode can be changed at runtime with **setenforce** (between Enforcing and Permissive only), but changing to/from Disabled requires a reboot.
+如果 SELinux 未编译进内核或在启动时被禁用，则返回 "Disabled"。运行时可用 **setenforce** 更改模式（只能在 Enforcing 和 Permissive 之间切换），但切换到或离开 Disabled 需要重启系统。
 
 # HISTORY
 
-getenforce is part of the SELinux project, which was developed by the NSA (National Security Agency) and released as open source in **2000**. It was integrated into the Linux kernel in version 2.6 in **2003** and became the default security module for Red Hat Enterprise Linux and Fedora.
+getenforce 属于 SELinux 项目。该项目由美国国家安全局（NSA）开发，于 **2000 年**开源发布，在 **2003 年**被集成进 Linux 内核 2.6 版本，并成为 Red Hat Enterprise Linux 和 Fedora 的默认安全模块。
 
 # INSTALL
 

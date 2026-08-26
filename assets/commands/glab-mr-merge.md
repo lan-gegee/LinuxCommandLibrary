@@ -1,30 +1,30 @@
 # TAGLINE
 
-Merge a GitLab merge request
+合并 GitLab 合并请求
 
 # TLDR
 
-**Merge a merge request**
+**合并一个合并请求**
 
 ```glab mr merge [number]```
 
-**Merge with squash**
+压缩后合并
 
 ```glab mr merge [number] --squash```
 
-**Merge without deleting branch**
+合并且不删除分支
 
 ```glab mr merge [number] --remove-source-branch=false```
 
-**Merge when pipeline succeeds**
+流水线成功后合并
 
 ```glab mr merge [number] --when-pipeline-succeeds```
 
-**Merge with a custom commit message**
+使用自定义提交信息合并
 
 ```glab mr merge [number] --message "[commit message]"```
 
-**Merge with rebase**
+变基后合并
 
 ```glab mr merge [number] --rebase```
 
@@ -35,29 +35,29 @@ Merge a GitLab merge request
 # PARAMETERS
 
 **--squash**
-> Squash commits on merge.
+> 合并时压缩提交。
 
 **--rebase**
-> Rebase the commits onto the base branch before merging.
+> 合并前先将提交变基到基础分支上。
 
 **--remove-source-branch**
-> Delete source branch after merge.
+> 合并后删除源分支。
 
 **--when-pipeline-succeeds**
-> Set the merge request to merge when the pipeline succeeds.
+> 设置合并请求在流水线成功后自动合并。
 
 **--message** _text_
-> Custom merge commit message.
+> 自定义合并提交信息。
 
 **--sha** _sha_
-> Merge when the HEAD of the source branch matches the given SHA. Prevents merging unexpected changes.
+> 仅当源分支的 HEAD 与给定 SHA 匹配时才合并。防止意外合并其他更改。
 
 **-y**, **--yes**
-> Skip confirmation prompt.
+> 跳过确认提示。
 
 # DESCRIPTION
 
-**glab mr merge** merges a GitLab merge request. It supports squash merging, rebasing, automatic source branch deletion, and deferred merging that waits for the CI pipeline to pass before completing.
+**glab mr merge** 合并一个 GitLab 合并请求。它支持压缩合并、变基、自动删除源分支，以及等待 CI 流水线通过后再完成的延迟合并。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Extract commit ID from tar archive
+从 tar 归档中提取提交 ID
 
 # TLDR
 
-**Extract commit ID from archive**
+**从归档中提取提交 ID**
 
 ```git get-tar-commit-id < [archive.tar]```
 
@@ -14,9 +14,9 @@ Extract commit ID from tar archive
 
 # DESCRIPTION
 
-**git get-tar-commit-id** extracts the commit ID from a tar archive created by git archive. The commit ID is stored in the archive's pax extended header when the archive was generated.
+**git get-tar-commit-id** 从由 git archive 创建的 tar 归档中提取提交 ID。提交 ID 在生成归档时被存储于归档的 pax 扩展头中。
 
-This command reads from stdin and outputs the 40-character SHA-1 hash if found. It is particularly useful for build systems that distribute archives and need to verify source versions. The command only works with archives created by git archive, as standard tar archives do not contain git metadata.
+该命令从 stdin 读取输入，如果找到则输出 40 字符的 SHA-1 哈希。它对于分发归档且需要验证源码版本的构建系统特别有用。该命令只对由 git archive 创建的归档有效，因为标准 tar 归档不包含 git 元数据。
 
 # INSTALL
 

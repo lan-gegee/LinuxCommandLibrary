@@ -1,10 +1,10 @@
 # TAGLINE
 
-Dump pack index file contents
+转储包索引文件的内容
 
 # TLDR
 
-**Show pack index contents**
+**显示包索引内容**
 
 ```git show-index < [.idx file]```
 
@@ -14,9 +14,9 @@ Dump pack index file contents
 
 # DESCRIPTION
 
-**git show-index** reads a pack index file from stdin and dumps its contents. It displays the byte offset and SHA-1 hash for each object in the corresponding pack file.
+**git show-index** 从 stdin 读取一个包索引文件并转储其内容。它会显示对应包文件中每个对象的字节偏移量和 SHA-1 哈希值。
 
-This is a low-level plumbing command used for debugging and inspecting Git's internal pack file structure.
+这是一个底层（plumbing）命令，用于调试和检查 Git 内部的包文件结构。
 
 # INSTALL
 

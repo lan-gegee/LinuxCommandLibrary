@@ -1,30 +1,30 @@
 # TAGLINE
 
-annotate file lines with commit information
+用提交信息标注文件的每一行
 
 # TLDR
 
-**Show** line-by-line authorship
+**显示**逐行的作者归属
 
 ```git annotate [path/to/file]```
 
-**Annotate** the file as of a given revision
+**标注**指定修订版本的文件
 
 ```git annotate [revision] -- [path/to/file]```
 
-**Annotate** only a range of lines
+只**标注**一段行范围
 
 ```git annotate -L [10],[20] [path/to/file]```
 
-**Ignore** whitespace-only changes
+**忽略**仅涉及空白的更改
 
 ```git annotate -w [path/to/file]```
 
-**Show** the line's original commit through moves and copies
+跨移动和复制**追溯**该行的原始提交
 
 ```git annotate -C -C [path/to/file]```
 
-**Show** the email address instead of the author name
+**显示**电子邮件地址而不是作者姓名
 
 ```git annotate -e [path/to/file]```
 
@@ -35,73 +35,73 @@ annotate file lines with commit information
 # PARAMETERS
 
 **-L** _start_,_end_
-> Annotate only the given line range. Also accepts **:**_funcname_ to select a function, and forms such as **-L 10,+5**.
+> 只标注给定的行范围。也接受 **:**_funcname_ 来选择某个函数，以及 **-L 10,+5** 之类的形式。
 
 **-w**
-> Ignore whitespace when comparing versions, so re-indentation does not reassign blame.
+> 比较版本时忽略空白，因此重新缩进不会改变归属。
 
 **-M**[_num_]
-> Detect lines moved or copied within the same file, and blame the original commit.
+> 检测在同一文件内被移动或复制的行，并归因于原始提交。
 
 **-C**[_num_]
-> Detect lines moved or copied from other files in the same commit. Repeat (**-C -C**) to widen the search to files the commit did not touch.
+> 检测在同一提交中从其他文件移动或复制而来的行。重复使用（**-C -C**）可将搜索范围扩大到该提交未触及的文件。
 
 **-e**, **--show-email**
-> Show the author's email address instead of their name.
+> 显示作者的电子邮件地址而不是姓名。
 
 **-l**
-> Show the long, unabbreviated commit hash.
+> 显示完整未缩写的提交哈希。
 
 **-t**
-> Show raw timestamps instead of human-readable dates.
+> 显示原始时间戳而不是人类可读的日期。
 
 **-f**, **--show-name**
-> Show the filename of the originating commit.
+> 显示原始提交中的文件名。
 
 **-n**, **--show-number**
-> Show the line number in the originating commit.
+> 显示原始提交中的行号。
 
 **-s**
-> Suppress the author name and timestamp.
+> 不显示作者姓名和时间戳。
 
 **--porcelain**
-> Machine-readable output for scripts.
+> 供脚本使用的机器可读输出。
 
 **--line-porcelain**
-> Like **--porcelain**, but repeat the full commit information for every line.
+> 类似 **--porcelain**，但对每一行都重复完整的提交信息。
 
 **--reverse** _start_.._end_
-> Walk history forwards instead of backwards, showing the last revision in which each line still existed.
+> 从后向前改为从前向后遍历历史，显示每行仍然存在的最后一个修订版本。
 
 **--ignore-rev** _rev_
-> Ignore a revision when assigning blame, e.g. a bulk reformatting commit.
+> 在分配归属时忽略某个修订版本，例如一次批量重排格式的提交。
 
 **--ignore-revs-file** _file_
-> Ignore all revisions listed in a file.
+> 忽略文件中列出的所有修订版本。
 
 # DESCRIPTION
 
-**git annotate** annotates each line of a file with information about the commit that last introduced it. Given a revision, it annotates the file as it existed at that point instead of in the working tree.
+**git annotate** 用最后一次引入每行的提交信息来标注文件的每一行。给定一个修订版本时，它标注的是该时间点的文件状态，而不是工作树中的版本。
 
-It is the same machinery as **git blame**, and the only real difference is the output format. **git annotate** exists for backward compatibility with existing scripts, and to offer a familiar command name to people arriving from CVS and Subversion, where **annotate** is the conventional spelling.
+它与 **git blame** 使用相同的机制，唯一真正的区别是输出格式。保留 **git annotate** 是为了向后兼容现有脚本，也是为了给来自 CVS 和 Subversion 的用户提供一个熟悉的命令名——在那里 **annotate** 是约定俗成的拼法。
 
-The value of either spelling is archaeology: finding the change that introduced a bug, understanding why a line looks the way it does, or working out who to ask. **-C** and **-M** matter for that, because without them a file that was renamed or a block that was moved shows the refactoring commit rather than the commit that wrote the code.
+无论哪种拼法，它的价值都在于"考古"：找到引入 bug 的更改、理解某行为什么长成这样、或者弄清楚该去问谁。为此 **-C** 和 **-M** 很重要，因为不使用它们时，被重命名的文件或被移动的代码块会显示重构提交，而不是真正写出这段代码的提交。
 
-**--ignore-rev** and **--ignore-revs-file** address the common frustration of a repository-wide reformat burying real history behind one mechanical commit.
+**--ignore-rev** 和 **--ignore-revs-file** 则解决一个常见烦恼：全仓库范围的重排版用一次机械提交掩盖了真实历史。
 
 # CAVEATS
 
-Blame attributes each line to the commit that last **touched** it, which is not the same as the commit that caused the behaviour you are chasing. A whitespace fix, a rename, or a code move will claim lines it did not really author unless you pass **-w**, **-M** or **-C**.
+blame 把每一行归因于最后*触及*它的提交，这并不等于导致你正在追查的那个行为的提交。除非传入 **-w**、**-M** 或 **-C**，否则一次空白修复、重命名或代码移动都会认领它并未真正编写的行。
 
-Because **git annotate** exists only for compatibility, new work should use **git blame**, which has the better-supported output format and is what the git documentation treats as canonical.
+由于 **git annotate** 仅为兼容性而存在，新工作应使用 **git blame**，后者拥有支持更好的输出格式，也是 git 文档视作规范的形式。
 
-Annotating a large file across deep history is slow, since git reconstructs and diffs many revisions. Restrict the work with **-L** when you only care about a few lines.
+对大文件在很深的历史上做标注很慢，因为 git 需要重建并比较许多修订版本。如果只关心几行，可用 **-L** 限制工作量。
 
-The default output format is not stable enough to parse; use **--porcelain** or **--line-porcelain** in scripts.
+默认输出格式不够稳定，不适合解析；在脚本中请使用 **--porcelain** 或 **--line-porcelain**。
 
 # HISTORY
 
-**git annotate** was added early in git's life, in **2005**, as a Perl script providing a CVS-style name and output format for what **git blame** already did. It was later reimplemented in C and is now a thin front-end over the same code as **git blame**.
+**git annotate** 在 git 诞生初期的 **2005 年**加入，当时是一个 Perl 脚本，为 **git blame** 已有的功能提供 CVS 风格的名称和输出格式。后来用 C 重新实现，如今是 **git blame** 同一份代码之上的薄前端。
 
 # INSTALL
 

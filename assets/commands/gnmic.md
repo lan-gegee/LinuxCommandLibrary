@@ -1,22 +1,22 @@
 # TAGLINE
 
-gNMI network management CLI client
+gNMI 网络管理 CLI 客户端
 
 # TLDR
 
-**Get configuration**
+**获取配置**
 
 ```gnmic -a [router:57400] get --path [/interfaces]```
 
-**Set value**
+**设置值**
 
 ```gnmic -a [router:57400] set --update-path [/interface/name] --update-value "[eth0]"```
 
-**Subscribe to telemetry**
+**订阅遥测数据**
 
 ```gnmic -a [router:57400] subscribe --path [/interfaces/interface/statistics]```
 
-**List capabilities**
+**列出能力**
 
 ```gnmic -a [router:57400] capabilities```
 
@@ -27,92 +27,92 @@ gNMI network management CLI client
 # PARAMETERS
 
 **capabilities**
-> Query target gNMI capabilities.
+> 查询目标的 gNMI 能力。
 
 **get**
-> Get configuration/state.
+> 获取配置/状态。
 
 **set**
-> Set configuration.
+> 设置配置。
 
 **subscribe**
-> Subscribe to telemetry.
+> 订阅遥测数据。
 
 **path**
-> Generate or search YANG paths from loaded models.
+> 从已加载的模型生成或搜索 YANG 路径。
 
 **prompt**
-> Interactive mode with path autocompletion.
+> 支持路径自动补全的交互模式。
 
 **diff**
-> Compare gNMI GetResponses or config states.
+> 比较 gNMI GetResponse 或配置状态。
 
 **version**
-> Show gnmic version.
+> 显示 gnmic 版本。
 
 **-a**, **--address** _TARGET_
-> Comma-separated address(es) of the target(s), host:port.
+> 一个或多个目标的地址，逗号分隔，格式为 host:port。
 
 **-u**, **--username** _USER_
-> Username for authentication.
+> 身份验证用户名。
 
 **-p**, **--password** _PASS_
-> Password for authentication.
+> 身份验证密码。
 
 **--path** _PATH_
-> YANG/gNMI path.
+> YANG/gNMI 路径。
 
 **-e**, **--encoding** _ENCODING_
-> Data encoding: json, json_ietf, bytes, proto, ascii, or config.
+> 数据编码：json、json_ietf、bytes、proto、ascii 或 config。
 
 **--insecure**
-> Disable TLS on the connection to the target.
+> 禁用与目标连接的 TLS。
 
 **--skip-verify**
-> Skip verification of the target's TLS certificate.
+> 跳过对目标 TLS 证书的验证。
 
 **--tls-ca** _FILE_
-> TLS CA certificate file.
+> TLS CA 证书文件。
 
 **--tls-cert** _FILE_
-> TLS client certificate file.
+> TLS 客户端证书文件。
 
 **--tls-key** _FILE_
-> TLS client key file.
+> TLS 客户端私钥文件。
 
 **--timeout** _DURATION_
-> gRPC timeout after which a request is cancelled (default 10s).
+> gRPC 超时时间，超过后请求被取消（默认 10s）。
 
 **--config** _FILE_
-> Configuration file (default searches for .gnmic.yaml).
+> 配置文件（默认查找 .gnmic.yaml）。
 
 **--log**
-> Enable logging to stderr.
+> 启用向 stderr 的日志输出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gnmic** is a gNMI (gRPC Network Management Interface) CLI client. It interacts with network devices supporting gNMI for configuration retrieval, modification, and streaming telemetry.
+**gnmic** 是一个 gNMI（gRPC Network Management Interface）CLI 客户端。它与支持 gNMI 的网络设备交互，实现配置检索、修改和流式遥测采集。
 
-The tool supports get, set, subscribe, and capability operations. It is used for network automation and monitoring with modern network operating systems.
+该工具支持 get、set、subscribe 和 capabilities 操作。用于配合现代网络操作系统的网络自动化和监控。
 
 # CONFIGURATION
 
 **~/.gnmic.yaml**
-> Global configuration file for targets, credentials, and default settings.
+> 全局配置文件，保存目标、凭据和默认设置。
 
 **.gnmic.yaml**
-> Per-directory configuration file for project-specific settings.
+> 各目录下的配置文件，用于项目特定的设置。
 
 # CAVEATS
 
-Target must support gNMI. Authentication may be required. YANG model knowledge helpful.
+目标设备必须支持 gNMI。可能需要身份验证。了解 YANG 模型会有帮助。
 
 # HISTORY
 
-gnmic was created by **Nokia** to provide a flexible gNMI client for network automation and telemetry collection.
+gnmic 由 **Nokia** 创建，旨在为网络自动化和遥测采集提供一个灵活的 gNMI 客户端。
 
 # INSTALL
 

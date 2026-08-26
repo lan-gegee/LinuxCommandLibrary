@@ -1,34 +1,34 @@
 # TAGLINE
 
-Google App Engine management commands
+Google App Engine 管理命令
 
 # TLDR
 
-**Deploy application**
+**部署应用**
 
 ```gcloud app deploy```
 
-**Browse deployed app**
+**浏览已部署的应用**
 
 ```gcloud app browse```
 
-**View logs**
+**查看日志**
 
 ```gcloud app logs tail```
 
-**List services**
+**列出服务**
 
 ```gcloud app services list```
 
-**Describe app**
+**描述应用**
 
 ```gcloud app describe```
 
-**Split traffic between versions**
+在版本间**分配流量**
 
 ```gcloud app services set-traffic [service] --splits [v1=0.5,v2=0.5]```
 
-**Delete a version**
+**删除某个版本**
 
 ```gcloud app versions delete [version-id]```
 
@@ -39,44 +39,44 @@ Google App Engine management commands
 # PARAMETERS
 
 _COMMAND_
-> Operation: deploy, browse, logs, services, etc.
+> 操作：deploy、browse、logs、services 等。
 
 **deploy** [_YAML_]
-> Deploy application.
+> 部署应用。
 
 **browse**
-> Open app in browser.
+> 在浏览器中打开应用。
 
 **logs tail**
-> Stream application logs.
+> 流式跟踪应用日志。
 
 **services list**
-> List deployed services.
+> 列出已部署的服务。
 
 **versions list**
-> List app versions.
+> 列出应用版本。
 
 **describe**
-> Show app information.
+> 显示应用信息。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud app** provides comprehensive management capabilities for Google App Engine applications. App Engine is Google's original Platform-as-a-Service offering, allowing developers to deploy web applications without managing the underlying infrastructure.
+**gcloud app** 为 Google App Engine 应用提供全面的管理能力。App Engine 是 Google 最早的平台即服务（PaaS）产品，让开发者无需管理底层基础设施即可部署 Web 应用。
 
-The command group handles the complete application lifecycle including deployment from app.yaml configuration files, version management, and traffic routing between multiple versions. This enables zero-downtime deployments and gradual rollouts through traffic splitting.
+该命令组覆盖完整的应用生命周期，包括从 app.yaml 配置文件部署、版本管理以及多个版本间的流量路由。这使零停机部署和通过流量分割实现的灰度发布成为可能。
 
-Monitoring capabilities include streaming logs and viewing application status. The browse command provides quick access to your deployed application in a web browser. gcloud app integrates with other GCP services, making it easy to connect App Engine applications to databases, storage, and other cloud resources.
+监控功能包括流式日志和查看应用状态。browse 命令可在浏览器中快速访问已部署的应用。gcloud app 与其他 GCP 服务集成，方便将 App Engine 应用连接到数据库、存储和其他云资源。
 
 # CAVEATS
 
-Requires App Engine enabled. Deployments may take time. Costs based on usage.
+需要启用 App Engine。部署可能需要一些时间。费用按使用量计算。
 
 # HISTORY
 
-gcloud app is part of the **Google Cloud SDK** for managing App Engine, Google's original Platform-as-a-Service offering for running web applications without infrastructure management.
+gcloud app 属于 **Google Cloud SDK**，用于管理 App Engine——Google 最早的无需管理基础设施即可运行 Web 应用的平台即服务产品。
 
 # SEE ALSO
 

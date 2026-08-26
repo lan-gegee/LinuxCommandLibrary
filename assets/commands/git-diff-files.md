@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compare working tree files to index
+比较工作树文件与索引
 
 # TLDR
 
-**Show unstaged changes**
+**显示未暂存的改动**
 
 ```git diff-files```
 
-**Show for specific file**
+**显示指定文件的差异**
 
 ```git diff-files [file]```
 
-**Raw output**
+**原始格式输出**
 
 ```git diff-files --raw```
 
-**Check for changes**
+**检查是否有改动**
 
 ```git diff-files --quiet```
 
@@ -27,31 +27,31 @@ Compare working tree files to index
 # PARAMETERS
 
 **--raw**
-> Raw diff format (default).
+> 原始 diff 格式（默认）。
 
 **--quiet**
-> Exit with 1 if there are differences, 0 otherwise. Disables output.
+> 有差异时以 1 退出，否则以 0 退出。禁用输出。
 
 **-p**, **--patch**
-> Generate patch output.
+> 生成补丁格式的输出。
 
 **--stat**
-> Show diffstat summary.
+> 显示 diffstat 摘要。
 
 **--name-only**
-> Show only names of changed files.
+> 只显示被更改文件的名称。
 
 **--name-status**
-> Show names and status (added, modified, deleted) of changed files.
+> 显示被更改文件的名称和状态（新增、修改、删除）。
 
 **-0**
-> Omit diff output for unmerged entries, just show "Unmerged".
+> 省略未合并条目的 diff 输出，仅显示 "Unmerged"。
 
 # DESCRIPTION
 
-**git diff-files** compares the working tree with the index (staging area), operating as a low-level plumbing command that shows unstaged changes. It is used internally by git diff when invoked without arguments and provides the foundation for higher-level diff operations.
+**git diff-files** 将工作树与索引（暂存区）进行比较，是一个底层（plumbing）命令，用于显示未暂存的改动。git diff 在不带参数调用时内部会使用它，它也为更高层的 diff 操作提供了基础。
 
-This command is part of Git's plumbing layer, designed for scripting and automation rather than daily interactive use. It can produce various output formats including raw diff data, patch format, or simple file lists, making it suitable for integration into build tools, pre-commit hooks, or custom Git workflows.
+该命令属于 Git 的底层 plumbing 层，专为脚本和自动化设计而非日常交互使用。它可以生成多种输出格式，包括原始 diff 数据、补丁格式或简单的文件列表，因此适合集成到构建工具、pre-commit 钩子或自定义 Git 工作流中。
 
 # INSTALL
 

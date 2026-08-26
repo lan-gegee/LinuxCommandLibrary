@@ -1,26 +1,26 @@
 # TAGLINE
 
-GNOME desktop calculator application
+GNOME 桌面计算器应用程序
 
 # TLDR
 
-Launch the **GNOME Calculator GUI**
+启动 **GNOME 计算器图形界面**
 
 ```gnome-calculator```
 
-**Solve** an equation without launching the GUI
+不启动图形界面直接**求解**方程
 
 ```gnome-calculator --solve "[2^5 * 2 + 5]"```
 
-Launch in **programming mode**
+以**编程模式**启动
 
 ```gnome-calculator --mode programming```
 
-Launch in **financial mode**
+以**财务模式**启动
 
 ```gnome-calculator --mode financial```
 
-Display **version**
+显示**版本**
 
 ```gnome-calculator --version```
 
@@ -31,33 +31,33 @@ Display **version**
 # PARAMETERS
 
 **-s**, **--solve** _EQUATION_
-> Solve equation and print result without launching GUI.
+> 求解方程并打印结果，不启动图形界面。
 
 **-e** _EQUATION_
-> Equivalent to --solve.
+> 等同于 --solve。
 
 **-m**, **--mode** _MODE_
-> Start in specific mode: basic, advanced, financial, programming.
+> 以指定模式启动：basic、advanced、financial、programming。
 
 **--version**
-> Display version information.
+> 显示版本信息。
 
 **--help**
-> Display help message.
+> 显示帮助消息。
 
 # DESCRIPTION
 
-**gnome-calculator** is the official calculator application for the GNOME desktop environment. It provides multiple modes: Basic for simple arithmetic, Advanced for scientific functions and trigonometry, Financial for interest and currency conversion, and Programming for bitwise operations and base conversion.
+**gnome-calculator** 是 GNOME 桌面环境的官方计算器应用。它提供多种模式：Basic 用于简单算术运算，Advanced 用于科学函数和三角函数，Financial 用于利息计算和货币换算，Programming 用于位运算和进制转换。
 
-The calculator supports variables, unit conversions, and complex mathematical expressions. The **--solve** option allows using it as a command-line calculator without opening the GUI window.
+该计算器支持变量、单位换算和复杂数学表达式。**--solve** 选项让它可以充当命令行计算器，无需打开图形窗口。
 
 # CAVEATS
 
-Requires GTK and GLib libraries. Some advanced features may require additional libraries. Currency conversion requires network access for current rates.
+需要 GTK 和 GLib 库。部分高级功能可能需要额外的库。货币换算需要联网获取最新汇率。
 
 # HISTORY
 
-gnome-calculator evolved from the original gcalctool, which was part of GNOME since its early versions. The modern gnome-calculator was rewritten in Vala and introduced with GNOME 3.0 in **2011**, providing a cleaner interface and improved functionality.
+gnome-calculator 由早期的 gcalctool 演化而来，后者自 GNOME 早期版本起就是其组成部分。现代的 gnome-calculator 用 Vala 重写，随 GNOME 3.0 于 **2011** 年推出，提供了更简洁的界面和更完善的功能。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display GIF images and animations in an X11 window
+在 X11 窗口中显示 GIF 图片和动画
 
 # TLDR
 
-**View a GIF**
+**查看 GIF**
 
 ```gifview [image.gif]```
 
-**View with animation**
+**以动画方式查看**
 
 ```gifview -a [image.gif]```
 
-**Specify minimum frame delay** (in centiseconds)
+**指定最小帧延迟**（单位为百分之一秒）
 
 ```gifview --min-delay [10] [image.gif]```
 
-**View with unoptimized frames** for faithful display
+**以未优化帧查看**以获得忠实的显示效果
 
 ```gifview -U [image.gif]```
 
-**Disable interactive controls**
+**禁用交互控制**
 
 ```gifview +e [image.gif]```
 
@@ -31,72 +31,72 @@ Display GIF images and animations in an X11 window
 # PARAMETERS
 
 _FILES_
-> GIF files to display.
+> 要显示的 GIF 文件。
 
 **-a**, **--animate**
-> Animate multi-image GIFs (default behavior in most builds).
+> 播放多图像 GIF 动画（大多数构建版本中的默认行为）。
 
 **+a**, **--no-animate**
-> Display frames as a slideshow instead of animating.
+> 以幻灯片形式显示各帧，而不是播放动画。
 
 **-U**, **--unoptimize**
-> Display multi-image GIFs as unoptimized for faithful frame display.
+> 将多图像 GIF 按未优化状态显示，以忠实呈现每一帧。
 
 **--min-delay** _DELAY_
-> Minimum delay between frames in centiseconds (default: 0).
+> 帧之间的最小延迟，单位为百分之一秒（默认：0）。
 
 **--fallback-delay** _DELAY_
-> Delay for frames with unspecified delay, in centiseconds.
+> 未指定延迟的帧所使用的延迟，单位为百分之一秒。
 
 **+e**, **--no-interactive**
-> Ignore mouse and keyboard input.
+> 忽略鼠标和键盘输入。
 
 **-w** _WINDOW_, **--window** _WINDOW_
-> Display in an existing X window (ID or 'root').
+> 在已有的 X 窗口（ID 或 'root'）中显示。
 
 **--new-window** _WINDOW_
-> Display in a new child of an existing X window.
+> 在已有 X 窗口的新子窗口中显示。
 
 **--geometry** _GEOMETRY_
-> Set window size and position.
+> 设置窗口大小和位置。
 
 **--title** _TITLE_
-> Set the window title.
+> 设置窗口标题。
 
 **--bg** _COLOR_, **--background** _COLOR_
-> Background color for transparent pixels.
+> 透明像素使用的背景颜色。
 
 **-i**, **--install-colormap**
-> Use a private colormap per window.
+> 为每个窗口使用私有调色板。
 
 **--memory-limit** _LIM_
-> Cache up to LIM megabytes of images (default: 40).
+> 最多缓存 LIM 兆字节的图像（默认：40）。
 
 **-d** _DISPLAY_, **--display** _DISPLAY_
-> Use the given X display.
+> 使用指定的 X 显示服务器。
 
 **--name** _NAME_
-> Set application name for resource lookup.
+> 设置用于资源查找的应用程序名称。
 
 **--version**
-> Print version number and exit.
+> 打印版本号并退出。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gifview** displays GIF images and animations in an X11 window. It is part of the gifsicle package and provides simple GIF viewing with animation support and configurable playback speed.
+**gifview** 在 X11 窗口中显示 GIF 图片和动画。它是 gifsicle 软件包的一部分，提供简单的 GIF 查看功能，支持动画播放和可配置的播放速度。
 
-The viewer can display specific frames for inspection and supports basic window management options. It handles animated GIFs with proper frame timing.
+该查看器可以显示特定帧以供检查，并支持基本的窗口管理选项。它能按照正确的帧时序处理动画 GIF。
 
 # CAVEATS
 
-Requires X11 display. Part of gifsicle package. Limited to GIF format only.
+需要 X11 显示。属于 gifsicle 软件包的一部分。仅支持 GIF 格式。
 
 # HISTORY
 
-gifview is part of **gifsicle**, the GIF manipulation toolkit created by **Eddie Kohler**.
+gifview 是由 **Eddie Kohler** 创建的 GIF 处理工具集 **gifsicle** 的组成部分。
 
 # INSTALL
 

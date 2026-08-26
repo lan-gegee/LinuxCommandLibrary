@@ -1,22 +1,22 @@
 # TAGLINE
 
-integrated documentation for gcloud commands
+gcloud 命令的集成文档
 
 # TLDR
 
-**General help**
+**通用帮助**
 
 ```gcloud help```
 
-**Help for command**
+**某个命令的帮助**
 
 ```gcloud help [compute instances create]```
 
-**List all commands**
+**列出所有命令**
 
 ```gcloud help --all```
 
-**Search help**
+**搜索帮助**
 
 ```gcloud help -- [keyword]```
 
@@ -27,29 +27,29 @@ integrated documentation for gcloud commands
 # PARAMETERS
 
 _COMMAND_
-> Command to get help for.
+> 要查看帮助的命令。
 
 **--all**
-> List all available commands.
+> 列出所有可用命令。
 
 **--** _KEYWORD_
-> Search for keyword in help.
+> 在帮助中搜索关键词。
 
 # DESCRIPTION
 
-**gcloud help** provides access to the comprehensive built-in documentation system for the Google Cloud SDK. Every gcloud command and command group has detailed help text covering syntax, available options, and common usage examples.
+**gcloud help** 提供对 Google Cloud SDK 内置文档系统的完整访问。每个 gcloud 命令和命令组都有详细的帮助文本，涵盖语法、可用选项和常见用法示例。
 
-Help can be accessed for any command by specifying its full path, such as "gcloud help compute instances create" for detailed instance creation documentation. The --all flag lists every available command in the SDK, useful for discovering lesser-known commands.
+指定完整路径即可查看任意命令的帮助，例如 "gcloud help compute instances create" 可查看实例创建的详细文档。--all 标志列出 SDK 中所有可用命令，有助于发现鲜为人知的命令。
 
-The search functionality (via -- keyword) allows finding relevant commands when you know what you want to accomplish but not the exact command name. This is particularly valuable given the extensive gcloud command surface, which spans dozens of service groups and hundreds of individual commands. The help system is always current with your installed SDK version, ensuring accuracy for the specific components you have.
+搜索功能（通过 -- 加关键词）让你在想实现某个目标但不知道确切命令名时找到相关命令。考虑到 gcloud 庞大的命令面——横跨数十个服务组和数百条命令——这一点尤为有用。帮助系统始终与你安装的 SDK 版本保持同步，确保针对你已有的组件给出准确信息。
 
 # CAVEATS
 
-Help may be verbose. Online docs may have more examples. Some options are context-specific.
+帮助内容可能较为冗长。在线文档可能有更多示例。某些选项仅在特定上下文中可用。
 
 # HISTORY
 
-gcloud help is the integrated documentation system for the **Google Cloud SDK**, providing comprehensive command reference within the CLI.
+gcloud help 是 **Google Cloud SDK** 的集成文档系统，在 CLI 内提供完整的命令参考。
 
 # SEE ALSO
 

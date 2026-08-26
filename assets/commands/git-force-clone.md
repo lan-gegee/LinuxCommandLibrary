@@ -1,18 +1,18 @@
 # TAGLINE
 
-force-clone a repository, replacing the target directory if it exists
+强制克隆一个仓库，若目标目录存在则替换之
 
 # TLDR
 
-**Force clone** into a directory, removing any existing contents first
+**强制克隆**到某个目录，先移除其中已有的内容
 
 ```git force-clone [url] [directory]```
 
-**Force clone at a specific branch**
+**强制克隆到指定分支**
 
 ```git force-clone -b [branch] [url] [directory]```
 
-**Force clone and reset to the remote head** even if the dir is a checkout
+**强制克隆并重置到远程 HEAD**，即使该目录已是一个检出结果
 
 ```git force-clone [https://github.com/owner/repo.git] [existing-dir]```
 
@@ -23,32 +23,32 @@ force-clone a repository, replacing the target directory if it exists
 # PARAMETERS
 
 _URL_
-> Repository URL (https, ssh, git, or local path).
+> 仓库 URL（https、ssh、git 或本地路径）。
 
 _DIRECTORY_
-> Target directory. If it already exists and contains a clone of the same repo, its contents are reset to match the remote. If it exists but is a different repo (or random files), it is removed and re-cloned.
+> 目标目录。如果它已存在且是同一仓库的克隆，其内容会被重置为与远程一致；如果它存在但属于另一个仓库（或包含无关文件），则会被移除并重新克隆。
 
 **-b** _BRANCH_
-> Check out _BRANCH_ after cloning.
+> 克隆后检出 _BRANCH_。
 
 **--help**
-> Show help.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git force-clone** from the **git-extras** suite guarantees the target directory ends up as a fresh, clean clone of the given URL. It is the "just give me what's on the remote" hammer for deployment scripts:
+来自 **git-extras** 套件的 **git force-clone** 保证目标目录最终成为给定 URL 的全新干净克隆。它是部署脚本中"给我远程上的内容就行"的重锤：
 
-- If the directory does not exist, it clones normally.
-- If the directory is already a clone of the same URL, it fetches and hard-resets the working tree to match the remote, discarding any local changes.
-- If the directory exists but is a different repository (or contains unrelated files), it removes the directory and re-clones.
+- 如果目录不存在，则正常克隆。
+- 如果目录已是同一 URL 的克隆，它会 fetch 并将工作树硬重置为与远程一致，丢弃任何本地改动。
+- 如果目录存在但属于另一个仓库（或包含无关文件），则移除该目录并重新克隆。
 
 # CAVEATS
 
-**Destructive.** Uncommitted changes in the target directory are lost without confirmation. Local branches not pushed to the remote will be removed if the directory is re-cloned. Use with care, especially in interactive contexts — prefer `git fetch` + `git reset --hard` when you only need to resync and want to keep other local state.
+**具有破坏性。** 目标目录中未提交的改动会未经确认直接丢失。如果目录被重新克隆，未推送到远程的本地分支也会被删除。请谨慎使用，尤其是在交互式环境中——如果只需要重新同步并希望保留其他本地状态，建议使用 `git fetch` + `git reset --hard`。
 
 # HISTORY
 
-**git force-clone** is part of **git-extras**, the long-running collection of git helpers by **TJ Holowaychuk** and contributors.
+**git force-clone** 是 **git-extras** 的组成部分，后者是由 **TJ Holowaychuk** 及贡献者长期维护的 git 辅助工具合集。
 
 # INSTALL
 

@@ -1,34 +1,34 @@
 # TAGLINE
 
-command-line Ethereum test blockchain
+命令行以太坊测试区块链
 
 # TLDR
 
-**Start Ethereum test blockchain**
+**启动以太坊测试区块链**
 
 ```ganache-cli```
 
-**Start on specific port**
+**在指定端口启动**
 
 ```ganache-cli -p [8545]```
 
-**Start with specific accounts**
+**以指定数量的账户启动**
 
 ```ganache-cli -a [10]```
 
-**Start with mnemonic**
+**以助记词启动**
 
 ```ganache-cli -m "[mnemonic phrase]"```
 
-**Start with deterministic addresses**
+**以确定性地址启动**
 
 ```ganache-cli -d```
 
-**Fork from mainnet**
+**从主网分叉**
 
 ```ganache-cli -f [https://mainnet.infura.io/v3/key]```
 
-**Set gas limit**
+**设置 gas 上限**
 
 ```ganache-cli -l [8000000]```
 
@@ -39,44 +39,44 @@ command-line Ethereum test blockchain
 # PARAMETERS
 
 **-p**, **--port** _port_
-> Port number.
+> 端口号。
 
 **-a**, **--accounts** _num_
-> Number of accounts.
+> 账户数量。
 
 **-m**, **--mnemonic** _phrase_
-> HD wallet mnemonic.
+> HD 钱包助记词。
 
 **-d**, **--deterministic**
-> Deterministic addresses.
+> 使用确定性地址。
 
 **-f**, **--fork** _url_
-> Fork from network.
+> 从网络分叉。
 
 **-l**, **--gasLimit** _limit_
-> Block gas limit.
+> 区块 gas 上限。
 
 **-e**, **--defaultBalanceEther** _amount_
-> Default account balance.
+> 默认账户余额。
 
 **-i**, **--networkId** _id_
-> Network ID.
+> 网络 ID。
 
 # DESCRIPTION
 
-**ganache-cli** (now part of Ganache) creates a local Ethereum blockchain for development and testing. It provides instant transaction mining and configurable test accounts for smart contract development.
+**ganache-cli**（现已并入 Ganache）创建用于开发和测试的本地以太坊区块链。它提供即时交易打包和可配置的测试账户，服务于智能合约开发。
 
-This command-line version is now superseded by the **ganache** command, which offers the same functionality with additional features. ganache-cli was originally known as TestRPC before being renamed and integrated into the Ganache suite.
+这个命令行版本现在已被 **ganache** 命令取代，后者提供相同的功能并有更多特性。ganache-cli 原名 TestRPC，后来更名并整合进 Ganache 套件。
 
-The tool simulates a full Ethereum client, making it ideal for testing smart contracts locally before deploying to testnets or mainnet. It integrates with development frameworks like Truffle and Hardhat.
+该工具模拟完整的以太坊客户端，非常适合在部署到测试网或主网之前本地测试智能合约。它与 Truffle 和 Hardhat 等开发框架集成。
 
 # CAVEATS
 
-ganache-cli is deprecated in favor of the **ganache** command. Not for production use. Blockchain state resets on restart unless persistence is configured. Behavior may differ from actual Ethereum mainnet.
+ganache-cli 已弃用，请改用 **ganache** 命令。不可用于生产环境。除非配置了持久化，否则区块链状态会在重启时重置。行为可能与真实的以太坊主网不同。
 
 # HISTORY
 
-Originally released as **TestRPC**, it was renamed to **ganache-cli** when incorporated into the Truffle Suite around **2017**. The tool has since been replaced by the unified **ganache** command starting with Ganache 7.
+最初发布时名为 **TestRPC**，大约在 **2017 年**并入 Truffle Suite 时更名为 **ganache-cli**。从 Ganache 7 开始，该工具已被统一的 **ganache** 命令取代。
 
 # INSTALL
 
@@ -93,4 +93,3 @@ Originally released as **TestRPC**, it was renamed to **ganache-cli** when incor
 ```[Source code](https://github.com/trufflesuite/ganache)```
 
 <!-- verified: 2026-07-15 -->
-

@@ -1,30 +1,30 @@
 # TAGLINE
 
-Prevent committing secrets and credentials to Git
+防止把机密和凭据提交到 Git
 
 # TLDR
 
-**Install hooks in repository**
+**在仓库中安装钩子**
 
 ```git secrets --install```
 
-**Add AWS patterns**
+**添加 AWS 模式**
 
 ```git secrets --register-aws```
 
-**Add custom pattern**
+**添加自定义模式**
 
 ```git secrets --add '[pattern]'```
 
-**Scan repository**
+**扫描仓库**
 
 ```git secrets --scan```
 
-**Scan specific file**
+**扫描指定文件**
 
 ```git secrets --scan [file.txt]```
 
-**List patterns**
+**列出模式**
 
 ```git secrets --list```
 
@@ -35,47 +35,47 @@ Prevent committing secrets and credentials to Git
 # PARAMETERS
 
 **--install**
-> Install hooks in current repo.
+> 在当前仓库中安装钩子。
 
 **--register-aws**
-> Add AWS secret patterns.
+> 添加 AWS 机密模式。
 
 **--add** _pattern_
-> Add forbidden pattern.
+> 添加禁止出现的模式。
 
 **--add-allowed** _pattern_
-> Add allowed pattern (exception).
+> 添加允许的模式（例外情况）。
 
 **--scan**
-> Scan repository for secrets.
+> 扫描仓库中的机密。
 
 **--scan-history**
-> Scan entire commit history.
+> 扫描整个提交历史。
 
 **--list**
-> List registered patterns.
+> 列出已注册的模式。
 
 **--add-provider** _cmd_
-> Add secret provider command.
+> 添加机密提供方命令。
 
 # DESCRIPTION
 
-**git-secrets** prevents committing secrets and credentials to Git repositories. It installs pre-commit hooks that scan staged changes against configurable patterns, blocking commits that match known secret formats.
+**git-secrets** 防止把机密和凭据提交到 Git 仓库。它会安装 pre-commit 钩子，按可配置的模式扫描暂存的改动，并阻止匹配已知机密格式的提交。
 
-Created by AWS Labs, it includes built-in patterns for AWS credentials and supports custom patterns for other types of secrets.
+它由 AWS Labs 开发，内置了 AWS 凭据相关的模式，也支持为其他类型的机密添加自定义模式。
 
 # CONFIGURATION
 
 **~/.git-templates/git-secrets/**
-> Global git template directory for automatic hook installation in new repositories.
+> 全局 git 模板目录，用于在新仓库中自动安装钩子。
 
 # CAVEATS
 
-Must be installed per-repo or via templates. Only catches patterns, not all secrets. History scanning is slow on large repos. Consider tools like gitleaks for comprehensive scanning.
+必须针对每个仓库安装，或通过模板安装。只能匹配特定模式，无法覆盖所有机密。历史扫描在大仓库上很慢。如需全面扫描可考虑 gitleaks 等工具。
 
 # HISTORY
 
-git-secrets was created by **AWS Labs** to prevent AWS credential leaks. It's one of several tools addressing the widespread problem of secrets accidentally committed to version control.
+git-secrets 由 **AWS Labs** 创建，用于防止 AWS 凭据泄露。机密被意外提交到版本控制是一个普遍问题，它是解决这一问题的众多工具之一。
 
 # INSTALL
 

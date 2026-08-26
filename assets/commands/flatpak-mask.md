@@ -1,30 +1,30 @@
 # TAGLINE
 
-prevent Flatpak applications from updating
+阻止 Flatpak 应用程序更新
 
 # TLDR
 
-**Mask** a flatpak to ignore updates
+对某个 flatpak 设置**屏蔽**以忽略更新
 
 ```flatpak mask [com.example.app]```
 
-**Remove** a mask to allow updates again
+**移除**屏蔽以恢复更新
 
 ```flatpak mask --remove [com.example.app]```
 
-**List** all currently masked patterns (user installation)
+**列出**当前所有被屏蔽的模式（用户安装）
 
 ```flatpak mask --user```
 
-**List** all currently masked patterns (system installation)
+**列出**当前所有被屏蔽的模式（系统安装）
 
 ```flatpak mask --system```
 
-Mask all apps from a **specific domain**
+屏蔽来自**特定域名**的所有应用
 
 ```flatpak mask app/org.domain.*```
 
-Mask a specific **branch** of an application
+屏蔽应用的特定**分支**
 
 ```flatpak mask [com.example.app]//unstable```
 
@@ -35,38 +35,38 @@ Mask a specific **branch** of an application
 # PARAMETERS
 
 **--remove**
-> Remove specified mask patterns instead of adding them
+> 移除指定的屏蔽模式而不是添加
 
 **-u, --user**
-> Apply mask to per-user installation
+> 将屏蔽应用于按用户划分的安装
 
 **--system**
-> Apply mask to default system-wide installation
+> 将屏蔽应用于默认的系统级安装
 
 **--installation** _name_
-> Target a specific named system installation
+> 针对指定的命名系统安装
 
 **-v, --verbose**
-> Output debug information during processing
+> 处理过程中输出调试信息
 
 **-h, --help**
-> Display help and exit
+> 显示帮助并退出
 
 # DESCRIPTION
 
-**Flatpak mask** prevents specified applications or extensions from being updated or automatically installed. A masked ref will never receive updates, and masked extensions marked for auto-download will not be downloaded.
+**Flatpak mask** 用于阻止指定的应用程序或扩展被更新或自动安装。被屏蔽的 ref 永远不会收到更新，标记为自动下载的被屏蔽扩展也不会被下载。
 
-Patterns support wildcards using **\*** to match content within ref sections. You can mask specific applications, entire domains, architecture-specific builds, or particular branches.
+模式支持使用 **\*** 通配符来匹配 ref 各段中的内容。你可以屏蔽特定应用、整个域名、特定架构的构建版本或特定分支。
 
-Running the command without patterns lists all current masks for the specified installation (user or system).
+不带模式运行该命令会列出指定安装（用户或系统）当前所有的屏蔽项。
 
 # CAVEATS
 
-Masking prevents all updates including security patches. Use sparingly and remember to unmask applications when you want to receive updates again. Masks are stored separately for user and system installations.
+屏蔽会阻止包括安全补丁在内的所有更新。请谨慎使用，并在希望恢复接收更新时记得解除屏蔽。用户安装和系统安装的屏蔽项是分开存储的。
 
 # HISTORY
 
-The mask feature was added to **Flatpak** to give users control over automatic updates, particularly useful for pinning specific versions or avoiding problematic releases. Flatpak itself was developed by Alexander Larsson at Red Hat, evolving from the xdg-app project around **2015**.
+mask 功能加入 **Flatpak** 是为了让用户能够控制自动更新，特别适用于固定特定版本或避开有问题的版本。Flatpak 本身由 Red Hat 的 Alexander Larsson 开发，约在 **2015 年**从 xdg-app 项目演化而来。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Pack loose objects into pack files
+将松散对象打包进包文件
 
 # TLDR
 
-**Repack objects**
+**重新打包对象**
 
 ```git repack```
 
-**Repack aggressively**
+**激进地重新打包**
 
 ```git repack -a -d```
 
-**Repack with delta compression**
+**使用增量压缩重新打包**
 
 ```git repack -a -d --depth=[250] --window=[250]```
 
-**Repack all objects**
+**重新打包所有对象**
 
 ```git repack -A -d```
 
-**Repack with geometry**
+**按几何规则重新打包**
 
 ```git repack --geometric=[2]```
 
@@ -31,34 +31,34 @@ Pack loose objects into pack files
 # PARAMETERS
 
 **-a**
-> Pack all objects.
+> 打包所有对象。
 
 **-A**
-> Pack all reachable objects.
+> 打包所有可达对象。
 
 **-d**
-> Remove redundant packs.
+> 移除冗余的包文件。
 
 **-f**
-> Force delta recomputation.
+> 强制重新计算增量（delta）。
 
 **--depth** _n_
-> Delta chain depth.
+> 增量链深度。
 
 **--window** _n_
-> Delta window size.
+> 增量窗口大小。
 
 **--geometric** _factor_
-> Geometric repacking.
+> 按几何规则重新打包。
 
 **-l**
-> Local objects only.
+> 仅处理本地对象。
 
 # DESCRIPTION
 
-**git repack** consolidates loose objects into pack files, improving storage efficiency and access time. It reorganizes the repository's object database by combining individual loose objects into compressed packs.
+**git repack** 将松散对象整合进包文件，以提升存储效率和访问速度。它通过把单个松散对象合并为压缩的包来重组仓库的对象数据库。
 
-Repacking is useful after many small commits or after importing objects. The `-a -d` combination is common for aggressive repacking that removes redundant packs.
+在大量小提交之后或导入对象之后，重新打包很有用。`-a -d` 组合常用于激进的重新打包，可移除冗余的包文件。
 
 # INSTALL
 

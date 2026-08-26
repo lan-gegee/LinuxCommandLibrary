@@ -1,26 +1,26 @@
 # TAGLINE
 
-Display mail sender information from a mailbox
+显示邮箱中邮件的发件人信息
 
 # TLDR
 
-**Show all mail senders** in your mailbox
+**显示邮箱中的所有发件人**
 
 ```from```
 
-**Show senders for a specific user**
+**显示特定用户的发件人**
 
 ```from [username]```
 
-**Filter messages by sender** address/substring
+按发件人地址/子串**过滤邮件**
 
 ```from -s [alice@example.com]```
 
-**Count the number of messages** (GNU mailutils only)
+**统计邮件数量**（仅 GNU mailutils）
 
 ```from -c```
 
-**Check a specific mailbox file**
+**检查特定的邮箱文件**
 
 ```from -f [/var/mail/user]```
 
@@ -31,36 +31,36 @@ Display mail sender information from a mailbox
 # PARAMETERS
 
 _USER_
-> Username to check mail for (reads their system mailbox).
+> 要为其查看邮件的用户名（读取该用户的系统邮箱）。
 
 **-s** _SENDER_
-> Only print headers from messages whose From address matches the given string. _Note:_ this does **not** show subject lines.
+> 只显示 From 地址匹配给定字符串的邮件头。_注意：_ 这**不会**显示主题行。
 
 **-f** _FILE_
-> Read from the specified mailbox file instead of the default system mailbox.
+> 从指定的邮箱文件读取，而不是默认的系统邮箱。
 
 **-c**
-> Print only the count of messages. _GNU mailutils only_; not available in BSD/OpenBSD **from**.
+> 仅输出邮件数量。_仅 GNU mailutils 支持_；BSD/OpenBSD 的 **from** 中不可用。
 
 **-d**, **--debug**
-> Print debugging information. _GNU mailutils only._
+> 输出调试信息。_仅 GNU mailutils 支持。_
 
 **-V**, **--version**
-> Display version information. _GNU mailutils only._
+> 显示版本信息。_仅 GNU mailutils 支持。_
 
 # DESCRIPTION
 
-**from** displays the header of each message in a mailbox, showing who mail is from (and, depending on the implementation, subject and date). It reads the system mailbox (typically /var/mail/username) and prints one line per message.
+**from** 显示邮箱中每封邮件的邮件头，说明邮件来自谁（视实现而定，也可能包含主题和日期）。它读取系统邮箱（通常是 /var/mail/username）并每封邮件打印一行。
 
-The tool provides a quick overview of pending mail without opening a full mail client. With **-s**, output is filtered to messages whose sender matches the given address or substring. This is useful for checking mail status in shell scripts, cron jobs, or quick terminal checks.
+该工具无需打开完整的邮件客户端即可快速了解待处理邮件概况。配合 **-s** 可将输出过滤为发件人匹配给定地址或子串的邮件。它适合在 shell 脚本、cron 任务或终端快速检查中确认邮件状态。
 
 # CAVEATS
 
-Only works with mbox format mailboxes. May not work with modern mail delivery systems (Maildir, IMAP). Limited to local mail stored in traditional Unix mbox files.
+只支持 mbox 格式的邮箱。可能无法用于现代邮件投递系统（Maildir、IMAP）。仅限于存储在传统 Unix mbox 文件中的本地邮件。
 
 # HISTORY
 
-**from** is a classic **BSD utility** for checking local mail, originating from 4.2BSD. It predates modern mail systems and works with traditional Unix mbox format files.
+**from** 是源自 4.2BSD 的经典 **BSD 工具**，用于查看本地邮件。它早于现代邮件系统出现，处理的是传统 Unix mbox 格式文件。
 
 # INSTALL
 

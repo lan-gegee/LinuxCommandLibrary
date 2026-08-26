@@ -1,38 +1,38 @@
 # TAGLINE
 
-create new GitHub issues with metadata
+创建带有元数据的新 GitHub issue
 
 # TLDR
 
-**Create an issue** interactively
+**以交互方式创建 issue**
 
 ```gh issue create```
 
-**Create with title and body**
+**带标题和正文创建**
 
 ```gh issue create -t "[title]" -b "[body]"```
 
-**Read the body from a** file (use - for stdin)
+**从文件读取正文**（用 - 表示标准输入）
 
 ```gh issue create -t "[title]" -F [body.md]```
 
-**Open the editor** to compose the issue
+**打开编辑器**撰写 issue
 
 ```gh issue create -e```
 
-**Add labels and assignees**
+**添加标签和负责人**
 
 ```gh issue create -t "[title]" -l [bug] -l [urgent] -a [@me]```
 
-**Use an issue template** by name
+**按名称使用 issue 模板**
 
 ```gh issue create -T "[Bug report]"```
 
-**Target a specific** repository
+**面向指定仓库**
 
 ```gh issue create -R [owner/repo] -t "[title]"```
 
-**Open the browser** form
+**打开浏览器表单**
 
 ```gh issue create -w```
 
@@ -43,46 +43,46 @@ create new GitHub issues with metadata
 # PARAMETERS
 
 **-t**, **--title** _string_
-> Issue title. Prompts if omitted.
+> Issue 标题。省略时会提示输入。
 
 **-b**, **--body** _string_
-> Issue body. Prompts if omitted.
+> Issue 正文。省略时会提示输入。
 
 **-F**, **--body-file** _file_
-> Read the body from a file. Use `-` to read from stdin.
+> 从文件读取正文。用 `-` 表示从标准输入读取。
 
 **-e**, **--editor**
-> Skip prompts and open `$EDITOR` to write the title and body.
+> 跳过提示，打开 `$EDITOR` 来撰写标题和正文。
 
 **-l**, **--label** _name_
-> Add a label by name. Repeatable.
+> 按名称添加标签。可重复使用。
 
 **-a**, **--assignee** _login_
-> Assign a user by login. `@me` self-assigns. Repeatable.
+> 按 login 指派用户。`@me` 表示指派给自己。可重复使用。
 
 **-m**, **--milestone** _name_
-> Set the milestone by name.
+> 按名称设置里程碑。
 
 **-p**, **--project** _title_
-> Add the issue to a project by title. Repeatable.
+> 按标题将 issue 添加到项目。可重复使用。
 
 **-T**, **--template** _name_
-> Use an issue template by name.
+> 按名称使用 issue 模板。
 
 **--recover** _file_
-> Recover input from a failed previous run.
+> 从上次失败的运行中恢复已输入的内容。
 
 **-w**, **--web**
-> Open a browser to create the issue.
+> 打开浏览器来创建 issue。
 
 **-R**, **--repo** _[HOST/]OWNER/REPO_
-> Target a specific repository.
+> 指定目标仓库。
 
 # DESCRIPTION
 
-**gh issue create** files a new issue on GitHub with comprehensive metadata support. Without flags it walks through an interactive prompt for title, body, labels, assignees, and project assignment. With flags, every field can be supplied non-interactively for use in scripts and CI.
+**gh issue create** 在 GitHub 上创建新 issue，支持丰富的元数据。不带标志时，会通过交互式提示依次填写标题、正文、标签、负责人和项目归属。使用标志时，所有字段都可以非交互方式提供，便于在脚本和 CI 中使用。
 
-Issue templates configured on the repository can be selected with **-T/--template** by name; the template body is used as the starting text. **-F/--body-file** is convenient for piping the output of another tool (for example a generated bug report) directly into a new issue. The alias `gh issue new` is equivalent.
+仓库上配置的 issue 模板可通过 **-T/--template** 按名称选择；模板正文将作为起始文本。**-F/--body-file** 便于把其他工具的输出（例如生成的缺陷报告）直接管道传给新 issue。别名 `gh issue new` 与之等价。
 
 # INSTALL
 

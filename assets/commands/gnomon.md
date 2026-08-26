@@ -1,30 +1,30 @@
 # TAGLINE
 
-Prepend timestamps to command output
+为命令输出添加时间戳前缀
 
 # TLDR
 
-**Prepend elapsed time** to each line of output
+**为每一行输出加上耗时前缀**
 
 ```[command] | gnomon```
 
-**Show total elapsed time** since the command started
+**显示自命令启动以来的总耗时**
 
 ```[command] | gnomon --type=elapsed-total```
 
-**Show absolute timestamps** for each line
+**为每一行显示绝对时间戳**
 
 ```[command] | gnomon --type=absolute```
 
-**Highlight lines** taking longer than 1.5 seconds
+**高亮显示**超过 1.5 秒的行
 
 ```[command] | gnomon --high=1.5```
 
-**Set both high and medium** thresholds for color coding
+同时设置颜色编码的**高、中阈值**
 
 ```[command] | gnomon --high=3.0 --medium=1.0```
 
-**Ignore lines** shorter than a threshold
+**忽略**短于阈值的行
 
 ```[command] | gnomon --ignore-blank --high=0.5```
 
@@ -35,32 +35,32 @@ Prepend timestamps to command output
 # PARAMETERS
 
 **--type** _TYPE_
-> Timestamp type: **elapsed-line** (default), **elapsed-total**, or **absolute**.
+> 时间戳类型：**elapsed-line**（默认）、**elapsed-total** 或 **absolute**。
 
 **--ignore-blank**
-> Do not prepend timestamps to blank lines.
+> 不为空白行添加时间戳前缀。
 
 **--real-time** _THRESHOLD_
-> Set a threshold in seconds after which gnomon prints output in real time rather than buffering.
+> 设定一个以秒为单位的阈值，超过后 gnomon 实时打印输出而不是缓冲。
 
 **--high** _SECONDS_
-> Threshold in seconds for high (red) time coloring. Default: **1.0**.
+> 高（红色）时间着色的阈值（秒）。默认：**1.0**。
 
 **--medium** _SECONDS_
-> Threshold in seconds for medium (yellow) time coloring. Default: **0.5**.
+> 中（黄色）时间着色的阈值（秒）。默认：**0.5**。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gnomon** is a command-line utility that prepends timestamp information to the output of another command, piped through stdin. By default, it shows how long each line of output took to appear, making it useful for identifying slow steps in build processes, test suites, or log output.
+**gnomon** 是一个命令行工具，通过 stdin 接收另一条命令的输出并在前面添加时间戳信息。默认情况下，它会显示每一行输出出现所耗费的时间，因此适合用来定位构建过程、测试套件或日志输出中缓慢的步骤。
 
-The tool color-codes output based on configurable time thresholds: lines exceeding the **--high** threshold are shown in red, those exceeding **--medium** in yellow, and the rest in the default color.
+该工具根据可配置的时间阈值对输出进行着色：超过 **--high** 阈值的行显示为红色，超过 **--medium** 的显示为黄色，其余保持默认颜色。
 
 # CAVEATS
 
-Requires **Node.js** and is installed via npm (`npm install -g gnomon`). Adds minor latency to output. Best suited for diagnosing slow processes rather than precise benchmarking.
+需要 **Node.js**，并通过 npm 安装（`npm install -g gnomon`）。会给输出带来轻微延迟。更适合诊断缓慢的过程，而非精确的性能基准测试。
 
 # INSTALL
 

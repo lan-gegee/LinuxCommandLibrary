@@ -1,30 +1,30 @@
 # TAGLINE
 
-XSL-FO to PDF processor
+XSL-FO 转 PDF 处理器
 
 # TLDR
 
-**Convert XSL-FO to PDF**
+**将 XSL-FO 转换为 PDF**
 
 ```fop [input.fo] [output.pdf]```
 
-**Transform XML with XSLT** to PDF
+**用 XSLT 转换 XML** 为 PDF
 
 ```fop -xml [input.xml] -xsl [style.xsl] -pdf [output.pdf]```
 
-**Convert to PostScript**
+**转换为 PostScript**
 
 ```fop [input.fo] -ps [output.ps]```
 
-**Convert to PNG**
+**转换为 PNG**
 
 ```fop [input.fo] -png [output.png]```
 
-**Use specific configuration**
+**使用指定配置文件**
 
 ```fop -c [fop.xconf] [input.fo] [output.pdf]```
 
-**Validate XSL-FO only**
+**仅校验 XSL-FO**
 
 ```fop -fo [input.fo] -v```
 
@@ -34,54 +34,54 @@ XSL-FO to PDF processor
 
 # DESCRIPTION
 
-**fop** (Formatting Objects Processor) is an Apache project that converts XSL-FO (XSL Formatting Objects) documents to various output formats. It's commonly used for generating PDFs from XML data.
+**fop**（Formatting Objects Processor）是 Apache 项目，将 XSL-FO（XSL Formatting Objects）文档转换为多种输出格式。它常用于从 XML 数据生成 PDF。
 
-The tool supports transformation pipelines from XML through XSLT to XSL-FO to final output. It handles complex page layouts, tables, and typography.
+该工具支持从 XML 经 XSLT 到 XSL-FO 再到最终输出的转换流水线。它能够处理复杂的页面布局、表格和排版。
 
 # PARAMETERS
 
 **-fo** _file_
-> Input XSL-FO file.
+> 输入的 XSL-FO 文件。
 
 **-xml** _file_
-> Input XML file.
+> 输入的 XML 文件。
 
 **-xsl** _file_
-> XSLT stylesheet.
+> XSLT 样式表。
 
 **-pdf** _file_
-> Output to PDF.
+> 输出为 PDF。
 
 **-ps** _file_
-> Output to PostScript.
+> 输出为 PostScript。
 
 **-png** _file_
-> Output to PNG.
+> 输出为 PNG。
 
 **-awt**
-> Display in AWT viewer.
+> 在 AWT 查看器中显示。
 
 **-c** _file_
-> Configuration file.
+> 配置文件。
 
 **-v**
-> Verbose output.
+> 详细输出。
 
 **-d**
-> Debug mode.
+> 调试模式。
 
 # CONFIGURATION
 
 **fop.xconf**
-> Configuration file for fonts, renderers, and hyphenation settings.
+> 用于字体、渲染器和连字符设置的配置文件。
 
 # CAVEATS
 
-Requires Java. Complex layouts may need tuning. Memory usage high for large documents. Font configuration can be tricky.
+需要 Java。复杂布局可能需要调优。大文档内存占用较高。字体配置可能比较麻烦。
 
 # HISTORY
 
-**FOP** began as an **Apache XML** project in **1999**, becoming one of the first open source XSL-FO processors. It matured through various versions, with FOP 2.x bringing significant improvements in standards compliance and performance.
+**FOP** 始于 **1999** 年的 **Apache XML** 项目，是最早的开源 XSL-FO 处理器之一。经过多个版本的成熟演进，FOP 2.x 在标准符合性和性能方面带来显著提升。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Convert GIF images to PNM format
+将 GIF 图片转换为 PNM 格式
 
 # TLDR
 
-**Convert GIF to PNM**
+**将 GIF 转换为 PNM**
 
 ```giftopnm [input.gif] > [output.pnm]```
 
-**Convert specific frame**
+**转换指定帧**
 
 ```giftopnm --image [2] [input.gif] > [output.pnm]```
 
-**Show comments**
+**显示注释**
 
 ```giftopnm --comments [input.gif]```
 
-**Output all frames** of an animated GIF
+**输出动画 GIF 的所有帧**
 
 ```giftopnm --all-images [input.gif] > [output.pnm]```
 
-**Verbose** output showing image details
+以**详细模式**输出并显示图像细节
 
 ```giftopnm --verbose [input.gif] > [output.pnm]```
 
@@ -31,25 +31,25 @@ Convert GIF images to PNM format
 # PARAMETERS
 
 **--image** _num_
-> Select specific image/frame.
+> 选择指定的图像/帧。
 
 **--comments**
-> Print image comments.
+> 打印图像注释。
 
 **--all-images**
-> Output all frames.
+> 输出所有帧。
 
 **--verbose**
-> Display information about the GIF input.
+> 显示关于 GIF 输入的信息。
 
 **--repair**
-> Try to recover corrupted GIF data.
+> 尝试恢复损坏的 GIF 数据。
 
 # DESCRIPTION
 
-**giftopnm** converts GIF images into the Portable Any Map (PNM) format family, which includes PBM (bitmap), PGM (grayscale), and PPM (color) formats. It is a core component of the Netpbm image processing toolkit.
+**giftopnm** 将 GIF 图片转换为 Portable Any Map（PNM）格式家族，包括 PBM（位图）、PGM（灰度）和 PPM（彩色）格式。它是 Netpbm 图像处理工具集的核心组件。
 
-The tool automatically selects the appropriate output format based on the input GIF's color characteristics. For animated GIFs, it can extract individual frames or output all frames sequentially. PNM formats are uncompressed, making them ideal intermediate formats for image processing pipelines.
+该工具会根据输入 GIF 的颜色特性自动选择合适的输出格式。对于动画 GIF，它可以提取单个帧或按顺序输出所有帧。PNM 格式未经压缩，是图像处理管线中理想的中间格式。
 
 # INSTALL
 

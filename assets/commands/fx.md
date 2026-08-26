@@ -1,26 +1,26 @@
 # TAGLINE
 
-interactive JSON viewer and processor
+交互式 JSON 查看器和处理器
 
 # TLDR
 
-**Interactive JSON viewer**
+**交互式 JSON 查看器**
 
 ```cat [data.json] | fx```
 
-**Apply transformation**
+**应用转换**
 
 ```cat [data.json] | fx '.items'```
 
-**Filter with expression**
+**用表达式过滤**
 
 ```cat [data.json] | fx '.[] | select(.active)'```
 
-**Select multiple fields**
+**选取多个字段**
 
 ```cat [data.json] | fx '.name' '.age'```
 
-**Format output**
+**格式化输出**
 
 ```cat [data.json] | fx .```
 
@@ -31,35 +31,35 @@ interactive JSON viewer and processor
 # PARAMETERS
 
 _EXPRESSIONS_
-> Dot notation paths or fx expression syntax.
+> 点号路径或 fx 表达式语法。
 
 **.**
-> Pretty print JSON.
+> 美化输出 JSON。
 
 **-r**, **--raw**
-> Output raw strings.
+> 输出原始字符串。
 
 **-s**, **--slurp**
-> Read multiple JSON objects.
+> 读取多个 JSON 对象。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**fx** is a command-line JSON processing tool written in Go with interactive browsing. It provides jq-like filtering with its own expression syntax for flexible data manipulation.
+**fx** 是一个用 Go 编写的命令行 JSON 处理工具，支持交互式浏览。它提供类似 jq 的过滤功能，并使用自己的表达式语法实现灵活的数据操作。
 
-In interactive mode, fx provides a navigable tree view of JSON data. Expression mode allows piping data through transformations. Multiple expressions chain together.
+在交互模式下，fx 以可导航的树形视图展示 JSON 数据。表达式模式允许将数据通过管道进行转换。多个表达式可以串联使用。
 
-fx handles streaming JSON, object manipulation, and data extraction.
+fx 可处理流式 JSON、对象操作和数据提取。
 
 # CAVEATS
 
-Large files may be slow in interactive mode. JavaScript expressions have learning curve. Different from jq syntax.
+大文件在交互模式下可能较慢。JavaScript 表达式有学习曲线。语法与 jq 不同。
 
 # HISTORY
 
-fx was created as a modern JSON tool combining interactive exploration with JavaScript-based processing, providing an alternative to jq for developers familiar with JavaScript.
+fx 的定位是一款现代 JSON 工具，将交互式探索与基于 JavaScript 的处理相结合，为熟悉 JavaScript 的开发者提供 jq 之外的另一种选择。
 
 # INSTALL
 

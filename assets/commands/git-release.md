@@ -1,18 +1,18 @@
 # TAGLINE
 
-Create version release tags
+创建版本发布标签
 
 # TLDR
 
-**Create release tag**
+**创建发布标签**
 
 ```git release [version]```
 
-**Create with message**
+**带信息创建**
 
 ```git release [version] -m "[message]"```
 
-**Create and push**
+**创建并推送**
 
 ```git release [version] --push```
 
@@ -23,23 +23,23 @@ Create version release tags
 # PARAMETERS
 
 **-m**, **--message** _text_
-> Tag message.
+> 标签信息。
 
 **--push**
-> Push after tagging.
+> 打标签后推送。
 
 **-s**, **--sign**
-> Sign tag.
+> 对标签签名。
 
 # DESCRIPTION
 
-**git release** creates a release by tagging the current commit with the specified version number and pushing the tag (and any pending commits) to the remote. It is part of the **git-extras** suite of utilities and streamlines the release workflow by combining tag creation, optional signing, and publishing in one operation.
+**git release** 通过用指定版本号为当前提交打标签，并将标签（以及任何待推送的提交）推送到远程来完成发布。它是 **git-extras** 工具套件的一部分，将标签创建、可选签名和发布合并为一个操作，简化了发布工作流。
 
-Common usage follows semantic versioning (e.g., `git release 1.2.3`). The command creates an annotated tag, which can include release notes via the `-m` option and cryptographic signing via `-s` for verification.
+常见用法遵循语义化版本（例如 `git release 1.2.3`）。该命令创建附注标签，可通过 `-m` 选项附带发布说明，并通过 `-s` 进行加密签名以便验证。
 
 # CAVEATS
 
-Requires **git-extras** to be installed; this command is not part of core Git. Tags are pushed to the configured remote, which may trigger CI/CD release pipelines.
+需要安装 **git-extras**；该命令不属于 Git 核心。标签会被推送到配置的远程，可能触发 CI/CD 发布流水线。
 
 # INSTALL
 

@@ -1,42 +1,42 @@
 # TAGLINE
 
-List, create, rename, and delete branches
+列出、创建、重命名和删除分支
 
 # TLDR
 
-**List all local branches**
+**列出所有本地分支**
 
 ```git branch```
 
-**List all branches** including remote
+**列出包括远程在内的所有分支**
 
 ```git branch -a```
 
-**Create a new branch**
+**创建新分支**
 
 ```git branch [branch_name]```
 
-**Create and switch** to a new branch
+**创建并切换**到新分支
 
 ```git branch [branch_name] && git checkout [branch_name]```
 
-**Delete a local branch**
+**删除本地分支**
 
 ```git branch -d [branch_name]```
 
-**Force delete a branch** with unmerged changes
+**强制删除**含有未合并更改的分支
 
 ```git branch -D [branch_name]```
 
-**Rename the current branch**
+**重命名当前分支**
 
 ```git branch -m [new_name]```
 
-**Set upstream tracking** branch
+**设置上游跟踪**分支
 
 ```git branch -u [origin/branch_name]```
 
-**Show branches with last commit**
+**显示分支及其最近提交**
 
 ```git branch -v```
 
@@ -47,71 +47,71 @@ List, create, rename, and delete branches
 # PARAMETERS
 
 **-a**, **--all**
-> List both local and remote-tracking branches.
+> 同时列出本地和远程跟踪分支。
 
 **-r**, **--remotes**
-> List remote-tracking branches only.
+> 仅列出远程跟踪分支。
 
 **-d**, **--delete**
-> Delete a branch (must be fully merged).
+> 删除分支（必须已完全合并）。
 
 **-D**
-> Force delete a branch regardless of merge status.
+> 无论合并状态如何都强制删除分支。
 
 **-m**, **--move**
-> Rename a branch.
+> 重命名分支。
 
 **-M**
-> Force rename even if target name exists.
+> 即使目标名称已存在也强制重命名。
 
 **-c**, **--copy**
-> Copy a branch.
+> 复制分支。
 
 **-u**, **--set-upstream-to**=_UPSTREAM_
-> Set upstream tracking branch.
+> 设置上游跟踪分支。
 
 **--unset-upstream**
-> Remove upstream tracking information.
+> 移除上游跟踪信息。
 
 **-v**, **--verbose**
-> Show SHA1 and commit subject for each branch.
+> 显示每个分支的 SHA1 和提交主题。
 
 **--merged**
-> List branches merged into current branch.
+> 列出已合并入当前分支的分支。
 
 **--no-merged**
-> List branches not merged into current branch.
+> 列出尚未合并入当前分支的分支。
 
 **--contains** _COMMIT_
-> List branches containing the specified commit.
+> 列出包含指定提交的分支。
 
 **--show-current**
-> Print the name of the current branch (nothing in detached HEAD state).
+> 输出当前分支的名称（分离 HEAD 状态下不输出任何内容）。
 
 **--sort** _KEY_
-> Sort listing by key (e.g. **-committerdate**); prefix **-** for descending order.
+> 按键排序输出（如 **-committerdate**）；加 **-** 前缀表示降序。
 
 **-f**, **--force**
-> Reset a branch to start-point even if it exists; combined with **-d** or **-m**, force delete/rename.
+> 将分支重置为起始点，即使该分支已存在；与 **-d** 或 **-m** 组合使用时表示强制删除/重命名。
 
 **--points-at** _OBJECT_
-> List branches pointing at the specified object.
+> 列出指向指定对象的分支。
 
 # DESCRIPTION
 
-**git branch** lists, creates, renames, and deletes branches. Without arguments, it lists existing local branches, marking the current branch with an asterisk.
+**git branch** 用于列出、创建、重命名和删除分支。不带参数时，它会列出现有的本地分支，并用星号标记当前分支。
 
-Branches are lightweight pointers to commits, allowing parallel development workflows. Creating a branch does not switch to it; use **git checkout** or **git switch** to change branches.
+分支是指向提交的轻量级指针，支持并行的开发工作流。创建分支并不会切换到该分支；请使用 **git checkout** 或 **git switch** 来切换分支。
 
-Remote-tracking branches (origin/main, etc.) are read-only references to the state of branches on remote repositories. They are updated by **git fetch**.
+远程跟踪分支（origin/main 等）是对远程仓库上分支状态的只读引用，由 **git fetch** 更新。
 
 # CAVEATS
 
-Deleting a branch with **-d** fails if the branch has unmerged changes. Use **-D** to force deletion, but unmerged work will be lost (though commits remain recoverable via reflog temporarily). Cannot delete the currently checked-out branch.
+如果分支有未合并的更改，使用 **-d** 删除会失败。可用 **-D** 强制删除，但未合并的工作将会丢失（不过这些提交暂时仍可通过 reflog 找回）。无法删除当前检出的分支。
 
 # HISTORY
 
-Branching has been a core Git feature since its creation by Linus Torvalds in **2005**. Git's lightweight branching model, where branches are simply pointers to commits rather than full directory copies, was revolutionary and enabled workflows like GitFlow and GitHub Flow.
+自 Linus Torvalds 于 **2005 年** 创建 Git 以来，分支一直是其核心特性。Git 的轻量级分支模型——分支只是指向提交的指针而非完整的目录副本——具有革命性，催生了 GitFlow 和 GitHub Flow 等工作流。
 
 # INSTALL
 

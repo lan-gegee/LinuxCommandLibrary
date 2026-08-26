@@ -1,18 +1,18 @@
 # TAGLINE
 
-Display comprehensive repository information
+显示全面的仓库信息
 
 # TLDR
 
-**Show repository info**
+**显示仓库信息**
 
 ```git info```
 
-**Show repository info with colored titles**
+**显示标题带颜色的仓库信息**
 
 ```git info --color```
 
-**Show repository info without configuration details**
+**显示不含配置详情的仓库信息**
 
 ```git info --no-config```
 
@@ -23,27 +23,27 @@ Display comprehensive repository information
 # PARAMETERS
 
 **-c**, **--color**
-> Use color for information titles.
+> 为信息标题使用颜色。
 
 **--no-config**
-> Do not display configuration info section.
+> 不显示配置信息区段。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git info** displays comprehensive repository information in a single formatted view, including remote URLs, remote branches, local branches, submodules (if any), most recent commit, and configuration settings.
+**git info** 以单一的格式化视图显示全面的仓库信息，包括远程 URL、远程分支、本地分支、子模块（如有）、最近一次提交以及配置设置。
 
-Part of the **git-extras** suite, this command gives a snapshot of the current repository state without needing to run multiple separate git commands. The output format for the most recent commit and configuration info can be customized via `git config --global --add git-extras.info.log "<log-command>"` and `git config --global --add git-extras.info.config-grep "<config-grep-command>"`.
+它是 **git-extras** 套件的组成部分，无需运行多个单独的 git 命令即可获得当前仓库状态的快照。最近提交和配置信息的输出格式可以通过 `git config --global --add git-extras.info.log "<log-command>"` 和 `git config --global --add git-extras.info.config-grep "<config-grep-command>"` 自定义。
 
 # CAVEATS
 
-Requires the **git-extras** package to be installed. Must be run inside a git repository. All information is gathered from the local repository; no network access is required.
+需要安装 **git-extras** 软件包。必须在 git 仓库内运行。所有信息均取自本地仓库，不需要网络访问。
 
 # HISTORY
 
-git info is part of **git-extras**, created by **TJ Holowaychuk** to provide a single command for repository overview.
+git info 是 **git-extras** 的组成部分，由 **TJ Holowaychuk** 创建，旨在用一条命令提供仓库概览。
 
 # INSTALL
 

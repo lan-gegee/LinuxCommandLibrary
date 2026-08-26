@@ -1,26 +1,26 @@
 # TAGLINE
 
-Maintained fork of gixy for nginx security analysis
+gixy 的持续维护分支，用于 nginx 安全分析
 
 # TLDR
 
-**Analyze nginx config**
+**分析 nginx 配置**
 
 ```gixy-next [/etc/nginx/nginx.conf]```
 
-**Run only specific checks**
+只运行特定检查
 
 ```gixy-next --tests [ssrf,host_spoofing] [config.conf]```
 
-**Skip specific checks**
+跳过特定检查
 
 ```gixy-next --skips [http_splitting] [config.conf]```
 
-**Output as JSON**
+以 JSON 格式输出
 
 ```gixy-next -f json [config.conf]```
 
-**Show only medium severity and above**
+只显示中等严重程度及以上的问题
 
 ```gixy-next -ll [config.conf]```
 
@@ -31,36 +31,36 @@ Maintained fork of gixy for nginx security analysis
 # PARAMETERS
 
 _CONFIG_
-> Nginx configuration file.
+> Nginx 配置文件。
 
 **--tests** _RULES_
-> Only run specific checks (comma-separated).
+> 只运行特定检查（逗号分隔）。
 
 **--skips** _RULES_
-> Skip specific checks (comma-separated).
+> 跳过特定检查（逗号分隔）。
 
 **-f**, **--format** _FORMAT_
-> Output format (text, json).
+> 输出格式（text、json）。
 
 **-l**
-> Filter by severity level. Use -l for LOW+, -ll for MEDIUM+, -lll for HIGH only.
+> 按严重程度过滤。-l 表示 LOW 及以上，-ll 表示 MEDIUM 及以上，-lll 表示仅 HIGH。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gixy-next** is a maintained fork of gixy for nginx security analysis. It continues development of the original tool with updates, bug fixes, and support for newer nginx features.
+**gixy-next** 是 gixy 的持续维护分支，用于 nginx 安全分析。它在原工具的基础上继续开发，提供更新、错误修复以及对较新 nginx 特性的支持。
 
-The tool analyzes nginx configurations for security issues, detecting misconfigurations that could lead to vulnerabilities such as SSRF and host spoofing.
+该工具分析 nginx 配置中的安全问题，检测可能导致 SSRF、主机欺骗等漏洞的错误配置。
 
 # CAVEATS
 
-Fork of original gixy with additional checks and performance features. Defaults to analyzing /etc/nginx/nginx.conf if no path given. Can also read config from stdin.
+原版 gixy 的分支，增加了额外检查和性能特性。未指定路径时默认分析 /etc/nginx/nginx.conf。也可以从 stdin 读取配置。
 
 # HISTORY
 
-gixy-next continues development of **gixy** after the original project became less actively maintained.
+在原 **gixy** 项目活跃度下降后，gixy-next 接续其开发。
 
 # INSTALL
 

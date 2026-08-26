@@ -1,18 +1,18 @@
 # TAGLINE
 
-graphical disk management utility
+图形化磁盘管理工具
 
 # TLDR
 
-**Start GNOME Disks**
+**启动 GNOME Disks**
 
 ```gnome-disks```
 
-**Open a specific block device**
+**打开指定的块设备**
 
 ```gnome-disks --block-device [/dev/sda]```
 
-**Restore disk image**
+**恢复磁盘镜像**
 
 ```gnome-disks --restore-disk-image [image.img]```
 
@@ -23,33 +23,33 @@ graphical disk management utility
 # PARAMETERS
 
 **--block-device** _DEVICE_
-> Open the specified block device (e.g. /dev/sda).
+> 打开指定的块设备（如 /dev/sda）。
 
 **--restore-disk-image** _FILE_
-> Restore disk image.
+> 恢复磁盘镜像。
 
 **--format-device**
-> Open the format dialog for the specified block device (used with --block-device).
+> 为指定的块设备打开格式化对话框（与 --block-device 配合使用）。
 
 **--xid** _XID_
-> Parent window XID for the dialog.
+> 对话框的父窗口 XID。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gnome-disks** is a graphical disk management utility for the GNOME desktop. It manages disks, partitions, filesystems, and RAID arrays through a user-friendly GTK interface.
+**gnome-disks** 是 GNOME 桌面的图形化磁盘管理工具。它通过易用的 GTK 界面管理磁盘、分区、文件系统和 RAID 阵列。
 
-The tool handles formatting, mounting, imaging, and benchmarking. It integrates with udisks2 for privileged operations and supports encrypted volumes.
+该工具可执行格式化、挂载、镜像制作和性能基准测试。它与 udisks2 集成以执行特权操作，并支持加密卷。
 
 # CAVEATS
 
-GTK application requires graphical environment. Some operations need root. Part of GNOME utilities.
+GTK 应用程序需要图形环境。某些操作需要 root 权限。属于 GNOME 实用工具的一部分。
 
 # HISTORY
 
-GNOME Disks was developed as part of the **GNOME** project, replacing older disk management tools with a modern, integrated utility.
+GNOME Disks 作为 **GNOME** 项目的一部分开发，用一个现代化的集成工具取代了旧的磁盘管理工具。
 
 # INSTALL
 

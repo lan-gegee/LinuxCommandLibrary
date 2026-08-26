@@ -1,34 +1,34 @@
 # TAGLINE
 
-lightweight text-to-speech synthesis
+轻量级文本转语音合成
 
 # TLDR
 
-**Speak text**
+**朗读文本**
 
 ```flite -t "[Hello world]"```
 
-**Speak from file**
+**从文件朗读**
 
 ```flite -f [text.txt]```
 
-**Save to audio file**
+**保存为音频文件**
 
 ```flite -t "[Hello world]" -o [output.wav]```
 
-**Use specific voice**
+**使用指定音色**
 
 ```flite -voice [rms] -t "[Hello world]"```
 
-**List available voices**
+**列出可用音色**
 
 ```flite -lv```
 
-**Speak input as phonemes**
+**将输入按音素朗读**
 
 ```flite -p "[pau hh ax l ow w er l d]"```
 
-**Read SSML input from file**
+**从文件读取 SSML 输入**
 
 ```flite -ssml -f [input.ssml]```
 
@@ -39,65 +39,65 @@ lightweight text-to-speech synthesis
 # PARAMETERS
 
 _TEXT_
-> Text to speak. If it contains a space, it is treated as a literal text string rather than a filename.
+> 要朗读的文本。如果其中包含空格，则被视为字面文本字符串而不是文件名。
 
 **-t** _TEXT_
-> Explicitly set input text string.
+> 显式设置输入的文本字符串。
 
 **-f** _FILE_
-> Explicitly set input filename.
+> 显式设置输入文件名。
 
 **-o** _FILE_
-> Output audio to file (WAV format). If omitted or set to "play", audio is played on the default audio device. Set to "none" to discard output.
+> 将音频输出到文件（WAV 格式）。如果省略或设为 "play"，音频将在默认音频设备上播放。设为 "none" 则丢弃输出。
 
 **-p** _PHONES_
-> Synthesize input as phonemes.
+> 将输入作为音素进行合成。
 
 **-voice** _NAME_
-> Voice to use (name, filename, or URL).
+> 要使用的音色（名称、文件名或 URL）。
 
 **-voicedir** _DIR_
-> Directory containing voice data.
+> 包含语音数据的目录。
 
 **-lv**
-> List available voices.
+> 列出可用音色。
 
 **-ssml**
-> Read input text/file in SSML mode.
+> 以 SSML 模式读取输入文本/文件。
 
 **-b**
-> Benchmark mode.
+> 基准测试模式。
 
 **-l**
-> Loop endlessly.
+> 无限循环播放。
 
 **-s** _F=V_
-> Set feature to value (guesses type).
+> 将特性设置为指定值（自动猜测类型）。
 
 **-v**
-> Verbose mode.
+> 详细输出模式。
 
 **--version**
-> Display version number.
+> 显示版本号。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**flite** (Festival Lite) is a small, fast text-to-speech synthesis engine developed at Carnegie Mellon University. It converts text to audio using concatenative synthesis, producing speech from recorded fragments.
+**flite**（Festival Lite）是由卡内基梅隆大学开发的小型快速文本转语音合成引擎。它使用拼接式合成技术将文本转换为音频，通过录制片段生成语音。
 
-The engine is designed for embedded systems with limited resources, providing reasonable quality without large runtime requirements. Multiple voices are available with different characteristics.
+该引擎专为资源有限的嵌入式系统设计，在运行时开销很小的情况下提供尚可的音质。它提供多种具有不同特点的音色。
 
-flite works offline without internet connectivity, making it suitable for accessibility applications and audio generation.
+flite 可以离线工作，无需互联网连接，适合无障碍应用和音频生成场景。
 
 # CAVEATS
 
-Limited voice naturalness compared to neural TTS. Few voice options. Output quality varies by text type.
+与神经网络 TTS 相比，语音自然度有限。可选音色较少。输出质量因文本类型而异。
 
 # HISTORY
 
-flite was developed at **Carnegie Mellon University** as a lightweight version of the Festival speech synthesis system. It's used in accessibility applications, embedded systems, and offline TTS scenarios.
+flite 由**卡内基梅隆大学**开发，是 Festival 语音合成系统的轻量版本。它被用于无障碍应用、嵌入式系统和离线 TTS 场景。
 
 # INSTALL
 

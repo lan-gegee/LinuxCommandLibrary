@@ -1,30 +1,30 @@
 # TAGLINE
 
-Generate formatted changelogs from commit history
+从提交历史生成格式化的更新日志
 
 # TLDR
 
-**Generate/update the changelog file** (auto-detected, or History.md)
+**生成/更新更新日志文件**（自动检测，或使用 History.md）
 
 ```git changelog```
 
-**Write the changelog to a specific file**
+**将更新日志写入指定文件**
 
 ```git changelog [CHANGELOG.md]```
 
-**Print the changelog to stdout** instead of writing a file
+**将更新日志打印到标准输出**而非写入文件
 
 ```git changelog --stdout```
 
-**List commits since a start tag**, plainly (no headers)
+**自起始标签以来以纯列表形式列出提交**（无小节标题）
 
 ```git changelog --list --start-tag [v1.0.0]```
 
-**Exclude merge commits**
+**排除合并提交**
 
 ```git changelog --no-merges```
 
-**Replace the changelog** instead of appending to it
+**替换更新日志**而非追加内容
 
 ```git changelog --prune-old```
 
@@ -35,56 +35,56 @@ Generate formatted changelogs from commit history
 # PARAMETERS
 
 _FILE_
-> Output filename; defaults to an auto-detected Change*/History* file, or **History.md**.
+> 输出文件名；默认自动检测 Change*/History* 文件，否则使用 **History.md**。
 
 **-a**, **--all**
-> Include every commit, ignoring **--start-tag**/**--start-commit**/**--final-tag**.
+> 包含所有提交，忽略 **--start-tag**/**--start-commit**/**--final-tag**。
 
 **-l**, **--list**
-> Plain list of commits, without section titles/dates.
+> 以纯列表形式列出提交，不带小节标题/日期。
 
 **-t**, **--tag** _LABEL_
-> Label to use as the section title for the most-recent, untagged commits.
+> 用作最近未打标签提交的小节标题的标签文字。
 
 **-s**, **--start-tag** _TAG_
-> Oldest tag to start the commit range from.
+> 提交范围起始于的最旧标签。
 
 **--start-commit** _COMMIT_
-> Like **--start-tag**, but starts from a commit instead of a tag.
+> 与 **--start-tag** 类似，但从提交开始而非标签。
 
 **-f**, **--final-tag** _TAG_
-> Newest tag to end the commit range at.
+> 提交范围结束于的最新标签。
 
 **-n**, **--no-merges**
-> Exclude merge commits.
+> 排除合并提交。
 
 **-m**, **--merges-only**
-> Include only merge commits, with subject and body.
+> 仅包含合并提交，含主题和正文。
 
 **-p**, **--prune-old**
-> Replace the existing changelog file instead of appending to it.
+> 替换现有的更新日志文件，而不是向其追加内容。
 
 **-x**, **--stdout**
-> Write to standard output instead of a file.
+> 写入标准输出而非文件。
 
 **-h**, **--help**, **?**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git changelog** generates a changelog from git tags (annotated or lightweight) and commit messages. It formats commits into release notes, grouped into sections by tag, suitable for a project's CHANGELOG.
+**git changelog** 根据 git 标签（附注或轻量标签）和提交信息生成更新日志。它将提交整理为发布说明，按标签分组为多个小节，适合用作项目的 CHANGELOG。
 
-If no tags exist, every commit is included; otherwise only commits since the most recent tag are shown by default (use **--start-tag**/**--final-tag** to target a specific range). An existing Change*/History* file in the current directory is auto-detected and its content appended after the newly generated section, unless **--prune-old** is given.
+如果仓库中没有任何标签，则会包含全部提交；否则默认只显示最近一个标签之后的提交（可用 **--start-tag**/**--final-tag** 指定具体范围）。当前目录中已有的 Change*/History* 文件会被自动检测，其内容会追加在新生成的小节之后，除非指定了 **--prune-old**。
 
-Commit formatting is controlled via the **changelog.format** (default `  * %s`) and **changelog.mergeformat** git config options.
+提交的格式由 git 配置项 **changelog.format**（默认 `  * %s`）和 **changelog.mergeformat** 控制。
 
 # CAVEATS
 
-Part of the git-extras package. Quality depends on commit messages. Tag-based grouping requires annotated or lightweight tags to already exist in the repository.
+属于 git-extras 软件包。生成质量取决于提交信息。基于标签的分组要求仓库中已存在附注或轻量标签。
 
 # HISTORY
 
-git changelog is part of **git-extras**, created by **TJ Holowaychuk** to automate changelog generation from repository history.
+git changelog 是 **git-extras** 的一部分，由 **TJ Holowaychuk** 创建，用于从仓库历史自动生成更新日志。
 
 # INSTALL
 

@@ -1,26 +1,26 @@
 # TAGLINE
 
-Google Cloud SDK component manager
+Google Cloud SDK 组件管理器
 
 # TLDR
 
-**List available components**
+**列出可用组件**
 
 ```gcloud components list```
 
-**Install component**
+**安装组件**
 
 ```gcloud components install [kubectl]```
 
-**Update all components**
+**更新所有组件**
 
 ```gcloud components update```
 
-**Remove component**
+**移除组件**
 
 ```gcloud components remove [component-id]```
 
-**Install multiple components**
+**安装多个组件**
 
 ```gcloud components install [kubectl] [gke-gcloud-auth-plugin]```
 
@@ -31,46 +31,46 @@ Google Cloud SDK component manager
 # PARAMETERS
 
 _COMMAND_
-> Operation: list, install, update, remove, reinstall, repositories, copy-bundled-python.
+> 操作：list、install、update、remove、reinstall、repositories、copy-bundled-python。
 
 **list**
-> Show available and installed components, their size, and current version.
+> 显示可用与已安装组件及其大小和当前版本。
 
 **install** _COMPONENT_...
-> Install one or more components (and their dependencies).
+> 安装一个或多个组件（及其依赖）。
 
 **update**
-> Update all installed components to the latest available version. Use **--version** to pin a specific SDK version.
+> 将所有已安装组件更新到最新的可用版本。可用 **--version** 固定到特定 SDK 版本。
 
 **remove** _COMPONENT_...
-> Uninstall one or more components.
+> 卸载一个或多个组件。
 
 **reinstall**
-> Reinstall the SDK, removing and restoring all components at the latest version.
+> 重装 SDK：移除所有组件并全部恢复到最新版本。
 
 **repositories**
-> Manage additional component repositories (add, list, remove) used for trusted-tester releases.
+> 管理额外的组件仓库（添加、列出、移除），用于受测者预览版发布。
 
 **copy-bundled-python**
-> Copy the bundled Python interpreter to a user-specified location.
+> 将自带的 Python 解释器复制到用户指定的位置。
 
 **--quiet**, **-q**
-> Disable interactive prompts.
+> 禁用交互式提示。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**gcloud components** manages the modular component system of the Google Cloud SDK. The SDK follows a core-plus-components architecture where a minimal base installation can be extended with additional tools as needed.
+**gcloud components** 管理 Google Cloud SDK 的模块化组件系统。SDK 采用"核心 + 组件"架构，最小化的基础安装可按需扩展更多工具。
 
-Common optional components include kubectl for Kubernetes management, gsutil for Cloud Storage operations, bq for BigQuery interactions, and language-specific App Engine runtimes. This modular approach keeps the initial SDK installation small while allowing expansion for specific workflows.
+常见的可选组件包括管理 Kubernetes 的 kubectl、操作 Cloud Storage 的 gsutil、与 BigQuery 交互的 bq，以及各语言专用的 App Engine 运行时。这种模块化方式保持了初始 SDK 安装的精简，同时允许针对特定工作流进行扩展。
 
-The update command keeps all installed components current with the latest features and bug fixes. Component management is tracked locally, allowing different machines to have different component sets based on their specific use cases. Some components have dependencies on others, which the system handles automatically during installation.
+update 命令让所有已安装组件保持最新功能和缺陷修复。组件管理在本地跟踪，因此不同机器可以根据各自的使用场景拥有不同的组件集合。某些组件之间存在依赖关系，系统会在安装时自动处理。
 
 # CAVEATS
 
-Updates may change behavior. Some components have dependencies. Admin rights may be needed.
+更新可能改变行为。部分组件存在依赖关系。可能需要管理员权限。
 
 # SEE ALSO
 

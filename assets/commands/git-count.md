@@ -1,14 +1,14 @@
 # TAGLINE
 
-Count commits in repository
+统计仓库中的提交数
 
 # TLDR
 
-**Count total commits**
+**统计提交总数**
 
 ```git count```
 
-**Count commits by author**
+**按作者统计提交**
 
 ```git count --all```
 
@@ -19,26 +19,26 @@ Count commits in repository
 # PARAMETERS
 
 **--all**
-> Count commits per author.
+> 按作者分别统计提交。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git count** shows the total number of commits in the repository. With the --all flag, it shows commit counts broken down by author.
+**git count** 显示仓库中的提交总数。加上 --all 标志时，会按作者细分显示提交数。
 
-The command provides a quick overview of repository activity and contributor participation. It's simpler than parsing **git shortlog** output manually.
+该命令可快速概览仓库活跃度和贡献者参与情况，比手动解析 **git shortlog** 输出更简单。
 
-With the **--all** flag, it produces a ranked list of contributors by commit count, making it useful for project statistics and activity reports.
+使用 **--all** 标志时会生成按提交数排名的贡献者列表，非常适合项目统计和活跃度报告。
 
 # CAVEATS
 
-Part of git-extras package. Counts commits on current branch. Merge commits included.
+属于 git-extras 软件包。只统计当前分支上的提交。包含合并提交。
 
 # HISTORY
 
-git count is part of **git-extras**, providing simple commit counting that complements git shortlog.
+git count 是 **git-extras** 的一部分，提供简单的提交计数功能，与 git shortlog 相辅相成。
 
 # INSTALL
 

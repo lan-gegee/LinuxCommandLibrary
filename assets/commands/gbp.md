@@ -1,38 +1,38 @@
 # TAGLINE
 
-Git integration for Debian package building
+Debian 软件包构建的 Git 集成工具
 
 # TLDR
 
-**Import an existing Debian source package into Git**
+**将现有 Debian 源码包导入 Git**
 
 ```gbp import-dsc [path/to/package.dsc]```
 
-**Build the package using the default builder**
+**使用默认构建器构建软件包**
 
 ```gbp buildpackage -jauto -us -uc```
 
-**Build a package in a pbuilder environment**
+**在 pbuilder 环境中构建软件包**
 
 ```DIST=bullseye ARCH=amd64 gbp buildpackage -jauto -us -uc --git-builder=git-pbuilder```
 
-**Import a new upstream release**
+**导入新的上游发行版**
 
 ```gbp import-orig --pristine-tar [path/to/package.tar.gz]```
 
-**Clone a repository with gbp branch tracking**
+**克隆带 gbp 分支跟踪的仓库**
 
 ```gbp clone [url]```
 
-**Generate changelog entries from Git commits**
+**根据 Git 提交生成 changelog 条目**
 
 ```gbp dch --auto```
 
-**Tag the current Debian release in Git**
+**在 Git 中标记当前 Debian 发行版本**
 
 ```gbp tag```
 
-**Push packaging branches and tags to remote**
+**将打包分支和标签推送到远程**
 
 ```gbp push```
 
@@ -43,64 +43,64 @@ Git integration for Debian package building
 # PARAMETERS
 
 **buildpackage**
-> Build Debian source and binary packages from a Git repository.
+> 从 Git 仓库构建 Debian 源码包和二进制包。
 
 **import-dsc**
-> Import an existing Debian source package into a Git repository.
+> 将现有 Debian 源码包导入 Git 仓库。
 
 **import-orig**
-> Import a new upstream source tarball into a Git repository.
+> 将新的上游源码 tarball 导入 Git 仓库。
 
 **export-orig**
-> Recreate upstream tarballs from a Git repository.
+> 从 Git 仓库重新生成上游 tarball。
 
 **clone**
-> Clone a Git repository and set up gbp tracking branches.
+> 克隆 Git 仓库并设置 gbp 跟踪分支。
 
 **pull**
-> Update a repository from remote, aware of packaging branch tracking.
+> 从远程更新仓库，感知打包分支的跟踪关系。
 
 **push**
-> Push to a remote repository, aware of packaging branch tracking.
+> 推送到远程仓库，感知打包分支的跟踪关系。
 
 **dch**
-> Generate debian/changelog entries from Git commit history.
+> 根据 Git 提交历史生成 debian/changelog 条目。
 
 **tag**
-> Tag a Debian release in a Git repository.
+> 在 Git 仓库中为 Debian 发行版本打标签。
 
 **pq**
-> Manage debian/patches as Git topic branches (patch queue).
+> 将 debian/patches 作为 Git 主题分支管理（补丁队列）。
 
 **create-remote-repo**
-> Create a remote Git repository and push the local repository into it.
+> 创建远程 Git 仓库并将本地仓库推送进去。
 
 **import-dscs**
-> Import several Debian source packages into a Git repository, sorted by version.
+> 按版本排序，将多个 Debian 源码包导入 Git 仓库。
 
 # CONFIGURATION
 
 **debian/gbp.conf**
-> Project-specific settings for branch names, build options, and pristine-tar configuration.
+> 项目级设置，包括分支名、构建选项和 pristine-tar 配置。
 
 **~/.gbp.conf**
-> User-level defaults for gbp behavior across all projects.
+> 用户级默认设置，作用于所有项目中的 gbp 行为。
 
 # DESCRIPTION
 
-**gbp** (git-buildpackage) integrates Debian package building with Git version control. It maintains separate Git branches for upstream source, Debian packaging, and optionally pristine tarballs, providing a clean workflow for package maintenance.
+**gbp**（git-buildpackage）将 Debian 软件包构建与 Git 版本控制集成在一起。它为上游源码、Debian 打包以及可选的原始 tarball 维护独立的 Git 分支，为软件包维护提供清晰的工作流。
 
-The typical workflow involves importing upstream releases with **gbp import-orig**, making packaging changes on the debian branch, and building with **gbp buildpackage**. The tool handles merging upstream changes and generating proper Debian source packages.
+典型工作流是：用 **gbp import-orig** 导入上游发行版，在 debian 分支上进行打包修改，再用 **gbp buildpackage** 构建。该工具负责合并上游变更并生成规范的 Debian 源码包。
 
-gbp supports building in clean environments via pbuilder, sbuild, or cowbuilder for reproducible builds.
+gbp 支持通过 pbuilder、sbuild 或 cowbuilder 在干净环境中构建，实现可重现的构建。
 
 # CAVEATS
 
-Requires understanding of both Git branching and Debian packaging. Branch naming conventions (upstream, debian, pristine-tar) must be followed. Complex merge scenarios may require manual intervention. Options prefixed with **--git-** are for gbp itself; other options are passed through to the underlying build command.
+需要同时理解 Git 分支和 Debian 打包。必须遵循分支命名约定（upstream、debian、pristine-tar）。复杂的合并场景可能需要手动干预。以 **--git-** 为前缀的选项由 gbp 自身处理；其他选项会透传给底层构建命令。
 
 # HISTORY
 
-git-buildpackage was created by Guido Gunther and first released around **2007**. It became a standard tool for Debian developers who wanted to combine the benefits of Git's distributed version control with Debian's packaging system.
+git-buildpackage 由 Guido Gunther 创建，约于 **2007 年**首次发布。它已成为 Debian 开发者的标准工具，让他们既能享受 Git 分布式版本控制的优势，又能沿用 Debian 的打包体系。
 
 # SEE ALSO
 

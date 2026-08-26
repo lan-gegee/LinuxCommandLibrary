@@ -1,42 +1,42 @@
 # TAGLINE
 
-command-line interface for Google Calendar
+Google Calendar 的命令行界面
 
 # TLDR
 
-**Show agenda** for the next 5 days
+**显示未来 5 天的日程**
 
 ```gcalcli agenda```
 
-**List calendars**
+**列出日历**
 
 ```gcalcli list```
 
-**Show weekly calendar view**
+**显示周视图**
 
 ```gcalcli calw```
 
-**Show monthly calendar view**
+**显示月视图**
 
 ```gcalcli calm```
 
-**Add event** with details
+添加带详细信息的**日程**
 
 ```gcalcli add --title "[title]" --when "[tomorrow 2pm]" --duration [60] --where "[location]"```
 
-**Quick add event** using natural language
+用自然语言**快速添加日程**
 
 ```gcalcli quick "[Meeting tomorrow at 3pm]"```
 
-**Search events**
+**搜索日程**
 
 ```gcalcli search "[query]"```
 
-**Import events** from an ICS file
+从 ICS 文件**导入日程**
 
 ```gcalcli import [path/to/events.ics]```
 
-**Delete event**
+**删除日程**
 
 ```gcalcli delete "[event title]"```
 
@@ -47,82 +47,82 @@ command-line interface for Google Calendar
 # SUBCOMMANDS
 
 **agenda**
-> Show upcoming events.
+> 显示即将到来的日程。
 
 **list**
-> List calendars.
+> 列出日历。
 
 **calw**
-> Weekly calendar view.
+> 周视图。
 
 **calm**
-> Monthly calendar view.
+> 月视图。
 
 **add**
-> Add an event.
+> 添加日程。
 
 **quick**
-> Quick add event.
+> 快速添加日程。
 
 **search**
-> Search events.
+> 搜索日程。
 
 **delete**
-> Delete an event.
+> 删除日程。
 
 **edit**
-> Edit an event.
+> 编辑日程。
 
 **import**
-> Import events from an ics/vcal file.
+> 从 ics/vcal 文件导入日程。
 
 **remind**
-> Execute a command if event occurs within a specified time.
+> 若日程在指定时间内发生则执行命令。
 
 # PARAMETERS
 
 **--calendar** _name_
-> Specify calendar.
+> 指定日历。
 
 **--title** _text_
-> Event title.
+> 日程标题。
 
 **--when** _time_
-> Event start time.
+> 日程开始时间。
 
 **--duration** _minutes_
-> Event duration.
+> 日程持续时间。
 
 **--where** _location_
-> Event location.
+> 日程地点。
 
 **--lineart** _type_
-> Line art style: fancy, unicode, or ascii.
+> 线框风格：fancy、unicode 或 ascii。
 
 **--nocache**
-> Execute command without using cache.
+> 执行命令时不使用缓存。
 
 **--locale** _LOCALE_
-> Set locale for date/time output.
+> 设置日期/时间输出的区域设置。
 
 **--refresh**
-> Delete and refresh cached data.
+> 删除并刷新缓存数据。
 
 # CONFIGURATION
 
 **~/.gcalclirc**
-> Configuration file with commonly-used CLI options, one per line. Can also use @file syntax to load options from any file.
+> 配置文件，每行写一条常用 CLI 选项。也可用 @file 语法从任意文件加载选项。
 
 **~/.gcalcli_oauth**
-> OAuth 2.0 credentials for Google Calendar API access.
+> 访问 Google Calendar API 所需的 OAuth 2.0 凭据。
 
 # DESCRIPTION
 
-**gcalcli** is a command-line interface for Google Calendar that enables terminal-based calendar management without opening a web browser. It authenticates via OAuth 2.0 and provides full access to your Google Calendar data.
+**gcalcli** 是 Google Calendar 的命令行界面，无需打开浏览器即可在终端管理日历。它通过 OAuth 2.0 进行身份验证，提供对 Google Calendar 数据的完整访问。
 
-The tool supports both viewing operations like agenda and calendar displays, and modification operations including creating, editing, and deleting events. Quick add functionality allows natural language event creation, while the structured add command provides precise control over event details.
+该工具既支持日程和日历显示等查看操作，也支持创建、编辑和删除日程等修改操作。快速添加功能允许用自然语言创建日程，而结构化的 add 命令则能精确控制日程细节。
 
-gcalcli is particularly useful for terminal-centric workflows, automation scripts, and integration with other command-line tools. It can display calendar data in various formats and supports working with multiple calendars simultaneously.
+gcalcli 特别适合以终端为核心的工作流、自动化脚本以及与其他命令行工具集成。它可以多种格式显示日历数据，并同时操作多个日历。
 
 # INSTALL
 
@@ -137,4 +137,3 @@ gcalcli is particularly useful for terminal-centric workflows, automation script
 # SEE ALSO
 
 [gcal](/man/gcal)(1), [calcurse](/man/calcurse)(1)
-

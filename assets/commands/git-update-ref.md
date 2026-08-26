@@ -1,22 +1,22 @@
 # TAGLINE
 
-Safely update Git reference values
+安全地更新 Git 引用的值
 
 # TLDR
 
-**Update ref to new value**
+**将引用更新为新值**
 
 ```git update-ref [refs/heads/branch] [commit]```
 
-**Delete ref**
+**删除引用**
 
 ```git update-ref -d [refs/heads/branch]```
 
-**Create symbolic ref**
+**创建符号引用**
 
 ```git update-ref --symbolic-ref [ref] [target]```
 
-**Update with old value check**
+**更新时校验旧值**
 
 ```git update-ref [ref] [new] [old]```
 
@@ -27,31 +27,31 @@ Safely update Git reference values
 # PARAMETERS
 
 **-d**
-> Delete ref.
+> 删除引用。
 
 **--create-reflog**
-> Create reflog.
+> 创建引用日志（reflog）。
 
 **--no-deref**
-> Don't dereference symbolic.
+> 不解引用符号引用。
 
 **-m** _reason_
-> Reflog message.
+> 引用日志信息。
 
 **--stdin**
-> Read update instructions (update, create, delete, verify, symref-update, etc.) from standard input, applying them together as one atomic transaction.
+> 从标准输入读取更新指令（update、create、delete、verify、symref-update 等），并将其作为一个原子事务一起应用。
 
 **-z**
-> Use NUL-terminated arguments with **--stdin** instead of quoted, whitespace-terminated strings.
+> 配合 **--stdin** 使用时，参数以 NUL 结尾而不是带引号、以空白符结束的字符串。
 
 **--batch-updates**
-> With **--stdin**, allow individual updates in the transaction to fail without aborting the others.
+> 配合 **--stdin** 使用时，允许事务中的个别更新失败而不中止其他更新。
 
 # DESCRIPTION
 
-**git update-ref** safely updates ref names stored in the repository. It provides atomic ref updates with optional old value verification, ensuring that a ref is only changed if it currently points to an expected value.
+**git update-ref** 安全地更新仓库中存储的引用名。它提供原子的引用更新以及可选的旧值校验，确保只有当引用当前指向预期值时才会被修改。
 
-This is a low-level plumbing command used internally by higher-level commands like `git branch` and `git tag`. With **--stdin**, multiple ref updates can be batched into a single atomic transaction.
+这是一个底层（plumbing）命令，`git branch` 和 `git tag` 等上层命令在内部都会使用它。借助 **--stdin**，多个引用更新可以批量合并为单个原子事务。
 
 # INSTALL
 

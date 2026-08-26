@@ -1,22 +1,22 @@
 # TAGLINE
 
-stack-based interactive programming language
+基于栈的交互式编程语言
 
 # TLDR
 
-**Start Forth interpreter (Gforth)**
+**启动 Forth 解释器（Gforth）**
 
 ```gforth```
 
-**Run Forth script**
+**运行 Forth 脚本**
 
 ```gforth [script.fs]```
 
-**Evaluate expression**
+**求值表达式**
 
 ```gforth -e "[1 2 + .] [bye]"```
 
-**Include file then go interactive**
+**加载文件后进入交互模式**
 
 ```gforth [script.fs] -```
 
@@ -27,28 +27,28 @@ stack-based interactive programming language
 # PARAMETERS
 
 **-e** _code_
-> Evaluate Forth code.
+> 求值 Forth 代码。
 
 **-m** _size_
-> Dictionary size.
+> 字典大小。
 
 **-d** _size_
-> Data stack size.
+> 数据栈大小。
 
 **-r** _size_
-> Return stack size.
+> 返回栈大小。
 
 _file_
-> Forth source file to load.
+> 要加载的 Forth 源文件。
 
 **-**
-> Read from stdin.
+> 从 stdin 读取。
 
 # DESCRIPTION
 
-**Forth** is a stack-based programming language known for its simplicity and extensibility. Gforth is the GNU implementation of Forth, conforming to the ANS Forth standard.
+**Forth** 是一种基于栈的编程语言，以简洁和可扩展性著称。Gforth 是 GNU 的 Forth 实现，符合 ANS Forth 标准。
 
-Forth uses reverse Polish notation (RPN) with an explicit stack. Words (functions) are defined with `:` and `;`. The language is highly interactive and extensible, commonly used in embedded systems.
+Forth 使用显式栈上的逆波兰表示法（RPN）。单词（函数）用 `:` 和 `;` 定义。这门语言高度交互且可扩展，常用于嵌入式系统。
 
 # BASIC OPERATIONS
 
@@ -68,11 +68,11 @@ drop         \ removes top
 
 # CAVEATS
 
-Stack-based paradigm differs from most languages. Manual memory management. Limited standard library compared to modern languages. Debugging can be challenging.
+基于栈的范式与大多数语言不同。需要手动内存管理。与现代语言相比标准库有限。调试可能比较困难。
 
 # HISTORY
 
-Forth was invented by **Charles H. Moore** in the late **1960s** for controlling radio telescopes. It became popular in embedded systems due to its small footprint and efficiency. Gforth was started in **1992** by Anton Ertl and Bernd Paysan.
+Forth 由 **Charles H. Moore** 在 **1960** 年代末为控制射电望远镜而发明。凭借极小的体积和高效率，它在嵌入式系统中广受欢迎。Gforth 于 **1992** 年由 Anton Ertl 和 Bernd Paysan 启动开发。
 
 # SEE ALSO
 

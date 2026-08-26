@@ -1,26 +1,26 @@
 # TAGLINE
 
-List remote repository references
+列出远程仓库的引用
 
 # TLDR
 
-**List remote refs**
+**列出远程引用**
 
 ```git ls-remote [origin]```
 
-**Show only tags**
+**只显示标签**
 
 ```git ls-remote --tags [origin]```
 
-**Show only heads**
+**只显示分支**
 
 ```git ls-remote --heads [origin]```
 
-**Show specific ref**
+**显示特定引用**
 
 ```git ls-remote [origin] [refs/heads/main]```
 
-**List refs for URL**
+**列出 URL 的引用**
 
 ```git ls-remote [https://github.com/owner/repo.git]```
 
@@ -31,45 +31,45 @@ List remote repository references
 # PARAMETERS
 
 _REPOSITORY_
-> Remote name or URL.
+> 远程名称或 URL。
 
 _REFS_
-> Specific refs to show.
+> 要显示的特定引用。
 
 **--heads**
-> Show only heads (branches).
+> 只显示 heads（分支）。
 
 **--tags**
-> Show only tags.
+> 只显示标签。
 
 **--refs**
-> Show refs only, no peeled tags.
+> 仅显示引用，不含剥离后的标签（peeled tags）。
 
 **--get-url**
-> Show remote URL.
+> 显示远程 URL。
 
 **--exit-code**
-> Exit with error if no refs found.
+> 未找到任何引用时以错误码退出。
 
 **--symref**
-> Show underlying ref for symbolic refs (e.g. what HEAD points to).
+> 显示符号引用所指向的底层引用（例如 HEAD 指向什么）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git ls-remote** lists references in a remote repository without downloading any objects. It shows branches, tags, and their commit hashes, useful for checking remote state before fetching.
+**git ls-remote** 在不下载任何对象的情况下列出远程仓库中的引用。它会显示分支、标签及其提交哈希，便于在抓取之前检查远程状态。
 
-The command queries the remote directly, showing current refs at query time. This enables checking tag existence, verifying branch status, or scripting against remote repository state. It works with both named remotes and direct URLs.
+该命令直接查询远程，显示查询时刻的最新引用。这可用于检查标签是否存在、验证分支状态，或针对远程仓库状态编写脚本。它既支持具名远程，也支持直接使用 URL。
 
 # CAVEATS
 
-Requires network access. Shows refs at query time. Large repos may have many refs.
+需要网络访问。显示的是查询时刻的引用。大型仓库可能包含大量引用。
 
 # HISTORY
 
-git ls-remote is a core **Git** command for inspecting remote references, useful for automation and verification.
+git ls-remote 是 **Git** 用于检查远程引用的核心命令，适用于自动化与校验场景。
 
 # INSTALL
 

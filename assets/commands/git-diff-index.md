@@ -1,22 +1,22 @@
 # TAGLINE
 
-Compare tree to working tree or index
+比较树对象与工作树或索引
 
 # TLDR
 
-**Compare index to commit**
+**比较索引与提交**
 
 ```git diff-index HEAD```
 
-**Compare working tree to commit**
+**比较工作树与提交**
 
 ```git diff-index [commit]```
 
-**Check for differences**
+**检查是否存在差异**
 
 ```git diff-index --quiet HEAD```
 
-**Raw output format**
+**原始格式输出**
 
 ```git diff-index --raw HEAD```
 
@@ -27,31 +27,31 @@ Compare tree to working tree or index
 # PARAMETERS
 
 **--cached**
-> Compare tree to index only, instead of the working tree.
+> 只比较树对象与索引，而不比较工作树。
 
 **-m**
-> Treat files not checked out (present in the index but missing from the working tree) as modified rather than deleted.
+> 将未检出的文件（存在于索引中但工作树缺失）视为已修改而非已删除。
 
 **--merge-base**
-> Use the merge base of _tree-ish_ and HEAD as the starting point for comparison.
+> 使用 _tree-ish_ 与 HEAD 的合并基准作为比较起点。
 
 **--raw**
-> Raw diff output (this is the default for this command).
+> 原始 diff 输出（该命令的默认格式）。
 
 **--quiet**
-> Exit with 1 if differences.
+> 有差异时以 1 退出。
 
 **--name-only**
-> Show file names only.
+> 只显示文件名。
 
 **--name-status**
-> Show file names and status.
+> 显示文件名和状态。
 
 # DESCRIPTION
 
-**git diff-index** compares a tree object to the working tree or index, operating as a low-level plumbing command used internally by git diff for commit comparisons. It accepts a tree-ish (commit, branch, tag, or tree object) and compares it against either the index (with --cached) or the working tree.
+**git diff-index** 将一个树对象与工作树或索引进行比较，是一个底层（plumbing）命令，git diff 在进行提交比较时会在内部使用它。它接受一个 tree-ish（提交、分支、标签或树对象），并将其与索引（使用 --cached 时）或工作树进行比较。
 
-The tool is particularly useful in automation scenarios that need to detect whether files have changed since a specific commit, such as CI/CD pipelines checking for uncommitted modifications or scripts validating clean working directories. Its --quiet flag enables simple boolean checks for changes without processing full diff output.
+该工具特别适用于需要检测自特定提交以来文件是否发生变化的自动化场景，例如在 CI/CD 流水线中检查未提交的改动，或在脚本中验证工作目录是否干净。其 --quiet 选项支持对改动做简单的布尔判断，而无需处理完整的 diff 输出。
 
 # INSTALL
 

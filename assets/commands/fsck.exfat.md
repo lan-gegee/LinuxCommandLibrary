@@ -1,30 +1,30 @@
 # TAGLINE
 
-exFAT filesystem check and repair
+exFAT 文件系统检查与修复工具
 
 # TLDR
 
-**Check** an exFAT filesystem for errors
+**检查** exFAT 文件系统错误
 
 ```fsck.exfat [/dev/sdXN]```
 
-**Repair automatically** and answer yes to all questions
+**自动修复**并对所有问题回答 yes
 
 ```fsck.exfat -y [/dev/sdXN]```
 
-**Repair interactively** with prompts
+以提示方式**交互式修复**
 
 ```fsck.exfat -r [/dev/sdXN]```
 
-**Repair automatically** and create files in /LOST+FOUND for orphaned clusters
+**自动修复**并在 /LOST+FOUND 中为孤立簇创建文件
 
 ```fsck.exfat -p -s [/dev/sdXN]```
 
-**Check without repairing** (read-only mode)
+**只检查不修复**（只读模式）
 
 ```fsck.exfat -n [/dev/sdXN]```
 
-**Show verbose output** during check
+检查时**显示详细输出**
 
 ```fsck.exfat -v [/dev/sdXN]```
 
@@ -35,47 +35,47 @@ exFAT filesystem check and repair
 # PARAMETERS
 
 **-r**, **--repair**
-> Repair the filesystem interactively, prompting before each fix.
+> 交互式修复文件系统，每次修复前都会提示确认。
 
 **-y**, **--repair-yes**
-> Repair the filesystem automatically, answering yes to all questions.
+> 自动修复文件系统，对所有问题回答 yes。
 
 **-n**, **--repair-no**
-> Check the filesystem without making any repairs (read-only mode).
+> 只检查文件系统而不做任何修复（只读模式）。
 
 **-p**, **--repair-auto**
-> Repair the filesystem automatically without prompts (same as **-a**).
+> 自动修复文件系统且不提示（等同于 **-a**）。
 
 **-a**
-> Repair automatically (alias for **-p**).
+> 自动修复（**-p** 的别名）。
 
 **-s**
-> Create files in /LOST+FOUND directory for orphaned clusters.
+> 在 /LOST+FOUND 目录中为孤立簇创建文件。
 
 **-v**, **--verbose**
-> Print debug information during the check.
+> 检查过程中输出调试信息。
 
 **-V**, **--version**
-> Show version information and exit.
+> 显示版本信息并退出。
 
 **-h**, **--help**
-> Display help message and exit.
+> 显示帮助信息并退出。
 
 # DESCRIPTION
 
-**fsck.exfat** checks and repairs exFAT filesystems on Linux. It is part of the **exfatprogs** package, the official userspace utilities for the exFAT filesystem that was merged into the Linux kernel starting with version 5.7.
+**fsck.exfat** 用于在 Linux 上检查和修复 exFAT 文件系统。它是 **exfatprogs** 软件包的一部分，exfatprogs 是自 Linux 内核 5.7 起合并的 exFAT 文件系统的官方用户空间工具集。
 
-The tool can detect and repair various filesystem corruptions including invalid boot sector parameters, incorrect cluster bitmap entries, invalid cluster chains, loops in cluster chains, and files sharing the same clusters. When the boot sector is corrupted but the backup boot sector is valid, it can restore the primary boot sector.
+该工具可以检测并修复多种文件系统损坏，包括无效的引导扇区参数、错误的簇位图条目、无效的簇链、簇链中的循环以及多个文件共享相同簇的情况。当主引导扇区损坏而备份引导扇区有效时，它还能还原主引导扇区。
 
-Before running fsck.exfat, unmount the filesystem first. Use **lsblk -f** to identify the correct device name.
+运行 fsck.exfat 前，请先卸载文件系统。使用 **lsblk -f** 确认正确的设备名。
 
 # CAVEATS
 
-The filesystem must be unmounted before running fsck.exfat. Running on a mounted filesystem can cause data corruption. Some earlier versions (notably 1.1.3) had bugs that could cause repair failures; ensure you have version 1.2.0 or later for reliable operation.
+运行 fsck.exfat 前必须卸载文件系统。对已挂载的文件系统运行可能造成数据损坏。部分早期版本（尤其是 1.1.3）存在可能导致修复失败的 bug；请确保使用 1.2.0 或更高版本以保证可靠运行。
 
 # HISTORY
 
-The **exfatprogs** package was created in **2019** as the official Linux userspace utilities for exFAT after Samsung contributed their exFAT driver to the Linux kernel. The driver was merged into Linux **5.7** in **2020**, replacing the older FUSE-based exfat-utils implementation. Microsoft's decision to publish the exFAT specification in **2019** enabled this native kernel support.
+Samsung 将其 exFAT 驱动贡献给 Linux 内核后，**exfatprogs** 软件包于 **2019** 年创建，成为 Linux 官方的 exFAT 用户空间工具集。该驱动于 **2020** 年合并进 Linux **5.7**，取代了旧的基于 FUSE 的 exfat-utils 实现。Microsoft 于 **2019** 年公开 exFAT 规范的决定促成了这一原生内核支持。
 
 # INSTALL
 

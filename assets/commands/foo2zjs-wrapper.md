@@ -1,30 +1,30 @@
 # TAGLINE
 
-PostScript/PDF to ZjStream wrapper script
+PostScript/PDF 转 ZjStream 包装脚本
 
 # TLDR
 
-**Print PostScript file**
+**打印 PostScript 文件**
 
 ```foo2zjs-wrapper [file.ps]```
 
-**Set paper size**
+**设置纸张大小**
 
 ```foo2zjs-wrapper -p [a4] [file.ps]```
 
-**Color printing**
+**彩色打印**
 
 ```foo2zjs-wrapper -c [file.ps]```
 
-**Set resolution**
+**设置分辨率**
 
 ```foo2zjs-wrapper -r [1200x600] [file.ps]```
 
-**Duplex (long edge)**
+**双面打印（长边）**
 
 ```foo2zjs-wrapper -d 2 [file.ps]```
 
-**Specify printer model**
+**指定打印机型号**
 
 ```foo2zjs-wrapper -z [model] [file.ps]```
 
@@ -35,62 +35,62 @@ PostScript/PDF to ZjStream wrapper script
 # PARAMETERS
 
 _FILES_
-> PostScript or PDF files to print.
+> 要打印的 PostScript 或 PDF 文件。
 
 **-p** _CODE_
-> Paper size code (e.g., letter, a4, legal).
+> 纸张大小代码（例如 letter、a4、legal）。
 
 **-r** _XxY_
-> Device resolution in DPI (default 1200x600).
+> 设备分辨率（DPI，默认 1200x600）。
 
 **-c**
-> Print in color (otherwise monochrome).
+> 以彩色打印（否则为单色）。
 
 **-n** _COPIES_
-> Number of copies.
+> 打印份数。
 
 **-m** _CODE_
-> Media type code.
+> 介质类型代码。
 
 **-d** _MODE_
-> Duplex: 1=off, 2=long edge, 3=short edge.
+> 双面打印：1=关闭，2=长边，3=短边。
 
 **-s** _CODE_
-> Input slot code.
+> 输入纸槽代码。
 
 **-t**
-> Draft mode (every other pixel white).
+> 草稿模式（隔一个像素输出一个白色像素）。
 
 **-T** _DENSITY_
-> Print density (1-5).
+> 打印浓度（1-5）。
 
 **-z** _MODEL_
-> Printer model.
+> 打印机型号。
 
 **-g** _OPTIONS_
-> Additional Ghostscript options.
+> 额外的 Ghostscript 选项。
 
 **-D** _LEVEL_
-> Set debug level.
+> 设置调试级别。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**foo2zjs-wrapper** converts PostScript/PDF to ZjStream format for HP and Minolta/QMS printers. It combines Ghostscript rasterization with foo2zjs encoding.
+**foo2zjs-wrapper** 将 PostScript/PDF 转换为 HP 和 Minolta/QMS 打印机所需的 ZjStream 格式。它组合了 Ghostscript 栅格化与 foo2zjs 编码。
 
-The wrapper handles the complete document-to-printer pipeline, providing a simple interface for printing. It translates common options to the underlying tools.
+该包装器处理从文档到打印机的完整流水线，提供简单的打印接口。它将常见选项转换为底层工具所需的参数。
 
-foo2zjs-wrapper is the primary way to print documents to foo2zjs-supported printers.
+foo2zjs-wrapper 是向 foo2zjs 支持的打印机打印文档的主要方式。
 
 # CAVEATS
 
-Requires Ghostscript. Limited to supported printer models. Color support varies by printer.
+需要 Ghostscript。仅限于受支持的打印机型号。彩色支持因打印机而异。
 
 # HISTORY
 
-foo2zjs-wrapper is part of the **foo2zjs** project, providing user-friendly document printing for ZjStream protocol printers on Linux.
+foo2zjs-wrapper 是 **foo2zjs** 项目的一部分，在 Linux 上为使用 ZjStream 协议的打印机提供易用的文档打印能力。
 
 # INSTALL
 

@@ -1,10 +1,10 @@
 # TAGLINE
 
-Internal single-file merge helper
+内部单文件合并辅助工具
 
 # TLDR
 
-**Merge single file**
+**合并单个文件**
 
 ```git merge-one-file [base] [ours] [theirs] [path] [mode]```
 
@@ -15,36 +15,36 @@ Internal single-file merge helper
 # PARAMETERS
 
 _BASE_
-> Base version blob SHA.
+> base 版本的 blob SHA。
 
 _OURS_
-> Our version blob SHA.
+> 我方版本的 blob SHA。
 
 _THEIRS_
-> Their version blob SHA.
+> 对方版本的 blob SHA。
 
 _PATH_
-> File path.
+> 文件路径。
 
 _MODE_
-> File mode.
+> 文件模式。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git merge-one-file** is a helper script for single-file merging, called by `git merge-index` to handle individual file conflicts using the standard three-way merge algorithm. It receives blob SHA-1 hashes for the base, ours, and theirs versions and performs the merge.
+**git merge-one-file** 是用于单文件合并的辅助脚本，由 `git merge-index` 调用，使用标准三方合并算法处理单个文件的冲突。它接收 base、ours 和 theirs 版本的 blob SHA-1 哈希并执行合并。
 
-This command is part of Git's internal merge machinery and is not typically invoked directly by users. It exists to support custom merge workflows and to provide a reference implementation for per-file merge programs.
+该命令属于 Git 内部合并机制的一部分，用户通常不会直接调用。它的存在是为了支持自定义合并工作流，并作为单文件合并程序的参考实现。
 
 # CAVEATS
 
-Plumbing command. Called by git merge internals. Not typically used directly.
+底层（plumbing）命令。由 git merge 内部调用。通常不直接使用。
 
 # HISTORY
 
-git merge-one-file is part of **Git's** merge infrastructure, implementing per-file merge as a component of the overall merge process.
+git merge-one-file 是 **Git** 合并基础设施的一部分，作为整体合并流程中的一个组件实现单文件合并。
 
 # INSTALL
 

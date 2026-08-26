@@ -1,26 +1,26 @@
 # TAGLINE
 
-Manage gitignore entries
+管理 gitignore 条目
 
 # TLDR
 
-**Add to gitignore**
+**添加到 gitignore**
 
 ```git ignore [pattern]```
 
-**Add multiple patterns**
+**添加多个模式**
 
 ```git ignore "*.log" "*.tmp"```
 
-**Show current ignores**
+**显示当前的忽略规则**
 
 ```git ignore```
 
-**Add to global gitignore**
+**添加到全局 gitignore**
 
 ```git ignore --global [pattern]```
 
-**Add to private exclude file**
+**添加到私有的 exclude 文件**
 
 ```git ignore --private [pattern]```
 
@@ -31,44 +31,44 @@ Manage gitignore entries
 # PARAMETERS
 
 _PATTERNS_
-> Patterns to add to .gitignore.
+> 要添加到 .gitignore 的模式。
 
 **-l**, **--local**
-> Add to local .gitignore (default).
+> 添加到本地 .gitignore（默认）。
 
 **-g**, **--global**
-> Add to global gitignore.
+> 添加到全局 gitignore。
 
 **-p**, **--private**
-> Add to private exclude file (.git/info/exclude).
+> 添加到私有 exclude 文件（.git/info/exclude）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git ignore** manages .gitignore entries, adding patterns to the repository's .gitignore or the global gitignore file. Without arguments, it displays the current .gitignore contents.
+**git ignore** 管理 .gitignore 条目，将模式添加到仓库的 .gitignore 或全局 gitignore 文件中。不带参数运行时，它会显示当前 .gitignore 的内容。
 
-Part of the git-extras suite, the command handles proper formatting and avoids duplicates. It creates .gitignore if the file does not exist.
+它是 git-extras 套件的组成部分，会处理正确的格式并避免重复。如果文件不存在，它会创建 .gitignore。
 
 # CONFIGURATION
 
 **.gitignore**
-> Repository-level ignore patterns managed by this command.
+> 由该命令管理的仓库级忽略模式。
 
 **.git/info/exclude**
-> Private exclude patterns for the repository when using --private.
+> 使用 --private 时仓库的私有排除模式。
 
 **~/.gitignore_global**
-> Global ignore patterns applied to all repositories when using --global.
+> 使用 --global 时应用于所有仓库的全局忽略模式。
 
 # CAVEATS
 
-Part of git-extras package. Creates .gitignore if missing. Already tracked files need manual untracking.
+属于 git-extras 软件包。若 .gitignore 缺失则创建之。已被跟踪的文件需要手动取消跟踪。
 
 # HISTORY
 
-git ignore is part of **git-extras**, providing a command-line interface for the common task of editing gitignore files.
+git ignore 是 **git-extras** 的组成部分，为编辑 gitignore 文件这一常见任务提供命令行界面。
 
 # INSTALL
 

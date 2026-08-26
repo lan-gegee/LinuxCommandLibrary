@@ -1,26 +1,26 @@
 # TAGLINE
 
-Fast, safe tool for rewriting Git repository history
+快速、安全地重写 Git 仓库历史的工具
 
 # TLDR
 
-**Remove file from history**
+**从历史中移除文件**
 
 ```git filter-repo --path [file.txt] --invert-paths```
 
-**Rename paths**
+**重命名路径**
 
 ```git filter-repo --path-rename [old/path:new/path]```
 
-**Remove large files**
+**移除大文件**
 
 ```git filter-repo --strip-blobs-bigger-than [10M]```
 
-**Analyze repository**
+**分析仓库**
 
 ```git filter-repo --analyze```
 
-**Subdirectory to root**
+**子目录提升为根目录**
 
 ```git filter-repo --subdirectory-filter [dir/]```
 
@@ -31,63 +31,63 @@ Fast, safe tool for rewriting Git repository history
 # PARAMETERS
 
 **--path** _PATH_
-> Only keep the given path (repeatable); combine with **--invert-paths** to remove it instead.
+> 只保留给定路径（可重复）；与 **--invert-paths** 结合则改为移除该路径。
 
 **--path-glob** _GLOB_
-> Filter paths matching a glob pattern.
+> 过滤匹配 glob 模式的路径。
 
 **--path-regex** _REGEX_
-> Filter paths matching a regex.
+> 过滤匹配正则表达式的路径。
 
 **--invert-paths**
-> Invert path selection, excluding rather than including matches.
+> 反转路径选择，排除而非包含匹配项。
 
 **--path-rename** _OLD:NEW_
-> Rename paths throughout history.
+> 在整个历史中重命名路径。
 
 **--replace-text** _FILE_
-> Replace text matching expressions listed in _FILE_ throughout history (for scrubbing secrets).
+> 按照文件 _FILE_ 中列出的表达式替换整个历史中的文本（用于清除敏感信息）。
 
 **--strip-blobs-bigger-than** _SIZE_
-> Remove blobs larger than _SIZE_ (e.g. 10M).
+> 移除大于 _SIZE_ 的 blob（如 10M）。
 
 **--mailmap** _FILE_
-> Rewrite author/committer names and emails using a mailmap file.
+> 使用 mailmap 文件重写作者/提交者的姓名和邮箱。
 
 **--tag-rename** _OLD:NEW_
-> Rename tags matching a pattern.
+> 重命名匹配模式的标签。
 
 **--analyze**
-> Generate an analysis report instead of rewriting anything.
+> 生成分析报告而不进行任何改写。
 
 **--subdirectory-filter** _DIR_
-> Make _DIR_ the new repository root, discarding everything else.
+> 将 _DIR_ 设为新的仓库根目录，丢弃其余所有内容。
 
 **--dry-run**
-> Show what would change without rewriting the repo.
+> 显示将要发生的更改而不实际改写仓库。
 
 **--partial**
-> Do a partial rewrite, leaving history mixed with unrewritten refs (skips some safety checks).
+> 执行部分改写，使历史与未改写的引用混杂在一起（跳过某些安全检查）。
 
 **-f**, **--force**
-> Skip the fresh-clone safety check.
+> 跳过全新克隆的安全检查。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**git filter-repo** rewrites Git history with powerful filtering capabilities. It is the officially recommended replacement for the deprecated git filter-branch, offering significantly faster and safer history manipulation.
+**git filter-repo** 以强大的过滤能力重写 Git 历史。它是被弃用的 git filter-branch 的官方推荐替代品，提供显著更快、更安全的历史操作。
 
-The tool can remove files, rename paths, strip sensitive data, change authors, and restructure repositories. It prevents common mistakes that git filter-branch was prone to and operates much faster on large repositories.
+该工具可以删除文件、重命名路径、清除敏感数据、更改作者以及重构仓库。它能防止 git filter-branch 常见的失误，并且在大型仓库上的运行速度要快得多。
 
 # CAVEATS
 
-**History rewriting destroys old commits.** By default requires a fresh clone (no other work in progress) as a safety check; override with **--force** only when you understand the risk. Collaborators must reclone or hard-reset onto the new history. Cannot be undone.
+**改写历史会销毁旧提交。** 默认要求全新的克隆（没有其他正在进行的工作）作为安全检查；只有在理解风险的情况下才使用 **--force** 覆盖。协作者必须重新克隆或硬重置到新历史。操作无法撤销。
 
 # HISTORY
 
-git filter-repo was created by **Elijah Newren** as the official replacement for git filter-branch, recommended by the git project itself since Git 2.24's release notes.
+git filter-repo 由 **Elijah Newren** 创建，作为 git filter-branch 的官方替代品，自 Git 2.24 发布说明起即受到 git 项目本身的推荐。
 
 # INSTALL
 

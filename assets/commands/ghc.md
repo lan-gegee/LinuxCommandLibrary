@@ -1,34 +1,34 @@
 # TAGLINE
 
-Compiler for the Haskell functional programming language
+Haskell 函数式编程语言的编译器
 
 # TLDR
 
-**Compile a Haskell file**
+**编译 Haskell 文件**
 
 ```ghc [file.hs]```
 
-**Compile with optimization**
+**开启优化编译**
 
 ```ghc -O2 [file.hs]```
 
-**Compile to object file only**
+**只编译为目标文件**
 
 ```ghc -c [file.hs]```
 
-**Specify output name**
+**指定输出名称**
 
 ```ghc -o [program] [file.hs]```
 
-**Enable all warnings**
+**启用所有警告**
 
 ```ghc -Wall [file.hs]```
 
-**Compile modules in parallel**
+**并行编译模块**
 
 ```ghc -j [file.hs]```
 
-**Enable a language extension**
+**启用语言扩展**
 
 ```ghc -XOverloadedStrings [file.hs]```
 
@@ -39,81 +39,81 @@ Compiler for the Haskell functional programming language
 # PARAMETERS
 
 _FILES_
-> Haskell source files (.hs, .lhs).
+> Haskell 源文件（.hs、.lhs）。
 
 **-o** _FILE_
-> Output file name.
+> 输出文件名。
 
 **-c**
-> Compile to object file only.
+> 只编译为目标文件。
 
 **-O**, **-O1**
-> Enable standard optimization.
+> 启用标准优化。
 
 **-O2**
-> Enable aggressive optimization with additional passes.
+> 启用激进优化，包含额外的优化 pass。
 
 **-O0**
-> Disable optimization (default).
+> 关闭优化（默认）。
 
 **-Wall**
-> Enable most warnings.
+> 启用大多数警告。
 
 **-w**
-> Suppress all warnings.
+> 抑制所有警告。
 
 **-Werror**
-> Treat warnings as errors.
+> 将警告视为错误。
 
 **-i**_DIR_
-> Add directory to import search path.
+> 将目录加入导入搜索路径。
 
 **-package** _PKG_
-> Expose the specified package.
+> 公开指定的软件包。
 
 **--make**
-> Build program and resolve module dependencies automatically.
+> 构建程序并自动解析模块依赖。
 
 **-e** _EXPR_
-> Evaluate a single expression and exit.
+> 求值单个表达式后退出。
 
 **-j**[_N_]
-> Compile N modules in parallel.
+> 并行编译 N 个模块。
 
 **-threaded**
-> Use the threaded runtime system.
+> 使用多线程运行时系统。
 
 **-prof**
-> Enable profiling.
+> 启用性能分析（profiling）。
 
 **-fllvm**
-> Compile via LLVM backend.
+> 通过 LLVM 后端编译。
 
 **-X**_EXTENSION_
-> Enable a language extension (e.g., -XOverloadedStrings).
+> 启用某个语言扩展（例如 -XOverloadedStrings）。
 
 **-cpp**
-> Run the C preprocessor on source files.
+> 对源文件运行 C 预处理器。
 
 **-v**[_N_]
-> Set verbosity level (0-3).
+> 设置输出详细程度（0-3）。
 
 **--help**
-> Display help information.
+> 显示帮助信息。
 
 # DESCRIPTION
 
-**ghc** (Glasgow Haskell Compiler) is the leading compiler for the Haskell programming language. It compiles Haskell source code to native machine code, producing efficient executables.
+**ghc**（Glasgow Haskell Compiler）是 Haskell 编程语言的主流编译器。它将 Haskell 源代码编译为原生机器码，生成高效的的可执行文件。
 
-GHC supports the full Haskell language standard plus numerous extensions for advanced type system features, parallelism, and performance. The --make mode (default) automatically handles module dependencies. GHC also provides native code generation and an optional LLVM backend.
+GHC 支持完整的 Haskell 语言标准，还提供大量扩展，覆盖高级类型系统特性、并行性和性能等方面。--make 模式（默认）会自动处理模块依赖。GHC 还提供原生代码生成以及可选的 LLVM 后端。
 
 # CAVEATS
 
-Compilation can be memory-intensive. Large projects benefit from incremental builds. Extension flags vary by GHC version. The **-O2** level significantly increases compile time compared to **-O**.
+编译可能占用大量内存。大型项目宜采用增量构建。扩展标志随 GHC 版本不同而变化。相比 **-O**，**-O2** 级别会显著增加编译时间。
 
 # HISTORY
 
-GHC was started at the **University of Glasgow** in **1989**. It has become the de facto standard Haskell compiler, actively developed by the Haskell community and industrial users.
+GHC 于 **1989 年**在**格拉斯哥大学**启动开发。它已成为事实上的标准 Haskell 编译器，由 Haskell 社区和工业界用户持续活跃开发。
 
 # INSTALL
 
